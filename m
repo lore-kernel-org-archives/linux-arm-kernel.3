@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CECC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 03:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB8FC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 03:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Arx/vh/1p7726lfU61ekP8LCF9/XaIuNl/Y+OL2yoTY=; b=1JVd49iQF5AMzL180u+jQjwt1x
-	XmTUccYmvSAjm/47yGc/n6g1mmyLs3Jonv4CplrcmGYu6zxbmqSZr9s4twZa2qY4Z30MwA5pkva5p
-	evNLWXKL3MRSBU/YO9KWQN3JGs7bSHRlmRurRZhhy63bvGtEVaUpPkYQ1tWW4jFBvV/wRQ2UhBbLS
-	wUxA+g+EKoQWHHE+EZ8TCRtTptdv8yG1PLn+3ClSL83abwQcBY7bM/Qe5A/tsmrA6lllpSEqHyvPP
-	SdDizWyXxYdxPuBGt//STS3Zl1Kf4o358qE5HVFQi0sYkNuOlr6F5+eJTXr/h9PM5DO7CZ6mRiM2n
-	QH41W0Bg==;
+	bh=D9LHEGOvi+nMfrnlGssRdeQGgsXaJ7B/FFOO9D5QlG4=; b=aYDgOOKFRSCvUmh5AAXw+EgxKi
+	rERyp9sovzA3hXoOCNhVlAExrxOLkFNv/UHd0LFNXHMvO3hvRJeQY093LsclIhtukn58diWha6Kpl
+	9zn+ko5C12vyE6Wk72k8mXsRbYIdTcjeTweRNADWPfcJCM6SaZZjDedloO7GiKWe1j9CFQ8rpjvTH
+	1FOQU+CG24EmSQKZpyzDOZm87ue+1uQH13IB3m1QoqtVF0CfOQjVXFsGHsPC7G444ePngEje80MgW
+	nl6o+xj2zpq6XLBHuIYV5SCBQHF/kyx34MUg+MsR44Ik/nTv7zjhMP6lImoDvsn6ZaoIiPZloqiKJ
+	LgO0Z/cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW5BC-000000017Bc-0bjJ;
-	Mon, 30 Jun 2025 03:27:38 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1uW5DU-000000017Nh-3XIh;
+	Mon, 30 Jun 2025 03:30:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW58r-000000016xg-2IZC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 03:25:15 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-553bcf41440so4002527e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 20:25:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1751253911; x=1751858711; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Arx/vh/1p7726lfU61ekP8LCF9/XaIuNl/Y+OL2yoTY=;
-        b=LN4k17CxV1wZyy9Ee3PeNdrNMSpFZ1g6nvm/UTYBzB2uveTE/WrmDmSeCcO/D9tC5I
-         uDjPdzcwdwHyaa9ZQn1wqi9Xnifs9vvk0/vQtpBLxRi9GxWrZrubJOVl8SrZm8kmmLHs
-         Kb+kjDf0JuApczidlhBRGx87qzp2dGbuEN/og=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751253911; x=1751858711;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Arx/vh/1p7726lfU61ekP8LCF9/XaIuNl/Y+OL2yoTY=;
-        b=WaXw3vadb2slWPs1E7ZG1j7WthwkegH91shg7ytJK012wl4TzgE428yQAmQ9ufmMPR
-         WCWhNKmf35NFDMVUQlD3DI3W0clvT9LN8AeWn6QkphIYIlKbV0mrTbx3Q0RI3+9isHNK
-         NoFxLaotvtpzvQfnhjFwk2XdU9uEaCfzUtp9NtzwFMJGJCp4ZrjGD4P6ud5Ip1Lbu2N4
-         FU9+sIjifuA/UkztJ+EP+4ve6hdEjuT8R0Lfrf5mYDQe1cvyFZ8RcfglHn006F+NWL0d
-         6P5BHiZE2ES7yaGcduJwUpca+d4XoA3dtlWjFNRcjpw4XVDyp7062FcX0FKQm/wWAezF
-         J7VA==
-X-Forwarded-Encrypted: i=1; AJvYcCUaH+7GTRxLo6Kk2LnWTaih65QC6rwQhn/0DOLeX6nKvWyfyMwC7hfZC1/wtfEf0QM8fnZFtx6B/YV5PbCVmyjH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC8BpjqyFFPtedkAGmWVaBU6g4ZIL0GjmEKBaiL2uRFK60G6pq
-	XyKkOc01oSpp2ChKvZiwsOdNEptDpu3cOGG5NLboxY/ebJhT/NNp2pzt6hC6nYrBcT8JOYwoI1T
-	NGP1sj+0vmk4vwLiPB5sBg2466CUOTUto2EcE7QGS
-X-Gm-Gg: ASbGncs+fZ82/GKsvrE0u7evcXF0sI4KpfIPHYf3XAfqOROHQJpFxf8JR5jumpTwV4w
-	60aNA7sNcLcYN0YxMdQtgXNGQhO8qknW8ZygQ/A46rZ32/PHjzkF1fUFgbgXrXdEBjLkOB3cVGx
-	bg9C9Qo/VE/xk4r9GEH17cw/YxuxXBHafZTwKQkjVnxW6H7NN61SBiAsRJZWWqbrJUw1dOPUcZg
-	26m9II=
-X-Google-Smtp-Source: AGHT+IG9cnl6ModTYi6p2CiPzEyX+jlxQEfwAMhFMxkNl7fS/RoRC0YYR5H1zSIeP2ag3GvJxVUZnK/m4syzOJSkQKo=
-X-Received: by 2002:a05:6512:3041:b0:553:addb:ef51 with SMTP id
- 2adb3069b0e04-5550b886294mr3126600e87.18.1751253911120; Sun, 29 Jun 2025
- 20:25:11 -0700 (PDT)
+	id 1uW59U-0000000175p-27Sg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 30 Jun 2025 03:25:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=D9LHEGOvi+nMfrnlGssRdeQGgsXaJ7B/FFOO9D5QlG4=; b=eRPZO0o+rSjHzXopMavWA2E04J
+	wtgEXuammFqYthm4EMJqoaLEUuWIL5aGcyYGWcRFu3D3aWWXW7eg6CRv+/8vOFJbe5WhWAyDlwQfF
+	ksKpmDZoW+ZR3bLWctyj6iGITlfiGiDB5q/j4fdexykDj6svdU7fvmzTcKzPDiHv1S/4eWU0ZpKHb
+	LfcPyVaBfhsk+4XrSoR6MHhFp2dbyxqRVVuxFTcQl4eR1uN25hx2ipCTqebrEd7iAar4ysuzg9msZ
+	4qT1Iktw8DvJtjwOJOD9fSdqz2nf2UP0E9842VYnHP0Y1d/1dy5w7HYIYXUet3yzyDnI4GRrVY65V
+	V9EP5fXg==;
+Received: from [50.53.25.54] (helo=[192.168.254.17])
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uW59J-00000006iaf-050U;
+	Mon, 30 Jun 2025 03:25:43 +0000
+Message-ID: <cc2207e4-2118-41be-bd35-97cbdbe85521@infradead.org>
+Date: Sun, 29 Jun 2025 20:25:36 -0700
 MIME-Version: 1.0
-References: <20250624073548.29732-1-angelogioacchino.delregno@collabora.com>
- <20250624073548.29732-4-angelogioacchino.delregno@collabora.com> <20250627-neon-hidden-sheep-ed8dae@krzk-bin>
-In-Reply-To: <20250627-neon-hidden-sheep-ed8dae@krzk-bin>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 30 Jun 2025 11:25:00 +0800
-X-Gm-Features: Ac12FXzEzclUPx2ytH0n81YEF7rV0XFgxUmmA57Z4fo3T5oQBKH_wjXRPSro-S0
-Message-ID: <CAGXv+5GLJ7cfAQW_kbTqqe_QO+RfU7KL57n77qenpDiRS5BybA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/6] dt-bindings: regulator: Document MediaTek MT6363
- PMIC Regulators
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: broonie@kernel.org, lgirdwood@gmail.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_202513_713910_667BDA77 
-X-CRM114-Status: GOOD (  26.91  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V5 1/2] arm64: refactor the rodata=xxx
+To: Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net
+Cc: patches@amperecomputing.com, cl@linux.com, yang@os.amperecomputing.com,
+ akpm@linux-foundation.org, paulmck@kernel.org, rostedt@goodmis.org,
+ Neeraj.Upadhyay@amd.com, bp@alien8.de, ardb@kernel.org,
+ anshuman.khandual@arm.com, suzuki.poulose@arm.com, gshan@redhat.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250630030228.4221-1-shijie@os.amperecomputing.com>
+ <20250630030228.4221-2-shijie@os.amperecomputing.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20250630030228.4221-2-shijie@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,103 +75,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 4:24=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On Tue, Jun 24, 2025 at 09:35:45AM +0200, AngeloGioacchino Del Regno wrot=
-e:
-> > Add bindings for the regulators found in the MediaTek MT6363 PMIC,
-> > usually found in board designs using the MT6991 Dimensity 9400 and
-> > on MT8196 Kompanio SoC for Chromebooks, along with the MT6316 and
-> > MT6373 PMICs.
-> >
-> > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@co=
-llabora.com>
-> > ---
-> >  .../regulator/mediatek,mt6363-regulator.yaml  | 123 ++++++++++++++++++
-> >  1 file changed, 123 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/regulator/mediate=
-k,mt6363-regulator.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt636=
-3-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6=
-363-regulator.yaml
-> > new file mode 100644
-> > index 000000000000..f866c89c56f7
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6363-regul=
-ator.yaml
-> > @@ -0,0 +1,123 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/regulator/mediatek,mt6363-regulator=
-.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: MediaTek MT6363 PMIC Regulators
-> > +
-> > +maintainers:
-> > +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.co=
-m>
-> > +
-> > +description:
-> > +  The MT6363 SPMI PMIC provides 10 BUCK and 26 LDO (Low Dropout) regul=
-ators
-> > +  and can optionally provide overcurrent warnings with one ocp interru=
-pt
-> > +  for each voltage regulator.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: mediatek,mt6363-regulator
-> > +
-> > +  interrupts:
-> > +    description: Overcurrent warning interrupts
->
-> Are you sure interrupts are physically not connected?
-
-Side note:
-
-I wonder if we really need to describe _all_ the interrupts here.
-
-Looking at the PMIC as a whole, the interrupt tree is something like
-
-SoC <- SPMI inband IRQ - PMIC top level IRQ block <- sub-function IRQ block=
-s:
-
-    - BUCK (buck regulator over current)
-    - LDO (LDO regulator over current)
-    - PSC (key press / system low voltage)
-    - MISC (protected registers accessed / SPMI stuff)
-
-And some other blocks that may apply to other MediaTek PMICs:
-
-    - HK (some threshold triggered interrupt)
-    - BM (battery management related)
-
-The thing I'm trying to get to is that all these interrupt vectors are
-internal to the whole PMIC. Do we really need to spell them out in the
-device tree? The top level compatible should already imply how all the
-internals are wired up.
 
 
-ChenYu
+On 6/29/25 8:02 PM, Huang Shijie wrote:
+> As per admin guide documentation, "rodata=on" should be the default on
+> platforms. Documentation/admin-guide/kernel-parameters.txt describes
+> these options as
+> 
+>    rodata=         [KNL,EARLY]
+>            on      Mark read-only kernel memory as read-only (default).
+>            off     Leave read-only kernel memory writable for debugging.
+>            full    Mark read-only kernel memory and aliases as read-only
+>                    [arm64]
+> 
+> But on arm64 platform, "rodata=full" is the default instead. This patch
+> implements the following changes.
+> 
+>  - Make "rodata=on" behaviour same as the original "rodata=full"
+>  - Make "rodata=noalias" (new) behaviour same as the original "rodata=on"
+>  - Drop the original "rodata=full"
+>  - Add comment for arch_parse_debug_rodata()
+>  - Update kernel-parameters.txt as required
+> 
+> After this patch, the "rodata=on" will be the default on arm64 platform
+> as well.
+> 
+> Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
+> ---
+>  .../admin-guide/kernel-parameters.txt         |  2 +-
+>  arch/arm64/include/asm/setup.h                | 28 +++++++++++++++++--
+>  2 files changed, 27 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index ee0735c6b8e2..e0cd6dac26d3 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -6354,7 +6354,7 @@
+>  	rodata=		[KNL,EARLY]
+>  		on	Mark read-only kernel memory as read-only (default).
+>  		off	Leave read-only kernel memory writable for debugging.
+> -		full	Mark read-only kernel memory and aliases as read-only
+> +		noalias	Use more block mappings,may have better performance.
 
-> > +    minItems: 1
-> > +    maxItems: 36
-> > +
-> > +  interrupt-names:
-> > +    description:
-> > +      Names for the overcurrent interrupts are the same as the name
-> > +      of a regulator (hence the same as each regulator's node name).
-> > +      For example, the interrupt name for regulator vs2 will be "vs2".
->
-> You need to define the items or pattern if this is really flexible in
-> the hardware (not drivers).
->
-> Best regards,
-> Krzysztof
->
->
+Add space after comma, please.                 ^
+
+>  		        [arm64]
+>  
+>  	rockchip.usb_uart
+> diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
+> index ba269a7a3201..6b994d0881d1 100644
+> --- a/arch/arm64/include/asm/setup.h
+> +++ b/arch/arm64/include/asm/setup.h
+> @@ -13,6 +13,30 @@
+>  extern phys_addr_t __fdt_pointer __initdata;
+>  extern u64 __cacheline_aligned boot_args[4];
+>  
+> +/*
+> + * rodata=on (default)
+> + *
+> + *    This applies read-only attributes to VM areas and to the linear
+> + *    alias of the backing pages as well. This prevents code or read-
+> + *    only data from being modified (inadvertently or intentionally),
+> + *    via another mapping for the same memory page.
+> + *
+> + *    But this might cause linear map region to be mapped down to base
+> + *    pages, which may adversely affect performance in some cases.
+> + *
+> + * rodata=off
+> + *
+> + *    This provides more block mappings and contiguous hints for linear
+> + *    map region which would minimize TLB footprint. This also leaves
+> + *    read-only kernel memory writable for debugging.
+> + *
+> + * rodata=noalias
+> + *
+> + *    This provides more block mappings and contiguous hints for linear
+> + *    map region which would minimize TLB footprint. This leaves the linear
+> + *    alias of read-only mappings in the vmalloc space writeable, making
+> + *    them susceptible to inadvertent modification by software.
+> + */
+>  static inline bool arch_parse_debug_rodata(char *arg)
+>  {
+>  	extern bool rodata_enabled;
+> @@ -21,7 +45,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
+>  	if (!arg)
+>  		return false;
+>  
+> -	if (!strcmp(arg, "full")) {
+> +	if (!strcmp(arg, "on")) {
+>  		rodata_enabled = rodata_full = true;
+>  		return true;
+>  	}
+> @@ -31,7 +55,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
+>  		return true;
+>  	}
+>  
+> -	if (!strcmp(arg, "on")) {
+> +	if (!strcmp(arg, "noalias")) {
+>  		rodata_enabled = true;
+>  		rodata_full = false;
+>  		return true;
+
+-- 
+~Randy
+
 
