@@ -4,74 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29FD9C8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84820C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+VmXAnDh6DVNXrGZSM/5u4r2e8qRFsPsUUEsj9CKMec=; b=pKPwUX9XnvWYJiO+I+EzxBnmf6
-	hpnn4HnVlqY9Eb+IbFILf0LBvo9yWiYjplKipE84xHCW6ONZ1fk+wT8V9QvawLYNGOJLPEfJePllx
-	n05YG58D+xBVH71AmVT8KT0PCy9w0PwckYOfN/b6NQKzsXLEHAhCz6KADPPwiyCjG6SAmri2ZNtUG
-	YtMNVsbSdM2ht2FvKLnBCrahwptm2CI4yPQaf7IcS6YIqAKL2jxR7xLsBUEzJhUTFsC/U2kyuExSD
-	TdjgR39kuHQoQzOYBL6iez3YL5dvWfcRRseviSpeO/XMWpIHPopYXA2lrmIFyRBaEXk1VrVCcL9YH
-	P/tJFQZQ==;
+	bh=8tbwK0k6DJmR41K3v13GouVRXbWAQ4yLjni7AtbgcyM=; b=mcx5IcbZYE/k0J5amVdzbl97Co
+	j6wvojktQaWudvTJAfIR9iJvGCR0gWaCmtBC5OREwDW88zCZ+8NgBAzjL2ORAqMeMPgmfmsD0y1AU
+	0g/ntppJemZDpQAEyHdTkG/I0I7YNjENpTsbI/kVdAzJPb5GoAbg8j8tBlyIchtzhrPM14fZe/dli
+	sPdg38AogFM5zxryHkrx2eblgbpaosAVwl1CsV60Rgr1Ili6mQqy4a8Jajb3nhGBf0P0unx8DRt48
+	eYgirTS7T5bHvjYY7UYRm2uAt+ec/Wrud6g58pfx7o2ro7ybr8IJ/J0Ax/titcLPVqiew/olNT2bK
+	EN0ZGUxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWA8g-00000001eJR-0Dxs;
-	Mon, 30 Jun 2025 08:45:22 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uWAAw-00000001ebs-2NSU;
+	Mon, 30 Jun 2025 08:47:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWA2E-00000001dMk-0Ugl
+	id 1uWA4f-00000001dru-3EFw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 08:38:43 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uWA1w-00011j-R3; Mon, 30 Jun 2025 10:38:24 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uWA1t-0064Zw-1S;
-	Mon, 30 Jun 2025 10:38:21 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uWA1t-0007Gn-14;
-	Mon, 30 Jun 2025 10:38:21 +0200
-Message-ID: <5d4cf5bff7733421c8a031493742ba6a21e98583.camel@pengutronix.de>
-Subject: Re: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: =?ISO-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rob
- Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,  Jonathan Corbet
- <corbet@lwn.net>, Gatien Chevallier <gatien.chevallier@foss.st.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-clk@vger.kernel.org
-Date: Mon, 30 Jun 2025 10:38:21 +0200
-In-Reply-To: <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
-References: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
-	 <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
-MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Mon, 30 Jun 2025 08:41:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 98271456EA;
+	Mon, 30 Jun 2025 08:41:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76628C4CEE3;
+	Mon, 30 Jun 2025 08:41:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751272872;
+	bh=GFMcwvHqQu6q6QWAz3DVJhxBQG7XyQqTZN85s49tnbM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KL7Yk92jmI3hWHySdadSShj47zKUAdMNPSUGdu2mkgve36nntPf/tIItn35WCiToj
+	 mkxK8IlWKNdJ8MI6c2tiWDVH2xBLQ3Po/tavIuI9wrtRQhoKcX4jugguxQHQllTPCG
+	 Ud5a+t6f8vc/c6hEoz/Etsr1AjnSUIyI1ig9/YdGC9fXlPA6wd7WUZt0ubqwBCPgJv
+	 poiyTWz4ZUKSPc/KCCFPJpYI/isYOgzxeK0SXXd0iDUvzvF4ZCNS05pdVO413d4H48
+	 IGIghQKT9rdsXBiyFonw6/xuJWAwVxftVCac0nerVfNNCoIY+msxttFbptSFSpSSv6
+	 mYuSaupDO0ysQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uWA4c-00B9a3-5l;
+	Mon, 30 Jun 2025 09:41:10 +0100
+Date: Mon, 30 Jun 2025 09:41:09 +0100
+Message-ID: <86ldp9bp0a.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: perlarsen@google.com
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	ahomescu@google.com,
+	armellel@google.com,
+	arve@android.com,
+	ayrton@google.com,
+	qperret@google.com,
+	sebastianene@google.com,
+	qwandor@google.com
+Subject: Re: [PATCH v6 4/5] KVM: arm64: Bump the supported version of FF-A to 1.2
+In-Reply-To: <20250627-virtio-msg-ffa-v6-4-8c02fd94edac@google.com>
+References: <20250627-virtio-msg-ffa-v6-0-8c02fd94edac@google.com>
+	<20250627-virtio-msg-ffa-v6-4-8c02fd94edac@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: perlarsen@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, sudeep.holla@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, arve@android.com, ayrton@google.com, qperret@google.com, sebastianene@google.com, qwandor@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_013842_156685_F1B3B4D6 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20250630_014113_845052_A384AA23 
+X-CRM114-Status: GOOD (  26.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,63 +99,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mo, 2025-06-23 at 11:27 +0200, Cl=C3=A9ment Le Goffic wrote:
-> Introduce the driver for the DDR Performance Monitor available on
-> STM32MPU SoC.
->=20
-> On STM32MP2 platforms, the DDRPERFM allows to monitor up to 8 DDR events
-> that come from the DDR Controller such as read or write events.
->=20
-> On STM32MP1 platforms, the DDRPERFM cannot monitor any event on any
-> counter, there is a notion of set of events.
-> Events from different sets cannot be monitored at the same time.
-> The first chosen event selects the set.
-> The set is coded in the first two bytes of the config value which is on 4
-> bytes.
->=20
-> On STM32MP25x series, the DDRPERFM clock is shared with the DDR controlle=
-r
-> and may be secured by bootloaders.
-> Access controllers allow to check access to a resource. Use the access
-> controller defined in the devicetree to know about the access to the
-> DDRPERFM clock.
->=20
-> Signed-off-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
+On Fri, 27 Jun 2025 08:12:28 +0100,
+Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org> wrote:
+> 
+> From: Per Larsen <perlarsen@google.com>
+> 
+> FF-A version 1.2 introduces the DIRECT_REQ2 ABI. Bump the FF-A version
+> preferred by the hypervisor as a precursor to implementing the 1.2-only
+> FFA_MSG_SEND_DIRECT_REQ2 and FFA_MSG_SEND_RESP2 messaging interfaces.
+> 
+> We must also use SMCCC 1.2 for 64-bit SMCs if hypervisor negotiated FF-A
+> 1.2, so ffa_set_retval is updated and a new function to call 64-bit smcs
+> using SMCCC 1.2 with fallback to SMCCC 1.1 is introduced.
+> 
+> Update ffa_call_supported to mark FF-A 1.2 interfaces as unsupported
+> lest they get forwarded.
+> 
+> Co-developed-by: Ayrton Munoz <ayrton@google.com>
+> Signed-off-by: Ayrton Munoz <ayrton@google.com>
+> Signed-off-by: Per Larsen <perlarsen@google.com>
 > ---
->  drivers/perf/Kconfig         |  11 +
->  drivers/perf/Makefile        |   1 +
->  drivers/perf/stm32_ddr_pmu.c | 893 +++++++++++++++++++++++++++++++++++++=
-++++++
->  3 files changed, 905 insertions(+)
->=20
-[...]
-> diff --git a/drivers/perf/stm32_ddr_pmu.c b/drivers/perf/stm32_ddr_pmu.c
-> new file mode 100644
-> index 000000000000..c0bce1f446a0
-> --- /dev/null
-> +++ b/drivers/perf/stm32_ddr_pmu.c
-> @@ -0,0 +1,893 @@
-[...]
-> +	if (of_property_present(pdev->dev.of_node, "resets")) {
-> +		rst =3D devm_reset_control_get(&pdev->dev, NULL);
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 14 ++++++++++----
+>  include/linux/arm_ffa.h       |  1 +
+>  2 files changed, 11 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 5fd6474d96ae4b90d99796ee81bb36373219afc4..d543d1f5ddd62fb15f8d39f4ff7d5bb0006da4a1 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -678,6 +678,12 @@ static bool ffa_call_supported(u64 func_id)
+>  	case FFA_NOTIFICATION_SET:
+>  	case FFA_NOTIFICATION_GET:
+>  	case FFA_NOTIFICATION_INFO_GET:
+> +	/* Unimplemented interfaces added in FF-A 1.2 */
+> +	case FFA_MSG_SEND_DIRECT_REQ2:
+> +	case FFA_MSG_SEND_DIRECT_RESP2:
 
-Use devm_reset_control_get_optional_exclusive() instead. It returns
-NULL if the device tree doesn't contain a resets property.
+Are those actually optional?
 
-> +		if (IS_ERR(rst)) {
-> +			dev_err(&pdev->dev, "Failed to get reset\n");
+> +	case FFA_CONSOLE_LOG:
+> +	case FFA_PARTITION_INFO_GET_REGS:
+> +	case FFA_EL3_INTR_HANDLE:
+>  		return false;
+>  	}
+>  
+> @@ -734,7 +740,7 @@ static int hyp_ffa_post_init(void)
+>  	if (res.a0 != FFA_SUCCESS)
+>  		return -EOPNOTSUPP;
+>  
+> -	switch (res.a2) {
+> +	switch (res.a2 & FFA_FEAT_RXTX_MIN_SZ_MASK) {
 
-Please consider using dev_err_probe() instead.
+You should also check that the MBZ fields are still 0. Ideally, you'd
+also do that with x3.
 
-> +			ret =3D PTR_ERR(rst);
-> +			goto err_clk;
-> +		}
-> +		reset_control_assert(rst);
-> +		reset_control_deassert(rst);
+>  	case FFA_FEAT_RXTX_MIN_SZ_4K:
+>  		min_rxtx_sz = SZ_4K;
+>  		break;
+> @@ -931,7 +937,7 @@ int hyp_ffa_init(void *pages)
+>  
+>  	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
+>  		.a0 = FFA_VERSION,
+> -		.a1 = FFA_VERSION_1_1,
+> +		.a1 = FFA_VERSION_1_2,
+>  	}, &res);
+>  	if (res.a0 == FFA_RET_NOT_SUPPORTED)
+>  		return 0;
+> @@ -952,10 +958,10 @@ int hyp_ffa_init(void *pages)
+>  	if (FFA_MAJOR_VERSION(res.a0) != 1)
+>  		return -EOPNOTSUPP;
+>  
+> -	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_1))
+> +	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_2))
+>  		hyp_ffa_version = res.a0;
+>  	else
+> -		hyp_ffa_version = FFA_VERSION_1_1;
+> +		hyp_ffa_version = FFA_VERSION_1_2;
+>  
+>  	tx = pages;
+>  	pages += KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE;
+> diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
+> index 5bded24dc24fea8cdcbe42bf79c7c025c3fa5f4b..c0dd6183d956043192114a522b7eef465e7078ac 100644
+> --- a/include/linux/arm_ffa.h
+> +++ b/include/linux/arm_ffa.h
+> @@ -128,6 +128,7 @@
+>  #define FFA_FEAT_RXTX_MIN_SZ_4K		0
+>  #define FFA_FEAT_RXTX_MIN_SZ_64K	1
+>  #define FFA_FEAT_RXTX_MIN_SZ_16K	2
+> +#define FFA_FEAT_RXTX_MIN_SZ_MASK	3
 
-These can be done unconditionally, as they are no-ops for rst =3D=3D NULL.=
-=20
+nit: a mask is better expressed with GENMASK, making it obvious that
+this is not just another value.
 
-regards
-Philipp
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
