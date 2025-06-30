@@ -4,75 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00551C83000
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1910C83000
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hA5xu5/nGaa0Kk0uJvXqrtZyhBddrOKROYtY/NQCRsk=; b=PQoVGCDH5LlNigIs0feRt1Zbug
-	PeXzKIf+IxavX0LjUomjRvu1IQuzgDxNgzqI5Z4+2tI5TDVceK7IGRLZif/3dSsPSrn/sevruhXPd
-	QkfZiEeMq154UsTZH3H5VrnK1ID9hzVgsMHPy08nADCR2UThMOqSUe2rUOBQtvEXSV30+XeNbF5/0
-	Q7lqYCQ4luOMxPCz7ClpYatjsBvzbYn7wml/BN7S8/QZhCCvQHFacDnbfqnGRBfnnWfvpLUM348pZ
-	BEYMUMXx3mhBa01b0ZNd44dyjn3900w0ZRfu16+cDe7xriQ4uXEYlJn1A6VH1irTRTt6EotpYc/Z9
-	1ERYXm9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vlnZvB/WCXPqtyuE7Jw0BGhm5yZL6emwd3gHblqa4CA=; b=iP5P8m2HCkWSLKqKBLncUNbeai
+	BLFOCS/wwrI7Efv/UubtFG9KYNsT+i51PTeVCCJAdw1wzFAN/+wOZTAfuSO/AsSrHuhk9Bv3X/p7b
+	GcTDDZxGSMos+09W5aajTBeHSyio5pPYFJIz3d08WJMtsq6C8pDj5eHB/jbRkuOp3nIvCwNJ+g74f
+	FNTYtdiLd5vtNdjEgOhfDExV0osFG/Ly3yxEP16NHBeStOttkS7oTKwnknqXP5v/1t++WGVrR51Bg
+	fAPNHQlRbEReeWKqzAy0BkMVWIKmnXb1vzDuMxYZU5T1FjCAGRXndfCZTYPdFfQWhedYppKk+Ygxk
+	rLmYCRzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW9cJ-00000001a9w-2t9W;
-	Mon, 30 Jun 2025 08:11:55 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uW9fu-00000001ab9-0Wva;
+	Mon, 30 Jun 2025 08:15:38 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW9Z6-00000001Ziv-2nkE;
-	Mon, 30 Jun 2025 08:08:37 +0000
-X-UUID: 68b2ccd8558911f09f706fa2197c6ceb-20250630
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=hA5xu5/nGaa0Kk0uJvXqrtZyhBddrOKROYtY/NQCRsk=;
-	b=Tp51RyP2i6WJs8h6+tA04Owau4vBZ3qbghhida59sdfW2YwykI7+sbpToOVUpE7Ql8AlyS6yDQ59yZ+wciC5SOdUcLhlx259wr3h40LHGa4IjhlCJl1VN+PcQ3Y4ZGZi/KcJjAhz3Vq6Vp7SiczMoEyJ5vtTzn4HuYxhHV2eD+s=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:10bcf0ad-76f0-4435-968f-2f973128ee3d,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:78c3b573-15a7-4ae6-ad4b-94c27b45c266,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 68b2ccd8558911f09f706fa2197c6ceb-20250630
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <liankun.yang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1758775946; Mon, 30 Jun 2025 01:08:30 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 30 Jun 2025 16:08:26 +0800
-Received: from mszsdhlt06.gcn.mediatek.inc (10.16.6.206) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 30 Jun 2025 16:08:26 +0800
-From: Liankun Yang <liankun.yang@mediatek.com>
-To: <chunkuang.hu@kernel.org>, <p.zabel@pengutronix.de>, <airlied@gmail.com>,
-	<simona@ffwll.ch>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <mac.shen@mediatek.com>,
-	<peng.liu@mediatek.com>, <liankun.yang@mediatek.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 1/1] drm/mediatek: Adjust bandwidth limit for DP
-Date: Mon, 30 Jun 2025 15:58:06 +0800
-Message-ID: <20250630080824.7107-1-liankun.yang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1uW9db-00000001aJA-0Sek
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 08:13:16 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a4fb9c2436so2329239f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 01:13:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mandelbit.com; s=google; t=1751271193; x=1751875993; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vlnZvB/WCXPqtyuE7Jw0BGhm5yZL6emwd3gHblqa4CA=;
+        b=DNNdu2iIGB6ibRe6zbB5s13u91hA2vQIWgyURQYourPO/ZDFrshCzJPN7ZTLaMz5BN
+         jWn+7rsOGiyhlaJ4Cyu1juoi8tggMPPbwfNPT2Ifl8AWGYv0OmlhjW01YRLQbCR8YfdO
+         EaXUVxlyIu3sRDyqVIVFdazeb3Q3xKwp3YRit8vZtBHTp+IveMX6lOyPgSSGga5O7AZ/
+         m1HJ2HXrtoTRrs/5UxvxROnd8Yu3Byz0MoVvKU+Tvn+fhax1O5PbP6MxUy595lp+Qh2v
+         hiRBhaDH12bzmrisWJAF4ohtRWUUMmxEJmeC5MaHJTDxgFSnhOnQRQroINfd83XkZkjR
+         9hfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751271193; x=1751875993;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vlnZvB/WCXPqtyuE7Jw0BGhm5yZL6emwd3gHblqa4CA=;
+        b=cYWSeKC6JMX3OHhYKqnkuUPLkKLAm8p2qvkfGvo2TPvGqhUCwct+v67HtLaLRMXJP7
+         IqDP23g+sARObPsZQkCGfLTzWsIe7i3fXLXlVecjhJzvFiRu++4gLudN2gl2pZowo7NJ
+         bnbHDQ10pq36CZnQGrbDe/7bambaZk1wUQmQyWSTdlMy02uULT6cMsib58q8Ou509391
+         ReL1X0PD/JNVaeGtBh7xI9E8L5pXSu3cWMkxxvYooclHgpotrM5FMROff4jh/rgBsHHz
+         FZ3mY/rRaZhnQuUEpaWEOeqYlZtBWjlNKEIPjfYFA/1FXR8La6axy71e3h126hLzxX8k
+         NEjA==
+X-Forwarded-Encrypted: i=1; AJvYcCVVn/Pdv7D/XI8zIJ0ntk5Xplo0Dzk4D3Tjhma1BAN4TnOZTYnumCa0JlzzzUph5mOwzmvqptIfiH/lpedmKvcW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgV/01Lb+Q7CB5B+DMzVP4W77lRXbwI05gBXl50jJU94gMOxSX
+	0SjcQFjKaKuwny4Og9cpTlkAGfuMMno0vwPa+CEI76fSZSpFLsAgKq+rZz2ecu0zXt0=
+X-Gm-Gg: ASbGncvCxOKpYHPLDR7MANgOImXb6R9NvhqsWNoLzym+DxtISIxO2fFT+Ivj+B3c5aM
+	2b33R8rVrM8vy84bJ3BQmIv6Nez6oOb3bkTiFAZCxQdGOm6Fje1wuz1tuQCBDprl5SPhIsBcPQF
+	B5Z7RI3YGSpdR4q+fVODobXGYOprm//QVx7DnWOu512KyGPm8MBenAE4HIuRkasSbAjyP8JsfVC
+	YAFsn8t5S1+9byUaVhaYT61YO9HGiIKCVdNJzNMjDFcwIkY3K+mgdbg+IEfvN2qaRS4dVnPK/50
+	ZYR98az1eJNdtQGNUWFL4svE2+U1SEFotTzVyn6QLLRs7GIdeWpL1s8Gn7UyhN9J0RuXb5kNlfF
+	aT3gsyG+zmWk=
+X-Google-Smtp-Source: AGHT+IG31LxT0ptg6EHo/bGKOyukJazY4oC/IxLI6mz15TAMA4SfoRER0gF+bNZj4oNhXngxmykf0g==
+X-Received: by 2002:adf:ca92:0:b0:3a4:f722:f98d with SMTP id ffacd0b85a97d-3a9008557admr7908660f8f.51.1751271193346;
+        Mon, 30 Jun 2025 01:13:13 -0700 (PDT)
+Received: from inifinity.homelan.mandelbit.com ([2001:67c:2fbc:1:f5fc:eb97:a20:8b31])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a88c7e7386sm9612674f8f.20.2025.06.30.01.13.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Jun 2025 01:13:12 -0700 (PDT)
+From: Antonio Quartulli <antonio@mandelbit.com>
+To: linux-spi@vger.kernel.org
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Antonio Quartulli <antonio@mandelbit.com>
+Subject: [PATCH v2] spi: stm32: fix pointer-to-pointer variables usage
+Date: Mon, 30 Jun 2025 10:12:53 +0200
+Message-ID: <20250630081253.17294-1-antonio@mandelbit.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <1f49b8f3-44c9-43f3-a3bf-b931fb0726f4@foss.st.com>
+References: 
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_010836_716641_A5FAB9DE 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20250630_011315_297956_0AE96DA6 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,152 +105,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-By adjusting the order of link training and relocating it to HPD,
-link training can identify the usability of each lane in the current link.
+In stm32_spi_prepare_rx_dma_mdma_chaining() both rx_dma_desc
+and rx_mdma_desc are passed as pointer-to-pointer arguments.
 
-It also supports handling signal instability and weakness due to
-environmental issues, enabling the acquisition of a stable bandwidth
-for the current link. Subsequently, DP work can proceed based on
-the actual maximum bandwidth.
+The goal is to pass back to the caller the value returned
+by dmaengine_prep_slave_sg(), when it is not NULL.
 
-It should training in the hpd event thread.
-Check the mode with lane count and link rate of training.
+However, these variables are wrongly handled as simple pointers
+during later assignments and checks.
 
-If we're eDP and capabilities were already parsed we can skip
-reading again because eDP panels aren't hotpluggable hence the
-caps and training information won't ever change in a boot life
+Fix this behaviour by introducing two pointer variables
+which can then be treated accordingly.
 
-Therefore, bridge typec judgment is required for edp training in
-atomic_enable function.
+Fixes: d17dd2f1d8a1 ("spi: stm32: use STM32 DMA with STM32 MDMA to enhance DDR use")
+Addresses-Coverity-ID: 1644715 ("Null pointer dereferences (REVERSE_INULL)")
+Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
 
-Because DP will enter idle pattern state after DP training,the current
-DP link state is ready and can be prepared to output the video.
-Therefore, the following actions do not require the wall-mounted
-aux_panel power, and set DP enable to true.
-
-Signed-off-by: Liankun Yang <liankun.yang@mediatek.com>
 ---
-Change in V5:
-- Fixed the issue that the 4th version of the patch caused DP to have no screen.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20250625095446.31726-1-liankun.yang@mediatek.com/
-
-Change in V4:
-- Tested the internal eDP display on MT8195 Tomato and it is fine.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20250318140236.13650-2-liankun.yang@mediatek.com/
-
-Change in V3:
-- Remove 'mtk_dp->enabled = false" in atomic disable.
-- Remove 'mtk_dp->enabled = true" in atomic enable.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20241025083036.8829-4-liankun.yang@mediatek.com/
-
-Change in V2:
-- Adjust DP training timing.
-- Adjust parse capabilities timing.
-- Add power on/off for connect/disconnect.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20240315015233.2023-1-liankun.yang@mediatek.com/
+Changes from v1:
+* introduce *_mdma_desc and *_dma_desc for better readability
+* fix another instance of rx_dma_desc bogus assignment in case of
+  failure of sg_alloc_table()
+* commit title/message reworded accordingly to the previous point
 ---
- drivers/gpu/drm/mediatek/mtk_dp.c | 45 ++++++++++++++++++-------------
- 1 file changed, 27 insertions(+), 18 deletions(-)
+ drivers/spi/spi-stm32.c | 22 ++++++++++++----------
+ 1 file changed, 12 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index a5b10b2545dc..1010263f2510 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -1976,6 +1976,7 @@ static irqreturn_t mtk_dp_hpd_event_thread(int hpd, void *dev)
- 	struct mtk_dp *mtk_dp = dev;
- 	unsigned long flags;
- 	u32 status;
-+	int ret;
- 
- 	if (mtk_dp->need_debounce && mtk_dp->train_info.cable_plugged_in)
- 		msleep(100);
-@@ -1994,9 +1995,28 @@ static irqreturn_t mtk_dp_hpd_event_thread(int hpd, void *dev)
- 			memset(&mtk_dp->info.audio_cur_cfg, 0,
- 			       sizeof(mtk_dp->info.audio_cur_cfg));
- 
-+			mtk_dp->enabled = false;
-+			/* power off aux */
-+			mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE,
-+			       DP_PWR_STATE_BANDGAP_TPLL,
-+			       DP_PWR_STATE_MASK);
-+
- 			mtk_dp->need_debounce = false;
- 			mod_timer(&mtk_dp->debounce_timer,
- 				  jiffies + msecs_to_jiffies(100) - 1);
-+		} else {
-+			mtk_dp_aux_panel_poweron(mtk_dp, true);
-+
-+			ret = mtk_dp_parse_capabilities(mtk_dp);
-+			if (ret)
-+				drm_err(mtk_dp->drm_dev, "Can't parse capabilities\n");
-+
-+			/* Training */
-+			ret = mtk_dp_training(mtk_dp);
-+			if (ret)
-+				drm_err(mtk_dp->drm_dev, "Training failed, %d\n", ret);
-+
-+			mtk_dp->enabled = true;
+diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
+index 3d20f09f1ae7..4b7f074fdba9 100644
+--- a/drivers/spi/spi-stm32.c
++++ b/drivers/spi/spi-stm32.c
+@@ -1474,6 +1474,8 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
+ 						  struct dma_async_tx_descriptor **rx_dma_desc,
+ 						  struct dma_async_tx_descriptor **rx_mdma_desc)
+ {
++	struct dma_async_tx_descriptor *_mdma_desc = *rx_mdma_desc;
++	struct dma_async_tx_descriptor *_dma_desc = *rx_dma_desc;
+ 	struct dma_slave_config rx_mdma_conf = {0};
+ 	u32 sram_period, nents = 0, spi_s_len;
+ 	struct sg_table dma_sgt, mdma_sgt;
+@@ -1524,18 +1526,18 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
  		}
  	}
  
-@@ -2161,17 +2181,6 @@ static const struct drm_edid *mtk_dp_edid_read(struct drm_bridge *bridge,
+-	*rx_dma_desc = dmaengine_prep_slave_sg(spi->dma_rx, dma_sgt.sgl,
+-					       dma_sgt.nents, rx_dma_conf->direction,
+-					       DMA_PREP_INTERRUPT);
++	_dma_desc = dmaengine_prep_slave_sg(spi->dma_rx, dma_sgt.sgl,
++					    dma_sgt.nents, rx_dma_conf->direction,
++					    DMA_PREP_INTERRUPT);
+ 	sg_free_table(&dma_sgt);
+ 
+-	if (!rx_dma_desc)
++	if (!_dma_desc)
+ 		return -EINVAL;
+ 
+ 	/* Prepare MDMA slave_sg transfer MEM_TO_MEM (SRAM>DDR) */
+ 	ret = sg_alloc_table(&mdma_sgt, nents, GFP_ATOMIC);
+ 	if (ret) {
+-		rx_dma_desc = NULL;
++		_dma_desc = NULL;
+ 		return ret;
  	}
  
- 	drm_edid = drm_edid_read_ddc(connector, &mtk_dp->aux.ddc);
--
--	/*
--	 * Parse capability here to let atomic_get_input_bus_fmts and
--	 * mode_valid use the capability to calculate sink bitrates.
--	 */
--	if (mtk_dp_parse_capabilities(mtk_dp)) {
--		drm_err(mtk_dp->drm_dev, "Can't parse capabilities\n");
--		drm_edid_free(drm_edid);
--		drm_edid = NULL;
--	}
--
- 	if (drm_edid) {
- 		/*
- 		 * FIXME: get rid of drm_edid_raw()
-@@ -2366,11 +2375,13 @@ static void mtk_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 
- 	mtk_dp_aux_panel_poweron(mtk_dp, true);
- 
--	/* Training */
--	ret = mtk_dp_training(mtk_dp);
--	if (ret) {
--		drm_err(mtk_dp->drm_dev, "Training failed, %d\n", ret);
--		goto power_off_aux;
-+	if (mtk_dp->data->bridge_type == DRM_MODE_CONNECTOR_eDP) {
-+		/* Training */
-+		ret = mtk_dp_training(mtk_dp);
-+		if (ret) {
-+			drm_err(mtk_dp->drm_dev, "Training failed, %d\n", ret);
-+			goto power_off_aux;
-+		}
+@@ -1558,13 +1560,13 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
+ 		}
  	}
  
- 	ret = mtk_dp_video_config(mtk_dp);
-@@ -2390,7 +2401,6 @@ static void mtk_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 		       sizeof(mtk_dp->info.audio_cur_cfg));
+-	*rx_mdma_desc = dmaengine_prep_slave_sg(spi->mdma_rx, mdma_sgt.sgl,
+-						mdma_sgt.nents, rx_mdma_conf.direction,
+-						DMA_PREP_INTERRUPT);
++	_mdma_desc = dmaengine_prep_slave_sg(spi->mdma_rx, mdma_sgt.sgl,
++					     mdma_sgt.nents, rx_mdma_conf.direction,
++					     DMA_PREP_INTERRUPT);
+ 	sg_free_table(&mdma_sgt);
+ 
+-	if (!rx_mdma_desc) {
+-		rx_dma_desc = NULL;
++	if (!_mdma_desc) {
++		_dma_desc = NULL;
+ 		return -EINVAL;
  	}
  
--	mtk_dp->enabled = true;
- 	mtk_dp_update_plugged_status(mtk_dp);
- 
- 	return;
-@@ -2405,7 +2415,6 @@ static void mtk_dp_bridge_atomic_disable(struct drm_bridge *bridge,
- {
- 	struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
- 
--	mtk_dp->enabled = false;
- 	mtk_dp_update_plugged_status(mtk_dp);
- 	mtk_dp_video_enable(mtk_dp, false);
- 	mtk_dp_audio_mute(mtk_dp, true);
 -- 
-2.45.2
+2.49.0
 
 
