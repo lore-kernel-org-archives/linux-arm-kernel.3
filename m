@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73994C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 09:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44958C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 09:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Y1A5u/XezbCzc0vXccv/POOZnvtspnWkWrOLPiV9LNk=; b=W9dCqL4alrgtsWUAg6QqAtL2Qh
-	ESbJRDGKuqfGmJQjUeG4wWudmy8nMdj22d/lCkFqWhk4NMxzFr5qUpdsiUu/NjJmUtKjcjMtUZPVj
-	bLC/aVJkoyLjbrj4WEZghfaraUSsTdMnSn6LHJV6TDAjlXHOBCJjruLJhWt9W1z+kSz8uY+KCy+4r
-	lenm+2dEYFBuk6ntInp7Z+wTN7UGLqxgiyNoaLzBB21hKRqMuEJvWIOU94LHEOm+OimZDgMT+KQ2P
-	7BFbnlvUg4g/NeNvrtLbs83j/NBJpgIKj916OihIgBQe4eAbolDm+QvbKdi/IzAnat5y5zJ2gXDCo
-	U3OH/KhQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FvqBLm4/k3CbYBQDP+pb9D3DmetcQvkRyKiP9FPRaUw=; b=Ipb3R2kXoCRRySNHJdFfiO4+a9
+	ysWJcmoinqfe7PZA75NnXVKPTdKxNGZA3hMnKe3jjy6CahFfD4ozI4o7AsNaU81MYBwe2lQYKEgpa
+	R1ccqTVk9CqwrVRsyqbCJ0K4nirrXEPr/JyLF6YRTxTEwoUdMvJ3n3FEGYiFQDxT3BLhfEB5Hozvj
+	XVf3ITeCiRK9r+7k5caRxix46gA8R0BtwZvhNM/bEbJAfL94EsTyGWaH3NixTG9Zcek2SdRbYNYJo
+	CQJAfVKgCc3dob1PBpUZDSRYicALkKtyEn41DO2N/yOoYVEg0+gYKlQeuk1P7ioFN82n+QfKH1sFp
+	YoZMHzXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWB1G-00000001mBR-0hlq;
-	Mon, 30 Jun 2025 09:41:46 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1uWB3X-00000001mN9-4BEP;
+	Mon, 30 Jun 2025 09:44:08 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWAvY-00000001lar-0JUG;
-	Mon, 30 Jun 2025 09:35:53 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a577ab8c34so605205f8f.3;
-        Mon, 30 Jun 2025 02:35:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751276150; x=1751880950; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y1A5u/XezbCzc0vXccv/POOZnvtspnWkWrOLPiV9LNk=;
-        b=TY7QzEbZMhtEdSVOeNfbyAvq6VR2Ah6uSOP3ybAxz6ojLPeOhhTdr4HGi4F4sxEdD9
-         sTIPxVv2yrtZs0JSPX1rkJPiu/jLW+dYGxUtRjFFq0R1I8t//PZQ91lMczWSMuBcFu9i
-         okxJo5DbhhAr6NaNGbOlxeoXmgx/3ltY7c+3si7nQyFEOQbETc99gyWeQvtuEIsig8en
-         ih4JSHin7yX9zmSCnZPC5h4ABf3LclSbaHDGb0qMiytVHm+O4zi1D4/HXeo/vp3qs/hy
-         cfw5k7uPRWK6AugSqnoLsKsyBt/p+5szR9NaPoJ2utjcoVuSILn1QTE2Sd1XA+ekIUXs
-         thJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751276150; x=1751880950;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Y1A5u/XezbCzc0vXccv/POOZnvtspnWkWrOLPiV9LNk=;
-        b=rqdPLd3wpDzqpu958F0AyIx3yNa0cdEx+XL0pOwkW3W/9a8R7KibwQcvPyKXACkRRu
-         vR93APFxUMS/A5wA573Jnm8/xHEQW9sAZtC2rFHV8EdEGdyd+vBnzXQY2B4EeLutWG05
-         ee/lYl5S+pTBD9L7KfgzsYW2VsvMAs4k5kdfwjKu9r9u/Tt0AGtZQtT6XFjMcTYn0HpI
-         cPvaiFYeDnHEwGSsYGJOPgy2VLsYV/aFZ6TTnOOWhy+J+OrClhos/5b5dg7zL5K8TFw6
-         7oPFU0iKlDk92hCelyYxN5TqLOst0RSC1HyX0BxAhDKQHFIQW2DeZkkavnQglq8X2GWg
-         CC1A==
-X-Forwarded-Encrypted: i=1; AJvYcCWpFGqNYkMfrKLyGfUB05P2pQLddAMosIuYiuq366CIgVFxkdOMgLaQHkpQQcx8ncFu7NTwYUHn1HhRFcpyXlhlDQ==@lists.infradead.org, AJvYcCX2dqXYu3c6tGgxSEGQGApSI3/+e4QO/QbZxmIX28hbnd5Y3kCg+H4Bd6CwMHGBhPveeE80HmpL/7VM26Z/wrrT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjMYfee9eqrOcMSd1G+vzqKcu0UReBx1NqAzSZHaNQenkXRH3B
-	b70nCoJ1Z3xpoTlnfNKHXAy5dtGCeObXyJ9xJrruBYp9VrT23a67L8NI
-X-Gm-Gg: ASbGncuS9xCsIZOu8Z1DSSZBk6Evnz9i0Z6x2SVfklwv+pRBW2tEUl4AsknvdTnxXS5
-	MhINgA/bsovXraRZP1Zyv8iUBs+m2HMTQQErSISLdEUaQuX1X6stZn8opGPmecKGRJP5xLa2iQy
-	gCtz3IQ4bVL7o6AOkTcZJU587ao947nSwalGfX5kwP8qkd5a/wDs1DLwp+zdUpi3/rmX6Kse3c4
-	jPdLUOeFNr1wo4i/r1Fzp/OuLxh2NV3MHskYQF3fDdanOI7cqnQvDjHqxDZX0DJ9ZOlunpUpPxX
-	HlPppuPjEwxhD84T63vFNkhb8AxIkH1+w8co2NjrqiESIe9C1cTeQX10MLHUkAhEN5Udz9TqkWQ
-	uoEt24yaM129iXaL4n+xqTdyVwQ==
-X-Google-Smtp-Source: AGHT+IENoQHFcKucvcnuAdWdAyrPNttNlfViNN8c8eBHYW6QCFoessLifIGmNu5Aps8j4D3BqFxOXw==
-X-Received: by 2002:a5d:64cb:0:b0:3a6:d680:f282 with SMTP id ffacd0b85a97d-3aaf43b95cfmr2363583f8f.7.1751276150193;
-        Mon, 30 Jun 2025 02:35:50 -0700 (PDT)
-Received: from thomas-precision3591.imag.fr ([2001:660:5301:24:234c:3c9a:efe4:2b60])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a88c7ec69dsm9774684f8f.6.2025.06.30.02.35.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jun 2025 02:35:49 -0700 (PDT)
-From: Thomas Fourier <fourier.thomas@gmail.com>
-To: 
-Cc: Thomas Fourier <fourier.thomas@gmail.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Yumeng Fang <fang.yumeng@zte.com.cn>,
-	Eric Anholt <eric@anholt.net>,
-	linux-mmc@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] mmc: bcm2835: Fix dma_unmap_sg() nents value
-Date: Mon, 30 Jun 2025 11:35:07 +0200
-Message-ID: <20250630093510.82871-2-fourier.thomas@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uWAwF-00000001ljC-0vcq;
+	Mon, 30 Jun 2025 09:36:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751276193;
+	bh=u1wSOQ/c7/ofEu2h9hbQ/4iI7lWdBhtbLLe0jwM9Ou4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Z4FMDe5yXZNkebN+3Zo/Uj/Nqc7Zt1c/Vzh/95R+B15UKHo51B+khrudvuTItHBC8
+	 SwXJacNZE16Pj0PkwP8/ySOz7KI5jlWd7sEbSS8792+SBk9JQ84KKfKeZVye5/fcQw
+	 u7CjVh4/F9c04rTSg2aIh6YaheMdDXrdMY21iuHklz8GDFIaVBggjvTsMvoT/b7e1x
+	 XJuRxI9ygnW59VOqoNSDB20+0rgfeY5x+bqL/UAhnAprZGxHhAJ3qg7WM6F5CnBjt7
+	 hUhObydkS2dAVZ/Jquw3Y35aS6w4mCJO4ksHagkXS8IvznaP88k/yuXcM8u3ojtCkC
+	 Yrbj0FQZx5zKQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6FF5317E0342;
+	Mon, 30 Jun 2025 11:36:32 +0200 (CEST)
+Message-ID: <e59b2bbb-ee1e-42b5-9516-f2e545dbf700@collabora.com>
+Date: Mon, 30 Jun 2025 11:36:31 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 01/13] dt-bindings: power: mediatek: Document
+ mediatek,bus-protection
+To: Rob Herring <robh@kernel.org>
+Cc: linux-mediatek@lists.infradead.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com, ulf.hansson@linaro.org,
+ y.oudjana@protonmail.com, fshao@chromium.org, wenst@chromium.org,
+ lihongbo22@huawei.com, mandyjh.liu@mediatek.com, mbrugger@suse.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ kernel@collabora.com
+References: <20250623120154.109429-1-angelogioacchino.delregno@collabora.com>
+ <20250623120154.109429-2-angelogioacchino.delregno@collabora.com>
+ <20250627201543.GA4171766-robh@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250627201543.GA4171766-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_023552_113379_2D0E2B41 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250630_023635_440375_58BD52BC 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,30 +82,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The dma_unmap_sg() functions should be called with the same nents as the
-dma_map_sg(), not the value the map function returned.
+Il 27/06/25 22:15, Rob Herring ha scritto:
+> On Mon, Jun 23, 2025 at 02:01:42PM +0200, AngeloGioacchino Del Regno wrote:
+>> Add a new mediatek,bus-protection property in the main power
+>> controller node and deprecate the old mediatek,infracfg,
+>> mediatek,infracfg-nao and mediatek,smi properties located in
+>> the children.
+>>
+>> This is done in order to both simplify the power controller
+>> nodes and in preparation for adding support for new generation
+>> SoCs like MT8196/MT6991 and other variants, which will need
+>> to set protection on new busses.
+> 
+> Protection like access controls? We have the access-controller binding
+> for that.
+> 
 
-Fixes: 2f5da678351f ("mmc: bcm2835: Properly handle dmaengine_prep_slave_sg")
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
----
- drivers/mmc/host/bcm2835.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+I was not aware of that - but that's *so* cool.
 
-diff --git a/drivers/mmc/host/bcm2835.c b/drivers/mmc/host/bcm2835.c
-index def054ddd256..4fced9b36c80 100644
---- a/drivers/mmc/host/bcm2835.c
-+++ b/drivers/mmc/host/bcm2835.c
-@@ -503,7 +503,8 @@ void bcm2835_prepare_dma(struct bcm2835_host *host, struct mmc_data *data)
- 				       DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
- 
- 	if (!desc) {
--		dma_unmap_sg(dma_chan->device->dev, data->sg, sg_len, dir_data);
-+		dma_unmap_sg(dma_chan->device->dev, data->sg, data->sg_len,
-+			     dir_data);
- 		return;
- 	}
- 
--- 
-2.43.0
+ From a very (very, very) fast look, it looks like that fits this case perfectly.
+I'll check if that's right and will come up with a v2 for that.
 
+Thanks a lot!
+Angelo
+
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   .../power/mediatek,power-controller.yaml      | 40 +++++++++++++++++++
+>>   1 file changed, 40 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+>> index 9c7cc632abee..2530c873bb3c 100644
+>> --- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+>> +++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+>> @@ -44,6 +44,18 @@ properties:
+>>     '#size-cells':
+>>       const: 0
+>>   
+>> +  mediatek,bus-protection:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +    description:
+>> +      A number of phandles to external blocks to set and clear the required
+>> +      bits to enable or disable bus protection, necessary to avoid any bus
+>> +      faults while enabling or disabling a power domain.
+>> +      For example, this may hold phandles to INFRACFG and SMI.
+>> +    minItems: 1
+>> +    maxItems: 3
+>> +    items:
+>> +      maxItems: 1
+>> +
+>>   patternProperties:
+>>     "^power-domain@[0-9a-f]+$":
+>>       $ref: "#/$defs/power-domain-node"
+>> @@ -123,14 +135,17 @@ $defs:
+>>         mediatek,infracfg:
+>>           $ref: /schemas/types.yaml#/definitions/phandle
+>>           description: phandle to the device containing the INFRACFG register range.
+>> +        deprecated: true
+>>   
+>>         mediatek,infracfg-nao:
+>>           $ref: /schemas/types.yaml#/definitions/phandle
+>>           description: phandle to the device containing the INFRACFG-NAO register range.
+>> +        deprecated: true
+>>   
+>>         mediatek,smi:
+>>           $ref: /schemas/types.yaml#/definitions/phandle
+>>           description: phandle to the device containing the SMI register range.
+>> +        deprecated: true
+>>   
+>>       required:
+>>         - reg
+>> @@ -138,6 +153,31 @@ $defs:
+>>   required:
+>>     - compatible
+>>   
+>> +allOf:
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - mediatek,mt8183-power-controller
+>> +    then:
+>> +      properties:
+>> +        mediatek,bus-protection:
+>> +          minItems: 2
+>> +          maxItems: 2
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - mediatek,mt8365-power-controller
+>> +    then:
+>> +      properties:
+>> +        mediatek,bus-protection:
+>> +          minItems: 3
+>> +          maxItems: 3
+>> +
+>>   additionalProperties: false
+>>   
+>>   examples:
+>> -- 
+>> 2.49.0
+>>
 
