@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79ECDC8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 17:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31E9C83029
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 17:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d9fUYZmc/3Epl2iylX0t/MD0TSv3vwOVZJgxtOCjkPA=; b=JNiJrr2r7dlY5SmzPedNF6c+Pi
-	12gXbwBsE4arM3nrJMyEPoqiYUF6QEZCuUE6THt1cmeFH6qmLmWVxLC0o2zOvfng5RM33ADiTPNHg
-	9HrMDJ0otL5UeIQjkinmMLpOCTu0AURTQ9w7J3m5HC8EGFmIafIcfF7BJ4Xh2EgOpaeIULEDKCme0
-	YkVqI2FoX/s0xRBhKGKYghHf6+AwIcjYGc2VZb/cPd7MyyNz3NQmghM+ygBhONZHN046c256QmiYb
-	Ti/BPEuYo0EUfn3R/GDGhW7a1iJAChHgdHrCT0gNw94LnzA9Mr+z8Ri6CYbizWFKRVfWfffh51GcT
-	AboWuWtQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uk0sE/BCMGvaA7bCbAXV+RAu7t0GwWYb3WWV/cO67KU=; b=ukU5R2pHNz2bHXUofPX3ot8woI
+	NqeskoenlSFlieqwiohI7vcoyJs2VkPtX714heQ8fOcCiGX/7vltEH/fGWNuiJkicTNwH2PJPKfBX
+	0OZLz07WFQiQA1GmOye4tW2ZJhjmg2UW9R2gLO1K3cthbdEzrnpWGaMUtL1qz3LMJw0rh8VadroKl
+	m7XU5CVuyDi0piMSYe7rS5DuOjjBx28E5Vj38YSjLU8neRh+Q1mG+jmcevUIWZZHVhE5pNpkpi0tt
+	c7j7wIqWMG4VKgI35nj/CP3Wdtu26oHoXycd1CZ3rJwFW50OZg3XlX80WqfZFygDZlSC6KeTzo4s6
+	siS+sPQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWI3r-000000032t4-1Ina;
-	Mon, 30 Jun 2025 17:12:55 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uWI6A-0000000330U-0Dah;
+	Mon, 30 Jun 2025 17:15:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWH4L-00000002piY-2lpu;
-	Mon, 30 Jun 2025 16:09:22 +0000
+	id 1uWH4M-00000002pjz-3vYJ;
+	Mon, 30 Jun 2025 16:09:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CB005A52F3D;
-	Mon, 30 Jun 2025 16:09:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DAB8C4CEE3;
-	Mon, 30 Jun 2025 16:09:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 54C5F6113B;
+	Mon, 30 Jun 2025 16:09:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A35A7C4CEF5;
+	Mon, 30 Jun 2025 16:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751299760;
-	bh=jSaZckhEe13RC9QBR74JJ8nh/qIlst0hCu0t6sAzGQ4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=lJs0niP7c4sUx22SprZKZIPiIso64WKvtDPQJT6G30TxCGEWIR3EFb6SHnOqRAtUk
-	 fN7c8bb4CH9QiW+9XdpNAcD4nsumnealLOj5hrYxucozl0FKYV/DaI3BwX/T1giLNC
-	 z4FsBdQX+fpiqP2wY/i6FG+tKAqKfsWh6AWZun7jpHH1CVKMc/tUzcuV+yllDSZbLx
-	 O18dqp2yaiZKu7TnaX1hbLP0VK2d8NbRA+aR3I9Eb+V9RdGjkJYfsgDEb2AY2UbGmc
-	 copcTlE59ZwHiTuLQgVaXqDuZGTyksyBwBtx7VvTZzI9J8I64QckbRinKefQAZmPS4
-	 PlAo6f4KbPMQg==
+	s=k20201202; t=1751299762;
+	bh=5WUT3FVFtGYY38nGQk9FGEw/eHR0uyP40u2JgCeMrws=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=e+N+Rp7skA/eq8mkB7Jny8AcWCh4HRKnMJmSFz+cvafpdyHVdMjSt93EsD54zMvMs
+	 /WyIqcz+TKrriW94MpM4zGQLw28AMAEVLamI7OUOzNdCwAx3uld43AU3LB0bXYQaIL
+	 Ysygpb5KwKvQP7ez1n7hmFLHtqPW5XGEZUJXWUjJC9cc94Y1TNGXVe+6j/bItAqLGD
+	 qYieA8QBrcCXt1v+n5nzgDRTzRRqNgaYFws411PqpqpH5xwUSLN2oWBAHvhRDWfsWF
+	 uMyxhU4KDrgRJZRyK+SkqvDJ+p6MHQl6jFOoW7w7ndpIfaimBkuREJiy4Uux35Q1I6
+	 BdnmQUWL/SNCQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,15 +54,14 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 00/14] SHA-256 library improvements
-Date: Mon, 30 Jun 2025 09:06:31 -0700
-Message-ID: <20250630160645.3198-1-ebiggers@kernel.org>
+Subject: [PATCH v2 03/14] lib/crypto: sha256: Reorder some code
+Date: Mon, 30 Jun 2025 09:06:34 -0700
+Message-ID: <20250630160645.3198-4-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250630160645.3198-1-ebiggers@kernel.org>
+References: <20250630160645.3198-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_090921_828393_C1572E87 
-X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,130 +76,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is also available at:
+First, move the declarations of sha224_init/update/final to be just
+above the corresponding SHA-256 code, matching the order that I used for
+SHA-384 and SHA-512.  In sha2.h, the end result is that SHA-224,
+SHA-256, SHA-384, and SHA-512 are all in the logical order.
 
-    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha256-lib-cleanup-v2
+Second, move sha224_block_init() and sha256_block_init() to be just
+below crypto_sha256_state.  In later changes, these functions as well as
+struct crypto_sha256_state will no longer be used by the library
+functions.  They'll remain just for some legacy offload drivers.  This
+gets them into a logical place in the file for that.
 
-This series improves the SHA-224 and SHA-256 library code to be
-consistent with what I did for SHA-384 and SHA-512.  This includes:
+No code changes other than reordering.
 
-- Use stronger typing in the SHA-224 and SHA-256 functions.
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+---
+ include/crypto/sha2.h | 60 +++++++++++++++++++++----------------------
+ lib/crypto/sha256.c   | 12 ++++-----
+ 2 files changed, 36 insertions(+), 36 deletions(-)
 
-- Add support for HMAC-SHA224 and HMAC-SHA256.  (I'll send a separate
-  patch with KUnit test cases for this.)
-
-- Make the old-school crypto API's support for sha224 and sha256 just
-  use the actual library API, instead of unsafe low-level functions.
-
-- Consolidate the CPU-based SHA-224 and SHA-256 code into a single
-  module, with better inlining and dead code elimination.
-
-- Properly document the SHA-224 and SHA-256 functions.
-
-- Other changes to synchronize the code with SHA-384 and SHA-512.
-
-Changed in v2:
-- Dropped sha224_kunit.c changes; it will be added later in the history
-- Dropped some patches that I folded into the SHA-512 series
-- Removed redundant checks of IS_ENABLED(CONFIG_KERNEL_MODE_NEON)
-- Removed obsolete setting of -DARCH for sha256.o
-- Fixed a commit title to mention sha256 instead of sha512
-- Excluded HMAC-SHA{224,256} code from purgatory, where it isn't needed
-
-Eric Biggers (14):
-  libceph: Rename hmac_sha256() to ceph_hmac_sha256()
-  cxl/test: Simplify fw_buf_checksum_show()
-  lib/crypto: sha256: Reorder some code
-  lib/crypto: sha256: Remove sha256_blocks_simd()
-  lib/crypto: sha256: Add sha224() and sha224_update()
-  lib/crypto: sha256: Make library API use strongly-typed contexts
-  lib/crypto: sha256: Propagate sha256_block_state type to
-    implementations
-  lib/crypto: sha256: Add HMAC-SHA224 and HMAC-SHA256 support
-  crypto: sha256 - Wrap library and add HMAC support
-  crypto: sha256 - Use same state format as legacy drivers
-  lib/crypto: sha256: Remove sha256_is_arch_optimized()
-  lib/crypto: sha256: Consolidate into single module
-  lib/crypto: sha256: Sync sha256_update() with sha512_update()
-  lib/crypto: sha256: Document the SHA-224 and SHA-256 API
-
- arch/mips/cavium-octeon/Kconfig               |   6 -
- arch/mips/cavium-octeon/crypto/Makefile       |   1 -
- arch/riscv/purgatory/purgatory.c              |   8 +-
- arch/s390/purgatory/purgatory.c               |   2 +-
- arch/x86/purgatory/purgatory.c                |   2 +-
- crypto/Kconfig                                |   4 +-
- crypto/Makefile                               |   1 -
- crypto/sha256.c                               | 371 +++++++++-------
- crypto/testmgr.c                              |  12 +
- drivers/char/tpm/tpm2-sessions.c              |  12 +-
- drivers/crypto/img-hash.c                     |   4 +-
- drivers/crypto/starfive/jh7110-hash.c         |   8 +-
- include/crypto/internal/sha2.h                |  66 ---
- include/crypto/sha2.h                         | 390 +++++++++++++++--
- kernel/kexec_file.c                           |  10 +-
- lib/crypto/Kconfig                            |  34 +-
- lib/crypto/Makefile                           |  39 +-
- lib/crypto/arm/Kconfig                        |   7 -
- lib/crypto/arm/Makefile                       |   8 +-
- lib/crypto/arm/sha256-armv4.pl                |  20 +-
- lib/crypto/arm/sha256-ce.S                    |   2 +-
- lib/crypto/arm/sha256.c                       |  64 ---
- lib/crypto/arm/sha256.h                       |  46 ++
- lib/crypto/arm64/Kconfig                      |   6 -
- lib/crypto/arm64/Makefile                     |   9 +-
- lib/crypto/arm64/sha2-armv8.pl                |   2 +-
- lib/crypto/arm64/sha256-ce.S                  |   2 +-
- lib/crypto/arm64/sha256.c                     |  75 ----
- lib/crypto/arm64/sha256.h                     |  57 +++
- lib/crypto/arm64/sha512.h                     |   6 +-
- .../crypto/mips/sha256.h                      |  20 +-
- lib/crypto/powerpc/Kconfig                    |   6 -
- lib/crypto/powerpc/Makefile                   |   3 -
- lib/crypto/powerpc/{sha256.c => sha256.h}     |  19 +-
- lib/crypto/riscv/Kconfig                      |   8 -
- lib/crypto/riscv/Makefile                     |   3 -
- .../sha256-riscv64-zvknha_or_zvknhb-zvkb.S    |   2 +-
- lib/crypto/riscv/sha256.c                     |  67 ---
- lib/crypto/riscv/sha256.h                     |  42 ++
- lib/crypto/s390/Kconfig                       |   6 -
- lib/crypto/s390/Makefile                      |   3 -
- lib/crypto/s390/sha256.c                      |  47 --
- lib/crypto/s390/sha256.h                      |  28 ++
- lib/crypto/sha256-generic.c                   | 138 ------
- lib/crypto/sha256.c                           | 413 ++++++++++++++++--
- lib/crypto/sparc/Kconfig                      |   8 -
- lib/crypto/sparc/Makefile                     |   4 -
- lib/crypto/sparc/{sha256.c => sha256.h}       |  37 +-
- lib/crypto/x86/Kconfig                        |   8 -
- lib/crypto/x86/Makefile                       |   3 -
- lib/crypto/x86/sha256-avx-asm.S               |   2 +-
- lib/crypto/x86/sha256-avx2-asm.S              |   2 +-
- lib/crypto/x86/sha256-ni-asm.S                |   2 +-
- lib/crypto/x86/sha256-ssse3-asm.S             |   2 +-
- lib/crypto/x86/sha256.c                       |  80 ----
- lib/crypto/x86/sha256.h                       |  55 +++
- net/ceph/messenger_v2.c                       |  12 +-
- tools/testing/cxl/test/mem.c                  |  21 +-
- 58 files changed, 1307 insertions(+), 1008 deletions(-)
- delete mode 100644 include/crypto/internal/sha2.h
- delete mode 100644 lib/crypto/arm/sha256.c
- create mode 100644 lib/crypto/arm/sha256.h
- delete mode 100644 lib/crypto/arm64/sha256.c
- create mode 100644 lib/crypto/arm64/sha256.h
- rename arch/mips/cavium-octeon/crypto/octeon-sha256.c => lib/crypto/mips/sha256.h (76%)
- rename lib/crypto/powerpc/{sha256.c => sha256.h} (76%)
- delete mode 100644 lib/crypto/riscv/sha256.c
- create mode 100644 lib/crypto/riscv/sha256.h
- delete mode 100644 lib/crypto/s390/sha256.c
- create mode 100644 lib/crypto/s390/sha256.h
- delete mode 100644 lib/crypto/sha256-generic.c
- delete mode 100644 lib/crypto/sparc/Kconfig
- delete mode 100644 lib/crypto/sparc/Makefile
- rename lib/crypto/sparc/{sha256.c => sha256.h} (53%)
- delete mode 100644 lib/crypto/x86/sha256.c
- create mode 100644 lib/crypto/x86/sha256.h
-
+diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
+index 296ce9d468bfc..bb181b7996cdc 100644
+--- a/include/crypto/sha2.h
++++ b/include/crypto/sha2.h
+@@ -69,10 +69,36 @@ extern const u8 sha512_zero_message_hash[SHA512_DIGEST_SIZE];
+ struct crypto_sha256_state {
+ 	u32 state[SHA256_STATE_WORDS];
+ 	u64 count;
+ };
+ 
++static inline void sha224_block_init(struct crypto_sha256_state *sctx)
++{
++	sctx->state[0] = SHA224_H0;
++	sctx->state[1] = SHA224_H1;
++	sctx->state[2] = SHA224_H2;
++	sctx->state[3] = SHA224_H3;
++	sctx->state[4] = SHA224_H4;
++	sctx->state[5] = SHA224_H5;
++	sctx->state[6] = SHA224_H6;
++	sctx->state[7] = SHA224_H7;
++	sctx->count = 0;
++}
++
++static inline void sha256_block_init(struct crypto_sha256_state *sctx)
++{
++	sctx->state[0] = SHA256_H0;
++	sctx->state[1] = SHA256_H1;
++	sctx->state[2] = SHA256_H2;
++	sctx->state[3] = SHA256_H3;
++	sctx->state[4] = SHA256_H4;
++	sctx->state[5] = SHA256_H5;
++	sctx->state[6] = SHA256_H6;
++	sctx->state[7] = SHA256_H7;
++	sctx->count = 0;
++}
++
+ struct sha256_state {
+ 	union {
+ 		struct crypto_sha256_state ctx;
+ 		struct {
+ 			u32 state[SHA256_STATE_WORDS];
+@@ -86,51 +112,25 @@ struct sha512_state {
+ 	u64 state[SHA512_DIGEST_SIZE / 8];
+ 	u64 count[2];
+ 	u8 buf[SHA512_BLOCK_SIZE];
+ };
+ 
+-static inline void sha256_block_init(struct crypto_sha256_state *sctx)
++static inline void sha224_init(struct sha256_state *sctx)
+ {
+-	sctx->state[0] = SHA256_H0;
+-	sctx->state[1] = SHA256_H1;
+-	sctx->state[2] = SHA256_H2;
+-	sctx->state[3] = SHA256_H3;
+-	sctx->state[4] = SHA256_H4;
+-	sctx->state[5] = SHA256_H5;
+-	sctx->state[6] = SHA256_H6;
+-	sctx->state[7] = SHA256_H7;
+-	sctx->count = 0;
++	sha224_block_init(&sctx->ctx);
+ }
++/* Simply use sha256_update as it is equivalent to sha224_update. */
++void sha224_final(struct sha256_state *sctx, u8 out[SHA224_DIGEST_SIZE]);
+ 
+ static inline void sha256_init(struct sha256_state *sctx)
+ {
+ 	sha256_block_init(&sctx->ctx);
+ }
+ void sha256_update(struct sha256_state *sctx, const u8 *data, size_t len);
+ void sha256_final(struct sha256_state *sctx, u8 out[SHA256_DIGEST_SIZE]);
+ void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE]);
+ 
+-static inline void sha224_block_init(struct crypto_sha256_state *sctx)
+-{
+-	sctx->state[0] = SHA224_H0;
+-	sctx->state[1] = SHA224_H1;
+-	sctx->state[2] = SHA224_H2;
+-	sctx->state[3] = SHA224_H3;
+-	sctx->state[4] = SHA224_H4;
+-	sctx->state[5] = SHA224_H5;
+-	sctx->state[6] = SHA224_H6;
+-	sctx->state[7] = SHA224_H7;
+-	sctx->count = 0;
+-}
+-
+-static inline void sha224_init(struct sha256_state *sctx)
+-{
+-	sha224_block_init(&sctx->ctx);
+-}
+-/* Simply use sha256_update as it is equivalent to sha224_update. */
+-void sha224_final(struct sha256_state *sctx, u8 out[SHA224_DIGEST_SIZE]);
+-
+ /* State for the SHA-512 (and SHA-384) compression function */
+ struct sha512_block_state {
+ 	u64 h[8];
+ };
+ 
+diff --git a/lib/crypto/sha256.c b/lib/crypto/sha256.c
+index 6bfa4ae8dfb59..573ccecbf48bf 100644
+--- a/lib/crypto/sha256.c
++++ b/lib/crypto/sha256.c
+@@ -56,22 +56,22 @@ static inline void __sha256_final(struct sha256_state *sctx, u8 *out,
+ 	sha256_finup(&sctx->ctx, sctx->buf, partial, out, digest_size,
+ 		     sha256_purgatory(), false);
+ 	memzero_explicit(sctx, sizeof(*sctx));
+ }
+ 
+-void sha256_final(struct sha256_state *sctx, u8 out[SHA256_DIGEST_SIZE])
+-{
+-	__sha256_final(sctx, out, SHA256_DIGEST_SIZE);
+-}
+-EXPORT_SYMBOL(sha256_final);
+-
+ void sha224_final(struct sha256_state *sctx, u8 out[SHA224_DIGEST_SIZE])
+ {
+ 	__sha256_final(sctx, out, SHA224_DIGEST_SIZE);
+ }
+ EXPORT_SYMBOL(sha224_final);
+ 
++void sha256_final(struct sha256_state *sctx, u8 out[SHA256_DIGEST_SIZE])
++{
++	__sha256_final(sctx, out, SHA256_DIGEST_SIZE);
++}
++EXPORT_SYMBOL(sha256_final);
++
+ void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE])
+ {
+ 	struct sha256_state sctx;
+ 
+ 	sha256_init(&sctx);
 -- 
 2.50.0
 
