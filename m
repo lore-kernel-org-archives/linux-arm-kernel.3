@@ -4,65 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6310DC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 22:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F21C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 22:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szK0J+EuwrE1IYcofSwepObo43x0XQFxl9Sd1cicOCE=; b=SdkXgq/UQgKv5JSem1sDrf6mva
-	no15gavJIMOHPrCN7fm+kK2m6/56v6pw3VNRDCHYmYSO/UjJFdJ9Z5Cy3/beLXHvtH6O8Mk7z9lbB
-	j7t/LbRhEPtUUxzyoOJ5rpDUpvLDbo9vZvHzdkG5eCU1OBmxifl1Ybu3hHgTeAOOCde91/unn+9K7
-	hEQ+UK3VYry7Odo6WH03/jdxih4Q9AOwOaTGezSV+7hXX6PhvxO4BO5peq3S4vraeVRBO53U+gyaq
-	L4Ct1g94Hzf130VurzF5YP1/ItiVYvIFtqdPpGfTCjsV930s5uUYI9z0EiZedafLzMli/nyJhKash
-	3NyJZbFw==;
+	bh=NHiuZMzfMwC6+R9h6OiCUTROtFSvuO1j8HDLI3Uql14=; b=LHMQ/STc24OKysEsUBujBHzkwT
+	+lL3zUv2yTZTT78HRij6vXs8D/R/BEUniGmXLvkgPo2Pstb1sTXCpQfGjs1jBoqhSlpbvAf5qBz7r
+	dmPzMTBiH+54IoFYQGj7Pz5DfHmz+VVrAHMoyb4I2a4U8N68S8VuPowl3j28PPocoQHPowDNjbdZG
+	qOQtSU0ro477FvOSb+IT26jvqqOcYF8+gk+EhLTv4IiCo2GCxLyIWz0XxaScY0rNh/UB/X0VQzpnC
+	7fSvAOcW/dw/2Y39uZ5ONL97yZGlwppsIRTIN4v7gw2yIz5HHDxSUBnEPaCTpr53QrV02sMLoQ9FH
+	51S3KA1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWMm5-00000003ZV3-1HqT;
-	Mon, 30 Jun 2025 22:14:53 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uWMtS-00000003aKH-3SYX;
+	Mon, 30 Jun 2025 22:22:30 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWMhB-00000003Yzc-0Ncr;
-	Mon, 30 Jun 2025 22:09:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 297DCA49737;
-	Mon, 30 Jun 2025 22:09:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF04EC4CEE3;
-	Mon, 30 Jun 2025 22:09:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751321387;
-	bh=vAzj++/jV6VTrg7u4E0pCrASorfa+yLITSBpP77hHl8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=A9Imj+mO/QgIz7SWK0mNab70Z88CDunmh9M8KADNqYvlLnFC5D2BgSIDrHE9BtLv+
-	 /aWq8MzPF3+mScKk3EM0iovaOf6RkMGgeOv265jMuntlojLdfQB4Qpv4xg1f6CECAg
-	 62udJlHcZTiq4WYezlr4S2HrEkEi8Of515lhBiZ3RVjF0UWVUW4tJ4N5vitRntRdSj
-	 k7JtULNJN949UaHL45oSdzQAcBXqETd1kcPLWL6m/CKfWCX0WrTA4DzUvw7nacI3Lt
-	 qxhuWOuPcc7eRXnYIgDHGJa0nUg3s61vaIJ9sSPC3QJjhRF1fCh5wtzT4S1QfIndVN
-	 dc0uooeHkQzeg==
-Date: Mon, 30 Jun 2025 17:09:46 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, krzk+dt@kernel.org,
-	y.oudjana@protonmail.com, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, mbrugger@suse.com, fshao@chromium.org,
-	mandyjh.liu@mediatek.com, lihongbo22@huawei.com,
-	ulf.hansson@linaro.org, wenst@chromium.org,
-	linux-arm-kernel@lists.infradead.org, conor+dt@kernel.org,
-	linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com
-Subject: Re: [PATCH v1 11/13] dt-bindings: power: Add support for MT8196
- power controllers
-Message-ID: <175132138645.3512206.17376450738040159326.robh@kernel.org>
-References: <20250623120154.109429-1-angelogioacchino.delregno@collabora.com>
- <20250623120154.109429-12-angelogioacchino.delregno@collabora.com>
+	id 1uWMr8-00000003Zxg-1Vaw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 22:20:07 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-23649faf69fso22423195ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 15:20:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751322006; x=1751926806; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NHiuZMzfMwC6+R9h6OiCUTROtFSvuO1j8HDLI3Uql14=;
+        b=einU/LRWIsoyBjno7dXUoIUVFEFwux9Gpz7jmTGwvl2E5Ivl4SRL7P/jzG1B239k/+
+         V6VAz77IX5P4VtVkT5Xpj+zBSwBhrPBr7PpXqqhfGAcLwnVt2xDamKB6zQUzh1IgwijG
+         Q2MX9wj53CnfcgdosoDjr3d+l4oqzkmMFcsTfuTLlrwc/TdxrSK6fYTC0IIv1pxuY6Q7
+         OPlrlm/ewt+tMq9NJgEP67CgyYaht3cwhuPsaDBFDEfG+6T5OkMxS2IBtCIzbtfIG175
+         vWLS1Ss1yjt1KwOImU9ZNdgxrFLyM4o3P4wz/RCWsYrQBSzT6S+bjuX3Zx+SrLFNKkhE
+         3IfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751322006; x=1751926806;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NHiuZMzfMwC6+R9h6OiCUTROtFSvuO1j8HDLI3Uql14=;
+        b=IdifBfXAsVvCGMldThHpS2klkVtm3U3LnJCaMjZBJ/TcQI2IIgsi8hHGj2Txs1HGZk
+         CPIajDMJC2pqf49QLeXXKLBzgK6m5xZNrn3grV5Kzjjj9VFTQeQpc3nhh65MaUuQJZ1H
+         bK8XXdTdvIsuAt9ZRnTsLm2vrwq7Lj4pn5S342avj+CcsQ1Oh1boRDXn5ar7GG7lvvXZ
+         bGb3UyMQUNqG8gHPoE9FLOD/cxXgZ64Lieo+aQ37NA4GxmzSwMXI2ONWL/xrIgxOKbKH
+         KsxbNpagiPC53quro/1z81J9dU3/9aiYTrQa1GhEDekOZyCI5j3HXVcA9rT3bsayGYMe
+         436g==
+X-Forwarded-Encrypted: i=1; AJvYcCXuHLSPOVMeiVs3s8+4bKBt/YcbHcwoU8yWq0X9zbcdf1Dv8mOzHl6qpIOTuqyO8Np7IUruLd16B3NPzanjWPxk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyhi8zsJWlXWDiaJbceYH9Fz+fVkZAdEgyYHjmeXetF3KdNscbR
+	ToMT8NPcrwMVJkdRA5olDshGcA11XXatNjnfqgnskzB2bHnIHuNLY4HP
+X-Gm-Gg: ASbGncuwvrs2TSrNw/cdcYqWkNSgXxhOl+pODrgbLUogrOdUDpHagGhScsuVMWYU5Io
+	mVdd2YhDAYeVSWX9t8SMSrF5EwywL6LqbtqhUu2v1WPJlS1ieG23dZjqC1eWCF+8QUuQAKp9mKK
+	p28845CZLoSzRYzYm/iNip4jbRntSc0F+q7HlDryNjoLXsSN9fP5+wVqar6RPFfIrqljOwx2pq9
+	Mx0zB1vDLJYrD4NYUb4aHMgOy3tQS/iEwoyWyvHbHBh6qx3L5fnxqtkpYSm+aaNEfGtpfArEQ2E
+	KwkNrerhKU5flNNFsciSA8mhdB7XuU627ggqu/ce2fLVEceDwcpMPzmp/hbgOw==
+X-Google-Smtp-Source: AGHT+IGBsxbNKvaAB+y/2y328Um5BPe7Wjg0g4g9kDG4VOXg1/QRqgyAXH7egABiIMDNmkwj7hYcHg==
+X-Received: by 2002:a17:903:32c1:b0:235:e71e:a37b with SMTP id d9443c01a7336-23ac4633ccbmr244404305ad.34.1751322005549;
+        Mon, 30 Jun 2025 15:20:05 -0700 (PDT)
+Received: from localhost ([216.228.127.130])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb3b7d97sm90566615ad.172.2025.06.30.15.20.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Jun 2025 15:20:04 -0700 (PDT)
+Date: Mon, 30 Jun 2025 18:20:02 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+Cc: linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	Andi Shyti <andi.shyti@linux.intel.com>,
+	David Laight <David.Laight@aculab.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Lucas De Marchi <lucas.demarchi@intel.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH v2 0/3] bits: Split asm and non-asm GENMASK*() and unify
+ definitions
+Message-ID: <aGMNhk0FrcQGcC5P@yury>
+References: <20250609-consolidate-genmask-v2-0-b8cce8107e49@wanadoo.fr>
+ <0e5988e2-eb98-4931-86b8-dcbb8b4cb605@wanadoo.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250623120154.109429-12-angelogioacchino.delregno@collabora.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <0e5988e2-eb98-4931-86b8-dcbb8b4cb605@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_150949_191498_B713A306 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250630_152006_400025_75C55D65 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +114,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jun 30, 2025 at 11:07:43PM +0900, Vincent Mailhol wrote:
+> Hi Yury,
 
-On Mon, 23 Jun 2025 14:01:52 +0200, AngeloGioacchino Del Regno wrote:
-> Add support for the power controllers found in the MediaTek MT8196
-> Chromebook SoC.
-> 
-> This chip has three power controllers, two of which located in the
-> SCP subsystems (where one can be directly controlled and the other
-> can be controlled only through the HW Voter IP), and one located
-> in the Multimedia HFRP subsystem, controllable only through the HW
-> Voter IP.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  .../power/mediatek,power-controller.yaml      |  4 ++
->  .../dt-bindings/power/mediatek,mt8196-power.h | 58 +++++++++++++++++++
->  2 files changed, 62 insertions(+)
->  create mode 100644 include/dt-bindings/power/mediatek,mt8196-power.h
-> 
+... 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> I didn't hear back from you on this series. Are you still interested in this
+> cleanup or should I just abandon it?
+> 
+> Note that now that the GENMASK_U*() are upstream, I am done. I think that it
+> will be better with this clean-up, but I do not mind if we keep it as it.
+> 
+> Just let me know what you think.
 
+Hi Vincent,
+
+Sorry for delay and thank you for pinging me on it.
+I'll take a look on it at the weekend.
+
+Thanks,
+Yury
 
