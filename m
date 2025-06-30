@@ -4,111 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 156BEC8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 10:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525E1C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 10:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=91/ZncbDlmcGCt22EAMRhuZKL6uaG/hY8UyZ2Q+pYCo=; b=ve7YDz1LuKTDorB86tnmvgCDPX
-	/MxZolxYALA4OMs+46EzS1f4lCLbKNmaEWWJD0C58wsGqtApu3PYTw+JFzaphWUSSzYrf30UNRT2i
-	yikDsFnPX9aZryakKADpPY6QQNcNmHF5cvk3hF2hhGYCBSePuEIRYcGXvkVWlMYp8kLGOKOMBurhe
-	eV5TwsG8Tmckw+1EfDZ2doh61LUAMM5jqJxuVTTMblUvIhx4G2BDz3cEnRqlJXQ/z293AiLTWFzbw
-	58ho6JuoWzAcpXSxMna2S2M4piA5Zek/wYzb0wBkLO2jNjnKaTaBt07/X5JrBKIr8U9zn7r/NGZyO
-	K1da7ifw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RNwyz2uPyTgf5iTMXJhK4t1OLAWKnwrjx6NHrYAot/k=; b=CKxKlAwKjYR8M0c8+YKlze/nuY
+	qJfMgQYJlmkCqI36ne6wj243AqPryDnZt75I0HM464gCaAgnLW3fgbcScnh4DEeOrGcBlb0vhRRjT
+	yyld0BfVuZzXU0g2+fjoVKR44hnhLQ1HUF6HMLcsCupni3Xcx9SU/mIQm2tLDkf9Qv+1iuBQizsDR
+	SfnuITHoz1YnLRNdp4AuLW/u7TFP/fi187nitCIxYV/adPMG7duxvO9oWCVQUmw28MGxQPaycuUC3
+	nJDHJxYn66ABaeVsSLDKN8SqeWw1VHNB3E0wnEYKklooiTeZJeUtyUEsClLusdAQ5vA7ZNQBXl8mz
+	rMSX1b1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWC5Z-00000001wYg-0NWO;
-	Mon, 30 Jun 2025 10:50:17 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1uWC7p-00000001wfU-45WU;
+	Mon, 30 Jun 2025 10:52:37 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWBds-00000001sGj-2sQ6
+	id 1uWBj4-00000001t01-2oN6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 10:21:41 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6070293103cso3269538a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 03:21:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fairphone.com; s=fair; t=1751278898; x=1751883698; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=91/ZncbDlmcGCt22EAMRhuZKL6uaG/hY8UyZ2Q+pYCo=;
-        b=X++1J58Gd3hEx1RVS9k2oDYMIPwHxOVoEWZh7RW4EB8URHhQC1k/3ox2B8Rigl1O2E
-         wxRrswrNHx5B3obkuenhRUChAsGOykTotn9/FWQoYsY9b9eiq/TdK7mq7xqHt+5Pe6s/
-         kUPQD0rwLgLx4BAmOlw6Q46WFR8WlhMBVtyo498ubWAhygbFfXjWUU075049WOa5q+EY
-         LK58sykeiDSsm2LjieiGYkvwECb3FSgJjengk1Z1Q/c0nkXPyuV5GP3QoOlMn7i4uz+E
-         rY8oR2p4/cV6QLsI5Bs6OlSJcMVm0FIcc8gNvu9dtV4Q753a6/zZSrjUvwumonJQQ1zY
-         WoDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751278898; x=1751883698;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=91/ZncbDlmcGCt22EAMRhuZKL6uaG/hY8UyZ2Q+pYCo=;
-        b=RAlL91HuZZSgiFHjtglrcJqud9dGiZUFAPhCaaLCBpAv0u+upF6ARO4CIJ4qD6JbUx
-         P8wRCVPLuKmofN5oUgmyQIbL42h0e9ss8AcS3HiDnqUdwqz0gONNKHUd/+H+Za97oc2H
-         mMXEZxKfTZ1k4B2glUHynUUsPHHO4X6qYgIE/v4csbp3S88LsmkOSCnsO5jWb/3bFmPA
-         Qgu+Os+lE+fb0X/TX0J0hbj0H830Wxg76C/vL9VJZzNM1Ce/Bm5aQi8s4Nfm/fzx4zFx
-         VFAWTf/fyPis2Xa0WqVaRDMl2haGIq8P8rliMq7hU3fB200KjyHgIH/TC0C3EBVJMzYY
-         7Pzg==
-X-Forwarded-Encrypted: i=1; AJvYcCXB5ni1hivDMnpK6m4LQ09YSUUqCg5YWP72chxCAvK0PAOLYsPx6pRhOe9034U0k/mIuXzZNv5Aceq9liQ+9+uI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPtxyAmgIanJzkfx07p7eC+EwGnADteyWz6EEI7udBJBrZbJNr
-	EXWMo3NevfPayPHyFRAqsTiWs0Rp20RrfwYq0fi1ckGYkfx4mb7Lf9B+qpxbMH4z11I=
-X-Gm-Gg: ASbGncvuSwgRXAqa7Y/N1TxMrt4lJtOMq7oeT72uBvWjkrSDMMKZSyk1a/Y1FJJ9Ngb
-	33gd+MrFJYGoVpL16n+0d1PiCxb/BLJ3KkGJ99DnXwypi3x11yhieIjL+KT1iWEj3fjiDVZN2gU
-	9faiopKJHRzjKo/l2DVjTVnANZFU4y3kdbiUl8ONON6AgnEvue0gWMJGwKIqImHAvcWfjswI9kq
-	rIDy/QUU9vDnRdLAxIXowNSxqe1sRk/1LvxDvJeXuUh52/ZRAvXbSeJvnki9qJGlDWt06Qs4FjY
-	j0/aMIV4VOAMHPKD4ZwAdqgaj4P1eYAZwm90iAjNRmNxIUnT6Zn9+HVQL1NAa8R9vncT+Ov2VgI
-	ejaTBM9HD+ga79U6e+CAhtxmtYqPkCuNo5gzHBjGSNwEa2SZ672qgw8AB1zZiBvUcsv86yXk=
-X-Google-Smtp-Source: AGHT+IG0udIx5/vSjab4jTXQgQOixHxgW8J50sJp+ilVqsU6WQ7uEmPrf6nFFV5tvDzy3dhkra701g==
-X-Received: by 2002:a17:907:9691:b0:ae0:c6fb:2140 with SMTP id a640c23a62f3a-ae3500f374emr1085087666b.32.1751278898278;
-        Mon, 30 Jun 2025 03:21:38 -0700 (PDT)
-Received: from localhost (2001-1c00-3b8a-ea00-c4de-d39d-05f4-c77a.cable.dynamic.v6.ziggo.nl. [2001:1c00:3b8a:ea00:c4de:d39d:5f4:c77a])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae35365a95esm649858666b.59.2025.06.30.03.21.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Jun 2025 03:21:37 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 30 Jun 2025 12:21:36 +0200
-Message-Id: <DAZSK2NT6TAT.1N6A4I8ETH92W@fairphone.com>
-Cc: <~postmarketos/upstreaming@lists.sr.ht>, <phone-devel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-pm@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
- <linux-crypto@vger.kernel.org>, <dmaengine@vger.kernel.org>,
- <linux-mmc@vger.kernel.org>
-Subject: Re: [PATCH 14/14] arm64: dts: qcom: Add The Fairphone (Gen. 6)
-From: "Luca Weiss" <luca.weiss@fairphone.com>
-To: "Konrad Dybcio" <konrad.dybcio@oss.qualcomm.com>, "Will Deacon"
- <will@kernel.org>, "Robin Murphy" <robin.murphy@arm.com>, "Joerg Roedel"
- <joro@8bytes.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Rafael J.
- Wysocki" <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>,
- "Manivannan Sadhasivam" <mani@kernel.org>, "Herbert Xu"
- <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>,
- "Vinod Koul" <vkoul@kernel.org>, "Bjorn Andersson" <andersson@kernel.org>,
- "Konrad Dybcio" <konradybcio@kernel.org>, "Robert Marko"
- <robimarko@gmail.com>, "Das Srinagesh" <quic_gurus@quicinc.com>, "Thomas
- Gleixner" <tglx@linutronix.de>, "Jassi Brar" <jassisinghbrar@gmail.com>,
- "Amit Kucheria" <amitk@kernel.org>, "Thara Gopinath"
- <thara.gopinath@gmail.com>, "Daniel Lezcano" <daniel.lezcano@linaro.org>,
- "Zhang Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>,
- "Ulf Hansson" <ulf.hansson@linaro.org>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
-References: <20250625-sm7635-fp6-initial-v1-0-d9cd322eac1b@fairphone.com>
- <20250625-sm7635-fp6-initial-v1-14-d9cd322eac1b@fairphone.com>
- <4200b3b8-5669-4d5a-a509-d23f921b0449@oss.qualcomm.com>
- <DAXA7TKVM4GI.J6C7M3D1J1XF@fairphone.com>
- <6d4e77b3-0f92-44dd-b9b0-3129a5f3785b@oss.qualcomm.com>
- <DAXEA131KUXZ.WTO7PST1F3X6@fairphone.com>
- <3fbae47b-d20d-426b-a967-b584e32b8c6e@oss.qualcomm.com>
-In-Reply-To: <3fbae47b-d20d-426b-a967-b584e32b8c6e@oss.qualcomm.com>
+	Mon, 30 Jun 2025 10:27:03 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55U8D5D9008138;
+	Mon, 30 Jun 2025 10:26:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=RNwyz2uPyTgf5iTMXJhK4t
+	1OLAWKnwrjx6NHrYAot/k=; b=GQ7lQFld32m1MZciqSayJxeeWOAXoJ6L1PBpzy
+	oK1XDRoK6gt2Snee14kqS+W47yGJvpuvvNyBPtXgqgLEpk+mN31Oyb62b9o66jd9
+	K2JkbWTrZCVhDVqP8Vl8+R0Epjcdc9AHWPyCHLdjwYfqc/OrjoCpJmpbB/te1vZp
+	O6VzZtL2M1YTLYBEHMGpwNy7dw+qeHQ/t1h/hnebfx8jLigYO56z/m/+7LDbbHAp
+	6/BGRBTPNfAU3wWOkC05Fh5TI1f7tuHDdTvgx5of2yfufZwcgr5+Pat4iLv51hfp
+	XUe5gXVFb2UmOaNhV4ILTn1/X+1LDaq+bvdr4v7SxjO1MUiQ==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47kkfms0e1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 30 Jun 2025 10:26:56 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55UAQtLr028282
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 30 Jun 2025 10:26:55 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Mon, 30 Jun 2025 03:26:53 -0700
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Date: Mon, 30 Jun 2025 18:26:19 +0800
+Subject: [PATCH] coresight: Only register perf symlink for sinks with
+ alloc_buffer
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250630-etm_perf_sink-v1-1-e4a7211f9ad7@quicinc.com>
+X-B4-Tracking: v=1; b=H4sIAEpmYmgC/x3M0QpAQBBG4VfRXNsaK5JXkaT1D5Ms7UpK3t3m8
+ rs456GIoIjUZg8FXBp19wlFnpFbRj/D6JRMlm3FdckG5zYcCDJE9asBWJyIqxvLlJojQPT+f13
+ /vh+gPyWtXwAAAA==
+X-Change-ID: 20250630-etm_perf_sink-ee0fcffc6820
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>
+CC: <kernel@oss.qualcomm.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Yuanfang Zhang <quic_yuanfang@quicinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751279213; l=1521;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=H0MaE5zBOSHO3LkNCLftptGerNAPEoWExbl9pw4hqbk=;
+ b=vnAxtFOL7djNa+vwjH/7/Runb2sNbuIdgf67egd/SWFD/dYSYcr2rIv7OP0+2xsrWLoFZX6FR
+ oCNia01W7hCBe8E5Mg2tTmPjq6h4Q6rpiTbWCi56U2naomwflbxVPrn
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: _DvWm0v9RiTWO0ItHcZ0r8IqVpA07VDo
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjMwMDA4NiBTYWx0ZWRfX2RpDxWFY9W5M
+ rLypVQu84WV8EWsCb4fGbsgF9Y7dSDUxJarec3Vh4DWv7+YQcUp3L8MVX2pShiSRKM1y+80U1Jx
+ 17ChT9LDERo0WBdIQcelkm6M1Ghhf6E1h9vWweQ+zC9VI1nyI+E0L/GH5ts99tHEerqbJ2srM+u
+ 5bS/28quVylRTPB0w4b8rmytbzXb9Izzska9NYRy6ylLa6A/yrGCEaqtypq2AeYh6VWy87Z8j2S
+ XyfNjBDounZ0ES/2Gj6cF/kb2M4YuyPLTuNoFa/ZY04Cwq2A79glx8gesOe3MBcyLUvEQ5uKPxE
+ KMZhtc5hO60j/UzMVv5Agmhm5pwxEU6ksGmBjiztRmx5eIHED6peZg/Vxb/yAZ1H+quvwJaXUvT
+ Wv9CYygC7T67sdM2AdsCYBUsWEdZyvNLf/pKek/zi2fnShCNPIgIeRqTjmmzAJCzb73SZgTC
+X-Authority-Analysis: v=2.4 cv=L9sdQ/T8 c=1 sm=1 tr=0 ts=68626670 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
+ a=biE8C0GMo9j7lGmchtYA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: _DvWm0v9RiTWO0ItHcZ0r8IqVpA07VDo
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-30_02,2025-06-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 phishscore=0 impostorscore=0 priorityscore=1501
+ malwarescore=0 lowpriorityscore=0 adultscore=0 suspectscore=0 mlxlogscore=961
+ bulkscore=0 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506300086
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_032140_739996_CE300C19 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20250630_032702_839707_5E83F95F 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,97 +124,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Jun 27, 2025 at 5:34 PM CEST, Konrad Dybcio wrote:
-> On 6/27/25 4:44 PM, Luca Weiss wrote:
->> On Fri Jun 27, 2025 at 4:34 PM CEST, Konrad Dybcio wrote:
->>> On 6/27/25 1:33 PM, Luca Weiss wrote:
->>>> On Wed Jun 25, 2025 at 4:38 PM CEST, Konrad Dybcio wrote:
->>>>> On 6/25/25 11:23 AM, Luca Weiss wrote:
->>>>>> Add a devicetree for The Fairphone (Gen. 6) smartphone, which is bas=
-ed
->>>>>> on the SM7635 SoC.
->>>>>
->>>>> [...]
->>>>>
->>>>>> +&pm8550vs_d {
->>>>>> +	status =3D "disabled";
->>>>>> +};
->>>>>> +
->>>>>> +&pm8550vs_e {
->>>>>> +	status =3D "disabled";
->>>>>> +};
->>>>>> +
->>>>>> +&pm8550vs_g {
->>>>>> +	status =3D "disabled";
->>>>>> +};
->>>>>
->>>>> Hm... perhaps we should disable these by deafult
->>>>
->>>> Do you want me to do this in this patchset, or we clean this up later =
-at
->>>> some point? I'd prefer not adding even more dependencies to my patch
->>>> collection right now.
->>>
->>> I can totally hear that..
->>>
->>> Let's include it in this patchset, right before SoC addition
->>> I don't think there's any pm8550vs users trying to get merged in
->>> parallel so it should be OK
->>=20
->> Okay, can do. Disable all of them (_c, _d, _e, _g), and re-enable them
->> in current users? I assume there might also be boards that only have
->> e.g. _d and no _c.
->
-> I suppose it's only fair to do so, in line with
->
-> d37e2646c8a5 ("arm64: dts: qcom: x1e80100-pmics: Enable all SMB2360 separ=
-ately")
+Ensure that etm_perf_add_symlink_sink() is only called for devices
+that implement the alloc_buffer operation. This prevents invalid
+symlink creation for dummy sinks that do not implement alloc_buffer.
 
-Sounds good, I've prepared this change for v2.
+Without this check, perf may attempt to use a dummy sink that lacks
+alloc_buffer operationsu to initialise perf's ring buffer, leading
+to runtime failures.
 
->
->
->>>>>> +&usb_1 {
->>>>>> +	dr_mode =3D "otg";
->>>>>> +
->>>>>> +	/* USB 2.0 only */
->>>>>
->>>>> Because there's no usb3phy description yet, or due to hw design?
->>>>
->>>> HW design. Funnily enough with clk_ignore_unused this property is not
->>>> needed, and USB(2.0) works fine then. Just when (I assume) the USB3
->>>> clock is turned off which the bootloader has enabled, USB stops workin=
-g.
->>>
->>> The USB controller has two possible clock sources: the PIPE_CLK that
->>> the QMPPHY outputs, or the UTMI clock (qcom,select-utmi-as-pipe-clk).
->>=20
->> So okay like this for you, for a USB2.0-only HW?
->
-> Yeah, maybe change the comment to something like:
->
-> /* USB 2.0 only (RX/TX lanes physically not routed) */
->
-> to avoid getting this question asked again
+Fixes: 9d3ba0b6c0569 ("Coresight: Add coresight dummy driver")
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+---
+ drivers/hwtracing/coresight/coresight-core.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Ack
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index fa758cc21827552a5c97b6bdd05d22dec4994b22..fddf04c5ee46eb4d559416296f7e85ce6c5689fa 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1374,8 +1374,9 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 		goto out_unlock;
+ 	}
+ 
+-	if (csdev->type == CORESIGHT_DEV_TYPE_SINK ||
+-	    csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) {
++	if ((csdev->type == CORESIGHT_DEV_TYPE_SINK ||
++	     csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) &&
++	    sink_ops(csdev)->alloc_buffer) {
+ 		ret = etm_perf_add_symlink_sink(csdev);
+ 
+ 		if (ret) {
 
-/* USB 2.0 only, HW does not support USB 3.x */
+---
+base-commit: 408c97c4a5e0b634dcd15bf8b8808b382e888164
+change-id: 20250630-etm_perf_sink-ee0fcffc6820
 
-Regards
-Luca
-
->
->>> Because you said there's no USB3, I'm assuming DP-over-Type-C won't
->>> be a thing either? :(
->>=20
->> Yep. I'd have preferred USB3+DP as well since it's actually quite cool
->> to have with proper Linux. On Android, at least on older versions it's
->> barely usable imo. Can't even properly watch videos on the big screen
->> with that SW stack.
->
-> Bummer! Not something we can change though :(
->
-> Konrad
+Best regards,
+-- 
+Yuanfang Zhang <quic_yuanfang@quicinc.com>
 
 
