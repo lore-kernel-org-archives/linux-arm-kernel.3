@@ -4,99 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95C9C83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 19:19:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF21C83029
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 19:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zR6ngs40KDKrfuQ8uGrYMi9KPu0z0Fij7dHU34pFebA=; b=S8/aVHMt8sQhGQjRnlpa9g8e1L
-	u/ZVpUADN5vQAK5x4Ale9j65fER9vxiQru/ARzSLzXQwQ+dl1kDoaE0djH0daxts0OQfZN/j/eJFX
-	wmUocuHyawu1TKEuY9dSiwp9y9t9iXgCBk25VwLmIZi/qZtbOESPqUoiLMX1N1z/nUs7fNxppsRJ5
-	XTi0zAku/oaP0NW122Bd04XhxF+7w+B8Tja9HNl/JDRStv9vi5PJzChUpdoXWhI+MVgUHqpjTh3rC
-	OLsxF2rf9t0R5yUbAXTFIiZEdoEv3x0/KdnbjPn4MBqYFhLVV2ZSJOVxOBmwt8KAr66LAB1A7QjGD
-	+jxH/avw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/icnc7Os7AoQTpBWqs6e62GRa9dnHnzsYDszjaelMPM=; b=kSBWVlDA9JzyejDSzW8GOFgKNw
+	BgPb7Q6W/1XnD5DtS5dsgfS+LpUcnX03882VhyEMFqW8EyCNX1ACoTyo/eNDv8+IUmiyxGOsI6gAv
+	k1nRga9iTlIquJFWXa4AcOp0SuJy65SuP6c2EstJq24lol2aDJC5lbPJc+lVBBJcmAm8NWqWJjtXk
+	ns59GqcbXwWqeX+C5G7beSFfCck34XEqSAJSgffjfeq1cbr8mM5c1UX2JQh2gEVxNZZ5ga8Y0/UQd
+	sojNzx+ehAOnt7BNU2a8L/TfuMIn4NlalBxBnP6lx6o6m3bAVDV7aZVzE4rThmDB8YUvEd3FxbXjX
+	+UpVzJag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWK23-00000003H33-02r7;
-	Mon, 30 Jun 2025 19:19:11 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1uWK4L-00000003HKz-2y8r;
+	Mon, 30 Jun 2025 19:21:33 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWJzg-00000003Gp8-1NDE
+	id 1uWK0S-00000003Gt3-1fSH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 19:16:45 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4a6f3f88613so27468801cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 12:16:43 -0700 (PDT)
+	Mon, 30 Jun 2025 19:17:33 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7490cb9a892so3434305b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 12:17:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1751311003; x=1751915803; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=zR6ngs40KDKrfuQ8uGrYMi9KPu0z0Fij7dHU34pFebA=;
-        b=3QC1WICaP8YGP+iKsnRYlHIHmd0/ApJzQqJWYttbfuvgHuPTts525SVuaf7QIEgjXk
-         +3NETo9UhQM5NfxCgOGtrzso50gmDYlJUHPwaFpeswDjC6CblTyIpUIFBMJnu3lYud+f
-         mpgp3jCgOfc3tM38DRwH1vw/+YGLc25WavTG9mPGFwVD3tnsa+pg9Uad1lbn23vdofib
-         jcc9lKy7jbyfXAUCVnwRZAJpMPtW7rSWGNj9Z0isXsgSVNY8v+37U2AVwF13LuyoOK81
-         4LkHhdIiHXXl6CG1IbCg+lTj0/1DEPhUEZpGpBQO7WqqUH16IBy3bSqG8ExIe7dlBX57
-         uXuA==
+        d=broadcom.com; s=google; t=1751311052; x=1751915852; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=/icnc7Os7AoQTpBWqs6e62GRa9dnHnzsYDszjaelMPM=;
+        b=AZgVmmV4netlV+Bel06QyhzjKIma6AW1XELATHXKphPqxSotdjpdavxN/Lb+wHxu9l
+         wJQ4R9foSnjNB7fPldAt2wYw3rnZAMc+pS0haBHd4ZKxKzjktfSV7UkimeSSpD3Slv5C
+         G5zFfpDj+46h1dRuUo0a6HlcY+fBLxcbWu3Ts=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751311003; x=1751915803;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zR6ngs40KDKrfuQ8uGrYMi9KPu0z0Fij7dHU34pFebA=;
-        b=kMIhHUY1HYgSmj9Uerv+VxsahNE1Hl8PONeA+4FHtknR8wtmlAZb0M1+36xFDIjR8n
-         6thHtIrPsu8owNiAh1Mup1hDet5/wJ141cYth3UH3NjSFnuzeyi7Pp8yu5SeTRt13lJy
-         OXFWDLt2qfGtUQxC/AhVs3FY2eVpP6w4QCwoRk0s8pEFB8rv9/Fz8UNkCHG2YgElylN1
-         KOMpooV5If/MqiQ9xrIXMNXJ70rxBN0HdVPCVrOZ7oReyywHfWl34eV/66FizMrnzd1a
-         GA3g3EwuAuyWnZF8ZUOe1B/U7Ptk/teMLMOoXCNUUFm0JTAVJzL4QCFRsUu4bPWYzw/9
-         7+PA==
-X-Forwarded-Encrypted: i=1; AJvYcCW1KpRc0M5CDLRsFOcQri8/tMMJ6htj9/2KnYfau7PcfWkZ0iRgQcFeffJ85dh/OG6uOZZWPWhlPHKzGue/2Fqy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzoBqiH7lRXtrBRcelPXe2smyCYGHkpKmev7d8Cyv94xrWKtmtH
-	GP93NUHN2IHK7iHhlU4prGDIoXoR/+QLErusHaCnrv04Nl6OHGAaj7pCVSYAJA3/HwO8rkXvXNj
-	uuggF
-X-Gm-Gg: ASbGncsmt3bkPV9Jg6vJIg2lIWt+cFmJqobyjJUWHTcuN5dJnuIyqxzET8Zn67l+W7j
-	XkN539nrKZ7R6SIP7LPFdlie3NGF+QY3/FXZbmwaKHsTTVJx7/bxicUboUwvSI7PfiGntgk8RxH
-	oGcto1hX4Q7T7i0d1BQwK45yhcC/nkwQSuCH4YvdHWoqZbxHtmbcQf/Y2zug9xn+T6tHptbpAzg
-	8IXU5AsUnQlzYTErQI8zhgkkc5ljmGhaB5aax0+i+qz1v8vlToDOJsuZEihAmxAR1nVQYeFsmWN
-	Mv4RPR5s+z3O3XT97/4JOA6PKct11nSGEvFYTtKR5xbKayUeIZMT8S6PoTNd7PptqvQ=
-X-Google-Smtp-Source: AGHT+IESAXpZrbCN9sq0IGqWEgBIgw7TERMevL4glDJMzoeekiYHSxfwJOAsDJinhURnk5aOEcbJIw==
-X-Received: by 2002:a05:622a:2611:b0:4a7:14c3:7405 with SMTP id d75a77b69052e-4a7fcbb0be4mr267384891cf.27.1751311002729;
-        Mon, 30 Jun 2025 12:16:42 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:17:b699::c41? ([2606:6d00:17:b699::c41])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4a7fc57d81asm63480201cf.65.2025.06.30.12.16.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jun 2025 12:16:41 -0700 (PDT)
-Message-ID: <82be6ca4c33d394fc52fbe2a90362fa6955d0a47.camel@ndufresne.ca>
-Subject: Re: [PATCH] media: cedrus: Add support for additional output formats
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Paul Kocialkowski <paulk@sys-base.io>, linux-media@vger.kernel.org, 
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Hans Verkuil <hans@jjverkuil.nl>,  Jernej Skrabec
- <jernej.skrabec@siol.net>
-Date: Mon, 30 Jun 2025 15:16:40 -0400
-In-Reply-To: <20250523154359.2454180-1-paulk@sys-base.io>
-References: <20250523154359.2454180-1-paulk@sys-base.io>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0MU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAY29sbGFib3JhLmNvbT6ImQQTFg
- oAQQIbAwULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBO8NUoEVxMPCGgRvEtlBlFEpYHL0BQJ
- oLLLGBQkJZfd1AAoJENlBlFEpYHL0BEkA/3qkWYt99myYFSmTJUF8UB/7OroEm3vr1HRqXeQe9Qp2
- AP0bsoAe6KjEPa/pJfuJ2khrOPPHxvyt/PBNbI5BYcIABLQnTmljb2xhcyBEdWZyZXNuZSA8bmljb
- 2xhc0BuZHVmcmVzbmUuY2E+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQ
- TvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyy+AUJCWX3dQAKCRDZQZRRKWBy9FJ5AQCNy8SX8DpHbLa
- cy58vgDwyIpB89mok9eWGGejY9mqpRwEAhHzs+/n5xlVlM3bqy1yHnAzJqVwqBE1D0jG0a9V6VQI=
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-PkVzrifhkU38IZasPoP3"
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+        d=1e100.net; s=20230601; t=1751311052; x=1751915852;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/icnc7Os7AoQTpBWqs6e62GRa9dnHnzsYDszjaelMPM=;
+        b=JUDKA/l000ttJrR2uJo22vtcWDC8v5b6PpI5x5m95qewwRzACvCYjhqh3l5TB7+Rqv
+         cLOp5udrnnxJLAfdOHTE08VPz0AuxiOK6c9VLlt7hr3qunEOCa913Lrb65EPWeFMOxSz
+         v3R1Nd+vx7AgCE/P+RYcW1DkCdf/deXN8sXd9saZeAAS1UvzZXCGmzMNMgJrV6Hqy86C
+         5WGe9vrdPfrpWjJsFoKVrAP1utGLXKKpdniO3g6hWd56IAAo++rBqi1pfYZo9ad+85U7
+         ZACb0cXG01+Ow9nPb/Yb6tkKj81ruA1Wa092hzaz58g1+gNwQuYqnIKO53ZICJTh5kMV
+         XnoA==
+X-Forwarded-Encrypted: i=1; AJvYcCXLPFyCeX9AAWMc+EcQU1Da8COCLmmS6L7WI5DTaKXPNoSTdzN4VYA+7rFLGBBJadcucSbMQCFVZWqwRQKBND0Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHrzsRd6pHh5xZEsAtpRnZoVSWxAcHSj3d5n4FEL6bOdqT+M92
+	i7QVJHeQD4Gd2FS/erwYdDC4K5XKVSCm+uGmPjF+Wl0xO5tQrVw2CNcDv0qzKCLl/w==
+X-Gm-Gg: ASbGncvCtU8uANKVe8FhPqSjMB78kZxbK5IhI8RF7ez9N2JROEtk0xwQLRNIzSXRj6k
+	uKlYmHzmooGymZn6Bzr0QDX/R2AF1mxGwUwzez4dSl39lypOfMv5ue5DPxqxXQmi0ujuUTJpJUs
+	iSpxbSx7BoOEVQO5G1CiQGzX92566WT70mPx/J2kkAstfmDqh2Ku4pZseTPEOXOIbSmvn46SVA/
+	leX32/Oihvy/M1GMngUaUqKWyI2HGeK8ulcTUiYao2tzqWDFwlL81o3XdcGipPlJCGWXj+LOj2o
+	XVWU8hvrHOLGR7BXGy5g8VXkPe5sHnDMzOzbbfdgeZohY7T+yIAo2Mnaj/JGAMjhAiCGQzvAG/f
+	VSuO2gTM2xIaoO7VK+2gj92hSmA==
+X-Google-Smtp-Source: AGHT+IEki0KdQAjRMkHvaX3/gkmEnLE6D4qqKuPqbMXVfDYcUkTnDLdWtpcfzqFXZLm1SNTNGyqJEw==
+X-Received: by 2002:a05:6a00:845:b0:749:540:ca72 with SMTP id d2e1a72fcca58-74af6f5b39amr21961216b3a.24.1751311051789;
+        Mon, 30 Jun 2025 12:17:31 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74af541e8fasm9787662b3a.67.2025.06.30.12.17.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 30 Jun 2025 12:17:31 -0700 (PDT)
+Message-ID: <d90c0d21-9544-44f7-b987-8d7b7c71f135@broadcom.com>
+Date: Mon, 30 Jun 2025 12:17:27 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/16] PCI: iproc: Switch to
+ msi_create_parent_irq_domain()
+To: Nam Cao <namcao@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+ Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, =?UTF-8?Q?Pali_Roh=C3=A1r?=
+ <pali@kernel.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Joyce Ooi <joyce.ooi@intel.com>,
+ Jim Quinlan <jim2101024@gmail.com>,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Ryder Lee <ryder.lee@mediatek.com>,
+ Jianjun Wang <jianjun.wang@mediatek.com>,
+ Marek Vasut <marek.vasut+renesas@gmail.com>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Michal Simek <michal.simek@amd.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>,
+ Nirmal Patel <nirmal.patel@linux.intel.com>,
+ Jonathan Derrick <jonathan.derrick@linux.dev>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org
+References: <cover.1750858083.git.namcao@linutronix.de>
+ <53946d74caf1fd134a1820eac82c3cf64d48779f.1750858083.git.namcao@linutronix.de>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <53946d74caf1fd134a1820eac82c3cf64d48779f.1750858083.git.namcao@linutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_121644_604335_C264AE82 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20250630_121732_446439_F2ADCBCA 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,124 +160,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6/26/25 07:47, Nam Cao wrote:
+> Move away from the legacy MSI domain setup, switch to use
+> msi_create_parent_irq_domain().
+> 
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
 
---=-PkVzrifhkU38IZasPoP3
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-
-Hi Paul, Jernej,
-
-Le vendredi 23 mai 2025 =C3=A0 17:43 +0200, Paul Kocialkowski a =C3=A9crit=
-=C2=A0:
-> From: Jernej Skrabec <jernej.skrabec@siol.net>
->=20
-> If VPU supports untiled output, it actually supports several different
-> YUV 4:2:0 layouts, namely NV12, NV21, YUV420 and YVU420.
->=20
-> Add support for all of them.
->=20
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@siol.net>
-> Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
-> ---
->=20
-> Looks like this patch never made it, sorry about that.
-> I've rebased it atop media/next and added my Reviewed-by tag.
-> ---
-> =C2=A0drivers/staging/media/sunxi/cedrus/cedrus_hw.c | 18 +++++++++++++++=
-++-
-> =C2=A0.../staging/media/sunxi/cedrus/cedrus_video.c=C2=A0 | 18 ++++++++++=
-++++++++
-> =C2=A02 files changed, 35 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> index 32af0e96e762..168d89c5a16d 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> @@ -86,9 +86,25 @@ void cedrus_dst_format_set(struct cedrus_dev *dev,
-> =C2=A0
-> =C2=A0	switch (fmt->pixelformat) {
-> =C2=A0	case V4L2_PIX_FMT_NV12:
-> +	case V4L2_PIX_FMT_NV21:
-> +	case V4L2_PIX_FMT_YUV420:
-> +	case V4L2_PIX_FMT_YVU420:
-> =C2=A0		chroma_size =3D ALIGN(width, 16) * ALIGN(height, 16) / 2;
-> =C2=A0
-> -		reg =3D VE_PRIMARY_OUT_FMT_NV12;
-> +		switch (fmt->pixelformat) {
-> +		case V4L2_PIX_FMT_NV12:
-> +			reg =3D VE_PRIMARY_OUT_FMT_NV12;
-> +			break;
-> +		case V4L2_PIX_FMT_NV21:
-> +			reg =3D VE_PRIMARY_OUT_FMT_NV21;
-> +			break;
-> +		case V4L2_PIX_FMT_YUV420:
-> +			reg =3D VE_PRIMARY_OUT_FMT_YU12;
-> +			break;
-> +		case V4L2_PIX_FMT_YVU420:
-
-Just so its recorded, Hans added a default: case here while applying.
-
-regards,
-Nicolas
-
-> +			reg =3D VE_PRIMARY_OUT_FMT_YV12;
-> +			break;
-> +		}
-> =C2=A0		cedrus_write(dev, VE_PRIMARY_OUT_FMT, reg);
-> =C2=A0
-> =C2=A0		reg =3D chroma_size / 2;
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-> b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-> index 77f78266f406..9fae2c7493d0 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-> @@ -64,6 +64,21 @@ static struct cedrus_format cedrus_formats[] =3D {
-> =C2=A0		.pixelformat	=3D V4L2_PIX_FMT_NV12_32L32,
-> =C2=A0		.directions	=3D CEDRUS_DECODE_DST,
-> =C2=A0	},
-> +	{
-> +		.pixelformat	=3D V4L2_PIX_FMT_NV21,
-> +		.directions	=3D CEDRUS_DECODE_DST,
-> +		.capabilities	=3D CEDRUS_CAPABILITY_UNTILED,
-> +	},
-> +	{
-> +		.pixelformat	=3D V4L2_PIX_FMT_YUV420,
-> +		.directions	=3D CEDRUS_DECODE_DST,
-> +		.capabilities	=3D CEDRUS_CAPABILITY_UNTILED,
-> +	},
-> +	{
-> +		.pixelformat	=3D V4L2_PIX_FMT_YVU420,
-> +		.directions	=3D CEDRUS_DECODE_DST,
-> +		.capabilities	=3D CEDRUS_CAPABILITY_UNTILED,
-> +	},
-> =C2=A0};
-> =C2=A0
-> =C2=A0#define CEDRUS_FORMATS_COUNT	ARRAY_SIZE(cedrus_formats)
-> @@ -140,6 +155,9 @@ void cedrus_prepare_format(struct v4l2_pix_format
-> *pix_fmt)
-> =C2=A0		break;
-> =C2=A0
-> =C2=A0	case V4L2_PIX_FMT_NV12:
-> +	case V4L2_PIX_FMT_NV21:
-> +	case V4L2_PIX_FMT_YUV420:
-> +	case V4L2_PIX_FMT_YVU420:
-> =C2=A0		/* 16-aligned stride. */
-> =C2=A0		bytesperline =3D ALIGN(width, 16);
-> =C2=A0
-
---=-PkVzrifhkU38IZasPoP3
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaGLimAAKCRDZQZRRKWBy
-9PJgAP9YO0WJH/NNq+CaJXSgK9tAYcGlb9/A+rt2u9ac3/xO2QD/SGzZr5aodnIh
-3ut2Ast1YM6fTcN+X5020Z2kjtkjGgc=
-=mibq
------END PGP SIGNATURE-----
-
---=-PkVzrifhkU38IZasPoP3--
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
