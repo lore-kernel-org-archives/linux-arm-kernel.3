@@ -4,93 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1910C83000
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 038DEC83000
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vlnZvB/WCXPqtyuE7Jw0BGhm5yZL6emwd3gHblqa4CA=; b=iP5P8m2HCkWSLKqKBLncUNbeai
-	BLFOCS/wwrI7Efv/UubtFG9KYNsT+i51PTeVCCJAdw1wzFAN/+wOZTAfuSO/AsSrHuhk9Bv3X/p7b
-	GcTDDZxGSMos+09W5aajTBeHSyio5pPYFJIz3d08WJMtsq6C8pDj5eHB/jbRkuOp3nIvCwNJ+g74f
-	FNTYtdiLd5vtNdjEgOhfDExV0osFG/Ly3yxEP16NHBeStOttkS7oTKwnknqXP5v/1t++WGVrR51Bg
-	fAPNHQlRbEReeWKqzAy0BkMVWIKmnXb1vzDuMxYZU5T1FjCAGRXndfCZTYPdFfQWhedYppKk+Ygxk
-	rLmYCRzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ISC1jHbfiqurHfFKZgFEQDld2FTVesd2AslHB3FcMZQ=; b=X4PNcs0baUjfEFvaWcM31wEk5B
+	ktff0BiZvOgFIp6Cm/SaCRr2LWhNvY1knAzQrmVV5aRPXiGoxX0l4I2FE9M+eAOXdrwHvtyLe/u92
+	m0Mm1ZlbOHShgLiI4LIQdhdtKElmKKyJzdYIhwkObBBJbHuc+eUDwjmG/XTsaiCKPdsJ3k7WDZkBK
+	19UTgAhpMNc9WNWjcL/xJzdyGi/j7/zaaSNLUR53L5FHvOloQF8zKxkYKne8I4B5xg3ED0zFhE5Q9
+	ehwxXCrWiWpDcuW0F3Y2OVWMKKgXz45hOr7n4p4oIwQOMrDLdAQI6hT4KvVJmLvgBbyYjnfhrXJQH
+	UNy3mHkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW9fu-00000001ab9-0Wva;
-	Mon, 30 Jun 2025 08:15:38 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1uW9iA-00000001avn-3ll3;
+	Mon, 30 Jun 2025 08:17:58 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW9db-00000001aJA-0Sek
+	id 1uW9dt-00000001aMN-2lrn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 08:13:16 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a4fb9c2436so2329239f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 01:13:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mandelbit.com; s=google; t=1751271193; x=1751875993; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vlnZvB/WCXPqtyuE7Jw0BGhm5yZL6emwd3gHblqa4CA=;
-        b=DNNdu2iIGB6ibRe6zbB5s13u91hA2vQIWgyURQYourPO/ZDFrshCzJPN7ZTLaMz5BN
-         jWn+7rsOGiyhlaJ4Cyu1juoi8tggMPPbwfNPT2Ifl8AWGYv0OmlhjW01YRLQbCR8YfdO
-         EaXUVxlyIu3sRDyqVIVFdazeb3Q3xKwp3YRit8vZtBHTp+IveMX6lOyPgSSGga5O7AZ/
-         m1HJ2HXrtoTRrs/5UxvxROnd8Yu3Byz0MoVvKU+Tvn+fhax1O5PbP6MxUy595lp+Qh2v
-         hiRBhaDH12bzmrisWJAF4ohtRWUUMmxEJmeC5MaHJTDxgFSnhOnQRQroINfd83XkZkjR
-         9hfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751271193; x=1751875993;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vlnZvB/WCXPqtyuE7Jw0BGhm5yZL6emwd3gHblqa4CA=;
-        b=cYWSeKC6JMX3OHhYKqnkuUPLkKLAm8p2qvkfGvo2TPvGqhUCwct+v67HtLaLRMXJP7
-         IqDP23g+sARObPsZQkCGfLTzWsIe7i3fXLXlVecjhJzvFiRu++4gLudN2gl2pZowo7NJ
-         bnbHDQ10pq36CZnQGrbDe/7bambaZk1wUQmQyWSTdlMy02uULT6cMsib58q8Ou509391
-         ReL1X0PD/JNVaeGtBh7xI9E8L5pXSu3cWMkxxvYooclHgpotrM5FMROff4jh/rgBsHHz
-         FZ3mY/rRaZhnQuUEpaWEOeqYlZtBWjlNKEIPjfYFA/1FXR8La6axy71e3h126hLzxX8k
-         NEjA==
-X-Forwarded-Encrypted: i=1; AJvYcCVVn/Pdv7D/XI8zIJ0ntk5Xplo0Dzk4D3Tjhma1BAN4TnOZTYnumCa0JlzzzUph5mOwzmvqptIfiH/lpedmKvcW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgV/01Lb+Q7CB5B+DMzVP4W77lRXbwI05gBXl50jJU94gMOxSX
-	0SjcQFjKaKuwny4Og9cpTlkAGfuMMno0vwPa+CEI76fSZSpFLsAgKq+rZz2ecu0zXt0=
-X-Gm-Gg: ASbGncvCxOKpYHPLDR7MANgOImXb6R9NvhqsWNoLzym+DxtISIxO2fFT+Ivj+B3c5aM
-	2b33R8rVrM8vy84bJ3BQmIv6Nez6oOb3bkTiFAZCxQdGOm6Fje1wuz1tuQCBDprl5SPhIsBcPQF
-	B5Z7RI3YGSpdR4q+fVODobXGYOprm//QVx7DnWOu512KyGPm8MBenAE4HIuRkasSbAjyP8JsfVC
-	YAFsn8t5S1+9byUaVhaYT61YO9HGiIKCVdNJzNMjDFcwIkY3K+mgdbg+IEfvN2qaRS4dVnPK/50
-	ZYR98az1eJNdtQGNUWFL4svE2+U1SEFotTzVyn6QLLRs7GIdeWpL1s8Gn7UyhN9J0RuXb5kNlfF
-	aT3gsyG+zmWk=
-X-Google-Smtp-Source: AGHT+IG31LxT0ptg6EHo/bGKOyukJazY4oC/IxLI6mz15TAMA4SfoRER0gF+bNZj4oNhXngxmykf0g==
-X-Received: by 2002:adf:ca92:0:b0:3a4:f722:f98d with SMTP id ffacd0b85a97d-3a9008557admr7908660f8f.51.1751271193346;
-        Mon, 30 Jun 2025 01:13:13 -0700 (PDT)
-Received: from inifinity.homelan.mandelbit.com ([2001:67c:2fbc:1:f5fc:eb97:a20:8b31])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a88c7e7386sm9612674f8f.20.2025.06.30.01.13.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jun 2025 01:13:12 -0700 (PDT)
-From: Antonio Quartulli <antonio@mandelbit.com>
-To: linux-spi@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com,
+	Mon, 30 Jun 2025 08:13:35 +0000
+Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 0F3E67A017F;
+	Mon, 30 Jun 2025 04:13:30 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-11.internal (MEProxy); Mon, 30 Jun 2025 04:13:30 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1751271209;
+	 x=1751357609; bh=ISC1jHbfiqurHfFKZgFEQDld2FTVesd2AslHB3FcMZQ=; b=
+	OSl6IrPcYA0w8eyp05Istu06l8SNgs1aQOsGVZeUkOgVOqJ9EYM3OBKZSFNpD1ob
+	YCIiY1Vj/sm0epsf3MwPy+zTXWrpHlH2HYMOVK2Fc1sjd84HcmIPM3OUPHpFa9pH
+	N2MjY1TCOk9DzqFb2BqCKNkVdx4NKhlssT6bs/ORWFuYPlVkW/zBYYTtbeqP+HBD
+	qPz6nvLVtShiuPsSmm/sfLvaOP1ZuV5HGfaaGI+ezbGR94ek3qlWEj9a/hzqZnHc
+	/RZ0opCqv0PcZO9brPHFD84MfYyFmCP5Qyum1poGR/8V/9vSyPdNWkkKYpjvuYvU
+	yjOD69w/R7iKdVyPRl7/Rg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1751271209; x=
+	1751357609; bh=ISC1jHbfiqurHfFKZgFEQDld2FTVesd2AslHB3FcMZQ=; b=n
+	qQArAVlXef8VZ2XVViFWJXUjkrmDbe2uLKlzA3sULjpiV+0k4LZxuV9jKvtAQQcU
+	NH2izK8YsnB/kdkLTfj06HbQPL//DkSj7hdr94Id9q/XIdeM2TyCbkB9n5zVbzDk
+	zUkr0uN85KYGGF+q5qKSdPS5yXK5JLUfmv62KN1MR0muHN62gg/PSwfY/2QJtVEG
+	U6s6ZTVS3hhBfQ73dK6VwLDLsemFduUjfmKhaUX94nriKmQLKxP2wF46xZfDFF02
+	hsjw6abg8UsFZQPtgvwEDF+EUEI1AYdVTNg75hpFx0BDa+dRjgWwNcAeD79T5n3J
+	h6AnpUSXlJcXOQleBwdow==
+X-ME-Sender: <xms:KUdiaL6pr2Zesc4sfCg_jp2pBdt3HlM4K28BuZL8eMJzpEMNLmqiBw>
+    <xme:KUdiaA4WahKURnpWF_DFQpeu7PPlvPhhv55oXQUeZ7A3oOIyR8OH7tkYc3agL9-o7
+    L3FxZiit8bdYwMNCyc>
+X-ME-Received: <xmr:KUdiaCdQRJcpW2ooaAV-RLw0I3tkZQldwkXbmtVKg9eYBjmBuyVpDLdJa3-FvWK18KKeJxHDzvlkYoM1gaZrI19W6XuxSCDsqA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduuddulecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpeffhffvvefukfhfgggtugfgjgesthekredttddtjeenucfhrhhomheppfhikhhlrghs
+    ucfunpguvghrlhhunhguuceonhhikhhlrghsrdhsohguvghrlhhunhgusehrrghgnhgrth
+    gvtghhrdhsvgeqnecuggftrfgrthhtvghrnhepveetgedtvddvhfdtkeeghfeffeehteeh
+    keekgeefjeduieduueelgedtheekkeetnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
+    hrrghmpehmrghilhhfrhhomhepnhhikhhlrghsrdhsohguvghrlhhunhgusehrrghgnhgr
+    thgvtghhrdhsvgdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhpohhuthdprh
+    gtphhtthhopehmrghrvghkrdhvrghsuhhtsehmrghilhgsohigrdhorhhgpdhrtghpthht
+    ohepmhgrrhgvkhdrvhgrshhuthdorhgvnhgvshgrshesmhgrihhlsghogidrohhrghdprh
+    gtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrggu
+    vggrugdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpd
+    hrtghpthhtohepghgvvghrthdorhgvnhgvshgrshesghhlihguvghrrdgsvgdprhgtphht
+    thhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghgnhhush
+    druggrmhhmsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdr
+    ohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdroh
+    hrgh
+X-ME-Proxy: <xmx:KUdiaMKW8MI6Osjoq8CWKUAcG-I22IDqT__kkvOyfijzcowagpelHA>
+    <xmx:KUdiaPJA_pqO_0OwhD0J6F9jCc4zffGlkCizb2hKgz2Uan6t0qvyUw>
+    <xmx:KUdiaFyvmagPxv63wrZAB1K8NPwlufXf4EVMyDnKq1JRVuETL-Zy_A>
+    <xmx:KUdiaLLjacCyICS0bMzey6SLOzdtvdXAAap--zgjgtbbeA_Srl4O_Q>
+    <xmx:KUdiaN7zTOf65V6lb8DgBB9ngE1yNDjpOv8r0alDxlH-d_6X-4mhkkaF>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 30 Jun 2025 04:13:29 -0400 (EDT)
+Date: Mon, 30 Jun 2025 10:13:28 +0200
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Antonio Quartulli <antonio@mandelbit.com>
-Subject: [PATCH v2] spi: stm32: fix pointer-to-pointer variables usage
-Date: Mon, 30 Jun 2025 10:12:53 +0200
-Message-ID: <20250630081253.17294-1-antonio@mandelbit.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <1f49b8f3-44c9-43f3-a3bf-b931fb0726f4@foss.st.com>
-References: 
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Update thermal trip
+ points on V4H Sparrow Hawk
+Message-ID: <20250630081328.GC2837343@ragnatech.se>
+References: <20250625100330.7629-1-marek.vasut+renesas@mailbox.org>
+ <20250626214152.GA1817595@ragnatech.se>
+ <c0ec7600-158f-431e-8f99-a462d68b808e@mailbox.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <c0ec7600-158f-431e-8f99-a462d68b808e@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_011315_297956_0AE96DA6 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20250630_011334_039931_26B8D52E 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,89 +124,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In stm32_spi_prepare_rx_dma_mdma_chaining() both rx_dma_desc
-and rx_mdma_desc are passed as pointer-to-pointer arguments.
+Hello Marek,
 
-The goal is to pass back to the caller the value returned
-by dmaengine_prep_slave_sg(), when it is not NULL.
+On 2025-06-30 00:32:54 +0200, Marek Vasut wrote:
+> On 6/26/25 11:41 PM, Niklas Söderlund wrote:
+> 
+> Hello Niklas,
+> 
+> > > +&a76_3 {
+> > > +	a76_3_thermal_idle: thermal-idle {
+> > > +		#cooling-cells = <2>;
+> > > +		duration-us = <10000>;
+> > > +		exit-latency-us = <500>;
+> > > +	};
+> > > +};
+> > 
+> > I did not know you could do this and use it as a cooling device, thanks
+> > for teaching me something new!
+> 
+> You could, although the cooling effect may vary. Some cores enter e.g. clock
+> stop during idle and then they really cool down, some do not.
+> 
+> > > +/* THS sensors in SoC, critical temperature trip point is 100C */
+> > > +&sensor1_crit {
+> > > +	temperature = <100000>;
+> > > +};
+> > > +
+> > > +&sensor2_crit {
+> > > +	temperature = <100000>;
+> > > +};
+> > > +
+> > > +&sensor3_crit {
+> > > +	temperature = <100000>;
+> > > +};
+> > > +
+> > > +&sensor4_crit {
+> > > +	temperature = <100000>;
+> > > +};
+> > > +
+> > > +&sensor_thermal_cr52 {
+> > > +	critical-action = "shutdown";
+> > > +};
+> > > +
+> > > +&sensor_thermal_cnn {
+> > > +	critical-action = "shutdown";
+> > > +};
+> > 
+> > Is this not the default action for critical trip points? In my testing
+> > in the past R-Car systems have always shutdown when the critical trip is
+> > reached.
+> 
+> It isn't quite that clear cut.
+> 
+> drivers/thermal/thermal_of.c thermal_of_zone_register() contains this piece
+> of code:
+> 
+> "
+> 407         ret = of_property_read_string(np, "critical-action", &action);
+> 408         if (!ret && !of_ops.critical) {
+> 409                 if (!strcasecmp(action, "reboot"))
+> 410                         of_ops.critical =
+> thermal_zone_device_critical_reboot;
+> 411                 else if (!strcasecmp(action, "shutdown"))
+> 412                         of_ops.critical =
+> thermal_zone_device_critical_shutdown;
+> 413         }
+> "
+> 
+> If "critical-action" DT property is not set, then of_ops.critical are not
+> modified.
+> 
+> drivers/thermal/thermal_core.c thermal_zone_device_register_with_trips()
+> contains this piece of code:
+> 
+> 1571         if (!tz->ops.critical)
+> 1572                 tz->ops.critical = thermal_zone_device_critical;
+> 
+> If (in case of OF) of_ops.critical is not set, use
+> thermal_zone_device_critical() handler.
+> 
+> There is a slight difference:
+> - If critical-action = "shutdown" is set in DT, then handler
+>   thermal_zone_device_critical_shutdown() is called, which is a wrapper
+>   around thermal_zone_device_halt(tz, HWPROT_ACT_SHUTDOWN);
+> - If critical-action = "shutdown" is NOT set in DT, then handler
+>   thermal_zone_device_critical() is called, which is a wrapper
+>   around thermal_zone_device_halt(tz, HWPROT_ACT_DEFAULT);
+> 
+> thermal_zone_device_halt() itself is a wrapper around
+> __hw_protection_trigger(msg, poweroff_delay_ms, action); , where action is
+> either HWPROT_ACT_SHUTDOWN or HWPROT_ACT_DEFAULT , which is handled in
+> kernel/reboot.c __hw_protection_trigger() implementation :
+> 
+> 1028 void __hw_protection_trigger(const char *reason, int ms_until_forced,
+> 1029                              enum hw_protection_action action)
+> 1030 {
+> 1031         static atomic_t allow_proceed = ATOMIC_INIT(1);
+> 1032
+> 1033         if (action == HWPROT_ACT_DEFAULT)
+> 1034                 action = hw_protection_action;
+> 
+> In case of HWPROT_ACT_DEFAULT , the 'hw_protection_action' which is assigned
+> into 'action' can be overridden, either via sysfs write, or hw_protection_
+> kernel command line parameter . In case of HWPROT_ACT_SHUTDOWN , the action
+> cannot be overridden .
+> 
+> In case this hardware starts to melt, we surely want HWPROT_ACT_SHUTDOWN
+> with no override options ...
+> 
+> > If it's not I think we should move these to r8a779g0.dtsi. And
+> > likely add them for all other SoCs too?
+> 
+> ... the other hardware has non-optional heatsink, where override-able
+> HWPROT_ACT_DEFAULT is the right option I think .
 
-However, these variables are wrongly handled as simple pointers
-during later assignments and checks.
+Wow, thanks for the detailed rundown. With that I agree with you, we 
+should only force the shutdown on this particular platform. Nice work.
 
-Fix this behaviour by introducing two pointer variables
-which can then be treated accordingly.
+Reviewed-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
 
-Fixes: d17dd2f1d8a1 ("spi: stm32: use STM32 DMA with STM32 MDMA to enhance DDR use")
-Addresses-Coverity-ID: 1644715 ("Null pointer dereferences (REVERSE_INULL)")
-Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
-
----
-Changes from v1:
-* introduce *_mdma_desc and *_dma_desc for better readability
-* fix another instance of rx_dma_desc bogus assignment in case of
-  failure of sg_alloc_table()
-* commit title/message reworded accordingly to the previous point
----
- drivers/spi/spi-stm32.c | 22 ++++++++++++----------
- 1 file changed, 12 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
-index 3d20f09f1ae7..4b7f074fdba9 100644
---- a/drivers/spi/spi-stm32.c
-+++ b/drivers/spi/spi-stm32.c
-@@ -1474,6 +1474,8 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
- 						  struct dma_async_tx_descriptor **rx_dma_desc,
- 						  struct dma_async_tx_descriptor **rx_mdma_desc)
- {
-+	struct dma_async_tx_descriptor *_mdma_desc = *rx_mdma_desc;
-+	struct dma_async_tx_descriptor *_dma_desc = *rx_dma_desc;
- 	struct dma_slave_config rx_mdma_conf = {0};
- 	u32 sram_period, nents = 0, spi_s_len;
- 	struct sg_table dma_sgt, mdma_sgt;
-@@ -1524,18 +1526,18 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
- 		}
- 	}
- 
--	*rx_dma_desc = dmaengine_prep_slave_sg(spi->dma_rx, dma_sgt.sgl,
--					       dma_sgt.nents, rx_dma_conf->direction,
--					       DMA_PREP_INTERRUPT);
-+	_dma_desc = dmaengine_prep_slave_sg(spi->dma_rx, dma_sgt.sgl,
-+					    dma_sgt.nents, rx_dma_conf->direction,
-+					    DMA_PREP_INTERRUPT);
- 	sg_free_table(&dma_sgt);
- 
--	if (!rx_dma_desc)
-+	if (!_dma_desc)
- 		return -EINVAL;
- 
- 	/* Prepare MDMA slave_sg transfer MEM_TO_MEM (SRAM>DDR) */
- 	ret = sg_alloc_table(&mdma_sgt, nents, GFP_ATOMIC);
- 	if (ret) {
--		rx_dma_desc = NULL;
-+		_dma_desc = NULL;
- 		return ret;
- 	}
- 
-@@ -1558,13 +1560,13 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
- 		}
- 	}
- 
--	*rx_mdma_desc = dmaengine_prep_slave_sg(spi->mdma_rx, mdma_sgt.sgl,
--						mdma_sgt.nents, rx_mdma_conf.direction,
--						DMA_PREP_INTERRUPT);
-+	_mdma_desc = dmaengine_prep_slave_sg(spi->mdma_rx, mdma_sgt.sgl,
-+					     mdma_sgt.nents, rx_mdma_conf.direction,
-+					     DMA_PREP_INTERRUPT);
- 	sg_free_table(&mdma_sgt);
- 
--	if (!rx_mdma_desc) {
--		rx_dma_desc = NULL;
-+	if (!_mdma_desc) {
-+		_dma_desc = NULL;
- 		return -EINVAL;
- 	}
- 
 -- 
-2.49.0
-
+Kind Regards,
+Niklas Söderlund
 
