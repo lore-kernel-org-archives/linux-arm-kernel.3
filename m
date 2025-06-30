@@ -4,182 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7292CC8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 12:43:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC5F2C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 12:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aCmwF58Dzf5Un5j2db4gCPLtY4aprNw+u7//7Sv7+Oc=; b=kdnu5jfuXi6jQuOgFH4PImwHBI
-	lSivTZoSDuFbYcyG8VIdoEUcvX4OBVFxtl0hoJqEJysaPETrU0YJ2SSBY28Y+AaKu2okP6Wrtzws3
-	4tnRs9xkYNVPzI1TUNQekzZQ7YffHeqLwYnUT64tXkJ+I9V5Tf2iGaP7nhcPGPH+/Iaw2O88Ngvnj
-	gG6TDgu/kXUqqbhnpsCdnWfNynTUEZ7e7t6efiOlrbncFlWG1ZsLKzID+GwY0pXkcMGTbKAkthCGy
-	uS40HJ8ceQfAZMG2IecaAIKY16xHTC6XkRPey8ZstpNv5yAutgc2RD1eUCJabjgDuB0TGdaSE/jBr
-	pnEa9+rQ==;
+	bh=u1Rnt4cRf6XO8xjWlpBXoABIu1cte7IUGPtWMpFtjzE=; b=cJ8G4+Z/NqdHxAXh3ueUye+dP0
+	IarLuD9cqqQsF3TvCP1jvZd0BiL1QQhTP2CvX/1wyjW7TX317ZJaii0bu9qFhwebGejDXV+uCfg0X
+	tfX6uwOvQHG6KFeB63QdYGEbi4bSANiGDlsPm0KJ9F6XXm3eBk+tB34hDRqfxHrUYp/+qq+t1hsID
+	5LgX7TpsbcoB9KL6o/2wJgV/c4gXC01OwWjIteoGNeCsK1MEp2+Ulnv5djEBsEnmk+zoPyeb5RZ+j
+	hLlW/66flS5+EZFD1ksUkUxusEM7bfpkd2JbrSWiK1c/ijkfTdb/xgkNaiUAyAhthwqhT3UpnmNMH
+	e5U9Lj5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWDrI-00000002E7E-1bab;
-	Mon, 30 Jun 2025 12:43:40 +0000
-Received: from mail-dm6nam12on20621.outbound.protection.outlook.com ([2a01:111:f403:2417::621] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1uWE2P-00000002Fxd-3OHg;
+	Mon, 30 Jun 2025 12:55:09 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWDZO-00000002Asb-2Gji
+	id 1uWE06-00000002Fkr-3vDq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 12:25:12 +0000
+	Mon, 30 Jun 2025 12:52:48 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55UCfhKN016609;
+	Mon, 30 Jun 2025 12:52:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=u1Rnt4cRf6XO8xjWlp
+	BXoABIu1cte7IUGPtWMpFtjzE=; b=L2dcPR0daco3AFQFCElUxIuiTv9jFKFEQx
+	zmigHsh/nTcQNxi26uWZg+fX/YPofUBSOckxPkJgANwoieVFucHfsJTG+Pny/zpd
+	q9ZvwY3pj9h8F98CaLhbgEwIJFMMv0Gswxs97lFJnY+se01vqvfwbu/UlSIodq01
+	/Wfo/sfqctsiYt798aPYdT1BvGWvbTsfZDBhsgEpwFiY16gr1GPPjL88ZqT+KWip
+	AvdmepQenm16wg8dZDarmLZ7sCiHiNcscSfoaxmhxOVMmKvZZdKmP277ZoJIosq4
+	DHuElU18IityWQlsPux2lBGc+WWaxw8ZQHx51BWyZbteWcfYLmYA==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 47j7af2ed3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 30 Jun 2025 12:52:25 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 55UCE8t2009044;
+	Mon, 30 Jun 2025 12:52:24 GMT
+Received: from nam11-co1-obe.outbound.protection.outlook.com (mail-co1nam11on2044.outbound.protection.outlook.com [40.107.220.44])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 47j6u8a6p9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 30 Jun 2025 12:52:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YR1u9EGBRqFyBMooQkaV16yhbSm93ToeNEg6iGWqLKkVrU94ORaOJkRDnhQa80HQpw6NEf3kuVdm1E4Eh3K4z+5aKa6ztAc8YPUusmPrQtoTxIubdoSLj7fmcuAsx3yZV+cbOkje1FiYGrlP+tiPgVxLB2wjfelwdgiRlPnRvS8x8lyK0EpAdP4vTt5A2XMOt9DbnBN1ontuUoq9eb8hJoJVyubUrKnCf+gerplCDrvB+6gadVrzybhL1QFXIUDM8x592NBFFxK+mX6M8nna2rUjSMFIi55YkUPmVY9PAFQ06SITJ1WgM7SOxK2LjC1/up4ah4WhBwi4rMv5r98C3Q==
+ b=OiKrD90F9FXcM2/9JBoJOgL8eOf9GBc91kkiehIm2Jopg3lxs0kqMBJLyEoI7wjLZcKdPZ1vVyIF4h2H7IqftzN6ulUgpmLmoXEnB0lOUgCYqev9sxxFGbcXDecWvxbnl62IZK4CdAxe9CQvSWKB2AhFx3jd1sAtQsDM9v7eDTm59Co8NrE+d6/EWsme2FgC3VyZX0vDjkmh1uuXcTKd9N9dNjGelIMqO545+rhfB+YoBLKJK29Us24MiUXpEbYpEuEEB28P1mK3QXLcG8KzD3z64d7CFL5LshMk9rySIj2xbx7BIWmNHzpKmm+Nkvqcr62ideeM9vGkhdOEAFaTsA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aCmwF58Dzf5Un5j2db4gCPLtY4aprNw+u7//7Sv7+Oc=;
- b=FLGDZJ5VJfJywKyo6dWPSp122m9q/pdSv4MCSbBeSjKzd5EHrUYI590p7GgwtRaSrgdCG0Pl5Wme+8UCJOZ1SdgiOKo/LQivfHnj+PcrVG/NS1Uw1sc/ZPXzNJItg5p7ocbTn6Bk8+1YvEmHZ2zkdzhmJQwT6Dkb9CPvj/F72s2MaLskR2M6VIKkkJWfFG0zTdkH4VXEfcOqW36qYJp2f+mo7Sfx/o91I7594S7wNkTq0du8Z612fhTLNq+j0nSurDBdSLGOlCY1GRGTdfHZLeE91HFA4V0b+Zj1QPC1FWvZyhEHLT5AHcZt8mZCI52ZCam9bGGDjzZcq0hJKcDiJg==
+ bh=u1Rnt4cRf6XO8xjWlpBXoABIu1cte7IUGPtWMpFtjzE=;
+ b=eRuEVwZyxhwhPYvvCpWEtKoj0gOJ0bRzNb4YQe2gyWaxW6PogKoZ4O4H86tBCkYd3lSZUZMGxjaGIn2BkHReAFcjgVIBBD5PbAlFVVOJJvxmKTP+UFlqUIeqNaPcKWZ9Y6g1aJIwi+BJJjxpJ2+7GBrVR/5/5LLmuulj3mb/xA5v5gHmfR9g3pZ5hR7Slevx3Gc7aACL4f5D7rrdoDeJtayK7jN6JpQ3GzUb7dt7tCm8jFketNw+H6b3dGuYywb2w4vZtADQllDWQIdPYPdizpBW3bGtCSi1b+tMuIvLKTYREIHa3w1ypnYaHtk3vAKFJizBPJfqjek3GC9TfQw8Kw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aCmwF58Dzf5Un5j2db4gCPLtY4aprNw+u7//7Sv7+Oc=;
- b=ToFxU9QwX1rcSeqpAGCvMxmHTLHxGnccSFXr/t1NBDCJWTiSgxSiQ2V1bacS5Awu+Q3ctfB6gsjcpyxcTvLJQyZIATxVm3sUXaOf2xtkoWhUN9Xf3leRSZ8rs10Jlul4g3MrQ9UjV9IiItg3d4zScLFGxNqbs2OxaHp2kp8vciMvBnFFVy9d2tpm7RTkDxasxUarOMxKOYZUMVPyamWnU199a7li4xvvd52DzXS+rEsiGZaJY0gp96agbSDox0qGI9aMpEVvx3gbVSEmRGeys5i3OIAa+jUQLYGQLb+xzg8svvSSfTXZZmUwIm9U/VUU78VjwKs5NYzQhM91vHRbfw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CYYPR12MB8938.namprd12.prod.outlook.com (2603:10b6:930:c7::11) with
+ bh=u1Rnt4cRf6XO8xjWlpBXoABIu1cte7IUGPtWMpFtjzE=;
+ b=O5M7FFP9Za3AgTcOXU/maNLnOu/Z/rJuWp8dt6ZOaWWmV5U8Ch4/hxOrY/oo8PPslaqcfAWLNs3CC797V3wIGuFLn1hKvtZ8+xf2MA+//qt8aJKtQ/v9sd/wJNDw7ITncP2Cb4+JCAOofJqT1X2fy2CLLvQF1puj0IGmXDrf0ws=
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
+ by DM3PPFB0C5EC304.namprd10.prod.outlook.com (2603:10b6:f:fc00::c43) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.29; Mon, 30 Jun
- 2025 12:25:05 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8880.030; Mon, 30 Jun 2025
- 12:25:04 +0000
-Date: Mon, 30 Jun 2025 09:25:01 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Ankit Agrawal <ankita@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"david@redhat.com" <david@redhat.com>,
-	"ddutile@redhat.com" <ddutile@redhat.com>,
-	"seanjc@google.com" <seanjc@google.com>,
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	Krishnakant Jaju <kjaju@nvidia.com>,
-	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"tabba@google.com" <tabba@google.com>,
-	"qperret@google.com" <qperret@google.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"maobibo@loongson.cn" <maobibo@loongson.cn>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>
-Subject: Re: [PATCH v9 3/6] KVM: arm64: Block cacheable PFNMAP mapping
-Message-ID: <20250630122501.GQ167785@nvidia.com>
-References: <20250621042111.3992-1-ankita@nvidia.com>
- <20250621042111.3992-4-ankita@nvidia.com>
- <aF6hamOI7YVDP1Cp@willie-the-truck>
- <SA1PR12MB7199144BBDA23C9A06DA12F9B046A@SA1PR12MB7199.namprd12.prod.outlook.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Mon, 30 Jun
+ 2025 12:52:21 +0000
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2%6]) with mapi id 15.20.8880.027; Mon, 30 Jun 2025
+ 12:52:20 +0000
+Date: Mon, 30 Jun 2025 13:52:13 +0100
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
+        willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+        vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
+        peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
+        baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+        christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+        linux-arm-kernel@lists.infradead.org, hughd@google.com,
+        yang@os.amperecomputing.com, ziy@nvidia.com
+Subject: Re: [PATCH v4 3/4] mm: Optimize mprotect() by PTE-batching
+Message-ID: <0315c016-d707-42b9-8038-7a2d5e4387f6@lucifer.local>
+References: <20250628113435.46678-1-dev.jain@arm.com>
+ <20250628113435.46678-4-dev.jain@arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <SA1PR12MB7199144BBDA23C9A06DA12F9B046A@SA1PR12MB7199.namprd12.prod.outlook.com>
-X-ClientProxiedBy: BL1PR13CA0257.namprd13.prod.outlook.com
- (2603:10b6:208:2ba::22) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+In-Reply-To: <20250628113435.46678-4-dev.jain@arm.com>
+X-ClientProxiedBy: LO2P265CA0184.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:a::28) To BL4PR10MB8229.namprd10.prod.outlook.com
+ (2603:10b6:208:4e6::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CYYPR12MB8938:EE_
-X-MS-Office365-Filtering-Correlation-Id: 893c323f-a711-4abb-1203-08ddb7d123a7
+X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|DM3PPFB0C5EC304:EE_
+X-MS-Office365-Filtering-Correlation-Id: 715c1fa2-6d26-440e-88ee-08ddb7d4f141
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0kLRhggSFlWBERjczMuF0JVnMJ7ycxW9J0R90nmNnXflxDED2OC4QLzI5Zl9?=
- =?us-ascii?Q?rfrCpDt6RwOtzySgXDHwaddxSAaI8LlB5ghQAKrv3EUzK+4nm2FUCJSgWbBH?=
- =?us-ascii?Q?LxOIQHhPWjLfSlN0G8JeK4X6M/LL+5vSqYgdedGGIMyeX49SxFUgXTPoBMvz?=
- =?us-ascii?Q?OxdJN3UACT/0GOXeGhotpaywihh8IK68IL54aRLD1t09d27mtTXoiqckVFQz?=
- =?us-ascii?Q?tYBPpoL3XAro2nOZaPcdVNPFphAPm7ljwuEM3OKRIq2iJ+WPQCCYyD12xn0U?=
- =?us-ascii?Q?wzzfeN378w9iOQRit70o3bh4cT3Omga/LGcH6O9Z4tvy69ZXFK3bU54OZd0u?=
- =?us-ascii?Q?DPWSxcMYeiwPxL6V931uRiSc2Nee7bu1wq9VuF2khJKpCboNCdp5hBtdUGlu?=
- =?us-ascii?Q?6OVDK44Z8+1zJ+4od+umDRVhjtLN2d8G8HcxkcEKIJukD00Y7xFeA5IaNVKC?=
- =?us-ascii?Q?Mk53NcJaPpFjX8PBQwGEjsCrCgREcYpHNEpsJ98x64f79c6BZvrWJdt4vcvv?=
- =?us-ascii?Q?7BWWUMb/ONsCNh/ILCOA7bcIX7AOP5bVzIx74eAvF9O0+Y0h1/c+7BptIq/r?=
- =?us-ascii?Q?vYVM91y/vNXcHqj+9E396LvMg3hsDp1898Ugn+gVCub2sby8eYK+LyVlWZpW?=
- =?us-ascii?Q?f90GohVXr84N6GO8BXUUU8LK9K3yBWtBrfb4eYtXjVjslRcVPBXdckYM0QpI?=
- =?us-ascii?Q?dIoq031FGPJh7wDt/NvPiKEZhW84u4sxkVtSMydp0lHW79cqr2NJG120ALvS?=
- =?us-ascii?Q?SqNvUkw04oFkrkSdm0zvOk9snVxFo2NeOg5PEVnSF8RfiH4sftPYMTJH5k+/?=
- =?us-ascii?Q?kjurYfJ+eDZ0GBRONOJvjVkYgFPylRwVg4lWWfgybRDyqnHYiIR8Yf0zYar/?=
- =?us-ascii?Q?hyAW5OOxk5ywyOhi1ddUshHbgDxjxQeQOvatNZhI5LQEcnnuZVoe3D9kXyVq?=
- =?us-ascii?Q?QkrtcwC0VasaO+t2iucDjn6hAGZuejD5aQNPRf4s+6oTDpU0C1zHl3LqcP0a?=
- =?us-ascii?Q?Lm1qQ0rF3AIPvGxXMm2EqJLVLFzlx5gyIyF2sXe039W3zlXL1ApXyBp2wT85?=
- =?us-ascii?Q?dnZ1OtcsVLYcOWBeLusxGMM2O8PraaRnx9PLtDlBtvjYRRw/5D5h442rHtM5?=
- =?us-ascii?Q?9NF8Ad3uslVnfe3WVjz1tYGjFBIOBVJdhJCmTxaC35zAHp6enpV5upbGzkuy?=
- =?us-ascii?Q?7QXjo3hsYqE9Jj4Ngtvrx9buqBSSue1QR18aJbHCYDEWddIJV/x6aC1i6U8w?=
- =?us-ascii?Q?bFycQNIQTZdBFnvgOZ3RV8uVDlVJQOJ9q8JZVYtAL+IsUOTmb4inHoJNkcPe?=
- =?us-ascii?Q?Ms3h00YueI0rMo692m3jCJutE0n4KqP9lPP40u3Dyvva/7z3JC1165T5H7XS?=
- =?us-ascii?Q?QQklmwNzLAHJ1J7oLHZ2HF5KPUpOW1W4X/Uj5zYBLDWvp5aw8rriDpWvXfxl?=
- =?us-ascii?Q?CQbvsp8x6Fg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3khjY0dHee88EsFwnEULeQV9WGA2Av248mTGRTGV3ndGd3/TU9P0R16NqTGv?=
+ =?us-ascii?Q?dWLsLukvi0i6LedoAIfY8JHmXabW8epGHXRhoM9iRGed0DoFrqrw8EmqoSDV?=
+ =?us-ascii?Q?hIZzmF4vmYjqjdgHElCVfZ/ODUdAgJG70ZsW+Oc10/A67I7RAUkmaYelZW3Z?=
+ =?us-ascii?Q?m8CQenDlv2ZsMbH5WDDiAWYjurDM6UWAPo0xNTtIYy63WZHhQoaQlBPUEeUs?=
+ =?us-ascii?Q?GoHtNgRVTh0FqUuXX69S8eJOpo5vdJP1IcZ/gH/GhWCbOe8hHHmKtSWDy3Wm?=
+ =?us-ascii?Q?jW+AZW8pQRgCyWREiSuklD4QkvPAOVGW1IsOSJI7GDxUwDHdppDqwgy4RYQh?=
+ =?us-ascii?Q?w1tJLaTDNDSNZMtG3xOihdZjD0iFLW1nMzXB5D9ypulLOH6JoouNC7dtqaSm?=
+ =?us-ascii?Q?8rWiQ3wmv68GhRtTPfPAkFprdwieOFsfKWadDWsyYb2LaQ516+i0DPO2jyeQ?=
+ =?us-ascii?Q?5dn9tdgafdug6+hUcAJTQUCAy8//Su2jld5rA5qz5LoOBZTvqpLK6SGiuV7U?=
+ =?us-ascii?Q?wa7EKd+uwOaReBLMzy1psyPkO23MpMXQSZaW0Te2BbHcyxOPAFpbzsy+mnwz?=
+ =?us-ascii?Q?DPhdUAUdMrZL0yO6Fq9k9dPO8puMnOH09tub34pEp/zSi/8NuUm6utpW6SMt?=
+ =?us-ascii?Q?eroqlskx3ixp1s17T7m7n2G+O5qiaXXYDTfN7ysqwspKm5Ob4zBuYxvbzCBV?=
+ =?us-ascii?Q?0OPbslq4DMdZHT+KXoKh6XrdqAwLPMVXqZjzxJb7tOBIkVujCBoCvuF9sDub?=
+ =?us-ascii?Q?1tJfziJGABPgHic5brpqnE/jGAoWoELTN5igpiCkanwW1DtDi5cru/2OrybP?=
+ =?us-ascii?Q?SJESdN6l8kYX/x/omkqKrAq/RcumsBHgullOvhOi7YOhsNQeyFJSWYqb4Trf?=
+ =?us-ascii?Q?9UNbiMahb5+ImYSPd5Wb8BVE/EV1k5ugdAjHJQzs3//YX+upJmUCcmS2/0jK?=
+ =?us-ascii?Q?ZjLwZ9jv9u6mZszMP/6sPBqqyM6hCnueqZKdUZU9NvKcEsdd0Zu1ggmh9n5t?=
+ =?us-ascii?Q?2LNAMlbcsX/Q31X55QoYf72Y/rkFjpFJEK5XqDfvBYDCpugAuUoVc3rQkp0K?=
+ =?us-ascii?Q?jS5XK+qnt8EgtmichMpHdqL4LpAvIfE6cmZ+ZWPLRwCClWkHHxMx4PrHfeV3?=
+ =?us-ascii?Q?G67tm6mi3UuvsnaOyKuo+5gTrBBpu3LqbKikv/R/jz/uaWABJ+G1gDTfmgMh?=
+ =?us-ascii?Q?sfYlccIl2DDQB/HwzSDUxOARgmpU4JsRKEpVtx8QSwo8jRAZw+bs7NJSkwUd?=
+ =?us-ascii?Q?EIW58+3IIRaZSa09m8zwE7KYAEeE72EC7iQNQ8n4/Us6gMtK6WlsjpDcLGpn?=
+ =?us-ascii?Q?++3MfTGdSW2MP/M71vRFOz4Qm510vXLyhc6G8Z05n/H0TI35Nx9DmdtIOqCz?=
+ =?us-ascii?Q?QGH0k0UtVmSqoYS2EFYvS1HTRqN2Xtvens3oxMQRcStQxV7g8G3oV1+qWdUT?=
+ =?us-ascii?Q?maIUX/Ahz6Y=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sb98AhdIQiHcJw8BF03YT/PvNkQJjK2MugyqJOomiX2pKILyEZ84IMMWDyE8?=
- =?us-ascii?Q?mNA71lHIsyEp7QWhpwHdFoY+ZgtIyVRXtldUxO75bxe18+k5G+J+3jQsJLQi?=
- =?us-ascii?Q?laq9H15O464azYQWNMqT+4H0Ac6wlaWFzAZb0OOLdFEqP7872dSx7Pn0Fi/l?=
- =?us-ascii?Q?wcNEISmIm9bkqjrU5/CBXK2bwl3Zi+r96A53K+Oh/gP6M7tX3A3d67vzceiC?=
- =?us-ascii?Q?SwUf7RYqI3VFbsJcFeCEdmDMqbH6msXT4XKLbkjKufCqsC97tUxDn/FgIqoB?=
- =?us-ascii?Q?IPkn1Qg+N0pTnckNDijxH5UCj0jZI0/eVhC4TvyNPUB5tMxlUYfuX6kg2KrU?=
- =?us-ascii?Q?TPg7jkBmOXLvYT+98RmdC0CbRM8VwWFFKzDCA8gTQKG5VIi8sHaFyQc++ZjZ?=
- =?us-ascii?Q?Ru+zvcPbTYdOdz6GjrLiAERnJR+KQR5vT0d9wvHCDT1+IxNLM0ocWr3iDxtp?=
- =?us-ascii?Q?ClCoDLKL/haJcdFH4lGK5uIvsENs0GqHcf2LhNpRivz/2xxNhmblkEwBjhcl?=
- =?us-ascii?Q?UWyKmxWIFMYUj8yVs3eQCkLUKpPgVgasf+CXtS1pW8q6bNLy+E6QX/ZkbbmS?=
- =?us-ascii?Q?vaObVPssoutVKEb1lc6vDA5u4I8s/zWzocNKYNYbuitkONXdtzybP+uBjXiJ?=
- =?us-ascii?Q?dgmPaBuCmYaWe31Ws2qXijWS7ROgPS8IhBgetmLIFQKylJVA802iXJD2D4ji?=
- =?us-ascii?Q?grac1L2e6FYRJP/PcWFX0rJ42pQtd6AsXCqMTAgA4O0SeXE9q9h2zHisZRPz?=
- =?us-ascii?Q?c14VWjvIzBdOIn8KJHjrTcmPoMGCmolS5jL3injzjr7nmHkyTKhvJqIzw/T3?=
- =?us-ascii?Q?80HjZGsh8XS+EY1e4UQx/y4K5Eihbs1aUguFWoFjqO316S5lpx/oFrWslaZV?=
- =?us-ascii?Q?vLOSTqHggMZvC8hmAsN8WWphc5eYR1EwZGtI0h4XNQgf4hwA1EiGx+tSrmWi?=
- =?us-ascii?Q?9hTpYyQEmZxaXXHQgwRtwJIenmVE5lH1PMdv2u/Qm1kPjU2Y6DGoPdD96GOF?=
- =?us-ascii?Q?bm43jGCUri3CxvIqjrpQ7B8ItsGN6kCy8nd122EX0Ki7gaf2LgdOT8aRfv/z?=
- =?us-ascii?Q?BLLOMg9KoP+4v7FshlMjEiiEjpoK/YXRGY5WvzAu6V98qHZjwd2zD8A54Rwa?=
- =?us-ascii?Q?UNItNmfUFVIXhEW5dkxpWxBz0ohpuOhDZZ0Bp7Lov95mSgqSS4Vf4deDQt9D?=
- =?us-ascii?Q?RDzrBp8/wURLV+h82wYipCLVIoyNkD+bnG1rkVhv4KufjYIgSpybUuC31O6u?=
- =?us-ascii?Q?gpyunE9UMMo4VEQbPBI431Bnej0zqtdou4GKF8rYZL3l51ic/w9tCExvIEYq?=
- =?us-ascii?Q?qFZoeRd/fFMJSKgl40EPc5lZVr8esaDGG1W55i31g6W4WInEVIn0eNwqMTcU?=
- =?us-ascii?Q?D6KdAnSImKzmZDFyWVqV2D7LHm7/O40dbMTngYfazL/XCclVJfw2rbA1tStm?=
- =?us-ascii?Q?1Xnob439OAkGVS8wMmUok9X1mwgmNwd3q9qhRvo2a7pBQhsG0Jnqwni6vJon?=
- =?us-ascii?Q?BPEwZxQ5LA3IVb+ZXY2jInmt5ORXDhFQ6En6c/MNdiLOoOXSRmwCet+feQuK?=
- =?us-ascii?Q?00G3CmL8tVXzsDlC04w=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 893c323f-a711-4abb-1203-08ddb7d123a7
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?v12Tdzny82Ak12Kcch6uXxP6vG8cLR8i7iGN5sZU1cZMesKgQdlHjsVCBElP?=
+ =?us-ascii?Q?fXHdn3vSMjT+e0I852Bq7NleWIrD5QONg06wziq6CJ0zYlMd7CXLGVIVaWou?=
+ =?us-ascii?Q?/1g0HowGzflxE3w1Uc3trSNZ4rYOEoNf9B6T8oKRAUrWZYeJ4JC1RBGZ+W0n?=
+ =?us-ascii?Q?mveuUr3OPJPZzVReanF3OzCIa202YLS0O7zGGPIXN2VATQTafhVdIOHvxeYD?=
+ =?us-ascii?Q?g9ogHDNiPTuNs2oagWzdWquGu/qoLrQM09WjmOncfCW2TMNz0707tsxM+nLx?=
+ =?us-ascii?Q?Aj71GHy/jTt6wuSndfkopE54PObzj1vpty77NvK5hGRPZ8+d5cY6bJ7wuQsB?=
+ =?us-ascii?Q?RdBj4PBA+VJD87LAYAsCsF/7HZjKEeUXBNLxl6nninN5YWzO3FMO4MKapqm8?=
+ =?us-ascii?Q?dVSISsDwcZSEG3mjvo/VI4m4rbBmwMVJ9SmnJ4THZfCait+JD50aRKlg8eXs?=
+ =?us-ascii?Q?/YE3pmpnPVwIMcKLH6z0BX7MhdXG51zR78KH4My4aMAAGeQbwz8jP1DILofy?=
+ =?us-ascii?Q?8C15SW9ar+E3DWSVtTEqafrgnYozh4HwVx7uaCxkyuwwbsQNgBPfEXnVobcx?=
+ =?us-ascii?Q?J9ejnZllBtJ1c5UyhAJNhDwYjVn66BPMSALR0XTXeSfVnwBSbDecuYVkxZh7?=
+ =?us-ascii?Q?WIRD6LvKXVdoqljqG9TzumzJh3SNIo+kkqo5T9JyWkWMwop+9o2bAy3noTCz?=
+ =?us-ascii?Q?vFWdidg10NYr8cUf1N4CJeQ/WXZ2FYYRE4QZXIa1wblbntTWbrrjjRQdtBrR?=
+ =?us-ascii?Q?jivS6Hy4vWbHLVgMyIzz9L6sewLpyaBlUVrDkqODpVqOnZjce2hjBYXRsQso?=
+ =?us-ascii?Q?wHwZqo/ZHmItwX4C2rmNTfj7SpY09vCgvoigdPtwbXtzY31W5wem5tblRs0l?=
+ =?us-ascii?Q?nP9wP/0C+YXmvI99Fc/WX4X2Ntd260KoI7S6g9nNYh0gicraDMyHCI1JCwzP?=
+ =?us-ascii?Q?/JzJnoawJF4hdzTNqZCwewEXrX0h51jX+mmk4Htpb2aEKl3HXMc7aiOsVxYK?=
+ =?us-ascii?Q?mrVvzc8nqmF4g48vcImtJFYNQHy5lT5owNOAxkwdhKUhD5ExQPhst1WQm1Qz?=
+ =?us-ascii?Q?8+3IWN7Vsy2DXkYG4Dgl3tifVYbjBCmVXNeUfgDc09h0IhCYTRI6eKDTbNTC?=
+ =?us-ascii?Q?ZhGkOfVaWG+4vfCu3uTuEoqbYNPdhqg0mTVl/8TXsZ1uOfDJxk+OrPPCyn4+?=
+ =?us-ascii?Q?3mBwYcaD5ABLPdwLMKzcHs0ffL7Z7rAk3OFHO8pduuAJc3wGo5qki/l7kEmJ?=
+ =?us-ascii?Q?e2n1OAcUwecUa2bu8vD7OgId2sG+7ZN3L0TV5r6opJxC/98vvOUfvOzAMJeP?=
+ =?us-ascii?Q?x+GGI84pjY9PV6c7zH+3H3gtukeCTX4nAsvM0ODN/TzXI2is7X7XkhV2gp+U?=
+ =?us-ascii?Q?37eA7tgBVRjbWB7W4b9sfCl9bRfoGZ2aON5Nn5gSUMhwFYuGO2uh4JDxnsBM?=
+ =?us-ascii?Q?ZIdZXo1E0/Dedq/RNquPsEmor3H3AhJz1B8CbJc7Af53rC5v/NmoGM53SbEr?=
+ =?us-ascii?Q?55gsH6KQoh5boGKQcb3vLn85LPWWjdOIn5Vqq+JTjyYIGMCjbEUkqDMPcfRD?=
+ =?us-ascii?Q?+VVk6swoifuSzHOQdM1HhfTmwycRtLrEzLghATvxRreXDD6oZJaNdnzXaMXo?=
+ =?us-ascii?Q?aQ=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: V0A7uPrsYUHwdCNULuA2+lqAOqgnDVrLCafYpyeZ8FAQVvKRgqq3HYOmSM6f7K98EuT5q6bBEEvacK2P5jeY2bcAE5PNm6/axKj9UwOKJ9DA5lIB0iXqVb1KSmvee8+zspEWZK/N0JLg7hRcJ23y30Qou1kmSJbjwwjdq222aRqHy6kdGZWPrkK26Drc0uVbmbZyjkVDXx2n3WluNovIoCCReJabeqDWFiwuLsAtl3fpsWEKB6Bv6cdCLcWkL8s0tg0bEKMfR5WCVsejCGdNZ6yQqPGvcZqhTjkdIUWd2SjJXwV47X7Gb2waNNRRk/7vNZzb0849SCafP0/yCz/EUCR0mR4DKmPOm6L0rDoHeNu7sOfMO/G1oGC2ko4Eb4afqCkAec6xTEM11ybDLgb+hbspR9ltuBujFrl6PthD6Gewgc+Pgddxf4gvn8z5yPHKtOCIUfJd26FNEJSBfY14/OJ4hW+CBFezwLhZ8zs8SCy2396HgEElpBdXW9D3ukWhvYxoGzaqIU4L9qCV3c4mCum+rggVrBnBKyFhpML7uZVFDOkw5QT1CQLuQqaNUE9oIl9b9Y0dHuYnbC8v50OujSYvOIH4RYAInEVIiBk0fLI=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 715c1fa2-6d26-440e-88ee-08ddb7d4f141
+X-MS-Exchange-CrossTenant-AuthSource: BL4PR10MB8229.namprd10.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2025 12:25:04.5542
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2025 12:52:20.8547
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iDt+Tja0/sLNf+Yx0DBdFIQfMzkB8vtRjstMrhszIO3vz24LTPrjg3T1QWUBKUfi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8938
+X-MS-Exchange-CrossTenant-UserPrincipalName: CoFywUdSyqS6glamcBxpPHBy52I80gnz0ODSR+q3mA4HIf6ZUZYqkAi9K4sUu1Cx3IbzxI4wyIj29zh8QzY5xbxoisZE6NQeDGYKyziPFeg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPFB0C5EC304
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-30_03,2025-06-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 spamscore=0 suspectscore=0
+ phishscore=0 mlxlogscore=999 mlxscore=0 adultscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
+ definitions=main-2506300105
+X-Proofpoint-ORIG-GUID: bFbNxKDERIiCQMxY7c7IHVZiYNFVIPbD
+X-Proofpoint-GUID: bFbNxKDERIiCQMxY7c7IHVZiYNFVIPbD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjMwMDEwNSBTYWx0ZWRfX5d0X/6tDE9Ug 4WWjtaVWh993GzvAUwZy2K6IoysibIE4m0ML4F6OgaDFiUQb8DDKmlKyc/kPq8xq2zGxJB7EVsv iF2TUWr4A01NBOopo+YHAnJjBwfH8mkm14XKFVXAC7ugu+9u7qa3WYsfZ96d3b7ctCpWVuYWzJC
+ mJTlQGvYs29R6NmjDZE+AD0qFzsn2I/2UIV4OZALZbAPkLPpKXeHqBUQn7krAw6WW/BeWNBHYms T8VLVMiNhI/9M8X6r3mf9HmpU66C8ydSPCBfOvQlzm3uidbFGsJ8KT7ia0OBkCXJBv/C6f3QiBM QQU6LEUsDm8iGITS4l7ORhcNRnGlWcIP+2vuVXGyORiwfw50ip0IeGd78ROT/SUgxq6eBd+jNO+
+ Hb4xgxzvmBMwt35xRu96SbU4gvGK4sburKhrEAEh9pG2LukT4eVIfmRVsuSRTUmg/nK64jdO
+X-Authority-Analysis: v=2.4 cv=b5Cy4sGx c=1 sm=1 tr=0 ts=68628889 b=1 cx=c_pps a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=GoEa3M9JfhUA:10 a=7CQSdrXTAAAA:8 a=cTZAACt9iXS7hjOPiPsA:9 a=CjuIK1q_8ugA:10 a=a-qgeE7W1pNrGK8U0ZQC:22 cc=ntf awl=host:14723
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_052510_700002_F25F99FF 
-X-CRM114-Status: GOOD (  22.36  )
+X-CRM114-CacheID: sfid-20250630_055246_978320_A0A48EBA 
+X-CRM114-Status: GOOD (  32.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,44 +202,388 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 01:56:43AM +0000, Ankit Agrawal wrote:
-> > Sorry for the drive-by comment, but I was looking at this old series from
-> > Paolo (look at the cover letter and patch 5):
-> >
-> > https://lore.kernel.org/r/20250109133817.314401-1-pbonzini@redhat.com
-> >
-> > in which he points out that the arm64 get_vma_page_shift() function
-> > incorrectly assumes that a VM_PFNMAP VMA is physically contiguous, which
-> > may not be the case if a driver calls remap_pfn_range() to mess around
-> > with mappings within the VMA. I think that implies that the optimisation
-> > in 2aa53d68cee6 ("KVM: arm64: Try stage2 block mapping for host device
-> > MMIO") is unsound.
-> 
-> Hm yeah, that does seem problematic. Perhaps we need a new
-> vma flag that could help the driver communicate to the KVM that the
-> mapping is contiguous and it can go ahead with the optimization?
-> E.g. something similar to VM_ALLOW_ANY_UNCACHED.
+On Sat, Jun 28, 2025 at 05:04:34PM +0530, Dev Jain wrote:
+> Use folio_pte_batch to batch process a large folio. Reuse the folio from
+> prot_numa case if possible.
+>
+> For all cases other than the PageAnonExclusive case, if the case holds true
+> for one pte in the batch, one can confirm that that case will hold true for
+> other ptes in the batch too; for pte_needs_soft_dirty_wp(), we do not pass
+> FPB_IGNORE_SOFT_DIRTY. modify_prot_start_ptes() collects the dirty
+> and access bits across the batch, therefore batching across
+> pte_dirty(): this is correct since the dirty bit on the PTE really is
+> just an indication that the folio got written to, so even if the PTE is
+> not actually dirty (but one of the PTEs in the batch is), the wp-fault
+> optimization can be made.
+>
+> The crux now is how to batch around the PageAnonExclusive case; we must
+> check the corresponding condition for every single page. Therefore, from
+> the large folio batch, we process sub batches of ptes mapping pages with
+> the same PageAnonExclusive condition, and process that sub batch, then
+> determine and process the next sub batch, and so on. Note that this does
+> not cause any extra overhead; if suppose the size of the folio batch
+> is 512, then the sub batch processing in total will take 512 iterations,
+> which is the same as what we would have done before.
+>
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  mm/mprotect.c | 143 +++++++++++++++++++++++++++++++++++++++++---------
+>  1 file changed, 117 insertions(+), 26 deletions(-)
+>
+> diff --git a/mm/mprotect.c b/mm/mprotect.c
+> index 627b0d67cc4a..28c7ce7728ff 100644
+> --- a/mm/mprotect.c
+> +++ b/mm/mprotect.c
+> @@ -40,35 +40,47 @@
+>
+>  #include "internal.h"
+>
+> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+> -			     pte_t pte)
+> -{
+> -	struct page *page;
+> +enum tristate {
+> +	TRI_FALSE = 0,
+> +	TRI_TRUE = 1,
+> +	TRI_MAYBE = -1,
+> +};
 
-I think Paolo has the right direction - remove any attempts by KVM to
-expand contiguity, it should only copy the primary's PTEs and rely on
-the primary to discover contiguity. No new flags.
+Yeah no, absolutely not, this is horrible, I don't want to see an arbitrary type
+like this added, to a random file, and I absolutely think this adds confusion
+and does not in any way help clarify things.
 
-Instead we need to keep pushing forward with Peter Xu's work to have
-PFNMAPs use large PTEs. I believe ARM still has some missing parts for
-full support bot overall it is a far better direction.
+>
+> +/*
+> + * Returns enum tristate indicating whether the pte can be changed to writable.
+> + * If TRI_MAYBE is returned, then the folio is anonymous and the user must
+> + * additionally check PageAnonExclusive() for every page in the desired range.
+> + */
+> +static int maybe_change_pte_writable(struct vm_area_struct *vma,
+> +				     unsigned long addr, pte_t pte,
+> +				     struct folio *folio)
+> +{
+>  	if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
+> -		return false;
+> +		return TRI_FALSE;
+>
+>  	/* Don't touch entries that are not even readable. */
+>  	if (pte_protnone(pte))
+> -		return false;
+> +		return TRI_FALSE;
+>
+>  	/* Do we need write faults for softdirty tracking? */
+>  	if (pte_needs_soft_dirty_wp(vma, pte))
+> -		return false;
+> +		return TRI_FALSE;
+>
+>  	/* Do we need write faults for uffd-wp tracking? */
+>  	if (userfaultfd_pte_wp(vma, pte))
+> -		return false;
+> +		return TRI_FALSE;
+>
+>  	if (!(vma->vm_flags & VM_SHARED)) {
+>  		/*
+>  		 * Writable MAP_PRIVATE mapping: We can only special-case on
+>  		 * exclusive anonymous pages, because we know that our
+>  		 * write-fault handler similarly would map them writable without
+> -		 * any additional checks while holding the PT lock.
+> +		 * any additional checks while holding the PT lock. So if the
+> +		 * folio is not anonymous, we know we cannot change pte to
+> +		 * writable. If it is anonymous then the caller must further
+> +		 * check that the page is AnonExclusive().
+>  		 */
+> -		page = vm_normal_page(vma, addr, pte);
+> -		return page && PageAnon(page) && PageAnonExclusive(page);
+> +		return (!folio || folio_test_anon(folio)) ? TRI_MAYBE : TRI_FALSE;
+>  	}
+>
+>  	VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
+> @@ -80,15 +92,61 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+>  	 * FS was already notified and we can simply mark the PTE writable
+>  	 * just like the write-fault handler would do.
+>  	 */
+> -	return pte_dirty(pte);
+> +	return pte_dirty(pte) ? TRI_TRUE : TRI_FALSE;
+> +}
 
-> > But it got me thinking -- given that remap_pfn_range() also takes a 'prot'
-> > argument, how do we ensure that this is reflected in the guest? It feels
-> > a bit dodgy to rely on drivers always passing 'vma->vm_page_prot'.
+Yeah not a fan of this at all.
 
-But broadly, if you take that perspective KVM as a misdesign..  KVM
-should be getting the VMA's PTE so that the S2 PTE can duplicate the
-page-by-page flags, instead of only copying the writable bit.
+This is squashing all the logic into one place when we don't really need to.
 
-So, let's call this out of scope for this series. ARM64 KVM does not
-support page-by-page cachability, it never has, and there is no known
-use case right now.. The only user of VMA_CACHED PFNMAPs is being
-consistent.
+We can separate out the shared logic and just do something like:
 
-Jason
+////// Lorenzo's suggestion //////
+
+-bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+-			     pte_t pte)
++static bool maybe_change_pte_writable(struct vm_area_struct *vma,
++		pte_t pte)
+ {
+-	struct page *page;
+-
+ 	if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
+ 		return false;
+
+@@ -60,16 +58,14 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+ 	if (userfaultfd_pte_wp(vma, pte))
+ 		return false;
+
+-	if (!(vma->vm_flags & VM_SHARED)) {
+-		/*
+-		 * Writable MAP_PRIVATE mapping: We can only special-case on
+-		 * exclusive anonymous pages, because we know that our
+-		 * write-fault handler similarly would map them writable without
+-		 * any additional checks while holding the PT lock.
+-		 */
+-		page = vm_normal_page(vma, addr, pte);
+-		return page && PageAnon(page) && PageAnonExclusive(page);
+-	}
++	return true;
++}
++
++static bool can_change_shared_pte_writable(struct vm_area_struct *vma,
++		pte_t pte)
++{
++	if (!maybe_change_pte_writable(vma, pte))
++		return false;
+
+ 	VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
+
+@@ -83,6 +79,33 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+ 	return pte_dirty(pte);
+ }
+
++static bool can_change_private_pte_writable(struct vm_area_struct *vma,
++		unsigned long addr, pte_t pte)
++{
++	struct page *page;
++
++	if (!maybe_change_pte_writable(vma, pte))
++		return false;
++
++	/*
++	 * Writable MAP_PRIVATE mapping: We can only special-case on
++	 * exclusive anonymous pages, because we know that our
++	 * write-fault handler similarly would map them writable without
++	 * any additional checks while holding the PT lock.
++	 */
++	page = vm_normal_page(vma, addr, pte);
++	return page && PageAnon(page) && PageAnonExclusive(page);
++}
++
++bool can_change_pte_writable(struct vm_area_struct *vma,
++		unsigned long addr, pte_t pte)
++{
++	if (vma->vm_flags & VM_SHARED)
++		return can_change_shared_pte_writable(vma, pte);
++
++	return can_change_private_pte_writable(vma, addr, pte);
++}
++
+
+////// end of Lorenzo's suggestion //////
+
+You can obviously modify this to change other stuff like whether you feed back
+the PAE or not in private case for use in your code.
+
+> +
+> +/*
+> + * Returns the number of pages within the folio, starting from the page
+> + * indicated by pgidx and up to pgidx + max_nr, that have the same value of
+> + * PageAnonExclusive(). Must only be called for anonymous folios. Value of
+> + * PageAnonExclusive() is returned in *exclusive.
+> + */
+> +static int anon_exclusive_batch(struct folio *folio, int pgidx, int max_nr,
+> +				bool *exclusive)
+
+Let's generalise it to something like count_folio_fungible_pages()
+
+or maybe count_folio_batchable_pages()?
+
+Yes naming is hard... :P but right now it reads like this is returning a batch
+or doing something with a batch.
+
+> +{
+> +	struct page *page;
+> +	int nr = 1;
+> +
+> +	if (!folio) {
+> +		*exclusive = false;
+> +		return nr;
+> +	}
+> +
+> +	page = folio_page(folio, pgidx++);
+> +	*exclusive = PageAnonExclusive(page);
+> +	while (nr < max_nr) {
+
+The C programming language asks why you don't like using for :)
+
+> +		page = folio_page(folio, pgidx++);
+> +		if ((*exclusive) != PageAnonExclusive(page))
+> +			break;
+> +		nr++;
+
+This *exclusive stuff makes me want to cry :)
+
+Just set a local variable and hand it back at the end.
+
+> +	}
+> +
+> +	return nr;
+> +}
+> +
+> +bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+> +			     pte_t pte)
+> +{
+> +	struct page *page;
+> +	int ret;
+> +
+> +	ret = maybe_change_pte_writable(vma, addr, pte, NULL);
+> +	if (ret == TRI_MAYBE) {
+> +		page = vm_normal_page(vma, addr, pte);
+> +		ret = page && PageAnon(page) && PageAnonExclusive(page);
+> +	}
+> +
+> +	return ret;
+>  }
+
+See above comments on this stuff.
+
+>
+>  static int mprotect_folio_pte_batch(struct folio *folio, unsigned long addr,
+> -		pte_t *ptep, pte_t pte, int max_nr_ptes)
+> +		pte_t *ptep, pte_t pte, int max_nr_ptes, fpb_t switch_off_flags)
+
+This last parameter is pretty horrible. It's a negative mask so now you're
+passing 'ignore soft dirty' to the function meaning 'don't ignore it'. This is
+just planting land mines.
+
+Obviously David's flag changes will also alter all this.
+
+Just add a boolean re: soft dirty.
+
+>  {
+> -	const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+> +	fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+> +
+> +	flags &= ~switch_off_flags;
+>
+> -	if (!folio || !folio_test_large(folio) || (max_nr_ptes == 1))
+> +	if (!folio || !folio_test_large(folio))
+>  		return 1;
+
+Why remove this last check?
+
+>
+>  	return folio_pte_batch(folio, addr, ptep, pte, max_nr_ptes, flags,
+> @@ -154,7 +212,8 @@ static int prot_numa_skip_ptes(struct folio **foliop, struct vm_area_struct *vma
+>  	}
+>
+>  skip_batch:
+> -	nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte, max_nr_ptes);
+> +	nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte,
+> +					   max_nr_ptes, 0);
+
+See above about flag param. If you change to boolean, please prefix this with
+e.g. /* set_soft_dirty= */ true or whatever the flag ends up being :)
+
+>  out:
+>  	*foliop = folio;
+>  	return nr_ptes;
+> @@ -191,7 +250,10 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  		if (pte_present(oldpte)) {
+>  			int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
+>  			struct folio *folio = NULL;
+> -			pte_t ptent;
+> +			int sub_nr_ptes, pgidx = 0;
+> +			pte_t ptent, newpte;
+> +			bool sub_set_write;
+> +			int set_write;
+>
+>  			/*
+>  			 * Avoid trapping faults against the zero or KSM
+> @@ -206,6 +268,11 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  					continue;
+>  			}
+>
+> +			if (!folio)
+> +				folio = vm_normal_folio(vma, addr, oldpte);
+> +
+> +			nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte,
+> +							   max_nr_ptes, FPB_IGNORE_SOFT_DIRTY);
+
+Don't we only care about S/D if pte_needs_soft_dirty_wp()?
+
+>  			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
+>  			ptent = pte_modify(oldpte, newprot);
+>
+> @@ -227,15 +294,39 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  			 * example, if a PTE is already dirty and no other
+>  			 * COW or special handling is required.
+>  			 */
+> -			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+> -			    !pte_write(ptent) &&
+> -			    can_change_pte_writable(vma, addr, ptent))
+> -				ptent = pte_mkwrite(ptent, vma);
+> -
+> -			modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
+> -			if (pte_needs_flush(oldpte, ptent))
+> -				tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
+> -			pages++;
+> +			set_write = (cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+> +				    !pte_write(ptent);
+> +			if (set_write)
+> +				set_write = maybe_change_pte_writable(vma, addr, ptent, folio);
+> +
+> +			while (nr_ptes) {
+> +				if (set_write == TRI_MAYBE) {
+> +					sub_nr_ptes = anon_exclusive_batch(folio,
+> +						pgidx, nr_ptes, &sub_set_write);
+> +				} else {
+> +					sub_nr_ptes = nr_ptes;
+> +					sub_set_write = (set_write == TRI_TRUE);
+> +				}
+> +
+> +				if (sub_set_write)
+> +					newpte = pte_mkwrite(ptent, vma);
+> +				else
+> +					newpte = ptent;
+> +
+> +				modify_prot_commit_ptes(vma, addr, pte, oldpte,
+> +							newpte, sub_nr_ptes);
+> +				if (pte_needs_flush(oldpte, newpte))
+> +					tlb_flush_pte_range(tlb, addr,
+> +						sub_nr_ptes * PAGE_SIZE);
+> +
+> +				addr += sub_nr_ptes * PAGE_SIZE;
+> +				pte += sub_nr_ptes;
+> +				oldpte = pte_advance_pfn(oldpte, sub_nr_ptes);
+> +				ptent = pte_advance_pfn(ptent, sub_nr_ptes);
+> +				nr_ptes -= sub_nr_ptes;
+> +				pages += sub_nr_ptes;
+> +				pgidx += sub_nr_ptes;
+> +			}
+
+I hate hate hate having this loop here, let's abstract this please.
+
+I mean I think we can just use mprotect_folio_pte_batch() no? It's not
+abstracting much here, and we can just do all this handling there. Maybe have to
+pass in a bunch more params, but it saves us having to do all this.
+
+Alternatively, we could add a new wrapper function, but yeah definitely not
+this.
+
+Also the C programming language asks... etc etc. ;)
+
+Overall since you always end up processing folio_nr_pages(folio) you can just
+have the batch function or a wrapper return this and do updates as necessary
+here on that basis, and leave the 'sub' batching to that function.
+
+
+>  		} else if (is_swap_pte(oldpte)) {
+>  			swp_entry_t entry = pte_to_swp_entry(oldpte);
+>  			pte_t newpte;
+> --
+> 2.30.2
+>
 
