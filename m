@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C939FC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 09:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEEF7C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 09:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0HHyttpDTe6qStRsM+nsbJq6FKJZTXS/oIqRBj8ZQtE=; b=jEMmYXOjS8CYramI/N8JVyQIWx
-	5+UAluZo5fsBD+n1DxVnOThqxNSDdsodQ4OwZmpWd1yocW4XVqVQwq2998deEMcnkBS6reKuF0dnD
-	1rXDzJ2Wd39zD8phwlSVw60uaMXGbBkGB1vmb+OAzUrFG9SiE80Sw5gIbPTA0ZauTlnDnu0IMQ5fg
-	t5CvkbwZfCakVfH6KVdc9bRCCpy15KQHDWbNbo7iva417mtYfxXxwzhF/IOywwrmd1pDQBnDmfjJa
-	SX60R4Y1j2D+ZLWzClQyWhSOC+OfGS36BvmXaqPXRPqX55tkIsWssunNAHNd3sBtnkXXQQbegCNv7
-	N+IJAGDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PNCxm5ySA6gUecwOHe3y8mEje2Y2/q1LkLwa+vPENf8=; b=tSU/iVZ5w+5nndg6wrSd0+aGc9
+	C1I0k5vbLYEXBBiy1Rl+8q7kmhDknsd6dgBXPy1bmFGl/HlN00Rh2z7hz+La0Kpa5lLWvWrTtkyxW
+	/VTN/XXke4K0haLG+gA3ViPIK7Xx3kQDqP9U29ZUlX0AO4RRfDxNfdT1pqDjcoFxx1h9HPVZx8ZXG
+	ODvKk7j2HShYRaipoRUTvW+b9mY0bRHRn1QWo9Y/GA1uRy5lOxmNDDMTPDt+zqqWeZcvq8G9wIlmN
+	KGcz+miHCHz0fqDiO8msZpojbqAaw46m7ebQmzoebq3Yth//cAahgLTt7wYw50vLPeScr/U6of1wf
+	mlpxyCTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWAuP-00000001lON-3ZNY;
-	Mon, 30 Jun 2025 09:34:41 +0000
-Received: from mail-ua1-f48.google.com ([209.85.222.48])
+	id 1uWAwg-00000001lmW-2mlR;
+	Mon, 30 Jun 2025 09:37:02 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWAs6-00000001kxl-14Ul
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 09:32:19 +0000
-Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-87f4c8e9cdcso901938241.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 02:32:17 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751275934; x=1751880734;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0HHyttpDTe6qStRsM+nsbJq6FKJZTXS/oIqRBj8ZQtE=;
-        b=mn2WWCkzedlYTnbLiAk98dpzyHiW1dDKiL7s9yTuqk3YdY/O/OfWcAUzSzFZ87VRQE
-         FZMJyy/zSWn8AotQQ0yYW3nQchVd6mEUHWnbn0eEjChi62ng+R7yMMaR0Nv5cc/R6jnt
-         Gn/4tHcwQJ/DQ+r4BNvEYk46800PwFNt4vpp465fuY4sogeT+4sVAY7JOx+HVsJqydyU
-         ErSUfquqxn5mrsse1Odl99lAkEfo/IRlqe11pl0uhKEqpAbCjwUABACCHzGXTTXqYZu1
-         +EPRp/LaO1p25YF5tvO0H6S6qnABhJ59FmRow3PuAPibdeledk+tWFfZ7rsn4TrLkAtl
-         fRNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9iSrFmNKngYGmIsgAY1XpDS3zKQB0qZwBw4yh0yabFICSYTkohB20eBDRgRfCCgrm1tR/u7Y+DTUdFs1U7RRL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxz7t668DQeGjylo7Pr4tQiU0ih58UXeCw/jyKSWpytmDJZtqZQ
-	IeV86SX+UgQ+tCggHWpJvZ3qrsOgEt5HWknBYWfl2SUn7Xa4nX3AtD0XnUj7HZDA
-X-Gm-Gg: ASbGnctysA7po707DFzhcfNYZChxu9cowpeKnxpTvxXdGsmYQwJ3YDgaa1fDbevO7Dj
-	C3jg8l6bEfHCXQQkVWxErRfqT4KvcFzAmk3OiU9PX7uB/PHqBrR+Kip3kRnW/ekk68r3h/N5Q4P
-	qELpM7+irlDjJp121U+63mcFCM3E3V+DiTG2eZlmQYflHGSReqI65RA1a+jxf+FztZu9LwgPafK
-	1ZvVpS+uL0J5fetvfGr10MI7JJMkocLXFe2Oqgi7r8ml+6uDh6SQZ2R1s4d8mbf4OTR3Ru2fWBw
-	QpLH/D9FQWAuMiYOjRqJPKk5uxJMQXyD4cSID/AZanLPuDaf4HY7z9q1owV/dmV7Jk273jc/aA9
-	khhWIcsap8icsvWYVBbLUSUQx
-X-Google-Smtp-Source: AGHT+IG1V0GmZfyOlERzGknEUYM2xzbfjnJKO7jgxMwxVm+7x7eZxz9GBOwssXWw+54Za39tY0Sb6Q==
-X-Received: by 2002:a05:6102:548c:b0:4e7:c14c:9e30 with SMTP id ada2fe7eead31-4ee4f86caafmr6515326137.21.1751275933562;
-        Mon, 30 Jun 2025 02:32:13 -0700 (PDT)
-Received: from mail-ua1-f51.google.com (mail-ua1-f51.google.com. [209.85.222.51])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-884d1da06ffsm1531396241.26.2025.06.30.02.32.12
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Jun 2025 02:32:12 -0700 (PDT)
-Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-87f4c8e9cdcso901917241.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 02:32:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXEzYNm8iJMcoytkFlpbRzs0C+p6tVHSQl3JoROIZzCA8/IsRMyApY57t6ifWr5wbvEmK5h2T4HOol+cAcGhqeB@lists.infradead.org
-X-Received: by 2002:a05:6102:f82:b0:4e2:c6e4:ab1e with SMTP id
- ada2fe7eead31-4ee4f55bd15mr8009074137.7.1751275931927; Mon, 30 Jun 2025
- 02:32:11 -0700 (PDT)
+	id 1uWAsa-00000001l3G-0eQ4;
+	Mon, 30 Jun 2025 09:32:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751275966;
+	bh=QWD/CZiB02p5Y9rO/SrSW4JBcHFnpOwu/VqcsLoMJnI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oKHMoiWElN1piNx6lnOGBBN3mlX0nfB2KP6BBJZTI1844D6x9kqssN/NSARTunD/O
+	 Ssvf7n3hq2l1a/tXIkqNMBYw2mouhknv+SULB3ZWJAIDdT2XQ1Bbc6osdiJ11jhWmg
+	 LXAcogkiNNgFrY579znmNLB4/eadkA8SAb6Tw7Ymy5+A+2NP9Ut3gaF/pHqX1aJT2S
+	 5le/dPJ9sVRkcqg2TQ/vj7mUik7b+MrPeKbirQkcFpgkXxzm1d0Ud0ABULYtLzQddv
+	 UsX+Y5OI0dq9iV14BmXHfQEqAfRjiTT1WD0D+GXUMqdNPRp3iWqXn4AhXjiPuToH/Y
+	 fDVbEv3hrOwIw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9985B17E0B0D;
+	Mon, 30 Jun 2025 11:32:45 +0200 (CEST)
+Message-ID: <e958afe7-b338-47dc-905e-f3223b4f3cdb@collabora.com>
+Date: Mon, 30 Jun 2025 11:32:45 +0200
 MIME-Version: 1.0
-References: <20250523134025.75130-1-ulf.hansson@linaro.org>
- <fd4cfe7a-e29b-4237-b82f-48354deead3b@ideasonboard.com> <CAPDyKFpprO=HGuiHX3MQ_+m1YRnaWG=XwCx8-fSdXak8VBDUbQ@mail.gmail.com>
- <CAPDyKFpXcpwkacnYqWz2vxaTd7pW5bSRa2F063BryFxVNEAmPA@mail.gmail.com>
- <CAMuHMdXGS+efbbQ_Pn1iYhQ1aWc_DuJ-CBN=jxfjwOWxTRx+9Q@mail.gmail.com> <CAPDyKFoJHFuY278eEobje4TOv_+-i966H2OuP9fqHMLLevb0qw@mail.gmail.com>
-In-Reply-To: <CAPDyKFoJHFuY278eEobje4TOv_+-i966H2OuP9fqHMLLevb0qw@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 30 Jun 2025 11:31:58 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVo1eOZiRpcH_XNqP6Y0imk4+bcAe=+W4_Su1pF16uRVA@mail.gmail.com>
-X-Gm-Features: Ac12FXyy1jcX9FikFs2NK5_wkqpBj31k8jOziXAUTCaEyHrb3yLbemdWFSlcECU
-Message-ID: <CAMuHMdVo1eOZiRpcH_XNqP6Y0imk4+bcAe=+W4_Su1pF16uRVA@mail.gmail.com>
-Subject: Re: [PATCH v2 00/21] pmdomain: Add generic ->sync_state() support to genpd
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Saravana Kannan <saravanak@google.com>, 
-	Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>, 
-	Michal Simek <michal.simek@amd.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 02/13] pmdomain: mediatek: Refactor bus protection
+ regmaps retrieval
+To: Fei Shao <fshao@chromium.org>
+Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com, ulf.hansson@linaro.org,
+ y.oudjana@protonmail.com, wenst@chromium.org, lihongbo22@huawei.com,
+ mandyjh.liu@mediatek.com, mbrugger@suse.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org, kernel@collabora.com
+References: <20250623120154.109429-1-angelogioacchino.delregno@collabora.com>
+ <20250623120154.109429-3-angelogioacchino.delregno@collabora.com>
+ <CAC=S1njT6ygGuZDPU5KDW94Nu-TbM21DM-6HdR7Pio=WTD_eQA@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAC=S1njT6ygGuZDPU5KDW94Nu-TbM21DM-6HdR7Pio=WTD_eQA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_023218_294189_8A724373 
-X-CRM114-Status: GOOD (  49.33  )
+X-CRM114-CacheID: sfid-20250630_023248_344319_783CFCBE 
+X-CRM114-Status: GOOD (  30.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,93 +81,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf,
+Il 27/06/25 14:12, Fei Shao ha scritto:
+> On Mon, Jun 23, 2025 at 8:02 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> In preparation to add support for new generation SoCs like MT8196,
+>> MT6991 and other variants, which require to set bus protection on
+>> different busses than the ones found on legacy chips, and to also
+>> simplify and reduce memory footprint of this driver, refactor the
+>> mechanism to retrieve and use the bus protection regmaps.
+>>
+>> This is done by removing the three pointers to struct regmap from
+>> struct scpsys_domain (allocated for each power domain) and moving
+>> them to the main struct scpsys (allocated per driver instance) as
+>> an array of pointers to regmap named **bus_prot.
+>>
+>> That deprecates the old devicetree properties to grab phandles to
+>> the three predefined busses (infracfg, infracfg-nao and smi) and
+>> replaces it with a new property "mediatek,bus-protection" that is
+>> meant to be an array of phandles holding the same busses where
+>> required (for now - for legacy SoCs).
+>>
+>> The new bus protection phandles are indexed by the bus_prot_index
+>> member of struct scpsys, used to map "bus type" (ex.: infra, smi,
+>> etc) to the specific *bus_prot[x] element.
+>>
+>> While the old per-power-domain regmap pointers were removed, the
+>> support for old devicetree was retained by still checking if the
+>> new property (in DT) and new-style declaration (in SoC specific
+>> platform data) are both present at probe time.
+>>
+>> If those are not present, a lookup for the old properties will be
+>> done in all of the children of the power controller, and pointers
+>> to regmaps will be retrieved with the old properties, but then
+>> will be internally remapped to follow the new style regmap anyway
+>> as to let this driver benefit of the memory footprint reduction.
+>>
+>> Finally, it was necessary to change macros in mtk-pm-domains.h and
+>> in mt8365-pm-domains.h to make use of the new style bus protection
+>> declaration, as the actual HW block is now recognized not by flags
+>> but by its own scpsys_bus_prot_block enumeration.
+>>
+>> The BUS_PROT_(STA)_COMPONENT_{INFRA,INFRA_NAO,SMI} flags were also
+>> removed since they are now unused, and because that enumeration was
+>> initially meant to vary the logic of bus protection and not the bus
+>> where work is performed, anyway!
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+> 
+> <snip>
+> 
+>>
+>> +static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *scpsys)
+>> +{
+>> +       const u8 bp_blocks[3] = {
+>> +               BUS_PROT_BLOCK_INFRA, BUS_PROT_BLOCK_SMI, BUS_PROT_BLOCK_INFRA_NAO
+>> +       };
+>> +       struct device_node *np = dev->of_node;
+>> +       struct device_node *node, *smi_np;
+>> +       int num_regmaps = 0, i, j;
+>> +       struct regmap *regmap[3];
+>> +
+>> +       /*
+>> +        * Legacy code retrieves a maximum of three bus protection handles:
+>> +        * some may be optional, or may not be, so the array of bp blocks
+>> +        * that is normally passed in as platform data must be dynamically
+>> +        * built in this case.
+>> +        *
+>> +        * Here, try to retrieve all of the regmaps that the legacy code
+>> +        * supported and then count the number of the ones that are present,
+>> +        * this makes it then possible to allocate the array of bus_prot
+>> +        * regmaps and convert all to the new style handling.
+>> +        */
+>> +       node = of_find_node_with_property(np, "mediatek,infracfg");
+>> +       if (node) {
+>> +               regmap[0] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg");
+>> +               of_node_put(node);
+>> +               num_regmaps++;
+>> +               if (IS_ERR(regmap[0]))
+>> +                       return dev_err_probe(dev, PTR_ERR(regmap[0]),
+>> +                                            "%pOF: failed to get infracfg regmap\n",
+>> +                                            node);
+>> +       } else {
+>> +               regmap[0] = NULL;
+>> +       }
+>> +
+>> +       node = of_find_node_with_property(np, "mediatek,smi");
+>> +       if (node) {
+>> +               smi_np = of_parse_phandle(node, "mediatek,smi", 0);
+>> +               of_node_put(node);
+>> +               if (!smi_np)
+>> +                       return -ENODEV;
+>> +
+>> +               regmap[1] = device_node_to_regmap(smi_np);
+>> +               num_regmaps++;
+>> +               of_node_put(smi_np);
+>> +               if (IS_ERR(regmap[1]))
+>> +                       return dev_err_probe(dev, PTR_ERR(regmap[1]),
+>> +                                            "%pOF: failed to get SMI regmap\n",
+>> +                                            node);
+>> +       } else {
+>> +               regmap[1] = NULL;
+>> +       }
+>> +
+>> +       node = of_find_node_with_property(np, "mediatek,infracfg-nao");
+>> +       if (node) {
+>> +               regmap[2] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg-nao");
+>> +               num_regmaps++;
+>> +               of_node_put(node);
+>> +               if (IS_ERR(regmap[2]))
+>> +                       return dev_err_probe(dev, PTR_ERR(regmap[2]),
+>> +                                            "%pOF: failed to get infracfg regmap\n",
+>> +                                            node);
+>> +       } else {
+>> +               regmap[2] = NULL;
+>> +       }
+>> +
+>> +       scpsys->bus_prot = devm_kmalloc_array(dev, num_regmaps,
+>> +                                             sizeof(*scpsys->bus_prot), GFP_KERNEL);
+>> +       if (!scpsys->bus_prot)
+>> +               return -ENOMEM;
+>> +
+>> +       for (i = 0, j = 0; i < num_regmaps; i++) {
+> 
+> Did you mean BUS_PROT_BLOCK_COUNT?
+> Consider a case where only regmap[2] is configured.
+> 
 
-On Tue, 24 Jun 2025 at 17:30, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> On Mon, 23 Jun 2025 at 17:06, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > On Mon, 23 Jun 2025 at 16:21, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > On Thu, 19 Jun 2025 at 13:40, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > > Do you think it would be possible to move rcar_gen4_sysc_pd_init() to
-> > > > a postcore/arch_initcall?
-> > >
-> > > I did some investigation around this and found that both
-> > > drivers/pmdomain/renesas/rcar-gen4-sysc.c and
-> > > drivers/pmdomain/renesas/rcar-sysc.c are registering their genpd
-> > > providers at the early_initcall() level.
-> > >
-> > > I was trying to find (by browsing renesas DTSes and looking into
-> > > drivers) if there is any consumers that actually relies on this, but
-> > > so far the earliest consumer I have found is the
-> > > drivers/irqchip/irq-renesas-irqc.c, but that's at postcore_initcall().
-> > > Of course, it's difficult to say if my analysis is complete as there
-> > > are a lot of platform variants and I didn't check them all.
-> > >
-> > > Maybe we should just give it a try and move both two drivers above to
-> > > postcore_initcall and see if it works (assuming the irq-renesas-irqc
-> > > supports -EPROBE_DEFER correctly too).
-> > >
-> > > If this doesn't work, I think we need to find a way to allow deferring
-> > > the call to device_add() in of_genpd_provider_add*() for genpd
-> > > provider's devices.
-> >
-> > Commit dcc09fd143bb97c2 ("soc: renesas: rcar-sysc: Add DT support for
-> > SYSC PM domains") explains:
-> >
-> >    "Initialization is done from an early_initcall(), to make sure the PM
-> >     Domains are initialized before secondary CPU bringup."
-> >
-> > but that matters only for arm32 systems (R-Car Gen1 and Gen2).
-> > Arm64 systems (R-Car Gen3 and Gen4) use PSCI for CPU PM Domain control.
->
-> Geert, thanks a lot for providing these details and helping out, much
-> appreciated!
->
-> > While changing rcar-sysc.c to use a postcore_initcall indeed moves PM
-> > Domain initialization after secondary CPU bringup, the second CPU core
-> > on R-Car M2-W is still brought up fine.
+Yep. None of the many platforms that we have tested hit this issue, but it's as
+bad as it sounds! :')
 
-To rule out relying on anything being enabled by the bootloader,
-I offlined the second CPU, and booted the kernel using kexec.
-The second CPU still comes up fine.  Which is not that unsurprising,
-as rcar-sysc.c ignores domains with the PD_CPU flag...
+Thanks for spotting this one!
 
-> > For R-Car H1, there is a regression:
-> >
-> >     smp: Bringing up secondary CPUs ...
-> >     CPU1: failed to boot: -19
-> >     CPU2: failed to boot: -19
-> >     CPU3: failed to boot: -19
-> >     smp: Brought up 1 node, 1 CPU
-> >     SMP: Total of 1 processors activated (500.00 BogoMIPS).
-> >
-> > CPU bringup/teardown in userspace using
-> > /sys/devices/system/cpu/cpu*/online still works.
-> > R-Car H1 was never converted to use "enable-method" in DT, and relies
-> > on calling into the rcar-sysc driver directly (see [1]).  However,
-> > that does not use any actual calls into the genpd core, so probably it
-> > can be made to work by splitting rcar_sysc_pd_init() in two parts: an
-> > early_initcall() that allocates all domain structures and populates the
-> > internal hierarchy, and a postcore_initcall() that registers everything
-> > with the genpd core.
->
-> Yes, that seems like a viable option.
+Cheers,
+Angelo
 
-... so it's just R-Car H1 that needs some code to run early.
-
-> Unless you prefer to have a stab at it, I intend to look into it and
-> make the patch(es) part of a new version of the $subject series. Of
-> course I am still relying on your help with testing/review.
-
-Sure, I will do testing and review.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> Regards,
+> Fei
+> 
+>> +               enum scpsys_bus_prot_block bp_type;
+>> +
+>> +               if (!regmap[i])
+>> +                       continue;
+>> +
+>> +               bp_type = bp_blocks[i];
+>> +               scpsys->bus_prot_index[bp_type] = j;
+>> +               scpsys->bus_prot[j] = regmap[i];
+>> +
+>> +               j++;
+>> +       }
+>> +
+>> +       return 0;
+>> +}
+>> +
+> 
+> <snip>
 
