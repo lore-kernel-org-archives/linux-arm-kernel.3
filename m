@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D535C8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 12:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3E4C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 12:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=afFmIMxXb1rYx3WoYkfzyRMDApUVRijoKV+Z1GuVtaE=; b=V9SepEjBD7pCRlP4eWI0t2564+
-	6kHB6OyiseCAro2a8w2b00Kj4rpOJ+oajh1knp4mtqbhwfBdOaDFUn2Lhn0nBLhrhJb0/R8RhSeet
-	N4SUF/UvT/nAlUrOKd3Ov27NRGjiG5WhbjTiEokXep65S++P+95CSIVor16b36XRg1xcLUJBQIBrU
-	4Fonj7BMqGFZYRZj+tDs0jJec3cEilep+a7WvyjZspLVNKTwddVlzCOvErOH1xJqs1sotNfTUcBtP
-	TI+w3B/3qDSzaibwC/l1D/lp8kRvqB75QHDJ3qWAZXG6xlp0wKfypun15Pm2Y2ngLIP1jV1jRWD1r
-	lhFcwvlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u38ttXwC7mGcq5PAXdcvrvOILsVsgWF0FCXPjIoHK+w=; b=35HSrfx+EqoAez5A25g8SDiLcL
+	u38M2nDQwAr52EhryDwBwnBpaCJ+l5JJzJ9Tzi5R0RY54Kq5D+KwtF2KJEjF+M5++B/gELskKZAsU
+	YOuS3XUK8xRXSZFUGrje+p62sVYgr7JEjUd9jHYmccTGQFEyUljOvHMOVvINluLOSMMKWNYMTIRqS
+	tIK2ZrMc9nGXUz/Hvj6nOjFKYWZxfUO6wP/ckXeuAvwtHLtw5vwzpJb7dcMK1269AMiIaC5K4CCNo
+	Qon+s4LhmnIflDnXofbfE7U8UtSRDeRh3OUDKBnpJDyreaU9u0Nyrx0FDg/eAniBCbZ3eRh9VXhiB
+	wdalIEjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWDmh-00000002D83-3pC8;
-	Mon, 30 Jun 2025 12:38:55 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uWDoz-00000002Dfn-2nYl;
+	Mon, 30 Jun 2025 12:41:17 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWDNk-000000029Fb-3O2u;
-	Mon, 30 Jun 2025 12:13:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751285586;
-	bh=dPNdODdNEzaTCF8QQBs85oD/JRYhHKIx4HEh+y0OiC0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T8pQOws9qgLp3JO8Lj4TMVSBUeGxfqhlsflNHZb/ENe4HxvBO6Hf9yshKP86XcUQ2
-	 Lu2lcccG6C4Z3xUZyMA2aMukP9eMI2Y91F1g1mnHPDBGWoCB6aGny2IeqHKcC84+dE
-	 7vuwMC+77IZ86tpyUDyufcbJRy07r0s3APlvlX2wQrxdbw5ebbMonh3DgsESVXmCpT
-	 uJyYxjVDQwdZ2dvdUsYwsB4TfiJqdZpGJDFCfMCgYF7rxNzgJaR3xIv3H1HR5Co7iC
-	 f1QOTlUCkV+rQjYo76uTcTBoD468WXq9ctzABUf8Idq39zr+YilGRdqkhV5k/2TgqB
-	 eK+CT0yU8YsAA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5C4DD17E0B0D;
-	Mon, 30 Jun 2025 14:13:06 +0200 (CEST)
-Message-ID: <cc453fc8-1254-438e-98c3-e81717bb605b@collabora.com>
-Date: Mon, 30 Jun 2025 14:13:05 +0200
+	id 1uWDSB-000000029mX-0hqv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 12:17:44 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uWDRr-0004km-3r; Mon, 30 Jun 2025 14:17:23 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uWDRq-0066DT-2U;
+	Mon, 30 Jun 2025 14:17:22 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uWDRq-009ggO-1c;
+	Mon, 30 Jun 2025 14:17:22 +0200
+Date: Mon, 30 Jun 2025 14:17:22 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Frieder Schrempf <frieder.schrempf@kontron.de>
+Cc: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	Frank Li <frank.li@nxp.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [EXT] Re: [PATCH v18 3/7] firmware: imx: add driver for NXP
+ EdgeLock Enclave
+Message-ID: <20250630121722.wviidlggt7hguyt7@pengutronix.de>
+References: <20250619-imx-se-if-v18-0-c98391ba446d@nxp.com>
+ <20250619-imx-se-if-v18-3-c98391ba446d@nxp.com>
+ <20250625105546.pxuatcnfpe7mssgs@pengutronix.de>
+ <AM9PR04MB8604611B8D91B5526C9704E69545A@AM9PR04MB8604.eurprd04.prod.outlook.com>
+ <20250627084653.6vgwnm3llf3zknlp@pengutronix.de>
+ <b02055bb-0995-4fd8-99f3-4ca5146eedd4@kontron.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/5] dt-bindings: spmi: Add MediaTek MT8196 SPMI 2
- Arbiter/Controllers
-To: Rob Herring <robh@kernel.org>
-Cc: sboyd@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, hsin-hsiung.wang@mediatek.com,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- kernel@collabora.com
-References: <20250623120047.108961-1-angelogioacchino.delregno@collabora.com>
- <20250623120047.108961-2-angelogioacchino.delregno@collabora.com>
- <20250627200735.GA4094329-robh@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250627200735.GA4094329-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b02055bb-0995-4fd8-99f3-4ca5146eedd4@kontron.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_051309_040032_65D2D402 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20250630_051743_212665_47BE084B 
+X-CRM114-Status: GOOD (  52.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,182 +92,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 27/06/25 22:07, Rob Herring ha scritto:
-> On Mon, Jun 23, 2025 at 02:00:43PM +0200, AngeloGioacchino Del Regno wrote:
->> Document the MT8196 SPMI 2.0 Controller with a new schema.
->> This is a MIPI SPMI 2.0 compliant IP, composed of a main arbiter
->> and two SPMI master controllers with Request Capable Slave (RCS)
->> support.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   .../bindings/spmi/mediatek,mt8196-spmi.yaml   | 138 ++++++++++++++++++
->>   1 file changed, 138 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml b/Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
->> new file mode 100644
->> index 000000000000..d7eb63e81a5c
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
->> @@ -0,0 +1,138 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/spmi/mediatek,mt8196-spmi.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: MediaTek MT8196 SPMI 2.0 Controller
->> +
->> +maintainers:
->> +  - Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>
->> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> +
->> +description:
->> +  The MediaTek MT8196 SoC features a SPMI version 2.0 compliant controller,
->> +  with internal wrapping arbitration logic to allow for multiple on-chip
->> +  devices to control up to two SPMI buses.
->> +  The main arbiter also acts as an interrupt controller, arbitering also
->> +  the interrupts coming from SPMI-connected devices into each of the nested
->> +  interrupt controllers from any of the present SPMI buses.
->> +
->> +properties:
->> +  compatible:
->> +    oneOf:
->> +      - enum:
->> +          - mediatek,mt8196-spmi
->> +      - items:
->> +          - enum:
->> +              - mediatek,mt6991-spmi
->> +          - const: mediatek,mt8196-spmi
->> +
->> +  ranges: true
->> +
->> +  '#address-cells':
->> +    const: 1
->> +
->> +  '#size-cells':
->> +    const: 1
->> +
->> +patternProperties:
->> +  "^spmi@[a-f0-9]+$":
->> +    type: object
->> +    $ref: /schemas/spmi/spmi.yaml
->> +    unevaluatedProperties: false
->> +
->> +    properties:
->> +      reg:
->> +        items:
->> +          - description: controller interface registers
->> +          - description: spmi master controller registers
->> +
->> +      reg-names:
->> +        items:
->> +          - const: pmif
->> +          - const: spmimst
->> +
->> +      clocks:
->> +        items:
->> +          - description: controller interface system clock
->> +          - description: controller interface timer clock
->> +          - description: spmi controller master clock
->> +
->> +      clock-names:
->> +        items:
->> +          - const: pmif_sys_ck
->> +          - const: pmif_tmr_ck
->> +          - const: spmimst_clk_mux
->> +
->> +      interrupts:
->> +        maxItems: 1
->> +
->> +      interrupt-names:
->> +        const: rcs
->> +
->> +      interrupt-controller: true
->> +
->> +      "#interrupt-cells":
->> +        const: 3
->> +        description: |
->> +          cell 1: slave ID for the requested interrupt (0-15)
->> +          cell 2: the requested peripheral interrupt (0-7)
->> +          cell 3: interrupt flags indicating level-sense information,
->> +                  as defined in dt-bindings/interrupt-controller/irq.h
->> +    required:
->> +      - reg
->> +      - reg-names
->> +      - clocks
->> +      - clock-names
->> +      - interrupts
->> +      - interrupt-names
->> +      - interrupt-controller
->> +      - "#interrupt-cells"
->> +
->> +required:
->> +  - compatible
->> +  - ranges
->> +  - '#address-cells'
->> +  - '#size-cells'
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +
->> +    soc {
->> +      #address-cells = <2>;
->> +      #size-cells = <2>;
->> +
->> +      spmi-arbiter@1c018000 {
->> +        compatible = "mediatek,mt8196-spmi";
->> +        ranges = <0 0 0x1c018000 0x4900>;
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +
->> +        spmi@0 {
->> +          reg = <0 0x900>, <0x4800 0x100>;
->> +          reg-names = "pmif", "spmimst";
->> +          interrupts-extended = <&pio 292 IRQ_TYPE_LEVEL_HIGH>;
->> +          interrupt-names = "rcs";
->> +         interrupt-controller;
+Hi Frieder,
+
+On 25-06-30, Frieder Schrempf wrote:
+> Hi Marco,
 > 
-> Indentation error.
+> Am 27.06.25 um 10:46 schrieb Marco Felsch:
+> > Hi,
+> > 
+> > your e-mail configuration mixed my e-mail with your answer, which makes
+> > it hard to read. Can you please check the quoting next time :)
+> > 
+> > On 25-06-27, Pankaj Gupta wrote:
+> >>>> Add driver for enabling MU based communication interface to
+> >> secure-enclave.
+> >>>>
+> >>>> NXP hardware IP(s) for secure-enclaves like Edgelock Enclave(ELE), are 
+> >>>> embedded in the SoC to support the features like HSM, SHE & V2X, using 
+> >>>> message based communication interface.
+> >>>>
+> >>>> The secure enclave FW communicates with Linux over single or multiple 
+> >>>> dedicated messaging unit(MU) based interface(s).
+> >>>> Exists on i.MX SoC(s) like i.MX8ULP, i.MX93, i.MX95 etc.
+> >>
+> >>> You write single or multiple MUs are possible. I'm aware that the i.MX93
+> >>> has two MUs one for the secure and one for the non-secure world. But I'm
+> >>> really concerned about the fact that both MUs can't be used at the same time
+> >>> from both world:
+> >>
+> >> Yes, you are correct.
+> >>
+> >> Fix is still work in progress.
+> > 
+> > So after ~6 months no fix is available :(
+> > 
+> >>> Also how is the secure and non-secure world talking to the ELE if there is
+> >>> only one MU as you have written?
+> >>
+> >> Till the fix is WIP, either Linux or OPTEE can use the ELE, at one point in
+> >> time.
+> > 
+> > That has nothing to do with the fix. The fix is for platforms/SoCs which
+> > do have 2-MUs, but you also have written that there are platforms with
+> > only 1-MU.
+> > 
+> > This MU can't be shared between secure and non-secure world.
+> > 
+> >>> IMHO it makes much more sense to put the complete ELE communication into
+> >>> (OP-)TEE and let the secure OS taking care of it. All non-secure world
+> >>> requests are passed via (OP-)TEE to the ELE. This involves:
+> >>> - eFuse access (done via OP-TEE i.MX specific PTA)
+> >>> - ELE 23h59m ping (kernel SMC WDG driver, requires OP-TEE watchdog driver)
+> >>> - HW-RNG (kernel OP-TEE HWRNG driver + OP-TEE HWRNG PTA)
+> >>
+> >> There is a dedicated MU "trusted-MU" for OPTEE-OS. The idea to converge to a
+> > 
+> > Yes for systems with 2-MUs there is a "trusted-MU" and a
+> > "non-trusted-MU". As of now, there is no fix available for using both
+> > MUs at the same time. Furhtermore there are platforms/SoCs with only
+> > 1-MU, as you have written in your commit message. This 1-MU system can
+> > have the MU either trusted or non-trusted.
+> > 
+> >> single path via OPTEE-OS, is good. But it will impact the performance of the
+> >> features at Linux side.
+> > 
+> > Performance? We are talking about a ping every 23h59m (I still don't
+> > know if this is a feature or bug), eFuse write/read, and the HW-RNG
+> > which can seed the Linux PRNG.
+> > 
+> >> Since the fix is still WIP. Let's wait till then.
+> > 
+> > The fix is for the 2-MUs SoCs but not the 1-MU case.
+> > 
+> > I would like to have a system design which doesn't differ too much
+> > between SoCs which are equipped with the ELE engine.
 > 
-> Otherwise,
+> Do we really want to depend on OP-TEE to be available for having things
+> like OTP fuse access and HWRNG? Personally I'd like to be able to build
+> systems with OTP access and HWRNG but without OP-TEE. Requiring OP-TEE
+> only to make the ELE available to the kernel in cases where the secure
+> world isn't used for anything else seems to be unnecessarily complex.
+
+I understand your point. I don't like pulling in more FW neither but we
+need to the face the following facts:
+
+ - OTP eFuse R/W access after doing the LOCK_DOWN fuse is no longer
+   possible without OP-TEE. This involves general purpose (GP) eFuses
+   too. We faced this limitation in a current project.
+
+ - With new regulations like the EU CRA I think we need some sort of
+   secure-enclave anyway.
+
+ - Making it optional cause more paths of potential errors e.g. by not
+   including the correct "secure.dtsi". Multiple paths also require more
+   maintain- and testing effort. IMHO I do think that one of the paths
+   get unmaintened at some point but we would need to keep it for
+   backward compatibility.
+
+   Having one implementation eliminates this since.
+
+ - All above points assume that the ELE-FW and -HW is capable of talking
+   to both world, which is not the case. As we learned NXP doesn't have
+   a fix for the 2-MUs ELE yet and even more important there are 1-MU
+   ELE-IPs.
+
+I do see the (minimal) drawback of having +1 FW but I think this is more
+an integration problem.
+Speaking of FW files, for the new i.MX9* you already have plenty fo
+them: bootloader, TF-A, ele-fw, scu-fw (i.MX95). So your integation
+needs to handle multiple firmware files already.
+
+> Anyway, I see your point of having a single implementation for the ELE
+> API in the "right" place. But as far as I know other platforms like
+> STM32MP1 also implement both ways for the HWRNG, secure access via OPTEE
+> and non-secure access via kernel directly.
+
+I'm not a STM32MP1 expert but here you have this setup with the
+*-scmi.dtsi. So you have two code paths which needs to be maintained and
+tested. Also if one customer of yours want to use OP-TEE you need the
+integration anyway, so you (Kontron) needs to maintain multiple
+configuration as well. I don't see the added value.
+
+I think for STM32MP1 the *-scmi.dtsi support was added later because it
+required a lot effort to support it. This is not the case for the i.MX9*
+series.
+
+Regards,
+  Marco
+
+> Thanks
+> Frieder
 > 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> 
-
-Oh sorry for that.
-
-If there's no "complaint" on any other patch of this series, I wonder if this
-could be fixed while applying?
-
-Thanks a lot,
-Angelo
-
->> +          #interrupt-cells = <3>;
->> +          clocks = <&pmif_sys>, <&pmif_tmr>, <&spmi_mst>;
->> +          clock-names = "pmif_sys_ck", "pmif_tmr_ck", "spmimst_clk_mux";
->> +        };
->> +
->> +        spmi@2000 {
->> +          reg = <0x2000 0x900>, <0x4000 0x100>;
->> +          reg-names = "pmif", "spmimst";
->> +          interrupts-extended = <&pio 291 IRQ_TYPE_LEVEL_HIGH>;
->> +          interrupt-names = "rcs";
->> +          interrupt-controller;
->> +          #interrupt-cells = <3>;
->> +          clocks = <&pmif_sys>, <&pmif_tmr>, <&spmi_mst>;
->> +          clock-names = "pmif_sys_ck", "pmif_tmr_ck", "spmimst_clk_mux";
->> +        };
->> +      };
->> +    };
->> +...
->> -- 
->> 2.49.0
->>
-
-
 
