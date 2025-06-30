@@ -4,112 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525E1C8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 10:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B93C8302E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 10:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RNwyz2uPyTgf5iTMXJhK4t1OLAWKnwrjx6NHrYAot/k=; b=CKxKlAwKjYR8M0c8+YKlze/nuY
-	qJfMgQYJlmkCqI36ne6wj243AqPryDnZt75I0HM464gCaAgnLW3fgbcScnh4DEeOrGcBlb0vhRRjT
-	yyld0BfVuZzXU0g2+fjoVKR44hnhLQ1HUF6HMLcsCupni3Xcx9SU/mIQm2tLDkf9Qv+1iuBQizsDR
-	SfnuITHoz1YnLRNdp4AuLW/u7TFP/fi187nitCIxYV/adPMG7duxvO9oWCVQUmw28MGxQPaycuUC3
-	nJDHJxYn66ABaeVsSLDKN8SqeWw1VHNB3E0wnEYKklooiTeZJeUtyUEsClLusdAQ5vA7ZNQBXl8mz
-	rMSX1b1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lgWIHqT7HWFTTqggaQAeOkip+YQ1Fa7noLjkHylqjkA=; b=bbdYt7rm9npDdjnibzJcDW5S6z
+	VIAK9gLg6gNLuTmlaxX2ddClqK+PJQKyBQAMvna41IGOKMZvTjy/zI7EENmx9clCneK6v2JhOLI3k
+	A2s153RMY7xai70M56KYT8KkQwq28MBLkR+0p736EliP6AeAlI9KG2BIzzjankGeGRggnfqdSa3RA
+	XeXul4+0YblmPYSrBhu8BJwEu1PGbJbXlmTWkAjBPhOK4ZWdma8t1P+c4NzyzS0fstjjq/cm+Ncpp
+	FCd3wXQv4Ca4t/cdyKJBmcGXIoYAQVkEiPBkPlIxZlM6dz0QZveSe2KVLGa+l8pZ9LOnweA71UHMp
+	Uz7Fn+/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWC7p-00000001wfU-45WU;
-	Mon, 30 Jun 2025 10:52:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uWCA6-00000001x0X-1usW;
+	Mon, 30 Jun 2025 10:54:58 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWBj4-00000001t01-2oN6
+	id 1uWBlP-00000001tJO-49Yc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 10:27:03 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55U8D5D9008138;
-	Mon, 30 Jun 2025 10:26:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=RNwyz2uPyTgf5iTMXJhK4t
-	1OLAWKnwrjx6NHrYAot/k=; b=GQ7lQFld32m1MZciqSayJxeeWOAXoJ6L1PBpzy
-	oK1XDRoK6gt2Snee14kqS+W47yGJvpuvvNyBPtXgqgLEpk+mN31Oyb62b9o66jd9
-	K2JkbWTrZCVhDVqP8Vl8+R0Epjcdc9AHWPyCHLdjwYfqc/OrjoCpJmpbB/te1vZp
-	O6VzZtL2M1YTLYBEHMGpwNy7dw+qeHQ/t1h/hnebfx8jLigYO56z/m/+7LDbbHAp
-	6/BGRBTPNfAU3wWOkC05Fh5TI1f7tuHDdTvgx5of2yfufZwcgr5+Pat4iLv51hfp
-	XUe5gXVFb2UmOaNhV4ILTn1/X+1LDaq+bvdr4v7SxjO1MUiQ==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47kkfms0e1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 Jun 2025 10:26:56 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55UAQtLr028282
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 Jun 2025 10:26:55 GMT
-Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
- nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Mon, 30 Jun 2025 03:26:53 -0700
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Date: Mon, 30 Jun 2025 18:26:19 +0800
-Subject: [PATCH] coresight: Only register perf symlink for sinks with
- alloc_buffer
+	Mon, 30 Jun 2025 10:29:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751279368; x=1782815368;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=c+T0z6vmgvFtL7s+LJmro6chHSYZizv5ACOfjzHN4Po=;
+  b=DBpvm2F7VAHEaCjfBmOnpqRKfMRM2a8sFsOUp4hsZ4XDhm9zjUNJe94N
+   QopeifDGjL599r3wlWec1XSUegIxwjY7pUcA02DdnXU9xA+YbAeX+t0fF
+   PfrwicUOtnnj5mPWd5iMDNz6fSplqfe83esRBgczrcsVw3LfXR/PWjY28
+   V4PmJovUt7Al9hw3EYhkyWjPhPYc9sOeBDBIaCsxU6lHwA1HSv5qmC3Wq
+   iTX/RyOmAcZHOKlb8q1cj0GwIkHPnjCZc8X2WVkl7y2yWKteatulUO0vx
+   bcD/UuqWhA/0Fltndp03+95V9zZrKzkpZf0AWtytGJinCyAOpKj+3DNyh
+   w==;
+X-CSE-ConnectionGUID: I/M8QghYT3GnoyC72+WtYA==
+X-CSE-MsgGUID: vC2+K1EgRw6bGVDQMx0f/Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11479"; a="56121984"
+X-IronPort-AV: E=Sophos;i="6.16,277,1744095600"; 
+   d="scan'208";a="56121984"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2025 03:29:26 -0700
+X-CSE-ConnectionGUID: YKnJEFZHQMafMZ8GhxSE7w==
+X-CSE-MsgGUID: FZFeZ0x9TUSom137M5AEwg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,277,1744095600"; 
+   d="scan'208";a="152806613"
+Received: from agladkov-desk.ger.corp.intel.com (HELO svinhufvud.fi.intel.com) ([10.245.244.57])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2025 03:29:22 -0700
+Received: from svinhufvud (syyslaukka.retiisi.eu [IPv6:::1])
+	by svinhufvud.fi.intel.com (Postfix) with ESMTPS id CAC06423E2;
+	Mon, 30 Jun 2025 13:29:18 +0300 (EEST)
+Date: Mon, 30 Jun 2025 13:29:16 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Daniel Scally <dan.scally@ideasonboard.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
+	robh+dt@kernel.org, mchehab@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com
+Subject: Re: [PATCH v10 07/17] media: mali-c55: Add Mali-C55 ISP driver
+Message-ID: <aGJm/BphvAyKDZA2@svinhufvud>
+References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
+ <20250624-c55-v10-7-54f3d4196990@ideasonboard.com>
+ <cee962ce-3719-4ae7-9849-548a95d98e99@linux.intel.com>
+ <20250629183547.GF6260@pendragon.ideasonboard.com>
+ <aGI+y4sOlPAQMzWI@svinhufvud>
+ <20250630083519.GC24861@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250630-etm_perf_sink-v1-1-e4a7211f9ad7@quicinc.com>
-X-B4-Tracking: v=1; b=H4sIAEpmYmgC/x3M0QpAQBBG4VfRXNsaK5JXkaT1D5Ms7UpK3t3m8
- rs456GIoIjUZg8FXBp19wlFnpFbRj/D6JRMlm3FdckG5zYcCDJE9asBWJyIqxvLlJojQPT+f13
- /vh+gPyWtXwAAAA==
-X-Change-ID: 20250630-etm_perf_sink-ee0fcffc6820
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>
-CC: <kernel@oss.qualcomm.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Yuanfang Zhang <quic_yuanfang@quicinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751279213; l=1521;
- i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
- bh=H0MaE5zBOSHO3LkNCLftptGerNAPEoWExbl9pw4hqbk=;
- b=vnAxtFOL7djNa+vwjH/7/Runb2sNbuIdgf67egd/SWFD/dYSYcr2rIv7OP0+2xsrWLoFZX6FR
- oCNia01W7hCBe8E5Mg2tTmPjq6h4Q6rpiTbWCi56U2naomwflbxVPrn
-X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
- pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: _DvWm0v9RiTWO0ItHcZ0r8IqVpA07VDo
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjMwMDA4NiBTYWx0ZWRfX2RpDxWFY9W5M
- rLypVQu84WV8EWsCb4fGbsgF9Y7dSDUxJarec3Vh4DWv7+YQcUp3L8MVX2pShiSRKM1y+80U1Jx
- 17ChT9LDERo0WBdIQcelkm6M1Ghhf6E1h9vWweQ+zC9VI1nyI+E0L/GH5ts99tHEerqbJ2srM+u
- 5bS/28quVylRTPB0w4b8rmytbzXb9Izzska9NYRy6ylLa6A/yrGCEaqtypq2AeYh6VWy87Z8j2S
- XyfNjBDounZ0ES/2Gj6cF/kb2M4YuyPLTuNoFa/ZY04Cwq2A79glx8gesOe3MBcyLUvEQ5uKPxE
- KMZhtc5hO60j/UzMVv5Agmhm5pwxEU6ksGmBjiztRmx5eIHED6peZg/Vxb/yAZ1H+quvwJaXUvT
- Wv9CYygC7T67sdM2AdsCYBUsWEdZyvNLf/pKek/zi2fnShCNPIgIeRqTjmmzAJCzb73SZgTC
-X-Authority-Analysis: v=2.4 cv=L9sdQ/T8 c=1 sm=1 tr=0 ts=68626670 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
- a=biE8C0GMo9j7lGmchtYA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: _DvWm0v9RiTWO0ItHcZ0r8IqVpA07VDo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-30_02,2025-06-27_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 phishscore=0 impostorscore=0 priorityscore=1501
- malwarescore=0 lowpriorityscore=0 adultscore=0 suspectscore=0 mlxlogscore=961
- bulkscore=0 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506300086
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250630083519.GC24861@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_032702_839707_5E83F95F 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250630_032928_043536_14FA2769 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,43 +97,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ensure that etm_perf_add_symlink_sink() is only called for devices
-that implement the alloc_buffer operation. This prevents invalid
-symlink creation for dummy sinks that do not implement alloc_buffer.
+On Mon, Jun 30, 2025 at 11:35:19AM +0300, Laurent Pinchart wrote:
+> > > > > +#define MALI_C55_ISP_RAW_BYPASS_FR_BYPASS_MASK		GENMASK(9, 8)
+> > > > > +#define MALI_C55_ISP_RAW_BYPASS_RAW_FR_BYPASS		(2 << 8)
+> > > > > +#define MALI_C55_ISP_RAW_BYPASS_RGB_FR_BYPASS		(1 << 8)
+> > > > 
+> > > > BIT() or make these unsigned.
+> > > 
+> > > It's a 2 bits field, BIT() isn't appropriate.
+> > 
+> > That leaves us with the other alternative, doesn't it?
+> 
+> Absolutely, although unsigned is unnecessary in this case as we're not
+> approaching bit 31.
 
-Without this check, perf may attempt to use a dummy sink that lacks
-alloc_buffer operationsu to initialise perf's ring buffer, leading
-to runtime failures.
+I agree with that, but what I really meant was that the pattern of using
+signed integers while shifting left itself is bad. Not everyone is aware
+of the problem and if we can steer them to use a different pattern, we can
+avoid bugs.
 
-Fixes: 9d3ba0b6c0569 ("Coresight: Add coresight dummy driver")
-Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
----
- drivers/hwtracing/coresight/coresight-core.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index fa758cc21827552a5c97b6bdd05d22dec4994b22..fddf04c5ee46eb4d559416296f7e85ce6c5689fa 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1374,8 +1374,9 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 		goto out_unlock;
- 	}
- 
--	if (csdev->type == CORESIGHT_DEV_TYPE_SINK ||
--	    csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) {
-+	if ((csdev->type == CORESIGHT_DEV_TYPE_SINK ||
-+	     csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) &&
-+	    sink_ops(csdev)->alloc_buffer) {
- 		ret = etm_perf_add_symlink_sink(csdev);
- 
- 		if (ret) {
-
----
-base-commit: 408c97c4a5e0b634dcd15bf8b8808b382e888164
-change-id: 20250630-etm_perf_sink-ee0fcffc6820
-
-Best regards,
 -- 
-Yuanfang Zhang <quic_yuanfang@quicinc.com>
-
+Sakari Ailus
 
