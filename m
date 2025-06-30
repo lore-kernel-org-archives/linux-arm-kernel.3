@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17662C8302D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E4FC83029
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 16:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,34 +12,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PCd5qyQy691HSV9YJ9m9HP42IEp42PZnG7ouFVfMjuk=; b=KA6mUWWPBAUDXYuzJSGcMcv7cA
-	yZag8gE3A4JuQ0XZ6BM3OMj2TMmuyfizoRTR+BgOI+pXMYG2BslArJMh+9Lw63bMnXRPBykxUxqBP
-	G84QJzA0kngIfOBTM9lXU3XOXQqzm44n0KSLvfEohw+60shYmrUb1R4nxrETSJPu6KHmKerPug4bh
-	VbqEaXGSEky2lUu7GpYDr7AnocTQ9/FL6qljIFunpD+2LYvNbgNUIrVOCkO4M/aq7OXAr4+lLTaRT
-	1yhzD+wz/bltLDoDz/CMtUqIJMq6n6ILon9XokZA/N/xMPLk3mlDnXvPoEUeHNOjc3N3Dmq+T7BDn
-	8LeKJ2ow==;
+	bh=zRMYZoPbz8clU7Su07kp6sfp/21hNOTahLan9PjCHPs=; b=2EJYgZ9IlC53eUcZEI2NuJBay0
+	G7ayyFJDvR7wu7p118eHJ5ANJdRmY7wosaG9SoX/juzoSOA2qtZeHPizlgp2H5yYYOa4NtJ4pfNn0
+	qODuzGiNG7mrIMypubyDjBNXUY4vluxIXgUqirM9k/FvNuVdirnwJkI58SZV69+GnFJGODmQ5yRYT
+	/YrJwMK6wQpmckNnib/m2MDYGGdlSTYqdKjZFQ4C7qj1vn4TjqJXpt0CTNy6OrSuJi4lEo2sNgAvL
+	zisxLb/E5+IyJcunO7Y2lkO5LtBcutrJid62RR2I6gIMaGrTlv+RVxhK1oaEmSTXFvg6W1NGa9Qiu
+	J2IW0+QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWHAL-00000002rGE-2CZt;
-	Mon, 30 Jun 2025 16:15:33 +0000
+	id 1uWHAN-00000002rIF-3SSW;
+	Mon, 30 Jun 2025 16:15:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWGMc-00000002jyJ-0z9P
+	id 1uWGMm-00000002k34-1mlR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 15:24:11 +0000
+	Mon, 30 Jun 2025 15:24:21 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA35E1D34;
-	Mon, 30 Jun 2025 08:23:53 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EAE41D34;
+	Mon, 30 Jun 2025 08:24:04 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 385253F6A8;
-	Mon, 30 Jun 2025 08:24:07 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A139B3F6A8;
+	Mon, 30 Jun 2025 08:24:17 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 30 Jun 2025 16:23:33 +0100
-Subject: [PATCH v2 01/13] drivers/perf: arm_spe: Expose event filter
+Date: Mon, 30 Jun 2025 16:23:37 +0100
+Subject: [PATCH v2 05/13] perf arm_spe: Directly propagate raw event
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-1-2e1afab313b9@arm.com>
+Message-Id: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-5-2e1afab313b9@arm.com>
 References: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
 In-Reply-To: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -54,16 +54,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751297044; l=3223;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751297044; l=4003;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=iKhC+d4sV/xxL/Hla87K21hh3vHs6B5Kz8PuyBXEb1E=;
- b=7OHkqWVr1AL5hf+H0454UnLXUiws3/ATSfOWBSlozjef1alf+m8p+UXH1Q/wAWLQHBOge6BSS
- u9fHO/OTyz0AU7fgtX/bXgnHLgwgxpyA/zV1eGXlCH333P8K201W0E0
+ bh=+4i/iKSxS7ZnlQswgPQfW+wzCcEox3tz/OZk4WQraNQ=;
+ b=I5+WCYUkmyuwjUEs11iEQQEbO/JZsyzH/pIntGvdioajpNhR0+F9u0w2qvuiSz8FhVOGK+YtZ
+ Dx8L3NJuSEmC3DOhpW9Rg95e/aaKm89nVoJxZnEjrTX0cKmG/byVsEE
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_082410_452918_15D773EB 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20250630_082420_546858_23522A02 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,99 +78,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose an entry "event_filter" in the caps folder to inform user space
-about the events that can be filtered.
+Two separate sets of event bits are defined: one for used in the code
+for generating samples and another for the backend decoder. Reduce
+the redundancy by using the raw event bits directly in the frontend
+code.
 
-Change the return type of arm_spe_pmu_cap_get() from u32 to u64 to
-accommodate the newly added capability.
+To avoid overflow issues, change the type of the event variable from
+enum to u64.
 
+Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/perf/arm_spe_pmu.c | 36 ++++++++++++++++++++----------------
- 1 file changed, 20 insertions(+), 16 deletions(-)
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.c | 37 +----------------------
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.h | 28 ++++++++---------
+ 2 files changed, 14 insertions(+), 51 deletions(-)
 
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 3efed8839a4ec5604eba242cb620327cd2a6a87d..78d8cb59b66d7bc6319eb4ee40e6d2d32ffb8bdf 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -115,6 +115,7 @@ enum arm_spe_pmu_capabilities {
- 	SPE_PMU_CAP_FEAT_MAX,
- 	SPE_PMU_CAP_CNT_SZ = SPE_PMU_CAP_FEAT_MAX,
- 	SPE_PMU_CAP_MIN_IVAL,
-+	SPE_PMU_CAP_EVENT_FILTER,
- };
- 
- static int arm_spe_pmu_feat_caps[SPE_PMU_CAP_FEAT_MAX] = {
-@@ -122,7 +123,21 @@ static int arm_spe_pmu_feat_caps[SPE_PMU_CAP_FEAT_MAX] = {
- 	[SPE_PMU_CAP_ERND]	= SPE_PMU_FEAT_ERND,
- };
- 
--static u32 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
-+static u64 arm_spe_pmsevfr_res0(u16 pmsver)
-+{
-+	switch (pmsver) {
-+	case ID_AA64DFR0_EL1_PMSVer_IMP:
-+		return PMSEVFR_EL1_RES0_IMP;
-+	case ID_AA64DFR0_EL1_PMSVer_V1P1:
-+		return PMSEVFR_EL1_RES0_V1P1;
-+	case ID_AA64DFR0_EL1_PMSVer_V1P2:
-+	/* Return the highest version we support in default */
-+	default:
-+		return PMSEVFR_EL1_RES0_V1P2;
-+	}
-+}
-+
-+static u64 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
- {
- 	if (cap < SPE_PMU_CAP_FEAT_MAX)
- 		return !!(spe_pmu->features & arm_spe_pmu_feat_caps[cap]);
-@@ -132,6 +147,8 @@ static u32 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
- 		return spe_pmu->counter_sz;
- 	case SPE_PMU_CAP_MIN_IVAL:
- 		return spe_pmu->min_period;
-+	case SPE_PMU_CAP_EVENT_FILTER:
-+		return ~arm_spe_pmsevfr_res0(spe_pmu->pmsver);
- 	default:
- 		WARN(1, "unknown cap %d\n", cap);
- 	}
-@@ -148,7 +165,7 @@ static ssize_t arm_spe_pmu_cap_show(struct device *dev,
- 		container_of(attr, struct dev_ext_attribute, attr);
- 	int cap = (long)ea->var;
- 
--	return sysfs_emit(buf, "%u\n", arm_spe_pmu_cap_get(spe_pmu, cap));
-+	return sysfs_emit(buf, "%llu\n", arm_spe_pmu_cap_get(spe_pmu, cap));
- }
- 
- #define SPE_EXT_ATTR_ENTRY(_name, _func, _var)				\
-@@ -164,6 +181,7 @@ static struct attribute *arm_spe_pmu_cap_attr[] = {
- 	SPE_CAP_EXT_ATTR_ENTRY(ernd, SPE_PMU_CAP_ERND),
- 	SPE_CAP_EXT_ATTR_ENTRY(count_size, SPE_PMU_CAP_CNT_SZ),
- 	SPE_CAP_EXT_ATTR_ENTRY(min_interval, SPE_PMU_CAP_MIN_IVAL),
-+	SPE_CAP_EXT_ATTR_ENTRY(event_filter, SPE_PMU_CAP_EVENT_FILTER),
- 	NULL,
- };
- 
-@@ -693,20 +711,6 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
- 	return IRQ_HANDLED;
- }
- 
--static u64 arm_spe_pmsevfr_res0(u16 pmsver)
--{
--	switch (pmsver) {
--	case ID_AA64DFR0_EL1_PMSVer_IMP:
--		return PMSEVFR_EL1_RES0_IMP;
--	case ID_AA64DFR0_EL1_PMSVer_V1P1:
--		return PMSEVFR_EL1_RES0_V1P1;
--	case ID_AA64DFR0_EL1_PMSVer_V1P2:
--	/* Return the highest version we support in default */
--	default:
--		return PMSEVFR_EL1_RES0_V1P2;
--	}
--}
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+index 688fe6d7524416420a7c18d5f8a268492ce7c3b8..96eb7cced6fd1574f5d823e4c67b9051dcf183ed 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+@@ -229,42 +229,7 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
+ 			}
+ 			break;
+ 		case ARM_SPE_EVENTS:
+-			if (payload & BIT(EV_L1D_REFILL))
+-				decoder->record.type |= ARM_SPE_L1D_MISS;
 -
- /* Perf callbacks */
- static int arm_spe_pmu_event_init(struct perf_event *event)
- {
+-			if (payload & BIT(EV_L1D_ACCESS))
+-				decoder->record.type |= ARM_SPE_L1D_ACCESS;
+-
+-			if (payload & BIT(EV_TLB_WALK))
+-				decoder->record.type |= ARM_SPE_TLB_MISS;
+-
+-			if (payload & BIT(EV_TLB_ACCESS))
+-				decoder->record.type |= ARM_SPE_TLB_ACCESS;
+-
+-			if (payload & BIT(EV_LLC_MISS))
+-				decoder->record.type |= ARM_SPE_LLC_MISS;
+-
+-			if (payload & BIT(EV_LLC_ACCESS))
+-				decoder->record.type |= ARM_SPE_LLC_ACCESS;
+-
+-			if (payload & BIT(EV_REMOTE_ACCESS))
+-				decoder->record.type |= ARM_SPE_REMOTE_ACCESS;
+-
+-			if (payload & BIT(EV_MISPRED))
+-				decoder->record.type |= ARM_SPE_BRANCH_MISS;
+-
+-			if (payload & BIT(EV_NOT_TAKEN))
+-				decoder->record.type |= ARM_SPE_BRANCH_NOT_TAKEN;
+-
+-			if (payload & BIT(EV_TRANSACTIONAL))
+-				decoder->record.type |= ARM_SPE_IN_TXN;
+-
+-			if (payload & BIT(EV_PARTIAL_PREDICATE))
+-				decoder->record.type |= ARM_SPE_SVE_PARTIAL_PRED;
+-
+-			if (payload & BIT(EV_EMPTY_PREDICATE))
+-				decoder->record.type |= ARM_SPE_SVE_EMPTY_PRED;
+-
++			decoder->record.type = payload;
+ 			break;
+ 		case ARM_SPE_DATA_SOURCE:
+ 			decoder->record.source = payload;
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+index 881d9f29c1380b62486f0cd81498750ba06c4b50..03da55453da8fd2e7b9e2dcba3ddcf5243599e1c 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+@@ -13,20 +13,18 @@
+ 
+ #include "arm-spe-pkt-decoder.h"
+ 
+-enum arm_spe_sample_type {
+-	ARM_SPE_L1D_ACCESS		= 1 << 0,
+-	ARM_SPE_L1D_MISS		= 1 << 1,
+-	ARM_SPE_LLC_ACCESS		= 1 << 2,
+-	ARM_SPE_LLC_MISS		= 1 << 3,
+-	ARM_SPE_TLB_ACCESS		= 1 << 4,
+-	ARM_SPE_TLB_MISS		= 1 << 5,
+-	ARM_SPE_BRANCH_MISS		= 1 << 6,
+-	ARM_SPE_REMOTE_ACCESS		= 1 << 7,
+-	ARM_SPE_SVE_PARTIAL_PRED	= 1 << 8,
+-	ARM_SPE_SVE_EMPTY_PRED		= 1 << 9,
+-	ARM_SPE_BRANCH_NOT_TAKEN	= 1 << 10,
+-	ARM_SPE_IN_TXN			= 1 << 11,
+-};
++#define ARM_SPE_L1D_ACCESS		BIT(EV_L1D_ACCESS)
++#define ARM_SPE_L1D_MISS		BIT(EV_L1D_REFILL)
++#define ARM_SPE_LLC_ACCESS		BIT(EV_LLC_ACCESS)
++#define ARM_SPE_LLC_MISS		BIT(EV_LLC_MISS)
++#define ARM_SPE_TLB_ACCESS		BIT(EV_TLB_ACCESS)
++#define ARM_SPE_TLB_MISS		BIT(EV_TLB_WALK)
++#define ARM_SPE_BRANCH_MISS		BIT(EV_MISPRED)
++#define ARM_SPE_BRANCH_NOT_TAKEN	BIT(EV_NOT_TAKEN)
++#define ARM_SPE_REMOTE_ACCESS		BIT(EV_REMOTE_ACCESS)
++#define ARM_SPE_SVE_PARTIAL_PRED	BIT(EV_PARTIAL_PREDICATE)
++#define ARM_SPE_SVE_EMPTY_PRED		BIT(EV_EMPTY_PREDICATE)
++#define ARM_SPE_IN_TXN			BIT(EV_TRANSACTIONAL)
+ 
+ enum arm_spe_op_type {
+ 	/* First level operation type */
+@@ -100,7 +98,7 @@ enum arm_spe_hisi_hip_data_source {
+ };
+ 
+ struct arm_spe_record {
+-	enum arm_spe_sample_type type;
++	u64 type;
+ 	int err;
+ 	u32 op;
+ 	u32 latency;
 
 -- 
 2.34.1
