@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6855C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 10:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C07C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 10:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DVGNQK3ovA1eStReJPPWHDBj+E6PFN3lZlWCymwT7kA=; b=1Dvy2YE/9CeGJkj9tn5FFh3JE/
-	nMtDgd61kLhowLpwboUoQApTd1HNxGFpCOkV0wjQ4lzo1xn2soxEx78Em4O59I5GYiQIwj5YPSu2n
-	dY3fBnkYzyCjPe09ZZcG+2+P9W6K2ool5cGPNBQbgv1Ce4gi0a57NDQ/TvDHGWql/MEPOehP+igA/
-	j5UbVpKW+FeBJpa8UgQOLIETuNB01jsrdFHOHfeLWCzPiEcHmraD4qA1v036LUbB7FrmfmnfXzxM/
-	atp3zkdleKivB38El2+B3RBXAtjRUwnJ/45ouZyP48yxa+Fyaxybhzej31Yq+wJ2UVdfjN4V5+TaY
-	oqotXJFw==;
+	bh=xXhs+7c29L9IAJEbOQqIYkoOXotVjhRkPNd/dFJbyKQ=; b=vF3ULiMa0xHSnp4X1rv4Suo24m
+	2K64NzbJk5l+grGK61kZMX4sdEFZAccwEleJTsFR5zK5ryXWA7jrVraT9UaZbXpdkJM97U7Aaxvgu
+	Hjd+JG2AkO9RFJf6s7NXByvUxqI7dpK+jKTZW7s3JRRwTh/VPA+MgANkaxXE+/Ks2bim0g8HeG5GI
+	P9OjwrHJxW0Zny5Lu7Zr/Wz72HZJMJEOfzNkFSVUYYrj/mmXkfOhboN2K1SGDF5RN06QHkkHLS12J
+	8xc3Z2zOGsS/DYTW6IVvIyHiMYY0hUo+85gqK0iPiticZ7sCahVtuDkR1C6os6u849PgLaEzOb6jJ
+	i6Xkj9sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWC0y-00000001vvs-0uXo;
-	Mon, 30 Jun 2025 10:45:32 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWBcF-00000001rto-2cuP;
-	Mon, 30 Jun 2025 10:20:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751278786; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=R+XsFmJlOH88IPsfmTD8tDk8RlbfWYQS8CSLDpRd2LvIOpVOD7Dm3hDLgBinQLA4CNNc/G14bapI+9XdK1FGzEVMudSq9Ca0i6dOp2TyhoFyvLOx1cvb35uuuDX9r/zqyCaD5qe2oXal61UvDlH431rTVsDiA5wnv3udMAY0u3g=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751278786; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=DVGNQK3ovA1eStReJPPWHDBj+E6PFN3lZlWCymwT7kA=; 
-	b=gg4y2DBoW9TKvUNNXly/AJWjkkICsOzIuY2Evbzn6psahfRaXgkvcS6L+f+55zBA3YCwKzLXmM8DmMKZ2R5digvIejp3mGJQWGLaKyaa/MZx+lyQ/Ulh3zerGqe2wBa9jzvTMy+yc0l5SW3fIXcbsHVKHdZ89Cb+FsAbyjvKnSo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751278786;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=DVGNQK3ovA1eStReJPPWHDBj+E6PFN3lZlWCymwT7kA=;
-	b=V646PLmcVVU+4vqXaywt467wXSxznevX+2nnj9Y+ClnwXT/t3J07FZRwilpzrx9s
-	l9KyRR4S+bKU1DIPh6e7jWhiiz4S6cQ1CLvrk8XsHXS6n5bRJdT1sSo6cTeC+AnkHsk
-	3rI/iK9O30eumSFoaJiaZjZyPIZx4LExc/BzICyw=
-Received: by mx.zohomail.com with SMTPS id 1751278785189692.9528694352027;
-	Mon, 30 Jun 2025 03:19:45 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 30 Jun 2025 12:19:27 +0200
-Subject: [PATCH 4/4] arm64: dts: rockchip: add HDMI audio on ROCK 4D
+	id 1uWC3G-00000001wQb-1PHI;
+	Mon, 30 Jun 2025 10:47:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWBdW-00000001sBJ-3DPp
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 10:21:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20C931D34;
+	Mon, 30 Jun 2025 03:21:02 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD3323F58B;
+	Mon, 30 Jun 2025 03:21:15 -0700 (PDT)
+Message-ID: <ee89d23e-db04-4646-a556-27117e94b5ed@arm.com>
+Date: Mon, 30 Jun 2025 11:21:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] arm64: Support FEAT_LSFE (Large System Float
+ Extension)
+To: Mark Brown <broonie@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-kselftest@vger.kernel.org
+References: <20250627-arm64-lsfe-v1-0-68351c4bf741@kernel.org>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250627-arm64-lsfe-v1-0-68351c4bf741@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250630-rock4d-audio-v1-4-0b3c8e8fda9c@collabora.com>
-References: <20250630-rock4d-audio-v1-0-0b3c8e8fda9c@collabora.com>
-In-Reply-To: <20250630-rock4d-audio-v1-0-0b3c8e8fda9c@collabora.com>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: kernel@collabora.com, linux-input@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_031959_726357_943C5F27 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20250630_032118_846287_A6093A4C 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,45 +70,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Much like the Sige5, the ROCK 4D also has an HDMI port, so is capable of
-providing HDMI audio output as well.
+Hi Mark,
 
-Enable the SoC's hdmi_sound card, and also enable the SoC audio
-controller (sai6) that feeds into it.
+On 6/27/25 18:20, Mark Brown wrote:
+> FEAT_LSFE is optional from v9.5, it adds new instructions for atomic
+> memory operations with floating point values.  We have no immediate use
+> for it in kernel, provide a hwcap so userspace can discover it and allow
+> the ID register field to be exposed to KVM guests.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+> Mark Brown (3):
+>        arm64/hwcap: Add hwcap for FEAT_LSFE
+>        KVM: arm64: Expose FEAT_LSFE to guests
+>        kselftest/arm64: Add lsfe to the hwcaps test
+> 
+>   Documentation/arch/arm64/elf_hwcaps.rst   |  4 ++++
+>   arch/arm64/include/asm/hwcap.h            |  1 +
+>   arch/arm64/include/uapi/asm/hwcap.h       |  1 +
+>   arch/arm64/kernel/cpufeature.c            |  2 ++
+>   arch/arm64/kernel/cpuinfo.c               |  1 +
+>   arch/arm64/kvm/sys_regs.c                 |  4 +++-
+>   tools/testing/selftests/arm64/abi/hwcap.c | 21 +++++++++++++++++++++
+>   7 files changed, 33 insertions(+), 1 deletion(-)
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-index 4d4b8ababd2436b82515443b029916b3c786dba1..70bc6f909ec0843607c2705ee9f73b0ba521a977 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-@@ -322,6 +322,10 @@ hdmi_out_con: endpoint {
- 	};
- };
- 
-+&hdmi_sound {
-+	status = "okay";
-+};
-+
- &hdptxphy {
- 	status = "okay";
- };
-@@ -772,6 +776,10 @@ &sai1m0_sdi0
- 	status = "okay";
- };
- 
-+&sai6 {
-+	status = "okay";
-+};
-+
- &saradc {
- 	vref-supply = <&vcca1v8_pldo2_s0>;
- 	status = "okay";
+I have looked through the series and it looks good to me modulo a couple 
+of minor comments left on the patches. Bare in mind fairly new here and 
+this is the first use of hwcap3 so I expect more experienced review is 
+required.
 
--- 
-2.50.0
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+
+> ---
+> base-commit: 86731a2a651e58953fc949573895f2fa6d456841
+> change-id: 20250625-arm64-lsfe-0810cf98adc2
+> 
+> Best regards,
+> --
+> Mark Brown <broonie@kernel.org>
+> 
+> 
+
+
+Thanks,
+
+Ben
 
 
