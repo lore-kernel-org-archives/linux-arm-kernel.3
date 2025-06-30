@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1499BC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 11:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEAC6C7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 11:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0u8GW58OtFP1vJS0kblEDCNv4tYQ/aqVCBFjiK0UBrw=; b=4x+tindYFNoyUKVeD0+k+MmFef
-	l8wFLXX+viXaU8h1FlluBmibSOHm8FNImwsYdT1MAL3HX9IglBDu+1Rhp/Jz0AkD7O+H/lPQ/SEyf
-	G4F1auEaZ5MELZpzwQd6WoKsVrTIUD7mvjQVvBTTrKn9+pMKYe4H7GycTHbyTZn+4aVL9ncznlK1L
-	TULKG4+EnWvd/RkZdoQOI4aXlY2UUDxeBG1yAeuVKNAmFDcLWC4KdxN0EYm1/0boq9NnOI4w63lSg
-	40V29QJW9psKGXHIIuA9xqjglTC6q2wt91JZyXkROBn/gmMb0+xrdtyPSKDWCbqs/9QDNnHmArvRs
-	N/SxwNNQ==;
+	bh=9rBTDJ/Pce3XGAqMFO/6ZU1Cr+dyYVpm8N2+a5ACXSQ=; b=uewybYhFnCjzJm7aLr5LEJAU2J
+	s0LnNpi/xhHNPt/wVmYdIrE0bb7yEWxygCGfa5x/2JdSRb+Yg5seLaKfeHz+rvoC+vbGTMq37HDIg
+	o0GM9TtH+1WE5Vtx2ryXRoI9IHM+9oy3MHfRS+KP0864hX9x+/j+wb/QQkJaw00sgh67Z6tGXyBpm
+	LlK4cPTE+bXZPU8IVH4aIgUYqLtWq/sj+j1XnVPCNdsHMhs0c9tK/a6DE+SodkeEjmwSwwc/OP6Ih
+	eFHzMaISC5Y0i51K5kUeU7JuUr+oTTNT9fPBGvaD5jBaEcW8/+6c5HpQv3MbGf9YsEDo/WtvGdsft
+	EmxCBV9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWCpD-000000023cm-3s93;
-	Mon, 30 Jun 2025 11:37:27 +0000
+	id 1uWCrV-000000023ws-2emM;
+	Mon, 30 Jun 2025 11:39:49 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWCX4-00000001zxu-1CPK
+	id 1uWCYV-000000020JM-3z91
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 11:18:46 +0000
+	Mon, 30 Jun 2025 11:20:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 626D05C418B;
-	Mon, 30 Jun 2025 11:18:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D31D3C4CEE3;
-	Mon, 30 Jun 2025 11:18:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 251675C4D32;
+	Mon, 30 Jun 2025 11:20:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11475C4CEE3;
+	Mon, 30 Jun 2025 11:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751282321;
-	bh=/zPtV6dESq3W/I9QbMckyTu4GDaEL5TPBWwywPJ32S0=;
+	s=k20201202; t=1751282410;
+	bh=9rBTDJ/Pce3XGAqMFO/6ZU1Cr+dyYVpm8N2+a5ACXSQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VgtoOB9vsslvh2n8Etqblw7N5AJFVaQmiRZrFoPCTCh4i54PbjXwP+1ZC7y2HP1qP
-	 AkFlhmywwhYYtPjDbPQyjbq6Twn2Wiw2r6TQKe3zb0VmytVO8KInWYObJXlIUPOxeM
-	 sxethmiiN5Ne2KMx7N2VEBGnwT7CYc6aST1+rBYyErzNzOZnQYxiIPdhqBGz+OXpeb
-	 ZnaGaoK2Eo+AKvWXrjsmmgcH3djTIuhmpxf/Y+/V1H9dxKw0ZC52nN68VnqbX7aPfm
-	 0J8u3TdNq9laFK3F5ZA6RqfFMdme1keMqYIZ7pNdzkAMGn3g6R85/uwXYskmzCceEv
-	 d/RH8Id6k1YNA==
-Date: Mon, 30 Jun 2025 12:18:36 +0100
-From: Simon Horman <horms@kernel.org>
-To: Alok Tiwari <alok.a.tiwari@oracle.com>
-Cc: sgoutham@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: thunderx: avoid direct MTU assignment after
- WRITE_ONCE()
-Message-ID: <20250630111836.GE41770@horms.kernel.org>
-References: <20250629051540.518216-1-alok.a.tiwari@oracle.com>
+	b=D13f7Ub4BN4yAwB3RBgvRG4yQNNeXJL5AVLZDS0XwfD2u+9YTM+M/gSw6/hHyOL+v
+	 HN9NnVq06ERB/qjtlFmBvfcN5BqsZcZxEQfuffupcShL4D9iuO6VSB+xx+cqd/d0BY
+	 FdrGIeWdz9E3J4nDBNb+lFK/bwn1g16v3v+xariZJJuVBFQ5wptVP8G4+uaUrVRAth
+	 AXSKIw0IGxf/ffpaaEHxrMx+q4modao/UkAagb8HMogs4Paor4+v99PoqCdRuZG0sh
+	 pQ17AzhygtAUzwdIhM7esrNy5H71AO93MipDLxyYjptFNLXYOyhuqVvHA85GHN2ckr
+	 1xVTcfnkv2Mhg==
+Date: Mon, 30 Jun 2025 12:20:06 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+Cc: Antonio Quartulli <antonio@mandelbit.com>, linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alain Volmat <alain.volmat@foss.st.com>
+Subject: Re: [PATCH v2] spi: stm32: fix pointer-to-pointer variables usage
+Message-ID: <192fb276-1e5a-4f69-8815-133f6bcd36b3@sirena.org.uk>
+References: <20250630081253.17294-1-antonio@mandelbit.com>
+ <5e61da51-cd02-41fd-9773-8bd776e1db62@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8ubtRjEq0eUrZSJ8"
 Content-Disposition: inline
-In-Reply-To: <20250629051540.518216-1-alok.a.tiwari@oracle.com>
+In-Reply-To: <5e61da51-cd02-41fd-9773-8bd776e1db62@foss.st.com>
+X-Cookie: Say no, then negotiate.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_041842_368180_F5CFF1CB 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20250630_042012_028930_48A23A14 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,42 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 28, 2025 at 10:15:37PM -0700, Alok Tiwari wrote:
 
-...
+--8ubtRjEq0eUrZSJ8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> @@ -1589,16 +1588,18 @@ static int nicvf_change_mtu(struct net_device *netdev, int new_mtu)
->  		return -EINVAL;
->  	}
->  
-> -	WRITE_ONCE(netdev->mtu, new_mtu);
->  
-> -	if (!netif_running(netdev))
-> +	if (!netif_running(netdev)) {
-> +		WRITE_ONCE(netdev->mtu, new_mtu);
->  		return 0;
-> +	}
->  
->  	if (nicvf_update_hw_max_frs(nic, new_mtu)) {
-> -		netdev->mtu = orig_mtu;
->  		return -EINVAL;
->  	}
+On Mon, Jun 30, 2025 at 10:28:50AM +0200, Clement LE GOFFIC wrote:
 
-nit: curly brackets should be removed here, but see further comment below.
+> Thank you, LGTM
+> You can add my Reviewed-by
 
->  
-> +	WRITE_ONCE(netdev->mtu, new_mtu);
-> +
->  	return 0;
->  }
+If you want to add a Reviewed-by you should actually write it out in the
+mail, people rely on tooling like b4 to pick them up.
 
-Could this be more succinctly expressed as follows?
-(Completely untested!)
+--8ubtRjEq0eUrZSJ8
+Content-Type: application/pgp-signature; name="signature.asc"
 
-	if (netif_running(netdev) && nicvf_update_hw_max_frs(nic, new_mtu))
-		return -ENIVAL;
+-----BEGIN PGP SIGNATURE-----
 
-	WRITE_ONCE(netdev->mtu, new_mtu);
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhicuUACgkQJNaLcl1U
+h9Ab+Af/TLVz/Hq9TCf2YxneUgc7AN12JRozk2EqamXE2v+Yb6rTtIil8B8ebrzi
+FfOaxYAzi5KJDeESYSTn3yPDx0Fx6BA0p2iJN81BglYrhweGnTRepTTxipockKR1
+Rvdj2lJFlq1gG6wtmZWlVRxvLZgNMw9YedXUzDFBtpjZoWQiAeEw/zWioip11i+l
+inR4ruch1/w48o7zh5Ays2lOQd3exzmLp1lAH/myowkR3v4qP6yzs7QLHmhAWOqy
+BlNC5jVfocXWi7eWO+VC+etgczf5bINLcC8VYUM79z2WNJszOKx/1AMtCBqfVYyF
+MFhM8P+Ykvqa6VXqRoBSlmT5PUYYpw==
+=boE2
+-----END PGP SIGNATURE-----
 
-	return 0;
+--8ubtRjEq0eUrZSJ8--
 
