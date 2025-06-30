@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 063B4C7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 04:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D3BC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 04:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cQM7nDGryU7B7FarIwhtY8mXOeTFvenOK1t/A6Vy+lo=; b=1QPShVjMQjjO91
-	XAiBQ4u768rudKy2gS4gixdAnDMPAN8DjgqXNkMQF8uc39QOuhUAxkDLF9R7sKE3Vtvn+PnxzlII4
-	JKAfP70CDHaDtUGIDxc841w8Zqrq2M4AO5MdhrkbBvcOMSNzQSczfmMxkkKkr+sDfxtv3PIJW3iy2
-	EyKTl4O3IDCQS8W4SwdujngezRjY/qp3v3TIl1W+YHxxFxXl+ymoaA6HyGhCpZ4V/ypKaSD/zjTuu
-	+OMHHaZDHcssDiQl7xtaasgsFlaLtQ82gw40a9jFmqjrBjClX4jViM6++pY7PXDEtIDEarjxWgv4+
-	XCgUjW6ZsCvFT/Cvl0kg==;
+	List-Owner; bh=+et2JbQsekjoDqNx2V23zrGG58Up1Zz2cWU2HWIxxkw=; b=uATdu+3PKQrOLT
+	OlCb03K5a0w0vg0PywAEBFvBnp2c4GnJq51AcR6yb3D5gz0RdJF9PPr1usIN2C+91fY2Rm2hYe2zY
+	IdAGLF3eXAYCHMggsoMgnX1DtwWFG7Wjw0mzRNALt8HadByGOHIzx/tpf+HeSkrjOUE9EtZ3fzofs
+	zmi4z5/xpx09SGs6ORAOyuTcp7olssseD8LGgdGwdAde/dJJZMqwd4ir/1CFXi+s936LFL+ESqh21
+	wguPrLhO+M/JulwBOxpVL52d1KylENIwAJfB9nHHTF9+GVbLQttVyUxzhjhwcuAqsOQPdrg9gro7x
+	E0JtDXWpsYjfPHQGrfSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW6RR-00000001DvZ-2YCG;
-	Mon, 30 Jun 2025 04:48:29 +0000
-Received: from mail-lj1-f174.google.com ([209.85.208.174])
+	id 1uW6ZB-00000001EYF-3FsZ;
+	Mon, 30 Jun 2025 04:56:29 +0000
+Received: from mail-lf1-f54.google.com ([209.85.167.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW6P7-00000001Dh5-2vFn
+	id 1uW6Ws-00000001ER8-3oYi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 04:46:06 +0000
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-32add56e9ddso15762031fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 21:46:05 -0700 (PDT)
+	Mon, 30 Jun 2025 04:54:07 +0000
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-555163cd09aso1160432e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 21:54:06 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751258763; x=1751863563;
+        d=1e100.net; s=20230601; t=1751259244; x=1751864044;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=cQM7nDGryU7B7FarIwhtY8mXOeTFvenOK1t/A6Vy+lo=;
-        b=t5T1nOGDg8MVgIDx2tw38Z9t79nH7NHrKLICS/PlP/QJoqmihbldaneY4HHhDyCjwx
-         zvC7LqZ4zUtUFvfrzx06WNRSS7AR2GNtjTvfpi0wD86Ig9izA80NhZiyf/GNrPCx/8pK
-         C3IP5W+LBHAhaynYpE0lSfKIlbkdjV9aA1LrxGlLK6eKeKfAscbZyFoIntb3XfTDCQpa
-         HkpDdIStKAn0ep/SswwJll31gHX0Vjn2EeSguZzYfzg4iHOIw9HDlveGXdcylWsMzPR8
-         D5YXmEv3KEVvEZTdDYiIgYT+PciGBklJy53G9m9ewoBEZmkSthwaYgIoSrptAVxkA4Ep
-         NpNg==
-X-Forwarded-Encrypted: i=1; AJvYcCXx5MwTJOu7zi2TZzQa1c7Gk63DsIPP6forVhGVe6TLKTwqBmiXpdaQ/n4SH27oDN3usFtLO5njpnYxk7tR8dtA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGVwX4h2CeEZmA+2z0wRwcGoUrogBKPFXVhx7EHCbMSzlmfNCB
-	yqwaASj/KyxTxQgL9yPgXReXOe2/vjN+8veBbvKij/BwcKv/V4elHrrgUKwkJTcB
-X-Gm-Gg: ASbGncuQjqCtFphYvyWYmDaoyI80Mg/ge8eZ2zmhWKSiiQvHMfjOJSx2MEkP1mY7RQa
-	vVR/f1qhDO2aqDiKB0wpYcSwKU6FAFqf74O6D336FFMPYdZhH+qTzxVlGxnffJVZCTn2cnrKakL
-	rWtRZuChPGNlKilyjiDUxdkOad58plYmVUsRn0Yawz+hv29wSszwl1MxkKQFwz4ty7eEAZj4WNW
-	oCk+bIXHSOsyXZv73lrbJ5J4/kxHa85oi+gWGHSQEiBQ5vtFJijfnNN/FrVZTyesXkQ2UbTfwbO
-	MnfkapzpAqvpcU5xREBeT8xNnmuxjiPE2xvLw7yZ/DzjTLFJKzvtMVxFhMyvmFJlTvO+8f1ZUA4
-	XWZL6n32sHZOd6bMODXI=
-X-Google-Smtp-Source: AGHT+IGp/m+rdLpsxceUay6I6abWWZ6ifDdkyuth5cZo0omsZ6Ky5NT+0AbdiUYXHTICBbYpbxOUCA==
-X-Received: by 2002:a2e:7c14:0:b0:32a:666e:9f14 with SMTP id 38308e7fff4ca-32cdc4cae76mr26645091fa.19.1751258762732;
-        Sun, 29 Jun 2025 21:46:02 -0700 (PDT)
-Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com. [209.85.208.169])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-32cd2eebe81sm11759321fa.83.2025.06.29.21.46.02
+        bh=+et2JbQsekjoDqNx2V23zrGG58Up1Zz2cWU2HWIxxkw=;
+        b=MIeqUvScPK6QQxHq/xmD5UzMIKCz4VfARAdcMHwI/Z6ocdag1V/jjfx4KMMgV8vnck
+         kIDT64c8EhlR1idXZFCn+hL1uEP6a2LnaXJ2qC1XPreXDPZd/5E80duv7jW/qzLFkWHE
+         Dl3Spi8Ga8NHIDX6fRhb2OTe+vOzXWlgg7act+0UJSpYU3uxq5qoWSxAI3Ye943F+1vO
+         4z/tnvJIqU/cF9zorIblpG3k7hyAzFNqh/9FS0nMj3NIS/h7ltxpezTMcMnL26CGTcwz
+         Yd5OXf2G8CQ9acWnCq7xDVl2YnJVdaVOxBT3cPiht/JXhyt+xjW1tCZRNoqMbrLnCyUN
+         u/jw==
+X-Forwarded-Encrypted: i=1; AJvYcCXSik7bRC0y2uhqX70d0VxkbmtakqqnV0FbBQqIHliWbGKP14ks5O0kkAdTxL3eY+MaYo4y9x+067XJjmgTmn0M@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6CnIwQOUtyBjLstx5mKokUT5mcJa3gMNIHEUW7MBBf3Th/sVY
+	3764IUDHPYKvoqdXIoDyxoY0lKmRjAaw83bu+/6sRBrONh3tQmQ/heApIWueseeN
+X-Gm-Gg: ASbGncsdCC+F+S5fr76+48QFeqls6GZdWKMjhf42o9lsvTOmvSaPZ+SANx5yJVfoMVx
+	m+kT+j8WZ7jBQzvunKHF8KugC2GUqo27gA0aelES6o6aw4Y6IXSvNlHTql3f8waz07++iyUIsgG
+	/iakpeHOOeMcw9z8FrrO48lHS5Fa/9haOVJ0tJ6OKqfb9D5JvfzP1bJ+sOaAUkiWyx9cBhVC3e/
+	KT+1Pq8yT7yiOOmP8UTQbqS6S0zLJNaMKXQrxxby5Tbvm9ZBkCw4zRt9BgPLpG3KlI2deQHouRh
+	Tw8IbX3rawXDzZkrLTBrlJJZBAgyv+j0frgoatye+NEHFL6wn0YS37Jftdz/i6dMO7XxbVQyFwS
+	HjFuyC7gyIU/vWgsKgLU=
+X-Google-Smtp-Source: AGHT+IHXUZ6uHxqnUeJcM2Dp24jJXyg6sFEZeuzx0LXr/169KrbSlCWdh0Shqo0OY3aiYiqepGhJVg==
+X-Received: by 2002:a05:6512:a90:b0:553:ac4e:c41 with SMTP id 2adb3069b0e04-5550b8870f2mr3245385e87.28.1751259243692;
+        Sun, 29 Jun 2025 21:54:03 -0700 (PDT)
+Received: from mail-lj1-f170.google.com (mail-lj1-f170.google.com. [209.85.208.170])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2f2ef4sm1273259e87.254.2025.06.29.21.54.03
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 29 Jun 2025 21:46:02 -0700 (PDT)
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-32add56e9ddso15761791fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 21:46:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWvZowfvzPQCrHi5viIdpQfJf89UirXFFL8K1w0QHCc9FfxoZ+Z2H1SriEiNZozmoLJai7En3AXb/NjttMxlBqV@lists.infradead.org
-X-Received: by 2002:a05:6512:401d:b0:553:297b:3d4e with SMTP id
- 2adb3069b0e04-5550b8db1dbmr4122373e87.52.1751258762118; Sun, 29 Jun 2025
- 21:46:02 -0700 (PDT)
+        Sun, 29 Jun 2025 21:54:03 -0700 (PDT)
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-32b910593edso33078951fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 21:54:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVLTrfncvASeh3wEhMSEjXj9rph25SxTNVlz8GrmyLfvLMaKFwqQxsfJbwmIL1G4IaqJMUClwPiI+o7CNe+rOTy@lists.infradead.org
+X-Received: by 2002:a05:651c:31ca:10b0:32c:a851:e4e with SMTP id
+ 38308e7fff4ca-32cdc575ebcmr24256581fa.40.1751259243150; Sun, 29 Jun 2025
+ 21:54:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250411003827.782544-1-iuncuim@gmail.com> <20250411003827.782544-6-iuncuim@gmail.com>
-In-Reply-To: <20250411003827.782544-6-iuncuim@gmail.com>
+References: <20250411003827.782544-1-iuncuim@gmail.com> <20250411003827.782544-3-iuncuim@gmail.com>
+In-Reply-To: <20250411003827.782544-3-iuncuim@gmail.com>
 From: Chen-Yu Tsai <wens@csie.org>
-Date: Mon, 30 Jun 2025 12:45:50 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67kxeF86iHJ3GsOVJT8FOyeM37D1Vdf1Kpdcb64jns_ng@mail.gmail.com>
-X-Gm-Features: Ac12FXxCbl4LCury_E8IWa8MmYXdlGFWiz9aT6U77XKyQePtnslVgYEzqe88Heg
-Message-ID: <CAGb2v67kxeF86iHJ3GsOVJT8FOyeM37D1Vdf1Kpdcb64jns_ng@mail.gmail.com>
-Subject: Re: [PATCH 5/6] arm64: dts: allwinner: A523: Add thermal sensors and zones
+Date: Mon, 30 Jun 2025 12:53:51 +0800
+X-Gmail-Original-Message-ID: <CAGb2v670s_r4NG8hWHQ_exc6TM5JnvAEYw-vp5ndMn39X-B4Yw@mail.gmail.com>
+X-Gm-Features: Ac12FXylrAnNPmh-5tW8elyoVrQtjqLfo-AL1Tmi56dNnknRJjo1EfbWOyGYXgQ
+Message-ID: <CAGb2v670s_r4NG8hWHQ_exc6TM5JnvAEYw-vp5ndMn39X-B4Yw@mail.gmail.com>
+Subject: Re: [PATCH 2/6] thermal/drivers/sun8i: replace devm_reset_control_get
+ to shared
 To: iuncuim <iuncuim@gmail.com>
 Cc: Vasily Khoruzhick <anarsoul@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>, 
 	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
@@ -87,8 +88,8 @@ Cc: Vasily Khoruzhick <anarsoul@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_214605_743920_9C71B9F4 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20250629_215406_951108_33277904 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,273 +105,42 @@ Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 8:40=E2=80=AFAM iuncuim <iuncuim@gmail.com> wrote:
+On Fri, Apr 11, 2025 at 8:39=E2=80=AFAM iuncuim <iuncuim@gmail.com> wrote:
 >
 > From: Mikhail Kalashnikov <iuncuim@gmail.com>
 >
-> The A523 processor has two temperature controllers, THS0 and THS1.
-> THS0 has only one temperature sensor, which is located in the DRAM.
->
-> THS1 does have 3 sensors:
-> ths1_0 - "big" cores
-> ths1_1 - "little" cores
-> ths1_2 - gpu
->
-> Add the thermal sensor configuration and the thermal zones
+> The A523 processor has two temperature controllers, but they share a comm=
+on
+> reset line. We need to use devm_reset_control_get_shared() instead of
+> devm_reset_control_get()
 >
 > Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
 > ---
->  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 138 ++++++++++++++++++
->  1 file changed, 138 insertions(+)
+>  drivers/thermal/sun8i_thermal.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/=
-boot/dts/allwinner/sun55i-a523.dtsi
-> index d626612bb..4f36032b2 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -7,6 +7,7 @@
->  #include <dt-bindings/clock/sun55i-a523-r-ccu.h>
->  #include <dt-bindings/reset/sun55i-a523-ccu.h>
->  #include <dt-bindings/reset/sun55i-a523-r-ccu.h>
-> +#include <dt-bindings/thermal/thermal.h>
+> diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_ther=
+mal.c
+> index 1f3908a60..dc4055c9c 100644
+> --- a/drivers/thermal/sun8i_thermal.c
+> +++ b/drivers/thermal/sun8i_thermal.c
+> @@ -391,7 +391,7 @@ static int sun8i_ths_resource_init(struct ths_device =
+*tmdev)
+>                 return PTR_ERR(tmdev->regmap);
 >
->  / {
->         interrupt-parent =3D <&gic>;
-> @@ -22,6 +23,7 @@ cpu0: cpu@0 {
->                         device_type =3D "cpu";
->                         reg =3D <0x000>;
->                         enable-method =3D "psci";
-> +                       #cooling-cells =3D <2>;
->                 };
->
->                 cpu1: cpu@100 {
-> @@ -29,6 +31,7 @@ cpu1: cpu@100 {
->                         device_type =3D "cpu";
->                         reg =3D <0x100>;
->                         enable-method =3D "psci";
-> +                       #cooling-cells =3D <2>;
->                 };
->
->                 cpu2: cpu@200 {
-> @@ -36,6 +39,7 @@ cpu2: cpu@200 {
->                         device_type =3D "cpu";
->                         reg =3D <0x200>;
->                         enable-method =3D "psci";
-> +                       #cooling-cells =3D <2>;
->                 };
->
->                 cpu3: cpu@300 {
-> @@ -43,6 +47,7 @@ cpu3: cpu@300 {
->                         device_type =3D "cpu";
->                         reg =3D <0x300>;
->                         enable-method =3D "psci";
-> +                       #cooling-cells =3D <2>;
->                 };
->
->                 cpu4: cpu@400 {
-> @@ -50,6 +55,7 @@ cpu4: cpu@400 {
->                         device_type =3D "cpu";
->                         reg =3D <0x400>;
->                         enable-method =3D "psci";
-> +                       #cooling-cells =3D <2>;
->                 };
->
->                 cpu5: cpu@500 {
-> @@ -57,6 +63,7 @@ cpu5: cpu@500 {
->                         device_type =3D "cpu";
->                         reg =3D <0x500>;
->                         enable-method =3D "psci";
-> +                       #cooling-cells =3D <2>;
->                 };
->
->                 cpu6: cpu@600 {
-> @@ -64,6 +71,7 @@ cpu6: cpu@600 {
->                         device_type =3D "cpu";
->                         reg =3D <0x600>;
->                         enable-method =3D "psci";
-> +                       #cooling-cells =3D <2>;
->                 };
->
->                 cpu7: cpu@700 {
-> @@ -71,6 +79,7 @@ cpu7: cpu@700 {
->                         device_type =3D "cpu";
->                         reg =3D <0x700>;
->                         enable-method =3D "psci";
-> +                       #cooling-cells =3D <2>;
->                 };
->         };
->
-> @@ -171,11 +180,39 @@ ccu: clock-controller@2001000 {
->                         #reset-cells =3D <1>;
->                 };
->
-> +               ths1: thermal-sensor@2009400 {
-> +                       compatible =3D "allwinner,sun55i-a523-ths1";
-> +                       reg =3D <0x02009400 0x400>;
-> +                       interrupts =3D <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
-> +                       clocks =3D <&ccu CLK_BUS_THS>, <&ccu CLK_GPADC1>;
-> +                       clock-names =3D "bus", "gpadc";
-> +                       resets =3D <&ccu RST_BUS_THS>;
-> +                       nvmem-cells =3D <&ths_calibration>;
-> +                       nvmem-cell-names =3D "calibration";
-> +                       #thermal-sensor-cells =3D <1>;
-> +               };
-> +
-> +               ths0: thermal-sensor@200a000 {
-> +                       compatible =3D "allwinner,sun55i-a523-ths0";
-> +                       reg =3D <0x0200a000 0x400>;
-> +                       interrupts =3D <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
-> +                       clocks =3D <&ccu CLK_BUS_THS>, <&ccu CLK_GPADC0>;
-> +                       clock-names =3D "bus", "gpadc";
-> +                       resets =3D <&ccu RST_BUS_THS>;
-> +                       nvmem-cells =3D <&ths_calibration>;
-> +                       nvmem-cell-names =3D "calibration";
-> +                       #thermal-sensor-cells =3D <0>;
-> +               };
-> +
->                 sid: efuse@3006000 {
->                         compatible =3D "allwinner,sun50i-a523-sid", "allw=
-inner,sun50i-a64-sid";
->                         reg =3D <0x03006000 0x1000>;
->                         #address-cells =3D <1>;
->                         #size-cells =3D <1>;
-> +
-> +                       ths_calibration: thermal-sensor-calibration@38 {
-> +                               reg =3D <0x38 0x14>;
+>         if (tmdev->chip->has_bus_clk_reset) {
+> -               tmdev->reset =3D devm_reset_control_get(dev, NULL);
+> +               tmdev->reset =3D devm_reset_control_get_shared(dev, NULL)=
+;
 
-Including unrelated bits is probably not correct. Instead I think it should
-be two cells. The thermal driver then has to stitch them together or someth=
-ing.
+You could just use devm_reset_control_get_shared_deasserted() and then
+drop the reset_control_deassert() and devm_add_action_or_reset() stuff belo=
+w
+this hunk. This simplifies the driver a bit.
 
-> +                       };
->                 };
+>                 if (IS_ERR(tmdev->reset))
+>                         return PTR_ERR(tmdev->reset);
 >
->                 mmc0: mmc@4020000 {
-> @@ -602,4 +639,105 @@ rtc: rtc@7090000 {
->                         #clock-cells =3D <1>;
->                 };
->         };
-> +
-> +       thermal-zones {
-> +               cpu0_thermal: cpu0-thermal {
-> +                       polling-delay-passive =3D <500>;
-> +                       polling-delay =3D <1000>;
-> +                       thermal-sensors =3D <&ths1 1>;
-> +                       sustainable-power =3D <1200>;
-
-Please describe in the commit log how the sustainable power values were
-derived or sourced.
-
-> +
-> +                       trips {
-> +                               cpu0_threshold: cpu-trip-0 {
-> +                                       temperature =3D <70000>;
-> +                                       type =3D "passive";
-> +                                       hysteresis =3D <0>;
-> +                               };
-> +                               cpu0_target: cpu-trip-1 {
-> +                                       temperature =3D <90000>;
-> +                                       type =3D "passive";
-> +                                       hysteresis =3D <0>;
-> +                               };
-> +                               cpu0_critical: cpu-trip-2 {
-> +                                       temperature =3D <110000>;
-> +                                       type =3D "critical";
-> +                                       hysteresis =3D <0>;
-> +                               };
-> +                       };
-> +
-> +                       cooling-maps {
-> +                               map0 {
-> +                                       trip =3D <&cpu0_target>;
-> +                                       cooling-device =3D <&cpu0 THERMAL=
-_NO_LIMIT THERMAL_NO_LIMIT>,
-> +                                                        <&cpu1 THERMAL_N=
-O_LIMIT THERMAL_NO_LIMIT>,
-> +                                                        <&cpu2 THERMAL_N=
-O_LIMIT THERMAL_NO_LIMIT>,
-> +                                                        <&cpu3 THERMAL_N=
-O_LIMIT THERMAL_NO_LIMIT>;
-> +                               };
-> +                       };
-> +               };
-> +
-> +               cpu4_thermal: cpu4-thermal {
-> +                       polling-delay-passive =3D <500>;
-> +                       polling-delay =3D <1000>;
-> +                       thermal-sensors =3D <&ths1 0>;
-> +                       sustainable-power =3D <1600>;
-> +
-> +                       trips {
-> +                               cpu4_threshold: cpu-trip-0 {
-> +                                       temperature =3D <70000>;
-> +                                       type =3D "passive";
-> +                                       hysteresis =3D <0>;
-> +                               };
-> +                               cpu4_target: cpu-trip-1 {
-> +                                       temperature =3D <90000>;
-> +                                       type =3D "passive";
-> +                                       hysteresis =3D <0>;
-> +                               };
-> +                               cpu4_critical: cpu-trip-2 {
-> +                                       temperature =3D <110000>;
-> +                                       type =3D "critical";
-> +                                       hysteresis =3D <0>;
-> +                               };
-> +                       };
-> +
-> +                       cooling-maps {
-> +                               map0 {
-> +                                       trip =3D <&cpu4_target>;
-> +                                       cooling-device =3D <&cpu4 THERMAL=
-_NO_LIMIT THERMAL_NO_LIMIT>,
-> +                                                        <&cpu5 THERMAL_N=
-O_LIMIT THERMAL_NO_LIMIT>,
-> +                                                        <&cpu6 THERMAL_N=
-O_LIMIT THERMAL_NO_LIMIT>,
-> +                                                        <&cpu7 THERMAL_N=
-O_LIMIT THERMAL_NO_LIMIT>;
-> +                               };
-> +                       };
-> +               };
-> +
-> +               gpu-thermal {
-> +                       polling-delay-passive =3D <500>;
-> +                       polling-delay =3D <1000>;
-> +                       thermal-sensors =3D <&ths1 2>;
-> +                       sustainable-power =3D <2400>;
-> +
-> +                       trips {
-
-We could have passive trip points here as well so thermal throttling of
-the GPU could work.
-
-
-ChenYu
-
-> +                               gpu_temp_critical: gpu-trip-0 {
-> +                                       temperature =3D <110000>;
-> +                                       type =3D "critical";
-> +                                       hysteresis =3D <0>;
-> +                               };
-> +                       };
-> +               };
-> +
-> +               ddr-thermal {
-> +                       polling-delay-passive =3D <0>;
-> +                       polling-delay =3D <0>;
-> +                       thermal-sensors =3D <&ths0>;
-> +
-> +                       trips {
-> +                               ddr_temp_critical: ddr-trip-0 {
-> +                                       temperature =3D <110000>;
-> +                                       type =3D "critical";
-> +                                       hysteresis =3D <0>;
-> +                               };
-> +                       };
-> +               };
-> +       };
->  };
 > --
 > 2.49.0
 >
