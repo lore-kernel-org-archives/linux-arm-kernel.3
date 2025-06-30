@@ -4,70 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1333C83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 18:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7968CC8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 18:24:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xFXyKyWtwtopETLpcwHExCrbjg6sFBQzC7dTAq6P5dE=; b=uFhrU6yXwwUNAYB/ueeSCuN4E2
-	wVUXSAww4NiL4JxRr4fT8uccuyWrnrXYfGIJK60V1VcmLQPay2SZqmuSYd5sDK4+6r3U3K5FNRVWu
-	JlgA2LvrDmDna1nfJC6/KHuV9J72zk14A8Hzv7m/7sN8695qCEthu/oKmpg/l+3jdYILBZOpXv9dy
-	1CsWLw9WTTQenhWm8Tw64vO+f1fAyG/KtSATrlJq+/XkU7MFyPB5qftIDFkuJ3YP9n/5FLZB/NNq9
-	NnhJPig41cnq4EyU5PX4ersEeLzgO5FmTobqGbLaRjMbyigY9Sixi+NPJ9cSYZd4H7ixaGmyV05+l
-	9SCNQlHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TkbKDizxju3W+51KZwQ3Fxa7XNUAV9NHwEQ1ocZXOb4=; b=RJ+cBBNyWyqAIStAIpkJe5ZcGf
+	2rFuYT6IlRXBf2dISVWGJI53whOV5Ii580NfKE+d4Vf+daf7qyo1pYHxeAGRC7aKhP4dH9zaqqmvQ
+	o47X/6uRUG1a0Nk6IEpPS4EfbHZXcI7aWJ+WA8C+nKYp4YpOUcynjCTBCVNsLs6LdA0s3mtBPNFyz
+	3hVRmjkl8JpGcWN94NBeVkSTJBA+T0BAk0tOrT/ndDYVZ9KFpowjIry5PWHZA7vdb8VjaCAAZied1
+	bgtObK/YEMxh2Lcv3szhojbrMjKhk2tnGdMS5zu6pJhm17mMaq0n5GA1A2qfIs9OoGpYaI2G4UuT6
+	CJWCgxrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWJ8N-00000003BcM-1YsF;
-	Mon, 30 Jun 2025 18:21:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uWJAf-00000003C10-1BHQ;
+	Mon, 30 Jun 2025 18:24:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWIZ4-000000036a6-0QiK
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 17:45:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3AD7C61126;
-	Mon, 30 Jun 2025 17:45:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0A0CC4CEE3;
-	Mon, 30 Jun 2025 17:45:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751305508;
-	bh=i5RJ/sC/svK83YrMoFZztx4G0sX30XvRei6equEd/Hs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=oDrzdZypIrEsLQIZLa6c6QXtwB2jVjICOOVnRIfOHf86uSSrscF/DAl4rMU7Iu/Ls
-	 kprDTfME4Vm7NX98RUvXe+9xhVjM7USYFIJXWFXh1BunC6xyU8LFWPZDWyRKL3J0WS
-	 y6lRBPVlJXs4Tqabod4v179KaBriS7nWXPRtWdz1e359Vwb7tq497uc64wkFNeXLqj
-	 w5QJOosQu7ly8d//zo593m9/PqG6wcx+NlVbc/3vt8F8+DArH9MB5cUonsCp8SNm8C
-	 0JDQbqWZXASDlbh2/4/YRQTQYBsyZUscUfvbx0QMIhLjb9su6oOfilIAAd+AIu8EsK
-	 P+Imc9iQrWh/Q==
-From: Song Liu <song@kernel.org>
-To: live-patching@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: jpoimboe@kernel.org,
-	jikos@kernel.org,
-	mbenes@suse.cz,
-	pmladek@suse.com,
-	joe.lawrence@redhat.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	dylanbhatch@google.com,
-	fj6611ie@aa.jp.fujitsu.com,
-	mark.rutland@arm.com,
-	kernel-team@meta.com,
-	Song Liu <song@kernel.org>,
-	Suraj Jitindar Singh <surajjs@amazon.com>,
-	Torsten Duwe <duwe@suse.de>,
-	Breno Leitao <leitao@debian.org>,
-	Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH v5] arm64: Implement HAVE_LIVEPATCH
-Date: Mon, 30 Jun 2025 10:45:02 -0700
-Message-ID: <20250630174502.842486-1-song@kernel.org>
-X-Mailer: git-send-email 2.47.1
+	id 1uWIis-000000037vE-1acr;
+	Mon, 30 Jun 2025 17:55:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=TkbKDizxju3W+51KZwQ3Fxa7XNUAV9NHwEQ1ocZXOb4=; b=laTEv76SlQnqYqVzSadMamABsf
+	b0ROIbHYv21v87SKh6Aw0HNUmchd1wUojZph3rxtfBVloSwegI8b7x5t+A5g7zJIFZcXTjTqu9muZ
+	4bxx5nBBwx2dNSsbb0goeZlMZ7oXxJDo2VAsjzFOgZjHazk17D+d9iSlFcQUuWuVPiMbcrcWfKcGy
+	uf/wu7lAMO2YlE+vl2I6gvwSa4uHSWysbY96E6pbo+WBBtZIMEov4VSh+h1ajPZqhm+PzCUU4q/iX
+	gb5qVYX5dvnmUMUWngmc90eQhJU1yhKazaZ+z/ygae4qq1knDPwEMYQ1INBBP4w8JRbcib+Byf3aI
+	xBshMS6g==;
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWIip-00000006qaQ-1mP9;
+	Mon, 30 Jun 2025 17:55:17 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7d09f11657cso437871985a.0;
+        Mon, 30 Jun 2025 10:55:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751306113; x=1751910913; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TkbKDizxju3W+51KZwQ3Fxa7XNUAV9NHwEQ1ocZXOb4=;
+        b=QEG+0edjyoAohSzi0CKmxeqoXzqjG4rJo0+OS2KILLvj055CIbPqU1lZjg1yQfho2e
+         NW/IKhwqV0YpL2LuxOBZDsVRXvqGI6pwVUMNnDt3SqbUYGyL2/F/KLSB8Ki9sMpcphud
+         dmENxLVDbXCdjBX2kMG23S8ttHSjtidt3kBJfLaUAEmRsdwIlyLOD+jB7OYTzpkn551c
+         MqBDfq6wx1B4Zrp5Y32dTnG0DGSlcHLSFCrEb52B+UMyCkG2kupa+P7umqXYwVm2FJbC
+         pL5IPMJ//lgDosJlSQVAlSo3Eob5VEf8P5ZDnjhcoy2apRRU3TgSo901HLJOCZScJBzX
+         FwQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751306113; x=1751910913;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TkbKDizxju3W+51KZwQ3Fxa7XNUAV9NHwEQ1ocZXOb4=;
+        b=ospTQDvnjbiv4ZvxfosOA552ojvI6dlqkHNRC/nJogsTvUYmBF9rkR8Ozd6Of0O/kO
+         Tj2vc8KDJxwnH7A3uvtS1BSw54XiVYcG79mCJPmIBxqbu3VjbYfnVdSqf4nQ0gyW41zm
+         XUYCJqXCXsLPvshqx7ymwJdsBv72rLMCyn7M5/WdCmoJF9r2/bgvsb0NfaKGay+8Si2P
+         A4tQWkF4VVK5vaL9Lif5TbdQLQeGrPwLnhNP3HicqSlqDTY79g+kktc4ZGT8DfIi5bHd
+         fqobZ8F3oQK7WjvyEGsfsM9heBc5sickS14Gty67Igvqg11m/lemjkY9K/cI1j7BrUp9
+         4yng==
+X-Forwarded-Encrypted: i=1; AJvYcCW5RsV3WQWT8R/CPfiVVbEUt1QOwkgYtkgbkpqcvqqMBLxDcKMBIeOYjwqm8Y73glvjBHo7lY2fdkfp@lists.infradead.org, AJvYcCWPy+wsGf5BUSXtU48u+IKZKmI8zbHyy5bdMI4U0muUtaqk3P97nGRpJ5Bcx2xAnpIeo56Idhww61TaZa4NulCg@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywauy1aJhtICkGnTCEsKOLuZ4Xrof7Pai+AM5bVaq73qouyYomV
+	/mtWNYcPNPy1gtUxn1EVyRNQwM0g4udWBVFFB7umFzYaTsOA0uGJpJ+p
+X-Gm-Gg: ASbGncveliphs7DKozvFVLZjCdkViUKYOJj8e9jSz0mHJm4nDbTz8KJnJCdU2VRxAL3
+	vd3qACgjCocDvCuXoFretu6C7xBEwibhPR1+xq+PAUHLI31qZAvL37uWQ2yra4tIeh1LrJMB7l7
+	wsSas/9pR7SQME2HInPcdlT3v+Yz/LDIHLJPSg7JrkuvTTZNU8SJlO2scu/0QdHh2LO866ztGHQ
+	NdieiB/6SJ7XWe0TWhIJ7jM5beWbGBRsOok0+eZDwjwvzrDI9CMiCc0sQXETnV0HzaggO+mALUL
+	LBasaI7yMWEPNnTgZ5Ru9lDD0QUzTuhA3f0zAZOXo0hciRq+4A==
+X-Google-Smtp-Source: AGHT+IEAoLv3ZFdFWjd7lAICC4bbFV6sU3+PxQlEK6DUAJNkCBCFRSmZ508WVU4rao0shvvKBCho+w==
+X-Received: by 2002:a05:620a:1993:b0:7d4:4d55:98f9 with SMTP id af79cd13be357-7d44d55b1f9mr1237496485a.28.1751306112549;
+        Mon, 30 Jun 2025 10:55:12 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:4851::dead:c001])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d443203279sm636637885a.54.2025.06.30.10.55.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Jun 2025 10:55:12 -0700 (PDT)
+Date: Mon, 30 Jun 2025 14:55:05 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: linux-rockchip@lists.infradead.org,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rick wertenbroek <rick.wertenbroek@gmail.com>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 3/4] phy: rockchip-pcie: Enable all four lanes if
+ required
+Message-ID: <aGLPeZn9ZSw3FurH@geday>
+References: <cover.1751200382.git.geraldogabriel@gmail.com>
+ <b203b067e369411b029039f96cfeae300874b4c7.1751200382.git.geraldogabriel@gmail.com>
+ <2affed16-f3c4-47d3-9ca6-e4f48e875367@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2affed16-f3c4-47d3-9ca6-e4f48e875367@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250630_185515_613255_EC0AF3D8 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,126 +121,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allocate a task flag used to represent the patch pending state for the
-task. When a livepatch is being loaded or unloaded, the livepatch code
-uses this flag to select the proper version of a being patched kernel
-functions to use for current task.
+On Mon, Jun 30, 2025 at 02:48:25PM +0100, Robin Murphy wrote:
+> On 29/06/2025 9:58 pm, Geraldo Nascimento wrote:
+> > Current code enables only Lane 0 because pwr_cnt will be incremented on
+> > first call to the function. Let's reorder the enablement code to enable
+> > all 4 lanes through GRF.
+> 
+> As usual the TRM isn't very clear, but the way it describes the 
+> GRF_SOC_CON_5_PCIE bits does suggest they're driving external input 
+> signals of the phy block, so it seems reasonable that it could be OK to 
+> update the register itself without worrying about releasing the phy from 
+> reset first. In that case I'd agree this seems the cleanest fix, and if 
+> it works empirically then I think I'm now sufficiently convinced too;
+> 
+> Reviewed-by: Robin Murphy <robin.murphy@arm.com>
 
-In arch/arm64/Kconfig, select HAVE_LIVEPATCH and include proper Kconfig.
+Hi Robin and Neil,
 
-This is largely based on [1] by Suraj Jitindar Singh.
+Thank you both for the positive reviews and the effort.
 
-[1] https://lore.kernel.org/all/20210604235930.603-1-surajjs@amazon.com/
+I must admit however that it looks like this patch was lifted verbatim
+from Armbian and I'm missing the Signed-off-by from the original author.
 
-Cc: Suraj Jitindar Singh <surajjs@amazon.com>
-Cc: Torsten Duwe <duwe@suse.de>
-Acked-by: Miroslav Benes <mbenes@suse.cz>
-Tested-by: Breno Leitao <leitao@debian.org>
-Tested-by: Andrea della Porta <andrea.porta@suse.com>
-Signed-off-by: Song Liu <song@kernel.org>
-Acked-by: Will Deacon <will@kernel.org>
+As Robin may attest, I initially started by blindingly enabling all
+lanes which, of course, is no good. I tried a suggestion by Robin which
+did not work, and eventually settled on this Armbian solution, which at
+least has got some battle-testing.
 
----
+I already contacted Valmintas Paliksa, the original author of the patch,
+and asked permission to use his Signed-off-by. I'm aware I could probably
+use the Signed-off-by without strict permission, but it does not feel
+right to me.
 
-Changes v4 => v5:
-1. Update commit log.
-
-v4: https://lore.kernel.org/live-patching/20250617173734.651611-1-song@kernel.org/
-
-Changes v3 => v4:
-1. Only keep 2/2 from v3, as 1/2 is now included in [3].
-2. Change TIF_PATCH_PENDING from 7 to 13.
-
-v3: https://lore.kernel.org/linux-arm-kernel/20250320171559.3423224-1-song@kernel.org/
-
-Changes v2 => v3:
-1. Remove a redundant check for -ENOENT. (Josh Poimboeuf)
-2. Add Tested-by and Acked-by on v1. (I forgot to add them in v2.)
-
-v2: https://lore.kernel.org/live-patching/20250319213707.1784775-1-song@kernel.org/
-
-Changes v1 => v2:
-
-1. Rework arch_stack_walk_reliable().
-
-v1: https://lore.kernel.org/live-patching/20250308012742.3208215-1-song@kernel.org/
----
- arch/arm64/Kconfig                   | 3 +++
- arch/arm64/include/asm/thread_info.h | 5 ++++-
- arch/arm64/kernel/entry-common.c     | 4 ++++
- 3 files changed, 11 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b7462424aa59..110218542920 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -280,6 +280,7 @@ config ARM64
- 	select USER_STACKTRACE_SUPPORT
- 	select VDSO_GETRANDOM
- 	select HAVE_RELIABLE_STACKTRACE
-+	select HAVE_LIVEPATCH
- 	help
- 	  ARM 64-bit (AArch64) Linux support.
- 
-@@ -2499,3 +2500,5 @@ endmenu # "CPU Power Management"
- source "drivers/acpi/Kconfig"
- 
- source "arch/arm64/kvm/Kconfig"
-+
-+source "kernel/livepatch/Kconfig"
-diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-index 1269c2487574..f241b8601ebd 100644
---- a/arch/arm64/include/asm/thread_info.h
-+++ b/arch/arm64/include/asm/thread_info.h
-@@ -70,6 +70,7 @@ void arch_setup_new_exec(void);
- #define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
- #define TIF_SECCOMP		11	/* syscall secure computing */
- #define TIF_SYSCALL_EMU		12	/* syscall emulation active */
-+#define TIF_PATCH_PENDING	13	/* pending live patching update */
- #define TIF_MEMDIE		18	/* is terminating due to OOM killer */
- #define TIF_FREEZE		19
- #define TIF_RESTORE_SIGMASK	20
-@@ -96,6 +97,7 @@ void arch_setup_new_exec(void);
- #define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
- #define _TIF_SECCOMP		(1 << TIF_SECCOMP)
- #define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
-+#define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
- #define _TIF_UPROBE		(1 << TIF_UPROBE)
- #define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
- #define _TIF_32BIT		(1 << TIF_32BIT)
-@@ -107,7 +109,8 @@ void arch_setup_new_exec(void);
- #define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY | \
- 				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
- 				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
--				 _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING)
-+				 _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING | \
-+				 _TIF_PATCH_PENDING)
- 
- #define _TIF_SYSCALL_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
- 				 _TIF_SYSCALL_TRACEPOINT | _TIF_SECCOMP | \
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index 7c1970b341b8..a56878d7c733 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -8,6 +8,7 @@
- #include <linux/context_tracking.h>
- #include <linux/kasan.h>
- #include <linux/linkage.h>
-+#include <linux/livepatch.h>
- #include <linux/lockdep.h>
- #include <linux/ptrace.h>
- #include <linux/resume_user_mode.h>
-@@ -144,6 +145,9 @@ static void do_notify_resume(struct pt_regs *regs, unsigned long thread_flags)
- 				       (void __user *)NULL, current);
- 		}
- 
-+		if (thread_flags & _TIF_PATCH_PENDING)
-+			klp_update_patch_state(current);
-+
- 		if (thread_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
- 			do_signal(regs);
- 
--- 
-2.47.1
-
+Thanks,
+Geraldo Nascimento
 
