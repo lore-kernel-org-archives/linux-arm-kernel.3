@@ -4,102 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC41C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 01:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99128C83026
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 01:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNWNGWaV1C7Rc5It4RVCgRxPXuXUM3HIwMrohqVBiKw=; b=KIwhu6dAtlFOVUwRn7caMTcWH/
-	tDuxMvLeK4hl/fH774gKtfMd1spzKD/Gs+thDYA6i4MGMYY8q+m4oNYkHSIeTAPPS3iy8Q0gbhBCd
-	BYpu2hQ60dlGjJFTy8PfqSWZM+62cPPXtldjhyHhibJn+kHc2CZTVPrjaKl/qdQSOX0mnjfx/usfS
-	zGo7iWBDaoxTdYaQu27nAWr/sbUNg+Hy59W8zytU0qCnyON89KIEqg8vhBnl+yRva11AYgwvtzCjx
-	eOlCiauyYpGl3hCVVXTqT1c3FncwpK2UTJxtzZZAX1k9R/CuEmR4ORGeJJ4TpUiAN4YE90RZI2l7k
-	VErFXWwA==;
+	bh=qkaiG6BzF1PG0uFh9m4Zeh0OUW/5zOqA3hn+Jr8DLpM=; b=sn/PJ3m1VDOUR0E9M44JKQZV52
+	WgOCP0gpJJBV1U7U1/pPAxlL1bJHzHLjm1ZJqiEp1t1z/4KcHOX5AUn111jR+kXv2mOeISAqXYAnD
+	mjGc/4bCqY+CtvXGwUqZ/EuvxnHnTPs28I06jR8t7agq/EptsFnxjdGyyQVLVc5LeOBA72UypKhhJ
+	xXZhhbR6kMG8w7iphvas0XYuYehtNxzGAVjZ3kHmvy+/cLcTC3mE/gemCxjaCa0b6gqUv7e9aZJfF
+	IkhRa0ncdIUQbq9U3U24KH5vP/72o2I6oGPcCCZR6LndMr4AMOngn8Cu4IwM+e0OkSXOmv5Gcv5Qg
+	Am2Db+fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW3Rg-00000000yd7-159e;
-	Mon, 30 Jun 2025 01:36:32 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uW3Tx-00000000ylm-3u9P;
+	Mon, 30 Jun 2025 01:38:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW3PJ-00000000ySq-1DAl
+	id 1uW3Pl-00000000yV4-1Kea
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 01:34:08 +0000
+	Mon, 30 Jun 2025 01:34:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751247242;
+	s=mimecast20190719; t=1751247272;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iNWNGWaV1C7Rc5It4RVCgRxPXuXUM3HIwMrohqVBiKw=;
-	b=MW0oV0+D27L/h55y+7XUdIyrGOMDSGfdDcP5GIQ4xVuq7BlA7x6FcUsm9GGlDBjMExEl6v
-	OhACNcK4JOI+GJgjIY0oBs/p1vgGZfCpDhH8q6jLm7PWQOyY7eny7pjh8kuFxrf3xF5tDt
-	n3q+OPto99DKPr7CqoNZfP1Q5mtR9tI=
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
- [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=qkaiG6BzF1PG0uFh9m4Zeh0OUW/5zOqA3hn+Jr8DLpM=;
+	b=gOdZCGhkHBhF2K+Ax6o6xbNoXi92JUHyje8UvYw6OaW/9dJihAQsuVpDuqsRupJcOl0nnY
+	sCJnvPQKc2+KN3JDq5B11wL4ekaY5Cw0uAlGwcRB8AtZFKBX5uChdCpIngzn5eL9v0Nq+k
+	1Qtb1duA7qTfeLFHM9EvL0dsuxL5jxA=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-492-q-08mL6cN8igMT2yVFro6g-1; Sun, 29 Jun 2025 21:33:58 -0400
-X-MC-Unique: q-08mL6cN8igMT2yVFro6g-1
-X-Mimecast-MFC-AGG-ID: q-08mL6cN8igMT2yVFro6g_1751247238
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-235196dfc50so33102185ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 18:33:58 -0700 (PDT)
+ us-mta-391-QVLfqMUtMHOP_2DJ25gXLg-1; Sun, 29 Jun 2025 21:34:30 -0400
+X-MC-Unique: QVLfqMUtMHOP_2DJ25gXLg-1
+X-Mimecast-MFC-AGG-ID: QVLfqMUtMHOP_2DJ25gXLg_1751247269
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-23827190886so17628585ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 18:34:30 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751247237; x=1751852037;
+        d=1e100.net; s=20230601; t=1751247269; x=1751852069;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iNWNGWaV1C7Rc5It4RVCgRxPXuXUM3HIwMrohqVBiKw=;
-        b=wJNwGUsMGb/oYBJFKvcX5yoS+UMHtBugrckG3P5f/mTBoOLMvEF/j2CNenYU0RwX5S
-         o7IzlTF4GXU0PUcglIxMBqeOO/fzjz0mAhelM//5IsJPIPDmChZd9AkepGmbVxrgQ4Kq
-         DdgeX9XjsVca1tIt5jKxdO6frDuFmxS5Ny+WHomr7BjR5vuisO7n2bmwGlJCm78pSiKs
-         W8i1txt/p2yzs28IRmys/B3eIA6sOKHauS39SgvuAkrl269O0txj+zP86LFtR2Ezq83F
-         vsq3tT2pqKKovkBXw2ufhb66Xu/1B0vP/eIvL+QwNmgzxx1sdhug9+1jDgsOTXC8okle
-         xB8g==
-X-Forwarded-Encrypted: i=1; AJvYcCX/hw/HcdSKtFA5sy4gSAFd9NVEr550LOfU4mL0aS8GyRTvercg8J5P4VbVRdxiRUOOpsq4CqahQcjaWgp2CSwD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxt2xgkmnopUObiD0jYomBA5l7pkEIaOgBzeYnrRab8l+QFKYQC
-	s7y4SXS4aAaDmVT3PHHh/N6btjBnJi/DS0h24drzhHnT7jlXshrOPLUdTfWzS6pM5ruNJ0H5Md8
-	Y4kpwRbrcZS47zyaLtDNpSPkxK5QV946MLjWfLmaZkDCgC2z2iB3jNmjyAcLRXZzguadxCFiuAQ
-	dP+UzA0msPCG8=
-X-Gm-Gg: ASbGncv3dt5zfteWv3QduIb17hVvIMgGaAL8XuvTLHA8SVqL44xYOAHbsRREYeue8Y4
-	suXKNEJB5LEMlykcj72OBQr4LVWm351+b8CRId86i1zUpSt8/aEWgmkAK/B4/haz3Apg+Bf+kUu
-	V1lznAjKdUxZhNeADP3hCtFVKvzr1c8yCcsYWNyXG3qJhWLYP6MIpcEOldvKWGLNdE5sArTx49B
-	uHV+OiXhbXMMCn11yHOboZbZwnvXrp6XDvPfnlHdPJ7zskt60W6O6kc5qHxADahbSByPEO02ytI
-	le3MHgQrFXwPNC+IK78hKvuYPoXm0TqKP0A47hjLPFjKG0nuZYE6nb0Bznh3bQ==
-X-Received: by 2002:a17:902:b786:b0:215:b1e3:c051 with SMTP id d9443c01a7336-23ac4ed658dmr113110185ad.11.1751247236933;
-        Sun, 29 Jun 2025 18:33:56 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF0UzeTes1Wws6mWimwk3D6DY1DWDUcvAN9WVyT3V3qmR+5QMOP2u9XGuIdy+7b5HGR6wUmhA==
-X-Received: by 2002:a17:902:b786:b0:215:b1e3:c051 with SMTP id d9443c01a7336-23ac4ed658dmr113110035ad.11.1751247236581;
-        Sun, 29 Jun 2025 18:33:56 -0700 (PDT)
+        bh=qkaiG6BzF1PG0uFh9m4Zeh0OUW/5zOqA3hn+Jr8DLpM=;
+        b=u1lliBkuWyjO/Hz53MbMO3nm0gVsmGK2a7b8iuKrpvuoF7vT/Wza0FZxfGk3ANTSQp
+         OLixK0ba6wQtJ7af1LjmIs1j2Pxkh+GXJAe7Zk74KX2u+f9a/A8dNQyPi2dR/CI+5wQ4
+         gf2hIlZo7Tvu0+MfSnkyS7dY7Me73DhtwD+ZsBJPqPA7PUNfahkJQSfvRen1WkGi8Y4/
+         vnDUOZ/HqqzwGMLnT/aWN6qhhz0TAgesZe0Zlo0fwvCDIrkVxkRUAyMsBvHROyu0FKDQ
+         fhkkm6pzafIuT2pIJ++hHZCWvgXbjd2vlP//QpTWzyFX7J5W26jg53rDrb08LjMT0R0a
+         SGzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXed6WeB8T8rgrlt+XMgl9S6YDtmRep93t2IA6J8g8Ij98URvM1yhdvKmW8WK8iSBxe64AxzdXwYHKxKQkjVDCh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5FMoh0VJtYYuxscUcrcCxyDDvd17c90jPGFjLNwVkxgaBnIkB
+	nwkLXn6WFlgpI+K0G0bbJPee/GyK5M6nxNjbdnxtClEQPq0mXdCVY1bCxXrg1slHMLQa6GbvLxg
+	GjxqApsYraPakcnWLr17bAEquL9LiLItAFFpy/kKnLUA/3wtJm4nKWfgiJfsAJ6NUG/2YA9ce4V
+	dX
+X-Gm-Gg: ASbGnctVFGnyxZVjhBjoUfv5H4kRW+xyH+7SQ/gi9wqfV/uDELbcChEzD+KZ9H4I9Ri
+	9V9bkNf0dX8C/mPbGH79GQ0Vr1X5XRstyYhY/k+geFrY7CkgB7o5lNrD0WPCwRyeu641SnXRdvN
+	QxaMQxKOFLxgDwPhgo/KRA014mW+DW33mvUMw6zxJqyC6OSS+XnGkEBFX9jrTOs00WYK/wgwFAw
+	/uNFxEqJn4C9o08hZwA5YDvdO2/K9hGYRHF6q6wxtRmG1KXuuyyKTzBIaiJ5aQTHp24UoDcov7F
+	kHN401QuRt70U+JjIAKFapAGQowpytBznn8ftQILXIkysCaa0mgYFJePHHR5iQ==
+X-Received: by 2002:a17:903:2f4c:b0:234:eb6:a35d with SMTP id d9443c01a7336-23ac4606503mr160851445ad.27.1751247269569;
+        Sun, 29 Jun 2025 18:34:29 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE2PQPQfZ+cIi6+VZZqGwMAkLWfLrl0j1n2vFaqhsTvqtq3OtrGsXBSiIbHCuTtKFDWI/MDwA==
+X-Received: by 2002:a17:903:2f4c:b0:234:eb6:a35d with SMTP id d9443c01a7336-23ac4606503mr160851265ad.27.1751247269236;
+        Sun, 29 Jun 2025 18:34:29 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb3c4b23sm67946215ad.214.2025.06.29.18.33.52
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb2f17f5sm70543605ad.62.2025.06.29.18.34.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 29 Jun 2025 18:33:55 -0700 (PDT)
-Message-ID: <20f82d80-58a8-432e-8a9e-40196bbb6cda@redhat.com>
-Date: Mon, 30 Jun 2025 11:33:50 +1000
+        Sun, 29 Jun 2025 18:34:28 -0700 (PDT)
+Message-ID: <1af300e8-4db4-4073-8db5-bffd8c0190fb@redhat.com>
+Date: Mon, 30 Jun 2025 11:34:23 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] arm64: realm: ioremap: Allow mapping memory as
- encrypted
+Subject: Re: [PATCH 2/3] arm64: Enable EFI secret area Securityfs support
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: will@kernel.org, catalin.marinas@arm.com, sami.mujawar@arm.com,
  aneesh.kumar@kernel.org, steven.price@arm.com, linux-kernel@vger.kernel.org,
  sudeep.holla@arm.com
 References: <20250613111153.1548928-1-suzuki.poulose@arm.com>
- <20250613111153.1548928-2-suzuki.poulose@arm.com>
+ <20250613111153.1548928-3-suzuki.poulose@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250613111153.1548928-2-suzuki.poulose@arm.com>
+In-Reply-To: <20250613111153.1548928-3-suzuki.poulose@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: KCvqyBqRWdfwXvmlCLYi6f-ddPU5ThivCMGbzUDruCQ_1751247238
+X-Mimecast-MFC-PROC-ID: o1y22IvRNdTMapiYayyAX-6nWIQb0nu6oGPGIgpF5k0_1751247269
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_183405_749999_96FF2A05 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20250629_183433_432576_32AC726C 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,20 +115,8 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 6/13/25 9:11 PM, Suzuki K Poulose wrote:
-> For ioremap(), so far we only checked if it was a device (RIPAS_DEV) to choose
-> an encrypted vs decrypted mapping. However, we may have firmware reserved memory
-> regions exposed to the OS (e.g., EFI Coco Secret Securityfs, ACPI CCEL).
-> We need to make sure that anything that is RIPAS_RAM (i.e., Guest
-> protected memory with RMM guarantees) are also mapped as encrypted.
-> 
-> Rephrasing the above, anything that is not RIPAS_EMPTY is guaranteed to be
-> protected by the RMM. Thus we choose encrypted mapping for anything that is not
-> RIPAS_EMPTY. While at it, rename the helper function
-> 
->    __arm64_is_protected_mmio => arm64_rsi_is_protected
-> 
-> to clearly indicate that this not an arm64 generic helper, but something to do
-> with Realms.
+> Enable EFI COCO secrets support. Provide the ioremap_encrypted() support required
+> by the driver.
 > 
 > Cc: Sami Mujawar <sami.mujawar@arm.com>
 > Cc: Will Deacon <will@kernel.org>
@@ -137,10 +125,9 @@ On 6/13/25 9:11 PM, Suzuki K Poulose wrote:
 > Cc: Steven Price <steven.price@arm.com>
 > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > ---
->   arch/arm64/include/asm/io.h  |  2 +-
->   arch/arm64/include/asm/rsi.h |  2 +-
->   arch/arm64/kernel/rsi.c      | 26 ++++++++++++++++++++++----
->   3 files changed, 24 insertions(+), 6 deletions(-)
+>   arch/arm64/include/asm/io.h          | 4 ++++
+>   drivers/virt/coco/efi_secret/Kconfig | 2 +-
+>   2 files changed, 5 insertions(+), 1 deletion(-)
 > 
 
 Reviewed-by: Gavin Shan <gshan@redhat.com>
