@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7082AC83000
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 03:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F4EC7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 03:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qdncWhYOth4XsRh697dCBi3DdkMHRax6Ejf9OY8OaFU=; b=e5OxqR6CjaiPf+FquNYNAOpDbs
-	UOEIx3NqzA3LXdKF8uHbOSVBpEEhrpBivtlvxRgsUZwEkaYgxQAotlH8DVremrQim4KNqqOSiTDUB
-	qKudVNybT7B5WRzLFnX/G9drHLrWzNt80PCBSVK94CUp2h7iIjhyOwwxo+h88265B1YnQ06ivEk5f
-	CJmdGITv7uyWL3F4/nVA61nVHzQ6DmghIAqLNQnWTJOtBVw4OjCAKX5hYmlYTY6N9kj3IqFWi4qti
-	XPBhgIvR4jzynZ9TCrAw014syLXOlCFUPFD9Nc5UR1GowNOzDRx2GZCFD6SNuon3029fLHOa79Hd9
-	IQpzbv3Q==;
+	bh=MC3PpwZilNiTUO9T3N1jve3LMEKnZfHx+jcycfs6XYI=; b=oadD/9a+kR9ga6YQAlWoL8SEO+
+	VV4EqzI+rG4I5CWrPRZYW5PoZDyhtiP2yawEAd5RJKgtU/wMMrIynN0h1k84SnDWYTG4orqj72eHV
+	6T2ZV6I4uFrj0wOPDUPndobEGubOGXhTAA3REjEvP2SiwF+f8GnNZlevsq8Ct+EN/YlxKtEAG42j9
+	qstuiu6uFma1xXydlaC56ZYa/PlH1RcRBhlqdJ+Hf7yZaoVc8QXCc7pPi7PGfEDUcE922kxI4jpT6
+	IMq4XGYT+vGRyNu6szpiI9nSANeXTb+6cUu1XzCkCrm2sj2fGYnp7TPC3sN3NgV0G1r1tibdK+zNL
+	4I5PvrCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW5MX-000000017z7-12bA;
-	Mon, 30 Jun 2025 03:39:21 +0000
-Received: from mail-8140.vip.163.com ([60.191.81.40])
+	id 1uW5Ws-000000019KM-2Ut8;
+	Mon, 30 Jun 2025 03:50:02 +0000
+Received: from mail-m16.yeah.net ([1.95.21.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW5KC-000000017ln-0dkV
+	id 1uW5UW-000000018wx-3jj5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 03:36:57 +0000
+	Mon, 30 Jun 2025 03:47:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=qdncWhYOth4XsRh697dCBi3DdkMHRax6Ejf9OY8OaFU=;
-	b=gvVCSYMTCNoxNh/h6g8VWMVoFtxUr7hJIEcpiUCa1SM+RyIi9/56dcfsrqM8kG
-	jg+Q6EPq+v4M1GIa4Kgx1Wt9RXTyzDCcknDaS9p1F9GSMhOvsMb8jjqYHtC6e0++
-	advQTP0riI22qgS3Fq/zsrJJVcnw/hA6RciTrNSfTjI/o=
+	Content-Type; bh=MC3PpwZilNiTUO9T3N1jve3LMEKnZfHx+jcycfs6XYI=;
+	b=N7aGd5qdzoWWFzieN9fkXxNetlhygQmqSIiZToazHyALyoSFCZESx52z1V66gK
+	he+efT+cy3t+JM44yyIZ1CTxwW+7NzuhOgh7GjvyyP4uUqUrhvLUVSGjCMIC25R9
+	WEszdsj3W6LW0hwHdc3I75YNpYnSDAJ5041WHQNkaTzUM=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgAnnw4RBmJouQnOAQ--.13995S3;
-	Mon, 30 Jun 2025 11:35:47 +0800 (CST)
-Date: Mon, 30 Jun 2025 11:35:45 +0800
+	by gzsmtp3 (Coremail) with SMTP id M88vCgD3nzjFCGJoEjPOAQ--.37623S3;
+	Mon, 30 Jun 2025 11:47:19 +0800 (CST)
+Date: Mon, 30 Jun 2025 11:47:17 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Wei Fang <wei.fang@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, Frank.Li@nxp.com, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+To: Meng Li <Meng.Li@windriver.com>
+Cc: krzk+dt@kernel.org, linux@roeck-us.net, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, linux-watchdog@vger.kernel.org,
+	imx@lists.linux.dev, shawnguo@kernel.org, robh@kernel.org,
+	conor+dt@kernel.org, Frank.Li@nxp.com,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] update NETC node of i.MX95
-Message-ID: <aGIGEVXNyCQZwE4A@dragon>
-References: <20250528083433.3861625-1-wei.fang@nxp.com>
+Subject: Re: [v4 PATCH 2/2] arch: arm64: dts: add big-endian property back
+ into watchdog node
+Message-ID: <aGIIxTjmpPPhhtpN@dragon>
+References: <20250608030616.3874517-1-Meng.Li@windriver.com>
+ <20250608030616.3874517-3-Meng.Li@windriver.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250528083433.3861625-1-wei.fang@nxp.com>
-X-CM-TRANSID: M88vCgAnnw4RBmJouQnOAQ--.13995S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUeksqDUUUU
+In-Reply-To: <20250608030616.3874517-3-Meng.Li@windriver.com>
+X-CM-TRANSID: M88vCgD3nzjFCGJoEjPOAQ--.37623S3
+X-Coremail-Antispam: 1Uf129KBjvdXoWrZF1fXw1DZw47CFy3Gr4Uurg_yoWxAFgE9F
+	15Cry8WF9xJa4jyws0yan3Zr9YgF4UCrWrG3WrCay3Aa93JFn5JF4ayFsYqa1fAanxZr98
+	Aan5ZFZaqr48CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU1D73JUUUUU==
 X-Originating-IP: [114.216.146.217]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCQ98ZWhh4l2X2QABsm
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCQ98ZWhh4l2X2QACsl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_203656_394602_771F83BB 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20250629_204737_292429_7406CE83 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,16 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 04:34:30PM +0800, Wei Fang wrote:
-> We found that NETC has an overshoot issue, so the drive strength of the
-> related pins needs to be reduced. The first two patches are used to fix
-> this issue. The third patch adds SMMU support for NETC.
+On Sun, Jun 08, 2025 at 11:06:16AM +0800, Meng Li wrote:
+> Watchdog doesn't work on NXP ls1046ardb board because in commit
+> 7c8ffc5555cb("arm64: dts: layerscape: remove big-endian for mmc nodes"),
+> it intended to remove the big-endian from mmc node, but the big-endian of
+> watchdog node is also removed by accident. So, add watchdog big-endian
+> property back.
 > 
-> Wei Fang (3):
->   arm64: dts: imx95-19x19-evk: fix the overshoot issue of NETC
->   arm64: dts: imx95-15x15-evk: fix the overshoot issue of NETC
->   arm64: dts: imx95: add SMMU support for NETC
+> In addition, add compatible string fsl,ls1046a-wdt, which allow big-endian
+> property.
+> 
+> Fixes: 7c8ffc5555cb ("arm64: dts: layerscape: remove big-endian for mmc nodes")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Meng Li <Meng.Li@windriver.com>
 
-Applied all, thanks!
+Applied this one, thanks!
 
 
