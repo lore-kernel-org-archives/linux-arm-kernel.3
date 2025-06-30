@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EC6C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 16:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C314C8302B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 16:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zqd/VgNRbedsff9QO+hL6pLDNbdqKMvuSUx43WOIpsw=; b=BGc1uQaFsKkSuQepXpEIatXnz/
-	PApjNJ4GEyfYhNeqBvvlVF6xT0QRZKCam208VZvTESOTnCyd9baY8rM13KGkdTNU85b9nPCtCmNoc
-	kKnjK9/bbBLr6NcnFwA9dWYCbkYtwkAtHW3xDnGidRjUdqPPqT86QjSM662jk8yT6Kezhk5lptu2k
-	//RzdHPEF1uvVoL/g71VavmFeHVqIqBTHDKYuxZ3aWUw06KsTHLISNkNxxJOQTNYE9mEvUdU2/q3B
-	bn+sUhyZo2bjBQanXq9yu87Iwtt2SBmIvTwyogRkDSvhXtMYaD/w3acVAotFPqQRnb6MTSWLFSWu0
-	ru6uzAeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fFMt2MdBt4V+3jVyKnzW2CbyNPSCknGZaPAUm9S6KuY=; b=S1669MRqaKJeobyAty/nqxiaX0
+	scuoLT0VTnvV7ykyBQW3zrlfGn1wOH3YGQQ6UCFszbph85QA6VmZisQ2lvYn9Pr+83P5sRpKGXwI9
+	BTomZOn60iGlRT1GCHs2MNDMiYzDfFD4gCwthGOkFIUN0tJDvgD2H2zvjUv4VDFWN0YOuYAaUuV7E
+	Q8vv5sPFrk0Ciqrfux2Fr9JWsqgClRlFfJs/+lVw7VBRy1krhOD+bSQJYkdhRfMx6rK/1pTFAu6MX
+	wBXug+vhAvoDfR91gDMga6rHMLO/rs8TodesilWqsZm28qV+f26uYgLrmTGFdbwyYOAd17h0avWUx
+	r5aA5GOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWHAN-00000002rHv-157P;
-	Mon, 30 Jun 2025 16:15:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWGMk-00000002k1h-05cv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 15:24:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD1511AC1;
-	Mon, 30 Jun 2025 08:24:01 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 27B143F6A8;
-	Mon, 30 Jun 2025 08:24:15 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 30 Jun 2025 16:23:36 +0100
-Subject: [PATCH v2 04/13] perf arm_spe: Use full type for data_src
+	id 1uWHAT-00000002rNT-1YOj;
+	Mon, 30 Jun 2025 16:15:41 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWGNV-00000002kEV-0TFC;
+	Mon, 30 Jun 2025 15:25:06 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-b2c2c762a89so4343582a12.0;
+        Mon, 30 Jun 2025 08:25:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751297104; x=1751901904; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=fFMt2MdBt4V+3jVyKnzW2CbyNPSCknGZaPAUm9S6KuY=;
+        b=OA6SHVBd/wOKoQ9Oz6UBoZLWUlktpY443zY25pgJYvynaK7RtRrnFNp8tBDtU90Mae
+         OpJL9vyb7ePC4qjTRpYM9epvan6EAhX/qhLTdmtnvFRBzhK26fcOMxKpmJWgwKsSNZVM
+         5eKX06Ete+qpcm11FWsl7CMVwu6rit4IrOd0uNoEo+0uljKxwvYFk6tn6NGNvzwsYSKj
+         3RVIqXjiUAZ60WZRUHTrpcuULxJAgOG4cM0BAj94N+meP1AuphrCaMuZNSAXeAkrkV1L
+         WTFw4huN1b/qoYk2jRb/2TisgmAhTRHNt/Hci0VtHJHLCaBQB3uQzuN/o18/OMlmYA47
+         1dlg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751297104; x=1751901904;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fFMt2MdBt4V+3jVyKnzW2CbyNPSCknGZaPAUm9S6KuY=;
+        b=miOXCZxYm8NxPjOIsE0mAAjxKfeEGpWIihCz4WPdQhTx1tY/e8vQr9yeaXr4FPHPUX
+         dM3ZKQEb4yUbSNxi6QVdCFKxWdutnxL4uJ+9Ja1utJJxMSRlTSI60jNMdLII6V5WIZMS
+         twKOTYq3WoBDBzpaVMZKlHvdxygwKpAhkbCmc+WC5TbfE5RC3iliYO+qNPziGF21cn+P
+         kCbVzY5APoznxG44yn5pBFYw8tSj5zkIWMjdybIl2W2Qod9NoKBLiSW8MsRUygZCzLMJ
+         zF4dlP3bDcwgAnMUHnSGyfKqcW0I7DvlGzZMUy+/AxlK6IAVtDCPpmluYVC2i8lV+azN
+         VaqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVD/x6OBdYg2oyffdZ7aXjj6xccNKuTh1ZuIUkYfW+OurKrQcK1b8Nz3d1gfCuHKqZ6liR0jwadtcT8GEPn3Exn@lists.infradead.org, AJvYcCWp1GjO5PZwqAFDh+xKTTqamwF9bjg/iDM5CaaOs/HAk9N2G0hYzZD7YUhexSlCwuIctkI3a+RL6o38vlsmieE=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNELcTDk10Ze9TynWemJEKtvcni+gxoj/rWwmxVIR7jPXvFFWI
+	39QyGiTBtHGY7qF1V/E86Zhck8vmsr/81ZTUibJxkPzdtn2M59M6ZRtN
+X-Gm-Gg: ASbGncsGoyZUGt9ImXOUKtZl8yW/5mFA6NLPilQ3tDRc6IkASXTjOfZd7ilPkD3hJj2
+	z2w8zSAeIpQiuVM13OlaD89Po7YnJ/DsEE4ZGnuvCHBckCMXZEInnAssAn8kGQ+BFpYSXbGn98G
+	UKkK1ll4lvDjnDrtjjtZT/LtrgYOEVL+vtmDaQBn04jQoWZY0Noa6TpJgj/HSFPQ99TvJETe9NJ
+	ffOA5l5e8Tnxh+a0tIxnDZ9PlkFo6s5c080sWdsQBBR88XdZkPUNOxmyONUhcjMdyK3s28s6oBl
+	AhqonnZaAiUIDeBSCg+KLyWDg4AIo7dBG7McCiR26/bl9L7Utkb0XGvGNNEj+Q==
+X-Google-Smtp-Source: AGHT+IGi/BV1hm+wNmwcS/bd33jUP4+OQR0MfEr1fQJGvAe2GucDnTzkLjVIBYkKRzDtwbp3LLJong==
+X-Received: by 2002:a05:6a21:329c:b0:220:7994:1df1 with SMTP id adf61e73a8af0-220a16e46d5mr24227498637.31.1751297103625;
+        Mon, 30 Jun 2025 08:25:03 -0700 (PDT)
+Received: from google.com ([2620:15c:9d:2:c92b:c666:1f8:990e])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b350d81f0ecsm3185769a12.27.2025.06.30.08.25.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Jun 2025 08:25:03 -0700 (PDT)
+Date: Mon, 30 Jun 2025 08:25:00 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, kernel@collabora.com, linux-input@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] Input: mtk-pmic-keys: Fix null pointer dereference when
+ no compatible data
+Message-ID: <d373gpdyqejppdysdbb4k6aat5i33epnqsebxdkjbrgfwsnqtm@43si4kmjvsmq>
+References: <20250630-mtk-pmic-keys-fix-crash-v1-1-e47351fa9d1f@collabora.com>
+ <28111607-d5a2-4b54-964a-d010fb99193a@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-4-2e1afab313b9@arm.com>
-References: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
-In-Reply-To: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- James Clark <james.clark@linaro.org>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- German Gomez <german.gomez@arm.com>, Ali Saidi <alisaidi@amazon.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751297044; l=3444;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=EKGJ6XTy06qKP1qwDFKh1fhxV4CiiZZKgqckJCjiMm4=;
- b=VvJA88N3zDx5Lf2hBUBUZYKdQ7a0PyqPtsF/e8BKEduVojW/xbRCYuSE3E4WSqTfrjliIW376
- E+sy3t9wy3kCqYIQGfKd+fQym8anWVOTs9jbW3Pkxgmy69u83/do9WR
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <28111607-d5a2-4b54-964a-d010fb99193a@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_082418_185166_0168C2FF 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250630_082505_149356_56B50A16 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,106 +99,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Clark <james.clark@linaro.org>
+On Mon, Jun 30, 2025 at 04:06:53PM +0200, AngeloGioacchino Del Regno wrote:
+> Il 30/06/25 16:03, Louis-Alexis Eyraud ha scritto:
 
-data_src has an actual type rather than just being a u64. To help
-readers, delay decomposing it to a u64 until it's finally assigned to
-the sample.
+[... snip ...]
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/util/arm-spe.c | 25 ++++++++++++++-----------
- 1 file changed, 14 insertions(+), 11 deletions(-)
+> > @@ -316,6 +316,9 @@ static int mtk_pmic_keys_probe(struct platform_device *pdev)
+> >   	const struct of_device_id *of_id =
+> >   		of_match_device(of_mtk_pmic_keys_match_tbl, &pdev->dev);
+> > +	if (!of_id)
+> > +		return -EINVAL;
+> 
+> Please, change this to `return -ENODEV;`
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 182e2c604ea49790a2f5341304ef1cd8217ea6a3..fec11322690ec156500335c86812f55b1bcfb4bb 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -471,7 +471,8 @@ arm_spe_deliver_synth_event(struct arm_spe *spe,
- }
- 
- static int arm_spe__synth_mem_sample(struct arm_spe_queue *speq,
--				     u64 spe_events_id, u64 data_src)
-+				     u64 spe_events_id,
-+				     union perf_mem_data_src data_src)
- {
- 	struct arm_spe *spe = speq->spe;
- 	struct arm_spe_record *record = &speq->decoder->record;
-@@ -486,7 +487,7 @@ static int arm_spe__synth_mem_sample(struct arm_spe_queue *speq,
- 	sample.stream_id = spe_events_id;
- 	sample.addr = record->virt_addr;
- 	sample.phys_addr = record->phys_addr;
--	sample.data_src = data_src;
-+	sample.data_src = data_src.val;
- 	sample.weight = record->latency;
- 
- 	ret = arm_spe_deliver_synth_event(spe, speq, event, &sample);
-@@ -519,7 +520,8 @@ static int arm_spe__synth_branch_sample(struct arm_spe_queue *speq,
- }
- 
- static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
--					     u64 spe_events_id, u64 data_src)
-+					     u64 spe_events_id,
-+					     union perf_mem_data_src data_src)
- {
- 	struct arm_spe *spe = speq->spe;
- 	struct arm_spe_record *record = &speq->decoder->record;
-@@ -542,7 +544,7 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
- 	sample.stream_id = spe_events_id;
- 	sample.addr = record->to_ip;
- 	sample.phys_addr = record->phys_addr;
--	sample.data_src = data_src;
-+	sample.data_src = data_src.val;
- 	sample.period = spe->instructions_sample_period;
- 	sample.weight = record->latency;
- 	sample.flags = speq->flags;
-@@ -891,21 +893,22 @@ static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
- 	return false;
- }
- 
--static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
--				      const struct arm_spe_record *record)
-+static union perf_mem_data_src
-+arm_spe__synth_data_source(struct arm_spe_queue *speq,
-+			   const struct arm_spe_record *record)
- {
--	union perf_mem_data_src	data_src = { .mem_op = PERF_MEM_OP_NA };
-+	union perf_mem_data_src	data_src = {};
- 
- 	/* Only synthesize data source for LDST operations */
- 	if (!is_ldst_op(record->op))
--		return 0;
-+		return data_src;
- 
- 	if (record->op & ARM_SPE_OP_LD)
- 		data_src.mem_op = PERF_MEM_OP_LOAD;
- 	else if (record->op & ARM_SPE_OP_ST)
- 		data_src.mem_op = PERF_MEM_OP_STORE;
- 	else
--		return 0;
-+		return data_src;
- 
- 	if (!arm_spe__synth_ds(speq, record, &data_src))
- 		arm_spe__synth_memory_level(record, &data_src);
-@@ -919,14 +922,14 @@ static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
- 			data_src.mem_dtlb |= PERF_MEM_TLB_HIT;
- 	}
- 
--	return data_src.val;
-+	return data_src;
- }
- 
- static int arm_spe_sample(struct arm_spe_queue *speq)
- {
- 	const struct arm_spe_record *record = &speq->decoder->record;
- 	struct arm_spe *spe = speq->spe;
--	u64 data_src;
-+	union perf_mem_data_src data_src;
- 	int err;
- 
- 	arm_spe__sample_flags(speq);
+No, this definitely should not be a "silent" error because it indicates
+there is something wrong with the kernel.
+
+Stepping back, why do we even enter mtk_pmic_keys_probe() if there is
+not a matching OF ID? Are there any other patches that are not upstream?
+
+Thanks.
 
 -- 
-2.34.1
-
+Dmitry
 
