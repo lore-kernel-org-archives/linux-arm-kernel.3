@@ -4,75 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9FDC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 10:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B063BC8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 10:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u4+i+fCG0zXOAmrMwSL4XzdeT83nVSjToGPcdOCxeS8=; b=AgpfrJsYZqb1EjUJUB6pnQwXKV
-	PtwWXtlQoYvgf4iqAxNmqZ50ZtXMs264lRO/6DpRqeKT8R3LDwpGpBLgmUlP5fZmxCdCfgnVrvTdt
-	tDlJIU1X++rJG502cI9gRO9vQX8dRtFrUEz1Y09hrAlEYHlp32ieMK6fai8VS058FlvnMQKJw5eIS
-	HtcfLUwUTWjVdxaga+baeAxioApnqQibZ1DSWWmgEB1cwbVOHP5zJgS5H3GQs9iOI4NQJoTXShcV2
-	1l4MedwtNaIfILnOqUOr7/KBIGC0puj3ibHBRIw753uo9Zs8a2gcmZAR/BZqjQH5raAjWGsxqRAFQ
-	xpedTZNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qbvWLxKSmD2/+BQBHz9SsH9CBE6M5BdjauaLz1EymiA=; b=LCYMacY/uOcA79l45SgLMQ2CfZ
+	Iw2jNx1wPhXh+LsJcVGiYWMtmyHP4ZufOU8i9xflclmE26Ulb08fUKhTX44766fIAhsMWYhnMEkyp
+	e18PUUUT419IIMEQXmnncDzNXYQrsPuONDOMgFs4cN+mRnOpydguEb7IW3XMSCmJ45Dyhzp6Z+dGk
+	CebQvF22VmnLhAfqE/D4zEXMXg8T1YNG5zKff13tpG9CEENUtRcQm1fJedcGaAFqudRPLoXDAVSBA
+	223ZrUw9AmuyVwB7oHzA/XhYW5/+zRZst3f3akgkhdK7BfGEt3tw3Z6+jXl/DX/gzSZUKPAN8M1p+
+	Q5KCEx3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWCCM-00000001xSv-3KCF;
-	Mon, 30 Jun 2025 10:57:18 +0000
-Received: from jpms-ob02-os7.noc.sony.co.jp ([2001:cf8:acf:41::8])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWBlw-00000001tOk-2YKH;
-	Mon, 30 Jun 2025 10:30:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=sony.com; s=s1jp; t=1751279401; x=1782815401;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=u4+i+fCG0zXOAmrMwSL4XzdeT83nVSjToGPcdOCxeS8=;
-  b=ujl/zgnwFIUKtnX7CL7xJo+Gp3zBl8kNDQVniSg2VoIc/KDupijZm2wI
-   KbdEAT0XaaTuGnwY0V/FEwYl1Ufl/7PhU+ztkcFjVyVC2UlCExtH2iHCB
-   0UFpBjaH5btXTjrYRkPlL5tqSxyEj6dYypEPyCsIDpinu5K4dgHI0ekjw
-   uEQKH1j+lKBOFAmRTT9eZ8pQwtv8eLgfgKqf3s/+54XghSXR1NdUmIO3m
-   PB5Lj4hdN7zRMlOdqyvYeLLBnyr8gwNhiILg2dANGqvCbwUEnZUImi0m6
-   Zc/asHZjaCPDCcxsY4h5A/TF2iJaZH5UhmEMy6weUGJKjA21qy51+TJZu
-   w==;
-Received: from unknown (HELO jpmta-ob01-os7.noc.sony.co.jp) ([IPv6:2001:cf8:acf:1104::6])
-  by jpms-ob02-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2025 19:29:55 +0900
-X-IronPort-AV: E=Sophos;i="6.16,277,1744038000"; 
-   d="scan'208";a="2171375"
-Received: from unknown (HELO JPC00244420) ([IPv6:2001:cf8:1:573:0:dddd:eb3e:119e])
-  by jpmta-ob01-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2025 19:29:55 +0900
-Date: Mon, 30 Jun 2025 19:29:51 +0900
-From: Shashank Balaji <shashank.mahadasyam@sony.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
-	James Morse <james.morse@arm.com>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Rahul Bukte <rahul.bukte@sony.com>,
-	Daniel Palmer <daniel.palmer@sony.com>,
-	Shinya Takumi <shinya.takumi@sony.com>
-Subject: Re: [RFC PATCH] kernel/cpu: in freeze_secondary_cpus() ensure
- primary cpu is of domain type
-Message-ID: <aGJnH0Ka2Y0koGAX@JPC00244420>
-References: <20250630082103.829352-1-shashank.mahadasyam@sony.com>
- <20250630084808.GH1613376@noisy.programming.kicks-ass.net>
+	id 1uWCEe-00000001xlp-2KyH;
+	Mon, 30 Jun 2025 10:59:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWBnO-00000001teT-0otM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 10:31:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB86F1D34;
+	Mon, 30 Jun 2025 03:31:13 -0700 (PDT)
+Received: from [10.1.34.165] (XHFQ2J9959.cambridge.arm.com [10.1.34.165])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 986E93F58B;
+	Mon, 30 Jun 2025 03:31:25 -0700 (PDT)
+Message-ID: <41386e41-c1c4-4898-8958-2f4daa92dc7c@arm.com>
+Date: Mon, 30 Jun 2025 11:31:23 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250630084808.GH1613376@noisy.programming.kicks-ass.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/4] mm: Optimize mprotect() by PTE-batching
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
+Cc: david@redhat.com, willy@infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
+ jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
+ joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
+ kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250628113435.46678-1-dev.jain@arm.com>
+ <20250628113435.46678-4-dev.jain@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250628113435.46678-4-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_033000_872300_01975AE2 
-X-CRM114-Status: GOOD (  34.91  )
+X-CRM114-CacheID: sfid-20250630_033130_329731_28A9DEF4 
+X-CRM114-Status: GOOD (  46.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,168 +72,284 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
-
-On Mon, Jun 30, 2025 at 10:48:08AM +0200, Peter Zijlstra wrote:
-> > diff --git a/kernel/cpu.c b/kernel/cpu.c
-> > index a59e009e0be4..d9167b0559a5 100644
-> > --- a/kernel/cpu.c
-> > +++ b/kernel/cpu.c
-> > @@ -1902,12 +1902,28 @@ int freeze_secondary_cpus(int primary)
-> >  
-> >  	cpu_maps_update_begin();
-> >  	if (primary == -1) {
-> > -		primary = cpumask_first(cpu_online_mask);
-> > -		if (!housekeeping_cpu(primary, HK_TYPE_TIMER))
-> > -			primary = housekeeping_any_cpu(HK_TYPE_TIMER);
-> > +		primary = cpumask_first_and_and(cpu_online_mask,
-> > +								housekeeping_cpumask(HK_TYPE_TIMER),
-> > +								housekeeping_cpumask(HK_TYPE_DOMAIN));
+On 28/06/2025 12:34, Dev Jain wrote:
+> Use folio_pte_batch to batch process a large folio. Reuse the folio from
+> prot_numa case if possible.
 > 
-> That's terrible indenting, please align after the opening bracket like:
+> For all cases other than the PageAnonExclusive case, if the case holds true
+> for one pte in the batch, one can confirm that that case will hold true for
+> other ptes in the batch too; for pte_needs_soft_dirty_wp(), we do not pass
+> FPB_IGNORE_SOFT_DIRTY. modify_prot_start_ptes() collects the dirty
+> and access bits across the batch, therefore batching across
+> pte_dirty(): this is correct since the dirty bit on the PTE really is
+> just an indication that the folio got written to, so even if the PTE is
+> not actually dirty (but one of the PTEs in the batch is), the wp-fault
+> optimization can be made.
 > 
-> 		primary = cpumask_first_and_and(cpu_online_mask,
-> 						housekeeping_cpumask(HK_TYPE_TIMER),
-> 						housekeeping_cpumask(HK_TYPE_DOMAIN));
+> The crux now is how to batch around the PageAnonExclusive case; we must
+> check the corresponding condition for every single page. Therefore, from
+> the large folio batch, we process sub batches of ptes mapping pages with
+> the same PageAnonExclusive condition, and process that sub batch, then
+> determine and process the next sub batch, and so on. Note that this does
+> not cause any extra overhead; if suppose the size of the folio batch
+> is 512, then the sub batch processing in total will take 512 iterations,
+> which is the same as what we would have done before.
 > 
-> Also, IIRC HK_TYPE_HRTIMER is deprecated and should be something like
-> HK_TYPE_NOISE or somesuch. Frederic?
->     <snip>
-> > +			primary = cpumask_first_and(cpu_online_mask,
-> > +								housekeeping_cpumask(HK_TYPE_DOMAIN));
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  mm/mprotect.c | 143 +++++++++++++++++++++++++++++++++++++++++---------
+>  1 file changed, 117 insertions(+), 26 deletions(-)
 > 
-> Indenting again.
+> diff --git a/mm/mprotect.c b/mm/mprotect.c
+> index 627b0d67cc4a..28c7ce7728ff 100644
+> --- a/mm/mprotect.c
+> +++ b/mm/mprotect.c
+> @@ -40,35 +40,47 @@
+>  
+>  #include "internal.h"
+>  
+> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+> -			     pte_t pte)
+> -{
+> -	struct page *page;
+> +enum tristate {
+> +	TRI_FALSE = 0,
+> +	TRI_TRUE = 1,
+> +	TRI_MAYBE = -1,
+> +};
+>  
+> +/*
+> + * Returns enum tristate indicating whether the pte can be changed to writable.
+> + * If TRI_MAYBE is returned, then the folio is anonymous and the user must
+> + * additionally check PageAnonExclusive() for every page in the desired range.
+> + */
+> +static int maybe_change_pte_writable(struct vm_area_struct *vma,
+> +				     unsigned long addr, pte_t pte,
+> +				     struct folio *folio)
+> +{
+>  	if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
+> -		return false;
+> +		return TRI_FALSE;
+>  
+>  	/* Don't touch entries that are not even readable. */
+>  	if (pte_protnone(pte))
+> -		return false;
+> +		return TRI_FALSE;
+>  
+>  	/* Do we need write faults for softdirty tracking? */
+>  	if (pte_needs_soft_dirty_wp(vma, pte))
+> -		return false;
+> +		return TRI_FALSE;
+>  
+>  	/* Do we need write faults for uffd-wp tracking? */
+>  	if (userfaultfd_pte_wp(vma, pte))
+> -		return false;
+> +		return TRI_FALSE;
+>  
+>  	if (!(vma->vm_flags & VM_SHARED)) {
+>  		/*
+>  		 * Writable MAP_PRIVATE mapping: We can only special-case on
+>  		 * exclusive anonymous pages, because we know that our
+>  		 * write-fault handler similarly would map them writable without
+> -		 * any additional checks while holding the PT lock.
+> +		 * any additional checks while holding the PT lock. So if the
+> +		 * folio is not anonymous, we know we cannot change pte to
+> +		 * writable. If it is anonymous then the caller must further
+> +		 * check that the page is AnonExclusive().
+>  		 */
+> -		page = vm_normal_page(vma, addr, pte);
+> -		return page && PageAnon(page) && PageAnonExclusive(page);
+> +		return (!folio || folio_test_anon(folio)) ? TRI_MAYBE : TRI_FALSE;
+>  	}
+>  
+>  	VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
+> @@ -80,15 +92,61 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+>  	 * FS was already notified and we can simply mark the PTE writable
+>  	 * just like the write-fault handler would do.
+>  	 */
+> -	return pte_dirty(pte);
+> +	return pte_dirty(pte) ? TRI_TRUE : TRI_FALSE;
+> +}
+> +
+> +/*
+> + * Returns the number of pages within the folio, starting from the page
+> + * indicated by pgidx and up to pgidx + max_nr, that have the same value of
+> + * PageAnonExclusive(). Must only be called for anonymous folios. Value of
+> + * PageAnonExclusive() is returned in *exclusive.
+> + */
+> +static int anon_exclusive_batch(struct folio *folio, int pgidx, int max_nr,
+> +				bool *exclusive)
+> +{
+> +	struct page *page;
+> +	int nr = 1;
+> +
+> +	if (!folio) {
+> +		*exclusive = false;
+> +		return nr;
+> +	}
+> +
+> +	page = folio_page(folio, pgidx++);
+> +	*exclusive = PageAnonExclusive(page);
+> +	while (nr < max_nr) {
+> +		page = folio_page(folio, pgidx++);
+> +		if ((*exclusive) != PageAnonExclusive(page))
 
-Sorry about the indentation. I've now set my editor to use 8-space tabs.
-I'll have it fixed in the next version of the patch.
+nit: brackets not required around *exclusive.
 
-HK_TYPE_KERNEL_NOISE was added by commit 6010d245ddc9f463bbf0
-(sched/isolation: Consolidate housekeeping cpumasks that are always identical).
-I'll replace HK_TYPE_TIMER with HK_TYPE_KERNEL_NOISE in the next
-version.
+> +			break;
+> +		nr++;
+> +	}
+> +
+> +	return nr;
+> +}
+> +
+> +bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+> +			     pte_t pte)
+> +{
+> +	struct page *page;
+> +	int ret;
+> +
+> +	ret = maybe_change_pte_writable(vma, addr, pte, NULL);
+> +	if (ret == TRI_MAYBE) {
+> +		page = vm_normal_page(vma, addr, pte);
+> +		ret = page && PageAnon(page) && PageAnonExclusive(page);
+> +	}
+> +
+> +	return ret;
+>  }
+>  
+>  static int mprotect_folio_pte_batch(struct folio *folio, unsigned long addr,
+> -		pte_t *ptep, pte_t pte, int max_nr_ptes)
+> +		pte_t *ptep, pte_t pte, int max_nr_ptes, fpb_t switch_off_flags)
+>  {
+> -	const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+> +	fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+> +
+> +	flags &= ~switch_off_flags;
 
-> 
-> > +			if (primary >= nr_cpu_ids) {
-> > +				error = -ENODEV;
-> > +				pr_err("No suitable primary CPU found. Ensure at least one non-isolated CPU is online\n");
-> > +				goto abort;
-> > +			}
-> > +		} else if (!housekeeping_cpu(primary, HK_TYPE_DOMAIN)) {
-> > +			error = -ENODEV;
-> > +			pr_err("Primary CPU %d should not be isolated\n", primary);
-> > +			goto abort;
-> > +		}
-> >  	}
-> >  
-> >  	/*
-> > @@ -1943,6 +1959,7 @@ int freeze_secondary_cpus(int primary)
-> >  	else
-> >  		pr_err("Non-boot CPUs are not disabled\n");
-> >  
-> > +abort:
-> >  	/*
-> >  	 * Make sure the CPUs won't be enabled by someone else. We need to do
-> >  	 * this even in case of failure as all freeze_secondary_cpus() users are
-> 
-> 
-> Also; doesn't the above boil down to something like:
-> 
-> 	if (primary == -1) {
-> 		primary = cpumask_first_and_and(cpu_online_mask,
-> 						housekeeping_cpumask(HK_TYPE_TIMER),
-> 						housekeeping_cpumask(HK_TYPE_DOMAIN));
-> 	} if (!cpu_online(primary)) {
-> 		primary = cpumask_first_and(cpu_online_mask,
-> 					    housekeeping_cpumask(HK_TYPE_DOMAIN));
-> 	} 
-> 
-> 	if (primary >= nr_cpu_ids || !housekeeping_cpu(primary, HK_TYPE_DOMAIN)) {
-> 		error = -ENODEV;
-> 		pr_err("Primary CPU %d should not be isolated\n", primary);
-> 		goto abort;
-> 	}
-> 
-> Yes, this has less error string variation, but the code is simpler.
+This is mega confusing when reading the caller. Because the caller passes
+FPB_IGNORE_SOFT_DIRTY and that actually means DON'T ignore soft dirty.
 
-If primary >= nr_cpu_ids, primary should not be used in the error
-string. But I do think it can be simplified as so, at the cost of the
-error string not being completely accurate:
+Can't we just pass in the flags we want?
 
-	if (primary == -1) {
-		primary = cpumask_first_and_and(cpu_online_mask,
-						housekeeping_cpumask(HK_TYPE_TIMER),
-						housekeeping_cpumask(HK_TYPE_DOMAIN));
-	} else if (!cpu_online(primary)) {
-		primary = cpumask_first_and(cpu_online_mask,
-					    housekeeping_cpumask(HK_TYPE_DOMAIN));
-	}
-	if (primary >= nr_cpu_ids) {
-		error = -ENODEV;
-		pr_err("No suitable primary CPU found. Ensure at least one non-isolated CPU is online\n");
-		goto abort;
-	} else if (!housekeeping_cpu(HK_TYPE_DOMAIN)) {
-		error = -ENODEV;
-		pr_err("Primary CPU %d should not be isolated\n", primary);
-		goto abort;
-	}
+>  
+> -	if (!folio || !folio_test_large(folio) || (max_nr_ptes == 1))
+> +	if (!folio || !folio_test_large(folio))
 
-The "Ensure at lest one non-isolated CPU is online" is only partially
-true in the case primary = -1 was passed and we couldn't find a suitable
-cpu because we were looking for an online cpu that's non-isolated _and_
-non-nohz_full. But the "non-nohz_full" condition isn't taken care of in
-the !cpu_online(primary) branch. Although, I do think it should be
-(question 2 below): in both the branches, we should look for a cpu that's online,
-non-isolated, and of domain type. That would further simplify the above snippet to,
+What's the rational for dropping the max_nr_ptes == 1 condition? If you don't
+need it, why did you add it in the earler patch?
 
-	if (primary == -1 || !cpu_online(primary)) {
-		primary = cpumask_first_and_and(cpu_online_mask,
-						housekeeping_cpumask(HK_TYPE_TIMER),
-						housekeeping_cpumask(HK_TYPE_DOMAIN));
-	}
-	if (primary >= nr_cpu_ids) {
-		error = -ENODEV;
-		pr_err("No suitable primary CPU found. Ensure at least one non-isolated, non-nohz_full CPU is online\n");
-		goto abort;
-	} else if (!housekeeping_cpu(HK_TYPE_DOMAIN) || !housekeeping_cpu(HK_TYPE_TIMER)) {
-		error = -ENODEV;
-		pr_err("Primary CPU %d should not be isolated or nohz_full\n", primary);
-		goto abort;
-	}
+>  		return 1;
+>  
+>  	return folio_pte_batch(folio, addr, ptep, pte, max_nr_ptes, flags,
+> @@ -154,7 +212,8 @@ static int prot_numa_skip_ptes(struct folio **foliop, struct vm_area_struct *vma
+>  	}
+>  
+>  skip_batch:
+> -	nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte, max_nr_ptes);
+> +	nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte,
+> +					   max_nr_ptes, 0);
+>  out:
+>  	*foliop = folio;
+>  	return nr_ptes;
+> @@ -191,7 +250,10 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  		if (pte_present(oldpte)) {
+>  			int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
+>  			struct folio *folio = NULL;
+> -			pte_t ptent;
+> +			int sub_nr_ptes, pgidx = 0;
+> +			pte_t ptent, newpte;
+> +			bool sub_set_write;
+> +			int set_write;
+>  
+>  			/*
+>  			 * Avoid trapping faults against the zero or KSM
+> @@ -206,6 +268,11 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  					continue;
+>  			}
+>  
+> +			if (!folio)
+> +				folio = vm_normal_folio(vma, addr, oldpte);
+> +
+> +			nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte,
+> +							   max_nr_ptes, FPB_IGNORE_SOFT_DIRTY);
 
-Now the error string is accurate.
+From the other thread, my memory is jogged that this function ignores write
+permission bit. So I think that's opening up a bug when applied here? If the
+first pte is writable but the rest are not (COW), doesn't this now make them all
+writable? I don't *think* that's a problem for the prot_numa use, but I could be
+wrong.
 
->2. This concerns the following snippet of freeze_secondary_cpus():
->
->        if (primary == -1) {
->            primary = cpumask_first(cpu_online_mask);
->            if (!housekeeping_cpu(primary, HK_TYPE_TIMER))
->                primary = housekeeping_any_cpu(HK_TYPE_TIMER);
->        } else {
->            if (!cpu_online(primary))
->                primary = cpumask_first(cpu_online_mask);
->        }
->
->    suspend_disable_secondary_cpus() calls freeze_secondary_cpus() with primary = -1,
->    if CONFIG_PM_SLEEP_SMP_NONZERO_CPU, and primary = 0 otherwise. On x86 and arm64,
->    for example, it's called with primary = 0. In the primary != -1 branch, why
->    isn't primary checked for HK_TYPE_TIMER as is done in the primary == 1 branch?
->    On x86 this is fine, since it doesn't advertise ARCH_SUSPEND_NONZERO_CPU,
->    cpu 0 will be removed out of the nohz_full mask even if it's specified. And it
->    also cannot be offlined. So on x86, the primary cpu will always be online and
->    non-nohz_full. But on arm64, for example, cpu 0 _can_ be offlined. So
->    cpumask_first(cpu_online_mask) will find the next online cpu, which may not
->    be non-nohz_full.
->
->    Also, why the requirement for the primary cpu to be of HK_TYPE_TIMER?
+>  			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
 
-The HK_TYPE_TIMER check was added by Nicholas in
-commit 9ca12ac04bb7d7cfb28aa5 (kernel/cpu: Allow non-zero CPU to be primary
-for suspend / kexec freeze) [1], but it was added only to the primary = -1 branch.
-I'm not sure why we don't check for HK_TYPE_TIMER when primary is specified.
+Even if I'm wrong about ignoring write bit being a bug, I don't think the docs
+for this function permit write bit to be different across the batch?
 
-[1] https://lore.kernel.org/all/20190411033448.20842-4-npiggin@gmail.com/
+>  			ptent = pte_modify(oldpte, newprot);
+>  
+> @@ -227,15 +294,39 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  			 * example, if a PTE is already dirty and no other
+>  			 * COW or special handling is required.
+>  			 */
+> -			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+> -			    !pte_write(ptent) &&
+> -			    can_change_pte_writable(vma, addr, ptent))
+> -				ptent = pte_mkwrite(ptent, vma);
+> -
+> -			modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
+> -			if (pte_needs_flush(oldpte, ptent))
+> -				tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
+> -			pages++;
+> +			set_write = (cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+> +				    !pte_write(ptent);
+> +			if (set_write)
+> +				set_write = maybe_change_pte_writable(vma, addr, ptent, folio);
+
+Why not just:
+			set_write = (cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+				    !pte_write(ptent) &&
+				    maybe_change_pte_writable(...);
+
+?
+
+> +
+> +			while (nr_ptes) {
+> +				if (set_write == TRI_MAYBE) {
+> +					sub_nr_ptes = anon_exclusive_batch(folio,
+> +						pgidx, nr_ptes, &sub_set_write);
+> +				} else {
+> +					sub_nr_ptes = nr_ptes;
+> +					sub_set_write = (set_write == TRI_TRUE);
+> +				}
+> +
+> +				if (sub_set_write)
+> +					newpte = pte_mkwrite(ptent, vma);
+> +				else
+> +					newpte = ptent;
+> +
+> +				modify_prot_commit_ptes(vma, addr, pte, oldpte,
+> +							newpte, sub_nr_ptes);
+> +				if (pte_needs_flush(oldpte, newpte))
+
+What did we conclude with pte_needs_flush()? I thought there was an arch where
+it looked dodgy calling this for just the pte at the head of the batch?
 
 Thanks,
-Shashank
+Ryan
+
+> +					tlb_flush_pte_range(tlb, addr,
+> +						sub_nr_ptes * PAGE_SIZE);
+> +
+> +				addr += sub_nr_ptes * PAGE_SIZE;
+> +				pte += sub_nr_ptes;
+> +				oldpte = pte_advance_pfn(oldpte, sub_nr_ptes);
+> +				ptent = pte_advance_pfn(ptent, sub_nr_ptes);
+> +				nr_ptes -= sub_nr_ptes;
+> +				pages += sub_nr_ptes;
+> +				pgidx += sub_nr_ptes;
+> +			}
+>  		} else if (is_swap_pte(oldpte)) {
+>  			swp_entry_t entry = pte_to_swp_entry(oldpte);
+>  			pte_t newpte;
 
 
