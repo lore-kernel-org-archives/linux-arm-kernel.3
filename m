@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E44C8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 11:28:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D9AFC7EE39
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 11:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BLMOl5Z1dHtgN627jQEuWkjboMpwmlw0WhVs4tIsbCs=; b=TGY1W6dPfs3zZopeqNIyZxr72/
-	s0EfhVoYvsjUWi8kDWeb0POuR+XFkPTzhsk6kTGjvmHjQRkzczvwIxpXfHGlpt51kBj72Yt7wgSfk
-	p13z/mN86B1jWeCLw2R+em7dwDfOaRTEyJr5D0Yody2mIT4l9PBphshEqxDK3JrEcs1uiuBLciSBI
-	pmBTh+LVeYQ+aeTcHHBflJGCAvjRUkYSudeZvR5YhJhGe/CNqS1NQFtYOPwuJW6XI3h2oLXtHH5Qu
-	NqE2sHRX7t9rtJPuQrb7MJKwK62bbCg8Kq3qrWklhfqG4xS8eVfnkZEVg0v6fjAPtVwnR9mYLzO7v
-	Dx5tLa9Q==;
+	bh=NJVen7la1VI5IFNV8BjGSJyY3aVZC6dy/VHhyWr+kzU=; b=ojrBJJGSxGypi6K66lZnzXhpXt
+	EOWN1hramCLm2cvYRZ1CS4gpY8oGn+miLpH6fqpETUSQ9/52EXiQsh/WONarv5he8HruPLjoBNK/D
+	sFBA6QthgmSJF2zrN4LDqOGObOje1yoK621g3zY9PZx7c/BdYp2rmhDDnGwu631LD3vBPCPPC5NBT
+	6MDMZGzZfRxFTaazNK8uK3uIOQ5aPC8F/CxDrkeTe7T1PCQdMP3f6utKGDBKf/kxJCFkK5STs2xyS
+	6HA9+VSybiJUN0e3LlOe0Ee/mBAu01/pVULEAWqGy5ULWJaHNeiv0RviMuCb/eQk9zT5tCCxVw58/
+	E3Psf65g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWCg4-000000021jZ-19M1;
-	Mon, 30 Jun 2025 11:28:00 +0000
+	id 1uWCiN-0000000228H-04tT;
+	Mon, 30 Jun 2025 11:30:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWCBB-00000001xDb-3XJr
+	id 1uWCBE-00000001xER-0ilH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 10:56:07 +0000
+	Mon, 30 Jun 2025 10:56:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B6C31FCD;
-	Mon, 30 Jun 2025 03:55:49 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDA741D34;
+	Mon, 30 Jun 2025 03:55:51 -0700 (PDT)
 Received: from oss-apollo7005.oss.cambridge.arm.com (oss-apollo7005.oss.lab.cambridge.arm.com [10.7.15.171])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 320183F6A8;
-	Mon, 30 Jun 2025 03:56:04 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 84D6F3F6A8;
+	Mon, 30 Jun 2025 03:56:06 -0700 (PDT)
 From: Philip Radford <philip.radford@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -41,17 +41,17 @@ Cc: sudeep.holla@arm.com,
 	cristian.marussi@arm.com,
 	luke.parkin@arm.com,
 	philip.radford@arm.com
-Subject: [PATCH v2 2/3] firmware: arm_scmi: Add xfer_inflight counter
-Date: Mon, 30 Jun 2025 10:55:42 +0000
-Message-Id: <20250630105544.531723-3-philip.radford@arm.com>
+Subject: [PATCH v2 3/3] include: trace: Add inflight_xfer counter tracepoint
+Date: Mon, 30 Jun 2025 10:55:43 +0000
+Message-Id: <20250630105544.531723-4-philip.radford@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250630105544.531723-1-philip.radford@arm.com>
 References: <20250630105544.531723-1-philip.radford@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_035605_917955_1900DC4C 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20250630_035608_291870_F612F117 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,80 +66,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a counter to the debug_counters struct to record the current
-number of outstanding inflight xfers.
+Add tracepoint for inflight_xfers and patch all related callsites.
+
+firmware: arm_scmi: Add new inflight tracing functionality
+
+Add scmi_inflight_count function to fetch the current xfer
+inflight count to use in trace.
 
 Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
 Signed-off-by: Philip Radford <philip.radford@arm.com>
 ---
 V1->V2
-- Amended commit message
+- Squashed final commit adding functionality into this commit
+- Cleaned up erroneous blank space
 ---
- drivers/firmware/arm_scmi/common.h |  1 +
- drivers/firmware/arm_scmi/driver.c | 11 +++++++++++
- 2 files changed, 12 insertions(+)
+ drivers/firmware/arm_scmi/common.h   |  1 +
+ drivers/firmware/arm_scmi/driver.c   | 17 +++++++++++++++--
+ drivers/firmware/arm_scmi/raw_mode.c |  6 ++++--
+ include/trace/events/scmi.h          | 24 ++++++++++++++----------
+ 4 files changed, 34 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index c6495c4a0e8a..ad9232c982ce 100644
+index ad9232c982ce..07b9e629276d 100644
 --- a/drivers/firmware/arm_scmi/common.h
 +++ b/drivers/firmware/arm_scmi/common.h
-@@ -305,6 +305,7 @@ enum debug_counters {
- 	ERR_MSG_INVALID,
- 	ERR_MSG_NOMEM,
- 	ERR_PROTOCOL,
-+	XFERS_INFLIGHT,
- 	SCMI_DEBUG_COUNTERS_LAST
- };
- 
+@@ -505,4 +505,5 @@ static struct platform_driver __drv = {					       \
+ void scmi_notification_instance_data_set(const struct scmi_handle *handle,
+ 					 void *priv);
+ void *scmi_notification_instance_data_get(const struct scmi_handle *handle);
++int scmi_inflight_count(const struct scmi_handle *handle);
+ #endif /* _SCMI_COMMON_H */
 diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 2699c8efef0a..46f15c5b4998 100644
+index 46f15c5b4998..ccc70f10408f 100644
 --- a/drivers/firmware/arm_scmi/driver.c
 +++ b/drivers/firmware/arm_scmi/driver.c
-@@ -190,6 +190,7 @@ struct scmi_info {
- };
+@@ -1440,7 +1440,8 @@ static int do_xfer(const struct scmi_protocol_handle *ph,
  
- #define handle_to_scmi_info(h)	container_of(h, struct scmi_info, handle)
-+#define tx_minfo_to_scmi_info(h) container_of(h, struct scmi_info, tx_minfo)
- #define bus_nb_to_scmi_info(nb)	container_of(nb, struct scmi_info, bus_nb)
- #define req_nb_to_scmi_info(nb)	container_of(nb, struct scmi_info, dev_req_nb)
+ 	trace_scmi_xfer_begin(xfer->transfer_id, xfer->hdr.id,
+ 			      xfer->hdr.protocol_id, xfer->hdr.seq,
+-			      xfer->hdr.poll_completion);
++			      xfer->hdr.poll_completion,
++			      scmi_inflight_count(&info->handle));
  
-@@ -603,9 +604,14 @@ static inline void
- scmi_xfer_inflight_register_unlocked(struct scmi_xfer *xfer,
- 				     struct scmi_xfers_info *minfo)
- {
-+	/* In this context minfo will be tx_minfo due to the xfer pending */
-+	struct scmi_info *info = tx_minfo_to_scmi_info(minfo);
-+
- 	/* Set in-flight */
- 	set_bit(xfer->hdr.seq, minfo->xfer_alloc_table);
- 	hash_add(minfo->pending_xfers, &xfer->node, xfer->hdr.seq);
-+	scmi_inc_count(info->dbg->counters, XFERS_INFLIGHT);
-+
- 	xfer->pending = true;
+ 	/* Clear any stale status */
+ 	xfer->hdr.status = SCMI_SUCCESS;
+@@ -1476,7 +1477,8 @@ static int do_xfer(const struct scmi_protocol_handle *ph,
+ 		info->desc->ops->mark_txdone(cinfo, ret, xfer);
+ 
+ 	trace_scmi_xfer_end(xfer->transfer_id, xfer->hdr.id,
+-			    xfer->hdr.protocol_id, xfer->hdr.seq, ret);
++			    xfer->hdr.protocol_id, xfer->hdr.seq, ret,
++			    scmi_inflight_count(&info->handle));
+ 
+ 	return ret;
+ }
+@@ -3413,6 +3415,17 @@ static struct dentry *scmi_debugfs_init(void)
+ 	return d;
  }
  
-@@ -807,9 +813,13 @@ __scmi_xfer_put(struct scmi_xfers_info *minfo, struct scmi_xfer *xfer)
- 	spin_lock_irqsave(&minfo->xfer_lock, flags);
- 	if (refcount_dec_and_test(&xfer->users)) {
- 		if (xfer->pending) {
-+			struct scmi_info *info = tx_minfo_to_scmi_info(minfo);
++int scmi_inflight_count(const struct scmi_handle *handle)
++{
++	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_COUNTERS)) {
++		struct scmi_info *info = handle_to_scmi_info(handle);
 +
- 			scmi_xfer_token_clear(minfo, xfer);
- 			hash_del(&xfer->node);
- 			xfer->pending = false;
++		return atomic_read(&info->dbg->counters[XFERS_INFLIGHT]);
++	} else {
++		return 0;
++	}
++}
 +
-+			scmi_dec_count(info->dbg->counters, XFERS_INFLIGHT);
- 		}
- 		hlist_add_head(&xfer->node, &minfo->free_xfers);
- 	}
-@@ -2909,6 +2919,7 @@ static const char * const dbg_counter_strs[] = {
- 	"err_msg_invalid",
- 	"err_msg_nomem",
- 	"err_protocol",
-+	"xfers_inflight",
- };
+ static int __init scmi_driver_init(void)
+ {
+ 	scmi_quirks_initialize();
+diff --git a/drivers/firmware/arm_scmi/raw_mode.c b/drivers/firmware/arm_scmi/raw_mode.c
+index 3d543b1d8947..73db5492ab44 100644
+--- a/drivers/firmware/arm_scmi/raw_mode.c
++++ b/drivers/firmware/arm_scmi/raw_mode.c
+@@ -475,7 +475,8 @@ static void scmi_xfer_raw_worker(struct work_struct *work)
+ 			raw->desc->ops->mark_txdone(rw->cinfo, ret, xfer);
  
- static ssize_t reset_all_on_write(struct file *filp, const char __user *buf,
+ 		trace_scmi_xfer_end(xfer->transfer_id, xfer->hdr.id,
+-				    xfer->hdr.protocol_id, xfer->hdr.seq, ret);
++				    xfer->hdr.protocol_id, xfer->hdr.seq,
++				    ret, scmi_inflight_count(raw->handle));
+ 
+ 		/* Wait also for an async delayed response if needed */
+ 		if (!ret && xfer->async_done) {
+@@ -642,7 +643,8 @@ static int scmi_do_xfer_raw_start(struct scmi_raw_mode_info *raw,
+ 
+ 	trace_scmi_xfer_begin(xfer->transfer_id, xfer->hdr.id,
+ 			      xfer->hdr.protocol_id, xfer->hdr.seq,
+-			      xfer->hdr.poll_completion);
++			      xfer->hdr.poll_completion,
++			      scmi_inflight_count(raw->handle));
+ 
+ 	ret = raw->desc->ops->send_message(rw->cinfo, xfer);
+ 	if (ret) {
+diff --git a/include/trace/events/scmi.h b/include/trace/events/scmi.h
+index 127300481123..703b7bb68e44 100644
+--- a/include/trace/events/scmi.h
++++ b/include/trace/events/scmi.h
+@@ -36,8 +36,8 @@ TRACE_EVENT(scmi_fc_call,
+ 
+ TRACE_EVENT(scmi_xfer_begin,
+ 	TP_PROTO(int transfer_id, u8 msg_id, u8 protocol_id, u16 seq,
+-		 bool poll),
+-	TP_ARGS(transfer_id, msg_id, protocol_id, seq, poll),
++		 bool poll, int inflight),
++	TP_ARGS(transfer_id, msg_id, protocol_id, seq, poll, inflight),
+ 
+ 	TP_STRUCT__entry(
+ 		__field(int, transfer_id)
+@@ -45,6 +45,7 @@ TRACE_EVENT(scmi_xfer_begin,
+ 		__field(u8, protocol_id)
+ 		__field(u16, seq)
+ 		__field(bool, poll)
++		__field(int, inflight)
+ 	),
+ 
+ 	TP_fast_assign(
+@@ -53,11 +54,12 @@ TRACE_EVENT(scmi_xfer_begin,
+ 		__entry->protocol_id = protocol_id;
+ 		__entry->seq = seq;
+ 		__entry->poll = poll;
++		__entry->inflight = inflight;
+ 	),
+ 
+-	TP_printk("pt=%02X msg_id=%02X seq=%04X transfer_id=%X poll=%u",
+-		__entry->protocol_id, __entry->msg_id, __entry->seq,
+-		__entry->transfer_id, __entry->poll)
++	TP_printk("pt=%02X msg_id=%02X seq=%04X transfer_id=%X poll=%u inflight=%d",
++		  __entry->protocol_id, __entry->msg_id, __entry->seq,
++		  __entry->transfer_id, __entry->poll, __entry->inflight)
+ );
+ 
+ TRACE_EVENT(scmi_xfer_response_wait,
+@@ -90,8 +92,8 @@ TRACE_EVENT(scmi_xfer_response_wait,
+ 
+ TRACE_EVENT(scmi_xfer_end,
+ 	TP_PROTO(int transfer_id, u8 msg_id, u8 protocol_id, u16 seq,
+-		 int status),
+-	TP_ARGS(transfer_id, msg_id, protocol_id, seq, status),
++		 int status, int inflight),
++	TP_ARGS(transfer_id, msg_id, protocol_id, seq, status, inflight),
+ 
+ 	TP_STRUCT__entry(
+ 		__field(int, transfer_id)
+@@ -99,6 +101,7 @@ TRACE_EVENT(scmi_xfer_end,
+ 		__field(u8, protocol_id)
+ 		__field(u16, seq)
+ 		__field(int, status)
++		__field(int, inflight)
+ 	),
+ 
+ 	TP_fast_assign(
+@@ -107,11 +110,12 @@ TRACE_EVENT(scmi_xfer_end,
+ 		__entry->protocol_id = protocol_id;
+ 		__entry->seq = seq;
+ 		__entry->status = status;
++		__entry->inflight = inflight;
+ 	),
+ 
+-	TP_printk("pt=%02X msg_id=%02X seq=%04X transfer_id=%X s=%d",
+-		__entry->protocol_id, __entry->msg_id, __entry->seq,
+-		__entry->transfer_id, __entry->status)
++	TP_printk("pt=%02X msg_id=%02X seq=%04X transfer_id=%X s=%d inflight=%d",
++		  __entry->protocol_id, __entry->msg_id, __entry->seq,
++		  __entry->transfer_id, __entry->status, __entry->inflight)
+ );
+ 
+ TRACE_EVENT(scmi_rx_done,
 -- 
 2.25.1
 
