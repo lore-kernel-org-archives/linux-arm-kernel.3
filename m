@@ -4,109 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7968CC8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 18:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB067C83029
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 18:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TkbKDizxju3W+51KZwQ3Fxa7XNUAV9NHwEQ1ocZXOb4=; b=RJ+cBBNyWyqAIStAIpkJe5ZcGf
-	2rFuYT6IlRXBf2dISVWGJI53whOV5Ii580NfKE+d4Vf+daf7qyo1pYHxeAGRC7aKhP4dH9zaqqmvQ
-	o47X/6uRUG1a0Nk6IEpPS4EfbHZXcI7aWJ+WA8C+nKYp4YpOUcynjCTBCVNsLs6LdA0s3mtBPNFyz
-	3hVRmjkl8JpGcWN94NBeVkSTJBA+T0BAk0tOrT/ndDYVZ9KFpowjIry5PWHZA7vdb8VjaCAAZied1
-	bgtObK/YEMxh2Lcv3szhojbrMjKhk2tnGdMS5zu6pJhm17mMaq0n5GA1A2qfIs9OoGpYaI2G4UuT6
-	CJWCgxrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y7HamuIOi93Ir+D7BNI5NjTYA8k3P5m2JucOy/ndy+o=; b=KQVQqgWHj0q0t0KkocOmF/Aj61
+	3h+T6rF6305OAYZcCh6SbrZECucrovH7tfYZW9aPIWGS/PdpEsa+JQjFolqHwB64bAkUbNdCM0dHA
+	eUFioJuUXZNDpBa0ipkGbT9yqtxytsjeES4DcMH8Br04UzOWvGgCdQop8a068pkiw+AIL3S36R/Dy
+	dHHzABdzW5lRaqpzK9n27+fMSC+ofCbe6e8vAEvB6rxpMtz8tCJwkLsWItt2UmzgjvNx1rSDgkMO9
+	a4YUtSCJY0oB+eEjChStE+udgl/FboNL/QiqC5hJ7ffpYS++xOA6P7ruyzoyFrpJeMMh6MVxu6j7z
+	ILtvH1nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWJAf-00000003C10-1BHQ;
-	Mon, 30 Jun 2025 18:24:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uWJCy-00000003C9A-0E1D;
+	Mon, 30 Jun 2025 18:26:24 +0000
+Received: from mail-pf1-f170.google.com ([209.85.210.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWIis-000000037vE-1acr;
-	Mon, 30 Jun 2025 17:55:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=TkbKDizxju3W+51KZwQ3Fxa7XNUAV9NHwEQ1ocZXOb4=; b=laTEv76SlQnqYqVzSadMamABsf
-	b0ROIbHYv21v87SKh6Aw0HNUmchd1wUojZph3rxtfBVloSwegI8b7x5t+A5g7zJIFZcXTjTqu9muZ
-	4bxx5nBBwx2dNSsbb0goeZlMZ7oXxJDo2VAsjzFOgZjHazk17D+d9iSlFcQUuWuVPiMbcrcWfKcGy
-	uf/wu7lAMO2YlE+vl2I6gvwSa4uHSWysbY96E6pbo+WBBtZIMEov4VSh+h1ajPZqhm+PzCUU4q/iX
-	gb5qVYX5dvnmUMUWngmc90eQhJU1yhKazaZ+z/ygae4qq1knDPwEMYQ1INBBP4w8JRbcib+Byf3aI
-	xBshMS6g==;
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWIip-00000006qaQ-1mP9;
-	Mon, 30 Jun 2025 17:55:17 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7d09f11657cso437871985a.0;
-        Mon, 30 Jun 2025 10:55:14 -0700 (PDT)
+	id 1uWIsc-000000038yf-0dMB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 18:05:24 +0000
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-747fba9f962so4490871b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 11:05:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751306113; x=1751910913; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TkbKDizxju3W+51KZwQ3Fxa7XNUAV9NHwEQ1ocZXOb4=;
-        b=QEG+0edjyoAohSzi0CKmxeqoXzqjG4rJo0+OS2KILLvj055CIbPqU1lZjg1yQfho2e
-         NW/IKhwqV0YpL2LuxOBZDsVRXvqGI6pwVUMNnDt3SqbUYGyL2/F/KLSB8Ki9sMpcphud
-         dmENxLVDbXCdjBX2kMG23S8ttHSjtidt3kBJfLaUAEmRsdwIlyLOD+jB7OYTzpkn551c
-         MqBDfq6wx1B4Zrp5Y32dTnG0DGSlcHLSFCrEb52B+UMyCkG2kupa+P7umqXYwVm2FJbC
-         pL5IPMJ//lgDosJlSQVAlSo3Eob5VEf8P5ZDnjhcoy2apRRU3TgSo901HLJOCZScJBzX
-         FwQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751306113; x=1751910913;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751306721; x=1751911521; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TkbKDizxju3W+51KZwQ3Fxa7XNUAV9NHwEQ1ocZXOb4=;
-        b=ospTQDvnjbiv4ZvxfosOA552ojvI6dlqkHNRC/nJogsTvUYmBF9rkR8Ozd6Of0O/kO
-         Tj2vc8KDJxwnH7A3uvtS1BSw54XiVYcG79mCJPmIBxqbu3VjbYfnVdSqf4nQ0gyW41zm
-         XUYCJqXCXsLPvshqx7ymwJdsBv72rLMCyn7M5/WdCmoJF9r2/bgvsb0NfaKGay+8Si2P
-         A4tQWkF4VVK5vaL9Lif5TbdQLQeGrPwLnhNP3HicqSlqDTY79g+kktc4ZGT8DfIi5bHd
-         fqobZ8F3oQK7WjvyEGsfsM9heBc5sickS14Gty67Igvqg11m/lemjkY9K/cI1j7BrUp9
-         4yng==
-X-Forwarded-Encrypted: i=1; AJvYcCW5RsV3WQWT8R/CPfiVVbEUt1QOwkgYtkgbkpqcvqqMBLxDcKMBIeOYjwqm8Y73glvjBHo7lY2fdkfp@lists.infradead.org, AJvYcCWPy+wsGf5BUSXtU48u+IKZKmI8zbHyy5bdMI4U0muUtaqk3P97nGRpJ5Bcx2xAnpIeo56Idhww61TaZa4NulCg@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywauy1aJhtICkGnTCEsKOLuZ4Xrof7Pai+AM5bVaq73qouyYomV
-	/mtWNYcPNPy1gtUxn1EVyRNQwM0g4udWBVFFB7umFzYaTsOA0uGJpJ+p
-X-Gm-Gg: ASbGncveliphs7DKozvFVLZjCdkViUKYOJj8e9jSz0mHJm4nDbTz8KJnJCdU2VRxAL3
-	vd3qACgjCocDvCuXoFretu6C7xBEwibhPR1+xq+PAUHLI31qZAvL37uWQ2yra4tIeh1LrJMB7l7
-	wsSas/9pR7SQME2HInPcdlT3v+Yz/LDIHLJPSg7JrkuvTTZNU8SJlO2scu/0QdHh2LO866ztGHQ
-	NdieiB/6SJ7XWe0TWhIJ7jM5beWbGBRsOok0+eZDwjwvzrDI9CMiCc0sQXETnV0HzaggO+mALUL
-	LBasaI7yMWEPNnTgZ5Ru9lDD0QUzTuhA3f0zAZOXo0hciRq+4A==
-X-Google-Smtp-Source: AGHT+IEAoLv3ZFdFWjd7lAICC4bbFV6sU3+PxQlEK6DUAJNkCBCFRSmZ508WVU4rao0shvvKBCho+w==
-X-Received: by 2002:a05:620a:1993:b0:7d4:4d55:98f9 with SMTP id af79cd13be357-7d44d55b1f9mr1237496485a.28.1751306112549;
-        Mon, 30 Jun 2025 10:55:12 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:4851::dead:c001])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d443203279sm636637885a.54.2025.06.30.10.55.08
+        bh=Y7HamuIOi93Ir+D7BNI5NjTYA8k3P5m2JucOy/ndy+o=;
+        b=nf7yBAZK475P51w/sl7EiJTkRO0X+ki7/2BDsmHATO54nG2txenqUByyu6DCesQTD1
+         7ttNEdq4zQTJ2Kc14oZDBRX0Q6pp/DcLmCNwMeGO6LBaGojV3PJcMO3pazpWUjtvMDW3
+         cF9n94RnAUOKfRpaOFMZya56dsQN9ZTcOs7ZRMip/Wuwfrwu9k07t5nS6Waid+WhKY85
+         gwR3YXCoX5w5pScSZkpAJFwkM8qf/SJvkH9r62FXuqyNSpvUewME59KGjHefRACok9EV
+         dH4g5iVRl7UMbMIpX/dTWO8JCIuja/zhHxvvNZWJiNkjt2FahBIMEkcfs3QZQI1OJHBQ
+         fIZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751306721; x=1751911521;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Y7HamuIOi93Ir+D7BNI5NjTYA8k3P5m2JucOy/ndy+o=;
+        b=o4sk8eNHsML2/JpUJUDyTTYO5rkKd4ZoVqyjoIP36cSUUbKNiqFPabWRLCDriXrDdM
+         W7PJm0FHvd20pi4Sag2g4G6BYNPQCGOSa4qcbD/6bjEEzs2GiWxwGglqjTi+mi0UDaPv
+         7HcXQ7WFQf+F+e1IusDowoYRrhUXzVplsFQ0Et4ROUzTigHqRqk9+aSMLi6cirDGUi+a
+         FawvwpZHJZHLVfqLRdsVJyt/S6lNRoIeNqGiWAYl29pIYFnToc2QIl/ux9PxghF8wUOW
+         5cpTBjWgIyEMbstnP8fetTnituJuiwLXBv+/IwzdcYKq8xyBk2rg9F16f+ymNemlt5Hs
+         m2lg==
+X-Forwarded-Encrypted: i=1; AJvYcCVJQfqwDRPGgXSlCOL+bWVG7I1zfM1hzm1y6so4l74TPGjLjVN7uhf8VX55wmkd0YFBjE/UuAH0Mu0qCdEs5SRq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yza+12Ls3q9MFP28GL420Q2Ztl4aoPwHTDy0L4bWKyhZD+Q83Z8
+	0Jtg7qOexNVNgVJyW1JhEFSDI8jFGzmPtZZrx3UIN34WUV6IlHd1slfOyU+LrjBDx8U=
+X-Gm-Gg: ASbGncsYyC2iCf6sIpRV4GcVCthnjjNJr0jtRq4uQHP8sZxtrMRONh18JD4Ts52foNO
+	W83vG+UQZwI/iuOXQ9cWTgZTrKLa9ks1qVNuvMk9FqJ9rw68gQTTEhLUzsQ/w+LyVYKPVK8j+/z
+	DxL9IL5jCWyqUXWFLOeruM+pSDgRHcGtx4neAquWy29KOzS+Voh691w5xr7EiIINPLZnpITAzv3
+	Aa+oM3z7t7ep2Zo5/94CcoFFLIScqTxsJgHY8qPX91IgKcx4UU/11HUkihq/LIV7DrRr7Xp25bi
+	tbHiw9kAZwEyhNCrDfm1ofjxAZ/58wXtqx0msEXqYedMkVrx4K+epPRh4CPG
+X-Google-Smtp-Source: AGHT+IEncS/HJPiBmiJZCLKoJU2/w51Fp/NZyo6t579QG+npzr31j+vLXXC/vxt7lYssL2dcF7zMQw==
+X-Received: by 2002:a05:6a00:2ea1:b0:736:4e14:8ec5 with SMTP id d2e1a72fcca58-74b3bca995dmr669511b3a.11.1751306720777;
+        Mon, 30 Jun 2025 11:05:20 -0700 (PDT)
+Received: from localhost ([97.126.182.119])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74af540990bsm9409550b3a.21.2025.06.30.11.05.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jun 2025 10:55:12 -0700 (PDT)
-Date: Mon, 30 Jun 2025 14:55:05 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: linux-rockchip@lists.infradead.org,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rick wertenbroek <rick.wertenbroek@gmail.com>,
-	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 3/4] phy: rockchip-pcie: Enable all four lanes if
- required
-Message-ID: <aGLPeZn9ZSw3FurH@geday>
-References: <cover.1751200382.git.geraldogabriel@gmail.com>
- <b203b067e369411b029039f96cfeae300874b4c7.1751200382.git.geraldogabriel@gmail.com>
- <2affed16-f3c4-47d3-9ca6-e4f48e875367@arm.com>
+        Mon, 30 Jun 2025 11:05:20 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Paul Barker <paul.barker@sancloud.com>, 
+ Marc Murphy <marc.murphy@sancloud.com>, 
+ Kory Maincent <kory.maincent@bootlin.com>
+Cc: Jason Kridner <jkridner@gmail.com>, Andrew Davis <afd@ti.com>, 
+ Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
+ Romain Gantois <romain.gantois@bootlin.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
+References: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
+Subject: Re: [PATCH v5 0/5] Add support for BeagleBone Green Eco board
+Message-Id: <175130671963.2621907.636669398639023401.b4-ty@baylibre.com>
+Date: Mon, 30 Jun 2025 11:05:19 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2affed16-f3c4-47d3-9ca6-e4f48e875367@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3-dev-d7477
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_185515_613255_EC0AF3D8 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20250630_110522_298965_BD6094B4 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,38 +113,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 02:48:25PM +0100, Robin Murphy wrote:
-> On 29/06/2025 9:58 pm, Geraldo Nascimento wrote:
-> > Current code enables only Lane 0 because pwr_cnt will be incremented on
-> > first call to the function. Let's reorder the enablement code to enable
-> > all 4 lanes through GRF.
+
+On Fri, 20 Jun 2025 10:15:51 +0200, Kory Maincent wrote:
+> SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Green
+> (BBG). It has minor differences from the BBG, such as a different PMIC,
+> a different Ethernet PHY, and a larger eMMC.
 > 
-> As usual the TRM isn't very clear, but the way it describes the 
-> GRF_SOC_CON_5_PCIE bits does suggest they're driving external input 
-> signals of the phy block, so it seems reasonable that it could be OK to 
-> update the register itself without worrying about releasing the phy from 
-> reset first. In that case I'd agree this seems the cleanest fix, and if 
-> it works empirically then I think I'm now sufficiently convinced too;
 > 
-> Reviewed-by: Robin Murphy <robin.murphy@arm.com>
 
-Hi Robin and Neil,
+Applied, thanks!
 
-Thank you both for the positive reviews and the effort.
+[1/5] arm: dts: omap: am335x-bone-common: Rename tps to generic pmic node
+      commit: 297bd457c893966f37fc07b68162862bff3e7c77
+[2/5] dt-bindings: omap: Add Seeed BeagleBone Green Eco
+      commit: 23c7d1976f52fd8b8031ac0e5f4f60166cdc32b5
+[3/5] arm: dts: omap: Add support for BeagleBone Green Eco board
+      commit: 6d04ead94d49df8d549122d89999f1faf27b5373
+[4/5] arm: omap2plus_defconfig: Enable TPS65219 regulator
+      commit: 299c277aa74cb011b00d6aeb5ccece37e9166d91
+[5/5] arm: multi_v7_defconfig: Enable TPS65219 regulator
+      commit: 536407b5b87d16e048b75439d5f2e1246078d32c
 
-I must admit however that it looks like this patch was lifted verbatim
-from Armbian and I'm missing the Signed-off-by from the original author.
+Best regards,
+-- 
+Kevin Hilman <khilman@baylibre.com>
 
-As Robin may attest, I initially started by blindingly enabling all
-lanes which, of course, is no good. I tried a suggestion by Robin which
-did not work, and eventually settled on this Armbian solution, which at
-least has got some battle-testing.
-
-I already contacted Valmintas Paliksa, the original author of the patch,
-and asked permission to use his Signed-off-by. I'm aware I could probably
-use the Signed-off-by without strict permission, but it does not feel
-right to me.
-
-Thanks,
-Geraldo Nascimento
 
