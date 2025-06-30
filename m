@@ -4,67 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FEFC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85615C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UWEoh3Ms+NaJj1eGTbF7zG6gtUMTdT2xDCnHRTYeiXc=; b=SL+Hm39TVkfX+UlQQxDX7bIx5O
-	sow1S0+nBgUfoK89aMvgj1GSzMozUOk8d5wDROjY0kdHXCkVmoSx3S1vKCUOIFuksfF2aX/eAM/Ko
-	eIUUDsvbV+4qONFpvYmYTBRqEv8ZN/a4uZowqVY8loco3+dQfF16Hb6OBDj0aeUbWGqbnamxp7RCR
-	17Hd+uvoUnIG9SIc9bEammHQXc8uVk13gcEeD6R9nrxGCTFgXFG0yAOKsSLIKUpXwNRyZ8NVjXakN
-	LooO+aeP4XdD45Ye/bHu83lO5m+u8L/BFiC6YVSmgQoozHnrtG3ku5+PAgBzl5A/lhxv513D1LaJH
-	OTQS5StA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MMhEswzfz6Tdga1zQpQyWh8QYxmL/LddetOQ1V55ux0=; b=yvTMLlsI/DZVEQTw5+3csHb/JV
+	2rNF9kZ+QhMvOmjWapM2F/9rmiePE6sOMiyTY9c4cUX7HRb2oWm7xNeokYO97baU5chBktIYH/q7Z
+	6J2fhwi+ObXOm4otJO5R62HdqgF8wF8q4sfKJ32cNZBr2ZDwwk7nRBbXYa/qPz72mq3o+meX9Gao8
+	YnIQGtNZqFmsSqAFF85XxuCu7vlzRDm5dbLlNbX6ltmb7Bn51/UrYB6jucnfhwHjSJp6YG5U38T9E
+	23h1I/SkYs5a+fU9RWqKHWcIsQDW+oukrVPiD9LqC35T1Nj48RwObQXr9S8MKMO4R3YyxOnyv3DEh
+	zhc7u8wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW9xH-00000001cmt-3K8N;
-	Mon, 30 Jun 2025 08:33:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uW9zZ-00000001d55-01cB;
+	Mon, 30 Jun 2025 08:35:57 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW9rr-00000001c4n-3GGM
+	id 1uW9uE-00000001cLR-3YHl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 08:28:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ABC155C5AF5;
-	Mon, 30 Jun 2025 08:27:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EF9EC4CEE3;
-	Mon, 30 Jun 2025 08:27:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751272078;
-	bh=ExGZ+hp1EMO7sgbPEgeTbzMknTG+/ihzeS1dOJyPhJ4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bQ6xH78qLJp+C4tcNHw2W+kht79GTUHVzvgfA6HEiaSjI85fxBdkO2h43U8B99SpA
-	 sshvE0Sgm02SKHweBo330bCJpiJAere5OZXxznjkT9VZjuSCJ1AIUytKGDGyCw7VCE
-	 uEbIFIL0UofF3xWZbuniVtEjK15/je81RNWb81BmeXddoN0rp/B0KPviSrJP16SxoH
-	 pnFqCDTr5znVFoN3zHiLrlg0JNTtWYRg8dofrq39/nSA4vvB4d1QlLyEulrxTphX12
-	 UfiD7QlMuJuahrbIwk0fBRLnC5KOBX6PJF7DQlfQMHJBQ5YDqbWy6D93CkurMkN7Jr
-	 fGf640YpNsi3w==
-Date: Mon, 30 Jun 2025 10:27:55 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Mike Looijmans <mike.looijmans@topic.nl>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	dri-devel@lists.freedesktop.org, David Airlie <airlied@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Michal Simek <michal.simek@amd.com>, 
-	Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
-Message-ID: <20250630-psychedelic-tested-smilodon-adcbb3@houat>
-References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.fb98a918-329e-4536-a0a5-a99b22ba0120@emailsignatures365.codetwo.com>
- <20250627145058.6880-1-mike.looijmans@topic.nl>
- <20250627181911.GF24912@pendragon.ideasonboard.com>
- <42af6260-c8af-42e1-a9bb-adfaaabf0190@topic.nl>
+	Mon, 30 Jun 2025 08:30:28 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55U7pr62007947;
+	Mon, 30 Jun 2025 10:30:20 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	MMhEswzfz6Tdga1zQpQyWh8QYxmL/LddetOQ1V55ux0=; b=pN/5zQWCnOEyU639
+	+qKc397SzTfJYoQP9dKXkQCFh5cqxElAX4z1jItyu3OExiThXPfQ+TXlXVGATpEx
+	yVy7GcyeoDpKa7RVik4OQtTmjYrGo75a0vZF/3zTFZndMDZWTZFxcSpzVxKbNAch
+	YqpoNI8XNHy9LkLuSrQ+ligkl+Wl+TGkl0woYBmxdHDO7DYqsSW7E/ERhIPwJAPP
+	Ftz/mEwNhbdMW9oNIAt/NyFLJjZV2JP+5MCE/NXaaBXCvf0WHkSZpSUu5KrSWzyZ
+	Kzbp21wHS64tB41Rn5XCykFeJb5ne7ZQAE+3Moni0R1Pr6rREDOAn5BeRCaF6udC
+	vtO8qw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47j5tkxsvm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 30 Jun 2025 10:30:20 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9F8324002D;
+	Mon, 30 Jun 2025 10:29:21 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E4DA16F3FFE;
+	Mon, 30 Jun 2025 10:28:51 +0200 (CEST)
+Received: from [10.252.20.7] (10.252.20.7) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 30 Jun
+ 2025 10:28:51 +0200
+Message-ID: <5e61da51-cd02-41fd-9773-8bd776e1db62@foss.st.com>
+Date: Mon, 30 Jun 2025 10:28:50 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="wubb6iu6izzzylya"
-Content-Disposition: inline
-In-Reply-To: <42af6260-c8af-42e1-a9bb-adfaaabf0190@topic.nl>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] spi: stm32: fix pointer-to-pointer variables usage
+To: Antonio Quartulli <antonio@mandelbit.com>, <linux-spi@vger.kernel.org>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Mark Brown <broonie@kernel.org>,
+        Alain Volmat
+	<alain.volmat@foss.st.com>
+References: <20250630081253.17294-1-antonio@mandelbit.com>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <20250630081253.17294-1-antonio@mandelbit.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.252.20.7]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-30_01,2025-06-27_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_012759_899250_33A2F1DE 
-X-CRM114-Status: GOOD (  31.91  )
+X-CRM114-CacheID: sfid-20250630_013027_175143_63796482 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,95 +97,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6/30/25 10:12, Antonio Quartulli wrote:
+> In stm32_spi_prepare_rx_dma_mdma_chaining() both rx_dma_desc
+> and rx_mdma_desc are passed as pointer-to-pointer arguments.
+> 
+> The goal is to pass back to the caller the value returned
+> by dmaengine_prep_slave_sg(), when it is not NULL.
+> 
+> However, these variables are wrongly handled as simple pointers
+> during later assignments and checks.
+> 
+> Fix this behaviour by introducing two pointer variables
+> which can then be treated accordingly.
+> 
+> Fixes: d17dd2f1d8a1 ("spi: stm32: use STM32 DMA with STM32 MDMA to enhance DDR use")
+> Addresses-Coverity-ID: 1644715 ("Null pointer dereferences (REVERSE_INULL)")
+> Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
+> 
+> ---
+> Changes from v1:
+> * introduce *_mdma_desc and *_dma_desc for better readability
+> * fix another instance of rx_dma_desc bogus assignment in case of
+>    failure of sg_alloc_table()
+> * commit title/message reworded accordingly to the previous point
+> ---
+>   drivers/spi/spi-stm32.c | 22 ++++++++++++----------
+>   1 file changed, 12 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
+> index 3d20f09f1ae7..4b7f074fdba9 100644
+> --- a/drivers/spi/spi-stm32.c
+> +++ b/drivers/spi/spi-stm32.c
+> @@ -1474,6 +1474,8 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
+>   						  struct dma_async_tx_descriptor **rx_dma_desc,
+>   						  struct dma_async_tx_descriptor **rx_mdma_desc)
+>   {
+> +	struct dma_async_tx_descriptor *_mdma_desc = *rx_mdma_desc;
+> +	struct dma_async_tx_descriptor *_dma_desc = *rx_dma_desc;
+>   	struct dma_slave_config rx_mdma_conf = {0};
+>   	u32 sram_period, nents = 0, spi_s_len;
+>   	struct sg_table dma_sgt, mdma_sgt;
+> @@ -1524,18 +1526,18 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
+>   		}
+>   	}
+>   
+> -	*rx_dma_desc = dmaengine_prep_slave_sg(spi->dma_rx, dma_sgt.sgl,
+> -					       dma_sgt.nents, rx_dma_conf->direction,
+> -					       DMA_PREP_INTERRUPT);
+> +	_dma_desc = dmaengine_prep_slave_sg(spi->dma_rx, dma_sgt.sgl,
+> +					    dma_sgt.nents, rx_dma_conf->direction,
+> +					    DMA_PREP_INTERRUPT);
+>   	sg_free_table(&dma_sgt);
+>   
+> -	if (!rx_dma_desc)
+> +	if (!_dma_desc)
+>   		return -EINVAL;
+>   
+>   	/* Prepare MDMA slave_sg transfer MEM_TO_MEM (SRAM>DDR) */
+>   	ret = sg_alloc_table(&mdma_sgt, nents, GFP_ATOMIC);
+>   	if (ret) {
+> -		rx_dma_desc = NULL;
+> +		_dma_desc = NULL;
+>   		return ret;
+>   	}
+>   
+> @@ -1558,13 +1560,13 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
+>   		}
+>   	}
+>   
+> -	*rx_mdma_desc = dmaengine_prep_slave_sg(spi->mdma_rx, mdma_sgt.sgl,
+> -						mdma_sgt.nents, rx_mdma_conf.direction,
+> -						DMA_PREP_INTERRUPT);
+> +	_mdma_desc = dmaengine_prep_slave_sg(spi->mdma_rx, mdma_sgt.sgl,
+> +					     mdma_sgt.nents, rx_mdma_conf.direction,
+> +					     DMA_PREP_INTERRUPT);
+>   	sg_free_table(&mdma_sgt);
+>   
+> -	if (!rx_mdma_desc) {
+> -		rx_dma_desc = NULL;
+> +	if (!_mdma_desc) {
+> +		_dma_desc = NULL;
+>   		return -EINVAL;
+>   	}
+>   
 
---wubb6iu6izzzylya
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
-MIME-Version: 1.0
+Thank you, LGTM
+You can add my Reviewed-by
 
-On Mon, Jun 30, 2025 at 10:03:16AM +0200, Mike Looijmans wrote:
-> On 27-06-2025 20:19, Laurent Pinchart wrote:
-> > Hi Mike,
-> >=20
-> > Thank you for the patch.
-> >=20
-> > On Fri, Jun 27, 2025 at 04:50:46PM +0200, Mike Looijmans wrote:
-> > > XRGB8888 is the default mode that Xorg will want to use. Add support
-> > > for this to the Zynqmp DisplayPort driver, so that applications can u=
-se
-> > > 32-bit framebuffers. This solves that the X server would fail to start
-> > > unless one provided an xorg.conf that sets DefaultDepth to 16.
-> > >=20
-> > > Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
-> > > ---
-> > >=20
-> > >   drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
-> > >   1 file changed, 5 insertions(+)
-> > >=20
-> > > diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xln=
-x/zynqmp_disp.c
-> > > index 80d1e499a18d..501428437000 100644
-> > > --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> > > +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> > > @@ -312,6 +312,11 @@ static const struct zynqmp_disp_format avbuf_gfx=
-_fmts[] =3D {
-> > >   		.buf_fmt	=3D ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
-> > >   		.swap		=3D true,
-> > >   		.sf		=3D scaling_factors_888,
-> > > +	}, {
-> > > +		.drm_fmt	=3D DRM_FORMAT_XRGB8888,
-> > > +		.buf_fmt	=3D ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
-> > > +		.swap		=3D true,
-> > > +		.sf		=3D scaling_factors_888,
-> > I'm afraid that's not enough. There's a crucial difference between
-> > DRM_FORMAT_ARGB8888 (already supported by this driver) and
-> > DRM_FORMAT_XRGB8888: for the latter, the 'X' component must be ignored.
-> > The graphics layer is blended on top of the video layer, and the blender
-> > uses both a global alpha parameter and the alpha channel of the graphics
-> > layer for 32-bit RGB formats. This will lead to incorrect operation when
-> > the 'X' component is not set to full opacity.
->=20
-> I spent a few hours digging in the source code and what I could find in t=
-he
-> TRM and register maps, but there's not enough information in there to
-> explain how the blender works. The obvious "XRGB" implementation would be=
- to
-> just disable the blender.
->=20
-> What I got from experimenting so far is that the alpha component is ignor=
-ed
-> anyway while the video path isn't active. So as long as one isn't using t=
-he
-> video blending path, the ARGB and XRGB modes are identical.
->=20
-> Guess I'll need assistance from AMD/Xilinx to completely implement the XR=
-GB
-> modes.
->=20
-> (For our application, this patch is sufficient as it solves the issues li=
-ke
-> X11 not starting up, OpenGL not working and horrendously slow scaling
-> performance)
-
-Given that we consider XRGB8888 mandatory, this patch is a good thing to
-have anyway, even if suboptimal, or broken in some scenario we can
-always fix later.
-
-Maxime
-
---wubb6iu6izzzylya
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaGJKiwAKCRAnX84Zoj2+
-doZjAYDh8BvtZ4CVCSL3YLa/LXA8KJsca7YWzmy1bXxRsVQNdO7RqPJnh655oKNG
-GawAt0kBfR/KxUOlvfUoVhDMGpTxWXOYm2YMcamWeB6hJNTXvgJu3HiRdIKB4BBD
-kP7VjQzWVA==
-=3bOh
------END PGP SIGNATURE-----
-
---wubb6iu6izzzylya--
+Best regards,
+Clément
 
