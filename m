@@ -4,88 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0ECC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 21:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75214C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 21:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HMzvf0inoVdnAwUYh7Qa8/sYrJIk/w5RMhrgarH2W2E=; b=KQUtHfSd3252fJlb8jQHM52PO+
-	K+KiIW47dJoyNp1CQB0F0gZDUHPy0YN2Co0xbcHtMa2TQUHaPXATdlVo3Ay1mNa/oXEMg+seWQ511
-	Q8kiQA5u7NGctWs9jRO58AT1fVbOCQEjO72tSO718VncXy/qz9yWg6c6CjChQPHoS5oUgvCQoZQG0
-	IfWzHNctAWUQdkWEc/Q9duZ1pgyOEDjbOpy0F9S3cIu0QfCH8Gdx3xyEipg1etyibxOy9zoC6QJzE
-	C5nAVXycCAj0vTtqevIzNnbgfyqpwH+7mDkW33/h85GGikchHkMJN9TamS9ZSC+S4PMf0cy0brkbH
-	LtBnllUA==;
+	bh=DUc3mpErHhi0mbtt2DFtd9orwovGuKd69w/lfmz5Clw=; b=WICxMK13vPdex619xYoy5ov8aH
+	zPrvX5iPIgUyoJ9aAYtz3A5W7/HW21584kybSCALU8pG3d8NH4ALHLbe12x3u7BPK75E528a7zwYF
+	AKYHLKx9vyHBpJzPLon1AxVqko5/iVDoIxhO3yysDBOVAdUUF0jQakpIlgPPBHL2IO+5ELC7wvP7w
+	nZ7Z76u9YEoCPxXXbk5iaHmGP+b9Zi36AqdKNkruKOtKgFHogknHIr2v8jtMFgun8JwepzSgEeBm1
+	2UmtXA3Ar3I0ciUcDQ9a/eRpclV1qkBHL8Yhd62yyViTlLbWz3laUehHcqp9UVrARhVNPyFtgngLG
+	gqdqSMXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWMP9-00000003WX8-2NvZ;
-	Mon, 30 Jun 2025 21:51:11 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1uWMRS-00000003X2Y-2Z4w;
+	Mon, 30 Jun 2025 21:53:34 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWMKY-00000003W1j-24BA;
-	Mon, 30 Jun 2025 21:46:28 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b2c4e46a89fso2437660a12.2;
-        Mon, 30 Jun 2025 14:46:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751319986; x=1751924786; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HMzvf0inoVdnAwUYh7Qa8/sYrJIk/w5RMhrgarH2W2E=;
-        b=b3vF+X6iYOYKdX/7/ZQyY8i2myvpK5ZhP3AiF8a1N653/s1wXJ0PoN72ua3jPaogw9
-         uiLeO2+4oSwotJxKJFq1O5xU/HVIWDaoVuJe/ByOxC7RV0PovajT8ywPWTcT4FC8pQqY
-         wy/WiWTYcn3oqztyDZB+EyqYt6yBt2sOg/geW8KrEPYU3Ad+smarXfbC/XHqR/ZBKRp5
-         YvwUm17fgMpaA/2jEmWTbUep8X0JTklNfu1lF8MQ1bPke1LUTQf1qwXBC2U0w6u4zIqj
-         vaFRYJKVpT5fbMlE+zqlIQKYFAIC7llin1xbK4bkBhCOkGMFe/PmrtHtEwpRpvxmHzmQ
-         gO0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751319986; x=1751924786;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HMzvf0inoVdnAwUYh7Qa8/sYrJIk/w5RMhrgarH2W2E=;
-        b=qp5DtOI/xQlUF6YcO9O7l2X4iwiWldCuucnr82INnA6eoD/bowxKvzxfecPAmBUFmi
-         iUpIfZEw8s1yuiIime2ZjF+0wrXpLaFlBZsXa+ZSCXzU+ej31KL2KOHq1JXjcdpPWXCv
-         NKP5RFBtsuoPmIGPUVJnIb0yma5aTpvWdklFwajRh6x8cWhbfQ8XO/x+H8dxa7S/xCQc
-         4unc4KZpqfLrndCG2KWDoZKBthKPdgf61eU5w6+SNIbzxbiHRd0tWGIntCJl3iAZ3Mbm
-         Nqejnp3nSbUQZtHfdgo2iIfIuUPX54FVLtJwtyB+dHRKwOpvMP7HAR8XL/YK98AXuUaD
-         4Lig==
-X-Forwarded-Encrypted: i=1; AJvYcCWGG7TrEPwLH5SfiXzZlvX1XZLaHWbz6YncPGLs1alIRhJI2OnP4Gxb/LdTNUYjfTQ+ZWXMNd6wSjCZDa1KYxCO@lists.infradead.org, AJvYcCWRvAT2LphgirWj1bG0ifXOXJobysHc76kwhT7QARbYo869JA1u3cmTlTX+LFnneCp4PNjEsMZI1P7X+Gn3dnA=@lists.infradead.org
-X-Gm-Message-State: AOJu0YymDXM79XtfvT5aUIm/fBh3WFVphw+3QvEnhe/pZDp/Va672dCW
-	VFcUip1KuIVNSGDAkIV/Y9PLav8JtMsxlVJTwvOTsWrIEjCP39dsbd2K
-X-Gm-Gg: ASbGnctsi2wwj7Sj90+xdiWvY4N7zAydOJmJg6YssL93IUA1JjHpMpWpTvocEzQZdcd
-	MbxpKTYE5dW6JfO6qjG8GYNEahvQB4ABMSnhTblHgROfzxIuDcwayDfQ4vbeo/FgStNC6N4psvV
-	8Shb0tcl2Nvozwt76ms/pMWIg21hD5ues2MbWY9CitcIMp5A4bkaclA4tfif5FW4iOSUFAiKLGc
-	H1Q5XIqvkCenjpJdrllC9Kdl9V7TU11dZH+Hvp9Nyq6OmcgmAmm3Ty3ewN7gR7w9icFd6/VbXxm
-	fdqI5DcymaoDJe99UzRYvmj1gl6BgB9mgwUfgpogOU5mQ2scxJVaHZUmhCFyXQ==
-X-Google-Smtp-Source: AGHT+IHKxSYWaV//bpv91swHLUVsoYm/dTB3IzxzX+iLpaTVjfaTfoTO6Q7QT+X+ehW3AxFWJ2qpBA==
-X-Received: by 2002:a17:902:da8a:b0:234:aa9a:9e0f with SMTP id d9443c01a7336-23ac40f5ae9mr236065555ad.23.1751319985602;
-        Mon, 30 Jun 2025 14:46:25 -0700 (PDT)
-Received: from google.com ([2620:15c:9d:2:c92b:c666:1f8:990e])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb39b99esm93192165ad.102.2025.06.30.14.46.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jun 2025 14:46:25 -0700 (PDT)
-Date: Mon, 30 Jun 2025 14:46:22 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Easwar Hariharan <eahariha@linux.microsoft.com>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, kernel@collabora.com, linux-input@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	id 1uWMKb-00000003W2Q-2sj6;
+	Mon, 30 Jun 2025 21:46:30 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1uWMKW-000000007Lx-0Ehb;
+	Mon, 30 Jun 2025 21:46:24 +0000
+Date: Mon, 30 Jun 2025 22:46:20 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Felix Fietkau <nbd@nbd.name>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
+	Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
+	Sky Huang <skylake.huang@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] Input: mtk-pmic-keys: Fix null pointer dereference when
- no compatible data
-Message-ID: <667whxdsghpao5irl66oh66l5y55m4k6n3ztifaizbqtrzccju@cmghlz2yauxq>
-References: <20250630-mtk-pmic-keys-fix-crash-v1-1-e47351fa9d1f@collabora.com>
- <41f3cc74-694e-41be-b767-20c7561990b8@linux.microsoft.com>
+Subject: [PATCH net-next v3 1/3] net: ethernet: mtk_eth_soc: improve support
+ for named interrupts
+Message-ID: <ccdaeb69d8073992141b67c0c87279e0515b1917.1751319620.git.daniel@makrotopia.org>
+References: <cover.1751319620.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <41f3cc74-694e-41be-b767-20c7561990b8@linux.microsoft.com>
+In-Reply-To: <cover.1751319620.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_144626_529200_8E64F26F 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20250630_144629_724980_7EAE1BE1 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,15 +75,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 01:18:40PM -0700, Easwar Hariharan wrote:
-> 
-> Also, it may make sense to CC: stable@vger.kernel.org for backports
+Use platform_get_irq_byname_optional() to avoid outputting error
+messages when using legacy device trees which rely identifying
+interrupts only by index. Instead, output a warning notifying the user
+to update their device tree.
 
-What for? Stable does not need a patch papering over an oops, it needs a
-patch making the keypad working on the affected device.
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+---
+v3: unchanged
+v2: unchanged
 
-Thanks.
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
 
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index f8a907747db4..8f55069441f4 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -3341,17 +3341,22 @@ static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
+ 	int i;
+ 
+ 	/* future SoCs beginning with MT7988 should use named IRQs in dts */
+-	eth->irq[MTK_FE_IRQ_TX] = platform_get_irq_byname(pdev, "fe1");
+-	eth->irq[MTK_FE_IRQ_RX] = platform_get_irq_byname(pdev, "fe2");
++	eth->irq[MTK_FE_IRQ_TX] = platform_get_irq_byname_optional(pdev, "fe1");
++	eth->irq[MTK_FE_IRQ_RX] = platform_get_irq_byname_optional(pdev, "fe2");
+ 	if (eth->irq[MTK_FE_IRQ_TX] >= 0 && eth->irq[MTK_FE_IRQ_RX] >= 0)
+ 		return 0;
+ 
+-	/* only use legacy mode if platform_get_irq_byname returned -ENXIO */
++	/* only use legacy mode if platform_get_irq_byname_optional returned -ENXIO */
+ 	if (eth->irq[MTK_FE_IRQ_TX] != -ENXIO)
+-		return eth->irq[MTK_FE_IRQ_TX];
++		return dev_err_probe(&pdev->dev, eth->irq[MTK_FE_IRQ_TX],
++				     "Error requesting FE TX IRQ\n");
+ 
+ 	if (eth->irq[MTK_FE_IRQ_RX] != -ENXIO)
+-		return eth->irq[MTK_FE_IRQ_RX];
++		return dev_err_probe(&pdev->dev, eth->irq[MTK_FE_IRQ_RX],
++				     "Error requesting FE RX IRQ\n");
++
++	if (!MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT))
++		dev_warn(&pdev->dev, "legacy DT: missing interrupt-names.");
+ 
+ 	/* legacy way:
+ 	 * On MTK_SHARED_INT SoCs (MT7621 + MT7628) the first IRQ is taken
 -- 
-Dmitry
+2.50.0
 
