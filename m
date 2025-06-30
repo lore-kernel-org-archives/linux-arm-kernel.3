@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F4EC7EE2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 03:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3779EC83000
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 04:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MC3PpwZilNiTUO9T3N1jve3LMEKnZfHx+jcycfs6XYI=; b=oadD/9a+kR9ga6YQAlWoL8SEO+
-	VV4EqzI+rG4I5CWrPRZYW5PoZDyhtiP2yawEAd5RJKgtU/wMMrIynN0h1k84SnDWYTG4orqj72eHV
-	6T2ZV6I4uFrj0wOPDUPndobEGubOGXhTAA3REjEvP2SiwF+f8GnNZlevsq8Ct+EN/YlxKtEAG42j9
-	qstuiu6uFma1xXydlaC56ZYa/PlH1RcRBhlqdJ+Hf7yZaoVc8QXCc7pPi7PGfEDUcE922kxI4jpT6
-	IMq4XGYT+vGRyNu6szpiI9nSANeXTb+6cUu1XzCkCrm2sj2fGYnp7TPC3sN3NgV0G1r1tibdK+zNL
-	4I5PvrCA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JbVuaR12V0J6Xt+/G9MNTrnfxERz+sAIcOpg6dKC95Y=; b=RfAg56TMjZSg6N
+	/EAvTcdF3YRvwYDRA3ZrIcDA7D40q0avkzJ4DjGlLAcetKZwz1Oa4Ov/L46a+sOuoBFffeVGRQljF
+	sn1WFiXry0wCv8hAuWnjRs/aD8SpuLYKJlK/hrnw5fV1VaMrqXn279MlhPRXgeUpGohPCM9uIAySD
+	fTL1OSTkf5llw0BYstb2Ohv7bEtQZiiUr3EPtlmTfkzNI1OE7z2qQL+tQqnXXwMrt2+bW6gWeK3iW
+	hZt0VMkvpt9Yld+npWGii16Mw59CJW9gxU4hpvLUrIVX6qLlXkj7TniYqvXm6RaXCS4fqxpsfRJEX
+	x01JIkftBYqrxzQEra9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW5Ws-000000019KM-2Ut8;
-	Mon, 30 Jun 2025 03:50:02 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
+	id 1uW6Ec-00000001D3s-3R3M;
+	Mon, 30 Jun 2025 04:35:14 +0000
+Received: from mail-lj1-f171.google.com ([209.85.208.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW5UW-000000018wx-3jj5
+	id 1uW6CI-00000001CpO-2xfA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 03:47:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=MC3PpwZilNiTUO9T3N1jve3LMEKnZfHx+jcycfs6XYI=;
-	b=N7aGd5qdzoWWFzieN9fkXxNetlhygQmqSIiZToazHyALyoSFCZESx52z1V66gK
-	he+efT+cy3t+JM44yyIZ1CTxwW+7NzuhOgh7GjvyyP4uUqUrhvLUVSGjCMIC25R9
-	WEszdsj3W6LW0hwHdc3I75YNpYnSDAJ5041WHQNkaTzUM=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgD3nzjFCGJoEjPOAQ--.37623S3;
-	Mon, 30 Jun 2025 11:47:19 +0800 (CST)
-Date: Mon, 30 Jun 2025 11:47:17 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Meng Li <Meng.Li@windriver.com>
-Cc: krzk+dt@kernel.org, linux@roeck-us.net, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, linux-watchdog@vger.kernel.org,
-	imx@lists.linux.dev, shawnguo@kernel.org, robh@kernel.org,
-	conor+dt@kernel.org, Frank.Li@nxp.com,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [v4 PATCH 2/2] arch: arm64: dts: add big-endian property back
- into watchdog node
-Message-ID: <aGIIxTjmpPPhhtpN@dragon>
-References: <20250608030616.3874517-1-Meng.Li@windriver.com>
- <20250608030616.3874517-3-Meng.Li@windriver.com>
+	Mon, 30 Jun 2025 04:32:52 +0000
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-32aabfd3813so16914391fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 21:32:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751257967; x=1751862767;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=JbVuaR12V0J6Xt+/G9MNTrnfxERz+sAIcOpg6dKC95Y=;
+        b=oEy6tVtgTfexu4n5PPBv8/BccNGmALBBaf+1YOFMCg7jmuSsxrBzOA4C7fzDD0zqAq
+         7MhhihJFpnbl9sJuJwupDKa3iIVyG6H8RPnIG/+UiH7E0QPYTboNdjehH5VXd95pmpfg
+         f/UNk1e1q8cxWwz6DVHTP035lLvyFqhGgBK0vk5HKxf9aBxFm3eVpC2lT6PRWTLQ9N9W
+         wNOO+RK0idFOebSPZqo/9G369YmOzwizf91xJMFUuix+8ocs9MmmAzAofHPlOFuAEWX7
+         RI5pXamdlV6Zi8KIGEDHb1f8O8gn7UUrrWSlgFQHsPfmINwz5cNcaOkwqQugp9EdlYKf
+         0pRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVyfM8bHePi9imJiv1VBvxzMlZ+eGStZ9nMddXCsgviCKlYTB4BI4A5gBGtT9mTJ3S3LWU2ylzoG8ehiH8OGkWv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz10hEnAICqLsdI+KMJzTKsePQN6Cwz3flYDXqpK5MafFsGgkou
+	us2235JV6L5d0d5C5pPHtgTcpOPfHFIlUF6OODmeG5mWe9Lw21irbFshfA7LVTY2
+X-Gm-Gg: ASbGncth4LpEYWcbMNyIgFhUqvmI6fCWJZGWXKlPKHDxyW35R0VlX/800WkPB3Jhpnu
+	gurRcfEGF8hcx76/rnUfArHKGlsVmonAWN8N5HDcP+gTbMWOid1EurCBVF+mixCKX/p/JOMeAbs
+	/gcaarW331+0jX6G1eEO9V/hZWSmMAKaJFlBuIHWOoSMDZf4b2vqGZ1YJEyNAJwknRexU7j57E2
+	GhJ3qKd7hR0w6PD+QWnCF07mJNyBTk6u6b6fJIpKEpJxGvELeICNWbIGzvr7aMynYHCVo69uiQm
+	NT7J+mFAPTRt48p1XyJpj/ZXAv/glzhBQFkyP99o9ttVgP/iwpUn4L8p/CIWBvw49pzIBkWiNzq
+	lfSEQVgPM/D82whCpTBI=
+X-Google-Smtp-Source: AGHT+IGCrrztuIL9TzFEG2XhYTYsR+405hvY4OYB2VcI2zuyv/BSjKYbSGo5D6f9fFKNHtw6OtDXlw==
+X-Received: by 2002:a05:651c:2221:b0:32b:a961:803a with SMTP id 38308e7fff4ca-32cdc437ef2mr35016861fa.3.1751257966701;
+        Sun, 29 Jun 2025 21:32:46 -0700 (PDT)
+Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com. [209.85.208.171])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-32cd2e317bdsm11892891fa.46.2025.06.29.21.32.45
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 29 Jun 2025 21:32:45 -0700 (PDT)
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-32b3a3a8201so14738241fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Jun 2025 21:32:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVgNd0gmNR8cxsnORrHiwNjwhdW/okB7NTbWVqoCUvMdyEJG7Nz6VGYXnVsmwEAiGINZMkGRx5MigM6NG1Njerh@lists.infradead.org
+X-Received: by 2002:a05:651c:20c5:b0:30b:edfc:5d8a with SMTP id
+ 38308e7fff4ca-32cdc329543mr23944531fa.0.1751257965460; Sun, 29 Jun 2025
+ 21:32:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250608030616.3874517-3-Meng.Li@windriver.com>
-X-CM-TRANSID: M88vCgD3nzjFCGJoEjPOAQ--.37623S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZF1fXw1DZw47CFy3Gr4Uurg_yoWxAFgE9F
-	15Cry8WF9xJa4jyws0yan3Zr9YgF4UCrWrG3WrCay3Aa93JFn5JF4ayFsYqa1fAanxZr98
-	Aan5ZFZaqr48CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU1D73JUUUUU==
-X-Originating-IP: [114.216.146.217]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCQ98ZWhh4l2X2QACsl
+References: <20250411003827.782544-1-iuncuim@gmail.com> <20250411003827.782544-5-iuncuim@gmail.com>
+In-Reply-To: <20250411003827.782544-5-iuncuim@gmail.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Mon, 30 Jun 2025 12:32:33 +0800
+X-Gmail-Original-Message-ID: <CAGb2v659nQit-cOsr6q+ACO2MJ+c6RyfBWVg7iP_u1DO4fXBHQ@mail.gmail.com>
+X-Gm-Features: Ac12FXycZ4eBZnw1-9h5Z5_HZw9HoRSOqmeNCAZOYMw7KeNLsUjQ12gZN6IqRgQ
+Message-ID: <CAGb2v659nQit-cOsr6q+ACO2MJ+c6RyfBWVg7iP_u1DO4fXBHQ@mail.gmail.com>
+Subject: Re: [PATCH 4/6] arm64: dts: allwinner: A523: Add SID controller node
+To: iuncuim <iuncuim@gmail.com>
+Cc: Vasily Khoruzhick <anarsoul@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Andre Przywara <andre.przywara@arm.com>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_204737_292429_7406CE83 
-X-CRM114-Status: UNSURE (   7.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250629_213250_746472_F05A1945 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,23 +100,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 08, 2025 at 11:06:16AM +0800, Meng Li wrote:
-> Watchdog doesn't work on NXP ls1046ardb board because in commit
-> 7c8ffc5555cb("arm64: dts: layerscape: remove big-endian for mmc nodes"),
-> it intended to remove the big-endian from mmc node, but the big-endian of
-> watchdog node is also removed by accident. So, add watchdog big-endian
-> property back.
-> 
-> In addition, add compatible string fsl,ls1046a-wdt, which allow big-endian
-> property.
-> 
-> Fixes: 7c8ffc5555cb ("arm64: dts: layerscape: remove big-endian for mmc nodes")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Meng Li <Meng.Li@windriver.com>
+On Fri, Apr 11, 2025 at 8:40=E2=80=AFAM iuncuim <iuncuim@gmail.com> wrote:
+>
+> From: Mikhail Kalashnikov <iuncuim@gmail.com>
+>
+> The SID controller should be compatible with A64 and others SoC with 0x20=
+0
+> offset.
+>
+> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
 
-Applied this one, thanks!
+Reviewed-by: Chen-Yu Tsai <wens@csie.org>
 
+But this also needs a matching update to the binding.
+
+> ---
+>  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 7 +++++++
+>  1 file changed, 7 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/=
+boot/dts/allwinner/sun55i-a523.dtsi
+> index ee485899b..d626612bb 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> @@ -171,6 +171,13 @@ ccu: clock-controller@2001000 {
+>                         #reset-cells =3D <1>;
+>                 };
+>
+> +               sid: efuse@3006000 {
+> +                       compatible =3D "allwinner,sun50i-a523-sid", "allw=
+inner,sun50i-a64-sid";
+> +                       reg =3D <0x03006000 0x1000>;
+> +                       #address-cells =3D <1>;
+> +                       #size-cells =3D <1>;
+> +               };
+> +
+>                 mmc0: mmc@4020000 {
+>                         compatible =3D "allwinner,sun55i-a523-mmc",
+>                                      "allwinner,sun20i-d1-mmc";
+> --
+> 2.49.0
+>
 
