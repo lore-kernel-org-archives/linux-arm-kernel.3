@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D7AC83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 17:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A10C83029
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 17:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GI+baXLMItSjgcBMZ7twd6x6pbRFh6QmlEtpG5t/zdQ=; b=G6ujhb9SoB7l8ddkC2WFXsktHW
-	fPumk4e4Fc7CoL9p7YuCcmRwt+bUrGadlXoc3ekaq0rmrP11aWgh/eGPFSnJBnAmzYBRhQn6oqabL
-	NSyK742RDMGyuXIn+s2Y/n5FfUm+he3Qo1OIuM7MjqrUdmF/Ce024hWVGAj+ySwBHNiBUDjw5jbdm
-	hUOBRgDlOSDWg0Xpknx0I28MsbjpQsQof97DhYZQW9pGBhsySc1J1/NDa+Hr9QPACwZ5UYe5xEyZW
-	B8tYNJIBZumpHbwAyODL9lz20S6YWmxFaYwzgznIwFjZmqpbutivHw66Jc2XQvAJNVf988rKn5Y9u
-	eHApsW4w==;
+	bh=rXjPB0WPwaG9yju+uNssZkv+/LOWPyxZXTERkcw7j0E=; b=X0ilftbAL03XVvdTJS+zQkngeT
+	VhAGGGy79XLYOBxvg4J0pPyQ+HLwHVx9l6e+wOj/MEZAcg0UDrrbapp1EjaTmyVg7icJZREHai2Rw
+	M7QhovQ7/1Yg7kVZjKz8hPkjHUelvvbhffVgHuwgrCZ72HNm1t9Nxzwec8MOJEStjUb8ZfmNLdMUk
+	FcqGUtHETMgRsuUUd8WjjxMBPYqW3vGzRUpwWOV6l4acYHxQpapJVljZ+eh+0KsT/eYR2WxhFg7I7
+	1ehX9zdK4xfAZ+qZAujjpXZQYomzaR+8V1ozugzN0BHazxJ2SAuDeVLP5WJMmtT6gLPrqStJHvNkL
+	7fvfvHKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWIJv-000000034mm-1z0s;
-	Mon, 30 Jun 2025 17:29:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uWIMD-0000000356j-0qG9;
+	Mon, 30 Jun 2025 17:31:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWH4Q-00000002po5-1zOp;
+	id 1uWH4R-00000002poV-0KK3;
 	Mon, 30 Jun 2025 16:09:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 049505C5D4C;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 633F1A53514;
 	Mon, 30 Jun 2025 16:09:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DA14C4CEF3;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB896C4CEF4;
 	Mon, 30 Jun 2025 16:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751299765;
-	bh=IkX8c809Bkwa5YKNS0n0XaW5ZPy/jAKfSUJXB4aJ5O4=;
+	s=k20201202; t=1751299766;
+	bh=qX6erliMaa6ulFNQWAym5UGYaX+QesAVdQAZCq+fGOg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hVQBIRMj89xj2I1q9MVzVBAjICgLzgrDPQGlkMEPYi6HkkfGwSqIKdUNwVzeBw43u
-	 pLMZD2xvvsNNH+fstFXvgHc0S/K+L2xVKEbMCCPCufoZ0/heTewIkqVByYK1ZWhTw0
-	 Hy2bV8iB2xINx5piSLStSpNhwTM8MqnEaLYJw7KNKk6zF0ZAJp4VPXHfuIPzb8qigv
-	 gq/sjjO5QScDsTz4EmKmYti8u4FJjxfBDkmAGV/fHoJ21l17GLfNAP/9dbDQMNXKoT
-	 xIgK7YllgkWIiNyIBpu/iZEwvbi6yxZxIbsudqsZ7UWS67uj446XOxPtm5262mi0PL
-	 /HoSYTOI/uH3w==
+	b=B4SBkLPsrDtMSle6gshLLQ/m4UzOebXqZJ7GZ8t9HmQa3kgB01qTNAxJ+E+5SI0tE
+	 DNGWpFZnQ42KfzK1RPVMUHDevxo25awdKlOgZ5M7V1/kMazAdbvyoeDHw6yEDYBjSb
+	 iZaBZ9D+PNTEt33b1OvxfM4ZesS/fBZeiGK025KQUGyFBVXu14Psn7CYuNbWmtzCjQ
+	 L6jJO1k4bEMhGecya7uc2MbbpyDHLgiATkvhMXmup1TwqKqZAdBd/RW12OdtAHwxLc
+	 Yo87PcBTc0x13h6KFgGAboUadOVjZ6H54Lpvg+8Bq/LQnkASFOe0y18gFsm1pvPLrz
+	 mzGLPZzFJjrFA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,17 +54,18 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 10/14] crypto: sha256 - Use same state format as legacy drivers
-Date: Mon, 30 Jun 2025 09:06:41 -0700
-Message-ID: <20250630160645.3198-11-ebiggers@kernel.org>
+Subject: [PATCH v2 11/14] lib/crypto: sha256: Remove sha256_is_arch_optimized()
+Date: Mon, 30 Jun 2025 09:06:42 -0700
+Message-ID: <20250630160645.3198-12-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250630160645.3198-1-ebiggers@kernel.org>
 References: <20250630160645.3198-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_090926_634996_C5DB3888 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250630_090927_277102_B72DC22E 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,217 +80,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make the export and import functions for the sha224, sha256,
-hmac(sha224), and hmac(sha256) shash algorithms use the same format as
-the padlock-sha and nx-sha256 drivers, as required by Herbert.
+Remove sha256_is_arch_optimized(), since it is no longer used.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- crypto/sha256.c | 95 +++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 95 insertions(+)
+ arch/mips/cavium-octeon/crypto/octeon-sha256.c | 6 ------
+ include/crypto/internal/sha2.h                 | 8 --------
+ lib/crypto/arm/sha256.c                        | 7 -------
+ lib/crypto/arm64/sha256.c                      | 7 -------
+ lib/crypto/powerpc/sha256.c                    | 6 ------
+ lib/crypto/riscv/sha256.c                      | 6 ------
+ lib/crypto/s390/sha256.c                       | 6 ------
+ lib/crypto/sparc/sha256.c                      | 6 ------
+ lib/crypto/x86/sha256.c                        | 6 ------
+ 9 files changed, 58 deletions(-)
 
-diff --git a/crypto/sha256.c b/crypto/sha256.c
-index d81166cbba953..052806559f06c 100644
---- a/crypto/sha256.c
-+++ b/crypto/sha256.c
-@@ -11,10 +11,47 @@
- #include <crypto/internal/hash.h>
- #include <crypto/sha2.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- 
-+/*
-+ * Export and import functions.  crypto_shash wants a particular format that
-+ * matches that used by some legacy drivers.  It currently is the same as the
-+ * library SHA context, except the value in bytecount must be block-aligned and
-+ * the remainder must be stored in an extra u8 appended to the struct.
-+ */
-+
-+#define SHA256_SHASH_STATE_SIZE 105
-+static_assert(offsetof(struct __sha256_ctx, state) == 0);
-+static_assert(offsetof(struct __sha256_ctx, bytecount) == 32);
-+static_assert(offsetof(struct __sha256_ctx, buf) == 40);
-+static_assert(sizeof(struct __sha256_ctx) + 1 == SHA256_SHASH_STATE_SIZE);
-+
-+static int __crypto_sha256_export(const struct __sha256_ctx *ctx0, void *out)
-+{
-+	struct __sha256_ctx ctx = *ctx0;
-+	unsigned int partial;
-+	u8 *p = out;
-+
-+	partial = ctx.bytecount % SHA256_BLOCK_SIZE;
-+	ctx.bytecount -= partial;
-+	memcpy(p, &ctx, sizeof(ctx));
-+	p += sizeof(ctx);
-+	*p = partial;
-+	return 0;
-+}
-+
-+static int __crypto_sha256_import(struct __sha256_ctx *ctx, const void *in)
-+{
-+	const u8 *p = in;
-+
-+	memcpy(ctx, p, sizeof(*ctx));
-+	p += sizeof(*ctx);
-+	ctx->bytecount += *p;
-+	return 0;
-+}
-+
- /* SHA-224 */
- 
- const u8 sha224_zero_message_hash[SHA224_DIGEST_SIZE] = {
- 	0xd1, 0x4a, 0x02, 0x8c, 0x2a, 0x3a, 0x2b, 0xc9, 0x47,
- 	0x61, 0x02, 0xbb, 0x28, 0x82, 0x34, 0xc4, 0x15, 0xa2,
-@@ -49,10 +86,20 @@ static int crypto_sha224_digest(struct shash_desc *desc,
- {
- 	sha224(data, len, out);
- 	return 0;
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha256.c b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
+index f8664818d04ec..c7c67bdc2bd06 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-sha256.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
+@@ -59,14 +59,8 @@ void sha256_blocks_arch(struct sha256_block_state *state,
+ 	state64[3] = read_octeon_64bit_hash_dword(3);
+ 	octeon_crypto_disable(&cop2_state, flags);
  }
+ EXPORT_SYMBOL_GPL(sha256_blocks_arch);
  
-+static int crypto_sha224_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha256_export(&SHA224_CTX(desc)->ctx, out);
-+}
-+
-+static int crypto_sha224_import(struct shash_desc *desc, const void *in)
-+{
-+	return __crypto_sha256_import(&SHA224_CTX(desc)->ctx, in);
-+}
-+
- /* SHA-256 */
+-bool sha256_is_arch_optimized(void)
+-{
+-	return octeon_has_crypto();
+-}
+-EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
+-
+ MODULE_LICENSE("GPL");
+ MODULE_DESCRIPTION("SHA-256 Secure Hash Algorithm (OCTEON)");
+ MODULE_AUTHOR("Aaro Koskinen <aaro.koskinen@iki.fi>");
+diff --git a/include/crypto/internal/sha2.h b/include/crypto/internal/sha2.h
+index f0f455477bbd7..7915a3a46bc86 100644
+--- a/include/crypto/internal/sha2.h
++++ b/include/crypto/internal/sha2.h
+@@ -7,18 +7,10 @@
+ #include <linux/compiler_attributes.h>
+ #include <linux/string.h>
+ #include <linux/types.h>
+ #include <linux/unaligned.h>
  
- const u8 sha256_zero_message_hash[SHA256_DIGEST_SIZE] = {
- 	0xe3, 0xb0, 0xc4, 0x42, 0x98, 0xfc, 0x1c, 0x14,
- 	0x9a, 0xfb, 0xf4, 0xc8, 0x99, 0x6f, 0xb9, 0x24,
-@@ -87,10 +134,20 @@ static int crypto_sha256_digest(struct shash_desc *desc,
- {
- 	sha256(data, len, out);
- 	return 0;
+-#if IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_SHA256)
+-bool sha256_is_arch_optimized(void);
+-#else
+-static inline bool sha256_is_arch_optimized(void)
+-{
+-	return false;
+-}
+-#endif
+ void sha256_blocks_generic(struct sha256_block_state *state,
+ 			   const u8 *data, size_t nblocks);
+ void sha256_blocks_arch(struct sha256_block_state *state,
+ 			const u8 *data, size_t nblocks);
+ 
+diff --git a/lib/crypto/arm/sha256.c b/lib/crypto/arm/sha256.c
+index 7d90823586952..27181be0aa92e 100644
+--- a/lib/crypto/arm/sha256.c
++++ b/lib/crypto/arm/sha256.c
+@@ -35,17 +35,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
+ 		sha256_block_data_order(state, data, nblocks);
+ 	}
  }
+ EXPORT_SYMBOL_GPL(sha256_blocks_arch);
  
-+static int crypto_sha256_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha256_export(&SHA256_CTX(desc)->ctx, out);
-+}
-+
-+static int crypto_sha256_import(struct shash_desc *desc, const void *in)
-+{
-+	return __crypto_sha256_import(&SHA256_CTX(desc)->ctx, in);
-+}
-+
- /* HMAC-SHA224 */
- 
- #define HMAC_SHA224_KEY(tfm) ((struct hmac_sha224_key *)crypto_shash_ctx(tfm))
- #define HMAC_SHA224_CTX(desc) ((struct hmac_sha224_ctx *)shash_desc_ctx(desc))
- 
-@@ -126,10 +183,23 @@ static int crypto_hmac_sha224_digest(struct shash_desc *desc,
+-bool sha256_is_arch_optimized(void)
+-{
+-	/* We always can use at least the ARM scalar implementation. */
+-	return true;
+-}
+-EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
+-
+ static int __init sha256_arm_mod_init(void)
  {
- 	hmac_sha224(HMAC_SHA224_KEY(desc->tfm), data, len, out);
- 	return 0;
+ 	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && (elf_hwcap & HWCAP_NEON)) {
+ 		static_branch_enable(&have_neon);
+ 		if (elf_hwcap2 & HWCAP2_SHA2)
+diff --git a/lib/crypto/arm64/sha256.c b/lib/crypto/arm64/sha256.c
+index 609ffb8151987..a5a4982767089 100644
+--- a/lib/crypto/arm64/sha256.c
++++ b/lib/crypto/arm64/sha256.c
+@@ -45,17 +45,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
+ 		sha256_block_data_order(state, data, nblocks);
+ 	}
  }
+ EXPORT_SYMBOL_GPL(sha256_blocks_arch);
  
-+static int crypto_hmac_sha224_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha256_export(&HMAC_SHA224_CTX(desc)->ctx.sha_ctx, out);
-+}
-+
-+static int crypto_hmac_sha224_import(struct shash_desc *desc, const void *in)
-+{
-+	struct hmac_sha224_ctx *ctx = HMAC_SHA224_CTX(desc);
-+
-+	ctx->ctx.ostate = HMAC_SHA224_KEY(desc->tfm)->key.ostate;
-+	return __crypto_sha256_import(&ctx->ctx.sha_ctx, in);
-+}
-+
- /* HMAC-SHA256 */
- 
- #define HMAC_SHA256_KEY(tfm) ((struct hmac_sha256_key *)crypto_shash_ctx(tfm))
- #define HMAC_SHA256_CTX(desc) ((struct hmac_sha256_ctx *)shash_desc_ctx(desc))
- 
-@@ -165,10 +235,23 @@ static int crypto_hmac_sha256_digest(struct shash_desc *desc,
+-bool sha256_is_arch_optimized(void)
+-{
+-	/* We always can use at least the ARM64 scalar implementation. */
+-	return true;
+-}
+-EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
+-
+ static int __init sha256_arm64_mod_init(void)
  {
- 	hmac_sha256(HMAC_SHA256_KEY(desc->tfm), data, len, out);
- 	return 0;
+ 	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
+ 	    cpu_have_named_feature(ASIMD)) {
+ 		static_branch_enable(&have_neon);
+diff --git a/lib/crypto/powerpc/sha256.c b/lib/crypto/powerpc/sha256.c
+index c3f844ae0aceb..437e587b05754 100644
+--- a/lib/crypto/powerpc/sha256.c
++++ b/lib/crypto/powerpc/sha256.c
+@@ -58,13 +58,7 @@ void sha256_blocks_arch(struct sha256_block_state *state,
+ 		nblocks -= unit;
+ 	} while (nblocks);
  }
+ EXPORT_SYMBOL_GPL(sha256_blocks_arch);
  
-+static int crypto_hmac_sha256_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha256_export(&HMAC_SHA256_CTX(desc)->ctx.sha_ctx, out);
-+}
-+
-+static int crypto_hmac_sha256_import(struct shash_desc *desc, const void *in)
-+{
-+	struct hmac_sha256_ctx *ctx = HMAC_SHA256_CTX(desc);
-+
-+	ctx->ctx.ostate = HMAC_SHA256_KEY(desc->tfm)->key.ostate;
-+	return __crypto_sha256_import(&ctx->ctx.sha_ctx, in);
-+}
-+
- /* Algorithm definitions */
+-bool sha256_is_arch_optimized(void)
+-{
+-	return true;
+-}
+-EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
+-
+ MODULE_LICENSE("GPL");
+ MODULE_DESCRIPTION("SHA-256 Secure Hash Algorithm, SPE optimized");
+diff --git a/lib/crypto/riscv/sha256.c b/lib/crypto/riscv/sha256.c
+index a2079aa3ae925..01004cb9c6e9e 100644
+--- a/lib/crypto/riscv/sha256.c
++++ b/lib/crypto/riscv/sha256.c
+@@ -32,16 +32,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
+ 		sha256_blocks_generic(state, data, nblocks);
+ 	}
+ }
+ EXPORT_SYMBOL_GPL(sha256_blocks_arch);
  
- static struct shash_alg algs[] = {
- 	{
- 		.base.cra_name		= "sha224",
-@@ -179,11 +262,14 @@ static struct shash_alg algs[] = {
- 		.digestsize		= SHA224_DIGEST_SIZE,
- 		.init			= crypto_sha224_init,
- 		.update			= crypto_sha224_update,
- 		.final			= crypto_sha224_final,
- 		.digest			= crypto_sha224_digest,
-+		.export			= crypto_sha224_export,
-+		.import			= crypto_sha224_import,
- 		.descsize		= sizeof(struct sha224_ctx),
-+		.statesize		= SHA256_SHASH_STATE_SIZE,
- 	},
- 	{
- 		.base.cra_name		= "sha256",
- 		.base.cra_driver_name	= "sha256-lib",
- 		.base.cra_priority	= 300,
-@@ -192,11 +278,14 @@ static struct shash_alg algs[] = {
- 		.digestsize		= SHA256_DIGEST_SIZE,
- 		.init			= crypto_sha256_init,
- 		.update			= crypto_sha256_update,
- 		.final			= crypto_sha256_final,
- 		.digest			= crypto_sha256_digest,
-+		.export			= crypto_sha256_export,
-+		.import			= crypto_sha256_import,
- 		.descsize		= sizeof(struct sha256_ctx),
-+		.statesize		= SHA256_SHASH_STATE_SIZE,
- 	},
- 	{
- 		.base.cra_name		= "hmac(sha224)",
- 		.base.cra_driver_name	= "hmac-sha224-lib",
- 		.base.cra_priority	= 300,
-@@ -207,11 +296,14 @@ static struct shash_alg algs[] = {
- 		.setkey			= crypto_hmac_sha224_setkey,
- 		.init			= crypto_hmac_sha224_init,
- 		.update			= crypto_hmac_sha224_update,
- 		.final			= crypto_hmac_sha224_final,
- 		.digest			= crypto_hmac_sha224_digest,
-+		.export			= crypto_hmac_sha224_export,
-+		.import			= crypto_hmac_sha224_import,
- 		.descsize		= sizeof(struct hmac_sha224_ctx),
-+		.statesize		= SHA256_SHASH_STATE_SIZE,
- 	},
- 	{
- 		.base.cra_name		= "hmac(sha256)",
- 		.base.cra_driver_name	= "hmac-sha256-lib",
- 		.base.cra_priority	= 300,
-@@ -222,11 +314,14 @@ static struct shash_alg algs[] = {
- 		.setkey			= crypto_hmac_sha256_setkey,
- 		.init			= crypto_hmac_sha256_init,
- 		.update			= crypto_hmac_sha256_update,
- 		.final			= crypto_hmac_sha256_final,
- 		.digest			= crypto_hmac_sha256_digest,
-+		.export			= crypto_hmac_sha256_export,
-+		.import			= crypto_hmac_sha256_import,
- 		.descsize		= sizeof(struct hmac_sha256_ctx),
-+		.statesize		= SHA256_SHASH_STATE_SIZE,
- 	},
- };
- 
- static int __init crypto_sha256_mod_init(void)
+-bool sha256_is_arch_optimized(void)
+-{
+-	return static_key_enabled(&have_extensions);
+-}
+-EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
+-
+ static int __init riscv64_sha256_mod_init(void)
  {
+ 	/* Both zvknha and zvknhb provide the SHA-256 instructions. */
+ 	if ((riscv_isa_extension_available(NULL, ZVKNHA) ||
+ 	     riscv_isa_extension_available(NULL, ZVKNHB)) &&
+diff --git a/lib/crypto/s390/sha256.c b/lib/crypto/s390/sha256.c
+index fb565718f7539..6ebfd35a5d44c 100644
+--- a/lib/crypto/s390/sha256.c
++++ b/lib/crypto/s390/sha256.c
+@@ -21,16 +21,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
+ 	else
+ 		sha256_blocks_generic(state, data, nblocks);
+ }
+ EXPORT_SYMBOL_GPL(sha256_blocks_arch);
+ 
+-bool sha256_is_arch_optimized(void)
+-{
+-	return static_key_enabled(&have_cpacf_sha256);
+-}
+-EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
+-
+ static int __init sha256_s390_mod_init(void)
+ {
+ 	if (cpu_have_feature(S390_CPU_FEATURE_MSA) &&
+ 	    cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA_256))
+ 		static_branch_enable(&have_cpacf_sha256);
+diff --git a/lib/crypto/sparc/sha256.c b/lib/crypto/sparc/sha256.c
+index 060664b88a6d3..f41c109c1c18d 100644
+--- a/lib/crypto/sparc/sha256.c
++++ b/lib/crypto/sparc/sha256.c
+@@ -30,16 +30,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
+ 	else
+ 		sha256_blocks_generic(state, data, nblocks);
+ }
+ EXPORT_SYMBOL_GPL(sha256_blocks_arch);
+ 
+-bool sha256_is_arch_optimized(void)
+-{
+-	return static_key_enabled(&have_sha256_opcodes);
+-}
+-EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
+-
+ static int __init sha256_sparc64_mod_init(void)
+ {
+ 	unsigned long cfr;
+ 
+ 	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
+diff --git a/lib/crypto/x86/sha256.c b/lib/crypto/x86/sha256.c
+index cbb45defbefab..9ee38d2b3d572 100644
+--- a/lib/crypto/x86/sha256.c
++++ b/lib/crypto/x86/sha256.c
+@@ -35,16 +35,10 @@ void sha256_blocks_arch(struct sha256_block_state *state,
+ 		sha256_blocks_generic(state, data, nblocks);
+ 	}
+ }
+ EXPORT_SYMBOL_GPL(sha256_blocks_arch);
+ 
+-bool sha256_is_arch_optimized(void)
+-{
+-	return static_key_enabled(&have_sha256_x86);
+-}
+-EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
+-
+ static int __init sha256_x86_mod_init(void)
+ {
+ 	if (boot_cpu_has(X86_FEATURE_SHA_NI)) {
+ 		static_call_update(sha256_blocks_x86, sha256_ni_transform);
+ 	} else if (cpu_has_xfeatures(XFEATURE_MASK_SSE |
 -- 
 2.50.0
 
