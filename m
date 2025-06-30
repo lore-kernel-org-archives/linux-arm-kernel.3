@@ -4,68 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88DEC7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 07:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455EEC8302A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 07:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YYuTlJTNqGuChiWRZlkWK8atqwHx0Y2lUOhTbN22Un8=; b=m6u6nyfh7kN3f9NVOOJTQE3weJ
-	MtqTpCeW1zLwA9AXL9/d7WkO/1l1jxeXUwxh3FS3/HwnYrW5U3kQ4TACo764p38b1TfuP9OEg2vXH
-	KChCKoFYGwYfvfri95wf4G/1EeuWC/DMrVll/AZfMNq00uX7dOzYTNm+CknY2ZwRx9/Qkfxqo7Hwz
-	4HPpcJuiBsVvbi//luuOvuREUo5IQIItCDgeVTZq/ZDFFjkfcjTTRjeGrpqVDbdgIsfTF3uj3cEec
-	Iyfr9+q1wDjJZb7DZdf6S9EsCWhqpZg2ElEoE4bmMtxu5fjp2691DeKaalhJtUNztZKwuNPglENWa
-	uIHfwY5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IqTetl6upexAsH4ZMTdRxrm6z3s/zmsA9UK2sAWt5FA=; b=sDqYnPNc9xQVhHEMz84rUW2SX8
+	Ajqt0sd7hGbuoRvGeBQlQd2b1HUVjHcMX5X1I4e9EMDCGb7cBZPFZwBsHhghmGhreeJtR2ihF32Sm
+	jjBF5Qln0ws7rjHOJBQsmZlmHCmt2tS+ILhE6GX1nbd2Pnl0bwUQCkwK0KfaEBarQirAlfWgeHUd0
+	sEZko4uGPJnviRrKJZVuefeVC7fvkDchQoyVHA6a0CABjAuk+LbjYVHOLB14gecMcvlAAqG7hu72Z
+	QRw/yFSRUnZZ2NYUKZZ6DKtBBWoV01iATxa0tk4dAnOYajKn02PFVBWy3m+SiW0dh3C6pKum9MzO5
+	A61ncxpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW928-00000001SeU-2umk;
-	Mon, 30 Jun 2025 07:34:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uW94T-00000001T0i-34Sl;
+	Mon, 30 Jun 2025 07:36:57 +0000
+Received: from mx0a-009a6c02.pphosted.com ([148.163.145.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW8xt-00000001Rsy-2GiR;
-	Mon, 30 Jun 2025 07:30:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751268607;
-	bh=h3+BbSsRzFSbCWdeIHhuw9v25Gxev7MQWBIq8T/6F3k=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=aa0jE+HDyg7qAOkBA0l+7XGeqlGtp7ZiPTI9HCT25cmM/J6GI2hCOV0v7C3yzx2Mh
-	 LktFuM+PfqaeYwQ5w5AlUmTsGn1gbfFJbW20fCLVTh0noO/PbrFR5EkTMtmvAsDv29
-	 8SY3mOGCS6KysPRAmRCSRLredMiOf+A09CotRf2oZS3dVvOk9byVdoHBL5iqep81sj
-	 pJAvSoXW+KrExpONnWGBf87BH1W7mkcGtnRSTniqmVZ6vxf0+kWoIXX4ZxAhcT7HCP
-	 r6y03zs6ta3j10t8n2mn1SkkAvxFtjNdUOqisLPQ1Oni8flReaK41SSWGE2kOal/uJ
-	 oMlQNW1iQ+gWQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D461217E0B0D;
-	Mon, 30 Jun 2025 09:30:06 +0200 (CEST)
-Message-ID: <ef28bb5d-8d5b-4505-8b00-56c9e5abd90d@collabora.com>
-Date: Mon, 30 Jun 2025 09:30:06 +0200
+	id 1uW8zl-00000001SE6-3nqI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 07:32:07 +0000
+Received: from pps.filterd (m0462404.ppops.net [127.0.0.1])
+	by mx0a-009a6c02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55TMBBgM000992;
+	Mon, 30 Jun 2025 15:31:42 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=20250420; bh=IqTetl6upexAsH4ZMTdRxrm
+	6z3s/zmsA9UK2sAWt5FA=; b=Bc2sAaPPqrWcYDDdeupjgifVPby7DgiYr9TnJHj
+	WevAxsWa1ZjhFvt17dvO8h4nlcWZS+aerb82CB/vVOyWnu4V2S1tJv3QkRWZp3UM
+	syF8BR1/6apVqjAtLE/iMbLf3jsCJRbvI7xpgo44ogvlGVd24CCShRUw+V/Bs8uf
+	EmqhiJXKnNqr8Qp+AonG3yn2T0pBDRuDYEImhxpDxCiu19yhBQ0jn+S+OfOfyVHu
+	yFle1T+eLgK1IuIeyuE0Igyc34GdeSV3kWJhmV+RGKG6Ja476ip5pxlEsp+eHWFx
+	89oEEOqFG8R+p9G5klnLG7LFXHzrtdBF3qhyP5l+/7pUxmQ==
+Received: from typpr03cu001.outbound.protection.outlook.com (mail-japaneastazon11012036.outbound.protection.outlook.com [52.101.126.36])
+	by mx0a-009a6c02.pphosted.com (PPS) with ESMTPS id 47jpyvs6rr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 30 Jun 2025 15:31:42 +0800 (WST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ccDU7Nr5EeU3/k9QUnetJWE/AEzSdqMfS5XW9FGEDOcZoMzTrxD/YR/m+IgnJEknUA74wJwBXSRJDWZ17Wl+QByK20PJfPONrTOfbnaP07ZK5bmsxPy+/zAx1sVwewEWd8X3X5yWf5WUD1+K0N6ToovHDqdyd4HRxK6KrkspcSEFv6GTiGXD61HhrE4TmCt2Q7xlfmALtP6tLH4RoMn02zU8niToKZZtEQ2UkraGLuvsF5qKyWJX1PmihomxAQA/1uINnwzPaW1H0PEjF8pxJJ5AaAxvCvdMn8LSBYj978Bbhnu6OPsYbsHVbc9bfce2Azoe2po0Pq6rm/Bu9HT04Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IqTetl6upexAsH4ZMTdRxrm6z3s/zmsA9UK2sAWt5FA=;
+ b=Cap5f1R3hEk4vjFydNVxyAkshaPFGY3qPjpSs5kvh7E5PNQf4ub/VtWmoI2jpN01uLZrugH+t8cWY+R9eUEvDePV6cErfk5bi9Lfx9X6XB5eyCF7dJSnBmTEk0teCjIO6zNiASrl67DH2wuwAdwEqhgVs2pR1kHzIAUksieZYPoZLgfbAnod7jjGo2HdZGmlyOQAEcdlfuy5cMXtbuPsdg8faXs+Jtq6j3tyT+tvQRpH2rhDk6J62B9hPti1xkwboHOKhCXq70oIywGZdsSO2vXwvfDHgHlx4R6dFnfmmUp6nG+yn2lQdSnLLpPs+peJZNVaJ+2dQtCU9tsadJeURQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 211.20.1.79) smtp.rcpttodomain=stwcx.xyz smtp.mailfrom=wiwynn.com; dmarc=fail
+ (p=quarantine sp=quarantine pct=100) action=quarantine
+ header.from=wiwynn.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IqTetl6upexAsH4ZMTdRxrm6z3s/zmsA9UK2sAWt5FA=;
+ b=czqeF7Jt2j17XzdNlRzkKdr20tfwVhHAbJms+Ja/J/xcY8Gl76IGEcJxxAVJLA+5+CCrcS73eWAYj01pEY373/n2kD5vj5bwoLKTyf8iWp5gnJYV1mQybWcagaMoTdh7UnCeqawi/GeUwVt3Rbzy3HIq/rjmsxowE4rADvoOVgUFlmQW3PjPa0T37Gb4eeUlOZUUAplVxFQGv8K1MVyql2PnvMif5UbFUZAsAVXVbNIKdGpv3o3sRwXBS4wvmRej50wk5ui6OvhtDncNrqqBN6Eg8N4cOKv1zidm9ZrHyG1R18drmW01bYfcgrezKAh5ZUMQ+drLbA9Xf+lXEFReNA==
+Received: from SG2PR02CA0132.apcprd02.prod.outlook.com (2603:1096:4:188::15)
+ by KUXPR04MB8950.apcprd04.prod.outlook.com (2603:1096:d10:50::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.28; Mon, 30 Jun
+ 2025 07:31:39 +0000
+Received: from SG2PEPF000B66C9.apcprd03.prod.outlook.com
+ (2603:1096:4:188:cafe::8a) by SG2PR02CA0132.outlook.office365.com
+ (2603:1096:4:188::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.29 via Frontend Transport; Mon,
+ 30 Jun 2025 07:31:39 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 211.20.1.79)
+ smtp.mailfrom=wiwynn.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=wiwynn.com;
+Received-SPF: Fail (protection.outlook.com: domain of wiwynn.com does not
+ designate 211.20.1.79 as permitted sender) receiver=protection.outlook.com;
+ client-ip=211.20.1.79; helo=localhost.localdomain;
+Received: from localhost.localdomain (211.20.1.79) by
+ SG2PEPF000B66C9.mail.protection.outlook.com (10.167.240.20) with Microsoft
+ SMTP Server id 15.20.8901.15 via Frontend Transport; Mon, 30 Jun 2025
+ 07:31:38 +0000
+From: Marshall Zhan <marshall_zhan@wiwynn.com>
+To: patrick@stwcx.xyz
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v5] ARM: dts: aspeed: yosemite4: add gpio name for uart mux sel
+Date: Mon, 30 Jun 2025 15:31:37 +0800
+Message-Id: <20250630073138.3315947-1-marshall_zhan@wiwynn.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] dt-bindings: iio: adc: Add support for MT7981
-To: Aleksander Jan Bajkowski <olek2@wp.pl>, rafael@kernel.org,
- daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com,
- jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
- andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, zhiyong.tao@mediatek.com, linux-pm@vger.kernel.org,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250628223837.848244-1-olek2@wp.pl>
- <20250628223837.848244-4-olek2@wp.pl>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250628223837.848244-4-olek2@wp.pl>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66C9:EE_|KUXPR04MB8950:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 017047d2-c2a6-4125-1e8b-08ddb7a826de
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Tb6YRECxFAdgp+qIAyMCCNEMy0WziS5ESDizt5A6+rDKZDCHMoI0cnlZ+uCh?=
+ =?us-ascii?Q?d/LYhdD0J3f3hLlIVTV8eHRKCgDH7nktHfYmdJ/PwejwARCnbhUGw/zj2VUL?=
+ =?us-ascii?Q?WO1TrivFpb8RcAjliJJA1UVucEYoYZtltTEU8jMk9Edur82NECfGqYGc2BHj?=
+ =?us-ascii?Q?eEh5YJx07gmdPqoUYT8mutzP2qfaUkUR1gpQYTMFFKpcjF9dNZpeq/i5zC7x?=
+ =?us-ascii?Q?NWo3GeCv9YVlTuGTTJUpivhFzAhmxKN74Ju+/udEEGsl+pQheOL78Bm+kzKI?=
+ =?us-ascii?Q?maIoAHJ3VoT4jTyJFB8fo25eBBuq+HSOLPR4Oyen9wn9GtEj2CrDQ4Oy1iuE?=
+ =?us-ascii?Q?UYve7kxoGF6IxebjJsp3C5/dD0XuT7mccE2dPg/0TGMDnt508pRXupS1IgVP?=
+ =?us-ascii?Q?TGzPqYRWKPFbWYLAK4K7kkjwhoL71ooPW6lABDuLmNXApCkS5lK6ZPa5pw7d?=
+ =?us-ascii?Q?AqOphoC8/HTl+1aj0kQuYA9Mnp2hQ5NfO6bljQ2P5EQmHRV9hRASPeYY2g1O?=
+ =?us-ascii?Q?pqaCe3m6g86/CySqSei1yqltbvRUJCoFsUSiUPVsh+3Q9Jh7K+On0/wBFd26?=
+ =?us-ascii?Q?yfROHNbpuCI2bEja7cwQn+vi8PBKUpsbx1+8WJwzHEx8bCJ05kcxFqFG8QcR?=
+ =?us-ascii?Q?WNVpY0/Fh26mBU5nLWauzZnPMvt9Re+VC3UlPwpyuSygarYTBQ0G5HBM1xL5?=
+ =?us-ascii?Q?c9MTUp7Cu+2GcTVPHuvxvkpwMjcQCj7p9ohRHd/B8lTJrPC4XMJ5V0aQarXD?=
+ =?us-ascii?Q?95RQe3fQNlChH57eCmiyPC9K1f0FYtQUPEebZFOL+90rKF0IXIhDTMurmELZ?=
+ =?us-ascii?Q?+7pR18IMAxOj9e4PLxmCU1QLbJd7ciaYmr7uefgwKR7Vt5fHx0HiYe7pB9+B?=
+ =?us-ascii?Q?VBD8GdGDGHHaKtyCvISsw8sBsOBcNttm33qbjbTUG/VeRs6Nj5yXSOjvd2l5?=
+ =?us-ascii?Q?r7vl5S7Fxe504ZzLbawMT6Qt+rH5tOgefcmVQBRERoKNLThk8jJ0+xh+j/E8?=
+ =?us-ascii?Q?3f9TREf6hlZ0glMMj6gxjf/yakpe6X5TOTCQDcXI5i5gTRp6qmyIZ7EJMY82?=
+ =?us-ascii?Q?gpnKPb9CS7mVZD5ArvmouF6SLHT+EJNbHKDOH1hb/8V3jqqITqyHLrYhSsQw?=
+ =?us-ascii?Q?5wOqjb1vj8oHQDu/vr8oysDqEsSKHY6f6obL59VM1N3V1qLRBZlB2M5aI8Za?=
+ =?us-ascii?Q?/oyntPPXKUU5Hr4TdVHCHTPTYYGkGhrCRKc/T+Ys3pLvk/2KfkY8u88sIjOj?=
+ =?us-ascii?Q?Lu5cKtunXNpCJ5CzJqsPRiBpAkpLjrtzFtO7etGJylLp6916xDRUqKBK8pNK?=
+ =?us-ascii?Q?KFQoy7aaGuLWoa8f+EuvFfU0g8Ysx+D1A6f0RMH/TG6XEOvUMaGRjAGF+ozm?=
+ =?us-ascii?Q?FWpERxnv+CsaLFVxPQPeUOyr8KMtfHpanD7HQ1hTSsXJXMr4/bnzEx38PELK?=
+ =?us-ascii?Q?lOyFfEXcn5ljOoe/cVBMiQ/oFJwv+RC5X696enP7WHXNVQ+TYHFNeHSDMQY3?=
+ =?us-ascii?Q?4I+mwFSHlnEKfnxg9HPa52t7TVQsh8+eShXs?=
+X-Forefront-Antispam-Report: CIP:211.20.1.79;CTRY:TW;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:localhost.localdomain;PTR:211-20-1-79.hinet-ip.hinet.net;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: eQj2AgwbAPOf3Rnv1J/Wf8ZMYLKvdZhDr1elFw8QRd6fPi0KDAcZqMhbWjscxBSJwfemya2wohTQpTXjtJcWtfqPk8YueMJ4lALCpxGSqNaT+nJagP37/6BkwxP/LBIq5LekIhA33y3J0v5DNXjQWFbVNvK4B91JSiKOxjFZXPU7hjt5TaMxnxQqR54E+7lNeCi0z1Nuil/SO5FaueK6w9ov4/46+Kuq/VBtFTkhU0MQbansffOFg647UQuE0P5fkLqSFU2PHAj2kY+fGLLkM6762f/TTg+mABs9D+DoUJ/Y6AH9lD1xQwurLkimo7CnoGqV3EZHb1CWU2kmT5LdPnTs4TeNj3mO5jC0kNOFkpXI4GUo3pfOkqp4CpsJQQpx3gX9LTT2b117XnDfFs6TRMLTgLawQoxnK5hE4cvi/E6lLDUEArTQrQEUqjPBaFTRMAfUFcDDHDrWup12+bQWdKZ+UqJVPmwfIwigSruVygVlgR7icn8+P3yafQgJ5YjE2exMYNk4ggh4OfOpG7Ca3xBELk8suI+Cb162S6quxmk5Osh6G40BEedg4+WeP3iYqxd42xPDusedAFJcT9nlr6Tfw7UByb0TD8IrhqFZQNA6KKtkxBJKNz9kUEvH6amt
+X-OriginatorOrg: wiwynn.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2025 07:31:38.4841
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 017047d2-c2a6-4125-1e8b-08ddb7a826de
+X-MS-Exchange-CrossTenant-Id: da6e0628-fc83-4caf-9dd2-73061cbab167
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=da6e0628-fc83-4caf-9dd2-73061cbab167;Ip=[211.20.1.79];Helo=[localhost.localdomain]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66C9.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUXPR04MB8950
+X-Proofpoint-ORIG-GUID: W6Q8rJrQ_Tcx9zFXYOBbzBLGtcnpKjjF
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjMwMDA2MSBTYWx0ZWRfX4w1oEPw0hYWR afo2xulobcV1KqZ6d7RRYFUfiTajtLObwZqVWiO8xSilVC00WYoqlE9akj9WSnOj+EuF/pPs76E BhtDj6p9d32n09MIzRsPInb/h+9IuBduvcdJHtNNbdD1mj7dh22VQO6CV+wmk2mQE7MucbZ2RUK
+ WQKRMCgYIcOzPYbXsznpK/lADmhXXrMkocWruGsMcSpHDmkTn3S8cmH4k3QszmUjLY08le5+idD HqdQK8ZH+TT9rjuSWhASzI8IoOJqDdlA108gztzwqYoV7sNN42FFpuG/fuPDHwoSvA57CKV86KB 2O5a5OZD4Kz61QH9x0c34xhg5Bw7giPtszPrbfQQA7LQ/v+UKwjNoTbvoCBrNumOWVJ/LI2fTIo
+ vDykXTwuPdNJsdgbGlAX2vDBgzPx8+XOsFg8HfqjQC4Q9Pc3WsuUnL1juFpRtTwsvjvfVjvY
+X-Proofpoint-GUID: W6Q8rJrQ_Tcx9zFXYOBbzBLGtcnpKjjF
+X-Authority-Analysis: v=2.4 cv=fJ853Yae c=1 sm=1 tr=0 ts=68623d5e cx=c_pps a=riyPWYh4HAMCiMlNrdWGFg==:117 a=6rDDh2uRNVCE5HFPCIqeAA==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=6IFa9wvqVegA:10
+ a=4AL28aEVfeMA:10 a=cPYzWk29AAAA:8 a=u2kzlEoHWhBIlCB3pKYA:9 a=oSR2DF9YFqZEN4IGatwP:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-06-30_01,2025-06-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 mlxscore=0
+ lowpriorityscore=0 clxscore=1015 bulkscore=0 suspectscore=0 malwarescore=0
+ impostorscore=0 phishscore=0 mlxlogscore=802 priorityscore=1501
+ adultscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.21.0-2505280000
+ definitions=main-2506300061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_003009_731715_9F1B09FB 
-X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-CacheID: sfid-20250630_003205_977110_857A24E7 
+X-CRM114-Status: UNSURE (   9.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,13 +173,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 29/06/25 00:38, Aleksander Jan Bajkowski ha scritto:
-> The temperature sensor in the MT7981 is same as in the MT7986.
-> Add compatible string for mt7981.
-> 
-> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+Add gpio line name to support multiplexed console
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Marshall Zhan <marshall_zhan@wiwynn.com>
+---
+ .../aspeed/aspeed-bmc-facebook-yosemite4.dts  | 40 +++++++++++++++++++
+ 1 file changed, 40 insertions(+)
 
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
+index 29f224bccd63..aae789854c52 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
+@@ -189,6 +189,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT1_UART_SEL0","SLOT1_UART_SEL1",
++				"SLOT1_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -235,6 +240,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT2_UART_SEL0","SLOT2_UART_SEL1",
++				"SLOT2_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -281,6 +291,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT3_UART_SEL0","SLOT3_UART_SEL1",
++				"SLOT3_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -327,6 +342,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT4_UART_SEL0","SLOT4_UART_SEL1",
++				"SLOT4_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -373,6 +393,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT5_UART_SEL0","SLOT5_UART_SEL1",
++				"SLOT5_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -419,6 +444,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT6_UART_SEL0","SLOT6_UART_SEL1",
++				"SLOT6_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -465,6 +495,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT7_UART_SEL0","SLOT7_UART_SEL1",
++				"SLOT7_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -511,6 +546,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT8_UART_SEL0","SLOT8_UART_SEL1",
++				"SLOT8_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+-- 
+2.25.1
 
 
