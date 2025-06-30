@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55CECC8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 23:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B92C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 23:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d7HEWR7W+LW12/jXV4a/HmVZdHf49bbez23dSm4ZpUA=; b=oXCNRHSeVEG1ZJwLW2Sdu6dMtM
-	0qi7D+UDe6SKYaVS/CauKJv1FodLfvBIu3nDT/8rArx4D9J8iMi27qlAh8OjGi1JCmNIvcdrH27m4
-	J663PnHhBQWO610LqPuH8cXCdJJDCnkWFNP0zoEmwFWHVEHU2aKKHQw3Im30+K6MdhC2iLr9cSMFR
-	6ulPprVyRqFeeGxwIwQs4+X6E/FStaQncrVeld0LGi8A8Zw1eSN4OPdwScUIefmnvcJjiy4HKwVT8
-	aDGdmp3bJlCjduIel5wi5E8yuxM/hb+MY7IN+69KiLuw241inFLkm3sLnVPoLGsrejr754HBAX6q6
-	SkwJUx9g==;
+	bh=DzTYWc26VhY7F4Dd1PcZclEHh6aBgE/SboxldIm70BM=; b=R6qPRK9gr2xK5lAngqF2crkN1Z
+	zFhye+OEVElI0PNGvFW2sKQ5zy9rBTbDnQveq7meZgSxuVfO+pY6bJh0L5jHAJO/5CBafFAvJjRSH
+	AgnbrfJp9IODIJVVLWqOYLIkyNogR2k4HcTkXsp9TIfCdZ5yTbyu+i7Ow6aAShkEFLhZdmscx+7F9
+	w0CYu7ApmXOQvWncdQ3VyX29anXyl0XqR+HerWGdltDYb68NeLb6zSDM/BCeHrwVwXPHIexpeU9x/
+	gDoFwZdnujuDDPlfGY4qmzbZfDqKXLwtqPMagygycQjEEHDQz31jpc4onGqDPaQAlqkM0TdKLbYEz
+	ORJKG7nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWNeA-00000003fVy-0CeU;
-	Mon, 30 Jun 2025 23:10:46 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uWNgR-00000003fjs-1Uhc;
+	Mon, 30 Jun 2025 23:13:07 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWNaM-00000003fFm-4768;
-	Mon, 30 Jun 2025 23:06:52 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-235d6de331fso32631605ad.3;
-        Mon, 30 Jun 2025 16:06:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751324810; x=1751929610; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=d7HEWR7W+LW12/jXV4a/HmVZdHf49bbez23dSm4ZpUA=;
-        b=PxsNWs08KR+rUPcl74ZIHMVD3DmAq2CnelPbtRuTFyRQZ8ukbJNALRheb8MgsOAVqw
-         ZN2fFRTMQ3Pux9q6yMahB33NC/kojM/3zkwH9F3+d3/bV7LR2ufN6+kdeLpIxBKI8cpB
-         9SdXsnAci5AV/UUyVR63qAoFmlMQEzSwmRS/0RQ5N77wK+chlJFPgFfODVTuOpMXij2r
-         RC/h4BMjgMdulmKywk1DDLoQhBlDCRhuaO/MY5Fryyr8xlDSKJ7f4mc48L0MR+LRa1vt
-         o4pZK6yIGOWIhfqVe0wXDlukO+M3gMNFKF1mH+/EKjZlVW1sEa4wrtGnncmeMvYHRqAg
-         BgfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751324810; x=1751929610;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d7HEWR7W+LW12/jXV4a/HmVZdHf49bbez23dSm4ZpUA=;
-        b=Oy36P9OsrOxdF7IAd9zEVzovWW06h8yBQ1p4xSYQqapX+1DQaLDY8Yz0KAE+p8MRbm
-         VrGzMl/G+DagvBWBWuu9D5o1SeXC9fzmzolhTqEUM28mb2VW/K/vfqPZYHMbbT85qr3C
-         WTkhkzLM3+CJgGvut2x+tt0eyVfD3iyyueRhc+uxYHGlq/cC4S4RcS+VN/tuHr3pZAmv
-         pO/GFgkF85vTmgWhJtXLBZ+GDkiGhWEazNxleZsFk/KrMqRhjUcWIAIGvXstMrfmqX9P
-         A+U5msFgN04iwK/8uhruZ0b3eg5xR1ENTv4vmi4ZueAfZ76b6orrzkQHAMcwbejbsVe7
-         n0Xw==
-X-Forwarded-Encrypted: i=1; AJvYcCVjcM/jYmpCDOoVEpMHBLLG9FRTGMD16IIk5IpIGz7nBjs2oYjgh8KcOZtAiIPvJVj2Q+SNxgPKYpkHSwx4xhug@lists.infradead.org, AJvYcCXvc1Xr0xjY14nQAs4Uo1czdE+Ic7+3zRZF3p2GGeUqzIG/Zh1yQ+xqmj4dKpJGJAbsDUbQolfiSUBbqCOsJmc=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxhewacjgf7uqo6p3gL3sPy3OMa2y+b8HC+ZqMW/RR7CsytbRnu
-	EHgcBPJJAc6OVoGa8qcSVMhcqzFMYE4mF+yEtbcJAsLaTi0dIx2HXiJd
-X-Gm-Gg: ASbGnctukOKQQU8thbxmeWvc/bwfgHKHSbUN+dQiuAMphAeScI4MKMH6B289HTBNGq1
-	VfOyet4B6fOkcDTaflDHBnlYcpc8o1yDfAZ/GYoloXH+2DoQbZzYGL2tNFjE0ipUCmVUQ0PsgXh
-	Q68Co+xZsa/tnG9APuXcSQm3Elq3ECr7maT4eznkC5cKtprf8vCl4oZeZeWbudLw20lc+qY+qFS
-	DabgUtkoQFGz/ZR22exZqwxdxd82HI0De7QfQVuaijpU9Iv8+pS2naBeTCKvAmoIdJVXQs5vaJe
-	DsxL07HNbK7a3Ox2abKA9IiNXibVJVzGZAvi8YUY7cTBJ2ldt16qJWBYpjEHEUKY+4HDFev9
-X-Google-Smtp-Source: AGHT+IEE47BXgA2j3N8UCj5gWmCgfmS1t0dx9jkTxBOSMo7yULL5sWujT/QCBMOL5bzUJpKm69dV2g==
-X-Received: by 2002:a17:902:e94c:b0:234:f6ba:e689 with SMTP id d9443c01a7336-23ac46341eemr199554055ad.39.1751324810159;
-        Mon, 30 Jun 2025 16:06:50 -0700 (PDT)
-Received: from google.com ([2620:15c:9d:2:c92b:c666:1f8:990e])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb39be0fsm89850265ad.95.2025.06.30.16.06.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jun 2025 16:06:49 -0700 (PDT)
-Date: Mon, 30 Jun 2025 16:06:46 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Easwar Hariharan <eahariha@linux.microsoft.com>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, kernel@collabora.com, linux-input@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, 
-	=?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-Subject: Re: [PATCH] Input: mtk-pmic-keys: Fix null pointer dereference when
- no compatible data
-Message-ID: <zl5eusepyz62tnfidafvzrgslzftipiysy2ugejomqmzgbc22u@etf4uo2nvqag>
-References: <20250630-mtk-pmic-keys-fix-crash-v1-1-e47351fa9d1f@collabora.com>
- <41f3cc74-694e-41be-b767-20c7561990b8@linux.microsoft.com>
- <667whxdsghpao5irl66oh66l5y55m4k6n3ztifaizbqtrzccju@cmghlz2yauxq>
- <44e48ee7-07a8-4bbc-a98b-095bb1d585a0@linux.microsoft.com>
+	id 1uWNao-00000003fJG-0f3o
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 23:07:19 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id BAC54838;
+	Tue,  1 Jul 2025 01:06:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1751324815;
+	bh=F2c86YPB2yWAluPyg1zOw8RQH2nzZ+7OT6X/Myd+15c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JeCrGwaYFsgs0iI5OCZ3bsli3VjmGyndnl7tiGVlTdY5UFlCl3E1nJn1OThNKowdz
+	 eNBW4azDl5RQKTLJieyRSCdNckf2KXPnKoLPoKevlcHiWkmUYvH2UWNKKwOhIvElAx
+	 MqQ5xsQkTXr3MxxPBfNXwgbC8kAfEz1ZffCHg1ao=
+Date: Tue, 1 Jul 2025 02:06:51 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 5/5] arm64: dts: imx8qxp-mek: add parallel ov5640 camera
+ support
+Message-ID: <20250630230651.GG15184@pendragon.ideasonboard.com>
+References: <20250630-imx8qxp_pcam-v1-0-eccd38d99201@nxp.com>
+ <20250630-imx8qxp_pcam-v1-5-eccd38d99201@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <44e48ee7-07a8-4bbc-a98b-095bb1d585a0@linux.microsoft.com>
+In-Reply-To: <20250630-imx8qxp_pcam-v1-5-eccd38d99201@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_160651_023652_C1C9A16C 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20250630_160718_341647_DE149168 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,29 +79,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 03:23:36PM -0700, Easwar Hariharan wrote:
-> On 6/30/2025 2:46 PM, Dmitry Torokhov wrote:
-> > On Mon, Jun 30, 2025 at 01:18:40PM -0700, Easwar Hariharan wrote:
-> >>
-> >> Also, it may make sense to CC: stable@vger.kernel.org for backports
-> > 
-> > What for? Stable does not need a patch papering over an oops, it needs a
-> > patch making the keypad working on the affected device.
-> > 
-> > Thanks.
-> > 
-> 
-> I don't have a stake either way, it was simply a suggestion, since it qualifies
-> IMHO, per https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html,
-> the patch "...fixes a problem like an oops..."
-> 
-> The proper fix might well be, as Nicolas suggested, adding the required compatibles.
+Hi Frank,
 
-It looks like it is not only about adding compatibles but actually
-adding proper support for the missed variants...
+Thank you for the patch.
 
-Thanks.
+On Mon, Jun 30, 2025 at 06:28:21PM -0400, Frank Li wrote:
+> Add parallel ov5640 nodes in imx8qxp-mek and create overlay file to enable
+> it because it can work at two mode: MIPI and parallel mode.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile             |  3 ++
+>  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts      | 37 +++++++++++++++++++
+>  .../dts/freescale/imx8x-mek-ov5640-parallel.dtso   | 43 ++++++++++++++++++++++
+>  3 files changed, 83 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 02ef35578dbc7..a9fb11ccd3dea 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -330,6 +330,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-mek-pcie-ep.dtb
+>  imx8qxp-mek-ov5640-csi-dtbs := imx8qxp-mek.dtb imx8qxp-mek-ov5640-csi.dtbo
+>  dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-csi.dtb
+>  
+> +imx8qxp-mek-ov5640-parallel-dtbs := imx8qxp-mek.dtb imx8x-mek-ov5640-parallel.dtbo
+> +dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-parallel.dtb
+> +
+>  dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqps-mb-smarc-2.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
+> index c95cb8acc360a..09eb85a9759e2 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
+> @@ -487,6 +487,23 @@ pca6416: gpio@20 {
+>  		#gpio-cells = <2>;
+>  	};
+>  
+> +	ov5640_pi: camera@3c {
+> +		compatible = "ovti,ov5640";
+> +		reg = <0x3c>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_parallel_csi>;
+> +		clocks = <&pi0_misc_lpcg IMX_LPCG_CLK_0>;
+> +		assigned-clocks = <&pi0_misc_lpcg IMX_LPCG_CLK_0>;
+> +		assigned-clock-rates = <24000000>;
+> +		clock-names = "xclk";
+> +		powerdown-gpios = <&lsio_gpio3 2 GPIO_ACTIVE_HIGH>;
+> +		reset-gpios = <&lsio_gpio3 3 GPIO_ACTIVE_LOW>;
+> +		AVDD-supply = <&reg_2v8>;
+> +		DVDD-supply = <&reg_1v5>;
+> +		DOVDD-supply = <&reg_1v8>;
+> +		status = "disabled"; /* Overlay enable it */
+> +	};
+> +
+
+As far as I can tell, the sensor isn't soldered on the board, but is an
+external module connected through a cable. This DT node should therefore
+be moved to the overlay.
+
+>  	cs42888: audio-codec@48 {
+>  		compatible = "cirrus,cs42888";
+>  		reg = <0x48>;
+> @@ -865,6 +882,26 @@ IMX8QXP_MIPI_CSI0_MCLK_OUT_MIPI_CSI0_ACM_MCLK_OUT	0xC0000041
+>  		>;
+>  	};
+>  
+> +	pinctrl_parallel_csi: parallelcsigrp {
+> +		fsl,pins = <
+> +			IMX8QXP_CSI_D00_CI_PI_D02				0xc0000041
+> +			IMX8QXP_CSI_D01_CI_PI_D03				0xc0000041
+> +			IMX8QXP_CSI_D02_CI_PI_D04				0xc0000041
+> +			IMX8QXP_CSI_D03_CI_PI_D05				0xc0000041
+> +			IMX8QXP_CSI_D04_CI_PI_D06				0xc0000041
+> +			IMX8QXP_CSI_D05_CI_PI_D07				0xc0000041
+> +			IMX8QXP_CSI_D06_CI_PI_D08				0xc0000041
+> +			IMX8QXP_CSI_D07_CI_PI_D09				0xc0000041
+> +
+> +			IMX8QXP_CSI_MCLK_CI_PI_MCLK				0xc0000041
+> +			IMX8QXP_CSI_PCLK_CI_PI_PCLK				0xc0000041
+> +			IMX8QXP_CSI_HSYNC_CI_PI_HSYNC				0xc0000041
+> +			IMX8QXP_CSI_VSYNC_CI_PI_VSYNC				0xc0000041
+> +			IMX8QXP_CSI_EN_LSIO_GPIO3_IO02				0xc0000041
+> +			IMX8QXP_CSI_RESET_LSIO_GPIO3_IO03			0xc0000041
+> +		>;
+> +	};
+
+Same for this one.
+
+> +
+>  	pinctrl_pcieb: pcieagrp {
+>  		fsl,pins = <
+>  			IMX8QXP_PCIE_CTRL0_PERST_B_LSIO_GPIO4_IO00		0x06000021
+> diff --git a/arch/arm64/boot/dts/freescale/imx8x-mek-ov5640-parallel.dtso b/arch/arm64/boot/dts/freescale/imx8x-mek-ov5640-parallel.dtso
+> new file mode 100644
+> index 0000000000000..927d6640662f3
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8x-mek-ov5640-parallel.dtso
+> @@ -0,0 +1,43 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright 2025 NXP
+> + */
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/media/video-interfaces.h>
+> +
+> +&ov5640_pi {
+> +	status = "okay";
+> +
+> +	port {
+> +		ov5640_pi_ep: endpoint {
+> +			remote-endpoint = <&parallel_csi_in>;
+> +			data-lanes = <1 2>;
+
+data-lanes is not allowed for parallel buses.
+
+> +			bus-type = <MEDIA_BUS_TYPE_PARALLEL>;
+> +			bus-width = <8>;
+> +			vsync-active = <0>;
+> +			hsync-active = <1>;
+> +			pclk-sample = <1>;
+> +		};
+> +	};
+> +};
+> +
+> +&parallel_csi {
+> +	status = "okay";
+> +
+> +	ports {
+> +		port@0 {
+> +			parallel_csi_in: endpoint {
+> +				remote-endpoint = <&ov5640_pi_ep>;
+> +			};
+> +		};
+> +
+> +	};
+> +};
+> +
+> +&isi {
+> +	status = "okay";
+> +};
 
 -- 
-Dmitry
+Regards,
+
+Laurent Pinchart
 
