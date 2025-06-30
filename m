@@ -4,47 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 996E0C83035
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 16:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47E5C83039
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 16:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=03+W5bkRuY1HZB67u6xmCqh+/7HR/ytAxONNFxRhqGQ=; b=LdDXDSfzYNEoa2
-	2iNA/8HrVfzQ1uZMoW5nF7/8PGtii6w8A2+iSJXk1B1GlXp9NZLcxKtGKJsAShGD46S1PRDXP0RH+
-	F5z+PNkOlJBdM6tpJLZ91l9Cz7zCBgrYBf9EckzpgZe4LKRa2a2UmDQOjlQ2jZGP/rRVDwr0qWc/2
-	hToR6RfP0R1f5UdZ3h2evL7Y96kGkL1TeXLQg0M9Ui8/EaKbDfwDXJEY66zxe9n+eA3cEFNG069Vm
-	RnN0PYE7zl2bhsIEmoPmexsK5ajscSgVKYCqDdrBHtoMIQnGf8BrNrLZbYEQw/1ETNBded9sg22sn
-	rkOcbS/6XLFpnigNPSfA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0qTMuUS0/LC64D6hoC76SvsTVviKD4VdTZss6qX5mG4=; b=m3t77VmRftXg5uf82ZC0SBmutU
+	9RRBC5U8JWbafXM0EKyPUIvUXNQjSmHtVcVxWWQ8+JrGmM9AIhgkbeGAcoAqIeJ1a/RaxHmkyHR4v
+	qNIYiQ6VAxGaQDrW6Acgpcx2tuyFibitormbwG2dexkx8DraO9p7ed/IXrZGKRYyG4ul2KNwuZMus
+	YYTF5WBqciev5mZ0idLbILkdFWUMlTWFdRkQRYmkUrN1DEjTI0lq2rSxDGyC3HERWds2QNJOJs9SG
+	+UtT2sRnTXji2ZhTsCQJzlB1Mcnn7JWLSKgNjKUul/qF3hPAXBnAFkANBrS7EkagNu+36McAUrxvH
+	0yiwlh7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWHAK-00000002rFZ-3ukb;
-	Mon, 30 Jun 2025 16:15:32 +0000
+	id 1uWHAP-00000002rJI-09wu;
+	Mon, 30 Jun 2025 16:15:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWGMa-00000002jxq-00nu
+	id 1uWGMr-00000002k4M-3HZm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 15:24:09 +0000
+	Mon, 30 Jun 2025 15:24:26 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 500F21AC1;
-	Mon, 30 Jun 2025 08:23:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 959391AC1;
+	Mon, 30 Jun 2025 08:24:09 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8EF8F3F6A8;
-	Mon, 30 Jun 2025 08:24:04 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E80CC3F6A8;
+	Mon, 30 Jun 2025 08:24:22 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v2 00/13] perf arm-spe: Support new events in FEAT_SPEv1p4
-Date: Mon, 30 Jun 2025 16:23:32 +0100
-Message-Id: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
+Date: Mon, 30 Jun 2025 16:23:39 +0100
+Subject: [PATCH v2 07/13] perf arm_spe: Add "event_filter" entry in meta
+ data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPSrYmgC/5WNTQ7CIBgFr9KwFkP5a+PKexhDKP0qJFYItETT9
- O7SbnSpy3nJm1lQguggoVO1oAjZJecfBeihQsbqxw2w6wsjSqggsiZYx1GlACrNIfg4KeumUfk
- M0YLuVa5VmLu7M9hwTSVjreCMo2ILEQb33EuXa2Hr0uTjaw9nuq3/NzLFBDeE9px3RnaiPZfn0
- fgRbYVcf1vZ79a6WOWgwQxEt00jPtZ1Xd8wETlKMgEAAA==
-X-Change-ID: 20250610-arm_spe_support_hitm_overhead_v1_public-c4a263385434
+Message-Id: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-7-2e1afab313b9@arm.com>
+References: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
+In-Reply-To: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  James Clark <james.clark@linaro.org>, 
  Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -57,16 +55,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751297044; l=3121;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751297044; l=2745;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=t+AFp13ZhIpvuxI6JtbIFhv/8RoP5Sz8j+i+izr4ZOM=;
- b=eYdoWCvAY99iept/wHMoiWoKdd1KVEWvgXH2fRKQldqI81pk36PdINUQSc61IE9BcC7gd2ZPv
- Yu7fOO646TbDR2BUcvTMioj9rYgaUo8aeg6ZKiv0ihxAAbq/XAQpQeZ
+ bh=f/RF2xJpye65GImm51bgGpXhzYueNZrabRtuT1nfflw=;
+ b=9sM5XHHVfbH4dlKtyO+z2i/pluE9Q+65bX0YrcFTrHKFovPxMa8SHg7fJsMGoZ9DIU6d4jWJk
+ zxPvg/5HAoyD7vQOieIlm+E8IAmut8nEnuKHPoRa5MdzidPm+SGYysQ
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_082408_123823_5556608A 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20250630_082425_949511_FF6BEA4E 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,79 +79,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for new event types introduced in Arm SPE v1.4.
+Add a new "event_filter" entry in the meta data and dump it in raw data
+mode.
 
-The first patch modifies the Arm SPE driver to expose 'event_filter'
-entry in SysFS caps folder. This allows users to discover the event
-filter is supported by the hardware.
+After:
 
-Patch 02 is a fixing for setting remote bit. Patch 03 is for fixing
-memory level info for remote access.
+  # perf script -D
+  ...
 
-Patch 04 is a refactoring for using full type for data_src.
+  0 0 0x470 [0x1f0]: PERF_RECORD_AUXTRACE_INFO type: 4
+    Header version     :2
+    Header size        :4
+    PMU type v2        :11
+    CPU number         :8
+      Magic            :0x1010101010101010
+      CPU #            :0
+      Num of params    :4
+      MIDR             :0x410fd0f0
+      PMU Type         :11
+      Min Interval     :256
+      Event Filter     :0xffff000003fefffe
 
-Patch 05 refactors the code to avoid duplicate definitions of event
-bits.
+  ...
 
-Patch 06 dumps new event bits in raw format via the 'perf script -D'
-command.
-
-Patches 07 to 12 enhance memory-level information based on the new
-events introduced in FEAT_SPEv1p4.
-
-Patch 13 changes the logic to parse events after data source analysis.
-The event information complements the data source and provides a more
-complete view. As a result, Arm SPE can now support both HITM and peer
-modes (See the "--display" options in perf c2c).
-
-This series has been tested on FVP RevC platform.
-
-Note: for a local HITM event, the emulation does not provide any info
-for LLC. However, the perf c2c tool relies on LLC + HITM for accounting
-local HITM. I to manually set the LLC HIT flag to verify the
-"perf c2c -d tot" command.
-
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
-Changes in v2:
-- Dropped the kernel change for caching "pmsevfr_res0" (James)
-- Renamed the "events" entry to "event_filter" (James)
-- Added a new refactoring patch 04 (James)
-- Updated memory level info for remote access (James)
-- Link to v1: https://lore.kernel.org/r/20250613-arm_spe_support_hitm_overhead_v1_public-v1-0-6faecf0a8775@arm.com
+ tools/perf/arch/arm64/util/arm-spe.c | 5 +++++
+ tools/perf/util/arm-spe.c            | 1 +
+ tools/perf/util/arm-spe.h            | 2 ++
+ 3 files changed, 8 insertions(+)
 
----
-James Clark (1):
-      perf arm_spe: Use full type for data_src
+diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
+index 4f2833b62ff55f3fd1dff3f032d6e06528460939..258b5d7b57b1d100bf334ff468c13fb4be9ed78f 100644
+--- a/tools/perf/arch/arm64/util/arm-spe.c
++++ b/tools/perf/arch/arm64/util/arm-spe.c
+@@ -121,12 +121,17 @@ static int arm_spe_save_cpu_header(struct auxtrace_record *itr,
+ 		/* No Arm SPE PMU is found */
+ 		data[ARM_SPE_CPU_PMU_TYPE] = ULLONG_MAX;
+ 		data[ARM_SPE_CAP_MIN_IVAL] = 0;
++		data[ARM_SPE_CAP_EVENT_FILTER] = 0;
+ 	} else {
+ 		data[ARM_SPE_CPU_PMU_TYPE] = pmu->type;
+ 
+ 		if (perf_pmu__scan_file(pmu, "caps/min_interval", "%lu", &val) != 1)
+ 			val = 0;
+ 		data[ARM_SPE_CAP_MIN_IVAL] = val;
++
++		if (perf_pmu__scan_file(pmu, "caps/event_filter", "%lu", &val) != 1)
++			val = 0;
++		data[ARM_SPE_CAP_EVENT_FILTER] = val;
+ 	}
+ 
+ 	free(cpuid);
+diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+index fec11322690ec156500335c86812f55b1bcfb4bb..ec6a81a497c54d2418b885008685f0f74e00500e 100644
+--- a/tools/perf/util/arm-spe.c
++++ b/tools/perf/util/arm-spe.c
+@@ -1535,6 +1535,7 @@ static const char * const metadata_per_cpu_fmts[] = {
+ 	[ARM_SPE_CPU_MIDR]		= "    MIDR             :0x%"PRIx64"\n",
+ 	[ARM_SPE_CPU_PMU_TYPE]		= "    PMU Type         :%"PRId64"\n",
+ 	[ARM_SPE_CAP_MIN_IVAL]		= "    Min Interval     :%"PRId64"\n",
++	[ARM_SPE_CAP_EVENT_FILTER]	= "    Event Filter     :0x%"PRIx64"\n",
+ };
+ 
+ static void arm_spe_print_info(struct arm_spe *spe, __u64 *arr)
+diff --git a/tools/perf/util/arm-spe.h b/tools/perf/util/arm-spe.h
+index 390679a4af2fb61419bc881b5dc43c01f1dd77d7..3966df1856d8234bb5fe580c3f128c4d238c6221 100644
+--- a/tools/perf/util/arm-spe.h
++++ b/tools/perf/util/arm-spe.h
+@@ -47,6 +47,8 @@ enum {
+ 	ARM_SPE_CPU_PMU_TYPE,
+ 	/* Minimal interval */
+ 	ARM_SPE_CAP_MIN_IVAL,
++	/* Event filter */
++	ARM_SPE_CAP_EVENT_FILTER,
+ 	ARM_SPE_CPU_PRIV_MAX,
+ };
+ 
 
-Leo Yan (12):
-      drivers/perf: arm_spe: Expose event filter
-      perf arm_spe: Correct setting remote access
-      perf arm_spe: Correct memory level for remote access
-      perf arm_spe: Directly propagate raw event
-      perf arm_spe: Decode event types for new features
-      perf arm_spe: Add "event_filter" entry in meta data
-      perf arm_spe: Refine memory level filling
-      perf arm_spe: Separate setting of memory levels for loads and stores
-      perf arm_spe: Fill memory levels for FEAT_SPEv1p4
-      perf arm_spe: Refactor arm_spe__get_metadata_by_cpu()
-      perf arm_spe: Set HITM flag
-      perf arm_spe: Allow parsing both data source and events
-
- drivers/perf/arm_spe_pmu.c                         |  36 ++--
- tools/perf/arch/arm64/util/arm-spe.c               |   5 +
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.c  |  37 +---
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.h  |  33 ++--
- .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     |  14 ++
- .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |   7 +
- tools/perf/util/arm-spe.c                          | 206 ++++++++++++++++-----
- tools/perf/util/arm-spe.h                          |   2 +
- 8 files changed, 222 insertions(+), 118 deletions(-)
----
-base-commit: d0b3b7b22dfa1f4b515fd3a295b3fd958f9e81af
-change-id: 20250610-arm_spe_support_hitm_overhead_v1_public-c4a263385434
-
-Best regards,
 -- 
-Leo Yan <leo.yan@arm.com>
+2.34.1
 
 
