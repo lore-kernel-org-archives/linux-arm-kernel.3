@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E5EC8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 17:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 430A7C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 17:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgNrCjq6lsOkp6g05Z5E9V8l08rRXcQ6exdzrdyOjWk=; b=UKZj/b/9wjBV9Nwpw8N5XFPgVF
-	+zltMD5JoeSJOcm0CZTAB9bvPeRWHM5a637SuN7/MBc2vZ0bRFcAKeamIG8tPLbl9oZq1PARBxzuq
-	i9bgoxEHmXU5f2R86TTNwZu7DiQLHzkOb7qTbUgccRXG9sbDyk05FFQnjgVuJMt29c2pUOtu2E5Qo
-	mfUO8VNRe4GVNRaZS7SEX73Zsl798Wiey7fs+fxxSm7bJtYLboF6mB32BdvC69anYYdhdoYf9iHr/
-	IZ3bAkytEiaz16FCh5oniFjW7kqZ3LlZJog2ldqapxufJYiwfzEf/lQfuytxVtAJx0CYdsRx/alrD
-	MY9qkN8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XXonc0KksfgcMOKjNgh+rkn7Fuh0D7ZEpOfg1sBxbSc=; b=DNWclf9fl8wpVg1hnQEqd+FGy6
+	ClbKiCf401fXKvC2+ZewJCBKQNnv8uisShS8agunyZUD+BqLG9+i14X1EKUcN1V2r2/v+KmWE8tAQ
+	e/F3gv5A/L5SzTMscL1PqoLROnRx1oSulCmOJOWD5ac48hKcnn+thtvxPwukUr76SOTesX1WLKB9c
+	ZELQJEX8yzZcpLn7k7i+w1bBTbO2GH1GrrlBxEO8/iYH2LOKzTIQG4OpFeKvEBL7g87ql+E1rDp/S
+	I/jY48m/TLYOebQmu9RZbgZLSvnOIGxXLWdUu0SYN/1ZYBtDZLV22sxNRm3Nw7pq1HZInLp/me+UV
+	FHDbzjBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWIT5-000000035lp-1SVR;
-	Mon, 30 Jun 2025 17:38:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uWIVO-000000036Cc-2bwM;
+	Mon, 30 Jun 2025 17:41:22 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWH4S-00000002pqL-3J1e;
-	Mon, 30 Jun 2025 16:09:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 19317A53519;
-	Mon, 30 Jun 2025 16:09:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EC2DC4CEF3;
-	Mon, 30 Jun 2025 16:09:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751299767;
-	bh=pkoFPfsdz5mUfc5I4FK+MnyFLsCjGsnnD9jc5ME9fN4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jnBxR32keuveFDD/erORneyVQFZMExFVwQ2m1PRHBM8e09zhVEcpdxXezXwhIRIep
-	 1b/hAsrsEPE4GO34uoemDkgD6DfhLn2c+0We3yqTqkDW1Zdqk+usXyKw0ahpO/QyDk
-	 kq8OJiVNVNYv+79sZjwcLRLPE8u+AXxrFrb5rUo1EG4MgLQWKf4VRjl6PqF6ZW6RvL
-	 tO/4ewF4TqSoMw0NJ2cWpzPbScaI6j0B3laWfK7QYlGoz9vuy6ps6Y8wwL6bttBzRT
-	 i6YDWFUv5OhMZDpFhfE2wkKZC04+niDSZ+wBsXg2HLi3z3ji0M2HuML4L/kX6ufOLl
-	 sxIXnWBzurdOw==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 14/14] lib/crypto: sha256: Document the SHA-224 and SHA-256 API
-Date: Mon, 30 Jun 2025 09:06:45 -0700
-Message-ID: <20250630160645.3198-15-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250630160645.3198-1-ebiggers@kernel.org>
-References: <20250630160645.3198-1-ebiggers@kernel.org>
+	id 1uWHIc-00000002uUQ-0p0C
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 16:24:07 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751300642;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XXonc0KksfgcMOKjNgh+rkn7Fuh0D7ZEpOfg1sBxbSc=;
+	b=DxdQex7A4h47bp/vTs/wSvi+EJoKciQsC/faneSoI9IaundjT1ihjXVfwkiAk0y7ZpO4DV
+	aSClAYkqJx9gf2ej8TaBhBioaU3OXEHApWREQ/9CF1Fu+HrTJh426wRyAbcGdbe/NciNJN
+	zUxRfPZ2xDx94lA6OJQht/J5oU0+4L+MeRo9W5Os5KQNGEJ8r0NY/MUbImFbYyEp8KSFI6
+	szLMkOomImbugHzwroBwo10PzF1aMwb54sTNbKLp+h9Ydx4R7Dn8Fc03BjfIsxS4X4zpeV
+	Fjz973bJxJjtkoiF4VuWoQ+Xmg2eGrCBCGOFQ+JF8cL1JboXfN67YkBjnqTObQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751300642;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XXonc0KksfgcMOKjNgh+rkn7Fuh0D7ZEpOfg1sBxbSc=;
+	b=vlBJ+6vPAw7wT/FS5SFaJJbVEQlbqZk2uRm+Q78sgJXzy5aipZiStMNgLNeSbJbI3ODqtU
+	gLhVGsirUyEzViAA==
+To: Gabriele Monaco <gmonaco@redhat.com>, linux-kernel@vger.kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Ingo Molnar <mingo@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-trace-kernel@vger.kernel.org
+Cc: Gabriele Monaco <gmonaco@redhat.com>
+Subject: Re: [PATCH v2] tracing: Fix inconsistency in irq tracking on NMIs
+In-Reply-To: <20250625120823.60600-1-gmonaco@redhat.com>
+References: <20250625120823.60600-1-gmonaco@redhat.com>
+Date: Mon, 30 Jun 2025 18:24:02 +0200
+Message-ID: <87tt3xmc4d.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_090928_982353_0277D6DA 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20250630_092406_374612_33D2454D 
+X-CRM114-Status: GOOD (  26.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,131 +79,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add kerneldoc comments, consistent with the kerneldoc comments of the
-SHA-384 and SHA-512 API.
+On Wed, Jun 25 2025 at 14:08, Gabriele Monaco wrote:
+> The irq_enable/irq_disable tracepoints fire only when there's an actual
+> transition (enabled->disabled and vice versa), this needs special care
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- include/crypto/sha2.h | 76 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 76 insertions(+)
+vice versa). This needs ...
 
-diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
-index 2e3fc2cf4aa0d..e0a08f6addd00 100644
---- a/include/crypto/sha2.h
-+++ b/include/crypto/sha2.h
-@@ -153,17 +153,55 @@ void __hmac_sha256_init(struct __hmac_sha256_ctx *ctx,
-  */
- struct sha224_ctx {
- 	struct __sha256_ctx ctx;
- };
- 
-+/**
-+ * sha224_init() - Initialize a SHA-224 context for a new message
-+ * @ctx: the context to initialize
-+ *
-+ * If you don't need incremental computation, consider sha224() instead.
-+ *
-+ * Context: Any context.
-+ */
- void sha224_init(struct sha224_ctx *ctx);
-+
-+/**
-+ * sha224_update() - Update a SHA-224 context with message data
-+ * @ctx: the context to update; must have been initialized
-+ * @data: the message data
-+ * @len: the data length in bytes
-+ *
-+ * This can be called any number of times.
-+ *
-+ * Context: Any context.
-+ */
- static inline void sha224_update(struct sha224_ctx *ctx,
- 				 const u8 *data, size_t len)
- {
- 	__sha256_update(&ctx->ctx, data, len);
- }
-+
-+/**
-+ * sha224_final() - Finish computing a SHA-224 message digest
-+ * @ctx: the context to finalize; must have been initialized
-+ * @out: (output) the resulting SHA-224 message digest
-+ *
-+ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-+ *
-+ * Context: Any context.
-+ */
- void sha224_final(struct sha224_ctx *ctx, u8 out[SHA224_DIGEST_SIZE]);
-+
-+/**
-+ * sha224() - Compute SHA-224 message digest in one shot
-+ * @data: the message data
-+ * @len: the data length in bytes
-+ * @out: (output) the resulting SHA-224 message digest
-+ *
-+ * Context: Any context.
-+ */
- void sha224(const u8 *data, size_t len, u8 out[SHA224_DIGEST_SIZE]);
- 
- /**
-  * struct hmac_sha224_key - Prepared key for HMAC-SHA224
-  * @key: private
-@@ -273,17 +311,55 @@ void hmac_sha224_usingrawkey(const u8 *raw_key, size_t raw_key_len,
-  */
- struct sha256_ctx {
- 	struct __sha256_ctx ctx;
- };
- 
-+/**
-+ * sha256_init() - Initialize a SHA-256 context for a new message
-+ * @ctx: the context to initialize
-+ *
-+ * If you don't need incremental computation, consider sha256() instead.
-+ *
-+ * Context: Any context.
-+ */
- void sha256_init(struct sha256_ctx *ctx);
-+
-+/**
-+ * sha256_update() - Update a SHA-256 context with message data
-+ * @ctx: the context to update; must have been initialized
-+ * @data: the message data
-+ * @len: the data length in bytes
-+ *
-+ * This can be called any number of times.
-+ *
-+ * Context: Any context.
-+ */
- static inline void sha256_update(struct sha256_ctx *ctx,
- 				 const u8 *data, size_t len)
- {
- 	__sha256_update(&ctx->ctx, data, len);
- }
-+
-+/**
-+ * sha256_final() - Finish computing a SHA-256 message digest
-+ * @ctx: the context to finalize; must have been initialized
-+ * @out: (output) the resulting SHA-256 message digest
-+ *
-+ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-+ *
-+ * Context: Any context.
-+ */
- void sha256_final(struct sha256_ctx *ctx, u8 out[SHA256_DIGEST_SIZE]);
-+
-+/**
-+ * sha256() - Compute SHA-256 message digest in one shot
-+ * @data: the message data
-+ * @len: the data length in bytes
-+ * @out: (output) the resulting SHA-256 message digest
-+ *
-+ * Context: Any context.
-+ */
- void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE]);
- 
- /**
-  * struct hmac_sha256_key - Prepared key for HMAC-SHA256
-  * @key: private
--- 
-2.50.0
+> in NMIs, as they can potentially start with interrupts already disabled.
+> The current implementation takes care of this by tracking the lockdep
+> state on nmi_entry as well as using the variable tracing_irq_cpu to
+> synchronise with other calls (e.g. local_irq_disable/enable).
+>
+> This can be racy in case of NMIs when lockdep is enabled, and can lead
+> to missing events when lockdep is disabled.
+>
+> Remove dependency on the lockdep status in the NMI common entry/exit
+> code and adapt the tracing code to make sure that:
+>
+> - The first call disabling interrupts fires the tracepoint
+> - The first non-NMI call enabling interrupts fires the tracepoint
+> - The last NMI call enabling interrupts fires the tracepoint unless
+>   interrupts were disabled before the NMI
+> - All other calls don't fire
 
+Please mention, that you fix the same problem in the ARM64 specific variant.
+
+> Fixes: ba1f2b2eaa2a ("x86/entry: Fix NMI vs IRQ state tracking")
+> Fixes: f0cd5ac1e4c5 ("arm64: entry: fix NMI {user, kernel}->kernel transitions")
+> Signed-off-by: Gabriele Monaco <gmonaco@redhat.com>
+> ---
+>
+> The inconsistency is visible with the sncid RV monitor and particularly
+> likely on machines with the following setup:
+> - x86 bare-metal with 40+ CPUs
+> - tuned throughput-performance (activating regular perf NMIs)
+> - workload: stress-ng --cpu-sched 21 --timer 11 --signal 11
+>
+> The presence of the RV monitor is useful to see the error but it is not
+> necessary to trigger it.
+>
+> Changes since V1:
+> * Reworded confusing changelog
+> * Remove dependency on lockdep counters for tracepoints
+> * Ensure we don't drop valid tracepoints
+> * Extend change to arm64 code
+>
+>  arch/arm64/kernel/entry-common.c |  5 ++---
+>  kernel/entry/common.c            |  5 ++---
+>  kernel/trace/trace_preemptirq.c  | 12 +++++++-----
+>  3 files changed, 11 insertions(+), 11 deletions(-)
+>
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index 7c1970b341b8c..7f1844123642e 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -213,10 +213,9 @@ static void noinstr arm64_exit_nmi(struct pt_regs *regs)
+>  	bool restore = regs->lockdep_hardirqs;
+>  
+>  	ftrace_nmi_exit();
+> -	if (restore) {
+> -		trace_hardirqs_on_prepare();
+> +	trace_hardirqs_on_prepare();
+> +	if (restore)
+>  		lockdep_hardirqs_on_prepare();
+> -	}
+>  
+>  	ct_nmi_exit();
+>  	lockdep_hardirq_exit();
+> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
+> index a8dd1f27417cf..e234f264fb495 100644
+> --- a/kernel/entry/common.c
+> +++ b/kernel/entry/common.c
+> @@ -343,10 +343,9 @@ void noinstr irqentry_nmi_exit(struct pt_regs *regs, irqentry_state_t irq_state)
+>  {
+>  	instrumentation_begin();
+>  	ftrace_nmi_exit();
+> -	if (irq_state.lockdep) {
+> -		trace_hardirqs_on_prepare();
+> +	trace_hardirqs_on_prepare();
+> +	if (irq_state.lockdep)
+>  		lockdep_hardirqs_on_prepare();
+> -	}
+>  	instrumentation_end();
+>  
+>  	ct_nmi_exit();
+> diff --git a/kernel/trace/trace_preemptirq.c b/kernel/trace/trace_preemptirq.c
+> index 0c42b15c38004..fa45474fc54f1 100644
+> --- a/kernel/trace/trace_preemptirq.c
+> +++ b/kernel/trace/trace_preemptirq.c
+> @@ -58,7 +58,11 @@ static DEFINE_PER_CPU(int, tracing_irq_cpu);
+>   */
+>  void trace_hardirqs_on_prepare(void)
+>  {
+> -	if (this_cpu_read(tracing_irq_cpu)) {
+> +	int tracing_count = this_cpu_read(tracing_irq_cpu);
+> +
+> +	if (in_nmi() && tracing_count > 1)
+> +		this_cpu_dec(tracing_irq_cpu);
+
+This if clause wants curly brackets and please add a comment explaining
+this in_nmi() magic. Two month down the road everyone forgot including
+you :)
+
+Thanks,
+
+        tglx
 
