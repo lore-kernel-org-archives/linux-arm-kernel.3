@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542C5C83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 13:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6BCDC83035
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 13:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LzTcO/m9tkAD8Gqe/zjzIYRZPiIiP4NraWiu1v8c0Q=; b=nLYxBL8oNmtVIN6ZWK8Ct2dTzR
-	wmOjVHsHdbkQfcSKBnpDhBP5P5s6Les5kFgUf87cXeMCtXzKHYS6VX4tWb9g0+inmk4tAd+xfQ7VL
-	f2uSV+f/RM4X5Tt8l0O1bcTTmIhvwnLQbiJpZDKJjQZ5i0Tc7/38H2G63/IpllLPIuuXo25DX/V8O
-	77XJ3yJxeO1Re0vG7NoCZQiP8/RfA1nlBM8vA1Khq6xnznDjeGvOfAAQwGKrFYTLJYcdP/9rTf+sx
-	otd68LyfkiuDSmYzsuwa2DdxAOIsnA3AxVOah/r8F/7sWEeBXfJTv7zGhkb9Xo3JDjTqqNi4YtTcU
-	H8rEh5Yg==;
+	bh=vqz5wu4a9+fyxIcUMARw02jDw0fFs9t8Ss/9EgTuY8g=; b=eJ5LKroK40khOUDl5rB9r2eycT
+	ZxqsPL0Krf00VaX6N84ZspdpJuyQX5iutqmYNDaKlbioLuLngqW8U0mtGLKN7EVYIqRg7ylWIij38
+	I6LJnTOotlcktz0C8yt7kozwRpu6CW/YC8dcHTU+FSLSMMJC14CEg2qfA9GaDmL6UUkrfQYMbjS/2
+	KPcpn++QokERVHrQVXDhsvHsWs/JNA+cMLgUqH5hzksEsSCo1URK2dHRn4lacooYlFQNar6p2Dmwn
+	3QPm5pE4BXjLyUzce7Q1b7TZrom7DsBbbR6A4+lA0h5epF5xJDyayR5OyFlQu76X1A9ksSP911GO9
+	F/PUHN4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWEpB-00000002QCQ-05We;
-	Mon, 30 Jun 2025 13:45:33 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1uWErS-00000002QZE-3FiR;
+	Mon, 30 Jun 2025 13:47:54 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWEZq-00000002NZ4-3l5U;
-	Mon, 30 Jun 2025 13:29:44 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-73c17c770a7so2680494b3a.2;
-        Mon, 30 Jun 2025 06:29:42 -0700 (PDT)
+	id 1uWEaQ-00000002Ni5-1pdr;
+	Mon, 30 Jun 2025 13:30:19 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-747c2cc3419so4241802b3a.2;
+        Mon, 30 Jun 2025 06:30:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751290182; x=1751894982; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1751290218; x=1751895018; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7LzTcO/m9tkAD8Gqe/zjzIYRZPiIiP4NraWiu1v8c0Q=;
-        b=loU/FGPqTc9z+Wq5tFMLhd5di4asD4VsHx39tU2raKrAM0K+5yKm7T18Fa7/lSXSpu
-         ZbaqK4Dv3AS7rIpxWqJHhqI/FSgxWJnHCXv3teBGAZboDN9ggxv39T0BolmDBXqcB0MG
-         vOdktUY3kt/xuRMr3wq8rBwjooysyu007sgAnaG5w8Tz3fCVq9pmKzNAJZpyd36b2usu
-         yVSfWtnUguKQw1BvnnH04jUfHP/+FklMpyCEXAAUpUR0NgHnZs6vwzjUVDpk7Kuoi+MS
-         l9vHph/Ed7eAKfSzYRFmaguZOh3cAC2mGG/euJ1jCrYGcD5FKPzU3NPqFMbhbY17GuVA
-         Xl0w==
+        bh=vqz5wu4a9+fyxIcUMARw02jDw0fFs9t8Ss/9EgTuY8g=;
+        b=ILP+drC/ASsUF8AbTNbfSUBBHhZfYlGM5/QdPg+1R32ihfEFECkMIxla2oa/snybX5
+         0MCVu8hBiqA1vfouBU1DIrRglWGIWZgzcgOIs/e+VfbpTptIKHr8j7+r3jgjXgDveR7l
+         ObzThtMy0SSWmmN+KYPgJ536Y16xrdXZOta9/IPTpx2KQlkWSe1Z53afNzZ69kzcQbPY
+         jykJKNI8lEFrvfuWYzlCOT6IyRmIO/BWi9n7hCz7RFmfMGoI3hObfoCV2OELC6V067oo
+         +yIW3R8SfCEukBd427gxCIq6i9Drd528JV5B2EDcA9gjyr7sJv8a2MJDzLvNww40HuKu
+         5frQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751290182; x=1751894982;
+        d=1e100.net; s=20230601; t=1751290218; x=1751895018;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7LzTcO/m9tkAD8Gqe/zjzIYRZPiIiP4NraWiu1v8c0Q=;
-        b=bdxatnAbCGFKIoPnSkqp5JrRDLw7kWPTpEmRtYZjmpVaLqxbpTgSMkAOl/ceOf0WNh
-         1swbbj9DrYffmuiYf54PeP6nxoOIvIGaNJJkdFI3JwBXkoCV0Dl7kNAQ7emVWJNfcp7s
-         fjigDy6IDvZCEvYmi/WCdt/XKCAGdWDRS/jgmEJy4D/9eb4rkMsI+DOCU13iwdvBggft
-         baTuauIYo8LR3no8gaEMo2JbF9XnDRMNl7DL6Y2YwqNh3vKdkn9tpyfYlSIbZJdfF0hR
-         fg1skJHuuBWuh5u3sXZNust+FqaWelkkqlmMbaX9cWwnAMTVnbbmidBoFYGV9oczxdXf
-         jyww==
-X-Forwarded-Encrypted: i=1; AJvYcCVwHDJuLfSoVEm+ZQNIb+KWLgPGiQ+jpWqvkCWzxcoqp9f1RHG+1vVlQEJ/PSvhlpGjM4laTiA5qpKsNEH249A=@lists.infradead.org, AJvYcCWvmmja3Wrnq6QOVTTjD22bUOl0ea1D0wFqNYOvsLP7HxSZZNMEQploX33lt4uHCyp0x8Ra4G6jrJKTszaEZ29T@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbHGlx+YzD/6XSCWYCgsbdf1DKL7V42a8x0Oqw5lWfPtbS5vmV
-	3jkXfJPj+q8A5ftdcCJ5/GpoJJYCJ4PORM39Tlzw5tIbxwPywZu2qapy
-X-Gm-Gg: ASbGncu46Zm0W0h+sEvjFoJ49NN2Vf7+5qwZ6kT63plZbjQWsphT0xANYkDBpjgxoGf
-	cPCy218/zbDoQhLY/vmPmtMg3TJgbimKp3LKLdFNjqa3mIyRbrXBmHbjxsogLQ0wGl+ae5oB56T
-	zKmithVJBm3e+uYs5N2u9dbqFq7gxD1Ad9ziMpRlXSEGmT8DvXLlJRUqpzsvk4FHPC/YwWosXU/
-	jqeFT9jjH5hFnuvBWw40aBfuo67cAuIiHnJ00KUlJjT7SBKBV0+8P36GpIzG0lf8dH9JVWkbHGo
-	uz1IsF0MojPqJb0izIurDeNMc97jUGpE+/ORERo2pKxE8ucCu6TdTgzu5gkyFRmw7gXOSSW4jqY
-	=
-X-Google-Smtp-Source: AGHT+IGvSGnok+XQLrJYo+ik4oz3Ag1fPM5VlkYA503/kIRfskW4gdLdiEAL+3hl/iMdowvVnXbgzw==
-X-Received: by 2002:a05:6a00:997:b0:730:95a6:3761 with SMTP id d2e1a72fcca58-74af6e3f46amr20055931b3a.3.1751290181725;
-        Mon, 30 Jun 2025 06:29:41 -0700 (PDT)
+        bh=vqz5wu4a9+fyxIcUMARw02jDw0fFs9t8Ss/9EgTuY8g=;
+        b=oQzHXXVTaOUOWKEhplQ0XgSasBRoiOkOzWYUwjjfY4w/aS9ssBddxe8+Y0ARPp7a99
+         65fVNqzS3Zmi3BSgNYqQU1WFYtpeQ/GzAylLTUxrHGpaUm55GDqCVCwwZDszxFrmNFk1
+         zi3sSc3VO4qBeyyOh/eyABLxtfHmkDmeF9V9s+VZLfyL6p57DkmQOtLUczjrzW5wzzzX
+         g0zdDjtBnkR/xAuj/l2D6hCpMjPVzuA5lyNRTQuM/PPECi64ZdukA7Fxt638EtFtaZsq
+         v1z7lJUi2JqlJb31BuMyBzPcJr9DHz3PklBKD6370seSSAuoNbGAzLZVcm6n07l7pca0
+         b6Pw==
+X-Forwarded-Encrypted: i=1; AJvYcCU3vAr5EEwKvwa+nCzsL91uolxRd/yhPXUmyEqqFzjnqyYrVgKafauvNpGdFOfprHfXlVcsULETBC6rQqTC5Jk=@lists.infradead.org, AJvYcCUEudfZxqLxtMCD4S3pRc1Pvn6U6BglbSWbOrgThLzydJDZasDXFuO/luGYD0HYknLN7uN+EeZ+IMZCy3s28Q0X@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXwGlblCnysFuxRzKP6tHMMPJXHjUqPzNeov9275Wn6XSlkk/a
+	DkCGAZeFBfad+wWGXDy1Jic1Xpq5RtL9uPizLR1O/6cwnO/KYk+9LNCv
+X-Gm-Gg: ASbGncsnVmr9smBr+TzDtkC9su3iUUQ0ZkAob7bXTUA6MGBsmDhYeL4UFjAfkj+6qk/
+	atmsn8OyPUINYhBI0mA9ukTNy+6ikQcvRaezSZ7Py7n0he9wcH4N0dx2AJ5H/T3LwOZebtq9/00
+	II1eeRuNx7XwG4BpDp0auSZ2lXTYItFNoAJHTFni429Xx9Byt54hbx7obAcAyveBjMSQXqveqAc
+	BasTVLEAWatPozXrdkMcA6GRcHVbS4YnsZLyCmmdUrqofE6m1WCSA/Cq24NKSzY5mRGFsy45kzz
+	RVPNmcfrP1K+9t43RAMXkaPqEZeZ26+N5LXZ0J7+28fhBHiaNo03enY/paZup6xDD9tTlxux8S0
+	h2ML/4kyhsg==
+X-Google-Smtp-Source: AGHT+IHsEfXOWrT8Uf27lIFmnKIwzXoqP5mPWVdDMXddwdbdnzqfqiqgg5d8T6nDpFccz1puGjbcBw==
+X-Received: by 2002:a05:6a20:c90e:b0:21f:53e4:1925 with SMTP id adf61e73a8af0-220a12dbff0mr19639755637.10.1751290217517;
+        Mon, 30 Jun 2025 06:30:17 -0700 (PDT)
 Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74af541e655sm9110887b3a.65.2025.06.30.06.29.40
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b350d81f0ecsm2964147a12.27.2025.06.30.06.30.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jun 2025 06:29:40 -0700 (PDT)
-Date: Mon, 30 Jun 2025 06:29:39 -0700
+        Mon, 30 Jun 2025 06:30:15 -0700 (PDT)
+Date: Mon, 30 Jun 2025 06:30:15 -0700
 From: Guenter Roeck <linux@roeck-us.net>
 To: wctrl@proton.me
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -85,18 +85,17 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH v2 04/11] dt-bindings: watchdog: mediatek,mtk-wdt: add
- MT6572
-Message-ID: <f56c2213-e7ef-4b91-b843-e54d8821e044@roeck-us.net>
+Subject: Re: [PATCH v2 05/11] dt-bindings: vendor-prefixes: add JTY
+Message-ID: <4c48a544-1252-40fe-8dd7-17ec848f6957@roeck-us.net>
 References: <20250626-mt6572-v2-0-f7f842196986@proton.me>
- <20250626-mt6572-v2-4-f7f842196986@proton.me>
+ <20250626-mt6572-v2-5-f7f842196986@proton.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250626-mt6572-v2-4-f7f842196986@proton.me>
+In-Reply-To: <20250626-mt6572-v2-5-f7f842196986@proton.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_062942_933294_8ADCDA69 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20250630_063018_474253_87A685C9 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,32 +110,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 11:53:57AM +0300, Max Shevchenko via B4 Relay wrote:
+On Thu, Jun 26, 2025 at 11:53:58AM +0300, Max Shevchenko via B4 Relay wrote:
 > From: Max Shevchenko <wctrl@proton.me>
 > 
-> Add a compatible string for watchdog on the MT6572 SoC.
+> JTY produced low-cost Android tablets based on various
+> MediaTek MT65xx SoCs.
 > 
 > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > Signed-off-by: Max Shevchenko <wctrl@proton.me>
 
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+Acked-by: Guenter Roeck <linux@roeck-us.net>
 
 > ---
->  Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml b/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-> index 8d2520241e37f0e8a7526cbc99d5aa0d4edc9a55..ba0bfd73ab62a86befead007d4b7d2a870b81a0c 100644
-> --- a/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-> +++ b/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-> @@ -34,6 +34,7 @@ properties:
->        - items:
->            - enum:
->                - mediatek,mt2701-wdt
-> +              - mediatek,mt6572-wdt
->                - mediatek,mt6582-wdt
->                - mediatek,mt6797-wdt
->                - mediatek,mt7622-wdt
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> index 86f6a19b28ae217643bf7a63a471f74819d18238..517bd129288c96483ffe358127ce8e16f60d902b 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -782,6 +782,8 @@ patternProperties:
+>      description: Jide Tech
+>    "^joz,.*":
+>      description: JOZ BV
+> +  "^jty,.*":
+> +    description: JTY
+>    "^kam,.*":
+>      description: Kamstrup A/S
+>    "^karo,.*":
 > 
 > -- 
 > 2.50.0
