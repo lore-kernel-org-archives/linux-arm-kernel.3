@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11690C8302D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 16:44:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96199C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 16:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OtowilP7aeUT5FetsBJcR618rSChYQeZvQ4Cpdtofpg=; b=nt5uVP3O465a3ArP9zxIzOjJ16
-	bx/D/beGIshbm+8K1jfn3XTVDaTozNfXBjUxjgjeKOdLhy4qPEtUnp2Dwxi2zTXG/3WTbP7KKTAhR
-	blqnTliTQoLLyg9OVD2fXpeD+dSXjnGk5YKXK7VytkCtMiPOTqBLdjNuTzihRD8jIu36PcIvN/OB/
-	YV5hP7Wy6+pkpHhVoVRdKADs7XjMkKpNXOTuYP8nYmYUfuzIj0FX3NnoKTgzTrj/snTENb8yypG5e
-	T7y3yR4FqG9YGoRntXHij4V56u6eviRO0L7J2auRjnprPMZIx5iP5ahycWHXQpfB08XYq1VzbNoAS
-	3u/1wiYA==;
+	bh=RARax4ZU1rhn1RBEvvf7tq/fCuW8WoMzQxGL8QmKtMs=; b=urJ5qOiLoRUYRej7LSxBeYmisG
+	FjALkh8amFltSySsCpS42pFF0zOTKWn4cDyb9MyJE1lGOBWLAlQ9l7FrS1IfZRN2uNgBRYaq9T5sG
+	fyj9p7/RndaJcPzS2kqe5RSUXVmXowfOToS8T37RebiUkoirDVZs3YdzDxTgISBoJ0D0bV7etBNXo
+	gldVxK8jiDjl9NZw/RRJLfELAkKjPtOWJmWyAwUS7S5P27OLsWgzQV1qIK2K1ROFN5Z8JhK1oFaj5
+	qTThG8zCMIyVewOhA8Tqw38KyYCBjOBzqP/cKfrYIx1xqu95wRXS+ukSf3AejbnnDnE0yaFaMpb2J
+	smmgBlaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWHbt-00000002yTV-03Lj;
-	Mon, 30 Jun 2025 16:44:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uWHeB-00000002yxQ-1NWG;
+	Mon, 30 Jun 2025 16:46:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWH0Z-00000002oma-1DcE;
-	Mon, 30 Jun 2025 16:05:27 +0000
+	id 1uWH0a-00000002onc-0u2X;
+	Mon, 30 Jun 2025 16:05:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B2AED61443;
-	Mon, 30 Jun 2025 16:05:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35AEBC4CEF1;
-	Mon, 30 Jun 2025 16:05:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A48CF61442;
+	Mon, 30 Jun 2025 16:05:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27067C4CEF3;
+	Mon, 30 Jun 2025 16:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751299526;
-	bh=X4Q3jMJYTozhR3OhKfdtes+x8nVkSNX4ADLbk36WeBU=;
+	s=k20201202; t=1751299527;
+	bh=Jo/0UhzzhJ/7lZ84MAFhrojZAjufvPuvMimGEBYnelk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dYiYAok4mmLaetpLGKE+oZw1I0/fkjYiA/j49nYQFuOzTzq/jJpWRoVb1o/FTyew1
-	 6sL+6zQWgmh/b9Y+Wy+ykcZYpn3th0dDdV2VkvEUunYlP3HHstk17V67zpdtS5mtkX
-	 7den1CZqICJDRSqBAuq+q0jFQzB/ig3niN+n4ijj/VeK+xqbeh4aKvHmdz0EWsAh47
-	 AgYxV2PvrQqY6RAH8itrWXXy55TAwpvLW9lAIMUosyitb6y/MXXN/wzkxd3wjgrbUO
-	 IX3P2YfU19lkDVrC6CJ9KbQJntwJhzvNojYvBKK2N7KI0hB0gBbFKyIWGicPSkj1Qu
-	 HOWI8rNld1nPQ==
+	b=bl+I+Kmfn0qy7Q42rhg0UnqBv77Ua4ihiN+nqsEiJbi1xYB0E/MbdocLHCE/jC7Kh
+	 TiBAT+qd+pq39ivQ0/R/WirORlwesD/by0NlZWrvEU5VbUim2n07JLweJDQZIVO+EQ
+	 sNvvG0NEh7jaunbfvbwXESJalktgUVsU88zjX4DspE+EXdy1mRoHRUAa38CFpAgsw1
+	 yPEgk4rfJVN+IhQUZ+1fJv8y+Dc2ztIuyx9EL5WE3nHP2Q1PnEDYqoRCtXArdwolLP
+	 VLIOsFDXBKBpocs7EDPKSiPSFlcO8iw74nzyoPa4h2pJBlwbKGmjUDuosv8AlzhYno
+	 bdzmWY5ORjFRg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,9 +53,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v3 10/16] lib/crypto: mips/sha512: Migrate optimized SHA-512 code to library
-Date: Mon, 30 Jun 2025 09:03:14 -0700
-Message-ID: <20250630160320.2888-11-ebiggers@kernel.org>
+Subject: [PATCH v3 12/16] lib/crypto: s390/sha512: Migrate optimized SHA-512 code to library
+Date: Mon, 30 Jun 2025 09:03:16 -0700
+Message-ID: <20250630160320.2888-13-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250630160320.2888-1-ebiggers@kernel.org>
 References: <20250630160320.2888-1-ebiggers@kernel.org>
@@ -75,346 +75,306 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of exposing the mips-optimized SHA-512 code via mips-specific
+Instead of exposing the s390-optimized SHA-512 code via s390-specific
 crypto_shash algorithms, instead just implement the sha512_blocks()
 library function.  This is much simpler, it makes the SHA-512 (and
-SHA-384) library functions be mips-optimized, and it fixes the
-longstanding issue where the mips-optimized SHA-512 code was disabled by
+SHA-384) library functions be s390-optimized, and it fixes the
+longstanding issue where the s390-optimized SHA-512 code was disabled by
 default.  SHA-512 still remains available through crypto_shash, but
 individual architectures no longer need to handle it.
-
-Note: to see the diff from
-arch/mips/cavium-octeon/crypto/octeon-sha512.c to
-lib/crypto/mips/sha512.h, view this commit with 'git show -M10'.
 
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/mips/cavium-octeon/crypto/Makefile       |   1 -
- .../mips/cavium-octeon/crypto/octeon-sha512.c | 166 ------------------
- arch/mips/configs/cavium_octeon_defconfig     |   1 -
- arch/mips/crypto/Kconfig                      |  10 --
- lib/crypto/Kconfig                            |   1 +
- lib/crypto/mips/sha512.h                      |  74 ++++++++
- 6 files changed, 75 insertions(+), 178 deletions(-)
- delete mode 100644 arch/mips/cavium-octeon/crypto/octeon-sha512.c
- create mode 100644 lib/crypto/mips/sha512.h
+ arch/s390/configs/debug_defconfig |   1 -
+ arch/s390/configs/defconfig       |   1 -
+ arch/s390/crypto/Kconfig          |  10 --
+ arch/s390/crypto/Makefile         |   1 -
+ arch/s390/crypto/sha512_s390.c    | 151 ------------------------------
+ lib/crypto/Kconfig                |   1 +
+ lib/crypto/s390/sha512.h          |  28 ++++++
+ 7 files changed, 29 insertions(+), 164 deletions(-)
+ delete mode 100644 arch/s390/crypto/sha512_s390.c
+ create mode 100644 lib/crypto/s390/sha512.h
 
-diff --git a/arch/mips/cavium-octeon/crypto/Makefile b/arch/mips/cavium-octeon/crypto/Makefile
-index db26c73fa0eda..168b19ef7ce89 100644
---- a/arch/mips/cavium-octeon/crypto/Makefile
-+++ b/arch/mips/cavium-octeon/crypto/Makefile
-@@ -6,6 +6,5 @@
- obj-y += octeon-crypto.o
+diff --git a/arch/s390/configs/debug_defconfig b/arch/s390/configs/debug_defconfig
+index 8ecad727497e1..ef313c30b375c 100644
+--- a/arch/s390/configs/debug_defconfig
++++ b/arch/s390/configs/debug_defconfig
+@@ -802,11 +802,10 @@ CONFIG_CRYPTO_ZSTD=m
+ CONFIG_CRYPTO_ANSI_CPRNG=m
+ CONFIG_CRYPTO_USER_API_HASH=m
+ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ CONFIG_CRYPTO_USER_API_RNG=m
+ CONFIG_CRYPTO_USER_API_AEAD=m
+-CONFIG_CRYPTO_SHA512_S390=m
+ CONFIG_CRYPTO_SHA1_S390=m
+ CONFIG_CRYPTO_SHA3_256_S390=m
+ CONFIG_CRYPTO_SHA3_512_S390=m
+ CONFIG_CRYPTO_GHASH_S390=m
+ CONFIG_CRYPTO_AES_S390=m
+diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
+index c13a77765162a..b6fa341bb03b6 100644
+--- a/arch/s390/configs/defconfig
++++ b/arch/s390/configs/defconfig
+@@ -789,11 +789,10 @@ CONFIG_CRYPTO_ANSI_CPRNG=m
+ CONFIG_CRYPTO_JITTERENTROPY_OSR=1
+ CONFIG_CRYPTO_USER_API_HASH=m
+ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ CONFIG_CRYPTO_USER_API_RNG=m
+ CONFIG_CRYPTO_USER_API_AEAD=m
+-CONFIG_CRYPTO_SHA512_S390=m
+ CONFIG_CRYPTO_SHA1_S390=m
+ CONFIG_CRYPTO_SHA3_256_S390=m
+ CONFIG_CRYPTO_SHA3_512_S390=m
+ CONFIG_CRYPTO_GHASH_S390=m
+ CONFIG_CRYPTO_AES_S390=m
+diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
+index e2c27588b21a9..4557514fbac35 100644
+--- a/arch/s390/crypto/Kconfig
++++ b/arch/s390/crypto/Kconfig
+@@ -1,19 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0
  
- obj-$(CONFIG_CRYPTO_MD5_OCTEON)		+= octeon-md5.o
- obj-$(CONFIG_CRYPTO_SHA1_OCTEON)	+= octeon-sha1.o
- obj-$(CONFIG_CRYPTO_SHA256_OCTEON)	+= octeon-sha256.o
--obj-$(CONFIG_CRYPTO_SHA512_OCTEON)	+= octeon-sha512.o
-diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha512.c b/arch/mips/cavium-octeon/crypto/octeon-sha512.c
+ menu "Accelerated Cryptographic Algorithms for CPU (s390)"
+ 
+-config CRYPTO_SHA512_S390
+-	tristate "Hash functions: SHA-384 and SHA-512"
+-	select CRYPTO_HASH
+-	help
+-	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
+-
+-	  Architecture: s390
+-
+-	  It is available as of z10.
+-
+ config CRYPTO_SHA1_S390
+ 	tristate "Hash functions: SHA-1"
+ 	select CRYPTO_HASH
+ 	help
+ 	  SHA-1 secure hash algorithm (FIPS 180)
+diff --git a/arch/s390/crypto/Makefile b/arch/s390/crypto/Makefile
+index 21757d86cd499..473d64c0982af 100644
+--- a/arch/s390/crypto/Makefile
++++ b/arch/s390/crypto/Makefile
+@@ -2,11 +2,10 @@
+ #
+ # Cryptographic API
+ #
+ 
+ obj-$(CONFIG_CRYPTO_SHA1_S390) += sha1_s390.o sha_common.o
+-obj-$(CONFIG_CRYPTO_SHA512_S390) += sha512_s390.o sha_common.o
+ obj-$(CONFIG_CRYPTO_SHA3_256_S390) += sha3_256_s390.o sha_common.o
+ obj-$(CONFIG_CRYPTO_SHA3_512_S390) += sha3_512_s390.o sha_common.o
+ obj-$(CONFIG_CRYPTO_DES_S390) += des_s390.o
+ obj-$(CONFIG_CRYPTO_AES_S390) += aes_s390.o
+ obj-$(CONFIG_CRYPTO_PAES_S390) += paes_s390.o
+diff --git a/arch/s390/crypto/sha512_s390.c b/arch/s390/crypto/sha512_s390.c
 deleted file mode 100644
-index 53de74f642db0..0000000000000
---- a/arch/mips/cavium-octeon/crypto/octeon-sha512.c
+index e8bb172dbed75..0000000000000
+--- a/arch/s390/crypto/sha512_s390.c
 +++ /dev/null
-@@ -1,166 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-or-later
+@@ -1,151 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0+
 -/*
 - * Cryptographic API.
 - *
-- * SHA-512 and SHA-384 Secure Hash Algorithm.
+- * s390 implementation of the SHA512 and SHA38 Secure Hash Algorithm.
 - *
-- * Adapted for OCTEON by Aaro Koskinen <aaro.koskinen@iki.fi>.
-- *
-- * Based on crypto/sha512_generic.c, which is:
-- *
-- * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
-- * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
-- * Copyright (c) 2003 Kyle McMartin <kyle@debian.org>
+- * Copyright IBM Corp. 2007
+- * Author(s): Jan Glauber (jang@de.ibm.com)
 - */
--
--#include <asm/octeon/crypto.h>
--#include <asm/octeon/octeon.h>
+-#include <asm/cpacf.h>
 -#include <crypto/internal/hash.h>
 -#include <crypto/sha2.h>
--#include <crypto/sha512_base.h>
+-#include <linux/cpufeature.h>
+-#include <linux/errno.h>
 -#include <linux/kernel.h>
 -#include <linux/module.h>
 -
--/*
-- * We pass everything as 64-bit. OCTEON can handle misaligned data.
-- */
+-#include "sha.h"
 -
--static void octeon_sha512_store_hash(struct sha512_state *sctx)
+-static int sha512_init_s390(struct shash_desc *desc)
 -{
--	write_octeon_64bit_hash_sha512(sctx->state[0], 0);
--	write_octeon_64bit_hash_sha512(sctx->state[1], 1);
--	write_octeon_64bit_hash_sha512(sctx->state[2], 2);
--	write_octeon_64bit_hash_sha512(sctx->state[3], 3);
--	write_octeon_64bit_hash_sha512(sctx->state[4], 4);
--	write_octeon_64bit_hash_sha512(sctx->state[5], 5);
--	write_octeon_64bit_hash_sha512(sctx->state[6], 6);
--	write_octeon_64bit_hash_sha512(sctx->state[7], 7);
+-	struct s390_sha_ctx *ctx = shash_desc_ctx(desc);
+-
+-	ctx->sha512.state[0] = SHA512_H0;
+-	ctx->sha512.state[1] = SHA512_H1;
+-	ctx->sha512.state[2] = SHA512_H2;
+-	ctx->sha512.state[3] = SHA512_H3;
+-	ctx->sha512.state[4] = SHA512_H4;
+-	ctx->sha512.state[5] = SHA512_H5;
+-	ctx->sha512.state[6] = SHA512_H6;
+-	ctx->sha512.state[7] = SHA512_H7;
+-	ctx->count = 0;
+-	ctx->sha512.count_hi = 0;
+-	ctx->func = CPACF_KIMD_SHA_512;
+-
+-	return 0;
 -}
 -
--static void octeon_sha512_read_hash(struct sha512_state *sctx)
+-static int sha512_export(struct shash_desc *desc, void *out)
 -{
--	sctx->state[0] = read_octeon_64bit_hash_sha512(0);
--	sctx->state[1] = read_octeon_64bit_hash_sha512(1);
--	sctx->state[2] = read_octeon_64bit_hash_sha512(2);
--	sctx->state[3] = read_octeon_64bit_hash_sha512(3);
--	sctx->state[4] = read_octeon_64bit_hash_sha512(4);
--	sctx->state[5] = read_octeon_64bit_hash_sha512(5);
--	sctx->state[6] = read_octeon_64bit_hash_sha512(6);
--	sctx->state[7] = read_octeon_64bit_hash_sha512(7);
+-	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
+-	struct sha512_state *octx = out;
+-
+-	octx->count[0] = sctx->count;
+-	octx->count[1] = sctx->sha512.count_hi;
+-	memcpy(octx->state, sctx->state, sizeof(octx->state));
+-	return 0;
 -}
 -
--static void octeon_sha512_transform(struct sha512_state *sctx,
--				    const u8 *src, int blocks)
+-static int sha512_import(struct shash_desc *desc, const void *in)
 -{
--	do {
--		const u64 *block = (const u64 *)src;
+-	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
+-	const struct sha512_state *ictx = in;
 -
--		write_octeon_64bit_block_sha512(block[0], 0);
--		write_octeon_64bit_block_sha512(block[1], 1);
--		write_octeon_64bit_block_sha512(block[2], 2);
--		write_octeon_64bit_block_sha512(block[3], 3);
--		write_octeon_64bit_block_sha512(block[4], 4);
--		write_octeon_64bit_block_sha512(block[5], 5);
--		write_octeon_64bit_block_sha512(block[6], 6);
--		write_octeon_64bit_block_sha512(block[7], 7);
--		write_octeon_64bit_block_sha512(block[8], 8);
--		write_octeon_64bit_block_sha512(block[9], 9);
--		write_octeon_64bit_block_sha512(block[10], 10);
--		write_octeon_64bit_block_sha512(block[11], 11);
--		write_octeon_64bit_block_sha512(block[12], 12);
--		write_octeon_64bit_block_sha512(block[13], 13);
--		write_octeon_64bit_block_sha512(block[14], 14);
--		octeon_sha512_start(block[15]);
+-	sctx->count = ictx->count[0];
+-	sctx->sha512.count_hi = ictx->count[1];
 -
--		src += SHA512_BLOCK_SIZE;
--	} while (--blocks);
+-	memcpy(sctx->state, ictx->state, sizeof(ictx->state));
+-	sctx->func = CPACF_KIMD_SHA_512;
+-	return 0;
 -}
 -
--static int octeon_sha512_update(struct shash_desc *desc, const u8 *data,
--				unsigned int len)
--{
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--	struct octeon_cop2_state state;
--	unsigned long flags;
--	int remain;
--
--	flags = octeon_crypto_enable(&state);
--	octeon_sha512_store_hash(sctx);
--
--	remain = sha512_base_do_update_blocks(desc, data, len,
--					      octeon_sha512_transform);
--
--	octeon_sha512_read_hash(sctx);
--	octeon_crypto_disable(&state, flags);
--	return remain;
--}
--
--static int octeon_sha512_finup(struct shash_desc *desc, const u8 *src,
--			       unsigned int len, u8 *hash)
--{
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--	struct octeon_cop2_state state;
--	unsigned long flags;
--
--	flags = octeon_crypto_enable(&state);
--	octeon_sha512_store_hash(sctx);
--
--	sha512_base_do_finup(desc, src, len, octeon_sha512_transform);
--
--	octeon_sha512_read_hash(sctx);
--	octeon_crypto_disable(&state, flags);
--	return sha512_base_finish(desc, hash);
--}
--
--static struct shash_alg octeon_sha512_algs[2] = { {
+-static struct shash_alg sha512_alg = {
 -	.digestsize	=	SHA512_DIGEST_SIZE,
--	.init		=	sha512_base_init,
--	.update		=	octeon_sha512_update,
--	.finup		=	octeon_sha512_finup,
--	.descsize	=	SHA512_STATE_SIZE,
+-	.init		=	sha512_init_s390,
+-	.update		=	s390_sha_update_blocks,
+-	.finup		=	s390_sha_finup,
+-	.export		=	sha512_export,
+-	.import		=	sha512_import,
+-	.descsize	=	sizeof(struct s390_sha_ctx),
+-	.statesize	=	SHA512_STATE_SIZE,
 -	.base		=	{
 -		.cra_name	=	"sha512",
--		.cra_driver_name=	"octeon-sha512",
--		.cra_priority	=	OCTEON_CR_OPCODE_PRIORITY,
+-		.cra_driver_name=	"sha512-s390",
+-		.cra_priority	=	300,
 -		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
 -					CRYPTO_AHASH_ALG_FINUP_MAX,
 -		.cra_blocksize	=	SHA512_BLOCK_SIZE,
 -		.cra_module	=	THIS_MODULE,
 -	}
--}, {
+-};
+-
+-MODULE_ALIAS_CRYPTO("sha512");
+-
+-static int sha384_init_s390(struct shash_desc *desc)
+-{
+-	struct s390_sha_ctx *ctx = shash_desc_ctx(desc);
+-
+-	ctx->sha512.state[0] = SHA384_H0;
+-	ctx->sha512.state[1] = SHA384_H1;
+-	ctx->sha512.state[2] = SHA384_H2;
+-	ctx->sha512.state[3] = SHA384_H3;
+-	ctx->sha512.state[4] = SHA384_H4;
+-	ctx->sha512.state[5] = SHA384_H5;
+-	ctx->sha512.state[6] = SHA384_H6;
+-	ctx->sha512.state[7] = SHA384_H7;
+-	ctx->count = 0;
+-	ctx->sha512.count_hi = 0;
+-	ctx->func = CPACF_KIMD_SHA_512;
+-
+-	return 0;
+-}
+-
+-static struct shash_alg sha384_alg = {
 -	.digestsize	=	SHA384_DIGEST_SIZE,
--	.init		=	sha384_base_init,
--	.update		=	octeon_sha512_update,
--	.finup		=	octeon_sha512_finup,
--	.descsize	=	SHA512_STATE_SIZE,
+-	.init		=	sha384_init_s390,
+-	.update		=	s390_sha_update_blocks,
+-	.finup		=	s390_sha_finup,
+-	.export		=	sha512_export,
+-	.import		=	sha512_import,
+-	.descsize	=	sizeof(struct s390_sha_ctx),
+-	.statesize	=	SHA512_STATE_SIZE,
 -	.base		=	{
 -		.cra_name	=	"sha384",
--		.cra_driver_name=	"octeon-sha384",
--		.cra_priority	=	OCTEON_CR_OPCODE_PRIORITY,
+-		.cra_driver_name=	"sha384-s390",
+-		.cra_priority	=	300,
+-		.cra_blocksize	=	SHA384_BLOCK_SIZE,
 -		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
 -					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA384_BLOCK_SIZE,
+-		.cra_ctxsize	=	sizeof(struct s390_sha_ctx),
 -		.cra_module	=	THIS_MODULE,
 -	}
--} };
+-};
 -
--static int __init octeon_sha512_mod_init(void)
+-MODULE_ALIAS_CRYPTO("sha384");
+-
+-static int __init init(void)
 -{
--	if (!octeon_has_crypto())
--		return -ENOTSUPP;
--	return crypto_register_shashes(octeon_sha512_algs,
--				       ARRAY_SIZE(octeon_sha512_algs));
+-	int ret;
+-
+-	if (!cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA_512))
+-		return -ENODEV;
+-	if ((ret = crypto_register_shash(&sha512_alg)) < 0)
+-		goto out;
+-	if ((ret = crypto_register_shash(&sha384_alg)) < 0)
+-		crypto_unregister_shash(&sha512_alg);
+-out:
+-	return ret;
 -}
 -
--static void __exit octeon_sha512_mod_fini(void)
+-static void __exit fini(void)
 -{
--	crypto_unregister_shashes(octeon_sha512_algs,
--				  ARRAY_SIZE(octeon_sha512_algs));
+-	crypto_unregister_shash(&sha512_alg);
+-	crypto_unregister_shash(&sha384_alg);
 -}
 -
--module_init(octeon_sha512_mod_init);
--module_exit(octeon_sha512_mod_fini);
+-module_cpu_feature_match(S390_CPU_FEATURE_MSA, init);
+-module_exit(fini);
 -
 -MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA-512 and SHA-384 Secure Hash Algorithms (OCTEON)");
--MODULE_AUTHOR("Aaro Koskinen <aaro.koskinen@iki.fi>");
-diff --git a/arch/mips/configs/cavium_octeon_defconfig b/arch/mips/configs/cavium_octeon_defconfig
-index 88ae0aa85364b..effdfb2bb738b 100644
---- a/arch/mips/configs/cavium_octeon_defconfig
-+++ b/arch/mips/configs/cavium_octeon_defconfig
-@@ -155,11 +155,10 @@ CONFIG_SECURITY=y
- CONFIG_SECURITY_NETWORK=y
- CONFIG_CRYPTO_CBC=y
- CONFIG_CRYPTO_HMAC=y
- CONFIG_CRYPTO_MD5_OCTEON=y
- CONFIG_CRYPTO_SHA1_OCTEON=m
--CONFIG_CRYPTO_SHA512_OCTEON=m
- CONFIG_CRYPTO_DES=y
- CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
- CONFIG_DEBUG_FS=y
- CONFIG_MAGIC_SYSRQ=y
- # CONFIG_SCHED_DEBUG is not set
-diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
-index 6bf073ae7613f..51a76a5ee3b16 100644
---- a/arch/mips/crypto/Kconfig
-+++ b/arch/mips/crypto/Kconfig
-@@ -20,16 +20,6 @@ config CRYPTO_SHA1_OCTEON
- 	help
- 	  SHA-1 secure hash algorithm (FIPS 180)
- 
- 	  Architecture: mips OCTEON
- 
--config CRYPTO_SHA512_OCTEON
--	tristate "Hash functions: SHA-384 and SHA-512 (OCTEON)"
--	depends on CPU_CAVIUM_OCTEON
--	select CRYPTO_SHA512
--	select CRYPTO_HASH
--	help
--	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
--
--	  Architecture: mips OCTEON using crypto instructions, when available
--
- endmenu
+-MODULE_DESCRIPTION("SHA512 and SHA-384 Secure Hash Algorithm");
 diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 26413f679fab2..303ea15e3e900 100644
+index 656f2c08c46cd..6f1386b8d79d0 100644
 --- a/lib/crypto/Kconfig
 +++ b/lib/crypto/Kconfig
-@@ -177,10 +177,11 @@ config CRYPTO_LIB_SHA512
- config CRYPTO_LIB_SHA512_ARCH
- 	bool
+@@ -179,10 +179,11 @@ config CRYPTO_LIB_SHA512_ARCH
  	depends on CRYPTO_LIB_SHA512 && !UML
  	default y if ARM && !CPU_V7M
  	default y if ARM64
-+	default y if MIPS && CPU_CAVIUM_OCTEON
+ 	default y if MIPS && CPU_CAVIUM_OCTEON
+ 	default y if RISCV && 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
++	default y if S390
  
  config CRYPTO_LIB_SM3
  	tristate
  
  if !KMSAN # avoid false positives from assembly
-diff --git a/lib/crypto/mips/sha512.h b/lib/crypto/mips/sha512.h
+diff --git a/lib/crypto/s390/sha512.h b/lib/crypto/s390/sha512.h
 new file mode 100644
-index 0000000000000..b3ffbc1e8ca8e
+index 0000000000000..24744651550cb
 --- /dev/null
-+++ b/lib/crypto/mips/sha512.h
-@@ -0,0 +1,74 @@
++++ b/lib/crypto/s390/sha512.h
+@@ -0,0 +1,28 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
-+ * Cryptographic API.
++ * SHA-512 optimized using the CP Assist for Cryptographic Functions (CPACF)
 + *
-+ * SHA-512 and SHA-384 Secure Hash Algorithm.
-+ *
-+ * Adapted for OCTEON by Aaro Koskinen <aaro.koskinen@iki.fi>.
-+ *
-+ * Based on crypto/sha512_generic.c, which is:
-+ *
-+ * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
-+ * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
-+ * Copyright (c) 2003 Kyle McMartin <kyle@debian.org>
++ * Copyright 2025 Google LLC
 + */
++#include <asm/cpacf.h>
++#include <linux/cpufeature.h>
 +
-+#include <asm/octeon/crypto.h>
-+#include <asm/octeon/octeon.h>
-+
-+/*
-+ * We pass everything as 64-bit. OCTEON can handle misaligned data.
-+ */
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_cpacf_sha512);
 +
 +static void sha512_blocks(struct sha512_block_state *state,
 +			  const u8 *data, size_t nblocks)
 +{
-+	struct octeon_cop2_state cop2_state;
-+	unsigned long flags;
++	if (static_branch_likely(&have_cpacf_sha512))
++		cpacf_kimd(CPACF_KIMD_SHA_512, state, data,
++			   nblocks * SHA512_BLOCK_SIZE);
++	else
++		sha512_blocks_generic(state, data, nblocks);
++}
 +
-+	if (!octeon_has_crypto())
-+		return sha512_blocks_generic(state, data, nblocks);
-+
-+	flags = octeon_crypto_enable(&cop2_state);
-+	write_octeon_64bit_hash_sha512(state->h[0], 0);
-+	write_octeon_64bit_hash_sha512(state->h[1], 1);
-+	write_octeon_64bit_hash_sha512(state->h[2], 2);
-+	write_octeon_64bit_hash_sha512(state->h[3], 3);
-+	write_octeon_64bit_hash_sha512(state->h[4], 4);
-+	write_octeon_64bit_hash_sha512(state->h[5], 5);
-+	write_octeon_64bit_hash_sha512(state->h[6], 6);
-+	write_octeon_64bit_hash_sha512(state->h[7], 7);
-+
-+	do {
-+		const u64 *block = (const u64 *)data;
-+
-+		write_octeon_64bit_block_sha512(block[0], 0);
-+		write_octeon_64bit_block_sha512(block[1], 1);
-+		write_octeon_64bit_block_sha512(block[2], 2);
-+		write_octeon_64bit_block_sha512(block[3], 3);
-+		write_octeon_64bit_block_sha512(block[4], 4);
-+		write_octeon_64bit_block_sha512(block[5], 5);
-+		write_octeon_64bit_block_sha512(block[6], 6);
-+		write_octeon_64bit_block_sha512(block[7], 7);
-+		write_octeon_64bit_block_sha512(block[8], 8);
-+		write_octeon_64bit_block_sha512(block[9], 9);
-+		write_octeon_64bit_block_sha512(block[10], 10);
-+		write_octeon_64bit_block_sha512(block[11], 11);
-+		write_octeon_64bit_block_sha512(block[12], 12);
-+		write_octeon_64bit_block_sha512(block[13], 13);
-+		write_octeon_64bit_block_sha512(block[14], 14);
-+		octeon_sha512_start(block[15]);
-+
-+		data += SHA512_BLOCK_SIZE;
-+	} while (--nblocks);
-+
-+	state->h[0] = read_octeon_64bit_hash_sha512(0);
-+	state->h[1] = read_octeon_64bit_hash_sha512(1);
-+	state->h[2] = read_octeon_64bit_hash_sha512(2);
-+	state->h[3] = read_octeon_64bit_hash_sha512(3);
-+	state->h[4] = read_octeon_64bit_hash_sha512(4);
-+	state->h[5] = read_octeon_64bit_hash_sha512(5);
-+	state->h[6] = read_octeon_64bit_hash_sha512(6);
-+	state->h[7] = read_octeon_64bit_hash_sha512(7);
-+	octeon_crypto_disable(&cop2_state, flags);
++#define sha512_mod_init_arch sha512_mod_init_arch
++static inline void sha512_mod_init_arch(void)
++{
++	if (cpu_have_feature(S390_CPU_FEATURE_MSA) &&
++	    cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA_512))
++		static_branch_enable(&have_cpacf_sha512);
 +}
 -- 
 2.50.0
