@@ -4,150 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A6FC83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 17:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6FFAC83029
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 17:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gCmZbYCJfOr6WH0O5tAMZaWPDcWJgjhkvWzPM07viQs=; b=YDSzICeuEs9QnTdRtGTt6ddFEx
-	pbER4L9ay+Y1j1fevaSvvEwgYfCnzDhq6vQR1ljVzZVumYSiMZITbjOU3Ip+khK2rzVE5iri7XZlC
-	T7dI7uHOAYdnvGUu87FdcCCa7HUJtKxIPaBlqLbuFLieIpi9q6tSrfwXHteLutL5uYcNiPuU9SADV
-	OLsTRpEtnaR7AWqP7C5SjHFx8zObaaMKoYdbFl5cka4JJX6skmw5dIoSpyojHdr7+nocxSB8HcIrR
-	DrFT79i0eo7ehTY4CZ3p7dR71ktqeCjkTk/AHLSnAF9W09Q0rafXTgC2JObmYExEnDICHqTUexxsg
-	Rt8vSx8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZTI90IZY9vI8TiCdIBNEpWctJRI4SjQG0d/5n51JEl8=; b=xX40YJFTnGPbyqI50rgmbFv0mn
+	iYYvJmd+5958NiAepTF2e9X1xH8/Zw2K/cHP+OstTtFVjqjAsuNUs67i9YcplfLQfj7aD1+ZfSZBv
+	+pnZEa6g+FeeRnwp4+TAlGULA7vJM2DrTbtjAzXFi8fjueDJRuTrbN6imUKpdA8CvJJVVrVcCk4v9
+	8vHckV0RYKHOokVbTCc6v+LbNW8+XzZ255ufggFQQ99nyuIMrAmOeGkPn6keKUdRQAhKP5KRb+mHX
+	exrVTqmrcEZTOLM8RiCUFZnxidkGXk/1yb7XjcEL+/BSh09Hv57TDoH+otSfDZs7DArcxj0KtoF3f
+	kXdRGdjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWIcF-000000036yv-30PK;
-	Mon, 30 Jun 2025 17:48:27 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1uWIeU-000000037Ex-2ED5;
+	Mon, 30 Jun 2025 17:50:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWHR4-00000002wPU-3Sy8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 16:32:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u93jStN2FxQVJiRNLMNo3dEMwDFDPIvFZFhoVsJBIQe/aDw6U0XI8pc2Oh3eMa2zeogsSrBJe8Pe49GYOradMwWn65Wu787fNgs5TN2F6IMIM5VNkZQlnqmixCFfYCfgwDFMm6BgJiuT3yPicbZ5Pp/jIIWNxY64ScWoXDEVVKxwZ6Br5xqy1gDDGkpx17VYOZzGzK+Ufq9DFR/bFiZs5C1xEOk2ogMzQP/ZUcMVRMgyiBbegCHP53roo7wIOjgHJD8GI5fsc98UeJAldZ0jJWXQb0ow68iuVYPKTVvvJfUpAz2O13vEWZdRJCznk3wlbeu91NahA8hoh83BtusSkw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gCmZbYCJfOr6WH0O5tAMZaWPDcWJgjhkvWzPM07viQs=;
- b=Vred924M/yj/xQLI0vhePs54M0iU7AjxgjkMB5QHDiXIaugW09ZjS++eNHG8dcJfK9LqQI8v9B2aTu5bzyf9fdOLbzgYL+qTjfidMTlyaxQAXxcdTISRE1kAE3z3r0Psf76q0qs+aKjZDtiMxmJ/+/gOFXdQ6/PcOIgEJ8sHgmbJcz8+cy/Ei+BSayZDfSekhwuuFjWHgm2q9VcJCLNFJc8H6e1iTpnQdNA9I93zZD65wKriaSgpksCdNaONh1QlRFfq6F4G7+zxU3OwKqDtYJB4i1bOVjW4LiSO52zwEWiTsKCmf6dKu6NGRi0jGjHxJl9ngfioq7lGO+ncq2F55A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gCmZbYCJfOr6WH0O5tAMZaWPDcWJgjhkvWzPM07viQs=;
- b=BUj6UU7Wbos2UQ0vfoBITZIvXp73DgdKcUSLO/7BMm2NzY69ElU9+x5HliF2aqsOde5KShE8gHB1Nu/kMzj0gmUQD6yaTwtaFOHQESE+aa4IC8gGX1o+w0FzkhG/0OuaPEho8cNlnGdtRzkOTPXfZw+0NA1WlkbBCuXJcWMNDH5hK/DgnhUIYYtlYryGxyjNQDuZtLbuP/XbgcW9Lqa5esjsSDxXPizvTLR/uqlcT24s6Kn8cMKsqwOnso5iAJrzu0qpZb5nuBEv8iCVe5hJjnJkrW5UUL+DK8UbFrSpaHohUnD+Xp6swPaz5seIu8mfTA/2FAxMhYABxM6IpOHu1A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB8754.eurprd04.prod.outlook.com (2603:10a6:20b:42d::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.30; Mon, 30 Jun
- 2025 16:32:44 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.029; Mon, 30 Jun 2025
- 16:32:43 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	linux-input@vger.kernel.org (open list:INPUT (KEYBOARD, MOUSE, JOYSTICK, TOUCHSCREEN)...),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/LPC32XX SOC SUPPORT),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH v2 1/1] dt-bindings: input: convert lpc32xx-key.txt to yaml format
-Date: Mon, 30 Jun 2025 12:32:31 -0400
-Message-Id: <20250630163232.2839067-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM0PR03CA0100.eurprd03.prod.outlook.com
- (2603:10a6:208:69::41) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1uWH0Z-00000002on0-2hMr;
+	Mon, 30 Jun 2025 16:05:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 345645C5B6B;
+	Mon, 30 Jun 2025 16:05:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7BB2C4AF09;
+	Mon, 30 Jun 2025 16:05:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751299527;
+	bh=sOr7n7osKoPo0iWtqMHhPhtDizNmc02j97iKsfhVDgI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mnk5p5kHUp5XLzKIHdu9Xj6bGlhyzDSJSu0/mBqEEQhM3pcKMwOLzG1xvojCgM41R
+	 yeoKZUT8c6Cc/5eRXRs6VKuJhz37JPnhbR3KCcCZq36K6muCR15e0MO2UOGh+riYIu
+	 xtGcdMjmh+BhJKvOatGq58kCZ6Xkh2/2tQ3qn2todXp0KVQEoxwfxwtcJpx8i2DTNc
+	 vzBzPSz+agDzgQ9iQHG2j1gHbvXVsa649XkGvv8XsOY8s7rUXKiNYZomenlidkHvSN
+	 mPNS9IzZk5C+0EkCsQY5LKSXwER4Y8MdhGqvPxv/8UUmV8x/4q+g6ezeYlnZPtRk1G
+	 FSL+fDwuFL6Sg==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH v3 11/16] lib/crypto: riscv/sha512: Migrate optimized SHA-512 code to library
+Date: Mon, 30 Jun 2025 09:03:15 -0700
+Message-ID: <20250630160320.2888-12-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250630160320.2888-1-ebiggers@kernel.org>
+References: <20250630160320.2888-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB8754:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9552fa6d-cc4e-4462-f60d-08ddb7f3bcf4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|19092799006|366016|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ktJHSSv5+FXjTQK/kQOh5phvk/hR48EVWzvEag3h8PFaVNX19YcM2o2ZPwhg?=
- =?us-ascii?Q?K3onOu6dIwgES0rXVOQ7fjDI71BhWtlBM5jVrfm0EJYHeERfaySo74I4aLKf?=
- =?us-ascii?Q?U+EnpbrqB9P2dOBSrRhSHdX7X6oDHlKe4EwX9otMV1JfAzGF3kdvo30S+0Vs?=
- =?us-ascii?Q?+h68rwJOntlLYytabLP9myhbdYuZk+EJ/3CIKLzY47SsnJ/L204vW0UZsk2T?=
- =?us-ascii?Q?dzYS1JSlzWcWrae93ivR0y5MepPq2mPaDf6r328Mpevf0fWJXA9kJabKOXS9?=
- =?us-ascii?Q?IMm7vyxpDqxAJ9hmldFTPBlD8+ePfURCJSK81PPhzNVePA/61zA2miH6sYlF?=
- =?us-ascii?Q?PvA9j7etu77q4O71XNoXIT1EE3puhrpW06rXgC/THKpB8P03pdVc88uWNHvd?=
- =?us-ascii?Q?2TgVA70Rma/FCyz1QcOJdXG5MhsXUEZ9CGFRGqUzPftJooJ9opi5OjYl8xjz?=
- =?us-ascii?Q?5B5ctoWJ9F0/mJFfcupRuHkVBHFjm0vcCIBJOdSvKGGkQ/scxN6Yef+DdAlH?=
- =?us-ascii?Q?Y3LpWKqD9jkIFviBCDLvw0BFn3SjPctsrJHXlWJSc1FQ4HJt974B71TYBQkM?=
- =?us-ascii?Q?EiZJLYZBzBvIf1okKqftSNdj4DPm1aN2Nv1+L38lXUK4XxxFY/N7LDqcETqv?=
- =?us-ascii?Q?dnB1MAqyLqF0O4vYoIVcrwi/mKLbDZsgeeGFYT2rx7PsrOQo1y2Z5jPPX36r?=
- =?us-ascii?Q?HyZRf95OrCU6FiddCpWB7EF6/e5Ug7Nn6S5Es0gKAJaMUGhzpOudeAGdlxKX?=
- =?us-ascii?Q?4GeJWOmfdOOc3qVPDezZWmPxsOFxe3/bb4ERFpCdgXG031+T+BbIal1fPjN3?=
- =?us-ascii?Q?W8aib08IgUh8DPqNPJJ8h6DZ0udDBuWldSGqNwGNnJVyA6zZGNOYz25FxcTH?=
- =?us-ascii?Q?gD2E3Z+bEBVGrrjxD6AC0iFzZ84+EwtrjZFFmzcKnXx+E3I3UcdhgZKJM01N?=
- =?us-ascii?Q?1HYACdqzDp2SYgBvO/c7iiLMGfySJ3kMXdhHZOOCanYgEmBLUiP9QEYYkHtU?=
- =?us-ascii?Q?wKTyEoeXKlyRFqFCbn+72pkwmXmLMRQnsS+GA9Iv4paZpLlmFk6bzthV6qUP?=
- =?us-ascii?Q?8q2cP2CVKp9Y1GbXi511H0V2GebfpvmRDKNoeSLwLeIGRl2+MfCjDhgpu/6m?=
- =?us-ascii?Q?olLCBwMrxvbe9+cN+E7clMh8dKM965UheTeidHMofNsfRaPfjogiuDwPJlZK?=
- =?us-ascii?Q?VxEIgsMibXf9dMRKd/6T24YQ97ooCTnRcnvPPmj8c+1Izu9MB7y3EZJpnt0p?=
- =?us-ascii?Q?yda0cRhMLVL4uKV9Sh+j8VVXE1t+wPRDphKMEw9cWdbHcHTL97k8nlrb4yb5?=
- =?us-ascii?Q?UjWoX3szwrYolnylTbKlaEFxrvfXMhaRrOyixS+0ZnH5K5/Bo5FRcilmhYWY?=
- =?us-ascii?Q?mw3RCwkG+86/FAXdXmuL4C7UiT0hEGitThi00ZwzjpCSMGRNP3g0P46T+DkJ?=
- =?us-ascii?Q?qgPV9gvC8//d/MThyooB/SSv/2w8V7eJ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(19092799006)(366016)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ceRnjfrAa9SqazhF1l9kG5+T0CIeMd2aUDPXqwwph23KYiauXJg2RZsqGqtv?=
- =?us-ascii?Q?erjAOxi0G32HZZ6lBtZmIEVc4nQcweiO/OuQAoUZ5te1neOYrokzclNmA3fW?=
- =?us-ascii?Q?qzhyT3hB+F9goNBDfgMCCqUvBNJfhaHd8xmMlH3iDvyYkcF+ogFvCuIIdQY7?=
- =?us-ascii?Q?sp7J9RYjgXWCFABVVl9KvHMbxFLIms2jR8qEqQUuIQACZv+Z42pLRixZ0iDd?=
- =?us-ascii?Q?WR163Fse1A2AP+NFT3f9qRMf6QcdRQkVeUC1BP4L3F6laqRftzajZraLrt5F?=
- =?us-ascii?Q?09Dd8l9NIZNlZ0uiXG3UxR6cQXx91SizONZbYhj5caE39E5ogy+wC1LYfRRD?=
- =?us-ascii?Q?KjOg+BSCmlxxV8clSzpX/0RPGV9w7ls3asHjU5TdTr2e72VKPYE5yfBin1qV?=
- =?us-ascii?Q?fuK4d4ioAsc7UTACgpHdcoH25c1eXazaizxwCI7etN29gB93NsOT9aXtcUDz?=
- =?us-ascii?Q?x/vQYsgcyp16L7V3nEHrInwAo3Hj4Bps1gXF4LkbGMj2UemC5CIwjhLNN1Ls?=
- =?us-ascii?Q?r/cEI37rfTCR6yNyQg3rlRD67dZAnQIFwz/MfGv5VxxddCdszXTGWJDvJxJw?=
- =?us-ascii?Q?cvys/Tp4qPOCf88ap9JiRf8bskQMvfrxTMHvaIqCTOt0XDbIoEzsyyLwwPLa?=
- =?us-ascii?Q?9hbjO9ogxNreH9Xzt2ctRICkI3fhXO8OM/c5iqBKMxzV+NQpFfR/3UUjGgB0?=
- =?us-ascii?Q?HWWuwJvYYL1vXOq3vu8W8/So1TAG3HlDMQayM1ms3/2CL4fotG786oUUK2bk?=
- =?us-ascii?Q?SEph4/rfJaW6M/ajpfZHEVGkxt+Xk7jL1z+d2Km84uxupPGtfPlYTJR7MKPW?=
- =?us-ascii?Q?Ts8i34LcDUmnLO9d4UigwdHL/Ux+ckHHxgHjy2KzsxB/Rlvmf4xjcv3gdtcM?=
- =?us-ascii?Q?leYRCHaegUJiWPMQZHKJ8NjBS+EQ2KZAwuBpz8LZupssEgonrwcTucPNFuKa?=
- =?us-ascii?Q?vz4EpLtSXR3Xms2hFUrbJvYUskbfG8mV+y1G2xpXo63Z/tdcuDYy9zfwKPox?=
- =?us-ascii?Q?3yayMalrcjjEr8TriDuTumrLEr9hQWm5A6xE7c0e3tfhefq4c6429/qAJknw?=
- =?us-ascii?Q?ldcJAb0KGltG+iNLE+ZfEI/r7+Xu/+GChb4Tk5BAhZ1C3LY1M8G4n6tMxXVa?=
- =?us-ascii?Q?f4t9R32MwhS4RH8QOiLX+WPz/KohD4fqXUJeSFc6v1DYbDNs5F9THiNF3O8z?=
- =?us-ascii?Q?tJPAfd7eMSdEJKzcDp0rb3NhjD8AEZcrANjccnMZzum9VkQHH1N8xVePzYDX?=
- =?us-ascii?Q?m22wOotlN2GaBd3uriuyW8t67XZTTWvD7NX1yiOTVGTCdZiQBMcgpB6ITs7e?=
- =?us-ascii?Q?qe6APjeAo0uJZ8Kw39czZHW33Q7VKL9cQXg0LmU6S7dTdzcD3w2FW8KBg4Nh?=
- =?us-ascii?Q?O5DRUAIFJJxCW9cV5mGGNgipk7vkMovI717gizkKB7grot+ylOlNJdG464Yo?=
- =?us-ascii?Q?hbPQmo6H4bGYaEtuZfdMKiB9CxFgD/0ugfCYsGkNjc4AWcPtzdjEJIlYHxfU?=
- =?us-ascii?Q?7i+Af834SBaeEjSl0Od57PDBIaHXdpIqFS1OrAC3NzC+FOaQbixu6KcaQRRJ?=
- =?us-ascii?Q?sF3XfMf9WfsMKE8ij6Q=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9552fa6d-cc4e-4462-f60d-08ddb7f3bcf4
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2025 16:32:43.8903
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iGuocp1L48gGLYiY7Bect8AkcDyNQSM+rxBAhOKXtQ+VUagFTxiheUfBUr+WgkTQJhWQ+FEucE3aEVfhmlaGVQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8754
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_093250_867660_EC579D3D 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20250630_090527_756628_8807B652 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,134 +78,320 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert lpc32xx-key.txt to yaml format.
+Instead of exposing the riscv-optimized SHA-512 code via riscv-specific
+crypto_shash algorithms, instead just implement the sha512_blocks()
+library function.  This is much simpler, it makes the SHA-512 (and
+SHA-384) library functions be riscv-optimized, and it fixes the
+longstanding issue where the riscv-optimized SHA-512 code was disabled
+by default.  SHA-512 still remains available through crypto_shash, but
+individual architectures no longer need to handle it.
 
-Additional changes:
-- set maximum of key-row(column) to 4.
-- add ref to matrix-keymap.yaml.
+To match sha512_blocks(), change the type of the nblocks parameter of
+the assembly function from int to size_t.  The assembly function
+actually already treated it as size_t.
 
-Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Note: to see the diff from arch/riscv/crypto/sha512-riscv64-glue.c to
+lib/crypto/riscv/sha512.h, view this commit with 'git show -M10'.
+
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
-change in v2
-- add ref to matrix-keymap.yaml.
-- remove properties, which already defined in matrix-keymap.yaml.
-- Add Vladimir Zapolskiy review tag
----
- .../devicetree/bindings/input/lpc32xx-key.txt | 34 -----------
- .../bindings/input/nxp,lpc3220-key.yaml       | 61 +++++++++++++++++++
- 2 files changed, 61 insertions(+), 34 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/input/lpc32xx-key.txt
- create mode 100644 Documentation/devicetree/bindings/input/nxp,lpc3220-key.yaml
+ arch/riscv/crypto/Kconfig                     |  12 --
+ arch/riscv/crypto/Makefile                    |   3 -
+ arch/riscv/crypto/sha512-riscv64-glue.c       | 130 ------------------
+ lib/crypto/Kconfig                            |   1 +
+ lib/crypto/Makefile                           |   2 +
+ .../riscv}/sha512-riscv64-zvknhb-zvkb.S       |   4 +-
+ lib/crypto/riscv/sha512.h                     |  41 ++++++
+ 7 files changed, 46 insertions(+), 147 deletions(-)
+ delete mode 100644 arch/riscv/crypto/sha512-riscv64-glue.c
+ rename {arch/riscv/crypto => lib/crypto/riscv}/sha512-riscv64-zvknhb-zvkb.S (98%)
+ create mode 100644 lib/crypto/riscv/sha512.h
 
-diff --git a/Documentation/devicetree/bindings/input/lpc32xx-key.txt b/Documentation/devicetree/bindings/input/lpc32xx-key.txt
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index 53e4e1eacf554..a75d6325607b4 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -26,22 +26,10 @@ config CRYPTO_GHASH_RISCV64
+ 	  GCM GHASH function (NIST SP 800-38D)
+ 
+ 	  Architecture: riscv64 using:
+ 	  - Zvkg vector crypto extension
+ 
+-config CRYPTO_SHA512_RISCV64
+-	tristate "Hash functions: SHA-384 and SHA-512"
+-	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+-	select CRYPTO_LIB_SHA512
+-	select CRYPTO_SHA512
+-	help
+-	  SHA-384 and SHA-512 secure hash algorithm (FIPS 180)
+-
+-	  Architecture: riscv64 using:
+-	  - Zvknhb vector crypto extension
+-	  - Zvkb vector crypto extension
+-
+ config CRYPTO_SM3_RISCV64
+ 	tristate "Hash functions: SM3 (ShangMi 3)"
+ 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+ 	select CRYPTO_HASH
+ 	select CRYPTO_LIB_SM3
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+index e10e8257734e3..183495a95cc0e 100644
+--- a/arch/riscv/crypto/Makefile
++++ b/arch/riscv/crypto/Makefile
+@@ -5,13 +5,10 @@ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o \
+ 		 aes-riscv64-zvkned-zvbb-zvkg.o aes-riscv64-zvkned-zvkb.o
+ 
+ obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
+ ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
+ 
+-obj-$(CONFIG_CRYPTO_SHA512_RISCV64) += sha512-riscv64.o
+-sha512-riscv64-y := sha512-riscv64-glue.o sha512-riscv64-zvknhb-zvkb.o
+-
+ obj-$(CONFIG_CRYPTO_SM3_RISCV64) += sm3-riscv64.o
+ sm3-riscv64-y := sm3-riscv64-glue.o sm3-riscv64-zvksh-zvkb.o
+ 
+ obj-$(CONFIG_CRYPTO_SM4_RISCV64) += sm4-riscv64.o
+ sm4-riscv64-y := sm4-riscv64-glue.o sm4-riscv64-zvksed-zvkb.o
+diff --git a/arch/riscv/crypto/sha512-riscv64-glue.c b/arch/riscv/crypto/sha512-riscv64-glue.c
 deleted file mode 100644
-index 2b075a080d303..0000000000000
---- a/Documentation/devicetree/bindings/input/lpc32xx-key.txt
+index b3dbc71de07b0..0000000000000
+--- a/arch/riscv/crypto/sha512-riscv64-glue.c
 +++ /dev/null
-@@ -1,34 +0,0 @@
--NXP LPC32xx Key Scan Interface
+@@ -1,130 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/*
+- * SHA-512 and SHA-384 using the RISC-V vector crypto extensions
+- *
+- * Copyright (C) 2023 VRULL GmbH
+- * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
+- *
+- * Copyright (C) 2023 SiFive, Inc.
+- * Author: Jerry Shih <jerry.shih@sifive.com>
+- */
 -
--This binding is based on the matrix-keymap binding with the following
--changes:
+-#include <asm/simd.h>
+-#include <asm/vector.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/internal/simd.h>
+-#include <crypto/sha512_base.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
 -
--Required Properties:
--- compatible: Should be "nxp,lpc3220-key"
--- reg: Physical base address of the controller and length of memory mapped
--  region.
--- interrupts: The interrupt number to the cpu.
--- clocks: phandle to clock controller plus clock-specifier pair
--- nxp,debounce-delay-ms: Debounce delay in ms
--- nxp,scan-delay-ms: Repeated scan period in ms
--- linux,keymap: the key-code to be reported when the key is pressed
--  and released, see also
--  Documentation/devicetree/bindings/input/matrix-keymap.txt
+-/*
+- * Note: the asm function only uses the 'state' field of struct sha512_state.
+- * It is assumed to be the first field.
+- */
+-asmlinkage void sha512_transform_zvknhb_zvkb(
+-	struct sha512_state *state, const u8 *data, int num_blocks);
 -
--Note: keypad,num-rows and keypad,num-columns are required, and must be equal
--since LPC32xx only supports square matrices
+-static void sha512_block(struct sha512_state *state, const u8 *data,
+-			 int num_blocks)
+-{
+-	/*
+-	 * Ensure struct sha512_state begins directly with the SHA-512
+-	 * 512-bit internal state, as this is what the asm function expects.
+-	 */
+-	BUILD_BUG_ON(offsetof(struct sha512_state, state) != 0);
 -
--Example:
+-	if (crypto_simd_usable()) {
+-		kernel_vector_begin();
+-		sha512_transform_zvknhb_zvkb(state, data, num_blocks);
+-		kernel_vector_end();
+-	} else {
+-		struct __sha512_ctx ctx = {};
 -
--	key@40050000 {
--		compatible = "nxp,lpc3220-key";
--		reg = <0x40050000 0x1000>;
--		clocks = <&clk LPC32XX_CLK_KEY>;
--		interrupt-parent = <&sic1>;
--		interrupts = <22 IRQ_TYPE_LEVEL_HIGH>;
--		keypad,num-rows = <1>;
--		keypad,num-columns = <1>;
--		nxp,debounce-delay-ms = <3>;
--		nxp,scan-delay-ms = <34>;
--		linux,keymap = <0x00000002>;
--	};
-diff --git a/Documentation/devicetree/bindings/input/nxp,lpc3220-key.yaml b/Documentation/devicetree/bindings/input/nxp,lpc3220-key.yaml
+-		static_assert(sizeof(ctx.state) == sizeof(state->state));
+-		memcpy(&ctx.state, state->state, sizeof(ctx.state));
+-		__sha512_update(&ctx, data,
+-				(size_t)num_blocks * SHA512_BLOCK_SIZE);
+-		memcpy(state->state, &ctx.state, sizeof(state->state));
+-	}
+-}
+-
+-static int riscv64_sha512_update(struct shash_desc *desc, const u8 *data,
+-				 unsigned int len)
+-{
+-	return sha512_base_do_update_blocks(desc, data, len, sha512_block);
+-}
+-
+-static int riscv64_sha512_finup(struct shash_desc *desc, const u8 *data,
+-				unsigned int len, u8 *out)
+-{
+-	sha512_base_do_finup(desc, data, len, sha512_block);
+-	return sha512_base_finish(desc, out);
+-}
+-
+-static int riscv64_sha512_digest(struct shash_desc *desc, const u8 *data,
+-				 unsigned int len, u8 *out)
+-{
+-	return sha512_base_init(desc) ?:
+-	       riscv64_sha512_finup(desc, data, len, out);
+-}
+-
+-static struct shash_alg riscv64_sha512_algs[] = {
+-	{
+-		.init = sha512_base_init,
+-		.update = riscv64_sha512_update,
+-		.finup = riscv64_sha512_finup,
+-		.digest = riscv64_sha512_digest,
+-		.descsize = SHA512_STATE_SIZE,
+-		.digestsize = SHA512_DIGEST_SIZE,
+-		.base = {
+-			.cra_blocksize = SHA512_BLOCK_SIZE,
+-			.cra_priority = 300,
+-			.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-				     CRYPTO_AHASH_ALG_FINUP_MAX,
+-			.cra_name = "sha512",
+-			.cra_driver_name = "sha512-riscv64-zvknhb-zvkb",
+-			.cra_module = THIS_MODULE,
+-		},
+-	}, {
+-		.init = sha384_base_init,
+-		.update = riscv64_sha512_update,
+-		.finup = riscv64_sha512_finup,
+-		.descsize = SHA512_STATE_SIZE,
+-		.digestsize = SHA384_DIGEST_SIZE,
+-		.base = {
+-			.cra_blocksize = SHA384_BLOCK_SIZE,
+-			.cra_priority = 300,
+-			.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-				     CRYPTO_AHASH_ALG_FINUP_MAX,
+-			.cra_name = "sha384",
+-			.cra_driver_name = "sha384-riscv64-zvknhb-zvkb",
+-			.cra_module = THIS_MODULE,
+-		},
+-	},
+-};
+-
+-static int __init riscv64_sha512_mod_init(void)
+-{
+-	if (riscv_isa_extension_available(NULL, ZVKNHB) &&
+-	    riscv_isa_extension_available(NULL, ZVKB) &&
+-	    riscv_vector_vlen() >= 128)
+-		return crypto_register_shashes(riscv64_sha512_algs,
+-					       ARRAY_SIZE(riscv64_sha512_algs));
+-
+-	return -ENODEV;
+-}
+-
+-static void __exit riscv64_sha512_mod_exit(void)
+-{
+-	crypto_unregister_shashes(riscv64_sha512_algs,
+-				  ARRAY_SIZE(riscv64_sha512_algs));
+-}
+-
+-module_init(riscv64_sha512_mod_init);
+-module_exit(riscv64_sha512_mod_exit);
+-
+-MODULE_DESCRIPTION("SHA-512 (RISC-V accelerated)");
+-MODULE_AUTHOR("Heiko Stuebner <heiko.stuebner@vrull.eu>");
+-MODULE_LICENSE("GPL");
+-MODULE_ALIAS_CRYPTO("sha512");
+-MODULE_ALIAS_CRYPTO("sha384");
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index 303ea15e3e900..656f2c08c46cd 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -178,10 +178,11 @@ config CRYPTO_LIB_SHA512_ARCH
+ 	bool
+ 	depends on CRYPTO_LIB_SHA512 && !UML
+ 	default y if ARM && !CPU_V7M
+ 	default y if ARM64
+ 	default y if MIPS && CPU_CAVIUM_OCTEON
++	default y if RISCV && 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+ 
+ config CRYPTO_LIB_SM3
+ 	tristate
+ 
+ if !KMSAN # avoid false positives from assembly
+diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
+index 22269ab06d700..bc42464a279b8 100644
+--- a/lib/crypto/Makefile
++++ b/lib/crypto/Makefile
+@@ -90,10 +90,12 @@ libsha512-y += arm64/sha512-core.o
+ $(obj)/arm64/sha512-core.S: $(src)/../../arch/arm64/lib/crypto/sha2-armv8.pl
+ 	$(call cmd,perlasm_with_args)
+ clean-files += arm64/sha512-core.S
+ libsha512-$(CONFIG_KERNEL_MODE_NEON) += arm64/sha512-ce-core.o
+ endif
++
++libsha512-$(CONFIG_RISCV) += riscv/sha512-riscv64-zvknhb-zvkb.o
+ endif # CONFIG_CRYPTO_LIB_SHA512_ARCH
+ 
+ obj-$(CONFIG_MPILIB) += mpi/
+ 
+ obj-$(CONFIG_CRYPTO_SELFTESTS_FULL)		+= simd.o
+diff --git a/arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S b/lib/crypto/riscv/sha512-riscv64-zvknhb-zvkb.S
+similarity index 98%
+rename from arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S
+rename to lib/crypto/riscv/sha512-riscv64-zvknhb-zvkb.S
+index 89f4a10d12dd6..b41eebf605462 100644
+--- a/arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S
++++ b/lib/crypto/riscv/sha512-riscv64-zvknhb-zvkb.S
+@@ -91,12 +91,12 @@
+ 	sha512_4rounds	\last, W1, W2, W3, W0
+ 	sha512_4rounds	\last, W2, W3, W0, W1
+ 	sha512_4rounds	\last, W3, W0, W1, W2
+ .endm
+ 
+-// void sha512_transform_zvknhb_zvkb(u64 state[8], const u8 *data,
+-//				     int num_blocks);
++// void sha512_transform_zvknhb_zvkb(struct sha512_block_state *state,
++//				     const u8 *data, size_t nblocks);
+ SYM_FUNC_START(sha512_transform_zvknhb_zvkb)
+ 
+ 	// Setup mask for the vmerge to replace the first word (idx==0) in
+ 	// message scheduling.  There are 4 words, so an 8-bit mask suffices.
+ 	vsetivli	zero, 1, e8, m1, ta, ma
+diff --git a/lib/crypto/riscv/sha512.h b/lib/crypto/riscv/sha512.h
 new file mode 100644
-index 0000000000000..9e0d977bdf5cd
+index 0000000000000..9d0abede322f7
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/input/nxp,lpc3220-key.yaml
-@@ -0,0 +1,61 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/input/nxp,lpc3220-key.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/lib/crypto/riscv/sha512.h
+@@ -0,0 +1,41 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * SHA-512 and SHA-384 using the RISC-V vector crypto extensions
++ *
++ * Copyright (C) 2023 VRULL GmbH
++ * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
++ *
++ * Copyright (C) 2023 SiFive, Inc.
++ * Author: Jerry Shih <jerry.shih@sifive.com>
++ */
 +
-+title: NXP LPC32xx Key Scan Interface
++#include <asm/simd.h>
++#include <asm/vector.h>
++#include <crypto/internal/simd.h>
 +
-+maintainers:
-+  - Frank Li <Frank.Li@nxp.com>
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_extensions);
 +
-+properties:
-+  compatible:
-+    const: nxp,lpc3220-key
++asmlinkage void sha512_transform_zvknhb_zvkb(struct sha512_block_state *state,
++					     const u8 *data, size_t nblocks);
 +
-+  reg:
-+    maxItems: 1
++static void sha512_blocks(struct sha512_block_state *state,
++			  const u8 *data, size_t nblocks)
++{
++	if (static_branch_likely(&have_extensions) &&
++	    likely(crypto_simd_usable())) {
++		kernel_vector_begin();
++		sha512_transform_zvknhb_zvkb(state, data, nblocks);
++		kernel_vector_end();
++	} else {
++		sha512_blocks_generic(state, data, nblocks);
++	}
++}
 +
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  nxp,debounce-delay-ms:
-+    description: Debounce delay in ms
-+
-+  nxp,scan-delay-ms:
-+    description: Repeated scan period in ms
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - nxp,debounce-delay-ms
-+  - nxp,scan-delay-ms
-+  - linux,keymap
-+
-+allOf:
-+  - $ref: matrix-keymap.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/clock/lpc32xx-clock.h>
-+
-+    key@40050000 {
-+        compatible = "nxp,lpc3220-key";
-+        reg = <0x40050000 0x1000>;
-+        clocks = <&clk LPC32XX_CLK_KEY>;
-+        interrupt-parent = <&sic1>;
-+        interrupts = <22 IRQ_TYPE_LEVEL_HIGH>;
-+        keypad,num-rows = <1>;
-+        keypad,num-columns = <1>;
-+        nxp,debounce-delay-ms = <3>;
-+        nxp,scan-delay-ms = <34>;
-+        linux,keymap = <0x00000002>;
-+    };
++#define sha512_mod_init_arch sha512_mod_init_arch
++static inline void sha512_mod_init_arch(void)
++{
++	if (riscv_isa_extension_available(NULL, ZVKNHB) &&
++	    riscv_isa_extension_available(NULL, ZVKB) &&
++	    riscv_vector_vlen() >= 128)
++		static_branch_enable(&have_extensions);
++}
 -- 
-2.34.1
+2.50.0
 
 
