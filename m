@@ -4,85 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61142C83000
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 07:39:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C8AC83000
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 07:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3TeFS+uiHYd7t7KK/aAu0N/KEC1YUemvKeluUuOfecA=; b=TtiOFFcVbDPjB0tUVGYuShbTZ8
-	/0QEQj1MB08Yg9/MesP4rAotHJaoMr0xe75y6mnI75N2Tzjpe2kAe2L+qZDd7L6GKfNswCEsfDV9V
-	GFlcfGBmS57JFlp5Kt1uZ4+aOtVyZQn2IjHsgoLwf9Liro8eoDDqHt0MrGlF7HYjIOVJWw3a0pBp9
-	MZ0pCChVGTvuMYKrFj24VTz9fv//Jp825AB4QQDuXlIVZsFTW0fRhJUXtodpR47ohIvCQ9a3XVJM9
-	L6LVd4+XWounC2dlfifI8rI9jQCnzIz2/B3fzbZyUBPQT4AZ3EPHceQWCKiKXJ6/S5RFO3QNh1hn6
-	kdVEXWEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3KbX/MLyoke4lCIjbF5hIqJxxYpyLILyeu1Eptsxa0M=; b=LdbAxxfcRtGbs9OwWTgcFiSR2A
+	vKCwzvg1De6Q5Ru6QWIShDs7Tn2g4DBUHf0YfrwYG3f+zZivZ7HQ+h+INyfk56cMxwCLKg76KjDXY
+	Stpe0jb2DUHJUJgAEMKCIPKkZZm+t2SFLVn3n8Y9MTI8Oy1LIqNZQNwLugRu4NS6fUjtfF6iOBOK+
+	PtfN1ckLIu53n8VO3mpbFM4f+1+tP+z+unAscbdNKt/1sjqduGbL3yF3u4kl2B/r19GeuWSl9qHbY
+	gdXJq8B+5ZuJiXpJKQmhthCWo8rWfrJjdkRy6S4DdlO9mF1SK0UUhNgue2bxME04Xbc165BI5zGFd
+	WRVO7m3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW96m-00000001TP2-03f5;
-	Mon, 30 Jun 2025 07:39:20 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uW994-00000001Tq8-028r;
+	Mon, 30 Jun 2025 07:41:42 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW93P-00000001StJ-3xX4
+	id 1uW95Q-00000001TDr-0LVx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 07:35:53 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55U7AniW028032;
-	Mon, 30 Jun 2025 09:35:43 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	3TeFS+uiHYd7t7KK/aAu0N/KEC1YUemvKeluUuOfecA=; b=QA9ziUH74nPr8B5h
-	tSCcx7WJc5TajZUH1r7XpOAseYVJXtyyrECAhoHZ1w7H621FQsd/wZuiOntoOLux
-	xVb1f3Sq4tnnJX0KF9NbhrT7jrH06muly99q0vw2j8PJgb6cw7X3NQ9vQ6mYIzS7
-	FBVzTYysav1JdMt27wULU2nz24Dd7lfN8oNojqaj8xy/D1X7A3XL2xPzl1Tmm8T4
-	BhKW6UfEbWYU+dQrmaO10MTQwPFFPtS+ruX6uTVqgBZadAunJcSSjXzMMAfwlpiA
-	ANXefcNTmfzo4SoFirZNEOK8fZZWvUkGHf+r+v7WVek7sRmgn+VWHIAHWBqTlFPX
-	+f5lqA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47j79h5udb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 Jun 2025 09:35:43 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id ACD4540047;
-	Mon, 30 Jun 2025 09:34:43 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D342946AD15;
-	Mon, 30 Jun 2025 09:34:15 +0200 (CEST)
-Received: from [10.252.20.7] (10.252.20.7) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 30 Jun
- 2025 09:34:15 +0200
-Message-ID: <1f49b8f3-44c9-43f3-a3bf-b931fb0726f4@foss.st.com>
-Date: Mon, 30 Jun 2025 09:34:13 +0200
+	Mon, 30 Jun 2025 07:37:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751269076; x=1782805076;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=J+i5E5nappl0ril9BLgF8kvARi1HEQJl5YkrGc6cR6s=;
+  b=gF+4Ie7JEXuaq19WazK9iYg605tvepq9IG/5y9p4ydRfgJ9ZdX85J0l+
+   YXtSzRfS8R09tA9ZUe0r9HXAw5CWP7Ihwj9+TESEXShSVQzlANPrgM/74
+   KUYnA8mprf7E9Ww42kL9VbSj7fH5Y1D8ppEGMWW/s0MXbGRz7s5ejfdVW
+   1WleC3PDLo1fJpcvYRfMm+0eWMy98DYz39C+ImyYreZJgj99mmHGqf11c
+   fTehYho1GfiC8pudxqU5uPiIKBEjmwm9qGS5T0cMhJwr/ulcz8GMqz3//
+   7YmBtRWInSSJlR55p8girZg54Bow8v7MqKgjeP8I/zBw0gTaWcyXuzC95
+   A==;
+X-CSE-ConnectionGUID: E2ThjACyQ6+6q9VbNqAB/Q==
+X-CSE-MsgGUID: F8fr4cruStCkUAN1hmzB+A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11479"; a="53633734"
+X-IronPort-AV: E=Sophos;i="6.16,277,1744095600"; 
+   d="scan'208";a="53633734"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2025 00:37:55 -0700
+X-CSE-ConnectionGUID: mqYOQuhjQ+6VZF9w7ycY/A==
+X-CSE-MsgGUID: EIrgA14pTqC5j6UZ3LB+8A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,277,1744095600"; 
+   d="scan'208";a="153481695"
+Received: from agladkov-desk.ger.corp.intel.com (HELO svinhufvud.fi.intel.com) ([10.245.244.57])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2025 00:37:52 -0700
+Received: from svinhufvud (syyslaukka.retiisi.eu [IPv6:::1])
+	by svinhufvud.fi.intel.com (Postfix) with ESMTPS id 5414C427E5;
+	Mon, 30 Jun 2025 10:37:49 +0300 (EEST)
+Date: Mon, 30 Jun 2025 10:37:47 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Daniel Scally <dan.scally@ideasonboard.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
+	robh+dt@kernel.org, mchehab@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com
+Subject: Re: [PATCH v10 07/17] media: mali-c55: Add Mali-C55 ISP driver
+Message-ID: <aGI+y4sOlPAQMzWI@svinhufvud>
+References: <20250624-c55-v10-0-54f3d4196990@ideasonboard.com>
+ <20250624-c55-v10-7-54f3d4196990@ideasonboard.com>
+ <cee962ce-3719-4ae7-9849-548a95d98e99@linux.intel.com>
+ <20250629183547.GF6260@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] spi: stm32: fix NULL check on pointer-to-pointer variable
-To: Antonio Quartulli <antonio@mandelbit.com>, <linux-spi@vger.kernel.org>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Mark Brown <broonie@kernel.org>,
-        Alain Volmat
-	<alain.volmat@foss.st.com>
-References: <20250628000227.22895-1-antonio@mandelbit.com>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <20250628000227.22895-1-antonio@mandelbit.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.252.20.7]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-06-30_01,2025-06-27_01,2025-03-28_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250629183547.GF6260@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_003552_470789_D173C751 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20250630_003756_137010_BABB40C0 
+X-CRM114-Status: GOOD (  35.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,61 +95,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Antonio,
+Hi Laurent,
 
-On 6/28/25 02:02, Antonio Quartulli wrote:
-> In stm32_spi_prepare_rx_dma_mdma_chaining() both rx_dma_desc
-> and rx_mdma_desc are passed as pointer-to-pointer arguments.
+On Sun, Jun 29, 2025 at 09:35:47PM +0300, Laurent Pinchart wrote:
+> On Sat, Jun 28, 2025 at 11:06:54PM +0300, Sakari Ailus wrote:
+> > On 6/24/25 13:21, Daniel Scally wrote:
 > 
-> The goal is to pass back to the caller the value returned
-> by dmaengine_prep_slave_sg(), when it is not NULL.
+> [snip]
 > 
-> However, the NULL check on the result is erroneously
-> performed without dereferencing the pointer.
+> > > diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-isp.c b/drivers/media/platform/arm/mali-c55/mali-c55-isp.c
+> > > new file mode 100644
+> > > index 0000000000000000000000000000000000000000..20d4d16c75fbf0d5519ecadb5ed1d080bdae05de
+> > > --- /dev/null
+> > > +++ b/drivers/media/platform/arm/mali-c55/mali-c55-isp.c
+> > > @@ -0,0 +1,656 @@
+> > > +// SPDX-License-Identifier: GPL-2.0
+> > > +/*
+> > > + * ARM Mali-C55 ISP Driver - Image signal processor
+> > > + *
+> > > + * Copyright (C) 2024 Ideas on Board Oy
+> > 
+> > It's 2025 already.
+> > 
+> > > + */
+> > > +
+> > > +#include <linux/delay.h>
+> > > +#include <linux/iopoll.h>
+> > > +#include <linux/property.h>
+> > > +#include <linux/string.h>
+> > > +
+> > > +#include <linux/media/arm/mali-c55-config.h>
+> > 
+> > If this is a UAPI header, please include uapi in the path, too.
+> > 
+> > Earlier such headers have been under include/uapi/linux, I don't object 
+> > putting new ones elsewhere in principle though. Just check with Hans and 
+> > Laurent, too... I don't have an opinion yet really.
 > 
-> Add the proper dereference operator to both checks.
-> 
-> Fixes: d17dd2f1d8a1 ("spi: stm32: use STM32 DMA with STM32 MDMA to enhance DDR use")
-> Addresses-Coverity-ID: 1644715 ("Null pointer dereferences (REVERSE_INULL)")
-> Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
-> ---
->   drivers/spi/spi-stm32.c | 6 +++---
->   1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
-> index 3d20f09f1ae7..e9fa17e52fb0 100644
-> --- a/drivers/spi/spi-stm32.c
-> +++ b/drivers/spi/spi-stm32.c
-> @@ -1529,7 +1529,7 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
->   					       DMA_PREP_INTERRUPT);
->   	sg_free_table(&dma_sgt);
->   
-> -	if (!rx_dma_desc)
-> +	if (!*rx_dma_desc)
->   		return -EINVAL;
->   
->   	/* Prepare MDMA slave_sg transfer MEM_TO_MEM (SRAM>DDR) */
-> @@ -1563,8 +1563,8 @@ static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
->   						DMA_PREP_INTERRUPT);
->   	sg_free_table(&mdma_sgt);
->   
-> -	if (!rx_mdma_desc) {
-> -		rx_dma_desc = NULL;
-> +	if (!*rx_mdma_desc) {
-> +		*rx_dma_desc = NULL;
->   		return -EINVAL;
->   	}
->   
+> With each new media header we add to include/uapi/linux/, I wish
+> stronger and stronger that we had created include/uapi/linux/media/. We
+> don't have to do it now, my regret will just grow stronger :-)
 
-Good catch for both pointers !
+I'm fine with using include/uapi/linux/media/.
 
-For readability, I would suggest to define two dma_async_tx_descriptor 
-ptr at the beginning of the function such as :
-	struct dma_async_tx_descriptor *_mdma_desc = *rx_mdma_desc;
-	struct dma_async_tx_descriptor *_dma_desc = *rx_dma_desc;
+> 
+> > > +/* NOT const because the default needs to be filled in at runtime */
+> > > +static struct v4l2_ctrl_config mali_c55_isp_v4l2_custom_ctrls[] = {
+> > > +	{
+> > > +		.ops = &mali_c55_isp_ctrl_ops,
+> > > +		.id = V4L2_CID_MALI_C55_CAPABILITIES,
+> > > +		.name = "Mali-C55 ISP Capabilities",
+> > > +		.type = V4L2_CTRL_TYPE_BITMASK,
+> > > +		.min = 0,
+> > > +		.max = MALI_C55_GPS_PONG_FITTED |
+> > > +		       MALI_C55_GPS_WDR_FITTED |
+> > > +		       MALI_C55_GPS_COMPRESSION_FITTED |
+> > > +		       MALI_C55_GPS_TEMPER_FITTED |
+> > > +		       MALI_C55_GPS_SINTER_LITE_FITTED |
+> > > +		       MALI_C55_GPS_SINTER_FITTED |
+> > > +		       MALI_C55_GPS_IRIDIX_LTM_FITTED |
+> > > +		       MALI_C55_GPS_IRIDIX_GTM_FITTED |
+> > > +		       MALI_C55_GPS_CNR_FITTED |
+> > > +		       MALI_C55_GPS_FRSCALER_FITTED |
+> > > +		       MALI_C55_GPS_DS_PIPE_FITTED,
+> > > +		.def = 0,
+> > > +	},
+> > > +};
+> > > +
+> > > +static int mali_c55_isp_init_controls(struct mali_c55 *mali_c55)
+> > > +{
+> > > +	struct v4l2_ctrl_handler *handler = &mali_c55->isp.handler;
+> > > +	struct v4l2_ctrl *capabilities;
+> > > +	int ret;
+> > > +
+> > > +	ret = v4l2_ctrl_handler_init(handler, 1);
+> > > +	if (ret)
+> > > +		return ret;
+> > > +
+> > > +	mali_c55_isp_v4l2_custom_ctrls[0].def = mali_c55->capabilities;
+> > 
+> > The capabilities here are still specific to a device, not global, in 
+> > principle at least. Can you move it here, as a local variable?
+> > 
+> > > +
+> > > +	capabilities = v4l2_ctrl_new_custom(handler,
+> > > +					    &mali_c55_isp_v4l2_custom_ctrls[0],
+> > > +					    NULL);
+> > > +	if (capabilities)
+> > > +		capabilities->flags |= V4L2_CTRL_FLAG_READ_ONLY;
+> > > +
+> > > +	if (handler->error) {
+> > > +		dev_err(mali_c55->dev, "failed to register capabilities control\n");
+> > > +		v4l2_ctrl_handler_free(handler);
+> > > +		return handler->error;
+> > 
+> > v4l2_ctrl_handler_free() will return the error soon, presumably sooner 
+> > than the above code makes it to upstream. Before that, this pattern 
+> > won't work as v4l2_ctrl_handler_free() also resets the handler's error 
+> > field. :-)
+> > 
+> > > diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-registers.h b/drivers/media/platform/arm/mali-c55/mali-c55-registers.h
+> > > new file mode 100644
+> > > index 0000000000000000000000000000000000000000..36a81be0191a15da91809dd2da5d279716f6d725
+> > > --- /dev/null
+> > > +++ b/drivers/media/platform/arm/mali-c55/mali-c55-registers.h
+> > > @@ -0,0 +1,318 @@
+> > > +/* SPDX-License-Identifier: GPL-2.0 */
+> > > +/*
+> > > + * ARM Mali-C55 ISP Driver - Register definitions
+> > > + *
+> > > + * Copyright (C) 2024 Ideas on Board Oy
+> > > + */
+> > > +
+> > > +#ifndef _MALI_C55_REGISTERS_H
+> > > +#define _MALI_C55_REGISTERS_H
+> > > +
+> > > +#include <linux/bits.h>
+> > > +
+> > > +/* ISP Common 0x00000 - 0x000ff */
+> > > +
+> > > +#define MALI_C55_REG_API				0x00000
+> > > +#define MALI_C55_REG_PRODUCT				0x00004
+> > > +#define MALI_C55_REG_VERSION				0x00008
+> > > +#define MALI_C55_REG_REVISION				0x0000c
+> > > +#define MALI_C55_REG_PULSE_MODE				0x0003c
+> > > +#define MALI_C55_REG_INPUT_MODE_REQUEST			0x0009c
+> > > +#define MALI_C55_INPUT_SAFE_STOP			0x00
+> > > +#define MALI_C55_INPUT_SAFE_START			0x01
+> > > +#define MALI_C55_REG_MODE_STATUS			0x000a0
+> > > +#define MALI_C55_REG_INTERRUPT_MASK_VECTOR		0x00030
+> > > +#define MALI_C55_INTERRUPT_MASK_ALL			GENMASK(31, 0)
+> > > +
+> > > +#define MALI_C55_REG_GLOBAL_MONITOR			0x00050
+> > > +
+> > > +#define MALI_C55_REG_GEN_VIDEO				0x00080
+> > > +#define MALI_C55_REG_GEN_VIDEO_ON_MASK			BIT(0)
+> > > +#define MALI_C55_REG_GEN_VIDEO_MULTI_MASK		BIT(1)
+> > > +#define MALI_C55_REG_GEN_PREFETCH_MASK			GENMASK(31, 16)
+> > > +
+> > > +#define MALI_C55_REG_MCU_CONFIG				0x00020
+> > > +#define MALI_C55_REG_MCU_CONFIG_OVERRIDE_MASK		BIT(0)
+> > > +#define MALI_C55_REG_MCU_CONFIG_WRITE_MASK		BIT(1)
+> > > +#define MALI_C55_MCU_CONFIG_WRITE(x)			((x) << 1)
+> > 
+> > Is x unsigned?
+> 
+> Does it matter ? The reason why the BIT() macro uses (UL(1) << (nr))
+> instead of (1 << (nr)) is (if I'm not mistaken) to avoid incorrect
+> handling of bit 31. As long as x doesn't take negative values and
+> doesn't extend to bit 31, it should be fine.
 
-And then use them all along the function even in the assignation.
+For that reason exactly. If you're unsure, maybe at least cast it as
+unsigned?
 
-Best regards,
-Clément
+> 
+> > > +#define MALI_C55_REG_MCU_CONFIG_WRITE_PING		BIT(1)
+> > > +#define MALI_C55_REG_MCU_CONFIG_WRITE_PONG		0x00
+> > > +#define MALI_C55_REG_MULTI_CONTEXT_MODE_MASK		BIT(8)
+> > > +#define MALI_C55_REG_PING_PONG_READ			0x00024
+> > > +#define MALI_C55_REG_PING_PONG_READ_MASK		BIT(2)
+> > > +#define MALI_C55_INTERRUPT_BIT(x)			BIT(x)
+> > > +
+> > > +#define MALI_C55_REG_GLOBAL_PARAMETER_STATUS		0x00068
+> > > +#define MALI_C55_GPS_PONG_FITTED			BIT(0)
+> > > +#define MALI_C55_GPS_WDR_FITTED				BIT(1)
+> > > +#define MALI_C55_GPS_COMPRESSION_FITTED			BIT(2)
+> > > +#define MALI_C55_GPS_TEMPER_FITTED			BIT(3)
+> > > +#define MALI_C55_GPS_SINTER_LITE_FITTED			BIT(4)
+> > > +#define MALI_C55_GPS_SINTER_FITTED			BIT(5)
+> > > +#define MALI_C55_GPS_IRIDIX_LTM_FITTED			BIT(6)
+> > > +#define MALI_C55_GPS_IRIDIX_GTM_FITTED			BIT(7)
+> > > +#define MALI_C55_GPS_CNR_FITTED				BIT(8)
+> > > +#define MALI_C55_GPS_FRSCALER_FITTED			BIT(9)
+> > > +#define MALI_C55_GPS_DS_PIPE_FITTED			BIT(10)
+> > > +
+> > > +#define MALI_C55_REG_BLANKING				0x00084
+> > > +#define MALI_C55_REG_HBLANK_MASK			GENMASK(15, 0)
+> > > +#define MALI_C55_REG_VBLANK_MASK			GENMASK(31, 16)
+> > > +#define MALI_C55_VBLANK(x)				((x) << 16)
+> > 
+> > Same question for the bit shifts left elsewhere in the header.
+> > 
+> > > +
+> > > +#define MALI_C55_REG_HC_START				0x00088
+> > > +#define MALI_C55_HC_START(h)				(((h) & 0xffff) << 16)
+> > > +#define MALI_C55_REG_HC_SIZE				0x0008c
+> > > +#define MALI_C55_HC_SIZE(h)				((h) & 0xffff)
+> > > +#define MALI_C55_REG_VC_START_SIZE			0x00094
+> > > +#define MALI_C55_VC_START(v)				((v) & 0xffff)
+> > > +#define MALI_C55_VC_SIZE(v)				(((v) & 0xffff) << 16)
+> > > +
+> > > +/* Ping/Pong Configuration Space */
+> > > +#define MALI_C55_REG_BASE_ADDR				0x18e88
+> > > +#define MALI_C55_REG_BYPASS_0				0x18eac
+> > > +#define MALI_C55_REG_BYPASS_0_VIDEO_TEST		BIT(0)
+> > > +#define MALI_C55_REG_BYPASS_0_INPUT_FMT			BIT(1)
+> > > +#define MALI_C55_REG_BYPASS_0_DECOMPANDER		BIT(2)
+> > > +#define MALI_C55_REG_BYPASS_0_SENSOR_OFFSET_WDR		BIT(3)
+> > > +#define MALI_C55_REG_BYPASS_0_GAIN_WDR			BIT(4)
+> > > +#define MALI_C55_REG_BYPASS_0_FRAME_STITCH		BIT(5)
+> > > +#define MALI_C55_REG_BYPASS_1				0x18eb0
+> > > +#define MALI_C55_REG_BYPASS_1_DIGI_GAIN			BIT(0)
+> > > +#define MALI_C55_REG_BYPASS_1_FE_SENSOR_OFFS		BIT(1)
+> > > +#define MALI_C55_REG_BYPASS_1_FE_SQRT			BIT(2)
+> > > +#define MALI_C55_REG_BYPASS_1_RAW_FE			BIT(3)
+> > > +#define MALI_C55_REG_BYPASS_2				0x18eb8
+> > > +#define MALI_C55_REG_BYPASS_2_SINTER			BIT(0)
+> > > +#define MALI_C55_REG_BYPASS_2_TEMPER			BIT(1)
+> > > +#define MALI_C55_REG_BYPASS_3				0x18ebc
+> > > +#define MALI_C55_REG_BYPASS_3_SQUARE_BE			BIT(0)
+> > > +#define MALI_C55_REG_BYPASS_3_SENSOR_OFFSET_PRE_SH	BIT(1)
+> > > +#define MALI_C55_REG_BYPASS_3_MESH_SHADING		BIT(3)
+> > > +#define MALI_C55_REG_BYPASS_3_WHITE_BALANCE		BIT(4)
+> > > +#define MALI_C55_REG_BYPASS_3_IRIDIX			BIT(5)
+> > > +#define MALI_C55_REG_BYPASS_3_IRIDIX_GAIN		BIT(6)
+> > > +#define MALI_C55_REG_BYPASS_4				0x18ec0
+> > > +#define MALI_C55_REG_BYPASS_4_DEMOSAIC_RGB		BIT(1)
+> > > +#define MALI_C55_REG_BYPASS_4_PF_CORRECTION		BIT(3)
+> > > +#define MALI_C55_REG_BYPASS_4_CCM			BIT(4)
+> > > +#define MALI_C55_REG_BYPASS_4_CNR			BIT(5)
+> > > +#define MALI_C55_REG_FR_BYPASS				0x18ec4
+> > > +#define MALI_C55_REG_DS_BYPASS				0x18ec8
+> > > +#define MALI_C55_BYPASS_CROP				BIT(0)
+> > > +#define MALI_C55_BYPASS_SCALER				BIT(1)
+> > > +#define MALI_C55_BYPASS_GAMMA_RGB			BIT(2)
+> > > +#define MALI_C55_BYPASS_SHARPEN				BIT(3)
+> > > +#define MALI_C55_BYPASS_CS_CONV				BIT(4)
+> > > +#define MALI_C55_REG_ISP_RAW_BYPASS			0x18ecc
+> > > +#define MALI_C55_ISP_RAW_BYPASS_BYPASS_MASK		BIT(0)
+> > > +#define MALI_C55_ISP_RAW_BYPASS_FR_BYPASS_MASK		GENMASK(9, 8)
+> > > +#define MALI_C55_ISP_RAW_BYPASS_RAW_FR_BYPASS		(2 << 8)
+> > > +#define MALI_C55_ISP_RAW_BYPASS_RGB_FR_BYPASS		(1 << 8)
+> > 
+> > BIT() or make these unsigned.
+> 
+> It's a 2 bits field, BIT() isn't appropriate.
+
+That leaves us with the other alternative, doesn't it?
+
+-- 
+Kind regards,
+
+Sakari Ailus
 
