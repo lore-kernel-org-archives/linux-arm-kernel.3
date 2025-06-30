@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45722C83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 18:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1333C83029
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 18:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fT6KHl0DZjqWYj+x6FXMVRbAdr8dxizaH1pBTTHw1Xw=; b=h6ZEaQEpqt3fJIsjHR/D8MhsDA
-	m+HGzmyfzDqEzK10VuyRyETlz/d1z71guM1CI0KK221THcg989WulFfjM5gxw3PnWWpbL4lgH0q+m
-	kO5hf8JpjtgZcHCrktBGLI8Bojp3sxnSSis85/i1XzoETIvIuExL4HOhTN2KDi87BB7wmw0kfPIFt
-	fnJFTwZXokGVcQKdIx6DnGmrpnF2KZf1ZbyFLTlkMakG2FMmt7fPSFWIy2L2GAhaR5AnRvVuN/yWW
-	tjBYUdQGM0jhjs+xEjux/Egg5FBRPfsgIdkY5RC07eEq+6doYqMwIG6H7t9+f+dfrPxD52n5JpTKt
-	jhj+LFRg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xFXyKyWtwtopETLpcwHExCrbjg6sFBQzC7dTAq6P5dE=; b=uFhrU6yXwwUNAYB/ueeSCuN4E2
+	wVUXSAww4NiL4JxRr4fT8uccuyWrnrXYfGIJK60V1VcmLQPay2SZqmuSYd5sDK4+6r3U3K5FNRVWu
+	JlgA2LvrDmDna1nfJC6/KHuV9J72zk14A8Hzv7m/7sN8695qCEthu/oKmpg/l+3jdYILBZOpXv9dy
+	1CsWLw9WTTQenhWm8Tw64vO+f1fAyG/KtSATrlJq+/XkU7MFyPB5qftIDFkuJ3YP9n/5FLZB/NNq9
+	NnhJPig41cnq4EyU5PX4ersEeLzgO5FmTobqGbLaRjMbyigY9Sixi+NPJ9cSYZd4H7ixaGmyV05+l
+	9SCNQlHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWJ7W-00000003BTH-36kA;
-	Mon, 30 Jun 2025 18:20:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uWJ8N-00000003BcM-1YsF;
+	Mon, 30 Jun 2025 18:21:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWH0b-00000002opB-2wgM;
-	Mon, 30 Jun 2025 16:05:30 +0000
+	id 1uWIZ4-000000036a6-0QiK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Jun 2025 17:45:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3A5AA5C5B6B;
-	Mon, 30 Jun 2025 16:05:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B986C4CEF3;
-	Mon, 30 Jun 2025 16:05:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3AD7C61126;
+	Mon, 30 Jun 2025 17:45:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0A0CC4CEE3;
+	Mon, 30 Jun 2025 17:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751299528;
-	bh=x0Z9wiotmf8jNMw5UZ8kqkasukLKKyE27l+fQpQiAtU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=t3JvUmlQQ4INyHMwXd8NDAuXQfblNIw7bb2A+AkbC1bEfjMvbGr9VVWYBufCEWja+
-	 vRPcUj3Eh3HA5CCYjFNEPIvrkd5V+fCYMMRfLjgfRMBAOIDzx501JkRTOw24STASVN
-	 GlXEfFZ4QhPwvdzhL7Brq7NcN40QmKVHP3lciFUL9Eh22O7hkrRSsErLEcExvfFcRk
-	 RtTIKQjSwaglVhNVylmaJW3TUINxj06OACBE4anK4ueu1Kh2nnmHyNEfuaK4GIntCE
-	 GlPmSy5LDlWkdSrGWFPNlZVad3KFf1R78b5H9wRTMsFkiIVpiIi4UYjq+LAS4uKKW9
-	 oLn9LSYQOwH8Q==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v3 15/16] lib/crypto: x86/sha512: Remove unnecessary checks for nblocks==0
-Date: Mon, 30 Jun 2025 09:03:19 -0700
-Message-ID: <20250630160320.2888-16-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250630160320.2888-1-ebiggers@kernel.org>
-References: <20250630160320.2888-1-ebiggers@kernel.org>
+	s=k20201202; t=1751305508;
+	bh=i5RJ/sC/svK83YrMoFZztx4G0sX30XvRei6equEd/Hs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=oDrzdZypIrEsLQIZLa6c6QXtwB2jVjICOOVnRIfOHf86uSSrscF/DAl4rMU7Iu/Ls
+	 kprDTfME4Vm7NX98RUvXe+9xhVjM7USYFIJXWFXh1BunC6xyU8LFWPZDWyRKL3J0WS
+	 y6lRBPVlJXs4Tqabod4v179KaBriS7nWXPRtWdz1e359Vwb7tq497uc64wkFNeXLqj
+	 w5QJOosQu7ly8d//zo593m9/PqG6wcx+NlVbc/3vt8F8+DArH9MB5cUonsCp8SNm8C
+	 0JDQbqWZXASDlbh2/4/YRQTQYBsyZUscUfvbx0QMIhLjb9su6oOfilIAAd+AIu8EsK
+	 P+Imc9iQrWh/Q==
+From: Song Liu <song@kernel.org>
+To: live-patching@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: jpoimboe@kernel.org,
+	jikos@kernel.org,
+	mbenes@suse.cz,
+	pmladek@suse.com,
+	joe.lawrence@redhat.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	dylanbhatch@google.com,
+	fj6611ie@aa.jp.fujitsu.com,
+	mark.rutland@arm.com,
+	kernel-team@meta.com,
+	Song Liu <song@kernel.org>,
+	Suraj Jitindar Singh <surajjs@amazon.com>,
+	Torsten Duwe <duwe@suse.de>,
+	Breno Leitao <leitao@debian.org>,
+	Andrea della Porta <andrea.porta@suse.com>
+Subject: [PATCH v5] arm64: Implement HAVE_LIVEPATCH
+Date: Mon, 30 Jun 2025 10:45:02 -0700
+Message-ID: <20250630174502.842486-1-song@kernel.org>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_090529_824096_8376F1C3 
-X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,129 +82,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since sha512_blocks() is called only with nblocks >= 1, remove
-unnecessary checks for nblocks == 0 from the x86 SHA-512 assembly code.
+Allocate a task flag used to represent the patch pending state for the
+task. When a livepatch is being loaded or unloaded, the livepatch code
+uses this flag to select the proper version of a being patched kernel
+functions to use for current task.
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+In arch/arm64/Kconfig, select HAVE_LIVEPATCH and include proper Kconfig.
+
+This is largely based on [1] by Suraj Jitindar Singh.
+
+[1] https://lore.kernel.org/all/20210604235930.603-1-surajjs@amazon.com/
+
+Cc: Suraj Jitindar Singh <surajjs@amazon.com>
+Cc: Torsten Duwe <duwe@suse.de>
+Acked-by: Miroslav Benes <mbenes@suse.cz>
+Tested-by: Breno Leitao <leitao@debian.org>
+Tested-by: Andrea della Porta <andrea.porta@suse.com>
+Signed-off-by: Song Liu <song@kernel.org>
+Acked-by: Will Deacon <will@kernel.org>
+
 ---
- lib/crypto/x86/sha512-avx-asm.S   | 6 +-----
- lib/crypto/x86/sha512-avx2-asm.S  | 5 +----
- lib/crypto/x86/sha512-ssse3-asm.S | 6 +-----
- 3 files changed, 3 insertions(+), 14 deletions(-)
 
-diff --git a/lib/crypto/x86/sha512-avx-asm.S b/lib/crypto/x86/sha512-avx-asm.S
-index 0b5f69179d624..7732aa8fd8506 100644
---- a/lib/crypto/x86/sha512-avx-asm.S
-+++ b/lib/crypto/x86/sha512-avx-asm.S
-@@ -270,17 +270,14 @@ frame_size = frame_WK + WK_SIZE
- #			    const u8 *data, size_t nblocks);
- # Purpose: Updates the SHA512 digest stored at "state" with the message
- # stored in "data".
- # The size of the message pointed to by "data" must be an integer multiple
- # of SHA512 message blocks.
--# "nblocks" is the message length in SHA512 blocks
-+# "nblocks" is the message length in SHA512 blocks.  Must be >= 1.
- ########################################################################
- SYM_FUNC_START(sha512_transform_avx)
+Changes v4 => v5:
+1. Update commit log.
+
+v4: https://lore.kernel.org/live-patching/20250617173734.651611-1-song@kernel.org/
+
+Changes v3 => v4:
+1. Only keep 2/2 from v3, as 1/2 is now included in [3].
+2. Change TIF_PATCH_PENDING from 7 to 13.
+
+v3: https://lore.kernel.org/linux-arm-kernel/20250320171559.3423224-1-song@kernel.org/
+
+Changes v2 => v3:
+1. Remove a redundant check for -ENOENT. (Josh Poimboeuf)
+2. Add Tested-by and Acked-by on v1. (I forgot to add them in v2.)
+
+v2: https://lore.kernel.org/live-patching/20250319213707.1784775-1-song@kernel.org/
+
+Changes v1 => v2:
+
+1. Rework arch_stack_walk_reliable().
+
+v1: https://lore.kernel.org/live-patching/20250308012742.3208215-1-song@kernel.org/
+---
+ arch/arm64/Kconfig                   | 3 +++
+ arch/arm64/include/asm/thread_info.h | 5 ++++-
+ arch/arm64/kernel/entry-common.c     | 4 ++++
+ 3 files changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b7462424aa59..110218542920 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -280,6 +280,7 @@ config ARM64
+ 	select USER_STACKTRACE_SUPPORT
+ 	select VDSO_GETRANDOM
+ 	select HAVE_RELIABLE_STACKTRACE
++	select HAVE_LIVEPATCH
+ 	help
+ 	  ARM 64-bit (AArch64) Linux support.
  
--	test msglen, msglen
--	je .Lnowork
--
- 	# Save GPRs
- 	push	%rbx
- 	push	%r12
- 	push	%r13
- 	push	%r14
-@@ -360,11 +357,10 @@ SYM_FUNC_START(sha512_transform_avx)
- 	pop	%r14
- 	pop	%r13
- 	pop	%r12
- 	pop	%rbx
+@@ -2499,3 +2500,5 @@ endmenu # "CPU Power Management"
+ source "drivers/acpi/Kconfig"
  
--.Lnowork:
- 	RET
- SYM_FUNC_END(sha512_transform_avx)
+ source "arch/arm64/kvm/Kconfig"
++
++source "kernel/livepatch/Kconfig"
+diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+index 1269c2487574..f241b8601ebd 100644
+--- a/arch/arm64/include/asm/thread_info.h
++++ b/arch/arm64/include/asm/thread_info.h
+@@ -70,6 +70,7 @@ void arch_setup_new_exec(void);
+ #define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
+ #define TIF_SECCOMP		11	/* syscall secure computing */
+ #define TIF_SYSCALL_EMU		12	/* syscall emulation active */
++#define TIF_PATCH_PENDING	13	/* pending live patching update */
+ #define TIF_MEMDIE		18	/* is terminating due to OOM killer */
+ #define TIF_FREEZE		19
+ #define TIF_RESTORE_SIGMASK	20
+@@ -96,6 +97,7 @@ void arch_setup_new_exec(void);
+ #define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
+ #define _TIF_SECCOMP		(1 << TIF_SECCOMP)
+ #define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
++#define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
+ #define _TIF_UPROBE		(1 << TIF_UPROBE)
+ #define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
+ #define _TIF_32BIT		(1 << TIF_32BIT)
+@@ -107,7 +109,8 @@ void arch_setup_new_exec(void);
+ #define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY | \
+ 				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
+ 				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
+-				 _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING)
++				 _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING | \
++				 _TIF_PATCH_PENDING)
  
- ########################################################################
- ### Binary Data
-diff --git a/lib/crypto/x86/sha512-avx2-asm.S b/lib/crypto/x86/sha512-avx2-asm.S
-index 2309c01e316b9..22bdbfd899d0f 100644
---- a/lib/crypto/x86/sha512-avx2-asm.S
-+++ b/lib/crypto/x86/sha512-avx2-asm.S
-@@ -562,11 +562,11 @@ frame_size = frame_CTX + CTX_SIZE
- #			     const u8 *data, size_t nblocks);
- # Purpose: Updates the SHA512 digest stored at "state" with the message
- # stored in "data".
- # The size of the message pointed to by "data" must be an integer multiple
- # of SHA512 message blocks.
--# "nblocks" is the message length in SHA512 blocks
-+# "nblocks" is the message length in SHA512 blocks.  Must be >= 1.
- ########################################################################
- SYM_FUNC_START(sha512_transform_rorx)
+ #define _TIF_SYSCALL_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
+ 				 _TIF_SYSCALL_TRACEPOINT | _TIF_SECCOMP | \
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index 7c1970b341b8..a56878d7c733 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -8,6 +8,7 @@
+ #include <linux/context_tracking.h>
+ #include <linux/kasan.h>
+ #include <linux/linkage.h>
++#include <linux/livepatch.h>
+ #include <linux/lockdep.h>
+ #include <linux/ptrace.h>
+ #include <linux/resume_user_mode.h>
+@@ -144,6 +145,9 @@ static void do_notify_resume(struct pt_regs *regs, unsigned long thread_flags)
+ 				       (void __user *)NULL, current);
+ 		}
  
- 	# Save GPRs
- 	push	%rbx
-@@ -580,11 +580,10 @@ SYM_FUNC_START(sha512_transform_rorx)
- 	mov	%rsp, %rbp
- 	sub	$frame_size, %rsp
- 	and	$~(0x20 - 1), %rsp
++		if (thread_flags & _TIF_PATCH_PENDING)
++			klp_update_patch_state(current);
++
+ 		if (thread_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
+ 			do_signal(regs);
  
- 	shl	$7, NUM_BLKS	# convert to bytes
--	jz	.Ldone_hash
- 	add	INP, NUM_BLKS	# pointer to end of data
- 	mov	NUM_BLKS, frame_INPEND(%rsp)
- 
- 	## load initial digest
- 	mov	8*0(CTX1), a
-@@ -666,12 +665,10 @@ SYM_FUNC_START(sha512_transform_rorx)
- 	mov	frame_INP(%rsp), INP
- 	add	$128, INP
- 	cmp	frame_INPEND(%rsp), INP
- 	jne	.Lloop0
- 
--.Ldone_hash:
--
- 	# Restore Stack Pointer
- 	mov	%rbp, %rsp
- 	pop	%rbp
- 
- 	# Restore GPRs
-diff --git a/lib/crypto/x86/sha512-ssse3-asm.S b/lib/crypto/x86/sha512-ssse3-asm.S
-index 12e78142f2e38..4cae7445b2a86 100644
---- a/lib/crypto/x86/sha512-ssse3-asm.S
-+++ b/lib/crypto/x86/sha512-ssse3-asm.S
-@@ -269,17 +269,14 @@ frame_size = frame_WK + WK_SIZE
- #			      const u8 *data, size_t nblocks);
- # Purpose: Updates the SHA512 digest stored at "state" with the message
- # stored in "data".
- # The size of the message pointed to by "data" must be an integer multiple
- # of SHA512 message blocks.
--# "nblocks" is the message length in SHA512 blocks
-+# "nblocks" is the message length in SHA512 blocks.  Must be >= 1.
- ########################################################################
- SYM_FUNC_START(sha512_transform_ssse3)
- 
--	test msglen, msglen
--	je .Lnowork
--
- 	# Save GPRs
- 	push	%rbx
- 	push	%r12
- 	push	%r13
- 	push	%r14
-@@ -359,11 +356,10 @@ SYM_FUNC_START(sha512_transform_ssse3)
- 	pop	%r14
- 	pop	%r13
- 	pop	%r12
- 	pop	%rbx
- 
--.Lnowork:
- 	RET
- SYM_FUNC_END(sha512_transform_ssse3)
- 
- ########################################################################
- ### Binary Data
 -- 
-2.50.0
+2.47.1
 
 
