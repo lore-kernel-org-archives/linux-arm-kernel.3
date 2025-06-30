@@ -4,87 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84820C7EE39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583E8C8302D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 08:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8tbwK0k6DJmR41K3v13GouVRXbWAQ4yLjni7AtbgcyM=; b=mcx5IcbZYE/k0J5amVdzbl97Co
-	j6wvojktQaWudvTJAfIR9iJvGCR0gWaCmtBC5OREwDW88zCZ+8NgBAzjL2ORAqMeMPgmfmsD0y1AU
-	0g/ntppJemZDpQAEyHdTkG/I0I7YNjENpTsbI/kVdAzJPb5GoAbg8j8tBlyIchtzhrPM14fZe/dli
-	sPdg38AogFM5zxryHkrx2eblgbpaosAVwl1CsV60Rgr1Ili6mQqy4a8Jajb3nhGBf0P0unx8DRt48
-	eYgirTS7T5bHvjYY7UYRm2uAt+ec/Wrud6g58pfx7o2ro7ybr8IJ/J0Ax/titcLPVqiew/olNT2bK
-	EN0ZGUxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nmZAoxH00xEM8W+dxnyxQMZcpWR/ceOC1BypFWDJj6M=; b=wdLw7yw9MEe/pMtM8Wdfu2IJW7
+	NmkJaVZhr34u8BRT5Hbwlb3bM11T46Fi6jT2R7QDHDnJjb8uiUSr/D33SZAlJkaUreUVBtNyipljU
+	uTTBx6hiNXL6kM5cJ7tyF66c5KcbkP5F4SyLiyLX3YFxI63cMSAIBrExZEgCxgEywNW3GTq5nGOl2
+	nqKFHWr47k18qw30hYnz541huvN2deEQbPWFVnP1g6GihPVbBjYpR+Ge9vKtYS+HFE4XMgEvWMwfx
+	t0S60Cf/VJvpXvigi2mHEe3cNMKQlAtFMUUIjpQajnqBnJeHB2nfJH7tqbQHxjlv4m6qqExYLYVAp
+	chD3X0Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWAAw-00000001ebs-2NSU;
-	Mon, 30 Jun 2025 08:47:42 +0000
+	id 1uWADE-00000001f3J-1TvZ;
+	Mon, 30 Jun 2025 08:50:04 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWA4f-00000001dru-3EFw
+	id 1uWA4l-00000001dsS-4BNy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 08:41:14 +0000
+	Mon, 30 Jun 2025 08:41:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98271456EA;
-	Mon, 30 Jun 2025 08:41:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76628C4CEE3;
+	by sea.source.kernel.org (Postfix) with ESMTP id BC1D4456EA;
+	Mon, 30 Jun 2025 08:41:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FF9AC4CEEF;
 	Mon, 30 Jun 2025 08:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751272872;
-	bh=GFMcwvHqQu6q6QWAz3DVJhxBQG7XyQqTZN85s49tnbM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KL7Yk92jmI3hWHySdadSShj47zKUAdMNPSUGdu2mkgve36nntPf/tIItn35WCiToj
-	 mkxK8IlWKNdJ8MI6c2tiWDVH2xBLQ3Po/tavIuI9wrtRQhoKcX4jugguxQHQllTPCG
-	 Ud5a+t6f8vc/c6hEoz/Etsr1AjnSUIyI1ig9/YdGC9fXlPA6wd7WUZt0ubqwBCPgJv
-	 poiyTWz4ZUKSPc/KCCFPJpYI/isYOgzxeK0SXXd0iDUvzvF4ZCNS05pdVO413d4H48
-	 IGIghQKT9rdsXBiyFonw6/xuJWAwVxftVCac0nerVfNNCoIY+msxttFbptSFSpSSv6
-	 mYuSaupDO0ysQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uWA4c-00B9a3-5l;
-	Mon, 30 Jun 2025 09:41:10 +0100
-Date: Mon, 30 Jun 2025 09:41:09 +0100
-Message-ID: <86ldp9bp0a.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: perlarsen@google.com
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	ahomescu@google.com,
-	armellel@google.com,
-	arve@android.com,
-	ayrton@google.com,
-	qperret@google.com,
-	sebastianene@google.com,
-	qwandor@google.com
-Subject: Re: [PATCH v6 4/5] KVM: arm64: Bump the supported version of FF-A to 1.2
-In-Reply-To: <20250627-virtio-msg-ffa-v6-4-8c02fd94edac@google.com>
-References: <20250627-virtio-msg-ffa-v6-0-8c02fd94edac@google.com>
-	<20250627-virtio-msg-ffa-v6-4-8c02fd94edac@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: perlarsen@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, sudeep.holla@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, arve@android.com, ayrton@google.com, qperret@google.com, sebastianene@google.com, qwandor@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1751272879;
+	bh=vuDhO1E+0JgQZ3joYKllj+kVu+rr8nXDgvSoVbKxaBE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jlu1Vz/HrWG80dDRxlPa37djs6aNVlmQvzSr6FDrQ30XOuQD/27RRG9jS3qMdUGzV
+	 4hVjP46gWF94QkGSYfPKJh6W7th4GRRLocflylERDHkF5drmccFTANWPDGOKL6H04D
+	 B2H+p4PZOwemAPrHpYSygL/SbIK1we38NCxChutLyrPSy7J0Ggl93/OucpdQwIWuhe
+	 EtdJkjrIExhwEk008DXVO7oJZYQcWo4CLMtkCY1jOjXzaGqgeq/dxKmzeOWs/Cl1vX
+	 iAuR73CA6CnTa1uzkorqbKm0SkCPcWhw0XvMSYZDhEdfVzcT9M7HQhN5V8F/oWVJxe
+	 Ua+Y02VcPJ2aA==
+Message-ID: <c2ca0751-e600-4278-85bd-4e6e6b4aa6d2@kernel.org>
+Date: Mon, 30 Jun 2025 10:41:10 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: display: samsung,exynos7-decon: add
+ properties for iommus and ports
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Ajay Kumar <ajaykumar.rs@samsung.com>, Akshu Agrawal <akshua@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org>
+ <20250627-exynosdrm-decon-v3-1-5b456f88cfea@disroot.org>
+ <20250627-literate-talented-panda-cbac89@krzk-bin>
+ <85c3658fdfa90636caac3b3fce295915@disroot.org>
+ <efa167d1-a5f3-47cd-855d-250f41a5e883@kernel.org>
+ <ab1a39df178b68e2f1d61a537e0d567c@disroot.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <ab1a39df178b68e2f1d61a537e0d567c@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_014113_845052_A384AA23 
-X-CRM114-Status: GOOD (  26.55  )
+X-CRM114-CacheID: sfid-20250630_014120_083255_E60DDCCC 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,102 +131,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Jun 2025 08:12:28 +0100,
-Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org> wrote:
+On 27/06/2025 17:03, Kaustabh Chakraborty wrote:
+> On 2025-06-27 14:44, Krzysztof Kozlowski wrote:
+>> On 27/06/2025 15:44, Kaustabh Chakraborty wrote:
+>>>>> a/Documentation/devicetree/bindings/display/samsung/samsung,exynos7-decon.yaml
+>>>>> +++
+>>>>> b/Documentation/devicetree/bindings/display/samsung/samsung,exynos7-decon.yaml
+>>>>> @@ -80,6 +80,14 @@ properties:
+>>>>>        - const: vsync
+>>>>>        - const: lcd_sys
+>>>>>
+>>>>> +  iommus:
+>>>>> +    maxItems: 1
+>>>>> +
+>>>>> +  ports:
+>>>>> +    $ref: /schemas/graph.yaml#/properties/ports
+>>>>> +    description:
+>>>>> +      Contains a port which is connected to mic or dsim node.
+>>>>
+>>>> You need to list and describe the ports.
+>>>
+>>> -    description:
+>>> -      Contains a port which is connected to mic or dsim node.
+>>> +    properties:
+>>> +      port@0:
+>>> +        $ref: /schemas/graph.yaml#/properties/port
+>>> +        description:
+>>> +          Input port which is connected to either a Mobile Image
+>>> +          Compressor (MIC) or a DSI Master device.
+>>
+>>
+>> If this is only one port, then just 'port' property, but I have doubts
+>> it should be one, because even you mentioned two - MIC could be the
+>> input and MIPI DSIM would be the output.
 > 
-> From: Per Larsen <perlarsen@google.com>
+> DECON is the first device in the pipeline. So it should only have
+> output.
 > 
-> FF-A version 1.2 introduces the DIRECT_REQ2 ABI. Bump the FF-A version
-> preferred by the hypervisor as a precursor to implementing the 1.2-only
-> FFA_MSG_SEND_DIRECT_REQ2 and FFA_MSG_SEND_RESP2 messaging interfaces.
+> It's either:
+> DECON -> DSIM -> panel
+> or
+> DECON -> MIC -> DSIM -> panel
 > 
-> We must also use SMCCC 1.2 for 64-bit SMCs if hypervisor negotiated FF-A
-> 1.2, so ffa_set_retval is updated and a new function to call 64-bit smcs
-> using SMCCC 1.2 with fallback to SMCCC 1.1 is introduced.
+> Exynos7870 doesn't have MIC, but other SoCs may have one.
+
+Could be without ports entirely, but it is also fine to list port under.
+
 > 
-> Update ffa_call_supported to mark FF-A 1.2 interfaces as unsupported
-> lest they get forwarded.
+>>
+>> Maybe if the MIC is integral part, it would not have been an input, but
+>> then only 'port'.
+>>
+>>>
+>>> I assume you want something like this?
+>>> Is the formatting correct? Should there be a space between
+>>> ports:$ref and ports:properties?
+>>
+>> Look at toshiba,tc358768.yaml or the simple-bridge (except you should
+>> name the input and output ports).
 > 
-> Co-developed-by: Ayrton Munoz <ayrton@google.com>
-> Signed-off-by: Ayrton Munoz <ayrton@google.com>
-> Signed-off-by: Per Larsen <perlarsen@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 14 ++++++++++----
->  include/linux/arm_ffa.h       |  1 +
->  2 files changed, 11 insertions(+), 4 deletions(-)
+> Okay, thanks!
 > 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 5fd6474d96ae4b90d99796ee81bb36373219afc4..d543d1f5ddd62fb15f8d39f4ff7d5bb0006da4a1 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -678,6 +678,12 @@ static bool ffa_call_supported(u64 func_id)
->  	case FFA_NOTIFICATION_SET:
->  	case FFA_NOTIFICATION_GET:
->  	case FFA_NOTIFICATION_INFO_GET:
-> +	/* Unimplemented interfaces added in FF-A 1.2 */
-> +	case FFA_MSG_SEND_DIRECT_REQ2:
-> +	case FFA_MSG_SEND_DIRECT_RESP2:
+> Therefore this:
+> 
+> -    description:
+> -      Contains a port which is connected to mic or dsim node.
+> +
+> +    properties:
+> +      port:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description:
+> +          Output port which is connected to either a Mobile Image
+> +          Compressor (MIC) or a DSI Master device.
 
-Are those actually optional?
+and additionalProperties: false in ports level.
 
-> +	case FFA_CONSOLE_LOG:
-> +	case FFA_PARTITION_INFO_GET_REGS:
-> +	case FFA_EL3_INTR_HANDLE:
->  		return false;
->  	}
->  
-> @@ -734,7 +740,7 @@ static int hyp_ffa_post_init(void)
->  	if (res.a0 != FFA_SUCCESS)
->  		return -EOPNOTSUPP;
->  
-> -	switch (res.a2) {
-> +	switch (res.a2 & FFA_FEAT_RXTX_MIN_SZ_MASK) {
 
-You should also check that the MBZ fields are still 0. Ideally, you'd
-also do that with x3.
-
->  	case FFA_FEAT_RXTX_MIN_SZ_4K:
->  		min_rxtx_sz = SZ_4K;
->  		break;
-> @@ -931,7 +937,7 @@ int hyp_ffa_init(void *pages)
->  
->  	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
->  		.a0 = FFA_VERSION,
-> -		.a1 = FFA_VERSION_1_1,
-> +		.a1 = FFA_VERSION_1_2,
->  	}, &res);
->  	if (res.a0 == FFA_RET_NOT_SUPPORTED)
->  		return 0;
-> @@ -952,10 +958,10 @@ int hyp_ffa_init(void *pages)
->  	if (FFA_MAJOR_VERSION(res.a0) != 1)
->  		return -EOPNOTSUPP;
->  
-> -	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_1))
-> +	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_2))
->  		hyp_ffa_version = res.a0;
->  	else
-> -		hyp_ffa_version = FFA_VERSION_1_1;
-> +		hyp_ffa_version = FFA_VERSION_1_2;
->  
->  	tx = pages;
->  	pages += KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE;
-> diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-> index 5bded24dc24fea8cdcbe42bf79c7c025c3fa5f4b..c0dd6183d956043192114a522b7eef465e7078ac 100644
-> --- a/include/linux/arm_ffa.h
-> +++ b/include/linux/arm_ffa.h
-> @@ -128,6 +128,7 @@
->  #define FFA_FEAT_RXTX_MIN_SZ_4K		0
->  #define FFA_FEAT_RXTX_MIN_SZ_64K	1
->  #define FFA_FEAT_RXTX_MIN_SZ_16K	2
-> +#define FFA_FEAT_RXTX_MIN_SZ_MASK	3
-
-nit: a mask is better expressed with GENMASK, making it obvious that
-this is not just another value.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Best regards,
+Krzysztof
 
