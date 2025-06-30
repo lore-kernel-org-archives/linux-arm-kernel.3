@@ -4,56 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F9D7C83000
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 05:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBCD6C7EE2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 06:00:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oLHpY92twfCjhaPkFvQIEtkUPwOYCFOFbWW1+b0mSlI=; b=DoU08fj111IM6y2/00pUr5uioj
-	j91sTXnzYUiVt1ZXOvuFilSIXJMVus6U5aMQ4c66oyWLKdcscwf/PkWj3fWbM9iuqaKiednPFpomJ
-	KZrbYheZrbTUAxMMB7rqu0cMZOsXRbTxu5kCE5/K3h4WDBaAgyvusex6SKTNeY54KW6o/hVod0/XJ
-	VbXVCF7aPJ/A/XmDrSyprzGF0y04B6Yw9rk7QdqICRcFdKb3akn61bMcRogmvBtBI6aK2fOHgCdCK
-	nyv6F0+wpxklkhHbuArB8NWpfFFqgRp36PN03QahGEELA9uH6lpM9Ioa40NR+e8DDbdz28jRM8jjH
-	c6jmJCjA==;
+	bh=90CWXK9wk8PGD6lzu+Oxd3aSGk6FWg58DsKvQQRucVE=; b=zqTJSrIqp6Tft/t86IFqpLVlIl
+	amvtzAyD98nOizjFgKCEsTKjSuH4WAW1uW4duc4TGuOFHqRk9kwer9vkRRAEqYT3HZFJRWH/Y91tz
+	/vcl8YEV3Op+KjwtcXWQDQlaYqwn7/f7L7AD2G337OIgYVVCsePT8fACe/kqsTuZ/d5BkajVCZUTa
+	2uNNbA+fitL9EDPg07SkZ26OFPKO65p3B2fUVuuleUGqLjR8MXTn5GGlC9GpSrwyWYbDwVRfPj961
+	1Mr7GJPypJhafRZX4gVRlWF+nkPIqDpCglPao2X8HV4lH4sJZTMTvIFZk4ku1ig/KNjR9VM6DvZ04
+	War0AhiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW7PN-00000001I0s-1lt8;
-	Mon, 30 Jun 2025 05:50:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uW7N2-00000001HqF-3Y9T
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 05:48:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 30BA91F60;
-	Sun, 29 Jun 2025 22:47:44 -0700 (PDT)
-Received: from [10.163.37.132] (unknown [10.163.37.132])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 042F93F6A8;
-	Sun, 29 Jun 2025 22:47:56 -0700 (PDT)
-Message-ID: <d7286c62-8c7a-493e-8149-72d9c77eca00@arm.com>
-Date: Mon, 30 Jun 2025 11:17:52 +0530
+	id 1uW7Yc-00000001IVv-1Kvf;
+	Mon, 30 Jun 2025 05:59:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uW7WH-00000001INO-1xBJ;
+	Mon, 30 Jun 2025 05:57:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7CC575C5A0A;
+	Mon, 30 Jun 2025 05:57:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1CCAC4CEE3;
+	Mon, 30 Jun 2025 05:57:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751263051;
+	bh=OY5FnNZGUzQJJVdY+bYafYRhPm+gNzUjp5rwfE9mw98=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=D6IFAbbsR9baNXm7IKEg3A/pxbYPQ+rJifRo4vcljd0Cqa11Lx6ptE9P+HruolI1u
+	 n71CqVBWo72Nx85zn4Nm2/Wm4Wk7+xzwmf1673xf+EUiTp/o83yaqKqJV0xoPoFb2o
+	 E4fJyyw1dRCYWwHuhpGnTbYzPqCYMwn1eFlcIG3SY9X08cZRNQ+fE1TLI3qa32Iowd
+	 oH3P/grFN6zYNeE366QVFifRibxnKBq2e9lP0GURUj1u7aT10tVK0uEcT0By93AYLF
+	 Pp8wSVa4GcQ6jwwdSgMMPYob2RG54fb5A5AoK4GElndNYQZ9LDdYHqpJ3VM6R0vgpm
+	 6ACXsuAbvhXPg==
+Message-ID: <9f1ac97a-6109-40d1-bf85-f2a8e25138f0@kernel.org>
+Date: Mon, 30 Jun 2025 07:57:24 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/10] coresight: Refactor driver data allocation
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250627-arm_cs_fix_clock_v4-v4-0-0ce0009c38f8@arm.com>
- <20250627-arm_cs_fix_clock_v4-v4-8-0ce0009c38f8@arm.com>
+Subject: Re: [PATCH 2/8] arm64: dts: rockchip: Refactor DSI nodes on rk3399
+ boards
+To: Diederik de Haas <didi.debian@cknow.org>,
+ kernel test robot <lkp@intel.com>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ Dragan Simic <dsimic@manjaro.org>, Quentin Schulz
+ <quentin.schulz@cherry.de>, Johan Jonker <jbx6244@gmail.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250627152645.740981-3-didi.debian@cknow.org>
+ <202506290852.bWro2lBe-lkp@intel.com> <DAYXOI4WITJW.1G5DBWEQDDY1Z@cknow.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250627-arm_cs_fix_clock_v4-v4-8-0ce0009c38f8@arm.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <DAYXOI4WITJW.1G5DBWEQDDY1Z@cknow.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250629_224800_971033_32642C43 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20250629_225733_597158_82ED23DA 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,183 +122,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 27/06/25 5:21 PM, Leo Yan wrote:
-> The driver data no longer needs to be allocated separately in the static
-> and dynamic probes. Moved the allocation into the low-level functions to
-> avoid code duplication.
+On 29/06/2025 12:09, Diederik de Haas wrote:
+> Hi,
 > 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-
-> ---
->  drivers/hwtracing/coresight/coresight-catu.c      | 20 +++++++-------------
->  drivers/hwtracing/coresight/coresight-cpu-debug.c | 21 +++++++--------------
->  drivers/hwtracing/coresight/coresight-tmc-core.c  | 20 +++++++-------------
->  3 files changed, 21 insertions(+), 40 deletions(-)
+> On Sun Jun 29, 2025 at 2:32 AM CEST, kernel test robot wrote:
+>> kernel test robot noticed the following build errors:
+>>
+>> [auto build test ERROR on rockchip/for-next]
+>> [also build test ERROR on next-20250627]
+>> [cannot apply to robh/for-next krzk/for-next krzk-dt/for-next linus/master v6.16-rc3]
+>> [If your patch is applied to the wrong git tree, kindly drop us a note.
+>> And when submitting patch, we suggest to use '--base' as documented in
+>> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>>
+>> url:    https://github.com/intel-lab-lkp/linux/commits/Diederik-de-Haas/arm64-dts-rockchip-Refactor-DSI-nodes-on-px30-boards/20250627-233300
+>> base:   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git for-next
+>> patch link:    https://lore.kernel.org/r/20250627152645.740981-3-didi.debian%40cknow.org
+>> patch subject: [PATCH 2/8] arm64: dts: rockchip: Refactor DSI nodes on rk3399 boards
+>> config: arm64-randconfig-002-20250629 (https://download.01.org/0day-ci/archive/20250629/202506290852.bWro2lBe-lkp@intel.com/config)
+>> compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+>> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250629/202506290852.bWro2lBe-lkp@intel.com/reproduce)
+>>
+>> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+>> the same patch/commit), kindly add following tags
+>> | Reported-by: kernel test robot <lkp@intel.com>
+>> | Closes: https://lore.kernel.org/oe-kbuild-all/202506290852.bWro2lBe-lkp@intel.com/
+>>
+>> All errors (new ones prefixed by >>):
+>>
+>>>> Error: arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso:75.1-6 syntax error
+>>    FATAL ERROR: Unable to parse input tree
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-> index 0f476a0cbd740c233d039c5c411ca192681e2023..a3ccb7034ae14d7339bc2549bccadf11e28c45e2 100644
-> --- a/drivers/hwtracing/coresight/coresight-catu.c
-> +++ b/drivers/hwtracing/coresight/coresight-catu.c
-> @@ -515,11 +515,17 @@ static int __catu_probe(struct device *dev, struct resource *res)
->  {
->  	int ret = 0;
->  	u32 dma_mask;
-> -	struct catu_drvdata *drvdata = dev_get_drvdata(dev);
-> +	struct catu_drvdata *drvdata;
->  	struct coresight_desc catu_desc;
->  	struct coresight_platform_data *pdata = NULL;
->  	void __iomem *base;
->  
-> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +	if (!drvdata)
-> +		return -ENOMEM;
-> +
-> +	dev_set_drvdata(dev, drvdata);
-> +
->  	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
->  	if (ret)
->  		return ret;
-> @@ -580,14 +586,8 @@ static int __catu_probe(struct device *dev, struct resource *res)
->  
->  static int catu_probe(struct amba_device *adev, const struct amba_id *id)
->  {
-> -	struct catu_drvdata *drvdata;
->  	int ret;
->  
-> -	drvdata = devm_kzalloc(&adev->dev, sizeof(*drvdata), GFP_KERNEL);
-> -	if (!drvdata)
-> -		return -ENOMEM;
-> -
-> -	amba_set_drvdata(adev, drvdata);
->  	ret = __catu_probe(&adev->dev, &adev->res);
->  	if (!ret)
->  		pm_runtime_put(&adev->dev);
-> @@ -627,18 +627,12 @@ static struct amba_driver catu_driver = {
->  static int catu_platform_probe(struct platform_device *pdev)
->  {
->  	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> -	struct catu_drvdata *drvdata;
->  	int ret = 0;
->  
-> -	drvdata = devm_kzalloc(&pdev->dev, sizeof(*drvdata), GFP_KERNEL);
-> -	if (!drvdata)
-> -		return -ENOMEM;
-> -
->  	pm_runtime_get_noresume(&pdev->dev);
->  	pm_runtime_set_active(&pdev->dev);
->  	pm_runtime_enable(&pdev->dev);
->  
-> -	dev_set_drvdata(&pdev->dev, drvdata);
->  	ret = __catu_probe(&pdev->dev, res);
->  	pm_runtime_put(&pdev->dev);
->  	if (ret)
-> diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-> index 5f6db2fb95d4623a0bab08828ae00442870abd7d..3edfb5d3d02056afcaab4da575d1101c68aeac80 100644
-> --- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
-> +++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-> @@ -562,10 +562,16 @@ static void debug_func_exit(void)
->  
->  static int __debug_probe(struct device *dev, struct resource *res)
->  {
-> -	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
-> +	struct debug_drvdata *drvdata;
->  	void __iomem *base;
->  	int ret;
->  
-> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +	if (!drvdata)
-> +		return -ENOMEM;
-> +
-> +	dev_set_drvdata(dev, drvdata);
-> +
->  	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, NULL);
->  	if (ret)
->  		return ret;
-> @@ -629,13 +635,6 @@ static int __debug_probe(struct device *dev, struct resource *res)
->  
->  static int debug_probe(struct amba_device *adev, const struct amba_id *id)
->  {
-> -	struct debug_drvdata *drvdata;
-> -
-> -	drvdata = devm_kzalloc(&adev->dev, sizeof(*drvdata), GFP_KERNEL);
-> -	if (!drvdata)
-> -		return -ENOMEM;
-> -
-> -	amba_set_drvdata(adev, drvdata);
->  	return __debug_probe(&adev->dev, &adev->res);
->  }
->  
-> @@ -694,14 +693,8 @@ static struct amba_driver debug_driver = {
->  static int debug_platform_probe(struct platform_device *pdev)
->  {
->  	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> -	struct debug_drvdata *drvdata;
->  	int ret = 0;
->  
-> -	drvdata = devm_kzalloc(&pdev->dev, sizeof(*drvdata), GFP_KERNEL);
-> -	if (!drvdata)
-> -		return -ENOMEM;
-> -
-> -	dev_set_drvdata(&pdev->dev, drvdata);
->  	pm_runtime_get_noresume(&pdev->dev);
->  	pm_runtime_set_active(&pdev->dev);
->  	pm_runtime_enable(&pdev->dev);
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> index ead3f5358d411b1d9e45f87986bd85cbe5be720a..e5ab4a0323354d826c831f68c71d81808cbcd8ff 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> @@ -785,10 +785,16 @@ static int __tmc_probe(struct device *dev, struct resource *res)
->  	u32 devid;
->  	void __iomem *base;
->  	struct coresight_platform_data *pdata = NULL;
-> -	struct tmc_drvdata *drvdata = dev_get_drvdata(dev);
-> +	struct tmc_drvdata *drvdata;
->  	struct coresight_desc desc = { 0 };
->  	struct coresight_dev_list *dev_list = NULL;
->  
-> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +	if (!drvdata)
-> +		return -ENOMEM;
-> +
-> +	dev_set_drvdata(dev, drvdata);
-> +
->  	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, &drvdata->atclk);
->  	if (ret)
->  		return ret;
-> @@ -898,14 +904,8 @@ static int __tmc_probe(struct device *dev, struct resource *res)
->  
->  static int tmc_probe(struct amba_device *adev, const struct amba_id *id)
->  {
-> -	struct tmc_drvdata *drvdata;
->  	int ret;
->  
-> -	drvdata = devm_kzalloc(&adev->dev, sizeof(*drvdata), GFP_KERNEL);
-> -	if (!drvdata)
-> -		return -ENOMEM;
-> -
-> -	amba_set_drvdata(adev, drvdata);
->  	ret = __tmc_probe(&adev->dev, &adev->res);
->  	if (!ret)
->  		pm_runtime_put(&adev->dev);
-> @@ -982,14 +982,8 @@ static struct amba_driver tmc_driver = {
->  static int tmc_platform_probe(struct platform_device *pdev)
->  {
->  	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> -	struct tmc_drvdata *drvdata;
->  	int ret = 0;
->  
-> -	drvdata = devm_kzalloc(&pdev->dev, sizeof(*drvdata), GFP_KERNEL);
-> -	if (!drvdata)
-> -		return -ENOMEM;
-> -
-> -	dev_set_drvdata(&pdev->dev, drvdata);
->  	pm_runtime_get_noresume(&pdev->dev);
->  	pm_runtime_set_active(&pdev->dev);
->  	pm_runtime_enable(&pdev->dev);
+> The kernel test robot is right as the ``&mipi_out`` node is missing a
+> closing ``;``, so thanks for that :-)
+> The problem is also present in v2, so I'll send a v3 shortly.
 > 
+> Luckily I've now found why my build script didn't catch it.
+> ```sh
+> export PATH=~/dev/kernel.org/dt-schema-venv/bin/:$PATH CROSS_COMPILE=aarch64-linux-gnu- ARCH=arm64
+> make distclean
+> make debarm64_defconfig
+> make CHECK_DTBS=y W=1 rockchip/px30-cobra-ltk050h3146w-a2.dtb
+> <quite-a-long-list-of-all-boards-at-least-I-thought-so>
+> ```
+> 
+> (debarm64_defconfig is my own defconfig based on Debian's kernel config)
+> 
+> That long list didn't have ``rockchip/rk3399-rockpro64-screen.dtbo``.
+> Is there a better/simpler way to validate all rockchip boards without
+> having to explicitly list each and every one of them?
+make defconfig && make
 
+or make dtbs
+
+Best regards,
+Krzysztof
 
