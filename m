@@ -4,91 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1A7C83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 15:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF40C83029
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 15:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Apu6uy+C7r9DZpfPo98S0/i/narg5WnjIZELOVTCkSI=; b=OEz5dfC+kaV2IpW1qlzDSFdt7m
-	U1nFNLPpws1Wo85TywpbBCkNZBmBDFm2ia1VfwyVBUGrMfBTA+Jhlk1dge19oGtKjW+ACA5UTByh6
-	3bwv/HEaAG4+NYGHP2UbzQouYIZOxgh883B08CVha0ooxrKekaommFKEvLLsvB0/aaXn16Cu/SQ8g
-	hTIIWte+dTG+brlBAxBlQqXVYDQjmQPwc81XdkJ3X/UuNScinysE8pzlDdL+Go5afPgbByJWQiTOL
-	Kx8ebC6+FdbxnsfnrzEYoLZeP1MvSPSroc+e4IXQ8/BHfsuK9f9FuTqZX9+bxt9vas+u6gGjAWEU/
-	jXQhLwTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5aROwHTVbyl9D9zeojKZoCOh6LjGW5da//8YHEuJ/oI=; b=DfK9kD1jKUk8uErxS9936ukTit
+	5NMQI8zygHdKs/cg2Gknguz2R466AYQj6n1vA/Y0Q2Pr0hz8TWD+BRPR2v2DeJ2SYyhc1p5Ond4yU
+	gsbCbs91gDoeDRPjhvJFNhqwJ8HfGM9cQIUi7GU4n8BSHv5mtmPNnqaekIvFwa/jw5HZ988e86ezc
+	RfWekdYWXDE94xYnFI0p0YcqagOFAwuqH+vpv3jQlYEn9/EMn8FqkO/17TZjuth+kjrK2cI2DJwD+
+	dg9O0QaqIviUAsm5cWn3bXUKFf5Ka6dKtdGAGLr8UgkP07feyDCzlerYGfQIScjtBxLfBLbpfK0AL
+	gN/hcDcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWGAG-00000002hf7-1A9I;
-	Mon, 30 Jun 2025 15:11:24 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1uWGCY-00000002i4t-3Vvt;
+	Mon, 30 Jun 2025 15:13:46 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWFZr-00000002aJS-3bj0
+	id 1uWFee-00000002bK5-3KpH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 14:33:49 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D553644318;
-	Mon, 30 Jun 2025 14:33:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1751294026;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Apu6uy+C7r9DZpfPo98S0/i/narg5WnjIZELOVTCkSI=;
-	b=aAzFqWMXD1X9xkCWnHzTWkW3Xcsmpy7473yg4fIS7lsbpC7HfaNpfTevcyoYFlj+S/Q0Qt
-	7N8w5T/ONlh+9if4nXYORdmB+MkdiYsoEkMXOTlwCoxiRGziJrWLfOCgrW7N3b95t40Kod
-	QQ634oc9eXpRgebWgPkyLV2KTWQO0gm7fW+XnN9FG4azLMtrGX/fx5ScR5lx+RbqijBAJJ
-	qIW8l1TyijL+ocOOv4mcpSFAWWB6cqP49/uqUA6Gs9hnpdhOaahnt/7KCL7p1uj+nEGvww
-	fXNfhKI3/RfqMrboVk4UpPbpksLucbG14kSq1PtmNKa3p82oF2tsrUCxWYKy6g==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v7 15/15] Documentation: networking: Document the phy_port infrastructure
-Date: Mon, 30 Jun 2025 16:33:14 +0200
-Message-ID: <20250630143315.250879-16-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250630143315.250879-1-maxime.chevallier@bootlin.com>
-References: <20250630143315.250879-1-maxime.chevallier@bootlin.com>
+	Mon, 30 Jun 2025 14:38:46 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-553b60de463so2515182e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 07:38:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hifiphile-com.20230601.gappssmtp.com; s=20230601; t=1751294322; x=1751899122; darn=lists.infradead.org;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=5aROwHTVbyl9D9zeojKZoCOh6LjGW5da//8YHEuJ/oI=;
+        b=nXIneRqE+IcfREIUoxxgwYGzyY4XEOEz6tiH6QJIuRYxWxbZqwJFgt+Qs1MaqHrYhX
+         9ol7VJ3s/VwtE2s8HYOwyrVShEgnomPjbDmeJz+WQVkHlU6RAhwSZO22xBLEJikqzfj5
+         J5lxWS0/pSYcauO0opNHZD6iAPtQnc23wr/22Fl8gSOGms5l1gj24X8z3wobSq/kPGDy
+         XogMkGjYAqUPKA5oUxLJvjzjPT8j1vBNfMx6Qg13mONF8GxGutDPggXZVU+TSVLPyJnj
+         HNdvqH4ti7Zh8G568kaJJISu/zgHbxnBgXnHrHFJENELUEwGTfAzh/7Egj2ZrPDBSonu
+         liDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751294322; x=1751899122;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=5aROwHTVbyl9D9zeojKZoCOh6LjGW5da//8YHEuJ/oI=;
+        b=JtYeVVolcH3S9biup46ne6w+yhyupscbL53SINUv4dTwj5MpJ8bUazT8lFHBzlsIT3
+         0CbZ80JzBEf3uzSa+XxxY1bqsNDSb0wwZsHeOMY4w4io92k0MzJQC4faM0CetA8fRI3j
+         vagI6c/0CAxCuftP0p3UVR5mVC+zdm4b9xFofXMB2DO9g0+XCXnL8A/mVW0rd1Qox1h1
+         JlSpUMxdEfJMzAVJoU7tLOBP4h/06823gAFI9tnrXxsHhepqn8kBSMG1QK+28Rg15DiN
+         U+o0PNwvQQ2Kjaku6kDZsBNFwUtdJ0w3/nB3zqeYKhzP97ZhdFKOCGy6y6sNso/F2SRs
+         MCJA==
+X-Forwarded-Encrypted: i=1; AJvYcCVu3WgYrHanIJY7ObOXNVfPZE2lyZt+BHH4AryMMdjQOIH2Sl0C+kj8VRN2ZU1YNfMgHv2ITHx4dMZyb0/9Wvr7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzXZml4mK5ACu4Kx7zJmbVjtVEoVlKamI4I2JiW5XHamJVFFsU
+	3tDyzkw9EL7FkYyNdURWQUzI+dTMOvuOaN+oY4wq96E5pECdPJ51Ppy97XUAwDvj8m/PuP9zp+0
+	gmPl6+t073VAne+Abh1GVi7eJkPxKjIeS0Yob+XYyRQ==
+X-Gm-Gg: ASbGncscj23heMB57vrhiRMnU03P7iawsnPN2ZMlc0e52HJj0b6GeNdCpPxYF8yFw9h
+	0os3bq2bWG4SfG13eo7DajgFv90DHK122R7eEr+r6+Ye4xEykXsdZKdeuTwe+uxv8OVLw4UQaJF
+	7kZNaLGFny+3OhKhI+Bto88gZdwY6tup6PfZ8o+tXjxFc=
+X-Google-Smtp-Source: AGHT+IFnqcLpgxNaCsk7PoNMYONyRs0hnLK3ll4UkAxFSTpn8mAkmMX5sbsExFDwtXdwFg+jhcuCDPedsHKii9UuAHs=
+X-Received: by 2002:a05:651c:1116:20b0:32c:bc69:e91a with SMTP id
+ 38308e7fff4ca-32cdc525e8amr30785301fa.36.1751294322210; Mon, 30 Jun 2025
+ 07:38:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduudelhecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedufeenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrk
- hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
+From: Zixun LI <admin@hifiphile.com>
+Date: Mon, 30 Jun 2025 16:38:31 +0200
+X-Gm-Features: Ac12FXyz1YASyU_kIOho436uejsR4G8SmZtLl7LY6YsKeZfU1QFCNlm6WQE6lL0
+Message-ID: <CA+GyqebQnWQ3fj4Lrb4-hvzRpphuqw+jh4B9En1j2NDTNFumvQ@mail.gmail.com>
+Subject: mtd: rawnand: atmel: ECC error after update to kernel 6.6
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Miquel Raynal <miquel.raynal@bootlin.com>, 
+	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	linux-mtd@lists.infradead.org, 
+	"SoC support'" <linux-arm-kernel@lists.infradead.org>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_073348_033825_1ADF04DD 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20250630_073845_071782_E83A3F49 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,159 +93,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This documentation aims at describing the main goal of the phy_port
-infrastructure.
+Hi,
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- Documentation/networking/index.rst    |   1 +
- Documentation/networking/phy-port.rst | 111 ++++++++++++++++++++++++++
- MAINTAINERS                           |   1 +
- 3 files changed, 113 insertions(+)
- create mode 100644 Documentation/networking/phy-port.rst
+After updating our SAM9G25 device from kernel 3.16 to 6.6, we have
+encountered UBIFS failures with ECC errors:
 
-diff --git a/Documentation/networking/index.rst b/Documentation/networking/index.rst
-index ac90b82f3ce9..f60acc06e3f7 100644
---- a/Documentation/networking/index.rst
-+++ b/Documentation/networking/index.rst
-@@ -96,6 +96,7 @@ Contents:
-    packet_mmap
-    phonet
-    phy-link-topology
-+   phy-port
-    pktgen
-    plip
-    ppp_generic
-diff --git a/Documentation/networking/phy-port.rst b/Documentation/networking/phy-port.rst
-new file mode 100644
-index 000000000000..6d9d46ebe438
---- /dev/null
-+++ b/Documentation/networking/phy-port.rst
-@@ -0,0 +1,111 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+.. _phy_port:
-+
-+=================
-+Ethernet ports
-+=================
-+
-+This document is a basic description of the phy_port infrastructure,
-+introduced to represent physical interfaces of Ethernet devices.
-+
-+Without phy_port, we already have quite a lot of information about what the
-+media-facing interface of a NIC can do and looks like, through the
-+:c:type:`struct ethtool_link_ksettings <ethtool_link_ksettings>` attributes,
-+which includes :
-+
-+ - What the NIC can do through the :c:member:`supported` field
-+ - What the Link Partner advertises through :c:member:`lp_advertising`
-+ - Which features we're advertising through :c:member:`advertising`
-+
-+We also have info about the number of lanes and the PORT type. These settings
-+are built by aggregating together information reported by various devices that
-+are sitting on the link :
-+
-+  - The NIC itself, through the :c:member:`get_link_ksettings` callback
-+  - Precise information from the MAC and PCS by using phylink in the MAC driver
-+  - Information reported by the PHY device
-+  - Information reported by an SFP module (which can itself include a PHY)
-+
-+This model however starts showing its limitations when we consider devices that
-+have more than one media interface. In such a case, only information about the
-+actively used interface is reported, and it's not possible to know what the
-+other interfaces can do. In fact, we have very few information about whether or
-+not there are any other media interfaces.
-+
-+The goal of the phy_port representation is to provide a way of representing a
-+physical interface of a NIC, regardless of what is driving the port (NIC through
-+a firmware, SFP module, Ethernet PHY).
-+
-+Multi-port interfaces examples
-+==============================
-+
-+Several cases of multi-interface NICs have been observed so far :
-+
-+Internal MII Mux::
-+
-+  +------------------+
-+  | SoC              |
-+  |          +-----+ |           +-----+
-+  | +-----+  |     |-------------| PHY |
-+  | | MAC |--| Mux | |   +-----+ +-----+
-+  | +-----+  |     |-----| SFP |
-+  |          +-----+ |   +-----+
-+  +------------------+
-+
-+Internal Mux with internal PHY::
-+
-+  +------------------------+
-+  | SoC                    |
-+  |          +-----+ +-----+
-+  | +-----+  |     |-| PHY |
-+  | | MAC |--| Mux | +-----+   +-----+
-+  | +-----+  |     |-----------| SFP |
-+  |          +-----+       |   +-----+
-+  +------------------------+
-+
-+External Mux::
-+
-+  +---------+
-+  | SoC     |  +-----+  +-----+
-+  |         |  |     |--| PHY |
-+  | +-----+ |  |     |  +-----+
-+  | | MAC |----| Mux |  +-----+
-+  | +-----+ |  |     |--| PHY |
-+  |         |  +-----+  +-----+
-+  |         |     |
-+  |    GPIO-------+
-+  +---------+
-+
-+Double-port PHY::
-+
-+  +---------+
-+  | SoC     | +-----+
-+  |         | |     |--- RJ45
-+  | +-----+ | |     |
-+  | | MAC |---| PHY |   +-----+
-+  | +-----+ | |     |---| SFP |
-+  +---------+ +-----+   +-----+
-+
-+phy_port aims at providing a path to support all the above topologies, by
-+representing the media interfaces in a way that's agnostic to what's driving
-+the interface. the struct phy_port object has its own set of callback ops, and
-+will eventually be able to report its own ksettings::
-+
-+             _____      +------+
-+            (     )-----| Port |
-+ +-----+   (       )    +------+
-+ | MAC |--(   ???   )
-+ +-----+   (       )    +------+
-+            (_____)-----| Port |
-+                        +------+
-+
-+Next steps
-+==========
-+
-+As of writing this documentation, only ports controlled by PHY devices are
-+supported. The next steps will be to add the Netlink API to expose these
-+to userspace and add support for raw ports (controlled by some firmware, and directly
-+managed by the NIC driver).
-+
-+Another parallel task is the introduction of a MII muxing framework to allow the
-+control of non-PHY driver multi-port setups.
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 10d7548d440e..2db2b0d22c6a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8950,6 +8950,7 @@ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
- F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
- F:	Documentation/devicetree/bindings/net/mdio*
- F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
-+F:	Documentation/networking/phy-port.rst
- F:	Documentation/networking/phy.rst
- F:	drivers/net/mdio/
- F:	drivers/net/mdio/acpi_mdio.c
--- 
-2.49.0
+  ubi0 warning: ubi_io_read: error -74 (ECC error) while reading
+126976 bytes from PEB 8:4096, read only 126976 bytes, retry
 
+On the old system (kernel 3.16), nandtest passed successfully:
+
+  nandtest -p 1 -l 0x40000 /dev/mtd2
+  ECC corrections: 1
+  ECC failures : 0
+  Bad blocks : 0
+  BBT blocks : 0
+  00020000: checking...
+  Finished pass 1 successfully
+
+But on the new system (kernel 6.6), nandtest reports many errors:
+
+  nandtest -p 1 -l 0x40000 /dev/mtd2
+  ECC corrections: 1667
+  ECC failures : 1205
+  Bad blocks : 1
+  BBT blocks : 0
+  00000000: reading (1 of 4)...
+  218 bit(s) ECC corrected at 00000000
+
+After some diagnostics, I used devmem2 to compare SMC and PMECC
+registers between the two kernels. All values match except for the
+PMECC_CLK register, which is 2 in kernel 3.16 [1] and 0 in kernel 6.6
+[2]. It appears the clock setting is missing since the kernel 4.14
+refactor.
+
+According to the SAM9G25 datasheet this field must be programmed with 2.
+
+Manually setting PMECC_CLK to 2 (devmem2 0xffffe010 w 2) resolves the
+nandtest issue.
+
+Is the clock setting moved to elsewhere after the refactor ?
+
+Best regards,
+Zixun LI
+
+[1] https://github.com/torvalds/linux/blob/19583ca584d6f574384e17fe7613dfaeadcdc4a6/drivers/mtd/nand/atmel_nand.c#L1058
+[2] https://github.com/torvalds/linux/blob/ffc253263a1375a65fa6c9f62a893e9767fbebfa/drivers/mtd/nand/raw/atmel/pmecc.c#L772
 
