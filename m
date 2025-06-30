@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB067C83029
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 18:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7B7C83029
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Jun 2025 18:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7HamuIOi93Ir+D7BNI5NjTYA8k3P5m2JucOy/ndy+o=; b=KQVQqgWHj0q0t0KkocOmF/Aj61
-	3h+T6rF6305OAYZcCh6SbrZECucrovH7tfYZW9aPIWGS/PdpEsa+JQjFolqHwB64bAkUbNdCM0dHA
-	eUFioJuUXZNDpBa0ipkGbT9yqtxytsjeES4DcMH8Br04UzOWvGgCdQop8a068pkiw+AIL3S36R/Dy
-	dHHzABdzW5lRaqpzK9n27+fMSC+ofCbe6e8vAEvB6rxpMtz8tCJwkLsWItt2UmzgjvNx1rSDgkMO9
-	a4YUtSCJY0oB+eEjChStE+udgl/FboNL/QiqC5hJ7ffpYS++xOA6P7ruyzoyFrpJeMMh6MVxu6j7z
-	ILtvH1nA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j5oPe7NuWEBlVMssFfuoeeybtC7f7CEpTOJiXlRikAU=; b=ZDB///h19E3B/Zm/lrCv2aBHGv
+	xFw05hAClX3V5ec8ga9UCFDu042+M5npyB0y5Jn3dLaJchKFvb0kJe+MAvyxPrp1Xgvx9c9UK/wZa
+	84WkDLtcGEYGsc2uSv+rtBL2KxDVCnxJaXz34s85GEVzgOEt+WFdZLAj+ltz8H+3ryfhS+3ifFySD
+	Dppfq//7uUaeaalmsdOVxxJ8lXgFHDe2kXdfTf9OM4yhzIIaeU5lK6tuv9i9l50IUrhnOI1/KU4C1
+	xp69GQ0q5xayaR0zYr8UnH1TX4WdPT6IVxaTQzDcVVzSy9rHlSn2Hc2gdeqVbW+Znxk//tK6EqqEO
+	fLQRBkQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWJCy-00000003C9A-0E1D;
-	Mon, 30 Jun 2025 18:26:24 +0000
-Received: from mail-pf1-f170.google.com ([209.85.210.170])
+	id 1uWJJo-00000003Cef-23Lg;
+	Mon, 30 Jun 2025 18:33:28 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWIsc-000000038yf-0dMB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Jun 2025 18:05:24 +0000
-Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-747fba9f962so4490871b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 11:05:21 -0700 (PDT)
+	id 1uWJ88-00000003BZI-1wGl;
+	Mon, 30 Jun 2025 18:21:25 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4a77ffcb795so48639911cf.0;
+        Mon, 30 Jun 2025 11:21:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751306721; x=1751911521; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Y7HamuIOi93Ir+D7BNI5NjTYA8k3P5m2JucOy/ndy+o=;
-        b=nf7yBAZK475P51w/sl7EiJTkRO0X+ki7/2BDsmHATO54nG2txenqUByyu6DCesQTD1
-         7ttNEdq4zQTJ2Kc14oZDBRX0Q6pp/DcLmCNwMeGO6LBaGojV3PJcMO3pazpWUjtvMDW3
-         cF9n94RnAUOKfRpaOFMZya56dsQN9ZTcOs7ZRMip/Wuwfrwu9k07t5nS6Waid+WhKY85
-         gwR3YXCoX5w5pScSZkpAJFwkM8qf/SJvkH9r62FXuqyNSpvUewME59KGjHefRACok9EV
-         dH4g5iVRl7UMbMIpX/dTWO8JCIuja/zhHxvvNZWJiNkjt2FahBIMEkcfs3QZQI1OJHBQ
-         fIZg==
+        d=gmail.com; s=20230601; t=1751307683; x=1751912483; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=j5oPe7NuWEBlVMssFfuoeeybtC7f7CEpTOJiXlRikAU=;
+        b=mIcWtAj1U4Y9LujxLZTI1V4CwrVVxkxWeB9Wxq6Xzzc1GoHukV7Yu/c5kRc12zcXsb
+         UecSE9RwoS41clmdH9cA7t5Vg0EqJE6Mv5tA1pygqFfTdulQaAtSobM0eAyPh+syyk5P
+         hJRyqNcC9RCyg/YQ6SatM3wTl/ZE9qZrawUnNja1srdDLIkcdfZxSyzVj1LkpfzckmZb
+         BgatZFVt+iTz1A81lD/lngSz+wfP3B+vlS0kDraSl6Z0gIsEqmzfkB1XRD9BMykOtTMg
+         fktWr8cHjEPOqShkwHrufmktypLixWFNMEDcQVR351+1dzBsrazd2GsqWJebNMBvXY7V
+         JYew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751306721; x=1751911521;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Y7HamuIOi93Ir+D7BNI5NjTYA8k3P5m2JucOy/ndy+o=;
-        b=o4sk8eNHsML2/JpUJUDyTTYO5rkKd4ZoVqyjoIP36cSUUbKNiqFPabWRLCDriXrDdM
-         W7PJm0FHvd20pi4Sag2g4G6BYNPQCGOSa4qcbD/6bjEEzs2GiWxwGglqjTi+mi0UDaPv
-         7HcXQ7WFQf+F+e1IusDowoYRrhUXzVplsFQ0Et4ROUzTigHqRqk9+aSMLi6cirDGUi+a
-         FawvwpZHJZHLVfqLRdsVJyt/S6lNRoIeNqGiWAYl29pIYFnToc2QIl/ux9PxghF8wUOW
-         5cpTBjWgIyEMbstnP8fetTnituJuiwLXBv+/IwzdcYKq8xyBk2rg9F16f+ymNemlt5Hs
-         m2lg==
-X-Forwarded-Encrypted: i=1; AJvYcCVJQfqwDRPGgXSlCOL+bWVG7I1zfM1hzm1y6so4l74TPGjLjVN7uhf8VX55wmkd0YFBjE/UuAH0Mu0qCdEs5SRq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yza+12Ls3q9MFP28GL420Q2Ztl4aoPwHTDy0L4bWKyhZD+Q83Z8
-	0Jtg7qOexNVNgVJyW1JhEFSDI8jFGzmPtZZrx3UIN34WUV6IlHd1slfOyU+LrjBDx8U=
-X-Gm-Gg: ASbGncsYyC2iCf6sIpRV4GcVCthnjjNJr0jtRq4uQHP8sZxtrMRONh18JD4Ts52foNO
-	W83vG+UQZwI/iuOXQ9cWTgZTrKLa9ks1qVNuvMk9FqJ9rw68gQTTEhLUzsQ/w+LyVYKPVK8j+/z
-	DxL9IL5jCWyqUXWFLOeruM+pSDgRHcGtx4neAquWy29KOzS+Voh691w5xr7EiIINPLZnpITAzv3
-	Aa+oM3z7t7ep2Zo5/94CcoFFLIScqTxsJgHY8qPX91IgKcx4UU/11HUkihq/LIV7DrRr7Xp25bi
-	tbHiw9kAZwEyhNCrDfm1ofjxAZ/58wXtqx0msEXqYedMkVrx4K+epPRh4CPG
-X-Google-Smtp-Source: AGHT+IEncS/HJPiBmiJZCLKoJU2/w51Fp/NZyo6t579QG+npzr31j+vLXXC/vxt7lYssL2dcF7zMQw==
-X-Received: by 2002:a05:6a00:2ea1:b0:736:4e14:8ec5 with SMTP id d2e1a72fcca58-74b3bca995dmr669511b3a.11.1751306720777;
-        Mon, 30 Jun 2025 11:05:20 -0700 (PDT)
-Received: from localhost ([97.126.182.119])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74af540990bsm9409550b3a.21.2025.06.30.11.05.19
+        d=1e100.net; s=20230601; t=1751307683; x=1751912483;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=j5oPe7NuWEBlVMssFfuoeeybtC7f7CEpTOJiXlRikAU=;
+        b=mYVXyscb8y5jLs4esSQ1Dryn5SW4gy9uTkceQJjcO4BaEJr0qOTnaMH+TuY0dhrxXr
+         w057Ksc9wF0hb0zdm6OmM4MlpVaJY/enLaPcKDoDl9cFiD8MNT6qrhySWbjYjQRGrvDs
+         BQ/Cb34wZL0YN8HreLsRbmaOIegqLFqBiTvVyx4Gazk5FrQbkY2JLJWBl04Xm+9mz93r
+         ccLG89QeZ9E5jEH0fa9SeFeGOtjiLwNkVlBkUMxD5ARgvWWt9xy23VwHQc4wlCIZgrab
+         CUygYjCX/r/OeylLpzyOVyD97KdRPwEXm+ciNA92cnWTJW7Gc6UHO9neo8h4eWyYv9Rn
+         gbSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVp5gK5+chr9GpBDr8nacBJUiTKm+/Ct/Xo79eTDwyEagryuBxpQjxvQX4QTBV/fYQRfcTQt39eklgZ@lists.infradead.org, AJvYcCXFTCie6Bq3IentLyFziyt4HHzKMOklRnAxLgbWW1GIPXJ5m+gfz+XdDlghMHlHxYheIOcZKZqVB2tyWvuQyZdv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjKnASrxq5Sm7SH/gJVj0KMJA6l191u5SLwbztPVBA8C1DDbKH
+	l4h4rkhe707Mie2v2jktr9kkton3CZshn67Ry4hlhYZ/7vNOVjdVNUR8YlwE6Wl9
+X-Gm-Gg: ASbGnct+h5MP7IsR5SKBfp+ovOaNWwgj8K/FvDqhg7LaIQ1WadS8IWRbWl9WoV213is
+	5irIIao8NGVH3CvMswJxsOtwb/hqKBPEngqbuc6VT3hjlF7Tomj10tKlplKmtpHus7locK6s/X1
+	TRmsPaF9Ux8C4aqU7xY839CrZcsNMQsg6uW8w2JDViX5hWPitcKr1e2M/mtONeI2CbmdefkpK4c
+	9ivTTf55aqJPfWEzf21VL+we4RwWCYKAqHisIL9suDYrmeQy3mdYPGIvtluCqZit33ZUATfho/Q
+	plPkg+bs6t8ERg8VeC5qv+gPr4M69PnOJZpBSn9XgrRFn45nkw==
+X-Google-Smtp-Source: AGHT+IFsXJjoVwUXm0fcOFhLVNqsYO/moCefhcFNV46+xG5upfucPDlS2Uf2IOjWztKAdTp7b2Jfhg==
+X-Received: by 2002:a05:622a:1355:b0:4a4:4af2:5cff with SMTP id d75a77b69052e-4a7fc9d4f7amr238186611cf.3.1751307682697;
+        Mon, 30 Jun 2025 11:21:22 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:4851::dead:c001])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4a7fc5cd906sm62801131cf.79.2025.06.30.11.21.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Jun 2025 11:05:20 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Paul Barker <paul.barker@sancloud.com>, 
- Marc Murphy <marc.murphy@sancloud.com>, 
- Kory Maincent <kory.maincent@bootlin.com>
-Cc: Jason Kridner <jkridner@gmail.com>, Andrew Davis <afd@ti.com>, 
- Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
- Romain Gantois <romain.gantois@bootlin.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-In-Reply-To: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
-References: <20250620-bbg-v5-0-84f9b9a2e3a8@bootlin.com>
-Subject: Re: [PATCH v5 0/5] Add support for BeagleBone Green Eco board
-Message-Id: <175130671963.2621907.636669398639023401.b4-ty@baylibre.com>
-Date: Mon, 30 Jun 2025 11:05:19 -0700
+        Mon, 30 Jun 2025 11:21:22 -0700 (PDT)
+Date: Mon, 30 Jun 2025 15:21:06 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rick wertenbroek <rick.wertenbroek@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Valmantas Paliksa <walmis@gmail.com>, linux-phy@lists.infradead.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v8 0/4] PCI: rockchip: Improve driver quality
+Message-ID: <cover.1751307390.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3-dev-d7477
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_110522_298965_BD6094B4 
-X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-CacheID: sfid-20250630_112124_500891_1B291651 
+X-CRM114-Status: UNSURE (   9.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,29 +103,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+During a 30-day debugging-run fighting quirky PCIe devices on RK3399
+some quality improvements began to take form and after feedback from
+community they reached more polished state.
 
-On Fri, 20 Jun 2025 10:15:51 +0200, Kory Maincent wrote:
-> SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Green
-> (BBG). It has minor differences from the BBG, such as a different PMIC,
-> a different Ethernet PHY, and a larger eMMC.
-> 
-> 
+This will ensure maximum chance of retraining to 5.0GT/s, on all four
+lanes and fix async strobe TEST_WRITE disablement. On top of this,
+standard PCIe defines are now used to reference registers from offset
+at Capabilities Register.
 
-Applied, thanks!
+Unfortunately, it seems Rockchip-IP PCIe is unable to handle 16-bit
+register writes and there's risk of corrupting state of RW1C registers,
+an issue raised by Bjorn Helgaas. There's little I could do to fix that,
+so on this issue the situation remains the same.
 
-[1/5] arm: dts: omap: am335x-bone-common: Rename tps to generic pmic node
-      commit: 297bd457c893966f37fc07b68162862bff3e7c77
-[2/5] dt-bindings: omap: Add Seeed BeagleBone Green Eco
-      commit: 23c7d1976f52fd8b8031ac0e5f4f60166cdc32b5
-[3/5] arm: dts: omap: Add support for BeagleBone Green Eco board
-      commit: 6d04ead94d49df8d549122d89999f1faf27b5373
-[4/5] arm: omap2plus_defconfig: Enable TPS65219 regulator
-      commit: 299c277aa74cb011b00d6aeb5ccece37e9166d91
-[5/5] arm: multi_v7_defconfig: Enable TPS65219 regulator
-      commit: 536407b5b87d16e048b75439d5f2e1246078d32c
+---
+V7 -> V8: add Valmantas Paliksa Signed-off-by to third patch
+V6 -> V7: drop RFC tag as per Heiko Stuebner's reminder, update cover
+letter
+V5 -> V6: reflow to 75 cols, use 5.0GTs instead of Gen2 nomenclature,
+clarify strobe write adjustment and remove PHY_CFG_RD_MASK
+V4 -> V5: fix build failure, reflow commit messages and also convert
+registers for EP operation, all suggested by Ilpo
+V3 -> V4: fix setting-up of TLS in Link Control and Status Register 2,
+also adjust commit titles
+V2 -> V3: correctly clean-up with standard PCIe defines as per Bjorn's
+suggestion
+V1 -> V2: use standard PCIe defines as suggested by Bjorn
 
-Best regards,
+Geraldo Nascimento (4):
+  PCI: rockchip: Use standard PCIe defines
+  PCI: rockchip: Set Target Link Speed before retraining
+  phy: rockchip-pcie: Enable all four lanes if required
+  phy: rockchip-pcie: Properly disable TEST_WRITE strobe signal
+
+ drivers/pci/controller/pcie-rockchip-ep.c   |  4 +-
+ drivers/pci/controller/pcie-rockchip-host.c | 48 +++++++++++----------
+ drivers/pci/controller/pcie-rockchip.h      | 12 +-----
+ drivers/phy/rockchip/phy-rockchip-pcie.c    | 15 +++----
+ 4 files changed, 36 insertions(+), 43 deletions(-)
+
 -- 
-Kevin Hilman <khilman@baylibre.com>
+2.49.0
 
 
