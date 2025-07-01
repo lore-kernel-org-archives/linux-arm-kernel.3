@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A753C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76A9C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EjeWk9zqwweIgociDbPCS45o0KwQTUtlv3dSFR85Uf8=; b=I/RKDotMyqYLyeR503QlUu/Rj+
-	8QiJD2OD/S+6MhTq3pYUDs2CjSX9l/0haq938V+ZRYqzbXqIyfxqnK/YN/TAIRoiIf1eOBE3IY+Ho
-	5EF3pUxYkY42M/Z/m3xtyrZkhIvcrJpA4tMWxGwB+INSdqPTwytqqCH2NZ5FA+q6OFTxrCCIQoeq+
-	z+93AXuTLS+cbvYqViv5jMnKwNn2PZcbDRRKLjzg5DMYiP5WJG2uvZ+Q7LRusHHvZK0cRgjrP7WWh
-	sOfxt3MKmfFjioeioS4Tj8kvcp3I2L9hGaws/73m5xwDeSw7HvprOwDGqM2O27wIhlclRu5ersBHX
-	RohA53Sw==;
+	bh=6zypL7Z/iJT9pt/jkPKsLbW/urAL7A4U3k+sv3E7jTg=; b=A2RTS5cwsUv5MId7xB/igzCImm
+	qdSESDwv5Nt47hUlM860np567wM8hDfUCO6dthi/thm3wpfNdbD5i0n10vDeSz4Aj0jZxrzexeL+l
+	MlNwDH3x70qqr+R4KgeGy7NtKfHuc3Cq8bLCoFS0tR7iw837U3YQJ51PSuwucGtSPxnlSeA9Lbd9t
+	tx1T6SBkyX6ayXW6MCl677jVtG27btBeqMdil16Ljb1Pq1eit5ABVPAB8szeLCvD+pSJ/e7pWGjEC
+	UXrprLXJyK1oc9HtZXtviKJUIwQF5j12+CmlHdMGccmZ10166gafutxiO2H/aJ5pxfzdlJfWeTN56
+	xhVGArwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWxy-00000004YYc-2LYN;
-	Tue, 01 Jul 2025 09:07:50 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uWX0O-00000004Z56-1PVe;
+	Tue, 01 Jul 2025 09:10:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWot-00000004WLv-3k7J
+	id 1uWWow-00000004WNc-1LBj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 01 Jul 2025 08:58:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=6zypL7Z/iJT9pt/jkPKsLbW/urAL7A4U3k+sv3E7jTg=; b=XsKyL7J/A6i1DPo9X6cMyk643Y
+	7bHDXeomNQQk71Bh/vkzCN0OC+yktWWXmWfiNV1YVj6vyG6FG78CMQOz5i/mTlfDZXROJ+9jbIcwe
+	ObaFwuM9WKNLzg2ru3m13i+m5PRF2PhAH+gL1GgXo9+/9TGEdlFaW+lXchzRNI4K/B9sATQF96He4
+	Y1ZnuxWaroGU76gPDpx2N+7JqsMNHuTBpJsPB75hEKvE7JXzVfHjcVWfPDMDk6LrQhlvyJKPovT4D
+	f5RxPzoHjCZORO4lBLnhb72qXp+EXjRRxk8aJPdG3yrSaj9ytCyG9VxPLc60ZqA8TYzpflzQX3wjF
+	Txxf4Cgg==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWWos-000000070hS-0qNa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 08:58:29 +0000
+	Tue, 01 Jul 2025 08:58:28 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1751360287;
+	s=2020; t=1751360286;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=EjeWk9zqwweIgociDbPCS45o0KwQTUtlv3dSFR85Uf8=;
-	b=Q3Bq7jJDuyJYZZNBtxqwLQORnk+1VWGdxJ5VZ/5n8JC/Mp6Fh3IvRjPoe8G8c0J+O4T5VE
-	KiXJoAnvbFFP+I9owauyAUuofSNFbRFmNmAAlI/WXPdFRPZDl53qNiW6E27P3L/ZMBI16s
-	qBqoY0bkaLg4ux9pXGa3+j+8s4HtxsXK9Ucwf07oYqOx4pM5NJCPGma7zvJHD6T7NV5kWU
-	6snc5AaEYoCE6BEb9WUvw6WQ0iJAii/iN7RA+ekjlYTBxiU0cDl0XejtXF5qlD5RCkEFHF
-	mZoDHsqrvQPWbssyF7Qg4Y4QJvS9uLooQRwRkXv/zzc6th7h3hgqCnLvgMYu7w==
+	bh=6zypL7Z/iJT9pt/jkPKsLbW/urAL7A4U3k+sv3E7jTg=;
+	b=Cvfq+ShZBlRpqLEBOnn8FpMD0gK9w7CyXjIFIZyjrEoM5IoNGvRbep0gq3pyn8BIui/Kxk
+	A2ViNmKpkZH3NAdGzCMMSnEmMhFfJ7Duypk+z7Ll3zCgk+TAscf2ipjjyetPBEQXzSBbC+
+	080IcZD8bWfUkplxeUn94zbQD8NxbmiybQ5LND26COt6UwpdzUostFo8qh30YjPMwhRgKz
+	5V3+YoJ5WGXZnEhhocJjZ7gokZtoaqaU9m0iwvEHUGkqKJ2qY99XWY0Wdjb+Bhml8q+g9J
+	GhWElpAyu+wNRJ40rjxUxuo2hMiFJ4JDrZ8bg7wScZFxRqtQnamLnOpobO9X0g==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1751360287;
+	s=2020e; t=1751360286;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=EjeWk9zqwweIgociDbPCS45o0KwQTUtlv3dSFR85Uf8=;
-	b=5bleG6OHL3bnoymfUdalPRYi3NtkgJM/zEM5og7glKoX+JQWYLzWp5LXRyJEIBHoy0aVuP
-	xxQtI3Ds9lIF9eCg==
-Date: Tue, 01 Jul 2025 10:57:59 +0200
-Subject: [PATCH 05/14] vdso/gettimeofday: Return bool from clock_getres()
- helpers
+	bh=6zypL7Z/iJT9pt/jkPKsLbW/urAL7A4U3k+sv3E7jTg=;
+	b=sgmfuKLl97WFPgJQ2Cl1kAqQzhUmEQJC6TCmpkh3zY+DwrRRPYl9zbjgCqmJcyT/Wiqf4S
+	jPoLsppETFf6eeBg==
+Date: Tue, 01 Jul 2025 10:57:56 +0200
+Subject: [PATCH 02/14] vdso/vsyscall: Introduce a helper to fill clock
+ configurations
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250701-vdso-auxclock-v1-5-df7d9f87b9b8@linutronix.de>
+Message-Id: <20250701-vdso-auxclock-v1-2-df7d9f87b9b8@linutronix.de>
 References: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
 In-Reply-To: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -77,16 +92,17 @@ Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
  Kurt Kanzenbach <kurt@linutronix.de>, Nam Cao <namcao@linutronix.de>, 
  Antoine Tenart <atenart@kernel.org>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751360285; l=2609;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751360285; l=2069;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=WrNmDq00XPL9/kcKPoWaUE05zyuMZ1wASlKqJKUZvV4=;
- b=tN3l3TzL2aN33IdNstQl9X9W45CCH/yMvg2ndeJaAOtYqHqBFxk+zMlSkxDO3EBvMH4sMt5em
- LTTGotpyffNDjM9h5UsfpqDXNLO0vxPFLzrx5nuppVM50KXpkxEBIh0
+ bh=O+pdqhovJ5sCWr6cbVQYxtHMRmPHnT/rOYl0Ec66rdg=;
+ b=p8vqvlzZbfPJuNB7hzPJj8dga3B+cwPmwh+UN2KNgYAAY1i/FYSqtwEPROhvYlPu5RH0FZzN+
+ FzVHcGeNczjCyKAn7W8w6ERqHRSTH7MY5nl/wpUomcMyoG9AGWRKpyy
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_015828_099357_9875CB0A 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20250701_095826_490184_68A717FE 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,93 +117,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The internal helpers are effectively using boolean results,
-while pretending to use error numbers.
-
-Switch the return type to bool for more clarity.
+The logic to configure a 'struct vdso_clock' from a
+'struct tk_read_base' is copied two times.
+Split it into a shared function to reduce the duplication,
+especially as another user will be added for auxiliary clocks.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- lib/vdso/gettimeofday.c | 24 +++++++++++++-----------
- 1 file changed, 13 insertions(+), 11 deletions(-)
+ kernel/time/vsyscall.c | 27 +++++++++++++--------------
+ 1 file changed, 13 insertions(+), 14 deletions(-)
 
-diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
-index 93ef801a97ef25f66195490d14e41bebcd41982b..9b77f23566f6a35887d4c9aaefc61a971131b499 100644
---- a/lib/vdso/gettimeofday.c
-+++ b/lib/vdso/gettimeofday.c
-@@ -396,8 +396,8 @@ static __maybe_unused __kernel_old_time_t __cvdso_time(__kernel_old_time_t *time
+diff --git a/kernel/time/vsyscall.c b/kernel/time/vsyscall.c
+index 32ef27c71b57aaa4ed898c0dbfdefcb73b8ff56a..d655df2597336f7305bfc74e2a87c651f314267b 100644
+--- a/kernel/time/vsyscall.c
++++ b/kernel/time/vsyscall.c
+@@ -15,26 +15,25 @@
  
- #ifdef VDSO_HAS_CLOCK_GETRES
- static __maybe_unused
--int __cvdso_clock_getres_common(const struct vdso_time_data *vd, clockid_t clock,
--				struct __kernel_timespec *res)
-+bool __cvdso_clock_getres_common(const struct vdso_time_data *vd, clockid_t clock,
-+				 struct __kernel_timespec *res)
- {
- 	const struct vdso_clock *vc = vd->clock_data;
- 	u32 msk;
-@@ -405,7 +405,7 @@ int __cvdso_clock_getres_common(const struct vdso_time_data *vd, clockid_t clock
+ #include "timekeeping_internal.h"
  
- 	/* Check for negative values or invalid clocks */
- 	if (unlikely((u32) clock >= MAX_CLOCKS))
--		return -1;
-+		return false;
- 
- 	if (IS_ENABLED(CONFIG_TIME_NS) &&
- 	    vc->clock_mode == VDSO_CLOCKMODE_TIMENS)
-@@ -427,23 +427,25 @@ int __cvdso_clock_getres_common(const struct vdso_time_data *vd, clockid_t clock
- 		 */
- 		ns = LOW_RES_NSEC;
- 	} else {
--		return -1;
-+		return false;
- 	}
- 
- 	if (likely(res)) {
- 		res->tv_sec = 0;
- 		res->tv_nsec = ns;
- 	}
--	return 0;
-+	return true;
- }
- 
- static __maybe_unused
- int __cvdso_clock_getres_data(const struct vdso_time_data *vd, clockid_t clock,
- 			      struct __kernel_timespec *res)
- {
--	int ret = __cvdso_clock_getres_common(vd, clock, res);
-+	bool ok;
- 
--	if (unlikely(ret))
-+	ok =  __cvdso_clock_getres_common(vd, clock, res);
++static inline void fill_clock_configuration(struct vdso_clock *vc, const struct tk_read_base *base)
++{
++	vc->cycle_last	= base->cycle_last;
++#ifdef CONFIG_GENERIC_VDSO_OVERFLOW_PROTECT
++	vc->max_cycles	= base->clock->max_cycles;
++#endif
++	vc->mask	= base->mask;
++	vc->mult	= base->mult;
++	vc->shift	= base->shift;
++}
 +
-+	if (unlikely(!ok))
- 		return clock_getres_fallback(clock, res);
- 	return 0;
- }
-@@ -460,18 +462,18 @@ __cvdso_clock_getres_time32_data(const struct vdso_time_data *vd, clockid_t cloc
- 				 struct old_timespec32 *res)
+ static inline void update_vdso_time_data(struct vdso_time_data *vdata, struct timekeeper *tk)
  {
- 	struct __kernel_timespec ts;
--	int ret;
-+	bool ok;
+ 	struct vdso_clock *vc = vdata->clock_data;
+ 	struct vdso_timestamp *vdso_ts;
+ 	u64 nsec, sec;
  
--	ret = __cvdso_clock_getres_common(vd, clock, &ts);
-+	ok = __cvdso_clock_getres_common(vd, clock, &ts);
+-	vc[CS_HRES_COARSE].cycle_last	= tk->tkr_mono.cycle_last;
+-#ifdef CONFIG_GENERIC_VDSO_OVERFLOW_PROTECT
+-	vc[CS_HRES_COARSE].max_cycles	= tk->tkr_mono.clock->max_cycles;
+-#endif
+-	vc[CS_HRES_COARSE].mask		= tk->tkr_mono.mask;
+-	vc[CS_HRES_COARSE].mult		= tk->tkr_mono.mult;
+-	vc[CS_HRES_COARSE].shift	= tk->tkr_mono.shift;
+-	vc[CS_RAW].cycle_last		= tk->tkr_raw.cycle_last;
+-#ifdef CONFIG_GENERIC_VDSO_OVERFLOW_PROTECT
+-	vc[CS_RAW].max_cycles		= tk->tkr_raw.clock->max_cycles;
+-#endif
+-	vc[CS_RAW].mask			= tk->tkr_raw.mask;
+-	vc[CS_RAW].mult			= tk->tkr_raw.mult;
+-	vc[CS_RAW].shift		= tk->tkr_raw.shift;
++	fill_clock_configuration(&vc[CS_HRES_COARSE],	&tk->tkr_mono);
++	fill_clock_configuration(&vc[CS_RAW],		&tk->tkr_raw);
  
--	if (unlikely(ret))
-+	if (unlikely(!ok))
- 		return clock_getres32_fallback(clock, res);
- 
- 	if (likely(res)) {
- 		res->tv_sec = ts.tv_sec;
- 		res->tv_nsec = ts.tv_nsec;
- 	}
--	return ret;
-+	return 0;
- }
- 
- static __maybe_unused int
+ 	/* CLOCK_MONOTONIC */
+ 	vdso_ts		= &vc[CS_HRES_COARSE].basetime[CLOCK_MONOTONIC];
 
 -- 
 2.50.0
