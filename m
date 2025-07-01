@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B74FC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 22:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E4CC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 22:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aCH6UWaWdMtSV5w3YLUgKyRDkxeGFe8bXumroDH0Y/Y=; b=4sNjU+3J9sxn/EBnx4VEwFOXj8
-	PjZjYRo0hwzSaR8f/oqkX1m309Vw/P0V0g1TqdZ0pTWdIQVpJlbli/kg/vFQItZbnArG2qoXmRaNa
-	ePTeyT6o0jD4sqS5IGRxN/atpSisRtmtCJSk0/DpYnUlEbem8lqyOuSV6QGL/R5HAls6rLAUmGVMD
-	9z9XbdC/qwXgJiIS0bwx7cGGwqtw88YwGVKF/aO1rAY05ZpcxZI/geU7J6qilOuktOUnNOFxDuaQ5
-	4DUoxgXXhCL2DI3MS6XgWqroAok3xW+/RlswLoaMO3WIayC9ntM14DENWkFQJSrLdU76RlKkoWu09
-	RtFXKnlA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hs/T1sUYA0pU5cycNPkj6LKiRR0wSUjTFXJbEUEFSPg=; b=20zA5mI+NA99gQuTcrevoGVMLc
+	1uD3a0vcOUDrNBAPvycdOxp8L3V01D6u6X+HwwN1eyARdtCqlzRIxfhAfkiM+Nd0X3DzlJsm6zfpG
+	LQiqBophkndNQqChZO8SsHWhzK9P8L6gMu9FYMEX1TNhIo/nNYjm/3hqYA3caRnyebkspmzXrkC1o
+	kQxWdJrdoDD1Pi+dpVzG0DGOnLwHGDKgS0JAjiW6CDGZZxmqQNJtN5QImIHNwrmuke1DMZBWAJjVX
+	o5v2xgzgE6Tb7NYP8XymblNTDgDpn8/EzC7E8tnaiJgMkP7tRAd/7WADqjuQIGPcgPqxg15kMbbzW
+	U1YyEfaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWj6Y-00000006juj-2hkW;
-	Tue, 01 Jul 2025 22:05:30 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1uWjA9-00000006kbA-1wxW;
+	Tue, 01 Jul 2025 22:09:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWj4D-00000006jmL-1OSE
+	id 1uWj7o-00000006k1j-2Wry
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 22:03:06 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-ae3be3eabd8so94973666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 15:03:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751407384; x=1752012184; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aCH6UWaWdMtSV5w3YLUgKyRDkxeGFe8bXumroDH0Y/Y=;
-        b=eWu1o6ijNlVH3x5l6fsvSb1prgRdn63fV4e6kq+bnxPJQHWty5nbh89qJom5saPylG
-         k/gXTHCe+1V38Bii00r3P/wXtgEQbPXK41e4BNLOjTxNkkoVI56qqBn5JGJBnXSebIBT
-         NXETAb5r2hkKEpiVwPFFinyJj62mboARjdh0rXB52JryP/+J2iAjzBSSZrFM46oC4IIt
-         632UC7JXz5tFc67qiyTqqhGP/Ud/vxTytGTu9lzUELBaKrtSAMK/38rVR7x0+nwYSfS5
-         6beiBOlFBRJbWttGEzZp6ob1DaF/GqSYQZm++as6APUes4+tMcXO9KLQCjIcy6C8PXpq
-         wJZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751407384; x=1752012184;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aCH6UWaWdMtSV5w3YLUgKyRDkxeGFe8bXumroDH0Y/Y=;
-        b=nUDElF17BVPS+fA2f9t8JWT/DTXoh+5zjGsGA28vyY1VsxdnCOXuEpo2z9fqClCFzi
-         X+b72cDADIMAbrKPpbhKyw448J1jMMu9XBkeuZPWtxGwZ+32rMCc9VvJ60hp/6bPxpD3
-         4BGgJMzTqpUYWw4zGVtuVlOBJNBBWssTYiKdHfZnPy9Y3naNeQzOY+ezwwl06GiOz4Mq
-         bGXCaRyO5dGFcvqDi5kbTJBzxPUPD78u4Q8VUhFVFmI7L9r0Vu6B+nepmlaW8065dQz6
-         5ChBPjAgpNGm90AH8lqcJkxx7Bfkw5R7plTCpSxI74SJeRcfloz/gk52xENx7eCyiGop
-         S4pg==
-X-Forwarded-Encrypted: i=1; AJvYcCXUCiGJiWN36UPwAGAn5dxMGCGvUOWGIusb6iuJCPBoU2FMJhj3Pl0j0824KG21OhPIkC5YqA0JpF8elLOmAQ70@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFj7Oppv4U/o0okQ40brCy6PSjwve/snbapmzKrhjDOLE8SRVm
-	lMZFAp3U+p7Ke5jqs48Lxd/5ssuwsaVJJ77BJKHVwiYUYVqrC33ZX9bP
-X-Gm-Gg: ASbGncul08tWcPtcOkd4FTJtGUZvqpEiaV1RWsHWvRAeRVpfpG3u/S5jae874bwmvFL
-	aeP3ftT48bcCRDvdQhgks8F11SL3yTXP7JndeNINWfnNCjzG6D35O8XTd6l1X0dSdVFA58L+CUi
-	5oYhUypgrpB2Hy/jts6w4uHh2cdZfQ/i2DhJ5NHeOs/jL/80M7nj/DqsMOWCptG7WNS/R4bG27E
-	2f4rqa8kDkLf8rnRd2bI1u6am6JEX7u0/fcz1J/uZrM6viTlgygpfWbAZBoVl6uTClukpodTFmR
-	ENSYq9n32cBcZLdrZClZnB/UwRZHtvpPvkLXWPr8fvtLeG3Zfu2+yGhEakqWBQGhr0GS5HYixJ7
-	uyt9+reLM5qNR8Avs29tApl3LVoCbphQmUw==
-X-Google-Smtp-Source: AGHT+IGb0hSrbnoMf338DLIN4x8Shdh32qqzM9p3b8N6w2kChFiXV5nx4bbPUXJPHmioNc/LM3NIog==
-X-Received: by 2002:a17:907:9448:b0:ae3:6dc7:1ac3 with SMTP id a640c23a62f3a-ae3c399eaf1mr20986466b.15.1751407383224;
-        Tue, 01 Jul 2025 15:03:03 -0700 (PDT)
-Received: from playground.localdomain ([82.79.237.69])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae35365a16asm959756266b.72.2025.07.01.15.03.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 15:03:02 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-pwm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] pwm: imx-tpm: reset counter if CMOD is 0
-Date: Tue,  1 Jul 2025 18:01:47 -0400
-Message-Id: <20250701220147.1007786-1-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 01 Jul 2025 22:06:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EA58C613A9;
+	Tue,  1 Jul 2025 22:06:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9E260C4CEFC;
+	Tue,  1 Jul 2025 22:06:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751407607;
+	bh=CERXC+GluGq6gtdcghOIPnpwBCg94n3hc0LrBMl8mcw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=mS12TZGzxpBysun1h0QARInTRMYTmwdl5X3lLoc1pu8gmASkMsBHPPFxl1vxUUpGk
+	 RgpoW5G4HYF7iq/YA5E4+SWQl24cdivDna8Qj0FB2engzVI04QKkoYwtKrVe2S+xji
+	 a2cADh1Qx+klTiOSVhGBCtjD4tvu0zzEaV6xHJ4daRtET14OHguDl9hiW/4Rd0+VzX
+	 wWoRA6ImsGWIJLkMafmwAiFUNrZXcgP2o6VoxPzsLYRSrwsIzdAe9oUbquJCBlakrg
+	 jpapwATl03D2VORuh4TIEaltm4ll15yy9bwOOTL1pfbHH3ur9OqFNYvmEKhTrXqAza
+	 MPg8SV/jSC99w==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9239DC83F03;
+	Tue,  1 Jul 2025 22:06:47 +0000 (UTC)
+From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
+Date: Tue, 01 Jul 2025 22:06:38 +0000
+Subject: [PATCH v7 5/5] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
+ host handler
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_150305_395831_623CD57B 
-X-CRM114-Status: GOOD (  14.07  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250701-virtio-msg-ffa-v7-5-995afc3d385e@google.com>
+References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
+In-Reply-To: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, 
+ arve@android.com, ayrton@google.com, qperret@google.com, 
+ sebastianene@google.com, qwandor@google.com, 
+ Per Larsen <perlarsen@google.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751407606; l=3137;
+ i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
+ bh=GEqKX+GAadj0SfI9NfXASrGnNrJoxc4Z5cAFtJ2/kCw=;
+ b=OPfG6n4vrx37ckpdyrTzIO1OA/BbDYa0ENcgj7Q/JIDX4NTK1LSJuwKRpLHEGoe2PF2eywnPs
+ Ka1PeLLCVFjCZJ4KeUoKU+SJpH+D/KUIG6tH9oYRbLjo/hvbaxURu1I
+X-Developer-Key: i=perlarsen@google.com; a=ed25519;
+ pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
+X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
+ auth_id=402
+X-Original-From: Per Larsen <perlarsen@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,59 +87,94 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+From: Per Larsen <perlarsen@google.com>
 
-As per the i.MX93 TRM, section 67.3.2.1 "MOD register update", the value
-of the TPM counter does NOT get updated when writing MOD.MOD unless
-SC.CMOD != 0. Therefore, with the current code, assuming the following
-sequence:
+FF-A 1.2 adds the DIRECT_REQ2 messaging interface which is similar to
+the existing FFA_MSG_SEND_DIRECT_{REQ,RESP} functions except that it
+uses the SMC calling convention v1.2 which allows calls to use x4-x17 as
+argument and return registers. Add support for FFA_MSG_SEND_DIRECT_REQ2
+in the host ffa handler.
 
-	1) pwm_disable()
-	2) pwm_apply_might_sleep() /* period is changed here */
-	3) pwm_enable()
-
-and assuming only one channel is active, if CNT.COUNT is higher than the
-MOD.MOD value written during the pwm_apply_might_sleep() call then, when
-re-enabling the PWM during pwm_enable(), the counter will end up resetting
-after UINT32_MAX - CNT.COUNT + MOD.MOD cycles instead of MOD.MOD cycles as
-normally expected.
-
-Fix this problem by forcing a reset of the TPM counter before MOD.MOD is
-written.
-
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Signed-off-by: Per Larsen <perlarsen@google.com>
 ---
- drivers/pwm/pwm-imx-tpm.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 24 +++++++++++++++++++++++-
+ include/linux/arm_ffa.h       |  2 ++
+ 2 files changed, 25 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c
-index 7ee7b65b9b90..30f271826aed 100644
---- a/drivers/pwm/pwm-imx-tpm.c
-+++ b/drivers/pwm/pwm-imx-tpm.c
-@@ -204,6 +204,19 @@ static int pwm_imx_tpm_apply_hw(struct pwm_chip *chip,
- 		val |= FIELD_PREP(PWM_IMX_TPM_SC_PS, p->prescale);
- 		writel(val, tpm->base + PWM_IMX_TPM_SC);
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 79d834120a3f3d26e17e9170c60012b60c6f5a5e..21225988a9365219ccfd69e8e599d7403b5cdf05 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -679,7 +679,6 @@ static bool ffa_call_supported(u64 func_id)
+ 	case FFA_NOTIFICATION_GET:
+ 	case FFA_NOTIFICATION_INFO_GET:
+ 	/* Optional interfaces added in FF-A 1.2 */
+-	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
+ 	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
+ 	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
+ 	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
+@@ -862,6 +861,22 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+ 	hyp_spin_unlock(&host_buffers.lock);
+ }
  
-+		/*
-+		 * VERY IMPORTANT: if CMOD is set to 0 then writing
-+		 * MOD will NOT reset the value of the TPM counter.
-+		 *
-+		 * Therefore, if CNT.COUNT > MOD.MOD, the counter will reset
-+		 * after UINT32_MAX - CNT.COUNT + MOD.MOD cycles, which is
-+		 * incorrect.
-+		 *
-+		 * To avoid this, we need to force a reset of the
-+		 * counter before writing the new MOD value.
-+		 */
-+		if (!cmod)
-+			writel(0x0, tpm->base + PWM_IMX_TPM_CNT);
- 		/*
- 		 * set period count:
- 		 * if the PWM is disabled (CMOD[1:0] = 2b00), then MOD register
++static void do_ffa_direct_msg2(struct arm_smccc_1_2_regs *regs,
++			       struct kvm_cpu_context *ctxt,
++			       u64 vm_handle)
++{
++	DECLARE_REG(u32, endp, ctxt, 1);
++
++	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
++
++	if (FIELD_GET(FFA_SRC_ENDPOINT_MASK, endp) != vm_handle) {
++		ffa_to_smccc_error(regs, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
++	arm_smccc_1_2_smc(args, regs);
++}
++
+ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ {
+ 	struct arm_smccc_1_2_regs res;
+@@ -920,11 +935,18 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 	case FFA_PARTITION_INFO_GET:
+ 		do_ffa_part_get(&res, host_ctxt);
+ 		goto out_handled;
++	case FFA_MSG_SEND_DIRECT_REQ2:
++		if (hyp_ffa_version >= FFA_VERSION_1_2) {
++			do_ffa_direct_msg2(&res, host_ctxt, HOST_FFA_ID);
++			goto out_handled;
++		}
++		goto out_not_supported;
+ 	}
+ 
+ 	if (ffa_call_supported(func_id))
+ 		return false; /* Pass through */
+ 
++out_not_supported:
+ 	ffa_to_smccc_error(&res, FFA_RET_NOT_SUPPORTED);
+ out_handled:
+ 	ffa_set_retval(host_ctxt, &res);
+diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
+index 2b760bede9c0a4bcb58bf697681c32e77c08a5d9..db63a96190545c9f65943909de2d73cf8e7b9615 100644
+--- a/include/linux/arm_ffa.h
++++ b/include/linux/arm_ffa.h
+@@ -269,6 +269,8 @@ bool ffa_partition_check_property(struct ffa_device *dev, u32 property)
+ 	(ffa_partition_check_property(dev, FFA_PARTITION_DIRECT_REQ2_RECV) && \
+ 	 !dev->mode_32bit)
+ 
++#define FFA_SRC_ENDPOINT_MASK	GENMASK(31, 16)
++
+ /* For use with FFA_MSG_SEND_DIRECT_{REQ,RESP} which pass data via registers */
+ struct ffa_send_direct_data {
+ 	unsigned long data0; /* w3/x3 */
+
 -- 
-2.34.1
+2.50.0.727.gbf7dc18ff4-goog
+
 
 
