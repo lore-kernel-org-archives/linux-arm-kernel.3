@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29905C8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 03:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88F43C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 03:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XDsYQPlp8x+KuXL1MS66/sNiI7gtxO3dlkQIougjdos=; b=VIfaHeMVuk6OgqlRJZuMb+7wG0
-	hMAOTOUn/dy1XEbRAdQNsEVPYWAYbV7iuvD9je0JUfWOi4piIXj3XL/OL5RuuFdnlEY37JADD3U+p
-	A94r08vr46Dx5J1GuNF/fDkNzmPE94IfGXRHAxUA2cXO+Mo5SHi56Q6VyQQOkahpNljdFr3SrIYBG
-	rgvMa6CufLdgMStJs8s/7xfZ7OKy26R0rQrIHocY6nuap2guc+0ehPEyECFEAOWyKVhq8cuzNM4WJ
-	UmfYMT1FN9dmwPqtK2x8FhVolI61r+01q/JQXMX3Yk1b9ZZck1vgwaVZ1W9LAN+dSgs+6MrsPQxZA
-	G1GIXSYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=54+6arpjHzXNhw4PF0Se2nd1gMvnBxhZHEzyM09QGlQ=; b=g0rSU5Be+6kg/qGMy1Hk15smL+
+	3PQ5IEPHewXkCHjRjZFEpa3SjJZJYGXR6fytcsKCojeWw3yziRXGd3/rAdyNEKNwIbWODkADeGO9y
+	nbKf7HLOu4MFgXOJVr8MhgrySK6ZuXCkBRtg4GK0ehCrrQUgu5Axt8uoIxiryygq6DSLo5FMwtw4P
+	Lu9azXppABXPxp7giyI1CHVCMQqCJ5KfqkudVZsjlNrYwL8sUsgneTdgRBi22ehVamXb8exGrcZYR
+	GgrnFfSpaU3MENr6t/TDxUpcRjUaBv0F60JZeLCLGFNKgpq5RRdBEotFBZl36FOMt2kq6G4Nt9gKf
+	xyrBvfLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWRwI-00000003xWI-3WS3;
-	Tue, 01 Jul 2025 03:45:46 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1uWS2G-00000003y7W-1AQX;
+	Tue, 01 Jul 2025 03:51:56 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWRtx-00000003xHA-0kPG;
-	Tue, 01 Jul 2025 03:43:22 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1uWRtf-000000008Tg-49Ij;
-	Tue, 01 Jul 2025 03:43:04 +0000
-Date: Tue, 1 Jul 2025 04:42:55 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Felix Fietkau <nbd@nbd.name>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
-	Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
-	Sky Huang <skylake.huang@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v3 3/3] net: ethernet: mtk_eth_soc: use genpool
- allocator for SRAM
-Message-ID: <aGNZP5JFXzFcBVla@makrotopia.org>
-References: <cover.1751319620.git.daniel@makrotopia.org>
- <ec99dca250c0805a2307b0aaa9cf30b29ee2a989.1751319620.git.daniel@makrotopia.org>
+	id 1uWRzt-00000003xxq-1HVe
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Jul 2025 03:49:31 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bWTVQ6gzpz1R8g2;
+	Tue,  1 Jul 2025 11:46:54 +0800 (CST)
+Received: from kwepemh100007.china.huawei.com (unknown [7.202.181.92])
+	by mail.maildlp.com (Postfix) with ESMTPS id 61C87140295;
+	Tue,  1 Jul 2025 11:49:25 +0800 (CST)
+Received: from [10.67.111.31] (10.67.111.31) by kwepemh100007.china.huawei.com
+ (7.202.181.92) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 1 Jul
+ 2025 11:49:24 +0800
+Message-ID: <d612599a-b773-42ca-acfa-67b6867f96e6@huawei.com>
+Date: Tue, 1 Jul 2025 11:49:23 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ec99dca250c0805a2307b0aaa9cf30b29ee2a989.1751319620.git.daniel@makrotopia.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 0/4] Reintroduce the sm2 algorithm
+To: Dan Carpenter <dan.carpenter@linaro.org>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, David Howells
+	<dhowells@redhat.com>, David Woodhouse <dwmw2@infradead.org>, Lukas Wunner
+	<lukas@wunner.de>, Ignat Korchagin <ignat@cloudflare.com>, "David S . Miller"
+	<davem@davemloft.net>, Jarkko Sakkinen <jarkko@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Eric Biggers <ebiggers@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Tianjia Zhang
+	<tianjia.zhang@linux.alibaba.com>, <keyrings@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-crypto@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, Lu Jialin <lujialin4@huawei.com>,
+	GONG Ruiqi <gongruiqi1@huawei.com>
+References: <20250630133934.766646-1-gubowen5@huawei.com>
+ <0bf20f7e-117c-4495-9805-baade7f466ba@suswa.mountain>
+Content-Language: en-US
+From: Gu Bowen <gubowen5@huawei.com>
+In-Reply-To: <0bf20f7e-117c-4495-9805-baade7f466ba@suswa.mountain>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.111.31]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemh100007.china.huawei.com (7.202.181.92)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_204321_478594_1C66EACA 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250630_204929_617889_F04AF0D3 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +83,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 10:47:02PM +0100, Daniel Golle wrote:
-> Use a dedicated "mmio-sram" and the genpool allocator instead of
-> open-coding SRAM allocation for DMA rings.
-> Keep support for legacy device trees but notify the user via a
-> warning to update.
+Hi,
+
+On 7/1/2025 3:41 AM, Dan Carpenter wrote:
+> On Mon, Jun 30, 2025 at 09:39:30PM +0800, Gu Bowen wrote:
+>> To reintroduce the sm2 algorithm, the patch set did the following:
+>>   - Reintroduce the mpi library based on libgcrypt.
+>>   - Reintroduce ec implementation to MPI library.
+>>   - Rework sm2 algorithm.
+>>   - Support verification of X.509 certificates.
 > 
-> Co-developed-by: Frank Wunderlich <frank-w@public-files.de>
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-> ---
-> v3: fix resource leak on error in mtk_probe()
-> v2: fix return type of mtk_dma_ring_alloc() in case of error
-> 
->  drivers/net/ethernet/mediatek/mtk_eth_soc.c | 117 +++++++++++++-------
->  drivers/net/ethernet/mediatek/mtk_eth_soc.h |   4 +-
->  2 files changed, 83 insertions(+), 38 deletions(-)
+> Remind me, why did we remove these?
 > 
 
-I just noticed I forgot to 'git add' the Kconfig change adding 'select
-GENERIC_ALLOCATOR' for NET_MEDIATEK_SOC... I will include that in v4 and
-also add a patch dropping the open coded static partitioning of the SRAM
-in favor of always using the gen_pool allocator even with legacy device
-trees.
-
-Meanwhile I would still be thankful to see this patch reviewed as apart
-from the Kconfig addition it won't change.
+At first, the process of calculating the digest with the SM2 certificate
+was coupled with the signature verification process, and this 
+unreasonable situation was corrected with commit e5221fa6a355 ("KEYS: 
+asymmetric: Move sm2 code into x509_public_key "). However, this commit 
+also caused SM2 to be unable to verify secondary certificates due to its 
+special implementation. This issue was not resolved, which led to the 
+removal of the sm2 algorithm.
 
