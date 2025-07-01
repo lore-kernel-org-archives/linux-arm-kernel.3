@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A88C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 19:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D37FC83F04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 19:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CYCieZx7RGc4LBogHf+a8UqHutLdl5VHK4F8STwbvPM=; b=nMUDtdz0j+F4PyXv0ettS/Ji1K
-	S/pkxAtgrvCm6giwWtvSX1rhlEwWR3llpVFSi4w697j0WqC9hComibo2AnJEC+ZNRyr4VHvGM2WRH
-	MZLa2/LI8vfTfPO+WIxy1IlHW2bo+MbbxXSmLzSEcIK8N3cCkOSJ2kUQKhyzqbJNIqnvllRjf1lCb
-	+ID0axvV1rEBPe/pQso0D71wyz91QBVubDb+kJEJVZtzTiVcYVZT0r4WGa981hkyzQ/hBSqB5/dtW
-	KF5SZKBWE7rMbzYHV6McZVQ9QYTfabfDFPT/eDqYu78672M2DC+7vLVZB7WP73rnJBLN/ckqyoro8
-	ifzV9xjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xk6elp7+GNhOSfGgHSBskSrkAu5rtLm+QGtFYvJqEBk=; b=uWbq2RyOZQ4Gv7Bn0Y4tjYk0oB
+	8O/njfL76Kto8+6e4ds+sbLmV5ToaypjAviTHqg/jSvMfPwrNLfUNJYciimZH8/Z9738HuYFuWyQt
+	5bz/X0Nt2wpxTTq6L7MTvfazInJIOmZH+JxRziQ4AGh+XaNIqkRH2+lvtgJzrALG93s2xorp4d02j
+	8A751yFumAtIQt75lHhx3GCab61c2wpLBxhLe0sAfQHZ6A5TwV0FNyzCYf58g1hrqJ16TjrodE4yV
+	d6HwcvAkSXcROKe7ilMJRTsOVsBIU24S20kCoFZn0ltiFBIKHLb56ovwRzMYrdRnNvej6z5h+8c3/
+	JRBpDTdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWgDT-00000006PEt-1tx5;
-	Tue, 01 Jul 2025 19:00:27 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1uWgDU-00000006PFw-1YGg;
+	Tue, 01 Jul 2025 19:00:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWdt6-0000000632N-3CfI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 16:31:18 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250701163112epoutp01d38001749f3e828f11626980fdde7805~OLaCMUj3P1342713427epoutp01b
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Jul 2025 16:31:12 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250701163112epoutp01d38001749f3e828f11626980fdde7805~OLaCMUj3P1342713427epoutp01b
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1751387472;
-	bh=CYCieZx7RGc4LBogHf+a8UqHutLdl5VHK4F8STwbvPM=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=oT3g7+5ykWliopi8mIAdsTlCpWF4z7LPDgU/YHY2nVhTIVLVp/iNxC6sMHGpCscf6
-	 xXqM5Vf8YsWk3RvOJ8/byHzgAuVETzDxQ3lqsd3/X5++BIaDvsp8+hk9g/aj6uzSwF
-	 qpm6UMUNgJgIvc3JXmvsYi33AP+FsPag3DbUfyZY=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250701163111epcas5p2709c45ba4dad180fe68d0ca67be7a784~OLaBi-Gsx2740427404epcas5p2f;
-	Tue,  1 Jul 2025 16:31:11 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.174]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4bWpSF6RFTz6B9m5; Tue,  1 Jul
-	2025 16:31:09 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250701133810epcas5p3e1acdfe3bfcf5276e6c70f12755fdf57~OJC9HjeEd0290902909epcas5p3y;
-	Tue,  1 Jul 2025 13:38:10 +0000 (GMT)
-Received: from FDSFTE462 (unknown [107.122.81.248]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250701133807epsmtip15aa5b5f8243b909f80b036d6b7b3ca61~OJC6dIU3K0912509125epsmtip18;
-	Tue,  1 Jul 2025 13:38:07 +0000 (GMT)
-From: "Shradha Todi" <shradha.t@samsung.com>
-To: "'Rob Herring'" <robh@kernel.org>
-Cc: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
-	<linux-fsd@tesla.com>, <manivannan.sadhasivam@linaro.org>,
-	<lpieralisi@kernel.org>, <kw@linux.com>, <bhelgaas@google.com>,
-	<jingoohan1@gmail.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<alim.akhtar@samsung.com>, <vkoul@kernel.org>, <kishon@kernel.org>,
-	<arnd@arndb.de>, <m.szyprowski@samsung.com>, <jh80.chung@samsung.com>,
-	<pankaj.dubey@samsung.com>
-In-Reply-To: <20250627211236.GA147018-robh@kernel.org>
-Subject: RE: [PATCH v2 06/10] dt-bindings: PCI: Add bindings support for
- Tesla FSD SoC
-Date: Tue, 1 Jul 2025 19:08:06 +0530
-Message-ID: <02c001dbea8d$62b21d50$281657f0$@samsung.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQFUClgbainc6hQuKSBO0V8ttZVgkwK41mGpAfhwG8gB/KC3xLT3likQ
-Content-Language: en-in
-X-CMS-MailID: 20250701133810epcas5p3e1acdfe3bfcf5276e6c70f12755fdf57
-X-Msg-Generator: CA
+	id 1uWduk-000000063Mf-0QKx;
+	Tue, 01 Jul 2025 16:32:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BDDA143A8F;
+	Tue,  1 Jul 2025 16:32:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 759A9C4CEEB;
+	Tue,  1 Jul 2025 16:32:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751387577;
+	bh=DKU+hY2Pi8zMDGgIyWh0V+54nxG1K37l+J7KI53nCWY=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=KzHvv04Wn0A1brDCcoyn5UjpHQJF6OUINA3RUK+fdO2OVhy5EEjoxUwYnOhjS4pCB
+	 JmDT0tmx21+fzo/fop3OHhS/5PmQgErX6Q2Tq48UZfWV6fCwu+g7jK76F46It89A2L
+	 fKuxxQ0WFN9L2jM/ds8giXe0TACzG3+3ds/nqB+c0Nidvitj5T8HHzGcLCy86HBsaV
+	 JAWXBWeF8Ny/roZYO9D6TNlkIIYzXt3moX4mow5JBy9uv1r5NNUvUB1CsvE0y2/dw9
+	 CMCMSGx8av8q3tFegW0J/5XRPdsFqNTkeu4OYHyJRWw5/2t0GaY7hnKXcd3faSOZCz
+	 oMEJ4KNxXXHzQ==
+Date: Tue, 01 Jul 2025 11:32:56 -0500
 Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250625165315epcas5p19f081c8a0e2e7dc87698577cc2d460ca
-References: <20250625165229.3458-1-shradha.t@samsung.com>
-	<CGME20250625165315epcas5p19f081c8a0e2e7dc87698577cc2d460ca@epcas5p1.samsung.com>
-	<20250625165229.3458-7-shradha.t@samsung.com>
-	<20250627211236.GA147018-robh@kernel.org>
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: laura.nao@collabora.com, matthias.bgg@gmail.com, 
+ quic_hyiwei@quicinc.com, devicetree@vger.kernel.org, kabel@kernel.org, 
+ kernel@collabora.com, arnd@arndb.de, ulf.hansson@linaro.org, 
+ linux-kernel@vger.kernel.org, conor+dt@kernel.org, khilman@baylibre.com, 
+ pjp@fedoraproject.org, u.kleine-koenig@baylibre.com, 
+ linux-mediatek@lists.infradead.org, nm@ti.com, tudor.ambarus@linaro.org, 
+ m.wilczynski@samsung.com, drew@pdp7.com, krzk@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, gregkh@linuxfoundation.org
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250701151149.136365-3-angelogioacchino.delregno@collabora.com>
+References: <20250701151149.136365-1-angelogioacchino.delregno@collabora.com>
+ <20250701151149.136365-3-angelogioacchino.delregno@collabora.com>
+Message-Id: <175138757651.1874576.12579481478499163218.robh@kernel.org>
+Subject: Re: [RFC PATCH 2/3] dt-bindings: firmware: Document the MediaTek
+ Hardware Voter (HWV)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_093117_115989_E2E2F665 
-X-CRM114-Status: GOOD (  18.16  )
+X-CRM114-CacheID: sfid-20250701_093258_178054_A96395E6 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,38 +79,46 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-> -----Original Message-----
-> From: Rob Herring <robh@kernel.org>
-> Sent: 28 June 2025 02:43
-> To: Shradha Todi <shradha.t@samsung.com>
-> Cc: linux-pci@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-linux-
-> samsung-soc@vger.kernel.org; linux-kernel@vger.kernel.org; linux-phy@lists.infradead.org; linux-
-> fsd@tesla.com; manivannan.sadhasivam@linaro.org; lpieralisi@kernel.org; kw@linux.com;
-> bhelgaas@google.com; jingoohan1@gmail.com; krzk+dt@kernel.org; conor+dt@kernel.org;
-> alim.akhtar@samsung.com; vkoul@kernel.org; kishon@kernel.org; arnd@arndb.de;
-> m.szyprowski@samsung.com; jh80.chung@samsung.com; pankaj.dubey@samsung.com
-> Subject: Re: [PATCH v2 06/10] dt-bindings: PCI: Add bindings support for Tesla FSD SoC
+On Tue, 01 Jul 2025 17:11:48 +0200, AngeloGioacchino Del Regno wrote:
+> Add documentation for the new MediaTek Hardware Voter, found in
+> MediaTek SoCs like the MT8196 Kompanio Ultra for Chromebooks and
+> the MT6991 Dimensity 9400 for Smartphones.
 > 
-> On Wed, Jun 25, 2025 at 10:22:25PM +0530, Shradha Todi wrote:
-> > Document the PCIe controller device tree bindings for Tesla FSD
-> > SoC for both RC and EP.
-> 
-> Drop 'bindings support for ' in the subject.
-> 
-> >
-> > Signed-off-by: Shradha Todi <shradha.t@samsung.com>
-> > ---
-> >  .../bindings/pci/samsung,exynos-pcie.yaml     | 121 ++++++++++++------
-> 
-> I think this should be its own schema file. There's not much shared.
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../mediatek,mt6991-hardware-voter.yaml       | 70 +++++++++++++++++++
+>  1 file changed, 70 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware-voter.yaml
 > 
 
-Resending my reply after trimming.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Will make 2 new bindings - samsung,exynos-pcie-common.yaml and
-tesla,fsd-pcie.yaml
-Does that sound okay?
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware-voter.yaml:44:2: [warning] wrong indentation: expected 2 but found 1 (indentation)
+
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware-voter.example.dts:39.35-43.11: Warning (unit_address_vs_reg): /example-0/clock-controller@16640000: node has a unit name, but no reg or ranges property
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware-voter.example.dtb: system-controller@14500000 (mediatek,mt6991-hardware-voter): power-controller:compatible:0: 'mediatek,mt8196-hwv-scp-power-controller' is not one of ['mediatek,mt6735-power-controller', 'mediatek,mt6795-power-controller', 'mediatek,mt6893-power-controller', 'mediatek,mt8167-power-controller', 'mediatek,mt8173-power-controller', 'mediatek,mt8183-power-controller', 'mediatek,mt8186-power-controller', 'mediatek,mt8188-power-controller', 'mediatek,mt8192-power-controller', 'mediatek,mt8195-power-controller', 'mediatek,mt8365-power-controller']
+	from schema $id: http://devicetree.org/schemas/firmware/mediatek,mt6991-hardware-voter.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware-voter.example.dtb: system-controller@14500000 (mediatek,mt6991-hardware-voter): reg: [[0, 340787200], [0, 12288]] is too long
+	from schema $id: http://devicetree.org/schemas/firmware/mediatek,mt6991-hardware-voter.yaml#
+Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware-voter.example.dtb: /example-0/system-controller@14500000/power-controller: failed to match any schema with compatible: ['mediatek,mt8196-hwv-scp-power-controller']
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250701151149.136365-3-angelogioacchino.delregno@collabora.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
