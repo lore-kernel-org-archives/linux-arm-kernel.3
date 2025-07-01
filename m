@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4750CC8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1413C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sCKhaBsg8xUAooQ2UnBR99qEvYpdT0zIlTvlGHqxLsI=; b=vW4d/Gz14noLV+We/AX4dBEulC
-	7o93YUzibdanCnKv8kXzMWsucIec9YLDJpDcELLy/QdVnH+u+rLZjEkgZV6Aw5+C6EqSNS5TwmElB
-	9j54uRyjOgezCC0RlmckWEAd8GS6Zgjw8q4vAUqKVKZVcwwHRQKgfpwOVj03JsWEvCm7c8y5qiVEX
-	0LQsJZ0ZT4EeGoJDAEBUP3HLaX4Idlv/PEfhptZ9E7kQi5dnugtb8ptDk/+i1rDzaWfdSW34GEiJX
-	BM4LgKOdGAsUDlfraP/BD3lp2IEYUNTave4zF6AXOTigOedEUcOS1PWdg00nGz53tpCtDqDQ2FXp3
-	Qv5HVxHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ii2WJSGxuN91zGRL+o1Elt7P0y9IW0tcr9T0FJSPak4=; b=SthUEBrxJnYhFHVJmsQkCAC+nT
+	ckloDKezeX79ohbs26F9krU9UVPbpHpEtZatTv6vuLCB612dUwEInBE6IywVEvNvssGQ9bnPYZKZl
+	AsVRUvIJbspvvfcNyQKxGSyht+VYu2CILBU5xnlqCMxBZoxWrHB9Y6A9H0kKu3iijP46CdZuqhF+X
+	Ivtb4/gmAlzuUGCbHqUTlIdY5uAus5Qmp9g4/uSUMTczaX+rBIBeQclc7tUQoFJGbQS4u//XHmnAt
+	+R2hrsun2zRYbfNZcbHEinrIx7DQzJUrSoqV/T3I5fDOPICbj/LEA0gboU1G1BPbKCUt7bEbc9r5O
+	C3NbqqXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXSH-00000004caS-02Jb;
-	Tue, 01 Jul 2025 09:39:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uWXWw-00000004d8m-2Tf1;
+	Tue, 01 Jul 2025 09:43:58 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWyS-00000004Yfw-3Fn8;
-	Tue, 01 Jul 2025 09:08:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:To:From:Subject
-	:Cc:Message-Id:Date:Content-Type:Mime-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=sCKhaBsg8xUAooQ2UnBR99qEvYpdT0zIlTvlGHqxLsI=; b=hkGLsjxCizzhbgbP1rKp+l8kel
-	WQVPbouyAin+CyviswSrSEQzbsCuz7cNHh7ZZruemyauVZA8z5vjiDsyZu0ljrgCtkeiV33TVfCkI
-	BHQoVfikUipGYN+zEHK9o8vlp6AsQ8pfsoP+blcBLd/jftYcnDHNnoZTceTptPMn7mNR4VKRpM8bB
-	AooVLFs2z8PExwYDfUwvOdf7WLHtLmHk+5Cq8zx5aEHfv+GolRmy5Ztt71vHjoo/CjM6shgpOdBWB
-	y3zyCq6BrgfdgETDkhMEmosNq20O0SevDo988i50/wFS1IirhgfgOYgA7NVQfmiUoMHzD7Dqf7GJ8
-	hwQNiidA==;
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWyP-000000071Tx-1Pdh;
-	Tue, 01 Jul 2025 09:08:19 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1751360887;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sCKhaBsg8xUAooQ2UnBR99qEvYpdT0zIlTvlGHqxLsI=;
-	b=hwwkWF8SmOXJLw9wzALqdogqAoTe/5RQm7bPFyxQrcWnFMjdT2GuLKk21ZDWysMGviZ5f9
-	bFW5nLhOSzTFNd/KKAgJys6NIt5GGPMzTN5ExlBdQ+ttoSfDQf813i2zfAhSjBy5T9S5nm
-	29imL8mAXYjoMtwg6ieAmEp4bhhpPxmNV3e4mokzW0Q5uHpiToqxC+UdhwIeghoW2Rr5Yc
-	MEgpH9jb0lb+sGuLV3r7uZu3Xe32CPkiZyHDzGbG2mp5HMb9juEXMXYXFjErEa7CJNckxS
-	o2HuCpmNUldlDxBTa1/KBP1Tidc4c6apZEkK2BCsDZDzHI0/9eb/zNK1mHafGQ==
-Content-Type: multipart/signed;
- boundary=b8323306f1bbbc5afcc52f8f8b6518b1db3b53e34623a0a8a033e4200c2d;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Tue, 01 Jul 2025 11:07:51 +0200
-Message-Id: <DB0LM56C47LH.YYFY0ZGCVVKC@cknow.org>
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
- <kernel@collabora.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: adjust dcin regulator on ROCK
- 4D
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>, "Sebastian
- Reichel" <sebastian.reichel@collabora.com>
-References: <20250630-rock4d-reg-usb-wifi-v1-0-1057f412d98c@collabora.com>
- <5acizoywvjolaffojiawqlzixiclrqzohuhq55lbsjm6yhhlwi@w2amqugl3ee2>
- <DB0KL629S4E4.3ENNM27XN3IYM@cknow.org> <5039013.31r3eYUQgx@workhorse>
-In-Reply-To: <5039013.31r3eYUQgx@workhorse>
-X-Migadu-Flow: FLOW_OUT
+	id 1uWX62-00000004Zz8-1yv0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Jul 2025 09:16:11 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-32b3c292bb4so48641611fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 02:16:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1751361368; x=1751966168; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ii2WJSGxuN91zGRL+o1Elt7P0y9IW0tcr9T0FJSPak4=;
+        b=D/oiZY45nOtkjcP045jcL0HorCAXxY300sKHhldsYRf7D3naM2//zCFuyaL9YEMgU7
+         UjfdYOklXGR+w8sWtHD3n/RtpTvAbZCIJX126ryH9RrQkpEiV9OPZ6g7dOfY0r+l2P6I
+         hquMWJemry6wXwGfqECwQksz3c4RCW4qdmeRQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751361368; x=1751966168;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ii2WJSGxuN91zGRL+o1Elt7P0y9IW0tcr9T0FJSPak4=;
+        b=Ykkwstk77y12U6c9AmiJjvW/2BWfa9EM+RrHNqb74NTjm24eju6gomLNieyhYDdDcN
+         +BZ8oIToXovXcCsLR3NOkG0xMiSCeNPotI7MprfosRvNNpHiYQaqLjPs8so06rHxbqjH
+         48ypJ1vstORD3b5KVL24v8OBSsRxMPwYY+/nw8y2CyO7Zpd5aS0H6NxYobDkd1ajCSb/
+         2FNf5NX/+CP6fHA11fzZzOgN+P1UVf+uNudf1Y52Pbalix46NDvW2nToXqU3ZmU188Bs
+         LDGwAqwfZYybR/MJvXm/f4f3VEiOAEyDyw6A0MIitavAofYcKieKIVE0OvqXQkKMKlt0
+         ZmFg==
+X-Gm-Message-State: AOJu0YxsOvpAxKpQKnahfCF4W+AxcZxPlxBzjCK0s10ILm3OHV4fVG9d
+	o2giZgpEbzIQzaMKuwq53pq+wYBhtKpiYUpk+KCuPUR9xSSQ9OeOvvObWXd+T96y0RvsGrqBfQX
+	zSfO3U/l0AdcXCz7TRDW8Sj9jfukSwzILJr+gZovx
+X-Gm-Gg: ASbGnctD/qSeyCWhMAHxZKDueld5u2mz0Wgdq04kdDBqJiKgkUftbaznhzhDyJ1Q+Nq
+	D8tNFIGH2Qp5lX+/F1vggrf6UWpUuSfRJmtLYR7w/KsCjRSk5VdbnGb13sS+YF92/LyKUDYXMD9
+	l5fjOMlT7nhsuM325Qa46tw+kpA5thdI7Ps8bfcUSnRJirgo0gyHEGwKFe7rX5IemtPsKLBuc=
+X-Google-Smtp-Source: AGHT+IHBrDnDLJq/wJvKGLgxQgDrKBxEEuyZmoLKMExSbzXgm4RYBgKbsnJ/qHE5B5f1OiZ34CTPYU5ibJdkRjsWKOo=
+X-Received: by 2002:a05:6512:3f1d:b0:553:aadd:1987 with SMTP id
+ 2adb3069b0e04-5550b9ee8a2mr5372873e87.30.1751361368119; Tue, 01 Jul 2025
+ 02:16:08 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250610063431.2955757-1-wenst@chromium.org>
+In-Reply-To: <20250610063431.2955757-1-wenst@chromium.org>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 1 Jul 2025 17:15:57 +0800
+X-Gm-Features: Ac12FXxeyUHnDez8Q8D4O-LF6jWdCG451UjT4Bbb2Ps3qaRoBzaVTLBPU9xxrc4
+Message-ID: <CAGXv+5HDAZ-MBBMk00O+cdcq55KnsKdEAMD7E2uaAf=2LY=1cg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] arm64: mediatek: Enable efuse GPU speed bin post-processing
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Lala Lin <lala.lin@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_100817_624322_587CE9C2 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20250701_021610_525542_AC6532C8 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,78 +94,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---b8323306f1bbbc5afcc52f8f8b6518b1db3b53e34623a0a8a033e4200c2d
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Hi Angelo,
 
-On Tue Jul 1, 2025 at 10:55 AM CEST, Nicolas Frattaroli wrote:
-> On Tuesday, 1 July 2025 10:19:33 Central European Summer Time Diederik de=
- Haas wrote:
->> On Tue Jul 1, 2025 at 1:10 AM CEST, Sebastian Reichel wrote:
->> > On Mon, Jun 30, 2025 at 08:12:27PM +0200, Diederik de Haas wrote:
->> >> On Mon Jun 30, 2025 at 5:36 PM CEST, Nicolas Frattaroli wrote:
->> >> > The ROCK 4D's actual DC input is 5V, and the schematic names it as =
-being
->> >> > 5V as well.
->> >> >
->> >> > Rename the regulator, and change the voltage it claims to be at.
->> >>=20
->> >> Shouldn't it have a fixes tag then? Providing 12V where 5V is expecte=
-d
->> >> sounds problematic ;-)
->> >
->> > This is basically "just" documentation, as the DT just describes
->> > a fixed regulator (i.e. nothing software controllable). This just
->> > changes a number in sysfs :)
->> >
->> > Note, that the 5V DCIN is a USB-C port, which does not do any PD
->> > negotiation, but has the 5K1 resistors on the CC lines to "request"
->> > 5V. If for whatever reason a higher voltage is applied (which does
->> > not happen as long as the power is provided by anything remotely
->> > following the USB specifications) there also is an over-voltage
->> > protection chip. So it's not problematic :)
->>=20
->> I was worried about and wondered why I/we did NOT receive reports about
->> boards being fried. Good to know, thanks!
->>=20
->> > OTOH adding a Fixes tag does not hurt ;)
+On Tue, Jun 10, 2025 at 2:34=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
+rote:
 >
-> to add to what Sebastian already said: I purposefully didn't include the
-> Fixes: tag because there is no functional change here. I don't think
-> cosmetic fixes are worth pulling into stable kernels unless they're a
-
-Then I agree with you. I didn't realize it was not a functional change.
-I guess I didn't (fully) understand the "just documentation" remark.
-
-Cheers,
-  Diederik
-
-> dependency of a follow-up functional fix patch, which isn't the case
-> right now. If such a functional fix patch does emerge, it can explicitly
-> declare its dependence on this patch, or even have our robot overlords
-> figure it out itself.
+> Hi everyone,
 >
-> In that sense, I do think a Fixes tag hurts, because it needlessly
-> adds to the patch queue of the stable kernel people, and it's worth
-> pointing out that while I claim this patch has no functional change,
-> that's always predicated on the understanding that it does not
-> unintentionally break anything. In this case the chance is essentially
-> zero though, but I won't bother re-rolling this for that tag alone.
+> This is v2 of the MT8188 efuse GPU speed bin post-processing enablement
+> patches. In v1 [1] the change was made to the driver. Angelo, the platfor=
+m
+> maintainer believes the change should be made to the DT binding instead
+> [2]. v2 adopts Angelo's argument.
 >
-> Regards,
-> Nicolas Frattaroli
+> Patch 1 updates the efuse DT binding so that MT8186 is a base compatible
+> with no fallback, and MT8188 falls back to MT8186.
+>
+> Patch 2 updates the MT8188 DT to follow the new binding.
+>
+> If possible I would like to see both patches merged through the soc
+> tree once the DT binding maintainers give an ack. This avoids prolonged
+> waiting for the binding changes to land and uncertainty about whether
+> things have fully landed or not.
+>
+>
+> Thanks
+> ChenYu
+>
+> [1] https://lore.kernel.org/all/20241223100648.2166754-1-wenst@chromium.o=
+rg/
+> [2] https://lore.kernel.org/all/11028242-afe4-474a-9d76-cd1bd9208987@coll=
+abora.com/
+>
+> Chen-Yu Tsai (2):
+>   dt-bindings: nvmem: mediatek: efuse: split MT8186/MT8188 from base
+>     version
+>   arm64: dts: mediatek: mt8188: Change efuse fallback compatible to
+>     mt8186
+
+Friendly ping. Please take a look and see if this scheme is to your liking.
 
 
---b8323306f1bbbc5afcc52f8f8b6518b1db3b53e34623a0a8a033e4200c2d
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks
+ChenYu
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaGOlcAAKCRDXblvOeH7b
-bhLJAP97JDpJXhGMfDQaNL37OzPukLBLbOqLs8V/lgGwI5aFpAEAhggtFpJ3o9PL
-NRBJV2vUQPI7/xkFk0EFLqPv3aJFcAo=
-=mOO0
------END PGP SIGNATURE-----
-
---b8323306f1bbbc5afcc52f8f8b6518b1db3b53e34623a0a8a033e4200c2d--
+>  .../bindings/nvmem/mediatek,efuse.yaml          | 17 +++++++++++++++--
+>  arch/arm64/boot/dts/mediatek/mt8188.dtsi        |  2 +-
+>  2 files changed, 16 insertions(+), 3 deletions(-)
+>
+> --
+> 2.50.0.rc0.604.gd4ff7b7c86-goog
+>
 
