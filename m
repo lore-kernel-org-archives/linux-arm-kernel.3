@@ -4,131 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D71AFC8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 10:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25D5CC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 10:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fzinALOKJSg5BHqUrqm0HfAIrQmnYOWWzYnc9uuZeLo=; b=WMqWXLpFjKnCUp
-	zuDZRY5enu2vrMLzzT32/lhiamnKPS3Uggtba71N6sxkoid0Kn3NpOYsRSSqECOdjBwRYfYJKHnsz
-	X5HnqyMGdGRDDxDDxO57WNYgNG/YvXlCMi0kD7LrvbQEkXANPvStD/7E/V2keZZZ30SuNv+VTpoZ5
-	7iSO94OuNJyJ8yik28z8N/uGdOWHxc6QGJzZ34Ly1EqpB+EAKKkPIs6Qn6MQhy5/pqxkTN8jAJaVp
-	xtbTtErA5gowBTD6j2vzeYMti4B++zidEKVVXGnC4cMv4U/3igDgMIaDUVraozP2ZWVQWr9ySW+8i
-	+LalHDIZ5/iYLtXUzZJQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kkUC9ZGBVG8e1gDFdEwQeTPUMQH6A6cGuWA4f1t90IA=; b=RX9t2CTRlCW3h9P5xKBIaSGD8F
+	fJSp3BfIZ0mZ0MbDjZMb+oczVGLpu3RK2SmbKQte9QxtXUBrfi++GRngBkgNn8yEzBEUymCMSh7rN
+	7miwbRYPGuhWUZ1F9IsYiYNkjbeJzRAm3BUyNok8uRLMeqgaj1Uvt94y2q7gxDuNhDZIu8nV4mDdV
+	fEc8m55D81JiF3gZn4k07PoZg3+WHq6ln+iAVbKsoJ7BS8VdlZ+mRS2hY9YxIc2o7hcgiN/5mNyx5
+	iqLj9oMhJDG2ZRo/jLGOVs1PcdJyRzSDprVOFy4yh3OR0ls9ru51c5cSbdB3/Ybtejr3nvigCSk8I
+	6wKScO+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWYdV-00000004o0h-1ZCn;
-	Tue, 01 Jul 2025 10:54:49 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1uWYfn-00000004oFp-0Gh1;
+	Tue, 01 Jul 2025 10:57:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWYb9-00000004ni4-0iM2;
-	Tue, 01 Jul 2025 10:52:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1751367099; x=1751971899; i=frank-w@public-files.de;
-	bh=fzinALOKJSg5BHqUrqm0HfAIrQmnYOWWzYnc9uuZeLo=;
-	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=q6ygmPaTuDGvJa475IHhXhS1mWBLh7P5g1oIVBeGG+/bd5MGYcn0rhnD7WerUTNn
-	 +sxj0GO2hzp7TBRPTTizuisLpIwy7dSAJkAR4Ufcpj2qNdiXZxzic0ELDMRKI6zz9
-	 PT8yfkxKvKlMVbM0Tg50OL1q/b0nSifKzYhz8dUiV+yCoxv2NbnNpqdKAb2a+Reki
-	 Q7zgqccbq69ixST29bjf6fhnmqpDemcJ3XHjgxBNJER5I7Ek3jUmnml3hrxiPWtHt
-	 BOsN723eBEciXhelCoNKjLGQQ+9uoNRcVjvfTeuhCDJsoBjy3T04PoY1PNZ9r0210
-	 mQoAC3nZ1PbsNnbPpg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [IPv6:::1] ([80.187.118.70]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MZkpR-1uAqar2qiF-00YN80; Tue, 01
- Jul 2025 12:51:39 +0200
-Date: Tue, 01 Jul 2025 12:51:31 +0200
-From: Frank Wunderlich <frank-w@public-files.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Frank Wunderlich <linux@fw-web.de>
-CC: MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Johnson Wang <johnson.wang@mediatek.com>,
- =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
- Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v7 01/14] dt-bindings: net: mediatek,net: allow irq names
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20250701-wisteria-walrus-of-perfection-bdfbec@krzk-bin>
-References: <20250628165451.85884-1-linux@fw-web.de> <20250628165451.85884-2-linux@fw-web.de> <20250701-wisteria-walrus-of-perfection-bdfbec@krzk-bin>
-Message-ID: <9AF787EF-A184-4492-A6F1-50B069D780E7@public-files.de>
-MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:/x13cGSdXeC8a3AZxM86LjNC4QW9IjV/yKhknGpUw58qFVsmBUk
- ManrKwGyZL++1Rgi13uVdYel61STP231jKRojunlUxXrrplSqVsRsRTgN0qu03NSKmzdPP+
- gpXAspXnmqtd6y9LjyPcWQnM67Ya0vTSbd1yf8x+GGeBQvb4wKdZnQSto2cV3wE9BwRdIe7
- 75RVRsjc4O7gF9RO63S6w==
-UI-OutboundReport: notjunk:1;M01:P0:IwHMtIvjAYg=;YDRSDgoITeSH1NIvelvbRaSGEis
- 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
- QrcpWXy1JQV2vISFETlQ==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_035223_502131_9348F2F5 
-X-CRM114-Status: GOOD (  20.57  )
+	id 1uWYcw-00000004nwx-0d9k;
+	Tue, 01 Jul 2025 10:54:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 964F06143F;
+	Tue,  1 Jul 2025 10:54:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 437E3C4CEEB;
+	Tue,  1 Jul 2025 10:54:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751367253;
+	bh=pmrJ52f7KLRWP+Kzra4zThVHSaWjAGKLunXQ+85Io84=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pQTwJ0045Ii+RA2IgfwYQBiGhTcE5N41waq6Icbsi90XxoGctw76d4BC1V4aRszpJ
+	 Oap+MWQkrRszzrvRCdvVCIQlh82yA8mhGnn1MnT3ZJETh2TEE9MYSvKN41u6sjQmds
+	 p0dbqlFGLT6UIDdUfnV3qs+EbMzHLfJmqn7T8K5ABtSW8aLBwIuEB2QlqkfYzEDq9+
+	 MTtLsPTBacD+P0o4DrQKrqDyn8Xr3gK/yW+DKNTBTN7WXtPKxUZDBKERTNu2iaByRr
+	 01gZCj7LLx0J0cQxwM97iqi/y4upQp2wMQqcsEa4molLGg4bMDxqLKr20Ghk3lKYVS
+	 4F7dSxj7eCBgA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uWYct-00BWpQ-1P;
+	Tue, 01 Jul 2025 11:54:11 +0100
+Date: Tue, 01 Jul 2025 11:54:10 +0100
+Message-ID: <86frfgb2r1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,	Alyssa Rosenzweig
+ <alyssa@rosenzweig.io>,	Rob Herring <robh@kernel.org>,	Manivannan
+ Sadhasivam <mani@kernel.org>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,	Janne
+ Grunau <j@jannau.net>,	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-pci@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] PCI: host-generic: Fix driver_data overwriting bugs
+In-Reply-To: <20250630173415.GA1787642@bhelgaas>
+References: <86ikkdb0uj.wl-maz@kernel.org>
+	<20250630173415.GA1787642@bhelgaas>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: helgaas@kernel.org, bhelgaas@google.com, alyssa@rosenzweig.io, robh@kernel.org, mani@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, j@jannau.net, geert+renesas@glider.be, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,174 +82,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 1=2E Juli 2025 08:44:02 MESZ schrieb Krzysztof Kozlowski <krzk@kernel=2E=
-org>:
->On Sat, Jun 28, 2025 at 06:54:36PM +0200, Frank Wunderlich wrote:
->> From: Frank Wunderlich <frank-w@public-files=2Ede>
->>=20
->> In preparation for MT7988 and RSS/LRO allow the interrupt-names
->
->Why? What preparation, what is the purpose of adding the names, what do
->they solve?
+On Mon, 30 Jun 2025 18:34:15 +0100,
+Bjorn Helgaas <helgaas@kernel.org> wrote:
+> 
+> On Mon, Jun 30, 2025 at 06:23:00PM +0100, Marc Zyngier wrote:
+> > On Mon, 30 Jun 2025 18:06:01 +0100,
+> > Bjorn Helgaas <helgaas@kernel.org> wrote:
+> > > 
+> > > On Wed, Jun 25, 2025 at 12:18:03PM +0100, Marc Zyngier wrote:
+> > > > Geert reports that some drivers do rely on the device driver_data
+> > > > field containing a pointer to the bridge structure at the point of
+> > > > initialising the root port, while this has been recently changed to
+> > > > contain some other data for the benefit of the Apple PCIe driver.
+> > > > 
+> > > > This small series builds on top of Geert previously posted (and
+> > > > included as a prefix for reference) fix for the Microchip driver,
+> > > > which breaks the Apple driver. This is basically swapping a regression
+> > > > for another, which isn't a massive deal at this stage, as the
+> > > > follow-up patch fixes things for the Apple driver by adding extra
+> > > > tracking.
+> > > 
+> > > Is there a bisection hole between patches 1 and 2?
+> > > 
+> > >   1: PCI: host-generic: Set driver_data before calling gen_pci_init()
+> > >   2: PCI: apple: Add tracking of probed root ports
+> > > 
+> > > If so, would it be practical to avoid the hole by reordering those
+> > > patches?
+> > 
+> > Sure, but you said you already had queued patch #1, and what is in
+> > -rc1 already breaks Geert's box. So no matter the order, we break
+> > something at some point.
+> 
+> I did, but when I saw your problem report and subsequent updates, I
+> put Geert's patch on hold.
+> 
+> > If you want to only break one thing, then yes, swapping these two
+> > patches is the correct thing to do.
+> 
+> I swapped them and put them back on pci/for-linus for v6.16:
+> 
+>   https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/log/?h=for-linus&id=ba74278c638d
+> 
 
-Devicetree handled by the mtk_eth_soc driver have
-a wild mix of shared and non-shared irq definitions
-accessed by index (shared use index 0,
-non-shared
-using 1+2)=2E Some soc have only 3 FE irqs (like mt7622)=2E
+LGTM, thanks for picking these up!
 
-This makes it unclear which irq is used for what
-on which SoC=2E Adding names for irq cleans this a bit
-in device tree and driver=2E
+	M.
 
->> property=2E Also increase the maximum IRQ count to 8 (4 FE + 4 RSS),
->
->Why? There is no user of 8 items=2E
-
-MT7988 *with* RSS/LRO (not yet supported by driver
-yet,but i add the irqs in devicetree in this series)
-use 8 irqs,but RSS is optional and 4 irqs get working
-ethernet stack=2E
-
-I hope this explanation makes things clearer=2E=2E=2E
-
->> but set boundaries for all compatibles same as irq count=2E
->
->Your patch does not do it=2E
-
-I set Min/max-items for interrupt names below like
-interrupts count defined=2E
-
->>=20
->> Signed-off-by: Frank Wunderlich <frank-w@public-files=2Ede>
->> ---
->> v7: fixed wrong rebase
->> v6: new patch splitted from the mt7988 changes
->> ---
->>  =2E=2E=2E/devicetree/bindings/net/mediatek,net=2Eyaml | 38 +++++++++++=
-+++++++-
->>  1 file changed, 37 insertions(+), 1 deletion(-)
->>=20
->> diff --git a/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml =
-b/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
->> index 9e02fd80af83=2E=2E6672db206b38 100644
->> --- a/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
->> +++ b/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
->> @@ -40,7 +40,19 @@ properties:
->> =20
->>    interrupts:
->>      minItems: 1
->> -    maxItems: 4
->> +    maxItems: 8
->> +
->> +  interrupt-names:
->> +    minItems: 1
->> +    items:
->> +      - const: fe0
->> +      - const: fe1
->> +      - const: fe2
->> +      - const: fe3
->> +      - const: pdma0
->> +      - const: pdma1
->> +      - const: pdma2
->> +      - const: pdma3
->> =20
->>    power-domains:
->>      maxItems: 1
->> @@ -135,6 +147,10 @@ allOf:
->>            minItems: 3
->>            maxItems: 3
->> =20
->> +        interrupt-names:
->> +          minItems: 3
->> +          maxItems: 3
->> +
->>          clocks:
->>            minItems: 4
->>            maxItems: 4
->> @@ -166,6 +182,9 @@ allOf:
->>          interrupts:
->>            maxItems: 1
->> =20
->> +        interrupt-namess:
->> +          maxItems: 1
->> +
->>          clocks:
->>            minItems: 2
->>            maxItems: 2
->> @@ -192,6 +211,10 @@ allOf:
->>            minItems: 3
->>            maxItems: 3
->> =20
->> +        interrupt-names:
->> +          minItems: 3
->> +          maxItems: 3
->> +
->>          clocks:
->>            minItems: 11
->>            maxItems: 11
->> @@ -232,6 +255,10 @@ allOf:
->>            minItems: 3
->>            maxItems: 3
->> =20
->> +        interrupt-names:
->> +          minItems: 3
->> +          maxItems: 3
->> +
->>          clocks:
->>            minItems: 17
->>            maxItems: 17
->> @@ -274,6 +301,9 @@ allOf:
->>          interrupts:
->>            minItems: 4
->> =20
->> +        interrupt-names:
->> +          minItems: 4
->> +
->>          clocks:
->>            minItems: 15
->>            maxItems: 15
->> @@ -312,6 +342,9 @@ allOf:
->>          interrupts:
->>            minItems: 4
->> =20
->> +        interrupt-names:
->> +          minItems: 4
->
->8 interrupts is now valid?
->
->> +
->>          clocks:
->>            minItems: 15
->>            maxItems: 15
->> @@ -350,6 +383,9 @@ allOf:
->>          interrupts:
->>            minItems: 4
->> =20
->> +        interrupt-names:
->> +          minItems: 4
->
->So why sudenly this device gets 8 interrupts? This makes no sense,
->nothing explained in the commit msg=2E
-
-4 FrameEngine IRQs are required to be defined (currently 2 are used in dri=
-ver)=2E
-The other 4 are optional,but added in the devicetree
-to not run into problems supporting old devicetree
-when adding RSS/LRO to driver=2E
-
->I understand nothing from this patch and I already asked you to clearly
->explain why you are doing things=2E This patch on its own makes no sense=
-=2E
->
->Best regards,
->Krzysztof
->
-
-
-regards Frank
+-- 
+Without deviation from the norm, progress is not possible.
 
