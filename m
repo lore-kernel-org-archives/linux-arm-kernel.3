@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE994C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 15:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907D6C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 15:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YhxdcWDoChMeKmCKFHUBRgx8Fy37YPqEiFc2G1XZk/I=; b=T8oiZSO+aNwWs9Xl46qtxQADpW
-	Pdbm9VoglPoqkgV/WfANWJB0IW1yXZDrn6MTkWrRy+WnMlrBh5W/PpXoTZBrolUjRjJAohOE6ogG/
-	uxdGzV0uhWqidjArz6o0n1p0bPMSfIA07bTUZSJVvF1l7bR+WIE+kRxwUQ7dfnkYD9UGjXAegKcCz
-	sSDp41e+2e/nse8PMXEHsloKqV+fo3G/Wr0Z52I/TYXzmvTHnAb/DN6xHtXagxz3TqRdUqnqvBoy6
-	5jkaTLhR/txQQgP5h8TL7s/zCT3RaiNEsNU4kbqPBCvqDSrb2ESXdPVFM6dmEWhm9BJrP5RKwUu3m
-	GMYU7ueA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YlOXn2QdKGfBXkKhkm4yPrNrC5aKO1sGXt2KBKxXjcA=; b=TLYcQcT62buQzzIbGhvHd9JaTS
+	aUsCVT6aWt76elotbFkNykMd9NXqxyFTtxyd/Cp8nUn8P+Xtoa45lSooQf4sia+LAfv4cw4DFViib
+	KvN37dNVrQ0oiW9LoEZNwC23o7AVynNNH0D77TxJQlQKavPG9RkXirS8aM04gc4U2VX3Saez4/Oh9
+	ecTGplcJKmthuSmB7YX63ZsalYY0vJIvKKMH6IXb4jlqbyrlrkuMHNF8BJBdTXwK16ehFieotTlOc
+	xBw/PFOTNGiffZRFKWeRjwMYKxZ3FXdA5Yz8jqN/m4tQJMvLaDA6Y44Ckmyh8PRl6LBJsnohbjwTW
+	fsCZAkpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWcai-00000005q0O-3X5X;
-	Tue, 01 Jul 2025 15:08:13 +0000
-Received: from mta-64-226.siemens.flowmailer.net ([185.136.64.226])
+	id 1uWcd1-00000005qHL-3uMC;
+	Tue, 01 Jul 2025 15:10:35 +0000
+Received: from proxy25212.mail.163.com ([103.129.252.12] helo=proxy41132.mail.163.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWb7H-00000005Wsu-3Btc
+	id 1uWb7f-00000005Wx0-15O5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 13:33:46 +0000
-Received: by mta-64-226.siemens.flowmailer.net with ESMTPSA id 20250701133337aa9a03b7344ae2a8af
-        for <linux-arm-kernel@lists.infradead.org>;
-        Tue, 01 Jul 2025 15:33:37 +0200
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
- d=siemens.com; i=alexander.sverdlin@siemens.com;
- h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc;
- bh=YhxdcWDoChMeKmCKFHUBRgx8Fy37YPqEiFc2G1XZk/I=;
- b=NT0/xHW6kCxGPbT2r9IA2uCj2BwYytVU4zBooT76wG4djkO052AKLKBGKI6R7ptSMfv1eJ
- LxneKxMSRmfdxcs2wHR1BP4Mq9ijo/x8elVuh7E54tc2P5RicaWiB6V110bABX7oL4/33xx8
- PIujI8DMQQbMI23ckyP9MIoAU+DEaohpJKGHT1Fq9Tgnwh30kFXM52z5tdtap/794luuoOK4
- QR2vUhhP4n9ZV5GX2xAVvgBsT2BiaeA/jdjh6wGf6/ogS1Q2ezEzMNB0yzBw87T7lCql6/4I
- 4HmpD7R2/wwjtodREGMGGv0iPNc9D00KYxZnpWiRt38FsTxBfjdvYqug==;
-From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
-To: Boris Brezillon <bbrezillon@kernel.org>,
-	linux-mtd@lists.infradead.org
-Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-arm-kernel@lists.infradead.org,
+	Tue, 01 Jul 2025 13:34:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=YlOXn2QdKGfBXkKhkm4yPrNrC5aKO1sGXt2KBKxXjcA=;
+	b=oxGR1fJRqwlIx3lhqKThp4PryCDSK8yu7lv8JhvaNJNTBJRiAJ7/xkRHDjC0IG
+	IYyfPMSrYflApQ/dDtdwxBle02eLGsIHDF54Mi4VnLupRF9dvpctYaXjM2Lakcnu
+	Et/XuQVxpBWuU9/PhV+8ocAGfR8deKrTy2mbRGt/QP5co=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgD3l9qO42NoKVABAA--.3311S3;
+	Tue, 01 Jul 2025 21:33:04 +0800 (CST)
+Date: Tue, 1 Jul 2025 21:33:02 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	linux@ew.tq-group.com, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] mtd: nand: raw: atmel: Respect tAR, tCLR in read setup timing
-Date: Tue,  1 Jul 2025 15:33:28 +0200
-Message-ID: <20250701133333.3871085-1-alexander.sverdlin@siemens.com>
+Subject: Re: [PATCH 1/1] arm64: dts: freescale: imx93-tqma9352: add memory
+ node
+Message-ID: <aGPjjrT4AAwGh//b@dragon>
+References: <20250604093122.203929-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Flowmailer-Platform: Siemens
-Feedback-ID: 519:519-456497:519-21489:flowmailer
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250604093122.203929-1-alexander.stein@ew.tq-group.com>
+X-CM-TRANSID: M88vCgD3l9qO42NoKVABAA--.3311S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUOPfHUUUUU
+X-Originating-IP: [114.216.146.217]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIRAQdWhj45APxwAA3k
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_063344_409207_7441656F 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20250701_063407_550356_6B13E2E3 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,60 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+On Wed, Jun 04, 2025 at 11:31:21AM +0200, Alexander Stein wrote:
+> From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+> 
+> Although the bootloader should fixup with real memory size,
+> add memory node here with smallest assembled size for
+> readability.
+> 
+> Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-Having setup time 0 violates tAR, tCLR of some chips, for instance
-TOSHIBA TC58NVG2S3ETAI0 cannot be detected successfully (first ID byte
-being read duplicated, i.e. 98 98 dc 90 15 76 14 03 instead of
-98 dc 90 15 76 ...).
-
-Atmel Application Notes postulated 1 cycle NRD_SETUP without explanation
-[1], but it looks more appropriate to just calculate setup time properly.
-
-Without the fix we've measured -2ns tAR delay (REn asserted before ALE
-deassert!); with the fix -- 60ns (subject to module clock).
-
-[1] Link: https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ApplicationNotes/ApplicationNotes/doc6255.pdf
-Fixes: f9ce2eddf176 ("mtd: nand: atmel: Add ->setup_data_interface() hooks")
-Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
----
- drivers/mtd/nand/raw/atmel/nand-controller.c | 17 ++++++++++++++---
- 1 file changed, 14 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
-index dedcca87defc7..844df72f45063 100644
---- a/drivers/mtd/nand/raw/atmel/nand-controller.c
-+++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
-@@ -1377,14 +1377,25 @@ static int atmel_smc_nand_prepare_smcconf(struct atmel_nand *nand,
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * Read setup timing depends on the operation done on the NAND:
-+	 *
-+	 * NRD_SETUP = max(tAR, tCLR)
-+	 */
-+	timeps = max(conf->timings.sdr.tAR_min, conf->timings.sdr.tCLR_min);
-+	ncycles = DIV_ROUND_UP(timeps, mckperiodps);
-+	totalcycles += ncycles;
-+	ret = atmel_smc_cs_conf_set_setup(smcconf, ATMEL_SMC_NRD_SHIFT,
-+					  ncycles);
-+	if (ret)
-+		return ret;
-+
- 	/*
- 	 * The read cycle timing is directly matching tRC, but is also
- 	 * dependent on the setup and hold timings we calculated earlier,
- 	 * which gives:
- 	 *
--	 * NRD_CYCLE = max(tRC, NRD_PULSE + NRD_HOLD)
--	 *
--	 * NRD_SETUP is always 0.
-+	 * NRD_CYCLE = max(tRC, NRD_SETUP + NRD_PULSE + NRD_HOLD)
- 	 */
- 	ncycles = DIV_ROUND_UP(conf->timings.sdr.tRC_min, mckperiodps);
- 	ncycles = max(totalcycles, ncycles);
--- 
-2.50.0
+Applied, thanks!
 
 
