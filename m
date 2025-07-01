@@ -4,109 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C497C8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 10:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D71AFC8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 10:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ddBFBPzbnf0YkGeiYFfOnISLgT7HwdwnXCPaNqmBGeE=; b=ibpnpzbTqaq2F2vxS8Y29CRDx5
-	nPRLN1L8EcpIRvK7EgYBom76FonRuApRr/kAEz/SB/f/uMllEZHWUNVemdsazUhQrr/lectYg1lK6
-	SGyAaADSxnApN9zHYa7Y/U08PCwgUWXC1SfZj6LO7I4N6kIqdJhRvB/KX2SDSciUfDfvBX2zzQcJJ
-	dJCihX7gE3jBHmjMI8MW0NZTxb8SJwZxyA50N6FHXxlltLj7oR8334gIiK61EEWw5wnoq+XP+3GNh
-	cBSBdcHOR9+YVePR7kZFuF8bZ9OCwzYJyCDQxLbElm0ObDXa2NHuQJcfiKDzJGNgBeIvlsQxgeCcn
-	yEP7dHrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fzinALOKJSg5BHqUrqm0HfAIrQmnYOWWzYnc9uuZeLo=; b=WMqWXLpFjKnCUp
+	zuDZRY5enu2vrMLzzT32/lhiamnKPS3Uggtba71N6sxkoid0Kn3NpOYsRSSqECOdjBwRYfYJKHnsz
+	X5HnqyMGdGRDDxDDxO57WNYgNG/YvXlCMi0kD7LrvbQEkXANPvStD/7E/V2keZZZ30SuNv+VTpoZ5
+	7iSO94OuNJyJ8yik28z8N/uGdOWHxc6QGJzZ34Ly1EqpB+EAKKkPIs6Qn6MQhy5/pqxkTN8jAJaVp
+	xtbTtErA5gowBTD6j2vzeYMti4B++zidEKVVXGnC4cMv4U/3igDgMIaDUVraozP2ZWVQWr9ySW+8i
+	+LalHDIZ5/iYLtXUzZJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWYad-00000004nXp-0abz;
-	Tue, 01 Jul 2025 10:51:51 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uWYdV-00000004o0h-1ZCn;
+	Tue, 01 Jul 2025 10:54:49 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWYYH-00000004n6n-3c7w
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 10:49:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751366963;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ddBFBPzbnf0YkGeiYFfOnISLgT7HwdwnXCPaNqmBGeE=;
-	b=ZbyP7B67kIg2VxWy8A8jm1/ruLc3gUFy2r5huj/157foWRHmxJYaGNxmDIQY2/zPedqtV7
-	0wmSjEI1STS/uIPyBgLN1lcxxpFqkOGPgr59RsPqy0Cs5z9IAxwGT937DWbgooNjQYOCGW
-	lYAglPDkzL0zIYz+0P7me1iaeeSBqog=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-663-TAi4ibNnM96vh6vUV-Luxg-1; Tue, 01 Jul 2025 06:49:22 -0400
-X-MC-Unique: TAi4ibNnM96vh6vUV-Luxg-1
-X-Mimecast-MFC-AGG-ID: TAi4ibNnM96vh6vUV-Luxg_1751366962
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7d444d21b24so606531285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 03:49:22 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751366962; x=1751971762;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ddBFBPzbnf0YkGeiYFfOnISLgT7HwdwnXCPaNqmBGeE=;
-        b=FZRm1NPClXQ26u6Txj1dZ8NHs0ZElXVBCVJwrJiTOCDGLZpUoegnzBvKzCzVQBkVml
-         LpF2yTqKhUELMbBLmUuByQStmN57ZWtoTQjdCkWvxjlGmBf8+QuBGuJ9bo+ElJcKgPCR
-         vAnQI2eXQ3OA3+tQ/eOu84w+zLK6/R/Lz08fsy78oFSNUj6nAl05KvsTaS5BsfNK2mJ3
-         HSGOBOM1CgiNoWsiow3jfISHUDp5FNfWraMKYGOB5T6zIRSk5Dq6OeOupOY4yRgBAtN7
-         Fs0/ofrL6J6B1i+lDs6WQBbnLYNk8FBHimZ8WG2oPeK0ozfoRV/AylXz97BKJsgnfk4l
-         hqbw==
-X-Forwarded-Encrypted: i=1; AJvYcCXDcLoT3clR4C3v9E6r53PYZQ6DO1McJ62U/Z0AAiytgHGNNejqVk4J+LIPjj9ZkoUus4Vdjc71XtH5HXe14L92@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKlo26uUo+FFPJGUfjP6iI+oO3WWIhmd6B2bmpvHM6mrVRnT9E
-	vHRfzhUqMzqvp0+yRQOn425p3dFD2lAqtm8pgiocJYYfqi6MDV1iCVYSy2PD86bA4zPhO/hRlyY
-	SFmQZI9i/9x7hgeFm460IxyS+hOoNVxuogBNGg1BG1TpRJSDAa1njO8SDTwZr58iim0t7eZIl3q
-	nl
-X-Gm-Gg: ASbGncuB99vQ2q49wdrR4xTZy2E/yulqi47vLMMCFlr9zCpbuZHxlv4upMNFQ/sSxW2
-	pSs40WACwZoWhfLlJO87UBBo7I9B5ygpIc7zoFurqwykLnQxpEZb54dv2Lfl+UX2erfcAsmvX7s
-	79yy3+YCI3MK5l4QkKj+/okf/IKlGowEGGAGRoiwDF6oA5iuTrwzNbE52rjbzdIolKE2wZvdVKU
-	2KFeNC1xke7jX8f7Y8Rz/QEzZfTM56pUlQ+BdnSjVxLCSzcqpdbVKWN1V9J5tzBUEJTEf+DGPr+
-	vifWXzzDzrnNgqKNimFWSgEZWJlbxvQ6Bdj0IT4+pT42jZy9envbbDROUNIuWDvIY0btj//TAER
-	NUfmxhA==
-X-Received: by 2002:a05:620a:3946:b0:7d3:a66d:4f3c with SMTP id af79cd13be357-7d443920b10mr2626489485a.7.1751366962086;
-        Tue, 01 Jul 2025 03:49:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFnx1+CJslWQPujj9MUyy/pZg3IhJl9cLZ/bmEw7NJQYC0MyetSF73gR/8qFtva/Zgbza2a/g==
-X-Received: by 2002:a05:620a:3946:b0:7d3:a66d:4f3c with SMTP id af79cd13be357-7d443920b10mr2626484485a.7.1751366961461;
-        Tue, 01 Jul 2025 03:49:21 -0700 (PDT)
-Received: from jlelli-thinkpadt14gen4.remote.csb (host-2-102-80-182.as13285.net. [2.102.80.182])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d443167d48sm748686385a.32.2025.07.01.03.49.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 03:49:20 -0700 (PDT)
-Date: Tue, 1 Jul 2025 11:49:15 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: John Stultz <jstultz@google.com>
-Cc: Kuyo Chang <kuyo.chang@mediatek.com>, Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH V4 1/1] sched/deadline: Fix dl_server runtime calculation
- formula
-Message-ID: <aGO9KyiJNAm7DLb0@jlelli-thinkpadt14gen4.remote.csb>
-References: <20250627022837.3331827-1-kuyo.chang@mediatek.com>
- <CANDhNCorm58L9CqHyNORgfk=++HkCttmyCkM23Pn8rXV7cF41Q@mail.gmail.com>
+	id 1uWYb9-00000004ni4-0iM2;
+	Tue, 01 Jul 2025 10:52:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1751367099; x=1751971899; i=frank-w@public-files.de;
+	bh=fzinALOKJSg5BHqUrqm0HfAIrQmnYOWWzYnc9uuZeLo=;
+	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=q6ygmPaTuDGvJa475IHhXhS1mWBLh7P5g1oIVBeGG+/bd5MGYcn0rhnD7WerUTNn
+	 +sxj0GO2hzp7TBRPTTizuisLpIwy7dSAJkAR4Ufcpj2qNdiXZxzic0ELDMRKI6zz9
+	 PT8yfkxKvKlMVbM0Tg50OL1q/b0nSifKzYhz8dUiV+yCoxv2NbnNpqdKAb2a+Reki
+	 Q7zgqccbq69ixST29bjf6fhnmqpDemcJ3XHjgxBNJER5I7Ek3jUmnml3hrxiPWtHt
+	 BOsN723eBEciXhelCoNKjLGQQ+9uoNRcVjvfTeuhCDJsoBjy3T04PoY1PNZ9r0210
+	 mQoAC3nZ1PbsNnbPpg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [IPv6:::1] ([80.187.118.70]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MZkpR-1uAqar2qiF-00YN80; Tue, 01
+ Jul 2025 12:51:39 +0200
+Date: Tue, 01 Jul 2025 12:51:31 +0200
+From: Frank Wunderlich <frank-w@public-files.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Frank Wunderlich <linux@fw-web.de>
+CC: MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Johnson Wang <johnson.wang@mediatek.com>,
+ =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+ Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v7 01/14] dt-bindings: net: mediatek,net: allow irq names
+User-Agent: K-9 Mail for Android
+In-Reply-To: <20250701-wisteria-walrus-of-perfection-bdfbec@krzk-bin>
+References: <20250628165451.85884-1-linux@fw-web.de> <20250628165451.85884-2-linux@fw-web.de> <20250701-wisteria-walrus-of-perfection-bdfbec@krzk-bin>
+Message-ID: <9AF787EF-A184-4492-A6F1-50B069D780E7@public-files.de>
 MIME-Version: 1.0
-In-Reply-To: <CANDhNCorm58L9CqHyNORgfk=++HkCttmyCkM23Pn8rXV7cF41Q@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: VVqiurrKBt3Q7olfZnMRNxj2fMUcMM2Xc2xP0XVO0_0_1751366962
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:/x13cGSdXeC8a3AZxM86LjNC4QW9IjV/yKhknGpUw58qFVsmBUk
+ ManrKwGyZL++1Rgi13uVdYel61STP231jKRojunlUxXrrplSqVsRsRTgN0qu03NSKmzdPP+
+ gpXAspXnmqtd6y9LjyPcWQnM67Ya0vTSbd1yf8x+GGeBQvb4wKdZnQSto2cV3wE9BwRdIe7
+ 75RVRsjc4O7gF9RO63S6w==
+UI-OutboundReport: notjunk:1;M01:P0:IwHMtIvjAYg=;YDRSDgoITeSH1NIvelvbRaSGEis
+ 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
+ QrcpWXy1JQV2vISFETlQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_034925_966201_0C2881A1 
-X-CRM114-Status: GOOD (  45.33  )
+X-CRM114-CacheID: sfid-20250701_035223_502131_9348F2F5 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,93 +140,174 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/06/25 19:48, John Stultz wrote:
-> On Thu, Jun 26, 2025 at 7:28 PM Kuyo Chang <kuyo.chang@mediatek.com> wrote:
-> > In our testing with 6.12 based kernel on a big.LITTLE system, we were
-> > seeing instances of RT tasks being blocked from running on the LITTLE
-> > cpus for multiple seconds of time, apparently by the dl_server. This
-> > far exceeds the default configured 50ms per second runtime.
-> >
-> > This is due to the fair dl_server runtime calculation being scaled
-> > for frequency & capacity of the cpu.
-> >
-> > Consider the following case under a Big.LITTLE architecture:
-> > Assume the runtime is: 50,000,000 ns, and Frequency/capacity
-> > scale-invariance defined as below:
-> > Frequency scale-invariance: 100
-> > Capacity scale-invariance: 50
-> > First by Frequency scale-invariance,
-> > the runtime is scaled to 50,000,000 * 100 >> 10 = 4,882,812
-> > Then by capacity scale-invariance,
-> > it is further scaled to 4,882,812 * 50 >> 10 = 238,418.
-> > So it will scaled to 238,418 ns.
-> >
-> > This smaller "accounted runtime" value is what ends up being
-> > subtracted against the fair-server's runtime for the current period.
-> > Thus after 50ms of real time, we've only accounted ~238us against the
-> > fair servers runtime. This 209:1 ratio in this example means that on
-> > the smaller cpu the fair server is allowed to continue running,
-> > blocking RT tasks, for over 10 seconds before it exhausts its supposed
-> > 50ms of runtime.  And on other hardware configurations it can be even
-> > worse.
-> >
-> > For the fair deadline_server, to prevent realtime tasks from being
-> > unexpectedly delayed, we really do want to use fixed time, and not
-> > scaled time for smaller capacity/frequency cpus. So remove the scaling
-> > from the fair server's accounting to fix this.
-> >
-> 
-> Thanks again for revising the commit message, this version is easier
-> (for me at least) to follow.
-> 
-> 
-> > diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> > index ad45a8fea245..96a21f38fcc3 100644
-> > --- a/kernel/sched/deadline.c
-> > +++ b/kernel/sched/deadline.c
-> > @@ -1624,7 +1626,9 @@ void dl_server_update_idle_time(struct rq *rq, struct task_struct *p)
-> >         if (delta_exec < 0)
-> >                 return;
-> >
-> > -       scaled_delta_exec = dl_scaled_delta_exec(rq, &rq->fair_server, delta_exec);
-> > +       scaled_delta_exec = delta_exec;
-> > +       if (!rq->fair_server.dl_server)
-> > +               scaled_delta_exec = dl_scaled_delta_exec(rq, &rq->fair_server, delta_exec);
-> >
-> >         rq->fair_server.runtime -= scaled_delta_exec;
-> 
-> As I mentioned earlier, I still don't see this conditional as making a
-> lot of sense, as I don't believe there is time when this function
-> would be called and (!rq->fair_server.dl_server) would be true.
-> And even if there were, I'm not sure it makes sense to scale the time
-> interval based on the fair_server.dl_server flag.
-> 
-> From a separate discussion, you highlighted that it might be useful
-> once we have multiple dl_server types, which may want scaled
-> accounting, but I think in that case we should use an explicit flag
-> instead of the dl_server bit to denote if the accounting should be
-> scaled or not.
-> 
-> So, since your patch is a fix for a pretty bad bug, I think it should
-> be focused on fixing the issue in the simplest and clearest way for
-> the existing code, and not be too worried about integrating with
-> future changes that haven't landed.
-> 
-> Then, as those future changes land, we can see how best to generalize
-> the decision to scale or not scale the accounting on a dl_server.
-> 
-> That said, the conditional is a bit of a moot point, since I don't
-> think we'll actually hit it, and I'm motivated to get the bug you are
-> fixing resolved, so I wouldn't object if this went in as-is, but it
-> seems like it would be much cleaner to just drop that conditional as
-> you did in the original version of this patch.
+Am 1=2E Juli 2025 08:44:02 MESZ schrieb Krzysztof Kozlowski <krzk@kernel=2E=
+org>:
+>On Sat, Jun 28, 2025 at 06:54:36PM +0200, Frank Wunderlich wrote:
+>> From: Frank Wunderlich <frank-w@public-files=2Ede>
+>>=20
+>> In preparation for MT7988 and RSS/LRO allow the interrupt-names
+>
+>Why? What preparation, what is the purpose of adding the names, what do
+>they solve?
 
-I agree. It would be better to drop the conditional.
+Devicetree handled by the mtk_eth_soc driver have
+a wild mix of shared and non-shared irq definitions
+accessed by index (shared use index 0,
+non-shared
+using 1+2)=2E Some soc have only 3 FE irqs (like mt7622)=2E
 
-Thanks!
-Juri
+This makes it unclear which irq is used for what
+on which SoC=2E Adding names for irq cleans this a bit
+in device tree and driver=2E
 
+>> property=2E Also increase the maximum IRQ count to 8 (4 FE + 4 RSS),
+>
+>Why? There is no user of 8 items=2E
+
+MT7988 *with* RSS/LRO (not yet supported by driver
+yet,but i add the irqs in devicetree in this series)
+use 8 irqs,but RSS is optional and 4 irqs get working
+ethernet stack=2E
+
+I hope this explanation makes things clearer=2E=2E=2E
+
+>> but set boundaries for all compatibles same as irq count=2E
+>
+>Your patch does not do it=2E
+
+I set Min/max-items for interrupt names below like
+interrupts count defined=2E
+
+>>=20
+>> Signed-off-by: Frank Wunderlich <frank-w@public-files=2Ede>
+>> ---
+>> v7: fixed wrong rebase
+>> v6: new patch splitted from the mt7988 changes
+>> ---
+>>  =2E=2E=2E/devicetree/bindings/net/mediatek,net=2Eyaml | 38 +++++++++++=
++++++++-
+>>  1 file changed, 37 insertions(+), 1 deletion(-)
+>>=20
+>> diff --git a/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml =
+b/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
+>> index 9e02fd80af83=2E=2E6672db206b38 100644
+>> --- a/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
+>> +++ b/Documentation/devicetree/bindings/net/mediatek,net=2Eyaml
+>> @@ -40,7 +40,19 @@ properties:
+>> =20
+>>    interrupts:
+>>      minItems: 1
+>> -    maxItems: 4
+>> +    maxItems: 8
+>> +
+>> +  interrupt-names:
+>> +    minItems: 1
+>> +    items:
+>> +      - const: fe0
+>> +      - const: fe1
+>> +      - const: fe2
+>> +      - const: fe3
+>> +      - const: pdma0
+>> +      - const: pdma1
+>> +      - const: pdma2
+>> +      - const: pdma3
+>> =20
+>>    power-domains:
+>>      maxItems: 1
+>> @@ -135,6 +147,10 @@ allOf:
+>>            minItems: 3
+>>            maxItems: 3
+>> =20
+>> +        interrupt-names:
+>> +          minItems: 3
+>> +          maxItems: 3
+>> +
+>>          clocks:
+>>            minItems: 4
+>>            maxItems: 4
+>> @@ -166,6 +182,9 @@ allOf:
+>>          interrupts:
+>>            maxItems: 1
+>> =20
+>> +        interrupt-namess:
+>> +          maxItems: 1
+>> +
+>>          clocks:
+>>            minItems: 2
+>>            maxItems: 2
+>> @@ -192,6 +211,10 @@ allOf:
+>>            minItems: 3
+>>            maxItems: 3
+>> =20
+>> +        interrupt-names:
+>> +          minItems: 3
+>> +          maxItems: 3
+>> +
+>>          clocks:
+>>            minItems: 11
+>>            maxItems: 11
+>> @@ -232,6 +255,10 @@ allOf:
+>>            minItems: 3
+>>            maxItems: 3
+>> =20
+>> +        interrupt-names:
+>> +          minItems: 3
+>> +          maxItems: 3
+>> +
+>>          clocks:
+>>            minItems: 17
+>>            maxItems: 17
+>> @@ -274,6 +301,9 @@ allOf:
+>>          interrupts:
+>>            minItems: 4
+>> =20
+>> +        interrupt-names:
+>> +          minItems: 4
+>> +
+>>          clocks:
+>>            minItems: 15
+>>            maxItems: 15
+>> @@ -312,6 +342,9 @@ allOf:
+>>          interrupts:
+>>            minItems: 4
+>> =20
+>> +        interrupt-names:
+>> +          minItems: 4
+>
+>8 interrupts is now valid?
+>
+>> +
+>>          clocks:
+>>            minItems: 15
+>>            maxItems: 15
+>> @@ -350,6 +383,9 @@ allOf:
+>>          interrupts:
+>>            minItems: 4
+>> =20
+>> +        interrupt-names:
+>> +          minItems: 4
+>
+>So why sudenly this device gets 8 interrupts? This makes no sense,
+>nothing explained in the commit msg=2E
+
+4 FrameEngine IRQs are required to be defined (currently 2 are used in dri=
+ver)=2E
+The other 4 are optional,but added in the devicetree
+to not run into problems supporting old devicetree
+when adding RSS/LRO to driver=2E
+
+>I understand nothing from this patch and I already asked you to clearly
+>explain why you are doing things=2E This patch on its own makes no sense=
+=2E
+>
+>Best regards,
+>Krzysztof
+>
+
+
+regards Frank
 
