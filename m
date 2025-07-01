@@ -4,59 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E3CC83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 16:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3FFCC83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 16:17:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KXqq31iFbM+LPuFZZjOP++M++mWb6fq3c9ooPFXJg3c=; b=z91WOFosnosF9fXfv7EqZxB7kt
-	Rn9twnzeGJUgkQRvxu1WZDBsFRrLEtUjzlLhfrPoUiB11N0ILDhQInNpEszssHkAjKxncdf/OlD6P
-	cpY2c0T/J5Wq2J/7vWiFJSjk81YiNcDN3IZK1DMj1oaZNnf80amKhRrjIPpmvZkOw2Wp5TiuRwVLs
-	kKUTQwukBH3xVfw21P7bGx8GHUaEikzAXIOChbnQrawnI8oAVgbZgvlF9iEm6RiWQxcH6ilCaIkjU
-	AbTzCZfcwZTHB6fsv609sERJSnbl+Sau1P+V6x+zqdYAhkkq8bBv7C1SY9z2q4V5EnJrrmDCtLU+Q
-	CCIAJfig==;
+	bh=gu34+zFoKzPnsBxzOP3xmQaAhLNWOJnKnJ7RCQeFDyE=; b=Xy6qkkWdOY6cR56k8XrK7eBezZ
+	g+K5jGxavnDVLYnA8nwwUDVD9Y5QkrRJ7MUSh83UrEWRZiy8L8lEmZF61qZEXpP9bajbXYpPofBuX
+	jqMGMHLLZu6/wXmsm2zcVFWkCRwTtYPNPEcWIm7lil6QRFYuwwfHAEqyZrN0nKnUzB7a9gX0ngbVI
+	cAezJS7jQtrmRUtn7k6RepNjkGHK16wlpJ4Vd5AoJU/4NtWsl9sYeUyzOWa+P28PE4r+7tTKO8IiB
+	PPGimeIGyWnRDi9Fx9M5vgGnMro8hSdjnqQy8TWFLOTkZkLCtBxvQDDqOAvPAtuwUNqfb1bPC8NBc
+	U3EfZ7GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWddG-00000005zuE-3o5H;
-	Tue, 01 Jul 2025 16:14:54 +0000
+	id 1uWdfZ-000000060Kt-33kW;
+	Tue, 01 Jul 2025 16:17:17 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWbyS-00000005hrp-2bXr
+	id 1uWbyd-00000005hu4-0gwf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 14:28:40 +0000
+	Tue, 01 Jul 2025 14:28:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E8F66143F;
-	Tue,  1 Jul 2025 14:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D993C4CEEB;
-	Tue,  1 Jul 2025 14:28:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 98EAD61443;
+	Tue,  1 Jul 2025 14:28:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43D76C4CEED;
+	Tue,  1 Jul 2025 14:28:49 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: live-patching@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+To: Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Song Liu <song@kernel.org>
-Cc: Will Deacon <will@kernel.org>,
-	jpoimboe@kernel.org,
-	jikos@kernel.org,
-	mbenes@suse.cz,
-	pmladek@suse.com,
-	joe.lawrence@redhat.com,
-	dylanbhatch@google.com,
-	fj6611ie@aa.jp.fujitsu.com,
-	mark.rutland@arm.com,
-	kernel-team@meta.com,
-	Suraj Jitindar Singh <surajjs@amazon.com>,
-	Torsten Duwe <duwe@suse.de>,
-	Breno Leitao <leitao@debian.org>,
-	Andrea della Porta <andrea.porta@suse.com>
-Subject: Re: [PATCH v5] arm64: Implement HAVE_LIVEPATCH
-Date: Tue,  1 Jul 2025 15:28:34 +0100
-Message-Id: <175138010917.1964100.18246912177187578815.b4-ty@arm.com>
+	Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: pi: use 'targets' instead of extra-y in Makefile
+Date: Tue,  1 Jul 2025 15:28:47 +0100
+Message-Id: <175138012160.1964245.3629792221898551115.b4-ty@arm.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250630174502.842486-1-song@kernel.org>
-References: <20250630174502.842486-1-song@kernel.org>
+In-Reply-To: <20250602180937.528459-1-masahiroy@kernel.org>
+References: <20250602180937.528459-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -74,20 +60,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 30 Jun 2025 10:45:02 -0700, Song Liu wrote:
-> Allocate a task flag used to represent the patch pending state for the
-> task. When a livepatch is being loaded or unloaded, the livepatch code
-> uses this flag to select the proper version of a being patched kernel
-> functions to use for current task.
+On Tue, 03 Jun 2025 03:09:35 +0900, Masahiro Yamada wrote:
+> %.pi.o files are built as prerequisites of other objects.
+> There is no need to use extra-y, which is planned for deprecation.
 > 
-> In arch/arm64/Kconfig, select HAVE_LIVEPATCH and include proper Kconfig.
 > 
-> [...]
 
-Applied to arm64 (for-next/livepatch), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/1] arm64: Implement HAVE_LIVEPATCH
-      https://git.kernel.org/arm64/c/fd1e0fd71f65
+[1/1] arm64: pi: use 'targets' instead of extra-y in Makefile
+      https://git.kernel.org/arm64/c/6853acd39998
 
 -- 
 Catalin
