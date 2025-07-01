@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0184C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:55:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A78C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=afzcllH+pqvdMllZSo6THTTMbeeXggeYpFWd5CTB45o=; b=yXeeCQh7lP/Awrk/8EUnZbxJ8L
-	YNipI4CQxEIAnMDJhaA6zK0vSvDf3HoVa9QLICmp70B0Bm/JM1U/qlXoKvuHDZkbL/UgGnWPQ+WhS
-	2l1snDNUh71m6FJasa2TxVXD5Zd9rXQiXGn3coNJ8Q0nNWYEV8rpb1gTwxDxWviW6qg2j9DkfrGl3
-	7mVpqk7ijlweGS6caML+s7MoOQsu0ZIBdCczmNs9EYjS6f3dBzdlAAfRVpa5YZBl2NEt12cWBMdj4
-	d3uAHLnbDoMw5y+4+k8tS5gYGByHLYAsVzGpZuPNmGcjaKAItj+4Pz6+jWfz5Lc0qoul4aGCbaPax
-	ekkT0dLQ==;
+	bh=Qed7HwMXUWfHT+Fe+qM6qntK8b0t6/eF2UleqmXTAeA=; b=SeeJBTE54R62KqOUtQkP0wuHms
+	9luEbX2J3XbU4VZMMxaek1+4PzUmJjfmYzdE1Kni+Bei6K+8wHjfp0T5PDEO0TUGS8nSq3bZUm3jH
+	3NlkJRWWduBvpPsVf0v9Vj5ji/R6N3Cnw2He+BC5VDL9jO3pbyYCdgTVdWEALT/dYd79SFE1hTfEF
+	qqZzSkCOxzF/+dletMptt7AalG9/zuPaCE7Gzpw/oXMMVjyG/tO1gRfQeyd1JTcc7p/NS73ZYeDip
+	ZUYDAZ3Ww+UtKt1ejOSFKUZ5342JPRw3fCdTQOrwDi33mdVjdHeV0WT4eUc8EkIwsPwMGlzLGtscZ
+	uMHF9QYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVpk-00000004LAn-3qkP;
-	Tue, 01 Jul 2025 07:55:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVab-00000004I3K-0yhZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 07:39:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C220C1595;
-	Tue,  1 Jul 2025 00:39:20 -0700 (PDT)
-Received: from [10.57.84.129] (unknown [10.57.84.129])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C8EE13F6A8;
-	Tue,  1 Jul 2025 00:39:31 -0700 (PDT)
-Message-ID: <9ec857c0-4da8-4f24-810d-7fe538d5cdd4@arm.com>
-Date: Tue, 1 Jul 2025 08:39:29 +0100
+	id 1uWVs3-00000004LUy-15SF;
+	Tue, 01 Jul 2025 07:57:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWVdz-00000004INH-1jXk;
+	Tue, 01 Jul 2025 07:43:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9FA496114D;
+	Tue,  1 Jul 2025 07:43:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E805C4CEEB;
+	Tue,  1 Jul 2025 07:43:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751355786;
+	bh=krITJM0978IRsY752Yojw78vCX5/sdxxG3qP5TVzy9Y=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=t8kzdJvVaW+RVkrfsOqoFvovi3S0LHUUSHi478rxkKO6yyXkKC0cU/ZpGAjsMT4qn
+	 1JkXekfymC9MGmxV94LQ3vVsgdkNMzGtbkzV4RA6kbpQlSbs6BSRRlTDlyoIGzI43J
+	 rsB5Jm/QFVoS3fB7JKVod82EgqT837jAC7aUQUq1nL/+AH1Xd4MqdZYS3uygK/RZV6
+	 N8LuSTnys4A10aRFgkIpfYfOoCv0f5aB/rMATYEsF9+Iblccn5ycEzQoQJDkBViMu6
+	 ilZq8DioXEDURnmgVyxW0HPPXHRJ+hNs4XnU9JpH0LcwdwDoez94rgGMeWQI44NdEA
+	 VU47dKBUk5MZQ==
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: linux-rockchip@lists.infradead.org, 
+ Geraldo Nascimento <geraldogabriel@gmail.com>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Rick wertenbroek <rick.wertenbroek@gmail.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Valmantas Paliksa <walmis@gmail.com>, linux-phy@lists.infradead.org, 
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>
+In-Reply-To: <cover.1751322015.git.geraldogabriel@gmail.com>
+References: <cover.1751322015.git.geraldogabriel@gmail.com>
+Subject: Re: (subset) [RESEND PATCH v9 0/4] PCI: rockchip: Improve driver
+ quality
+Message-Id: <175135578094.10306.3959145621535083465.b4-ty@kernel.org>
+Date: Tue, 01 Jul 2025 13:13:00 +0530
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] mm: Optimize mprotect() by PTE-batching
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: david@redhat.com, willy@infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
- Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
- jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
- joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250628113435.46678-1-dev.jain@arm.com>
- <20250628113435.46678-4-dev.jain@arm.com>
- <41386e41-c1c4-4898-8958-2f4daa92dc7c@arm.com>
- <7b39def0-f7cb-4748-9c20-3655ae30a836@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <7b39def0-f7cb-4748-9c20-3655ae30a836@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_003937_646798_D88FC36D 
-X-CRM114-Status: GOOD (  35.08  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,278 +78,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2025 06:47, Dev Jain wrote:
-> 
-> On 30/06/25 4:01 pm, Ryan Roberts wrote:
->> On 28/06/2025 12:34, Dev Jain wrote:
->>> Use folio_pte_batch to batch process a large folio. Reuse the folio from
->>> prot_numa case if possible.
->>>
->>> For all cases other than the PageAnonExclusive case, if the case holds true
->>> for one pte in the batch, one can confirm that that case will hold true for
->>> other ptes in the batch too; for pte_needs_soft_dirty_wp(), we do not pass
->>> FPB_IGNORE_SOFT_DIRTY. modify_prot_start_ptes() collects the dirty
->>> and access bits across the batch, therefore batching across
->>> pte_dirty(): this is correct since the dirty bit on the PTE really is
->>> just an indication that the folio got written to, so even if the PTE is
->>> not actually dirty (but one of the PTEs in the batch is), the wp-fault
->>> optimization can be made.
->>>
->>> The crux now is how to batch around the PageAnonExclusive case; we must
->>> check the corresponding condition for every single page. Therefore, from
->>> the large folio batch, we process sub batches of ptes mapping pages with
->>> the same PageAnonExclusive condition, and process that sub batch, then
->>> determine and process the next sub batch, and so on. Note that this does
->>> not cause any extra overhead; if suppose the size of the folio batch
->>> is 512, then the sub batch processing in total will take 512 iterations,
->>> which is the same as what we would have done before.
->>>
->>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>> ---
->>>   mm/mprotect.c | 143 +++++++++++++++++++++++++++++++++++++++++---------
->>>   1 file changed, 117 insertions(+), 26 deletions(-)
->>>
->>> diff --git a/mm/mprotect.c b/mm/mprotect.c
->>> index 627b0d67cc4a..28c7ce7728ff 100644
->>> --- a/mm/mprotect.c
->>> +++ b/mm/mprotect.c
->>> @@ -40,35 +40,47 @@
->>>     #include "internal.h"
->>>   -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
->>> -                 pte_t pte)
->>> -{
->>> -    struct page *page;
->>> +enum tristate {
->>> +    TRI_FALSE = 0,
->>> +    TRI_TRUE = 1,
->>> +    TRI_MAYBE = -1,
->>> +};
->>>   +/*
->>> + * Returns enum tristate indicating whether the pte can be changed to writable.
->>> + * If TRI_MAYBE is returned, then the folio is anonymous and the user must
->>> + * additionally check PageAnonExclusive() for every page in the desired range.
->>> + */
->>> +static int maybe_change_pte_writable(struct vm_area_struct *vma,
->>> +                     unsigned long addr, pte_t pte,
->>> +                     struct folio *folio)
->>> +{
->>>       if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
->>> -        return false;
->>> +        return TRI_FALSE;
->>>         /* Don't touch entries that are not even readable. */
->>>       if (pte_protnone(pte))
->>> -        return false;
->>> +        return TRI_FALSE;
->>>         /* Do we need write faults for softdirty tracking? */
->>>       if (pte_needs_soft_dirty_wp(vma, pte))
->>> -        return false;
->>> +        return TRI_FALSE;
->>>         /* Do we need write faults for uffd-wp tracking? */
->>>       if (userfaultfd_pte_wp(vma, pte))
->>> -        return false;
->>> +        return TRI_FALSE;
->>>         if (!(vma->vm_flags & VM_SHARED)) {
->>>           /*
->>>            * Writable MAP_PRIVATE mapping: We can only special-case on
->>>            * exclusive anonymous pages, because we know that our
->>>            * write-fault handler similarly would map them writable without
->>> -         * any additional checks while holding the PT lock.
->>> +         * any additional checks while holding the PT lock. So if the
->>> +         * folio is not anonymous, we know we cannot change pte to
->>> +         * writable. If it is anonymous then the caller must further
->>> +         * check that the page is AnonExclusive().
->>>            */
->>> -        page = vm_normal_page(vma, addr, pte);
->>> -        return page && PageAnon(page) && PageAnonExclusive(page);
->>> +        return (!folio || folio_test_anon(folio)) ? TRI_MAYBE : TRI_FALSE;
->>>       }
->>>         VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
->>> @@ -80,15 +92,61 @@ bool can_change_pte_writable(struct vm_area_struct *vma,
->>> unsigned long addr,
->>>        * FS was already notified and we can simply mark the PTE writable
->>>        * just like the write-fault handler would do.
->>>        */
->>> -    return pte_dirty(pte);
->>> +    return pte_dirty(pte) ? TRI_TRUE : TRI_FALSE;
->>> +}
->>> +
->>> +/*
->>> + * Returns the number of pages within the folio, starting from the page
->>> + * indicated by pgidx and up to pgidx + max_nr, that have the same value of
->>> + * PageAnonExclusive(). Must only be called for anonymous folios. Value of
->>> + * PageAnonExclusive() is returned in *exclusive.
->>> + */
->>> +static int anon_exclusive_batch(struct folio *folio, int pgidx, int max_nr,
->>> +                bool *exclusive)
->>> +{
->>> +    struct page *page;
->>> +    int nr = 1;
->>> +
->>> +    if (!folio) {
->>> +        *exclusive = false;
->>> +        return nr;
->>> +    }
->>> +
->>> +    page = folio_page(folio, pgidx++);
->>> +    *exclusive = PageAnonExclusive(page);
->>> +    while (nr < max_nr) {
->>> +        page = folio_page(folio, pgidx++);
->>> +        if ((*exclusive) != PageAnonExclusive(page))
->> nit: brackets not required around *exclusive.
->>
->>> +            break;
->>> +        nr++;
->>> +    }
->>> +
->>> +    return nr;
->>> +}
->>> +
->>> +bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
->>> +                 pte_t pte)
->>> +{
->>> +    struct page *page;
->>> +    int ret;
->>> +
->>> +    ret = maybe_change_pte_writable(vma, addr, pte, NULL);
->>> +    if (ret == TRI_MAYBE) {
->>> +        page = vm_normal_page(vma, addr, pte);
->>> +        ret = page && PageAnon(page) && PageAnonExclusive(page);
->>> +    }
->>> +
->>> +    return ret;
->>>   }
->>>     static int mprotect_folio_pte_batch(struct folio *folio, unsigned long addr,
->>> -        pte_t *ptep, pte_t pte, int max_nr_ptes)
->>> +        pte_t *ptep, pte_t pte, int max_nr_ptes, fpb_t switch_off_flags)
->>>   {
->>> -    const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
->>> +    fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
->>> +
->>> +    flags &= ~switch_off_flags;
->> This is mega confusing when reading the caller. Because the caller passes
->> FPB_IGNORE_SOFT_DIRTY and that actually means DON'T ignore soft dirty.
->>
->> Can't we just pass in the flags we want?
->>
->>>   -    if (!folio || !folio_test_large(folio) || (max_nr_ptes == 1))
->>> +    if (!folio || !folio_test_large(folio))
->> What's the rational for dropping the max_nr_ptes == 1 condition? If you don't
->> need it, why did you add it in the earler patch?
->>
->>>           return 1;
->>>         return folio_pte_batch(folio, addr, ptep, pte, max_nr_ptes, flags,
->>> @@ -154,7 +212,8 @@ static int prot_numa_skip_ptes(struct folio **foliop,
->>> struct vm_area_struct *vma
->>>       }
->>>     skip_batch:
->>> -    nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte, max_nr_ptes);
->>> +    nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte,
->>> +                       max_nr_ptes, 0);
->>>   out:
->>>       *foliop = folio;
->>>       return nr_ptes;
->>> @@ -191,7 +250,10 @@ static long change_pte_range(struct mmu_gather *tlb,
->>>           if (pte_present(oldpte)) {
->>>               int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
->>>               struct folio *folio = NULL;
->>> -            pte_t ptent;
->>> +            int sub_nr_ptes, pgidx = 0;
->>> +            pte_t ptent, newpte;
->>> +            bool sub_set_write;
->>> +            int set_write;
->>>                 /*
->>>                * Avoid trapping faults against the zero or KSM
->>> @@ -206,6 +268,11 @@ static long change_pte_range(struct mmu_gather *tlb,
->>>                       continue;
->>>               }
->>>   +            if (!folio)
->>> +                folio = vm_normal_folio(vma, addr, oldpte);
->>> +
->>> +            nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte,
->>> +                               max_nr_ptes, FPB_IGNORE_SOFT_DIRTY);
->>  From the other thread, my memory is jogged that this function ignores write
->> permission bit. So I think that's opening up a bug when applied here? If the
->> first pte is writable but the rest are not (COW), doesn't this now make them all
->> writable? I don't *think* that's a problem for the prot_numa use, but I could be
->> wrong.
-> 
-> Can this be fixed by introducing FPB_HONOR_WRITE?
 
-Yes I think so. Suddenly David's change looks very appealing because it's going
-to say there are a set of bits that are ignored by default (young, dirty,
-soft-dirty, write) and use FPB_HONOR_ flags to stop ignoring those bits. So we
-can follow that pattern for write, I guess? And this avoids mixing FPB_IGNORE_
-an FPB_HONOR_ flags.
-
-
+On Mon, 30 Jun 2025 19:24:15 -0300, Geraldo Nascimento wrote:
+> During a 30-day debugging-run fighting quirky PCIe devices on RK3399
+> some quality improvements began to take form and after feedback from
+> community they reached more polished state.
 > 
->>
->>>               oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
->> Even if I'm wrong about ignoring write bit being a bug, I don't think the docs
->> for this function permit write bit to be different across the batch?
->>
->>>               ptent = pte_modify(oldpte, newprot);
->>>   @@ -227,15 +294,39 @@ static long change_pte_range(struct mmu_gather *tlb,
->>>                * example, if a PTE is already dirty and no other
->>>                * COW or special handling is required.
->>>                */
->>> -            if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->>> -                !pte_write(ptent) &&
->>> -                can_change_pte_writable(vma, addr, ptent))
->>> -                ptent = pte_mkwrite(ptent, vma);
->>> -
->>> -            modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
->>> -            if (pte_needs_flush(oldpte, ptent))
->>> -                tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
->>> -            pages++;
->>> +            set_write = (cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->>> +                    !pte_write(ptent);
->>> +            if (set_write)
->>> +                set_write = maybe_change_pte_writable(vma, addr, ptent, folio);
->> Why not just:
->>             set_write = (cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->>                     !pte_write(ptent) &&
->>                     maybe_change_pte_writable(...);
->>
->> ?
->>
->>> +
->>> +            while (nr_ptes) {
->>> +                if (set_write == TRI_MAYBE) {
->>> +                    sub_nr_ptes = anon_exclusive_batch(folio,
->>> +                        pgidx, nr_ptes, &sub_set_write);
->>> +                } else {
->>> +                    sub_nr_ptes = nr_ptes;
->>> +                    sub_set_write = (set_write == TRI_TRUE);
->>> +                }
->>> +
->>> +                if (sub_set_write)
->>> +                    newpte = pte_mkwrite(ptent, vma);
->>> +                else
->>> +                    newpte = ptent;
->>> +
->>> +                modify_prot_commit_ptes(vma, addr, pte, oldpte,
->>> +                            newpte, sub_nr_ptes);
->>> +                if (pte_needs_flush(oldpte, newpte))
->> What did we conclude with pte_needs_flush()? I thought there was an arch where
->> it looked dodgy calling this for just the pte at the head of the batch?
->>
->> Thanks,
->> Ryan
->>
->>> +                    tlb_flush_pte_range(tlb, addr,
->>> +                        sub_nr_ptes * PAGE_SIZE);
->>> +
->>> +                addr += sub_nr_ptes * PAGE_SIZE;
->>> +                pte += sub_nr_ptes;
->>> +                oldpte = pte_advance_pfn(oldpte, sub_nr_ptes);
->>> +                ptent = pte_advance_pfn(ptent, sub_nr_ptes);
->>> +                nr_ptes -= sub_nr_ptes;
->>> +                pages += sub_nr_ptes;
->>> +                pgidx += sub_nr_ptes;
->>> +            }
->>>           } else if (is_swap_pte(oldpte)) {
->>>               swp_entry_t entry = pte_to_swp_entry(oldpte);
->>>               pte_t newpte;
+> This will ensure maximum chance of retraining to 5.0GT/s, on all four
+> lanes and fix async strobe TEST_WRITE disablement. On top of this,
+> standard PCIe defines are now used to reference registers from offset
+> at Capabilities Register.
+> 
+> [...]
+
+Applied, thanks!
+
+[1/4] PCI: rockchip: Use standard PCIe defines
+      commit: a54fa9e656b38d64761478d06aa8679eae074ca1
+[2/4] PCI: rockchip: Set Target Link Speed before retraining
+      commit: 7a886fbf4004a990cb7231d64370c622d0eb741f
+
+Best regards,
+-- 
+Manivannan Sadhasivam <mani@kernel.org>
 
 
