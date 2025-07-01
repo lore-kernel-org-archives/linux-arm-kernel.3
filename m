@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB19C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 21:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B286C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 21:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ChVok+Gjc8bG8H8Ht+edw29Cu5sjyVgKB+bLXPMaOZQ=; b=JbaPNK8tZ8BWP9lnUKoI/6UDLW
-	jV9TrHAH3lHCBADWVXX7+M7ZaQHNu+Ui7+7yrcH51SCcBGlsQESA4Sa86VjzdAR+Ufh0Epm5vM/uZ
-	xyALd2dcrGZlcHNPYhen9ysRH6KYHKgmIRsmZESHMDCGz8+jEOxsuPn6hc07FWSzGagoHMQlZcoH9
-	artrHcm12io8K4ZvlVrQoSBoXY+xqvwL/cIpVVo7Nb8ex+qeiJX1KqLH5coirjAt4ARL4C/xwmiNe
-	THuKmxDVjJYjAT31LQjzUr8XXUWGyoNfgQS4RIbLMnR/PtqWC7SKqjDVTL3h3WTzIIw6qgK+p3FK3
-	PdY7F6ZQ==;
+	bh=iMITdBizcWzR3eYW2fgnbWCLfyrVu0eSAmyyUrNrxIY=; b=FUCVoVRNW8XjP6i9WW2F8M8EOs
+	bH2Bgq1TICdnvt13SN2F87zJvzNW/hlPSNi+MvOQL0KzqdllaEhBHSFRpA11GQqAOywP/FvTmHjgo
+	8S9YyhbzNRtaQgcCw6rbtIZwoNIJsyzmWfQb65dJJ76mRVN/TsfEX9NfrjwBRQr0czOuRx3TFKOAa
+	8PMs9WdkoduIl+M9PRmtCHBTm6U7UrLovhv+Fr1BBbIik9uzAfK9OFa7cJayMUo3ZNjSdjxOi0+Pm
+	Uq36BqWQ8cExup2sgNFIxFdR7KahF5K2z/r357CspvBnYY1OScTN2XRxfaNfU5yhfWYXiG7igHcUo
+	bDOOQCUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWiCU-00000006eDP-2Cce;
-	Tue, 01 Jul 2025 21:07:34 +0000
+	id 1uWiCW-00000006eGf-3Bx8;
+	Tue, 01 Jul 2025 21:07:36 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWhn9-00000006bQH-1r4D
+	id 1uWhyC-00000006cOk-3N9t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 20:41:24 +0000
+	Tue, 01 Jul 2025 20:52:50 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 688C478C;
-	Tue,  1 Jul 2025 22:40:58 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id C355B78C;
+	Tue,  1 Jul 2025 22:52:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1751402458;
-	bh=qzRCTMWMCe++obHXlAhP7LMkVWCqzlO9gvLzpauokrE=;
+	s=mail; t=1751403144;
+	bh=geP5H2Z4+YHkevGRctptTgYh4x8d/AoO+xeKisC/63s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UumG0ZNKyVGAXDweyJ+lWTFRJULthmwHeI9oUocz0E7GGML6Fj+mBXqIFUyTQ5OQ7
-	 pniUa6ZlP5ntOF8F4tkkyIwtcdZjS8joCQ0I5t2JgssC2rXsb/jg6r6iRSi5LwPSRp
-	 cXB78TepSmFLOmS3VtHqzZNwLeM9lNE3fx43R7PU=
-Date: Tue, 1 Jul 2025 23:40:54 +0300
+	b=pjLntyfOaN+smpQYy1xcEjS5lmF3hEALIiz9WvHu/F1CHs8SCbpi+9prdG4X9HIty
+	 Sn1EM7SSfpp5M4ajzhnvPkrSP0Sn6igqrBtZtr7WrlWJM9+4+o25FCUijyKPRlOZTA
+	 iF/XFX037TDmKq3NI44CifqHilzmXkTiSWLFM2fg=
+Date: Tue, 1 Jul 2025 23:52:20 +0300
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Frank Li <Frank.li@nxp.com>
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -52,22 +52,21 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Alice Yuan <alice.yuan@nxp.com>
-Subject: Re: [PATCH 2/5] dt-bindings: media: add i.MX parallel csi support
-Message-ID: <20250701204054.GD16835@pendragon.ideasonboard.com>
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 5/5] arm64: dts: imx8qxp-mek: add parallel ov5640 camera
+ support
+Message-ID: <20250701205220.GE16835@pendragon.ideasonboard.com>
 References: <20250630-imx8qxp_pcam-v1-0-eccd38d99201@nxp.com>
- <20250630-imx8qxp_pcam-v1-2-eccd38d99201@nxp.com>
- <20250630225340.GE15184@pendragon.ideasonboard.com>
- <aGP2yT9ID1E0BepB@lizhi-Precision-Tower-5810>
- <aGP+L6aRsi7GT9mf@lizhi-Precision-Tower-5810>
+ <20250630-imx8qxp_pcam-v1-5-eccd38d99201@nxp.com>
+ <20250630230651.GG15184@pendragon.ideasonboard.com>
+ <aGP56BUXrNnBCQu/@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aGP+L6aRsi7GT9mf@lizhi-Precision-Tower-5810>
+In-Reply-To: <aGP56BUXrNnBCQu/@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_134123_624226_13C96BF0 
-X-CRM114-Status: GOOD (  37.32  )
+X-CRM114-CacheID: sfid-20250701_135248_984432_D3B95F5A 
+X-CRM114-Status: GOOD (  34.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,190 +81,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 01, 2025 at 11:26:58AM -0400, Frank Li wrote:
-> On Tue, Jul 01, 2025 at 10:55:32AM -0400, Frank Li wrote:
-> > On Tue, Jul 01, 2025 at 01:53:40AM +0300, Laurent Pinchart wrote:
-> > > Hi Frank, Alice,
-> > >
-> > > Thank you for the patch.
-> > >
-> > > On Mon, Jun 30, 2025 at 06:28:18PM -0400, Frank Li wrote:
-> > > > From: Alice Yuan <alice.yuan@nxp.com>
-> > > >
-> > > > Document the binding for parallel CSI controller found in i.MX8QXP, i.MX93
-> > > > and i.MX91 SoCs.
-> > > >
-> > > > Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
-> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > ---
-> > > >  .../bindings/media/fsl,imx93-parallel-csi.yaml     | 108 +++++++++++++++++++++
-> > > >  MAINTAINERS                                        |   1 +
-> > > >  2 files changed, 109 insertions(+)
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml b/Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
-> > > > new file mode 100644
-> > > > index 0000000000000..b4657c913adad
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
-> > > > @@ -0,0 +1,108 @@
-> > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > +%YAML 1.2
-> > > > +---
-> > > > +$id: http://devicetree.org/schemas/media/fsl,imx93-parallel-csi.yaml#
-> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > +
-> > > > +title: i.MX8/9 Parallel Camera Interface
-> > > > +
-> > > > +maintainers:
-> > > > +  - Frank Li <Frank.Li@nxp.com>
-> > > > +
-> > > > +description: |
-> > > > +  This is device node for the Parallel Camera Interface which enables the
-> > > > +  chip to connect directly to external Parallel CMOS image sensors.
-> > > > +  Supports up to 80MHz input clock from sensor.
-> > > > +  Supports the following input data formats
-> > > > +    - 8-bit/10-bit Camera Sensor Interface (CSI)
-> > > > +    - 8-bit data port for RGB, YCbCr, and YUV data input
-> > > > +    - 8-bit/10-bit data ports for Bayer data input
-> > > > +  Parallel Camera Interface is hooked to the Imaging subsystem via the
-> > > > +  Pixel Link.
-> > > > +
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    oneOf:
-> > > > +      - const: fsl,imx8qxp-parallel-csi
-> > >
-> > > Is there any chance we could avoid calling this "csi", given that the
-> > > whole block is called "Parallel Capture Interface" in the reference
-> > > manual ? "CSI" is horribly confusing as it usually refers to MIPI CSI-2.
-> > > I suppose calling it "PCI" for "Parallel Capture Interface" wouldn't
-> > > help :-/
-> >
-> > PCI is too famous for PCI(Peripheral Component Interconnec) bus. It will be
-> > more confused.
-> >
-> > Can we use pcam? fsl,imx8qxp-pcam
-> >
-> > Frank
-> >
-> > >
-> > > > +      - items:
-> > > > +          - enum:
-> > > > +              - fsl,imx91-parallel-csi
-> > > > +          - const: fsl,imx93-parallel-csi
-> > > > +      - const: fsl,imx93-parallel-csi
-> > > > +
-> > > > +  reg:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  clocks:
-> > > > +    maxItems: 2
-> > > > +
-> > > > +  clock-names:
-> > > > +    items:
-> > > > +      - const: pixel
-> > > > +      - const: ipg
-> > > > +
-> > > > +  power-domains:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  ports:
-> > > > +    $ref: /schemas/graph.yaml#/properties/ports
-> > > > +
-> > > > +    properties:
-> > > > +      port@0:
-> > > > +        $ref: /schemas/graph.yaml#/$defs/port-base
-> > > > +        unevaluatedProperties: false
-> > > > +        description:
-> > > > +          Input port node.
-> > > > +
-> > > > +      port@1:
-> > > > +        $ref: /schemas/graph.yaml#/$defs/port-base
-> > > > +        unevaluatedProperties: false
-> > > > +        description:
-> > > > +          Output port node.
-> > > > +
-> > > > +required:
-> > > > +  - compatible
-> > > > +  - reg
-> > > > +  - clocks
-> > > > +  - clock-names
-> > > > +  - ports
-> > >
-> > > Patch 4/5 lists a power domain, and so does the example below for
-> > > i.MX93. Should the power-domains property be mandatory ?
-> > >
-> > > > +
-> > > > +additionalProperties: false
-> > > > +
-> > > > +examples:
-> > > > +  - |
-> > > > +    #include <dt-bindings/clock/imx93-clock.h>
-> > > > +    #include <dt-bindings/power/fsl,imx93-power.h>
-> > > > +
-> > > > +    parallel-csi@4ac10070 {
-> > > > +        compatible = "fsl,imx93-parallel-csi";
-> > > > +        reg = <0x4ac10070 0x10>;
-> > >
-> > > The i.MX93 reference manual doesn't document the register set for this
-> > > block, so I have a hard time reviewing this. Is there a plan to publish
-> > > a new version of the reference manual with the complete documentation
-> > > for the parallel interface ?
-> 
-> Sorry, I missed this part at last email. It already imx93's reference
-> manual, but it is bindle to
-> 
-> 82.4.1.1 mediamix_GPR_ctrl memory map
-> BLK_CTRL_MEDIAMIX base address: 4AC1_0000h
-> 
-> because it is tail part of this space, we can simple strink mediamix_GPR_ctrl
-> space in dts.
+Hi Frank,
 
-Ah thank you for the information. I had missed that.
-
-> I am working on this.
+On Tue, Jul 01, 2025 at 11:08:24AM -0400, Frank Li wrote:
+> On Tue, Jul 01, 2025 at 02:06:51AM +0300, Laurent Pinchart wrote:
+> > On Mon, Jun 30, 2025 at 06:28:21PM -0400, Frank Li wrote:
+> > > Add parallel ov5640 nodes in imx8qxp-mek and create overlay file to enable
+> > > it because it can work at two mode: MIPI and parallel mode.
+> > >
+> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > >  arch/arm64/boot/dts/freescale/Makefile             |  3 ++
+> > >  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts      | 37 +++++++++++++++++++
+> > >  .../dts/freescale/imx8x-mek-ov5640-parallel.dtso   | 43 ++++++++++++++++++++++
+> > >  3 files changed, 83 insertions(+)
+> > >
+> > > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> > > index 02ef35578dbc7..a9fb11ccd3dea 100644
+> > > --- a/arch/arm64/boot/dts/freescale/Makefile
+> > > +++ b/arch/arm64/boot/dts/freescale/Makefile
+> > > @@ -330,6 +330,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-mek-pcie-ep.dtb
+> > >  imx8qxp-mek-ov5640-csi-dtbs := imx8qxp-mek.dtb imx8qxp-mek-ov5640-csi.dtbo
+> > >  dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-csi.dtb
+> > >
+> > > +imx8qxp-mek-ov5640-parallel-dtbs := imx8qxp-mek.dtb imx8x-mek-ov5640-parallel.dtbo
+> > > +dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-parallel.dtb
+> > > +
+> > >  dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
+> > >  dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqps-mb-smarc-2.dtb
+> > >  dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
+> > > diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
+> > > index c95cb8acc360a..09eb85a9759e2 100644
+> > > --- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
+> > > +++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
+> > > @@ -487,6 +487,23 @@ pca6416: gpio@20 {
+> > >  		#gpio-cells = <2>;
+> > >  	};
+> > >
+> > > +	ov5640_pi: camera@3c {
+> > > +		compatible = "ovti,ov5640";
+> > > +		reg = <0x3c>;
+> > > +		pinctrl-names = "default";
+> > > +		pinctrl-0 = <&pinctrl_parallel_csi>;
+> > > +		clocks = <&pi0_misc_lpcg IMX_LPCG_CLK_0>;
+> > > +		assigned-clocks = <&pi0_misc_lpcg IMX_LPCG_CLK_0>;
+> > > +		assigned-clock-rates = <24000000>;
+> > > +		clock-names = "xclk";
+> > > +		powerdown-gpios = <&lsio_gpio3 2 GPIO_ACTIVE_HIGH>;
+> > > +		reset-gpios = <&lsio_gpio3 3 GPIO_ACTIVE_LOW>;
+> > > +		AVDD-supply = <&reg_2v8>;
+> > > +		DVDD-supply = <&reg_1v5>;
+> > > +		DOVDD-supply = <&reg_1v8>;
+> > > +		status = "disabled"; /* Overlay enable it */
+> > > +	};
+> > > +
+> >
+> > As far as I can tell, the sensor isn't soldered on the board, but is an
+> > external module connected through a cable. This DT node should therefore
+> > be moved to the overlay.
 > 
-> > > > +        clocks = <&clk IMX93_CLK_MIPI_CSI_GATE>,
-> > > > +                 <&clk IMX93_CLK_MEDIA_APB>;
-> > > > +        clock-names = "pixel", "ipg";
-> > > > +        assigned-clocks = <&clk IMX93_CLK_CAM_PIX>;
-> > > > +        assigned-clock-parents = <&clk IMX93_CLK_VIDEO_PLL>;
-> > > > +        assigned-clock-rates = <140000000>;
-> > > > +        power-domains = <&media_blk_ctrl IMX93_MEDIABLK_PD_MIPI_CSI>;
-> > > > +
-> > > > +        ports {
-> > > > +            #address-cells = <1>;
-> > > > +            #size-cells = <0>;
-> > > > +
-> > > > +            port@0 {
-> > > > +                reg = <0>;
-> > > > +
-> > > > +                endpoint {
-> > > > +                    remote-endpoint = <&mt9m114_ep>;
-> > > > +                };
-> > > > +            };
-> > > > +
-> > > > +            port@1 {
-> > > > +                reg = <1>;
-> > > > +                endpoint {
-> > > > +                    remote-endpoint = <&isi_in>;
-> > > > +                };
-> > > > +            };
-> > > > +        };
-> > > > +    };
-> > > > +...
-> > > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > > index 8dc0f6609d1fe..3bd6772c11539 100644
-> > > > --- a/MAINTAINERS
-> > > > +++ b/MAINTAINERS
-> > > > @@ -15107,6 +15107,7 @@ L:	linux-media@vger.kernel.org
-> > > >  S:	Maintained
-> > > >  T:	git git://linuxtv.org/media.git
-> > > >  F:	Documentation/admin-guide/media/imx7.rst
-> > > > +F:	Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
-> > > >  F:	Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
-> > > >  F:	Documentation/devicetree/bindings/media/nxp,imx7-csi.yaml
-> > > >  F:	Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> It is fine for i.MX8QXP. I put here try to reuse overlay file as much as
+> possible.
+> 
+> For example, imx93 have, 9x9, 11x11, 14x14 boards ...
+> 
+> Each board's reset-gpios have slice difference. If move whole to overlay
+> files, we have to create difference overlay for each boards.
+> 
+> If keep here and set "status = okay" and update graphic links in overlay,
+> we can reuse this overlay file for different boards.
+> 
+> for example: imx93-pcam.dtso, which simialr with imx8x-mek-ov5640-parallel.dtso.
+> 
+> So we simple use
+> imx93-9x9-qsb.dtb + imx93-pcam.dtbo.
+> imx93-11x11-evk.dtb + imx93-pcam.dtbo.
+> imx93-14x14-evk.dtb + imx93-pcam.dtbo.
+> 
+> even for imx91 boards in future.
+
+First of all, I want to say I feel your pain. I maintain many camera
+sensor modules DT overlays out-of-tree, for different boards, and code
+duplication is definitely annoying. Unfortunately, DT doesn't provide a
+solution to this problem today. There was an attempt years ago to design
+a "DT connector" that defined how connector signals were routed on a
+board. This would allow a single overlay compatible with the connected
+to be used with different base boards. Unfortunately, development
+stalled.
+
+Until this problem gets solved, I'm afraid you'll have to duplicate
+overlays for different base boards. The OV5640 is not part of the
+imx8qxp-mek, so it should not be declared in the imx8qxp-mek.dts.
+
+> > >  	cs42888: audio-codec@48 {
+> > >  		compatible = "cirrus,cs42888";
+> > >  		reg = <0x48>;
+> > > @@ -865,6 +882,26 @@ IMX8QXP_MIPI_CSI0_MCLK_OUT_MIPI_CSI0_ACM_MCLK_OUT	0xC0000041
+> > >  		>;
+> > >  	};
+> > >
+> > > +	pinctrl_parallel_csi: parallelcsigrp {
+> > > +		fsl,pins = <
+> > > +			IMX8QXP_CSI_D00_CI_PI_D02				0xc0000041
+> > > +			IMX8QXP_CSI_D01_CI_PI_D03				0xc0000041
+> > > +			IMX8QXP_CSI_D02_CI_PI_D04				0xc0000041
+> > > +			IMX8QXP_CSI_D03_CI_PI_D05				0xc0000041
+> > > +			IMX8QXP_CSI_D04_CI_PI_D06				0xc0000041
+> > > +			IMX8QXP_CSI_D05_CI_PI_D07				0xc0000041
+> > > +			IMX8QXP_CSI_D06_CI_PI_D08				0xc0000041
+> > > +			IMX8QXP_CSI_D07_CI_PI_D09				0xc0000041
+> > > +
+> > > +			IMX8QXP_CSI_MCLK_CI_PI_MCLK				0xc0000041
+> > > +			IMX8QXP_CSI_PCLK_CI_PI_PCLK				0xc0000041
+> > > +			IMX8QXP_CSI_HSYNC_CI_PI_HSYNC				0xc0000041
+> > > +			IMX8QXP_CSI_VSYNC_CI_PI_VSYNC				0xc0000041
+> > > +			IMX8QXP_CSI_EN_LSIO_GPIO3_IO02				0xc0000041
+> > > +			IMX8QXP_CSI_RESET_LSIO_GPIO3_IO03			0xc0000041
+> > > +		>;
+> > > +	};
+> >
+> > Same for this one.
+> >
+> > > +
+> > >  	pinctrl_pcieb: pcieagrp {
+> > >  		fsl,pins = <
+> > >  			IMX8QXP_PCIE_CTRL0_PERST_B_LSIO_GPIO4_IO00		0x06000021
+> > > diff --git a/arch/arm64/boot/dts/freescale/imx8x-mek-ov5640-parallel.dtso b/arch/arm64/boot/dts/freescale/imx8x-mek-ov5640-parallel.dtso
+> > > new file mode 100644
+> > > index 0000000000000..927d6640662f3
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/freescale/imx8x-mek-ov5640-parallel.dtso
+> > > @@ -0,0 +1,43 @@
+> > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > > +/*
+> > > + * Copyright 2025 NXP
+> > > + */
+> > > +
+> > > +/dts-v1/;
+> > > +/plugin/;
+> > > +
+> > > +#include <dt-bindings/gpio/gpio.h>
+> > > +#include <dt-bindings/media/video-interfaces.h>
+> > > +
+> > > +&ov5640_pi {
+> > > +	status = "okay";
+> > > +
+> > > +	port {
+> > > +		ov5640_pi_ep: endpoint {
+> > > +			remote-endpoint = <&parallel_csi_in>;
+> > > +			data-lanes = <1 2>;
+> >
+> > data-lanes is not allowed for parallel buses.
+> 
+> Do you know there are method in dt_binding to restrict this?
+> 
+> Frank
+
+We can use if-then-else blocks to restrict the allowed properties based
+on the bus-type.
+
+> > > +			bus-type = <MEDIA_BUS_TYPE_PARALLEL>;
+> > > +			bus-width = <8>;
+> > > +			vsync-active = <0>;
+> > > +			hsync-active = <1>;
+> > > +			pclk-sample = <1>;
+> > > +		};
+> > > +	};
+> > > +};
+> > > +
+> > > +&parallel_csi {
+> > > +	status = "okay";
+> > > +
+> > > +	ports {
+> > > +		port@0 {
+> > > +			parallel_csi_in: endpoint {
+> > > +				remote-endpoint = <&ov5640_pi_ep>;
+> > > +			};
+> > > +		};
+> > > +
+> > > +	};
+> > > +};
+> > > +
+> > > +&isi {
+> > > +	status = "okay";
+> > > +};
 
 -- 
 Regards,
