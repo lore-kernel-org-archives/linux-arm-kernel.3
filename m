@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36531C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 20:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86404C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 20:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IUMy7VHeoEeiwOyYE9IvVFqlNnhh+9fdeTLw1WMERIc=; b=EkesYvQdeZp1OohLdo+HKUx8dj
-	Nsk2n5MJ3bli+rH6QGgtJ6leExIZmSMxAFczIJ3bitXa5Q1yA0AwJGIF75oPxcU34+aSvLxqscZMo
-	aVvveAXjyQFZrSU+DE2nphx73TVSjG27fbxri6CucIOyS2/9+vsjADHdh8kWOQdazrQ4vByPTfk7A
-	YtTDHrrQ2x31My9DrzQEP4jlBA83G2b0fC+NPdzshJ60bQ4vqTzEJ1KcI0C7emHg+BZiCDNpDYgJb
-	7eGozr8hwDoY6nIFO+k0J5tUZYOEjyFtdrq/DKBYVyBFUDkK/5D0T/g1xbUVYlJj7qUJH+syNh2dg
-	+oL7CZ6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=hzKCoqJfSgVY6k8JgYPukKBWdlo2cJ9Qjwkj/bm33/g=; b=ch1tdSKp/0aa9T
+	k/DYkuOpLRnP8SpeGNUSi50Ok0f3V5BywsBLaMXFI1dELyu0ID4AXwJ1L9YOldlVndOHM348IDJkz
+	dZ+TySEPX2yeQ4QEzPJTSlInlrlR85ogbdLpXbMtRq9VAP5COAJHGS95XGViF4BAfDajbBmAvgjKw
+	6EBIMECPz0r6zr0+c+Gt//PiiKJCDjUNCuHWgQtKhEf3umvxvOOEg4pF1qgzmggr3TdchATD4PbAX
+	sYjIesm/Kaoj6XHGPQMeMn5KuGpf5VAHKrlDnXli0YNJC9cU/2JzLE+6J8IVH86EM9ppgI3Aw26H5
+	5YfjepseWL3IcD5J9b4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWhSA-00000006YgV-3l8q;
-	Tue, 01 Jul 2025 20:19:42 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uWhTQ-00000006Yty-2TqK;
+	Tue, 01 Jul 2025 20:21:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWhNb-00000006Xbg-16rJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 20:15:00 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id BBD131F0003D
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Jul 2025 20:14:57 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 43DA9AC9683; Tue,  1 Jul 2025 20:14:56 +0000 (UTC)
-Received: from localhost.localdomain (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id 2C8D0AC9682;
-	Tue,  1 Jul 2025 20:11:33 +0000 (UTC)
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	id 1uWeIb-000000068P2-0lWr;
+	Tue, 01 Jul 2025 16:57:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4EA96613A9;
+	Tue,  1 Jul 2025 16:57:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3601C4CEEB;
+	Tue,  1 Jul 2025 16:57:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751389056;
+	bh=yt/kc/jTaSiC0j9rC9eyESiUppBPRZhs+YZzLBzzs2Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=k3cAUR1cwKTtg4sD128wLSlwJY88qu3T8AwGwte1udkUcUr3rKs7T6494qFObHT3B
+	 JTrodUx32RfXmXcNfG9GLlbH7Hv0sRG4CaLCPx0sd/i9FgvVUS06xnNt78wV/DcoOW
+	 YZD84F4eISrgrOurB154lqR8dX8fNxi3VqtMT67f+pxlua1FKRWSDMH5Zi5BQELAKU
+	 jRdwCi+sEZLy4Ds/xihdLxowlVRqTOkn6NUD+ZIuAz1phRiYvAx5s724BmTAiRVJeP
+	 QUQt/PRY4OOWRarBMjZsbQ/3HCYM0A0EbeQBGSiU75BNmWLRI8XMP2GnoUsfYoNV3c
+	 N7xUf38+SJ8iQ==
+Date: Tue, 1 Jul 2025 11:57:34 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-gpio@vger.kernel.org
-Cc: Yong Deng <yong.deng@magewell.com>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Icenowy Zheng <icenowy@aosc.xyz>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH 2/5] clk: sunxi-ng: v3s: Fix CSI SCLK clock name
-Date: Tue,  1 Jul 2025 22:11:21 +0200
-Message-ID: <20250701201124.812882-3-paulk@sys-base.io>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250701201124.812882-1-paulk@sys-base.io>
-References: <20250701201124.812882-1-paulk@sys-base.io>
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-fsd@tesla.com, mani@kernel.org,
+	lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
+	bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alim.akhtar@samsung.com, vkoul@kernel.org,
+	kishon@kernel.org, arnd@arndb.de, m.szyprowski@samsung.com,
+	jh80.chung@samsung.com, pankaj.dubey@samsung.com
+Subject: Re: [PATCH v2 09/10] PCI: exynos: Add support for Tesla FSD SoC
+Message-ID: <20250701165734.GA1839534@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_131459_630241_FAD93D95 
-X-CRM114-Status: GOOD (  15.72  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <02b101dbea79$d7e086c0$87a19440$@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,131 +73,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CSI SCLK clock is incorrectly called CSI1 SCLK while it is used for
-both the CSI0 and CSI1 interfaces and is called CSI SCLK all around the
-documentation.
+On Tue, Jul 01, 2025 at 04:48:13PM +0530, Shradha Todi wrote:
+> > -----Original Message-----
+> > From: Bjorn Helgaas <helgaas@kernel.org>
+> > Sent: 28 June 2025 01:01
+> > To: Shradha Todi <shradha.t@samsung.com>
+> > Cc: linux-pci@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> linux-
+> > samsung-soc@vger.kernel.org; linux-kernel@vger.kernel.org; linux-phy@lists.infradead.org; linux-
+> > fsd@tesla.com; manivannan.sadhasivam@linaro.org; lpieralisi@kernel.org; kw@linux.com;
+> > robh@kernel.org; bhelgaas@google.com; jingoohan1@gmail.com; krzk+dt@kernel.org;
+> > conor+dt@kernel.org; alim.akhtar@samsung.com; vkoul@kernel.org; kishon@kernel.org;
+> > arnd@arndb.de; m.szyprowski@samsung.com; jh80.chung@samsung.com; pankaj.dubey@samsung.com
+> > Subject: Re: [PATCH v2 09/10] PCI: exynos: Add support for Tesla FSD SoC
 
-Fix the name in the driver, header and device-tree.
+Would be good if your mailer could support the usual quote mechanism,
+e.g. the "On Wed, Jun 25, 2025 at 10:22:28PM +0530, Shradha Todi
+wrote:" line below.  No need for all the header duplication above.
 
-Fixes: d0f11d14b0bc ("clk: sunxi-ng: add support for V3s CCU")
-Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
----
- .../bindings/media/allwinner,sun6i-a31-csi.yaml        |  2 +-
- .../bindings/media/allwinner,sun6i-a31-isp.yaml        |  2 +-
- .../bindings/media/allwinner,sun6i-a31-mipi-csi2.yaml  |  2 +-
- arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi             |  2 +-
- drivers/clk/sunxi-ng/ccu-sun8i-v3s.c                   | 10 +++++-----
- include/dt-bindings/clock/sun8i-v3s-ccu.h              |  2 +-
- 6 files changed, 10 insertions(+), 10 deletions(-)
+> > On Wed, Jun 25, 2025 at 10:22:28PM +0530, Shradha Todi wrote:
+> > > Add host and endpoint controller driver support for FSD SoC.
 
-diff --git a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml
-index b3d6db922693..1aa5775ba2bc 100644
---- a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml
-+++ b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml
-@@ -110,7 +110,7 @@ examples:
-         reg = <0x01cb4000 0x1000>;
-         interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
-         clocks = <&ccu CLK_BUS_CSI>,
--                 <&ccu CLK_CSI1_SCLK>,
-+                 <&ccu CLK_CSI_SCLK>,
-                  <&ccu CLK_DRAM_CSI>;
-         clock-names = "bus",
-                       "mod",
-diff --git a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-isp.yaml b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-isp.yaml
-index a61a76bb611c..3ea4a4290f23 100644
---- a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-isp.yaml
-+++ b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-isp.yaml
-@@ -79,7 +79,7 @@ examples:
-         reg = <0x01cb8000 0x1000>;
-         interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-         clocks = <&ccu CLK_BUS_CSI>,
--             <&ccu CLK_CSI1_SCLK>,
-+             <&ccu CLK_CSI_SCLK>,
-              <&ccu CLK_DRAM_CSI>;
-         clock-names = "bus", "mod", "ram";
-         resets = <&ccu RST_BUS_CSI>;
-diff --git a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-mipi-csi2.yaml
-index 54e15ab8a7f5..627b28e94354 100644
---- a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-mipi-csi2.yaml
-+++ b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-mipi-csi2.yaml
-@@ -103,7 +103,7 @@ examples:
-         reg = <0x01cb1000 0x1000>;
-         interrupts = <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>;
-         clocks = <&ccu CLK_BUS_CSI>,
--                 <&ccu CLK_CSI1_SCLK>;
-+                 <&ccu CLK_CSI_SCLK>;
-         clock-names = "bus", "mod";
-         resets = <&ccu RST_BUS_CSI>;
- 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-index f909b1d4dbca..e82cf312da25 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-+++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-@@ -652,7 +652,7 @@ csi1: camera@1cb4000 {
- 			reg = <0x01cb4000 0x3000>;
- 			interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&ccu CLK_BUS_CSI>,
--				 <&ccu CLK_CSI1_SCLK>,
-+				 <&ccu CLK_CSI_SCLK>,
- 				 <&ccu CLK_DRAM_CSI>;
- 			clock-names = "bus", "mod", "ram";
- 			resets = <&ccu RST_BUS_CSI>;
-diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-index 579a81bb46df..d12791b31a9d 100644
---- a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-@@ -362,8 +362,8 @@ static const char * const csi_mclk_parents[] = { "osc24M", "pll-video",
- static SUNXI_CCU_M_WITH_MUX_GATE(csi0_mclk_clk, "csi0-mclk", csi_mclk_parents,
- 				 0x130, 0, 5, 8, 3, BIT(15), 0);
- 
--static const char * const csi1_sclk_parents[] = { "pll-video", "pll-isp" };
--static SUNXI_CCU_M_WITH_MUX_GATE(csi1_sclk_clk, "csi-sclk", csi1_sclk_parents,
-+static const char * const csi_sclk_parents[] = { "pll-video", "pll-isp" };
-+static SUNXI_CCU_M_WITH_MUX_GATE(csi_sclk_clk, "csi-sclk", csi_sclk_parents,
- 				 0x134, 16, 4, 24, 3, BIT(31), 0);
- 
- static SUNXI_CCU_M_WITH_MUX_GATE(csi1_mclk_clk, "csi-mclk", csi_mclk_parents,
-@@ -452,7 +452,7 @@ static struct ccu_common *sun8i_v3s_ccu_clks[] = {
- 	&tcon_clk.common,
- 	&csi_misc_clk.common,
- 	&csi0_mclk_clk.common,
--	&csi1_sclk_clk.common,
-+	&csi_sclk_clk.common,
- 	&csi1_mclk_clk.common,
- 	&ve_clk.common,
- 	&ac_dig_clk.common,
-@@ -551,7 +551,7 @@ static struct clk_hw_onecell_data sun8i_v3s_hw_clks = {
- 		[CLK_TCON0]		= &tcon_clk.common.hw,
- 		[CLK_CSI_MISC]		= &csi_misc_clk.common.hw,
- 		[CLK_CSI0_MCLK]		= &csi0_mclk_clk.common.hw,
--		[CLK_CSI1_SCLK]		= &csi1_sclk_clk.common.hw,
-+		[CLK_CSI_SCLK]		= &csi_sclk_clk.common.hw,
- 		[CLK_CSI1_MCLK]		= &csi1_mclk_clk.common.hw,
- 		[CLK_VE]		= &ve_clk.common.hw,
- 		[CLK_AC_DIG]		= &ac_dig_clk.common.hw,
-@@ -633,7 +633,7 @@ static struct clk_hw_onecell_data sun8i_v3_hw_clks = {
- 		[CLK_TCON0]		= &tcon_clk.common.hw,
- 		[CLK_CSI_MISC]		= &csi_misc_clk.common.hw,
- 		[CLK_CSI0_MCLK]		= &csi0_mclk_clk.common.hw,
--		[CLK_CSI1_SCLK]		= &csi1_sclk_clk.common.hw,
-+		[CLK_CSI_SCLK]		= &csi_sclk_clk.common.hw,
- 		[CLK_CSI1_MCLK]		= &csi1_mclk_clk.common.hw,
- 		[CLK_VE]		= &ve_clk.common.hw,
- 		[CLK_AC_DIG]		= &ac_dig_clk.common.hw,
-diff --git a/include/dt-bindings/clock/sun8i-v3s-ccu.h b/include/dt-bindings/clock/sun8i-v3s-ccu.h
-index 014ac6123d17..c4055629c9f9 100644
---- a/include/dt-bindings/clock/sun8i-v3s-ccu.h
-+++ b/include/dt-bindings/clock/sun8i-v3s-ccu.h
-@@ -96,7 +96,7 @@
- #define CLK_TCON0		64
- #define CLK_CSI_MISC		65
- #define CLK_CSI0_MCLK		66
--#define CLK_CSI1_SCLK		67
-+#define CLK_CSI_SCLK		67
- #define CLK_CSI1_MCLK		68
- #define CLK_VE			69
- #define CLK_AC_DIG		70
--- 
-2.49.0
+> > This would be a little nicer if you added soc_variant and device_mode
+> > and the code that sets and tests them for exynos_5433 first in a
+> > separate patch.  Then it would be more obvious that the new FSD parts
+> > don't affect exynos_5433 since this patch would only be *adding*
+> > FSD-specific things.
+> 
+> Sure,  I have no issues in splitting the patches further. Though
+> unfortunately, I or anyone I know does not possess a board which has
+> Exynos 5433 chipset.  Therefore, I'm unable to verify these changes
+> for Exynos chipset. I took care to not disturb the exynos flow
+> functionally but would be great if someone could test this and
+> confirm that it works well on Exynos 5433 after the changes.
 
+Yeah, that's a common situation, and there's no problem with adding
+this functionality.  But in the unlikely event there's a mistake that
+relates to Exynos 5433, it will be easier for someone with that board
+to analyze the problem if the changes that affect exynos_5433 are
+split out into a patch that doesn't include any FSD-related changes.
+
+> > >  static const struct samsung_pcie_pdata exynos_5433_pcie_rc_pdata = {
+> > >  	.dwc_ops		= &exynos_dw_pcie_ops,
+> > >  	.pci_ops		= &exynos_pci_ops,
+> > >  	.host_ops		= &exynos_pcie_host_ops,
+> > >  	.res_ops		= &exynos_res_ops_data,
+> > > +	.soc_variant		= EXYNOS_5433,
+> > > +	.device_mode		= DW_PCIE_RC_TYPE,
+> > >  };
+> > 
+> > >  static const struct of_device_id exynos_pcie_of_match[] = {
+> > > @@ -449,6 +756,14 @@ static const struct of_device_id exynos_pcie_of_match[] = {
+> > >  		.compatible = "samsung,exynos5433-pcie",
+> > >  		.data = (void *) &exynos_5433_pcie_rc_pdata,
+> > >  	},
+> 
 
