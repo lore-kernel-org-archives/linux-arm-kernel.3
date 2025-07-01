@@ -4,181 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EB0C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 10:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891ECC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 10:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zULYfYbB+bq+u74ZxxzSDcQyy8ZPQ037DVLvjCflkVY=; b=NpvLgxMwFhJLlvNfXpasa4i+2F
-	DMUPoSAFf6B6YlwoJn2zVWbHAylj8aHNyxA/MvAylhEu88r47nyA3dwQgCx70u9R02UwNoUYNweUp
-	pdfHUhZLPrFYXN9eomEqbTngegbINmBxQHj82WShyq6NPbHd7DCRQBndHCpnqSOeC/iZ/HqrL7PAx
-	Spn4vCVVK0K5gTfFukf++5CHue0ouSVbq1ixqTDsvVXi/1N0bUEShjpT8rNe2HrEAjhiAnfysjdsq
-	rj9Vw/TUwsaOZiNlldn1X+0vuzgAJg1py5u6ccMLM3Of9xKcKQMf5UlDgOZW5ndNyzwvNJPZH9Wow
-	qIZ6DEHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WQ3BMa4Pl0SP0AD7T7Gd2AhM/sxxP8dDdNIwPFItInw=; b=pv/WQQi6WAtgSLjFHx4N9wrTee
+	zPiSoRrqj2ijsaXm4D6j/PwABXZc5J8ap6xxq95vKz0w/tm9qlsM7yAvCZm9HYTGLOGeaCxMC5JFs
+	lbHgM64kN5cxoE2MKe2P2fai8rbcvM115IWXmqsxLvnZC7yhc4nIYciW/2ULGJBTrQWo1dHBVn1gm
+	gk1dRPOtKEf2TMWXBjT6h6bLLcrCn/IYYLhWHWj7vre8LJWiAYwkZaU8YrBlEkIXcfPN8RfHni+0y
+	qRCWxw/c7SldyzEQjyELwMfAFRlHdxODxzbmbhDpeXyMi4tPhx33gdWdcZlPDv0EMPItADmfogAn1
+	38bwIYLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWYWN-00000004mtN-0rNJ;
-	Tue, 01 Jul 2025 10:47:27 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uWYZh-00000004nOU-2Vhe;
+	Tue, 01 Jul 2025 10:50:53 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWYU3-00000004mQr-2XXo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 10:45:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lElLxL6CB0LE1DILjWjm7BzalPjUuyPTVAPF6/y2DVAaP46AC1v5h9ylxbZJW5zTFJNSaop1yGSyAlcv7IGi9IebEmksJmzm9hHOB2Wq43OSlnVARxrZAcYTrYKb2/7Oy5vfPIpjsDsKl/0FwP8rNtL4K9yIK8Oqu42nipprknqE2xppj6gNOpAsCsBitByQIPCTYHjQLX6NaXs9Q4TqRfxasVmHkbOPw5emTBIH+YARTlST7S+get5dQZmfW9V+vnROAWAuI67r4wWaxmfQP4ngx/HcJiT/RXanPJnilXvDaluzS7EadDdQhn+lfj1j+5wAFN0k3MyPHDzZCDEsgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zULYfYbB+bq+u74ZxxzSDcQyy8ZPQ037DVLvjCflkVY=;
- b=LtHez5LlA8s0udgA2DN713dIhz7r+y1oqzgHig467WefMn06RLFR7MyPq6PBCMSeKtoxfB9xZQKGiTHt+cJ/rJ3Rl1YtibfuRt/c5omSdS899bemX6GU8fASAvAKZ/lnQJkhVYcQqP2Zj8HdHxnInX4bmEMW2jY13Te44vXWFaAv1fini46YmPHqwsZ78SKKsUx6O1tE8jq2wz68akRAXDdI6ceiFWTZE9ai8JgIS9oFLZTZr0gN4n3PUCF6P59eq0HEwe2PCF0XGv47e2pFYzlJkI+fXNwWXolGMCyf7NPIGsDti27l8MIkYF7BXj9VGMcmFXXmgXH4vKc2d5pPjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mysnt.onmicrosoft.com;
- s=selector2-mysnt-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zULYfYbB+bq+u74ZxxzSDcQyy8ZPQ037DVLvjCflkVY=;
- b=Yf9Iyz0TJre7D1cXGG3kmCti4/HzIpRrTZNTrinc9C1AKgtHiKM0d1+TsARito5NRJZ3fLARk6KAxt6OuBKMyIYLxjBxBRG0zEoQT43HUrfzqFWQFW9Tn33s7tHAQPP3VHmXBce8Z9qp7Z1mHD13nRT0b16EDiKGEq0iQ+dVp+Y=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:263::10)
- by AS8PR10MB6433.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:56c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.23; Tue, 1 Jul
- 2025 10:44:53 +0000
-Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::b854:7611:1533:2a19]) by PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::b854:7611:1533:2a19%7]) with mapi id 15.20.8880.027; Tue, 1 Jul 2025
- 10:44:53 +0000
-Message-ID: <087b8689-7443-4720-a94c-160edd31a5da@kontron.de>
-Date: Tue, 1 Jul 2025 12:44:52 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXT] Re: [PATCH v18 3/7] firmware: imx: add driver for NXP
- EdgeLock Enclave
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- Frank Li <frank.li@nxp.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250619-imx-se-if-v18-0-c98391ba446d@nxp.com>
- <20250619-imx-se-if-v18-3-c98391ba446d@nxp.com>
- <20250625105546.pxuatcnfpe7mssgs@pengutronix.de>
- <AM9PR04MB8604611B8D91B5526C9704E69545A@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <20250627084653.6vgwnm3llf3zknlp@pengutronix.de>
- <b02055bb-0995-4fd8-99f3-4ca5146eedd4@kontron.de>
- <20250630121722.wviidlggt7hguyt7@pengutronix.de>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <20250630121722.wviidlggt7hguyt7@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR2P281CA0159.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:99::8) To PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:102:263::10)
+	id 1uWWzt-00000004Z0D-2cda;
+	Tue, 01 Jul 2025 09:09:51 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 81D70C74;
+	Tue,  1 Jul 2025 11:09:25 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1751360966;
+	bh=uA087uJ67e7A8AlIZXGViEZobK9A8ZE5VGDbvUT8jLk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=f85xjx3XHd6cdXvcO5zBY8dLuwPVDtSPBrBTePAVCxMSQs3MfcXl60zFehajMNz4X
+	 owdv62riaGJOQdBkEAJHUzH0Xxlqi1S5GNrT4fydrhbZkEBaNf0G43cnAA2RJIhW0A
+	 K+tcJjdMvPnr7BU+/4a4JSayR+2rVC7sA3aZTvns=
+Message-ID: <d7f001a8-b5b4-4174-ad27-3d0739d1f375@ideasonboard.com>
+Date: Tue, 1 Jul 2025 10:09:44 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR10MB5681:EE_|AS8PR10MB6433:EE_
-X-MS-Office365-Filtering-Correlation-Id: 86f3da64-080a-4ee3-4bfc-08ddb88c4fd1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q0NtYkIweXdULzBGL1BMZllZYkVpS3ZmbE5MNS93QXhkZCtKM01zY2tVVjZp?=
- =?utf-8?B?ejEvNEFjdHlrYVhqREVoN1liaGRWdDBoNUM5RjR6NTE5c3l1ZHVFT050bFZ6?=
- =?utf-8?B?TlR4b0w0T3BLOEE3T0FFYVdFYVB2a1crd0txd3UzK0tZcVl4ZU5JRE5jZlZt?=
- =?utf-8?B?d1ZGTVNNdnJBRzc0cFV1RDlZVndPWVlhYW13ekF3ZWRVYWlSelFOMVFJS2Fn?=
- =?utf-8?B?cUZCcVlGUkFoTnBNRzU5S0tWUi82Y0FNVnU5c1hmOTNickRBVk1pUnpScEpK?=
- =?utf-8?B?ckI5MkJEcFZ4akZhTkFFa1ZaRlhIbWUrUlBQdHg0dXlIQWZkK0dhOUR2WWcy?=
- =?utf-8?B?eFBVeGtWWDBTby9TeDNlKy8wZkRGUHdsUE4vWG1qTjlreFEvOUMxZExwcjVS?=
- =?utf-8?B?eTJ3QlhMcXFXNzlwWVF2TlVJSk1pWDhFYmU1TjZKbmwvTHZhbksrdjJoelI2?=
- =?utf-8?B?RUV6bWd4VUdiNDN6WkNEbVptcFN3dkVHeUsySG53VlQ3SUwyRlhnemc3eGQ2?=
- =?utf-8?B?TGRYSkhKSEJoQzJuczlOcHlDTFQxNCtCTHRINW5JR1RuYlZtak9WY2J3ekpH?=
- =?utf-8?B?TS9BNU5CalJPVVVneFFJQmk5dDVucHhITnI2eDVQdzhxYjNLcVpScS8vMHJx?=
- =?utf-8?B?ZjczOU1BRG5hcktQN1pIMlkvVm1heER6cnVjN2toSXBVdlV4ZjZqbFlROEdK?=
- =?utf-8?B?Q0h2dDBCNWpLdzBBdTB0dUJhckJhLzFNd1ZuTG4vUDd4OVMvV1dRdHhjTURS?=
- =?utf-8?B?Q1BHaXZWNFp6cUtLQ1luNkpVQ3k4MHpnTkZ3aGpQUWhFOGUzam5DYUxtQk1B?=
- =?utf-8?B?aFhKUkdYcmwwcXZ5L2JzTFZxOGNsNUYwaEwwdHM5V0MrZU9ISEtKTWN2QnBs?=
- =?utf-8?B?YS9LNkFtRmZ1UnhpcnMxYTVRYmF1Y0lDTzFSeDRFdFdOQ1ArYk5aUXpBNEpm?=
- =?utf-8?B?Uk0wSlRTZTZVZVR3eE1QWE5jNHlBSCtraXpETEs5RlRtVFFGWFJOTGdibXhE?=
- =?utf-8?B?T1JSRkxOOWdDY00rbm8wYXg1UVJKbDM0L0Y5enAzVTdGdS9PeFIzL0s0Nmlx?=
- =?utf-8?B?b2RLemdaNDAzOHk4VGhOZHZLOWtZSlo1VFYya2JOZ0tMTHJCc3hxSmF6VHVX?=
- =?utf-8?B?UVpjVmMyVk9tTHNuWnZSYnI3TkwweXF4TTdQMWpnTDNtNVlweDJJdEVTZXZr?=
- =?utf-8?B?VmthaFVlS0RVeTFxRWpEVlZkanRYL0c2SzJvTFZSK2VwbjFBdDBEdjdPS1NX?=
- =?utf-8?B?UlE0N3pVUm1HeHA2SjAzWEZvbEkveVBDTHowUWZiaCtTOUJ2NFp0Y0tPc21u?=
- =?utf-8?B?enRLMHZQS2dLcXBaOFZtdTN6MlZxZ0lxQ0diM3gxM040TlJqS1MwWkcrUVl4?=
- =?utf-8?B?MDhTQnNvVlhCVmQ4Nis4R3ppZnZPamVORnVpVWwraE8yTVVkUHV3QmpJck80?=
- =?utf-8?B?dy8vSWNuWWJqZlMyNyt3MkgraDU1VW00ektLMlpIS05aLzZ1TEpPU0VUcUVY?=
- =?utf-8?B?R21yR0tYUjYxdllOaWhiaTNqeGIxQzRhOHF6QUJ6Nm10aFhrem4wWDlka2hZ?=
- =?utf-8?B?L2ZLZU85LzBUSHJmSSt4bzdaSDMweGNHTmpnSjJ2MUNEMzFHOTNmQzEzOVlP?=
- =?utf-8?B?ZHlTWEdMQ3U4OTJEbCttaXpaZzVjdWpIREY1bFBzRjQ1b0M5K1M4TmowS2J0?=
- =?utf-8?B?UzBJcmxsY20wbmNDUlFWeWhGZkE1b3RHNTJWVFdoa1ROL0s4VE5lZ1RMMTQz?=
- =?utf-8?B?ZTQ5cmpidThYdDBLRTBSOXNSdlI3VHNadDlVVUFBVWVsblFyaFhMVFBKbldQ?=
- =?utf-8?B?bHNGdXFTeXRyK2VTM1ZrbnNRZ2Rqc0YzZmc1ZlV5cWNmcHZXdG00dkxLc1Fr?=
- =?utf-8?B?ZFhNOTVpc2xZU3MxQlFkUHFDeklRRE5sVlVEdzFDcTNTSWRMRlVEc0dMdExm?=
- =?utf-8?Q?oilG3AHun0M=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RllVRjAxd3FmUWxSUkhFeUlXRDRDNXN3ank1azZLRmJ6cGJYWVFKSVlUdm9N?=
- =?utf-8?B?bmhBQzBHbEM2WmZHUDNtN1RRTHRoN2NGSmFOdWZMbE9HMkFROFMzSEdOT1Zq?=
- =?utf-8?B?ZGI3T0hSNm4vQldPdmRQcFRheEttcVMreHUrL3c1TXNRUytoRmxkVFZrOVNQ?=
- =?utf-8?B?MTBQcmd3WjV0UmF1TDdYazZ4ZXZnSy8rNUUwZVUrajVlQWI0MENHRlJ3eW5r?=
- =?utf-8?B?UXlwV1llOUdyYUNPMnEvTnpxK2Zaa1BFM0wwb2djRGtvYTIvS2tyRjFLQXlV?=
- =?utf-8?B?bkF4MjgvVDcrQzRkRG1nZVd2VDcySU9rWlB2S3gwNFdaRjAxWjFYREZ3MTJJ?=
- =?utf-8?B?ZDlJRTI4OWQ3RWp5dWxEb1ZmenlZczY2OWNDeHVMR2JPQldEYURQUnZnK3lK?=
- =?utf-8?B?bjF2ZUZid2tWeWt0WTFtZldaeXRkZk8vaUlIWExIKzEycCtvWUw5ZXVDRzBn?=
- =?utf-8?B?L0VTcDlDcjd0SHpZb3BmQkZHZlZkbUtYS3FyQlNRNkRDcEhzL1ZFelIraHIy?=
- =?utf-8?B?SXptTlNoQVZuNDl3ZmdIb0ppbFduazhKM3ROcWFuMHFmd1dYaElrS0ZMaERm?=
- =?utf-8?B?TU5FRkdENkNzcjNHUVBsZmg3amkwbVhwQWlMWVlzZlR4dkJRWEk5UXZhOU9K?=
- =?utf-8?B?QWVWWStEWXNrbnRrUHhkU09qSXhWbXdydlEra2hNdzdZQ3gwQnVFQ1lVek41?=
- =?utf-8?B?bzNCNXFBUXdCZDVoOHY4cXM4aHBrcm5JYi9uTkpLdnc0VnpJMVRnV2tZTGVR?=
- =?utf-8?B?MmFKclE5bk9MSkxCdXRjN2N0d2szYTJaSE5iQmhWSnAwSThwYkJ3ZzcrSE5r?=
- =?utf-8?B?RXNXd09zdnA0OStscnRpSitsUkJ5ekZpOWlVbnBaaW00RitqandKQjBLb29s?=
- =?utf-8?B?VGJWY2VjSUs3QWlHZ2x2L1FleCtNa055aGRNYWZpMmwrbnc2M05yVTlsS0VS?=
- =?utf-8?B?Q254TEE1dTVWRllFVlpHOE5XTkYvcWFHb3FqV28ySEpoWGg0bk9rSS9LRHRI?=
- =?utf-8?B?QWUxZWRRSUc3aG5SWWJDNUg1K09hck5QK1FUcWNFcWpzdDFGdVJ0WWNMSUhm?=
- =?utf-8?B?cUwvb2kyNlZHV3QwYlZMTVgrVkhXOEtFWjZPeSs3cDJINFVCM1AwZkdIYXRu?=
- =?utf-8?B?WHZUckMyaDd1SENrUFAzSnhmaUNjNS9lY2V3QmoxcnJLRUJReGpyNXhYejhp?=
- =?utf-8?B?NEZ1anIxY09maDBKdlg5bFI5NEl1ay9Gc0JJNzNvc0dvdUl4c2JVdGNnNUxY?=
- =?utf-8?B?bjhWa1pWaXV2RENFK2NIdUc1VVdJVmpyb0VQN21zNkM0WnhERTd5blp3SWRu?=
- =?utf-8?B?T0s1dWNvQU92Vk91bVVPVXFiWWNyWEpyVG80RzVDOHZoZE5WejdOcnd6cWpi?=
- =?utf-8?B?QzJvaEdrZjVSZ0xQeUo3NWswT0krd1VDekZsQlh4L3laWTdKVjBBMUlpL1cy?=
- =?utf-8?B?R1l6QStPdWFUT0ZKdkR1UDBzeksvU0MrS2RWdUR4dFdIVGxITUZ6cEZRcHEz?=
- =?utf-8?B?a3lTTlZJMVNLOUlZbDdnVlBZUlYrZUprMWdJSENjVVdyaU5UM2FLTEgrMFVs?=
- =?utf-8?B?R0x6WmFQYk5Fb091aEJMdHpVWmZrcHNVMUZYZzRRNlA3TG00dThIZ2xQWkM5?=
- =?utf-8?B?clFYWExWVStjM3Vzd3NINElKR2p2cGVzZFlaTHNVWE44aUZZaXo3cDByV3VG?=
- =?utf-8?B?bEtYY1FjN0YrbmsxMVF5RnhETEhxWEVTd2wvUEJtYXNzbk52cHRDVDZIQmtI?=
- =?utf-8?B?Y2ZZKzdXN2RwQnB4NnhGNVhKMGZINzB1SlVUY0FLSkVIeHVMdG5DUVl0U2p5?=
- =?utf-8?B?OVZnaUlDRUU3SS9mQmdsZldhUmN1aTlVeU5icTE4dXZ4VmFvcER6NFhCOWo5?=
- =?utf-8?B?ZVE5TVhLcDMycEJmdVpid2k2M0xQSUZ0ekJ2NEVveXI4V3U3NU5ZWlJXblgw?=
- =?utf-8?B?OHVsYyt6dkFueDlxT0pZSmsrcHp0blU0R3lrVk1QOFh2cGw1NGxpOVNQb1BU?=
- =?utf-8?B?bFhJYW00V2VSRHNFN1ZZMlhWdjVIcUc4MGRLY3pOd0pxN29sa0dpVFBKZnZ6?=
- =?utf-8?B?UmF3dzdqWGpHdy9iOVlkOFo3Z0lqT0c5NWhHNTN0SnZ3cDFOckVNcEpRNEkx?=
- =?utf-8?B?YnNIZDgrM2NyRmdmRFRmQldHbkNjWXZwWUZGUmU0aVliUlNkdlcveXZhbE1q?=
- =?utf-8?B?WEE9PQ==?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 86f3da64-080a-4ee3-4bfc-08ddb88c4fd1
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2025 10:44:53.2308
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: STzLnt7ZtFnnMR16/2pw0JLe6DhOofSUoq0T+oOhQUFBK93L8vodBNqIp0RF4K9rfLQQngFaj6irB8ISami4Ljdka5e7c6v4Cc5+oxtnfGA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB6433
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: pisp_be: Use clamp() and define max sizes
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250701-pispbe-clamp-v1-1-31243db3439b@ideasonboard.com>
+Content-Language: en-US
+From: Dan Scally <dan.scally@ideasonboard.com>
+Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20250701-pispbe-clamp-v1-1-31243db3439b@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_034503_814418_42A710D5 
-X-CRM114-Status: GOOD (  34.27  )
+X-CRM114-CacheID: sfid-20250701_020949_838547_70B1D327 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,150 +116,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 30.06.25 um 14:17 schrieb Marco Felsch:
-> Hi Frieder,
-> 
-> On 25-06-30, Frieder Schrempf wrote:
->> Hi Marco,
->>
->> Am 27.06.25 um 10:46 schrieb Marco Felsch:
->>> Hi,
->>>
->>> your e-mail configuration mixed my e-mail with your answer, which makes
->>> it hard to read. Can you please check the quoting next time :)
->>>
->>> On 25-06-27, Pankaj Gupta wrote:
->>>>>> Add driver for enabling MU based communication interface to
->>>> secure-enclave.
->>>>>>
->>>>>> NXP hardware IP(s) for secure-enclaves like Edgelock Enclave(ELE), are 
->>>>>> embedded in the SoC to support the features like HSM, SHE & V2X, using 
->>>>>> message based communication interface.
->>>>>>
->>>>>> The secure enclave FW communicates with Linux over single or multiple 
->>>>>> dedicated messaging unit(MU) based interface(s).
->>>>>> Exists on i.MX SoC(s) like i.MX8ULP, i.MX93, i.MX95 etc.
->>>>
->>>>> You write single or multiple MUs are possible. I'm aware that the i.MX93
->>>>> has two MUs one for the secure and one for the non-secure world. But I'm
->>>>> really concerned about the fact that both MUs can't be used at the same time
->>>>> from both world:
->>>>
->>>> Yes, you are correct.
->>>>
->>>> Fix is still work in progress.
->>>
->>> So after ~6 months no fix is available :(
->>>
->>>>> Also how is the secure and non-secure world talking to the ELE if there is
->>>>> only one MU as you have written?
->>>>
->>>> Till the fix is WIP, either Linux or OPTEE can use the ELE, at one point in
->>>> time.
->>>
->>> That has nothing to do with the fix. The fix is for platforms/SoCs which
->>> do have 2-MUs, but you also have written that there are platforms with
->>> only 1-MU.
->>>
->>> This MU can't be shared between secure and non-secure world.
->>>
->>>>> IMHO it makes much more sense to put the complete ELE communication into
->>>>> (OP-)TEE and let the secure OS taking care of it. All non-secure world
->>>>> requests are passed via (OP-)TEE to the ELE. This involves:
->>>>> - eFuse access (done via OP-TEE i.MX specific PTA)
->>>>> - ELE 23h59m ping (kernel SMC WDG driver, requires OP-TEE watchdog driver)
->>>>> - HW-RNG (kernel OP-TEE HWRNG driver + OP-TEE HWRNG PTA)
->>>>
->>>> There is a dedicated MU "trusted-MU" for OPTEE-OS. The idea to converge to a
->>>
->>> Yes for systems with 2-MUs there is a "trusted-MU" and a
->>> "non-trusted-MU". As of now, there is no fix available for using both
->>> MUs at the same time. Furhtermore there are platforms/SoCs with only
->>> 1-MU, as you have written in your commit message. This 1-MU system can
->>> have the MU either trusted or non-trusted.
->>>
->>>> single path via OPTEE-OS, is good. But it will impact the performance of the
->>>> features at Linux side.
->>>
->>> Performance? We are talking about a ping every 23h59m (I still don't
->>> know if this is a feature or bug), eFuse write/read, and the HW-RNG
->>> which can seed the Linux PRNG.
->>>
->>>> Since the fix is still WIP. Let's wait till then.
->>>
->>> The fix is for the 2-MUs SoCs but not the 1-MU case.
->>>
->>> I would like to have a system design which doesn't differ too much
->>> between SoCs which are equipped with the ELE engine.
->>
->> Do we really want to depend on OP-TEE to be available for having things
->> like OTP fuse access and HWRNG? Personally I'd like to be able to build
->> systems with OTP access and HWRNG but without OP-TEE. Requiring OP-TEE
->> only to make the ELE available to the kernel in cases where the secure
->> world isn't used for anything else seems to be unnecessarily complex.
-> 
-> I understand your point. I don't like pulling in more FW neither but we
-> need to the face the following facts:
-> 
->  - OTP eFuse R/W access after doing the LOCK_DOWN fuse is no longer
->    possible without OP-TEE. This involves general purpose (GP) eFuses
->    too. We faced this limitation in a current project.
+Hi Jacopo, thanks for the patch
 
-Ok, interesting. Where do find information about the LOCK_DOWN fuse? I
-don't see it mentioned in the (Security) Reference Manual of the i.MX93.
+On 01/07/2025 09:55, Jacopo Mondi wrote:
+> Use the clamp() from minmax.h and provide a define for the max size as
+> they will be used in sequent patches.
 
-> 
->  - With new regulations like the EU CRA I think we need some sort of
->    secure-enclave anyway.
+s/sequent/subsequent
 
-Probably some sort of, yes. But not necessarily in the form of TEE or
-TrustZone, I guess.
 
-> 
->  - Making it optional cause more paths of potential errors e.g. by not
->    including the correct "secure.dtsi". Multiple paths also require more
->    maintain- and testing effort. IMHO I do think that one of the paths
->    get unmaintened at some point but we would need to keep it for
->    backward compatibility.
-> 
->    Having one implementation eliminates this since.
-> 
->  - All above points assume that the ELE-FW and -HW is capable of talking
->    to both world, which is not the case. As we learned NXP doesn't have
->    a fix for the 2-MUs ELE yet and even more important there are 1-MU
->    ELE-IPs.
-> 
-> I do see the (minimal) drawback of having +1 FW but I think this is more
-> an integration problem.
-> Speaking of FW files, for the new i.MX9* you already have plenty fo
-> them: bootloader, TF-A, ele-fw, scu-fw (i.MX95). So your integation
-> needs to handle multiple firmware files already.
+Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
 
-Sure, but I really like to keep the complexity and therefore the number
-of FW files as low as possible. I'm not sure what has more weight in
-terms of security: shipping an additional firmware and therefore
-increasing the attack surface or maintaining an additional code-path.
-
-> 
->> Anyway, I see your point of having a single implementation for the ELE
->> API in the "right" place. But as far as I know other platforms like
->> STM32MP1 also implement both ways for the HWRNG, secure access via OPTEE
->> and non-secure access via kernel directly.
-> 
-> I'm not a STM32MP1 expert but here you have this setup with the
-> *-scmi.dtsi. So you have two code paths which needs to be maintained and
-> tested. Also if one customer of yours want to use OP-TEE you need the
-> integration anyway, so you (Kontron) needs to maintain multiple
-> configuration as well. I don't see the added value.
-> 
-> I think for STM32MP1 the *-scmi.dtsi support was added later because it
-> required a lot effort to support it. This is not the case for the i.MX9*
-> series.
-
-Anyway, thanks for elaborating. Your points are all valid and basically
-I agree. I'm fine with either way. But I'm afraid that implementing the
-ELE API in OP-TEE only will cause another tremendous delay for having
-ELE access in the kernel, especially seeing how slow NXP seems to be
-working on these topics right now.
-
+>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> ---
+>   drivers/media/platform/raspberrypi/pisp_be/pisp_be.c  | 11 +++++++----
+>   include/uapi/linux/media/raspberrypi/pisp_be_config.h |  9 +++++----
+>   2 files changed, 12 insertions(+), 8 deletions(-)
+>
+>
+> ---
+> base-commit: 35392e855abf7d02ad3b061cbc75c7c7c37f0577
+> change-id: 20250623-pispbe-clamp-4b33011d0e85
+>
+> Best regards,
+>
+> diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> index 7596ae1f7de6671484d4d351015b234829f642d4..ac5840b4be478ccdd7da9d6d0745649e0c1b2b6f 100644
+> --- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> +++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> @@ -9,6 +9,7 @@
+>   #include <linux/io.h>
+>   #include <linux/kernel.h>
+>   #include <linux/lockdep.h>
+> +#include <linux/minmax.h>
+>   #include <linux/module.h>
+>   #include <linux/platform_device.h>
+>   #include <linux/pm_runtime.h>
+> @@ -1114,10 +1115,12 @@ static void pispbe_try_format(struct v4l2_format *f, struct pispbe_node *node)
+>   	f->fmt.pix_mp.pixelformat = fmt->fourcc;
+>   	f->fmt.pix_mp.num_planes = fmt->num_planes;
+>   	f->fmt.pix_mp.field = V4L2_FIELD_NONE;
+> -	f->fmt.pix_mp.width = max(min(f->fmt.pix_mp.width, 65536u),
+> -				  PISP_BACK_END_MIN_TILE_WIDTH);
+> -	f->fmt.pix_mp.height = max(min(f->fmt.pix_mp.height, 65536u),
+> -				   PISP_BACK_END_MIN_TILE_HEIGHT);
+> +	f->fmt.pix_mp.width = clamp(f->fmt.pix_mp.width,
+> +				    PISP_BACK_END_MIN_TILE_WIDTH,
+> +				    PISP_BACK_END_MAX_TILE_WIDTH);
+> +	f->fmt.pix_mp.height = clamp(f->fmt.pix_mp.height,
+> +				     PISP_BACK_END_MIN_TILE_HEIGHT,
+> +				     PISP_BACK_END_MAX_TILE_HEIGHT);
+>   
+>   	/*
+>   	 * Fill in the actual colour space when the requested one was
+> diff --git a/include/uapi/linux/media/raspberrypi/pisp_be_config.h b/include/uapi/linux/media/raspberrypi/pisp_be_config.h
+> index cbeb714f4d61ad53162c0450f2303431a5958040..2ad3b90684d7be80776af75b5c5009f7b677f466 100644
+> --- a/include/uapi/linux/media/raspberrypi/pisp_be_config.h
+> +++ b/include/uapi/linux/media/raspberrypi/pisp_be_config.h
+> @@ -21,10 +21,11 @@
+>   /* preferred byte alignment for outputs */
+>   #define PISP_BACK_END_OUTPUT_MAX_ALIGN 64u
+>   
+> -/* minimum allowed tile width anywhere in the pipeline */
+> -#define PISP_BACK_END_MIN_TILE_WIDTH 16u
+> -/* minimum allowed tile width anywhere in the pipeline */
+> -#define PISP_BACK_END_MIN_TILE_HEIGHT 16u
+> +/* minimum allowed tile sizes anywhere in the pipeline */
+> +#define PISP_BACK_END_MIN_TILE_WIDTH	16u
+> +#define PISP_BACK_END_MIN_TILE_HEIGHT	16u
+> +#define PISP_BACK_END_MAX_TILE_WIDTH	65536u
+> +#define PISP_BACK_END_MAX_TILE_HEIGHT	65536u
+>   
+>   #define PISP_BACK_END_NUM_OUTPUTS 2
+>   #define PISP_BACK_END_HOG_OUTPUT 1
 
