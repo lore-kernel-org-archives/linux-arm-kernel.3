@@ -4,82 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C010DC8303A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 10:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C75C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 10:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dcd4NU6FYr604eOyyCsaYvr/dR8yRtKW86HNNymhJ7U=; b=CgAIsasb4mREQU5HMFv+Nd5+nO
-	TfRdf3Vi+HSRUDEYKQx7nu7Apjd/8fKGnlfmmw9y7s+q/+CwAkdxO6DRRtrF1plrm6VMYUShPvPJI
-	hLZFVXpE/M3S18HwdKxXjYYJLOezKz2CcYqmMiO4Ylj0wFFhHM/xx2NMJb+lB+TCZ1L+YCJIRlm41
-	pdU1PsHp+ibMcpgOw5KLarjpM9j1NWEw4DHFHbUpjGcjyWckPtOZiwgFNCaa+cbN4Gkxoy3TeHa1R
-	eKTDLnBTFgVnwZ+QhjxyWRTrXfr3DZvjrMOaCIxjMnF+y4Ax740+preX6SI/3gyNT3sIETMCNGTUX
-	DSyMv6hQ==;
+	bh=w4NZfgY3ZpCfkjGDsfzDaXyxdgW80fpnF5yZXja2QNA=; b=HaAii2+k1Rp4TxPERdqDpe7a8z
+	6kwEtXIF4a48ZmyRKQeKeCBvIs19beI3mRjipXhDD2lDODfG5Oy/1hgGoeGpL3oWH3On/3ZaAKJCO
+	O6bIe91Ug/KcPPQAcJQQ0Qw7s58F4cgJZJiw7jyj1yPB7tQhX11OVIxJaj+EcmcmHCeZ2nfUhWenC
+	QNAV2Aj5WzZa3OHEOF8oLKjg09i/KXM8OGwKb3UpU7TCxHGev9kwiJ61Q9K3eo4ZGuSjbVBPoE9Dv
+	jSTPaiEJeMHHVOk9b9iDg3ed1xr5PEb38LEhgSsk7gtYAfhXT3c/HfOmQf5YuGxqqbngptkpBJk7N
+	5btTKaQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXrc-00000004gS6-0tSU;
-	Tue, 01 Jul 2025 10:05:20 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1uWXs8-00000004ggg-2sdD;
+	Tue, 01 Jul 2025 10:05:52 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXme-00000004fI9-3LMJ;
-	Tue, 01 Jul 2025 10:00:13 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ae0dd7ac1f5so937958366b.2;
-        Tue, 01 Jul 2025 03:00:12 -0700 (PDT)
+	id 1uWWia-00000004TLp-2o2j
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Jul 2025 08:51:57 +0000
+Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5611NCk2009515;
+	Tue, 1 Jul 2025 08:51:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=w4NZfgY3ZpCfkjGDsf
+	zDaXyxdgW80fpnF5yZXja2QNA=; b=O6Pk/b9DPhzHL3dm2VW+R0bRh2R+LTDt3T
+	glQqZQkU0R0/hZii5p3yzLdrKqQdQDCYGcL2I2Y9Y9uZcW+bO6bH1GOsjcEHFlkh
+	M4ZpJBOKWRmXcXzD+/e1jBKBVmyhIbXc/gypkjrL2eC4ngyZP3V+wG4do3EhEw/x
+	G5+Ze/JiXPmk4f+grdsFaycfw673AkxlQ4QG+peR6UWv8/m8C6NZ9bRImaTRPfa2
+	5pzHTSN8ETE0QUtr/nGqaOBTPTwlkznHg8LTuslAK7Auq8n6GYg5GpmVHHZlSlCR
+	Qir3jtI0tzWUAaqUPP8boLLqlUoAkhS+2sxtoMukmxANtolYW6yw==
+Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 47j766ca9n-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 01 Jul 2025 08:51:35 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5617542F017487;
+	Tue, 1 Jul 2025 08:51:34 GMT
+Received: from nam12-bn8-obe.outbound.protection.outlook.com (mail-bn8nam12on2064.outbound.protection.outlook.com [40.107.237.64])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 47jy1e7kf5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 01 Jul 2025 08:51:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KCaq0eyCk9VisA90I6xGIzgzEJFDBFShRT5BcaMeCgJOEplaKY6NIm6YiT9rERv4FcRuE0CzzN6wRTWRlFkmlgKSxA46a6ocKSCNmkHclZs54h23/VhwGiLU63pgvUz9S3iL0TIQ3Kxbq6u4t4Nx7QN4RnlgkXNwjmAoJ9IheBLMMDPYz+2iOVW6azN/uIz5DIjyRUkRJgi6p99WCO/S5IsvjrS9+UNYQAYARsPRjYL5/KtHbi+PgVMLsW6gEC2g1UDvksx+vqbgElcaoiyMbj0fssfT+6YbrhaMAf6sRqv8ToiGP4l/xggrrD5u/YZix8nI/QX7P5Fa2PpYEvuKLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w4NZfgY3ZpCfkjGDsfzDaXyxdgW80fpnF5yZXja2QNA=;
+ b=FAGNA3rmWbzhIPxKSgt6ih5D+c+lecUlilzrZhaQfqj3zmaUUc9iGoOY1M4NZCGJRAA7wqwAjO3KmFjO60wjuc37S6mY+M8P0nkBIDG/cFWvuRQXnCgOM+PCSaEEUZV2SYg1Fes9+RN9Y44NUYfI2L8be/rpFAc//rdXhs36z4OCkGir426AliNS7xt1/OrHpUruMVddTj1xlD7wgZ5WYow1B4zympL5wuPrmie6jGS2yZctK34O4x/OUSIvuPZQd9/XUxxfPqRGQVl/xbOczrPXSZ4k0bz/0b1knO3Z15hJ/TFhuzqiHHCRCnqNZmashLIhXAIl6sIAhaWFQaQoxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751364011; x=1751968811; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=dcd4NU6FYr604eOyyCsaYvr/dR8yRtKW86HNNymhJ7U=;
-        b=cxZylHcjF8rwqnS+YudER6v/2E+Fyl7jpCIQwVTC11/wSXG/i0CZ5B9h2EcyAfd13p
-         k/ye9R/AvhZmP7vzc8BBAU6STggam7Zs55Yj4JpaeGhqmdPHq1a7I+EJJcN2RqWCAd+e
-         RqIcbKrhSWwC9wWYQPGqO9UfY6r25TK/tu7uShR6WbTQ6SUaXvZrRDhxEK8pBc1PALXh
-         mjBrsplyf7yXjPfoKf5BV0TCYW/w/PL/mJumug2mCgfxG2hEPuNsUb/LW5BSxab+PYz4
-         03JCU+QUNUgsX0FP1u/tjwZflv+CHhAf1OVqK+CeAAmwQS+vYUN3FhibjPBzof8hYJig
-         1lyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751364011; x=1751968811;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dcd4NU6FYr604eOyyCsaYvr/dR8yRtKW86HNNymhJ7U=;
-        b=rZw15OTqjd5wIMlIshlyYv5053IlSR2a+VGIXeu9ip9YEiBvlx5BaO1XEVqkWukF6I
-         8MaSpmvF/dyiBiUxfNIh3/8fc0W4e5UARJwwKeXKGDPiMgmtxPefIvCxMO8b8W51oIaG
-         jcIFJEczn0/6IXQX+RUnUcQa8J66VlASdSNOoyLJjUGgsqM6LfXRLT9u+s7FOW3ho3BQ
-         8/8YwcwSdm4GO6FIpBBzaVKPgS1kNyK/aiuJ72S25O0+RTD0qhmknB2Eb9bUiG5QETDz
-         6VW8KMi9kFumUaEMB49/WEI1cMjkCNJ00/QoOOGWUqNv06pG+6lLU8Ih/1CS1kq/KKSF
-         iSng==
-X-Forwarded-Encrypted: i=1; AJvYcCVqjvLmAPqD8j72Qg1yL9Rn3QqmMuFELZAQNolWMKvLaYLUuLvekk2n6IeUjZ2vQddFk8dus7AABVIF0sxK@lists.infradead.org, AJvYcCXYekZmdZPS/3VcONHAbOYJdW4d/lpbViaom3uRePOaEqfYclgiWFSMA62J1ciAFGWDYENePZFwes7+6omM0ZyOng==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOFPnv/rluuvOOlw63yEXqS6B+kLAao7+Ajvuzo0S3GZT/kl2p
-	yenOYq5lfZVGHgINNxo2PSH69M/z5L6GHiGBvzzMTuLgD5KhImEwlgh74JeDKIo08UXirE6ZExN
-	JDXTgnCWZjtMZURQ3tufVe1T4s0IxtZc=
-X-Gm-Gg: ASbGncuHMqjuHDSTMIdtUOGqUOrhW8AqCNEfygKEWl4PoV4JhmFdZz6R09hAIeLuQ6S
-	dX0VD+lom5dMYYJc5XJmwW09RBUGqFKYmzOFindrNrl3kFRF6e02ZDbFrTDXzy/x3Y9AhFP/rhK
-	JZTfljg1mPyJVnHHPnfnUH6Tbm58hpH/MR2YK5FXw1
-X-Google-Smtp-Source: AGHT+IFVGg9I7ij138HqjSz3k5NX/sRlfBODxu7bE94U+eCEWNa8PihnyeL2ytQK8bGikHE/btLURU84ZtWswTf1e94=
-X-Received: by 2002:a17:906:7308:b0:ae0:ce90:4b6c with SMTP id
- a640c23a62f3a-ae3501a6b84mr1520367566b.49.1751364010417; Tue, 01 Jul 2025
- 03:00:10 -0700 (PDT)
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w4NZfgY3ZpCfkjGDsfzDaXyxdgW80fpnF5yZXja2QNA=;
+ b=RiMdVoRfvJgifUSnN/b0H1VBTKTFAU8Nz8NNizF4HBuEEH/bAouQJxC91TfpKU7zj1LWW0460ibR4XbV3bcEDlryw0QdDUOiMtVKaebhP+tsYcdeZFaYrllh/GXp1NHjkPczDP5XZ/8TfJjbrhqL2qFnPrt1dxaelnKu3ra2Cig=
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
+ by DM4PR10MB6039.namprd10.prod.outlook.com (2603:10b6:8:b7::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8901.19; Tue, 1 Jul 2025 08:51:29 +0000
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2%6]) with mapi id 15.20.8880.027; Tue, 1 Jul 2025
+ 08:51:29 +0000
+Date: Tue, 1 Jul 2025 09:51:26 +0100
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
+        willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+        vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
+        peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
+        baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+        christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+        linux-arm-kernel@lists.infradead.org, hughd@google.com,
+        yang@os.amperecomputing.com, ziy@nvidia.com
+Subject: Re: [PATCH v4 3/4] mm: Optimize mprotect() by PTE-batching
+Message-ID: <64c2ec85-87ed-4793-b0e9-a68eac1a8020@lucifer.local>
+References: <20250628113435.46678-1-dev.jain@arm.com>
+ <20250628113435.46678-4-dev.jain@arm.com>
+ <0315c016-d707-42b9-8038-7a2d5e4387f6@lucifer.local>
+ <ec2c3f60-43e9-47d9-9058-49d608845200@arm.com>
+ <5900e978-6349-4a3d-a384-758889b678a0@lucifer.local>
+ <3776ac82-4cd5-41e7-9b96-137a1ae6f473@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3776ac82-4cd5-41e7-9b96-137a1ae6f473@arm.com>
+X-ClientProxiedBy: LO4P123CA0682.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:351::7) To DM4PR10MB8218.namprd10.prod.outlook.com
+ (2603:10b6:8:1cc::16)
 MIME-Version: 1.0
-References: <20250628015328.249637-1-da@libre.computer>
-In-Reply-To: <20250628015328.249637-1-da@libre.computer>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Tue, 1 Jul 2025 15:29:53 +0530
-X-Gm-Features: Ac12FXyQuaHFFKC-1pIWDliDfzZokX1a7f9rk99GbHKLqTGFlt79NOp9T2kO1fE
-Message-ID: <CANAwSgTH67T9SBQSFQgFjvyrxNCbtfd9ZaCDZFACWA=ZQ-PYtQ@mail.gmail.com>
-Subject: Re: [RFC] mmc: meson-gx-mmc: add delay during poweroff
-To: Da Xue <da@libre.computer>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-mmc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|DM4PR10MB6039:EE_
+X-MS-Office365-Filtering-Correlation-Id: b4330b6d-6763-42fc-d4a8-08ddb87c789d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?n4vBLOExP4xPHSwk+FuWEKyhF8aOrkz+NZVtn6SUrarwHVfYVKGhLXGaI4ce?=
+ =?us-ascii?Q?hGldK43zsnWnyaWZ21zbkYgHIkAOgb5vcGxGfABaZbxWEKzKOmbM8gpUiggz?=
+ =?us-ascii?Q?1aiifgr1oQTur+NesFdE+5vhLgZWzCE/lU94i0HMDgItrv7gxai4rnuL0yHK?=
+ =?us-ascii?Q?+R3X1XcgEQCBvwLeSd9/8OeeY8u59fauSpBAcJJw7Sd9lt0sWNdZaZ9mJ+Zo?=
+ =?us-ascii?Q?NF+Do/IP/8kaN8SLy598ffNILxaVasOfTbeW95DbRAAB+4TCfbKjU/WLWmXm?=
+ =?us-ascii?Q?xMwoWQPnlJhHDIRe5lld6ncquT95HNQjRwe77N6yBtGAcgRvtE423LvEXeMf?=
+ =?us-ascii?Q?T9ZZd9RvtOVMI8iaN1hWZzkQJ+teovSGdthrzIazgI05n4uF3VIbSn2QUcQA?=
+ =?us-ascii?Q?VSgGt9ClSytXNJ0sYNaswZT/mDKCN6fcUN7rMvhoE+hCu4QK4VsI6u8OBYHg?=
+ =?us-ascii?Q?LgJL0+ZjgNNXAxdU9ffsaO0PRNw4HEXi7ZpowsCS2f56bjGevReT+FAS9hL9?=
+ =?us-ascii?Q?X/lCNpcwPhMHytpp4EVca0ybssClch8DbSrP3bpPN059lxdEBiwpc2SgiZxq?=
+ =?us-ascii?Q?S51UTXBc5rwhlhSra3AoCcZFZbs/ftwjkpIKihi2zbyqCFmQj5YOu1x8H2Pm?=
+ =?us-ascii?Q?YJDQ4DRoZUsr+q1F3NhzxFmcBkYLUmzFLhyNVd6mVh0LiblGIJ4FJrSTgz1p?=
+ =?us-ascii?Q?W0nMG1BO4i36lVM+wA+/78mWEC3qI6u/jbdTpC6drvJdSkj7gxmW+k5LvY8X?=
+ =?us-ascii?Q?ZQx/n9SfAOe3xH5P8d92hVyPSmUjWVc1peC34V8Oj4fqLgwNjX58uvIRCrDe?=
+ =?us-ascii?Q?rjkPpT/fjajnqCU1utNrZJJrYwoXrwPQY42oDa3r3u0U/sd3+xKlWAVGoJca?=
+ =?us-ascii?Q?/F/sKH1xhoyuvF489vcGJQjhrBWIUkkAEHBacksKzx1iY3fPen72Z0koD4WJ?=
+ =?us-ascii?Q?Fle/H1stSpN3OEUIIF6CR4IPdXPALjFIThSW8Js9IPJIp9WhbtSnvhngJvNn?=
+ =?us-ascii?Q?rzIzbYlOE1hoEsPDqrp8Kuog++EPp7GRwvLXGN/aj8v1qWHEg40V7WbxwY1W?=
+ =?us-ascii?Q?utIL/Q6T6rWt/wAzXdntmQEJ9yaKJfDVDqbk46KULmE7m0A61ecrdJfJTuqW?=
+ =?us-ascii?Q?fNpFC7hDBCvwsQKKI2Ct07h5qJ4fDgvg6ypcI1uLog9x8oTIkNvj4kUzD46R?=
+ =?us-ascii?Q?9OW1n4hjskpHITRdTfkHx0xa4dKaeQcK6M/Wb4dTn25q7Aty0ejJlmK1Nc3+?=
+ =?us-ascii?Q?pTmjzm85us6eCP3l+lp9ALhCtbp7ptwHxear1t/H6I96dt1gP+vpgkjJQzz8?=
+ =?us-ascii?Q?juRxIgx+n2N5+sS9HXKZzf3ci2qaQFUC35PoWgGbFtEYeLU7Epiz8v3gUWJS?=
+ =?us-ascii?Q?nC19OH5nSM9Op5bBg4OzqzcShcuuFL+ROkmYxX/hs1gRvC8MIZZv6U/UaBEK?=
+ =?us-ascii?Q?X7zPhaEJZpM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UvjO/1ouBbskyWlBlc4vy0Vx1cPMY9ho7nzSuGb9KySRvnifb9TVyZ1TlnEN?=
+ =?us-ascii?Q?Cuuo6EfSsgMdpEkwicbgyC4csYoeip9Ua06WrPgZk72mi/5E76muk2CcopsF?=
+ =?us-ascii?Q?5hu9uAw/Nkc11Dh+qiEY6KiH/9jNh8ouul2u5MG1bXhtuRkb8fJJ3X1Uw1do?=
+ =?us-ascii?Q?PizUoNQ4q3BK12KcTJVlmsjd4mKbTpENoh/mhkczla92hSO0RGwUa0K45G6V?=
+ =?us-ascii?Q?wrf+2q99UvLSbviTwiUfUEXYUuiyh/W8Gorb+er6ig8zKG4WzYmdxRMkM/XM?=
+ =?us-ascii?Q?cUVVKMHJxe9lmfFx5+NL5DguRE5orxT/MJKM164lu/5BsnGzQMae8oAvBGeG?=
+ =?us-ascii?Q?GUgoGSKQLuqb6ZrKuZLygbiYYG9DUuwf9KkA/zxU18Dx5+6sINimEtMJB2hR?=
+ =?us-ascii?Q?iTuNMA0cKWaEJskkT8PuOeTvYtoi+X8isJ5VsdmjZK/An60sZoBXYaKQx/hY?=
+ =?us-ascii?Q?Cn4E0VFsaSTSKj3kmuVaIcP4ZwiUflj9szZisd9L2mwQMljHhrpHiC3b0wYr?=
+ =?us-ascii?Q?GLSVo+vl0WOYcTWPy/HObcCbJ/VPm0Y4f1x6PEk0haEFjgzYjZi7JTvs/S9u?=
+ =?us-ascii?Q?qETw04YsNCPW6pAoKCRO9YK057iVWwB9qGDmxSaF/pBs/KMxOfrvVnMus81V?=
+ =?us-ascii?Q?ZOdRZnmhN+K90B5gHITMlntqye8Xsrff5jsHHQ008tTl8fVHg4GUbPGSGmDq?=
+ =?us-ascii?Q?Du3gxpDnaWsh8GbcdE+USJsoVN2yUpzQDPcJgaEv5JB5vqjVlPogFibXcXIH?=
+ =?us-ascii?Q?AKXtEsHJ2EQKhH1yH0QxuJoRw25ZGLbF2UwmnOmZ6Mi0rfV2pU1KkL1Dg+1x?=
+ =?us-ascii?Q?x1mZ4Q6h9FVXGKyJ3dxravvs+IBTrAHhNDDrifyC8lfqdxlQH/UEXbRjw9WX?=
+ =?us-ascii?Q?zyOKcgKaDtLY8Rz+ObP+fa3o8XeBk2MRWGj7Tqu3iegZBoqxwN5B9n5VD5H3?=
+ =?us-ascii?Q?VnXSkSMidC7au10tCakCr1lN70+zdP+CNvhmQ04Xp7D09cl5lclSQ4v9yz1k?=
+ =?us-ascii?Q?7wekl70iUCeVxyOh63Yu26n+bYc5CPHscFPSMufy/vvRJ86RK0Fb1Yv2sMNP?=
+ =?us-ascii?Q?8Sq+5/AxZlOBF9vjHApOI9MgD3InjDK+E5M1YKD7IPvD22ANjjn97ePpM3SY?=
+ =?us-ascii?Q?Ta6lPyTocH/LYy1k7uMokkS7Ah8Su3vDb+cyeU+HvMVyOCrEuQI/FlqNXUpJ?=
+ =?us-ascii?Q?8uyvgfvsjVo4HVQCshs6k64193s2PrrhD6tChylktOqMQ8KBScvprxs4rqPY?=
+ =?us-ascii?Q?LRB75eGd73pShyHDkLfxKsC/ysFtTFfj9ouaHlJ/TQVWy6jyODhsdNkdIXe0?=
+ =?us-ascii?Q?NVEXs2nMwM19eE3gUtf8cYklCBg9SvhWNgTvnX20xYCRSHsC42JarZXWoSZo?=
+ =?us-ascii?Q?bmNuZUzRkHCVqPLSebJcv+iakc/9j70EltkPEW51P2BUmxeqSSnQEOIp1K6Y?=
+ =?us-ascii?Q?XhKgbqWoPh5YhdD9GoqSqf5snrbqFDY2esLfwJ8h7igvmNWYBF801L3k/Km9?=
+ =?us-ascii?Q?Ht1R3KiB9P4pT4QncV2/WAY0UYYPvsU0woiGnNW3s/YZBzAdZOROTTfOL9ep?=
+ =?us-ascii?Q?K8ea7Fr1q+Qdvg8gXNYhvEqqHEC+zLeiGpBqCN0NH7M3cAFHmO8u6Wo3wXNV?=
+ =?us-ascii?Q?kA=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: C3voH5NLK2GpooGZF+LM3O/FzWddLSDmXYXoQBhLHlZ9Ev0F7b0Gy/5K7Z8ERV0As08/rWB4JQBNN4Z3vr0vWwnaDRpGXRsWw3Ou1ib4pG6HG6/ZbOWVjjvWR3Fw9zqB2PVTMOXyn7HpFQmn5X0wLY4/GOCS3XK2j1/2hwmB0KIzEH/EMRuN6gQ4dFLVSiwSZ1SnKdN/qI2DSzGrltZgxawST4cwi+yyWRKHC1Gbiwlp4pXU53V5krtBSe88X6sdvaNk5OnBGtTws32nACgr2CpCLao/jqjE1eZRNGmoK8A+slbCplSfDjIr1mii+QyWjLZStyR/9F977QAKPmkltcLSB6KUCAl4PoNMXoCMpZXguWjJwQFGJIlDlx/eqlFaEUlTFXYA66luipawpZx+dCV5VMFXT11/ONUIZWEy/WBCmb2WbxSv6i2/ZKnxAE+wy4RDgldKGccOjts8QrkZMsFhRii+MIEI6qhk8s6vh3tLUVOoNkZeY+cn1VMDnfVMzeyG4AEQI1boslBK5nBjGfIGj8ZsOuk+sIxfv5EhQ/+EnVUD3R4kcSmZUusryf0UIbmhuVAbxSoPKJJQJ5cOT7a22halQrqJQwC1VURkhn4=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b4330b6d-6763-42fc-d4a8-08ddb87c789d
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2025 08:51:29.6164
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7LaMjslnm5S8YMvfOY8H9y/l7o4BWWE9r+UeiOfP2q9ngIaAtnCd5w/g0t6H7G6BCczdzLk/nHl/eYQbccAlksHIBybKEmLQSEsEUV6Ox18=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6039
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-01_01,2025-06-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 mlxscore=0 malwarescore=0
+ bulkscore=0 suspectscore=0 mlxlogscore=999 phishscore=0 spamscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
+ definitions=main-2507010051
+X-Proofpoint-GUID: Yl3G4W3TFh2E2y8QXO6sqa3zkFvgeDFI
+X-Proofpoint-ORIG-GUID: Yl3G4W3TFh2E2y8QXO6sqa3zkFvgeDFI
+X-Authority-Analysis: v=2.4 cv=b82y4sGx c=1 sm=1 tr=0 ts=6863a197 b=1 cx=c_pps a=qoll8+KPOyaMroiJ2sR5sw==:117 a=qoll8+KPOyaMroiJ2sR5sw==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Wb1JkmetP80A:10 a=GoEa3M9JfhUA:10 a=ZmlBPHrp7NTkakYfUGAA:9 a=CjuIK1q_8ugA:10 cc=ntf awl=host:13216
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzAxMDA1MSBTYWx0ZWRfX+QmjLS/JVmiP AoyY/1pIYSL2qw2QZMnWhodOU9AiDx8N9X+QM5bAuqJw846GUDbJqm0O7bgUarngbeLT1lBNMvS Lejwvl3rxgV0A/DfXe+T/p8nmhSXdzjHOoZLdgSRmj3VfZvVQbSjeVTwCihiF0tGAIX1kEV2rRm
+ MPWVGw37RJoEabs3ePE1zW4zIemhpqiB8/h4mJNsfRUrJhsdYIy2vSki3RP5paCvblxnA6Z8CXD w7Q3+HKPonF6D/d17UvrfX7jnuYBneRV6bWOWj8pVcU8/uC9fZcnQ1M2uIpRNqD7jZ5K78vtowM KyD/NduR1Nwh3YGRw/bo1wQrTgT/2vOtt8q5tDX93pC6lQSZeS/Yu/eMNtK+20m68Q/+2ml9cU0
+ jYUMzs5eWSjhfJL0K+edEv+qs+kFcCx3SBF86Opmeulq3k6lEN1bjS/sIEALeeCYU6+WBOKC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_030012_837219_1A8A1727 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20250701_015156_826299_EDED1674 
+X-CRM114-Status: GOOD (  27.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,26 +205,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Da,
+On Tue, Jul 01, 2025 at 09:30:51AM +0100, Ryan Roberts wrote:
+> >> In an ideal world we would flatten and just have mprotect_folio_pte_batch()
+> >> return the batch size considering all the relevant PTE bits AND the
+> >> AnonExclusive bit on the pages. IIRC one of Dev's earlier versions modified the
+> >> core folio_pte_batch() function to also look at the AnonExclusive bit, but I
+> >> really disliked changing that core function (I think others did too?).
+> >
+> > Yeah let's not change the core function.
+> >
+> > My suggestion is to have mprotect_folio_pte_batch() do this.
+> >
+> >>
+> >> So barring that approach, we are really only left with the batch and sub-batch
+> >> approach - although, yes, it could be abstracted more. We could maintain a
+> >> context struct that persists across all calls to mprotect_folio_pte_batch() and
+> >> it can use that to keep it's state to remember if we are in the middle of a
+> >> sub-batch and decide either to call folio_pte_batch() to get a new batch, or
+> >> call anon_exclusive_batch() to get the next sub-batch within the current batch.
+> >> But that started to feel overly abstracted to me.
+> >
+> > Having this nested batch/sub-batch loop really feels worse. You just get lost in
+> > the complexity here very easily.
+> >
+> > But i"m also not sure we need to maintain _that_ much state?
+> >
+> > We're already looping over all of the PTEs here, so abstracting _the entire
+> > loop_ and all the sub-batch stuff to another function, that is
+> > mprotect_folio_pte_batch() I think sensibly, so it handles this for you makes a
+> > ton of sense.
+>
+> So effectively turn mprotect_folio_pte_batch() into an iterator; have a struct
+> and a funtion to init the struct for the the number of ptes we want to iterate
+> over, then a per iteration function that progressively returns batches?
 
-On Sat, 28 Jun 2025 at 09:15, Da Xue <da@libre.computer> wrote:
->
-> Regulators controlling the SD card power need some settling time for SD
-> cards to fully reset from UHS modes. The regulator framework seems to
-> ignore falling times set in the device tree causing a few boards with the
-> same hardware implementation to hang on reboot because the SD card still
-> had some voltage and did not reset properly to be initialized again.
->
-> Add a delay sufficiently long for the voltage to drop so that the SD card
-> can reset properly. Otherwise the reboot will hang at missing SD card
-> especially with Samsung cards.
->
-Although the driver defines reset identifiers such as
-RESET_SD_EMMC_A, RESET_SD_EMMC_B, and RESET_SD_EMMC_C,
-It does not implement proper reset controller functionality,
-specifically lacking support
-for reset_control_assert() and reset_control_deassert() operations.
+Is that really necessary though?
 
-Thanks
--Anand
+Idea is that mprotect_folio_pte_batch() returns the nr_ptes _taking into account
+the PAE stuff_.
+
+Would this break anything?
+
+We might need to pass a flag to say 'don't account for this' for prot numa case.
+
+>
+> Then we just have a simple loop here that gets the next batch and processes it?
 
