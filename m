@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BC5C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 19:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D299C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 19:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UflXG6Npa1Ex9Xu8xYn0EEdz+Zs6jxI7fYDQRGm4bM4=; b=KPUHJG1xUMdfJa+LXvfPnI5vEk
-	6528ZrYBka4XTxKZAJM2v53tcRIg7iMWKGOvLMS2EVIKHTrWOKqBaNSaTJ5llb87XoQ9yNIo92m35
-	QbQjW+COvrzeZJsUh2rtLka07qFg05KsRcl66imCphXxrS0a+wiEUQrIR5rpG3DI9mIRkW34L0ik8
-	SED0Ir3KkWgoZwG1h8K9EK41dQbMQBH7Z6lmUOmpYH7UORsKywYI/IJ/y7Fp6TZede+ecz74LodCz
-	trKy7A6hSYduTFjhWCwcx2NI6mfZDIz2nkC7cOM5BxPySBcwR8FmkH0atsZXqwifyC+rSESzb683G
-	oPuMs1zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=czCr7lgNW1/qOrc/EZCi4HY+hOJT7Z7oQRQo8KOMQVg=; b=UUv0mQEtqMEipL3POEse+Gg3Af
+	6V5EwBVoCf/UcsdWHEtn7bJAERV8PiMvSwuXlEFECG/VCvqEOPgBcFonUxbTFE8NRWwUB5pY7NLT2
+	+S2wYEPFjBnDKqNTh1kp3daHjSj9UsQOlmkcaSJcj8S917vp5eHkzSbMnbXXjg2hriY+nMY5ZnpuS
+	VX5aJViXvR78n2cwhmvumwFg3VVhdAMwZNt8a4I5YfyTiURZOBeq+yh9my9PRA+MeXtR2MNKTW07t
+	VSy1MRQZXDpbezhh/GhLgIaXkYgEb60oOQ31RTkTiVuhrQ62DJGraPAuSbstgRw/ImE0xVkkf1rdU
+	40LDCzEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWgt6-00000006UlK-2w9z;
-	Tue, 01 Jul 2025 19:43:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uWh4k-00000006Vr3-0g4M;
+	Tue, 01 Jul 2025 19:55:30 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWeJ9-000000068be-2cp5
+	id 1uWgjL-00000006Tqs-1klS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 16:58:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0817B5C4D99;
-	Tue,  1 Jul 2025 16:58:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A56D4C4AF09;
-	Tue,  1 Jul 2025 16:58:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751389090;
-	bh=dAv9swBTXYpTgm3Qv9LPGFYo4DAoeOgGawWIkj4FOhE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rZbqGJ1mEesj+ZV6HEbQsK0OPAOaoCE53MwQR0juTCpT3NyAnFKm7mlThMpt2g9tN
-	 Eh+PE7/z8C5gUHmpMMO5B+O3sDjus0WqmXHwOu+pie5gaFSl0wZ3A+W5H/Jp+fkCzE
-	 R9kc/A0eD2nzxgaIYjrwzxLxd0G/Q1N1mhvKbCG8KDc04rLtMQxtbIYBZ+ZUafnRyb
-	 XyzQ/FAVMFXn+GbBWwDB0G1C7yzbdaAlXEentmiAsyLUX2LlfHscO7XWB6PcAuFfYr
-	 jpULkLxHLUVv+XozwqNoP4+tmkTF7JsIxTy8y/XctzbO2FOHycZnwYBGIao6+/Z4ta
-	 hkTO4/mIWk4gw==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 0C7125FFF8; Wed,  2 Jul 2025 00:58:06 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
+	Tue, 01 Jul 2025 19:33:25 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id E2056778;
+	Tue,  1 Jul 2025 21:32:56 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1751398377;
+	bh=e0LWiiDV7mWe0O80pfeWjuB7jaudkzgYWw5HdH9efCA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a27X8C34QS5VN4dnhLZAKZSUd6LBGiQLq4F//Qhwj82D7UqXa6QniZMFYVbBPThKq
+	 aRM8wspnHZVliCC3L6fwPQzCJe5cxY6RPNn0Em9d8xjueZhI9cTI3K+5Jf3FW0XGOJ
+	 mLz8q8cTw5EXbXeOUJH/AdoqAuVcMAp/2dw8JkJg=
+Date: Tue, 1 Jul 2025 22:32:53 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH RFT net-next 07/10] arm64: dts: allwinner: a527: cubie-a5e: Enable second Ethernet port
-Date: Wed,  2 Jul 2025 00:57:53 +0800
-Message-Id: <20250701165756.258356-8-wens@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250701165756.258356-1-wens@kernel.org>
-References: <20250701165756.258356-1-wens@kernel.org>
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Alice Yuan <alice.yuan@nxp.com>
+Subject: Re: [PATCH 2/5] dt-bindings: media: add i.MX parallel csi support
+Message-ID: <20250701193253.GC16835@pendragon.ideasonboard.com>
+References: <20250630-imx8qxp_pcam-v1-0-eccd38d99201@nxp.com>
+ <20250630-imx8qxp_pcam-v1-2-eccd38d99201@nxp.com>
+ <20250630225340.GE15184@pendragon.ideasonboard.com>
+ <aGP2yT9ID1E0BepB@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aGP2yT9ID1E0BepB@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_095811_795602_AE30A0D5 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250701_123323_738175_91A12FA5 
+X-CRM114-Status: GOOD (  30.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,81 +81,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+On Tue, Jul 01, 2025 at 10:55:32AM -0400, Frank Li wrote:
+> On Tue, Jul 01, 2025 at 01:53:40AM +0300, Laurent Pinchart wrote:
+> > On Mon, Jun 30, 2025 at 06:28:18PM -0400, Frank Li wrote:
+> > > From: Alice Yuan <alice.yuan@nxp.com>
+> > >
+> > > Document the binding for parallel CSI controller found in i.MX8QXP, i.MX93
+> > > and i.MX91 SoCs.
+> > >
+> > > Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
+> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > >  .../bindings/media/fsl,imx93-parallel-csi.yaml     | 108 +++++++++++++++++++++
+> > >  MAINTAINERS                                        |   1 +
+> > >  2 files changed, 109 insertions(+)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml b/Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
+> > > new file mode 100644
+> > > index 0000000000000..b4657c913adad
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
+> > > @@ -0,0 +1,108 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/media/fsl,imx93-parallel-csi.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: i.MX8/9 Parallel Camera Interface
+> > > +
+> > > +maintainers:
+> > > +  - Frank Li <Frank.Li@nxp.com>
+> > > +
+> > > +description: |
+> > > +  This is device node for the Parallel Camera Interface which enables the
+> > > +  chip to connect directly to external Parallel CMOS image sensors.
+> > > +  Supports up to 80MHz input clock from sensor.
+> > > +  Supports the following input data formats
+> > > +    - 8-bit/10-bit Camera Sensor Interface (CSI)
+> > > +    - 8-bit data port for RGB, YCbCr, and YUV data input
+> > > +    - 8-bit/10-bit data ports for Bayer data input
+> > > +  Parallel Camera Interface is hooked to the Imaging subsystem via the
+> > > +  Pixel Link.
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    oneOf:
+> > > +      - const: fsl,imx8qxp-parallel-csi
+> >
+> > Is there any chance we could avoid calling this "csi", given that the
+> > whole block is called "Parallel Capture Interface" in the reference
+> > manual ? "CSI" is horribly confusing as it usually refers to MIPI CSI-2.
+> > I suppose calling it "PCI" for "Parallel Capture Interface" wouldn't
+> > help :-/
+> 
+> PCI is too famous for PCI(Peripheral Component Interconnec) bus. It will be
+> more confused.
 
-On the Radxa Cubie A5E board, the second Ethernet controller, aka the
-GMAC200, is connected to a second external Maxio MAE0621A PHY. The PHY
-uses an external 25MHz crystal, and has the SoC's PJ16 pin connected to
-its reset pin.
+Yes, I wasn't really proposing it. We have too few TLAs :)
 
-Enable the second Ethernet port. Also fix up the label for the existing
-external PHY connected to the first Ethernet port.
+> Can we use pcam? fsl,imx8qxp-pcam
 
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
----
- .../dts/allwinner/sun55i-a527-cubie-a5e.dts   | 26 +++++++++++++++++--
- 1 file changed, 24 insertions(+), 2 deletions(-)
+Brainstorming a bit, we could use use pcif (Pixel Capture InterFace).
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-index c57ecc420aed..4b510a460123 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-@@ -13,6 +13,7 @@ / {
- 
- 	aliases {
- 		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
- 		serial0 = &uart0;
- 	};
- 
-@@ -57,7 +58,7 @@ &ehci1 {
- 
- &gmac0 {
- 	phy-mode = "rgmii-id";
--	phy-handle = <&ext_rgmii_phy>;
-+	phy-handle = <&ext_rgmii0_phy>;
- 	phy-supply = <&reg_cldo3>;
- 
- 	allwinner,tx-delay-ps = <300>;
-@@ -66,8 +67,19 @@ &gmac0 {
- 	status = "okay";
- };
- 
-+&gmac1 {
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&ext_rgmii1_phy>;
-+	phy-supply = <&reg_cldo4>;
-+
-+	allwinner,tx-delay-ps = <300>;
-+	allwinner,rx-delay-ps = <400>;
-+
-+	status = "okay";
-+};
-+
- &mdio0 {
--	ext_rgmii_phy: ethernet-phy@1 {
-+	ext_rgmii0_phy: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
- 		reg = <1>;
- 		reset-gpios = <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
-@@ -76,6 +88,16 @@ ext_rgmii_phy: ethernet-phy@1 {
- 	};
- };
- 
-+&mdio1 {
-+	ext_rgmii1_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <1>;
-+		reset-gpios = <&pio 9 16 GPIO_ACTIVE_LOW>; /* PJ16 */
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <150000>;
-+	};
-+};
-+
- &mmc0 {
- 	vmmc-supply = <&reg_cldo3>;
- 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
+> > > +      - items:
+> > > +          - enum:
+> > > +              - fsl,imx91-parallel-csi
+> > > +          - const: fsl,imx93-parallel-csi
+> > > +      - const: fsl,imx93-parallel-csi
+> > > +
+> > > +  reg:
+> > > +    maxItems: 1
+> > > +
+> > > +  clocks:
+> > > +    maxItems: 2
+> > > +
+> > > +  clock-names:
+> > > +    items:
+> > > +      - const: pixel
+> > > +      - const: ipg
+> > > +
+> > > +  power-domains:
+> > > +    maxItems: 1
+> > > +
+> > > +  ports:
+> > > +    $ref: /schemas/graph.yaml#/properties/ports
+> > > +
+> > > +    properties:
+> > > +      port@0:
+> > > +        $ref: /schemas/graph.yaml#/$defs/port-base
+> > > +        unevaluatedProperties: false
+> > > +        description:
+> > > +          Input port node.
+> > > +
+> > > +      port@1:
+> > > +        $ref: /schemas/graph.yaml#/$defs/port-base
+> > > +        unevaluatedProperties: false
+> > > +        description:
+> > > +          Output port node.
+> > > +
+> > > +required:
+> > > +  - compatible
+> > > +  - reg
+> > > +  - clocks
+> > > +  - clock-names
+> > > +  - ports
+> >
+> > Patch 4/5 lists a power domain, and so does the example below for
+> > i.MX93. Should the power-domains property be mandatory ?
+> >
+> > > +
+> > > +additionalProperties: false
+> > > +
+> > > +examples:
+> > > +  - |
+> > > +    #include <dt-bindings/clock/imx93-clock.h>
+> > > +    #include <dt-bindings/power/fsl,imx93-power.h>
+> > > +
+> > > +    parallel-csi@4ac10070 {
+> > > +        compatible = "fsl,imx93-parallel-csi";
+> > > +        reg = <0x4ac10070 0x10>;
+> >
+> > The i.MX93 reference manual doesn't document the register set for this
+> > block, so I have a hard time reviewing this. Is there a plan to publish
+> > a new version of the reference manual with the complete documentation
+> > for the parallel interface ?
+> >
+> > > +        clocks = <&clk IMX93_CLK_MIPI_CSI_GATE>,
+> > > +                 <&clk IMX93_CLK_MEDIA_APB>;
+> > > +        clock-names = "pixel", "ipg";
+> > > +        assigned-clocks = <&clk IMX93_CLK_CAM_PIX>;
+> > > +        assigned-clock-parents = <&clk IMX93_CLK_VIDEO_PLL>;
+> > > +        assigned-clock-rates = <140000000>;
+> > > +        power-domains = <&media_blk_ctrl IMX93_MEDIABLK_PD_MIPI_CSI>;
+> > > +
+> > > +        ports {
+> > > +            #address-cells = <1>;
+> > > +            #size-cells = <0>;
+> > > +
+> > > +            port@0 {
+> > > +                reg = <0>;
+> > > +
+> > > +                endpoint {
+> > > +                    remote-endpoint = <&mt9m114_ep>;
+> > > +                };
+> > > +            };
+> > > +
+> > > +            port@1 {
+> > > +                reg = <1>;
+> > > +                endpoint {
+> > > +                    remote-endpoint = <&isi_in>;
+> > > +                };
+> > > +            };
+> > > +        };
+> > > +    };
+> > > +...
+> > > diff --git a/MAINTAINERS b/MAINTAINERS
+> > > index 8dc0f6609d1fe..3bd6772c11539 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -15107,6 +15107,7 @@ L:	linux-media@vger.kernel.org
+> > >  S:	Maintained
+> > >  T:	git git://linuxtv.org/media.git
+> > >  F:	Documentation/admin-guide/media/imx7.rst
+> > > +F:	Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
+> > >  F:	Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> > >  F:	Documentation/devicetree/bindings/media/nxp,imx7-csi.yaml
+> > >  F:	Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+
 -- 
-2.39.5
+Regards,
 
+Laurent Pinchart
 
