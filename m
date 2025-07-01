@@ -4,89 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D62C8303B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 15:05:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE994C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 15:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fV/QvZy0Nb0wuzQr0ypBrH0VBcR+Ic5t7RZaWoR81tc=; b=FKnGpTQvvc6mc6lL9/S6PJBUnW
-	lJ1NUPIacQNQc3WlzLzmOEM7fuA92n1CPkBOGZc3RsjpjVLkWBwdcdQ6Xmd48pICIu9sdgWX0Sxtn
-	BsbdSNUhZblFpz8U6RL7AIdPJ/IXJwqxtnGkx18ajuDnVSLqziECX2UJCTx552Ax5le4N6A3MTVgM
-	JXkMdyw+ZkfyUyHGWGFypASzKaLozgEtltSV7OXWUn3I/yWOf/9E5sNbtRI1igJw4yNYsm/AGcf9F
-	pO0PUtJvIlGFBtitfqczujBZJQZZFSyLJ+oJwAg/IZgxYltm/2F53dxXpC3aoxU06IFjtcwDUdU/N
-	bC7IzU5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YhxdcWDoChMeKmCKFHUBRgx8Fy37YPqEiFc2G1XZk/I=; b=T8oiZSO+aNwWs9Xl46qtxQADpW
+	Pdbm9VoglPoqkgV/WfANWJB0IW1yXZDrn6MTkWrRy+WnMlrBh5W/PpXoTZBrolUjRjJAohOE6ogG/
+	uxdGzV0uhWqidjArz6o0n1p0bPMSfIA07bTUZSJVvF1l7bR+WIE+kRxwUQ7dfnkYD9UGjXAegKcCz
+	sSDp41e+2e/nse8PMXEHsloKqV+fo3G/Wr0Z52I/TYXzmvTHnAb/DN6xHtXagxz3TqRdUqnqvBoy6
+	5jkaTLhR/txQQgP5h8TL7s/zCT3RaiNEsNU4kbqPBCvqDSrb2ESXdPVFM6dmEWhm9BJrP5RKwUu3m
+	GMYU7ueA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWcYQ-00000005paE-2DFn;
-	Tue, 01 Jul 2025 15:05:50 +0000
-Received: from mail-ua1-f49.google.com ([209.85.222.49])
+	id 1uWcai-00000005q0O-3X5X;
+	Tue, 01 Jul 2025 15:08:13 +0000
+Received: from mta-64-226.siemens.flowmailer.net ([185.136.64.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWb5G-00000005WX9-14Vh
+	id 1uWb7H-00000005Wsu-3Btc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 13:31:39 +0000
-Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-88173565536so4508181241.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 06:31:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751376695; x=1751981495;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fV/QvZy0Nb0wuzQr0ypBrH0VBcR+Ic5t7RZaWoR81tc=;
-        b=N3SH6llAa3Yl/NxrAWTlj4p2KhnWbHodfxvokDLjR1AjlKab4dHhXgDK4Ja81uXiRH
-         /6kSJgrUDqC6S2lfBvWAnLrcvkLu5amJWBMMgYd+i7+maxgH0OxjrS9aNEfM55QlgFPJ
-         gOM2KFT9de9I1ivjG1uhxn0qugdQT/7a88B4XjlewJL6L40NndxrPbnWHhqthlu9LgOI
-         FWANpnUhmfx5yuy8XKAjHbyFRKJwb5fWQCJS+dU6+zuRH3FlMX/roSbDlicHyU+bLk8Z
-         m/EX0wpiVeUTZDs3soct0pJRscSSQbWrQHBhKv8w4cJtN4lOKlek7VK7eQX1xXBn/T0m
-         Vdqw==
-X-Forwarded-Encrypted: i=1; AJvYcCU62agrmnJecvX1+bnITwj3qFA0GtygaaCFmsIy0fc8/YcyAgV2d4YFNedEsaBk40T1aug65RjVM1VCTmYctBNV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBmSNB+sR/CYVDjc14IffSVECVXRnFxQR3HQhqlRoZE+EDT1CQ
-	oydl63cdr6O+g1VtAwU2LdORE5jfqsR9cDFf3TqNAau7fyjZnLUUHi5+AHmgE0qg
-X-Gm-Gg: ASbGnctFwaHEVY+kjMMKK5ApHmFr1Xk9TB9N0/F4TC2qZEyd05O/+PvjYp0dVV95WNZ
-	sSaYhr6H/JEdJVteiBBYkyyjqRPOSA5uaEwqKT3OsfihPuNF6yO/jGFQ658GzaPlMgiSh7oOJc1
-	ydHbRb4Uv1ibK9B5J3bfIXSZQwNEvF1KXrtvOkm92zfdtzsV5jx62rvY+ig8iRA/nUpPXeizy1r
-	SC53ctpHfW/r1Ndn+gbQzrc1mf6dKslthmj/V8ANs6OJNyqVEMw2C6fnAlGYcYpuHlgPXl1HhPX
-	2WIjj3+N3glZ9aZqM1DHDUO1DFBO/hs0PMXhm3k0nFro8Q1/SDtlhVNRNgMr0s+q39fnIl+iS/9
-	3jtn+LZYUb5Keu+aljjf5qcPhgBmrD3FtowA=
-X-Google-Smtp-Source: AGHT+IGCNt5aWPs+0zmPzMBbH+IY9OmrLEqtmJnZ0Unu1xvpNABv4CncM8+US6NTE9YBW4y+mEVoAA==
-X-Received: by 2002:a05:6122:278f:b0:524:2fe0:61bc with SMTP id 71dfb90a1353d-5341c8fc187mr2502566e0c.5.1751376695190;
-        Tue, 01 Jul 2025 06:31:35 -0700 (PDT)
-Received: from mail-ua1-f52.google.com (mail-ua1-f52.google.com. [209.85.222.52])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-53309075b60sm1732057e0c.5.2025.07.01.06.31.34
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Jul 2025 06:31:35 -0700 (PDT)
-Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-87ecdf5f326so3575231241.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 06:31:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWXVgzbxDAAzG/gf2tzm21MQly+HN+KQe/3ZXqxMSqDjUuUiAXXMVV2kIws6X/5ABYXRDgJ1nSdXj8nbm0o1BJf@lists.infradead.org
-X-Received: by 2002:a05:6122:311c:b0:52d:cc6f:81a2 with SMTP id
- 71dfb90a1353d-534256115admr2267428e0c.6.1751376692001; Tue, 01 Jul 2025
- 06:31:32 -0700 (PDT)
+	Tue, 01 Jul 2025 13:33:46 +0000
+Received: by mta-64-226.siemens.flowmailer.net with ESMTPSA id 20250701133337aa9a03b7344ae2a8af
+        for <linux-arm-kernel@lists.infradead.org>;
+        Tue, 01 Jul 2025 15:33:37 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
+ d=siemens.com; i=alexander.sverdlin@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc;
+ bh=YhxdcWDoChMeKmCKFHUBRgx8Fy37YPqEiFc2G1XZk/I=;
+ b=NT0/xHW6kCxGPbT2r9IA2uCj2BwYytVU4zBooT76wG4djkO052AKLKBGKI6R7ptSMfv1eJ
+ LxneKxMSRmfdxcs2wHR1BP4Mq9ijo/x8elVuh7E54tc2P5RicaWiB6V110bABX7oL4/33xx8
+ PIujI8DMQQbMI23ckyP9MIoAU+DEaohpJKGHT1Fq9Tgnwh30kFXM52z5tdtap/794luuoOK4
+ QR2vUhhP4n9ZV5GX2xAVvgBsT2BiaeA/jdjh6wGf6/ogS1Q2ezEzMNB0yzBw87T7lCql6/4I
+ 4HmpD7R2/wwjtodREGMGGv0iPNc9D00KYxZnpWiRt38FsTxBfjdvYqug==;
+From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
+To: Boris Brezillon <bbrezillon@kernel.org>,
+	linux-mtd@lists.infradead.org
+Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] mtd: nand: raw: atmel: Respect tAR, tCLR in read setup timing
+Date: Tue,  1 Jul 2025 15:33:28 +0200
+Message-ID: <20250701133333.3871085-1-alexander.sverdlin@siemens.com>
 MIME-Version: 1.0
-References: <20250624192304.338979-1-fabrizio.castro.jz@renesas.com> <20250624192304.338979-6-fabrizio.castro.jz@renesas.com>
-In-Reply-To: <20250624192304.338979-6-fabrizio.castro.jz@renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 1 Jul 2025 15:31:18 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXmQTbXYvZXi+1MGxfgEL1=JKVCehm37OYPVAo=dnJgoQ@mail.gmail.com>
-X-Gm-Features: Ac12FXxg0c3Tvb5Xd7h_l51_d8L50Cpq3cEZgNBKA60f6RhP9PcpNZoeo04WdGQ
-Message-ID: <CAMuHMdXmQTbXYvZXi+1MGxfgEL1=JKVCehm37OYPVAo=dnJgoQ@mail.gmail.com>
-Subject: Re: [PATCH 5/6] arm64: defconfig: Enable the RZ/V2H(P) RSPI driver
-To: Fabrizio Castro <fabrizio.castro.jz@renesas.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Nishanth Menon <nm@ti.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	Taniya Das <quic_tdas@quicinc.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-456497:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_063138_289876_0D3DDAE7 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20250701_063344_409207_7441656F 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,25 +75,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Jun 2025 at 21:23, Fabrizio Castro
-<fabrizio.castro.jz@renesas.com> wrote:
-> Enable the Renesas RZ/V2H(P) RSPI driver for the benefit of
-> RZ/V2H(P) based platforms.
->
-> Signed-off-by: Fabrizio Castro <fabrizio.castro.jz@renesas.com>
+From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v6.17, pending acceptance of
-the driver.
+Having setup time 0 violates tAR, tCLR of some chips, for instance
+TOSHIBA TC58NVG2S3ETAI0 cannot be detected successfully (first ID byte
+being read duplicated, i.e. 98 98 dc 90 15 76 14 03 instead of
+98 dc 90 15 76 ...).
 
-Gr{oetje,eeting}s,
+Atmel Application Notes postulated 1 cycle NRD_SETUP without explanation
+[1], but it looks more appropriate to just calculate setup time properly.
 
-                        Geert
+Without the fix we've measured -2ns tAR delay (REn asserted before ALE
+deassert!); with the fix -- 60ns (subject to module clock).
 
+[1] Link: https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ApplicationNotes/ApplicationNotes/doc6255.pdf
+Fixes: f9ce2eddf176 ("mtd: nand: atmel: Add ->setup_data_interface() hooks")
+Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+---
+ drivers/mtd/nand/raw/atmel/nand-controller.c | 17 ++++++++++++++---
+ 1 file changed, 14 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
+index dedcca87defc7..844df72f45063 100644
+--- a/drivers/mtd/nand/raw/atmel/nand-controller.c
++++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
+@@ -1377,14 +1377,25 @@ static int atmel_smc_nand_prepare_smcconf(struct atmel_nand *nand,
+ 	if (ret)
+ 		return ret;
+ 
++	/*
++	 * Read setup timing depends on the operation done on the NAND:
++	 *
++	 * NRD_SETUP = max(tAR, tCLR)
++	 */
++	timeps = max(conf->timings.sdr.tAR_min, conf->timings.sdr.tCLR_min);
++	ncycles = DIV_ROUND_UP(timeps, mckperiodps);
++	totalcycles += ncycles;
++	ret = atmel_smc_cs_conf_set_setup(smcconf, ATMEL_SMC_NRD_SHIFT,
++					  ncycles);
++	if (ret)
++		return ret;
++
+ 	/*
+ 	 * The read cycle timing is directly matching tRC, but is also
+ 	 * dependent on the setup and hold timings we calculated earlier,
+ 	 * which gives:
+ 	 *
+-	 * NRD_CYCLE = max(tRC, NRD_PULSE + NRD_HOLD)
+-	 *
+-	 * NRD_SETUP is always 0.
++	 * NRD_CYCLE = max(tRC, NRD_SETUP + NRD_PULSE + NRD_HOLD)
+ 	 */
+ 	ncycles = DIV_ROUND_UP(conf->timings.sdr.tRC_min, mckperiodps);
+ 	ncycles = max(totalcycles, ncycles);
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.50.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
