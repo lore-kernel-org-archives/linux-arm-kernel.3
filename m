@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D839C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 16:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E3CC83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 16:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hi0N3GraTx8yze1pAfuIy+A47z01o1rGKa4UbsbV/z8=; b=3BdQ5/JNV2TejGEXiX2CfTlBE4
-	DhyMeCgX7KkjYHvmIr5s95SSyYA/LowAMkjexRzXxvYA8x74JLJtY2WN85iQ0DcMVd06viw3Op2we
-	04Emcqyp8YVYT8lDbDyS8bWFeaH8m3TWaJ/++ihqS7eE/w1AFYphCvCTHgUJENFY1EMV1jvOIU5Dp
-	AGw63yIGftihkQ5XJFxnx6lunbttP7MGy65SIJUVI906kWxVuKPE4K3jE/h3SwfiyuQz4zI04QFfS
-	3e5b4s8w7wJPpsuOJNBjHRdHJPW9Vk2+gEuRuBCHfMJSMmZENFPbl1jgLEr67BkvHYigLbxA+0wU/
-	jdAEXQaA==;
+	bh=KXqq31iFbM+LPuFZZjOP++M++mWb6fq3c9ooPFXJg3c=; b=z91WOFosnosF9fXfv7EqZxB7kt
+	Rn9twnzeGJUgkQRvxu1WZDBsFRrLEtUjzlLhfrPoUiB11N0ILDhQInNpEszssHkAjKxncdf/OlD6P
+	cpY2c0T/J5Wq2J/7vWiFJSjk81YiNcDN3IZK1DMj1oaZNnf80amKhRrjIPpmvZkOw2Wp5TiuRwVLs
+	kKUTQwukBH3xVfw21P7bGx8GHUaEikzAXIOChbnQrawnI8oAVgbZgvlF9iEm6RiWQxcH6ilCaIkjU
+	AbTzCZfcwZTHB6fsv609sERJSnbl+Sau1P+V6x+zqdYAhkkq8bBv7C1SY9z2q4V5EnJrrmDCtLU+Q
+	CCIAJfig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWday-00000005zZH-0mhn;
-	Tue, 01 Jul 2025 16:12:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uWddG-00000005zuE-3o5H;
+	Tue, 01 Jul 2025 16:14:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWbyF-00000005hod-0FOk
+	id 1uWbyS-00000005hrp-2bXr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 14:28:28 +0000
+	Tue, 01 Jul 2025 14:28:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6EA955C4670;
-	Tue,  1 Jul 2025 14:28:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BE45C4CEEB;
-	Tue,  1 Jul 2025 14:28:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E8F66143F;
+	Tue,  1 Jul 2025 14:28:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D993C4CEEB;
+	Tue,  1 Jul 2025 14:28:36 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Hanjun Guo <guohanjun@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Liu Wei <liuwei09@cestc.cn>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
+To: live-patching@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Li Chen <me@linux.beauty>
-Subject: Re: [PATCH v2 0/2] ACPI: Improve SPCR handling and messaging on SPCR-less systems
-Date: Tue,  1 Jul 2025 15:28:21 +0100
-Message-Id: <175138008828.1963850.11865219339288044710.b4-ty@arm.com>
+	linux-arm-kernel@lists.infradead.org,
+	Song Liu <song@kernel.org>
+Cc: Will Deacon <will@kernel.org>,
+	jpoimboe@kernel.org,
+	jikos@kernel.org,
+	mbenes@suse.cz,
+	pmladek@suse.com,
+	joe.lawrence@redhat.com,
+	dylanbhatch@google.com,
+	fj6611ie@aa.jp.fujitsu.com,
+	mark.rutland@arm.com,
+	kernel-team@meta.com,
+	Suraj Jitindar Singh <surajjs@amazon.com>,
+	Torsten Duwe <duwe@suse.de>,
+	Breno Leitao <leitao@debian.org>,
+	Andrea della Porta <andrea.porta@suse.com>
+Subject: Re: [PATCH v5] arm64: Implement HAVE_LIVEPATCH
+Date: Tue,  1 Jul 2025 15:28:34 +0100
+Message-Id: <175138010917.1964100.18246912177187578815.b4-ty@arm.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250620131309.126555-1-me@linux.beauty>
-References: <20250620131309.126555-1-me@linux.beauty>
+In-Reply-To: <20250630174502.842486-1-song@kernel.org>
+References: <20250630174502.842486-1-song@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_072827_134268_5109F16B 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,23 +74,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Jun 2025 21:13:06 +0800, Li Chen wrote:
-> From: Li Chen <chenl311@chinatelecom.cn>
+On Mon, 30 Jun 2025 10:45:02 -0700, Song Liu wrote:
+> Allocate a task flag used to represent the patch pending state for the
+> task. When a livepatch is being loaded or unloaded, the livepatch code
+> uses this flag to select the proper version of a being patched kernel
+> functions to use for current task.
 > 
-> This small series improves the kernel behavior and output when the ACPI SPCR
-> table is not present or not supported.
-> 
-> Currently, even on systems that completely lack an SPCR table, the kernel prints:
-> "Use ACPI SPCR as default console: Yes"
+> In arch/arm64/Kconfig, select HAVE_LIVEPATCH and include proper Kconfig.
 > 
 > [...]
 
-Applied to arm64 (for-next/acpi), thanks!
+Applied to arm64 (for-next/livepatch), thanks!
 
-[1/2] ACPI: Return -ENODEV from acpi_parse_spcr() when SPCR support is disabled
-      https://git.kernel.org/arm64/c/b9f58d3572a8
-[2/2] ACPI: Suppress misleading SPCR console message when SPCR table is absent
-      https://git.kernel.org/arm64/c/bad3fa2fb920
+[1/1] arm64: Implement HAVE_LIVEPATCH
+      https://git.kernel.org/arm64/c/fd1e0fd71f65
 
 -- 
 Catalin
