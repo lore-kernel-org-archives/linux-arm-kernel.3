@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B858C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 19:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8C1C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 19:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dOYTYWWc8PUvVc4bul7wn2N2WIwzUwIC/CcClgPGY5Y=; b=lTlGGY9G2c0x53YYN5bJusVF+W
-	zrFXM9w9Hd6oBLsoU73a4iyn4LvVAUkdtzWqAQDbofss8IHQ9FQ3v7yv0EvvmjL/svZI8yjDXy3kM
-	j6c0l/HbalSaDt/FK3pURBSKCn5htprHcz1pHQjzV8HiSbcxZ+EbVKFENyhxB7oM1cwmmjtR5yRGM
-	zLGTNie7zxnAC1aRG1LHwtbVYt6ZkpIyFDxWm0eM/6huTdKyESVxpOTEg3lDyQjKEjDWOooHobA6q
-	cA8kRF0ogQTfdT5m1qqt/oAoV1tQHksuHJWnuCA7DE8T5PF9XLzSfs+dQ9Jp8rf4dSD6YxUlroVaG
-	2d03pB/Q==;
+	bh=9+fIV9wX3BY0VMwxiQuNe46v6bLBI43GvekAUirgLOE=; b=tCB81akuY2jPHqbakDDhppUnfw
+	d0qrVo8E491tD8dqz213wL5uV3ksI/1XeX4i6Y910Xjpid4W2cv6fk4zkUxMdwXRLxJG1JTnB0VCp
+	FD3n9wIwsDeo2JsRJfCn1ohOcfxwLqEw5gF4GtmY4Bh0+aqpBZjIHvr0bewXLZ/2Gxr3tKvgp6hZ6
+	7GOli8YtKI2sJqL6+duvluclFQW4wzc1whHHPffsLvpwPgtODon+FkJBDMk8N9vLu5H3QReiL1BEu
+	ohP043RsNIKSx6PqhuzSjANJzB6uutfs+vGj4YSYQjIrao5l6bnI2WwNgEDXvgJGHlhO0GEsQ71ie
+	iWU9sqwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWgcu-00000006TM4-25vM;
-	Tue, 01 Jul 2025 19:26:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uWghV-00000006Tf3-1mS8;
+	Tue, 01 Jul 2025 19:31:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWeJ7-000000068ZS-1aTb
+	id 1uWeJ9-000000068bd-2IG4
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 01 Jul 2025 16:58:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CAE7C467FC;
-	Tue,  1 Jul 2025 16:58:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53288C4CEF8;
-	Tue,  1 Jul 2025 16:58:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0307B61444;
+	Tue,  1 Jul 2025 16:58:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A569EC4CEF2;
+	Tue,  1 Jul 2025 16:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751389088;
-	bh=I/bJFFYuJYTgGBIDN+smaPh81pdclQ4NTY0/0vTHG0Q=;
+	s=k20201202; t=1751389090;
+	bh=2Z/sxjaBMHzyciR0Amj3yQU+atAainaF8NZKa+qbDFE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZmNrt4MUMKTDeLpB9MdnSdSE18qRibwY8Nbtz/Isya33gvsd8q4Pkzx8o2FY7QY23
-	 SF70tJKMuR70mbxPbgxJ+OB2jTM4ieHcxzYC89iAxmEd5LYUVdoVYQ4pz1Ig512DPh
-	 GvGRXMHs154G81LOE2/Fdng7K4HVDTb+e/ZT2JBluFArZ00QQck7u5rxkcSc/1eTlz
-	 f1bC6E2NJZm7uSCtKL1Z2heRMhw6DHwT21YnOVz74U8AIdaq6I4WjYpN6AiUZdlxo7
-	 2mhy1zKf2y3EAzRZcNbtZvjA49GA6fwiTFEwQ4WGCuUQAgzBxGDLgt1im6e/n/1QMC
-	 Xe79bZgFiuqOw==
+	b=OkPUm/PU7LW9I3SOA8qW+bkFi+253rrDVigh2nSqieuGt1WWZ2DEIAbG5Fun5F0U6
+	 J4uH7mQrqHQH6l/xxsKFo3GTn1tMecCHsYCYQ6RzFRCYJpmSnz1OowvOSbG+UZcoxG
+	 wbgdqaINBCIKgTzkAZ/SfdS2Txwe3Got4APL+maZitPIbcBYkkfp+A81OJ3GNotn9v
+	 A8iwyKoZv6lrqxBNhf1GOh/1hkO5a5dol+UGbr1DKn3TIStxfP8qLo6Z2rBJdsmf91
+	 YQE9Lg6IDVLD5/DhYCY0gsqMSivymnB+IJL1aAg9GaIjNXPFbzW/S3Zyo+uPYeyeN1
+	 kEfRVqxjR6jcw==
 Received: by wens.tw (Postfix, from userid 1000)
-	id E2E595FF71; Wed,  2 Jul 2025 00:58:05 +0800 (CST)
+	id 1BE306013F; Wed,  2 Jul 2025 00:58:06 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -62,17 +62,14 @@ Cc: netdev@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH RFT net-next 04/10] soc: sunxi: sram: register regmap as syscon
-Date: Wed,  2 Jul 2025 00:57:50 +0800
-Message-Id: <20250701165756.258356-5-wens@kernel.org>
+Subject: [PATCH RFT net-next 09/10] arm64: dts: allwinner: t527: avaota-a1: enable second Ethernet port
+Date: Wed,  2 Jul 2025 00:57:55 +0800
+Message-Id: <20250701165756.258356-10-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250701165756.258356-1-wens@kernel.org>
 References: <20250701165756.258356-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_095809_446152_3AF9EB96 
-X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +86,78 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-Until now, if the system controller had a ethernet controller glue layer
-control register, a limited access regmap would be registered and tied
-to the system controller struct device for the ethernet driver to use.
+On the Avaota A1 board, the second Ethernet controller, aka the GMAC200,
+is connected to a second external RTL8211F-CG PHY. The PHY uses an
+external 25MHz crystal, and has the SoC's PJ16 pin connected to its
+reset pin.
+
+Enable the second Ethernet port. Also fix up the label for the existing
+external PHY connected to the first Ethernet port.
 
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- drivers/soc/sunxi/sunxi_sram.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 26 +++++++++++++++++--
+ 1 file changed, 24 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/soc/sunxi/sunxi_sram.c b/drivers/soc/sunxi/sunxi_sram.c
-index 4f8d510b7e1e..63c23bdffa78 100644
---- a/drivers/soc/sunxi/sunxi_sram.c
-+++ b/drivers/soc/sunxi/sunxi_sram.c
-@@ -12,6 +12,7 @@
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+index 9a2f29201d3c..62bc9a6b0292 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+@@ -13,6 +13,7 @@ / {
  
- #include <linux/debugfs.h>
- #include <linux/io.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -377,6 +378,7 @@ static int __init sunxi_sram_probe(struct platform_device *pdev)
- 	const struct sunxi_sramc_variant *variant;
- 	struct device *dev = &pdev->dev;
- 	struct regmap *regmap;
-+	int ret;
+ 	aliases {
+ 		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
+ 		serial0 = &uart0;
+ 	};
  
- 	sram_dev = &pdev->dev;
+@@ -67,7 +68,7 @@ &ehci1 {
  
-@@ -394,6 +396,10 @@ static int __init sunxi_sram_probe(struct platform_device *pdev)
- 		regmap = devm_regmap_init_mmio(dev, base, &sunxi_sram_regmap_config);
- 		if (IS_ERR(regmap))
- 			return PTR_ERR(regmap);
+ &gmac0 {
+ 	phy-mode = "rgmii-id";
+-	phy-handle = <&ext_rgmii_phy>;
++	phy-handle = <&ext_rgmii0_phy>;
+ 	phy-supply = <&reg_dcdc4>;
+ 
+ 	allwinner,tx-delay-ps = <100>;
+@@ -76,8 +77,19 @@ &gmac0 {
+ 	status = "okay";
+ };
+ 
++&gmac1 {
++	phy-mode = "rgmii-id";
++	phy-handle = <&ext_rgmii1_phy>;
++	phy-supply = <&reg_dcdc4>;
 +
-+		ret = of_syscon_register_regmap(dev->of_node, regmap);
-+		if (IS_ERR(ret))
-+			return ret;
- 	}
++	allwinner,tx-delay-ps = <100>;
++	allwinner,rx-delay-ps = <100>;
++
++	status = "okay";
++};
++
+ &mdio0 {
+-	ext_rgmii_phy: ethernet-phy@1 {
++	ext_rgmii0_phy: ethernet-phy@1 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+ 		reg = <1>;
+ 		reset-gpios = <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
+@@ -86,6 +98,16 @@ ext_rgmii_phy: ethernet-phy@1 {
+ 	};
+ };
  
- 	of_platform_populate(dev->of_node, NULL, NULL, dev);
++&mdio1 {
++	ext_rgmii1_phy: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
++		reset-gpios = <&pio 9 16 GPIO_ACTIVE_LOW>; /* PJ16 */
++		reset-assert-us = <10000>;
++		reset-deassert-us = <150000>;
++	};
++};
++
+ &mmc0 {
+ 	vmmc-supply = <&reg_cldo3>;
+ 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
 -- 
 2.39.5
 
