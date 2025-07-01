@@ -4,62 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8497BC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E34B6C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZOKyNs4Db2MnERH7f8zaFtDju4I4ipaWRZu+43uIXo=; b=GzrTs22+57bYt9v+h6cCPdwUt+
-	d20Jtg92IBW5zY9BLN+kJO8SeI6S1toIICYuOIgGG0Nb5R6Avi2yXWCaao1wwScnljXSJznRRV3kn
-	3YQFB8Es2qbmGgtsuYOda2BKi3zvTct6HYQG6FHvS+pDYqTZBbvl1U7vF5DXNLw3FOd9g1GUn4CmW
-	y6P2F99E0EJAUMJV9QtYPKBcvRzq7tjWEjRgnFmOQl7UsxxXmvOIml5H3v8Zj5Ezw1EH9qso5IVoF
-	sBfqwogf6J8JUM7jroI7N6W0MnYBh9gGlQuY01s0FqRaa4evM1tOah3+A/ZdkprD8zH7rHwZAZUcp
-	tbEahQRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9nTaj3V4Mkje2f1xYZaK63sM715jvfiqC4wM4iuP4wM=; b=qJdeae90QlmTyC+yU6vuqxFGrG
+	apbzGUAigpWN/mwMNvdZOwRx9nSlZfbr+y9Ap9LDJC5KzDvo/q4VavOsUjuTle2RM8mbpw8rJeFyF
+	0zw52DIPGx7AlKgBAVcXofP71lfEGUY0eCprZ8tKNjcz02yLzRFxJJs/cB1+kufV8fhZLo3WOsNWR
+	5MYWRMx7NGlsNYdhsCAB+v1JHBlubSbpnIThofyOpMYlaaIgAGvDHs75DXn+RsdCmervjWFse66rD
+	SkeH9F2PUvLKndql5h7DCLKSU/Y7WLS+jl0eMDkM1RkDpJM3kiIm8LbMhFJZkVHCtTIMq8Yxebvmu
+	JxO1nf6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXg8-00000004eIU-0qtu;
-	Tue, 01 Jul 2025 09:53:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uWXiP-00000004eTc-3n0Q;
+	Tue, 01 Jul 2025 09:55:49 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXJU-00000004bY1-0fns
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 09:30:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4BD8161127;
-	Tue,  1 Jul 2025 09:30:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CAB3C4CEEF;
-	Tue,  1 Jul 2025 09:30:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751362203;
-	bh=kZOKyNs4Db2MnERH7f8zaFtDju4I4ipaWRZu+43uIXo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IebRQs2S4Zck295c+TBqK/iU11rhK4zM9iH6It/WDDjTnkzRJDFRMga9rMofy3OYK
-	 W41pvCTEWF+AzUxh9eofQQnHdlHTwJg4iJA8ZKA0nN9/4jeP4TnRJIoMisw1r+ibuV
-	 p/RqM8cqTIwciKsQL54FaElEidEarmMz4MI9EmDr/qqOnhPZldCjGCO6AZrImtIAng
-	 e0tMkAozmrb6xpFrg9PHBXr+69xBZtAdSzlNLAWZD/41I9O+pEr0bO5e/LJ8QVkQmJ
-	 QBizlS8OEB4eVW6CgnbR1yjIk1x2mjXNtuE+18MWZoBMFlPOOaJhPX3QwfqTDNgjIw
-	 252/ta9q3QqvA==
-Date: Tue, 1 Jul 2025 11:30:00 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
-	"open list:PWM SUBSYSTEM" <linux-pwm@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
-Subject: Re: [PATCH v2 1/1] dt-bindings: pwm: convert lpc32xx-pwm.txt to yaml
- format
-Message-ID: <3jtfwyrga5p6wucp6phzcizolnbgqexskelcolrapoepearqpd@3hws66swq2ya>
-References: <20250625161909.2541315-1-Frank.Li@nxp.com>
+	id 1uWXM0-00000004btb-2XsQ;
+	Tue, 01 Jul 2025 09:32:41 +0000
+Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:7cdc:2548:b8ee:3b98])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 2CD5C6F3;
+	Tue,  1 Jul 2025 11:32:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1751362335;
+	bh=I11qWhbNN6U3C+Rd/QDSNHcVavQao4wKdPiAqL+l9x0=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=V+yUEP0bAH1keElCHZayO0cnWaM3hDlCDOArE6a6uGOLxtHNTX7ZxHt4gvIyLfDZJ
+	 2xZu5y8TcVZGYP51FZq0Je9wMu+9ZQGpaoLObGv8CU4R24SiluO9keRtI/+2St87E7
+	 uJhf97xrzvUXqspGXqAXeNYlIXqwbBO1DxlMTJKA=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ffz725mp2gxeplek"
-Content-Disposition: inline
-In-Reply-To: <20250625161909.2541315-1-Frank.Li@nxp.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250701-pispbe-clamp-v1-1-31243db3439b@ideasonboard.com>
+References: <20250701-pispbe-clamp-v1-1-31243db3439b@ideasonboard.com>
+Subject: Re: [PATCH] media: pisp_be: Use clamp() and define max sizes
+From: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Date: Tue, 01 Jul 2025 11:32:34 +0200
+Message-ID: <175136235475.2426344.4455960698221532956@localhost>
+User-Agent: alot/0.12.dev8+g2c003385c862.d20250602
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250701_023240_789892_E426EFB0 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,53 +65,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jacopo,
 
---ffz725mp2gxeplek
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/1] dt-bindings: pwm: convert lpc32xx-pwm.txt to yaml
- format
-MIME-Version: 1.0
+Thank you for the patch.=20
 
-Hello Frank,
+Quoting Jacopo Mondi (2025-07-01 10:55:05)
+> Use the clamp() from minmax.h and provide a define for the max size as
+> they will be used in sequent patches.
 
-On Wed, Jun 25, 2025 at 12:19:08PM -0400, Frank Li wrote:
-> Convert pc32xx-pwm.txt to yaml format.
+nit-picking: I believe either "Use clamp() from" or "Use the clamp() functi=
+on
+from"
+
 >=20
-> Additional changes:
-> - add ref to pwm.yaml
-> - add clocks
-> - restrict #pwm-cells to 3
->=20
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+
+Reviewed-by: Stefan Klug <stefan.klug@ideasonboard.com>=20
+
 > ---
-> change in v2
-> - allow clocks, there are not clocks for nxp,lpc3220-motor-pwm, so not put
-> into required.
-
-Applied to
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-with the R-b tags for Rob and Vladimir.
-
-Thanks
-Uwe
-
---ffz725mp2gxeplek
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhjqpUACgkQj4D7WH0S
-/k7cZwgAjSlcgslaZQCd4n6XMk369t4QHQX44Dpo46C4+913tMXa3IOAm2bpUVVW
-CXwEF8h0/i0Yyv6icPkv9SCdERBN/dz7xTHB7dhJvtUj2aWSUlS5lEcACWSuq8P1
-DO9U3tDD33LGOVYYV+crDYqpfbUi+6Z3jhLPhYNWY+Zfq2Q+i/XuRtGhx0f7708g
-loG8RYpKnT7Ux2rNhfD73lgNkzyFEbTT9E8HA7HEdXez4ENrVOxnPnAuvRxEnaRH
-ZEhA8RLY4N+lfL5eE+7TPrgg2qNbRR/iSR11AqoFyWy2WbiXk2eopw23IAcAJtKb
-rzZ8jbkiyf/7BqQ2G9DIUxT7pgkcmQ==
-=/nBM
------END PGP SIGNATURE-----
-
---ffz725mp2gxeplek--
+>  drivers/media/platform/raspberrypi/pisp_be/pisp_be.c  | 11 +++++++----
+>  include/uapi/linux/media/raspberrypi/pisp_be_config.h |  9 +++++----
+>  2 files changed, 12 insertions(+), 8 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drive=
+rs/media/platform/raspberrypi/pisp_be/pisp_be.c
+> index 7596ae1f7de6671484d4d351015b234829f642d4..ac5840b4be478ccdd7da9d6d0=
+745649e0c1b2b6f 100644
+> --- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> +++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> @@ -9,6 +9,7 @@
+>  #include <linux/io.h>
+>  #include <linux/kernel.h>
+>  #include <linux/lockdep.h>
+> +#include <linux/minmax.h>
+>  #include <linux/module.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+> @@ -1114,10 +1115,12 @@ static void pispbe_try_format(struct v4l2_format =
+*f, struct pispbe_node *node)
+>         f->fmt.pix_mp.pixelformat =3D fmt->fourcc;
+>         f->fmt.pix_mp.num_planes =3D fmt->num_planes;
+>         f->fmt.pix_mp.field =3D V4L2_FIELD_NONE;
+> -       f->fmt.pix_mp.width =3D max(min(f->fmt.pix_mp.width, 65536u),
+> -                                 PISP_BACK_END_MIN_TILE_WIDTH);
+> -       f->fmt.pix_mp.height =3D max(min(f->fmt.pix_mp.height, 65536u),
+> -                                  PISP_BACK_END_MIN_TILE_HEIGHT);
+> +       f->fmt.pix_mp.width =3D clamp(f->fmt.pix_mp.width,
+> +                                   PISP_BACK_END_MIN_TILE_WIDTH,
+> +                                   PISP_BACK_END_MAX_TILE_WIDTH);
+> +       f->fmt.pix_mp.height =3D clamp(f->fmt.pix_mp.height,
+> +                                    PISP_BACK_END_MIN_TILE_HEIGHT,
+> +                                    PISP_BACK_END_MAX_TILE_HEIGHT);
+> =20
+>         /*
+>          * Fill in the actual colour space when the requested one was
+> diff --git a/include/uapi/linux/media/raspberrypi/pisp_be_config.h b/incl=
+ude/uapi/linux/media/raspberrypi/pisp_be_config.h
+> index cbeb714f4d61ad53162c0450f2303431a5958040..2ad3b90684d7be80776af75b5=
+c5009f7b677f466 100644
+> --- a/include/uapi/linux/media/raspberrypi/pisp_be_config.h
+> +++ b/include/uapi/linux/media/raspberrypi/pisp_be_config.h
+> @@ -21,10 +21,11 @@
+>  /* preferred byte alignment for outputs */
+>  #define PISP_BACK_END_OUTPUT_MAX_ALIGN 64u
+> =20
+> -/* minimum allowed tile width anywhere in the pipeline */
+> -#define PISP_BACK_END_MIN_TILE_WIDTH 16u
+> -/* minimum allowed tile width anywhere in the pipeline */
+> -#define PISP_BACK_END_MIN_TILE_HEIGHT 16u
+> +/* minimum allowed tile sizes anywhere in the pipeline */
+> +#define PISP_BACK_END_MIN_TILE_WIDTH   16u
+> +#define PISP_BACK_END_MIN_TILE_HEIGHT  16u
+> +#define PISP_BACK_END_MAX_TILE_WIDTH   65536u
+> +#define PISP_BACK_END_MAX_TILE_HEIGHT  65536u
+> =20
+>  #define PISP_BACK_END_NUM_OUTPUTS 2
+>  #define PISP_BACK_END_HOG_OUTPUT 1
+>=20
+> ---
+> base-commit: 35392e855abf7d02ad3b061cbc75c7c7c37f0577
+> change-id: 20250623-pispbe-clamp-4b33011d0e85
+>=20
+> Best regards,
+> --=20
+> Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>=20
+>
 
