@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C8BC7EE30
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C27DC83038
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 12:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yHynz9mWDead3UZZabeI741cKQ7wi8Dc9CTNMBrKiZk=; b=Z3PMfTeEmjTv4RxAm99cjLYCv+
-	RiowzbFQA4OOQ+3q/XbVOol9gjPt8T1eRmnywCckkZYXBM8kIFLIBTyvf6tLxgjtZSAoRgMpM3lZL
-	eMTOPmUZiwvDAdgSaOv5QIMrh/P+q4K/Enaq/ErZPKrfXP2AfDaoDbBvYyZfV7Mc736aWpl6umPf/
-	Gklchuo1A9NRooFS9WGPOFERZfb16BMaVGxyQLKFF/Dm7Pl2V99wKcgAvZOzRVBUNK0NFGEuqzDjW
-	MyPdF2S8OMhYR036kwNn09uvaEKE68uK78uJ5/MbK2ShiURoepnU9L4TgGJFtF2OldQg06gJ/AZWG
-	3ocZxhkA==;
+	bh=EjmnP04SfQHk+b63Z9FzMRfEl1AAdadnOvsZgedn7VI=; b=opc4qBpbX8LbJsJu6nls9x+Uh+
+	vw1Wp5+6X5KbkQNzzmO92Xl/R5wpantr6LnzDBU1pEW3uiOsUQcJj2fEOWtz0TlY+vPvQ9y1m/lrQ
+	qeBlOEitbT+fH1mTacyEMNz1uhKxrv64B/SMRo8Gaxpk+3gLEQ8mLsNSuJv2iurzof2VIAKZHB4k4
+	Ul+Z7qiOHNC0YMyKWto3ZY91m7YLFLaKYeCvrf0AzCch3gPINzDeSN7erRu3qzOB21z8ivlR55TtU
+	s6GlNYrEpcoLuFaM9EEqsxcMWtW3nFd7xLY9ZibHsqcpQJEgdKLc3yxbhKMOWGhQ5whG8/O3r6BYh
+	8YwgFYAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWa9A-00000005Jzf-1vxu;
-	Tue, 01 Jul 2025 12:31:36 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1uWa9B-00000005K0i-38f9;
+	Tue, 01 Jul 2025 12:31:37 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZSy-00000004uib-3Sx6
+	id 1uWZT0-00000004ujd-0eJb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 11:48:01 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5561d41fc96so1484896e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 04:48:00 -0700 (PDT)
+	Tue, 01 Jul 2025 11:48:03 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-555163cd09aso2419903e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 04:48:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751370479; x=1751975279; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1751370481; x=1751975281; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yHynz9mWDead3UZZabeI741cKQ7wi8Dc9CTNMBrKiZk=;
-        b=WMEIZp7bRUjvyWbAnvkflEWzWsaWC5909ZMoUGH60rGH4l8bWt6BtNNnhbleovEDa2
-         JnSprdt1NDdoilm/MXX/blJcAdG3Uigo8wPtylVJJ0JzQMtvGZ9GRg6ZsSvbVaSp3kZQ
-         lHgVsPyM/nycIrv/5Kvr9bQOLyBTgdc1JtO3zq3JRsHao4YPwifJmBNTjtIbuugSsm6c
-         /S+h7uFi6Qn6vVjuT4LfP3cZ4oYS6LL2yQnQDre7y19EqHwreXxfWZgJaolm7AZc4Kya
-         +5B0d0nqfvurzjeAi8ZMRc4BuNt7v6hxik4fYtEGK2rUB2B8ZjWBNTqG8ksJhPSavU0Q
-         iVIg==
+        bh=EjmnP04SfQHk+b63Z9FzMRfEl1AAdadnOvsZgedn7VI=;
+        b=YIdgKdnHqIcXWcwjH81btfoJ9FfmboTgAQRBpkX3eWo1Qb7G5mnnLjB9oNkRVINcpa
+         ge0/Bh9Ivi76q1FK6sBdpS09oDlp3P1kjoTa3coCVcZROov/FO2rDJgNfa4GG6G9bJNf
+         kkdGbO68gyf+PgmUK3sjD/MEB9JvWboXty/SY3iGr8Z7z8iYZWk3C4dPCCx+4z8lJxNy
+         ly9CtCd3rLknvGzN9w6vBFazAzHUMGa9ijtrQVJCOFVn/xuSozT9/3Suc5+FvkZIO0hG
+         mxTcSEn0YfvUA+hio+VXvh97/cqhFliBybrpqKBX1uDBLxMuOf9KUWztymd2g9Zq8eHP
+         URkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751370479; x=1751975279;
+        d=1e100.net; s=20230601; t=1751370481; x=1751975281;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yHynz9mWDead3UZZabeI741cKQ7wi8Dc9CTNMBrKiZk=;
-        b=fHItqa7ORMu/4w/g+oo/wiSI/M24Winxm6W1End7pUFbfaQV6VUhKQtMNJxhTI2Es0
-         9zcMzBkE/ZyWCosstqk8ofDPuQLxuD0cGmjPwB5eRYeDmkdqnzlvHeKBWdbBjYzLLUkt
-         lYq13Y62dy60M4JFIO3dn1wLS/kY1viTMQBxm+a6ImLg5dKQNPb9E6OabOjaX+aR7Mhn
-         gyJvQ7z7Mc2PbzimIzO3FiH5eMYoNbJa7uQn2wxrgNef85tWToI86NNsDucQi/ZvAuHB
-         lDHsxuGL/246B4WeD/SKjL/+x+tUhSIRKzC6LurbwElfozdBMh3gcF4kww0uP9k95Rjv
-         ZNbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV7EYDlxOTd2CLnqcKWYQhGUpvluzBD24YlC4pmzFirXyx+NS8fUGc2FQEh9VCP+5bpJbxLy0OU6PGwNYERucnV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKwjwgFjHpxQ+Aw0mJCqZp9S7xJTOHqrT5lMC1YwQxi7p/CIMr
-	aS+gUd9zrJ1hZ0ifCKpox4CFv3YOelMss+qZOWKi/wWO1UJr1mRF0i39pNTkXeQ0vzg=
-X-Gm-Gg: ASbGncvrMxZMFG5xHu+4NtCDkEIAN+/AoHw8oMvQy6RBQzwnTQaRP6+/RccXw57SCOn
-	q/0trk7B2Tx43e31jsESaNCgq2kji+Egb5nvDBNo8vPCtt5N0JonjcCkG2dQf+w4dd5wY3LSBhX
-	OHeSDEc8t3KnxcNXGSNtZyrDqI0L9goEp/gFsemoDd4+j0/6Jzz4pDwyjGWLgjTJOCQ6z9Ulz9B
-	cwzcG9Zm9NYGBTSla0R4GWJZDO+fOyMKXx3b0o36GyVceTzhIEBkHc9R4vPlkfTsu3KWScaw1DZ
-	4B8CBTW2zH6aIikPeXNIKPfz8Jel5nw0Werh2Fr2eUdOLfRL0AQDO+KpkUDeDP1hiLDWGaAtP3R
-	KgDSN/qWP5QTCn8PD3XU+8a4vBaev9/WQRwX+
-X-Google-Smtp-Source: AGHT+IFqyMXKCb8elAwuQdxdqHT2scTfHnmyox7XhrjqrojZnvfr/F02wddlYBxLw5k9BSZ0P+ueUg==
-X-Received: by 2002:a05:6512:114a:b0:553:a867:8dd6 with SMTP id 2adb3069b0e04-5550b7ecd57mr5857067e87.9.1751370479219;
-        Tue, 01 Jul 2025 04:47:59 -0700 (PDT)
+        bh=EjmnP04SfQHk+b63Z9FzMRfEl1AAdadnOvsZgedn7VI=;
+        b=PUFqZmb2EEo+4wWpRlhPTwsoxw7tY8THVWD2VOBbFI5VdP7TbOkbwpMJ646cQabhhQ
+         eTybkJPdI6aF/GCMOQJWs6ZXY5Kf/S1yv8+BCject1qO4QPzKI7v1PkdR8Q3vgd9g2q0
+         rSwdFfyWGWRRo/LAJK1iNEoLf4Q0jiT8ShjxB0eY5Boj26421TGaM1XSOvvkNy7FObIZ
+         1ei9wEdZVBZiKhzoNOJ5Q/6O1dgPh+R2ZbZEUq6yWzbcHonIojh0290GgAYviW6pXrJW
+         9N3T1Ay456sFQrZSGskbXszjkyPgCd2jCpq8Avfkap0xAtNrgqa73411gK0Vu4DQTN06
+         fNHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHyrR3TS7OcVNJwnAzJCGFxWhpPA+UvB+hYRHdDuDCNR9ogl8SyElQzIYqK/DQi1yUK7Ug1G/18QEWBNOd/Krn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEu1Hv67R5pTgSvsO9XWXhUv4usRoZppf4VDwOE36c+SCemFzN
+	pGbPHMgPZVKK02ljiciqdYw/j5oqSFDmoB0UuwV0/Y/v/NMG94dRlmqH7r0m6/ZdiYI=
+X-Gm-Gg: ASbGncvtAaMUprR2wk8HugYbItwmyF40vqSzqRIMZpu3zrgXbONZ8rB3gJmqrD1viK3
+	bPqpHBbf5u9SzI4X1OPl5Vk80GPLWdjYmmI1BjcjiSfZrGb0ir2UotBrh6lmupCs3QxL1VuBymZ
+	5I+xJ+8xGOlRAaUUj3KtkCLKIGhe92xX6mVYSrg68Mr+COktyYWeiNQD2NKBWwHoiR/vIyudHpq
+	xZ4I8hti8mT9LGKxNH3WelECEZQnM9VyUu02a5GLmlRI3z4O+Tvd+Mxxwnk6UtJcCkMZwrjHM20
+	sM+E9geJdV1PGWbHVlR9lugRF/DTn1AQypgMq7Rxs9tiKX2uVtdTymja5/1pSQNsY/GLLBnaNh9
+	uu1YmK7HUMssjj0S7FkaS3R1MV/bcAm3/ivUcoAAEyZpc6K4=
+X-Google-Smtp-Source: AGHT+IGgBYI5CrDlNYn12cn6Hu+izxnojI0IJ5BqsjI5oNKcH7trnNHO9mFo0wcOyH2jWbqlzkJ5TQ==
+X-Received: by 2002:a05:6512:68e:b0:553:addb:ef5c with SMTP id 2adb3069b0e04-5550b9e4441mr5040371e87.54.1751370480552;
+        Tue, 01 Jul 2025 04:48:00 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2f162dsm1800592e87.248.2025.07.01.04.47.58
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2f162dsm1800592e87.248.2025.07.01.04.47.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 04:47:58 -0700 (PDT)
+        Tue, 01 Jul 2025 04:48:00 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@google.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -90,20 +90,18 @@ Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Geert Uytterhoeven <geert@linux-m68k.org>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <anup@brainfault.org>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 11/24] cpuidle: riscv-sbi: Opt-out from genpd's common ->sync_state() support
-Date: Tue,  1 Jul 2025 13:47:13 +0200
-Message-ID: <20250701114733.636510-12-ulf.hansson@linaro.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 12/24] pmdomain: qcom: rpmpd: Use of_genpd_sync_state()
+Date: Tue,  1 Jul 2025 13:47:14 +0200
+Message-ID: <20250701114733.636510-13-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250701114733.636510-1-ulf.hansson@linaro.org>
 References: <20250701114733.636510-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_044800_873173_04E5AF00 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20250701_044802_206492_77E2394F 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,52 +116,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The riscv-sbi-domain implements its own specific ->sync_state() callback.
-Let's set the GENPD_FLAG_NO_SYNC_STATE to inform genpd about it.
+To make sure genpd tries to power off unused PM domains, let's call
+of_genpd_sync_state() from our own ->sync_state() callback.
 
-Moreover, let's call of_genpd_sync_state() to make sure genpd tries to
-power off unused PM domains.
-
-Cc: Anup Patel <anup@brainfault.org>
-Cc: linux-riscv@lists.infradead.org
+Cc: Bjorn Andersson <andersson@kernel.org>
+Cc: Konrad Dybcio <konradybcio@kernel.org>
 Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
 Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xilinx ZynqMP ZCU106
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/cpuidle/cpuidle-riscv-sbi.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-index 0fe1ece9fbdc..83d58d00872f 100644
---- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-+++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-@@ -347,11 +347,16 @@ static int sbi_cpuidle_init_cpu(struct device *dev, int cpu)
+Changes in v3:
+	- Fixup the prefix in the commit-message-header.
+
+---
+ drivers/pmdomain/qcom/rpmpd.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/pmdomain/qcom/rpmpd.c b/drivers/pmdomain/qcom/rpmpd.c
+index 0be6b3026e3a..833c46944600 100644
+--- a/drivers/pmdomain/qcom/rpmpd.c
++++ b/drivers/pmdomain/qcom/rpmpd.c
+@@ -1144,6 +1144,8 @@ static void rpmpd_sync_state(struct device *dev)
+ 	unsigned int i;
+ 	int ret;
  
- static void sbi_cpuidle_domain_sync_state(struct device *dev)
- {
-+	struct sbi_pd_provider *pd_provider;
++	of_genpd_sync_state(dev->of_node);
 +
- 	/*
- 	 * All devices have now been attached/probed to the PM domain
- 	 * topology, hence it's fine to allow domain states to be picked.
- 	 */
- 	sbi_cpuidle_pd_allow_domain_state = true;
-+
-+	list_for_each_entry(pd_provider, &sbi_pd_providers, link)
-+		of_genpd_sync_state(pd_provider->node);
- }
- 
- #ifdef CONFIG_DT_IDLE_GENPD
-@@ -396,7 +401,8 @@ static int sbi_pd_init(struct device_node *np)
- 	if (!pd_provider)
- 		goto free_pd;
- 
--	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
-+	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN |
-+		     GENPD_FLAG_NO_SYNC_STATE;
- 
- 	/* Allow power off when OSI is available. */
- 	if (sbi_cpuidle_use_osi)
+ 	mutex_lock(&rpmpd_lock);
+ 	for (i = 0; i < desc->num_pds; i++) {
+ 		pd = rpmpds[i];
 -- 
 2.43.0
 
