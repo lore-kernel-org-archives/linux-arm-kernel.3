@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C41C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 17:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB58DC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 17:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b6fJWdpn51ApWW1yhF0gTZqsMiWMM9jdy6lOxtpgDyc=; b=ucY+8xP22gEjtnuu0pT8NNNm/i
-	ANHN8Wkrpw50HkYOYbruzDHKvecVHX6rAa0meoMnTjHJFIixQOpn++iOjMz/ti1VMZQlbpwuklB5g
-	2Scci1rx0GuLQtm5mxR5Jv1xCmCurZhZ/LJdTrfgdT+dxBVuraMaEmiUeoZp/ZMf2iMStXEStwDSm
-	sCk08pyEv0JSHE1ER75xaNEJlVh4gFdgrtrkCHEzIqECszfIqbIsfeo4zVGzuVgPKGV9yFCu9K/AB
-	hMDP8+kDTUlk4kS8nPRZSOa65JfLJygnNZ+ZUGSxhjzYa1JnruCXIfZWAVR/LGz4kEMh5+HPrgjKa
-	LocRmCNA==;
+	bh=f/fHpprTBuwWAHlq57Ud7Y7Lovvtg8s0N/xyt0CDfwA=; b=f7LSc25g9ZWNuUbvW1oWD72q/s
+	MwyJ9/rVSjQDv8TtBf9EbVqzSKRlX7QJ4FPgyLzmuQWv0OjLX7RyV2nXI0gZn8uqeYXVJUHU/PITs
+	K1apDqNzrIi8H8mwFRR2Ftxuemi7Z2d+Ycsql0EaUrhWCyVHrscHp7i/cFXDeb/W1PwHrckZBslZD
+	lgzvSzTi7c30kCceo/sRh5xmgaber9RVjVbCnwZK7+4R4rlGaZn6B4x+UgTYotloA6CvXAzYZojDt
+	Zg60YVq7JPIsacfVQfZhzUCiWKCSieXqNKitywaIG2iLWRVaiaMaVaR5Qpt1kc4xEpvaCTOtbXj4Q
+	+kQIs2Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWfCf-00000006HEK-14hX;
-	Tue, 01 Jul 2025 17:55:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uWfEy-00000006Hcf-42Hf;
+	Tue, 01 Jul 2025 17:57:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWcjB-00000005rHS-23z2
+	id 1uWcjB-00000005rHP-3mh8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 15:16:58 +0000
+	Tue, 01 Jul 2025 15:16:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1CE4D46783;
-	Tue,  1 Jul 2025 15:16:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDDD0C4CEEB;
+	by nyc.source.kernel.org (Postfix) with ESMTP id D7CEBA52C51;
+	Tue,  1 Jul 2025 15:16:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84644C4CEEF;
 	Tue,  1 Jul 2025 15:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751383017;
-	bh=mqhSvweyiaf53SB/vB+8vcsB7iR7pvgyiynVGmHKKBg=;
+	s=k20201202; t=1751383016;
+	bh=PeXRId0k2QHFVU9yZy9TZVhwUXLiL58Ay3yq7IB90sI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dKdFmkAcnhMzS6xOj6wnM50T1AU1vLet2lEK4jIR7ND1DjSK27Y1R25I/Upm7t6sE
-	 OOXrxMRLvi7QQlOlpv3flY7Rgip6Y5gj0WPrziNYiOChVOwRIAYjL59rEzPZ26wcGh
-	 /xP/HbpV2S0Nygo/NJnhHVc1zzKuCEyg6BtsHpmyGrOd7uNakDRNRU+i+QD4LMeZk5
-	 qejDt8VaR2o7NKQUwjfT+fisIWGXhEJp0ZWuSxvqGWp/6G1mkdlLMxP/oKR5u/LPTB
-	 +lvBaeFGRhHbXBKZh5+cgtktBf4ePidO6CYjl3uQ6A8jqCOA3jyfeGaB2j34s7yP70
-	 sRNhr3XDXthjQ==
+	b=pHjdLLI6zNfv38kNVFtsyL143n7BYMlbB2kBN5UODbA96dtLF/lPW8zeHW5qwp8vE
+	 DC6nvcI/RgdDDOrKm9K+Snz0Yz0xnsZtLEAyB3CCWI1InXxBvut7LYgCaw4OQ3VHci
+	 w0f5R4P80fA/aoNcUXKZO46/rZcUC+2ivoKlhPn+BvnnH5zM7Q8Ix1rOykxMrL+XF2
+	 dnKvS5zZZbsJdCQMTiTLHpzhIZBnRBr3aXKAeD3uWuFN3iqVgZUWv8YFmgfsFGmWjr
+	 5Yw9vM8o01qQwv4t33k+9GC3UiTWQ4+IjnujrgLKYSrHetQ6OVTmJGNRNs7fNgmWNV
+	 gjvZPAEGmALPQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uWcj8-00Bch8-Ss;
+	id 1uWcj8-00Bch8-NT;
 	Tue, 01 Jul 2025 16:16:54 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -55,9 +55,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 2/2] KVM: arm64: Follow specification when implementing WXN
-Date: Tue,  1 Jul 2025 16:16:48 +0100
-Message-Id: <20250701151648.754785-3-maz@kernel.org>
+Subject: [PATCH 1/2] KVM: arm64: Remove the wi->{e0,}poe vs wr->{p,u}ov confusion
+Date: Tue,  1 Jul 2025 16:16:47 +0100
+Message-Id: <20250701151648.754785-2-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250701151648.754785-1-maz@kernel.org>
 References: <20250701151648.754785-1-maz@kernel.org>
@@ -68,8 +68,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_081657_568185_F68505B6 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20250701_081658_089068_E0D72FD6 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,81 +84,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The R_QXXPC and R_NPBXC rules have some interesting (and pretty
-sharp) corners when defining the behaviour of of WXN at S1:
+Some of the POE computation is a bit confused. Specifically, there
+is an element of confusion between what wi->{e0,}poe an wr->{p,u}ov
+actually represent.
 
-- when S1 overlay is enabled, WXN applies to the overlay and
-  will remove W
+- wi->{e0,}poe is an *input* to the walk, and indicates whether
+  POE is enabled at EL0 or EL{1,2}
 
-- when S1 overlay is disabled, WXN applies to the base permissions
-  and will remove X.
+- wr->{p,u}ov is a *result* of the walk, and indicates whether
+  overlays are enabled. Crutially, it is possible to have POE
+  enabled, and yet overlays disabled, while the converse isn't
+  true
 
-Today, we lumb the two together in a way that doesn't really match
-the rules, making things awkward to follow what is happening, in
-particular when overlays are enabled.
+What this all means is that once the base permissions have been
+established, checking for wi->{e0,}poe makes little sense, because
+the truth about overlays resides in wr->{p,u}ov. So constructs
+checking for (wi->poe && wr->pov) only add perplexity.
 
-Split these two rules over two distinct paths, which makes things
-a lot easier to read and validate against the architecture rules.
+Refactor compute_s1_overlay_permissions() and the way it is
+called according to the above principles. Take the opportunity
+to avoid reading registers that are not strictly required.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/at.c | 28 ++++++++++++++--------------
- 1 file changed, 14 insertions(+), 14 deletions(-)
+ arch/arm64/kvm/at.c | 52 ++++++++++++++++++++++++++-------------------
+ 1 file changed, 30 insertions(+), 22 deletions(-)
 
 diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index a26e377a36171..0e56105339493 100644
+index a25be111cd8f8..a26e377a36171 100644
 --- a/arch/arm64/kvm/at.c
 +++ b/arch/arm64/kvm/at.c
-@@ -1063,6 +1063,10 @@ static void compute_s1_overlay_permissions(struct kvm_vcpu *vcpu,
- 		if (pov_perms & ~POE_RWX)
- 			pov_perms = POE_NONE;
+@@ -1047,34 +1047,43 @@ static void compute_s1_overlay_permissions(struct kvm_vcpu *vcpu,
  
-+		/* R_QXXPC, S1PrivOverflow enabled */
-+		if (wr->pwxn && (pov_perms & POE_X))
-+			pov_perms &= ~POE_W;
-+
+ 	idx = FIELD_GET(PTE_PO_IDX_MASK, wr->desc);
+ 
+-	switch (wi->regime) {
+-	case TR_EL10:
+-		pov_perms = perm_idx(vcpu, POR_EL1, idx);
+-		uov_perms = perm_idx(vcpu, POR_EL0, idx);
+-		break;
+-	case TR_EL20:
+-		pov_perms = perm_idx(vcpu, POR_EL2, idx);
+-		uov_perms = perm_idx(vcpu, POR_EL0, idx);
+-		break;
+-	case TR_EL2:
+-		pov_perms = perm_idx(vcpu, POR_EL2, idx);
+-		uov_perms = 0;
+-		break;
+-	}
++	if (wr->pov) {
++		switch (wi->regime) {
++		case TR_EL10:
++			pov_perms = perm_idx(vcpu, POR_EL1, idx);
++			break;
++		case TR_EL20:
++			pov_perms = perm_idx(vcpu, POR_EL2, idx);
++			break;
++		case TR_EL2:
++			pov_perms = perm_idx(vcpu, POR_EL2, idx);
++			break;
++		}
+ 
+-	if (pov_perms & ~POE_RWX)
+-		pov_perms = POE_NONE;
++		if (pov_perms & ~POE_RWX)
++			pov_perms = POE_NONE;
+ 
+-	if (wi->poe && wr->pov) {
  		wr->pr &= pov_perms & POE_R;
  		wr->pw &= pov_perms & POE_W;
  		wr->px &= pov_perms & POE_X;
-@@ -1084,6 +1088,10 @@ static void compute_s1_overlay_permissions(struct kvm_vcpu *vcpu,
- 		if (uov_perms & ~POE_RWX)
- 			uov_perms = POE_NONE;
+ 	}
  
-+		/* R_NPBXC, S1UnprivOverlay enabled */
-+		if (wr->uwxn && (uov_perms & POE_X))
-+			uov_perms &= ~POE_W;
+-	if (uov_perms & ~POE_RWX)
+-		uov_perms = POE_NONE;
++	if (wr->uov) {
++		switch (wi->regime) {
++		case TR_EL10:
++			uov_perms = perm_idx(vcpu, POR_EL0, idx);
++			break;
++		case TR_EL20:
++			uov_perms = perm_idx(vcpu, POR_EL0, idx);
++			break;
++		case TR_EL2:
++			uov_perms = 0;
++			break;
++		}
 +
++		if (uov_perms & ~POE_RWX)
++			uov_perms = POE_NONE;
+ 
+-	if (wi->e0poe && wr->uov) {
  		wr->ur &= uov_perms & POE_R;
  		wr->uw &= uov_perms & POE_W;
  		wr->ux &= uov_perms & POE_X;
-@@ -1106,21 +1114,13 @@ static void compute_s1_permissions(struct kvm_vcpu *vcpu,
+@@ -1095,8 +1104,7 @@ static void compute_s1_permissions(struct kvm_vcpu *vcpu,
+ 	if (!wi->hpd)
+ 		compute_s1_hierarchical_permissions(vcpu, wi, wr);
  
- 	compute_s1_overlay_permissions(vcpu, wi, wr);
+-	if (wi->poe || wi->e0poe)
+-		compute_s1_overlay_permissions(vcpu, wi, wr);
++	compute_s1_overlay_permissions(vcpu, wi, wr);
  
--	/* R_QXXPC */
--	if (wr->pwxn) {
--		if (!wr->pov && wr->pw)
--			wr->px = false;
--		if (wr->pov && wr->px)
--			wr->pw = false;
--	}
-+	/* R_QXXPC, S1PrivOverlay disabled */
-+	if (!wr->pov)
-+		wr->px &= !(wr->pwxn && wr->pw);
- 
--	/* R_NPBXC */
--	if (wr->uwxn) {
--		if (!wr->uov && wr->uw)
--			wr->ux = false;
--		if (wr->uov && wr->ux)
--			wr->uw = false;
--	}
-+	/* R_NPBXC, S1UnprivOverlay disabled */
-+	if (!wr->uov)
-+		wr->ux &= !(wr->uwxn && wr->uw);
- 
- 	pan = wi->pan && (wr->ur || wr->uw ||
- 			  (pan3_enabled(vcpu, wi->regime) && wr->ux));
+ 	/* R_QXXPC */
+ 	if (wr->pwxn) {
 -- 
 2.39.2
 
