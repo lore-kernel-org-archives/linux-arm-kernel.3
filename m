@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3453C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56999C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0fGtepblwK+PwnUbRqr8IJdvtvAvDr3iEbtu2aVkHEg=; b=MvC4aeSuMyxwOUXQaWsXYHFUzU
-	PzuYR1ug8GHcVuKKO4psvduT1e7D62JZnmZtl67Y7tAg4TjBn/CR5JMebo3/KVQsZQbE+S7l2+MGC
-	H7gRiLGvoBJtLDUCU3y+UOGGRyg65metTPddYbu2Wp5Qccigob/ZhNgw3oR9lH0euOhapnB8GJ0ls
-	Jn8vAjhfOBcKKbkVI/hoDr9QKxAgPEewwJhYqkN9salboHmk11vKa06pWh6UdATzxeU486Wt6T/ZA
-	G2U0ocjRwg9ytC3hNcpDzgWcBBbTFip2mZ9yu6YUm5xl+xbx1n/Anf2jH6zh83a9aKAFwR870O4r2
-	KTCKPbjg==;
+	bh=wPvkcAt4zSrtM9oZmfXhXmVxnEI/T9ET+SnIeWmVj3s=; b=tYL54DJyyDNlfoIw9FlFmR7Y05
+	B+jJq9Pw3TD5bt45A+9rRHJRlztGpmJq/tuQr57v8HA+CFUpZgiyDxduKwVxo8QDFA4dO5jm9u+D2
+	T/RlBpz4lILxDbVm1+45axehw1mYoa9lNooBb7J+e8BfmLix/A5ZYQpVKJtg3BqEznxu/I7N2jCSn
+	BmhsZlmb1jE6VGS1GuU/eV6LX9uWkxvtkLcA87EorYWliJ1qmGg8ABOvcQR/e5waEsZxkqhdmVkhH
+	ew7llCguRHF/AxFYRqkTNebARB6pxqXB2Uy2MVE0W++WYgh4yhskWFqSrf3jm+ap4sBFkZpnjHqpm
+	ndXQVMqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVwe-00000004MGQ-3OCd;
-	Tue, 01 Jul 2025 08:02:24 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1uWWiw-00000004TQf-2PA3;
+	Tue, 01 Jul 2025 08:52:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVsP-00000004Lcc-1pn6
+	id 1uWW8D-00000004Nnq-0AHb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 07:58:03 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ae0b6532345so1232965666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 00:58:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751356679; x=1751961479; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0fGtepblwK+PwnUbRqr8IJdvtvAvDr3iEbtu2aVkHEg=;
-        b=M7wzQevqaFbpbIbD0zY2/33/gaTPiSY6OWzft1TpYQJ0aM63VjrSya9L0mPW+6qync
-         5myBdXd6VOqgRK2JsqJmaMN37y20pB8hpNaBLD4fRAClzSkEjjKiwyvK80zOUsA+/vG7
-         PbAV9MFCFebHvwPmN17gyM+YSdnvOOc0D+sDpi01i7km8vIgwvTtX7mTHa4mLgW2XR03
-         WNDhBhNcV+DjUai2q5s3IC713vhWOIqfmxCZiRz1NBBjrOdbpN9mGEK+ps5xwJH8l2qq
-         2P2Y/KCuTTRLDGGfYDBKo2SGvUh5m6F6oV1tVlq/sK0+NgY8kGIvi+za/hVuFbCeXMm+
-         BfXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751356679; x=1751961479;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0fGtepblwK+PwnUbRqr8IJdvtvAvDr3iEbtu2aVkHEg=;
-        b=KtBXGias7TddDf00TlPTlywd0su+vgY8/i8c7fHo2EjjGQtac5eE6og3Qyw+E+kaNE
-         Pr6EhwYbTsWdiu8WQH9mbUrJxfzusRsDAlDhTTnUv4QqfHPWVEjXW/Be1bKiBm5tU0M5
-         uXNKpsU20ntE9WpTGz34Ko7BMOEScOqyT8IMqA/wJB/hhOahO0n6aacc2R50mRrBY1CU
-         VV+t+qUlPIOkuR1XJOocKupLeF3iI+h4rXgWU2DzCBmcNT2SHcgB25qhOr22O2Qh5JAK
-         w5EM2vrUH/JC9T4muPxZmjm7WKAolKPm5wOqVe0HUNL6SSb+/3Klv4CdTcpyBFjQrbUo
-         PPkg==
-X-Forwarded-Encrypted: i=1; AJvYcCVHJxnBdR9+SCpBG0vXlvHBVk1E7krFWNnZb9aYFZxfSkJeQvB+VJhNG0cytXCnrc+XSrJ0F0bBDqkFpRdwk/CV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTcMmoTxdMi3iXIc+xivlDSv07Uq5KboA0dDrP6B5gJf877ra0
-	dKC2VveiY6rj1EdDMR/PlGtiMAXQ3ppCt4hm1wYq9CRJDl+PWYVHglDtC1l0X29XKSU=
-X-Gm-Gg: ASbGncvReTrtUnrqbQE9SapEdUYLmuUmY4C8mQE++oZeUUOJGSfFLEPb1oDlJO1fvvF
-	Qm7GZGKeDGHRgcgwSR/KlPkCac5lTJLJzdkPH70rtEg0RL6kzhL5e+flzmY5mqSaD+f/rjhKLqo
-	uQFt4HsGBE8EOcZ6jt4wiCPofTL5VjgxfJcJyP/5ubQ2wu/FECc1WwcE/MgKPxXSm5mL0PyQruO
-	JvGf6R6O1m5EpVyMAa4WcSZm2IJ4lPlrh4nVZ6k4DKJBRBbV5nkx1Sq3ojSqukO4xB8XSAb6F2b
-	3HMz0K2XrI9yolv3JahZxRtoKTXi4sbN1T4L7D69wtkEwb0D0P0bVH+EzhKxHqFaJBmVMDTVg8z
-	+fZBezw1bd9+EEp95KJfh4YRaOeQQ
-X-Google-Smtp-Source: AGHT+IGGrCAc15VHtma/sGYQ2QD6trb1EHpP/JN8l1psGDWhOW7Eth1ZId1p8Z9JxXzDyNqdoc0dkQ==
-X-Received: by 2002:a17:907:3d8f:b0:ae0:c4e3:e2e8 with SMTP id a640c23a62f3a-ae3b0b8fa19mr136200866b.28.1751356679310;
-        Tue, 01 Jul 2025 00:57:59 -0700 (PDT)
-Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ae35363a172sm808993166b.8.2025.07.01.00.57.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 00:57:58 -0700 (PDT)
-Date: Tue, 1 Jul 2025 09:57:57 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: linux-pwm@vger.kernel.org
-Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	linux-arm-kernel@lists.infradead.org, Vladimir Zapolskiy <vz@mleia.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	linux-riscv@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 0/8] pwm: Drop local locking in several drivers
-Message-ID: <wzadx2ut3wjm24bw7ol4qjjeku6f74sp3tovtexs5w62ljesid@n7d2f4uzga6b>
-References: <cover.1750788649.git.u.kleine-koenig@baylibre.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dvqu3sv3rcoezsre"
-Content-Disposition: inline
-In-Reply-To: <cover.1750788649.git.u.kleine-koenig@baylibre.com>
+	Tue, 01 Jul 2025 08:14:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 495465C5F77;
+	Tue,  1 Jul 2025 08:14:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1495C4CEEB;
+	Tue,  1 Jul 2025 08:14:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751357660;
+	bh=+DZ09FEazCWymldSBe2DHALApCtx76xTJrchpStCGs4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=u6Xp4cw10gOkhmmnjzE8UWPuuS/fQTQXPIq+j62Qq62Zo+b8/pevLL6tb1WXuNY/m
+	 N4mhSXTVWkX7HFo7Ra7hGJkceZjMT7RvOnxlhC91B6ptepQVc1yNRS3FCiPZqsLG0+
+	 TsKCZtD60NppRHrVRCBOqsa/gGeH8bIRsddwx9C8pWtDZv9uyl2NgL0yzaE/bIvsGf
+	 Dm0uomLmogYcLhmuuRV61DwWcRu5RHNfg558JsOtQzoTyTyE2+U7Ef4U/3K6kPyYYq
+	 pwKOkAlfAn6wjhJSNp2CXmo3dIvc1RjIUqBSbtwAacTYRxjtkGxSe9rfRo98Ars7EC
+	 if32qJMNcsnSQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uWW89-00BTdC-Id;
+	Tue, 01 Jul 2025 09:14:17 +0100
+Date: Tue, 01 Jul 2025 09:14:17 +0100
+Message-ID: <86h5zwba5i.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<tangnianyao@huawei.com>,
+	<wangwudi@hisilicon.com>
+Subject: Re: [PATCH] ARM64: errata: Add workaround for HIP10/HIP10C erratum 162200803
+In-Reply-To: <0b54db94-8a6f-cea0-a6f7-dbe8650d66dd@hisilicon.com>
+References: <20250626124142.2035110-1-wangzhou1@hisilicon.com>
+	<86wm8ybpk5.wl-maz@kernel.org>
+	<0b54db94-8a6f-cea0-a6f7-dbe8650d66dd@hisilicon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, oliver.upton@linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, tangnianyao@huawei.com, wangwudi@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_005801_479550_2A4A65AD 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250701_011421_159469_BCE1C8CD 
+X-CRM114-Status: GOOD (  41.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +90,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 27 Jun 2025 07:36:31 +0100,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> 
+> On 2025/6/26 21:27, Marc Zyngier wrote:
+> > On Thu, 26 Jun 2025 13:41:42 +0100,
+> > Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> >>
+> >> For GICv4.0 of Hip10 and Hip10C, it has a SoC bug with vPE schedule:
+> >> when multiple vPEs are sending vpe schedule/deschedule commands
+> >> concurrently and repeatedly, some vPE schedule command may not be
+> >> scheduled, and it will cause the command timeout.
+> >>
+> >> The hardware implementation is that there is one GIC hardware in one CPU die,
+> >> which handles all vPE schedule operations one by one in all CPUs of this die.
+> >> The bug is that if the number of queued vPE schedule operations is more
+> >> than a certain value, the last vPE schedule operation will be lost.
+> >>
+> >> One possible way to solve this problem is to limit the number of vLPIs, so
+> >> the hardware could spend less time to scan virtual pending table when it
+> >> handles the vPE schedule operations, so the queued vPE schedule operations
+> >> will never be more than above certain value.
+> >>
+> >> Given the number of CPUs of die, and imagine there is 100 vPE schedule
+> >> operations per second one CPU, it can be calculated that we can limit
+> >> the number of vLPI to 4096 for virtual machine to avoid the issue.
+> >>
+> >> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+> >> ---
+> >>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+> >>  arch/arm64/Kconfig                          | 12 ++++++++++++
+> >>  arch/arm64/include/asm/cputype.h            |  4 ++++
+> >>  arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
+> >>  arch/arm64/kvm/vgic/vgic-mmio-v3.c          |  5 +++++
+> >>  arch/arm64/tools/cpucaps                    |  1 +
+> >>  include/linux/irqchip/arm-gic-v3.h          |  1 +
+> >>  7 files changed, 40 insertions(+)
+> >>
+> > 
+> > [...]
+> > 
+> >> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> >> index ae4c0593d114..495a56e9dc4b 100644
+> >> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> >> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> >> @@ -81,6 +81,11 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+> >>  		if (vgic_has_its(vcpu->kvm)) {
+> >>  			value |= (INTERRUPT_ID_BITS_ITS - 1) << 19;
+> >>  			value |= GICD_TYPER_LPIS;
+> >> +			/* Limit the number of vlpis to 4096 */
+> >> +			if (cpus_have_final_cap(ARM64_WORKAROUND_HISI_162200803) &&
+> >> +			    kvm_vgic_global_state.has_gicv4 &&
+> >> +			    !kvm_vgic_global_state.has_gicv4_1)
+> >> +				value |= 11 << GICD_TYPER_NUM_LPIS_SHIFT;
+> > 
+> > This really doesn't solve your problem. Yes, the guest *may* honor
+> > this limit. But KVM doesn't care and will happily allocate 2^16 vLPIs
+> > if the guest asks -- there is no code enforcing this limit.
+> 
+> Hi Marc,
+> 
+> I am not sure if there is any other place guest can ask vLPI over
+> the limitation except for MAPTI/MAPT below?
+>
+> > And even if we did. What would we do on a MAPTI command that tries to
+> > map a vLPI outside of the allowed range? Do we need to tell the guest
+> > it has screwed up?
+> 
+> Thanks for pointing this. Yes, we miss the lpi_nr checking in vgic_its_cmd_handle_mapi.
+> In fact, the fix of this errata introduces the usage of GICD.num_LPI,
+> so we need make related logic right as well.
 
---dvqu3sv3rcoezsre
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/8] pwm: Drop local locking in several drivers
-MIME-Version: 1.0
+Exactly.
 
-Hello,
+> 
+> I am not sure that if we could add related checking for lpi_nr in MAPTI/MAPI
+> as part of this errata fix, or we should add the basic support for
+> GICD.num_LPI before adding this errata?
 
-On Tue, Jun 24, 2025 at 08:15:36PM +0200, Uwe Kleine-K=F6nig wrote:
-> some time ago the pwm core implemented additional locking to protect
-> lowlevel driver callbacks against driver removal. A side effect is that
-> .apply() and .get_state() are serialized. This allows to drop some
-> locking that is now superfluous due to the core's locking.
->=20
-> I identified a few drivers that are affected; these are cleaned up
-> accordingly here.
+You definitely need to handle that before allowing such limit to be
+enforced. Which also means allowing the limit to be saved/restored
+from userspace in order to support migration.
 
-I applied these patches to
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-now.
+I was really hoping to never have to support this thing (it really is
+terrible), but if we have to introduce and honor it for correctness
+reasons, then it has to be fully supported.
 
-Best regards
-Uwe
+Thanks,
 
---dvqu3sv3rcoezsre
-Content-Type: application/pgp-signature; name="signature.asc"
+	M.
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhjlQEACgkQj4D7WH0S
-/k4vegf8DgkQ0a9kQ5LjlzCtQA04Tm1xfeP7UVjfQXVsJkkBcOU4mfdoSrU9tfno
-BfO6tWeFYcUdJbCAPLDW0rtt/PLGq00m1Ti+DotG0ys5XYfE4C/L2gEcEJXEWdh5
-teuOCdBWo55vAOj0OT+fFWSagAH5t1UJvOiX/XHUqS4do4wNVCUDo3oCG94zvqRo
-t+cSZpO8iWlY+qK/wJu7rClU87CHx+WgtSs+TKH44z6SV8chWe2sh2a8bJzEYjLf
-oCP3jZ6htcXuYiqQEyxRtyzYPvV7Uhy3tnshs2tS54Pyvgs6hYa13ZkPU9uSa154
-6kyYGeshrOV0IJSJUvGmR+mfNO9lcQ==
-=GkCe
------END PGP SIGNATURE-----
-
---dvqu3sv3rcoezsre--
+-- 
+Without deviation from the norm, progress is not possible.
 
