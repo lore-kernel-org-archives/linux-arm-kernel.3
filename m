@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692FEC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 12:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 369F1C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 12:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gnET98UW3q4Lh5roGHBULYTY/QH8nhGQbEQwpvTzKlQ=; b=REaqL+Ae+bag1gQxCsVRSLB4QE
-	LYGaE96liHZNC/KuPX1I/t5gjUuxqPEybn+4zJC5YnoTLKEyU6ku5Y7KXaGVbcqDPPNaZhW8tfHw+
-	wRi0NEsciIZBe9I6QvkFf6BDf7v00YHYg8bUjx04Y8XUFTR9kY2Okx4TO4rApO00lRKKjK7Xdfkcj
-	5f1MWJz2mwoU5oNNM78M1z8O7Ao8kr2gfcQUFGVsvItuQ3Cf0FffOEdB4ZT3r2CvhXl1QcNrJVjzQ
-	TQ54z6I9D5SR4R0GsvVYFuQz3wsGJzC83/5iryLRdqr82uhDH9ZyjyHn6iPRbhCIQCQC+/MiK+Neb
-	P1yMfttQ==;
+	bh=dmlFoe2aym4eeL7Hz5sMKNcWh8dSGY8xkumy4xR8mSk=; b=TTHLtv4dseC/52xs2FqjYJqzkG
+	mr18vsJCf8rharV0yuNVtHNYQ0BQ6pQRkL8izNimEk0xx+d/3pLNqKLXH7dCOevQn6owL1Ix/eQQo
+	Tu2Z6IBx6sgm/OTprGFITTn9Gt+ESK9+WneXC+o9qQhSUREfWRn60UKLYMsdrqgcceDwlieQ32bF8
+	dh/svi+zyclRm0YE2yXNZjaC1ygZ4aADPPLjtTeGGVHKHfTJFdi+mh1sFy5gxjQEgOm4v66lGdStr
+	oyI+VtkEURmMWZ+/gVy0q+7vPEtw2uVfzp57GmsP/GWLqG3GMhAwLZ8occBvveSJIBxyNmB+1z9UO
+	n7/06+FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWaXl-00000005P9B-2IyX;
-	Tue, 01 Jul 2025 12:57:01 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1uWaa4-00000005Pko-12D2;
+	Tue, 01 Jul 2025 12:59:24 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZUj-00000004vHT-3RPW
+	id 1uWZUl-00000004vIf-2O7j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 11:49:51 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3a6cd1a6fecso5926851f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 04:49:49 -0700 (PDT)
+	Tue, 01 Jul 2025 11:49:52 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45348bff79fso31044225e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 04:49:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1751370588; x=1751975388; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1751370590; x=1751975390; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gnET98UW3q4Lh5roGHBULYTY/QH8nhGQbEQwpvTzKlQ=;
-        b=FZ3mxzQwY0HU6spVwx++F63XqBOP0QXb08Z891sO4uME1z5EaqFthT54/uemkiStRP
-         8cuVYGptB2TTz8Al7Yl84KwaO2XsJWu1zQW6vR3OUT/H1NHwnC05WDD6tTeSRXDkGFKv
-         tp+/N+HgsJcnesrwgTBkINps+3+4v6QKygWK1j5vLhZ1sp9X6nJkBkO7r8dPNk4s6OdR
-         UjwpijqCmlXdoZYJFmFkVmPuEl8jiYAla9DmEvBi/kXRNnrgk6+cUawYxffNhzr1VIqZ
-         tkk7uienErRoMc7mxgFWlkEIXPnbgbGTRd0o5gt+H0dJ3C1coEUZihEdtA4wGS3JZQXB
-         lvPQ==
+        bh=dmlFoe2aym4eeL7Hz5sMKNcWh8dSGY8xkumy4xR8mSk=;
+        b=djX1RNI/8AUhKPw11PlTBBfhxRh/lKsaheRr+3g0nVBALYJwnQVVi+KJPyxMyY18dk
+         0WoSFsl9qsNhQUlCLkAqZ8IlMs98YaIVdo1zEASzryPABvi5Hv8oRfBldGizdHUMeXjh
+         9Xm/r3jeuVQAGsjqiDmEy+ifM4Jp+Dd0iODwQB6714Sr3gY70eDvFneRqy3QbaQKcmnf
+         65PHjokUGx2hSOcp+Up46hihfSuRdMzWrTNluD+XeD3/ZfSwoDg/RgMr2/yn6R3Cp4uo
+         UQtlalbU9d+94aAZyeDBUPSX7Du4a1ZPE3E6QqLhPJP+0qUdei8xiu4JAD3dvEZeJgC5
+         9vPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751370588; x=1751975388;
+        d=1e100.net; s=20230601; t=1751370590; x=1751975390;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gnET98UW3q4Lh5roGHBULYTY/QH8nhGQbEQwpvTzKlQ=;
-        b=aGTuun0kGS8A2MAZ8n8aquxy+GoCJcruQSpuNW7TaW8iyW5XEbJS8/KYASxwGm015U
-         xCtzouVvJxZ1PqHuKeabbusAbXelzRQlvlfyXvopO0pWcRlIGGzPs2JyBz4otuP8s3ke
-         OFrIwjwj3arYAYEbbJ90qDxs7BQRVZjMd/zl7z0CW+F+ylJQ7FJ2CyJheFCQP3AD/uGr
-         FeDrBDXeoSh+DcO0T5VnfuOr+1iB/QwCuG3OLZkEmFVDB1ZTLmgYtFjAPrylWiySGRi5
-         tBT2cIREwzpi3hBu6f8y58PvneIhaTfMskNSHiYjrhJ5ze17I/4dHt+JXVtuNufkcJOW
-         4vuA==
-X-Forwarded-Encrypted: i=1; AJvYcCVdAqnsB4FyDFwlXUoWOnag4rWTl0wnrugPU7gRlgQLY6t1OfInvrQKqdrDnwwcOmZ9jAGyKmUvfy9VF0YrUKX8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yylnj3wnV9IAp+b95V6Sb7Eu1tR9h7NIiKq3duhZtSF3jQqbIIg
-	ZKzQ+BxefVISe11+ZMKUPGpuc0J1poFqvqcqWO2XXprPwX2GBD4pmWgX71VfQwZoqMA=
-X-Gm-Gg: ASbGnctG4QRWDBsTjza4sj7KYj726Z11SrTvxiZQwXa569BeTRVcO3cA3H+Itwg3AV8
-	Qu9FX76dFSylEUJfOjWfDvTLEZa4HWWBM9rIp7r9Mf2pC3ahY7dtIAzojV029IDWq/rXjK+xqhb
-	Cd9FjuN79cva7Su4DLCo3eVAP0eO5AivIbtG3jLLvQXDfhjMpyRFk4ue6lOqv5dRXXVQBPmq2Lu
-	Dd7SZb9rohKUr9cO2kqa19axJkxNfvWWGbOan/ob3RpNg8Gusd6/R/v3eKWl8gsMjg5kBUkH6TZ
-	hb+ST7dAF1yVk5VLPuec4ARZp55VJ9u3l56svbjUF3vO2ZevibG7VA==
-X-Google-Smtp-Source: AGHT+IGzD4Mf8syZLNv6toYxZEcYHBpzR51yBNAd8gDbc5ThQS0t22Hcfo27kXGUE7z0H6MDx9Amyg==
-X-Received: by 2002:a05:6000:104e:b0:3a4:f513:7f03 with SMTP id ffacd0b85a97d-3a917bc827cmr12012983f8f.44.1751370588497;
-        Tue, 01 Jul 2025 04:49:48 -0700 (PDT)
+        bh=dmlFoe2aym4eeL7Hz5sMKNcWh8dSGY8xkumy4xR8mSk=;
+        b=ag1dGznIBiu9KNavDlshhBVMMVuR5Bme3499vUH/iFvBpkfiRAVk3saqosBkRlCfom
+         oXIinqS6VTGjtn63FzSKJYeJm5ss8tqDGvbL5X6FVALu3bOMhnjDxCe7ZIdjudiK4GUp
+         umUO+ti0jHV8FharTwPV6z3Z7SctvyLwus+Zw7OEEAdqR1CsPVmu0Lj+D6azGEzKEIZ4
+         S1RBwcDm+eq83fW8evwWoqWgBEn4Rz5CzXBE67KwiHxfjYmioU8ARmUzs7hZ97dg6aMe
+         zMX2kalyv1bwUA5H4dUwvm/9z1ioXGvfXAl6GBQ0Tblkz+9GufOaJAJMy6h7ktOWtwHd
+         w7Pw==
+X-Forwarded-Encrypted: i=1; AJvYcCV4nDBhX+SzA3MkI9T27/zbwvVeweCy9wR51/pSLI/f/OUIjY8c59YbBihqWN1WNQsage0aYBQbz42C3ae/o0JI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwL1vddRCI/MSjvtaNvYzZfmqXWQX1/vhCGHOuyde2/a6XNTT31
+	BbXXNuA+/k4FUSMTG6C/B8SXwWfOCaiqVo6w0cjNVwyfFzt/q1neWyubnJoAxDOaxB8=
+X-Gm-Gg: ASbGncu0LzqNjfPfqUMWUXbV91qBE0GYbX0iF2uLgaXiVPvgcMb3plC8fFcpnZWoPEl
+	w8EgqcHggcJj2PskYaopMVjc+dvddrufR0pCFIc82uBJMxge6UfUoedOvj0JO1WNqxIijg+hj2q
+	Gbsdy0utJROJhR+fg6cYaaKu1RhxKmx1mzj4SZwNzACpFVLvqDnb7eTCJkAlF387o/yTZ5rZwbD
+	DgfiEA7ZAKEWktRt0sOcCWf2wq6hB6ZXUYB5qU+fxArnFJzh2rcnDVGAWyx4RSyvR9SULYq1Tnh
+	hwcOfdTFtFKCReHVCOEbdVIubsujoTW5CWa73LkEx5gM5MGVjDrzWw==
+X-Google-Smtp-Source: AGHT+IGJrN6PNufVnPsz2OChBPF0nzndAxw1Vgqz8TrakhIeBN1I20xOkzC1J1aLNxuEe6wnZRadWA==
+X-Received: by 2002:a05:600c:4e01:b0:453:6146:1172 with SMTP id 5b1f17b1804b1-4538ee4f7cfmr193139605e9.3.1751370589775;
+        Tue, 01 Jul 2025 04:49:49 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:a387:7a32:8457:f9b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538233c05csm193988925e9.5.2025.07.01.04.49.47
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538233c05csm193988925e9.5.2025.07.01.04.49.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 04:49:47 -0700 (PDT)
+        Tue, 01 Jul 2025 04:49:49 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 01 Jul 2025 13:49:36 +0200
-Subject: [PATCH RFT v2 2/6] gpio: mmio: get chip label and GPIO base from
- device properties
+Date: Tue, 01 Jul 2025 13:49:37 +0200
+Subject: [PATCH RFT v2 3/6] mfd: vexpress-sysreg: set-up software nodes for
+ gpio-mmio
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250701-gpio-mmio-pdata-v2-2-ebf34d273497@linaro.org>
+Message-Id: <20250701-gpio-mmio-pdata-v2-3-ebf34d273497@linaro.org>
 References: <20250701-gpio-mmio-pdata-v2-0-ebf34d273497@linaro.org>
 In-Reply-To: <20250701-gpio-mmio-pdata-v2-0-ebf34d273497@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -91,26 +91,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  patches@opensource.cirrus.com, linux-samsung-soc@vger.kernel.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1825;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3488;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=GroFk8Q5FkhtN365brFZHyh2tlzBuOR036y6JYVpJP8=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoY8tXgR8SvDBadENlz3jrMIRT1uq7RXKh2WvYk
- h5qNXOpDVqJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaGPLVwAKCRARpy6gFHHX
- coMTEADCnHYB6sIGGMnETNsvZvTMFWuIKl4hmd/MJvNwxPLxGSAQMY8Iv5AMkfa5y+vpFI1CCqY
- ItUhoMYuoZhgWZbuPp2Mp5n0k8rbZuR8xvlNRmRl1okJF5UfkBUZXNU++yE1OnFkKqdIqdjvCLe
- GjiCZ6d7Rlyj1eAiztikmz0X+a3otxj88gBbJ4Xce8xldqreAt9psxwTt5Csso2Ed7CBifFCkdF
- jggoFS43tmUKiEgQDX7QrMdUz2ZzWcEnScXzxXCybwChAwBm89CNC8nwDIdpkwv8SVpTXLjoDBI
- KMUo59dDIDM5JlVQG+hOvEGn0KwXwdOdUdIrxjC4jmOy9P1SZBQDpuQjGQ0KrkgWHodvsobzWsH
- gDboc9/lF+vhA6cb8JqlW8b7efovKfPdgzryvGHU1fDAuA67fx0uaP1uk03sMdjsfcXU4j1+6Q7
- 4H5UPNqnJhXS2ZtONHUnMHHoFdOdp4IAIYgS/FnZ5pgZ6uCrwPYP8TizLs+7MfaBP+Nd9x1R97L
- oOZT8GX4x5AVOWvC0Ja4EZ1AhFD/ohEiCc3qE6lmHkvCWSrbW+5CJ0l34b9FpQ98tneqIecRGmp
- QaIdfjYq1PniianL9wOyXpiG1asjjQzvnapg1liCMla4LDxUDlrFW7xii6z+3tA1lg5iASR+GqA
- dHRw54sQZ++x2MA==
+ bh=T6LXibepSEWSVZc5pSawHsl5dJjLPLgQMdCiAMb4Z7Q=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoY8tX3EkD2/+Qls/ylxbJqZ8GBp5rTpjE9xcMl
+ GxTjsfzP0OJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaGPLVwAKCRARpy6gFHHX
+ cpCvEADPfHzms9P3YOgQRuuTWhfoI9MXVAtI7MQBLr3MoBA4W0MBMbmvFXzZukdAnQlPygwowCT
+ hKvSLzZzJtfL9kj2p3QlCJcsyrfKpnbFOcCODQ+ktHV9i36LEsZ1jS8SQTyY72JQbe6LYFAnmEQ
+ eEZWT4f1VJbiryBn9b34dsURVsjgVR5A0lgizO/J3R2UyvESZJW1W3jEwCZ5uh3IjHqmCjKUkkh
+ AMbPzmyUxq+jM6Irzj89JmFrg2kd8Au8qW6mp+UKJkVzzyvPdQuzc0PPWe0qvu83zbceJnBlGtx
+ S6oila3incG4pqEoh3dlwnwArCKvEekCZZjiB2+SYsLkZwhYGYUi8n7kNJAYOZQ2swpVLm9Yt7X
+ +39BMZvQTOP45spQWexcRbhFb0n1ehMOY0V5V79jpCE9RSD+Y1zNZZK5c22RNMrXXWIqDB7vQqK
+ qq6k+/vydQKjL/gQSZ3CfGWshMzsNh6UHpLHJIPTo/RPcGmsoMcEZOOR/pCCDdUi6A2pCLU/XOY
+ ojeStlRrT+kGuYekJyqr07U9tueX+1anJ4zBuI2z+By67Fb2ZRbe1pjMadGtU4BbyfVlw9RWUeS
+ 29fMfr/NEqeDo1yqwk1rrWwGJpxNX417UDjiPK7Q90BJOOgGiI4DLH8grbYUAazW61aap7lLE5d
+ 5fKD5bW1I1h8cqw==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_044949_900477_EA71259D 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20250701_044951_630035_5A29CDD1 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,54 +127,103 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Ahead of removing struct bgpio_pdata support from the gpio-mmio generic
-module, let's add support for getting the relevant values from generic
-device properties. "label" is a semi-standardized property in some GPIO
-drivers so let's go with it. There's no standard "base" property, so
-let's use the name "gpio-mmio,base" to tie it to this driver
-specifically. The number of GPIOs will be retrieved using
-gpiochip_get_ngpios() so there's no need to look it up in the software
-node.
+Replace struct bgpio_pdata - that we plan to remove - with software
+nodes containing properties encoding the same values thatr can now be
+parsed by gpio-mmio.
 
+Acked-by: Lee Jones <lee@kernel.org>
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/gpio/gpio-mmio.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ drivers/mfd/vexpress-sysreg.c | 46 ++++++++++++++++++++++++++-----------------
+ 1 file changed, 28 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
-index ffe6b6f6cc9b1e9341e1c42cf8fee917e0147bf3..f66137caa245b14e6e8dbd043243224bc47c9609 100644
---- a/drivers/gpio/gpio-mmio.c
-+++ b/drivers/gpio/gpio-mmio.c
-@@ -737,6 +737,9 @@ MODULE_DEVICE_TABLE(of, bgpio_of_match);
- static struct bgpio_pdata *bgpio_parse_fw(struct device *dev, unsigned long *flags)
- {
- 	struct bgpio_pdata *pdata;
-+	const char *label;
-+	unsigned int base;
-+	int ret;
+diff --git a/drivers/mfd/vexpress-sysreg.c b/drivers/mfd/vexpress-sysreg.c
+index ef03d6cec9ff6927668d051ca459eb1d8ff7269e..fc2daffc4352cca763cefbf6e17bdd5242290198 100644
+--- a/drivers/mfd/vexpress-sysreg.c
++++ b/drivers/mfd/vexpress-sysreg.c
+@@ -11,6 +11,7 @@
+ #include <linux/module.h>
+ #include <linux/of_platform.h>
+ #include <linux/platform_device.h>
++#include <linux/property.h>
+ #include <linux/slab.h>
+ #include <linux/stat.h>
  
- 	if (!dev_fwnode(dev))
- 		return NULL;
-@@ -753,6 +756,18 @@ static struct bgpio_pdata *bgpio_parse_fw(struct device *dev, unsigned long *fla
- 	if (device_property_read_bool(dev, "no-output"))
- 		*flags |= BGPIOF_NO_OUTPUT;
+@@ -37,22 +38,34 @@
  
-+	ret = device_property_read_string(dev, "label", &label);
-+	if (!ret)
-+		pdata->label = label;
+ /* The sysreg block is just a random collection of various functions... */
+ 
+-static struct bgpio_pdata vexpress_sysreg_sys_led_pdata = {
+-	.label = "sys_led",
+-	.base = -1,
+-	.ngpio = 8,
++static const struct property_entry vexpress_sysreg_sys_led_props[] = {
++	PROPERTY_ENTRY_STRING("label", "sys_led"),
++	PROPERTY_ENTRY_U32("ngpios", 8),
++	{ }
+ };
+ 
+-static struct bgpio_pdata vexpress_sysreg_sys_mci_pdata = {
+-	.label = "sys_mci",
+-	.base = -1,
+-	.ngpio = 2,
++static const struct software_node vexpress_sysreg_sys_led_swnode = {
++	.properties = vexpress_sysreg_sys_led_props,
+ };
+ 
+-static struct bgpio_pdata vexpress_sysreg_sys_flash_pdata = {
+-	.label = "sys_flash",
+-	.base = -1,
+-	.ngpio = 1,
++static const struct property_entry vexpress_sysreg_sys_mci_props[] = {
++	PROPERTY_ENTRY_STRING("label", "sys_mci"),
++	PROPERTY_ENTRY_U32("ngpios", 2),
++	{ }
++};
 +
-+	/*
-+	 * This property *must not* be used in device-tree sources, it's only
-+	 * meant to be passed to the driver from board files and MFD core.
-+	 */
-+	ret = device_property_read_u32(dev, "gpio-mmio,base", &base);
-+	if (!ret && base <= INT_MAX)
-+		pdata->base = base;
++static const struct software_node vexpress_sysreg_sys_mci_swnode = {
++	.properties = vexpress_sysreg_sys_mci_props,
++};
 +
- 	return pdata;
- }
++static const struct property_entry vexpress_sysreg_sys_flash_props[] = {
++	PROPERTY_ENTRY_STRING("label", "sys_flash"),
++	PROPERTY_ENTRY_U32("ngpios", 1),
++	{ }
++};
++
++static const struct software_node vexpress_sysreg_sys_flash_swnode = {
++	.properties = vexpress_sysreg_sys_flash_props,
+ };
  
+ static struct mfd_cell vexpress_sysreg_cells[] = {
+@@ -61,22 +74,19 @@ static struct mfd_cell vexpress_sysreg_cells[] = {
+ 		.of_compatible = "arm,vexpress-sysreg,sys_led",
+ 		.num_resources = 1,
+ 		.resources = &DEFINE_RES_MEM_NAMED(SYS_LED, 0x4, "dat"),
+-		.platform_data = &vexpress_sysreg_sys_led_pdata,
+-		.pdata_size = sizeof(vexpress_sysreg_sys_led_pdata),
++		.swnode = &vexpress_sysreg_sys_led_swnode,
+ 	}, {
+ 		.name = "basic-mmio-gpio",
+ 		.of_compatible = "arm,vexpress-sysreg,sys_mci",
+ 		.num_resources = 1,
+ 		.resources = &DEFINE_RES_MEM_NAMED(SYS_MCI, 0x4, "dat"),
+-		.platform_data = &vexpress_sysreg_sys_mci_pdata,
+-		.pdata_size = sizeof(vexpress_sysreg_sys_mci_pdata),
++		.swnode = &vexpress_sysreg_sys_mci_swnode,
+ 	}, {
+ 		.name = "basic-mmio-gpio",
+ 		.of_compatible = "arm,vexpress-sysreg,sys_flash",
+ 		.num_resources = 1,
+ 		.resources = &DEFINE_RES_MEM_NAMED(SYS_FLASH, 0x4, "dat"),
+-		.platform_data = &vexpress_sysreg_sys_flash_pdata,
+-		.pdata_size = sizeof(vexpress_sysreg_sys_flash_pdata),
++		.swnode = &vexpress_sysreg_sys_flash_swnode,
+ 	}, {
+ 		.name = "vexpress-syscfg",
+ 		.num_resources = 1,
 
 -- 
 2.48.1
