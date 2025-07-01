@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB80C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5E0C83039
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7itNqAY9zxD3gY7fIyFrmVCb5OVQFd/dimSjZwUyQyo=; b=NTAzCu3UsHDV5wWcgFhdhlMskc
-	utEJ5B11E29gvmmjNPXLJ3RsVn4bm5uBw5/nzvNAhUx1kFF4hn2QJek1CkFxcDudjSAANwzbB8GRu
-	8zlZxt/CrOMvvAlwImqQpiBsnc3f91XtIpakZHAyDne7udXTxvf9+J2Ou6GlXZDvyxbERVQQAIE+Q
-	JfNZzs6OqBnC2MEWQIqdGhC5SccFTXrQQoYPXeyh9OY1PmntsLAuTo41nuLdsCmxWZfKqG+qEL1b4
-	xIvE2NP2IJ6fqA7K3guxe0Brp8DLAKmnXSanstGc2dEM0hxDw215DlnEyKteIIw86u0pfOchoJ9jj
-	dJ6/Ldww==;
+	bh=2zx86M/cqB0Cz2cc6T/d/PweesudhCH3bhP7FyA6XDw=; b=J1ZVnBwp9jfg87u9vJ7B+Aie/Z
+	S1J4IeiyivVkleFGKLv3fSa0MVnPvg5llqVqJlAQwrWAkRE0bEtXQqhbuDHTbtMtM2XbibiBwA0nK
+	xxRw7z44mtyWbTCTVVEZZRcoYtRWbi4jHxJFiWShvO55d8kPygyPAjlXKeiQgob9qQ7UNgMp/Rx7Y
+	l1nqZ/jN8MYpDHPLcDqlxaXSlq+6GQYMaffhiZmj+35rWPmOvbbsfUxxxN7QtJj5lsUFSnPPk++x+
+	8N58wOz4gdZsjvGu7LQIO1u8rP0pWjoTCqX+TLglSe2ZuL6NYXJ/v7+JSAPHCpAo0t0uKNdqBc7pl
+	88oTj/8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWit-00000004TPQ-2j6E;
-	Tue, 01 Jul 2025 08:52:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVxm-00000004MSu-2MKB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 08:03:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7114D1595;
-	Tue,  1 Jul 2025 01:03:18 -0700 (PDT)
-Received: from [10.57.84.129] (unknown [10.57.84.129])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A5D73F58B;
-	Tue,  1 Jul 2025 01:03:29 -0700 (PDT)
-Message-ID: <ec2c3f60-43e9-47d9-9058-49d608845200@arm.com>
-Date: Tue, 1 Jul 2025 09:03:27 +0100
+	id 1uWWiz-00000004TUM-45DI;
+	Tue, 01 Jul 2025 08:52:21 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWWDE-00000004ORw-0Zve;
+	Tue, 01 Jul 2025 08:19:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751357970;
+	bh=y0AZawpjHW7SFgMPWSFOKe+kD46e6DMDPvzNjsfdVTA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TvqyMYMOeFtk9c5luFAIOTQYoymrZh6POrfEkdvkrEea2RLvse4H9cNe81W7o8mG3
+	 7iWlKv3dvcvWSWvHnEa99BG8T+DSnOpTNtrUcpObdWi+0MHVjjgQfNu3RWbrCm9B20
+	 HiArf3fZ1rUANUhmwr8l3z1HW8rT1m1rlHz3Mel96+L2JqarpETFhwNQYUftllA85l
+	 qVZQBOG/X5kl3KQGWhpO98cqAD6G7adIMhA+KGgp1NDQIgeVOiju6gCK4GsBNXDSo3
+	 SeXkEbbeS0mypsAZKSMlfN8DmORL8AS1HpjwFoqeFXPQvK85jr4JCx4QFrwxTUWI6Z
+	 pxNOUOpqfBdRQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 66C8117E0342;
+	Tue,  1 Jul 2025 10:19:29 +0200 (CEST)
+Message-ID: <27b09cde-2da2-49cf-b872-31adf7b5c4e6@collabora.com>
+Date: Tue, 1 Jul 2025 10:19:28 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] mm: Optimize mprotect() by PTE-batching
-Content-Language: en-GB
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Dev Jain <dev.jain@arm.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, willy@infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
- will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz, jannh@google.com,
- anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
- ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
- quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
- yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
- hughd@google.com, yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250628113435.46678-1-dev.jain@arm.com>
- <20250628113435.46678-4-dev.jain@arm.com>
- <0315c016-d707-42b9-8038-7a2d5e4387f6@lucifer.local>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <0315c016-d707-42b9-8038-7a2d5e4387f6@lucifer.local>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH] drm/mediatek: dsi: Fix DSI host and panel bridge
+ pre-enable order
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Aradhya Bhatia <a-bhatia1@ti.com>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Dmitry Baryshkov <lumag@kernel.org>, Maxime Ripard <mripard@kernel.org>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250701-mediatek-drm-fix-dsi-panel-init-v1-1-7af4adb9fdeb@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250701-mediatek-drm-fix-dsi-panel-init-v1-1-7af4adb9fdeb@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_010334_713062_27730767 
-X-CRM114-Status: GOOD (  56.44  )
+X-CRM114-CacheID: sfid-20250701_011932_343905_D0425328 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,433 +82,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/06/2025 13:52, Lorenzo Stoakes wrote:
-> On Sat, Jun 28, 2025 at 05:04:34PM +0530, Dev Jain wrote:
->> Use folio_pte_batch to batch process a large folio. Reuse the folio from
->> prot_numa case if possible.
->>
->> For all cases other than the PageAnonExclusive case, if the case holds true
->> for one pte in the batch, one can confirm that that case will hold true for
->> other ptes in the batch too; for pte_needs_soft_dirty_wp(), we do not pass
->> FPB_IGNORE_SOFT_DIRTY. modify_prot_start_ptes() collects the dirty
->> and access bits across the batch, therefore batching across
->> pte_dirty(): this is correct since the dirty bit on the PTE really is
->> just an indication that the folio got written to, so even if the PTE is
->> not actually dirty (but one of the PTEs in the batch is), the wp-fault
->> optimization can be made.
->>
->> The crux now is how to batch around the PageAnonExclusive case; we must
->> check the corresponding condition for every single page. Therefore, from
->> the large folio batch, we process sub batches of ptes mapping pages with
->> the same PageAnonExclusive condition, and process that sub batch, then
->> determine and process the next sub batch, and so on. Note that this does
->> not cause any extra overhead; if suppose the size of the folio batch
->> is 512, then the sub batch processing in total will take 512 iterations,
->> which is the same as what we would have done before.
->>
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->>  mm/mprotect.c | 143 +++++++++++++++++++++++++++++++++++++++++---------
->>  1 file changed, 117 insertions(+), 26 deletions(-)
->>
->> diff --git a/mm/mprotect.c b/mm/mprotect.c
->> index 627b0d67cc4a..28c7ce7728ff 100644
->> --- a/mm/mprotect.c
->> +++ b/mm/mprotect.c
->> @@ -40,35 +40,47 @@
->>
->>  #include "internal.h"
->>
->> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
->> -			     pte_t pte)
->> -{
->> -	struct page *page;
->> +enum tristate {
->> +	TRI_FALSE = 0,
->> +	TRI_TRUE = 1,
->> +	TRI_MAYBE = -1,
->> +};
+Il 01/07/25 09:30, Louis-Alexis Eyraud ha scritto:
+> Since commit c9b1150a68d9 ("drm/atomic-helper: Re-order bridge chain
+> pre-enable and post-disable"), the bridge pre_enable callbacks are now
+> called before crtc enable, and the bridge post_disable callbacks after
+> the crtc disable.
+> In the mediatek-drm driver, this change leads to transfer errors on
+> mtk_dsi_host_transfer callback processing during the panel bridge
+> pre-enable sequence because the DSI host bridge pre_enable and CRTC
+> enable sequences, that are enabling the required clocks and PHY using
+> mtk_dsi_poweron function, are called after.
 > 
-> Yeah no, absolutely not, this is horrible, I don't want to see an arbitrary type
-> like this added, to a random file, and I absolutely think this adds confusion
-> and does not in any way help clarify things.
+> So, in order to fix this call order issue, request the DSI host bridge
+> be pre-enabled before panel bridge by setting pre_enable_prev_first
+> flag on DSI device bridge in the mtk_dsi_host_attach function.
 > 
->>
->> +/*
->> + * Returns enum tristate indicating whether the pte can be changed to writable.
->> + * If TRI_MAYBE is returned, then the folio is anonymous and the user must
->> + * additionally check PageAnonExclusive() for every page in the desired range.
->> + */
->> +static int maybe_change_pte_writable(struct vm_area_struct *vma,
->> +				     unsigned long addr, pte_t pte,
->> +				     struct folio *folio)
->> +{
->>  	if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
->> -		return false;
->> +		return TRI_FALSE;
->>
->>  	/* Don't touch entries that are not even readable. */
->>  	if (pte_protnone(pte))
->> -		return false;
->> +		return TRI_FALSE;
->>
->>  	/* Do we need write faults for softdirty tracking? */
->>  	if (pte_needs_soft_dirty_wp(vma, pte))
->> -		return false;
->> +		return TRI_FALSE;
->>
->>  	/* Do we need write faults for uffd-wp tracking? */
->>  	if (userfaultfd_pte_wp(vma, pte))
->> -		return false;
->> +		return TRI_FALSE;
->>
->>  	if (!(vma->vm_flags & VM_SHARED)) {
->>  		/*
->>  		 * Writable MAP_PRIVATE mapping: We can only special-case on
->>  		 * exclusive anonymous pages, because we know that our
->>  		 * write-fault handler similarly would map them writable without
->> -		 * any additional checks while holding the PT lock.
->> +		 * any additional checks while holding the PT lock. So if the
->> +		 * folio is not anonymous, we know we cannot change pte to
->> +		 * writable. If it is anonymous then the caller must further
->> +		 * check that the page is AnonExclusive().
->>  		 */
->> -		page = vm_normal_page(vma, addr, pte);
->> -		return page && PageAnon(page) && PageAnonExclusive(page);
->> +		return (!folio || folio_test_anon(folio)) ? TRI_MAYBE : TRI_FALSE;
->>  	}
->>
->>  	VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
->> @@ -80,15 +92,61 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
->>  	 * FS was already notified and we can simply mark the PTE writable
->>  	 * just like the write-fault handler would do.
->>  	 */
->> -	return pte_dirty(pte);
->> +	return pte_dirty(pte) ? TRI_TRUE : TRI_FALSE;
->> +}
+> Fixes: c9b1150a68d9 ("drm/atomic-helper: Re-order bridge chain pre-enable and post-disable")
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+> ---
+> This patch fixes an issue that can be observed on boards such as
+> MediatekGenio 1200-EVK or 350-EVK with a kernel based on linux-next
+> (tag: next-20250635) since commit c9b1150a68d9 ("drm/atomic-helper:
+> Re-order bridge chain pre-enable and post-disable").
+> In boot logs, there are multiples errors such as IRQ timeouts and
+> panel init errors, leading the DSI panel not being enabled:
 > 
-> Yeah not a fan of this at all.
+> Example on Genio 1200-EVK:
+> ```
+> [drm] Wait DSI IRQ(0x00000002) Timeout
+> panel-himax-hx8279 1c008000.dsi.0: sending generic data b0 05 failed:
+>    -62
+> [drm] Wait DSI IRQ(0x00000008) Timeout
+> [drm:mtk_dsi_host_transfer [mediatek_drm]] *ERROR* failed to switch cmd
+>   mode
+> panel-himax-hx8279 1c008000.dsi.0: sending DCS SET_DISPLAY_ON failed:
+>    -62
+> ```
+> ---
+>   drivers/gpu/drm/mediatek/mtk_dsi.c | 6 ++++++
+>   1 file changed, 6 insertions(+)
 > 
-> This is squashing all the logic into one place when we don't really need to.
-> 
-> We can separate out the shared logic and just do something like:
-> 
-> ////// Lorenzo's suggestion //////
-> 
-> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
-> -			     pte_t pte)
-> +static bool maybe_change_pte_writable(struct vm_area_struct *vma,
-> +		pte_t pte)
->  {
-> -	struct page *page;
-> -
->  	if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
->  		return false;
-> 
-> @@ -60,16 +58,14 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
->  	if (userfaultfd_pte_wp(vma, pte))
->  		return false;
-> 
-> -	if (!(vma->vm_flags & VM_SHARED)) {
-> -		/*
-> -		 * Writable MAP_PRIVATE mapping: We can only special-case on
-> -		 * exclusive anonymous pages, because we know that our
-> -		 * write-fault handler similarly would map them writable without
-> -		 * any additional checks while holding the PT lock.
-> -		 */
-> -		page = vm_normal_page(vma, addr, pte);
-> -		return page && PageAnon(page) && PageAnonExclusive(page);
-> -	}
-> +	return true;
-> +}
-> +
-> +static bool can_change_shared_pte_writable(struct vm_area_struct *vma,
-> +		pte_t pte)
-> +{
-> +	if (!maybe_change_pte_writable(vma, pte))
-> +		return false;
-> 
->  	VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
-> 
-> @@ -83,6 +79,33 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
->  	return pte_dirty(pte);
->  }
-> 
-> +static bool can_change_private_pte_writable(struct vm_area_struct *vma,
-> +		unsigned long addr, pte_t pte)
-> +{
-> +	struct page *page;
-> +
-> +	if (!maybe_change_pte_writable(vma, pte))
-> +		return false;
-> +
+> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> index d7726091819c4762698b41060b3d4d8d27940238..0e2bcd5f67b767d92f2697a5b8183f67ee178a38 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> @@ -1002,6 +1002,12 @@ static int mtk_dsi_host_attach(struct mipi_dsi_host *host,
+>   			return PTR_ERR(dsi->next_bridge);
+>   	}
+>   
 > +	/*
-> +	 * Writable MAP_PRIVATE mapping: We can only special-case on
-> +	 * exclusive anonymous pages, because we know that our
-> +	 * write-fault handler similarly would map them writable without
-> +	 * any additional checks while holding the PT lock.
+> +	 * set flag to request the DSI host bridge be pre-enabled before device bridge
+> +	 * in the chain, so the DSI host is ready when the device bridge is pre-enabled
 > +	 */
-> +	page = vm_normal_page(vma, addr, pte);
-> +	return page && PageAnon(page) && PageAnonExclusive(page);
-> +}
+> +	dsi->next_bridge->pre_enable_prev_first = true;
 > +
-> +bool can_change_pte_writable(struct vm_area_struct *vma,
-> +		unsigned long addr, pte_t pte)
-> +{
-> +	if (vma->vm_flags & VM_SHARED)
-> +		return can_change_shared_pte_writable(vma, pte);
-> +
-> +	return can_change_private_pte_writable(vma, addr, pte);
-> +}
-> +
+>   	drm_bridge_add(&dsi->bridge);
+>   
+>   	ret = component_add(host->dev, &mtk_dsi_component_ops);
 > 
-> ////// end of Lorenzo's suggestion //////
+> ---
+> base-commit: c6a68d8f7b81a6ce8962885408cc2d0c1f8b9470
+> change-id: 20250630-mediatek-drm-fix-dsi-panel-init-1a4b534c40a6
 > 
-> You can obviously modify this to change other stuff like whether you feed back
-> the PAE or not in private case for use in your code.
+> Best regards,
 
-This sugestion for this part of the problem looks much cleaner!
-
-Sorry; this whole struct tristate thing was my idea. I never really liked it but
-I was more focussed on trying to illustrate the big picture flow that I thought
-would work well with a batch and sub-batches (which it seems below that you
-hate... but let's talk about that down there).
-
-> 
->> +
->> +/*
->> + * Returns the number of pages within the folio, starting from the page
->> + * indicated by pgidx and up to pgidx + max_nr, that have the same value of
->> + * PageAnonExclusive(). Must only be called for anonymous folios. Value of
->> + * PageAnonExclusive() is returned in *exclusive.
->> + */
->> +static int anon_exclusive_batch(struct folio *folio, int pgidx, int max_nr,
->> +				bool *exclusive)
-> 
-> Let's generalise it to something like count_folio_fungible_pages()
-> 
-> or maybe count_folio_batchable_pages()?
-> 
-> Yes naming is hard... :P but right now it reads like this is returning a batch
-> or doing something with a batch.
-> 
->> +{
->> +	struct page *page;
->> +	int nr = 1;
->> +
->> +	if (!folio) {
->> +		*exclusive = false;
->> +		return nr;
->> +	}
->> +
->> +	page = folio_page(folio, pgidx++);
->> +	*exclusive = PageAnonExclusive(page);
->> +	while (nr < max_nr) {
-> 
-> The C programming language asks why you don't like using for :)
-> 
->> +		page = folio_page(folio, pgidx++);
->> +		if ((*exclusive) != PageAnonExclusive(page))
->> +			break;
->> +		nr++;
-> 
-> This *exclusive stuff makes me want to cry :)
-> 
-> Just set a local variable and hand it back at the end.
-> 
->> +	}
->> +
->> +	return nr;
->> +}
->> +
->> +bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
->> +			     pte_t pte)
->> +{
->> +	struct page *page;
->> +	int ret;
->> +
->> +	ret = maybe_change_pte_writable(vma, addr, pte, NULL);
->> +	if (ret == TRI_MAYBE) {
->> +		page = vm_normal_page(vma, addr, pte);
->> +		ret = page && PageAnon(page) && PageAnonExclusive(page);
->> +	}
->> +
->> +	return ret;
->>  }
-> 
-> See above comments on this stuff.
-> 
->>
->>  static int mprotect_folio_pte_batch(struct folio *folio, unsigned long addr,
->> -		pte_t *ptep, pte_t pte, int max_nr_ptes)
->> +		pte_t *ptep, pte_t pte, int max_nr_ptes, fpb_t switch_off_flags)
-> 
-> This last parameter is pretty horrible. It's a negative mask so now you're
-> passing 'ignore soft dirty' to the function meaning 'don't ignore it'. This is
-> just planting land mines.
-> 
-> Obviously David's flag changes will also alter all this.
-> 
-> Just add a boolean re: soft dirty.
-
-Dev had a boolean for this in the last round. I've seen various functions expand
-over time with increasing numbers of bool flags. So I asked to convert to a
-flags parameter and just pass in the flags we need. Then it's a bit more future
-proof and self documenting. (For the record I dislike the "switch_off_flags"
-approach taken here).
-
-> 
->>  {
->> -	const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
->> +	fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
->> +
->> +	flags &= ~switch_off_flags;
->>
->> -	if (!folio || !folio_test_large(folio) || (max_nr_ptes == 1))
->> +	if (!folio || !folio_test_large(folio))
->>  		return 1;
-> 
-> Why remove this last check?
-> 
->>
->>  	return folio_pte_batch(folio, addr, ptep, pte, max_nr_ptes, flags,
->> @@ -154,7 +212,8 @@ static int prot_numa_skip_ptes(struct folio **foliop, struct vm_area_struct *vma
->>  	}
->>
->>  skip_batch:
->> -	nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte, max_nr_ptes);
->> +	nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte,
->> +					   max_nr_ptes, 0);
-> 
-> See above about flag param. If you change to boolean, please prefix this with
-> e.g. /* set_soft_dirty= */ true or whatever the flag ends up being :)
-> 
->>  out:
->>  	*foliop = folio;
->>  	return nr_ptes;
->> @@ -191,7 +250,10 @@ static long change_pte_range(struct mmu_gather *tlb,
->>  		if (pte_present(oldpte)) {
->>  			int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
->>  			struct folio *folio = NULL;
->> -			pte_t ptent;
->> +			int sub_nr_ptes, pgidx = 0;
->> +			pte_t ptent, newpte;
->> +			bool sub_set_write;
->> +			int set_write;
->>
->>  			/*
->>  			 * Avoid trapping faults against the zero or KSM
->> @@ -206,6 +268,11 @@ static long change_pte_range(struct mmu_gather *tlb,
->>  					continue;
->>  			}
->>
->> +			if (!folio)
->> +				folio = vm_normal_folio(vma, addr, oldpte);
->> +
->> +			nr_ptes = mprotect_folio_pte_batch(folio, addr, pte, oldpte,
->> +							   max_nr_ptes, FPB_IGNORE_SOFT_DIRTY);
-> 
-> Don't we only care about S/D if pte_needs_soft_dirty_wp()?
-> 
->>  			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
->>  			ptent = pte_modify(oldpte, newprot);
->>
->> @@ -227,15 +294,39 @@ static long change_pte_range(struct mmu_gather *tlb,
->>  			 * example, if a PTE is already dirty and no other
->>  			 * COW or special handling is required.
->>  			 */
->> -			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->> -			    !pte_write(ptent) &&
->> -			    can_change_pte_writable(vma, addr, ptent))
->> -				ptent = pte_mkwrite(ptent, vma);
->> -
->> -			modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
->> -			if (pte_needs_flush(oldpte, ptent))
->> -				tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
->> -			pages++;
->> +			set_write = (cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->> +				    !pte_write(ptent);
->> +			if (set_write)
->> +				set_write = maybe_change_pte_writable(vma, addr, ptent, folio);
->> +
->> +			while (nr_ptes) {
->> +				if (set_write == TRI_MAYBE) {
->> +					sub_nr_ptes = anon_exclusive_batch(folio,
->> +						pgidx, nr_ptes, &sub_set_write);
->> +				} else {
->> +					sub_nr_ptes = nr_ptes;
->> +					sub_set_write = (set_write == TRI_TRUE);
->> +				}
->> +
->> +				if (sub_set_write)
->> +					newpte = pte_mkwrite(ptent, vma);
->> +				else
->> +					newpte = ptent;
->> +
->> +				modify_prot_commit_ptes(vma, addr, pte, oldpte,
->> +							newpte, sub_nr_ptes);
->> +				if (pte_needs_flush(oldpte, newpte))
->> +					tlb_flush_pte_range(tlb, addr,
->> +						sub_nr_ptes * PAGE_SIZE);
->> +
->> +				addr += sub_nr_ptes * PAGE_SIZE;
->> +				pte += sub_nr_ptes;
->> +				oldpte = pte_advance_pfn(oldpte, sub_nr_ptes);
->> +				ptent = pte_advance_pfn(ptent, sub_nr_ptes);
->> +				nr_ptes -= sub_nr_ptes;
->> +				pages += sub_nr_ptes;
->> +				pgidx += sub_nr_ptes;
->> +			}
-> 
-> I hate hate hate having this loop here, let's abstract this please.
-> 
-> I mean I think we can just use mprotect_folio_pte_batch() no? It's not
-> abstracting much here, and we can just do all this handling there. Maybe have to
-> pass in a bunch more params, but it saves us having to do all this.
-
-In an ideal world we would flatten and just have mprotect_folio_pte_batch()
-return the batch size considering all the relevant PTE bits AND the
-AnonExclusive bit on the pages. IIRC one of Dev's earlier versions modified the
-core folio_pte_batch() function to also look at the AnonExclusive bit, but I
-really disliked changing that core function (I think others did too?).
-
-So barring that approach, we are really only left with the batch and sub-batch
-approach - although, yes, it could be abstracted more. We could maintain a
-context struct that persists across all calls to mprotect_folio_pte_batch() and
-it can use that to keep it's state to remember if we are in the middle of a
-sub-batch and decide either to call folio_pte_batch() to get a new batch, or
-call anon_exclusive_batch() to get the next sub-batch within the current batch.
-But that started to feel overly abstracted to me.
-
-This loop approach, as written, felt more straightforward for the reader to
-understand (i.e. the least-worst option). Is the context approach what you are
-suggesting or do you have something else in mind?
-
-> 
-> Alternatively, we could add a new wrapper function, but yeah definitely not
-> this.
-> 
-> Also the C programming language asks... etc etc. ;)
-> 
-> Overall since you always end up processing folio_nr_pages(folio) you can just
-> have the batch function or a wrapper return this and do updates as necessary
-> here on that basis, and leave the 'sub' batching to that function.
-
-Sorry I don't understand this statement - could you clarify? Especially the bit
-about "always ... processing folio_nr_pages(folio)"; I don't think we do. In
-various corner cases the size of the folio has no relationship to the way the
-PTEs are mapped.
-
-Thanks,
-Ryan
-
-> 
-> 
->>  		} else if (is_swap_pte(oldpte)) {
->>  			swp_entry_t entry = pte_to_swp_entry(oldpte);
->>  			pte_t newpte;
->> --
->> 2.30.2
->>
 
 
