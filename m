@@ -4,112 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D75C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 13:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48596C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 13:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K18eD4fwuNNbiShs9650A8odEfXbIRgpXnl+v+odKRg=; b=eBDN+LgGAPKTNr0bOzOMwIeGFm
-	ufGFRwvmpE1BPvonp/dbOBLoTEPkkxm0CHCI7L6z2L8gbvFXwblcnVTDveS7YqZ7Zq07cebi4qCDV
-	mtkXXymWpFeJAnfyPrWgzu1uAqvAH9LNLyzN9BbMexHWWnRSBDIis9zw4tWGFUMdRb6+CW/1ChdIT
-	6esjzv9B6MOGq65NL2hKxiClUCzDtqT+y4Y0QXyQ18gDETtAF4m63ug+l3MaUpJ7CemeQBE59HlXp
-	Ti7oCekjgGm2f1Hc/FQr42zHfyLkhxTTEOgccSsynvaZh+Nt7XeOn/QxtUZhRUo9/1dqomtq9tk7f
-	E7qTeo8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iBRETYtDN5ekEwSoLL3lRq4j+0ymmhVNyjZ/Ula9YUw=; b=YKyqGt/aa4YeThE54bYILPotwL
+	Pw7gCC8YdRTvyaaHT/VwN50OGnON4p/+w4+Al3ob+or4erOFEP5gWSNAdLjswdkcTMd4/A2v4vZK2
+	hG3zrgILZ3RzEMfY71jyDrRzrU/NG0cJh0b1peWTblxYZnmcYoFmPdnsF8afbyRXiTmYN8rX406Qu
+	ubTSSG7tdPhc2XGWgJz27e12rUF3//A0paafsyW6JmC7jaLYlzWa9WkENtL2NXwM68RpVs3V9RjwG
+	Nvsrh2thqJ9Gy7y9+/o5zPVwyBdUfNwLck38jchU0HGQCAgOMkTT5kG2gc3sWv8g61tG+ZrltQB0U
+	WcDvX2Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWahG-00000005S1r-2JyF;
-	Tue, 01 Jul 2025 13:06:50 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1uWajI-00000005SYp-1XIr;
+	Tue, 01 Jul 2025 13:08:56 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZUp-00000004vLM-1Fc3
+	id 1uWZVK-00000004vS3-43EQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 11:49:56 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-451e2f0d9c2so38882695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 04:49:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1751370594; x=1751975394; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=K18eD4fwuNNbiShs9650A8odEfXbIRgpXnl+v+odKRg=;
-        b=VzH7YEPhgo+5xFKMdjP0JIccitP7FJxyNmTfvuOX9MyqyC3NAgfCJmL//c+sZnar/W
-         IGXTR5tHVp1dz+WFaMxuS5/A2K9EDwFXztgiAWJaRqkvJ2v72SGyxjkd8OqMIBIpdR/Y
-         UbwKys3dpEbROrsF2AXnYhdII2IKMHl1qZtBxjoN3k8l9y1l9/mFRdrxH1u0mLJe85u+
-         oWosYGuipUxmLK8XqZg1RFh/noFlFWDk0wyMGNnQAqr7t9MTsCL64zyIXqMfuEEE/LSp
-         kLcTBNrQWlC0FSS0FVf3yikybvAOxxAZkI3519fItiajRuZE/iyTSJVRxFycdAX2LBYn
-         SNLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751370594; x=1751975394;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K18eD4fwuNNbiShs9650A8odEfXbIRgpXnl+v+odKRg=;
-        b=aRkbDlJPWDOetdXBcjRZb6C71RtHSg8Z2pts5zwV3WXb8ErI45KNSABC0lEJT0ZMR6
-         Pj4Ybhn7iSumF8rlTdWs2HijhOlBuQ8N+X+K95aGqd4JSvHeyQsIcJM3jljtwmDLMG13
-         Om1nAH5jTTnukJuAoSY7QkHUcQMFYCa/4UtpQ6knK+mJvfK/fxTACMhDf25ex2v/9acZ
-         b5b5+S3v4FNNIknDw67TgrqPoQWgfqwKbovepyq82yBBoXKwKkBn6iOMhpvDDUW/EcAw
-         cEgYoP3Uh3A08oVNqu66MJyejeGPVVgokRiQtlVoFbfJPrBsNc1CTt9UvtfXca0opOub
-         U8+A==
-X-Forwarded-Encrypted: i=1; AJvYcCWeRwOvZG2VeGY6bbw7S87BrZvIqITB9FDn6hP0MYgmMi94ENZj1DFa8wEsSU1d3JbaJOJRy3bmTu2Lut2drtFN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/zEBSbNXwHIAjDKUWx860j2MMwWQtElt2WG2aHUSQ/QJxhgDG
-	fRALOtJmL7gTsZtOf6ZFw7lasP//WFW2h38ujVcs1ATKpF++82F+lEtx+/vTAyyzkK0=
-X-Gm-Gg: ASbGncvYh7FgycePbHFPe9qCGk5ShV1PBMP2Rq1Rfs9sJyZoNMX69YBHyRw0RACF5z8
-	zH3jNrKClY+nB5UlnSIL7NXqhQPDJIQ6lhwocxAcl1B6FbfMHr0T4VjP1LbzeO5q+64WrIPTCkV
-	NKXbsNl53LEayRePD3h1t7Us11Jqw8pPITyVehLcYNRzTgciu9/E/IZrIy4VT5dk4XVM4EQqfYb
-	tEqw2wMqzGsfY+Vc5kB5hbYhgy2o/0OvMpw6TGu2CKmF+WajFCtK9cUU+Mh4wmibwuTEZPws6MF
-	wj7RTSv4RmnPhXEnhjxUqD1BEuDot1m4urZ357R4L0BnkUcvFvOLhg==
-X-Google-Smtp-Source: AGHT+IF1V2h4z8e2b+q/5QYbiJ/3eFoAFYUWiFfRtaEit+V7F7YE8tn3jrKaiEhuVsy1QNVoKx5zRw==
-X-Received: by 2002:a05:600c:a11c:b0:450:c9e3:91fe with SMTP id 5b1f17b1804b1-4541b6db66dmr14175005e9.0.1751370593607;
-        Tue, 01 Jul 2025 04:49:53 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:a387:7a32:8457:f9b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538233c05csm193988925e9.5.2025.07.01.04.49.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 04:49:53 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 01 Jul 2025 13:49:40 +0200
-Subject: [PATCH RFT v2 6/6] gpio: mmio: remove struct bgpio_pdata
+	Tue, 01 Jul 2025 11:50:28 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6B38310380104;
+	Tue,  1 Jul 2025 13:50:14 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1751370621; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=iBRETYtDN5ekEwSoLL3lRq4j+0ymmhVNyjZ/Ula9YUw=;
+	b=fPgN/uXPkJlGeeI1LcqurFgE1FW/rV2C6Qny1W3KLTJSDuvlsN+0LLXcscqqJWofR9I/vt
+	LGAuoZ9cgVucEFaT+6NwQDZLBvatf+S0iqn7OkPhiSfpVmTpGi8ZKznVF/yinkoTdK6RQ3
+	zLqqsbkVTERzf7wXarhqwnokOSYgFg4rOHuvPFZBdLmABPojWU9cY+yTTXkNl5IQwubvG6
+	cMUD0Tvx5o4fJAoNWdpxk/2fMuYp1XT05rpW4ORqVqqoCZOUQ615ZCufgFmzJovFyBrQG4
+	7p86WFwtRk5w5qRoY9pfoENqkNeXDaNOnn8AEhCidPSn2Jtx/LDx3aFkdpPCwg==
+From: Lukasz Majewski <lukma@denx.de>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Simon Horman <horms@kernel.org>,
+	Lukasz Majewski <lukma@denx.de>
+Subject: [net-next v14 00/12] net: mtip: Add support for MTIP imx287 L2 switch driver
+Date: Tue,  1 Jul 2025 13:49:45 +0200
+Message-Id: <20250701114957.2492486-1-lukma@denx.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250701-gpio-mmio-pdata-v2-6-ebf34d273497@linaro.org>
-References: <20250701-gpio-mmio-pdata-v2-0-ebf34d273497@linaro.org>
-In-Reply-To: <20250701-gpio-mmio-pdata-v2-0-ebf34d273497@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Lee Jones <lee@kernel.org>, 
- Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
- Russell King <linux@armlinux.org.uk>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
- patches@opensource.cirrus.com, linux-samsung-soc@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3955;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=WO0jeIzGeDRWwlltYN6KLDzN1nDqq0wG0YjMIyZ69bE=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoY8tYQedunR7lNaIA7I2BJg5XNf3SaooHlaS6n
- viTggRWov2JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaGPLWAAKCRARpy6gFHHX
- cl8zD/9sO5Jq5Wzq/bFjPjz0TkCxAfA5RvMtEcX04+91lEim8zAy2tLuujFKQ1EZ/j+kEzp/ga8
- CLi60fQsJF9gk8a9ecsDKXJrdDGTTemE0ws2iSqALUPjbzY4By3p7V2k0SOO83KHs0ctsOoD+9N
- j/yo2H5t5ysxHnYdeigLWyqXvu1K99c4tqkDsLtqK5lCwnh6E24Du9S0/AvwBUdG7C4cyqvQvty
- yrpq7ffBrIkIOQLuaygE/7AsMojI+8/2L/W/Kx8h/9rooyCSTLOloACnjKYQRehYvJ4CiIbit6H
- OWQWN8RKj4eWlATCcwyl93QshTZQvWA+YWiMnN8qcIcmPEaT+24/tsrUArlctzTBON0qdg97Jqg
- 8OJ3bhql9HaNoy29uJ58PsUuzo3+x6sOObqKhld8IvZ62gVzsZlV1CHja4VodJFPHAo1Olz4dJI
- kXEIuPj1pr0ybdNuFDKc2x7IjrwIIO/FQmlWDSFSApeeQaT/8BCnOXU4Pt6RV3FkYiBrGKWl65/
- v+k/Hh67+XZqW85RmvNdrYOp1MhRcMxhG8casJMj7bEiqbPOGhhzqyGlr0CmKFeIwbTBgS3u1lI
- S23NYaez7ty+9cARY3vV9jFOmbzvIBOvMqwwetL+ELUsC4uieXEgDQbHX1rDAIlSFzqmBJR90ZA
- IVgRnicRfV5w2IA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_044955_350214_41547BAF 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20250701_045027_296969_0506D6C5 
+X-CRM114-Status: GOOD (  20.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,142 +83,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+This patch series adds support for More Than IP's L2 switch driver embedded
+in some NXP's SoCs. This one has been tested on imx287, but is also available
+in the vf610.
 
-With no more users, we can now remove struct bgpio_pdata. Move the
-relevant bits from bgpio_parse_fw() into bgpio_pdev_probe() while
-maintaining the logical ordering (get flags before calling
-bgpio_init()).
+In the past there has been performed some attempts to upstream this driver:
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/gpio/gpio-mmio.c    | 73 ++++++++++++---------------------------------
- include/linux/gpio/driver.h |  6 ----
- 2 files changed, 19 insertions(+), 60 deletions(-)
+1. The 4.19-cip based one [1]
+2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
+   with NO tag appended.
+3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
+   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
+   the driver uses already configured MAC and PHY to also configure PHY.
 
-diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
-index f66137caa245b14e6e8dbd043243224bc47c9609..cf878c2ea6bf1bb6dfbd1040d64787687335132a 100644
---- a/drivers/gpio/gpio-mmio.c
-+++ b/drivers/gpio/gpio-mmio.c
-@@ -734,43 +734,6 @@ static const struct of_device_id bgpio_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, bgpio_of_match);
- 
--static struct bgpio_pdata *bgpio_parse_fw(struct device *dev, unsigned long *flags)
--{
--	struct bgpio_pdata *pdata;
--	const char *label;
--	unsigned int base;
--	int ret;
--
--	if (!dev_fwnode(dev))
--		return NULL;
--
--	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
--	if (!pdata)
--		return ERR_PTR(-ENOMEM);
--
--	pdata->base = -1;
--
--	if (device_is_big_endian(dev))
--		*flags |= BGPIOF_BIG_ENDIAN_BYTE_ORDER;
--
--	if (device_property_read_bool(dev, "no-output"))
--		*flags |= BGPIOF_NO_OUTPUT;
--
--	ret = device_property_read_string(dev, "label", &label);
--	if (!ret)
--		pdata->label = label;
--
--	/*
--	 * This property *must not* be used in device-tree sources, it's only
--	 * meant to be passed to the driver from board files and MFD core.
--	 */
--	ret = device_property_read_u32(dev, "gpio-mmio,base", &base);
--	if (!ret && base <= INT_MAX)
--		pdata->base = base;
--
--	return pdata;
--}
--
- static int bgpio_pdev_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -782,18 +745,10 @@ static int bgpio_pdev_probe(struct platform_device *pdev)
- 	void __iomem *dirin;
- 	unsigned long sz;
- 	unsigned long flags = 0;
-+	unsigned int base;
- 	int err;
- 	struct gpio_chip *gc;
--	struct bgpio_pdata *pdata;
--
--	pdata = bgpio_parse_fw(dev, &flags);
--	if (IS_ERR(pdata))
--		return PTR_ERR(pdata);
--
--	if (!pdata) {
--		pdata = dev_get_platdata(dev);
--		flags = pdev->id_entry->driver_data;
--	}
-+	const char *label;
- 
- 	r = platform_get_resource_byname(pdev, IORESOURCE_MEM, "dat");
- 	if (!r)
-@@ -825,17 +780,27 @@ static int bgpio_pdev_probe(struct platform_device *pdev)
- 	if (!gc)
- 		return -ENOMEM;
- 
-+	if (device_is_big_endian(dev))
-+		flags |= BGPIOF_BIG_ENDIAN_BYTE_ORDER;
-+
-+	if (device_property_read_bool(dev, "no-output"))
-+		flags |= BGPIOF_NO_OUTPUT;
-+
- 	err = bgpio_init(gc, dev, sz, dat, set, clr, dirout, dirin, flags);
- 	if (err)
- 		return err;
- 
--	if (pdata) {
--		if (pdata->label)
--			gc->label = pdata->label;
--		gc->base = pdata->base;
--		if (pdata->ngpio > 0)
--			gc->ngpio = pdata->ngpio;
--	}
-+	err = device_property_read_string(dev, "label", &label);
-+	if (!err)
-+		gc->label = label;
-+
-+	/*
-+	 * This property *must not* be used in device-tree sources, it's only
-+	 * meant to be passed to the driver from board files and MFD core.
-+	 */
-+	err = device_property_read_u32(dev, "gpio-mmio,base", &base);
-+	if (!err && base <= INT_MAX)
-+		gc->base = base;
- 
- 	platform_set_drvdata(pdev, gc);
- 
-diff --git a/include/linux/gpio/driver.h b/include/linux/gpio/driver.h
-index 97cc75623261917e9b3624e1e636d2432c0db205..4b984e8f8fcdbba5c008fc67ff0557bda11df40b 100644
---- a/include/linux/gpio/driver.h
-+++ b/include/linux/gpio/driver.h
-@@ -718,12 +718,6 @@ const unsigned long *gpiochip_query_valid_mask(const struct gpio_chip *gc);
- /* get driver data */
- void *gpiochip_get_data(struct gpio_chip *gc);
- 
--struct bgpio_pdata {
--	const char *label;
--	int base;
--	int ngpio;
--};
--
- #ifdef CONFIG_IRQ_DOMAIN_HIERARCHY
- 
- int gpiochip_populate_parent_fwspec_twocell(struct gpio_chip *gc,
+All three approaches were not accepted as eligible for upstreaming.
+
+The driver from this series has floowing features:
+
+1. It is fully separated from fec_main - i.e. can be used interchangeable
+   with it. To be more specific - one can build them as modules and
+   if required switch between them when e.g. bridge offloading is required.
+
+   To be more specific:
+        - Use FEC_MAIN: When one needs support for two ETH ports with separate
+          uDMAs used for both and bridging can be realized in SW.
+
+        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
+          attached to switch and bridging shall be offloaded to HW. 
+
+2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
+   separation at boot time. Port separation is disabled when bridging is
+   required.
+
+3. Example usage:
+        Configuration:
+        ip link set lan0 up; sleep 1;
+        ip link set lan1 up; sleep 1;
+        ip link add name br0 type bridge;
+        ip link set br0 up; sleep 1;
+        ip link set lan0 master br0;
+        ip link set lan1 master br0;
+        bridge link;
+        ip addr add 192.168.2.17/24 dev br0;
+        ping -c 5 192.168.2.222
+
+        Removal:
+        ip link set br0 down;
+        ip link delete br0 type bridge;
+        ip link set dev lan1 down
+        ip link set dev lan0 down
+
+4. Limitations:
+        - Driver enables and disables switch operation with learning and ageing.
+        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
+          on purpose, as up till now we didn't had consensus about how the driver
+          shall be added to Linux.
+
+5. Clang build:
+	make LLVM_SUFFIX=-19 LLVM=1 mrproper
+	cp ./arch/arm/configs/mxs_defconfig .config
+	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 menuconfig
+	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 LOADADDR=0x40008000 uImage dtbs
+
+        make LLVM_SUFFIX=-19 LLVM=1 mrproper
+        make LLVM_SUFFIX=-19 LLVM=1 allmodconfig
+        make LLVM_SUFFIX=-19 LLVM=1 W=1 drivers/net/ethernet/freescale/mtipsw/ | tee llvm_build.log
+        make LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 | tee llvm_build.log
+
+6. Kernel compliance checks:
+	make coccicheck MODE=report J=4 M=drivers/net/ethernet/freescale/mtipsw/
+	~/work/src/smatch/smatch_scripts/kchecker drivers/net/ethernet/freescale/mtipsw/
+
+7. GCC
+        make mrproper
+        make allmodconfig
+        make W=1 drivers/net/ethernet/freescale/mtipsw/
+
+Links:
+[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
+[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
+[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
+
+
+Lukasz Majewski (12):
+  dt-bindings: net: Add MTIP L2 switch description
+  ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2 switch description
+  ARM: dts: nxp: mxs: Adjust XEA board's DTS to support L2 switch
+  net: mtip: The L2 switch driver for imx287
+  net: mtip: Add buffers management functions to the L2 switch driver
+  net: mtip: Add net_device_ops functions to the L2 switch driver
+  net: mtip: Add mtip_switch_{rx|tx} functions to the L2 switch driver
+  net: mtip: Extend the L2 switch driver with management operations
+  net: mtip: Extend the L2 switch driver for imx287 with bridge
+    operations
+  ARM: mxs_defconfig: Enable CONFIG_NFS_FSCACHE
+  ARM: mxs_defconfig: Update mxs_defconfig to 6.16-rc1
+  ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2
+    switch
+
+ .../bindings/net/nxp,imx28-mtip-switch.yaml   |  150 ++
+ MAINTAINERS                                   |    7 +
+ arch/arm/boot/dts/nxp/mxs/imx28-xea.dts       |   56 +
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |    9 +-
+ arch/arm/configs/mxs_defconfig                |   13 +-
+ drivers/net/ethernet/freescale/Kconfig        |    1 +
+ drivers/net/ethernet/freescale/Makefile       |    1 +
+ drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
+ .../net/ethernet/freescale/mtipsw/Makefile    |    4 +
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1958 +++++++++++++++++
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  654 ++++++
+ .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  120 +
+ .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  443 ++++
+ 13 files changed, 3418 insertions(+), 11 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
 
 -- 
-2.48.1
+2.39.5
 
 
