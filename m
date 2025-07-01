@@ -4,111 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEEDC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD37C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3XQWfv7zNSIOP37t1HIUNsQ/ruDM0uRKKhFK+dc8Tj4=; b=rigPisbTQjIe6scLuxGeS1LERP
-	XzFGwXcBsiAMCU6V5KvgW9oZknTSuv8RfUeXohd4V2LDzVFffXGaZQ99bhkLv5oWKRJQgQMu9L5E6
-	gGja7nX5wDqQW0ZhSUKUin+AC3ZLa55z+UkXqeR5VI4U7PFd0pQa1PGjZHU/VVmL3lko0Zw4hbK+n
-	THIOeQIzgA9RsOt3Pm23T6rIHP0JaJBBke7zeJB6QIl+NbbNRktkLGX+sKjNKsr7lBYqNTP/fURsL
-	xltBkPYpO2e/3wZ5znq/WrMdWjTe/MBYlr2PB+FEZK/JxhQi2399seaMBLUkfz8FE1sj1eX7y/N5r
-	2sK8SR0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ExZ8NmDYOFOFwFTOaNdmOxwrV4eY5N/56T75mPWrWPE=; b=48tIZmaonafKYNzoMOE3vcYJEP
+	BXmJZBnRHFp1WzMjSqemowB4x20zT1FDJmx6S0qBpaCkjCwozY/8Z6dme5ZlsnSD9W9YSN2LhaJjl
+	4RhWFfrqBsjWYQmA7Zp3/vcJWKG/hnYiLFUK5Nn1gk+h7Z7YC5nY79diu0Xgy48BjG8s84Ik68wnk
+	xUeDAU1S1Gl8kEuRYEhD1dtOtPnn7/eWArRHI6PoOv/6tNVYln2UlfttJ4Gc0HNDYMilpd8xCuH0o
+	m9/UsyLj4EGyrAucIqaBUr14mMk2eF6WNdXJ5Il7yxTBSE5nQa+pcarJkII1Wn1RCaT8udEYuyg2H
+	Ki1o01kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVEt-00000004FXK-0hu3;
-	Tue, 01 Jul 2025 07:17:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uWVHB-00000004FnS-2eUm;
+	Tue, 01 Jul 2025 07:19:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWUUZ-000000049UK-22Hd
+	id 1uWUWo-000000049pq-28g8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 06:29:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751351357;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3XQWfv7zNSIOP37t1HIUNsQ/ruDM0uRKKhFK+dc8Tj4=;
-	b=Vgn2YrfLTxNOg41+MfGlYWR/RhjyFg6ZIlGRkYh1fsLXhbqL0gVvMWi5SmLZ6dOctwvARN
-	EOvxpmTbh0tnrUSohJRyJ86uooW0KhxTm47XZAelzi9EaPFQsrywOuciYX6Qg6Jxtf7SpW
-	zgp0Jft895ASE9Bn2hoqJB6Rt/Vn+ng=
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
- [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-549-FsPx1Q-3MaGB2dOLnbrxvw-1; Tue, 01 Jul 2025 02:29:16 -0400
-X-MC-Unique: FsPx1Q-3MaGB2dOLnbrxvw-1
-X-Mimecast-MFC-AGG-ID: FsPx1Q-3MaGB2dOLnbrxvw_1751351355
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-311e98ee3fcso5816917a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Jun 2025 23:29:16 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751351355; x=1751956155;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3XQWfv7zNSIOP37t1HIUNsQ/ruDM0uRKKhFK+dc8Tj4=;
-        b=RhMKNgye5QgUHqLTci+iHT/aUJWV9Sx/W4ZfC5LjJY9HSwo97ddTm5b6TKyn307Sh7
-         vmm1sE7QBs+kNj5fNv3DsDL6ESX3g/lmD4hOvFh/44dD3vqx/+fW4uH7giTnBQJfFAHT
-         g/b9nwyVtNgGPAMqRUM+FZUzuFpT9HVtoK2uVTm6M5VuabmnOgh+uy9a6dD/e9mk6Nsd
-         2mdzSg+335724CxguXaiDPZLxJ5wSDK1OrKmrRRZtR/OBE08xLg5KVjCN6mSmpxOrk0J
-         oC2a9kTAi+Og/gWxb7BV15iz+jNByH2vLWlKg8nCp8uWD0glOttcsR7ls2bT/9SL7fzk
-         5zww==
-X-Forwarded-Encrypted: i=1; AJvYcCWegzsrJ9ricvcxh6h7UwSE34jBA1Ui1Z0uedLKHvJMettlZ3OkZLCSS/DAbIAajOtuSNdeI+tXCfvls0rr7hVb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAZPbNoRe5sZKKCcPIT1uVs6EofOcNl1GsqRbrRJCGBQ8t+pP4
-	B2XKu8OLC+CCvKTYWNv1kFinwJYRaqOTcmAhOA/YNL+DCafTvH8NxnBr7XmRlD3xQV+egsQRSNq
-	BIg7kW87VC414ggAVE4dNW4fNAwZY6OTKaaWcH8kl5euvMNkzz5rhNE1RerErQCd8e9xjydYzuY
-	7g
-X-Gm-Gg: ASbGnctRg4fv4OIEhbbG6QcDyWelfDfJEnSvAAsl9d/54B+khToVbHVtOrW72L46pDZ
-	HgFALa8747CVagtWewiTl9+30Ytp0ArAWzlryGAD5AY18kfejXbvWOLJ/yRaJIlJfoUEZkzDNw+
-	CNLsDtsYDAMo5R6k+X+PHighW/DlfQqHNa2NSFIZ2mnlZHKULeS/cDTZBwE8K1EUGmKy031EScZ
-	8QzUW0tJx67zVWK9OG1zsaSJqQxTc9mB1QdPYTpG/u0P9uKI00qHAjszTgcwJyaIQJz5HtATl2K
-	H2wH/wgdoq7SPUpn3PZq3dhr/LkxqDrhvQgs3ZwkJ7W5SsEXuNb7yI3OL7ngMA==
-X-Received: by 2002:a17:90b:1e04:b0:315:f6d6:d29c with SMTP id 98e67ed59e1d1-31939b7c842mr3882731a91.15.1751351354708;
-        Mon, 30 Jun 2025 23:29:14 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFV59dFp5Bv5xxfg5s1htC6r8rxsnnWuAaKM+NdCPbEnHIq4j0m9QvOPuGsAf4a/budVvDMUA==
-X-Received: by 2002:a17:90b:1e04:b0:315:f6d6:d29c with SMTP id 98e67ed59e1d1-31939b7c842mr3882694a91.15.1751351354234;
-        Mon, 30 Jun 2025 23:29:14 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-315f53bdbf4sm15771349a91.22.2025.06.30.23.29.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Jun 2025 23:29:13 -0700 (PDT)
-Message-ID: <60e5f88e-c8f1-40d9-a69c-e7da4fc1c953@redhat.com>
-Date: Tue, 1 Jul 2025 16:29:03 +1000
+	Tue, 01 Jul 2025 06:31:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A35B85C20F0;
+	Tue,  1 Jul 2025 06:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA917C4CEEB;
+	Tue,  1 Jul 2025 06:31:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751351497;
+	bh=vxtng46Zkrgb6pbHnrLeH4QC3wxfXfI8X/RlF6fD+54=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Xa70FacU/nH4ycAz32cK1j+CNRDcOTKAPpFV6yg9gpJG/X7BpIwRNALXMP4lLeNo5
+	 uUsbosneGZUgg8JE9+/vot7FWTRq2AfOPXmgFccMuuilEcxda0n1YX11ab5v2ayUKA
+	 esmT9oVr2QwC9XpWFcG4+q2qyt2UGQmJKExnWqMzL5UwvLlDuZ5TbBZyByBHVryshf
+	 Ip2XBgQh8HKLIoJzTFvmOSwX1D5nBypyuVuNhLvcAgxK+6MLaJGsRE8jFToWXEYdSb
+	 F1HoVU/9xO8c17NcEWA1zC51p0IpKcN1S2wppjoRMeoNoBHNSoAXZRos3WMCHkYiHT
+	 iEY9tzeUuvINA==
+Date: Mon, 30 Jun 2025 23:31:34 -0700
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Colin Ian King <colin.i.king@gmail.com>,
+	Andi Kleen <ak@linux.intel.com>, Dmitry Vyukov <dvyukov@google.com>,
+	Graham Woodward <graham.woodward@arm.com>,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	Zhongqiu Han <quic_zhonhan@quicinc.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Athira Rajeev <atrajeev@linux.ibm.com>,
+	Kajol Jain <kjain@linux.ibm.com>, Li Huafei <lihuafei1@huawei.com>,
+	"Steinar H. Gunderson" <sesse@google.com>,
+	Stephen Brennan <stephen.s.brennan@oracle.com>,
+	Chun-Tse Shao <ctshao@google.com>, Yujie Liu <yujie.liu@intel.com>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	Levi Yun <yeoreum.yun@arm.com>, Howard Chu <howardchu95@gmail.com>,
+	Weilin Wang <weilin.wang@intel.com>,
+	Thomas Falcon <thomas.falcon@intel.com>,
+	Matt Fleming <matt@readmodwrite.com>,
+	Veronika Molnarova <vmolnaro@redhat.com>,
+	Krzysztof =?utf-8?Q?=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
+	Zixian Cai <fzczx123@gmail.com>,
+	Steve Clevenger <scclevenger@os.amperecomputing.com>,
+	Ben Gainey <ben.gainey@arm.com>,
+	Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
+	Martin Liska <martin.liska@hey.com>,
+	Martin =?utf-8?B?TGnFoWth?= <m.liska@foxlink.cz>,
+	Song Liu <song@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 11/23] perf evlist: Change env variable to session
+Message-ID: <aGOAxhqOGzCgKnbq@google.com>
+References: <20250628045017.1361563-1-irogers@google.com>
+ <20250628045017.1361563-12-irogers@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 06/43] arm64: RME: Define the user ABI
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
- <20250611104844.245235-7-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250611104844.245235-7-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: zkwM4qLaC-UcxgY0ZMKkW8PgIqGKIfx1NDul9Bupssw_1751351355
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250628045017.1361563-12-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_232919_721302_15C198F0 
-X-CRM114-Status: GOOD (  36.77  )
+X-CRM114-CacheID: sfid-20250630_233138_630901_FE7822EE 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,258 +110,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/11/25 8:48 PM, Steven Price wrote:
-> There is one (multiplexed) CAP which can be used to create, populate and
-> then activate the realm.
+On Fri, Jun 27, 2025 at 09:50:05PM -0700, Ian Rogers wrote:
+> The session holds a perf_env pointer env. In UI code container_of is
+> used to turn the env to a session, but this assumes the session
+> header's env is in use. Rather than a dubious container_of, hold the
+> session in the evlist and derive the env from the session with
+> evsel__env, perf_session__env, etc.
 > 
-> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
+> Signed-off-by: Ian Rogers <irogers@google.com>
 > ---
-> Changes since v8:
->   * Minor improvements to documentation following review.
->   * Bump the magic numbers to avoid conflicts.
-> Changes since v7:
->   * Add documentation of new ioctls
->   * Bump the magic numbers to avoid conflicts
-> Changes since v6:
->   * Rename some of the symbols to make their usage clearer and avoid
->     repetition.
-> Changes from v5:
->   * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
->     KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
-> ---
->   Documentation/virt/kvm/api.rst    | 73 ++++++++++++++++++++++++++++++-
->   arch/arm64/include/uapi/asm/kvm.h | 49 +++++++++++++++++++++
->   include/uapi/linux/kvm.h          | 10 +++++
->   3 files changed, 131 insertions(+), 1 deletion(-)
+>  tools/perf/builtin-report.c      |  6 +++++-
+>  tools/perf/builtin-script.c      |  2 +-
+>  tools/perf/builtin-top.c         |  2 +-
+>  tools/perf/tests/topology.c      |  1 +
+>  tools/perf/ui/browser.h          |  4 ++--
+>  tools/perf/ui/browsers/header.c  |  4 +---
+>  tools/perf/ui/browsers/hists.c   |  2 +-
+>  tools/perf/util/amd-sample-raw.c |  2 +-
+>  tools/perf/util/arm-spe.c        |  2 +-
+>  tools/perf/util/evlist.h         |  2 +-
+>  tools/perf/util/evsel.c          | 12 +++++++++---
+>  tools/perf/util/evsel.h          |  1 +
+>  tools/perf/util/header.c         |  2 +-
+>  tools/perf/util/s390-cpumsf.c    |  2 +-
+>  tools/perf/util/sample-raw.c     |  7 ++++---
+>  tools/perf/util/sample-raw.h     |  2 +-
+>  tools/perf/util/session.c        |  4 +++-
+>  17 files changed, 35 insertions(+), 22 deletions(-)
 > 
+> diff --git a/tools/perf/builtin-report.c b/tools/perf/builtin-report.c
+> index 704576e46e4b..ada8e0166c78 100644
+> --- a/tools/perf/builtin-report.c
+> +++ b/tools/perf/builtin-report.c
+> @@ -1274,6 +1274,8 @@ static int process_attr(const struct perf_tool *tool __maybe_unused,
+>  			union perf_event *event,
+>  			struct evlist **pevlist)
+>  {
+> +	struct perf_session *session;
+> +	struct perf_env *env;
+>  	u64 sample_type;
+>  	int err;
+>  
+> @@ -1286,7 +1288,9 @@ static int process_attr(const struct perf_tool *tool __maybe_unused,
+>  	 * on events sample_type.
+>  	 */
+>  	sample_type = evlist__combined_sample_type(*pevlist);
+> -	callchain_param_setup(sample_type, perf_env__arch((*pevlist)->env));
+> +	session = (*pevlist)->session;
+> +	env = perf_session__env(session);
+> +	callchain_param_setup(sample_type, perf_env__arch(env));
+>  	return 0;
+>  }
+>  
+> diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+> index 8a452353c867..2c25eda4be26 100644
+> --- a/tools/perf/builtin-script.c
+> +++ b/tools/perf/builtin-script.c
+> @@ -2535,7 +2535,7 @@ static int process_attr(const struct perf_tool *tool, union perf_event *event,
+>  	 * on events sample_type.
+>  	 */
+>  	sample_type = evlist__combined_sample_type(evlist);
+> -	callchain_param_setup(sample_type, perf_env__arch((*pevlist)->env));
+> +	callchain_param_setup(sample_type, perf_env__arch(perf_session__env(scr->session)));
+>  
+>  	/* Enable fields for callchain entries */
+>  	if (symbol_conf.use_callchain &&
+> diff --git a/tools/perf/builtin-top.c b/tools/perf/builtin-top.c
+> index 84b223a94dcf..72f9be5a3b30 100644
+> --- a/tools/perf/builtin-top.c
+> +++ b/tools/perf/builtin-top.c
+> @@ -1654,7 +1654,6 @@ int cmd_top(int argc, const char **argv)
+>  			"Couldn't read the cpuid for this machine: %s\n",
+>  			str_error_r(errno, errbuf, sizeof(errbuf)));
+>  	}
+> -	top.evlist->env = &perf_env;
+>  
+>  	argc = parse_options(argc, argv, options, top_usage, 0);
+>  	if (argc)
+> @@ -1822,6 +1821,7 @@ int cmd_top(int argc, const char **argv)
+>  		perf_top__update_print_entries(&top);
+>  		signal(SIGWINCH, winch_sig);
+>  	}
+> +	top.session->env = &perf_env;
 
-With below nitpicks addressed:
-
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 1bd2d42e6424..65543289f75c 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -3542,6 +3542,11 @@ Possible features:
->   	  Depends on KVM_CAP_ARM_EL2_E2H0.
->   	  KVM_ARM_VCPU_HAS_EL2 must also be set.
->   
-> +	- KVM_ARM_VCPU_REC: Allocate a REC (Realm Execution Context) for this
-> +	  VCPU. This must be specified on all VCPUs created in a Realm VM.
-> +	  Depends on KVM_CAP_ARM_RME.
-> +	  Requires KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_REC).
-> +
->   4.83 KVM_ARM_PREFERRED_TARGET
->   -----------------------------
->   
-> @@ -5115,6 +5120,7 @@ Recognised values for feature:
->   
->     =====      ===========================================
->     arm64      KVM_ARM_VCPU_SVE (requires KVM_CAP_ARM_SVE)
-> +  arm64      KVM_ARM_VCPU_REC (requires KVM_CAP_ARM_RME)
->     =====      ===========================================
->   
->   Finalizes the configuration of the specified vcpu feature.
-> @@ -6469,6 +6475,30 @@ the capability to be present.
->   
->   `flags` must currently be zero.
->   
-> +4.144 KVM_ARM_VCPU_RMM_PSCI_COMPLETE
-> +------------------------------------
-> +
-> +:Capability: KVM_CAP_ARM_RME
-> +:Architectures: arm64
-> +:Type: vcpu ioctl
-> +:Parameters: struct kvm_arm_rmm_psci_complete (in)
-> +:Returns: 0 if successful, < 0 on error
-> +
-> +::
-> +
-> +  struct kvm_arm_rmm_psci_complete {
-> +	__u64 target_mpidr;
-> +	__u32 psci_status;
-> +	__u32 padding[3];
-> +  };
-> +
-> +Where PSCI functions are handled by user space, the RMM needs to be informed of
-> +the target of the operation using `target_mpidr`, along with the status
-> +(`psci_status`). The RMM v1.0 specification defines two functions that require
-> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
-> +
-> +If the kernel is handling PSCI then this is done automatically and the VMM
-> +doesn't need to call this ioctl.
->   
->   .. _kvm_run:
->   
-> @@ -8528,7 +8558,7 @@ ENOSYS for the others.
->   When enabled, KVM will exit to userspace with KVM_EXIT_SYSTEM_EVENT of
->   type KVM_SYSTEM_EVENT_SUSPEND to process the guest suspend request.
->   
-> -7.37 KVM_CAP_ARM_WRITABLE_IMP_ID_REGS
-> +7.42 KVM_CAP_ARM_WRITABLE_IMP_ID_REGS
->   -------------------------------------
->   
->   :Architectures: arm64
-> @@ -8557,6 +8587,47 @@ given VM.
->   When this capability is enabled, KVM resets the VCPU when setting
->   MP_STATE_INIT_RECEIVED through IOCTL.  The original MP_STATE is preserved.
->   
-> +7.44 KVM_CAP_ARM_RME
-> +--------------------
-> +
-> +:Architectures: arm64
-> +:Target: VM
-> +:Parameters: args[0] provides an action, args[1] points to a structure in
-> +	     memory for some actions.
-           ^^^
-           Alignment
-
-s/for some actions/for the action
-
-> +:Returns: 0 on success, negative value on error
-> +
-> +Used to configure and set up the memory for a Realm. The available actions are:
-> +
-> +================================= =============================================
-> + KVM_CAP_ARM_RME_CONFIG_REALM     Takes struct arm_rme_config as args[1] and
-> +                                  configures realm parameters prior to it being
-> +                                  created.
-> +
-> +                                  Options are ARM_RME_CONFIG_RPV to set the
-> +                                  "Realm Personalization Value" and
-> +                                  ARM_RME_CONFIG_HASH_ALGO to set the hash
-> +                                  algorithm.
-> +
-> + KVM_CAP_ARM_RME_CREATE_REALM     Request the RMM to create the realm. The
-> +                                  realm's configuration parameters must be set
-> +                                  first.
-> +
-> + KVM_CAP_ARM_RME_INIT_RIPAS_REALM Takes struct arm_rme_init_ripas as args[1]
-> +                                  and sets the RIPAS (Realm IPA State) to
-> +                                  RIPAS_RAM of a specified area of the realm's
-> +                                  IPA.
-> +
-> + KVM_CAP_ARM_RME_POPULATE_REALM   Takes struct arm_rme_populate_realm as
-> +                                  args[1] and populates a region of protected
-> +                                  address space by copying the data from the
-> +                                  shared alias.
-> +
-> + KVM_CAP_ARM_RME_ACTIVATE_REALM   Request the RMM to activate the realm. No
-> +                                  changes can be made to the Realm's memory,
-> +                                  IPA state or configuration parameters.  No
-> +                                  new VCPUs should be created after this step.
-> +================================= =============================================
-> +
-
-The description about KVM_CAP_ARM_RME_ACTIVATE_REALM looks a bit confusing, maybe
-something as below is more clear:
-
-KVM_CAP_ARM_RME_ACTIVATE_REALM     Request the RMM to activate the realm. No changes
-                                    can be made to the Realm's populated memory, IPA state,
-                                    configuration parameters or vCPU addition after this
-                                    step.
-
->   8. Other capabilities.
->   ======================
->   
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index ed5f3892674c..9b5d67ecbc5e 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -106,6 +106,7 @@ struct kvm_regs {
->   #define KVM_ARM_VCPU_PTRAUTH_GENERIC	6 /* VCPU uses generic authentication */
->   #define KVM_ARM_VCPU_HAS_EL2		7 /* Support nested virtualization */
->   #define KVM_ARM_VCPU_HAS_EL2_E2H0	8 /* Limit NV support to E2H RES0 */
-> +#define KVM_ARM_VCPU_REC		9 /* VCPU REC state as part of Realm */
->   
->   struct kvm_vcpu_init {
->   	__u32 target;
-> @@ -429,6 +430,54 @@ enum {
->   #define   KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES	3
->   #define   KVM_DEV_ARM_ITS_CTRL_RESET		4
->   
-> +/* KVM_CAP_ARM_RME on VM fd */
-> +#define KVM_CAP_ARM_RME_CONFIG_REALM		0
-> +#define KVM_CAP_ARM_RME_CREATE_REALM		1
-> +#define KVM_CAP_ARM_RME_INIT_RIPAS_REALM	2
-> +#define KVM_CAP_ARM_RME_POPULATE_REALM		3
-> +#define KVM_CAP_ARM_RME_ACTIVATE_REALM		4
-> +
-> +/* List of configuration items accepted for KVM_CAP_ARM_RME_CONFIG_REALM */
-> +#define ARM_RME_CONFIG_RPV			0
-> +#define ARM_RME_CONFIG_HASH_ALGO		1
-> +
-> +#define ARM_RME_CONFIG_HASH_ALGO_SHA256		0
-> +#define ARM_RME_CONFIG_HASH_ALGO_SHA512		1
-> +
-> +#define ARM_RME_CONFIG_RPV_SIZE 64
-> +
-> +struct arm_rme_config {
-> +	__u32 cfg;
-> +	union {
-> +		/* cfg == ARM_RME_CONFIG_RPV */
-> +		struct {
-> +			__u8	rpv[ARM_RME_CONFIG_RPV_SIZE];
-> +		};
-> +
-> +		/* cfg == ARM_RME_CONFIG_HASH_ALGO */
-> +		struct {
-> +			__u32	hash_algo;
-> +		};
-> +
-> +		/* Fix the size of the union */
-> +		__u8	reserved[256];
-> +	};
-> +};
-> +
-> +#define KVM_ARM_RME_POPULATE_FLAGS_MEASURE	(1 << 0)
-> +struct arm_rme_populate_realm {
-> +	__u64 base;
-> +	__u64 size;
-> +	__u32 flags;
-> +	__u32 reserved[3];
-> +};
-> +
-> +struct arm_rme_init_ripas {
-> +	__u64 base;
-> +	__u64 size;
-> +	__u64 reserved[2];
-> +};
-> +
->   /* Device Control API on vcpu fd */
->   #define KVM_ARM_VCPU_PMU_V3_CTRL	0
->   #define   KVM_ARM_VCPU_PMU_V3_IRQ		0
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index d00b85cb168c..3690664e272c 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -934,6 +934,7 @@ struct kvm_enable_cap {
->   #define KVM_CAP_ARM_EL2 240
->   #define KVM_CAP_ARM_EL2_E2H0 241
->   #define KVM_CAP_RISCV_MP_STATE_RESET 242
-> +#define KVM_CAP_ARM_RME 243
->   
->   struct kvm_irq_routing_irqchip {
->   	__u32 irqchip;
-> @@ -1586,4 +1587,13 @@ struct kvm_pre_fault_memory {
->   	__u64 padding[5];
->   };
->   
-> +/* Available with KVM_CAP_ARM_RME, only for VMs with KVM_VM_TYPE_ARM_REALM  */
-> +struct kvm_arm_rmm_psci_complete {
-> +	__u64 target_mpidr;
-> +	__u32 psci_status;
-> +	__u32 padding[3];
-> +};
-> +
-> +#define KVM_ARM_VCPU_RMM_PSCI_COMPLETE	_IOW(KVMIO, 0xd6, struct kvm_arm_rmm_psci_complete)
-> +
->   #endif /* __LINUX_KVM_H */
+Looks like it's accessing top.session before it's created?
 
 Thanks,
-Gavin
+Namhyung
 
+>  
+>  	top.session = perf_session__new(NULL, NULL);
+>  	if (IS_ERR(top.session)) {
 
