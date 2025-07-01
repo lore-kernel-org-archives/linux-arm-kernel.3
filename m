@@ -4,78 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4E9C83038
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56312C7EE30
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 18:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FzEcA5hWsnYtBiKYYIvhUgOlqu3hQ1Xe998O6NNxQE0=; b=WJ7bmOUC2fMK4iUm1Fo/pbLXK5
-	Ma+qFgWL6Rl/F4ACgaZAaEIJWKZWffLbJaQRshKhAFbbhHvMtSEjvq2Tl0m/re/wnUMCIo6lctPUx
-	w+6bZADd99UXwdCMS7e/InhObAckRBwWyFohaN7eJV8D99AWUW/1pGSBGr+abC8HvRQkdICTnHolS
-	1BK+cPgqTyuhl7nAmcNCr1NipJOFi2PTM39jeQgT7tjyxnO59zf/cS+Hqz1t2aZH4XdXH8mJokL+5
-	B014qY1EKx72x+6geV8hNT8pay2NBzMpD6ALeq7WHoqSIU2Y49m+UwOWekgpzGDkzvQniMl579mVx
-	xAteVPzQ==;
+	bh=GrLv8E2JzJaKuEQhctmJvd3DUiMTxFOf1wZ25rSjEVo=; b=b4HWCc8mlATM/cVsWEXmbTnBxK
+	dUCUZ+XxOMwzsRzRAxuBkWze+wXa9X+FFnaunX3fVR3/EEokFOpO6ibzHs8J9wdsc/974yTDOjDS9
+	MzXb0G3VV6brddZ4tLj7TtYYFPs3EIBGQI5K1EHrz3Uet+zDQKuadzK2T+9Mrc8M8K5xW30bYyPTr
+	n+Dv3w3fF0nQ4mPQiz5B84zyd0dKF9jihbBgRwpA2lf+5gcUdmctHvDVdPmQ1AJImaTxDfIzRNVH7
+	rHxLVwIPGUflSrOGkbozlUorGTgAa1dIfFVb9RCHlodXgq2PsrlwSV9ipuzRsXh3O0w64FOnE2CK8
+	YpHogzvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWflH-00000006KjJ-1Oxg;
-	Tue, 01 Jul 2025 18:31:19 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uWflK-00000006KmF-2EaN;
+	Tue, 01 Jul 2025 18:31:22 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWcwU-00000005tWL-0YH9;
-	Tue, 01 Jul 2025 15:30:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 44470A53241;
-	Tue,  1 Jul 2025 15:30:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7EFBC4CEF4;
-	Tue,  1 Jul 2025 15:30:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751383840;
-	bh=esq6GOU0YhrPGSWvYux2e5iZTTVZJjFx3fEwhZQPgKE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ZqKObUsA0XqJSdOTV38SUPg0qehNPYEJw21E8pe0ZtkEhIAN2gTubJDa34IPE44Zu
-	 DgCYMxp1EQWaoDr6GCINznEm5mUb8XKTPUmZ3umEARYYWDwHJf/wP2q1iPUxF5+P2E
-	 ZZyj0wi4AIugFmUoWzVWBJhvJjXSAojpt12nLvqAGeqRHae4yOWfbgSPvxdgdjfCOI
-	 A2xHOk3VuKafVFC+csJbujA1ZguLjcUL/ZQd/LMLlJf7lVVTm9qmPKN1nkVFoS5Fmb
-	 i6lz/uIS0yU1mdm/LzUr7flUnT/o2kmORh91MAitE4tmwZ84TPgNjBfKIlYb4UjL29
-	 dcl4pPn2dC+Ug==
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-ad572ba1347so514090766b.1;
-        Tue, 01 Jul 2025 08:30:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVCEDbQPjO3ISZVrbgC8m3wBuk8a7nBDgJa+QcTAUgO3aoNjPUXtQTNN/wSrprKVm9Njifq7Ap3Ne2cWHoey5Q=@lists.infradead.org, AJvYcCXew0lFnuhakqn7Nx84/V0poEc4nqCNxZ95FUisH9l5/vjsZAjvihLYXYoUEh52AXHvSMgFURSR4vn1ky1FelWZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEBTW9KNEjOOk7Dsk95PZf+FL9HWpb0TJ7JwLrx9sGsrVuHP2w
-	0Hc7cRoJZpllU2Rr64nCYYA/49IzbS2FfuUPfdTFj0+LhRhUWeE3r3Ehc2IGlOMW24Q1XS7l6/d
-	gHHb90yH6XI1KFhgTUKU/EiPUmB8fdQ==
-X-Google-Smtp-Source: AGHT+IGEOJ71QMmhygwwyoNyQvTUaSHGrectnbPhXO6fiW5U06Zpksqy5ktwiQlQijy6IeTYO+AYO14xuNYbA79IbCw=
-X-Received: by 2002:a17:907:d86a:b0:ae3:6390:6acc with SMTP id
- a640c23a62f3a-ae363906fc2mr1532109666b.27.1751383839032; Tue, 01 Jul 2025
- 08:30:39 -0700 (PDT)
+	id 1uWcyk-00000005ttS-0yte
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Jul 2025 15:33:03 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a6cdc27438so2941618f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 08:33:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1751383980; x=1751988780; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GrLv8E2JzJaKuEQhctmJvd3DUiMTxFOf1wZ25rSjEVo=;
+        b=ShAXN9KVgWtL4ZoDmGGVuW8H5mQa6Oe6ytUfeybBG11iwadbNlYiKXsgNla0/ai+oo
+         o6isS19qhAoFSjjHsSJkd6eRkUB8/WxY//pcbt/rUkD9FNe9GpMZybTYj0h1+1gLOuBk
+         wdD4XRnobo9jdZVfMotUx3MftOhlPGS3dvYTbmROINEsEOpQgsWcRfdZqlsod+LMAnh4
+         zX7e2FiLuze2NN+E+1lOtSpeeyOvnp+lPwoT0fUkmaYNIo5Xq3kL1bd4cV3DaRbv0WL8
+         Z7MCxpu/NwgBmD3X7BKlvza9aNVomsYbxnvWafqjq7sXXViMqMsTXjUZK7CilkM28omD
+         AAJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751383980; x=1751988780;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GrLv8E2JzJaKuEQhctmJvd3DUiMTxFOf1wZ25rSjEVo=;
+        b=YfqtL1qL+EWHaA4RPEvw/VwFIvZQGA9NYhrVb2cS6W8pXuFhlxtPFBP5M8RDLtLrXi
+         UMIU++uAoklVQy28cppsJ2T50msVeLNDnDEeqEHJgbtUF19YXJ7JOK8IPhdE4XkN1kGX
+         OBBPTsW2bAqvmDqNx+8pxjyStMsczavpomnSlDLYMLHPgKjwqsHBGLWLXcjMKhsJKBtZ
+         HTby0jPqcXb7bk5YIO1t1iTJDscNkDf3VtwCJpcJy8GIw2sv2/SEoQdGq6hMYZRy8ebb
+         c3hSoWYT8PIf2GGaBV8LIx/eVuMS3LE5jZ9GVwHNaLWZKzm96VyMURQThotUQOIGloPP
+         Lo+g==
+X-Gm-Message-State: AOJu0YyUL6DpzxR6RU50lamAaQP8mNdHpJh2jESBtn8J8kn6X931B+eK
+	w91PZv6igmGARY4VMMc8YLjYMMSd3MpbSVJ/FmM4uCJWOF6if9io0H1H6Nei/LDnkDU=
+X-Gm-Gg: ASbGnctvUlxJdfkwmMr+Qm78WIo75ZtmewAtmldQI/8Ur3ArK/Glo5gOJ6/5cmJaBID
+	nZbzZ+m8NqujwL1MQiDF1nfNX/Y6GmJ8tjbzbxk/x0pVjqjg4/xpdbUjq3pgZ18h1gaOx1AMITG
+	nujIuSTnUEur4U5youxOI28fP2oXA6A42eEoD53+IGUt6sLbRelG4kY4h8nPYdPJDAI4xphnB8a
+	8Ep9KkU0/bPCQTHFVHSydnyb7Esb8tucmwQOm+pVCydgKkc8Y6MbzNVOSMbvzaU/N+PCNicMwOt
+	x0VZLxys/jVuj39BG/t84HpcyCCfAVhqvwDi45lsh/Pa2GTSvRcDI9WnzR8/qAjco8TaoX2wAnB
+	mpWmErQ==
+X-Google-Smtp-Source: AGHT+IGhfDvVLxXK0g4NeIbM0C+Rf8R4M1m1N7M8/7K4QfeNkwE1w4jj6lEbfgM0B+KT2OK6Dd4PJA==
+X-Received: by 2002:adf:9dce:0:b0:3a4:d6ed:8e00 with SMTP id ffacd0b85a97d-3a8fdeffa19mr14766121f8f.33.1751383980385;
+        Tue, 01 Jul 2025 08:33:00 -0700 (PDT)
+Received: from ho-tower-lan.lan ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a88c80b5a3sm13435002f8f.40.2025.07.01.08.32.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jul 2025 08:33:00 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Date: Tue, 01 Jul 2025 16:31:58 +0100
+Subject: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
+ PMBPTR_EL1 or PMBSR_EL1
 MIME-Version: 1.0
-References: <20250701-mt6572-v3-0-8937cfa33f95@proton.me> <175138000372.1627755.5505703571113478205.robh@kernel.org>
-In-Reply-To: <175138000372.1627755.5505703571113478205.robh@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 1 Jul 2025 10:30:27 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqLSa+1MYR6f6NcApGFdjCL0dDXSzpntVHCPGmKgytVfdQ@mail.gmail.com>
-X-Gm-Features: Ac12FXzzE6a683eHMTyQ3BNDvQ78bAbSIDWu96D3LpnH4E2Ei9VCbyAZ1NSVMV0
-Message-ID: <CAL_JsqLSa+1MYR6f6NcApGFdjCL0dDXSzpntVHCPGmKgytVfdQ@mail.gmail.com>
-Subject: Re: [PATCH v3 00/11] ARM: Add support for MediaTek MT6572 SoC
-To: Max Shevchenko <wctrl@proton.me>
-Cc: linux-watchdog@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, devicetree@vger.kernel.org, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-mediatek@lists.infradead.org, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Sean Wang <sean.wang@mediatek.com>, linux-arm-kernel@lists.infradead.org, 
-	Guenter Roeck <linux@roeck-us.net>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
+References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
+In-Reply-To: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Alexandru Elisei <Alexandru.Elisei@arm.com>, 
+ Anshuman Khandual <Anshuman.Khandual@arm.com>, 
+ Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
+ Robin Murphy <Robin.Murphy@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_083042_312903_AFBF9659 
-X-CRM114-Status: GOOD (  31.53  )
+X-CRM114-CacheID: sfid-20250701_083302_290927_D2E96047 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,106 +104,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 1, 2025 at 10:27=E2=80=AFAM Rob Herring (Arm) <robh@kernel.org>=
- wrote:
->
->
-> On Tue, 01 Jul 2025 09:06:54 +0300, Max Shevchenko wrote:
-> > This series of patches adds support for the MT6572 SoC and
-> > the JTY D101 tablet and Lenovo A369i smartphone based on it.
-> >
-> > Signed-off-by: Max Shevchenko <wctrl@proton.me>
-> > ---
-> > Changes in v3:
-> > - Remove the compatible property from the SoC devicetree
-> > - Link to v2: https://lore.kernel.org/r/20250626-mt6572-v2-0-f7f8421969=
-86@proton.me
-> >
-> > Changes in v2:
-> > - Drop the status property for the board devicetrees
-> > - Add an soc node for the MT6572 and reorder the nodes and properties
-> > - Change the commit title to a more descriptive one
-> > - Change the cover title to the correct one
-> > - Link to v1: https://lore.kernel.org/r/20250620-mt6572-v1-0-e2d47820f0=
-42@proton.me
-> >
-> > ---
-> > Max Shevchenko (11):
-> >       dt-bindings: serial: mediatek,uart: add MT6572
-> >       dt-bindings: interrupt-controller: mediatek,mt6577-sysirq: add MT=
-6572
-> >       dt-bindings: timer: mediatek: add MT6572
-> >       dt-bindings: watchdog: mediatek,mtk-wdt: add MT6572
-> >       dt-bindings: vendor-prefixes: add JTY
-> >       dt-bindings: arm: mediatek: add boards based on the MT6572 SoC
-> >       ARM: mediatek: add board_dt_compat entry for the MT6572 SoC
-> >       ARM: mediatek: add MT6572 smp bring up code
-> >       ARM: dts: mediatek: add basic support for MT6572 SoC
-> >       ARM: dts: mediatek: add basic support for JTY D101 board
-> >       ARM: dts: mediatek: add basic support for Lenovo A369i board
-> >
-> >  .../devicetree/bindings/arm/mediatek.yaml          |   5 +
-> >  .../mediatek,mt6577-sysirq.yaml                    |   1 +
-> >  .../devicetree/bindings/serial/mediatek,uart.yaml  |   1 +
-> >  .../devicetree/bindings/timer/mediatek,timer.yaml  |   1 +
-> >  .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
-> >  .../bindings/watchdog/mediatek,mtk-wdt.yaml        |   1 +
-> >  arch/arm/boot/dts/mediatek/Makefile                |   2 +
-> >  arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts     |  61 ++++++++++++
-> >  arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts |  56 +++++++++++
-> >  arch/arm/boot/dts/mediatek/mt6572.dtsi             | 108 +++++++++++++=
-++++++++
-> >  arch/arm/mach-mediatek/Kconfig                     |   4 +
-> >  arch/arm/mach-mediatek/mediatek.c                  |   1 +
-> >  arch/arm/mach-mediatek/platsmp.c                   |   7 ++
-> >  13 files changed, 250 insertions(+)
-> > ---
-> > base-commit: 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
-> > change-id: 20250619-mt6572-ef78a3d45168
-> >
-> > Best regards,
-> > --
-> > Max Shevchenko <wctrl@proton.me>
-> >
-> >
-> >
->
->
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->
->   pip3 install dtschema --upgrade
->
->
-> This patch series was applied (using b4) to base:
->  Base: using specified base-commit 0ff41df1cb268fc69e703a08a57ee14ae967d0=
-ca
->
-> If this is not the correct base, please add 'base-commit' tag
-> (or use b4 which does this automatically)
->
-> New warnings running 'make CHECK_DTBS=3Dy for arch/arm/boot/dts/mediatek/=
-' for 20250701-mt6572-v3-0-8937cfa33f95@proton.me:
->
-> arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dtb: / (lenovo,a369i): mem=
-ory: False schema does not allow {'device_type': ['memory'], 'reg': [[21474=
-83648, 536870912]]}
->         from schema $id: http://devicetree.org/schemas/root-node.yaml#
-> arch/arm/boot/dts/mediatek/mt6572-jty-d101.dtb: / (jty,d101): memory: Fal=
-se schema does not allow {'device_type': ['memory'], 'reg': [[2147483648, 1=
-073741824]]}
->         from schema $id: http://devicetree.org/schemas/root-node.yaml#
+DEN0154 states that writes to PMBPTR_EL1 or PMBSR_EL1 must be done while
+the buffer is disabled (PMBLIMITR_EL1.E == 0). Re-arrange the interrupt
+handler to always disable the buffer for non-spurious interrupts before
+doing either.
 
-'memory' node without a unit-address has long been deprecated. Please
-don't add more cases.
+Most of arm_spe_pmu_disable_and_drain_local() is now always done, so for
+faults the only thing left to do is clear PMSCR_EL1.
 
-Rob
+Elaborate the comment in arm_spe_pmu_disable_and_drain_local() to
+explain the ramifications of not doing it in the right order.
+
+Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ drivers/perf/arm_spe_pmu.c | 33 +++++++++++++++++++++------------
+ 1 file changed, 21 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index 6235ca7ecd48..5829947c8871 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -559,7 +559,12 @@ static void arm_spe_perf_aux_output_end(struct perf_output_handle *handle)
+ 
+ static void arm_spe_pmu_disable_and_drain_local(void)
+ {
+-	/* Disable profiling at EL0 and EL1 */
++	/*
++	 * To prevent the CONSTRAINED UNPREDICTABLE behavior of either writing
++	 * to memory after the buffer is disabled, or SPE reporting an access
++	 * not allowed event, we must disable sampling before draining the
++	 * buffer.
++	 */
+ 	write_sysreg_s(0, SYS_PMSCR_EL1);
+ 	isb();
+ 
+@@ -661,16 +666,24 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+ 	 */
+ 	irq_work_run();
+ 
++	/*
++	 * arm_spe_pmu_buf_get_fault_act() already drained, and PMBSR_EL1.S == 1
++	 * means that StatisticalProfilingEnabled() == false. So now we can
++	 * safely disable the buffer.
++	 */
++	write_sysreg_s(0, SYS_PMBLIMITR_EL1);
++	isb();
++
++	/* Status can be cleared now that PMBLIMITR_EL1.E == 0 */
++	write_sysreg_s(0, SYS_PMBSR_EL1);
++
+ 	switch (act) {
+ 	case SPE_PMU_BUF_FAULT_ACT_FATAL:
+ 		/*
+-		 * If a fatal exception occurred then leaving the profiling
+-		 * buffer enabled is a recipe waiting to happen. Since
+-		 * fatal faults don't always imply truncation, make sure
+-		 * that the profiling buffer is disabled explicitly before
+-		 * clearing the syndrome register.
++		 * To complete the full disable sequence, also disable profiling
++		 * at EL0 and EL1, we don't want to continue at all anymore.
+ 		 */
+-		arm_spe_pmu_disable_and_drain_local();
++		write_sysreg_s(0, SYS_PMSCR_EL1);
+ 		break;
+ 	case SPE_PMU_BUF_FAULT_ACT_OK:
+ 		/*
+@@ -679,18 +692,14 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+ 		 * PMBPTR might be misaligned, but we'll burn that bridge
+ 		 * when we get to it.
+ 		 */
+-		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)) {
++		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED))
+ 			arm_spe_perf_aux_output_begin(handle, event);
+-			isb();
+-		}
+ 		break;
+ 	case SPE_PMU_BUF_FAULT_ACT_SPURIOUS:
+ 		/* We've seen you before, but GCC has the memory of a sieve. */
+ 		break;
+ 	}
+ 
+-	/* The buffer pointers are now sane, so resume profiling. */
+-	write_sysreg_s(0, SYS_PMBSR_EL1);
+ 	return IRQ_HANDLED;
+ }
+ 
+
+-- 
+2.34.1
+
 
