@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE01C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 16:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E27C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 16:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ftqp2JML2DYPewd5jY6HVaLVCdiW2Zj20Q3xjRUGf0w=; b=Dwwbbksxo/IcMiHzCuMJ+f47Bc
-	O9fHEBiED5Q4wcfBieh/cIep+1IqAI4MrzUcT1vera0/hdFbQcv78obSOlAJwMBToFVyfGl3+D0C+
-	salZfOv4rWv0fzsU7qr/aW4OWvs2NudfYYyk3+kQQdXrBuMQgr2IBhgt1ZW5wKFht69DXRHoAniT/
-	MSRAkUbf/nwZXLL3s/nNqGRj6aBDmJX9gfVy6U+T41OJvCNtoWrcqtl+2h5TuONEQwdIT37B1Mesz
-	cW1+R2cT08v4dYxYfxo99cp3/sfAuQChG8FtFskqoxt11ybV3Z6YXFX+FP5ZKRPUe84x6jbKXws7b
-	62WtZsvQ==;
+	bh=B9M8AvTrK2pWh59cnOMUJ1rVxg4iaCbNf0ZOrXgyqO0=; b=HAqDa0KI44p/aIdW7edBD0zVPl
+	WDRI6/ApB8EywYc/gnbhF3esdGmUGp/rsef20Ky9W1hMoTsFKR40WtKYtD7wQGsclSImf51Vedtff
+	TSGhDZSCh5bzjvAtHjhPL1hXUvcszTYUlvMfBQQ9yOViY5qpMCGp3ow+tgwWhdqzDvKr0neStBtPn
+	4w73+Sj1zfG1RiCdWrznA4xlHAf0JWs6rcajV9rOK604CCoHus/XYupcBIDdUf3Sc6QOTFfA6V7VJ
+	tPIurgfuNG2bWxEz6TBpJDmjJAvvfPTeT76Y3fe8nt58rbBqJyjcCggi7pyldHJkyMP6LAToQ3qXP
+	F7Nh5LZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWeBu-000000066wv-2nyR;
-	Tue, 01 Jul 2025 16:50:42 +0000
+	id 1uWeED-000000067Ub-1zj7;
+	Tue, 01 Jul 2025 16:53:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWcNB-00000005mmy-2iOw
+	id 1uWcND-00000005mnw-4BO1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 14:54:14 +0000
+	Tue, 01 Jul 2025 14:54:17 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02D14236D;
-	Tue,  1 Jul 2025 07:53:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58BE62379;
+	Tue,  1 Jul 2025 07:54:00 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 487283F66E;
-	Tue,  1 Jul 2025 07:54:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E5FD3F66E;
+	Tue,  1 Jul 2025 07:54:13 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 01 Jul 2025 15:53:35 +0100
-Subject: [PATCH v2 10/28] coresight: etm4x: Reuse normal enable and disable
- logic in CPU idle
+Date: Tue, 01 Jul 2025 15:53:36 +0100
+Subject: [PATCH v2 11/28] coresight: Populate CPU ID into the
+ coresight_device structure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250701-arm_cs_pm_fix_v3-v2-10-23ebb864fcc1@arm.com>
+Message-Id: <20250701-arm_cs_pm_fix_v3-v2-11-23ebb864fcc1@arm.com>
 References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
 In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -53,16 +53,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751381627; l=14259;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751381627; l=13308;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=ehZsp7BPCBj8P3yPkhk9XTKRfV+mpzmepg8eKDuZeEc=;
- b=GdaahXTvLGPUpCnzu9Qq0omk9dhYf8h7UMihpV/osPITl4y1ra+mu9dvdbYs64c6PvYsslbXY
- 0qRAGo1dpD1A0hVw2e7hjhbJSI19CQOmpu2xKpIDoQaL25IpqIKfox7
+ bh=U5MRIOic6bYc6J+Dgu8lIhYsyHE2JHutR2wUNbwbYMM=;
+ b=kgKdEi5/xtAi/Hcjb+SC0E1Af+28OLKdUGsKfj9gYzZ5JhdD2jjMx2XWCluF6LyxvefOG+rfn
+ x2GoYIUzxISAHGxU3wVJy3L75YdMeJD1S5CcdmdJvx3+o9Mnj3uSSH5
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_075413_772000_327CCF69 
-X-CRM114-Status: GOOD (  25.29  )
+X-CRM114-CacheID: sfid-20250701_075416_120652_31C214DA 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,402 +77,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The etm4_enable_trace_unit() function is almost identical to the restore
-flow, with a few differences listed below:
+The coresight_desc structure is a temporary structure for passing the
+information to the coresight_device structure during registration.
 
-1) TRCQCTLR register
-
-   The TRCQCTLR register is saved and restored during CPU idle, but it
-   is never touched in the normal flow. Given the Q element is not
-   enabled (TRCCONFIGR.QE bits), it is acceptable to omit saving and
-   restoring this register during idle.
-
-2) TRCSSCSRn.STATUS bit
-
-   The restore flow does not explicitly clear the TRCSSCSRn.STATUS bit
-   but instead directly loads the saved value. In contrast, the normal
-   flow clears this bit to 0 when re-enabling single-shot control.
-
-   Therefore, the restore function passes the restart_ss argument as
-   false to etm4_enable_hw() to avoid re-enabling single-shot mode.
-
-3) Claim Tag Handling
-
-   The claim tag is acquired and released in normal flow, on the other
-   hand, the claim protocol is not applied in CPU idle flow - it simply
-   restores the saved value.
-
-   The claim bits serve two purpose:
-
-   * Exclusive access between the kernel driver and an external
-     debugger. During CPU idle, the kernel driver locks the OS Lock,
-     ensuring that the external debugger cannot access the trace unit.
-     Therefore, it is safe to release the claim tag during idle.
-
-   * Notification to supervisory software to save/restore context for
-     external debuggers. The kernel driver does not touch the external
-     debugger's claim bit (ETMCLAIM[0]).
-
-   Based on this, it is safe to acquire and release claim tag in the
-   idle sequence.
-
-4) OS Lock Behavior
-
-   The OS Lock should be locked during CPU idle states. This differs
-   from the normal flow, which unlock it. This special handling remains
-   in the CPU save path.
-
-This commit reuses the normal enable and disable logic in the CPU idle
-path. The only addition is locking the OS Lock upon entering idle to
-ensure exclusive access.
-
-The save context in the driver data is no longer needed and has been
-removed.
+Introduces a new "cpu" field in both structures to store the CPU ID. For
+components that are not CPU bound, set this field to -1.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 212 +--------------------
- drivers/hwtracing/coresight/coresight-etm4x.h      |  57 ------
- 2 files changed, 5 insertions(+), 264 deletions(-)
+ drivers/hwtracing/coresight/coresight-catu.c       | 1 +
+ drivers/hwtracing/coresight/coresight-core.c       | 1 +
+ drivers/hwtracing/coresight/coresight-ctcu-core.c  | 1 +
+ drivers/hwtracing/coresight/coresight-cti-core.c   | 1 +
+ drivers/hwtracing/coresight/coresight-dummy.c      | 1 +
+ drivers/hwtracing/coresight/coresight-etb10.c      | 1 +
+ drivers/hwtracing/coresight/coresight-etm3x-core.c | 1 +
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 1 +
+ drivers/hwtracing/coresight/coresight-funnel.c     | 1 +
+ drivers/hwtracing/coresight/coresight-replicator.c | 1 +
+ drivers/hwtracing/coresight/coresight-stm.c        | 1 +
+ drivers/hwtracing/coresight/coresight-tmc-core.c   | 1 +
+ drivers/hwtracing/coresight/coresight-tpda.c       | 1 +
+ drivers/hwtracing/coresight/coresight-tpdm.c       | 1 +
+ drivers/hwtracing/coresight/coresight-tpiu.c       | 1 +
+ drivers/hwtracing/coresight/coresight-trbe.c       | 1 +
+ drivers/hwtracing/coresight/ultrasoc-smb.c         | 1 +
+ include/linux/coresight.h                          | 4 ++++
+ 18 files changed, 21 insertions(+)
 
+diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
+index 5058432233da1932f1965008fc1b98b560490414..266d1fc2f5a8c572d4a373dc42d752090aa60505 100644
+--- a/drivers/hwtracing/coresight/coresight-catu.c
++++ b/drivers/hwtracing/coresight/coresight-catu.c
+@@ -565,6 +565,7 @@ static int __catu_probe(struct device *dev, struct resource *res)
+ 	catu_desc.type = CORESIGHT_DEV_TYPE_HELPER;
+ 	catu_desc.subtype.helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CATU;
+ 	catu_desc.ops = &catu_ops;
++	catu_desc.cpu = -1;
+ 
+ 	coresight_clear_self_claim_tag(&catu_desc.access);
+ 	drvdata->csdev = coresight_register(&catu_desc);
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index fa758cc21827552a5c97b6bdd05d22dec4994b22..1a4bde5d6cd8fcfdd43bcafb45aa4dc5f1dd2d34 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1334,6 +1334,7 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 	csdev->ops = desc->ops;
+ 	csdev->access = desc->access;
+ 	csdev->orphan = true;
++	csdev->cpu = desc->cpu;
+ 
+ 	csdev->dev.type = &coresight_dev_type[desc->type];
+ 	csdev->dev.groups = desc->groups;
+diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+index c6bafc96db963310b5e77a095953c83a172cfc7c..f9aaf6f87445a17f7348e7c03bc524834f8e2f20 100644
+--- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
++++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+@@ -231,6 +231,7 @@ static int ctcu_probe(struct platform_device *pdev)
+ 	desc.dev = dev;
+ 	desc.ops = &ctcu_ops;
+ 	desc.access = CSDEV_ACCESS_IOMEM(base);
++	desc.cpu = -1;
+ 
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev)) {
+diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
+index 8fb30dd73fd20ae613a45b1a467f457a046a9412..2c8bf5dbe8b8206c92ae5ea64a26c947ef5b9582 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-core.c
++++ b/drivers/hwtracing/coresight/coresight-cti-core.c
+@@ -931,6 +931,7 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+ 	cti_desc.ops = &cti_ops;
+ 	cti_desc.groups = drvdata->ctidev.con_groups;
+ 	cti_desc.dev = dev;
++	cti_desc.cpu = drvdata->ctidev.cpu;
+ 
+ 	coresight_clear_self_claim_tag(&cti_desc.access);
+ 	drvdata->csdev = coresight_register(&cti_desc);
+diff --git a/drivers/hwtracing/coresight/coresight-dummy.c b/drivers/hwtracing/coresight/coresight-dummy.c
+index aaa92b5081e3d2bb85d57f90ab68a1dc6a1f0dd8..63c14319ad923ba1444c5f5f9d76ca48e308e8e4 100644
+--- a/drivers/hwtracing/coresight/coresight-dummy.c
++++ b/drivers/hwtracing/coresight/coresight-dummy.c
+@@ -179,6 +179,7 @@ static int dummy_probe(struct platform_device *pdev)
+ 
+ 	desc.pdata = pdev->dev.platform_data;
+ 	desc.dev = &pdev->dev;
++	desc.dev = -1;
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev)) {
+ 		ret = PTR_ERR(drvdata->csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
+index d5efb085b30d36b51ca591c1b595ef82481f5569..4d59e668d7f6189a4de23064a0a8146a09931b79 100644
+--- a/drivers/hwtracing/coresight/coresight-etb10.c
++++ b/drivers/hwtracing/coresight/coresight-etb10.c
+@@ -772,6 +772,7 @@ static int etb_probe(struct amba_device *adev, const struct amba_id *id)
+ 	desc.pdata = pdata;
+ 	desc.dev = dev;
+ 	desc.groups = coresight_etb_groups;
++	desc.cpu = -1;
+ 
+ 	coresight_clear_self_claim_tag(&desc.access);
+ 	drvdata->csdev = coresight_register(&desc);
+diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+index 0f160f2f97344e6a96343cd8658f4f19806193e0..a316e380df263f95c818e8eac44398482847b841 100644
+--- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+@@ -892,6 +892,7 @@ static int etm_probe(struct amba_device *adev, const struct amba_id *id)
+ 	desc.pdata = pdata;
+ 	desc.dev = dev;
+ 	desc.groups = coresight_etm_groups;
++	desc.cpu = drvdata->cpu;
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev))
+ 		return PTR_ERR(drvdata->csdev);
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 7bbdee92859cd227fd4077df6ff25470b9d76950..6ef1f2ea1a805b07bcac70b6034bab85cec604be 100644
+index 6ef1f2ea1a805b07bcac70b6034bab85cec604be..0a585d7e0ab873ea4568e3318b0526b77a2e65e7 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1851,8 +1851,7 @@ static int etm4_dying_cpu(unsigned int cpu)
+@@ -2059,6 +2059,7 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+ 	desc.pdata = pdata;
+ 	desc.dev = dev;
+ 	desc.groups = coresight_etmv4_groups;
++	desc.cpu = drvdata->cpu;
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev))
+ 		return PTR_ERR(drvdata->csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+index b1922dbe9292b02c91ca5730998e59ecdb08fdc7..3cab9b305ea2cdb1fea3d7b63ddf491897039c18 100644
+--- a/drivers/hwtracing/coresight/coresight-funnel.c
++++ b/drivers/hwtracing/coresight/coresight-funnel.c
+@@ -273,6 +273,7 @@ static int funnel_probe(struct device *dev, struct resource *res)
+ 	desc.ops = &funnel_cs_ops;
+ 	desc.pdata = pdata;
+ 	desc.dev = dev;
++	desc.cpu = -1;
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev)) {
+ 		ret = PTR_ERR(drvdata->csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
+index 06efd2b01a0f71620eac71166567d14655b58403..1154b7d222381a435f14e217d891377a9bb80a71 100644
+--- a/drivers/hwtracing/coresight/coresight-replicator.c
++++ b/drivers/hwtracing/coresight/coresight-replicator.c
+@@ -284,6 +284,7 @@ static int replicator_probe(struct device *dev, struct resource *res)
+ 	desc.ops = &replicator_cs_ops;
+ 	desc.pdata = dev->platform_data;
+ 	desc.dev = dev;
++	desc.cpu = -1;
  
- static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- {
--	int i, ret = 0;
--	struct etmv4_save_state *state;
-+	int ret = 0;
- 	struct coresight_device *csdev = drvdata->csdev;
- 	struct csdev_access *csa;
- 	struct device *etm_dev;
-@@ -1882,98 +1881,11 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 		ret = -EBUSY;
- 		goto out;
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev)) {
+diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
+index e45c6c7204b4491e0f879bc7d5d445aa1d3118be..93f4b4e70eaf1590eecefa5135eeefda0394259d 100644
+--- a/drivers/hwtracing/coresight/coresight-stm.c
++++ b/drivers/hwtracing/coresight/coresight-stm.c
+@@ -907,6 +907,7 @@ static int __stm_probe(struct device *dev, struct resource *res)
+ 	desc.pdata = pdata;
+ 	desc.dev = dev;
+ 	desc.groups = coresight_stm_groups;
++	desc.cpu = -1;
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev)) {
+ 		ret = PTR_ERR(drvdata->csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+index 88afb16bb6bec395ba535155228d176250f38625..ebfa93b9a86f3d9b90062bce41a052a63836b6c3 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-core.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+@@ -868,6 +868,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
  	}
-+	etm4_cs_lock(drvdata, csa);
+ 	dev->platform_data = pdata;
+ 	desc.pdata = pdata;
++	desc.cpu = -1;
  
--	if (!drvdata->paused)
--		etm4_disable_trace_unit(drvdata);
--
--	/*
--	 * As recommended by section 4.3.7 (Synchronization of register updates)
--	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
--	 * ISB instruction after programming the trace unit registers.
--	 */
--	isb();
--
--	state = drvdata->save_state;
--
--	if (drvdata->nr_pe)
--		state->trcprocselr = etm4x_read32(csa, TRCPROCSELR);
--	state->trcconfigr = etm4x_read32(csa, TRCCONFIGR);
--	state->trcauxctlr = etm4x_read32(csa, TRCAUXCTLR);
--	state->trceventctl0r = etm4x_read32(csa, TRCEVENTCTL0R);
--	state->trceventctl1r = etm4x_read32(csa, TRCEVENTCTL1R);
--	if (drvdata->stallctl)
--		state->trcstallctlr = etm4x_read32(csa, TRCSTALLCTLR);
--	state->trctsctlr = etm4x_read32(csa, TRCTSCTLR);
--	state->trcsyncpr = etm4x_read32(csa, TRCSYNCPR);
--	state->trcccctlr = etm4x_read32(csa, TRCCCCTLR);
--	state->trcbbctlr = etm4x_read32(csa, TRCBBCTLR);
--	state->trctraceidr = etm4x_read32(csa, TRCTRACEIDR);
--	if (drvdata->q_filt)
--		state->trcqctlr = etm4x_read32(csa, TRCQCTLR);
--
--	state->trcvictlr = etm4x_read32(csa, TRCVICTLR);
--	state->trcviiectlr = etm4x_read32(csa, TRCVIIECTLR);
--	state->trcvissctlr = etm4x_read32(csa, TRCVISSCTLR);
--	if (drvdata->nr_pe_cmp)
--		state->trcvipcssctlr = etm4x_read32(csa, TRCVIPCSSCTLR);
--
--	for (i = 0; i < drvdata->nrseqstate - 1; i++)
--		state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
--
--	if (drvdata->nrseqstate) {
--		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
--		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
--	}
--	state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
--
--	for (i = 0; i < drvdata->nr_cntr; i++) {
--		state->trccntrldvr[i] = etm4x_read32(csa, TRCCNTRLDVRn(i));
--		state->trccntctlr[i] = etm4x_read32(csa, TRCCNTCTLRn(i));
--		state->trccntvr[i] = etm4x_read32(csa, TRCCNTVRn(i));
--	}
--
--	/* Resource selector pair 0 is reserved */
--	for (i = 2; i < drvdata->nr_resource * 2; i++)
--		state->trcrsctlr[i] = etm4x_read32(csa, TRCRSCTLRn(i));
--
--	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
--		state->trcssccr[i] = etm4x_read32(csa, TRCSSCCRn(i));
--		state->trcsscsr[i] = etm4x_read32(csa, TRCSSCSRn(i));
--		if (etm4x_sspcicrn_present(drvdata, i))
--			state->trcsspcicr[i] = etm4x_read32(csa, TRCSSPCICRn(i));
--	}
--
--	for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
--		state->trcacvr[i] = etm4x_read64(csa, TRCACVRn(i));
--		state->trcacatr[i] = etm4x_read64(csa, TRCACATRn(i));
--	}
--
--	/*
--	 * Data trace stream is architecturally prohibited for A profile cores
--	 * so we don't save (or later restore) trcdvcvr and trcdvcmr - As per
--	 * section 1.3.4 ("Possible functional configurations of an ETMv4 trace
--	 * unit") of ARM IHI 0064D.
--	 */
--
--	for (i = 0; i < drvdata->numcidc; i++)
--		state->trccidcvr[i] = etm4x_read64(csa, TRCCIDCVRn(i));
--
--	for (i = 0; i < drvdata->numvmidc; i++)
--		state->trcvmidcvr[i] = etm4x_read64(csa, TRCVMIDCVRn(i));
--
--	state->trccidcctlr0 = etm4x_read32(csa, TRCCIDCCTLR0);
--	if (drvdata->numcidc > 4)
--		state->trccidcctlr1 = etm4x_read32(csa, TRCCIDCCTLR1);
--
--	state->trcvmidcctlr0 = etm4x_read32(csa, TRCVMIDCCTLR0);
--	if (drvdata->numvmidc > 4)
--		state->trcvmidcctlr0 = etm4x_read32(csa, TRCVMIDCCTLR1);
--
--	state->trcclaimset = etm4x_read32(csa, TRCCLAIMCLR);
--
--	if (!drvdata->skip_power_up)
--		state->trcpdcr = etm4x_read32(csa, TRCPDCR);
-+	etm4_disable_hw(drvdata);
+ 	coresight_clear_self_claim_tag(&desc.access);
+ 	drvdata->csdev = coresight_register(&desc);
+diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+index 0633f04beb240b4415cf469b3296f52e0a5b1d05..0ed6b7712feef5e606c8d0aadf594ea8be36059c 100644
+--- a/drivers/hwtracing/coresight/coresight-tpda.c
++++ b/drivers/hwtracing/coresight/coresight-tpda.c
+@@ -321,6 +321,7 @@ static int tpda_probe(struct amba_device *adev, const struct amba_id *id)
+ 	desc.pdata = adev->dev.platform_data;
+ 	desc.dev = &adev->dev;
+ 	desc.access = CSDEV_ACCESS_IOMEM(base);
++	desc.cpu = -1;
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev))
+ 		return PTR_ERR(drvdata->csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
+index 7214e65097ec9ac69f6c7c9278bcd28d25945c9e..ec1e9a585f90a02f06db27d6dfb22091eb66cbd9 100644
+--- a/drivers/hwtracing/coresight/coresight-tpdm.c
++++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+@@ -1392,6 +1392,7 @@ static int tpdm_probe(struct amba_device *adev, const struct amba_id *id)
+ 	desc.dev = &adev->dev;
+ 	desc.access = CSDEV_ACCESS_IOMEM(base);
+ 	desc.groups = tpdm_attr_grps;
++	desc.cpu = -1;
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev))
+ 		return PTR_ERR(drvdata->csdev);
+diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
+index 3e01592884280819c16398cbb5e09cbaee5d3efb..b83be60a156034e05df52084aebc43897ebee34c 100644
+--- a/drivers/hwtracing/coresight/coresight-tpiu.c
++++ b/drivers/hwtracing/coresight/coresight-tpiu.c
+@@ -177,6 +177,7 @@ static int __tpiu_probe(struct device *dev, struct resource *res)
+ 	desc.ops = &tpiu_cs_ops;
+ 	desc.pdata = pdata;
+ 	desc.dev = dev;
++	desc.cpu = -1;
+ 	drvdata->csdev = coresight_register(&desc);
  
-+	etm4_cs_unlock(drvdata, csa);
- 	/* wait for TRCSTATR.IDLE to go up */
- 	if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 1)) {
- 		dev_err(etm_dev,
-@@ -1983,14 +1895,6 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 		goto out;
+ 	if (!IS_ERR(drvdata->csdev))
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 8267dd1a2130d37d9507791620ea7bc8cbcd675c..28450447693147b9afd207679832ac83e2a5848a 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -1287,6 +1287,7 @@ static void arm_trbe_register_coresight_cpu(struct trbe_drvdata *drvdata, int cp
+ 	desc.ops = &arm_trbe_cs_ops;
+ 	desc.groups = arm_trbe_groups;
+ 	desc.dev = dev;
++	desc.cpu = cpu;
+ 	trbe_csdev = coresight_register(&desc);
+ 	if (IS_ERR(trbe_csdev))
+ 		goto cpu_clear;
+diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.c b/drivers/hwtracing/coresight/ultrasoc-smb.c
+index 26cfc939e5bd810295a336f392ac282ccf316f9f..e5897767d9ae2c21ef39e9280dea211c110bd168 100644
+--- a/drivers/hwtracing/coresight/ultrasoc-smb.c
++++ b/drivers/hwtracing/coresight/ultrasoc-smb.c
+@@ -483,6 +483,7 @@ static int smb_register_sink(struct platform_device *pdev,
+ 		return -ENOMEM;
  	}
+ 	desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
++	desc.cpu = -1;
  
--	/*
--	 * Power can be removed from the trace unit now. We do this to
--	 * potentially save power on systems that respect the TRCPDCR_PU
--	 * despite requesting software to save/restore state.
--	 */
--	if (!drvdata->skip_power_up)
--		etm4x_relaxed_write32(csa, (state->trcpdcr & ~TRCPDCR_PU),
--				      TRCPDCR);
- out:
- 	etm4_cs_lock(drvdata, csa);
- 	return ret;
-@@ -2014,109 +1918,10 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 
- static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- {
--	int i;
--	struct etmv4_save_state *state = drvdata->save_state;
--	struct csdev_access *csa = &drvdata->csdev->access;
--
- 	if (WARN_ON(!drvdata->csdev))
- 		return;
- 
--	etm4_cs_unlock(drvdata, csa);
--	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
--
--	if (drvdata->nr_pe)
--		etm4x_relaxed_write32(csa, state->trcprocselr, TRCPROCSELR);
--	etm4x_relaxed_write32(csa, state->trcconfigr, TRCCONFIGR);
--	etm4x_relaxed_write32(csa, state->trcauxctlr, TRCAUXCTLR);
--	etm4x_relaxed_write32(csa, state->trceventctl0r, TRCEVENTCTL0R);
--	etm4x_relaxed_write32(csa, state->trceventctl1r, TRCEVENTCTL1R);
--	if (drvdata->stallctl)
--		etm4x_relaxed_write32(csa, state->trcstallctlr, TRCSTALLCTLR);
--	etm4x_relaxed_write32(csa, state->trctsctlr, TRCTSCTLR);
--	etm4x_relaxed_write32(csa, state->trcsyncpr, TRCSYNCPR);
--	etm4x_relaxed_write32(csa, state->trcccctlr, TRCCCCTLR);
--	etm4x_relaxed_write32(csa, state->trcbbctlr, TRCBBCTLR);
--	etm4x_relaxed_write32(csa, state->trctraceidr, TRCTRACEIDR);
--	if (drvdata->q_filt)
--		etm4x_relaxed_write32(csa, state->trcqctlr, TRCQCTLR);
--
--	etm4x_relaxed_write32(csa, state->trcvictlr, TRCVICTLR);
--	etm4x_relaxed_write32(csa, state->trcviiectlr, TRCVIIECTLR);
--	etm4x_relaxed_write32(csa, state->trcvissctlr, TRCVISSCTLR);
--	if (drvdata->nr_pe_cmp)
--		etm4x_relaxed_write32(csa, state->trcvipcssctlr, TRCVIPCSSCTLR);
--
--	for (i = 0; i < drvdata->nrseqstate - 1; i++)
--		etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
--
--	if (drvdata->nrseqstate) {
--		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
--		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
--	}
--	etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
--
--	for (i = 0; i < drvdata->nr_cntr; i++) {
--		etm4x_relaxed_write32(csa, state->trccntrldvr[i], TRCCNTRLDVRn(i));
--		etm4x_relaxed_write32(csa, state->trccntctlr[i], TRCCNTCTLRn(i));
--		etm4x_relaxed_write32(csa, state->trccntvr[i], TRCCNTVRn(i));
--	}
--
--	/* Resource selector pair 0 is reserved */
--	for (i = 2; i < drvdata->nr_resource * 2; i++)
--		etm4x_relaxed_write32(csa, state->trcrsctlr[i], TRCRSCTLRn(i));
--
--	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
--		etm4x_relaxed_write32(csa, state->trcssccr[i], TRCSSCCRn(i));
--		etm4x_relaxed_write32(csa, state->trcsscsr[i], TRCSSCSRn(i));
--		if (etm4x_sspcicrn_present(drvdata, i))
--			etm4x_relaxed_write32(csa, state->trcsspcicr[i], TRCSSPCICRn(i));
--	}
--
--	for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
--		etm4x_relaxed_write64(csa, state->trcacvr[i], TRCACVRn(i));
--		etm4x_relaxed_write64(csa, state->trcacatr[i], TRCACATRn(i));
--	}
--
--	for (i = 0; i < drvdata->numcidc; i++)
--		etm4x_relaxed_write64(csa, state->trccidcvr[i], TRCCIDCVRn(i));
--
--	for (i = 0; i < drvdata->numvmidc; i++)
--		etm4x_relaxed_write64(csa, state->trcvmidcvr[i], TRCVMIDCVRn(i));
--
--	etm4x_relaxed_write32(csa, state->trccidcctlr0, TRCCIDCCTLR0);
--	if (drvdata->numcidc > 4)
--		etm4x_relaxed_write32(csa, state->trccidcctlr1, TRCCIDCCTLR1);
--
--	etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR0);
--	if (drvdata->numvmidc > 4)
--		etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR1);
--
--	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
--
--	if (!drvdata->skip_power_up)
--		etm4x_relaxed_write32(csa, state->trcpdcr, TRCPDCR);
--
--	/*
--	 * As recommended by section 4.3.7 ("Synchronization when using the
--	 * memory-mapped interface") of ARM IHI 0064D
--	 */
--	dsb(sy);
--	isb();
--
--	/* Unlock the OS lock to re-enable trace and external debug access */
--	etm4_os_unlock(drvdata);
--
--	if (!drvdata->paused)
--		etm4_enable_trace_unit(drvdata);
--
--	/*
--	 * As recommended by section 4.3.7 (Synchronization of register updates)
--	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
--	 * ISB instruction after programming the trace unit registers.
--	 */
--	isb();
--
--	etm4_cs_lock(drvdata, csa);
-+	etm4_enable_hw(drvdata, false);
- }
- 
- static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
-@@ -2298,13 +2103,6 @@ static int etm4_probe(struct device *dev)
- 		pm_save_enable = coresight_loses_context_with_cpu(dev) ?
- 			       PARAM_PM_SAVE_SELF_HOSTED : PARAM_PM_SAVE_NEVER;
- 
--	if (pm_save_enable != PARAM_PM_SAVE_NEVER) {
--		drvdata->save_state = devm_kmalloc(dev,
--				sizeof(struct etmv4_save_state), GFP_KERNEL);
--		if (!drvdata->save_state)
--			return -ENOMEM;
--	}
--
- 	raw_spin_lock_init(&drvdata->spinlock);
- 
- 	drvdata->cpu = coresight_get_cpu(dev);
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-index 06438ed1071478cd5c1a143c6ef58a926d6992fb..f361ae62b122d84b5126fca6f8ba93d99dc2f992 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x.h
-+++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-@@ -861,61 +861,6 @@ struct etmv4_config {
- 	u8				s_ex_level;
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev))
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index 5fd3d08824e5a91a197aa01daf0fc392392f3e55..4b15c67c200624fd46a258628dbff401bd1396d7 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -153,6 +153,7 @@ struct csdev_access {
+  *		in the component's sysfs sub-directory.
+  * @name:	name for the coresight device, also shown under sysfs.
+  * @access:	Describe access to the device
++ * @cpu:	The CPU this component is affined to (-1 for not CPU bound).
+  */
+ struct coresight_desc {
+ 	enum coresight_dev_type type;
+@@ -163,6 +164,7 @@ struct coresight_desc {
+ 	const struct attribute_group **groups;
+ 	const char *name;
+ 	struct csdev_access access;
++	int cpu;
  };
  
--/**
-- * struct etm4_save_state - state to be preserved when ETM is without power
-- */
--struct etmv4_save_state {
--	u32	trcprocselr;
--	u32	trcconfigr;
--	u32	trcauxctlr;
--	u32	trceventctl0r;
--	u32	trceventctl1r;
--	u32	trcstallctlr;
--	u32	trctsctlr;
--	u32	trcsyncpr;
--	u32	trcccctlr;
--	u32	trcbbctlr;
--	u32	trctraceidr;
--	u32	trcqctlr;
--
--	u32	trcvictlr;
--	u32	trcviiectlr;
--	u32	trcvissctlr;
--	u32	trcvipcssctlr;
--
--	u32	trcseqevr[ETM_MAX_SEQ_STATES];
--	u32	trcseqrstevr;
--	u32	trcseqstr;
--	u32	trcextinselr;
--	u32	trccntrldvr[ETMv4_MAX_CNTR];
--	u32	trccntctlr[ETMv4_MAX_CNTR];
--	u32	trccntvr[ETMv4_MAX_CNTR];
--
--	u32	trcrsctlr[ETM_MAX_RES_SEL];
--
--	u32	trcssccr[ETM_MAX_SS_CMP];
--	u32	trcsscsr[ETM_MAX_SS_CMP];
--	u32	trcsspcicr[ETM_MAX_SS_CMP];
--
--	u64	trcacvr[ETM_MAX_SINGLE_ADDR_CMP];
--	u64	trcacatr[ETM_MAX_SINGLE_ADDR_CMP];
--	u64	trccidcvr[ETMv4_MAX_CTXID_CMP];
--	u64	trcvmidcvr[ETM_MAX_VMID_CMP];
--	u32	trccidcctlr0;
--	u32	trccidcctlr1;
--	u32	trcvmidcctlr0;
--	u32	trcvmidcctlr1;
--
--	u32	trcclaimset;
--
--	u32	cntr_val[ETMv4_MAX_CNTR];
--	u32	seq_state;
--	u32	vinst_ctrl;
--	u32	ss_status[ETM_MAX_SS_CMP];
--
--	u32	trcpdcr;
--};
--
  /**
-  * struct etm4_drvdata - specifics associated to an ETM component
-  * @pclk        APB clock if present, otherwise NULL
-@@ -977,7 +922,6 @@ struct etmv4_save_state {
-  *		at runtime, due to the additional setting of TRFCR_CX when
-  *		in EL2. Otherwise, 0.
-  * @config:	structure holding configuration parameters.
-- * @save_state:	State to be preserved across power loss
-  * @skip_power_up: Indicates if an implementation can skip powering up
-  *		   the trace unit.
-  * @paused:	Indicates if the trace unit is paused.
-@@ -1030,7 +974,6 @@ struct etmv4_drvdata {
- 	bool				lpoverride;
- 	u64				trfcr;
- 	struct etmv4_config		config;
--	struct etmv4_save_state		*save_state;
- 	bool				skip_power_up;
- 	bool				paused;
- 	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
+@@ -261,6 +263,7 @@ struct coresight_trace_id_map {
+  *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
+  *		spinlock.
+  * @orphan:	true if the component has connections that haven't been linked.
++ * @cpu:	The CPU this component is affined to (-1 for not CPU bound).
+  * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
+  *		by writing a 1 to the 'enable_sink' file.  A sink can be
+  *		activated but not yet enabled.  Enabling for a _sink_ happens
+@@ -287,6 +290,7 @@ struct coresight_device {
+ 	atomic_t mode;
+ 	int refcnt;
+ 	bool orphan;
++	int cpu;
+ 	/* sink specific fields */
+ 	bool sysfs_sink_activated;
+ 	struct dev_ext_attribute *ea;
 
 -- 
 2.34.1
