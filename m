@@ -4,150 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FD5C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 20:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CCC7C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 20:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0qO5/1SJP7lNYtjHq8uPXjUK8SHtHrbCeu+WDZzUqo0=; b=KdAAe4UVBQPylYJS9Scr/TsrB8
-	DBhywZFgwwjgtAYfoBsJtUri0gmtKEIP9OgWx5cbMOsST30QCm9S7S5zJLj3PqXMBzwyzGu4v3rGh
-	eyLFwvutIyky7ctN2j2oSOKP9ozw6GZIRhLOtt2VmiEBnAy/7D3CK2fw8ZAh5di1q4J/wm7jd7rdu
-	n3qu14RYCgb9EE6zyA3+/gEQy2OvK4AQ4X2mdlUuDJPzmZUwU0W+hYRhTMqIyfRCSkdNzt73fmEqN
-	0Vb1MZOOXZF8ph1jcBD4y+ktGF/VelClrAp1tr68KbRNfQCKaYqgJ4/bOUbI91MpNJ/I8ag8a8OpJ
-	W2lwATVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lG84UsLYda4ABcZTVM/SnCphkT/9SHS39+tnmA3jqOI=; b=4MBq6S5pBvjrLAx341VF7WCND4
+	UyEULnsUDrwZTAkkmZc1MaSnPe0Zuvvmm/ahpp7sOeP2vonssHoogak8YtoLMZkJwkr4ti93rMcav
+	zz3XWWkghmpJmfVVX1SGem4vSpqoLUGri6xAM64ddTZEgkOiK3ocCFpppGySufxk/NCWzRmqVy5Vw
+	re6Bnao2B+TNQXZ8w3qZXf/XzaQtHGAFMJmAb75xGxigLsDjFjfakX9uREnCmFNA2Mxci9l3CBA26
+	JyOFBeJdPe/ZM3UEU0KYaq8qvTBHCCqncSE/I0bTa5FS+L0qKXnR1ezTn31AV4khn53+vIGytKSI0
+	HyU50hRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWhg2-00000006aVZ-2bFy;
-	Tue, 01 Jul 2025 20:34:02 +0000
-Received: from mail-bn8nam11on20611.outbound.protection.outlook.com ([2a01:111:f403:2414::611] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uWhhw-00000006ao2-1Ksy;
+	Tue, 01 Jul 2025 20:36:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWhW0-00000006ZGf-058n
+	id 1uWeJ7-000000068ZY-2GUh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 20:23:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q6tJJzOOhJ2K5XJxosnEoVWKkl1gQ+TeRiNjWgMV/64zrITyUySYVZuxXxxhLHYPiwtzg251P9TTVafyk7fIAVlJUzZRs9j48DCFX/JSKD72hoDXamht0CwwzyRG6Htgu/IUx9VgFjxkmEBmZlIwyNl2It985rD6GT0zeN1lNcc4YCYxMVGeUeomjAfU7Y9xSSnPJONu4By8i5btI35nkhskRQhA/yind4If2p8gkaMRvZUmKmBRTjcGNoBWEM5KYDP5POn0gFXPuduoWfC3iVwk69xgbSrIeFBYB0xxo1gW0FcF2lEbOvOFuVgTgVaErEb8yAc9R3NC+kkVmtJKKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0qO5/1SJP7lNYtjHq8uPXjUK8SHtHrbCeu+WDZzUqo0=;
- b=dy7WnHmzhzE8DK0N31EUdqkbpy9dWXB55IRL1poJt/b0dg49OYfZZwv1MysbUkxmQanO3/Yp0gRY8vYaWZGqzPae7v9LvcREnvYmU2q6C0ei+Wcsqlv6hMt8xp7KW94QhUfOKw+e3KH7nDOARwt5uc5WySPknWnT6fVnf/0rbRs9zrpFbeVHU57mGVzae4oDWA+cI5v02HoMfzggz/qR2JsoXKASDyP9LQoifN2KagkgRQXMsOXXm/Utl/7tiPPbeqZ7rrBkQcaE5q4YYsfEKkSVLDXkZ5EEvONWZxJ2Ajq6F0TeJebifl/llq40SWDhK+anu3IN0vlheWmspqk+Jg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0qO5/1SJP7lNYtjHq8uPXjUK8SHtHrbCeu+WDZzUqo0=;
- b=ssITlE/kgXgpAxg5GHT/8cSSMBL5Ef8FNftt3SJ7CHLdszIfH2TkuvxK6M/WBGpItPnWiYpYoRF4E9hXFqXyTqdG+pQOqlkmK5Mdo3EBHZHRR3HzqdANiemnCajkMHbge+bEK3qTZeHMQ/Twhbwy4qY+PRIjh/vLjERHmf2jZ7lX1TGBNxxBTfIW0C8nCfeTaWb1eXK7doYp3pCor3PWG+1h2jIPVm7gMjx/En5K8wO6aHwTYl9Ams5jeLHkFcy98qNa4ffjMV89Z0ti9EWXW7Lw15wN6LLSk1SwR2pDJAgp6JD8jCvXg9vF9wHp0uRUPLFola+W95bmaOYiWHlF+A==
-Received: from CH0PR04CA0064.namprd04.prod.outlook.com (2603:10b6:610:74::9)
- by PH7PR12MB9068.namprd12.prod.outlook.com (2603:10b6:510:1f4::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.26; Tue, 1 Jul
- 2025 20:23:30 +0000
-Received: from DS2PEPF0000343D.namprd02.prod.outlook.com
- (2603:10b6:610:74:cafe::e8) by CH0PR04CA0064.outlook.office365.com
- (2603:10b6:610:74::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.31 via Frontend Transport; Tue,
- 1 Jul 2025 20:23:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- DS2PEPF0000343D.mail.protection.outlook.com (10.167.18.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8901.15 via Frontend Transport; Tue, 1 Jul 2025 20:23:30 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 1 Jul 2025
- 13:23:20 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 1 Jul 2025 13:23:19 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 1 Jul 2025 13:23:18 -0700
-Date: Tue, 1 Jul 2025 13:23:17 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>, <bagasdotme@gmail.com>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <thierry.reding@gmail.com>, <vdumpa@nvidia.com>,
-	<jonathanh@nvidia.com>, <shuah@kernel.org>, <jsnitsel@redhat.com>,
-	<nathan@kernel.org>, <peterz@infradead.org>, <yi.l.liu@intel.com>,
-	<mshavit@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
-Subject: Re: [PATCH v7 27/28] iommu/tegra241-cmdqv: Add user-space use support
-Message-ID: <aGRDtYRXFLoT+PrI@Asurada-Nvidia>
-References: <cover.1750966133.git.nicolinc@nvidia.com>
- <539ee2ec112162abdba511574e2205a77b425059.1750966133.git.nicolinc@nvidia.com>
- <aGQGm1-i4M75b9Qp@google.com>
- <aGQ6KCI9OZEwHdxS@Asurada-Nvidia>
- <aGQ_F7Qx3scbbA-J@google.com>
+	Tue, 01 Jul 2025 16:58:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E447561442;
+	Tue,  1 Jul 2025 16:58:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 566BFC4AF09;
+	Tue,  1 Jul 2025 16:58:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751389088;
+	bh=8pDXLMIdjg7l7iGhqLIn7yMNQfVsnJSkhXUt6bPrRgU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KKksomHTMgLqBBFiBPxvB+hjcKob5ZBWNC+cf16cQnyeN3zn7FNwg3T1Se4O+HUbb
+	 XAKnJ4ZG56d4vJHn7SY8I5qNigfV+X/m2QHqEq8ynCnTzZKRv0DtEaePp4CaOJypQp
+	 HNiQTRNGM8falFXgu8tEfwPu55FsNlptolffnikgexSorzEWkX6aCUDZrS2Haxr08Z
+	 RF3WJ4cVoxjOCqY6Qs7CeNNdplPKBf9QuFNwibYOPVEamFGS92IFIaQxYJqZDhsd16
+	 WXN8NekLqQ1lNX4GVTfGN4fM2FGflCkHtx/b8NmQPtvX5yt322IN9Y3JA1ZeRgZYGL
+	 N04+sQXcqxt5g==
+Received: by wens.tw (Postfix, from userid 1000)
+	id B3A745F71D; Wed,  2 Jul 2025 00:58:05 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH RFT net-next 01/10] dt-bindings: net: sun8i-emac: Add A523 GMAC200 compatible
+Date: Wed,  2 Jul 2025 00:57:47 +0800
+Message-Id: <20250701165756.258356-2-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250701165756.258356-1-wens@kernel.org>
+References: <20250701165756.258356-1-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aGQ_F7Qx3scbbA-J@google.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF0000343D:EE_|PH7PR12MB9068:EE_
-X-MS-Office365-Filtering-Correlation-Id: d5e4dfab-5a7f-4ce6-901d-08ddb8dd24df
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZqgsbinswoNfhGtkSurTtK9Ln5Ys7Wi5x3dJ6dz5sqoT13QCAgl9/NFRoVcK?=
- =?us-ascii?Q?59sjAp5NmXGkUTdb1Quj8DDNaO/1quZxDBJL5lSrRL1/vOKhYISckukr4F4f?=
- =?us-ascii?Q?iZni+kEqvz+VvGJKRc0JkDGZfns310JwUZeB7v2wWr+zbzKBvXFJ0C0nw/g1?=
- =?us-ascii?Q?VdpJIPZKCg8fzpESp1hl0uOywH/pvV0Q8mMnjNi1MD2/nmWb2/+5M8rUlRaC?=
- =?us-ascii?Q?ymJTKeHyNk9/D816ixYoldGolzFwwdDjAH4VkMTd4cUQD3/DeIz+2YgC0phb?=
- =?us-ascii?Q?9bjH22qkL7A7VlmoZrCTC8rUb6ZGhj+PBAztU1uHTsO3sF/b+j77EfaLhR8J?=
- =?us-ascii?Q?8XvUI8iCVlEue0b5FKeWG6ZFwFk7AotUytVT4U0h7VAdIlw85ARWMlPMkv7l?=
- =?us-ascii?Q?+GB+sXVCKI6O45o56n3dHO8qQdPEFjdwJh+qDVfAP2KsAzAPdjpGi0RuTagx?=
- =?us-ascii?Q?Ut0bVeYviOjTv9ikk5LDFGT2dyN8zEszQHhHrJG7EJFWQWK+PPeK39+jtJCu?=
- =?us-ascii?Q?iO9UL4StWz71xywlu0K/7jfHKgj2tVaOAwLGVlYNAmYx5uoKhFE28C/Nz9jF?=
- =?us-ascii?Q?bGrmlr8OfMvjNn6k2OjeL/eT1iESBRxxmjiDWXc3yJgAZ36hK+jG23phclGJ?=
- =?us-ascii?Q?5cHT0UlmcV/MgFsxVzs7uR8r0BdEtwl9rwj/mW0tv0v8PK552WmDebAw1b7r?=
- =?us-ascii?Q?waTBVxErMq4QdPEpXp2mJw6ovHJjOVbQ38HGfqciB51RxhWmBtzsfE8kVCt8?=
- =?us-ascii?Q?zlDuvsCTheQsUC6kXQAywW/D6oxqojev+nWqH1JBysulXQ+fvhV2rvMnVHCs?=
- =?us-ascii?Q?SuGX4yMuxkfv0Q8YBnxZdFHoOtkE6DCCHIcIR9yShCqPFnvPzdQ9Wwe+nWXP?=
- =?us-ascii?Q?IoArYBQawZV60nd8rNv2JfZMkPJKybiiRdHMPkZm/Wgc2sMgTRfUNAJPCJfJ?=
- =?us-ascii?Q?MT3QOYy+eWBJ/m79sKcVsJmHLPWWfNLWmWyoU0N/DbT6XFw+IS4OsqPWTKu9?=
- =?us-ascii?Q?zhHZKGvQa0zjxO5Z0xiOBC9ptXoU208pkowuOpB4KAogmPc+OW8PbMthouDm?=
- =?us-ascii?Q?/xg2EgzPgO1wgiZ75gEeytMvsbjA6XjpreUsy9Lr3ncDIjXYUX69YahoWqfS?=
- =?us-ascii?Q?hBHN4+qEJgd0PctU3Xv+/ggpdn4q/YkdfJG+ONhpVCEoa2raKm2KNoY4cnYA?=
- =?us-ascii?Q?qhmRB0JbCpc8LdNl0LfM7iiuGrgOFtWq3RYhzBABxqTf4r+LWvwgdwhUSRko?=
- =?us-ascii?Q?T9ljyaC6kP1YqDxHK5m8gax/picnmv07LKAGI3vQ1XYVhQrUOGsPDnegivwm?=
- =?us-ascii?Q?UuxUMRaehy6+84pRYw+4b5VG5XV/3BHxy3DRpcqzQwpEepWiuUvZmC1ta8aG?=
- =?us-ascii?Q?15AJ5SZYTGLBeNNQjAWLZ2ldBd8mhIh+d1dxOqJgAyY8K8Y5c7m8+VFnO7s+?=
- =?us-ascii?Q?J6YoarI4ztWcxm42okQpSTNuHMduHpmv0DV1Du6wBT2ROCR0SajcXdeYeLDp?=
- =?us-ascii?Q?GH/eNOLaMfrebB6MX30mOVagB5uyT0bg4pk7?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2025 20:23:30.1021
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5e4dfab-5a7f-4ce6-901d-08ddb8dd24df
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF0000343D.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9068
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_132340_067380_CFB46056 
-X-CRM114-Status: GOOD (  32.61  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,95 +84,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 01, 2025 at 08:03:35PM +0000, Pranjal Shrivastava wrote:
-> On Tue, Jul 01, 2025 at 12:42:32PM -0700, Nicolin Chen wrote:
-> > On Tue, Jul 01, 2025 at 04:02:35PM +0000, Pranjal Shrivastava wrote:
-> > > On Thu, Jun 26, 2025 at 12:34:58PM -0700, Nicolin Chen wrote:
-> > > > +/**
-> > > > + * struct tegra241_vintf_sid - Virtual Interface Stream ID Replacement
-> > > > + * @core: Embedded iommufd_vdevice structure, holding virtual Stream ID
-> > > > + * @vintf: Parent VINTF pointer
-> > > > + * @sid: Physical Stream ID
-> > > > + * @idx: Replacement index in the VINTF
-> > > > + */
-> > > > +struct tegra241_vintf_sid {
-> > > > +	struct iommufd_vdevice core;
-> > > > +	struct tegra241_vintf *vintf;
-> > > > +	u32 sid;
-> > > > +	u8 idx;
-> > > >  };
-> > > 
-> > > AFAIU, This seems to be a handle for sid -> vintf mapping.. it yes, then
-> > > I'm not sure if "Virtual Interface Stream ID Replacement" clarifies that?
-> > 
-> > No. It's for vSID to pSID mappings. I had it explained in commit log:
-> > 
-> 
-> I get that, it's for vSID -> pSID mapping which also "happens to" point
-> to the vintf.. all I wanted to say was that the description is unclear..
-> We could've described it as "Vintf SID map" or something, but I guess
-> it's fine the way it is too.. your call.
+From: Chen-Yu Tsai <wens@csie.org>
 
-The "replace" word is borrowed from the "SID_REPLACE" HW register.
+The Allwinner A523 SoC family has a second Ethernet controller, called
+the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
+numbering. This controller, according to BSP sources, is fully
+compatible with a slightly newer version of the Synopsys DWMAC core.
+The glue layer around the controller is the same as found around older
+DWMAC cores on Allwinner SoCs. The only slight difference is that since
+this is the second controller on the SoC, the register for the clock
+delay controls is at a different offset. Last, the integration includes
+a dedicated clock gate for the memory bus and the whole thing is put in
+a separately controllable power domain.
 
-But I think it's okay to call it just "mapping", if that makes it
-clearer.
+Add a compatible string entry for it, and work in the requirements for
+a second clock and a power domain.
 
-> > > > +static struct iommufd_viommu_ops tegra241_cmdqv_viommu_ops = {
-> > > > +	.destroy = tegra241_cmdqv_destroy_vintf_user,
-> > > > +	.alloc_domain_nested = arm_vsmmu_alloc_domain_nested,
-> > > > +	.cache_invalidate = arm_vsmmu_cache_invalidate,
-> > > 
-> > > I see that we currently use the main cmdq to issue these cache
-> > > invalidations (there's a FIXME in arm_vsmmu_cache_invalidate). I was
-> > > hoping for this series to change that but I'm assuming there's another
-> > > series coming for that?
-> > > 
-> > > Meanwhile, I guess it'd be good to call that out for folks who have
-> > > Grace and start trying out this feature.. I'm assuming they won't see
-> > > as much perf improvement with this series alone since we're still using
-> > > the main CMDQ in the upstream code?
-> > 
-> > VCMDQ only accelerates invalidation commands.
-> > 
-> 
-> I get that.. but I see we're using `arm_vsmmu_cache_invalidate` here
-> from arm-smmu-v3-iommufd.c which seems to issue all commands to
-> smmu->cmdq as of now (the code has a FIXME as well), per the code:
-> 
-> 	/* FIXME always uses the main cmdq rather than trying to group by type */
->         ret = arm_smmu_cmdq_issue_cmdlist(smmu, &smmu->cmdq, last->cmd,
-> 					  cur - last, true);
-> 
-> I was hoping this FIXME to be addressed in this series..
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
+ .../net/allwinner,sun8i-a83t-emac.yaml        | 68 ++++++++++++++++++-
+ 1 file changed, 66 insertions(+), 2 deletions(-)
 
-Oh, that's not related.
+diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+index 2ac709a4c472..1058e5af92ba 100644
+--- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
++++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+@@ -26,6 +26,9 @@ properties:
+               - allwinner,sun50i-h616-emac0
+               - allwinner,sun55i-a523-gmac0
+           - const: allwinner,sun50i-a64-emac
++      - items:
++          - const: allwinner,sun55i-a523-gmac200
++          - const: snps,dwmac-4.20a
+ 
+   reg:
+     maxItems: 1
+@@ -37,14 +40,19 @@ properties:
+     const: macirq
+ 
+   clocks:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 2
+ 
+   clock-names:
+-    const: stmmaceth
++    minItems: 1
++    maxItems: 2
+ 
+   phy-supply:
+     description: PHY regulator
+ 
++  power-domains:
++    maxItems: 1
++
+   syscon:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+@@ -75,6 +83,7 @@ allOf:
+               - allwinner,sun8i-h3-emac
+               - allwinner,sun8i-v3s-emac
+               - allwinner,sun50i-a64-emac
++              - allwinner,sun55i-a523-gmac200
+ 
+     then:
+       properties:
+@@ -191,6 +200,31 @@ allOf:
+             - mdio-parent-bus
+             - mdio@1
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: allwinner,sun55i-a523-gmac200
++    then:
++      properties:
++        clocks:
++          minItems: 2
++        clock-names:
++          items:
++            - const: stmmaceth
++            - const: mbus
++      required:
++        - power-domains
++    else:
++      properties:
++        clocks:
++          maxItems: 1
++        clock-names:
++          items:
++            - const: stmmaceth
++        power-domains: false
++
++
+ unevaluatedProperties: false
+ 
+ examples:
+@@ -323,4 +357,34 @@ examples:
+         };
+     };
+ 
++  - |
++    ethernet@4510000 {
++        compatible = "allwinner,sun55i-a523-gmac200",
++                     "snps,dwmac-4.20a";
++        reg = <0x04510000 0x10000>;
++        clocks = <&ccu 117>, <&ccu 79>;
++        clock-names = "stmmaceth", "mbus";
++        resets = <&ccu 43>;
++        reset-names = "stmmaceth";
++        interrupts = <0 47 4>;
++        interrupt-names = "macirq";
++        pinctrl-names = "default";
++        pinctrl-0 = <&rgmii1_pins>;
++        power-domains = <&pck600 4>;
++        syscon = <&syscon>;
++        phy-handle = <&ext_rgmii_phy_1>;
++        phy-mode = "rgmii-id";
++        snps,fixed-burst;
++        snps,axi-config = <&gmac1_stmmac_axi_setup>;
++
++        mdio {
++            compatible = "snps,dwmac-mdio";
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            ext_rgmii_phy_1: ethernet-phy@1 {
++                reg = <1>;
++            };
++        };
++    };
+ ...
+-- 
+2.39.5
 
-The main goal of this series is to route all invalidation commands
-to the VCMDQ HW. And this is where Grace users can see perf gains
-mentioned in the cover letter or commit log, from eliminating the
-VM Exits at those most frequently used commands.
-
-Any non-invalidation commands will just reuse what we have with the
-standard SMMU nesting. And even if we did something to that FIXME,
-there is no significant perf gain as it's going down the trapping
-pathway, i.e. the VM Exits are always there.
-
-> > That is for non-invalidation commands that VCMDQ doesn't support,
-> > so they still have to go in the standard nesting pathway.
-> > 
-> > Let's add a line:
-> > 	/* for non-invalidation commands use */
-> 
-> Umm.. I was talking about the cache_invalidate op? I think there's some
-> misunderstanding here? What am I missing?
-
-That line is exactly for cache_invalidate. All the non-invalidation
-commands will be sent to he arm_vsmmu_cache_invalidate() by VMM, as
-it means.
-
-Or perhaps calling them "non-accelerated commands" would be nicer.
-
-Thanks
-Nicolin
 
