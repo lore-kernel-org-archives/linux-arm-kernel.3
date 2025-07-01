@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A4EC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 11:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235EEC8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 11:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JhNj1B0zWH63pOFyyew4eeJijsSNz2MF1r9rbPV6fGQ=; b=I+ansUBEEGANZXELEvstLbPYyi
-	U7fOBB0dEoS2bwX70N0+XZD0Nsz+Pr5+hhtaPrBwAxrVRwQ+wftf1uIk6RXS1mRDpkrE76cFls8zy
-	qMMk1ftVGK9Ru6KoJVPNv4KnG1kAEgDDpzyts7qi4MrnADLAcGlfZE7Amz6cra6wf0T4ZC8lkWWuf
-	f5eSIuXI8Mg1qN4r5ccvyuB9Qe6agwbRxIsaDrZsT/Hnmrl/YGuQaAgq0RdP1UFNsdxgbZjCssMTr
-	kV/wFFJH7d4tqtaVbr4yuUoq6nrk7nmQdjBWodelkMvgyB0wok8cq0IegrW6DuDyVllEfs/87vFVV
-	AVyIYe/w==;
+	bh=96MBiLIAT11qw69jnWPcKdKmmqG3+//p54YrohdRwbU=; b=k8n8JZmlXDPoTcAsxXhZakEIbJ
+	2JuDB7H3w4wGIXvyJhK4dtiaQXZ4cxBNUiuYBwpLscM8qz2mBhw4zP9K0dnqqeQSGU87XSCjRxLjC
+	h1k2rF53wWMs2RjuNzHZ52aEaEKLJexqpW4BDriC94MX39NBkaalp1tTgN13Bd31oQ85uK/lMN/Ur
+	+wMiWW40lsgx2Pgs9mSBQOn7orCYtlHPfEl6mCTV5g9YdNNPGNBEbUzaNAfxWLvDlU3qh982cONVB
+	51+JqwC35b1vdXgdmiaxG6clvdVxuEKW7jR1idZurttksFvZw5/3dI1nTEVc2Nr7fXFMY3np4E5m3
+	7MVFYGdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWYoF-00000004pe5-0avx;
-	Tue, 01 Jul 2025 11:05:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXfx-00000004eFr-19db
+	id 1uWYp0-00000004pp0-0KHx;
+	Tue, 01 Jul 2025 11:06:42 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWYjJ-00000004ooA-15iK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 09:53:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D15D91595;
-	Tue,  1 Jul 2025 02:52:58 -0700 (PDT)
-Received: from [10.1.33.214] (XHFQ2J9959.cambridge.arm.com [10.1.33.214])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A49A3F58B;
-	Tue,  1 Jul 2025 02:53:10 -0700 (PDT)
-Message-ID: <a2165422-0d78-4549-bc34-a8bbcdb6513f@arm.com>
-Date: Tue, 1 Jul 2025 10:53:08 +0100
+	Tue, 01 Jul 2025 11:00:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1751367644; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=96MBiLIAT11qw69jnWPcKdKmmqG3+//p54YrohdRwbU=;
+	b=UvKlypRVd1+C4kxW0PIadUbC2hFnQMSLZ4SJZkt4wXoSKMdTPTHA7lBv9+F1YJ0rsErX/kxm0GjqTmg/4FExm3LXDo8Zp5LmxwHFfAlyromPUSj2NZWNGG+vKmMqeIa4ydXIVa7kyP3nbhJYyxiw7F8p2QIHpUqoaTn+U07N25M=
+Received: from 30.246.181.60(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WgO.Cpy_1751367636 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 01 Jul 2025 19:00:38 +0800
+Message-ID: <6671c3cc-5119-4544-bcb5-17e8cc2d7057@linux.alibaba.com>
+Date: Tue, 1 Jul 2025 19:00:32 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] mm: Optimize mprotect() by PTE-batching
-Content-Language: en-GB
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
- willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
- vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
- peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
- baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250628113435.46678-1-dev.jain@arm.com>
- <20250628113435.46678-4-dev.jain@arm.com>
- <0315c016-d707-42b9-8038-7a2d5e4387f6@lucifer.local>
- <ec2c3f60-43e9-47d9-9058-49d608845200@arm.com>
- <5900e978-6349-4a3d-a384-758889b678a0@lucifer.local>
- <3776ac82-4cd5-41e7-9b96-137a1ae6f473@arm.com>
- <64c2ec85-87ed-4793-b0e9-a68eac1a8020@lucifer.local>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <64c2ec85-87ed-4793-b0e9-a68eac1a8020@lucifer.local>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [RESEND PATCH v18 1/2] ACPI: APEI: send SIGBUS to current task if
+ synchronous memory error not recovered
+To: Will Deacon <will@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ rafael@kernel.org, Catalin Marinas <catalin.marinas@arm.com>
+Cc: "Luck, Tony" <tony.luck@intel.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+ linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
+ ardb@kernel.org, ying.huang@linux.alibaba.com, ashish.kalra@amd.com,
+ baolin.wang@linux.alibaba.com, tglx@linutronix.de,
+ dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
+ robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
+ zhuo.song@linux.alibaba.com, sudeep.holla@arm.com, lpieralisi@kernel.org,
+ linux-acpi@vger.kernel.org, yazen.ghannam@amd.com, mark.rutland@arm.com,
+ mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@Huawei.com,
+ bp@alien8.de, linux-arm-kernel@lists.infradead.org,
+ wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com,
+ linmiaohe@huawei.com, naoya.horiguchi@nec.com, james.morse@arm.com,
+ tongtiangen@huawei.com, gregkh@linuxfoundation.org, jarkko@kernel.org
+References: <20250404112050.42040-1-xueshuai@linux.alibaba.com>
+ <20250404112050.42040-2-xueshuai@linux.alibaba.com>
+ <0c0bc332-0323-4e43-a96b-dd5f5957ecc9@huawei.com>
+ <709ee8d2-8969-424c-b32b-101c6a8220fb@linux.alibaba.com>
+ <353809e7-5373-0d54-6ddb-767bc5af9e5f@huawei.com>
+ <653abdd4-46d2-4956-b49c-8f9c309af34d@linux.alibaba.com>
+ <de5d2417-dc92-b276-1125-4feb5151de7f@huawei.com>
+ <f60f1128-0d42-48e5-9a06-6ed7ca10767f@linux.alibaba.com>
+ <20250428152350.GA23615@willie-the-truck>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20250428152350.GA23615@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_025317_393573_D0DC72BA 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20250701_040049_459567_6E61E254 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,75 +88,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2025 09:51, Lorenzo Stoakes wrote:
-> On Tue, Jul 01, 2025 at 09:30:51AM +0100, Ryan Roberts wrote:
->>>> In an ideal world we would flatten and just have mprotect_folio_pte_batch()
->>>> return the batch size considering all the relevant PTE bits AND the
->>>> AnonExclusive bit on the pages. IIRC one of Dev's earlier versions modified the
->>>> core folio_pte_batch() function to also look at the AnonExclusive bit, but I
->>>> really disliked changing that core function (I think others did too?).
->>>
->>> Yeah let's not change the core function.
->>>
->>> My suggestion is to have mprotect_folio_pte_batch() do this.
->>>
->>>>
->>>> So barring that approach, we are really only left with the batch and sub-batch
->>>> approach - although, yes, it could be abstracted more. We could maintain a
->>>> context struct that persists across all calls to mprotect_folio_pte_batch() and
->>>> it can use that to keep it's state to remember if we are in the middle of a
->>>> sub-batch and decide either to call folio_pte_batch() to get a new batch, or
->>>> call anon_exclusive_batch() to get the next sub-batch within the current batch.
->>>> But that started to feel overly abstracted to me.
->>>
->>> Having this nested batch/sub-batch loop really feels worse. You just get lost in
->>> the complexity here very easily.
->>>
->>> But i"m also not sure we need to maintain _that_ much state?
->>>
->>> We're already looping over all of the PTEs here, so abstracting _the entire
->>> loop_ and all the sub-batch stuff to another function, that is
->>> mprotect_folio_pte_batch() I think sensibly, so it handles this for you makes a
->>> ton of sense.
->>
->> So effectively turn mprotect_folio_pte_batch() into an iterator; have a struct
->> and a funtion to init the struct for the the number of ptes we want to iterate
->> over, then a per iteration function that progressively returns batches?
-> 
-> Is that really necessary though?
-> 
-> Idea is that mprotect_folio_pte_batch() returns the nr_ptes _taking into account
-> the PAE stuff_.
+ >在 2025/4/28 23:23, Will Deacon 写道:
+ >> On Fri, Apr 25, 2025 at 09:10:09AM +0800, Shuai Xue wrote:
+ >>> 在 2025/4/25 09:00, Hanjun Guo 写道:
+ >>>> Call force_sig(SIGBUS) directly in ghes_do_proc() is not my favourite,
+ >>>> but I can bear that, please add
+ >>>>
+ >>>> Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+ >>>>
+ >>>> Thanks
+ >>>> Hanjun
+ >>>
+ >>> Thanks. Hanjun.
+ >>>
+ >>> @Rafael, @Catalin,
+ >>>
+ >>> Both patch 1 and 2 have reviewed-by tag from the arm64 ACPI 
+maintainers, Hanjun,
+ >>> now. Are you happpy to pick and queue this patch set to acpi tree 
+or arm tree?
+ >>
+ >> Since this primarily touches drivers/acpi/apei/ghes.c, I think it should
+ >> go via the ACPI tree and not the arm64 one.
+ >>
+ >> Will
+ >
+ >Hi, Will,
+ >
+ >Thank you for your confirmation :)
+ >
+ >@Rafael, do you have more comments on this patch set?
+ >
+ >Thanks you.
+ >
+ >Best Regards,
+ >Shuai
 
-The issue is the efficiency. Assuming we want to keep the PTE scan contained
-within the core folio_pte_batch() function and we _don't_ want to add PAE
-awareness to that function, then we have 2 separate, independent loops; one for
-PTE scanning and the other for PAE scanning. If the first loop scans through ans
-returns 512, but then the PAE scan returns 1, we return 1. If we don't remember
-for the next time that we already determined we have a PTE batch of 512 (now
-511) then we will rescan the 511 PTEs and potentially return 1 again due to PAE.
-Then 510, then 509...
+Hi, all,
 
-That feels inefficient to me. So I'd much rather just remember that we have a
-batch of 512, then split into sub batches as needed for PAE compliance. Then we
-only scan each PTE once and each struct page once.
+Gentle ping.
 
-But to achieve this, we either need to merge the 2 loops or we need to carry
-state across function calls (i.e. like an iterator).
+Does ACPI or APEI tree still active? Looking forward to any response.
 
-> 
-> Would this break anything?
+Thanks.
 
-It's not about breaking anything, it's about scanning efficiently. Perhaps you
-don't think it's worth worrying about in practice?
-
-> 
-> We might need to pass a flag to say 'don't account for this' for prot numa case.
-
-Yep, another bool ;-)
-
-> 
->>
->> Then we just have a simple loop here that gets the next batch and processes it?
-
+Best Regards,
+Shuai
 
