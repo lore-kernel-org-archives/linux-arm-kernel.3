@@ -4,80 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8924C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 17:48:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4605EC83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 17:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gv5ZeRy71KTAtCoDGOfyMFQp5307Z4f4zCMNQhy0ZuA=; b=eZieLV4ERbpyjFnGehgF6jYd3c
-	riVizE1bRp/VP7oSIibn55NLd7GBQDzB+B549RnbdBHdpEC1fEdQb+0wZ3Und7iqNsUm85OnlUT10
-	4Q+YmY05RcRD1Uv+iFjZqC2xrzJ6zuekGHjobHhOsG/5XpidPrlM+Xrgzfh94h2EbyQiYFKvmcUjo
-	fAPjmsQ+33TM1uLW6hmCMHqaSoqqOX7Pi8YNu9078HJt/awlcVtIAfp/Sni9Ty/vWH9mhCra2TFAz
-	FJ+sKQQLm0XRefNR7qTXiZFKm8ckSwWjWAod3LXV0OB3EVd19kaAu6+bQ75TIuoSZFgLIwTVyXIiu
-	iOHY6lTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xslb0+wQ9/vg4U3DnNCXbJDzSLSQ2sx14avlL623MA8=; b=IeJCvMlkentUbRRH8Izj/qHft4
+	MAxdqaN4mqqwfCs9BCn29zVl9e1ITgCvV86sMY3NQ0lIpnK/NmKTxzBQFox4LTTFy3Tx2lECKOKd5
+	Xq1WvVEHx+6xxvuHVM8l7w60QsIcozYKjzXCXClrhklK10moelzIq6QjvtaTBjh46f/ilp/t4kXsc
+	yEogVpzZJ233w2CQyvMR73G56gWPtHFrrehZVakLnD8a4jswIrvyiwD2YmOs8WgEUs5Hlic6EV0Ll
+	P61oEE8jfFcsrgxyG1aKNQnYkTv43IP1k7p5FM6pzdzAKHD2+drUJUUo0XjtIM+KT02RPFfDRXCu1
+	CZsmVbkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWf5j-00000006Ggm-1gtj;
-	Tue, 01 Jul 2025 17:48:23 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uWf83-00000006GvD-38GM;
+	Tue, 01 Jul 2025 17:50:47 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWceP-00000005qUo-0n4A;
-	Tue, 01 Jul 2025 15:12:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751382719;
-	bh=+AmOCC/8aNSxpshIwQPDNND0Xf2673OGfbVKFrx6sXI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mehbIFaGPSplUxenfkKzZKIYXaUpF5a8ByVKZF0b8Vju+YThPxm8Y53S/Svtn2ue9
-	 w4C21dbkOSWtoPCgt3MtWVv4dM0/ReZGtBarNzIUxkkTeceSB1wnWw+6cFJke1O4jI
-	 FkdxyvmogAbExTGJjjz7VkJuzHwzvObzav/7ZNbWuw46gj8ZCiWPijilw5R45AtAL1
-	 VO7Wvo0MuQx5ZSwR1pw/RfLXizts9eGeBhAXMUIrd22jLiXYqz41kGx1yp5Pja4hl0
-	 6jxx4gTzl+OdzjSt+cdcMhGsMAFl2TX70/Li7VLzXOyWLytRExS8e3smmBJiSGYyfz
-	 iZaYOcwwTfEwA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A167B17E088B;
-	Tue,  1 Jul 2025 17:11:58 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: krzk@kernel.org
-Cc: robh@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	ulf.hansson@linaro.org,
-	arnd@arndb.de,
-	m.wilczynski@samsung.com,
-	nm@ti.com,
-	khilman@baylibre.com,
-	kabel@kernel.org,
-	quic_hyiwei@quicinc.com,
-	pjp@fedoraproject.org,
-	tudor.ambarus@linaro.org,
-	drew@pdp7.com,
-	u.kleine-koenig@baylibre.com,
-	gregkh@linuxfoundation.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	laura.nao@collabora.com,
-	kernel@collabora.com
-Subject: [RFC PATCH 3/3] firmware: mediatek: Add MediaTek Hardware Voter MCU driver
-Date: Tue,  1 Jul 2025 17:11:49 +0200
-Message-ID: <20250701151149.136365-4-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250701151149.136365-1-angelogioacchino.delregno@collabora.com>
-References: <20250701151149.136365-1-angelogioacchino.delregno@collabora.com>
+	id 1uWcin-00000005rAa-07nB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Jul 2025 15:16:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AtjZ+yZJCpYCe/aE3mWG32SY7qjPmxLlP4fzrOY0Xd5LDMYh/g7Xr1RYD3/0MaNDS3SeD3/xfI7+Eel2hRGZbNTq7hSRAgFopPhk2eJDOVm1OFiezoFN/+wG+kTfleiQscrFk4Mj9vI2NuNnnrWHFFZCiRaw6X9aegL6iku5d/U6ipnrSX4j49+KMjcjXRvjrgFmOe7gdm7Eel2pNoLuHRAp6XfElBT3vdSDtOro5Jv3wDlN4tdIVhGDqpPw3AnLe+6rp1jpkcH24q2P9WlnL+cK9ZjbYqEDQkFcP5zrZPhTS/h2cNMHan7f6VBwOwbGgGynSysqf10VNexEFdtnxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Xslb0+wQ9/vg4U3DnNCXbJDzSLSQ2sx14avlL623MA8=;
+ b=jZF6d9UBTgcwNJj6S7llrKnAl7WKALYj/Zyn/cEKTqR5X1Q+y636F41HFdK6CCLsmf01CL+KFaSvkayv+jmTaANKLStaodPre7+cvAPjI3mPy3Lcvo1+IR3EIHnRG6dbAcLbq4Nxyl+2q9TBWF8Jy+2boLXbRdRUIiwYdybOnnqQNq8bIcf0WVqV1NmmC/9zPV8jTLSHt1A2WilYrP4Go3LsRSpwZ08Rk2Qbwg+dT3kq4ROhzfD6MeWlnrceC9GSJDIfKaIfppGMZMaLE8K6XRZDe5a11DYPFijeZIzXUZJbA/oSOwr4hDdOa93MxUHOTSaP5P3rqjrRWeTvP/DRug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Xslb0+wQ9/vg4U3DnNCXbJDzSLSQ2sx14avlL623MA8=;
+ b=UKBC9RJBovNYr5dzDwrmE+IT4AhdJxuBo0dpl4XsRB9o4e/E4sXFSxj0oipWkRzOEVuLOmrtD9vNBVPrDZlmAdUqdX4y/r8b1jbNTv5VPLlorgYhj8NmRZ60li7rEXCOKvmFI2i0w9gm811aZwxlIXt3ZYi31k6oD523IbTaPtJ1oN4nWfv7HIjw62Td+q7JJY91CGQzq+u40o0uZQHud1kJTC6BzSdODgXNlLxortZb0FQpR4LkO0ghhtYhq6Lk3OGeNeU4+LjCgy9v3ZaQhqQbhZ2750VsuY52Yar+Dw7ed2VRrbak0dt9YH6dxDQ15Ia+cL/9i176gvdugbrBRQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by VI1PR04MB9956.eurprd04.prod.outlook.com (2603:10a6:800:1e1::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.19; Tue, 1 Jul
+ 2025 15:16:29 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.029; Tue, 1 Jul 2025
+ 15:16:28 +0000
+Date: Tue, 1 Jul 2025 11:16:23 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux@ew.tq-group.com,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev
+Subject: Re: [PATCH 1/8] arm64: dts: fsl-ls1043a: Remove superfluous address
+ and size cells
+Message-ID: <aGP7xwc7sqR9yVu0@lizhi-Precision-Tower-5810>
+References: <20250701062500.515735-1-alexander.stein@ew.tq-group.com>
+ <20250701062500.515735-2-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250701062500.515735-2-alexander.stein@ew.tq-group.com>
+X-ClientProxiedBy: AS4P191CA0018.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d9::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI1PR04MB9956:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3516b7a8-f51c-4381-3dc5-08ddb8b240a5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4WvVI4z4T45/u18BjvkW8EWa61No8/9tUECCyi4rIY6qyCE1AMm2D8pBMQlo?=
+ =?us-ascii?Q?ZJ06bmEeCKT+6movqyea7TM2xrOoSu0kREY+3lyi0Wc9uasXGexk6DMVTUAV?=
+ =?us-ascii?Q?Q2R2ewpUET2ONR2l1A1ODYuSxfQQnxNPmz9O4tvAVFqIaCBYtKQtiFosYr5d?=
+ =?us-ascii?Q?qU5q/tNsj0fkef/5fEm+uAT9lalvgd/EOeJSex2NdCneyUyN6SKE0dfHiTBg?=
+ =?us-ascii?Q?jd+kv3DA3YJsJoWV0viMvXcRDXIQ5bjcJflKilpCf0PDi4sRg9V6utfeqlTv?=
+ =?us-ascii?Q?c1odQjgqhpx68SRSOkGjqA0eSXakA3RLaMxhqBv9R6H0490za02sIfHWQcs5?=
+ =?us-ascii?Q?/gOc9ijm7nGJpqI10MJWrZ3UdFIrdidlI9exdSWrFub8EPWhFZz3jfMgS1x5?=
+ =?us-ascii?Q?CCuIauTAZGrJOvOQkaJt2tffLJdwTKjp4QVx5DFer/2M5HC1H07Qk0xdk1uK?=
+ =?us-ascii?Q?s+aJRd1My68ITxmdExdkre0nT9Wi1ld4ro/p2Ck9QFOb3kWSd9qr+Yj2GUvM?=
+ =?us-ascii?Q?z8b/7jnkGiD8HMAJBCBnkwuhyJEzEdx2vJIBQenkC7JtbCfPw7aLRdHzYIcr?=
+ =?us-ascii?Q?bmNxOTR4Xl/BJBWfTO3VnRd/HoKbSdIvnSyY7Yfqpy9wOfHFtHF6moys2VjE?=
+ =?us-ascii?Q?BfoJfAYMYVo/DVYRN1h87ygrm74MyBL06XarvvJVnVc5oMpk1BHocj1f2L89?=
+ =?us-ascii?Q?j4JnNfOLKwpdpntIuFmalTQznYrG3k18vsjEmVQyp2deYUBkb4dDQ7cBD8jZ?=
+ =?us-ascii?Q?eBQvb2MU7iGiXme7SO4ykOLkiAdGEJC3BaGvaVjtKyCXuKsDmDM3hEL510eP?=
+ =?us-ascii?Q?GykMwDcoz99Su94s2FK0m1TRqsPgaqdcWoEFywD+clCy6l31bXtkG0r7KOVK?=
+ =?us-ascii?Q?fpdIx+krNMsDLoasynVc279jp3k7PzDzEEiIl2RtjRVJKi3zswk92DtIFjMX?=
+ =?us-ascii?Q?cuZvUplkFg47m6M69IsG1Ok8DP0K4tuDB7JG2wGcHioDsTJvoi03l/lovRfB?=
+ =?us-ascii?Q?13qoH2QPc78b42RbbPH3dPrldRH8jb+dSePgv6jyuDMy2ci4TKZhGTKMD0TM?=
+ =?us-ascii?Q?kmQFG5MO0wkealjIcAkYbeklg1j3oSFfJU2pXogXlnLdZvYrzSwkIMcGNcXG?=
+ =?us-ascii?Q?83/T0hVYol6iM04HXpwb/4dZ2rFxS7EbjYlylK8pw/myIpnbrz5ko3cNRYtS?=
+ =?us-ascii?Q?1H6uj4j3/g0DCWmF1rciTvB9YhD2z366V25DOlqyAp86s+wwoHsxpqTB5J/U?=
+ =?us-ascii?Q?oSpcU4Cgz5y/8+c4Hcr0bEu4uftbPVeiIYrwYqTHWx41+71ZCHyirB60YQsq?=
+ =?us-ascii?Q?vdl6XpH3qSjAU/8gPDl+U2o+s5G5FdJb7O0g+0s3+2ftXaZqibf/Ytvt9Baj?=
+ =?us-ascii?Q?arlrl+kBWNTM/Xc7Ir/EKp4zN1hFkly1aCynZPTAa5vESCIrN70zC6QqSLGJ?=
+ =?us-ascii?Q?w6DoA2Og2vyFJKJwJBPKP4zFjDsPqREvf6FDsuSLR4mW9L8EdlYYb4JiB16o?=
+ =?us-ascii?Q?9Y1RFMQskIUCs7g=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ynRQ3eaFprRC0Wz/47H9xuumWf6kw3AiziRXsvLINtZ0YO+0kbDtaFxfczNH?=
+ =?us-ascii?Q?iTxiHh1VcAvmEuUw/VAoHt2n63CrANgg2B5pyAdESy8AS6zG8P1m1Ckq2qvx?=
+ =?us-ascii?Q?G18qKGg3L333Xd6VeHL+TFm+4S+4cWdfN53JeNzk5Bwp/CDU9l+TUTpCDg9V?=
+ =?us-ascii?Q?JWDi/zpjJvO4cCcMnRsnccYh1AFvFojdujf5KICCfZ+gMTRxQn4+8P2mkPz0?=
+ =?us-ascii?Q?2ZGOI/E0ya4r4z9PpJkjaPufSL8ThfJTa6Z9mIbt/VjnKU+hpZ/Ef+tjDmC5?=
+ =?us-ascii?Q?tkq8C89wH0KjYxEtHQGxFfUrX/o8jQCxhmeDuS4h6LBK5gSPUPRIf2Rrm5wi?=
+ =?us-ascii?Q?JgjyE2Us+2v8f4hbQ6FtLnGzF0y3kRNOAFSswkm8/dwXyIehr6IqnFalBlCa?=
+ =?us-ascii?Q?IoOinqoM+ht5V2hfbJmZJZQ3I0F3jIfxyloR6DoGIsbrQMPio4Pd9kysAfM6?=
+ =?us-ascii?Q?tcv45dAI40QkVlS01ogHwzHEVKkkw/zrF/zaRtjsoYmJNiQ94VBO9dwTMNaL?=
+ =?us-ascii?Q?o1TEOOrKp/8FPeDsPqrtyk4dA2fzY8Ms7JDXw9+ZlfqjYbE65a/4WDFRwMfp?=
+ =?us-ascii?Q?7/Y/378LxdEgXTZrqwltXOBoBtclqj5YYEe8lrDO/O6LnGHTswaLbpqjfYl6?=
+ =?us-ascii?Q?Dvd4lkxGZZC+a7unRR7kFU4G/36cNkFQddhCF/KegCFJ6s8xbOfWJKSn4XyR?=
+ =?us-ascii?Q?WdbjYwJnPd4rBMyw3TKlNhbf/SnAUmXeu7n2+j3gyGM5bXZOVKAds+b1IVJm?=
+ =?us-ascii?Q?u2EKIceCceTT80Ya5hN7QfN+C6tugqH0Fdev23HsUsf1Nq0d9kP3K2+SBuzm?=
+ =?us-ascii?Q?wJ36qH3XRjBV3kW2nZncdqnUJTFcm5ZH0V/Hzig6gE0U/TpeJmhi8Lx9qR/Q?=
+ =?us-ascii?Q?AdxnVWxAILYAgs4WJgBMGkGYe7tojJRlDilNHzpJZbr74RsnOaYkF21DRK4m?=
+ =?us-ascii?Q?9s8tEvWGJRjfe9gmGwGgSE3oIS/vCHJeOArQlZzMzNaPOlKvgRBv8muSO4Or?=
+ =?us-ascii?Q?JyEyo1UN5P8lV30F+ismZdVqY9QXV4g1hG2aJwCUOXXzY+Knkx6auKvgmlq7?=
+ =?us-ascii?Q?GZKfY4unwig1Y3I9JyyK2ZkCLj+DOUyT+S3nacxG6e+0FY1132oKpHpQZlxE?=
+ =?us-ascii?Q?Camu1R6z/KDtJQsTatsC/O8TuxfRcx3T67OeFcTpgAaSNhKvcKq+6Mcv2lI/?=
+ =?us-ascii?Q?X9VUvzbYq5X7C7qwHXLBP17cneg2OTF0lGv5XgSsVW6RxQRTJXstyWdl6pb/?=
+ =?us-ascii?Q?0auyNZoB7golFb0usl5J6bYYZtbkg395ZwyefcKlAca3lapgu3Gtu2oJD30a?=
+ =?us-ascii?Q?WaUNKSL6+FZAfMTQjSfSGUNbOJ9IhtQfQkIQsx1gEK1ZJDyICoPQ3UNex2LO?=
+ =?us-ascii?Q?W9tFSOHdBOKK6BiLwhygAew5BSB5bxI9phq8SioTTD0Z9POZWKXRhKlguunD?=
+ =?us-ascii?Q?hNawX1lmOao8ADhH3OJfr20ODEa5xFwgInNIZD3FdPg8s/EiIQ4wdR4vu2ea?=
+ =?us-ascii?Q?dtliMyyEgK0QxEe8AvPauVdf6elI3e5qa/oWbsWF5MlWO6i7D5fTMLm+JNAF?=
+ =?us-ascii?Q?UtdBzhJU/d9Qs+ipMrSO4at4DlWQDF5Q4vKaLtlc?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3516b7a8-f51c-4381-3dc5-08ddb8b240a5
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2025 15:16:28.6866
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EACsyzCbJ6/6/SzSu6DuDkh9LLkwSXJTAYn7Zu6AaloOTLqFTFI60RV5CYhLY2Q3FTbS1LWGjAlBUNdlfq/dUw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9956
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_081201_525054_47080662 
-X-CRM114-Status: GOOD (  31.21  )
+X-CRM114-CacheID: sfid-20250701_081633_075392_3FB72CF6 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,527 +164,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a driver for the MediaTek Hardware Voter (HWV) MCU, a SoC
-internal fixed-function MCU used to collect votes from both
-the AP and from the various other remote processors present
-in the SoC, guaranteeing synchronization of the HW resource
-requests between all components of the SoCs and hence avoiding,
-for example, unclocked and/or unpowered access to the hardware.
+On Tue, Jul 01, 2025 at 08:24:49AM +0200, Alexander Stein wrote:
+> The jedec SPI-NOR flash node itself has no partitions, but the partitions
+> subnode.
+>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/firmware/mediatek/Kconfig             |   9 +
- drivers/firmware/mediatek/Makefile            |   1 +
- .../firmware/mediatek/mtk-hardware-voter.c    | 430 ++++++++++++++++++
- .../firmware/mediatek/mtk-hardware-voter.h    |  34 ++
- 4 files changed, 474 insertions(+)
- create mode 100644 drivers/firmware/mediatek/mtk-hardware-voter.c
- create mode 100644 include/linux/firmware/mediatek/mtk-hardware-voter.h
-
-diff --git a/drivers/firmware/mediatek/Kconfig b/drivers/firmware/mediatek/Kconfig
-index f6f16e71fbda..b1b2d8a82358 100644
---- a/drivers/firmware/mediatek/Kconfig
-+++ b/drivers/firmware/mediatek/Kconfig
-@@ -11,4 +11,13 @@ config MTK_ADSP_IPC
- 	  ADSP exists on some mtk processors.
- 	  Client might use shared memory to exchange information with ADSP.
- 
-+config MTK_HARDWARE_VOTER
-+	tristate "MediaTek Hardware Resources Voter"
-+	depends on MTK_ADSP_MBOX
-+	help
-+	  Say yes here to add support for the MediaTek Hardware Voter (HWV),
-+	  an interface to the HWV MCU which is used to synchronize requests
-+	  for hardware resources between host AP (Linux) and the firmwares
-+	  that are running on various integrated remote processors.
-+
- endmenu
-diff --git a/drivers/firmware/mediatek/Makefile b/drivers/firmware/mediatek/Makefile
-index 3c0d9d67d646..06de6f4dc0a3 100644
---- a/drivers/firmware/mediatek/Makefile
-+++ b/drivers/firmware/mediatek/Makefile
-@@ -1,3 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- obj-$(CONFIG_MTK_ADSP_IPC)		+= mtk-adsp-ipc.o
-+obj-$(CONFIG_MTK_HARDWARE_VOTER)	+= mtk-hardware-voter.o
-diff --git a/drivers/firmware/mediatek/mtk-hardware-voter.c b/drivers/firmware/mediatek/mtk-hardware-voter.c
-new file mode 100644
-index 000000000000..5e12beb44a4c
---- /dev/null
-+++ b/drivers/firmware/mediatek/mtk-hardware-voter.c
-@@ -0,0 +1,430 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * MediaTek Hardware Voter (HWV) MCU communication driver
-+ *
-+ * Copyright (C) 2025 Collabora Ltd.
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ */
-+
-+#include <linux/iopoll.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/firmware/mediatek/mtk-hardware-voter.h>
-+
-+#define MTK_HWV_REGISTER_WIDTH_BITS	32
-+
-+#define MTK_HWV_MTCMOS_POLL_DELAY_US	3
-+#define MTK_HWV_MTCMOS_DONE_TIMEOUT_US	(10 * USEC_PER_MSEC)
-+#define MTK_HWV_MTCMOS_VOTE_TIMEOUT_US	(3 * USEC_PER_MSEC)
-+#define MTK_HWV_CLK_DONE_TIMEOUT_US	30
-+
-+/**
-+ * struct mtk_hardware_voter_pmdomain_regs - Hardware Voter power domain data
-+ * @set:        Offset of the HWV SET register
-+ * @clear:      Offset of the HWV CLEAR register
-+ * @done:       Offset of the HWV DONE register
-+ * @enable:     Offset of the HWV ENABLE register
-+ * @set_sta:    Offset of the HWV SET STATUS register
-+ * @clr_sta:    Offset of the HWV CLEAR STATUS register
-+ */
-+struct mtk_hardware_voter_pmdomain_regs {
-+	u16 set;
-+	u16 clear;
-+	u16 enable;
-+	u16 done;
-+	u16 set_sta;
-+	u16 clr_sta;
-+};
-+
-+/**
-+ * struct mtk_hardware_voter_pmdomain_info - Internal HWV pmdomain info structure
-+ * @regmap:            Handle to regmap
-+ * @regs:              Set of registers for specific Power Domain HWV instance
-+ * @index:             Index of the Power Domain relative to this set of registers
-+ *
-+ * This structure is used only for driver-internal parameters passing.
-+ */
-+struct mtk_hardware_voter_pmdomain_info {
-+	struct regmap *regmap;
-+	const struct mtk_hardware_voter_pmdomain_regs *regs;
-+	unsigned int index;
-+};
-+
-+/**
-+ * struct mtk_hardware_voter_hw_funcs - HWV Version specific callbacks
-+ * @clk_enable:        Callback to execute programming sequence to vote for clock
-+ * @pmdomain_enable:   Callback to execute programming sequence to vote for pmdomain
-+ */
-+struct mtk_hardware_voter_hw_funcs {
-+	int (*clk_enable)(struct mtk_hardware_voter *hwv,
-+			  const struct mtk_hardware_voter_clk_regs *clk_regs,
-+			  unsigned int index, bool enable);
-+	int (*pmdomain_enable)(struct device *dev,
-+			       struct mtk_hardware_voter_pmdomain_info *hwvpd,
-+			       unsigned int index, bool enable);
-+};
-+
-+/**
-+ * struct mtk_hardware_voter_pdata - SoC-specific platform data
-+ * @funcs:             HWV Version-specific register programming sequence functions
-+ * @pmdomain_regs:     HWV Version-specific Power Domain register (offset) sets
-+ * @num_pmdomain_regs: Number of Power Domain register sets in this HWV
-+ */
-+struct mtk_hardware_voter_pdata {
-+	const struct mtk_hardware_voter_hw_funcs *funcs;
-+	const struct mtk_hardware_voter_pmdomain_regs *pmdomain_regs;
-+	unsigned int num_pmdomain_regs;
-+};
-+
-+/**
-+ * struct mtk_hardware_voter_priv - Driver private structure
-+ * @regmap:            Handle to regmap
-+ * @pdata:             SoC-specific platform data
-+ */
-+struct mtk_hardware_voter_priv {
-+	struct regmap *regmap;
-+	const struct mtk_hardware_voter_pdata *pdata;
-+};
-+
-+static const struct of_device_id mtk_hardware_voter_match[];
-+
-+/**
-+ * mtk_hardware_voter_get_handle() - Get the MediaTek HWV handle for a device
-+ * @dev: Pointer to the device that wants to get a HWV handle
-+ *
-+ * Return:
-+ * Pointer to the mtk_hardware_voter handle for success; or
-+ * -EPROBE_DEFER pointer error if the HWV instance is not ready
-+ * -ENODEV pointer error if the device pointer is missing
-+ * -ENOENT pointer error if the HWV device was not found
-+ * -EINVAL pointer error for other errors
-+ */
-+struct mtk_hardware_voter *mtk_hardware_voter_get_handle(struct device *dev)
-+{
-+	const struct of_device_id *match_id;
-+	struct mtk_hardware_voter *hwv;
-+	struct platform_device *pdev;
-+	struct device_node *np;
-+
-+	if (!dev || !dev->parent)
-+		return ERR_PTR(-ENODEV);
-+
-+	np = dev->parent->of_node;
-+	if (!np)
-+		return ERR_PTR(-EINVAL);
-+
-+	match_id = of_match_node(mtk_hardware_voter_match, np);
-+	if (!match_id)
-+		return ERR_PTR(-ENOENT);
-+
-+	hwv = dev_get_drvdata(&pdev->dev);
-+	if (!hwv) {
-+		hwv = ERR_PTR(-EPROBE_DEFER);
-+		put_device(&pdev->dev);
-+		goto end;
-+	}
-+
-+end:
-+	of_node_put(np);
-+	return hwv;
-+}
-+
-+/**
-+ * mtk_hardware_voter_get_by_phandle() - Get the MediaTek HWV handle using DT phandle
-+ * @dev: Pointer to the device that wants to get a HWV handle
-+ *
-+ * The struct device passed to this function must have an associated
-+ * devicetree node; this node must have the "mediatek,hardware-voter"
-+ * property with a phandle to the Hardware Voter or, if multiple voters
-+ * are present, a phandle to the desired Hardware Voter instance.
-+ * Return:
-+ * Pointer to the mtk_hardware_voter handle for success; or
-+ * -EPROBE_DEFER pointer error if the HWV instance is not ready
-+ * -ENODEV pointer error if the device pointer is missing
-+ * -ENOENT pointer error if the HWV device was not found
-+ * -EINVAL pointer error for other errors
-+ */
-+struct mtk_hardware_voter *mtk_hardware_voter_get_by_phandle(struct device *dev)
-+{
-+	struct mtk_hardware_voter *hwv;
-+	struct platform_device *pdev;
-+	struct device_node *np;
-+
-+	np = of_parse_phandle(dev->of_node, "mediatek,hardware-voter", 0);
-+	if (!np)
-+		return ERR_PTR(-ENOENT);
-+
-+	pdev = of_find_device_by_node(np);
-+	if (!pdev) {
-+		hwv = ERR_PTR(-ENODEV);
-+		goto end;
-+	}
-+
-+	hwv = platform_get_drvdata(pdev);
-+	if (!hwv) {
-+		hwv = ERR_PTR(-EPROBE_DEFER);
-+		put_device(&pdev->dev);
-+		goto end;
-+	}
-+
-+end:
-+	of_node_put(np);
-+	return hwv;
-+}
-+
-+/**
-+ * mtk_hardware_voter_pmdomain_enable() - Vote power domain enable/disable
-+ * @hwv:    Handle to the Hardware Voter instance
-+ * @index:  Index of the power domain in the Hardware Voter
-+ * @enable: Vote to enable or disable a power domain
-+ *
-+ * The programming sequence varies with Hardware Voter MCU versions;
-+ * this function is responsible for executing a callback to send the
-+ * HW Voter version specific register programming sequence to vote for
-+ * enabling or disabling a power domain.
-+ */
-+int mtk_hardware_voter_pmdomain_enable(struct mtk_hardware_voter *hwv,
-+				       unsigned int index, bool enable)
-+{
-+	struct mtk_hardware_voter_pmdomain_info hwv_pmdomain_info;
-+	const struct mtk_hardware_voter_pdata *pdata = hwv->priv->pdata;
-+	const struct mtk_hardware_voter_pmdomain_regs *regs = pdata->pmdomain_regs;
-+	unsigned int register_set_num = index % MTK_HWV_REGISTER_WIDTH_BITS;
-+	unsigned int register_set_idx = index / MTK_HWV_REGISTER_WIDTH_BITS;
-+
-+	if (register_set_num > pdata->num_pmdomain_regs)
-+		return -ENXIO;
-+
-+	if (register_set_idx > (MTK_HWV_REGISTER_WIDTH_BITS - 1))
-+		return -EINVAL;
-+
-+	hwv_pmdomain_info.regmap = hwv->priv->regmap;
-+	hwv_pmdomain_info.index = register_set_idx;
-+	hwv_pmdomain_info.regs = &regs[register_set_num];
-+
-+	return pdata->funcs->pmdomain_enable(hwv->dev, &hwv_pmdomain_info, index, enable);
-+}
-+EXPORT_SYMBOL_GPL(mtk_hardware_voter_pmdomain_enable);
-+
-+/**
-+ * mtk_hardware_voter_clk_enable() - Vote clock gating or ungating
-+ * @hwv:    Handle to the Hardware Voter instance
-+ * @regs:   Registers for the specific clock domain's Hardware Voter
-+ * @index:  Index of the power domain in the Hardware Voter
-+ * @enable: Vote to enable or disable a power domain
-+ *
-+ * The programming sequence varies with Hardware Voter MCU versions;
-+ * this function is responsible for executing a callback to send the
-+ * HW Voter version specific register programming sequence to vote for
-+ * gating or ungating a clock.
-+ */
-+int mtk_hardware_voter_clk_enable(struct mtk_hardware_voter *hwv,
-+				  const struct mtk_hardware_voter_clk_regs *regs,
-+				  unsigned int index, bool enable)
-+{
-+	const struct mtk_hardware_voter_pdata *pdata = hwv->priv->pdata;
-+
-+	return pdata->funcs->clk_enable(hwv, regs, index, enable);
-+}
-+EXPORT_SYMBOL_GPL(mtk_hardware_voter_clk_enable);
-+
-+static bool mtk_hardware_voter_v1_pmdomain_is_disable_done(
-+		struct mtk_hardware_voter_pmdomain_info *hwvpd)
-+{
-+	u32 regs[2] = { hwvpd->regs->done, hwvpd->regs->clr_sta };
-+	u32 val[2];
-+	u32 mask = BIT(hwvpd->index);
-+
-+	regmap_multi_reg_read(hwvpd->regmap, regs, val, 2);
-+
-+	/* Disable is done when the bit is set in DONE, cleared in CLR_STA */
-+	return (val[0] & mask) && !(val[1] & mask);
-+}
-+
-+static bool mtk_hardware_voter_v1_pmdomain_is_enable_done(
-+		struct mtk_hardware_voter_pmdomain_info *hwvpd)
-+{
-+	u32 regs[3] = { hwvpd->regs->done, hwvpd->regs->enable, hwvpd->regs->set_sta };
-+	u32 val[3];
-+	u32 mask = BIT(hwvpd->index);
-+
-+	regmap_multi_reg_read(hwvpd->regmap, regs, val, 3);
-+
-+	/* Enable is done when the bit is set in DONE and EN, cleared in SET_STA */
-+	return (val[0] & mask) && (val[1] & mask) && !(val[2] & mask);
-+}
-+
-+static int mtk_hardware_voter_v1_pmdomain_enable(struct device *dev,
-+						 struct mtk_hardware_voter_pmdomain_info *hwvpd,
-+						 unsigned int index, bool enable)
-+{
-+	const struct mtk_hardware_voter_pmdomain_regs *regs = hwvpd->regs;
-+	struct regmap *regmap = hwvpd->regmap;
-+	u32 val;
-+	int ret;
-+
-+	/* Make sure the HW Voter is idle and able to accept commands */
-+	ret = regmap_read_poll_timeout_atomic(regmap, regs->done, val,
-+					      val & BIT(index),
-+					      MTK_HWV_MTCMOS_POLL_DELAY_US,
-+					      MTK_HWV_MTCMOS_DONE_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Failed to power on: HW Voter busy.\n");
-+		return ret;
-+	}
-+
-+	/*
-+	 * Instructing the HWV to power on/off the MTCMOS (power domains):
-+	 * For power on, the same bit will be cleared from the SET register
-+	 * by the hardware immediately after setting it;
-+	 * For power off, the bit will be kept set in the CLEAR register
-+	 */
-+	regmap_write(regmap, enable ? regs->set : regs->clear, BIT(index));
-+
-+	if (enable) {
-+		/*
-+		 * Wait until the HWV sets the bit again, signalling that its
-+		 * internal state machine was started and it now processing
-+		 * the vote command.
-+		 */
-+		ret = regmap_read_poll_timeout_atomic(regmap, regs->set,
-+						      val, val & BIT(index),
-+						      0, MTK_HWV_MTCMOS_VOTE_TIMEOUT_US);
-+		if (ret) {
-+			dev_err(dev, "Failed to power on: HW Voter not starting.\n");
-+			return ret;
-+		}
-+
-+		/* Wait for ACK, signalling that the MTCMOS was enabled */
-+		ret = readx_poll_timeout_atomic(mtk_hardware_voter_v1_pmdomain_is_enable_done,
-+						hwvpd, val, val,
-+						MTK_HWV_MTCMOS_POLL_DELAY_US,
-+						MTK_HWV_MTCMOS_DONE_TIMEOUT_US);
-+		if (ret) {
-+			dev_err(dev, "Failed to power on: HW Voter ACK timeout.\n");
-+			return ret;
-+		}
-+	} else {
-+		/*
-+		 * Wait until the HWV clears the bit, signalling that its
-+		 * internal state machine was started and it now processing
-+		 * the clear command.
-+		 */
-+		ret = regmap_read_poll_timeout_atomic(regmap, regs->clear,
-+						      val, !(val & BIT(index)),
-+						      0, MTK_HWV_MTCMOS_VOTE_TIMEOUT_US);
-+		if (ret) {
-+			dev_err(dev, "Failed to power off: HW Voter not starting.\n");
-+			return ret;
-+		}
-+
-+		/* Poweroff needs 100us for the HW to stabilize */
-+		udelay(100);
-+
-+		/* Wait for ACK, signalling that the MTCMOS was disabled */
-+		ret = readx_poll_timeout_atomic(mtk_hardware_voter_v1_pmdomain_is_disable_done,
-+						hwvpd, val, val,
-+						MTK_HWV_MTCMOS_POLL_DELAY_US,
-+						MTK_HWV_MTCMOS_DONE_TIMEOUT_US);
-+		if (ret) {
-+			dev_err(dev, "Failed to power on: HW Voter ACK timeout.\n");
-+			return ret;
-+		}
-+	};
-+
-+	return 0;
-+}
-+
-+static int mtk_hardware_voter_v1_clk_enable(struct mtk_hardware_voter *hwv,
-+					    const struct mtk_hardware_voter_clk_regs *regs,
-+					    unsigned int index, bool enable)
-+{
-+	struct regmap *regmap = hwv->priv->regmap;
-+	u32 val;
-+	int ret;
-+
-+	ret = regmap_write(regmap, enable ? regs->set : regs->clear, BIT(index));
-+	if (ret)
-+		return ret;
-+
-+	return regmap_read_poll_timeout_atomic(regmap, regs->status, val,
-+					       val & BIT(index),
-+					       0, MTK_HWV_CLK_DONE_TIMEOUT_US);
-+}
-+
-+static const struct regmap_config mtk_hardware_voter_regmap_config = {
-+	.reg_bits = MTK_HWV_REGISTER_WIDTH_BITS,
-+	.val_bits = MTK_HWV_REGISTER_WIDTH_BITS,
-+	.reg_stride = 4,
-+	.max_register = 0x3000,
-+};
-+
-+static int mtk_hardware_voter_probe(struct platform_device *pdev)
-+{
-+	struct mtk_hardware_voter_priv *priv;
-+	struct mtk_hardware_voter *hwv;
-+	struct regmap *regmap;
-+	void __iomem *base;
-+
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	regmap = devm_regmap_init_mmio(&pdev->dev, base,
-+				       &mtk_hardware_voter_regmap_config);
-+	if (IS_ERR(regmap))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(regmap),
-+				     "Cannot initialize regmap.\n");
-+
-+	hwv = devm_kzalloc(&pdev->dev, sizeof(*hwv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	hwv->dev = &pdev->dev;
-+	hwv->priv = priv;
-+
-+	priv->pdata = of_device_get_match_data(&pdev->dev);
-+	priv->regmap = regmap;
-+	platform_set_drvdata(pdev, &hwv);
-+
-+	return of_platform_populate(pdev->dev.of_node, NULL, NULL, &pdev->dev);
-+}
-+
-+static const struct mtk_hardware_voter_hw_funcs mtk_hwv_v1_funcs = {
-+	.clk_enable = mtk_hardware_voter_v1_clk_enable,
-+	.pmdomain_enable = mtk_hardware_voter_v1_pmdomain_enable,
-+};
-+
-+static const struct mtk_hardware_voter_pmdomain_regs mtk_hwv_v1_pmdomain_regs[] = {
-+	/* SET    CLR     EN     DONE   SETSTA  CLRSTA */
-+	{ 0x218, 0x21c, 0x1410, 0x141c, 0x146c, 0x1470 },
-+	{ 0x220, 0x224, 0x1420, 0x142c, 0x1474, 0x1478 }
-+};
-+
-+static const struct mtk_hardware_voter_pdata mt6991_hwv_pdata = {
-+	.funcs = &mtk_hwv_v1_funcs,
-+	.pmdomain_regs = mtk_hwv_v1_pmdomain_regs,
-+	.num_pmdomain_regs = ARRAY_SIZE(mtk_hwv_v1_pmdomain_regs),
-+};
-+
-+static const struct of_device_id mtk_hardware_voter_match[] = {
-+	{ .compatible = "mediatek,mt6991-hardware-voter", .data = &mt6991_hwv_pdata },
-+	{ /* sentinel */ }
-+};
-+
-+static struct platform_driver mtk_hardware_voter_driver = {
-+	.driver = {
-+		.name = "mtk-hardware-voter",
-+		.of_match_table = mtk_hardware_voter_match,
-+		.suppress_bind_attrs = true,
-+	},
-+	.probe = mtk_hardware_voter_probe,
-+};
-+builtin_platform_driver(mtk_hardware_voter_driver);
-diff --git a/include/linux/firmware/mediatek/mtk-hardware-voter.h b/include/linux/firmware/mediatek/mtk-hardware-voter.h
-new file mode 100644
-index 000000000000..585a12db393c
---- /dev/null
-+++ b/include/linux/firmware/mediatek/mtk-hardware-voter.h
-@@ -0,0 +1,34 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2025 Collabora Ltd
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ */
-+
-+#ifndef MTK_HARDWARE_VOTER_H
-+#define MTK_HARDWARE_VOTER_H
-+
-+#include <linux/device.h>
-+#include <linux/types.h>
-+
-+struct mtk_hardware_voter_clk_regs {
-+	u16 set;
-+	u16 clear;
-+	u16 status;
-+};
-+
-+struct mtk_hardware_voter_priv;
-+
-+struct mtk_hardware_voter {
-+	struct device *dev;
-+	struct mtk_hardware_voter_priv *priv;
-+};
-+
-+struct mtk_hardware_voter *mtk_hardware_voter_get_handle(struct device *dev);
-+struct mtk_hardware_voter *mtk_hardware_voter_get_by_phandle(struct device *dev);
-+int mtk_hardware_voter_clk_enable(struct mtk_hardware_voter *hwv,
-+				  const struct mtk_hardware_voter_clk_regs *clk_regs,
-+				  unsigned int index, bool enable);
-+int mtk_hardware_voter_pmdomain_enable(struct mtk_hardware_voter *hwv,
-+				       unsigned int index, bool enable);
-+
-+#endif /* MTK_HARDWARE_VOTER_H */
--- 
-2.49.0
-
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/fsl-ls1043a-tqmls1043a.dtsi | 2 --
+>  1 file changed, 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1043a-tqmls1043a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1043a-tqmls1043a.dtsi
+> index 12d5f3938e5d6..e39eaa1759365 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-ls1043a-tqmls1043a.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1043a-tqmls1043a.dtsi
+> @@ -17,8 +17,6 @@ &qspi {
+>  	qflash0: flash@0 {
+>  		compatible = "jedec,spi-nor";
+>  		reg = <0>;
+> -		#address-cells = <1>;
+> -		#size-cells = <1>;
+>  		spi-max-frequency = <62500000>;
+>  		spi-rx-bus-width = <4>;
+>  		spi-tx-bus-width = <4>;
+> --
+> 2.43.0
+>
 
