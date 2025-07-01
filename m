@@ -4,158 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD8BC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 17:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94041C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 17:38:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RRfy1/FsypdEnIZ/gdVit1n+BYF8G/ALWq9d5pynQbA=; b=xmS1PbFaTwUM9gfffWaMmqiKV0
-	JtOj/JkSU0uBrQYRqLMs1sJAXe9yYDAeEEuqIp5pp00uyjFufB8F0f8muL1N3OexU/GDYS5U8qG+A
-	vzNdv0tSV/c+SxtEDdn1bCRhIp6yJwnFkf/y1A9LhZFWYBf2mOmqUsf5Ko2B6Xg/uygolfBsysrJ4
-	wjsJ/Ref/NTs3wjOrim9U2fHNI9QTAEKLEVOKvy+SMknMwIhnP+eoFmPdlWcHOEGEzOySkqeWlP57
-	Pr1r4lLMv3rU5w/19i16UTucs7e47om4nhljZ7ITU4Rnaw3AtmgbBgprjba2fqJ2LEklfiEy+oylg
-	AY9ouPCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9SnrP3NnfwuDtIo3bxA5uNn9yAXYdP3Skxl+K4FHxq8=; b=V9H91OdcV4hySZ6xQ+e+qs57Ry
+	s18xu9jiVyvL2Jbg6PL7EWlSbKHzJjVO+QYKOMgvvdmmPKYdMJhyC39ItJ0lNT2mdfsYJwWyFipwj
+	Mue0V48OLoHMDfF8X7KFAiB365xHk8q/lkk/kvbJwCWvnfMSxaD9Mz+Ki3FvrGWkRJmji5bh6HSda
+	18LiC5PLYUGb+BgEJoVg96A+e6fV8+jmfLpli1gEcemT+P8y77+ME2Jd0ZcNqGsk4jH0yqvPLgRSF
+	cCfgzxg4r7x6pvoj/GwzUJRnLikM+SdCsPfN/wNHpAN8jsWUePGP2FYRTYMryk5oI+2EfCGWSUz/o
+	sklddKeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWetp-00000006FIB-2QYs;
-	Tue, 01 Jul 2025 17:36:05 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uWew8-00000006FXr-1FQb;
+	Tue, 01 Jul 2025 17:38:28 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWcOr-00000005nTD-0kHv
+	id 1uWcR4-00000005nzF-38t7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 14:55:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RhFhFxvolNxwhPAT1ODTn4tch0eNhw230QvBaImXQKxMyRmaMC0Riig3DgJmRE1ei4MlPTSb27lTM9v5SI9hPIYmhBhyTY9ZWtXNq/v76FgB0ikUIx69a/Rpp3IXjutPPA0o/PB50aexOB6QInUup426ixsyC6KcUBAEpO4xhhuvgD0a+wqm8XaUQtjdtoJV6nX7i7MIKWqAeEyNjrh5EQDdIpNOGDNfme29vknlUxkFroCaqtfGYuIsp4Do3oUFj5miPfbztTrJ3vgtla2521PvLjGveaKr/C/RL0uMQs0mLilf4kcirt1+PGmrROLm4SNhEzNM6ApQOzLQdTvUDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RRfy1/FsypdEnIZ/gdVit1n+BYF8G/ALWq9d5pynQbA=;
- b=GfL2+SXAfmiXUu2kzoX9VTkNnQjB5wTKA+cZc4qaPCXD1ARD6vNlC6EMgTksy4iIeVvIlbNn05A/PciiBy3Q2DozkAZcfsBW15tF3n4gOtY1v/luLRQ/rLjRxud4AJ4Bha8dzpxkrdRYmnCd8yL8HCFJj2lvFwjehgaPI6waXdPyzamZaiWnM+LVEQoczFqXzPjAAT3NxpYMZ0/kewcbanEGq7fCMC67E6iQD4TyCXXYUzEilTT/NtAeyrS57H3QA8O8EWOlEnT5ff4fgVD5pmEGoF9TSoxaiMo++oiFhuEAmpYdmwbQi3OuYOF2sY/NmPmy/1FzzrwzaqQWMvepoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RRfy1/FsypdEnIZ/gdVit1n+BYF8G/ALWq9d5pynQbA=;
- b=GO7FMA0jJdSuJhn3NmGiGGP1wZ5jAf66njJosJPue8sXTO11bPdDrK/cyY5WfqJRdIzlyjzTPEdHmi6NbABKajGAa3a4zPHPKf4Zp6tT7x6Z9dQiUC9kctm3PFiHDxcSmRhJRy3K7oJvLsbhxWGRPmMS17F8uyQ9phs6OzpMpI7zSMavUAFdma+6tAxEcvs6XD2KpD7lYt0AYjNExI6QjwziZ1HQpezHu4KUi6i/VJnG/9BHGGj6J2qCh+HAkA+5wo2k236meYeebqE9g7wUOg2e8ytSRiUN+nnmPAE5QRf0eujB714cknAXSSn/tp6UEgbIkkaDVYg8trNdlQvfaQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GV2PR04MB11215.eurprd04.prod.outlook.com (2603:10a6:150:279::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.25; Tue, 1 Jul
- 2025 14:55:39 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.029; Tue, 1 Jul 2025
- 14:55:38 +0000
-Date: Tue, 1 Jul 2025 10:55:32 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
+	Tue, 01 Jul 2025 14:58:17 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4538bc52a8dso38382305e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 07:58:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751381893; x=1751986693; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9SnrP3NnfwuDtIo3bxA5uNn9yAXYdP3Skxl+K4FHxq8=;
+        b=NgSKFNAMpbf+LpOXt/PW+5XRg87daFk4Tu/EcHuJnAPpHWPvw+Dezw7S+BNEl8hXiO
+         r8y3PTqPIM/mKrA6mcp6YkF0XA42+V0yxvNshDPKMRbgzlNTi5bHkH69atyKZ7xhLZmk
+         ObJ5y/SidS5EoQ/Py4I3EkLs1SeW0Ew6/TZIwaChOJcpbjbAge1tNXJ6F6tDcrnnZxat
+         JGdRcgad6/1POgBJHM8KsJF9AFO97ktFLpzKc62vOBrUVyDQnh2II0LGkbVC5lMdr4CW
+         URc0VxHzBtdT8hV1afdjx+fsqSNzrANR4IvZ8mI9vmg5Yk4iv8EYKsU/GoorwkUrHFPf
+         pMoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751381893; x=1751986693;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9SnrP3NnfwuDtIo3bxA5uNn9yAXYdP3Skxl+K4FHxq8=;
+        b=QHfk620RYuGUH/dr5fx06QYiySGq1f5LuzR63ooO/gIBJMOW0+urvK56uZJ8Anda7F
+         2MTcy9GCDbfU+bdfTXfDPk4Kvo7x3qnum2o7mhPbnwZhPgStWl5eJUNAvCqB3C7DICm8
+         9zRG/D5QO4oF+I6S9vdiCMDRgP26MC01X711+FMBGvyWVveLh6l1vmq5L8dZlMscKHVj
+         K4GaJeHUqBVhYZzI25oBvHikeqSjVcEd+16Wf9axvCRxBoV4Uxs2AXXhi92QPZL2f9GJ
+         p09P5idVucbS8WH9c768zYpWqrr45z9Hn0B/MQCmFUuFGNUPTh+rI54KihZzdSEtLo/m
+         2GjA==
+X-Forwarded-Encrypted: i=1; AJvYcCW1aggHw5Q4c0Ky2xtdyqeUNTZ4OfWlg+eeHYHd5rLBPkoVAzNOUZ8rh3/Do5hn1bnZkYgiTwTylTpbTUvGQvCZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrgeQ/C3ngc5FSHVaDD+bHmeaLr31Iqkh6znH5r7gfuLpto5xm
+	yuU0Dqszgm0OZxTXfOYTzM4tIzkhTQ6BN00tw78rU7A+r6RglZxSTVcG0Z1lSLjYVKM=
+X-Gm-Gg: ASbGncsiY08enwAMuE6IJ9RzvsSBWKjJw5M+iEjd4UfA3DAwuYjnW/t5rxdPBDqKU3X
+	ur22DVFT4lj4LszidtLEGPyq9MmyDONgl6OOMYYhje7S/Y3+/dBhQ9xBAXIW2qwfiuPp2rhAU9m
+	R/cCp5We8gF2A8Ttid9T0xPVw+YcKOaejXV1fb8HkeIptQG53Wimh6r37BUg/6CXN5R0nSqh+k+
+	KQNMcnISGgXKUFhlUSi6YJWyEVbUgJSC0Gll99Bd7kbH8Num/nZQRfJo1O6NC6YWOdtk4aVyE5x
+	gsuk66fLSizvZN9028eqfnOgP2I4Uqh1JutpnPAwOzJHmmJPM8EiyUCmkPTYqhHN7SsGvCkG+tA
+	JszYYNu1Sy8ze3NZntZ3PRUVplylHVC5g90byOi4=
+X-Google-Smtp-Source: AGHT+IHUmoDZ1xCqHU/YoX1VGjQsqIcwCI4NeUvfcRvvMvB3GVl/xxbnk7JsJ/Hkt3zYQQizDFlazQ==
+X-Received: by 2002:a05:600c:358d:b0:450:d367:c385 with SMTP id 5b1f17b1804b1-4538ee5d5f8mr208971115e9.16.1751381893014;
+        Tue, 01 Jul 2025 07:58:13 -0700 (PDT)
+Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a892e5972bsm13611051f8f.68.2025.07.01.07.58.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jul 2025 07:58:12 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	Arnd Bergmann <arnd@arndb.de>
+Cc: Purva Yeshi <purvayeshi550@gmail.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Alice Yuan <alice.yuan@nxp.com>
-Subject: Re: [PATCH 2/5] dt-bindings: media: add i.MX parallel csi support
-Message-ID: <aGP2yT9ID1E0BepB@lizhi-Precision-Tower-5810>
-References: <20250630-imx8qxp_pcam-v1-0-eccd38d99201@nxp.com>
- <20250630-imx8qxp_pcam-v1-2-eccd38d99201@nxp.com>
- <20250630225340.GE15184@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250630225340.GE15184@pendragon.ideasonboard.com>
-X-ClientProxiedBy: AM0P190CA0002.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:208:190::12) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	soc@lists.linux.dev
+Subject: [PATCH v2] ARM: dts: lpc32xx: Add #pwm-cells property to the two SoC PWMs
+Date: Tue,  1 Jul 2025 16:58:03 +0200
+Message-ID: <20250701145803.140004-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV2PR04MB11215:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c56cc4e-1a9f-4e9c-09c7-08ddb8af5795
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rpL5gBEoHZq/VCrGXIJlo3Y9P2FZSTBFCrYnLTrx3oN8PBtBf6YF1IG51N9x?=
- =?us-ascii?Q?BGE3lmWo/BExPD6WU1kNjVDXMdQglhkpUEcWPc3OoTshNbYaq5pw1wCdcyca?=
- =?us-ascii?Q?EAKOrCfMaXE8xDbh5xDZPXf2kym5DuXEHPZnuPO0TbYcHw4EKfhYu2yFt2QL?=
- =?us-ascii?Q?GQ2Ud5Ygl22kZLZxCmnZx69c4an/9Mev2ih6laHRAQzCRr37+ZdOdEtJSLYo?=
- =?us-ascii?Q?iqVeNi4Ey7FMnlNPzoX6K/8OxPG9Do6pqYhlxGmxTO/555kPlal2PsySFBHV?=
- =?us-ascii?Q?ME4Sxv7iIrLHh8oAjCKHLhqE/HhDuIMulF2ix76aX4GDuq0xvTfvSJwIN9/p?=
- =?us-ascii?Q?+8dEHfS8Q23feOyfGEFw2vzXFGIFMpKM8zcxvWaCOyfojENmqk9A1LEg3Tyd?=
- =?us-ascii?Q?Hnj3kGH6uPcwjIwCwBKc0UpAsX0IR9TlrIh49FS+8gl7TRVAf1isbz5LME1h?=
- =?us-ascii?Q?+DE5NFUyHEJEhpD1Zb4jMAWwAsxaKHMKT7dlIfQ79Yf0ZzwxusyPxYV09U+I?=
- =?us-ascii?Q?PeWl0Lp3M0hHxGYhlZNwaMtGZTj6QNnRGRSCSGkFZOL6F3019ccTAzxsvD/6?=
- =?us-ascii?Q?WSz7Ykg54H8rr7PCB1qmI2veJagDs6ibqYGLXXAiOwI6ny1zQCNE9dv0+MTu?=
- =?us-ascii?Q?W4xFMAIimvkHGKSQ8C7LwHoX7gYIV9MfKmJrNAhsDU6++yzMVXCO96pFpM1S?=
- =?us-ascii?Q?pT1tsvYl0mJI3R97L6YjChIzwet3BgUcDvr4eIT7oyEzWYwN63/sNy3NLoVJ?=
- =?us-ascii?Q?YExmeO1n3ZjlSRAevGkcEx1eCm+LPBzK1GFkP58OlBPvv7DhKLX7U+Su5rTx?=
- =?us-ascii?Q?vsKdhTolLy1WgbXLV8rKo79R+YBCTMvB0+ET/2aSxT7W6Ie5CMs+IN8OlTF0?=
- =?us-ascii?Q?Flu4qdFCUhnFqrLRdVg3SXOiuqiq3tPNOu5WuGRVgdTrKD9/XVqEhoDpyTeI?=
- =?us-ascii?Q?G9mE2ih//D8zuFeYnE27AOYkPsmkNMTMrtdjh9+mWscsy9851TsQRb5ph9jY?=
- =?us-ascii?Q?gQV/kBLE/YRmIaopj/NdEQc7LzmTuuHprEHhlrxwDYmAsEy9Ypr/KIZb0/4G?=
- =?us-ascii?Q?1MMVGeJN4AWCZQNBIjDoinUzgN2BNtvomJFHprsmugigbD29w+LMUCAGKYDI?=
- =?us-ascii?Q?OGAoOIdF1vAvzTjAeBmYezNKjIhlVLlERGffFmY4n2Rc+dJc/MEot4jFApJJ?=
- =?us-ascii?Q?AbYbejpzl+FnaY4NCRFHFRtKMPOFE6s1HbMtKDB4t6RpKDHF5Iikpm9z1X2b?=
- =?us-ascii?Q?yl5owTU3Ekc28uKlHYBwV73lbLChLk5UvcuclMCgNUkYuWoqhs6BZA3J2J+i?=
- =?us-ascii?Q?cs4rQqAn4+v0rmxuMt9hhG7MwNoPs8yKNij9SKBCNFMDtVqEKuaGCNm7rDRD?=
- =?us-ascii?Q?JRpON6I5cuaP/hHziytgoFSQ+ed2s0haPsGbrr5cuRP8LJvFrxUVlI2D0X5P?=
- =?us-ascii?Q?SFAeBx0UHdV97LBuf3b2sNxrkgCtG/id?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7qEmaVOKdGga2LQDxe0Ee/n6HNKJ/5WE6v0B9EJz3kyF+unJaVtzcNsUU1en?=
- =?us-ascii?Q?n/v1shbiyLqT5kh3wuXrWNsw0oX/QmpIV76z+t8RL5UN6uqzCAa94BS0Zw1i?=
- =?us-ascii?Q?avl9yQ1OrHqJlN6q9RjOQFtYqeQFAntVHn1rDCUwyBenMwb4eJGXpN9dsTx5?=
- =?us-ascii?Q?RNqUHWGmg5uC8207QM6LYDhwnK3O/P/uooG+mg+W7vWvTtCQx08DFG+RzSoI?=
- =?us-ascii?Q?fDEZvVw6WilZYQOIe87oDvHOlfDAeTeIh4nrQUG/IHPa/flf653jvBCxaDVm?=
- =?us-ascii?Q?rWijU3acttVYBTGkJCsxU1xDJGv0q57jT52z078fSY0CAPNlQVb9u1ItkpUl?=
- =?us-ascii?Q?JPosQaDRtakjHZg/IlilPHmXXYbOe20w7EDQ7AQrbw8GAl5GqbnaRtX74wcv?=
- =?us-ascii?Q?bcwjjLG9bG4hZRHpLMUW7IzHsdkln4GPAf8/Z1XlN1pByVQco+m1YoMSRp1T?=
- =?us-ascii?Q?Kdhropzb/1fL9Ux8GJC/5xNV0PHxNeoqQ9TUGiHe87NyDWMC81XeCBb5R0aY?=
- =?us-ascii?Q?0s4NMKKfRtTVyN/1Rzz4U0KAYa46vi0TahueiZHv228jstUnDIQOGFcas3B7?=
- =?us-ascii?Q?mgDYKb9XT02B0HfZJwiaq/8OWFTRo3H9tRrUpyOUlefMwShSCZjESTtWY/gC?=
- =?us-ascii?Q?V4AMWNeeCLaTu/yYSY8IYJDVsLUDEpRHuikhmZ0UfM5MAYQpdNr6BW9XCuwg?=
- =?us-ascii?Q?toRXPfZ4kQn8S+8iky3A92i1dHRLnGMtfoic+bl2XRh4mqmuRLkxXPNrCFhg?=
- =?us-ascii?Q?yJIUK9j8grXz+CnPnJ5KcdCdBScINTW6k/18HZwJspR8TKG0hnBmDT9FUWzh?=
- =?us-ascii?Q?4AJgUmLIaHzkT43U5QrF6GbqDzfvWVAi6cwT6TzPBu9PBoWuqhjpsmBM7ag3?=
- =?us-ascii?Q?Pkm6OTG0DY5t5u9k9E4yZEYuvvFfajLnNBqr6w4gJPz9ZuzijKyFifdxwvfV?=
- =?us-ascii?Q?NLEZWWwGgwIokpHuHjzwns5VJR/n7uNwI6DtgaGrWn8KyUmYtiIOHbDFLpuH?=
- =?us-ascii?Q?gotyWpZdQIEawnqjv1F5mwuDMNFXAMjClwyFTSFW7eKmFnpHgfVfYAN0osEC?=
- =?us-ascii?Q?IvO3jtpl7rE5qEeSLeeNbgQWKVCbaz13DbQu+K2ju59YjMclZB82gHaL5abE?=
- =?us-ascii?Q?2+G4iPUm6xTfwcq0wSVwKdmnIXAyo/pC1Yob4ClIJY9bJ9O4JS3x1/X7er1o?=
- =?us-ascii?Q?FwmSpqD06maf9bB4+ap1uwhMOpkVCFZpgfzgTji4qncVQHHpo7PiVpvYTWlS?=
- =?us-ascii?Q?DIGh5eBEb+FFj7ORSVs4MOUP9yLgYa/tvYU+ugjq/8j6YwkW53urtv8QIVSh?=
- =?us-ascii?Q?zgOj77Sm6n29nOE3bLHCBaDKQEOzVMMVbran8LRJWJoSC5EBOgjw+EO/WRSW?=
- =?us-ascii?Q?tzpwPOs+BHCXuIINBaBXieS06qFougLcljxylAervcNhiMs1YQcwv6zxnMWg?=
- =?us-ascii?Q?6607L+rbBvsX9JrDvUkPbxUX2lcpO+ax6Iwsrng5vyu4H4wEzioUhr3AFdZJ?=
- =?us-ascii?Q?rnpHIeG26w6TKfqlqgK+q02f15joMJrr1cFCAvsLHRNzyOBmqZ1VvOwrFiiN?=
- =?us-ascii?Q?zQ/Kwl3NZkYZEUkGDvPPSlCywTgCuhxXKsqsBO1O?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c56cc4e-1a9f-4e9c-09c7-08ddb8af5795
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2025 14:55:38.7826
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: f9h3Q4H052TpnOmoq51r/kikUs9LdckPmIZ8WSyQnLcvKOWNR7rtDxFJJiED2Jw/0rpEsLY8GBBIbp9Z8yLE1Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11215
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1890; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=V3/1Jhz+8jf7kFbZFnPBPOCuvUVUSIhpyy7UQB/kU4E=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBoY/d8toMLlz9lxSI2Llq56+YvDEDL4asEd5CrC RI5bWIYEqeJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaGP3fAAKCRCPgPtYfRL+ TktAB/4soWg74PxIEoMJ0HCcBne4dGY+GAy12UbwZonUtaMNIbvMcY+uICUI5B0u1OWZl4yv+VP 6SfkyOG7IK0m4xe2NQdRrvpsoqRmAd/G7pPUziwN2ofDvpNCX1BFZzgaTEufOWjDmCHa1DbbiKf baPqXHW8A7MdPSigqhloWsBqwBlb7rXdL4DruYiINyvGdgbArsjyWVp/UQPptAzln1vrUtu1bN6 vc4Yk2hFGT/YWCRmQqf1sO1BiJLTtZ7tn+jrnlhqwfI9oNZ3LK09QMzYU1jeMKNCuLZqgR+kpGu Y+opYi8G0asrxrSO3LpY3t2rH4Xxj8WqY/RXFk58Py9/d9c2
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_075557_359044_0AE8B7F8 
-X-CRM114-Status: GOOD (  31.64  )
+X-CRM114-CacheID: sfid-20250701_075815_011668_BE62EE6F 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,178 +106,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 01, 2025 at 01:53:40AM +0300, Laurent Pinchart wrote:
-> Hi Frank, Alice,
->
-> Thank you for the patch.
->
-> On Mon, Jun 30, 2025 at 06:28:18PM -0400, Frank Li wrote:
-> > From: Alice Yuan <alice.yuan@nxp.com>
-> >
-> > Document the binding for parallel CSI controller found in i.MX8QXP, i.MX93
-> > and i.MX91 SoCs.
-> >
-> > Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  .../bindings/media/fsl,imx93-parallel-csi.yaml     | 108 +++++++++++++++++++++
-> >  MAINTAINERS                                        |   1 +
-> >  2 files changed, 109 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml b/Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
-> > new file mode 100644
-> > index 0000000000000..b4657c913adad
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
-> > @@ -0,0 +1,108 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/media/fsl,imx93-parallel-csi.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: i.MX8/9 Parallel Camera Interface
-> > +
-> > +maintainers:
-> > +  - Frank Li <Frank.Li@nxp.com>
-> > +
-> > +description: |
-> > +  This is device node for the Parallel Camera Interface which enables the
-> > +  chip to connect directly to external Parallel CMOS image sensors.
-> > +  Supports up to 80MHz input clock from sensor.
-> > +  Supports the following input data formats
-> > +    - 8-bit/10-bit Camera Sensor Interface (CSI)
-> > +    - 8-bit data port for RGB, YCbCr, and YUV data input
-> > +    - 8-bit/10-bit data ports for Bayer data input
-> > +  Parallel Camera Interface is hooked to the Imaging subsystem via the
-> > +  Pixel Link.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    oneOf:
-> > +      - const: fsl,imx8qxp-parallel-csi
->
-> Is there any chance we could avoid calling this "csi", given that the
-> whole block is called "Parallel Capture Interface" in the reference
-> manual ? "CSI" is horribly confusing as it usually refers to MIPI CSI-2.
-> I suppose calling it "PCI" for "Parallel Capture Interface" wouldn't
-> help :-/
+If these PWMs are to be used, a #pwm-cells property is necessary. The
+right location for that is in the SoC's dtsi file to not make
+machine.dts files repeat the value for each usage. Currently the
+machines based on nxp/lpc/lpc32xx.dtsi don't make use of the PWMs, so
+there are no properties to drop there.
 
-PCI is too famous for PCI(Peripheral Component Interconnec) bus. It will be
-more confused.
+Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
-Can we use pcam? fsl,imx8qxp-pcam
+this patch was send to linux-arm-kernel@lists.infradead.org and a few
+other lists but not soc@lists.linux.dev[1]. So Vladimir's appeal to Arnd to
+apply it was lost.
 
-Frank
+The changes compared to (implicit) v1 are:
 
->
-> > +      - items:
-> > +          - enum:
-> > +              - fsl,imx91-parallel-csi
-> > +          - const: fsl,imx93-parallel-csi
-> > +      - const: fsl,imx93-parallel-csi
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    maxItems: 2
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: pixel
-> > +      - const: ipg
-> > +
-> > +  power-domains:
-> > +    maxItems: 1
-> > +
-> > +  ports:
-> > +    $ref: /schemas/graph.yaml#/properties/ports
-> > +
-> > +    properties:
-> > +      port@0:
-> > +        $ref: /schemas/graph.yaml#/$defs/port-base
-> > +        unevaluatedProperties: false
-> > +        description:
-> > +          Input port node.
-> > +
-> > +      port@1:
-> > +        $ref: /schemas/graph.yaml#/$defs/port-base
-> > +        unevaluatedProperties: false
-> > +        description:
-> > +          Output port node.
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - clock-names
-> > +  - ports
->
-> Patch 4/5 lists a power domain, and so does the example below for
-> i.MX93. Should the power-domains property be mandatory ?
->
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/imx93-clock.h>
-> > +    #include <dt-bindings/power/fsl,imx93-power.h>
-> > +
-> > +    parallel-csi@4ac10070 {
-> > +        compatible = "fsl,imx93-parallel-csi";
-> > +        reg = <0x4ac10070 0x10>;
->
-> The i.MX93 reference manual doesn't document the register set for this
-> block, so I have a hard time reviewing this. Is there a plan to publish
-> a new version of the reference manual with the complete documentation
-> for the parallel interface ?
->
-> > +        clocks = <&clk IMX93_CLK_MIPI_CSI_GATE>,
-> > +                 <&clk IMX93_CLK_MEDIA_APB>;
-> > +        clock-names = "pixel", "ipg";
-> > +        assigned-clocks = <&clk IMX93_CLK_CAM_PIX>;
-> > +        assigned-clock-parents = <&clk IMX93_CLK_VIDEO_PLL>;
-> > +        assigned-clock-rates = <140000000>;
-> > +        power-domains = <&media_blk_ctrl IMX93_MEDIABLK_PD_MIPI_CSI>;
-> > +
-> > +        ports {
-> > +            #address-cells = <1>;
-> > +            #size-cells = <0>;
-> > +
-> > +            port@0 {
-> > +                reg = <0>;
-> > +
-> > +                endpoint {
-> > +                    remote-endpoint = <&mt9m114_ep>;
-> > +                };
-> > +            };
-> > +
-> > +            port@1 {
-> > +                reg = <1>;
-> > +                endpoint {
-> > +                    remote-endpoint = <&isi_in>;
-> > +                };
-> > +            };
-> > +        };
-> > +    };
-> > +...
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 8dc0f6609d1fe..3bd6772c11539 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -15107,6 +15107,7 @@ L:	linux-media@vger.kernel.org
-> >  S:	Maintained
-> >  T:	git git://linuxtv.org/media.git
-> >  F:	Documentation/admin-guide/media/imx7.rst
-> > +F:	Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
-> >  F:	Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
-> >  F:	Documentation/devicetree/bindings/media/nxp,imx7-csi.yaml
-> >  F:	Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
->
-> --
-> Regards,
->
-> Laurent Pinchart
+ - rebase to todays next
+ - add Vladimir R-b tag
+ - add Arnd and soc@lists.linux.dev to recipents
+
+Thanks for considering
+Uwe
+
+[1] https://lore.kernel.org/linux-arm-kernel/20250403104915.251303-2-u.kleine-koenig@baylibre.com/
+
+ arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+index 41f41a786f9d..6cf405e9b082 100644
+--- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
++++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+@@ -481,6 +481,7 @@ pwm1: pwm@4005c000 {
+ 				compatible = "nxp,lpc3220-pwm";
+ 				reg = <0x4005c000 0x4>;
+ 				clocks = <&clk LPC32XX_CLK_PWM1>;
++				#pwm-cells = <3>;
+ 				assigned-clocks = <&clk LPC32XX_CLK_PWM1>;
+ 				assigned-clock-parents = <&clk LPC32XX_CLK_PERIPH>;
+ 				status = "disabled";
+@@ -490,6 +491,7 @@ pwm2: pwm@4005c004 {
+ 				compatible = "nxp,lpc3220-pwm";
+ 				reg = <0x4005c004 0x4>;
+ 				clocks = <&clk LPC32XX_CLK_PWM2>;
++				#pwm-cells = <3>;
+ 				assigned-clocks = <&clk LPC32XX_CLK_PWM2>;
+ 				assigned-clock-parents = <&clk LPC32XX_CLK_PERIPH>;
+ 				status = "disabled";
+
+base-commit: 1343433ed38923a21425c602e92120a1f1db5f7a
+-- 
+2.49.0
+
 
