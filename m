@@ -4,61 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF8FEC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D393C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JLnuPI1OpbZEzpOWF/Lr9rgMolg3W5p+0QgjbFw55Sc=; b=4KThI4zlC0aU6qB9djbmxoWnqf
-	dCOpBa+RilOes2YV3mzQf7tNGbtFVXFpUgSVrmlwTB699UUZpu48l7IMA4BOYl6dmobxMB9To5zAj
-	a4EDbJ8DP9v2fhbhuwP3YBUiMvJLOn7uTgMQEeXWaymTuSVbSLdh7g5DTnfLQ88rT3ZBqvaSywY+I
-	U7s7JBRsTzNqSS3c+/YIdS2V/B+rlDmlW024318niajva9ap4TBya2MD4S3bCaqGAyo+gkxofIf7L
-	hQUDoSuxWfIomhekrjC3I83wZEKplycYeXFtkozp/9ru3vMiOfbQNmD1N0RTQa9EC2097mRSRKNr7
-	Zz6C8Y9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=a9ieoSI7GetS14iPecB62J1+6F1ia29ooBPoWTe60DU=; b=b3h11A6bd1m0wVw3VG2jZFeI2F
+	Z2OT1BV1uA9vrTT/tps/ZYCv8QRP3QzU0UXKSXFhzYb8AOAU+3anTlbsy13xpo02wBopVN+Yzeoso
+	qq2XEBByVXJ7cdEcxe/OQYSDFiQQiEf+5Y/+/URBawwFvc7TWewPkTtvrjyJOBKzJn/VeeoIZWQxn
+	aDBVVBUioKyb1mPvDdHHzReSMf7p2tf/F03G6QxBayqOLQSRv6R96T78BNlAiI77GvGn8lTHXCnci
+	PlZfe8oSMszTfkj+JnKsuNu/LDIb15mki6wpFrokpn1r+S/q+ZCl4QMgiJXEA2bb7zLF5ighxRynm
+	t8G3p8Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWjd-00000004UUA-3g3G;
-	Tue, 01 Jul 2025 08:53:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uWWoR-00000004WBV-4984;
+	Tue, 01 Jul 2025 08:58:02 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWao-00000004Rvu-1Yho
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 08:43:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B705B4489E;
-	Tue,  1 Jul 2025 08:43:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24D8BC4CEEB;
-	Tue,  1 Jul 2025 08:43:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1751359433;
-	bh=zEtteRShEKxsilU1Hd798Yj8bqUgtyrPa4gMPVvltBA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QTca0xQ6usblgn0H54MJyFZyL9ZmPDGrAlA4LGrzuO1VJiUauh+qK/CUxeFlTL5dX
-	 UscJa3DxZM42Q76n7oBLLmiGaoU8ZWPIWQkqVSMNFj/3q4V7QQORhbz8GV+WrOHzEw
-	 O9n/nG5o4+q+Tzl7xOo2l0wRcFsSY/lY8U0UJTlw=
-Date: Tue, 1 Jul 2025 10:43:50 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Sergio =?iso-8859-1?Q?P=E9rez?= <sperezglz@gmail.com>
-Cc: michal.simek@amd.com, linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	shuah@kernel.org
-Subject: Re: [PATCH] usb: gadget: udc-xilinx: validate ep number before
- indexing rambase[]
-Message-ID: <2025070120-outhouse-lubricant-ff47@gregkh>
-References: <20250627060125.176663-1-sperezglz@gmail.com>
- <2025062834-botanist-crop-4aec@gregkh>
- <CAMCbnubpfO0y9oMnJnYHQ3ALTPmF1W80sPhbNPzaR59hy+cDQQ@mail.gmail.com>
+	id 1uWWm3-00000004Vij-3Lv0;
+	Tue, 01 Jul 2025 08:55:33 +0000
+Received: from [192.168.1.60] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C497A7E0;
+	Tue,  1 Jul 2025 10:55:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1751360106;
+	bh=bpUYSyg7FQSqalfiLvbpqYi9zHballtSu0yKxalold4=;
+	h=From:Date:Subject:To:Cc:From;
+	b=nN+kiD6yZxa3A5kEP9rRpCkA6c0lCYFnWJTbNQIpcgDa57LJTwlA/wMyEZQOB7iA2
+	 U9ZcjqJ5lVe7XVUxsB6ihrNMIDSJU0LzSsddYwqbQ4gKiadF9b2ibNB9ywuR8VUMYl
+	 Bfg8xiQi9P9tXzkJqxzEBEu8nEVOnx1Hc+/Ziyps=
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Date: Tue, 01 Jul 2025 10:55:05 +0200
+Subject: [PATCH] media: pisp_be: Use clamp() and define max sizes
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMCbnubpfO0y9oMnJnYHQ3ALTPmF1W80sPhbNPzaR59hy+cDQQ@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250701-pispbe-clamp-v1-1-31243db3439b@ideasonboard.com>
+X-B4-Tracking: v=1; b=H4sIAGiiY2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDMyNj3YLM4oKkVN3knMTcAl2TJGNjA0PDFINUC1MloJaCotS0zAqwcdG
+ xtbUAsSezGF4AAAA=
+X-Change-ID: 20250623-pispbe-clamp-4b33011d0e85
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2889;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=bpUYSyg7FQSqalfiLvbpqYi9zHballtSu0yKxalold4=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBoY6J/2GyckB7PTepmFR9Z8KBIt+ohmQEHr0vtF
+ 636rRe1tgeJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaGOifwAKCRByNAaPFqFW
+ PNf+D/9Q7XpnGWqW2Z/2gS0FAMzczkz9mx1p7mIuhqfnDUHB7C48ri0voT/7XctuGnbkAsfLr+O
+ G4Yx5tLfV9yxG3HhIMPf4Ph8X3OMxILQJJrO3FQun7KWgNZhGY3QJKEAm3I7XMfhOlgkPz8bC8M
+ aecrDBchSO3KOlk5Hwk9SQ2JuVlLDPlpczbrA6uVgWwFyxjO0lDIWCFtm40cPhfwrphr/IRgs1V
+ P91dSY3MCumILB82OYa6wkOBY2OJ8JTxP3dgP9zfkGx/r+LChaaDx9W52ZcuYK5BW04zK7E7rGI
+ ydpiYZTmait1JJDkEe7BSZLM5bNs5mCfcpLkJjFrxavUxiTWPvdhPw7LXFX4c9kwCmF2DFhe+cf
+ lC7W5er3qVxbQzYJblU4qqjzvh4dvEUHvE+cqNhj+mpE+dRIVYEwBJexxIbUyNG3fJl4Psj1/7I
+ fBmvWBQx6HUKdKCJdhApWz9+4+Yj4Up8eqrtP0+9XHOZ+4s5izodm+giPJJ7RAfKp01+6Azx+qa
+ JYr0phCnRge2L6U9o6nUPTHeb1CB/+uYnF6xUm3n7uAPwT9xX6XY+7jEqQAaqwPpnVHEYev/OPZ
+ DwZndwwSi6c3Ttqs61EYrrUcsd9jD6cWCAb11o2j+SyxZPcCYegWFeVlkPsPnHTbPNHPgtW67JA
+ aelnvDpRJt7sLag==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_014354_448880_5DED44EA 
-X-CRM114-Status: GOOD (  31.39  )
+X-CRM114-CacheID: sfid-20250701_015532_186470_255D59AD 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,66 +91,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 02:20:35PM -0600, Sergio Pérez wrote:
-> > On Fri, Jun 27, 2025 at 12:01:22AM -0600, Sergio Perez Gonzalez wrote:
-> > > Issue flagged by coverity. The size of the rambase array is 8,
-> > > usb_enpoint_num() can return 0 to 15, prevent out of bounds reads.
-> >
-> > But how can that happen with this hardware?  As the array states, this
-> > hardware only has that many endpoints availble to it, so how can it ever
-> > be larger?
-> >
-> 
-> Hardware will likely behave and not report more endpoints than it
-> supports, but I thought that there is still a possibility that this
-> can be exploited, taking into account this patch:
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7f14c7227f342d9932f9b918893c8814f86d2a0d
+Use the clamp() from minmax.h and provide a define for the max size as
+they will be used in sequent patches.
 
-That patch is probably not needed, for this same reason.
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+---
+ drivers/media/platform/raspberrypi/pisp_be/pisp_be.c  | 11 +++++++----
+ include/uapi/linux/media/raspberrypi/pisp_be_config.h |  9 +++++----
+ 2 files changed, 12 insertions(+), 8 deletions(-)
 
-> and this CVE:
-> https://www.cvedetails.com/cve/CVE-2022-27223/
+diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+index 7596ae1f7de6671484d4d351015b234829f642d4..ac5840b4be478ccdd7da9d6d0745649e0c1b2b6f 100644
+--- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
++++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+@@ -9,6 +9,7 @@
+ #include <linux/io.h>
+ #include <linux/kernel.h>
+ #include <linux/lockdep.h>
++#include <linux/minmax.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+@@ -1114,10 +1115,12 @@ static void pispbe_try_format(struct v4l2_format *f, struct pispbe_node *node)
+ 	f->fmt.pix_mp.pixelformat = fmt->fourcc;
+ 	f->fmt.pix_mp.num_planes = fmt->num_planes;
+ 	f->fmt.pix_mp.field = V4L2_FIELD_NONE;
+-	f->fmt.pix_mp.width = max(min(f->fmt.pix_mp.width, 65536u),
+-				  PISP_BACK_END_MIN_TILE_WIDTH);
+-	f->fmt.pix_mp.height = max(min(f->fmt.pix_mp.height, 65536u),
+-				   PISP_BACK_END_MIN_TILE_HEIGHT);
++	f->fmt.pix_mp.width = clamp(f->fmt.pix_mp.width,
++				    PISP_BACK_END_MIN_TILE_WIDTH,
++				    PISP_BACK_END_MAX_TILE_WIDTH);
++	f->fmt.pix_mp.height = clamp(f->fmt.pix_mp.height,
++				     PISP_BACK_END_MIN_TILE_HEIGHT,
++				     PISP_BACK_END_MAX_TILE_HEIGHT);
+ 
+ 	/*
+ 	 * Fill in the actual colour space when the requested one was
+diff --git a/include/uapi/linux/media/raspberrypi/pisp_be_config.h b/include/uapi/linux/media/raspberrypi/pisp_be_config.h
+index cbeb714f4d61ad53162c0450f2303431a5958040..2ad3b90684d7be80776af75b5c5009f7b677f466 100644
+--- a/include/uapi/linux/media/raspberrypi/pisp_be_config.h
++++ b/include/uapi/linux/media/raspberrypi/pisp_be_config.h
+@@ -21,10 +21,11 @@
+ /* preferred byte alignment for outputs */
+ #define PISP_BACK_END_OUTPUT_MAX_ALIGN 64u
+ 
+-/* minimum allowed tile width anywhere in the pipeline */
+-#define PISP_BACK_END_MIN_TILE_WIDTH 16u
+-/* minimum allowed tile width anywhere in the pipeline */
+-#define PISP_BACK_END_MIN_TILE_HEIGHT 16u
++/* minimum allowed tile sizes anywhere in the pipeline */
++#define PISP_BACK_END_MIN_TILE_WIDTH	16u
++#define PISP_BACK_END_MIN_TILE_HEIGHT	16u
++#define PISP_BACK_END_MAX_TILE_WIDTH	65536u
++#define PISP_BACK_END_MAX_TILE_HEIGHT	65536u
+ 
+ #define PISP_BACK_END_NUM_OUTPUTS 2
+ #define PISP_BACK_END_HOG_OUTPUT 1
 
-Odds are we should reject that CVE, want me to go do that?
+---
+base-commit: 35392e855abf7d02ad3b061cbc75c7c7c37f0577
+change-id: 20250623-pispbe-clamp-4b33011d0e85
 
-> However, looking more closely the above patch, the endpoint number is
-> extracted from a struct different than the "usb_endpoint_descriptor":
-> "epnum = udc->setup.wIndex & USB_ENDPOINT_NUMBER_MASK;"
-> in contrast with the code that I'm touching. The CVE does not add more
-> details to understand if the part of the code that I'm changing is not
-> subject to the vulnerability.
+Best regards,
+-- 
+Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 
-Please dig deeper to determine this :)
-
-> > > ---
-> > >  drivers/usb/gadget/udc/udc-xilinx.c | 6 ++++++
-> > >  1 file changed, 6 insertions(+)
-> > >
-> > > diff --git a/drivers/usb/gadget/udc/udc-xilinx.c b/drivers/usb/gadget/udc/udc-xilinx.c
-> > > index 8d803a612bb1..0c3714de2e3b 100644
-> > > --- a/drivers/usb/gadget/udc/udc-xilinx.c
-> > > +++ b/drivers/usb/gadget/udc/udc-xilinx.c
-> > > @@ -814,6 +814,12 @@ static int __xudc_ep_enable(struct xusb_ep *ep,
-> > >       ep->is_in = ((desc->bEndpointAddress & USB_DIR_IN) != 0);
-> > >       /* Bit 3...0:endpoint number */
-> > >       ep->epnumber = usb_endpoint_num(desc);
-> > > +     if (ep->epnumber >= XUSB_MAX_ENDPOINTS) {
-> > > +             dev_dbg(udc->dev, "bad endpoint index %d: only 0 to %d supported\n",
-> > > +                             ep->epnumber, (XUSB_MAX_ENDPOINTS - 1));
-> > > +             return -EINVAL;
-> >
-> > Any hints as to how this was tested?
-> 
-> I don't have access to such xilinx hardware, given that it was marked
-> as a high severity defect in coverity and it is basically extending a
-> validation that was already added in other parts of the code, I
-> decided to propose the patch without runtime testing.
-
-Never trust static analysis tools blindly.  The number of
-false-positives stuff like coverity creates because it can not determine
-where data actually comes from is way too high.
-
-thanks,
-
-greg k-h
 
