@@ -4,83 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66788C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A753C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LBaHHeBZtreqORo2ZrKJra35Hs9YmlKhQvZuFYmqjYM=; b=xSYSj4RApOKe/8g6z/dW78xc8g
-	xQYQ+yRRWG32tMGJgL47jYnmjfLrePeYk0YJPOfpbb6vb1lCmpbQvNc9zUFA0YDMcJkCxL2REV1Mu
-	pEKO0DBl87YBvjlH1r4mo3sFv2Qku+rZGa5PA3IdMXAmLyNbOMzISzQI9AV0rXWja7fzDlcp5v9p7
-	wkTVAveZitYGCnhE+umoyjNaEg5jFDsHX0iu8tCWuDoOVljmd7i/6yqonMCw94poZknJobqTgNVoL
-	5jTJ92s83/LAMtNOxYNIJTuR9eRZ/ihb13r7DtGkE0wzpRXAdxVo1jrNHgxxnxo7QKDIXbZUY8Yyk
-	/K7TZdFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EjeWk9zqwweIgociDbPCS45o0KwQTUtlv3dSFR85Uf8=; b=I/RKDotMyqYLyeR503QlUu/Rj+
+	8QiJD2OD/S+6MhTq3pYUDs2CjSX9l/0haq938V+ZRYqzbXqIyfxqnK/YN/TAIRoiIf1eOBE3IY+Ho
+	5EF3pUxYkY42M/Z/m3xtyrZkhIvcrJpA4tMWxGwB+INSdqPTwytqqCH2NZ5FA+q6OFTxrCCIQoeq+
+	z+93AXuTLS+cbvYqViv5jMnKwNn2PZcbDRRKLjzg5DMYiP5WJG2uvZ+Q7LRusHHvZK0cRgjrP7WWh
+	sOfxt3MKmfFjioeioS4Tj8kvcp3I2L9hGaws/73m5xwDeSw7HvprOwDGqM2O27wIhlclRu5ersBHX
+	RohA53Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWqr-00000004WrO-0mH6;
-	Tue, 01 Jul 2025 09:00:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uWWxy-00000004YYc-2LYN;
+	Tue, 01 Jul 2025 09:07:50 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWmP-00000004VmU-0mvE;
-	Tue, 01 Jul 2025 08:55:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=LBaHHeBZtreqORo2ZrKJra35Hs9YmlKhQvZuFYmqjYM=; b=X0UUIG4fDb2GEjtHCX0cX2/hLk
-	PVjO61C3AI3SGUeHCX82ob+d2Qiq9459pcn/sJquSBV6HZ0Llk/pLcBo2HZFHA8XJhF/79mXLZBPl
-	TLes6HGlAVANhcvbTgrcMTkQSvMducGqr2wL3nPbMXUrGGDP6bZSzkDGbPi6D8TTDKBB+kJL+zY97
-	LRge/o1PiSZ/hjbZxdK4VnuTCLFRBZ1rdLZDmXYZ6oKda3ZzPGFI6vHnum2x7wI0n8T6T/v4EOiTr
-	cPq5ZiIacrFeZAOE3mlqoLIRCNDGHQPMuSWzoBlpAqcNE2iyqKm7VBYmhdwFD6AaZE7X0p4PbzCvh
-	z/6viRFw==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWmL-000000070Wt-2WUH;
-	Tue, 01 Jul 2025 08:55:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751360128; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=iXVLzTc0MYcUhCmNc0zoT8nYZniOsIwfRSdBoWAfmk8a3Ib7qya7A78A7WGWbO3ipKncfG9dW5CEW158AUEqcbE2qsA9COJ0UwsALbsbWmjN5K/hJwvRaZwAe9RHqOUmBm/M2TZvKyNdxNF8BA9YFBMxXyWxcYJR8pgaIzTuR5s=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751360128; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=LBaHHeBZtreqORo2ZrKJra35Hs9YmlKhQvZuFYmqjYM=; 
-	b=gQw3TB5guJkE4ZVQQGU1sFnYxUQzpsv//xEYk08I//G0VWcODeMs+5dBnIC42r4LcrygQA8jvPNGvqMVSA79gw+Qw3Q8pQVaTbbasRLaKkoHEXsFZDSHMnUpeMa4Q1le++i5RAp3JaOq5Uxr3VXChZTz86XfUaFBLmLNQ4GrIM4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751360128;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=LBaHHeBZtreqORo2ZrKJra35Hs9YmlKhQvZuFYmqjYM=;
-	b=JZ2VrbNaTm3OpMX0YVnCl55PmHvPYXyQnlT1ukmO0ND2/Ypap1INngGBZHGOIy+Z
-	Y7Yqzpa2LmBdNATgtWoIQ6LdDI3X9HPN3BmCRqLdW/SHABuJ0QJ81S+TfdVGdNsit4H
-	eJUEAJ0TIOr4/zbT5ChIQNTsWrhaHaEEdecBdfSY=
-Received: by mx.zohomail.com with SMTPS id 1751360126517482.5342375792277;
-	Tue, 1 Jul 2025 01:55:26 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Diederik de Haas <didi.debian@cknow.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, kernel@collabora.com,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: adjust dcin regulator on ROCK 4D
-Date: Tue, 01 Jul 2025 10:55:21 +0200
-Message-ID: <5039013.31r3eYUQgx@workhorse>
-In-Reply-To: <DB0KL629S4E4.3ENNM27XN3IYM@cknow.org>
-References: <20250630-rock4d-reg-usb-wifi-v1-0-1057f412d98c@collabora.com>
- <5acizoywvjolaffojiawqlzixiclrqzohuhq55lbsjm6yhhlwi@w2amqugl3ee2>
- <DB0KL629S4E4.3ENNM27XN3IYM@cknow.org>
+	id 1uWWot-00000004WLv-3k7J
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Jul 2025 08:58:29 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751360287;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EjeWk9zqwweIgociDbPCS45o0KwQTUtlv3dSFR85Uf8=;
+	b=Q3Bq7jJDuyJYZZNBtxqwLQORnk+1VWGdxJ5VZ/5n8JC/Mp6Fh3IvRjPoe8G8c0J+O4T5VE
+	KiXJoAnvbFFP+I9owauyAUuofSNFbRFmNmAAlI/WXPdFRPZDl53qNiW6E27P3L/ZMBI16s
+	qBqoY0bkaLg4ux9pXGa3+j+8s4HtxsXK9Ucwf07oYqOx4pM5NJCPGma7zvJHD6T7NV5kWU
+	6snc5AaEYoCE6BEb9WUvw6WQ0iJAii/iN7RA+ekjlYTBxiU0cDl0XejtXF5qlD5RCkEFHF
+	mZoDHsqrvQPWbssyF7Qg4Y4QJvS9uLooQRwRkXv/zzc6th7h3hgqCnLvgMYu7w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751360287;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EjeWk9zqwweIgociDbPCS45o0KwQTUtlv3dSFR85Uf8=;
+	b=5bleG6OHL3bnoymfUdalPRYi3NtkgJM/zEM5og7glKoX+JQWYLzWp5LXRyJEIBHoy0aVuP
+	xxQtI3Ds9lIF9eCg==
+Date: Tue, 01 Jul 2025 10:57:59 +0200
+Subject: [PATCH 05/14] vdso/gettimeofday: Return bool from clock_getres()
+ helpers
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250701-vdso-auxclock-v1-5-df7d9f87b9b8@linutronix.de>
+References: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
+In-Reply-To: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
+To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Shuah Khan <shuah@kernel.org>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Frederic Weisbecker <frederic@kernel.org>, John Stultz <jstultz@google.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Christopher Hall <christopher.s.hall@intel.com>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Miroslav Lichvar <mlichvar@redhat.com>, 
+ Werner Abt <werner.abt@meinberg-usa.com>, 
+ David Woodhouse <dwmw2@infradead.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Kurt Kanzenbach <kurt@linutronix.de>, Nam Cao <namcao@linutronix.de>, 
+ Antoine Tenart <atenart@kernel.org>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751360285; l=2609;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=WrNmDq00XPL9/kcKPoWaUE05zyuMZ1wASlKqJKUZvV4=;
+ b=tN3l3TzL2aN33IdNstQl9X9W45CCH/yMvg2ndeJaAOtYqHqBFxk+zMlSkxDO3EBvMH4sMt5em
+ LTTGotpyffNDjM9h5UsfpqDXNLO0vxPFLzrx5nuppVM50KXpkxEBIh0
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_095550_095694_DC0238E3 
-X-CRM114-Status: GOOD (  25.11  )
+X-CRM114-CacheID: sfid-20250701_015828_099357_9875CB0A 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,59 +101,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The internal helpers are effectively using boolean results,
+while pretending to use error numbers.
 
-On Tuesday, 1 July 2025 10:19:33 Central European Summer Time Diederik de Haas wrote:
-> Hi,
-> 
-> On Tue Jul 1, 2025 at 1:10 AM CEST, Sebastian Reichel wrote:
-> > On Mon, Jun 30, 2025 at 08:12:27PM +0200, Diederik de Haas wrote:
-> >> On Mon Jun 30, 2025 at 5:36 PM CEST, Nicolas Frattaroli wrote:
-> >> > The ROCK 4D's actual DC input is 5V, and the schematic names it as being
-> >> > 5V as well.
-> >> >
-> >> > Rename the regulator, and change the voltage it claims to be at.
-> >> 
-> >> Shouldn't it have a fixes tag then? Providing 12V where 5V is expected
-> >> sounds problematic ;-)
-> >
-> > This is basically "just" documentation, as the DT just describes
-> > a fixed regulator (i.e. nothing software controllable). This just
-> > changes a number in sysfs :)
-> >
-> > Note, that the 5V DCIN is a USB-C port, which does not do any PD
-> > negotiation, but has the 5K1 resistors on the CC lines to "request"
-> > 5V. If for whatever reason a higher voltage is applied (which does
-> > not happen as long as the power is provided by anything remotely
-> > following the USB specifications) there also is an over-voltage
-> > protection chip. So it's not problematic :)
-> 
-> I was worried about and wondered why I/we did NOT receive reports about
-> boards being fried. Good to know, thanks!
-> 
-> > OTOH adding a Fixes tag does not hurt ;)
-> 
-> Cheers,
->   Diederik
-> 
+Switch the return type to bool for more clarity.
 
-to add to what Sebastian already said: I purposefully didn't include the
-Fixes: tag because there is no functional change here. I don't think
-cosmetic fixes are worth pulling into stable kernels unless they're a
-dependency of a follow-up functional fix patch, which isn't the case
-right now. If such a functional fix patch does emerge, it can explicitly
-declare its dependence on this patch, or even have our robot overlords
-figure it out itself.
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+ lib/vdso/gettimeofday.c | 24 +++++++++++++-----------
+ 1 file changed, 13 insertions(+), 11 deletions(-)
 
-In that sense, I do think a Fixes tag hurts, because it needlessly
-adds to the patch queue of the stable kernel people, and it's worth
-pointing out that while I claim this patch has no functional change,
-that's always predicated on the understanding that it does not
-unintentionally break anything. In this case the chance is essentially
-zero though, but I won't bother re-rolling this for that tag alone.
+diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+index 93ef801a97ef25f66195490d14e41bebcd41982b..9b77f23566f6a35887d4c9aaefc61a971131b499 100644
+--- a/lib/vdso/gettimeofday.c
++++ b/lib/vdso/gettimeofday.c
+@@ -396,8 +396,8 @@ static __maybe_unused __kernel_old_time_t __cvdso_time(__kernel_old_time_t *time
+ 
+ #ifdef VDSO_HAS_CLOCK_GETRES
+ static __maybe_unused
+-int __cvdso_clock_getres_common(const struct vdso_time_data *vd, clockid_t clock,
+-				struct __kernel_timespec *res)
++bool __cvdso_clock_getres_common(const struct vdso_time_data *vd, clockid_t clock,
++				 struct __kernel_timespec *res)
+ {
+ 	const struct vdso_clock *vc = vd->clock_data;
+ 	u32 msk;
+@@ -405,7 +405,7 @@ int __cvdso_clock_getres_common(const struct vdso_time_data *vd, clockid_t clock
+ 
+ 	/* Check for negative values or invalid clocks */
+ 	if (unlikely((u32) clock >= MAX_CLOCKS))
+-		return -1;
++		return false;
+ 
+ 	if (IS_ENABLED(CONFIG_TIME_NS) &&
+ 	    vc->clock_mode == VDSO_CLOCKMODE_TIMENS)
+@@ -427,23 +427,25 @@ int __cvdso_clock_getres_common(const struct vdso_time_data *vd, clockid_t clock
+ 		 */
+ 		ns = LOW_RES_NSEC;
+ 	} else {
+-		return -1;
++		return false;
+ 	}
+ 
+ 	if (likely(res)) {
+ 		res->tv_sec = 0;
+ 		res->tv_nsec = ns;
+ 	}
+-	return 0;
++	return true;
+ }
+ 
+ static __maybe_unused
+ int __cvdso_clock_getres_data(const struct vdso_time_data *vd, clockid_t clock,
+ 			      struct __kernel_timespec *res)
+ {
+-	int ret = __cvdso_clock_getres_common(vd, clock, res);
++	bool ok;
+ 
+-	if (unlikely(ret))
++	ok =  __cvdso_clock_getres_common(vd, clock, res);
++
++	if (unlikely(!ok))
+ 		return clock_getres_fallback(clock, res);
+ 	return 0;
+ }
+@@ -460,18 +462,18 @@ __cvdso_clock_getres_time32_data(const struct vdso_time_data *vd, clockid_t cloc
+ 				 struct old_timespec32 *res)
+ {
+ 	struct __kernel_timespec ts;
+-	int ret;
++	bool ok;
+ 
+-	ret = __cvdso_clock_getres_common(vd, clock, &ts);
++	ok = __cvdso_clock_getres_common(vd, clock, &ts);
+ 
+-	if (unlikely(ret))
++	if (unlikely(!ok))
+ 		return clock_getres32_fallback(clock, res);
+ 
+ 	if (likely(res)) {
+ 		res->tv_sec = ts.tv_sec;
+ 		res->tv_nsec = ts.tv_nsec;
+ 	}
+-	return ret;
++	return 0;
+ }
+ 
+ static __maybe_unused int
 
-Regards,
-Nicolas Frattaroli
-
+-- 
+2.50.0
 
 
