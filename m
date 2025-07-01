@@ -4,107 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90365C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3453C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TW0XVsdgDWrxwGXky0O5598UlMkqask3eci8kzuyY4g=; b=qYTK+Vv58NflwGo1+UbRz34ATN
-	45UrIxWLt14rHNG4ZjlzLw8JnePltwj0n+c7hNw2Q0p27zR1Hnk1GuEpNp4TG/zA6NYaXmYulBxb4
-	B6SoHfVKqZFW7rJIpsIvlExNa0gLP/Xb7xo30oz6dtEwg2QRgYZvDrKVPdKJzjppX0/7PK+HOaaYc
-	4Py6AAiq0GIHuU6CsduwIJtZ1WqL6/9MRCUeIP+yybnRFm2gRXQ185JwpWK1LRPtNdxStZe+oDbiv
-	K0/IamkKZNsc+1lUJC5PJ+d10EJMAHV/sV7CUMOTobCtYc4BRn74bziK2XU2X7F3+h+Evy9jyxX5m
-	0eRxFWYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0fGtepblwK+PwnUbRqr8IJdvtvAvDr3iEbtu2aVkHEg=; b=MvC4aeSuMyxwOUXQaWsXYHFUzU
+	PzuYR1ug8GHcVuKKO4psvduT1e7D62JZnmZtl67Y7tAg4TjBn/CR5JMebo3/KVQsZQbE+S7l2+MGC
+	H7gRiLGvoBJtLDUCU3y+UOGGRyg65metTPddYbu2Wp5Qccigob/ZhNgw3oR9lH0euOhapnB8GJ0ls
+	Jn8vAjhfOBcKKbkVI/hoDr9QKxAgPEewwJhYqkN9salboHmk11vKa06pWh6UdATzxeU486Wt6T/ZA
+	G2U0ocjRwg9ytC3hNcpDzgWcBBbTFip2mZ9yu6YUm5xl+xbx1n/Anf2jH6zh83a9aKAFwR870O4r2
+	KTCKPbjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVuM-00000004LuY-0GtT;
-	Tue, 01 Jul 2025 08:00:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uWVwe-00000004MGQ-3OCd;
+	Tue, 01 Jul 2025 08:02:24 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVr3-00000004LNx-3d8c
+	id 1uWVsP-00000004Lcc-1pn6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 07:56:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751356596;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TW0XVsdgDWrxwGXky0O5598UlMkqask3eci8kzuyY4g=;
-	b=RHg4+ghdcq6DamAJNYdSbk98qKdihuySeb+t8rFE2scgvjRgbDhQTa73AIb7ia8KnyJfzu
-	lq5lX6QU86SPR6jG7C9HHOMQDEQjw9dQh/AUYwzZBF9AizfX9qbgSVydC4bFYwP+8P98Bh
-	VWN5UQxjaQgWmdBqhW7vG5jZL0tSlGw=
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
- [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-221-oKtwaCspMlqRjS0pIcJp8Q-1; Tue, 01 Jul 2025 03:55:07 -0400
-X-MC-Unique: oKtwaCspMlqRjS0pIcJp8Q-1
-X-Mimecast-MFC-AGG-ID: oKtwaCspMlqRjS0pIcJp8Q_1751356507
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-748cf01de06so7093966b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 00:55:07 -0700 (PDT)
+	Tue, 01 Jul 2025 07:58:03 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ae0b6532345so1232965666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 00:58:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751356679; x=1751961479; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0fGtepblwK+PwnUbRqr8IJdvtvAvDr3iEbtu2aVkHEg=;
+        b=M7wzQevqaFbpbIbD0zY2/33/gaTPiSY6OWzft1TpYQJ0aM63VjrSya9L0mPW+6qync
+         5myBdXd6VOqgRK2JsqJmaMN37y20pB8hpNaBLD4fRAClzSkEjjKiwyvK80zOUsA+/vG7
+         PbAV9MFCFebHvwPmN17gyM+YSdnvOOc0D+sDpi01i7km8vIgwvTtX7mTHa4mLgW2XR03
+         WNDhBhNcV+DjUai2q5s3IC713vhWOIqfmxCZiRz1NBBjrOdbpN9mGEK+ps5xwJH8l2qq
+         2P2Y/KCuTTRLDGGfYDBKo2SGvUh5m6F6oV1tVlq/sK0+NgY8kGIvi+za/hVuFbCeXMm+
+         BfXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751356506; x=1751961306;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=eHdMzgFfQJGJTVG/4M9MM8/CUYx5m9feJxrpAo8o1hk=;
-        b=kcEljfMhVr5iNVTnR24Be70EG8MtP45WXAB4z5oW8lqZNmn6hSoOH+25Nk0Cxt4mAq
-         M5M6AcAYBvkFPwF1bT/YjeOTK3HudJ/tutkAd6jjDlPa5QS3WDRYGut0RBRbjvZDqyLH
-         qGN6RG1YGocKrsLEdbSRojaoiST/i2lVmdYQFxOcVGDV5zg4KCre1T8hMzZLNXicIO4/
-         Am29Y/VeVGLuzYgom1BR0hzow86jlIRKGemuMTa1p6nsioNaKc3Lt2w9Ni3PyJjBqiGH
-         E9W2YCsaP9HqbLC5umn87w75EVwxJZ/MPkcrXe8DDoNH/IZL87Hjcko81Cv0avPi1eok
-         A9yQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWqxrBWNlaVtv5WnvZnaRSzEqsfLE1r/kO6dagOUbP/eEW+lcAy4MIzXjTDobmPP0Gl8+9f1XxqLHqZjEYxK6gi@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBsuTgq/VJME9ObPY15YyPhGikEW/hJ0flSOScP6cdC6zQdT20
-	f3MmcfTaLmdn29DnizfjDsBEZPm59T/mejeo08bi4wZxRnvHVTCQ+nDFi+RHsVAWumfV6sWyym8
-	356dkCz/F0UEODwmNi3NIxOcnd/Vv25Yo/Kw24Id64JaZQyfBdfZUPrdQfgstGcCEIzt7wMv2OD
-	xR
-X-Gm-Gg: ASbGncsb66DiBfyY3dWZVyB1XvoTJ/L6MIbnXU31PvPrUEMwps8owfV3SXLpcT/AkOx
-	CNLBZ54N8fbQGsFOpeKi+23N9hIzFDYfV4s2uJSEnPrim37lJ6J0fIjPETj0njcgShsjfTRXlAl
-	NPzEyhdcKsqpi2WaddYWLIoELrZHGe3sUNF0o+OlftISBBk0o0c+jNXyr5OcOCeUrx6lFqoB2l4
-	U0ld/ms07xu4x5nvim8DlevlxCUTCY4GLJuxS942kQOqDdlSwDBFSabIyuokIixK7eCm0XA4SsS
-	/A23cUK83tOqkfmCU7LM55+G8SuyhLklTpQkfVORaj6WmX5K
-X-Received: by 2002:a05:6a00:1495:b0:736:5c8e:baaa with SMTP id d2e1a72fcca58-74af6ebdffdmr22051628b3a.2.1751356506614;
-        Tue, 01 Jul 2025 00:55:06 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHLLY/eKZv2t5yuLjLiXwRD/wN1GO4pT44DogAvkkhU/DiOVmH3mQAj6VLHh0UEaPV5yfZWTg==
-X-Received: by 2002:a05:6a00:1495:b0:736:5c8e:baaa with SMTP id d2e1a72fcca58-74af6ebdffdmr22051587b3a.2.1751356506152;
-        Tue, 01 Jul 2025 00:55:06 -0700 (PDT)
-Received: from [10.200.68.91] (nat-pool-muc-u.redhat.com. [149.14.88.27])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74af557439csm11016401b3a.80.2025.07.01.00.54.55
+        d=1e100.net; s=20230601; t=1751356679; x=1751961479;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0fGtepblwK+PwnUbRqr8IJdvtvAvDr3iEbtu2aVkHEg=;
+        b=KtBXGias7TddDf00TlPTlywd0su+vgY8/i8c7fHo2EjjGQtac5eE6og3Qyw+E+kaNE
+         Pr6EhwYbTsWdiu8WQH9mbUrJxfzusRsDAlDhTTnUv4QqfHPWVEjXW/Be1bKiBm5tU0M5
+         uXNKpsU20ntE9WpTGz34Ko7BMOEScOqyT8IMqA/wJB/hhOahO0n6aacc2R50mRrBY1CU
+         VV+t+qUlPIOkuR1XJOocKupLeF3iI+h4rXgWU2DzCBmcNT2SHcgB25qhOr22O2Qh5JAK
+         w5EM2vrUH/JC9T4muPxZmjm7WKAolKPm5wOqVe0HUNL6SSb+/3Klv4CdTcpyBFjQrbUo
+         PPkg==
+X-Forwarded-Encrypted: i=1; AJvYcCVHJxnBdR9+SCpBG0vXlvHBVk1E7krFWNnZb9aYFZxfSkJeQvB+VJhNG0cytXCnrc+XSrJ0F0bBDqkFpRdwk/CV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTcMmoTxdMi3iXIc+xivlDSv07Uq5KboA0dDrP6B5gJf877ra0
+	dKC2VveiY6rj1EdDMR/PlGtiMAXQ3ppCt4hm1wYq9CRJDl+PWYVHglDtC1l0X29XKSU=
+X-Gm-Gg: ASbGncvReTrtUnrqbQE9SapEdUYLmuUmY4C8mQE++oZeUUOJGSfFLEPb1oDlJO1fvvF
+	Qm7GZGKeDGHRgcgwSR/KlPkCac5lTJLJzdkPH70rtEg0RL6kzhL5e+flzmY5mqSaD+f/rjhKLqo
+	uQFt4HsGBE8EOcZ6jt4wiCPofTL5VjgxfJcJyP/5ubQ2wu/FECc1WwcE/MgKPxXSm5mL0PyQruO
+	JvGf6R6O1m5EpVyMAa4WcSZm2IJ4lPlrh4nVZ6k4DKJBRBbV5nkx1Sq3ojSqukO4xB8XSAb6F2b
+	3HMz0K2XrI9yolv3JahZxRtoKTXi4sbN1T4L7D69wtkEwb0D0P0bVH+EzhKxHqFaJBmVMDTVg8z
+	+fZBezw1bd9+EEp95KJfh4YRaOeQQ
+X-Google-Smtp-Source: AGHT+IGGrCAc15VHtma/sGYQ2QD6trb1EHpP/JN8l1psGDWhOW7Eth1ZId1p8Z9JxXzDyNqdoc0dkQ==
+X-Received: by 2002:a17:907:3d8f:b0:ae0:c4e3:e2e8 with SMTP id a640c23a62f3a-ae3b0b8fa19mr136200866b.28.1751356679310;
+        Tue, 01 Jul 2025 00:57:59 -0700 (PDT)
+Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ae35363a172sm808993166b.8.2025.07.01.00.57.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 00:55:05 -0700 (PDT)
-Message-ID: <ce0fdbf2753075056c227ce7567a69386a5aa0a3.camel@redhat.com>
-Subject: Re: [RESEND PATCH v9 1/4] PCI: rockchip: Use standard PCIe defines
-From: Philipp Stanner <pstanner@redhat.com>
-To: Geraldo Nascimento <geraldogabriel@gmail.com>, 
-	linux-rockchip@lists.infradead.org
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Krzysztof =?UTF-8?Q?Wilczy=C5=84ski?=
- <kw@linux.com>,  Manivannan Sadhasivam <mani@kernel.org>, Rob Herring
- <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner
- <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Rick wertenbroek <rick.wertenbroek@gmail.com>, Neil
- Armstrong <neil.armstrong@linaro.org>, Valmantas Paliksa
- <walmis@gmail.com>, linux-phy@lists.infradead.org,
- linux-pci@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Tue, 01 Jul 2025 09:54:51 +0200
-In-Reply-To: <e81700ef4b49f584bc8834bfb07b6d8995fc1f42.1751322015.git.geraldogabriel@gmail.com>
-References: <cover.1751322015.git.geraldogabriel@gmail.com>
-	 <e81700ef4b49f584bc8834bfb07b6d8995fc1f42.1751322015.git.geraldogabriel@gmail.com>
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40)
+        Tue, 01 Jul 2025 00:57:58 -0700 (PDT)
+Date: Tue, 1 Jul 2025 09:57:57 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: linux-pwm@vger.kernel.org
+Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	linux-arm-kernel@lists.infradead.org, Vladimir Zapolskiy <vz@mleia.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	linux-riscv@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 0/8] pwm: Drop local locking in several drivers
+Message-ID: <wzadx2ut3wjm24bw7ol4qjjeku6f74sp3tovtexs5w62ljesid@n7d2f4uzga6b>
+References: <cover.1750788649.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 4YpwAQGKoD6nws9oiHOdFYbtmiHVpUASZXXCGaAYBek_1751356507
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dvqu3sv3rcoezsre"
+Content-Disposition: inline
+In-Reply-To: <cover.1750788649.git.u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_005637_969790_2DFABD96 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20250701_005801_479550_2A4A65AD 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,222 +103,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-06-30 at 19:24 -0300, Geraldo Nascimento wrote:
-> Current code uses custom-defined register offsets and bitfields for
-> standard PCIe registers. Change to using standard PCIe defines. Since
-> we are now using standard PCIe defines, drop unused custom-defined
-> ones,
-> which are now referenced from offset at added Capabilities Register.
 
-This could be phrased a bit more cleanly. At least I don't get exactly
-what "from offset" means. You mean you replace the unused custom ones?
-But if they're unused, why are they even being replaced?
+--dvqu3sv3rcoezsre
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/8] pwm: Drop local locking in several drivers
+MIME-Version: 1.0
 
+Hello,
 
+On Tue, Jun 24, 2025 at 08:15:36PM +0200, Uwe Kleine-K=F6nig wrote:
+> some time ago the pwm core implemented additional locking to protect
+> lowlevel driver callbacks against driver removal. A side effect is that
+> .apply() and .get_state() are serialized. This allows to drop some
+> locking that is now superfluous due to the core's locking.
 >=20
-> Suggested-By: Bjorn Helgaas <bhelgaas@google.com>
+> I identified a few drivers that are affected; these are cleaned up
+> accordingly here.
 
-s/By/by
+I applied these patches to
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+now.
 
+Best regards
+Uwe
 
-P.
+--dvqu3sv3rcoezsre
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> ---
-> =C2=A0drivers/pci/controller/pcie-rockchip-ep.c=C2=A0=C2=A0 |=C2=A0 4 +-
-> =C2=A0drivers/pci/controller/pcie-rockchip-host.c | 44 ++++++++++--------=
--
-> --
-> =C2=A0drivers/pci/controller/pcie-rockchip.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 | 12 +-----
-> =C2=A03 files changed, 25 insertions(+), 35 deletions(-)
->=20
-> diff --git a/drivers/pci/controller/pcie-rockchip-ep.c
-> b/drivers/pci/controller/pcie-rockchip-ep.c
-> index 55416b8311dd..300cd85fa035 100644
-> --- a/drivers/pci/controller/pcie-rockchip-ep.c
-> +++ b/drivers/pci/controller/pcie-rockchip-ep.c
-> @@ -518,9 +518,9 @@ static void rockchip_pcie_ep_retrain_link(struct
-> rockchip_pcie *rockchip)
-> =C2=A0{
-> =C2=A0=09u32 status;
-> =C2=A0
-> -=09status =3D rockchip_pcie_read(rockchip, PCIE_EP_CONFIG_LCS);
-> +=09status =3D rockchip_pcie_read(rockchip, PCIE_EP_CONFIG_BASE +
-> PCI_EXP_LNKCTL);
-> =C2=A0=09status |=3D PCI_EXP_LNKCTL_RL;
-> -=09rockchip_pcie_write(rockchip, status, PCIE_EP_CONFIG_LCS);
-> +=09rockchip_pcie_write(rockchip, status, PCIE_EP_CONFIG_BASE +
-> PCI_EXP_LNKCTL);
-> =C2=A0}
-> =C2=A0
-> =C2=A0static bool rockchip_pcie_ep_link_up(struct rockchip_pcie *rockchip=
-)
-> diff --git a/drivers/pci/controller/pcie-rockchip-host.c
-> b/drivers/pci/controller/pcie-rockchip-host.c
-> index b9e7a8710cf0..65653218b9ab 100644
-> --- a/drivers/pci/controller/pcie-rockchip-host.c
-> +++ b/drivers/pci/controller/pcie-rockchip-host.c
-> @@ -40,18 +40,18 @@ static void rockchip_pcie_enable_bw_int(struct
-> rockchip_pcie *rockchip)
-> =C2=A0{
-> =C2=A0=09u32 status;
-> =C2=A0
-> -=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LCS);
-> +=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
-> PCI_EXP_LNKCTL);
-> =C2=A0=09status |=3D (PCI_EXP_LNKCTL_LBMIE | PCI_EXP_LNKCTL_LABIE);
-> -=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LCS);
-> +=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
-> PCI_EXP_LNKCTL);
-> =C2=A0}
-> =C2=A0
-> =C2=A0static void rockchip_pcie_clr_bw_int(struct rockchip_pcie *rockchip=
-)
-> =C2=A0{
-> =C2=A0=09u32 status;
-> =C2=A0
-> -=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LCS);
-> +=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
-> PCI_EXP_LNKCTL);
-> =C2=A0=09status |=3D (PCI_EXP_LNKSTA_LBMS | PCI_EXP_LNKSTA_LABS) << 16;
-> -=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LCS);
-> +=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
-> PCI_EXP_LNKCTL);
-> =C2=A0}
-> =C2=A0
-> =C2=A0static void rockchip_pcie_update_txcredit_mui(struct rockchip_pcie
-> *rockchip)
-> @@ -269,7 +269,7 @@ static void rockchip_pcie_set_power_limit(struct
-> rockchip_pcie *rockchip)
-> =C2=A0=09scale =3D 3; /* 0.001x */
-> =C2=A0=09curr =3D curr / 1000; /* convert to mA */
-> =C2=A0=09power =3D (curr * 3300) / 1000; /* milliwatt */
-> -=09while (power > PCIE_RC_CONFIG_DCR_CSPL_LIMIT) {
-> +=09while (power > FIELD_MAX(PCI_EXP_DEVCAP_PWR_VAL)) {
-> =C2=A0=09=09if (!scale) {
-> =C2=A0=09=09=09dev_warn(rockchip->dev, "invalid power
-> supply\n");
-> =C2=A0=09=09=09return;
-> @@ -278,10 +278,10 @@ static void
-> rockchip_pcie_set_power_limit(struct rockchip_pcie *rockchip)
-> =C2=A0=09=09power =3D power / 10;
-> =C2=A0=09}
-> =C2=A0
-> -=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_DCR);
-> -=09status |=3D (power << PCIE_RC_CONFIG_DCR_CSPL_SHIFT) |
-> -=09=09=C2=A0 (scale << PCIE_RC_CONFIG_DCR_CPLS_SHIFT);
-> -=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_DCR);
-> +=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
-> PCI_EXP_DEVCAP);
-> +=09status |=3D FIELD_PREP(PCI_EXP_DEVCAP_PWR_VAL, power);
-> +=09status |=3D FIELD_PREP(PCI_EXP_DEVCAP_PWR_SCL, scale);
-> +=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
-> PCI_EXP_DEVCAP);
-> =C2=A0}
-> =C2=A0
-> =C2=A0/**
-> @@ -309,14 +309,14 @@ static int rockchip_pcie_host_init_port(struct
-> rockchip_pcie *rockchip)
-> =C2=A0=09rockchip_pcie_set_power_limit(rockchip);
-> =C2=A0
-> =C2=A0=09/* Set RC's clock architecture as common clock */
-> -=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LCS);
-> +=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
-> PCI_EXP_LNKCTL);
-> =C2=A0=09status |=3D PCI_EXP_LNKSTA_SLC << 16;
-> -=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LCS);
-> +=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
-> PCI_EXP_LNKCTL);
-> =C2=A0
-> =C2=A0=09/* Set RC's RCB to 128 */
-> -=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LCS);
-> +=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
-> PCI_EXP_LNKCTL);
-> =C2=A0=09status |=3D PCI_EXP_LNKCTL_RCB;
-> -=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LCS);
-> +=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
-> PCI_EXP_LNKCTL);
-> =C2=A0
-> =C2=A0=09/* Enable Gen1 training */
-> =C2=A0=09rockchip_pcie_write(rockchip, PCIE_CLIENT_LINK_TRAIN_ENABLE,
-> @@ -341,9 +341,9 @@ static int rockchip_pcie_host_init_port(struct
-> rockchip_pcie *rockchip)
-> =C2=A0=09=09 * Enable retrain for gen2. This should be
-> configured only after
-> =C2=A0=09=09 * gen1 finished.
-> =C2=A0=09=09 */
-> -=09=09status =3D rockchip_pcie_read(rockchip,
-> PCIE_RC_CONFIG_LCS);
-> +=09=09status =3D rockchip_pcie_read(rockchip,
-> PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
-> =C2=A0=09=09status |=3D PCI_EXP_LNKCTL_RL;
-> -=09=09rockchip_pcie_write(rockchip, status,
-> PCIE_RC_CONFIG_LCS);
-> +=09=09rockchip_pcie_write(rockchip, status,
-> PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
-> =C2=A0
-> =C2=A0=09=09err =3D readl_poll_timeout(rockchip->apb_base +
-> PCIE_CORE_CTRL,
-> =C2=A0=09=09=09=09=09 status,
-> PCIE_LINK_IS_GEN2(status), 20,
-> @@ -380,15 +380,15 @@ static int rockchip_pcie_host_init_port(struct
-> rockchip_pcie *rockchip)
-> =C2=A0
-> =C2=A0=09/* Clear L0s from RC's link cap */
-> =C2=A0=09if (of_property_read_bool(dev->of_node, "aspm-no-l0s")) {
-> -=09=09status =3D rockchip_pcie_read(rockchip,
-> PCIE_RC_CONFIG_LINK_CAP);
-> -=09=09status &=3D ~PCIE_RC_CONFIG_LINK_CAP_L0S;
-> -=09=09rockchip_pcie_write(rockchip, status,
-> PCIE_RC_CONFIG_LINK_CAP);
-> +=09=09status =3D rockchip_pcie_read(rockchip,
-> PCIE_RC_CONFIG_CR + PCI_EXP_LNKCAP);
-> +=09=09status &=3D ~PCI_EXP_LNKCAP_ASPM_L0S;
-> +=09=09rockchip_pcie_write(rockchip, status,
-> PCIE_RC_CONFIG_CR + PCI_EXP_LNKCAP);
-> =C2=A0=09}
-> =C2=A0
-> -=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_DCSR);
-> -=09status &=3D ~PCIE_RC_CONFIG_DCSR_MPS_MASK;
-> -=09status |=3D PCIE_RC_CONFIG_DCSR_MPS_256;
-> -=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_DCSR);
-> +=09status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
-> PCI_EXP_DEVCTL);
-> +=09status &=3D ~PCI_EXP_DEVCTL_PAYLOAD;
-> +=09status |=3D PCI_EXP_DEVCTL_PAYLOAD_256B;
-> +=09rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
-> PCI_EXP_DEVCTL);
-> =C2=A0
-> =C2=A0=09return 0;
-> =C2=A0err_power_off_phy:
-> diff --git a/drivers/pci/controller/pcie-rockchip.h
-> b/drivers/pci/controller/pcie-rockchip.h
-> index 5864a20323f2..f5cbf3c9d2d9 100644
-> --- a/drivers/pci/controller/pcie-rockchip.h
-> +++ b/drivers/pci/controller/pcie-rockchip.h
-> @@ -155,17 +155,7 @@
-> =C2=A0#define PCIE_EP_CONFIG_DID_VID=09=09(PCIE_EP_CONFIG_BASE + 0x00)
-> =C2=A0#define PCIE_EP_CONFIG_LCS=09=09(PCIE_EP_CONFIG_BASE + 0xd0)
-> =C2=A0#define PCIE_RC_CONFIG_RID_CCR=09=09(PCIE_RC_CONFIG_BASE + 0x08)
-> -#define PCIE_RC_CONFIG_DCR=09=09(PCIE_RC_CONFIG_BASE + 0xc4)
-> -#define=C2=A0=C2=A0 PCIE_RC_CONFIG_DCR_CSPL_SHIFT=09=0918
-> -#define=C2=A0=C2=A0 PCIE_RC_CONFIG_DCR_CSPL_LIMIT=09=090xff
-> -#define=C2=A0=C2=A0 PCIE_RC_CONFIG_DCR_CPLS_SHIFT=09=0926
-> -#define PCIE_RC_CONFIG_DCSR=09=09(PCIE_RC_CONFIG_BASE + 0xc8)
-> -#define=C2=A0=C2=A0 PCIE_RC_CONFIG_DCSR_MPS_MASK=09=09GENMASK(7, 5)
-> -#define=C2=A0=C2=A0 PCIE_RC_CONFIG_DCSR_MPS_256=09=09(0x1 << 5)
-> -#define PCIE_RC_CONFIG_LINK_CAP=09=09(PCIE_RC_CONFIG_BASE
-> + 0xcc)
-> -#define=C2=A0=C2=A0 PCIE_RC_CONFIG_LINK_CAP_L0S=09=09BIT(10)
-> -#define PCIE_RC_CONFIG_LCS=09=09(PCIE_RC_CONFIG_BASE + 0xd0)
-> -#define PCIE_EP_CONFIG_LCS=09=09(PCIE_EP_CONFIG_BASE + 0xd0)
-> +#define PCIE_RC_CONFIG_CR=09=09(PCIE_RC_CONFIG_BASE + 0xc0)
-> =C2=A0#define PCIE_RC_CONFIG_L1_SUBSTATE_CTRL2 (PCIE_RC_CONFIG_BASE +
-> 0x90c)
-> =C2=A0#define PCIE_RC_CONFIG_THP_CAP=09=09(PCIE_RC_CONFIG_BASE +
-> 0x274)
-> =C2=A0#define=C2=A0=C2=A0 PCIE_RC_CONFIG_THP_CAP_NEXT_MASK=09GENMASK(31, =
-20)
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhjlQEACgkQj4D7WH0S
+/k4vegf8DgkQ0a9kQ5LjlzCtQA04Tm1xfeP7UVjfQXVsJkkBcOU4mfdoSrU9tfno
+BfO6tWeFYcUdJbCAPLDW0rtt/PLGq00m1Ti+DotG0ys5XYfE4C/L2gEcEJXEWdh5
+teuOCdBWo55vAOj0OT+fFWSagAH5t1UJvOiX/XHUqS4do4wNVCUDo3oCG94zvqRo
+t+cSZpO8iWlY+qK/wJu7rClU87CHx+WgtSs+TKH44z6SV8chWe2sh2a8bJzEYjLf
+oCP3jZ6htcXuYiqQEyxRtyzYPvV7Uhy3tnshs2tS54Pyvgs6hYa13ZkPU9uSa154
+6kyYGeshrOV0IJSJUvGmR+mfNO9lcQ==
+=GkCe
+-----END PGP SIGNATURE-----
+
+--dvqu3sv3rcoezsre--
 
