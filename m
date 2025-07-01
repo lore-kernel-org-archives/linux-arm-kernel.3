@@ -4,72 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E388C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B614C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zg/MZMVxe4vqEY85XexMl2BL8AO2M+KvX9W8RRyArw0=; b=g3XAqYGxlPm8GUT3Xq4T42Uma1
-	Ad327W5a9uGaJR1Q0CDdHkqLiLlugMgGmMfisPpFesxMXl+fsDz+qinc93jndpS9uhDeWo5zJKnyJ
-	1dzZad7kY1aevAPTOmBcPAlZ/UFPM06liUV2YNtkzd59FcKYc6M8+F8OLApIwb03UxbUjUHk0NCBZ
-	y3FmdVzqeA8WDJWu8hzPaBxXPKDVxR0RYmBj32KljPIKAZIrUdHn0rSM1wqBA2NTzdI5DrP9cISVg
-	PXFbiPGAltxKPmatF+DwcVx2nTvmHtXeeQJZkmB4+CpiT8by987jx4szj0ak55ekKk+Gqnozkzciu
-	stktccIg==;
+	bh=VUv1tHn4Gb15SCtBOdwANRio4D/S8/QmhpZlRN18zW8=; b=ATh8mPrZIgC+p7ILfGE16JgMNa
+	x8L8GagdwsJ781/uEJX9/cOJC0PaV8G9virROpyJrc2BpLh22gBZgmK3CVNA8H6JjATr/8uruNavs
+	6itH51aFvIyd4Hejvp8N8O82G5GfUWYfXQVyklqWtO+pTzWs+jCBl7ipFoBx/zP/R8ireHPYZfl5n
+	uORO8aM5H7KOWnKS1ELH7pE+lZbDZn0CIpwYTf2Cc4mqxaxUFI5v6hMEf+JFzpsKRPYRtzoko1cok
+	aHWTSXgoGXgfmeNAzL6GAHwv81/MeqmkF8k1XEeIuCSO5TVyCTB9iDGNfy6QYpStwOoUjaiYQYdCt
+	nj1eFM/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWX7Q-00000004aB4-2eaD;
-	Tue, 01 Jul 2025 09:17:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uWXC8-00000004aYD-3EIb;
+	Tue, 01 Jul 2025 09:22:28 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWow-00000004WOQ-3sET
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 01 Jul 2025 08:58:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Zg/MZMVxe4vqEY85XexMl2BL8AO2M+KvX9W8RRyArw0=; b=g5d0eXJJZ7M5pimpgBILkuv6f1
-	2bGi1lspcEf+7O+75Fx5Au4aeFyVwD3nTEWXZ1gnNILl3bTzmhSiTIZhadkrMGhPvwRiFhvt5wIAj
-	2C75+vj9Rnhd4lzAJNUQmz71XPNTGUCO6HmpwuLtA8j/TPPXCeyRCGgYWQqI6f4hihWpS14xxv+6K
-	uIrJBSSA2/VpRz5+KFKOPeFdSoV9jUXQiJphRf4zM1aBjMEQHJ+ya89yUjin/dUyIwnbpG/Ljt2ne
-	iQbZvixonOXYxsfSqD+KmeBvojPj6PLy/l1V021fnAZrJAr2JNPusVPHwcWwlLzOQVcePTr/fCpA+
-	YKx2H1Aw==;
-Received: from galois.linutronix.de ([193.142.43.55])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWos-000000070hP-0jtG
+	id 1uWWow-00000004WNb-1pIS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 08:58:29 +0000
+	Tue, 01 Jul 2025 08:58:31 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1751360286;
+	s=2020; t=1751360289;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Zg/MZMVxe4vqEY85XexMl2BL8AO2M+KvX9W8RRyArw0=;
-	b=viI4fnWD/1Y6PNl68cmZZyo1kvryQHq0LjDpVMZ6o3erxo6/lJGaeLD3bgUM4R65s+TZcI
-	B4fUgiaCpsO+11/L/20PjRxzKTCcc45iKgkxyhf3jkv1sT+qM0jSJDQACU0MguKpDi4n5v
-	+GRoXaV8zMA7qdbmb9LKOm9I9XwKGqDdnt1GLg6trH85sVJvNukuZC17Xjhz1HYgD2y+y3
-	9BOj3l36aBoVCjQ2Bxv0cOytTgYfzfHyUjpcNjPXcv8LvlPNr/i/UHohRKVMNrD5oWOUUj
-	oXSVgVZKCrVCxEKd5inKO/xYMN9JL7uvXLcXF+HLhSbsqLahoVBgSDA0xqENpA==
+	bh=VUv1tHn4Gb15SCtBOdwANRio4D/S8/QmhpZlRN18zW8=;
+	b=wB37phIU1cgHL9oe4WYfMGliy5jbaoTzF0DhUFJs/rOu6Z9k1d3vYlAoN9EKggIwQUdu7l
+	+TljAEBva1iFEhXtwj719UDDhlB7E7ALl8cwsgv8F+HUkIarv/qpDzLbPy7v4o/GeFoOFd
+	2R4a1ZFq2m8qwljdwSfFlnkniHuUtcqgGxU+sUvfvGw1lpcFjL8gkz81eCl3e1b7Pk8VKb
+	10dcpeqesAIzny9jyLb46PnxK5K9QIJu7XVW1XaC7Hw+NAvENeYfSx+DUhGLnd9jyQJXPU
+	ot0rpxGS270Y+z4vxiKynztpNbEmcLdOyJkwgdvYSvWmLEQ/LGbCnC4ntsmYTA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1751360286;
+	s=2020e; t=1751360289;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Zg/MZMVxe4vqEY85XexMl2BL8AO2M+KvX9W8RRyArw0=;
-	b=MfsGvuVbDo+xRfjnkyJ+4QegloQ/rHRy+k+r9C9HO+EKbIE1CUepWx9NQkHpshB0tBpGFw
-	PDU4CG5N/8afO3DA==
-Date: Tue, 01 Jul 2025 10:57:55 +0200
-Subject: [PATCH 01/14] selftests/timers: Add testcase for auxiliary clocks
+	bh=VUv1tHn4Gb15SCtBOdwANRio4D/S8/QmhpZlRN18zW8=;
+	b=ZgZmCR6hsNO6h+aAy42Sjmgm6zIioVVD4G5orMl9SniBw8do+p9kwhp5Mrhd+6o7spFRYw
+	zppOqtmG7rk7GaCA==
+Date: Tue, 01 Jul 2025 10:58:02 +0200
+Subject: [PATCH 08/14] vdso/gettimeofday: Introduce vdso_set_timespec()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250701-vdso-auxclock-v1-1-df7d9f87b9b8@linutronix.de>
+Message-Id: <20250701-vdso-auxclock-v1-8-df7d9f87b9b8@linutronix.de>
 References: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
 In-Reply-To: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -91,16 +76,17 @@ Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
  Kurt Kanzenbach <kurt@linutronix.de>, Nam Cao <namcao@linutronix.de>, 
  Antoine Tenart <atenart@kernel.org>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751360285; l=9807;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751360285; l=2428;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=aGyKXEDWrVl42o1/QdNJRr5JgUP/zN2xT7Z0rsQB31c=;
- b=O/YV9KTW7oOAMiAf3l56XmU6PUWfqXXfrs2Inr0O+Qs7JtK2sYieB6c7VLlasrdiTp04HhXFz
- jATsHeEhbjyA5g1BgZQ58/ALT4q+hODXi82draVAffT3PPCpXvV9mFn
+ bh=CC5cQSfSGmKdKkeZa7p5tvupyfG2CLNGehREDf1mFcc=;
+ b=7doTRp//wkLzPlGHPeeVXsRB2rVPSQaX9szW5pOx13TUBMCDQh6Ba5Lm0uy/yEitK/NoNivtP
+ C/e1SD9At+pB4f04mSGvpQui1WuaofZ+BHAxek5oRzMozDtD+tqbaLD
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_095827_295532_E0BEF33C 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20250701_015830_779685_5845E6F5 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,363 +101,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Auxiliary clocks behave differently from regular ones.
-Add a testcase to validate their functionality.
+This code is duplicated and with the introduction of auxiliary clocks will
+be duplicated even more.
+
+Introduce a helper.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- tools/testing/selftests/timers/.gitignore |   1 +
- tools/testing/selftests/timers/Makefile   |   2 +-
- tools/testing/selftests/timers/auxclock.c | 319 ++++++++++++++++++++++++++++++
- 3 files changed, 321 insertions(+), 1 deletion(-)
+ lib/vdso/gettimeofday.c | 32 ++++++++++++++------------------
+ 1 file changed, 14 insertions(+), 18 deletions(-)
 
-diff --git a/tools/testing/selftests/timers/.gitignore b/tools/testing/selftests/timers/.gitignore
-index bb5326ff900b8edc3aa2d8d596599973593fbaf0..dcee43b3ecd9351c9bb0483088d712ccd7b57367 100644
---- a/tools/testing/selftests/timers/.gitignore
-+++ b/tools/testing/selftests/timers/.gitignore
-@@ -20,3 +20,4 @@ valid-adjtimex
- adjtick
- set-tz
- freq-step
-+auxclock
-diff --git a/tools/testing/selftests/timers/Makefile b/tools/testing/selftests/timers/Makefile
-index 32203593c62e1e0cdfd3de6f567ea1e82913f2ef..3a8833b3fb7449495c66a92c4d82e35a6755b5e8 100644
---- a/tools/testing/selftests/timers/Makefile
-+++ b/tools/testing/selftests/timers/Makefile
-@@ -5,7 +5,7 @@ LDLIBS += -lrt -lpthread -lm
- # these are all "safe" tests that don't modify
- # system time or require escalated privileges
- TEST_GEN_PROGS = posix_timers nanosleep nsleep-lat set-timer-lat mqueue-lat \
--	     inconsistency-check raw_skew threadtest rtcpie
-+	     inconsistency-check raw_skew threadtest rtcpie auxclock
+diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+index 215151bd5a1320ee6edda8f334d47c739577f696..50611ba28abfcfc7841616e8787101ea1ffcb7d8 100644
+--- a/lib/vdso/gettimeofday.c
++++ b/lib/vdso/gettimeofday.c
+@@ -77,6 +77,16 @@ static __always_inline bool vdso_clockid_valid(clockid_t clock)
+ 	return likely((u32) clock < MAX_CLOCKS);
+ }
  
- DESTRUCTIVE_TESTS = alarmtimer-suspend valid-adjtimex adjtick change_skew \
- 		      skew_consistency clocksource-switch freq-step leap-a-day \
-diff --git a/tools/testing/selftests/timers/auxclock.c b/tools/testing/selftests/timers/auxclock.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..0ba2f9996114ade3147f0f3aec49904556a23cd4
---- /dev/null
-+++ b/tools/testing/selftests/timers/auxclock.c
-@@ -0,0 +1,319 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+/* Work around type conflicts between libc and the UAPI headers */
-+#define _SYS_TIME_H
-+#define __timeval_defined
-+#define _GNU_SOURCE
-+
-+#include <fcntl.h>
-+#include <linux/types.h>
-+#include <linux/timex.h>
-+#include <sched.h>
-+#include <stdio.h>
-+#include <sys/syscall.h>
-+#include <unistd.h>
-+
-+#include "../kselftest_harness.h"
-+
-+#ifndef CLOCK_AUX
-+#define	CLOCK_AUX	16
-+#endif
-+
-+#ifndef NSEC_PER_SEC
-+#define NSEC_PER_SEC 1000000000ULL
-+#endif
-+
-+#define AUXCLOCK_SELFTEST_TIMENS_OFFSET 10000
-+
-+static int configure_auxclock(__kernel_clockid_t clockid, bool enable)
++/*
++ * Must not be invoked within the sequence read section as a race inside
++ * that loop could result in __iter_div_u64_rem() being extremely slow.
++ */
++static __always_inline void vdso_set_timespec(struct __kernel_timespec *ts, u64 sec, u64 ns)
 +{
-+	char path[100];
-+	int fd, ret;
-+
-+	ret = snprintf(path, sizeof(path),
-+		       "/sys/kernel/time/aux_clocks/%d/aux_clock_enable",
-+		       (int)clockid - CLOCK_AUX);
-+	if (ret >= sizeof(path))
-+		return -ENOSPC;
-+
-+	fd = open(path, O_WRONLY);
-+	if (fd == -1)
-+		return -errno;
-+
-+	/* Always disable to reset */
-+	ret = dprintf(fd, "0\n");
-+	if (enable)
-+		ret = dprintf(fd, "1\n");
-+	close(fd);
-+
-+	if (ret < 0)
-+		return ret;
-+
-+	return 0;
++	ts->tv_sec = sec + __iter_div_u64_rem(ns, NSEC_PER_SEC, &ns);
++	ts->tv_nsec = ns;
 +}
 +
-+/* Everything is done in terms of 64bit time values to keep the code readable */
+ #ifdef CONFIG_TIME_NS
+ 
+ #ifdef CONFIG_GENERIC_VDSO_DATA_STORE
+@@ -122,12 +132,7 @@ bool do_hres_timens(const struct vdso_time_data *vdns, const struct vdso_clock *
+ 	sec += offs->sec;
+ 	ns += offs->nsec;
+ 
+-	/*
+-	 * Do this outside the loop: a race inside the loop could result
+-	 * in __iter_div_u64_rem() being extremely slow.
+-	 */
+-	ts->tv_sec = sec + __iter_div_u64_rem(ns, NSEC_PER_SEC, &ns);
+-	ts->tv_nsec = ns;
++	vdso_set_timespec(ts, sec, ns);
+ 
+ 	return true;
+ }
+@@ -188,12 +193,7 @@ bool do_hres(const struct vdso_time_data *vd, const struct vdso_clock *vc,
+ 		sec = vdso_ts->sec;
+ 	} while (unlikely(vdso_read_retry(vc, seq)));
+ 
+-	/*
+-	 * Do this outside the loop: a race inside the loop could result
+-	 * in __iter_div_u64_rem() being extremely slow.
+-	 */
+-	ts->tv_sec = sec + __iter_div_u64_rem(ns, NSEC_PER_SEC, &ns);
+-	ts->tv_nsec = ns;
++	vdso_set_timespec(ts, sec, ns);
+ 
+ 	return true;
+ }
+@@ -223,12 +223,8 @@ bool do_coarse_timens(const struct vdso_time_data *vdns, const struct vdso_clock
+ 	sec += offs->sec;
+ 	nsec += offs->nsec;
+ 
+-	/*
+-	 * Do this outside the loop: a race inside the loop could result
+-	 * in __iter_div_u64_rem() being extremely slow.
+-	 */
+-	ts->tv_sec = sec + __iter_div_u64_rem(nsec, NSEC_PER_SEC, &nsec);
+-	ts->tv_nsec = nsec;
++	vdso_set_timespec(ts, sec, nsec);
 +
-+static inline void timespec_to_kernel_timespec(const struct timespec *ts,
-+					       struct __kernel_timespec *kts)
-+{
-+	if (!kts)
-+		return;
-+
-+	kts->tv_sec = ts->tv_sec;
-+	kts->tv_nsec = ts->tv_nsec;
-+}
-+
-+static inline void kernel_timespec_to_timespec(const struct __kernel_timespec *kts,
-+					       struct timespec *ts)
-+{
-+	if (!kts)
-+		return;
-+
-+	ts->tv_sec = kts->tv_sec;
-+	ts->tv_nsec = kts->tv_nsec;
-+}
-+
-+static int sys_clock_getres_time64(__kernel_clockid_t clockid, struct __kernel_timespec *ts)
-+{
-+#if defined(__NR_clock_getres_time64)
-+	return syscall(__NR_clock_getres_time64, clockid, ts);
-+#elif defined(__NR_clock_getres)
-+	struct timespec _ts;
-+	int ret;
-+
-+	ret = syscall(__NR_clock_getres, clockid, &_ts);
-+	if (!ret)
-+		timespec_to_kernel_timespec(&_ts, ts);
-+	return ret;
-+#else
-+#error "No clock_getres() support"
-+#endif
-+}
-+
-+static int sys_clock_gettime64(__kernel_clockid_t clockid, struct __kernel_timespec *ts)
-+{
-+#if defined(__NR_clock_gettime64)
-+	return syscall(__NR_clock_gettime64, clockid, ts);
-+#elif defined(__NR_clock_gettime)
-+	struct timespec _ts;
-+	int ret;
-+
-+	ret = syscall(__NR_clock_gettime, clockid, &_ts);
-+	if (!ret)
-+		timespec_to_kernel_timespec(&_ts, ts);
-+	return ret;
-+#else
-+#error "No clock_gettime() support"
-+#endif
-+}
-+
-+static int sys_clock_settime64(__kernel_clockid_t clockid, const struct __kernel_timespec *ts)
-+{
-+#if defined(__NR_clock_settime64)
-+	return syscall(__NR_clock_settime64, clockid, ts);
-+#elif defined(__NR_clock_settime)
-+	struct timespec _ts;
-+
-+	kernel_timespec_to_timespec(ts, &_ts);
-+	return syscall(__NR_clock_settime, clockid, &_ts);
-+#else
-+#error "No clock_settime() support"
-+#endif
-+}
-+
-+static int sys_clock_adjtime64(__kernel_clockid_t clockid, struct __kernel_timex *tx)
-+{
-+#if defined(__NR_clock_adjtime64)
-+	return syscall(__NR_clock_adjtime64, clockid, tx);
-+#elif __LONG_WIDTH__ == 64 && defined(__NR_clock_adjtime)
-+	return syscall(__NR_clock_adjtime, clockid, tx);
-+#else
-+#error "No clock_adjtime() support"
-+#endif
-+}
-+
-+FIXTURE(auxclock) {};
-+
-+FIXTURE_VARIANT(auxclock) {
-+	__kernel_clockid_t clock;
-+	bool clock_enabled;
-+	bool use_timens;
-+};
-+
-+FIXTURE_VARIANT_ADD(auxclock, default) {
-+	.clock		= CLOCK_AUX,
-+	.clock_enabled	= true,
-+	.use_timens	= false,
-+};
-+
-+FIXTURE_VARIANT_ADD(auxclock, timens) {
-+	.clock		= CLOCK_AUX,
-+	.clock_enabled	= true,
-+	.use_timens	= true,
-+};
-+
-+FIXTURE_VARIANT_ADD(auxclock, disabled) {
-+	.clock		= CLOCK_AUX,
-+	.clock_enabled	= false,
-+	.use_timens	= false,
-+};
-+
-+/* No timens_disabled to keep the testmatrix smaller. */
-+
-+static void enter_timens(struct __test_metadata *_metadata)
-+{
-+	int ret, fd;
-+	char buf[100];
-+
-+	ret = unshare(CLONE_NEWTIME);
-+	if (ret != 0 && errno == EPERM)
-+		SKIP(return, "no permissions for unshare(CLONE_NEWTIME)");
-+	if (ret != 0 && errno == EINVAL)
-+		SKIP(return, "time namespaces not available");
-+	ASSERT_EQ(0, ret) TH_LOG("unshare(CLONE_NEWTIME) failed: %s", strerror(errno));
-+	fd = open("/proc/self/timens_offsets", O_WRONLY);
-+	if (fd == -1 && errno == ENOENT)
-+		SKIP(return, "no support for time namespaces");
-+	ASSERT_NE(-1, fd);
-+	/* Fiddle with the namespace to make the tests more meaningful */
-+	ret = snprintf(buf, sizeof(buf), "monotonic %d 0\nboottime %d 0\n",
-+		       AUXCLOCK_SELFTEST_TIMENS_OFFSET, AUXCLOCK_SELFTEST_TIMENS_OFFSET);
-+	ASSERT_TRUE(ret > 0 && ret < sizeof(buf));
-+	ret = write(fd, buf, ret);
-+	ASSERT_NE(-1, ret);
-+	close(fd);
-+	fd = open("/proc/self/ns/time_for_children", O_RDONLY);
-+	ASSERT_NE(-1, fd);
-+	ret = setns(fd, CLONE_NEWTIME);
-+	close(fd);
-+	ASSERT_EQ(0, ret);
-+}
-+
-+FIXTURE_SETUP(auxclock) {
-+	int ret;
-+
-+	ret = configure_auxclock(variant->clock, variant->clock_enabled);
-+	if (ret == -ENOENT)
-+		SKIP(return, "auxclocks not enabled");
-+	ASSERT_EQ(0, ret);
-+
-+	if (variant->use_timens)
-+		enter_timens(_metadata);
-+}
-+
-+FIXTURE_TEARDOWN(auxclock) {
-+	int ret;
-+
-+	ret = configure_auxclock(variant->clock, false);
-+	ASSERT_EQ(0, ret);
-+}
-+
-+TEST_F(auxclock, sys_clock_getres) {
-+	struct __kernel_timespec ts;
-+	int ret;
-+
-+	/* clock_getres() is always expected to work */
-+	ret = sys_clock_getres_time64(variant->clock, &ts);
-+	ASSERT_EQ(0, ret);
-+	ASSERT_EQ(0, ts.tv_sec);
-+	ASSERT_EQ(1, ts.tv_nsec);
-+}
-+
-+TEST_F(auxclock, sys_clock_gettime) {
-+	struct __kernel_timespec ts;
-+	int ret;
-+
-+	ret = sys_clock_gettime64(variant->clock, &ts);
-+	if (variant->clock_enabled) {
-+		ASSERT_EQ(0, ret);
-+	} else {
-+		ASSERT_EQ(-1, ret);
-+		ASSERT_EQ(ENODEV, errno);
-+	}
-+}
-+
-+static void auxclock_validate_progression(struct __test_metadata *_metadata,
-+					  const struct __kernel_timespec *a,
-+					  const struct __kernel_timespec *b)
-+{
-+	int64_t diff;
-+
-+	diff = (b->tv_sec - a->tv_sec) * NSEC_PER_SEC;
-+	diff += b->tv_nsec - a->tv_nsec;
-+
-+	/* Arbitrary values */
-+	ASSERT_LT(1, diff);
-+	ASSERT_GT(1 * NSEC_PER_SEC, diff);
-+}
-+
-+TEST_F(auxclock, sys_clock_settime) {
-+	struct __kernel_timespec a, b = {};
-+	int ret;
-+
-+	a.tv_sec = 1234;
-+	a.tv_nsec = 5678;
-+
-+	ret = sys_clock_settime64(variant->clock, &a);
-+	if (!variant->clock_enabled) {
-+		ASSERT_EQ(-1, ret);
-+		ASSERT_EQ(ENODEV, errno);
-+		return;
-+	}
-+
-+	ASSERT_EQ(0, ret);
-+
-+	ret = sys_clock_gettime64(variant->clock, &b);
-+	ASSERT_EQ(0, ret);
-+
-+	auxclock_validate_progression(_metadata, &a, &b);
-+}
-+
-+TEST_F(auxclock, sys_clock_adjtime) {
-+	struct __kernel_timex tx;
-+	int ret, realtime_freq;
-+
-+	memset(&tx, 0, sizeof(tx));
-+	tx.modes = ADJ_FREQUENCY;
-+	ret = sys_clock_adjtime64(CLOCK_REALTIME, &tx);
-+	ASSERT_NE(-1, ret);
-+	ASSERT_TRUE(tx.modes & ADJ_FREQUENCY);
-+	realtime_freq = tx.freq;
-+
-+	ret = sys_clock_adjtime64(variant->clock, &tx);
-+	if (variant->clock_enabled) {
-+		ASSERT_NE(-1, ret);
-+		ASSERT_EQ(realtime_freq, tx.freq);
-+	} else {
-+		ASSERT_EQ(-1, ret);
-+		ASSERT_EQ(ENODEV, errno);
-+	}
-+}
-+
-+TEST_F(auxclock, progression) {
-+	struct __kernel_timespec a, b;
-+	int ret;
-+
-+	if (!variant->clock_enabled) {
-+		TH_LOG("no progression on disabled clocks");
-+		return;
-+	}
-+
-+	/* set up reference */
-+	ret = sys_clock_gettime64(variant->clock, &a);
-+	ASSERT_EQ(0, ret);
-+
-+	for (int i = 0; i < 100; i++) {
-+		memset(&b, 0, sizeof(b));
-+		ret = sys_clock_gettime64(variant->clock, &b);
-+		ASSERT_EQ(0, ret);
-+		auxclock_validate_progression(_metadata, &a, &b);
-+
-+		memset(&a, 0, sizeof(a));
-+		ret = sys_clock_gettime64(variant->clock, &a);
-+		ASSERT_EQ(0, ret);
-+		auxclock_validate_progression(_metadata, &b, &a);
-+	}
-+}
-+
-+TEST_HARNESS_MAIN
+ 	return true;
+ }
+ #else
 
 -- 
 2.50.0
