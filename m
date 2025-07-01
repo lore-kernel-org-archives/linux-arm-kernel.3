@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C3A3C8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 377E4C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t6zEHMj5mdxiy0H/Ex5pSYfUMyIDT87DlhMkRAKVdfc=; b=1jJ0ojRJ+0DO2gSUiUVWI0E2W8
-	IzXurESw1LNXKr2wjNCRbKRhSLAOdLF/3p5Pvm8+OXqAtwEc1g3r1x9r+cDjxzgIEbC4MvVPVI3pr
-	R/e1djBn0M235Hf3asLml1/+S/3JsiCncOuf/6eoXyoi8Ez150vI3S/uk78gH8Z8pTd+J2VUI+c0M
-	qPyBTvhsPessk9T4y7hsjhQDVTZ9/X8+06yKXcjJkYK1PufgD5H6raBx7DpKi3JGDc1W8QNFgnHpO
-	L0vjYTA0R9XnEGY/ytE4B+bJPnT4OKjI4j2DOcW42KU0OfSVxpVs2RvWJPuL94NSA0ciyE8jAgsAe
-	zzzEaZ2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2uF502t7bopi+ifJXTVFE3KSkeICu9xtOi/Hy3LSWC0=; b=bcEHV3XgimwUlUY8ceJTxb7uvV
+	VcMF6iD20EyTXyOWoAZ59oXyVxPY+aA7KAqlCL9zW5h4DLF0OaTN36zh9M5sJ87M3LmzMMOkI6ccX
+	WZgRuYESl1CT5z9Ve1eRP9PHwz+e5kogLpXlGzNaBeHKSkipT2Cddb/+8AY/48kXJ+w4N5t+gC7c8
+	hC4Uhvu3QtlHVO94gCsnJm31ky7BT7u9S4QftfualThcuNfV5rEFPC+WApXu/0PiRRD4+p0v9fs8Q
+	Gvd3EO2WDXDvRUPV10ODXBrwzPQDSpvbdmp5ZO+svNVLiPRrzrsGEpOFi4lTzWgpxhXAuWJoId+qS
+	QXmEfk5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVl7-00000004JpN-0X9s;
-	Tue, 01 Jul 2025 07:50:29 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uWVnP-00000004KNt-3aYX;
+	Tue, 01 Jul 2025 07:52:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVSN-00000004H4V-0qzH;
-	Tue, 01 Jul 2025 07:31:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751355065;
-	bh=UEJCp0kLrVN60JijFimfY4cx5ReWcbWGz2tn84YNl9o=;
-	h=From:Date:Subject:To:Cc:From;
-	b=VJiOoAxvI4d6W5/5+ZhHQ/ernRfdMMl2DaI1jos8owUcBcjPsZwg9kLwsbJzujNbg
-	 OgchCqqWdUBrQALiSqnC2iode9QtODK8isPC9f5cf9nwOd+VsjTFjvQWXyak9os19N
-	 JwktkrHuxFrADF21STGu0v+kNwoqVEYzmyp65HXKcnPSnqXymBIU7lunzYhoBq5D4I
-	 Cjb13lDcn1o+Hs53HbnoFiFLxusMEL+5Lv9+J0o1+7V2Js/433DSYarEhgDaqDIBLR
-	 hEyrinptgSfMLmS3yti1R8jWLWDiQyhVofs7vxC9ZmiZlhAiWjvL8G5/0JoaJgEhkh
-	 /FvG2KYC5KynQ==
-Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 82E7717E0342;
-	Tue,  1 Jul 2025 09:31:04 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Tue, 01 Jul 2025 09:30:40 +0200
-Subject: [PATCH] drm/mediatek: dsi: Fix DSI host and panel bridge
- pre-enable order
+	id 1uWVUv-00000004HTq-0LvV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 01 Jul 2025 07:33:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=2uF502t7bopi+ifJXTVFE3KSkeICu9xtOi/Hy3LSWC0=; b=T40vo9FbBKXCJf4VLcKdBN4T33
+	/kMfKXup6UqhMM1qnp1+VtuVm5P8xYBvPBkxAVWLcmAwhMgEh+rSSAXstEoG7eEioCLvUkIBlqu9n
+	uE8lTaQ1rCtSQbNzAof/WJ86MjfReuzNYCbChBof43OR2yxmIOcOEN0i8DUmg57yd9oEAf6OYPFLq
+	F5NKAFAHaEJKrN9aliZE3L1aFrCSmxbudCfF7FJzn677sZZ3j4fZHNU8c+Xm7PRNiOrotgLJgtR5J
+	DoWO1VSzbEu1n+XS7YaxTjIW+u3iRaqURl3W3z/cwzHPYjx6E4IpFrIBMMHJA+a5OnyvTj3IM+YGx
+	q5QTopZg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWVUr-00000006xMG-203f
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Jul 2025 07:33:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 359941595;
+	Tue,  1 Jul 2025 00:33:23 -0700 (PDT)
+Received: from [10.57.84.129] (unknown [10.57.84.129])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 606453F6A8;
+	Tue,  1 Jul 2025 00:33:34 -0700 (PDT)
+Message-ID: <23a213b8-280a-4544-a210-7c18a0caf8a9@arm.com>
+Date: Tue, 1 Jul 2025 08:33:32 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250701-mediatek-drm-fix-dsi-panel-init-v1-1-7af4adb9fdeb@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAJ+OY2gC/zWNQQqDMBBFrxJm3YGo0YVXKS7GZGyHNtEmsQji3
- RsqLt/n894OiaNwgl7tEPkrSeZQoLopsE8KD0ZxhaHWdau7RqNnJ5T5hS56nGRDlwQXCvxGCZK
- xIjO2jbFGUwfFskQur3/hPpwc+bOWUD5HGCkx2tl7yb0KvGW8YjAcxw/h6vdiogAAAA==
-X-Change-ID: 20250630-mediatek-drm-fix-dsi-panel-init-1a4b534c40a6
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Aradhya Bhatia <a-bhatia1@ti.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Dmitry Baryshkov <lumag@kernel.org>, Maxime Ripard <mripard@kernel.org>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751355064; l=2696;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=UEJCp0kLrVN60JijFimfY4cx5ReWcbWGz2tn84YNl9o=;
- b=OeqpFOdg0cEKjdsvCTKe8qTt2Imn73FY6gR8H8q+YymCd96FwzBIHhaQFOKIpSqxKMq4JJF0o
- o1MhvzJiSwvDRRZOMy96lZNGYutb40j6mRzmLUdoIpxYeK82akXmJy9
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] mm: Add batched versions of
+ ptep_modify_prot_start/commit
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: akpm@linux-foundation.org, david@redhat.com, willy@infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz, jannh@google.com,
+ anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
+ ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
+ quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
+ yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
+ hughd@google.com, yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250628113435.46678-1-dev.jain@arm.com>
+ <20250628113435.46678-3-dev.jain@arm.com>
+ <a305816d-7770-47ec-bb21-1572c7c7783b@lucifer.local>
+ <c12e2958-5a51-439d-aa86-e72d85699562@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <c12e2958-5a51-439d-aa86-e72d85699562@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_003107_418776_942D4B8B 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20250701_083341_950356_0D722035 
+X-CRM114-Status: GOOD (  25.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,69 +89,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit c9b1150a68d9 ("drm/atomic-helper: Re-order bridge chain
-pre-enable and post-disable"), the bridge pre_enable callbacks are now
-called before crtc enable, and the bridge post_disable callbacks after
-the crtc disable.
-In the mediatek-drm driver, this change leads to transfer errors on
-mtk_dsi_host_transfer callback processing during the panel bridge
-pre-enable sequence because the DSI host bridge pre_enable and CRTC
-enable sequences, that are enabling the required clocks and PHY using
-mtk_dsi_poweron function, are called after.
+On 01/07/2025 05:44, Dev Jain wrote:
+> 
+> On 30/06/25 6:27 pm, Lorenzo Stoakes wrote:
+>> On Sat, Jun 28, 2025 at 05:04:33PM +0530, Dev Jain wrote:
+>>> Batch ptep_modify_prot_start/commit in preparation for optimizing mprotect.
+>>> Architecture can override these helpers; in case not, they are implemented
+>>> as a simple loop over the corresponding single pte helpers.
+>>>
+>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> Looks generally sensible! Some comments below.
+>>
+>>> ---
+>>>   include/linux/pgtable.h | 83 ++++++++++++++++++++++++++++++++++++++++-
+>>>   mm/mprotect.c           |  4 +-
+>>>   2 files changed, 84 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>>> index cf1515c163e2..662f39e7475a 100644
+>>> --- a/include/linux/pgtable.h
+>>> +++ b/include/linux/pgtable.h
+>>> @@ -1331,7 +1331,8 @@ static inline pte_t ptep_modify_prot_start(struct
+>>> vm_area_struct *vma,
+>>>
+>>>   /*
+>>>    * Commit an update to a pte, leaving any hardware-controlled bits in
+>>> - * the PTE unmodified.
+>>> + * the PTE unmodified. The pte may have been "upgraded" w.r.t a/d bits compared
+>>> + * to the old_pte, as in, it may have a/d bits on which were off in old_pte.
+>>>    */
+>>>   static inline void ptep_modify_prot_commit(struct vm_area_struct *vma,
+>>>                          unsigned long addr,
+>>> @@ -1340,6 +1341,86 @@ static inline void ptep_modify_prot_commit(struct
+>>> vm_area_struct *vma,
+>>>       __ptep_modify_prot_commit(vma, addr, ptep, pte);
+>>>   }
+>>>   #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
+>>> +
+>>> +/**
+>>> + * modify_prot_start_ptes - Start a pte protection read-modify-write
+>>> transaction
+>>> + * over a batch of ptes, which protects against asynchronous hardware
+>>> + * modifications to the ptes. The intention is not to prevent the hardware from
+>>> + * making pte updates, but to prevent any updates it may make from being lost.
+>>> + * Please see the comment above ptep_modify_prot_start() for full description.
+>>> + *
+>>> + * @vma: The virtual memory area the pages are mapped into.
+>>> + * @addr: Address the first page is mapped at.
+>>> + * @ptep: Page table pointer for the first entry.
+>>> + * @nr: Number of entries.
+>>> + *
+>>> + * May be overridden by the architecture; otherwise, implemented as a simple
+>>> + * loop over ptep_modify_prot_start(), collecting the a/d bits from each pte
+>>> + * in the batch.
+>>> + *
+>>> + * Note that PTE bits in the PTE batch besides the PFN can differ.
+>>> + *
+>>> + * Context: The caller holds the page table lock.  The PTEs map consecutive
+>>> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
+>>> + * Since the batch is determined from folio_pte_batch, the PTEs must differ
+>>> + * only in a/d bits (and the soft dirty bit; see fpb_t flags in
+>>> + * mprotect_folio_pte_batch()).
+>>> + */
+>>> +#ifndef modify_prot_start_ptes
+>>> +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+>>> +        unsigned long addr, pte_t *ptep, unsigned int nr)
+>>> +{
+>>> +    pte_t pte, tmp_pte;
+>>> +
+>>> +    pte = ptep_modify_prot_start(vma, addr, ptep);
+>>> +    while (--nr) {
+>>> +        ptep++;
+>>> +        addr += PAGE_SIZE;
+>>> +        tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
+>>> +        if (pte_dirty(tmp_pte))
+>>> +            pte = pte_mkdirty(pte);
+>>> +        if (pte_young(tmp_pte))
+>>> +            pte = pte_mkyoung(pte);
+>>> +    }
+>>> +    return pte;
+>>> +}
+>>> +#endif
+>>> +
+>>> +/**
+>>> + * modify_prot_commit_ptes - Commit an update to a batch of ptes, leaving any
+>>> + * hardware-controlled bits in the PTE unmodified.
+>>> + *
+>>> + * @vma: The virtual memory area the pages are mapped into.
+>>> + * @addr: Address the first page is mapped at.
+>>> + * @ptep: Page table pointer for the first entry.
+>>> + * @old_pte: Old page table entry (for the first entry) which is now cleared.
+>>> + * @pte: New page table entry to be set.
+>>> + * @nr: Number of entries.
+>>> + *
+>>> + * May be overridden by the architecture; otherwise, implemented as a simple
+>>> + * loop over ptep_modify_prot_commit().
+>>> + *
+>>> + * Context: The caller holds the page table lock. The PTEs are all in the same
+>>> + * PMD. On exit, the set ptes in the batch map the same folio. The pte may have
+>>> + * been "upgraded" w.r.t a/d bits compared to the old_pte, as in, it may have
+>>> + * a/d bits on which were off in old_pte.
+>>> + */
+>>> +#ifndef modify_prot_commit_ptes
+>>> +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma,
+>>> unsigned long addr,
+>>> +        pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
+>>> +{
+>>> +    int i;
+>>> +
+>>> +    for (i = 0; i < nr; ++i) {
+>>> +        ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+>>> +        ptep++;
+>> Weird place to put this increment, maybe just stick it in the for loop.
+>>
+>>> +        addr += PAGE_SIZE;
+>> Same comment here.
+> 
+> Sure.
+> 
+>>
+>>> +        old_pte = pte_next_pfn(old_pte);
+>> Could be:
+>>
+>>         old_pte = pte;
+>>
+>> No?
+> 
+> We will need to update old_pte also since that
+> is used by powerpc in radix__ptep_modify_prot_commit().
 
-So, in order to fix this call order issue, request the DSI host bridge
-be pre-enabled before panel bridge by setting pre_enable_prev_first
-flag on DSI device bridge in the mtk_dsi_host_attach function.
+I think perhaps Lorenzo has the model in his head where old_pte is the previous
+pte in the batch. That's not the case. old_pte is the value of the pte in the
+current position of the batch before any changes were made. pte is the new value
+for the pte. So we need to expliticly advance the PFN in both old_pte and pte
+each iteration round the loop.
 
-Fixes: c9b1150a68d9 ("drm/atomic-helper: Re-order bridge chain pre-enable and post-disable")
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
-This patch fixes an issue that can be observed on boards such as
-MediatekGenio 1200-EVK or 350-EVK with a kernel based on linux-next
-(tag: next-20250635) since commit c9b1150a68d9 ("drm/atomic-helper:
-Re-order bridge chain pre-enable and post-disable"). 
-In boot logs, there are multiples errors such as IRQ timeouts and
-panel init errors, leading the DSI panel not being enabled: 
-
-Example on Genio 1200-EVK:
-```
-[drm] Wait DSI IRQ(0x00000002) Timeout
-panel-himax-hx8279 1c008000.dsi.0: sending generic data b0 05 failed:
-  -62
-[drm] Wait DSI IRQ(0x00000008) Timeout
-[drm:mtk_dsi_host_transfer [mediatek_drm]] *ERROR* failed to switch cmd
- mode
-panel-himax-hx8279 1c008000.dsi.0: sending DCS SET_DISPLAY_ON failed:
-  -62
-```
----
- drivers/gpu/drm/mediatek/mtk_dsi.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index d7726091819c4762698b41060b3d4d8d27940238..0e2bcd5f67b767d92f2697a5b8183f67ee178a38 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -1002,6 +1002,12 @@ static int mtk_dsi_host_attach(struct mipi_dsi_host *host,
- 			return PTR_ERR(dsi->next_bridge);
- 	}
- 
-+	/*
-+	 * set flag to request the DSI host bridge be pre-enabled before device bridge
-+	 * in the chain, so the DSI host is ready when the device bridge is pre-enabled
-+	 */
-+	dsi->next_bridge->pre_enable_prev_first = true;
-+
- 	drm_bridge_add(&dsi->bridge);
- 
- 	ret = component_add(host->dev, &mtk_dsi_component_ops);
-
----
-base-commit: c6a68d8f7b81a6ce8962885408cc2d0c1f8b9470
-change-id: 20250630-mediatek-drm-fix-dsi-panel-init-1a4b534c40a6
-
-Best regards,
--- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> 
+>>
+>>> +        pte = pte_next_pfn(pte);
+>>> +    }
+>>> +}
+>>> +#endif
+>>> +
+>>>   #endif /* CONFIG_MMU */
+>>>
+>>>   /*
+>>> diff --git a/mm/mprotect.c b/mm/mprotect.c
+>>> index af10a7fbe6b8..627b0d67cc4a 100644
+>>> --- a/mm/mprotect.c
+>>> +++ b/mm/mprotect.c
+>>> @@ -206,7 +206,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>>                       continue;
+>>>               }
+>>>
+>>> -            oldpte = ptep_modify_prot_start(vma, addr, pte);
+>>> +            oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
+>>>               ptent = pte_modify(oldpte, newprot);
+>>>
+>>>               if (uffd_wp)
+>>> @@ -232,7 +232,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>>                   can_change_pte_writable(vma, addr, ptent))
+>>>                   ptent = pte_mkwrite(ptent, vma);
+>>>
+>>> -            ptep_modify_prot_commit(vma, addr, pte, oldpte, ptent);
+>>> +            modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
+>>>               if (pte_needs_flush(oldpte, ptent))
+>>>                   tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
+>>>               pages++;
+>>> -- 
+>>> 2.30.2
+>>>
 
 
