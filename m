@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B99C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC7E9C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGl5l4cbrW0oZiz5/Hn8qYIROz+YDPJP8w6FEA4IyCw=; b=wpdRX2lUFAcfuTjZwTSSML8rlQ
-	ti8SG9F6cGpJWOHMX0ilqF/EQh7+1JFkrCQhwfu+3TLfn8MbBQcm+qwGyDvoI9wNjn6ye27vx54+8
-	H7S1eu5Pe45phDO4zQbVNeXd/bNb+ff3V3s4bWvkllGeZJxI1eaAIKN+C0TIG3HYpIeQ+gseJq+vN
-	vMSLpocgmiZpz2xWiIiASGM01nKBe67HUhly76Dhnv/iuDMUIDyolYbnTqMxvr9QVhKt+Xrua69Lk
-	Sdw+b+BWXaEpAFYt7m0WFErQtXiDhH2dF6FyvdtguSafqFXpWvcXY3OyRxVcT5oQhQO9WUlYRA3ad
-	rEwQUSSg==;
+	bh=6NkF+N0UTMUAuCV32wzpvbEEFJ7QOlBg6lBSc9eDzN4=; b=wZtEl1PRhhh02AVFNsWzFO3ONa
+	/UeYVF06RL/Or1awgODRKsVzyhGqgAszZe7/SuiB7l+HOQS+1B0v2wX6FLVJPQUXIZ6dKC1RSRUK1
+	z66Kq2ysro/ZS0KvjLyPvLUjj/E+MV+F2G6pCsSXmLkvHL0BxHIpKZf5urGEjWm5et/7ZYwAhcv1l
+	3vzbMH0rq9KUDYxrO1ShbIX+ELb/gBjX9vsAtG6cnp8+nFyYEG2tF5R3VOOZ9rsR9CRRaax8AXdYE
+	Mu4JHnmOgg/emPqFfhrpqdDWviCns3iYzmOEuRMghRBJDeAMbj7T47PODXlmumqnsosIsiWMQ8KnB
+	ymE1XG4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWV7z-00000004Eje-3G2X;
-	Tue, 01 Jul 2025 07:10:04 +0000
+	id 1uWVAH-00000004F0F-3Yvu;
+	Tue, 01 Jul 2025 07:12:25 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWURB-000000048f8-1RhD
+	id 1uWURG-000000048f8-3dmG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 06:25:51 +0000
+	Tue, 01 Jul 2025 06:25:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1751351149; x=1782887149;
+  t=1751351154; x=1782887154;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=uGl5l4cbrW0oZiz5/Hn8qYIROz+YDPJP8w6FEA4IyCw=;
-  b=mZGD8Rp66jKgMH9uDs9YrZLnCcMUpq18Dd61EH4yQirn5hMLmNwukRkP
-   k7hmOlecd8ztuae8nrv/Iu3wBzvh9KPrSnBTSNo7ObJ41SAglQZkq3tuA
-   AY29trEVFwBTJS/u8pir2/Lfgt0hm7QLg+Rmuv6jg0vrfswsbkR3WXAeA
-   HGJvyvBbtrd9mTyu/9h/v/JADfnM27jTQOj+LK8TOc+eSh3jbrIPFPwpV
-   lF+3vVF7gieEqCLVApju2Lh4Y0266ts8ERkAvSGMDk16ZBwHEoailtJ3R
-   6Pb0Dsa5AEpImxjbORZC4t4AETAC2lZMc51CtHwjxvcyYYAXl79DwNHnN
+  bh=6NkF+N0UTMUAuCV32wzpvbEEFJ7QOlBg6lBSc9eDzN4=;
+  b=IfIUrpmt0L/xu8pJnIU7xUONZsJ+9+nNKEa9VovsSfb/x+vY9m96zjrL
+   cvZf799MkyF+4Qtye1/0FGYsq2xc8YmKHK/a+cPcxgjkNBEVuYZZdoB8D
+   0ZTr/5iscIgYSnLfZxRYK9Kek2o78pTb5HLTcU1vxqJHVUufdscKjapRo
+   5T2i9wuPytyknHqYOYi1kZXePFMWhR8Glgrxv1JpeDalBK366sW+Ts7Eu
+   R0aL6W50o0If7H0yX5nAaDFrzT1JijQiz8sPn/I/Wehrhp/lzzh9gMlQb
+   xg2aoGBwMEWH1lGaAqIY6jDlJ6BEIgsqKwGb1bcw34YSXpY540EIh1QOE
    Q==;
-X-CSE-ConnectionGUID: kQ0Sl0NvSaKDZ5sTI77HNg==
-X-CSE-MsgGUID: HXn+a99eQiC5kBXXehRZ8A==
+X-CSE-ConnectionGUID: 4ELenKTjQHCpdQmFjYVtEw==
+X-CSE-MsgGUID: P6lS5ylOTCykmUzLB5Vl8A==
 X-IronPort-AV: E=Sophos;i="6.16,279,1744063200"; 
-   d="scan'208";a="44943389"
+   d="scan'208";a="44943391"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 01 Jul 2025 08:25:48 +0200
-X-CheckPoint: {68637F6C-E-B72BD212-DAE8BA0F}
-X-MAIL-CPID: 7E2F37648E5EFC1D7552387AF6DBB2FE_1
-X-Control-Analysis: str=0001.0A006377.68637F79.003A,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C053316A60B;
-	Tue,  1 Jul 2025 08:25:43 +0200 (CEST)
+  by mx1.tq-group.com with ESMTP; 01 Jul 2025 08:25:53 +0200
+X-CheckPoint: {68637F71-46-497D558D-EBA6F5A1}
+X-MAIL-CPID: 05F84F041D6AE13DEE7297BF9477E7D2_3
+X-Control-Analysis: str=0001.0A006378.68637F8D.001C,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 45F0916A623;
+	Tue,  1 Jul 2025 08:25:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1751351144;
+	s=dkim; t=1751351149;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=uGl5l4cbrW0oZiz5/Hn8qYIROz+YDPJP8w6FEA4IyCw=;
-	b=H2oCv6OvW1wEnz7TbQS2gzetFzUgFUepcTii1esFbzf5kFGX0YcYR9PwlfT9our+XmHUwH
-	87rgW4ir3ixWi1mZI+MENBAZRlJM6En3NSdwgFkelKnqOV1fYvDZ8bUo+UdFZ81UQDr6LQ
-	TwmC3TB2me3dbJQ9jLTMYj1ptdu5uobQcU7XoGt6XgwPUNvagm9Aa8LftuYtQHA8+6pbhb
-	3C5oblHujUluDWzH+6NZZ//Un1dYLS3xn/XWKNeu1Z5zM6cqcw3yKtrcEat+WgD3gn18Uc
-	+69pqjjEoDpx4PaMrBlWeshGqdYcDcRouKEu5hMKjv8OsgrVWFUGn+S9tNemFw==
+	bh=6NkF+N0UTMUAuCV32wzpvbEEFJ7QOlBg6lBSc9eDzN4=;
+	b=oABy/B+xOExrtUzf9jDLKkdHAW6oOE9sq083m6MstFeKcEKypWM+21acdRu2SCvNE3C0Rl
+	SJHmkT8xjAJjsVBISKENbSU7cGD1HQdlxpZ2Ejgr7N0IoK8h8xdcnacQsgvIoVADV3L0yn
+	ClA0UhKz/4Qce+9f5yLqzzkf+Q1ob0bcg/eexKftv7bPRXSc+XIn7aSGSrO9+W0EGiCil6
+	ibnL2nzq5749gH4pFFo9f2o1gODm7Lh7E9mAGRiqtPF58nIgytLC65twPnut335C7WY9qc
+	3a2upIpckF9XEvHF9MRdXvgDNv619XbAYON+i/A80BiizymxfMHB8y+Gb1eT4g==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Shawn Guo <shawnguo@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -77,20 +77,18 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev
-Subject: [PATCH 7/8] arm64: dts: freescale: tqmls10xx-mbls10xxa: Add vdd-supply for i2c mux
-Date: Tue,  1 Jul 2025 08:24:55 +0200
-Message-ID: <20250701062500.515735-8-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 8/8] arm64: dts: freescale: tqmls10xx: Add vdd-supply for spi-nor flash
+Date: Tue,  1 Jul 2025 08:24:56 +0200
+Message-ID: <20250701062500.515735-9-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250701062500.515735-1-alexander.stein@ew.tq-group.com>
 References: <20250701062500.515735-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_232549_679286_644EF6E6 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250630_232555_206995_4D29AA12 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,26 +103,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The I²C mux controller is supplied by 3.3V rail. Add the corresponding
-supply.
+(Q)SPI NOR flash is supplied by 1.8V. Add the corresponding supply.
 
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm64/boot/dts/freescale/tqmls10xxa-mbls10xxa.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/freescale/fsl-ls1043a-tqmls1043a.dtsi | 1 +
+ arch/arm64/boot/dts/freescale/fsl-ls1046a-tqmls1046a.dtsi | 2 ++
+ arch/arm64/boot/dts/freescale/fsl-ls1088a-tqmls1088a.dtsi | 2 ++
+ arch/arm64/boot/dts/freescale/tqmls10xxa.dtsi             | 8 ++++++++
+ 4 files changed, 13 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/tqmls10xxa-mbls10xxa.dtsi b/arch/arm64/boot/dts/freescale/tqmls10xxa-mbls10xxa.dtsi
-index 40fa41eadd836..444bbf5115968 100644
---- a/arch/arm64/boot/dts/freescale/tqmls10xxa-mbls10xxa.dtsi
-+++ b/arch/arm64/boot/dts/freescale/tqmls10xxa-mbls10xxa.dtsi
-@@ -89,6 +89,7 @@ i2c-mux@70 {
- 		reg = <0x70>;
- 		#address-cells = <1>;
- 		#size-cells = <0>;
-+		vdd-supply = <&reg_3v3>;
+diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1043a-tqmls1043a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1043a-tqmls1043a.dtsi
+index e39eaa1759365..257d90bb9c206 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-ls1043a-tqmls1043a.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-ls1043a-tqmls1043a.dtsi
+@@ -20,6 +20,7 @@ qflash0: flash@0 {
+ 		spi-max-frequency = <62500000>;
+ 		spi-rx-bus-width = <4>;
+ 		spi-tx-bus-width = <4>;
++		vcc-supply = <&reg_vcc1v8>;
  
- 		i2c@0 {
- 			reg = <0x0>;
+ 		partitions {
+ 			compatible = "fixed-partitions";
+diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1046a-tqmls1046a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1046a-tqmls1046a.dtsi
+index cafb35f674aa4..fa543db99def6 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-ls1046a-tqmls1046a.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-ls1046a-tqmls1046a.dtsi
+@@ -20,6 +20,7 @@ qflash0: flash@0 {
+ 		spi-max-frequency = <62500000>;
+ 		spi-rx-bus-width = <4>;
+ 		spi-tx-bus-width = <4>;
++		vcc-supply = <&reg_vcc1v8>;
+ 
+ 		partitions {
+ 			compatible = "fixed-partitions";
+@@ -36,5 +37,6 @@ qflash1: flash@1 {
+ 		spi-max-frequency = <62500000>;
+ 		spi-rx-bus-width = <4>;
+ 		spi-tx-bus-width = <4>;
++		vcc-supply = <&reg_vcc1v8>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1088a-tqmls1088a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1088a-tqmls1088a.dtsi
+index 66a7aff893b32..b8a213df238a5 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-ls1088a-tqmls1088a.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-ls1088a-tqmls1088a.dtsi
+@@ -20,6 +20,7 @@ qflash0: flash@0 {
+ 		spi-max-frequency = <62500000>;
+ 		spi-rx-bus-width = <4>;
+ 		spi-tx-bus-width = <4>;
++		vcc-supply = <&reg_vcc1v8>;
+ 
+ 		partitions {
+ 			compatible = "fixed-partitions";
+@@ -36,5 +37,6 @@ qflash1: flash@1 {
+ 		spi-max-frequency = <62500000>;
+ 		spi-rx-bus-width = <4>;
+ 		spi-tx-bus-width = <4>;
++		vcc-supply = <&reg_vcc1v8>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/freescale/tqmls10xxa.dtsi b/arch/arm64/boot/dts/freescale/tqmls10xxa.dtsi
+index 138f8778afde6..7da1bfd83cca2 100644
+--- a/arch/arm64/boot/dts/freescale/tqmls10xxa.dtsi
++++ b/arch/arm64/boot/dts/freescale/tqmls10xxa.dtsi
+@@ -8,6 +8,14 @@
+  */
+ 
+ / {
++	reg_vcc1v8: regulator-vcc1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "VCC1V8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-always-on;
++	};
++
+ 	reg_vcc3v3: regulator-vcc3v3 {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "VCC3V3";
 -- 
 2.43.0
 
