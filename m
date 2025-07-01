@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E92C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 14:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1769CC83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 14:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sEnrDDcCW0+uNi7Li/7EBjKT/lB/N/YIH1Gam18Rgys=; b=w8iLNNnCbxcrxqaL9jN+/sRlNT
-	MwzYjo/9vQZefOZmuZqovoIRJ7leG+x3+foL8Ll37dpwKHCZwJexlUUSD42KfU7FS9xI59aO2XJyC
-	e/xq1mumSEQ3tQxcUkzledRt8oOwWJiS5BIDz8kWATPNtZt+FjxZ+VQkPQdqc7CjJqkmY91/yWA4l
-	LJm11iMArHA8tj68pBpmQ+3iRCWk/ELufovBvxYmOuMsR9nk7bMXuho0oac7XJ7jH+/AN6YdS+fmU
-	DNO52vW4dSxdDaEiLHnZtr2lo3/lsy6qPM6Ifz8vO3UvSRpwH4+G4mGqIVxXaqfD48flQlTgL9b2u
-	+EHLAVuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=99KCsRPASfdiAb1s/3gUtMX8boYUlanoI/1WCWeVSw4=; b=cE/L6HgE5Az93NdyqEpH1OQxuw
+	crpVYVSFBrwsfn6AGDChhinKWgTCSuncCprb5gtqwdXw2/FIyuhfOsemgD0a2PLx4xNe67F/M7/jo
+	SdzDzO+szMdV50Akr/5Oqc2JMRHci9OYc1Htf5pDdMEqRvY/KCDmyLB8YrojIP8cOF5adsXoL4iif
+	ngiIwQEG9rY7Reho8nYlcYjtfj0hVPEg8SI/tAC4s76FeIUSCrR9gxD3fxja/oHV/Pm5yeW21JZa6
+	H4mSCiQ4K3uvURsGWpqEFsmgd/FAYCHghXUvT4vWmUo0t0I6ptwgx6F7YmRwsXco/JZLzpJ2s6hdm
+	VrJ7xlog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWc6a-00000005jMI-2EuY;
-	Tue, 01 Jul 2025 14:37:04 +0000
-Received: from mail-m16.yeah.net ([1.95.21.17])
+	id 1uWc8v-00000005kN7-10mA;
+	Tue, 01 Jul 2025 14:39:29 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWagj-00000005RYX-1nTZ
+	id 1uWah3-00000005RqC-0ZUS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 13:06:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=sEnrDDcCW0+uNi7Li/7EBjKT/lB/N/YIH1Gam18Rgys=;
-	b=eZ07VeVYykK8lNUX1eBXrC/u3PXr/45h/URm8aa1PhSrcmLsoJDRgGWmGWoMHb
-	jXDL4U0F0EwXNHekUBnBFb0gg/1c8+rAeBpWQUO+z3bL3KJoZVKeJOUskb8xlFx/
-	Re94eKkN+NRJNicXXsWimzKC+EEcA+enODCIvQJ/y0tSM=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDHVuQ43WNo87YbAA--.10731S3;
-	Tue, 01 Jul 2025 21:06:01 +0800 (CST)
-Date: Tue, 1 Jul 2025 21:05:59 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
-Subject: Re: [PATCH] arm64: dts: freescale: imx93-phyboard-nash: Move ADC
- vref to SoM
-Message-ID: <aGPdNy8Bn37XiOpy@dragon>
-References: <20250602125207.2265222-1-primoz.fiser@norik.com>
+	Tue, 01 Jul 2025 13:06:38 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 35B0943A14;
+	Tue,  1 Jul 2025 13:06:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1751375195;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=99KCsRPASfdiAb1s/3gUtMX8boYUlanoI/1WCWeVSw4=;
+	b=l5winQADrXz8gIFWK5wKV2JNiNfKaposaPOmuhFtP3RWMLckru+ktlOBDYBYatPk7/pYph
+	2O0aK5Rio/Yr2gVKS2nqqqV/LYt8/UGWoroQdnE5LprHQ+SJzv0+eWON2NhLJhUuB64230
+	ihJ18E1orVcjGc7LocSS1+ZzCCAcH4SknDldVzVrKTow8mSdmM3Kp0kLILsFfIymZ1RQvX
+	/W6wVpMaVh9yVDea/5a84QTl5BP5gubO+PnkTZQ1DdToN6T1Mf7f7J1SIIWJv3oeZ1fXXK
+	+FdSklsyEpll2Xiv5BxRjU8EdRVyo8X29XvnpsAAk+mmMQPEFNQAaUpVCPcCEg==
+Date: Tue, 1 Jul 2025 15:06:31 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Simon Horman <horms@kernel.org>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
+ =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
+ <nicveronese@gmail.com>, mwojtas@chromium.org, Antoine Tenart
+ <atenart@kernel.org>, devicetree@vger.kernel.org, Conor Dooley
+ <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob
+ Herring <robh@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
+ Daniel Golle <daniel@makrotopia.org>, Dimitri Fedrau
+ <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v7 04/15] net: phy: Introduce PHY ports
+ representation
+Message-ID: <20250701150631.0256539b@fedora.home>
+In-Reply-To: <20250701130243.GA130037@horms.kernel.org>
+References: <20250630143315.250879-1-maxime.chevallier@bootlin.com>
+	<20250630143315.250879-5-maxime.chevallier@bootlin.com>
+	<20250701130243.GA130037@horms.kernel.org>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250602125207.2265222-1-primoz.fiser@norik.com>
-X-CM-TRANSID: Ms8vCgDHVuQ43WNo87YbAA--.10731S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Xr15WF17tw47WryruF4xCrg_yoWxKFc_ua
-	48WFWvyr1UJF4xua13GF12v3s3G3WUJrWxZr4fGrn3tr92yayxG3sYy345Jw47Xw4DArsI
-	vF1rAa1rur1Y9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUj7DGUUUUUU==
-X-Originating-IP: [114.216.146.217]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIBp43Whj3TqWqAAA3N
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugeeiudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeftddprhgtphhtthhopehhohhrmhhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrt
+ ghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_060617_830552_78A5B932 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20250701_060637_329379_5E43402B 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +96,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 02, 2025 at 02:52:07PM +0200, Primoz Fiser wrote:
-> Move configuration for ADC voltage reference from board DTS to a SoM
-> include file. The SoC ADC reference voltage is connected to a "VDDA_1V8"
-> voltage node and supplied by the PMIC's BUCK5 regulator. The reference
-> voltage is thus defined by the SoM and cannot be changed by the carrier
-> board design and as such belongs into the SoM include file.
-> 
-> Moreover, with this in place, customers designing own carrier boards can
-> simply include imx93-phycore-som.dtsi and enable adc1 in their own DTS
-> without the need to define dummy ADC vref regulator themselves anymore.
-> 
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+On Tue, 1 Jul 2025 14:02:43 +0100
+Simon Horman <horms@kernel.org> wrote:
 
-Applied, thanks!
+> On Mon, Jun 30, 2025 at 04:33:03PM +0200, Maxime Chevallier wrote:
+> 
+> ...
+> 
+> > +/**
+> > + * phy_port_get_type() - get the PORT_* attribut for that port.
+> > + * @port: The port we want the information from
+> > + *
+> > + * Returns: A PORT_XXX value.
+> > + */
+> > +int phy_port_get_type(struct phy_port *port)
+> > +{
+> > +	if (port->mediums & ETHTOOL_LINK_MEDIUM_BASET)  
+> 
+> Hi Maxime,
+> 
+> Should this be:
+> 
+> 	if (port->mediums & BIT(ETHTOOL_LINK_MEDIUM_BASET))
+> 
+> Flagged by Smatch (because ETHTOOL_LINK_MEDIUM_BASET is 0,
+> so as-is the condition is always false).
 
+You're absolutely correct ! Thanks...
+
+Maxime
 
