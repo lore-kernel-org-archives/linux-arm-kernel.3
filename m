@@ -4,98 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD37C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C687BC8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ExZ8NmDYOFOFwFTOaNdmOxwrV4eY5N/56T75mPWrWPE=; b=48tIZmaonafKYNzoMOE3vcYJEP
-	BXmJZBnRHFp1WzMjSqemowB4x20zT1FDJmx6S0qBpaCkjCwozY/8Z6dme5ZlsnSD9W9YSN2LhaJjl
-	4RhWFfrqBsjWYQmA7Zp3/vcJWKG/hnYiLFUK5Nn1gk+h7Z7YC5nY79diu0Xgy48BjG8s84Ik68wnk
-	xUeDAU1S1Gl8kEuRYEhD1dtOtPnn7/eWArRHI6PoOv/6tNVYln2UlfttJ4Gc0HNDYMilpd8xCuH0o
-	m9/UsyLj4EGyrAucIqaBUr14mMk2eF6WNdXJ5Il7yxTBSE5nQa+pcarJkII1Wn1RCaT8udEYuyg2H
-	Ki1o01kA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JyIbbp2/MCI6xzIi/BM69y0rEl8NqZyBK+6ZPo+WKzs=; b=NMC6fzhtf8qFujjuFuowLSFqtA
+	9PYDFanUoPMrESf9K+c5HRn99jiWFB6r2eLMeFAb+0A9CEdm8pP/0cFYqtfo8sQkAxGn2Uj9WbPYV
+	T/PY7OYrv8eYgQr+119uwwSSBdISwFp8QsUN19GaY4PSZBs/OQ72B9Iw8hp/9iQlzAC8nmlf47GeA
+	1CsUcBe3ipajQXKO2q/yZT+qI1UUFNum1bW0fQgSeBN6AUf6cPTrnJRuTulNG7+G8JU9eDZ/5LxNI
+	tFWXNr1QvjrRpX8SyM/AUd6YIosBKXkE9GhbAzEINFxHok86Pr5zQ6Cqn1iHrY5eFciueOXwbN8iI
+	xmRLE/Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVHB-00000004FnS-2eUm;
-	Tue, 01 Jul 2025 07:19:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uWVIR-00000004G3d-2tMj;
+	Tue, 01 Jul 2025 07:20:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWUWo-000000049pq-28g8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 06:31:39 +0000
+	id 1uWU8y-000000046Kp-1jxE;
+	Tue, 01 Jul 2025 06:07:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A35B85C20F0;
-	Tue,  1 Jul 2025 06:31:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA917C4CEEB;
-	Tue,  1 Jul 2025 06:31:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 284FC46390;
+	Tue,  1 Jul 2025 06:06:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D0FF4C4CEFC;
+	Tue,  1 Jul 2025 06:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751351497;
-	bh=vxtng46Zkrgb6pbHnrLeH4QC3wxfXfI8X/RlF6fD+54=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xa70FacU/nH4ycAz32cK1j+CNRDcOTKAPpFV6yg9gpJG/X7BpIwRNALXMP4lLeNo5
-	 uUsbosneGZUgg8JE9+/vot7FWTRq2AfOPXmgFccMuuilEcxda0n1YX11ab5v2ayUKA
-	 esmT9oVr2QwC9XpWFcG4+q2qyt2UGQmJKExnWqMzL5UwvLlDuZ5TbBZyByBHVryshf
-	 Ip2XBgQh8HKLIoJzTFvmOSwX1D5nBypyuVuNhLvcAgxK+6MLaJGsRE8jFToWXEYdSb
-	 F1HoVU/9xO8c17NcEWA1zC51p0IpKcN1S2wppjoRMeoNoBHNSoAXZRos3WMCHkYiHT
-	 iEY9tzeUuvINA==
-Date: Mon, 30 Jun 2025 23:31:34 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Colin Ian King <colin.i.king@gmail.com>,
-	Andi Kleen <ak@linux.intel.com>, Dmitry Vyukov <dvyukov@google.com>,
-	Graham Woodward <graham.woodward@arm.com>,
-	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	Zhongqiu Han <quic_zhonhan@quicinc.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Athira Rajeev <atrajeev@linux.ibm.com>,
-	Kajol Jain <kjain@linux.ibm.com>, Li Huafei <lihuafei1@huawei.com>,
-	"Steinar H. Gunderson" <sesse@google.com>,
-	Stephen Brennan <stephen.s.brennan@oracle.com>,
-	Chun-Tse Shao <ctshao@google.com>, Yujie Liu <yujie.liu@intel.com>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	Levi Yun <yeoreum.yun@arm.com>, Howard Chu <howardchu95@gmail.com>,
-	Weilin Wang <weilin.wang@intel.com>,
-	Thomas Falcon <thomas.falcon@intel.com>,
-	Matt Fleming <matt@readmodwrite.com>,
-	Veronika Molnarova <vmolnaro@redhat.com>,
-	Krzysztof =?utf-8?Q?=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
-	Zixian Cai <fzczx123@gmail.com>,
-	Steve Clevenger <scclevenger@os.amperecomputing.com>,
-	Ben Gainey <ben.gainey@arm.com>,
-	Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
-	Martin Liska <martin.liska@hey.com>,
-	Martin =?utf-8?B?TGnFoWth?= <m.liska@foxlink.cz>,
-	Song Liu <song@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 11/23] perf evlist: Change env variable to session
-Message-ID: <aGOAxhqOGzCgKnbq@google.com>
-References: <20250628045017.1361563-1-irogers@google.com>
- <20250628045017.1361563-12-irogers@google.com>
+	s=k20201202; t=1751350018;
+	bh=5Pav8V9VB0A2Evtx5YnrsDuOOf1sUe6+PqhJkZFypT4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=ZVh8fn3T4zW6iHuT8wRYnefd9cyhL7yiljwZDUoJv0xsJ+4Q0cvkb2xcM9K3mgoEw
+	 YlkT3HP7nlPpIK0qf6oLJl6sMZgtSpmmJd+mlc8MHU6DoE3UNEp/MFmDIiFV0zVt/9
+	 AVSP8EVfpOEFtpn42rK6UP/y8Ty0a+mF7ipxyWqE3jwuVUQEfN4/WczpoIImig9YI6
+	 9sFkSdfIWXRlnM73XyYNcrc3Won3W4yJteQYZR+Dl2qIGF7Ehr7JN9v+FDrZ7KIRak
+	 ibFwQOkSOu3C9Bhle0nnzso7l+dDsr5g7Q3ij7/BWbQG1KuU3yPjydnpTvyiIDulyX
+	 ZOWo5DE8jUmig==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C8D62C7EE30;
+	Tue,  1 Jul 2025 06:06:58 +0000 (UTC)
+From: Max Shevchenko via B4 Relay <devnull+wctrl.proton.me@kernel.org>
+Date: Tue, 01 Jul 2025 09:07:00 +0300
+Subject: [PATCH v3 06/11] dt-bindings: arm: mediatek: add boards based on
+ the MT6572 SoC
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250628045017.1361563-12-irogers@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250701-mt6572-v3-6-8937cfa33f95@proton.me>
+References: <20250701-mt6572-v3-0-8937cfa33f95@proton.me>
+In-Reply-To: <20250701-mt6572-v3-0-8937cfa33f95@proton.me>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Sean Wang <sean.wang@mediatek.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+ Max Shevchenko <wctrl@proton.me>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751350015; l=1042;
+ i=wctrl@proton.me; s=20250603; h=from:subject:message-id;
+ bh=aasPAy4R2Eyq141uUK+jisQoQdVg2nuqlXN6Ma5cC9E=;
+ b=fZeS3RZRC3LKqShMbyogasQH0ojFa++T6EM2RautMix1AyZiphvIcq1+Yvo4Jzz42x7uZeH9h
+ 8Tq65Nc76eSDGFAMAh62Gn1En1ctyXy9CsTxPjhmctYHB76qjRvVkVO
+X-Developer-Key: i=wctrl@proton.me; a=ed25519;
+ pk=JXUx3mL/OrnRvbK57HXgugBjEBKq4QgDKJqp7BALm74=
+X-Endpoint-Received: by B4 Relay for wctrl@proton.me/20250603 with
+ auth_id=421
+X-Original-From: Max Shevchenko <wctrl@proton.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250630_233138_630901_FE7822EE 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20250630_230700_510586_F67B7026 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,98 +95,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wctrl@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 09:50:05PM -0700, Ian Rogers wrote:
-> The session holds a perf_env pointer env. In UI code container_of is
-> used to turn the env to a session, but this assumes the session
-> header's env is in use. Rather than a dubious container_of, hold the
-> session in the evlist and derive the env from the session with
-> evsel__env, perf_session__env, etc.
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/builtin-report.c      |  6 +++++-
->  tools/perf/builtin-script.c      |  2 +-
->  tools/perf/builtin-top.c         |  2 +-
->  tools/perf/tests/topology.c      |  1 +
->  tools/perf/ui/browser.h          |  4 ++--
->  tools/perf/ui/browsers/header.c  |  4 +---
->  tools/perf/ui/browsers/hists.c   |  2 +-
->  tools/perf/util/amd-sample-raw.c |  2 +-
->  tools/perf/util/arm-spe.c        |  2 +-
->  tools/perf/util/evlist.h         |  2 +-
->  tools/perf/util/evsel.c          | 12 +++++++++---
->  tools/perf/util/evsel.h          |  1 +
->  tools/perf/util/header.c         |  2 +-
->  tools/perf/util/s390-cpumsf.c    |  2 +-
->  tools/perf/util/sample-raw.c     |  7 ++++---
->  tools/perf/util/sample-raw.h     |  2 +-
->  tools/perf/util/session.c        |  4 +++-
->  17 files changed, 35 insertions(+), 22 deletions(-)
-> 
-> diff --git a/tools/perf/builtin-report.c b/tools/perf/builtin-report.c
-> index 704576e46e4b..ada8e0166c78 100644
-> --- a/tools/perf/builtin-report.c
-> +++ b/tools/perf/builtin-report.c
-> @@ -1274,6 +1274,8 @@ static int process_attr(const struct perf_tool *tool __maybe_unused,
->  			union perf_event *event,
->  			struct evlist **pevlist)
->  {
-> +	struct perf_session *session;
-> +	struct perf_env *env;
->  	u64 sample_type;
->  	int err;
->  
-> @@ -1286,7 +1288,9 @@ static int process_attr(const struct perf_tool *tool __maybe_unused,
->  	 * on events sample_type.
->  	 */
->  	sample_type = evlist__combined_sample_type(*pevlist);
-> -	callchain_param_setup(sample_type, perf_env__arch((*pevlist)->env));
-> +	session = (*pevlist)->session;
-> +	env = perf_session__env(session);
-> +	callchain_param_setup(sample_type, perf_env__arch(env));
->  	return 0;
->  }
->  
-> diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-> index 8a452353c867..2c25eda4be26 100644
-> --- a/tools/perf/builtin-script.c
-> +++ b/tools/perf/builtin-script.c
-> @@ -2535,7 +2535,7 @@ static int process_attr(const struct perf_tool *tool, union perf_event *event,
->  	 * on events sample_type.
->  	 */
->  	sample_type = evlist__combined_sample_type(evlist);
-> -	callchain_param_setup(sample_type, perf_env__arch((*pevlist)->env));
-> +	callchain_param_setup(sample_type, perf_env__arch(perf_session__env(scr->session)));
->  
->  	/* Enable fields for callchain entries */
->  	if (symbol_conf.use_callchain &&
-> diff --git a/tools/perf/builtin-top.c b/tools/perf/builtin-top.c
-> index 84b223a94dcf..72f9be5a3b30 100644
-> --- a/tools/perf/builtin-top.c
-> +++ b/tools/perf/builtin-top.c
-> @@ -1654,7 +1654,6 @@ int cmd_top(int argc, const char **argv)
->  			"Couldn't read the cpuid for this machine: %s\n",
->  			str_error_r(errno, errbuf, sizeof(errbuf)));
->  	}
-> -	top.evlist->env = &perf_env;
->  
->  	argc = parse_options(argc, argv, options, top_usage, 0);
->  	if (argc)
-> @@ -1822,6 +1821,7 @@ int cmd_top(int argc, const char **argv)
->  		perf_top__update_print_entries(&top);
->  		signal(SIGWINCH, winch_sig);
->  	}
-> +	top.session->env = &perf_env;
+From: Max Shevchenko <wctrl@proton.me>
 
-Looks like it's accessing top.session before it's created?
+Add entries for the JTY D101 tablet and the Lenovo A369i smartphone.
 
-Thanks,
-Namhyung
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Max Shevchenko <wctrl@proton.me>
+---
+ Documentation/devicetree/bindings/arm/mediatek.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
->  
->  	top.session = perf_session__new(NULL, NULL);
->  	if (IS_ERR(top.session)) {
+diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+index 108ae5e0185d93976556a03768595961961bcc33..d5cb133b8a75fb5325f201f10c83bbe434a1da89 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+@@ -27,6 +27,11 @@ properties:
+           - enum:
+               - mediatek,mt2712-evb
+           - const: mediatek,mt2712
++      - items:
++          - enum:
++              - jty,d101
++              - lenovo,a369i
++          - const: mediatek,mt6572
+       - items:
+           - enum:
+               - mediatek,mt6580-evbp1
+
+-- 
+2.50.0
+
+
 
