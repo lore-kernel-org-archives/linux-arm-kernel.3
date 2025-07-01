@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E65C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 16:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D839C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 16:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TOz+88CTDkgO+1M1S9EhNuwy+/x4Yua5nSV1vG71vJI=; b=PDasREnfqzIlinzjW+L7FF01MA
-	MFVuBMUUyZuOMnwwKd/ZFkp0QU4q1KcP+N5injZDNfGvxrW8SvGLA1NwRqqe2f2TxliZ15+UAdeSh
-	hF7lXO/ZEeVcO/5dJYUm2TZd7zFWrv61TLG+ozvWxN4SMu9FQ/NjmOHTKTxHWUR3O+y6DcWxCleYJ
-	aMGPlshFkjE0x/j7sMUOPscyYec39AgQhkSr4NECPMfnC+t88B2+1KVFYPe5psPxiXjNUMCKMX8Hs
-	r0Gurq4RxcNsBGEzjVHG1EQ72pyYne5cP5VWsAZuFkYZCNuAubS4nlW0A3jIBso4AX7hlQThlVtYM
-	lFKUPAuA==;
+	bh=hi0N3GraTx8yze1pAfuIy+A47z01o1rGKa4UbsbV/z8=; b=3BdQ5/JNV2TejGEXiX2CfTlBE4
+	DhyMeCgX7KkjYHvmIr5s95SSyYA/LowAMkjexRzXxvYA8x74JLJtY2WN85iQ0DcMVd06viw3Op2we
+	04Emcqyp8YVYT8lDbDyS8bWFeaH8m3TWaJ/++ihqS7eE/w1AFYphCvCTHgUJENFY1EMV1jvOIU5Dp
+	AGw63yIGftihkQ5XJFxnx6lunbttP7MGy65SIJUVI906kWxVuKPE4K3jE/h3SwfiyuQz4zI04QFfS
+	3e5b4s8w7wJPpsuOJNBjHRdHJPW9Vk2+gEuRuBCHfMJSMmZENFPbl1jgLEr67BkvHYigLbxA+0wU/
+	jdAEXQaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWdYf-00000005zCJ-1t36;
-	Tue, 01 Jul 2025 16:10:09 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uWday-00000005zZH-0mhn;
+	Tue, 01 Jul 2025 16:12:32 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWbxJ-00000005hbZ-1cW0
+	id 1uWbyF-00000005hod-0FOk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 14:27:30 +0000
+	Tue, 01 Jul 2025 14:28:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AA606A530E2;
-	Tue,  1 Jul 2025 14:27:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5E6DC4CEED;
-	Tue,  1 Jul 2025 14:27:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751380048;
-	bh=bDi0f6jCqN5KhrDrpJjcKcdCYvPKH5IumG0nhtrSL1c=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Ffssx2JQhDwOAEgEZh55mWefbI/oPxPsCnWY+hPApIsAEAHc8lOPpqQA5FKceyq6z
-	 aL4F2WIlYe1X62eMs7AOeD/RjB8CCBAEuwQtVp8kdKc+heW/ZRIqQF7THSIJ3MidFZ
-	 fUjnfqRk2hcCVGXC9anCKQ7wWzlH0PU3J8SHeYKGYyc57e2mEm8GPY1N1vPD03eAZP
-	 fma2/85RMWZasI91scxvzITAa5++wnjuVcLsbeciSe+7WpJq6Kcudippz1mYmUATEg
-	 8JW1csptA3d5e6lUCWsv6gPuqU9qhJ9Ng3AqRzszmU/iwMd9qqFstfpR3jeG7xPoHz
-	 3BAzFm9gftUJw==
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
- kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
- festevam@gmail.com, Richard Zhu <hongxing.zhu@nxp.com>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Frank Li <Frank.Li@nxp.com>
-In-Reply-To: <20250617073441.3228400-1-hongxing.zhu@nxp.com>
-References: <20250617073441.3228400-1-hongxing.zhu@nxp.com>
-Subject: Re: [PATCH v2] PCI: imx6: Correct the epc_features of i.MX8M chips
-Message-Id: <175138004317.29152.1836707203802204355.b4-ty@kernel.org>
-Date: Tue, 01 Jul 2025 19:57:23 +0530
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6EA955C4670;
+	Tue,  1 Jul 2025 14:28:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BE45C4CEEB;
+	Tue,  1 Jul 2025 14:28:23 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Hanjun Guo <guohanjun@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Liu Wei <liuwei09@cestc.cn>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	Li Chen <me@linux.beauty>
+Subject: Re: [PATCH v2 0/2] ACPI: Improve SPCR handling and messaging on SPCR-less systems
+Date: Tue,  1 Jul 2025 15:28:21 +0100
+Message-Id: <175138008828.1963850.11865219339288044710.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250620131309.126555-1-me@linux.beauty>
+References: <20250620131309.126555-1-me@linux.beauty>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_072729_492652_F5B21AB6 
-X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-CacheID: sfid-20250701_072827_134268_5109F16B 
+X-CRM114-Status: UNSURE (   9.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,25 +73,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 17 Jun 2025 15:34:41 +0800, Richard Zhu wrote:
-> i.MX8MQ PCIes have three 64-bit BAR0/2/4 capable and programmable BARs.
-> But i.MX8MM and i.MX8MP PCIes only have BAR0/BAR2 64bit programmable
-> BARs, and one 256 bytes size fixed BAR4.
+On Fri, 20 Jun 2025 21:13:06 +0800, Li Chen wrote:
+> From: Li Chen <chenl311@chinatelecom.cn>
 > 
-> Correct the epc_features for i.MX8MM and i.MX8MP PCIes here. i.MX8MQ is
-> the same as i.MX8QXP, so set i.MX8MQ's epc_features to
-> imx8q_pcie_epc_features.
+> This small series improves the kernel behavior and output when the ACPI SPCR
+> table is not present or not supported.
+> 
+> Currently, even on systems that completely lack an SPCR table, the kernel prints:
+> "Use ACPI SPCR as default console: Yes"
 > 
 > [...]
 
-Applied, thanks!
+Applied to arm64 (for-next/acpi), thanks!
 
-[1/1] PCI: imx6: Correct the epc_features of i.MX8M chips
-      commit: 66ee525537be816b2accf4ad28ad33cd299ea492
+[1/2] ACPI: Return -ENODEV from acpi_parse_spcr() when SPCR support is disabled
+      https://git.kernel.org/arm64/c/b9f58d3572a8
+[2/2] ACPI: Suppress misleading SPCR console message when SPCR table is absent
+      https://git.kernel.org/arm64/c/bad3fa2fb920
 
-Best regards,
 -- 
-Manivannan Sadhasivam <mani@kernel.org>
+Catalin
 
 
