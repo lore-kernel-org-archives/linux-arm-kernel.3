@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07ECBC83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 22:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A741C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 22:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+V1PZStc5mSCivbvLVzdaDQRRIJ2feBAqG7FukluWM=; b=K90DAarj0wYc79wE8xfMAWaQt+
-	rSCu2G9mhb5B0qJoyuRvx2voMSYKEhGoQ6IMKSB/evS7B9jz0206Ukg3nucWFo2PfmUyAHY3E5wUM
-	FG8sSs9V57Vt63vHeiV+YysPLybSdC2eV2gByEm3hASDqMzt8HiO5iYeHhyhwun3E4CsgOiouz2Ck
-	v2EIxfjpqGJ26zJ9mR2yw+6w++ujlUm7jr2yEXNLyZ1dgBogz1U0vMr8Qw+MCeKXCOorrsCpxgwZ4
-	Eyd+a7GJ6tPQL3qHKb4eyqIDUJAFOV/2RocnWVvcxQa/ksuNFabAH1Wxo4mvVtwuq8cDNf0XHAcY6
-	jrJIKspg==;
+	bh=0tXQAF2bsyNbWlsBbqkjhEmm+WtYW644Xg0Y6GwfCig=; b=lipWBXUUB/3nObFgx7v2Adp08v
+	X4euVBhRyYTC06ighCcTG4fCvI25WubO6miKQvsu5nETMnZ+Xp5DgIn1F2uJO32DmnY7PvHnGkYL5
+	1Zjt4vWaRH/Q1YD0b3QwnqO/c2aPrOYzHkqWt1vc1lv0JnnQ+yD6C0oyVMZBxCZU3YjmJ0IlqL2BP
+	Lwc/z3SSgusVs6fu1rEK5/1cYQiomNtvElyA7nb07FqVLGN1R3CMJy++4e4PYTv6N+UPZH0I8bhJP
+	SVPDML01Ejngfl8h4U9GNrvWNcym+9X/UyQcmLn/eas//OGp7mxE9Ywbl/Uza6foUJkKYV2lQye9x
+	x+7F4kvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWjgW-00000006nhq-2aEH;
-	Tue, 01 Jul 2025 22:42:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uWjip-00000006nqk-1JrB;
+	Tue, 01 Jul 2025 22:45:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWjGU-00000006lSd-21KR
+	id 1uWjGW-00000006lTa-2s8J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 22:15:47 +0000
+	Tue, 01 Jul 2025 22:15:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A8B89434F0;
+	by nyc.source.kernel.org (Postfix) with ESMTP id D12FBA52F63;
+	Tue,  1 Jul 2025 22:15:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 002AEC4CEEB;
 	Tue,  1 Jul 2025 22:15:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E05D7C4CEEE;
-	Tue,  1 Jul 2025 22:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751408145;
-	bh=4/b8oqiRmO+b+wUXBPdUv0i7HKBQMbmTAdJGmIM73J0=;
+	s=k20201202; t=1751408147;
+	bh=1V9bluvj6qQ90+PrLqZ0V8vdxa8GaJjq9j4rh/X5piw=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=iFSHhob6VYlotEQFMnbn6Z/8/9kI+kAVa2ZTO38a/6avAy4RiCDdgRfKJI5XblMCF
-	 pYML2+zZlmGPQoP771B1+10lkm2+n4zASUeKtIIgpXk1N9PsRrowtfWiQxhMa3zwF0
-	 Nek4iXElagCPjfQzmQFV28fSUNXzkIN3ebbm+0R+4+/QnhkMXf1utFpJ2/6aA2oEVh
-	 gVFzRx5DtM5DhuCCp0AdBD2Cemhpn5WdPUAd71691epNKvg8Ohjyk2810C7ImljUlb
-	 rH1F9xu3fMctiylEoddORPaM//OSWMcPyiwcwvGESxdJZHyFqWRlAqbih+0h8yY+8R
-	 +PhiOjMvPgaIQ==
+	b=cq4PLqhBNXHPRoseG61W93iWlprbyQW36RTApzIjVnz5kYav6/kgFrWTTZvIsG5nm
+	 dalNoS4X9NsbzXZX5ylxeER34FL6ZwzgcxAhw6cpai9ZNmEhFLc2TDbvQMseEoKCyl
+	 lhkStm9uRunHaQXLtsWAjItmhmcwmsnh8UAXNUB+4vpXSv72Tta1D5TrWWeDSdqEWY
+	 nGkq5IntSVX0Jf5CXcdFR+c97TDOwbswm0F42+9fap/0a6iZFtpwZbaDdzZf9JD4SE
+	 ncjhdj3vypRpxv6Gvz4hYKdlApTqBhFUdC+ghUYHeKKqh0akkrrSL2+4CDf/Flwjh0
+	 3+FBqBlRlJiow==
 From: Mark Brown <broonie@kernel.org>
-To: linux-spi@vger.kernel.org, Antonio Quartulli <antonio@mandelbit.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+To: Alain Volmat <alain.volmat@foss.st.com>, 
  Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alain Volmat <alain.volmat@foss.st.com>
-In-Reply-To: <20250630081253.17294-1-antonio@mandelbit.com>
-References: <20250630081253.17294-1-antonio@mandelbit.com>
-Subject: Re: [PATCH v2] spi: stm32: fix pointer-to-pointer variables usage
-Message-Id: <175140814365.710092.16438205627985189965.b4-ty@kernel.org>
-Date: Tue, 01 Jul 2025 23:15:43 +0100
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Cc: linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Dan Carpenter <dan.carpenter@linaro.org>
+In-Reply-To: <20250630-spi-fix-v2-1-4680939e2a3e@foss.st.com>
+References: <20250630-spi-fix-v2-1-4680939e2a3e@foss.st.com>
+Subject: Re: [PATCH v2] spi: stm32: fix sram pool free in probe error path
+Message-Id: <175140814573.710092.14100565010751985098.b4-ty@kernel.org>
+Date: Tue, 01 Jul 2025 23:15:45 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.15-dev-cff91
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_151546_545607_B8919FA5 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20250701_151548_793862_28F6A9AD 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,17 +76,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 30 Jun 2025 10:12:53 +0200, Antonio Quartulli wrote:
-> In stm32_spi_prepare_rx_dma_mdma_chaining() both rx_dma_desc
-> and rx_mdma_desc are passed as pointer-to-pointer arguments.
+On Mon, 30 Jun 2025 14:59:23 +0200, Clément Le Goffic wrote:
+> Add a test to check whether the sram_pool is NULL before freeing it.
 > 
-> The goal is to pass back to the caller the value returned
-> by dmaengine_prep_slave_sg(), when it is not NULL.
 > 
-> However, these variables are wrongly handled as simple pointers
-> during later assignments and checks.
-> 
-> [...]
 
 Applied to
 
@@ -94,8 +87,8 @@ Applied to
 
 Thanks!
 
-[1/1] spi: stm32: fix pointer-to-pointer variables usage
-      commit: c4f2c05ab02952c9a56067aeb700ded95b183570
+[1/1] spi: stm32: fix sram pool free in probe error path
+      commit: f4d8438e6a402ad40cf4ccb6e2d2417d9ed47821
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
