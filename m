@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75A3EC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B22CC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5lG1lZ4wTBqNQl0EYVKKzdzGkBoFkZNZqcyt1z8734U=; b=Z2/ShkBtOcnEyymGnp2TWnClE8
-	tlbEukpNry/Vcgsqj0O2Yiscr99xGXDiR3b9wl7bMGStcK7y+7sPZ/nnrBx0oGVz/zsyZGRsYcMv/
-	AOpaDqKVsQgJjP1qaOYwYX8+k7MCOGtIp2iz1J27cyk+ZjrbjijL2p6XWxJ4jArIx6lP5UynALXjg
-	WjaAbHu/FMY2uDEQBAcwcNWjEYdnBfmK5TevaiZAcIWRyGmClTHemcuobH5w0NerHHS8wxi9nIRVS
-	1bAXHZ1+ZcbNYwU1yiWVqoZMfT7hcpgNUtba/51ug1/1wMmekcKaivDIlwFYAnWw9MuviTrs6RFGu
-	XXfjzv+A==;
+	bh=4Xcu9w9ZhCeXf1QoQwzhZrINeBk2+lm0fa9zXifzq9w=; b=Q2a6A/DEeXUINWIUDCqzHeLYDp
+	p9jYU1HPXfaBK59wvvXj/MpaNagtSEgz2Aop6sS+iGaLar/aVaY3bWZtYvhlWXgneX/pCnU3mc+IA
+	3Zov7RckXkpMRDJAICzXXXSiT2z0CP1R4wpQcK5+x9T9o+eDPLvRtqE/bn99ibLA9QFJSdJ+4kHTc
+	SR6hjDC/7mP2RPUFtc7yc1PXtVTh1Q9bxrnX95SE/TubTCq0zRjh2W3QCNeieuFenp78BcLF7ieDx
+	sDVKS0p+WAwrSAR5HbXhT1da/y/VoCtlt16I9Ku6lwq1FfsLMEXS71A7hFFA2n/bKbRjZYFxuWlrY
+	0Falqrqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWj2-00000004TXn-14UZ;
-	Tue, 01 Jul 2025 08:52:24 +0000
-Received: from out-181.mta1.migadu.com ([2001:41d0:203:375::b5])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWDc-00000004OXQ-1lE8
+	id 1uWWj4-00000004Tan-2PC7;
+	Tue, 01 Jul 2025 08:52:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWWE8-00000004OfX-42X0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 08:19:58 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1751357992;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5lG1lZ4wTBqNQl0EYVKKzdzGkBoFkZNZqcyt1z8734U=;
-	b=f/t6qj6pKG54lCbY53Sunp7mqaPSbRc5H1X0tEQklgAq5suOFxddzV80NWrxXyAvmr/lRV
-	1Dto+v4xBF4t+Zhh3RHFuQ/JDSF8+J9AOVdNOvNaeQOoPCyzhn6YjoG9w0fwNpUoQotP3T
-	no2BXMcOLzWFkEKXPJ/i0tv/yPWXDPzDMRhe4Lp9mjhtB1JKJQ6NtSB23/UcJwi2uc2s2/
-	8hZWN1LMgeF2sP890h5JCSwNsE6KJcnFotTSoGE+FDEMHUAZCrlMaTOLRk/ChdnvaXQUcc
-	WVQm/80AdIhv2xRdsUFr58hIIEOADfl3f0WtGoAHj6FcWIg/r6idjSaCIfws5w==
-Content-Type: multipart/signed;
- boundary=38693364ded63ed777e864851ae1da7c89f5b94f050aba042d5a6802b722;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Tue, 01 Jul 2025 10:19:33 +0200
-Message-Id: <DB0KL629S4E4.3ENNM27XN3IYM@cknow.org>
-Cc: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-rockchip@lists.infradead.org>, <kernel@collabora.com>,
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: adjust dcin regulator on ROCK
- 4D
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Sebastian Reichel" <sebastian.reichel@collabora.com>
-References: <20250630-rock4d-reg-usb-wifi-v1-0-1057f412d98c@collabora.com>
- <20250630-rock4d-reg-usb-wifi-v1-1-1057f412d98c@collabora.com>
- <DB02KKR1VK9H.1Q1Y5A98FKGLK@cknow.org>
- <5acizoywvjolaffojiawqlzixiclrqzohuhq55lbsjm6yhhlwi@w2amqugl3ee2>
-In-Reply-To: <5acizoywvjolaffojiawqlzixiclrqzohuhq55lbsjm6yhhlwi@w2amqugl3ee2>
-X-Migadu-Flow: FLOW_OUT
+	Tue, 01 Jul 2025 08:20:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC73B1595;
+	Tue,  1 Jul 2025 01:20:12 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE4D13F58B;
+	Tue,  1 Jul 2025 01:20:27 -0700 (PDT)
+Date: Tue, 1 Jul 2025 09:20:25 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Ian Rogers <irogers@google.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	German Gomez <german.gomez@arm.com>,
+	Ali Saidi <alisaidi@amazon.com>,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH v2 11/13] perf arm_spe: Refactor
+ arm_spe__get_metadata_by_cpu()
+Message-ID: <20250701082025.GU794930@e132581.arm.com>
+References: <20250630-arm_spe_support_hitm_overhead_v1_public-v2-0-2e1afab313b9@arm.com>
+ <20250630-arm_spe_support_hitm_overhead_v1_public-v2-11-2e1afab313b9@arm.com>
+ <CAP-5=fUPfKB5Va_+sO25yf5Y-SjQTR6WsauqcmxirVzgjRNVAg@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAP-5=fUPfKB5Va_+sO25yf5Y-SjQTR6WsauqcmxirVzgjRNVAg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_011956_850254_E77C5C47 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20250701_012029_036882_A1DC5B65 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,53 +75,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---38693364ded63ed777e864851ae1da7c89f5b94f050aba042d5a6802b722
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Mon, Jun 30, 2025 at 09:53:18AM -0700, Ian Rogers wrote:
 
-Hi,
+[...]
 
-On Tue Jul 1, 2025 at 1:10 AM CEST, Sebastian Reichel wrote:
-> On Mon, Jun 30, 2025 at 08:12:27PM +0200, Diederik de Haas wrote:
->> On Mon Jun 30, 2025 at 5:36 PM CEST, Nicolas Frattaroli wrote:
->> > The ROCK 4D's actual DC input is 5V, and the schematic names it as bei=
-ng
->> > 5V as well.
->> >
->> > Rename the regulator, and change the voltage it claims to be at.
->>=20
->> Shouldn't it have a fixes tag then? Providing 12V where 5V is expected
->> sounds problematic ;-)
->
-> This is basically "just" documentation, as the DT just describes
-> a fixed regulator (i.e. nothing software controllable). This just
-> changes a number in sysfs :)
->
-> Note, that the 5V DCIN is a USB-C port, which does not do any PD
-> negotiation, but has the 5K1 resistors on the CC lines to "request"
-> 5V. If for whatever reason a higher voltage is applied (which does
-> not happen as long as the power is provided by anything remotely
-> following the USB specifications) there also is an over-voltage
-> protection chip. So it's not problematic :)
+> > +       /* CPU ID is -1 for per-thread mode */
+> > +       if (cpu < 0) {
+> > +               /*
+> > +                * On the heterogeneous system, due to CPU ID is -1,
+> > +                * cannot confirm the meta data.
+> > +                */
+> > +               if (!spe->is_homogeneous)
+> > +                       return NULL;
+> > +
+> > +               /* In homogeneous system, simply use CPU0's metadata */
+> 
+> Could this be derived from the spe's pmu_type? Something like
+> perf_pmus__find_by_type(spe->pmu_type)->cpus ?
 
-I was worried about and wondered why I/we did NOT receive reports about
-boards being fried. Good to know, thanks!
+Good point, I will give a try. Thanks for suggestion!
 
-> OTOH adding a Fixes tag does not hurt ;)
-
-Cheers,
-  Diederik
-
---38693364ded63ed777e864851ae1da7c89f5b94f050aba042d5a6802b722
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaGOaGQAKCRDXblvOeH7b
-brm5AQDBQgTI6i56C46hjlIfyd5URIiHLipsV2TsQBP3ETCBSAD/S76s5EMy093j
-72Dzr2Gp3zlu93a5HL9EgvMHM4K/YwE=
-=0tkF
------END PGP SIGNATURE-----
-
---38693364ded63ed777e864851ae1da7c89f5b94f050aba042d5a6802b722--
+Leo
 
