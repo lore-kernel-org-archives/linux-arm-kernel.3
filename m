@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E64A8C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 12:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CBFC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 12:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=27vCRapRpRoLV9KzfQODt7M6d2jewQo10FyC4pKnCE0=; b=QTAb+yPD3TB5HgXFBxmElJ0Fu2
-	JScA8X6JFlrBF7n5uJYZ2ILlIqLbZgSoeePN9WDuexOdEAshvx4Ir8gRo7E5dCKjxMXu0PY26t7kQ
-	NoUqw35I2yP/IVNgGS+GCyAJSPB0IV+pJoGRAGsqcviS8JCU50gr1Bx8/61ZO5wsASTeWhxyXoHsW
-	SMEg9k36B2s0c9G/P1j3WJGZYvQMwm8oSND2Dceyikr0iV9Xuv99H4qlw2LxE2MxPlyHhoi7adeZQ
-	rwj7pihQ5uLTEA3E8fglWJtRQIu4Pv7ZV/MyFY38LMiqBfZhWo59FzLhZVRWY+eBe25WidrM+SgCJ
-	XR+YoePg==;
+	bh=2osz+FDlcrsw62TOPCgoVgngpNoshxMUDCHEG4J5fcg=; b=JDlem3z0wdz4tjoRfiBSrHf4J0
+	y83NyhbrGM8xBbQL0mKSW3dJSjMlciMyc776c1syi9aaTNhCb+prQkRIxkir3Vzu/PsUP+nDsBAxZ
+	0zIxhw4VReFLyard1dlW0qOYYMi/nczATdLDdSqg2lwerg+f+wT3yfeM6bo+pXINOwK3ga6cVLGQs
+	Wri2tX7knd2rbiJFAGuan8VJnhAJLfUUPYoUHjFaqp+sQiqyp9AdV1DXXyXXAySmDZqvKCXXwMa5L
+	P6JEZSyAgToy+/oBs7nMR6UG2qzblPsFFqgi0EgSmjfX42JbN5ikrcVy9cd8ZOkM7V3ArKseAq8Bu
+	NR/gGLlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWa9E-00000005K4B-1CmB;
-	Tue, 01 Jul 2025 12:31:40 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1uWaAm-00000005KoZ-0z4B;
+	Tue, 01 Jul 2025 12:33:16 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZT4-00000004uml-1wtM
+	id 1uWZT7-00000004uoa-0lQk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 11:48:07 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5561c20e2d5so1770195e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 04:48:06 -0700 (PDT)
+	Tue, 01 Jul 2025 11:48:10 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-553c31542b1so3663736e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 04:48:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751370485; x=1751975285; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1751370487; x=1751975287; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=27vCRapRpRoLV9KzfQODt7M6d2jewQo10FyC4pKnCE0=;
-        b=PRYvRv7LikWmnVl6yTy7ft0cvBZOg8AawMYKuzYvMWIVw9XLq+qOJca+/u8CBAcCAm
-         R0/NuFCIe83mrsyPS4ZTdkNEBWQbxYWeRfi/plupxuVYOgxXTXaEsHzAazgUpFjM0Jwi
-         8Jb4rPTGd5aKQzY+Muj7fXnEhKpSIyxUjXatFrBGxQMAEkWpoADl/f5w/7vD1/Tlm9MI
-         lslqsctYhlBODTFI8jdFRi6zSmABJKoRwmtIIK01TsTT5GpxYJzBha6BdaaCO9gyL/TK
-         LDoLP8YgAOlCjDiF9eScZA+8Q7A8+YB7Ty8pzVOIYyx1S87NdGy1kXCBBmRa5I4FdlhU
-         LQog==
+        bh=2osz+FDlcrsw62TOPCgoVgngpNoshxMUDCHEG4J5fcg=;
+        b=eDX11s3f5gM0huF0C6GGVtq6JE5cP0kJUd285t0wp+0lIIr+hk7sFJ6DgQXLBiUPwC
+         Q+ltvcwR3jN1hM2xnbcvrynCQb120572ywol/aVdfbcwnIqNZhHPigjgF/20CSpPXfJX
+         dhPpifuyfTaHxgJ4i5LLyMrYHqorAiYIW6M6HhuYrkSLANcqAVkxIetBEymb9wlMP6ey
+         rE9k5iazq7IuTyu3UQ8Rv1FRfdf/b4m4fDM+E7ZTf5a/2eXP9KN2eYxd8PxeGOFfrzbk
+         vIgGG1eWtEhaO3uyB/aAO3sdn2QXH+yN7bNNOWnY1BGe9Jhs/M0ol8ZZ7mib5j4iolkn
+         KT6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751370485; x=1751975285;
+        d=1e100.net; s=20230601; t=1751370487; x=1751975287;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=27vCRapRpRoLV9KzfQODt7M6d2jewQo10FyC4pKnCE0=;
-        b=EmKf5xtSfyF4YFQfDHbBH6WwR2SSwXMbKreXrqioll5ZviGN+UnmhlxwDwMUzONGM8
-         U2j+96G/5WQhznlufyxrKyJj57bZBzgr3YJVKd4+3q4RlzS5pY8X8TiQJyd8VY//jsSs
-         43JemkAUQ6MG8o9gFPDYhhVV5hn0UKaZFjPYqQjh+416ZI/1tShQt9lyFzKnUzoHra7A
-         lRoLUtH3x2Sk3ggUFThhx1fFQGstmQH1i4DM9ETVVr683PMZQ33jWbbcML72vfyGugmc
-         knsUpwOyYhgc23Uq7KWBMCp/vVv4ayBlbIJHCI9F2bLe/5D/1DqT/DUyqh4bAOXfjsK7
-         7CXA==
-X-Forwarded-Encrypted: i=1; AJvYcCW2OJWjSWVO+ZCNd91bEkFOcXgtLE2KeM1Qgy42DENGbDe7r39WyU663QZChAT7dIRNLWY/JWY0m2JT9sadXEd+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGpEOYTuY0CuuEzyDnNLcTAmyWWWOWsNRcnwRdaIdfCofOIoHr
-	qrHJnpPvNtPYYdNdYW4kPV8B5JEmVkvhND1XSSSwd7AHzwPzEdNTV7RESIMSWwaVq186IFfy6FM
-	HJ9KA
-X-Gm-Gg: ASbGncuBvPVTlRf6rx33OQ/7a4bEOEzqpja7N4KgJS8Uij9p9fTztuM+KvSI/qBbfhj
-	AsvqOmo/If2qcj54M2n0nHDSxawnJ99q70SfIN1kLrquVJsczb0Fls8IOwmzHLSfa0AttZJlhWn
-	hNxpW3+zsHqq3huhsv4FxylLg+zCK3yLOC6Wdsg/Y1LXPxrTj9uIm2nIONTpmv2pxGsTG6hnpL+
-	BLDZxNDDvtUBeXDrBCw6xKYw/Q+1gYtyHEijvapgD96/mmCHYLjTmmwWR77e3I4anYBpqhzWikM
-	fJN9ElmFugB1yXD/btQXFWA8SMp7tkg3bIm0mUWnTzGcMsKMjKLhCYnGT6CEbANZE6Sqx6InBvH
-	P5w96iqEmLjRH2DUP+klAaELyg7h87pOQDDPhhNSEmBxyI1o=
-X-Google-Smtp-Source: AGHT+IHua/UEt3b45/LuxxWp2SUanS88KDLpgikwHH5MvPxATRT7Z0U/3UXMo1sRCEzCo4OszKGTSA==
-X-Received: by 2002:a05:6512:31d0:b0:553:277b:17c8 with SMTP id 2adb3069b0e04-5550b89f65emr5591872e87.35.1751370484839;
-        Tue, 01 Jul 2025 04:48:04 -0700 (PDT)
+        bh=2osz+FDlcrsw62TOPCgoVgngpNoshxMUDCHEG4J5fcg=;
+        b=w2qR1zvwOlKgbLgKEbCdQ3HeOz1qM5slWXBhHShzOYcuIv/wRz3Db4ZUWATmD4+Yym
+         tkh9nF9+EOYkSZ9YaJQ6uoPkOa1RwGtUKgUEr5N1Zfz4f222rfgz2kGT2kXINn1jhnkv
+         1NnaeoJgogQLua0OJew+XRpqAnbS82j7XZjagfGsQNG4pr60B3qiHazK+GSawUIl0EuS
+         DsLyr2+TINb7NbZk/6vSd+myVcWT+vpoRP56hY7W6xL7Ew/doowqBKQSlBgEJT7//ApG
+         IBJanb8TTThM47oEAgVpYMsPRFR+BTSDQBAGMGg4lqkonDpWuGT0XmUfOTiNMPg3jGlm
+         Es4w==
+X-Forwarded-Encrypted: i=1; AJvYcCXGzsrT10cBIBqiKEjipd+gDeOpFsPom+sSdsHdC/c0Z7/FbJhGMbj/LxANYy6l/svtLG3ONl49Gy6x8XosF4hj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzGy0E1/ZcIKK9Ve3lJKN/32w7251eDLDb5yChrfCqlDz8EUys
+	VbXawwnuUgCj1+AT9cqXJt3KBMa06cQf7wzQ85MTdlq96MF6bKCx7GMOrkPdLQwPy80=
+X-Gm-Gg: ASbGncuDnxHp05PyhkEl+01Eb9NhgW7gBbrAaXey6kPIdIVIv32HSjKvOpJ/zgpYe3X
+	yGvKma6qpMZaGobWjWSDpL3+i0uNEQWoJyYD7y2FFj8vajlNz/fnXP3GCDwHrmkNTtLwv25y6eN
+	WfpV97ShpKKzvClUOCksrwT+8kYZ3L+z0jOlkS4s/SkIhQgEYUw7ymc8nmoo3omQKsCked8iNvq
+	7pSgl15tReG5E6vt4lm3l68KU5XOcWGNrwFM0jMkMpWzfk9K3wXWi2mZRx2LwomfhqppSLbnjWG
+	p7oYqBIOWOCBwALmTNqhPCK1M+COPrKdH6SQ+xzmadNU2zFSRwnLKjPlUQA31fCIa4eWUWYI9dE
+	DOWFufYt+R3eQez8M0HsNJO68uYbtmQO4KlaZ
+X-Google-Smtp-Source: AGHT+IGlTarSt6qvH4lmgRN+oUq7xpGteKJYtvJDbrXapQ7Eb/KPRGsvT0Gsl8JnkqI6XMTfQaWnpg==
+X-Received: by 2002:a05:6512:224b:b0:553:cf38:5ea1 with SMTP id 2adb3069b0e04-5550b87b62cmr5843364e87.15.1751370487436;
+        Tue, 01 Jul 2025 04:48:07 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2f162dsm1800592e87.248.2025.07.01.04.48.03
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2f162dsm1800592e87.248.2025.07.01.04.48.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 04:48:04 -0700 (PDT)
+        Tue, 01 Jul 2025 04:48:07 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@google.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -92,17 +91,17 @@ Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 15/24] firmware: xilinx: Don't share zynqmp_pm_init_finalize()
-Date: Tue,  1 Jul 2025 13:47:17 +0200
-Message-ID: <20250701114733.636510-16-ulf.hansson@linaro.org>
+Subject: [PATCH v3 17/24] driver core: Export get_dev_from_fwnode()
+Date: Tue,  1 Jul 2025 13:47:19 +0200
+Message-ID: <20250701114733.636510-18-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250701114733.636510-1-ulf.hansson@linaro.org>
 References: <20250701114733.636510-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_044806_503497_C8656BB7 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20250701_044809_218624_E4A5CF3E 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,59 +116,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As there no longer any users outside the zynqmp firmware driver of
-zynqmp_pm_init_finalize(), let's turn into a local static function.
+It has turned out get_dev_from_fwnode() is useful at a few other places
+outside of the driver core, as in gpiolib.c for example. Therefore let's
+make it available as a common helper function.
 
-Cc: Michal Simek <michal.simek@amd.com>
+Suggested-by: Saravana Kannan <saravanak@google.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
 Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xilinx ZynqMP ZCU106
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/firmware/xilinx/zynqmp.c     | 3 +--
- include/linux/firmware/xlnx-zynqmp.h | 6 ------
- 2 files changed, 1 insertion(+), 8 deletions(-)
+ drivers/base/core.c    | 8 ++++++--
+ include/linux/device.h | 1 +
+ 2 files changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-index a91a0191c689..87ddbb7d11c2 100644
---- a/drivers/firmware/xilinx/zynqmp.c
-+++ b/drivers/firmware/xilinx/zynqmp.c
-@@ -1299,11 +1299,10 @@ EXPORT_SYMBOL_GPL(zynqmp_pm_bootmode_write);
-  * This API function is to be used for notify the power management controller
-  * about the completed power management initialization.
-  */
--int zynqmp_pm_init_finalize(void)
-+static int zynqmp_pm_init_finalize(void)
- {
- 	return zynqmp_pm_invoke_fn(PM_PM_INIT_FINALIZE, NULL, 0);
- }
--EXPORT_SYMBOL_GPL(zynqmp_pm_init_finalize);
- 
- /**
-  * zynqmp_pm_set_suspend_mode()	- Set system suspend mode
-diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-index 6d4dbc196b93..ae48d619c4e0 100644
---- a/include/linux/firmware/xlnx-zynqmp.h
-+++ b/include/linux/firmware/xlnx-zynqmp.h
-@@ -585,7 +585,6 @@ int zynqmp_pm_reset_assert(const u32 reset,
- int zynqmp_pm_reset_get_status(const u32 reset, u32 *status);
- unsigned int zynqmp_pm_bootmode_read(u32 *ps_mode);
- int zynqmp_pm_bootmode_write(u32 ps_mode);
--int zynqmp_pm_init_finalize(void);
- int zynqmp_pm_set_suspend_mode(u32 mode);
- int zynqmp_pm_request_node(const u32 node, const u32 capabilities,
- 			   const u32 qos, const enum zynqmp_pm_request_ack ack);
-@@ -746,11 +745,6 @@ static inline int zynqmp_pm_bootmode_write(u32 ps_mode)
- 	return -ENODEV;
+diff --git a/drivers/base/core.c b/drivers/base/core.c
+index cbc0099d8ef2..6f91ece7c06a 100644
+--- a/drivers/base/core.c
++++ b/drivers/base/core.c
+@@ -1881,8 +1881,6 @@ static void fw_devlink_unblock_consumers(struct device *dev)
+ 	device_links_write_unlock();
  }
  
--static inline int zynqmp_pm_init_finalize(void)
--{
--	return -ENODEV;
--}
+-#define get_dev_from_fwnode(fwnode)	get_device((fwnode)->dev)
 -
- static inline int zynqmp_pm_set_suspend_mode(u32 mode)
+ static bool fwnode_init_without_drv(struct fwnode_handle *fwnode)
  {
- 	return -ENODEV;
+ 	struct device *dev;
+@@ -5281,6 +5279,12 @@ void device_set_node(struct device *dev, struct fwnode_handle *fwnode)
+ }
+ EXPORT_SYMBOL_GPL(device_set_node);
+ 
++struct device *get_dev_from_fwnode(struct fwnode_handle *fwnode)
++{
++	return get_device((fwnode)->dev);
++}
++EXPORT_SYMBOL_GPL(get_dev_from_fwnode);
++
+ int device_match_name(struct device *dev, const void *name)
+ {
+ 	return sysfs_streq(dev_name(dev), name);
+diff --git a/include/linux/device.h b/include/linux/device.h
+index 4940db137fff..315b00171335 100644
+--- a/include/linux/device.h
++++ b/include/linux/device.h
+@@ -1048,6 +1048,7 @@ void device_set_node(struct device *dev, struct fwnode_handle *fwnode);
+ int device_add_of_node(struct device *dev, struct device_node *of_node);
+ void device_remove_of_node(struct device *dev);
+ void device_set_of_node_from_dev(struct device *dev, const struct device *dev2);
++struct device *get_dev_from_fwnode(struct fwnode_handle *fwnode);
+ 
+ static inline struct device_node *dev_of_node(struct device *dev)
+ {
 -- 
 2.43.0
 
