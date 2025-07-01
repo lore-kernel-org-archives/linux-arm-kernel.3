@@ -4,69 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B286C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 21:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780DEC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 21:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iMITdBizcWzR3eYW2fgnbWCLfyrVu0eSAmyyUrNrxIY=; b=FUCVoVRNW8XjP6i9WW2F8M8EOs
-	bH2Bgq1TICdnvt13SN2F87zJvzNW/hlPSNi+MvOQL0KzqdllaEhBHSFRpA11GQqAOywP/FvTmHjgo
-	8S9YyhbzNRtaQgcCw6rbtIZwoNIJsyzmWfQb65dJJ76mRVN/TsfEX9NfrjwBRQr0czOuRx3TFKOAa
-	8PMs9WdkoduIl+M9PRmtCHBTm6U7UrLovhv+Fr1BBbIik9uzAfK9OFa7cJayMUo3ZNjSdjxOi0+Pm
-	Uq36BqWQ8cExup2sgNFIxFdR7KahF5K2z/r357CspvBnYY1OScTN2XRxfaNfU5yhfWYXiG7igHcUo
-	bDOOQCUw==;
+	bh=Gp4ARI8yx8eK5+ZYKJ4V0qAwq8T5VmfMZEWG24JsVtU=; b=VfvTfehn7sYcVADQCoZgfWn+uV
+	TjJvqPNSlZmtJzEWOEGsXPbgVtMhee2WzPULguqYJrS4I+r9zc7tOrjLHYI60szumq7ZWGGFvuKeb
+	SisriM5H+6nDI9/6J7dSORV7XFJVKhXT/9o1fo5SHV9XYLqcfxGPb6TNGKBCIJEsp64aeWIiDgWle
+	Xay4ieR1r1EaRTTZB9z1ZATqp6dG+GOARnXS2VnTc5czM7JNCGmG7nryMXZooyLW4gnhAjfxLcHKv
+	AFdXA0m/qPg9sCWC1otScTHpSDnkIJpvE4XAP9lckWaFuj9d5Co8lAEy/B7X7+OQVmJ5MS1owcTRp
+	Uxz+4pZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWiCW-00000006eGf-3Bx8;
-	Tue, 01 Jul 2025 21:07:36 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uWiCV-00000006eEL-1fZX;
+	Tue, 01 Jul 2025 21:07:35 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWhyC-00000006cOk-3N9t
+	id 1uWhpM-00000006baR-167c
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 20:52:50 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id C355B78C;
-	Tue,  1 Jul 2025 22:52:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1751403144;
-	bh=geP5H2Z4+YHkevGRctptTgYh4x8d/AoO+xeKisC/63s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pjLntyfOaN+smpQYy1xcEjS5lmF3hEALIiz9WvHu/F1CHs8SCbpi+9prdG4X9HIty
-	 Sn1EM7SSfpp5M4ajzhnvPkrSP0Sn6igqrBtZtr7WrlWJM9+4+o25FCUijyKPRlOZTA
-	 iF/XFX037TDmKq3NI44CifqHilzmXkTiSWLFM2fg=
-Date: Tue, 1 Jul 2025 23:52:20 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 5/5] arm64: dts: imx8qxp-mek: add parallel ov5640 camera
- support
-Message-ID: <20250701205220.GE16835@pendragon.ideasonboard.com>
-References: <20250630-imx8qxp_pcam-v1-0-eccd38d99201@nxp.com>
- <20250630-imx8qxp_pcam-v1-5-eccd38d99201@nxp.com>
- <20250630230651.GG15184@pendragon.ideasonboard.com>
- <aGP56BUXrNnBCQu/@lizhi-Precision-Tower-5810>
+	Tue, 01 Jul 2025 20:43:41 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-235e389599fso325995ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 13:43:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1751402619; x=1752007419; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Gp4ARI8yx8eK5+ZYKJ4V0qAwq8T5VmfMZEWG24JsVtU=;
+        b=zkYhDytxehpx0lXETgimjKCuuzu2iJOAZEmPtB1cX3T9mjghmFP8gCAwWqu+SBTzcF
+         4v0S/UF0GdKMCs8ejGZxnP+tcaErlMOaZ/uJwmAa9xzJhB82h3CniMLDt5r8GBGZGD/K
+         B2UPkXOSdr4aHCKUn/mhcPFGPJprM0GoAZIcMjS9rkro6kx0FKCr3ByF7bEB+tam9Soh
+         yUtjpJX/FeMwMBDPAM7HxIbBzoz1S6e4rxuzWffEc96tsBpLE7aPbH7qg+rWHg9fB1c8
+         cwRCz4Y09Lbx1s8pO2uiuEAP9tWa8XN1a/zGuSpJ9nDdWYHdZ0hgQcjr42zwp3Rmep2l
+         /Wug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751402619; x=1752007419;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Gp4ARI8yx8eK5+ZYKJ4V0qAwq8T5VmfMZEWG24JsVtU=;
+        b=xEK6kRJTLTjBhzuMDa4QDZsozC/vsB+kH73BlXzvP9LtbhffdcIJzJQyAn6w9vArpr
+         Bgfe2muhsPuxhl1xNIuVXDt9gJmsdHIINEPEzbQInubQZRELWdunS0iNW0VJZ4f+FwQB
+         8i2mLERXKE8K1YEFXXSJMesnjk0doGf+ypKAsq7vmqj5jehXLyJG8GV3Vw3sPpcPeSGS
+         MAH35tTblt2w/Mghx0ldg26fRFpDhjkjRMTCiB/PpzT4sVXWtCtIBtTBqYCnnZmHM6RD
+         0G+UwRZyLgowxTJ3MY5mgOq4+otWjIaXJPRQedN0+R08dewQHigtBz/ya9QNt64Q1mHJ
+         gEnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUSNr5QSMBu4obvqTR+Y8U6DgtO2mqb/qhBWoiSthEV/0QvIKsw6sPf0F+ltGbmOV7O4rBQPoz+CNJLasvMx1Wi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzdJsEY8gnDjtuWNmV2iOB3jPJanyGfkFHY9UKcTMWTQBcC0Ck
+	2Ks4YYERF4WHg2oD8eBFM1r13HbQNEVeXECtqcaX9QIxiawfxnmQmUBPm9xUPpg3BQ==
+X-Gm-Gg: ASbGnctHSECfncsHO3AcCk57eqKi6cMRbVwXLLGeh/mTPr7U5zHZ/evLjifsGARtW4c
+	f8ms/5/an8nJTE9StTaINlnmMj53uCIGwuNB/I47tbyMGWIhTM98YzXMddDxrPmlrT2JGSrGu10
+	GHxoW5xjpkTTbSRBKcxp0JXkCHnLz/CRCWv3zFOvPM5kB75bHgC4toHzQ97RTwpbLmQ45Jm72Kb
+	pIfj3QLgOBqAcSoJ6UbuZW/KgrKtjz3QYZJTe/rrpCOb5tUutS28TOQ9LKrbRDH/gWWRtEuPn6l
+	bqq5sB3roxRICBD1VYujbgLiq75v/FUv9OB2nfOvjTb/DbjgKrL6h2XdlbhWXku979QR4ZQtYtK
+	DbC/hRMmFjQTLeZko3u5b
+X-Google-Smtp-Source: AGHT+IEgQNF03gTMPFMuZ5i4oqeFgT9l/mftJxCXd5iV8tzIDEl3pR9lFMVTJeBzdy2r/6gfVZ+O7w==
+X-Received: by 2002:a17:902:e54e:b0:231:d0ef:e8ff with SMTP id d9443c01a7336-23c5ff29f9dmr4133295ad.8.1751402619181;
+        Tue, 01 Jul 2025 13:43:39 -0700 (PDT)
+Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74af541bdeasm12778586b3a.53.2025.07.01.13.43.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jul 2025 13:43:38 -0700 (PDT)
+Date: Tue, 1 Jul 2025 20:43:30 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com
+Subject: Re: [PATCH v7 27/28] iommu/tegra241-cmdqv: Add user-space use support
+Message-ID: <aGRIctg4T6cQECx4@google.com>
+References: <cover.1750966133.git.nicolinc@nvidia.com>
+ <539ee2ec112162abdba511574e2205a77b425059.1750966133.git.nicolinc@nvidia.com>
+ <aGQGm1-i4M75b9Qp@google.com>
+ <aGQ6KCI9OZEwHdxS@Asurada-Nvidia>
+ <aGQ_F7Qx3scbbA-J@google.com>
+ <aGRDtYRXFLoT+PrI@Asurada-Nvidia>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aGP56BUXrNnBCQu/@lizhi-Precision-Tower-5810>
+In-Reply-To: <aGRDtYRXFLoT+PrI@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_135248_984432_D3B95F5A 
-X-CRM114-Status: GOOD (  34.37  )
+X-CRM114-CacheID: sfid-20250701_134340_326611_2C14A144 
+X-CRM114-Status: GOOD (  44.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,193 +111,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Tue, Jul 01, 2025 at 01:23:17PM -0700, Nicolin Chen wrote:
+> On Tue, Jul 01, 2025 at 08:03:35PM +0000, Pranjal Shrivastava wrote:
+> > On Tue, Jul 01, 2025 at 12:42:32PM -0700, Nicolin Chen wrote:
+> > > On Tue, Jul 01, 2025 at 04:02:35PM +0000, Pranjal Shrivastava wrote:
+> > > > On Thu, Jun 26, 2025 at 12:34:58PM -0700, Nicolin Chen wrote:
+> > > > > +/**
+> > > > > + * struct tegra241_vintf_sid - Virtual Interface Stream ID Replacement
+> > > > > + * @core: Embedded iommufd_vdevice structure, holding virtual Stream ID
+> > > > > + * @vintf: Parent VINTF pointer
+> > > > > + * @sid: Physical Stream ID
+> > > > > + * @idx: Replacement index in the VINTF
+> > > > > + */
+> > > > > +struct tegra241_vintf_sid {
+> > > > > +	struct iommufd_vdevice core;
+> > > > > +	struct tegra241_vintf *vintf;
+> > > > > +	u32 sid;
+> > > > > +	u8 idx;
+> > > > >  };
+> > > > 
+> > > > AFAIU, This seems to be a handle for sid -> vintf mapping.. it yes, then
+> > > > I'm not sure if "Virtual Interface Stream ID Replacement" clarifies that?
+> > > 
+> > > No. It's for vSID to pSID mappings. I had it explained in commit log:
+> > > 
+> > 
+> > I get that, it's for vSID -> pSID mapping which also "happens to" point
+> > to the vintf.. all I wanted to say was that the description is unclear..
+> > We could've described it as "Vintf SID map" or something, but I guess
+> > it's fine the way it is too.. your call.
+> 
+> The "replace" word is borrowed from the "SID_REPLACE" HW register.
+> 
+> But I think it's okay to call it just "mapping", if that makes it
+> clearer.
+> 
 
-On Tue, Jul 01, 2025 at 11:08:24AM -0400, Frank Li wrote:
-> On Tue, Jul 01, 2025 at 02:06:51AM +0300, Laurent Pinchart wrote:
-> > On Mon, Jun 30, 2025 at 06:28:21PM -0400, Frank Li wrote:
-> > > Add parallel ov5640 nodes in imx8qxp-mek and create overlay file to enable
-> > > it because it can work at two mode: MIPI and parallel mode.
-> > >
-> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > ---
-> > >  arch/arm64/boot/dts/freescale/Makefile             |  3 ++
-> > >  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts      | 37 +++++++++++++++++++
-> > >  .../dts/freescale/imx8x-mek-ov5640-parallel.dtso   | 43 ++++++++++++++++++++++
-> > >  3 files changed, 83 insertions(+)
-> > >
-> > > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> > > index 02ef35578dbc7..a9fb11ccd3dea 100644
-> > > --- a/arch/arm64/boot/dts/freescale/Makefile
-> > > +++ b/arch/arm64/boot/dts/freescale/Makefile
-> > > @@ -330,6 +330,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-mek-pcie-ep.dtb
-> > >  imx8qxp-mek-ov5640-csi-dtbs := imx8qxp-mek.dtb imx8qxp-mek-ov5640-csi.dtbo
-> > >  dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-csi.dtb
-> > >
-> > > +imx8qxp-mek-ov5640-parallel-dtbs := imx8qxp-mek.dtb imx8x-mek-ov5640-parallel.dtbo
-> > > +dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-parallel.dtb
-> > > +
-> > >  dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
-> > >  dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqps-mb-smarc-2.dtb
-> > >  dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
-> > > diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-> > > index c95cb8acc360a..09eb85a9759e2 100644
-> > > --- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-> > > +++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-> > > @@ -487,6 +487,23 @@ pca6416: gpio@20 {
-> > >  		#gpio-cells = <2>;
-> > >  	};
-> > >
-> > > +	ov5640_pi: camera@3c {
-> > > +		compatible = "ovti,ov5640";
-> > > +		reg = <0x3c>;
-> > > +		pinctrl-names = "default";
-> > > +		pinctrl-0 = <&pinctrl_parallel_csi>;
-> > > +		clocks = <&pi0_misc_lpcg IMX_LPCG_CLK_0>;
-> > > +		assigned-clocks = <&pi0_misc_lpcg IMX_LPCG_CLK_0>;
-> > > +		assigned-clock-rates = <24000000>;
-> > > +		clock-names = "xclk";
-> > > +		powerdown-gpios = <&lsio_gpio3 2 GPIO_ACTIVE_HIGH>;
-> > > +		reset-gpios = <&lsio_gpio3 3 GPIO_ACTIVE_LOW>;
-> > > +		AVDD-supply = <&reg_2v8>;
-> > > +		DVDD-supply = <&reg_1v5>;
-> > > +		DOVDD-supply = <&reg_1v8>;
-> > > +		status = "disabled"; /* Overlay enable it */
-> > > +	};
-> > > +
-> >
-> > As far as I can tell, the sensor isn't soldered on the board, but is an
-> > external module connected through a cable. This DT node should therefore
-> > be moved to the overlay.
-> 
-> It is fine for i.MX8QXP. I put here try to reuse overlay file as much as
-> possible.
-> 
-> For example, imx93 have, 9x9, 11x11, 14x14 boards ...
-> 
-> Each board's reset-gpios have slice difference. If move whole to overlay
-> files, we have to create difference overlay for each boards.
-> 
-> If keep here and set "status = okay" and update graphic links in overlay,
-> we can reuse this overlay file for different boards.
-> 
-> for example: imx93-pcam.dtso, which simialr with imx8x-mek-ov5640-parallel.dtso.
-> 
-> So we simple use
-> imx93-9x9-qsb.dtb + imx93-pcam.dtbo.
-> imx93-11x11-evk.dtb + imx93-pcam.dtbo.
-> imx93-14x14-evk.dtb + imx93-pcam.dtbo.
-> 
-> even for imx91 boards in future.
+Anything works. Maybe let it be as is.
 
-First of all, I want to say I feel your pain. I maintain many camera
-sensor modules DT overlays out-of-tree, for different boards, and code
-duplication is definitely annoying. Unfortunately, DT doesn't provide a
-solution to this problem today. There was an attempt years ago to design
-a "DT connector" that defined how connector signals were routed on a
-board. This would allow a single overlay compatible with the connected
-to be used with different base boards. Unfortunately, development
-stalled.
-
-Until this problem gets solved, I'm afraid you'll have to duplicate
-overlays for different base boards. The OV5640 is not part of the
-imx8qxp-mek, so it should not be declared in the imx8qxp-mek.dts.
-
-> > >  	cs42888: audio-codec@48 {
-> > >  		compatible = "cirrus,cs42888";
-> > >  		reg = <0x48>;
-> > > @@ -865,6 +882,26 @@ IMX8QXP_MIPI_CSI0_MCLK_OUT_MIPI_CSI0_ACM_MCLK_OUT	0xC0000041
-> > >  		>;
-> > >  	};
-> > >
-> > > +	pinctrl_parallel_csi: parallelcsigrp {
-> > > +		fsl,pins = <
-> > > +			IMX8QXP_CSI_D00_CI_PI_D02				0xc0000041
-> > > +			IMX8QXP_CSI_D01_CI_PI_D03				0xc0000041
-> > > +			IMX8QXP_CSI_D02_CI_PI_D04				0xc0000041
-> > > +			IMX8QXP_CSI_D03_CI_PI_D05				0xc0000041
-> > > +			IMX8QXP_CSI_D04_CI_PI_D06				0xc0000041
-> > > +			IMX8QXP_CSI_D05_CI_PI_D07				0xc0000041
-> > > +			IMX8QXP_CSI_D06_CI_PI_D08				0xc0000041
-> > > +			IMX8QXP_CSI_D07_CI_PI_D09				0xc0000041
-> > > +
-> > > +			IMX8QXP_CSI_MCLK_CI_PI_MCLK				0xc0000041
-> > > +			IMX8QXP_CSI_PCLK_CI_PI_PCLK				0xc0000041
-> > > +			IMX8QXP_CSI_HSYNC_CI_PI_HSYNC				0xc0000041
-> > > +			IMX8QXP_CSI_VSYNC_CI_PI_VSYNC				0xc0000041
-> > > +			IMX8QXP_CSI_EN_LSIO_GPIO3_IO02				0xc0000041
-> > > +			IMX8QXP_CSI_RESET_LSIO_GPIO3_IO03			0xc0000041
-> > > +		>;
-> > > +	};
-> >
-> > Same for this one.
-> >
-> > > +
-> > >  	pinctrl_pcieb: pcieagrp {
-> > >  		fsl,pins = <
-> > >  			IMX8QXP_PCIE_CTRL0_PERST_B_LSIO_GPIO4_IO00		0x06000021
-> > > diff --git a/arch/arm64/boot/dts/freescale/imx8x-mek-ov5640-parallel.dtso b/arch/arm64/boot/dts/freescale/imx8x-mek-ov5640-parallel.dtso
-> > > new file mode 100644
-> > > index 0000000000000..927d6640662f3
-> > > --- /dev/null
-> > > +++ b/arch/arm64/boot/dts/freescale/imx8x-mek-ov5640-parallel.dtso
-> > > @@ -0,0 +1,43 @@
-> > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > > +/*
-> > > + * Copyright 2025 NXP
-> > > + */
-> > > +
-> > > +/dts-v1/;
-> > > +/plugin/;
-> > > +
-> > > +#include <dt-bindings/gpio/gpio.h>
-> > > +#include <dt-bindings/media/video-interfaces.h>
-> > > +
-> > > +&ov5640_pi {
-> > > +	status = "okay";
-> > > +
-> > > +	port {
-> > > +		ov5640_pi_ep: endpoint {
-> > > +			remote-endpoint = <&parallel_csi_in>;
-> > > +			data-lanes = <1 2>;
-> >
-> > data-lanes is not allowed for parallel buses.
+> > > > > +static struct iommufd_viommu_ops tegra241_cmdqv_viommu_ops = {
+> > > > > +	.destroy = tegra241_cmdqv_destroy_vintf_user,
+> > > > > +	.alloc_domain_nested = arm_vsmmu_alloc_domain_nested,
+> > > > > +	.cache_invalidate = arm_vsmmu_cache_invalidate,
+> > > > 
+> > > > I see that we currently use the main cmdq to issue these cache
+> > > > invalidations (there's a FIXME in arm_vsmmu_cache_invalidate). I was
+> > > > hoping for this series to change that but I'm assuming there's another
+> > > > series coming for that?
+> > > > 
+> > > > Meanwhile, I guess it'd be good to call that out for folks who have
+> > > > Grace and start trying out this feature.. I'm assuming they won't see
+> > > > as much perf improvement with this series alone since we're still using
+> > > > the main CMDQ in the upstream code?
+> > > 
+> > > VCMDQ only accelerates invalidation commands.
+> > > 
+> > 
+> > I get that.. but I see we're using `arm_vsmmu_cache_invalidate` here
+> > from arm-smmu-v3-iommufd.c which seems to issue all commands to
+> > smmu->cmdq as of now (the code has a FIXME as well), per the code:
+> > 
+> > 	/* FIXME always uses the main cmdq rather than trying to group by type */
+> >         ret = arm_smmu_cmdq_issue_cmdlist(smmu, &smmu->cmdq, last->cmd,
+> > 					  cur - last, true);
+> > 
+> > I was hoping this FIXME to be addressed in this series..
 > 
-> Do you know there are method in dt_binding to restrict this?
+> Oh, that's not related.
 > 
-> Frank
+> The main goal of this series is to route all invalidation commands
+> to the VCMDQ HW. And this is where Grace users can see perf gains
+> mentioned in the cover letter or commit log, from eliminating the
+> VM Exits at those most frequently used commands.
+> 
+> Any non-invalidation commands will just reuse what we have with the
+> standard SMMU nesting. And even if we did something to that FIXME,
+> there is no significant perf gain as it's going down the trapping
+> pathway, i.e. the VM Exits are always there.
+> 
+> > > That is for non-invalidation commands that VCMDQ doesn't support,
+> > > so they still have to go in the standard nesting pathway.
+> > > 
+> > > Let's add a line:
+> > > 	/* for non-invalidation commands use */
+> > 
+> > Umm.. I was talking about the cache_invalidate op? I think there's some
+> > misunderstanding here? What am I missing?
+> 
+> That line is exactly for cache_invalidate. All the non-invalidation
+> commands will be sent to he arm_vsmmu_cache_invalidate() by VMM, as
+> it means.
+> 
+> Or perhaps calling them "non-accelerated commands" would be nicer.
 
-We can use if-then-else blocks to restrict the allowed properties based
-on the bus-type.
+Uhh okay, so there'll be a separate driver in the VM issuing invalidation
+commands directly to the CMDQV thus we don't see any of it's part here?
 
-> > > +			bus-type = <MEDIA_BUS_TYPE_PARALLEL>;
-> > > +			bus-width = <8>;
-> > > +			vsync-active = <0>;
-> > > +			hsync-active = <1>;
-> > > +			pclk-sample = <1>;
-> > > +		};
-> > > +	};
-> > > +};
-> > > +
-> > > +&parallel_csi {
-> > > +	status = "okay";
-> > > +
-> > > +	ports {
-> > > +		port@0 {
-> > > +			parallel_csi_in: endpoint {
-> > > +				remote-endpoint = <&ov5640_pi_ep>;
-> > > +			};
-> > > +		};
-> > > +
-> > > +	};
-> > > +};
-> > > +
-> > > +&isi {
-> > > +	status = "okay";
-> > > +};
+AND for non-invalidation commands, we trap out and the VMM ends up
+calling the `cache_invalidate` op of the viommu?
 
--- 
-Regards,
+Is that understanding correct?
 
-Laurent Pinchart
+> 
+> Thanks
+> Nicolin
+
+Thanks
+Praan
 
