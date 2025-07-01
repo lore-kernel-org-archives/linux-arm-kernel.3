@@ -4,104 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7999FC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 16:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F4B4C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 16:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1Yt3x3zsr5fbqG+1bODhLJma2AVCo1fUrMLDWbtz//4=; b=dMQVcPYYLGgYqk+c7Ehjt7RZo8
-	RFESsxhce8KZk1lga7sgm1G0HARIq1Zg76NUz+KWpWXBGUkGzAc+tVZtRM8BLbWC0B4rWNhs5A/93
-	W2/j3y2ELPHEuTovdB7JbLRcTyTnnlWQbMPuKI27W2pg3sgOw2O19VZIsDYl7/wFdpVfvrYPnsveb
-	ThUePjq5nEMINIninFxjglSDDPz4KTCxsRB0LqDM64YPDuZF5cmS1lkrWF4aw3BfUc3eI1tWV6Ezd
-	aHl9JLy4bOwdHk4rSzucHZXg7eJunxfJoft0/1hnrkezmIT6mbxWaZMJ2Blg+DFok0VdiSFn8Ho0z
-	4aNYbIvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wNBtjKUlLDWI5QCJIIlgd/qmQpzHJefgRv3LMnnIJ9A=; b=Di3bDbPbW9vG57JQBpdXBXpLkn
+	bfpbf8Ndbpwh3hI65lZsQwlrS31EQ2Txb7XiCyeB/TzncBxguTmxz/3pPcsZoeCQJOzhx6cDPkRla
+	AjvU0PNgsFD+zb6bUMj2M2wRISU+qF1kh02BT73h1wrB3XXH0zeOf+nkp0oTcnAx7PFmK8GETqlgE
+	yk547URA9Sp7Vj+9eFYKlc0rsfsp4MRopQngVX1RRmfk60qVqEHtMhqzPVy57IsZ9feeo5bfTZ7Vj
+	8wBG2XgdB3d4bzhdAEYgyRDJ5emRi6DVCLxguTDugDLTGR5J0cA14oDee3Xt2De6mmMxb72oylYKk
+	EW6RqkTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWdhs-000000060mc-1m4j;
-	Tue, 01 Jul 2025 16:19:40 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1uWdkC-000000061Q6-1WZM;
+	Tue, 01 Jul 2025 16:22:04 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWc39-00000005imt-1HdL;
-	Tue, 01 Jul 2025 14:33:32 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-453634d8609so41024215e9.3;
-        Tue, 01 Jul 2025 07:33:29 -0700 (PDT)
+	id 1uWc6Y-00000005jLL-2GCI
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Jul 2025 14:37:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751380409; x=1751985209; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1Yt3x3zsr5fbqG+1bODhLJma2AVCo1fUrMLDWbtz//4=;
-        b=SYCdfMwpn+IjQaeEZwp7FaaOfX8+A9UcpmDTtA5F0xQkgZ0D2Et3oZxGsIv6xKbk6S
-         3idP+EloVMH+Dyrn3fFoKGf/pR1CJquCG0kM4lgViEuIIp5xGB8i/+E3ABrZfbciMgXI
-         PkA7K+vuPpEZyXMz/4ao6IOBArLmy+dAF9BXDNG3MnA3QZNhXmC/7e2CqKISMiOEgR3I
-         EN6UG3VDXYUjQ6k4e/sj6sewhBWd2/ercitidtRr0nqK7KP5I5sXxvO9hmDPDYnT2MM6
-         pfCZPoYmXnhzeY8UXvdsrbkSpCO9QoK1N0bw1h9YZjAWJDT8woB2rmJuKTlkm132afwl
-         q3ZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751380409; x=1751985209;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1Yt3x3zsr5fbqG+1bODhLJma2AVCo1fUrMLDWbtz//4=;
-        b=gj2Nm3f0+Ct/nXTLOe8ULyewT+G+RsKdnyLsgHyYWodYSVGs1tLvfQOCZBtdCNr8jU
-         /0p+ZB6sfvNKM8w86+sbctNOayeG5fudLoN4Doh8FsFEcTj0FIi5CmqJarRiyfO2oax3
-         CR6vL/AwziMmVspUy8oxEeq6/yErSaTVKKdjtlUhk5jG23xb7Dwj4SPXjgqcaw3ID0I1
-         44pCns0CSP7xMAMTBKVdrxYBL4X6Inc216vJa39vEGfR2vtLkxIwJh5qbxh5lfZL35P/
-         3/jX6hAF/D1Gn/TC6KcXcj9fmTiZ21CIm/aO6IA4EWze1lGzc74oSRGEZNYNmJqUNtBz
-         nYTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU9Q0pss8T8/PopOVohoRpGn1QqFeYWmUb5mrSIaWqpyNehJ1J3uhxOU1mJbwKWWQHn8Dwy/q33f8CNwos=@lists.infradead.org, AJvYcCXMt+BIHL9lmskqp2smuI/3GROeuphGf8sSXZevOvDFo+3b6M6K2SHltfDWO1DkbxLHjNVaWyZsyxjTCvIWVIXx@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNUTMJHf4d1ZZY3ovEY07cmrPI0wuYosCjVpNNHMNEe135nLhf
-	xxQTaK4E8N5FvUJbXGaaUAn0pH2wR2KhySwri7Z8KvA+VdTh5xLjp31S
-X-Gm-Gg: ASbGncs6fBLxdjJzxjURhtOxZkI22bVyzJ3ZHyrqh0mnoE/7swU1zjb1tOnkZ5fVayK
-	B+qiT/s+QWn/3jwWEZRZZPMMOakexbsC80iftXzWTZSAVVGbCjsbl0gKLdQgPN5yqceiovqOwjC
-	r7ls1RXrZsoanUiJOuoOKlYVlBrhwZsKaUamcnybiQqwHlR8Zuqr6GUhmBkaNZpG1z+7RiilWao
-	tME+c052Vevl20onZC5Qa/UvGT/t3fI1vQXcPitMsVjY4XWoTZG+JcwKMaHYrW+NqUhTkwfgMtL
-	xmCZYk3hPz9jSIXv4b/bsJ8DjUVisDbpkIezx4GA2Mq2GRb91H4=
-X-Google-Smtp-Source: AGHT+IHdbiNvZTIGRfHjK3LlOcp8azh08Vy9sNOtWFRXMMltik4m+thxSCZBh8cytvB5myfYwyr7/g==
-X-Received: by 2002:a05:600c:1e8a:b0:450:d3b9:a5fc with SMTP id 5b1f17b1804b1-4539551fea8mr127351845e9.27.1751380408083;
-        Tue, 01 Jul 2025 07:33:28 -0700 (PDT)
-Received: from localhost.localdomain ([2a09:0:1:2::305e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a3fe592sm163990875e9.21.2025.07.01.07.33.11
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 01 Jul 2025 07:33:27 -0700 (PDT)
-From: Lance Yang <ioworker0@gmail.com>
-X-Google-Original-From: Lance Yang <lance.yang@linux.dev>
-To: akpm@linux-foundation.org,
-	david@redhat.com,
-	21cnbao@gmail.com
-Cc: baolin.wang@linux.alibaba.com,
-	chrisl@kernel.org,
-	ioworker0@gmail.com,
-	kasong@tencent.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	lorenzo.stoakes@oracle.com,
-	ryan.roberts@arm.com,
-	v-songbaohua@oppo.com,
-	x86@kernel.org,
-	huang.ying.caritas@gmail.com,
-	zhengtangquan@oppo.com,
-	riel@surriel.com,
-	Liam.Howlett@oracle.com,
-	vbabka@suse.cz,
-	harry.yoo@oracle.com,
-	mingzhe.yang@ly.com,
-	stable@vger.kernel.org,
-	Barry Song <baohua@kernel.org>,
-	Lance Yang <lance.yang@linux.dev>
-Subject: [PATCH v4 1/1] mm/rmap: fix potential out-of-bounds page table access during batched unmap
-Date: Tue,  1 Jul 2025 22:31:00 +0800
-Message-ID: <20250701143100.6970-1-lance.yang@linux.dev>
-X-Mailer: git-send-email 2.49.0
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1751380622; x=1782916622;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=wNBtjKUlLDWI5QCJIIlgd/qmQpzHJefgRv3LMnnIJ9A=;
+  b=K/vd7lzZdLiefmhIQHT0GYl27YRoBlQTplbGPVclTJURd0I8lstx88KU
+   N1Qy9ByavIqE0cP48jYtPwqmoWC9y5Ieh/DoJEl4uIKT02tF/XWY4FMGR
+   Pzihp43Ij32xsorD9bWNXGjrGIkEJNppfUpvqv4x9h8SZRnSn0051RhTW
+   TbbcDIVKSv8oAmyJ2kPESk0++zz4BtHvh2VGS4qA3DHHG9g0GJaq1xW+9
+   Q5Gcxmu2gb55GUIiKvsURY2ousoLdsjiOW/jUIImvSPko+O7fmffzoUKD
+   +GIC0dxTgo2bhCAIfgsLGZL6rHeFak8js0DF/teRtu2g8CHdqQ6MjxH1H
+   g==;
+X-CSE-ConnectionGUID: I6shCYzBT6uk0MqV6WbtMQ==
+X-CSE-MsgGUID: A/nYcXl1T4uoaw/aimzoLQ==
+X-IronPort-AV: E=Sophos;i="6.16,279,1744063200"; 
+   d="scan'208";a="44959539"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 01 Jul 2025 16:36:58 +0200
+X-CheckPoint: {6863F28A-A-F34124BF-F8CE6E96}
+X-MAIL-CPID: 3118CC2C005CAAB61C6EE39A9FF496E3_4
+X-Control-Analysis: str=0001.0A00639F.6863F29D.004E,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DC32E16B4AE;
+	Tue,  1 Jul 2025 16:36:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1751380614;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wNBtjKUlLDWI5QCJIIlgd/qmQpzHJefgRv3LMnnIJ9A=;
+	b=edOjc+BMIrQqdr6ui8S58aMjdBWOGa1mfh5XPg45NFJkbNCh+hXcD6JKCDoxEZPkIDuXnf
+	f0fdy6Vk/uOLpxzlFjMtJl6mQ0H56LYYKcXl9rSDdKj24ssu4yuhItcacrmXjhhGweZrmf
+	T+qxaLKCHNwN+x01XADJHyyMu8QuD6tOfhYMiACHbDwXjgCvuWERgwFoI19ZE9fJV2hUio
+	NTdesBkxJtGCuhNtBpwGMFmLVvrWIEPBGLdSuyvqSGTsECHhTrCL0n0LgTyLetFcDOrzAF
+	AHsR0w2t9G02buwnh6MuBY11bLfw+KDo6glzSAS1y0+MPvVKOtmM3VTRU7qW5w==
+Message-ID: <f44c7074337b79df9ad67f62acbc268acc344a23.camel@ew.tq-group.com>
+Subject: Re: [PATCH v2] arm64: Kconfig.platforms: remove useless select for
+ ARCH_K3
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Guillaume La Roque <glaroque@baylibre.com>
+Cc: Andrew Davis <afd@ti.com>, vishalm@ti.com, linux-omap@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Nishanth
+ Menon <nm@ti.com>,  linux@ew.tq-group.com
+Date: Tue, 01 Jul 2025 16:36:52 +0200
+In-Reply-To: <20250519-kconfig-v2-1-56c1a0137a0f@baylibre.com>
+References: <20250519-kconfig-v2-1-56c1a0137a0f@baylibre.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_073331_346286_E01583D0 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20250701_073703_082954_27EDA7A6 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,133 +97,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lance Yang <lance.yang@linux.dev>
+On Mon, 2025-05-19 at 10:20 +0200, Guillaume La Roque wrote:
+>=20
+> After patch done on TI_MESSAGE_MANAGER[1] and TI_SCI_PROTOCOL[2] driver
+> select on ARCH_K3 are not needed anymore.
+> Select MAILBOX by default is not needed anymore[3],
+> PM_GENERIC_DOMAIN if PM was enabled by default so not needed.
 
-As pointed out by David[1], the batched unmap logic in try_to_unmap_one()
-may read past the end of a PTE table when a large folio's PTE mappings
-are not fully contained within a single page table.
+Hi,
 
-While this scenario might be rare, an issue triggerable from userspace must
-be fixed regardless of its likelihood. This patch fixes the out-of-bounds
-access by refactoring the logic into a new helper, folio_unmap_pte_batch().
+what selects PM_GENERIC_DOMAIN in your configuration? linux-next fails to b=
+oot
+on our AM62x-based TQMa62xx if I don't (partially) revert this patch - I ha=
+ve=20
+not found a way to enable PM_GENERIC_DOMAIN and TI_SCI_PM_DOMAINS without
+enabling other unneeded features to pull it in.
 
-The new helper correctly calculates the safe batch size by capping the scan
-at both the VMA and PMD boundaries. To simplify the code, it also supports
-partial batching (i.e., any number of pages from 1 up to the calculated
-safe maximum), as there is no strong reason to special-case for fully
-mapped folios.
+Best,
+Matthias
 
-[1] https://lore.kernel.org/linux-mm/a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com
 
-Cc: <stable@vger.kernel.org>
-Reported-by: David Hildenbrand <david@redhat.com>
-Closes: https://lore.kernel.org/linux-mm/a694398c-9f03-4737-81b9-7e49c857fcbe@redhat.com
-Fixes: 354dffd29575 ("mm: support batched unmap for lazyfree large folios during reclamation")
-Suggested-by: Barry Song <baohua@kernel.org>
-Acked-by: Barry Song <baohua@kernel.org>
-Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Acked-by: David Hildenbrand <david@redhat.com>
-Signed-off-by: Lance Yang <lance.yang@linux.dev>
----
-v3 -> v4:
- - Add Reported-by + Closes tags (per David)
- - Pick RB from Lorenzo - thanks!
- - Pick AB from David - thanks!
- - https://lore.kernel.org/linux-mm/20250630011305.23754-1-lance.yang@linux.dev
+>=20
+> Remove it and give possibility to enable this driver in modules.
+>=20
+> [1] https://lore.kernel.org/all/20180828005311.8529-1-nm@ti.com/
+> [2] https://lore.kernel.org/all/20250220-ti-firmware-v2-1-ff26883c6ce9@ba=
+ylibre.com/
+> [3] https://lore.kernel.org/all/20250507135213.g6li6ufp3cosxoys@stinging/
+>=20
+> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+> ---
+> Changes in v2:
+> - Remove some other config after comment from Nishanth.=20
+> - Link to v1: https://lore.kernel.org/r/20250504-kconfig-v1-1-ab0216f4fa9=
+8@baylibre.com
+> ---
+>  arch/arm64/Kconfig.platforms | 4 ----
+>  1 file changed, 4 deletions(-)
+>=20
+> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> index 8b76821f190f..bf9e3d76b4c0 100644
+> --- a/arch/arm64/Kconfig.platforms
+> +++ b/arch/arm64/Kconfig.platforms
+> @@ -135,11 +135,7 @@ config ARCH_SPARX5
+> =20
+>  config ARCH_K3
+>  	bool "Texas Instruments Inc. K3 multicore SoC architecture"
+> -	select PM_GENERIC_DOMAINS if PM
+> -	select MAILBOX
+>  	select SOC_TI
+> -	select TI_MESSAGE_MANAGER
+> -	select TI_SCI_PROTOCOL
+>  	select TI_K3_SOCINFO
+>  	help
+>  	  This enables support for Texas Instruments' K3 multicore SoC
+>=20
+> ---
+> base-commit: e8ab83e34bdc458b5cd77f201e4ed04807978fb1
+> change-id: 20250504-kconfig-68f139fbf337
+>=20
+> Best regards,
 
-v2 -> v3:
- - Tweak changelog (per Barry and David)
- - Pick AB from Barry - thanks!
- - https://lore.kernel.org/linux-mm/20250627062319.84936-1-lance.yang@linux.dev
-
-v1 -> v2:
- - Update subject and changelog (per Barry)
- - https://lore.kernel.org/linux-mm/20250627025214.30887-1-lance.yang@linux.dev
-
- mm/rmap.c | 46 ++++++++++++++++++++++++++++------------------
- 1 file changed, 28 insertions(+), 18 deletions(-)
-
-diff --git a/mm/rmap.c b/mm/rmap.c
-index fb63d9256f09..1320b88fab74 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -1845,23 +1845,32 @@ void folio_remove_rmap_pud(struct folio *folio, struct page *page,
- #endif
- }
- 
--/* We support batch unmapping of PTEs for lazyfree large folios */
--static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
--			struct folio *folio, pte_t *ptep)
-+static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
-+			struct page_vma_mapped_walk *pvmw,
-+			enum ttu_flags flags, pte_t pte)
- {
- 	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
--	int max_nr = folio_nr_pages(folio);
--	pte_t pte = ptep_get(ptep);
-+	unsigned long end_addr, addr = pvmw->address;
-+	struct vm_area_struct *vma = pvmw->vma;
-+	unsigned int max_nr;
-+
-+	if (flags & TTU_HWPOISON)
-+		return 1;
-+	if (!folio_test_large(folio))
-+		return 1;
- 
-+	/* We may only batch within a single VMA and a single page table. */
-+	end_addr = pmd_addr_end(addr, vma->vm_end);
-+	max_nr = (end_addr - addr) >> PAGE_SHIFT;
-+
-+	/* We only support lazyfree batching for now ... */
- 	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
--		return false;
-+		return 1;
- 	if (pte_unused(pte))
--		return false;
--	if (pte_pfn(pte) != folio_pfn(folio))
--		return false;
-+		return 1;
- 
--	return folio_pte_batch(folio, addr, ptep, pte, max_nr, fpb_flags, NULL,
--			       NULL, NULL) == max_nr;
-+	return folio_pte_batch(folio, addr, pvmw->pte, pte, max_nr, fpb_flags,
-+			       NULL, NULL, NULL);
- }
- 
- /*
-@@ -2024,9 +2033,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 			if (pte_dirty(pteval))
- 				folio_mark_dirty(folio);
- 		} else if (likely(pte_present(pteval))) {
--			if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
--			    can_batch_unmap_folio_ptes(address, folio, pvmw.pte))
--				nr_pages = folio_nr_pages(folio);
-+			nr_pages = folio_unmap_pte_batch(folio, &pvmw, flags, pteval);
- 			end_addr = address + nr_pages * PAGE_SIZE;
- 			flush_cache_range(vma, address, end_addr);
- 
-@@ -2206,13 +2213,16 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 			hugetlb_remove_rmap(folio);
- 		} else {
- 			folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
--			folio_ref_sub(folio, nr_pages - 1);
- 		}
- 		if (vma->vm_flags & VM_LOCKED)
- 			mlock_drain_local();
--		folio_put(folio);
--		/* We have already batched the entire folio */
--		if (nr_pages > 1)
-+		folio_put_refs(folio, nr_pages);
-+
-+		/*
-+		 * If we are sure that we batched the entire folio and cleared
-+		 * all PTEs, we can just optimize and stop right here.
-+		 */
-+		if (nr_pages == folio_nr_pages(folio))
- 			goto walk_done;
- 		continue;
- walk_abort:
--- 
-2.49.0
-
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
