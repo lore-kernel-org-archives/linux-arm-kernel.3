@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4CCC8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5874C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M/qdmfV5C2ezGfUpUoaRbfT+DGO6POVIJmN8LgdDLsU=; b=38fp1WKCK5rhdYRXEAJ1PrKJQa
-	xcwvAZvUOIFLppRfkSKsxowlIsvbT1IYjhGvt0BZAyQd04c/8kUQTXZHB5W4vJgy9cDJ2v51JAyy4
-	6C5VcvMPaWsSbXZeqjGnJkDbPXjAKL8UreEdWTK7GcFqjl6Xat2eEr/fhXbaewnzAiffdopyjNtZ0
-	/YtWRcYeAjAkrMKALhccs3vei8OfGj7xzqi1IyKeh2s18Mj62waYnv1DuiTtXzFzSdQpfF5H8dqg9
-	a1NrKkjqAEP834wsX1omy1BuByfavQhExxiJsJ1j9pyw93D0CsTmPgTj4rvko0Qvr/y/wR5DHbLZ6
-	mp55E7Cg==;
+	bh=VRHvw41rR6k2CXfRNpVAkucpo+CGu/QUxPMlHxm0VFU=; b=pKILIzEICz74jWO3ndZ/a9PC+M
+	OHB5dX5idN2IP4UvJUMU1KkVGFhz3DrZQMl2lYmZwPfeo3dOdOTm5j13aUtvnBN6m/P18omx9WHVR
+	q09hqD9CajlS7WLkd04vpf1UunfZis9Jou5qhOYf+MiZPyGLmk7pEqeWJB0qk+EPhbQOVcATM0Pun
+	XvOsyLFs8kQTK1ecbZoMCOUsU+QhdoQkldRI6MiNEWTM0pq/jH30HpIX4FDrtgnldxFOLwY5yW6XZ
+	uhYZ36NJnTiMe0+2GCsumfUY7QFAqbyMpA1fHWVIsX3VNuOrPp4ClepYCJGTWy06/tXp9bRFhMnO6
+	cdCa/qpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXJ4-00000004bSh-02iZ;
-	Tue, 01 Jul 2025 09:29:38 +0000
+	id 1uWXLN-00000004bpo-0Cl8;
+	Tue, 01 Jul 2025 09:32:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWp3-00000004WRd-06la
+	id 1uWWp3-00000004WRe-10IW
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 01 Jul 2025 08:58:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=M/qdmfV5C2ezGfUpUoaRbfT+DGO6POVIJmN8LgdDLsU=; b=GI7NTdw0mWjbqIOEWRY10qRbE2
-	wKR0ja1TNBalYagsiiTwq4Cu+ZgI9vVVZvwYbPJP0CWcgGBifgPj7701caGmPd4uj1WRBGKg/lDog
-	CTjb6PV896XX/B1pZbrE0JFrx+mzfjeOPq1hxJIa9RznMeqkI9glbKt6yodsw7pIESSYLYEac/GSS
-	2WqnTnMWDRJhp3Hxy+2WnywULT9lBfqK1ktRtSpXNX84t9ZRR0P8C/tcoQQTDyePymTEUliU/UA89
-	7GBmpkaZM4w9dJrVzCm1Nmy7o0vgD1VmMPUAGN9F6Sb1Vv40Rw6pbh6qOGBdoqyanMtu9i4GwaA12
-	I7c98SFg==;
+	bh=VRHvw41rR6k2CXfRNpVAkucpo+CGu/QUxPMlHxm0VFU=; b=EaK4jkmVxBmJSjnjaedQ8IJ7vm
+	hZgtGQUdGKjISGTQy/lNcMCCeb/BsYbINI9dcQ5tGFTgZSh2fs7h+njB3oK48etzfSV2p+5TSrVwT
+	8r5/pWnrr4gdnAwOW+TUtnk9+jHNvp5aHFB3VkjunzQooAty/EXu33xi8TvoExkfgxbLPgF4BevIB
+	PmjpbrPb8vjR9ajGk1tAVdGsMH+U9xZ/tCF9ELLGXJOwDehrw/asxciS4t/wJoeDyKgYuKudS0iPu
+	VO+IU9gqAcoXV3HlIzff3kSvVm+KeqSdRt5tmk9lBaZr4mq8wbYpw7xbAW8gqcBveYIkd7klxtu4x
+	CRxPHIQw==;
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWow-000000070nS-1jJp
+	id 1uWWow-000000070nT-1jVP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 08:58:35 +0000
+	Tue, 01 Jul 2025 08:58:36 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1751360291;
@@ -49,28 +49,27 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=M/qdmfV5C2ezGfUpUoaRbfT+DGO6POVIJmN8LgdDLsU=;
-	b=zmRoiz5OMdwJSV5VU8x1H6fNophfk3dzw3fhf+q24KXhEmzotP9HrGiMxOyBY1ltOm6tTb
-	jHcbiVfVn+1srnp0XnEEhuT8CnRw3cXknGmyeDz5pXVNl9nAitQ8a1FJmu2TMSjk8aQP1u
-	sGlEvU8hqYj9zgc7ju+Mmc1aeSPz3E+bI/8WvFlejxHUOZTzfN9QzlAeJO5Elc85MlBiMK
-	ulwAkv0btp0LvdpG0MYPiu5i0Q6kzKBs+U5k8D5Ofvga8GvdgHKFhsxfTDzUOHJ2GfioWy
-	tRuJrnl0sQ8qAdcD1kjAgoDPnqFN+Hiq58XMzh/yR016RT1TvbZgdpeWE5SLPg==
+	bh=VRHvw41rR6k2CXfRNpVAkucpo+CGu/QUxPMlHxm0VFU=;
+	b=cZUEI+ZWwrpIOUwpN59qkqfsHQ28OiVuU20/SMtS2hxUrw8aWnINnJ0ffpbNYHLJ/5UJXJ
+	O/l6oUKRcdkWhfG41or2qOviq0jHjuXie8qblg4VoLc9NaI9eReM2nX4eb78wwJ40e3oZN
+	YCDcbVu7zPg8Hl08XKGxNbwDDSxHz/1sU41hCYsUpiCxx+eV59bW8Rhsi8M8rWHsJsRJpC
+	imw3KijpfVGsKmTdNRMY79NJo1mF9+RLw3BEMKAkbmkj1/WPaVhkAglbZf0DksmoveWuo1
+	LH/hOXnMAjs6m6v4kTTHgTb5Z6U6IUh0NBzI/pT0NUgzc+orqQPhJCo5izyYUg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1751360291;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=M/qdmfV5C2ezGfUpUoaRbfT+DGO6POVIJmN8LgdDLsU=;
-	b=Nwg3GIkAH3MhBIPzrgaFS0OydPjn2AynWmyN+Z2lnAQT8npLekXRFGfCyAe+zoobFGy+zd
-	upSbSMuKVw4YbqCA==
-Date: Tue, 01 Jul 2025 10:58:05 +0200
-Subject: [PATCH 11/14] vdso/vsyscall: Update auxiliary clock data in the
- datapage
+	bh=VRHvw41rR6k2CXfRNpVAkucpo+CGu/QUxPMlHxm0VFU=;
+	b=ffbGYJYDgaQ3PocT43ygu+WEgcKUBnnhJ5s7syxm20zKVw/z/N3DLGAS7Q2fBccv1uQ+JB
+	cJWrBrHgywPHeeBw==
+Date: Tue, 01 Jul 2025 10:58:06 +0200
+Subject: [PATCH 12/14] vdso/gettimeofday: Add support for auxiliary clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250701-vdso-auxclock-v1-11-df7d9f87b9b8@linutronix.de>
+Message-Id: <20250701-vdso-auxclock-v1-12-df7d9f87b9b8@linutronix.de>
 References: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
 In-Reply-To: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -92,16 +91,16 @@ Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
  Kurt Kanzenbach <kurt@linutronix.de>, Nam Cao <namcao@linutronix.de>, 
  Antoine Tenart <atenart@kernel.org>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751360285; l=5571;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751360285; l=3709;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=I8cM041g5IAfoTDOmdmJralm5nAWrjZh5d0Wh6I7fg8=;
- b=ngNkB8/T/+ReUqwzpn1ZvYgZ8QeREdu0ojU91hJIArod5pUxq3LYeNFeie2plEmtNdpep3Eg7
- Sglv31wh+OcD/YbyBW/WgPBOoXr7sUtD0Yy5RIV30x+PWBoPWTBvtVs
+ bh=xvjCYJ8mK4mm1osuZA69etc3l9N5nef3XUciIrrNCVc=;
+ b=8epmu6riVb6Cimt5TflcONcv5+2kAze7zj+/Y0LDsxXjd2AFyIPEUELEyZxVrZr4KCXHMwE5s
+ FEIdtgRGwruATHKRhUUGmkAZG48gXneaw/JXe8VaXq32AIu2beiRXCH
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_095834_464120_1063B059 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20250701_095834_622598_850B316E 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,172 +115,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose the auxiliary clock data so it can be read from the vDSO.
+Expose the auxiliary clocks through the vDSO.
 
 Architectures not using the generic vDSO time framework,
 namely SPARC64, are not supported.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- include/linux/timekeeper_internal.h | 13 ++++++++++++
- include/vdso/datapage.h             |  3 +++
- kernel/time/namespace.c             |  5 +++++
- kernel/time/timekeeping.c           | 12 +++++++++++
- kernel/time/vsyscall.c              | 40 +++++++++++++++++++++++++++++++++++++
- 5 files changed, 73 insertions(+)
+ include/vdso/datapage.h |  2 ++
+ lib/vdso/gettimeofday.c | 49 ++++++++++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 50 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/timekeeper_internal.h b/include/linux/timekeeper_internal.h
-index ca79938b62f396afd503e0cf06bbecf6f95cfce4..5de2e019399c72246f7d7dfad561c8b3d479dbd1 100644
---- a/include/linux/timekeeper_internal.h
-+++ b/include/linux/timekeeper_internal.h
-@@ -190,4 +190,17 @@ static inline void update_vsyscall_tz(void)
- }
- #endif
- 
-+#if defined(CONFIG_GENERIC_TIME_VSYSCALL) && defined(CONFIG_GENERIC_GETTIMEOFDAY) && \
-+	defined(CONFIG_POSIX_AUX_CLOCKS)
-+
-+extern void vdso_time_update_aux(struct timekeeper *tk);
-+
-+#else
-+
-+static inline void vdso_time_update_aux(struct timekeeper *tk)
-+{
-+}
-+
-+#endif /* CONFIG_GENERIC_TIME_VSYSCALL && CONFIG_POSIX_AUX_CLOCKS */
-+
- #endif /* _LINUX_TIMEKEEPER_INTERNAL_H */
 diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index 1864e76e8f691bab10813543880f71bc59afa9c0..f4c96d9ce674abb07ccd8703f1a04da7631c1677 100644
+index f4c96d9ce674abb07ccd8703f1a04da7631c1677..02533038640e53c40291c7e09139e0f9b32f502a 100644
 --- a/include/vdso/datapage.h
 +++ b/include/vdso/datapage.h
-@@ -38,6 +38,7 @@ struct vdso_arch_data {
- #endif
+@@ -5,6 +5,7 @@
+ #ifndef __ASSEMBLY__
  
- #define VDSO_BASES	(CLOCK_TAI + 1)
-+#define VDSO_BASE_AUX	0
- #define VDSO_HRES	(BIT(CLOCK_REALTIME)		| \
- 			 BIT(CLOCK_MONOTONIC)		| \
- 			 BIT(CLOCK_BOOTTIME)		| \
-@@ -117,6 +118,7 @@ struct vdso_clock {
-  * @arch_data:		architecture specific data (optional, defaults
-  *			to an empty struct)
-  * @clock_data:		clocksource related data (array)
-+ * @aux_clock_data:	auxiliary clocksource related data (array)
-  * @tz_minuteswest:	minutes west of Greenwich
-  * @tz_dsttime:		type of DST correction
-  * @hrtimer_res:	hrtimer resolution
-@@ -133,6 +135,7 @@ struct vdso_time_data {
- 	struct arch_vdso_time_data	arch_data;
+ #include <linux/compiler.h>
++#include <uapi/linux/bits.h>
+ #include <uapi/linux/time.h>
+ #include <uapi/linux/types.h>
+ #include <uapi/asm-generic/errno-base.h>
+@@ -46,6 +47,7 @@ struct vdso_arch_data {
+ #define VDSO_COARSE	(BIT(CLOCK_REALTIME_COARSE)	| \
+ 			 BIT(CLOCK_MONOTONIC_COARSE))
+ #define VDSO_RAW	(BIT(CLOCK_MONOTONIC_RAW))
++#define VDSO_AUX	__GENMASK(CLOCK_AUX_LAST, CLOCK_AUX)
  
- 	struct vdso_clock		clock_data[CS_BASES];
-+	struct vdso_clock		aux_clock_data[MAX_AUX_CLOCKS];
+ #define CS_HRES_COARSE	0
+ #define CS_RAW		1
+diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+index c383878bb5445a62d8fea6591e8550183852c2e6..3a54dbb8fe32849cd749e71ec2a8be44baf42816 100644
+--- a/lib/vdso/gettimeofday.c
++++ b/lib/vdso/gettimeofday.c
+@@ -2,6 +2,7 @@
+ /*
+  * Generic userspace implementations of gettimeofday() and similar.
+  */
++#include <vdso/auxclock.h>
+ #include <vdso/datapage.h>
+ #include <vdso/helpers.h>
  
- 	s32				tz_minuteswest;
- 	s32				tz_dsttime;
-diff --git a/kernel/time/namespace.c b/kernel/time/namespace.c
-index e3642278df433c41654ffb6a8043c3fcecc2994a..667452768ed3b50e48e3cfb70f8ef68e4bed9e0b 100644
---- a/kernel/time/namespace.c
-+++ b/kernel/time/namespace.c
-@@ -242,6 +242,11 @@ static void timens_set_vvar_page(struct task_struct *task,
- 	for (i = 0; i < CS_BASES; i++)
- 		timens_setup_vdso_clock_data(&vc[i], ns);
- 
-+	if (IS_ENABLED(CONFIG_POSIX_AUX_CLOCKS)) {
-+		for (i = 0; i < ARRAY_SIZE(vdata->aux_clock_data); i++)
-+			timens_setup_vdso_clock_data(&vdata->aux_clock_data[i], ns);
-+	}
-+
- out:
- 	mutex_unlock(&offset_lock);
- }
-diff --git a/kernel/time/timekeeping.c b/kernel/time/timekeeping.c
-index 6a088378df54d561ecfeafb45a8b54333e11a9a7..928b8e0773f9e1b8fd700f130a700c5908fe6c27 100644
---- a/kernel/time/timekeeping.c
-+++ b/kernel/time/timekeeping.c
-@@ -66,11 +66,21 @@ static inline bool tk_get_aux_ts64(unsigned int tkid, struct timespec64 *ts)
+@@ -74,7 +75,7 @@ static inline bool vdso_cycles_ok(u64 cycles)
+ static __always_inline bool vdso_clockid_valid(clockid_t clock)
  {
- 	return ktime_get_aux_ts64(CLOCK_AUX + tkid - TIMEKEEPER_AUX_FIRST, ts);
+ 	/* Check for negative values or invalid clocks */
+-	return likely((u32) clock < MAX_CLOCKS);
++	return likely((u32) clock < CLOCK_AUX_LAST);
  }
-+
-+static inline bool tk_is_aux(const struct timekeeper *tk)
-+{
-+	return tk->id >= TIMEKEEPER_AUX_FIRST && tk->id <= TIMEKEEPER_AUX_LAST;
-+}
- #else
- static inline bool tk_get_aux_ts64(unsigned int tkid, struct timespec64 *ts)
- {
- 	return false;
+ 
+ /*
+@@ -268,6 +269,48 @@ bool do_coarse(const struct vdso_time_data *vd, const struct vdso_clock *vc,
+ 	return true;
  }
-+
-+static inline bool tk_is_aux(const struct timekeeper *tk)
+ 
++static __always_inline
++bool do_aux(const struct vdso_time_data *vd, clockid_t clock, struct __kernel_timespec *ts)
 +{
-+	return false;
++	const struct vdso_clock *vc;
++	u64 sec, ns;
++	u32 seq;
++	u8 idx;
++
++	if (!IS_ENABLED(CONFIG_POSIX_AUX_CLOCKS))
++		return false;
++
++	idx = clock - CLOCK_AUX;
++	vc = &vd->aux_clock_data[idx];
++
++	do {
++		/*
++		 * Open coded function vdso_read_begin() to handle
++		 * VDSO_CLOCK_TIMENS. See comment in do_hres().
++		 */
++		while ((seq = READ_ONCE(vc->seq)) & 1) {
++			if (IS_ENABLED(CONFIG_TIME_NS) && vc->clock_mode == VDSO_CLOCKMODE_TIMENS) {
++				vd = __arch_get_vdso_u_timens_data(vd);
++				vc = &vd->aux_clock_data[idx];
++				break;
++			}
++			cpu_relax();
++		}
++		smp_rmb();
++
++		/* Auxclock disabled? */
++		if (vc->clock_mode == VDSO_CLOCKMODE_NONE)
++			return false;
++
++		if (!vdso_get_timestamp(vd, vc, VDSO_BASE_AUX, &sec, &ns))
++			return false;
++	} while (unlikely(vdso_read_retry(vc, seq)));
++
++	vdso_set_timespec(ts, sec, ns);
++
++	return true;
 +}
- #endif
++
+ static __always_inline bool
+ __cvdso_clock_gettime_common(const struct vdso_time_data *vd, clockid_t clock,
+ 			     struct __kernel_timespec *ts)
+@@ -289,6 +332,8 @@ __cvdso_clock_gettime_common(const struct vdso_time_data *vd, clockid_t clock,
+ 		return do_coarse(vd, &vc[CS_HRES_COARSE], clock, ts);
+ 	else if (msk & VDSO_RAW)
+ 		vc = &vc[CS_RAW];
++	else if (msk & VDSO_AUX)
++		return do_aux(vd, clock, ts);
+ 	else
+ 		return false;
  
- /* flag for if timekeeping is suspended */
-@@ -719,6 +729,8 @@ static void timekeeping_update_from_shadow(struct tk_data *tkd, unsigned int act
- 
- 		update_fast_timekeeper(&tk->tkr_mono, &tk_fast_mono);
- 		update_fast_timekeeper(&tk->tkr_raw,  &tk_fast_raw);
-+	} else if (tk_is_aux(tk)) {
-+		vdso_time_update_aux(tk);
+@@ -433,6 +478,8 @@ bool __cvdso_clock_getres_common(const struct vdso_time_data *vd, clockid_t cloc
+ 		 * Preserves the behaviour of posix_get_coarse_res().
+ 		 */
+ 		ns = LOW_RES_NSEC;
++	} else if (msk & VDSO_AUX) {
++		ns = aux_clock_resolution_ns();
+ 	} else {
+ 		return false;
  	}
- 
- 	if (action & TK_CLOCK_WAS_SET)
-diff --git a/kernel/time/vsyscall.c b/kernel/time/vsyscall.c
-index df6bada2d58ed9a03e5dd3cb4b218983089a2877..62d9701db9135ba4ef377f3f534a9279d7922d2d 100644
---- a/kernel/time/vsyscall.c
-+++ b/kernel/time/vsyscall.c
-@@ -136,6 +136,46 @@ void update_vsyscall_tz(void)
- 	__arch_sync_vdso_time_data(vdata);
- }
- 
-+#ifdef CONFIG_POSIX_AUX_CLOCKS
-+void vdso_time_update_aux(struct timekeeper *tk)
-+{
-+	struct vdso_time_data *vdata = vdso_k_time_data;
-+	struct vdso_timestamp *vdso_ts;
-+	struct vdso_clock *vc;
-+	s32 clock_mode;
-+	u64 nsec;
-+
-+	vc = &vdata->aux_clock_data[tk->id - TIMEKEEPER_AUX_FIRST];
-+	vdso_ts = &vc->basetime[VDSO_BASE_AUX];
-+	clock_mode = tk->tkr_mono.clock->vdso_clock_mode;
-+	if (!tk->clock_valid)
-+		clock_mode = VDSO_CLOCKMODE_NONE;
-+
-+	/* copy vsyscall data */
-+	vdso_write_begin_clock(vc, true);
-+
-+	vc->clock_mode = clock_mode;
-+
-+	if (clock_mode != VDSO_CLOCKMODE_NONE) {
-+		fill_clock_configuration(vc, &tk->tkr_mono);
-+
-+		vdso_ts->sec	= tk->xtime_sec;
-+
-+		nsec = tk->tkr_mono.xtime_nsec >> tk->tkr_mono.shift;
-+		nsec += tk->offs_aux;
-+		vdso_ts->sec += __iter_div_u64_rem(nsec, NSEC_PER_SEC, &nsec);
-+		nsec = nsec << tk->tkr_mono.shift;
-+		vdso_ts->nsec = nsec;
-+	}
-+
-+	__arch_update_vdso_clock(vc);
-+
-+	vdso_write_end_clock(vc, true);
-+
-+	__arch_sync_vdso_time_data(vdata);
-+}
-+#endif
-+
- /**
-  * vdso_update_begin - Start of a VDSO update section
-  *
 
 -- 
 2.50.0
