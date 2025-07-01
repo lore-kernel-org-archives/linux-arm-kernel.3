@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C38BDC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 18:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C28C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 18:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7Wjl7TqtpfpT/cVhyOMYZ+YoZwvVH3I5MuberAw7nso=; b=L1APACPYLSkVdI
-	MaRC101GAoC6wu9ek7QYCPm9DqZHGs7anGOCrXtdS7ez+KyJTlX026Pd1YKPqqGISrIBQl869bm2m
-	vC9xTT2iBYplvq7JabcXgQVd5YpzpOQvY9Tehn24vKVwiXfEnfIUnNSXGy3OnpiOQ2Ivzui+gjg/x
-	xUlbzz1X3JezBqhOzI4d4JohBXSTffhMNPCwCkdpSmn5TyFJVDYk6YqUfVDyoJ0W6aiThDERFClnn
-	OflwWbfA9Z5HlkUU0pv6SrHlwGnfd5ulP9yrIGxIN4trYKRN3E10gVvm+NN99gcaonxu8jmcoE+BN
-	nTK6jNGnbj5KxZnS/2bA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P9/CxXJJYKJ/1X+xLD1Y6KKC00WAljOV/gzYqHFk280=; b=vXX534J/9YijU91X31QdM/qpka
+	zVSQ/ft5moOg7KijTu5oSFHkiZdVhiRgvUeGPgIxP1ur+WLrMTcjASv+fgpFnIF6n8CfKlkkBU7Iu
+	ZNTz519JbWyAk0LqKRLqTG2V4rAXSbbIKsFBT8NPY39XszP8wknC+PxEEzIv7MOkhlxAccebWs8Rc
+	o36fMDbWnNeSfBcQ9CxYCzVseDgRDJrzVTy5t7ixmjzvYsS6mSs68YxATBRoxackxEsuRq9KP4QF9
+	u3fg8EN59tW5GlP0NEkI8shyaiM4oQDvXfgiNQJuKcUqWYCY4ioG8kUSOrvP47T/tWik+U4gVN/OS
+	Zp/5uUPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWflJ-00000006Kk1-0G4g;
-	Tue, 01 Jul 2025 18:31:21 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWcyi-00000005tsg-2rNp
+	id 1uWfzN-00000006Mk5-1u9o;
+	Tue, 01 Jul 2025 18:45:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWcNp-00000005n92-2kPN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 15:33:02 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-450ce671a08so23035865e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 08:32:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751383978; x=1751988778; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7Wjl7TqtpfpT/cVhyOMYZ+YoZwvVH3I5MuberAw7nso=;
-        b=DF/fbtGqdPRoPJkxDymg5ogZYd4AnWFth5uezs47hr/h27d/EBnnvMNx3t0rVU2Ihr
-         vn0mbFT2Na4UwZnuWAUuFr16X+7NFLNyc0TpTnYwbm+LNNJVnZ2m8q1rigDoOxgsvanT
-         VUK8PyB3hCps7Y9IaUKfBJhQ0KoHJ0QtpcQ4f/7eB6M/uC2ryV6AT28yvzxltYyAKrTa
-         +ajfLDHMmDyDbSbTUVo9htzqToNBQ1BTX6A0P+se9R+rIY1RRR0YrYVPdQbtF6vnTVIp
-         F+68NiiJN/XoIINvm189fwoflwcsfA1nC+OHZyyDqWCGBBeEAZLW+MsaJwxmCOSAfH0C
-         TNbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751383978; x=1751988778;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7Wjl7TqtpfpT/cVhyOMYZ+YoZwvVH3I5MuberAw7nso=;
-        b=akjBOau44xkC5TVmdY0bbCsiuJpY0ELz1OkTF5xdtPRyO1zZrQZt9LWvvA1StO2fmB
-         uXS9NlefLGX5jdHSVeHEMp2bbFRgJ2E9KNdOGxB4e4erdR1XpejRHLHv/i0rXeD0qfUd
-         rSK6wIPuY0BOHdU8cebrFePCk8S17PzCNvCXTQOVKFhiTajp63f/G0orLUdIpVb16j9y
-         mMYGId4T7F0i5YtOEFY6hDUwO+ftzQCBnH+rdU7qKisyPRM+PLyDzgxGQmz3OOvfWFl6
-         QeU8FV3cM6iJKpnLL/lyImRTPVNd9v/efyAPkOFDfK7n5LhTkwYgAVBwxv6h5mEZfTSD
-         i5PQ==
-X-Gm-Message-State: AOJu0YwlpeztVAVqsEgmYEJYgQrbTMto9oDkpMeQP1nC2OTVpLy115J+
-	pMS5d6ko2M34LWnaTvMUQrLDWXLWihDefXHiZnpSNKwiYicfSlaCUEgNA4ELTD3zaTI=
-X-Gm-Gg: ASbGncs9IQNhaMJuc2Wqaxb17EhAvteomMG6FHyBFj3B1np2CEzBde0o6UrOHRPM6Pd
-	SL6Rj1SJHkTpWQ/+doEHszPy+TA4A3esRoigL1ezdmIKl8zDMfdL3FAbVgL50pz/H3skDElX47A
-	tBxdx0bxpn6bQWNaJIfrh9oQfiGa5hanlXvFK/OEhi3X0trtrMURUDIzHLeRCwKPQ1Z786uFKJ4
-	jp2FufxNUswzcrWhAYTgQf0144cbiDQWVXySekP7tMogDkLJ9XTpZoFNL9mDqxzRewrzQOznH6y
-	Xmyyl2qK2DJ40ORhSM41BDQhzwaOYOODmXGGGU9N2uPy5gKHyPYCAyHNtHK27SI3SKGJ/Kxz04E
-	berlTiw==
-X-Google-Smtp-Source: AGHT+IFfPvs67/UJpu/9kyB3q+XqucTe78Apo5J0t9CmwCnnIvnAeglojVve+6TRV6p2yD+cqIsekg==
-X-Received: by 2002:a05:600c:5250:b0:448:e8c0:c778 with SMTP id 5b1f17b1804b1-4538ee61eedmr160326185e9.22.1751383978328;
-        Tue, 01 Jul 2025 08:32:58 -0700 (PDT)
-Received: from ho-tower-lan.lan ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a88c80b5a3sm13435002f8f.40.2025.07.01.08.32.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 08:32:57 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Subject: [PATCH 0/3] perf: arm_spe: Add support for SPE VM interface
-Date: Tue, 01 Jul 2025 16:31:56 +0100
-Message-Id: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
+	Tue, 01 Jul 2025 14:54:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3BB5236D;
+	Tue,  1 Jul 2025 07:54:37 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45B813F66E;
+	Tue,  1 Jul 2025 07:54:51 -0700 (PDT)
+From: Leo Yan <leo.yan@arm.com>
+Date: Tue, 01 Jul 2025 15:53:52 +0100
+Subject: [PATCH v2 27/28] coresight: Move CPU hotplug callbacks to core
+ layer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGz/Y2gC/x3MQQqDQAxG4atI1g2MsVrtVcTFqL82gqNMRAri3
- Tt0+S3eu8gQFUbv7KKIU023kJA/Mho+PsxgHZNJnJSucg0vfoWx7eBzZQ0H4uQHsPT9M4cUtXs
- JpXiPmPT7H7fdff8ADND5UmgAAAA=
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Alexandru Elisei <Alexandru.Elisei@arm.com>, 
- Anshuman Khandual <Anshuman.Khandual@arm.com>, 
- Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
- Robin Murphy <Robin.Murphy@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+Message-Id: <20250701-arm_cs_pm_fix_v3-v2-27-23ebb864fcc1@arm.com>
+References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
+In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Levi Yun <yeoreum.yun@arm.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751381627; l=6622;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=o8U2CyLA6oQ12QKlhMbUjxrrAki5FVq7tsPqo5eJOWU=;
+ b=36aOdrmbrtsRS0SdUEpj9nAw9Gg00qdz4gIseSUq0YU6SfvjlYsCffGpN9r73+NYfCZa3vxHG
+ 8iRj4RpC8+GBGNqhwKDJ3cmH4OYYxMU7660WKPSdK0oqC0YQJKS1Pcm
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_083300_727457_9E328A4E 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20250701_075453_775508_4BF3CE64 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,35 +77,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SPE can be used from within a guest as long as the driver adheres to the
-new VM interface spec [1]. Because the driver should behave correctly
-whether it's running in a guest or not, the first patches are marked as
-a fix. Furthermore, in future versions of the architecture the PE will
-be allowed to behave in the same way.
+This commit moves CPU hotplug callbacks from ETMv4 driver to core layer.
+The motivation is the core layer can control all components on an
+activated path rather but not only managing tracer in ETMv4 driver.
 
-The last patch adds new behavior to make it easier for guests to be
-able to reserve large buffers. It's not strictly necessary, so it's not
-marked as a fix.
+The perf event layer will disable CoreSight PMU event 'cs_etm' when
+hotplug off a CPU.  That means a perf mode will be always converted to
+disabled mode in CPU hotplug.  Arm CoreSight CPU hotplug callbacks only
+need to handle the Sysfs mode and ignore the perf mode.
 
-[1]: https://developer.arm.com/documentation/den0154/latest/
+The core layer invokes a high level API coresight_disable_source() to
+disable a source when hotplug-off a CPU.  It disables a tracer and
+changes the tracer's mode to CS_MODE_DISABLED.
 
-Signed-off-by: James Clark <james.clark@linaro.org>
+When hotplug-in a CPU, if a activated path is detected - when the
+activated path pointer is not NULL - in this case, the tracer will be
+re-enabled.
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
-James Clark (3):
-      perf: arm_spe: Add barrier before enabling profiling buffer
-      perf: arm_spe: Disable buffer before writing to PMBPTR_EL1 or PMBSR_EL1
-      perf: arm_spe: Add support for SPE VM interface
+ drivers/hwtracing/coresight/coresight-core.c       | 61 +++++++++++++++++++++-
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 37 -------------
+ include/linux/coresight.h                          | 17 +++---
+ 3 files changed, 70 insertions(+), 45 deletions(-)
 
- arch/arm64/include/asm/sysreg.h |  1 +
- arch/arm64/tools/sysreg         |  6 ++++-
- drivers/perf/arm_spe_pmu.c      | 60 ++++++++++++++++++++++++++++++++---------
- 3 files changed, 54 insertions(+), 13 deletions(-)
----
-base-commit: d0b3b7b22dfa1f4b515fd3a295b3fd958f9e81af
-change-id: 20250609-james-spe-vm-interface-2bb41e238072
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 9978737d21177ab7cfcd449cf67a0b0736fcca5a..e1659b05738e73fcb6c66c74c8f1ce3a24ab2da4 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1701,6 +1701,52 @@ char *coresight_alloc_device_name(struct coresight_dev_list *dict,
+ }
+ EXPORT_SYMBOL_GPL(coresight_alloc_device_name);
+ 
++static int coresight_starting_cpu(unsigned int cpu)
++{
++	struct coresight_device *source = per_cpu(csdev_source, cpu);
++	struct coresight_path *path;
++
++	if (!source)
++		return 0;
++
++	/* Re-enable components on an activated path */
++	path = per_cpu(csdev_cpu_path, cpu);
++	if (!path)
++		return 0;
++
++	if (path->saved_mode != CS_MODE_SYSFS)
++		return 0;
++
++	source_ops(source)->enable(source, NULL, path->saved_mode, path);
++	return 0;
++}
++
++static int coresight_dying_cpu(unsigned int cpu)
++{
++	struct coresight_device *source = per_cpu(csdev_source, cpu);
++	struct coresight_path *path;
++
++	if (!source)
++		return 0;
++
++	/* Don't proceed if no path is activated */
++	path = per_cpu(csdev_cpu_path, cpu);
++	if (!path)
++		return 0;
++
++	path->saved_mode = coresight_get_mode(source);
++
++	/*
++	 * The perf event layer will disable PMU events in the CPU hotplug.
++	 * CoreSight driver should never handle the CS_MODE_PERF case.
++	 */
++	if (WARN_ON(path->saved_mode != CS_MODE_SYSFS))
++		return 0;
++
++	source_ops(source)->disable(source, NULL);
++	return 0;
++}
++
+ static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
+ 				   void *v)
+ {
+@@ -1766,11 +1812,24 @@ static struct notifier_block coresight_cpu_pm_nb = {
+ 
+ static int __init coresight_pm_setup(void)
+ {
+-	return cpu_pm_register_notifier(&coresight_cpu_pm_nb);
++	int ret;
++
++	ret = cpu_pm_register_notifier(&coresight_cpu_pm_nb);
++	if (ret)
++		return ret;
++
++	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
++					"arm/coresight-core:starting",
++					coresight_starting_cpu, coresight_dying_cpu);
++	if (ret)
++		cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
++
++	return ret;
+ }
+ 
+ static void coresight_pm_cleanup(void)
+ {
++	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+ 	cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
+ }
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index f99a48511850cd6e9682533880b22a3b8fc43135..94872226dd63c5b9ed9ef95f17d717656c4e5589 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -1802,33 +1802,6 @@ static int etm4_online_cpu(unsigned int cpu)
+ 	return 0;
+ }
+ 
+-static int etm4_starting_cpu(unsigned int cpu)
+-{
+-	if (!etmdrvdata[cpu])
+-		return 0;
+-
+-	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+-	if (!etmdrvdata[cpu]->os_unlock)
+-		etm4_os_unlock(etmdrvdata[cpu]);
+-
+-	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+-		etm4_enable_hw(etmdrvdata[cpu], true);
+-	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+-	return 0;
+-}
+-
+-static int etm4_dying_cpu(unsigned int cpu)
+-{
+-	if (!etmdrvdata[cpu])
+-		return 0;
+-
+-	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+-	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+-		etm4_disable_hw(etmdrvdata[cpu]);
+-	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+-	return 0;
+-}
+-
+ static bool etm4_need_context_save_restore(struct coresight_device *csdev)
+ {
+ 	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
+@@ -1923,13 +1896,6 @@ static int __init etm4_pm_setup(void)
+ {
+ 	int ret;
+ 
+-	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
+-					"arm/coresight4:starting",
+-					etm4_starting_cpu, etm4_dying_cpu);
+-
+-	if (ret)
+-		return ret;
+-
+ 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+ 					"arm/coresight4:online",
+ 					etm4_online_cpu, NULL);
+@@ -1940,14 +1906,11 @@ static int __init etm4_pm_setup(void)
+ 		return 0;
+ 	}
+ 
+-	/* failed dyn state - remove others */
+-	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+ 	return ret;
+ }
+ 
+ static void etm4_pm_clear(void)
+ {
+-	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+ 	if (hp_online) {
+ 		cpuhp_remove_state_nocalls(hp_online);
+ 		hp_online = 0;
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index e551a36c40cc2311cd72948b799db5425b93fe68..6daed3a75190617464515c4e1e0628d2169b26e7 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -330,21 +330,24 @@ static struct coresight_dev_list (var) = {				\
+ 
+ #define to_coresight_device(d) container_of(d, struct coresight_device, dev)
+ 
++enum cs_mode {
++	CS_MODE_DISABLED,
++	CS_MODE_SYSFS,
++	CS_MODE_PERF,
++	CS_MODE_DEBUG,
++};
++
+ /**
+  * struct coresight_path - data needed by enable/disable path
+  * @path_list:              path from source to sink.
+  * @trace_id:          trace_id of the whole path.
++ * @saved_mode:        The saved device mode. It stores the source device's mode
++ *                     to represent the path mode during CPU hotplug off.
+  */
+ struct coresight_path {
+ 	struct list_head	path_list;
+ 	u8			trace_id;
+-};
+-
+-enum cs_mode {
+-	CS_MODE_DISABLED,
+-	CS_MODE_SYSFS,
+-	CS_MODE_PERF,
+-	CS_MODE_DEBUG,
++	enum cs_mode		saved_mode;
+ };
+ 
+ #define coresight_ops(csdev)	csdev->ops
 
-Best regards,
 -- 
-James Clark <james.clark@linaro.org>
+2.34.1
 
 
