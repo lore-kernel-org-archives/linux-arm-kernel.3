@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24DDC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 18:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE16C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 18:46:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=shH843LHjaIQRh9aDyMZtBz794Pr/77dB5szPFtHFMg=; b=AsN+JN4BkoSF4daix+xstIjh5K
-	yC+wYrZOm9uQV7YmJxe+K6fGBox0hLPbO4rUuEDQiHiVmAWsB8p+RZSBsIKFXbhCtOCyijLK1z7Yg
-	b1j5lI+X48uPk5NYf81RmGwLEaAh1MAFO1edM2s+zC43cHQL8YWxYWXh8ISONuq0vy0fnX3knvgVM
-	bDcpGowvvWPZUTCs4kcenFp/iZ6x8I80aOlGNujYZn6bniGE02fOkLZPfjuFGMnSjwTxJNswhMMfv
-	AHSf9sBYJkqzXs1Pm4GF+lUrPodLH3BrlG/ADZtPfr5dORSKapBaUatxfPaGclFwbebSYybEpzyLN
-	3KVjZOdQ==;
+	bh=3iLA9QEKpGtzeHbOjLTVI4kROQlKVNQ7ikP4TAnx9ok=; b=Usd4Hrr0pYE/KtI7R2bITZN9F9
+	H3nLX811PQF9manGNiABu+2hv6D0mqiPraAsT6T4XmGExw8lUcqUfz+Xzum4QyIJZNpeRlR1T+xNs
+	w3lkTX/mndOk43uKATsqKyTmWsRQOoWi4/XNZlvtqOZDpev6wEKZ15AynzMoFolh8cOYvQvR3Qque
+	5NgtZ/PUrE0MqRJrHbXciSXkHs+sFuiGE1/cMo7vieViCQxCdMUiYQPKYPzQg3Rrlc+gdseOGaVIi
+	EXf4jYuHGQu7YTtSqjzMvaD3/XAEl1G3WQqPTfv/IvL6WlhcMu7/KybutvtNHpCwiKgFxHRtYvqvC
+	oEkiwl6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWfzS-00000006Mpr-0TZz;
-	Tue, 01 Jul 2025 18:45:58 +0000
+	id 1uWfzT-00000006MrR-12HY;
+	Tue, 01 Jul 2025 18:45:59 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWdQx-00000005xpr-10Kx
+	id 1uWdQx-00000005xps-1RmS
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 01 Jul 2025 16:02:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=shH843LHjaIQRh9aDyMZtBz794Pr/77dB5szPFtHFMg=; b=SWMjFYS7CbzMlHcWp1/FVhRdki
-	+fRKTE5mv3uHbvhMIqPCfrluRn1DsahanQz3noDO1zCEa2CLch0bV1lMz51r1lGDmR3zEVqAqecLS
-	MjxuC9slbe1dNIMlivr7NcB9TbxRt+UArI4y2I3ZuckIpPT6fVBtix4jGZpWDd+Dl50iDKbdO+oU3
-	Ku4Q9loLkw+J+I8usVyt8jE5K3vy20j+B1VIsn91+atPMJgf8kVctGeEfAnG7MeqVPxcmxVyEY9Iv
-	JrkzSjX7tomQLSZiRccKUtWAOBGlGGP7LrQi661hLURO37G1G9UJN+yJ0ANTNWW9xuat2wgo0kkmh
-	MyGXgxvA==;
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	bh=3iLA9QEKpGtzeHbOjLTVI4kROQlKVNQ7ikP4TAnx9ok=; b=LvPrIca3BKHDpta7oQ/WIDwImr
+	YcIfuZ/otZEBrubPJiFvbZ71RNtMuTGT+Yv0xglqV5nKCsKizxLA/6QM40ibpmHQL6bfeNiGvSNYG
+	nE3vumkwt5VbwpAXz5Ww8MdfuE8GA23CsQfKV1CJXbV8iuUAkCMLviRIBBL7EgdhMFkn9i4MNNJxs
+	z7fMGWZrOf7Zn1WMlSyrp62aLLQGCZZoUiLy32kLVAvVvJfU+dDJZUy7j3HxCU96ISDvlzXOr107p
+	jRk/rdDrchxfSVT88lx7s+EPVnfNm3uymDBDFLNkb2Aaidd0l7U9mtN16gTxif6XwSVpOV48mnkhR
+	HS9XRmFA==;
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWdQs-000000077Di-25GB
+	id 1uWdQs-000000077Dl-28a5
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 01 Jul 2025 16:02:10 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-450cb2ddd46so34613185e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 09:02:04 -0700 (PDT)
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-453643020bdso51043635e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 09:02:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1751385723; x=1751990523; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1751385724; x=1751990524; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=shH843LHjaIQRh9aDyMZtBz794Pr/77dB5szPFtHFMg=;
-        b=tM9I1CJM7bzlvqTir7/RRIjQg+RpIwSbazqdpJTabAFo0d5zw49v7LVfRewqfznCJx
-         lwRZcsZ02sVR9ooci+PmPOwH/NlDTWYBgkwfuouGwfUVEMflfI1H2P3BDXJZ75AbNvr3
-         fT/ANABzey24mNs9PruvbGs2ewxvj7g6bbkFnOl/32uylKUvbXYrFYEGUnGmKMqd5Uto
-         mp4LhSSjt0gErYDnlLfanUNXdlI99lFrnrwQo1RMonfo7Qdc6El6MVTyb1JMNIZcMDSP
-         L+oJaOM0aDRcwhSDrafKI/Zumq/GPTOudX0aP1XzZXr/NX4KZ4gkHABn3G0B4tpf+Jlz
-         qWsA==
+        bh=3iLA9QEKpGtzeHbOjLTVI4kROQlKVNQ7ikP4TAnx9ok=;
+        b=tLVu33aCd+WrqTz3yIcnu0R8h+RnpMHUXE328V2aQicgmVY6ajd8lGbZ/9f+/81uQG
+         1cFBMdgsvwD+SkwGK3uDXqgTEj0tgjyDuqC2ZeXmt1GASXn+463jckLdx996EmpUdAaB
+         jw+sUQ0MBE5xpvBH2jWdXvFR2SDi5x1cJHZxo2BNAKVv5yAOx7GKNu9+3BkyhgLdo9i4
+         JkZ/knfTOJ9OEk2MIJkzcS33cYeO7Xdt90SET9xY4NoijPRcrMZUuj1azT9nJCZ3p0oJ
+         7JOVgvkcbCREckCmOM49mvjTDrmLwScOvk+z3czQuUO70ZBlHIQFFlxZFGT1u9uhx7rf
+         FEJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751385723; x=1751990523;
+        d=1e100.net; s=20230601; t=1751385724; x=1751990524;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=shH843LHjaIQRh9aDyMZtBz794Pr/77dB5szPFtHFMg=;
-        b=ShzdWDbdrj+FsiTQKF3yRVjBulYKWTlb8vjgJuS4TP2EfhVG8Sa1gKnS06SgELXZtO
-         YH4e//Lf2Q1Y3tcwPNvlm1ppotbzBTm/dIDkV5l0xx9putu4fyzcYu7FZVdcszacC/Uw
-         rOnT3vwxPcXDaRKgyxl2vGDqUyTwR+6SQTnh6kdQlQ4LwBjJ8Ng6Uf2TT9M04h8k/NNq
-         7pI66depJwcDqJobr0nZl7oCoXFx5M4vWb14ALGupVfLdPo5CqvXVwfuS7RtexMxxr+G
-         zD/8V+UmjcCjfaw3utFGIbDi8Dt+ibW4aOaa9nVz7aHiPpAymYA4hhDQwyYajXpyEsfZ
-         sJcw==
-X-Forwarded-Encrypted: i=1; AJvYcCXS6hUFVUwdVIiadNMJBr8UUdRVTuv5XgTbw2GPVTkl0D/sORf2Rpq+9iO+peZYF/JmDxGDLosh3gt9a6YDYtuy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJhBTfL4gb/ziaWM2QFTPx0Fl+dGi3El9llmvvxxiYYdi0p2NH
-	+6XaBpY0xg6yKTR9htIZVDmnwkLaTQJZicG22pXQxVw9SRjc9oQPuODloL8vSwY7Edw=
-X-Gm-Gg: ASbGncsEcmqIWRQKyU4iF/FEOkepKd+VMGnetDwA0QOte0vKrUl/vUzCWTOQ1ZTBAGU
-	5WGoyJr1Z6sOzSQ1MqiS3nY8JA5KIY32/9B4DtHDWSwaFnWrj23cPQSLsh2ekoeFveHiU23AA1g
-	dal+3wklFUj4B0gTuD2w1efnxzS/0bsF28wy0H//sGfhkHemQHaDcBy+FZTrIxaSK5G5Nfoor5t
-	OYKg08a1G5vTmVRgaIgeVdZH3iTkWxWcHx6PdH6BpDDOfLJOwYXXDh/J5DaxiOQgyyNLZ9VVUuP
-	nD5Uj4jDtfngoD2tFrM0Oh5u05adt8iqvotga3hqz+4HJKwcyDCFbQ==
-X-Google-Smtp-Source: AGHT+IE146BA9nfk2sth4Vr26o/ypIBHWd57X4CUtemwbh0xYtrD7BwQ6IkyNJhKZXFlcPZr5B86Jg==
-X-Received: by 2002:a05:600c:3b07:b0:43c:f0ae:da7 with SMTP id 5b1f17b1804b1-454a19df49dmr10490475e9.7.1751385722446;
-        Tue, 01 Jul 2025 09:02:02 -0700 (PDT)
+        bh=3iLA9QEKpGtzeHbOjLTVI4kROQlKVNQ7ikP4TAnx9ok=;
+        b=tXpy4/VJaC0CTGvWJ7rRGxj3Kd1+pICFJiw8OAL6dAJqU66ZAENMBGEzBmtrMFwA3v
+         YZF6o1wQWSfass8VinIBvPE3ORQlyM5Yk+EZmX1UwF8+mFjpFKTE1HLJhzg17ZMccF+E
+         DdP/GStwTZL10NmfJIVuyZppDxBrY/jkqavZYJbgFo7rKUb4EIuQvsYyaSe6e2atdr1Z
+         Sa4VXpINjvZeQptRRTo/+j4emDhFs2OEtQiawScBbEOXAlEsh5WbwbhGerN/nGQECZ5s
+         C0GlUt3Xs7TxBrrIRELOmYQUyvqiYBkwGZ0eEvK8+9AIFh+hrKyd8I1xxQnqjRLfhS6g
+         EuIg==
+X-Forwarded-Encrypted: i=1; AJvYcCXpfL1Trkzgv3AOyjjs12HwUf8PP4pLzs9VHGDfsUnXx7j73jIswumMA8Eg2ofrL0ykLV6XhTTrJAJJN3qaPwxE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDDtw5HMnOoDOGpGFbfABtmjTIOd/3Ca1rFsU4LHJyMvEN0pbJ
+	ML84aoJbmb7vW7MFglIJ1Xh4oAI7dyKD329dPxUEOA8oycVQSmJO0ySW5YNG/jF50hM=
+X-Gm-Gg: ASbGncsZJdvbpPRqbhVpuqftPbHAL8jk8HIukXaobKRyubZrBJaIcagYh96qbF6Kyw8
+	yM0qZkXmfEokYF0AES1Gv8rtMjAkaRNxmRLG7bmaNd1k4zAY490AklLgsWa6jvZrhHsOPwdODmG
+	gvC/EUsGLVsLCJzLwQ7sKODeh0iRX2juw8G0BwZpb5mEgIVAmadxeXrDw0OtDK7FOvzWr41w/9n
+	ScgMFA/FhuPvDZIkvTh0ia8kOLfUqv/i4jkR9K/VXhfc4ZmSJUBfXsgeBKNiDL+xlD9EwLce8/V
+	is1Skn/pOtMKUvCGFs+QR4Lmq508eXNTlL2jcnWyJJkRCgOiNszn3qoLIU4fv3Vu
+X-Google-Smtp-Source: AGHT+IGsO1Tqy1W8cXCWGy9JXBxthxXBveIor0Nz8eJbbhghY3Ud/EpiGA9Z8pt7et5bm6LvqUs4bg==
+X-Received: by 2002:a05:600c:529b:b0:453:8042:ba9a with SMTP id 5b1f17b1804b1-4538ee8590bmr157396235e9.28.1751385723610;
+        Tue, 01 Jul 2025 09:02:03 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-45388888533sm182500995e9.21.2025.07.01.09.02.01
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-45388888533sm182500995e9.21.2025.07.01.09.02.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 09:02:01 -0700 (PDT)
+        Tue, 01 Jul 2025 09:02:03 -0700 (PDT)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Tue, 01 Jul 2025 17:01:37 +0100
-Subject: [PATCH v4 2/5] media: ioctl: Add pixel formats NV12MT_COL128 and
- NV12MT_10_COL128
+Date: Tue, 01 Jul 2025 17:01:38 +0100
+Subject: [PATCH v4 3/5] dt-bindings: media: Add the Raspberry Pi HEVC
+ decoder
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250701-media-rpi-hevc-dec-v4-2-057cfa541177@raspberrypi.com>
+Message-Id: <20250701-media-rpi-hevc-dec-v4-3-057cfa541177@raspberrypi.com>
 References: <20250701-media-rpi-hevc-dec-v4-0-057cfa541177@raspberrypi.com>
 In-Reply-To: <20250701-media-rpi-hevc-dec-v4-0-057cfa541177@raspberrypi.com>
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
@@ -110,8 +110,8 @@ Cc: John Cox <jc@kynesim.co.uk>, Stefan Wahren <wahrenst@gmx.net>,
  Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_170206_685935_D3453880 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20250701_170206_702864_B49B7097 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,44 +126,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add V4L2_PIXFMT_NV12MT_COL128 and V4L2_PIXFMT_NV12MT_10_COL128
-to describe the Raspberry Pi HEVC decoder NV12 multiplanar formats.
+Adds a binding for the HEVC decoder IP owned by Raspberry Pi.
+
+Instantiations of the decoder IP can currently be found in
+the Broadcom BCM2711 and BCM2712 SoCs.
 
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
----
- drivers/media/v4l2-core/v4l2-ioctl.c | 2 ++
- include/uapi/linux/videodev2.h       | 4 ++++
- 2 files changed, 6 insertions(+)
 
-diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
-index 650dc1956f73..3bdcbb12bb30 100644
---- a/drivers/media/v4l2-core/v4l2-ioctl.c
-+++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-@@ -1381,7 +1381,9 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
- 	case V4L2_PIX_FMT_NV16M:	descr = "Y/UV 4:2:2 (N-C)"; break;
- 	case V4L2_PIX_FMT_NV61M:	descr = "Y/VU 4:2:2 (N-C)"; break;
- 	case V4L2_PIX_FMT_NV12MT:	descr = "Y/UV 4:2:0 (64x32 MB, N-C)"; break;
-+	case V4L2_PIX_FMT_NV12MT_COL128: descr = "Y/CbCr 4:2:0 (128b cols)"; break;
- 	case V4L2_PIX_FMT_NV12MT_16X16:	descr = "Y/UV 4:2:0 (16x16 MB, N-C)"; break;
-+	case V4L2_PIX_FMT_NV12MT_10_COL128: descr = "10-bit Y/CbCr 4:2:0 (128b cols)"; break;
- 	case V4L2_PIX_FMT_P012M:	descr = "12-bit Y/UV 4:2:0 (N-C)"; break;
- 	case V4L2_PIX_FMT_YUV420M:	descr = "Planar YUV 4:2:0 (N-C)"; break;
- 	case V4L2_PIX_FMT_YVU420M:	descr = "Planar YVU 4:2:0 (N-C)"; break;
-diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
-index 9e3b366d5fc7..f0934d647d75 100644
---- a/include/uapi/linux/videodev2.h
-+++ b/include/uapi/linux/videodev2.h
-@@ -697,6 +697,10 @@ struct v4l2_pix_format {
- #define V4L2_PIX_FMT_NV12MT_16X16 v4l2_fourcc('V', 'M', '1', '2') /* 12  Y/CbCr 4:2:0 16x16 tiles */
- #define V4L2_PIX_FMT_NV12M_8L128      v4l2_fourcc('N', 'A', '1', '2') /* Y/CbCr 4:2:0 8x128 tiles */
- #define V4L2_PIX_FMT_NV12M_10BE_8L128 v4l2_fourcc_be('N', 'T', '1', '2') /* Y/CbCr 4:2:0 10-bit 8x128 tiles */
-+#define V4L2_PIX_FMT_NV12MT_COL128 v4l2_fourcc('N', 'c', '1', '2') /* 12  Y/CbCr 4:2:0 128 pixel wide column */
-+#define V4L2_PIX_FMT_NV12MT_10_COL128 v4l2_fourcc('N', 'c', '3', '0')
-+			/* Y/CbCr 4:2:0 10bpc, 3x10 packed as 4 bytes in a 128 bytes / 96 pixel wide column */
+---
+
+Updated based on the thread in v3 [1] with Krzystof to drop to only SoC
+specific compatible strings.
+
+This still feels wrong to me as this is NOT Broadcom IP - it is solely
+owned by Raspberry Pi.
+
+It is the same situation as for the Raspberry Pi ISP Backend where
+it was proposed to have
+  compatible = "brcm,pispbe-bcm2712", "raspberrypi,pispbe";
+in [2]. That proposal was viewed as acceptable by both Rob[3] and Conor[4],
+and the binding given a Reviewed-by by Rob[5].
+
+Yes it is found as a block inside an SoC, but the same could be said
+for a Synopsys I2C controller ("snps,designware-i2c"), Cadence ethernet
+MAC ("cdns,macb"), ARM CPU (eg "arm,cortex-a53"), or any number of other
+examples. They are all 3rd party IP blocks found in SoCs, have an SoC specific
+compatible defined, but acknowledge the IP owner and use a common fallback
+compatible where possible.
+
+Please could we have confirmation that this really is what is required
+by device tree?
+
+Thanks
+  Dave
+
+[1] https://lore.kernel.org/linux-media/20250423-media-rpi-hevc-dec-v3-3-8fd3fad1d6fb@raspberrypi.com/
+[2] https://lore.kernel.org/linux-media/20240213104405.GB5012@pendragon.ideasonboard.com/
+[3] https://lore.kernel.org/linux-media/20240215140058.GA4147262-robh@kernel.org/
+[4] https://lore.kernel.org/linux-media/20240213-landlady-backstab-6e7da824c99a@spud/
+[5] https://lore.kernel.org/linux-media/170932821578.3062059.18150159256247255021.robh@kernel.org/
+---
+ .../bindings/media/raspberrypi,hevc-dec.yaml       | 72 ++++++++++++++++++++++
+ 1 file changed, 72 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml b/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml
+new file mode 100644
+index 000000000000..fe3361bddd1f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml
+@@ -0,0 +1,72 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/raspberrypi,hevc-dec.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 
- /* Bayer formats - see http://www.siliconimaging.com/RGB%20Bayer.htm */
- #define V4L2_PIX_FMT_SBGGR8  v4l2_fourcc('B', 'A', '8', '1') /*  8  BGBG.. GRGR.. */
++title: Raspberry Pi HEVC Decoder
++
++maintainers:
++  - John Cox <john.cox@raspberrypi.com>
++  - Dom Cobley <dom@raspberrypi.com>
++  - Dave Stevenson <dave.stevenson@raspberrypi.com>
++
++description:
++  The Raspberry Pi HEVC decoder is a hardware video decode accelerator IP block
++  developed and owned by Raspberry Pi.
++
++  Currently it can be found in the Broadcom BCM2711 and BCM2712 processors used
++  on Raspberry Pi 4 and 5 boards respectively.
++
++properties:
++  compatible:
++    oneOf:
++      - const: brcm,bcm2711-hevc-dec
++      - items:
++          - enum:
++              - brcm,bcm2712-hevc-dec
++          - const: brcm,bcm2711-hevc-dec
++
++  reg:
++    items:
++      - description: The HEVC main register region
++      - description: The Interrupt control register region
++
++  reg-names:
++    items:
++      - const: hevc
++      - const: intc
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: The HEVC block clock
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - interrupts
++  - clocks
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    video-codec@7eb10000 {
++        compatible = "brcm,bcm2711-hevc-dec";
++        reg = <0x7eb00000 0x10000>, /* HEVC */
++              <0x7eb10000 0x1000>;  /* INTC */
++        reg-names = "hevc",
++                    "intc";
++
++        interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
++
++        clocks = <&clk 0>;
++    };
++
++...
 
 -- 
 2.34.1
