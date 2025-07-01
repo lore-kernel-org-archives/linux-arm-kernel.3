@@ -4,193 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C75C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 10:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF245C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 10:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w4NZfgY3ZpCfkjGDsfzDaXyxdgW80fpnF5yZXja2QNA=; b=HaAii2+k1Rp4TxPERdqDpe7a8z
-	6kwEtXIF4a48ZmyRKQeKeCBvIs19beI3mRjipXhDD2lDODfG5Oy/1hgGoeGpL3oWH3On/3ZaAKJCO
-	O6bIe91Ug/KcPPQAcJQQ0Qw7s58F4cgJZJiw7jyj1yPB7tQhX11OVIxJaj+EcmcmHCeZ2nfUhWenC
-	QNAV2Aj5WzZa3OHEOF8oLKjg09i/KXM8OGwKb3UpU7TCxHGev9kwiJ61Q9K3eo4ZGuSjbVBPoE9Dv
-	jSTPaiEJeMHHVOk9b9iDg3ed1xr5PEb38LEhgSsk7gtYAfhXT3c/HfOmQf5YuGxqqbngptkpBJk7N
-	5btTKaQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UWqa3o/KH1fxq5ngNTN1gEpoaEETkdHSnWpn0ajyl6w=; b=Pp/2xfKCxkuWtd
+	dSQXwQRwP4incKApCtg+01qF/qh1GQNANz4/6iuHs9HGhowKO5enqafz8Yuor5nsDlh4D1Rb7UTCd
+	MrqqFFDdu2Pkne7e6p1bXTg75LW8GdMU5CQUSG7DVnZdkTM7NmUe9OzpyFDYiIjOJUaDiwI39r/mF
+	bJxkYXZXKwBybbX/CCMac+BgQhWHMMihWhywO9Imu4zCfMTFV9Y/+4UPiv4x6vzBdpadI/W+uw5lu
+	Km35CM+S7LHQ5AIdTzKchA2GHRSUDStHwqegDJjiKKEIVCCUNKre1Dsw/ZDJwbUX7Kn8kpgugGOsX
+	IxFQlXa1YSEGjMkOVoOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXs8-00000004ggg-2sdD;
-	Tue, 01 Jul 2025 10:05:52 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1uWXsD-00000004glV-1DfV;
+	Tue, 01 Jul 2025 10:05:57 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWia-00000004TLp-2o2j
+	id 1uWWor-00000004WEO-0gRu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 08:51:57 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5611NCk2009515;
-	Tue, 1 Jul 2025 08:51:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=w4NZfgY3ZpCfkjGDsf
-	zDaXyxdgW80fpnF5yZXja2QNA=; b=O6Pk/b9DPhzHL3dm2VW+R0bRh2R+LTDt3T
-	glQqZQkU0R0/hZii5p3yzLdrKqQdQDCYGcL2I2Y9Y9uZcW+bO6bH1GOsjcEHFlkh
-	M4ZpJBOKWRmXcXzD+/e1jBKBVmyhIbXc/gypkjrL2eC4ngyZP3V+wG4do3EhEw/x
-	G5+Ze/JiXPmk4f+grdsFaycfw673AkxlQ4QG+peR6UWv8/m8C6NZ9bRImaTRPfa2
-	5pzHTSN8ETE0QUtr/nGqaOBTPTwlkznHg8LTuslAK7Auq8n6GYg5GpmVHHZlSlCR
-	Qir3jtI0tzWUAaqUPP8boLLqlUoAkhS+2sxtoMukmxANtolYW6yw==
-Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 47j766ca9n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 01 Jul 2025 08:51:35 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5617542F017487;
-	Tue, 1 Jul 2025 08:51:34 GMT
-Received: from nam12-bn8-obe.outbound.protection.outlook.com (mail-bn8nam12on2064.outbound.protection.outlook.com [40.107.237.64])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 47jy1e7kf5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 01 Jul 2025 08:51:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KCaq0eyCk9VisA90I6xGIzgzEJFDBFShRT5BcaMeCgJOEplaKY6NIm6YiT9rERv4FcRuE0CzzN6wRTWRlFkmlgKSxA46a6ocKSCNmkHclZs54h23/VhwGiLU63pgvUz9S3iL0TIQ3Kxbq6u4t4Nx7QN4RnlgkXNwjmAoJ9IheBLMMDPYz+2iOVW6azN/uIz5DIjyRUkRJgi6p99WCO/S5IsvjrS9+UNYQAYARsPRjYL5/KtHbi+PgVMLsW6gEC2g1UDvksx+vqbgElcaoiyMbj0fssfT+6YbrhaMAf6sRqv8ToiGP4l/xggrrD5u/YZix8nI/QX7P5Fa2PpYEvuKLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w4NZfgY3ZpCfkjGDsfzDaXyxdgW80fpnF5yZXja2QNA=;
- b=FAGNA3rmWbzhIPxKSgt6ih5D+c+lecUlilzrZhaQfqj3zmaUUc9iGoOY1M4NZCGJRAA7wqwAjO3KmFjO60wjuc37S6mY+M8P0nkBIDG/cFWvuRQXnCgOM+PCSaEEUZV2SYg1Fes9+RN9Y44NUYfI2L8be/rpFAc//rdXhs36z4OCkGir426AliNS7xt1/OrHpUruMVddTj1xlD7wgZ5WYow1B4zympL5wuPrmie6jGS2yZctK34O4x/OUSIvuPZQd9/XUxxfPqRGQVl/xbOczrPXSZ4k0bz/0b1knO3Z15hJ/TFhuzqiHHCRCnqNZmashLIhXAIl6sIAhaWFQaQoxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w4NZfgY3ZpCfkjGDsfzDaXyxdgW80fpnF5yZXja2QNA=;
- b=RiMdVoRfvJgifUSnN/b0H1VBTKTFAU8Nz8NNizF4HBuEEH/bAouQJxC91TfpKU7zj1LWW0460ibR4XbV3bcEDlryw0QdDUOiMtVKaebhP+tsYcdeZFaYrllh/GXp1NHjkPczDP5XZ/8TfJjbrhqL2qFnPrt1dxaelnKu3ra2Cig=
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
- by DM4PR10MB6039.namprd10.prod.outlook.com (2603:10b6:8:b7::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8901.19; Tue, 1 Jul 2025 08:51:29 +0000
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2%6]) with mapi id 15.20.8880.027; Tue, 1 Jul 2025
- 08:51:29 +0000
-Date: Tue, 1 Jul 2025 09:51:26 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
-        willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
-        vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
-        peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
-        baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
-        christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
-        linux-arm-kernel@lists.infradead.org, hughd@google.com,
-        yang@os.amperecomputing.com, ziy@nvidia.com
-Subject: Re: [PATCH v4 3/4] mm: Optimize mprotect() by PTE-batching
-Message-ID: <64c2ec85-87ed-4793-b0e9-a68eac1a8020@lucifer.local>
-References: <20250628113435.46678-1-dev.jain@arm.com>
- <20250628113435.46678-4-dev.jain@arm.com>
- <0315c016-d707-42b9-8038-7a2d5e4387f6@lucifer.local>
- <ec2c3f60-43e9-47d9-9058-49d608845200@arm.com>
- <5900e978-6349-4a3d-a384-758889b678a0@lucifer.local>
- <3776ac82-4cd5-41e7-9b96-137a1ae6f473@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3776ac82-4cd5-41e7-9b96-137a1ae6f473@arm.com>
-X-ClientProxiedBy: LO4P123CA0682.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:351::7) To DM4PR10MB8218.namprd10.prod.outlook.com
- (2603:10b6:8:1cc::16)
+	Tue, 01 Jul 2025 08:58:26 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751360285;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=UWqa3o/KH1fxq5ngNTN1gEpoaEETkdHSnWpn0ajyl6w=;
+	b=l7iG879WE8+uil1trLDqTYeE4L9pM5Rf+pCxkms/shlWot8WLot8/sNpSdtNPVsnwrr6Y4
+	0/lkK/S1N/msIkgcDAUfBzAzjoo1QzvYBuAbM7redimuKHm4rfriBoa3eKMe6+qY6iA80i
+	gEYcERB04n7G5BSAAc2WF/07/i24sw4ClAXulcHGD61dPykQnd0RP80jrD6A3IOWEhKAEN
+	jigB72kmBcTvAsgSBuy9WSP8k8r4MXuazT6rS/YBgPVrN98xdXJTx5s2LV+MohLdjGHTfS
+	BGptH77ybmk7gX3RAWAQGAQZ7HXdTbBcxzHQ09Topg0XuTMypXkn8xDUl0H5fg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751360285;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=UWqa3o/KH1fxq5ngNTN1gEpoaEETkdHSnWpn0ajyl6w=;
+	b=P93PkXHfKtHE62vs4BQWz1RAY3Uy++kBAAQbK9eCyc5MEUvNgJqebMmyPiuXGZtGEdYZ/x
+	wE1u/oTSisTMUCBA==
+Subject: [PATCH 00/14] vdso: Add support for auxiliary clocks
+Date: Tue, 01 Jul 2025 10:57:54 +0200
+Message-Id: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|DM4PR10MB6039:EE_
-X-MS-Office365-Filtering-Correlation-Id: b4330b6d-6763-42fc-d4a8-08ddb87c789d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?n4vBLOExP4xPHSwk+FuWEKyhF8aOrkz+NZVtn6SUrarwHVfYVKGhLXGaI4ce?=
- =?us-ascii?Q?hGldK43zsnWnyaWZ21zbkYgHIkAOgb5vcGxGfABaZbxWEKzKOmbM8gpUiggz?=
- =?us-ascii?Q?1aiifgr1oQTur+NesFdE+5vhLgZWzCE/lU94i0HMDgItrv7gxai4rnuL0yHK?=
- =?us-ascii?Q?+R3X1XcgEQCBvwLeSd9/8OeeY8u59fauSpBAcJJw7Sd9lt0sWNdZaZ9mJ+Zo?=
- =?us-ascii?Q?NF+Do/IP/8kaN8SLy598ffNILxaVasOfTbeW95DbRAAB+4TCfbKjU/WLWmXm?=
- =?us-ascii?Q?xMwoWQPnlJhHDIRe5lld6ncquT95HNQjRwe77N6yBtGAcgRvtE423LvEXeMf?=
- =?us-ascii?Q?T9ZZd9RvtOVMI8iaN1hWZzkQJ+teovSGdthrzIazgI05n4uF3VIbSn2QUcQA?=
- =?us-ascii?Q?VSgGt9ClSytXNJ0sYNaswZT/mDKCN6fcUN7rMvhoE+hCu4QK4VsI6u8OBYHg?=
- =?us-ascii?Q?LgJL0+ZjgNNXAxdU9ffsaO0PRNw4HEXi7ZpowsCS2f56bjGevReT+FAS9hL9?=
- =?us-ascii?Q?X/lCNpcwPhMHytpp4EVca0ybssClch8DbSrP3bpPN059lxdEBiwpc2SgiZxq?=
- =?us-ascii?Q?S51UTXBc5rwhlhSra3AoCcZFZbs/ftwjkpIKihi2zbyqCFmQj5YOu1x8H2Pm?=
- =?us-ascii?Q?YJDQ4DRoZUsr+q1F3NhzxFmcBkYLUmzFLhyNVd6mVh0LiblGIJ4FJrSTgz1p?=
- =?us-ascii?Q?W0nMG1BO4i36lVM+wA+/78mWEC3qI6u/jbdTpC6drvJdSkj7gxmW+k5LvY8X?=
- =?us-ascii?Q?ZQx/n9SfAOe3xH5P8d92hVyPSmUjWVc1peC34V8Oj4fqLgwNjX58uvIRCrDe?=
- =?us-ascii?Q?rjkPpT/fjajnqCU1utNrZJJrYwoXrwPQY42oDa3r3u0U/sd3+xKlWAVGoJca?=
- =?us-ascii?Q?/F/sKH1xhoyuvF489vcGJQjhrBWIUkkAEHBacksKzx1iY3fPen72Z0koD4WJ?=
- =?us-ascii?Q?Fle/H1stSpN3OEUIIF6CR4IPdXPALjFIThSW8Js9IPJIp9WhbtSnvhngJvNn?=
- =?us-ascii?Q?rzIzbYlOE1hoEsPDqrp8Kuog++EPp7GRwvLXGN/aj8v1qWHEg40V7WbxwY1W?=
- =?us-ascii?Q?utIL/Q6T6rWt/wAzXdntmQEJ9yaKJfDVDqbk46KULmE7m0A61ecrdJfJTuqW?=
- =?us-ascii?Q?fNpFC7hDBCvwsQKKI2Ct07h5qJ4fDgvg6ypcI1uLog9x8oTIkNvj4kUzD46R?=
- =?us-ascii?Q?9OW1n4hjskpHITRdTfkHx0xa4dKaeQcK6M/Wb4dTn25q7Aty0ejJlmK1Nc3+?=
- =?us-ascii?Q?pTmjzm85us6eCP3l+lp9ALhCtbp7ptwHxear1t/H6I96dt1gP+vpgkjJQzz8?=
- =?us-ascii?Q?juRxIgx+n2N5+sS9HXKZzf3ci2qaQFUC35PoWgGbFtEYeLU7Epiz8v3gUWJS?=
- =?us-ascii?Q?nC19OH5nSM9Op5bBg4OzqzcShcuuFL+ROkmYxX/hs1gRvC8MIZZv6U/UaBEK?=
- =?us-ascii?Q?X7zPhaEJZpM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UvjO/1ouBbskyWlBlc4vy0Vx1cPMY9ho7nzSuGb9KySRvnifb9TVyZ1TlnEN?=
- =?us-ascii?Q?Cuuo6EfSsgMdpEkwicbgyC4csYoeip9Ua06WrPgZk72mi/5E76muk2CcopsF?=
- =?us-ascii?Q?5hu9uAw/Nkc11Dh+qiEY6KiH/9jNh8ouul2u5MG1bXhtuRkb8fJJ3X1Uw1do?=
- =?us-ascii?Q?PizUoNQ4q3BK12KcTJVlmsjd4mKbTpENoh/mhkczla92hSO0RGwUa0K45G6V?=
- =?us-ascii?Q?wrf+2q99UvLSbviTwiUfUEXYUuiyh/W8Gorb+er6ig8zKG4WzYmdxRMkM/XM?=
- =?us-ascii?Q?cUVVKMHJxe9lmfFx5+NL5DguRE5orxT/MJKM164lu/5BsnGzQMae8oAvBGeG?=
- =?us-ascii?Q?GUgoGSKQLuqb6ZrKuZLygbiYYG9DUuwf9KkA/zxU18Dx5+6sINimEtMJB2hR?=
- =?us-ascii?Q?iTuNMA0cKWaEJskkT8PuOeTvYtoi+X8isJ5VsdmjZK/An60sZoBXYaKQx/hY?=
- =?us-ascii?Q?Cn4E0VFsaSTSKj3kmuVaIcP4ZwiUflj9szZisd9L2mwQMljHhrpHiC3b0wYr?=
- =?us-ascii?Q?GLSVo+vl0WOYcTWPy/HObcCbJ/VPm0Y4f1x6PEk0haEFjgzYjZi7JTvs/S9u?=
- =?us-ascii?Q?qETw04YsNCPW6pAoKCRO9YK057iVWwB9qGDmxSaF/pBs/KMxOfrvVnMus81V?=
- =?us-ascii?Q?ZOdRZnmhN+K90B5gHITMlntqye8Xsrff5jsHHQ008tTl8fVHg4GUbPGSGmDq?=
- =?us-ascii?Q?Du3gxpDnaWsh8GbcdE+USJsoVN2yUpzQDPcJgaEv5JB5vqjVlPogFibXcXIH?=
- =?us-ascii?Q?AKXtEsHJ2EQKhH1yH0QxuJoRw25ZGLbF2UwmnOmZ6Mi0rfV2pU1KkL1Dg+1x?=
- =?us-ascii?Q?x1mZ4Q6h9FVXGKyJ3dxravvs+IBTrAHhNDDrifyC8lfqdxlQH/UEXbRjw9WX?=
- =?us-ascii?Q?zyOKcgKaDtLY8Rz+ObP+fa3o8XeBk2MRWGj7Tqu3iegZBoqxwN5B9n5VD5H3?=
- =?us-ascii?Q?VnXSkSMidC7au10tCakCr1lN70+zdP+CNvhmQ04Xp7D09cl5lclSQ4v9yz1k?=
- =?us-ascii?Q?7wekl70iUCeVxyOh63Yu26n+bYc5CPHscFPSMufy/vvRJ86RK0Fb1Yv2sMNP?=
- =?us-ascii?Q?8Sq+5/AxZlOBF9vjHApOI9MgD3InjDK+E5M1YKD7IPvD22ANjjn97ePpM3SY?=
- =?us-ascii?Q?Ta6lPyTocH/LYy1k7uMokkS7Ah8Su3vDb+cyeU+HvMVyOCrEuQI/FlqNXUpJ?=
- =?us-ascii?Q?8uyvgfvsjVo4HVQCshs6k64193s2PrrhD6tChylktOqMQ8KBScvprxs4rqPY?=
- =?us-ascii?Q?LRB75eGd73pShyHDkLfxKsC/ysFtTFfj9ouaHlJ/TQVWy6jyODhsdNkdIXe0?=
- =?us-ascii?Q?NVEXs2nMwM19eE3gUtf8cYklCBg9SvhWNgTvnX20xYCRSHsC42JarZXWoSZo?=
- =?us-ascii?Q?bmNuZUzRkHCVqPLSebJcv+iakc/9j70EltkPEW51P2BUmxeqSSnQEOIp1K6Y?=
- =?us-ascii?Q?XhKgbqWoPh5YhdD9GoqSqf5snrbqFDY2esLfwJ8h7igvmNWYBF801L3k/Km9?=
- =?us-ascii?Q?Ht1R3KiB9P4pT4QncV2/WAY0UYYPvsU0woiGnNW3s/YZBzAdZOROTTfOL9ep?=
- =?us-ascii?Q?K8ea7Fr1q+Qdvg8gXNYhvEqqHEC+zLeiGpBqCN0NH7M3cAFHmO8u6Wo3wXNV?=
- =?us-ascii?Q?kA=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: C3voH5NLK2GpooGZF+LM3O/FzWddLSDmXYXoQBhLHlZ9Ev0F7b0Gy/5K7Z8ERV0As08/rWB4JQBNN4Z3vr0vWwnaDRpGXRsWw3Ou1ib4pG6HG6/ZbOWVjjvWR3Fw9zqB2PVTMOXyn7HpFQmn5X0wLY4/GOCS3XK2j1/2hwmB0KIzEH/EMRuN6gQ4dFLVSiwSZ1SnKdN/qI2DSzGrltZgxawST4cwi+yyWRKHC1Gbiwlp4pXU53V5krtBSe88X6sdvaNk5OnBGtTws32nACgr2CpCLao/jqjE1eZRNGmoK8A+slbCplSfDjIr1mii+QyWjLZStyR/9F977QAKPmkltcLSB6KUCAl4PoNMXoCMpZXguWjJwQFGJIlDlx/eqlFaEUlTFXYA66luipawpZx+dCV5VMFXT11/ONUIZWEy/WBCmb2WbxSv6i2/ZKnxAE+wy4RDgldKGccOjts8QrkZMsFhRii+MIEI6qhk8s6vh3tLUVOoNkZeY+cn1VMDnfVMzeyG4AEQI1boslBK5nBjGfIGj8ZsOuk+sIxfv5EhQ/+EnVUD3R4kcSmZUusryf0UIbmhuVAbxSoPKJJQJ5cOT7a22halQrqJQwC1VURkhn4=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b4330b6d-6763-42fc-d4a8-08ddb87c789d
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2025 08:51:29.6164
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7LaMjslnm5S8YMvfOY8H9y/l7o4BWWE9r+UeiOfP2q9ngIaAtnCd5w/g0t6H7G6BCczdzLk/nHl/eYQbccAlksHIBybKEmLQSEsEUV6Ox18=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6039
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-01_01,2025-06-27_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 mlxscore=0 malwarescore=0
- bulkscore=0 suspectscore=0 mlxlogscore=999 phishscore=0 spamscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
- definitions=main-2507010051
-X-Proofpoint-GUID: Yl3G4W3TFh2E2y8QXO6sqa3zkFvgeDFI
-X-Proofpoint-ORIG-GUID: Yl3G4W3TFh2E2y8QXO6sqa3zkFvgeDFI
-X-Authority-Analysis: v=2.4 cv=b82y4sGx c=1 sm=1 tr=0 ts=6863a197 b=1 cx=c_pps a=qoll8+KPOyaMroiJ2sR5sw==:117 a=qoll8+KPOyaMroiJ2sR5sw==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Wb1JkmetP80A:10 a=GoEa3M9JfhUA:10 a=ZmlBPHrp7NTkakYfUGAA:9 a=CjuIK1q_8ugA:10 cc=ntf awl=host:13216
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzAxMDA1MSBTYWx0ZWRfX+QmjLS/JVmiP AoyY/1pIYSL2qw2QZMnWhodOU9AiDx8N9X+QM5bAuqJw846GUDbJqm0O7bgUarngbeLT1lBNMvS Lejwvl3rxgV0A/DfXe+T/p8nmhSXdzjHOoZLdgSRmj3VfZvVQbSjeVTwCihiF0tGAIX1kEV2rRm
- MPWVGw37RJoEabs3ePE1zW4zIemhpqiB8/h4mJNsfRUrJhsdYIy2vSki3RP5paCvblxnA6Z8CXD w7Q3+HKPonF6D/d17UvrfX7jnuYBneRV6bWOWj8pVcU8/uC9fZcnQ1M2uIpRNqD7jZ5K78vtowM KyD/NduR1Nwh3YGRw/bo1wQrTgT/2vOtt8q5tDX93pC6lQSZeS/Yu/eMNtK+20m68Q/+2ml9cU0
- jYUMzs5eWSjhfJL0K+edEv+qs+kFcCx3SBF86Opmeulq3k6lEN1bjS/sIEALeeCYU6+WBOKC
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIABKjY2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDM2MD3bKU4nzdxNKK5Jz85GxdS/PEpJQ0i1QDE6NEJaCegqLUtMwKsHn
+ RsbW1ANOskK9fAAAA
+X-Change-ID: 20250630-vdso-auxclock-97abdf8e042a
+To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Shuah Khan <shuah@kernel.org>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Frederic Weisbecker <frederic@kernel.org>, John Stultz <jstultz@google.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Christopher Hall <christopher.s.hall@intel.com>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Miroslav Lichvar <mlichvar@redhat.com>, 
+ Werner Abt <werner.abt@meinberg-usa.com>, 
+ David Woodhouse <dwmw2@infradead.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Kurt Kanzenbach <kurt@linutronix.de>, Nam Cao <namcao@linutronix.de>, 
+ Antoine Tenart <atenart@kernel.org>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751360285; l=2895;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=xIfkmx4pDxXevXPAx1p1JGHwhxJQ6cisMgo/fbdsq6s=;
+ b=2ONxPG8pv+6YEU4JGQr/Cz0X4Yw33GMIFt1iZdAqeec5uo7jeOJouKKyrYKvl12fEyvfryPDt
+ c2oLZ3iKm+XCT5R5Ibl/1mJbmxQgOg630sIJLuIcvqObiNdarbzu8KB
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_015156_826299_EDED1674 
-X-CRM114-Status: GOOD (  27.34  )
+X-CRM114-CacheID: sfid-20250701_015825_346398_039E1706 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,49 +101,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 01, 2025 at 09:30:51AM +0100, Ryan Roberts wrote:
-> >> In an ideal world we would flatten and just have mprotect_folio_pte_batch()
-> >> return the batch size considering all the relevant PTE bits AND the
-> >> AnonExclusive bit on the pages. IIRC one of Dev's earlier versions modified the
-> >> core folio_pte_batch() function to also look at the AnonExclusive bit, but I
-> >> really disliked changing that core function (I think others did too?).
-> >
-> > Yeah let's not change the core function.
-> >
-> > My suggestion is to have mprotect_folio_pte_batch() do this.
-> >
-> >>
-> >> So barring that approach, we are really only left with the batch and sub-batch
-> >> approach - although, yes, it could be abstracted more. We could maintain a
-> >> context struct that persists across all calls to mprotect_folio_pte_batch() and
-> >> it can use that to keep it's state to remember if we are in the middle of a
-> >> sub-batch and decide either to call folio_pte_batch() to get a new batch, or
-> >> call anon_exclusive_batch() to get the next sub-batch within the current batch.
-> >> But that started to feel overly abstracted to me.
-> >
-> > Having this nested batch/sub-batch loop really feels worse. You just get lost in
-> > the complexity here very easily.
-> >
-> > But i"m also not sure we need to maintain _that_ much state?
-> >
-> > We're already looping over all of the PTEs here, so abstracting _the entire
-> > loop_ and all the sub-batch stuff to another function, that is
-> > mprotect_folio_pte_batch() I think sensibly, so it handles this for you makes a
-> > ton of sense.
->
-> So effectively turn mprotect_folio_pte_batch() into an iterator; have a struct
-> and a funtion to init the struct for the the number of ptes we want to iterate
-> over, then a per iteration function that progressively returns batches?
+Extend the vDSO for fast-path access to auxiliary clocks (CLOCK_AUX).
+The implementation is based on the generic vDSO infrastructure and works for
+all its supported architectures.
+Namely x86, arm, arm64, riscv, powerpc, loongarch and s390.
+No changes to userspace are necessary.
 
-Is that really necessary though?
+Based on timers/ptp of tip.git.
 
-Idea is that mprotect_folio_pte_batch() returns the nr_ptes _taking into account
-the PAE stuff_.
+This also depends on v6.16-rc2 *exactly*.
+The specific dependency is commit 11fcf368506d ("uapi: bitops: use UAPI-safe variant of BITS_PER_LONG again"),
+which is available in v6.16-rc2.
+Unfortunately that got broken again in v6.16-rc3 by
+commit  fc92099902fb ("tools headers: Synchronize linux/bits.h with the kernel sources").
+Another fix for this is pending [0] and should make it into v6.16.
 
-Would this break anything?
+[0] https://lore.kernel.org/lkml/20250630-uapi-genmask-v1-1-eb0ad956a83e@linutronix.de/
 
-We might need to pass a flag to say 'don't account for this' for prot numa case.
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+Thomas Weißschuh (14):
+      selftests/timers: Add testcase for auxiliary clocks
+      vdso/vsyscall: Introduce a helper to fill clock configurations
+      vdso/vsyscall: Split up __arch_update_vsyscall() into __arch_update_vdso_clock()
+      vdso/helpers: Add helpers for seqlocks of single vdso_clock
+      vdso/gettimeofday: Return bool from clock_getres() helpers
+      vdso/gettimeofday: Return bool from clock_gettime() helpers
+      vdso/gettimeofday: Introduce vdso_clockid_valid()
+      vdso/gettimeofday: Introduce vdso_set_timespec()
+      vdso/gettimeofday: Introduce vdso_get_timestamp()
+      vdso: Introduce aux_clock_resolution_ns()
+      vdso/vsyscall: Update auxiliary clock data in the datapage
+      vdso/gettimeofday: Add support for auxiliary clocks
+      Revert "selftests: vDSO: parse_vdso: Use UAPI headers instead of libc headers"
+      selftests/timers/auxclock: Test vDSO functionality
 
->
-> Then we just have a simple loop here that gets the next batch and processes it?
+ arch/arm64/include/asm/vdso/vsyscall.h    |   7 +-
+ include/asm-generic/vdso/vsyscall.h       |   6 +-
+ include/linux/timekeeper_internal.h       |  13 +
+ include/vdso/auxclock.h                   |  13 +
+ include/vdso/datapage.h                   |   5 +
+ include/vdso/helpers.h                    |  40 ++-
+ kernel/time/namespace.c                   |   5 +
+ kernel/time/timekeeping.c                 |  18 +-
+ kernel/time/vsyscall.c                    |  70 ++++--
+ lib/vdso/gettimeofday.c                   | 212 ++++++++++------
+ tools/testing/selftests/timers/.gitignore |   1 +
+ tools/testing/selftests/timers/Makefile   |   2 +-
+ tools/testing/selftests/timers/auxclock.c | 406 ++++++++++++++++++++++++++++++
+ tools/testing/selftests/vDSO/Makefile     |   2 -
+ tools/testing/selftests/vDSO/parse_vdso.c |   3 +-
+ 15 files changed, 683 insertions(+), 120 deletions(-)
+---
+base-commit: 4e83b31e48cf2e62aeaed5cd9875c851e36a90d9
+change-id: 20250630-vdso-auxclock-97abdf8e042a
+
+Best regards,
+-- 
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+
 
