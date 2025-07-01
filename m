@@ -4,81 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34787C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 22:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC0D8C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 22:23:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SDjCXuxzQiFqRMP9tB6NJy8FAR96LKvYClS9dz4SD9U=; b=jG9Nl7Dg7m6eIqDUTCwH6WFzRj
-	m31kfQRpZBbkZMkx/R7jA0rHMNDkEdQU3WL1O4R18eFr8s5iFDnbXx+jOpsNVKUwFY27wrM3IFfVF
-	pFPb2W+WAfjBdXNgdr+p5qKy+xcpNBBQGtnMF4IrFieCvpQWijG6nt4XxkHUhOfRfmF5szeMw3SCE
-	7bX4/6p+3YTj5kfrsMFAHuteAFb2pjYDe0BzwexEw0RdJoYmIYVp0ChxXFxe7mJrMF1WAisWCmSMy
-	5EVuVpzU9X9LZhHQp1YynFiC2fAdD0uw1Na6psxiE5qrnEX7ePToBD9NKufDDAUK5Pp79/zPZgdT/
-	sG402HzQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uJPBeS3J7bnOdbZf1/iQiE6bdXKyCFIIRD7l0e9cQuU=; b=1ZOAv1LEydKbtGHdXsi3DDoKLF
+	eadYGnz4QUhMzB7ZotPQfSrQIPYy83vi4SwO3zGrMHNQolh+KIYZAy1uVhA+pQo7ZT7Q6XT/++INx
+	MGU4d+hMbY6kjSsDxpEpc0CAzc+vz/C3sty8OrmU5oTrq9H5INqMRgCc/2zmnZynmlcVEtI18QglA
+	r1ijuQzkB/8n6urvwpCJl9ncFtppaG0fju98OlgoVYuEdt1MqbXLA019UYvsewu7b9eDMWndOSIfM
+	+Qn1fjnWJag10TJwLXwJrbokuLi9FultkHTURycSKmfb7h0Q+CuR5RM8fq5EZRmuB2wJ/DxlJvB9Q
+	q4p8Bt3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWjLj-00000006m2w-0b2i;
-	Tue, 01 Jul 2025 22:21:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uWjO1-00000006m9q-3Zc1;
+	Tue, 01 Jul 2025 22:23:33 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWj7o-00000006k1f-2nW9
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 22:06:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 959EF468A3;
-	Tue,  1 Jul 2025 22:06:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7457CC4CEF4;
-	Tue,  1 Jul 2025 22:06:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751407607;
-	bh=4/v+TikyZeTWZ8dsV52PaQfU7mB9qWRTO5L/udvwGt8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=e3xkc+563OqXVkCMwu2fMxf7QJtluJFxsHz6mPlJgRmH/IxvTdQR5tYV1UTAzGm7s
-	 LUC+3LrB2iGkrphu2uRq7rRJzCCtq9rKAUe4ts1Ski7xZ4QxJIOm2VKHfJT0xE1XZ+
-	 VG1crPjvGb3E4sEt0RINV4vu3G8ewHQhGU7Gi+4aR/ezRriMS4aL4FvKWNBZ9NZHz3
-	 oFzs9GcjDEbeeM7aSSwFIJILkvFG0odGy3IT2lIRrY7HYcA/lEiiTndjSNzNYVhRcf
-	 y39u7NMD3f16opCyLRNYFjkk9fsW2RX933FfPOOvAX9PQUQLgv26CJqDOWvCJAvg8X
-	 H93uQ/UOSsNNg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 63C4BC83F03;
-	Tue,  1 Jul 2025 22:06:47 +0000 (UTC)
-From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Date: Tue, 01 Jul 2025 22:06:35 +0000
-Subject: [PATCH v7 2/5] KVM: arm64: Use SMCCC 1.2 for FF-A initialization
- and in host handler
-MIME-Version: 1.0
+	id 1uWj7z-00000006k5y-01Ie;
+	Tue, 01 Jul 2025 22:07:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yHwAv12MJ2rVQshly9zOcpKx/s0nEnYBCXjhdC3BzHWegXBXpYnEVovjkhgKIJmU/MIe9ZhCoKHOjehTxIc4LS5DExeqUfOXc+FtklQwrEPbmpMMl0b6Vlau+QGzRtUvdHOy2OBUnf6lcYeLj+og98vw3jHwZtvXtWvvYHhhyK40WLGYzOQt9X8BHjl23X0MJeXy2tNHobxtXKYeDrp5oyQ1ejbpaDtFqwNlA5828qZ4W+qxn95N6WjJWW8pTgVQJThxTgyWr7EtTM7ZdZP41AQ3oO5pzm4W/esnoXS8K5z6fty50FGQ35C77JLMpujgznANmhOZ1wiR3I1T6N/d2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uJPBeS3J7bnOdbZf1/iQiE6bdXKyCFIIRD7l0e9cQuU=;
+ b=RwL+zHQRHWVdma5LybV6QiCBsEErvabPlzYD3ANK1ycqgUeCsqMK0VvbOmm76BTs7ZJgi9OHDGAsnaQFUXs8UU7whdSmSL5u9pJQR8H6aa04Hrpn6PQo+GajBbVgdJW7UajG0lAMahoByMC98TrNDb5Qv4IkP/YlbHGW4u6WJssZUCpAiZet8tkVClwNoxl99aMLVKHvi4tPtfIUXaa0gn1gI9H60eqXsf/HMrAfZSpjS9ukmXWrjtmzFMf0y+vI+t8rBnDLW29skPpraV8u/u4NuNWe4S65yJKCngFrqBle7naUYzVbXrk1/ApEdFCaDORLvQM+Hz9DMn115XUXMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uJPBeS3J7bnOdbZf1/iQiE6bdXKyCFIIRD7l0e9cQuU=;
+ b=KRR195a249yrRJuDOKfGls33fYRnp5zPlwYQBv9lYC19QnCGQSG3TDqlfBHmZ3LcRV8ufWnJbUkSaQARulay/s6Qi+V2QhTiYZ0GP/xh3KM/pv06ZDXQexrH2KBRJ0Dv9IkopOw3dGjBX5Lx2vuitrg/VLLA5EiYBXGaxx5zCBA6gD1F/uE9BD2qMULMEE73lTp2Iy65hQhOGCXzCavi/ksty3AOUDXHuKhS3lVo3Q96zoNNLtC+gd7fnuVBZccyPaLTMJiexiu0pzCoPpRvjKZZJBGGwxUaBswYO530voy4IOg8l4MThjGiSTHJxitIsZOwXiIcjqEL3EmY9Aea3g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8843.eurprd04.prod.outlook.com (2603:10a6:20b:40a::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.32; Tue, 1 Jul
+ 2025 22:06:37 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.029; Tue, 1 Jul 2025
+ 22:06:37 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Date: Tue, 01 Jul 2025 18:06:06 -0400
+Subject: [PATCH 1/7] dt-bindings: media: add DW MIPI CSI-2 Host support
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250701-virtio-msg-ffa-v7-2-995afc3d385e@google.com>
-References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
-In-Reply-To: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, 
- arve@android.com, ayrton@google.com, qperret@google.com, 
- sebastianene@google.com, qwandor@google.com, 
- Per Larsen <perlarsen@google.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751407606; l=12757;
- i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=o6mY15uz5FBX5hG5cYhKQuI0kzM+cB2A7BI4Z1uCA8A=;
- b=mcGPSy0qTQGnn9qLdg6UFOCsre/3QuIflJb7RmvLMjbZXUnEbVbh4PNYS/NcUGeY1cVhf+9Ao
- dIwcBV5i547CMYIFH9jcpBc/sAaaKJHC8zznQMhAjW78wXOjGss1+JS
-X-Developer-Key: i=perlarsen@google.com; a=ed25519;
- pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
-X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
- auth_id=402
-X-Original-From: Per Larsen <perlarsen@google.com>
+Message-Id: <20250701-95_cam-v1-1-c5172bab387b@nxp.com>
+References: <20250701-95_cam-v1-0-c5172bab387b@nxp.com>
+In-Reply-To: <20250701-95_cam-v1-0-c5172bab387b@nxp.com>
+To: Rui Miguel Silva <rmfrfs@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Eugen Hristev <eugen.hristev@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+ Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
+ Frank Li <Frank.Li@nxp.com>, Luis Oliveira <lolivei@synopsys.com>, 
+ Eugen Hristev <eugen.hristev@linaro.org>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751407588; l=5644;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=19yk0dMzXlBZNGVaRoqoBXO+PAL+XkDyyZa0sTp9LUQ=;
+ b=7769/hkSijbCnn2ZugszPJRsUuddMVrRWO1ZWfuv1JfHtdnvhwyPtLhPi2jxvkcWDiVsUcrqb
+ y/6QQE8kn04BHGF1596xlaMk+6ahOFNdc4AffD1LARc4YCpVsOGeq34
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: AM9P250CA0027.EURP250.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21c::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8843:EE_
+X-MS-Office365-Filtering-Correlation-Id: 575f1aa9-9a51-46b0-4291-08ddb8eb8cc3
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|19092799006|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z2JSQ0FzOTQ5Uy9vbmtQc3N0MkwvZ1dnMWY1enlKNVJXRkF0RXl3TXRrODUy?=
+ =?utf-8?B?MTdNRzU1aWlIS3pBUVVYVGJTRHorMXM3SnN2UDZ2cjBRUkVYQlVvbDVTa3lo?=
+ =?utf-8?B?TXZYelQzazBkWWFZRmNPc2xLUjhQejl0TEEvRDFBU29aVU1qbUN0djlLcEFq?=
+ =?utf-8?B?TWg5dzlvalZ3NGZLRmlIRi93U2o4R2xhQ0NYY2RBKysxL2JoWjl1dVFEMmtW?=
+ =?utf-8?B?bHc5bzJBaElmNGQ5RTcyTjd5Nm02ZnkrRDZzRGFPZFRrZVo0TDlVOERMVUZv?=
+ =?utf-8?B?RVcxekEzL2NoY0ZJRGh1VkIyTkd1SWRqTVpMYVBIVlFjOVVtRUFVaTBpWWJ0?=
+ =?utf-8?B?YVlsQ0F3OCtXcDJWcVlvUXRPQVZiaWYrRG9hZE9DbEVwTUY4QXBVVVZIb1VF?=
+ =?utf-8?B?MFljRG1GU0hqTW5nUDhuSWladnRIdVZFc2Zad2haZWRCcW8rblBzMG5JT1dT?=
+ =?utf-8?B?Q1lheEdaTjVEVktrcjFTZzV2aHZUbVBJTnZOZ3h1VnhJUkdXNmVQMmRSKytM?=
+ =?utf-8?B?NHYyTmYxUkhpM1NMZ3lVTmtXN2grQWVpOFBGS0lyQ29odFJGRENsbm9BenhT?=
+ =?utf-8?B?UnlocmZHN2VWTGg4WmNPTzNXQm10VGw3ZXhkU3E0bVpjWFQ3eWMwS0htT0RD?=
+ =?utf-8?B?ZWcyV0dJYUxzWUUwN3dLVStqR3d0anM5bllMaVVnd0V5OWtZK0pTZXpKV1hJ?=
+ =?utf-8?B?ZnloN2E3RlEyQnk5SE9VOVhJUTA1c0pOak5JOTl0TytFcjgwdm82TGdLZVVx?=
+ =?utf-8?B?TkwrMFZ4d21oZ2xwMnRONVJWTndGQzVXSTM3ZVNMV0xSOFhSTUVQc1oxeFpy?=
+ =?utf-8?B?alFKekZybjJXMVdDNi9lejYzdWFicHgwL2o5TWZqWDl0U2dXWVNyNmVCNW5i?=
+ =?utf-8?B?NnhlWHpRRlBMMHYrcXJ2TFNzME1hc3Fpbi8vSFRlTWQweFdnd0FUZHZJbFZI?=
+ =?utf-8?B?TXVnQnlLNnlsNmxmcHhNUW45LzFtcmZ3dy9UMEhWbmRoemVQUlFJclpDa2c5?=
+ =?utf-8?B?N0o0MHVTT05TbmdoQ3ZHUUxaRVRyUVl2bjVSNDVuUGkydXFFWkpadkNodVIx?=
+ =?utf-8?B?MjNnTDlPa2FhdThmZkxNVERYazZ4aEN2VUMxa3lSRGxrbis4b1N2Zy96b2Vi?=
+ =?utf-8?B?VUdId3R4WWpGam8zY2NocmdXaXRYNVNrRlRGeWJFTmg2OXZPT0RXVGMyQ0g3?=
+ =?utf-8?B?bDNadWR6cE9QbTdBQUU3SzN0cHNJWXNpaXh0ZVRFTlZ0NW9HcU16Q2ozNHEv?=
+ =?utf-8?B?alFtb1pMTlYvcS9veWhMVUxNU2hYQ1dEQWd4QjB0Q2U4d0hBa3FBYU5iRFpP?=
+ =?utf-8?B?ZG8xSTUrNWRYM1NtR0w5eGV2ZUgyZ0JiZWtjRzBjSmt2cXIyWGx4c3RBbFhQ?=
+ =?utf-8?B?aVZVdjdQRXNIdzJIblFGdTl1YXRLUHNBTEp6YzMrRnFYMjM1VVpuK0lvTUVZ?=
+ =?utf-8?B?TmlaYmxsMGRzOGlLMnoyeFhpUFhqcU5PekpQazVRaGQ0bnZLUWNzdUgzWEtx?=
+ =?utf-8?B?VHpjMlpsZ0E0czcrYnpQby9NQnYxUG5RMjllZS9NUERUNnkzbXo5bmdraTJt?=
+ =?utf-8?B?QUViSmRQQzJwUjd4V0crd2ZWU0Fkak9hZGN3M2s0ZFM0Y0NkR0MvbUpXQWhF?=
+ =?utf-8?B?bjA4MmhWekQ5VGlyVnJqV2hmSFJiWHhHWWs4QjhlWGw3OEFEcGJBUXE1U1VX?=
+ =?utf-8?B?Y2laYW4yT1E3SSs0WEI4c2pEeTRmSXprMTRPZE83blBLV3BOMTBIOTRpeURr?=
+ =?utf-8?B?TUFhcGdCWXRScDY4SjVWQk5qSG15OXljOVFEdkxDbGFyVGZMUzBkeG1Jd3Yz?=
+ =?utf-8?B?djBUNmExS2FMUDJ3NnVGd3l6akc0eXdRQ002L0hzVE81N3VVbGZqM3VPVFUz?=
+ =?utf-8?B?Q09rcVAwL2Fyck1SbU1wanY4aGtxVlVlSjgrTzhCellvQlBXTFVvbnU5Ym9s?=
+ =?utf-8?Q?jWoQzFuIjGHX/KkI3jF/r61oItFk6SNb?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SG56dVRtSkFhVjBSM0N1QUpxejJTZDdHWGdmelB5YTJQMTJ0RFJoOGRkUnUv?=
+ =?utf-8?B?ZFdBSHN3alZpSk9HVHhtaWFBQ3Y0UXpQdnFiUkJvcWwxQ21QNndqTWM3ekhL?=
+ =?utf-8?B?bm40Q0dreW1BRk9NeTNlRS9GS2crTnZpcWJ3dGVzWHMxTHhRUy9jZllTMzMx?=
+ =?utf-8?B?UVN4MlVGVnVzbTdhUEswWDVSdEpUY3NnSnc4dGdqaFhNOTV1TlA2a21LamJH?=
+ =?utf-8?B?c0VEZ3UvclVNRVpGMVFObHFYOXh0dDZ1VCtKQjZxMnM0L2R3anZLQjZVc0hI?=
+ =?utf-8?B?ZHVVWjQrenJSMS9pVmM5WlZJa3RUT215cGhpK1ZVQUZxa013QzBzLzBNOEZI?=
+ =?utf-8?B?eW5tQ2FOMW1WVkR2b1RHa2dHRHZjRVJVVkt5RGg5YmpwMWllc0VQQjdrOFpz?=
+ =?utf-8?B?akpGRkY0S1Q1UDNtK1lPMitUU09JMXdIN0VISkhhMEdYUVV6THhEbVBIYzd0?=
+ =?utf-8?B?TW0wWHBacHNzU1ZjU2t1STBwVWhjbVF2a3V6Sy8yYnYzWFRMRzJuT2lBRC9x?=
+ =?utf-8?B?VVhHY2kvUGJXdVR3WnFvME9Rbmp2aEY4empGRzQvbHo2NHNUeGVIcUtEZDAw?=
+ =?utf-8?B?VlduWVI0Q29zVlVrWkh6dDhpbTVlRW1PZWxDV1FlVXlzNWJ4Uk1pazIyZE82?=
+ =?utf-8?B?MkQyczUwUmpFWVJuMVBGREZOa1YzZFVuZkR0Ti9rNFZJMk9NL2lkVFBWYnlR?=
+ =?utf-8?B?T285bFFvWHNmeld3T1ZnVkc2dVpBQnZtY3dKMnorandWZDIvTzJtSzEvNG9n?=
+ =?utf-8?B?cFJJV00vbllOakRlZy9CTW5WUUZHV3ZFVlEyYzJMUTl0K2ZzV2kwWWNyNEky?=
+ =?utf-8?B?cHpLT2E5ejRhMzNMWkwvZjhlS3l1VGZKQW5QUUpRV1Vlc0pSOXA0N2UzeUFT?=
+ =?utf-8?B?bE9kVk1SZ1hORDZqQjhjeU9VNHZZcEhSVFdrcTlXR1RNN2ZkSStPR0dmWVpN?=
+ =?utf-8?B?MWhuS0swUUJLVkhjSjYrUDQ4RHcyYS9ZMmFLd0JFRlIvQlNTWTdrV3M4anR1?=
+ =?utf-8?B?Ny9kK01hakI4cHk1SXRHZHh6OXJGQ1ZXRHJjWisza1crek9ZYUFwTlEybkl3?=
+ =?utf-8?B?b3hQWnBTYWtyN2tpdXhoZEMrTWd0Z1JFMUk0ZThxZ0IvODdZS1duYTBzells?=
+ =?utf-8?B?aHJQa3JzaWN5cFRRajJVMm5TdklHOWpQMVZmMTdUWC91b2FERlBpWWdjbjlq?=
+ =?utf-8?B?eUM0b3pRQk9KTnhXUjkvRHFjVGdxeDluL0U4WVh2Q1ZjeXk2dzJ4eVJnUXhE?=
+ =?utf-8?B?VE9iRFVueHFhR1hKbVpndWxqc3lHUGhQY25LTG9zdElKRnFSL3VTUHQwYXkr?=
+ =?utf-8?B?bG4rTHFMcm9oamVnQmwvR2NPek9OUXNMZjJiUi8xL3preXRLZ2RIN1puUHVm?=
+ =?utf-8?B?TlFZalArVkJQSVBtLzZ1a2JDeDF3WC9ySU0xSC9aeGozZ0c1NGdPa3Z2QXJ4?=
+ =?utf-8?B?R2JtYUpacXIvWWZBYjhvNFhEMkpMTnpuc1p0QnpYZllndnVTbzFpNjRvMnV2?=
+ =?utf-8?B?VkdVQUJ1TFdObnZhamNPRnRSUlBvU0FYZlh1MTBNdU12QU9UVWtjTDlrSlIw?=
+ =?utf-8?B?a1ZnYUJtajlUWnBIRzk2aHZRQ1kxTUs3THF1TG1BbE11cktUenNGVWtkNmhH?=
+ =?utf-8?B?cUFLb09hSFRHMTFyTHd1dHhydFhOLzRwYmdwcHVURjlhN2R5N3hURXp4Rmw5?=
+ =?utf-8?B?cUFKcW91V0w3ZEtBbFV0WVdPQ1E4MU13SzRkaDM5aHZVcHpuSkhiYWRvb1BO?=
+ =?utf-8?B?cG1JTGxXRG1OWEtPUGhQT0hKb3d1UytEMnhRRkVjNU14WnAzWjg0MjB0ZEJZ?=
+ =?utf-8?B?YUhjVXlMMVl1eHlSQ2JPY0RrQmx1NHpvSWpXcGFrQlZiMGFkOXRsNkdxOTgy?=
+ =?utf-8?B?TXJKU1EvdWl2MnlsWjRFTXh6V3Z3Q0l4T0Z5TjRmbmcvU05neklHdTNxTUs0?=
+ =?utf-8?B?eFdmaW5VZkNyUkFZK2draW9DRldXV3lXcFBtbU0rZkhtcWRySU5aSmFHemlG?=
+ =?utf-8?B?SGxkbks1Y2szeGxHZnVSa0V2Q1lGb3pDZDZCNjBuMktBbGluUG1XRFN6bXBk?=
+ =?utf-8?B?bFRoS2l1SjdOOFNSbEE2djNHQVhFWE85ZHdOT3pqWDY0ZkVwTEVob3ZySUcy?=
+ =?utf-8?Q?1yMe6FOzI5oL5pzInjq5+JNKb?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 575f1aa9-9a51-46b0-4291-08ddb8eb8cc3
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2025 22:06:37.6380
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1urvnpaZpZwuhIkWsqwWT6/QvyXFd56nyRw3d0/VM/BfgYgxNT+geMXtRtk/XPOzteh/050mtwSZDJmcri62zA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8843
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_150648_764336_D0B77E66 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20250701_150659_202027_80D13B31 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,408 +192,214 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Per Larsen <perlarsen@google.com>
+From: Eugen Hristev <eugen.hristev@linaro.org>
 
-SMCCC 1.1 and prior allows four registers to be sent back as a result
-of an FF-A interface. SMCCC 1.2 increases the number of results that can
-be sent back to 8 and 16 for 32-bit and 64-bit SMC/HVCs respectively.
+Add bindings for Synopsys DesignWare MIPI CSI-2 host, which used at i.MX93
+and i.MX95 platform.
 
-FF-A 1.0 references SMCCC 1.2 (reference [4] on page xi) and FF-A 1.2
-explicitly requires SMCCC 1.2 so it should be safe to use this version
-unconditionally. Moreover, it is simpler to implement FF-A features
-without having to worry about compatibility with SMCCC 1.1 and older.
-
-Update the FF-A initialization and host handler code to use SMCCC 1.2.
-
-Signed-off-by: Per Larsen <perlarsen@google.com>
+Signed-off-by: Luis Oliveira <lolivei@synopsys.com>
+Signed-off-by: Eugen Hristev <eugen.hristev@microchip.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm64/kvm/hyp/nvhe/Makefile |   1 +
- arch/arm64/kvm/hyp/nvhe/ffa.c    | 193 +++++++++++++++++++++++++--------------
- 2 files changed, 125 insertions(+), 69 deletions(-)
+This is continue previous thread
+https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20221216143717.1002015-2-eugen.hristev@microchip.com/#3023663
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index a76522d63c3e630795db5972a99abc3d24bc5e26..f859a8fb41a25effea1edd977bef889423153399 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -27,6 +27,7 @@ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o
- 	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
- hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
- 	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
-+hyp-obj-y += ../../../kernel/smccc-call.o
- hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
- hyp-obj-y += $(lib-objs)
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 2c199d40811efb5bfae199c4a67d8ae3d9307357..65d241ba32403d014b43cc4ef4d5bf9693813809 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -71,36 +71,68 @@ static u32 hyp_ffa_version;
- static bool has_version_negotiated;
- static hyp_spinlock_t version_lock;
- 
--static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
-+static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_errno)
- {
--	*res = (struct arm_smccc_res) {
-+	*res = (struct arm_smccc_1_2_regs) {
- 		.a0	= FFA_ERROR,
- 		.a2	= ffa_errno,
- 	};
- }
- 
--static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u64 prop)
-+static void ffa_to_smccc_res_prop(struct arm_smccc_1_2_regs *res, int ret, u64 prop)
- {
- 	if (ret == FFA_RET_SUCCESS) {
--		*res = (struct arm_smccc_res) { .a0 = FFA_SUCCESS,
--						.a2 = prop };
-+		*res = (struct arm_smccc_1_2_regs) { .a0 = FFA_SUCCESS,
-+						      .a2 = prop };
- 	} else {
- 		ffa_to_smccc_error(res, ret);
- 	}
- }
- 
--static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
-+static void ffa_to_smccc_res(struct arm_smccc_1_2_regs *res, int ret)
- {
- 	ffa_to_smccc_res_prop(res, ret, 0);
- }
- 
- static void ffa_set_retval(struct kvm_cpu_context *ctxt,
--			   struct arm_smccc_res *res)
-+			   struct arm_smccc_1_2_regs *res)
- {
-+	DECLARE_REG(u64, func_id, ctxt, 0);
- 	cpu_reg(ctxt, 0) = res->a0;
- 	cpu_reg(ctxt, 1) = res->a1;
- 	cpu_reg(ctxt, 2) = res->a2;
- 	cpu_reg(ctxt, 3) = res->a3;
-+	cpu_reg(ctxt, 4) = res->a4;
-+	cpu_reg(ctxt, 5) = res->a5;
-+	cpu_reg(ctxt, 6) = res->a6;
-+	cpu_reg(ctxt, 7) = res->a7;
+change in v1 (compared to previous post)
+- add reg-names
+- remove clk surfix
+- add imx93,dw-csi compatible string
+- add dphys subnode name
+- use compatible string snps,dw-mipi-csi2-v150 to avoid use general fallback
+compatible string.
+---
+ .../bindings/media/snps,dw-mipi-csi2-v150.yaml     | 161 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ 2 files changed, 162 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+new file mode 100644
+index 0000000000000..2a93bd72498f8
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+@@ -0,0 +1,161 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/snps,dw-mipi-csi2-v150.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	/*
-+	 * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30.
-+	 *
-+	 * The most straightforward approach is to look at the function ID
-+	 * sent by the caller. However, the caller could send FFA_MSG_WAIT
-+	 * which is a 32-bit interface but the reply could very well be 64-bit
-+	 * such as FFA_FN64_MSG_SEND_DIRECT_REQ or FFA_MSG_SEND_DIRECT_REQ2.
-+	 *
-+	 * Instead, we could look at the function ID in the response (a0) but
-+	 * that doesn't work either as FFA_VERSION responses put the version
-+	 * number (or error code) in w0.
-+	 *
-+	 * Set x8-x17 iff response contains 64-bit function ID in a0.
-+	 */
-+	if (func_id != FFA_VERSION && ARM_SMCCC_IS_64(res->a0)) {
-+		cpu_reg(ctxt, 8) = res->a8;
-+		cpu_reg(ctxt, 9) = res->a9;
-+		cpu_reg(ctxt, 10) = res->a10;
-+		cpu_reg(ctxt, 11) = res->a11;
-+		cpu_reg(ctxt, 12) = res->a12;
-+		cpu_reg(ctxt, 13) = res->a13;
-+		cpu_reg(ctxt, 14) = res->a14;
-+		cpu_reg(ctxt, 15) = res->a15;
-+		cpu_reg(ctxt, 16) = res->a16;
-+		cpu_reg(ctxt, 17) = res->a17;
-+	}
- }
- 
- static bool is_ffa_call(u64 func_id)
-@@ -113,82 +145,92 @@ static bool is_ffa_call(u64 func_id)
- 
- static int ffa_map_hyp_buffers(u64 ffa_page_count)
- {
--	struct arm_smccc_res res;
-+	struct arm_smccc_1_2_regs res;
- 
--	arm_smccc_1_1_smc(FFA_FN64_RXTX_MAP,
--			  hyp_virt_to_phys(hyp_buffers.tx),
--			  hyp_virt_to_phys(hyp_buffers.rx),
--			  ffa_page_count,
--			  0, 0, 0, 0,
--			  &res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_FN64_RXTX_MAP,
-+		.a1 = hyp_virt_to_phys(hyp_buffers.tx),
-+		.a2 = hyp_virt_to_phys(hyp_buffers.rx),
-+		.a3 = ffa_page_count,
-+	}, &res);
- 
- 	return res.a0 == FFA_SUCCESS ? FFA_RET_SUCCESS : res.a2;
- }
- 
- static int ffa_unmap_hyp_buffers(void)
- {
--	struct arm_smccc_res res;
-+	struct arm_smccc_1_2_regs res;
- 
--	arm_smccc_1_1_smc(FFA_RXTX_UNMAP,
--			  HOST_FFA_ID,
--			  0, 0, 0, 0, 0, 0,
--			  &res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_RXTX_UNMAP,
-+		.a1 = HOST_FFA_ID,
-+	}, &res);
- 
- 	return res.a0 == FFA_SUCCESS ? FFA_RET_SUCCESS : res.a2;
- }
- 
--static void ffa_mem_frag_tx(struct arm_smccc_res *res, u32 handle_lo,
-+static void ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 			     u32 handle_hi, u32 fraglen, u32 endpoint_id)
- {
--	arm_smccc_1_1_smc(FFA_MEM_FRAG_TX,
--			  handle_lo, handle_hi, fraglen, endpoint_id,
--			  0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_MEM_FRAG_TX,
-+		.a1 = handle_lo,
-+		.a2 = handle_hi,
-+		.a3 = fraglen,
-+		.a4 = endpoint_id,
-+	}, res);
- }
- 
--static void ffa_mem_frag_rx(struct arm_smccc_res *res, u32 handle_lo,
-+static void ffa_mem_frag_rx(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 			     u32 handle_hi, u32 fragoff)
- {
--	arm_smccc_1_1_smc(FFA_MEM_FRAG_RX,
--			  handle_lo, handle_hi, fragoff, HOST_FFA_ID,
--			  0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_MEM_FRAG_RX,
-+		.a1 = handle_lo,
-+		.a2 = handle_hi,
-+		.a3 = fragoff,
-+		.a4 = HOST_FFA_ID,
-+	}, res);
- }
- 
--static void ffa_mem_xfer(struct arm_smccc_res *res, u64 func_id, u32 len,
-+static void ffa_mem_xfer(struct arm_smccc_1_2_regs *res, u64 func_id, u32 len,
- 			  u32 fraglen)
- {
--	arm_smccc_1_1_smc(func_id, len, fraglen,
--			  0, 0, 0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = func_id,
-+		.a1 = len,
-+		.a2 = fraglen,
-+	}, res);
- }
- 
--static void ffa_mem_reclaim(struct arm_smccc_res *res, u32 handle_lo,
-+static void ffa_mem_reclaim(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 			     u32 handle_hi, u32 flags)
- {
--	arm_smccc_1_1_smc(FFA_MEM_RECLAIM,
--			  handle_lo, handle_hi, flags,
--			  0, 0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_MEM_RECLAIM,
-+		.a1 = handle_lo,
-+		.a2 = handle_hi,
-+		.a3 = flags,
-+	}, res);
- }
- 
--static void ffa_retrieve_req(struct arm_smccc_res *res, u32 len)
-+static void ffa_retrieve_req(struct arm_smccc_1_2_regs *res, u32 len)
- {
--	arm_smccc_1_1_smc(FFA_FN64_MEM_RETRIEVE_REQ,
--			  len, len,
--			  0, 0, 0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_FN64_MEM_RETRIEVE_REQ,
-+		.a1 = len,
-+		.a2 = len,
-+	}, res);
- }
- 
--static void ffa_rx_release(struct arm_smccc_res *res)
-+static void ffa_rx_release(struct arm_smccc_1_2_regs *res)
- {
--	arm_smccc_1_1_smc(FFA_RX_RELEASE,
--			  0, 0,
--			  0, 0, 0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_RX_RELEASE,
-+	}, res);
- }
- 
--static void do_ffa_rxtx_map(struct arm_smccc_res *res,
-+static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
- 			    struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(phys_addr_t, tx, ctxt, 1);
-@@ -267,7 +309,7 @@ static void do_ffa_rxtx_map(struct arm_smccc_res *res,
- 	goto out_unlock;
- }
- 
--static void do_ffa_rxtx_unmap(struct arm_smccc_res *res,
-+static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
- 			      struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, id, ctxt, 1);
-@@ -368,7 +410,7 @@ static int ffa_host_unshare_ranges(struct ffa_mem_region_addr_range *ranges,
- 	return ret;
- }
- 
--static void do_ffa_mem_frag_tx(struct arm_smccc_res *res,
-+static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
- 			       struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, handle_lo, ctxt, 1);
-@@ -427,7 +469,7 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_res *res,
- }
- 
- static void __do_ffa_mem_xfer(const u64 func_id,
--			      struct arm_smccc_res *res,
-+			      struct arm_smccc_1_2_regs *res,
- 			      struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, len, ctxt, 1);
-@@ -521,7 +563,7 @@ static void __do_ffa_mem_xfer(const u64 func_id,
- 		__do_ffa_mem_xfer((fid), (res), (ctxt));	\
- 	} while (0);
- 
--static void do_ffa_mem_reclaim(struct arm_smccc_res *res,
-+static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
- 			       struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, handle_lo, ctxt, 1);
-@@ -634,7 +676,7 @@ static bool ffa_call_supported(u64 func_id)
- 	return true;
- }
- 
--static bool do_ffa_features(struct arm_smccc_res *res,
-+static bool do_ffa_features(struct arm_smccc_1_2_regs *res,
- 			    struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, id, ctxt, 1);
-@@ -666,17 +708,21 @@ static bool do_ffa_features(struct arm_smccc_res *res,
- static int hyp_ffa_post_init(void)
- {
- 	size_t min_rxtx_sz;
--	struct arm_smccc_res res;
-+	struct arm_smccc_1_2_regs res;
- 
--	arm_smccc_1_1_smc(FFA_ID_GET, 0, 0, 0, 0, 0, 0, 0, &res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
-+		.a0 = FFA_ID_GET,
-+	}, &res);
- 	if (res.a0 != FFA_SUCCESS)
- 		return -EOPNOTSUPP;
- 
- 	if (res.a2 != HOST_FFA_ID)
- 		return -EINVAL;
- 
--	arm_smccc_1_1_smc(FFA_FEATURES, FFA_FN64_RXTX_MAP,
--			  0, 0, 0, 0, 0, 0, &res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
-+		.a0 = FFA_FEATURES,
-+		.a1 = FFA_FN64_RXTX_MAP,
-+	}, &res);
- 	if (res.a0 != FFA_SUCCESS)
- 		return -EOPNOTSUPP;
- 
-@@ -700,7 +746,7 @@ static int hyp_ffa_post_init(void)
- 	return 0;
- }
- 
--static void do_ffa_version(struct arm_smccc_res *res,
-+static void do_ffa_version(struct arm_smccc_1_2_regs *res,
- 			   struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, ffa_req_version, ctxt, 1);
-@@ -724,9 +770,10 @@ static void do_ffa_version(struct arm_smccc_res *res,
- 	 * first if TEE supports it.
- 	 */
- 	if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version)) {
--		arm_smccc_1_1_smc(FFA_VERSION, ffa_req_version, 0,
--				  0, 0, 0, 0, 0,
--				  res);
-+		arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+			.a0 = FFA_VERSION,
-+			.a1 = ffa_req_version,
-+		}, res);
- 		if (res->a0 == FFA_RET_NOT_SUPPORTED)
- 			goto unlock;
- 
-@@ -743,7 +790,7 @@ static void do_ffa_version(struct arm_smccc_res *res,
- 	hyp_spin_unlock(&version_lock);
- }
- 
--static void do_ffa_part_get(struct arm_smccc_res *res,
-+static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
- 			    struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, uuid0, ctxt, 1);
-@@ -759,9 +806,14 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
- 		goto out_unlock;
- 	}
- 
--	arm_smccc_1_1_smc(FFA_PARTITION_INFO_GET, uuid0, uuid1,
--			  uuid2, uuid3, flags, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_PARTITION_INFO_GET,
-+		.a1 = uuid0,
-+		.a2 = uuid1,
-+		.a3 = uuid2,
-+		.a4 = uuid3,
-+		.a5 = flags,
-+	}, res);
- 
- 	if (res->a0 != FFA_SUCCESS)
- 		goto out_unlock;
-@@ -794,7 +846,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
- 
- bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- {
--	struct arm_smccc_res res;
-+	struct arm_smccc_1_2_regs res;
- 
- 	/*
- 	 * There's no way we can tell what a non-standard SMC call might
-@@ -863,13 +915,16 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 
- int hyp_ffa_init(void *pages)
- {
--	struct arm_smccc_res res;
-+	struct arm_smccc_1_2_regs res;
- 	void *tx, *rx;
- 
- 	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
- 		return 0;
- 
--	arm_smccc_1_1_smc(FFA_VERSION, FFA_VERSION_1_1, 0, 0, 0, 0, 0, 0, &res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_VERSION,
-+		.a1 = FFA_VERSION_1_1,
-+	}, &res);
- 	if (res.a0 == FFA_RET_NOT_SUPPORTED)
- 		return 0;
- 
++title: Synopsys DesignWare CSI-2 Host controller (csi2host)
++
++maintainers:
++  - Frank Li <Frank.Li@nxp.com>
++  - Eugen Hristev <eugen.hristev@microchip.com>
++
++description:
++  CSI2HOST is used to receive image coming from an MIPI CSI-2 compatible
++  camera. It will convert the incoming CSI-2 stream into a dedicated
++  interface called the Synopsys IDI (Image Data Interface).
++  This interface is a 32-bit SoC internal only, and can be assimilated
++  with a CSI-2 interface.
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - fsl,imx93-mipi-csi2
++          - const: snps,dw-mipi-csi2-v150
++      - const: snps,dw-mipi-csi2-v150
++
++  reg:
++    items:
++      - description: MIPI CSI-2 core register
++
++  reg-names:
++    items:
++      - const: core
++
++  clocks:
++    maxItems: 2
++
++  clock-names:
++    items:
++      - const: per
++      - const: pixel
++
++  phys:
++    maxItems: 1
++    description: MIPI D-PHY
++
++  phy-names:
++    items:
++      - const: rx
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description:
++          Input port node, single endpoint describing the input port.
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++            description: Endpoint connected to input device
++
++            properties:
++              bus-type:
++                const: 4
++
++              data-lanes:
++                minItems: 1
++                maxItems: 4
++                items:
++                  maximum: 4
++
++              clock-lanes:
++                maxItems: 1
++
++              remote-endpoint: true
++
++      port@1:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description:
++          Output port node, single endpoint describing the output port.
++
++        properties:
++          endpoint:
++            unevaluatedProperties: false
++            $ref: video-interfaces.yaml#
++            description: Endpoint connected to output device
++
++            properties:
++              bus-type:
++                const: 4
++
++              remote-endpoint: true
++
++    required:
++      - port@0
++      - port@1
++
++additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - interrupts
++  - ports
++
++examples:
++  - |
++    csi@3000 {
++        compatible = "snps,dw-mipi-csi2-v150";
++        reg = <0x03000 0x1000>;
++        reg-names = "core";
++        phys = <&mipi_dphy_rx 0>;
++        phy-names = "rx";
++        resets = <&dw_rst 1>;
++        interrupts = <2>;
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++
++                endpoint {
++                    bus-type = <4>; /* MIPI CSI2 D-PHY */
++                    remote-endpoint = <&camera_1>;
++                    data-lanes = <1 2>;
++                    clock-lanes = <0>;
++                };
++            };
++
++            port@1 {
++                reg = <1>;
++
++                endpoint {
++                    remote-endpoint = <&idi_receiver>;
++                    bus-type = <4>;
++                };
++            };
++        };
++    };
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 01d2aa62045c7..e208c91f1405f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -15021,6 +15021,7 @@ F:	Documentation/devicetree/bindings/media/fsl,imx93-parallel-csi.yaml
+ F:	Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+ F:	Documentation/devicetree/bindings/media/nxp,imx7-csi.yaml
+ F:	Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
++F:	Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+ F:	drivers/media/platform/nxp/imx-mipi-csis.c
+ F:	drivers/media/platform/nxp/imx-parallel-csi.c
+ F:	drivers/media/platform/nxp/imx7-media-csi.c
 
 -- 
-2.50.0.727.gbf7dc18ff4-goog
-
+2.34.1
 
 
