@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 607DCC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 11:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CC8C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 11:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8UVnX5H7J1HasfjuV696M7tTJpYZVfltwhBI9jbP4aQ=; b=tbbhmWt1TPmI/GNGRYXLcGB1nX
-	rSGh2SGdHABsLUz6ybllSALDXXGX8E7cSEELkzvOgRgaD6osPn9ev0wx9q2lCkMhReNWOLDRKvxeC
-	f2z8wV1aRllCU6PsC4BFBudtnN6xCYgMhynwQC+svKE3iOO40W3zV3mUsRdUPenNzU+FOuE9488/W
-	E2IJ1ZIPtsWOciBBCZfgRh2fNbPoI0Aje74FJE/dUbHxEFWkQHJCLQh++BFiXqkSBdL/cGKikcYu0
-	TfabQEmknKIlmx9vG7V41Uuy71AA8iCOHCAhjxMrBfBzwjewHnZfaaPwd9p0NEsXrTlVimpVgN2PJ
-	vMRhUiLA==;
+	bh=+Ms1DHTRA52tMc6VD9Wo9DQzzWIkk1Q2tyTHt2OdOPs=; b=kXp/Y/pgJq3t54AnPv/jbbHiD0
+	vpqf5Jvzrg15yoIR6slGO/zK5sZQAX+SM6HvG8mnxKtJIJm+Qm/oPaRfoNqUJeztv6WpMac8D4ISe
+	CQOAIOJ59F+Efw5OS+bIkmUT1xi32qEmXREbe2Pt3TbVLsPNDm+4H6Dt09nLtrPFTZnVq5Q0roTFG
+	phXuwxaxHvRETaDfHmUDf5buY0zGEfRGO8T90M/1sEwqY4r35dCsm8UF3JCkVNK0g2EyAtvSJnJ+s
+	SpnhZDwJqYdNGVcdGvaH1vxXh7MOckpHS2OokeJsX5yFZ9R7YSY5FcqsVN+UimvOlo9P6QzEgp11K
+	Ch6Wm+cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZM0-00000004tBa-0HQy;
-	Tue, 01 Jul 2025 11:40:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uWZOI-00000004tgN-3GkI;
+	Tue, 01 Jul 2025 11:43:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZJe-00000004ssp-3qiM
+	id 1uWZK8-00000004syb-2Pvx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 11:38:24 +0000
+	Tue, 01 Jul 2025 11:38:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4594D44561;
-	Tue,  1 Jul 2025 11:38:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B84A6C4CEEB;
-	Tue,  1 Jul 2025 11:38:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 633345C55DA;
+	Tue,  1 Jul 2025 11:38:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B51B7C4CEF2;
+	Tue,  1 Jul 2025 11:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751369902;
-	bh=W2YdMpACO4BaBXSKODcbkQsYQod9zXLEzofKC/X1Img=;
+	s=k20201202; t=1751369931;
+	bh=Y3VYK0xUvjChhtVTMRDfTkLxiEXA0r751kvYsufbcvI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UpEdGSX1HoYiHuTpcKRrIezUWnm9ranQC6z/ZWdt/3lYWCupKcFnPQoTqyRQr9n/p
-	 iRFDao1PB9O5zjxcdaOGm/6aftMGGPrHeT6A3JR5DgjKdd8L2gd9in4LwK9b9Yiyb7
-	 rQbDK7pRGprWcoiaErfNa4e9Z5moVliTB+DLcRm8fm9e2bY4bfEGGBy9B0IA/9vpxt
-	 Ra8fPm9jCV0cSAUzUbCN8rOxik4Ha+Rm9/DRV1NbX4deBXqZnET+ES931PDRS2TzNS
-	 0xNwkkVHsbpIAMGfS7Pvilp+IdXCo8yfknMshXRW9ds0JMFK+JJnOS8nmHx9OmMCJl
-	 0OkT+3YxFRCPA==
-Message-ID: <466b4352-91b9-4259-94b0-b8228d8282e9@kernel.org>
-Date: Tue, 1 Jul 2025 13:38:11 +0200
+	b=kNT1AVzZgXn/stPTLnwsso1xnnU2BufLnxbdK7ZBlbRX06iAGzRO690BK76fAYXGh
+	 w7iPesl9QF3QknxCDOj9S9kgg8ibezeLW3nx4CpRTAorRwNZ854jcLcrFzU8gtyn23
+	 rFjrXCbwWgCHv9cJylZL+bXnem4+ZueEAKZ2f1HIM0c5MCfZV8uv1SUeNyogLYMk47
+	 ZUcy0QYCG8dgdqD7Rl+KxlqKvJVSdjeFq1wzMDr2bpyNaQ5PzY8DNQQiXppLae2Y5h
+	 Tm8utYQCByAdqM9r2Xpu1nxYKQvEVqMkRwDE+4rVCvsumlyHmOtL8pmuN7q3n69eCb
+	 5QxBN5kbZb9mg==
+Message-ID: <efeb4af5-642e-40d2-b535-5aacc47bdb99@kernel.org>
+Date: Tue, 1 Jul 2025 13:38:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] arm64: dts: imx943: Add LVDS/DISPLAY CSR nodes
+Subject: Re: [PATCH 1/5] dt-bindings: clock: Add support for i.MX94
+ LVDS/DISPLAY CSR
 To: Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -59,7 +60,7 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, Abel Vesa <abel.vesa@linaro.org>
 References: <20250701-imx95-blk-ctl-7-1-v1-0-00db23bd8876@nxp.com>
- <20250701-imx95-blk-ctl-7-1-v1-5-00db23bd8876@nxp.com>
+ <20250701-imx95-blk-ctl-7-1-v1-1-00db23bd8876@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250701-imx95-blk-ctl-7-1-v1-5-00db23bd8876@nxp.com>
+In-Reply-To: <20250701-imx95-blk-ctl-7-1-v1-1-00db23bd8876@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_043823_002244_E0C13B18 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20250701_043852_700091_2F0C9F29 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,52 +127,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 01/07/2025 09:04, Peng Fan wrote:
-> Add nodes for LVDS/DISPLAY CSR.
+> Add i.MX94 LVDS/DISPLAY CSR compatible string.
 > 
-> Add ldb_pll_div7 node which is used for clock source of DISPLAY CSR.
+> Add clock index for the two CSRs.
 > 
 > Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->  arch/arm64/boot/dts/freescale/imx943.dtsi | 34 +++++++++++++++++++++++++++++++
->  1 file changed, 34 insertions(+)
+>  .../devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml        |  2 ++
+>  include/dt-bindings/clock/nxp,imx94-clock.h                 | 13 +++++++++++++
+>  2 files changed, 15 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/imx943.dtsi b/arch/arm64/boot/dts/freescale/imx943.dtsi
-> index 45b8da758e87771c0775eb799ce2da3aac37c060..cf67dba21e4f6f27fff7e5d29744086e4ec9c021 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx943.dtsi
-> @@ -3,6 +3,8 @@
->   * Copyright 2025 NXP
->   */
->  
-> +#include <dt-bindings/clock/nxp,imx94-clock.h>
-> +
->  #include "imx94.dtsi"
->  
->  / {
-> @@ -145,4 +147,36 @@ l3_cache: l3-cache {
->  			cache-unified;
->  		};
->  	};
-> +
-> +	ldb_pll_pixel: ldb_pll_div7 {
+> diff --git a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> index d0291bfff23a27cb55683880fe3a1f8b3e2ada5a..4e20e8c8663b3b6665ff91ae63e1539aa8e9cc9b 100644
+> --- a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> +++ b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> @@ -19,6 +19,8 @@ properties:
+>            - nxp,imx95-lvds-csr
+>            - nxp,imx95-netcmix-blk-ctrl
+>            - nxp,imx95-vpu-csr
+> +          - nxp,imx94-display-csr
+> +          - nxp,imx94-lvds-csr
 
-Not a DTS coding style.
-
-Please use name for all fixed clocks which matches current format
-recommendation: 'clock-<freq>' (see also the pattern in the binding for
-any other options).
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml?h=v6.11-rc1
-
-> +		compatible = "fixed-factor-clock";
-> +		#clock-cells = <0>;
-> +		clocks = <&scmi_clk IMX94_CLK_LDBPLL>;
-> +		clock-div = <7>;
-> +		clock-mult = <1>;
-> +		clock-output-names = "ldb_pll_div7";
-> +	};
-
-
+Wrong order. You received that comment on your previous patches, no?
 
 Best regards,
 Krzysztof
