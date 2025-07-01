@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8598AC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFBAC8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZqjXYECwTIlYK1+KpcgkIFGuqMqCZ7EdGrNP+ZWSYZo=; b=ya0MMR329fmMW/pEyDuaZNwZyR
-	/lhaNPYiytDw0aWzabhKIbupBcDfPcKpem9SfN3GpoO6IBdeumXMMRsuuk6Revsk23SKYQYv0323R
-	d+2+xHNFGyPBu66vkb+JfRW+t5dE0GhjFgNvpuOiyTHUqHhy3/g9A/87dLyKGQ+h/TexH7lCJ1VuY
-	o3/YEc+UZdnfajLB9SFqDPq/PrZZmvnwLj2btNleudL/XvVCWPZ99ZP+gGB/iyqb3FgqBCM7EfJiD
-	WYh28B0ZtS3bH6dutmuebsXbEEnMBUo80BJD1UUrGti15n9dw5/4R2Z1ZhC4qM+11cXHKcYyt8Z7u
-	osONyieA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=82LbpV9DaMDVWHw9jhZbXMaoLgqeZK9pqo50tUUL8o8=; b=ESPQtlLcxBpRqk0Uzy1VUrQMME
+	o17gWC8u7Dcrrk1gzcdLtix7ss4Y/LhrHwacug+vxWxvohqn5b3TzxHsKmumksS3Rn1cIvwsUNgBH
+	N9WSE+NvmptkfgSvrC2wihE4seMRzPnuA5HnpVC+SioZvHDe/WxIVV1fWB9wf0BVmWHQ0uHJ9ZvtO
+	mIYxOaTEal9Swu1Vl9YGh8URSfI2iwwPRDpuBpsZczOmJ5wTGU3BEnP/UVe5EsgAzT5AZfoTqHh6K
+	d/Cc6zLgJRR8ED0kdU1FATWz1KMhd5kM4dM5nsWAO8HJ6BkrdoXhDqvT5S26yXuc3ok45M47GdOba
+	pPZkNRxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWiu-00000004TPW-0thv;
-	Tue, 01 Jul 2025 08:52:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVyY-00000004MdI-3S15
+	id 1uWWjM-00000004U42-4BcL;
+	Tue, 01 Jul 2025 08:52:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWWOJ-00000004PzU-41fC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 08:04:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2C111A5128D;
-	Tue,  1 Jul 2025 08:04:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCAD7C4CEEB;
-	Tue,  1 Jul 2025 08:04:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751357061;
-	bh=+nn4mynfVncLnfXsLNW0CJkiDB5PX367L7nyfXb/Cnc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dt0PJLkAnO5XXRxaKU/+MBh0mj06IYi2I9TYuxJAOgkM/LurIHOjtv3xmZ336T4iO
-	 hV30SDjShYSqvhuBxdxJsrBcqhcgdSfyQfCKgrN/K0bWMgJkyq4CaPkI64Ni0ROoAc
-	 G3Qe/gwpq9lOtzvExJBjpfVKBW5EjQ4s+/kRrqdSBgvmFnOcJ6WLWrt4uu5/+2qjo1
-	 CTNEhuvkKjbVfnD9Frqi5bxJCR7sWntp/EEsUqyNCvDYEqPzpEgoFI+fxgrTV/cMqo
-	 /sUfz/uYDEr8uYNodWml9XwPFVnVlS1CTWW0cAu6K4JOeE/CZg6g4XwlvLqYAH4cT5
-	 FH6ksZJeS9wzg==
-Date: Tue, 1 Jul 2025 10:04:18 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] arm64: dts: imx: add dts for the imx8ulp evk9
- board
-Message-ID: <20250701-quiet-hidden-terrier-ff0ad1@krzk-bin>
-References: <20250701002239.972090-1-laurentiumihalcea111@gmail.com>
- <20250701002239.972090-3-laurentiumihalcea111@gmail.com>
+	Tue, 01 Jul 2025 08:31:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D7A51595;
+	Tue,  1 Jul 2025 01:30:43 -0700 (PDT)
+Received: from [10.57.84.129] (unknown [10.57.84.129])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF9E63F58B;
+	Tue,  1 Jul 2025 01:30:53 -0700 (PDT)
+Message-ID: <3776ac82-4cd5-41e7-9b96-137a1ae6f473@arm.com>
+Date: Tue, 1 Jul 2025 09:30:51 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250701002239.972090-3-laurentiumihalcea111@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/4] mm: Optimize mprotect() by PTE-batching
+Content-Language: en-GB
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
+ willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+ vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
+ peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
+ baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250628113435.46678-1-dev.jain@arm.com>
+ <20250628113435.46678-4-dev.jain@arm.com>
+ <0315c016-d707-42b9-8038-7a2d5e4387f6@lucifer.local>
+ <ec2c3f60-43e9-47d9-9058-49d608845200@arm.com>
+ <5900e978-6349-4a3d-a384-758889b678a0@lucifer.local>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <5900e978-6349-4a3d-a384-758889b678a0@lucifer.local>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_010422_934630_B261365C 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20250701_013100_084902_7DC234C8 
+X-CRM114-Status: GOOD (  43.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +75,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 08:22:39PM -0400, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On 01/07/2025 09:15, Lorenzo Stoakes wrote:
+> On Tue, Jul 01, 2025 at 09:03:27AM +0100, Ryan Roberts wrote:
+>>>
+>>> ////// end of Lorenzo's suggestion //////
+>>>
+>>> You can obviously modify this to change other stuff like whether you feed back
+>>> the PAE or not in private case for use in your code.
+>>
+>> This sugestion for this part of the problem looks much cleaner!
 > 
-> Add DTS for the i.MX8ULP EVK9 board.
+> Thanks :)
 > 
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/Makefile        |  1 +
->  .../boot/dts/freescale/imx8ulp-9x9-evk.dts    | 69 +++++++++++++++++++
->  2 files changed, 70 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8ulp-9x9-evk.dts
+>>
+>> Sorry; this whole struct tristate thing was my idea. I never really liked it but
+>> I was more focussed on trying to illustrate the big picture flow that I thought
+>> would work well with a batch and sub-batches (which it seems below that you
+>> hate... but let's talk about that down there).
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 4da7501ece17..4b288b324d38 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -322,6 +322,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-mek-pcie-ep.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqps-mb-smarc-2.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
-> +dtb-$(CONFIG_ARCH_MXC) += imx8ulp-9x9-evk.dtb
+> Yeah, this is fiddly stuff so I get it as a sort of psuedocode, but as code
+> obviously I've made my feelings known haha.
+> 
+> It seems that we can apply the fundamental underlying idea without needing to do
+> it this way at any rate so we should be good.
+> 
+>>>>
+>>>>  static int mprotect_folio_pte_batch(struct folio *folio, unsigned long addr,
+>>>> -		pte_t *ptep, pte_t pte, int max_nr_ptes)
+>>>> +		pte_t *ptep, pte_t pte, int max_nr_ptes, fpb_t switch_off_flags)
+>>>
+>>> This last parameter is pretty horrible. It's a negative mask so now you're
+>>> passing 'ignore soft dirty' to the function meaning 'don't ignore it'. This is
+>>> just planting land mines.
+>>>
+>>> Obviously David's flag changes will also alter all this.
+>>>
+>>> Just add a boolean re: soft dirty.
+>>
+>> Dev had a boolean for this in the last round. I've seen various functions expand
+>> over time with increasing numbers of bool flags. So I asked to convert to a
+>> flags parameter and just pass in the flags we need. Then it's a bit more future
+>> proof and self documenting. (For the record I dislike the "switch_off_flags"
+>> approach taken here).
+> 
+> Yeah, but we can change this when it needs to be changed. When it comes to
+> internal non-uAPI stuff I don't think we need to be too worried about
+> future-proofing like this at least just yet.
+> 
+> Do not fear the future churn... ;)
+> 
+> I mean I guess David's new flags will make this less egregious anyway.
+> 
+>>>>  			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
+>>>>  			ptent = pte_modify(oldpte, newprot);
+>>>>
+>>>> @@ -227,15 +294,39 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>>>  			 * example, if a PTE is already dirty and no other
+>>>>  			 * COW or special handling is required.
+>>>>  			 */
+>>>> -			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+>>>> -			    !pte_write(ptent) &&
+>>>> -			    can_change_pte_writable(vma, addr, ptent))
+>>>> -				ptent = pte_mkwrite(ptent, vma);
+>>>> -
+>>>> -			modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
+>>>> -			if (pte_needs_flush(oldpte, ptent))
+>>>> -				tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
+>>>> -			pages++;
+>>>> +			set_write = (cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+>>>> +				    !pte_write(ptent);
+>>>> +			if (set_write)
+>>>> +				set_write = maybe_change_pte_writable(vma, addr, ptent, folio);
+>>>> +
+>>>> +			while (nr_ptes) {
+>>>> +				if (set_write == TRI_MAYBE) {
+>>>> +					sub_nr_ptes = anon_exclusive_batch(folio,
+>>>> +						pgidx, nr_ptes, &sub_set_write);
+>>>> +				} else {
+>>>> +					sub_nr_ptes = nr_ptes;
+>>>> +					sub_set_write = (set_write == TRI_TRUE);
+>>>> +				}
+>>>> +
+>>>> +				if (sub_set_write)
+>>>> +					newpte = pte_mkwrite(ptent, vma);
+>>>> +				else
+>>>> +					newpte = ptent;
+>>>> +
+>>>> +				modify_prot_commit_ptes(vma, addr, pte, oldpte,
+>>>> +							newpte, sub_nr_ptes);
+>>>> +				if (pte_needs_flush(oldpte, newpte))
+>>>> +					tlb_flush_pte_range(tlb, addr,
+>>>> +						sub_nr_ptes * PAGE_SIZE);
+>>>> +
+>>>> +				addr += sub_nr_ptes * PAGE_SIZE;
+>>>> +				pte += sub_nr_ptes;
+>>>> +				oldpte = pte_advance_pfn(oldpte, sub_nr_ptes);
+>>>> +				ptent = pte_advance_pfn(ptent, sub_nr_ptes);
+>>>> +				nr_ptes -= sub_nr_ptes;
+>>>> +				pages += sub_nr_ptes;
+>>>> +				pgidx += sub_nr_ptes;
+>>>> +			}
+>>>
+>>> I hate hate hate having this loop here, let's abstract this please.
+>>>
+>>> I mean I think we can just use mprotect_folio_pte_batch() no? It's not
+>>> abstracting much here, and we can just do all this handling there. Maybe have to
+>>> pass in a bunch more params, but it saves us having to do all this.
+>>
+>> In an ideal world we would flatten and just have mprotect_folio_pte_batch()
+>> return the batch size considering all the relevant PTE bits AND the
+>> AnonExclusive bit on the pages. IIRC one of Dev's earlier versions modified the
+>> core folio_pte_batch() function to also look at the AnonExclusive bit, but I
+>> really disliked changing that core function (I think others did too?).
+> 
+> Yeah let's not change the core function.
+> 
+> My suggestion is to have mprotect_folio_pte_batch() do this.
+> 
+>>
+>> So barring that approach, we are really only left with the batch and sub-batch
+>> approach - although, yes, it could be abstracted more. We could maintain a
+>> context struct that persists across all calls to mprotect_folio_pte_batch() and
+>> it can use that to keep it's state to remember if we are in the middle of a
+>> sub-batch and decide either to call folio_pte_batch() to get a new batch, or
+>> call anon_exclusive_batch() to get the next sub-batch within the current batch.
+>> But that started to feel overly abstracted to me.
+> 
+> Having this nested batch/sub-batch loop really feels worse. You just get lost in
+> the complexity here very easily.
+> 
+> But i"m also not sure we need to maintain _that_ much state?
+> 
+> We're already looping over all of the PTEs here, so abstracting _the entire
+> loop_ and all the sub-batch stuff to another function, that is
+> mprotect_folio_pte_batch() I think sensibly, so it handles this for you makes a
+> ton of sense.
 
-You got comment about ordering, so it applies here as well.
+So effectively turn mprotect_folio_pte_batch() into an iterator; have a struct
+and a funtion to init the struct for the the number of ptes we want to iterate
+over, then a per iteration function that progressively returns batches?
 
-Best regards,
-Krzysztof
+Then we just have a simple loop here that gets the next batch and processes it?
+
+> 
+>>
+>> This loop approach, as written, felt more straightforward for the reader to
+>> understand (i.e. the least-worst option). Is the context approach what you are
+>> suggesting or do you have something else in mind?
+>>
+> 
+> See above.
+> 
+>>>
+>>> Alternatively, we could add a new wrapper function, but yeah definitely not
+>>> this.
+>>>
+>>> Also the C programming language asks... etc etc. ;)
+>>>
+>>> Overall since you always end up processing folio_nr_pages(folio) you can just
+>>> have the batch function or a wrapper return this and do updates as necessary
+>>> here on that basis, and leave the 'sub' batching to that function.
+>>
+>> Sorry I don't understand this statement - could you clarify? Especially the bit
+>> about "always ... processing folio_nr_pages(folio)"; I don't think we do. In
+>> various corner cases the size of the folio has no relationship to the way the
+>> PTEs are mapped.
+> 
+> Right yeah I put this badly. Obviously you can have all sorts of fun with large
+> folios partially mapped and page-table split and etc. etc.
+> 
+> I should have said 'always process nr_ptes'.
+> 
+> The idea is to abstract this sub-batch stuff to another function, fundamentally.
 
 
