@@ -4,82 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1413C8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C91C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 09:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ii2WJSGxuN91zGRL+o1Elt7P0y9IW0tcr9T0FJSPak4=; b=SthUEBrxJnYhFHVJmsQkCAC+nT
-	ckloDKezeX79ohbs26F9krU9UVPbpHpEtZatTv6vuLCB612dUwEInBE6IywVEvNvssGQ9bnPYZKZl
-	AsVRUvIJbspvvfcNyQKxGSyht+VYu2CILBU5xnlqCMxBZoxWrHB9Y6A9H0kKu3iijP46CdZuqhF+X
-	Ivtb4/gmAlzuUGCbHqUTlIdY5uAus5Qmp9g4/uSUMTczaX+rBIBeQclc7tUQoFJGbQS4u//XHmnAt
-	+R2hrsun2zRYbfNZcbHEinrIx7DQzJUrSoqV/T3I5fDOPICbj/LEA0gboU1G1BPbKCUt7bEbc9r5O
-	C3NbqqXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=El0njB9QkMGVFRshxMbajamTSfz0oZTddg/R/RGwV9k=; b=c17EOijYgQNT5pokyDmXbApg7W
+	F7ktqhudRPjXDMa0w9EBMj3mQghZCJC27oeHyeNUPdvli2DaX1f6QM8r0TZM/E8nHPkjG7Gj64u7I
+	+B7wfckDW2Ovqmu6X0WshOIhXPneejiyJi1vxwrrphjHW+Pfql3HXh17q/D8EWXvZtdQRGbcUdEAD
+	YwDGXW/LLhviHrZHJa62gPEivl/RF8y7ZP1mXoonq7fkYmGq1UuYFp8p8nbQPChHOAvkfs48OjsjV
+	ij1xCx210+SrMh65J3tunXl5FgoHc/CewgUHLPxxUVqh07IpjVMR8UHXkT/lg1+sbkLEM6CIWDm1g
+	DOXhLGlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWXWw-00000004d8m-2Tf1;
-	Tue, 01 Jul 2025 09:43:58 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1uWXZF-00000004ddw-31lm;
+	Tue, 01 Jul 2025 09:46:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWX62-00000004Zz8-1yv0
+	id 1uWXHo-00000004bHg-29YT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 01 Jul 2025 09:28:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=El0njB9QkMGVFRshxMbajamTSfz0oZTddg/R/RGwV9k=; b=IlMadqDLVKptNtwNIJ9FM814Sq
+	d5lemxRXo0sdH5lDRxLoZCA0fcIrvKdtBTl2ND0A+cciOfoUDIJKcQ1dXC2PuhfA9lrdERv8bBQeN
+	uMjtQQS1gVy4haqN6wKRllR+uFzYveOhMKcK5799j1bo1rgme/If5N7oMSjgHNfuUGDOIDSo7cK99
+	tz0F3sogAKkdKHqdr3tOS0MW1KXaofJCT3DqL8G4ON4x5ARUGTwvPrzQAIF9nH8yQi+BA5ewcUz3u
+	9SyNf4FimGRsI8mLtYjuQOXVVBhbDYgv2LDcX4hzo+BgljGREZ232YHQUfpu/WH7AmkzfJ+RYPsSI
+	bTJUNKiw==;
+Received: from mx1.tq-group.com ([93.104.207.81])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWXHl-000000072Yq-03wC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 09:16:11 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-32b3c292bb4so48641611fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 02:16:09 -0700 (PDT)
+	Tue, 01 Jul 2025 09:28:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1751361368; x=1751966168; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ii2WJSGxuN91zGRL+o1Elt7P0y9IW0tcr9T0FJSPak4=;
-        b=D/oiZY45nOtkjcP045jcL0HorCAXxY300sKHhldsYRf7D3naM2//zCFuyaL9YEMgU7
-         UjfdYOklXGR+w8sWtHD3n/RtpTvAbZCIJX126ryH9RrQkpEiV9OPZ6g7dOfY0r+l2P6I
-         hquMWJemry6wXwGfqECwQksz3c4RCW4qdmeRQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751361368; x=1751966168;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ii2WJSGxuN91zGRL+o1Elt7P0y9IW0tcr9T0FJSPak4=;
-        b=Ykkwstk77y12U6c9AmiJjvW/2BWfa9EM+RrHNqb74NTjm24eju6gomLNieyhYDdDcN
-         +BZ8oIToXovXcCsLR3NOkG0xMiSCeNPotI7MprfosRvNNpHiYQaqLjPs8so06rHxbqjH
-         48ypJ1vstORD3b5KVL24v8OBSsRxMPwYY+/nw8y2CyO7Zpd5aS0H6NxYobDkd1ajCSb/
-         2FNf5NX/+CP6fHA11fzZzOgN+P1UVf+uNudf1Y52Pbalix46NDvW2nToXqU3ZmU188Bs
-         LDGwAqwfZYybR/MJvXm/f4f3VEiOAEyDyw6A0MIitavAofYcKieKIVE0OvqXQkKMKlt0
-         ZmFg==
-X-Gm-Message-State: AOJu0YxsOvpAxKpQKnahfCF4W+AxcZxPlxBzjCK0s10ILm3OHV4fVG9d
-	o2giZgpEbzIQzaMKuwq53pq+wYBhtKpiYUpk+KCuPUR9xSSQ9OeOvvObWXd+T96y0RvsGrqBfQX
-	zSfO3U/l0AdcXCz7TRDW8Sj9jfukSwzILJr+gZovx
-X-Gm-Gg: ASbGnctD/qSeyCWhMAHxZKDueld5u2mz0Wgdq04kdDBqJiKgkUftbaznhzhDyJ1Q+Nq
-	D8tNFIGH2Qp5lX+/F1vggrf6UWpUuSfRJmtLYR7w/KsCjRSk5VdbnGb13sS+YF92/LyKUDYXMD9
-	l5fjOMlT7nhsuM325Qa46tw+kpA5thdI7Ps8bfcUSnRJirgo0gyHEGwKFe7rX5IemtPsKLBuc=
-X-Google-Smtp-Source: AGHT+IHBrDnDLJq/wJvKGLgxQgDrKBxEEuyZmoLKMExSbzXgm4RYBgKbsnJ/qHE5B5f1OiZ34CTPYU5ibJdkRjsWKOo=
-X-Received: by 2002:a05:6512:3f1d:b0:553:aadd:1987 with SMTP id
- 2adb3069b0e04-5550b9ee8a2mr5372873e87.30.1751361368119; Tue, 01 Jul 2025
- 02:16:08 -0700 (PDT)
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1751362097; x=1782898097;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=El0njB9QkMGVFRshxMbajamTSfz0oZTddg/R/RGwV9k=;
+  b=Op2EaIp4h9yIljKlmCSgkTkZ4dgBcqfkGHFH4VsxNhlRVN5n+3cVX3MU
+   4gomJBkOBQdsVt5ihfFgYTwMX/0I9Ei0g5acydHFQRV2c3OFvx18G6zz0
+   rXKw50ugYmQ+OL+OdkeXiio7XtrrYs84CDlGPRH1mjt4YZFyTU9/5942G
+   1WKJyEY1xE8BtRAj6JmZ7Zk/ggOxN4zesN03/h9gf+6zwDdrEVdR1knZw
+   +iWerVJRAjVVTNkUKvgWM1KP/qQldaLNAAqnZGEAr1Gr26O8jZmrsZAA1
+   mSLzC4lBfd+kR4Lt3egP+1ywyY1wwIyjjBY+f6iXxnADjAyjFAk9ldrPS
+   w==;
+X-CSE-ConnectionGUID: 5Zf31/qcQgK5fwixQENzjg==
+X-CSE-MsgGUID: nsiA9ZZdRnWjzj7r6P5fPg==
+X-IronPort-AV: E=Sophos;i="6.16,279,1744063200"; 
+   d="scan'208";a="44950455"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 01 Jul 2025 11:28:13 +0200
+X-CheckPoint: {6863AA2D-7-ABFC28F4-D6731B76}
+X-MAIL-CPID: 1F1760676F1FD6B864D31B9984EE8645_5
+X-Control-Analysis: str=0001.0A006370.6863AA54.0046,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CB77916AFA8;
+	Tue,  1 Jul 2025 11:28:07 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1751362088;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=El0njB9QkMGVFRshxMbajamTSfz0oZTddg/R/RGwV9k=;
+	b=SVDMR+lOaUcf3oyASPFD1CmRQwfXLjQ5VrKgrNYJRRQW0kqIaT4ZvvRwBCVvciNuFiF0yp
+	5jJFO7JmRmhP+eRD/4kdJGqOUe0Ss8t47mjttec9DibDXU7BCty+xwDDWfrYsmfyp4DQ6V
+	D4kp42bB8bZwQPUeNx4gZAHUulfbXk1y5MrgkAk20Vkvwsb9JjS/CeVScYJKO86SGOhkDw
+	SdpTLKIOv3hr8Xzs+0nk+E43KXeZy610y3Yz+Dtz3fzyfqVqHDUXdvFAgy5pC5PVN0F5FE
+	waAUnxYR2IsB0HMHHqSH5VM8YbwAdS+QOeeON/bXntcKgROBmcASAEoGTZuaTA==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
+ Frank Li <frank.li@nxp.com>, Peng Fan <peng.fan@nxp.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Abel Vesa <abel.vesa@linaro.org>,
+ Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 5/5] arm64: dts: imx943: Add LVDS/DISPLAY CSR nodes
+Date: Tue, 01 Jul 2025 11:28:07 +0200
+Message-ID: <2791534.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250701-imx95-blk-ctl-7-1-v1-5-00db23bd8876@nxp.com>
+References: <20250701-imx95-blk-ctl-7-1-v1-0-00db23bd8876@nxp.com>
+ <20250701-imx95-blk-ctl-7-1-v1-5-00db23bd8876@nxp.com>
 MIME-Version: 1.0
-References: <20250610063431.2955757-1-wenst@chromium.org>
-In-Reply-To: <20250610063431.2955757-1-wenst@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 1 Jul 2025 17:15:57 +0800
-X-Gm-Features: Ac12FXxeyUHnDez8Q8D4O-LF6jWdCG451UjT4Bbb2Ps3qaRoBzaVTLBPU9xxrc4
-Message-ID: <CAGXv+5HDAZ-MBBMk00O+cdcq55KnsKdEAMD7E2uaAf=2LY=1cg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] arm64: mediatek: Enable efuse GPU speed bin post-processing
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Lala Lin <lala.lin@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_021610_525542_AC6532C8 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20250701_102817_397679_91CB2675 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,55 +118,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Angelo,
+Hi,
 
-On Tue, Jun 10, 2025 at 2:34=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
->
-> Hi everyone,
->
-> This is v2 of the MT8188 efuse GPU speed bin post-processing enablement
-> patches. In v1 [1] the change was made to the driver. Angelo, the platfor=
-m
-> maintainer believes the change should be made to the DT binding instead
-> [2]. v2 adopts Angelo's argument.
->
-> Patch 1 updates the efuse DT binding so that MT8186 is a base compatible
-> with no fallback, and MT8188 falls back to MT8186.
->
-> Patch 2 updates the MT8188 DT to follow the new binding.
->
-> If possible I would like to see both patches merged through the soc
-> tree once the DT binding maintainers give an ack. This avoids prolonged
-> waiting for the binding changes to land and uncertainty about whether
-> things have fully landed or not.
->
->
-> Thanks
-> ChenYu
->
-> [1] https://lore.kernel.org/all/20241223100648.2166754-1-wenst@chromium.o=
-rg/
-> [2] https://lore.kernel.org/all/11028242-afe4-474a-9d76-cd1bd9208987@coll=
-abora.com/
->
-> Chen-Yu Tsai (2):
->   dt-bindings: nvmem: mediatek: efuse: split MT8186/MT8188 from base
->     version
->   arm64: dts: mediatek: mt8188: Change efuse fallback compatible to
->     mt8186
+Am Dienstag, 1. Juli 2025, 09:04:41 CEST schrieb Peng Fan:
+> Add nodes for LVDS/DISPLAY CSR.
+>=20
+> Add ldb_pll_div7 node which is used for clock source of DISPLAY CSR.
+>=20
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx943.dtsi | 34 +++++++++++++++++++++++++=
+++++++
+>  1 file changed, 34 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx943.dtsi b/arch/arm64/boot/=
+dts/freescale/imx943.dtsi
+> index 45b8da758e87771c0775eb799ce2da3aac37c060..cf67dba21e4f6f27fff7e5d29=
+744086e4ec9c021 100644
+> --- a/arch/arm64/boot/dts/freescale/imx943.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx943.dtsi
 
-Friendly ping. Please take a look and see if this scheme is to your liking.
+Why is this specific to imx943 but not imx94? What is the difference anyway?
+
+Best regards
+Alexander
+
+> @@ -3,6 +3,8 @@
+>   * Copyright 2025 NXP
+>   */
+> =20
+> +#include <dt-bindings/clock/nxp,imx94-clock.h>
+> +
+>  #include "imx94.dtsi"
+> =20
+>  / {
+> @@ -145,4 +147,36 @@ l3_cache: l3-cache {
+>  			cache-unified;
+>  		};
+>  	};
+> +
+> +	ldb_pll_pixel: ldb_pll_div7 {
+> +		compatible =3D "fixed-factor-clock";
+> +		#clock-cells =3D <0>;
+> +		clocks =3D <&scmi_clk IMX94_CLK_LDBPLL>;
+> +		clock-div =3D <7>;
+> +		clock-mult =3D <1>;
+> +		clock-output-names =3D "ldb_pll_div7";
+> +	};
+> +
+> +	soc {
+> +		dispmix_csr: syscon@4b010000 {
+> +			compatible =3D "nxp,imx94-display-csr", "syscon";
+> +			reg =3D <0x0 0x4b010000 0x0 0x10000>;
+> +			clocks =3D <&scmi_clk IMX94_CLK_DISPAPB>;
+> +			#clock-cells =3D <1>;
+> +			power-domains =3D <&scmi_devpd IMX94_PD_DISPLAY>;
+> +			assigned-clocks =3D <&scmi_clk IMX94_CLK_DISPAXI>,
+> +					  <&scmi_clk IMX94_CLK_DISPAPB>;
+> +			assigned-clock-parents =3D <&scmi_clk IMX94_CLK_SYSPLL1_PFD1>,
+> +						 <&scmi_clk IMX94_CLK_SYSPLL1_PFD1_DIV2>;
+> +			assigned-clock-rates =3D <400000000>,  <133333333>;
+> +		};
+> +
+> +		lvds_csr: syscon@4b0c0000 {
+> +			compatible =3D "nxp,imx94-lvds-csr", "syscon";
+> +			reg =3D <0x0 0x4b0c0000 0x0 0x10000>;
+> +			clocks =3D <&scmi_clk IMX94_CLK_DISPAPB>;
+> +			#clock-cells =3D <1>;
+> +			power-domains =3D <&scmi_devpd IMX94_PD_DISPLAY>;
+> +		};
+> +	};
+>  };
+>=20
+>=20
 
 
-Thanks
-ChenYu
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
->  .../bindings/nvmem/mediatek,efuse.yaml          | 17 +++++++++++++++--
->  arch/arm64/boot/dts/mediatek/mt8188.dtsi        |  2 +-
->  2 files changed, 16 insertions(+), 3 deletions(-)
->
-> --
-> 2.50.0.rc0.604.gd4ff7b7c86-goog
->
+
 
