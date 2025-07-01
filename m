@@ -4,96 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74371C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 13:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BB7C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 13:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u96x1JfBwvgLGiFlKKRmBEu1YqkfwBmaBuctHI0YH60=; b=HdDn7PSiBphb5FTejR9np1rg8R
-	EP22gl4nGElNRDNWf6+b9MsA//n/BgpGe4TnBWtcas4cH3Rl3XWAtt/BndSJ5WqfAZtY7FaBnsKlj
-	uZ9xgNlowN8hgEFzLBu4MFyLC6nQ1z77i8tA3zxAzjdu8k4SY6+zf/QqGTtp4yIKCu0xmq8phngrq
-	OguIlfpbgLjVQuFRosPKfJe/SVdyGvaxYvXL+55KZCM89uUkJwChA7FndUG5JBUTWXZ14tfldIEA/
-	vOXULJWvhOV2wnOS2MEY8PIwwlhIq83ab/+ziadPTomUJuTVQ1YVcEACI8OSMSOPGpmAPu8ylcwEn
-	9bt/zaUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=58l8T/OOo3ZCMXUklFmgtyHY1VmXpl5dXrfeRDP8j7I=; b=u5X8iVut8RKggPxfDwGsgR/9pf
+	Z3Wfc+VHMLckiMj6oKta3oB1I5uYQmcBA3Fnh7Q3IyN68oXhuNGz0Hlg6xlfH95kNoCGGaZfoddfg
+	sV6GkexqTjw6Sp+uK2HL2g5+y+CqLBLl2rKYUuwbd8gBPP9RzznYia+REBMoy123wZHhAnW1O4ZQA
+	r0HeZ7qODSXlYVNZvvAQRnO9y5//eLasG8mme1hnxgrKRewdnQp4fnUGMXtB8zWl0dEtKvZdFgZqT
+	VVgg27JwZEJe5WZ20cDfWp+U5CRX0M1t0gNdj0mDzY68X/SBllBea7Tol5Xz0zWtoqNZQAcLe0grr
+	+cp2eVkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWbFT-00000005YYc-3SNE;
-	Tue, 01 Jul 2025 13:42:11 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1uWbHl-00000005YxV-3Qef;
+	Tue, 01 Jul 2025 13:44:33 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZi7-00000004zNY-3Kk8;
-	Tue, 01 Jul 2025 12:03:40 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7d412988b14so568946585a.3;
-        Tue, 01 Jul 2025 05:03:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751371418; x=1751976218; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=u96x1JfBwvgLGiFlKKRmBEu1YqkfwBmaBuctHI0YH60=;
-        b=bhvxa79wdgciYS3k21GpQB1+uns7T0YdaeFXo8GOblVfSDqFwj+x1T5WTG5lqrY2kS
-         oLYL1DyiOKrnG+GM8+PWJ/8eTwvA1JsspbHeeMbnHDv3FIeoMpsCc3ciMD4d+Hz7VpLL
-         SwvWNmDKL/vAgSt5BNJgSVzsOusPfjdsu3p0QU3F7HdqCfqYrRdAv4FfKRv7WLCqbB6J
-         N7TgZvOajcd9tme3vpbfXPuBitKjkNrSLbHDqnX2NMV/s1xs6eeBupx1Yw+ktF5ky0Lu
-         x5gLx8z2vqV3LK2tH3OB6w0a6A3PSapaoNdXvIVzo9/15rgnbFA1K4KmMJjd4PYIIr46
-         bteA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751371418; x=1751976218;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u96x1JfBwvgLGiFlKKRmBEu1YqkfwBmaBuctHI0YH60=;
-        b=HRWy6e3QCyOkrrd81HuguWFRyJ/GpWBhR0582m3epS7aME6pQC+rNEvBOQ4I30gbgT
-         KXOAvnG0n4jsQvIERdU3faPB/s24ZVg3SsSUoSJb7BGOuOy405h2QF51rllqISSxTW3t
-         c3H/72D8JOiiaMGe0YcnZzEmNSEnM1+9A84QeqKLAGTtzlL0EzXta8snFaWpS24nJlM1
-         n2tMHYOBBDjWlFLKm50Wrhfie7SEJbEDKbijoX0nwYydYUFVgpz/TpPDhyK5ATI/aBc1
-         MwJRx9/B4WCgScBd5pfDB4oWCUdAoHFvzYKIjdegMGdWdDxY2HOhPsH5QrLFtOxEvM1a
-         Y0Ng==
-X-Forwarded-Encrypted: i=1; AJvYcCWhUjTXD5j9VYwJamaL8MI+KS4CMcrjI522La2BhasZgieibgTJmAslspG1uwWTrn/TPKHhegbdDvcjYhbLPHt4@lists.infradead.org, AJvYcCXvLAYGUj7XLNbSLG0lDarbLLbtBZeQr4nKZ0pZAQ3uZq72DpqtWaLoGpsSjj5LWTx11XpSXvnOiXpp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5pKHlM5qM2jbZ6d0/aJ3X1QBPPZMbkx4sXSeQgJvDL5+McjOT
-	uMx61nxIIExLApv9FXqlducXsCctApR/yRUPG9vyN5RZHhwUtO+IQr1c
-X-Gm-Gg: ASbGncsFDYJgHd376/17tX05y0RZgdAjrcEp5sqUmnF5QPgbQrdssT3WQENkdVwe/hV
-	49hq7FcNxaReMFLoKzEdc0E6HcdMElE85mhhCx1231ZGyfLFbYCGuNmdYNF4NG25sC3DjCseREd
-	YvtX965n/VIEF5SVhhVOQgpcUYJ1qUQsdxhu8QE8FS0vFWNw5HkIlQz8j+1V2l8HluKtG8LU1ib
-	PUlAytlopa5Gel4uhTwVhCTnEqNqU6/nawGse++ce3MwwwxyPKRxGN7Pfx8izTzhqECqY1+WbZv
-	6iZsZOFrocNNbUDrrvA9W4WQodYr8iq2xbj2co5t8y0Wf7zFCA==
-X-Google-Smtp-Source: AGHT+IEqGZkaKeymTeUbc3R0Jer5+f67MSqiVnEtF+k9RaGWT4yLl2LhTIn7tVAVFgdHVrYUcmDoQw==
-X-Received: by 2002:a05:620a:4623:b0:7d1:fc53:c6b2 with SMTP id af79cd13be357-7d443974577mr2475688285a.41.1751371418232;
-        Tue, 01 Jul 2025 05:03:38 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:4f51::dead:c001])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d44321a706sm753060185a.81.2025.07.01.05.03.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 05:03:37 -0700 (PDT)
-Date: Tue, 1 Jul 2025 09:03:31 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: Philipp Stanner <pstanner@redhat.com>
-Cc: linux-rockchip@lists.infradead.org,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rick wertenbroek <rick.wertenbroek@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Valmantas Paliksa <walmis@gmail.com>, linux-phy@lists.infradead.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RESEND PATCH v9 1/4] PCI: rockchip: Use standard PCIe defines
-Message-ID: <aGPOkw2G2IeNhDRy@geday>
-References: <cover.1751322015.git.geraldogabriel@gmail.com>
- <e81700ef4b49f584bc8834bfb07b6d8995fc1f42.1751322015.git.geraldogabriel@gmail.com>
- <ce0fdbf2753075056c227ce7567a69386a5aa0a3.camel@redhat.com>
+	id 1uWZn4-000000053El-1mky
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Jul 2025 12:08:47 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5619oRdd008527;
+	Tue, 1 Jul 2025 12:08:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	58l8T/OOo3ZCMXUklFmgtyHY1VmXpl5dXrfeRDP8j7I=; b=Fp906hrxou7mwLeS
+	mFd4s6IwIsLo45JjzWTZM2mHs3IrhkyZvrhcfosqPMFcRYneTDE7rjj0Ccr8qJJq
+	n3vfg/67iUgT5Uo1/ZeIYUm3OghrsIdOCZB9nDr/+zCt/VTYswacwbD741OWR7R+
+	xNDd3adJdO+jc8Nl4VhB1WzAfbgasHeEKFGz3XzkqV6Ho5ZXBsKiyJOnFocLgtES
+	bffCXegvlXBByKyym5l48OmgU2G6V9XzYjNgpCrW4To5WEQRLS5b/dnvHoG4BzBH
+	fTiD+jVdHtCmoibI/nee5oHMm1LC/sJzzlF7Ft2cKd4TjlL/aXuv+Se1tL9RfCJ3
+	eoryRA==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47kkfmwgdq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 01 Jul 2025 12:08:37 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 561C8aNx012429
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 1 Jul 2025 12:08:36 GMT
+Received: from [10.235.9.75] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 1 Jul
+ 2025 05:08:29 -0700
+Message-ID: <db1d07f4-f87d-403a-9ab3-bf8e5b9465b3@quicinc.com>
+Date: Tue, 1 Jul 2025 20:08:27 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ce0fdbf2753075056c227ce7567a69386a5aa0a3.camel@redhat.com>
+User-Agent: Mozilla Thunderbird
+From: Luo Jie <quic_luoj@quicinc.com>
+Subject: Re: [PATCH v2 7/8] arm64: dts: qcom: ipq5424: Add NSS clock
+ controller node
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        "Stephen
+ Boyd" <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Georgi Djakov
+	<djakov@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Richard Cochran
+	<richardcochran@gmail.com>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Anusha Rao
+	<quic_anusha@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-pm@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
+        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
+        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>
+References: <20250627-qcom_ipq5424_nsscc-v2-0-8d392f65102a@quicinc.com>
+ <20250627-qcom_ipq5424_nsscc-v2-7-8d392f65102a@quicinc.com>
+ <cd6f018d-5653-47d8-abd2-a13f780eb38f@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <cd6f018d-5653-47d8-abd2-a13f780eb38f@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 53KUHXRXMg_U-w1wGFJp9ve0aqlWp6mS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzAxMDA3NSBTYWx0ZWRfXydNpWbOOQGf1
+ Wv+siRXa/2cbh3Z8Eot4kcDX+2h6b7kX/JioCBVsghq5jUWr9KcDnW5swNqBn7tC/bCiizQf5ca
+ vQAtClfnilZtupqGfVaV10qNUocag9nSM+OqIrsY+BnxqFZhMoxb2RK3ijlo4Af5WvOsNAlkNyk
+ gx2Yqd++S5ol6Gk7G5vV0lt55rJJL6BBkVUQeGG6IselcbCmRlT2Y1VLZawJb78I1N+74wkBEEn
+ EcbGm+PxV+fzTwHfyL54oq3owHMNU09Pnr7uYJTKm+NzA5nVSkpT/d+9Qkycd1j2GKkKIPgxVUB
+ goqX4dVBlCVkYg4viZedXrBnozlZazfIbDBtrvtaUWbhlRU1R8tDm53kms2igQ8m2pz+vdUjLlx
+ RlTAuD61CHme3I6B9dxnjgYmhOuW6Mmc2VEn12Z3kZ4quTdjED7pqLDovWrEL1M0uHNBwLl9
+X-Authority-Analysis: v=2.4 cv=L9sdQ/T8 c=1 sm=1 tr=0 ts=6863cfc6 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8
+ a=EUspDBNiAAAA:8 a=8K8LTxnoByzQzqUqCa4A:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: 53KUHXRXMg_U-w1wGFJp9ve0aqlWp6mS
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-01_02,2025-06-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 phishscore=0 impostorscore=0 priorityscore=1501
+ malwarescore=0 lowpriorityscore=0 adultscore=0 suspectscore=0 mlxlogscore=999
+ bulkscore=0 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507010075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_050339_836086_50EE2A63 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20250701_050846_621765_A81DE834 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,43 +135,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 01, 2025 at 09:54:51AM +0200, Philipp Stanner wrote:
-> On Mon, 2025-06-30 at 19:24 -0300, Geraldo Nascimento wrote:
-> > Current code uses custom-defined register offsets and bitfields for
-> > standard PCIe registers. Change to using standard PCIe defines. Since
-> > we are now using standard PCIe defines, drop unused custom-defined
-> > ones,
-> > which are now referenced from offset at added Capabilities Register.
+
+
+On 6/28/2025 12:27 AM, Konrad Dybcio wrote:
+> On 6/27/25 2:09 PM, Luo Jie wrote:
+>> NSS clock controller provides the clocks and resets to the networking
+>> hardware blocks on the IPQ5424, such as PPE (Packet Process Engine) and
+>> UNIPHY (PCS) blocks.
+>>
+>> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+>> ---
+>>   arch/arm64/boot/dts/qcom/ipq5424.dtsi | 30 ++++++++++++++++++++++++++++++
+>>   1 file changed, 30 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/ipq5424.dtsi b/arch/arm64/boot/dts/qcom/ipq5424.dtsi
+>> index 2eea8a078595..eb4aa778269c 100644
+>> --- a/arch/arm64/boot/dts/qcom/ipq5424.dtsi
+>> +++ b/arch/arm64/boot/dts/qcom/ipq5424.dtsi
+>> @@ -730,6 +730,36 @@ frame@f42d000 {
+>>   			};
+>>   		};
+>>   
+>> +		clock-controller@39b00000 {
+>> +			compatible = "qcom,ipq5424-nsscc";
+>> +			reg = <0 0x39b00000 0 0x800>;
 > 
-> This could be phrased a bit more cleanly. At least I don't get exactly
-> what "from offset" means. You mean you replace the unused custom ones?
-> But if they're unused, why are they even being replaced?
-
-Hi Philipp!
-
-"from offset" means we use standard PCIe defines for registers that are
-adjacent to Capabilities Register, and we reference them from the offset
-at Capabilities Register.
-
-No, all registers replaced are in use, unused in that context means they
-(the custom-defined registers which can be referenced starting from
-Capabilities Register address) become unused after the change, only.
-
+> size = 0x100_000
 > 
+> with that:
 > 
-> > 
-> > Suggested-By: Bjorn Helgaas <bhelgaas@google.com>
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 > 
-> s/By/by
+> Konrad
 
-Thanks for the capitalization catch. Unfortunately there's little I can do
-now that Mani went ahead and applied the first two patches (directly
-related to PCI subsystem).
+I initially thought that a block size of 0x800 would be sufficient, as
+it covers the maximum address range needed for the clock configurations.
+However, the NSS clock controller block actually occupies an address
+range of 0x80000. I will update this to 0x80000 in the next version.
+Thank you for your feedback.
 
-Thanks,
-Geraldo Nascimento
-
-> 
-> 
-> P.
 
