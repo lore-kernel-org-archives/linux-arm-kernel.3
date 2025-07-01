@@ -4,65 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C28C83038
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3BE3C83F05
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 18:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P9/CxXJJYKJ/1X+xLD1Y6KKC00WAljOV/gzYqHFk280=; b=vXX534J/9YijU91X31QdM/qpka
-	zVSQ/ft5moOg7KijTu5oSFHkiZdVhiRgvUeGPgIxP1ur+WLrMTcjASv+fgpFnIF6n8CfKlkkBU7Iu
-	ZNTz519JbWyAk0LqKRLqTG2V4rAXSbbIKsFBT8NPY39XszP8wknC+PxEEzIv7MOkhlxAccebWs8Rc
-	o36fMDbWnNeSfBcQ9CxYCzVseDgRDJrzVTy5t7ixmjzvYsS6mSs68YxATBRoxackxEsuRq9KP4QF9
-	u3fg8EN59tW5GlP0NEkI8shyaiM4oQDvXfgiNQJuKcUqWYCY4ioG8kUSOrvP47T/tWik+U4gVN/OS
-	Zp/5uUPw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Fs3JAozsYsD/2WW79a82RkP4PH1iMiVPVWhyq+47Szo=; b=4ERK70NcjzgnAH
+	KQP46dmKcKr6h55fhGQI4PyI2MLa8yLm4qt2/gn5Hke6GbV2tsPRbLhzSuDgbYPDv9oZbqvzzekWt
+	EE5bqxs6bquyFyqjvhHpB5ICBF115YeesIXRS9AIwagYrJgAXnyEbSrOytvDuayxIj94iSkB94LHX
+	m2/edfAk7GjSueZtIYG/eI57dgwT2MCFWYd7+3tXAu0laBQ6cPBDjHGP/DY2Kr25jmBlgZPmmIYuJ
+	ihWjBH6RlyV33T5AkQWjhrKxIB+6uoxF1SqsoWaIZBqw0tJS57yn5shO6eTyeEWrY3EtO40X9N12/
+	IQ126GUOazmYK8Z60yjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWfzN-00000006Mk5-1u9o;
-	Tue, 01 Jul 2025 18:45:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWcNp-00000005n92-2kPN
+	id 1uWfzJ-00000006Mgv-1n9P;
+	Tue, 01 Jul 2025 18:45:49 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWdQk-00000005xkG-1E2M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 14:54:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3BB5236D;
-	Tue,  1 Jul 2025 07:54:37 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45B813F66E;
-	Tue,  1 Jul 2025 07:54:51 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 01 Jul 2025 15:53:52 +0100
-Subject: [PATCH v2 27/28] coresight: Move CPU hotplug callbacks to core
- layer
+	Tue, 01 Jul 2025 16:01:59 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-450ce671a08so23290015e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 09:01:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1751385715; x=1751990515; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fs3JAozsYsD/2WW79a82RkP4PH1iMiVPVWhyq+47Szo=;
+        b=eruyIBYKx4lylaKyv6SqPFzn7uDYTebrAaiHDtUHHt/k7qd77WbIIaxoz9/u31xRe7
+         0nlpVdaMnXqIklxl3seeRlqFrNWe/VjsMCizmOindZosuM4efGX8V/BIyKdl/EWv4LB7
+         1dw85bk6ZlcsBSN4zVpjIRMdHtYuSyAWTM/Yii+RIp/XUnmzgwjCHRbdEpet47U4ElIi
+         IHj88J9ym3hrIvl5YEAxNrkdu60nTpx0ihZ/WW8p4qk2TXEonda5oA6dfrQ7H1axJBrt
+         MEdHlaXxDBpZU4PJTakYtropQ2WxwNqcYtNkvQlilaErmGilIvw7ce6Kwhs8809OaA/E
+         Z7mA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751385715; x=1751990515;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Fs3JAozsYsD/2WW79a82RkP4PH1iMiVPVWhyq+47Szo=;
+        b=LKBA06vW2BVK1C38UQfpdGb95DBk5//GNAQ1rtXGECQ01EHlWB6jUIzUHbjMGjlGM6
+         6QbRzEiJ1jO+YN+D0VGQpk4RdJz2ZQsZI693PJq5Y2lxGsGXQUua+FfcqOYt/klQM/eU
+         XrzuMpNYHLPbynw/TA7TIawaZiZInzp5SG8FSpsg2t3fC1kbM9K8HNG5kMKc9p0Eg9/j
+         bgUMrUL9UvWYzFO5y2a7+HdWwE5iwjaqS/t32D2uuRPYgPFSsdc8egz005ldOhUswOOm
+         +BVNUAUdIjekIM2JBWDRMTHYLt9DGaIOJvxbHCjwX3xDf9B9IkfN7+GWPN1naggT/jWg
+         V6vw==
+X-Forwarded-Encrypted: i=1; AJvYcCWHBS3QHCoNS6/UEzYCjt3kLdtgk8mDC2scKcmEcmZN99tMXKhh7LXhHV+t7OCfJqsTLK64Sd7/wZck5rYAIws/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx01CUqLxwPJNJ8MOx4pozROu2tkHqlzmGEk82Gp+Uw/D40LGKr
+	8d7SMJzIVcZqfwFakIXga/mnGbd07WU8ofIQ4O6bz3YYneaFblAznmSkhAzMqdCur44=
+X-Gm-Gg: ASbGncuqhZBDO8zGLLG+DA4TC/m71M2f7WDGi2Dw1w6aRvxwTsW8uW05PENo93iJ4xp
+	iO8bJ3zqtEjTL2gCVAAl+JPIP1cIqFlI9eCTwnEyVaFC15HY1t1RuHNDKcONknMC4AAZb8SJpvJ
+	PpdQus7nEXcKS6/S7e8nne4VSkDXPBYprKkdWSfXhtAXqERKZbaa9GGd515chi6fqL/zBxBn7zA
+	QabAj7HsaymB7M8+YgiiXiiWQDWTkpvcpspoxf3CxGHgJ+/O/9OfWF8W/CuXudw/KzuxMjh6VXU
+	Cz/HDHNEIIp5JccqC4O5iq8jEXsM2SP79JoAD7Nya2aJWcyOj5InEA==
+X-Google-Smtp-Source: AGHT+IGMMAfyKj8jFqWLmzk8Rj2j7dBknlV19cnUCzUeiREguJOJeqK8EAyxRItVH48lXpZUOSz4ig==
+X-Received: by 2002:a05:600c:1d1a:b0:43e:afca:808f with SMTP id 5b1f17b1804b1-4538ee790admr211077095e9.31.1751385714401;
+        Tue, 01 Jul 2025 09:01:54 -0700 (PDT)
+Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-45388888533sm182500995e9.21.2025.07.01.09.01.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jul 2025 09:01:53 -0700 (PDT)
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: [PATCH v4 0/5] Raspberry Pi HEVC decoder driver
+Date: Tue, 01 Jul 2025 17:01:35 +0100
+Message-Id: <20250701-media-rpi-hevc-dec-v4-0-057cfa541177@raspberrypi.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250701-arm_cs_pm_fix_v3-v2-27-23ebb864fcc1@arm.com>
-References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
-In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Levi Yun <yeoreum.yun@arm.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751381627; l=6622;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=o8U2CyLA6oQ12QKlhMbUjxrrAki5FVq7tsPqo5eJOWU=;
- b=36aOdrmbrtsRS0SdUEpj9nAw9Gg00qdz4gIseSUq0YU6SfvjlYsCffGpN9r73+NYfCZa3vxHG
- 8iRj4RpC8+GBGNqhwKDJ3cmH4OYYxMU7660WKPSdK0oqC0YQJKS1Pcm
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-B4-Tracking: v=1; b=H4sIAGAGZGgC/23NQQ7CIBCF4as0rMXADK3VlfcwLgoMdhbaBgyxM
+ b272Ghc2OX/kvnmKRJFpiQO1VNEypx4uJUwm0q4vrtdSLIvLUCB0aBBXslzJ+PIsqfspCcn0da
+ WdrgPaL0oh2OkwI8FPZ1L95zuQ5yWH1m/1w8Hao3LWiqpyDqnDHkDdIxdGi3FOI28dcNVvNEMX
+ 6hWoJpVCArU7LFG17aqtrAO4Q8ygKsQFqgNHkPntW+C/YfmeX4B4Q5RtkwBAAA=
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ John Cox <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>, 
+ review list <kernel-list@raspberrypi.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Cc: John Cox <jc@kynesim.co.uk>, Stefan Wahren <wahrenst@gmx.net>, 
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_075453_775508_4BF3CE64 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20250701_090158_327978_BAECF732 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,218 +111,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit moves CPU hotplug callbacks from ETMv4 driver to core layer.
-The motivation is the core layer can control all components on an
-activated path rather but not only managing tracer in ETMv4 driver.
+Hi All
 
-The perf event layer will disable CoreSight PMU event 'cs_etm' when
-hotplug off a CPU.  That means a perf mode will be always converted to
-disabled mode in CPU hotplug.  Arm CoreSight CPU hotplug callbacks only
-need to handle the Sysfs mode and ignore the perf mode.
+This has been in the pipeline for a while, but I've finally cleaned
+up our HEVC decoder driver to be in a shape to at least get a first
+review.
+John Cox has done almost all of the work under contract to Raspberry
+Pi, and I'm largely just doing the process of patch curation and
+sending.
 
-The core layer invokes a high level API coresight_disable_source() to
-disable a source when hotplug-off a CPU.  It disables a tracer and
-changes the tracer's mode to CS_MODE_DISABLED.
+This series has been updated to use the manual request completion
+framework from Hans and Nicolas as a dependency
+https://lore.kernel.org/linux-media/20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com/
 
-When hotplug-in a CPU, if a activated path is detected - when the
-activated path pointer is not NULL - in this case, the tracer will be
-re-enabled.
+Thanks
+  Dave
 
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+v4l2-compliance output:
+v4l-utils $ ./build/utils/v4l2-compliance/v4l2-compliance 
+v4l2-compliance 1.31.0-5374, 64 bits, 64-bit time_t
+v4l2-compliance SHA: b8c26bb16d75 2025-06-10 21:30:38
+
+Compliance test for rpi-hevc-dec device /dev/video0:
+
+Driver Info:
+	Driver name      : rpi-hevc-dec
+	Card type        : rpi-hevc-dec
+	Bus info         : platform:rpi-hevc-dec
+	Driver version   : 6.16.0
+	Capabilities     : 0x84204000
+		Video Memory-to-Memory Multiplanar
+		Streaming
+		Extended Pix Format
+		Device Capabilities
+	Device Caps      : 0x04204000
+		Video Memory-to-Memory Multiplanar
+		Streaming
+		Extended Pix Format
+	Detected Stateless Decoder
+Media Driver Info:
+	Driver name      : rpi-hevc-dec
+	Model            : rpi-hevc-dec
+	Serial           : 
+	Bus info         : platform:rpi-hevc-dec
+	Media version    : 6.16.0
+	Hardware revision: 0x00000000 (0)
+	Driver version   : 6.16.0
+Interface Info:
+	ID               : 0x0300000c
+	Type             : V4L Video
+Entity Info:
+	ID               : 0x00000001 (1)
+	Name             : rpi-hevc-dec-source
+	Function         : V4L2 I/O
+	Pad 0x01000002   : 0: Source
+	  Link 0x02000008: to remote pad 0x1000004 of entity 'rpi-hevc-dec-proc' (Video Decoder): Data, Enabled, Immutable
+
+Required ioctls:
+	test MC information (see 'Media Driver Info' above): OK
+	test VIDIOC_QUERYCAP: OK
+	test invalid ioctls: OK
+
+Allow for multiple opens:
+	test second /dev/video0 open: OK
+	test VIDIOC_QUERYCAP: OK
+	test VIDIOC_G/S_PRIORITY: OK
+	test for unlimited opens: OK
+
+Debug ioctls:
+	test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+	test VIDIOC_LOG_STATUS: OK (Not Supported)
+
+Input ioctls:
+	test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+	test VIDIOC_ENUMAUDIO: OK (Not Supported)
+	test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDIO: OK (Not Supported)
+	Inputs: 0 Audio Inputs: 0 Tuners: 0
+
+Output ioctls:
+	test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+	test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+	Outputs: 0 Audio Outputs: 0 Modulators: 0
+
+Input/Output configuration ioctls:
+	test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+	test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+	test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+	test VIDIOC_G/S_EDID: OK (Not Supported)
+
+Control ioctls:
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+	test VIDIOC_QUERYCTRL: OK
+	test VIDIOC_G/S_CTRL: OK
+		fail: v4l2-test-controls.cpp(939): try_ext_ctrls returned an error (22)
+	test VIDIOC_G/S/TRY_EXT_CTRLS: FAIL
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 3 Private Controls: 0
+	Standard Compound Controls: 5 Private Compound Controls: 0
+
+Format ioctls:
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+	test VIDIOC_G/S_PARM: OK (Not Supported)
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK
+	test VIDIOC_TRY_FMT: OK
+	test VIDIOC_S_FMT: OK
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls:
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK
+
+Buffer ioctls:
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK
+	test Requests: OK
+	test blocking wait: OK
+
+Total for rpi-hevc-dec device /dev/video0: 49, Succeeded: 48, Failed: 1, Warnings: 0
+
+Testing is mainly with a downstream patchset to FFmpeg. I'm told FFmpeg
+currently has no stateless decode support, but we will be reviewing
+works that have been in progress and our downstream patches to see
+whether that can be pushed onwards.
+Downstream tree is at
+https://github.com/jc-kynesim/rpi-ffmpeg/tree/dev/5.1.6/sandm_1
+
+https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/9247
+adds support for the new formats to GStreamer, and allows Fluster to run.
+Using the JCT-VC-HEVC_V1 test suite we get 142 passes out of 147 tests.
+PICSIZE_[ABCD]_Bossen_1 all fail due to the image sizes being greater than
+the 4096x4096 limit of this driver.
+TSUNEQBD_A_MAIN10_Technicolor_2 fails as the hardware doesn't support
+having a different bit depth for luma and chroma.
+
+Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c       | 61 +++++++++++++++++++++-
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 37 -------------
- include/linux/coresight.h                          | 17 +++---
- 3 files changed, 70 insertions(+), 45 deletions(-)
+Changes in v4:
+- dt-bindings: Drop to just SoC compatibles and updated description (Krzysztof).
+- dts: Corrected address in node name.
+- NV12MT_COL128 format description added vertical alignment to a
+  multiple of 8 (Nicolas)
+- driver: Merged in driver updates based on Nicolas' review.
+- driver: Added debug module parameter to avoid log spam due to some bitstreams.
+- cover-letter: Added Fluster results.
+- rebased and based on the updated version of 
+  https://lore.kernel.org/linux-media/20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com/
+- update v4l2-compliance output
+- Link to v3: https://lore.kernel.org/r/20250423-media-rpi-hevc-dec-v3-0-8fd3fad1d6fb@raspberrypi.com
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 9978737d21177ab7cfcd449cf67a0b0736fcca5a..e1659b05738e73fcb6c66c74c8f1ce3a24ab2da4 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1701,6 +1701,52 @@ char *coresight_alloc_device_name(struct coresight_dev_list *dict,
- }
- EXPORT_SYMBOL_GPL(coresight_alloc_device_name);
- 
-+static int coresight_starting_cpu(unsigned int cpu)
-+{
-+	struct coresight_device *source = per_cpu(csdev_source, cpu);
-+	struct coresight_path *path;
-+
-+	if (!source)
-+		return 0;
-+
-+	/* Re-enable components on an activated path */
-+	path = per_cpu(csdev_cpu_path, cpu);
-+	if (!path)
-+		return 0;
-+
-+	if (path->saved_mode != CS_MODE_SYSFS)
-+		return 0;
-+
-+	source_ops(source)->enable(source, NULL, path->saved_mode, path);
-+	return 0;
-+}
-+
-+static int coresight_dying_cpu(unsigned int cpu)
-+{
-+	struct coresight_device *source = per_cpu(csdev_source, cpu);
-+	struct coresight_path *path;
-+
-+	if (!source)
-+		return 0;
-+
-+	/* Don't proceed if no path is activated */
-+	path = per_cpu(csdev_cpu_path, cpu);
-+	if (!path)
-+		return 0;
-+
-+	path->saved_mode = coresight_get_mode(source);
-+
-+	/*
-+	 * The perf event layer will disable PMU events in the CPU hotplug.
-+	 * CoreSight driver should never handle the CS_MODE_PERF case.
-+	 */
-+	if (WARN_ON(path->saved_mode != CS_MODE_SYSFS))
-+		return 0;
-+
-+	source_ops(source)->disable(source, NULL);
-+	return 0;
-+}
-+
- static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
- 				   void *v)
- {
-@@ -1766,11 +1812,24 @@ static struct notifier_block coresight_cpu_pm_nb = {
- 
- static int __init coresight_pm_setup(void)
- {
--	return cpu_pm_register_notifier(&coresight_cpu_pm_nb);
-+	int ret;
-+
-+	ret = cpu_pm_register_notifier(&coresight_cpu_pm_nb);
-+	if (ret)
-+		return ret;
-+
-+	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
-+					"arm/coresight-core:starting",
-+					coresight_starting_cpu, coresight_dying_cpu);
-+	if (ret)
-+		cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
-+
-+	return ret;
- }
- 
- static void coresight_pm_cleanup(void)
- {
-+	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
- 	cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
- }
- 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index f99a48511850cd6e9682533880b22a3b8fc43135..94872226dd63c5b9ed9ef95f17d717656c4e5589 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1802,33 +1802,6 @@ static int etm4_online_cpu(unsigned int cpu)
- 	return 0;
- }
- 
--static int etm4_starting_cpu(unsigned int cpu)
--{
--	if (!etmdrvdata[cpu])
--		return 0;
--
--	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
--	if (!etmdrvdata[cpu]->os_unlock)
--		etm4_os_unlock(etmdrvdata[cpu]);
--
--	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
--		etm4_enable_hw(etmdrvdata[cpu], true);
--	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
--	return 0;
--}
--
--static int etm4_dying_cpu(unsigned int cpu)
--{
--	if (!etmdrvdata[cpu])
--		return 0;
--
--	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
--	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
--		etm4_disable_hw(etmdrvdata[cpu]);
--	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
--	return 0;
--}
--
- static bool etm4_need_context_save_restore(struct coresight_device *csdev)
- {
- 	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
-@@ -1923,13 +1896,6 @@ static int __init etm4_pm_setup(void)
- {
- 	int ret;
- 
--	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
--					"arm/coresight4:starting",
--					etm4_starting_cpu, etm4_dying_cpu);
--
--	if (ret)
--		return ret;
--
- 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
- 					"arm/coresight4:online",
- 					etm4_online_cpu, NULL);
-@@ -1940,14 +1906,11 @@ static int __init etm4_pm_setup(void)
- 		return 0;
- 	}
- 
--	/* failed dyn state - remove others */
--	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
- 	return ret;
- }
- 
- static void etm4_pm_clear(void)
- {
--	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
- 	if (hp_online) {
- 		cpuhp_remove_state_nocalls(hp_online);
- 		hp_online = 0;
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index e551a36c40cc2311cd72948b799db5425b93fe68..6daed3a75190617464515c4e1e0628d2169b26e7 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -330,21 +330,24 @@ static struct coresight_dev_list (var) = {				\
- 
- #define to_coresight_device(d) container_of(d, struct coresight_device, dev)
- 
-+enum cs_mode {
-+	CS_MODE_DISABLED,
-+	CS_MODE_SYSFS,
-+	CS_MODE_PERF,
-+	CS_MODE_DEBUG,
-+};
-+
- /**
-  * struct coresight_path - data needed by enable/disable path
-  * @path_list:              path from source to sink.
-  * @trace_id:          trace_id of the whole path.
-+ * @saved_mode:        The saved device mode. It stores the source device's mode
-+ *                     to represent the path mode during CPU hotplug off.
-  */
- struct coresight_path {
- 	struct list_head	path_list;
- 	u8			trace_id;
--};
--
--enum cs_mode {
--	CS_MODE_DISABLED,
--	CS_MODE_SYSFS,
--	CS_MODE_PERF,
--	CS_MODE_DEBUG,
-+	enum cs_mode		saved_mode;
- };
- 
- #define coresight_ops(csdev)	csdev->ops
+Changes in v3:
+- Updated the dtbinding with SoC specific compatible strings (Rob).
+- Reordered hevc_dec and v3d in bcm2711.dtsi to keep them in ascending
+  register order (Stefan).
+- Reordered hevc_dec in bcm2711-rpi.dtsi to keep them in alphabetical
+  order (Stefan).
+- Tested on top of Nicolas' revised version of Hans' patch set for
+  manual request completion.
+  https://lore.kernel.org/all/20250410-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v2-0-5b99ec0450e6@collabora.com/
+- Link to v2: https://lore.kernel.org/r/20250206-media-rpi-hevc-dec-v2-0-69353c8805b2@raspberrypi.com
 
+Changes in v2:
+- Rebased to use Hans' manual request completion scheme.
+  https://lore.kernel.org/linux-media/cover.1724928939.git.hverkuil-cisco@xs4all.nl/
+- Require all slices for a frame to be submitted in one request.
+- Added the missing header file.
+- Used the full macro name for pix format docs (Sakari)
+- Dropped unneeded |- from dtbinding (Rob)
+- Made reg and reg-names match in order (Rob)
+- Removed clock-names from dtbinding (Rob)
+- Driver changed to not request the clock by name
+- Dropped clock-names from DTS file
+- Minor fixes for compliance failures
+  fail: v4l2-test-formats.cpp(958): fmt_cap.g_colorspace() != col
+  fail: v4l2-test-buffers.cpp(901): q.create_bufs(node, 1, &fmt) != EINVAL
+- v4l2-compliance output added to cover letter (Nicholas)
+  I believe the "fail: v4l2-test-controls.cpp(939): try_ext_ctrls
+  returned an error (22)" is expected as it is validating the SPS.
+  Hantro and Cedrus certainly both appear to return errors in the same place
+- Link to v1: https://lore.kernel.org/r/20241220-media-rpi-hevc-dec-v1-0-0ebcc04ed42e@raspberrypi.com
+
+---
+Dave Stevenson (4):
+      docs: uapi: media: Document Raspberry Pi NV12 column format
+      media: ioctl: Add pixel formats NV12MT_COL128 and NV12MT_10_COL128
+      dt-bindings: media: Add the Raspberry Pi HEVC decoder
+      arm: dts: bcm2711-rpi: Add HEVC decoder node
+
+John Cox (1):
+      media: platform: Add Raspberry Pi HEVC decoder driver
+
+ .../bindings/media/raspberrypi,hevc-dec.yaml       |   72 +
+ .../media/v4l/ext-ctrls-codec-stateless.rst        |    6 +-
+ .../userspace-api/media/v4l/pixfmt-yuv-planar.rst  |   42 +
+ MAINTAINERS                                        |   10 +
+ arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi        |    4 +
+ arch/arm/boot/dts/broadcom/bcm2711.dtsi            |    9 +
+ drivers/media/platform/raspberrypi/Kconfig         |    1 +
+ drivers/media/platform/raspberrypi/Makefile        |    1 +
+ .../media/platform/raspberrypi/hevc_dec/Kconfig    |   17 +
+ .../media/platform/raspberrypi/hevc_dec/Makefile   |    5 +
+ .../media/platform/raspberrypi/hevc_dec/hevc_d.c   |  369 +++
+ .../media/platform/raspberrypi/hevc_dec/hevc_d.h   |  192 ++
+ .../platform/raspberrypi/hevc_dec/hevc_d_h265.c    | 2554 ++++++++++++++++++++
+ .../platform/raspberrypi/hevc_dec/hevc_d_h265.h    |   23 +
+ .../platform/raspberrypi/hevc_dec/hevc_d_hw.c      |  376 +++
+ .../platform/raspberrypi/hevc_dec/hevc_d_hw.h      |  314 +++
+ .../platform/raspberrypi/hevc_dec/hevc_d_video.c   |  674 ++++++
+ .../platform/raspberrypi/hevc_dec/hevc_d_video.h   |   38 +
+ drivers/media/v4l2-core/v4l2-ioctl.c               |    2 +
+ include/uapi/linux/videodev2.h                     |    4 +
+ 20 files changed, 4711 insertions(+), 2 deletions(-)
+---
+base-commit: 6669fd53a3c2be6dc632a87d9105016139088144
+change-id: 20241212-media-rpi-hevc-dec-3b5be739f3bd
+
+Best regards,
 -- 
-2.34.1
+Dave Stevenson <dave.stevenson@raspberrypi.com>
 
 
