@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A141C8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 11:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4000DC8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 11:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EnHNNfQwdRKe5P8FW4/qy0kdiqQiIn1lgB3AbUN6usA=; b=yDpvyM9XC5Vm3OquCbwN7yWG7Z
-	jHRXYP3fd5MbmCtAgc67FL0ydZ35BmVxNBZwstWExTivn5gFZqTHyhZZPLfOHyCeI73DbUgj3/JNS
-	FIAUWdhTOipLX88GtjwBns5KQqBO+pznx9U8xoIlcrEjnCIqTB6nDImOKXXfH7u/Gy4+Z4zgYne6p
-	FkaQoRJyXaoGQo6GPMr1EyRbJ5bylmaQXMqryGkZJqPME+QP3YqK41tOmcMcr9BLfBcRn83BY0SpB
-	Hf291CGDN1kuDdXzT5Ozihsy2auDae866by1ixfIxaIxam9/ym2emeR8Oz4A74GIidBYo/ujALmYx
-	wF4OFJTQ==;
+	bh=69mW9QW+4jPO2/UvV67vqm1ZgUL5IHPm90XJ/fRmZO8=; b=4nd+NCfT4gsjs+AsLMK6AydSX6
+	J5txDqcCpUfFqBGmeBG1uZ4VN6M/JkNrhXgLCYwz6jNjWRaUjehK5vcYvMc2c56MWyWHK3ecpBYno
+	fsmyL7L99yNGZI9mfk+UZUi80wlHnOYZEVzc83cAhyQ9nzBuNJfGyFHnZoum80k6M6xx99JRJY1gQ
+	r2mxqRvclNoFcGDH9EcPSaAgVaYVRU6Ir16DMvz92hD+YCEuDJ+OH3QqqtcsQTYz3C66UXoSPIuMm
+	OE6c9XxvXXEwhr95U6BH5JsRKatxklMlo76RlMRTH1+mz9KBMuegJCI0L1Mdgvi4wapgRnpp+6XtS
+	2VaWmtlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZ5D-00000004rbQ-1Urs;
-	Tue, 01 Jul 2025 11:23:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uWZ9c-00000004rxt-31rz;
+	Tue, 01 Jul 2025 11:28:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZ2t-00000004rMx-0HLQ;
-	Tue, 01 Jul 2025 11:21:04 +0000
+	id 1uWZ7J-00000004rkG-0h8U;
+	Tue, 01 Jul 2025 11:25:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9CE5E43964;
-	Tue,  1 Jul 2025 11:20:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F9F9C4CEEB;
-	Tue,  1 Jul 2025 11:20:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 96AA261441;
+	Tue,  1 Jul 2025 11:25:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A53FC4CEEB;
+	Tue,  1 Jul 2025 11:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751368859;
-	bh=ohwdXRbQELGb/I5v2pJqnN/PwyN+M+y+nmTL+H9M26s=;
+	s=k20201202; t=1751369136;
+	bh=sovRK5k6yrNB91o3/eBq3umT71d/FWg4mdRWQDzlGIw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lEpASPvNtGiveO3krzAW2dmR7TTX/X5ny9+J5+w08lvY4TxTTRC2mtQpVkncHB5CG
-	 swrOfG6KDZLxrGVRBg0hqgwwIIJoV82t3RHVLTtuGLUmc470gRu/0SuejMZL2eQuAi
-	 IY9d57xiGHY6UtYBYeMauJAlFOtMratc1bLzPJcbbGVpoyLSZIS2YyviTeWllUQnKp
-	 QMfqSKNVTEwkYswHfYG9YKhvTJ8V4c+gKxMsTbZsd1w25saSOvXCmitLxcZvmeQeUX
-	 6pzjbS+T8JcX1i8y6EPi3Wnq174HMOoGsWfogpqyX18kzjdsuJqvoxDXy9IxhRy4LO
-	 aHWKcnRPc7Hcw==
-Message-ID: <b13d7998-6a32-4e48-9964-b7162e288cf4@kernel.org>
-Date: Tue, 1 Jul 2025 13:20:49 +0200
+	b=styklcjFdeCJ4cEf3lkqdklnTvXtjNNTjot7MDbObFP8sNyNa0qJL7LuUWpk7y1ox
+	 1UbWpnex5HX3cxe/iYSghFdohWRl+jaFdML1GLNSysNCil0oealErPlXH0mkJm1Z2K
+	 fRkbz5HNmJh9XQGzGUN3BhFOPSRPPinexUMkWocsGo3nw9VN0HpCv1qvqHripjliQ1
+	 HnZQf77naJCwGFTtuAcwycKlliBrYw6tRIg2IafYaK8pp8eGRhPAYX9pzf4knEeacf
+	 6cqN8vKGQiUgiOaa/o0qHi4Xxt1qCSg8K0Doelyc2ll3TP1BGrS4FUOwhaTN0ywKvD
+	 NShq04PXss2Lg==
+Message-ID: <f877b3d7-d770-4424-9813-da748775f456@kernel.org>
+Date: Tue, 1 Jul 2025 13:25:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/10] dt-bindings: PCI: Add bindings support for Tesla
+Subject: Re: [PATCH v2 07/10] dt-bindings: phy: Add PHY bindings support for
  FSD SoC
 To: Shradha Todi <shradha.t@samsung.com>, 'Rob Herring' <robh@kernel.org>
 Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
@@ -57,10 +57,10 @@ Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
  kishon@kernel.org, arnd@arndb.de, m.szyprowski@samsung.com,
  jh80.chung@samsung.com, pankaj.dubey@samsung.com
 References: <20250625165229.3458-1-shradha.t@samsung.com>
- <CGME20250625165315epcas5p19f081c8a0e2e7dc87698577cc2d460ca@epcas5p1.samsung.com>
- <20250625165229.3458-7-shradha.t@samsung.com>
- <20250627211236.GA147018-robh@kernel.org>
- <02b001dbea78$d991d5b0$8cb58110$@samsung.com>
+ <CGME20250625165319epcas5p3721c19f6e6b482438c62dd1ef784de03@epcas5p3.samsung.com>
+ <20250625165229.3458-8-shradha.t@samsung.com>
+ <20250627211721.GA153863-robh@kernel.org>
+ <02af01dbea78$24f01310$6ed03930$@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,13 +106,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <02b001dbea78$d991d5b0$8cb58110$@samsung.com>
+In-Reply-To: <02af01dbea78$24f01310$6ed03930$@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_042103_154487_35CD20DC 
-X-CRM114-Status: UNSURE (   7.53  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,12 +123,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2025 13:11, Shradha Todi wrote:
+On 01/07/2025 13:06, Shradha Todi wrote:
 > 
 > 
 >> -----Original Message-----
 >> From: Rob Herring <robh@kernel.org>
->> Sent: 28 June 2025 02:43
+>> Sent: 28 June 2025 02:47
 >> To: Shradha Todi <shradha.t@samsung.com>
 >> Cc: linux-pci@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
 > linux-
@@ -141,21 +137,102 @@ On 01/07/2025 13:11, Shradha Todi wrote:
 >> bhelgaas@google.com; jingoohan1@gmail.com; krzk+dt@kernel.org; conor+dt@kernel.org;
 >> alim.akhtar@samsung.com; vkoul@kernel.org; kishon@kernel.org; arnd@arndb.de;
 >> m.szyprowski@samsung.com; jh80.chung@samsung.com; pankaj.dubey@samsung.com
->> Subject: Re: [PATCH v2 06/10] dt-bindings: PCI: Add bindings support for Tesla FSD SoC
+>> Subject: Re: [PATCH v2 07/10] dt-bindings: phy: Add PHY bindings support for FSD SoC
 >>
->> On Wed, Jun 25, 2025 at 10:22:25PM +0530, Shradha Todi wrote:
->>> Document the PCIe controller device tree bindings for Tesla FSD
->>> SoC for both RC and EP.
+>> On Wed, Jun 25, 2025 at 10:22:26PM +0530, Shradha Todi wrote:
+>>> Document PHY device tree bindings for Tesla FSD SoCs.
+>>>
+>>> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
+>>> ---
+>>>  .../bindings/phy/samsung,exynos-pcie-phy.yaml | 25 +++++++++++++++++--
+>>>  1 file changed, 23 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
+>> b/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
+>>> index 41df8bb08ff7..4dc20156cdde 100644
+>>> --- a/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
+>>> +++ b/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
+>>> @@ -15,10 +15,13 @@ properties:
+>>>      const: 0
+>>>
+>>>    compatible:
+>>> -    const: samsung,exynos5433-pcie-phy
+>>> +    enum:
+>>> +      - samsung,exynos5433-pcie-phy
+>>> +      - tesla,fsd-pcie-phy
+>>>
+>>>    reg:
+>>> -    maxItems: 1
+>>> +    minItems: 1
+>>> +    maxItems: 2
+>>>
+>>>    samsung,pmu-syscon:
+>>>      $ref: /schemas/types.yaml#/definitions/phandle
+>>> @@ -30,6 +33,24 @@ properties:
+>>>      description: phandle for FSYS sysreg interface, used to control
+>>>                   sysreg registers bits for PCIe PHY
+>>>
+>>> +allOf:
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            enum:
+>>> +              - tesla,fsd-pcie-phy
+>>> +    then:
+>>> +      description:
+>>> +        The PHY controller nodes are represented in the aliases node
+>>> +        using the following format 'pciephy{n}'. Depending on whether
+>>> +        n is 0 or 1, the phy init sequence is chosen.
 >>
->> Drop 'bindings support for ' in the subject.
+>> What? Don't make up your own aliases.
+>>
+>> If the PHY instances are different, then maybe you need a different
+>> compatible. If this is just selecting the PHY mode, you can do that in
+>> PHY cells as the mode depends on the consumer.
+>>
+> 
+> FSD PCIe has 2 instances of PHY. Both are the same HW Samsung
+> PHYs (Therefore share the same register offsets). But the PHY used here
+
+So same?
+
+> does not support auto adaptation so we need to tune the PHYs
+> according to the use case (considering channel loss, etc). This is why we
+
+So not same? Decide. Either it is same or not, cannot be both.
+
+If you mean that some wiring is different on the board, then how does it
+differ in soc thus how it is per-soc property? If these are use-cases,
+then how is even suitable for DT?
+
+I use your Tesla FSD differently and then I exchange DTSI and compatibles?
+
+You are no describing real problem and both binding and your
+explanations are vague and imprecise. Binding tells nothing about it, so
+it is example of skipping important decisions.
+
+> have 2 different SW PHY initialization sequence depending on the instance
+> number. Do you think having different compatible (something like
+> tesla,fsd-pcie-phy0 and tesla,fsd-pcie-phy1) and having phy ID as platform data
+> is okay in this case? I actually took reference from files like:
+
+And in different use case on same soc you are going to reverse
+compatibles or instance IDs?
+
+> drivers/usb/phy/phy-am335x-control.c
+
+So you took 15 years old hardware, code and binding as an example.
+
+No, don't do that ever.
+
+Anyway, poor choices even in newer code should not drive your design.
+Design it properly, describe the hardware.
+
+> drivers/phy/freescale/phy-fsl-imx8-mipi-dphy.c
+> who use alias to differentiate between register offsets for instances.
 
 
-
-Please kindly trim the replies from unnecessary context. It makes it
-much easier to find new content.
-
-Where is your reply? I even scrolled till the end of email and I only
-see quotes.
 
 Best regards,
 Krzysztof
