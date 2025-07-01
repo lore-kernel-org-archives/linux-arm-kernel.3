@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690EAC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 17:05:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD2CC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 17:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6+nH6oRyfSEjB5lKvRydAInpMCKuvfaUWFZC1NxhtU4=; b=0+rdXocXtA5ydI1D6KLY1rj6MT
-	DbxtGhTSGPzpQ0tdhpzzzsn5Eb+MPTtrL256D5LD1XKbhBD22m/T87rkZDmYUgyivRPf2+7i13Pq4
-	9d4S/luu4PqQq6AaIILDqG8vYRD1lzkUdiTHrQQw4jNCvkyS1eElog2sekxZUmY3bhfzOyhHcVVSe
-	2sgYkl6FsBxfZGP7jPxn1pbxlmOPvuvdYT1v/AKOb1eGd9mNsEVfPS+kUEeiS5GQujSVXm6Q+aJsz
-	OUL7YqT9DRMHSUl9QXoilZYZbrreTKA30yAiLVMhq1wDBDRZkn5VNLhu5AO4H2LjTccvzwIWj//Si
-	lVYAaR0Q==;
+	bh=pfninb3PM81tnqVR4k9/eFNyq15A3H03oVgI/Od0ZQE=; b=iFLRx4NebdFlCQ3uH19+bqe3H8
+	8ZQDmMizaVwhjKmP+Q0SzCZrOvpEMz0KWtPY6hJFIBA4K/YOyEL972F9jYUFvfVOVEPtTysqvm4Mk
+	K2i0UNuZv+5sEmiVs+JwlXUURqkr4ciUidbzo7iORCe+aUE5j/B0pN/FaD6J5auL5e2+Xq1BuwgvW
+	jlAnQ6Xhag5qvMzjjh1WcCmkbCXq6TzusKwbtj9l4f7vqJ6DTjjC147Jta3IyBNfq9jrnvvEZ0men
+	xRr/mp5pZRC3ghV2Whn9/I2I4v295RZpl5+PjKs2ylWPUrn6nJSiYdDTuabHf072uIdsD1/pZwzqv
+	OzpMLe9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWePm-00000006AAW-42Xg;
-	Tue, 01 Jul 2025 17:05:02 +0000
+	id 1uWeS5-00000006Ab8-3NOZ;
+	Tue, 01 Jul 2025 17:07:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWcNP-00000005mte-3E4k
+	id 1uWcNS-00000005mvB-0fM3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 14:54:28 +0000
+	Tue, 01 Jul 2025 14:54:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E9B812FC;
-	Tue,  1 Jul 2025 07:54:12 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74954236D;
+	Tue,  1 Jul 2025 07:54:14 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6429F3F66E;
-	Tue,  1 Jul 2025 07:54:25 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA45B3F66E;
+	Tue,  1 Jul 2025 07:54:27 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 01 Jul 2025 15:53:41 +0100
-Subject: [PATCH v2 16/28] coresight: Add callback to determine if context
- save/restore is needed
+Date: Tue, 01 Jul 2025 15:53:42 +0100
+Subject: [PATCH v2 17/28] coresight: etm4x: Remove redundant condition
+ checks in save and restore
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250701-arm_cs_pm_fix_v3-v2-16-23ebb864fcc1@arm.com>
+Message-Id: <20250701-arm_cs_pm_fix_v3-v2-17-23ebb864fcc1@arm.com>
 References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
 In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -53,16 +53,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751381627; l=4323;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751381627; l=2489;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=WCOg1Suss97xRLtE2LtYRgzZ8clj4Sy7iX3GHHiQCzY=;
- b=KUAFt6aIfRB42uBtR4UZ/V1Fgyg5OthtaipZQ6YGSSR5E/VIpHnmwvbW7ySOFzxzifaXvIRWz
- HZZcFwlWGNtB41fJCCprrVuiUryPZV8YWHHiCmYnHr/pYzQ7759QT7H
+ bh=qFXl7UwZDJPYjl6fs+deO8QNuiTAQtNFxmFllav6qYM=;
+ b=S77Op1g8F+ZWBYCr/I3kt9V3ckIw+QEoUK9ZVhgcjwfFEGDkBdbOqNM8dF0FuV8v+Az++ivOa
+ vpcG+moFIKdAJAp+e2mZKqkasZPIaYqBuBRkFQ/JMsd54vGkokAyYWS
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_075427_899595_0F3785CA 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20250701_075430_317976_63D26B82 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,121 +77,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a callback in the source device that returns a boolean indicating
-whether context save and restore operations are required. The save and
-restore flow is skipped if the callback returns false.
+Since a dedicated callback is now used to determine whether context save
+and restore operations are needed, performing the same check within the
+save and restore callbacks is redundant.
 
-The ETMv4 driver implements its own version's callback.
+The save and restore flows currently use two-level functions: the first
+level handles the condition check, while the second level performs the
+low level operations. As the checks are no longer necessary, simplify
+the logic into single-level functions.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c       | 16 +++++++++++-
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 30 +++++++++++++++++-----
- include/linux/coresight.h                          |  2 ++
- 3 files changed, 40 insertions(+), 8 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 35 ++--------------------
+ 1 file changed, 3 insertions(+), 32 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 233e128bc61c9e6ef69182e5387fe0dadf532324..45f15a1f51295b298073551cb328d20cc2c36cdb 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -421,6 +421,20 @@ int coresight_resume_source(struct coresight_device *csdev)
- }
- EXPORT_SYMBOL_GPL(coresight_resume_source);
- 
-+static bool coresight_need_save_restore_source(struct coresight_device *csdev)
-+{
-+	if (!csdev)
-+		return false;
-+
-+	if (source_ops(csdev)->need_context_save_restore)
-+		return source_ops(csdev)->need_context_save_restore(csdev);
-+
-+	if (coresight_get_mode(csdev))
-+		return true;
-+
-+	return false;
-+}
-+
- static int coresight_save_source(struct coresight_device *csdev)
- {
- 	if (csdev && source_ops(csdev)->save)
-@@ -1594,7 +1608,7 @@ static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
- 	unsigned int cpu = smp_processor_id();
- 	struct coresight_device *source = per_cpu(csdev_source, cpu);
- 
--	if (!source)
-+	if (!coresight_need_save_restore_source(source))
- 		return NOTIFY_OK;
- 
- 	switch (cmd) {
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index b76107aef9d3e42214d4bc97598795ddd96ff2d8..92ded5c87614b2a74736005c4d127e266cb9b0e2 100644
+index 92ded5c87614b2a74736005c4d127e266cb9b0e2..d71ac055c3d0b74053279a86ede7e5592f2b2909 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1836,6 +1836,21 @@ static int etm4_dying_cpu(unsigned int cpu)
- 	return 0;
+@@ -1851,10 +1851,10 @@ static bool etm4_need_context_save_restore(struct coresight_device *csdev)
+ 	return false;
  }
  
-+static bool etm4_need_context_save_restore(struct coresight_device *csdev)
-+{
-+	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
-+		return false;
-+
-+	/*
-+	 * Save and restore the ETM Trace registers only if
-+	 * the ETM is active.
-+	 */
-+	if (coresight_get_mode(csdev))
-+		return true;
-+
-+	return false;
-+}
-+
- static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+-static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
++static int etm4_cpu_save(struct coresight_device *csdev)
  {
  	int ret = 0;
-@@ -1924,13 +1939,14 @@ static void etm4_cpu_restore(struct coresight_device *csdev)
+-	struct coresight_device *csdev = drvdata->csdev;
++	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct csdev_access *csa;
+ 	struct device *etm_dev;
+ 
+@@ -1902,40 +1902,11 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+ 	return ret;
+ }
+ 
+-static int etm4_cpu_save(struct coresight_device *csdev)
+-{
+-	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-	int ret = 0;
+-
+-	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
+-		return 0;
+-
+-	/*
+-	 * Save and restore the ETM Trace registers only if
+-	 * the ETM is active.
+-	 */
+-	if (coresight_get_mode(drvdata->csdev))
+-		ret = __etm4_cpu_save(drvdata);
+-	return ret;
+-}
+-
+-static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+-{
+-	if (WARN_ON(!drvdata->csdev))
+-		return;
+-
+-	etm4_enable_hw(drvdata, false);
+-}
+-
+ static void etm4_cpu_restore(struct coresight_device *csdev)
+ {
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 
+-	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
+-		return;
+-
+-	if (coresight_get_mode(drvdata->csdev))
+-		__etm4_cpu_restore(drvdata);
++	etm4_enable_hw(drvdata, false);
  }
  
  static const struct coresight_ops_source etm4_source_ops = {
--	.cpu_id		= etm4_cpu_id,
--	.enable		= etm4_enable,
--	.disable	= etm4_disable,
--	.resume_perf	= etm4_resume_perf,
--	.pause_perf	= etm4_pause_perf,
--	.save		= etm4_cpu_save,
--	.restore	= etm4_cpu_restore,
-+	.cpu_id			   = etm4_cpu_id,
-+	.enable			   = etm4_enable,
-+	.disable		   = etm4_disable,
-+	.resume_perf		   = etm4_resume_perf,
-+	.pause_perf		   = etm4_pause_perf,
-+	.save			   = etm4_cpu_save,
-+	.restore		   = etm4_cpu_restore,
-+	.need_context_save_restore = etm4_need_context_save_restore,
- };
- 
- static const struct coresight_ops etm4_cs_ops = {
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 8d6f7cb354d6e487c757d9fe86cda895ccb1a588..4d5c07b7ddc67991a3871851fe45463f92bd32c8 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -400,6 +400,7 @@ struct coresight_ops_link {
-  * @disable:	disables tracing for a source.
-  * @resume_perf: resumes tracing for a source in perf session.
-  * @pause_perf:	pauses tracing for a source in perf session.
-+ * @need_context_save_restore: if need to save and restore context.
-  * @save:	save context for a source.
-  * @restore:	restore context for a source.
-  */
-@@ -411,6 +412,7 @@ struct coresight_ops_source {
- 			struct perf_event *event);
- 	int (*resume_perf)(struct coresight_device *csdev);
- 	void (*pause_perf)(struct coresight_device *csdev);
-+	bool (*need_context_save_restore)(struct coresight_device *csdev);
- 	int (*save)(struct coresight_device *csdev);
- 	void (*restore)(struct coresight_device *csdev);
- };
 
 -- 
 2.34.1
