@@ -4,90 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D127C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 15:44:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B9BC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 15:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/vikwJdOuHjIeEUEXRBhLZ+IYjzfHJGZOTh+ryij6T4=; b=jwYPGJP/C24VVAAyx138LL+f43
-	7EaSqQIEdcGUOFvrw8TZ0nCOEO7PqRyplrGQxAh0EWHmXaTfuc77oPmlVHkt95yqjxntZXnjnZ9pn
-	djyJIJde8Ak/rZs0SGxIx1IrIXJQm2PdKxeOCUogqO18KkgDsTtg/9Lnl3Rtxeu7Br7niRAoxTts/
-	VBn7P3m1RCWPjDOFQZvDlzxLvpxJvWWGPfh948xAS2gbjOa5YoY1kTVBRcuqyMIw29jBpUhwf7bT6
-	dBEUp9ixbtsAlgSuMunhaeNGlGQWtgHiheWkFmFQHNob/+VmctDsuW1XQC2iNn+AhyaP4d1PFJ7Wl
-	KEfBekLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w8hcaTAx86juA/niq7QPs9mBEe9/c+bteJ+HTKMUGZY=; b=0Ld2bHp30V69FfIxBRAIlkwP9V
+	IVC6xu4oUahE+uNBd3NBoIBo842LLOfzOpK84TQHZk/ME/peO6JC41AJX1hoY1vLJtY5fI87xhdd4
+	oqgOqaIIp1axBKJWVvn7ozSj9bnIDsVzG/YZbrsH5EWdhOP9HlAAwF2oX4XCTh+KTCGZCpCD9eLyT
+	ia2XkKaPrplj474XU9L85wBD0jN4BzNLamg/96Cddl0qL7emTTy2pp0fVzxQz4sPkpD8YsiQORc0O
+	3NEuKYzKgnB/r2JFneeRfQyVxzxAcf3YNUdr2WpPbojFOgP68OTG7zlvMJ6D5JWQm5RivFwRfgvLi
+	p+e2bHwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWd9J-00000005vbv-1PLS;
-	Tue, 01 Jul 2025 15:43:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uWdBc-00000005vqM-0CLg;
+	Tue, 01 Jul 2025 15:46:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWbTx-00000005boj-4Bca
+	id 1uWbVo-00000005c9g-49VK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 13:57:11 +0000
+	Tue, 01 Jul 2025 13:59:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9517A4673C
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Jul 2025 13:57:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72B31C4CEED
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Jul 2025 13:57:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751378229;
-	bh=bfyf64/9Lz8TeBB7ZRQVJI6e73cpzQVKOsse3DwDWRA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ahU48zzhuH3p0zjEEHJCC+eyqLqcVOS6ZGsdCIeneizv3aQAg97P2s3FrQBaEpu/T
-	 zc6YioylJbdVu47UwHW6qo6wJ93aZz+E5j/MLruvSvwKVzzRgtiu+4bhm4mOx6a06c
-	 n13afKMjPR6sxyjncmIFbIzvBdQcbgj/Zp7Qb2lmlWWu1xL/3ZQeYGtfkcIB3C3HuR
-	 REmvCvt4QUcSQ2rJwPKk3CZJVSxp+SrfxLAWXGjn86gF6xll986zDjE4k2e9xzKYJZ
-	 g4lAAgQ71DCVPESNVYtMOZyJ9B/Igc9pk8NkaEZGLZTyQjKe8OhxkAvMi4TTsbZ2sX
-	 5XwpoS4YiTdwA==
-Received: by mail-oo1-f51.google.com with SMTP id 006d021491bc7-6118c1775dbso1681007eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 06:57:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXO0Xym/fv36YZjIIL5Od7OtIAytXEeX1eRMEDQjpam+iiKVc9LZHtYm0RjoOyUCD2FdtRDsnrPmwtespobo2vr@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXcw9awXaDBF9Zx9I2L4veF5gawbaOZEQt7oC42wB2ty7FOQiE
-	ObnGhaZXciHJHQnmvtujwi1YuZITuUhOT47PKGsU6YJYOGF/mbifwjZlS1NGkRBYrW+eBOzMbh6
-	ArvPyq3LEBcMkrUm4HEqtQObja3bHFJo=
-X-Google-Smtp-Source: AGHT+IH8y5e96zUJRFb1OuI8gvD6XWj6u4OkFPyGcGOEmUKVc6TEctKaRmc0KPqe/ewtdYlc9kWivElDVmZVzHILVRs=
-X-Received: by 2002:a4a:ee96:0:b0:605:f34d:7e00 with SMTP id
- 006d021491bc7-611b914ca94mr11199187eaf.7.1751378226833; Tue, 01 Jul 2025
- 06:57:06 -0700 (PDT)
+	by tor.source.kernel.org (Postfix) with ESMTP id 25DBE61441;
+	Tue,  1 Jul 2025 13:59:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 191FAC4CEEB;
+	Tue,  1 Jul 2025 13:59:00 +0000 (UTC)
+Date: Tue, 1 Jul 2025 14:58:58 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Xavier Xia <xavier.qyxia@gmail.com>
+Cc: ryan.roberts@arm.com, will@kernel.org, 21cnbao@gmail.com,
+	ioworker0@gmail.com, dev.jain@arm.com, akpm@linux-foundation.org,
+	david@redhat.com, gshan@redhat.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, willy@infradead.org, xavier_qy@163.com,
+	ziy@nvidia.com, Barry Song <baohua@kernel.org>
+Subject: Re: [PATCH v7] arm64/mm: Optimize loop to reduce redundant
+ operations of  contpte_ptep_get
+Message-ID: <aGPpohrc8APQad-v@arm.com>
+References: <20250624152549.2647828-1-xavier.qyxia@gmail.com>
 MIME-Version: 1.0
-References: <20250404112050.42040-1-xueshuai@linux.alibaba.com>
- <20250404112050.42040-2-xueshuai@linux.alibaba.com> <0c0bc332-0323-4e43-a96b-dd5f5957ecc9@huawei.com>
- <709ee8d2-8969-424c-b32b-101c6a8220fb@linux.alibaba.com> <353809e7-5373-0d54-6ddb-767bc5af9e5f@huawei.com>
- <653abdd4-46d2-4956-b49c-8f9c309af34d@linux.alibaba.com> <de5d2417-dc92-b276-1125-4feb5151de7f@huawei.com>
- <f60f1128-0d42-48e5-9a06-6ed7ca10767f@linux.alibaba.com> <20250428152350.GA23615@willie-the-truck>
- <6671c3cc-5119-4544-bcb5-17e8cc2d7057@linux.alibaba.com>
-In-Reply-To: <6671c3cc-5119-4544-bcb5-17e8cc2d7057@linux.alibaba.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Tue, 1 Jul 2025 15:56:53 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0j3NC2ki1XPXfznxZRBLaReDBJ+nzHFgvqMx5+MgERL-A@mail.gmail.com>
-X-Gm-Features: Ac12FXx9H-3vG8ZmZDA8pugDyN2jgQvzGSowL6_ycQvP5EUOr-jzraGGBrVWxV0
-Message-ID: <CAJZ5v0j3NC2ki1XPXfznxZRBLaReDBJ+nzHFgvqMx5+MgERL-A@mail.gmail.com>
-Subject: Re: [RESEND PATCH v18 1/2] ACPI: APEI: send SIGBUS to current task if
- synchronous memory error not recovered
-To: Shuai Xue <xueshuai@linux.alibaba.com>
-Cc: Will Deacon <will@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, rafael@kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, "Luck, Tony" <tony.luck@intel.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, akpm@linux-foundation.org, 
-	linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com, 
-	ardb@kernel.org, ying.huang@linux.alibaba.com, ashish.kalra@amd.com, 
-	baolin.wang@linux.alibaba.com, tglx@linutronix.de, 
-	dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com, 
-	robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com, 
-	zhuo.song@linux.alibaba.com, sudeep.holla@arm.com, lpieralisi@kernel.org, 
-	linux-acpi@vger.kernel.org, yazen.ghannam@amd.com, mark.rutland@arm.com, 
-	mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@huawei.com, 
-	bp@alien8.de, linux-arm-kernel@lists.infradead.org, 
-	wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com, 
-	linmiaohe@huawei.com, naoya.horiguchi@nec.com, james.morse@arm.com, 
-	tongtiangen@huawei.com, gregkh@linuxfoundation.org, jarkko@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_065710_079759_3075B94E 
-X-CRM114-Status: GOOD (  18.23  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250624152549.2647828-1-xavier.qyxia@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,55 +63,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 1, 2025 at 1:00=E2=80=AFPM Shuai Xue <xueshuai@linux.alibaba.co=
-m> wrote:
->
->  >=E5=9C=A8 2025/4/28 23:23, Will Deacon =E5=86=99=E9=81=93:
->  >> On Fri, Apr 25, 2025 at 09:10:09AM +0800, Shuai Xue wrote:
->  >>> =E5=9C=A8 2025/4/25 09:00, Hanjun Guo =E5=86=99=E9=81=93:
->  >>>> Call force_sig(SIGBUS) directly in ghes_do_proc() is not my favouri=
-te,
->  >>>> but I can bear that, please add
->  >>>>
->  >>>> Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
->  >>>>
->  >>>> Thanks
->  >>>> Hanjun
->  >>>
->  >>> Thanks. Hanjun.
->  >>>
->  >>> @Rafael, @Catalin,
->  >>>
->  >>> Both patch 1 and 2 have reviewed-by tag from the arm64 ACPI
-> maintainers, Hanjun,
->  >>> now. Are you happpy to pick and queue this patch set to acpi tree
-> or arm tree?
->  >>
->  >> Since this primarily touches drivers/acpi/apei/ghes.c, I think it sho=
-uld
->  >> go via the ACPI tree and not the arm64 one.
->  >>
->  >> Will
->  >
->  >Hi, Will,
->  >
->  >Thank you for your confirmation :)
->  >
->  >@Rafael, do you have more comments on this patch set?
->  >
->  >Thanks you.
->  >
->  >Best Regards,
->  >Shuai
->
-> Hi, all,
->
-> Gentle ping.
->
-> Does ACPI or APEI tree still active? Looking forward to any response.
+On Tue, Jun 24, 2025 at 11:25:49PM +0800, Xavier Xia wrote:
+> This commit optimizes the contpte_ptep_get and contpte_ptep_get_lockless
+> function by adding early termination logic. It checks if the dirty and
+> young bits of orig_pte are already set and skips redundant bit-setting
+> operations during the loop. This reduces unnecessary iterations and
+> improves performance.
+> 
+> In order to verify the optimization performance, a test function has been
+> designed. The function's execution time and instruction statistics have
+> been traced using perf, and the following are the operation results on a
+> certain Qualcomm mobile phone chip:
+> 
+> Test Code:
+> 	#include <stdlib.h>
+> 	#include <sys/mman.h>
+> 	#include <stdio.h>
+> 
+> 	#define PAGE_SIZE 4096
+> 	#define CONT_PTES 16
+> 	#define TEST_SIZE (4096* CONT_PTES * PAGE_SIZE)
+> 	#define YOUNG_BIT 8
+> 	void rwdata(char *buf)
+> 	{
+> 		for (size_t i = 0; i < TEST_SIZE; i += PAGE_SIZE) {
+> 			buf[i] = 'a';
+> 			volatile char c = buf[i];
+> 		}
+> 	}
+> 	void clear_young_dirty(char *buf)
+> 	{
+> 		if (madvise(buf, TEST_SIZE, MADV_FREE) == -1) {
+> 			perror("madvise free failed");
+> 			free(buf);
+> 			exit(EXIT_FAILURE);
+> 		}
+> 		if (madvise(buf, TEST_SIZE, MADV_COLD) == -1) {
+> 			perror("madvise free failed");
+> 			free(buf);
+> 			exit(EXIT_FAILURE);
+> 		}
+> 	}
+> 	void set_one_young(char *buf)
+> 	{
+> 		for (size_t i = 0; i < TEST_SIZE; i += CONT_PTES * PAGE_SIZE) {
+> 			volatile char c = buf[i + YOUNG_BIT * PAGE_SIZE];
+> 		}
+> 	}
+> 
+> 	void test_contpte_perf() {
+> 		char *buf;
+> 		int ret = posix_memalign((void **)&buf, CONT_PTES * PAGE_SIZE,
+> 				TEST_SIZE);
+> 		if ((ret != 0) || ((unsigned long)buf % CONT_PTES * PAGE_SIZE)) {
+> 			perror("posix_memalign failed");
+> 			exit(EXIT_FAILURE);
+> 		}
+> 
+> 		rwdata(buf);
+> 	#if TEST_CASE2 || TEST_CASE3
+> 		clear_young_dirty(buf);
+> 	#endif
+> 	#if TEST_CASE2
+> 		set_one_young(buf);
+> 	#endif
+> 
+> 		for (int j = 0; j < 500; j++) {
+> 			mlock(buf, TEST_SIZE);
+> 
+> 			munlock(buf, TEST_SIZE);
+> 		}
+> 		free(buf);
+> 	}
+> 
+> 	int main(void) 
+> 	{
+> 		test_contpte_perf();
+> 		return 0;
+> 	}
+> 
+> 	Descriptions of three test scenarios
+> 
+> Scenario 1
+> 	The data of all 16 PTEs are both dirty and young.
+> 	#define TEST_CASE2 0
+> 	#define TEST_CASE3 0
+> 
+> Scenario 2
+> 	Among the 16 PTEs, only the 8th one is young, and there are no dirty ones.
+> 	#define TEST_CASE2 1
+> 	#define TEST_CASE3 0
+> 
+> Scenario 3
+> 	Among the 16 PTEs, there are neither young nor dirty ones.
+> 	#define TEST_CASE2 0
+> 	#define TEST_CASE3 1
+> 
+> Test results
+> 
+> |Scenario 1         |       Original|       Optimized|
+> |-------------------|---------------|----------------|
+> |instructions       |    37912436160|     18731580031|
+> |test time          |         4.2797|          2.2949|
+> |overhead of        |               |                |
+> |contpte_ptep_get() |         21.31%|           4.80%|
+> 
+> |Scenario 2         |       Original|       Optimized|
+> |-------------------|---------------|----------------|
+> |instructions       |    36701270862|     36115790086|
+> |test time          |         3.2335|          3.0874|
+> |Overhead of        |               |                |
+> |contpte_ptep_get() |         32.26%|          33.57%|
+> 
+> |Scenario 3         |       Original|       Optimized|
+> |-------------------|---------------|----------------|
+> |instructions       |    36706279735|     36750881878|
+> |test time          |         3.2008|          3.1249|
+> |Overhead of        |               |                |
+> |contpte_ptep_get() |         31.94%|          34.59%|
+> 
+> For Scenario 1, optimized code can achieve an instruction benefit of 50.59%
+> and a time benefit of 46.38%.
+> For Scenario 2, optimized code can achieve an instruction count benefit of
+> 1.6% and a time benefit of 4.5%.
+> For Scenario 3, since all the PTEs have neither the young nor the dirty
+> flag, the branches taken by optimized code should be the same as those of
+> the original code. In fact, the test results of optimized code seem to be
+> closer to those of the original code.
+> 
+> Ryan re-ran these tests on Apple M2 with 4K base pages + 64K mTHP.
+> 
+> Scenario 1: reduced to 56% of baseline execution time
+> Scenario 2: reduced to 89% of baseline execution time
+> Scenario 3: reduced to 91% of baseline execution time
 
-For APEI changes, you need an ACK from one of the reviewers listed in
-the MAINTAINERS entry for APEI.
+Still not keen on microbenchmarks to justify such change but at least
+the code is more readable than the macro approach in some earlier
+version.
 
-Thanks!
+Do you have any numbers to see how it compares with your v1:
+
+https://lore.kernel.org/all/20250407092243.2207837-1-xavier_qy@163.com/
+
+That patch was a lot simpler.
+
+Thanks.
+
+-- 
+Catalin
 
