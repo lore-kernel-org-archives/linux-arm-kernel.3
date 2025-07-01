@@ -4,54 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B42C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 15:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F8EC83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 15:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WefBErHZABYJbyvow9qkcO6wO4cRNKslhop/LhxBzFU=; b=jveBvOMhDzh+fWrSPuDDsH8sN4
-	i3K7hyEJPAlLrR6m/iWpGPIJ+vFR6PBle5xhvVY3nAMwzIY0Grrm1C8YFZ9tD5gqKJUlweeiPtG5y
-	hme2hWEVM/0pXHz5ttWakIhSKIMaw+pRD4KmNa0LUSbnmLEBmiwIieWYLAXGJ6rOu3KXweMS3xVVU
-	J9kCxdXvllRjhoe/ebB42I8TEi97vYA0HNXqQA2Wc1a9+yQ+uMROw+K56bWhREKEwp0FwT+ZX909q
-	vzVs7L2e6fW7KTYcyp9U5hBzVE5YJdAVf0ZeP6tKlOpsWHe8P/h1KEAOJSpTYuKIbe9CALzziTn92
-	R0UJH6Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KJpecS12lbKzjRGPrxoaE9MzBreHsMWfBDP3AuxTnA8=; b=4OZv9QyOkjvwfUL7x+2P7bcVsP
+	3qnN/E4ww+KG9W2GkcqT+bvBQXprjl644odOikM+MP4MdHm7plX7Zocr09gdcIKuDt3/SeCENs4t9
+	of/uvyh7kLVeLzUFaA9ah+MMkgIlP/bw8GCG6Ms0kCsrnNusCp8ru0M3UPmO47g+2ciD89Kdbh51P
+	vMd0BR9sGsVB8oP309AsWNSSzJCLc06XMxCsu4/vd6q2mF5t4pYh/Slfups50sjmc8xZnqA3xVa43
+	oaphqhv8b+8eaYgZyj1gyd/GEsOKpZp9xXbvJ7vQUXs1qU30vBm4Obx+k3mIC24xj1k0gr8uvTzdG
+	C2zFL79w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWd4h-00000005uou-1WgM;
-	Tue, 01 Jul 2025 15:39:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWbTW-00000005bgB-149u
+	id 1uWd70-00000005v8K-2tbh;
+	Tue, 01 Jul 2025 15:41:34 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWbTo-00000005bjx-23tp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 13:56:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 88F872D8E;
-	Tue,  1 Jul 2025 06:56:26 -0700 (PDT)
-Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D7FA3F58B;
-	Tue,  1 Jul 2025 06:56:40 -0700 (PDT)
-From: Dave Martin <Dave.Martin@arm.com>
-To: linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Kees Cook <kees@kernel.org>,
-	Akihiko Odaki <akihiko.odaki@daynix.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 06/23] arm64: ptrace: Use USER_REGSET_NOTE_TYPE() to specify regset note names
-Date: Tue,  1 Jul 2025 14:55:59 +0100
-Message-Id: <20250701135616.29630-7-Dave.Martin@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250701135616.29630-1-Dave.Martin@arm.com>
-References: <20250701135616.29630-1-Dave.Martin@arm.com>
+	Tue, 01 Jul 2025 13:57:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=diT5Y/AUt/VZZsise4IuGKMsVwJ9VTv26FqbHGa90FwtKSuRlIHGKEa/2lSotpAGGz+k3N1aa8DDnDxEF3lJdn2zxLH24P35XfcSi0GQ3tDdUAlCGZDgkO5zeVtdW7ZhE4JmP3H8fy3yuv2GZ4XQMfMKwe2FA2F/TsSIdUSEzIGXRfV8qyd95+4fOztLO1FeQLASJB/6S8b+dKvgSXkouFYpFNxABvf4Ha74ZCqZpEwevGSH22sS57p+mgvovA8HJxRURcmb0Jnt7RbJ/6qdBLsyZDZ5BoVWGnfwBdzg3LL+1nKqiEirl0qfeqJKpUGnt3D6GLPfriS7POsUu0ATZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KJpecS12lbKzjRGPrxoaE9MzBreHsMWfBDP3AuxTnA8=;
+ b=DpIgtEQPzAa6QHGNQa26O6iaxiac5RBsOzwB0vHaVrtI5wl89JoMcp2L88NwDk1G7AYquDna/axGjCJX1SyMHFoQeu2ErqDaqmdqh/OYExrm44wZLnc1l7GP9tebVjdtd9gL1h8Es6qkr4TetIyl8kVGn1KrllVC76AElH5SwwyZrtjmFVBTSRPV3Hz79juJ6E6I/iJakylzYJjhqtdOs4pks/sub9O0YerLp4DT3hYD58BrOz1j4Kd8V97pueV6OVcRCr/LTZG7r2TpWzgBX/imCbNTijKNeVodYkBgKLlUPYdiZKDtN2TDGTv5eSSmCzv1zKQhDP82SHXHvzYdKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KJpecS12lbKzjRGPrxoaE9MzBreHsMWfBDP3AuxTnA8=;
+ b=DnqjkjwUtDXe1jlsCRf0FC6MS+z68gG8B7CEN1aR9K95D/qLDHvP6ctZjb8yrs8cU9Q3wsaRW+DE28xq28s8b/PcDM654ZaPI5k/MkjF/TYiuu0N/Ag9pTT9IPdaAy6v/X3mXOjtwS6CyIni7JaRaKGWzQoaNazwcgbL314IdvlUrp58pKhrVV43jYBpkZg9W3DyHVEgwD3AZAvYYQOdkrVQZFzlPRG8opB3O6ioyJD3vqVpBbUrZeydSeOi8ECBRMe/BINkuHuGcsGRo1+q+/Na/jZjfJKYUi5aGhl6xmm5HovDoC/Z7zUPyTPShm1t6Zn/6dSRtQlryhXwH7kvBQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DU4PR04MB10597.eurprd04.prod.outlook.com (2603:10a6:10:581::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.31; Tue, 1 Jul
+ 2025 13:56:54 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%6]) with mapi id 15.20.8880.029; Tue, 1 Jul 2025
+ 13:56:54 +0000
+Date: Tue, 1 Jul 2025 23:07:35 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Dhruva Gole <d-gole@ti.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>,
+	Chuck Cannon <chuck.cannon@nxp.com>
+Subject: Re: [PATCH 2/2] firmware: arm_scmi: power_control: Set
+ SCMI_SYSPOWER_IDLE in pm resume
+Message-ID: <20250701150735.GD20538@nxa18884-linux>
+References: <20250620-scmi-pm-v1-0-c2f02cae5122@nxp.com>
+ <20250620-scmi-pm-v1-2-c2f02cae5122@nxp.com>
+ <20250623125750.kzwndmcf5yo3siao@lcpd911>
+ <20250623142957.GA10415@nxa18884-linux>
+ <20250623-organic-foamy-tamarin-fefa30@sudeepholla>
+ <PAXPR04MB8459E323E3C77A96272BC1728878A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250624-agile-moth-of-blizzard-c7babf@sudeepholla>
+ <20250624145807.GA14878@nxa18884-linux>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250624145807.GA14878@nxa18884-linux>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: MA1PR01CA0163.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:71::33) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DU4PR04MB10597:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0d03becd-117d-438f-1175-08ddb8a72323
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|19092799006|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vByFnkm+GaWB25+3c6m/hbgUCgUsmVZOj+95G0bCuwa/BOgQqQLA8z2shfO+?=
+ =?us-ascii?Q?r73SRB3k6I9HCw64OzM+W1eWXVBj8iQZpm7FQsPKSuxZwMSY5EzThbvu5ues?=
+ =?us-ascii?Q?LfiOJlPZpqhEkGuN8jjprrj6N1LX/NSW1A1yY8ikN6JB3bxhCYLpMlXjt+J+?=
+ =?us-ascii?Q?45ow7sA5WWC7QhKMaLm7YP1u6BLlLNRLAuHcaKsyf5LCEUdEmjVCwyH7K3DX?=
+ =?us-ascii?Q?9Cm2IOkjNDTwAz50OzrMCjLWm8O5l6yYFmpSRvdj7d0pyf44Lg7No4PbbOu6?=
+ =?us-ascii?Q?T/JZev56bj1aYOaQZKwmsrgMal2jV7nY0ZQJqETa2OBBqyVzdp9OwZ0Gym9d?=
+ =?us-ascii?Q?Uvqr1B3U+1jjZI77GXyQVjm6f9ctnrRZCTlsgbjbsYB9vdljqqnxlAHnTp9D?=
+ =?us-ascii?Q?/Wp1Br/o9ij6zAUHxlBMvYi1GTTErAuJfKI6HfeUQasUNMd9Rggrtn+rXf4g?=
+ =?us-ascii?Q?8Xc36mZxbGdyRr/nI97+qX1Y1HV0yk/Ok1fVDmSMXBS+WMEd2CCp2eYyOstA?=
+ =?us-ascii?Q?etq8ef99efVEcupU+FHWpjWrUSs1dB98BziyyJC6jizMg7tgSfM/2jtjgzV8?=
+ =?us-ascii?Q?X/BxvBE9767EUBhrqomN8EsR/BTU9y5xger3oHVTah6aD5m29j0cGH+6GBbg?=
+ =?us-ascii?Q?f0CqiPmMvlJtmyaEe1cwaJlYIX5DTMrxO/FrUFg2CthkLxi06Go0Vedrg1Sv?=
+ =?us-ascii?Q?iJfZtO/08l6ksrzvt1hT6wMxjzRviRm+AwrkipGGT6ZLUuCLQ3BjZ0jdjvMR?=
+ =?us-ascii?Q?U8q3GY98c6DdJ1k11LS0lWIEY9yIwg8w8Y7uhTiMB9YazWCroIgolnTwexcR?=
+ =?us-ascii?Q?KB3dpW9wT+qd7nr3ZpqN31s6Dt0xo7VDu/zrWaEIkdxVpfUcEf7qOjAuV+TF?=
+ =?us-ascii?Q?tsIlRdQyNtfPZq6ZpC8EMmpBeqMZe/7YD847MRY3HmXz4A3KotFEEYMrQ6Oh?=
+ =?us-ascii?Q?sUIsktHgvR9mdFmoFPqWPne56Q+FpDhIgSm4kBTopD85ibah1Q82stbYReyN?=
+ =?us-ascii?Q?dGF1tIXxQQOo/GAoSaZnJlOkvc7c9FEZfXt5r7n3e8ZNerlhRbXtpbFdg3CO?=
+ =?us-ascii?Q?IonZ5CKYKsmqLrdkqzVeyBgTPFiLlvYiHtK/fncBanct7C+r7x/iXHFZoXFR?=
+ =?us-ascii?Q?gWzkS/z1qRtYNUVOrOqLRNH0KiCVhJ91YHSpmK2xb8ixrfd/CL3KWghpksIN?=
+ =?us-ascii?Q?UtF/bSAt2Wm14zLGMwCLypLqungCmmz2Ol4z8JlWGt2WtIZjJxpujHG19Wtt?=
+ =?us-ascii?Q?JTkDzbNL/2oQNvHkRN1J0CovV4GSNmooFIsHq3ZCuP9MHBsBq57x/1xL8XGB?=
+ =?us-ascii?Q?Bn9zdflGFo+DqCicxLDOBEX69yRSvLb15+/a90Ce9dcBIDxKJ0Op5y1TSc8Q?=
+ =?us-ascii?Q?qOSqzacaMySlnBjnnGaxqE6rIXv3hcOo2QIQJ3V4kCnhGUvK9S1A/6FJZXjj?=
+ =?us-ascii?Q?QrHJcvybZL63c4nD6dc92Yd1gE2bB0OjuhxrxD+4i/5zAAxH+ufY9Q=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pQTXShlLiJktlvIpKh+3RfMq7pS9V2L85D0rm1z/zFYCb+AszxetIKv3kXP1?=
+ =?us-ascii?Q?gO2nXDIncMKvNTJMvkB0c0u5dqwUEUpGUNT22sD+V+BK+HOG/x4N4jOgoSiQ?=
+ =?us-ascii?Q?TMSZOtUkJKfI7cX5SkRv05erCl/WI3UXG/UxC5TKCqLLRY0K4bUS1EI62zeG?=
+ =?us-ascii?Q?0o1lHwH9zpLfMu5w8a9R38E2b9qhqebRnyHts9VSGicSoUWWVsZYFYEqkxb0?=
+ =?us-ascii?Q?gBy0R+MOU3Q+LtmGsLlinV4Jlcyi5IIbstpmG4gNHg1/NTK39lEvD43y5Y3b?=
+ =?us-ascii?Q?83EMsxcW+PJQzlv9wFqLNN/yb2XDjmlFwOvIpLu6aIZaVzRMAVI/YuLzNE9+?=
+ =?us-ascii?Q?6Fyg8pABtV0EIlxQkjqU12QeNr1GXuGpqxfwWH9LrOjP7AFT/rsMyG6WljLU?=
+ =?us-ascii?Q?G/oqXeOAvTl0edVqqCirEUYbFQlC4pQbXnFw2gmXgdJH2+qkCNWRYwPzz8gW?=
+ =?us-ascii?Q?viEfuixXH86D5jRdsKguoKjr7veVG5vr7BmBebYxGgbprW0C55WC72iF2O1W?=
+ =?us-ascii?Q?i3/KiTDeS3y9YYga0tTyK97pGHsMj/bFStfCVspl6/opbARAscTLB/HWOdeu?=
+ =?us-ascii?Q?ELzzkKK05YDSjH1EWBCGuz2g0BjeenOkHU3snF7zXytzX2kuI+H+adz0UA8v?=
+ =?us-ascii?Q?NuVDEwNcehdFbfkxv2l2Ogi0Yuu+m5R9VAgF60i6iyhKkt7YWJ2zrguR45cU?=
+ =?us-ascii?Q?d45vLW1BbOt2ewKIXlrxWM0FScO8yKOfxyy/1cRae6EYWTbpKOZG5MZztOpi?=
+ =?us-ascii?Q?oEJ9zwn28Vh+PuQXSaxkpRivADVOAfkwYR4YQKz6biRwW4LSrIjsmspJbUUf?=
+ =?us-ascii?Q?o97Wz6VinR/1FsHQRTxDv02bbG68kEFOiTKt1SXtl6UH6t1xw8Yp+p1FUHYz?=
+ =?us-ascii?Q?NtRyx5PgOkD0gzndyGNqz0KBi1xwpmPqOC8a3XxBTjIO4fYS38NaEFO3b37+?=
+ =?us-ascii?Q?NO58oc1J9qAJR7A2AhmQDZ1SRIZoufPrkS5wV+Enx/VHdrNWea3zEN7JCd6h?=
+ =?us-ascii?Q?I9oqtSDPua1wPtNHeDfG9vkFy0z5foLQOb0o/4slgKsSKVsKAUjYxkt+vrKn?=
+ =?us-ascii?Q?0MjMeAWeQiOQJ+gIEqB9p5NSNAMe2mxDKG5RyzdwhqCj1KZ2aev62SwdCvz8?=
+ =?us-ascii?Q?g0T+cJ2K2FrHWDEV21o/PZcb+PIrlgw5tsJM4T9DE3XtpkVXnblG1v2yppI0?=
+ =?us-ascii?Q?SODEEBBevZun0o3eK9PT8WmfwT3/ax62UHPkeD4B8ZcP5uHOHwxwYTeMuwC8?=
+ =?us-ascii?Q?Qh2cXMBB46kIRyVZfPqFITeFeEUkwqayH0IkQp5uCi5gtCZlK8dAnqNbQXh3?=
+ =?us-ascii?Q?rUQZvnLL+DXSWtBn6UXJWZ7vya+M4/7YLAkqxzAoQ/pXVvtnytEZ18f9nnFH?=
+ =?us-ascii?Q?+5oOHjX2VrCaBIdbk4ttY2I4mg2dwGFEQcnD3Zene8e7EgN9QEnZ+4HbEJxT?=
+ =?us-ascii?Q?GjXpypUpzp7GWd+SSFjiufvXF97e05VPdhr6vwgjIlSp+ki9yf8yez4SaGdu?=
+ =?us-ascii?Q?HF0c8m89xfumaHqrnIA8hrcko+4MZdQ6Dro39hWcT0WHs0y7QTH1jluwfl2X?=
+ =?us-ascii?Q?zVyUiwUhbelIjBpKLuqyF4EYWrghg7tPk7yceXum?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d03becd-117d-438f-1175-08ddb8a72323
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2025 13:56:54.6729
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Jz+vxnhM4NSmacn0kqgZZTs2VMS+XNlVazn1UPJVsWIRq5Lf73ZOHepz2/vuN5QaRUGIguJt6e6bWjaZi8DwSA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10597
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_065642_383021_B80C813D 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20250701_065700_535369_2C315C37 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,263 +172,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of having the core code guess the note name for each regset,
-use USER_REGSET_NOTE_TYPE() to pick the correct name from elf.h.
+Hi Sudeep,
 
-This does not affect the correctness of switch(note_type) and similar
-code, since note type values known to Linux for coredump purposes were
-already required to be unique.
+On Tue, Jun 24, 2025 at 10:58:07PM +0800, Peng Fan wrote:
+>On Tue, Jun 24, 2025 at 11:21:52AM +0100, Sudeep Holla wrote:
+>>On Tue, Jun 24, 2025 at 01:23:10AM +0000, Peng Fan wrote:
+>>> > 
+>>> > Just to summarise my understanding here at very high level, the issue
+>>> > exists as the second notification by an agent to the Linux to suspend
+>>> > the system wakes up the system from suspend state. Since the
+>>> > interrupts are enabled before the thaw_processes() (which eventually
+>>> > continues the execution of scmi_suspend_work_func() to set the state
+>>> > to SCMI_SYSPOWER_IDLE, the scmi_userspace_notifier() is executed
+>>> > much before and ends up ignoring the request as the state is still not
+>>> > set to SCMI_SYSPOWER_IDLE. There is a race which your patch is
+>>> > addressing.
+>>> 
+>>> Thanks for writing this down, It is very correct and clear.
+>>> 
+>>
+>>While I am not against adding bus PM ops as it can be useful elsewhere,
+>>just wonder if this usecase is a good use of it. Does setting the state
+>>before the pm_suspend() call suffice. I still need to think through the
+>>possible race with that solution, but just asking you to check if that
+>
+>There is race condition if setting the state to SCMI_SYSPOWER_IDLE before
+>pm_suspend.
+>
+>The 2nd suspend notification could runs into pm_suspend again
+>before pm_suspend update system_state to SYSTEM_SUSPEND, if my understanding
+>is correct.
+>
+>Per pm_suspend->enter_state,
+>"Make sure that no one else is trying to put the system into a sleep state",
+>not sure, but I think better not let pm_suspend to handle the race condition.
+>
+>Since syspower only has one per system(linux), the other approach is to
+>use syscore, but need a global variable for state in scmi_power_control.c,
+>because syscore_suspend/resume does not have parameter.
+>
+>we need to set state back to IDLE after linux wakeup and before kernel
+>thread scheduling. I only see two interfaces to achieve:
+>PM ops or syscore ops.
 
-Signed-off-by: Dave Martin <Dave.Martin@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Oleg Nesterov <oleg@redhat.com>
-Cc: Kees Cook <kees@kernel.org>
-Cc: Akihiko Odaki <akihiko.odaki@daynix.com>
-Cc: linux-arm-kernel@lists.infradead.org
----
- arch/arm64/kernel/ptrace.c | 52 +++++++++++++++++++-------------------
- 1 file changed, 26 insertions(+), 26 deletions(-)
+Not sure you have time to give a look. I plan to post V2 later this
+week. In V2, I would still use pm ops.
 
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index ee94b72bf8fb..4b001121c72d 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -1586,7 +1586,7 @@ enum aarch64_regset {
- 
- static const struct user_regset aarch64_regsets[] = {
- 	[REGSET_GPR] = {
--		.core_note_type = NT_PRSTATUS,
-+		USER_REGSET_NOTE_TYPE(PRSTATUS),
- 		.n = sizeof(struct user_pt_regs) / sizeof(u64),
- 		.size = sizeof(u64),
- 		.align = sizeof(u64),
-@@ -1594,7 +1594,7 @@ static const struct user_regset aarch64_regsets[] = {
- 		.set = gpr_set
- 	},
- 	[REGSET_FPR] = {
--		.core_note_type = NT_PRFPREG,
-+		USER_REGSET_NOTE_TYPE(PRFPREG),
- 		.n = sizeof(struct user_fpsimd_state) / sizeof(u32),
- 		/*
- 		 * We pretend we have 32-bit registers because the fpsr and
-@@ -1607,7 +1607,7 @@ static const struct user_regset aarch64_regsets[] = {
- 		.set = fpr_set
- 	},
- 	[REGSET_TLS] = {
--		.core_note_type = NT_ARM_TLS,
-+		USER_REGSET_NOTE_TYPE(ARM_TLS),
- 		.n = 2,
- 		.size = sizeof(void *),
- 		.align = sizeof(void *),
-@@ -1616,7 +1616,7 @@ static const struct user_regset aarch64_regsets[] = {
- 	},
- #ifdef CONFIG_HAVE_HW_BREAKPOINT
- 	[REGSET_HW_BREAK] = {
--		.core_note_type = NT_ARM_HW_BREAK,
-+		USER_REGSET_NOTE_TYPE(ARM_HW_BREAK),
- 		.n = sizeof(struct user_hwdebug_state) / sizeof(u32),
- 		.size = sizeof(u32),
- 		.align = sizeof(u32),
-@@ -1624,7 +1624,7 @@ static const struct user_regset aarch64_regsets[] = {
- 		.set = hw_break_set,
- 	},
- 	[REGSET_HW_WATCH] = {
--		.core_note_type = NT_ARM_HW_WATCH,
-+		USER_REGSET_NOTE_TYPE(ARM_HW_WATCH),
- 		.n = sizeof(struct user_hwdebug_state) / sizeof(u32),
- 		.size = sizeof(u32),
- 		.align = sizeof(u32),
-@@ -1633,7 +1633,7 @@ static const struct user_regset aarch64_regsets[] = {
- 	},
- #endif
- 	[REGSET_SYSTEM_CALL] = {
--		.core_note_type = NT_ARM_SYSTEM_CALL,
-+		USER_REGSET_NOTE_TYPE(ARM_SYSTEM_CALL),
- 		.n = 1,
- 		.size = sizeof(int),
- 		.align = sizeof(int),
-@@ -1641,7 +1641,7 @@ static const struct user_regset aarch64_regsets[] = {
- 		.set = system_call_set,
- 	},
- 	[REGSET_FPMR] = {
--		.core_note_type = NT_ARM_FPMR,
-+		USER_REGSET_NOTE_TYPE(ARM_FPMR),
- 		.n = 1,
- 		.size = sizeof(u64),
- 		.align = sizeof(u64),
-@@ -1650,7 +1650,7 @@ static const struct user_regset aarch64_regsets[] = {
- 	},
- #ifdef CONFIG_ARM64_SVE
- 	[REGSET_SVE] = { /* Scalable Vector Extension */
--		.core_note_type = NT_ARM_SVE,
-+		USER_REGSET_NOTE_TYPE(ARM_SVE),
- 		.n = DIV_ROUND_UP(SVE_PT_SIZE(ARCH_SVE_VQ_MAX,
- 					      SVE_PT_REGS_SVE),
- 				  SVE_VQ_BYTES),
-@@ -1662,7 +1662,7 @@ static const struct user_regset aarch64_regsets[] = {
- #endif
- #ifdef CONFIG_ARM64_SME
- 	[REGSET_SSVE] = { /* Streaming mode SVE */
--		.core_note_type = NT_ARM_SSVE,
-+		USER_REGSET_NOTE_TYPE(ARM_SSVE),
- 		.n = DIV_ROUND_UP(SVE_PT_SIZE(SME_VQ_MAX, SVE_PT_REGS_SVE),
- 				  SVE_VQ_BYTES),
- 		.size = SVE_VQ_BYTES,
-@@ -1671,7 +1671,7 @@ static const struct user_regset aarch64_regsets[] = {
- 		.set = ssve_set,
- 	},
- 	[REGSET_ZA] = { /* SME ZA */
--		.core_note_type = NT_ARM_ZA,
-+		USER_REGSET_NOTE_TYPE(ARM_ZA),
- 		/*
- 		 * ZA is a single register but it's variably sized and
- 		 * the ptrace core requires that the size of any data
-@@ -1687,7 +1687,7 @@ static const struct user_regset aarch64_regsets[] = {
- 		.set = za_set,
- 	},
- 	[REGSET_ZT] = { /* SME ZT */
--		.core_note_type = NT_ARM_ZT,
-+		USER_REGSET_NOTE_TYPE(ARM_ZT),
- 		.n = 1,
- 		.size = ZT_SIG_REG_BYTES,
- 		.align = sizeof(u64),
-@@ -1697,7 +1697,7 @@ static const struct user_regset aarch64_regsets[] = {
- #endif
- #ifdef CONFIG_ARM64_PTR_AUTH
- 	[REGSET_PAC_MASK] = {
--		.core_note_type = NT_ARM_PAC_MASK,
-+		USER_REGSET_NOTE_TYPE(ARM_PAC_MASK),
- 		.n = sizeof(struct user_pac_mask) / sizeof(u64),
- 		.size = sizeof(u64),
- 		.align = sizeof(u64),
-@@ -1705,7 +1705,7 @@ static const struct user_regset aarch64_regsets[] = {
- 		/* this cannot be set dynamically */
- 	},
- 	[REGSET_PAC_ENABLED_KEYS] = {
--		.core_note_type = NT_ARM_PAC_ENABLED_KEYS,
-+		USER_REGSET_NOTE_TYPE(ARM_PAC_ENABLED_KEYS),
- 		.n = 1,
- 		.size = sizeof(long),
- 		.align = sizeof(long),
-@@ -1714,7 +1714,7 @@ static const struct user_regset aarch64_regsets[] = {
- 	},
- #ifdef CONFIG_CHECKPOINT_RESTORE
- 	[REGSET_PACA_KEYS] = {
--		.core_note_type = NT_ARM_PACA_KEYS,
-+		USER_REGSET_NOTE_TYPE(ARM_PACA_KEYS),
- 		.n = sizeof(struct user_pac_address_keys) / sizeof(__uint128_t),
- 		.size = sizeof(__uint128_t),
- 		.align = sizeof(__uint128_t),
-@@ -1722,7 +1722,7 @@ static const struct user_regset aarch64_regsets[] = {
- 		.set = pac_address_keys_set,
- 	},
- 	[REGSET_PACG_KEYS] = {
--		.core_note_type = NT_ARM_PACG_KEYS,
-+		USER_REGSET_NOTE_TYPE(ARM_PACG_KEYS),
- 		.n = sizeof(struct user_pac_generic_keys) / sizeof(__uint128_t),
- 		.size = sizeof(__uint128_t),
- 		.align = sizeof(__uint128_t),
-@@ -1733,7 +1733,7 @@ static const struct user_regset aarch64_regsets[] = {
- #endif
- #ifdef CONFIG_ARM64_TAGGED_ADDR_ABI
- 	[REGSET_TAGGED_ADDR_CTRL] = {
--		.core_note_type = NT_ARM_TAGGED_ADDR_CTRL,
-+		USER_REGSET_NOTE_TYPE(ARM_TAGGED_ADDR_CTRL),
- 		.n = 1,
- 		.size = sizeof(long),
- 		.align = sizeof(long),
-@@ -1743,7 +1743,7 @@ static const struct user_regset aarch64_regsets[] = {
- #endif
- #ifdef CONFIG_ARM64_POE
- 	[REGSET_POE] = {
--		.core_note_type = NT_ARM_POE,
-+		USER_REGSET_NOTE_TYPE(ARM_POE),
- 		.n = 1,
- 		.size = sizeof(long),
- 		.align = sizeof(long),
-@@ -1753,7 +1753,7 @@ static const struct user_regset aarch64_regsets[] = {
- #endif
- #ifdef CONFIG_ARM64_GCS
- 	[REGSET_GCS] = {
--		.core_note_type = NT_ARM_GCS,
-+		USER_REGSET_NOTE_TYPE(ARM_GCS),
- 		.n = sizeof(struct user_gcs) / sizeof(u64),
- 		.size = sizeof(u64),
- 		.align = sizeof(u64),
-@@ -1943,7 +1943,7 @@ static int compat_tls_set(struct task_struct *target,
- 
- static const struct user_regset aarch32_regsets[] = {
- 	[REGSET_COMPAT_GPR] = {
--		.core_note_type = NT_PRSTATUS,
-+		USER_REGSET_NOTE_TYPE(PRSTATUS),
- 		.n = COMPAT_ELF_NGREG,
- 		.size = sizeof(compat_elf_greg_t),
- 		.align = sizeof(compat_elf_greg_t),
-@@ -1951,7 +1951,7 @@ static const struct user_regset aarch32_regsets[] = {
- 		.set = compat_gpr_set
- 	},
- 	[REGSET_COMPAT_VFP] = {
--		.core_note_type = NT_ARM_VFP,
-+		USER_REGSET_NOTE_TYPE(ARM_VFP),
- 		.n = VFP_STATE_SIZE / sizeof(compat_ulong_t),
- 		.size = sizeof(compat_ulong_t),
- 		.align = sizeof(compat_ulong_t),
-@@ -1968,7 +1968,7 @@ static const struct user_regset_view user_aarch32_view = {
- 
- static const struct user_regset aarch32_ptrace_regsets[] = {
- 	[REGSET_GPR] = {
--		.core_note_type = NT_PRSTATUS,
-+		USER_REGSET_NOTE_TYPE(PRSTATUS),
- 		.n = COMPAT_ELF_NGREG,
- 		.size = sizeof(compat_elf_greg_t),
- 		.align = sizeof(compat_elf_greg_t),
-@@ -1976,7 +1976,7 @@ static const struct user_regset aarch32_ptrace_regsets[] = {
- 		.set = compat_gpr_set
- 	},
- 	[REGSET_FPR] = {
--		.core_note_type = NT_ARM_VFP,
-+		USER_REGSET_NOTE_TYPE(ARM_VFP),
- 		.n = VFP_STATE_SIZE / sizeof(compat_ulong_t),
- 		.size = sizeof(compat_ulong_t),
- 		.align = sizeof(compat_ulong_t),
-@@ -1984,7 +1984,7 @@ static const struct user_regset aarch32_ptrace_regsets[] = {
- 		.set = compat_vfp_set
- 	},
- 	[REGSET_TLS] = {
--		.core_note_type = NT_ARM_TLS,
-+		USER_REGSET_NOTE_TYPE(ARM_TLS),
- 		.n = 1,
- 		.size = sizeof(compat_ulong_t),
- 		.align = sizeof(compat_ulong_t),
-@@ -1993,7 +1993,7 @@ static const struct user_regset aarch32_ptrace_regsets[] = {
- 	},
- #ifdef CONFIG_HAVE_HW_BREAKPOINT
- 	[REGSET_HW_BREAK] = {
--		.core_note_type = NT_ARM_HW_BREAK,
-+		USER_REGSET_NOTE_TYPE(ARM_HW_BREAK),
- 		.n = sizeof(struct user_hwdebug_state) / sizeof(u32),
- 		.size = sizeof(u32),
- 		.align = sizeof(u32),
-@@ -2001,7 +2001,7 @@ static const struct user_regset aarch32_ptrace_regsets[] = {
- 		.set = hw_break_set,
- 	},
- 	[REGSET_HW_WATCH] = {
--		.core_note_type = NT_ARM_HW_WATCH,
-+		USER_REGSET_NOTE_TYPE(ARM_HW_WATCH),
- 		.n = sizeof(struct user_hwdebug_state) / sizeof(u32),
- 		.size = sizeof(u32),
- 		.align = sizeof(u32),
-@@ -2010,7 +2010,7 @@ static const struct user_regset aarch32_ptrace_regsets[] = {
- 	},
- #endif
- 	[REGSET_SYSTEM_CALL] = {
--		.core_note_type = NT_ARM_SYSTEM_CALL,
-+		USER_REGSET_NOTE_TYPE(ARM_SYSTEM_CALL),
- 		.n = 1,
- 		.size = sizeof(int),
- 		.align = sizeof(int),
--- 
-2.34.1
+Thanks,
+Peng
 
+>
+>Thanks,
+>Peng
+>
+>
+>>helps.
+>>
+>>-- 
+>>Regards,
+>>Sudeep
 
