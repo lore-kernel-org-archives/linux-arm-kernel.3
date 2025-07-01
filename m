@@ -4,86 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7494C8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C3A3C8302F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 07:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pjEU9ubolXq6bNyzBdOl3AlCHglaTXh8+re7Vdnli3k=; b=I4HLpZ4AiyhACTVvQflOIgYZYL
-	7T8iUWq3hAMSGSbQb17qGV4gsEG2pd7nStQU9KTwGijXJk2offcXbazkMQRpnaEwWqSRAvtqcK1HL
-	DRc6rDwMx8A9rLK6dkpjBVZf8cX7yB5AMTKtyfdIR4rRW/af79dOk3uNn0xC/aQwNQFuFGxqUa8rp
-	BQRGxOTdQsTM8y/GTmC9//Zf+6D4dxx4GgIaF1rPlPATLrTtamkhH8ddriTsthJodU6eztKLLEr89
-	rBYZ/ctoJC82Yytn+VQQsQfZnASuv+n55OQN6LcsoXLE4fHBS4N/yFuuzZtXuwg6YnNhq/psgxpYz
-	3+Ua2HUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=t6zEHMj5mdxiy0H/Ex5pSYfUMyIDT87DlhMkRAKVdfc=; b=1jJ0ojRJ+0DO2gSUiUVWI0E2W8
+	IzXurESw1LNXKr2wjNCRbKRhSLAOdLF/3p5Pvm8+OXqAtwEc1g3r1x9r+cDjxzgIEbC4MvVPVI3pr
+	R/e1djBn0M235Hf3asLml1/+S/3JsiCncOuf/6eoXyoi8Ez150vI3S/uk78gH8Z8pTd+J2VUI+c0M
+	qPyBTvhsPessk9T4y7hsjhQDVTZ9/X8+06yKXcjJkYK1PufgD5H6raBx7DpKi3JGDc1W8QNFgnHpO
+	L0vjYTA0R9XnEGY/ytE4B+bJPnT4OKjI4j2DOcW42KU0OfSVxpVs2RvWJPuL94NSA0ciyE8jAgsAe
+	zzzEaZ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWVin-00000004JRh-1ipf;
-	Tue, 01 Jul 2025 07:48:05 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uWVl7-00000004JpN-0X9s;
+	Tue, 01 Jul 2025 07:50:29 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWV9l-00000004EuU-36XU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 07:11:55 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5612IZfh012666;
-	Tue, 1 Jul 2025 09:11:37 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	pjEU9ubolXq6bNyzBdOl3AlCHglaTXh8+re7Vdnli3k=; b=Jn7H8vOcNMzX2slj
-	XzBW1YVZpqYxreG+phG/EWQUK5cjaSMAFvyr4ircFjTLgeyKt/K/GVEr9JmSJ7H+
-	sZ0DgzlhQ2WFAoKx1IXs9k4bktUtqGc18MBGdoNiEzPCWWQp4BZ/g7/rgiwwOVqT
-	XzRf3NYqKYM60MspwnJpyyBGLV1eyk04Aa0O7UFWXEjt+mnlXnUHfHsZLqUPPS3v
-	SHd2IL+MfukystmnC4Od8EGySAYy0Hv8ItD5EstgTqqcfEfG/0emb5z2TjW8nI1q
-	dtQzGNLKNIXjV7wTNqjZ2nbXLW7YGFK62EuOBrnheoU3cLfAoh7QBK09MaokwTFI
-	xRoIhg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47j7r637m7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 01 Jul 2025 09:11:37 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5F4CC40058;
-	Tue,  1 Jul 2025 09:10:30 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8B1A5B83746;
-	Tue,  1 Jul 2025 09:09:33 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 1 Jul
- 2025 09:09:32 +0200
-Message-ID: <cd2f6752-6d3a-4fca-93c5-70ad7529617f@foss.st.com>
-Date: Tue, 1 Jul 2025 09:09:32 +0200
+	id 1uWVSN-00000004H4V-0qzH;
+	Tue, 01 Jul 2025 07:31:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751355065;
+	bh=UEJCp0kLrVN60JijFimfY4cx5ReWcbWGz2tn84YNl9o=;
+	h=From:Date:Subject:To:Cc:From;
+	b=VJiOoAxvI4d6W5/5+ZhHQ/ernRfdMMl2DaI1jos8owUcBcjPsZwg9kLwsbJzujNbg
+	 OgchCqqWdUBrQALiSqnC2iode9QtODK8isPC9f5cf9nwOd+VsjTFjvQWXyak9os19N
+	 JwktkrHuxFrADF21STGu0v+kNwoqVEYzmyp65HXKcnPSnqXymBIU7lunzYhoBq5D4I
+	 Cjb13lDcn1o+Hs53HbnoFiFLxusMEL+5Lv9+J0o1+7V2Js/433DSYarEhgDaqDIBLR
+	 hEyrinptgSfMLmS3yti1R8jWLWDiQyhVofs7vxC9ZmiZlhAiWjvL8G5/0JoaJgEhkh
+	 /FvG2KYC5KynQ==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 82E7717E0342;
+	Tue,  1 Jul 2025 09:31:04 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Tue, 01 Jul 2025 09:30:40 +0200
+Subject: [PATCH] drm/mediatek: dsi: Fix DSI host and panel bridge
+ pre-enable order
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] spi: stm32: delete stray tabs in
- stm32h7_spi_data_idleness()
-To: Dan Carpenter <dan.carpenter@linaro.org>
-CC: Alain Volmat <alain.volmat@foss.st.com>, Mark Brown <broonie@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        <linux-spi@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <kernel-janitors@vger.kernel.org>
-References: <2033b9fa-7b0f-4617-b94e-7b0a51c5c4b1@sabinyo.mountain>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <2033b9fa-7b0f-4617-b94e-7b0a51c5c4b1@sabinyo.mountain>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-01_01,2025-06-27_01,2025-03-28_01
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250701-mediatek-drm-fix-dsi-panel-init-v1-1-7af4adb9fdeb@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAJ+OY2gC/zWNQQqDMBBFrxJm3YGo0YVXKS7GZGyHNtEmsQji3
+ RsqLt/n894OiaNwgl7tEPkrSeZQoLopsE8KD0ZxhaHWdau7RqNnJ5T5hS56nGRDlwQXCvxGCZK
+ xIjO2jbFGUwfFskQur3/hPpwc+bOWUD5HGCkx2tl7yb0KvGW8YjAcxw/h6vdiogAAAA==
+X-Change-ID: 20250630-mediatek-drm-fix-dsi-panel-init-1a4b534c40a6
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Aradhya Bhatia <a-bhatia1@ti.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Dmitry Baryshkov <lumag@kernel.org>, Maxime Ripard <mripard@kernel.org>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751355064; l=2696;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=UEJCp0kLrVN60JijFimfY4cx5ReWcbWGz2tn84YNl9o=;
+ b=OeqpFOdg0cEKjdsvCTKe8qTt2Imn73FY6gR8H8q+YymCd96FwzBIHhaQFOKIpSqxKMq4JJF0o
+ o1MhvzJiSwvDRRZOMy96lZNGYutb40j6mRzmLUdoIpxYeK82akXmJy9
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_001154_514913_974F88C8 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250701_003107_418776_942D4B8B 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,38 +91,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan,
+Since commit c9b1150a68d9 ("drm/atomic-helper: Re-order bridge chain
+pre-enable and post-disable"), the bridge pre_enable callbacks are now
+called before crtc enable, and the bridge post_disable callbacks after
+the crtc disable.
+In the mediatek-drm driver, this change leads to transfer errors on
+mtk_dsi_host_transfer callback processing during the panel bridge
+pre-enable sequence because the DSI host bridge pre_enable and CRTC
+enable sequences, that are enabling the required clocks and PHY using
+mtk_dsi_poweron function, are called after.
 
-Thank you.
+So, in order to fix this call order issue, request the DSI host bridge
+be pre-enabled before panel bridge by setting pre_enable_prev_first
+flag on DSI device bridge in the mtk_dsi_host_attach function.
 
+Fixes: c9b1150a68d9 ("drm/atomic-helper: Re-order bridge chain pre-enable and post-disable")
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+This patch fixes an issue that can be observed on boards such as
+MediatekGenio 1200-EVK or 350-EVK with a kernel based on linux-next
+(tag: next-20250635) since commit c9b1150a68d9 ("drm/atomic-helper:
+Re-order bridge chain pre-enable and post-disable"). 
+In boot logs, there are multiples errors such as IRQ timeouts and
+panel init errors, leading the DSI panel not being enabled: 
 
-On 6/30/25 21:35, Dan Carpenter wrote:
-> These lines were indented one tab more than they should be.  Delete
-> the stray tabs.
-> 
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->   drivers/spi/spi-stm32.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
-> index 3d20f09f1ae7..afb54198bde7 100644
-> --- a/drivers/spi/spi-stm32.c
-> +++ b/drivers/spi/spi-stm32.c
-> @@ -1895,8 +1895,8 @@ static void stm32h7_spi_data_idleness(struct stm32_spi *spi, struct spi_transfer
->   		if (spi_delay_ns) {
->   			dev_warn(spi->dev, "Overriding st,spi-midi-ns with word_delay_ns %d\n",
->   				 spi_delay_ns);
-> -				spi->cur_midi = spi_delay_ns;
-> -			}
-> +			spi->cur_midi = spi_delay_ns;
-> +		}
->   	} else {
->   		spi->cur_midi = spi_delay_ns;
->   	}
+Example on Genio 1200-EVK:
+```
+[drm] Wait DSI IRQ(0x00000002) Timeout
+panel-himax-hx8279 1c008000.dsi.0: sending generic data b0 05 failed:
+  -62
+[drm] Wait DSI IRQ(0x00000008) Timeout
+[drm:mtk_dsi_host_transfer [mediatek_drm]] *ERROR* failed to switch cmd
+ mode
+panel-himax-hx8279 1c008000.dsi.0: sending DCS SET_DISPLAY_ON failed:
+  -62
+```
+---
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Reviewed-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index d7726091819c4762698b41060b3d4d8d27940238..0e2bcd5f67b767d92f2697a5b8183f67ee178a38 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -1002,6 +1002,12 @@ static int mtk_dsi_host_attach(struct mipi_dsi_host *host,
+ 			return PTR_ERR(dsi->next_bridge);
+ 	}
+ 
++	/*
++	 * set flag to request the DSI host bridge be pre-enabled before device bridge
++	 * in the chain, so the DSI host is ready when the device bridge is pre-enabled
++	 */
++	dsi->next_bridge->pre_enable_prev_first = true;
++
+ 	drm_bridge_add(&dsi->bridge);
+ 
+ 	ret = component_add(host->dev, &mtk_dsi_component_ops);
+
+---
+base-commit: c6a68d8f7b81a6ce8962885408cc2d0c1f8b9470
+change-id: 20250630-mediatek-drm-fix-dsi-panel-init-1a4b534c40a6
 
 Best regards,
-Clément
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
