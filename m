@@ -4,63 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFBAC8302F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B86C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 08:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=82LbpV9DaMDVWHw9jhZbXMaoLgqeZK9pqo50tUUL8o8=; b=ESPQtlLcxBpRqk0Uzy1VUrQMME
-	o17gWC8u7Dcrrk1gzcdLtix7ss4Y/LhrHwacug+vxWxvohqn5b3TzxHsKmumksS3Rn1cIvwsUNgBH
-	N9WSE+NvmptkfgSvrC2wihE4seMRzPnuA5HnpVC+SioZvHDe/WxIVV1fWB9wf0BVmWHQ0uHJ9ZvtO
-	mIYxOaTEal9Swu1Vl9YGh8URSfI2iwwPRDpuBpsZczOmJ5wTGU3BEnP/UVe5EsgAzT5AZfoTqHh6K
-	d/Cc6zLgJRR8ED0kdU1FATWz1KMhd5kM4dM5nsWAO8HJ6BkrdoXhDqvT5S26yXuc3ok45M47GdOba
-	pPZkNRxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cJ9IFT68lA8/J2eQxYQuP+Uwy3wRf6BjYCLxc+kolCg=; b=lb7DSpcAUjUkjBdgFRtfKHlBXg
+	b2BjNeHHaxIOPtq86t5/ijiR14FyQgVQR1TVQ/TX/VTS/M8NF2/30u9VKjU8+/uBgNpHOosTLv2/C
+	wYq/cKBlJL70WsBdwrSPOfSl1XZufUG58FAn3z9IYv/xldiR7PaUk/ohAN+sA4nEudA8JBj71z0/h
+	Lr8OIqBuXEZUbPf9Fk4nLXzK7Cecn1G4WGkEWd5ILl9JCDS2StZd8d+MUANeRICULEwQrBPKaufSS
+	uhyjHqNnlIbBpeizUY+25cD2ou1Qkkh9JcEnsMk9up5hiMYlwh1C/VR7g5jEHVbzw2aQq89qJWw9u
+	3cRW5dYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWjM-00000004U42-4BcL;
-	Tue, 01 Jul 2025 08:52:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWWOJ-00000004PzU-41fC
+	id 1uWWit-00000004TP8-0GTr;
+	Tue, 01 Jul 2025 08:52:15 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWV4m-00000004EB4-0tyG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 08:31:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D7A51595;
-	Tue,  1 Jul 2025 01:30:43 -0700 (PDT)
-Received: from [10.57.84.129] (unknown [10.57.84.129])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF9E63F58B;
-	Tue,  1 Jul 2025 01:30:53 -0700 (PDT)
-Message-ID: <3776ac82-4cd5-41e7-9b96-137a1ae6f473@arm.com>
-Date: Tue, 1 Jul 2025 09:30:51 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] mm: Optimize mprotect() by PTE-batching
-Content-Language: en-GB
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
- willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
- vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
- peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
- baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250628113435.46678-1-dev.jain@arm.com>
- <20250628113435.46678-4-dev.jain@arm.com>
- <0315c016-d707-42b9-8038-7a2d5e4387f6@lucifer.local>
- <ec2c3f60-43e9-47d9-9058-49d608845200@arm.com>
- <5900e978-6349-4a3d-a384-758889b678a0@lucifer.local>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <5900e978-6349-4a3d-a384-758889b678a0@lucifer.local>
-Content-Type: text/plain; charset=UTF-8
+	Tue, 01 Jul 2025 07:06:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tgmfCg0Djz2k+IXWWl+qjGKXltvRD2GyP+17xlv9ZmGci83tgYLv+2pHik2cIKxqfA847vqI8gZvtqAanAfar2vYI4qmvXzMTbdpE5ApxGdhsQ8MDqi722U9V8bYH1favP/RpOCn+aaqjaoC6I/TRS78pmXTKH0apd/AzUTtBsMauxPFns6fE2g/ViTfOW0pXvAcB2/sPbwllo7P+L7W9faR5QouEYDfkLFWtCjEmMncP13eI959fNZjoFvZMQAHIuBmPmV/BD2NH03SXO6f59vssYvECHYRJ9TZudC++YamHLEi3sFdm6kvGDkkUXY3JxgmLqKJg7QlJ9jOvPB3GA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cJ9IFT68lA8/J2eQxYQuP+Uwy3wRf6BjYCLxc+kolCg=;
+ b=rTpGhSulRw6XbqVWGJuBoWwlE34iSkHnaD9TsVsuzo+4urcYf7N/zCgNag3tzKoOkscymKGrE59FvnhburZBcuLdXnfPwtfHgd3RTHhbuWIrHQsU6EwJb/85B2rGG0tmBNAhGAHvz2YvCZGMHzfBY72C/ociDxpstn0csY4DjGsARwsrqBJ8byeNYtVGnWIXLFUj1XqpD/0YLv0FHSJe+RdC8vRsOKHh5odSZBhX+O/+v8Ijn5bhm8CpNP2p90Q4wSaNvayF58KFoAqppWr3tmeV0+2oueivAugueiVQgsRWbM/rlzLjgNtAt+i9+JaAuUhBS9wFzYnqcZmOPUPx/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cJ9IFT68lA8/J2eQxYQuP+Uwy3wRf6BjYCLxc+kolCg=;
+ b=XdZJNDhnwvXPncjOGRHtWP1g9VgRFx4Bx8Z3gh1Xr8WN82IGEJVzDOmrcX+EZAeDbUq2Zp/PNYKHP1O2nTUfkgBRBKFz5FWlaXJklvxWzgSJHnfeBBatBFIoMk+Useds/UXMqpfKyu1xVplBvu2V9jagbiGHGt5jA1JZk4XE0w1/WIJL0sWdhL6gwIUDbCsbKzXRhVDi8lC1ikcZ3UEY9lplrDLcV62S0ncBKUSWFD41rA1M3gp7zMkbtqwtOOvwuXiR1h+ZwH1xK6gpuceUPl5Q730reOYDguLlIFVnwe/r4Auyc3fRvM6vU3B7UHnJKiqqNtFEQpEFgM4tyt24Yw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB9PR04MB8154.eurprd04.prod.outlook.com (2603:10a6:10:243::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.30; Tue, 1 Jul
+ 2025 07:06:39 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%6]) with mapi id 15.20.8880.029; Tue, 1 Jul 2025
+ 07:06:39 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH 0/5] clock: imx95: Add LVDS/DISPLAY CSR for i.MX94
+Date: Tue, 01 Jul 2025 15:04:36 +0800
+Message-Id: <20250701-imx95-blk-ctl-7-1-v1-0-00db23bd8876@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIWIY2gC/x3MTQqAIBBA4avErBtQodSuEi2yxhr6RSOE6O5Jy
+ 2/x3gORAlOEpngg0M2Rjz1DlgUMc79PhDxmgxKqElpI5C3ZCt264HCtqFEiWW+Uo1paIyB3ZyD
+ P6X+23ft+R/cODWMAAAA=
+X-Change-ID: 20250701-imx95-blk-ctl-7-1-e9f82be61980
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>, 
+ Frank Li <frank.li@nxp.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Abel Vesa <abel.vesa@linaro.org>, 
+ Peng Fan <peng.fan@nxp.com>, Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+ Sandor Yu <Sandor.yu@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751353495; l=1619;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=3jnRI+RdGnYNH0X1YD4UYpFLeG3c3y70jpLatPP/zhE=;
+ b=zi6lvB70YyOqmu2wajm7fCV86BeKWCSWgPVpFnyzas5Q/TqTPx3Xjfy7cPSZVcBxHX+O40iKQ
+ AhS4zJBGA3CBeaGyt13KQJBNCZQqKBbcQpWnRy497zTS4s9cjYDlvYt
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: MA0PR01CA0071.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ad::11) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB9PR04MB8154:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f9fdf89-ad08-46a8-e727-08ddb86dd313
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|19092799006|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bDFWTkc5QlNDSElsZ21zOWxWc04xNmRhQjBSSVIyOHZVVzVGVGFsRG1tV05H?=
+ =?utf-8?B?aVk1c2xZbVYrYkdMcFN1ZVRqU0NzTGhHRWtQZ2dsaGlyWVlyQUN6Z01ZRDFa?=
+ =?utf-8?B?bHlRSStOaEJ4R21rMGYxeDJIQkI1QjJ5cFVJWUFDZlRGV2NObFhmSC9MUGJ2?=
+ =?utf-8?B?L0lZc3QrQTF0K0J6dS9XQmVTcUY2V3VhMDIwQzRPUDJQSVRhSXFhRWF6RURI?=
+ =?utf-8?B?aWlhZk5tRzZHZk55d2JIQ3JpMyswTHZBL3VDK2Q2YXlUcUZvV083c3BoNzZk?=
+ =?utf-8?B?SkN6a2lyZnd3dGtmSWg3YVo2b0FvY0dGSGV5QzBhVzB4VldVMXJIdzl4dEdy?=
+ =?utf-8?B?LzhpOGxPZEtEM3NSQXcwSkxmTHBCYVc0Zm5zWWNRYXNOZld6a2E3MDdYb2Nn?=
+ =?utf-8?B?UWdWTGdZQ2RobENqZU85SGd3RnFQREhwa0w1cHhGamJKTmpaakw5ak1WNGR4?=
+ =?utf-8?B?TzFXTmdXOUNhNGliUzc5dFlkV1A2bVRVN1VRa0NhMUt2TTIxUGd2eFF2OUlC?=
+ =?utf-8?B?SnlDQ2lRN0lwYzRueUdPbjRiM2w2NksrNE0vRG9yY0xTTVB0Y1pjdTVnNS8r?=
+ =?utf-8?B?bDdpbyt4S1dTV25XQk9HSytIcmFacmphS2xJSG50d0txdC9LbytHSVlwNFJj?=
+ =?utf-8?B?ZXdBRUdoOTRucEJuZHVFUFFrcU5IMU5zMFk2NUxld3hSaU45ZjJDMlkzT3FV?=
+ =?utf-8?B?VDQyVUlmMnRYcmdVYU9MRjRoOCtrYmZvb1hxUWdJa1cyVTZTUGZhWlNNT1pI?=
+ =?utf-8?B?ZFhzM0tJVEN5MzM2OHVlVnczNlJaTjJaSXpucmNQN2dpWFBDaWQ0bE1EV2RJ?=
+ =?utf-8?B?NWRFNXZMMHl5RUd6OHZPb3c1YmFxR2c1QlY2eVFQTFFsVWNDWlJaelpRajJy?=
+ =?utf-8?B?enZKbHlxR3loZERjVmt4azBzV05aZkRlYS9pckIrbG9hT1BIWEFuN2Y4anBp?=
+ =?utf-8?B?bnZ6aWUwdERLb2pxOTFaeDYxWE1EbTRvZjJvM0tnRjB2ZVdIWVhhNDlTRFlK?=
+ =?utf-8?B?V1BGb1h0NFZITVVOT0NSOVI4UVdYc3F1cHh6LzloQlQ0VE1seEhxdGtqSVVx?=
+ =?utf-8?B?dm1Fd0FlYUs5MHYrRGR1VXdjVmk1c1V1SEFYOU15VXhWdmxhUWZwN21HVjU0?=
+ =?utf-8?B?cXhQWDUrS2pHV2FDazJnM0pxUThSNTJQZEk2TUNaSnl6OXBsZll5c1gwTGlx?=
+ =?utf-8?B?Skg3VjdBVFRKSm9WOVVPa3NHR1dnQUhmaEF6RWxZQTVlYTZiNk1DTDRvaUlY?=
+ =?utf-8?B?WERsL0Y2ek5kcmo5MlRBTUZ3QjJVM0s4d0JPMXZFMFF6REFzTUFETUlwdGU2?=
+ =?utf-8?B?RGlBNi81L0VZeUlHem5IUWY1WlVhR1E1QklEc1dvbk4zSXp1YUVkNEtpNHRU?=
+ =?utf-8?B?RkhuRmNsN1UxLyszK1NHdS9tVDEyQWtFM1ZLcHlxWXczT0ttNGZGcy9oa1I2?=
+ =?utf-8?B?enpuTFFLL0hyUG9MbVhONGgwQVBGVG5QK2wyS1VNTnNzNEhSUXNCRUVFTTVX?=
+ =?utf-8?B?S2VlQ29kTUlNTDR5QW96dXh0SzUxMWVIOFpPTzZrN0FqUzZENnF0elBnRFJH?=
+ =?utf-8?B?WXNRN1N5QXRFUEQvSHlwLytid21tN1UwcHZPOUpRbGlzODhGeFhtdTVacTA1?=
+ =?utf-8?B?QURxYmcyNkhMcHlpNGV1M0c4SExJakpsQ2N2N1cxellva3hxY1UzeURtaVJS?=
+ =?utf-8?B?TWkxZU91TFc5MmovdGljVVJSMEdWcjJFeE1qaVExQXV1VjlwaVNMT1J6eUVK?=
+ =?utf-8?B?enduTzlhbFdxUFN6REVTazJiZko3a2Y4cDdSTFNtZkp5MFNvRjRRTEc4OTJS?=
+ =?utf-8?B?NnR2d1o2MmRFNUd4cnNUVXFucnhGQWNyTTdyaUdlMFNiYUNCWEY4eGUxQllB?=
+ =?utf-8?B?T1JiSDVtRXIxRWIyTitOMUw4Z3BuOEpXdUNGZlhyYWh6WDlPVG9wYmpmRGJO?=
+ =?utf-8?B?eHZ2VUU3ZC95cSt6WnFBcnRoQ2lFOFJtYVNsVU94YmFpcHgrb3F1WjNEQ2hY?=
+ =?utf-8?Q?eEvo7dl7PMqxXDHQ65oXQK4Gw5/61Y=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OG90Q2p5emRQVExpbU5ZalAyNXB5eXVyVEdTc2QyNmM1KzcwazM3aFRTSEtq?=
+ =?utf-8?B?VmdXWENwNzEvM1U1YjZjVHMwbWZUanZLZjY3ZlNMM045Q0VoT25zTEd5cms4?=
+ =?utf-8?B?bWwydlBObHlyVjQxYXlhWm5PcWFTc05QTDBvYUd0Wm1WTmp6UVZISEtkMHdC?=
+ =?utf-8?B?K0JtZ3I2KzZoTGIrTHorZVRkc1JoWWZNNDNmTTVEUU52eTVmamYzSWZPRjZ3?=
+ =?utf-8?B?UUliMVJydUVYL2I0bjlRd2hudzQ4bTRuVUpMc3NIMmxPS2RoUmRoTmwwYjMw?=
+ =?utf-8?B?M2JUS2d1aTFUVmZ2azZZdVpxRHBCQ1Y1SG5TaU5tZjJsdmxFaDFUZWtFQ3Mz?=
+ =?utf-8?B?cVIwelhQUWROMDl3K1FVSmVXdWZlZ0p4cXB6MFFxK3NDOUhpOS9LZ3pGVXdy?=
+ =?utf-8?B?NkQyTFhreXhlWDBzd3lXcStOYXU2Sm1uMDNPS2gzMTBMbC9IOHp2L01LTEFR?=
+ =?utf-8?B?ejVISDVqcG5ZaVVEa2ZzT1hVenlORTlYRVFIVDdRVDVOdTNHdi8wMjFoUlJ0?=
+ =?utf-8?B?VjlZWXV6bE94SFZGa0VoOURLNUtUMzhRUHBVcHRKZEs3STJvc3U4YnhST2Vx?=
+ =?utf-8?B?VHlwOVB5b080WVU5TFB4bnlPekZJZy93eE0xNFNJSVNkUGFWU1JGVTZhNnhC?=
+ =?utf-8?B?SG05VHZpM0JsZmNtUisrVzNSc1lkRGFZcmoraExSODhia0w0Nk9WZmhvdERy?=
+ =?utf-8?B?UmVCRFphM3I0TXBZZ3FncGJvYVIyV2RZRC9Ubm04ZTVkbVhhNDc4VUNxYi81?=
+ =?utf-8?B?UklzSWJNWCtyc3pKT2U5SVZtQU9Sa2RDWjltN09sYk02ZDFUcUp6T0RyMytJ?=
+ =?utf-8?B?U0FWTUppOUdkWjUwdzF3clYrSDNydmFkUThVdW1KM1JIN1dQQVgzZmlaQjcz?=
+ =?utf-8?B?RWlSaHMyYTV5bmVVMmdNSXc4YkNUVlVQUE1mUjlyZ0xTaFJya1phM0hxSFZQ?=
+ =?utf-8?B?VGM4NVc1SjBRSzZoaEtrUk9ENUhCUVR0cXBLWHlqZE9BY2pYekVGRjZjSVho?=
+ =?utf-8?B?YzNVZ3hDa2F5Nnc3U0w2enJ3RTJrdkl0b3MwYXBzYjhoUWs4VmFkRUF2K2VI?=
+ =?utf-8?B?dHZON0k5dngwSEpsVTVDdW51WWR3VzdaallVMkhQNVFtdkVlajY5VnQvSHV5?=
+ =?utf-8?B?dkQ1MU5vQ0hpN1VneEVTTEFYYkZmY1ZoN3Nwb2tjSUplY3cyVlo4T1dweVlR?=
+ =?utf-8?B?Q0lQMUN6cElpdnhvSGNqamk0WEh5eU1VbUFqcmkyL1o0WFJXUlN3R0VXOVRa?=
+ =?utf-8?B?UHoxRGloV2ZtL1lKZ2FsVFNLbHhrN3NiRXNpVnMxM3JRbFUyU0lDcFFlTjNh?=
+ =?utf-8?B?YTIxcGtJbG42aUFxV055Q1poUU9zSTRjcXpDQW8zSnRlYW95d21yMnNwKzhp?=
+ =?utf-8?B?Z0U0VnBXZFFWNEVVQ3VWd2lRazc1dXc5Y0tyWXQ5NFV6ZnIvK0NSUGtWOGlw?=
+ =?utf-8?B?UVRWNmJhVmRTbnlEKzM4ZGVUZHZPcjRSdVdLSHlVVlRnbTgvUER4U3BwVlJp?=
+ =?utf-8?B?dGwxY2xRYTBwUmRMUUNZUFhlRW53NHNaeFFNNFk1b2hMQ1VtWkNIc0w1N2Ju?=
+ =?utf-8?B?eGdGR2czOG10RzkwS0dJTEwvMkwxQ01FbGhmYzdtcGRKakRrcVZITEV3ME5J?=
+ =?utf-8?B?L2lrSU9TK2RjNTlqWHRpeVFWbG5hbmlZZTd4SnlId085dzQ1ZWNIYXN0QVhJ?=
+ =?utf-8?B?cEJmdzMwY2h2ek1WTWcrSldCSklGbUZodmQxcXNWcWUyM3NHVlhzV2FEQlpi?=
+ =?utf-8?B?STNWbXNPbWMxV28wQVlOVDZRTlFUWXBrb2ZOT291NGN5ZzdESzlaWmtRSHZi?=
+ =?utf-8?B?YXRYSTl5RUo0VWhFalY3eEEwcmdOMkpjSk43dkt2NFU5TkhsMGpvbmM1ZUV4?=
+ =?utf-8?B?ZkU3K2lTNDdlNFV3S2VMekNFWUVhRE8xTEJRdVJoeHlObUYwWXN1V2tRRTl1?=
+ =?utf-8?B?b0J4cGdvd0E5ZmlPNTdnaFBSVE1rMWZRbGUwam9YaGQreEhBUzNIQVJZR2NL?=
+ =?utf-8?B?UGFBOTNUdzRoQVBJZ283WEN2WWFvb3kxOHo0ZUpJUW1zMWI0NEFybnhjOHM2?=
+ =?utf-8?B?RVUxZm00NmIvS1hhRWlhZWxYajE5Mk5IS0xJZGNQampWVDdzbjlhWE5xUnk0?=
+ =?utf-8?Q?IHN2lzsF/lpJsMqgNzmXeD/al?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f9fdf89-ad08-46a8-e727-08ddb86dd313
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2025 07:06:39.0085
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: z7AaCxBB1KZ8wbL8q8id9lf1vhYuFk43qZt7Cn0XPjFCrQI2f5vkvc+IPlrnWxcgzryM4joGrqBS415Bj4pn6w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8154
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_013100_084902_7DC234C8 
-X-CRM114-Status: GOOD (  43.27  )
+X-CRM114-CacheID: sfid-20250701_000644_330957_7B4870FF 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,177 +193,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2025 09:15, Lorenzo Stoakes wrote:
-> On Tue, Jul 01, 2025 at 09:03:27AM +0100, Ryan Roberts wrote:
->>>
->>> ////// end of Lorenzo's suggestion //////
->>>
->>> You can obviously modify this to change other stuff like whether you feed back
->>> the PAE or not in private case for use in your code.
->>
->> This sugestion for this part of the problem looks much cleaner!
-> 
-> Thanks :)
-> 
->>
->> Sorry; this whole struct tristate thing was my idea. I never really liked it but
->> I was more focussed on trying to illustrate the big picture flow that I thought
->> would work well with a batch and sub-batches (which it seems below that you
->> hate... but let's talk about that down there).
-> 
-> Yeah, this is fiddly stuff so I get it as a sort of psuedocode, but as code
-> obviously I've made my feelings known haha.
-> 
-> It seems that we can apply the fundamental underlying idea without needing to do
-> it this way at any rate so we should be good.
-> 
->>>>
->>>>  static int mprotect_folio_pte_batch(struct folio *folio, unsigned long addr,
->>>> -		pte_t *ptep, pte_t pte, int max_nr_ptes)
->>>> +		pte_t *ptep, pte_t pte, int max_nr_ptes, fpb_t switch_off_flags)
->>>
->>> This last parameter is pretty horrible. It's a negative mask so now you're
->>> passing 'ignore soft dirty' to the function meaning 'don't ignore it'. This is
->>> just planting land mines.
->>>
->>> Obviously David's flag changes will also alter all this.
->>>
->>> Just add a boolean re: soft dirty.
->>
->> Dev had a boolean for this in the last round. I've seen various functions expand
->> over time with increasing numbers of bool flags. So I asked to convert to a
->> flags parameter and just pass in the flags we need. Then it's a bit more future
->> proof and self documenting. (For the record I dislike the "switch_off_flags"
->> approach taken here).
-> 
-> Yeah, but we can change this when it needs to be changed. When it comes to
-> internal non-uAPI stuff I don't think we need to be too worried about
-> future-proofing like this at least just yet.
-> 
-> Do not fear the future churn... ;)
-> 
-> I mean I guess David's new flags will make this less egregious anyway.
-> 
->>>>  			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
->>>>  			ptent = pte_modify(oldpte, newprot);
->>>>
->>>> @@ -227,15 +294,39 @@ static long change_pte_range(struct mmu_gather *tlb,
->>>>  			 * example, if a PTE is already dirty and no other
->>>>  			 * COW or special handling is required.
->>>>  			 */
->>>> -			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->>>> -			    !pte_write(ptent) &&
->>>> -			    can_change_pte_writable(vma, addr, ptent))
->>>> -				ptent = pte_mkwrite(ptent, vma);
->>>> -
->>>> -			modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
->>>> -			if (pte_needs_flush(oldpte, ptent))
->>>> -				tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
->>>> -			pages++;
->>>> +			set_write = (cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->>>> +				    !pte_write(ptent);
->>>> +			if (set_write)
->>>> +				set_write = maybe_change_pte_writable(vma, addr, ptent, folio);
->>>> +
->>>> +			while (nr_ptes) {
->>>> +				if (set_write == TRI_MAYBE) {
->>>> +					sub_nr_ptes = anon_exclusive_batch(folio,
->>>> +						pgidx, nr_ptes, &sub_set_write);
->>>> +				} else {
->>>> +					sub_nr_ptes = nr_ptes;
->>>> +					sub_set_write = (set_write == TRI_TRUE);
->>>> +				}
->>>> +
->>>> +				if (sub_set_write)
->>>> +					newpte = pte_mkwrite(ptent, vma);
->>>> +				else
->>>> +					newpte = ptent;
->>>> +
->>>> +				modify_prot_commit_ptes(vma, addr, pte, oldpte,
->>>> +							newpte, sub_nr_ptes);
->>>> +				if (pte_needs_flush(oldpte, newpte))
->>>> +					tlb_flush_pte_range(tlb, addr,
->>>> +						sub_nr_ptes * PAGE_SIZE);
->>>> +
->>>> +				addr += sub_nr_ptes * PAGE_SIZE;
->>>> +				pte += sub_nr_ptes;
->>>> +				oldpte = pte_advance_pfn(oldpte, sub_nr_ptes);
->>>> +				ptent = pte_advance_pfn(ptent, sub_nr_ptes);
->>>> +				nr_ptes -= sub_nr_ptes;
->>>> +				pages += sub_nr_ptes;
->>>> +				pgidx += sub_nr_ptes;
->>>> +			}
->>>
->>> I hate hate hate having this loop here, let's abstract this please.
->>>
->>> I mean I think we can just use mprotect_folio_pte_batch() no? It's not
->>> abstracting much here, and we can just do all this handling there. Maybe have to
->>> pass in a bunch more params, but it saves us having to do all this.
->>
->> In an ideal world we would flatten and just have mprotect_folio_pte_batch()
->> return the batch size considering all the relevant PTE bits AND the
->> AnonExclusive bit on the pages. IIRC one of Dev's earlier versions modified the
->> core folio_pte_batch() function to also look at the AnonExclusive bit, but I
->> really disliked changing that core function (I think others did too?).
-> 
-> Yeah let's not change the core function.
-> 
-> My suggestion is to have mprotect_folio_pte_batch() do this.
-> 
->>
->> So barring that approach, we are really only left with the batch and sub-batch
->> approach - although, yes, it could be abstracted more. We could maintain a
->> context struct that persists across all calls to mprotect_folio_pte_batch() and
->> it can use that to keep it's state to remember if we are in the middle of a
->> sub-batch and decide either to call folio_pte_batch() to get a new batch, or
->> call anon_exclusive_batch() to get the next sub-batch within the current batch.
->> But that started to feel overly abstracted to me.
-> 
-> Having this nested batch/sub-batch loop really feels worse. You just get lost in
-> the complexity here very easily.
-> 
-> But i"m also not sure we need to maintain _that_ much state?
-> 
-> We're already looping over all of the PTEs here, so abstracting _the entire
-> loop_ and all the sub-batch stuff to another function, that is
-> mprotect_folio_pte_batch() I think sensibly, so it handles this for you makes a
-> ton of sense.
+Similar to i.MX95, i.MX94 also has LVDS/DISPLAY CSR to provide
+clock gate for LVDS and DISPLAY Controller. So following same approach
+to add the support, as what have been done for i.MX95.
 
-So effectively turn mprotect_folio_pte_batch() into an iterator; have a struct
-and a funtion to init the struct for the the number of ptes we want to iterate
-over, then a per iteration function that progressively returns batches?
+Patch 1 is to add the binding doc.
+Patch 2 and 3 are fixes when supporting i.MX94, but the issues are
+also exposed to i.MX95 even not triggered. No need to rush the
+two patches for 6.16.
+Patch 4 and 5 is to add the clk driver. Patch 4 is almost picked from
+NXP downstream with a minor update. Patch 5 is modified from NXP
+downstream with a few minor patches merged and updated.
+Patch 6 is the dts part to give reviewer a whole view on how it is used.
 
-Then we just have a simple loop here that gets the next batch and processes it?
+Thanks for Frank Li helping do NXP internal review for the patchset.
 
-> 
->>
->> This loop approach, as written, felt more straightforward for the reader to
->> understand (i.e. the least-worst option). Is the context approach what you are
->> suggesting or do you have something else in mind?
->>
-> 
-> See above.
-> 
->>>
->>> Alternatively, we could add a new wrapper function, but yeah definitely not
->>> this.
->>>
->>> Also the C programming language asks... etc etc. ;)
->>>
->>> Overall since you always end up processing folio_nr_pages(folio) you can just
->>> have the batch function or a wrapper return this and do updates as necessary
->>> here on that basis, and leave the 'sub' batching to that function.
->>
->> Sorry I don't understand this statement - could you clarify? Especially the bit
->> about "always ... processing folio_nr_pages(folio)"; I don't think we do. In
->> various corner cases the size of the folio has no relationship to the way the
->> PTEs are mapped.
-> 
-> Right yeah I put this badly. Obviously you can have all sorts of fun with large
-> folios partially mapped and page-table split and etc. etc.
-> 
-> I should have said 'always process nr_ptes'.
-> 
-> The idea is to abstract this sub-batch stuff to another function, fundamentally.
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Laurentiu Palcu (1):
+      clk: imx95-blk-ctl: Fix synchronous abort
+
+Peng Fan (3):
+      dt-bindings: clock: Add support for i.MX94 LVDS/DISPLAY CSR
+      clk: imx95-blk-ctl: Add clock for i.MX94 LVDS/Display CSR
+      arm64: dts: imx943: Add LVDS/DISPLAY CSR nodes
+
+Sandor Yu (1):
+      clk: imx95-blk-ctl: Rename lvds and displaymix csr blk
+
+ .../bindings/clock/nxp,imx95-blk-ctl.yaml          |  2 +
+ arch/arm64/boot/dts/freescale/imx943.dtsi          | 34 ++++++++
+ drivers/clk/imx/clk-imx95-blk-ctl.c                | 93 +++++++++++++++++-----
+ include/dt-bindings/clock/nxp,imx94-clock.h        | 13 +++
+ 4 files changed, 120 insertions(+), 22 deletions(-)
+---
+base-commit: ecb259c4f70dd5c83907809f45bf4dc6869961d7
+change-id: 20250701-imx95-blk-ctl-7-1-e9f82be61980
+
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
 
 
