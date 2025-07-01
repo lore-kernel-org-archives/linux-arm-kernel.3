@@ -4,91 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C055C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 18:31:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5C7C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 18:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BwP1GAWiDk39SfGOihsNEaC+24qtW3947zs4uYy6dh4=; b=pw5BzFW8BVFSGY7EbdPcA3l26i
-	P05A9SvssltymBHNcgk5jKACZvkFCSwQUwlVMEClllMFlK2a3cit9TBz6DwnZ0+Ef9UQkzzzpjpjG
-	ggHbqx/8L0gnVT+4iUrm8QWigtkuMEX1jCfCcWHGKyvSpp+4DlYmqJxmoshYhMg3nLQ6kHoXXfdx+
-	ljgns9SrOTLrJf72a4174QV061d/ggJjewA1sutayoIhLI2mVhKeI+sFaUwqXSeevFNTIwpekC4Dg
-	zDU/Ko5jcJ9gZMEb4r3ZczPDl8NRMyQ9YOulSMxsDg6D5RTv7vzYmC7wDFEfZ5jZimzsbfAgJ/AfQ
-	rsU6AVsQ==;
+	bh=jOzURFRLIw/7e5PEtcQN0dpwp7PX+Irn69wmSM8J3nM=; b=LXPstHZkPcH8bzkBZVwUZ3cF/x
+	g49Dy8A9NJXszSvePQUTRxbBZYeqIHD0CBgWoshxxKApXow+XBxVSHSALMuhYInYRKiNpP1VFj0Nd
+	lDHzrV8rwg2hCYZrXdXrfollrFMt3grjYbxGfOeiz6rJOtM2RgRgLLCTWQfa7Nd8TbWeu5mcw5kiI
+	s6c28KoVA/TcF6SdhJBpaVAt7Fdpb9qq1kzygQfA82hEW9SCoRRkPHfyWDu4mZWL7d26z1SlQ5QJV
+	UhuVdHW4CFISPicON/GLknokbF55srbbJj6BOQypteFQmwHF9iDEy+vzNDq7AXDRKkAFgiGLtMjXs
+	yVVTO2XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWflJ-00000006Kkw-2llJ;
-	Tue, 01 Jul 2025 18:31:21 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1uWflI-00000006KjX-0njH;
+	Tue, 01 Jul 2025 18:31:20 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWcyj-00000005tsu-0Wt3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 15:33:02 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-451e2f0d9c2so41227185e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 08:33:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751383979; x=1751988779; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BwP1GAWiDk39SfGOihsNEaC+24qtW3947zs4uYy6dh4=;
-        b=Hu8fEVYaMORXxyqO0wLFeeYIRhyjaMu7PaAQcVh3vl/+E52GGvws4LuAlWKklC3t9N
-         L9op3jns0x8+eb9sHoekqhIn2zX89jHdsa92pukWaWoQHDEVEUJXrW6pvIFUjt5OSD1Y
-         4ROTXG1kL1lGiOoRz7ArBZzjJZ/eZR3h27kMbT4JKsktQYK6lYZTatnhw5YsV2M87xwM
-         v8gBz09eoLjbWHfGLWOcvLthHIeKgizngYqO8Sl4uHVCggBcZeSzigkKmCs9W11NURzz
-         g6XWE3PQ1lxjBJ8o0EAY9dXF/bNyaN+TJGAmvjWDQPMHTan+bICC1ZbO8tlzetuc9bGq
-         diAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751383979; x=1751988779;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BwP1GAWiDk39SfGOihsNEaC+24qtW3947zs4uYy6dh4=;
-        b=LiPOV3yGWGrpUeAV6RMpOzrdK+LeCu1Kr1jvciKYHWMWqcL3aOlC3f2s4TTtxJfuSe
-         tTqEvO9ieZkH0SJ9nF8ZwkdApMqo3woiqAi5T+ovmxLZQW8Ovzf7dIEWldYJDEBR7ngh
-         7KUc0gyPZhaFw0yrY8PixZGV0jEtQm27hArlr1bu1bytneMm0ZnisjIVx+JUdkdNDYew
-         6vbfVE/3ImmPurmGhR4HOvcjrMJ+mHRLZe14cpHnWXCA5+uCDHmDV4S192vDI4iwp4P3
-         8mPb+xu6KxR+1g79zbx0VH8a4srL+GW9VpIqCxGbymB751wau4IfXuL5+3fcTuHWPPz+
-         3kmQ==
-X-Gm-Message-State: AOJu0YxDlLkN+KXLnbCCTkyt2p+s5KF9oZoBXNcvUCxEjpC+kev17V8o
-	KE78KGKRqoJAmVGDl44hYWZEEQoM9oG24OyQbHgqO/r4weMu586L3/xPZKtOgejQXgU=
-X-Gm-Gg: ASbGnctziMhjDp0zTLmoG6LdQaFqdwaCSV5PNnkX2ykcDUhfJVPsSRAR1ziDeqeBcmv
-	vRo0DDCQXn0oNRqdP2wbVAS61BhhEZ2V0mqu4CoXKUso2kGSaJ5sK5JgngViscE+vz6tU0MyNNj
-	v5GTZKUrTwdZv2Q968GTlcAdwp4tcAqSEp8KdKg6QS2fUdzvorqQkPEYHvpu7F+51J7R7i+nfQp
-	3t6gPRqqWrQtKVD/OVXaWfhuNEHkZOoqEaTCSP7Zoy6OAaTV0CeYO8O/wqLgJ3oaB9ful3CXGHb
-	iYlHu/7TDvhFXcm6Y8aFVrLgYbLg495gbAsHx62+oJmjwsuj0QaC6ZadPSzCXyZifgffNCI=
-X-Google-Smtp-Source: AGHT+IHBcNPypFwgfB92PgKhi+9On3myyxGnEdMTs6aSK6qgav8gtvbdSNFdxrarSqsinHbJfbzW6A==
-X-Received: by 2002:a05:600c:4f02:b0:43b:c857:e9d7 with SMTP id 5b1f17b1804b1-45422f35f0fmr28544995e9.5.1751383979349;
-        Tue, 01 Jul 2025 08:32:59 -0700 (PDT)
-Received: from ho-tower-lan.lan ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a88c80b5a3sm13435002f8f.40.2025.07.01.08.32.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 08:32:58 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Tue, 01 Jul 2025 16:31:57 +0100
-Subject: [PATCH 1/3] perf: arm_spe: Add barrier before enabling profiling
- buffer
+	id 1uWcyO-00000005tpA-39BE;
+	Tue, 01 Jul 2025 15:32:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751383958;
+	bh=+SSFv0hwrDzIL/TT/dGM60enfkAii5FwDqdxefO91yY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HfYb6PGWldbXX1aRGd+H5pCPI32KVnpcDanYeWZMC81I/jN5ytDsWRV0QksB5Hd4/
+	 vEMqWef8J5FWfY3cbCrXDKtLMON6urTZAYuX5bYXkRLpp5aJwQWxiSdaYxeFEIL8DN
+	 v+nJiUMMJLAh3kudkqHU+mZXVfCGt4+c+0tGY9E6Q5zokoGApTAzr+wf88NIfGrwOD
+	 jvitwM0jIPqotjIhd7m7XKkEpZ2BzGe54aug9AQKTEJT6XucaCStDteDTq+xlPQo96
+	 mdF3aKM5lV2klIMwyhAy/waH9tFiXIyYobQW9+MFkXqFovdIcrbXPDRoJfuzp8g5h+
+	 W/wQHIwVg42zA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8386B17E03A5;
+	Tue,  1 Jul 2025 17:32:37 +0200 (CEST)
+Message-ID: <c7f00050-dc56-4ac7-b89d-5f315cef2aa5@collabora.com>
+Date: Tue, 1 Jul 2025 17:32:36 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250701-james-spe-vm-interface-v1-1-52a2cd223d00@linaro.org>
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
-In-Reply-To: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Alexandru Elisei <Alexandru.Elisei@arm.com>, 
- Anshuman Khandual <Anshuman.Khandual@arm.com>, 
- Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
- Robin Murphy <Robin.Murphy@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/11] ARM: Add support for MediaTek MT6572 SoC
+To: Rob Herring <robh@kernel.org>, Max Shevchenko <wctrl@proton.me>
+Cc: linux-watchdog@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ devicetree@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ linux-mediatek@lists.infradead.org,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Sean Wang
+ <sean.wang@mediatek.com>, linux-arm-kernel@lists.infradead.org,
+ Guenter Roeck <linux@roeck-us.net>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, linux-serial@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>
+References: <20250701-mt6572-v3-0-8937cfa33f95@proton.me>
+ <175138000372.1627755.5505703571113478205.robh@kernel.org>
+ <CAL_JsqLSa+1MYR6f6NcApGFdjCL0dDXSzpntVHCPGmKgytVfdQ@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAL_JsqLSa+1MYR6f6NcApGFdjCL0dDXSzpntVHCPGmKgytVfdQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_083301_170586_03912BF1 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20250701_083240_942202_C3920DCB 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,33 +86,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DEN0154 states that PMBPTR_EL1 must not be modified while the profiling
-buffer is enabled. Ensure that enabling the buffer comes after setting
-PMBPTR_EL1 by inserting an isb().
+Il 01/07/25 17:30, Rob Herring ha scritto:
+> On Tue, Jul 1, 2025 at 10:27 AM Rob Herring (Arm) <robh@kernel.org> wrote:
+>>
+>>
+>> On Tue, 01 Jul 2025 09:06:54 +0300, Max Shevchenko wrote:
+>>> This series of patches adds support for the MT6572 SoC and
+>>> the JTY D101 tablet and Lenovo A369i smartphone based on it.
+>>>
+>>> Signed-off-by: Max Shevchenko <wctrl@proton.me>
+>>> ---
+>>> Changes in v3:
+>>> - Remove the compatible property from the SoC devicetree
+>>> - Link to v2: https://lore.kernel.org/r/20250626-mt6572-v2-0-f7f842196986@proton.me
+>>>
+>>> Changes in v2:
+>>> - Drop the status property for the board devicetrees
+>>> - Add an soc node for the MT6572 and reorder the nodes and properties
+>>> - Change the commit title to a more descriptive one
+>>> - Change the cover title to the correct one
+>>> - Link to v1: https://lore.kernel.org/r/20250620-mt6572-v1-0-e2d47820f042@proton.me
+>>>
+>>> ---
+>>> Max Shevchenko (11):
+>>>        dt-bindings: serial: mediatek,uart: add MT6572
+>>>        dt-bindings: interrupt-controller: mediatek,mt6577-sysirq: add MT6572
+>>>        dt-bindings: timer: mediatek: add MT6572
+>>>        dt-bindings: watchdog: mediatek,mtk-wdt: add MT6572
+>>>        dt-bindings: vendor-prefixes: add JTY
+>>>        dt-bindings: arm: mediatek: add boards based on the MT6572 SoC
+>>>        ARM: mediatek: add board_dt_compat entry for the MT6572 SoC
+>>>        ARM: mediatek: add MT6572 smp bring up code
+>>>        ARM: dts: mediatek: add basic support for MT6572 SoC
+>>>        ARM: dts: mediatek: add basic support for JTY D101 board
+>>>        ARM: dts: mediatek: add basic support for Lenovo A369i board
+>>>
+>>>   .../devicetree/bindings/arm/mediatek.yaml          |   5 +
+>>>   .../mediatek,mt6577-sysirq.yaml                    |   1 +
+>>>   .../devicetree/bindings/serial/mediatek,uart.yaml  |   1 +
+>>>   .../devicetree/bindings/timer/mediatek,timer.yaml  |   1 +
+>>>   .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+>>>   .../bindings/watchdog/mediatek,mtk-wdt.yaml        |   1 +
+>>>   arch/arm/boot/dts/mediatek/Makefile                |   2 +
+>>>   arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts     |  61 ++++++++++++
+>>>   arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dts |  56 +++++++++++
+>>>   arch/arm/boot/dts/mediatek/mt6572.dtsi             | 108 +++++++++++++++++++++
+>>>   arch/arm/mach-mediatek/Kconfig                     |   4 +
+>>>   arch/arm/mach-mediatek/mediatek.c                  |   1 +
+>>>   arch/arm/mach-mediatek/platsmp.c                   |   7 ++
+>>>   13 files changed, 250 insertions(+)
+>>> ---
+>>> base-commit: 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
+>>> change-id: 20250619-mt6572-ef78a3d45168
+>>>
+>>> Best regards,
+>>> --
+>>> Max Shevchenko <wctrl@proton.me>
+>>>
+>>>
+>>>
+>>
+>>
+>> My bot found new DTB warnings on the .dts files added or changed in this
+>> series.
+>>
+>> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+>> are fixed by another series. Ultimately, it is up to the platform
+>> maintainer whether these warnings are acceptable or not. No need to reply
+>> unless the platform maintainer has comments.
+>>
+>> If you already ran DT checks and didn't see these error(s), then
+>> make sure dt-schema is up to date:
+>>
+>>    pip3 install dtschema --upgrade
+>>
+>>
+>> This patch series was applied (using b4) to base:
+>>   Base: using specified base-commit 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
+>>
+>> If this is not the correct base, please add 'base-commit' tag
+>> (or use b4 which does this automatically)
+>>
+>> New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/mediatek/' for 20250701-mt6572-v3-0-8937cfa33f95@proton.me:
+>>
+>> arch/arm/boot/dts/mediatek/mt6572-lenovo-a369i.dtb: / (lenovo,a369i): memory: False schema does not allow {'device_type': ['memory'], 'reg': [[2147483648, 536870912]]}
+>>          from schema $id: http://devicetree.org/schemas/root-node.yaml#
+>> arch/arm/boot/dts/mediatek/mt6572-jty-d101.dtb: / (jty,d101): memory: False schema does not allow {'device_type': ['memory'], 'reg': [[2147483648, 1073741824]]}
+>>          from schema $id: http://devicetree.org/schemas/root-node.yaml#
+> 
+> 'memory' node without a unit-address has long been deprecated. Please
+> don't add more cases.
+> 
 
-This only applies to guests for now, but in future versions of the
-architecture the PE will be allowed to behave in the same way.
+Agreed.
 
-Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- drivers/perf/arm_spe_pmu.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 3efed8839a4e..6235ca7ecd48 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -537,6 +537,7 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
- 	limit += (u64)buf->base;
- 	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
- 	write_sysreg_s(base, SYS_PMBPTR_EL1);
-+	isb();
- 
- out_write_limit:
- 	write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
-
--- 
-2.34.1
+Cheers,
+Angelo
 
 
