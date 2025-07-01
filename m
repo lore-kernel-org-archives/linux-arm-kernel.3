@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66154C83038
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DFCC8303C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 19:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F0aaeqii1FsfQz1PyoUyvITJVetiar7DEiLzMVrI2l8=; b=ElfcYPyhkYyMx/wob20rmqV15F
-	fw8Mjl6MCfm4aCoouFZRRtvVf7q0nFoeZY3jKH1GPbKi2HvG0cNyVNkQKrK5bFiqnsKGaAMfu60cO
-	yH/MZRwbUthnTe5VqNvPVV5jXnfkhyNrTQnWXN7rqUgCfLlWPnEqPw7utW0iiPma1SB1IHVC63yPP
-	Vhp965XcccR6kspeTTeEHxaTVdkIbhc9X0K/oieQjDCZMF7gOGhVdXoN3SjvZ6m1O6OjLAhJ8M1p9
-	LmmdXPx/dE+twgTz5GlV9wovSKm73uhtUbDEPthWM4gK08Sa7WFNzonGQ27YMT8A+f8pF6ZdN6ZBe
-	zAwYymyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iaNS5/ITwDWC0PuIohe6VXDvvHurRKQnpsYlrwojaJA=; b=iorheGvm3pbFMQuG5QNS8RrZDR
+	YxQjsMo0d1jDxonchCZyLbB+xvlj+EiTZ0lOkB1qJbhDGLu6wF4FcJznw57mCezSCFe7FRtm3KQ3m
+	nteiThUmfmbLrs6MXuiAZeDWkumL5Vl+OHg/qnGfuW6t3A/tuxup6FkFZAjLhj1LcAFnygZRJxI4k
+	MXFcvd6G5eRycEI/E/0PLbBzYH9FeskYlTAqEK7UWAY9JPyqOBqK5AJ+/stWmRrXHgwDy0fz5CABo
+	/C+G4fYQwrNSbGsinfVcsNzlakOKqo1qEyRtdd1e9I/9Hjsv7bNJmdiMB5q8ihaNI3RQjtjON3Z4J
+	JWiS13DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWgDP-00000006PBV-3Fdk;
-	Tue, 01 Jul 2025 19:00:23 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uWgDW-00000006PIH-1Aww;
+	Tue, 01 Jul 2025 19:00:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWdnA-0000000622r-381l
+	id 1uWdyg-000000063rO-1Aa2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 16:25:10 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 561GP4qi3678843;
-	Tue, 1 Jul 2025 11:25:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1751387104;
-	bh=F0aaeqii1FsfQz1PyoUyvITJVetiar7DEiLzMVrI2l8=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=ltPjtZ98RAhON84b4aXNpNH51/kttGd5AsEdJ0PEqFE8DzOe1sgs9ruAzwtSUZfB+
-	 OA9lXihCXvhCvJmfNlBzp8o1DmtOO82ULt24DbfT+V6Y9AWPqvpkBYVy5fuIJQOR7K
-	 KKcjtVquzA1fZx5Dg7Mm3c5NOYlP9HuKI6qIWXEY=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 561GP4VY2716776
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 1 Jul 2025 11:25:04 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 1
- Jul 2025 11:25:04 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 1 Jul 2025 11:25:03 -0500
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 561GP43p1598131;
-	Tue, 1 Jul 2025 11:25:04 -0500
-Date: Tue, 1 Jul 2025 11:25:04 -0500
-From: Bryan Brattlof <bb@ti.com>
-To: Paresh Bhagat <p-bhagat@ti.com>
-CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
-        <afd@ti.com>, <devarsht@ti.com>, <s-vadapalli@ti.com>,
-        <andrew@lunn.ch>
-Subject: Re: [PATCH v5 4/4] arm64: dts: ti: Add support for AM62D2-EVM
-Message-ID: <20250701162504.dck3763ik6kpo7ec@bryanbrattlof.com>
-X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
-References: <20250627115753.2246881-1-p-bhagat@ti.com>
- <20250627115753.2246881-5-p-bhagat@ti.com>
+	Tue, 01 Jul 2025 16:37:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 60F0B453D7;
+	Tue,  1 Jul 2025 16:37:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F410C4CEEB;
+	Tue,  1 Jul 2025 16:37:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751387821;
+	bh=RK8SB4EJXzDR75Wtd6g9Il6AVAxxcuOajEeiy5IaFDY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aUKI4IuLVsW9CfAhRY4GGF6d43SuPPjnnV1ou5MQC1YXQ04JGK/HDQtrTZ3+mfjs8
+	 DSmDJLWp4yHKKCET1MiGNoM1k5Xhx1jXuoKnR6XfnKNQ9NJ/3AECapP9InMPgEij6c
+	 jg8GJkABLNGJ7EJbyUJzBgAnizm36lECUwjAfjIW5H11Ee1hPtMjm9tj86Rqj3fyl0
+	 jpa+YvkraAb/3nvw7f4NS8CqLXl4dbx7N+SnUfnc7NLj19eEu8geqMwuqx1AJAd5kV
+	 bAvFhrCUGUZaL4KftSHZGpoV/w5K0K2BbXSzxC0fGIdKg4RsZ4Df+jKutKVszZtqZR
+	 2MYMdVSudMySw==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 0E54E5FDF8; Wed,  2 Jul 2025 00:36:57 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Lee Jones <lee@kernel.org>
+Cc: Chen-Yu Tsai <wens@csie.org>,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	Chris Morgan <macroalpha82@gmail.com>,
+	Vasily Khoruzhick <anarsoul@gmail.com>
+Subject: [PATCH v2] mfd: axp20x: set explicit ID for regulator cell if no IRQ line is present
+Date: Wed,  2 Jul 2025 00:36:52 +0800
+Message-Id: <20250701163652.252010-1-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-In-Reply-To: <20250627115753.2246881-5-p-bhagat@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_092508_874748_C3F66329 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20250701_093702_336371_48058973 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,89 +76,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On June 27, 2025 thus sayeth Paresh Bhagat:
-> AM62D-EVM evaluation module (EVM) is a low-cost expandable platform board
-> designed for AM62D2 SoC from TI. It supports the following interfaces:
-> 
-> * 4 GB LPDDR4 RAM
-> * x2 Gigabit Ethernet expansion connectors
-> * x4 3.5mm TRS Audio Jack Line In
-> * x4 3.5mm TRS Audio Jack Line Out
-> * x2 Audio expansion connectors
-> * x1 Type-A USB 2.0, x1 Type-C dual-role device (DRD) USB 2.0
-> * x1 UHS-1 capable micro SD card slot
-> * 32 GB eMMC Flash
-> * 512 Mb OSPI NOR flash
-> * x4 UARTs via USB 2.0-B
-> * XDS110 for onboard JTAG debug using USB
-> * Temperature sensors, user push buttons and LEDs
-> 
-> Although AM62D2 and AM62A7 differ in peripheral capabilities example
-> multimedia, VPAC, and display subsystems, the core architecture remains
-> same. To reduce duplication, AM62D support reuses the AM62A dtsi and the
-> necessary overrides will be handled in SOC specific dtsi file and a
-> board specific dts.
-> 
-> Add basic support for AM62D2-EVM.
-> 
-> Schematics Link - https://www.ti.com/lit/zip/sprcal5
-> 
-> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/Makefile          |   3 +
->  arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 599 +++++++++++++++++++++++
->  arch/arm64/boot/dts/ti/k3-am62d2.dtsi    |  25 +
->  3 files changed, 627 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2.dtsi
-> 
+From: Chen-Yu Tsai <wens@csie.org>
 
-...
+Originally an explicit ID for the AXP313/AXP323 regulator was set to
+avoid a conflict with the primary AXP717 PMIC on Allwinner A523 family
+boards.
 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62d2.dtsi 
-> b/arch/arm64/boot/dts/ti/k3-am62d2.dtsi
-> new file mode 100644
-> index 000000000000..70aeb40872a9
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62d2.dtsi
-> @@ -0,0 +1,25 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Device Tree Source for AM62D2 SoC family in Quad core configuration
-> + *
-> + * TRM: https://www.ti.com/lit/pdf/sprujd4
-> + *
-> + * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "k3-am62a7.dtsi"
+This didn't entirely work since on some or all of these boards, the
+interrupt line on this secondary PMIC was left unconnected, and thus
+the driver would fall back to the generic "no interrupt; only regulators"
+case, which didn't have the explicit ID set, thus undoing the intended
+fix.
 
-If we want to reuse the AM62A chassis I think we should probably reused 
-the AM62AX_IOPAD() macro instead of creating a new one.
+Also set an explicit ID for the regulator cell in the no IRQ generic
+fall back case. This fixes the conflict for the AXP717 + AXP313/AXP323
+case. For the actual single PMIC with no IRQ connected case, the ID does
+not affect functionality, only the device naming of the regulator cell,
+and by extension the name and path under sysfs.
 
-> +
-> +/ {
-> +	model = "Texas Instruments K3 AM62D SoC";
-> +	compatible = "ti,am62d2";
-> +};
-> +
-> +&vpu {
-> +	status = "disabled";
-> +};
-> +
-> +&e5010 {
-> +	status = "disabled";
-> +};
+Fixes: 249abf9b1e25 ("mfd: axp20x: Set explicit ID for AXP313 regulator")
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
 
-So I could be a little out of date on the style guidelines here, but my 
-intuition is device trees, much like real trees, can only grow, so we 
-can't inherit the am62a.dtsi and remove things.
+This is an alternative to
 
-My understanding is we have to create a full am62d.dtsi with its 
-features that the am62a.dtsi can extend with the vpu{} and e5010{} nodes
+    mfd: axp20x: Skip PEK on AXP313A/AXP323 if no interrupt line is available
 
-~Bryan
+which was deemed too fragile.
+---
+ drivers/mfd/axp20x.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
+index 25c639b348cd..c5f0ebae327f 100644
+--- a/drivers/mfd/axp20x.c
++++ b/drivers/mfd/axp20x.c
+@@ -1231,9 +1231,8 @@ static const struct mfd_cell axp15060_cells[] = {
+ 
+ /* For boards that don't have IRQ line connected to SOC. */
+ static const struct mfd_cell axp_regulator_only_cells[] = {
+-	{
+-		.name		= "axp20x-regulator",
+-	},
++	/* PMIC without IRQ line may be secondary PMIC */
++	MFD_CELL_BASIC("axp20x-regulator", NULL, NULL, 0, 1),
+ };
+ 
+ static int axp20x_power_off(struct sys_off_data *data)
+-- 
+2.39.5
+
 
