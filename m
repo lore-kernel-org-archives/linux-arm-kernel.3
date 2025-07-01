@@ -4,95 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11E9C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 13:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E5CDC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 13:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5G5J3LAQCME/FJ/aVZc/0ZWGlfQeuCDS4lOhsOKRFGs=; b=lvCDFNkHmQM7MFPVOmBuWBJ9bS
-	8JmdsEGvhCR1XbgLvoc1lhY1Eq/1n47KTIbbkefneITpYaJQKKXoMUDgapt7IaIZSaz01Vf8rUw4A
-	W/1DRsm6Iuohm2gzPYaVZawR9M7wS/apq8glp3m3h06ElEuXD9jCh/2kLoH9imKhV+l6jrksNFjmi
-	l+5CFHLK+jPQgBqX2KyH62yUQjgzQRLxymC3F12xWXsRmm6GeUhJSMJ5h9kw7oKEgFnQnLgZNgscT
-	5CWQB1wVvJDR34ByVmlOsJ+yhiDHzkssd2s2HXG61fRLTRTDRKlju39DnjJo7/GBFcHP9XRwHC+T1
-	5IejBOaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x2tnbwk7LVK0mHHh6v79xO/5HP7ePI0q/6KFKEbD0Xo=; b=DeH09Xde1KWI3aS+9u06UaEJYS
+	ff9R7/80T+0B5vFseFVlaLJCqjCgeYtYx9jEZ3gYqksXe7/5L4LeAxoFeLNpx8qONd4ZwGkmbYn0i
+	W9nXNz49IFi2EgmFDLdfU8yLITwX0M9EIY6NHVAN1KaJYg/TJP48AiR3lTZdXBTEXqyubDNOvnl3P
+	mGRKrWYr9VrjLn8SSo+A1rAju/13vZ9dLSXwD4M3Eb0rK2AwpdMlb9ohr+JBOQqh422uglRlQqwlF
+	V3cG5po+TkaCVhMCnIpexTdRVJD0lXNjxnskY83q7jSorTGY+E3q3Da2T7bLT2fFz8klavnBCKN9L
+	XIppr7Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWbOw-00000005amm-0A7U;
-	Tue, 01 Jul 2025 13:51:58 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1uWbRA-00000005b46-3c4G;
+	Tue, 01 Jul 2025 13:54:16 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWa8S-00000005JQA-3lGY
+	id 1uWa9W-00000005KKj-0hpE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 12:30:54 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-237f18108d2so175525ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 05:30:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1751373052; x=1751977852; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5G5J3LAQCME/FJ/aVZc/0ZWGlfQeuCDS4lOhsOKRFGs=;
-        b=H5ff3tDkO/7riRuJm3/EZ+EYkfUKwl/cbKW6ecoF6gnaM/cqQdP8Kqn+mTkylc6I6o
-         /eNLkougzb8s7JqKpUjdrxtErKA41l6kj7nL+UUyE69wnoQJ7MLs+0CXLtiItMwhoyro
-         4BAgaSQwDAQq9kSoQRjsLICjQ5/6HSwupDYmOknzMU1UGbUt2avt/umkyfD/1eU9Thpl
-         NOwCGZyWLZvSK/nc2Mhc/XiXrzJn35mvwK7JFEOD9TMMg3MLwdHwknIV34veDdAaV6QU
-         uS5WGaT1/409ZVnFm73dX1y+iclSL2AmhyF5HIq4wSpIT9kDAiwHn98mur0NKyXU+Hoa
-         tWaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751373052; x=1751977852;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5G5J3LAQCME/FJ/aVZc/0ZWGlfQeuCDS4lOhsOKRFGs=;
-        b=F1Z9L+TxxFwVGJqqaEMh79jHY3XJmt/Ma2NouC6dTIDh1HZs69WbE+4GmUK3PjdGit
-         u1XyWOetwjpMjnhdSnL8C7abEGnciJd8ChEQvm4nGdiDgafJqzn/MQolQ2UVZwNX9exZ
-         jUoI4t8jLibZ/q5nJRBfhJqovgexce+0XQb9QyL8EhgEgcEZVETFkS4RzdW+hBs8X35w
-         ozDc+6ktA/XivDpmNrtoJcOzZ2TtaxE3xeeAycsjhXCh3VzPVx4tAUsMvww82PNJ3nIK
-         kfl3jk9yZgdostalBSmBVkCfXGZNiN/T+Nh0Sv0MkDu8U1OvOilpipONUaYUiO6dgv/W
-         ANBg==
-X-Forwarded-Encrypted: i=1; AJvYcCULWT8PohQH2GNLhHO6xcCjU5p7Qj5Bd2KouNru3GLmYDHZyCrcLgs3h8up97AV9SJ6cCWp/swXG8NgoPb3zdI0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxdf1ZpT/E7Kc3ELeneg80nm1rOCHa/SFRUpE6CjyAjFVlQaauR
-	H70SpngLeKye1w8OOvCsoDYx2IcECNKbfC6OkGnPltdCOy7ASql8JTl3gmeMtlXepA==
-X-Gm-Gg: ASbGncsUMwmPADNJ0xunNSLcMua4pgPZkY2THNoFmSu5Kga3zhp+fXEFZczAZGrWVzZ
-	7VyFCdlmOpY6UxdbU8ExjJexuS24Bp5BMI+4OuqWTOHrOfeR+v9mnmmMbKLg3LwBYU+o8QZRTNt
-	gLz6WuvasZWTFlHuVJVZN/Bi1iTqCGg3K/K43dAHeELMnvCJaDEuD/mszTJeZ0tYh5e0v2ilhjO
-	y404uR3nMyWSjhXb2NG3EZkjAKPFka3gncNrREudEYi/D1q9n2GBzV9COWq9huiyn95jD+VyYxw
-	lPN1EHOEKniFhXWt24TbS5TJQ1+vuoB8I08EsA3BazU8vcY1NlzZEdyfUMeuMuQe8cCSxLVwM4x
-	cFeCTPWexR/oBaBhtFLRb
-X-Google-Smtp-Source: AGHT+IGYS+ky70yGGbfgecWTu3WMn+4HvkqtKADO91HI0LqScQKuEGTHZn38lZjYqivfuwsxMW7HzQ==
-X-Received: by 2002:a17:902:ce89:b0:235:f10a:ad0 with SMTP id d9443c01a7336-23c601a7645mr2227915ad.28.1751373051941;
-        Tue, 01 Jul 2025 05:30:51 -0700 (PDT)
-Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b34e31da818sm9319671a12.61.2025.07.01.05.30.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 05:30:51 -0700 (PDT)
-Date: Tue, 1 Jul 2025 12:30:42 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v7 02/28] iommufd/viommu: Explicitly define vdev->virt_id
-Message-ID: <aGPU8qgfsa816eQ1@google.com>
-References: <cover.1750966133.git.nicolinc@nvidia.com>
- <cc7a558bfcdce5c2ea0d53b0c9c382f944df33ce.1750966133.git.nicolinc@nvidia.com>
+	Tue, 01 Jul 2025 12:32:00 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4bWj9F60Qmz27hvW;
+	Tue,  1 Jul 2025 20:32:49 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8F1EB1A0188;
+	Tue,  1 Jul 2025 20:31:53 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 1 Jul 2025 20:31:53 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 1 Jul 2025 20:31:52 +0800
+CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <shuah@kernel.org>, <jonathan.cameron@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <tangchengchang@huawei.com>,
+	<wangzhou1@hisilicon.com>
+Subject: Re: [PATCH v3 3/7] KVM: arm64: Handle DABT caused by LS64*
+ instructions on unsupported memory
+To: Marc Zyngier <maz@kernel.org>, <oliver.upton@linux.dev>
+References: <20250626080906.64230-1-yangyicong@huawei.com>
+ <20250626080906.64230-4-yangyicong@huawei.com> <86zfduc2ca.wl-maz@kernel.org>
+ <44993060-7eb1-400c-9887-3d438aeb8ee9@huawei.com>
+ <86v7ohba6a.wl-maz@kernel.org>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <c87852dd-98d5-311f-9760-ea0b7c8b27a1@huawei.com>
+Date: Tue, 1 Jul 2025 20:31:52 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cc7a558bfcdce5c2ea0d53b0c9c382f944df33ce.1750966133.git.nicolinc@nvidia.com>
+In-Reply-To: <86v7ohba6a.wl-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_053052_933609_9F0FC8B5 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20250701_053158_545800_D3C0EDF1 
+X-CRM114-Status: GOOD (  29.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,74 +85,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 12:34:33PM -0700, Nicolin Chen wrote:
-> The "id" is too genernal to get its meaning easily. Rename it explicitly to
-> "virt_id" and update the kdocs for readability. No functional changes.
+On 2025/6/27 21:12, Marc Zyngier wrote:
+> On Thu, 26 Jun 2025 12:39:41 +0100,
+> Yicong Yang <yangyicong@huawei.com> wrote:
+>>
+>> On 2025/6/26 16:51, Marc Zyngier wrote:
+>>> On Thu, 26 Jun 2025 09:09:02 +0100,
+>>> Yicong Yang <yangyicong@huawei.com> wrote:
 > 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/iommufd/iommufd_private.h | 7 ++++++-
->  drivers/iommu/iommufd/driver.c          | 2 +-
->  drivers/iommu/iommufd/viommu.c          | 4 ++--
->  3 files changed, 9 insertions(+), 4 deletions(-)
+> [...]
 > 
-> diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
-> index 4f5e8cd99c96..09f895638f68 100644
-> --- a/drivers/iommu/iommufd/iommufd_private.h
-> +++ b/drivers/iommu/iommufd/iommufd_private.h
-> @@ -634,7 +634,12 @@ struct iommufd_vdevice {
->  	struct iommufd_object obj;
->  	struct iommufd_viommu *viommu;
->  	struct device *dev;
-> -	u64 id; /* per-vIOMMU virtual ID */
-> +
-> +	/*
-> +	 * Virtual device ID per vIOMMU, e.g. vSID of ARM SMMUv3, vDeviceID of
-> +	 * AMD IOMMU, and vRID of a nested Intel VT-d to a Context Table
-> +	 */
-> +	u64 virt_id;
->  };
->  
->  #ifdef CONFIG_IOMMUFD_TEST
-> diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
-> index 2fee399a148e..887719016804 100644
-> --- a/drivers/iommu/iommufd/driver.c
-> +++ b/drivers/iommu/iommufd/driver.c
-> @@ -30,7 +30,7 @@ int iommufd_viommu_get_vdev_id(struct iommufd_viommu *viommu,
->  	xa_lock(&viommu->vdevs);
->  	xa_for_each(&viommu->vdevs, index, vdev) {
->  		if (vdev->dev == dev) {
-> -			*vdev_id = vdev->id;
-> +			*vdev_id = vdev->virt_id;
->  			rc = 0;
->  			break;
->  		}
-> diff --git a/drivers/iommu/iommufd/viommu.c b/drivers/iommu/iommufd/viommu.c
-> index 25ac08fbb52a..bc8796e6684e 100644
-> --- a/drivers/iommu/iommufd/viommu.c
-> +++ b/drivers/iommu/iommufd/viommu.c
-> @@ -111,7 +111,7 @@ void iommufd_vdevice_destroy(struct iommufd_object *obj)
->  	struct iommufd_viommu *viommu = vdev->viommu;
->  
->  	/* xa_cmpxchg is okay to fail if alloc failed xa_cmpxchg previously */
-> -	xa_cmpxchg(&viommu->vdevs, vdev->id, vdev, NULL, GFP_KERNEL);
-> +	xa_cmpxchg(&viommu->vdevs, vdev->virt_id, vdev, NULL, GFP_KERNEL);
->  	refcount_dec(&viommu->obj.users);
->  	put_device(vdev->dev);
->  }
-> @@ -150,7 +150,7 @@ int iommufd_vdevice_alloc_ioctl(struct iommufd_ucmd *ucmd)
->  		goto out_put_idev;
->  	}
->  
-> -	vdev->id = virt_id;
-> +	vdev->virt_id = virt_id;
->  	vdev->dev = idev->dev;
->  	get_device(idev->dev);
->  	vdev->viommu = viommu;
+>>>>
+>>>> +	/*
+>>>> +	 * Target address is normal memory on the Host. We come here
+>>>> +	 * because:
+>>>> +	 * 1) Guest map it as device memory and perform LS64 operations
+>>>> +	 * 2) VMM report it as device memory mistakenly
+>>>> +	 * Hand it to the userspace.
+>>>> +	 */
+>>>> +	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(vcpu))) {
+>>>> +		struct kvm_run *run = vcpu->run;
+>>>> +
+>>>> +		run->exit_reason = KVM_EXIT_ARM_LDST64B;
+>>>> +		run->arm_nisv.esr_iss = kvm_vcpu_dabt_iss_nisv_sanitized(vcpu);
+>>>> +		run->arm_nisv.fault_ipa = fault_ipa |
+>>>> +			(kvm_vcpu_get_hfar(vcpu) & (vma_pagesize - 1));
+>>>> +
+>>>> +		return -EAGAIN;
+>>>> +	}
+>>>
+>>> I'm not sure that's the right thing to do.
+>>>
+>>> If:
+>>>
+>>> - the guest was told it doesn't have LS64WB,
+>>>
+>>> - it was told that some range is memory,
+>>>
+>>> - it uses that range as device,
+>>>
+>>> - thanks to FWB the resulting memory type is "Normal-Cacheable"
+>>>
+>>> - which results in an Unsupported Atomic exception
+>>>
+>>> why would we involve the VMM at all? The VMM clearly said it didn't
+>>> want to be involved in this (we have a memslot).
+>>>
+>>
+>> ok I thought we should make VMM do the decision in all the cases(both
+>> here and emulated MMIO) based on the last discussion[*], I may
+>> misunderstand it. If this is the case...
+>>
+>>> I think we should simply inject the corresponding S1 fault back into
+>>> the guest.
+>>>
+>>
+>> let's simply inject a corresponding DABT back here and only make the VMM
+>> handle the emulated MMIO case. will update if no further comment.
+> 
+> A permission fault at S2 for a R/O memslot should definitely be
+> relayed to userspace. But the question is whether the HW would report
+> a permission fault or an unsupported atomic or exclusive fault (UAoEF
+> for short).
+> 
+> If the HW supports LS64WB, I'd fully expect to get a permission fault,
+> not an UAoEF, and we can perfectly report this to userspace with full
+> decode information (though this doesn't fit in the KVM_EXIT_MMIO
+> structure -- that's "only" an ABI problem).
+> 
+> If it doesn't, then we have a much bigger issue, and I don't think we
+> can realistically triage the exception in a meaningful way -- we just
+> can't know the reason why we failed, and we don't even know whether
+> this was a load or store.
+> 
+> Overall, I can see two options here:
+> 
+> - we limit the LS64 support to HW that supports LS64WB (too bad for
+>   the other implementations, which is 100% of them). We can always
+>   triage the exception correctly, and we're unlikely to ever take an
+>   UAoEF in this context.
+> 
+> - we define that R/O memslots do not support LS64 accesses at all,
+>   which is always a valid implementation -- the architecture makes no
+>   provision of which pieces of addressable memory supports an access
+>   type or another. With that, we can always inject the UAoEF back into
+>   the guest without any further triaging.
+> 
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+I'd vote for 2nd solution. this is only the exception case unless trigger it
+purposely, the instructions are used for device memory in the normal
+cases. It's unfair to forbid the use of it on LS64WB lacked platforms and we
+do support LS64 but no LS64WB.
 
-> -- 
-> 2.43.0
-> 
+Injecting the UAoEF back will make the handling consistent with host.
+
+thanks.
 
