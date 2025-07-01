@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F12C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 12:08:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BDBC8303A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 12:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ZOLfR72PXqOLw5WtFWDE/MmTe35xsn3qkEJhynzf0Q=; b=OtcJMsz5Gmrr1qMna2t3iavcE2
-	sNfo5+orgK/nZwhXfF+s/Nv+Zpz5fgygoi7dbZjuFP2TN1BQ/UChU6AUmcCltmSqcx+tbxvceGuO4
-	61plkQ0T/i+gj+SdYSPJe2gk8so8a/pecs6RMuRsRNIsYixu10kidm9hmIfREiGXdjG5HPDMhSi6+
-	PWxu3PaXwcQ6QPYYTZja4a55DUNW4MJuPT8R+ySnPNJO72i7wxrSGoMSzuLJleUzqJXf7AQraUOo8
-	r6vsodE57skR2bdKaL/VS8QxACTjSID/FwGr2rehHGnQh2qm+rFdidWEemmLNIK/zG8jV/ndYslfv
-	XFe5rkqA==;
+	bh=0+3aTAl+M+lH6zTTjz5VE7X6/AIzvFAfUkESBddcdw0=; b=N1bmbT2CqSLU/zMoxuMp5fKQN9
+	1hJp8HrfAiuM8442BDtnsbHuaPWT91LFYVeqlVQ+tln1nIFkzxMJgXb1/0LUMf301E3nsujbmpz9R
+	n+7hOmpW/6X0rnqyGaCap148fswEvb3kHwhOC9hLDdug8pSWfvhs7Y20ZqsxqePKwbXwnSntSwVrJ
+	KH0IR/AshjkFzCTwMhOmk2YViPUEx0T+hx2z2TlYeFh6HTrEJrxnufF0/rJ8ug85VOw23Eq0HnNjV
+	fk8fvTtIxSMLfEOFVZqubknQMUI7SHgZzrR9D9OUYdM3Wb59A7oW4iyRDeh4DZTd9Kg7KN9uNDm+b
+	JbyIKezQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZn3-000000053Et-0ugo;
-	Tue, 01 Jul 2025 12:08:45 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1uWZn4-000000053Fj-1Wkh;
+	Tue, 01 Jul 2025 12:08:46 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWZSp-00000004ucz-1Mdq
+	id 1uWZSs-00000004ueK-0BAI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 11:47:52 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-55502821bd2so3663103e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 04:47:51 -0700 (PDT)
+	Tue, 01 Jul 2025 11:47:55 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-555024588a8so3327808e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 04:47:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751370470; x=1751975270; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1751370472; x=1751975272; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/ZOLfR72PXqOLw5WtFWDE/MmTe35xsn3qkEJhynzf0Q=;
-        b=nEbrJPCeSZLhcoKgrm+V+mtrK/GKos1672zQF0PGEKiocXZZlDtWWWIVDYgN3kh/07
-         JYDaiUOUUm2qC12u2F0/Eu+TdORWh1HgqFPVrakdRhIbhGlTXWVH9IPbEsEqgO9D3xxl
-         Ih1/e7tzvznF64aQ7GItDwuax2xXDexKIl+bbsnzk2/GCI+7um4q8MlIsSeTo8yuVeMk
-         9qfNDadIbRzWC3iqSNhWVNIxxADU/0i6MZKS7YdPlBmBqxe8oX+4rPoNrtd+szma+MEM
-         eQji6cL9lU4uNv4rzYNbOjBP6woXpxyLNK4Gpj8uEQ/32Y9Z5JYN/wG8b5c9k11P3aTB
-         HQTQ==
+        bh=0+3aTAl+M+lH6zTTjz5VE7X6/AIzvFAfUkESBddcdw0=;
+        b=v5/s9LAA6j0F9FqgyGEeZA+KKLKVb4sgrgLksjgdJEFI4940BcocCJkmRbG7/rQ5Hq
+         VgG5NLtP5KFTJlaCMu4gt0unHdMDh7Pl7XA5QDES/afSiytiN2EjwwMTEXz/3slNis5m
+         JpO5xqR8uGeOuGHgEbNNA27Mn+coXVXyQ877cKuyEEn9jPJmD3mHTXYEDbp5iymBaXel
+         ax9PjWn7HG4RDIeIDM7vFBMsGwr2VczOfL18O7UfyYPcLF4f5M7nunhiE53Zv6UR4NOG
+         H6NSElo0fcimOQ9QdKIfWGpG2c0BcLfF0dBvLxBoW197AdQdsIAlOWIL+hTyxNcfYK/t
+         QEjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751370470; x=1751975270;
+        d=1e100.net; s=20230601; t=1751370472; x=1751975272;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/ZOLfR72PXqOLw5WtFWDE/MmTe35xsn3qkEJhynzf0Q=;
-        b=sGHvJKrcX8JTjjJrBx1xagLSGhO9i0IhV0LCJv+m3VDeJcOLCOomxpxBy0xEG28dii
-         P/lSJ1smrhWdkTKrsV8yHhv+v0nxxzmQ6gZhwOqpR2Av2r2UF1bIfpD1yjrz3d39PJVr
-         UKvD6AAxjYERNfs4sv75rPw3Xa6/yuTksJAhWB+fCMADo9PcqnMp7G336cZcjP84WTqP
-         AxCsXXtC6kwiZCVHl4APnyA3RXA55Mh+eaPCB1kGBOufE1fpFoWvYov3gMXfJIYiceVz
-         0mUphA6eENBJ+JVlZ+eLHLqnnL+DHp+LU6SvhFO4MBCAtW86tVI1QQ2smM1UIP+W8Xr3
-         AcqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUX8CWtfmHPThACdnudLzZhBOz+j9Avd/Y+heVREs8H89RE6jNtVNEtK9WVZ+6E+IFrIxCRX0RNXAQTS0HYPf9j@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIgX7kHC5UOEBN7c4Drr/u83hQaE2d096WV6ujmjrjEnRIpzxB
-	pSK/dMbN9oz6Sci9gKTkhg4tkUFLga1U6BfMdM7Mh24N8nlqtx56zAj8KY/nWzUHdZ8=
-X-Gm-Gg: ASbGncuHSelArLLfEB362GTJrHHr8d/qfXXbHS365OUjZpwDJ1e/PUofRKKYQ++GXzV
-	TSJ+Bx1x1lwFutiGnaO29uT0N1JjPwKtKNL2dSVLZ0pajbo0cq2JTlRJ1wdgHODLW6Tx521vj2y
-	U7OT/KKcaCc4z3LTGPBXUcFWoVycuYPAvu3YQKhBBcOc4qNbxU3Ft8IWAoyKbPMRjQzt45s3fnS
-	S7vV0Qdz0xaXIqXk9ahUBy8foJo2nOMP3e375s6gnSxTuOUs2dsaODmVsPZajFEkhdoOQIfks+g
-	zG5hISAQqiGG9N0sjyx9lwJVHmMEcWtpKt0kYcyXsEvwRdnVENczGOgqi1051JtrSw2Ls2vfNv3
-	nb1UoQ0oqZUT0EM9RK8DUZ17bf9SCgAalPZcV
-X-Google-Smtp-Source: AGHT+IEFlqH5aVFiMAtrKQEMVhHjR3b0DQN5zCXSWC23vo3ub27qmEf/97Rk59xwHI3Cjb9MA+KM7g==
-X-Received: by 2002:a05:6512:3a86:b0:553:a272:4d18 with SMTP id 2adb3069b0e04-5550b82b648mr4551995e87.20.1751370469527;
-        Tue, 01 Jul 2025 04:47:49 -0700 (PDT)
+        bh=0+3aTAl+M+lH6zTTjz5VE7X6/AIzvFAfUkESBddcdw0=;
+        b=bZuB1qHzdrlGxIzJoxOVR8LtRN0CFCo8f0hW2GQu+PDUUKgkW9rzD5qgHeahap6HCk
+         a1D42fB883VebOKQLG8x8TjppjtYJ5hne6z+5XWeedFu4k15OycIaudjRO4HWHc/Xv5o
+         CIs4fKbVBFYcM5E0eIc1OqmTNp8nAIDG4hGUH+crN4NL96/ilCL3uEHotG49QEX9edHw
+         5z6LR+vi17gHxl4nTYEg/P9edG8j/4RZe7lLqmjKSKasbA1gYA3ur3yT0N3qU+2rY3kZ
+         gyVrd9qrG34wn3ydF/21LUJozQH6ZfPxyVYoogp7OJ6p7HII8c35slxSdQ6KZ/4Trv9T
+         QivA==
+X-Forwarded-Encrypted: i=1; AJvYcCWY0GWRariHTa5vgQzgdGD6EZ/5rR6LooYN36GVJ/NEYlEvW7UjWlLKzIPzzX6O6PEElrMN/3qxPpCOY3oGPNQC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzn6VUnVBBc7T7b/+t1Z/RSAc49bukY+fRVhUTV38R/F2Svq8em
+	nCEfNfxNB7RaJ+vibn8WnQaXv9Io2bgSugI1nQ94Nhpoc6ppDn3zOjUrSA6PLWGhuMQ=
+X-Gm-Gg: ASbGncsFmQIw4PZwXKrOACPjiAWVJZhA4jbYU/os1JZ17nJjqtVkvVrW1jYEcDu8DTE
+	Lw4q5hG0JF13mr+iFrlEEVFBMxDZKWRcYBSYdhW///EdGusFpdDSZzcexJIsEqU6eHeZ/yxHXXB
+	tXQGjbN1iBo0MQqn/tIf0RVCQsTvIZDXiA92kPdGkzCtNln4l0/hfWXgpMrK3bqx892OtrnAVpD
+	p0L4DtCZty1gSvIALFR3jI020q/EiVtrFlYFKmZApEcTDMdIb1ZrKZLD1XPnbChOFaNpMv/YoyV
+	TCToFAWgs1nl2WNAzVNKO7QZ2KWUh6o52K6/Qzlb5EpCxJnz5L7ywlwYe7LBydCq5BytbdbkuVU
+	bFiUXwJK7RnTOterjWbygqFYfqvSVDH9U9s/Z
+X-Google-Smtp-Source: AGHT+IH+YI+owf5uflw/NB8o85eX36NM0PJWNRuH/JFBRyImY1nsQEgV7d/scYEuexIuCW8Xp7EgQg==
+X-Received: by 2002:a05:6512:3b9d:b0:553:a2c0:da70 with SMTP id 2adb3069b0e04-5550b9e5d1bmr5690955e87.26.1751370472237;
+        Tue, 01 Jul 2025 04:47:52 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2f162dsm1800592e87.248.2025.07.01.04.47.48
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2f162dsm1800592e87.248.2025.07.01.04.47.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 04:47:48 -0700 (PDT)
+        Tue, 01 Jul 2025 04:47:51 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@google.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -91,17 +91,17 @@ Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 04/24] pmdomain: core: Prevent registering devices before the bus
-Date: Tue,  1 Jul 2025 13:47:06 +0200
-Message-ID: <20250701114733.636510-5-ulf.hansson@linaro.org>
+Subject: [PATCH v3 06/24] pmdomain: core: Add the genpd->dev to the genpd provider bus
+Date: Tue,  1 Jul 2025 13:47:08 +0200
+Message-ID: <20250701114733.636510-7-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250701114733.636510-1-ulf.hansson@linaro.org>
 References: <20250701114733.636510-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_044751_362623_A264D8FA 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20250701_044754_081525_0C8AE528 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,58 +116,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We must not register a consumer device to the genpd bus, before registering
-the bus itself. Even if this doesn't seem to be an issue, let's add a
-simple check to make sure we really avoid this from happening.
+To take the next step for a more common handling of the genpd providers,
+let's add the genpd->dev to the genpd provider bus when registering a genpd
+OF provider.
 
+Also note, to allow us to add devices to the genpd provider bus we need to
+make sure the bus has been registered first, which is done via a
+core_initcall. Hence, calls to of_genpd_add_provider_simple|onecell() must
+be done after the bus has been registered, else they will fail.
+
+Suggested-by: Saravana Kannan <saravanak@google.com>
+Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
+Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
+Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xilinx ZynqMP ZCU106
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
 
 Changes in v3:
-	- New patch.
+	- Prevent adding the device until the genpd provider bus is registered.
 
 ---
- drivers/pmdomain/core.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+ drivers/pmdomain/core.c | 44 +++++++++++++++++++++++++++++++----------
+ 1 file changed, 34 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 9a66b728fbbf..93d71164fc56 100644
+index a41f5f91e87f..79dc0bf406f0 100644
 --- a/drivers/pmdomain/core.c
 +++ b/drivers/pmdomain/core.c
-@@ -2491,6 +2491,8 @@ struct of_genpd_provider {
- static LIST_HEAD(of_genpd_providers);
- /* Mutex to protect the list above. */
- static DEFINE_MUTEX(of_genpd_mutex);
-+/* Used to prevent registering devices before the bus. */
-+static bool genpd_bus_registered;
- 
- /**
-  * genpd_xlate_simple() - Xlate function for direct node-domain mapping
-@@ -3179,6 +3181,9 @@ struct device *genpd_dev_pm_attach_by_id(struct device *dev,
- 	if (num_domains < 0 || index >= num_domains)
- 		return NULL;
+@@ -2611,16 +2611,25 @@ int of_genpd_add_provider_simple(struct device_node *np,
+ 	if (!np || !genpd)
+ 		return -EINVAL;
  
 +	if (!genpd_bus_registered)
-+		return ERR_PTR(-ENODEV);
++		return -ENODEV;
 +
- 	/* Allocate and register device on the genpd bus. */
- 	virt_dev = kzalloc(sizeof(*virt_dev), GFP_KERNEL);
- 	if (!virt_dev)
-@@ -3357,7 +3362,14 @@ EXPORT_SYMBOL_GPL(of_genpd_parse_idle_states);
+ 	if (!genpd_present(genpd))
+ 		return -EINVAL;
  
- static int __init genpd_bus_init(void)
- {
--	return bus_register(&genpd_bus_type);
-+	int ret;
-+
-+	ret = bus_register(&genpd_bus_type);
+ 	genpd->dev.of_node = np;
+ 
++	ret = device_add(&genpd->dev);
 +	if (ret)
 +		return ret;
 +
-+	genpd_bus_registered = true;
-+	return 0;
+ 	/* Parse genpd OPP table */
+ 	if (!genpd_is_opp_table_fw(genpd) && genpd->set_performance_state) {
+ 		ret = dev_pm_opp_of_add_table(&genpd->dev);
+-		if (ret)
+-			return dev_err_probe(&genpd->dev, ret, "Failed to add OPP table\n");
++		if (ret) {
++			dev_err_probe(&genpd->dev, ret, "Failed to add OPP table\n");
++			goto err_del;
++		}
+ 
+ 		/*
+ 		 * Save table for faster processing while setting performance
+@@ -2631,19 +2640,22 @@ int of_genpd_add_provider_simple(struct device_node *np,
+ 	}
+ 
+ 	ret = genpd_add_provider(np, genpd_xlate_simple, genpd);
+-	if (ret) {
+-		if (genpd->opp_table) {
+-			dev_pm_opp_put_opp_table(genpd->opp_table);
+-			dev_pm_opp_of_remove_table(&genpd->dev);
+-		}
+-
+-		return ret;
+-	}
++	if (ret)
++		goto err_opp;
+ 
+ 	genpd->provider = &np->fwnode;
+ 	genpd->has_provider = true;
+ 
+ 	return 0;
++
++err_opp:
++	if (genpd->opp_table) {
++		dev_pm_opp_put_opp_table(genpd->opp_table);
++		dev_pm_opp_of_remove_table(&genpd->dev);
++	}
++err_del:
++	device_del(&genpd->dev);
++	return ret;
  }
- core_initcall(genpd_bus_init);
+ EXPORT_SYMBOL_GPL(of_genpd_add_provider_simple);
+ 
+@@ -2662,6 +2674,9 @@ int of_genpd_add_provider_onecell(struct device_node *np,
+ 	if (!np || !data)
+ 		return -EINVAL;
+ 
++	if (!genpd_bus_registered)
++		return -ENODEV;
++
+ 	if (!data->xlate)
+ 		data->xlate = genpd_xlate_onecell;
+ 
+@@ -2675,12 +2690,17 @@ int of_genpd_add_provider_onecell(struct device_node *np,
+ 
+ 		genpd->dev.of_node = np;
+ 
++		ret = device_add(&genpd->dev);
++		if (ret)
++			goto error;
++
+ 		/* Parse genpd OPP table */
+ 		if (!genpd_is_opp_table_fw(genpd) && genpd->set_performance_state) {
+ 			ret = dev_pm_opp_of_add_table_indexed(&genpd->dev, i);
+ 			if (ret) {
+ 				dev_err_probe(&genpd->dev, ret,
+ 					      "Failed to add OPP table for index %d\n", i);
++				device_del(&genpd->dev);
+ 				goto error;
+ 			}
+ 
+@@ -2716,6 +2736,8 @@ int of_genpd_add_provider_onecell(struct device_node *np,
+ 			dev_pm_opp_put_opp_table(genpd->opp_table);
+ 			dev_pm_opp_of_remove_table(&genpd->dev);
+ 		}
++
++		device_del(&genpd->dev);
+ 	}
+ 
+ 	return ret;
+@@ -2748,6 +2770,8 @@ void of_genpd_del_provider(struct device_node *np)
+ 						dev_pm_opp_put_opp_table(gpd->opp_table);
+ 						dev_pm_opp_of_remove_table(&gpd->dev);
+ 					}
++
++					device_del(&gpd->dev);
+ 				}
+ 			}
  
 -- 
 2.43.0
