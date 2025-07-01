@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA04EC83038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 22:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAF2C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Jul 2025 22:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G7y195i3TOk1DIj3CwXaLeKNJcG55PNVq2ZLyAclUT4=; b=PA9lcjN2jIpst+kYwuQbDI3xTe
-	bBrafu2ccyd68R2Nga2g+LOg5qS9uuBurNJGjqMaKCpEKDpI0BMBcg6bzZ4dB2c9MXvJ8b7J4sAuV
-	5CTkiD+ApTH/Q3G0rcML1HCQq5cJobjZ/5BKs6bWTzoWA/LVQbdfaZ8EMar/NVe4dEUlI89Hk2Kmo
-	sqd3OtX36k8IiDTFAHk7jK5EFbnJE8qTKtplh3tjETEh5oO3s9pAlq6OPi0gpaPuqDXOM66HpXr/l
-	GxOHY/cYA+bnB/vQ+PyXYHK+XrDap1TwskVgeWU2SNAsBDF01fU4ov5TnqYvSALRmHY8iiCRVFHUY
-	ZXgxoRVg==;
+	bh=D18ouy4AsTB4IUhvK2F1WIxaRZzVY4gKkYirh/cKJ7w=; b=Vj53g4dgRSrxYBsodRS2bTN/cF
+	I7X1iaZsxtMWn278cmmg2p+M/Tmmvqgmrnx4V2wcbsPek1ok3dbVsup2S88QG/6Wd7yUDHQ+lw6a1
+	qmg+tz6frW+26pol2ubbHaVSbocVpd5zsjoEqtLagyEJ+66WahdBaG6Kssn66zdm9TYcqzXQuelfP
+	vOmbxNELrmrqGIfkaPoPzZrwwCLL6emRLknc1YUVCfYC+yXUtbJNJER+VURU+4jUfOXbhbf9omdC6
+	Vwk4uBv4OaFERUwWIXYalgU7aawKpA1s8z1rRmsbteJPqnhoKLmJPe7V3f9AEOzRol2eelJGNR3an
+	9Lxn3mrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWjCT-00000006l5A-10NC;
-	Tue, 01 Jul 2025 22:11:37 +0000
+	id 1uWjEm-00000006lK9-423c;
+	Tue, 01 Jul 2025 22:14:00 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWj7o-00000006k1h-1wB3
+	id 1uWj7o-00000006k1d-2FxF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Jul 2025 22:06:49 +0000
+	Tue, 01 Jul 2025 22:06:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2096468A8;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B47D46831;
 	Tue,  1 Jul 2025 22:06:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8B7FFC4CEF8;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6688AC4CEF3;
 	Tue,  1 Jul 2025 22:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1751407607;
-	bh=v87fKIepQDax6CCtv55KhnspaODxyLj4B/eE3f1J14M=;
+	bh=coAKO9TLhK8MTIgf77yLemsOevi3hPcTUAqXS91Y2b4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Lqe9fi5XWxmmhryJ5inzf8n2TuD6rbR1mcOsSMljGsNLDu2hLXR0qutNDAP02n5tW
-	 z4cF3pFnm9sOfpNU6JMEyQFVSMMuzz1e6q34JzZLVBhXcNOcpnXNCUBxeIXECe+JZg
-	 ncqnywamLg+diHjzkM3JzgcIiaMjHXRt/UynHtX1GqSS3sz3/yZSqd2BLVht2Pvoby
-	 zFPf7LZYU8ftPbQCQzpQBUetsrhy5IjYmRlpdz2rNTUbupoPl8yGmTc2jP8XnSmyJ+
-	 ma/2UbLuGWmFOfuNKSAQgGrWAFV87kVdZO1/Z3EYvw2kMxCKNzEDiCfUITA585/iVn
-	 rRo1U4WhJjRFw==
+	b=ou9N1VQWEpWqTJgnCNRhMvXIzHw+LyYwPmDO37rQ0wuMJYADInvEcSP7RvEEPV/Hv
+	 mVqafQKIUYfwd+DySyV4CkmOKFysZAppyNhCCyaW9eDiZRCLpJhfgKSPqrYYhfYsTR
+	 /7BVBY/MaGyayNxtNwxudldX73TfASMmOL6567TXwhrtYAOsfHvQWnwBMAFNdSfiKK
+	 AMWosxvMUEo6svrC0FM8qEiNOB11a6HiTt2O/s+26rztwzSVpZP618MK8p9vbU4OP+
+	 Om5/EQ8pF8Q+ZsvRT9xtmLam1uNeiEwWs4onSDsdnQ7/i9G80Me0aAUuQ+dF49n2B2
+	 0caV0cTO9jN4A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8059AC83F05;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 54480C8303D;
 	Tue,  1 Jul 2025 22:06:47 +0000 (UTC)
 From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Date: Tue, 01 Jul 2025 22:06:37 +0000
-Subject: [PATCH v7 4/5] KVM: arm64: Bump the supported version of FF-A to
- 1.2
+Date: Tue, 01 Jul 2025 22:06:34 +0000
+Subject: [PATCH v7 1/5] KVM: arm64: Correct return value on host version
+ downgrade attempt
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250701-virtio-msg-ffa-v7-4-995afc3d385e@google.com>
+Message-Id: <20250701-virtio-msg-ffa-v7-1-995afc3d385e@google.com>
 References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
 In-Reply-To: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -66,19 +66,19 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
  sebastianene@google.com, qwandor@google.com, 
  Per Larsen <perlarsen@google.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751407606; l=3237;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751407606; l=1399;
  i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=4he4cZtemMwoa6JfwKc3JGNrR9f7OHS22E7VbF8a/Pk=;
- b=FHdZmZrWvbVBeML2mF2oAPjSDUHvOh77fpyLimRhHGC+TfxAYg0SbdOuEcnTdrJ6AmYBOj3li
- 4v/V9JT9YuICvZ7Dy9TgMkHdgI1HJlMlHNuN/2vhnlHAtYpSE1OTrkD
+ bh=Dl9KrxrUP4K0W3dgejUfrC3aK93wdcqeauIVLeuo9f0=;
+ b=5+AIZdXIIvjP+RFQX4/gsaepjpoFaUB3whIL6rjGFeBYlFyAuLRkoOvgzhSwRQhsyy388yIym
+ 3qKnZpyTKsYCmPGQlh0pIPCa2Xcoa7Q6uUDbGY9Mzwew3tvIgMN7r6E
 X-Developer-Key: i=perlarsen@google.com; a=ed25519;
  pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
 X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
  auth_id=402
 X-Original-From: Per Larsen <perlarsen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_150648_554015_4983BBE5 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20250701_150648_641060_BC7ABCE8 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,89 +96,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Per Larsen <perlarsen@google.com>
 
-FF-A version 1.2 introduces the DIRECT_REQ2 ABI. Bump the FF-A version
-preferred by the hypervisor as a precursor to implementing the 1.2-only
-FFA_MSG_SEND_DIRECT_REQ2 and FFA_MSG_SEND_RESP2 messaging interfaces.
+Once the hypervisor negotiates the FF-A version with the host, it should
+remain locked-in. However, it is possible to load FF-A as a module first
+supporting version 1.1 and then 1.0.
 
-We must also use SMCCC 1.2 for 64-bit SMCs if hypervisor negotiated FF-A
-1.2, so ffa_set_retval is updated and a new function to call 64-bit smcs
-using SMCCC 1.2 with fallback to SMCCC 1.1 is introduced.
+Without this patch, the FF-A 1.0 driver will use 1.0 data structures to
+make calls which the hypervisor will incorrectly interpret as 1.1 data
+structures. With this patch, negotiation will fail.
 
-Update ffa_call_supported to mark FF-A 1.2 interfaces as unsupported
-lest they get forwarded.
+This patch does not change existing functionality in the case where a
+FF-A 1.2 driver is loaded after a 1.1 driver; the 1.2 driver will need
+to use 1.1 in order to proceed.
 
-Co-developed-by: Ayrton Munoz <ayrton@google.com>
-Signed-off-by: Ayrton Munoz <ayrton@google.com>
+Acked-by: Will Deacon <will@kernel.org>
 Signed-off-by: Per Larsen <perlarsen@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/ffa.c | 18 ++++++++++++++----
- include/linux/arm_ffa.h       |  1 +
- 2 files changed, 15 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 5fd6474d96ae4b90d99796ee81bb36373219afc4..79d834120a3f3d26e17e9170c60012b60c6f5a5e 100644
+index 3369dd0c4009f84ad3cf9481c747bdc57a162370..2c199d40811efb5bfae199c4a67d8ae3d9307357 100644
 --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
 +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -678,6 +678,13 @@ static bool ffa_call_supported(u64 func_id)
- 	case FFA_NOTIFICATION_SET:
- 	case FFA_NOTIFICATION_GET:
- 	case FFA_NOTIFICATION_INFO_GET:
-+	/* Optional interfaces added in FF-A 1.2 */
-+	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
-+	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
-+	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
-+	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
-+	/* Unsupported interfaces added in FF-A 1.2 */
-+	case FFA_EL3_INTR_HANDLE:		/* Only valid for secure physical instances */
- 		return false;
+@@ -712,7 +712,10 @@ static void do_ffa_version(struct arm_smccc_res *res,
+ 
+ 	hyp_spin_lock(&version_lock);
+ 	if (has_version_negotiated) {
+-		res->a0 = hyp_ffa_version;
++		if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version))
++			res->a0 = FFA_RET_NOT_SUPPORTED;
++		else
++			res->a0 = hyp_ffa_version;
+ 		goto unlock;
  	}
  
-@@ -734,7 +741,10 @@ static int hyp_ffa_post_init(void)
- 	if (res.a0 != FFA_SUCCESS)
- 		return -EOPNOTSUPP;
- 
--	switch (res.a2) {
-+	if ((res.a2 & GENMASK(15, 2)) != 0 || res.a3 != 0)
-+		return -EINVAL;
-+
-+	switch (res.a2 & FFA_FEAT_RXTX_MIN_SZ_MASK) {
- 	case FFA_FEAT_RXTX_MIN_SZ_4K:
- 		min_rxtx_sz = SZ_4K;
- 		break;
-@@ -931,7 +941,7 @@ int hyp_ffa_init(void *pages)
- 
- 	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_VERSION,
--		.a1 = FFA_VERSION_1_1,
-+		.a1 = FFA_VERSION_1_2,
- 	}, &res);
- 	if (res.a0 == FFA_RET_NOT_SUPPORTED)
- 		return 0;
-@@ -952,10 +962,10 @@ int hyp_ffa_init(void *pages)
- 	if (FFA_MAJOR_VERSION(res.a0) != 1)
- 		return -EOPNOTSUPP;
- 
--	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_1))
-+	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_2))
- 		hyp_ffa_version = res.a0;
- 	else
--		hyp_ffa_version = FFA_VERSION_1_1;
-+		hyp_ffa_version = FFA_VERSION_1_2;
- 
- 	tx = pages;
- 	pages += KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE;
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index 5bded24dc24fea8cdcbe42bf79c7c025c3fa5f4b..2b760bede9c0a4bcb58bf697681c32e77c08a5d9 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -128,6 +128,7 @@
- #define FFA_FEAT_RXTX_MIN_SZ_4K		0
- #define FFA_FEAT_RXTX_MIN_SZ_64K	1
- #define FFA_FEAT_RXTX_MIN_SZ_16K	2
-+#define FFA_FEAT_RXTX_MIN_SZ_MASK	GENMASK(1, 0)
- 
- /* FFA Bus/Device/Driver related */
- struct ffa_device {
 
 -- 
 2.50.0.727.gbf7dc18ff4-goog
