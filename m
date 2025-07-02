@@ -4,100 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7CDC83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 15:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2ECC83F04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 15:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VR6E01Xg6J6Izs0olt9dR6pYp+S5ROquFthL7GlUqPs=; b=GZhwrbZfj7ZFZ1FxpM/iCllvKi
-	d0ikG52o8FpB92puBJGBtm0SNWWUjtTwl1x4JpES7gz0+j/Dxd3X3L15lmZBP8q5BivVDOw7vyu5Q
-	UQ6fjAYmr17UaGsKcPr/QZjc9Cdo2RXIzYDSJMHCiro8PoX+fkwvYw7WPhZkP/T0OzfxAC+Z8qIeh
-	jQPw81fEldio1FeEN8ZjAS/UB6Af4lQhAITBIqV3VU16xj9dMHnUS/Qh5mBvZcpH/TUxD8EODUkTZ
-	puydv5vNneNb6Q5y8F0LU1tZ0uDFPWa4tOClsvMPIvLL2005yL+mo889Dr45/92uZqY3UJ6qbhoVz
-	S4n7Ij+A==;
+	bh=2WxtPoOJmWkUKOlgrEMmMcJUVOoLpQYZ0JRTr1w8CE0=; b=tsuFk8WYEUrkDtRFnq372lqAX3
+	117DtcHFbZVYfZ9BtlYYwIDwbswNNB6fnm9c2gkVhV0/ZJAAXOwRzNm4EoNefUroWnOyRtpHkM4fs
+	86QlcdqfW7EjAsITqRLSUbAsh4AwKXoxx5eEwS0Y432L/xtdsRE2+uTB6z8/QgYT3HwF/evlJRrF5
+	swefIJn9GXZcXoqiLyfG0nJ108B3TlUe9r3PtN57ahzinruXVxW9c4TXzacK8FGEggVeL/VBiq1lI
+	WE3aNQWM4CXDFJkoEfpvXzE6VmPfs9zsp8ICfeWjLmgnCbbW87XfpCfdvlVF9oHOGsDqlhO57SzwO
+	/NqiGq+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWzCB-00000008kit-0j39;
-	Wed, 02 Jul 2025 15:16:23 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uWzEU-00000008l0W-0Lo5;
+	Wed, 02 Jul 2025 15:18:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWyFK-00000008bGa-3FrV
+	id 1uWyIQ-00000008bke-4Ae0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 02 Jul 2025 14:18:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=2WxtPoOJmWkUKOlgrEMmMcJUVOoLpQYZ0JRTr1w8CE0=; b=cb6BL19+HEjjjNwJcvrlPhoMB0
+	omHa1TtOtIYJlXuy5dDw5jaEl51mjhTMmsQNlvsmhm159jI0mYfgZ3TtCHiCRemQnNgErOmVJY7mv
+	6eUHMoyWj5SmoeyhrOkFcJVDMZWeGfQQ4IJT+sJeLEoT8MdczNWLFhJsqBQKw7On8k9IatZiA8lnj
+	6+SJ0CaEmq3QIflw/B0O8cd5G0Ek+APz71deSQB3WJ0RLQITnsthEhtuDcTSJUbaqSYPpFKtxFtto
+	PA3zg3DUxlxfgQGMJI7/h9yAy9URy3DireUjIa6ZUzDZOdk/V7HO+JmcjVDPsvlEWBuo3dHtWwr94
+	UhG3VNmA==;
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWyIM-00000007RYB-3C3O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 14:15:36 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 562DIwPT009778;
-	Wed, 2 Jul 2025 16:15:22 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	VR6E01Xg6J6Izs0olt9dR6pYp+S5ROquFthL7GlUqPs=; b=dBDQHoEXqF/md8Ai
-	OKxTINMTwYY9+MXakIisn2u4OHsDwVaws4+1VieBQiNXPftGP0VE8IKDZH79YV9C
-	gDu+8iKUecC6lTA5ex8FURzdpDRCP4m/LQweQkCWaJTIbkrTllzw7aH+Rxeuwntn
-	utlstZrXHzSVULtL2Cc2OeUtYOrfnxH6LYJk/mWHDIEXpYkQRK9ktb31DLmb16v8
-	IQ4M7f9TAHR4Q0aCT0gLzcFyIT99ZXhPfBCV/NcxixuYXHjqrUI8h1A2+IEiQK0n
-	OkuVflyw9cWVeufHcOel2SUgz5K4BtxO8qghv8cKOOkUm6NRS9TCAHbMDBGTCt8h
-	+QRk2A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47j5tmb9wc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 02 Jul 2025 16:15:22 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 46F9340050;
-	Wed,  2 Jul 2025 16:14:05 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 22C18BB2448;
-	Wed,  2 Jul 2025 16:13:50 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 2 Jul
- 2025 16:13:49 +0200
-Message-ID: <164e93e7-b9b1-45ff-8418-3a381b2bc781@foss.st.com>
-Date: Wed, 2 Jul 2025 16:13:48 +0200
+	Wed, 02 Jul 2025 14:18:45 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bXMS75hxdz6L5GV;
+	Wed,  2 Jul 2025 22:17:59 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id D54BF140446;
+	Wed,  2 Jul 2025 22:18:25 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 2 Jul
+ 2025 16:18:24 +0200
+Date: Wed, 2 Jul 2025 15:18:23 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Marc Zyngier <maz@kernel.org>
+CC: Lorenzo Pieralisi <lpieralisi@kernel.org>, Thomas Gleixner
+	<tglx@linutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann
+	<arnd@arndb.de>, Sascha Bischoff <sascha.bischoff@arm.com>, Timothy Hayes
+	<timothy.hayes@arm.com>, Bjorn Helgaas <bhelgaas@google.com>, "Liam R.
+ Howlett" <Liam.Howlett@oracle.com>, Peter Maydell <peter.maydell@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-pci@vger.kernel.org>
+Subject: Re: [PATCH v6 00/31] Arm GICv5: Host driver implementation
+Message-ID: <20250702151823.00007aec@huawei.com>
+In-Reply-To: <86jz4tb14h.wl-maz@kernel.org>
+References: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
+	<86jz4tb14h.wl-maz@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/13] perf: stm32: introduce DDRPERFM driver
-To: Philipp Zabel <p.zabel@pengutronix.de>, Will Deacon <will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien
- Chevallier <gatien.chevallier@foss.st.com>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250623-ddrperfm-upstream-v1-0-7dffff168090@foss.st.com>
- <20250623-ddrperfm-upstream-v1-6-7dffff168090@foss.st.com>
- <5d4cf5bff7733421c8a031493742ba6a21e98583.camel@pengutronix.de>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <5d4cf5bff7733421c8a031493742ba6a21e98583.camel@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-02_02,2025-07-02_01,2025-03-28_01
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_071535_309079_CC0318DF 
-X-CRM114-Status: GOOD (  24.01  )
+X-CRM114-CacheID: sfid-20250702_151842_915338_1D09FB67 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,70 +94,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Philip
+On Mon, 30 Jun 2025 18:17:02 +0100
+Marc Zyngier <maz@kernel.org> wrote:
 
-On 6/30/25 10:38, Philipp Zabel wrote:
-> On Mo, 2025-06-23 at 11:27 +0200, Clément Le Goffic wrote:
->> Introduce the driver for the DDR Performance Monitor available on
->> STM32MPU SoC.
->>
->> On STM32MP2 platforms, the DDRPERFM allows to monitor up to 8 DDR events
->> that come from the DDR Controller such as read or write events.
->>
->> On STM32MP1 platforms, the DDRPERFM cannot monitor any event on any
->> counter, there is a notion of set of events.
->> Events from different sets cannot be monitored at the same time.
->> The first chosen event selects the set.
->> The set is coded in the first two bytes of the config value which is on 4
->> bytes.
->>
->> On STM32MP25x series, the DDRPERFM clock is shared with the DDR controller
->> and may be secured by bootloaders.
->> Access controllers allow to check access to a resource. Use the access
->> controller defined in the devicetree to know about the access to the
->> DDRPERFM clock.
->>
->> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->> ---
->>   drivers/perf/Kconfig         |  11 +
->>   drivers/perf/Makefile        |   1 +
->>   drivers/perf/stm32_ddr_pmu.c | 893 +++++++++++++++++++++++++++++++++++++++++++
->>   3 files changed, 905 insertions(+)
->>
+> On Thu, 26 Jun 2025 11:25:51 +0100,
+> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> > 
+> > Implement the irqchip kernel driver for the Arm GICv5 architecture,
+> > as described in the GICv5 beta0 specification, available at:
+> > 
+> > https://developer.arm.com/documentation/aes0070
+> > 
+> > The GICv5 architecture is composed of multiple components:
+> > 
+> > - one or more IRS (Interrupt Routing Service)
+> > - zero or more ITS (Interrupt Translation Service)
+> > - zero or more IWB (Interrupt Wire Bridge)  
+> 
 > [...]
->> diff --git a/drivers/perf/stm32_ddr_pmu.c b/drivers/perf/stm32_ddr_pmu.c
->> new file mode 100644
->> index 000000000000..c0bce1f446a0
->> --- /dev/null
->> +++ b/drivers/perf/stm32_ddr_pmu.c
->> @@ -0,0 +1,893 @@
-> [...]
->> +	if (of_property_present(pdev->dev.of_node, "resets")) {
->> +		rst = devm_reset_control_get(&pdev->dev, NULL);
 > 
-> Use devm_reset_control_get_optional_exclusive() instead. It returns
-> NULL if the device tree doesn't contain a resets property.
-
-Ok I will have a look, thank you
-
+> I think what is here is pretty solid, and definitely in a better shape
+> than the equivalent GICv3 support patches at a similar point in the
+> lifetime of the architecture.
 > 
->> +		if (IS_ERR(rst)) {
->> +			dev_err(&pdev->dev, "Failed to get reset\n");
+> For patches in this series except patch 18:
 > 
-> Please consider using dev_err_probe() instead.
-
-Ok
-
->> +			ret = PTR_ERR(rst);
->> +			goto err_clk;
->> +		}
->> +		reset_control_assert(rst);
->> +		reset_control_deassert(rst);
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
 > 
-> These can be done unconditionally, as they are no-ops for rst == NULL.
+> If this goes into 6.17 (which I hope), it'd be good to have this
+> series on a stable branch so that we can take the corresponding KVM
+> patches[1] independently if they are deemed in a good enough state.
+> 
+> 	M.
+> 
+> [1] https://lore.kernel.org/r/20250627100847.1022515-1-sascha.bischoff@arm.com
+> 
 
-Indeed
+Agreed. Looks very clean to me.  All the stuff I had was trivial.
+I'm only not giving tags (beyond the various field definition patches) because
+I don't feel like I have yet spent enough time with the spec yet to be sure about
+some aspects (and irq stuff always gives me a headache)  Anyhow for this stuff
+my tags are hardly relevant.
 
-Best regards,
-Clément
+As Arnd observed, for now this is very low risk so good to get it into next and
+lined up for 6.17 even if a few buglets + fixes surface to go on top.
+
+Jonathan
 
