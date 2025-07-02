@@ -4,67 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85AF5C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:26:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B273BC83013
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLnHNE6FM4o063JROPOscOoNSxZGfXVxGY59TAEPhf8=; b=QZB/+FpJBmKh3BIvm1cmkcY3hh
-	pVHQ/4ja9VyZjBW35bwdrGSf88eb4MHCFY9PetLqCbzR01wWMd8d/3Vw5+nKed89YT6cq3hQhDJJx
-	AJanwSnfKnyjkEI3uFQMiQEtTgLmociQcRN1T2+ayncCiIus4IfshXTlBmPVR0ldKAPg5PNuqsnPV
-	u4djeAGuCEHsN74k0T5Bk2vQlFemTXYDQu3JM3JWibVkvdalsdwB8zSJ+Rr8z3qdDYf9jHqyvJkhK
-	o7SPD+dd7rxu0XJc1H3Rrfo7a2oa1fBd0QLlYB2CqGV8sriS03qynr+IqkLJeVfbYQCKGKU+I3gGj
-	iDuvpB2w==;
+	bh=pzPxoOt7/PDx3OAhuOXlHFSJAQjWmG/j7qKRio0DXig=; b=fV6iJ0G0Dfi/04cY1WuEvVtKy9
+	4Z+rcGLn9gPT9u88Qv9fqL6t4PDJgEnJPzL+u5dmmSIsLKSlY9eL5HpszbRNyEp/fcqWWnx5/IWf0
+	xUEiZe4jRo3RK43umlVbbNiS8rEBoqhB7gqKElIx8KUZdVxmN0gTJIOQK46XEN/I+3YyG7NEL/2qR
+	2Lyiy2l1NWEp2l1juIiSAlq3Y2oxmVEkX9p+6d8qam3kb0bubOc/M7Hkz9tQN4AoiHlQMBLN7vg5V
+	SGzEUh2HDlycyCgeFyiIE3lCIYAU9Fm5EZuS82aKS8yiPYDl+CXcxj81u8GiE8cxYJPkSDXNI64zp
+	xBWtJIgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWwXR-00000008Jdd-3q8C;
-	Wed, 02 Jul 2025 12:26:09 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uWwZl-00000008K3u-2mGY;
+	Wed, 02 Jul 2025 12:28:33 +0000
+Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWvpA-00000008AGL-2whZ
+	id 1uWvx3-00000008C50-3mvq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 11:40:26 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bXHxB117sz6M4RD;
-	Wed,  2 Jul 2025 19:39:26 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id A671D14011A;
-	Wed,  2 Jul 2025 19:40:21 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 2 Jul
- 2025 13:40:20 +0200
-Date: Wed, 2 Jul 2025 12:40:19 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-CC: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, "Sascha
- Bischoff" <sascha.bischoff@arm.com>, Timothy Hayes <timothy.hayes@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, "Liam R. Howlett"
-	<Liam.Howlett@oracle.com>, Peter Maydell <peter.maydell@linaro.org>, "Mark
- Rutland" <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-pci@vger.kernel.org>
-Subject: Re: [PATCH v6 20/31] irqchip/gic-v5: Add GICv5 PPI support
-Message-ID: <20250702124019.00006b01@huawei.com>
-In-Reply-To: <20250626-gicv5-host-v6-20-48e046af4642@kernel.org>
-References: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
-	<20250626-gicv5-host-v6-20-48e046af4642@kernel.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 02 Jul 2025 11:48:35 +0000
+Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-86efcef9194so242053139f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 04:48:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751456913; x=1752061713; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pzPxoOt7/PDx3OAhuOXlHFSJAQjWmG/j7qKRio0DXig=;
+        b=O5x15Www9gLRliLi4EauYnfagbGC4h/oW8N4KX6Is0R+0x/IDO4K42DjutMVumE05V
+         lg2UaO+xgEOOQHAEL9XGcTn1n99HP2G4TJoRRI2qZWxh3HayfaNbi3pPYKyyU5Z02293
+         8gOGeWR1nKUIzW+0yrX39YEPx2Q5AjgNwLEEz4VGPQUqu4EKyIw3lMpSMFor1AkuVGOw
+         7yC1ZUtwWvbTQt+YQNfbt0YOO5v3VKBTD1zZKGXjx0zDxlOf94/2BNglcHcL1H0fN88P
+         D47df8WLp0YGEfOE4VhFtaK4b/twT9pEkZkaJvJqyAEk3AH0sPWHh6HUETb1oDO9j4hu
+         Kl0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751456913; x=1752061713;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pzPxoOt7/PDx3OAhuOXlHFSJAQjWmG/j7qKRio0DXig=;
+        b=Tw6G8vR9KUu6/s8pU8pR70pHzCmxE13klhLD84e6+Z86fgVSGIDfeRFU7ubcozREWY
+         sEXs2hy7UYiNrfRuQHnEZe4628Ldwr0voUlYylqhdJAq0yvLQ5TwySGOID+FWAl3KWFV
+         tVHJzcYva+fg1gkCaPZE0S8Dh0w+3LpGid2xk6z6fZgvsX541Ow5XS57nHtf0Cz/DvdV
+         AuMyhi7SlvpU0kCXEvqGgTWo/kagln5uqz0Tggd6UJopj0AIgcXjhO7VOpp9E3NgnNng
+         MNOVMEtOEAjHNvL+4M4x4oBnMKeC3Gs0yI+MawKdK+KbHBK/8xQJq4kyTqAXlvZDR0T3
+         0kiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHGIgANf1qjl96M4esh3KAzJetQg2FrUTovE+uE+nCA5FjupT1dnC/JhoHgLUTz4v6nAe/p33XGr3MEe9tPuKR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqkyqugSLam5VyQXfyGSvrTfJ1+qmzVcT/i3RLuzdLRbS0Jx8b
+	JQsXT+12hDwY7AYKTIDQc2GeRmlM+VSUd0cvYWd2zKRMZyno+ouqckVg9RZuKojvLb2ypa0Z2gZ
+	shI0WKv2VHal5q8mBLhUxUI5C6XZ/7T0=
+X-Gm-Gg: ASbGncuPlAk3po9ncE+Wd4IlI9kc6PBYe6BIM8C/tZLjNnX6BTzpLnCVWHlUlyaN47f
+	vJw0LYW32B0Ysd057jQjPnNo7zHedDpSFgkZRt5vHqKkSNH+aZo3KVZfnwRa9Y41GS+owVtdwzy
+	lvIyB+pP7DYxl3z+0nuJz4xFDtBwXUD4MZMWIsvPyxUlpRDhZE+8VPeQ==
+X-Google-Smtp-Source: AGHT+IEw1dzWm4QIwYZ3nobQC6Sl0JTwXZBOf8R8fgqREreP3zTUiwJZ1QMMnvhYh5RwfOmvgp90q36ljwFt6u6cKug=
+X-Received: by 2002:a92:c244:0:b0:3dd:d155:94cb with SMTP id
+ e9e14a558f8ab-3e0549795b6mr28666715ab.7.1751456912803; Wed, 02 Jul 2025
+ 04:48:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
- frapeml500008.china.huawei.com (7.182.85.71)
+References: <20250618062644.3895785-1-shengjiu.wang@nxp.com>
+ <20250618062644.3895785-3-shengjiu.wang@nxp.com> <aGLBvXtSRlaKujqM@p14s>
+ <CAA+D8AO4o7dqTyL4aZ+H5VnroTQUNAHM-io5rvJ2r_sasPYs9g@mail.gmail.com>
+ <aGP-ZVuhBdd1GPLe@p14s> <CAA+D8ANtw1xTg7OQOFoDeQcdp05Eo9Uo1t=MKcGjtkSYfJqBVw@mail.gmail.com>
+In-Reply-To: <CAA+D8ANtw1xTg7OQOFoDeQcdp05Eo9Uo1t=MKcGjtkSYfJqBVw@mail.gmail.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Wed, 2 Jul 2025 19:48:12 +0800
+X-Gm-Features: Ac12FXxpIvbzeFcwinOMXn9TEBzcrnmh0tjz9irrB5pa_wug2azkcr5nRrXHUhc
+Message-ID: <CAA+D8AP+RPJpY_=8WjSXoV_VB=9hP0NnFGjjUQHXcoDoz3fgfA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] remoteproc: imx_dsp_rproc: Add support of coredump
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, andersson@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	iuliana.prodan@nxp.com, daniel.baluta@nxp.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_044025_032975_DB9E8E45 
-X-CRM114-Status: GOOD (  23.19  )
+X-CRM114-CacheID: sfid-20250702_044833_944929_C8EC3483 
+X-CRM114-Status: GOOD (  38.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,159 +100,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Jun 2025 12:26:11 +0200
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+On Wed, Jul 2, 2025 at 3:20=E2=80=AFPM Shengjiu Wang <shengjiu.wang@gmail.c=
+om> wrote:
+>
+> On Tue, Jul 1, 2025 at 11:27=E2=80=AFPM Mathieu Poirier
+> <mathieu.poirier@linaro.org> wrote:
+> >
+> > On Tue, Jul 01, 2025 at 10:28:33AM +0800, Shengjiu Wang wrote:
+> > > On Tue, Jul 1, 2025 at 1:05=E2=80=AFAM Mathieu Poirier
+> > > <mathieu.poirier@linaro.org> wrote:
+> > > >
+> > > > On Wed, Jun 18, 2025 at 02:26:44PM +0800, Shengjiu Wang wrote:
+> > > > > Add call rproc_coredump_set_elf_info() to initialize the elf info=
+ for
+> > > > > coredump, otherwise coredump will report an error "ELF class is n=
+ot set".
+> > > > >
+> > > > > Remove the DSP IRAM and DRAM segment in coredump list, because af=
+ter
+> > > > > stop, DSP power is disabled, the IRAM and DRAM can't be accessed.
+> > > > >
+> > > > > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > > > > ---
+> > > > >  drivers/remoteproc/imx_dsp_rproc.c | 6 +++---
+> > > > >  1 file changed, 3 insertions(+), 3 deletions(-)
+> > > > >
+> > > > > diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remotep=
+roc/imx_dsp_rproc.c
+> > > > > index 9b9cddb224b0..9e7efb77b6e5 100644
+> > > > > --- a/drivers/remoteproc/imx_dsp_rproc.c
+> > > > > +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> > > > > @@ -738,9 +738,7 @@ static int imx_dsp_rproc_add_carveout(struct =
+imx_dsp_rproc *priv)
+> > > > >               mem =3D rproc_mem_entry_init(dev, (void __force *)c=
+pu_addr, (dma_addr_t)att->sa,
+> > > > >                                          att->size, da, NULL, NUL=
+L, "dsp_mem");
+> > > > >
+> > > > > -             if (mem)
+> > > > > -                     rproc_coredump_add_segment(rproc, da, att->=
+size);
+> > > > > -             else
+> > > > > +             if (!mem)
+> > > >
+> > > > Flag rproc->recovery_disabled is never set to true, meaning that si=
+nce this
+> > > > driver was introduced, some kind of recovery was available.
+> > >
+> > > Actually since this driver was introduced, the recovery can't work.
+> > > We didn't test the recovery function before. sorry for the mistake.
+> >
+> > Let me see if I get this right:
+> >
+> > (1) Almost 5 years ago you sent me a driver with code you did not test.
+>
+> Driver was tested but missed the recovery/coredump function.
+>
+> > (2) It took all this time to realize and fix the problem.
+>
+> I just realized that the recovery/coredump is one of the functions suppor=
+ted
+> by remoteproc.
+>
+> > (3) I should trust that, this time, you have tested your code.
+>
+> recovery/coredump has been tested.
 
-> The GICv5 CPU interface implements support for PE-Private Peripheral
-> Interrupts (PPI), that are handled (enabled/prioritized/delivered)
-> entirely within the CPU interface hardware.
+I am not sure if we must power off dsp in .stop() and power on dsp in .star=
+t().
+because I see such comments in remoteproc_core.c
+        /* power up the remote processor */
+        ret =3D rproc->ops->start(rproc);
 
-I can't remember where I got to last time so if I repeat stuff that
-you already responded to, feel free to just ignore me this time ;)
+        /* power off the remote processor */
+        ret =3D rproc->ops->stop(rproc);
 
-All superficial stuff. Feel free to completely ignore if you like.
+So I moved pm_runtime_get_sync() to .start() and pm_runtime_put_sync()
+to .stop()
+in this patchset.
 
-> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-> new file mode 100644
-> index 000000000000..a08daa562d21
-> --- /dev/null
-> +++ b/drivers/irqchip/irq-gic-v5.c
-> @@ -0,0 +1,461 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2024-2025 ARM Limited, All Rights Reserved.
-> + */
-> +
-> +#define pr_fmt(fmt)	"GICv5: " fmt
-> +
-> +#include <linux/irqdomain.h>
-> +#include <linux/wordpart.h>
-> +
-> +#include <linux/irqchip.h>
-> +#include <linux/irqchip/arm-gic-v5.h>
-> +
-> +#include <asm/cpufeature.h>
-> +#include <asm/exception.h>
-> +
-> +static u8 pri_bits __ro_after_init = 5;
-> +
-> +#define GICV5_IRQ_PRI_MASK	0x1f
-> +#define GICV5_IRQ_PRI_MI	(GICV5_IRQ_PRI_MASK & GENMASK(4, 5 - pri_bits))
-> +
-> +#define PPI_NR	128
-> +
-> +static bool gicv5_cpuif_has_gcie(void)
-> +{
-> +	return this_cpu_has_cap(ARM64_HAS_GICV5_CPUIF);
-> +}
-> +
-> +struct gicv5_chip_data {
-> +	struct fwnode_handle	*fwnode;
-> +	struct irq_domain	*ppi_domain;
-> +};
-> +
-> +static struct gicv5_chip_data gicv5_global_data __read_mostly;
+previously we called pm_runtime_get_sync() in .prepare(),
+pm_runtime_put_sync() in
+.unprepare().
+If we can keep the power on/off in .prepare()/.unprepare.  maybe we
+can refine the
+.load function which is to move .reset to .load(),  then we can reduce
+the code change
+and not need to change the coredump scope.
 
-> +static void gicv5_hwirq_eoi(u32 hwirq_id, u8 hwirq_type)
-> +{
-> +	u64 cddi = hwirq_id | FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, hwirq_type);
+Before I test this idea I'd like to have your opinion about this.
+Thanks.
 
-Slight preference for not needing to care where hwirq_id goes in CDDI or how big
-it is (other than when I checked the header defines).
- 
-	u64 cddi = FIELD_PREP(GICV5_GIC_CDDI_ID_MASK, hwirq_id) |
-        	   FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, hwirq_type);
-
-
-> +
-> +	gic_insn(cddi, CDDI);
-> +
-> +	gic_insn(0, CDEOI);
-> +}
-
-> +static int gicv5_ppi_irq_get_irqchip_state(struct irq_data *d,
-> +					   enum irqchip_irq_state which,
-> +					   bool *state)
-> +{
-> +	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
-> +
-> +	switch (which) {
-> +	case IRQCHIP_STATE_PENDING:
-> +		*state = !!(read_ppi_sysreg_s(d->hwirq, PPI_PENDING) & hwirq_id_bit);
-
-Technically don't need the !! but if you really like it I don't mind that much.
-
-> +		return 0;
-> +	case IRQCHIP_STATE_ACTIVE:
-> +		*state = !!(read_ppi_sysreg_s(d->hwirq, PPI_ACTIVE) & hwirq_id_bit);
-> +		return 0;
-> +	default:
-> +		pr_debug("Unexpected PPI irqchip state\n");
-> +		return -EINVAL;
-> +	}
-> +}
-
-
-> +static int gicv5_irq_ppi_domain_translate(struct irq_domain *d,
-> +					  struct irq_fwspec *fwspec,
-> +					  irq_hw_number_t *hwirq,
-> +					  unsigned int *type)
-> +{
-> +	if (!is_of_node(fwspec->fwnode))
-> +		return -EINVAL;
-> +
-> +	if (fwspec->param_count < 3)
-
-I don't care that much, but could relax this seeing as fwspec->param[2]
-isn't used anyway? Maybe a tiny comment on why it matters?
-
-> +		return -EINVAL;
-> +
-> +	if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI)
-> +		return -EINVAL;
-> +
-> +	*hwirq = fwspec->param[1];
-> +
-> +	/*
-> +	 * Handling mode is hardcoded for PPIs, set the type using
-> +	 * HW reported value.
-> +	 */
-> +	*type = gicv5_ppi_irq_is_level(*hwirq) ? IRQ_TYPE_LEVEL_LOW : IRQ_TYPE_EDGE_RISING;
-> +
-> +	return 0;
-
-
-> +static int __init gicv5_of_init(struct device_node *node, struct device_node *parent)
-> +{
-> +	int ret = gicv5_init_domains(of_fwnode_handle(node));
-> +	if (ret)
-> +		return ret;
-> +
-> +	gicv5_set_cpuif_pribits();
-> +
-> +	ret = gicv5_starting_cpu(smp_processor_id());
-> +	if (ret)
-> +		goto out_dom;
-> +
-> +	ret = set_handle_irq(gicv5_handle_irq);
-> +	if (ret)
-> +		goto out_int;
-> +
-> +	return 0;
-> +
-> +out_int:
-> +	gicv5_cpu_disable_interrupts();
-> +out_dom:
-> +	gicv5_free_domains();
-
-Naming is always tricky but I'd not really expect gicv5_free_domains() as the
-pair of gicv5_init_domains() (which is doing creation rather than just initializing).
-
-Ah well, names are never prefect and I don't really mind.
-
-> +
-> +	return ret;
-> +}
-> +IRQCHIP_DECLARE(gic_v5, "arm,gic-v5", gicv5_of_init);
-
+Best regards
+Shengjiu Wang
+>
+> Best regards
+> Shengjiu Wang
+>
+> >
+> > Did I understand all that correctly?
+> >
+> > >
+> > > >
+> > > > I worry that your work will introduce regression for other users.  =
+Daniel and
+> > > > Iuliana, once again have to ask you to look at this patchset.
+> > > >
+> > > > Thanks,
+> > > > Mathieu
+> > > >
+> > > > >                       return -ENOMEM;
+> > > > >
+> > > > >               rproc_add_carveout(rproc, mem);
+> > > > > @@ -1203,6 +1201,8 @@ static int imx_dsp_rproc_probe(struct platf=
+orm_device *pdev)
+> > > > >               goto err_detach_domains;
+> > > > >       }
+> > > > >
+> > > > > +     rproc_coredump_set_elf_info(rproc, ELFCLASS32, EM_XTENSA);
+> > > > > +
+> > > > >       pm_runtime_enable(dev);
+> > > > >
+> > > > >       return 0;
+> > > > > --
+> > > > > 2.34.1
+> > > > >
+> > > >
 
