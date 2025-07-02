@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DBB2C83F04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 16:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E62C83F04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 16:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zKLX5UnxOIO/FAoM2tTxB/S4m7rGd2/i+CUznn7DJNM=; b=eq55GCLNRupDfL5Gi9y+RMpSz2
-	oH764kkjCFv4rKHHRfYpQ7Qsubeb9mC34PIzF6KwFOR5tC8OPR0HkI3TB6YfKLVwn1EK/C2uIZDUn
-	wjoYW5I3K6x3Un3AtERUGTjTiyPKA+Olg3dysxT9D2XW53QUM1Dk44JPilfRId+aj/WRzhtGCSna8
-	9Q0Fv9l3G0+bJMpVw+Z4reSDkgeXcfRO49LHOhRuSrIKNa2RUWiqvT/nUASRDtGJRIhf4rMbnX3Hk
-	2qtB/hdx6zNGfE9Q6grO2BZyOzzT/NEE5rFKUjulwD1zqKtG/209jj7yIkzhgeayuKYfgl+l7f6b9
-	uS9zgrVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2AF5EGj2qKzyf78LkwWbxJULTyLQiIdC4tmSHWVSetw=; b=0Of/bV8+SQpQp5pgZYzlysVL72
+	mu6kyY9EtpMbpHBZqblNvYjw9rafyMNN7wUpTwjPAPzAgM6LRwEfUo4AnZQIilqUTJg4TrcLFbVzP
+	Tzi0r/s0ejcBuoVEDt/QdAv03e8jTn70QYG02H3tCjKrNNp0MczIId2Jo6LcLCB6XTZdnHjFjDjC9
+	DzWOJXCUVvBOtDy1D+kA7abUP6mWb/qj2u/c59MZqIn2DcYQ40lWU3C6rO9WyudOgZcM+K0JaBfKi
+	cA1XR0gQbdXRSFZ1FWCyQ/SVO5csPLpSwFykqgWaKBiUE0vIm2zeA9SvA6XDqR2Xh+gQOQOMNDjbf
+	ncw5GIgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX0eT-000000091BT-2hJJ;
-	Wed, 02 Jul 2025 16:49:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uX0g0-000000091hA-07zg;
+	Wed, 02 Jul 2025 16:51:16 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX06K-00000008uwZ-15yA
+	id 1uWypt-00000008hGJ-1Yrw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 16:14:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6D807A52E41;
-	Wed,  2 Jul 2025 16:14:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4687C4CEE7;
-	Wed,  2 Jul 2025 16:14:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751472863;
-	bh=qAqCnDiXmDWDKpsRVEMIVXLauOz1Q2uyONAQFH9F8c0=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=XkDoA3qXcO87nKbrvLlQAOcEuefHPBdeAAhnCzoT3xJo364HpCdXMR1XT/fpybOb7
-	 ZVKKm6zwfmDqUiZglStC/614VObrg24NyJzETSAuy0tG/78OJ4VL9BJQT26gC5G9Vs
-	 SXe7ARU4hsSQoM8N29HOTpXCyY7JrlykGiZza9My7fFrlfjVhM8QdTnMM2Y89mIn+8
-	 R2xoI7cmqcAdkyFIRBs72YU22l2yS4RWaOypt2DXFIHdqhHIIFa5CFVoqnT529jNKl
-	 Ufvvg2YmIYjzrNwJKq3VOZcQnSCuZlTxafY2Eq9iXDPkv4uP+rERmf+YjLjhJmrLRX
-	 fMIxVhWJ62qwg==
-Date: Wed, 02 Jul 2025 11:14:22 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 02 Jul 2025 14:53:23 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 562ErGLe3265092;
+	Wed, 2 Jul 2025 09:53:16 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1751467996;
+	bh=2AF5EGj2qKzyf78LkwWbxJULTyLQiIdC4tmSHWVSetw=;
+	h=From:To:CC:Subject:Date;
+	b=S88bvCmZCoQkQIQ/eKSEQ5wbYz/HSld3j1dZRXMBH0Q80NMN6zZuzZOiuRtKbaVSQ
+	 BDqQusU9xeKQSCoUmMrvRVOUDQnMr9LIf4GH84M+6tLNbbabMu8OxARSBzdvfpYDRY
+	 ThsKCTY9x4aYeEk60HWHgJQeO/NlJkYBHBfp8S+4=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 562ErFPs1372673
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 2 Jul 2025 09:53:15 -0500
+Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 2
+ Jul 2025 09:53:15 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 2 Jul 2025 09:53:15 -0500
+Received: from ula0226330.dhcp.ti.com (ula0226330.dhcp.ti.com [10.247.22.38])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 562ErFHm3616815;
+	Wed, 2 Jul 2025 09:53:15 -0500
+From: Andrew Davis <afd@ti.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, Andrew Davis <afd@ti.com>
+Subject: [PATCH] arm64: dts: ti: Enable overlays for all DTB files
+Date: Wed, 2 Jul 2025 09:53:14 -0500
+Message-ID: <20250702145314.71996-1-afd@ti.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
- Cosmin Tanislav <cosmin.tanislav@analog.com>, 
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, devicetree@vger.kernel.org, 
- linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, 
- linux-media@vger.kernel.org, Julien Massot <julien.massot@collabora.com>, 
- linux-staging@lists.linux.dev, Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-In-Reply-To: <20250702132104.1537926-15-demonsingur@gmail.com>
-References: <20250702132104.1537926-1-demonsingur@gmail.com>
- <20250702132104.1537926-15-demonsingur@gmail.com>
-Message-Id: <175147286213.1836974.10095173958992106810.robh@kernel.org>
-Subject: Re: [PATCH v5 14/24] dt-bindings: media: i2c: add MAX9296A,
- MAX96716A, MAX96792A
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_091424_431612_7679BECB 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20250702_075321_511583_FC5CF3DC 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,58 +85,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Allow overlays to be applied to any DTB without manually enabling it
+for each file. This adds around ~10% to the total size of the DTB files
+on average.
 
-On Wed, 02 Jul 2025 16:20:40 +0300, Cosmin Tanislav wrote:
-> The MAX9296A deserializer converts single or dual serial inputs to MIPI
-> CSI-2 outputs. The GMSL2 links operate at a fixed rate of 3Gbps or 6Gbps
-> in the forward direction and 187.5Mbps in the reverse direction.
-> In GMSL1 mode, each serial link can be paired with 3.12Gbps or 1.5Gbps
-> GMSL1 serializers or operate up to 4.5Gbps with GMSL2 serializers with
-> GMSL1 backward compatibility. The MAX9296A supports mixed GMSL2 and
-> GMSL1 links. The serial inputs operate independently, allowing videos
-> with different timings and resolutions to be received on each input.
-> 
-> MAX96716A supports both tunnel and pixel mode.
-> MAX96792A supports both tunnel and pixel mode, and has two GMSL3 links.
-> 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  .../bindings/media/i2c/maxim,max9296a.yaml    | 242 ++++++++++++++++++
->  MAINTAINERS                                   |   6 +
->  2 files changed, 248 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-> 
+Signed-off-by: Andrew Davis <afd@ti.com>
+---
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Note that Broadcom's DTS already do this, so there is precedent for this.
+And we do this unconditionally in our Yocto Distros[0] already, this just
+moves this so everyone gets overlay support for all boards.
 
-yamllint warnings/errors:
+[0] https://git.yoctoproject.org/meta-ti/tree/meta-ti-bsp/recipes-kernel/linux/ti-kernel.inc#n5
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
-	['maxim,max96717'] is too short
-	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
-	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
-	['maxim,max96717'] is too short
-	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
-	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
+ arch/arm64/boot/dts/ti/Makefile | 22 +---------------------
+ 1 file changed, 1 insertion(+), 21 deletions(-)
 
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250702132104.1537926-15-demonsingur@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 743e7b945af3b..93fb2c5c3bbda 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -348,24 +348,4 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-j784s4-evm-usxgmii-exp1-exp2.dtb
+ 
+ # Enable support for device-tree overlays
+-DTC_FLAGS_k3-am625-beagleplay += -@
+-DTC_FLAGS_k3-am625-phyboard-lyra-rdk += -@
+-DTC_FLAGS_k3-am62a7-phyboard-lyra-rdk += -@
+-DTC_FLAGS_k3-am625-sk += -@
+-DTC_FLAGS_k3-am62-lp-sk += -@
+-DTC_FLAGS_k3-am62a7-sk += -@
+-DTC_FLAGS_k3-am62p5-sk += -@
+-DTC_FLAGS_k3-am642-evm += -@
+-DTC_FLAGS_k3-am642-phyboard-electra-rdk += -@
+-DTC_FLAGS_k3-am642-tqma64xxl-mbax4xxl += -@
+-DTC_FLAGS_k3-am6548-iot2050-advanced-m2 += -@
+-DTC_FLAGS_k3-am68-sk-base-board += -@
+-DTC_FLAGS_k3-am69-sk += -@
+-DTC_FLAGS_k3-j7200-common-proc-board += -@
+-DTC_FLAGS_k3-j721e-common-proc-board += -@
+-DTC_FLAGS_k3-j721e-evm-pcie0-ep += -@
+-DTC_FLAGS_k3-j721e-sk += -@
+-DTC_FLAGS_k3-j721s2-common-proc-board += -@
+-DTC_FLAGS_k3-j722s-evm += -@
+-DTC_FLAGS_k3-j784s4-evm += -@
+-DTC_FLAGS_k3-j742s2-evm += -@
++DTC_FLAGS := -@
+-- 
+2.39.2
 
 
