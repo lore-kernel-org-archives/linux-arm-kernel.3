@@ -4,91 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFFEAC83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D7C7C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p49bABjbEnShhniwT4G/iwpGc59+QIBwBwIG2CyY6WA=; b=B/4hE8tul7rO0s1S4H0hVY1igt
-	mP+q4ygkdYKekgmC6qvJ+ikp5Ey9Eqsq4pOT7ie6TN8oFdZH9v0qEWK/MvPA0LEjtfqHlnnET2hmD
-	CUqB6OcIG0JHSukDh70LMRUR82fbZRpBRNooo1WGkJuD7jlRC87PMLZ4oSS0Rre9bcBznGgOpUzgY
-	yOb4i1lYNS98vMVGYtAjYxQeFRCv4InSiDk7/hz5C1yJwvZsH9rd+P8eZWSKRbPMHQQwqmiZQlwdb
-	IxXA4cK8P9fAR8KOjvOgBIq+A6ZMDCK5FxUL5pHQkVVNF/ppL/vjYkrknhKhCN2mx+9Fqr/ZWHON9
-	c9gmFZ7A==;
+	bh=ffvbkk+B4KjQYbTaudY55KFbnXKlqi3ImmnNYbn88G8=; b=YpZlq7KC8kIwwOcQ92ejq0ozgJ
+	M9PXlXA9dDATkvSJEsd/ucP/+IRMWqknDGdCdHZqcgVPOuOj2lGR81X/x1cSnsYmvazEshbsuoslP
+	mbI3uyLKZhFzNOZELU+Ywm8kGt6uLpEek6pZVC6m9BqeYDTECDx4bdXll8JlQo3BEOpRJJtKjxIHs
+	P3it1t+87crDkHGEJT+kcsVxE3XrnV1I/pAEtMSJkorgr4rB2LSkza9tWVlExfS0oG0EZYlj9c6es
+	6gr3KqOkqha4m9+jBerf4+ib+q/O9r5XuLbAOxwfkNh7taLaW3iJZLjUoEaq8h4VKn8bmKgA0lFJA
+	G8Vfh8oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWur8-00000007yig-0fws;
-	Wed, 02 Jul 2025 10:38:22 +0000
-Received: from mail-m21467.qiye.163.com ([117.135.214.67])
+	id 1uWutQ-00000007yx5-3lQ0;
+	Wed, 02 Jul 2025 10:40:44 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWu3F-00000007phQ-1P2t
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 09:46:50 +0000
-Received: from localhost.localdomain (unknown [117.184.129.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1aaa9ed79;
-	Wed, 2 Jul 2025 17:46:43 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	krzk@kernel.org,
-	conor+dt@kernel.org,
-	gordon.ge@bst.ai,
-	catalin.marinas@arm.com,
-	geert.uytterhoeven@gmail.com,
-	will@kernel.org,
-	ulf.hansson@linaro.org,
-	adrian.hunter@intel.com,
-	arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	soc@lists.linux.dev,
-	bst-upstream@bstai.top,
-	neil.armstrong@linaro.org,
-	jonathan.cameron@huawei.com,
-	bigfoot@classfun.cn,
-	kever.yang@rock-chips.com,
-	mani@kernel.org,
-	geert+renesas@glider.be,
-	andersson@kernel.org,
-	nm@ti.com,
-	nfraprado@collabora.com,
-	quic_tdas@quicinc.com,
-	ebiggers@google.com,
-	victor.shih@genesyslogic.com.tw,
-	shanchun1218@gmail.com,
-	ben.chuang@genesyslogic.com.tw,
-	Albert Yang <yangzh0906@thundersoft.com>
-Subject: [PATCH v2 8/8] MAINTAINERS: add and consolidate Black Sesame Technologies (BST) ARM SoC support
-Date: Wed,  2 Jul 2025 17:44:44 +0800
-Message-Id: <20250702094444.3523973-9-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250702094444.3523973-1-yangzh0906@thundersoft.com>
-References: <20250528085403.481055-1-yangzh0906@thundersoft.com>
- <20250702094444.3523973-1-yangzh0906@thundersoft.com>
+	id 1uWu5s-00000007qJ9-0k47;
+	Wed, 02 Jul 2025 09:49:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751449770;
+	bh=HaDbrpXJ0lT6/Xsy0anDOjZM40zt+N8qVQXlMq+igkE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=f71292rUHg3WI4fUSBFc+KK9z9UY3VGWxdv3y3c+UbrfUwDm0DZ74NzaasxZy7qey
+	 b3I3owP50H3fZzi3SJ/tS8dGG9hayAu8pc6ytIHBEP1L3yBw53cQTwvYO6C1mC4i7g
+	 Bzqfz8X5QGCOZeiBFF1BBsAlIYdp72hhMFRdR6UFV6ndoOJR0MUONKuknnN3y4PZfl
+	 I2hBSlW1TOHwYjd5hg52TmWTB3r0jqeJbyNnYgPvtM6nIXHUcXiMXtUj+V/qLeK7z7
+	 Q3s1LLUIXPYiCXHFQuITvmgx72/frRdzu88TA86x1ot0zUb94rh3GIr4gUfFD4XdOG
+	 t3Uju+CuhRIqg==
+Received: from [192.168.1.90] (unknown [212.93.144.165])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BE03B17E04C0;
+	Wed,  2 Jul 2025 11:49:29 +0200 (CEST)
+Message-ID: <422d8ca6-00b6-4c69-b261-b0399d12c9d8@collabora.com>
+Date: Wed, 2 Jul 2025 12:49:29 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDSB0YVk9CGE8ZGUxOHh8fTlYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCS0NVSk
-	tLVUpCWQY+
-X-HM-Tid: 0a97ca880db309cckunmee1cabff3ebc57
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ojo6TCo6OTE0KE8xQiEqHUoj
-	DRxPFDJVSlVKTE5KT09CTUtOT01MVTMWGhIXVQIaFRwBE0tCS007DxMOFR8eCQgUHQ9VGBQWRVlX
-	WRILWUFZSkpMVUpDT1VKSUJVSkhPWVdZCAFZQUlNSko3Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=k/yCuMJxVeOXaX4UC8xJi8N4oYoHJBUgI1LfpKFjPnB0IpJl5J+ZvP1CeNHd5xPvj8sBdGPHEl5OeI/GNiObheVCq98z6l4Hw7F/B6KMhgVIlpNsRy5+0mWzl6SfnEY1pagXQRbRF+bJDcH1Q70fM5B+IBaK9MIBcLl45KFJN0A=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=p49bABjbEnShhniwT4G/iwpGc59+QIBwBwIG2CyY6WA=;
-	h=date:mime-version:subject:message-id:from;
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: rockchip: add analog audio to ROCK 4D
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: kernel@collabora.com, linux-input@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250630-rock4d-audio-v1-0-0b3c8e8fda9c@collabora.com>
+ <20250630-rock4d-audio-v1-3-0b3c8e8fda9c@collabora.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20250630-rock4d-audio-v1-3-0b3c8e8fda9c@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_024649_646788_14E83983 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250702_024932_407338_FA963C44 
+X-CRM114-Status: GOOD (  24.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,38 +80,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add and consolidate the MAINTAINERS entry for Black Sesame Technologies
-ARM SoC support. This entry covers device tree bindings, drivers, and board
-files for BST SoCs, including MMC, and platform support.
+On 6/30/25 1:19 PM, Nicolas Frattaroli wrote:
+> The RADXA ROCK 4D, like many other Rockchip-based boards, uses an ES8388
+> analog audio codec. On the production version of the board, the codec's
+> LOUT1 and ROUT1 pins are tied to the headphone jack, whereas pins LOUT2
+> and ROUT2 lead to a non-populated speaker amplifier that itself leads to
+> a non-populated speaker jack. The schematic is still haunted by the
+> ghosts of those symbols, but it clearly marks them as "NC".
+> 
+> The 3.5mm TRRS jack has its microphone ring (and ground ring) wired to
+> the codec's LINPUT1 and RINPUT1 pins for differential signalling.
+> 
+> Furthermore, it uses the SoCs ADC to detect whether the inserted cable
+> is of headphones (i.e., no microphone), or a headset (i.e., with
+> microphone). The way this is done is that the ADC input taps the output
+> of a 100K/100K resistor divider that divides the microphone ring pin
+> that's pulled up to 3.3V.
+> 
+> There is no ADC level difference between a completely empty jack and one
+> with a set of headphones (i.e., ones that don't have a microphone)
+> connected. Consequently headphone insertion detection isn't something
+> that can be done.
+> 
+> Add the necessary codec and audio card nodes. The non-populated parts,
+> i.e. LOUT2 and ROUT2, are not modeled at all, as they are not present on
+> the hardware.
+> 
+> Also, add an adc-keys node for the headset detection, which uses an
+> input type of EV_SW with the SW_MICROPHONE_INSERT keycode. Below the
+> 220mV pressed voltage level of our SW_MICROPHONE_INSERT switch, we also
+> define a button that emits a KEY_RESERVED code, which is there to model
+> this part of the voltage range as not just being extra legroom for the
+> button above it, but actually a state that is encountered in the real
+> world, and should be recognised as a valid state for the ADC range to be
+> in so that no "closer" ADC button is chosen.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
-Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
----
- MAINTAINERS | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Enabled CONFIG_SND_SOC_ES8328_I2C and confirm playback works fine:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index efb51ee92683..e3236384c28a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2441,6 +2441,16 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/arm/blaize.yaml
- F:	arch/arm64/boot/dts/blaize/
- 
-+ARM/BST SOC SUPPORT
-+M:	Ge Gordon <gordon.ge@bst.ai>
-+R:	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/arm/bst.yaml
-+F:	Documentation/devicetree/bindings/mmc/bst,dwcmshc-sdhci.yaml
-+F:	arch/arm64/boot/dts/bst/
-+F:	drivers/mmc/host/sdhci-of-bst-c1200.c
-+
- ARM/CALXEDA HIGHBANK ARCHITECTURE
- M:	Andre Przywara <andre.przywara@arm.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
--- 
-2.25.1
+    $ speaker-test -D hw:ES8388,0 -F S16_LE -c 2 -t wav
+
+Unfortunately the recording doesn't seem to be functional:
+
+    $ arecord -D hw:ES8388,0 -f S16_LE -c 2 -r 48000 -d 5 -V stereo /tmp/test.wav
+    Recording WAVE '/tmp/test.wav' : Signed 16 bit Little Endian, Rate 48000 Hz, Stereo
+                                    +00%|00%+
+
+    $ aplay -D hw:ES8388,0 /tmp/test.wav
+
+However, the headset plug detection works correctly:
+
+    $ evtest
+    No device specified, trying to scan all of /dev/input/event*
+    Available devices:
+    /dev/input/event0:	Logitech USB Receiver
+    /dev/input/event1:	Logitech USB Receiver Mouse
+    /dev/input/event2:	Logitech USB Receiver Consumer Control
+    /dev/input/event3:	Logitech USB Receiver System Control
+    /dev/input/event4:	adc-keys
+    Select the device event number [0-4]: 4
+    Input driver version is 1.0.1
+    Input device ID: bus 0x19 vendor 0x1 product 0x1 version 0x100
+    Input device name: "adc-keys"
+    Supported events:
+      Event type 0 (EV_SYN)
+      Event type 1 (EV_KEY)
+      Event type 5 (EV_SW)
+        Event code 4 (SW_MICROPHONE_INSERT) state 0
+    Properties:
+    Testing ... (interrupt to exit)
+    Event: time 1751449448.185340, type 5 (EV_SW), code 4 (SW_MICROPHONE_INSERT), value 1
+    Event: time 1751449448.185340, -------------- SYN_REPORT ------------
+    Event: time 1751449448.289477, type 5 (EV_SW), code 4 (SW_MICROPHONE_INSERT), value 0
+    Event: time 1751449448.289477, -------------- SYN_REPORT ------------
+    Event: time 1751449449.329482, type 5 (EV_SW), code 4 (SW_MICROPHONE_INSERT), value 1
+    Event: time 1751449449.329482, -------------- SYN_REPORT ------------
+
+Tested-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
 
