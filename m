@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4991DC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 06:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CF8C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 06:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z44fZXCKQ2rdMNWqQElWdKkxsLIoVt0uR3JUXZYJwhs=; b=y+YROKHAdibsrbPUsh8f/39Yjg
-	cgoQVvyLpwfBAHnF4CcKXKYphhFD1DZv25Or1XFd/PkRklsE5fbCuiFsDzcs5E4LZDTpEzsnaMPT5
-	zWcKP0mDa17fBn/oQP8lmRH6WEwX/g+JtDKWZdwRL39xdnNDqfwXSNje/GwIr/c/PkCvBswp5dybd
-	iNj3xOjm5bLFlIJvD61vFOYbH0ifwNRUsIh3LrjNUt/EVmmn0WkXwp1i4vA5wt02LY2ufvgpgziHk
-	SvoA+0dhY9A5fO30ADQHinKj3QO4xK/wsF2SScR9QOTrP+etxEulBZhqjzKsY04ep9e6Te7J4mcoc
-	ayAKvn8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9vXwC7TmnSByyss6OYDQpxWuOZH00pqiV823Vv5KjDs=; b=z/mAtJspmacdplH2VfEQV4YG8H
+	9LCqTozGeWeUgc1H9WmJQ5+gRpSB/0xzvgjsH7pOt7tlbbPuU2C0B6Nqj4vzCZMz1HIp1Sgodp7tG
+	bN5fOSDX44jUxPENgs2al79elXtDvt6B4NnErfR53VWJR4zhy5CXqiylb0+M7qITiADc5cWKSvMaq
+	9Rpq6UzSW1kyjXpTvoonEx4lV+pHbRr2JuRupSwQq9p6OKk0i7Ij3ugMmUm3xrxvQvcyDUkYIHG39
+	Z9QHDcsKU4xq5ASTUCC3nO+GD8PrZEFUiyK1hMPzt3/FGgbT0kyQ2hRcHcSwJvWpk7k7HlErD1Z/j
+	ne7vl1ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWrMk-00000007Rw2-0esa;
-	Wed, 02 Jul 2025 06:54:46 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1uWrP2-00000007SBC-3tv0;
+	Wed, 02 Jul 2025 06:57:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWrEv-00000007RDo-1xH8;
-	Wed, 02 Jul 2025 06:46:42 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-453079c1e2eso7240565e9.3;
-        Tue, 01 Jul 2025 23:46:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751438800; x=1752043600; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=z44fZXCKQ2rdMNWqQElWdKkxsLIoVt0uR3JUXZYJwhs=;
-        b=FuZjnL1vy4XdSVn1dL9h/y2eWcIWtPJVyxsKHRME2GFCZl36EoXdAmx4KIGTw3HuHX
-         QILAGVH9D/Q5k83/bIH59NO761TDRqs8TzXNSlDWX1fdHvcI1UWHaF73hmpp+gwFRGrx
-         Eg73te++FGIBxecxeWZ4vPRTm6ttoeEo4kgMKCbgQadpAfraCnPPqjpOIjpFUlO7tX/o
-         uWjKd+TaTxSo5mpekYRpEvOBG5E7E8O8gqSItYz97n8JTm4dfCbcdFdaJ9YMWwbfiCqP
-         2zBaeM6THsXTdRw7iwU/TEAAs1m8fcOsxck4E6NMZ6gyobWDS+7+DskySuO75tKi5tIX
-         uuyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751438800; x=1752043600;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=z44fZXCKQ2rdMNWqQElWdKkxsLIoVt0uR3JUXZYJwhs=;
-        b=tzjtIqKA0gr0At9FcYLmYDAr9AFjotweQ5VcJ3z97+Gs/h1PBPq7qdKXsXckjzCPGM
-         Fntyl4dAVAA+ks6W1Bdp6efHpDd19NmN/XPLbabGGeMQHFTZ7uGMPk+8xBmWH0LLM9zp
-         xdvbC7z7kdnZoEAqgn89iTT2NhogmNGsJ1w0Km65/dqL/C+5GbLEne9Ffo3BMiuwQw1R
-         EL7k1blDEpbeOSWsni0lSDIKe9+AbvCkphlf9t3niE5BgLhiQ9l4wHceqyI4MEahwtvq
-         uMFxrQRjnM6rAKn3TUBdoL6KQenifPQAz1kAV+A/n4k9k0vObCE5knF6mR4xKIWkuYPf
-         diKg==
-X-Forwarded-Encrypted: i=1; AJvYcCUPQgXtFjqkmNLSX95PuoK86OQ7AvwJtDn8bA8GMhctXyWCjRnNKYKoNVKKzQs1VPhwzQD2twCgJfof6FILap0Y@lists.infradead.org, AJvYcCXwWUeke4ftBSE93bq3Iabs3ciEmJY/nxXW26TdOgYPhNbMPQVa7WKHg2sPaE0UGS1X8Mg/G9bUcODJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjUZiGIWH4Br6Xrw3nJi7abeMh/AwpbGhlLT4XPXK1CSYpWHnX
-	YRJiCir0l7d78bERTmmQnh5cj1i2A0v3O0bFU7PhAlP+CVonLrMRhE0qUTg1pFpG
-X-Gm-Gg: ASbGncsRmFb/Rr85X0ObUXghKSILuyH4EUqK4JnIkFzQ3WQ5eqx3Q7pEIG5S8FnMc02
-	Bh463KbmHtOn9ngoMRZ/6BtisFJTZjNqhobSmECbozIeCaf/krw4nfEyS46KtjD8fFC2cbhfFuf
-	6yJMQcsL86nYcayZ3Wwecd8Cv5EBCl9j3dwRLBnCuswDVr4oKs05xtcd0BWQaPLfsoKZxFyA6jA
-	vCcoAHsxJ4hSEpomY3s2Xk92Ra8lKeRbNV95AXDhloENnA3Jy9eIgPUdomn8UohKn6TmHJxCfkH
-	gxhWm4LD8LOWfH0H6A0GOAE3zSLvLTz/PmRLotiJ6SjcW1wpc8CvawNO4bPO3uMhvgM1LI3dzS+
-	U2TS06VXRCCzp
-X-Google-Smtp-Source: AGHT+IGEU3Ny06YRoZuAUkzUDN3QOXyRXaO7n1F+q8fEIPVppChrJnd6v3AlCTeUUNL0apHLFRr+KQ==
-X-Received: by 2002:a05:6000:22c1:b0:3a6:d403:6429 with SMTP id ffacd0b85a97d-3b1fe8a00d6mr415529f8f.4.1751438799651;
-        Tue, 01 Jul 2025 23:46:39 -0700 (PDT)
-Received: from thomas-precision3591.imag.fr ([2001:660:5301:24:9d5:215:761c:daff])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a88c7fab7asm15156201f8f.24.2025.07.01.23.46.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 23:46:39 -0700 (PDT)
-From: Thomas Fourier <fourier.thomas@gmail.com>
-To: 
-Cc: Thomas Fourier <fourier.thomas@gmail.com>,
-	stable@vger.kernel.org,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Alexander Dahl <ada@thorsis.com>,
-	Boris Brezillon <bbrezillon@kernel.org>,
-	linux-mtd@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] mtd: rawnand: atmel: Fix dma_mapping_error() address
-Date: Wed,  2 Jul 2025 08:45:11 +0200
-Message-ID: <20250702064515.18145-2-fourier.thomas@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uWrIj-00000007RcY-08qm;
+	Wed, 02 Jul 2025 06:50:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9vXwC7TmnSByyss6OYDQpxWuOZH00pqiV823Vv5KjDs=; b=YyPY0Tut0i3UTr3lDDO+2ME9Ot
+	GcsBd4y6/TFHC7zvPwGuZLaGU3N3A7vytcb2oAyJC59P5843lEINYFs/xikbW7OXDCNDk3zj4FUML
+	9tjLaX5bYHSVCy/JdxFWi2m7VCJkyPUkS4DZU9NVp58VQPnlSoDzGtGIOzLi/7Lyik+rgGO8C5nGm
+	hyFCV/66ahjYW+qS1Aac4ey4FgfgygeWxinU7fCEnDYW0RDHMjaDmCe5e1Oeh6VUHN5bxskVK2Pov
+	u7PucZDNJlUou9esMl5E0MSvGS3QrFyAKKdntiIS1ZycZe2/lZXTrnGj2huQNRwIi3G/UpjyuAS9e
+	y5vuAhmw==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWrIf-00000007Hlc-1cqU;
+	Wed, 02 Jul 2025 06:50:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C46145C58B7;
+	Wed,  2 Jul 2025 06:50:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDD4DC4CEEE;
+	Wed,  2 Jul 2025 06:50:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751439031;
+	bh=f5xtgW85Pmdkf7NAY39l9hBBBHkw6klVthxbcAS/Ie4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sipMSGhkq0VFiX5ymwlHzS/MjVKHUxSc88FYG16G//+tL5CwjMpqo6nNNc9snQj/b
+	 +aSjM5thzzVDm1yZqRiqMepTU/vLbHrUfW7dXcuhqEC/RQ47wHd3K+459C3VOqIpAB
+	 QN6CcOlzsQOefhEAy4biMovrYq4dWOXQGGqnSBu2CkQ5c+0a/LvKr/qQKePDEDH7w+
+	 dsZDwGfkVIz8YmMGCVwXzx+yVc6NxmwktV2/VTwR7ObkylMx3zxrxoavuDXSLWRefq
+	 vDL7xxF9dXWflHtbn18QLotOSMyOXX+Yactxsg+0tlBfCW3rlPxYaAuL3q9pVQiw1R
+	 4Q/D2LMrJ1cKg==
+Date: Wed, 2 Jul 2025 08:50:28 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: robh@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	ulf.hansson@linaro.org, arnd@arndb.de, m.wilczynski@samsung.com, nm@ti.com, 
+	khilman@baylibre.com, kabel@kernel.org, quic_hyiwei@quicinc.com, pjp@fedoraproject.org, 
+	tudor.ambarus@linaro.org, drew@pdp7.com, u.kleine-koenig@baylibre.com, 
+	gregkh@linuxfoundation.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, laura.nao@collabora.com, 
+	kernel@collabora.com
+Subject: Re: [RFC PATCH 2/3] dt-bindings: firmware: Document the MediaTek
+ Hardware Voter (HWV)
+Message-ID: <20250702-debonair-lynx-of-serenity-ee7138@krzk-bin>
+References: <20250701151149.136365-1-angelogioacchino.delregno@collabora.com>
+ <20250701151149.136365-3-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250701151149.136365-3-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_234641_522187_D1DD1141 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20250702_075034_118209_305CB570 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,33 +91,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It seems like what was intended is to test if the dma_map of the
-previous line failed but the wrong dma address was passed.
+On Tue, Jul 01, 2025 at 05:11:48PM +0200, AngeloGioacchino Del Regno wrote:
+> Add documentation for the new MediaTek Hardware Voter, found in
+> MediaTek SoCs like the MT8196 Kompanio Ultra for Chromebooks and
+> the MT6991 Dimensity 9400 for Smartphones.
+> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../mediatek,mt6991-hardware-voter.yaml       | 70 +++++++++++++++++++
+>  1 file changed, 70 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware-voter.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware-voter.yaml b/Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware-voter.yaml
+> new file mode 100644
+> index 000000000000..173b74c23a91
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware-voter.yaml
+> @@ -0,0 +1,70 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright 2025 Collabora Ltd
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/firmware/mediatek,mt6991-hardware-voter.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek Hardware Voter (HWV)
+> +
+> +maintainers:
+> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> +
+> +description:
+> +  The MediaTek Hardware Voter (HWV) is a SoC-internal fixed-function MCU
+> +  used to collect votes from both the Application Processor and from the
+> +  various other remote processors present in the SoC, and transparently
+> +  turn on or off various hardware resources (for example, power domains
+> +  or system clocks) based on aggregation of votes done in the HWV MCU's
+> +  internal state machine, therefore guaranteeing synchronization of the
+> +  hardware resource requests between all components of the SoC and hence
+> +  avoiding, for example, unclocked or unpowered access to the hardware.
+> +
+> +properties:
+> +  $nodename:
+> +    pattern: "^system-controller@[0-9a-f]+$"
+> +
+> +  compatible:
+> +    const: mediatek,mt6991-hardware-voter
+> +
+> +  reg:
+> +    items:
+> +      - description: Address and size of the Hardware Voter MMIO
+> +
 
-Fixes: f88fc122cc34 ("mtd: nand: Cleanup/rework the atmel_nand driver")
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
----
-v1 -> v2:
-- Add stable@vger.kernel.org
-- Fix subject prefix
+No resources here, so this should go to power controller
 
- drivers/mtd/nand/raw/atmel/nand-controller.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> +  power-controller:
+> +    $ref: /schemas/power/mediatek,power-controller.yaml
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +additionalProperties: true
+> +
+> +examples:
+> + - |
+> +   scp_hwv: system-controller@14500000 {
+> +     compatible = "mediatek,mt6991-hardware-voter";
+> +     reg = <0 0x14500000 0 0x3000>;
+> +
+> +     power-controller {
+> +       compatible = "mediatek,mt8196-hwv-scp-power-controller";
 
-diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
-index dedcca87defc..84ab4a83cbd6 100644
---- a/drivers/mtd/nand/raw/atmel/nand-controller.c
-+++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
-@@ -373,7 +373,7 @@ static int atmel_nand_dma_transfer(struct atmel_nand_controller *nc,
- 	dma_cookie_t cookie;
- 
- 	buf_dma = dma_map_single(nc->dev, buf, len, dir);
--	if (dma_mapping_error(nc->dev, dev_dma)) {
-+	if (dma_mapping_error(nc->dev, buf_dma)) {
- 		dev_err(nc->dev,
- 			"Failed to prepare a buffer for DMA access\n");
- 		goto err;
--- 
-2.43.0
+mt8196 in mt6991 is very confusing.
+
+Anyway, this does not address my comment at all. You again create some
+sort of syscon for voting, so no. You are supposed to use generic API
+for voting: clocks, power domains, interconnects - whatever is there
+applicable or necessary.
+
+Best regards,
+Krzysztof
 
 
