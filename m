@@ -4,112 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FDFC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 20:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D39C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 20:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j7a92QhB9JFz6Q3apWyfq8VOjLkUMmUw4CLg/hPMxL0=; b=KNe0vEn9mQI83UdSN5PoWBbOau
-	DqsRe2IGDPwl/EeuleG9Jl1JzfpqXkIKbQNU+SoqcB4AWl/vGVhMdjadAh6/CWY+eR+e3ebmUWzI7
-	/uc/4vNlsou7FbGmslZcjMJm5MMHM9X0FFRDw+jFwjiCMe2ehoUsbs7d148Xz7626CWiP9BZvIDcr
-	ZbixQgIt5MtO3Jja6GQkviejWsPBAT431TqG4FLtl/+KtGNRPKbRaY+w+E2K6vNl0JD8eGthRbpNM
-	L+KaJdodepjEFS/737qyvqC10i2bemdltNuNXqfp3d64b/FnxL/afvFHPsntwprlzl34zY5QPgmZM
-	hnDna9fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eQlbAaO2/24slCTjg4NQFYj3zkSgI583kd7LCwPUJBI=; b=11TCK5bTcbqHrjEbHmScrWtfZq
+	dH/g1AfTBIVcjRNV6J4i0X4CpJzBfbJY7LcxsGEQicn89AePB84YYU3LsWZHOjb9XYClI/mJFbGRE
+	jnPHaD4JYTJAygHvdzBCKGUzO+ppFkuoKhvJ+1DNADmbAFL+KlrCc5GLX8RoHCfkY+w6MhWYe5Koi
+	S7u/xNntcpvcN8X3FlB9zmcUdJazi34bgzCLhV73+K3nWzVWMABGFQ/niuFBppZyX0q8pyY1+Yd1C
+	inNNcfE2GBO2XJrMMt4ZiRD+IVW6VxxpYOkH/CPy9ocLLKFz8iclwg3xxYURzc+tznjyjROx9PKeY
+	CSrmZvCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX3e4-00000009SAh-0plB;
-	Wed, 02 Jul 2025 20:01:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uX3gO-00000009SM5-0QhB;
+	Wed, 02 Jul 2025 20:03:52 +0000
+Received: from mail-mw2nam10on20612.outbound.protection.outlook.com ([2a01:111:f403:2412::612] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX3aR-00000009Rjp-446P
+	id 1uX3cf-00000009Rys-1D8U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 19:57:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1214C45E37;
-	Wed,  2 Jul 2025 19:57:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DFD4C4CEF1;
-	Wed,  2 Jul 2025 19:57:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751486261;
-	bh=CaQXOmGi1Q4hapePQLyAziFqod4bCIqfR+jrX6VTL94=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=oKTwQiBw+tkM75pAVuwwZGva/mguhz9C9yn+RLuaHYRNtie1OVR0XlbcWjgube/WX
-	 nBPW1fc7RincAaOEAxsvLr2o1PRB0EewchJFTYWZoRwvcrfzttARHZg0mxreIW2t3V
-	 /JaZtglvZW6djsskXWmzLj2uPHsxtGpQghiRDbzZqz5O/ad595fzxRuzTwglzLbQco
-	 57lGg9kbMbDEl+UGIJeipvsRov6NpduFTEw75KNeCpoDvacFuK5lXkh44mjAgADScc
-	 MIWQaMjLCwSAHH/LYoQG0RqzrjlgnD3bS7vnL0D6mE/LXwJzEEnZbC5j5F1fuH6Kbv
-	 QSCDuUD+WvuBg==
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 6F059F40068;
-	Wed,  2 Jul 2025 15:57:40 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Wed, 02 Jul 2025 15:57:40 -0400
-X-ME-Sender: <xms:NI9laCs28QYlhPXfNvAXECAXg4qbxhG3NuDCBMXg9YZfRFjAY3ul-w>
-    <xme:NI9laHfO-CyLcRVqKE-_Ol55xS5aXihGQeRdR8XIEc0iMEY1hznDUBHvDOksQBBDG
-    S9-EIZPOlTvXWVMPyI>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddukedvlecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugeskhgvrhhnvghlrdhorhhgqeenucggtffrrghtth
-    gvrhhnpeejjeffteetfeetkeeijedugeeuvdfgfeefiedtudeikeeggeefkefhudfhlefh
-    veenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
-    hnugdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidquddvkeehudejtddvgedq
-    vdekjedttddvieegqdgrrhhnugeppehkvghrnhgvlhdrohhrghesrghrnhgusgdruggvpd
-    hnsggprhgtphhtthhopedviedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptggr
-    thgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehlihhnuhigse
-    grrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprghlvgigrghnughrvgdrsggv
-    lhhlohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvg
-    hmlhhofhhtrdhnvghtpdhrtghpthhtohephhgvrhgsvghrthesghhonhguohhrrdgrphgr
-    nhgrrdhorhhgrdgruhdprhgtphhtthhopegrnhguihdrshhhhihtiheskhgvrhhnvghlrd
-    horhhgpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthht
-    ohepjhhirhhishhlrggshieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhgvvgeskh
-    gvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:NI9laNwqgy5fmKbVuN6ufKbwO6ci8zaZO8U14JNHCAEgzh5P4AhQcw>
-    <xmx:NI9laNNTDjb8W7aNnQQcl_IMMDlm4R1XJ0V42VSvlKV20oZtIMh-Vg>
-    <xmx:NI9laC8HMWDKpPVud9dKnhSew2dXQKf_9r40M52mqN30aq_C-E9CWA>
-    <xmx:NI9laFXljuNhqBIZQBYp2UflD1FESwb5MFox1kvgplWN5ZIFPu17ig>
-    <xmx:NI9laLeU29iC9nuQZTXb33cj2kzAeIBV2fTVHCIrvSYT0kEtjwVZsWbA>
-Feedback-ID: i36794607:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 4464B700068; Wed,  2 Jul 2025 15:57:40 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 02 Jul 2025 20:00:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IQnSrEDT9Msa+i5D4U56FfPg/EvmBkx2NHY3iQ2Hp5ftPG6ycMvRqHkO/FGL5tbJ3e9AVb8NX025Cof1ZUkUnPHkRlbFMZtzCUyk30bOnldRZVqOuFjj74non3YDphlyMvfygwz8F8ilpNwbB0I74es1bMDMhEQ5QIYX8s5t+1CWelHLHmhajC46P6AF5mxal85Uypd4ImlZVuDxNQUpJYuSwCqiLgbNgRrRPoZVvrJUiX4bhpDTrFpOqe8zwAyZ51cW+68rsV2C1MK4fHU8IsUWntgo+ebkxK1NYMJahe8Djx1epfDtS7FGFg5j69oh2mXdpGi0DzYDoX3tCh3+dg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eQlbAaO2/24slCTjg4NQFYj3zkSgI583kd7LCwPUJBI=;
+ b=y8oaunn5AyOvrh+4oHdnH9AvkTv+c/YjVUEVh+Bwa5kFzt5UtUJ0pzSCsOwdxGwQlMwBtzj2wSIQ74Tqka6PPgqHc5EFG9rO5ndeKb/NFscYQZLtGpSR5dxyDoBIYjoQz6pGIRALny7waWOZr5jiuMp/E+ylj0fVWkx7EskdEkOHndncblNQHqrpkI1dNKoCBf+egdJwFZSUilnyZ8JspjT01z2I692smfCBSYd1StSnSvP7xL7CI4vtjA1bQw7oLzWajWbmBoqBGB8OlG6+HKUFIkktZk6dKmebJYmtNeszqQwTX5ZedK818XsEoLwlr5XANNSgcD0kdz5Sak0vjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eQlbAaO2/24slCTjg4NQFYj3zkSgI583kd7LCwPUJBI=;
+ b=d2sbH4OX73ODV81s+HEx8DgBwumN5IbrBh0mOyPIGlZncF42vZJ71lpXh5X5E+c+v0BylpAd5FUTnr24hzcnxJg5HEDi5FlQyx/7sGkdOMKi/dL0FMc8mKg4AUb5SX9KdqCEYeO2Je32+k92Rweo4j+hQAVYI1pI2lI7vuZjfWP3MhgcSTz/cxlW5l9WbULY33hZ5EmkhB6Osaz0JgLtiCtQhYJkJSmOhq8NINiyflbqBihxfBSb4Y95zj+CMt3Tn4Pgfg/z/u7Fpes5Pk+3Z0wp3AOWepO4sb1xpNPGXfYo35AnHSogh+lBDhoye1Cy7zP/WdQd2PiuEFs0rpZw3w==
+Received: from SA1P222CA0146.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:3c2::28)
+ by IA4PR12MB9763.namprd12.prod.outlook.com (2603:10b6:208:55a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.26; Wed, 2 Jul
+ 2025 19:59:56 +0000
+Received: from SA2PEPF00003F62.namprd04.prod.outlook.com
+ (2603:10b6:806:3c2:cafe::33) by SA1P222CA0146.outlook.office365.com
+ (2603:10b6:806:3c2::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.21 via Frontend Transport; Wed,
+ 2 Jul 2025 19:59:56 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SA2PEPF00003F62.mail.protection.outlook.com (10.167.248.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8901.15 via Frontend Transport; Wed, 2 Jul 2025 19:59:56 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 2 Jul 2025
+ 12:59:48 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 2 Jul
+ 2025 12:59:47 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Wed, 2 Jul 2025 12:59:46 -0700
+Date: Wed, 2 Jul 2025 12:59:44 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: "jgg@nvidia.com" <jgg@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>, "bagasdotme@gmail.com"
+	<bagasdotme@gmail.com>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"joro@8bytes.org" <joro@8bytes.org>, "thierry.reding@gmail.com"
+	<thierry.reding@gmail.com>, "vdumpa@nvidia.com" <vdumpa@nvidia.com>,
+	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "shuah@kernel.org"
+	<shuah@kernel.org>, "jsnitsel@redhat.com" <jsnitsel@redhat.com>,
+	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
+	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
+	"mshavit@google.com" <mshavit@google.com>, "praan@google.com"
+	<praan@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>, "mochs@nvidia.com" <mochs@nvidia.com>,
+	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>, "vasant.hegde@amd.com"
+	<vasant.hegde@amd.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>
+Subject: Re: [PATCH v7 02/28] iommufd/viommu: Explicitly define vdev->virt_id
+Message-ID: <aGWPsGEg3kFeX52k@Asurada-Nvidia>
+References: <cover.1750966133.git.nicolinc@nvidia.com>
+ <cc7a558bfcdce5c2ea0d53b0c9c382f944df33ce.1750966133.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276E7F8A69CAC8F4B0E416F8C40A@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-X-ThreadId: Tf4af6f8839cae169
-Date: Wed, 02 Jul 2025 21:57:10 +0200
-From: "Arnd Bergmann" <arnd@kernel.org>
-To: "Robert Marko" <robert.marko@sartura.hr>,
- "Russell King" <linux@armlinux.org.uk>,
- "Nicolas Ferre" <nicolas.ferre@microchip.com>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Claudiu Beznea" <claudiu.beznea@tuxon.dev>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Olivia Mackall" <olivia@selenic.com>,
- "Herbert Xu" <herbert@gondor.apana.org.au>,
- "David S . Miller" <davem@davemloft.net>, "Vinod Koul" <vkoul@kernel.org>,
- "Andi Shyti" <andi.shyti@kernel.org>, "Lee Jones" <lee@kernel.org>,
- "Mark Brown" <broonie@kernel.org>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Jiri Slaby" <jirislaby@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- dmaengine@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
- "Oleksij Rempel" <o.rempel@pengutronix.de>,
- "Daniel Machon" <daniel.machon@microchip.com>
-Cc: luka.perkov@sartura.hr
-Message-Id: <ea353170-6e03-4231-afc2-3dc45253931d@app.fastmail.com>
-In-Reply-To: <20250702183856.1727275-2-robert.marko@sartura.hr>
-References: <20250702183856.1727275-1-robert.marko@sartura.hr>
- <20250702183856.1727275-2-robert.marko@sartura.hr>
-Subject: Re: [PATCH v8 01/10] arm64: Add config for Microchip SoC platforms
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <BN9PR11MB5276E7F8A69CAC8F4B0E416F8C40A@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003F62:EE_|IA4PR12MB9763:EE_
+X-MS-Office365-Filtering-Correlation-Id: f9da97c9-55d6-4704-a2e5-08ddb9a30491
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?h2IbRa2YqvUHBezvEwJOYRLsgG+ytR69T3x+noPj21yPwdrLWAUh47XWM9zo?=
+ =?us-ascii?Q?iZavD5szVg17hdDX7ufhGqAlOOqdbhiegCS3Tn2Za3SlnD0isfbCLpzgb9e+?=
+ =?us-ascii?Q?AHHWHHAp9VSckYPDOT2mFx0hUKbte+W5kJcB0VMpq97jyBLgHbCT63wW1baz?=
+ =?us-ascii?Q?LBh85O1orYz0SBg6TNIza8sNojVBkPh4XmdvibyB/S4jiWrz/U0JwVcZAy3a?=
+ =?us-ascii?Q?jjvaTuxY2R4XUeVcfPSAjteieLsbsD/YDCB9YjBbYhV/ZYtdxwPQppGtlkm0?=
+ =?us-ascii?Q?FZjui7rsLUTATJlIw2t9mXWhSyzmS5peaP3shmjZc7BUdRczbjR7+FGsf/+T?=
+ =?us-ascii?Q?fAuhDifvVPqK0hbf7LeG9Qfxb9sQaG1Z4PpvLEs0L2OadHA6UPeJeyYMmwG6?=
+ =?us-ascii?Q?eXyGIExDS1dVUk7FW1YgDe2GbMtDwtqa31mNazVukEXNE5dMx1jigsVsL8Kc?=
+ =?us-ascii?Q?szYQbLFAIhVk+afhQtoRI4wLcdj197Fk3LPZm4HO2htpLIvy5R9XZ8lX4VIJ?=
+ =?us-ascii?Q?oInKRJEDMuAAdWpMlJFsKIcgzp2TFHcA0/paak+OFBFB99C94/YclwiQg2+B?=
+ =?us-ascii?Q?ohi8zKvuxPa2JX4IN+xJiEFtP1V4weEO6h5OgxyI/jTjl8SxehTMAO21lddR?=
+ =?us-ascii?Q?pTm+75G4XCfzCLnDLIP/lcFAKFYBbPyDbvBHiQzjNRSQqR+TASTNbz3olHQD?=
+ =?us-ascii?Q?G9cGs44vy5NFWtm15wLNFcWq8d2a06IuKO0hJpn6qqi6JPvlkr8hRBQ/Ka5r?=
+ =?us-ascii?Q?ApG8lOzCrDLei+Vjay8z6j+jPRgm47oTuuoOJyfnaX8iz3rEydZwX7gcQAXQ?=
+ =?us-ascii?Q?o7d3ZlCJNm8gV172twZGXTUgoaiC8en/3Ufze4IOvWKrTiVYFEguThMZssAP?=
+ =?us-ascii?Q?86B6XdpPWoKw8q2KRrAHeya+Ugz/r3s3hfx9Kk7MfcRuKTrrpWZeAotWBX1e?=
+ =?us-ascii?Q?QEW4PROJBKOTW3EzJWYop2XJnlxtDo48eA2hmo5I+Hu9t0hQ6nAew0eUsI7l?=
+ =?us-ascii?Q?3Gg0S6W8L/TNLyijHdqJt9/gYSVtVNAbGnffmyQSJmWAb/EqK2pZOuvYmDvQ?=
+ =?us-ascii?Q?hUlhS+XLCNmfXXoympqC7SMohil3r0rCaLn+tFyZ6RYqZAFGNfLCUvIJKc5D?=
+ =?us-ascii?Q?M7cDg/YIM9vnSwJifqbqp63xB33IXDjLnukwh/v8qd5bfdxhnHvD+oY7J1hn?=
+ =?us-ascii?Q?rbFnD/ckzv0IW1SDOSur5AwUCiZPIchmUj0fTWKluiK3yLqPl48Dp4rwFMvS?=
+ =?us-ascii?Q?Qi3/GtLvTogT7+twVu/r+q59usf85ZMTBAJr6k7Dux8w36mazlTZBk6WnyGT?=
+ =?us-ascii?Q?NTUhRTYmivp5Rch0S66jCLw/mu6BBpV48uCDgm6WLPb+iLj3h4ajP7ulMgIn?=
+ =?us-ascii?Q?0bG8r5BQegX4O5RGidwI0xOVNkGNC+Wg8cR8b2NkZg9sutx/rRLB+n+h5P1i?=
+ =?us-ascii?Q?wfhcD94ARhC/wKSRFCFNWAGg/BMzvT7O3ibFCmgEA8aLy5C+zVh/b63lVzW6?=
+ =?us-ascii?Q?HBycYjMfsLMNlUmX7ThMCFxawfDblqCYlNBp?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2025 19:59:56.2574
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f9da97c9-55d6-4704-a2e5-08ddb9a30491
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F62.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR12MB9763
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_125744_052488_308C9269 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20250702_130001_339262_ADA6DD0C 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,52 +170,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 2, 2025, at 20:35, Robert Marko wrote:
-> Currently, Microchip SparX-5 SoC is supported and it has its own symbol.
->
-> However, this means that new Microchip platforms that share drivers need
-> to constantly keep updating depends on various drivers.
->
-> So, to try and reduce this lets add ARCH_MICROCHIP symbol that drivers
-> could instead depend on.
-
-Thanks for updating the series to my suggestion!
-
-> @@ -174,6 +160,27 @@ config ARCH_MESON
->  	  This enables support for the arm64 based Amlogic SoCs
->  	  such as the s905, S905X/D, S912, A113X/D or S905X/D2
+On Wed, Jul 02, 2025 at 09:40:50AM +0000, Tian, Kevin wrote:
+> > From: Nicolin Chen <nicolinc@nvidia.com>
+> > Sent: Friday, June 27, 2025 3:35 AM
+> > +
+> > +	/*
+> > +	 * Virtual device ID per vIOMMU, e.g. vSID of ARM SMMUv3,
+> > vDeviceID of
+> > +	 * AMD IOMMU, and vRID of a nested Intel VT-d to a Context Table
+> > +	 */
+> > +	u64 virt_id;
 > 
-> +menuconfig ARCH_MICROCHIP
-> +	bool "Microchip SoC support"
-> +
-> +if ARCH_MICROCHIP
-> +
-> +config ARCH_SPARX5
-> +	bool "Microchip Sparx5 SoC family"
+> Just "vRID of Intel VT-d"? the current description is not very clear
+> to me.
 
-This part is the one bit I'm not sure about: The user-visible
-arm64 CONFIG_ARCH_* symbols are usually a little higher-level,
-so I don't think we want both ARCH_MICROCHIP /and/ ARCH_SPARX5
-here, or more generally speaking any of the nested ARCH_*
-symbols.
+Looks like we use "vRID of Intel VT-d to a Context Table" in the
+Documentation/userspace-api/iommufd.rst, but forgot to change in
+the uAPI header:
+ * @virt_id: Virtual device ID per vIOMMU, e.g. vSID of ARM SMMUv3, vDeviceID
+ *           of AMD IOMMU, and vRID of a nested Intel VT-d to a Context Table
 
-This version of your patch is going to be slightly annoying
-to existing sparx5 users because updating an old .config
-breaks when ARCH_MICROCHIP is not enabled.
+Let me correct both of them.
 
-The two options that I would prefer here are 
-
-a) make ARCH_SPARX5 a hidden symbol in order to keep the
-   series bisectable, remove it entirely once all references
-   are moved over to ARCH_MICROCHIP
-
-b) Make ARCH_MICROCHIP a hidden symbol that is selected by
-   ARCH_SPARX5 but keep the menu unchanged.
-
-Let's see what the sparx5 and at91 maintainers think about
-these options.
-
-The other patches all look fine to me.
-
-     Arnd
+Thanks
+Nicolin
 
