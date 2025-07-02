@@ -4,83 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9857C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 02:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0921EC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 03:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8djG8WqbgQUjheVgZ2REIAEuyGK2m7kH11olGFqdbSU=; b=crA99BP2qskwBf4MeHYKYBk/+x
-	bL0tlCT91trMVt7iNciN3CCECa+M55IM64uGiv2rZ21ujH5B1sPWgcteUovDefopUriKkAsjfVTmY
-	ClzjfntcfwgI48WtsgEqzVj926h4GvwGap9im0SejOCOThJTOTfKsm+MNuhE/R2ON9U6gzy0Ez98S
-	ZT8wUzqsYHEzcWaL/XqRGYg2PEmb3CtKAxhyBdDdzjR0Rw0wWlL6kBw5Peba1n1Z/PGIRKcNT6z+Y
-	PDs997BL+1/UbOC8/XNBYMJROx717af4iPVnVwgnSeow6wZtnho3Za82dPdPqggBdGyL86ZJ3v4sO
-	jbGYAt4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=a7RqwNYjLGYm7bejtsihVObJLnkCE4/1x+44/Bwt470=; b=CZGi8wSq6QPjhgIH8vFuK++9QW
+	pr72NoToQQon3fyg7Ps9GpTo2EmrVO56xnIgx3LDAxdNHC54nvGJXOoXDaeZ3Emp7M1ApNwuHgUT1
+	7hJ2PgLWg9kBhbke0eJydSxZlheJZJrdQN63jaWuiLI4QIHBSiqr5EjvM5MPUUaChUsiLzvT0tcZJ
+	2GIeElTu1HJQIxLarq+yIlYORtXSW/E+gTQIGxgeJmIgR3NYkd4VuWoPxTmijKgUQv9WaeP1fUPfU
+	GopqSg+97ZBaxflxez5cat5XsHtcKKICOovXBJXgzGo5AUniIjTWlE6W6AuakrpbZxQluwlYEgWKS
+	abcUccmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWndE-000000075jG-27CH;
-	Wed, 02 Jul 2025 02:55:32 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1uWnkG-0000000762V-3DZP;
+	Wed, 02 Jul 2025 03:02:48 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWnat-000000075Mj-24jZ
+	id 1uWnht-000000075wi-3KWY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 02:53:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751424742; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mrA3avk9M/kuiMlSOraXS90FYqh0uN7Iwu6NapwxmSegHecv5+P4PUbEMsTeOrRusu1BagsOFD6Ft+rQJAETUjm/3BCg8x38Sngb2r3jtdxoEcJL4BbtE2vO27ELCchZgt24AWoBljLbYjwRQGS9hY2Q39s0IRn7CXVGNH+D2x8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751424742; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8djG8WqbgQUjheVgZ2REIAEuyGK2m7kH11olGFqdbSU=; 
-	b=HViJtwRdnwVaWMUd+/Rho9adtqSpBKBmwx4P9X5KnlMUBJvMR2rZQoDGBEQOzXNV5kjq8kaHF1LskRhdXTJ2EO0Rj0UVXg4PWI8xLebK1G2O1st7snNv4/NBnODZbaF+IdT1oPV1nzNzKg5i8wIe/SGlCMkU7v+TAY1FhCkVz80=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751424742;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=8djG8WqbgQUjheVgZ2REIAEuyGK2m7kH11olGFqdbSU=;
-	b=aZa8P6c6JFbALioZzkB15M/OExk2j5KPthXbGCX9mnmtMnvLkWJNSrpIkXQoksMn
-	VrA0lPoiyXlg1YxBxyo5ALCKSqfpaTCOS/XeYEX3YMaWdJL2uqyq8/CXFgU6e1ih5K5
-	Zehy4xmgE8dWIEvBV/b+rRdid/cpmoXXrz74mXGeiDqXD/P5Xm6Cvnc0LcKr6CCT8ro
-	eDIjS9pHFy5YYrm6IzVL8pamvuqO55GB1IRDTJq0eikQYut6tjGH/nVeEHi6NyZonoN
-	q4sqIiLCTSMQzFAHkP1qterjuJrSDLais/B9aj8urMv9zLAF26BLxWs9aqTWICdbJvE
-	/l3ltWEUYg==
-Received: by mx.zohomail.com with SMTPS id 1751424740371995.4237846805278;
-	Tue, 1 Jul 2025 19:52:20 -0700 (PDT)
-Message-ID: <4bc1c1fd9aa1e97a04d964fc5601155ade52cd2d.camel@icenowy.me>
-Subject: Re: [PATCH 5/5] drm/sun4i: Run the mixer clock at 297 MHz on V3s
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Paul Kocialkowski <paulk@sys-base.io>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-gpio@vger.kernel.org
-Cc: Yong Deng <yong.deng@magewell.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Maxime Ripard <mripard@kernel.org>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>,  David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Linus Walleij <linus.walleij@linaro.org>,  Icenowy Zheng
- <icenowy@aosc.xyz>, Andre Przywara <andre.przywara@arm.com>
-Date: Wed, 02 Jul 2025 10:52:10 +0800
-In-Reply-To: <20250701201124.812882-6-paulk@sys-base.io>
-References: <20250701201124.812882-1-paulk@sys-base.io>
-	 <20250701201124.812882-6-paulk@sys-base.io>
-Organization: Anthon Open-Source Community
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4 
+	Wed, 02 Jul 2025 03:00:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SniPjtevHoXNqpT4KIhZ/bowU/DuWW4th8HkaD6RJ1bhHhrf8fdXH5F7DqLl3x/77yfi+4U84MYpLa5aaTX71KhC3QX3rlVNCq1ZPTlwdEg1+UeY7vR3uvlrFrEyViU6fZeY2f+IyPlG+WLJhh9mCsYtpMyt3zXH7PFpa3bWlUaGMGuD3upAuMYsVIN+imD5us9ZjpZK/Xlcvvw4gAPjxEy42OrISnbmU2v0U9DFbzAq3HcD05jWPWRdn+3Kan3KvDbjzr3VohCKMGf1ewETGEBn0wrGGIBNXLfviFKaHzQwsEgx0lPrQ4lfrXWCzCXxy0htHKA+dQCIh9OB1Cx6hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=a7RqwNYjLGYm7bejtsihVObJLnkCE4/1x+44/Bwt470=;
+ b=u4foKGNPSWjxt74qYCIsxXhRlmuN+jYHWuc+iEyHauTO71za37X37Bs0ssgxgJdI+/f/a0q4QNoYYYZgYTEUC40sLVnCtwlapG1Q/RYM9R1olsIfK0qpCsEMBN0BMrPFM2/f41pzmUkBGGywnepuD1VhX+T0b9Al8Z0BKrLW8Wj6ZAhKhiKppeipNawCGfpGhQNaGULmBdbZT7WRXNvO6LOaqtrb3Y0LS+kapFABeqjM7Uh17pPGmZRxI9bGqurRQKUXOD8/2QsXHYf4u30lxCcf9QQLBYixSO/fMJfRez/CbpKlWYwir7g40z6qb4XRDvFS4TnAwLTUQU2/vmTkUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=a7RqwNYjLGYm7bejtsihVObJLnkCE4/1x+44/Bwt470=;
+ b=jU2n/BTjhba1lT1ta33gDduWDIt6bXsLCTyXacHLN6UmlknnOp/2XGeOX7YKKeHUNG65mIXmeJ0f3ZKFfAQ0V0WRysPslsZ2WniTMG/8BmOPbi0W9TsQC81Zqa99ssCNGSIPu7ux08g6odws5+XkoRuCD5uef7xwGCFn/LQ46XB/7Vuuc13sHryHVcFrH6gsZuYUNcARnn8iIQAA2sZdk6PpLRzGkJJDMcl7EtiT4h94qB6DyRPdbjW5Txb8WyyqWICggCviVEfsnp6Sl8ocRDFO/G4f7uPJLSVmGgmaD7AIQmv3VW/TpmqN70L9HPVbAR8x/osir4VUnsp0R/ejGg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB8429.eurprd04.prod.outlook.com (2603:10a6:10:242::19)
+ by PR3PR04MB7482.eurprd04.prod.outlook.com (2603:10a6:102:8f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.31; Wed, 2 Jul
+ 2025 03:00:12 +0000
+Received: from DB9PR04MB8429.eurprd04.prod.outlook.com
+ ([fe80::2edf:edc4:794f:4e37]) by DB9PR04MB8429.eurprd04.prod.outlook.com
+ ([fe80::2edf:edc4:794f:4e37%3]) with mapi id 15.20.8880.024; Wed, 2 Jul 2025
+ 03:00:12 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	Frank.Li@nxp.com,
+	ping.bai@nxp.com,
+	haibo.chen@nxp.com
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de
+Subject: [PATCH] arm64: dts: imx94: add missing clock related properties to flexcan1
+Date: Wed,  2 Jul 2025 10:59:11 +0800
+Message-Id: <20250702025911.2457322-1-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0PR01CA0071.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ad::11) To DB9PR04MB8429.eurprd04.prod.outlook.com
+ (2603:10a6:10:242::19)
 MIME-Version: 1.0
-X-ZohoMailClient: External
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8429:EE_|PR3PR04MB7482:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5211ce26-906b-4512-9e02-08ddb9148f70
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Tv2OWVUVsk5XQXFJXTe2UzTp9MUdXGKz/FakdOGhsei06jXG9erduFI434CH?=
+ =?us-ascii?Q?O5xRouTO1rYTJbhbq+OZzHfpPzXDLRJ0FCTlope3c05bFFjPiOJlZ8BBJweV?=
+ =?us-ascii?Q?EVAT7o1/I8gc9sJ/6GdqhtUYo4IPzhtfjtX+6m1aUbQH71cfbByV3NrJl7Gf?=
+ =?us-ascii?Q?J+AUhRu330TZvW5c1rWcMdyqe1o5aPaK9L5EFL8yz0eLsnQZo/YBosE67fXM?=
+ =?us-ascii?Q?FmDBAhRgXOncjqCOgQhgxYKSS7wlENmu2I+5PuV30ZProtzDM+3oSXX25UX8?=
+ =?us-ascii?Q?4BfkfIChsPdAIC5iI5XFJ8yYCHlIZiW1QxFQn2A/FO201hZH7fVccGdiVBoM?=
+ =?us-ascii?Q?x4frJlQcmz0vhknCWT91NijT3lKzgv58TnrwWLVJ6lH3ZbAx2rj+0ibIAxkC?=
+ =?us-ascii?Q?4JVvCSZMLl2RKEHd5VahBkkwDbh6DSkBiFKgv6bT1Io2kCwz+ch0yQuYKL4q?=
+ =?us-ascii?Q?4k8YDTD5XGqRTLn9SP5TFYs+dbQvk7G83sDgAx7zDMwY73prNETuO12dMDj6?=
+ =?us-ascii?Q?eVmeSYPLGsUn8e/umeaPU03uQ2Hf3FDhUXLpdGIzr+edI5iWEQ+jovO+fmuC?=
+ =?us-ascii?Q?qAJPsQne6jNk0B+dMIdnv4FArclHSfjuU6kgYctuzq/fngDp1hc08xt74zdB?=
+ =?us-ascii?Q?o8JVRNNH7sZg/DqZtoH2GxJ2U9QB8xSLzvqY7fomi7nGviaZfh4iK11MV1em?=
+ =?us-ascii?Q?tt54BOixWx2/0OcJNqdMjqibMr0voRduu+NH1aCWengjjyTeOzjpWY7kvXXz?=
+ =?us-ascii?Q?IoSCjQ7v4hRhWvUXKS5bVLXbFRnN1t2lX8ZqlImGwewjGLYWwE0sGH4b3k6A?=
+ =?us-ascii?Q?DOneqGLRxSCjHzKoP1ZX+cssQIHABm7Vq8RECcdqWCtCkEUGjIGXCxOEkxEc?=
+ =?us-ascii?Q?xGc4sB8y0/S3b55UCTJ0NGQLbmWhP8YJ3wfwmpZOwHG3J1T6fCh76LNh76Ud?=
+ =?us-ascii?Q?TAyjFvzCqVrazJUkmpuAh0pUGtfxJJwi3PsNi8sHHVxhxTEcvHJxCKNaoRgl?=
+ =?us-ascii?Q?+N0AD4wkCQuywnDC/lz67A2kpQRxBLSu0E4Hmnyja1JdpebHyHD3/CaMbulU?=
+ =?us-ascii?Q?f9tBr+9ciTKEc/UCTPpehvxwJ+ZuzzY2LjH0onSZPrkgeA9ou1KaXZOTjTfA?=
+ =?us-ascii?Q?K36sIj8NQaYW7xQi8oZYeyY0krrF2egg6V0cLIf96tKrgxtY84KH6ZF/4lbF?=
+ =?us-ascii?Q?QmSiKKKTI41mKJuQNAc0F8j9VbluFBlniKiR/n1Xm5WK78PD5VM1/ooPLTvF?=
+ =?us-ascii?Q?5OeyBkg8V9ajK0bZm8xfWJdqvn9qr8jU2CQSRM+00ha9zPYgkV2uRi4hH+f8?=
+ =?us-ascii?Q?kww/ey8jCCTbNFNC9VHuercRBb0BYrHjJr6qbEjZTI5qg2P3Lv/vwlRb00+R?=
+ =?us-ascii?Q?yEWRjH4avyD0vaH5oEwM5jGf3A2md3MV2Ru+07oo/crvM9XWJGbl2ckpXNWg?=
+ =?us-ascii?Q?oDpKTH9heSoVoukNV/12lC6JjCgEi4YXseRdho65q3vzbdsF2dWZYw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8429.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CCf9ZnTKuPZFbx28SODmwxBfZRfmis907DCXLP8N+Fol8Sn1n7dBZ+bPeb5Q?=
+ =?us-ascii?Q?utBDlMmJ5VKcf7OgArkFaDipVra+ctP9sWys/Gh89iAqkzKIeZDizRr6ztE6?=
+ =?us-ascii?Q?Sgf5oKJu69maYSlvD0nkoSw+fcJFCPWlTEyIzM2b3ZkrOCJVY7Bes1JCGmYR?=
+ =?us-ascii?Q?4cuaAnxmsM5oknBlG5X0h6JN0+AT6x8H+s5G4U+OqOeuLREmqagbP+PH+Kzj?=
+ =?us-ascii?Q?SkcZQOdXAHCStn4iuhScLRmzAHF1ptTnRN+s1wmZnZ1Fc+bTVK6wcXoXJOEN?=
+ =?us-ascii?Q?6+Z+O6HbibU43D8+R/qN7KaHGV4HAlI93Sv/ywllvek8efOUr9EvOnMHbEiO?=
+ =?us-ascii?Q?eBELTYNU/4rc6a9xtErffcJM9EFbHChntX9byTe7vS+cnwRwGuaQfawA/STW?=
+ =?us-ascii?Q?lnAu5VsN+waFsBu4WvfE49VcJQqDfjkvdjrzkRum8BKxBr7OsD0In2wLL/2c?=
+ =?us-ascii?Q?CaUar3oiRCsRgh1zzaQuqkCfdQXMP9Dd9oSJqtTNHp34uqiHO2YY4v4uMSip?=
+ =?us-ascii?Q?UfztiMpq3xAX6BX7/1REyVLI4fDC09e75hBrbvaK0u4cmu63Y1MnMVmxnu6D?=
+ =?us-ascii?Q?FvAcu9dry0mEJqDWQeBfojrlZNUFcGf6moGW4sDk6pmt5DaeM1NEF7ywxDWO?=
+ =?us-ascii?Q?xJMU5Ja+8Ld4EQ3hGtgV2qiuAFcwizdGo7j1yqGh0oDwLPqkpFm67OeZQbUS?=
+ =?us-ascii?Q?+vNknOY6f1659mqZQ3094RTuGQAYZSZHa3l7c/+ircoJ7zhOaokuBmcjiVAn?=
+ =?us-ascii?Q?f0+hZZOJFkN14ai2abn4glqdFDGin6iIyyAvRNgoXcO2Ks4ss+s5NtNj+B9O?=
+ =?us-ascii?Q?EDTY167I6RohKBJyTcO2M3QkKRNIamm39JCbb5nBUYhMsqaHvt4bpVbZ/F+f?=
+ =?us-ascii?Q?gjtWWWBNqzNeJp0Ggrq6PlKf9LEOFpqExmtuJSPqESjbeylmwLoIClSFyi3Y?=
+ =?us-ascii?Q?WukKG6sTq7OTlWjtyk0BpGs+7jzwlceZlzJH0A3DqXEa0ORdJehbi4IjWqUm?=
+ =?us-ascii?Q?IXNWPMUKdXOxvcvY72X4vAVfrPR33iAb2NMn3wBLuPlEBNf8ifZV7fzHbMNQ?=
+ =?us-ascii?Q?RY4xYw1Z3xvRrS3st3zcjZJIvTsFnssQUXqdn4Qhi2FVC5ZeQpcqK6rhH46z?=
+ =?us-ascii?Q?c1X1geKYIE1+ksWG2NSkKGE4OocIKK6EvQxXb/n8PioGkB694GK+0/ExWpme?=
+ =?us-ascii?Q?b2MwgdLy4KDq6PI8Sm/Au6JCf3aeD5S2lpE99+XrtcD9bwdxYHrvJYtV0gWS?=
+ =?us-ascii?Q?at8FMK/dDz1HbfQlBGhjbrRg8nHVTfQridM082ooDawNqNY6DAC5sdH7RjfM?=
+ =?us-ascii?Q?WNscCfGwC2GMlizz3Lr9uzV7d043gQ9aTMiPJR43LfteKa9M/sAycDIzqemf?=
+ =?us-ascii?Q?uQFK7SqcrVmz/7IhownH6RqXBK8yz39BCLcUPWNhpLgUO+Rv/ZF0Yfrg8ofZ?=
+ =?us-ascii?Q?ZhUpAy+CClhvePYaH097+9fQUavJzS5ADjwY4vIDaSR/AjK7/ZQtoxA0iQwO?=
+ =?us-ascii?Q?YBViNf7b4YjLwKMYwDBEIUoUSMkc5tSJuZFgJ2YjjD1qnS8F1ElvZ/TaN7Ds?=
+ =?us-ascii?Q?qkzxmZwxYPv2DzK+K45A6CycUX6/7CnG27p+kSxZ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5211ce26-906b-4512-9e02-08ddb9148f70
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8429.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2025 03:00:12.0621
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dB4eUwMyItoYPH69E7xOasJ2vDAdvLQQ8zuB0lJhs1xuKd0sO2BxCVyNw49NkMF+DhekX8/Gb5SarhALb30oGQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7482
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_195307_587697_4C93E703 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20250701_200021_849616_0AA3A3E7 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,79 +165,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2025-07-01=E6=98=9F=E6=9C=9F=E4=BA=8C=E7=9A=84 22:11 +0200=EF=BC=
-=8CPaul Kocialkowski=E5=86=99=E9=81=93=EF=BC=9A
-> The DE mixer clock is currently set to run at 150 MHz, while the
-> Allwinner BSP configures it at 300 MHz and other platforms typically
-> run at 297 MHz.
->=20
-> 150 MHz appears to be enough given the restricted graphics
-> capabilities
-> of the SoC (with a work area of only 1024x1024). However it typically
-> causes the DE clock to be parented to the periph0 pll instead of the
-> video PLL.
->=20
-> While this should generally not be a concern, it appears (based on
-> experimentation) that both the DE and TCON clocks need to be parented
-> to the same PLL for these units to work. While we cannot represent
-> this
-> constraint in the clock driver, it appears that the TCON clock will
-> often get parented to the video pll (typically running at 297 MHz for
+Somehow the flexcan1 clock related properties were missing in
+imx94.dtsi, add them here to keep align with other flexcan instances.
 
-Ah I think pixel clocks are arbitary and nothing could be predicted
-about it...
+Fixes: b0d011d4841b ("arm64: dts: freescale: Add basic dtsi for imx943")
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx94.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-> the CSI units needs), for instance when driving displays with a 33
-> MHz
-> pixel clock (33 being a natural divider of 297).
->=20
-> Running the DE clock at 297 MHz will typically result in parenting to
-> the video pll instead of the periph0 pll, thus making the display
-> output functional.
->=20
-> This is all a bit fragile but it solves the issue with displays
-> running
-> at 33 Mhz and brings V3s to use the same frequency as other
-> platforms,
-> making support more unified.
->=20
-> Also align and sort the fields of the v3s mixer config while at it.
->=20
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> ---
-> =C2=A0drivers/gpu/drm/sun4i/sun8i_mixer.c | 12 ++++++------
-> =C2=A01 file changed, 6 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c
-> b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-> index 8b41d33baa30..35fdc2451060 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-> @@ -670,12 +670,12 @@ static const struct sun8i_mixer_cfg
-> sun8i_r40_mixer1_cfg =3D {
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct sun8i_mixer_cfg sun8i_v3s_mixer_cfg =3D {
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.vi_num =3D 2,
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.ui_num =3D 1,
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.scaler_mask =3D 0x3,
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.scanline_yuv =3D 2048,
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.ccsc =3D CCSC_MIXER0_LAYOUT,
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.mod_rate =3D 150000000,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.ccsc=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=3D CCSC_MIXER0_LAYOUT,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.mod_rate=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=3D 297000000,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.scaler_mask=C2=A0=C2=A0=C2=A0=
-=C2=A0=3D 0x3,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.scanline_yuv=C2=A0=C2=A0=C2=
-=A0=3D 2048,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.ui_num=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=3D 1,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.vi_num=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=3D 2,
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct sun8i_mixer_cfg sun20i_d1_mixer0_cfg =3D {
+diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
+index b8ffc428e95b..bd3437146746 100644
+--- a/arch/arm64/boot/dts/freescale/imx94.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+@@ -1035,6 +1035,13 @@ flexcan1: can@443a0000 {
+ 				compatible = "fsl,imx94-flexcan", "fsl,imx95-flexcan";
+ 				reg = <0x443a0000 0x10000>;
+ 				interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&scmi_clk IMX94_CLK_BUSAON>,
++					 <&scmi_clk IMX94_CLK_CAN1>;
++				clock-names = "ipg", "per";
++				assigned-clocks = <&scmi_clk IMX94_CLK_CAN1>;
++				assigned-clock-parents = <&scmi_clk IMX94_CLK_SYSPLL1_PFD1_DIV2>;
++				assigned-clock-rates = <80000000>;
++				fsl,clk-source = /bits/ 8 <0>;
+ 				status = "disabled";
+ 			};
+ 
+-- 
+2.34.1
 
 
