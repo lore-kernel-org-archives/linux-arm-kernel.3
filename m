@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDCDC8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 03:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784D7C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 03:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vB/bRw7mFEOpN1qxnHiykYCOW17QQ/rr/o+IPmh4y5Q=; b=3FNnydSR+gZ37RnnU7vhgaxLFn
-	kRDUSS/xQlZq2CjIOlZR5etx5uIM2yo+G4MI5EJC9f9Dh5kQtRKqL3D5PVLc2MA+4Ocu5XMMwOWqA
-	S5JB41euc6WVQfOAR50RTgLBzi6cQ55wf5siCp1PE9Fto+9ka7Af8btEOotWhyy/4fcKGEGYm79D9
-	TQMrAlki5v44Vgz39x01CRifYdsGYvmx0p/f0kO7DcKsuN2yN5FVmYuVNEQ351YCiHuKtMkx6Qkd4
-	/tLIQD8jfxWx2V0ndzoFr5b9ImQ3pn9SzVkRxIA6p5MqlkqX8C4+VOR6Mw6NfYX/V58TMRc+tuaiz
-	XiHGZQVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2pCONnCH5T7GCdkrr2svC567N0fS4DbXVH4ChpdByoM=; b=zSuxkd425FyTq4Kro+MazXyDRm
+	QxHkyk7ATSsaSAAcD6pswRQnnwZdX9KHmOqOnZSN4vYVzWOwB/1/JAxWjEGMtqDrqDXZROJUWEZ6v
+	zw0lXjqzKJu2jhKUjnB/wATTealqJJyrN4IhTpGoJPtJ5dOtybS6L09B4LF7Btz8P0jeszDaFW7/7
+	KqUwFHXXpkT5oePPEgABaTCz0peCYW8hOyHvEKOwCDy5I0K6SsVh08ORSUvlKjVqGMVvT51cj0kiU
+	+LUS4Qouvws2FQLJpSI39eOr6uXC+8P93dLcU8elUL3/JOFXYHJKFLMDiBX+3WuUdzjKSnG47X+6I
+	uh5ikldA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWnvW-000000077N1-27L8;
-	Wed, 02 Jul 2025 03:14:26 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1uWoBT-0000000789Z-0xTm;
+	Wed, 02 Jul 2025 03:30:55 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWnro-0000000774N-1rtu
+	id 1uWo94-000000077uQ-3mfz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 03:10:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751425814; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Xr2cK+CvHwCuLF6dqXXOm/rllWOBEN3wTLEfVyx3HLw+Tx8nsUmMnmuBj9W6XziZWV+cj7hneaVu7wXBvA9yzfX+uT8PfA9a3p5HwkhipQD2Hi8Xucq88FlOlY4pcH3wFl+HKzuIAniXGtsoSaUhEzM1p/lWq/xgTZ0kzAjX/Cg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751425814; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=vB/bRw7mFEOpN1qxnHiykYCOW17QQ/rr/o+IPmh4y5Q=; 
-	b=UNQtavYyRj4TxsQRH734yLFUks9OFmyPo2t8gUt0F+p0DqsZwx+9Vb4/qx5LDBac+Id+oPXfwziiUXBEoj2i2GBuJCRkua6Vl0sTET2IkDZRcFxuucIYmvIrJMnf+U19+gfKFLNOaksL5yYROvfLrJMN8FbcSgkugQLt8YvvJiI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751425814;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=vB/bRw7mFEOpN1qxnHiykYCOW17QQ/rr/o+IPmh4y5Q=;
-	b=cFlxaOsxOq+v8V4Nltv2Ir58bEEoGVmiSvLcstC5HyUk/RCZcqn+vgiFAuJxBWWo
-	EdHlWnIUU+E6xh7d06gfViIrGt4VDk619PqpMN+p550b/GFbehA2rAgvIg8L3Z5G/Cm
-	8eKKru+QCFjsQHFklTpaCyHWVwVEoBwf19cNevA5B9IjJFAQ/v3IbIJtu9ZmPYCWunE
-	854MkUXIw5et57gmT36wcwLJqRsXavJgFP9dGRMZ0XpWB7UbCJu1fXzaqNcaRYbBAao
-	vMFrIZi6sSXF7a/ZEEt+nOwGVpeniKAaRbqPmrIj8PxpGr8TvSPdquQwtjARmUNfBFH
-	EyDbRayMsw==
-Received: by mx.zohomail.com with SMTPS id 175142581211425.435655253733216;
-	Tue, 1 Jul 2025 20:10:12 -0700 (PDT)
-Message-ID: <4a9b51f36da2500604f8d1099b0765f1e3764f10.camel@icenowy.me>
-Subject: Re: [PATCH 3/5] clk: sunxi-ng: v3s: Fix CSI1 MCLK clock name
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Paul Kocialkowski <paulk@sys-base.io>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-gpio@vger.kernel.org
-Cc: Yong Deng <yong.deng@magewell.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Maxime Ripard <mripard@kernel.org>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>,  David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Linus Walleij <linus.walleij@linaro.org>,  Icenowy Zheng
- <icenowy@aosc.xyz>, Andre Przywara <andre.przywara@arm.com>
-Date: Wed, 02 Jul 2025 11:10:02 +0800
-In-Reply-To: <20250701201124.812882-4-paulk@sys-base.io>
-References: <20250701201124.812882-1-paulk@sys-base.io>
-	 <20250701201124.812882-4-paulk@sys-base.io>
-Organization: Anthon Open-Source Community
+	Wed, 02 Jul 2025 03:28:28 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-555024588a8so4140337e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 20:28:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1751426904; x=1752031704; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2pCONnCH5T7GCdkrr2svC567N0fS4DbXVH4ChpdByoM=;
+        b=M6rOAJamDP+fimSFNhh88+rv7/OJ2txVRA9qJWJGA2vnxmwy2fDejOZTMdJNSBwldZ
+         EfVTin9weFSQDK+d4XiT8ufz9d+eoMYLNVQ7woJVSIfRQeIyUuWtFTxvWYcdhcN2Tp/l
+         PLBArNsQHT75L20IwOETPV4aAeOCUJInHdGv3ggfinwc9eau9pLucY7OenBYkyrwfBvE
+         klY7En7ItamjP3ZTB95eXghFfyXCUZrAbvc4oHyYVnHGQ4b2bWYkMo5uwT0i6ISbUgNm
+         dIqQYhwUKEms8FN0vgGmgnddvuAsxX82gSyx2xAcTikIuJdI4o09UG3Q12B/iuAlHvaM
+         5+OQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751426904; x=1752031704;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2pCONnCH5T7GCdkrr2svC567N0fS4DbXVH4ChpdByoM=;
+        b=nVCUd6krsEmwL70MkT/HTTwxzqO4Gs9UJhmpF/fB//jcEBeWY0MCpwf3LbeSgL8dRW
+         SEVlbqRuxPK3yoFjje73b2Imd/ivCr5ieHNC2ZZPeKWycJfGZndB7EAGPueI5l/Z+AkJ
+         Koww86quUhNBXwcTvGFiVuFYuxXA2g5/2g8usAe70MihNlVlhLmeIkijCIGPwhWvwEyq
+         s44rHPv1viFU+rDRzpW5LMmkTUR3mWXceGcHRfFKh7l8hbDLL2bLiDLE34BsVUgJrwxe
+         19kLn/Ozna5s1IyR6RVYjSr1izGflllcnbgBfrEwnyKPHn47m9bth7pMGRUB246Sp2qa
+         6MQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCURsM8vePx72K8o9lpk+N4L757/z9jn+jb16xXe5YrI5yQKufmA+YW7eHr4DM9GwD00yN56T6YPHA7brosVjmd4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjQtvR/cdvAAICElWCDfnE/vxkFSMf/uHLsfVeElkyiHPfrmpV
+	RsHX9UZpiCs75sGEj52F8i3mdAh6NNEA5A402qHkxom3Ai3CopXgqsQoOaDtbxouu1LOXRjrJQZ
+	VQsWhRHx3a1UZmk2jV3kHo5PFzMWii5bzH7oyHDE=
+X-Gm-Gg: ASbGncvBPlHS0Tw831NWs/4c+kNtEo0I5Hbh2UOAH8BDKicTUzpbp9EC7zbjcWBWl+A
+	wa37zyNEgkAXOfnQfnDnACsY5DPBY2jRFQDQyqKIlOdEEjypzKy1169my+gqXU3s2kIMlJsDD2X
+	7ErcFtGMweK0EveyNqqRbFNuU456O/eTtRgon2iVqjzfwL+/ERboJYO7Rr2BkaKqB0G0loZTrB
+X-Google-Smtp-Source: AGHT+IG7apXbcjCcHGp0kZ92UX+gym5ki6TPagVcyHMy+qG0QMpO2pvfDEUg2Wlq7uVoA/TS/9vt31DS/gX08hJFeHA=
+X-Received: by 2002:ac2:4bd3:0:b0:553:5283:980f with SMTP id
+ 2adb3069b0e04-55628388443mr413354e87.51.1751426903821; Tue, 01 Jul 2025
+ 20:28:23 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250702021440.2594736-1-kuyo.chang@mediatek.com>
+In-Reply-To: <20250702021440.2594736-1-kuyo.chang@mediatek.com>
+From: John Stultz <jstultz@google.com>
+Date: Tue, 1 Jul 2025 20:28:12 -0700
+X-Gm-Features: Ac12FXwwpzKziB_llADT_ppGncI36EFdCzpapMYlOJvYbZhU5k4G0Rc4-PwHlfs
+Message-ID: <CANDhNCqYCpdhYS9afdKeY34Bmw8MXyqKWCSTxOZNLTjYrUaVXg@mail.gmail.com>
+Subject: Re: [PATCH v5 1/1] sched/deadline: Fix dl_server runtime calculation formula
+To: Kuyo Chang <kuyo.chang@mediatek.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4 
-MIME-Version: 1.0
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_201036_535174_C28CF90F 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20250701_202826_960947_A22FD593 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,45 +99,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2025-07-01=E6=98=9F=E6=9C=9F=E4=BA=8C=E7=9A=84 22:11 +0200=EF=BC=
-=8CPaul Kocialkowski=E5=86=99=E9=81=93=EF=BC=9A
-> The CSI1 MCLK clock is reported as "csi-mclk" while it is specific to
-> CSI1 as the name of the definition indicates. Fix it in the driver.
->=20
-> Fixes: d0f11d14b0bc ("clk: sunxi-ng: add support for V3s CCU")
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> ---
-> =C2=A0drivers/clk/sunxi-ng/ccu-sun8i-v3s.c | 2 +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-> b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-> index d12791b31a9d..86d933d1ac72 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-> @@ -366,7 +366,7 @@ static const char * const csi_sclk_parents[] =3D {
-> "pll-video", "pll-isp" };
-> =C2=A0static SUNXI_CCU_M_WITH_MUX_GATE(csi_sclk_clk, "csi-sclk",
-> csi_sclk_parents,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x134, 16, 4, 24, 3, BIT(31),=
- 0);
-> =C2=A0
-> -static SUNXI_CCU_M_WITH_MUX_GATE(csi1_mclk_clk, "csi-mclk",
-> csi_mclk_parents,
-> +static SUNXI_CCU_M_WITH_MUX_GATE(csi1_mclk_clk, "csi1-mclk",
-> csi_mclk_parents,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x134, 0, 5, 8, 3, BIT(15), 0=
-);
+On Tue, Jul 1, 2025 at 7:14=E2=80=AFPM Kuyo Chang <kuyo.chang@mediatek.com>=
+ wrote:
+>
+> In our testing with 6.12 based kernel on a big.LITTLE system, we were
+> seeing instances of RT tasks being blocked from running on the LITTLE
+> cpus for multiple seconds of time, apparently by the dl_server. This
+> far exceeds the default configured 50ms per second runtime.
+>
+> This is due to the fair dl_server runtime calculation being scaled
+> for frequency & capacity of the cpu.
+>
+> Consider the following case under a Big.LITTLE architecture:
+> Assume the runtime is: 50,000,000 ns, and Frequency/capacity
+> scale-invariance defined as below:
+> Frequency scale-invariance: 100
+> Capacity scale-invariance: 50
+> First by Frequency scale-invariance,
+> the runtime is scaled to 50,000,000 * 100 >> 10 =3D 4,882,812
+> Then by capacity scale-invariance,
+> it is further scaled to 4,882,812 * 50 >> 10 =3D 238,418.
+> So it will scaled to 238,418 ns.
+>
+> This smaller "accounted runtime" value is what ends up being
+> subtracted against the fair-server's runtime for the current period.
+> Thus after 50ms of real time, we've only accounted ~238us against the
+> fair servers runtime. This 209:1 ratio in this example means that on
+> the smaller cpu the fair server is allowed to continue running,
+> blocking RT tasks, for over 10 seconds before it exhausts its supposed
+> 50ms of runtime.  And on other hardware configurations it can be even
+> worse.
+>
+> For the fair deadline_server, to prevent realtime tasks from being
+> unexpectedly delayed, we really do want to use fixed time, and not
+> scaled time for smaller capacity/frequency cpus. So remove the scaling
+> from the fair server's accounting to fix this.
+>
+> Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
+> Acked-by: Juri Lelli <juri.lelli@redhat.com>
+> Suggested-by: Peter Zijlstra <peterz@infradead.org>
+> Suggested-by: John Stultz <jstultz@google.com>
+> Tested-by: John Stultz <jstultz@google.com>
 
-Yes, there exists csi0-mclk.
+Thanks so much again for the multiple iterations here.
 
-Reviewed-By: Icenowy Zheng <uwu@icenowy.me>
+I've re-tested this and it still looks good.
 
-> =C2=A0
-> =C2=A0static SUNXI_CCU_M_WITH_GATE(ve_clk, "ve", "pll-ve",
+For what its worth:
+Acked-by: John Stultz <jstultz@google.com>
 
+Juril/Peter: if/when you take this, could you add a:
+Fixes: a110a81c52a9 ("sched/deadline: Deferrable dl server")
+
+It would be great to get this merged and into -stable soon.
+
+thanks
+-john
 
