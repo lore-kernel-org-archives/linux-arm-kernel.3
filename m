@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 581F2C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 11:00:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEEB5C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 11:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P7txgnyUnulWEoShqX1RgWhXWR2ygK8id+NAmcsoX+4=; b=4/m4mIeGHeFh0Gs85jAUyTygkK
-	Ez65K+50aU6H+7/5BupVSVP21x4GIw424oh0YCZJDVKFirPB9niLPyR3Sp7ImfOVs3ZAKNXEoAJ9X
-	DpQYHm/YU0G19s3luDsMXOhu05LxsnlFShvmxkAU6nRwq4oAZmrY7ThaHHpWJsLbrDjvi90uYsTQu
-	bb1D7Lm1UjmQSelweV61s3EV7xwFRHIqJvRST9L/OWudksom4Kp44RuuMqtrqmx18ue+CMiaPbd9n
-	CwApWLBIor8ZboLTdNnGx1DQSe+EJuY1gdrVHMzXypXNub8JzXkyK/XVlwsNehTBN1jkvMekC7Q7U
-	NwYqrMNg==;
+	bh=ByfOH930EQPGw7MHLyJjpng6KMKMd0BrOKaTKe3cP3o=; b=f6pwxDR3vJ40ikRP9yWVKKeeLo
+	NsrynG8Ksl5RMWgp+UTjhwO34YLbHmTO6OTTHvHBbuRZ4k17jH97scfh1+qUErUj/6GQ5FWbOlZqX
+	JoGBpLIhEO1JE1bJJU+1flnWANomJCZ1OBuwmbFvyYrUnD1L+7JlkRV9LT5+a+NXdXCGxRksXwBka
+	bA1HgCJVfqCNMOElZOi6WJt2uLvgahFc0sZrOhq5IDFoo3IXpbA5WlNomJ7zWd+k8JgnVhbeYD+Rv
+	Njgt71tpuDBn013Mx5yGmRoghMsbiFFT5oeAjrIMrCZ5Z6vq/embasWNo3V2Dr9Rhz8UD3KsIL8z5
+	yx+y3hIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWvBy-000000082wT-3e6j;
-	Wed, 02 Jul 2025 10:59:54 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1uWvEJ-000000083dn-35z8;
+	Wed, 02 Jul 2025 11:02:19 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWuUe-00000007uqR-1ezd
+	id 1uWuYU-00000007vQ1-3TVh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 10:15:09 +0000
+	Wed, 02 Jul 2025 10:19:08 +0000
 ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=N5G+YOLsgiuf+ejbTeJC3OxCirWpZujVHjpnp0uTAmNc1EO3fBpR5PdObGaB9C9+qZ0jdvSaVVdVM6+saokbtG998rh59w0MUfICARs90uIQ3IRAQapIJNnLVRWasUz1jFuYkWGdHNVzrqqdjSO0R0OuaBH7WVjhiuR40x0MYoi/dKlB7/NFTRB75GlG+dSNDd1AlSxSAh1wf9jYFkB5GNuVdj8QZsK/sz9IVPwXmpI/f/fhxyDLIYwO1JX0gG8ekf8Cw5Hq4JWPOQ9V0reJR4DbZceFB1CQPTaStTwXLk3XcQ/Z20I+xXsFGdfsgoJVfzCJ0SSfmlANFoXHWaYG7Q==
+ b=hz9fRoR8IPwTwYoFrTh3xd00wZzsvD26s76OSoiYPBNtgiLuowl9PuTZgbu+oHGM11PKoBbtS3drCL/sNZTT0Ug7NGZYpiIFNCihTSKcR6SmARXf55ZWZv1Mzs0AxzFA37x7Mg6cH4dwEP1hNu8iKWFJsrz/H1o0wzv961Q6oxWsXvkdeitUrOP+Ge345pTkrE6pdRctBKbSDA6h/6PbLJ7f0ODdSoKlqJX0xJUOgIci5VG+MoVViWmTHUqIkfAgmmvaoDeMylc0FN2rTWF6PHoej/Di9NqCqgyXcTHdJH6ZkHodI/fUNBHBzVWLJqv5HyCjYIwdc2sr1jsZRZgaNA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P7txgnyUnulWEoShqX1RgWhXWR2ygK8id+NAmcsoX+4=;
- b=KtGDmjCWsBZBLjw+l6CVitzdvnX13jGnLUTygHCYMu8VewWe5YbSWpxENsAs6rfa/YawgkeppiR2bq4SQrOJbnv5hqrZFLsBAjHUkEzUgtX5RkDHVt5/99WlyiONV9RAq0ydqOJaX7WH+c3YvyXh20jfteXM1Z1t6JtCSoa8Ac1rBHnf3/94BbTy218nioByxSccUmXaRR/LVuv6kUhnr9xTMNUtLVejwi5zWe29sfMJX/wB3aRwGLPudWA41E39ROkYHpY8cHx6hCZQ/YwILHGQTcFIO0NLBzdae0eRW9he8iVqR9RIx2xfpyEw9iAnMpSMHDx6QPI2wcNFgWsckA==
+ bh=ByfOH930EQPGw7MHLyJjpng6KMKMd0BrOKaTKe3cP3o=;
+ b=YAXJi34VZiE2speErKOC5vpw6jZl91w+g/XxfevbiMQOMAI+i9ubo/va33l8NiLSl1yHp+fe/ck313INcFP8FTQXpXe5d5MZqZZfmDBm/zcguZ0o0uvtfiU8FQi7eCy/vjYI+eSsxjnOdbnfGJbsECguqIBqRX8k9MRz5Lu6RAJ//ZSXQE7nARyO4qag+3BpKREa+JJiEpEeHqlaubUpHyOLTff5UafNdSNrCJf/vtJ/1mRKjjz11qzThs+WnimXuq6m5/PfJ8vhM0qJdPEUciIy7J3fo5FIOoL88hC4SlFAQWugoEeP/fP6A2ZvIoQiIHFAA3DHlJatWSIwB42nzQ==
 ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
  4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
  (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
@@ -42,18 +42,18 @@ ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
  dmarc=[1,1,header.from=arm.com])
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P7txgnyUnulWEoShqX1RgWhXWR2ygK8id+NAmcsoX+4=;
- b=L/Rh/gikX959EQttsWK3hhAUq+IdM6WrkHksP4mDz6sWSxra6Jpf8Y+6QdUCyQWgh2Tm4fngrUFR6E5nSsIzsLoy8h0A8xw93uWNa3rApDdhdraVYDGBFo6AmFIuRbfjsF0gJOz9lhKFh2zVBDysvSzHCMkffngrN2UY69v23Ik=
-Received: from DU7P195CA0028.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:54d::28)
- by PAWPR08MB11204.eurprd08.prod.outlook.com (2603:10a6:102:469::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.31; Wed, 2 Jul
- 2025 10:14:58 +0000
-Received: from DB1PEPF000509EF.eurprd03.prod.outlook.com
- (2603:10a6:10:54d:cafe::f4) by DU7P195CA0028.outlook.office365.com
- (2603:10a6:10:54d::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.19 via Frontend Transport; Wed,
- 2 Jul 2025 10:14:58 +0000
+ bh=ByfOH930EQPGw7MHLyJjpng6KMKMd0BrOKaTKe3cP3o=;
+ b=c/qiparh7LgHMrs90Fwo+t7VsX4ns6IbJ3BOux1FYscux+iVsdABxqS+aCt41IehM+fn6IYg0uA8cws0Sok3gdlBNkJWr5SkZUv6rg/RV2azzFVxeOWhcqHCZUZxMd7/I8GbROkAjvepqwieMd5U86DHFUKPgjeWPUZeYcreko0=
+Received: from DUZPR01CA0030.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:46b::19) by DBAPR08MB5752.eurprd08.prod.outlook.com
+ (2603:10a6:10:1ac::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.20; Wed, 2 Jul
+ 2025 10:19:00 +0000
+Received: from DB1PEPF000509EC.eurprd03.prod.outlook.com
+ (2603:10a6:10:46b:cafe::d8) by DUZPR01CA0030.outlook.office365.com
+ (2603:10a6:10:46b::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.20 via Frontend Transport; Wed,
+ 2 Jul 2025 10:19:09 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
  smtp.mailfrom=arm.com; dkim=pass (signature was verified)
  header.d=arm.com;dmarc=pass action=none header.from=arm.com;
@@ -61,35 +61,35 @@ Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
  4.158.2.129 as permitted sender) receiver=protection.outlook.com;
  client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
 Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509EF.mail.protection.outlook.com (10.167.242.73) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8880.14
- via Frontend Transport; Wed, 2 Jul 2025 10:14:57 +0000
+ DB1PEPF000509EC.mail.protection.outlook.com (10.167.242.70) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.15
+ via Frontend Transport; Wed, 2 Jul 2025 10:19:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=scchOQPmXpN52s9dmVEOPAocH6IOCJpTWPhAHTYEC5JZxKgvLliRIfYXMSQ7O5Slg1TUTq40xhgxdN9GqJNgpEPuBZVhbbdme/JhJy6xuy6UDuRKA0zQiwmvlNpaAjeE/hqaxxQ6AsfFSHaz4g9EiLkAJdkX1qujW4TN6q3lIv8qqQVNPzTLtt/C1lgURstW3FSaFC/YY5g5ROER/XdxZkWUx2344eCPkEFkpi0nL8j/u8Ai9tzPoNJqwQYFvt0EKAVwuC04IKh48FxlRqqZVYaJpp/5bqjSnvjExSnwZBPid10dGwRrkuOoG4wg8293fbIYQip/hwoly58XMR1i6A==
+ b=rfsbpg1PgOhOiMPSnz+7cDmsJTtVXdJ0aL+FOrn9zqUS9ml0dn6LM9/96GughcOVqJNODg5rJ0MGPAKNT8nq3I8rPVtgPkPbZD0sVvn/hWAiRNqpuzEvsRcc5Kp6gl2TSd6NgTvMwxcGiL9YlPOzcqAhJNJr2XhsWjonjDKsfb5spUraKIuUq3OWqGOz2ycxjl9kKe8d5gXDaN1UcvOMkI+9qPC8efMqVPdqOIDVyl+TEx8A/Zaccd1eQTIcHHpvgz4pBpIZqhUpfoVZxvkRIW4/RcrpEF3JdX5gmSfzerMRgtqPhmdWNmdiaYfHWGuRXFZU8ESy7nTZF7qOxXqf5g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P7txgnyUnulWEoShqX1RgWhXWR2ygK8id+NAmcsoX+4=;
- b=qocjm1BCbTeznqBt9Kc9yaRH5fHnSfu4GEqXpUvvNtlLjfkz0R2u4opOPVoYwxxn1cs02K79PkFuimDpGwWj0HhCV3sABm6vOEpUor3lI2ftX3uVRgSQ5vB58yI7AeeEA5H1U6zw9cO0FS1hxSsurc5yza+egekcOcO/fATb4LOKAW9WxA7XBRWysSsjOdtOJO3UV8jbizhUhddssuPAO8jNeL3wWROXKvnW8oa0tw9NOTzzie8lKi1EAsUitAhzXQ9Yj1xhKXmfcp1mvE+IryzuhQnlfmieht+VGVVyM4lBMyJbfIVtSkuokA+kF4BoqqifptK8k2Nir8uTNjjMng==
+ bh=ByfOH930EQPGw7MHLyJjpng6KMKMd0BrOKaTKe3cP3o=;
+ b=WC8ekEraQNhz9IEsg36qhZXy9t1+vcwTnY9bqtwY3B3nBszczmSRyooTzCeLGKxQrWcRnPCRhmCFAkYBEoXUqjwahZWWnb2n3wbLz/qLHAkui4Om/A/sJfeEhKxLuDAE3P3v/8WNc+r+e6uieYYg97NjAsGqlEFTasRnfRU2rFGlc7xHrggZeFjLsmhmCSRNdyOJxTWH6FhKmRc8bfuobp/38JBQ8I5wBNUec8MsOTPSzFrLm8Zb85Gpctr0ZfXC/7rqv1yXYVgPQLekUSH25heO3PsCN0V6C8TBdK9gvudSmPhc4vB9d6QqmZEc+h057PmNtZSHKqz4n6h2yy22gQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
  header.d=arm.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P7txgnyUnulWEoShqX1RgWhXWR2ygK8id+NAmcsoX+4=;
- b=L/Rh/gikX959EQttsWK3hhAUq+IdM6WrkHksP4mDz6sWSxra6Jpf8Y+6QdUCyQWgh2Tm4fngrUFR6E5nSsIzsLoy8h0A8xw93uWNa3rApDdhdraVYDGBFo6AmFIuRbfjsF0gJOz9lhKFh2zVBDysvSzHCMkffngrN2UY69v23Ik=
+ bh=ByfOH930EQPGw7MHLyJjpng6KMKMd0BrOKaTKe3cP3o=;
+ b=c/qiparh7LgHMrs90Fwo+t7VsX4ns6IbJ3BOux1FYscux+iVsdABxqS+aCt41IehM+fn6IYg0uA8cws0Sok3gdlBNkJWr5SkZUv6rg/RV2azzFVxeOWhcqHCZUZxMd7/I8GbROkAjvepqwieMd5U86DHFUKPgjeWPUZeYcreko0=
 Authentication-Results-Original: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=arm.com;
 Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS8PR08MB8038.eurprd08.prod.outlook.com
- (2603:10a6:20b:548::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.32; Wed, 2 Jul
- 2025 10:14:25 +0000
+ (2603:10a6:150:163::20) by GV2PR08MB8704.eurprd08.prod.outlook.com
+ (2603:10a6:150:b9::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.27; Wed, 2 Jul
+ 2025 10:18:24 +0000
 Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
  ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
  ([fe80::d430:4ef9:b30b:c739%5]) with mapi id 15.20.8880.027; Wed, 2 Jul 2025
- 10:14:23 +0000
-Date: Wed, 2 Jul 2025 11:14:19 +0100
+ 10:18:23 +0000
+Date: Wed, 2 Jul 2025 11:18:21 +0100
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: Leo Yan <leo.yan@arm.com>
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -101,98 +101,98 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
 	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 02/28] coresight: etm4x: Always set tracer's device
+Subject: Re: [PATCH v2 03/28] coresight: etm3x: Always set tracer's device
  mode on target CPU
-Message-ID: <aGUGe82QxE+vCbx8@e129823.arm.com>
+Message-ID: <aGUHbWR0vreo29kl@e129823.arm.com>
 References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
- <20250701-arm_cs_pm_fix_v3-v2-2-23ebb864fcc1@arm.com>
+ <20250701-arm_cs_pm_fix_v3-v2-3-23ebb864fcc1@arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-2-23ebb864fcc1@arm.com>
-X-ClientProxiedBy: LO0P265CA0013.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:355::8) To GV1PR08MB10521.eurprd08.prod.outlook.com
+In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-3-23ebb864fcc1@arm.com>
+X-ClientProxiedBy: LO4P123CA0043.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:152::12) To GV1PR08MB10521.eurprd08.prod.outlook.com
  (2603:10a6:150:163::20)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS8PR08MB8038:EE_|DB1PEPF000509EF:EE_|PAWPR08MB11204:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4958e968-9072-4d64-21ca-08ddb9514c21
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV2PR08MB8704:EE_|DB1PEPF000509EC:EE_|DBAPR08MB5752:EE_
+X-MS-Office365-Filtering-Correlation-Id: 55bbe065-a464-4e80-b91d-08ddb951dcba
 X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
 x-checkrecipientrouted: true
 NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?8L5/RGcL9nleCsY/tJCAhucF3EYCiUG+m5lDMCzR5JOr4ZemB/LEC0dxcFzZ?=
- =?us-ascii?Q?43BlkXL9AwIjVH+0PZLfLuHS5vxz1f/TCc2Qp2msx+DZMNgrfFxOdAFZfjrn?=
- =?us-ascii?Q?KS2h+m/NWgzPoxynXu5/NDI8qakDA+eWHMJ5S0CxKptaQI8aB+RZICCKLoT/?=
- =?us-ascii?Q?H/VthMhiVSIgAMestmtvD+GDp/i7ub3/ZAzJFDtx0AiCLlimoqwHDoh0mzS8?=
- =?us-ascii?Q?Q+R0jjatX2xT1bsI9JHAK1AwG8SAmuIcJElTlIDJbqE58Ki7rmATKYnXXVyL?=
- =?us-ascii?Q?csxNoR6un7Uq3/TraJGU+b4tDOmjU85WJ10ZpOtPwaurh7vXN5zn/VbWMedm?=
- =?us-ascii?Q?+s3vCjIAS+7TNCItSR3P0tSG4300787UqvGfCf/fddiXWsonJmrQT21B6sJ+?=
- =?us-ascii?Q?uhenRr/5sWcJlt9+5q329/FEs5YhMMiwJ2GWGl4TYrfn9fiao37sz9QyPvWj?=
- =?us-ascii?Q?nyW9xJF6YU04gtX4DXDu0OFGhvnlJg822XQGHvuvDvjHog9UhlkqYGyNb7Kl?=
- =?us-ascii?Q?unTZXBchPHW4nmDjoFMIVwa0XhpeIxipcoGOtwziow1kxK1VNj1KtoEvKF19?=
- =?us-ascii?Q?m9IJEjvrROU6ZSHtUVfnZruF8B+43WZRR4tKCR9I676Zqf+qTpL2qYsivVTK?=
- =?us-ascii?Q?yWxu0I2si/l50T8NNeEz8jAfJhVdV/O/lcurM3kiOrn/U2o53e7TZj2NT0bN?=
- =?us-ascii?Q?slK6chsGBotQ0opPYETERfYb2VjZ/YD153RmD6DZp7herwqpfBj8sqwA1SBk?=
- =?us-ascii?Q?7Q5sv9umphk6wi63/A/7BCMK7PDeCzLSdH+Gl+3rTVowwUvCu65PfakhBQMQ?=
- =?us-ascii?Q?pauHDxcu184Zfsd65adN3X9/LlsgnrtmpJphoKPyRO3SyLmDbxF53SG0Mulm?=
- =?us-ascii?Q?f+SulT1SMVonyZTLCyS4uww0qaSU6gQDNkPSroOSj2hACq8gaNCFInKvexPf?=
- =?us-ascii?Q?am+fBMr6Z6E0Ag5h4zLDU3GU6BDm8wpomrNlKYEpTSvmz4CdsH3Fa7Zi8r5g?=
- =?us-ascii?Q?zAiJn7ORCJaIy5Q4lRX+FkMkqvM4zaBJnpO6o052CW4M1AdqvSfkefZHTIFJ?=
- =?us-ascii?Q?E1EFTBzJ7mMag4UJXH30Tq14NLXMPtBZk8cwFYBjcvQjVnRcCl/JBMZ2+qGD?=
- =?us-ascii?Q?Nke8IYGVaBN42jl6AwavYWWpVr+xRX13RQxRiIbl821z6QYA0y5om16MfQzM?=
- =?us-ascii?Q?QD0q/Hv2ObPNT2notBQNLrYD5TpBFz+r0AwEsr8WIEp6QIm6+8VXY1K5uMcG?=
- =?us-ascii?Q?ZSUUtH6eqR+aqLMBciI1SyShLjFGVxyRVIkqXZ1o65QdIsw+nPPkmJj05+1n?=
- =?us-ascii?Q?KcP0c53Mg3gRdEgppeiWLj5DyPwyKOOCHeRJ6EHdgLfBMQkDKNDFuAu1ZPKd?=
- =?us-ascii?Q?T9Qq7+OlxwTq94TjK0M5YZxhiayx6LlYPkTzD7Cjme4HRBICuY46fC0ZFd7T?=
- =?us-ascii?Q?T5Cnhpn+O3k=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB8038
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?Y6QGQtYvWLB41d0vfe7C9JKaj+68xCCl46HqVcpWrYcBMBBDofNh9LFQCtaq?=
+ =?us-ascii?Q?P6rHJpWjzSF5CumcA1ROqtirybfiu5eeTUh6ytrR0GkxnUufrNEbO4xMEsho?=
+ =?us-ascii?Q?OkCRihVhhxTeHEkfXw5SQ5u828LPj0q7YlRm5mJnLplAEQuIndtkFQ/wApq4?=
+ =?us-ascii?Q?Oz0BGVQPqpgf/DBlxcw3od0TfwhkRF6EMMgwLuAnh7lOl79dpKp/LLWSZQ5S?=
+ =?us-ascii?Q?rp9ZDL/yoBMvuKmuhMNEvDRAUIXZ5cEXtIwXIBnu2pwkJGQtMBirErhsVA8C?=
+ =?us-ascii?Q?uPMmrnZwT04HlN/5lG8NYSMCcRrVXLvzHanqGc7lkVmWUn/N/8CZibPZxP9T?=
+ =?us-ascii?Q?e13z5kDqE3ZbrmjS/3IPjSoVVKN1AliIf7u+OakIY++Cw9Y4Vv3G5+s4wEWV?=
+ =?us-ascii?Q?BRUgBuJX63SA0wEYfxQj5LoPDEM5LQgECWdRRJOGzp+BjYEQaKUbuEDj/Bx+?=
+ =?us-ascii?Q?/VSfIgHFPmHN0HBJhPgBTjwASshvvkdveBxQLpdd9/hy25HsIKxV+v5HBKZu?=
+ =?us-ascii?Q?GdpfNVsQYmHrpmlJ9YiwHN0NVaWXSkOXZGQw5wXju0n+GksNxseMMjZEAuvX?=
+ =?us-ascii?Q?31EZ6XkbNeD3BIyBX3sxFj8JERZvL/e33uPtoi2K+Oj20W2vaqLi+GIJrdHr?=
+ =?us-ascii?Q?Nuy+tont0n5rQh6QRgPoIY+FmLex98iu0QnA0i1cX3/LGdDHaKGPtvW9Xalt?=
+ =?us-ascii?Q?/4Zsh8UBcdWHnof2Hutpdz05ZbX9YSphVMRNNt1xbS6difLwyWLZgcOwaBDd?=
+ =?us-ascii?Q?1tSgFWf6UDsgYgKetjgFmJtVuIdP4OVHpVyKtb23U6sNKyVa7COsT6K4AU8e?=
+ =?us-ascii?Q?Y8pxUURYS13jeddwr2cyJCAcWYAKAksxIitMTVXMVD2j8izgLkoXPiJ5wxle?=
+ =?us-ascii?Q?TjqA6PXRydmIsU3yotKVWnCef8REECrsljFDOUE9q85Lbhf1l/z7ra+FIMEQ?=
+ =?us-ascii?Q?LuJTCLR03EMJcGgauibDed4WegFdbstfbsFug1HaENDztQp9NLQzQFNQ7ZGd?=
+ =?us-ascii?Q?5kRFTD5d0rp0OIwL+IXCDt/G9JLNp7eh2q8b8+xoL+xKW4qdBQ/D3R6mxErE?=
+ =?us-ascii?Q?HxeXs/ALO51ZhChodN+C1qibmQzoQqGmjSPkaMR3eDSWjGrEwEhZ9TebLnub?=
+ =?us-ascii?Q?fQOPuzRy5Tpn3EVVN4swfRNRVxrr2m9Jihe7FWR+xqZpJjHM4e3/s2Xg7xEo?=
+ =?us-ascii?Q?k+iPBIaOSB3AxJP+DWDDmwNAhiK+uDOZq+6/ivWRtiK/9nsy8EEm94Ryx4Dw?=
+ =?us-ascii?Q?kci2q2o2+htljvBCVtW8YHnOd4srsiJhhjNMrA0Zdq+gMnBTWWrtHwnrp8Xh?=
+ =?us-ascii?Q?7zPhTZNYG0bV47mbx+4tlqcXVOXmGrROU5/xA+OWF8BS+UzOFM0hVbXknAE3?=
+ =?us-ascii?Q?6W32e7rsbLpgrP/FppKCO7LugLOUU3axZucsRg/Gk7PfezI7Xxdvznkd6Xz8?=
+ =?us-ascii?Q?U1mq//wqfRI=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8704
 X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509EF.eurprd03.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509EC.eurprd03.prod.outlook.com
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 62165151-d9c5-47a5-d26b-08ddb951377b
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|82310400026|1800799024|36860700013|7416014|376014|35042699022;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zyS3DgI+3H3AryMYC1MBllfJISnTUyDRZ4+nooejQjHeMh2490RCz+kBzZdC?=
- =?us-ascii?Q?pfGgVHPcrx9C1/XChp31peeBhWQ7bfzWdvbCPyBUtbyI18y4XD1JBUdf+13r?=
- =?us-ascii?Q?pIhRXGprWJz3YUEHD8TH5tneWVFuM1g/xxVQdELrVVEKkfhP1Utpz+nOwRT0?=
- =?us-ascii?Q?NxdYdcXGnva6+CK1jL2Mc3/AoSuzk64dRR61WGY2rBvHAp5TX+lE9K9TTcaM?=
- =?us-ascii?Q?YzZz9nHG/FFT/cDP0xQV9w7D2duxbrbia/mPKA4DAMRke5PK7Gx0VMbhJLhf?=
- =?us-ascii?Q?NsF2Mc0e5GHZTRZCFgeqo5JOiPJR1mF8bJ8Yr//9NTra6kQQED6HCG0TxBCC?=
- =?us-ascii?Q?C3r84GKSfWRaUKdJKSD6W9orIL4Te7Zx5P2SbiLVpx0+bMkAGq4uwNS2hAeD?=
- =?us-ascii?Q?U7w06IJHhR9h/qno5KiwWCLtYmlyYpn7S8uWHYeY1l4PemN8CxQeHABXxIgv?=
- =?us-ascii?Q?2Gx+FevUmYyZinfK+xISN5LxHOG824HOw9wO8dKbLF7yuTgctIFdQZGwZa/p?=
- =?us-ascii?Q?+6JSFNvHm8GHzCQ4+4fDwf+OmYXKGWn5gW1hehfb32Jzg48vTXm/poNxe4kl?=
- =?us-ascii?Q?a+Fk2KD0V+ko0rgmQ2zJ4Ji1q3/ktq6Wc9d34lmGE5Ki7tY0UWkgKtd9RIJ/?=
- =?us-ascii?Q?GjOjOQBqJUZFMj836jh7Nq4GZfIs3cPLXvzcGi2d/uBVXtTPjMI9RExEXAp0?=
- =?us-ascii?Q?FcZki4QE1vOjt4PVVXdghmu2EYKXP6o2e3wJ31lkVxmWWyxrPUK2k4NbWVxC?=
- =?us-ascii?Q?I3ujqwxrWUp7rGqvXzM8ovVP4l2LipqWW610wB27qgxH+7fldiXswucQ5awy?=
- =?us-ascii?Q?n+iFcY9syXjBpY+E6ljDdz2CRQMOEezDIJ5+n2DJgt3QlfVe5m23OhETgZ0G?=
- =?us-ascii?Q?zPMNlqVsfXTCbvRHPx5feCcFPBYykR/WXr28KQHohymvm7bPh+0YASWm9E8L?=
- =?us-ascii?Q?CNSY7TfVaNfk2AJ6A6gF6I4lmokdlV9JtFk9AJlvO7yFAjlPR9I9LBqrp4z8?=
- =?us-ascii?Q?n/4WtKKTkYxVqz4tQpy7Q2k3IFIXsX5vbd14Fx9vuH7H+/sItUY+VnDLlNbK?=
- =?us-ascii?Q?o9Eb1FdOSRd4KwzsTHu5axAQxFszPjkG2ytO2LsZVeaBX+fnr8OLN4tTLFxv?=
- =?us-ascii?Q?93loGzXTyx+NDX63mFRBTDfKcgVe4OZg7LWl5ohg9n4aHMKCsH4An64Ttz8Z?=
- =?us-ascii?Q?q/YvKVXSTZLTwIqtE2CdxvMqPqDkimiKulxYMF3vnAhlWvBMexqUlkXeXDPe?=
- =?us-ascii?Q?2bb+BFhZjsQzz7sS8zLTppiU22vxAMssq07rlCLvn31xQkpMGERjesFNwuvL?=
- =?us-ascii?Q?oTw5m6ZIhMyl1BZlndw3eZHmqJ5vD+FDvtUC+zcoqEBGbnm8cliESVp43djX?=
- =?us-ascii?Q?VKMUuyFAz0ne/j35/WdIfQ5aHTwFgyw5+0lhmtkz2pOYLG1eYZ5yzpr+XS5r?=
- =?us-ascii?Q?Xi6u26U2CtXVBVQfxdavQfIP3pwHSvkq/Ft+8BGhSPdwLiP8avKTGdmKQWMn?=
- =?us-ascii?Q?5bKaZPIzwFTh9n6PjD09ekxb3nirjTY2q66l?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(82310400026)(1800799024)(36860700013)(7416014)(376014)(35042699022);DIR:OUT;SFP:1101;
+X-MS-Office365-Filtering-Correlation-Id-Prvs: b7f724d0-8209-4c75-a20c-08ddb951c6e4
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|82310400026|1800799024|376014|14060799003|35042699022|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xvmRNJOlbgwQVZWzUZ4G4lgxsl/2ZJZ8RAB2RWoab5NLarPWZDlv09ob6jX3?=
+ =?us-ascii?Q?C73Pej1IdGYOGKqR0DyH16J1+JDn5qSbiRijJ/WpKGFdSHqYhfcg5ZIryuzL?=
+ =?us-ascii?Q?xpDYe2rogvy30eOYcqL8KBRfhvb/epaC5IbxFo/Wps+UZBNWWypUjPAcFYpg?=
+ =?us-ascii?Q?FNbAS4TCkOj/17O4i1OLDW/z//ZqYvRx+8tTqmYf2hwU+isqH57bZzks9VIk?=
+ =?us-ascii?Q?AVw3vDLKBlXxIPe+rzwvsaqWkIRwIumXaKYiEpzvbaCYWm4uOHqSOXSUXzw4?=
+ =?us-ascii?Q?5XT6FJf9Pu9ETkPCZKjgW1XBsH7I5j1gl1Sh1u+hBU1pjEXPOk+fOnwesE5Y?=
+ =?us-ascii?Q?TSrvMUFR38QjG9MYMZmPRGUMTA1a3FYSe+2oxYPQcAi02F1TtgvwUTwdXYT8?=
+ =?us-ascii?Q?ftdWATtTW5iCxr/XRkNJU/F9a+Ir/59jZXFxbwhL4xm0TTm9hP2b/X7FVGcn?=
+ =?us-ascii?Q?thoetF/daM2TqkpCE+c7BeJMwmzqsB4pK2+S8mzBMvClSeaDnncqo7C9f8Th?=
+ =?us-ascii?Q?MAUxeInF20KVXUyh6Mp4neEnLW8jUNJvrynT5/H4YXo5cggc01R3hwgHli26?=
+ =?us-ascii?Q?+CqQD1kSe9IgNxZJ7sW2L0Um2+hoy2ufRq1ZJCf1T356z5Ut7VOqXrLBXucA?=
+ =?us-ascii?Q?uq/rV437pbkEhByPQvQGxph77NHqr9jhbnpe8SOcidua4sWNaMIA7MHpluIc?=
+ =?us-ascii?Q?QuWQ/9EtEyOUzmkEwdhrJU4asKsJu8dxI5n4pAp5urXJZGJ9Qz6dsp0J5yl5?=
+ =?us-ascii?Q?URQDUqI1h0fA/ddD3JEF9fV+LDKldypeevn4ZjUJMCxPm8Vp8F7nLZVge4IF?=
+ =?us-ascii?Q?7NJeppvvtZv1qKU4DpUvqViTG/rK0quyxOXnNYLYRVMtQKhZhipS6OOQOkni?=
+ =?us-ascii?Q?luCq4gxELkN/KYDzgpUMFZKNbDMtbAqrEE8GbwXv+Ct7ccKz4fShR6DrZHAR?=
+ =?us-ascii?Q?X7KS40JtOKXDxUgUwbjMpMYxCQaP+qpaOmqcR1GG3JZpTZDs7D5O7DsUMj5q?=
+ =?us-ascii?Q?mLm2o6weOup35K82nUWNPCXdHFkXxXUd6ECL2JK+lRmhn80lt35fQdWI8mtE?=
+ =?us-ascii?Q?AN7AjYoWPTRKuudBoN2d3iUu5K83d4EZjj9QwKUj/Y8lcc7M1F00kyG5Co7g?=
+ =?us-ascii?Q?3k2xnWODImzRyVLmmyTlWBmHe4cJMSjZMUQVwRJogYDbWKwJGpZZ9oKU/gXA?=
+ =?us-ascii?Q?VK3IUt/scq+4i4PXFES6XhCYB9zpyE8I6W+XXVBHSFrSd39PcP697oZITU3g?=
+ =?us-ascii?Q?5TkYosCCu69jHWqFvcbFPCA1qSvAXeZN+8WQXH0RQ8yHTkVEVN8AauQsu+YH?=
+ =?us-ascii?Q?W2t77A/1Wdx399Tnu9i+MWMTJ8YjkvY6akeby9mNAbDRMcNeOinnjlCfuWL9?=
+ =?us-ascii?Q?OBAvHf88vB2FwMtRZTibIByi8o/bpLto/qdTBunR4yzmUM8G9B+DJZgPiuRk?=
+ =?us-ascii?Q?U09mZZVNMe962JAUsShoKXQmaQ1nOGETvy9AEzFlvJSLD037jcdFJOIjAQB7?=
+ =?us-ascii?Q?FxSFN9R7BnFMAWdfobgJ+JfpcO8om6io9T5s?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(82310400026)(1800799024)(376014)(14060799003)(35042699022)(36860700013);DIR:OUT;SFP:1101;
 X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2025 10:14:57.5992
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2025 10:19:00.2187
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4958e968-9072-4d64-21ca-08ddb9514c21
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55bbe065-a464-4e80-b91d-08ddb951dcba
 X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509EF.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509EC.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB11204
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR08MB5752
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_031508_582731_49C7203C 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20250702_031907_017370_9B03407A 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,120 +207,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LGTM.
+Hi Leo,
 
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-
-> When enabling a tracer via SysFS interface, the device mode may be set
-> by any CPU - not necessarily the target CPU. This can lead to race
-> condition in SMP, and may result in incorrect mode values being read.
->
-> Consider the following example, where CPU0 attempts to enable the tracer
-> on CPU1 (the target CPU):
->
->  CPU0                                    CPU1
->  etm4_enable()
->   ` coresight_take_mode(SYSFS)
->   ` etm4_enable_sysfs()
->      ` smp_call_function_single() ---->  etm4_enable_hw_smp_call()
->      			                /
->                                        /  CPU idle:
->                                       /   etm4_cpu_save()
->                                      /     ` coresight_get_mode()
-> 	       Failed to enable h/w /         ^^^
->   ` coresight_set_mode(DISABLED) <-'          Read the intermediate SYSFS mode
->
-> In this case, CPU0 initiates the operation by taking the SYSFS mode to
-> avoid conflicts with the Perf mode. It then sends an IPI to CPU1 to
-> configure the tracer registers. If any error occurs during this process,
-> CPU0 rolls back by setting the mode to DISABLED.
->
-> However, if CPU1 enters an idle state during this time, it might read
-> the intermediate SYSFS mode. As a result, the CPU PM flow could wrongly
-> save and restore tracer context that is actually disabled.
->
-> To resolve the issue, this commit moves the device mode setting logic on
-> the target CPU. This ensures that the device mode is only modified by
-> the target CPU, eliminating race condition between mode writes and reads
-> across CPUs.
->
-> An additional change introduces the etm4_disable_hw_smp_call() function
-> for SMP calls, which disables the tracer and explicitly set the mode to
-> DISABLED during SysFS operations.
->
-> The flow is updated with this change:
->
->  CPU0                                    CPU1
->  etm4_enable()
->   ` etm4_enable_sysfs()
->      ` smp_call_function_single() ---->  etm4_enable_hw_smp_call()
->                                           ` coresight_take_mode(SYSFS)
-> 	                                    Failed, set back to DISABLED
->                                           ` coresight_set_mode(DISABLED)
->
->                                           CPU idle:
->                                           etm4_cpu_save()
->                                            ` coresight_get_mode()
->                                               ^^^
->                                               Read out the DISABLED mode
->
-> Fixes: c38a9ec2b2c1 ("coresight: etm4x: moving etm_drvdata::enable to atomic field")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-etm4x-core.c | 48 +++++++++++++++-------
->  1 file changed, 33 insertions(+), 15 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 42e5d37403addc6ec81f2e3184522d67d1677c04..ee405c88ea5faa130819f96b00b8307f8764d58a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -590,10 +590,23 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->  static void etm4_enable_hw_smp_call(void *info)
+[...]
+> @@ -464,17 +477,29 @@ static int etm_enable_perf(struct coresight_device *csdev,
+>  			   struct perf_event *event,
+>  			   struct coresight_path *path)
 >  {
->  	struct etm4_enable_arg *arg = info;
-> +	struct coresight_device *csdev;
+> +	int ret = 0;
+>  	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
 >
->  	if (WARN_ON(!arg))
->  		return;
-> +
-> +	csdev = arg->drvdata->csdev;
-> +	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
-> +		/* Someone is already using the tracer */
-> +		arg->rc = -EBUSY;
-> +		return;
-> +	}
-> +
->  	arg->rc = etm4_enable_hw(arg->drvdata);
-> +
-> +	/* The tracer didn't start */
-> +	if (arg->rc)
-> +		coresight_set_mode(csdev, CS_MODE_DISABLED);
->  }
->
->  /*
-> @@ -809,6 +822,9 @@ static int etm4_enable_perf(struct coresight_device *csdev,
->  	int ret = 0;
->  	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->
+> -	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id()))
+> -		return -EINVAL;
 > +	if (!coresight_take_mode(csdev, CS_MODE_PERF))
 > +		return -EBUSY;
 > +
->  	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id())) {
->  		ret = -EINVAL;
->  		goto out;
-> @@ -828,6 +844,9 @@ static int etm4_enable_perf(struct coresight_device *csdev,
->  	ret = etm4_enable_hw(drvdata);
+> +	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id())) {
+> +		ret = -EINVAL;
+> +		goto out;
+> +	}
+
+Small question: why drvdata->cpu != smp_processor_id() check after
+changing mode? Would it better to check before change of it?
+
 >
->  out:
+>  	/* Configure the tracer based on the session's specifics */
+>  	etm_parse_event_config(drvdata, event);
+>  	drvdata->traceid = path->trace_id;
+>
+>  	/* And enable it */
+> -	return etm_enable_hw(drvdata);
+> +	ret = etm_enable_hw(drvdata);
+> +
+> +out:
 > +	/* The tracer didn't start */
 > +	if (ret)
 > +		coresight_set_mode(csdev, CS_MODE_DISABLED);
->  	return ret;
+> +	return ret;
 >  }
 >
-> @@ -880,11 +899,6 @@ static int etm4_enable(struct coresight_device *csdev, struct perf_event *event,
->  {
+>  static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_path *path)
+> @@ -519,11 +544,6 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
 >  	int ret;
+>  	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
 >
 > -	if (!coresight_take_mode(csdev, mode)) {
 > -		/* Someone is already using the tracer */
@@ -329,75 +258,71 @@ Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > -
 >  	switch (mode) {
 >  	case CS_MODE_SYSFS:
->  		ret = etm4_enable_sysfs(csdev, path);
-> @@ -896,10 +910,6 @@ static int etm4_enable(struct coresight_device *csdev, struct perf_event *event,
+>  		ret = etm_enable_sysfs(csdev, path);
+> @@ -535,17 +555,12 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
 >  		ret = -EINVAL;
 >  	}
 >
 > -	/* The tracer didn't start */
 > -	if (ret)
-> -		coresight_set_mode(csdev, CS_MODE_DISABLED);
+> -		coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
 > -
 >  	return ret;
 >  }
 >
-> @@ -951,10 +961,9 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
->  	isb();
->  }
->
-> -static void etm4_disable_hw(void *info)
-> +static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+> -static void etm_disable_hw(void *info)
+> +static void etm_disable_hw(struct etmv4_drvdata *drvdata)
 >  {
->  	u32 control;
-> -	struct etmv4_drvdata *drvdata = info;
->  	struct etmv4_config *config = &drvdata->config;
+>  	int i;
+> -	struct etm_drvdata *drvdata = info;
+>  	struct etm_config *config = &drvdata->config;
 >  	struct coresight_device *csdev = drvdata->csdev;
->  	struct csdev_access *csa = &csdev->access;
-> @@ -991,6 +1000,15 @@ static void etm4_disable_hw(void *info)
+>
+> @@ -567,6 +582,15 @@ static void etm_disable_hw(void *info)
 >  		"cpu: %d disable smp call done\n", drvdata->cpu);
 >  }
 >
-> +static void etm4_disable_hw_smp_call(void *info)
+> +static void etm_disable_hw_smp_call(void *info)
 > +{
-> +	struct etmv4_drvdata *drvdata = info;
+> +	struct etmv_drvdata *drvdata = info;
 > +
-> +	etm4_disable_hw(drvdata);
+> +	etm_disable_hw(drvdata);
 > +
 > +	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
 > +}
 > +
->  static int etm4_disable_perf(struct coresight_device *csdev,
->  			     struct perf_event *event)
+>  static void etm_disable_perf(struct coresight_device *csdev)
 >  {
-> @@ -1020,6 +1038,8 @@ static int etm4_disable_perf(struct coresight_device *csdev,
->  	/* TRCVICTLR::SSSTATUS, bit[9] */
->  	filters->ssstatus = (control & BIT(9));
+>  	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> @@ -588,6 +612,8 @@ static void etm_disable_perf(struct coresight_device *csdev)
+>
+>  	CS_LOCK(drvdata->csa.base);
 >
 > +	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
 > +
 >  	/*
->  	 * perf will release trace ids when _free_aux() is
->  	 * called at the end of the session.
-> @@ -1045,7 +1065,8 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
->  	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
+>  	 * perf will release trace ids when _free_aux()
+>  	 * is called at the end of the session
+> @@ -612,7 +638,8 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
+>  	 * Executing etm_disable_hw on the cpu whose ETM is being disabled
 >  	 * ensures that register writes occur when cpu is powered.
 >  	 */
-> -	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
-> +	smp_call_function_single(drvdata->cpu, etm4_disable_hw_smp_call,
+> -	smp_call_function_single(drvdata->cpu, etm_disable_hw, drvdata, 1);
+> +	smp_call_function_single(drvdata->cpu, etm_disable_hw_smp_call,
 > +				 drvdata, 1);
 >
->  	raw_spin_unlock(&drvdata->spinlock);
->
-> @@ -1085,9 +1106,6 @@ static void etm4_disable(struct coresight_device *csdev,
->  		etm4_disable_perf(csdev, event);
->  		break;
+>  	spin_unlock(&drvdata->spinlock);
+>  	cpus_read_unlock();
+> @@ -652,9 +679,6 @@ static void etm_disable(struct coresight_device *csdev,
+>  		WARN_ON_ONCE(mode);
+>  		return;
 >  	}
 > -
 > -	if (mode)
 > -		coresight_set_mode(csdev, CS_MODE_DISABLED);
 >  }
 >
->  static int etm4_resume_perf(struct coresight_device *csdev)
+>  static const struct coresight_ops_source etm_source_ops = {
 >
 > --
 > 2.34.1
