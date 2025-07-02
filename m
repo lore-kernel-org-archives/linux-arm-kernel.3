@@ -4,100 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D477C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 14:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBED1C83F04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 14:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DQsDsouXGnTEHD/Y5a06yBAM+3Z7GZ4pZgoIjiS96B0=; b=JhVIOM4buDhci3h3BoCsMjrUL7
-	7jOX5u4GF+NFtYbvRNNhd3ECHfI9ysVnoBk8jnuA4TNBZLm5IRI0EJK+4PQQ9CLicAkXspH0hyM8a
-	qFF0Dz6HZDi+3kNwilPJLnWLiZe2+k8cMimRWuCEItGSyszhMd+Wj3ucvR9i/M3AWJ06XqV0gW5xy
-	phMa/7/96JRhePWBTfv+J1oNL2keCu39p7oj6VQ+ngElF7xwubHbGadf7G07XXvBbaYqcdCgiL0Ir
-	S42gr5G//gacZpJQE6l6u11CeS7R39GWjDiE6B2EqjLiePBORBSAKcUXZs4DSdonEudtD7jwvVoaz
-	cEgYmzRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V+jHPiUeldD8dhONJEpxFOonPC2AXGWpQaz9V/YVPBE=; b=A0JGeNsXEjaRur9zalpACIMjmr
+	7QMOddKTs7Bj8/I2kvooVYMY8+UJE/jdV4zzT+RJrG15uBIGRxkqg+Nr3VScHf3ke1hmnltoiJji1
+	70XiHwtt7hJzcmu7d1X2VnOBId5jxYxSAxAPWapMb/mhW6CsXsb2REwXFYrxgXOF6O5+4dFXwqrH4
+	KffC2IPWABIgtpO4VtBwOhVyqOqzyTQaBO2XRRaVeESl8EdzqUeuv22O0fo0aCecdXh+EyeQ3V6ge
+	RCoWcdbrgtVUJi6YT4kQbhY97dYPGgI2sTkq+BrdCc5/JjFgbQbZlS0Y+TK/1vSjn4854Y+xNpFzG
+	r86AUngA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWy61-00000008ZWs-0fUL;
-	Wed, 02 Jul 2025 14:05:57 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1uWy6G-00000008ZZ1-3F3y;
+	Wed, 02 Jul 2025 14:06:12 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWxPD-00000008QxP-2QAL
+	id 1uWx0q-00000008NP5-1FY9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 13:21:45 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-adfb562266cso1098467466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 06:21:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751462502; x=1752067302; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DQsDsouXGnTEHD/Y5a06yBAM+3Z7GZ4pZgoIjiS96B0=;
-        b=SqEPFw1Xz44NJt17xwSdHHgErsQhNzPXyL+KMrUINTOCZDIeHvzbdoCspOhx2Xb6zs
-         n5KL4QS9u8OV5nlGYfr0DCdhQSRHDMS3I4FzheYLprIIqpkRMmUFP4eb/vFWBasckcSx
-         tYKKRStK4/+kOae4nUoPO1NIDz++C9lcJrmjmoh31foymJpbEJOjZTN8GrmFygxTuKuD
-         j762QRvqjVzcBbckCBfIbuwQE37NN2v5X40gcZmZSB5lrX5kGKGbA3ZsofQIXwwQRgw+
-         H9nH0wRTOFWF13s+YVV/MQQOMeHlNfOigh2G2Wxh+h/55k2yrcwiHS7IfBbxdnbGdLQJ
-         bw/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751462502; x=1752067302;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DQsDsouXGnTEHD/Y5a06yBAM+3Z7GZ4pZgoIjiS96B0=;
-        b=UQeZkWrQLTqJHWe7e5pfW8ZPivrQtmggYJc6QQLQcBPQAMEPESA/FFP+PiRfK/6gW+
-         FyRX+Im4X9t+oZ3ElUt2EHfReotAeYUPrYbx4/nhiFh6ira2tsBiR8YLemuLDXFdK0YS
-         rzPdcAtTfFb0ZQ3H3ZhqTS1Q+JwlduhupbYjX76YDJ/74gnad0nt4uiIE5i6+gdkDpc/
-         yoqeED7Y0AEGmPj83vxFxQDODQsZRuRPjia38Kx4mrRj301T6wnECFOHsfmOlV6kKFrZ
-         OpQX08Bl8NM//WJ0uykLj4LS1dE6k4zO7fdEu2ZmyIF01Nnm5OyyFtJG9gWwRZ1QQgZX
-         LQ+g==
-X-Forwarded-Encrypted: i=1; AJvYcCVMJpsRRIHH41GH6S3mk0D7UEOWFjN8HVm2IYChg2xuFynveR+1KHu40z27/SWnkMtMoATmh2Si1xYpEiM4ZVVY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzafb/oWWA5IWxA+Vn9xrUl7wy8FLP1Kmh5BtBxdNvJRHJFwYCG
-	Fev+BXfj+PTdQUIgBWi1ZX57evJPhPR6cJNUv2L8ZCcnBgya1xSN8MUb
-X-Gm-Gg: ASbGncvNhc+w/Nqr+WfbKhrPdgIVMEOB5MWsDPI9c9Fa+USAPMnbIP5Mpgq3ZJooihi
-	49zm4Q2e/28GHKqkTihemWIrmVFjq3RfYh5C4r12C9TxlFAJJU6ZgPJMryRONWFjRJXA9cFUW9A
-	uyh1SlQKtBi0oRpy6ME2oN2OEQXPMyscM4hVC4b0CiKDxuUh4KFqLQLYlO2i5rJyiDeMna1H/qm
-	wjn3MuVK3ArdYcQbrAaFuB8s+Z06xb9cRukkFOtTDSKaUsq3N0hCI5qtn3RxOaZjhUD3Apewlwn
-	lPLIqJp8iozcTaodowvhXbLWAnztrY3FMVExYU+h5cUP3T8EWCrRE06w+ctgWBW7W8zLUIYTi5n
-	G1MA+roCuWQ==
-X-Google-Smtp-Source: AGHT+IGQo1X2tG/+haFZYHCJIgDFrHhpayF4pnl9EavUV/pXr+ODu0WNrPTbhTs53mc+YL9D5CTAcQ==
-X-Received: by 2002:a17:907:7ba3:b0:add:f62e:a300 with SMTP id a640c23a62f3a-ae3c2b12d95mr277375566b.2.1751462501873;
-        Wed, 02 Jul 2025 06:21:41 -0700 (PDT)
-Received: from demon-pc.localdomain ([188.27.131.45])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae35363b094sm1063800966b.22.2025.07.02.06.21.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Jul 2025 06:21:41 -0700 (PDT)
-From: Cosmin Tanislav <demonsingur@gmail.com>
-To: Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
-	Julien Massot <julien.massot@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Wed, 02 Jul 2025 12:56:33 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=juin5rtxx3Hpb5nN/nBzIRlFa4nCdumAH950aIUaMqpwWh+QEOwtIer+y1NbZIa8nSULJ/UQncwb+1vTgSvjS6Rp4CI61OsYosKYrppZNc6kXrkc/Kg86/i8dNaX7T54q02N3hdiqcCBmQTstuEAFRPxRL4IuCX6eI1eaRFLHGjKB1WBBlMbT6OyfWS4KYMYUjp4lPRi70FD2gEU08OzvFiOozZeCjwlDbXv5kX1jakUYh69pr13Rl72H/NXtDWXWOrCEbbmhqxjJA4/ycAMSSW1SgREaIIbbhBBTLtmD/KcS9ghmO38k/w0/g0hg0L0T5snEjZpw/NOEcnXf4Gdsg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V+jHPiUeldD8dhONJEpxFOonPC2AXGWpQaz9V/YVPBE=;
+ b=V+nPkzPopfJ5SdRxOon4oFmX9YsIOQWWbccTxVWnmOtMIC+eqqNCDY/g5jykM4RdEuHHcHxitVpkPZyGyZHykNR2dFjzX0p/jvw7qbZW/UkKNktRgEOLcfxayG2ZqcCIkw2nI40Ks2zcXD7JLl/G6KB5mnJ2x/UISdxqHeUiU+RNQ9DpQcWtT3hl6alGgTtzuD7E/SAyVpREmA77tryLWEudVpWATGSnLsE9xW4j/NsY0cOGxv7vLYuwWTvhggimtY6F54nmAnXC25LyYtDhKk0ZeYQFeg4LECnzRnKVuWgpCE4gMSSfBuFflDdjE3aBzmQKyTGgzbk6RfGzq7bMkw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V+jHPiUeldD8dhONJEpxFOonPC2AXGWpQaz9V/YVPBE=;
+ b=qqsMcsMM6SzTVenpoFYAZHsfDN87l5g94oQnc9tIudnbDZl7hG56EhOQwx68cZCiPKv+MFzSHJynkYZVfBDnOjbWeu0wrLTj0i6fmG4rZkypLf9tW2gGOuMv0fP4Lkz4AD51GzQd9XCZ2xUU/TyqfuELAkulgOQzKwk9LW0WrEw=
+Received: from CWLP265CA0414.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1b6::17)
+ by AS2PR08MB9101.eurprd08.prod.outlook.com (2603:10a6:20b:5fd::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Wed, 2 Jul
+ 2025 12:56:21 +0000
+Received: from AM3PEPF0000A78E.eurprd04.prod.outlook.com
+ (2603:10a6:400:1b6:cafe::a9) by CWLP265CA0414.outlook.office365.com
+ (2603:10a6:400:1b6::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.20 via Frontend Transport; Wed,
+ 2 Jul 2025 12:56:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM3PEPF0000A78E.mail.protection.outlook.com (10.167.16.117) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.15
+ via Frontend Transport; Wed, 2 Jul 2025 12:56:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WnqUvyQzMrzsJp5InbgByGSlj4Glbw2ACsX9b42e/1vZ74DO8BaTHScVm2DZSnBBj5w2maA+qjwgOSsb5evbnV5CaRO/CMneT25cfgaLP9BnRGTs09/MBQazk9ejU4ElhsgbPzx4Fj32+yLFukhtatSRX7rwvHexyUo9jOVYUzQPQTbhn8sXV/9ZujXle64qBNA6iPYZfyvLWj2bt13Z0R3wQVD5LpX/HiMprmrv4BYx3pwo8SyCD0LNox4u65bkFxuN8H8u/QuPf05lt/3dXy9l/K78A6A8P+uQ4a1MW3T+4EvCjYSGIClwlvf3oJ5SoqFCWmCl+WYK3aOzX18xvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V+jHPiUeldD8dhONJEpxFOonPC2AXGWpQaz9V/YVPBE=;
+ b=L7iaOx8bpVsR74onGxoiTAxBB0mLWtBa9+sj/p2fHFJwrheT3P2lXYYx5GD0NUgAD45Z9Ba6Kke+V4RHB+0e1zZCevzkjk6p31bLvXu4HFpBdnevn5uuwj1VmYbKwxuTko+O4Vjq/pJYCe+p1P9DEdxvOXSr6OWQEY8pTFqtQFB+kNoafGfd5FVMu4RJ1jxDN4Rs0nl72gaHo6CDZMnUvYGQnFlKyCAUX9Maq3ef/dR9PU6mt97PebLDk/Dsyi9cUaD1Z5p1Gh16FOUN/pcqGRr+/C8Vp7XB4qONySFE2Ebm03Cl6PCM3F7saqrB0Sw2n/XQo5m1Ri/Ln20Zbx0cvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V+jHPiUeldD8dhONJEpxFOonPC2AXGWpQaz9V/YVPBE=;
+ b=qqsMcsMM6SzTVenpoFYAZHsfDN87l5g94oQnc9tIudnbDZl7hG56EhOQwx68cZCiPKv+MFzSHJynkYZVfBDnOjbWeu0wrLTj0i6fmG4rZkypLf9tW2gGOuMv0fP4Lkz4AD51GzQd9XCZ2xUU/TyqfuELAkulgOQzKwk9LW0WrEw=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by AS4PR08MB8070.eurprd08.prod.outlook.com
+ (2603:10a6:20b:589::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.20; Wed, 2 Jul
+ 2025 12:55:46 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%5]) with mapi id 15.20.8880.027; Wed, 2 Jul 2025
+ 12:55:46 +0000
+Date: Wed, 2 Jul 2025 13:55:44 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev,
-	linux-gpio@vger.kernel.org,
-	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [PATCH v5 14/24] dt-bindings: media: i2c: add MAX9296A, MAX96716A, MAX96792A
-Date: Wed,  2 Jul 2025 16:20:40 +0300
-Message-ID: <20250702132104.1537926-15-demonsingur@gmail.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250702132104.1537926-1-demonsingur@gmail.com>
-References: <20250702132104.1537926-1-demonsingur@gmail.com>
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 12/28] coresight: sysfs: Validate CPU online status
+ for per-CPU sources
+Message-ID: <aGUsT6gMJkYDbGPG@e129823.arm.com>
+References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
+ <20250701-arm_cs_pm_fix_v3-v2-12-23ebb864fcc1@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-12-23ebb864fcc1@arm.com>
+X-ClientProxiedBy: LO6P265CA0015.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:339::8) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS4PR08MB8070:EE_|AM3PEPF0000A78E:EE_|AS2PR08MB9101:EE_
+X-MS-Office365-Filtering-Correlation-Id: fc590428-75c6-4f91-c2d9-08ddb967d7c9
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?BY4Gb4+FxwdrcBl+p8KcogLSiS5DuYuC+kHPeVVkBt6MrDuz+d6dqKghO/gW?=
+ =?us-ascii?Q?GXibq3VOx+EkBP/EEJWJ0drysIrcFLzISn8efqm3DfGWleOd+5DTCo9x9pXm?=
+ =?us-ascii?Q?hQueIqhJOuMTDyT41UwPTw4gP4o491ujRqy6fdRqPVnmsZG1wHkihQXufPEi?=
+ =?us-ascii?Q?wI3wN5usexCoTDy6zwyqamZBbi4fGiysaoFjYXMhC2c5OEmqHnfKSJhr7skl?=
+ =?us-ascii?Q?iXl6LIpkrtFZRyfMtD95a0nb2fPkmqfBNsn5gI6k4oOCg3MuVv1FHj1crxLr?=
+ =?us-ascii?Q?p0dmQGZDBHb3x6DKx5givM1Ra0ThOyLxtjSJCeq74sQsqPsQc0N6ZhAonjqS?=
+ =?us-ascii?Q?aIVAtvjXNwlCBNV3hnNiaYyuCB29jGZeWD3taZkvn7OPseqHJgs2TQogZpM0?=
+ =?us-ascii?Q?QtSGGRYVkNCbcX65LpBPunYu3ObLGEpmn88jRgOwtNtq2IBAo58YgCRupxID?=
+ =?us-ascii?Q?iMKZkMVGKU6o+xAZx0p3NJsJSj4QjAmUgrlAvS7S5x/JGlm7oq++lP4oavZj?=
+ =?us-ascii?Q?tpY4keAw7ulK8ZWG2UfkwcCRPcVvBlq1Oi7MSBD1mCzCsc2b0KIErtis0ETN?=
+ =?us-ascii?Q?Cl7ET9N1EVsXtVye38M+M1qGbk4svoFkXFXXXJUjdbtHJwPawuXK/jSzM+fw?=
+ =?us-ascii?Q?VdzzKzT7zuzcxSSphzHMlwvwbTh5VytvnTBigxUK10mJdB+y9J0+ayRSO/AK?=
+ =?us-ascii?Q?Bohxr82lFShPwos/ZgMl+Pw1eQHtWlmg8/lvg1sg0pabqNcYMOX11zdznbLg?=
+ =?us-ascii?Q?fOO7L3BDOEaEjDA/HLXKrhLZTOC41qdb0TxAbbB2VCU6CBfL17DZ7HQKeahc?=
+ =?us-ascii?Q?c0UoxD3YOBa7L4KwV1+PqWJkc3IYeuElsycT3FQmC6hmyS7OtISyQwYF11Iz?=
+ =?us-ascii?Q?DA3C6U41/eW7z0MdtnoBi+mcrBrr46jXTYo4KmurofemMWA9kQ1TJT8p9KMO?=
+ =?us-ascii?Q?4dou56fWF7UwH/Q5M1ktXm5+6itvLJH4xWdiM4c61RGWHTIckGjK61Gs8yl0?=
+ =?us-ascii?Q?G/TQdQccVhMHWKdXKo+os0gkQpzlPN3GLcN0MJUGOHKRS4z4KVnnPcte16IM?=
+ =?us-ascii?Q?zp1dlrVU1p5fQWFkLqwiNz8sbbJtOXbdNPH/DHTl0o9jQgmrKGFqn47fYUB1?=
+ =?us-ascii?Q?23XLeb59nF3JeGrrAW7Re5ZQi1yNiLrPa2dVL3iZqqtG32CsqJ1qG5MySPOJ?=
+ =?us-ascii?Q?EaJinQFcecrOcTSUc3GzQ7qigOiboa9+z/2JB+j5PTt510r6FhnC+u0xfKWg?=
+ =?us-ascii?Q?SqpZvwCZkiQZvru4Pl1VqHPwOQZEUi/FMpAVuzQoscyBIbElUt2DeWFTdRSw?=
+ =?us-ascii?Q?w7lOE3mxIVN5l4Bx2zcdhXzhhl97php5+qyJnhp95d5qA9/XaHuK/wwIGx8X?=
+ =?us-ascii?Q?iDehberBq2sz2zEeFQd+RtykAUZRzsYHeY9PfYtVtGX2Kc7NrNPi6Q8Dc9Df?=
+ =?us-ascii?Q?Vy9X8oyfXjQ=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB8070
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A78E.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 1df82e57-e855-40be-1587-08ddb967c331
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|35042699022|14060799003|1800799024|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tj+DbLz5FArxSjgutTpjs/at2uTwN3Fx+8L8u1Nos6hoBrxDG2OcbLcmTju7?=
+ =?us-ascii?Q?lHpbYgArpf94834J6odmtMX8cy88pM4TlYay/M4EOn2efQ2TOMl7+OunoGbM?=
+ =?us-ascii?Q?xcN9IwfDOZSqsdgDUmgmISuLdcXvAZrF1CBAYLFlLuzQinkdHa457DVeNXzO?=
+ =?us-ascii?Q?tWsH7TJWv90IAEwPzku3p2Wnalkk8UADGwdzOO+btzVy8Z441+KssetOh/t8?=
+ =?us-ascii?Q?hdDImkp6zoAxmKsjitgksPWy+e+Upze+IOHjaxtiHqNl023Uh02QsStCVlEQ?=
+ =?us-ascii?Q?auCO13MJVtgG+RWyVst39umK39JEmHteEu1EyGN+B5Cvm0cpfAiU1KYY/6ZE?=
+ =?us-ascii?Q?MtfYtSzbd3198InodKrGsf3SWiEe74xDg42YWngTOLp0TUaxZIaJov10OBRk?=
+ =?us-ascii?Q?dYkvjzrGLqN7E8MYMER+vpti9C2VsJ0ykGDqdQwX3RrkEh67/QWhsVxtjSl8?=
+ =?us-ascii?Q?sQsDdqaeD3+MBvsKdJddF1HA217heM6tSa+LyKOlSm8IR4kxR46KVLHyoZyH?=
+ =?us-ascii?Q?Nwi3Y4cmmJ/Sl8Xl0857E/sRB3YrmOAKqdpPNB0wj9UIotty3MJnTnjqeGC9?=
+ =?us-ascii?Q?IddhyCpnhckcc9UYlGpAjMqaTjiQqClw/m3QPrERqGKMBaGMQojT/Z+yUXaV?=
+ =?us-ascii?Q?tWU27hgGfU3+cOymOD3R5dyLqxKClbUQ0DE6qkW27mbSm8AMekK6WQlPUbjj?=
+ =?us-ascii?Q?5JxnqyB3yEsoNXd2iUg8jCGDVqsg06j3+NKlecpfRMj7VDmS0L9DfweYpOE4?=
+ =?us-ascii?Q?RRDv3dMqvml6mjss0xmVQUFfDM/E5JdtH2yMDHqGvJu+lcg9G42KD788D+Tm?=
+ =?us-ascii?Q?tuZI9R9PuwO1eWAHpxymYh7lgdGaVTSZkfX5+HpyUwbX2sQyG+rzMNcqhnv3?=
+ =?us-ascii?Q?1aTBJczBKzOgbzzxKhtMqFIUaXhIq8q+x0Nea3ySTOUvZ7feNH/S9taRmCei?=
+ =?us-ascii?Q?WcbOjGd43RBjJ5myrcbI3RKFdUXV187pHhRyUKxZ6NuZ8ll9M3xEJIBSGEN+?=
+ =?us-ascii?Q?KUNGW09h4MdeOky1mcujPfLO1VMrNxEzd0j7ma0uqXogyqwDdMAtPAA6eftY?=
+ =?us-ascii?Q?nLD/NldSHt3ezbErmXsvqyVIdFJpQs22xuXPi9aCPIREvpwlkiaDfdHE2vyF?=
+ =?us-ascii?Q?RL3YsOz7qiI2xqsFJy4jRjxelnTBOub9G1/rTGGCAmGuOKnOfq2mQxb2qckm?=
+ =?us-ascii?Q?2qiWuvEbNIAUOBU8q7C/vQsHJNnTxVnrRrzxEbDohgRmTFEKPLLGnyqQn1lq?=
+ =?us-ascii?Q?IsXPlxWl15Bcy8p8ownoaB2mTqB14H1sxTqfFtgfyXcwWMf15jOmBWZ02PGy?=
+ =?us-ascii?Q?62AwcI01uGXBUr/ApdhBerbMPZ8pUlYXEh/NxSf4DCzw0sXZ47tqtW00TtwD?=
+ =?us-ascii?Q?WS0h0IBWrzR1KPqN309WpwLDHf16hyQUbSWbLChiXggERWpHwszlOAl+G881?=
+ =?us-ascii?Q?cMEWyctznliof+N8LoxqwOecKHP2iJ90nrtlTGenjHgrj6oViyNZUzRsfLai?=
+ =?us-ascii?Q?HagWa307c3I9iBfKLm47TmbcJrZ+bO/3CAJd?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(35042699022)(14060799003)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2025 12:56:20.8651
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fc590428-75c6-4f91-c2d9-08ddb967d7c9
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A78E.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9101
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_062143_732060_8DBBF789 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20250702_055632_344520_A2A234AE 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,292 +207,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MAX9296A deserializer converts single or dual serial inputs to MIPI
-CSI-2 outputs. The GMSL2 links operate at a fixed rate of 3Gbps or 6Gbps
-in the forward direction and 187.5Mbps in the reverse direction.
-In GMSL1 mode, each serial link can be paired with 3.12Gbps or 1.5Gbps
-GMSL1 serializers or operate up to 4.5Gbps with GMSL2 serializers with
-GMSL1 backward compatibility. The MAX9296A supports mixed GMSL2 and
-GMSL1 links. The serial inputs operate independently, allowing videos
-with different timings and resolutions to be received on each input.
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 
-MAX96716A supports both tunnel and pixel mode.
-MAX96792A supports both tunnel and pixel mode, and has two GMSL3 links.
+> The current SysFS flow first enables the links and sink, then rolls back
+> to disable them if the source fails to enable. This failure can occur if
+> the associated CPU is offline, which causes the SMP call to fail.
+>
+> Validate whether the associated CPU is online for a per-CPU tracer. If
+> the CPU is offline, return -ENODEV and bail out.
+>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-sysfs.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+> index feadaf065b5318c8426aa53420b8e5f67a258683..14ee15297b98115122068cbe932f0b2ce004b77e 100644
+> --- a/drivers/hwtracing/coresight/coresight-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+> @@ -161,6 +161,9 @@ static int coresight_validate_source_sysfs(struct coresight_device *csdev,
+>  		return -EINVAL;
+>  	}
+>
+> +	if (coresight_is_percpu_source(csdev) && !cpu_online(csdev->cpu))
+> +		return -ENODEV;
+> +
+>  	return 0;
+>  }
+>
+>
+> --
+> 2.34.1
+>
 
-Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../bindings/media/i2c/maxim,max9296a.yaml    | 242 ++++++++++++++++++
- MAINTAINERS                                   |   6 +
- 2 files changed, 248 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-
-diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-new file mode 100644
-index 000000000000..c0a8916353f6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-@@ -0,0 +1,242 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2024 Collabora Ltd.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/i2c/maxim,max9296a.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Maxim MAX9296A GMSL2 to CSI-2 Deserializer
-+
-+maintainers:
-+  - Cosmin Tanislav <cosmin.tanislav@analog.com>
-+
-+description: >
-+  The MAX9296A deserializer converts single or dual serial inputs to
-+  MIPI CSI-2 outputs. The GMSL2 links operate at a fixed rate of 3Gbps
-+  or 6Gbps in the forward direction and 187.5Mbps in the reverse
-+  direction. In GMSL1 mode, each serial link can be paired with 3.12Gbps
-+  or 1.5Gbps GMSL1 serializers or operate up to 4.5Gbps with GMSL2
-+  serializers with GMSL1 backward compatibility. The MAX9296A supports
-+  mixed GMSL2 and GMSL1 links. The serial inputs operate independently,
-+  allowing videos with different timings and resolutions to be received
-+  on each input.
-+
-+  MAX96716A supports both tunnel and pixel mode.
-+
-+  MAX96792A supports both tunnel and pixel mode, and has two GMSL3 links.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - maxim,max9296a
-+      - maxim,max96716a
-+      - maxim,max96792a
-+
-+  reg:
-+    maxItems: 1
-+
-+  powerdown-gpios:
-+    maxItems: 1
-+    description: Specifier for the GPIO connected to the PWDNB pin.
-+
-+  port0-poc-supply:
-+    description: Regulator providing Power over Coax for GMSL port 0
-+
-+  port1-poc-supply:
-+    description: Regulator providing Power over Coax for GMSL port 1
-+
-+  i2c-alias-pool:
-+    maxItems: 2
-+
-+  i2c-atr:
-+    type: object
-+    additionalProperties: false
-+
-+    properties:
-+      '#address-cells':
-+        const: 1
-+
-+      '#size-cells':
-+        const: 0
-+
-+    patternProperties:
-+      '^i2c@[0-1]$':
-+        $ref: /schemas/i2c/i2c-controller.yaml#
-+        unevaluatedProperties: false
-+        properties:
-+          reg:
-+            items:
-+              minimum: 0
-+              maximum: 1
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    patternProperties:
-+      '^port@[0-1]$':
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: GMSL Input ports 0-1
-+
-+      '^port@[2-3]$':
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description: CSI-2 Output ports 0-1
-+        properties:
-+          endpoint:
-+            $ref: /schemas/media/video-interfaces.yaml#
-+            unevaluatedProperties: false
-+
-+            properties:
-+              data-lanes:
-+                minItems: 1
-+                maxItems: 4
-+
-+              lane-polarities:
-+                minItems: 1
-+                maxItems: 5
-+
-+              link-frequencies:
-+                maxItems: 1
-+
-+            required:
-+              - data-lanes
-+
-+    anyOf:
-+      - required:
-+          - port@2
-+      - required:
-+          - port@3
-+
-+required:
-+  - compatible
-+  - reg
-+  - ports
-+
-+additionalProperties: false
-+
-+allOf:
-+  - $ref: /schemas/i2c/i2c-atr.yaml#
-+
-+dependentRequired:
-+  i2c-atr: [i2c-alias-pool]
-+  i2c-alias-pool: [i2c-atr]
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+    #include <dt-bindings/media/video-interfaces.h>
-+
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        deserializer@28 {
-+            compatible = "maxim,max9296a";
-+            reg = <0x28>;
-+            powerdown-gpios = <&main_gpio0 37 GPIO_ACTIVE_LOW>;
-+
-+            i2c-alias-pool = <0x40 0x41>;
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@0 {
-+                    reg = <0>;
-+                    des_gmsl_in_0: endpoint {
-+                        remote-endpoint = <&ser_0_gmsl_out>;
-+                    };
-+                };
-+
-+                port@1 {
-+                    reg = <1>;
-+                    des_gmsl_in_1: endpoint {
-+                        remote-endpoint = <&ser_1_gmsl_out>;
-+                    };
-+                };
-+
-+                port@2 {
-+                    reg = <2>;
-+                    des_csi_out: endpoint {
-+                        data-lanes = <1 2 3 4>;
-+                        link-frequencies = /bits/ 64 <400000000>;
-+                        remote-endpoint = <&csi_in>;
-+                    };
-+                };
-+            };
-+
-+            i2c-atr {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                i2c@0 {
-+                    #address-cells = <1>;
-+                    #size-cells = <0>;
-+                    reg = <0>;
-+
-+                    serializer@40 {
-+                        compatible = "maxim,max96717";
-+                        reg = <0x40>;
-+                        gpio-controller;
-+                        #gpio-cells = <2>;
-+                        #clock-cells = <0>;
-+
-+                        ports {
-+                            #address-cells = <1>;
-+                            #size-cells = <0>;
-+
-+                            port@0 {
-+                                reg = <0>;
-+                                ser_0_csi_in: endpoint {
-+                                    data-lanes = <1 2>;
-+                                    remote-endpoint = <&sensor_0_out>;
-+                                };
-+                            };
-+
-+                            port@1 {
-+                                reg = <1>;
-+                                ser_0_gmsl_out: endpoint {
-+                                    remote-endpoint = <&des_gmsl_in_0>;
-+                                };
-+                            };
-+                        };
-+                    };
-+                };
-+
-+                i2c@1 {
-+                    #address-cells = <1>;
-+                    #size-cells = <0>;
-+                    reg = <1>;
-+
-+                    serializer@40 {
-+                        compatible = "maxim,max96717";
-+                        reg = <0x40>;
-+                        gpio-controller;
-+                        #gpio-cells = <2>;
-+                        #clock-cells = <0>;
-+
-+                        ports {
-+                            #address-cells = <1>;
-+                            #size-cells = <0>;
-+
-+                            port@0 {
-+                                reg = <0>;
-+                                ser_1_csi_in: endpoint {
-+                                    data-lanes = <1 2>;
-+                                    remote-endpoint = <&sensor_1_out>;
-+                                };
-+                            };
-+
-+                            port@1 {
-+                                reg = <1>;
-+                                ser_1_gmsl_out: endpoint {
-+                                    remote-endpoint = <&des_gmsl_in_1>;
-+                                };
-+                            };
-+                        };
-+                    };
-+                };
-+            };
-+        };
-+    };
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2fd3edef879f..334195989c00 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14764,6 +14764,12 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/iio/proximity/maxbotix,mb1232.yaml
- F:	drivers/iio/proximity/mb1232.c
- 
-+MAXIM GMSL2/3 SERIALIZERS AND DESERIALIZERS
-+M:	Cosmin Tanislav <cosmin.tanislav@analog.com>
-+L:	linux-media@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-+
- MAXIM MAX11205 DRIVER
- M:	Ramona Bolboaca <ramona.bolboaca@analog.com>
- L:	linux-iio@vger.kernel.org
--- 
-2.50.0
-
+--
+Sincerely,
+Yeoreum Yun
 
