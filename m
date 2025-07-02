@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED35BC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832AEC83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zbq4GNHat/YXSM/ERlCYg0/nrsQ+ewI/Ix0VbmpNdWA=; b=jLKcddmIGD/YGYIftQ5rVi7Vwa
-	CsnH0EO6ZIWtwsoikNbRQPzskhgf2+nQN8TV5tfe1/OO0g0LjgSbutypEMyp92wfzEoXQsiDxmFc4
-	ssCLJEIdSHzz1z9Ppezwos5ezmceCPV0p/1vjmHvUSJbiR1y23AcL5nQvqoouzv8pnabz1bhzmXFl
-	fVynxefTrJo+wvBWqRLmj0HBslV0pflEYBWyzMPcEeSK9rHupR/LDndwYNGqxtvTv9uVEU37DQGQW
-	tVZtLLvL0LmrnMS1/IMOsQnq38qOiruXP37c1+id+w6Dv02qwRuBREPtMCN1hy/pqDF2+OruhfA6x
-	63kclyPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yk7dR2itmICJrASu1wQYTL0JAgzGuSjOR7cDtLlcqMI=; b=YNRYflOY0cNhT8VrQ7XKoxPThK
+	PFbv5l5RXFDzCmzqbto8/sqLl5Gszb2HZfdrdcLPykSRiW3i2jXSKMr4HVOlHxHU2teivE+9Umyyw
+	ap0/Wkmr0FfNwx7/rzwInO0SwwOcHnp+fN8bRPsFYC4oFlWIP4od5I1Yjpf8qbx039XgEHEei+kwI
+	RRwgVQIQq2By4zS0E+HcK5PGotoOjDyZu8PgBKKE3oQZFbQgcd8IdCJcg7hbz0HL42dFaXUWXQKGC
+	/pALXIjFIIb6nl2SC9leGb0Us3RY7SaxrKqj1m/SXw8bYZRulnf8nGncYDZvJcFWSl7fJzyd7BOhb
+	69ReghXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWwc5-00000008KUi-3uvy;
-	Wed, 02 Jul 2025 12:30:57 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1uWwqR-00000008LZ4-1JfY;
+	Wed, 02 Jul 2025 12:45:47 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWw8g-00000008Dwb-3XFt
+	id 1uWwNd-00000008H3u-177V
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 12:00:38 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250702120029euoutp022859fc97d95b97e94c6296189ff66b85~ObW9RPp-72645026450euoutp022
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  2 Jul 2025 12:00:29 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250702120029euoutp022859fc97d95b97e94c6296189ff66b85~ObW9RPp-72645026450euoutp022
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1751457630;
-	bh=zbq4GNHat/YXSM/ERlCYg0/nrsQ+ewI/Ix0VbmpNdWA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XrJpGbKlXQ4g5MpUQ8I2j+gdIGKeMyxr5rUv2YPxjV+6j2Wd8ur297Q/UJp8bhTvH
-	 MRHqXZFqZyB+AAeUUY5vtQYovN5oJGlFYE6O5AqvgogTOpEOcKP6ShT/HZf586I3Lv
-	 W+RHCTurgI6RElm8uZazO1lzc22/KCsWKx7/0v9A=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250702120029eucas1p21cb8337b313f134047817c2e5d5790b8~ObW87y1jk0330203302eucas1p22;
-	Wed,  2 Jul 2025 12:00:29 +0000 (GMT)
-Received: from AMDC4515.digital.local (unknown [106.120.51.28]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250702120028eusmtip16bfcac7925fd7ad8a957595a387c0e37~ObW8Ik_7a2544025440eusmtip1H;
-	Wed,  2 Jul 2025 12:00:28 +0000 (GMT)
-From: Mateusz Majewski <m.majewski2@samsung.com>
-To: linux.amoon@gmail.com
-Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org,
-	justinstitt@google.com, krzk@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-	llvm@lists.linux.dev, lukasz.luba@arm.com, morbo@google.com,
-	nathan@kernel.org, nick.desaulniers+lkml@gmail.com, rafael@kernel.org,
-	rui.zhang@intel.com
-Subject: Re: [PATCH v6 2/4] thermal/drivers/exynos: Use
- devm_clk_get_enabled() helpers
-Date: Wed,  2 Jul 2025 14:00:15 +0200
-Message-ID: <20250702120015.350609-1-m.majewski2@samsung.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250430123306.15072-3-linux.amoon@gmail.com>
+	Wed, 02 Jul 2025 12:16:03 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 6E9171F00051
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  2 Jul 2025 12:15:53 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 89387AC9A6E; Wed,  2 Jul 2025 12:15:51 +0000 (UTC)
+Received: from collins (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id B1D2AAC9A5F;
+	Wed,  2 Jul 2025 12:15:48 +0000 (UTC)
+Date: Wed, 2 Jul 2025 14:15:46 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-gpio@vger.kernel.org,
+	Yong Deng <yong.deng@magewell.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Icenowy Zheng <icenowy@aosc.xyz>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH 5/5] drm/sun4i: Run the mixer clock at 297 MHz on V3s
+Message-ID: <aGUi8ot1-0WaReyp@collins>
+References: <20250701201124.812882-1-paulk@sys-base.io>
+ <20250701201124.812882-6-paulk@sys-base.io>
+ <20250702-psychedelic-stalwart-jerboa-a626eb@houat>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250702120029eucas1p21cb8337b313f134047817c2e5d5790b8
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250702120029eucas1p21cb8337b313f134047817c2e5d5790b8
-X-EPHeader: CA
-X-CMS-RootMailID: 20250702120029eucas1p21cb8337b313f134047817c2e5d5790b8
-References: <20250430123306.15072-3-linux.amoon@gmail.com>
-	<CGME20250702120029eucas1p21cb8337b313f134047817c2e5d5790b8@eucas1p2.samsung.com>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="VVuCxM2QjPKpSc9g"
+Content-Disposition: inline
+In-Reply-To: <20250702-psychedelic-stalwart-jerboa-a626eb@houat>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_050035_308029_AD1E12DB 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250702_051601_617149_28389F54 
+X-CRM114-Status: GOOD (  35.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,26 +82,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello :)
 
-These:
+--VVuCxM2QjPKpSc9g
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> +	data->clk = devm_clk_get_enabled(dev, "tmu_apbif");
+Hi Maxime,
 
-> +		data->clk_sec = devm_clk_get_enabled(dev, "tmu_triminfo_apbif");
+Le Wed 02 Jul 25, 13:36, Maxime Ripard a =C3=A9crit :
+> On Tue, Jul 01, 2025 at 10:11:24PM +0200, Paul Kocialkowski wrote:
+> > The DE mixer clock is currently set to run at 150 MHz, while the
+> > Allwinner BSP configures it at 300 MHz and other platforms typically
+> > run at 297 MHz.
+> >=20
+> > 150 MHz appears to be enough given the restricted graphics capabilities
+> > of the SoC (with a work area of only 1024x1024). However it typically
+> > causes the DE clock to be parented to the periph0 pll instead of the
+> > video PLL.
+> >=20
+> > While this should generally not be a concern, it appears (based on
+> > experimentation) that both the DE and TCON clocks need to be parented
+> > to the same PLL for these units to work. While we cannot represent this
+> > constraint in the clock driver, it appears that the TCON clock will
+> > often get parented to the video pll (typically running at 297 MHz for
+> > the CSI units needs), for instance when driving displays with a 33 MHz
+> > pixel clock (33 being a natural divider of 297).
+> >=20
+> > Running the DE clock at 297 MHz will typically result in parenting to
+> > the video pll instead of the periph0 pll, thus making the display
+> > output functional.
+> >=20
+> > This is all a bit fragile but it solves the issue with displays running
+> > at 33 Mhz and brings V3s to use the same frequency as other platforms,
+> > making support more unified.
+>=20
+> It's beyond fragile, and doesn't have anything to do with the DRM driver.
+>=20
+> You should set up the clock tree properly in the clock driver, and then
+> add NO_REPARENT to the DE clock to make sure it stays that way.
 
-should probably call devm_clk_get_prepared instead, as they are only
-prepared inside current code:
+Thanks for the suggestion! I wasn't aware there was a flag to avoid
+reparenting, sounds like the most reasonable way to solve this issue then.
 
-> -	ret = clk_prepare(data->clk);
+I'll send another iteration reworking the clock tree then.
 
-> -		ret = clk_prepare(data->clk_sec);
+> And then, you can change the clock rate if you want to, but at least you
+> don't set a rate and hope that the side effects work your way, and won't
+> happen again.
 
-as elsewhere they are only enabled on use and then disabled. Only
-data->sclk is enabled immediately:
+We might as well still change it. To be honest I don't really see why it was
+set to 150 MHz in the first place.
 
-> -			ret = clk_prepare_enable(data->sclk);
+Cheers,
 
-Thank you,
-Mateusz Majewski
+Paul
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--VVuCxM2QjPKpSc9g
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhlIvIACgkQhP3B6o/u
+lQyH5w/+JIxMLNpE+lve3HbxC4wqX2HIz1pGfWw1ZFhfrKgJmKhN4IiqfmZpGnPe
+mC+U8F1T4hnqbmEc57eIo6Q1C3hEncq7EyY3oN0TJj7N5MM81Z/eVP1JUZ7XHq3V
+q4Xy9b8/Zm5gDakbUe8ZZD4mLaugMafHA0lQK7OmKd75MeqP+OV68OPpuXCTCQnA
+pVL7vDw19P0paH9sIUOe0NQ0SWYbFYZExVsOxoQnfT1BHz6ltM4bCyTdRNKDcakp
+j56Yd0hPMnlV0khThy0+3tDenkUjPgiznqTzC6pWzhtysXvT4XRQOWQGXaN9C/w5
+BrPbm79yFJ4UOZE0YBIcQNEvpNLP/7ApnMstKs2B4PlU1B6zJeYRWuPWmj7ZJIiO
+H4ckfdJN0+KMtWsm/qOGQ95PgfE2ZjZX17NRq742azRJ/i+YvdjLQQS/BkflehU6
+PUKcSgVecGQU8FXeU3da6ZMViNjy8xalVFceDaoLOMMruRA7dY1hJnRhawQIGJd1
+1soYIRsyZq3y9F+Ij05BxC8TVp5rarfwlwDGdA/53ghGd0/uTikAMzsxpY+HKlCi
+z+JXYN6BqGkUQ7YnqtRU0NoDcKwDWjiinOGaypzT9ULFaPhglmUkHfofqP7R1S7w
+NCbV9amc9uAOOaFNSLb+zIYpYIPr0UPaQ8xCkwJJ1cPHGTUPQgQ=
+=z/Ou
+-----END PGP SIGNATURE-----
+
+--VVuCxM2QjPKpSc9g--
 
