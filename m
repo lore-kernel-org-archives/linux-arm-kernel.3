@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A179C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 20:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC41C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 20:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JHDXm9BinfGvPYJ4rbFhjhl5QPKB2DM20YHX6OUX4OE=; b=0fKNrOW7J7QHLWTnis0rahj9Dg
-	grfQdh5QaJ8aEOgLswbX6Gw2ZX6iG6Cd4iemjKdWAsM/mlHD0mq1isbilD/k+hGcETaQrGAFpc/nq
-	QaHj7zKxccykQtqzhueD4RtAVFvAcSv/95mlQfGu1IYJH4u2en7BkiHfV2qVydGNWMfHF9J6U66+y
-	Azhl9SdopkJjBd5U/bKxo5YCGEI3Ar2oDo5iiyq9MIe2SwO1goOWEO8nDL9l6L2gXU4wI//RuhHhZ
-	qU12lLjMl8iCaNSadwFnuDthIPHjRKwX5kGh2zkRtHzvBBsNQVQTZz2KIkcNl0uBcGeNOs1f9j9c3
-	o1MqQEAA==;
+	bh=h56TH9MwsANX4p1H+NWXa4BQ5Q7QI1tiBtnBxDo3Qg4=; b=Ha4SLpNZZTnj5mH8ZStzlUQq4C
+	vfrxJAnqXv4iooMUlKvtOWhR7oXUiSKn8PN/dz7bR8KWtTxl/kMgTkZ0CHcy4H4l1bWs6OThO2Ftv
+	Y/0L865NbB3PITBC3XBuVTRhke8fLhE40AXJzzsYvksiFmwJpde/clMBCCalTIcBgsbq1l0iArhfq
+	RIMOojsVAsW1ooUbht2A28wu20dqkrPmGBaP+DstSYA23aHnLCOzpflJoLrXmG0Thn2VbWbqro0Jw
+	qf0d5Zwt9nGox4LC/lEaPaJ2HWdEa3O6HwfNftGiSxCRPDYW7ZmLW6KahBOrluGPhdku1/bm7vGc5
+	0RQBOEDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX4ER-00000009WhE-0EuE;
-	Wed, 02 Jul 2025 20:39:03 +0000
+	id 1uX4XW-00000009YCJ-3v4R;
+	Wed, 02 Jul 2025 20:58:46 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX4C4-00000009WRp-3seX
+	id 1uX4VA-00000009Xvy-3l0O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 20:36:38 +0000
+	Wed, 02 Jul 2025 20:56:22 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 4E0C4A01EB;
-	Wed,  2 Jul 2025 22:36:35 +0200 (CEST)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id B0A0BA01EB;
+	Wed,  2 Jul 2025 22:56:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=JHDXm9BinfGvPYJ4rbFhjhl5QPKB2DM20YHX6OUX4OE=; b=
-	hmXmvFwHCpTZMa72KPZpclc5q6OdG7H8H4JJsjzhjR06eyJ5c0bE+tzVtut5QFmb
-	n9Ogd6TbMDZHfPQespNg+gL+huZR8NidQwFuH52C0mNQM8Ns4KGYLYKthp9AA0lS
-	75Ikrvoxx8mqE0Z4fP694hhUvdJ3PnY99xzQ2fk4sXRKpcZ9GWo+G3vEYPnxMN2D
-	NyLEDDSooLwyGqRhmC0FaVV2Rsj8EV7x3Admyap4QsD1jd6LOtF5HC1Kk57SLs6c
-	3RbhTvcZLTwN8T9Af5jiC9LWRPoD7DhPoGKZjlbeftiJXxs3wEt4uz1wOvzDYMHr
-	z8whP6cYoZzJSCzxN25mpyE4yj0CIY9Uu7sbwwuImeVYkU97ys4VbZM55pDZjunW
-	PykzcPySUPyPzwYgXpZK7hzEJbowkcTZHf1rhvs51jVBLupo0/yvdMfcjgbDu5QG
-	kqeIe0euikQow2y93jlIdlsIZvnXQBMCZoXyrgoYzIINabKqN8bBcNwas1E0b2OF
-	JXz2zYx3DQORoHK2ZwUOxcWeJcbHJ0CYzoe/V+XOKwiDacpkIpDwLq0ejvmiHumW
-	ditTdKqVX9rtKMcfMmOSnxzIvGSEPmom5QxaVqzaaNbfcoxwFU8t3ueVxJKQJwJQ
-	AViBTallMsmcyYI1w9pTvAZ5eWhrff4RrmR4PvcbasQ=
+	:to; s=mail; bh=h56TH9MwsANX4p1H+NWXa4BQ5Q7QI1tiBtnBxDo3Qg4=; b=
+	mRLwgsVWte3DsAcpC6g/iR2Mg6Aj2o0LYOnOmW4PyGK8Fsoh1q26LdqkFfHBdhIi
+	2GU+3znuyN+Buo9qye4tK2mfBayGpMQIb+42bsNwe5Hr1QypWdv7k2eujhEPUo+1
+	59e50Kcw9h9U9TReFcHRnJyrGUvIctcdvfaQ8Tb1cvR1waZ78F4nEhZLlQVjPRyj
+	Jj9uyH9PJR1aIUjTUY6JqUKqRdcE6DFo5bGEfwUqE8l59CqK3zyRuZA0X8E1XmTA
+	2Wf313LK5amDYzO1/UezUUDYcEE22/Oc+KmkzyqOLlz7E+7p1QNTs93pjkqsSi2J
+	2KJu+30PdA2t13LArZCms3wJgeKugpb0OI1sXr//w9PlQh19crjLgm8xoemzQuY/
+	xeTlAAvcldfIgwLVnXYomYnqWk9NEczSUIx43RmpQzAjrZa+NfdebNzc329bOnqk
+	I96vsKj5QWIn1ghxmDX3l3E3oIPdA9R/CceWERg8j9ZuHURA3Ap08NkyAWB5Wdpf
+	zB5T8pviI1IBei8vjMP1btN26Lu/V4ZGLRx1/zy7VNRav4DkaxfFANw/vG9ivQ9O
+	e2PUmypPJ58PytPmAknxpCl5cebifCnhi0MZcdHfkML9vDpQtLectjyDf8ipgUjF
+	CbXUM9S+v5nMXRCMcnfCKCoZ5dFKLO/fuixkmsbq2J0=
 From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Date: Wed, 2 Jul 2025 22:36:28 +0200
-Subject: [PATCH] arm: DT: imx6-litesom: Replace license text comment with
+Date: Wed, 2 Jul 2025 22:55:45 +0200
+Subject: [PATCH] arm: DT: imx6-bx50v3: Replace license text comment with
  SPDX identifier
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250702-litesom-dts-lic-v1-1-401e4d141bf0@prolan.hu>
-X-B4-Tracking: v=1; b=H4sIAEuYZWgC/x3M0QrCMAyF4VcZuTZQ66Toq4gXaRNdwHXSFBHG3
- t3Mu/NdnH8Fk6ZicB1WaPJR06U6jocBykT1KajshhjiOaQQ8aVdbJmRu/kuSHxJaZTMcmLw17v
- JQ7//4u3uzmSCuVEt096Zybo02LYf7F9AlXoAAAA=
+Message-ID: <20250702-bx50v3-dts-lic-v1-1-2fe63de3606d@prolan.hu>
+X-B4-Tracking: v=1; b=H4sIANCcZWgC/x3MwQrCMAyA4VcZORvIWurAVxEPTZe5gFZJxhiMv
+ bt1x+/w/zu4mIrDrdvBZFXXT23oLx2UOdenoI7NECgkGiggb4nWiOPi+NKC14ED9TGScIIWfU0
+ m3c7h/dHM2QXZci3zf/POvojBcfwAsh/twHkAAAA=
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
  Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
 	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
 CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Marcin Niestroj <m.niestroj@grinn-global.com>,
+	Akshay Bhat <akshay.bhat@timesys.com>, Ian Ray <ian.ray@ge.com>, Jaret Cantu
+	<jaret.cantu@timesys.com>, Justin Waters <justin.waters@timesys.com>,
 	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
 X-Mailer: b4 0.13.0
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1751488594;VERSION=7994;MC=2422277437;ID=361087;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1751489777;VERSION=7994;MC=762491779;ID=216168;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
 X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
-X-EsetId: 37303A29BB64155D6C7260
+X-EsetId: 37303A296767155D6C7260
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_133637_126393_06E2CDE6 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250702_135621_092922_E015603E 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,23 +97,27 @@ without prior written authorization from the X Consortium.". Therefore,
 this license is actually equivalent to the SPDX "MIT" license (confirmed
 by text diffing).
 
-Cc: Marcin Niestroj <m.niestroj@grinn-global.com>
+Cc: Akshay Bhat <akshay.bhat@timesys.com>
+Cc: Ian Ray <ian.ray@ge.com>
+Cc: Jaret Cantu <jaret.cantu@timesys.com>
+Cc: Justin Waters <justin.waters@timesys.com>
 Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
- arch/arm/boot/dts/nxp/imx/imx6ul-liteboard.dts | 38 +-------------------------
- arch/arm/boot/dts/nxp/imx/imx6ul-litesom.dtsi  | 38 +-------------------------
- 2 files changed, 2 insertions(+), 74 deletions(-)
+ arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts  | 38 +----------------------------
+ arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts  | 38 +----------------------------
+ arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts  | 38 +----------------------------
+ arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi | 38 +----------------------------
+ 4 files changed, 4 insertions(+), 148 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-liteboard.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-liteboard.dts
-index 5e62272acfba..7a4127670a6f 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-liteboard.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-liteboard.dts
-@@ -1,44 +1,8 @@
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts b/arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts
+index d994b32ad825..3dee78302074 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts
+@@ -1,43 +1,7 @@
 +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
  /*
-  * Copyright 2016 Grinn
-  *
-  * Author: Marcin Niestroj <m.niestroj@grinn-global.com>
+  * Copyright 2015 Timesys Corporation.
+  * Copyright 2015 General Electric Company
 - *
 - * This file is dual-licensed: you can use it either under the terms
 - * of the GPL or the X11 license, at your option. Note that this dual
@@ -153,16 +158,15 @@ index 5e62272acfba..7a4127670a6f 100644
   */
  
  /dts-v1/;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-litesom.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-litesom.dtsi
-index 8d6893210842..c387753f833b 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-litesom.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-litesom.dtsi
-@@ -1,44 +1,8 @@
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts b/arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts
+index b0d345f5d071..bae85646d2c0 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts
+@@ -1,43 +1,7 @@
 +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
  /*
-  * Copyright 2016 Grinn
-  *
-  * Author: Marcin Niestroj <m.niestroj@grinn-global.com>
+  * Copyright 2015 Timesys Corporation.
+  * Copyright 2015 General Electric Company
 - *
 - * This file is dual-licensed: you can use it either under the terms
 - * of the GPL or the X11 license, at your option. Note that this dual
@@ -202,11 +206,109 @@ index 8d6893210842..c387753f833b 100644
 - *     OTHER DEALINGS IN THE SOFTWARE.
   */
  
- #include "imx6ul.dtsi"
+ /dts-v1/;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts b/arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts
+index cad112e05475..0ececa644681 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts
+@@ -1,43 +1,7 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright 2015 Timesys Corporation.
+  * Copyright 2015 General Electric Company
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ 
+ /dts-v1/;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi b/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
+index aa1adcc74019..6920570477dd 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
+@@ -1,43 +1,7 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright 2015 Timesys Corporation.
+  * Copyright 2015 General Electric Company
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ 
+ #include "imx6q-ba16.dtsi"
 
 ---
 base-commit: 66701750d5565c574af42bef0b789ce0203e3071
-change-id: 20250702-litesom-dts-lic-ad9774ebde3d
+change-id: 20250702-bx50v3-dts-lic-67b201330eb5
 
 Best regards,
 -- 
