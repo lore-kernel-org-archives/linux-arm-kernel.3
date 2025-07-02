@@ -4,67 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914D9C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 17:48:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B9F6C83F0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 17:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bDwppf5TaAtyT72KOdBATJ3WJiKV3w3Hh6OmGhriJfQ=; b=TKRGzy6ouiya+wSHTXofpnYrF1
-	ZyiYmtUhUqjP87s0JOoxYPGQN4oxoawliDg9vckzYookFLRbn2IaRoIG9rRWrtzsQMBZSdNzzi8cD
-	VnjxjcFFe8i7zaTdAt8iEl9lZ3zCfPnrk4gmU/01EL9Bp2kDRQBLDH7TYfKFMnHf4p2WbBuCcn0E3
-	zzWOzX+bWkKuowyz1cCOM88tLoBmtHycp0cUTxQdySCrcwkvkqYg3ix0eSmTPZ9cpiXGPFosp1YdS
-	l86cd9zrWHfMKhbrDK4Gj5No/KlGkpDZb+JQLeVC3Jeg+mojd+ipAcNJMdaYSpXFIsUljVgCtOW5V
-	chQ9t0jQ==;
+	bh=tlJmE/hpdOfZk3CZGx5TFaewFZhDv405qpef//wPVu8=; b=g37WRxn9lkxPamuuW9AxW02Lgh
+	t/LlUtwiCaRS7vEew2dPy49atIlLo2N12dy3mT+qNHLIkw4j2U8e5U3eyBn5P8O4OaMAW57kKlnTi
+	juFv/CuNXfVgt8blCq82Zv6goOQZe0WG2cxYh1LUyKXkFX8e4Di8hxgDNBOGWd1X/nhksNI6TDZr0
+	03KjN+oV6vP3pv0KaI4Bmn/CT9F6+4dGZWMaVK/RQ3WEn6JioonWyLzuNJKnqPOz+imIrNIqDhiVS
+	LOYJkS1kAM/HIYTVQumUck8kTPy4SaHCfBtAL5vwDoYFhMvgWLL0sJd9UQ3akjyJGu9ExfvzSWfuX
+	CSkRhZ1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX1ZI-00000009ALL-2GTy;
-	Wed, 02 Jul 2025 17:48:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX0wU-000000094IZ-2aOe
+	id 1uX1ZJ-00000009AMI-0aXi;
+	Wed, 02 Jul 2025 17:48:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uX0wg-000000094KN-3KV6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 17:08:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CEEA64483C;
-	Wed,  2 Jul 2025 17:08:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08F52C4CEED;
-	Wed,  2 Jul 2025 17:08:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751476097;
-	bh=sl+L6c54S4JFvlxl6rBTBhnWpBiz19X6BE8lx/bDcPg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ne6mhWW5/ruaxicHzkogiUibQWjbCGTAI+my3l4pVqB15UOy1fW6nLHm9mZROYlDa
-	 PzWhevJsY4UJj9sCUNIj6dJJ7cZKFn6XiIecaEgHCVZZwbtgB0ixXgVhMM+ak/sDyy
-	 Jma4GMusJQ1DbYwp13XD+6jkWW88Cd3y5UhC/Lt/O/nq9DrCRkisDhza0XHFhsRmMB
-	 WISjBHieLagyhTV5XYWNtUMwUKHYmaTaC4C1Tq2h1MSDUfJAjFu4ZV+t640sDopXwC
-	 a2HSyzYZk0lBNN1sHlKHp9oM3CybVJvSzzjlpdk7eTclBXjeZ1+qtmcG0pI4kAXxxF
-	 uukyrWgcQ6IfA==
-Date: Wed, 2 Jul 2025 19:08:13 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: =?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>
-Cc: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, M'boumba Cedric Madianga <cedric.madianga@gmail.com>, 
-	Wolfram Sang <wsa@kernel.org>, Pierre-Yves MORDRET <pierre-yves.mordret@st.com>, 
-	linux-i2c@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org
-Subject: Re: [PATCH v3 2/3] i2c: stm32f7: unmap DMA mapped buffer
-Message-ID: <zp3pagbojmu67o4sjm65a44ovvui5uvybs32nayvhtewfbm4el@n5lro4v5iq36>
-References: <20250630-i2c-upstream-v3-0-7a23ab26683a@foss.st.com>
- <20250630-i2c-upstream-v3-2-7a23ab26683a@foss.st.com>
+	Wed, 02 Jul 2025 17:08:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2668422C7;
+	Wed,  2 Jul 2025 10:08:15 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 89BD63F66E;
+	Wed,  2 Jul 2025 10:08:29 -0700 (PDT)
+Date: Wed, 2 Jul 2025 18:08:27 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Junhao He <hejunhao3@huawei.com>
+Cc: suzuki.poulose@arm.com, james.clark@arm.com, anshuman.khandual@arm.com,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linuxarm@huawei.com,
+	jonathan.cameron@huawei.com, yangyicong@huawei.com,
+	prime.zeng@hisilicon.com
+Subject: Re: [PATCH v2 3/3] coresight: tmc: Decouple the perf buffer
+ allocation from sysfs mode
+Message-ID: <20250702170827.GB1039028@e132581.arm.com>
+References: <20250620075412.952934-1-hejunhao3@huawei.com>
+ <20250620075412.952934-4-hejunhao3@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-15
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250630-i2c-upstream-v3-2-7a23ab26683a@foss.st.com>
+In-Reply-To: <20250620075412.952934-4-hejunhao3@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_100818_698838_7A61EC51 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20250702_100830_872884_1B306EC1 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,63 +67,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Clement,
+On Fri, Jun 20, 2025 at 03:54:12PM +0800, Junhao He wrote:
 
-On Mon, Jun 30, 2025 at 02:55:14PM +0200, Clément Le Goffic wrote:
-> Fix an issue where the mapped DMA buffer was not unmapped.
+[..]
 
-"Fix an issue..." is too generic. Can you be more specific? Where
-was it mapped? Where was it left unmapped?
-
-Please, do consider that the user needs to understand what
-happens in the patch without needing to look into the patch.
-
-> Fixes: 7ecc8cfde553 ("i2c: i2c-stm32f7: Add DMA support")
-> Acked-by: Alain Volmat <alain.volmat@foss.st.com>
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> ---
->  drivers/i2c/busses/i2c-stm32f7.c | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
-> index e4aaeb2262d0..042386b4cabe 100644
-> --- a/drivers/i2c/busses/i2c-stm32f7.c
-> +++ b/drivers/i2c/busses/i2c-stm32f7.c
-> @@ -1554,6 +1554,8 @@ static irqreturn_t stm32f7_i2c_handle_isr_errs(struct stm32f7_i2c_dev *i2c_dev,
->  	if (i2c_dev->use_dma) {
->  		stm32f7_i2c_disable_dma_req(i2c_dev);
->  		dmaengine_terminate_async(dma->chan_using);
-> +		dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
-> +				 dma->dma_data_dir);
->  	}
+> @@ -1341,33 +1339,24 @@ alloc_etr_buf(struct tmc_drvdata *drvdata, struct perf_event *event,
+>  	unsigned long size;
 >  
->  	i2c_dev->master_mode = false;
-> @@ -1622,6 +1624,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
->  		if (i2c_dev->use_dma) {
->  			stm32f7_i2c_disable_dma_req(i2c_dev);
->  			dmaengine_terminate_async(dma->chan_using);
-> +			dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
-> +					 dma->dma_data_dir);
->  		}
->  		f7_msg->result = -ENXIO;
->  	}
-> @@ -1642,6 +1646,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
->  				dev_dbg(i2c_dev->dev, "<%s>: Timed out\n", __func__);
->  				stm32f7_i2c_disable_dma_req(i2c_dev);
->  				dmaengine_terminate_async(dma->chan_using);
-> +				dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
-> +						 dma->dma_data_dir);
+>  	node = (event->cpu == -1) ? NUMA_NO_NODE : cpu_to_node(event->cpu);
+> -	/*
+> -	 * Try to match the perf ring buffer size if it is larger
+> -	 * than the size requested via sysfs.
+> -	 */
+> -	if ((nr_pages << PAGE_SHIFT) > drvdata->size) {
+> -		etr_buf = tmc_alloc_etr_buf(drvdata, ((ssize_t)nr_pages << PAGE_SHIFT),
+> -					    0, node, NULL);
+> -		if (!IS_ERR(etr_buf))
+> -			goto done;
+> -	}
+> +
+> +	/* Use the minimum limit if the required size is smaller */
+> +	size = (unsigned long)nr_pages << PAGE_SHIFT;
 
-Can't we use the dma_callback here, or similar? I see some
-similar patterns and I think the code can be improved.
+Please change the size's type to ssize_t, then:
 
-Andi
+        size = nr_pages << PAGE_SHIFT;
 
->  				f7_msg->result = -ETIMEDOUT;
->  			}
->  		}
-> 
+> +	if (size < TMC_ETR_PERF_MIN_BUF_SIZE)
+> +		size = TMC_ETR_PERF_MIN_BUF_SIZE;
+
+size = min_t(ssize_t, size, TMC_ETR_PERF_MIN_BUF_SIZE);
+>  
+>  	/*
+> -	 * Else switch to configured size for this ETR
+> -	 * and scale down until we hit the minimum limit.
+> +	 * Try to allocate the required size for this ETR, if failed scale
+> +	 * down until we hit the minimum limit.
+>  	 */
+> -	size = drvdata->size;
+>  	do {
+>  		etr_buf = tmc_alloc_etr_buf(drvdata, size, 0, node, NULL);
+>  		if (!IS_ERR(etr_buf))
+> -			goto done;
+> +			return etr_buf;
+>  		size /= 2;
+>  	} while (size >= TMC_ETR_PERF_MIN_BUF_SIZE);
+
+Do we really need to scale down buffer size for failure cases?
+
+I would like a straightforward code:
+
+        etr_buf = tmc_alloc_etr_buf(drvdata, size, 0, node, NULL);
+        if (IS_ERR_OR_NULL(etr_buf))
+                return etr_buf;
+
+Just a side topic, we know tmc_alloc_etr_buf() should not return NULL
+pointer. For a sanity check, the callers (alloc_etr_buf(),
+tmc_etr_get_sysfs_buffer(), etc) should valid a buffer pointer with
+IS_ERR_OR_NULL() rather than IS_ERR(). This can be a separate patch.
+
+Thanks,
+Leo
+
+>  	return ERR_PTR(-ENOMEM);
+> -
+> -done:
+> -	return etr_buf;
+>  }
+>  
+>  static struct etr_buf *
 > -- 
-> 2.43.0
+> 2.33.0
 > 
 
