@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE363C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 08:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8604EC83013
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 08:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rSivc4wrk6dW+y0maWDShAnaZ6uMv7Vz3Rx+ZuGrU3c=; b=sZ9Uuz8yv3RzuCKxnP08Fve/rS
-	bJklbHXGe0oxWUuPhC+pC19eR1bHqp/NeNvj03xIRtI+7HB15os9KQgquVwDwmBx2fV2hiWgtoW/b
-	mHH/58NnMzjpy2BHwaslCJes8BLAwgpOcX57g94G2sglu8v8O2QIDAQpLJNgde8WVmO4090ry4hXp
-	+rODfA4qcHDu2+KNudZG/jHMMaDKPeqcVoytg7V5RLjgwfsAaonuQwDB1oqKnSMwINNb5Q0xGZ3eJ
-	taEEXB2H75DvGyiXnDEQLgd2hNgn2bDx5gfgVlQ7S28Y7vE3FH5YgrICnVq21h5JATTF52eD58IE1
-	yI/GRbjQ==;
+	bh=9sDiej1rCqPOoFAP3stXFFkfW4cl+zzUwlDVz2x/Rfw=; b=a5vf1qw7Q1EsVPdpw5BhRUXG0J
+	o833K3IhBAGp8De86OSda2bk9Mbepb8r4uoFZYavOGB57w6LpPpk7hjJRW8/HDcs6dGC/drRqSjXe
+	LNWqMEfx56c74OIcqMpxa/joMf5yc58VgIoXLcZoM+juW1MUm/iweih3hNMP09hHKdKiR29npCtF7
+	AbUSQWjDO9MYxreWD9oBbdLqxJagJ64JShWnslmgfYSys8xS0fWBzbfZKePT0Nrw/QB1+1NtusSo+
+	w/jvsfnJx4f4CLqqb1RIAdPGPLMBmpcabqaFYdteW/VulzuYjOoperkI5+ZvrvtsDQc2J/AIHDegN
+	uXAs8UKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWsPL-00000007ZUb-3wWv;
-	Wed, 02 Jul 2025 08:01:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uWsTp-00000007ZqW-3keT;
+	Wed, 02 Jul 2025 08:06:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWsN0-00000007ZIu-0tJe;
-	Wed, 02 Jul 2025 07:59:07 +0000
+	id 1uWrBr-00000007Qws-3Tgk
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Jul 2025 06:43:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 797B45C6945;
-	Wed,  2 Jul 2025 07:59:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E819EC4CEF1;
-	Wed,  2 Jul 2025 07:59:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B85BC61424;
+	Wed,  2 Jul 2025 06:43:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2998BC4CEEE;
+	Wed,  2 Jul 2025 06:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751443145;
-	bh=iZDqSRF7JrWoop63heCZMy2IoVgHMVBjOcbmD/U+N0A=;
+	s=k20201202; t=1751438609;
+	bh=Fk9PaELzKt/em5fGqjZSJYVdH9FMrP2aaGm6uG1HvWk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lwfurohXaD4grteMK5WKkUjqNNxdqmbwlTPxD6zYbFmhPBMNNu2d2Lo9IkZ/bkA78
-	 Bgoro6Co4SfW8tZZFnJYc2OlrQ7788Th7Oe0WzLwd8NAe56ncr7zVIAl4rVYPRJc/8
-	 iASLEZHgIDqEeSZVIpDflWB84dNQkSDqcmQZONyqu5CrJuesaddvXHPt47o0QNrQfu
-	 V2XIqo1fq0DZVqMkEVI9ZmDyYPcwysfNjYtj69AgEYssZJO9Jk/TJn7QM0unfuNsRO
-	 RHEr86LztZv3Uw7ZMrUEwFiR5lkCF4ZlCWusf8m7AxgceyjSiQ7M04xheXQgnyRm89
-	 lSf2yusjca9cQ==
-Message-ID: <7e1b7e90-9e10-4580-a543-111001240f91@kernel.org>
-Date: Wed, 2 Jul 2025 09:58:58 +0200
+	b=b9xafZOOBBw0kIheC+ugirX0VAXvQA2AzmozxOjp2KBwhOGL3bDKJiAecMOFSFk8L
+	 XOZKiveVrzzqxCxAVTrRMMceOqtWDVgVBsx6DJauaQt/hi5ypJ4jwkJjpEb4xj06VL
+	 lvCri9xWubi/PHQNS51LDU1Yvl049e5SlwM01xCVahYxx9PB34DXSLfylEVv44OKp1
+	 Z3lJZsin8mm/ntGSxVpa1rwU03/CsnsfwPB1RxC7zeZNiJpkN142nLuemv2ajuqLEF
+	 bJjRShp4GxSHq1CosFSv3XlRULEPXjJQTMTebNVNRtiyYR/wufR7rJBSp/5GUpfUrl
+	 ZZyLGAbLr7EOA==
+Message-ID: <d0e70c51-57ab-44cd-9930-d4ce2cd06109@kernel.org>
+Date: Wed, 2 Jul 2025 08:43:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/5] dt-bindings: media: Add the Raspberry Pi HEVC
- decoder
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
+Subject: Re: [PATCH 3/5] media: nxp: add V4L2 subdev driver for parallel CSI
+To: Frank Li <Frank.Li@nxp.com>,
  Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, John Cox
- <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>,
- review list <kernel-list@raspberrypi.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-Cc: John Cox <jc@kynesim.co.uk>, Stefan Wahren <wahrenst@gmx.net>,
- linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250701-media-rpi-hevc-dec-v4-0-057cfa541177@raspberrypi.com>
- <20250701-media-rpi-hevc-dec-v4-3-057cfa541177@raspberrypi.com>
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rui Miguel Silva <rmfrfs@gmail.com>,
+ Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, Alice Yuan <alice.yuan@nxp.com>,
+ Robert Chiras <robert.chiras@nxp.com>, Zhipeng Wang <zhipeng.wang_1@nxp.com>
+References: <20250630-imx8qxp_pcam-v1-0-eccd38d99201@nxp.com>
+ <20250630-imx8qxp_pcam-v1-3-eccd38d99201@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,13 +107,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250701-media-rpi-hevc-dec-v4-3-057cfa541177@raspberrypi.com>
+In-Reply-To: <20250630-imx8qxp_pcam-v1-3-eccd38d99201@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_005906_332403_DF5BBEA9 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,18 +124,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2025 18:01, Dave Stevenson wrote:
-> Adds a binding for the HEVC decoder IP owned by Raspberry Pi.
-> 
-> Instantiations of the decoder IP can currently be found in
-> the Broadcom BCM2711 and BCM2712 SoCs.
-> 
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> 
-> ---
-> 
+On 01/07/2025 00:28, Frank Li wrote:
+> +static struct platform_driver _driver = {
+> +	.probe = parallel_csi_probe,
+> +	.remove = parallel_csi_remove,
+> +	.driver = {
+> +		.of_match_table = _of_match,
+> +		.name = "imx-parallel-csi",
+> +		.pm = pm_ptr(&parallel_csi_pm_ops),
+> +	},
+> +};
+> +
+> +module_platform_driver(_driver);
+> +
+> +MODULE_DESCRIPTION("i.MX9 Parallel CSI receiver driver");
+> +MODULE_LICENSE("GPL");
+> +MODULE_ALIAS("platform:imx-parallel-csi");
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Pleasse stop this downstream pattern. It's second driver you upstream now.
 
 Best regards,
 Krzysztof
