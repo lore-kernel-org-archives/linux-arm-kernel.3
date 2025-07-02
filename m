@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B3C5C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 03:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740BBC8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 03:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VY/h8jIJPT3ITgNn86es09U62fV6yH+/0Jow8GvXcsI=; b=SbC10u/E6RYwOXVEIuAm6UWZA2
-	DLFG6woTerTnN0L2VzOh3LeETJKnAQXo9OJZqAcCOFsW5nWdMo2/xUNgbO5HZzischCno0v6yLUwf
-	pEw7QxfMwbwm6SU7VbkpRjkdjztLBiGrB82bGRLBsMum/RED9L2MUe3x0kbMB6SVp9176LrkCMzma
-	KrcE5yqaM+d/nNgKkLBIv5Kywf1QXg3/y2zbpeuQIKRUjwbsrdqK5oIMqfHE3pOHDA7DJWesjFuvx
-	T+7GtQ+Qlu5MKKguVOmAUdZ0B1+TlLITZ6W39gDquljcnPFBYoNJhD755MpIpI97Dh8wyhxsL7tqQ
-	8tcHWTAg==;
+	bh=ivjZdY3Nhun2lu+CegyeBPlpje4DgR8Waw2rgfwVCHI=; b=IlnfG8xuBlTHR8kJfHROZl9bl0
+	K8v4oN1dRKfysLb6fzkO2KILv5m5pIk2Ze0A425FMKEFUWyPEvNf5Do5qM8LC/cd78hyRf0DQQHqI
+	3oio8JmcEcvZlBbqG6it1MVSpyxDNhgM2Mg3uVfszaO1xWLCt9zC6ygZoFhW2LKmFRVXTuMXH8bIJ
+	c73oFfpD49M72c//93YINnxavh0lt6b6L3UUzfEckcUZ8q8ODRQ1M1edy2IkJ/lDSVnEVtFbfjqe4
+	sU75VvdBBvKWt2iHi7V8K2fY7O1EJaB6LsD7LqYMcU7xFCfx907k2hyW0BPfibdhXqFhk40rIWDIa
+	CnnxiGrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWnqv-000000076ui-0OBm;
-	Wed, 02 Jul 2025 03:09:41 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1uWntC-00000007791-3jDq;
+	Wed, 02 Jul 2025 03:12:02 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWnmV-000000076KJ-4Aso
+	id 1uWnq6-000000076qW-0UrV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 03:05:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751425508; x=1782961508;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lAOYCU43eb4l1drQe+wvtTLqUIjm8W1d/yIUVzUBd74=;
-  b=GX7RlSXolinPBGMnClYAviKI81ZxDpvqkrdF81xtUG5sH2cz1BNl1hoX
-   R2PLS2hC7Ogfbg0M+/luFNFuS17egqn0Dm2pPdvC/nJxwSMO602ap+Zm8
-   xDVFHCqD4T670HlzhbFM3CQIetiBhPkKteue8kgIzH7za4CKIu/PFMp2Y
-   JMzeaSVIo5A/thvLOLwS6KuC8O6x3Sy2Hqh9gyDDyQilF/epV8hVn6Q1x
-   R1ftMEELmMbRts4AP2AuV6/1s5uTeNV4G4h/hVKD7+615O23ei+zaumFr
-   p/5McErEnzpvV9yTvYNA0U/CjZignbpGR+NqsD3ede0kVjW/aWR5D1zFd
-   w==;
-X-CSE-ConnectionGUID: zdB2VnykQr6kjWBkJuncHw==
-X-CSE-MsgGUID: UeYoF6SCQ4iYvcRMZ8+XyA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11481"; a="79149009"
-X-IronPort-AV: E=Sophos;i="6.16,280,1744095600"; 
-   d="scan'208";a="79149009"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2025 20:05:05 -0700
-X-CSE-ConnectionGUID: 9BmYwSksS9m21cmnzTp60A==
-X-CSE-MsgGUID: KSIgD+h4QtGFx+suSFp4bg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,280,1744095600"; 
-   d="scan'208";a="158206911"
-Received: from lkp-server01.sh.intel.com (HELO 0b2900756c14) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 01 Jul 2025 20:05:01 -0700
-Received: from kbuild by 0b2900756c14 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uWnmM-00004x-2j;
-	Wed, 02 Jul 2025 03:04:58 +0000
-Date: Wed, 2 Jul 2025 11:04:29 +0800
-From: kernel test robot <lkp@intel.com>
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Levi Yun <yeoreum.yun@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: oe-kbuild-all@lists.linux.dev, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Leo Yan <leo.yan@arm.com>
-Subject: Re: [PATCH v2 03/28] coresight: etm3x: Always set tracer's device
- mode on target CPU
-Message-ID: <202507021259.wYmjhqn4-lkp@intel.com>
-References: <20250701-arm_cs_pm_fix_v3-v2-3-23ebb864fcc1@arm.com>
+	Wed, 02 Jul 2025 03:08:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1751425705; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=kg3pBlNSd/fP70WbZ4AVaPAEcRBddNvgz289bimE0rGGQta1U5oKZLmteRdaldj11cMFLYY4gLO8PZXA72EXHKkqNn1oXy0ZTz4G9upR5efbG6s/sOEp9gr0zvVHvzYg691IRbpYz46+KPaxMhRn9YZJFO3p8zfBPbkP7i6Rf3o=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1751425705; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ivjZdY3Nhun2lu+CegyeBPlpje4DgR8Waw2rgfwVCHI=; 
+	b=Cj6OJ9Zyv73PSNAzb24IKordO7JSzJrkrJSjOJ990Qh6W1MnhtPPMq9VqC9x4APhJKvMBagh7Y3BHd84nCyXmZhywrWMWKkN5nfhsCqPPQgRwGNBa0EE2rvo/gOUmmvGeLktRqVly+nqhu8BE33lmeNIpV80/3Sy+AaKNJjtzOE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751425705;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=ivjZdY3Nhun2lu+CegyeBPlpje4DgR8Waw2rgfwVCHI=;
+	b=bq1AwDaAIeJRhI5uCTA7hZDUkMntw0/cACneOiYFV4sQPKU8F2HhHA5tURdNwDdD
+	8IYR5sCHjZCwd1mThbx2C+If5SzzFl4h3CtbdF/WybytWUCu0/NHNN3tYh01fufldQU
+	kGJAGqV2rTfJdQ9h/zj8tft21elA3Kx5hD8GcFHZvtjbKHEYMxaxRSIY1/bjEFUU+3J
+	gPGaPcKr/aHI/0rpqScXrEREjC6bCj4SXCd0qe6l8V9Ba12FaB6wXvtyPhQpYEHPXIt
+	TAqC7kgGNtRbTvk26AalCfe0OZewRnghBgTiv2MCV8DKvm3Xne/mxHl6ylpNQ+opceX
+	k888Vqlp9Q==
+Received: by mx.zohomail.com with SMTPS id 1751425703624182.66931879632523;
+	Tue, 1 Jul 2025 20:08:23 -0700 (PDT)
+Message-ID: <2b4ca24aa102a6deb4f6ad9aab14d46060f91c61.camel@icenowy.me>
+Subject: Re: [PATCH 2/5] clk: sunxi-ng: v3s: Fix CSI SCLK clock name
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Paul Kocialkowski <paulk@sys-base.io>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-gpio@vger.kernel.org
+Cc: Yong Deng <yong.deng@magewell.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>,  David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Linus Walleij <linus.walleij@linaro.org>,  Icenowy Zheng
+ <icenowy@aosc.xyz>, Andre Przywara <andre.przywara@arm.com>
+Date: Wed, 02 Jul 2025 11:08:14 +0800
+In-Reply-To: <20250701201124.812882-3-paulk@sys-base.io>
+References: <20250701201124.812882-1-paulk@sys-base.io>
+	 <20250701201124.812882-3-paulk@sys-base.io>
+Organization: Anthon Open-Source Community
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-3-23ebb864fcc1@arm.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_200508_077461_9D5A7CB0 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250701_200850_211945_2FEDD9A4 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,176 +95,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
+5ZyoIDIwMjUtMDctMDHmmJ/mnJ/kuoznmoQgMjI6MTEgKzAyMDDvvIxQYXVsIEtvY2lhbGtvd3Nr
+aeWGmemBk++8mgo+IFRoZSBDU0kgU0NMSyBjbG9jayBpcyBpbmNvcnJlY3RseSBjYWxsZWQgQ1NJ
+MSBTQ0xLIHdoaWxlIGl0IGlzIHVzZWQKPiBmb3IKPiBib3RoIHRoZSBDU0kwIGFuZCBDU0kxIGlu
+dGVyZmFjZXMgYW5kIGlzIGNhbGxlZCBDU0kgU0NMSyBhbGwgYXJvdW5kCj4gdGhlCj4gZG9jdW1l
+bnRhdGlvbi4KPiAKPiBGaXggdGhlIG5hbWUgaW4gdGhlIGRyaXZlciwgaGVhZGVyIGFuZCBkZXZp
+Y2UtdHJlZS4KPiAKPiBGaXhlczogZDBmMTFkMTRiMGJjICgiY2xrOiBzdW54aS1uZzogYWRkIHN1
+cHBvcnQgZm9yIFYzcyBDQ1UiKQo+IFNpZ25lZC1vZmYtYnk6IFBhdWwgS29jaWFsa293c2tpIDxw
+YXVsa0BzeXMtYmFzZS5pbz4KPiAtLS0KPiDCoC4uLi9iaW5kaW5ncy9tZWRpYS9hbGx3aW5uZXIs
+c3VuNmktYTMxLWNzaS55YW1swqDCoMKgwqDCoMKgwqAgfMKgIDIgKy0KPiDCoC4uLi9iaW5kaW5n
+cy9tZWRpYS9hbGx3aW5uZXIsc3VuNmktYTMxLWlzcC55YW1swqDCoMKgwqDCoMKgwqAgfMKgIDIg
+Ky0KPiDCoC4uLi9iaW5kaW5ncy9tZWRpYS9hbGx3aW5uZXIsc3VuNmktYTMxLW1pcGktY3NpMi55
+YW1swqAgfMKgIDIgKy0KPiDCoGFyY2gvYXJtL2Jvb3QvZHRzL2FsbHdpbm5lci9zdW44aS12M3Mu
+ZHRzacKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMiArLQo+IMKgZHJpdmVycy9jbGsvc3Vu
+eGktbmcvY2N1LXN1bjhpLXYzcy5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IHwgMTAgKysrKystLS0KPiAtLQo+IMKgaW5jbHVkZS9kdC1iaW5kaW5ncy9jbG9jay9zdW44aS12
+M3MtY2N1LmjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMiArLQo+IMKgNiBmaWxlcyBj
+aGFuZ2VkLCAxMCBpbnNlcnRpb25zKCspLCAxMCBkZWxldGlvbnMoLSkKPiAKPiBkaWZmIC0tZ2l0
+IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21lZGlhL2FsbHdpbm5lcixzdW42
+aS0KPiBhMzEtY3NpLnlhbWwKPiBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9t
+ZWRpYS9hbGx3aW5uZXIsc3VuNmktYTMxLQo+IGNzaS55YW1sCj4gaW5kZXggYjNkNmRiOTIyNjkz
+Li4xYWE1Nzc1YmEyYmMgMTAwNjQ0Cj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
+bmRpbmdzL21lZGlhL2FsbHdpbm5lcixzdW42aS1hMzEtCj4gY3NpLnlhbWwKPiArKysgYi9Eb2N1
+bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbWVkaWEvYWxsd2lubmVyLHN1bjZpLWEzMS0K
+PiBjc2kueWFtbAo+IEBAIC0xMTAsNyArMTEwLDcgQEAgZXhhbXBsZXM6Cj4gwqDCoMKgwqDCoMKg
+wqDCoCByZWcgPSA8MHgwMWNiNDAwMCAweDEwMDA+Owo+IMKgwqDCoMKgwqDCoMKgwqAgaW50ZXJy
+dXB0cyA9IDxHSUNfU1BJIDg0IElSUV9UWVBFX0xFVkVMX0hJR0g+Owo+IMKgwqDCoMKgwqDCoMKg
+wqAgY2xvY2tzID0gPCZjY3UgQ0xLX0JVU19DU0k+LAo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCA8JmNjdSBDTEtfQ1NJMV9TQ0xLPiwKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgPCZjY3UgQ0xLX0NTSV9TQ0xLPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIDwmY2N1IENMS19EUkFNX0NTST47Cj4gwqDCoMKgwqDCoMKgwqDCoCBjbG9j
+ay1uYW1lcyA9ICJidXMiLAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgICJtb2QiLAo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmlu
+ZGluZ3MvbWVkaWEvYWxsd2lubmVyLHN1bjZpLQo+IGEzMS1pc3AueWFtbAo+IGIvRG9jdW1lbnRh
+dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21lZGlhL2FsbHdpbm5lcixzdW42aS1hMzEtCj4gaXNw
+LnlhbWwKPiBpbmRleCBhNjFhNzZiYjYxMWMuLjNlYTRhNDI5MGYyMyAxMDA2NDQKPiAtLS0gYS9E
+b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbWVkaWEvYWxsd2lubmVyLHN1bjZpLWEz
+MS0KPiBpc3AueWFtbAo+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9t
+ZWRpYS9hbGx3aW5uZXIsc3VuNmktYTMxLQo+IGlzcC55YW1sCj4gQEAgLTc5LDcgKzc5LDcgQEAg
+ZXhhbXBsZXM6Cj4gwqDCoMKgwqDCoMKgwqDCoCByZWcgPSA8MHgwMWNiODAwMCAweDEwMDA+Owo+
+IMKgwqDCoMKgwqDCoMKgwqAgaW50ZXJydXB0cyA9IDxHSUNfU1BJIDgzIElSUV9UWVBFX0xFVkVM
+X0hJR0g+Owo+IMKgwqDCoMKgwqDCoMKgwqAgY2xvY2tzID0gPCZjY3UgQ0xLX0JVU19DU0k+LAo+
+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgPCZjY3UgQ0xLX0NTSTFfU0NMSz4sCj4gK8KgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCA8JmNjdSBDTEtfQ1NJX1NDTEs+LAo+IMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIDwmY2N1IENMS19EUkFNX0NTST47Cj4gwqDCoMKgwqDCoMKgwqDCoCBjbG9j
+ay1uYW1lcyA9ICJidXMiLCAibW9kIiwgInJhbSI7Cj4gwqDCoMKgwqDCoMKgwqDCoCByZXNldHMg
+PSA8JmNjdSBSU1RfQlVTX0NTST47Cj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNl
+dHJlZS9iaW5kaW5ncy9tZWRpYS9hbGx3aW5uZXIsc3VuNmktCj4gYTMxLW1pcGktY3NpMi55YW1s
+Cj4gYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbWVkaWEvYWxsd2lubmVyLHN1
+bjZpLWEzMS1taXBpLQo+IGNzaTIueWFtbAo+IGluZGV4IDU0ZTE1YWI4YTdmNS4uNjI3YjI4ZTk0
+MzU0IDEwMDY0NAo+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9tZWRp
+YS9hbGx3aW5uZXIsc3VuNmktYTMxLQo+IG1pcGktY3NpMi55YW1sCj4gKysrIGIvRG9jdW1lbnRh
+dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21lZGlhL2FsbHdpbm5lcixzdW42aS1hMzEtCj4gbWlw
+aS1jc2kyLnlhbWwKPiBAQCAtMTAzLDcgKzEwMyw3IEBAIGV4YW1wbGVzOgo+IMKgwqDCoMKgwqDC
+oMKgwqAgcmVnID0gPDB4MDFjYjEwMDAgMHgxMDAwPjsKPiDCoMKgwqDCoMKgwqDCoMKgIGludGVy
+cnVwdHMgPSA8R0lDX1NQSSA5MCBJUlFfVFlQRV9MRVZFTF9ISUdIPjsKPiDCoMKgwqDCoMKgwqDC
+oMKgIGNsb2NrcyA9IDwmY2N1IENMS19CVVNfQ1NJPiwKPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgPCZjY3UgQ0xLX0NTSTFfU0NMSz47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIDwmY2N1IENMS19DU0lfU0NMSz47Cj4gwqDCoMKgwqDCoMKgwqDCoCBjbG9j
+ay1uYW1lcyA9ICJidXMiLCAibW9kIjsKPiDCoMKgwqDCoMKgwqDCoMKgIHJlc2V0cyA9IDwmY2N1
+IFJTVF9CVVNfQ1NJPjsKPiDCoAo+IGRpZmYgLS1naXQgYS9hcmNoL2FybS9ib290L2R0cy9hbGx3
+aW5uZXIvc3VuOGktdjNzLmR0c2kKPiBiL2FyY2gvYXJtL2Jvb3QvZHRzL2FsbHdpbm5lci9zdW44
+aS12M3MuZHRzaQo+IGluZGV4IGY5MDliMWQ0ZGJjYS4uZTgyY2YzMTJkYTI1IDEwMDY0NAo+IC0t
+LSBhL2FyY2gvYXJtL2Jvb3QvZHRzL2FsbHdpbm5lci9zdW44aS12M3MuZHRzaQo+ICsrKyBiL2Fy
+Y2gvYXJtL2Jvb3QvZHRzL2FsbHdpbm5lci9zdW44aS12M3MuZHRzaQo+IEBAIC02NTIsNyArNjUy
+LDcgQEAgY3NpMTogY2FtZXJhQDFjYjQwMDAgewo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJlZyA9IDwweDAxY2I0MDAwIDB4MzAwMD47Cj4gwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgaW50ZXJydXB0cyA9IDxH
+SUNfU1BJIDg0Cj4gSVJRX1RZUEVfTEVWRUxfSElHSD47Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgY2xvY2tzID0gPCZjY3UgQ0xLX0JVU19DU0k+LAo+
+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCA8JmNjdSBDTEtfQ1NJMV9TQ0xLPiwKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgPCZjY3UgQ0xLX0NTSV9TQ0xL
+PiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIDwmY2N1IENMS19EUkFNX0NTST47Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgY2xvY2stbmFtZXMgPSAiYnVzIiwgIm1vZCIsICJy
+YW0iOwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJl
+c2V0cyA9IDwmY2N1IFJTVF9CVVNfQ1NJPjsKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsvc3Vu
+eGktbmcvY2N1LXN1bjhpLXYzcy5jCj4gYi9kcml2ZXJzL2Nsay9zdW54aS1uZy9jY3Utc3VuOGkt
+djNzLmMKPiBpbmRleCA1NzlhODFiYjQ2ZGYuLmQxMjc5MWIzMWE5ZCAxMDA2NDQKPiAtLS0gYS9k
+cml2ZXJzL2Nsay9zdW54aS1uZy9jY3Utc3VuOGktdjNzLmMKPiArKysgYi9kcml2ZXJzL2Nsay9z
+dW54aS1uZy9jY3Utc3VuOGktdjNzLmMKPiBAQCAtMzYyLDggKzM2Miw4IEBAIHN0YXRpYyBjb25z
+dCBjaGFyICogY29uc3QgY3NpX21jbGtfcGFyZW50c1tdID0gewo+ICJvc2MyNE0iLCAicGxsLXZp
+ZGVvIiwKPiDCoHN0YXRpYyBTVU5YSV9DQ1VfTV9XSVRIX01VWF9HQVRFKGNzaTBfbWNsa19jbGss
+ICJjc2kwLW1jbGsiLAo+IGNzaV9tY2xrX3BhcmVudHMsCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDEzMCwgMCwgNSwg
+OCwgMywgQklUKDE1KSwgMCk7Cj4gwqAKPiAtc3RhdGljIGNvbnN0IGNoYXIgKiBjb25zdCBjc2kx
+X3NjbGtfcGFyZW50c1tdID0geyAicGxsLXZpZGVvIiwgInBsbC0KPiBpc3AiIH07Cj4gLXN0YXRp
+YyBTVU5YSV9DQ1VfTV9XSVRIX01VWF9HQVRFKGNzaTFfc2Nsa19jbGssICJjc2ktc2NsayIsCj4g
+Y3NpMV9zY2xrX3BhcmVudHMsCj4gK3N0YXRpYyBjb25zdCBjaGFyICogY29uc3QgY3NpX3NjbGtf
+cGFyZW50c1tdID0geyAicGxsLXZpZGVvIiwgInBsbC0KPiBpc3AiIH07Cj4gK3N0YXRpYyBTVU5Y
+SV9DQ1VfTV9XSVRIX01VWF9HQVRFKGNzaV9zY2xrX2NsaywgImNzaS1zY2xrIiwKPiBjc2lfc2Ns
+a19wYXJlbnRzLAoKVGhlIGRvY3VtZW50IHNlZW1zIHRvIGNhbGwgdGhlIGdhdGluZyBiaXQgIkNT
+SV9UT1BfU0NMS19HQVRJTkciLAphbHRob3VnaCB0aGUgZGl2aWRlciBpcyAiQ1NJX1NDTEtfRElW
+X00iOyB3ZWxsIGF0IGxlYXN0IHRoZSBkcm9wIG9mIDEKaXMgZGVzaXJhYmxlLCBzbwoKUmV2aWV3
+ZWQtQnk6IEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5Lm1lPgoKUC5TLiBUaGlzIGlzIHRoZSBt
+b3N0IHdlaXJkIGNsb2NrIHJlZ2lzdGVyIG9yZ2FuaXphdGlvbiBJIGhhdmUgc2Vlbi4KCj4gwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCAweDEzNCwgMTYsIDQsIDI0LCAzLCBCSVQoMzEpLCAwKTsKPiDCoAo+IMKgc3RhdGljIFNV
+TlhJX0NDVV9NX1dJVEhfTVVYX0dBVEUoY3NpMV9tY2xrX2NsaywgImNzaS1tY2xrIiwKPiBjc2lf
+bWNsa19wYXJlbnRzLAo+IEBAIC00NTIsNyArNDUyLDcgQEAgc3RhdGljIHN0cnVjdCBjY3VfY29t
+bW9uICpzdW44aV92M3NfY2N1X2Nsa3NbXSA9Cj4gewo+IMKgwqDCoMKgwqDCoMKgwqAmdGNvbl9j
+bGsuY29tbW9uLAo+IMKgwqDCoMKgwqDCoMKgwqAmY3NpX21pc2NfY2xrLmNvbW1vbiwKPiDCoMKg
+wqDCoMKgwqDCoMKgJmNzaTBfbWNsa19jbGsuY29tbW9uLAo+IC3CoMKgwqDCoMKgwqDCoCZjc2kx
+X3NjbGtfY2xrLmNvbW1vbiwKPiArwqDCoMKgwqDCoMKgwqAmY3NpX3NjbGtfY2xrLmNvbW1vbiwK
+PiDCoMKgwqDCoMKgwqDCoMKgJmNzaTFfbWNsa19jbGsuY29tbW9uLAo+IMKgwqDCoMKgwqDCoMKg
+wqAmdmVfY2xrLmNvbW1vbiwKPiDCoMKgwqDCoMKgwqDCoMKgJmFjX2RpZ19jbGsuY29tbW9uLAo+
+IEBAIC01NTEsNyArNTUxLDcgQEAgc3RhdGljIHN0cnVjdCBjbGtfaHdfb25lY2VsbF9kYXRhCj4g
+c3VuOGlfdjNzX2h3X2Nsa3MgPSB7Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBb
+Q0xLX1RDT04wXcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPSAmdGNvbl9jbGsuY29tbW9uLmh3
+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgW0NMS19DU0lfTUlTQ13CoMKgwqDC
+oMKgwqDCoMKgwqDCoD0gJmNzaV9taXNjX2Nsay5jb21tb24uaHcsCj4gwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqBbQ0xLX0NTSTBfTUNMS13CoMKgwqDCoMKgwqDCoMKgwqA9ICZjc2kw
+X21jbGtfY2xrLmNvbW1vbi5odywKPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgW0NM
+S19DU0kxX1NDTEtdwqDCoMKgwqDCoMKgwqDCoMKgPSAmY3NpMV9zY2xrX2Nsay5jb21tb24uaHcs
+Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoFtDTEtfQ1NJX1NDTEtdwqDCoMKgwqDC
+oMKgwqDCoMKgwqA9ICZjc2lfc2Nsa19jbGsuY29tbW9uLmh3LAo+IMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgW0NMS19DU0kxX01DTEtdwqDCoMKgwqDCoMKgwqDCoMKgPSAmY3NpMV9t
+Y2xrX2Nsay5jb21tb24uaHcsCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBbQ0xL
+X1ZFXcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPSAmdmVfY2xrLmNvbW1vbi5odywK
+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoFtDTEtfQUNfRElHXcKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoD0gJmFjX2RpZ19jbGsuY29tbW9uLmh3LAo+IEBAIC02MzMsNyArNjMzLDcg
+QEAgc3RhdGljIHN0cnVjdCBjbGtfaHdfb25lY2VsbF9kYXRhCj4gc3VuOGlfdjNfaHdfY2xrcyA9
+IHsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoFtDTEtfVENPTjBdwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqA9ICZ0Y29uX2Nsay5jb21tb24uaHcsCj4gwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqBbQ0xLX0NTSV9NSVNDXcKgwqDCoMKgwqDCoMKgwqDCoMKgPSAmY3Np
+X21pc2NfY2xrLmNvbW1vbi5odywKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoFtD
+TEtfQ1NJMF9NQ0xLXcKgwqDCoMKgwqDCoMKgwqDCoD0gJmNzaTBfbWNsa19jbGsuY29tbW9uLmh3
+LAo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBbQ0xLX0NTSTFfU0NMS13CoMKgwqDC
+oMKgwqDCoMKgwqA9ICZjc2kxX3NjbGtfY2xrLmNvbW1vbi5odywKPiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgW0NMS19DU0lfU0NMS13CoMKgwqDCoMKgwqDCoMKgwqDCoD0gJmNzaV9z
+Y2xrX2Nsay5jb21tb24uaHcsCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBbQ0xL
+X0NTSTFfTUNMS13CoMKgwqDCoMKgwqDCoMKgwqA9ICZjc2kxX21jbGtfY2xrLmNvbW1vbi5odywK
+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoFtDTEtfVkVdwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqA9ICZ2ZV9jbGsuY29tbW9uLmh3LAo+IMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgW0NMS19BQ19ESUddwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPSAmYWNf
+ZGlnX2Nsay5jb21tb24uaHcsCj4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvZHQtYmluZGluZ3MvY2xv
+Y2svc3VuOGktdjNzLWNjdS5oIGIvaW5jbHVkZS9kdC0KPiBiaW5kaW5ncy9jbG9jay9zdW44aS12
+M3MtY2N1LmgKPiBpbmRleCAwMTRhYzYxMjNkMTcuLmM0MDU1NjI5YzlmOSAxMDA2NDQKPiAtLS0g
+YS9pbmNsdWRlL2R0LWJpbmRpbmdzL2Nsb2NrL3N1bjhpLXYzcy1jY3UuaAo+ICsrKyBiL2luY2x1
+ZGUvZHQtYmluZGluZ3MvY2xvY2svc3VuOGktdjNzLWNjdS5oCj4gQEAgLTk2LDcgKzk2LDcgQEAK
+PiDCoCNkZWZpbmUgQ0xLX1RDT04wwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDY0Cj4gwqAj
+ZGVmaW5lIENMS19DU0lfTUlTQ8KgwqDCoMKgwqDCoMKgwqDCoMKgwqA2NQo+IMKgI2RlZmluZSBD
+TEtfQ1NJMF9NQ0xLwqDCoMKgwqDCoMKgwqDCoMKgwqA2Ngo+IC0jZGVmaW5lIENMS19DU0kxX1ND
+TEvCoMKgwqDCoMKgwqDCoMKgwqDCoDY3Cj4gKyNkZWZpbmUgQ0xLX0NTSV9TQ0xLwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoDY3Cj4gwqAjZGVmaW5lIENMS19DU0kxX01DTEvCoMKgwqDCoMKgwqDCoMKg
+wqDCoDY4Cj4gwqAjZGVmaW5lIENMS19WRcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqA2OQo+IMKgI2RlZmluZSBDTEtfQUNfRElHwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA3MAoK
 
-kernel test robot noticed the following build warnings:
 
-[auto build test WARNING on 66701750d5565c574af42bef0b789ce0203e3071]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Leo-Yan/coresight-Change-device-mode-to-atomic-type/20250701-230354
-base:   66701750d5565c574af42bef0b789ce0203e3071
-patch link:    https://lore.kernel.org/r/20250701-arm_cs_pm_fix_v3-v2-3-23ebb864fcc1%40arm.com
-patch subject: [PATCH v2 03/28] coresight: etm3x: Always set tracer's device mode on target CPU
-config: arm-u8500_defconfig (https://download.01.org/0day-ci/archive/20250702/202507021259.wYmjhqn4-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250702/202507021259.wYmjhqn4-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507021259.wYmjhqn4-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/hwtracing/coresight/coresight-etm3x-core.c: In function 'etm_enable':
->> drivers/hwtracing/coresight/coresight-etm3x-core.c:545:29: warning: unused variable 'drvdata' [-Wunused-variable]
-     545 |         struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-         |                             ^~~~~~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c: At top level:
->> drivers/hwtracing/coresight/coresight-etm3x-core.c:561:35: warning: 'struct etmv4_drvdata' declared inside parameter list will not be visible outside of this definition or declaration
-     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
-         |                                   ^~~~~~~~~~~~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c: In function 'etm_disable_hw':
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:564:45: error: invalid use of undefined type 'struct etmv4_drvdata'
-     564 |         struct etm_config *config = &drvdata->config;
-         |                                             ^~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:565:49: error: invalid use of undefined type 'struct etmv4_drvdata'
-     565 |         struct coresight_device *csdev = drvdata->csdev;
-         |                                                 ^~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:567:26: error: invalid use of undefined type 'struct etmv4_drvdata'
-     567 |         CS_UNLOCK(drvdata->csa.base);
-         |                          ^~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:568:22: error: passing argument 1 of 'etm_set_prog' from incompatible pointer type [-Wincompatible-pointer-types]
-     568 |         etm_set_prog(drvdata);
-         |                      ^~~~~~~
-         |                      |
-         |                      struct etmv4_drvdata *
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:154:46: note: expected 'struct etm_drvdata *' but argument is of type 'struct etmv4_drvdata *'
-     154 | static void etm_set_prog(struct etm_drvdata *drvdata)
-         |                          ~~~~~~~~~~~~~~~~~~~~^~~~~~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:571:45: error: passing argument 1 of 'etm_readl' from incompatible pointer type [-Wincompatible-pointer-types]
-     571 |         config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
-         |                                             ^~~~~~~
-         |                                             |
-         |                                             struct etmv4_drvdata *
-   In file included from drivers/hwtracing/coresight/coresight-etm3x-core.c:33:
-   drivers/hwtracing/coresight/coresight-etm.h:267:58: note: expected 'struct etm_drvdata *' but argument is of type 'struct etmv4_drvdata *'
-     267 | static inline unsigned int etm_readl(struct etm_drvdata *drvdata, u32 off)
-         |                                      ~~~~~~~~~~~~~~~~~~~~^~~~~~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:573:32: error: invalid use of undefined type 'struct etmv4_drvdata'
-     573 |         for (i = 0; i < drvdata->nr_cntr; i++)
-         |                                ^~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:574:49: error: passing argument 1 of 'etm_readl' from incompatible pointer type [-Wincompatible-pointer-types]
-     574 |                 config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
-         |                                                 ^~~~~~~
-         |                                                 |
-         |                                                 struct etmv4_drvdata *
-   drivers/hwtracing/coresight/coresight-etm.h:267:58: note: expected 'struct etm_drvdata *' but argument is of type 'struct etmv4_drvdata *'
-     267 | static inline unsigned int etm_readl(struct etm_drvdata *drvdata, u32 off)
-         |                                      ~~~~~~~~~~~~~~~~~~~~^~~~~~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:576:24: error: passing argument 1 of 'etm_set_pwrdwn' from incompatible pointer type [-Wincompatible-pointer-types]
-     576 |         etm_set_pwrdwn(drvdata);
-         |                        ^~~~~~~
-         |                        |
-         |                        struct etmv4_drvdata *
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:61:48: note: expected 'struct etm_drvdata *' but argument is of type 'struct etmv4_drvdata *'
-      61 | static void etm_set_pwrdwn(struct etm_drvdata *drvdata)
-         |                            ~~~~~~~~~~~~~~~~~~~~^~~~~~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:579:24: error: invalid use of undefined type 'struct etmv4_drvdata'
-     579 |         CS_LOCK(drvdata->csa.base);
-         |                        ^~
-   In file included from include/linux/device.h:15,
-                    from drivers/hwtracing/coresight/coresight-etm3x-core.c:12:
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:581:25: error: invalid use of undefined type 'struct etmv4_drvdata'
-     581 |         dev_dbg(&drvdata->csdev->dev,
-         |                         ^~
-   include/linux/dev_printk.h:139:44: note: in definition of macro 'dev_no_printk'
-     139 |                         _dev_printk(level, dev, fmt, ##__VA_ARGS__);    \
-         |                                            ^~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:581:9: note: in expansion of macro 'dev_dbg'
-     581 |         dev_dbg(&drvdata->csdev->dev,
-         |         ^~~~~~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:582:59: error: invalid use of undefined type 'struct etmv4_drvdata'
-     582 |                 "cpu: %d disable smp call done\n", drvdata->cpu);
-         |                                                           ^~
-   include/linux/dev_printk.h:139:56: note: in definition of macro 'dev_no_printk'
-     139 |                         _dev_printk(level, dev, fmt, ##__VA_ARGS__);    \
-         |                                                        ^~~~~~~~~~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:581:9: note: in expansion of macro 'dev_dbg'
-     581 |         dev_dbg(&drvdata->csdev->dev,
-         |         ^~~~~~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c: In function 'etm_disable_hw_smp_call':
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:589:24: error: passing argument 1 of 'etm_disable_hw' from incompatible pointer type [-Wincompatible-pointer-types]
-     589 |         etm_disable_hw(drvdata);
-         |                        ^~~~~~~
-         |                        |
-         |                        struct etmv_drvdata *
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:50: note: expected 'struct etmv4_drvdata *' but argument is of type 'struct etmv_drvdata *'
-     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
-         |                            ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:591:35: error: invalid use of undefined type 'struct etmv_drvdata'
-     591 |         coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
-         |                                   ^~
-   drivers/hwtracing/coresight/coresight-etm3x-core.c: In function 'etm_dying_cpu':
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:729:42: error: passing argument 1 of 'etm_disable_hw' from incompatible pointer type [-Wincompatible-pointer-types]
-     729 |                 etm_disable_hw(etmdrvdata[cpu]);
-         |                                ~~~~~~~~~~^~~~~
-         |                                          |
-         |                                          struct etm_drvdata *
-   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:50: note: expected 'struct etmv4_drvdata *' but argument is of type 'struct etm_drvdata *'
-     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
-         |                            ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
-
-
-vim +/drvdata +545 drivers/hwtracing/coresight/coresight-etm3x-core.c
-
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  540  
-9fa3682869d4e1 drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark      2023-04-25  541  static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
-7b365f056d8e02 drivers/hwtracing/coresight/coresight-etm3x-core.c Jie Gan          2025-03-03  542  		      enum cs_mode mode, struct coresight_path *path)
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  543  {
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  544  	int ret;
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17 @545  	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  546  
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  547  	switch (mode) {
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  548  	case CS_MODE_SYSFS:
-7b365f056d8e02 drivers/hwtracing/coresight/coresight-etm3x-core.c Jie Gan          2025-03-03  549  		ret = etm_enable_sysfs(csdev, path);
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  550  		break;
-882d5e112491c8 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  551  	case CS_MODE_PERF:
-7b365f056d8e02 drivers/hwtracing/coresight/coresight-etm3x-core.c Jie Gan          2025-03-03  552  		ret = etm_enable_perf(csdev, event, path);
-882d5e112491c8 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  553  		break;
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  554  	default:
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  555  		ret = -EINVAL;
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  556  	}
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  557  
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  558  	return ret;
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  559  }
-22fd532eaa0c24 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  560  
-a136c0aff8e112 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan          2025-07-01 @561  static void etm_disable_hw(struct etmv4_drvdata *drvdata)
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  562  {
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  563  	int i;
-1925a470ce69cd drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  564  	struct etm_config *config = &drvdata->config;
-8ce0029658ba16 drivers/hwtracing/coresight/coresight-etm3x-core.c Suzuki K Poulose 2021-02-01  565  	struct coresight_device *csdev = drvdata->csdev;
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  566  
-a1b0e77ce517ec drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark      2025-03-25  567  	CS_UNLOCK(drvdata->csa.base);
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  568  	etm_set_prog(drvdata);
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  569  
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  570  	/* Read back sequencer and counters for post trace analysis */
-1925a470ce69cd drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  571  	config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  572  
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  573  	for (i = 0; i < drvdata->nr_cntr; i++)
-1925a470ce69cd drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2016-02-17  574  		config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  575  
-6dd4402f24a39a drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier  2018-11-30  576  	etm_set_pwrdwn(drvdata);
-8ce0029658ba16 drivers/hwtracing/coresight/coresight-etm3x-core.c Suzuki K Poulose 2021-02-01  577  	coresight_disclaim_device_unlocked(csdev);
-68a147752d04da drivers/hwtracing/coresight/coresight-etm3x.c      Suzuki K Poulose 2018-09-20  578  
-a1b0e77ce517ec drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark      2025-03-25  579  	CS_LOCK(drvdata->csa.base);
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  580  
-aaff7623284159 drivers/hwtracing/coresight/coresight-etm3x.c      Suzuki K Poulose 2019-06-19  581  	dev_dbg(&drvdata->csdev->dev,
-aaff7623284159 drivers/hwtracing/coresight/coresight-etm3x.c      Suzuki K Poulose 2019-06-19  582  		"cpu: %d disable smp call done\n", drvdata->cpu);
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  583  }
-a939fc5a71ad53 drivers/coresight/coresight-etm3x.c                Pratik Patel     2014-11-03  584  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
