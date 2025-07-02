@@ -4,84 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920E7C83F05
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 09:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 869C4C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 09:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bZy0CRl5aW0Pxb5BnMHOljFTQe2d/7Wav2h1v2sH8AA=; b=L6P5EN2cq8n6+lprjDD+snZAqA
-	gxKVZ7YEs3cCMjKMG6hmpmnSWjpAkmUXI08uDPeXQbijzmqoEsdMWaETTeYEag1/LMYJlX4iWdWlY
-	IzhsXKv0sNg+ObMhWLa8JvMP/FTIuP7qrc3NHQjPn59qvFuHBpontj5z7jZq8BsznsCyF/9+kwX7b
-	4mlJvIxCvlH3Ez0IdrMYVgV6ObzBqgqddnuMxcYucp8/4ek3sewlxq0lzBuz31s8uR9DnekcyKEYL
-	w5mXRjVCrHck7fvgdq32EJmOBfEx0N3w3OBp567W7k6oGbiCrRGwAd2ghmDh3Z3d3TskdsZXpXJbP
-	0ymI0RkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dJOUAJfKVX2aPL9IEMk2+/CliU7l5+z7z5St/kFtJDA=; b=Iu1LxfQw+DoMxx
+	veft67bUuA5PM+7nbwf1td2bEhvVUzDRNy7yTz9QNMOIWw+TrqAzuuha4mHec2WfNn0nKMCTH+fSb
+	QSBEoLqiH9w46JLe6r9VB6tRIISyJlc5gKu2VqjEpjc07diI3JxbcKvBdbhj9+NSafrbETdJw3s+r
+	W+Hvza8BzPZpKrVG+09dh7XaHbgcLBCsRDUN2x+P6bpmHlhBOpDvEvk328qeURQjkLaLWgRcdYuPH
+	CItVAZzCV/0rQwz3e+42Lrt8rGf1W1b8i1uQHKFLZyafIilQOm1IzV7IcWby0JERrhBsBjixMfaxZ
+	BZmcAmiFKzMmqPnClQBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtsy-00000007n0n-1CyG;
-	Wed, 02 Jul 2025 09:36:12 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1uWtvH-00000007nc6-1Z2z;
+	Wed, 02 Jul 2025 09:38:35 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtc0-00000007jyK-20xY;
-	Wed, 02 Jul 2025 09:18:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751447920; x=1782983920;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=YgIsYbsQFBijlbHTYsgXc9tCHNmRLzh8Vr+Nl8ZnQ3Y=;
-  b=CuB+c7iTvjiAcBaxL+Xq8ZqevfuprXwmOA7CseMZCvJGDz0gG1rZ0Z7D
-   F4hlB93Wl1cYr2xDehoREj/Ymti1PzjyPc8qPBb1e+S3/2iyfk+Aacnpm
-   3WUJ9aGARNgO7cnZrGbIQ0Ld5ahMOJWEsVolO0Cox2kfxTnIIfbAJoniL
-   mjRPOaQHCDxG5umQQCFBP4wQByx0mdCQLME2EBJM2XgUrnVA/SsaOpRoj
-   8kyM8u1l6eUnd3L7dLeWr5GMWGVu1dYI7BwQhy73jms2qX/3DIcvJOs7o
-   iZ+6A7lNTQY0GJIlp4sHw9EjQZz+hfaeYzTX5wFXS7Yyja/MZCs6U70DB
-   Q==;
-X-CSE-ConnectionGUID: +wgN5iv0RA68Hm42Ehhr2g==
-X-CSE-MsgGUID: 8n5R2itWTqq26wc8aIO9wA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11481"; a="64427973"
-X-IronPort-AV: E=Sophos;i="6.16,281,1744095600"; 
-   d="scan'208";a="64427973"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jul 2025 02:18:39 -0700
-X-CSE-ConnectionGUID: vxd1XndcT3OoMKfVHJDRig==
-X-CSE-MsgGUID: gpP80ZaVRkCf3Rmd/W+dKw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,281,1744095600"; 
-   d="scan'208";a="159538616"
-Received: from lkp-server01.sh.intel.com (HELO 0b2900756c14) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 02 Jul 2025 02:18:36 -0700
-Received: from kbuild by 0b2900756c14 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uWtbu-0000RX-0P;
-	Wed, 02 Jul 2025 09:18:34 +0000
-Date: Wed, 2 Jul 2025 17:17:54 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: gpio: Create a trivial GPIO schema
-Message-ID: <202507021740.qURVV9D8-lkp@intel.com>
-References: <20250701225355.2977294-1-robh@kernel.org>
+	id 1uWtfU-00000007ka4-18Vx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Jul 2025 09:22:17 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3a6d77b43c9so3864128f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 02:22:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1751448135; x=1752052935; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dJOUAJfKVX2aPL9IEMk2+/CliU7l5+z7z5St/kFtJDA=;
+        b=P1YG0Zo1bzf9OHmk6hCwkNEQo9nfxq8O851VAIdvDbmLHZdbatIMJTigGRqbCmtJsO
+         UzJmEQXluPawPSckwyy/wqkAkbEyGCTBWZc954PDdNHbIg9ksfpGuGnmzuENlaAc5UwA
+         kSwxV59lhzLg45uv2ibuiATtvyJl6vReWonlXdUWNdDYWOApEkeFOFXc1NbPIFg3c3MS
+         H98cSnyFpaBaDZE+G5H4GYBYzFFWOC7a4WeiSaHlx7xOXiezE1XAkQ9aY+1BynzvZ8A6
+         yConil5QliwFX7a8JiibzPGXOpK7WJadtHaceXizWwxM+tPMhsojwazyWf5FJMHCvhrW
+         lAgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751448135; x=1752052935;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dJOUAJfKVX2aPL9IEMk2+/CliU7l5+z7z5St/kFtJDA=;
+        b=c7wg9/8DaGNDBajVxEVfHUOI2ggG79AuPy7CQf38uMuYmCaPDpizme0zSo7F7TyrIJ
+         mXRjqqTDyLgPnjSA7fX77XjmNTBRvOAmrzOEv0Nzjm11uZEHlG5Xs48ZE75BRfTFN14W
+         0jvKZrzZOuJHuTFD5teU7ym/SsCW8RymucbJlOpbOdjqnfEBrMcZM5VmLY+KwQdXyKze
+         aQZTFCOyP9wbo9MN7SLqWkZWprFmYRiYSczceJPvEPww2apMir6mZB8+XidVsHTa7MpP
+         OOzK9MMw1lGA23Q3ZpWLDGKfVeZNZMse9m1pxCtzIUE++V5+SyopCE2gdDgL5X5rHeoQ
+         u1CQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXhnNgtvb04Emz3xiw4a+BqQ1kBrgD7BsTqDgz9YxKmns1gNsC0slvTMwxtJIjp+2j9zt4hVyXMdG0NynXhTytX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxk2s8KCmtw/9oSMnR/ZVmUgle69Ujh80pP7Rp5hRI1nhRQaA8z
+	O931g15HxagyvtVfIhHvSBnDMdIkmuGMPhsXQHT9dN4k4P8bywV6nc80z4FhKserbv4JKinV27V
+	NbO61xUU=
+X-Gm-Gg: ASbGncuBkk4PzetlpRtRrmIBKlYJgQ1JGnKjtFhhcBLHKhiCJeSNf9SJqp+0qUovznQ
+	pfEC6Pib+Ufiu6bKMxOeGV4T3rVBgMSYtUqFmsLwZyykRlVn14WiW3YZmHIOdNDyth39tBka6Rw
+	DwJhKI6/KAXR4kjAzdl26m0H0z+xPQJ9QF232t9PRvBiucM1p9yk7p4FYEoBCy2lcJuobuL7ma+
+	ZeZp21VOWfb7XJsEkfMk79mxHfz6r07HVl/S0viKS4uf0Mz1BPlSvrWyOnFRQSMTCrgzT2c5UGB
+	S7A8VdqRvFWx1e5MS5rGwA1Y8mkC4Ndu5PTKaNEm26ZuPzexAMYvtfFYTA01l93S
+X-Google-Smtp-Source: AGHT+IGRtI5EizlyYaagGIEM5B9cIXG2G3RtfcUDuM69KE2zVYdf1i0pFG68QB2VU8jMhrLhfO7HYA==
+X-Received: by 2002:a05:6000:188c:b0:3a4:dfa9:ce28 with SMTP id ffacd0b85a97d-3b1fdf01fedmr1581155f8f.5.1751448134571;
+        Wed, 02 Jul 2025 02:22:14 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:8827:d0e:25e:834a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a406489sm195844165e9.27.2025.07.02.02.22.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Jul 2025 02:22:14 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH v2 0/8] gpio: move generic GPIO chip fields out of the
+ top-level gpio_chip struct
+Date: Wed, 02 Jul 2025 11:22:07 +0200
+Message-Id: <20250702-gpio-mmio-rework-v2-0-6b77aab684d8@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250701225355.2977294-1-robh@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAD/6ZGgC/2WNwQ6CMBBEf4Xs2ZqyAhFP/IfhsIGlbBRKtgY1p
+ P9uJd68TPImmTcbBFbhAJdsA+VVgvg5AR4y6EaaHRvpEwNaLG1lK+MW8WaaUig/vd4M4VB0xak
+ mqitIs0V5kNeuvLaJRwkPr+/9Yc2/7U+Gxb9szY01xJQj2rrH8tzcZSb1R68O2hjjB2ELMa+xA
+ AAA
+X-Change-ID: 20250606-gpio-mmio-rework-a2f4c439aa96
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2506;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=IDsUBmMl4vmxwpChddfz/0o/3m8yos2rsQrr3srBtqw=;
+ b=kA0DAAoBEacuoBRx13IByyZiAGhk+kPIvzlcY34zkh2Nj4PaZstktliKWBcYWZ3+v8XzOCbDD
+ IkCMwQAAQoAHRYhBBad62wLw8RgE9LHnxGnLqAUcddyBQJoZPpDAAoJEBGnLqAUcddyvM8QALht
+ p+0/5kj0hAd1GH7XCSJQj1xtclo+EbYwl+bIW4Ppol5rzy/Ww+YmiN7UfX/LQmQM81ByNclCOk8
+ 8yVuwOiCUfYJuB5mKWYrWLwiGZCFX18PXJaf2eDjbSuGXxBAaq6sv5p6gWUjzkmKXGd3R1j38FN
+ 2MP84vl/De+q+j+gS7qOICkoFnew3ASVw+Sehu5b9KiRNdNyC3RyESwRBvE+rSiB/SxJWGVmRZQ
+ Vd9BDYTEglata0+NQUyij9ENWct0NzUdygyVwa6a+M5y/OfxRgVizsGIUuKPJh42tXK+7eENAaK
+ lTDM+bpEsrkroP/o32TIo2RazbpVv+To7qR17XNdfdoWNiqonSruJF16yPfZ6l4mxaLX9vQB//G
+ voAf3FRniA6ym8jCePwxqGGGX0mJL29lHxiMCItsnkBLbZKbQhTGq4+VaLcletzTe9Ydtw+1bE4
+ skQO84IjV4PI71bOpfgrvkBRksQGm6k0+urSfW9uzq0q4FZG+yjdZinvNUniWeC6qByqdtnilQU
+ LPZ4zjnM6y8hiw92JS8Y3Xfo26+SY+49p7fL2tBZgRwAIJGe9eH7aaKFgcJB1OSccqGFDWIibKV
+ 27KSY1CtQxooxZ/ZU8T2Lq+5lDJ+omh7OW8vD0sPCBItzUdDE/8lq9GMhFs/KZhZWVHmS9EapOa
+ xcgFa
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_021840_537750_B2134C85 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20250702_022216_318602_8C917ED6 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +124,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+The conversion of GPIO drivers to using the new line value setters is
+moving nicely along and we're on track to have all the existing
+providers converted upstream after the next merge window. There's
+another piece of technical debt that bothers me - the fact that struct
+gpio_chip contains a bunch of fields that are only relevant to the
+generic GPIO chip implementation from gpio-mmio.c.
 
-kernel test robot noticed the following build warnings:
+Let's work towards moving them out of struct gpio_chip and into their
+own struct gpio_generic_chip. Doing this in a single series would
+require some ~40 commits which is way too many to review at a time.
+There are also users of gpio-mmio under drivers/pinctrl/ and
+drivers/mfd/ which would require cross-subsystem merges. I think it's
+better to do this in stages over 3 release cycles. This series adds a
+new API for gpio-mmio users, hiding the implementation details and
+converts the first set of GPIO drivers. Once upstream, we'll convert all
+remaining users and once that's done, we'll move all the
+gpio-mmio-specific fields to the new structure, convert the internals to
+using them and remove bgpio_init(). The last step will be done in a
+backward-compatible way, not affecting the users.
 
-[auto build test WARNING on brgl/gpio/for-next]
-[also build test WARNING on linus/master v6.16-rc4 next-20250701]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+Changes in v2:
+- rebase on top of recent driver changes
+- pick up review tags
+- Link to v1: https://lore.kernel.org/r/20250624-gpio-mmio-rework-v1-0-aea12209d258@linaro.org
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Rob-Herring-Arm/dt-bindings-gpio-Create-a-trivial-GPIO-schema/20250702-065536
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git gpio/for-next
-patch link:    https://lore.kernel.org/r/20250701225355.2977294-1-robh%40kernel.org
-patch subject: [PATCH] dt-bindings: gpio: Create a trivial GPIO schema
-reproduce: (https://download.01.org/0day-ci/archive/20250702/202507021740.qURVV9D8-lkp@intel.com/reproduce)
+---
+Bartosz Golaszewski (8):
+      gpio: generic: add new generic GPIO chip API
+      gpio: mxc: use lock guards for the generic GPIO chip lock
+      gpio: mxc: use new generic GPIO chip API
+      gpio: clps711x: use new generic GPIO chip API
+      gpio: cadence: use lock guards
+      gpio: cadence: use new generic GPIO chip API
+      gpio: 74xx-mmio: use new generic GPIO chip API
+      gpio: en7523: use new generic GPIO chip API
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507021740.qURVV9D8-lkp@intel.com/
+ drivers/gpio/gpio-74xx-mmio.c |  32 +++++------
+ drivers/gpio/gpio-cadence.c   |  60 ++++++++++-----------
+ drivers/gpio/gpio-clps711x.c  |  27 ++++++----
+ drivers/gpio/gpio-en7523.c    |  36 ++++++-------
+ drivers/gpio/gpio-mxc.c       |  87 +++++++++++++++---------------
+ include/linux/gpio/generic.h  | 120 ++++++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 243 insertions(+), 119 deletions(-)
+---
+base-commit: 3f804361f3b9af33e00b90ec9cb5afcc96831e60
+change-id: 20250606-gpio-mmio-rework-a2f4c439aa96
 
-All warnings (new ones prefixed by >>):
-
->> Warning: Documentation/devicetree/bindings/mfd/lp3943.txt references a file that doesn't exist: Documentation/devicetree/bindings/gpio/gpio-lp3943.txt
->> Warning: Documentation/devicetree/bindings/powerpc/nintendo/wii.txt references a file that doesn't exist: Documentation/devicetree/bindings/gpio/nintendo,hollywood-gpio.txt
-   Warning: Documentation/devicetree/bindings/regulator/siliconmitus,sm5703-regulator.yaml references a file that doesn't exist: Documentation/devicetree/bindings/mfd/siliconmitus,sm5703.yaml
-   Warning: Documentation/hwmon/g762.rst references a file that doesn't exist: Documentation/devicetree/bindings/hwmon/g762.txt
-   Warning: Documentation/translations/ja_JP/SubmittingPatches references a file that doesn't exist: linux-2.6.12-vanilla/Documentation/dontdiff
-   Warning: Documentation/translations/ja_JP/process/submit-checklist.rst references a file that doesn't exist: Documentation/translations/ja_JP/SubmitChecklist
-   Warning: Documentation/translations/zh_CN/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
-   Warning: Documentation/translations/zh_CN/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
-   Warning: Documentation/translations/zh_CN/how-to.rst references a file that doesn't exist: Documentation/xxx/xxx.rst
-   Warning: Documentation/translations/zh_TW/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
-   Warning: Documentation/translations/zh_TW/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
->> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/gpio/gpio-moxtet.txt
-   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/firmware/intel,stratix10-svc.txt
->> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/gpio/snps,creg-gpio.txt
-   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/leds/ti,tps6131x.yaml
-   Warning: arch/riscv/kernel/kexec_image.c references a file that doesn't exist: Documentation/riscv/boot-image-header.rst
-   Warning: drivers/clocksource/timer-armada-370-xp.c references a file that doesn't exist: Documentation/devicetree/bindings/timer/marvell,armada-370-xp-timer.txt
-   Using alabaster theme
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
 
