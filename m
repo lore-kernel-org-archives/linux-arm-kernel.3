@@ -4,63 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09218C83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 06:21:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B9B6C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 06:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tSIp5Qb007RtuWI6jDaQsd/FHLp8647g9EocXS3/AEw=; b=kRZKqjaIq5Ei4nHPLJ48IpXgdb
-	2k5Jk/RhrjE5X6yrf2jS66hRIU6bYZfzSVfaYbqfXbAGJr3dRfARdfYmZ24YHuzB3tjyI9X9jKhOY
-	HxZUaDvOSUa1JV4vmduQDZYD13l8/Lfu1OIG/68YNqESoATcKpSnIwRbt3Cour//BkTvIr9tIA2/4
-	wgbazzUqoKax5rG4v/2HnoPe8rMH/6XsXINQAqIrD4hKIWbjDYuYYuLULLYauI4UUeFq7+jCJmoQn
-	uLBPY4mI1vjBigGDzaJYW/IDor9bGiHAScrj5RHNhwvCX6UwO4CYJKlGchTxlIIamgzSUOr341wEH
-	e4u8I6TA==;
+	bh=/W5ApnKS/TSfxp4qt++VXRItb5g9l1BWnvaP2tGWnRY=; b=qkRbbRD6t3bpqEbU0J0WazXKdw
+	Go7HekELjCp5QAthDvFCUOJ38HIeaoQMRuH6K+3aKlOUfmZR1FTh+8GA+dVeWTkNfsWoyCRr3H6tZ
+	sH68wsU78W/K4ILZzfla6xfb+fW2QDzIKBqplYNGtztCvAoPgwniPvMLuTM10gs8a+J/wZHnhfHNX
+	c7WdwVE5CSvQTTowKGQQvbgUR2UPWci6Rv3VPSEPmlids8PA3ioZcgcenEWkmV93yI6Rk+Nhk8ueg
+	ryaqsbNwDSdIN/SmDyygwno/rGtfiaBkZurD0yfbd7FipsIDQ+Vk7oXlLvYcFa1lWLCFYwvf5NaCt
+	L8hLMlRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWqqP-00000007OIs-1bah;
-	Wed, 02 Jul 2025 06:21:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uWqsj-00000007OdX-1e9V;
+	Wed, 02 Jul 2025 06:23:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWqo4-00000007O0r-3Kms;
-	Wed, 02 Jul 2025 06:18:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=tSIp5Qb007RtuWI6jDaQsd/FHLp8647g9EocXS3/AEw=; b=nrDbjCqcMjj61RerRbZKSaGSfY
-	Ja/OcZEpZylsaftKjFpCYsO8zNeXxlg36YuE9uH9Ic+RNe2wWNlZ/6CiZcdTQGhnnlMzfvo0fIj8R
-	Q/+a+HRrJQmzOVqmWrdmTqLLV6pZn4OyNiFjhY73uuBqQM9Ab4Iz0Ga5GU7XPk6DgzjI0WYDDqHeP
-	hsxM8ieEqCRQZw+4uiZTMc1oi9XeCz/ckIYAEso4HVWtTYTLzYGX+YdwR5qWb9yDtGAUqY1THWDgb
-	qEn/416bp+gXkZJJLukkiIutKCUQVguoZWsBtAL75xoktkFNZp0pRibRitCN08BVp6p3k0fZdqIWB
-	osH/w6nA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWqo1-00000007H2T-2lLi;
-	Wed, 02 Jul 2025 06:18:55 +0000
+	id 1uWqp1-00000007O54-1VqA;
+	Wed, 02 Jul 2025 06:19:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A429545EAA;
-	Wed,  2 Jul 2025 06:18:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 785A5C4CEEE;
-	Wed,  2 Jul 2025 06:18:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E73D743801;
+	Wed,  2 Jul 2025 06:19:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9D16C4CEEE;
+	Wed,  2 Jul 2025 06:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751437129;
-	bh=7Dap5Kr9JrVWd5RcwGXtfLjL+/ToP513+Z/kw+YoSIo=;
+	s=k20201202; t=1751437194;
+	bh=7J60+zVksf9MlpQmFb5tV0sD7s6ix4Xm9LkP9vOLFYs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i5Y6uk0NIEQlDGTNdzumCvd4l04wWXsYs6izEJoOy+J1AbzEC+0S02WaRChyBhkbX
-	 HdxuMDV/RmLkKVsjkiLm1flkjX1BBf7INHtKtLHETsd7IPmHHAkoXk/L1rxL3jbMSR
-	 iR2J1HJspvuqerbvnb+C6iLpD0MJAeWPlH/eW0n/nzTuTo8WJqTMwcZXdo/7ECrfYG
-	 bVRJ0BOosRYKbyRcYhRSM5kGoz4VFai72iSODP3RCgDO4VHxiHAQO6AIg/o06ODB6B
-	 qng7AU1Kzf9ICJDhz6pbl/ZaiUW/L0ngpxOnwEsC8EfR44v5rDXBQ6W0wDlsilyP7g
-	 ORFztZZhUOsrQ==
-Message-ID: <b741e3fc-1376-4498-92e7-4e366f28f8ec@kernel.org>
-Date: Wed, 2 Jul 2025 08:18:42 +0200
+	b=qVHE5Rn18duW8l4rJ008AuHA8pZIMIl1bQyyApaqXMg9NBkI1g5qWVhybE+UmfNcG
+	 u8sw843f+hYiXWNA3I7e+zZDL34+xI1flV+svWHXkXA3icRma1+RxbiaG3tBsBaJiR
+	 FR+YQeo/H41WvH6qO9fP6HU1E1xgJw5Pg1Fzsu/sJOazg8NYvb2wmRCUQ6RgnhLTL5
+	 N+rKqbsHAHyeE318Zzpvv8sDsa6E95Me2s35/pYqshd7L6PvEzdYQhjs5PEf1v86Ib
+	 ATpq2pEysMTrwyCe6FoFKteqA9Usbu7FkCXRXAJOxAYlCUS7RmZz2G50uNi53ksVDE
+	 xIwg8LM8BLRQg==
+Message-ID: <949da0e0-258a-4f59-a6b5-338ab876cec1@kernel.org>
+Date: Wed, 2 Jul 2025 08:19:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 04/10] dt-bindings: gpio: cdns: add Axiado AX3000 GPIO
- variant
+Subject: Re: [PATCH v4 05/10] dt-bindings: serial: cdns: add Axiado AX3000
+ UART controller
 To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
@@ -76,7 +62,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  soc@lists.linux.dev, linux-serial@vger.kernel.org,
  linux-i3c@lists.infradead.org
 References: <20250701-axiado-ax3000-soc-and-evaluation-board-support-v4-0-11ba6f62bf86@axiado.com>
- <20250701-axiado-ax3000-soc-and-evaluation-board-support-v4-4-11ba6f62bf86@axiado.com>
+ <20250701-axiado-ax3000-soc-and-evaluation-board-support-v4-5-11ba6f62bf86@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -122,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250701-axiado-ax3000-soc-and-evaluation-board-support-v4-4-11ba6f62bf86@axiado.com>
+In-Reply-To: <20250701-axiado-ax3000-soc-and-evaluation-board-support-v4-5-11ba6f62bf86@axiado.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_071854_151031_C111ED2A 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20250701_231955_445109_2B004BAC 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,40 +129,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 01/07/2025 22:27, Harshit Shah wrote:
-> Add binding for Axiado AX3000 GPIO controller. So far, no changes
-> are known, so it can fallback to default compatible.
+> Add binding for AX3000 UART controller. So far, no changes known,
+> so it can fallback to default compatible.
 > 
 > Signed-off-by: Harshit Shah <hshah@axiado.com>
 > ---
->  Documentation/devicetree/bindings/gpio/cdns,gpio.yaml | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
+>  Documentation/devicetree/bindings/serial/cdns,uart.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml b/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml
-> index f1a64c17366500cb0e02a0ca90da691fd992fe7d..16c311a252921ba65d2f9f1b34a07a4a940432f3 100644
-> --- a/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml
-> @@ -11,7 +11,13 @@ maintainers:
->  
->  properties:
->    compatible:
-> -    const: cdns,gpio-r1p02
-> +    oneOf:
-> +      - description: Cadence GPIO controller
-> +        const: cdns,gpio-r1p02
-> +      - description: Axiado AX3000 GPIO controller
-
-Drop both descriptions, obvious.
-
+> diff --git a/Documentation/devicetree/bindings/serial/cdns,uart.yaml b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
+> index d7f047b0bf24c444e2d81e0156fb01a89207ee2a..4c8b4953c3f32ed46996accd0e1caf6e0d7cc251 100644
+> --- a/Documentation/devicetree/bindings/serial/cdns,uart.yaml
+> +++ b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
+> @@ -20,6 +20,10 @@ properties:
+>          items:
+>            - const: xlnx,zynqmp-uart
+>            - const: cdns,uart-r1p12
+> +      - description: UART controller for Axiado AX3000 SoC
 > +        items:
-> +          - const: axiado,ax3000-gpio
+> +          - const: axiado,ax3000-uart
 
-This should be enum, it will grow.
+Not ordered a < x, but anyway this should be part of previous entry as
+an enum (and you can drop descriptions, they are redundant and not helpful).
 
-> +          - const: cdns,gpio-r1p02
+> +          - const: cdns,uart-r1p12
 >  
->    reg:
->      maxItems: 1
-> 
+
 
 
 Best regards,
