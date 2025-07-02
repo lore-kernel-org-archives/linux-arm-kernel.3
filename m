@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB2BC83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EE1C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H//zs/SGlHTwFgjneb586KPEfZCC73lRKW26G4B/bNw=; b=qPfWDdPtod0g71q72HfqgLr4so
-	0CU+5k4jAKz9RJJMvDviyLcEtHKFJ/58fFf0SVkTA7G+OzQ4VLYxT7g1mAJ0UVdxTy16ZedRFSiS1
-	KO7kaTlhH77LI7eDFW/IyZPbVP3aJZRCxR67h7bm5iJLy3Yl9a3ZbVgNVbYtyFSVwSwD+MA5AuzyS
-	MIEUk9XGiBtuIdY8OPHSWvfmk1YLjwtdRaoKKaFPgv6W9pHYnmcHhjOC8SRJhajp2L056QBs0/R2o
-	CWGoJq6H/fMU4vLWgml4lTBMh7Ba4NWO7VLNTvenFX7VAhyNfuWqbbNemP4jJWk6pzhUkdVOcoVyS
-	xJRVGIAQ==;
+	bh=nLVG3SX52DlefiwDjns2adr70Tf1dqx00lt8nOWy2eE=; b=Esh/umYAScAtrj/SyETWqYpwGH
+	z4ioGfEnSoQH3SO/J5b1HMqgDZkIU2Q8OQXSBiaiLZCR5+PoQmuNxACKUOtSw80svzwKNqu8VJLZN
+	HF/OlWbjW/+G9Isk1hLsj4ouZYkoqGlNrBPnzIymTf0hwQ3emVukIo/t174mA35NdfBy4K5P6xNpO
+	agD7Gb5wu9YEePl4ENaSqskE77vvCNCzUXyrwNfrytZhnfHGjZojP+ZVxWfQKophpZv+jD3tYbiVP
+	QMM8w8TAYj708seUi+MWsZIKIReuyB7w9iaEM2jW3xTSNn3YpllqGG+W2eRhOklAPos3nvNELmsO3
+	Q5GUbytA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWwqN-00000008LXE-47yV;
-	Wed, 02 Jul 2025 12:45:43 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1uWwtJ-00000008Mz1-02l6;
+	Wed, 02 Jul 2025 12:48:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWwEu-00000008Fcn-1AuO
+	id 1uWwqx-00000008M8g-20wq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 12:07:01 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-70e5e6ab7b8so62696587b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 05:06:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751458019; x=1752062819; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=H//zs/SGlHTwFgjneb586KPEfZCC73lRKW26G4B/bNw=;
-        b=Egn4ci7PxI3z6JffViMD9r3vubDkYnrTsSrWR+9nOeJnXbIhr2YfqanFpNnkI/ZBkQ
-         sp7NLMd2GEKrO4OLRCcPPTYFInVW/gWQtE8aL3v+a6ecsMfkQk6edYRf1epMeXIQNmBo
-         bREjucRL0WEbV8g0QfOJXveELGHMDWtegkyCcKrlfPbNRTxlpaylgeU1XOjHfTwq8dae
-         giZdhDnz69WW5mmmyUMz/Ztwrv5RmykT2ZjMmdEWqrshGwWqtKap5Sorv0kjQ/bo2CUx
-         1kpBqKaYqtWupJ9bUFcIEBMnAT1uQ0ZYQenigKH96cQHAcjvrO06+FGppIS4kIn4cWaI
-         GlnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751458019; x=1752062819;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=H//zs/SGlHTwFgjneb586KPEfZCC73lRKW26G4B/bNw=;
-        b=UxAzU+IgtbtGkTeoaUtori5Xfg5Ku4QIFhHWPV1GbhdtLQXhjL/yF7/WV4vpMOQ499
-         qhY5BcG08LSZs1h/eEYI31pZfcysImopwswn3GHuki/zxqh9kW08ZzgCS8mQqOwLiZ9/
-         LL/Grb4zQfa9aYosuHEE1fV5vhwLcFL8dmWmnQBa+tjjHOE2mplGHIU0Fseu6bQ+9SxB
-         JZpn90IPHQOmGsmsq7HPBPmDHPSRtwMJoZ71pyG2TqAXbmzoMNemQEqC1FaKjfpf3OQd
-         tvSvF0AAPUht+XeGtkjv/6MjiVsFsmPHIVbI2eFZ8wph9txGw7asIh7dkE4mLoeQeWBb
-         QG7A==
-X-Forwarded-Encrypted: i=1; AJvYcCXS7pNnx+OlF54ygZbkikNoWNSXl+4fG465bx6R+3TkjSIGcc4DDKL6fvxMI7LV/Wa7MyRiALPaX4YjSYoUITGw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpeH0nBE6dJo4K2VhtjtWMYtLF6QD2ae+7SPvcPj6hZdkxu8Bh
-	jL2oHV4qEfgyvijwiB1BxMbmNqhyM1thIr7sOW2jsFwohoymzoXaBLTKR+sUedoJi4eNp4esSxi
-	QIwkpOARjVU+4FFupXCKKfvP07uZ5yUtLQZzFoKKVVg==
-X-Gm-Gg: ASbGncsgIEdRKs1WktdStzWvfBqaOF48AGNv/q+LeG44210O8in909MVk+1B1UlVaOX
-	layI6oMcLY3svjnIHcnC/hpUCpF+cS2bIkGwSbuZ3wrf1PUaWj7CgpGYox+nCWoSs4ChGsSZqWU
-	dB3V4Rtij4RyZd/sSsYBBNqziVt1sU5tcNQi2UaW8i7q5L
-X-Google-Smtp-Source: AGHT+IHvy4ot4cVEUqJ9OPaKV3B11/w9tqUUihTLRsxteLbI5hVPVLYtxESKS56YJ2QmEc+ggte5xRAak7cDxYT6glw=
-X-Received: by 2002:a05:690c:6305:b0:70e:7638:a3a9 with SMTP id
- 00721157ae682-7164d54935amr34553827b3.18.1751458018380; Wed, 02 Jul 2025
- 05:06:58 -0700 (PDT)
+	Wed, 02 Jul 2025 12:46:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D224613AA;
+	Wed,  2 Jul 2025 12:46:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59500C4CEED;
+	Wed,  2 Jul 2025 12:46:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751460378;
+	bh=xNQPpZ20lOA6x5uCrJooB3aWOdhA2rmyyeDbQ7gnXko=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mNR7wl67fUJ2fLWJnrx1eA6CYJm6IV4JftZYI+XEmFVsz7lMGCEwGdCC5HQJKSL+P
+	 WbmtKE5A2VC1USq0Zsu02x7JgMEDqI3gACbYL4GUNmkzSQNkm5l7OettVTB8PxH4jg
+	 j1YwlRsQiXVoIOgLo/OtOkw1wX8jRCEMXx6p9WelxYiMLV42sQIdcs8glj9kFFvMVI
+	 pqRPtMWSLgSw3hdmoOxX3X5LUSuHyDDW/0aBNru7JFTLVe7mTzPYNj4vyBOXlR4TI7
+	 GObGd74Oiz8VsftLMHHvCOJqdJSHHn8DOzxIFepQJmodlbIv0Q7gdZkSD544yKhGl/
+	 DnCgvewI3yFFQ==
+Date: Wed, 2 Jul 2025 14:46:10 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
+Subject: Re: [PATCH v6 20/31] irqchip/gic-v5: Add GICv5 PPI support
+Message-ID: <aGUqEkascwGFD9x+@lpieralisi>
+References: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
+ <20250626-gicv5-host-v6-20-48e046af4642@kernel.org>
+ <20250702124019.00006b01@huawei.com>
 MIME-Version: 1.0
-References: <20250627204821.1150459-1-k-willis@ti.com> <20250627204821.1150459-3-k-willis@ti.com>
-In-Reply-To: <20250627204821.1150459-3-k-willis@ti.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 2 Jul 2025 14:06:22 +0200
-X-Gm-Features: Ac12FXwakGRpH39p6UXOySAygWsMTsisIa17xEeHOgmtuD9NMJOQScXlVEjSnu0
-Message-ID: <CAPDyKForKeb=uTkOXWcJea-P9c+7wQ3ZRWFYpTXk=xLoQPsQaw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] pmdomain: ti_sci: Add LPM abort sequence to suspend path
-To: Kendall Willis <k-willis@ti.com>
-Cc: nm@ti.com, kristo@kernel.org, ssantosh@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, d-gole@ti.com, vishalm@ti.com, sebin.francis@ti.com, 
-	msp@baylibre.com, khilman@baylibre.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_050700_319412_18033B63 
-X-CRM114-Status: GOOD (  28.83  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250702124019.00006b01@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,115 +83,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Jun 2025 at 22:49, Kendall Willis <k-willis@ti.com> wrote:
->
-> Create ->suspend_late() and ->suspend_noirq() hooks to add abort sequence
-> to any driver within the PM domain with either of those hooks. If a driver
-> fails to suspend with those hooks, add a call to the DM to abort entering
-> the LPM. The suspend hooks of the PM domains driver inserts itself into
-> the suspend path of all devices connected to the TI SCI PM domain. So if
-> any device in the PM domain with either a ->suspend_late() or
-> ->suspend_noirq hook fails to suspend, the PM domain drivers suspend hook
-> will send the abort call to the DM.
->
-> Adding an abort call in the ->suspend() hook is not necessary. TI SCI
-> suspend sends the message to the DM to prepare to enter a low power mode.
-> TI SCI suspend ALWAYS occurs after the ->suspend() hook for all TI SCI
-> devices has been called.
->
-> Signed-off-by: Kendall Willis <k-willis@ti.com>
-> ---
->  drivers/pmdomain/ti/ti_sci_pm_domains.c | 46 ++++++++++++++++++++++++-
->  1 file changed, 45 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-> index 82df7e44250bb..975defc16271d 100644
-> --- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
-> +++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-> @@ -2,7 +2,7 @@
->  /*
->   * TI SCI Generic Power Domain Driver
->   *
-> - * Copyright (C) 2015-2017 Texas Instruments Incorporated - http://www.ti.com/
-> + * Copyright (C) 2015-2025 Texas Instruments Incorporated - http://www.ti.com/
->   *     J Keerthy <j-keerthy@ti.com>
->   *     Dave Gerlach <d-gerlach@ti.com>
->   */
-> @@ -149,8 +149,47 @@ static int ti_sci_pd_suspend(struct device *dev)
->
->         return 0;
->  }
-> +
-> +static int ti_sci_pd_suspend_late(struct device *dev)
-> +{
-> +       struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
-> +       struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
-> +       const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
-> +       int ret;
-> +
-> +       ret = pm_generic_suspend_late(dev);
-> +       if (ret) {
-> +               dev_err(dev, "%s: Failed to suspend. Abort entering low power mode.\n", __func__);
-> +               if (ti_sci->ops.pm_ops.lpm_abort(ti_sci))
-> +                       dev_err(dev, "%s: Failed to abort.\n", __func__);
-> +               return ret;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static int ti_sci_pd_suspend_noirq(struct device *dev)
-> +{
-> +       struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
-> +       struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
-> +       const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
-> +       int ret;
-> +
-> +       ret = pm_generic_suspend_noirq(dev);
-> +       if (ret) {
-> +               dev_err(dev, "%s: Failed to suspend. Abort entering low power mode.\n", __func__);
-> +               if (ti_sci->ops.pm_ops.lpm_abort(ti_sci))
-> +                       dev_err(dev, "%s: Failed to abort.\n", __func__);
-> +               return ret;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
->  #else
->  #define ti_sci_pd_suspend              NULL
-> +#define ti_sci_pd_suspend_late         NULL
-> +#define ti_sci_pd_suspend_noirq                NULL
->  #endif
->
->  /*
-> @@ -264,6 +303,11 @@ static int ti_sci_pm_domain_probe(struct platform_device *pdev)
->                                     pd_provider->ti_sci->ops.pm_ops.set_latency_constraint)
->                                         pd->pd.domain.ops.suspend = ti_sci_pd_suspend;
->
-> +                               if (pd_provider->ti_sci->ops.pm_ops.lpm_abort) {
-> +                                       pd->pd.domain.ops.suspend_late = ti_sci_pd_suspend_late;
-> +                                       pd->pd.domain.ops.suspend_noirq = ti_sci_pd_suspend_noirq;
+On Wed, Jul 02, 2025 at 12:40:19PM +0100, Jonathan Cameron wrote:
+> On Thu, 26 Jun 2025 12:26:11 +0200
+> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> > The GICv5 CPU interface implements support for PE-Private Peripheral
+> > Interrupts (PPI), that are handled (enabled/prioritized/delivered)
+> > entirely within the CPU interface hardware.
+> 
+> I can't remember where I got to last time so if I repeat stuff that
+> you already responded to, feel free to just ignore me this time ;)
+> 
+> All superficial stuff. Feel free to completely ignore if you like.
 
-This doesn't work as pm_genpd_init() is assigning the
-->suspend_noirq() callback, hence overriding the callback.
+We are at v6.16-rc4, series has been on the lists for 3 months, it has
+been reviewed and we would like to get it into v6.17 if possible and
+deemed reasonable, I am asking you folks please, what should I do ?
 
-Moreover I am not sure this is the correct thing to do, as having your
-own ->suspend_noirq() callback would mean that you will be by-passing
-genpd's internal reference counting to understand when it's fine to
-power-off the PM domain, vi a the ->power_off() callback.
+I can send a v7 with the changes requested below (no bug fixes there)
+- it is fine by me - but I need to know please asap if we have a
+plan to get this upstream this cycle.
 
-Can the LPM abort be handled from a ->complete() callback instead?
+Thanks,
+Lorenzo
 
-> +                               }
-> +
->                                 pm_genpd_init(&pd->pd, NULL, true);
->
->                                 list_add(&pd->node, &pd_provider->pd_list);
-> --
-> 2.34.1
->
-
-Kind regards
-Uffe
+> > diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> > new file mode 100644
+> > index 000000000000..a08daa562d21
+> > --- /dev/null
+> > +++ b/drivers/irqchip/irq-gic-v5.c
+> > @@ -0,0 +1,461 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Copyright (C) 2024-2025 ARM Limited, All Rights Reserved.
+> > + */
+> > +
+> > +#define pr_fmt(fmt)	"GICv5: " fmt
+> > +
+> > +#include <linux/irqdomain.h>
+> > +#include <linux/wordpart.h>
+> > +
+> > +#include <linux/irqchip.h>
+> > +#include <linux/irqchip/arm-gic-v5.h>
+> > +
+> > +#include <asm/cpufeature.h>
+> > +#include <asm/exception.h>
+> > +
+> > +static u8 pri_bits __ro_after_init = 5;
+> > +
+> > +#define GICV5_IRQ_PRI_MASK	0x1f
+> > +#define GICV5_IRQ_PRI_MI	(GICV5_IRQ_PRI_MASK & GENMASK(4, 5 - pri_bits))
+> > +
+> > +#define PPI_NR	128
+> > +
+> > +static bool gicv5_cpuif_has_gcie(void)
+> > +{
+> > +	return this_cpu_has_cap(ARM64_HAS_GICV5_CPUIF);
+> > +}
+> > +
+> > +struct gicv5_chip_data {
+> > +	struct fwnode_handle	*fwnode;
+> > +	struct irq_domain	*ppi_domain;
+> > +};
+> > +
+> > +static struct gicv5_chip_data gicv5_global_data __read_mostly;
+> 
+> > +static void gicv5_hwirq_eoi(u32 hwirq_id, u8 hwirq_type)
+> > +{
+> > +	u64 cddi = hwirq_id | FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, hwirq_type);
+> 
+> Slight preference for not needing to care where hwirq_id goes in CDDI or how big
+> it is (other than when I checked the header defines).
+>  
+> 	u64 cddi = FIELD_PREP(GICV5_GIC_CDDI_ID_MASK, hwirq_id) |
+>         	   FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, hwirq_type);
+> 
+> 
+> > +
+> > +	gic_insn(cddi, CDDI);
+> > +
+> > +	gic_insn(0, CDEOI);
+> > +}
+> 
+> > +static int gicv5_ppi_irq_get_irqchip_state(struct irq_data *d,
+> > +					   enum irqchip_irq_state which,
+> > +					   bool *state)
+> > +{
+> > +	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
+> > +
+> > +	switch (which) {
+> > +	case IRQCHIP_STATE_PENDING:
+> > +		*state = !!(read_ppi_sysreg_s(d->hwirq, PPI_PENDING) & hwirq_id_bit);
+> 
+> Technically don't need the !! but if you really like it I don't mind that much.
+> 
+> > +		return 0;
+> > +	case IRQCHIP_STATE_ACTIVE:
+> > +		*state = !!(read_ppi_sysreg_s(d->hwirq, PPI_ACTIVE) & hwirq_id_bit);
+> > +		return 0;
+> > +	default:
+> > +		pr_debug("Unexpected PPI irqchip state\n");
+> > +		return -EINVAL;
+> > +	}
+> > +}
+> 
+> 
+> > +static int gicv5_irq_ppi_domain_translate(struct irq_domain *d,
+> > +					  struct irq_fwspec *fwspec,
+> > +					  irq_hw_number_t *hwirq,
+> > +					  unsigned int *type)
+> > +{
+> > +	if (!is_of_node(fwspec->fwnode))
+> > +		return -EINVAL;
+> > +
+> > +	if (fwspec->param_count < 3)
+> 
+> I don't care that much, but could relax this seeing as fwspec->param[2]
+> isn't used anyway? Maybe a tiny comment on why it matters?
+> 
+> > +		return -EINVAL;
+> > +
+> > +	if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI)
+> > +		return -EINVAL;
+> > +
+> > +	*hwirq = fwspec->param[1];
+> > +
+> > +	/*
+> > +	 * Handling mode is hardcoded for PPIs, set the type using
+> > +	 * HW reported value.
+> > +	 */
+> > +	*type = gicv5_ppi_irq_is_level(*hwirq) ? IRQ_TYPE_LEVEL_LOW : IRQ_TYPE_EDGE_RISING;
+> > +
+> > +	return 0;
+> 
+> 
+> > +static int __init gicv5_of_init(struct device_node *node, struct device_node *parent)
+> > +{
+> > +	int ret = gicv5_init_domains(of_fwnode_handle(node));
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	gicv5_set_cpuif_pribits();
+> > +
+> > +	ret = gicv5_starting_cpu(smp_processor_id());
+> > +	if (ret)
+> > +		goto out_dom;
+> > +
+> > +	ret = set_handle_irq(gicv5_handle_irq);
+> > +	if (ret)
+> > +		goto out_int;
+> > +
+> > +	return 0;
+> > +
+> > +out_int:
+> > +	gicv5_cpu_disable_interrupts();
+> > +out_dom:
+> > +	gicv5_free_domains();
+> 
+> Naming is always tricky but I'd not really expect gicv5_free_domains() as the
+> pair of gicv5_init_domains() (which is doing creation rather than just initializing).
+> 
+> Ah well, names are never prefect and I don't really mind.
+> 
+> > +
+> > +	return ret;
+> > +}
+> > +IRQCHIP_DECLARE(gic_v5, "arm,gic-v5", gicv5_of_init);
+> 
 
