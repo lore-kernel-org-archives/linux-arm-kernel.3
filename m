@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E02EC83F04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 15:23:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C24DC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 15:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ldaj61ICtdAuZIBPqJMGQlr4qlRCiLzbz1jlBOmZ3zU=; b=qGMNz4ti0EBPfqf3HavChqhlPF
-	kYGe1bXVvhUhCtYjw2kfuCXFTyhoMfOX4ciwubEm9Ea9s2RsOzlUAKb9s4WvT+x4Eoi2nyjlOHnwd
-	Gfn+JmyrStWHGtRpE1VlWSWP10LbJFyHVp3jvWbWp8tCMkt8rTPAk33AwjbJpX5snLdnnmtr/FEYW
-	zk/BiTVCXoJ1pehiczXEv88QYG5iRYsTWyR2t6mu0V3Cn1vpkDnp1kUUSojrOTncU8PMN/yU9n/HD
-	SfVKdcOIV0EK8udS76OFB8NS8wY3qd2xQD/a6gKfDr0ShXurYXfmFYzhpoi4A7/8Ln26V3wt2ra9a
-	h7Ai5ApA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rlCe3G3gNpw+dy14NvvU3l9a5Cgq9Bj8hdz/dmjm3X8=; b=uxNzpujFlbUfjGfgRUTAvdbXd3
+	c3PyAvqfZQkJZXDZ0WWp63Vnf9oDgNpnwoaJE0zUZEAwj/YvUyaM6Sb50JWPZzvLrRZofjY56tAAZ
+	qa1Vj1nSjkVpezx5Ej2fjosLVfuf+JYnn1mcXMp60Eu1UF/CLycwSo4/+bBQk46cMcJh7eFkdwux1
+	9mCSXuYMQE47XD/pWKJZYVgi2eiq58PEYHtQEbiXVsVrVXpIMkJ/RwzgiG7m2ZF6Hj9oIcjNjgETQ
+	EeDdhCFNvjcWl6ak8HFB4+hzZyw6d3EVg5+45AQG4UdmujfVzSOq2x/m+ZSQhkVHgaZws2wIvwgo7
+	oJ/Pd4ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWzJ7-00000008m8k-0sc3;
-	Wed, 02 Jul 2025 15:23:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uWzLQ-00000008mah-3weH;
+	Wed, 02 Jul 2025 15:25:56 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWyMs-00000008cWy-2rz9
+	id 1uWyRk-00000008d4v-2Wsr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 14:23:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B69F43A32;
-	Wed,  2 Jul 2025 14:23:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C58D3C4CEE7;
-	Wed,  2 Jul 2025 14:23:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751466202;
-	bh=5xTRH5PYEaVJDARbqaeq3IhfaSjFqnrZPJsVGBRmnt4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pArD1O/UwmfYrZAe86RreErEXF52+qIoEnoLQU+hhAnMWuOcAdFOjloPWrEtrBCQp
-	 zZFb4YLZgiZ0Vq61POcF7jZO5M6NOYR09ft1QIklWZ2Lt9V/ArhZvehN6kUlEkmG/e
-	 FqQPia48H7N82vy/1DxdNXZxxWYBRHLtT+ugmfLObCSkX4GNgdFEtI2goRT+d33D1Y
-	 s+DZwh25hMpiMJLY4JkPC2tolt/w8gZ70iPpusFawKxfxyMYk+tIUeLwla7k/0LmiH
-	 1OQnMwqguOdfdJ2pJ12fatyR0PxKX6u06jUN493EpHj0sFho/EPhpN/tdLK8SpZlaD
-	 xmlA1VGo+dBag==
-Date: Wed, 2 Jul 2025 09:23:21 -0500
-From: Rob Herring <robh@kernel.org>
-To: Albert Yang <yangzh0906@thundersoft.com>
-Cc: krzk+dt@kernel.org, krzk@kernel.org, conor+dt@kernel.org,
-	gordon.ge@bst.ai, catalin.marinas@arm.com,
-	geert.uytterhoeven@gmail.com, will@kernel.org,
-	ulf.hansson@linaro.org, adrian.hunter@intel.com, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-mmc@vger.kernel.org,
-	soc@lists.linux.dev, bst-upstream@bstai.top,
-	neil.armstrong@linaro.org, jonathan.cameron@huawei.com,
-	bigfoot@classfun.cn, kever.yang@rock-chips.com, mani@kernel.org,
-	geert+renesas@glider.be, andersson@kernel.org, nm@ti.com,
-	nfraprado@collabora.com, quic_tdas@quicinc.com, ebiggers@google.com,
-	victor.shih@genesyslogic.com.tw, shanchun1218@gmail.com,
-	ben.chuang@genesyslogic.com.tw
-Subject: Re: [PATCH v2 4/8] dt-bindings: mmc: add binding for BST DWCMSHC
- SDHCI controller
-Message-ID: <20250702142321.GA1462423-robh@kernel.org>
-References: <20250528085403.481055-1-yangzh0906@thundersoft.com>
- <20250702094444.3523973-1-yangzh0906@thundersoft.com>
- <20250702094444.3523973-5-yangzh0906@thundersoft.com>
+	Wed, 02 Jul 2025 14:28:26 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bXMfy4N74z6M4tS;
+	Wed,  2 Jul 2025 22:27:22 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 53C1F1402EA;
+	Wed,  2 Jul 2025 22:28:18 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 2 Jul
+ 2025 16:28:17 +0200
+Date: Wed, 2 Jul 2025 15:28:16 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
+	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+	<tglx@linutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH v2 1/5] irqchip/gic-v5: Skip deactivate for forwarded
+ PPI interrupts
+Message-ID: <20250702152816.000010da@huawei.com>
+In-Reply-To: <20250627100847.1022515-2-sascha.bischoff@arm.com>
+References: <20250627100847.1022515-1-sascha.bischoff@arm.com>
+	<20250627100847.1022515-2-sascha.bischoff@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250702094444.3523973-5-yangzh0906@thundersoft.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_072322_763392_86F610DD 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20250702_072824_931176_2C4765AF 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,120 +80,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 02, 2025 at 05:44:40PM +0800, Albert Yang wrote:
-> Add device tree binding documentation for the Black Sesame Technologies
-> (BST) DWCMSHC SDHCI controller.
+On Fri, 27 Jun 2025 10:09:01 +0000
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+
+> If a PPI interrupt is forwarded to a guest, skip the deactivate and
+> only EOI. Rely on the guest deactivating both the virtual and physical
+> interrupts (due to ICH_LRx_EL2.HW being set) later on as part of
+> handling the injected interrupt. This mimics the behaviour seen on
+> native GICv3.
 > 
-> This binding describes the required and optional properties for the
-> bst,dwcmshc-sdhci compatible controller, including register layout,
-> interrupts, bus width, clock configuration, and other controller-specific
-> features.
+> This is part of adding support for the GICv3 compatibility mode on a
+> GICv5 host.
 > 
+> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> 
+
+Trivial but no gaps in tag blocks.  So no blank line here.
+Some scripting will moan about this and I think that will hit you if
+this goes into linux next.
+
+> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 > ---
-> Changes for v2:
-> - Simplified description, removed redundant paragraphs
-> - Updated $schema to reference mmc-specific scheme
-> - Corrected compatible to add soc name
-> (bst,c1200-dwcmshc-sdhci)
-> - Removed all redundant property descriptions
-> - Dropped invalid mmc_crm_base/size properties, use reg for all address
-> ranges
-> - Cleaned up required properties to only essential entries
-> - Standardized example DTS format, fixed reg syntax and property
-> ordering
-> - Removed additionalProperties: true
+>  drivers/irqchip/irq-gic-v5.c | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
 > 
-> Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
-> Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
-> ---
->  .../bindings/mmc/bst,dwcmshc-sdhci.yaml       | 67 +++++++++++++++++++
->  1 file changed, 67 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mmc/bst,dwcmshc-sdhci.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/mmc/bst,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/bst,dwcmshc-sdhci.yaml
-> new file mode 100644
-> index 000000000000..699dc404caac
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mmc/bst,dwcmshc-sdhci.yaml
-> @@ -0,0 +1,67 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mmc/bst,dwcmshc-sdhci.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> index 7a11521eeeca..6b42c4af5c79 100644
+> --- a/drivers/irqchip/irq-gic-v5.c
+> +++ b/drivers/irqchip/irq-gic-v5.c
+> @@ -213,6 +213,12 @@ static void gicv5_hwirq_eoi(u32 hwirq_id, u8 hwirq_type)
+>  
+>  static void gicv5_ppi_irq_eoi(struct irq_data *d)
+>  {
+> +	/* Skip deactivate for forwarded PPI interrupts */
+> +	if (irqd_is_forwarded_to_vcpu(d)) {
+> +		gic_insn(0, CDEOI);
+> +		return;
+> +	}
 > +
-> +title: Black Sesame Technologies DWCMSHC SDHCI Controller
+>  	gicv5_hwirq_eoi(d->hwirq, GICV5_HWIRQ_TYPE_PPI);
+>  }
+>  
+> @@ -494,6 +500,16 @@ static bool gicv5_ppi_irq_is_level(irq_hw_number_t hwirq)
+>  	return !!(read_ppi_sysreg_s(hwirq, PPI_HM) & bit);
+>  }
+>  
+> +static int gicv5_ppi_irq_set_vcpu_affinity(struct irq_data *d, void *vcpu)
+> +{
+> +	if (vcpu)
+> +		irqd_set_forwarded_to_vcpu(d);
+> +	else
+> +		irqd_clr_forwarded_to_vcpu(d);
 > +
-> +maintainers:
-> +  - Ge Gordon <gordon.ge@bst.ai>
+> +	return 0;
+> +}
 > +
-> +allOf:
-> +  - $ref: mmc-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: bst,c1200-dwcmshc-sdhci
-> +
-> +  reg:
-> +    maxItems: 2
-> +    description: |
-> +      Register base addresses and sizes for the SDHCI controller.
-> +      First entry is the core SDHCI registers, second entry is the
-> +      CRM registers.
+>  static const struct irq_chip gicv5_ppi_irq_chip = {
+>  	.name			= "GICv5-PPI",
+>  	.irq_mask		= gicv5_ppi_irq_mask,
+> @@ -501,6 +517,7 @@ static const struct irq_chip gicv5_ppi_irq_chip = {
+>  	.irq_eoi		= gicv5_ppi_irq_eoi,
+>  	.irq_get_irqchip_state	= gicv5_ppi_irq_get_irqchip_state,
+>  	.irq_set_irqchip_state	= gicv5_ppi_irq_set_irqchip_state,
+> +	.irq_set_vcpu_affinity	= gicv5_ppi_irq_set_vcpu_affinity,
+>  	.flags			= IRQCHIP_SKIP_SET_WAKE	  |
+>  				  IRQCHIP_MASK_ON_SUSPEND,
+>  };
 
-items:
-  - description: Core SDHCI registers
-  - description: CRM registers
-
-Though what CRM is should be defined.
-
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    items:
-> +      - const: core
-> +
-> +  memory-region:
-> +    maxItems: 1
-> +
-> +  dma-coherent: true
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    mmc@22200000 {
-> +        compatible = "bst,c1200-dwcmshc-sdhci";
-> +        reg = <0x0 0x22200000 0x0 0x1000>,
-> +              <0x0 0x23006000 0x0 0x1000>;
-> +        interrupts = <GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&clk_mmc>;
-> +        clock-names = "core";
-> +        memory-region = <&mmc0_reserved>;
-> +        max-frequency = <200000000>;
-> +        bus-width = <8>;
-> +        non-removable;
-> +        dma-coherent;
-> +        status = "disabled";
-
-Examples should be enabled. Drop.
-
-> +    };
-> -- 
-> 2.25.1
-> 
 
