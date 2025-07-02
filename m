@@ -4,59 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25361C83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 06:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 093DEC83013
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 06:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d4UNEwrf7ydxg6GFqVnswz7L12jVLWkkm1QSiXm2rm4=; b=bRnko0kBGosMAbpb9nPjeiSFjb
-	FwgRbzQIzkfbqm8pk/rSAHh9iM+Gm0oyQaPcXSjGbbmnwMiJv3tSxCJ+jiO3uCUQf2/16ttNuZY9o
-	78A7XtS3J1u2tvOLKXj9qutkZGHIMlyDQIdTwTRQDqgRu9a5naPTWCOFhNIu44nvU/tb/cGnHbkzF
-	chAy6nhCi+f8XqH9EPAwhhFT/6Koz0VcouPL1X4x128Tp6PBULSMZCuTSDjOsWo9/1+GsnpOpvbWI
-	S7NQn0kQ+qmb4s7YnCmtuwv4mefW6kUJvkvP1mQXEgPtxzn3sKWmvhbHPwr50bTcVzVLkExVn0+q5
-	Fu69aO3Q==;
+	bh=iGCzzAW6qRRoEdkWo8qZcaO2uH9FofYsMX1X5KD4GEc=; b=1GDcBPJtYnYnv9G+ZVowZkaycG
+	sJe6asAgw4r5wOwwg1GMG3HowPlhwg63PzhQLFXcxY19Gdh9XO62mJdCkeORYAn53S98aqzVRnsAM
+	CsaCAN8neYaIc3M1yDfzKMMSXh9004QZDdcHToZWnA/k40dpQa3n5E9v1/iY5yMcyQVBAx2e4n/WG
+	nY9Fgrk4Xte3sJmqnAkl8qNbDVFnoox1ZBM8369ai8OOAALptNFIAAkIKqCXW162KsGWo9/T6XI+z
+	51TA02Ry0plUcjLx8VBOaKYCxSf0lZ7KErUO8wn7k21OkYf04v7tibsIXLnGIf0JAKjogyBV64r4I
+	wUdQaQjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWrFq-00000007RJX-1efP;
-	Wed, 02 Jul 2025 06:47:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWr9c-00000007Qe6-0MPX;
-	Wed, 02 Jul 2025 06:41:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=d4UNEwrf7ydxg6GFqVnswz7L12jVLWkkm1QSiXm2rm4=; b=o9NZsKWtLiMVO5JOR0AIelqCDT
-	/wc7H2kLVxce3Qk+yqSF4MGEJ3dUtFujPyY/8HclJUkyx6guVUfvjELtmMKgPmxvhSckDhk1/hrFy
-	NKILFnszdqJtm4fLglA3PVK2XfR3co+badpXGXvVCTsPhNM13HuqowwJkCVTpIKerSXBBOsN6KM1k
-	LzoOBcsRfJW9+KHTPqSbDbeQ9eaoC5WA5axPPsC2qbddK+Mb/rLZ+bzKbxFMgbloeNTbxs4l9ROML
-	Z55ct2eEd4xrLI8OVoytQTUxlrqvdmhZfJyLb9yPOPkliF0Zb0n/R1SpYnqjrGp+YXxwWPQe4oUU3
-	tkIjWI4Q==;
+	id 1uWrI9-00000007RYr-1xrd;
+	Wed, 02 Jul 2025 06:50:01 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWr9Y-00000007Hcc-2pNr;
-	Wed, 02 Jul 2025 06:41:11 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWrAh-00000007Ql0-3dq3;
+	Wed, 02 Jul 2025 06:42:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1BC6D5C51B4;
-	Wed,  2 Jul 2025 06:41:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DAA0C4CEEE;
-	Wed,  2 Jul 2025 06:41:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 274665C431C;
+	Wed,  2 Jul 2025 06:42:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77F39C4CEEE;
+	Wed,  2 Jul 2025 06:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751438466;
-	bh=58rHWvmguDNq7qyQ1jxM+RaoQiyWMC2whgv5J7yu51g=;
+	s=k20201202; t=1751438538;
+	bh=GnLnWpZBLWcU+Uo5nfmmedmOE25NXe70aO8oHDjb7cY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TFWydULaaB5+SW+m3JZvNMoczmvosf9eVBqiiUCVpM4cWXbYA9kFq/Wacnnbq9Z4s
-	 6fpPidjXtaPKdmR+VLVJBY31W4Ufxrhavrzl6A3RSGWVTMoIllDjkE789wVj9Inf34
-	 KstckRS2wtdrz3tDVkaORQSS6BrzVdOghCM59BPfefcldyRjoeLPsuqlohOcpi4VMQ
-	 UptO2TcHskCxLcIeA2F2gOXHMTr91r7C2Izrn6X1OxB/xlS8RFRngqhZlD+UEKyNC7
-	 UJULOkT6FjTkX73KFfnQ9/SwcyuDvLECZ5bkEzCcHS32W8csdG9M+mQUbbeqUYgd2t
-	 IloUGxwcS6jhw==
-Message-ID: <5d22829c-f807-4416-ab5a-87d210ade897@kernel.org>
-Date: Wed, 2 Jul 2025 08:40:59 +0200
+	b=O0RfQ+Jsg9ufLqonIBlzFzRQRuCZWd1Cbk3WygoWo8VWARzTgMcN4SoSV5lOUHfm+
+	 m9x+9j6vfuF2LOvzF6DphDyQHuV/uhX0mn7FQ5FQFW5s2vrYZtn7iQZDPFCI4NccqQ
+	 Ecdj9BAHpz9ZYVcjhhcwKVKsuesqYjWYHnQy//1uThJe5uv37HVecAQYedNWbwLs7G
+	 g7itH7GthVfPJnpxdDrlu+qVH3Mm48TODZ8dSSXkl4UETPYne4WXs9MrXTh1nb3UF5
+	 Ngm2sYgTpZsYFL5fNwHBXfHU2Iiy21nf1FKRyK5klQbr99W78A7ejQEV+zkbPNzFqc
+	 glSmimqLX1BNg==
+Message-ID: <f0c8c043-9c9d-427c-94a6-f46f6b7d0c50@kernel.org>
+Date: Wed, 2 Jul 2025 08:42:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 2/7] dt-bindings: soc: imx-blk-ctrl: add MIPI CSI2 dphy
@@ -127,8 +113,8 @@ In-Reply-To: <20250701-95_cam-v1-2-c5172bab387b@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_074109_311280_DFDB7D9D 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20250701_234219_999748_4D5E012F 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,65 +147,13 @@ On 02/07/2025 00:06, Frank Li wrote:
 > Plan use two steps to complete it
 > - add all camera related property and subnode
 > - add all display related property and subnode
-> ---
->  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 28 ++++++++++++++++++++++
->  1 file changed, 28 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> index b3554e7f9e76d..708cd00f2b896 100644
-> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> @@ -46,6 +46,34 @@ properties:
->        - const: csi
->        - const: dsi
->  
-> +  dphy-rx:
-> +    type: object
-> +    properties:
-> +      compatible:
-> +        enum:
-> +          - fsl,imx93-dphy-rx
-> +
-> +      clocks:
-> +        maxItems: 1
-> +
-> +      clock-names:
-> +        items:
-> +          - const: cfg
-> +
-> +      '#phy-cells':
-> +        const: 0
-> +
-> +      power-domains:
-> +        maxItems: 1
+And what was the comment there?
 
-This looks wrong. How a parent device can take one power domain and
-child take a different one? If that's the same, then it is redundant,
-because it is part of parent's power domain.
+"Binding is supposed to be complete. We have several examples when people
+added children one-by-one, everytime with different reasoning about
+child addressing."
 
-I have also some doubts about clock. Rarely syscon children have their
-own resources which would make this entire node redundant.
-
-Provide complete picture on this in commit msg.
-
-> +
-> +    required:
-> +      - compatible
-> +      - clocks
-> +      - clock-names
-> +      - '#phy-cells'
-> +
-> +    additionalProperties: false
-
-Please place it after type:.
-
-You also need to update the example.
-> +
->  required:
->    - compatible
->    - reg
-> 
-
+NAK. At least try to read previous discussion.
 
 Best regards,
 Krzysztof
