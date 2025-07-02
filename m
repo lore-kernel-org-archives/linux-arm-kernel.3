@@ -4,88 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88F71C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 04:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51C98C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 04:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dzSOjmVG/qviZa0J9qW06zNK9D7hAaYltgUrXMSHzgY=; b=kRqKoPhXPqRKgYLQso239/kJd8
-	O7tAlGbDI+oMxCduzCE/z88AxjCjcnMDl21m7Zw9tOdY/qipxdFHdv4Ws4oKg+VYjUYD2zXxPDGWJ
-	aXAfnDCdy+yLdceAuRX1PmHrB6/rUk7YRcr7Ng+BntTN7AnevG82TP253IYnTpWepKnR3bw0JS356
-	8yBT5WM6SVMZPdOTMDTwuqR7SbsTKe6gsggtrb3Tl6MTvO138Q4UhOarm1JUaYjFrYzpPvBhCOXZG
-	ToLVV6FlPFwZbWNr7lLRoSlxpY+Lgk39Xpnr7a+uxQ1L7xBLQwr9kQN5eFA+gt3hijNGZam+6iaCr
-	5ow5GW1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jifn7l85GTnSNDXQEy9tm8CcNDlCljJNuXKQNhoufn8=; b=fkSikljBJxf2tX
+	X4QN0Yy5v+Zy7Wv5BJPbTY727R3KF9Ma4qfeleu3/bAqkQPJFFx7e2g0x25SiLbXwGFnjEaP9FR+N
+	tyXc+Hao9LKcp5vXKSZK1NqWPbzJub3Tm0cKk5lOa5531L3/ENijQCXoPnaaw74Sa/RBawVVRGe2x
+	wG/p0Qk/6QCJCAf/vO3kEC/bJ/p+QWlgl6i0mQE+Vve9JnLl/s/Ej9M2iGbr+z/Jn4ai+EVEEmdvm
+	3Mm1eu7nCZHizU5MFRaETfTVMs/6RsKOOJwrwJFCRiTEt1KPVvmY3OOefcZ5Mfp3MMyNvczgsnPR9
+	sV3uVaJNNkMUp5Bee+LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWov4-00000007AwD-0tjz;
-	Wed, 02 Jul 2025 04:18:02 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1uWoxM-00000007B5B-0jGt;
+	Wed, 02 Jul 2025 04:20:24 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWosh-00000007ApH-414Y
+	id 1uWotl-00000007AtR-0hUb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 04:15:38 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250702041529epoutp025019ebff97042f4171acb711790fe5ce~OVA84tN-30825308253epoutp02E
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  2 Jul 2025 04:15:29 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250702041529epoutp025019ebff97042f4171acb711790fe5ce~OVA84tN-30825308253epoutp02E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1751429729;
-	bh=dzSOjmVG/qviZa0J9qW06zNK9D7hAaYltgUrXMSHzgY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CW7cJ8lNmOX7W7eKnWmaDaGdf2TsVi/E6M2NaEVnqX9+IRFo4FxbZgrFpGxBJkwSa
-	 t6ZkbEkZXeEMoLxaje1BNULjPREApZ8ZZytIFgTpxPVeXloy+e9mUCPsfDSGDrN0AY
-	 zttuqgdEnSSLevfWP3W5B02sed8ozo+YBTyecyxU=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250702041528epcas5p11f7b012fab5de2fb22c70089c32308d9~OVA7rT1ZB2996129961epcas5p13;
-	Wed,  2 Jul 2025 04:15:28 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.175]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4bX64t0JyTz6B9mM; Wed,  2 Jul
-	2025 04:15:26 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250701120002epcas5p2c4d728d599a819057bcc40b724881276~OHtRg2gIH0511605116epcas5p2i;
-	Tue,  1 Jul 2025 12:00:02 +0000 (GMT)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250701115959epsmtip1bb515e6078065cef456ed1ede6dc339f~OHtOlyyB_1373213732epsmtip14;
-	Tue,  1 Jul 2025 11:59:59 +0000 (GMT)
-From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
-	andre.draszik@linaro.org, peter.griffin@linaro.org,
-	neil.armstrong@linaro.org, kauschluss@disroot.org,
-	ivo.ivanov.ivanov1@gmail.com, m.szyprowski@samsung.com,
-	s.nawrocki@samsung.com, pritam.sutar@samsung.com
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
-	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
-	selvarasu.g@samsung.com
-Subject: [PATCH v4 3/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo HS phy
-Date: Tue,  1 Jul 2025 17:37:03 +0530
-Message-Id: <20250701120706.2219355-4-pritam.sutar@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250701120706.2219355-1-pritam.sutar@samsung.com>
+	Wed, 02 Jul 2025 04:16:43 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4bX63J38RBz1d1q9;
+	Wed,  2 Jul 2025 12:14:04 +0800 (CST)
+Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
+	by mail.maildlp.com (Postfix) with ESMTPS id B9A87180064;
+	Wed,  2 Jul 2025 12:16:33 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
+ (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 2 Jul
+ 2025 12:16:32 +0800
+Message-ID: <fd16c235-b6be-7334-4a34-38b62e7b5cc9@hisilicon.com>
+Date: Wed, 2 Jul 2025 12:16:32 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v6 0/2] PM / devfreq: Add HiSilicon uncore frequency
+ scaling driver
+To: Chanwoo Choi <chanwoo@kernel.org>
+References: <20250623143401.4095045-1-zhanjie9@hisilicon.com>
+ <9e028620-75b9-5a9a-dab6-8374b0a4fa4e@hisilicon.com>
+ <CAGTfZH0eHz8aRDkSOTNosNqZGv9Qhf2K-Rtz-Yt+_GpNQzXo5g@mail.gmail.com>
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <CAGTfZH0eHz8aRDkSOTNosNqZGv9Qhf2K-Rtz-Yt+_GpNQzXo5g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250701120002epcas5p2c4d728d599a819057bcc40b724881276
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250701120002epcas5p2c4d728d599a819057bcc40b724881276
-References: <20250701120706.2219355-1-pritam.sutar@samsung.com>
-	<CGME20250701120002epcas5p2c4d728d599a819057bcc40b724881276@epcas5p2.samsung.com>
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemo100006.china.huawei.com (7.202.195.47)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_211536_617197_3DC624DF 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20250701_211641_573994_7A196DEA 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,50 +69,103 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: yubowen8@huawei.com, Linux PM list <linux-pm@vger.kernel.org>, Lifeng Zheng <zhenglifeng1@huawei.com>, liwei728@huawei.com, linuxarm@huawei.com, =?UTF-8?B?7LWc7LCs7Jqw?= <cw00.choi@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, lihuisong@huawei.com, prime.zeng@hisilicon.com, Jonathan Cameron <jonathan.cameron@huawei.com>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
-compatible to the USB3.0 SS(5Gbps). 'Add-on USB2.0' phy is added
-to support USB2.0 HS(480Mbps), FS(12Mbps) and LS(1.5Mbps) data rates.
-These two phys are combined to form a combo phy.
+No worries. Thanks in advance!
 
-Add a dedicated compatible string for USB combo HS phy found in this
-SoC. The SoC requires two clocks, named "phy" and "ref" and various
-power supplies (regulators) for the internal circuitry to work.
-The required voltages are:
-* avdd075_usb - 0.75v
-* avdd18_usb20 - 1.8v
-* avdd33_usb20 - 3.3v
-
-Add schema only for 'Add-on USB2.0' HS phy in this combo phy.
-
-Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
----
- Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-index 2e29ff749bba..b024339b5acc 100644
---- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-@@ -34,6 +34,7 @@ properties:
-       - samsung,exynos7870-usbdrd-phy
-       - samsung,exynos850-usbdrd-phy
-       - samsung,exynos990-usbdrd-phy
-+      - samsung,exynosautov920-usbdrd-combo-hsphy
-       - samsung,exynosautov920-usbdrd-phy
- 
-   clocks:
-@@ -250,6 +251,7 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - samsung,exynosautov920-usbdrd-combo-hsphy
-               - samsung,exynosautov920-usbdrd-phy
-     then:
-       properties:
--- 
-2.34.1
-
+On 02/07/2025 11:21, Chanwoo Choi wrote:
+> Hi, 
+> 
+> I'm sorry for late review. I'll review and then merge until this week.
+> 
+> Best Regards,
+> Chanwoo Choi
+> 
+> 2025년 7월 2일 (수) 오전 11:37, Jie Zhan <zhanjie9@hisilicon.com <mailto:zhanjie9@hisilicon.com>>님이 작성:
+> 
+>     Hi devfreq maintainers,
+> 
+>     A kindly ping on this series.
+>     I believe it's in a good shape now.
+> 
+>     Jie
+> 
+>     On 23/06/2025 22:33, Jie Zhan wrote:
+>     > Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
+>     > the devfreq framework.  The uncore domain contains shared computing
+>     > resources, including system interconnects and L3 cache.  The uncore
+>     > frequency significantly impacts the system-wide performance as well as
+>     > power consumption.  This driver adds support for runtime management of
+>     > uncore frequency from kernel and userspace.  The main function includes
+>     > setting and getting frequencies, changing frequency scaling policies, and
+>     > querying the list of CPUs whose performance is significantly related to
+>     > this uncore frequency domain, etc.  The driver communicates with a platform
+>     > controller through an ACPI PCC mailbox to take the actual actions of
+>     > frequency scaling.
+>     >
+>     > Changelog:
+>     >
+>     > v6:
+>     > Consolidate hisi_uncore_init_pcc_chan() related stuff:
+>     > - Move devm_mutex_init() to hisi_uncore_init_pcc_chan()
+>     > - Move devm_add_action_or_reset() into hisi_uncore_request_pcc_chan()
+>     >
+>     > v5:
+>     > https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/>
+>     > - Comment more on error code related stuff about
+>     >   hisi_uncore_mark_related_cpus(), and return failure early on errors
+>     >   except for -EINVAL, which indicates possibly broken firmware.
+>     > - Separate error prints apart for two cases in hisi_platform_gov_handler()
+>     > - Make the 'related_cpus' sysfs ABI description more generic
+>     > - Some coding style cleanups and typo fixes
+>     >
+>     > v4:
+>     > https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/>
+>     > - Allow devfreq core to accept device-specific sysfs ABIs
+>     > - Replace custom sysfs attrs with dev_groups and let the devfreq core
+>     >   manage it
+>     > - Update 'related_cpus' description in the devfreq ABI doc
+>     > - Remove COMPILE_TEST in Kconfig as the mailbox_client.h doesn't support
+>     >   this yet
+>     > - Replace dev_err() with dev_err_probe() during drv->probe()
+>     > - Replace mutex_init() with devm_mutex_init() to warn on UAF
+>     > - Replace uncore->dev with dev in some places to make code a bit shorter
+>     > - Remove redundant uncore->pchan check in hisi_uncore_free_pcc_chan()
+>     > - Use __free() to let compiler release temporary memory
+>     > - Clean up the error handling and redundant 'status = 0' in
+>     >   hisi_uncore_send_cmd()
+>     > - Some coding style cleanup
+>     >
+>     > v3:
+>     > https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/>
+>     > - Remove redundant resource freeing processes when drv->probe() fails as
+>     >   they're already handled by devm
+>     >
+>     > v2:
+>     > https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/>
+>     > - Make devm manage the release sequence, remove drv->remove()
+>     > - Warn on !uncore or !uncore->pchan as they're no longer expected
+>     > - Remove ioremap of pcc shared memory because it's done by the pcc driver
+>     > - Fix compiler warning of discarding 'const'
+>     > - Minor trivial coding style changes
+>     >
+>     > v1:
+>     > https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/>
+>     >
+>     > Jie Zhan (2):
+>     >   PM / devfreq: Allow devfreq driver to add custom sysfs ABIs
+>     >   PM / devfreq: Add HiSilicon uncore frequency scaling driver
+>     >
+>     >  Documentation/ABI/testing/sysfs-class-devfreq |   9 +
+>     >  drivers/devfreq/Kconfig                       |  11 +
+>     >  drivers/devfreq/Makefile                      |   1 +
+>     >  drivers/devfreq/devfreq.c                     |   1 +
+>     >  drivers/devfreq/hisi_uncore_freq.c            | 658 ++++++++++++++++++
+>     >  include/linux/devfreq.h                       |   4 +
+>     >  6 files changed, 684 insertions(+)
+>     >  create mode 100644 drivers/devfreq/hisi_uncore_freq.c
+>     >
+> 
 
