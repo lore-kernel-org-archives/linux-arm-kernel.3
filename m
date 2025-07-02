@@ -4,86 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B18C83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 09:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1AEC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 09:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rucETxapXKXGBN7PtyHY+EQo5NyBaPuYKngjv1dJ15E=; b=jBLveNs9YoSbIovDTLo9puHMrQ
-	3TFlw1GcYX3aiUKyQZhR59JO2HJQqKE3pk9fEgMCdyWgMd62S2eW/iMhIqu5QN1ow21wUf2bNQCwy
-	2HD8FMJy20vuvvPLJA3R61xFT8+CxwvZGbYiNMEVoB94v8lPn3hwPS40zO7fN5lhqYDroyVDBw0pY
-	3YXC6qcbJWnP3Rk4qGLBWsisiqaBKwjqZgkora5BxPT43g2trGVd8TPmOXpFfUg2XarzKPJv5zsOW
-	edDYUSi4YwAYlJMttHTkdwISe8SucFp9MBxEQ4NlPEyldQ/ZPtWn/YqFOotePCRLY/5zc814H+pqu
-	CSRw+27Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vXjxVJuLbR0bZarzteGS3XHFE+YJkwhZvlD7ytid9ug=; b=0CUp4D4fpmPFIG
+	0MXddKpLsUOTDmi8JgEb5NL/G4XmR69BhAO7BkxSTNmaQOJ7Ajo0y4871CeYcvKj/MKYnkqzHzzWI
+	lDqq0o0OpmWUCL4ZKjTahwecl8nVxDIj4TYtTmx6vDORiCHQXa8iv/huEmDQDN4o7bLKebKRbDqRD
+	9zlK4R88FVih1e2YMqXCV1CtcfgOBCEnh3vwSaP6EnTODWlOeqQdyIG/JbHlOGe2/HKuNxVUgyp9i
+	dZEeywl54P0xICKRY8hETtifV3tUi+uqTFdpBQpMstjQKhjzq15QrBfAo+KHPM20LsMsjtRKo9EBr
+	eXWCWCGXucyo0wbdezUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtMl-00000007gO3-2STM;
-	Wed, 02 Jul 2025 09:02:55 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1uWtRE-00000007hAW-0Zau;
+	Wed, 02 Jul 2025 09:07:32 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtKP-00000007fpP-1tBP
+	id 1uWtOt-00000007gh9-1e3v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 09:00:30 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-adfb562266cso1057524866b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 02:00:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751446827; x=1752051627; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rucETxapXKXGBN7PtyHY+EQo5NyBaPuYKngjv1dJ15E=;
-        b=X6qelHRyv9r/Y9A5Cm+UgpFMnNSZFXtvLbo1wyJbvidz7qYzDr2EljJPubUlEkA/FG
-         jfsMFe/Pwv2xA+eEPalTbgpYjXcW06U2sgLdHF+wzMnZWY1AK7h1KP52s7IyP98k0jmx
-         5faCq/uOR4EgKO5cHpV/rlH1VJd3wVQoaYZ1UOUjz1i1oF8Q1naVSJ6bg0zC4f+4cGFh
-         HlarvXRApGpQgvtkjpDkDqteju/wezh2jIN1F3SoyVGeDFhR6n49uVN3Rh+1505oufyO
-         cClC8ZMHkNKZ9oi4ovGfrvrXoaTA+LohCqst8pNPSNudr+m0VqMqsvNwmjZOuz5rhX6I
-         2y0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751446827; x=1752051627;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rucETxapXKXGBN7PtyHY+EQo5NyBaPuYKngjv1dJ15E=;
-        b=rKyXToPMrfuCQPMb617y0RyjHR1e2xCJzN1rZJBUf9kMauV7gWCLpTcWLxuYOjIj4e
-         VCLAhnMDMPzccBSjwJGMCJ/p5ZDUVobHHNvvVhSlT48PYTuWkLms30rBqKV9/JslbdX1
-         jN/2PLcmgsPMYpql9nmGz+FTx4h9ZCj3bIdmjZo+wOV0H6D/gSv96cqpS1L2HnObjCpV
-         waOFC/n6uAWn/lqnIGlj3tao1McwyGhANWhnQdbab/uclvFLnLTzc6CXpSMu7m4X8/p1
-         wlt4ihvDWPE/PPNc7jxTlQMVbfvfMCPJBlR57HL/IuDPQuppsbBNpGaWKm95YC+gL8uO
-         Q9dA==
-X-Forwarded-Encrypted: i=1; AJvYcCWQcd8A7KaCEvh+sWnzQrJEllh9BcuGoUHJwESCGmCh+3Z304nVHHi/99qgsaVkAxLPiawSIj4AapH3goeUkr58@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4JZ3eR50fRcJ+YADI7WWYfMYpdAqGf42fvyltvPT8KuHhnIwx
-	nn+LcGabKJsEnZ/MTCrZEQKyfdIxaZdb46zY+VaN140aqq1tM27eLrw+LnKvtfW0Hn4ry4cGTr0
-	NFqcnqTdDP0r87qvkoAkCG3vFsYui79Y=
-X-Gm-Gg: ASbGnctwcSG4ruWdyjhnqotHrPCynWBzAQ+XmbATtRfZOtYwqJE26RjR7dt1v3z/4lM
-	7XjdWZxSqCcovbEJK/IxQf9Wk8oUIM/esSBGx6v8s5FMV5hW1jJhGFNfILbV8B/7YkEPGfvdODM
-	SfPS88eS7nTzOlXrFOT6lh4ZXppnXpiSrJyIT5kr2qL54=
-X-Google-Smtp-Source: AGHT+IEdvImO4hnAYVqt+jmktPUdIKdat3t90Sg7JU0s+cTJ/+BkwrzVe7PRmsWiA+2BUv1OZ2j0hvm0CoGRXeNnOMo=
-X-Received: by 2002:a17:907:daa:b0:ae0:14e0:1d62 with SMTP id
- a640c23a62f3a-ae3c2da9576mr208513766b.55.1751446826630; Wed, 02 Jul 2025
- 02:00:26 -0700 (PDT)
+	Wed, 02 Jul 2025 09:05:08 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5625EQ8j019593;
+	Wed, 2 Jul 2025 09:04:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=vXjxVJuLbR0bZarzteGS3X
+	HFE+YJkwhZvlD7ytid9ug=; b=EqWGslRPAeSLGeCBvFfL0svK0kcbHZYARya7hV
+	o8l+Xogv4D+KN87KFiyE/jzuXPMSq9BFlS56I86fGeeNFeSOSBflb7Gn0T51GC4o
+	Knqe5ySXQoLOE1AWMQZyF2zovSmD+++IQdAMuIRb2rq8sU1BKMSnnlC+xlKpagok
+	wyHkNJWn53Dwh2LA2zjIhlqcmHgxzzJcuoAXRO4jCDNjkzKWKRypov0CR5EsveMN
+	zJnxg2hHWTi8K1jUvIx7buKcjPsSlUYF2mGkIkgKFSTRahzxopwnw2IbQEhl9PuR
+	N4Wcl/Q1UPuypPQRyibXzh/Kwfs0Pj6S2jP7BygKoFijZZJg==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47j8fxm0m3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 02 Jul 2025 09:04:59 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56294wuT000577
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 2 Jul 2025 09:04:58 GMT
+Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Wed, 2 Jul 2025 02:04:51 -0700
+From: Taniya Das <quic_tdas@quicinc.com>
+Subject: [PATCH v11 00/10] Add support for videocc, camcc, dispcc and gpucc
+ on Qualcomm QCS615 platform
+Date: Wed, 2 Jul 2025 14:34:20 +0530
+Message-ID: <20250702-qcs615-mm-v10-clock-controllers-v11-0-9c216e1615ab@quicinc.com>
 MIME-Version: 1.0
-References: <20250624152549.2647828-1-xavier.qyxia@gmail.com> <aGPpohrc8APQad-v@arm.com>
-In-Reply-To: <aGPpohrc8APQad-v@arm.com>
-From: Xavier Xia <xavier.qyxia@gmail.com>
-Date: Wed, 2 Jul 2025 17:00:14 +0800
-X-Gm-Features: Ac12FXwk-GXgGl7lpWXoZ7Ko4kCXGQR4cPY2sOiuMeJ3c4KkhJBtDKSH3jCiC6o
-Message-ID: <CAEmg6AVrJ0A9QsnDZApdnq4gu=x0_1soqrhNv9oBMQKNGtsKqw@mail.gmail.com>
-Subject: Re: [PATCH v7] arm64/mm: Optimize loop to reduce redundant operations
- of contpte_ptep_get
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: ryan.roberts@arm.com, will@kernel.org, 21cnbao@gmail.com, 
-	ioworker0@gmail.com, dev.jain@arm.com, akpm@linux-foundation.org, 
-	david@redhat.com, gshan@redhat.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, willy@infradead.org, 
-	xavier_qy@163.com, ziy@nvidia.com, Barry Song <baohua@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABX2ZGgC/42NQQ6CMBAAv0J6dk1bKKAn/2E4kGWRjdBKi0RD+
+ ncLL/A4c5jZRCDPFMQ124SnlQM7m0CpUyZwaO2DgLskhJbayFIbmDGUysA0waok4OjwCejs4t0
+ 4kg/QopF51eWFUpVIlZennj/H4t4kHjgszn+PYyrs+v/4biUQFrU2pr/Irr7Nb0a2eEY3iSbG+
+ ANRlpJc0wAAAA==
+X-Change-ID: 20250625-qcs615-mm-v10-clock-controllers-ac5037d34117
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: Ajit Pandey <quic_ajipan@quicinc.com>,
+        Imran Shaik
+	<quic_imrashai@quicinc.com>,
+        Jagadeesh Kona <quic_jkona@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Taniya Das <quic_tdas@quicinc.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Bryan O'Donoghue
+	<bryan.odonoghue@linaro.org>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Dmitry Baryshkov
+	<lumag@kernel.org>
+X-Mailer: b4 0.15-dev-aa3f6
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzAyMDA3MiBTYWx0ZWRfX5gTmk8SIV1v+
+ tc69bWV1/Zb2o5W/M0ix4VL6ic3Za3U2ef4aEFKLHw3eqPE3BH0gWhtwbalyIRe2uaiQMaPyEkz
+ +3bMbwEdsJg52Pl2R8ykGYk7iVVvTUXd5KFJgYVlxg/Ed2zhS24iE8qi7eu7PcRHSB3b8UysL3M
+ ZUpIzJnBXlIiyl7sT8BQoZsDszT5SUwlTSeSrIAbgDOQQvsfsrEMmz64C/Px8x3Mj1+FzQtw1Jb
+ mF355XIoi7weG1qEkGs/To0CR2um+mwgk8XXYjaOrm7yHwECZG2axC/NkVw9OhHgUGTQvYDh+3K
+ 3ZHqRJmdonYJ2DRF7a77i44IEXb2Io59UCzuinLAYx1u9FhcN4dP08vA6GJcEgClGPtL3OQPLm8
+ dI3YvMzM1BG99zPfw0D693hChHkF9maHfTXmlHUYyPNw19WQSfe8ewqLuhXj9Ba/1R4titBE
+X-Proofpoint-GUID: X_anmW8x3g2stvS8yFCBKYZYGzLkT1mK
+X-Proofpoint-ORIG-GUID: X_anmW8x3g2stvS8yFCBKYZYGzLkT1mK
+X-Authority-Analysis: v=2.4 cv=TqPmhCXh c=1 sm=1 tr=0 ts=6864f63b cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8
+ a=COk6AnOGAAAA:8 a=pGLkceISAAAA:8 a=ibGQlGnF6lNa58M2td8A:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-02_01,2025-06-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 bulkscore=0 mlxlogscore=999 suspectscore=0 adultscore=0
+ phishscore=0 malwarescore=0 clxscore=1015 lowpriorityscore=0 mlxscore=0
+ impostorscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507020072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_020029_491103_E49B7CF2 
-X-CRM114-Status: GOOD (  26.45  )
+X-CRM114-CacheID: sfid-20250702_020507_563555_D3D78420 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,182 +137,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+Add support for multimedia clock controllers on Qualcomm QCS615 platform.
+Update the defconfig to enable these clock controllers.
 
+Changes in v11:
+- Add a new reusable helper function to extract PLL_L_VAL, PLL_ALPHA_VAL and
+  PLL_USER_CTL / PLL_VCO_MASK [Dmitry]
+- Add static to fix bot error in gpucc
+- Link to v10: https://lore.kernel.org/r/20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com
 
-On Tue, Jul 1, 2025 at 9:59=E2=80=AFPM Catalin Marinas <catalin.marinas@arm=
-.com> wrote:
->
-> On Tue, Jun 24, 2025 at 11:25:49PM +0800, Xavier Xia wrote:
-> > This commit optimizes the contpte_ptep_get and contpte_ptep_get_lockles=
-s
-> > function by adding early termination logic. It checks if the dirty and
-> > young bits of orig_pte are already set and skips redundant bit-setting
-> > operations during the loop. This reduces unnecessary iterations and
-> > improves performance.
-> >
-> > In order to verify the optimization performance, a test function has be=
-en
-> > designed. The function's execution time and instruction statistics have
-> > been traced using perf, and the following are the operation results on =
-a
-> > certain Qualcomm mobile phone chip:
-> >
-> > Test Code:
-> >       #include <stdlib.h>
-> >       #include <sys/mman.h>
-> >       #include <stdio.h>
-> >
-> >       #define PAGE_SIZE 4096
-> >       #define CONT_PTES 16
-> >       #define TEST_SIZE (4096* CONT_PTES * PAGE_SIZE)
-> >       #define YOUNG_BIT 8
-> >       void rwdata(char *buf)
-> >       {
-> >               for (size_t i =3D 0; i < TEST_SIZE; i +=3D PAGE_SIZE) {
-> >                       buf[i] =3D 'a';
-> >                       volatile char c =3D buf[i];
-> >               }
-> >       }
-> >       void clear_young_dirty(char *buf)
-> >       {
-> >               if (madvise(buf, TEST_SIZE, MADV_FREE) =3D=3D -1) {
-> >                       perror("madvise free failed");
-> >                       free(buf);
-> >                       exit(EXIT_FAILURE);
-> >               }
-> >               if (madvise(buf, TEST_SIZE, MADV_COLD) =3D=3D -1) {
-> >                       perror("madvise free failed");
-> >                       free(buf);
-> >                       exit(EXIT_FAILURE);
-> >               }
-> >       }
-> >       void set_one_young(char *buf)
-> >       {
-> >               for (size_t i =3D 0; i < TEST_SIZE; i +=3D CONT_PTES * PA=
-GE_SIZE) {
-> >                       volatile char c =3D buf[i + YOUNG_BIT * PAGE_SIZE=
-];
-> >               }
-> >       }
-> >
-> >       void test_contpte_perf() {
-> >               char *buf;
-> >               int ret =3D posix_memalign((void **)&buf, CONT_PTES * PAG=
-E_SIZE,
-> >                               TEST_SIZE);
-> >               if ((ret !=3D 0) || ((unsigned long)buf % CONT_PTES * PAG=
-E_SIZE)) {
-> >                       perror("posix_memalign failed");
-> >                       exit(EXIT_FAILURE);
-> >               }
-> >
-> >               rwdata(buf);
-> >       #if TEST_CASE2 || TEST_CASE3
-> >               clear_young_dirty(buf);
-> >       #endif
-> >       #if TEST_CASE2
-> >               set_one_young(buf);
-> >       #endif
-> >
-> >               for (int j =3D 0; j < 500; j++) {
-> >                       mlock(buf, TEST_SIZE);
-> >
-> >                       munlock(buf, TEST_SIZE);
-> >               }
-> >               free(buf);
-> >       }
-> >
-> >       int main(void)
-> >       {
-> >               test_contpte_perf();
-> >               return 0;
-> >       }
-> >
-> >       Descriptions of three test scenarios
-> >
-> > Scenario 1
-> >       The data of all 16 PTEs are both dirty and young.
-> >       #define TEST_CASE2 0
-> >       #define TEST_CASE3 0
-> >
-> > Scenario 2
-> >       Among the 16 PTEs, only the 8th one is young, and there are no di=
-rty ones.
-> >       #define TEST_CASE2 1
-> >       #define TEST_CASE3 0
-> >
-> > Scenario 3
-> >       Among the 16 PTEs, there are neither young nor dirty ones.
-> >       #define TEST_CASE2 0
-> >       #define TEST_CASE3 1
-> >
-> > Test results
-> >
-> > |Scenario 1         |       Original|       Optimized|
-> > |-------------------|---------------|----------------|
-> > |instructions       |    37912436160|     18731580031|
-> > |test time          |         4.2797|          2.2949|
-> > |overhead of        |               |                |
-> > |contpte_ptep_get() |         21.31%|           4.80%|
-> >
-> > |Scenario 2         |       Original|       Optimized|
-> > |-------------------|---------------|----------------|
-> > |instructions       |    36701270862|     36115790086|
-> > |test time          |         3.2335|          3.0874|
-> > |Overhead of        |               |                |
-> > |contpte_ptep_get() |         32.26%|          33.57%|
-> >
-> > |Scenario 3         |       Original|       Optimized|
-> > |-------------------|---------------|----------------|
-> > |instructions       |    36706279735|     36750881878|
-> > |test time          |         3.2008|          3.1249|
-> > |Overhead of        |               |                |
-> > |contpte_ptep_get() |         31.94%|          34.59%|
-> >
-> > For Scenario 1, optimized code can achieve an instruction benefit of 50=
-.59%
-> > and a time benefit of 46.38%.
-> > For Scenario 2, optimized code can achieve an instruction count benefit=
- of
-> > 1.6% and a time benefit of 4.5%.
-> > For Scenario 3, since all the PTEs have neither the young nor the dirty
-> > flag, the branches taken by optimized code should be the same as those =
-of
-> > the original code. In fact, the test results of optimized code seem to =
-be
-> > closer to those of the original code.
-> >
-> > Ryan re-ran these tests on Apple M2 with 4K base pages + 64K mTHP.
-> >
-> > Scenario 1: reduced to 56% of baseline execution time
-> > Scenario 2: reduced to 89% of baseline execution time
-> > Scenario 3: reduced to 91% of baseline execution time
->
-> Still not keen on microbenchmarks to justify such change but at least
-> the code is more readable than the macro approach in some earlier
-> version.
->
-> Do you have any numbers to see how it compares with your v1:
->
-> https://lore.kernel.org/all/20250407092243.2207837-1-xavier_qy@163.com/
->
-> That patch was a lot simpler.
->
+Changes in v10:
+ - Fix comments in the clk-alpha-pll to do the following [Konrad D]
+	- use regmap_set_bits()
+	- remove unnecessary barrier
+	- reverse-Christmas-tree sorting
+ - Align to recent qcom helpers for Camcc, dispcc, videocc, gpucc.
+ - Add RB-by tags for CAMCC, DISPCC, GPUCC.
+ - Link to v9: https://lore.kernel.org/all/20250612-qcs615-mm-v9-clock-controllers-v9-0-b34dc78d6e1b@quicinc.com/
 
-You can check the comparison data via:
+Changes in v9:
+- Reuse the qcom,sm6350-camcc.yaml for QCS615 [Vladimir]
+- Carrying the RB-tag from Krzysztof on the CAMCC DT bindings from  (v8).
 
-https://lore.kernel.org/all/3d338f91.8c71.1965cd8b1b8.Coremail.xavier_qy@16=
-3.com/
+Changes in v8:
+- Drop the properties which are already covered as part of gcc.yaml [Krzysztof]
+- Drop the RB tag for dt-bindings for Camera clock controller.
+- Link to v7: https://lore.kernel.org/r/20250414-qcs615-mm-v7-clock-controllers-v7-0-ebab8e3a96e9@quicinc.com
 
-The v1 only optimizes Scenario 1 case (where all PTEs are both young and di=
-rty),
-but it degrades performance in other scenarios. Although the current
-version increases
-code complexity, its optimization results are notably significant.
+Changes in v7:
+- Update DT bindings for CAMCC, DISPCC, VIDEOCC, GPUCC to remove the
+  common bindings and add reference to "qcom,gcc.yaml" [Krzysztof]
+- Fix the following in the alpha pll code [Bjorn]
+	- double space removal in clk_alpha_pll_slew_set_rate
+	- fix the alpha_width from dynamic to 'ALPHA_REG_BITWIDTH'
+	- cleanup the programming of lower/upper_32_bits of 'alpha'
+	- update the comment for 'mb()'
+- Link to v6: https://lore.kernel.org/all/20250313-qcs615-v5-mm-cc-v6-1-ebf4b9a5e916@quicinc.com/
 
---
+Changes in v6:
+- Remove wrongly RB-By tags which got introduced in v4 and was carried
+  to v5 as well.
+- Adding the reference where the tags were added and dropped.
+  -[01/10] clk: qcom: clk-alpha-pll: Add support for dynamic update for slewing PLLs
+    - RB-By from Imran (v2)
+  -[02/10] dt-bindings: clock: Add Qualcomm QCS615 Camera clock controller
+    - RB-By from Krzysztof (v2), drop wrong RB-By from Dmitry (v5)
+  -[03/10] clk: qcom: camcc-qcs615: Add QCS615 camera clock controller driver
+    - R-By from Bryan (v2)
+  -[04/10] dt-bindings: clock: Add Qualcomm QCS615 Display clock controller
+    - Drop wrong RB-By from Dmitry (v5)
+  -[05/10] clk: qcom: dispcc-qcs615: Add QCS615 display clock controller driver
+    - R-By from Dmitry (v1)
+  -[06/10] dt-bindings: clock: Add Qualcomm QCS615 Graphics clock controller
+    - Drop wrong RB-By from Dmitry(v5)
+  -[07/10] clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
+    - R-By from Dmitry (v1)
+  -[08/10] dt-bindings: clock: Add Qualcomm QCS615 Video clock controller
+    - Drop wrong RB-By from Dmitry(v5)
+  -[09/10] clk: qcom: videocc-qcs615: Add QCS615 video clock controller driver
+    - R-By from Dmitry and Bryan (v3)
+  -[10/10] arm64: defconfig: Enable QCS615 clock controllers
+    - Drop wrong RB-By from Dmitry (v5)
+- Link to v5: https://lore.kernel.org/r/20250221-qcs615-v5-mm-cc-v5-0-b6d9ddf2f28d@quicinc.com
 
-Thanks,
-Xavier
+Changes in v5:
+- Update ARM64 || COMPILE_TEST in all Kconfig to resolve kismet warnings.
+- Fix sparse errors in GPUCC.
+- Link to v4: https://lore.kernel.org/r/20250119-qcs615-mm-v4-clockcontroller-v4-0-5d1bdb5a140c@quicinc.com
+
+Changes in v4:
+- Drop patch Update the support for alpha mode configuration as this
+  patch was picked - https://lore.kernel.org/all/20241021-fix-alpha-mode-config-v1-1-f32c254e02bc@gmail.com/
+- Update the bindings to include "qcom,gcc.yaml" [Dmitry]
+
+Changes in v3:
+- update PLL configs to use BIT and GENMASK for vco_val and vco_mask for all CCs [Bryan O'Donoghue]
+- Link to v2: https://lore.kernel.org/r/20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com
+
+Changes in v2:
+- cleanups in clk_alpha_pll_slew_update and clk_alpha_pll_slew_enable functions [Christophe]
+- update PLL configs for "vco_val = 0x0" shift(20)  [Bryan O'Donoghue]
+- update PLL configs to use lower case for L value  [Dmitry]
+- Link parents for IFE/IPE/BPS GDSCs as Titan Top GDSC [Bryan O'Donoghue, Dmitry]
+- Remove DT_BI_TCXO_AO from camcc-qcs615           [Dmitry]
+- Remove HW_CTRL_TRIGGER from camcc-qcs615         [Bryan O'Donoghue]
+- Update platform name for default configuration   [Dmitry]
+- Link to v1: https://lore.kernel.org/r/20241019-qcs615-mm-clockcontroller-v1-0-4cfb96d779ae@quicinc.com
+
+Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+---
+Taniya Das (10):
+      clk: qcom: clk-alpha-pll: Add support for dynamic update for slewing PLLs
+      dt-bindings: clock: Add Qualcomm QCS615 Camera clock controller
+      clk: qcom: camcc-qcs615: Add QCS615 camera clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Display clock controller
+      clk: qcom: dispcc-qcs615: Add QCS615 display clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Graphics clock controller
+      clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Video clock controller
+      clk: qcom: videocc-qcs615: Add QCS615 video clock controller driver
+      arm64: defconfig: Enable QCS615 clock controllers
+
+ .../bindings/clock/qcom,qcs615-dispcc.yaml         |   55 +
+ .../bindings/clock/qcom,qcs615-gpucc.yaml          |   49 +
+ .../bindings/clock/qcom,qcs615-videocc.yaml        |   47 +
+ .../bindings/clock/qcom,sm6350-camcc.yaml          |   11 +-
+ arch/arm64/configs/defconfig                       |    4 +
+ drivers/clk/qcom/Kconfig                           |   35 +
+ drivers/clk/qcom/Makefile                          |    4 +
+ drivers/clk/qcom/camcc-qcs615.c                    | 1597 ++++++++++++++++++++
+ drivers/clk/qcom/clk-alpha-pll.c                   |  192 ++-
+ drivers/clk/qcom/clk-alpha-pll.h                   |    1 +
+ drivers/clk/qcom/dispcc-qcs615.c                   |  792 ++++++++++
+ drivers/clk/qcom/gpucc-qcs615.c                    |  531 +++++++
+ drivers/clk/qcom/videocc-qcs615.c                  |  338 +++++
+ include/dt-bindings/clock/qcom,qcs615-camcc.h      |  110 ++
+ include/dt-bindings/clock/qcom,qcs615-dispcc.h     |   52 +
+ include/dt-bindings/clock/qcom,qcs615-gpucc.h      |   39 +
+ include/dt-bindings/clock/qcom,qcs615-videocc.h    |   30 +
+ 17 files changed, 3866 insertions(+), 21 deletions(-)
+---
+base-commit: 2ae2aaafb21454f4781c30734959cf223ab486ef
+change-id: 20250625-qcs615-mm-v10-clock-controllers-ac5037d34117
+
+Best regards,
+-- 
+Taniya Das <quic_tdas@quicinc.com>
+
 
