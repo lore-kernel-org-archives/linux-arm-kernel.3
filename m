@@ -4,92 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D38C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 21:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC764C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 21:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SpucKaFQXs24/Gdxy0fvjSfjmEgyvs47syPRCcBg2xY=; b=TwkRiuIDQ+bSp/xdGsT27jiRnd
-	2rJsaUfoD7mrC5vK4YEncXpms2sc2uUGgJlvMnIOEgSi5yAStATfBAwrVy1KDb9/W08rnI34Gko7c
-	Crmx/Pj7SgBFAhmZ726tXiZG3htnHL3rH2qNId6i60sju5mpopvB6vcAYGdKqjdLJzC8ERhvHeOjQ
-	zte7SK+WljUN2gcGj1FM6Nb6At7ckM8ZFZlAxzD1zpruga9j59XEyaeDBnmBGW0QAAM46vyyrXpqK
-	kBduY8bAsTngHabXfSKOcUdFCHRVfTY5jzf4FcVL3OBcH5OIur6rmIS6D5HvvENTgT4AZ4T5DYxUT
-	mXiiuV7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LMptU3Sc5+xY/XVGbDh1B7NKVs+zYhOoavdCfgn5VJc=; b=FQG9DnrtwcpfrBhDkZj7SDMVVh
+	i+jaLJzq3Ae3qgVw5jFRj5dT3KkRii8+CmTXsPcpk9U0a4MQwAiqTwYqO9SnSV5DRmCdBeIvJdcmW
+	c6phlImsJULOcRE3ERDdsJds5JolvTlIGKGtbq4JdIbXxNrbLdOFkwteazfQNKjHoJFx0t00+ov7i
+	SdxigCdN2zY+LNLEDLcdl5KFs152TUOrn1Rgfjm9ZBJG1QwKfaO7BlwNNqmly/3aKGeCAykKSdY7O
+	xjPZ9RrEEjFzASEjsXm3y3tSl9RGgffs5JgCMv9YdJ24WJTjaCltTX2VgcW3qubfpCa6footpB0UE
+	3WHyRf8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX58e-00000009bWB-04dh;
-	Wed, 02 Jul 2025 21:37:08 +0000
-Received: from mail-vs1-xe2f.google.com ([2607:f8b0:4864:20::e2f])
+	id 1uX5Fu-00000009d02-1bk9;
+	Wed, 02 Jul 2025 21:44:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX56I-00000009bFk-16ZS
+	id 1uX5Da-00000009crM-1rvo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 02 Jul 2025 21:42:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=LMptU3Sc5+xY/XVGbDh1B7NKVs+zYhOoavdCfgn5VJc=; b=IPkDe5S6nlnFIJqwmymR9GN29u
+	P1GKMSa6g+tccTK1k/SNkFkw8seJCLzlddrBQJLfzSkNAxpp2fJdtHF0O8E9Cy2j5eV2kD1s4HeFn
+	1njmPhrYm/1aXd5kDWY64UArQeMWyAamdIKMof9hGxe33BxwlQ4jbYF+Yv0notWKvV5smi7arCokH
+	TdFqxII5wo7Yhu9FCEnncJ23j0mOx8oLB+J3QppD3Uc33kiseDciE9o5Ud5uR4cOfdNCxumutHBOw
+	85rgIiJkyXEVzTbmhrGCwV44QLv5Y0QTX3FV47Riz1dG1wfkn249h1k+ayloLOFWOHzP7OAI1e3NM
+	Mu29XIHA==;
+Received: from fw2.prolan.hu ([193.68.50.107])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uX5DV-00000007ZCY-2LRg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 21:34:43 +0000
-Received: by mail-vs1-xe2f.google.com with SMTP id ada2fe7eead31-4e8135adfccso1822142137.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 14:34:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1751492081; x=1752096881; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SpucKaFQXs24/Gdxy0fvjSfjmEgyvs47syPRCcBg2xY=;
-        b=qz98ccEg2rFXSpJDKteyUSjgleOSikF/xPBeQwSpJQaaeYeX9KwhfWFqvSvPcin7nK
-         WzqvmN4bzvVN8Crqtq6gG5Ked1AVkrERss7lMvRQQCDIvt59KKMxAusCou3zq0Bx3e6s
-         jtKU8dD1pcERbZR6itINuVbowu1ghPuTWgNDXxMlrqV4VYaaUxHfgPOxQk2NnJabzS6+
-         LuuEHuOqlKTckbF1ScHRDsEaBoDlLl+YFL6uhjBDmGaLwyRlJPgNSj+y46oslTj5n0H9
-         dH8nkt+QuyvpDva+Lx1REIzebLdREpCH04jaxC/K1mpzdM/Bw0LE79oT57znDZuTlZXY
-         wd6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751492081; x=1752096881;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SpucKaFQXs24/Gdxy0fvjSfjmEgyvs47syPRCcBg2xY=;
-        b=HvxSBizRjtZ92ennSnZ4I4vOZ8a5Tz9MDID5gZRx+icb9vNlWvxrb5CjF+ruqJW2k5
-         GZ93za9+zLwb1JlpiX40CTCHq1VvgDcWJ+wjhN0PwUMP/4NU/zMRvH0rFn3PiyexPboA
-         xANT7kkMTlsJPBfEFnBYzCXwsVxRVGI1JaQ4tH5qN7ekRKokoiD7KNaYKiQrFo2UQq6X
-         hzxq2DuYljlVxlxBd5oocN/5oBx95ecIyjd8oea+qVE/A/EOXrOUjcLpGKZBHGSHrbuk
-         kG1LphLs5XxiWjdeDdVHYYPyx/Vvyvpz5XECPz1N8x0jxZlzWxScMk9CtiMJoWNDsrjs
-         KKhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXyL4fiMUVuq42eHrV9BE8iUrWQOV1aVYXcECVGfqbjpBaAT+gV/aGhEx6eBCiK7YbyspBP7jqkrWuINEDIPl79@lists.infradead.org
-X-Gm-Message-State: AOJu0YwM7WC4kGOT/TTKbseCGQoMuk5urvND75eLqOHnb93Ls7UjzZK+
-	/ZFMRef6ac2IKurzyq3fwHp0SR257XAwu37Sr/zL+ocLMIw9dwcG48Hpznr63hbDotzn1+5wulF
-	ccnPKvqVztZPfS2/xslGpTDQWyRbUaz03voV66jCk
-X-Gm-Gg: ASbGncst/V0uF5j3050+4VZFDrtRKMUBFoizWnwUhtpGlMLjKw3ZBHpjXdUct221FC7
-	PoxUsichIPfY0YnXFMYI6SS/4m7oJSj6qJ6xqfZD/uQla0gUAkE49vqGNsbArWpRL52Rj8kxnPD
-	t/YDYJQPIM2ZtpbY9kHO7ab+8rOPunYodSWJ4smb+PM/8zQKC10O6hU2X1z86n/imWINy6iWX5
-X-Google-Smtp-Source: AGHT+IH1fp/oO8knYExoVI4CZr0MWB4CCN3Ddzd0DoffyBdgk98L0zPZn5aGpXX4Klhx4XnOgbiAKitEu5ixJn7kSp4=
-X-Received: by 2002:a05:6102:5486:b0:4e5:59ce:471b with SMTP id
- ada2fe7eead31-4f1613c8319mr3578113137.23.1751492080860; Wed, 02 Jul 2025
- 14:34:40 -0700 (PDT)
+	Wed, 02 Jul 2025 21:42:11 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 28C89A0BB5;
+	Wed,  2 Jul 2025 23:41:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=LMptU3Sc5+xY/XVGbDh1B7NKVs+zYhOoavdCfgn5VJc=; b=
+	jEZyiRDhZcQDyBv+pSNXxLtnVwa/vsAxwVRW9FQvK+LgSdxfn4+VKviINSueGJHq
+	hvsD+4CH2D9RwuUfOZGcUh6sgNBn4h+8p/G8cO0ztBuG9XEbB7EsMX4ZHc6Z2wTb
+	+Oz5oMBcIGzTn2e9ZahC2G0vOc24a5/rAHi18NIzpunRFktDHcTTvvpYsKO5c+dV
+	b0vB+JeN3BPaPY+wxhKeQwBnkSJ7COjJYGNb4cBwhH751XOWzk/u4J0st+B3wy6F
+	O3pzmew+Fq2NfYrA/nq4uF9W1nTIXbTIlEjGnv307DH9BsO69Wk5KY1Hx0d3k9iu
+	FPlvE4mXRE6UU/Lz4A1ig6kTGXrQ6Bt2Fz2fTUmBVzFvk0ZpOvZ82Cq4PJc4iXsj
+	n/Bmzu2KrwMFaGDH+KDQAJxmTNnbwK9hWTAB57TBGBELJzbfdCbAPr+GuIdHLnnI
+	NOsuRCJ+qk2idO+jcrcMfmf0nBVBZJ7A0g7qIbIQ5KUZWZ+sCWJhdSZxNUgCLMft
+	UW2RdfISfXf/JazmgnPW2DzUmCsRq5HZvJ1YSq2/cgnLpyfXNlCWZQ2UI8/3dGRs
+	wrWpfHADwW2Gs7UzEWRk2xqxcGswfLf12rKW8p3PR/4V6yiZIL6udlH6Cuj6HsIx
+	n1wkBCsrxsfqHo6tWp2TrkV1tEFMjDPXmfOxL65NEqA=
+From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+Date: Wed, 2 Jul 2025 23:41:54 +0200
+Subject: [PATCH] arm: DT: imx6-sr-som: Replace license text comment with
+ SPDX identifier
 MIME-Version: 1.0
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <20250701114733.636510-18-ulf.hansson@linaro.org> <2025070205-ignore-passive-17b4@gregkh>
- <aGWH2mH6iZJ3s3lL@pollux>
-In-Reply-To: <aGWH2mH6iZJ3s3lL@pollux>
-From: Saravana Kannan <saravanak@google.com>
-Date: Wed, 2 Jul 2025 14:34:04 -0700
-X-Gm-Features: Ac12FXzxNwy9Q8y7eUa-yNyxqV22KlOcq4v5ePhyN7HxiHMeoKsg2U5kRHPewzA
-Message-ID: <CAGETcx_yVXgvmbDFYe+Nbdp18D-m14W8xO_G9RyAujpag+M9ow@mail.gmail.com>
-Subject: Re: [PATCH v3 17/24] driver core: Export get_dev_from_fwnode()
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Michael Grzeschik <m.grzeschik@pengutronix.de>, 
-	Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abel.vesa@linaro.org>, 
-	Peng Fan <peng.fan@oss.nxp.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>, 
-	Michal Simek <michal.simek@amd.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Hiago De Franco <hiago.franco@toradex.com>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-ID: <20250702-sr-som-dts-lic-v1-1-2e8584e6c837@prolan.hu>
+X-B4-Tracking: v=1; b=H4sIAKGnZWgC/x3MQQqEMAxA0atI1gZqQQtzlcFFG+M0MFZJRAbEu
+ 091+Rb/n2Cswgav5gTlQ0zWUtG1DVCO5cMoUzV453sXnEdTtHXBaTf8CmHqhpnC4HpKHmq0Kc/
+ ye4bvsTpFY0waC+V7s0TbWeG6/p1qwMZ5AAAA
+To: Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>
+CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+X-Mailer: b4 0.13.0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1751492515;VERSION=7994;MC=3329611887;ID=217464;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A296767155D6C7266
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_143442_300915_13E1C9C3 
-X-CRM114-Status: GOOD (  25.01  )
+X-CRM114-CacheID: sfid-20250702_224210_114325_9A55C3B3 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,57 +101,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 2, 2025 at 12:26=E2=80=AFPM Danilo Krummrich <dakr@kernel.org> =
-wrote:
->
-> On Wed, Jul 02, 2025 at 09:34:12AM +0200, Greg Kroah-Hartman wrote:
-> > On Tue, Jul 01, 2025 at 01:47:19PM +0200, Ulf Hansson wrote:
-> > > It has turned out get_dev_from_fwnode() is useful at a few other plac=
-es
-> > > outside of the driver core, as in gpiolib.c for example. Therefore le=
-t's
-> > > make it available as a common helper function.
-> > >
-> > > Suggested-by: Saravana Kannan <saravanak@google.com>
-> > > Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> > > Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
-> > > Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62=
-A,Xilinx ZynqMP ZCU106
-> > > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > > ---
-> > >  drivers/base/core.c    | 8 ++++++--
-> > >  include/linux/device.h | 1 +
-> > >  2 files changed, 7 insertions(+), 2 deletions(-)
-> > >
-> >
-> > Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
->
-> I'm a bit concerned about exporting get_dev_from_fwnode() -- at least wit=
-hout a
-> clear note on that this helper should be used with caution.
->
-> AFAIK, a struct fwnode_handle instance does not have a reference count fo=
-r its
-> struct device pointer.
->
-> Hence, calling get_dev_from_fwnode() with a valid fwnode handle is not en=
-ough.
+Replace verbatim license text with a `SPDX-License-Identifier`.
 
-Not enough for what?
+The comment heades mis-attributes this license to be "X11", but the
+license text does not include the last line "Except as contained in this
+notice, the name of the X Consortium shall not be used in advertising or
+otherwise to promote the sale, use or other dealings in this Software
+without prior written authorization from the X Consortium.". Therefore,
+this license is actually equivalent to the SPDX "MIT" license (confirmed
+by text diffing).
 
-> The caller also needs to ensure that the device the fwnode has a pointer =
-to has
-> not been released yet.
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi   | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi      | 38 +---------------------
+ 4 files changed, 4 insertions(+), 148 deletions(-)
 
-Why? The point of the API is to give you the driver core's notion of
-the primary device that corresponds to a fwnode at that instant.
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
+index e491f5c9d455..0d7e14a94305 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
+@@ -1,42 +1,6 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright (C) 2013,2014 Russell King
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ #include <dt-bindings/gpio/gpio.h>
+ / {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
+index ddca24414d26..3053a28c42cd 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
+@@ -1,42 +1,6 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright (C) 2013,2014 Russell King
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ 
+ &iomuxc {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
+index cd1e682f11ad..5a35436bb30a 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
+@@ -1,42 +1,6 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright (C) 2013,2014 Russell King
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ #include <dt-bindings/gpio/gpio.h>
+ 
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
+index 7af74b203e39..6aea7bf06e7a 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
+@@ -1,42 +1,6 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright (C) 2013,2014 Russell King
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ #include <dt-bindings/gpio/gpio.h>
+ 
 
-There's no refcount needed for that. This is just a simpler way than
-looping through all the devices to find the first device that has that
-specific fwnode.
+---
+base-commit: 66701750d5565c574af42bef0b789ce0203e3071
+change-id: 20250702-sr-som-dts-lic-b16fc7605cb2
 
-It's only the device that needs to be ref counted because the caller
-needs to do stuff with it.
+Best regards,
+-- 
+Bence Csókás <csokas.bence@prolan.hu>
 
--Saravana
+
 
