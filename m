@@ -4,117 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 093DEC83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 06:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4991DC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 06:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iGCzzAW6qRRoEdkWo8qZcaO2uH9FofYsMX1X5KD4GEc=; b=1GDcBPJtYnYnv9G+ZVowZkaycG
-	sJe6asAgw4r5wOwwg1GMG3HowPlhwg63PzhQLFXcxY19Gdh9XO62mJdCkeORYAn53S98aqzVRnsAM
-	CsaCAN8neYaIc3M1yDfzKMMSXh9004QZDdcHToZWnA/k40dpQa3n5E9v1/iY5yMcyQVBAx2e4n/WG
-	nY9Fgrk4Xte3sJmqnAkl8qNbDVFnoox1ZBM8369ai8OOAALptNFIAAkIKqCXW162KsGWo9/T6XI+z
-	51TA02Ry0plUcjLx8VBOaKYCxSf0lZ7KErUO8wn7k21OkYf04v7tibsIXLnGIf0JAKjogyBV64r4I
-	wUdQaQjw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z44fZXCKQ2rdMNWqQElWdKkxsLIoVt0uR3JUXZYJwhs=; b=y+YROKHAdibsrbPUsh8f/39Yjg
+	cgoQVvyLpwfBAHnF4CcKXKYphhFD1DZv25Or1XFd/PkRklsE5fbCuiFsDzcs5E4LZDTpEzsnaMPT5
+	zWcKP0mDa17fBn/oQP8lmRH6WEwX/g+JtDKWZdwRL39xdnNDqfwXSNje/GwIr/c/PkCvBswp5dybd
+	iNj3xOjm5bLFlIJvD61vFOYbH0ifwNRUsIh3LrjNUt/EVmmn0WkXwp1i4vA5wt02LY2ufvgpgziHk
+	SvoA+0dhY9A5fO30ADQHinKj3QO4xK/wsF2SScR9QOTrP+etxEulBZhqjzKsY04ep9e6Te7J4mcoc
+	ayAKvn8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWrI9-00000007RYr-1xrd;
-	Wed, 02 Jul 2025 06:50:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uWrMk-00000007Rw2-0esa;
+	Wed, 02 Jul 2025 06:54:46 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWrAh-00000007Ql0-3dq3;
-	Wed, 02 Jul 2025 06:42:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 274665C431C;
-	Wed,  2 Jul 2025 06:42:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77F39C4CEEE;
-	Wed,  2 Jul 2025 06:42:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751438538;
-	bh=GnLnWpZBLWcU+Uo5nfmmedmOE25NXe70aO8oHDjb7cY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O0RfQ+Jsg9ufLqonIBlzFzRQRuCZWd1Cbk3WygoWo8VWARzTgMcN4SoSV5lOUHfm+
-	 m9x+9j6vfuF2LOvzF6DphDyQHuV/uhX0mn7FQ5FQFW5s2vrYZtn7iQZDPFCI4NccqQ
-	 Ecdj9BAHpz9ZYVcjhhcwKVKsuesqYjWYHnQy//1uThJe5uv37HVecAQYedNWbwLs7G
-	 g7itH7GthVfPJnpxdDrlu+qVH3Mm48TODZ8dSSXkl4UETPYne4WXs9MrXTh1nb3UF5
-	 Ngm2sYgTpZsYFL5fNwHBXfHU2Iiy21nf1FKRyK5klQbr99W78A7ejQEV+zkbPNzFqc
-	 glSmimqLX1BNg==
-Message-ID: <f0c8c043-9c9d-427c-94a6-f46f6b7d0c50@kernel.org>
-Date: Wed, 2 Jul 2025 08:42:11 +0200
+	id 1uWrEv-00000007RDo-1xH8;
+	Wed, 02 Jul 2025 06:46:42 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-453079c1e2eso7240565e9.3;
+        Tue, 01 Jul 2025 23:46:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751438800; x=1752043600; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=z44fZXCKQ2rdMNWqQElWdKkxsLIoVt0uR3JUXZYJwhs=;
+        b=FuZjnL1vy4XdSVn1dL9h/y2eWcIWtPJVyxsKHRME2GFCZl36EoXdAmx4KIGTw3HuHX
+         QILAGVH9D/Q5k83/bIH59NO761TDRqs8TzXNSlDWX1fdHvcI1UWHaF73hmpp+gwFRGrx
+         Eg73te++FGIBxecxeWZ4vPRTm6ttoeEo4kgMKCbgQadpAfraCnPPqjpOIjpFUlO7tX/o
+         uWjKd+TaTxSo5mpekYRpEvOBG5E7E8O8gqSItYz97n8JTm4dfCbcdFdaJ9YMWwbfiCqP
+         2zBaeM6THsXTdRw7iwU/TEAAs1m8fcOsxck4E6NMZ6gyobWDS+7+DskySuO75tKi5tIX
+         uuyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751438800; x=1752043600;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=z44fZXCKQ2rdMNWqQElWdKkxsLIoVt0uR3JUXZYJwhs=;
+        b=tzjtIqKA0gr0At9FcYLmYDAr9AFjotweQ5VcJ3z97+Gs/h1PBPq7qdKXsXckjzCPGM
+         Fntyl4dAVAA+ks6W1Bdp6efHpDd19NmN/XPLbabGGeMQHFTZ7uGMPk+8xBmWH0LLM9zp
+         xdvbC7z7kdnZoEAqgn89iTT2NhogmNGsJ1w0Km65/dqL/C+5GbLEne9Ffo3BMiuwQw1R
+         EL7k1blDEpbeOSWsni0lSDIKe9+AbvCkphlf9t3niE5BgLhiQ9l4wHceqyI4MEahwtvq
+         uMFxrQRjnM6rAKn3TUBdoL6KQenifPQAz1kAV+A/n4k9k0vObCE5knF6mR4xKIWkuYPf
+         diKg==
+X-Forwarded-Encrypted: i=1; AJvYcCUPQgXtFjqkmNLSX95PuoK86OQ7AvwJtDn8bA8GMhctXyWCjRnNKYKoNVKKzQs1VPhwzQD2twCgJfof6FILap0Y@lists.infradead.org, AJvYcCXwWUeke4ftBSE93bq3Iabs3ciEmJY/nxXW26TdOgYPhNbMPQVa7WKHg2sPaE0UGS1X8Mg/G9bUcODJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjUZiGIWH4Br6Xrw3nJi7abeMh/AwpbGhlLT4XPXK1CSYpWHnX
+	YRJiCir0l7d78bERTmmQnh5cj1i2A0v3O0bFU7PhAlP+CVonLrMRhE0qUTg1pFpG
+X-Gm-Gg: ASbGncsRmFb/Rr85X0ObUXghKSILuyH4EUqK4JnIkFzQ3WQ5eqx3Q7pEIG5S8FnMc02
+	Bh463KbmHtOn9ngoMRZ/6BtisFJTZjNqhobSmECbozIeCaf/krw4nfEyS46KtjD8fFC2cbhfFuf
+	6yJMQcsL86nYcayZ3Wwecd8Cv5EBCl9j3dwRLBnCuswDVr4oKs05xtcd0BWQaPLfsoKZxFyA6jA
+	vCcoAHsxJ4hSEpomY3s2Xk92Ra8lKeRbNV95AXDhloENnA3Jy9eIgPUdomn8UohKn6TmHJxCfkH
+	gxhWm4LD8LOWfH0H6A0GOAE3zSLvLTz/PmRLotiJ6SjcW1wpc8CvawNO4bPO3uMhvgM1LI3dzS+
+	U2TS06VXRCCzp
+X-Google-Smtp-Source: AGHT+IGEU3Ny06YRoZuAUkzUDN3QOXyRXaO7n1F+q8fEIPVppChrJnd6v3AlCTeUUNL0apHLFRr+KQ==
+X-Received: by 2002:a05:6000:22c1:b0:3a6:d403:6429 with SMTP id ffacd0b85a97d-3b1fe8a00d6mr415529f8f.4.1751438799651;
+        Tue, 01 Jul 2025 23:46:39 -0700 (PDT)
+Received: from thomas-precision3591.imag.fr ([2001:660:5301:24:9d5:215:761c:daff])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a88c7fab7asm15156201f8f.24.2025.07.01.23.46.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jul 2025 23:46:39 -0700 (PDT)
+From: Thomas Fourier <fourier.thomas@gmail.com>
+To: 
+Cc: Thomas Fourier <fourier.thomas@gmail.com>,
+	stable@vger.kernel.org,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Alexander Dahl <ada@thorsis.com>,
+	Boris Brezillon <bbrezillon@kernel.org>,
+	linux-mtd@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] mtd: rawnand: atmel: Fix dma_mapping_error() address
+Date: Wed,  2 Jul 2025 08:45:11 +0200
+Message-ID: <20250702064515.18145-2-fourier.thomas@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/7] dt-bindings: soc: imx-blk-ctrl: add MIPI CSI2 dphy
- support
-To: Frank Li <Frank.Li@nxp.com>, Rui Miguel Silva <rmfrfs@gmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Eugen Hristev <eugen.hristev@linaro.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
- Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-References: <20250701-95_cam-v1-0-c5172bab387b@nxp.com>
- <20250701-95_cam-v1-2-c5172bab387b@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250701-95_cam-v1-2-c5172bab387b@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_234219_999748_4D5E012F 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20250701_234641_522187_D1DD1141 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,32 +106,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/07/2025 00:06, Frank Li wrote:
-> Add child node dphy-rx, which export phys interface to MIPI CSI2
-> controller.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> imx media blk ctrl combined many small glue logic registers for display
-> , camera, power, clk and reset.
-> 
-> There are some discussion at
-> https://lore.kernel.org/all/4414669.ejJDZkT8p0@steina-w/
-> to define whole schema for this.
-> 
-> But there are some difficults to cover whole once.
-> 
-> Plan use two steps to complete it
-> - add all camera related property and subnode
-> - add all display related property and subnode
-And what was the comment there?
+It seems like what was intended is to test if the dma_map of the
+previous line failed but the wrong dma address was passed.
 
-"Binding is supposed to be complete. We have several examples when people
-added children one-by-one, everytime with different reasoning about
-child addressing."
+Fixes: f88fc122cc34 ("mtd: nand: Cleanup/rework the atmel_nand driver")
+Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
+---
+v1 -> v2:
+- Add stable@vger.kernel.org
+- Fix subject prefix
 
-NAK. At least try to read previous discussion.
+ drivers/mtd/nand/raw/atmel/nand-controller.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Best regards,
-Krzysztof
+diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
+index dedcca87defc..84ab4a83cbd6 100644
+--- a/drivers/mtd/nand/raw/atmel/nand-controller.c
++++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
+@@ -373,7 +373,7 @@ static int atmel_nand_dma_transfer(struct atmel_nand_controller *nc,
+ 	dma_cookie_t cookie;
+ 
+ 	buf_dma = dma_map_single(nc->dev, buf, len, dir);
+-	if (dma_mapping_error(nc->dev, dev_dma)) {
++	if (dma_mapping_error(nc->dev, buf_dma)) {
+ 		dev_err(nc->dev,
+ 			"Failed to prepare a buffer for DMA access\n");
+ 		goto err;
+-- 
+2.43.0
+
 
