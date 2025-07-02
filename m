@@ -4,115 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4545C83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A7C3C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQqQACltrT/HBoI2TB8gqh2+iyTEhCW66lXOfkyTPKw=; b=gtz15Zh/TL1RdQBJo7oSQHl7Bj
-	Zdeb/dmenWHXaJWtmCV24SWc1ZRsc2IXQ4JRP1j8Hg0rfySebPcwDcxUPV0I4aDn3NnuBenZs1RQv
-	SDIo+IsF7LwFx09DWSk4nJtABOSSOrBHHs4m0JguGnab9ncGTeN7ZvpsuMxrfjGEEw/QRh60vPrdE
-	XFuzi4ure0/8EkGe/X6nVuZDywZbgGC1mZ4FjNJkbayBLxB48Ec/D1e/qgrbZjJkvlSBLJweh2KAR
-	F7uHMhQHfvhOJLZ/9Q9K12kwoE+FcO2cn06NrMPYLzkEqq5PaKvgNqlPZxUDh5FekjDmLRiHl+r8K
-	k9keGmfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uIhKbMlkmPCs5iG0Sqbwbqh+Tw22ETV28HpUZ2yFS3c=; b=WMgwVtX8u+nPgDNTPHRom/Z0NO
+	pnwG/XH+1l8d7gjqLRvtncbyOTgCdEgfVxP+mw2b1Gzm7B5+Hdz3Chz4Fa6LtyCxjd0dW0GK2ftrJ
+	SvLVMSS26XUW4um0LT5QNNEDuv3d+l/UPnKP3mWpZZmDtY9j0QrT+Mf+O9XmDo25Aoa75WdUW7Fn4
+	SPxjb/VPWdUdE6reJLJ1Ma7oLvfDnx0xQf5uIb7vBRu8khyvQn04r2pdNtZ3Ht4Ov4XVSzlx7Kr+4
+	PWUiTzei8Gd2eo5/nC5/BLpqDX6RC7SvjCgXwHhXCmP6UHojV3/y7EO+n9JKBTdGfgj7anfVSh8wF
+	ApLeK+yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWwqS-00000008LZy-2Fzv;
-	Wed, 02 Jul 2025 12:45:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uWwqY-00000008LgL-1szW;
+	Wed, 02 Jul 2025 12:45:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWwT8-00000008IM9-04Vn
+	id 1uWwcp-00000008Kd3-3fWs
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 02 Jul 2025 12:31:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=uIhKbMlkmPCs5iG0Sqbwbqh+Tw22ETV28HpUZ2yFS3c=; b=c23pUok3wwDXPD+7B9YdMt/32x
+	F1jVdl6OAz0Gfv5WwIVqyKuQ0b99XZJBOYJWKC8XhX1Cc+8jV3vv6XbxolaBKItOl+JtWs5EyGGDn
+	v3OQ4OAVqELl+pKpnXcvnFdl/hjJwJdJFMCSJf8Yge6I3pV5+4Ob6hJhGDsyZH1EMDSiR/Y+YgGCX
+	ut6bE6beVbmUvczVBGpgwVkoa+tgFv8ftw682O0+ZK4EFGvj/fwt4+9gkLJ4b0C8eqWR96TuZPYF6
+	/rnK6Y8IUWYW4lJeZzeP07qdptFMkyVbOI+XiIemTbo2l7GrDu+ka8O4aU6c01p3oFCG8iw5XKxd6
+	WonMtpVQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWwcm-00000007MNM-2I58
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 12:21:43 +0000
+	Wed, 02 Jul 2025 12:31:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B6637450FB;
-	Wed,  2 Jul 2025 12:21:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08379C4CEED;
-	Wed,  2 Jul 2025 12:21:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8818845EC5;
+	Wed,  2 Jul 2025 12:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0877C4CEED;
+	Wed,  2 Jul 2025 12:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751458901;
-	bh=0JyVKoG6XZX61RLsTv4oIIad+TKMElb4fpWrf0SFNWU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MnLIXY18SisYTg+ljLXqJdN6osP5LoKjTbbupBy6liMrfWAkwWBK+hsdkCGFruCSa
-	 y6oA2qCCP0pPrXMZm8E6irxTKKRTfw7BmWMB6uKDAaE4ScZH9LRPzmYQJcIFBRVU4R
-	 Qa2TaQ+fOx8hNFCQess0xbV/G2qQdkToc/pA/Ny/MqUDKaBAgT77AqK+aFX78oHraU
-	 lFAvfM8gZbc1qd0DKrTDyp6ZprvW9FbwfjUDEWeh+twGRiD5bZFmwidfeOv34fgWL6
-	 2Kpv33zyLJioZ808tk0716PNbg61LbeHu6uXodZN3Ggq+HAssyRBRCUQ3QP0TcfqM8
-	 Cm5N1xEJ4OVRQ==
-Message-ID: <d676ddc8-0e4a-456a-8aa2-15ba898c44de@kernel.org>
-Date: Wed, 2 Jul 2025 14:21:30 +0200
+	s=k20201202; t=1751459497;
+	bh=HyLomZoUIsBZI28vt4NzRZMuAo9iSJ1mkcus3zmJ/uI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZQIOuCNMICguAzeBgxu+HHL77MCyaObg/26HSEUCrXWPkUd23kVGSO+krBqrgQDjE
+	 mqpEtRaeIZTNVpMnC7ZSpNLLvoKTfdwSnMAVI6e+ddliSNa4hjOxsmEmAimZUFx9Lt
+	 XjHN+M2S7/rCFQ+9QG1fl2Akq4wqY2suSIJr9x3bxPv3Ge3YAhOIvKQpq+YvdJ8Alr
+	 5FGix2e4Cql3/KPuymrOlR3aEWS3ik5beTXLqXMe1PPIjuw+DmAbw+2FLOWnRdAHhd
+	 Pr6Dw818Pd5W32CmctWaoz/Q8YfP+nMAAw9KII2KckiGPrFrt1HPC9IXKuGhBg7o4+
+	 RUy6Keg7shOYA==
+Date: Wed, 2 Jul 2025 18:01:18 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, Shuah Khan <shuah@kernel.org>, 
+	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org
+Subject: Re: [PATCH v19 04/10] PCI: endpoint: Add
+ pci_epf_align_inbound_addr() helper for address alignment
+Message-ID: <n6wdkexskwjd7k5zwaaqeb36zdsxzcshsm7f5czv44rmocswex@pzbpehep2teu>
+References: <20250609-ep-msi-v19-0-77362eaa48fa@nxp.com>
+ <20250609-ep-msi-v19-4-77362eaa48fa@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/8] arm64: Kconfig: add ARCH_BST for bst silicons
-To: Albert Yang <yangzh0906@thundersoft.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, gordon.ge@bst.ai,
- catalin.marinas@arm.com, geert.uytterhoeven@gmail.com, will@kernel.org,
- ulf.hansson@linaro.org, adrian.hunter@intel.com, arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, soc@lists.linux.dev,
- bst-upstream@bstai.top, neil.armstrong@linaro.org,
- jonathan.cameron@huawei.com, bigfoot@classfun.cn, kever.yang@rock-chips.com,
- mani@kernel.org, geert+renesas@glider.be, andersson@kernel.org, nm@ti.com,
- nfraprado@collabora.com, quic_tdas@quicinc.com, ebiggers@google.com,
- victor.shih@genesyslogic.com.tw, shanchun1218@gmail.com,
- ben.chuang@genesyslogic.com.tw
-References: <20250528085403.481055-1-yangzh0906@thundersoft.com>
- <20250702094444.3523973-1-yangzh0906@thundersoft.com>
- <20250702094444.3523973-4-yangzh0906@thundersoft.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250702094444.3523973-4-yangzh0906@thundersoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250609-ep-msi-v19-4-77362eaa48fa@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_052142_096362_41D4F84E 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20250702_133141_014950_9095A549 
+X-CRM114-Status: GOOD (  26.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,54 +100,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/07/2025 11:44, Albert Yang wrote:
-> Add ARCH_BST for bst SoC series support.
+On Mon, Jun 09, 2025 at 12:34:16PM GMT, Frank Li wrote:
+> Introduce the helper function pci_epf_align_inbound_addr() to adjust
+> addresses according to PCI BAR alignment requirements, converting addresses
+> into base and offset values.
 > 
-> Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
-> Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
-
-
-All your patches come in some big delays (this one came 2.5h later).
-Maybe there is something with mail server on your side?
-
-
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
-> Changes for v2:
-> - Placed the configuration entry in correct alphabetical order
-> - Used generic family name (ARCH_BST) instead of SoC-specific naming
-> - Followed upstream kernel naming and description conventions
-> ---
->  arch/arm64/Kconfig.platforms | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+> Change from v15 to v16
+> - none
 > 
-> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> index a541bb029aa4..4412d54b224d 100644
-> --- a/arch/arm64/Kconfig.platforms
-> +++ b/arch/arm64/Kconfig.platforms
-> @@ -106,6 +106,14 @@ config ARCH_BLAIZE
->  	help
->  	  This enables support for the Blaize SoC family
+> Change from v14 to v15
+> - change out address type to dma_addr_t to fix below build issue
+> 
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202502082311.G1hWGggF-lkp@intel.com/
+> 
+> All errors (new ones prefixed by >>):
+> 
+>    drivers/pci/endpoint/functions/pci-epf-test.c: In function 'pci_epf_test_enable_doorbell':
+> >> drivers/pci/endpoint/functions/pci-epf-test.c:726:42: error: passing argument 4 of 'pci_epf_align_inbound_addr' from incompatible pointer type [-Werror=incompatible-pointer-types]
+>      726 |                                          &epf_test->db_bar.phys_addr, &offset);
+>          |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>          |                                          |
+>          |                                          dma_addr_t * {aka unsigned int *}
+>    In file included from include/linux/pci-epc.h:12,
+> 
+> Change form v9 to v14
+> - none
+> 
+> change from v8 to v9
+> - pci_epf_align_inbound_addr(), base and off must be not NULL
+> - rm pci_epf_align_inbound_addr_lo_hi()
+> 
+> change from v7 to v8
+> - change name to pci_epf_align_inbound_addr()
+> - update comment said only need for memory, which not allocated by
+> pci_epf_alloc_space().
+> 
+> change from v6 to v7
+> - new patch
+> ---
+>  drivers/pci/endpoint/pci-epf-core.c | 44 +++++++++++++++++++++++++++++++++++++
+>  include/linux/pci-epf.h             |  3 +++
+>  2 files changed, 47 insertions(+)
+> 
+> diff --git a/drivers/pci/endpoint/pci-epf-core.c b/drivers/pci/endpoint/pci-epf-core.c
+> index 95fb3d7c1d45e..33e14a6b1549a 100644
+> --- a/drivers/pci/endpoint/pci-epf-core.c
+> +++ b/drivers/pci/endpoint/pci-epf-core.c
+> @@ -481,6 +481,50 @@ struct pci_epf *pci_epf_create(const char *name)
+>  }
+>  EXPORT_SYMBOL_GPL(pci_epf_create);
 >  
-> +config ARCH_BST
-> +	bool "Black Sesame Technologies SoC Family"
-> +	help
-> +	  This enables support for Black Sesame Technologies (BST) SoC family.
-> +	  BST produces automotive-grade system-on-chips for intelligent driving,
-> +	  focusing on computer vision and AI capabilities. The BST C1200 family
-> +	  includes SoCs for ADAS and autonomous driving applications.
-> +
->  config ARCH_EXYNOS
->  	bool "Samsung Exynos SoC family"
->  	select COMMON_CLK_SAMSUNG
-> @@ -402,4 +410,6 @@ config ARCH_ZYNQMP
->  	help
->  	  This enables support for Xilinx ZynqMP Family
->  
-> +
-> +
+> +/**
+> + * pci_epf_align_inbound_addr() - Get base address and offset that match BAR's
+> + *			  alignment requirement
 
-Why this change?
+'Align the given address based on the BAR alignment requirement'
 
-Best regards,
-Krzysztof
+> + * @epf: the EPF device
+> + * @addr: the address of the memory
+
+'inbound address to be aligned'
+
+> + * @bar: the BAR number corresponding to map addr
+
+s/map addr/the given addr
+
+> + * @base: return base address, which match BAR's alignment requirement.
+
+'base address matching the @bar alignment requirement'
+
+> + * @off: return offset.
+
+'offset to be added to the @base address'
+
+> + *
+> + * Helper function to convert input 'addr' to base and offset, which match
+
+s/convert/align
+
+> + * BAR's alignment requirement.
+> + *
+> + * The pci_epf_alloc_space() function already accounts for alignment. This is
+> + * primarily intended for use with other memory regions not allocated by
+> + * pci_epf_alloc_space(), such as peripheral register spaces or the trigger
+> + * address for a platform MSI controller.
+> + */
+> +int pci_epf_align_inbound_addr(struct pci_epf *epf, enum pci_barno bar,
+> +			       u64 addr, dma_addr_t *base, size_t *off)
+> +{
+> +	const struct pci_epc_features *epc_features;
+> +	u64 align;
+> +
+> +	if (!base || !off)
+> +		return -EINVAL;
+> +
+> +	epc_features = pci_epc_get_features(epf->epc, epf->func_no, epf->vfunc_no);
+> +	if (!epc_features) {
+> +		dev_err(&epf->dev, "epc_features not implemented\n");
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	align = epc_features->align;
+> +	align = align ? align : 128;
+
+From where this 128 byte alignment comes from?
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
