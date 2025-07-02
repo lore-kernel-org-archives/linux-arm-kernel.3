@@ -4,162 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B58DC83F04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 16:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54630C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 16:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r88DZfH4cW/V57Wk5Ex09EUlio3YpDyK7ms7NEbhnu4=; b=SsKD0E7WPqGrW/kzTVn4PwOGBc
-	Dmi3OSquJmQTj4qrKpmJRiGavN0eP+aVRr6DWYRmSFGP8DSD2StHkOqs+IbmyfaYqx5bXI2YkzbQ6
-	cHiFOKzG/or1eJQlAGmLqtmZorjAyrcvH6zvAjQkEhrTtgGxPHTkAd7eQYihD0oRMsjMOsji2bD2U
-	bM66PHej1HRBKmYR5dpUAWJYJgDzxFKtsZUJeZKQgId/nLJ+vcYjODJ8CEZpKMmFFCG13dkNLua1K
-	iW1HRJSuBq+mdb+fXLyGfOagBA4Zgfjul9I/PhKsBG/NwnodLxffyF7M+RbX4vb5yF+okRKiyNYyG
-	+REaUt/A==;
+	bh=Lxs9ud8cXvN9p31E2Jjo5kSBqrpoeLGvqpPM8q3B7OA=; b=pJWErel61YGt7klTfEgJCMoTdW
+	EvEhNfBRNd35MYzMSK5KamBNdHE3n8/QHayvG6WPWsRB5w8F/DEUqAY3qfwzeH7pHhZjTDdIIoax2
+	kC8juu9am0PPvm2n4NvyyPNAeI78oT9h9a46w2qEn9nKAFwJFkaV2XBxM+7bhXifhZ5n2RcStxLMw
+	IiboC+qxSPidC42G2hF5qzHiK6HGXFyou+Kin7z6Pv2TnLiWUMfcDfcSRvxggWxFfuZC33QYznx3B
+	4dGLR2qlxk981hF1OQBRmUeT5NXu0godTCYWgXxlbd9KouAAq8/NOl1ze4vdZIs8v3MEfrRIZccfT
+	7C3Z5glg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX0Zr-000000090HM-1jRS;
-	Wed, 02 Jul 2025 16:44:55 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uX0cA-000000090au-0hh2;
+	Wed, 02 Jul 2025 16:47:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWzoL-00000008rjB-2Mz4;
-	Wed, 02 Jul 2025 15:55:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=smQIAjE8135a+RHo67e/vpU80JM09uAgZyCbIEDKZt6eIXthjL+kMEFby6yLSF23VGRMgIxur31Wwmo74BryPZEu6XxScS0W+Y8sEbmsbMflu2zoE2CxjCqdqYN3YVzBkwtqEooe6XKhF0Q4j/UJeSQ3f/J5wLduxoHroia91t4vSd4MvsYaYLa7JIIYA93T+FC83crQHXxUL4DfzLA1IBW9PJRB6pHDXJMNOuUnbrXEUTmCqnbUUwrCwJX4uXhcLVzo5R5LdR1A4nD5VlHU+eI5F9Gq3QIBoENZLlDbI3ap5CxemtwwyuXxipn74dEF0K16REO/DCcamDQSl5sIsQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r88DZfH4cW/V57Wk5Ex09EUlio3YpDyK7ms7NEbhnu4=;
- b=rOINAluNkDDidwJQO+3snbeUoiprVQ5Hp9rcLxGM1KcmblVszthwgXssLGrfcZHcUejRyrkQ0mXIQbiwHu9goZWOdwXwYBu4xHfoQeQ28PLL2oo5pLP3e5lhcqVWllijutKFHREtsBk5z6nzMO3+NhfCezCtoiT0jtH+1ZoLlzbO/qMeb/arxY4nIlvZ8sRWPDh5XphZoRLr7j4B6SzA8x+O+SfLve5Lb3MV7yo/PEKqI41u1oI0DJXZuuZUgwNWcu7r1lj9PAAW4gQzbXGKUuHcv/SzeIeIfd6wvR5CqYKi5tjF6l5E3faVNusGr7k0WCRo+fGdKtLdmhTDuHJsfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r88DZfH4cW/V57Wk5Ex09EUlio3YpDyK7ms7NEbhnu4=;
- b=nnvuDvSvAkDB3MaDvOrFLJrhgyzg2NTbj1RYEMJn5a17DE8O02wADbqDLgTn8jvPR1H3vdqI47ManWVBPjIHlvFn9yV4ek+0FRSUUY6GirsWjmLVGgL3/v3mOWDtucNjUsEjL5aWffLsY5bArzba6dcpT2eeUpgi80NysV4PHzFYe9DXsY4XPOV/qECWR5HkXgBFbvYq33cdyYDXzt0CYir4MM10qdFBMcgeMm47lyPJIKd16tOpqubhYpIExDOmlKdEzHkX3UkQLkapTH0yflOpZpuuxibZ6gomnQ8no9fEflxA3pmiw8m0nkA3qLnkoOEuzVR/aaMyiQTEIog2gg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU4PR04MB10598.eurprd04.prod.outlook.com (2603:10a6:10:580::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.20; Wed, 2 Jul
- 2025 15:55:42 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.029; Wed, 2 Jul 2025
- 15:55:42 +0000
-Date: Wed, 2 Jul 2025 11:55:35 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1uX04J-00000008uYV-3WIT;
+	Wed, 02 Jul 2025 16:12:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A5786000A;
+	Wed,  2 Jul 2025 16:12:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44ADCC4CEE7;
+	Wed,  2 Jul 2025 16:12:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751472738;
+	bh=TFp7aezr/UNOAZstyTIBGkoYUirbtbx7u9huIRuuK50=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DhLT66Qz3IDH5x5jbbzz1ZjRjqOr+6ra/+r6XpboPLlcAOpl71N8JRUIyScKGesqk
+	 7FMazVHS4dNdMLtRxol/ucD4JW/59diDwaLX2OxGF/J3nAVQFx4cZDat0ZZZHWM4TT
+	 EEbatZcEPEd4xTGxRcW1llrL+KvCZvNxEwRNZm634iavHAXc106cdAy6kVCMkoBAcz
+	 PK8l2ITroojV2ldTNP9cWiZqfbpr0xnYeup1ESdDMhzQPc1sV+SD6j/3fs9ATAaDlR
+	 lswGISBCjhZiMKJT3VlasWJ/e0sJHlFDanoNKLisMzZcQD9TroGhPnhtizNsWW8WZW
+	 y/pEyBi9bXM3g==
+Date: Wed, 2 Jul 2025 17:12:11 +0100
+From: Lee Jones <lee@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org, "Guoniu.zhou" <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH 5/7] media: nxp: add DesignWare MIPI CSI2 controller
- driver
-Message-ID: <aGVWd/bo22pPeKVS@lizhi-Precision-Tower-5810>
-References: <20250701-95_cam-v1-0-c5172bab387b@nxp.com>
- <20250701-95_cam-v1-5-c5172bab387b@nxp.com>
- <20250702093806.GF16835@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250702093806.GF16835@pendragon.ideasonboard.com>
-X-ClientProxiedBy: AS4P192CA0007.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:5da::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, Simon Horman <horms@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [net-next PATCH v15 09/12] mfd: an8855: Add support for Airoha
+ AN8855 Switch MFD
+Message-ID: <20250702161211.GW10134@google.com>
+References: <20250626212321.28114-1-ansuelsmth@gmail.com>
+ <20250626212321.28114-10-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10598:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1df0996b-0546-4b60-6b1c-08ddb980e5cd
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iKT2dw47ZShwO5buj5PUjnv2eCxiYtk0KYKhvw+SyHDeqlFpjvjXrxXVejvM?=
- =?us-ascii?Q?H+IVIXJaQpxF7ikyJZ7272W1aKHtJuRtcFBE+GFwGbu36EDqQQDtlpIfa0+o?=
- =?us-ascii?Q?y/vr4Urngo55NmFmYWcXgIZKDE/oukXtCFXsVcQSbtoPqXqlBzv7gEwkudsv?=
- =?us-ascii?Q?dAqTyjjMbH5NaDNLMmE0sD8/ar23T4Lco6lOz2V2hEK2i1nk+SOsBNhvTAly?=
- =?us-ascii?Q?vzwXbE0RbyCElla2Fm8Zd/Y8MWZznm8dlm7R+wL2FcAD0uyPHSl+mZu/otl9?=
- =?us-ascii?Q?ieLAYH8IeVSayFVxy4lxrSsFkdgJx6VIJGmq2yu35IK7BGGMF/XY6l84zLyx?=
- =?us-ascii?Q?5WpOKvqy7EwRGOpkx3houad/IrcsQnBlVkRKz3eNgUC0d0kv5JvpnxcW0oAX?=
- =?us-ascii?Q?iwtzUk8wN51OQLR1zuGHiQ4zVJJeIzZsji4ICBUz6e4irfC0kD06OHuTzw4a?=
- =?us-ascii?Q?FWgjKc1Vf1BeXCkLYeWusaR7gbVPi2bkZvUHPIXsXaKbnURc3AbI4A8fN6oT?=
- =?us-ascii?Q?RiGMralVE2wDoRGNnykTQkvAoMTdEHUyJyH+loE/fkKqXNxYIE8zCLQ1gxtG?=
- =?us-ascii?Q?pgmA7W8zvI183ZVwDrifUca+pxhLikgmIglx/9zfJfwLzbY7QGi54xHajbSr?=
- =?us-ascii?Q?GJ53P1mYRuSMb08Ts2SO/t7uAjBZUo9HXIAu3Xyvzl6xXLd1IFi3am2/bENx?=
- =?us-ascii?Q?fyQm/J0Mzj/zHw3i8gozwMcb6rLvCwDf841SylqOeBgAdUssTFXihKSAoIBc?=
- =?us-ascii?Q?9UdVFR02pDoi9OrvQVExwDF9Pxi8UeodBSk2PpTcU5hBDER27HZ5aZs+lcMb?=
- =?us-ascii?Q?I5/Qn/ovHTh1amlfcar1JvsDLx8T8wdxbXsNpaGqrtSZN9FnpxV3vXmfQCFp?=
- =?us-ascii?Q?Xu4jANnH/Dj2tqhsLVt7S/I/OZmugkb816cbbar2EgPgwnNt13MRV1eCLtzD?=
- =?us-ascii?Q?iAMKcPKlMMUmy55NGmVsSkp87pkC2nRu6CKhF7ZW3HG6Dr84tbjQONZ4K4Zx?=
- =?us-ascii?Q?QH0Pe3MMtTkQAjZEeo6B/Ci9vAbS+2TiSzWTtNfUiY8D3v+YWOBoyd0ZUdab?=
- =?us-ascii?Q?2qFqNqrWU0NewmmYT9Iu0TbqMKDl+wW8k8IqWtPZJrPRuDVosSuj6zQuBR7O?=
- =?us-ascii?Q?z4Zo3DROOpSfjhfpJmvARQLPoAJ6FAZJiKDqdjRDee8iDZGhTr2yj4CzZxu9?=
- =?us-ascii?Q?UVwAorRhoWyFYsBaUhLA4W0i+Kx1UJRi/fwC7Y49Mx9BVqUgUVumiRrXOZL1?=
- =?us-ascii?Q?f7JWLbCKd+VT6SUUuy90eduSCe4m5K9gMajmBXO714WWdxYFwdjbRG6ardBg?=
- =?us-ascii?Q?xpkDqCYYkVE7g04g3Sd95q/IAXnxoemuZsVykihrPazSLMKGrlrKBG7hKOAn?=
- =?us-ascii?Q?4vjXoOfTpZmEWBSP/S4C2JD4BzEy4hKgY3nsMgljSItPzPWHz9oA/0Hhg8FV?=
- =?us-ascii?Q?InjNpi8OmXt6jShCWfzX34hbtXO8rsz3tM1P3zqTcFqzvbTbNrIa8g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WFh5KTD1diOAXHtkZsXg8a48z5+8jmjFhkyHBO5I9cZS+NVVerfp1Ea9Oo8j?=
- =?us-ascii?Q?XFfGgZyk6A7dR397lpAfmibAtU1oamZ1PqRqz7/kCZ7mXEpWb2GCq0jRPVj6?=
- =?us-ascii?Q?2qjxRetgWF4MBb758knmNUUByXiVIu3xvgVc8NzB6sU4uK+15ef976emVwpz?=
- =?us-ascii?Q?p/V4svCC+fFHmKMoQ0Mrh7v2jj3190Q4t7CmQGn7vJMcixa1HFP/btjVbVPY?=
- =?us-ascii?Q?WdbJ2zcfXCVMaJiVPNC9NiahE3eNxGBAd6KzVGKmGypQKgpFOx4UkOALlrz9?=
- =?us-ascii?Q?PLVcHR0j8R/NCGZNI6FBTnFvdNjTjJjonzzjJvwQS8dwagYWEGHIwHmliEAx?=
- =?us-ascii?Q?1Ky2UAG0qYQ4wxoD/9jnRQ5b/3Tg9Wr40MiSRefV+xvZUSSt1gf/izLgttfU?=
- =?us-ascii?Q?FMBg0HoupGqs7lDryXV/Iz25XOmaqc0KtR1CoGBb+YeJBX6ln+WGpyuxoB9h?=
- =?us-ascii?Q?X/bdbhNg3NxuCfy4vVgoqWFbnIx4WLwLrLByZUORsKDfs+yWLT4mt7cz8hwv?=
- =?us-ascii?Q?rehnqLb+t6j/52ybS3hmRyItf3Pzo8TVDDmvpm+NmkTm1RcKkRcWNYxvq3dT?=
- =?us-ascii?Q?05xxp2ABNF5EbOlqXGOvDkidq13H0otgkFsggr3lZDLVDdSQXNyRH2JIHM7O?=
- =?us-ascii?Q?4GqGiw7W6WENUpKsZluA8xVYtMKFvtgp/JIyR8r9JHWECHGRd/FQewRagz09?=
- =?us-ascii?Q?YJDcEsRwWAElf5L5E4NtDuW8pFcDvOsI4svWfx3dZrk44scHQ+lSXiYtYAUY?=
- =?us-ascii?Q?GNITrk+4cPzvMJCu5cAsKpLQ3vlm15OmKQ7S0Q9I+uQLFC5O/zVRGoJiqD3y?=
- =?us-ascii?Q?EmCUsFd6yngBTXYq29/2JCwGgCTuEZ4FaQivi9gf+78weqWmsfYBXC3hw3fM?=
- =?us-ascii?Q?gwVbljCHbivTKy5qPaWGsXzDL5HW1Pe3CLTwPwvCF3BbAXaElXAtyhWbPGJx?=
- =?us-ascii?Q?hqCoB9cuCnDSVTrktRtE6OoVxudR0Me3GYrgwKuHW5zrXBvhBIm0W7fzmlTG?=
- =?us-ascii?Q?FTxwKTeN3Qzks2MxJ95hBAAM8Ph6m+NnvDNI05HAkGKKG5Ted6sJtdAHCpgB?=
- =?us-ascii?Q?SKcRYKuuvUNoYfue4gp2yp6ppDXcm76RNvYJhuaaqQGffeTry+m7evdtZrzk?=
- =?us-ascii?Q?QSTbeOEfyOwMFjq0yMSSuNJk9yYf6bymg/hKRi/hvXJkWsb2CSBeFxu995wT?=
- =?us-ascii?Q?evRggGkzcb88kX/YkkwqMAamfECiOHxiLf33rvLBACYiCaNBe4W9w/chD4XC?=
- =?us-ascii?Q?hRIKLVHooJO0iu2JoQaVmhZe9s6p4msE/uwTRFKHc96AkbBHJEIGascnZb+r?=
- =?us-ascii?Q?On8QS1f9UxBJausakQC2RscuFjCIwojHvTzCAhas5I93ErLlIulc01cLQIWp?=
- =?us-ascii?Q?Y2e17wZczQI80c0gipUh75YJYc7PLMrxMjhRouNBhhOQ031BrxRsDByYwR1T?=
- =?us-ascii?Q?aXtyizqvTv8NdskU7FdLYEnKQQxKalJ9702eIujbLHD+YfvXmCq0Bk5BfeOe?=
- =?us-ascii?Q?nxQtyJRN8TmScwHbqye3VeVPN3tNAgWuYBFMx1LcSdKwqL+BdoSkE/GHFD2O?=
- =?us-ascii?Q?zUCM/oWYjNy9iAU2VRg=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1df0996b-0546-4b60-6b1c-08ddb980e5cd
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2025 15:55:42.0821
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7bgQjkyvpoNg7tm8nT3ao3IIRPrGRW11fKHkSacyQJExyKJpt2ObipoqWaRlEaUiqheS+RTvrwb9i983V8INFg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10598
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_085549_607166_8A0AAE71 
-X-CRM114-Status: GOOD (  28.97  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250626212321.28114-10-ansuelsmth@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,80 +87,505 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 02, 2025 at 12:38:06PM +0300, Laurent Pinchart wrote:
-> Hi Frank,
->
-> Thank you for the patch.
->
-> On Tue, Jul 01, 2025 at 06:06:10PM -0400, Frank Li wrote:
-> > From: "Guoniu.zhou" <guoniu.zhou@nxp.com>
-> >
-> > Add V4L2 subdev driver for DesignWare MIPI CSI2 controller.
->
-> This seems to be at least the third instance of a driver for the CSI-2
-> receiver, the first two being
+> Add support for Airoha AN8855 Switch MFD that provide support for a DSA
 
-when I read spec, I known it should be used at other SoC. But I just jump
-to into this area, not easy to find who use it easily.
+Drop the MFD part from here and the subject line.
 
-> drivers/media/platform/raspberrypi/rp1-cfe/dphy.c and the second one
+> switch and a NVMEM provider. Also provide support for the PBUS MDIO
+> to access the internal PHYs address from the switch registers to permit
+> the usage of a single regmap to handle both switch and PHYs.
+> 
+> An interesting HW bug wes discovered with the implementation of the MDIO
+> PBUS where the PHY status is not correctly detected if the PBUS is used
+> to read the PHY BMSR. For the only BMSR register, it's required to read
+> the address directly from the MDIO bus.
+> 
+> A check and a workaround is implemented to address this in the
+> regmap_read function.
 
-I think this one is not good abstraction. it should be phy driver, which
-use "test" interface to community MIPI phy. I think it'd better create
-a bus driver, like test_if, DPHY should be child devices of this test_if.
+Couple of final points.
 
-like
-	csi2@000 {
-		...
-		phys = <&dphy>;
+Some of them are repeated from previous reviews.
 
-		dphy: dphy {
-			compatible = "...";
-		}
-	}
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/mfd/Kconfig         |  12 ++
+>  drivers/mfd/Makefile        |   1 +
+>  drivers/mfd/airoha-an8855.c | 393 ++++++++++++++++++++++++++++++++++++
+>  3 files changed, 406 insertions(+)
+>  create mode 100644 drivers/mfd/airoha-an8855.c
+> 
+> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> index 6fb3768e3d71..f2bfd6c9fc5f 100644
+> --- a/drivers/mfd/Kconfig
+> +++ b/drivers/mfd/Kconfig
+> @@ -53,6 +53,18 @@ config MFD_ALTERA_SYSMGR
+>  	  using regmap_mmio accesses for ARM32 parts and SMC calls to
+>  	  EL3 for ARM64 parts.
+>  
+> +config MFD_AIROHA_AN8855
+> +	tristate "Airoha AN8855 Switch Core"
+> +	select MFD_CORE
+> +	select MDIO_DEVICE
+> +	depends on NETDEVICES && OF
+> +	help
+> +	  Support for the Airoha AN8855 Switch Core. This is an SoC
+> +	  that provides various peripherals, to count, i2c, an Ethrnet
+> +	  Switch, a CPU timer, GPIO, eFUSE.
+> +
+> +	  Currently it provides a DSA switch and a NVMEM provider.
+> +
+>  config MFD_ACT8945A
+>  	tristate "Active-semi ACT8945A"
+>  	select MFD_CORE
+> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+> index 79495f9f3457..f541b513f41e 100644
+> --- a/drivers/mfd/Makefile
+> +++ b/drivers/mfd/Makefile
+> @@ -8,6 +8,7 @@ obj-$(CONFIG_MFD_88PM860X)	+= 88pm860x.o
+>  obj-$(CONFIG_MFD_88PM800)	+= 88pm800.o 88pm80x.o
+>  obj-$(CONFIG_MFD_88PM805)	+= 88pm805.o 88pm80x.o
+>  obj-$(CONFIG_MFD_88PM886_PMIC)	+= 88pm886.o
+> +obj-$(CONFIG_MFD_AIROHA_AN8855)	+= airoha-an8855.o
+>  obj-$(CONFIG_MFD_ACT8945A)	+= act8945a.o
+>  obj-$(CONFIG_MFD_SM501)		+= sm501.o
+>  obj-$(CONFIG_ARCH_BCM2835)	+= bcm2835-pm.o
+> diff --git a/drivers/mfd/airoha-an8855.c b/drivers/mfd/airoha-an8855.c
+> new file mode 100644
+> index 000000000000..bb03a2436f25
+> --- /dev/null
+> +++ b/drivers/mfd/airoha-an8855.c
+> @@ -0,0 +1,393 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Core driver for Airoha AN8855 Switch
 
-	The tough problem is that dwc phy have one kind of combo phy, which
-	under both dsi and csi controller's test_if.
+No Copyright?
 
-	CSI need config such combophy by DSI test_if. I still have not idea
-	how to descript this type hardware yet.
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/dsa/an8855.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/mfd/core.h>
+> +#include <linux/mdio.h>
+> +#include <linux/mdio/mdio-regmap.h>
+> +#include <linux/module.h>
+> +#include <linux/phy.h>
+> +#include <linux/regmap.h>
+> +
+> +/* Register for HW trap status */
+> +#define AN8855_HWTRAP			0x1000009c
+> +
+> +#define AN8855_CREV			0x10005000
 
-> drivers/media/platform/renesas/rcar-csi2.c (the latter seems to support
-> multiple CSI-2 receivers).
+Please change the name of this or comment it.
 
-This is one mixed PHY and controller to one drivers, which is not problem
-when use one big MMIO space.
+I still have no idea what it is.
 
-We can create dwc mipi csi common library, let each vendor driver to link
-it (dwc pci/usb did this). The issue is that I have not their hardware to
-test it.
+> +#define   AN8855_ID			0x8855
 
-> drivers/staging/media/imx/imx6-mipi-csi2.c
-> seem related too, likely for an old version of the IP.
+Device ID, Chip ID, Platform ID, Driver's ID?
 
-After we create common dw mipi csi library, we can move this to there.
+> +#define AN8855_RG_GPHY_AFE_PWD		0x1028c840
 
-Frank
+No clue.  Comment please.
 
->
-> Could we please try to avoid code duplication ?
->
-> > Signed-off-by: Guoniu.zhou <guoniu.zhou@nxp.com>
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  MAINTAINERS                                |    1 +
-> >  drivers/media/platform/nxp/Kconfig         |   11 +
-> >  drivers/media/platform/nxp/Makefile        |    1 +
-> >  drivers/media/platform/nxp/dwc-mipi-csi2.c | 1675 ++++++++++++++++++++++++++++
->
-> This should go to drivers/media/platform/synopsys/
->
-> >  4 files changed, 1688 insertions(+)
->
-> [snip]
->
-> --
-> Regards,
->
-> Laurent Pinchart
+> +/* MII Registers */
+> +#define AN8855_PHY_SELECT_PAGE		0x1f
+> +#define   AN8855_PHY_PAGE		GENMASK(2, 0)
+> +#define   AN8855_PHY_PAGE_STANDARD	FIELD_PREP_CONST(AN8855_PHY_PAGE, 0x0)
+> +#define   AN8855_PHY_PAGE_EXTENDED_1	FIELD_PREP_CONST(AN8855_PHY_PAGE, 0x1)
+> +#define   AN8855_PHY_PAGE_EXTENDED_4	FIELD_PREP_CONST(AN8855_PHY_PAGE, 0x4)
+> +
+> +/* MII Registers Page 4 */
+> +#define AN8855_PBUS_MODE		0x10
+> +#define   AN8855_PBUS_MODE_ADDR_FIXED	0x0
+> +#define   AN8855_PBUS_MODE_ADDR_INCR	BIT(15)
+> +#define AN8855_PBUS_WR_ADDR_HIGH	0x11
+> +#define AN8855_PBUS_WR_ADDR_LOW		0x12
+> +#define AN8855_PBUS_WR_DATA_HIGH	0x13
+> +#define AN8855_PBUS_WR_DATA_LOW		0x14
+> +#define AN8855_PBUS_RD_ADDR_HIGH	0x15
+> +#define AN8855_PBUS_RD_ADDR_LOW		0x16
+> +#define AN8855_PBUS_RD_DATA_HIGH	0x17
+> +#define AN8855_PBUS_RD_DATA_LOW		0x18
+> +
+> +struct an8855_core_priv {
+> +	struct mii_bus *bus;
+> +
+
+Do we need this separation between only 2 attributes?
+
+> +	unsigned int switch_addr;
+> +};
+> +
+> +static const struct mfd_cell an8855_core_childs[] = {
+
+an8855_{devs,cells}
+
+> +	{
+> +		.name = "an8855-efuse",
+> +		.of_compatible = "airoha,an8855-efuse",
+
+MFD_CELL_OF()
+
+> +	}, {
+> +		.name = "an8855-switch",
+> +		.of_compatible = "airoha,an8855-switch",
+> +	}, {
+> +		.name = "an8855-mdio",
+> +		.of_compatible = "airoha,an8855-mdio",
+> +	}
+> +};
+> +
+> +static bool an8855_is_pbus_bmcr_reg(u32 reg)
+> +{
+> +	if ((reg & ~(AN8855_GPHY_PORT | AN8855_ADDR)) != AN8855_GPHY_ACCESS)
+> +		return false;
+> +
+> +	if ((reg & AN8855_ADDR) != FIELD_PREP_CONST(AN8855_CL22_ADDR,
+> +						    MII_BMSR))
+> +		return false;
+> +
+> +	return true;
+> +}
+> +
+> +/* PHY page is Global for every Switch PHY.
+> + * Configure it to 4 (as Switch PAGE) and keep it that way.
+> + * Page selection doesn't affect the first PHY address from 0x0 to
+> + * 0xf and we use PBUS to access the PHY address.
+> + */
+
+Proper multi-line comments please.
+
+> +static int an8855_mii_set_page(struct an8855_core_priv *priv, u8 addr,
+> +			       u8 page) __must_hold(&priv->bus->mdio_lock)
+> +{
+> +	struct mii_bus *bus = priv->bus;
+> +	int ret;
+> +
+> +	ret = __mdiobus_write(bus, addr, AN8855_PHY_SELECT_PAGE, page);
+> +	if (ret)
+> +		dev_err_ratelimited(&bus->dev, "failed to set mii page\n");
+> +
+> +	return ret;
+> +}
+> +
+> +static int an8855_mii_read32(struct mii_bus *bus, u8 phy_id, u32 reg,
+> +			     u32 *val) __must_hold(&bus->mdio_lock)
+> +{
+> +	int lo, hi, ret;
+> +
+> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_MODE,
+> +			      AN8855_PBUS_MODE_ADDR_FIXED);
+
+You can use up to 100-chars, if you want to avoid all of this wraps.
+
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_RD_ADDR_HIGH,
+> +			      upper_16_bits(reg));
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_RD_ADDR_LOW,
+> +			      lower_16_bits(reg));
+> +	if (ret)
+> +		goto err;
+> +
+> +	hi = __mdiobus_read(bus, phy_id, AN8855_PBUS_RD_DATA_HIGH);
+> +	if (hi < 0) {
+> +		ret = hi;
+> +		goto err;
+> +	}
+> +
+> +	lo = __mdiobus_read(bus, phy_id, AN8855_PBUS_RD_DATA_LOW);
+> +	if (lo < 0) {
+> +		ret = lo;
+> +		goto err;
+> +	}
+> +
+> +	*val = ((u16)hi << 16) | ((u16)lo & 0xffff);
+> +
+> +	return 0;
+> +err:
+> +	dev_err_ratelimited(&bus->dev, "failed to read register\n");
+> +	return ret;
+> +}
+> +
+> +static int an8855_regmap_read(void *ctx, uint32_t reg, uint32_t *val)
+> +{
+> +	struct an8855_core_priv *priv = ctx;
+> +	struct mii_bus *bus = priv->bus;
+> +	u16 addr = priv->switch_addr;
+> +	int ret;
+> +
+> +	/* Workaround a HW BUG where using only PBUS for
+> +	 * accessing internal PHY register cause the port status
+> +	 * to not be correctly detected. It seems BMSR is required
+> +	 * to go through direct MDIO read or is never refreshed.
+> +	 *
+> +	 * A theory about this is that PHY sideband signal is
+> +	 * checked only with MDIO operation on BMSR and using
+> +	 * PBUS doesn't trigger the check.
+> +	 *
+> +	 * Using interrupt to detect Link Up might be possible
+> +	 * but it's considered an optional feature for the Switch
+> +	 * reference (hence there could be devices with the
+> +	 * interrupt line not connected)
+> +	 */
+
+Re: comment formatting - as above and throughout.
+
+> +	if (an8855_is_pbus_bmcr_reg(reg)) {
+> +		addr += FIELD_GET(AN8855_GPHY_PORT, reg);
+> +		*val = mdiobus_read(bus, addr, MII_BMSR);
+> +		return 0;
+> +	}
+> +
+> +	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
+> +	ret = an8855_mii_set_page(priv, addr, AN8855_PHY_PAGE_EXTENDED_4);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	ret = an8855_mii_read32(bus, addr, reg, val);
+> +
+> +exit:
+> +	mutex_unlock(&bus->mdio_lock);
+> +
+> +	return ret < 0 ? ret : 0;
+> +}
+> +
+> +static int an8855_mii_write32(struct mii_bus *bus, u8 phy_id, u32 reg,
+> +			      u32 val) __must_hold(&bus->mdio_lock)
+> +{
+> +	int ret;
+> +
+> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_MODE,
+> +			      AN8855_PBUS_MODE_ADDR_FIXED);
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_WR_ADDR_HIGH,
+> +			      upper_16_bits(reg));
+> +	if (ret)
+> +		goto err;
+> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_WR_ADDR_LOW,
+> +			      lower_16_bits(reg));
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_WR_DATA_HIGH,
+> +			      upper_16_bits(val));
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = __mdiobus_write(bus, phy_id, AN8855_PBUS_WR_DATA_LOW,
+> +			      lower_16_bits(val));
+> +	if (ret)
+> +		goto err;
+> +
+> +	return 0;
+> +err:
+> +	dev_err_ratelimited(&bus->dev,
+> +			    "failed to write an8855 register\n");
+> +	return ret;
+> +}
+> +
+> +static int an8855_regmap_write(void *ctx, uint32_t reg, uint32_t val)
+> +{
+> +	struct an8855_core_priv *priv = ctx;
+> +	struct mii_bus *bus = priv->bus;
+> +	u16 addr = priv->switch_addr;
+> +	int ret;
+> +
+> +	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
+> +	ret = an8855_mii_set_page(priv, addr, AN8855_PHY_PAGE_EXTENDED_4);
+> +	if (ret)
+> +		goto exit;
+> +
+> +	ret = an8855_mii_write32(bus, addr, reg, val);
+> +
+> +exit:
+> +	mutex_unlock(&bus->mdio_lock);
+> +
+> +	return ret < 0 ? ret : 0;
+> +}
+> +
+> +static int an8855_regmap_update_bits(void *ctx, uint32_t reg, uint32_t mask,
+> +				     uint32_t write_val)
+> +{
+> +	struct an8855_core_priv *priv = ctx;
+> +	struct mii_bus *bus = priv->bus;
+> +	u16 addr = priv->switch_addr;
+> +	u32 val;
+> +	int ret;
+> +
+> +	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
+> +	ret = an8855_mii_set_page(priv, addr, AN8855_PHY_PAGE_EXTENDED_4);
+> +	if (ret)
+> +		goto exit;
+> +
+> +	ret = an8855_mii_read32(bus, addr, reg, &val);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	val &= ~mask;
+> +	val |= write_val;
+> +	ret = an8855_mii_write32(bus, addr, reg, val);
+> +
+> +exit:
+> +	mutex_unlock(&bus->mdio_lock);
+> +
+> +	return ret < 0 ? ret : 0;
+> +}
+> +
+> +static const struct regmap_range an8855_readable_ranges[] = {
+> +	regmap_reg_range(0x10000000, 0x10000fff), /* SCU */
+> +	regmap_reg_range(0x10001000, 0x10001fff), /* RBUS */
+> +	regmap_reg_range(0x10002000, 0x10002fff), /* MCU */
+> +	regmap_reg_range(0x10005000, 0x10005fff), /* SYS SCU */
+> +	regmap_reg_range(0x10007000, 0x10007fff), /* I2C Slave */
+> +	regmap_reg_range(0x10008000, 0x10008fff), /* I2C Master */
+> +	regmap_reg_range(0x10009000, 0x10009fff), /* PDMA */
+> +	regmap_reg_range(0x1000a100, 0x1000a2ff), /* General Purpose Timer */
+> +	regmap_reg_range(0x1000a200, 0x1000a2ff), /* GPU timer */
+> +	regmap_reg_range(0x1000a300, 0x1000a3ff), /* GPIO */
+> +	regmap_reg_range(0x1000a400, 0x1000a5ff), /* EFUSE */
+> +	regmap_reg_range(0x1000c000, 0x1000cfff), /* GDMP CSR */
+> +	regmap_reg_range(0x10010000, 0x1001ffff), /* GDMP SRAM */
+> +	regmap_reg_range(0x10200000, 0x10203fff), /* Switch - ARL Global */
+> +	regmap_reg_range(0x10204000, 0x10207fff), /* Switch - BMU */
+> +	regmap_reg_range(0x10208000, 0x1020bfff), /* Switch - ARL Port */
+> +	regmap_reg_range(0x1020c000, 0x1020cfff), /* Switch - SCH */
+> +	regmap_reg_range(0x10210000, 0x10213fff), /* Switch - MAC */
+> +	regmap_reg_range(0x10214000, 0x10217fff), /* Switch - MIB */
+> +	regmap_reg_range(0x10218000, 0x1021bfff), /* Switch - Port Control */
+> +	regmap_reg_range(0x1021c000, 0x1021ffff), /* Switch - TOP */
+> +	regmap_reg_range(0x10220000, 0x1022ffff), /* SerDes */
+> +	regmap_reg_range(0x10286000, 0x10286fff), /* RG Batcher */
+> +	regmap_reg_range(0x1028c000, 0x1028ffff), /* ETHER_SYS */
+> +	regmap_reg_range(0x30000000, 0x37ffffff), /* I2C EEPROM */
+> +	regmap_reg_range(0x38000000, 0x3fffffff), /* BOOT_ROM */
+> +	regmap_reg_range(0xa0000000, 0xbfffffff), /* GPHY */
+> +};
+> +
+> +static const struct regmap_access_table an8855_readable_table = {
+> +	.yes_ranges = an8855_readable_ranges,
+> +	.n_yes_ranges = ARRAY_SIZE(an8855_readable_ranges),
+> +};
+> +
+> +static const struct regmap_config an8855_regmap_config = {
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +	.max_register = 0xbfffffff,
+> +	.reg_read = an8855_regmap_read,
+> +	.reg_write = an8855_regmap_write,
+> +	.reg_update_bits = an8855_regmap_update_bits,
+> +	.disable_locking = true,
+> +	.rd_table = &an8855_readable_table,
+> +};
+> +
+> +static int an8855_read_switch_id(struct device *dev, struct regmap *regmap)
+> +{
+> +	u32 id;
+> +	int ret;
+> +
+> +	ret = regmap_read(regmap, AN8855_CREV, &id);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (id != AN8855_ID) {
+> +		dev_err(dev, "Detected Switch ID %x but %x was expected\n",
+> +			id, AN8855_ID);
+> +		return -ENODEV;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int an8855_core_probe(struct mdio_device *mdiodev)
+> +{
+> +	struct device *dev = &mdiodev->dev;
+> +	struct an8855_core_priv *priv;
+> +	struct gpio_desc *reset_gpio;
+> +	struct regmap *regmap;
+> +	u32 val;
+> +	int ret;
+> +
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	priv->bus = mdiodev->bus;
+> +	priv->switch_addr = mdiodev->addr;
+> +	/* No DMA for mdiobus, mute warning for DMA mask not set */
+> +	dev->dma_mask = &dev->coherent_dma_mask;
+> +
+> +	regmap = devm_regmap_init(dev, NULL, priv, &an8855_regmap_config);
+> +	if (IS_ERR(regmap))
+> +		return dev_err_probe(dev, PTR_ERR(regmap),
+> +				     "regmap initialization failed\n");
+> +
+> +	reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
+> +	if (IS_ERR(reset_gpio))
+> +		return PTR_ERR(reset_gpio);
+> +
+> +	if (reset_gpio) {
+> +		usleep_range(100000, 150000);
+> +		gpiod_set_value_cansleep(reset_gpio, 0);
+> +		usleep_range(100000, 150000);
+> +		gpiod_set_value_cansleep(reset_gpio, 1);
+> +
+> +		/* Poll HWTRAP reg to wait for Switch to fully Init */
+> +		ret = regmap_read_poll_timeout(regmap, AN8855_HWTRAP, val,
+> +					       val, 20, 200000);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	ret = an8855_read_switch_id(dev, regmap);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Release global PHY power down */
+> +	ret = regmap_write(regmap, AN8855_RG_GPHY_AFE_PWD, 0x0);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO, an8855_core_childs,
+> +				    ARRAY_SIZE(an8855_core_childs), NULL, 0,
+> +				    NULL);
+> +}
+> +
+> +static const struct of_device_id an8855_core_of_match[] = {
+> +	{ .compatible = "airoha,an8855" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, an8855_core_of_match);
+> +
+> +static struct mdio_driver an8855_core_driver = {
+> +	.probe = an8855_core_probe,
+> +	.mdiodrv.driver = {
+> +		.name = "an8855",
+> +		.of_match_table = an8855_core_of_match,
+> +	},
+> +};
+> +mdio_module_driver(an8855_core_driver);
+> +
+> +MODULE_AUTHOR("Christian Marangi <ansuelsmth@gmail.com>");
+> +MODULE_DESCRIPTION("Driver for Airoha AN8855 MFD");
+
+Drop MFD.
+
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.48.1
+> 
+
+-- 
+Lee Jones [李琼斯]
 
