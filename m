@@ -4,148 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98495C83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 03:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A23C83013
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 04:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wRKrOPbVXxoCYq477hEiLdPy3euUUCQnXQjbhABPw8s=; b=UGrfqm9lkcUpxGrVlRjgN4+Xsh
-	B9k4SOPUAACccYyACJ2FfxgJrtaSb4PJlV1LNMGQEIQtzCGGCHhi0tdug2EZyzbGMLY7FEBQBMofl
-	nWv+s4/NKqwiYvs86LZWcZ9IM3F/qjLoWpGzQEAAXYKyy19qN8eJeSg44XGQqM3XKj+NnQsj3GtZS
-	7yOYZszy7/PUcutj4ZspJzT7jS5+NbTIQeyUTJIqvoxsxfk8bASMgNoflr4sPJ8YrHlFAmT4KN/+/
-	NAz/xyijBtjAnXtzDKFyhJ+29ekFyFrFi3GXbMoRXxm6CyU0TBFUEf9+Mhy4+Pcxn8U+5Z2Zrr6N1
-	rVCQAr0g==;
+	bh=Ujm5HkuSLRFAYCz8IGHXaVUOmMqledCqEO1m/4SMo5c=; b=xbZOBe/JmfyliJCNu6XxI09bzI
+	PcCV0GaVNB6lJdpuntNXmTPLCao2aeuY2YWl+52taEknu5zIndG+/zV4KlbPKW88ADd6Wt+D0lVU4
+	H6GifKmg6Y3LzY0FrVriWWOiRsPg4EYefqo6IFLbk/I5ooD+PQAOsyqoC7Jk/JFrYNykHVAWTqw79
+	2P17IwTbe45OVd+l5x++2cYSD8y3N98W9g0dF7EL9/4V11wWwFkdNz/CEix50X/Udgp4SKa+2Pvrm
+	RrbAy+0bGzC0b39N0BjmoYJPYR9iyfn663l2doYlfxdbb9iabGPBfHBQVA0PcWsbxNDeI0UFmQ8lf
+	VuLei/vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWoR1-00000007974-2lAd;
-	Wed, 02 Jul 2025 03:46:59 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uWooz-00000007AZO-0aG5;
+	Wed, 02 Jul 2025 04:11:45 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWoOg-000000078vh-195H
+	id 1uWomd-00000007AUx-2vc0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 03:44:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xWYYSN0T2w5UrFVzREMGMIHR4i1ogSQ3oZYcroxRgtQ3dGnsYY/yCAmmUfcP0YCtwLTfHl7PM5JwX6ICaLb96atbln/vzQWGOkbHb3YvMbv2pKz55sqz/NJGvxMk/w3N/6z6vzvyNimMZ2CKzx0b0ozSqWbXGDjMNulLOn9tYEBVcYof9Z+CgpQFQo5+wXv2xWBQvxLqLByaghsl8QlBCc7L1QTuzxk1Nv3XAqVQIZyG5q1CFKko+A+gxt7d8DLsfVmJOFZ3bvnZK86RY7HiIeod54U5TLkrjKMu2485Ag/hVTEUdbLIyka6cQruD3RqUnoQt6oiz8B9WUVXb0OStg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wRKrOPbVXxoCYq477hEiLdPy3euUUCQnXQjbhABPw8s=;
- b=COiYo6msgjSxJL7yzjshv0ZadvcsXmUyx7MmnpVdwcNKtfSpZ22Wl+f5GZM86B02NX5LYDB4S/83FgmqmgIQ8XeDfAMEOp7g0iwDs+3FELWfnWNIuoSYOjOgYyNs/L9SPsMEkc3qy/p5H1nHYVkAFA4KNYEE9X8h32YJM1Wjb9KH5Fw5dqNxBNTR6r94SexGoDFQdXjxL8g2mGPycnR3e0GBg+8bFfGJU+NiMendQriY+wugIia6AArXxHBVgq0438BaHUZhuggG8iOMA3itHS0MaHB+KuPIcEBo/bFpVR4EoF8EujuCLvv8EPKi30du/cjnBMJl7PO2GGXDsSTXZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wRKrOPbVXxoCYq477hEiLdPy3euUUCQnXQjbhABPw8s=;
- b=cSznYk1TcMm551C0bVsZbzYEHNiDGZwyAbeqr9g6ABlTJ9I5Wro9hDoofYwlPFjyLTQfaeUh1T2hpWjoQoEraj2M+PAXrEDYtMecC7Y6xw4H8FbmrPUWRFmcEXpFlZBSTiJnsAynkoq9aTyXLSH6+pXKJl5deKO9Vj/g6jp+w341b5vvnTdRap+aHi0yLxyKTxOoL9jWcCWUliSI/STt2zCO1/GaU1hWKQD/kWQlFicPnFXjSgSwcSNhc0zFbKduS44u2R9xcjqWv543Jy9ShvtrnIxLsTYOfvDsALA/W+f1uqnRhCb6lmrYwbMSXIwl0ZpP1O7H6VmiDtmKcjOwHA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GV1PR04MB11061.eurprd04.prod.outlook.com (2603:10a6:150:20d::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.32; Wed, 2 Jul
- 2025 03:44:24 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8880.029; Wed, 2 Jul 2025
- 03:44:24 +0000
-Date: Tue, 1 Jul 2025 23:44:19 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
-	ping.bai@nxp.com, haibo.chen@nxp.com, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel@pengutronix.de
-Subject: Re: [PATCH] arm64: dts: imx94: add missing clock related properties
- to flexcan1
-Message-ID: <aGSq7TZlkoqIkQMT@lizhi-Precision-Tower-5810>
-References: <20250702025911.2457322-1-sherry.sun@nxp.com>
+	Wed, 02 Jul 2025 04:09:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751429360; x=1782965360;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1ypfOHMZmqtA55byn/5MVZF/ROe/aCb6duN7VPdVz7g=;
+  b=LOkQW7Jx9BhbLd1EXDtaZhGtGYEQyOCwatKu1ADKgNLWECSZbmmPdBL9
+   wYnHm+o5UdspxmyfO56jpgVCLxuBSkR3RIYY1orghjS8HYVhegBfn4Bjm
+   uxFhkO/J6+Xh4t/uZoEmmLfHWndycg2d1gKUQJ38WnGpVNygXKru64Noe
+   G0GJoamz51fhbHBkIEIhMivkjxLJvUhJAJJNYEHrGMnUVK5xu4La7lpl1
+   o+y5XO/fEcwBlLRiDLcXH/1vfYi0vcH3eFpAIzVZrKE6HaFhbmqIX0/ci
+   Can3LUQh7fV2T3Kc15r1baNmttq5ByMsLpMAH/dYiBi6XA21ChgYAryVD
+   A==;
+X-CSE-ConnectionGUID: /FUqnT0bQKe82SBNON3pjQ==
+X-CSE-MsgGUID: CqezFC2USN2ubo8XPqVpLw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11481"; a="53802839"
+X-IronPort-AV: E=Sophos;i="6.16,280,1744095600"; 
+   d="scan'208";a="53802839"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2025 21:09:16 -0700
+X-CSE-ConnectionGUID: Lqjx1DpPQhybsHP4CWCyYw==
+X-CSE-MsgGUID: UmcfNSnqTxCmWxetgfpuvw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,280,1744095600"; 
+   d="scan'208";a="154683026"
+Received: from lkp-server01.sh.intel.com (HELO 0b2900756c14) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 01 Jul 2025 21:09:12 -0700
+Received: from kbuild by 0b2900756c14 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uWomU-000095-1M;
+	Wed, 02 Jul 2025 04:09:10 +0000
+Date: Wed, 2 Jul 2025 12:08:18 +0800
+From: kernel test robot <lkp@intel.com>
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Levi Yun <yeoreum.yun@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+Subject: Re: [PATCH v2 03/28] coresight: etm3x: Always set tracer's device
+ mode on target CPU
+Message-ID: <202507021124.opIH3gFn-lkp@intel.com>
+References: <20250701-arm_cs_pm_fix_v3-v2-3-23ebb864fcc1@arm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250702025911.2457322-1-sherry.sun@nxp.com>
-X-ClientProxiedBy: AS4P192CA0015.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:5da::10) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV1PR04MB11061:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c7db247-f27c-4db8-667a-08ddb91abc9f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fqSPSRj0LrHaBJR8SJsYB9311MY+1MJS7TB7U0qaliA6LZSwxzNeBjo19VrX?=
- =?us-ascii?Q?gpqrdIGd77TSK0gPoC7a5Sdeo0KYLvhcrye5C1HtYneJKafogPdKhm9v7ABZ?=
- =?us-ascii?Q?3lgELYOSmHM6Z1VGOgRCOu73lnFqFPuNsbzOyETBMHx9myG4lGHJ7T3KCOYR?=
- =?us-ascii?Q?wDQMscsOWdwnnIEFalZ+KtSSt1NZg40vATd131FsI6R685M4XMIP2cMi1ZgM?=
- =?us-ascii?Q?WmrycsRACAAaQR7JUYdjuMEj6hbdJzjZ/Fw5eCVJTcffoj5Vfj8dZt+4iUWQ?=
- =?us-ascii?Q?zoCNJq3Z2z5RGf8Lc7v1WkYar8HlxWgnuJHaBQSBu0GnFe51LgS+v0SUAsBF?=
- =?us-ascii?Q?vRGspR0WfXMZUdJOZkTGGxL3eitv50mECNneC/YGjcENzls5kD6i8ThtGpb5?=
- =?us-ascii?Q?C9wsMsMwXKTd+mK8Ov/ceOPhs4HjQGLbTRHQQZU13Pg+GiScUF57kHAA4mo0?=
- =?us-ascii?Q?u28LS1Z9sLxjvXsX8tDFKd+ik+pncMdidgYKtEOPTMM1HQbQJ5JGtH96V5Z7?=
- =?us-ascii?Q?8rem0Rxc5nNxIBbPbDa8BkwNmljPySslQkqUwmLeyovEGPnfLHV4faiFe2vN?=
- =?us-ascii?Q?wvbefES4NHtNhSWFnS0+/X29OpJpKuRi3KNtmAWY8a0Ojl0xS0uffhvQo+m9?=
- =?us-ascii?Q?OFj9kTCpfxU/HfVGpuipCWEJgcmlvoJ46ehsJNR8Ca2Dgsy5WZoDjVtjzhMl?=
- =?us-ascii?Q?hy7VwLRMeFhCYVInllVb1lPtuCu+hjleSE/PQX0opdnC825Yyr9Ai2etFQik?=
- =?us-ascii?Q?q527JHVssRm/GdwIWTw/8JymYzknOp+RUN4yy2N5sTHaiViIDbI4kXkol35g?=
- =?us-ascii?Q?7SJyApNKBY9f8F4TJoK11J8Y5nqO9Uh8Azp27YEU2CqYrFV1IZIHydpyaq67?=
- =?us-ascii?Q?MxeSjiwRjn4SSvzu03hWOiDNM6mPHYHYeCagkZ7ytgUt5+wtP4yvzXKq0l2N?=
- =?us-ascii?Q?oJsX4Y2eBp/i7xGJNCG+mvh4rhjRrS5qvZ7QIqEV5KXYCdd0MDa7cuZfbvNF?=
- =?us-ascii?Q?Tjff79jKl6forb0jTbYi/l6QL0Ztfe2GPR1NRuBI8rY4zayAVm0q4cO8Vho0?=
- =?us-ascii?Q?8cuEiakcIG+vyTCGQ7Dmiv//XFvsAwbCl8V25f6Wfee+wDSeq1gIewtQEJGO?=
- =?us-ascii?Q?jKQlHhyjPfwMMfgTDYtGQpHiFJ0AYC4re59NrvKoxtsS19kyyPmz5+Y2DYRn?=
- =?us-ascii?Q?2Wt0BK65hJsnMfLe67I9R74iAzKUuLdRIa3n5Bc+7jSyn7ARNy2gmGBUpJkp?=
- =?us-ascii?Q?zCXRqpMsYMqcbhoAZZ6WWuIdto9GqRUL+AWRDzKDNgQOBVubwPk9h9Z9eCNR?=
- =?us-ascii?Q?wCd94/redTXa32JPsgaoIR08R7JXAWKdjh6Ie74ZhrQEirv7cmKvfu+thJrQ?=
- =?us-ascii?Q?iTfXR5CN7utvrk5U4nJWaJIRzuc/U9RkKl5sRyKorxbvOvmfevmaKwyIN/5E?=
- =?us-ascii?Q?9/bpFZKD3sWHv+YKckTFCZM9yQ91RYEwc+X8un2WvE1nZE0sgCL3SBtr/u+V?=
- =?us-ascii?Q?fjBkwEARZvGCc4I=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CZEnUqsGHQbwCX1RNLByTGc/Y7+O+Rr6ksoKWJoB1L0pF/byVltiMd7YhL/m?=
- =?us-ascii?Q?C9roRSbxIsvxc/+1ZgjpNS/3KpTRXpjWDGRkQC6X135UkOoAT3Agr0prIlEX?=
- =?us-ascii?Q?uUcHSerNUH9CDW5VLQ0QYzrUSGQ7RrW5jy1tnOktJc3zFCsCV/qvyfsPbmk7?=
- =?us-ascii?Q?Har/mkikuRs7cnQCcRDqDbux8bIbVETXWBMCVYlMzVrUsU6R9f2B2OjlCHt0?=
- =?us-ascii?Q?Lvs2iyPIXHwZqq8RWQ2ezVc8P7wUIAd+zww3CZ7/Eb9sVqOoksIfH0ZmCtX8?=
- =?us-ascii?Q?/iCoG3I4nvRK3sAjhA1BTxBwqAJvdZopa+J1WbkmLBTLDQVKDls7yFX0ntY8?=
- =?us-ascii?Q?+rPdBgYqOssDXiIPpSJbiBNdRy7DRjDvSTht3btDztfOJTnMHEr3ZFhiIgZw?=
- =?us-ascii?Q?DnAHkHYbcmBH/jCm4ZxzNKsDCmo3P3yHhkqknxVW3/qXKAIbL1I/9EKYP3FS?=
- =?us-ascii?Q?lXio5koyGm0Gg60yUxMT3Fv3SfqNzTNDNzWFru8VFBAet68tQE7y4HqoOx6h?=
- =?us-ascii?Q?K9ynH4CMX2waeShqrIUbxoYaurgDP782+6RzxSgDiYsGh+qtwgLuqoe6u07r?=
- =?us-ascii?Q?OI90yV9zN+ukV2HkVI1k5o5U3cCgUeTnOtBRq2OFgOvr+CB18iOUjeDW02z3?=
- =?us-ascii?Q?7r0nj+ZQM9boQzxKKwqB+A8Kxt910tK5w4EayhRWNPmO+njdr7XR1dKTnojL?=
- =?us-ascii?Q?q0yQabzc1U1+t5NafeDPNEdoheD9yCI2tue8pTQYhby1lWhnZoVsl7w4/pxg?=
- =?us-ascii?Q?HBscKURZ4cRIC4GHXGL5rGAg6DxWg8nMZJkvCTn99KzNrhSXj28maz4EF2IX?=
- =?us-ascii?Q?/LwWIxY81GqeyMFLyl/YukCOARFZpYHiyFfNUIyBpECzi1o7RQNXMrif9wRd?=
- =?us-ascii?Q?d8W4/iSQkQpfdqU3iAWC2KuZ1XSG+vzs/1qep19/5N7moytoB6VGyEjxg5X6?=
- =?us-ascii?Q?QMW5pO8mQV6c3UWNmviOeVlhgLWNwrlr0bFrQyj1veKFQ9yjFTk2M9hBK/Vu?=
- =?us-ascii?Q?IKiaoFUGsfX80BZHNghoB4YmsRbunVQixPE7UzHFlI5d/By7M6YKsv4ROqvC?=
- =?us-ascii?Q?kVGSS3xpXJoOeHQsHvr56SzqXACQQlZOTWhI5dGSnMyEr/IEv+Ajq1wP+VdK?=
- =?us-ascii?Q?lZfWosu6x2mFAJK0S5PVLibFV6EH2Q5nt4GnLVRwGY+0fEJcsyzkLa3XWde9?=
- =?us-ascii?Q?Ahx5YO4UUXGYznDRK8CibFulxGrX2IenyAFoDinZr8cL7fShSTjbYXjjdIUK?=
- =?us-ascii?Q?GYseXbcrL2DjXefQo/HhR3apwJd4bZvzUieD5GKhnlVY/tGWHPHF4a4tDjuB?=
- =?us-ascii?Q?laC0noBwA1a2mZ6hgT1dqDHBoz095FdvzYUm3DCsDp4WJVH1Z8qtRz8qu85/?=
- =?us-ascii?Q?148+kG/Y83sL3zSo++xOakIfQf1ApyrQZb1ae/MvwUlNSjrdIbqbvvOa7E/S?=
- =?us-ascii?Q?y+tZhYTuf8FF7wvYJywHAAOGdOFfKdLVQL2eBn1tVgpqhwIq0gka8EcAd6+t?=
- =?us-ascii?Q?mQznvEssOq+ugmY+6zhyxsWejISx1IxYeJKO1lvqxtY5uknqL2XMp+eGplbs?=
- =?us-ascii?Q?gbGxR2XZIHCZeXMskthz2kmoZ/tASoCa/6VNkhbd?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c7db247-f27c-4db8-667a-08ddb91abc9f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2025 03:44:24.2860
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AKiPFL87T4aa1fcJBIpgVyRFWuc54GtWP9pScySqUMAH5NDPVGODYd6DbhHNeZsM4fNhnCfnMUhaUeEO/NXS5g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB11061
+In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-3-23ebb864fcc1@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_204434_312871_4FDB0B23 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20250701_210919_819140_628E7E10 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,43 +96,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 02, 2025 at 10:59:11AM +0800, Sherry Sun wrote:
-> Somehow the flexcan1 clock related properties were missing in
-> imx94.dtsi, add them here to keep align with other flexcan instances.
+Hi Leo,
 
-suggested commit message:
+kernel test robot noticed the following build errors:
 
-Add missing clocks and clock-names properties for flexcan1 in imx94.dtsi
-to align with other FlexCAN instances.
+[auto build test ERROR on 66701750d5565c574af42bef0b789ce0203e3071]
 
-Frank
+url:    https://github.com/intel-lab-lkp/linux/commits/Leo-Yan/coresight-Change-device-mode-to-atomic-type/20250701-230354
+base:   66701750d5565c574af42bef0b789ce0203e3071
+patch link:    https://lore.kernel.org/r/20250701-arm_cs_pm_fix_v3-v2-3-23ebb864fcc1%40arm.com
+patch subject: [PATCH v2 03/28] coresight: etm3x: Always set tracer's device mode on target CPU
+config: arm-randconfig-004-20250702 (https://download.01.org/0day-ci/archive/20250702/202507021124.opIH3gFn-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250702/202507021124.opIH3gFn-lkp@intel.com/reproduce)
 
->
-> Fixes: b0d011d4841b ("arm64: dts: freescale: Add basic dtsi for imx943")
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx94.dtsi | 7 +++++++
->  1 file changed, 7 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
-> index b8ffc428e95b..bd3437146746 100644
-> --- a/arch/arm64/boot/dts/freescale/imx94.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
-> @@ -1035,6 +1035,13 @@ flexcan1: can@443a0000 {
->  				compatible = "fsl,imx94-flexcan", "fsl,imx95-flexcan";
->  				reg = <0x443a0000 0x10000>;
->  				interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
-> +				clocks = <&scmi_clk IMX94_CLK_BUSAON>,
-> +					 <&scmi_clk IMX94_CLK_CAN1>;
-> +				clock-names = "ipg", "per";
-> +				assigned-clocks = <&scmi_clk IMX94_CLK_CAN1>;
-> +				assigned-clock-parents = <&scmi_clk IMX94_CLK_SYSPLL1_PFD1_DIV2>;
-> +				assigned-clock-rates = <80000000>;
-> +				fsl,clk-source = /bits/ 8 <0>;
->  				status = "disabled";
->  			};
->
-> --
-> 2.34.1
->
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507021124.opIH3gFn-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:545:22: warning: unused variable 'drvdata' [-Wunused-variable]
+     545 |         struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+         |                             ^~~~~~~
+>> drivers/hwtracing/coresight/coresight-etm3x-core.c:561:35: warning: declaration of 'struct etmv4_drvdata' will not be visible outside of this function [-Wvisibility]
+     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+         |                                   ^
+>> drivers/hwtracing/coresight/coresight-etm3x-core.c:564:38: error: incomplete definition of type 'struct etmv4_drvdata'
+     564 |         struct etm_config *config = &drvdata->config;
+         |                                      ~~~~~~~^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:35: note: forward declaration of 'struct etmv4_drvdata'
+     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+         |                                   ^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:565:42: error: incomplete definition of type 'struct etmv4_drvdata'
+     565 |         struct coresight_device *csdev = drvdata->csdev;
+         |                                          ~~~~~~~^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:35: note: forward declaration of 'struct etmv4_drvdata'
+     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+         |                                   ^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:567:19: error: incomplete definition of type 'struct etmv4_drvdata'
+     567 |         CS_UNLOCK(drvdata->csa.base);
+         |                   ~~~~~~~^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:35: note: forward declaration of 'struct etmv4_drvdata'
+     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+         |                                   ^
+>> drivers/hwtracing/coresight/coresight-etm3x-core.c:568:15: error: incompatible pointer types passing 'struct etmv4_drvdata *' to parameter of type 'struct etm_drvdata *' [-Werror,-Wincompatible-pointer-types]
+     568 |         etm_set_prog(drvdata);
+         |                      ^~~~~~~
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:154:46: note: passing argument to parameter 'drvdata' here
+     154 | static void etm_set_prog(struct etm_drvdata *drvdata)
+         |                                              ^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:571:38: error: incompatible pointer types passing 'struct etmv4_drvdata *' to parameter of type 'struct etm_drvdata *' [-Werror,-Wincompatible-pointer-types]
+     571 |         config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
+         |                                             ^~~~~~~
+   drivers/hwtracing/coresight/coresight-etm.h:267:58: note: passing argument to parameter 'drvdata' here
+     267 | static inline unsigned int etm_readl(struct etm_drvdata *drvdata, u32 off)
+         |                                                          ^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:573:25: error: incomplete definition of type 'struct etmv4_drvdata'
+     573 |         for (i = 0; i < drvdata->nr_cntr; i++)
+         |                         ~~~~~~~^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:35: note: forward declaration of 'struct etmv4_drvdata'
+     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+         |                                   ^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:574:35: error: incompatible pointer types passing 'struct etmv4_drvdata *' to parameter of type 'struct etm_drvdata *' [-Werror,-Wincompatible-pointer-types]
+     574 |                 config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
+         |                                                 ^~~~~~~
+   drivers/hwtracing/coresight/coresight-etm.h:267:58: note: passing argument to parameter 'drvdata' here
+     267 | static inline unsigned int etm_readl(struct etm_drvdata *drvdata, u32 off)
+         |                                                          ^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:576:17: error: incompatible pointer types passing 'struct etmv4_drvdata *' to parameter of type 'struct etm_drvdata *' [-Werror,-Wincompatible-pointer-types]
+     576 |         etm_set_pwrdwn(drvdata);
+         |                        ^~~~~~~
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:61:48: note: passing argument to parameter 'drvdata' here
+      61 | static void etm_set_pwrdwn(struct etm_drvdata *drvdata)
+         |                                                ^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:579:17: error: incomplete definition of type 'struct etmv4_drvdata'
+     579 |         CS_LOCK(drvdata->csa.base);
+         |                 ~~~~~~~^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:35: note: forward declaration of 'struct etmv4_drvdata'
+     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+         |                                   ^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:581:18: error: incomplete definition of type 'struct etmv4_drvdata'
+     581 |         dev_dbg(&drvdata->csdev->dev,
+         |                  ~~~~~~~^
+   include/linux/dev_printk.h:171:28: note: expanded from macro 'dev_dbg'
+     171 |         dev_no_printk(KERN_DEBUG, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                   ^~~
+   include/linux/dev_printk.h:139:23: note: expanded from macro 'dev_no_printk'
+     139 |                         _dev_printk(level, dev, fmt, ##__VA_ARGS__);    \
+         |                                            ^~~
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:35: note: forward declaration of 'struct etmv4_drvdata'
+     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+         |                                   ^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:582:45: error: incomplete definition of type 'struct etmv4_drvdata'
+     582 |                 "cpu: %d disable smp call done\n", drvdata->cpu);
+         |                                                    ~~~~~~~^
+   include/linux/dev_printk.h:171:49: note: expanded from macro 'dev_dbg'
+     171 |         dev_no_printk(KERN_DEBUG, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                        ^~~~~~~~~~~
+   include/linux/dev_printk.h:139:35: note: expanded from macro 'dev_no_printk'
+     139 |                         _dev_printk(level, dev, fmt, ##__VA_ARGS__);    \
+         |                                                        ^~~~~~~~~~~
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:35: note: forward declaration of 'struct etmv4_drvdata'
+     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+         |                                   ^
+>> drivers/hwtracing/coresight/coresight-etm3x-core.c:589:17: error: incompatible pointer types passing 'struct etmv_drvdata *' to parameter of type 'struct etmv4_drvdata *' [-Werror,-Wincompatible-pointer-types]
+     589 |         etm_disable_hw(drvdata);
+         |                        ^~~~~~~
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:50: note: passing argument to parameter 'drvdata' here
+     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+         |                                                  ^
+>> drivers/hwtracing/coresight/coresight-etm3x-core.c:591:28: error: incomplete definition of type 'struct etmv_drvdata'
+     591 |         coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+         |                            ~~~~~~~^
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:587:9: note: forward declaration of 'struct etmv_drvdata'
+     587 |         struct etmv_drvdata *drvdata = info;
+         |                ^
+>> drivers/hwtracing/coresight/coresight-etm3x-core.c:729:18: error: incompatible pointer types passing 'struct etm_drvdata *' to parameter of type 'struct etmv4_drvdata *' [-Werror,-Wincompatible-pointer-types]
+     729 |                 etm_disable_hw(etmdrvdata[cpu]);
+         |                                ^~~~~~~~~~~~~~~
+   drivers/hwtracing/coresight/coresight-etm3x-core.c:561:50: note: passing argument to parameter 'drvdata' here
+     561 | static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+         |                                                  ^
+   2 warnings and 14 errors generated.
+
+
+vim +564 drivers/hwtracing/coresight/coresight-etm3x-core.c
+
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  560  
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01 @561  static void etm_disable_hw(struct etmv4_drvdata *drvdata)
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  562  {
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  563  	int i;
+1925a470ce69cdf drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17 @564  	struct etm_config *config = &drvdata->config;
+8ce0029658ba16c drivers/hwtracing/coresight/coresight-etm3x-core.c Suzuki K Poulose          2021-02-01  565  	struct coresight_device *csdev = drvdata->csdev;
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  566  
+a1b0e77ce517ec0 drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark               2025-03-25  567  	CS_UNLOCK(drvdata->csa.base);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03 @568  	etm_set_prog(drvdata);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  569  
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  570  	/* Read back sequencer and counters for post trace analysis */
+1925a470ce69cdf drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  571  	config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  572  
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  573  	for (i = 0; i < drvdata->nr_cntr; i++)
+1925a470ce69cdf drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  574  		config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  575  
+6dd4402f24a39a9 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2018-11-30  576  	etm_set_pwrdwn(drvdata);
+8ce0029658ba16c drivers/hwtracing/coresight/coresight-etm3x-core.c Suzuki K Poulose          2021-02-01  577  	coresight_disclaim_device_unlocked(csdev);
+68a147752d04da7 drivers/hwtracing/coresight/coresight-etm3x.c      Suzuki K Poulose          2018-09-20  578  
+a1b0e77ce517ec0 drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark               2025-03-25  579  	CS_LOCK(drvdata->csa.base);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  580  
+aaff7623284159a drivers/hwtracing/coresight/coresight-etm3x.c      Suzuki K Poulose          2019-06-19  581  	dev_dbg(&drvdata->csdev->dev,
+aaff7623284159a drivers/hwtracing/coresight/coresight-etm3x.c      Suzuki K Poulose          2019-06-19  582  		"cpu: %d disable smp call done\n", drvdata->cpu);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  583  }
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  584  
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  585  static void etm_disable_hw_smp_call(void *info)
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  586  {
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  587  	struct etmv_drvdata *drvdata = info;
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  588  
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01 @589  	etm_disable_hw(drvdata);
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  590  
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01 @591  	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  592  }
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  593  
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  594  static void etm_disable_perf(struct coresight_device *csdev)
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  595  {
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  596  	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  597  
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  598  	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id()))
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  599  		return;
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  600  
+a1b0e77ce517ec0 drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark               2025-03-25  601  	CS_UNLOCK(drvdata->csa.base);
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  602  
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  603  	/* Setting the prog bit disables tracing immediately */
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  604  	etm_set_prog(drvdata);
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  605  
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  606  	/*
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  607  	 * There is no way to know when the tracer will be used again so
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  608  	 * power down the tracer.
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  609  	 */
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  610  	etm_set_pwrdwn(drvdata);
+8ce0029658ba16c drivers/hwtracing/coresight/coresight-etm3x-core.c Suzuki K Poulose          2021-02-01  611  	coresight_disclaim_device_unlocked(csdev);
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  612  
+a1b0e77ce517ec0 drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark               2025-03-25  613  	CS_LOCK(drvdata->csa.base);
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  614  
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  615  	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  616  
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  617  	/*
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  618  	 * perf will release trace ids when _free_aux()
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  619  	 * is called at the end of the session
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  620  	 */
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  621  
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  622  }
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  623  
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  624  static void etm_disable_sysfs(struct coresight_device *csdev)
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  625  {
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  626  	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  627  
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  628  	/*
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  629  	 * Taking hotplug lock here protects from clocks getting disabled
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  630  	 * with tracing being left on (crash scenario) if user disable occurs
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  631  	 * after cpu online mask indicates the cpu is offline but before the
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  632  	 * DYING hotplug callback is serviced by the ETM driver.
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  633  	 */
+e560c89c8ac0baa drivers/hwtracing/coresight/coresight-etm3x.c      Sebastian Andrzej Siewior 2017-05-24  634  	cpus_read_lock();
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  635  	spin_lock(&drvdata->spinlock);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  636  
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  637  	/*
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  638  	 * Executing etm_disable_hw on the cpu whose ETM is being disabled
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  639  	 * ensures that register writes occur when cpu is powered.
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  640  	 */
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  641  	smp_call_function_single(drvdata->cpu, etm_disable_hw_smp_call,
+a136c0aff8e1120 drivers/hwtracing/coresight/coresight-etm3x-core.c Leo Yan                   2025-07-01  642  				 drvdata, 1);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  643  
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  644  	spin_unlock(&drvdata->spinlock);
+e560c89c8ac0baa drivers/hwtracing/coresight/coresight-etm3x.c      Sebastian Andrzej Siewior 2017-05-24  645  	cpus_read_unlock();
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  646  
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  647  	/*
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  648  	 * we only release trace IDs when resetting sysfs.
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  649  	 * This permits sysfs users to read the trace ID after the trace
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  650  	 * session has completed. This maintains operational behaviour with
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  651  	 * prior trace id allocation method
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  652  	 */
+9edf291091f68f4 drivers/hwtracing/coresight/coresight-etm3x-core.c Mike Leach                2023-01-16  653  
+aaff7623284159a drivers/hwtracing/coresight/coresight-etm3x.c      Suzuki K Poulose          2019-06-19  654  	dev_dbg(&csdev->dev, "ETM tracing disabled\n");
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  655  }
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  656  
+68905d73df5d51b drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-08-25  657  static void etm_disable(struct coresight_device *csdev,
+68905d73df5d51b drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-08-25  658  			struct perf_event *event)
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  659  {
+9fa3682869d4e16 drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark               2023-04-25  660  	enum cs_mode mode;
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  661  
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  662  	/*
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  663  	 * For as long as the tracer isn't disabled another entity can't
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  664  	 * change its status.  As such we can read the status here without
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  665  	 * fearing it will change under us.
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  666  	 */
+c95c2733e5feb1f drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark               2024-01-29  667  	mode = coresight_get_mode(csdev);
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  668  
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  669  	switch (mode) {
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  670  	case CS_MODE_DISABLED:
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  671  		break;
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  672  	case CS_MODE_SYSFS:
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  673  		etm_disable_sysfs(csdev);
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  674  		break;
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  675  	case CS_MODE_PERF:
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  676  		etm_disable_perf(csdev);
+882d5e112491c87 drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  677  		break;
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  678  	default:
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  679  		WARN_ON_ONCE(mode);
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  680  		return;
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  681  	}
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  682  }
+22fd532eaa0c24d drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-17  683  
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  684  static const struct coresight_ops_source etm_source_ops = {
+52210c8745e418f drivers/hwtracing/coresight/coresight-etm3x.c      Mathieu Poirier           2016-02-02  685  	.cpu_id		= etm_cpu_id,
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  686  	.enable		= etm_enable,
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  687  	.disable	= etm_disable,
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  688  };
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  689  
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  690  static const struct coresight_ops etm_cs_ops = {
+c367a89dec267c6 drivers/hwtracing/coresight/coresight-etm3x-core.c Jie Gan                   2025-03-03  691  	.trace_id	= coresight_etm_get_trace_id,
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  692  	.source_ops	= &etm_source_ops,
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  693  };
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  694  
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  695  static int etm_online_cpu(unsigned int cpu)
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  696  {
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  697  	if (!etmdrvdata[cpu])
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  698  		return 0;
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  699  
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  700  	if (etmdrvdata[cpu]->boot_enable && !etmdrvdata[cpu]->sticky_enable)
+1f5149c7751c50a drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark               2024-01-29  701  		coresight_enable_sysfs(etmdrvdata[cpu]->csdev);
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  702  	return 0;
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  703  }
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  704  
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  705  static int etm_starting_cpu(unsigned int cpu)
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  706  {
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  707  	if (!etmdrvdata[cpu])
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  708  		return 0;
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  709  
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  710  	spin_lock(&etmdrvdata[cpu]->spinlock);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  711  	if (!etmdrvdata[cpu]->os_unlock) {
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  712  		etm_os_unlock(etmdrvdata[cpu]);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  713  		etmdrvdata[cpu]->os_unlock = true;
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  714  	}
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  715  
+c95c2733e5feb1f drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark               2024-01-29  716  	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  717  		etm_enable_hw(etmdrvdata[cpu]);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  718  	spin_unlock(&etmdrvdata[cpu]->spinlock);
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  719  	return 0;
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  720  }
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  721  
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  722  static int etm_dying_cpu(unsigned int cpu)
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  723  {
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  724  	if (!etmdrvdata[cpu])
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  725  		return 0;
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  726  
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  727  	spin_lock(&etmdrvdata[cpu]->spinlock);
+c95c2733e5feb1f drivers/hwtracing/coresight/coresight-etm3x-core.c James Clark               2024-01-29  728  	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03 @729  		etm_disable_hw(etmdrvdata[cpu]);
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  730  	spin_unlock(&etmdrvdata[cpu]->spinlock);
+2b5283d12f67839 drivers/hwtracing/coresight/coresight-etm3x.c      Richard Cochran           2016-07-13  731  	return 0;
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  732  }
+a939fc5a71ad531 drivers/coresight/coresight-etm3x.c                Pratik Patel              2014-11-03  733  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
