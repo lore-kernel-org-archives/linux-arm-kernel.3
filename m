@@ -4,130 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C13A1C83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 05:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09654C83013
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 05:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ocX+LiR9BtypRDOe9giWuZ6zdLW4XcmiYNpdeZQm2ws=; b=ek5rNZPivvTlS7
-	Gl20fKHlETmTDJ2yZs3mDhD0GRy6Z0oIixCArW3tPyj0k7TVtXntDSeEqmkCi83T7gj+AJCamU10L
-	v/WwB4ElutvnNLXl8F2pv3Dmi2Z08eL12bvAF4VAcN07xYAj5G++K5d2u2T08jf4izlYemF7w37WP
-	4R79dtkC+mpBDWxHLDiaqOcyJp6hR+87UN2//Hss+/7YnDfQI1ixMI3Z4+tXAljCxTdJhbHPdhbpp
-	71ADO7unqHBsVCQwDzNKXHgqUgk8J8oXqWQH6fxPZ0FHOTAsX8X0TpNoo5Xb5wQQzMbA7Nq700rsA
-	MgULULs3fjVlHyCBh+Qg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0tclpTHrMHS60y1yV7zrGTgRYYhg83CK2pZGfbtKaU0=; b=4DM1WxCm7eE5iKBK29+mKiZKzt
+	frwVFLJN3cvfqrc+Wli/0xa6m9PpAftezDM1spPjBSiQeOEm9vB0tlUciaiGHv78tJaSUhb4ZNTKi
+	pY0cJJjxTPjadl9k7ZOlHHZvYb5WURB5yqWtopkUfHrm/GoKnOm5xJ4d52R3QR9puFg5INMllcNM4
+	6WD7n1et7GMvwWZoU8LohRShBmRMXPKCrE2ABT4pRSQfKDa/TiHGgV6cB2YwkiICeEuXCagPlFWAk
+	cey2Iij3OuBB93K6aGTlAmwEWtVC3COpTQ7mTBFnf2ce8ruYXqODpKryTJchjRGWZelZox2uyXNpL
+	Sx1qRWVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWq2B-00000007Iwc-3DiJ;
-	Wed, 02 Jul 2025 05:29:27 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1uWqP8-00000007KSH-3sRx;
+	Wed, 02 Jul 2025 05:53:10 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWpzq-00000007Inp-2kcl;
-	Wed, 02 Jul 2025 05:27:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1751434019; x=1752038819; i=frank-w@public-files.de;
-	bh=ocX+LiR9BtypRDOe9giWuZ6zdLW4XcmiYNpdeZQm2ws=;
-	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=YQtF32IIGW1bOIhg/DGGFGZbk++Yq3n5VM1OhIjZgh9ILMQqSVF4TmRQVcWg2RGR
-	 Oq3pSuhaDly5IghK1NeTXez4Oo0/XJ0JzHhfg/CJE6fod1fsAGwg34COavNQzEzhj
-	 tkJF3NI2z5U+KZJf/+JkzwGIRm0v1cU3o2ORmuyYxFKEZ66YwNXVP1o5p6v+RWS2K
-	 eWcsQ0F3QPAOxk4/fzUIGGgfFJqEn/e5DIHvdwcVB2SIPx/eraW4KSZT6LO8h0+4K
-	 HYNF/YW6bU7WolpJhkVS5HdpsGu2GFA/Kqm7LOLUx9VYlDclz7ukV4bf9ywR8uSLy
-	 UTNwa/ekcFrhbVrAfQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [127.0.0.1] ([194.15.85.168]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MWici-1uD1xL1XCK-00PXM7; Wed, 02
- Jul 2025 07:26:59 +0200
-Date: Wed, 02 Jul 2025 07:26:52 +0200
-From: Frank Wunderlich <frank-w@public-files.de>
-To: Frank Wunderlich <linux@fw-web.de>, MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Johnson Wang <johnson.wang@mediatek.com>,
- =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
- Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v7 00/14] further mt7988 devicetree work
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20250628165451.85884-1-linux@fw-web.de>
-References: <20250628165451.85884-1-linux@fw-web.de>
-Message-ID: <41FC3305-F6B9-4EBF-BC26-0203A7F3329E@public-files.de>
+	id 1uWqMn-00000007KIj-2Djr;
+	Wed, 02 Jul 2025 05:50:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1751435445; x=1782971445;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=0tclpTHrMHS60y1yV7zrGTgRYYhg83CK2pZGfbtKaU0=;
+  b=EtV583mUlu8ixxlO0NC6ZnDcrR5zrRr/n7Y+QPrX5Un5zJPu2rbh54va
+   PwmksKGVfYL3Audi2NG1R0YC3lQAH+RTosk1e2jBaUxI+1bpnHy4qD62k
+   OkhgLq6R4HY3MXZYgMYnlBqJDgqKVUkBMf9cn7gsI/Zwm8E2ozcJPVcUq
+   8ycWNufXbOPsOOLd3zzLQ/yqKqjSoIIMfSLOyAt+8/pxFecwr7oQU4+i9
+   jkDN/Etnyt2/fTXBr/7DxzmsLZfYBsQ/Lbn/pb0LiW0sFfW2n59m7e2hm
+   SKru01KeqAwyhcuVQIAjc1m7Lhrq+lrXePTDJkbbZofViPkodQiACuLBA
+   g==;
+X-CSE-ConnectionGUID: nJnSdhJ6SDu4fR+AA3tloA==
+X-CSE-MsgGUID: Ggv87czwR1eRhnY8AKh4kA==
+X-IronPort-AV: E=Sophos;i="6.16,281,1744063200"; 
+   d="scan'208";a="44970666"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 02 Jul 2025 07:50:41 +0200
+X-CheckPoint: {6864C8B1-31-497D558D-EBA6F5A1}
+X-MAIL-CPID: 3D5640B5CBAC4465B93E5C7476A9BFE7_3
+X-Control-Analysis: str=0001.0A006371.6864C8CA.001D,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 619E41691FB;
+	Wed,  2 Jul 2025 07:50:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1751435437;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0tclpTHrMHS60y1yV7zrGTgRYYhg83CK2pZGfbtKaU0=;
+	b=Kky3wToanZl67QzaNmYjeL8TmnhGM+nbj2obC1m5EfYUhkF/OjZg6EIuRwA+gmUZgWpEgM
+	LtunT9+y/whBgT4HMuhpgZNejNvWUkXNxaAUqxU7WSiFEtxJiE/qAUdolmO3VBoVTsQ1Sx
+	97+Lm32lu6YJd4xZyKCLzLCQ12p4jafu+7UJSDG1IW9nbp7FYUB2ypaiJnRDDCdBowNlkb
+	SyhUe+5WZgkktyXAmj19Zzc5g1/IC0UoiNNkezto0igItCNu/3G2jFLJnsaIht5FQb5Rp4
+	ZmBPZjD9dbEJB3wc267UoPRq0VgBOmNwukjP11CYHnGW8WKkudUm+vnwq4tung==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rui Miguel Silva <rmfrfs@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Eugen Hristev <eugen.hristev@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+ Frank Li <Frank.Li@nxp.com>, "Guoniu.zhou" <guoniu.zhou@nxp.com>,
+ Jindong Yue <jindong.yue@nxp.com>
+Subject: Re: [PATCH 4/7] phy: freescale: add imx93 MIPI CSI2 DPHY support
+Date: Wed, 02 Jul 2025 07:50:34 +0200
+Message-ID: <9474393.CDJkKcVGEf@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250701-95_cam-v1-4-c5172bab387b@nxp.com>
+References: <20250701-95_cam-v1-0-c5172bab387b@nxp.com>
+ <20250701-95_cam-v1-4-c5172bab387b@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:+0ij2U4Sm1jTDlnh1aeuBvKJA+kgKHBWGyfwk5h8SLM8bOL5I+b
- urRm0KZG1vEjPM3lmK/DKQtdzqxf6yJmNBy9coNRFfmn0VihR74jyuyoebpSLYzFy1v+v3u
- vSznWJtdRDX4jentQ7yg63BjAtKB8yMXmkZY5DB1xcRhpRU2e/B3BuVKEM9Ytrk0ItKBqMo
- GgUWENJ4VwIVQTFp5HkSQ==
-UI-OutboundReport: notjunk:1;M01:P0:Nq+lDfMhpeQ=;aBgJLF/kLqYk+izV8BvM8GZXlux
- 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
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_222702_988842_8F33D68F 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250701_225046_095076_0D02B8E9 
+X-CRM114-Status: GOOD (  25.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,30 +105,401 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
->Frank Wunderlich (14):
-=2E=2E=2E
->  dt-bindings: net: dsa: mediatek,mt7530: add dsa-port definition for
->    mt7988
->  dt-bindings: net: dsa: mediatek,mt7530: add internal mdio bus
->  dt-bindings: interconnect: add mt7988-cci compatible
->  arm64: dts: mediatek: mt7988: add cci node
-=2E=2E=2E
->  arm64: dts: mediatek: mt7988a-bpi-r4: add proc-supply for cci
->  arm64: dts: mediatek: mt7988a-bpi-r4: drop unused pins
->  arm64: dts: mediatek: mt7988a-bpi-r4: add gpio leds
-=2E=2E=2E
+thanks for the patch.
 
-Hi Angelo,
+Am Mittwoch, 2. Juli 2025, 00:06:09 CEST schrieb Frank Li:
+> Add driver i.MX93 MIPI DPHY controller, which is wrapper for Synosys MIPI
+> CSI2 DPHY module.
+>=20
+> Base on
+> https://github.com/nxp-imx/linux-imx/blob/lf-6.12.y/drivers/phy/freescale=
+/phy-fsl-imx9-dphy-rx.c
+>=20
+> Signed-off-by: Guoniu.zhou <guoniu.zhou@nxp.com>
+> Signed-off-by: Jindong Yue <jindong.yue@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/phy/freescale/Kconfig                 |  10 +
+>  drivers/phy/freescale/Makefile                |   1 +
+>  drivers/phy/freescale/phy-fsl-imx93-dphy-rx.c | 306 ++++++++++++++++++++=
+++++++
+>  3 files changed, 317 insertions(+)
+>=20
+> diff --git a/drivers/phy/freescale/Kconfig b/drivers/phy/freescale/Kconfig
+> index 81f53564ee156..cb34e151e86c4 100644
+> --- a/drivers/phy/freescale/Kconfig
+> +++ b/drivers/phy/freescale/Kconfig
+> @@ -44,6 +44,16 @@ config PHY_FSL_IMX8QM_HSIO
+>  	  Enable this to add support for the HSIO PHY as found on
+>  	  i.MX8QM family of SOCs.
+> =20
+> +config PHY_FSL_IMX93_DPHY_RX
+> +	tristate "Freescale i.MX9 DPHY Rx"
+> +	depends on OF && HAS_IOMEM
+> +	select GENERIC_PHY
+> +	select GENERIC_PHY_MIPI_DPHY
+> +	select REGMAP_MMIO
+> +	help
+> +	  Enable this to add support for the Synopsys DW DPHY Rx as found
+> +	  on NXP's i.MX9 family.
+> +
+>  config PHY_FSL_SAMSUNG_HDMI_PHY
+>  	tristate "Samsung HDMI PHY support"
+>  	depends on OF && HAS_IOMEM && COMMON_CLK
+> diff --git a/drivers/phy/freescale/Makefile b/drivers/phy/freescale/Makef=
+ile
+> index 658eac7d0a622..8e122a07695f0 100644
+> --- a/drivers/phy/freescale/Makefile
+> +++ b/drivers/phy/freescale/Makefile
+> @@ -4,5 +4,6 @@ obj-$(CONFIG_PHY_MIXEL_LVDS_PHY)	+=3D phy-fsl-imx8qm-lvds=
+=2Dphy.o
+>  obj-$(CONFIG_PHY_MIXEL_MIPI_DPHY)	+=3D phy-fsl-imx8-mipi-dphy.o
+>  obj-$(CONFIG_PHY_FSL_IMX8M_PCIE)	+=3D phy-fsl-imx8m-pcie.o
+>  obj-$(CONFIG_PHY_FSL_IMX8QM_HSIO)	+=3D phy-fsl-imx8qm-hsio.o
+> +obj-$(CONFIG_PHY_FSL_IMX93_DPHY_RX)	+=3D phy-fsl-imx93-dphy-rx.o
+>  obj-$(CONFIG_PHY_FSL_LYNX_28G)		+=3D phy-fsl-lynx-28g.o
+>  obj-$(CONFIG_PHY_FSL_SAMSUNG_HDMI_PHY)	+=3D phy-fsl-samsung-hdmi.o
+> diff --git a/drivers/phy/freescale/phy-fsl-imx93-dphy-rx.c b/drivers/phy/=
+freescale/phy-fsl-imx93-dphy-rx.c
+> new file mode 100644
+> index 0000000000000..f5155ae68c50f
+> --- /dev/null
+> +++ b/drivers/phy/freescale/phy-fsl-imx93-dphy-rx.c
+> @@ -0,0 +1,306 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Copyright 2025 NXP
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/phy/phy-mipi-dphy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +
+> +#define IMX93_BLK_CSI			0x48
+> +#define   IMX93_BLK_CSI_CFGCLKFREQRANGE	GENMASK(5, 0)
+> +#define   IMX93_BLK_CSI_HSFREQRANGE	GENMASK(14, 8)
+> +
+> +struct fsl_csi2_phy_drv_data {
+> +	u32 max_lanes;
+> +	u32 max_data_rate; /* Mbps */
+> +};
+> +
+> +struct fsl_csi2_phy {
+> +	struct device *dev;
+> +	struct regmap *dphy_regmap;
+> +	struct clk *cfg_clk;
+> +
+> +	const struct fsl_csi2_phy_drv_data *drv_data;
+> +
+> +	u16 hsfreqrange;
+> +	u16 cfgclkfreqrange;
+> +	u16 ddlfreq;
+> +};
+> +
+> +struct dphy_mbps_hsfreqrange_map {
+> +	u16 mbps;
+> +	u16 hsfreqrange;
+> +	u16 ddlfreq;
+> +};
+> +
+> +/*
+> + * Data rate to high speed frequency range map table
+> + */
+> +static const struct dphy_mbps_hsfreqrange_map hsfreqrange_table[] =3D {
+> +	{ .mbps =3D 80,  .hsfreqrange =3D 0x00, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 90,  .hsfreqrange =3D 0x10, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 100, .hsfreqrange =3D 0x20, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 110, .hsfreqrange =3D 0x30, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 120, .hsfreqrange =3D 0x01, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 130, .hsfreqrange =3D 0x11, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 140, .hsfreqrange =3D 0x21, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 150, .hsfreqrange =3D 0x31, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 160, .hsfreqrange =3D 0x02, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 170, .hsfreqrange =3D 0x12, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 180, .hsfreqrange =3D 0x22, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 190, .hsfreqrange =3D 0x32, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 205, .hsfreqrange =3D 0x03, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 220, .hsfreqrange =3D 0x13, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 235, .hsfreqrange =3D 0x23, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 250, .hsfreqrange =3D 0x33, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 275, .hsfreqrange =3D 0x04, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 300, .hsfreqrange =3D 0x14, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 325, .hsfreqrange =3D 0x25, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 350, .hsfreqrange =3D 0x35, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 400, .hsfreqrange =3D 0x05, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 450, .hsfreqrange =3D 0x16, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 500, .hsfreqrange =3D 0x26, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 550, .hsfreqrange =3D 0x37, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 600, .hsfreqrange =3D 0x07, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 650, .hsfreqrange =3D 0x18, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 700, .hsfreqrange =3D 0x28, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 750, .hsfreqrange =3D 0x39, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 800, .hsfreqrange =3D 0x09, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 850, .hsfreqrange =3D 0x19, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 900, .hsfreqrange =3D 0x29, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 950, .hsfreqrange =3D 0x3a, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1000, .hsfreqrange =3D 0x0a, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1050, .hsfreqrange =3D 0x1a, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1100, .hsfreqrange =3D 0x2a, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1150, .hsfreqrange =3D 0x3b, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1200, .hsfreqrange =3D 0x0b, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1250, .hsfreqrange =3D 0x1b, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1300, .hsfreqrange =3D 0x2b, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1350, .hsfreqrange =3D 0x3c, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1400, .hsfreqrange =3D 0x0c, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1450, .hsfreqrange =3D 0x1c, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1500, .hsfreqrange =3D 0x2c, .ddlfreq =3D 489 },
+> +	{ .mbps =3D 1550, .hsfreqrange =3D 0x3d, .ddlfreq =3D 303 },
+> +	{ .mbps =3D 1600, .hsfreqrange =3D 0x0d, .ddlfreq =3D 313 },
+> +	{ .mbps =3D 1650, .hsfreqrange =3D 0x1d, .ddlfreq =3D 323 },
+> +	{ .mbps =3D 1700, .hsfreqrange =3D 0x2e, .ddlfreq =3D 333 },
+> +	{ .mbps =3D 1750, .hsfreqrange =3D 0x3e, .ddlfreq =3D 342 },
+> +	{ .mbps =3D 1800, .hsfreqrange =3D 0x0e, .ddlfreq =3D 352 },
+> +	{ .mbps =3D 1850, .hsfreqrange =3D 0x1e, .ddlfreq =3D 362 },
+> +	{ .mbps =3D 1900, .hsfreqrange =3D 0x1f, .ddlfreq =3D 372 },
+> +	{ .mbps =3D 1950, .hsfreqrange =3D 0x3f, .ddlfreq =3D 381 },
+> +	{ .mbps =3D 2000, .hsfreqrange =3D 0x0f, .ddlfreq =3D 391 },
+> +	{ .mbps =3D 2050, .hsfreqrange =3D 0x40, .ddlfreq =3D 401 },
+> +	{ .mbps =3D 2100, .hsfreqrange =3D 0x41, .ddlfreq =3D 411 },
+> +	{ .mbps =3D 2150, .hsfreqrange =3D 0x42, .ddlfreq =3D 411 },
+> +	{ .mbps =3D 2200, .hsfreqrange =3D 0x43, .ddlfreq =3D 411 },
+> +	{ .mbps =3D 2250, .hsfreqrange =3D 0x44, .ddlfreq =3D 411 },
+> +	{ .mbps =3D 2300, .hsfreqrange =3D 0x45, .ddlfreq =3D 411 },
+> +	{ .mbps =3D 2350, .hsfreqrange =3D 0x46, .ddlfreq =3D 411 },
+> +	{ .mbps =3D 2400, .hsfreqrange =3D 0x47, .ddlfreq =3D 411 },
+> +	{ .mbps =3D 2450, .hsfreqrange =3D 0x48, .ddlfreq =3D 411 },
+> +	{ .mbps =3D 2500, .hsfreqrange =3D 0x49, .ddlfreq =3D 411 },
+> +	{ /* sentinel */ },
+> +};
+> +
+> +static int fsl_csi2_phy_init(struct phy *phy)
+> +{
+> +	struct fsl_csi2_phy *priv =3D phy_get_drvdata(phy);
+> +
+> +	return pm_runtime_get_sync(priv->dev);
+> +}
+> +
+> +static int fsl_csi2_phy_exit(struct phy *phy)
+> +{
+> +	struct fsl_csi2_phy *priv =3D phy_get_drvdata(phy);
+> +
+> +	return pm_runtime_put(priv->dev);
+> +}
+> +
+> +static int fsl_csi2_phy_power_on(struct phy *phy)
+> +{
+> +	struct fsl_csi2_phy *priv =3D phy_get_drvdata(phy);
+> +
+> +	regmap_update_bits(priv->dphy_regmap, IMX93_BLK_CSI,
+> +			   IMX93_BLK_CSI_CFGCLKFREQRANGE,
+> +			   FIELD_PREP(IMX93_BLK_CSI_CFGCLKFREQRANGE, priv->cfgclkfreqrange));
+> +
+> +	regmap_update_bits(priv->dphy_regmap, IMX93_BLK_CSI,
+> +			   IMX93_BLK_CSI_HSFREQRANGE,
+> +			   FIELD_PREP(IMX93_BLK_CSI_HSFREQRANGE, priv->hsfreqrange));
+> +
+> +	return 0;
+> +}
+> +
+> +static int set_freqrange_by_mpbs(struct fsl_csi2_phy *priv, u64 mbps)
+> +{
+> +	const struct dphy_mbps_hsfreqrange_map *prev_value =3D NULL;
+> +	const struct dphy_mbps_hsfreqrange_map *value;
+> +
+> +	for (value =3D hsfreqrange_table; value->mbps; value++) {
+> +		if (value->mbps >=3D mbps)
+> +			break;
+> +		prev_value =3D value;
+> +	}
+> +
+> +	if (prev_value &&
+> +	    ((mbps - prev_value->mbps) <=3D (value->mbps - mbps)))
+> +		value =3D prev_value;
+> +
+> +	if (!value->mbps) {
+> +		pr_err("Unsupported PHY speed (%llu Mbps)", mbps);
+> +		return -ERANGE;
+> +	}
+> +
+> +	priv->hsfreqrange =3D value->hsfreqrange;
+> +	priv->ddlfreq =3D value->ddlfreq;
 
-Maybe you can take the already reviewed
-patches (except exthernet + switch) so i do
-not need to resend them again and again
-and spam people too much because of the
-ethernet binding changes?
-regards Frank
+I'm wondering if it's worth storing a pointer to the table entry instead.
+
+> +
+> +	return 0;
+> +}
+> +
+> +static int fsl_csi2_phy_configure(struct phy *phy, union phy_configure_o=
+pts *opts)
+> +{
+> +	struct fsl_csi2_phy *priv =3D phy_get_drvdata(phy);
+> +	const struct fsl_csi2_phy_drv_data *drv_data =3D priv->drv_data;
+> +	struct phy_configure_opts_mipi_dphy *config =3D &opts->mipi_dphy;
+> +	struct device *dev =3D priv->dev;
+> +	u64 data_rate_mbps;
+> +	int ret;
+> +
+> +	if (config->lanes > drv_data->max_lanes) {
+> +		dev_err(dev, "The number of lanes has exceeded the maximum value\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	data_rate_mbps =3D div_u64(config->hs_clk_rate, 1000 * 1000);
+> +	if (data_rate_mbps < 80 ||
+> +	    data_rate_mbps > drv_data->max_data_rate) {
+> +		dev_err(dev, "Out-of-bound lane rate %llu\n", data_rate_mbps);
+> +		return -EINVAL;
+> +	}
+> +
+> +	dev_dbg(dev, "Number of lanes: %d, data rate=3D%llu(Mbps)\n",
+> +		config->lanes, data_rate_mbps);
+> +
+> +	ret =3D set_freqrange_by_mpbs(priv, data_rate_mbps);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct phy_ops fsl_csi2_phy_ops =3D {
+> +	.init =3D fsl_csi2_phy_init,
+> +	.exit =3D fsl_csi2_phy_exit,
+> +	.power_on =3D fsl_csi2_phy_power_on,
+> +	.configure =3D fsl_csi2_phy_configure,
+> +	.owner =3D THIS_MODULE,
+> +};
+> +
+> +static const struct fsl_csi2_phy_drv_data imx93_dphy_drvdata =3D {
+> +	.max_lanes =3D 2,
+> +	.max_data_rate =3D 1500,
+> +};
+> +
+> +static int fsl_csi2_runtime_suspend(struct device *dev)
+> +{
+> +	struct fsl_csi2_phy *priv =3D dev_get_drvdata(dev);
+> +
+> +	clk_disable_unprepare(priv->cfg_clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static int fsl_csi2_runtime_resume(struct device *dev)
+> +{
+> +	struct fsl_csi2_phy *priv =3D dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret =3D clk_prepare_enable(priv->cfg_clk);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+> +static DEFINE_RUNTIME_DEV_PM_OPS(fsl_csi2_pm_ops, fsl_csi2_runtime_suspe=
+nd,
+> +				 fsl_csi2_runtime_resume, NULL);
+> +
+> +static const struct of_device_id fsl_csi2_phy_of_match[] =3D {
+> +	{ .compatible =3D "fsl,imx93-dphy-rx", .data =3D &imx93_dphy_drvdata},
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, fsl_csi2_phy_of_match);
+> +
+> +static int fsl_csi2_phy_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev =3D &pdev->dev;
+> +	struct device_node *np =3D dev->of_node;
+> +	struct phy_provider *phy_provider;
+> +	struct fsl_csi2_phy *priv;
+> +	unsigned long cfg_rate;
+> +	struct phy *phy;
+> +
+> +	if (!dev->parent || !dev->parent->of_node)
+> +		return -ENODEV;
+> +
+> +	priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	priv->dev =3D dev;
+> +	priv->drv_data =3D of_device_get_match_data(dev);
+> +
+> +	platform_set_drvdata(pdev, priv);
+> +
+> +	priv->dphy_regmap =3D syscon_node_to_regmap(dev->parent->of_node);
+> +	if (IS_ERR(priv->dphy_regmap))
+> +		dev_err_probe(dev, -ENODEV, "Failed to DPHY regmap\n");
+> +
+> +	priv->cfg_clk =3D devm_clk_get(dev, "cfg");
+> +	if (IS_ERR(priv->cfg_clk))
+> +		dev_err_probe(dev, PTR_ERR(priv->cfg_clk), "Failed to get DPHY config =
+clock\n");
+> +
+> +	/* cfgclkfreqrange[5:0] =3D round[(cfg_clk(MHz) - 17) * 4] */
+
+Please move this comment directly above the calculation below.
+
+Best regards,
+Alexander
+
+> +	cfg_rate =3D clk_get_rate(priv->cfg_clk);
+> +	if (!cfg_rate)
+> +		dev_err_probe(dev, -EINVAL, "Failed to get PHY config clock rate\n");
+> +
+> +	priv->cfgclkfreqrange =3D (div_u64(cfg_rate, 1000 * 1000) - 17) * 4;
+> +
+> +	phy =3D devm_phy_create(dev, np, &fsl_csi2_phy_ops);
+> +	if (IS_ERR(phy))
+> +		return dev_err_probe(dev, -ENODEV, "Failed to create PHY\n");
+> +
+> +	phy_set_drvdata(phy, priv);
+> +
+> +	pm_runtime_set_suspended(dev);
+> +	devm_pm_runtime_enable(dev);
+> +
+> +	phy_provider =3D devm_of_phy_provider_register(dev, of_phy_simple_xlate=
+);
+> +
+> +	return PTR_ERR_OR_ZERO(phy_provider);
+> +}
+> +
+> +static struct platform_driver fsl_csi2_phy_driver =3D {
+> +	.probe	=3D fsl_csi2_phy_probe,
+> +	.driver =3D {
+> +		.name =3D "imx-mipi-dphy-rx",
+> +		.pm =3D pm_ptr(&fsl_csi2_pm_ops),
+> +		.of_match_table	=3D fsl_csi2_phy_of_match,
+> +	}
+> +};
+> +module_platform_driver(fsl_csi2_phy_driver);
+> +
+> +MODULE_DESCRIPTION("i.MX9 Synopsys DesignWare MIPI DPHY Rx wrapper drive=
+r");
+> +MODULE_AUTHOR("NXP Semiconductor");
+> +MODULE_LICENSE("GPL");
+>=20
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
