@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B08C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 18:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8500EC83038
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 18:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NZyb0UMcbDIGOtSibbw+mdySBJCf7k9AVSTNZQQyRng=; b=nNFNEyDB3FkIdkHWN2Nf3vj1wK
-	GJQUSnmFfHsHbRvWeEPjDwD6N5zq1F32c63Wk2nuGVNDeM9uxwAquVB/KBbQAbx5qPAjaUHpLLrOw
-	g+DEE5IcyQem+vZ/KiN94lGvl+g4HjVdk6QNc1sxjl90YXgybcqpT/ymY5zdSbq92P/N4hZlBrsbD
-	ESYGCaKHnpaTCZNYz5Vl9tJdLbSurua9cDnETFazRntq21q8V2snonD/MFKHwjH8tKGqSR6Df0tFp
-	v9ymsUVI35VFBuLwgkqKiaYR6PG+kORxyzIMbnAkMta4b8ibNzqFATuBzu1pzLYPzIxNXNavSFBbv
-	7iVHxjnQ==;
+	bh=hvUZO7FvlWPW+SQ9YyArMTwQthW4Z2c8jZOVUNIjFN4=; b=Z1r1749Bx2AbicBzmhhpZb+RGH
+	9tlw89DQXGz6+ZaSs2M2w2pGG0zPp1HmUPTxw4/ljUa6KX80TcqIQHOeg1fE2Muqn0YrWrBsB2skO
+	lgFUynmZFtK1gZesl3uwIVbM3AsfQ8wwJIEAOkXNYUfeuPiCFKKdYfdJ5xZu7HITrP4FMQnbiqSKL
+	sYysEmIAP24aaJk6rOGwSGaNik2Qv90W41Dby+Z8EIQrqIaWchJI8WwKRS2EhSybBhAIudwaT8hwC
+	asBzetDcfiQh8WfMI/FOtnhe7xaMAK1lenqVkifq0k1+pII6WdvV8sgyY+eWO6ODhGgdbH9DOnviz
+	NK/vdpSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX2VU-00000009Jpr-1Q7B;
-	Wed, 02 Jul 2025 18:48:32 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1uX2Xp-00000009K5C-0Wey;
+	Wed, 02 Jul 2025 18:50:57 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX2Mg-00000009IH7-2qIF
+	id 1uX2Mn-00000009IIx-2A7b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 18:39:27 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-236377f00easo58190165ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 11:39:26 -0700 (PDT)
+	Wed, 02 Jul 2025 18:39:34 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-23c703c471dso2292325ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 11:39:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1751481566; x=1752086366; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1751481573; x=1752086373; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NZyb0UMcbDIGOtSibbw+mdySBJCf7k9AVSTNZQQyRng=;
-        b=D7Oq9gWfArEND4roxM28eF4SMIK2RFw2FyzEFtQ5RvSsx4vr4bFV6NK3AiuhbBEuW9
-         PdCiXazqLnWEM5menPU0c/P3uc+ahSUkj0OW6Ur0FR5URs/ibqLW58H0Vxq6yKfJYG2b
-         QuPzRSHe9SOP4+I3gcIhukHEUIVbezxndXduAY7xTaeuJWLLxE3kmCGnUOOIe2Y/oggw
-         e09LEbEMzbPDRX+OaMyFpsjmzoG4SJMDNlQK28AFKb+6QV9XPAKTJ7QB8OcoGUtILsV6
-         H9nCnNqbQdkfUy9uT9q4bStmgUeoY+R9kcbaln/PCrOFPrKAACvF76bXOhkbegQSheMB
-         RDIQ==
+        bh=hvUZO7FvlWPW+SQ9YyArMTwQthW4Z2c8jZOVUNIjFN4=;
+        b=i1DI7TOcCglt6O4CXuO+naU6Khi0KNASsWc/w9VGN4kT05+S6oAo5VFgLjxu1Cbv5w
+         2ClN+QLyVBPbCHl2vpLk5Zl9Gjz8E6v673ZyoJBNpArOO/sLTX8RGMYLZLAuSGdzCYGE
+         C3OGfmHxXBDB17z3brJcKH7+UXDyaNYaiYSTg6QzvEGVYw2LFqVpvRKmnxBuK9+D1h2e
+         d1y4DwFYMsDuUW2oGFzwKw/b9hzmJIEucVnqewjMcdHYgbb4BzRa6oHwpL4cWawiugoG
+         d7xfL3th/w0V7FUvlLKwx0hKAPMBLzqAqIb5HGpM6pfa0MKjFtB/dwd2k7MclityM3kX
+         xZ5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751481566; x=1752086366;
+        d=1e100.net; s=20230601; t=1751481573; x=1752086373;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NZyb0UMcbDIGOtSibbw+mdySBJCf7k9AVSTNZQQyRng=;
-        b=UPDKtm39ptT4Hl2VikG67MC1mmLG0sjS+J6SFAJHutodm9IaQN3+FWuVFjX5Uh8IgQ
-         MLNQ8d3mNUiG9AxNPPzkBdwq7y8WKfF1v0fl8t/iQg1AGUTswwDkD+BVkVg3aiNQAjhC
-         7Pd8SA1oxfqm0/+Nmh2zG8/cOQXWOj6PHscbfvxM6sLN/fX9TGOg9PG9zeyYqEUnFz9d
-         LFKK+wz68WPU2BtFTdFfbQTbPKDF2yinicqnPU4XS2wLUqx5xKpTFUpw9Hx5kd/AHhVk
-         54TcwqSvMN2eu5izfNRMuQvrPci3nQ+UAEUgbzezyXBC2stTQVQzvmRzbyChZP8NG1Fa
-         X+pw==
-X-Forwarded-Encrypted: i=1; AJvYcCV4EJaF5BY59p/lDgL33lurA27eok1KgPzb81y9Ia8IAAKu2NkT+VrHYjwRi+3YoLq8HccN8mDmMB6Hgw0Cztor@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaXRSxfZgB6X26Hxzq+1OSWbqnwaVyaK/X2yWU8HeDpt/s3gTK
-	9mh0ACr+kiAkY1Ai+HhikYYW/Gjrr4blC36yF+ce2nG0CAfHCx/8vbrwmzOnV6p0mT4=
-X-Gm-Gg: ASbGnctRiHB4FhD9Si3cBvotfRGvJcUrD+WHL8X86OUPwJ0XCu0qfvTEiZr6ZAfVC8/
-	xMw/mRGdewka+RTKLtNjjXvE5XjAkU1EZYh0kt9CYu7xNzT0qS5/oWbH0xvFDyMNGywHiS3tbeF
-	hs3cuNh4R+DpTkrAiudh8ggsMXJcfXNaDf5D4hxDlEZCM+Iw1z4Fk5aZlrDFAovTIOoxTnEIUkV
-	2xUGo4DGpRatOU+ZFNoX11uF5r06fmYvDWGslAMOlN6KudXmgSxMCX+I/90NcJsBOpRL8KXIqbr
-	WTRWwWo06atiBHCwWtFc2MHWO0P475YoTlfyW4ePXE6FW48YvD0fkymQjx0kCPsWvJCJhNlYqFk
-	QvUlrUalH78QuGmxg3EPIRP8=
-X-Google-Smtp-Source: AGHT+IHRiK65iyeejNhxV2BsQ0zei81m23wsBqj5xXwWoUN5V5PxEC+r38Kfp0CXgbxe6/9g9H5UFg==
-X-Received: by 2002:a17:903:46cf:b0:235:eefe:68f4 with SMTP id d9443c01a7336-23c79692071mr5155225ad.29.1751481565983;
-        Wed, 02 Jul 2025 11:39:25 -0700 (PDT)
+        bh=hvUZO7FvlWPW+SQ9YyArMTwQthW4Z2c8jZOVUNIjFN4=;
+        b=T/hlB9q7Xl8sGNiHfXIHG+i3JGxDQwXmQ7dcKVbEvxfA1i3sPCOqhMK63KXItohGsN
+         xFxYvV52Z2FxDLzPdTrQtMy21dYACK8tp745zmBpF2ikrhjc5lMHEF6fHwr/Xe3vyBNg
+         //PnoawOohu3rqKP6TVfG7VKDACan3YB8WsyHU491zv1SoCQPTnTqZk0AHBdqnpjkvim
+         3L5+2h0a8yx2m2hBd8zBrA3AtmCmDkD3rT1+UCXVgo9Jsmbhkz8/s8uKGwoaXUvpVZQv
+         +IilJNkAfyM3IY2ZPz8XewvECtIJCzXDb8+XUkCAMFK8nkirHVfo0gAj8Cdfql8+mm2H
+         +e/w==
+X-Forwarded-Encrypted: i=1; AJvYcCVdRurb2589I3xLAmVu3cb5LTtc9pmGARSKcX6jl1mR60pM6zW0Zf8lgsIf/WbdckTsLaoGMkWb7ADY721MFWsj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzkBiMBVJ4VYAuUs2hPLGkVz1t2yndFnOFSICEp4yHU53jb79J
+	zeEdXbs75aQt/qQZ6hT+yqJg9xxUCDFPSXy8UFKX22RLjJrDj48lq3mLNNc1n4fJR9o=
+X-Gm-Gg: ASbGncutZmNsWKVTMmpS3KxempUR+hZvPzplT31Dn/6Js0eMu6N8Q+GBWZ8RkG2nCWg
+	IBC1afzxbtHLMQdTVebtnNKPKvoXhaCPFRirIaO//9VkqSrww8KzJKGlYpErkxV6u0ySJoWPR59
+	2F/ERemgyNxVwcxG65RckDs4YkY4d1o3FWdd68UhnfxItCxHhmVbaClS92UWoeUnFPdYsK6Capc
+	Zouxb2eifYwDqarISFxh0N40aN3jzl6d4xH//Sil//XNIcG8xkgzj5lvMnUkfT9QGlpSy3R1V6J
+	K2wtGP67eNy1SIWmIwgPMAEdZ6JVYxoKS+iCM5i5G4FSC45/02N9C+JWHVd0OsEl2erEC5yfKE4
+	ggA8dmxDlmsaxcc6T0Ur+aME=
+X-Google-Smtp-Source: AGHT+IHgAEOa6mf+31gGe4dh9PyI8zLR+UZCgE3uY8g7x79OUwcJ315/76XmuML+S/JTyWRQqdR46Q==
+X-Received: by 2002:a17:902:f68b:b0:234:adce:3eb8 with SMTP id d9443c01a7336-23c793c0f84mr9871445ad.12.1751481572766;
+        Wed, 02 Jul 2025 11:39:32 -0700 (PDT)
 Received: from fedora (cpe-94-253-164-144.zg.cable.xnet.hr. [94.253.164.144])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-23acb2f39bdsm143034195ad.80.2025.07.02.11.39.19
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-23acb2f39bdsm143034195ad.80.2025.07.02.11.39.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Jul 2025 11:39:25 -0700 (PDT)
+        Wed, 02 Jul 2025 11:39:32 -0700 (PDT)
 From: Robert Marko <robert.marko@sartura.hr>
 To: linux@armlinux.org.uk,
 	nicolas.ferre@microchip.com,
@@ -97,17 +97,18 @@ To: linux@armlinux.org.uk,
 	daniel.machon@microchip.com
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH v8 02/10] ARM: at91: select ARCH_MICROCHIP
-Date: Wed,  2 Jul 2025 20:36:00 +0200
-Message-ID: <20250702183856.1727275-3-robert.marko@sartura.hr>
+Subject: [PATCH v8 03/10] arm64: lan969x: Add support for Microchip LAN969x SoC
+Date: Wed,  2 Jul 2025 20:36:01 +0200
+Message-ID: <20250702183856.1727275-4-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250702183856.1727275-1-robert.marko@sartura.hr>
 References: <20250702183856.1727275-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_113926_715567_BAAEE1E3 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250702_113933_565668_D1AB04B6 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,36 +123,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like with the ARM64 Microchip platforms, lets add a generic ARCH_MICROCHIP
-symbol and select it so that drivers that are reused for multiple product
-generation or lines, can just depend on it instead of adding each SoC
-symbol as their dependencies.
+This adds support for the Microchip LAN969x ARMv8-based SoC switch family.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 ---
- arch/arm/mach-at91/Kconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+Changes in v8:
+* Place LAN969x under ARCH_MICROCHIP as suggested by Arnd and drop review
+tags due to this
 
-diff --git a/arch/arm/mach-at91/Kconfig b/arch/arm/mach-at91/Kconfig
-index 04bd91c72521..c5ef27e3cd8f 100644
---- a/arch/arm/mach-at91/Kconfig
-+++ b/arch/arm/mach-at91/Kconfig
-@@ -1,4 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+config ARCH_MICROCHIP
-+	bool
-+
- menuconfig ARCH_AT91
- 	bool "AT91/Microchip SoCs"
- 	depends on (CPU_LITTLE_ENDIAN && (ARCH_MULTI_V4T || ARCH_MULTI_V5)) || \
-@@ -8,6 +11,7 @@ menuconfig ARCH_AT91
- 	select GPIOLIB
- 	select PINCTRL
- 	select SOC_BUS
-+	select ARCH_MICROCHIP
+ arch/arm64/Kconfig.platforms | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index f2d5d7af89bf..083e9815259c 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -165,6 +165,20 @@ menuconfig ARCH_MICROCHIP
  
- if ARCH_AT91
- config SOC_SAMV7
+ if ARCH_MICROCHIP
+ 
++config ARCH_LAN969X
++	bool "Microchip LAN969X SoC family"
++	select PINCTRL
++	select DW_APB_TIMER_OF
++	help
++	  This enables support for the Microchip LAN969X ARMv8-based
++	  SoC family of TSN-capable gigabit switches.
++
++	  The LAN969X Ethernet switch family provides a rich set of
++	  switching features such as advanced TCAM-based VLAN and QoS
++	  processing enabling delivery of differentiated services, and
++	  security through TCAM-based frame processing using versatile
++	  content aware processor (VCAP).
++
+ config ARCH_SPARX5
+ 	bool "Microchip Sparx5 SoC family"
+ 	select PINCTRL
 -- 
 2.50.0
 
