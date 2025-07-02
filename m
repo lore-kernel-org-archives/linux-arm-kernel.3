@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62AFC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 06:40:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A24C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 06:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OWMfV2sSUbZyIoQRKuPPwlNbihmLklSUvwrTZ64ygFk=; b=VQrssDhSV3UqRQAlUPptsZXsau
-	h3aQ5+MVytA1Shr0zIGyVihc6SVuTUT57t50JS2VdHkBahpJFmeTp0GhiozH7+IDK6BZkMnSKPYFo
-	HasFnvB1Y+4tcT4LO5nd0l8ZoUuGHBp8VvQigcU+fzWUE2bNS2xxReI19VLihJVhCzHQz+ysst5oO
-	rpKI3vQJI8AHXgFF+CVzjR6gvydY5WAX37UpqoZk3aodCWDIqGVQ3K8ac8oMM5BEEgxuz0jSuGArs
-	GyFDwzZCY5sDWk9dHeH0gvHuNQ5fA7RrPBShtA0TRjjCKa3sfv74yADMCiDfmUnPUVfip0PNIBPQW
-	yVsp3Z/w==;
+	bh=gRgT5g8b69TxcXkZjSyfTggODWXeO4R4MOmEfKWZkLM=; b=C2QPjnfnKieHr2zObqWjGWUSIn
+	TJaFWFKIffSM7xTkz+qo7oaJ7cGCWgu1Sw7fl0Y2O0WlJqu3EoJJflrFYSYURPpvQDQImkXUOpl0k
+	2XZZkOgXClnUGuiQ2T0Rkc9WVMHO86K6tyPmevLim83sjEbbzjKAwnIVElqFezYip53Zg/rXhRnNC
+	hQrsSiycLEB7Fmny5xi5axKxe3J5OKPBZlxjpRoMuPdBnAwR4znueFUMqJcmsg69HxUu7TzxNmS8q
+	baJMn7C8Y+/mX6lb6TcaOnZxPo6a+JqOdcupzq9bYRwlhBL6lmw2Fk39Q+SbGpbEp0TpKDGKIyzfA
+	7eTU8jYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWr8w-00000007QUR-1Jcs;
-	Wed, 02 Jul 2025 06:40:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uWrBF-00000007QpU-1nDs;
+	Wed, 02 Jul 2025 06:42:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWr4T-00000007Phn-3Yor;
-	Wed, 02 Jul 2025 06:35:54 +0000
+	id 1uWr78-00000007QGf-0RuY;
+	Wed, 02 Jul 2025 06:38:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 964135C5878;
-	Wed,  2 Jul 2025 06:35:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98DFBC4CEEF;
-	Wed,  2 Jul 2025 06:35:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7E05943D00;
+	Wed,  2 Jul 2025 06:38:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4AFBC4CEEE;
+	Wed,  2 Jul 2025 06:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751438152;
-	bh=fqRreMA45Df/KL0jkrdfhWf0A/YHyyRMveuTP4pWk1k=;
+	s=k20201202; t=1751438317;
+	bh=oe9RZ6MJcibDug6PUcYbdx59wQ/BkvhR+1mgEYq+q7U=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FnqVTslPsn1EY7AXbZKh8dNczsiWErGA7u5XM2+Z1Bw/rmh9BfEqA+8Rka5HTH5h6
-	 ZuYbzQxZqGIkoXHIHLvcDd6SAxNWguinhQAAHiWKE7nR9AdP4UoyZmEIrS6dh+cjZt
-	 OAAftjALjnsN8a46ehHdmnljPdkucF6giob2qG/RTmve6wrn/92G5vXvUZG0ZUHunE
-	 IVWjfl3hNRLqpIOsJgEcowpLWi4jBuI5af5WrvORk3ztFhT8O1L+g83dzSwHNV38ow
-	 YE4FI2UAaelPXD9D3T+AoVdpxCMCDIYBsAoBQIIjEO7/wMIvT2421QNX5+t+XdYlfI
-	 w3svJ24Yj8/Yg==
-Message-ID: <daf6fb72-5849-49f7-b17a-818944eb9f1e@kernel.org>
-Date: Wed, 2 Jul 2025 08:35:42 +0200
+	b=cZZZf4FMD+xbd+LpVV+KtWdHfUJmTEmy2AM5l+WTBwR5cgqoQ03JnatWWWQ4+hPJK
+	 jrCROBqnYxDMWJxIT1QI+WsIkr7i2lCfnWWh3jMLBnJux+GaPGiPbeRft+Ybqt79X9
+	 Qer16xeThDhczV10AcgdNPbswruesSzgQKiZzxQ0vtyob9YQSmtWkJX1tNLDe5t1Sv
+	 m1/VaIJrw7Plm2ceW67J75nYIlmwzPOXSJHD/aoz+nncsdLNmwNBGC3jzowyntT9lj
+	 ePLKJJPbNcpWn6GFWkSavMcbCsdZx4aKV0NEgP0nTYkYflwqquTKRpAcoXPFGoYNYd
+	 48nis1FrrYGUg==
+Message-ID: <e4e612bc-b052-412b-952b-b7eee21d9a03@kernel.org>
+Date: Wed, 2 Jul 2025 08:38:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/7] media: nxp: add DesignWare MIPI CSI2 controller
- driver
+Subject: Re: [PATCH 1/7] dt-bindings: media: add DW MIPI CSI-2 Host support
 To: Frank Li <Frank.Li@nxp.com>, Rui Miguel Silva <rmfrfs@gmail.com>,
  Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
  Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>,
@@ -62,9 +61,9 @@ To: Frank Li <Frank.Li@nxp.com>, Rui Miguel Silva <rmfrfs@gmail.com>,
 Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- "Guoniu.zhou" <guoniu.zhou@nxp.com>
+ Luis Oliveira <lolivei@synopsys.com>
 References: <20250701-95_cam-v1-0-c5172bab387b@nxp.com>
- <20250701-95_cam-v1-5-c5172bab387b@nxp.com>
+ <20250701-95_cam-v1-1-c5172bab387b@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,13 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250701-95_cam-v1-5-c5172bab387b@nxp.com>
+In-Reply-To: <20250701-95_cam-v1-1-c5172bab387b@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_233553_964064_644B9731 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250701_233838_199452_27A6623B 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,36 +130,170 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 02/07/2025 00:06, Frank Li wrote:
-> +
-> +static const struct of_device_id dwc_csi_device_of_match[] = {
-> +	{ .compatible = "snps,dw-mipi-csi2-v150" },
-> +	{ },
-> +};
-> +MODULE_DEVICE_TABLE(of, dwc_csi_device_of_match);
-> +
-> +static struct platform_driver dwc_csi_device_driver = {
-> +	.driver = {
-> +		.owner          = THIS_MODULE,
+> From: Eugen Hristev <eugen.hristev@linaro.org>
 
-That's 12 or 15 year old downstream code. Drop.
+Linaro?
 
-> +		.name           = "dwc-mipi-csi2",
-> +		.of_match_table = dwc_csi_device_of_match,
-> +		.pm             = &dwc_csi_device_pm_ops,
-> +	},
-> +	.probe  = dwc_csi_device_probe,
-> +	.remove = dwc_csi_device_remove,
-> +};
+> 
+> Add bindings for Synopsys DesignWare MIPI CSI-2 host, which used at i.MX93
+> and i.MX95 platform.
+> 
+> Signed-off-by: Luis Oliveira <lolivei@synopsys.com>
+> Signed-off-by: Eugen Hristev <eugen.hristev@microchip.com>
+
+Microchip?
+
+Sorry, these two must match.
+
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> This is continue previous thread
+> https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20221216143717.1002015-2-eugen.hristev@microchip.com/#3023663
+> 
+> change in v1 (compared to previous post)
+> - add reg-names
+> - remove clk surfix
+> - add imx93,dw-csi compatible string
+> - add dphys subnode name
+> - use compatible string snps,dw-mipi-csi2-v150 to avoid use general fallback
+> compatible string.
+> ---
+>  .../bindings/media/snps,dw-mipi-csi2-v150.yaml     | 161 +++++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  2 files changed, 162 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+> new file mode 100644
+> index 0000000000000..2a93bd72498f8
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+> @@ -0,0 +1,161 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/snps,dw-mipi-csi2-v150.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +module_platform_driver(dwc_csi_device_driver);
+> +title: Synopsys DesignWare CSI-2 Host controller (csi2host)
 > +
-> +MODULE_DESCRIPTION("DesignWare Core MIPI CSI2 driver");
-> +MODULE_LICENSE("GPL");
-> +MODULE_ALIAS("platform: dwc-mipi-csi2");
+> +maintainers:
+> +  - Frank Li <Frank.Li@nxp.com>
+> +  - Eugen Hristev <eugen.hristev@microchip.com>
 
-No, drop.
+For sure does not work. Also, needs some sort of Ack from Eugen now.
 
-> +MODULE_AUTHOR("NXP Semiconductor, Inc.");
+> +
+> +description:
+> +  CSI2HOST is used to receive image coming from an MIPI CSI-2 compatible
+> +  camera. It will convert the incoming CSI-2 stream into a dedicated
+> +  interface called the Synopsys IDI (Image Data Interface).
+> +  This interface is a 32-bit SoC internal only, and can be assimilated
+> +  with a CSI-2 interface.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - fsl,imx93-mipi-csi2
+> +          - const: snps,dw-mipi-csi2-v150
+> +      - const: snps,dw-mipi-csi2-v150
+
+Same comment as before, you need SoC compatible. Drop the last one. You
+cannot use DW in a DW soc, can you?
+
+> +
+> +  reg:
+> +    items:
+> +      - description: MIPI CSI-2 core register
+> +
+> +  reg-names:
+> +    items:
+> +      - const: core
+> +
+> +  clocks:
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    items:
+> +      - const: per
+> +      - const: pixel
+> +
+> +  phys:
+> +    maxItems: 1
+> +    description: MIPI D-PHY
+> +
+> +  phy-names:
+> +    items:
+> +      - const: rx
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description:
+> +          Input port node, single endpoint describing the input port.
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +            description: Endpoint connected to input device
+> +
+> +            properties:
+> +              bus-type:
+> +                const: 4
+> +
+> +              data-lanes:
+> +                minItems: 1
+> +                maxItems: 4
+> +                items:
+> +                  maximum: 4
+> +
+> +              clock-lanes:
+> +                maxItems: 1
+> +
+> +              remote-endpoint: true
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description:
+> +          Output port node, single endpoint describing the output port.
+> +
+> +        properties:
+> +          endpoint:
+> +            unevaluatedProperties: false
+> +            $ref: video-interfaces.yaml#
+> +            description: Endpoint connected to output device
+> +
+> +            properties:
+> +              bus-type:
+> +                const: 4
+> +
+> +              remote-endpoint: true
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+> +
+> +additionalProperties: false
+
+This goes after required: block.
+
+> +
 > 
 
 
