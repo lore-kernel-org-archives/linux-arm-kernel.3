@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35036C83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 11:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF70C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 11:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JX3kMvjKM7J/NblDIf41jhT7L/fzmP5f02tVTAQds2o=; b=3ioPxEGPigtBVeW1AvsCbJ3Eqk
-	hhs8VGkdBVvgwqmAYnZBcxAY5XDbQPytXGPTe1WuDxpvkhHPo0b+e9bJn97XMvsT0wEe/SBOneJ9s
-	brNayvzB1E9GnrIyHDQZjk7FLV2ACJimsatmQgGG6KzTHwJDAHbadvjKg6I8gBgqfaEoYOaF+yeRt
-	KESSv+xSsQgoOTCYWrTEqPmVqli4lm6mZ+WUcelJKJvzsHcQsorvYVYW7NuhpL5dc/RhWETAK4DfV
-	PzqEKMxb0yS5XX2K9PdlZJSGyZTtPOJlg71osAHLkwyJfbwU+ynU95GIV595WPOr3g7A0cYqIk/Vo
-	8VT9+emw==;
+	bh=DiIdcsOUvqwNbeoodVOdUwslaCo0huoHvhjra3Wxi/I=; b=Wq/yXckYkkxImS2eF1hTWSYL0P
+	l7vVg3EyP+0hEeqBugWRXt9TO3Bmy5afjzHXUgVN3x8/1B4HRC45FD+JOyuA2VjeeGKjkjl7kvff+
+	6fZ2O5SPJGFQDhG2FtwU3eNRGS0KTuM/BE0QoMqii/SknkMMdvs09SznTCKNXm+tukT8tzhUFaaHI
+	h0qpVl5FFaeulD5tq/g2I2RYq9th+6k9giEn9p9t2dKFQ8FYbZhWipJmA8hw3cjb5u5flKpoFYgk5
+	8P3RrJmJeyH6EligxQn9FEsz+BOAvBVI7TwA7BqrogPnMgtu6KwI1wMLqKsiJj+3gi/Kq6xnk5c/H
+	eEGNrCMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWw5b-00000008DRf-0Gya;
-	Wed, 02 Jul 2025 11:57:23 +0000
+	id 1uWw7u-00000008DnN-3EvQ;
+	Wed, 02 Jul 2025 11:59:46 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWv3r-000000080aT-0cqq;
+	id 1uWv3r-000000080aS-0cTA;
 	Wed, 02 Jul 2025 10:51:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 76017461E1;
+	by sea.source.kernel.org (Postfix) with ESMTP id 86272461F3;
 	Wed,  2 Jul 2025 10:51:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 550D3C4CEFA;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 63001C4CEF8;
 	Wed,  2 Jul 2025 10:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1751453488;
-	bh=xF9OJWGVVMiNOy5F5fuhXYNqCNOpvXwuxrNpQnAjFoA=;
+	bh=NAnmolElyDCpJkSNtTehvivo19P65NrO8aIKT9sGSbA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Bx6/qc80vQyJvURLfMqv7WjZDLgcNX57rZNlk1SSZN3G9h8JiNASmUF5l66eag/om
-	 zqBf5d8lSqtB31B9AdrhbRyQLMECUlVG1hpX/zaUnK4pnNkxyH3s5PZMhNZ5ld6GKL
-	 d8B/Tx5EX+qZ+k9xK8I166zmjRnSE7NNYheCxbrQpTSaUxwfTiptfY+TXHFcwbuL7A
-	 wEZ15HUzBcHK/zjwYpJ7ggXT/wn/sJojeWna7c2YMcfm6NdvrHVKRYlfiwILy+O9No
-	 VX1/WU5gulbunx9z9Q604anOypq4a3p3oa0wbbrfBozQ4QLyqOgnB9OZoDrIBwcX8R
-	 nObq5a72C+w8Q==
+	b=O3I9HIK1jmjBoYRLfHHTRaqG5yS8eGRSLk7Y+5LKYaA8sfMC/9O2q9BDs/9YyDdj/
+	 EH+IaadbDLKpg3pCzz0R7wzNoI25U1dmIl8eOXsjzxrhSzQch5CRWquBM8mokXeZ3+
+	 NDGFu7tF8rvJUnZtd37ZwYv+iaPB4Cvc4ABxQ6BdzYcDHfAyYqSaNCAGiGAhCTW/Oc
+	 l6+EP7oID18WG/pyHPo8CtSyEKCL1CLJri4eZiryCPnZglEl9hRN5En9GYRaWzxwwU
+	 woSV8rJtzlSZ6xh8wufe9jJxJV/SWTCD5MaQI8v8bvWhCagvplpU/v0hvPi18eJQ0T
+	 JEkIRn2wOkY5w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4B691C8303C;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A203C8303F;
 	Wed,  2 Jul 2025 10:51:28 +0000 (UTC)
 From: Max Shevchenko via B4 Relay <devnull+wctrl.proton.me@kernel.org>
-Date: Wed, 02 Jul 2025 13:50:46 +0300
-Subject: [PATCH v4 09/11] ARM: dts: mediatek: add basic support for MT6572
- SoC
+Date: Wed, 02 Jul 2025 13:50:47 +0300
+Subject: [PATCH v4 10/11] ARM: dts: mediatek: add basic support for JTY
+ D101 board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250702-mt6572-v4-9-bde75b7ed445@proton.me>
+Message-Id: <20250702-mt6572-v4-10-bde75b7ed445@proton.me>
 References: <20250702-mt6572-v4-0-bde75b7ed445@proton.me>
 In-Reply-To: <20250702-mt6572-v4-0-bde75b7ed445@proton.me>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -70,19 +70,19 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org, 
  Max Shevchenko <wctrl@proton.me>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751453439; l=3300;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751453439; l=2345;
  i=wctrl@proton.me; s=20250603; h=from:subject:message-id;
- bh=Xzi5mW5J7bGwfKfJ6p/3cXr1VKlZLnEwbR0SOET4e6Y=;
- b=Zt6UCSCrLh9n69t36LkTOtpq6BpalA3Cuoapidyqrtc2/Y8pa69I6zftvEqQTirnEl0bRtcxz
- tnBk24DQC7iDEkaLfa/4Q4plVzfQx8e/6HjXOziX56vd8xF6JgJB72H
+ bh=gnyj32TYdF8vP0Nle5TYvV7BzmqcgfdDRSNtPMJZy9s=;
+ b=Ka1sdWGr6sf3jkaMsTTDsd6Mqoi/7e9IqAMiyPNc89+042YD0Oqhdr+J1cXzDxZV0czSsWevO
+ 2qoB1IZ+IqBD0XwAx3A97M++Q2lp9W6wW1/or5o01o5/JmuHtig2K+e
 X-Developer-Key: i=wctrl@proton.me; a=ed25519;
  pk=JXUx3mL/OrnRvbK57HXgugBjEBKq4QgDKJqp7BALm74=
 X-Endpoint-Received: by B4 Relay for wctrl@proton.me/20250603 with
  auth_id=421
 X-Original-From: Max Shevchenko <wctrl@proton.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_035131_250263_2CC74F1F 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20250702_035131_302189_3C12C152 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,127 +100,94 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Max Shevchenko <wctrl@proton.me>
 
-Add basic support for the MediaTek MT6572 SoC.
+This tablet uses a MediaTek MT6572 system-on-chip with 1GB of RAM.
+It can currently boot into initramfs with a working UART and
+Simple Framebuffer using already initialized panel by the bootloader.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Max Shevchenko <wctrl@proton.me>
 ---
- arch/arm/boot/dts/mediatek/mt6572.dtsi | 108 +++++++++++++++++++++++++++++++++
- 1 file changed, 108 insertions(+)
+ arch/arm/boot/dts/mediatek/Makefile            |  1 +
+ arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts | 61 ++++++++++++++++++++++++++
+ 2 files changed, 62 insertions(+)
 
-diff --git a/arch/arm/boot/dts/mediatek/mt6572.dtsi b/arch/arm/boot/dts/mediatek/mt6572.dtsi
+diff --git a/arch/arm/boot/dts/mediatek/Makefile b/arch/arm/boot/dts/mediatek/Makefile
+index 1957947cb41ce86ed101466bf822d4e2dfdfbb61..cb869a1aaec21a1d99f7f2a829b84672a3f52726 100644
+--- a/arch/arm/boot/dts/mediatek/Makefile
++++ b/arch/arm/boot/dts/mediatek/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ dtb-$(CONFIG_ARCH_MEDIATEK) += \
+ 	mt2701-evb.dtb \
++	mt6572-jty-d101.dtb \
+ 	mt6580-evbp1.dtb \
+ 	mt6582-prestigio-pmt5008-3g.dtb \
+ 	mt6589-aquaris5.dtb \
+diff --git a/arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts b/arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts
 new file mode 100644
-index 0000000000000000000000000000000000000000..ac70f266d698d3dafb51b22021bd6615124a7416
+index 0000000000000000000000000000000000000000..18c3cab6b7a3cad8c69b890ec7a715373f50d8c4
 --- /dev/null
-+++ b/arch/arm/boot/dts/mediatek/mt6572.dtsi
-@@ -0,0 +1,108 @@
++++ b/arch/arm/boot/dts/mediatek/mt6572-jty-d101.dts
+@@ -0,0 +1,61 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (c) 2025 Max Shevchenko <wctrl@proton.me>
 + */
 +
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
++/dts-v1/;
++#include "mt6572.dtsi"
 +
 +/ {
-+	#address-cells = <1>;
-+	#size-cells = <1>;
-+	interrupt-parent = <&sysirq>;
++	model = "JTY D101";
++	compatible = "jty,d101", "mediatek,mt6572";
 +
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		enable-method = "mediatek,mt6589-smp";
-+
-+		cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a7";
-+			reg = <0x0>;
-+		};
-+		cpu@1 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a7";
-+			reg = <0x1>;
-+		};
++	aliases {
++		serial0 = &uart0;
 +	};
 +
-+	uart_clk: dummy26m {
-+		compatible = "fixed-clock";
-+		clock-frequency = <26000000>;
-+		#clock-cells = <0>;
-+	};
-+
-+	system_clk: dummy13m {
-+		compatible = "fixed-clock";
-+		clock-frequency = <13000000>;
-+		#clock-cells = <0>;
-+	};
-+
-+	rtc_clk: dummy32k {
-+		compatible = "fixed-clock";
-+		clock-frequency = <32000>;
-+		#clock-cells = <0>;
-+	};
-+
-+	soc {
++	chosen {
 +		#address-cells = <1>;
 +		#size-cells = <1>;
-+		compatible = "simple-bus";
-+		ranges;
++		stdout-path = "serial0:921600n8";
 +
-+		watchdog: watchdog@10007000 {
-+			compatible = "mediatek,mt6572-wdt", "mediatek,mt6589-wdt";
-+			reg = <0x10007000 0x100>;
-+			interrupts = <GIC_SPI 126 IRQ_TYPE_LEVEL_LOW>;
-+			timeout-sec = <15>;
-+			#reset-cells = <1>;
-+		};
-+
-+		timer: timer@10008000 {
-+			compatible = "mediatek,mt6572-timer", "mediatek,mt6577-timer";
-+			reg = <0x10008000 0x80>;
-+			interrupts = <GIC_SPI 74 IRQ_TYPE_LEVEL_LOW>;
-+			clocks = <&system_clk>, <&rtc_clk>;
-+			clock-names = "system-clk", "rtc-clk";
-+		};
-+
-+		sysirq: interrupt-controller@10200100 {
-+			compatible = "mediatek,mt6572-sysirq", "mediatek,mt6577-sysirq";
-+			reg = <0x10200100 0x1c>;
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+			interrupt-parent = <&gic>;
-+		};
-+
-+		gic: interrupt-controller@10211000 {
-+			compatible = "arm,cortex-a7-gic";
-+			reg = <0x10211000 0x1000>,
-+			      <0x10212000 0x2000>,
-+			      <0x10214000 0x2000>,
-+			      <0x10216000 0x2000>;
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+			interrupt-parent = <&gic>;
-+		};
-+
-+		uart0: serial@11005000 {
-+			compatible = "mediatek,mt6572-uart", "mediatek,mt6577-uart";
-+			reg = <0x11005000 0x400>;
-+			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_LOW>;
-+			clocks = <&uart_clk>;
-+			clock-names = "baud";
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@11006000 {
-+			compatible = "mediatek,mt6572-uart", "mediatek,mt6577-uart";
-+			reg = <0x11006000 0x400>;
-+			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_LOW>;
-+			clocks = <&uart_clk>;
-+			clock-names = "baud";
-+			status = "disabled";
++		framebuffer: framebuffer@bf400000 {
++			compatible = "simple-framebuffer";
++			memory-region = <&framebuffer_reserved>;
++			width = <1024>;
++			height = <600>;
++			stride = <(1024 * 2)>;
++			format = "r5g6b5";
 +		};
 +	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x40000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		connsys@80000000 {
++			reg = <0x80000000 0x100000>;
++			no-map;
++		};
++
++		modem@be000000 {
++			reg = <0xbe000000 0x1400000>;
++			no-map;
++		};
++
++		framebuffer_reserved: framebuffer@bf400000 {
++			reg = <0xbf400000 0xc00000>;
++			no-map;
++		};
++	};
++};
++
++&uart0 {
++	status = "okay";
 +};
 
 -- 
