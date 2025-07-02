@@ -4,90 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE51CC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 15:52:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A73DC83F04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 15:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1nzFy2OY4fYGG518i7iyc120K9ZQjXyp5GhOOsDRbUY=; b=YyoxFqZK6oIQOXFE2RUNSPjNUQ
-	MWM7NAuvtDDZ9kTeyKsDhlrZP2z/Cze+dOFjoQYn2WRvU4VzzF4imGMSPRUUZCQVX0h9cX0Ac+GCs
-	TFtN9puEoV5qeaMX8MBqJctqCTXGoO12DaKnK23rse1Vzy2TvYed3Dyi9TBH9cVdjqV2vHaAP3sQk
-	4i/oXpSGj5HRHV+dWSttVZxnnsgdt+SFwiJgRuf8Ldxp7Jqy8XJXga5yI6OTET0iggtXp6YqHO+be
-	3Dm6yTzf9zjERtSOGpF9xZPVwGc22Vn2K3NdxwJt8Hp9pzaZgPuBNebGhDFIkduIryNhufeG96Xw4
-	/kGV87lQ==;
+	bh=YrlDN2VUsp3f/mBxO9tUV62wO+K3p2DMaIu6IQHXX4s=; b=QpdvR89snJ7hQnxgcBv9B5zXvz
+	q/EIkBfTM1Q3XEzOUKe7jXxjvOJH6Pe2oPvYQwt7hlRalddm7CDpoC3a0qOVJT5IeCf8KBHgqbpCn
+	jYElgD2KRFs1p3bA+l66CKQI6BJWEgIGg248r8J+wLUHFG4rHmVmXr3P8LypAE1m+E4wgnqrNPXs8
+	LMa8at3d1O6j4DjsXRJehrOn4NSN6BRWEtqv6ehKDRE1kBrnxvhL8NXMA/YizhjgG8LvHwgYt7zc7
+	mEhEG4sL+eN1P7FlLY0GvByozlFxIJJ6FDemoCDXKYqN8Wvyrl0UKx5JNt6QnjpDIGbU61J62nL59
+	W1GS0QWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWzkr-00000008rGE-3A2q;
-	Wed, 02 Jul 2025 15:52:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uWznA-00000008rYW-25NQ;
+	Wed, 02 Jul 2025 15:54:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWys9-00000008hrq-2ld0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 02 Jul 2025 14:55:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=1nzFy2OY4fYGG518i7iyc120K9ZQjXyp5GhOOsDRbUY=; b=c06xWA6+bUVPTvxI+aAmVncxsH
-	YuiBmFenj9PdCwrvToLhDu7k0BZdhYcA0nKI1HLyDxk+iXV8eRyH08WEBqto8L4VeOhG3JvYDX3Nz
-	MtuSxkapAsO5AC/3qLWU84DI6cEUGcNOZK9iXvF7wR728MCBHUzav/f4HGlVC9cz/gjnzVQPu5rAA
-	QEVBVX6o5PusX/UnJp4BcNnYSpearEERrP+q1R0yMAlMVIpsJlDAbyAy0Uumjwwo/qqwz0W8fBAAE
-	EwwmqLcs1T4VVywdaSWQeQhvaks8i5Z7hKxw+uro5GEafA369PQnm/IBIJCDt+mlLcWKVL+l6vhRN
-	N8mYwOOQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWys6-00000007SRl-2mgT
+	id 1uWyvU-00000008iGv-2LQu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 14:55:40 +0000
+	Wed, 02 Jul 2025 14:59:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 939F9A53708;
-	Wed,  2 Jul 2025 14:55:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7004C4CEE7;
-	Wed,  2 Jul 2025 14:55:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F32EC5C6672;
+	Wed,  2 Jul 2025 14:59:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D82D1C4CEED;
+	Wed,  2 Jul 2025 14:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751468137;
-	bh=odc42PZm0xJO0diX1K58N47iddxW3a0F4HZfOHM34QQ=;
+	s=k20201202; t=1751468347;
+	bh=7U1RIaJFYuXTcTnJPh2nsOAauQAM414gMJSuOXL4gkg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X4dOc7rRMoTUrPqkvoVH5KlxVpdU6iDMm2rDEi+KlTjIIDv+7QNH9XaqWCWQj4OoT
-	 zbzjAWxc3IYGTwZrkS3cvU9VHATYI/yGlBu2sn96cJrffqibdZeCa/0G4jjmoziguF
-	 GlZ3vbYwRHql8BA9Q4SCt1HgQ7URRolg7gqp0ShtPK2P37mdoegDMOHpDzVqW/vTRa
-	 BrrmyEINlk52COqWZhKyeTsDkIsaKHvntPkZmJYEYD533pltwZ5NWi8gTlrABTWN5V
-	 Yucf/dcJQpMPS0K9YHh5kyNeSkz9kiXrM1c4UZgPuQrVSMQEwf4s4UXaij+akTO8KS
-	 jFhyFmMdklDiA==
-Date: Wed, 2 Jul 2025 20:25:17 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Kishon Vijay Abraham I <kishon@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, Shuah Khan <shuah@kernel.org>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v19 01/10] PCI: endpoint: Set ID and of_node for function
- driver
-Message-ID: <75opnvi46fbmsnmykjwn3gmir7r3uqhzp7tfoua42cado6aopu@dmos2v2qd3jn>
-References: <20250609-ep-msi-v19-0-77362eaa48fa@nxp.com>
- <20250609-ep-msi-v19-1-77362eaa48fa@nxp.com>
- <ne5yrjtdevmndqds4uwo2ppq6gay2wuwjouyf33lqr5g3nfkwr@lkwqlwqjqbmx>
- <aGVE6veZm3bL0mVJ@lizhi-Precision-Tower-5810>
+	b=a/dCBG63u9V3vqZHxS2BfmOlb7HvqThyXavXbFg4U9Y/vPyLDJcy5lWR+DBAO8rcF
+	 VHvi2iuG1ujcCNaO3aWCwRAeOpyeb/VNtMqOYn8trzTsVPyH9Mnq8jPedWT9C/A3aG
+	 fcGwLEOyQvgybl+bfFGMXIyHiGfe0pqJcxwrmKAv4bl63lh4PFvSGB2OJV8LyonP8W
+	 ElokT3XaYGBgLk8pE2Nxo+QZLBrWBUP33EbnGvpirmPoDWXRseCcDwJ2MZwY0Touyn
+	 xSiulqoF1KO4yHbOnhVcwzhWdCTv/IuBUgbGFtiTd987QQppoN7PxVyjSkCu/NnNA0
+	 IHvdu9ivVZUWw==
+Date: Wed, 2 Jul 2025 16:59:00 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
+Subject: Re: [PATCH v6 20/31] irqchip/gic-v5: Add GICv5 PPI support
+Message-ID: <aGVJNHiD44DH1sLn@lpieralisi>
+References: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
+ <20250626-gicv5-host-v6-20-48e046af4642@kernel.org>
+ <20250702124019.00006b01@huawei.com>
+ <aGUqEkascwGFD9x+@lpieralisi>
+ <20250702140022.00001c65@huawei.com>
+ <aGUycEuLadcG+IfV@lpieralisi>
+ <20250702150907.000060d8@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aGVE6veZm3bL0mVJ@lizhi-Precision-Tower-5810>
+In-Reply-To: <20250702150907.000060d8@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_155539_058323_1E316DE0 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20250702_075908_689862_9948F33C 
+X-CRM114-Status: GOOD (  54.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,64 +90,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 02, 2025 at 10:40:53AM GMT, Frank Li wrote:
-> On Wed, Jul 02, 2025 at 04:30:48PM +0530, Manivannan Sadhasivam wrote:
-> > On Mon, Jun 09, 2025 at 12:34:13PM GMT, Frank Li wrote:
-> > > Set device ID as 'vfunc_no << 3 | func_no' and use
-> > > 'device_set_of_node_from_dev()' to set 'of_node' the same as the EPC parent
-> > > device.
-> > >
-> > > Currently, EPF 'of_node' is NULL, but many functions depend on 'of_node'
-> > > settings, such as DMA, IOMMU, and MSI. At present, all DMA allocation
-> > > functions use the EPC's device node, but they should use the EPF one.
-> > > For multiple function drivers, IOMMU/MSI should be different for each
-> > > function driver.
-> > >
-> >
-> > We don't define OF node for any function, so device_set_of_node_from_dev() also
-> > ends up reusing the EPC node. So how can you make use of it in multi EPF setup?
+On Wed, Jul 02, 2025 at 03:09:07PM +0100, Jonathan Cameron wrote:
+> On Wed, 2 Jul 2025 15:21:52 +0200
+> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
-> In mfd devices, children devices reuse parent's of_node
-> drivers/gpio/gpio-adp5585.c
-> drivers/input/keyboard/adp5589-keys.c
-> drivers/pwm/pwm-adp5585.c
+> > On Wed, Jul 02, 2025 at 02:00:22PM +0100, Jonathan Cameron wrote:
+> > > On Wed, 2 Jul 2025 14:46:10 +0200
+> > > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> > >   
+> > > > On Wed, Jul 02, 2025 at 12:40:19PM +0100, Jonathan Cameron wrote:  
+> > > > > On Thu, 26 Jun 2025 12:26:11 +0200
+> > > > > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> > > > >     
+> > > > > > The GICv5 CPU interface implements support for PE-Private Peripheral
+> > > > > > Interrupts (PPI), that are handled (enabled/prioritized/delivered)
+> > > > > > entirely within the CPU interface hardware.    
+> > > > > 
+> > > > > I can't remember where I got to last time so if I repeat stuff that
+> > > > > you already responded to, feel free to just ignore me this time ;)
+> > > > > 
+> > > > > All superficial stuff. Feel free to completely ignore if you like.    
+> > > > 
+> > > > We are at v6.16-rc4, series has been on the lists for 3 months, it has
+> > > > been reviewed and we would like to get it into v6.17 if possible and
+> > > > deemed reasonable, I am asking you folks please, what should I do ?
+> > > > 
+> > > > I can send a v7 with the changes requested below (no bug fixes there)
+> > > > - it is fine by me - but I need to know please asap if we have a
+> > > > plan to get this upstream this cycle.  
+> > > 
+> > > I'm absolutely fine with leaving these be.  The mask stuff I would like
+> > > to clean up as it applies quite widely in the series but that
+> > > can be a follow up as no bugs (so far!).   
+> > 
+> > I am certain that at a given state in the development I used the
+> > FIELD_PREP() on the hwirq_id and then was asked to remove it because
+> > it does not serve any purpose - this, for the records.
 > 
-> multi EPF should be similar to create multi children devices of mfd.
-> 
+> Fair enough.  Though on that front the code is inconsistent as
+> there are places where it is masked.  Anyhow, no problem either
+> way. The bit of feedback I gave on patch 22 might be more useful
+> to address (comments not matching code).
 
-No, they are not similar. MFD are real physical devices, but EPFs are (so far)
-software based entities.
+Yes it is. It is not strictly speaking a bug but the logic should
+be changed for SZ_64K PAGE_SIZE (try first 4K, then fallback to 16K).
 
-> > I don't understand.
-> 
-> >
-> > > If multiple function devices share the same EPC device, there will be
-> > > no isolation between them. Setting the ID and 'of_node' prepares for
-> > > proper support.
-> 
-> Only share the same of_node.
-> 
-> Actually pci host bridge have similar situation, all pci ep devices reuse
-> bridge's of node. framework use rid to distringuish it. EPF can use device::id
-> to do similar things.
-> 
-> Actually iommu face the similar problem. So far, there are not EP device enable
-> iommu yet, because it needs special mapping.
-> 
-> Prevously, I consider create dymatic of_node for each EPF and copy iommu/msi
-> information to each children. But when I see adp5585 case, I think direct
-> use parent's of_node should be simple and good enough.
-> 
-> In future, I suggest add children dt binding for it. For example: EPF provide
-> a mailbox interface. how other dts node to refer to this mailbox's phandle?
-> 
+Well spotted, apologies but again, it is not even a bug, I missed
+it.
 
-As I said above, EPFs are not real devices. There is currently only one
-exception, MHI, which is backed by a hardware entity. So we cannot add
-devicetree nodes for EPF, unless each EPF is a hardware entity.
+I think I can do a v7 tomorrow morning for that and include the
+other comments as well - definitely not something that should stop
+this series from being considered for v6.17 please.
 
-- Mani
+Lorenzo
 
--- 
-மணிவண்ணன் சதாசிவம்
+> 
+> 
+> Jonathan
+> 
+> > 
+> > Thanks,
+> > Lorenzo
+> > 
+> > > As Marc said, these are in a good state.
+> > > 
+> > > Jonathan
+> > >   
+> > > > 
+> > > > Thanks,
+> > > > Lorenzo
+> > > >   
+> > > > > > diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> > > > > > new file mode 100644
+> > > > > > index 000000000000..a08daa562d21
+> > > > > > --- /dev/null
+> > > > > > +++ b/drivers/irqchip/irq-gic-v5.c
+> > > > > > @@ -0,0 +1,461 @@
+> > > > > > +// SPDX-License-Identifier: GPL-2.0-only
+> > > > > > +/*
+> > > > > > + * Copyright (C) 2024-2025 ARM Limited, All Rights Reserved.
+> > > > > > + */
+> > > > > > +
+> > > > > > +#define pr_fmt(fmt)	"GICv5: " fmt
+> > > > > > +
+> > > > > > +#include <linux/irqdomain.h>
+> > > > > > +#include <linux/wordpart.h>
+> > > > > > +
+> > > > > > +#include <linux/irqchip.h>
+> > > > > > +#include <linux/irqchip/arm-gic-v5.h>
+> > > > > > +
+> > > > > > +#include <asm/cpufeature.h>
+> > > > > > +#include <asm/exception.h>
+> > > > > > +
+> > > > > > +static u8 pri_bits __ro_after_init = 5;
+> > > > > > +
+> > > > > > +#define GICV5_IRQ_PRI_MASK	0x1f
+> > > > > > +#define GICV5_IRQ_PRI_MI	(GICV5_IRQ_PRI_MASK & GENMASK(4, 5 - pri_bits))
+> > > > > > +
+> > > > > > +#define PPI_NR	128
+> > > > > > +
+> > > > > > +static bool gicv5_cpuif_has_gcie(void)
+> > > > > > +{
+> > > > > > +	return this_cpu_has_cap(ARM64_HAS_GICV5_CPUIF);
+> > > > > > +}
+> > > > > > +
+> > > > > > +struct gicv5_chip_data {
+> > > > > > +	struct fwnode_handle	*fwnode;
+> > > > > > +	struct irq_domain	*ppi_domain;
+> > > > > > +};
+> > > > > > +
+> > > > > > +static struct gicv5_chip_data gicv5_global_data __read_mostly;    
+> > > > >     
+> > > > > > +static void gicv5_hwirq_eoi(u32 hwirq_id, u8 hwirq_type)
+> > > > > > +{
+> > > > > > +	u64 cddi = hwirq_id | FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, hwirq_type);    
+> > > > > 
+> > > > > Slight preference for not needing to care where hwirq_id goes in CDDI or how big
+> > > > > it is (other than when I checked the header defines).
+> > > > >  
+> > > > > 	u64 cddi = FIELD_PREP(GICV5_GIC_CDDI_ID_MASK, hwirq_id) |
+> > > > >         	   FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, hwirq_type);
+> > > > > 
+> > > > >     
+> > > > > > +
+> > > > > > +	gic_insn(cddi, CDDI);
+> > > > > > +
+> > > > > > +	gic_insn(0, CDEOI);
+> > > > > > +}    
+> > > > >     
+> > > > > > +static int gicv5_ppi_irq_get_irqchip_state(struct irq_data *d,
+> > > > > > +					   enum irqchip_irq_state which,
+> > > > > > +					   bool *state)
+> > > > > > +{
+> > > > > > +	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
+> > > > > > +
+> > > > > > +	switch (which) {
+> > > > > > +	case IRQCHIP_STATE_PENDING:
+> > > > > > +		*state = !!(read_ppi_sysreg_s(d->hwirq, PPI_PENDING) & hwirq_id_bit);    
+> > > > > 
+> > > > > Technically don't need the !! but if you really like it I don't mind that much.
+> > > > >     
+> > > > > > +		return 0;
+> > > > > > +	case IRQCHIP_STATE_ACTIVE:
+> > > > > > +		*state = !!(read_ppi_sysreg_s(d->hwirq, PPI_ACTIVE) & hwirq_id_bit);
+> > > > > > +		return 0;
+> > > > > > +	default:
+> > > > > > +		pr_debug("Unexpected PPI irqchip state\n");
+> > > > > > +		return -EINVAL;
+> > > > > > +	}
+> > > > > > +}    
+> > > > > 
+> > > > >     
+> > > > > > +static int gicv5_irq_ppi_domain_translate(struct irq_domain *d,
+> > > > > > +					  struct irq_fwspec *fwspec,
+> > > > > > +					  irq_hw_number_t *hwirq,
+> > > > > > +					  unsigned int *type)
+> > > > > > +{
+> > > > > > +	if (!is_of_node(fwspec->fwnode))
+> > > > > > +		return -EINVAL;
+> > > > > > +
+> > > > > > +	if (fwspec->param_count < 3)    
+> > > > > 
+> > > > > I don't care that much, but could relax this seeing as fwspec->param[2]
+> > > > > isn't used anyway? Maybe a tiny comment on why it matters?
+> > > > >     
+> > > > > > +		return -EINVAL;
+> > > > > > +
+> > > > > > +	if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI)
+> > > > > > +		return -EINVAL;
+> > > > > > +
+> > > > > > +	*hwirq = fwspec->param[1];
+> > > > > > +
+> > > > > > +	/*
+> > > > > > +	 * Handling mode is hardcoded for PPIs, set the type using
+> > > > > > +	 * HW reported value.
+> > > > > > +	 */
+> > > > > > +	*type = gicv5_ppi_irq_is_level(*hwirq) ? IRQ_TYPE_LEVEL_LOW : IRQ_TYPE_EDGE_RISING;
+> > > > > > +
+> > > > > > +	return 0;    
+> > > > > 
+> > > > >     
+> > > > > > +static int __init gicv5_of_init(struct device_node *node, struct device_node *parent)
+> > > > > > +{
+> > > > > > +	int ret = gicv5_init_domains(of_fwnode_handle(node));
+> > > > > > +	if (ret)
+> > > > > > +		return ret;
+> > > > > > +
+> > > > > > +	gicv5_set_cpuif_pribits();
+> > > > > > +
+> > > > > > +	ret = gicv5_starting_cpu(smp_processor_id());
+> > > > > > +	if (ret)
+> > > > > > +		goto out_dom;
+> > > > > > +
+> > > > > > +	ret = set_handle_irq(gicv5_handle_irq);
+> > > > > > +	if (ret)
+> > > > > > +		goto out_int;
+> > > > > > +
+> > > > > > +	return 0;
+> > > > > > +
+> > > > > > +out_int:
+> > > > > > +	gicv5_cpu_disable_interrupts();
+> > > > > > +out_dom:
+> > > > > > +	gicv5_free_domains();    
+> > > > > 
+> > > > > Naming is always tricky but I'd not really expect gicv5_free_domains() as the
+> > > > > pair of gicv5_init_domains() (which is doing creation rather than just initializing).
+> > > > > 
+> > > > > Ah well, names are never prefect and I don't really mind.
+> > > > >     
+> > > > > > +
+> > > > > > +	return ret;
+> > > > > > +}
+> > > > > > +IRQCHIP_DECLARE(gic_v5, "arm,gic-v5", gicv5_of_init);    
+> > > > >     
+> > > >   
+> > >   
+> 
 
