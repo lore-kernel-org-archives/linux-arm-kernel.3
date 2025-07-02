@@ -4,108 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C3AC83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 09:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D881FC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z2i5IXHDrYsUc/Tn17nFSzjMPGS5SokuRGh4FjnxTpw=; b=JD5YqsdW5sDPUmKlTfhvlkz1D5
-	8jlzFHnEXHFqFvfMltqG1vwDV6tpH5tBrGgMzKog3cFS2ce0TX7e8vRUDCO4O+Bud1PNOqGpYMPXQ
-	jOG44wGv81H27oLNMQqmr897cS6vTc+pP49pKcyNZHHgZbD8m02e+c2EGxxGVdXzJupm9K3J0gF8J
-	CfuUUDsLkiFFoaDxJUcJzOFADGiyXaJgtg8a/uWbsaZc+D+h351vJf7nAGp7O6kZ7hJiDb91raCS/
-	hxOUhpUqd+4EdqGoXuelVYYWKb84I+SH0om5uIst1N8huT1UTrWfvbJXWeQl2Th5PqPWyob2QZ7On
-	N4dzLYEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VAdQGkQ8Fb4m6A5sOw9uSBimE73cvWxijQ2O6CFMaRQ=; b=E3zsC/w2NIqEaXpU7QJS3qdWSn
+	pF7q8M6JwAeR8zANDLnwvcjJrk6dps8N3EHlueA8vHdjA+U50rAa5/BQJqd6rXGZZCzQleYtP5Pwz
+	gDch0en8PGoEgEjU5cMiQFcBp1+ZvsXjU9/Zc2vPg2RiSfvCRgovc7MXmpchk8d9Ij7fWmRJ2oQ4X
+	6CC93xq6mS0YU3Mn6pRt8fav4oBQhVJYwFhMhJSf67d56tmwU4GGYXhdzxOoi6MVgb3DjeStUVLZ/
+	cVAQ5/x/507Y+MTQuQPThc2qdisg726K1zLW41KnpclGw2RYJgJIZF0K2kt5d4jk5gTsMjvMOJn5N
+	jrFiuwFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWuDn-00000007rtX-27zV;
-	Wed, 02 Jul 2025 09:57:43 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1uWuG6-00000007sJl-1xew;
+	Wed, 02 Jul 2025 10:00:06 +0000
+Received: from mail-dm6nam10on20604.outbound.protection.outlook.com ([2a01:111:f403:2413::604] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtfd-00000007kes-0Byl
+	id 1uWtqB-00000007mH4-3fWw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 09:22:26 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3a536ecbf6fso3797012f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 02:22:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1751448143; x=1752052943; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Z2i5IXHDrYsUc/Tn17nFSzjMPGS5SokuRGh4FjnxTpw=;
-        b=SxTRbhvgBhqs9aQJQMckvkQCwAGLFMlxOREX+nok+9VdandblzJRfv5yAjBCRViDGA
-         9btdaN3PBrr+YW4GLk3PA+SdlM+TE5rSr/nmIQZNB07fkkde0hGa2wfFgEHFtELMRB0D
-         U8s6J10rE/rsBiHBfP1q3kA6STVWYZ2sfHVkc3saR8D9XyIUNZnXpp+BKou9gf0uVX1q
-         VaKuEzL/IavuPkFqDjPVrfp/DlXsT1P5aJJy45sAHtQyg93DChkkCIi82xtchJ7BOIfI
-         YJtSE18md7kYZ+PZa0jPqjb3YgO/nzc6+wzCFiYn+wwpkSZOP6esP/IXUbp+7xmpiElj
-         cSaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751448143; x=1752052943;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Z2i5IXHDrYsUc/Tn17nFSzjMPGS5SokuRGh4FjnxTpw=;
-        b=WsnWgGk4Kse9xnBQ/Jy+Js/1Jx0JDf5R/A5/ouzKma9JQAqToMdQVIxLI6EFeaoy7e
-         4Cs1jmfqEHz/4LCECkBRWGhBiKzJcEw3YGONM6f8DRzb7hIf+MXl9DGUBhxKUYYW9RCT
-         SD2Rb3f2qxIUE3047WOVM3xqgSQ7e81SUtRwDO7URJiZts7m96LvcMpuVqD7fxrqT94V
-         zg5aZ5kwv5D0KFEnSWLFFELHcjPFFdPp+zIOrKCZqwrDhYpugI8yAIFVmw6f1MJU2oHQ
-         yUGdlAnOd7jyAtD7n359Z66m9ey0IJwix/a2+VuXEqweToFppIFxk6VOVJmumMlW6YpU
-         kxsw==
-X-Forwarded-Encrypted: i=1; AJvYcCUlIr6A/b5dMbOBP1E6KkCaCzDov1pGFjPAF18YrYMr5PedypYRKmTKoj1VorpfRri8HF63504W9FF9ZEXrE5xG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBokzT3Qji17jGdnm6mg1v05iB5NXHw0Fa5aJrhjxPeQRbWBik
-	MjJjGkBKwzj2LJdK0I3S8ZjbkGvg7eE9eupqyyBlByi6gN4Ye1B9kFebaB4GbSNkwc8=
-X-Gm-Gg: ASbGncu2QKcUCQb1JWIvGhkkpC+Cn/Eg41T1XFU3Edm48NQghkX9KR/ZwrVv1u6GPO8
-	5ZeLfjpS/BMppIAWMYnOoufWQm+18RPtjdDrG9jrcBfeUbQ8eLaAo+whSIEWi9CvfZN9PO7z4mW
-	gCbIg97f1Fnx0ZTlvPWUTpHIS8h/jrJmsDmcqKKufMZWZs+Gf/s7DC5gmQWXdz2oW7r+ABkkGXW
-	XtYuLs7xeZFqvbC24srsUe7hGl2Qqw9qexRlBQ44VEL/dIzfZNCIxrk+cDEd2E15/GpLKQ7fdAm
-	5DSWMNE0licW5TPZtmg+Wmb2MH9+fjV3eZZ5D/rD6RYt2T++/rQIsg==
-X-Google-Smtp-Source: AGHT+IHqzoytGZsKMlgoRsXyN3XDOj0IiS+FUXoOYFtH0PT8GVRyyMyck1Y8DKbhl5NYuCMHrTWO9g==
-X-Received: by 2002:a05:6000:2083:b0:3a4:f939:b53 with SMTP id ffacd0b85a97d-3b1ffcd6477mr1625551f8f.38.1751448143475;
-        Wed, 02 Jul 2025 02:22:23 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:8827:d0e:25e:834a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a406489sm195844165e9.27.2025.07.02.02.22.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Jul 2025 02:22:22 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 02 Jul 2025 11:22:15 +0200
-Subject: [PATCH v2 8/8] gpio: en7523: use new generic GPIO chip API
+	Wed, 02 Jul 2025 09:33:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PG9PmdWgVLiAejn3MCKA+aLg6w6XajqVBdkK1yenm9QBljkgsipZ3ySIoMap1rwH9nkRKN6T+KaDn3GxAddl0NLVHbghDkhMJJg6hxsM+mYbUgom+ANHALhdMfmh1JS63IAv+VRI9yA8fnaqeNf2CcdVSXsd+MW9rcWPQ1jL1xyXHpL66zUUDd2hYier4lOnap2NuG2iMWcEsww9aycLj9W9BHVZRu+hP5GLd+WGCFqk3I/EnC5kNS3j/RwK6HYxJ42BfgBflZbaKd21SC8Xr6D/Xt0zvfEvAPiKgSRz8GYWTPNqUO2+boBmOV7DuWkJ6HnXWu6yD9DGw3DPhqma1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VAdQGkQ8Fb4m6A5sOw9uSBimE73cvWxijQ2O6CFMaRQ=;
+ b=CFOs7eMvSgRrFAMgTLSQHGH+fQLhC5v20SIrbbEhdCO6JZdnhrrmEaLJzGlUw2aAoFIHj+I5phEZBFvNV8cM7H/jMXb/S0RCSFGG7hKxlfuFXkt5N8iBGwcIZRCJ9p/KZO2y8PfVSXnKGCC9GAWWL5jo3U0Dc4/sLdOW2r9zMDq+WZJlKKF8cis+/4OMoaMDirbUfnl2qOBMDm7CLR9ALU0fWQY2n9FzEBFOhDORkfDflSU1vGgzgoJ3wFgbXzxBDqivlgDE23vxI19MNR2AjmMuhuaLvH2goeT9jSFLgizvkExBV9qofN1SmqJCLBz+ff8aNpnKJqRi2d5wbeyJ5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VAdQGkQ8Fb4m6A5sOw9uSBimE73cvWxijQ2O6CFMaRQ=;
+ b=tqI6CrMTzNgLFdzRUdTyMPmxwQIStxTTKfB3ABrXaJtpxklFxgXUIvrPL8fFA3yfL26LeCLRqocNAsE2sgk0551xHKg0QwYI3AqseZdMH7SQhS9gv4A0jBkAdCRReXcGQeJtrWYMuaQI2EZl+GAp61ir5xBL+NP9E6BkE+5SbrePcvzXpIBWe4myoa9SBmoTGmIpAozhLoELMZLFpua7tlzayfbdSCFcaH8p/t+t1QDGqP33c6oTLa8sYBl1vazyquv24nTdyrfIWbAlAM3xDdstY7+pCyBCv8fxtGA8ogK9Eyu5PdK/otumNZpDPtthDts6utgriJ7YVngneb5aDA==
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
+ by SJ5PPFFA661D690.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::9ab) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.21; Wed, 2 Jul
+ 2025 09:33:07 +0000
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2%3]) with mapi id 15.20.8901.018; Wed, 2 Jul 2025
+ 09:33:07 +0000
+From: Ankit Agrawal <ankita@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "joey.gouly@arm.com"
+	<joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>, "shahuang@redhat.com"
+	<shahuang@redhat.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>, "ddutile@redhat.com"
+	<ddutile@redhat.com>, "seanjc@google.com" <seanjc@google.com>
+CC: Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, Kirti
+ Wankhede <kwankhede@nvidia.com>, Krishnakant Jaju <kjaju@nvidia.com>, "Tarun
+ Gupta (SW-GPU)" <targupta@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, Andy
+ Currid <acurrid@nvidia.com>, Alistair Popple <apopple@nvidia.com>, John
+ Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>, Zhi Wang
+	<zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Uday Dhoke
+	<udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com"
+	<coltonlewis@google.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
+	<ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org"
+	<linux-mm@kvack.org>, "tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "maobibo@loongson.cn"
+	<maobibo@loongson.cn>
+Subject: Re: [PATCH v9 0/6] KVM: arm64: Map GPU device memory as cacheable
+Thread-Topic: [PATCH v9 0/6] KVM: arm64: Map GPU device memory as cacheable
+Thread-Index: AQHb4mPxHvLAi7AU2UCiiYmQowcOkbQeo1Ok
+Date: Wed, 2 Jul 2025 09:33:06 +0000
+Message-ID: <SA1PR12MB7199F8346F2CA802E9F3965DB040A@SA1PR12MB7199.namprd12.prod.outlook.com>
+References: <20250621042111.3992-1-ankita@nvidia.com>
+In-Reply-To: <20250621042111.3992-1-ankita@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|SJ5PPFFA661D690:EE_
+x-ms-office365-filtering-correlation-id: c0d51525-ed16-4999-e36f-08ddb94b7398
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700018|921020;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?Tb1tyz2rKdAal7dbRBiT878tQ1eV0AWkGaC1/wtp+dd4vtvC4EEGwxAq3M?=
+ =?iso-8859-1?Q?eGm4u3Tfm48u6T8bdmlOvc1DV2IxA1YMV8+NySJrckAgKxn9iT6LoeYEX1?=
+ =?iso-8859-1?Q?xhNn5pBZP8SVUDINjV0HmHHneQPOz5anVsGSYfTXRybtOiKcyud8mAB8CD?=
+ =?iso-8859-1?Q?yc3j55nxnRkMUaWnEd6lR7HwG/j1MO/6JzCHxF79AopLY0b9hHTLQIaS5x?=
+ =?iso-8859-1?Q?+gvjX/L2XD2cEt1uYTY4+Ac76wCz7XJPrl5WDywQN9yp+qDJXbGpS44ZBp?=
+ =?iso-8859-1?Q?B0RbTSaFLTPbZsMcNmnHuVVeKyiuwTDhtAFHk0hKINtHDxGAYR2JpQTXZ0?=
+ =?iso-8859-1?Q?fEMgkf0gVtnV1QDBQp9rboaJ3fhUHzwC+RLQSN/egO0k0EZgY2Y7ltKGDU?=
+ =?iso-8859-1?Q?p7U4qN1mR3OHBvgPBDBqVBoPDgRzg3zjoxSYTIw5HIqIzOa1u9cAjgdvdK?=
+ =?iso-8859-1?Q?wqtXGO9tL4+wAweNlW269w/NTEJ/RGRUUSCJi03GkvYCTWHg9WmZBCDbUH?=
+ =?iso-8859-1?Q?R/cPvl4GgVlmhDmAQiNpve5hIVbqZ/B/Qi42L0NvI64GAcFc2j23qIc721?=
+ =?iso-8859-1?Q?H/nilBcdEYjc1IyjQAxv2qaih5xolExhWEGT+rNXQ1HHi41cmfnoRhGPH4?=
+ =?iso-8859-1?Q?II1wU+OvNFQ72KIwYj0OG7BQOcwmXjsb6TC/Bv1yj4RFzNTDM2CYOK1B2F?=
+ =?iso-8859-1?Q?Zy9c60cREJ9r6FjtssqmBsSSaPxHWyby8y8HdI/yyc4vX8B+wRlHiFQzcs?=
+ =?iso-8859-1?Q?1H2MzR1jB4u/Nsn4BtI4mz+0G4rUfsP3VowU/aX4cfYIi1mSrqolIGF7yx?=
+ =?iso-8859-1?Q?BQzbz3Q4d9+1RGuV8sUtTb/EBk97NqK/+5vj1DCJJ0hgrY4B/fD/6qrSbj?=
+ =?iso-8859-1?Q?ZAorFNqdwtOojjMaUb8pK5xkNUTfX6XebiLWlSZl+5KrU7qxLCWLPulFhU?=
+ =?iso-8859-1?Q?taRe+iTNw+R5dZ99j88k50uvvOqL2JghcyFtynmNPB53QJRrsOynByP4nu?=
+ =?iso-8859-1?Q?D6M1IwgBUAI7t4AcJ4ciqt/nThnI6/bsN1AQFSVJANZHaEVe45Dx1sjOcM?=
+ =?iso-8859-1?Q?U4c7jjpDeMY+mPpwmAR/CrCXKBcHqKq4X+vW3NBlZ9PoYbB8SNkYwFlant?=
+ =?iso-8859-1?Q?wjOfA7yJlh4uXGmt4/5Ieh9Y0Z0mjyxrQeRETUc6rmDr4byy9ZUV64r9bj?=
+ =?iso-8859-1?Q?4yE6873SQqu/zpE8loDxNQgSZppCsQqAvW0BkVeCel4B1hACJruVbGlD3b?=
+ =?iso-8859-1?Q?eD6l7wYqjkjVgowc/NEWp+Ntf205V1hIecl2QF8kTiL9shMs1qzKXqmKo6?=
+ =?iso-8859-1?Q?4rsxFEtuhIyhp4jIg/5KRNGYn3uktHjIscpDOwTADn+BBPjI2yat+Cd2ze?=
+ =?iso-8859-1?Q?8Vg2hE80sWDKc3gxxGXsugpUY0N4ypuZZmkso0fSKCcndfF3OlWAMyRk0X?=
+ =?iso-8859-1?Q?rS89fbqwcj4sug74PrW6TcckPs8vWKW8ZetUnKTZbzgRL6kJmw/dc1q9qC?=
+ =?iso-8859-1?Q?vKtzmIpToGAuzh4q7gKxHEKcgnvOMTV9Jp4fBntxnFAyh974Ijsk5k1QGe?=
+ =?iso-8859-1?Q?y3JbqQQ=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?+2+Sh0PSy7/g5M2FMKfXC2kWZKVCpumIv7QL2x8FubcuD1K6QM3vlzz47z?=
+ =?iso-8859-1?Q?ss6LwPFI8VcMjYHlYEbtCvZ7VzPFAPtOilPObt2MpxDNaeQj5mF1N13bRr?=
+ =?iso-8859-1?Q?+RIjlbSlXBMDIt99hLilZf4ImOco6IGwip2iuvZjEApRvRJ7oHJymBKWzz?=
+ =?iso-8859-1?Q?1FDercG+ZmjobKZlhAI3J64VJgaQTY5OfPL7jNAW8H//xOfzZj/oRQLPeH?=
+ =?iso-8859-1?Q?XkbkGoUbdcTd41VupvOi1CNzbB4iIPiUqvMIGBP4NW0xw5yKDWUHJ3Gw9l?=
+ =?iso-8859-1?Q?E3RGe7wg+H3tb6LHmEIngakTc/GDaOE7FYwGEiWnviO0+bYYl90k4oizFl?=
+ =?iso-8859-1?Q?J6LVXWl7Ykto9Iaw1q97uju/eDO5D6NL54mO9IkqcXSTsdsIvTmTSxkTCn?=
+ =?iso-8859-1?Q?76oTCAQq8w2+f1PyfsBKjjo1m7kfyMdpiKETmZaKVijsN5wp2V8yJkPmhf?=
+ =?iso-8859-1?Q?K3JMKoDeeen1yIkZvQdwAnYSmzwZ36xm27z/CRCJrm1onT7uMfyubAKNJO?=
+ =?iso-8859-1?Q?/N/2LpxTpYakkuyEHwlwqW5oBBrfM+R5xwpLhoKpJndCVidEd1Z1b/lTyI?=
+ =?iso-8859-1?Q?mGysRGVU9QE8xD6CFA6iMk77TJlWFulat9c1paRlDm/cePR1fnxpknczOp?=
+ =?iso-8859-1?Q?JKVcXiiS5xzqgg29wtkynC8q+7zpq6nVhWiwSQF3FMXeVqd10f9OWf7GPH?=
+ =?iso-8859-1?Q?MOjMzTgUKNT4qjGdMARbIHizLKTuHcBNPW38To/13yLd55F4w5aIfAtwJK?=
+ =?iso-8859-1?Q?p2vQbMxcJH+9WuW/KJWQDmZHDtyEL6LXUw8kkE3txNaarYPFZYWXj9VRo/?=
+ =?iso-8859-1?Q?qwtyxw4j3cmeNkJdtazgSF1W/mdmAZpzlb0JHDq4GdL81Y9T+x7PDSbHFq?=
+ =?iso-8859-1?Q?Nq+0mEkAuEFaawuzcVrpoIDEcB2hfAdYt7Yvo52lRjAJhxxBmlGAzoSgmU?=
+ =?iso-8859-1?Q?yayGl0/AXHwugkJg6gxh5cioJzGissN9K6PILnTfSW4iCUVcpq+pv69TX2?=
+ =?iso-8859-1?Q?L3kVKcc75iTfNAe2ttxmKCylTC97xqOq/vE3NG+YxmSa7skCQKvQgl07hg?=
+ =?iso-8859-1?Q?wt3qyYqPziY5Fm6c90gy0da3prntSoUWmh6vF2k3e2ImguOnWsxWRV/m4j?=
+ =?iso-8859-1?Q?EKSBz6dyTTinEqjvKRpFf2kM0PrauOI9DgqbxWREMFKyGIxKRXCZtg6Jyi?=
+ =?iso-8859-1?Q?T4BcPl96eCk0c8hDtp+/Q+AC/ZsZdyTGJZEmDHgZLgSzf9eYnmnL76XWZO?=
+ =?iso-8859-1?Q?yuzh8dQ4/TDU11CYvE2zgtR903VChi16phMbenBkBgwMM8Whdjh9gO/k/5?=
+ =?iso-8859-1?Q?sbkd8ZZDIK3HvOqo7JJ3Fpl4t3fTcqGtakINyFCVfbgcuAZdzK52Go7eL4?=
+ =?iso-8859-1?Q?qaB/6MK6farHg/tv0eWVagUV9uU7oeZKF1s++CwpMbx3XQIgdK2j5E2+rf?=
+ =?iso-8859-1?Q?u2+fBic9AvjMcUb+7woe1NxiwaXVqmR/OvH7MmrApRiaexD+b5jve7Vsv0?=
+ =?iso-8859-1?Q?eJyK8aOQfC5HzeQSEOXBNEIJaGxotzm+0D9XhXEtRf+17ShAFj2mcH+HTj?=
+ =?iso-8859-1?Q?DQr+FMpTIPr/vcvV9aUba4Mtsc2Nf2toFSoZ/3yT+/5oqqSM1nTk+Gxe93?=
+ =?iso-8859-1?Q?a69oIF8g3E/Xc=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250702-gpio-mmio-rework-v2-8-6b77aab684d8@linaro.org>
-References: <20250702-gpio-mmio-rework-v2-0-6b77aab684d8@linaro.org>
-In-Reply-To: <20250702-gpio-mmio-rework-v2-0-6b77aab684d8@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3831;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=bWHsnwR0yWBpKvxYpjrvU4Drn4TZUDb/OIAKGQMvuaU=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoZPpFdMyJ+UINCiz6R9O+qXkyUiIM7pZReygQU
- 4K7+xodRo6JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaGT6RQAKCRARpy6gFHHX
- cj1mD/sEuWGffBMokzY6eLNDHWa9NDI66dIkEd4DeoGLZ+5mgYBSVOY4IX/2sfJRJPC7u/NWU3N
- iGtN99VVMrQkcE/jWg2pi4VztxciMgsAjolZkYTxw9f21U6Vm9/5u8eAGM10VZqydOcBovkEa3U
- rdKOvhJpPqGiKTnSCB7/owvSsaiOxis/N39s6uaULLYd3Q/VAnVaSigE/LN9yE38iKbHXAhhi23
- byVyjQIoMa/fU+1VF6wSAZDTdnu7ewB3tItKln9yT9tntUIhCVDNTNcB6MPajPdSZVv/Wva+pKN
- QuWEiV58qhcdpV+gPxad/kI4WCIkuknzCt1Obfo9Jw+V38hnthNEOR30wfpFsEBVktQs/GE8glC
- lUilXpCPnJiD6rSUMLZJe08nNCuj3VroJT1RYCK6pjI3BGPIEQmb7yQv1TpuJ+0miVYOyXNzmsC
- P2PogiIZLhpylqVCFDR0ospXP9L/Lk9IgO4yNwEM2Z2jUi3b4NLUPFe9X8EQfrPlFxc+bvpVfXo
- m+dWjyS5i8/QDdFyTO7YzwMDxsT6Cne3LYLtL/GBLieHhx3GFNkmdm2pZkh7Y6BvkEa6d7iVJ03
- n5IiEuf2HgB2gL6nbq2X+IU7YDkJGqQBiPJyDgs8fmFFDjWaf6+jJZG6ofJYi4MzDh0UG6bodh7
- D40y/GY6tWaeFEA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0d51525-ed16-4999-e36f-08ddb94b7398
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Jul 2025 09:33:06.9045
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: bS53zGTec7sVWMaIbRPKB4c9zpSRb/NwukWvEaOeDONX3GQJv14RghnawDwLqv/fq5zU+SoXv34xg2oeHlYRkA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFFA661D690
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_022225_095138_167AD369 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20250702_023319_914905_DE0543A6 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,119 +188,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-
-Convert the driver to using the new generic GPIO chip interfaces from
-linux/gpio/generic.h.
-
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/gpio/gpio-en7523.c | 36 ++++++++++++++++++------------------
- 1 file changed, 18 insertions(+), 18 deletions(-)
-
-diff --git a/drivers/gpio/gpio-en7523.c b/drivers/gpio/gpio-en7523.c
-index c08069d0d1045e9df4a76cad4600bf25d4e3a7c5..cf47afc578a9cea1fb1adb97f51b143b13c66ab1 100644
---- a/drivers/gpio/gpio-en7523.c
-+++ b/drivers/gpio/gpio-en7523.c
-@@ -4,6 +4,7 @@
- #include <linux/io.h>
- #include <linux/bits.h>
- #include <linux/gpio/driver.h>
-+#include <linux/gpio/generic.h>
- #include <linux/mod_devicetable.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
-@@ -13,28 +14,23 @@
- 
- /**
-  * struct airoha_gpio_ctrl - Airoha GPIO driver data
-- * @gc: Associated gpio_chip instance.
-+ * @gen_gc: Associated gpio_generic_chip instance.
-  * @data: The data register.
-  * @dir: [0] The direction register for the lower 16 pins.
-  * [1]: The direction register for the higher 16 pins.
-  * @output: The output enable register.
-  */
- struct airoha_gpio_ctrl {
--	struct gpio_chip gc;
-+	struct gpio_generic_chip gen_gc;
- 	void __iomem *data;
- 	void __iomem *dir[2];
- 	void __iomem *output;
- };
- 
--static struct airoha_gpio_ctrl *gc_to_ctrl(struct gpio_chip *gc)
--{
--	return container_of(gc, struct airoha_gpio_ctrl, gc);
--}
--
- static int airoha_dir_set(struct gpio_chip *gc, unsigned int gpio,
- 			  int val, int out)
- {
--	struct airoha_gpio_ctrl *ctrl = gc_to_ctrl(gc);
-+	struct airoha_gpio_ctrl *ctrl = gpiochip_get_data(gc);
- 	u32 dir = ioread32(ctrl->dir[gpio / 16]);
- 	u32 output = ioread32(ctrl->output);
- 	u32 mask = BIT((gpio % 16) * 2);
-@@ -50,7 +46,7 @@ static int airoha_dir_set(struct gpio_chip *gc, unsigned int gpio,
- 	iowrite32(dir, ctrl->dir[gpio / 16]);
- 
- 	if (out)
--		gc->set_rv(gc, gpio, val);
-+		gpio_generic_chip_set(&ctrl->gen_gc, gpio, val);
- 
- 	iowrite32(output, ctrl->output);
- 
-@@ -70,7 +66,7 @@ static int airoha_dir_in(struct gpio_chip *gc, unsigned int gpio)
- 
- static int airoha_get_dir(struct gpio_chip *gc, unsigned int gpio)
- {
--	struct airoha_gpio_ctrl *ctrl = gc_to_ctrl(gc);
-+	struct airoha_gpio_ctrl *ctrl = gpiochip_get_data(gc);
- 	u32 dir = ioread32(ctrl->dir[gpio / 16]);
- 	u32 mask = BIT((gpio % 16) * 2);
- 
-@@ -79,6 +75,7 @@ static int airoha_get_dir(struct gpio_chip *gc, unsigned int gpio)
- 
- static int airoha_gpio_probe(struct platform_device *pdev)
- {
-+	struct gpio_generic_chip_config config = { };
- 	struct device *dev = &pdev->dev;
- 	struct airoha_gpio_ctrl *ctrl;
- 	int err;
-@@ -103,18 +100,21 @@ static int airoha_gpio_probe(struct platform_device *pdev)
- 	if (IS_ERR(ctrl->output))
- 		return PTR_ERR(ctrl->output);
- 
--	err = bgpio_init(&ctrl->gc, dev, 4, ctrl->data, NULL,
--			 NULL, NULL, NULL, 0);
-+	config.dev = dev;
-+	config.sz = 4;
-+	config.dat = ctrl->data;
-+
-+	err = gpio_generic_chip_init(&ctrl->gen_gc, &config);
- 	if (err)
- 		return dev_err_probe(dev, err, "unable to init generic GPIO");
- 
--	ctrl->gc.ngpio = AIROHA_GPIO_MAX;
--	ctrl->gc.owner = THIS_MODULE;
--	ctrl->gc.direction_output = airoha_dir_out;
--	ctrl->gc.direction_input = airoha_dir_in;
--	ctrl->gc.get_direction = airoha_get_dir;
-+	ctrl->gen_gc.gc.ngpio = AIROHA_GPIO_MAX;
-+	ctrl->gen_gc.gc.owner = THIS_MODULE;
-+	ctrl->gen_gc.gc.direction_output = airoha_dir_out;
-+	ctrl->gen_gc.gc.direction_input = airoha_dir_in;
-+	ctrl->gen_gc.gc.get_direction = airoha_get_dir;
- 
--	return devm_gpiochip_add_data(dev, &ctrl->gc, ctrl);
-+	return devm_gpiochip_add_data(dev, &ctrl->gen_gc.gc, ctrl);
- }
- 
- static const struct of_device_id airoha_gpio_of_match[] = {
-
--- 
-2.48.1
-
+> Grace based platforms such as Grace Hopper/Blackwell Superchips have=0A=
+> CPU accessible cache coherent GPU memory. The GPU device memory is=0A=
+> essentially a DDR memory and retains properties such as cacheability,=0A=
+> unaligned accesses, atomics and handling of executable faults. This=0A=
+> requires the device memory to be mapped as NORMAL in stage-2.=0A=
+>=0A=
+> Today KVM forces the memory to either NORMAL or DEVICE_nGnRE depending=0A=
+> on whether the memory region is added to the kernel. The KVM code is=0A=
+> thus restrictive and prevents device memory that is not added to the=0A=
+> kernel to be marked as cacheable. The patch aims to solve this.=0A=
+>=0A=
+> A cachebility check is made by consulting the VMA pgprot value. If=0A=
+> the pgprot mapping type is cacheable, it is considered safe to be=0A=
+> mapped cacheable as the KVM S2 will have the same Normal memory type=0A=
+> as the VMA has in the S1 and KVM has no additional responsibility=0A=
+> for safety.=0A=
+>=0A=
+> Note when FWB (Force Write Back) is not enabled, the kernel expects to=0A=
+> trivially do cache management by flushing the memory by linearly=0A=
+> converting a kvm_pte to phys_addr to a KVA. The cache management thus=0A=
+> relies on memory being mapped. Since the GPU device memory is not kernel=
+=0A=
+> mapped, exit when the FWB is not supported. Similarly, ARM64_HAS_CACHE_DI=
+C=0A=
+> allows KVM to avoid flushing the icache and turns icache_inval_pou() into=
+=0A=
+> a NOP. So the cacheable PFNMAP is made contingent on these two hardware=
+=0A=
+> features.=0A=
+>=0A=
+> The ability to safely do the cacheable mapping of PFNMAP is exposed=0A=
+> through a KVM capability for userspace consumption.=0A=
+>=0A=
+> The changes are heavily influenced by the discussions among=0A=
+> maintainers Marc Zyngier and Oliver Upton besides Jason Gunthorpe,=0A=
+> Catalin Marinas, David Hildenbrand, Sean Christopherson [1]. Many=0A=
+> thanks for their valuable suggestions.=0A=
+>=0A=
+> Applied over next-20250610 and tested on the Grace Blackwell=0A=
+> platform by booting up VM, loading NVIDIA module [2] and running=0A=
+> nvidia-smi in the VM.=0A=
+>=0A=
+> To run CUDA workloads, there is a dependency on the IOMMUFD and the=0A=
+> Nested Page Table patches being worked on separately by Nicolin Chen.=0A=
+> (nicolinc@nvidia.com). NVIDIA has provided git repositories which=0A=
+> includes all the requisite kernel [3] and Qemu [4] patches in case=0A=
+> one wants to try.=0A=
+>=0A=
+> v8 -> v9=0A=
+> 1. Included MIXEDMAP to also be considered for cacheable mapping.=0A=
+> (Jason Gunthorpe).=0A=
+> 2. Minor text nits (Jason Gunthorpe).=0A=
+=0A=
+Humble reminder for review.=
 
