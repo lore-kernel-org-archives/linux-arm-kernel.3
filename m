@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC764C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 21:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2645AC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 21:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LMptU3Sc5+xY/XVGbDh1B7NKVs+zYhOoavdCfgn5VJc=; b=FQG9DnrtwcpfrBhDkZj7SDMVVh
-	i+jaLJzq3Ae3qgVw5jFRj5dT3KkRii8+CmTXsPcpk9U0a4MQwAiqTwYqO9SnSV5DRmCdBeIvJdcmW
-	c6phlImsJULOcRE3ERDdsJds5JolvTlIGKGtbq4JdIbXxNrbLdOFkwteazfQNKjHoJFx0t00+ov7i
-	SdxigCdN2zY+LNLEDLcdl5KFs152TUOrn1Rgfjm9ZBJG1QwKfaO7BlwNNqmly/3aKGeCAykKSdY7O
-	xjPZ9RrEEjFzASEjsXm3y3tSl9RGgffs5JgCMv9YdJ24WJTjaCltTX2VgcW3qubfpCa6footpB0UE
-	3WHyRf8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FnhMLudv+q/D/hSONBTmJZVo154ineWrRQ/21yucmkM=; b=CHH1KXpuIujHKBlH0dYrvSAs9N
+	T9NlMTw19OplT+FRxbd8uHcU/fDAa2gl+FtWW7UYC5482xy6jC5NVul3BKGox/2ptnvKw5lZEgMaa
+	coTO8J4FQN2a4YWTrXt8lHyK26LmcztlCaE2CJ5r7gJZOCrjjPFOGYUMWeza2EVOmPf6lwiW1I2mi
+	QYE8PVP2b/uoEZwuG+6giMVvK2fv15O19bQyBQgy3upc4oDXAbVJS6SKPl1CQcVqYxBPf3qKUJDYx
+	bsY4PIq3Z9x/waU+9iCaqWnot9mbTdDPGqR80hagtmMA3/QfoRoEg8gcSL7eZFqapDv6T+nqst49+
+	xcFdkSLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX5Fu-00000009d02-1bk9;
-	Wed, 02 Jul 2025 21:44:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uX5MF-00000009dcR-24wb;
+	Wed, 02 Jul 2025 21:51:11 +0000
+Received: from mx3.wp.pl ([212.77.101.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX5Da-00000009crM-1rvo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 02 Jul 2025 21:42:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=LMptU3Sc5+xY/XVGbDh1B7NKVs+zYhOoavdCfgn5VJc=; b=IPkDe5S6nlnFIJqwmymR9GN29u
-	P1GKMSa6g+tccTK1k/SNkFkw8seJCLzlddrBQJLfzSkNAxpp2fJdtHF0O8E9Cy2j5eV2kD1s4HeFn
-	1njmPhrYm/1aXd5kDWY64UArQeMWyAamdIKMof9hGxe33BxwlQ4jbYF+Yv0notWKvV5smi7arCokH
-	TdFqxII5wo7Yhu9FCEnncJ23j0mOx8oLB+J3QppD3Uc33kiseDciE9o5Ud5uR4cOfdNCxumutHBOw
-	85rgIiJkyXEVzTbmhrGCwV44QLv5Y0QTX3FV47Riz1dG1wfkn249h1k+ayloLOFWOHzP7OAI1e3NM
-	Mu29XIHA==;
-Received: from fw2.prolan.hu ([193.68.50.107])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX5DV-00000007ZCY-2LRg
+	id 1uX5Js-00000009dR6-3FuS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 21:42:11 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 28C89A0BB5;
-	Wed,  2 Jul 2025 23:41:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=LMptU3Sc5+xY/XVGbDh1B7NKVs+zYhOoavdCfgn5VJc=; b=
-	jEZyiRDhZcQDyBv+pSNXxLtnVwa/vsAxwVRW9FQvK+LgSdxfn4+VKviINSueGJHq
-	hvsD+4CH2D9RwuUfOZGcUh6sgNBn4h+8p/G8cO0ztBuG9XEbB7EsMX4ZHc6Z2wTb
-	+Oz5oMBcIGzTn2e9ZahC2G0vOc24a5/rAHi18NIzpunRFktDHcTTvvpYsKO5c+dV
-	b0vB+JeN3BPaPY+wxhKeQwBnkSJ7COjJYGNb4cBwhH751XOWzk/u4J0st+B3wy6F
-	O3pzmew+Fq2NfYrA/nq4uF9W1nTIXbTIlEjGnv307DH9BsO69Wk5KY1Hx0d3k9iu
-	FPlvE4mXRE6UU/Lz4A1ig6kTGXrQ6Bt2Fz2fTUmBVzFvk0ZpOvZ82Cq4PJc4iXsj
-	n/Bmzu2KrwMFaGDH+KDQAJxmTNnbwK9hWTAB57TBGBELJzbfdCbAPr+GuIdHLnnI
-	NOsuRCJ+qk2idO+jcrcMfmf0nBVBZJ7A0g7qIbIQ5KUZWZ+sCWJhdSZxNUgCLMft
-	UW2RdfISfXf/JazmgnPW2DzUmCsRq5HZvJ1YSq2/cgnLpyfXNlCWZQ2UI8/3dGRs
-	wrWpfHADwW2Gs7UzEWRk2xqxcGswfLf12rKW8p3PR/4V6yiZIL6udlH6Cuj6HsIx
-	n1wkBCsrxsfqHo6tWp2TrkV1tEFMjDPXmfOxL65NEqA=
-From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Date: Wed, 2 Jul 2025 23:41:54 +0200
-Subject: [PATCH] arm: DT: imx6-sr-som: Replace license text comment with
- SPDX identifier
+	Wed, 02 Jul 2025 21:48:46 +0000
+Received: (wp-smtpd smtp.wp.pl 33642 invoked from network); 2 Jul 2025 23:48:35 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1751492915; bh=FnhMLudv+q/D/hSONBTmJZVo154ineWrRQ/21yucmkM=;
+          h=From:To:Subject;
+          b=rwSUEglHOPVgT4/GIJwGZNEcF1GJVdBKcJRwuyU/NIAVHU+i9oiuZESyRE3iWDxNl
+           j8AFXvIL3d4Isad15BsyOOdhoEQvJphwlfFmdkoVM1RmoW33Kq0VKS2q8v3aMtEMnI
+           Wmnr2eMYaNNoFCeGcgxu7gwMsYmeGmRnv8VBOPk0Jp35Dfx9dlNH2hUqWu3h3/TJ6U
+           eXH/Q1Li32civ9iShojvR47LYWdB2lYkmr+uUnrnbda5NcU/shWYGZuh2izRRpjbCJ
+           v6rnKJ4Ddq9zqbxeZGigWQlt32R1fxY+veqdd+75p6sEYSgau8VM2Yc/PFBU3bYXFC
+           YwCiyif19cQ9A==
+Received: from 83.5.239.54.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.5.239.54])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
+          for <jic23@kernel.org>; 2 Jul 2025 23:48:35 +0200
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+To: jic23@kernel.org,
+	dlechner@baylibre.com,
+	nuno.sa@analog.com,
+	andy@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	olek2@wp.pl,
+	zhiyong.tao@mediatek.com,
+	linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2 2/2] arm64: dts: mediatek: add thermal sensor support on mt7981
+Date: Wed,  2 Jul 2025 23:48:30 +0200
+Message-Id: <20250702214830.255898-3-olek2@wp.pl>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250702214830.255898-1-olek2@wp.pl>
+References: <20250702214830.255898-1-olek2@wp.pl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250702-sr-som-dts-lic-v1-1-2e8584e6c837@prolan.hu>
-X-B4-Tracking: v=1; b=H4sIAKGnZWgC/x3MQQqEMAxA0atI1gZqQQtzlcFFG+M0MFZJRAbEu
- 091+Rb/n2Cswgav5gTlQ0zWUtG1DVCO5cMoUzV453sXnEdTtHXBaTf8CmHqhpnC4HpKHmq0Kc/
- ye4bvsTpFY0waC+V7s0TbWeG6/p1qwMZ5AAAA
-To: Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-X-Mailer: b4 0.13.0
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1751492515;VERSION=7994;MC=3329611887;ID=217464;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155D6C7266
+X-WP-MailID: b00664f4f4ac2cf6bacf908830148b39
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000000 [0YOR]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_224210_114325_9A55C3B3 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250702_144845_282307_A7122DB5 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,224 +86,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace verbatim license text with a `SPDX-License-Identifier`.
+The temperature sensor in the MT7981 is same as in the MT7986.
 
-The comment heades mis-attributes this license to be "X11", but the
-license text does not include the last line "Except as contained in this
-notice, the name of the X Consortium shall not be used in advertising or
-otherwise to promote the sale, use or other dealings in this Software
-without prior written authorization from the X Consortium.". Therefore,
-this license is actually equivalent to the SPDX "MIT" license (confirmed
-by text diffing).
-
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
 ---
- arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi | 38 +---------------------
- arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi | 38 +---------------------
- arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi   | 38 +---------------------
- arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi      | 38 +---------------------
- 4 files changed, 4 insertions(+), 148 deletions(-)
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 32 ++++++++++++++++++++++-
+ 1 file changed, 31 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
-index e491f5c9d455..0d7e14a94305 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright (C) 2013,2014 Russell King
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- #include <dt-bindings/gpio/gpio.h>
- / {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
-index ddca24414d26..3053a28c42cd 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright (C) 2013,2014 Russell King
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
+diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+index 5cbea9cd411f..759b9e8059d9 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+@@ -76,7 +76,7 @@ watchdog: watchdog@1001c000 {
+ 			#reset-cells = <1>;
+ 		};
  
- &iomuxc {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
-index cd1e682f11ad..5a35436bb30a 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright (C) 2013,2014 Russell King
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- #include <dt-bindings/gpio/gpio.h>
+-		clock-controller@1001e000 {
++		apmixedsys: clock-controller@1001e000 {
+ 			compatible = "mediatek,mt7981-apmixedsys";
+ 			reg = <0 0x1001e000 0 0x1000>;
+ 			#clock-cells = <1>;
+@@ -184,6 +184,32 @@ spi@1100b000 {
+ 			status = "disabled";
+ 		};
  
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
-index 7af74b203e39..6aea7bf06e7a 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright (C) 2013,2014 Russell King
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- #include <dt-bindings/gpio/gpio.h>
++		thermal@1100c800 {
++			compatible = "mediatek,mt7981-thermal",
++				     "mediatek,mt7986-thermal";
++			reg = <0 0x1100c800 0 0x800>;
++			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&infracfg CLK_INFRA_THERM_CK>,
++				 <&infracfg CLK_INFRA_ADC_26M_CK>;
++			clock-names = "therm", "auxadc";
++			nvmem-cells = <&thermal_calibration>;
++			nvmem-cell-names = "calibration-data";
++			#thermal-sensor-cells = <1>;
++			mediatek,auxadc = <&auxadc>;
++			mediatek,apmixedsys = <&apmixedsys>;
++		};
++
++		auxadc: adc@1100d000 {
++			compatible = "mediatek,mt7981-auxadc",
++				     "mediatek,mt7986-auxadc",
++				     "mediatek,mt7622-auxadc";
++			reg = <0 0x1100d000 0 0x1000>;
++			clocks = <&infracfg CLK_INFRA_ADC_26M_CK>;
++			clock-names = "main";
++			#io-channel-cells = <1>;
++			status = "disabled";
++		};
++
+ 		pio: pinctrl@11d00000 {
+ 			compatible = "mediatek,mt7981-pinctrl";
+ 			reg = <0 0x11d00000 0 0x1000>,
+@@ -211,6 +237,10 @@ efuse@11f20000 {
+ 			reg = <0 0x11f20000 0 0x1000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
++
++			thermal_calibration: thermal-calib@274 {
++				reg = <0x274 0xc>;
++			};
+ 		};
  
-
----
-base-commit: 66701750d5565c574af42bef0b789ce0203e3071
-change-id: 20250702-sr-som-dts-lic-b16fc7605cb2
-
-Best regards,
+ 		clock-controller@15000000 {
 -- 
-Bence Csókás <csokas.bence@prolan.hu>
-
+2.39.5
 
 
