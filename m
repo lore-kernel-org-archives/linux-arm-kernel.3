@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FBAC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 17:48:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914D9C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 17:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kGbVmrhUI5Uv11tNzQgsKxsAH9iPy+QdOEX38aJe6Mc=; b=QkPSKvthQg8m3cKaXSVvuUCL60
-	x7/K/z59/M+f5HQ1HkZH5CqKpWQxLPazxOodXX8Dqq/wfFIlSklDIW6ggHpQJjcvwNs1vrvJT4sz/
-	ts0BvQgDbA4yFtOyx4Miz+nBVTA+4S2Bmsa2rmCFZ6v16GPAM5bxEirxSU2+kynHMPtO87JkTS1Rx
-	82V2U7xoLio4Qh9i389KVxPFimlGHL64ynPpXYgQ8yFNRE9mnM4gNpqtFaFS7fU9YcO0ln2WLu5RA
-	Und42P/7QrdQu6Sp9qM+irPDR2nvaZARBNPI0xXiZFXGQ/GNOEcSGzbowAyHmUHcpl9t+5akMCHd5
-	qD6im4WA==;
+	bh=bDwppf5TaAtyT72KOdBATJ3WJiKV3w3Hh6OmGhriJfQ=; b=TKRGzy6ouiya+wSHTXofpnYrF1
+	ZyiYmtUhUqjP87s0JOoxYPGQN4oxoawliDg9vckzYookFLRbn2IaRoIG9rRWrtzsQMBZSdNzzi8cD
+	VnjxjcFFe8i7zaTdAt8iEl9lZ3zCfPnrk4gmU/01EL9Bp2kDRQBLDH7TYfKFMnHf4p2WbBuCcn0E3
+	zzWOzX+bWkKuowyz1cCOM88tLoBmtHycp0cUTxQdySCrcwkvkqYg3ix0eSmTPZ9cpiXGPFosp1YdS
+	l86cd9zrWHfMKhbrDK4Gj5No/KlGkpDZb+JQLeVC3Jeg+mojd+ipAcNJMdaYSpXFIsUljVgCtOW5V
+	chQ9t0jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX1ZD-00000009AGy-3Gx2;
-	Wed, 02 Jul 2025 17:48:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX0cO-000000090eS-3VI2
+	id 1uX1ZI-00000009ALL-2GTy;
+	Wed, 02 Jul 2025 17:48:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uX0wU-000000094IZ-2aOe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 16:47:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0B9522C7;
-	Wed,  2 Jul 2025 09:47:16 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 615703F66E;
-	Wed,  2 Jul 2025 09:47:31 -0700 (PDT)
-Date: Wed, 2 Jul 2025 17:47:29 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Junhao He <hejunhao3@huawei.com>
-Cc: suzuki.poulose@arm.com, james.clark@arm.com, anshuman.khandual@arm.com,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linuxarm@huawei.com,
-	jonathan.cameron@huawei.com, yangyicong@huawei.com,
-	prime.zeng@hisilicon.com
-Subject: Re: [PATCH v2 2/3] coresight: tmc: refactor the tmc-etr mode setting
- to avoid race conditions
-Message-ID: <20250702164729.GA1039028@e132581.arm.com>
-References: <20250620075412.952934-1-hejunhao3@huawei.com>
- <20250620075412.952934-3-hejunhao3@huawei.com>
+	Wed, 02 Jul 2025 17:08:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CEEA64483C;
+	Wed,  2 Jul 2025 17:08:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08F52C4CEED;
+	Wed,  2 Jul 2025 17:08:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751476097;
+	bh=sl+L6c54S4JFvlxl6rBTBhnWpBiz19X6BE8lx/bDcPg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ne6mhWW5/ruaxicHzkogiUibQWjbCGTAI+my3l4pVqB15UOy1fW6nLHm9mZROYlDa
+	 PzWhevJsY4UJj9sCUNIj6dJJ7cZKFn6XiIecaEgHCVZZwbtgB0ixXgVhMM+ak/sDyy
+	 Jma4GMusJQ1DbYwp13XD+6jkWW88Cd3y5UhC/Lt/O/nq9DrCRkisDhza0XHFhsRmMB
+	 WISjBHieLagyhTV5XYWNtUMwUKHYmaTaC4C1Tq2h1MSDUfJAjFu4ZV+t640sDopXwC
+	 a2HSyzYZk0lBNN1sHlKHp9oM3CybVJvSzzjlpdk7eTclBXjeZ1+qtmcG0pI4kAXxxF
+	 uukyrWgcQ6IfA==
+Date: Wed, 2 Jul 2025 19:08:13 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: =?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>
+Cc: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, M'boumba Cedric Madianga <cedric.madianga@gmail.com>, 
+	Wolfram Sang <wsa@kernel.org>, Pierre-Yves MORDRET <pierre-yves.mordret@st.com>, 
+	linux-i2c@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org
+Subject: Re: [PATCH v3 2/3] i2c: stm32f7: unmap DMA mapped buffer
+Message-ID: <zp3pagbojmu67o4sjm65a44ovvui5uvybs32nayvhtewfbm4el@n5lro4v5iq36>
+References: <20250630-i2c-upstream-v3-0-7a23ab26683a@foss.st.com>
+ <20250630-i2c-upstream-v3-2-7a23ab26683a@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-15
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250620075412.952934-3-hejunhao3@huawei.com>
+In-Reply-To: <20250630-i2c-upstream-v3-2-7a23ab26683a@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_094732_964331_62696668 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20250702_100818_698838_7A61EC51 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,127 +79,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 03:54:11PM +0800, Junhao He wrote:
+Hi Clement,
 
-[...]
+On Mon, Jun 30, 2025 at 02:55:14PM +0200, Clément Le Goffic wrote:
+> Fix an issue where the mapped DMA buffer was not unmapped.
 
-> To fix this, configure the tmc-etr mode before invoking enable_etr_perf()
-> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
-> enabled in a different mode, and simplily the setup and checks for "mode".
-> To prevent race conditions between mode transitions.
+"Fix an issue..." is too generic. Can you be more specific? Where
+was it mapped? Where was it left unmapped?
 
-I have a similiar fixing for CTI driver, see:
-https://lore.kernel.org/linux-arm-kernel/20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com/T/#maccd68b460fb8d74ccdd3504163d8f486f04178b
+Please, do consider that the user needs to understand what
+happens in the patch without needing to look into the patch.
 
-[...]
-
-> @@ -1781,14 +1756,52 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
->  static int tmc_enable_etr_sink(struct coresight_device *csdev,
->  			       enum cs_mode mode, void *data)
->  {
-> +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +	enum cs_mode old_mode;
-> +	int rc = -EINVAL;
-> +
-> +	scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
-
-scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
-
-I am concerned that the spinlock is acquired and released for several
-times in a single flow. It is possible to hit some corner case, e.g.,
-
-- CPU0 acquires the lock, set sink as SYSFS mode, and releases the lock;
-- CPU1 acquires the lock, detects the SYSFS mode has been set,
-  directly bail out, then enable ETM.
-
-The problem is the sink has not been enabled yet. This leads to CPU1
-to enable the tracer but prior to sink's enabling.
-
-The key piont is we should ensure the mode is consistent to the
-hardware state. I will take a bit time for if we can have a better idea
-for this.
-
-> +		old_mode = coresight_get_mode(csdev);
-> +		if (old_mode != CS_MODE_DISABLED && old_mode != mode)
-> +			return -EBUSY;
-> +
-> +		if (drvdata->reading)
-> +			return -EBUSY;
-> +
-> +		/* In sysFS mode we can have multiple writers per sink. */
-> +		if (old_mode == CS_MODE_SYSFS) {
-> +			csdev->refcnt++;
-
-I am just wandering if we can unify the "refcnt" code for both SYSFS
-mode and Perf mode, and as a result, we can consolidate the code cross
-different drivers.
-
-Something like:
-
-                if (!csdev->refcnt) {
-                        coresight_set_mode(csdev, mode);
-                } else {
-                        /* The device has been configured with an incompatible mode */
-                        if (coresight_get_mode(csdev) != mode)
-                                return -EBUSY;
-
-                        csdev->refcnt++;
-                }
-
-Then when disable the device:
-
-                csdev->refcnt--;
-                if (!csdev->refcnt)
-                        coresight_set_mode(csdev, CS_MODE_DISABLED);
-
-We should not check "drvdata->reading" when enable or disable sink, as
-it is a flag to track if reading the trace buffer, it is irrelevant to
-the sink device's enabling or disabling.
-
-Please verify perf mode (especially for system wide session) to avoid
-anything missed.
-
-Thanks,
-Leo
-
-> +			return 0;
-> +		}
-> +
-> +		/*
-> +		 * minor note: In sysFS mode, the task1 get locked first, it setup
-> +		 * etr mode to SYSFS. Then task2 get lockedï¼Œit will directly return
-> +		 * success even when the tmc-etr is not enabled at this moment.
-> +		 * Ultimately, task1 will still successfully enable tmc-etr.
-> +		 * This is a transient state and does not cause an anomaly.
-> +		 */
-> +		coresight_set_mode(csdev, mode);
-> +	}
-> +
->  	switch (mode) {
->  	case CS_MODE_SYSFS:
-> -		return tmc_enable_etr_sink_sysfs(csdev);
-> +		rc = tmc_enable_etr_sink_sysfs(csdev);
-> +		break;
->  	case CS_MODE_PERF:
-> -		return tmc_enable_etr_sink_perf(csdev, data);
-> +		rc = tmc_enable_etr_sink_perf(csdev, data);
-> +		break;
->  	default:
-> -		return -EINVAL;
-> +		rc = -EINVAL;
+> Fixes: 7ecc8cfde553 ("i2c: i2c-stm32f7: Add DMA support")
+> Acked-by: Alain Volmat <alain.volmat@foss.st.com>
+> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> ---
+>  drivers/i2c/busses/i2c-stm32f7.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
+> index e4aaeb2262d0..042386b4cabe 100644
+> --- a/drivers/i2c/busses/i2c-stm32f7.c
+> +++ b/drivers/i2c/busses/i2c-stm32f7.c
+> @@ -1554,6 +1554,8 @@ static irqreturn_t stm32f7_i2c_handle_isr_errs(struct stm32f7_i2c_dev *i2c_dev,
+>  	if (i2c_dev->use_dma) {
+>  		stm32f7_i2c_disable_dma_req(i2c_dev);
+>  		dmaengine_terminate_async(dma->chan_using);
+> +		dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
+> +				 dma->dma_data_dir);
 >  	}
-> +
-> +	if (rc && old_mode != mode) {
-> +		scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
-> +			coresight_set_mode(csdev, old_mode);
-> +		}
-> +	}
-> +
-> +	return rc;
->  }
 >  
->  static int tmc_disable_etr_sink(struct coresight_device *csdev)
+>  	i2c_dev->master_mode = false;
+> @@ -1622,6 +1624,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+>  		if (i2c_dev->use_dma) {
+>  			stm32f7_i2c_disable_dma_req(i2c_dev);
+>  			dmaengine_terminate_async(dma->chan_using);
+> +			dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
+> +					 dma->dma_data_dir);
+>  		}
+>  		f7_msg->result = -ENXIO;
+>  	}
+> @@ -1642,6 +1646,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+>  				dev_dbg(i2c_dev->dev, "<%s>: Timed out\n", __func__);
+>  				stm32f7_i2c_disable_dma_req(i2c_dev);
+>  				dmaengine_terminate_async(dma->chan_using);
+> +				dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
+> +						 dma->dma_data_dir);
+
+Can't we use the dma_callback here, or similar? I see some
+similar patterns and I think the code can be improved.
+
+Andi
+
+>  				f7_msg->result = -ETIMEDOUT;
+>  			}
+>  		}
+> 
 > -- 
-> 2.33.0
+> 2.43.0
 > 
 
