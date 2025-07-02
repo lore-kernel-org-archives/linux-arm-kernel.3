@@ -4,58 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C726C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 16:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA76C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 16:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XdoKyF5MtOjlwYqwP/TZTUq2HvlCQbKw0m9+d8vGiZg=; b=2B6yCj0/STaP5YVwcFgUVGBtsV
-	M62yj0hripinIp3HZKR/YHBT1EBOIPd71jyTM4HZfE+McJqB3K4UNjQ+mOZIWdlg4aMAtOUpn2Xhb
-	dPzftL8Nk73O8A/zkbMQoaLI8aZs4hr1xuqLxt9Edwh+P0832rbp/rwVxBMEZR5uiD70Dun7srvFm
-	6EY0qcncgsxNjzDZ4MwiecJkauEmgwfwjb5UYM2cX1vMTWjfK6PZ78tXk+gan1o4d3j6WnGNgYT5r
-	Z6R+oMk/e0YVHDppR7IvyuYiRILh6WjmqIeCT0WTVp6dk8suWr9TFlEli5hdMPRSJsTTsUbuTWZYl
-	MV5FgolA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6yQabqKzBtID9dtyYYCPez/kIoO+uT8Kjhe0fHsNup4=; b=DHk5NCqhT3yRgwM+fZaKMA46AZ
+	+6l8YgDtSZFdzD7j5THdtWQy6/BidwCTvmaYPDrfSefa/xlCAQ38FQK06PKqoAXdREzGProh9w+2N
+	p/lWVrnXcihpxEmxKMckLJ3cSyh8Z1nM2kWu8ap27KkxQOQNoTiNXnh8cnqVW0teukPD6eMm6MCiy
+	6WKSirBEKL5ATdM2qAecxbx7H3OXzTbWWZcdV588BxsT2D6PDtGvZ40K/lYbvk6N4rB8nYTUYqyxP
+	BOjJdFb9rUZVK/I1V750+gUXJi5A/bM6TG1HqmSwn+EIxllfA51akSexPYxvP292pp/cn+5ykCMDg
+	7aHP1fWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX0Cb-00000008vt5-2Hru;
-	Wed, 02 Jul 2025 16:20:53 +0000
+	id 1uX0Cv-00000008vwq-0g6v;
+	Wed, 02 Jul 2025 16:21:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWzH9-00000008leF-1cz7
+	id 1uWy8J-00000008a6l-3ug3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 15:21:32 +0000
+	Wed, 02 Jul 2025 14:08:21 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C79B91424;
-	Wed,  2 Jul 2025 08:21:14 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BBA783F6A8;
-	Wed,  2 Jul 2025 08:21:27 -0700 (PDT)
-Date: Wed, 2 Jul 2025 16:21:24 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, <arm-scmi@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/7] firmware: arm_scmi: imx: Add documentation for
- MISC_BOARD_INFO
-Message-ID: <aGVOdN6v9x7Pt-5n@bogus>
-References: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
- <20250627-sm-misc-api-v1-v1-1-2b99481fe825@nxp.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C96C22D9;
+	Wed,  2 Jul 2025 07:08:03 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C82003F6A8;
+	Wed,  2 Jul 2025 07:08:17 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] perf/arm: Add missing .suppress_bind_attrs
+Date: Wed,  2 Jul 2025 15:08:13 +0100
+Message-Id: <acd48c341b33b96804a3969ee00b355d40c546e2.1751465293.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250627-sm-misc-api-v1-v1-1-2b99481fe825@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_082131_469347_1387BD9C 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20250702_070820_012240_3E8510F0 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,53 +61,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 02:03:44PM +0800, Peng Fan wrote:
-> System Manager Firmware supports getting board information, add
-> documentation for this API
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/firmware/arm_scmi/vendors/imx/imx95.rst | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
-> 
-> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst b/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
-> index 4e246a78a042a79eb81be35632079c7626bbbe57..ac82da0d1e5ce5fa65a5771286aaebb748c8a4e6 100644
-> --- a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
-> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
-> @@ -1670,6 +1670,26 @@ protocol_id: 0x84
->  |uint32 syslog[N]    |Log data array, N is defined in bits[11:0] of numLogflags|
->  +--------------------+---------------------------------------------------------+
->  
-> +MISC_BOARD_INFO
-> +~~~~~~~~~~~~~~~
-> +
-> +message_id: 0xE
-> +protocol_id: 0x84
-> +
-> ++--------------------+---------------------------------------------------------+
-> +|Return values                                                                 |
-> ++--------------------+---------------------------------------------------------+
-> +|Name                |Description                                              |
-> ++--------------------+---------------------------------------------------------+
-> +|int32 status        |SUCCESS: config name return                              |
-> +|                    |NOT_SUPPORTED: name not available                        |
-> ++--------------------+---------------------------------------------------------+
-> +|uint32 attributes   |Board specific attributes                                |
+PMU drivers should set .suppress_bind_attrs so that userspace is denied
+the opportunity to pull the driver out from underneath an in-use PMU
+(with predictably unpleasant consequences). Somehow both the CMN and NI
+drivers have managed to miss this; put that right.
 
-As suggested, please add current definition of the values.
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/perf/arm-cmn.c | 1 +
+ drivers/perf/arm-ni.c  | 1 +
+ 2 files changed, 2 insertions(+)
 
-> ++--------------------+---------------------------------------------------------+
-> +|uint8 boardname[16] |Board name. Null terminated ASCII string of up           |
-> +|                    |to 16 bytes in length                                    |
-
-How does this match with the information from the DT ? Will they be in sync ?
-I understand NXP being silicon vendor, wants to have vendor extensions. But
-any board information comes from the OEMs/ODMs. Do you expect them to change
-their SCMI firmware. That's not the general expectation, so I am bit puzzled
-on this whole BOARD_INFO interface. Please help me understand the motivation
-for this new interface.
-
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index 031d45d0fe3d..d1df2f3adbc5 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -2655,6 +2655,7 @@ static struct platform_driver arm_cmn_driver = {
+ 		.name = "arm-cmn",
+ 		.of_match_table = of_match_ptr(arm_cmn_of_match),
+ 		.acpi_match_table = ACPI_PTR(arm_cmn_acpi_match),
++		.suppress_bind_attrs = true,
+ 	},
+ 	.probe = arm_cmn_probe,
+ 	.remove = arm_cmn_remove,
+diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
+index de7b6cce4d68..5f20baf59024 100644
+--- a/drivers/perf/arm-ni.c
++++ b/drivers/perf/arm-ni.c
+@@ -707,6 +707,7 @@ static struct platform_driver arm_ni_driver = {
+ 		.name = "arm-ni",
+ 		.of_match_table = of_match_ptr(arm_ni_of_match),
+ 		.acpi_match_table = ACPI_PTR(arm_ni_acpi_match),
++		.suppress_bind_attrs = true,
+ 	},
+ 	.probe = arm_ni_probe,
+ 	.remove = arm_ni_remove,
 -- 
-Regards,
-Sudeep
+2.39.2.101.g768bb238c484.dirty
+
 
