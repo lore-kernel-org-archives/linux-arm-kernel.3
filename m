@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 869C4C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 09:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60630C83013
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 09:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dJOUAJfKVX2aPL9IEMk2+/CliU7l5+z7z5St/kFtJDA=; b=Iu1LxfQw+DoMxx
-	veft67bUuA5PM+7nbwf1td2bEhvVUzDRNy7yTz9QNMOIWw+TrqAzuuha4mHec2WfNn0nKMCTH+fSb
-	QSBEoLqiH9w46JLe6r9VB6tRIISyJlc5gKu2VqjEpjc07diI3JxbcKvBdbhj9+NSafrbETdJw3s+r
-	W+Hvza8BzPZpKrVG+09dh7XaHbgcLBCsRDUN2x+P6bpmHlhBOpDvEvk328qeURQjkLaLWgRcdYuPH
-	CItVAZzCV/0rQwz3e+42Lrt8rGf1W1b8i1uQHKFLZyafIilQOm1IzV7IcWby0JERrhBsBjixMfaxZ
-	BZmcAmiFKzMmqPnClQBQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pQ4953DYX730X6Pl4pCdKBLcok8eGFLQghf6CkEicDE=; b=t4FPmIQFADQrz2Lnta6mIOmYgf
+	SEUl7C6OL529BBdphCCZI8LSZeR/z1P7iKHPcqTn4JIz5WqBS8oFc3IK6mZE4w8en4HfpGPfKAhgK
+	sJFTosK/R9DNvglf5W5LPoAXT9YoFOFL5Bzo366wwDhPA0hZ59tFeSEVC8ANOavpJOSm4e/jtV7H1
+	dDh1zyW7wRmu39VL5uRC5lw2oARY2KrT5in3KHljn9bF4n7s5lglXmP0PBKqrLIvlxYe848pCTSgn
+	6MNtpu0E/bz5J2aah/+g8jrjvo9DFRFVvmOEWAgdKYlRINdJg5+XaTlFbGs8M+Cal7VwaJOBtehM5
+	H3M3jofQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtvH-00000007nc6-1Z2z;
-	Wed, 02 Jul 2025 09:38:35 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1uWtxb-00000007o94-14CE;
+	Wed, 02 Jul 2025 09:40:59 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtfU-00000007ka4-18Vx
+	id 1uWtfV-00000007kaX-1XR9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 09:22:17 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3a6d77b43c9so3864128f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 02:22:15 -0700 (PDT)
+	Wed, 02 Jul 2025 09:22:18 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a54700a463so3987146f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 02:22:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1751448135; x=1752052935; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dJOUAJfKVX2aPL9IEMk2+/CliU7l5+z7z5St/kFtJDA=;
-        b=P1YG0Zo1bzf9OHmk6hCwkNEQo9nfxq8O851VAIdvDbmLHZdbatIMJTigGRqbCmtJsO
-         UzJmEQXluPawPSckwyy/wqkAkbEyGCTBWZc954PDdNHbIg9ksfpGuGnmzuENlaAc5UwA
-         kSwxV59lhzLg45uv2ibuiATtvyJl6vReWonlXdUWNdDYWOApEkeFOFXc1NbPIFg3c3MS
-         H98cSnyFpaBaDZE+G5H4GYBYzFFWOC7a4WeiSaHlx7xOXiezE1XAkQ9aY+1BynzvZ8A6
-         yConil5QliwFX7a8JiibzPGXOpK7WJadtHaceXizWwxM+tPMhsojwazyWf5FJMHCvhrW
-         lAgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751448135; x=1752052935;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1751448136; x=1752052936; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dJOUAJfKVX2aPL9IEMk2+/CliU7l5+z7z5St/kFtJDA=;
-        b=c7wg9/8DaGNDBajVxEVfHUOI2ggG79AuPy7CQf38uMuYmCaPDpizme0zSo7F7TyrIJ
-         mXRjqqTDyLgPnjSA7fX77XjmNTBRvOAmrzOEv0Nzjm11uZEHlG5Xs48ZE75BRfTFN14W
-         0jvKZrzZOuJHuTFD5teU7ym/SsCW8RymucbJlOpbOdjqnfEBrMcZM5VmLY+KwQdXyKze
-         aQZTFCOyP9wbo9MN7SLqWkZWprFmYRiYSczceJPvEPww2apMir6mZB8+XidVsHTa7MpP
-         OOzK9MMw1lGA23Q3ZpWLDGKfVeZNZMse9m1pxCtzIUE++V5+SyopCE2gdDgL5X5rHeoQ
-         u1CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXhnNgtvb04Emz3xiw4a+BqQ1kBrgD7BsTqDgz9YxKmns1gNsC0slvTMwxtJIjp+2j9zt4hVyXMdG0NynXhTytX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxk2s8KCmtw/9oSMnR/ZVmUgle69Ujh80pP7Rp5hRI1nhRQaA8z
-	O931g15HxagyvtVfIhHvSBnDMdIkmuGMPhsXQHT9dN4k4P8bywV6nc80z4FhKserbv4JKinV27V
-	NbO61xUU=
-X-Gm-Gg: ASbGncuBkk4PzetlpRtRrmIBKlYJgQ1JGnKjtFhhcBLHKhiCJeSNf9SJqp+0qUovznQ
-	pfEC6Pib+Ufiu6bKMxOeGV4T3rVBgMSYtUqFmsLwZyykRlVn14WiW3YZmHIOdNDyth39tBka6Rw
-	DwJhKI6/KAXR4kjAzdl26m0H0z+xPQJ9QF232t9PRvBiucM1p9yk7p4FYEoBCy2lcJuobuL7ma+
-	ZeZp21VOWfb7XJsEkfMk79mxHfz6r07HVl/S0viKS4uf0Mz1BPlSvrWyOnFRQSMTCrgzT2c5UGB
-	S7A8VdqRvFWx1e5MS5rGwA1Y8mkC4Ndu5PTKaNEm26ZuPzexAMYvtfFYTA01l93S
-X-Google-Smtp-Source: AGHT+IGRtI5EizlyYaagGIEM5B9cIXG2G3RtfcUDuM69KE2zVYdf1i0pFG68QB2VU8jMhrLhfO7HYA==
-X-Received: by 2002:a05:6000:188c:b0:3a4:dfa9:ce28 with SMTP id ffacd0b85a97d-3b1fdf01fedmr1581155f8f.5.1751448134571;
-        Wed, 02 Jul 2025 02:22:14 -0700 (PDT)
+        bh=pQ4953DYX730X6Pl4pCdKBLcok8eGFLQghf6CkEicDE=;
+        b=FPQRDk2Etid7zylzS4ZZ0jw2i3vNPb7iynItx4ALMYRCFqk+AVBeBdV0mD8XnbA+/N
+         OHQL4p4bJOdhtkiwvXAzs/nX+aqfYZE1ij1qvV9kOeM3b4X/0JcWFpeONjvC18zvuxea
+         PnMln70AETNwowS6oi4NY6HszpSNPNgzjSadBw06THUlm/bhUiEMozsSbpAMLjWdKqpM
+         pTN0NyhRWUep/hSoUxPLCDPLv5BxljjRxfgYrnrA56kYf8m77FZndS2rec7W0XIEH4XW
+         aP9XfhM1bnR+ZnVOyqu0M8vIsHSmGqaNWf6GfmDfH/FpjcgV7WVJqQ2+FSvEr/GCA3qm
+         7kWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751448136; x=1752052936;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pQ4953DYX730X6Pl4pCdKBLcok8eGFLQghf6CkEicDE=;
+        b=ivsJsBpbQbxX5WXbIz/L6TtvUumgqNMLob3xsyEc3SqVdMoR7wnHEHmadyIaQu4c9d
+         uttMFxio1Wq2utVT30eMgw7/iqmHlzC1XprDegbTR7o8OGI3oby4dRfvbvK5YMfhppyu
+         6aGI0X3lvc6VGlFcFD3atV6gbzanAMIIqmTVX6m5OeLa3s5kFjZeHjxB4Yriq9siq6ag
+         xP1iRuUclR66fhr6vQP11uU/kVcqr8gaBLyY5UndLVUWamdn+ANgi5AVgAklOG6w8HP4
+         q+sdPzPM9Kuacmjg1wYXkjR+zAK6Udz0awD9KuwiYumExnc8XSP+cysE9lGjcCgr0gS3
+         KLvg==
+X-Forwarded-Encrypted: i=1; AJvYcCUlUE9TEClMSaVKlDO+D1Z6vEUqAII2rpv0l7shDUNQ3ZIiGhR5z4i6FwKRR9ufV4+2z8DgqH9RXS+wfvDf5xgK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpAOgyg/msEQFiCa8CqXfKY2VabZReGo8qG1Ujwbi8Bq7NWsfA
+	0Q87YO3qNFHyzwj3UtdMfasrgVBBJOpSvliecuhUZm2kNcA2jtX9Ji5jST6MV0nu/Bc=
+X-Gm-Gg: ASbGnctPTXX+wbc+Z5tmRgpYHwrFWHA4nimNiWVlo7g+kUIGZGmVMyAt2/k0eSd2Fyn
+	aE45VgrfpOEyEaFRAXbRis7mms7z3kH7epE1oCb/R/f1yCA93rik8qV6YnyQg8b5pwdAyElryxT
+	1knPeGWUVrqLm/3WLHOlwIpj7r3eTlWP8SkRQroIlUCbgz2NDKkWPQ4kA37rmhtLL1VcsB7LiGF
+	B2iwAy4CagaxxgO769u24cjiGCOJNQB+EvDfg+JGi4YXxRhJpvbYB8JVVv8GBu0YjTUYZI+UcDW
+	vJntHzwnR8pOCavTbw8UFX4swz3LN01YFyKM3NuB8uZl678w2bMZtw==
+X-Google-Smtp-Source: AGHT+IFy+dbKnRMVyYVM9ja1MDJ2jsqlQp/nEGAueozbl8hzF+fw2nR7L/R/qjacSv5mPDCxKpcWjQ==
+X-Received: by 2002:a05:6000:248a:b0:3a4:f70d:aff0 with SMTP id ffacd0b85a97d-3b1f7ae6ee0mr1649457f8f.14.1751448135688;
+        Wed, 02 Jul 2025 02:22:15 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:8827:d0e:25e:834a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a406489sm195844165e9.27.2025.07.02.02.22.13
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4538a406489sm195844165e9.27.2025.07.02.02.22.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Jul 2025 02:22:14 -0700 (PDT)
+        Wed, 02 Jul 2025 02:22:15 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: [PATCH v2 0/8] gpio: move generic GPIO chip fields out of the
- top-level gpio_chip struct
-Date: Wed, 02 Jul 2025 11:22:07 +0200
-Message-Id: <20250702-gpio-mmio-rework-v2-0-6b77aab684d8@linaro.org>
+Date: Wed, 02 Jul 2025 11:22:08 +0200
+Subject: [PATCH v2 1/8] gpio: generic: add new generic GPIO chip API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAD/6ZGgC/2WNwQ6CMBBEf4Xs2ZqyAhFP/IfhsIGlbBRKtgY1p
- P9uJd68TPImmTcbBFbhAJdsA+VVgvg5AR4y6EaaHRvpEwNaLG1lK+MW8WaaUig/vd4M4VB0xak
- mqitIs0V5kNeuvLaJRwkPr+/9Yc2/7U+Gxb9szY01xJQj2rrH8tzcZSb1R68O2hjjB2ELMa+xA
- AAA
-X-Change-ID: 20250606-gpio-mmio-rework-a2f4c439aa96
+Message-Id: <20250702-gpio-mmio-rework-v2-1-6b77aab684d8@linaro.org>
+References: <20250702-gpio-mmio-rework-v2-0-6b77aab684d8@linaro.org>
+In-Reply-To: <20250702-gpio-mmio-rework-v2-0-6b77aab684d8@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
  Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -90,26 +86,26 @@ Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2506;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5967;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=IDsUBmMl4vmxwpChddfz/0o/3m8yos2rsQrr3srBtqw=;
- b=kA0DAAoBEacuoBRx13IByyZiAGhk+kPIvzlcY34zkh2Nj4PaZstktliKWBcYWZ3+v8XzOCbDD
- IkCMwQAAQoAHRYhBBad62wLw8RgE9LHnxGnLqAUcddyBQJoZPpDAAoJEBGnLqAUcddyvM8QALht
- p+0/5kj0hAd1GH7XCSJQj1xtclo+EbYwl+bIW4Ppol5rzy/Ww+YmiN7UfX/LQmQM81ByNclCOk8
- 8yVuwOiCUfYJuB5mKWYrWLwiGZCFX18PXJaf2eDjbSuGXxBAaq6sv5p6gWUjzkmKXGd3R1j38FN
- 2MP84vl/De+q+j+gS7qOICkoFnew3ASVw+Sehu5b9KiRNdNyC3RyESwRBvE+rSiB/SxJWGVmRZQ
- Vd9BDYTEglata0+NQUyij9ENWct0NzUdygyVwa6a+M5y/OfxRgVizsGIUuKPJh42tXK+7eENAaK
- lTDM+bpEsrkroP/o32TIo2RazbpVv+To7qR17XNdfdoWNiqonSruJF16yPfZ6l4mxaLX9vQB//G
- voAf3FRniA6ym8jCePwxqGGGX0mJL29lHxiMCItsnkBLbZKbQhTGq4+VaLcletzTe9Ydtw+1bE4
- skQO84IjV4PI71bOpfgrvkBRksQGm6k0+urSfW9uzq0q4FZG+yjdZinvNUniWeC6qByqdtnilQU
- LPZ4zjnM6y8hiw92JS8Y3Xfo26+SY+49p7fL2tBZgRwAIJGe9eH7aaKFgcJB1OSccqGFDWIibKV
- 27KSY1CtQxooxZ/ZU8T2Lq+5lDJ+omh7OW8vD0sPCBItzUdDE/8lq9GMhFs/KZhZWVHmS9EapOa
- xcgFa
+ bh=pB2Xuhhwxk5LYCzli8T80nbGaaOUFOOv5AWJwibECv4=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoZPpEU/2fp9wrpMS14IJmNecxSGbWX4sGcofEa
+ IgAdrNk+BiJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaGT6RAAKCRARpy6gFHHX
+ cjPgEADBIdI3NwEpid9TDAiABxWhTsVPd5UOMc7dqo1CxnLpB1ra9kx2TuHCGnyaefSiKZAqbOx
+ ZYT9begIVywJahkysJ+PDjKI6FLO/TNG1YfDJiQ2mHq6KVfeKAGMZaAQrQzq9ApQcKAO4nPkUht
+ w2XSSsz84qOuBO2EGMt/U3z2YS3b7eJMPEK4zgdSFUO+OP+nEttwWrn/t4s7cO40TfhvjYCLLeu
+ vfrcWLovH97g55wx7fyJtWTimMHX4WbLSc+xikqtN6JXMJY+4Kk1wfWYeKnpOl0HnekJfEnHUqi
+ 0AUbPcd1V+hCc71mnIbX6erwQH/FcPKI+XPnU1fLhMoMaAs8wDKf7WT8DXyQrK4+Ov4JcjV6jh1
+ 25YWIAT2JDTZFlZnUoKDX6mj086XBsUNxaZixzt0OBmBCSJ53+ORQKqDbYqwocOPEhQ0+T0Sert
+ gbhX1YkvDimVnt7lOEWw+qjfTGS49ULiBjr/0sLlAWqSRKVDskKD2cqQMqDuQohmBk7v4Pd4mj+
+ p22ivAuf2iVnrLoyEr+QiBELgFhPlKRfeRVZ5wtZwompJ6OaMZgqRTUJlh1DWwNTe/oQH7haCPh
+ BHYs0xbiubt880Od0nrMgvFPonaX+K+D3YV7g7jnlnjzZNX1o/MMirclzFYGXRCb42NIWd/KY7I
+ 041ci388PceItXQ==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_022216_318602_8C917ED6 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20250702_022217_415577_6C512451 
+X-CRM114-Status: GOOD (  25.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,57 +120,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The conversion of GPIO drivers to using the new line value setters is
-moving nicely along and we're on track to have all the existing
-providers converted upstream after the next merge window. There's
-another piece of technical debt that bothers me - the fact that struct
-gpio_chip contains a bunch of fields that are only relevant to the
-generic GPIO chip implementation from gpio-mmio.c.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Let's work towards moving them out of struct gpio_chip and into their
-own struct gpio_generic_chip. Doing this in a single series would
-require some ~40 commits which is way too many to review at a time.
-There are also users of gpio-mmio under drivers/pinctrl/ and
-drivers/mfd/ which would require cross-subsystem merges. I think it's
-better to do this in stages over 3 release cycles. This series adds a
-new API for gpio-mmio users, hiding the implementation details and
-converts the first set of GPIO drivers. Once upstream, we'll convert all
-remaining users and once that's done, we'll move all the
-gpio-mmio-specific fields to the new structure, convert the internals to
-using them and remove bgpio_init(). The last step will be done in a
-backward-compatible way, not affecting the users.
+As the first step in removing the fields specific to the gpio-mmio
+module from struct gpio_chip, we introduce a new set of generic GPIO
+chip interfaces that are meant to replace the existing bgpio_ ones.
 
+The new initialization function - gpio_generic_chip_init() - takes a
+configuration structure as argument instead of 9 separate parameters.
+This will allow easy extension if needed in the future. We hide the
+locking details behind a set of helpers in order to be able to move the
+raw spinlock out of struct gpio_chip without the users noticing.
+
+For now, the new APIs just wrap the existing ones. Once all users have
+been converted to the new interfaces, we'll pull them into gpio-mmio and
+implement them in a backward-compatible way while also moving all fields
+specific to the generic GPIO chip into struct gpio_generic_chip.
+
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
-Changes in v2:
-- rebase on top of recent driver changes
-- pick up review tags
-- Link to v1: https://lore.kernel.org/r/20250624-gpio-mmio-rework-v1-0-aea12209d258@linaro.org
+ include/linux/gpio/generic.h | 120 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 120 insertions(+)
 
----
-Bartosz Golaszewski (8):
-      gpio: generic: add new generic GPIO chip API
-      gpio: mxc: use lock guards for the generic GPIO chip lock
-      gpio: mxc: use new generic GPIO chip API
-      gpio: clps711x: use new generic GPIO chip API
-      gpio: cadence: use lock guards
-      gpio: cadence: use new generic GPIO chip API
-      gpio: 74xx-mmio: use new generic GPIO chip API
-      gpio: en7523: use new generic GPIO chip API
+diff --git a/include/linux/gpio/generic.h b/include/linux/gpio/generic.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..b511acd58ab0099b727bf929b7a4e9f9836cd5bc
+--- /dev/null
++++ b/include/linux/gpio/generic.h
+@@ -0,0 +1,120 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __LINUX_GPIO_GENERIC_H
++#define __LINUX_GPIO_GENERIC_H
++
++#include <linux/cleanup.h>
++#include <linux/gpio/driver.h>
++#include <linux/spinlock.h>
++
++struct device;
++
++/**
++ * struct gpio_generic_chip_config - Generic GPIO chip configuration data
++ * @dev: Parent device of the new GPIO chip (compulsory).
++ * @sz: Size (width) of the MMIO registers in bytes, typically 1, 2 or 4.
++ * @dat: MMIO address for the register to READ the value of the GPIO lines, it
++ *       is expected that a 1 in the corresponding bit in this register means
++ *       the line is asserted.
++ * @set: MMIO address for the register to SET the value of the GPIO lines, it
++ *       is expected that we write the line with 1 in this register to drive
++ *       the GPIO line high.
++ * @clr: MMIO address for the register to CLEAR the value of the GPIO lines,
++ *       it is expected that we write the line with 1 in this register to
++ *       drive the GPIO line low. It is allowed to leave this address as NULL,
++ *       in that case the SET register will be assumed to also clear the GPIO
++ *       lines, by actively writing the line with 0.
++ * @dirout: MMIO address for the register to set the line as OUTPUT. It is
++ *          assumed that setting a line to 1 in this register will turn that
++ *          line into an output line. Conversely, setting the line to 0 will
++ *          turn that line into an input.
++ * @dirin: MMIO address for the register to set this line as INPUT. It is
++ *         assumed that setting a line to 1 in this register will turn that
++ *         line into an input line. Conversely, setting the line to 0 will
++ *         turn that line into an output.
++ * @flags: Different flags that will affect the behaviour of the device, such
++ *         as endianness etc.
++ */
++struct gpio_generic_chip_config {
++	struct device *dev;
++	unsigned long sz;
++	void __iomem *dat;
++	void __iomem *set;
++	void __iomem *clr;
++	void __iomem *dirout;
++	void __iomem *dirin;
++	unsigned long flags;
++};
++
++/**
++ * struct gpio_generic_chip - Generic GPIO chip implementation.
++ * @gc: The underlying struct gpio_chip object, implementing low-level GPIO
++ *      chip routines.
++ */
++struct gpio_generic_chip {
++	struct gpio_chip gc;
++};
++
++/**
++ * gpio_generic_chip_init() - Initialize a generic GPIO chip.
++ * @chip: Generic GPIO chip to set up.
++ * @cfg: Generic GPIO chip configuration.
++ *
++ * Returns 0 on success, negative error number on failure.
++ */
++static inline int
++gpio_generic_chip_init(struct gpio_generic_chip *chip,
++		       const struct gpio_generic_chip_config *cfg)
++{
++	return bgpio_init(&chip->gc, cfg->dev, cfg->sz, cfg->dat, cfg->set,
++			  cfg->clr, cfg->dirout, cfg->dirin, cfg->flags);
++}
++
++/**
++ * gpio_generic_chip_set() - Set the GPIO line value of the generic GPIO chip.
++ * @chip: Generic GPIO chip to use.
++ * @offset: Hardware offset of the line to set.
++ * @value: New GPIO line value.
++ *
++ * Some modules using the generic GPIO chip, need to set line values in their
++ * direction setters but they don't have access to the gpio-mmio symbols so
++ * they use the function pointer in struct gpio_chip directly. This is not
++ * optimal and can lead to crashes at run-time in some instances. This wrapper
++ * provides a safe interface for users.
++ *
++ * Returns: 0 on success, negative error number of failure.
++ */
++static inline int
++gpio_generic_chip_set(struct gpio_generic_chip *chip, unsigned int offset,
++		      int value)
++{
++	if (WARN_ON(!chip->gc.set_rv))
++		return -EOPNOTSUPP;
++
++	return chip->gc.set_rv(&chip->gc, offset, value);
++}
++
++#define gpio_generic_chip_lock(gen_gc) \
++	raw_spin_lock(&(gen_gc)->gc.bgpio_lock)
++
++#define gpio_generic_chip_unlock(gen_gc) \
++	raw_spin_unlock(&(gen_gc)->gc.bgpio_lock)
++
++#define gpio_generic_chip_lock_irqsave(gen_gc, flags) \
++	raw_spin_lock_irqsave(&(gen_gc)->gc.bgpio_lock, flags)
++
++#define gpio_generic_chip_unlock_irqrestore(gen_gc, flags) \
++	raw_spin_unlock_irqrestore(&(gen_gc)->gc.bgpio_lock, flags)
++
++DEFINE_LOCK_GUARD_1(gpio_generic_lock,
++		    struct gpio_generic_chip,
++		    gpio_generic_chip_lock(_T->lock),
++		    gpio_generic_chip_unlock(_T->lock))
++
++DEFINE_LOCK_GUARD_1(gpio_generic_lock_irqsave,
++		    struct gpio_generic_chip,
++		    gpio_generic_chip_lock_irqsave(_T->lock, _T->flags),
++		    gpio_generic_chip_unlock_irqrestore(_T->lock, _T->flags),
++		    unsigned long flags)
++
++#endif /* __LINUX_GPIO_GENERIC_H */
 
- drivers/gpio/gpio-74xx-mmio.c |  32 +++++------
- drivers/gpio/gpio-cadence.c   |  60 ++++++++++-----------
- drivers/gpio/gpio-clps711x.c  |  27 ++++++----
- drivers/gpio/gpio-en7523.c    |  36 ++++++-------
- drivers/gpio/gpio-mxc.c       |  87 +++++++++++++++---------------
- include/linux/gpio/generic.h  | 120 ++++++++++++++++++++++++++++++++++++++++++
- 6 files changed, 243 insertions(+), 119 deletions(-)
----
-base-commit: 3f804361f3b9af33e00b90ec9cb5afcc96831e60
-change-id: 20250606-gpio-mmio-rework-a2f4c439aa96
-
-Best regards,
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+2.48.1
 
 
