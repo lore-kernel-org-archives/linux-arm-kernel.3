@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA70C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 22:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC34C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 22:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6GP9SU95f64biuKUJLcRleLcU5FnHZvRyJwOtK3VNnU=; b=xnljJda4I8+A/wo3j5rvW9igyX
-	C6U76QR8kBtq4RMRcXkLyO2N5lnlWSRs0UkyAAQUQom+assqh1qHfx6jN3mZUrOZ9Iylbl21HqF9e
-	QJ00o6wx/Tm/fIAPJs9XOa9Q3YqhAXYgY4nxFAgosDhgy42jK0o3cI/B7gyH7uGKsSL9/WHHATjV2
-	HwZCLGlyE3PmiDgYsAClxk7hqWj3dwKBhX2rKGmSpzo967G7ylxxHv/z8qtodagbZDjgng4G5XzYD
-	9JJjDlE9gsx/L0yntsp9BRYkmrQgAGxshFZbW4n6tEpOq08lhNN2aOx+NGJhgIAu5wDFG6ErLHeV4
-	jrEWY1DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c4dzNG8eUGsRD43PwCQ61XFGX/P3BBHz9X4ch+L0XMs=; b=3n2w4SmcflTyjaZQ0515JXXow8
+	ibhZW1XtOWBzz5pRY5f0IAvFlqn+GlpDSkXtFve82FNk00cgWPNfhfT0h0A9LD0lj1mwEEDPbhUdo
+	WBphLVSlK+5VT5Q4J/3p1p5t5SToSsNjli3Hhp6DuFw2fQSEEav6S91CTEWkU+qH2DTtNiCTWTUWg
+	ROPauGengamQjY9ElN7/exmDH4AWiK4GusPRd39T1RVZHXTHBGNAsKO4ptJ3ybx0ztiLpAY5QZwOE
+	7M5yiQpCG8kXUwOOHVTh7b+nvmEfSQYp8c0d4iIGgkhwkjPjC9CWZvVoCSSao5v1/A4IQdVDkOiaQ
+	zwd/gz2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX5gk-00000009g7F-0zof;
-	Wed, 02 Jul 2025 22:12:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uX5uz-00000009hhI-3VDZ;
+	Wed, 02 Jul 2025 22:27:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX5eO-00000009fwp-2zyL
+	id 1uX5sd-00000009hPD-3OAx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 22:09:57 +0000
+	Wed, 02 Jul 2025 22:24:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 158415C6349;
-	Wed,  2 Jul 2025 22:09:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3696C4CEE7;
-	Wed,  2 Jul 2025 22:09:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CD9C4429C8;
+	Wed,  2 Jul 2025 22:24:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54111C4CEEE;
+	Wed,  2 Jul 2025 22:24:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751494195;
-	bh=+NxvQYU7wQxyO/16lPutXJsg77AvAE6AeyUKVPB18LA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=B4zU45qDeFcwe7TOPtdq6DocquCb3GJzUc0begB9daO6iH4XdJcVLu8FX4ROViPBg
-	 1cAjVjfl37Om+Xp1Zz+gmUnhq5CAqjX8MjCSXz6J4X0p5qt6l9ZOUwQSm5AERnNjH9
-	 8f3coe5qsf8fnmDvjj+OKxMWv803KAMOrhVySVs+JWUxneznvYPPZLvJfPr/p50xsJ
-	 ugN6ntbIVzfaR3JISru3pmWQ1Ev63G0Kkv2twXP3/iCXOdK7/JlR1zMDebvfkD5WZR
-	 5we+bJMeNjaLHkG428lhCTHGwYDzFni/ZDvbu+XQOxqwYa/DB6mWa/7HRxJyzF0yUk
-	 gH5VdrZqZeJ+w==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70C56383B273;
-	Wed,  2 Jul 2025 22:10:21 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1751495078;
+	bh=niWlz20tCdvY2IAP/jwLYa/1jI8eLqw71ef/KVXD2TM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WZNYA4/pyZhk90uFI2BciJ771zPo+7ojpTqvxp6Msu0pMkRuRqAAlh4q5BzVPRYRQ
+	 nXqorJBWrRTr8C78bgAJTJYugk3Dxk2/PfflxbA8IAuLZDGTghrg99+SbdAUYkEB6d
+	 B9NR5EYnFhgTjGhPay11DBzViHas1e4XAlTzJX1eZy63dlnwrdK8T3oUi4U3saPbDP
+	 SV5QFk/1oa/YNFJuJIMvtWsyBd4Q2wFuX85vx7Cacnb86h3uHpq2o2i+c/8N1OVFdN
+	 KtfWpBYd9AqUGsM02sL0/qNqr4ZxOYVUaVLmAZg5vZZVG4j3K0b/a6qOWye2ZeZIM2
+	 4iWs51C4dN70Q==
+Date: Thu, 3 Jul 2025 01:24:35 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, peterhuewe@gmx.de, jgg@ziepe.ca,
+	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
+Subject: Re: [PATCH v4 0/2] generate boot_aggregate log in IMA with TPM using
+ CRB over FF-A
+Message-ID: <aGWxozDE4-qbQqg8@kernel.org>
+References: <20250618102302.2379029-1-yeoreum.yun@arm.com>
+ <aFs0of3uZdoMEJXc@kernel.org>
+ <aFvRI5OwSLLKz300@e129823.arm.com>
+ <aFwrBU4H0w9AXyQM@kernel.org>
+ <aFwrf1HnsilrASzX@kernel.org>
+ <20250625-chital-of-infinite-proficiency-fee4dc@sudeepholla>
+ <aFxuZV3lwd2Uc90g@kernel.org>
+ <20250626-busy-hilarious-octopus-47c2fc@sudeepholla>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v7] dt-bindings: net: Convert socfpga-dwmac bindings to
- yaml
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175149422000.880958.14366434982913389673.git-patchwork-notify@kernel.org>
-Date: Wed, 02 Jul 2025 22:10:20 +0000
-References: <20250630213748.71919-1-matthew.gerlach@altera.com>
-In-Reply-To: <20250630213748.71919-1-matthew.gerlach@altera.com>
-To: Matthew Gerlach <matthew.gerlach@altera.com>
-Cc: dinguyen@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, maxime.chevallier@bootlin.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- richardcochran@gmail.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, mun.yew.tham@altera.com
+In-Reply-To: <20250626-busy-hilarious-octopus-47c2fc@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_150956_795183_8A5E89E2 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250702_152439_868258_2DE01FEE 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +81,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Mon, 30 Jun 2025 14:37:48 -0700 you wrote:
-> Convert the bindings for socfpga-dwmac to yaml. Since the original
-> text contained descriptions for two separate nodes, two separate
-> yaml files were created.
+On Thu, Jun 26, 2025 at 08:53:39PM +0100, Sudeep Holla wrote:
+> On Thu, Jun 26, 2025 at 12:47:17AM +0300, Jarkko Sakkinen wrote:
+> > On Wed, Jun 25, 2025 at 08:35:33PM +0100, Sudeep Holla wrote:
+> > > 
+> > > If you are applying 1/2 too, feel free to add
+> > > 
+> > > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> > > 
+> > > I was initially thinking of taking it separately as there is no strict
+> > > build dependency. But I am fine if you can take them together.
+> > 
+> > Hmm.. Yeah, if you insist to take them, that's fine for me too.
+> > 
 > 
-> Signed-off-by: Mun Yew Tham <mun.yew.tham@altera.com>
-> Signed-off-by: Matthew Gerlach <matthew.gerlach@altera.com>
-> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Ignore me 😄
 > 
-> [...]
+> > That said, I'm also happy to take care of them :-)
+> > 
+> 
+> Yes, please take them via your tree.
+> 
+> > I'll append your review.
+> 
+> Thanks!
 
-Here is the summary with links:
-  - [v7] dt-bindings: net: Convert socfpga-dwmac bindings to yaml
-    https://git.kernel.org/netdev/net-next/c/6d359cf464f4
+OK cool, cool just syncing up :-)
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+> 
+> -- 
+> Regards,
+> Sudeep
 
