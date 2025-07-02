@@ -4,162 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FDD2C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 18:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B446C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 18:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z2F+Ys0jWVLOAw6t3FV9N4Lxc43aC9NuvQGzceS/NAw=; b=j3BVbKq3IJyvOtWYrAZlCTUgBg
-	VE4zAHYG/WlPfkYXzhieldj6ffBRqWTh5cZQFNiFkDiMzNfDuHpkcHglC/+LvcEGYk/b6FxbssMV6
-	Vs5Ps+8hk8s/mHKUCdPwKNmSpGI9ZQoZ1x2aqDJQ5Ge3v+LOYcY1ngFLhah5daA8bhvxUrFO5dXxf
-	frk3cILfEIV5HCmPXRF6dEKIhYFI+f3Xhm0QaGmjMk5avv74gUZVkNK0v5DkTahO8IeLJnX1VoFSN
-	N9aWSNSK3cCr5pbEO0eyTzEIUs3SeZ2EDuwQ5ypetR9sNWPxkuhHTupC5eLW3pYAJqiqY8WhObjG3
-	iNXLAVzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iF2pwmDnVnBgNlC3R2Sp9Qq8gNWHcSlx8oSPJnFeIBg=; b=ZiwMTHDZVlz9vmYCgf5dTv9UFC
+	3OfZjWf+GQs2HdIRXYuEyFRKGLRl1opJAZWCqpEepzFRdiP9adXL+wGXVsENJOUSUye2ckR4wseDB
+	wRC9mBOSfXVuUMR8lxRskehCk+WoLeTNC6b7YJF5TV38w/QB7WK0GLUdFdZS68bQIsGTWlxnoDmNn
+	uau1zjOniKqfhIgH0QA4uXx5FokcSUY6j5ViJCdhhq0OVeEVCDD0YDkAkFsab5+eInV8Zw0sZEbq9
+	xBICGiHuHgM0BiF3buKFSY65iLxT9qktGDLaL0V+4+rXpVZaPAAFDSP1OQ17iPvhUUbUWRoAfSiXm
+	BwHuEjFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX1uE-00000009EGq-3C8D;
-	Wed, 02 Jul 2025 18:10:02 +0000
-Received: from mail-dm6nam10on20625.outbound.protection.outlook.com ([2a01:111:f403:2413::625] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uX217-00000009F8q-1xq9;
+	Wed, 02 Jul 2025 18:17:09 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX1q7-00000009Dug-0Oxi
+	id 1uX1yk-00000009Ekd-0q8x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 18:05:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mGWukrE/LO7P2bQQ8P47cxdJY2Zfei9GmLBYHVIWyVHzDb6xkCVN9ShSaDE/NAJQOmbxyIYyylUVSJFNQ8qqfWk34Z2Ki+eG7b5M06bFw6WDnGuSgeftqbux+zLdKrLPE0Imb32NpQxWpusVbyxPM5QCWHj5ZZxT+bPWNR/i5q3leVV4Z+JGkTTQn7qK9WTpihcoIPx1rGT+9XJ1EV1TWZiGPHJkwvIlaqEpc9yMDmVNKb1NZiVhlcEqStvRG9Z/opBnoM5AYmxGMBiYuv1b91JMJOR6iOf0yt7lZlIamBLTwBwzq+Ci9OTith26TnsjtZM8twQIeEg5Xdi0WYrFmw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=z2F+Ys0jWVLOAw6t3FV9N4Lxc43aC9NuvQGzceS/NAw=;
- b=YeGawVD47wCzLO7Xi1XLBkgV5cFHqs0hKqMkl6EQHw95IlZUjquCFJZNNwWRyzT/UR54Hc5iib64bN1JRN7meTbS27JPmnQR1MIpBBWWpDLtaHiI0vXMupbcFCW9wsdqL2mWttlx1xFzjd9t9MnyNAkHWiA54IVEpHSsWOZUpSGyuxXZcCiKXb89N7Id91eLCqg1V093if8Y99wm2Ln60cczuANMSwqjcCpszE+m9zxVpkxEeGkxrBVOEuT65F/iXlFedUjg12acb3drVvscchJ2XId+KmcNr66DqZqe95WOWxj5WOlHNIV20YOTBYyOwFFtO6g7wqV6y8syu/wE2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=z2F+Ys0jWVLOAw6t3FV9N4Lxc43aC9NuvQGzceS/NAw=;
- b=MwUEm20N+Q80m+pZQUyumOAyDf7R9TSMx1k7Hxh5JH7VRQll9+LLcKdmPzT4LmBfDRW/v2/UshKwN+MN3awD+HWce04Vqp3CsxkZeXeWn/SDs22xBg6JLjTQzv+QZLD0JdniHMAdD/+HT58hTcpuJbmGg/Lfc2r8yWP6boOMaiXtPQUgNXZpoCwjLLU9Cn9brPbkWsOcwLa2QGjbfd05TegoMxGICcypyTl62qeQ7XhePnOplNIHnIAVS5GMbLaganJASq1KhEM9Lri9Q8r6+TmhnR1YXCKogJepTceOdsJJRzJdF8Vrr/NfC/hd0ugKILwsXd03Esb1HJPWigXD4Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CH2PR12MB4232.namprd12.prod.outlook.com (2603:10b6:610:a4::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.24; Wed, 2 Jul
- 2025 18:05:43 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8880.030; Wed, 2 Jul 2025
- 18:05:43 +0000
-Date: Wed, 2 Jul 2025 15:05:41 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
-	corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
-	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
-	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
-	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
-	yi.l.liu@intel.com, mshavit@google.com, zhangzekun11@huawei.com,
-	iommu@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	patches@lists.linux.dev, mochs@nvidia.com, alok.a.tiwari@oracle.com,
-	vasant.hegde@amd.com, dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v7 27/28] iommu/tegra241-cmdqv: Add user-space use support
-Message-ID: <20250702180541.GD1139770@nvidia.com>
-References: <aGQ6KCI9OZEwHdxS@Asurada-Nvidia>
- <aGQ_F7Qx3scbbA-J@google.com>
- <aGRDtYRXFLoT+PrI@Asurada-Nvidia>
- <aGRIctg4T6cQECx4@google.com>
- <aGRcPSwaJkTeUrMx@Asurada-Nvidia>
- <aGRmaOORg-YDfncY@google.com>
- <aGRozoIDIlgl9H9x@Asurada-Nvidia>
- <aGR55PUBnwb8qT8U@google.com>
- <aGSBTpY0nkdp2TTL@Asurada-Nvidia>
- <aGSNmf5Q82xEbDpX@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aGSNmf5Q82xEbDpX@google.com>
-X-ClientProxiedBy: MN2PR11CA0005.namprd11.prod.outlook.com
- (2603:10b6:208:23b::10) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Wed, 02 Jul 2025 18:14:44 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-453749aef9eso28254345e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 11:14:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751480080; x=1752084880; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iF2pwmDnVnBgNlC3R2Sp9Qq8gNWHcSlx8oSPJnFeIBg=;
+        b=BB5cE8jyB7PcoIRyFEZXnmfKJDtuPkXvU2qx3A8pS0i7ZZDCo848oJRJD01uXpugZQ
+         Offd3IDPMVw6vOZdlrQO4wghw4YeYPM68Nts7DPUFq5qqMO8R3mQApRhRNKMTCse2q2o
+         UwNoVOQ6uC+IAh4Ap22l86ofFwu/TihxBWnIK1x53pix2okP8iI8NoPfNMPLNiz4XaJo
+         O2VaEjzB+eWq5QB1tfAWTFUh6vLOFDI8shFZtNEOfwJ8zpxyOOJzLLd9RA6oGD8EQ/UD
+         GDGw4/6AC8KC6fdDaYdNpUAD6wcOA2OUxtF24rbwlJ/oU4WS+T6b0+Wkq+EK8Z9l0BzY
+         46gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751480080; x=1752084880;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iF2pwmDnVnBgNlC3R2Sp9Qq8gNWHcSlx8oSPJnFeIBg=;
+        b=f1cd9M0O4wYEfFgY4rrwYUO2OgsX/bUmVQ+ltrUVXdSMQuBPJAid1lwV2QjTGsddIh
+         GBsS7q2uMOZefC2kVFN1eCT4vCHJHWemSDI90KR1LnxjaKEGA9N4hlBbwKeWlm3juIZB
+         Eg2Q2uqpHnrr+Ga4Ig6KOnkDHOcPKklB/0hB9tk2LsiTJxy2f8x4B3yGPjpblQH8MG62
+         OD//JJoQBRYhAN8TDYGeKfgxEX6sXtJbJW20v+mXyBGdHG8BsH5PnWcatTsGLQgdbz0z
+         YOVMI1FSCUdn6RDW71UahFPl/XiBnIhIlvZgkA5SNb0krebsTeGFmnxyFL1JrA4r5XzE
+         sq6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWzT/uLASldNZf4s5glLc6q4zW5j6UmIJfpRZv2WAk8pzMVi0/HrTyqGeJnjc1kimoqiQX1rvtHaoXqCQyupYfc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjfOTr5ETr6V5h3hCirySmIH9BB91xrrMRMKGfJKemNfPWqj81
+	D+nmKc8MgGrIV7PvH5hz1+sGSXJs0MJVFMNrwPnnTl8uzY31SNmdDBxwk4gA7t2em20=
+X-Gm-Gg: ASbGncviSEbhBMGuobKj8Fxycq+Bynkfj/wHWzWZT2yVKCz6WW6VveIWOFN/EhRaeIt
+	HNVvdgG+/57TbtCQH/k7qPk7eaQGOO/bDAQUx++KAhheXMoeHh4I62l+ojXaBVoYSobdLIn4pmg
+	Upi4wEHKh4TSTConVL+VsXfpRB81z1eEn272vJwEdmSRXHT+1P0qniS8v5OEE0i7GvYG7zTbVAP
+	TrKVePoIwWKVn4V4Zpi7lbJPPsknH/+JAXQUSDvccUdLD4ryMJ7Q+S6ZAzON5SoxUshaNSc7sMG
+	FxP42usCqv9hnGwVmit6u+NF60KOSfoU1LukxTKtzYV/+4eItZvvoxJd8EBIxjo7uoMhXZqpDIa
+	8nogZr3MdYQVx3WE66XSgB6YtS4i0JKZvCQ==
+X-Google-Smtp-Source: AGHT+IEJVH+W+cvPNVB9masQuVIjw1/4pd1uCDTCuFbsfIezp0x+6PzwSC9D9AUHrQ5rPRHOy4i8Fg==
+X-Received: by 2002:a05:600c:4e05:b0:450:d00d:588b with SMTP id 5b1f17b1804b1-454a9c93836mr7813825e9.9.1751480080374;
+        Wed, 02 Jul 2025 11:14:40 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:e50:3860:9dba:9a50:1cc3:93af? ([2a01:e0a:e50:3860:9dba:9a50:1cc3:93af])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a9989328sm4674325e9.18.2025.07.02.11.14.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 02 Jul 2025 11:14:39 -0700 (PDT)
+Message-ID: <d5a03f2c-21a2-4cd6-acfe-9142f51a8655@baylibre.com>
+Date: Wed, 2 Jul 2025 20:14:38 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH2PR12MB4232:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9672915f-5849-4222-ac4c-08ddb9930f89
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fKRpfLHGGGdE+RtqWKnXVbQV6SSYvz9UDnpICzPD1V2KAJtz8+lY8R34OBBr?=
- =?us-ascii?Q?0N10XXYsEjQ5PP8Kyb3oFBHxVkWgNzbpjNTE7rrTZcx8ShHsNkiAupZbrN9s?=
- =?us-ascii?Q?EqePok+n/+oRpUTNl0KmdLjgHogCEkEpFYHjSQLEiLCWrZ7cl4vHRQci8Xs2?=
- =?us-ascii?Q?OjH5LuijfsU3ovf0Sh2XO0nzXVli899fGNOccFj4DxXCBVuy4LsOndi49OCr?=
- =?us-ascii?Q?/Zu7HJ8caiv2Cy3wuTD3Hu+Zkox1XvDnh7lKQDaZKahoJ2/y7GBGNh28+sh8?=
- =?us-ascii?Q?XMbDb0d3T2S9Y7XPDe8esX0M/CMIPaAGqG1rr4TsndVUTDBRZVtWL5fkAfOA?=
- =?us-ascii?Q?aZocLh5/Lb1XGH36z0BhwMiiP6xTNOr0Ym35FanV2oqycPkkxlhKsGp3fQJ6?=
- =?us-ascii?Q?HpH5nhlyv2VLV2O8DrnE1u+YULi8+LSZLI7epk9IiRRe/82OsHlJg6CoBYdm?=
- =?us-ascii?Q?PGIgw0SmCMdjM5o8IRR7KBFGje9rlTzl8uw+5B+fWszZ2W+DsBdSGWnIRBD4?=
- =?us-ascii?Q?rOdyUU082lOJCSgaUjgt5iHYJp8H8qR0KC4xud5ShjlJLe6zHeDY0bGALxjs?=
- =?us-ascii?Q?R5Pvlz/0LGIojwjxujLH2f+q0Jh1SmXgRatMxW/xKAT46YxGz62fJhx82xNr?=
- =?us-ascii?Q?q0pjfEzTcl6zpIsxvkDhnnnj8QVm1hBbgBQwDOiPrVaWWnThyFUA86w/TWf2?=
- =?us-ascii?Q?KU/G9xQEoNDcEr+Ud40vIg6r4H8YwIcPASmiT0A+wLIk7HZXuH+tRPrKEmw3?=
- =?us-ascii?Q?Mykp5W411OGCVMGObpTzEn17okg9Ch91eoE+a49s+UNC8R/+nFdrAa9aSoYd?=
- =?us-ascii?Q?Xr5+5VzjKhe1czZUHSJlF3nTKDy9hKr+Uo8lOaU2zRutGEFmwmuWreKFv//H?=
- =?us-ascii?Q?xcrcne2QSb8UUC4gbzIEz/Ey8NVJORHoF+Fgo27b95dAX0w/Oa9ikI97PL4e?=
- =?us-ascii?Q?A87BJQkX3u8/GS1u90dclHEifx37L7c3l4yR3sJZ3Q+H8ejCk3TBWxxB5tzE?=
- =?us-ascii?Q?NyVI919NZiG0v8fi0h+TouGvjC6ygwp5vD6wdhCHQLjMMujuUU7DJVK4OnW9?=
- =?us-ascii?Q?EMkO7LfmUXcXFd/tZfjDUd9qi5SmjNnflPTo7Pdm9EC9zDE5v0cTtDmhH0G0?=
- =?us-ascii?Q?zmRTbZ71M5XwU8V7lkKxE5I1DYWOlXIGUihQI2qLw89/SRMFgHMoMZJ+HY7e?=
- =?us-ascii?Q?uBedhEPzkH1sxZqGlUYkfN94l05FzWWdHqXTxOvDinhQknkqQjBLRIFATFNu?=
- =?us-ascii?Q?nupMFCj0kzVa7vgabaLrUKMOJu68sBtsgSOwi6H5meBKkhxXQWI31AQ2tkl8?=
- =?us-ascii?Q?Mz8tw0pT9xFnCUEQ7G5+9e6l86633y0NKgvhwJMkTEGsm8i8siDPw7Ytvtza?=
- =?us-ascii?Q?FwbG5e41b4yLFFN7nZMYEFhc8NTXHTmZHwfdA3GAKJfJ8z0DBDe8XDbPZfTv?=
- =?us-ascii?Q?F6KcIS2wxKE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iLBHmw6CecbhbhW/CTjN083jPp8VK7CI00BGQa5qQyzahjpX4QVmf5i+TwVk?=
- =?us-ascii?Q?MYZHYoIBDbS1VVBvH/xlc1M/8gg0T3JnO5ZZaL/22wH9KObQmTthv2zZgrlu?=
- =?us-ascii?Q?j3Pr1H+h9udyuoqHWT2PfjzO/TvhCw6FStNGCVHSPto3dwbSBrjYQPp2oCFs?=
- =?us-ascii?Q?EDRedKiSSvnikvSgDAsCneTApHpVq/dwpaWO8kj5zEe2d7DqogILOgkzpPGX?=
- =?us-ascii?Q?sclecUKXdpX2fxln8fL5KvIfSBRC9yWLOjSrt//MlAw13hfAhnoVbmj40bVD?=
- =?us-ascii?Q?9nVl1uqqLZJ3jVcX9Peelx8yNHBOxacqJp8r5YvKy3TF/HJFAoewE6Bej/Ce?=
- =?us-ascii?Q?ft7kh/EdP7qFl20C+6dGiuRM5RXmUhzH3EHoOO947wBJwbHWB1ngmsQqeMsn?=
- =?us-ascii?Q?Ku4M8ltaZ0mHlMQBFn5PJKNINBVZemeA6d0pdehG+XRYQZM9BXrqFEZ+Lx93?=
- =?us-ascii?Q?FBaFIxrtmm1kECgBVrRQWIGJokpKozNgGPQoOuZCRpx76JRkA5m3M0BAM/Zn?=
- =?us-ascii?Q?b42f5heczpPog82cCWkJP87LnTcYIWF9z/GHe7nVwpPqBoy52oDpoS+oDReQ?=
- =?us-ascii?Q?0PRc3LN9pok/RNlkO5k01h98+a/SF7YuAQBl2jEF268j4OoKwhsstVaueMAA?=
- =?us-ascii?Q?yl3iwRlmyBVoix1sDnd7HnSvFMKABXYcHzOSk/xGYWucihR4Vs9K5+8rRS6f?=
- =?us-ascii?Q?r0Y7+VU7U07fyBDIU9+4VaQy4p+X+yp8hrP+b78d3iVYSCXaaOyVpghBG4ie?=
- =?us-ascii?Q?mhUgW421M93ZccelshNIk5tnniqObnyThQ8r49G+2OFIV95V5YcwhjBDOk8b?=
- =?us-ascii?Q?dbmys80LrnYFQR28JH4H1GIFzxcbEzWgp6gcHcWrc0oZmydbIa8IDIDCmQRQ?=
- =?us-ascii?Q?ZHwSwDPsuSaSkTN6ucDai5nhGAvW9fiKEFRNXVaBwBxRdT6z9XoAE4ZVnStp?=
- =?us-ascii?Q?aH1fNUIAUL1gHv28qjZkRmMGOoj/D5BajQZ55zMeLy3bZXwai3GUuvbJv+7G?=
- =?us-ascii?Q?YCalhU1fh46vJ58unKsFYm2GhiLOZx3nWs6Ck3+vQi+MM4pTEirdAFs5+zvX?=
- =?us-ascii?Q?PFFgMgaClvKTtipu5Ebop9AyD8LtYs4zQAW3LtdxxPIvnEFkm+7qqRK3Tyoz?=
- =?us-ascii?Q?hEAtzLTZ+l5XEp1RJb1V3i1gOJ8y1jSiiB6WG4JGxdT9Trn3GjPCTCAs/XZO?=
- =?us-ascii?Q?eLvwfcfGOSs57/Tqe9dYqDHviELzYHVHGikxL6hP5cfJZDSn2u7HC9vA8LXQ?=
- =?us-ascii?Q?ImxuURunGG9xPfCPwhlHFbfLl416eh3rPZ9vrFPAmJHkn4mRRODMhCRhUBYp?=
- =?us-ascii?Q?9u/g3mjNqbFipUo/yLrUipp1wsm2PCLSd+TiptZoIUyTTGdVWYZaLiLh5R1v?=
- =?us-ascii?Q?iJguPSkrX8bue9trbDjF+/9qf7KVcEjhu2uaR3HxAinkpsROqiXRX7h3lC3Y?=
- =?us-ascii?Q?D3qJNBNydRBDQ1uB0OR9qjy0cjX9+5eCVBIlW3I6XrFkFJGJUk4pjcux9zUc?=
- =?us-ascii?Q?8W5ys40a0VO0aFffng3Rj6lnIWWOwjazxFGqTTm4/7SuzifYVG8rPpCL01R2?=
- =?us-ascii?Q?5y0CsKWDaT0JlQssg8k4LRbhGi13nBAQZZ9WYdUL?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9672915f-5849-4222-ac4c-08ddb9930f89
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2025 18:05:43.1245
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: z1Akv4CFUQ0QABz6b/8ygyQgfrcQ7JGuIBX4WdhWdgVYvmwy3AxHrvazp9wImarD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4232
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: Kconfig.platforms: remove useless select for
+ ARCH_K3
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Andrew Davis <afd@ti.com>, vishalm@ti.com, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Nishanth Menon <nm@ti.com>, linux@ew.tq-group.com
+References: <20250519-kconfig-v2-1-56c1a0137a0f@baylibre.com>
+ <f44c7074337b79df9ad67f62acbc268acc344a23.camel@ew.tq-group.com>
+ <e0773f0e-8d2f-4918-aaad-aab6345fdb81@baylibre.com>
+ <9042d63de85f7ae8bf73760e9d2d7652c18a738c.camel@ew.tq-group.com>
+Content-Language: fr
+From: Guillaume La Roque <glaroque@baylibre.com>
+In-Reply-To: <9042d63de85f7ae8bf73760e9d2d7652c18a738c.camel@ew.tq-group.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_110547_134751_870CB913 
-X-CRM114-Status: GOOD (  26.66  )
+X-CRM114-CacheID: sfid-20250702_111442_309681_49D68BEA 
+X-CRM114-Status: GOOD (  27.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,67 +107,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 02, 2025 at 01:38:33AM +0000, Pranjal Shrivastava wrote:
-> On Tue, Jul 01, 2025 at 05:46:06PM -0700, Nicolin Chen wrote:
-> > On Wed, Jul 02, 2025 at 12:14:28AM +0000, Pranjal Shrivastava wrote:
-> > > Thus, coming back to the two initial points:
-> > > 
-> > > 1) Issuing "non-invalidation" commands through .cache_invalidate could
-> > >    be confusing, I'm not asking to change the op name here, but if we
-> > >    plan to label it, let's label them as "Trapped commands" OR
-> > >    "non-accelerated" commands as you suggested.
-> > 
-> > VCMDQ only accelerates limited invalidation commands, not all of
-> > them: STE cache invalidation and CD cache invalidation commands
-> > still go down to that op.
-> > 
+Hi,
+
++ Vignesh who was lost in email list , sorry for that
+
+Le 02/07/2025 à 09:25, Matthias Schiffer a écrit :
+> On Tue, 2025-07-01 at 20:57 +0200, Guillaume La Roque wrote:
+>>
+>> Le 01/07/2025 à 16:36, Matthias Schiffer a écrit :
+>>> On Mon, 2025-05-19 at 10:20 +0200, Guillaume La Roque wrote:
+>>>>
+>>>> After patch done on TI_MESSAGE_MANAGER[1] and TI_SCI_PROTOCOL[2] driver
+>>>> select on ARCH_K3 are not needed anymore.
+>>>> Select MAILBOX by default is not needed anymore[3],
+>>>> PM_GENERIC_DOMAIN if PM was enabled by default so not needed.
+>>>
+>>> Hi,
+>>
+>> Hi,
+>>
+>>>
+>>> what selects PM_GENERIC_DOMAIN in your configuration? linux-next fails to boot
+>>> on our AM62x-based TQMa62xx if I don't (partially) revert this patch - I have
+>>> not found a way to enable PM_GENERIC_DOMAIN and TI_SCI_PM_DOMAINS without
+>>> enabling other unneeded features to pull it in.
+>>>
+>> With master branch if i apply this patch and i do make ARCH=arm64
+>> defconfig and check in .config  both TI_SCI_PM_DOMAINS and
+>> PM_GENERIC_DOMAINS are enabled.
+>> with linux-next it's same. i don't really understand link with  PM part
+>> in this patch and boot issue on your SOM.
+>>
+>> I probably misunderstand something.
+>>
+>>
+>> what is your problem exactly ?
+>>
+>> if you can share log or link to jobs
 > 
-> Right, I'm just saying the "other" non-accelerated commands that are
-> NOT invalidations also go down that op. So, if we add a comment, let's 
-> not call them "non-invalidation" commands.
-
-There are no non-invalidation commands:
-
-static int arm_vsmmu_convert_user_cmd(struct arm_vsmmu *vsmmu,
-				      struct arm_vsmmu_invalidation_cmd *cmd)
-{
-	switch (cmd->cmd[0] & CMDQ_0_OP) {
-	case CMDQ_OP_TLBI_NSNH_ALL:
-	case CMDQ_OP_TLBI_NH_VA:
-	case CMDQ_OP_TLBI_NH_VAA:
-	case CMDQ_OP_TLBI_NH_ALL:
-	case CMDQ_OP_TLBI_NH_ASID:
-	case CMDQ_OP_ATC_INV:
-	case CMDQ_OP_CFGI_CD:
-	case CMDQ_OP_CFGI_CD_ALL:
-
-Those are only invalidations.
-
-CD invalidation can't go through the vCMDQ path.
-
-> > > 2) The "FIXME" confusion: The comment in arm_vsmmu_cache_invalidate
-> > >    mentions we'd like to "fix" the issuing of commands through the main
-> > >    cmdq and instead like to group by "type", if that "type" is the queue
-> > >    type (which I assume it is because IOMMU_TYPE has to be arm-smmu-v3),
-> > 
-> > I recall that FIXME is noted by Jason at that time. And it should
-> > be interpreted as "group by opcode", IIUIC.
 > 
-> I see.. I misunderstood that..
-
-Yes, we could use the vCMDQ in the SMMU driver for invalidations which
-would give some minor locking advantage. But it is not really
-important to anyone.
- 
-> > The thing is that for a host kernel that enabled in-kernel VCMDQs,
-> > those trapped user commands can be just issued to the smmu->cmdq
-> > or a vcmdq (picked via the get_secondary_cmdq impl_op).
+> Hi Guillaume,
 > 
-> Ohh.. so maybe some sort of a load balancing thing?
+> with arm64_defconfig, this problem doesn't occur, as other CONFIG_ARCH_* symbols
+> also have "select PM_GENERIC_DOMAINS" (with or without "if PM").
+> 
+> We are using a smaller config specific to our K3-based SOMs however. I have
+> attached a defconfig that shows the problem - if you use this as the base for
+> .config on linux-next, there is no way to enable TI_SCI_PM_DOMAINS, as nothing
+> selects PM_GENERIC_DOMAINS.
+> 
+> So unless I'm missing some other configuration that would actually be useful on
+> the K3 platform and that would pull in PM_GENERIC_DOMAINS, I think that part
+> needs to be reverted. I can send a patch to that effect later.
+> 
+not sure good patch was to enable PM_GENERIC_DOMAINS on ARCH_K3 but it's 
+a deps on TI_SCI_PM_DOMAINS so perhaps do a select in PM_GENERIC_DOMAINS 
+Kconfig instead of a depends on should be a better solution .
 
-The goal of the SMMU driver when it detects CMDQV support is to route
-all supported invalidations to CMDQV queues and then balance those
-queues across CPUs to reduce lock contention.
+Nishanth and vignesh what do you prefer for this issue ?
 
-Jason
+
+thanks
+Guillaume
+
+> Best,
+> Matthias
+> 
+> 
+>>
+>> Regards
+>> Guillaume
+>>
+>>> Best,
+>>> Matthias
+>>>
+>>>
+>>>>
+>>>> Remove it and give possibility to enable this driver in modules.
+>>>>
+>>>> [1] https://lore.kernel.org/all/20180828005311.8529-1-nm@ti.com/
+>>>> [2] https://lore.kernel.org/all/20250220-ti-firmware-v2-1-ff26883c6ce9@baylibre.com/
+>>>> [3] https://lore.kernel.org/all/20250507135213.g6li6ufp3cosxoys@stinging/
+>>>>
+>>>> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+>>>> ---
+>>>> Changes in v2:
+>>>> - Remove some other config after comment from Nishanth.
+>>>> - Link to v1: https://lore.kernel.org/r/20250504-kconfig-v1-1-ab0216f4fa98@baylibre.com
+>>>> ---
+>>>>    arch/arm64/Kconfig.platforms | 4 ----
+>>>>    1 file changed, 4 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+>>>> index 8b76821f190f..bf9e3d76b4c0 100644
+>>>> --- a/arch/arm64/Kconfig.platforms
+>>>> +++ b/arch/arm64/Kconfig.platforms
+>>>> @@ -135,11 +135,7 @@ config ARCH_SPARX5
+>>>>    
+>>>>    config ARCH_K3
+>>>>    	bool "Texas Instruments Inc. K3 multicore SoC architecture"
+>>>> -	select PM_GENERIC_DOMAINS if PM
+>>>> -	select MAILBOX
+>>>>    	select SOC_TI
+>>>> -	select TI_MESSAGE_MANAGER
+>>>> -	select TI_SCI_PROTOCOL
+>>>>    	select TI_K3_SOCINFO
+>>>>    	help
+>>>>    	  This enables support for Texas Instruments' K3 multicore SoC
+>>>>
+>>>> ---
+>>>> base-commit: e8ab83e34bdc458b5cd77f201e4ed04807978fb1
+>>>> change-id: 20250504-kconfig-68f139fbf337
+>>>>
+>>>> Best regards,
+>>>
+>>
+> 
+
 
