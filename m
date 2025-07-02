@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9694C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 09:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E5DBC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 09:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnOzQi08jAEiwY9awZL79NKkRrHw27xmzgDmDid1kBE=; b=O21mP5SImbuwq2fHxDmrY68jhj
-	fRsi5X9XzjXfJhTRshoiTVDPC7rurzenRQUhyQo6nCbGTk0wtkHbf5bA2yrd0zzD08QChjGKKdABb
-	/3+W7jHBcrSAfRuP5eR4yT+wLlb3MTCXfvHvOEc767r11mrWMZf2pVofdAnFJr+jxbzFlGaO4w4xd
-	sjGF2V2HT0xsTbMdr749l0ywb2JZQ0mQXCi04W2nPIDigpeYY40kpBYdNhFSj5QUzB3j4GaU/tGPI
-	o7vwLpWXDcwDzWoLWUA/jWOxRA8iJm/58tgeeqV9rQz9FLEssS6xhp/U7jmc+1Gtm0/M7YaAh8HK/
-	0iUe5Wtg==;
+	bh=QalHrlU7YcD8oOdsGh5RRx8431p71ZkRhDu+SD6/BX4=; b=bzmfkbrMlp9ipZtN3SIJK5X7GN
+	vsQhn1NYJGjZDTbaLhaxpggXoVfa8hRhHDB3fMUoCl67uR32mXrgwmjG8Lflr7XKnNMSx63odQ4zO
+	a6yeW5hzYaikNY+7TpT0aMPoQJMC5vFM+jdtNJ7Ct2pd1e7itwhK3OX9ek9VMtu7FqTfgFDTmGr4d
+	ct7EYbw2OvTxrq4LpM/wxlyuTNG1VhYE1Jc7EaHMtoAh9c6tDfPDF/tA86tMzS8qqoOH5DY2w3L9d
+	C6FBgkUNB/vnx4QuQ3Jj1vo30Y63FI7SsMnN97kVydfcY7hBYl5+uyxohz4oc0sh+Vo3JFg3l93R4
+	OsfNDn9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWthP-00000007l1l-2MlI;
-	Wed, 02 Jul 2025 09:24:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uWtji-00000007lWF-1ijf;
+	Wed, 02 Jul 2025 09:26:38 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtPV-00000007gqs-2tG2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 02 Jul 2025 09:05:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=XnOzQi08jAEiwY9awZL79NKkRrHw27xmzgDmDid1kBE=; b=iuiBhv+HVCDGmxfPE3z5yF4vLK
-	XdnE7QIADXGQAsqNbFVWR8+4O+nSEdaslqeBMOPPNgwPqo9Fh7C7er1amFV9t+jZ1Xmfl1qlubXzY
-	VmiOh+5vTpYRPOM9Eu6zy/uqlRm27Vs2xTFGgy94hre3qEv4XMl1nylLKokV67gx9z/4pKSFBDnF2
-	8TU4DtmPwwJnw5nW6ZFvPc4u46y2QMRb0pQPn/J4B2ZoIGqB+dQXqBF5V95/tgyCRpYwSCPoZGxBZ
-	Goj/q2fqLNFWalZLDlGZ/SoV6EAlBnORHE61IJJjYtr3ocHNHOoUKo/T6sAzO868dnNX8jgfBXtZh
-	/QBcgF0g==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtPR-00000007KCt-3lc6
+	id 1uWtPY-00000007grF-0Lft
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 09:05:44 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56260Lch018912;
-	Wed, 2 Jul 2025 09:05:31 GMT
+	Wed, 02 Jul 2025 09:05:49 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56261o3Z002189;
+	Wed, 2 Jul 2025 09:05:42 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XnOzQi08jAEiwY9awZL79NKkRrHw27xmzgDmDid1kBE=; b=JUBQ4ZLP7/9LzmIZ
-	EQjqgWXt455DySj9Ndu3dqlk3ozlzYlu6Cpk8XLfBUer19CBCTraiGZSj3HaZKZB
-	qN9dfhWcnaD4CXpxemQ4Lb/AiNH72CTt1aFY3YYo3vMcCJ92hbsezd1NrwxCYVGQ
-	K/e+EOtK0KDp7K4/QiX5CYbd1bdWkBbSg42j28308mrxSXyie20ib116wtwNF9a9
-	ZbbjPSdnIqQtdGTQk2Rb0c1dz6eiE7Nj3k7lGo/RJYoagsUegQr12gmWTJb5mAIY
-	6lPwW+xl15+WEQbQUuw0KDQBaQuMbdxjRxb+/4BBPN7qSK7LylO1R2P0rS8m5lLj
-	3mWKgg==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47j8fxm0rb-1
+	QalHrlU7YcD8oOdsGh5RRx8431p71ZkRhDu+SD6/BX4=; b=Jn+ACCQwPzx8zMop
+	F7us9GIQDkVK7WHCB7uvrOobzjqtLRKwkwPj2IdplPbiQybo25oREvAT8xiJQv9a
+	rdUmHR77w8N+FqJXbNLPx+mXoyajgp68KyCWfguhd8BHYm9WWPtnm//d2iyceCRi
+	1g+FSNqfS37BvA412Cji070JAlktfRBgG17bDfmBnlDMjKUetErkIfKg83hAlnVY
+	WdxFfg4GcnZ611Omn4c2w3amdNxytjuaZqP0HYRZExe6CbI0yFCivUNc5n313t6G
+	hj7bS7IfyJV95CkuWYb1AsSA+aho08XTyAz9jE40sILs1YV/Cdmz1kPW9xiU+y7T
+	nKcUTA==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47j9pcutms-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 02 Jul 2025 09:05:31 +0000 (GMT)
+	Wed, 02 Jul 2025 09:05:41 +0000 (GMT)
 Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56295U9C027414
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56295e85003122
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 2 Jul 2025 09:05:30 GMT
+	Wed, 2 Jul 2025 09:05:40 GMT
 Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
  nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Wed, 2 Jul 2025 02:05:24 -0700
+ 15.2.1748.10; Wed, 2 Jul 2025 02:05:35 -0700
 From: Taniya Das <quic_tdas@quicinc.com>
-Date: Wed, 2 Jul 2025 14:34:26 +0530
-Subject: [PATCH v11 06/10] dt-bindings: clock: Add Qualcomm QCS615 Graphics
+Date: Wed, 2 Jul 2025 14:34:28 +0530
+Subject: [PATCH v11 08/10] dt-bindings: clock: Add Qualcomm QCS615 Video
  clock controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250702-qcs615-mm-v10-clock-controllers-v11-6-9c216e1615ab@quicinc.com>
+Message-ID: <20250702-qcs615-mm-v10-clock-controllers-v11-8-9c216e1615ab@quicinc.com>
 References: <20250702-qcs615-mm-v10-clock-controllers-v11-0-9c216e1615ab@quicinc.com>
 In-Reply-To: <20250702-qcs615-mm-v10-clock-controllers-v11-0-9c216e1615ab@quicinc.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -104,16 +89,16 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nalasex01b.na.qualcomm.com (10.47.209.197)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzAyMDA3MyBTYWx0ZWRfXwtn3x2GNUiU6
- VgFpcgNUC/TlpLbXPwTe2BSXTc1ePFBV6y1MablF9VSUs/Xkn4JJJJtjgOW51aF15QxLic2aCpC
- 8ScAPxteKmPTsPu5cqVE5CEAxfrZMJ8vaTw1nTo5mOgCXjyKxiCLvAkfcyuXtBDcUSdpjDG80WU
- 6qRP92g4EMSg6Y/7ZanBU7bi0Q0r9xsFrVnVcLgnbD9UTX7iR6/FecF32DmcgF3Cx+Q49luX2ml
- xonemHMtpdwjLszHZAzv8aYbPPFLcefOyFeQH3JxwRID9hS7xtoTGrqCLocvUK0wAkmcs1mIz4w
- Kl5hmqYsnW47p6+ex5yc3gMf+4jspr3ldpunC8T6bl0blhGlDBFEOCHP4DF/ts3vh+1ZJeePnn2
- f2qdQ3XiDDRLAbetMwtVNVRIPpSkBzmDShJZaAHBan9uwlHKL12VjZTm4rbxGDFybsJ5rLGI
-X-Proofpoint-GUID: HA-WiLiVMtb9Tlpokdcmv8zaysyGRmni
-X-Proofpoint-ORIG-GUID: HA-WiLiVMtb9Tlpokdcmv8zaysyGRmni
-X-Authority-Analysis: v=2.4 cv=TqPmhCXh c=1 sm=1 tr=0 ts=6864f65b cx=c_pps
+X-Proofpoint-GUID: DL9wSzJOp0D3HE_KPDik5inZRVi79mdT
+X-Proofpoint-ORIG-GUID: DL9wSzJOp0D3HE_KPDik5inZRVi79mdT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzAyMDA3MyBTYWx0ZWRfX4onbtdMHQWGa
+ Ar22g8cGCASCkFg9j0W1W3VjtbQTgDhZQ7IYPExtYaJs0RNV71Ow5BlagA/xvPH3hi0/VCYLg4Z
+ LDrLW/Igrgcw6/hcqETyVxhQkoYoCo5jxY8xr/1UuwpJ1V/W0cl5K8gq60wqEXBtZnfah/sABtd
+ mskyX1YlFaNxPUurObmdxHvHWx2lArV2rJSssxbPHuZ24fO0qzTevpuwIv62TfHXmXUUt1Palu5
+ iT9Xul+JDfLq5VQQyeKvsjK0CwUlHXABwI7mSet4aUGeB8TQjq3MnRxXvD4UsgW+zsFxH3GZ033
+ xZj7AFOQ4Tgypt2NGqjzqMHOsnz/+qyooqfgrkiILNfEhia9nOmN8mtT2yE9SVMo4SYcKMWZr5b
+ ZGV/b7T9piEKM56lIgYoF6mKBmU4NjWqQmU5TT+lIYWGOcHNmEfgo8twaSBjA6w4vLj0Tk8P
+X-Authority-Analysis: v=2.4 cv=QMFoRhLL c=1 sm=1 tr=0 ts=6864f665 cx=c_pps
  a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=gEfo2CItAAAA:8
  a=KKAkSRfTAAAA:8 a=COk6AnOGAAAA:8 a=Fd_aqQ4HFp4EpFgKmb0A:9 a=QEXdDO2ut3YA:10
@@ -122,14 +107,14 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
  definitions=2025-07-02_01,2025-06-27_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 mlxlogscore=999 suspectscore=0 adultscore=0
- phishscore=0 malwarescore=0 clxscore=1015 lowpriorityscore=0 mlxscore=0
- impostorscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ malwarescore=0 priorityscore=1501 bulkscore=0 spamscore=0 adultscore=0
+ mlxlogscore=999 mlxscore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0
+ clxscore=1015 phishscore=0 classifier=spam authscore=0 authtc=n/a authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
  definitions=main-2507020073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_100542_270164_79D042A1 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20250702_020548_130899_6BD7EFA5 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,48 +129,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT bindings for the Graphics clock on QCS615 platforms. Add the
+Add DT bindings for the Video clock on QCS615 platforms. Add the
 relevant DT include definitions as well.
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
 ---
- .../bindings/clock/qcom,qcs615-gpucc.yaml          | 49 ++++++++++++++++++++++
- include/dt-bindings/clock/qcom,qcs615-gpucc.h      | 39 +++++++++++++++++
- 2 files changed, 88 insertions(+)
+ .../bindings/clock/qcom,qcs615-videocc.yaml        | 47 ++++++++++++++++++++++
+ include/dt-bindings/clock/qcom,qcs615-videocc.h    | 30 ++++++++++++++
+ 2 files changed, 77 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml b/Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml
+diff --git a/Documentation/devicetree/bindings/clock/qcom,qcs615-videocc.yaml b/Documentation/devicetree/bindings/clock/qcom,qcs615-videocc.yaml
 new file mode 100644
-index 0000000000000000000000000000000000000000..5f7d83d1a7be301dd38709f69167d7cb9319f076
+index 0000000000000000000000000000000000000000..f51b69de10478d1fcc246e4324dc74bc87b435eb
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml
-@@ -0,0 +1,49 @@
++++ b/Documentation/devicetree/bindings/clock/qcom,qcs615-videocc.yaml
+@@ -0,0 +1,47 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/clock/qcom,qcs615-gpucc.yaml#
++$id: http://devicetree.org/schemas/clock/qcom,qcs615-videocc.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Qualcomm Graphics Clock & Reset Controller on QCS615
++title: Qualcomm Video Clock & Reset Controller on QCS615
 +
 +maintainers:
 +  - Taniya Das <quic_tdas@quicinc.com>
 +
 +description: |
-+  Qualcomm graphics clock control module provides clocks, resets and power
++  Qualcomm video clock control module provides clocks, resets and power
 +  domains on QCS615 Qualcomm SoCs.
 +
-+  See also: include/dt-bindings/clock/qcom,qcs615-gpucc.h
++  See also: include/dt-bindings/clock/qcom,qcs615-videocc.h
 +
 +properties:
 +  compatible:
-+    const: qcom,qcs615-gpucc
++    const: qcom,qcs615-videocc
 +
 +  clocks:
 +    items:
 +      - description: Board XO source
-+      - description: GPLL0 main branch source
-+      - description: GPLL0 GPUCC div branch source
++      - description: Sleep clock source
 +
 +allOf:
 +  - $ref: qcom,gcc.yaml#
@@ -197,61 +181,51 @@ index 0000000000000000000000000000000000000000..5f7d83d1a7be301dd38709f69167d7cb
 +    #include <dt-bindings/clock/qcom,rpmh.h>
 +    #include <dt-bindings/clock/qcom,qcs615-gcc.h>
 +
-+    clock-controller@5090000 {
-+      compatible = "qcom,qcs615-gpucc";
-+      reg = <0x5090000 0x9000>;
++    clock-controller@ab00000 {
++      compatible = "qcom,qcs615-videocc";
++      reg = <0xab00000 0x10000>;
 +      clocks = <&rpmhcc RPMH_CXO_CLK>,
-+               <&gcc GPLL0>,
-+               <&gcc GCC_GPU_GPLL0_DIV_CLK_SRC>;
++               <&sleep_clk>;
 +
 +      #clock-cells = <1>;
 +      #reset-cells = <1>;
 +      #power-domain-cells = <1>;
 +    };
 +...
-diff --git a/include/dt-bindings/clock/qcom,qcs615-gpucc.h b/include/dt-bindings/clock/qcom,qcs615-gpucc.h
+diff --git a/include/dt-bindings/clock/qcom,qcs615-videocc.h b/include/dt-bindings/clock/qcom,qcs615-videocc.h
 new file mode 100644
-index 0000000000000000000000000000000000000000..6d8394b90d59074b93a26a9c027407a14b050b27
+index 0000000000000000000000000000000000000000..0ca3efb21103d7e0b09ab9c042be761bcbc5960d
 --- /dev/null
-+++ b/include/dt-bindings/clock/qcom,qcs615-gpucc.h
-@@ -0,0 +1,39 @@
++++ b/include/dt-bindings/clock/qcom,qcs615-videocc.h
+@@ -0,0 +1,30 @@
 +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
 +/*
 + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
 + */
 +
-+#ifndef _DT_BINDINGS_CLK_QCOM_GPU_CC_QCS615_H
-+#define _DT_BINDINGS_CLK_QCOM_GPU_CC_QCS615_H
++#ifndef _DT_BINDINGS_CLK_QCOM_VIDEO_CC_QCS615_H
++#define _DT_BINDINGS_CLK_QCOM_VIDEO_CC_QCS615_H
 +
-+/* GPU_CC clocks */
-+#define CRC_DIV_PLL0						0
-+#define CRC_DIV_PLL1						1
-+#define GPU_CC_PLL0						2
-+#define GPU_CC_PLL1						3
-+#define GPU_CC_CRC_AHB_CLK					4
-+#define GPU_CC_CX_GFX3D_CLK					5
-+#define GPU_CC_CX_GFX3D_SLV_CLK					6
-+#define GPU_CC_CX_GMU_CLK					7
-+#define GPU_CC_CX_SNOC_DVM_CLK					8
-+#define GPU_CC_CXO_AON_CLK					9
-+#define GPU_CC_CXO_CLK						10
-+#define GPU_CC_GMU_CLK_SRC					11
-+#define GPU_CC_GX_GFX3D_CLK					12
-+#define GPU_CC_GX_GFX3D_CLK_SRC					13
-+#define GPU_CC_GX_GMU_CLK					14
-+#define GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK				15
-+#define GPU_CC_SLEEP_CLK					16
++/* VIDEO_CC clocks */
++#define VIDEO_CC_SLEEP_CLK					0
++#define VIDEO_CC_SLEEP_CLK_SRC					1
++#define VIDEO_CC_VCODEC0_AXI_CLK				2
++#define VIDEO_CC_VCODEC0_CORE_CLK				3
++#define VIDEO_CC_VENUS_AHB_CLK					4
++#define VIDEO_CC_VENUS_CLK_SRC					5
++#define VIDEO_CC_VENUS_CTL_AXI_CLK				6
++#define VIDEO_CC_VENUS_CTL_CORE_CLK				7
++#define VIDEO_CC_XO_CLK						8
++#define VIDEO_PLL0						9
 +
-+/* GPU_CC power domains */
-+#define CX_GDSC							0
-+#define GX_GDSC							1
++/* VIDEO_CC power domains */
++#define VCODEC0_GDSC						0
++#define VENUS_GDSC						1
 +
-+/* GPU_CC resets */
-+#define GPU_CC_CX_BCR						0
-+#define GPU_CC_GFX3D_AON_BCR					1
-+#define GPU_CC_GMU_BCR						2
-+#define GPU_CC_GX_BCR						3
-+#define GPU_CC_XO_BCR						4
++/* VIDEO_CC resets */
++#define VIDEO_CC_INTERFACE_BCR					0
++#define VIDEO_CC_VCODEC0_BCR					1
++#define VIDEO_CC_VENUS_BCR					2
 +
 +#endif
 
