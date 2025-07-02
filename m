@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9BDC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F51C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YVv4IAazawmO/JvuBZNdt1HHYuW3kMLqoIeF8lsxUkk=; b=XgaEU43mjdnNjOPgY9DN+41ayD
-	zkkYsj+USFab+HrTClBV60z7DYvSFd2iQrV/28HQfqDwwY8qvfWK6D3OLqnSrghUfMmRgYvA0BsuR
-	TauTH9prt0LuTBHKEvTZj7pU4t/oKCunehUIDVfUwRhhYwSclYgxqx8DC4+J1kxnQ+LYQprvJTQNt
-	HVp24YR1Wr6Efl0iIjc/LybVqMuNoN5TWHlM3tHzxIt92kn+NKMLHPT2ODc8Q/RAir80Lw64iUT1M
-	QQNvHBrUQPDeehVtUcieIuURJ/DYOcL3/HrmQkOouE+/br28AAd3j8MS0x8MudQ9g1cvs0c/Xy+Lt
-	IvZJQdIw==;
+	bh=AR2YdjUQDruKw3xwEOLHDbUEwgTRlLLrLUuQcRkPcwk=; b=IZlOfV7yfonOdbGM4jroT9dJ2Q
+	1Ebgi6pNKQMbkxhtvBxaF5/VQgALbQUWldCsi9buMwCoknIKicI92VEeL4zmG+QZW3IS91Q4snLoa
+	FVuxYC8G6PWhxw3BuPRkVaiWVRMUEyf6z4klfRiHS8xABxH3RBEBXMglu3yLstJi4zTD4J5EXhuFT
+	5Iv3yV3k+Jqz4Kh9dH8+82r3mIlypTtWtQzhJfvg+AW1Wmz20xxe2VMH10NPmNUGGfi0Rkqc7uwmk
+	3vNm0sdJAemCvb4yiJu7G+fHiEOD+1NPS6OCtlpE1RDL+R6GAKWBguxGmIWevcOhWyd/B9dxmBV+n
+	VQKlFhBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWwQT-00000008HgT-248W;
-	Wed, 02 Jul 2025 12:18:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uWwV5-00000008IgS-40sM;
+	Wed, 02 Jul 2025 12:23:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWvfm-000000088fx-2WFA
+	id 1uWvlp-000000089Vl-2ESO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 11:30:42 +0000
+	Wed, 02 Jul 2025 11:36:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 931066141F;
-	Wed,  2 Jul 2025 11:30:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 658DAC4CEED;
-	Wed,  2 Jul 2025 11:30:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8B4615C6C22;
+	Wed,  2 Jul 2025 11:36:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E239DC4CEED;
+	Wed,  2 Jul 2025 11:36:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751455841;
-	bh=jS6HsOJudSh3pJt2UZUlf0WLtRDJKg8n2+rVm/g7mQ4=;
+	s=k20201202; t=1751456216;
+	bh=AR2YdjUQDruKw3xwEOLHDbUEwgTRlLLrLUuQcRkPcwk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=edqp5nXGm3PK7QHRdw05jl6Dn/i98BFF9vLc5Nd2+sm0ltDQzNlDH6290VOTuy1dE
-	 7bWOZnjX7twJklwOY3t4+bsKt66v+Csx2Wod+W3w2WzZlYKUHIWkPFfvz3CUy7VtW8
-	 uEnMQSSOBAA/Jh262IihH+jk098VNyleLL/TaAr766MQFATIXVWZKFclJc6tMer8/8
-	 fvAFflUU/2b3tWzZ47xsAG/dXBgRk+MeurjCsIaompbAzZVmjooJn4OQDJkIa0nk0o
-	 F3Mx6RQ0NGbZajeuFwitVmu/bfkWtkkeRQSWj7H/9PKvKxblCRBLj0s7ltbyKE9EZ/
-	 6vEa4TE6c+uDg==
-Date: Wed, 2 Jul 2025 17:00:23 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Kishon Vijay Abraham I <kishon@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, Shuah Khan <shuah@kernel.org>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v19 03/10] PCI: endpoint: pci-ep-msi: Add MSI
- address/data pair mutable check
-Message-ID: <5axgxbtyqbwwncimjiiedvkm3ap7at553vgj72bht4kynke5cd@xfghwfmp6cy7>
-References: <20250609-ep-msi-v19-0-77362eaa48fa@nxp.com>
- <20250609-ep-msi-v19-3-77362eaa48fa@nxp.com>
+	b=mF+MxsfngCXb328CwhUUDfE58INzeO/02EHWhYdfq92zRhxhdu9m3eJy38g/Z2+my
+	 PEo2RicQ5A29nvdeyqkEhYXmYPboIIoBnvwoyjTo33CStZrq6JwcxbeXINWGNT7z3f
+	 V0h82qzbUvYiU0/w0GdHs6pl8GqKnD7kpM5FIhdB/O3UqCLfHOsR83L6FB+gFjKTY0
+	 VvjpbF/cL+u6rtx027/kfZy2nlIfRBljuP/L2/yJYG1Tzj1L1m4ah1WTAD5SV3yc9C
+	 atIKqU3Z259Hwdsi1bfTag54achQvlF3vPxb6tcJRRGnxMXaQac8Pe1qjRKwYG5wv2
+	 f6PbOLbcQg9gQ==
+Date: Wed, 2 Jul 2025 13:36:53 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-gpio@vger.kernel.org, 
+	Yong Deng <yong.deng@magewell.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Linus Walleij <linus.walleij@linaro.org>, Icenowy Zheng <icenowy@aosc.xyz>, 
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH 5/5] drm/sun4i: Run the mixer clock at 297 MHz on V3s
+Message-ID: <20250702-psychedelic-stalwart-jerboa-a626eb@houat>
+References: <20250701201124.812882-1-paulk@sys-base.io>
+ <20250701201124.812882-6-paulk@sys-base.io>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="v4szwvinjjahevo3"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250609-ep-msi-v19-3-77362eaa48fa@nxp.com>
+In-Reply-To: <20250701201124.812882-6-paulk@sys-base.io>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250702_043657_664308_BBCC168E 
+X-CRM114-Status: GOOD (  24.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,52 +82,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 12:34:15PM GMT, Frank Li wrote:
-> Some MSI controller change address/data pair when irq_set_affinity().
-> Current PCI endpoint can't support this type MSI controller. Call
-> irq_domain_is_msi_immutable() check if address/data pair immutable.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> change in v18
-> - update commit message. remove 'include/linux/msi.h' part.
-> 
-> change from v14 to v17
-> - none
-> 
-> change from  v13 to v14
-> - bring v10 back
-> 
-> Change from v9 to v10
-> - new patch
-> ---
->  drivers/pci/endpoint/pci-ep-msi.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/drivers/pci/endpoint/pci-ep-msi.c b/drivers/pci/endpoint/pci-ep-msi.c
-> index 549b55b864d0e..c0e2d806ee658 100644
-> --- a/drivers/pci/endpoint/pci-ep-msi.c
-> +++ b/drivers/pci/endpoint/pci-ep-msi.c
-> @@ -44,6 +44,14 @@ int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
->  
->  	dev_set_msi_domain(dev, dom);
->  
-> +	if (!irq_domain_is_msi_parent(dom))
-> +		return -EINVAL;
 
-This check is not justified in commit message.
+--v4szwvinjjahevo3
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 5/5] drm/sun4i: Run the mixer clock at 297 MHz on V3s
+MIME-Version: 1.0
 
-> +
-> +	if (!irq_domain_is_msi_immutable(dom)) {
-> +		dev_err(dev, "Can't support mutable address/data pair MSI controller\n");
-> +		return -EINVAL;
+On Tue, Jul 01, 2025 at 10:11:24PM +0200, Paul Kocialkowski wrote:
+> The DE mixer clock is currently set to run at 150 MHz, while the
+> Allwinner BSP configures it at 300 MHz and other platforms typically
+> run at 297 MHz.
+>=20
+> 150 MHz appears to be enough given the restricted graphics capabilities
+> of the SoC (with a work area of only 1024x1024). However it typically
+> causes the DE clock to be parented to the periph0 pll instead of the
+> video PLL.
+>=20
+> While this should generally not be a concern, it appears (based on
+> experimentation) that both the DE and TCON clocks need to be parented
+> to the same PLL for these units to work. While we cannot represent this
+> constraint in the clock driver, it appears that the TCON clock will
+> often get parented to the video pll (typically running at 297 MHz for
+> the CSI units needs), for instance when driving displays with a 33 MHz
+> pixel clock (33 being a natural divider of 297).
+>=20
+> Running the DE clock at 297 MHz will typically result in parenting to
+> the video pll instead of the periph0 pll, thus making the display
+> output functional.
+>=20
+> This is all a bit fragile but it solves the issue with displays running
+> at 33 Mhz and brings V3s to use the same frequency as other platforms,
+> making support more unified.
 
-GICv3 ITS is an immutable MSI controller. From the earlier patches, I could see
-that you have tested this series with ITS. How did that happen if it errors out
-here?
+It's beyond fragile, and doesn't have anything to do with the DRM driver.
 
-- Mani
+You should set up the clock tree properly in the clock driver, and then
+add NO_REPARENT to the DE clock to make sure it stays that way.
 
--- 
-மணிவண்ணன் சதாசிவம்
+And then, you can change the clock rate if you want to, but at least you
+don't set a rate and hope that the side effects work your way, and won't
+happen again.
+
+Maxime
+
+--v4szwvinjjahevo3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaGUZ0QAKCRAnX84Zoj2+
+dkUOAX9QETvGjudIqLH1LHrODK1oz9R7fTZgMW27nwd0xCKcdeLTvQKST2uEzWle
+vJapl8MBfAx2o6ST5tt4OTYqAlQbnHgSbySZjkHgRUqtZhP/pvQc99/anfjE9qN1
+3VMToXuhRg==
+=p0B2
+-----END PGP SIGNATURE-----
+
+--v4szwvinjjahevo3--
 
