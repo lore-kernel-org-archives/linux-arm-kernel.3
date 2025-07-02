@@ -4,74 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E1FC83F04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 13:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B857EC83F04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 13:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5S7VPsYwfw2KSIKI7zXHYoTUqUMVjxDlD9bXv+xw8K0=; b=onv17h/Qow6ZTJomMqWvpCq73f
-	TuDD2EyHaJLcrp0JQ0HFMtrLewdM/u+yh2DvuV98Nbz0V5VxXLAvkjFuZHkPdA8p3JjO1Lkxgb1lI
-	I8wKj/F/ZznAUP+MmoLxOLnE2WHx5S3Vieqa6xGYfViTiULI0+iHbj8Ww07TurpVtW3dUmc++zmrb
-	x2BAnCuluIIj02jojWNZa3w6Af/kbrkQHryvpdCEHccWnM8XEep/4HpbH/qJ3BGGWOns4Mit6cB/Z
-	VGolcFPw1yl01O0ZYpWJsLJFykKrKU/LkJ4wNjnq3JfZIODfKiv5EfLBV0xslN2p7Il7tsTJQ3dZt
-	FspXBKeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nPtAO/bCMb0ayQy1ZZ4Q4T0/klypPIiDPkWybUy1oW4=; b=INe9yz51gdzXTNz8AW+WxefL7P
+	+DfIWV2f2mOq/cG3F7F9zvaRPLbDu8wiKKToZWhl1XYh/suz9CB6/l63HhL9FIJDm7A8I6S0cvbq6
+	GZ3IAC9xeVKK52gxg7sjRtyHlu3cjOyd8NE30DaA9XvR1Qe7uz7mOHC9m1f0pjE+CC6psvmyvChIz
+	7SXXqWfIs69xCCQXESj1RIM/dCCNWtpysgBPYS5ifLHrWUQ7eQP9AJL+zdzlJ1wArxJo3Tv6uCExL
+	7E1d1fjp2Sc1y27CIzUcLE5+QHPZA3nHEFv8OaiEuuPNsazez1fFR8I0Wek8b928UkjSo6xn7O8Pt
+	AkHZvt0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWxdD-00000008Tqx-3dZp;
-	Wed, 02 Jul 2025 13:36:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uWxeJ-00000008U8O-0jEG;
+	Wed, 02 Jul 2025 13:37:19 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWvgW-000000088rw-3WuP
+	id 1uWxOn-00000008QmP-0cAB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 11:31:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 32D005C6B54;
-	Wed,  2 Jul 2025 11:31:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55701C4CEED;
-	Wed,  2 Jul 2025 11:31:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751455887;
-	bh=W/m4AwEeK352N+Pmwvp6Pelc/+FLIPylcBqXF2jNqTE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=idXs37NIUea7zkC0f/Q/tVp024o0QasGZgAkF1gqdALEN1il9TVdmoRF5oPhbiDMl
-	 lNjqgwNn0mcQg2+D7Rw/XVnQrkojXv9Re6tvspv/w9Brq49B4p9ABYaa1dIo/bBthK
-	 /8tmWFrryqLzmAhxJyuTlhIKeeujxcU0pIb3bUMJYPofEQiWqO52AreG1NUedI/Scv
-	 l9N9gTY8Gx7Bq4XHfUtDGBZSgV2MqxITUuD7nmcgdCELmGJ1chfnTkRynb73JDVMrU
-	 tSbL6tXqMDc9BVtjDOjIasg0LIc95I398tzSuyujJJZdTKEO6vvpTmUkLYJRgwbF+4
-	 os8GGwAgBmmsA==
-Date: Wed, 2 Jul 2025 17:01:10 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Kishon Vijay Abraham I <kishon@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, Shuah Khan <shuah@kernel.org>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v19 02/10] PCI: endpoint: Add RC-to-EP doorbell support
- using platform MSI controller
-Message-ID: <kife5sc4dmoxt7b6werw7l3dcq46rx634wmwxyuenjkp6xstqe@np6g6z55r7sz>
-References: <20250609-ep-msi-v19-0-77362eaa48fa@nxp.com>
- <20250609-ep-msi-v19-2-77362eaa48fa@nxp.com>
- <bvwpyg4amnuuqimcqxhwrtejfng66c2jenti3t7dgeegcc73vc@o5c5isvg2s4c>
+	Wed, 02 Jul 2025 13:21:18 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ae35f36da9dso893297666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 06:21:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751462475; x=1752067275; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nPtAO/bCMb0ayQy1ZZ4Q4T0/klypPIiDPkWybUy1oW4=;
+        b=IF4Dg4hRiBC9XW8VX70kcBF/B6gO29hU9DUx0SCJQEiD2KsYRURPJply2F7JBxNVr+
+         zNObbOm5x1LQmH4WmVXeSzM16vvEbBd6a0V2IDx2RG06Fk2zMVLxKc+CXeIqMqAcW55N
+         K/dH6d0JOPvDxx6YkPI/RpscnFyklPqE5s1ldO64bld7d0V/SVw9kcLzd9jwnbmdTcJd
+         JedX+hHoEQJ7GKNrqddPEgNzABxxjRdCqveCl5p6lf+EQmDTeph5tZcTAYUvXMb41R0Q
+         z0IKfhb7B3PL/ffBkwyZtxRqvYvBYw+Ow1uwVFmDlcLwzolRSfuJ43kWvZBgbJ2hsjZ7
+         zRVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751462475; x=1752067275;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nPtAO/bCMb0ayQy1ZZ4Q4T0/klypPIiDPkWybUy1oW4=;
+        b=oIeALk0igtciJxCKZ3x1fPwESmjnvtZImcGUqwv56GcsU3gMMUhblAur07Ip2LGCKF
+         hHIGSI2BAOyCYQZsxt3VJ+tI3Wibfx1IZ4nlMyJa0S/5fLEeMqBgE2Jzyp5kgIQ7tApd
+         yT0muZFck5eybVcq1QHuMq+YMqVCG2xCeFqYQzqJX4HyqaKTqsfDTrVp6j62dmUP20KA
+         1uj0J4pbUCqo8+rh1JRNWxfY4q4ANeCwRbIM7wqaylApELcgOQwk9SdDQ0WkKe+VuWEg
+         M3aGF+Vairc2LXdOkIRqk7qOvvHfb4zXEA++ft5y4CRBc1gZJf0x6gMDfF70oBOcYdpi
+         3CWg==
+X-Forwarded-Encrypted: i=1; AJvYcCUk8b5eMH4B8XWqQK9FJHyaTq1oOg6wWliM5CiVyNfxiWMRGw8hN+iHJiKFgQvdWyhgaAjuS/r8oL3RjT8llgLS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLMVsf+eAxUENnjOgHlvo1FnEdUDiWJAmD2lO50XynRzJZtzP+
+	uadKepLSMQ5wRrsKnyuB1rw0C9pG53OXmQXgKPJXONxfthgPG/tRgKAV
+X-Gm-Gg: ASbGncsb68PRxTIPgZ/tyFn0r/75K6sP6Lk5CNQ/5a8vzasjs1i/iIR8J9GKGeEXIyw
+	Sqjlt+TU/pWX7eGeZ1wCTidHyxIqg5wCHZQtpkxjT/BYYx3kNYAfiC+J9pVOVjjltxhc9jMaWIb
+	8eH7tC/ZOB6vDDlL+tc13dYaWCNuAnwNYaPSX03AJiC3gBGppeKZ2q1AuwJne+eGuZ6VTT/Kwby
+	woqhauwgbIKw9Zbba7RlkdgNN9a64hhQp3d0L/F1wbKVLVDZK31V1mMduBjltWpWh+tFaNpIN8F
+	ocwaucyGr6yVHZoLiM8VXs0L4qALg8Y6ZBoEdwgI3E4qbgR20Vzseew6efO9lK10KqHEU2LAcig
+	=
+X-Google-Smtp-Source: AGHT+IEA3de2m4giSGKNLKSmBJkZ2z0wYHzUm6md3r9AFoIBaZoB/eT8gjgMNLZxZI3iFqQoSe+Zcg==
+X-Received: by 2002:a17:907:1c13:b0:ae3:b22c:2ee8 with SMTP id a640c23a62f3a-ae3c2dc3540mr275616366b.37.1751462475207;
+        Wed, 02 Jul 2025 06:21:15 -0700 (PDT)
+Received: from demon-pc.localdomain ([188.27.131.45])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae35363b094sm1063800966b.22.2025.07.02.06.21.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Jul 2025 06:21:14 -0700 (PDT)
+From: Cosmin Tanislav <demonsingur@gmail.com>
+To: Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+	Julien Massot <julien.massot@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-gpio@vger.kernel.org,
+	Cosmin Tanislav <demonsingur@gmail.com>
+Subject: [PATCH v5 02/24] dt-bindings: media: i2c: max96717: add myself as maintainer
+Date: Wed,  2 Jul 2025 16:20:28 +0300
+Message-ID: <20250702132104.1537926-3-demonsingur@gmail.com>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250702132104.1537926-1-demonsingur@gmail.com>
+References: <20250702132104.1537926-1-demonsingur@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <bvwpyg4amnuuqimcqxhwrtejfng66c2jenti3t7dgeegcc73vc@o5c5isvg2s4c>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_043128_974071_611C49F0 
-X-CRM114-Status: GOOD (  42.14  )
+X-CRM114-CacheID: sfid-20250702_062117_189773_82B6B70C 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,165 +112,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 02, 2025 at 04:54:12PM GMT, Manivannan Sadhasivam wrote:
-> On Mon, Jun 09, 2025 at 12:34:14PM GMT, Frank Li wrote:
-> > Doorbell feature is implemented by mapping the EP's MSI interrupt
-> > controller message address to a dedicated BAR in the EPC core. It is the
-> > responsibility of the EPF driver to pass the actual message data to be
-> > written by the host to the doorbell BAR region through its own logic.
-> > 
-> > Tested-by: Niklas Cassel <cassel@kernel.org>
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> > Change from v15 to v16
-> > - fix rebase conflict
-> > 
-> > Change from v14 to v15
-> > - check CONFIG_GENERIC_MSI
-> > 
-> > Fix below build error
-> > | Reported-by: kernel test robot <lkp@intel.com>
-> > | Closes: https://lore.kernel.org/oe-kbuild-all/202502082204.6PRR3cfG-lkp@intel.com/
-> > 
-> > All errors (new ones prefixed by >>):
-> > 
-> >    drivers/pci/endpoint/pci-ep-msi.c: In function 'pci_epf_alloc_doorbell':
-> > >> drivers/pci/endpoint/pci-ep-msi.c:53:15: error: implicit declaration of function 'platform_device_msi_init_and_alloc_irqs' [-Werror=implicit-function-declaration]
-> >       53 |         ret = platform_device_msi_init_and_alloc_irqs(&epf->dev, num_db, pci_epf_write_msi_msg);
-> > 
-> > | Reported-by: kernel test robot <lkp@intel.com>
-> > | Closes: https://lore.kernel.org/oe-kbuild-all/202502082242.pOq1hB1d-lkp@intel.com/
-> > 
-> > All errors (new ones prefixed by >>):
-> > 
-> >    drivers/pci/endpoint/pci-ep-msi.c: In function 'pci_epf_alloc_doorbell':
-> > >> drivers/pci/endpoint/pci-ep-msi.c:49:14: error: implicit declaration of function 'irq_domain_is_msi_immutable'; did you mean 'irq_domain_is_msi_device'? [-Werror=implicit-function-declaration]
-> >       49 |         if (!irq_domain_is_msi_immutable(dom)) {
-> > 
-> > Change from v13 to v14
-> > - basic roll back to v9
-> > - use device:id as msi-map input, its will handle it
-> > - use existed platform_device_msi_init_and_alloc_irqs()
-> > - pass down epf->dev point, because epf->dev of-node will be the same as
-> > epc's parent.
-> > 
-> > Change from v12 to v13
-> > - Use DOMAIN_BUS_DEVICE_PCI_EP_MSI
-> > 
-> > Change from v10 to v12
-> > - none
-> > 
-> > Change from v9 to v10
-> > - Create msi domain for each function device.
-> > - Remove only function support limiation. My hardware only support one
-> > function, so not test more than one case.
-> > - use "msi-map" descript msi information
-> > 
-> >   msi-map = <func_no << 8  | vfunc_no, &its, start_stream_id,  size>;
-> > 
-> > Chagne from v8 to v9
-> > - sort header file
-> > - use pci_epc_get(dev_name(msi_desc_to_dev(desc)));
-> > - check epf number at pci_epf_alloc_doorbell
-> > - Add comments for miss msi-parent case
-> > 
-> > change from v5 to v8
-> > -none
-> > 
-> > Change from v4 to v5
-> > - Remove request_irq() in pci_epc_alloc_doorbell() and leave to EP function
-> > driver, so ep function driver can register differece call back function for
-> > difference doorbell events and set irq affinity to differece CPU core.
-> > - Improve error message when MSI allocate failure.
-> > 
-> > Change from v3 to v4
-> > - msi change to use msi_get_virq() avoid use msi_for_each_desc().
-> > - add new struct for pci_epf_doorbell_msg to msi msg,virq and irq name.
-> > - move mutex lock to epc function
-> > - initialize variable at declear place.
-> > - passdown epf to epc*() function to simplify code.
-> > ---
-> >  drivers/pci/endpoint/Makefile     |  1 +
-> >  drivers/pci/endpoint/pci-ep-msi.c | 82 +++++++++++++++++++++++++++++++++++++++
-> >  include/linux/pci-ep-msi.h        | 28 +++++++++++++
-> >  include/linux/pci-epf.h           | 16 ++++++++
-> >  4 files changed, 127 insertions(+)
-> > 
-> > diff --git a/drivers/pci/endpoint/Makefile b/drivers/pci/endpoint/Makefile
-> > index 95b2fe47e3b06..c502ea7ef367c 100644
-> > --- a/drivers/pci/endpoint/Makefile
-> > +++ b/drivers/pci/endpoint/Makefile
-> > @@ -6,3 +6,4 @@
-> >  obj-$(CONFIG_PCI_ENDPOINT_CONFIGFS)	+= pci-ep-cfs.o
-> >  obj-$(CONFIG_PCI_ENDPOINT)		+= pci-epc-core.o pci-epf-core.o\
-> >  					   pci-epc-mem.o functions/
-> > +obj-$(CONFIG_GENERIC_MSI_IRQ)		+= pci-ep-msi.o
-> 
-> I don't think we should build this driver for generic CONFIG_GENERIC_MSI_IRQ
-> Kconfig. You should create a new EP specific Kconfig and make it depend on
-> CONFIG_GENERIC_MSI_IRQ.
-> 
-> > diff --git a/drivers/pci/endpoint/pci-ep-msi.c b/drivers/pci/endpoint/pci-ep-msi.c
-> > new file mode 100644
-> > index 0000000000000..549b55b864d0e
-> > --- /dev/null
-> > +++ b/drivers/pci/endpoint/pci-ep-msi.c
-> > @@ -0,0 +1,82 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * PCI Endpoint *Controller* (EPC) MSI library
-> > + *
-> > + * Copyright (C) 2025 NXP
-> > + * Author: Frank Li <Frank.Li@nxp.com>
-> > + */
-> > +
-> > +#include <linux/device.h>
-> > +#include <linux/irqdomain.h>
-> > +#include <linux/module.h>
-> > +#include <linux/msi.h>
-> > +#include <linux/of_irq.h>
-> > +#include <linux/pci-epc.h>
-> > +#include <linux/pci-epf.h>
-> > +#include <linux/pci-ep-cfs.h>
-> > +#include <linux/pci-ep-msi.h>
-> > +#include <linux/slab.h>
-> > +
-> > +static void pci_epf_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
-> > +{
-> > +	struct pci_epf *epf = to_pci_epf(desc->dev);
-> > +
-> > +	if (epf && epf->db_msg && desc->msi_index < epf->num_db)
-> > +		memcpy(&epf->db_msg[desc->msi_index].msg, msg, sizeof(*msg));
-> > +}
-> > +
-> > +int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
-> > +{
-> > +	struct pci_epc *epc = epf->epc;
-> > +	struct device *dev = &epf->dev;
-> > +	struct irq_domain *dom;
-> > +	void *msg;
-> > +	u32 rid;
-> > +	int ret;
-> > +	int i;
-> > +
-> > +	rid = PCI_EPF_DEVID(epf->func_no, epf->vfunc_no);
-> > +	dom = of_msi_map_get_device_domain(epc->dev.parent, rid, DOMAIN_BUS_PLATFORM_MSI);
-> > +	if (!dom) {
-> > +		dev_err(dev, "Can't find msi domain\n");
-> 
-> s/msi/MSI
-> 
-> Perhaps, "Can't find MSI domain for parent device" to be more explicit that we
-> are searching for MSI domain in parent device?
-> 
-> > +		return -EINVAL;
-> 
-> -ENODATA
+Analog Devices is taking responsability for the maintenance of the Maxim
+GMSL2/3 devices.
+Add myself to the maintainers list and to the device tree bindings.
 
-Sorry, -ENODEV here and below.
+Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml | 1 +
+ MAINTAINERS                                                     | 1 +
+ 2 files changed, 2 insertions(+)
 
-- Mani
-
+diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
+index d1e8ba6e368e..15ab37702a92 100644
+--- a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
+@@ -9,6 +9,7 @@ title: MAX96717 CSI-2 to GMSL2 Serializer
+ 
+ maintainers:
+   - Julien Massot <julien.massot@collabora.com>
++  - Cosmin Tanislav <cosmin.tanislav@analog.com>
+ 
+ description:
+   The MAX96717 serializer converts MIPI CSI-2 D-PHY formatted input
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 276c5a0b2dc5..c4bf1503eae3 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14742,6 +14742,7 @@ F:	drivers/media/i2c/max96714.c
+ 
+ MAX96717 GMSL2 SERIALIZER DRIVER
+ M:	Julien Massot <julien.massot@collabora.com>
++M:	Cosmin Tanislav <cosmin.tanislav@analog.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
 -- 
-மணிவண்ணன் சதாசிவம்
+2.50.0
+
 
