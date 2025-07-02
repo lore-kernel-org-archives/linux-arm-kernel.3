@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DCACC83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 07:36:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84CE5C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 07:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MGFafObwsjVU02Eyh4DXUOkXxUN1m7wsbVF2MFpd8xY=; b=1LXgO3WBP1V/q5vd3d2iaEsMOR
-	8bRL/hnihZOJLzj2ftYw1AObGsXrTbcbQ+7ykh3dG9bz0RJ7n66Q1qfVVbMVhKZLQLDDmgsAMy2u2
-	juLsglMV876hNzwAQQO8wsl17q0IDigbWMo3WwjF/9sJEvMTOcPaWDl9WJ+Y+kST1BnMzDpcL0lYl
-	psDicuCb3CwDwdDC4u2M20Xh9/Kbnyioy4WWMkJrT51LfCMvz0IlhQ6AJ2xcvx6vhknLFwIn2dFBK
-	n0sVv7DuoGxNo+KdBXwysDtYLkyySlJ+Jb46/FbOaDu/DSTkHxU6KUw7PS9Sqx1jzDGusrsQirtFe
-	iQv+tXww==;
+	bh=g3H13LtSgQj1P8RdnugkkMSydyZVAi3d+H2HGvnEnuk=; b=jVK+7vUkT1LMH/g27uDS+luh4s
+	VtGEtV6ZMzGbTN9lscDStDrVF+Fyijqc1BY6BC7d/UJldUqlIwhkm2sIrC7CKJ2FlEprwphImC5zW
+	D/RBSCMSZAQgK4IDN7SD6cPDGBFKHQodDJPxplcT3SYzfFmx2OKPO/el1bNX0h5floU8/m3NGFh8a
+	MmqqAtGUX5mx0RO11jCkFvUEvLCvWtPr9U/EuAFwWgfrft2Ln4StULQc65fkfrTId9fAX90NEGGXE
+	JFBJ2/vGeS6jcRwQ8YPWdOOaP4hfT5122gspVpxErfI6VZBzftARmF9fNMrg1XSbg1b2YwfB9X/uR
+	AaakWHeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWs1H-00000007VjN-429F;
-	Wed, 02 Jul 2025 07:36:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uWs7q-00000007WdK-1WT6;
+	Wed, 02 Jul 2025 07:43:26 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWryx-00000007VX6-1wow
+	id 1uWs5V-00000007WKn-23EO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 07:34:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CDA2E5C117D;
-	Wed,  2 Jul 2025 07:34:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4068C4CEEE;
-	Wed,  2 Jul 2025 07:34:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1751441654;
-	bh=hP4hON7E7oXvPH0f+fMbPL2IxVBYqXaro2alxaWbcoo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E/a6/TsNsNnMYUxaIXN827neJHzWqgazQ3TV8Ous25tztEpY6hR3c7mBETYq0TyL4
-	 vuemE43LrGprxUXhuRxN0m3dudlWn8yjnciyTEBVayDdM6690odTKiqJahl3NRQPJg
-	 kS5zlbBr74aXYyq4tOj3Xc7Bq3A/vuzl89M4UlAI=
-Date: Wed, 2 Jul 2025 09:34:12 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>,
-	linux-pm@vger.kernel.org, "Rafael J . Wysocki" <rafael@kernel.org>,
-	Michael Grzeschik <m.grzeschik@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Johan Hovold <johan@kernel.org>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 17/24] driver core: Export get_dev_from_fwnode()
-Message-ID: <2025070205-ignore-passive-17b4@gregkh>
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <20250701114733.636510-18-ulf.hansson@linaro.org>
+	Wed, 02 Jul 2025 07:41:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=g3H13LtSgQj1P8RdnugkkMSydyZVAi3d+H2HGvnEnuk=; b=Kcys7Ugp8rQKNiCWyTG7s6sUVv
+	QlBDGrO0b/gCjZt2iBE4wlc6AKF/POB7eBKUT2vgJ+DdhOKyXYqOvD5PR3go1d0Jfv80adtrfx9Ye
+	kYIBvINgOa/LvHawepNQhG6C2RxWjlMzJ/cmZ00gEXD2rgOWJkqnhXzvtURYNreVhX5w=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uWs5A-00HYLu-BX; Wed, 02 Jul 2025 09:40:40 +0200
+Date: Wed, 2 Jul 2025 09:40:40 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: rentao.bupt@gmail.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Tao Ren <taoren@meta.com>
+Subject: Re: [PATCH 5/5] ARM: dts: aspeed: Add Facebook Darwin (AST2600) BMC
+Message-ID: <a6f6966b-50ee-4b4f-9422-96c6ac9391a2@lunn.ch>
+References: <20250702050421.13729-1-rentao.bupt@gmail.com>
+ <20250702050421.13729-6-rentao.bupt@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250701114733.636510-18-ulf.hansson@linaro.org>
+In-Reply-To: <20250702050421.13729-6-rentao.bupt@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_003415_550012_6B8AB2B2 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20250702_004101_529498_7AAB6E85 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,21 +72,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 01, 2025 at 01:47:19PM +0200, Ulf Hansson wrote:
-> It has turned out get_dev_from_fwnode() is useful at a few other places
-> outside of the driver core, as in gpiolib.c for example. Therefore let's
-> make it available as a common helper function.
+On Tue, Jul 01, 2025 at 10:04:16PM -0700, rentao.bupt@gmail.com wrote:
+> From: Tao Ren <rentao.bupt@gmail.com>
 > 
-> Suggested-by: Saravana Kannan <saravanak@google.com>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
-> Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xilinx ZynqMP ZCU106
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Add initial device tree for the Meta (Facebook) Darwin AST2600 BMC.
+> 
+> Darwin is Meta's rack switch platform with an AST2600 BMC integrated for
+> health monitoring purpose.
+> 
+> Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
 > ---
->  drivers/base/core.c    | 8 ++++++--
->  include/linux/device.h | 1 +
->  2 files changed, 7 insertions(+), 2 deletions(-)
+>  arch/arm/boot/dts/aspeed/Makefile             |  1 +
+>  .../dts/aspeed/aspeed-bmc-facebook-darwin.dts | 92 +++++++++++++++++++
+>  2 files changed, 93 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
 > 
+> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+> index 2e5f4833a073..debbfc0151f8 100644
+> --- a/arch/arm/boot/dts/aspeed/Makefile
+> +++ b/arch/arm/boot/dts/aspeed/Makefile
+> @@ -20,6 +20,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+>  	aspeed-bmc-facebook-bletchley.dtb \
+>  	aspeed-bmc-facebook-catalina.dtb \
+>  	aspeed-bmc-facebook-cmm.dtb \
+> +	aspeed-bmc-facebook-darwin.dtb \
+>  	aspeed-bmc-facebook-elbert.dtb \
+>  	aspeed-bmc-facebook-fuji.dtb \
+>  	aspeed-bmc-facebook-galaxy100.dtb \
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
+> new file mode 100644
+> index 000000000000..f902230dada3
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
+> @@ -0,0 +1,92 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +// Copyright (c) 2021 Facebook Inc.
+> +
+> +/dts-v1/;
+> +
+> +#include "ast2600-facebook-netbmc-common.dtsi"
+> +
+> +/ {
+> +	model = "Facebook Darwin BMC";
+> +	compatible = "facebook,darwin-bmc", "aspeed,ast2600";
+> +
+> +	aliases {
+> +		serial0 = &uart5;
+> +		serial1 = &uart1;
+> +		serial2 = &uart2;
+> +		serial3 = &uart3;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = &uart5;
+> +	};
+> +
+> +	iio-hwmon {
+> +		compatible = "iio-hwmon";
+> +		io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
+> +			      <&adc0 4>, <&adc0 5>, <&adc0 6>, <&adc0 7>,
+> +			      <&adc1 0>, <&adc1 1>, <&adc1 2>, <&adc1 3>,
+> +			      <&adc1 4>, <&adc1 5>, <&adc1 6>, <&adc1 7>;
+> +	};
+> +
+> +	spi_gpio: spi {
+> +		num-chipselects = <1>;
+> +		cs-gpios = <&gpio0 ASPEED_GPIO(X, 0) GPIO_ACTIVE_LOW>;
+> +	};
+> +};
+> +
+> +/*
+> + * BMC's "mac3" controller is connected to BCM53134P's IMP_RGMII port
+> + * directly (fixed link, no PHY in between).
+> + * Note: BMC's "mdio0" controller is connected to BCM53134P's MDIO
+> + * interface, and the MDIO channel will be enabled in dts later (when
+> + * "bcm53xx" driver's probe failure is solved on the platform).
+> + */
+> +&mac3 {
+> +	status = "okay";
+> +	phy-mode = "rgmii";
 
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+How do RGMII delays work? Connections to switches have to be handled
+different to PHYs, to avoid double delays. But is there extra long
+clock lines? Or are you expecting the switch to add the delays?
+
+      Andrew
 
