@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74AFC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7EEC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y8tEJ4L12b3FphLKr1i4C2SoKT+sLBX5ZgRwp48HY7c=; b=zI0NBPK9BiS+2kg+5hk0vPFLka
-	uKK7MQ9CwojFWn7bb8nBl++tRSZiwLfd/uLS9NnlZrLSZI5LkfjlTDuNSOrmVGTjM9U8Ag8bnTaOl
-	anyUKlP4qpS4fruGTVvv5tkBaulP8aICcbTZjlVbsVFnP30WZHFnfNRPUIRCUDEwCRbgJQ1SrKeho
-	X7IRI1BWqwg9BoJfOveOntGkgy44TcYlbaZvFUg8tSOKNb77trV1EST9mfvf7q3QzT5Qkq/VrRrgI
-	h7QnTG2YaxsqdYL4SAlSmfsGUAvbjXzCXcryPpljrXsLTr3EYXFKlav2V0NhGMV0/7Tt49Xbl/uWR
-	LcX/Y43Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fe/YxVKoC2fn46SpQ1KgS3L3WodKPIMLOl4hzG83lAM=; b=0V0GoVMJ7N8eX1UqWOwq70tfIf
+	Yx0tSedluacCejRKtN4fhtbt4G19OX16CUEmiLqnSyV4dleEaFWBq6Okjng16D5sg4dVosQUqKZIX
+	Uan84BppF1qLeL0Rbut48scz+0lpHvq1SRMW9OIDXRYP/EVouHvlt+GKvRRR/MvoBfCIqLCsMEd8J
+	AwxPuSLF8x34beBYUmO4vFaSLW8RiP0f+vNnSdThdH9zLzCpvEMqWHgDt7FOiaU4TsaTkwE7RB6U4
+	W7CiFDTtb8nZ0u48HzrHTJmdmca7+bG1wcqRMOk1Q3tE+xPX4dosfwTxorjYpCvEodijTT8N2w/zA
+	0epIjiyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWv51-000000080yc-0vSz;
-	Wed, 02 Jul 2025 10:52:43 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+	id 1uWv7K-000000081TS-2aNh;
+	Wed, 02 Jul 2025 10:55:06 +0000
+Received: from mail-m16.yeah.net ([220.197.32.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWuDU-00000007rnp-21bg
+	id 1uWuKG-00000007sov-0CW6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 09:57:26 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4bXFdD20wTz2Bcph;
-	Wed,  2 Jul 2025 17:55:28 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 471F11A0190;
-	Wed,  2 Jul 2025 17:57:15 +0800 (CST)
-Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 2 Jul 2025 17:57:15 +0800
-Received: from [10.67.121.115] (10.67.121.115) by
- kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 2 Jul 2025 17:57:14 +0800
-Message-ID: <ffd3fccc-af4a-6667-3cf6-a55e866f3057@hisilicon.com>
-Date: Wed, 2 Jul 2025 17:57:13 +0800
+	Wed, 02 Jul 2025 10:04:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=fe/YxVKoC2fn46SpQ1KgS3L3WodKPIMLOl4hzG83lAM=;
+	b=gkqMxnx3uoIlJH5llmNZd4DLnuRBkeFsEB58E8+ZEbFfFGqBeCw4/sRbCMLM4j
+	F9Y/qF4T8goy1lXk5MrOrLEoFE19j37iBv8UWFnZfWYL35QOEg4ZlYSsLBVZxUiY
+	wrt9bgvtw8hviTdpfyXWHYWLzWFWIRbvsOm7B+UnD7K3U=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgC3tuPOA2VoldwpAA--.26848S3;
+	Wed, 02 Jul 2025 18:02:56 +0800 (CST)
+Date: Wed, 2 Jul 2025 18:02:53 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Matteo Lisi <matteo.lisi@engicam.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
+	Eric Biggers <ebiggers@google.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	Tim Harvey <tharvey@gateworks.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [RESEND PATCH v4 00/10] Support Engicam MicroGEA boards
+Message-ID: <aGUDza5XRGDqfz5n@dragon>
+References: <20250620082736.3582691-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH] ARM64: errata: Add workaround for HIP10/HIP10C erratum
- 162200803
-Content-Language: en-US
-To: Marc Zyngier <maz@kernel.org>
-CC: Oliver Upton <oliver.upton@linux.dev>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<tangnianyao@huawei.com>, <wangwudi@hisilicon.com>
-References: <20250626124142.2035110-1-wangzhou1@hisilicon.com>
- <86wm8ybpk5.wl-maz@kernel.org>
- <0b54db94-8a6f-cea0-a6f7-dbe8650d66dd@hisilicon.com>
- <86h5zwba5i.wl-maz@kernel.org>
-From: Zhou Wang <wangzhou1@hisilicon.com>
-In-Reply-To: <86h5zwba5i.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.115]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemq200004.china.huawei.com (7.202.195.237)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250620082736.3582691-1-dario.binacchi@amarulasolutions.com>
+X-CM-TRANSID: Ms8vCgC3tuPOA2VoldwpAA--.26848S3
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Wr4kuFWkJF4kGF15Gw1fCrg_yoWxtFcEka
+	1rGF48X3yYgrZIqw13uws0qrn0qw1rXr43JFWjvr13Wr9Fyrn0kF4rt3Z3WFWUJ3WYvF1D
+	JFW8Ga4Sqr1DWjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUj73kJUUUUU==
+X-Originating-IP: [114.216.146.217]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiAQl+ZWhkuzL7xgAAsr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_025724_902110_BF5C879E 
-X-CRM114-Status: GOOD (  30.57  )
+X-CRM114-CacheID: sfid-20250702_030424_420598_853E18B0 
+X-CRM114-Status: UNSURE (   6.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,176 +97,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/7/1 16:14, Marc Zyngier wrote:
-> On Fri, 27 Jun 2025 07:36:31 +0100,
-> Zhou Wang <wangzhou1@hisilicon.com> wrote:
->>
->> On 2025/6/26 21:27, Marc Zyngier wrote:
->>> On Thu, 26 Jun 2025 13:41:42 +0100,
->>> Zhou Wang <wangzhou1@hisilicon.com> wrote:
->>>>
->>>> For GICv4.0 of Hip10 and Hip10C, it has a SoC bug with vPE schedule:
->>>> when multiple vPEs are sending vpe schedule/deschedule commands
->>>> concurrently and repeatedly, some vPE schedule command may not be
->>>> scheduled, and it will cause the command timeout.
->>>>
->>>> The hardware implementation is that there is one GIC hardware in one CPU die,
->>>> which handles all vPE schedule operations one by one in all CPUs of this die.
->>>> The bug is that if the number of queued vPE schedule operations is more
->>>> than a certain value, the last vPE schedule operation will be lost.
->>>>
->>>> One possible way to solve this problem is to limit the number of vLPIs, so
->>>> the hardware could spend less time to scan virtual pending table when it
->>>> handles the vPE schedule operations, so the queued vPE schedule operations
->>>> will never be more than above certain value.
->>>>
->>>> Given the number of CPUs of die, and imagine there is 100 vPE schedule
->>>> operations per second one CPU, it can be calculated that we can limit
->>>> the number of vLPI to 4096 for virtual machine to avoid the issue.
->>>>
->>>> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
->>>> ---
->>>>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
->>>>  arch/arm64/Kconfig                          | 12 ++++++++++++
->>>>  arch/arm64/include/asm/cputype.h            |  4 ++++
->>>>  arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
->>>>  arch/arm64/kvm/vgic/vgic-mmio-v3.c          |  5 +++++
->>>>  arch/arm64/tools/cpucaps                    |  1 +
->>>>  include/linux/irqchip/arm-gic-v3.h          |  1 +
->>>>  7 files changed, 40 insertions(+)
->>>>
->>>
->>> [...]
->>>
->>>> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
->>>> index ae4c0593d114..495a56e9dc4b 100644
->>>> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
->>>> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
->>>> @@ -81,6 +81,11 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
->>>>  		if (vgic_has_its(vcpu->kvm)) {
->>>>  			value |= (INTERRUPT_ID_BITS_ITS - 1) << 19;
->>>>  			value |= GICD_TYPER_LPIS;
->>>> +			/* Limit the number of vlpis to 4096 */
->>>> +			if (cpus_have_final_cap(ARM64_WORKAROUND_HISI_162200803) &&
->>>> +			    kvm_vgic_global_state.has_gicv4 &&
->>>> +			    !kvm_vgic_global_state.has_gicv4_1)
->>>> +				value |= 11 << GICD_TYPER_NUM_LPIS_SHIFT;
->>>
->>> This really doesn't solve your problem. Yes, the guest *may* honor
->>> this limit. But KVM doesn't care and will happily allocate 2^16 vLPIs
->>> if the guest asks -- there is no code enforcing this limit.
->>
->> Hi Marc,
->>
->> I am not sure if there is any other place guest can ask vLPI over
->> the limitation except for MAPTI/MAPT below?
->>
->>> And even if we did. What would we do on a MAPTI command that tries to
->>> map a vLPI outside of the allowed range? Do we need to tell the guest
->>> it has screwed up?
->>
->> Thanks for pointing this. Yes, we miss the lpi_nr checking in vgic_its_cmd_handle_mapi.
->> In fact, the fix of this errata introduces the usage of GICD.num_LPI,
->> so we need make related logic right as well.
-> 
-> Exactly.
-> 
->>
->> I am not sure that if we could add related checking for lpi_nr in MAPTI/MAPI
->> as part of this errata fix, or we should add the basic support for
->> GICD.num_LPI before adding this errata?
-> 
-> You definitely need to handle that before allowing such limit to be
-> enforced. Which also means allowing the limit to be saved/restored
-> from userspace in order to support migration.
+On Fri, Jun 20, 2025 at 10:27:04AM +0200, Dario Binacchi wrote:
+> Dario Binacchi (10):
+>   dt-bindings: arm: fsl: support Engicam MicroGEA BMM board
+>   ARM: dts: imx6ul: support Engicam MicroGEA-MX6UL SoM
+>   ARM: dts: imx6ul: support Engicam MicroGEA BMM board
+>   ARM: imx_v6_v7_defconfig: cleanup with savedefconfig
+>   ARM: imx_v6_v7_defconfig: select CONFIG_INPUT_PWM_BEEPER
+>   dt-bindings: arm: fsl: support Engicam MicroGEA RMM board
+>   ARM: dts: imx6ul: support Engicam MicroGEA RMM board
+>   dt-bindings: arm: fsl: support Engicam MicroGEA GTW board
+>   ARM: dts: imx6ul: support Engicam MicroGEA GTW board
+>   ARM: imx_v6_v7_defconfig: select CONFIG_USB_HSIC_USB3503
 
-Seems that in KVM we do not consider GICD_TYPER in migration. How about
-making GICD_TYPER.num_LPIs as a default configuration, when KVM version is
-same between source and destination during migration, the logic is still right.
+Applied all, thanks!
 
-Something like:
-
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index eb1205654ac8..2071b1445b22 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -385,6 +385,7 @@ int vgic_init(struct kvm *kvm)
- 	/* freeze the number of spis */
- 	if (!dist->nr_spis)
- 		dist->nr_spis = VGIC_NR_IRQS_LEGACY - VGIC_NR_PRIVATE_IRQS;
-+	dist->nr_lpis = 2 ^ (INTERRUPT_NUM_LPIS + 1);
-
- 	ret = kvm_vgic_dist_init(kvm, dist->nr_spis);
- 	if (ret)
-@@ -433,6 +434,7 @@ static void kvm_vgic_dist_destroy(struct kvm *kvm)
- 	kfree(dist->spis);
- 	dist->spis = NULL;
- 	dist->nr_spis = 0;
-+	dist->nr_lpis = 0;
- 	dist->vgic_dist_base = VGIC_ADDR_UNDEF;
-
- 	if (dist->vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 534049c7c94b..c770eadc5188 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -1047,7 +1047,8 @@ static int vgic_its_cmd_handle_mapi(struct kvm *kvm, struct vgic_its *its,
- 	else
- 		lpi_nr = event_id;
- 	if (lpi_nr < GIC_LPI_OFFSET ||
--	    lpi_nr >= max_lpis_propbaser(kvm->arch.vgic.propbaser))
-+	    lpi_nr >= max_lpis_propbaser(kvm->arch.vgic.propbaser) ||
-+	    lpi_nr >= GIC_LPI_OFFSET + kvm->arch.vgic.nr_lpis)
- 		return E_ITS_MAPTI_PHYSICALID_OOR;
-
- 	/* If there is an existing mapping, behavior is UNPREDICTABLE. */
-diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-index ae4c0593d114..224d0d88c823 100644
---- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-@@ -81,6 +81,7 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
- 		if (vgic_has_its(vcpu->kvm)) {
- 			value |= (INTERRUPT_ID_BITS_ITS - 1) << 19;
- 			value |= GICD_TYPER_LPIS;
-+			value |= (ilog2(vgic->nr_lpis) - 1) << 11;
- 		} else {
- 			value |= (INTERRUPT_ID_BITS_SPIS - 1) << 19;
- 		}
-diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index 4349084cb9a6..e11792dafcdf 100644
---- a/arch/arm64/kvm/vgic/vgic.h
-+++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -16,6 +16,7 @@
-
- #define INTERRUPT_ID_BITS_SPIS	10
- #define INTERRUPT_ID_BITS_ITS	16
-+#define INTERRUPT_NUM_LPIS	14
- #define VGIC_LPI_MAX_INTID	((1 << INTERRUPT_ID_BITS_ITS) - 1)
- #define VGIC_PRI_BITS		5
-
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 4a34f7f0a864..b637dc9460d9 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -296,6 +296,7 @@ struct vgic_dist {
- 	 * else.
- 	 */
- 	struct its_vm		its_vm;
-+	int			nr_lpis;
- };
-
-However，migration between different KVMs will be broken :(
-I am not sure that should we consider this case as well?
-
-Thanks,
-Zhou
-
-> 
-> I was really hoping to never have to support this thing (it really is
-> terrible), but if we have to introduce and honor it for correctness
-> reasons, then it has to be fully supported>
-> Thanks,
-> 
-> 	M.
-> 
 
