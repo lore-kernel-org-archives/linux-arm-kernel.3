@@ -4,95 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B446C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 18:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D74DAC83038
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 18:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iF2pwmDnVnBgNlC3R2Sp9Qq8gNWHcSlx8oSPJnFeIBg=; b=ZiwMTHDZVlz9vmYCgf5dTv9UFC
-	3OfZjWf+GQs2HdIRXYuEyFRKGLRl1opJAZWCqpEepzFRdiP9adXL+wGXVsENJOUSUye2ckR4wseDB
-	wRC9mBOSfXVuUMR8lxRskehCk+WoLeTNC6b7YJF5TV38w/QB7WK0GLUdFdZS68bQIsGTWlxnoDmNn
-	uau1zjOniKqfhIgH0QA4uXx5FokcSUY6j5ViJCdhhq0OVeEVCDD0YDkAkFsab5+eInV8Zw0sZEbq9
-	xBICGiHuHgM0BiF3buKFSY65iLxT9qktGDLaL0V+4+rXpVZaPAAFDSP1OQ17iPvhUUbUWRoAfSiXm
-	BwHuEjFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ahBVFiKyg/ckLbTcMjBlyLyT+Nnm+2lu1r9LQkyhkME=; b=otthV8+YpMK7l/m90xdjQE9FVX
+	PlUqTfbXZQvxbwg5nmZPMg8/BnhHelwYkW/qBAPmX8w2OpyO5F/wYtuHDl+3v7Soydj/ru+mYv8Ao
+	WqxBoqyDYM6dEX8YQigl2aheUgcN2krUPoZz8f9GcRihmU8T65ZC2/qvxQD0gOQTcFkJdi+4rvNYd
+	RpJFkYWLJna9aV+TxAQdik9cILQF6K2tEfxje/rwhX1gP213bp5irUbSsTQNbxcWs3zIjnVybGv9C
+	HlNJ6cj98NQluoIVroBdZvsSiDk7YH8s0t2Qf0yx+J38Ayd8vMwwMRCXLsj+Ir1shZGkldewmKBxC
+	a9VYw+ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX217-00000009F8q-1xq9;
-	Wed, 02 Jul 2025 18:17:09 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uX23R-00000009FPm-0gNd;
+	Wed, 02 Jul 2025 18:19:33 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX1yk-00000009Ekd-0q8x
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 18:14:44 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-453749aef9eso28254345e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 11:14:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751480080; x=1752084880; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iF2pwmDnVnBgNlC3R2Sp9Qq8gNWHcSlx8oSPJnFeIBg=;
-        b=BB5cE8jyB7PcoIRyFEZXnmfKJDtuPkXvU2qx3A8pS0i7ZZDCo848oJRJD01uXpugZQ
-         Offd3IDPMVw6vOZdlrQO4wghw4YeYPM68Nts7DPUFq5qqMO8R3mQApRhRNKMTCse2q2o
-         UwNoVOQ6uC+IAh4Ap22l86ofFwu/TihxBWnIK1x53pix2okP8iI8NoPfNMPLNiz4XaJo
-         O2VaEjzB+eWq5QB1tfAWTFUh6vLOFDI8shFZtNEOfwJ8zpxyOOJzLLd9RA6oGD8EQ/UD
-         GDGw4/6AC8KC6fdDaYdNpUAD6wcOA2OUxtF24rbwlJ/oU4WS+T6b0+Wkq+EK8Z9l0BzY
-         46gw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751480080; x=1752084880;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iF2pwmDnVnBgNlC3R2Sp9Qq8gNWHcSlx8oSPJnFeIBg=;
-        b=f1cd9M0O4wYEfFgY4rrwYUO2OgsX/bUmVQ+ltrUVXdSMQuBPJAid1lwV2QjTGsddIh
-         GBsS7q2uMOZefC2kVFN1eCT4vCHJHWemSDI90KR1LnxjaKEGA9N4hlBbwKeWlm3juIZB
-         Eg2Q2uqpHnrr+Ga4Ig6KOnkDHOcPKklB/0hB9tk2LsiTJxy2f8x4B3yGPjpblQH8MG62
-         OD//JJoQBRYhAN8TDYGeKfgxEX6sXtJbJW20v+mXyBGdHG8BsH5PnWcatTsGLQgdbz0z
-         YOVMI1FSCUdn6RDW71UahFPl/XiBnIhIlvZgkA5SNb0krebsTeGFmnxyFL1JrA4r5XzE
-         sq6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWzT/uLASldNZf4s5glLc6q4zW5j6UmIJfpRZv2WAk8pzMVi0/HrTyqGeJnjc1kimoqiQX1rvtHaoXqCQyupYfc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjfOTr5ETr6V5h3hCirySmIH9BB91xrrMRMKGfJKemNfPWqj81
-	D+nmKc8MgGrIV7PvH5hz1+sGSXJs0MJVFMNrwPnnTl8uzY31SNmdDBxwk4gA7t2em20=
-X-Gm-Gg: ASbGncviSEbhBMGuobKj8Fxycq+Bynkfj/wHWzWZT2yVKCz6WW6VveIWOFN/EhRaeIt
-	HNVvdgG+/57TbtCQH/k7qPk7eaQGOO/bDAQUx++KAhheXMoeHh4I62l+ojXaBVoYSobdLIn4pmg
-	Upi4wEHKh4TSTConVL+VsXfpRB81z1eEn272vJwEdmSRXHT+1P0qniS8v5OEE0i7GvYG7zTbVAP
-	TrKVePoIwWKVn4V4Zpi7lbJPPsknH/+JAXQUSDvccUdLD4ryMJ7Q+S6ZAzON5SoxUshaNSc7sMG
-	FxP42usCqv9hnGwVmit6u+NF60KOSfoU1LukxTKtzYV/+4eItZvvoxJd8EBIxjo7uoMhXZqpDIa
-	8nogZr3MdYQVx3WE66XSgB6YtS4i0JKZvCQ==
-X-Google-Smtp-Source: AGHT+IEJVH+W+cvPNVB9masQuVIjw1/4pd1uCDTCuFbsfIezp0x+6PzwSC9D9AUHrQ5rPRHOy4i8Fg==
-X-Received: by 2002:a05:600c:4e05:b0:450:d00d:588b with SMTP id 5b1f17b1804b1-454a9c93836mr7813825e9.9.1751480080374;
-        Wed, 02 Jul 2025 11:14:40 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:e50:3860:9dba:9a50:1cc3:93af? ([2a01:e0a:e50:3860:9dba:9a50:1cc3:93af])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a9989328sm4674325e9.18.2025.07.02.11.14.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Jul 2025 11:14:39 -0700 (PDT)
-Message-ID: <d5a03f2c-21a2-4cd6-acfe-9142f51a8655@baylibre.com>
-Date: Wed, 2 Jul 2025 20:14:38 +0200
+	id 1uX210-00000009F8H-3R3v;
+	Wed, 02 Jul 2025 18:17:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gvVw2MhtKt0oFzRLPEC0LIWXgg7C2k1YpwXAcJXqPN3MpcTIYFLur8pvk0H7AVIyv2wpqTe9gZXavQMR1xJOjWV+jE+8pEAIp1poem9AtuMmFwvGIOVu7ah2EmhSrcucpODm3/tbGdXVej4feBopAZJkkwd+JCAa4FSkw3nQUddStcX+gYOUtWkrXE9i/vyDy8wJgrOVeIZVR5E/D2l27nBymny3g0/7yKMprmuxvE6DTWhWnvGDON4hX0nl+3985EMHxmKP9+2k6DuE9IyK6Jv6oL0d9Gzbf10rds1WyHWINpgy0epxEzTOB1u1Kb1ww2xiQSNN8AMtUUjgxeYKBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ahBVFiKyg/ckLbTcMjBlyLyT+Nnm+2lu1r9LQkyhkME=;
+ b=XjjOKQKmvbb8raPzu9stCpHCK+KYhetir39VSCDcYl3zBy2iELL/XLI4WR4hlYT1IT8g09IvaGDCZFcHskfaKovnkeJr5UjEOrs534LBfhnzyJe0yCFQoAsz9fN/VW/Q+TukKABPrfbHI7OKFF5q/EQjWWjJEDWgc4JpODzHpWFdpBatSC9CTeb+0YbSMzWCqS6QXBWysy9rjwiyuunWYtHBBOqZt86M4lxajZzOGd7nEhJFmxIzp1dmAlJVWCpLxm26baxuPOU47UC6GLPJfXaBqOeb0We5MpabVlZD6S0dPC7s4cjv+E4vTaejO3AXhjnbK7e2eQqmV987c+TCnA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ahBVFiKyg/ckLbTcMjBlyLyT+Nnm+2lu1r9LQkyhkME=;
+ b=X0t5Gjca5pmNLddco0VvzMrbcE4g/33efFCC/qjE8yIkCQ/+9bWzqNxmY2OR4Ou4SVhZQEs9F3YPEGypu5yHOhsDVtb8W2SA7LqgQlA+kUszya3U8vXBW4dG8JzHCNKOH2fPbFQPm4+E7jnPLzxyO0X//b++aEEZwLjTzGZP2uacAznz3W4cn8sSFLFJU6zTfirCwtVCQW1Ub5bq2TJJtPwQnTPsyrbiewqeNU5nPDlqT+3GXu9Ox1AP5kfSVwM091U/YpxhMrz+STlSLNP2N431sGMTnGRt3tFXQzfHX0oNzn+vtViuusKbbBze3PBN39Gh8st2/PRb6zPNlhSmKg==
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB8PR04MB6780.eurprd04.prod.outlook.com (2603:10a6:10:f9::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.20; Wed, 2 Jul
+ 2025 18:02:14 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8901.018; Wed, 2 Jul 2025
+ 18:02:14 +0000
+From: Frank Li <frank.li@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rui Miguel Silva
+	<rmfrfs@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Eugen Hristev <eugen.hristev@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
+	<peng.fan@nxp.com>, Alice Yuan <alice.yuan@nxp.com>, Vinod Koul
+	<vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-phy@lists.infradead.org"
+	<linux-phy@lists.infradead.org>
+Subject: Re: [PATCH 2/7] dt-bindings: soc: imx-blk-ctrl: add MIPI CSI2 dphy
+ support
+Thread-Topic: [PATCH 2/7] dt-bindings: soc: imx-blk-ctrl: add MIPI CSI2 dphy
+ support
+Thread-Index: AQHb63tw2CUR9oKD+kayCfa0exzFlg==
+Date: Wed, 2 Jul 2025 18:02:14 +0000
+Message-ID: <PAXPR04MB9642848BFCA791A634D276A18840A@PAXPR04MB9642.eurprd04.prod.outlook.com>
+References: <20250701-95_cam-v1-0-c5172bab387b@nxp.com>
+ <20250701-95_cam-v1-2-c5172bab387b@nxp.com>
+ <f0c8c043-9c9d-427c-94a6-f46f6b7d0c50@kernel.org>
+In-Reply-To: <f0c8c043-9c9d-427c-94a6-f46f6b7d0c50@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9642:EE_|DB8PR04MB6780:EE_
+x-ms-office365-filtering-correlation-id: 6edd57f8-d152-48d7-5904-08ddb992933e
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|921020|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?NYfnRZ5wDak3KVJuS2FgS5X/UEArWdUIJAqC7BkZygYo5Sndsmi3UeywxX0F?=
+ =?us-ascii?Q?73o+nyHIVDsDAR02H2sqn+3Kpg363ez76y6XnRXpHud1nJTHKLP6KWADEda5?=
+ =?us-ascii?Q?FoB5nNUgkzWUCakOZPDUu8xVZOnMj2smy4fgFgk1LKnHpFt9DvoseOxKaBzo?=
+ =?us-ascii?Q?CVCrOTChz0YhC1QdOwJ7eLBEBtnJ1h20w11RnNqFOugBaMzS7UEJdKwGRg1n?=
+ =?us-ascii?Q?8ir5eEZlG2Zv5UmBiGhUj3N9/ApmkKtnEjTWnRHffGGUrordwqjL/WgcYGMb?=
+ =?us-ascii?Q?gFytR5Ri+tOm4spwIXst3SvrPlZzfl08pTGPOiXZuc9Q6R1im3pj8zifbF4d?=
+ =?us-ascii?Q?YY23ZqbccmI1GBydedtMFO0xtkKUdrhCjvWiU/iXix9BPSi+4sA7KkdItgO2?=
+ =?us-ascii?Q?qJ31Ijc0n2BwozNyEs4ea/7u0+m9dZhJThFTTJxbBGlxk8G9U0AjRPEbwMp7?=
+ =?us-ascii?Q?pCjDUNjTshRgVEmWbjA9u6z7BDVhQvgKL1NVRoQJezlZHAvSWjnWmgjtW2xm?=
+ =?us-ascii?Q?IZtZz+FPsdh+9VfZVeS6z0bJ2rDNnvTZjhVq6odJFb3wv/6fPffyvnV67mPA?=
+ =?us-ascii?Q?vBc3tyvAVNH3oqyzu1um5shEM3MevMxNbvXRI4AbRaRb4Xnfi+G363W+xnam?=
+ =?us-ascii?Q?liTAPuBUWCyGaCzwqaDbKNFKTIE9LJx6BW5nUjf1o0vLwl8Wy8JIGw/RfDWD?=
+ =?us-ascii?Q?oKT94yT4jSiP98b8qptMjv+24MQrx0AfHZUXUxF0TUlMTMVLV7aAV+GtIbvR?=
+ =?us-ascii?Q?4IryM+8a2WpnVHs95CneiK1AV/DlccfLRiLndlHA+yyeeQsZY0LN8d16jkzF?=
+ =?us-ascii?Q?GOt3RHDlEQSxocvXFXg9T1G1HcQLIJQlEbaR48dh0RHbqFtvF+7xb2tHIdZk?=
+ =?us-ascii?Q?+EuRxcYVdD91ps8DvQvpq4jLDF4ytHvBRgUWglZdA+KbMg1udgL21eEYv3YS?=
+ =?us-ascii?Q?8aRN8WMcVGYtt13fqtHTfFxUDhG3aTHdOsPjfIvWKdtkE4ICCt3p+/oX1ldb?=
+ =?us-ascii?Q?VtQUcaguQW1oFsHieYkhLrAo3j03SPWacK/3X/pJQz75/g9pVm3ETr+VIfRo?=
+ =?us-ascii?Q?fh6lLd/mn8ITTXBWUkButqMGJto1ajFADyVu6gsO+5eaS2IEt5SijG/WKI9K?=
+ =?us-ascii?Q?qGRhtjEbEDiGiyiDtiVPjFnP5wFRN03rDppSxw9mA95E1+mWpKsYgkvHdFQU?=
+ =?us-ascii?Q?yYQa3bR6gB7atIggp72iKTAuizs0H6NhCgD8hFJbhr23o4IThHGQ/3M6rKTd?=
+ =?us-ascii?Q?jMYRL9BvK34Tw8Ur7D+3MYNdsbKiWY07XdsVIwK5E2AoGZKtL0ov41Bv68qr?=
+ =?us-ascii?Q?c3E3nXjveSNuE7xprdpuriounNp1otSRfgaCnbiOFDvl7EFgL2CJBqsPufpU?=
+ =?us-ascii?Q?kc5yaG8eu/0awYrSP2Hyz3r8cWnIlZqM4hROfIJIfHcbowm1bmB5ZomGkhPa?=
+ =?us-ascii?Q?yJKKh/3vvTQjYAFPEf5rP/auOqorYeGO?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(921020)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+BlPLXR0g7dcNtSlrOMCVXqcsIh3EmAUU9n8rPcq9uTZozsqAYdbwEKSgEV8?=
+ =?us-ascii?Q?nqsSL8yTjr5qnmgqVyBOqxi3dcrV/ZEcCCr33p7Ra9ZaZsNw+yl98MpjuWm3?=
+ =?us-ascii?Q?nMnYCIihfVp4O0VwASyvJrCsTzRu4HgFY4boHN5eUlfHIY53AjrTkBVULRoV?=
+ =?us-ascii?Q?84pP/9qDG2CCRapvjrwcVQnhD2mm1CKYYzQ3++9H5+k+7tSBYaaHc/rKbC7E?=
+ =?us-ascii?Q?z+VnbREDTiqgNwbKfWwxDa12+/sIMVui3RQZiWQNkNzmpGSD0SNNuD9oOBT7?=
+ =?us-ascii?Q?bO9D+eDso9ALE9OuSWIFUwORA6EyNDgc7Ba47TLprQBo9WibuN6JzJkRc2Xq?=
+ =?us-ascii?Q?nuGKjKtQ9s3vvr6dGBz9uIBAPCjvwNyPn6dFYE0t0JJD7RnI7N83+qpcMkhL?=
+ =?us-ascii?Q?inNZSN/XlmnaEPwJJ5yl7hLJzxCYIt1Rtx7Wwla7Sytq5ZnoeHYV3tXVmT8v?=
+ =?us-ascii?Q?rsYWqHwiAw7dFr6vpeBvLABhUhrdVO93UecIGvjZ7Nb/eiSYxJEiLBENX6D1?=
+ =?us-ascii?Q?TR1EfjBpjYSZY0b1cnoDKXcZCZr5WeXFpaIRxqXXJBfOU5RI3Ky3GpI101xQ?=
+ =?us-ascii?Q?Rh7NKvjfdAz7Lnw8cXsJQtL2qqjnDQMhoXkUzdyZIc8FRLF4wkW5pYhMa50L?=
+ =?us-ascii?Q?8TyJjIU1P35CdtvI0VDeZCLkoRTTsvc/v4glxTSMjQ8eKZe4ppdPRNr6EuXH?=
+ =?us-ascii?Q?HdjwyS2J0IGYra6EvAkcNjIUwL1qZWwK2wnjGS+vbZXpKDFB11QEUUj/P3+h?=
+ =?us-ascii?Q?VbgXbiSmPO1kgUJKBP07raNE+8Zu7UD6kg/Nm2XB2LrgDlmp/eTu3w+1qLZ5?=
+ =?us-ascii?Q?J+qrftqWb/H789Wopx3KxNJ7+icDdRvGobg3K8m2jW6FdBR5D8aLoe8EuVbs?=
+ =?us-ascii?Q?LAFsMti3rKnulwgYSOFkDo2gYy9fU3ksbS6/loh27LKpB4SZNMyBnnuV/Uo+?=
+ =?us-ascii?Q?fRAQir2gXzw2ArC2J7oWknBnK6Y7yJ5uEDilSMOJov7ADj8avNAKeghfQgMV?=
+ =?us-ascii?Q?9PdJ+kRgYhizPlyb6KmfjDeJ0X+gtpgc8xEGAQwwLSzGDnt9yV1wKV6t5cE7?=
+ =?us-ascii?Q?YG7a0fCpgXXetiRSFdF/oseaq5iFJJmj5+r7RXpkVQbyG/4+YVPGqCfwp+N/?=
+ =?us-ascii?Q?h9hjoK+HHgbpxuXlHhCgCtTUmcsCZcpihKiowaz9PrUFjVhXbf9hY1A/uYnt?=
+ =?us-ascii?Q?I2xojjVm+Gek76HQ+Lt4fYr6WPF1I4OGAZNDa7MrVObVIBu/VcXQahKK5z/t?=
+ =?us-ascii?Q?LA0df5qrZ6KOw7QpQ+6zz6GZQebrCJ1xIpGCQ61Dy4SABcieo6rUxmurA9w3?=
+ =?us-ascii?Q?AgSmA4iUv1szAjDf6veq3Yu77jo0NOM0oVHPIzQQdrxzUjl5TsyYCdaM0K2V?=
+ =?us-ascii?Q?hVzYjkUId0DIlOT1sh8o56b4CqmQmVcHczNBbC+4DHinWHF80mDak1jHUplz?=
+ =?us-ascii?Q?/o0dzbk+q0u98smSJopFYXIK8jw62QrIQ9h/pqt+bD/dEwSzSTwDCS9WgXWr?=
+ =?us-ascii?Q?FTWnBO2RWcSl7koQKGtOtRKlf5q4EKqULR4Dh059+1ntTUsRArezc5s/eZ4D?=
+ =?us-ascii?Q?ENver3oDlzR83yyY2AI=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: Kconfig.platforms: remove useless select for
- ARCH_K3
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
- Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Andrew Davis <afd@ti.com>, vishalm@ti.com, linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Nishanth Menon <nm@ti.com>, linux@ew.tq-group.com
-References: <20250519-kconfig-v2-1-56c1a0137a0f@baylibre.com>
- <f44c7074337b79df9ad67f62acbc268acc344a23.camel@ew.tq-group.com>
- <e0773f0e-8d2f-4918-aaad-aab6345fdb81@baylibre.com>
- <9042d63de85f7ae8bf73760e9d2d7652c18a738c.camel@ew.tq-group.com>
-Content-Language: fr
-From: Guillaume La Roque <glaroque@baylibre.com>
-In-Reply-To: <9042d63de85f7ae8bf73760e9d2d7652c18a738c.camel@ew.tq-group.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6edd57f8-d152-48d7-5904-08ddb992933e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Jul 2025 18:02:14.2714
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: LuQ/Ltnr2as7+yCir18mMiOflWkC+ZV311QYYv52Jbr5StHrWNNdgR/72dG1KY+nxcR5VtW5vkl5paCW69krsw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6780
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_111442_309681_49D68BEA 
-X-CRM114-Status: GOOD (  27.88  )
+X-CRM114-CacheID: sfid-20250702_111702_854192_23384E2F 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,121 +177,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+>
+> On 02/07/2025 00:06, Frank Li wrote:
+> > Add child node dphy-rx, which export phys interface to MIPI CSI2
+> > controller.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > imx media blk ctrl combined many small glue logic registers for display
+> > , camera, power, clk and reset.
+> >
+> > There are some discussion at
+> >
+> https://lore.k/
+> ernel.org%2Fall%2F4414669.ejJDZkT8p0%40steina-
+> w%2F&data=3D05%7C02%7CFrank.Li%40nxp.com%7C7ade0a318b37496d628
+> 608ddb93398af%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C
+> 638870353425054747%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGk
+> iOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIj
+> oyfQ%3D%3D%7C0%7C%7C%7C&sdata=3D1gHgVYaxpYxqwBoJVSRJKzbtG3WY
+> E%2Beb1BqkaGEctUA%3D&reserved=3D0
 
-+ Vignesh who was lost in email list , sorry for that
+Sorry, I have to use stupid outlook reply this email because my git send em=
+ail
+always report failure, not sure if company block it. I am trying to fix it.
 
-Le 02/07/2025 à 09:25, Matthias Schiffer a écrit :
-> On Tue, 2025-07-01 at 20:57 +0200, Guillaume La Roque wrote:
->>
->> Le 01/07/2025 à 16:36, Matthias Schiffer a écrit :
->>> On Mon, 2025-05-19 at 10:20 +0200, Guillaume La Roque wrote:
->>>>
->>>> After patch done on TI_MESSAGE_MANAGER[1] and TI_SCI_PROTOCOL[2] driver
->>>> select on ARCH_K3 are not needed anymore.
->>>> Select MAILBOX by default is not needed anymore[3],
->>>> PM_GENERIC_DOMAIN if PM was enabled by default so not needed.
->>>
->>> Hi,
->>
->> Hi,
->>
->>>
->>> what selects PM_GENERIC_DOMAIN in your configuration? linux-next fails to boot
->>> on our AM62x-based TQMa62xx if I don't (partially) revert this patch - I have
->>> not found a way to enable PM_GENERIC_DOMAIN and TI_SCI_PM_DOMAINS without
->>> enabling other unneeded features to pull it in.
->>>
->> With master branch if i apply this patch and i do make ARCH=arm64
->> defconfig and check in .config  both TI_SCI_PM_DOMAINS and
->> PM_GENERIC_DOMAINS are enabled.
->> with linux-next it's same. i don't really understand link with  PM part
->> in this patch and boot issue on your SOM.
->>
->> I probably misunderstand something.
->>
->>
->> what is your problem exactly ?
->>
->> if you can share log or link to jobs
-> 
-> 
-> Hi Guillaume,
-> 
-> with arm64_defconfig, this problem doesn't occur, as other CONFIG_ARCH_* symbols
-> also have "select PM_GENERIC_DOMAINS" (with or without "if PM").
-> 
-> We are using a smaller config specific to our K3-based SOMs however. I have
-> attached a defconfig that shows the problem - if you use this as the base for
-> .config on linux-next, there is no way to enable TI_SCI_PM_DOMAINS, as nothing
-> selects PM_GENERIC_DOMAINS.
-> 
-> So unless I'm missing some other configuration that would actually be useful on
-> the K3 platform and that would pull in PM_GENERIC_DOMAINS, I think that part
-> needs to be reverted. I can send a patch to that effect later.
-> 
-not sure good patch was to enable PM_GENERIC_DOMAINS on ARCH_K3 but it's 
-a deps on TI_SCI_PM_DOMAINS so perhaps do a select in PM_GENERIC_DOMAINS 
-Kconfig instead of a depends on should be a better solution .
+> > to define whole schema for this.
+> >
+> > But there are some difficults to cover whole once.
+> >
+> > Plan use two steps to complete it
+> > - add all camera related property and subnode
+> > - add all display related property and subnode
+> And what was the comment there?
+>
+> "Binding is supposed to be complete. We have several examples when people
+> added children one-by-one, everytime with different reasoning about
+> child addressing."
+>
+> NAK. At least try to read previous discussion.
 
-Nishanth and vignesh what do you prefer for this issue ?
+I read previous your comments, otherwise, I can't put this in cover letter.
+"to define whole schema for this".
 
+I understand what your point. But I met some difficult and want to discuss
+with you and provided implement path for this.
 
-thanks
-Guillaume
+unlike other individual ip (like UART), there are clearly abstraction for
+reg clock ...
 
-> Best,
-> Matthias
-> 
-> 
->>
->> Regards
->> Guillaume
->>
->>> Best,
->>> Matthias
->>>
->>>
->>>>
->>>> Remove it and give possibility to enable this driver in modules.
->>>>
->>>> [1] https://lore.kernel.org/all/20180828005311.8529-1-nm@ti.com/
->>>> [2] https://lore.kernel.org/all/20250220-ti-firmware-v2-1-ff26883c6ce9@baylibre.com/
->>>> [3] https://lore.kernel.org/all/20250507135213.g6li6ufp3cosxoys@stinging/
->>>>
->>>> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
->>>> ---
->>>> Changes in v2:
->>>> - Remove some other config after comment from Nishanth.
->>>> - Link to v1: https://lore.kernel.org/r/20250504-kconfig-v1-1-ab0216f4fa98@baylibre.com
->>>> ---
->>>>    arch/arm64/Kconfig.platforms | 4 ----
->>>>    1 file changed, 4 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
->>>> index 8b76821f190f..bf9e3d76b4c0 100644
->>>> --- a/arch/arm64/Kconfig.platforms
->>>> +++ b/arch/arm64/Kconfig.platforms
->>>> @@ -135,11 +135,7 @@ config ARCH_SPARX5
->>>>    
->>>>    config ARCH_K3
->>>>    	bool "Texas Instruments Inc. K3 multicore SoC architecture"
->>>> -	select PM_GENERIC_DOMAINS if PM
->>>> -	select MAILBOX
->>>>    	select SOC_TI
->>>> -	select TI_MESSAGE_MANAGER
->>>> -	select TI_SCI_PROTOCOL
->>>>    	select TI_K3_SOCINFO
->>>>    	help
->>>>    	  This enables support for Texas Instruments' K3 multicore SoC
->>>>
->>>> ---
->>>> base-commit: e8ab83e34bdc458b5cd77f201e4ed04807978fb1
->>>> change-id: 20250504-kconfig-68f139fbf337
->>>>
->>>> Best regards,
->>>
->>
-> 
+CSR bindle some miscellaneous control for difference IPs. Some is easy to
+abstract, such reset, clock ... Some is not. It is hard to ensure full
+subnodes with good, workable abstraction to for all devices, which used
+this module once.
 
+For example: driver need touch a bit of this CSR, but we missed at begin.
+We need find new interfaces, some time it is disaster for whole subnode
+binding. We don't want to wrong use a reset interface to work around driver
+need touch a bits of CSR.
+
+So I try to upstream "confidence" part gradually.
+
+Frank
+
+>
+> Best regards,
+> Krzysztof
 
