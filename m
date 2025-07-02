@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFADC83038
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 05:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A1FC83038
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 05:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V0rt2nH/TWlCePhqIMfxbMwVAseEB+3Yn8nvDGBHf0Y=; b=KCJsoQzaFYSxUd
-	T/OE2AtvI5MwEggO2uXSTqPh1gXf8fuQ1Ny66UwlLW5e2LqnS6nkcXpwgffVvjUozY/p/u3b6Yl85
-	xa3YFcreyiUd/iL4khfN2YYxmxRqZX39ofZzCkbw+gATqRDmXHcQr/x3lMHiw6ZzatXt6M6PKEcFU
-	ht/X9FDmPBG7jJKOoM71chX5m0vyr1knbZJ7DUxeAyKn7DCa7MpDYqswhQ+iC3F1TLINGAeUf0Y+L
-	hmm0U5cY2CH+7CwIt0JjUkWgsCYQoJgDCG0BQkUR5ua/oOQWW68ZRjYp+v0P2icDzsmc8lqc7RWP/
-	rkxV+ViQIlvms9Uo1Liw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EG55DPXz8+xtKpQRKekjwgyGLv4dODZAuNPTQZ9Shzg=; b=VjCGJ8B7Ixx7KXbRai+sfSz+UQ
+	DeiMzD76Hv56bU/sDf1MovPBExa1QWvvDrj6rheU/cqclQjD+023NBMGSPKaDWwQPB3ktrD4bKAF0
+	WZ5SxDvPsZ/3yqt2R/KGRavB7qeG1gNJ9Fb4FyuIr8GabSFHxoAUNT70mkHtkapKB3ztO4HImCqcE
+	u5B7xp8QeVAk4cM8WugtKXapz96hJLYK4I5yGPMFLTt6NWHMFeUoqsVf1lbB1jn4Qbtqtzd6D5tAx
+	8b4Wrem4LWHWfdcZIOQOe5yy7XwYD6ZgaJGGIOUHmQNjRAhYEMh1kdUv69CvQKigW4OnlsvFBh6nr
+	4zmC4wuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWpdN-00000007EJF-3gYF;
-	Wed, 02 Jul 2025 05:03:49 +0000
-Received: from mail-lf1-f52.google.com ([209.85.167.52])
+	id 1uWpgJ-00000007Eys-20fm;
+	Wed, 02 Jul 2025 05:06:51 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWpb2-00000007E4E-43JD
+	id 1uWpdy-00000007EQ9-2oMc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 05:01:26 +0000
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-553c31542b1so4644653e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 22:01:24 -0700 (PDT)
+	Wed, 02 Jul 2025 05:04:27 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-31223a4cddeso2453052a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 22:04:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751432665; x=1752037465; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EG55DPXz8+xtKpQRKekjwgyGLv4dODZAuNPTQZ9Shzg=;
+        b=mbQ+CvQ4yb+fVu45A9AEu3QjeRShIUqSaNt7u4VIk3g9qOMt3unl8Ul+IGoqzQ7g8Z
+         4x9omavlosDYRPZNjafjlgb2/+g/Dg6b/eNP3yKE4rFZqzA3EiezMtWxnz76jtaCe0F4
+         EEgVFwXE91PoeFXwIBAI/UsYNt4kZICxLRJHENe69XbqifP4WFxLlye7JSyAQfD3bCRP
+         9Dhf8ZO6mMDyL6pES4Pkpm+5s3Y+ykGOB3tiMDSawAaaZArU04JFKwgtzBNSSsOwb9Es
+         dSfrQeMcfsQnC5oHmUIv5gsTSARj/gtpNCJ6oZFnp9Eo57uvLz0Vnch0UV/rVv7q3wz5
+         XR9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751432480; x=1752037280;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=V0rt2nH/TWlCePhqIMfxbMwVAseEB+3Yn8nvDGBHf0Y=;
-        b=PT5dXralgU8JtqRoMcqCqpjhSpPufi0CDWYiB17ScJg2+eTlppnk85HJVkJ6vVhlEQ
-         rp7SZYKHehVyOdL6pQHr4z8mcUwJHEpos0qQa5iltQ7S4LMePGF/EjuSRp1K62UxuXq/
-         ZKlcbT5LJA+LrT+bqBrgyFHGrmvNTgmUYOUPgFbISsmjsPWxOizn5w2D0i3h1t4V3F1L
-         EsopEgOvMv1p6aQw4bcGu7q9/1+/E4B0IjPyjm6WSHVeSgx+3QFBr65Erc15jvajFaMs
-         jqK6VA3mHk+KL/oHP4gOILONT+mv2WMqXOOAwFGGA8JONojasAQBxlToIyAYEUIYolqv
-         6VmA==
-X-Forwarded-Encrypted: i=1; AJvYcCXE08n5QF+FD0WtGmgK32OPgnhPYX3dWpfdZW15kOzLedz9ZqU9rVyTBNI9Yn+YlKC4QNgfSWnj8psAliA32jUB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGTdM4bd1uS6h+AUqxF+Ez3MFurldhv9jK+oSET+cx9Tdy6BBc
-	s4Vc9mbmnzGKNVq5R4DyZx1gb6i+Vg+JcHFdRR59LSLRH3aYKMmWfEY6aM2XEPaJ
-X-Gm-Gg: ASbGnctI7CTQ+nO8QRWgz6r19RLoelrMVGpd3ZbvBLrs+XVvGoY6F6H+TdZX2jz23Ic
-	QavvFe4NDw7qxPxWrVjGgPzcfDOKmMNsedBxUJF6tYh2CcLEs70dUGhnM4IULxWQ0AVYLr4Ie04
-	H/PNkAY+Ggn4Vtp8XwuSatSTzLZl0VGsrVweDW8mN4uP13UM/Z41ZDeGlyslId+OUIVfuXkE2by
-	0faLCdQ1iKZmRQG7A0G4GHnviNdUyEYjAqle/NO6AIZqOCvT/lWN8kcKTNop0P6QjFdRFadavS7
-	TSUqegNx0wiL1XtismxWyU4mlDixAqQfNnUaCaijedgI3PDvvunMkCdcGmVFfMVbaR9oFMeVs65
-	PWVkDwHWF68HbW1rRKrI=
-X-Google-Smtp-Source: AGHT+IFZSrI3NqbglqhP7PvXodGx2dTr5zwTJQfosSOAwH751mN1SPcyhHCoFTiV4zTtSLqsDFxYpA==
-X-Received: by 2002:a05:6512:3d9f:b0:553:3544:2b31 with SMTP id 2adb3069b0e04-5562836d01amr446923e87.40.1751432479281;
-        Tue, 01 Jul 2025 22:01:19 -0700 (PDT)
-Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com. [209.85.208.180])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2b95b7sm2005712e87.108.2025.07.01.22.01.17
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Jul 2025 22:01:18 -0700 (PDT)
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-32b553e33e6so35004751fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 22:01:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUpBUXnq/ZbVmOAdvzXFEVzsie136fnKXomE6HDOSUaqEl8B2EjHxSjkm7oiR8F75uuJW+xTe7D6CFjI6ptNSEu@lists.infradead.org
-X-Received: by 2002:a05:651c:e1b:b0:32a:6c63:92a with SMTP id
- 38308e7fff4ca-32e0004b940mr3217911fa.22.1751432477399; Tue, 01 Jul 2025
- 22:01:17 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1751432665; x=1752037465;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EG55DPXz8+xtKpQRKekjwgyGLv4dODZAuNPTQZ9Shzg=;
+        b=HOTMkTeIS/7aZNVcQkZaV/8yBuJkOhX1PZCMOGAC2tvcdDcoXpYMkriMh7x8ghVai8
+         oAz9ilbq/b4+dQ+ZQscs2zOtvZSbGK8PYTBDx2eD15PyiHLiGWQo/eNldHodSZhzRo00
+         9AnBNyMs/ZmwnnTg1Hj6W50N9KOP3/2nj325VpN8LadVTFK4k1d5IBFPaByXQKJBh/4u
+         hWezNGddMzY8/MGVwxB5kwPOVyrMMxmjmM5yjDaAIff6cx/6IB8ELorAiyFi83m6j1V4
+         5ccdgjjPbhLcWKhHj/bbpD3vbmQLh36TCymDXDNuTkSztp7t5Buni4VyDwcmGJQQFTHn
+         vfEg==
+X-Forwarded-Encrypted: i=1; AJvYcCUcA2mikQfIRy38xfHtwcYhymFKq/WTOXkQ1MQGg5rQzjX48/l5O0gcaZOrgDQb5d5UpLScYl/e+s0XIWVyBTsl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyj/QtRG6shsKOQVQ4fuLVPC1hEG5Q8VUeio1f5vvrJYD3aFzhH
+	UOgHNab00l9v4FjdXr2ahpbZKtXSCSGZy2DKC7DC4kk71/MVU5neiCap
+X-Gm-Gg: ASbGncuS+fJijWo/vbA3nO2wvQUfvHTXvADEGRL37Ya/V6tYgIMV+kgtO5kLezJ4vBI
+	Wg04Wlq9ki6kqQcArq3lcrQVgtVOwTCoG7ZqiMw+x/H/nNPtnASpfyzHFIMqpGIdzuAyGd363wT
+	Bcv6SMFNvK0PF8zFaml9wttpZQSjrwD5UWGn+qXZSVCy5FWm8WPnw9XWikNzv/L67J7yKFsGLNd
+	Y5u/qZMFS2KEjWUQm+oPslB+EKMDQ+ju+AUVK81WLzHtvcRkNZw4n3RYF07A3XLIKbmcdcvGr70
+	ahfuMoKhBjzgx1FBQB/Fx+/naGxuZh5SLdaRjtHMtAyTb/pa0tZ/mXQ2Ru0ZIO+44oY7yfDq03r
+	vfTKs1+ieg4d58mSqr16hHkX6HYVFS0xjw7ygG97sJ2RyA59R3A==
+X-Google-Smtp-Source: AGHT+IFAFsQgFBXHekzpj5+jLpvS19bLZNwjrzNUfqbzyt7jsiYooA3Z/RS1UmpTIK1dgo3CN2kBvA==
+X-Received: by 2002:a17:90b:3d8c:b0:312:db8:dbdd with SMTP id 98e67ed59e1d1-31a90bef8a1mr2126382a91.28.1751432665347;
+        Tue, 01 Jul 2025 22:04:25 -0700 (PDT)
+Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-315f54270a5sm18168323a91.25.2025.07.01.22.04.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jul 2025 22:04:24 -0700 (PDT)
+From: rentao.bupt@gmail.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	Tao Ren <taoren@meta.com>
+Cc: Tao Ren <rentao.bupt@gmail.com>
+Subject: [PATCH 0/5] ARM: dts: aspeed: Add Meta Darwin dts
+Date: Tue,  1 Jul 2025 22:04:11 -0700
+Message-ID: <20250702050421.13729-1-rentao.bupt@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-References: <20250701165756.258356-1-wens@kernel.org> <20250701165756.258356-5-wens@kernel.org>
-In-Reply-To: <20250701165756.258356-5-wens@kernel.org>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Wed, 2 Jul 2025 13:01:04 +0800
-X-Gmail-Original-Message-ID: <CAGb2v646HvqipGd_C=WJ4LGsumFfF5P9a7XQ7UGO6t1901DDiw@mail.gmail.com>
-X-Gm-Features: Ac12FXxOhT5Y9cipxD-0Dp_WlsoVmLL1HMEja_1PgcoQyh6p3ZogoQeQ7CimJkk
-Message-ID: <CAGb2v646HvqipGd_C=WJ4LGsumFfF5P9a7XQ7UGO6t1901DDiw@mail.gmail.com>
-Subject: Re: [PATCH RFT net-next 04/10] soc: sunxi: sram: register regmap as syscon
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_220125_003750_9C26C4D9 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20250701_220426_710534_EE99B03D 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,67 +100,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 2, 2025 at 12:58=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wrot=
-e:
->
-> From: Chen-Yu Tsai <wens@csie.org>
->
-> Until now, if the system controller had a ethernet controller glue layer
-> control register, a limited access regmap would be registered and tied
-> to the system controller struct device for the ethernet driver to use.
->
-> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
-> ---
->  drivers/soc/sunxi/sunxi_sram.c | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/drivers/soc/sunxi/sunxi_sram.c b/drivers/soc/sunxi/sunxi_sra=
-m.c
-> index 4f8d510b7e1e..63c23bdffa78 100644
-> --- a/drivers/soc/sunxi/sunxi_sram.c
-> +++ b/drivers/soc/sunxi/sunxi_sram.c
-> @@ -12,6 +12,7 @@
->
->  #include <linux/debugfs.h>
->  #include <linux/io.h>
-> +#include <linux/mfd/syscon.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/of_address.h>
-> @@ -377,6 +378,7 @@ static int __init sunxi_sram_probe(struct platform_de=
-vice *pdev)
->         const struct sunxi_sramc_variant *variant;
->         struct device *dev =3D &pdev->dev;
->         struct regmap *regmap;
-> +       int ret;
->
->         sram_dev =3D &pdev->dev;
->
-> @@ -394,6 +396,10 @@ static int __init sunxi_sram_probe(struct platform_d=
-evice *pdev)
->                 regmap =3D devm_regmap_init_mmio(dev, base, &sunxi_sram_r=
-egmap_config);
->                 if (IS_ERR(regmap))
->                         return PTR_ERR(regmap);
-> +
-> +               ret =3D of_syscon_register_regmap(dev->of_node, regmap);
-> +               if (IS_ERR(ret))
+From: Tao Ren <rentao.bupt@gmail.com>
 
-BroderTuck on IRC pointed out that this gives a compiler warning.
-Indeed it is incorrect. It should test `ret` directly.
+The patch series introduces the initial device tree for Meta/Facebook
+Darwin AST2600 BMC.
 
-ChenYu
+Patch #1 extends data0 partition in facebook-bmc-flash-layout-128.dtsi.
 
-> +                       return ret;
->         }
->
->         of_platform_populate(dev->of_node, NULL, NULL, dev);
-> --
-> 2.39.5
->
->
+Patch #2, #3 and #4 move eMMC out of ast2600-facebook-netbmc-common.dtsi
+because eMMC is removed from future Meta Network BMC platforms.
+
+Patch #5 adds the initial dts for Meta Darwin BMC.
+
+Tao Ren (5):
+  ARM: dts: aspeed: Expand data0 partition in
+    facebook-bmc-flash-layout-128.dtsi
+  ARM: dts: aspeed: Remove eMMC from ast2600-facebook-netbmc-common.dtsi
+  ARM: dts: aspeed: elbert: Enable eMMC device
+  ARM: dts: aspeed: fuji: Enable eMMC device
+  ARM: dts: aspeed: Add Facebook Darwin (AST2600) BMC
+
+ arch/arm/boot/dts/aspeed/Makefile             |  1 +
+ .../dts/aspeed/aspeed-bmc-facebook-darwin.dts | 92 +++++++++++++++++++
+ .../dts/aspeed/aspeed-bmc-facebook-elbert.dts | 12 +++
+ .../dts/aspeed/aspeed-bmc-facebook-fuji.dts   | 12 +++
+ .../ast2600-facebook-netbmc-common.dtsi       | 12 ---
+ .../aspeed/facebook-bmc-flash-layout-128.dtsi | 10 +-
+ 6 files changed, 122 insertions(+), 17 deletions(-)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
+
+-- 
+2.47.1
+
 
