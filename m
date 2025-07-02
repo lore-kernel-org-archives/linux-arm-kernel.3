@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E85C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 02:53:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9857C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 02:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HJMTSYtmA1a8tKiGwxNADZ06J9+NnXbkFSygPZqSg1o=; b=ZZUSg85zH+FgMdvawU8cEicEVN
-	8KKomqevsi/PYcb7qJCYDSbP71jMnyoaNRV2a0PpVLOqgMi6gQwTu1WACURdGyhRvfxhEUMS4SR2T
-	ZZx7sAy8Qd9UILxp3XXyGNkdFspYr7pYgggWRvhnNf1UKvZdlarZ5ASEcnY4+zBPgixUUsYj8v4s8
-	lylNO526NfLAt4/vgNrztpRPEwlHuUoxYT2oI/Bfm+WYGYghDlkQIS/mRP43xzi/6J5PzCbp8j0bC
-	q7ZsBlZ7Xxgwbxqch9TwAErYa2sZxRxDn/7SwbDIhl0zTlpbb2CPDCm8NAIUcNl+bNC079+0iJIoK
-	kw4v/elQ==;
+	bh=8djG8WqbgQUjheVgZ2REIAEuyGK2m7kH11olGFqdbSU=; b=crA99BP2qskwBf4MeHYKYBk/+x
+	bL0tlCT91trMVt7iNciN3CCECa+M55IM64uGiv2rZ21ujH5B1sPWgcteUovDefopUriKkAsjfVTmY
+	ClzjfntcfwgI48WtsgEqzVj926h4GvwGap9im0SejOCOThJTOTfKsm+MNuhE/R2ON9U6gzy0Ez98S
+	ZT8wUzqsYHEzcWaL/XqRGYg2PEmb3CtKAxhyBdDdzjR0Rw0wWlL6kBw5Peba1n1Z/PGIRKcNT6z+Y
+	PDs997BL+1/UbOC8/XNBYMJROx717af4iPVnVwgnSeow6wZtnho3Za82dPdPqggBdGyL86ZJ3v4sO
+	jbGYAt4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWnan-000000075L9-1zhB;
-	Wed, 02 Jul 2025 02:53:01 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1uWndE-000000075jG-27CH;
+	Wed, 02 Jul 2025 02:55:32 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWnMd-000000073xH-1mQw;
-	Wed, 02 Jul 2025 02:38:24 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1uWnMY-000000005EK-0kW2;
-	Wed, 02 Jul 2025 02:38:18 +0000
-Date: Wed, 2 Jul 2025 03:38:15 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Felix Fietkau <nbd@nbd.name>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
-	Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
-	Sky Huang <skylake.huang@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next v4 3/3] net: ethernet: mtk_eth_soc: use generic
- allocator for SRAM
-Message-ID: <88ae2a765ef809d36e153430bf60aac6ce81d6f1.1751421358.git.daniel@makrotopia.org>
-References: <cover.1751421358.git.daniel@makrotopia.org>
+	id 1uWnat-000000075Mj-24jZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Jul 2025 02:53:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1751424742; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=mrA3avk9M/kuiMlSOraXS90FYqh0uN7Iwu6NapwxmSegHecv5+P4PUbEMsTeOrRusu1BagsOFD6Ft+rQJAETUjm/3BCg8x38Sngb2r3jtdxoEcJL4BbtE2vO27ELCchZgt24AWoBljLbYjwRQGS9hY2Q39s0IRn7CXVGNH+D2x8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1751424742; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=8djG8WqbgQUjheVgZ2REIAEuyGK2m7kH11olGFqdbSU=; 
+	b=HViJtwRdnwVaWMUd+/Rho9adtqSpBKBmwx4P9X5KnlMUBJvMR2rZQoDGBEQOzXNV5kjq8kaHF1LskRhdXTJ2EO0Rj0UVXg4PWI8xLebK1G2O1st7snNv4/NBnODZbaF+IdT1oPV1nzNzKg5i8wIe/SGlCMkU7v+TAY1FhCkVz80=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751424742;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=8djG8WqbgQUjheVgZ2REIAEuyGK2m7kH11olGFqdbSU=;
+	b=aZa8P6c6JFbALioZzkB15M/OExk2j5KPthXbGCX9mnmtMnvLkWJNSrpIkXQoksMn
+	VrA0lPoiyXlg1YxBxyo5ALCKSqfpaTCOS/XeYEX3YMaWdJL2uqyq8/CXFgU6e1ih5K5
+	Zehy4xmgE8dWIEvBV/b+rRdid/cpmoXXrz74mXGeiDqXD/P5Xm6Cvnc0LcKr6CCT8ro
+	eDIjS9pHFy5YYrm6IzVL8pamvuqO55GB1IRDTJq0eikQYut6tjGH/nVeEHi6NyZonoN
+	q4sqIiLCTSMQzFAHkP1qterjuJrSDLais/B9aj8urMv9zLAF26BLxWs9aqTWICdbJvE
+	/l3ltWEUYg==
+Received: by mx.zohomail.com with SMTPS id 1751424740371995.4237846805278;
+	Tue, 1 Jul 2025 19:52:20 -0700 (PDT)
+Message-ID: <4bc1c1fd9aa1e97a04d964fc5601155ade52cd2d.camel@icenowy.me>
+Subject: Re: [PATCH 5/5] drm/sun4i: Run the mixer clock at 297 MHz on V3s
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Paul Kocialkowski <paulk@sys-base.io>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-gpio@vger.kernel.org
+Cc: Yong Deng <yong.deng@magewell.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>,  David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Linus Walleij <linus.walleij@linaro.org>,  Icenowy Zheng
+ <icenowy@aosc.xyz>, Andre Przywara <andre.przywara@arm.com>
+Date: Wed, 02 Jul 2025 10:52:10 +0800
+In-Reply-To: <20250701201124.812882-6-paulk@sys-base.io>
+References: <20250701201124.812882-1-paulk@sys-base.io>
+	 <20250701201124.812882-6-paulk@sys-base.io>
+Organization: Anthon Open-Source Community
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1751421358.git.daniel@makrotopia.org>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_193823_616614_15BE6C26 
-X-CRM114-Status: GOOD (  24.15  )
+X-CRM114-CacheID: sfid-20250701_195307_587697_4C93E703 
+X-CRM114-Status: GOOD (  24.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,305 +95,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a dedicated "mmio-sram" node and the generic allocator
-instead of open-coding SRAM allocation for DMA rings.
-Keep support for legacy device trees but notify the user via a
-warning to update, and let the ethernet driver create the
-gen_pool in this case.
+=E5=9C=A8 2025-07-01=E6=98=9F=E6=9C=9F=E4=BA=8C=E7=9A=84 22:11 +0200=EF=BC=
+=8CPaul Kocialkowski=E5=86=99=E9=81=93=EF=BC=9A
+> The DE mixer clock is currently set to run at 150 MHz, while the
+> Allwinner BSP configures it at 300 MHz and other platforms typically
+> run at 297 MHz.
+>=20
+> 150 MHz appears to be enough given the restricted graphics
+> capabilities
+> of the SoC (with a work area of only 1024x1024). However it typically
+> causes the DE clock to be parented to the periph0 pll instead of the
+> video PLL.
+>=20
+> While this should generally not be a concern, it appears (based on
+> experimentation) that both the DE and TCON clocks need to be parented
+> to the same PLL for these units to work. While we cannot represent
+> this
+> constraint in the clock driver, it appears that the TCON clock will
+> often get parented to the video pll (typically running at 297 MHz for
 
-Co-developed-by: Frank Wunderlich <frank-w@public-files.de>
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
-v4: always use gen_pool allocator completely replacing the
-    previous approach of hardcoded SRAM offsets
-    added missing Kconfig change
-v3: fix resource leak on error in mtk_probe()
-v2: fix return type of mtk_dma_ring_alloc() in case of error
+Ah I think pixel clocks are arbitary and nothing could be predicted
+about it...
 
- drivers/net/ethernet/mediatek/Kconfig       |   1 +
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 140 +++++++++++---------
- drivers/net/ethernet/mediatek/mtk_eth_soc.h |  10 +-
- 3 files changed, 84 insertions(+), 67 deletions(-)
+> the CSI units needs), for instance when driving displays with a 33
+> MHz
+> pixel clock (33 being a natural divider of 297).
+>=20
+> Running the DE clock at 297 MHz will typically result in parenting to
+> the video pll instead of the periph0 pll, thus making the display
+> output functional.
+>=20
+> This is all a bit fragile but it solves the issue with displays
+> running
+> at 33 Mhz and brings V3s to use the same frequency as other
+> platforms,
+> making support more unified.
+>=20
+> Also align and sort the fields of the v3s mixer config while at it.
+>=20
+> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+> ---
+> =C2=A0drivers/gpu/drm/sun4i/sun8i_mixer.c | 12 ++++++------
+> =C2=A01 file changed, 6 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c
+> b/drivers/gpu/drm/sun4i/sun8i_mixer.c
+> index 8b41d33baa30..35fdc2451060 100644
+> --- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
+> +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
+> @@ -670,12 +670,12 @@ static const struct sun8i_mixer_cfg
+> sun8i_r40_mixer1_cfg =3D {
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct sun8i_mixer_cfg sun8i_v3s_mixer_cfg =3D {
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.vi_num =3D 2,
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.ui_num =3D 1,
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.scaler_mask =3D 0x3,
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.scanline_yuv =3D 2048,
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.ccsc =3D CCSC_MIXER0_LAYOUT,
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.mod_rate =3D 150000000,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.ccsc=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=3D CCSC_MIXER0_LAYOUT,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.mod_rate=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=3D 297000000,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.scaler_mask=C2=A0=C2=A0=C2=A0=
+=C2=A0=3D 0x3,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.scanline_yuv=C2=A0=C2=A0=C2=
+=A0=3D 2048,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.ui_num=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=3D 1,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.vi_num=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=3D 2,
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct sun8i_mixer_cfg sun20i_d1_mixer0_cfg =3D {
 
-diff --git a/drivers/net/ethernet/mediatek/Kconfig b/drivers/net/ethernet/mediatek/Kconfig
-index 7bfd3f230ff5..2ba361f8ce7d 100644
---- a/drivers/net/ethernet/mediatek/Kconfig
-+++ b/drivers/net/ethernet/mediatek/Kconfig
-@@ -17,6 +17,7 @@ config NET_MEDIATEK_SOC
- 	select PINCTRL
- 	select PHYLINK
- 	select DIMLIB
-+	select GENERIC_ALLOCATOR
- 	select PAGE_POOL
- 	select PAGE_POOL_STATS
- 	select PCS_MTK_LYNXI
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 8f55069441f4..6e2aa01aedbd 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -27,6 +27,7 @@
- #include <net/dsa.h>
- #include <net/dst_metadata.h>
- #include <net/page_pool/helpers.h>
-+#include <linux/genalloc.h>
- 
- #include "mtk_eth_soc.h"
- #include "mtk_wed.h"
-@@ -1267,6 +1268,34 @@ static void *mtk_max_lro_buf_alloc(gfp_t gfp_mask)
- 	return (void *)data;
- }
- 
-+static void *mtk_dma_ring_alloc(struct mtk_eth *eth, size_t size,
-+				dma_addr_t *dma_handle, bool use_sram)
-+{
-+	void *dma_ring;
-+
-+	if (use_sram && eth->sram_pool) {
-+		dma_ring = (void *)gen_pool_alloc(eth->sram_pool, size);
-+		if (!dma_ring)
-+			return dma_ring;
-+		*dma_handle = gen_pool_virt_to_phys(eth->sram_pool,
-+						    (unsigned long)dma_ring);
-+	} else {
-+		dma_ring = dma_alloc_coherent(eth->dma_dev, size, dma_handle,
-+					      GFP_KERNEL);
-+	}
-+
-+	return dma_ring;
-+}
-+
-+static void mtk_dma_ring_free(struct mtk_eth *eth, size_t size, void *dma_ring,
-+			      dma_addr_t dma_handle, bool in_sram)
-+{
-+	if (in_sram && eth->sram_pool)
-+		gen_pool_free(eth->sram_pool, (unsigned long)dma_ring, size);
-+	else
-+		dma_free_coherent(eth->dma_dev, size, dma_ring, dma_handle);
-+}
-+
- /* the qdma core needs scratch memory to be setup */
- static int mtk_init_fq_dma(struct mtk_eth *eth)
- {
-@@ -1276,13 +1305,8 @@ static int mtk_init_fq_dma(struct mtk_eth *eth)
- 	dma_addr_t dma_addr;
- 	int i, j, len;
- 
--	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SRAM))
--		eth->scratch_ring = eth->sram_base;
--	else
--		eth->scratch_ring = dma_alloc_coherent(eth->dma_dev,
--						       cnt * soc->tx.desc_size,
--						       &eth->phy_scratch_ring,
--						       GFP_KERNEL);
-+	eth->scratch_ring = mtk_dma_ring_alloc(eth, cnt * soc->tx.desc_size,
-+					       &eth->phy_scratch_ring, true);
- 
- 	if (unlikely(!eth->scratch_ring))
- 		return -ENOMEM;
-@@ -2620,14 +2644,7 @@ static int mtk_tx_alloc(struct mtk_eth *eth)
- 	if (!ring->buf)
- 		goto no_tx_mem;
- 
--	if (MTK_HAS_CAPS(soc->caps, MTK_SRAM)) {
--		ring->dma = eth->sram_base + soc->tx.fq_dma_size * sz;
--		ring->phys = eth->phy_scratch_ring + soc->tx.fq_dma_size * (dma_addr_t)sz;
--	} else {
--		ring->dma = dma_alloc_coherent(eth->dma_dev, ring_size * sz,
--					       &ring->phys, GFP_KERNEL);
--	}
--
-+	ring->dma = mtk_dma_ring_alloc(eth, ring_size * sz, &ring->phys, true);
- 	if (!ring->dma)
- 		goto no_tx_mem;
- 
-@@ -2726,10 +2743,10 @@ static void mtk_tx_clean(struct mtk_eth *eth)
- 		kfree(ring->buf);
- 		ring->buf = NULL;
- 	}
--	if (!MTK_HAS_CAPS(soc->caps, MTK_SRAM) && ring->dma) {
--		dma_free_coherent(eth->dma_dev,
--				  ring->dma_size * soc->tx.desc_size,
--				  ring->dma, ring->phys);
-+
-+	if (ring->dma) {
-+		mtk_dma_ring_free(eth, ring->dma_size * soc->tx.desc_size,
-+				  ring->dma, ring->phys, true);
- 		ring->dma = NULL;
- 	}
- 
-@@ -2788,20 +2805,8 @@ static int mtk_rx_alloc(struct mtk_eth *eth, int ring_no, int rx_flag)
- 		ring->page_pool = pp;
- 	}
- 
--	if (!MTK_HAS_CAPS(eth->soc->caps, MTK_SRAM) ||
--	    rx_flag != MTK_RX_FLAGS_NORMAL) {
--		ring->dma = dma_alloc_coherent(eth->dma_dev,
--				rx_dma_size * eth->soc->rx.desc_size,
--				&ring->phys, GFP_KERNEL);
--	} else {
--		struct mtk_tx_ring *tx_ring = &eth->tx_ring;
--
--		ring->dma = tx_ring->dma + tx_ring_size *
--			    eth->soc->tx.desc_size * (ring_no + 1);
--		ring->phys = tx_ring->phys + tx_ring_size *
--			     eth->soc->tx.desc_size * (ring_no + 1);
--	}
--
-+	ring->dma = mtk_dma_ring_alloc(eth, rx_dma_size * eth->soc->rx.desc_size,
-+				       &ring->phys, rx_flag == MTK_RX_FLAGS_NORMAL);
- 	if (!ring->dma)
- 		return -ENOMEM;
- 
-@@ -2916,10 +2921,9 @@ static void mtk_rx_clean(struct mtk_eth *eth, struct mtk_rx_ring *ring, bool in_
- 		ring->data = NULL;
- 	}
- 
--	if (!in_sram && ring->dma) {
--		dma_free_coherent(eth->dma_dev,
--				  ring->dma_size * eth->soc->rx.desc_size,
--				  ring->dma, ring->phys);
-+	if (ring->dma) {
-+		mtk_dma_ring_free(eth, ring->dma_size * eth->soc->rx.desc_size,
-+				  ring->dma, ring->phys, in_sram);
- 		ring->dma = NULL;
- 	}
- 
-@@ -3287,15 +3291,15 @@ static void mtk_dma_free(struct mtk_eth *eth)
- 			netdev_tx_reset_subqueue(eth->netdev[i], j);
- 	}
- 
--	if (!MTK_HAS_CAPS(soc->caps, MTK_SRAM) && eth->scratch_ring) {
--		dma_free_coherent(eth->dma_dev,
--				  MTK_QDMA_RING_SIZE * soc->tx.desc_size,
--				  eth->scratch_ring, eth->phy_scratch_ring);
-+	if (eth->scratch_ring) {
-+		mtk_dma_ring_free(eth, soc->tx.fq_dma_size * soc->tx.desc_size,
-+				  eth->scratch_ring, eth->phy_scratch_ring, true);
- 		eth->scratch_ring = NULL;
- 		eth->phy_scratch_ring = 0;
- 	}
-+
- 	mtk_tx_clean(eth);
--	mtk_rx_clean(eth, &eth->rx_ring[0], MTK_HAS_CAPS(soc->caps, MTK_SRAM));
-+	mtk_rx_clean(eth, &eth->rx_ring[0], true);
- 	mtk_rx_clean(eth, &eth->rx_ring_qdma, false);
- 
- 	if (eth->hwlro) {
-@@ -5007,9 +5011,28 @@ static int mtk_sgmii_init(struct mtk_eth *eth)
- 	return 0;
- }
- 
-+static int mtk_setup_legacy_sram(struct mtk_eth *eth, struct resource *res)
-+{
-+	if (res->start + MTK_ETH_SRAM_OFFSET + MTK_ETH_NETSYS_V2_SRAM_SIZE - 1 >
-+	    res->end)
-+		return -EINVAL;
-+
-+	eth->sram_pool = devm_gen_pool_create(eth->dev,
-+					      const_ilog2(MTK_ETH_SRAM_GRANULARITY),
-+					      NUMA_NO_NODE, dev_name(eth->dev));
-+
-+	if (IS_ERR(eth->sram_pool))
-+		return PTR_ERR(eth->sram_pool);
-+
-+	return gen_pool_add_virt(eth->sram_pool,
-+				 (unsigned long)eth->base + MTK_ETH_SRAM_OFFSET,
-+				 res->start + MTK_ETH_SRAM_OFFSET,
-+				 MTK_ETH_NETSYS_V2_SRAM_SIZE, NUMA_NO_NODE);
-+}
-+
- static int mtk_probe(struct platform_device *pdev)
- {
--	struct resource *res = NULL, *res_sram;
-+	struct resource *res = NULL;
- 	struct device_node *mac_np;
- 	struct mtk_eth *eth;
- 	int err, i;
-@@ -5029,20 +5052,6 @@ static int mtk_probe(struct platform_device *pdev)
- 	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SOC_MT7628))
- 		eth->ip_align = NET_IP_ALIGN;
- 
--	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SRAM)) {
--		/* SRAM is actual memory and supports transparent access just like DRAM.
--		 * Hence we don't require __iomem being set and don't need to use accessor
--		 * functions to read from or write to SRAM.
--		 */
--		if (mtk_is_netsys_v3_or_greater(eth)) {
--			eth->sram_base = (void __force *)devm_platform_ioremap_resource(pdev, 1);
--			if (IS_ERR(eth->sram_base))
--				return PTR_ERR(eth->sram_base);
--		} else {
--			eth->sram_base = (void __force *)eth->base + MTK_ETH_SRAM_OFFSET;
--		}
--	}
--
- 	if (MTK_HAS_CAPS(eth->soc->caps, MTK_36BIT_DMA)) {
- 		err = dma_set_mask(&pdev->dev, DMA_BIT_MASK(36));
- 		if (!err)
-@@ -5117,16 +5126,21 @@ static int mtk_probe(struct platform_device *pdev)
- 			err = -EINVAL;
- 			goto err_destroy_sgmii;
- 		}
-+
- 		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SRAM)) {
--			if (mtk_is_netsys_v3_or_greater(eth)) {
--				res_sram = platform_get_resource(pdev, IORESOURCE_MEM, 1);
--				if (!res_sram) {
-+			eth->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
-+			if (!eth->sram_pool) {
-+				if (!mtk_is_netsys_v3_or_greater(eth)) {
-+					err = mtk_setup_legacy_sram(eth, res);
-+					if (err)
-+						goto err_destroy_sgmii;
-+					dev_warn(&pdev->dev,
-+						 "legacy DT: using hard-coded SRAM offset.\n");
-+				} else {
-+					dev_err(&pdev->dev, "Could not get SRAM pool\n");
- 					err = -EINVAL;
- 					goto err_destroy_sgmii;
- 				}
--				eth->phy_scratch_ring = res_sram->start;
--			} else {
--				eth->phy_scratch_ring = res->start + MTK_ETH_SRAM_OFFSET;
- 			}
- 		}
- 	}
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-index 1ad9075a9b69..0168e2fbc619 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -141,8 +141,10 @@
- #define MTK_GDMA_MAC_ADRH(x)	({ typeof(x) _x = (x); (_x == MTK_GMAC3_ID) ?	\
- 				   0x54C : 0x50C + (_x * 0x1000); })
- 
--/* Internal SRAM offset */
--#define MTK_ETH_SRAM_OFFSET	0x40000
-+/* legacy DT support for internal SRAM */
-+#define MTK_ETH_SRAM_OFFSET		0x40000
-+#define MTK_ETH_SRAM_GRANULARITY	32
-+#define MTK_ETH_NETSYS_V2_SRAM_SIZE	0x40000
- 
- /* FE global misc reg*/
- #define MTK_FE_GLO_MISC         0x124
-@@ -1245,7 +1247,7 @@ struct mtk_soc_data {
-  * @dev:		The device pointer
-  * @dma_dev:		The device pointer used for dma mapping/alloc
-  * @base:		The mapped register i/o base
-- * @sram_base:		The mapped SRAM base
-+ * @sram_pool:		Pointer to SRAM pool used for DMA descriptor rings
-  * @page_lock:		Make sure that register operations are atomic
-  * @tx_irq__lock:	Make sure that IRQ register operations are atomic
-  * @rx_irq__lock:	Make sure that IRQ register operations are atomic
-@@ -1291,7 +1293,7 @@ struct mtk_eth {
- 	struct device			*dev;
- 	struct device			*dma_dev;
- 	void __iomem			*base;
--	void				*sram_base;
-+	struct gen_pool			*sram_pool;
- 	spinlock_t			page_lock;
- 	spinlock_t			tx_irq_lock;
- 	spinlock_t			rx_irq_lock;
--- 
-2.50.0
 
