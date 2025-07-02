@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2F3C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 02:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27FE9C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 02:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DFsPDaYMngNwWXolHsvEUXaarvjsCJ+WaHfejJBcKIg=; b=r7Xf1lQwt7psqf
-	GKNtpbgPBxgViZqD2X3gMaZV6ezo2pUVxHQc5vJF6myafvA2DxDim6uswPCKyrFptY6LhQ6WB0N5p
-	ci9nIuEnaE25bGcuTB0RVZqinGl+/UIih2Zb0740Hd7Gv27d3VNWQeHc5mYSKpGkVqEgeDmtuYMci
-	kc7P5pIJ7mV1hyPu7EW9i0Z9xnJGB/EzRaWhXKERPO618SxgssCPYzx0PLo8xvkKW9wO1iYp/2ZB9
-	J9cz2uZxPJhsmotRppjyJ979DZstA8ryUje4kyqD1lZgfQkzQbyiFtHCNjlpzVWmo+CXeYiOgnl/o
-	KULyhp7Vs7wtTf0kfGAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=deNJWsOBY3RBK23bhwBdD1QEB5poAvITxTzNa/F4P1I=; b=oJuRQVzeInZxwgg9FX7zu7jFtr
+	TC/guuTG9bqdta4m9PCr8NbwOS4MkXPi15s1L+ZyZkFW0wLeP65YeXAclrdBFJ7+ohbKRD+7C9YDx
+	ApzrYyP1Kwel9ILH0eQAU7+CxeYQfkBoZkdm3kSrypkrDAPso0rTUTrQyjnYN1oSaspDSIdwxYUZC
+	OI+cA9QK8M7FvKzynGPScqT4UJde+qsaLL4m1Xe5PzPZUjJS2AlGmhyevKIA4Jg4sxLxjZPgs+f+E
+	Vghm79xU3QEtnx+3egPSG/3Z/YVlQNm80YWXqsJpZ/1ImyjeG1XHPqQ0hdt7SF3SzI8NzxEtT9mnu
+	deZxhYYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWmxX-0000000722R-3d32;
-	Wed, 02 Jul 2025 02:12:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uWn2C-000000072mp-3unM;
+	Wed, 02 Jul 2025 02:17:16 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWmvC-000000071nj-49ph
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 02:10:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 548F25C6A3B
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  2 Jul 2025 02:10:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 060B6C4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  2 Jul 2025 02:10:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751422201;
-	bh=u+eeCAa/SMbfFXGIhPFmHKU00HmZAfkLNYG9xaYS1bc=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=KqcYeDqDW1mitkomoKfjt8FI7qT9C95jCYcj2ZASJbWl+skMq45qv+qjiwgZmq/Ee
-	 +TWtIiLXjpMhl8V+UQVGDCRYY181ruZsYbkF+DSOah6NGxRxbe0YIUsJoXchSBw9tW
-	 NBeFDh4V/gkG1WfJUAxwxFSbzXOQt9B90bd/mZHbtYofEFF3eZ7m4EtE65r7qJrA/O
-	 hC19xQ43uZkeU/etnY7sRyXX83dBu1UuW6F5bzaXGMTaFBn7NlSWcsueAw5MGdQhr9
-	 2juRNQBbf8vA5siWinRaNPA+H7JJLHEWt9eE2VzGyLK58/7PSpZaoSa/EF7V4FrOXM
-	 xfT8H1fSENxrQ==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5535652f42cso7531164e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 19:10:00 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWFzu7ewdbkBWU1FmiCZGhoa+NcL0HeAWdf00Cc8CqPW5kaojOArWATBhThJodZB3Rmr40Iv+ieeguvnOcEkh7V@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBKBYl7Ji0UniDjKPlcPHfBavypX1tshiEDP7gBVOH2WzZWkKo
-	kcbZESyOoeaGR1/pNZe6tN8iTuHw6mk6Vw22h38QvjJ8e5uJrOawX8/ANI/YTpoCf7bxpgRqYLn
-	ijBMe2UTrSzHCAJ4EM4WSBL1t85c9H48=
-X-Google-Smtp-Source: AGHT+IExQsqR+GkLIkcYZVnIhwtqeUxgvDRyCT2rsQLCgxbz7hvEKkOqilsUyV4/3BGqleecD5hg31pOgPJo1qEuhHQ=
-X-Received: by 2002:ac2:4bcb:0:b0:553:5148:5b69 with SMTP id
- 2adb3069b0e04-5562832ebd7mr288411e87.36.1751422199297; Tue, 01 Jul 2025
- 19:09:59 -0700 (PDT)
+	id 1uWmzr-000000072V5-44Ry;
+	Wed, 02 Jul 2025 02:14:53 +0000
+X-UUID: 52623c7256ea11f09f706fa2197c6ceb-20250701
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=deNJWsOBY3RBK23bhwBdD1QEB5poAvITxTzNa/F4P1I=;
+	b=O/QON/zRTEINtErVRVM5UEfWnf3RcFM0zRhSXVfH8P1qe+20PttTGvbczihwArj5IhD+JdJtk+corhYlTvGGCD1G8q/M1xTBJbynC7iObMgo6DlvNO4dOemYrrREgYBav8ACiXpaN7CXhwjdmbNIKcq4IvMkvRPAwFp5wvwRPig=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:ddab2cbb-0e50-482b-9fb2-030044556025,IP:0,UR
+	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:c1766a82-cc21-4267-87cf-e75829fa6365,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 52623c7256ea11f09f706fa2197c6ceb-20250701
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <kuyo.chang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 413804337; Tue, 01 Jul 2025 19:14:45 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 2 Jul 2025 10:14:42 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 2 Jul 2025 10:14:42 +0800
+From: Kuyo Chang <kuyo.chang@mediatek.com>
+To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
+	<vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, "Mel
+ Gorman" <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+	"Matthias Brugger" <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: John Stultz <jstultz@google.com>, kuyo chang <kuyo.chang@mediatek.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH v5 1/1] sched/deadline: Fix dl_server runtime calculation formula
+Date: Wed, 2 Jul 2025 10:12:25 +0800
+Message-ID: <20250702021440.2594736-1-kuyo.chang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20250701165756.258356-1-wens@kernel.org> <20250701165756.258356-3-wens@kernel.org>
- <15ba0933-b0c1-40eb-9d3c-d8837d6ee12a@linux.dev>
-In-Reply-To: <15ba0933-b0c1-40eb-9d3c-d8837d6ee12a@linux.dev>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Wed, 2 Jul 2025 10:09:45 +0800
-X-Gmail-Original-Message-ID: <CAGb2v646pxuT-nrwtDD-wvrA0eoxaee6sq2-mb0WoqUCPzpRjg@mail.gmail.com>
-X-Gm-Features: Ac12FXycPpmF1Db6tRvOloPbMgcZjGtgFpDdr0Kf5ejzMWZ9PKuxrVUm___NGNc
-Message-ID: <CAGb2v646pxuT-nrwtDD-wvrA0eoxaee6sq2-mb0WoqUCPzpRjg@mail.gmail.com>
-Subject: Re: [PATCH RFT net-next 02/10] net: stmmac: Add support for Allwinner
- A523 GMAC200
-To: Yanteng Si <si.yanteng@linux.dev>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Andre Przywara <andre.przywara@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_191003_124526_2D16AAD5 
-X-CRM114-Status: GOOD (  39.43  )
+X-CRM114-CacheID: sfid-20250701_191452_024006_E2921BF0 
+X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,203 +87,107 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 2, 2025 at 10:00=E2=80=AFAM Yanteng Si <si.yanteng@linux.dev> w=
-rote:
->
-> =E5=9C=A8 7/2/25 12:57 AM, Chen-Yu Tsai =E5=86=99=E9=81=93:
-> > From: Chen-Yu Tsai <wens@csie.org>
-> >
-> > The Allwinner A523 SoC family has a second Ethernet controller, called
-> > the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
-> > numbering. This controller, according to BSP sources, is fully
-> > compatible with a slightly newer version of the Synopsys DWMAC core.
-> > The glue layer around the controller is the same as found around older
-> > DWMAC cores on Allwinner SoCs. The only slight difference is that since
-> > this is the second controller on the SoC, the register for the clock
-> > delay controls is at a different offset. Last, the integration includes
-> > a dedicated clock gate for the memory bus and the whole thing is put in
-> > a separately controllable power domain.
-> >
-> > Add a new driver for this hardware supporting the integration layer.
-> >
-> > Signed-off-by: Chen-Yu Tsai <wens@csie.org>
-> > ---
-> >   drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
-> >   drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
-> >   .../ethernet/stmicro/stmmac/dwmac-sun55i.c    | 161 +++++++++++++++++=
-+
-> >   3 files changed, 174 insertions(+)
-> >   create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-> >
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/=
-ethernet/stmicro/stmmac/Kconfig
-> > index 67fa879b1e52..38ce9a0cfb5b 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > @@ -263,6 +263,18 @@ config DWMAC_SUN8I
-> >         stmmac device driver. This driver is used for H3/A83T/A64
-> >         EMAC ethernet controller.
-> >
-> > +config DWMAC_SUN55I
-> > +     tristate "Allwinner sun55i GMAC200 support"
-> > +     default ARCH_SUNXI
-> > +     depends on OF && (ARCH_SUNXI || COMPILE_TEST)
-> > +     select MDIO_BUS_MUX
-> > +     help
-> > +       Support for Allwinner A523/T527 GMAC200 ethernet controllers.
-> > +
-> > +       This selects Allwinner SoC glue layer support for the
-> > +       stmmac device driver. This driver is used for A523/T527
-> > +       GMAC200 ethernet controller.
-> > +
-> >   config DWMAC_THEAD
-> >       tristate "T-HEAD dwmac support"
-> >       depends on OF && (ARCH_THEAD || COMPILE_TEST)
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net=
-/ethernet/stmicro/stmmac/Makefile
-> > index b591d93f8503..51e068e26ce4 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > @@ -31,6 +31,7 @@ obj-$(CONFIG_DWMAC_STI)             +=3D dwmac-sti.o
-> >   obj-$(CONFIG_DWMAC_STM32)   +=3D dwmac-stm32.o
-> >   obj-$(CONFIG_DWMAC_SUNXI)   +=3D dwmac-sunxi.o
-> >   obj-$(CONFIG_DWMAC_SUN8I)   +=3D dwmac-sun8i.o
-> > +obj-$(CONFIG_DWMAC_SUN55I)   +=3D dwmac-sun55i.o
-> >   obj-$(CONFIG_DWMAC_THEAD)   +=3D dwmac-thead.o
-> >   obj-$(CONFIG_DWMAC_DWC_QOS_ETH)     +=3D dwmac-dwc-qos-eth.o
-> >   obj-$(CONFIG_DWMAC_INTEL_PLAT)      +=3D dwmac-intel-plat.o
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c b/drive=
-rs/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-> > new file mode 100644
-> > index 000000000000..7fadb90e3098
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-> > @@ -0,0 +1,161 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * dwmac-sun55i.c - Allwinner sun55i GMAC200 specific glue layer
-> > + *
-> > + * Copyright (C) 2025 Chen-Yu Tsai <wens@csie.org>
-> > + *
-> > + * syscon parts taken from dwmac-sun8i.c, which is
-> > + *
-> > + * Copyright (C) 2017 Corentin Labbe <clabbe.montjoie@gmail.com>
-> > + */
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/bits.h>
-> > +#include <linux/mfd/syscon.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of.h>
-> > +#include <linux/phy.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/regmap.h>
-> > +#include <linux/regulator/consumer.h>
-> > +#include <linux/stmmac.h>
-> > +
-> > +#include "stmmac.h"
-> > +#include "stmmac_platform.h"
-> > +
-> > +#define SYSCON_REG           0x34
-> > +
-> > +/* RMII specific bits */
-> > +#define SYSCON_RMII_EN               BIT(13) /* 1: enable RMII (overri=
-des EPIT) */
-> insert a blankline.
+From: kuyo chang <kuyo.chang@mediatek.com>
 
-OK.
+In our testing with 6.12 based kernel on a big.LITTLE system, we were
+seeing instances of RT tasks being blocked from running on the LITTLE
+cpus for multiple seconds of time, apparently by the dl_server. This
+far exceeds the default configured 50ms per second runtime.
 
-> > +/* Generic system control EMAC_CLK bits */
-> > +#define SYSCON_ETXDC_MASK            GENMASK(12, 10)
-> > +#define SYSCON_ERXDC_MASK            GENMASK(9, 5)
-> ditto.
+This is due to the fair dl_server runtime calculation being scaled
+for frequency & capacity of the cpu.
 
-OK.
+Consider the following case under a Big.LITTLE architecture:
+Assume the runtime is: 50,000,000 ns, and Frequency/capacity
+scale-invariance defined as below:
+Frequency scale-invariance: 100
+Capacity scale-invariance: 50
+First by Frequency scale-invariance,
+the runtime is scaled to 50,000,000 * 100 >> 10 = 4,882,812
+Then by capacity scale-invariance,
+it is further scaled to 4,882,812 * 50 >> 10 = 238,418.
+So it will scaled to 238,418 ns.
 
-> > +/* EMAC PHY Interface Type */
-> > +#define SYSCON_EPIT                  BIT(2) /* 1: RGMII, 0: MII */
-> > +#define SYSCON_ETCS_MASK             GENMASK(1, 0)
-> > +#define SYSCON_ETCS_MII              0x0
-> > +#define SYSCON_ETCS_EXT_GMII 0x1
-> > +#define SYSCON_ETCS_INT_GMII 0x2
-> > +
-> > +#define MASK_TO_VAL(mask)   ((mask) >> (__builtin_ffsll(mask) - 1))
-> > +
-> > +static int sun55i_gmac200_set_syscon(struct device *dev,
-> > +                                  struct plat_stmmacenet_data *plat)
-> > +{
-> > +     struct device_node *node =3D dev->of_node;
-> > +     struct regmap *regmap;
-> > +     u32 val, reg =3D 0;
-> > +
-> > +     regmap =3D syscon_regmap_lookup_by_phandle(node, "syscon");
-> > +     if (IS_ERR(regmap))
-> > +             return dev_err_probe(dev, PTR_ERR(regmap), "Unable to map=
- syscon\n");
-> > +
-> -----------
-> > +     if (!of_property_read_u32(node, "allwinner,tx-delay-ps", &val)) {
-> > +             if (val % 100) {
-> > +                     dev_err(dev, "tx-delay must be a multiple of 100\=
-n");
-> > +                     return -EINVAL;
-> > +             }
-> > +             val /=3D 100;
-> > +             dev_dbg(dev, "set tx-delay to %x\n", val);
-> > +             if (val > MASK_TO_VAL(SYSCON_ETXDC_MASK))
-> > +                     return dev_err_probe(dev, -EINVAL,
-> > +                                          "Invalid TX clock delay: %d\=
-n",
-> > +                                          val);
-> > +
-> > +             reg |=3D FIELD_PREP(SYSCON_ETXDC_MASK, val);
-> > +     }
-> > +
-> > +     if (!of_property_read_u32(node, "allwinner,rx-delay-ps", &val)) {
-> > +             if (val % 100) {
-> > +                     dev_err(dev, "rx-delay must be a multiple of 100\=
-n");
-> > +                     return -EINVAL;
-> > +             }
-> > +             val /=3D 100;
-> > +             dev_dbg(dev, "set rx-delay to %x\n", val);
-> > +             if (val > MASK_TO_VAL(SYSCON_ERXDC_MASK))
-> > +                     return dev_err_probe(dev, -EINVAL,
-> > +                                          "Invalid RX clock delay: %d\=
-n",
-> > +                                          val);
-> > +
-> > +             reg |=3D FIELD_PREP(SYSCON_ERXDC_MASK, val);
-> > +     }
-> ------------
-> These two parts of the code are highly similar.
-> Can you construct a separate function?
+This smaller "accounted runtime" value is what ends up being
+subtracted against the fair-server's runtime for the current period.
+Thus after 50ms of real time, we've only accounted ~238us against the
+fair servers runtime. This 209:1 ratio in this example means that on
+the smaller cpu the fair server is allowed to continue running,
+blocking RT tasks, for over 10 seconds before it exhausts its supposed
+50ms of runtime.  And on other hardware configurations it can be even
+worse.
 
-As in, have a function that sets up either TX or RX delay based on
-a parameter? That also means constructing the property name on the
-fly or using ternary ops. And chopping up the log messages.
+For the fair deadline_server, to prevent realtime tasks from being
+unexpectedly delayed, we really do want to use fixed time, and not
+scaled time for smaller capacity/frequency cpus. So remove the scaling
+from the fair server's accounting to fix this.
 
-I don't think this makes it easier to read. And chopping up the log
-message makes it harder to grep.
+Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
+Acked-by: Juri Lelli <juri.lelli@redhat.com>
+Suggested-by: Peter Zijlstra <peterz@infradead.org>
+Suggested-by: John Stultz <jstultz@google.com>
+Tested-by: John Stultz <jstultz@google.com>
 
-> > +
-> > +     switch (plat->mac_interface) {
->
-> > +     case PHY_INTERFACE_MODE_MII:
-> > +             /* default */
-> > +             break;
-> This line of comment seems a bit abrupt here.
+---
+v1: https://lore.kernel.org/all/20250614020524.631521-1-kuyo.chang@mediatek.com/
+v2: https://lore.kernel.org/all/20250617155355.1479777-1-kuyo.chang@mediatek.com/
+v3: https://lore.kernel.org/all/20250626030746.2245365-1-kuyo.chang@mediatek.com/
+v4: https://lore.kernel.org/all/20250627022837.3331827-1-kuyo.chang@mediatek.com/
 
-Default as in this is the 0 value register default.
+v1->v2
+Use the dl_server flag to identify scaled or non-scaled suggested by Peter.
+v2->v3
+Use the dl_server(dl_se) helper function for the code refactor suggested by John.
+v3->v4
+Commit log cleaned up/simplified suggested by John.
+v4->v5
+Drop the conditional for fair_server of time_scale.
+The original version of this patch(v1) is much cleaner,
+suggested by John & acked by Juri.
 
-OTOH the integration doesn't support MII, so I think I should drop this cas=
-e.
+---
+ kernel/sched/deadline.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index ad45a8fea245..89019a140826 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -1504,7 +1504,9 @@ static void update_curr_dl_se(struct rq *rq, struct sched_dl_entity *dl_se, s64
+ 	if (dl_entity_is_special(dl_se))
+ 		return;
+ 
+-	scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
++	scaled_delta_exec = delta_exec;
++	if (!dl_server(dl_se))
++		scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
+ 
+ 	dl_se->runtime -= scaled_delta_exec;
+ 
+@@ -1611,7 +1613,7 @@ static void update_curr_dl_se(struct rq *rq, struct sched_dl_entity *dl_se, s64
+  */
+ void dl_server_update_idle_time(struct rq *rq, struct task_struct *p)
+ {
+-	s64 delta_exec, scaled_delta_exec;
++	s64 delta_exec;
+ 
+ 	if (!rq->fair_server.dl_defer)
+ 		return;
+@@ -1624,9 +1626,7 @@ void dl_server_update_idle_time(struct rq *rq, struct task_struct *p)
+ 	if (delta_exec < 0)
+ 		return;
+ 
+-	scaled_delta_exec = dl_scaled_delta_exec(rq, &rq->fair_server, delta_exec);
+-
+-	rq->fair_server.runtime -= scaled_delta_exec;
++	rq->fair_server.runtime -= delta_exec;
+ 
+ 	if (rq->fair_server.runtime < 0) {
+ 		rq->fair_server.dl_defer_running = 0;
+-- 
+2.45.2
 
-Thanks
-ChenYu
 
