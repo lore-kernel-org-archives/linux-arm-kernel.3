@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F24C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0740EC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EmnxK/fcrxxXUhMhQ9V8hHxw8+/ly6dtIUYblCY5Q1g=; b=jlT0LWxosiGaB2/hUx76LYex+D
-	/EWU0j8etcsc09wJ7gy6hmv0Bbl1v6l1Od0rYvJEbluP+QNEPIWWtYtwP1/vXsNeJznd0vuSa/SUb
-	BpIRgvQz4N2NdtlwogFkH2obNmj7U1fiAEEAjlHlutxGkRcRxNtd+F3jNhszjUXM1DPiBx2J+eQi6
-	rhcjGtNmYOJsPKwTJolehMOE3IzZ6LBiGmXyNWGkKkOA4NxSBH7SbYB/P/4nJo6zeIBfXUKuCygKE
-	kG6G+eBrpmV241bVO8t7YQrxCY5wHF+NyoprOIf/a5P4+ZsjNZLK2aTtZinijMTGYJUneUC9EK9vE
-	j6IqnyCQ==;
+	bh=10CYibGvwIVYchOvUOxwjyPV91vxtw5BqVOM0fUyS28=; b=Rmey7xs5UlvR5Ieij2YXtd2hBF
+	DyiTWuRlEeVmhDSiAB5QVOg9bfbNtq8WCziecrLDQpKbrZV6xm6Rkkj/v9y2utrxTzQ2t/Px7GVeA
+	mV5JVpT82yPbpzwIpuC4gwx+8nZDV44zUKdbbYIZc3ij/ZpV6s4HGhuSEfY5Ic3khc+C/LmlvAMhn
+	TTo0aD7LMx3htWoRoygIXo/Y8asldIEBmYLq2H8U28TLqBgiJ4s2oEWNOh6AqEuuglc4MrOCj5Ecy
+	2ej53fU3OWu/dCWUyJcG2thWNK028SRS1GZeEmFo0qdRoom4SAU3hZ7UAqlkGh+g7FAmYTwumTd3M
+	dlIAw27A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWuKi-00000007sq5-475q;
-	Wed, 02 Jul 2025 10:04:52 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uWuN2-00000007tJo-47ar;
+	Wed, 02 Jul 2025 10:07:16 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtvJ-00000007nbu-3kBz;
-	Wed, 02 Jul 2025 09:38:39 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 966C4E91;
-	Wed,  2 Jul 2025 11:38:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1751449088;
-	bh=DGKrttRsQr4Iev/uBW1PHry4ekiuQTspS65d9746Hfk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OaQRH80s6vm2oaq0DfRpQ8cCRCiwGUiKn9uTbKfY2N5A5lVPkpUNu2d23a80gt6kj
-	 ZNipU0xVGKEARmwGwLxQve3e93XgPhXPlqa4QG1qZ0GEyo+pcKGpKPDLEGG1Z9DQTT
-	 JGHs9kaLxL5FYJyPWFLq6nEjQDFhfcGOBwG1hLd0=
-Date: Wed, 2 Jul 2025 12:38:06 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org, "Guoniu.zhou" <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH 5/7] media: nxp: add DesignWare MIPI CSI2 controller
- driver
-Message-ID: <20250702093806.GF16835@pendragon.ideasonboard.com>
-References: <20250701-95_cam-v1-0-c5172bab387b@nxp.com>
- <20250701-95_cam-v1-5-c5172bab387b@nxp.com>
+	id 1uWtwJ-00000007nrM-11lE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Jul 2025 09:39:40 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751449177;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=10CYibGvwIVYchOvUOxwjyPV91vxtw5BqVOM0fUyS28=;
+	b=DADx7Gs5oChS8tz124E7PgQoyjZN6PFOt4xrJCp3IqgpGjjCcEC5wYQyUQRUMjZf40GGtd
+	7+o2D0aaPfDvvMnZxlGuhwqZfMHc/MjsHF/bn3YTBPhaD9J1sP7pxpDE92CKIwJKalhrsF
+	S231rF82KkiFdKdaZsK8Ubl4tM+TWB5FuWXcTdgo/XGhYO+RDMlwxoq03lZLxjgeZNdswe
+	M8PcHw4GMz+LIGmpReA+V8d2XAyKB7X+LSo9IxVsQ9crJJx/uJSfevHeKTpxBGQlFCMqQ8
+	dBLVOa5OlWGb+B13Xq8S+Y2YlLBKmxsBLO4QGSV34yQlzcSj6tWDMkNPHO0V3A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751449177;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=10CYibGvwIVYchOvUOxwjyPV91vxtw5BqVOM0fUyS28=;
+	b=+Fnw+crHy4xmKh/dT5Ygf/U+FvNoiyjfkNEflf8c5EM8g/kWZhBsHHPEN5bLiR0h4eM84O
+	qN71oJUcjhDkrRDg==
+To: Gabriele Monaco <gmonaco@redhat.com>, Peter Zijlstra <peterz@infradead.org>
+Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Andy
+ Lutomirski <luto@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Masami
+ Hiramatsu <mhiramat@kernel.org>, Ingo Molnar <mingo@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] tracing: Fix inconsistency in irq tracking on NMIs
+In-Reply-To: <5097b17cc506af60ca718aba5a0a10e0fda01440.camel@redhat.com>
+References: <20250625120823.60600-1-gmonaco@redhat.com>
+ <20250701125459.GL1613200@noisy.programming.kicks-ass.net>
+ <5097b17cc506af60ca718aba5a0a10e0fda01440.camel@redhat.com>
+Date: Wed, 02 Jul 2025 11:39:37 +0200
+Message-ID: <87cyajkk2u.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250701-95_cam-v1-5-c5172bab387b@nxp.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_023838_065947_4400FD58 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20250702_023939_424436_FAA26E1C 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +80,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Wed, Jul 02 2025 at 09:18, Gabriele Monaco wrote:
+> On Tue, 2025-07-01 at 14:54 +0200, Peter Zijlstra wrote:
+> I could probably only fix this without even considering NMIs when
+> interrupts are disabled, but I believe if that happens, the tracepoints
+> would report something wrong, since using tracing_irq_cpu alone does:
+>
+> local_irq_disable -> trace_irq_off
+>   nmi_enter -> no trace
+>   nmi_exit -> trace_irq_on
+>   // here interrupts are still off, aren't they?
+> local_irq_enable -> no trace
+>
+> The idea that I described poorly, was to use tracing_irq_cpu in a way
+> that the first context disabling interrupts fires the tracepoint
+> (current behaviour), but when it's time to enable interrupts, an NMI
+> which didn't disable interrupts shouldn't trace but let the next
+> context trace.
+...
+> [1] - https://lore.kernel.org/lkml/87sejup1fe.ffs@tglx
 
-Thank you for the patch.
+As I told you before:
 
-On Tue, Jul 01, 2025 at 06:06:10PM -0400, Frank Li wrote:
-> From: "Guoniu.zhou" <guoniu.zhou@nxp.com>
-> 
-> Add V4L2 subdev driver for DesignWare MIPI CSI2 controller.
+ "As you correctly described, the two states are asynchronous in the
+  context of NMIs, so the obvious thing is to treat them as seperate
+  entities so that the trace really contains the off/on events
+  independent of lockdep enablement and lockdep's internal state. No?"
 
-This seems to be at least the third instance of a driver for the CSI-2
-receiver, the first two being
-drivers/media/platform/raspberrypi/rp1-cfe/dphy.c and the second one
-drivers/media/platform/renesas/rcar-csi2.c (the latter seems to support
-multiple CSI-2 receivers). drivers/staging/media/imx/imx6-mipi-csi2.c
-seem related too, likely for an old version of the IP.
+So I would have expected that you look at the lockdep implementation and
+figure out why that one works correctly. Let's have a look at it:
 
-Could we please try to avoid code duplication ?
+nmi_entry()
+   irq_state.lockdep = lockdep_hardirqs_enabled();
 
-> Signed-off-by: Guoniu.zhou <guoniu.zhou@nxp.com>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  MAINTAINERS                                |    1 +
->  drivers/media/platform/nxp/Kconfig         |   11 +
->  drivers/media/platform/nxp/Makefile        |    1 +
->  drivers/media/platform/nxp/dwc-mipi-csi2.c | 1675 ++++++++++++++++++++++++++++
+   lockdep_hardirqs_off(CALLER_ADDR0);
+   ...
+   return irq_state;
 
-This should go to drivers/media/platform/synopsys/
+nmi_exit(irq_state)
 
->  4 files changed, 1688 insertions(+)
+   if (irq_state.lockdep)
+	lockdep_hardirqs_on(CALLER_ADDR0);
 
-[snip]
+On NMI entry the internal state of lockdep tracking is recorded and
+lockdep_hardirqs_off() handles a redundant off gracefully. As I said it
+might be arguable to invoke it only when irq_state.lockdep == true, but
+that's a cosmetic or performance issue not a correctness problem.
 
--- 
-Regards,
+On NMI exit lockdep_hardirqs_on() is only invoked when the lockdep internal
+state at entry was 'enabled' so it can restore the state correctly.
 
-Laurent Pinchart
+If you model the tracer exactly the same way:
+
+   irq_state.lockdep = lockdep_hardirqs_enabled();
+   irq_state.tracer = tracer_hardirqs_enabled();
+   ....
+
+   You get the idea...
+
+That will be "correct" in terms of sequencing depending on your trace side
+implementation:
+
+  trace_hardirqs_off()
+        if (trace_hardirqs_enabled()) {
+        	trace_irqs_enabled = false;     // A
+                emit_trace(OFF);	        // B
+
+If the NMI hits before A, everything is fine because it will record a
+ON->OFF transition on NMI entry and a OFF->ON transition on NMI
+exit. Then the interrupted context records a ON->OFF transition again.
+
+If it hits between A and B, then the NMI tracing wont do anything
+because enabled state is already false, but the resulting trace
+sequencing is messed up:
+
+     irqs on
+     ...
+     nmi_entry
+     nmi_exit
+     irqs off
+
+IOW, it misses the ON->OFF OFF->ON transitions in the NMI.
+
+So you want to do it the other way round:
+
+  trace_hardirqs_off()
+        if (trace_hardirqs_enabled()) {
+                emit_trace(OFF);	        // A
+        	trace_irqs_enabled = false;     // B
+
+If the NMI hits before A, everything is fine because it will record a
+ON->OFF transition on NMI entry and a OFF->ON transition on NMI
+exit. Then the interrupted context records a ON->OFF transition again.
+
+If it hits between A and B then you get a duplicate
+
+     irqs on
+     ...
+     irqs off
+     nmi_entry
+     irqs off
+     irqs on
+     nmi_exit
+
+There is nothing you can do about it, but that's easy enough to filter
+out, no?
+
+I'm pretty sure you can figure out how that should be modeled on the
+on() side of affairs.
+
+Thanks,
+
+        tglx
 
