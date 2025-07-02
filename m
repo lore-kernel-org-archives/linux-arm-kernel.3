@@ -4,66 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0347C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 17:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FBAC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 17:48:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w6LHKJnFmkBVfaBNVA+PvTt7RpUyjAiBsMwJT2t+Fhg=; b=Ql6quZmOeHNCgJTa+xjQ8YTEwJ
-	D50z/2giYlAAhvbo6euqRcjEdfdy0/aE6t6qPwUTU7uaFiILNSfh4vNFlf/rFlvs8eoXxKdnqEN9a
-	Ax+Uzww40mKTxOAuBRMONeSAr3NwFd4dPxfbLIEa3q9xycqukMIkyg8hMEXH9haGIMLVO6Ahu3sjU
-	AIf22UgMKKmDwNek2jEhcuHq19IgIQpTHFDZrJPKQPUStZbv9DkAYUhnVWZ9bOteiV/sXWGAdUGDG
-	0zSNFUBqUgyP5xZH/EOfaSAIpR+UTMeWeEuejQIgbAu8Uuxlul7qP6TEUuM+ONmkVyJg7YH0ECK/q
-	AOeQFrTg==;
+	bh=kGbVmrhUI5Uv11tNzQgsKxsAH9iPy+QdOEX38aJe6Mc=; b=QkPSKvthQg8m3cKaXSVvuUCL60
+	x7/K/z59/M+f5HQ1HkZH5CqKpWQxLPazxOodXX8Dqq/wfFIlSklDIW6ggHpQJjcvwNs1vrvJT4sz/
+	ts0BvQgDbA4yFtOyx4Miz+nBVTA+4S2Bmsa2rmCFZ6v16GPAM5bxEirxSU2+kynHMPtO87JkTS1Rx
+	82V2U7xoLio4Qh9i389KVxPFimlGHL64ynPpXYgQ8yFNRE9mnM4gNpqtFaFS7fU9YcO0ln2WLu5RA
+	Und42P/7QrdQu6Sp9qM+irPDR2nvaZARBNPI0xXiZFXGQ/GNOEcSGzbowAyHmUHcpl9t+5akMCHd5
+	qD6im4WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX1ZE-00000009AI0-3o9K;
-	Wed, 02 Jul 2025 17:48:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX0ib-000000092H3-38Wi
+	id 1uX1ZD-00000009AGy-3Gx2;
+	Wed, 02 Jul 2025 17:48:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uX0cO-000000090eS-3VI2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 16:53:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C4F7CA530DC;
-	Wed,  2 Jul 2025 16:53:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DE08C4CEE7;
-	Wed,  2 Jul 2025 16:53:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751475236;
-	bh=SPe4Uai1bMQkO9HlAyYOM9wfRpZK1LE+tL6F2AD8u1I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mKlMaTth9qVjFXD1OrmZjGPDo89B+QjHzvGZv11qCVAmnmt/fVk1mV1FCiB8JKdNf
-	 D6Vro1jZ4YN3ADYJXKWzZZ0cMndBt84UGCpSFWW6ygeTgBzpcY3zazVZgGcp/pOmZn
-	 ogalxEGv0qRjivDYljIcQikdjDt35QapyEsoKDEDNgjC1H5OZtoSx8r+0M/n89FHhv
-	 0FYBMICOQWnsCj5jPKwA8Rc/Eab0BMqBGNMlX10Iu1ef++FnlKUjF7Yzo+gSzkKtv1
-	 iie6R/1OsgeHiMDbSfpx/RKVgdJAKwTyD8furAM25FZyQPwLA+Gzt81wBv3ZltyBeM
-	 R/NPEBCybHM9g==
-Date: Wed, 2 Jul 2025 11:53:55 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Matthew Gerlach <matthew.gerlach@altera.com>
-Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com,
-	Mun Yew Tham <mun.yew.tham@altera.com>, davem@davemloft.net,
-	richardcochran@gmail.com, linux-arm-kernel@lists.infradead.org,
-	pabeni@redhat.com, krzk+dt@kernel.org, devicetree@vger.kernel.org,
-	kuba@kernel.org, linux-kernel@vger.kernel.org,
-	alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
-	conor+dt@kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	dinguyen@kernel.org, edumazet@google.com, mcoquelin.stm32@gmail.com
-Subject: Re: [PATCH v7] dt-bindings: net: Convert socfpga-dwmac bindings to
- yaml
-Message-ID: <175147523465.1908626.13539013933475728908.robh@kernel.org>
-References: <20250630213748.71919-1-matthew.gerlach@altera.com>
+	Wed, 02 Jul 2025 16:47:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0B9522C7;
+	Wed,  2 Jul 2025 09:47:16 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 615703F66E;
+	Wed,  2 Jul 2025 09:47:31 -0700 (PDT)
+Date: Wed, 2 Jul 2025 17:47:29 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Junhao He <hejunhao3@huawei.com>
+Cc: suzuki.poulose@arm.com, james.clark@arm.com, anshuman.khandual@arm.com,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linuxarm@huawei.com,
+	jonathan.cameron@huawei.com, yangyicong@huawei.com,
+	prime.zeng@hisilicon.com
+Subject: Re: [PATCH v2 2/3] coresight: tmc: refactor the tmc-etr mode setting
+ to avoid race conditions
+Message-ID: <20250702164729.GA1039028@e132581.arm.com>
+References: <20250620075412.952934-1-hejunhao3@huawei.com>
+ <20250620075412.952934-3-hejunhao3@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250630213748.71919-1-matthew.gerlach@altera.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250620075412.952934-3-hejunhao3@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_095357_853560_B046D2E1 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20250702_094732_964331_62696668 
+X-CRM114-Status: GOOD (  25.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +68,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 20, 2025 at 03:54:11PM +0800, Junhao He wrote:
 
-On Mon, 30 Jun 2025 14:37:48 -0700, Matthew Gerlach wrote:
-> Convert the bindings for socfpga-dwmac to yaml. Since the original
-> text contained descriptions for two separate nodes, two separate
-> yaml files were created.
-> 
-> Signed-off-by: Mun Yew Tham <mun.yew.tham@altera.com>
-> Signed-off-by: Matthew Gerlach <matthew.gerlach@altera.com>
-> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
-> v7:
->  - Add compatible definition for Arria10.
->  - Update iommus to maxItems: 2.
-> 
-> v6:
->  - Fix reference to altr,gmii-to-sgmii-2.0.yaml in MAINTAINERS.
->  - Add Reviewed-by:
-> 
-> v5:
->  - Fix dt_binding_check error: comptabile.
->  - Rename altr,gmii-to-sgmii.yaml to altr,gmii-to-sgmii-2.0.yaml
-> 
-> v4:
->  - Change filename from socfpga,dwmac.yaml to altr,socfpga-stmmac.yaml.
->  - Updated compatible in select properties and main properties.
->  - Fixed clocks so stmmaceth clock is required.
->  - Added binding for altr,gmii-to-sgmii.
->  - Update MAINTAINERS.
-> 
-> v3:
->  - Add missing supported phy-modes.
-> 
-> v2:
->  - Add compatible to required.
->  - Add descriptions for clocks.
->  - Add clock-names.
->  - Clean up items: in altr,sysmgr-syscon.
->  - Change "additionalProperties: true" to "unevaluatedProperties: false".
->  - Add properties needed for "unevaluatedProperties: false".
->  - Fix indentation in examples.
->  - Drop gmac0: label in examples.
->  - Exclude support for Arria10 that is not validating.
-> ---
->  .../bindings/net/altr,gmii-to-sgmii-2.0.yaml  |  49 ++++++
->  .../bindings/net/altr,socfpga-stmmac.yaml     | 166 ++++++++++++++++++
->  .../devicetree/bindings/net/socfpga-dwmac.txt |  57 ------
->  MAINTAINERS                                   |   7 +-
->  4 files changed, 221 insertions(+), 58 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/net/altr,gmii-to-sgmii-2.0.yaml
->  create mode 100644 Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
->  delete mode 100644 Documentation/devicetree/bindings/net/socfpga-dwmac.txt
-> 
+[...]
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> To fix this, configure the tmc-etr mode before invoking enable_etr_perf()
+> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
+> enabled in a different mode, and simplily the setup and checks for "mode".
+> To prevent race conditions between mode transitions.
 
+I have a similiar fixing for CTI driver, see:
+https://lore.kernel.org/linux-arm-kernel/20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com/T/#maccd68b460fb8d74ccdd3504163d8f486f04178b
+
+[...]
+
+> @@ -1781,14 +1756,52 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+>  static int tmc_enable_etr_sink(struct coresight_device *csdev,
+>  			       enum cs_mode mode, void *data)
+>  {
+> +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +	enum cs_mode old_mode;
+> +	int rc = -EINVAL;
+> +
+> +	scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
+
+scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
+
+I am concerned that the spinlock is acquired and released for several
+times in a single flow. It is possible to hit some corner case, e.g.,
+
+- CPU0 acquires the lock, set sink as SYSFS mode, and releases the lock;
+- CPU1 acquires the lock, detects the SYSFS mode has been set,
+  directly bail out, then enable ETM.
+
+The problem is the sink has not been enabled yet. This leads to CPU1
+to enable the tracer but prior to sink's enabling.
+
+The key piont is we should ensure the mode is consistent to the
+hardware state. I will take a bit time for if we can have a better idea
+for this.
+
+> +		old_mode = coresight_get_mode(csdev);
+> +		if (old_mode != CS_MODE_DISABLED && old_mode != mode)
+> +			return -EBUSY;
+> +
+> +		if (drvdata->reading)
+> +			return -EBUSY;
+> +
+> +		/* In sysFS mode we can have multiple writers per sink. */
+> +		if (old_mode == CS_MODE_SYSFS) {
+> +			csdev->refcnt++;
+
+I am just wandering if we can unify the "refcnt" code for both SYSFS
+mode and Perf mode, and as a result, we can consolidate the code cross
+different drivers.
+
+Something like:
+
+                if (!csdev->refcnt) {
+                        coresight_set_mode(csdev, mode);
+                } else {
+                        /* The device has been configured with an incompatible mode */
+                        if (coresight_get_mode(csdev) != mode)
+                                return -EBUSY;
+
+                        csdev->refcnt++;
+                }
+
+Then when disable the device:
+
+                csdev->refcnt--;
+                if (!csdev->refcnt)
+                        coresight_set_mode(csdev, CS_MODE_DISABLED);
+
+We should not check "drvdata->reading" when enable or disable sink, as
+it is a flag to track if reading the trace buffer, it is irrelevant to
+the sink device's enabling or disabling.
+
+Please verify perf mode (especially for system wide session) to avoid
+anything missed.
+
+Thanks,
+Leo
+
+> +			return 0;
+> +		}
+> +
+> +		/*
+> +		 * minor note: In sysFS mode, the task1 get locked first, it setup
+> +		 * etr mode to SYSFS. Then task2 get locked，it will directly return
+> +		 * success even when the tmc-etr is not enabled at this moment.
+> +		 * Ultimately, task1 will still successfully enable tmc-etr.
+> +		 * This is a transient state and does not cause an anomaly.
+> +		 */
+> +		coresight_set_mode(csdev, mode);
+> +	}
+> +
+>  	switch (mode) {
+>  	case CS_MODE_SYSFS:
+> -		return tmc_enable_etr_sink_sysfs(csdev);
+> +		rc = tmc_enable_etr_sink_sysfs(csdev);
+> +		break;
+>  	case CS_MODE_PERF:
+> -		return tmc_enable_etr_sink_perf(csdev, data);
+> +		rc = tmc_enable_etr_sink_perf(csdev, data);
+> +		break;
+>  	default:
+> -		return -EINVAL;
+> +		rc = -EINVAL;
+>  	}
+> +
+> +	if (rc && old_mode != mode) {
+> +		scoped_guard(spinlock_irqsave, &drvdata->spinlock) {
+> +			coresight_set_mode(csdev, old_mode);
+> +		}
+> +	}
+> +
+> +	return rc;
+>  }
+>  
+>  static int tmc_disable_etr_sink(struct coresight_device *csdev)
+> -- 
+> 2.33.0
+> 
 
