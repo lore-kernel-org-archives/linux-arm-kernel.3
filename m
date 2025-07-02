@@ -4,113 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14ABBC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 11:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A13C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 11:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FZuWcLcbxD0l4NLK5mZaXGNJG6WVTVBfI0a9YGb4e7Q=; b=EUjT60dzv4gtK1irzT0eFw9OGG
-	7pt/OuONYIjOqV3TmXXecO4C+KoqdWXRH9+jON6GTrb8NiTKOPzl/I1KHbQY1G/4Shy09CudjYPvG
-	vtACp672D/onm9fsGgG5ej8vgCSZOtJvMzjJ3UjIwcBOPC83yuNo8eFHBqE0eHQQg+BOKD4yfHCgv
-	xsxj7E+K4ltSf7+V7ZG/MpqfHJjkzIInw27gyPucoqmdW+WV/grtU7AxpWQd72VjXIEwZL9Rm7iV8
-	0gvdnp/+TP/MgRW1l9ufojizea8WI4gtwz8NqZmNKDn7Xr7rJv1ahlisr/2cj6v7bQOe45jjuezwJ
-	T+HG/xTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y6uuRBxXrjF0Ae2i4iwLQbYWtBNxDN7FCHlkGJdSue0=; b=yyZdKxhc6TjPEUI9o1b3735yZh
+	Bhrdu7Yg2JMmkhJaa4rSBfA9Gjwx/N9lH6J3nPytJSw5vtTKZn4ZpgLTKZLPKad84vZJrcP0O7M4q
+	9LCLMmZaG9U2VTr5IxrgG0FZCVGnObt7XAVEH+yy0Ijxx8lVp+/MsDBz9f/Ac1MO31GWXJAbdHuPi
+	4WlsgEUKXw2D9VqELW+zKf0cSANqnua/eA7i33n+P/m3MUDGoVQ27lSMoycdg3r3nahW/5CUThoSd
+	Umd7svevIFMzJhqYaF+vYy6Rv8BI1xcBzZcoHH/VI6jUKCgChvElsHNJmSMVuSput7L9E/bkan1W4
+	UpDGHhwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWvGc-000000084Jf-2lqn;
-	Wed, 02 Jul 2025 11:04:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uWvIw-000000084ou-2LQc;
+	Wed, 02 Jul 2025 11:07:06 +0000
+Received: from proxy25215.mail.163.com ([103.129.252.15] helo=proxy41135.mail.163.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWudX-00000007wdb-3v9y
+	id 1uWudX-00000007wd9-3Twk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 10:24:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D22116141F;
-	Wed,  2 Jul 2025 10:24:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF1A3C4CEED;
-	Wed,  2 Jul 2025 10:24:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751451858;
-	bh=UsmMxrbxBsbKyiArM7KRaDTrVIVqy9Mb7Xi3fjN+Fgk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sy4gjWktF2eOQn1Onxy8QfsZqy5IEKNW4Blt/5ZfCEOj6k7yZic23QjjnnlkMHtBk
-	 0wSDelUsD6efXFANDXvGe2I63DxT6KgXwUWq4GNLXVqVfkS0CylAIog2EPih2YxrJ+
-	 AizBjWdzehnJtDe7LG83kXFcTPEoXwwqGJJWO2sNfsSwIsP0NJPuFvt7PM1ntdLEPu
-	 vPkbKFqTUWAtAnvLCzSAWN/3zshtwMnxse8OY0Db9FwEa5E1oEBeBWndEJKw+1Rw55
-	 F8tbujyVhS+5Qs53uKTWSsUL8xLTdAEbcVPmFXGL17SpeRqZ3XhQBxM+Cp5EBUpezY
-	 182zxPxBUYd9A==
-Message-ID: <c9160561-3792-4230-a7f6-57caf35f9a1d@kernel.org>
-Date: Wed, 2 Jul 2025 12:24:08 +0200
+	Wed, 02 Jul 2025 10:24:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=y6uuRBxXrjF0Ae2i4iwLQbYWtBNxDN7FCHlkGJdSue0=;
+	b=UUNchQHJYtiIreHerLC+4ldDYXQdm980I6yqLnHndHjhim136KwOAMoGGgLC5D
+	x90VxOOmhp2O9LworOeZEvAox/NWhcdnoMvGOBb9lRY//EoLGRSOODYdrOu1uJCl
+	O5mOYo/4330hbwt/F0E4fwz7q32mYCX7H+9IGBtQqOVLI=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgCnpuOLCGVorhUqAA--.26800S3;
+	Wed, 02 Jul 2025 18:23:09 +0800 (CST)
+Date: Wed, 2 Jul 2025 18:23:07 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [resend v2 1/1] arm64: dtsi: imx93: add edma error interrupt
+ support
+Message-ID: <aGUIi62j+5btTDME@dragon>
+References: <20250616181259.1989295-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] dt-bindings: vendor-prefixes: Add Black Sesame
- Technologies Co., Ltd.
-To: Albert Yang <yangzh0906@thundersoft.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, gordon.ge@bst.ai,
- catalin.marinas@arm.com, geert.uytterhoeven@gmail.com, will@kernel.org,
- ulf.hansson@linaro.org, adrian.hunter@intel.com, arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, soc@lists.linux.dev,
- bst-upstream@bstai.top, neil.armstrong@linaro.org,
- jonathan.cameron@huawei.com, bigfoot@classfun.cn, kever.yang@rock-chips.com,
- mani@kernel.org, geert+renesas@glider.be, andersson@kernel.org, nm@ti.com,
- nfraprado@collabora.com, quic_tdas@quicinc.com, ebiggers@google.com,
- victor.shih@genesyslogic.com.tw, shanchun1218@gmail.com,
- ben.chuang@genesyslogic.com.tw
-References: <20250528085403.481055-1-yangzh0906@thundersoft.com>
- <20250702094444.3523973-1-yangzh0906@thundersoft.com>
- <20250702094444.3523973-2-yangzh0906@thundersoft.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250702094444.3523973-2-yangzh0906@thundersoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250616181259.1989295-1-Frank.Li@nxp.com>
+X-CM-TRANSID: Ms8vCgCnpuOLCGVorhUqAA--.26800S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUzSdyUUUUU
+X-Originating-IP: [114.216.146.217]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIA6Y-WhlCI7XAQAA3W
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250702_032420_114923_D3B37E3A 
+X-CRM114-Status: UNSURE (   6.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,28 +79,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/07/2025 11:44, Albert Yang wrote:
-> Black Sesame Technologies Co., Ltd.s a leading automotive-grade
-> computing SoC and SoC-based
-> intelligent vehicle solution provider. Link: https://bst.ai/.
+On Mon, Jun 16, 2025 at 02:12:59PM -0400, Frank Li wrote:
+> From: Joy Zou <joy.zou@nxp.com>
 > 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
-> Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
-> ---
-Why is this attached to v1?
+> Add edma error irq for imx93.
+> 
+> Signed-off-by: Joy Zou <joy.zou@nxp.com>
+> Reviewed-by: Alberto Merciai <alb3rt0.m3rciai@gmail.com>
+> Tested-by: Alberto Merciai <alb3rt0.m3rciai@gmail.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Where is the changelog?
+Changed subject prefix to "arm64: dts: imx93: ...", and applied.
 
-Most of your emails did not reach mailing list. I also did not get them.
-
-... and the huge amount of CC list, mostly redundant and not relevant to
-this work, could explain that. Don't Cc random people.
-
-Anyway, fix above points - all three - and resend after 24h at least. Or
-consider using b4 relay, if this hits rejections/spam.
-
-Best regards,
-Krzysztof
+Shawn
 
 
