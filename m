@@ -4,195 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBED1C83F04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 14:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E912C83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 14:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V+jHPiUeldD8dhONJEpxFOonPC2AXGWpQaz9V/YVPBE=; b=A0JGeNsXEjaRur9zalpACIMjmr
-	7QMOddKTs7Bj8/I2kvooVYMY8+UJE/jdV4zzT+RJrG15uBIGRxkqg+Nr3VScHf3ke1hmnltoiJji1
-	70XiHwtt7hJzcmu7d1X2VnOBId5jxYxSAxAPWapMb/mhW6CsXsb2REwXFYrxgXOF6O5+4dFXwqrH4
-	KffC2IPWABIgtpO4VtBwOhVyqOqzyTQaBO2XRRaVeESl8EdzqUeuv22O0fo0aCecdXh+EyeQ3V6ge
-	RCoWcdbrgtVUJi6YT4kQbhY97dYPGgI2sTkq+BrdCc5/JjFgbQbZlS0Y+TK/1vSjn4854Y+xNpFzG
-	r86AUngA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=98e5Qtd3QSJc6ahdE/IhfmSim70q26JjHq2gJ6XK6Ac=; b=LfN5K9V32fj6Vu+HIuLNLQCB0U
+	P7fLM0jb4fmcK7gzZvPbTsEqEsxORVzKkmTzSbPROGorVniLEq7aFrHgeAmjig6U2eGWTLOoX2RUy
+	Gn5Z0ma8vMGhylQG6mjsgmZUdppfC3B4XiD5lEyvw2o8nKhz16JWJNCEIuo9nIhE748DW/oCpMPmu
+	alYq06jPmHf9jGTuGJLJp8r7kr7KxItCk1mr81erpYDELd/dPtUyGw9klESZ9mKthg6u3TGnr4bYR
+	F2k9IBdn/zrwrn4/xXBNGSgDHr2MZWOFg8p1SpidVZFv7cY9EDJOdnNsswNmLqCpO2CVoirQg5Uf/
+	hG0/hT3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWy6G-00000008ZZ1-3F3y;
-	Wed, 02 Jul 2025 14:06:12 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uWy6I-00000008ZZX-0iOV;
+	Wed, 02 Jul 2025 14:06:14 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWx0q-00000008NP5-1FY9
+	id 1uWx4f-00000008NmH-0RXf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 12:56:33 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=juin5rtxx3Hpb5nN/nBzIRlFa4nCdumAH950aIUaMqpwWh+QEOwtIer+y1NbZIa8nSULJ/UQncwb+1vTgSvjS6Rp4CI61OsYosKYrppZNc6kXrkc/Kg86/i8dNaX7T54q02N3hdiqcCBmQTstuEAFRPxRL4IuCX6eI1eaRFLHGjKB1WBBlMbT6OyfWS4KYMYUjp4lPRi70FD2gEU08OzvFiOozZeCjwlDbXv5kX1jakUYh69pr13Rl72H/NXtDWXWOrCEbbmhqxjJA4/ycAMSSW1SgREaIIbbhBBTLtmD/KcS9ghmO38k/w0/g0hg0L0T5snEjZpw/NOEcnXf4Gdsg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V+jHPiUeldD8dhONJEpxFOonPC2AXGWpQaz9V/YVPBE=;
- b=V+nPkzPopfJ5SdRxOon4oFmX9YsIOQWWbccTxVWnmOtMIC+eqqNCDY/g5jykM4RdEuHHcHxitVpkPZyGyZHykNR2dFjzX0p/jvw7qbZW/UkKNktRgEOLcfxayG2ZqcCIkw2nI40Ks2zcXD7JLl/G6KB5mnJ2x/UISdxqHeUiU+RNQ9DpQcWtT3hl6alGgTtzuD7E/SAyVpREmA77tryLWEudVpWATGSnLsE9xW4j/NsY0cOGxv7vLYuwWTvhggimtY6F54nmAnXC25LyYtDhKk0ZeYQFeg4LECnzRnKVuWgpCE4gMSSfBuFflDdjE3aBzmQKyTGgzbk6RfGzq7bMkw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V+jHPiUeldD8dhONJEpxFOonPC2AXGWpQaz9V/YVPBE=;
- b=qqsMcsMM6SzTVenpoFYAZHsfDN87l5g94oQnc9tIudnbDZl7hG56EhOQwx68cZCiPKv+MFzSHJynkYZVfBDnOjbWeu0wrLTj0i6fmG4rZkypLf9tW2gGOuMv0fP4Lkz4AD51GzQd9XCZ2xUU/TyqfuELAkulgOQzKwk9LW0WrEw=
-Received: from CWLP265CA0414.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1b6::17)
- by AS2PR08MB9101.eurprd08.prod.outlook.com (2603:10a6:20b:5fd::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Wed, 2 Jul
- 2025 12:56:21 +0000
-Received: from AM3PEPF0000A78E.eurprd04.prod.outlook.com
- (2603:10a6:400:1b6:cafe::a9) by CWLP265CA0414.outlook.office365.com
- (2603:10a6:400:1b6::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.20 via Frontend Transport; Wed,
- 2 Jul 2025 12:56:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF0000A78E.mail.protection.outlook.com (10.167.16.117) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.15
- via Frontend Transport; Wed, 2 Jul 2025 12:56:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WnqUvyQzMrzsJp5InbgByGSlj4Glbw2ACsX9b42e/1vZ74DO8BaTHScVm2DZSnBBj5w2maA+qjwgOSsb5evbnV5CaRO/CMneT25cfgaLP9BnRGTs09/MBQazk9ejU4ElhsgbPzx4Fj32+yLFukhtatSRX7rwvHexyUo9jOVYUzQPQTbhn8sXV/9ZujXle64qBNA6iPYZfyvLWj2bt13Z0R3wQVD5LpX/HiMprmrv4BYx3pwo8SyCD0LNox4u65bkFxuN8H8u/QuPf05lt/3dXy9l/K78A6A8P+uQ4a1MW3T+4EvCjYSGIClwlvf3oJ5SoqFCWmCl+WYK3aOzX18xvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V+jHPiUeldD8dhONJEpxFOonPC2AXGWpQaz9V/YVPBE=;
- b=L7iaOx8bpVsR74onGxoiTAxBB0mLWtBa9+sj/p2fHFJwrheT3P2lXYYx5GD0NUgAD45Z9Ba6Kke+V4RHB+0e1zZCevzkjk6p31bLvXu4HFpBdnevn5uuwj1VmYbKwxuTko+O4Vjq/pJYCe+p1P9DEdxvOXSr6OWQEY8pTFqtQFB+kNoafGfd5FVMu4RJ1jxDN4Rs0nl72gaHo6CDZMnUvYGQnFlKyCAUX9Maq3ef/dR9PU6mt97PebLDk/Dsyi9cUaD1Z5p1Gh16FOUN/pcqGRr+/C8Vp7XB4qONySFE2Ebm03Cl6PCM3F7saqrB0Sw2n/XQo5m1Ri/Ln20Zbx0cvA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V+jHPiUeldD8dhONJEpxFOonPC2AXGWpQaz9V/YVPBE=;
- b=qqsMcsMM6SzTVenpoFYAZHsfDN87l5g94oQnc9tIudnbDZl7hG56EhOQwx68cZCiPKv+MFzSHJynkYZVfBDnOjbWeu0wrLTj0i6fmG4rZkypLf9tW2gGOuMv0fP4Lkz4AD51GzQd9XCZ2xUU/TyqfuELAkulgOQzKwk9LW0WrEw=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS4PR08MB8070.eurprd08.prod.outlook.com
- (2603:10a6:20b:589::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.20; Wed, 2 Jul
- 2025 12:55:46 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%5]) with mapi id 15.20.8880.027; Wed, 2 Jul 2025
- 12:55:46 +0000
-Date: Wed, 2 Jul 2025 13:55:44 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 12/28] coresight: sysfs: Validate CPU online status
- for per-CPU sources
-Message-ID: <aGUsT6gMJkYDbGPG@e129823.arm.com>
-References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
- <20250701-arm_cs_pm_fix_v3-v2-12-23ebb864fcc1@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-12-23ebb864fcc1@arm.com>
-X-ClientProxiedBy: LO6P265CA0015.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:339::8) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Wed, 02 Jul 2025 13:00:31 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bXKgH1bWZz6L54w;
+	Wed,  2 Jul 2025 20:57:31 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 734A614011A;
+	Wed,  2 Jul 2025 21:00:24 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 2 Jul
+ 2025 15:00:23 +0200
+Date: Wed, 2 Jul 2025 14:00:22 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+CC: Thomas Gleixner <tglx@linutronix.de>, Catalin Marinas
+	<catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Will Deacon <will@kernel.org>, Arnd Bergmann
+	<arnd@arndb.de>, Sascha Bischoff <sascha.bischoff@arm.com>, Timothy Hayes
+	<timothy.hayes@arm.com>, Bjorn Helgaas <bhelgaas@google.com>, "Liam R.
+ Howlett" <Liam.Howlett@oracle.com>, Peter Maydell <peter.maydell@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-pci@vger.kernel.org>
+Subject: Re: [PATCH v6 20/31] irqchip/gic-v5: Add GICv5 PPI support
+Message-ID: <20250702140022.00001c65@huawei.com>
+In-Reply-To: <aGUqEkascwGFD9x+@lpieralisi>
+References: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
+	<20250626-gicv5-host-v6-20-48e046af4642@kernel.org>
+	<20250702124019.00006b01@huawei.com>
+	<aGUqEkascwGFD9x+@lpieralisi>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS4PR08MB8070:EE_|AM3PEPF0000A78E:EE_|AS2PR08MB9101:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc590428-75c6-4f91-c2d9-08ddb967d7c9
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?BY4Gb4+FxwdrcBl+p8KcogLSiS5DuYuC+kHPeVVkBt6MrDuz+d6dqKghO/gW?=
- =?us-ascii?Q?GXibq3VOx+EkBP/EEJWJ0drysIrcFLzISn8efqm3DfGWleOd+5DTCo9x9pXm?=
- =?us-ascii?Q?hQueIqhJOuMTDyT41UwPTw4gP4o491ujRqy6fdRqPVnmsZG1wHkihQXufPEi?=
- =?us-ascii?Q?wI3wN5usexCoTDy6zwyqamZBbi4fGiysaoFjYXMhC2c5OEmqHnfKSJhr7skl?=
- =?us-ascii?Q?iXl6LIpkrtFZRyfMtD95a0nb2fPkmqfBNsn5gI6k4oOCg3MuVv1FHj1crxLr?=
- =?us-ascii?Q?p0dmQGZDBHb3x6DKx5givM1Ra0ThOyLxtjSJCeq74sQsqPsQc0N6ZhAonjqS?=
- =?us-ascii?Q?aIVAtvjXNwlCBNV3hnNiaYyuCB29jGZeWD3taZkvn7OPseqHJgs2TQogZpM0?=
- =?us-ascii?Q?QtSGGRYVkNCbcX65LpBPunYu3ObLGEpmn88jRgOwtNtq2IBAo58YgCRupxID?=
- =?us-ascii?Q?iMKZkMVGKU6o+xAZx0p3NJsJSj4QjAmUgrlAvS7S5x/JGlm7oq++lP4oavZj?=
- =?us-ascii?Q?tpY4keAw7ulK8ZWG2UfkwcCRPcVvBlq1Oi7MSBD1mCzCsc2b0KIErtis0ETN?=
- =?us-ascii?Q?Cl7ET9N1EVsXtVye38M+M1qGbk4svoFkXFXXXJUjdbtHJwPawuXK/jSzM+fw?=
- =?us-ascii?Q?VdzzKzT7zuzcxSSphzHMlwvwbTh5VytvnTBigxUK10mJdB+y9J0+ayRSO/AK?=
- =?us-ascii?Q?Bohxr82lFShPwos/ZgMl+Pw1eQHtWlmg8/lvg1sg0pabqNcYMOX11zdznbLg?=
- =?us-ascii?Q?fOO7L3BDOEaEjDA/HLXKrhLZTOC41qdb0TxAbbB2VCU6CBfL17DZ7HQKeahc?=
- =?us-ascii?Q?c0UoxD3YOBa7L4KwV1+PqWJkc3IYeuElsycT3FQmC6hmyS7OtISyQwYF11Iz?=
- =?us-ascii?Q?DA3C6U41/eW7z0MdtnoBi+mcrBrr46jXTYo4KmurofemMWA9kQ1TJT8p9KMO?=
- =?us-ascii?Q?4dou56fWF7UwH/Q5M1ktXm5+6itvLJH4xWdiM4c61RGWHTIckGjK61Gs8yl0?=
- =?us-ascii?Q?G/TQdQccVhMHWKdXKo+os0gkQpzlPN3GLcN0MJUGOHKRS4z4KVnnPcte16IM?=
- =?us-ascii?Q?zp1dlrVU1p5fQWFkLqwiNz8sbbJtOXbdNPH/DHTl0o9jQgmrKGFqn47fYUB1?=
- =?us-ascii?Q?23XLeb59nF3JeGrrAW7Re5ZQi1yNiLrPa2dVL3iZqqtG32CsqJ1qG5MySPOJ?=
- =?us-ascii?Q?EaJinQFcecrOcTSUc3GzQ7qigOiboa9+z/2JB+j5PTt510r6FhnC+u0xfKWg?=
- =?us-ascii?Q?SqpZvwCZkiQZvru4Pl1VqHPwOQZEUi/FMpAVuzQoscyBIbElUt2DeWFTdRSw?=
- =?us-ascii?Q?w7lOE3mxIVN5l4Bx2zcdhXzhhl97php5+qyJnhp95d5qA9/XaHuK/wwIGx8X?=
- =?us-ascii?Q?iDehberBq2sz2zEeFQd+RtykAUZRzsYHeY9PfYtVtGX2Kc7NrNPi6Q8Dc9Df?=
- =?us-ascii?Q?Vy9X8oyfXjQ=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB8070
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A78E.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 1df82e57-e855-40be-1587-08ddb967c331
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|35042699022|14060799003|1800799024|82310400026|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tj+DbLz5FArxSjgutTpjs/at2uTwN3Fx+8L8u1Nos6hoBrxDG2OcbLcmTju7?=
- =?us-ascii?Q?lHpbYgArpf94834J6odmtMX8cy88pM4TlYay/M4EOn2efQ2TOMl7+OunoGbM?=
- =?us-ascii?Q?xcN9IwfDOZSqsdgDUmgmISuLdcXvAZrF1CBAYLFlLuzQinkdHa457DVeNXzO?=
- =?us-ascii?Q?tWsH7TJWv90IAEwPzku3p2Wnalkk8UADGwdzOO+btzVy8Z441+KssetOh/t8?=
- =?us-ascii?Q?hdDImkp6zoAxmKsjitgksPWy+e+Upze+IOHjaxtiHqNl023Uh02QsStCVlEQ?=
- =?us-ascii?Q?auCO13MJVtgG+RWyVst39umK39JEmHteEu1EyGN+B5Cvm0cpfAiU1KYY/6ZE?=
- =?us-ascii?Q?MtfYtSzbd3198InodKrGsf3SWiEe74xDg42YWngTOLp0TUaxZIaJov10OBRk?=
- =?us-ascii?Q?dYkvjzrGLqN7E8MYMER+vpti9C2VsJ0ykGDqdQwX3RrkEh67/QWhsVxtjSl8?=
- =?us-ascii?Q?sQsDdqaeD3+MBvsKdJddF1HA217heM6tSa+LyKOlSm8IR4kxR46KVLHyoZyH?=
- =?us-ascii?Q?Nwi3Y4cmmJ/Sl8Xl0857E/sRB3YrmOAKqdpPNB0wj9UIotty3MJnTnjqeGC9?=
- =?us-ascii?Q?IddhyCpnhckcc9UYlGpAjMqaTjiQqClw/m3QPrERqGKMBaGMQojT/Z+yUXaV?=
- =?us-ascii?Q?tWU27hgGfU3+cOymOD3R5dyLqxKClbUQ0DE6qkW27mbSm8AMekK6WQlPUbjj?=
- =?us-ascii?Q?5JxnqyB3yEsoNXd2iUg8jCGDVqsg06j3+NKlecpfRMj7VDmS0L9DfweYpOE4?=
- =?us-ascii?Q?RRDv3dMqvml6mjss0xmVQUFfDM/E5JdtH2yMDHqGvJu+lcg9G42KD788D+Tm?=
- =?us-ascii?Q?tuZI9R9PuwO1eWAHpxymYh7lgdGaVTSZkfX5+HpyUwbX2sQyG+rzMNcqhnv3?=
- =?us-ascii?Q?1aTBJczBKzOgbzzxKhtMqFIUaXhIq8q+x0Nea3ySTOUvZ7feNH/S9taRmCei?=
- =?us-ascii?Q?WcbOjGd43RBjJ5myrcbI3RKFdUXV187pHhRyUKxZ6NuZ8ll9M3xEJIBSGEN+?=
- =?us-ascii?Q?KUNGW09h4MdeOky1mcujPfLO1VMrNxEzd0j7ma0uqXogyqwDdMAtPAA6eftY?=
- =?us-ascii?Q?nLD/NldSHt3ezbErmXsvqyVIdFJpQs22xuXPi9aCPIREvpwlkiaDfdHE2vyF?=
- =?us-ascii?Q?RL3YsOz7qiI2xqsFJy4jRjxelnTBOub9G1/rTGGCAmGuOKnOfq2mQxb2qckm?=
- =?us-ascii?Q?2qiWuvEbNIAUOBU8q7C/vQsHJNnTxVnrRrzxEbDohgRmTFEKPLLGnyqQn1lq?=
- =?us-ascii?Q?IsXPlxWl15Bcy8p8ownoaB2mTqB14H1sxTqfFtgfyXcwWMf15jOmBWZ02PGy?=
- =?us-ascii?Q?62AwcI01uGXBUr/ApdhBerbMPZ8pUlYXEh/NxSf4DCzw0sXZ47tqtW00TtwD?=
- =?us-ascii?Q?WS0h0IBWrzR1KPqN309WpwLDHf16hyQUbSWbLChiXggERWpHwszlOAl+G881?=
- =?us-ascii?Q?cMEWyctznliof+N8LoxqwOecKHP2iJ90nrtlTGenjHgrj6oViyNZUzRsfLai?=
- =?us-ascii?Q?HagWa307c3I9iBfKLm47TmbcJrZ+bO/3CAJd?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(35042699022)(14060799003)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2025 12:56:20.8651
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc590428-75c6-4f91-c2d9-08ddb967d7c9
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A78E.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9101
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100001.china.huawei.com (7.191.160.183) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_055632_344520_A2A234AE 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20250702_060029_433522_E50C22B6 
+X-CRM114-Status: GOOD (  39.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,40 +81,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+On Wed, 2 Jul 2025 14:46:10 +0200
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 
-> The current SysFS flow first enables the links and sink, then rolls back
-> to disable them if the source fails to enable. This failure can occur if
-> the associated CPU is offline, which causes the SMP call to fail.
->
-> Validate whether the associated CPU is online for a per-CPU tracer. If
-> the CPU is offline, return -ENODEV and bail out.
->
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-sysfs.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-> index feadaf065b5318c8426aa53420b8e5f67a258683..14ee15297b98115122068cbe932f0b2ce004b77e 100644
-> --- a/drivers/hwtracing/coresight/coresight-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-> @@ -161,6 +161,9 @@ static int coresight_validate_source_sysfs(struct coresight_device *csdev,
->  		return -EINVAL;
->  	}
->
-> +	if (coresight_is_percpu_source(csdev) && !cpu_online(csdev->cpu))
-> +		return -ENODEV;
-> +
->  	return 0;
->  }
->
->
-> --
-> 2.34.1
->
+> On Wed, Jul 02, 2025 at 12:40:19PM +0100, Jonathan Cameron wrote:
+> > On Thu, 26 Jun 2025 12:26:11 +0200
+> > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> >   
+> > > The GICv5 CPU interface implements support for PE-Private Peripheral
+> > > Interrupts (PPI), that are handled (enabled/prioritized/delivered)
+> > > entirely within the CPU interface hardware.  
+> > 
+> > I can't remember where I got to last time so if I repeat stuff that
+> > you already responded to, feel free to just ignore me this time ;)
+> > 
+> > All superficial stuff. Feel free to completely ignore if you like.  
+> 
+> We are at v6.16-rc4, series has been on the lists for 3 months, it has
+> been reviewed and we would like to get it into v6.17 if possible and
+> deemed reasonable, I am asking you folks please, what should I do ?
+> 
+> I can send a v7 with the changes requested below (no bug fixes there)
+> - it is fine by me - but I need to know please asap if we have a
+> plan to get this upstream this cycle.
 
---
-Sincerely,
-Yeoreum Yun
+I'm absolutely fine with leaving these be.  The mask stuff I would like
+to clean up as it applies quite widely in the series but that
+can be a follow up as no bugs (so far!). 
+
+As Marc said, these are in a good state.
+
+Jonathan
+
+> 
+> Thanks,
+> Lorenzo
+> 
+> > > diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> > > new file mode 100644
+> > > index 000000000000..a08daa562d21
+> > > --- /dev/null
+> > > +++ b/drivers/irqchip/irq-gic-v5.c
+> > > @@ -0,0 +1,461 @@
+> > > +// SPDX-License-Identifier: GPL-2.0-only
+> > > +/*
+> > > + * Copyright (C) 2024-2025 ARM Limited, All Rights Reserved.
+> > > + */
+> > > +
+> > > +#define pr_fmt(fmt)	"GICv5: " fmt
+> > > +
+> > > +#include <linux/irqdomain.h>
+> > > +#include <linux/wordpart.h>
+> > > +
+> > > +#include <linux/irqchip.h>
+> > > +#include <linux/irqchip/arm-gic-v5.h>
+> > > +
+> > > +#include <asm/cpufeature.h>
+> > > +#include <asm/exception.h>
+> > > +
+> > > +static u8 pri_bits __ro_after_init = 5;
+> > > +
+> > > +#define GICV5_IRQ_PRI_MASK	0x1f
+> > > +#define GICV5_IRQ_PRI_MI	(GICV5_IRQ_PRI_MASK & GENMASK(4, 5 - pri_bits))
+> > > +
+> > > +#define PPI_NR	128
+> > > +
+> > > +static bool gicv5_cpuif_has_gcie(void)
+> > > +{
+> > > +	return this_cpu_has_cap(ARM64_HAS_GICV5_CPUIF);
+> > > +}
+> > > +
+> > > +struct gicv5_chip_data {
+> > > +	struct fwnode_handle	*fwnode;
+> > > +	struct irq_domain	*ppi_domain;
+> > > +};
+> > > +
+> > > +static struct gicv5_chip_data gicv5_global_data __read_mostly;  
+> >   
+> > > +static void gicv5_hwirq_eoi(u32 hwirq_id, u8 hwirq_type)
+> > > +{
+> > > +	u64 cddi = hwirq_id | FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, hwirq_type);  
+> > 
+> > Slight preference for not needing to care where hwirq_id goes in CDDI or how big
+> > it is (other than when I checked the header defines).
+> >  
+> > 	u64 cddi = FIELD_PREP(GICV5_GIC_CDDI_ID_MASK, hwirq_id) |
+> >         	   FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, hwirq_type);
+> > 
+> >   
+> > > +
+> > > +	gic_insn(cddi, CDDI);
+> > > +
+> > > +	gic_insn(0, CDEOI);
+> > > +}  
+> >   
+> > > +static int gicv5_ppi_irq_get_irqchip_state(struct irq_data *d,
+> > > +					   enum irqchip_irq_state which,
+> > > +					   bool *state)
+> > > +{
+> > > +	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
+> > > +
+> > > +	switch (which) {
+> > > +	case IRQCHIP_STATE_PENDING:
+> > > +		*state = !!(read_ppi_sysreg_s(d->hwirq, PPI_PENDING) & hwirq_id_bit);  
+> > 
+> > Technically don't need the !! but if you really like it I don't mind that much.
+> >   
+> > > +		return 0;
+> > > +	case IRQCHIP_STATE_ACTIVE:
+> > > +		*state = !!(read_ppi_sysreg_s(d->hwirq, PPI_ACTIVE) & hwirq_id_bit);
+> > > +		return 0;
+> > > +	default:
+> > > +		pr_debug("Unexpected PPI irqchip state\n");
+> > > +		return -EINVAL;
+> > > +	}
+> > > +}  
+> > 
+> >   
+> > > +static int gicv5_irq_ppi_domain_translate(struct irq_domain *d,
+> > > +					  struct irq_fwspec *fwspec,
+> > > +					  irq_hw_number_t *hwirq,
+> > > +					  unsigned int *type)
+> > > +{
+> > > +	if (!is_of_node(fwspec->fwnode))
+> > > +		return -EINVAL;
+> > > +
+> > > +	if (fwspec->param_count < 3)  
+> > 
+> > I don't care that much, but could relax this seeing as fwspec->param[2]
+> > isn't used anyway? Maybe a tiny comment on why it matters?
+> >   
+> > > +		return -EINVAL;
+> > > +
+> > > +	if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI)
+> > > +		return -EINVAL;
+> > > +
+> > > +	*hwirq = fwspec->param[1];
+> > > +
+> > > +	/*
+> > > +	 * Handling mode is hardcoded for PPIs, set the type using
+> > > +	 * HW reported value.
+> > > +	 */
+> > > +	*type = gicv5_ppi_irq_is_level(*hwirq) ? IRQ_TYPE_LEVEL_LOW : IRQ_TYPE_EDGE_RISING;
+> > > +
+> > > +	return 0;  
+> > 
+> >   
+> > > +static int __init gicv5_of_init(struct device_node *node, struct device_node *parent)
+> > > +{
+> > > +	int ret = gicv5_init_domains(of_fwnode_handle(node));
+> > > +	if (ret)
+> > > +		return ret;
+> > > +
+> > > +	gicv5_set_cpuif_pribits();
+> > > +
+> > > +	ret = gicv5_starting_cpu(smp_processor_id());
+> > > +	if (ret)
+> > > +		goto out_dom;
+> > > +
+> > > +	ret = set_handle_irq(gicv5_handle_irq);
+> > > +	if (ret)
+> > > +		goto out_int;
+> > > +
+> > > +	return 0;
+> > > +
+> > > +out_int:
+> > > +	gicv5_cpu_disable_interrupts();
+> > > +out_dom:
+> > > +	gicv5_free_domains();  
+> > 
+> > Naming is always tricky but I'd not really expect gicv5_free_domains() as the
+> > pair of gicv5_init_domains() (which is doing creation rather than just initializing).
+> > 
+> > Ah well, names are never prefect and I don't really mind.
+> >   
+> > > +
+> > > +	return ret;
+> > > +}
+> > > +IRQCHIP_DECLARE(gic_v5, "arm,gic-v5", gicv5_of_init);  
+> >   
+> 
+
 
