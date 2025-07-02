@@ -4,53 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30814C83F04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 11:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C83C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 11:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AOdUe4qU2c/WpwXYru1Qz2wfhuReCHvy1Zwiglow8TM=; b=ZU0DV1UA2ETnrhYSM0TBP+zfTE
-	rlncu9+zSqE9Re6xe4QF8Ez+5SiPG/dzyBklmh7FND5oLnR9YHji+CfjoDzXlCM8JFdMwDSdZF9Xa
-	Gxfr700aN0cV6Egkvv0nuziUqRl++mSj1Wx1n3xCelD1UwvQ5wjjPkFjuX71VFEBbevOlMH0Ct+WL
-	ped96i8cYN91cq3n0Bcp1QtFiW2NNltduIJRVCcz5ALqxUaAYQEnjNofgdrw6vtWJbW1SrXwbu0At
-	mUj5aQA+PXPkA9QPBXAj+mbrYHtvk0pPQosd21QHgVLlXqfDs1B8NBL5mKdu3IbdNNb2a+VAyhZgh
-	o4OpubpA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dy+wTEKgltIegMgJQUD08uRqAUQFGtxWKbjAsEpmnfk=; b=bQB6G24ml7QAR3
+	8r0GbCcvqaImMqTr5k7h1gneO9BMZWCjhVhzPJVJMp5esD+0GAzHjWNAX/k3LzI0TLjzf8SLHvkfq
+	EHBXMSswNiehuUET++L7MqnFL+srjYILFYlb6xWbEs8+1qgro6jZnlcEIXhSKpqKzC+91TN3UYVMv
+	jqTZmMJkmaAhK7trDfBzB3asOb/u1LPjqhInsJT4L5TTvLf9gB726KrJMy51qaNLnd8L+nGAj4Lls
+	Nmsbr6gulrh9icW5OXSzlQ9pi2LEbqE350jC9wyLH3fGJNM9wPvkEc3VPcL993cOfTV4A546CzWhe
+	pbQ4DaVZfstTjJRF32hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWvPs-000000085wt-3Its;
-	Wed, 02 Jul 2025 11:14:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWufK-00000007wuX-25I4
+	id 1uWvSD-000000086Hd-0BFe;
+	Wed, 02 Jul 2025 11:16:41 +0000
+Received: from server.couthit.com ([162.240.164.96])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWujE-00000007xPS-0sWL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 10:26:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01B4222D9;
-	Wed,  2 Jul 2025 03:25:54 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7986E3F58B;
-	Wed,  2 Jul 2025 03:26:07 -0700 (PDT)
-Date: Wed, 2 Jul 2025 11:26:01 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	"Luis Claudio R . Goncalves" <lgoncalv@redhat.com>
-Subject: Re: [PATCH v5 00/13] arm64: debug: remove hook registration, split
- exception entry
-Message-ID: <aGUJOeAXXWVRv6Mw@J2N7QTR9R3>
-References: <20250627172038.633423-1-ada.coupriediaz@arm.com>
+	Wed, 02 Jul 2025 10:30:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=dy+wTEKgltIegMgJQUD08uRqAUQFGtxWKbjAsEpmnfk=; b=Qn3501aaqC4T5EmLAPUmD9on5j
+	RqUAz2trRXvP9tkAPE576de7j97j1GrLJ1DaJA91TOqbrjwgX+6cpepD4Ysf0UO2ZdHrNKtiEGc1m
+	Zp+xNaDvkMk1m99GDW/XWkE0j++QA6V+lxqIUCt0WhwpVAvYzoG6gzIDVpoR7H8njSs4L1VHMJ2P7
+	ji15QFIVO0+rT4ZOpLoUGIgRrAPM5kZbgTfgvEQLI93MnL9257lm/yoq4MRPHQIT/fL2ZeWGrrDcC
+	i16WkDlUlWAH2C6/ZL5D/6UvCURq3nCTgqHGh5uNQPChjqOjabNOfNadqtkp6RLVUyEmKH2KRvC2D
+	VzjziAeA==;
+Received: from [122.175.9.182] (port=43083 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1uWuiU-00000004M7n-0f52;
+	Wed, 02 Jul 2025 06:29:26 -0400
+Received: from zimbra.couthit.local (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTPS id 010AD17840A3;
+	Wed,  2 Jul 2025 15:59:18 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id CB8121783FD7;
+	Wed,  2 Jul 2025 15:59:17 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id uP5WyTMOf4O6; Wed,  2 Jul 2025 15:59:17 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id 6F79917840A3;
+	Wed,  2 Jul 2025 15:59:17 +0530 (IST)
+Date: Wed, 2 Jul 2025 15:59:17 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Message-ID: <2034056567.1653904.1751452157261.JavaMail.zimbra@couthit.local>
+In-Reply-To: <1528407284.1597726.1750858335213.JavaMail.zimbra@couthit.local>
+References: <20250623135949.254674-1-parvathi@couthit.com> <20250623164236.255083-12-parvathi@couthit.com> <68f46d06-c2ba-461b-9d88-8d76f9f84a8f@linux.dev> <1528407284.1597726.1750858335213.JavaMail.zimbra@couthit.local>
+Subject: Re: [PATCH net-next v9 11/11] net: ti: prueth: Adds PTP OC Support
+ for AM335x and AM437x
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250627172038.633423-1-ada.coupriediaz@arm.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.103]
+X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
+Thread-Topic: prueth: Adds PTP OC Support for AM335x and AM437x
+Thread-Index: gttxIigjDUoI0uhJByj5kfnS0rDDy4+ZRBSu
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_032610_628847_6426EC6F 
-X-CRM114-Status: GOOD (  63.61  )
+X-CRM114-CacheID: sfid-20250702_033012_301916_4BC00DA1 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,305 +96,420 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag <saikrishnag@marvell.com>, m-karicheri2 <m-karicheri2@ti.com>, jacob e keller <jacob.e.keller@intel.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, richardcochran <richardcochran@gmail.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, mohan <mohan@couthit.com>, s hauer <s.hauer@pengutronix.de>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 06:20:25PM +0100, Ada Couprie Diaz wrote:
-> Hi,
-> 
-> This is a quick v5 fixing a build issue with `allnoconfig`,
-> as the hardware breakpoints handlers are not defined
-> if `HAVE_HW_BREAKPOINT` is not set, as raised by Will.
-
-Thanks for this!
-
-This all looks good to me, so for the series:
-
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-
-Catalin, are you happy to queue this?
-
-Mark.
+Hi,
 
 > 
-> Original cover below.
+>> On 23/06/2025 17:42, Parvathi Pudi wrote:
+>>> From: Roger Quadros <rogerq@ti.com>
+>>> 
+>>> PRU-ICSS IEP module, which is capable of timestamping RX and
+>>> TX packets at HW level, is used for time synchronization by PTP4L.
+>>> 
+>>> This change includes interaction between firmware/driver and user
+>>> application (ptp4l) with required packet timestamps.
+>>> 
+>>> RX SOF timestamp comes along with packet and firmware will rise
+>>> interrupt with TX SOF timestamp after pushing the packet on to the wire.
+>>> 
+>>> IEP driver available in upstream linux as part of ICSSG assumes 64-bit
+>>> timestamp value from firmware.
+>>> 
+>>> Enhanced the IEP driver to support the legacy 32-bit timestamp
+>>> conversion to 64-bit timestamp by using 2 fields as below:
+>>> - 32-bit HW timestamp from SOF event in ns
+>>> - Seconds value maintained in driver.
+>>> 
+>>> Currently ordinary clock (OC) configuration has been validated with
+>>> Linux ptp4l.
+>>> 
+>>> Signed-off-by: Roger Quadros <rogerq@ti.com>
+>>> Signed-off-by: Andrew F. Davis <afd@ti.com>
+>>> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+>>> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+>>> ---
+>>>   drivers/net/ethernet/ti/icssg/icss_iep.c     | 155 ++++++++++++++++++-
+>>>   drivers/net/ethernet/ti/icssg/icss_iep.h     |  12 ++
+>>>   drivers/net/ethernet/ti/icssm/icssm_prueth.c |  56 ++++++-
+>>>   drivers/net/ethernet/ti/icssm/icssm_prueth.h |  11 ++
+>>>   4 files changed, 230 insertions(+), 4 deletions(-)
+>>> 
+>>> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c
+>>> b/drivers/net/ethernet/ti/icssg/icss_iep.c
+>>> index d0850722814e..85e27cc77a3b 100644
+>>> --- a/drivers/net/ethernet/ti/icssg/icss_iep.c
+>>> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
+>>> @@ -14,12 +14,15 @@
+>>>   #include <linux/of.h>
+>>>   #include <linux/of_platform.h>
+>>>   #include <linux/platform_device.h>
+>>> +#include <linux/timecounter.h>
+>>> +#include <linux/clocksource.h>
+>>>   #include <linux/timekeeping.h>
+>>>   #include <linux/interrupt.h>
+>>>   #include <linux/of_irq.h>
+>>>   #include <linux/workqueue.h>
+>>>   
+>>>   #include "icss_iep.h"
+>>> +#include "../icssm/icssm_prueth_ptp.h"
+>>>   
+>>>   #define IEP_MAX_DEF_INC		0xf
+>>>   #define IEP_MAX_COMPEN_INC		0xfff
+>>> @@ -53,6 +56,14 @@
+>>>   #define IEP_CAP_CFG_CAPNR_1ST_EVENT_EN(n)	BIT(LATCH_INDEX(n))
+>>>   #define IEP_CAP_CFG_CAP_ASYNC_EN(n)		BIT(LATCH_INDEX(n) + 10)
+>>>   
+>>> +#define IEP_TC_DEFAULT_SHIFT         28
+>>> +#define IEP_TC_INCR5_MULT            BIT(28)
+>>> +
+>>> +/* Polling period - how often iep_overflow_check() is called */
+>>> +#define IEP_OVERFLOW_CHECK_PERIOD_MS   50
+>>> +
+>>> +#define TIMESYNC_SECONDS_COUNT_SIZE    6
+>>> +
+>>>   /**
+>>>    * icss_iep_get_count_hi() - Get the upper 32 bit IEP counter
+>>>    * @iep: Pointer to structure representing IEP.
+>>> @@ -87,6 +98,28 @@ int icss_iep_get_count_low(struct icss_iep *iep)
+>>>   }
+>>>   EXPORT_SYMBOL_GPL(icss_iep_get_count_low);
+>>>   
+>>> +static u64 icss_iep_get_count32(struct icss_iep *iep)
+>>> +{
+>>> +	void __iomem *sram = iep->sram;
+>>> +	u64 v_sec = 0;
+>>> +	u32 v_ns = 0;
+>>> +	u64 v = 0;
+>>> +
+>>> +	v_ns = icss_iep_get_count_low(iep);
+>>> +	memcpy_fromio(&v_sec, sram + TIMESYNC_SECONDS_COUNT_OFFSET,
+>>> +		      TIMESYNC_SECONDS_COUNT_SIZE);
+>>> +	v = (v_sec * NSEC_PER_SEC) + v_ns;
+>> 
+>> How can you be sure that the nanoseconds part does belong to the second
+>> which was read afterwards? In other words, what is the protection for
+>> the sutiation when an overflow happened right after you read ns but
+>> before reading of seconds?
+>> And another question - you copy 6 bytes of seconds counter directly into
+>> the memory. How will it deal with different endianess?
+>> 
 > 
-> ---
+> We are analyzing further to check the possibility of the race condition.
+> We will review and address this in next version.
 > 
-> This series simplifies the debug exception entry path by removing handler
-> registration mechanisms for the debug exception handlers, a holdover from
-> the arm kernel, as well as the break and stepping handlers.
-> This moves much of the code related to debug exceptions outside of
-> `mm/fault.c` where it didn't make much sense.
-> This allows us to split the debug exception entries: going from one common
-> path per EL for all debug exceptions to a unique one per exception and EL.
+
+We have analyzed and added extra handling to address the concern. We will
+post the updated patches shortly.
+
+PRU-ICSS operates only in little-endian byte ordering.
+
+>>> +
+>>> +	return v;
+>>> +}
+>>> +
+>>> +static u64 icss_iep_cc_read(const struct cyclecounter *cc)
+>>> +{
+>>> +	struct icss_iep *iep = container_of(cc, struct icss_iep, cc);
+>>> +
+>>> +	return icss_iep_get_count32(iep);
+>>> +}
+>>> +
+>>>   /**
+>>>    * icss_iep_get_ptp_clock_idx() - Get PTP clock index using IEP driver
+>>>    * @iep: Pointer to structure representing IEP.
+>>> @@ -280,6 +313,78 @@ static void icss_iep_set_slow_compensation_count(struct
+>>> icss_iep *iep,
+>>>   	regmap_write(iep->map, ICSS_IEP_SLOW_COMPEN_REG, compen_count);
+>>>   }
+>>>   
+>>> +/* PTP PHC operations */
+>>> +static int icss_iep_ptp_adjfine_v1(struct ptp_clock_info *ptp, long scaled_ppm)
+>>> +{
+>>> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
+>>> +	s32 ppb = scaled_ppm_to_ppb(scaled_ppm);
+>>> +	struct timespec64 ts;
+>>> +	int neg_adj = 0;
+>>> +	u32 diff, mult;
+>>> +	u64 adj;
+>>> +
+>>> +	mutex_lock(&iep->ptp_clk_mutex);
+>>> +
+>>> +	if (ppb < 0) {
+>>> +		neg_adj = 1;
+>>> +		ppb = -ppb;
+>>> +	}
+>>> +	mult = iep->cc_mult;
+>>> +	adj = mult;
+>>> +	adj *= ppb;
+>>> +	diff = div_u64(adj, 1000000000ULL);
+>>> +
+>>> +	ts = ns_to_timespec64(timecounter_read(&iep->tc));
+>>> +	pr_debug("iep ptp adjfine check at %lld.%09lu\n", ts.tv_sec,
+>>> +		 ts.tv_nsec);
+>>> +
+>>> +	iep->cc.mult = neg_adj ? mult - diff : mult + diff;
+>>> +
+>>> +	mutex_unlock(&iep->ptp_clk_mutex);
+>>> +
+>>> +	return 0;
+>>> +}
+>>> +
+>>> +static int icss_iep_ptp_adjtime_v1(struct ptp_clock_info *ptp, s64 delta)
+>>> +{
+>>> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
+>>> +
+>>> +	mutex_lock(&iep->ptp_clk_mutex);
+>>> +	timecounter_adjtime(&iep->tc, delta);
+>>> +	mutex_unlock(&iep->ptp_clk_mutex);
+>>> +
+>>> +	return 0;
+>>> +}
+>>> +
+>>> +static int icss_iep_ptp_gettimeex_v1(struct ptp_clock_info *ptp,
+>>> +				     struct timespec64 *ts,
+>>> +				     struct ptp_system_timestamp *sts)
+>>> +{
+>>> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
+>>> +	u64 ns;
+>>> +
+>>> +	mutex_lock(&iep->ptp_clk_mutex);
+>>> +	ns = timecounter_read(&iep->tc);
+>>> +	*ts = ns_to_timespec64(ns);
+>>> +	mutex_unlock(&iep->ptp_clk_mutex);
+>>> +
+>>> +	return 0;
+>>> +}
+>>> +
+>>> +static int icss_iep_ptp_settime_v1(struct ptp_clock_info *ptp,
+>>> +				   const struct timespec64 *ts)
+>>> +{
+>>> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
+>>> +	u64 ns;
+>>> +
+>>> +	mutex_lock(&iep->ptp_clk_mutex);
+>>> +	ns = timespec64_to_ns(ts);
+>>> +	timecounter_init(&iep->tc, &iep->cc, ns);
+>>> +	mutex_unlock(&iep->ptp_clk_mutex);
+>>> +
+>>> +	return 0;
+>>> +}
+>>> +
+>>>   /* PTP PHC operations */
+>>>   static int icss_iep_ptp_adjfine(struct ptp_clock_info *ptp, long scaled_ppm)
+>>>   {
+>>> @@ -669,6 +774,17 @@ static int icss_iep_ptp_enable(struct ptp_clock_info *ptp,
+>>>   	return -EOPNOTSUPP;
+>>>   }
+>>>   
+>>> +static long icss_iep_overflow_check(struct ptp_clock_info *ptp)
+>>> +{
+>>> +	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
+>>> +	unsigned long delay = iep->ovfl_check_period;
+>>> +	struct timespec64 ts;
+>>> +
+>>> +	ts = ns_to_timespec64(timecounter_read(&iep->tc));
+>>> +
+>>> +	pr_debug("iep overflow check at %lld.%09lu\n", ts.tv_sec, ts.tv_nsec);
+>>> +	return (long)delay;
+>>> +}
+>>>   static struct ptp_clock_info icss_iep_ptp_info = {
+>>>   	.owner		= THIS_MODULE,
+>>>   	.name		= "ICSS IEP timer",
+>>> @@ -680,6 +796,18 @@ static struct ptp_clock_info icss_iep_ptp_info = {
+>>>   	.enable		= icss_iep_ptp_enable,
+>>>   };
+>>>   
+>>> +static struct ptp_clock_info icss_iep_ptp_info_v1 = {
+>>> +	.owner		= THIS_MODULE,
+>>> +	.name		= "ICSS IEP timer",
+>>> +	.max_adj	= 10000000,
+>>> +	.adjfine	= icss_iep_ptp_adjfine_v1,
+>>> +	.adjtime	= icss_iep_ptp_adjtime_v1,
+>>> +	.gettimex64	= icss_iep_ptp_gettimeex_v1,
+>>> +	.settime64	= icss_iep_ptp_settime_v1,
+>>> +	.enable		= icss_iep_ptp_enable,
+>>> +	.do_aux_work	= icss_iep_overflow_check,
+>>> +};
+>>> +
+>>>   struct icss_iep *icss_iep_get_idx(struct device_node *np, int idx)
+>>>   {
+>>>   	struct platform_device *pdev;
+>>> @@ -701,6 +829,18 @@ struct icss_iep *icss_iep_get_idx(struct device_node *np,
+>>> int idx)
+>>>   	if (!iep)
+>>>   		return ERR_PTR(-EPROBE_DEFER);
+>>>   
+>>> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0) {
+>>> +		iep->cc.shift = IEP_TC_DEFAULT_SHIFT;
+>>> +		iep->cc.mult = IEP_TC_INCR5_MULT;
+>>> +
+>>> +		iep->cc.read = icss_iep_cc_read;
+>>> +		iep->cc.mask = CLOCKSOURCE_MASK(64);
+>>> +
+>>> +		iep->ovfl_check_period =
+>>> +			msecs_to_jiffies(IEP_OVERFLOW_CHECK_PERIOD_MS);
+>>> +		iep->cc_mult = iep->cc.mult;
+>>> +	}
+>>> +
+>>>   	device_lock(iep->dev);
+>>>   	if (iep->client_np) {
+>>>   		device_unlock(iep->dev);
+>>> @@ -795,6 +935,10 @@ int icss_iep_init(struct icss_iep *iep, const struct
+>>> icss_iep_clockops *clkops,
+>>>   		icss_iep_enable(iep);
+>>>   	icss_iep_settime(iep, ktime_get_real_ns());
+>>>   
+>>> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
+>>> +		timecounter_init(&iep->tc, &iep->cc,
+>>> +				 ktime_to_ns(ktime_get_real()));
+>>> +
+>>>   	iep->ptp_clock = ptp_clock_register(&iep->ptp_info, iep->dev);
+>>>   	if (IS_ERR(iep->ptp_clock)) {
+>>>   		ret = PTR_ERR(iep->ptp_clock);
+>>> @@ -802,6 +946,9 @@ int icss_iep_init(struct icss_iep *iep, const struct
+>>> icss_iep_clockops *clkops,
+>>>   		dev_err(iep->dev, "Failed to register ptp clk %d\n", ret);
+>>>   	}
+>>>   
+>>> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
+>>> +		ptp_schedule_worker(iep->ptp_clock, iep->ovfl_check_period);
+>>> +
+>>>   	return ret;
+>>>   }
+>>>   EXPORT_SYMBOL_GPL(icss_iep_init);
+>>> @@ -879,7 +1026,11 @@ static int icss_iep_probe(struct platform_device *pdev)
+>>>   		return PTR_ERR(iep->map);
+>>>   	}
+>>>   
+>>> -	iep->ptp_info = icss_iep_ptp_info;
+>>> +	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
+>>> +		iep->ptp_info = icss_iep_ptp_info_v1;
+>>> +	else
+>>> +		iep->ptp_info = icss_iep_ptp_info;
+>>> +
+>>>   	mutex_init(&iep->ptp_clk_mutex);
+>>>   	dev_set_drvdata(dev, iep);
+>>>   	icss_iep_disable(iep);
+>>> @@ -1004,6 +1155,7 @@ static const struct icss_iep_plat_data
+>>> am57xx_icss_iep_plat_data = {
+>>>   		[ICSS_IEP_SYNC_START_REG] = 0x19c,
+>>>   	},
+>>>   	.config = &am654_icss_iep_regmap_config,
+>>> +	.iep_rev = IEP_REV_V2_1,
+>>>   };
+>>>   
+>>>   static bool am335x_icss_iep_valid_reg(struct device *dev, unsigned int reg)
+>>> @@ -1057,6 +1209,7 @@ static const struct icss_iep_plat_data
+>>> am335x_icss_iep_plat_data = {
+>>>   		[ICSS_IEP_SYNC_START_REG] = 0x11C,
+>>>   	},
+>>>   	.config = &am335x_icss_iep_regmap_config,
+>>> +	.iep_rev = IEP_REV_V1_0,
+>>>   };
+>>>   
+>>>   static const struct of_device_id icss_iep_of_match[] = {
+>>> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.h
+>>> b/drivers/net/ethernet/ti/icssg/icss_iep.h
+>>> index 0bdca0155abd..f72f1ea9f3c9 100644
+>>> --- a/drivers/net/ethernet/ti/icssg/icss_iep.h
+>>> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.h
+>>> @@ -47,21 +47,29 @@ enum {
+>>>   	ICSS_IEP_MAX_REGS,
+>>>   };
+>>>   
+>>> +enum iep_revision {
+>>> +	IEP_REV_V1_0 = 0,
+>>> +	IEP_REV_V2_1
+>>> +};
+>>> +
+>>>   /**
+>>>    * struct icss_iep_plat_data - Plat data to handle SoC variants
+>>>    * @config: Regmap configuration data
+>>>    * @reg_offs: register offsets to capture offset differences across SoCs
+>>>    * @flags: Flags to represent IEP properties
+>>> + * @iep_rev: IEP revision identifier.
+>>>    */
+>>>   struct icss_iep_plat_data {
+>>>   	const struct regmap_config *config;
+>>>   	u32 reg_offs[ICSS_IEP_MAX_REGS];
+>>>   	u32 flags;
+>>> +	enum iep_revision iep_rev;
+>>>   };
+>>>   
+>>>   struct icss_iep {
+>>>   	struct device *dev;
+>>>   	void __iomem *base;
+>>> +	void __iomem *sram;
+>>>   	const struct icss_iep_plat_data *plat_data;
+>>>   	struct regmap *map;
+>>>   	struct device_node *client_np;
+>>> @@ -70,6 +78,10 @@ struct icss_iep {
+>>>   	struct ptp_clock_info ptp_info;
+>>>   	struct ptp_clock *ptp_clock;
+>>>   	struct mutex ptp_clk_mutex;	/* PHC access serializer */
+>>> +	u32 cc_mult; /* for the nominal frequency */
+>>> +	struct cyclecounter cc;
+>>> +	struct timecounter tc;
+>>> +	unsigned long ovfl_check_period;
+>>>   	u32 def_inc;
+>>>   	s16 slow_cmp_inc;
+>>>   	u32 slow_cmp_count;
+>>> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+>>> b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+>>> index 67ee4c72d3d6..7e90f9e71921 100644
+>>> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+>>> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+>>> @@ -39,6 +39,8 @@
+>>>   #define TX_START_DELAY		0x40
+>>>   #define TX_CLK_DELAY_100M	0x6
+>>>   
+>>> +#define TIMESYNC_SECONDS_BIT_MASK   0x0000ffffffffffff
+>>> +
+>>>   static struct prueth_fw_offsets fw_offsets_v2_1;
+>>>   
+>>>   static void icssm_prueth_set_fw_offsets(struct prueth *prueth)
+>>> @@ -642,13 +644,49 @@ irqreturn_t icssm_prueth_ptp_tx_irq_handle(int irq, void
+>>> *dev)
+>>>   	return IRQ_HANDLED;
+>>>   }
+>>>   
+>>> +/**
+>>> + * icssm_iep_get_timestamp_cycles - IEP get timestamp
+>>> + * @iep: icss_iep structure
+>>> + * @mem: io memory address
+>>> + *
+>>> + * To convert the 10 byte timestamp from firmware
+>>> + * i.e., nanoseconds part from 32-bit IEP counter(4 bytes)
+>>> + * seconds part updated by firmware(rev FW_REV1_0) in SRAM
+>>> + * (6 bytes) into 64-bit timestamp in ns
+>>> + *
+>>> + * Return: 64-bit converted timestamp
+>>> + */
+>>> +u64 icssm_iep_get_timestamp_cycles(struct icss_iep *iep,
+>>> +				   void __iomem *mem)
+>>> +{
+>>> +	u64 cycles, cycles_sec = 0;
+>>> +	u32 cycles_ns;
+>>> +
+>>> +	memcpy_fromio(&cycles_ns, mem, sizeof(cycles_ns));
+>>> +	memcpy_fromio(&cycles_sec, mem + 4, sizeof(cycles_sec));
+>> 
+>> the same question is here - there is a possibility of overflow
+>> between these 2 reads...
+>> 
 > 
-> The result is a much simpler and fully static exception entry path, which
-> we tailor to the different exceptions and their constraints.
+> We are analyzing further to check the possibility of the race condition.
+> We will review and address this in next version.
 > 
-> The series is structured as such :
-> 1 : related clean-up in the signle step handler
-> 2 : related refactor of `aarch32_break_handler()`
-> 3-5 : software breakpoints and single step handlers registration removal
-> 6: preparatory function move that is made internal in patch 13
-> 8: preparatory refactor of `reinstall_suspended_bps()`
-> 7, 9-13 : debug exception splitting and handler registration removal
-> 
-> * Patch 3 copies and extends the `early_brk64` break handling for the
-> normal path, byassing the dynamic registration.
-> * Patch 4 does something similar for the single stepping handlers.
-> * Patches 7, and 9 through 13 split each individual debug exception from
-> the unified path by creating specific handlers, adapting them to
-> their constraints and calling into them, bypassing the dynamically
-> registered handlers used before.
-> * Patch 8 refactors `reinstall_suspended_bps()` in preparation for the
-> single-step exception entry split, as it is moved out of the handler.
-> This could be squashed in patch 9 (the single-step exception split), but
-> I opted to separate it for clarity (and because the commit message
-> for patch 9 is already 45 lines long !).
-> * Patches 5 and 13 are clean-ups removing the code that has been replaced
-> and made redundant by the preceding patches.
-> 
-> PREEMPT_RT
-> ===
-> 
-> Of note, this allows us to make the single exception handling mostly
-> preemptible coming from EL0 in patch 9, fixing an issue with PREEMPT_RT[0].
-> The commit message details the reasoning on why this should be safe.
-> It is *definitely* not preemptible at EL1 in the current state, given
-> that the EL1 software step exception is handled by KGDB.
-> 
-> We can do the same for the software break exception coming from EL0,
-> which works in a very similar way.
-> 
-> However, the hardware breakpoint and watchpoint exceptions also have
-> a sleeping while non-preemptible issue with PREEMPT_RT, but this is
-> much trickier to fix, so this won't be fixed in this series.
-> A bit more details in [1].
-> 
-> Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
-> (I don't really know what is the best thing to do if a tag is added
-> on the cover, so I added it here as well as for the whole series.)
-> 
-> As the EL0 and EL1 code paths are now split for the BRK64 and single-step
-> handlers, I added a comment to the EL0 paths to highlight that they
-> are preemptible with interrupts unmasked, and to be wary when changing them.
-> Happy for it to be dropped if it is not considered relevant or useful !
-> 
-> Testing
-> ===
-> 
-> Testing EL1 debug exceptions can only be properly done with perf.
-> A simple test of hardware breakpoints, watchpoints, and software stepping
-> can be achieved by using `perf stat sleep 0.01` and adding hardware events
-> for `jiffies` and `hrtimer_nanosleep`, which guarantees a
-> hardware watchpoint and breakpoint.
-> Inserting a `WARN()` at a convenient place will allow testing both early
-> and late software breakpoints at EL1, or using KGDB to test without
-> changing code.
-> 
-> For EL0 debug exceptions, the easiest is to setup a basic program and use
-> GDB with a list of pre-programmed commands setting hardware and software
-> breakpoints as well as watchpoints. Setpping will occur naturally when
-> encountering breakpoints.
-> 
-> All tests maintained behaviour after the patches.
-> 
-> I also tested with KASAN on, with no apparent impact.
-> 
-> See below for some testing examples.
-> 
-> Regarding [0], I tested a PREEMPT_RT kernel with the patches, running
-> `ssdd` on loop as well as some spammy GDB stepping, and some
-> hardware watchpoints on a tight loop without any issues.
-> 
-> Note: `ssdd`[2], the test that highlighted the original bug, forks pairs
-> of tracer/tracee children. The tracer has a timeout waiting
-> for confirmation that its tracee process has been single stepped.
-> Given that the single step is now mostly preemptible, the step can be
-> delayed : possibly much more than what was usual previously.
-> Under heavy system load and by requesting the test to fork much more
-> children than its default, the test will start to fail unpredictably.
-> On a 4-core AMD Seattle board, I was able to see some inconsistent
-> failures with 32 (default 10) forks, becoming much more consistent
-> when the system load was above 16 (one or two failures per run).
-> Raising the timeout made the failures completely disappear, even with
-> a system load above 40, confirming that it is indeed a timeout issue.
-> Given that running `ssdd` with its default values does not seem to fail,
-> even with a system load of 21, so I do not feel like something
-> needs to be done to address this.
-> 
-> 
-> Based on v6.16-rc3.
-> Thanks,
-> Ada
-> 
-> v5 :
-> - Add a static inline stub for the hardware breakpoint and watchpoint
->   handlers if `HAVE_HW_BREAKPOINT` is not set (Will).
-> - Remove `trap_init()`, use the weak definition in `init/main.c` (Will).
-> - Rebase on v6.16-rc3
-> - Add Will's Reviewed-by.
-> v4 : https://lore.kernel.org/linux-arm-kernel/20250620211207.773980-1-ada.coupriediaz@arm.com
-> - Split `do_{softstep,brk}()` by EL : `do_el0_XX()` and `do_el1_XX()` (Mark)
-> - Remove now unused arch_init_uprobes (Anshuman)
-> - Reword patch 3 summary (Anshuman)
-> - Rename `XX_singlestep_handler()` handlers to `XX_single_step_handler()`
->   (Anshuman, Mark)
-> - Drop `NOKRPOBE_SYMBOL()` for EL0 paths where relevant (Mark)
-> - Call `die()` directly in `do_el1_brk64()` instead of `pr_warn()`
->   and `arm64_notify_die()`. (Mark)
-> - Add comments to `do_el0_{softstep,brk}()` handlers highlighting
->   that they are called with unmasked interrupts and preemption enabled,
->   in cases changes need to be made in the future.
-> - Added tags from v3.
-> - Rebased on v6.16-rc2
-> v3 : https://lore.kernel.org/linux-arm-kernel/20250609173413.132168-1-ada.coupriediaz@arm.com
-> - Refactor `aarch32_break_handler()` to be consistent with other
->   `el0_undef()` tentative handlers and the refactored
->   `reinstall_suspended_bps()` later in the series.
-> - Drop the intermediate handlers for hardware breakpoint and watchpoint
->   exceptions, as they both only return 0 and never end up calling
->   `arm64_notify_die()`. Make the real handlers return void, rename them
->   `do_{break,watch}point()` so that they can be called directly from
->   `entry-common.c`. This is similar to what was done for the single-step
->   handler. 
-> - Add static inline stand-ins for disabled stepping handlers. (Will)
-> - Don't duplicate `debug_exception_enter()` and `debug_exception_exit()`
->   in patch 06 (Will)
->   - Move them to `kernel/entry-common.c` and make them externally visible
->     while `do_debug_exception()` in `mm/fault.c` needs them
->   - Make them static again when cleaning up in patch 11.
-> - Refactor `reinstall_suspended_bps()` to make the logic cleaner and easier
->   to understand (Will, Mark).
-> - Be more explicit in the commit messages about the goal and safety of
->   moving `arm64_apply_bp_hardening()` to `kernel/entry-common.c` and
->   calling it before `enter_from_user_mode` in patches 07 and 09 (Will)
-> - Enable preemption and unmask interrupts early for the brk64 handler,
->   fixing a PREEMPT_RT sleeping while non-preemptible issue (Luis)
-> - Mention in patch 13 commit message that `bug_brk_handler()` is
->   not called as a fall-through anymore in early boot, but that it doesn't
->   change the actual behaviour (Will)
-> - Scope FAR_EL1 comment (Will)
-> - Fix typos (Will)
-> - Rebase on v6.16-rc1
->   - Update the UBSAN BRK ESR check to `esr_is_ubsan_brk(esr)`.
-> v2 : https://lore.kernel.org/linux-arm-kernel/20250512174326.133905-1-ada.coupriediaz@arm.com
-> - Move the BP hardening call outside of the handlers to `entry-common`,
->   as they are not needed coming from EL1.
-> - Make the EL0 software stepping exception mostly preemptible
->   - Move `reinstall_hw_bps()` call to `entry-common`
->   - Don't disable preemption in `el0_softstp()`
->   - Unmask DAIF before `do_softstep()` in `el0_softstp()`
->   - Update comments to make sense with the changes
-> - Simplify the single step handler, as it always returns 0 and could not
->   trigger the `arm64_notify_die()` call.
-> - Fix some commit messages
-> v1 : https://lore.kernel.org/linux-arm-kernel/20250425153647.438508-1-ada.coupriediaz@arm.com
-> 
-> [0]: https://lore.kernel.org/linux-arm-kernel/Z6YW_Kx4S2tmj2BP@uudg.org/
-> [1]: https://lore.kernel.org/linux-arm-kernel/e86c5c3a-6666-46a7-b7ec-e803212a81a1@arm.com/
-> [2]: https://man.archlinux.org/man/ssdd.8.en
-> 
-> Testing examples
-> ===
-> 
-> Perf (for EL1):
-> ~~~
-> Assuming that `perf` is on your $PATH and building with `kallsyms`
-> 
->   #!/bin/bash
->   
->   watch_addr=$(sudo cat /proc/kallsyms | grep "D jiffies$" | cut -f1 -d\  )
->   break_addr=$(sudo cat /proc/kallsyms | grep "clock_nanosleep$" | cut -f1 -d\  )
->   
->   cmd="sleep 0.01"
->   
->   sudo perf stat -a -e mem:0x${watch_addr}/8:w -e mem:0x${break_addr}:x ${cmd}
-> 
-> NB: This does /not/ test EL1 BRKs.
-> 
-> 
-> GDB commands (for EL0):
-> ~~~
-> The following C example, compiled with `-g -O0`
-> 
->   int main() {
->           int add = 0xAA;
->           int target = 0;
-> 
->           target += add;
-> 
->   #ifdef COMPAT
->       __asm__("BKPT");
->   #else
->       __asm__("BRK 1");
->   #endif
->   
->           return target;
->   }
-> 
-> Combined with the following GDB command-list
-> 
->   start
->   hbreak 3
->   watch target
->   commands 2
->   continue
->   end
->   commands 3
->   continue
->   end
->   continue
->   jump 11
->   continue
->   quit
-> 
-> Executed as such : `gdb -x ${COMMAND_LIST_FILE} ./a.out`
-> should go through the whole program, return 0252/170/0xAA, and
-> exercise all EL0 debug exception entries.
-> By using a cross-compiler and passing and additional `-DCOMPAT` argument
-> during compilation, the `BKPT32` path can also be tested.
-> NOTE: `BKPT` *will* make GDB loop infinitely, that is expected. Sending
-> SIGINT to GDB will break the loop and the execution should complete.
-> 
-> 
-> Ada Couprie Diaz (13):
->   arm64: debug: clean up single_step_handler logic
->   arm64: refactor aarch32_break_handler()
->   arm64: debug: call software breakpoint handlers statically
->   arm64: debug: call step handlers statically
->   arm64: debug: remove break/step handler registration infrastructure
->   arm64: entry: Add entry and exit functions for debug exceptions
->   arm64: debug: split hardware breakpoint exception entry
->   arm64: debug: refactor reinstall_suspended_bps()
->   arm64: debug: split single stepping exception entry
->   arm64: debug: split hardware watchpoint exception entry
->   arm64: debug: split brk64 exception entry
->   arm64: debug: split bkpt32 exception entry
->   arm64: debug: remove debug exception registration infrastructure
-> 
->  arch/arm64/include/asm/debug-monitors.h       |  34 +--
->  arch/arm64/include/asm/exception.h            |  14 +-
->  arch/arm64/include/asm/kgdb.h                 |  12 +
->  arch/arm64/include/asm/kprobes.h              |   8 +
->  arch/arm64/include/asm/system_misc.h          |   4 -
->  arch/arm64/include/asm/traps.h                |   6 +
->  arch/arm64/include/asm/uprobes.h              |  11 +
->  arch/arm64/kernel/debug-monitors.c            | 255 +++++++-----------
->  arch/arm64/kernel/entry-common.c              | 146 +++++++++-
->  arch/arm64/kernel/hw_breakpoint.c             |  60 ++---
->  arch/arm64/kernel/kgdb.c                      |  39 +--
->  arch/arm64/kernel/probes/kprobes.c            |  31 +--
->  arch/arm64/kernel/probes/kprobes_trampoline.S |   2 +-
->  arch/arm64/kernel/probes/uprobes.c            |  24 +-
->  arch/arm64/kernel/traps.c                     |  80 +-----
->  arch/arm64/mm/fault.c                         |  75 ------
->  16 files changed, 332 insertions(+), 469 deletions(-)
-> 
-> 
-> base-commit: 86731a2a651e58953fc949573895f2fa6d456841
-> -- 
-> 2.43.0
-> 
+
+We are reading the snapshot of timestamp from local memory.
+The timestamp is captured by PRU-ICSS at a hardware level,
+so overflow does not apply here.
+
+ 
+Thanks and Regards,
+Parvathi.
 
