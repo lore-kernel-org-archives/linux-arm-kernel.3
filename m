@@ -4,106 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51CBFC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 21:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 766E6C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 21:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJ91IALf7qL2mLAV9e8zmgMyOJhT80+BeW9rsMA6c10=; b=jS/uMjnVIgBFYWa/xBsawgQWg6
-	MLNkmVwWTwmi98FdVBD7+ogAv6vjgTXPt1y9ecVnuf582qkcmeBq1msdk3rn0SFDxrkW8hjldZjJW
-	/74Cos+HHa2Phsovw7lqQvpD1jgypU96/37atW37tHBeZh2lthHxSA4m4gQ6ru36aXIc+JbRP4sJg
-	CY3U6LGvbNgYP78D8zU179C6nNvUQtdOnZgvYAngPpDiUJHQsxu8zLpvlDuihWRseGGZeFJDCquoA
-	IT4WrhaV4660HJptJK2hHzTb3CiET+Dkx1JNqz6OHtzOS8xj/eJk+lKty4hl3YegTi9FmpdYj8HbF
-	KkHZek/Q==;
+	bh=KSFjoXjeVI9Q7mVA0gaQA96egYKc8irfnFONjI0h9KY=; b=eNurafcwK2sujdpgV4agy1e4jN
+	Wk2fth58uNDh8WvZTjyfyt3cf4b/gm/zCXA3iycKgu5JC8Ah1IYwjHWEVyLwFVNLQ8k35+pHTvEUi
+	a2Vbriuihr08OZKx8pBtcEzaOcY+GdeW5i7eI/31xO2MtEJv4Wd7vkfzymOdI5fuwBCPOx20a9p0s
+	ARKZkdFFlsuE5r7fkLN4B2biEDxir/imL/NqkaYRXrK/W/SiwZ/qwIcn78Vcknii6S1OHnegPlbBn
+	us+NQH7Ah4llTHuRN2s6GLbJ+I/h9RQk9Hd+QH1SXVnER47YI5TZdc6KjpKUEryguA/K8n5vf3fRU
+	ynoAz9Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX4dy-00000009YsF-3vis;
-	Wed, 02 Jul 2025 21:05:26 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1uX4gI-00000009Z9S-0CVC;
+	Wed, 02 Jul 2025 21:07:50 +0000
+Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX4bc-00000009Yao-0WAn
+	id 1uX4dZ-00000009Ynm-36cs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 21:03:01 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7d3e7503333so700893185a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 14:02:59 -0700 (PDT)
+	Wed, 02 Jul 2025 21:05:03 +0000
+Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e81f311a86fso5743460276.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 14:05:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1751490178; x=1752094978; darn=lists.infradead.org;
+        d=libre.computer; s=google; t=1751490300; x=1752095100; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EJ91IALf7qL2mLAV9e8zmgMyOJhT80+BeW9rsMA6c10=;
-        b=qDwtJTSMUdcqhIRs9yWCoB1X/ARKyYt8HYve4uIN5npTgVkMLqtiFbkam/uZ7QyFI1
-         Xqd6Qo5ApmPmV8T9ub3sWB80Kr/MdybUyY8QhTQpZDSdpL0z8rtt4XBDa7jR4YANDnH+
-         p+qKA9iXtxhwgtIv+EMfTHAEsgsvWRGY9Ldg095GfGb5Gnr2ZqVhe5Ua8tTsSDX7uCza
-         y5oVyPYgscaslqHaEvUKx+51mPkhYPPqEjmA3ceFP3Jr82fu9C2lJBH8LDvyJAXCoeD4
-         yIQce890B8NjqTLA7TBXfSRLLtcGoPXdEXwsQk94ggeC0DQ4Wt2Begk2tna9RLVjx0K7
-         5JuQ==
+        bh=KSFjoXjeVI9Q7mVA0gaQA96egYKc8irfnFONjI0h9KY=;
+        b=ZZOumU1tVvmtC08lS/8rEZNNikESP0xwqjdYhoFV6DSJlitUw0NPCUTbK2TF+NtxiN
+         Nti2AShmYaaEHAiBWhWNHzF5B3+xcjgOLcZf7R5v1ge5mVvkO9vR+8o0csvLtG1lG+2s
+         WPtdQUQgM5FtZq6sOZgyBW7wQ6PYKEhc9GAxLkmSuUdyskApyvDmRCWAxH2g9dLBWwrz
+         zidHXKgQwNAmvEp/sURSZOlAFKZVigY1tyOPlH8UWSzL9jxBeBoFvVnUK3rTPGvfgGzI
+         Kqv+1uq64GImrVjzSVSxvAWdF2NRItEfGXFbrSawMOwBWupzYVPgHqg6DbItTauaOMqZ
+         EQBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751490178; x=1752094978;
+        d=1e100.net; s=20230601; t=1751490300; x=1752095100;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EJ91IALf7qL2mLAV9e8zmgMyOJhT80+BeW9rsMA6c10=;
-        b=DVfS6rpbq0QLM4KARtQ36tHkIPV9c9Ufaqf9plyFTGvBrRX5fyz7Ye8St+3HOHqWRo
-         9sNk0pb00UlE0N2cg372T5Qwl3GhVFkgsCo1+U3MIzwPXCV47CB70i2RwPQ8IWo4llTU
-         4UICA9Dryrdb7Y/hT7iJnzeiJxiFUa0j++awZB6p6n3lJo/YXt9syoaOSLI5rpVHPYvT
-         3iNGRYckVSt1khJQT9QCmkgkxkhmJvD+GNRoH8OMzButa/pwO8USAQHngSSnkhVELaPn
-         MxrHzmjQSfvGyhFS74JwyB1I9VheC/MRxNqGrPyGr+oG5bcGehd8Ov/lFU+DsQx00T5I
-         AG1g==
-X-Forwarded-Encrypted: i=1; AJvYcCUW3CF3PfNJDdE7+hugc9WqrDwcJ2N25McHbFP5Ree4M+xXiWHR7q/AqmIlEx14ZGMqRLogM/IXY2Zo8sNTLovp@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU7Wpw5MVW++RAUVBu9CFCfXnyF6/MepZcLAXriI2B8hs4UHF+
-	WjWFekZPegOJx/NlkT5aeunn4G0mqxA29tudo4bc138iPXo3Cfh2DN62fWNXNlnK5GWP1rkp0yB
-	OctfC+dowp7uCpOOhqcv044CCbY3DFol9qfOsEUJT
-X-Gm-Gg: ASbGncs15Ace3iSCiMQMDYzLBWYZyPwBYljFKBz5lwtCdYqNVxK3CV/DTk/T5WTl4Kx
-	UYr0cfD3M53uG9BCchIgQpovlwCThiWOJndTHufKjBKEOBFwq6yFqa40ZIfgqhaZrgtG1afMJV8
-	/KVSbI5TQ4Y5Hgi/g5MPsrXhrhJhcRxSobylcLUJSlKsG88By2k6a7EUAKVDW/E44AyCuqQMpM
-X-Google-Smtp-Source: AGHT+IHZLJBo9iF9+nKbDyZZYnf6PcVxrcD0+f+tDZM+7z0OQ6NWXKWPaxUOSfKFFIK+EtLpeM3pSDTuYA14QV/DaCA=
-X-Received: by 2002:a05:620a:280d:b0:7d3:f0a0:ea5f with SMTP id
- af79cd13be357-7d5d13f3399mr185371785a.22.1751490177645; Wed, 02 Jul 2025
- 14:02:57 -0700 (PDT)
+        bh=KSFjoXjeVI9Q7mVA0gaQA96egYKc8irfnFONjI0h9KY=;
+        b=xLfrJZTN62ijcEUeB6FXc+X+TVteG4XtiipDH3RCPrnE5+m9CUTZ2aNi9DmamgVhvI
+         umk3/MNVgi65vZEDezGe7j6GKuZ0iqKB+fCgTc5f6FyrkV/o3jWEdTwFaRr9RoU/j4UJ
+         29H46KC4yINhFvMgisGPdOsLAfviJR4EdH/3fFaOvFxM5sD6sRjafyeYmZa4en8j0hpN
+         +fC5OEMQ29PQ7c3VR+B0pKBpEalQJUGy/vURWawRjSzTn7Yow8zfYiRKPUo5xsCa9gC0
+         2peSVmQmGBwMKf020ILQl0Xza8OMNLashH//QnajeAvpZS+vBNXDzA6IDnBlzLMgpc55
+         2fZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQZrmZAEpqWR5iUXHhTM015LexuMFjriQCumrOVv7WoRaoMP4I+g/jsoBLEupMx22BTyWPo+dtkdggjdNjeftl@lists.infradead.org
+X-Gm-Message-State: AOJu0YweQAN+QInVeW1Mxt1DL1TOovgiZusUbcfMNKkhJDDc/VSqkmN9
+	94ujEzZqsVwanIDBEgjHaaOHTcw0pdM5ye9mcwqWYuEAzKIQxyjpWAKAqXF3uJbZQGXR1KsdNKp
+	qX6lImS66lSpaGTWgN6bbonj0p/FiVdrP8/wBEZnS
+X-Gm-Gg: ASbGncttuC6evQBr64Dp6dQtSH9yoUTap3quEVcshyYe/trPHrDzaSo4J1v0w/nboJJ
+	tQRUdRbDlfqsQjTEvK+7JrNX0z8vEWkqanPiYw1jhlZowRdD2l7JWn5JrQ5PJCcD79+OVqFBL+K
+	OYemEexF371au/DyW7aRTlLYhMj4moE5Lllgv561GniV+PTRlotcO3w/8fXZz4Y0gov2Y2rWpAF
+	nr0
+X-Google-Smtp-Source: AGHT+IEiQuh5LjlsCcA7qaI9oQhIPWCsjEyB7JTNTj6XFbJ9WVg7qPtMe5Tz7PrvBDjuqNqnia9yn5ArtcfzXOoCqd8=
+X-Received: by 2002:a05:690c:6ac2:b0:6fb:b37f:2072 with SMTP id
+ 00721157ae682-7164d4db0b0mr64094247b3.22.1751490300545; Wed, 02 Jul 2025
+ 14:05:00 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250613134817.681832-1-herve.codina@bootlin.com>
- <20250613134817.681832-5-herve.codina@bootlin.com> <CAJZ5v0g01QzAkpnJGdjEuif9h==tyB94tU3nCbumx_Ya3EOoDQ@mail.gmail.com>
-In-Reply-To: <CAJZ5v0g01QzAkpnJGdjEuif9h==tyB94tU3nCbumx_Ya3EOoDQ@mail.gmail.com>
-From: Saravana Kannan <saravanak@google.com>
-Date: Wed, 2 Jul 2025 14:02:20 -0700
-X-Gm-Features: Ac12FXwhrjwNcoQlswzlpTiwmASKCStdWYLWRIuHlvNKRRZirJ70zPEsjhz1ybo
-Message-ID: <CAGETcx85vKLcFcWBR2G005Nup8UkmVZFLYgd4DuUBOKxHvJn8Q@mail.gmail.com>
-Subject: Re: [PATCH v3 04/28] driver core: Avoid warning when removing a
- device while its supplier is unbinding
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Herve Codina <herve.codina@bootlin.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Peter Rosin <peda@axentia.se>, Derek Kiernan <derek.kiernan@amd.com>, 
-	Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Davidlohr Bueso <dave@stgolabs.net>, 
-	Dave Jiang <dave.jiang@intel.com>, Alison Schofield <alison.schofield@intel.com>, 
-	Vishal Verma <vishal.l.verma@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
-	Dan Williams <dan.j.williams@intel.com>, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-cxl@vger.kernel.org, Allan Nielsen <allan.nielsen@microchip.com>, 
-	Horatiu Vultur <horatiu.vultur@microchip.com>, 
-	Steen Hegelund <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+References: <20250628015328.249637-1-da@libre.computer> <CANAwSgTH67T9SBQSFQgFjvyrxNCbtfd9ZaCDZFACWA=ZQ-PYtQ@mail.gmail.com>
+ <CAFBinCBwTkVwcBTWOzS+G13+rRM2eftMXZ3GHzW+F+BY0bBBzg@mail.gmail.com>
+ <1j4ivued2q.fsf@starbuckisacylon.baylibre.com> <CACqvRUa8EqMbCd2x=di-a6jbMWW8CMo4kgLH=0qnsqHdO16kxA@mail.gmail.com>
+ <CAFBinCAkW+G9oV+SOJdac50oLezQnbc358dBgs56-RfjPd-zgA@mail.gmail.com>
+ <CACqvRUYwwgRqid8AbLJ7bp+gTyHw2c=o-pj435Z0PDriJcnnKQ@mail.gmail.com> <CAFBinCA-aFNd+UQR5oWBY+HtMcdefeiH4Oc6bvZTaYDxowYCjw@mail.gmail.com>
+In-Reply-To: <CAFBinCA-aFNd+UQR5oWBY+HtMcdefeiH4Oc6bvZTaYDxowYCjw@mail.gmail.com>
+From: Da Xue <da@libre.computer>
+Date: Wed, 2 Jul 2025 17:04:49 -0400
+X-Gm-Features: Ac12FXz2eBEQpE1uXBge_BXeozibSAfNnKLrTRR6ZVdJLMP7Abjjpj73aBSCXy4
+Message-ID: <CACqvRUbQD3HS=_DH-ZW-D8JTkC_o2PbBkOzcZ44h57JJWW4-mw@mail.gmail.com>
+Subject: Re: [RFC] mmc: meson-gx-mmc: add delay during poweroff
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Da Xue <da@libre.computer>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Anand Moon <linux.amoon@gmail.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_140300_164823_57EAD783 
-X-CRM114-Status: GOOD (  31.91  )
+X-CRM114-CacheID: sfid-20250702_140501_933114_2D0C604C 
+X-CRM114-Status: GOOD (  28.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,135 +102,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 2, 2025 at 11:22=E2=80=AFAM Rafael J. Wysocki <rafael@kernel.or=
-g> wrote:
+On Wed, Jul 2, 2025 at 4:57=E2=80=AFPM Martin Blumenstingl
+<martin.blumenstingl@googlemail.com> wrote:
 >
-> On Fri, Jun 13, 2025 at 3:48=E2=80=AFPM Herve Codina <herve.codina@bootli=
-n.com> wrote:
+> On Wed, Jul 2, 2025 at 9:07=E2=80=AFPM Da Xue <da@libre.computer> wrote:
 > >
-> > During driver removal, the following warning can appear:
-> >    WARNING: CPU: 1 PID: 139 at drivers/base/core.c:1497 __device_links_=
-no_driver+0xcc/0xfc
-> >    ...
-> >    Call trace:
-> >      __device_links_no_driver+0xcc/0xfc (P)
-> >      device_links_driver_cleanup+0xa8/0xf0
-> >      device_release_driver_internal+0x208/0x23c
-> >      device_links_unbind_consumers+0xe0/0x108
-> >      device_release_driver_internal+0xec/0x23c
-> >      device_links_unbind_consumers+0xe0/0x108
-> >      device_release_driver_internal+0xec/0x23c
-> >      device_links_unbind_consumers+0xe0/0x108
-> >      device_release_driver_internal+0xec/0x23c
-> >      driver_detach+0xa0/0x12c
-> >      bus_remove_driver+0x6c/0xbc
-> >      driver_unregister+0x30/0x60
-> >      pci_unregister_driver+0x20/0x9c
-> >      lan966x_pci_driver_exit+0x18/0xa90 [lan966x_pci]
-> >
-> > This warning is triggered when a consumer is removed because the links
-> > status of its supplier is not DL_DEV_DRIVER_BOUND and the link flag
-> > DL_FLAG_SYNC_STATE_ONLY is not set.
-> >
-> > The topology in terms of consumers/suppliers used was the following
-> > (consumer ---> supplier):
-> >
-> >       i2c -----------> OIC ----> PCI device
-> >        |                ^
-> >        |                |
-> >        +---> pinctrl ---+
-> >
-> > When the PCI device is removed, the OIC (interrupt controller) has to b=
+> > On Wed, Jul 2, 2025 at 2:40=E2=80=AFPM Martin Blumenstingl
+> > <martin.blumenstingl@googlemail.com> wrote:
+> > >
+> > > On Wed, Jul 2, 2025 at 7:22=E2=80=AFPM Da Xue <da@libre.computer> wro=
+te:
+> > > >
+> > > > On Wed, Jul 2, 2025 at 1:07=E2=80=AFPM Jerome Brunet <jbrunet@bayli=
+bre.com> wrote:
+> > > > ...
+> > > > > If, as the description suggest, the regulator framework somehow i=
+gnore
+> > > > > the timing set in DT, maybe this is what needs to be checked ?
+> > > >
+> > > > The regulator framework only cares about timing for regulator on.
+> > > > Regulator off just turns off the regulator and returns without dela=
+y.
+> > > There's an exception to this: gpio-regulators without an enable-gpios
+> > > property. My understanding is that regulator_disable() is a no-op in
+> > > that case (meson_mmc_set_ios() even has a comment above the
+> > > switch/case statement), see [0].
+> > >
+> > > > The code makes incorrect assumptions. Then the kernel resets the bo=
+ard
+> > > > without having enough time.
+> > > Can you please name the board you're testing? I'm worried that I'll b=
 e
-> > removed. In order to remove the OIC, pinctrl and i2c need to be removed
-> > and to remove pinctrl, i2c need to be removed. The removal order is:
-> >   1) i2c
-> >   2) pinctrl
-> >   3) OIC
-> >   4) PCI device
+> > > looking at one .dts but you're looking at another one.
 > >
-> > In details, the removal sequence is the following (with 0000:01:00.0 th=
-e
-> > PCI device):
-> >   driver_detach: call device_release_driver_internal(0000:01:00.0)...
-> >     device_links_busy(0000:01:00.0):
-> >       links->status =3D DL_DEV_UNBINDING
-> >     device_links_unbind_consumers(0000:01:00.0):
-> >       0000:01:00.0--oic link->status =3D DL_STATE_SUPPLIER_UNBIND
-> >       call device_release_driver_internal(oic)...
-> >         device_links_busy(oic):
-> >           links->status =3D DL_DEV_UNBINDING
-> >         device_links_unbind_consumers(oic):
-> >           oic--pinctrl link->status =3D DL_STATE_SUPPLIER_UNBIND
-> >           call device_release_driver_internal(pinctrl)...
-> >             device_links_busy(pinctrl):
-> >               links->status =3D DL_DEV_UNBINDING
-> >             device_links_unbind_consumers(pinctrl):
-> >               pinctrl--i2c link->status =3D DL_STATE_SUPPLIER_UNBIND
-> >               call device_release_driver_internal(i2c)...
-> >                 device_links_busy(i2c): links->status =3D DL_DEV_UNBIND=
-ING
-> >                 __device_links_no_driver(i2c)...
-> >                   pinctrl--i2c link->status is DL_STATE_SUPPLIER_UNBIND
-> >                   oic--i2c link->status is DL_STATE_ACTIVE
-> >                   oic--i2c link->supplier->links.status is DL_DEV_UNBIN=
-DING
+> > https://github.com/libre-computer-project/libretech-linux/blob/master/a=
+rch/arm64/boot/dts/amlogic/meson-libretech-cottonwood.dtsi#L481
 > >
-> > The warning is triggered by the i2c removal because the OIC (supplier)
-> > links status is not DL_DEV_DRIVER_BOUND. Its links status is indeed set
-> > to DL_DEV_UNBINDING.
-> >
-> > It is perfectly legit to have the links status set to DL_DEV_UNBINDING
-> > in that case. Indeed we had started to unbind the OIC which triggered
-> > the consumer unbinding and didn't finish yet when the i2c is unbound.
-> >
-> > Avoid the warning when the supplier links status is set to
-> > DL_DEV_UNBINDING and thus support this removal sequence without any
-> > warnings.
-> >
-> > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+> > vcc_card is a gpio regulator that gets toggled on->off->on.
+> Thanks, that clears things up as I was indeed looking at a gpio
+> regulator while this is a fixed regulator!
 >
-> The change is OK, so
->
-> Reviewed-by: Rafael J. Wysocki <rafael@kernel.org>
+> > I traced the regulator framework a few weeks ago and forgot the final
+> > regulator disable function call, but that call basically returned
+> > immediately while the regulator-enable function complement had delays
+> > implemented.
+> Yep, for fixed regulators there's an "off-on-delay-us" device-tree
+> property (which translates to "off_on_delay" in the code).
+> Its implementation is smart enough to not waste time by adding delays
+> at runtime by implementing: on -> off + remember time -> wait
+> remaining time + on (meaning: if there was enough time between off and
+> the second on there's no additional wait) [0]. On system shutdown it
+> will not add any delay unfortunately (where Linux loses control over
+> time-keeping), meaning we can end up with too little waiting time.
 
-You can add mine too.
+Yes, this is evident on quite a few Amlogic boards but occurred rarely
+enough that it can be overlooked but never-the-less should be
+addressed.
 
-Reviewed-by: Saravana Kannan <saravanak@google.com>
-
--Saravana
+On our SM1 board, this occurs more often than not. With this patch, we
+can reboot the loop indefinitely.
 
 >
-> but it will clash with
+> Also my understanding is that it's not something that can be fixed in
+> u-boot or TF-A. This is because bootrom already has trouble reading
+> the next stage from an SD card (which is a valid boot media).
+
+Correct, not fixable in TF-A or u-boot.
+
 >
-> https://lore.kernel.org/linux-pm/2793309.mvXUDI8C0e@rjwysocki.net/
 >
-> that's been queued up by Greg AFAICS.
->
-> > ---
-> >  drivers/base/core.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/base/core.c b/drivers/base/core.c
-> > index 8fead097c404..ce367c44f642 100644
-> > --- a/drivers/base/core.c
-> > +++ b/drivers/base/core.c
-> > @@ -1494,7 +1494,8 @@ static void __device_links_no_driver(struct devic=
-e *dev)
-> >                 if (link->supplier->links.status =3D=3D DL_DEV_DRIVER_B=
-OUND) {
-> >                         WRITE_ONCE(link->status, DL_STATE_AVAILABLE);
-> >                 } else {
-> > -                       WARN_ON(!(link->flags & DL_FLAG_SYNC_STATE_ONLY=
-));
-> > +                       WARN_ON(link->supplier->links.status !=3D DL_DE=
-V_UNBINDING &&
-> > +                               !(link->flags & DL_FLAG_SYNC_STATE_ONLY=
-));
-> >                         WRITE_ONCE(link->status, DL_STATE_DORMANT);
-> >                 }
-> >         }
-> > --
-> > 2.49.0
-> >
+> [0] https://elixir.bootlin.com/linux/v6.15/source/drivers/regulator/core.=
+c#L2754
 
