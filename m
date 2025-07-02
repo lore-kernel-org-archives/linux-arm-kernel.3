@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3825AC83013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 07:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE363C7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 08:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1mAsBxXP2JgXxnyAVxnBySoN7AaBnC32z407KO0z+o=; b=B+OAyxUqw/hmZeVC30t7O9TkOv
-	CYsCxIJvMB4/xJC8pEbm2CUSZ/lwaYetRF7FKHRNTPhsk03KCZBkTVDKCRmRHoDcfIwrawOK93vrM
-	pMjTxSqAC8A0G/Qa69rQcbjCjdtbI81AuDwczv2j5qbJZ8hfodGTXTKf869zg4i9fr+uR82Kvq2m9
-	eF/Fi66XDfRBoSHbng/qqdteNl7DO8PpWhNFsEXzzhwEsa4B4PBkPgdJalx3p7fFvvcTRSheSkT0h
-	BZGFUUGroYCiz7y1AdA3aBIYzPauOg3mU3tZgiAaS16aRe2og8eG7jXGCfr8ooMywJtJwrKXUPX69
-	QHgWXytg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rSivc4wrk6dW+y0maWDShAnaZ6uMv7Vz3Rx+ZuGrU3c=; b=sZ9Uuz8yv3RzuCKxnP08Fve/rS
+	bJklbHXGe0oxWUuPhC+pC19eR1bHqp/NeNvj03xIRtI+7HB15os9KQgquVwDwmBx2fV2hiWgtoW/b
+	mHH/58NnMzjpy2BHwaslCJes8BLAwgpOcX57g94G2sglu8v8O2QIDAQpLJNgde8WVmO4090ry4hXp
+	+rODfA4qcHDu2+KNudZG/jHMMaDKPeqcVoytg7V5RLjgwfsAaonuQwDB1oqKnSMwINNb5Q0xGZ3eJ
+	taEEXB2H75DvGyiXnDEQLgd2hNgn2bDx5gfgVlQ7S28Y7vE3FH5YgrICnVq21h5JATTF52eD58IE1
+	yI/GRbjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWsHa-00000007Yk4-0CcE;
-	Wed, 02 Jul 2025 07:53:30 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uWsPL-00000007ZUb-3wWv;
+	Wed, 02 Jul 2025 08:01:32 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWsFD-00000007XsZ-08sv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 07:51:04 +0000
+	id 1uWsN0-00000007ZIu-0tJe;
+	Wed, 02 Jul 2025 07:59:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F23BCA50026;
-	Wed,  2 Jul 2025 07:51:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE849C4CEED;
-	Wed,  2 Jul 2025 07:50:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 797B45C6945;
+	Wed,  2 Jul 2025 07:59:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E819EC4CEF1;
+	Wed,  2 Jul 2025 07:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751442661;
-	bh=k8J6bw7qUijMDcnUBmDdYgC0NRQa9b09ibKM5hAyvCA=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=F5HOWbF9MWloGOKPKXRrqEoPJyMWJXV72nyEenQJKuSrlSyOjCBrjUybzuehfGCAh
-	 aQ2SHrtvwHiwilmFu5UrhhzSKEfEbISzf0qf8y1WwYFBsLCxk0EWkCkJrIODG3+5Wl
-	 3oBadofTN4yJFUiVfnfi631lgeC71gzoowDejZHKJlMVaWySnVk6TqbBJLJQzGJ9Rq
-	 dSBJmi4Y3uxEwNcBjXmpEzTgPgIGYo5Yw/fIhtaegFFVpsYm68Mt03y1+v3Xfad21x
-	 29t/QryCe7uUPWSCa/mrkuSNnZUqJVMgvxq06YB/L8g3KrLWyRKyXoj96Dep5m2g1E
-	 Yb9IVj4PlQznA==
-Message-ID: <34b0f5e2-0341-41cb-8915-8f1606e14827@kernel.org>
-Date: Wed, 2 Jul 2025 09:50:56 +0200
+	s=k20201202; t=1751443145;
+	bh=iZDqSRF7JrWoop63heCZMy2IoVgHMVBjOcbmD/U+N0A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lwfurohXaD4grteMK5WKkUjqNNxdqmbwlTPxD6zYbFmhPBMNNu2d2Lo9IkZ/bkA78
+	 Bgoro6Co4SfW8tZZFnJYc2OlrQ7788Th7Oe0WzLwd8NAe56ncr7zVIAl4rVYPRJc/8
+	 iASLEZHgIDqEeSZVIpDflWB84dNQkSDqcmQZONyqu5CrJuesaddvXHPt47o0QNrQfu
+	 V2XIqo1fq0DZVqMkEVI9ZmDyYPcwysfNjYtj69AgEYssZJO9Jk/TJn7QM0unfuNsRO
+	 RHEr86LztZv3Uw7ZMrUEwFiR5lkCF4ZlCWusf8m7AxgceyjSiQ7M04xheXQgnyRm89
+	 lSf2yusjca9cQ==
+Message-ID: <7e1b7e90-9e10-4580-a543-111001240f91@kernel.org>
+Date: Wed, 2 Jul 2025 09:58:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] ARM: dts: aspeed: Add Facebook Darwin (AST2600) BMC
-To: rentao.bupt@gmail.com, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v4 3/5] dt-bindings: media: Add the Raspberry Pi HEVC
+ decoder
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, Tao Ren <taoren@meta.com>
-References: <20250702050421.13729-1-rentao.bupt@gmail.com>
- <20250702050421.13729-6-rentao.bupt@gmail.com>
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, John Cox
+ <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>,
+ review list <kernel-list@raspberrypi.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Cc: John Cox <jc@kynesim.co.uk>, Stefan Wahren <wahrenst@gmx.net>,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250701-media-rpi-hevc-dec-v4-0-057cfa541177@raspberrypi.com>
+ <20250701-media-rpi-hevc-dec-v4-3-057cfa541177@raspberrypi.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +109,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250702050421.13729-6-rentao.bupt@gmail.com>
+In-Reply-To: <20250701-media-rpi-hevc-dec-v4-3-057cfa541177@raspberrypi.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_005103_208075_688F2687 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20250702_005906_332403_DF5BBEA9 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,40 +130,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/07/2025 07:04, rentao.bupt@gmail.com wrote:
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
-> new file mode 100644
-> index 000000000000..f902230dada3
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
-> @@ -0,0 +1,92 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +// Copyright (c) 2021 Facebook Inc.
-> +
-> +/dts-v1/;
-> +
-> +#include "ast2600-facebook-netbmc-common.dtsi"
-> +
-> +/ {
-> +	model = "Facebook Darwin BMC";
-> +	compatible = "facebook,darwin-bmc", "aspeed,ast2600";
+On 01/07/2025 18:01, Dave Stevenson wrote:
+> Adds a binding for the HEVC decoder IP owned by Raspberry Pi.
+> 
+> Instantiations of the decoder IP can currently be found in
+> the Broadcom BCM2711 and BCM2712 SoCs.
+> 
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> 
+> ---
+> 
 
-Please run scripts/checkpatch.pl on the patches and fix reported
-warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-patches and (probably) fix more warnings. Some warnings can be ignored,
-especially from --strict run, but the code here looks like it needs a
-fix. Feel free to get in touch if the warning is not clear.
-
-It does not look like you tested the DTS against bindings. Please run
-`make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
-Maybe you need to update your dtschema and yamllint. Don't rely on
-distro packages for dtschema and be sure you are using the latest
-released dtschema.
-
-
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
