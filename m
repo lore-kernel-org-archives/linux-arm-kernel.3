@@ -4,78 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F86C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 08:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61342C83013
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 08:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bt7kRNitnRRomL12XcgnkgtBgNnfGJgLPobysScsIdU=; b=Nsp7P3gNpOgd88cohzafurASr9
-	aOvKpzafxfatAGHkJjw6RzFgWKxCx6QY+fctEv8ok9hbd8VCMzQ9TfkLJ7vnY8Vr0Gp1Vu0PSGHhC
-	YcIXVxlgSYQpAVzgoaCf0PydZS+VtaZTWJjul0PLoAvKL6qHW/iw6g/DsLaN39T3lDOY++SQh15Nc
-	uRq7Uwn11S6lyDpzKkUDO5wykH8TGzcbzMlk6BAK77jKsYV5NqHBc1rEa8zzJi5mVWxUfHw3icFf3
-	g20XU1vbTe95X09uUxiUWLrm8lFpoYv1NAO4ugcAsBSS2+z9bh81xZieBDUcNXEeqOESRkFp/a3T9
-	WgVvSL4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5RbAHSbae8Jj29ZSVUOTUguuPqjViFL1e6ZVXS1jCfM=; b=1RiKrpjlNpwo2QHKg+TQwYNYOU
+	7bgafBPNnIB1tXmNYyZCaUlOZR7c0CYXKtXd7r+w6euaREBhNA8i5BiQThIPO3hAnw1+nrVgHus+2
+	iBwjrsC/Yfda5AphiAlux281hYBE96X2m5h3xno+mCp5U8juJgkbNOs56LSKn+i1iltMtULyC+oPJ
+	0KHCkSYA4j/P7WUBd905Z3W1pG8oD4S3QkIzIZ0S3vB/WdIjUvvMyPL9ROPcSqgNJykRwZhQNIbrD
+	R/TocgzWJkMBlbv+uRq2AIdJQhWCjgpxUUiWUCXDwLAeI60BM5PG+9nJRgBCqrkYNIgykqpM1fXtT
+	uIzK7TWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWt2G-00000007dYE-0Nug;
-	Wed, 02 Jul 2025 08:41:44 +0000
-Received: from mail-m16.yeah.net ([220.197.32.16])
+	id 1uWt6L-00000007e7h-3ulJ;
+	Wed, 02 Jul 2025 08:45:57 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWszu-00000007dQ9-19ab
+	id 1uWt41-00000007doM-262E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 08:39:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=bt7kRNitnRRomL12XcgnkgtBgNnfGJgLPobysScsIdU=;
-	b=eNEcCmTpKvsNznW2z72kTSHm/x8r/H5RnC6X9E5eszrzz7BzwCkQIwRnQpc3Jt
-	sZ+HdxhwUSfJxnvSLSoOfV8LGZMtn3nzjbvIH6KEQwsiDvY6LfbWnPITx1ypNfea
-	LEYanzNaQGBqt9UBxlWwfbKTKjx5MxMQu/cHIUBuSL/Es=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgDHz8oW8GRohq0NAA--.9535S3;
-	Wed, 02 Jul 2025 16:38:49 +0800 (CST)
-Date: Wed, 2 Jul 2025 16:38:46 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: John Ernberg <john.ernberg@actia.se>
-Cc: Horia =?utf-8?Q?Geant=C4=83?= <horia.geanta@nxp.com>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	Gaurav Jain <gaurav.jain@nxp.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v6 4/4] arm64: dts: freescale: imx8qxp/imx8qm: Add CAAM
- support
-Message-ID: <aGTwFl911B0W6PKu@dragon>
-References: <20250611113748.2986988-1-john.ernberg@actia.se>
- <20250611113748.2986988-5-john.ernberg@actia.se>
+	Wed, 02 Jul 2025 08:43:34 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5622U1Sk020544;
+	Wed, 2 Jul 2025 08:43:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	5RbAHSbae8Jj29ZSVUOTUguuPqjViFL1e6ZVXS1jCfM=; b=OnKdYIJOX6kzgIG8
+	FV16+1iUUADbnb2TMJxRqharHmeXLLVOUrxS7d+YgGmVfKsXerCrndtTsDldyAvz
+	kxumGv5iYwwat7kIxw2wulzNc9VT8Zp5Zrk1+/C1UUSx2zThH/20yt/rWonQE3Oz
+	k0f6W5XaOi7lJK352QnAcjtoP1X8eB+BNiUsZXzWa5HKRr+uBLVXtw73bO4gTZ+4
+	7DQ23C2tcEaRtctCutfQBom1elKcfPwJp+sHGG9iAEFuF8LoYehusXtydKbUEv+7
+	LVYR19vjPc99RLUeYnnmGsr4VO2pHpFY8hN45HuPRe54LIIq5NOXlPCwfUZTaAzR
+	kilxNA==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47mhxn2h0d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 02 Jul 2025 08:43:25 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5628hOmg031410
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 2 Jul 2025 08:43:24 GMT
+Received: from [10.217.217.109] (10.80.80.8) by nasanex01c.na.qualcomm.com
+ (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 2 Jul
+ 2025 01:43:19 -0700
+Message-ID: <4884d189-e43a-4932-af52-e1987bd7106c@quicinc.com>
+Date: Wed, 2 Jul 2025 14:13:14 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 01/10] clk: qcom: clk-alpha-pll: Add support for
+ dynamic update for slewing PLLs
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+CC: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Ajit
+ Pandey <quic_ajipan@quicinc.com>,
+        Imran Shaik <quic_imrashai@quicinc.com>,
+        "Jagadeesh Kona" <quic_jkona@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com>
+ <20250625-qcs615-mm-v10-clock-controllers-v10-1-ec48255f90d8@quicinc.com>
+ <trwdfk2oz2udtbiqxh3ybuqbvasfqywmqxgi4xyvsknz6svs2r@icpp7snpq6c5>
+ <44dddd3f-d2d2-4d4b-831a-21e6d9050445@quicinc.com>
+ <667ac51f-d19d-4832-9aa6-97d9a86e0068@oss.qualcomm.com>
+Content-Language: en-US
+From: Taniya Das <quic_tdas@quicinc.com>
+In-Reply-To: <667ac51f-d19d-4832-9aa6-97d9a86e0068@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250611113748.2986988-5-john.ernberg@actia.se>
-X-CM-TRANSID: M88vCgDHz8oW8GRohq0NAA--.9535S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Xw4fJw4xJrykWFyDAryfCrg_yoWxCwc_Z3
-	WxJw10vw4rGFWxJa15Ga1fXr1rKay5Gr45WrZ0vwsxGas0vFWxKrykJrZaq3y09wsFvF9x
-	AF18t3yUu343ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjX18PUUUUU==
-X-Originating-IP: [114.216.146.217]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCwF+ZWhk3sY-3gAAsk
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzAyMDA2OSBTYWx0ZWRfX8VcgtUhyolYE
+ VzR1RXp2VdwzTnrCopUKekm8qLZdpBh04QtuOXo8dJbDQSw6Xdzy5vJXf0uwXBd0gE1aa6GsjHo
+ Eq+UP46sNtfjAeq0r6rmQR+hFAGW8QHhIQPsFG02d9wVQjZEnsWHUlimx8kgUQDz2Tx5T08bBWz
+ uNuIKtPGXHKOL3uraFUOsUTvmz3poHoZ/yUzl+H9asmRwnfqfQeWF1I+IZP50hIQ6VxFYyaAR5E
+ wHEV9PYb8SU80DNxm+H//JlkA2n8jatGeYH2Ki3+D62sWbv1C1iLh3PLNmC2LKwriw7ZwchtZJ3
+ akOnR5a/x4eHFOkcnUDFkP2mUp9EVM0qKDSMkb2FV4YNUnZBDbCmxJ22apKKaBEJCiPm6e8Oyip
+ 1H+wf4BEMLPTPrqbZXcRldcfRexN0Anbj//UTVeDhHD33hH2BmEQxNhIAj9P1m0NaToa5yMR
+X-Authority-Analysis: v=2.4 cv=EbvIQOmC c=1 sm=1 tr=0 ts=6864f12d cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8
+ a=O75FsbJ6qr0OxAJT8SUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: z_qDogjY66KuJUuri63Fz3YxX51oqibx
+X-Proofpoint-GUID: z_qDogjY66KuJUuri63Fz3YxX51oqibx
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-02_01,2025-06-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 mlxscore=0 priorityscore=1501 mlxlogscore=999 lowpriorityscore=0
+ malwarescore=0 adultscore=0 clxscore=1015 bulkscore=0 impostorscore=0
+ spamscore=0 suspectscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507020069
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_013918_691795_43888D4B 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250702_014333_657510_C2D507C6 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,23 +132,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 11:38:09AM +0000, John Ernberg wrote:
-> From: Horia Geantă <horia.geanta@nxp.com>
-> 
-> The iMX8QXP and iMX8QM have a CAAM (Cryptographic Acceleration and
-> Assurance Module) like many other iMXs.
-> 
-> Add the definitions for it.
-> 
-> Job Rings 0 and 1 are bound to the SECO (Security Controller) ARM core
-> and are not exposed outside it. There's no point to define them in the
-> bindings as they cannot be used outside the SECO.
-> 
-> Signed-off-by: Horia Geantă <horia.geanta@nxp.com>
-> Signed-off-by: John Ernberg <john.ernberg@actia.se>
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Applied, thanks!
+
+On 6/27/2025 6:07 PM, Dmitry Baryshkov wrote:
+> On 27/06/2025 13:13, Taniya Das wrote:
+>>
+>>
+>> On 6/25/2025 5:17 PM, Dmitry Baryshkov wrote:
+>>> On Wed, Jun 25, 2025 at 04:13:26PM +0530, Taniya Das wrote:
+>>>> The alpha PLLs which slew to a new frequency at runtime would require
+>>>> the PLL to calibrate at the mid point of the VCO. Add the new PLL ops
+>>>> which can support the slewing of the PLL to a new frequency.
+>>>>
+>>>> Reviewed-by: Imran Shaik <quic_imrashai@quicinc.com>
+>>>> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+>>>> ---
+>>>>   drivers/clk/qcom/clk-alpha-pll.c | 169 +++++++++++++++++++++++++++
+>>>> ++++++++++++
+>>>>   drivers/clk/qcom/clk-alpha-pll.h |   1 +
+>>>>   2 files changed, 170 insertions(+)
+>>>>
+>>
+>>>> +    /*
+>>>> +     * Dynamic pll update will not support switching frequencies
+>>>> across
+>>>> +     * vco ranges. In those cases fall back to normal alpha set rate.
+>>>> +     */
+>>>> +    if (curr_vco->val != vco->val)
+>>>> +        return clk_alpha_pll_set_rate(hw, rate, parent_rate);
+>>>> +
+>>>> +    a <<= ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH;
+>>>> +
+>>>> +    regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
+>>>> +    regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll),
+>>>> lower_32_bits(a));
+>>>> +    regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll),
+>>>> upper_32_bits(a));
+>>>
+>>> We have code that does this in __clk_alpha_pll_set_rate() and now you
+>>> are adding two more copies. Please extract PLL_L_VAL, PLL_ALPHA_VAL and
+>>> PLL_USER_CTL / PLL_VCO_MASK into a helper function.
+>>>
+>>
+>> Dmitry, I was thinking of implementing the following as a reusable
+>> helper since it can be leveraged by most of the functions. I'd
+>> appreciate your suggestions or feedback.
+> 
+> The code below looks good to me. Please use 'alpha' instead of 'a'.
+
+Thanks, I will use 'alpha' in the next patch.
+
+
+Taniya
 
 
