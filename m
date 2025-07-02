@@ -4,67 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC08C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 14:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB9DC83F04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 14:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvuAa4d9+h9GqMjgAFfCCEcQDIDPW4APXZPvUTDGpRE=; b=zjEe9jlbvh02RPAeI3fh3mZtSl
-	Tv3mJaNSWLMt8RfKo5zY54qYL/MkPdPndzDBozhBkrFiKKwyNSLUQGXC5AWHafdzK/LnmFS7UMEbF
-	YOeetIaN3B9Wpjf/IEm3PQYKMJnva/BKUayc6VpVqwb6yUDxCeOkiYIeerHQ0vp7oxaPPKL9PQx5q
-	u3pd0SATCeCCiDrAErzqbev5tYUBo8GdhrbYJSXBxdleRR3BrVsTC2a+8jdRXsCxOXXYFaB5Mm/Cb
-	9Oi3HRIWkgn2wT+ZqE4ESskN6ZXCmZqRWp1eDCEf4BDfjf3gjiSGA9Z1vDlwAGRcneYnwo7wUZ1PX
-	Y0ZRaSSw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k8VAIUcXIYvgBJ9GgZ2cS9GDpuFygQfAsCDPTX94XCM=; b=g+UW9Hk4v40Z3ATsW1cVNBWJ70
+	cv5pSIgipq0lH/kgZQMjzIo9dq/CYEWoJLLlsPHirYteSHpSiz7Juza2gX2amx6J71avc1O5hJ5zf
+	3CizzUON0eMddSP08/upeOXeAWVE2wkG535rVr9UijxtpWljtbXKSwk/8NbyxGe2o0alM0BZYV19x
+	RS5XKsjbURP+tjpMK9kNRgBl3ajINyIbksDIteoWULxDutHch/x+BGCJiKI4bFMrW7t2GatbH+YpF
+	QBHQRxU+v9vYWHAcAxqhO86qJqwcMSgGpdXC1lpY/ZuhefijyM+gRwlFtJDvqZmeYhHK4LDXsZw70
+	Tj5X8QUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWyte-00000008i4i-21fb;
-	Wed, 02 Jul 2025 14:57:14 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uWyw0-00000008iL3-0mBR;
+	Wed, 02 Jul 2025 14:59:40 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWy6c-00000008ZfR-32km
+	id 1uWy71-00000008Znp-2ADc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 14:06:37 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bXMBK1glKz6L5vy;
-	Wed,  2 Jul 2025 22:06:01 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 42615140446;
-	Wed,  2 Jul 2025 22:06:27 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 2 Jul
- 2025 16:06:26 +0200
-Date: Wed, 2 Jul 2025 15:06:24 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-CC: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, "Sascha
- Bischoff" <sascha.bischoff@arm.com>, Timothy Hayes <timothy.hayes@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, "Liam R. Howlett"
-	<Liam.Howlett@oracle.com>, Peter Maydell <peter.maydell@linaro.org>, "Mark
- Rutland" <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-pci@vger.kernel.org>
-Subject: Re: [PATCH v6 28/31] irqchip/gic-v5: Add GICv5 ITS support
-Message-ID: <20250702150624.00007ceb@huawei.com>
-In-Reply-To: <20250626-gicv5-host-v6-28-48e046af4642@kernel.org>
-References: <20250626-gicv5-host-v6-0-48e046af4642@kernel.org>
-	<20250626-gicv5-host-v6-28-48e046af4642@kernel.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 02 Jul 2025 14:07:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=k8VAIUcXIYvgBJ9GgZ2cS9GDpuFygQfAsCDPTX94XCM=; b=KBTDeKzVrTCD/c6Efkmks7Ux+H
+	STtCSVxb8xuM7qXQm7FxLqtINyStekOAlRcCLmpXCiO6y3K8+71EQjfI+5ZHuqQGQ9ixkMKG5VFdW
+	YrTbWGDQQ73nEaheZMcKHPkB+68UaT4An88yN2Rz/AlB++g9GHrkmO7WpR0t8Yo/FjlA5ujzZgvHj
+	x1eouzDXssXQ4sqj1qqJ7UGjIE8E2jpxhd0T5HySD71ohAAoVhXP3oOhmTH57y3Xr2teHSIK4X0LT
+	y3tKPkwmP6vj3zDFNdcLB1QgAzoKaLA23hniI1juH9JxBR7rytH1/lZA8k6P2m0LyEp3RwGoN8pwW
+	o6Gn7QFg==;
+Received: from [122.175.9.182] (port=44129 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1uWy6v-00000004QcT-2089;
+	Wed, 02 Jul 2025 10:06:54 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: danishanwar@ti.com,
+	rogerq@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ssantosh@kernel.org,
+	richardcochran@gmail.com,
+	s.hauer@pengutronix.de,
+	m-karicheri2@ti.com,
+	glaroque@baylibre.com,
+	afd@ti.com,
+	saikrishnag@marvell.com,
+	m-malladi@ti.com,
+	jacob.e.keller@intel.com,
+	diogo.ivo@siemens.com,
+	javier.carrasco.cruz@gmail.com,
+	horms@kernel.org,
+	s-anna@ti.com,
+	basharath@couthit.com,
+	parvathi@couthit.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	vadim.fedorenko@linux.dev,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	pmohan@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v10 00/11] PRU-ICSSM Ethernet Driver
+Date: Wed,  2 Jul 2025 19:36:22 +0530
+Message-Id: <20250702140633.1612269-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_070635_056863_286C9814 
-X-CRM114-Status: GOOD (  44.33  )
+X-CRM114-CacheID: sfid-20250702_070659_578913_C7318702 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,352 +117,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Jun 2025 12:26:19 +0200
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+Hi,
 
-> The GICv5 architecture implements Interrupt Translation Service
-> (ITS) components in order to translate events coming from peripherals
-> into interrupt events delivered to the connected IRSes.
-> 
-> Events (ie MSI memory writes to ITS translate frame), are translated
-> by the ITS using tables kept in memory.
-> 
-> ITS translation tables for peripherals is kept in memory storage
-> (device table [DT] and Interrupt Translation Table [ITT]) that
-> is allocated by the driver on boot.
-> 
-> Both tables can be 1- or 2-level; the structure is chosen by the
-> driver after probing the ITS HW parameters and checking the
-> allowed table splits and supported {device/event}_IDbits.
-> 
-> DT table entries are allocated on demand (ie when a device is
-> probed); the DT table is sized using the number of supported
-> deviceID bits in that that's a system design decision (ie the
-> number of deviceID bits implemented should reflect the number
-> of devices expected in a system) therefore it makes sense to
-> allocate a DT table that can cater for the maximum number of
-> devices.
-> 
-> DT and ITT tables are allocated using the kmalloc interface;
-> the allocation size may be smaller than a page or larger,
-> and must provide contiguous memory pages.
-> 
-> LPIs INTIDs backing the device events are allocated one-by-one
-> and only upon Linux IRQ allocation; this to avoid preallocating
-> a large number of LPIs to cover the HW device MSI vector
-> size whereas few MSI entries are actually enabled by a device.
-> 
-> ITS cacheability/shareability attributes are programmed
-> according to the provided firmware ITS description.
-> 
-> The GICv5 partially reuses the GICv3 ITS MSI parent infrastructure
-> and adds functions required to retrieve the ITS translate frame
-> addresses out of msi-map and msi-parent properties to implement
-> the GICv5 ITS MSI parent callbacks.
-> 
-> Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Co-developed-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Marc Zyngier <maz@kernel.org>
+The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
+is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
+Megabit ICSS (ICSSM).
 
-Hi Lorenzo,
+Support for ICSSG Dual-EMAC mode has already been mainlined [1] and the
+fundamental components/drivers such as PRUSS driver, Remoteproc driver,
+PRU-ICSS INTC, and PRU-ICSS IEP drivers are already available in the mainline
+Linux kernel. The current set of patch series builds on top of these components
+and introduces changes to support the Dual-EMAC using ICSSM on the TI AM57xx,
+AM437x and AM335x devices.
 
-It almost certainly doesn't matter, but there are a couple of release
-paths in here where things don't happen in the same order as the
-equivalent error tear down paths (i.e. not reverse of setup).
+AM335x, AM437x and AM57xx devices may have either one or two PRU-ICSS instances
+with two 32-bit RISC PRU cores. Each PRU core has (a) dedicated Ethernet interface
+(MII, MDIO), timers, capture modules, and serial communication interfaces, and
+(b) dedicated data and instruction RAM as well as shared RAM for inter PRU
+communication within the PRU-ICSS.
 
-There may well be a good reason for that but I couldn't immediately
-spot what it was.  Also a follow up similar to earlier comment about
-the table sizing code not matching the comments above it. Same thing
-going on here.
+These patches add support for the following features:
+- RX and TX over PRU Ethernet ports in Dual-EMAC mode
+- Full duplex with 100 Mbps link speed.
+- VLAN Filtering
+- Multicast Filtering
+- Promiscuous mode
+- Storm prevention
+- Interrupt coalescing
+- Linux PTP (ptp4l) Ordinary clock
 
-Jonathan
+Further, note that these are the first set of patches for a single instance of
+PRU-ICSS Ethernet. Switch mode support for AM335x, AM437x and AM57x along with
+support for a second instance of PRU-ICSS on AM57x will be posted subsequently.
 
+The patches presented in this series have gone through the patch verification
+tools and no warnings or errors are reported. Sample test logs obtained from AM33x,
+AM43x and AM57x verifying the functionality on Linux next kernel are available here:
 
-git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> new file mode 100644
-> index 000000000000..cba632eb0273
-> --- /dev/null
-> +++ b/drivers/irqchip/irq-gic-v5-its.c
+[Interface up Testing](https://gist.github.com/ParvathiPudi/25e5b6d4d92d395c93b5a847fce3dda5)
 
-> +/*
-> + * Function to check whether the device table or ITT table support
-> + * a two-level table and if so depending on the number of id_bits
-> + * requested, determine whether a two-level table is required.
-> + *
-> + * Return the 2-level size value if a two level table is deemed
-> + * necessary.
-> + */
-> +static bool gicv5_its_l2sz_two_level(bool devtab, u32 its_idr1, u8 id_bits, u8 *sz)
-> +{
-> +	unsigned int l2_bits, l2_sz;
-> +
-> +	if (devtab && !FIELD_GET(GICV5_ITS_IDR1_DT_LEVELS, its_idr1))
-> +		return false;
-> +
-> +	if (!devtab && !FIELD_GET(GICV5_ITS_IDR1_ITT_LEVELS, its_idr1))
-> +		return false;
-> +
-> +	/*
-> +	 * Pick an L2 size that matches the pagesize; if a match
-> +	 * is not found, go for the smallest supported l2 size granule.
+[Ping Testing](https://gist.github.com/ParvathiPudi/a026401293c45fe08fccf1ca2830a70a)
 
-Similar to before, this description is confusing.  If Page size is 64K
-and 16 + 4 are supported we choose 16 which is not he smallest
-supported (4 is).  The condition the comment refers to only applies
-if only larger than pagesized things are supported.
+[Iperf Testing](https://gist.github.com/ParvathiPudi/8f729db42e27f1e3e860f1832d276dc0)
 
-> +	 *
-> +	 * This ensures that we will always be able to allocate
-> +	 * contiguous memory at L2.
-> +	 */
-> +	switch (PAGE_SIZE) {
-> +	case SZ_64K:
-> +		if (GICV5_ITS_IDR1_L2SZ_SUPPORT_64KB(its_idr1)) {
-> +			l2_sz = GICV5_ITS_DT_ITT_CFGR_L2SZ_64k;
-> +			break;
-> +		}
-> +		fallthrough;
-> +	case SZ_16K:
-> +		if (GICV5_ITS_IDR1_L2SZ_SUPPORT_16KB(its_idr1)) {
-> +			l2_sz = GICV5_ITS_DT_ITT_CFGR_L2SZ_16k;
-> +			break;
-> +		}
-> +		fallthrough;
-> +	case SZ_4K:
-> +		if (GICV5_ITS_IDR1_L2SZ_SUPPORT_4KB(its_idr1)) {
-> +			l2_sz = GICV5_ITS_DT_ITT_CFGR_L2SZ_4k;
-> +			break;
-> +		}
-> +		if (GICV5_ITS_IDR1_L2SZ_SUPPORT_16KB(its_idr1)) {
-> +			l2_sz = GICV5_ITS_DT_ITT_CFGR_L2SZ_16k;
-> +			break;
-> +		}
-> +		if (GICV5_ITS_IDR1_L2SZ_SUPPORT_64KB(its_idr1)) {
-> +			l2_sz = GICV5_ITS_DT_ITT_CFGR_L2SZ_64k;
-> +			break;
-> +		}
-> +
-> +		l2_sz = GICV5_ITS_DT_ITT_CFGR_L2SZ_4k;
-> +		break;
-> +	}
-> +
-> +	l2_bits = gicv5_its_l2sz_to_l2_bits(l2_sz);
-> +
-> +	if (l2_bits > id_bits)
-> +		return false;
-> +
-> +	*sz = l2_sz;
-> +
-> +	return true;
-> +}
+[1] https://lore.kernel.org/all/20230106121046.886863-1-danishanwar@ti.com/
+[2] https://lore.kernel.org/all/20250108125937.10604-1-basharath@couthit.com/
 
+This is the v10 of the patch series [v1]. This version of the patchset
+addresses the comments made on [v9] of the series.
 
+Changes from v9 to v10 :
+*) Addressed Vadim Fedorenko comments on patch 6 and 11 of the series.
+*) Rebased the series on latest net-next.
 
-> +/*
-> + * Register a new device in the device table. Allocate an ITT and
-> + * program the L2DTE entry according to the ITT structure that
-> + * was chosen.
-> + */
-> +static int gicv5_its_device_register(struct gicv5_its_chip_data *its,
-> +				     struct gicv5_its_dev *its_dev)
-> +{
-> +	u8 event_id_bits, device_id_bits, itt_struct, itt_l2sz;
-> +	phys_addr_t itt_phys_base;
-> +	bool two_level_itt;
-> +	u32 idr1, idr2;
-> +	__le64 *dte;
-> +	u64 val;
-> +	int ret;
-> +
-> +	device_id_bits = devtab_cfgr_field(its, DEVICEID_BITS);
-> +
-> +	if (its_dev->device_id >= BIT(device_id_bits)) {
-> +		pr_err("Supplied DeviceID (%u) outside of Device Table range (%u)!",
-> +		       its_dev->device_id, (u32)GENMASK(device_id_bits - 1, 0));
-> +		return -EINVAL;
-> +	}
-> +
-> +	dte = gicv5_its_devtab_get_dte_ref(its, its_dev->device_id, true);
-> +	if (!dte)
-> +		return -ENOMEM;
-> +
-> +	if (FIELD_GET(GICV5_DTL2E_VALID, le64_to_cpu(*dte)))
-> +		return -EBUSY;
-> +
-> +	/*
-> +	 * Determine how many bits we need, validate those against the max.
-> +	 * Based on these, determine if we should go for a 1- or 2-level ITT.
-> +	 */
-> +	event_id_bits = order_base_2(its_dev->num_events);
-> +
-> +	idr2 = its_readl_relaxed(its, GICV5_ITS_IDR2);
-> +
-> +	if (event_id_bits > FIELD_GET(GICV5_ITS_IDR2_EVENTID_BITS, idr2)) {
-> +		pr_err("Required EventID bits (%u) larger than supported bits (%u)!",
-> +		       event_id_bits,
-> +		       (u8)FIELD_GET(GICV5_ITS_IDR2_EVENTID_BITS, idr2));
-> +		return -EINVAL;
-> +	}
-> +
-> +	idr1 = its_readl_relaxed(its, GICV5_ITS_IDR1);
-> +
-> +	/*
-> +	 * L2 ITT size is programmed into the L2DTE regardless of
-> +	 * whether a two-level or linear ITT is built, init it.
-> +	 */
-> +	itt_l2sz = 0;
-> +
-> +	two_level_itt = gicv5_its_l2sz_two_level(false, idr1, event_id_bits,
-> +						  &itt_l2sz);
-> +	if (two_level_itt)
-> +		ret = gicv5_its_create_itt_two_level(its, its_dev, event_id_bits,
-> +						     itt_l2sz,
-> +						     its_dev->num_events);
-> +	else
-> +		ret = gicv5_its_create_itt_linear(its, its_dev, event_id_bits);
-> +	if (ret)
-> +		return ret;
-> +
-> +	itt_phys_base = two_level_itt ? virt_to_phys(its_dev->itt_cfg.l2.l1itt) :
-> +					virt_to_phys(its_dev->itt_cfg.linear.itt);
-> +
-> +	itt_struct = two_level_itt ? GICV5_ITS_DT_ITT_CFGR_STRUCTURE_TWO_LEVEL :
-> +				     GICV5_ITS_DT_ITT_CFGR_STRUCTURE_LINEAR;
-> +
-> +	val = FIELD_PREP(GICV5_DTL2E_EVENT_ID_BITS, event_id_bits)	|
-> +	      FIELD_PREP(GICV5_DTL2E_ITT_STRUCTURE, itt_struct)		|
-> +	      (itt_phys_base & GICV5_DTL2E_ITT_ADDR_MASK)		|
-> +	      FIELD_PREP(GICV5_DTL2E_ITT_L2SZ, itt_l2sz)		|
-> +	      FIELD_PREP(GICV5_DTL2E_VALID, 0x1);
-> +
-> +	its_write_table_entry(its, dte, val);
-> +
-> +	ret = gicv5_its_device_cache_inv(its, its_dev);
-> +	if (ret) {
-> +		gicv5_its_free_itt(its_dev);
-> +		its_write_table_entry(its, dte, 0);
+Changes from v8 to v9 :
 
-If it makes no difference, unwind in reverse order of setup so swap the
-two lines above.
+*) Addressed Vadim Fedorenko comments on patch 6 of the series.
+*) Rebased the series on latest net-next.
 
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
+Changes from v7 to v8 :
 
-> +static struct gicv5_its_dev *gicv5_its_alloc_device(struct gicv5_its_chip_data *its, int nvec,
-> +						    u32 dev_id)
-> +{
-> +	struct gicv5_its_dev *its_dev;
-> +	void *entry;
-> +	int ret;
-> +
-> +	its_dev = gicv5_its_find_device(its, dev_id);
-> +	if (!IS_ERR(its_dev)) {
-> +		pr_err("A device with this DeviceID (0x%x) has already been registered.\n",
-> +		       dev_id);
-> +
-> +		return ERR_PTR(-EBUSY);
-> +	}
-> +
-> +	its_dev = kzalloc(sizeof(*its_dev), GFP_KERNEL);
-> +	if (!its_dev)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	its_dev->device_id = dev_id;
-> +	its_dev->num_events = nvec;
-> +
-> +	ret = gicv5_its_device_register(its, its_dev);
-> +	if (ret) {
-> +		pr_err("Failed to register the device\n");
-> +		goto out_dev_free;
-> +	}
-> +
-> +	gicv5_its_device_cache_inv(its, its_dev);
-> +
-> +	its_dev->its_node = its;
-> +
-> +	its_dev->event_map = (unsigned long *)bitmap_zalloc(its_dev->num_events, GFP_KERNEL);
-> +	if (!its_dev->event_map) {
-> +		ret = -ENOMEM;
-> +		goto out_unregister;
-> +	}
-> +
-> +	entry = xa_store(&its->its_devices, dev_id, its_dev, GFP_KERNEL);
-> +	if (xa_is_err(entry)) {
-> +		ret = xa_err(entry);
-> +		goto out_bitmap_free;
-> +	}
-> +
-> +	return its_dev;
-> +
-> +out_bitmap_free:
-> +	bitmap_free(its_dev->event_map);
-> +out_unregister:
-> +	gicv5_its_device_unregister(its, its_dev);
-> +out_dev_free:
-> +	kfree(its_dev);
-> +	return ERR_PTR(ret);
-> +}
-> +
-> +static int gicv5_its_msi_prepare(struct irq_domain *domain, struct device *dev,
-> +				 int nvec, msi_alloc_info_t *info)
-> +{
-> +	u32 dev_id = info->scratchpad[0].ul;
-> +	struct msi_domain_info *msi_info;
-> +	struct gicv5_its_chip_data *its;
-> +	struct gicv5_its_dev *its_dev;
-> +
-> +	msi_info = msi_get_domain_info(domain);
-> +	its = msi_info->data;
-> +
-> +	guard(mutex)(&its->dev_alloc_lock);
-> +
-> +	its_dev = gicv5_its_alloc_device(its, nvec, dev_id);
-> +	if (IS_ERR(its_dev))
-> +		return PTR_ERR(its_dev);
-> +
-> +	its_dev->its_trans_phys_base = info->scratchpad[1].ul;
-> +	info->scratchpad[0].ptr = its_dev;
-> +
-> +	return 0;
-> +}
-> +
-> +static void gicv5_its_msi_teardown(struct irq_domain *domain, msi_alloc_info_t *info)
-> +{
-> +	struct gicv5_its_dev *its_dev = info->scratchpad[0].ptr;
-> +	struct msi_domain_info *msi_info;
-> +	struct gicv5_its_chip_data *its;
-> +
-> +	msi_info = msi_get_domain_info(domain);
-> +	its = msi_info->data;
-> +
-> +	guard(mutex)(&its->dev_alloc_lock);
-> +
-> +	if (WARN_ON_ONCE(!bitmap_empty(its_dev->event_map, its_dev->num_events)))
-> +		return;
-> +
-> +	gicv5_its_device_unregister(its, its_dev);
-> +	bitmap_free(its_dev->event_map);
-> +	xa_erase(&its->its_devices, its_dev->device_id);
+*) Addressed Paolo Abeni comments on patch 3 and 4 of the series.
+*) Replaced threaded IRQ logic with NAPI logic based on feedback from Paolo Abeni.
+*) Added Reviewed-by: tag from Rob Herring for patch 1.
+*) Rebased the series on latest net-next.
 
-I was expecting this to be in reverse order of what happens in *msi_prepare (and *msi_alloc under
-that). That would give the order
+Changes from v6 to v7 :
 
-	xa_erase();
-	bitmap_free();
-	gicv5_its_device_unregister();
-	kfree(its_dev);
+*) Addressed Rob Herring comments on patch 1 of the series.
+*) Addressed Jakub Kicinski comments on patch 4, 5 and 6 of the series.
+*) Addressed Alok Tiwari comments on Patch 1, 4 and 5 of the series.
+*) Rebased the series on latest net-next.
 
-If there is a reason for this ordering it might be good to add a comment calling it out.
+Changes from v5 to v6 :
 
- 
-> +	kfree(its_dev);
-> +}
+*) Addressed Simon Horman comments on patch 2, 7 and 11 of the series.
+*) Addressed Andrew Lunn comments on patch 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v4 to v5 :
+
+*) Addressed Andrew Lunn and Keller, Jacob E comments on patch 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v3 to v4 :
+
+*) Added support for AM33x and AM43x platforms.
+*) Removed SOC patch [2] and its dependencies.
+*) Addressed Jakub Kicinski, MD Danish Anwar and Nishanth Menon comments on cover
+   letter of the series.
+*) Addressed Rob Herring comments on patch 1 of the series.
+*) Addressed Ratheesh Kannoth comments on patch 2 of the series.
+*) Addressed Maxime Chevallier comments on patch 4 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v2 to v3 :
+
+*) Addressed Conor Dooley comments on patch 1 of the series.
+*) Addressed Simon Horman comments on patch 2, 3, 4, 5 and 6 of the series.
+*) Addressed Joe Damato comments on patch 4 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v1 to v2 :
+
+*) Addressed Andrew Lunn, Rob Herring comments on patch 1 of the series.
+*) Addressed Andrew Lunn comments on patch 2, 3, and 4 of the series.
+*) Addressed Richard Cochran, Jason Xing comments on patch 6 of the series.
+*) Rebased patchset on next-202401xx linux-next.
+
+[v1] https://lore.kernel.org/all/20250109105600.41297-1-basharath@couthit.com/
+[v2] https://lore.kernel.org/all/20250124122353.1457174-1-basharath@couthit.com/
+[v3] https://lore.kernel.org/all/20250214054702.1073139-1-parvathi@couthit.com/
+[v4] https://lore.kernel.org/all/20250407102528.1048589-1-parvathi@couthit.com/
+[v5] https://lore.kernel.org/all/20250414113458.1913823-1-parvathi@couthit.com/
+[v6] https://lore.kernel.org/all/20250423060707.145166-1-parvathi@couthit.com/
+[v7] https://lore.kernel.org/all/20250503121107.1973888-1-parvathi@couthit.com/
+[v8] https://lore.kernel.org/all/20250610105721.3063503-1-parvathi@couthit.com/
+[v9] https://lore.kernel.org/all/20250623135949.254674-1-parvathi@couthit.com/
+
+Thanks and Regards,
+Parvathi.
+
+Murali Karicheri (1):
+  net: ti: prueth: Adds support for RX interrupt coalescing/pacing
+
+Parvathi Pudi (1):
+  dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for
+    AM57xx, AM43xx and AM33xx SOCs
+
+Roger Quadros (9):
+  net: ti: prueth: Adds ICSSM Ethernet driver
+  net: ti: prueth: Adds PRUETH HW and SW configuration
+  net: ti: prueth: Adds link detection, RX and TX support.
+  net: ti: prueth: Adds ethtool support for ICSSM PRUETH Driver
+  net: ti: prueth: Adds HW timestamping support for PTP using PRU-ICSS
+    IEP module
+  net: ti: prueth: Adds support for network filters for traffic control
+    supported by PRU-ICSS
+  net: ti: prueth: Adds power management support for PRU-ICSS
+  net: ti: prueth: Adds support for PRUETH on AM33x and AM43x SOCs
+  net: ti: prueth: Adds PTP OC Support for AM335x and AM437x
+
+ .../devicetree/bindings/net/ti,icss-iep.yaml  |   10 +-
+ .../bindings/net/ti,icssm-prueth.yaml         |  233 ++
+ .../bindings/net/ti,pruss-ecap.yaml           |   32 +
+ .../devicetree/bindings/soc/ti/ti,pruss.yaml  |    9 +
+ drivers/net/ethernet/ti/Kconfig               |   24 +
+ drivers/net/ethernet/ti/Makefile              |    5 +
+ drivers/net/ethernet/ti/icssg/icss_iep.c      |  277 +-
+ drivers/net/ethernet/ti/icssg/icss_iep.h      |   12 +
+ drivers/net/ethernet/ti/icssm/icssm_ethtool.c |  337 +++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 2487 +++++++++++++++++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  464 +++
+ .../net/ethernet/ti/icssm/icssm_prueth_dos.c  |  222 ++
+ .../net/ethernet/ti/icssm/icssm_prueth_ecap.c |  312 +++
+ .../net/ethernet/ti/icssm/icssm_prueth_ecap.h |   47 +
+ .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |   85 +
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  285 ++
+ .../ti/icssm/icssm_vlan_mcast_filter_mmap.h   |  120 +
+ 17 files changed, 4957 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
+ create mode 100644 Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_ethtool.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_dos.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switch.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_vlan_mcast_filter_mmap.h
+
+-- 
+2.34.1
 
 
