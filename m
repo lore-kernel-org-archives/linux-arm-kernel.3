@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA88C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 00:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0606C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 00:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IS6DmHZ/EPn9vNNwu1p5P0DKnu56R5jJnANztZV8U2U=; b=E2nRsHOXh3FD8rQmiRQzFxpvDa
-	s5VqHEmSs0IE1HIB+FHn+XmXoBKzRA5pu07t+XaDvJN2w/YMIH9wuyWoJkBvqw8sVn0GSKZNI5S5e
-	3KIuVDELfapBlmGiLddJzFkEa2bWm+xtlAk1HVhDQKOFjfV1sDl/LAA1Tsjb+gmR7IdW4GceOhbEx
-	HWBs5gSNi+fDkj+R89TKNyc16Zh4J9eNDqMaNwYHKuVzvPnZfglXx3BzsOpfkYPngmepWYFlcOZzV
-	udgqps8WRaTqEKc1tWAPvtpCHY1VanTtd0b+S9SMJP5ixt+TSFwSdD940y1nNf0DCaQvyrgfSeKKV
-	4NOOAhAw==;
+	bh=WE68W0bXQaTpxl/iIASF1f+Xh1LT+vGRhkdJSNq736g=; b=ZVYVSs1B1M2RDJ94g31hT3qgDy
+	pHF9r83lgAxR9hObn/nKb2YNIRmKRj20gG4NUve4R7luWCbHqb/iXLtQEBC1Tn3lLimCo1Mjb90UW
+	ZLGvEoThQ3C/+BQyrR3GccBNcdXOX3H4dqeEyPOrLSXmtzPi3fk6JvCAjaKzFrEwHIg0/YST4Od4F
+	K2YeTbFTqnPjsKAbVvlvHkK7om7UVz3uUaTsPXVUpiEX4SG2TfGf8IEM3xz8efJFz35FRP68/OnzS
+	bL3NSJaUObHRO2KwG94aWxQ5L17Clh6AAzZJqN/1Hf+l86/xtduqwHxgwRJgyN94qHrnXb4YyEwQN
+	rMjELrfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWlbc-00000006vGl-2A3n;
-	Wed, 02 Jul 2025 00:45:44 +0000
+	id 1uWldu-00000006vV5-1xHW;
+	Wed, 02 Jul 2025 00:48:06 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWlY5-00000006uwz-3bCN
+	id 1uWlaL-00000006v88-3k2k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 00:42:07 +0000
+	Wed, 02 Jul 2025 00:44:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751416924;
+	s=mimecast20190719; t=1751417064;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=IS6DmHZ/EPn9vNNwu1p5P0DKnu56R5jJnANztZV8U2U=;
-	b=JVcrtNIE8yxulcOdAODuYuUr5Q8NQymb0PNXg3oR3Cz/lsVKGti2WcxK0yY+AhICoVwnOs
-	HknfkA30haE2v6pKydVJtF05bXnjbE6g1WdHXat1oMKkBcMNzvknJFwHBztMC4BH9bw6om
-	Oa6Bx21Kq62idg6s9bz+I9xyW/7bQvI=
+	bh=WE68W0bXQaTpxl/iIASF1f+Xh1LT+vGRhkdJSNq736g=;
+	b=L/E4yAGUpje6KdzugCZ0jq+p4j/MoudsMtOVFhq/B5///BMoiHs55UhSUquvouSRf+HLPz
+	RzyvAStt6Ee7jrA8C3Qg0r5cGPzVVB4PB/LuT0z2xlOuWPbAuFUpms9U4evvpA6AuJvG8y
+	GaBQtBpoG9b26NkKmpe5qu9KKE3t0sM=
 Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
  [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-421-FKobmuE2P6qyqu9WXUZZsA-1; Tue, 01 Jul 2025 20:42:02 -0400
-X-MC-Unique: FKobmuE2P6qyqu9WXUZZsA-1
-X-Mimecast-MFC-AGG-ID: FKobmuE2P6qyqu9WXUZZsA_1751416922
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2363bb41664so46837845ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 17:42:02 -0700 (PDT)
+ us-mta-351-ZlOllB7nNFegYSNVXav3NA-1; Tue, 01 Jul 2025 20:44:23 -0400
+X-MC-Unique: ZlOllB7nNFegYSNVXav3NA-1
+X-Mimecast-MFC-AGG-ID: ZlOllB7nNFegYSNVXav3NA_1751417062
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-235e7550f7bso56459405ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 17:44:23 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751416922; x=1752021722;
+        d=1e100.net; s=20230601; t=1751417062; x=1752021862;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IS6DmHZ/EPn9vNNwu1p5P0DKnu56R5jJnANztZV8U2U=;
-        b=D40eGBljL+FMu2ncIn1N7NkPQcfQw+je2zNMD3efGhIBLRM3unXJhLWPhP5VpOSq41
-         1i5+q6TLkGpG/KCTOUewPgTt694qpHG0D7PmlCAPUsGBC970tbeRS/7eNoXHurHIt2zF
-         LFRPPKd4CQh2pIyKPZdO2RuC0s/e8c/ODUOtqVwGzoWrAaHJtKD8+3ob+sVpc8KJ2PH4
-         KnJErVarEt2bF7U9MxBJCSIBSnlnq0tvE1AYLgbl6OSZr/7cQ/mgU+OGEQPpKCgAcyl/
-         hJQvofGdDa7IJwPfMDXEEXkWptyQ8+ePLQgHZ3ldHnFLHQ+OXVejDbuggm6q31wKX1SQ
-         /aLg==
-X-Forwarded-Encrypted: i=1; AJvYcCX2A7nztCT4BODW2taxoVsRbaYL4v372AY1ZqGD0R411KD4j0uTGDQb0W+kgPHmBZDflZkMz4mRUcIdwjAt3znt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+bsOHiC/ShZMa89U/FouzfeL3WW5hXZzDfcD3xLXzEKef4hrL
-	AYPC/RwmPgs7wKDTgT5oBh5EMC+dxPA6U/UGVljw+xUTqDW9MFgr+N73LjOtbBerO5EjRVTfPzE
-	eSuhk8omM/pgaaeqWUCX+XJFCfbCHsFh0MUq1q7G1J5Rc9QxRKDaZzyoHXgyd62KaIawF6TS78x
-	9k
-X-Gm-Gg: ASbGncs38Ijjv2rcUzRX/Sn07XIRy8YF4QOdpnnGUVTkslQHa/wzbBax0LGxhhRgW+d
-	jiyoZZ3cave5rPaF5y5JRUm1W0s4SmLjkPGSd1aYlbvCgaxvI6fM6jwCsuASf2zIZNneN5IhRVT
-	+GSm6q3DK82CvHSUvxmdkiDO+gaLaKEAD73O6jy104CmsvoRZrLMd+PpDni4bBbyqq4sbnKz259
-	HBHGwjZj7bPxo9RLAXYBlL2LKyozWBLH/nOwZFH+rEkeSs9jdfF03Vu8jOknj19whHPEJdD1foR
-	1NUOTdjQBjN6ZA+fohLPvBZkOvJVbY9w4UoPAKVNp3JIkGLE9D3yeJTGBLzv5Q==
-X-Received: by 2002:a17:902:e809:b0:21f:5063:d3ca with SMTP id d9443c01a7336-23c6e81e812mr10088095ad.16.1751416921653;
-        Tue, 01 Jul 2025 17:42:01 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGLaYwVOFkrc3uXeDo3lLBdt2ODjpAZgoQY+FVxCUbATRGn8q8nteuTtaLiNL9kfSpsCG8Ldw==
-X-Received: by 2002:a17:902:e809:b0:21f:5063:d3ca with SMTP id d9443c01a7336-23c6e81e812mr10087595ad.16.1751416921150;
-        Tue, 01 Jul 2025 17:42:01 -0700 (PDT)
+        bh=WE68W0bXQaTpxl/iIASF1f+Xh1LT+vGRhkdJSNq736g=;
+        b=RznmNTBOD1UgwskEZ4Xek5Wrluw9+u5N8urmC0QH1OMZt8pJauqbgWWBuMeAEcdm0H
+         Ms/W3nRfNjfbWKKXYDqh157mVNeVvnhVjwu51AdnvfdSyw9c1q/pR6DThXWeVo5+ecp7
+         hMJh0+lUvOct15xjAlDfeEsjwIcCukawbVBdFTBnsN3cVJ1MXN91EHg30QO+TCe3EPzU
+         Kmxx3bfGBqiQ+yz+mSyJeNliPdn4Jt1UQG7hTqImob6q+1ELBU75uoDvDFAiwapuWLrc
+         EQ8c5PBnj+T2YiiQegNs6j1LkVdzHQaKrjW6VIdt+gioZNlxzI8tZGItFT1rgvpPWEt/
+         GfUA==
+X-Forwarded-Encrypted: i=1; AJvYcCVTj7pSc3FRX4NK3r8QSajQ1O4HY4HPBlwo663pEwx6Bt7ds3OibXJgLnm47lV2xJ0HcLqrvf0oGOLFdPLIvW/s@lists.infradead.org
+X-Gm-Message-State: AOJu0YywM3bd14EcNEh26u8c3sCw03uPtbk258J4MT6DwDd/AgtMWCaM
+	YQZ1VRGhBsi5SEUskuQCliaf0WtmjzdFie2+JCN9KBKLjYExw9FHy9tXPSIq0Ivxos0s2VxvuGs
+	np4+qRvtjxgHUwOiv/9iw4SSL4yh0WmNZQYhLmXX1UcizuR+2WLha1yClhUZdKOpzMfY4+vGrFF
+	AU
+X-Gm-Gg: ASbGncuuWtvsihHsZFkSuVxISHx+/gTehKShY6P0KN1lIEiWEOjTluvE/X2E58T2wGe
+	05JKgTV+ABf00IM/15UO0uJterfPT0UUQf/JGq+Z71CkvKpXI4wLWzWmebSvNpw1LUjwxdXvuHn
+	Sz7fOZxIiJpN5jcxxwjHznbllyOttY5hlJ5FRqsdnmugMjvQpmJ20WuPa4aycohnvl3qA3ofRT+
+	iwSFr/1QAmbR9usLys0K9Hksc7/azmNR65JjH9tZh59yQqMPzgpoxt7rScIaRWA5gQKy3GajSYK
+	6payxM8g1zWNIjNb4SkSSgu9/HNys3JcMloXLfCEC2aDUgLl3k/4o5zqgwktxg==
+X-Received: by 2002:a17:902:f644:b0:234:ef42:5d75 with SMTP id d9443c01a7336-23c6e583731mr8506505ad.20.1751417062329;
+        Tue, 01 Jul 2025 17:44:22 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG8Xe02tQUQpMvQ7JmZ6r+aJbfGWHLqnMc6SvZ+9EXS76Rb9Lau8L3Ze+pH8UDez4MEnO2doA==
+X-Received: by 2002:a17:902:f644:b0:234:ef42:5d75 with SMTP id d9443c01a7336-23c6e583731mr8506155ad.20.1751417061963;
+        Tue, 01 Jul 2025 17:44:21 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b34e31c2252sm11480507a12.49.2025.07.01.17.41.53
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb3b871csm114358215ad.187.2025.07.01.17.44.14
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Jul 2025 17:42:00 -0700 (PDT)
-Message-ID: <d092bb97-d552-49f2-ab93-bb2bd7809c3f@redhat.com>
-Date: Wed, 2 Jul 2025 10:41:50 +1000
+        Tue, 01 Jul 2025 17:44:21 -0700 (PDT)
+Message-ID: <5eef96b4-2a33-4d52-a68a-323709beee5b@redhat.com>
+Date: Wed, 2 Jul 2025 10:44:12 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 16/43] arm64: RME: Handle realm enter/exit
+Subject: Re: [PATCH v9 17/43] arm64: RME: Handle RMI_EXIT_RIPAS_CHANGE
 To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
@@ -97,18 +97,18 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
  Emi Kisanuki <fj0570is@fujitsu.com>
 References: <20250611104844.245235-1-steven.price@arm.com>
- <20250611104844.245235-17-steven.price@arm.com>
+ <20250611104844.245235-18-steven.price@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250611104844.245235-17-steven.price@arm.com>
+In-Reply-To: <20250611104844.245235-18-steven.price@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 3AvYdpNF6kJIQDLt2SB_veLw-h9yt8VYmPoStdjRd1o_1751416922
+X-Mimecast-MFC-PROC-ID: IIes_IWz54r5xzG5DpVmGTKvNTVx5O0MGjDg_Bi73o0_1751417062
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_174205_978120_92250C8D 
-X-CRM114-Status: GOOD (  23.54  )
+X-CRM114-CacheID: sfid-20250701_174426_010866_9CD76633 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,57 +124,37 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 6/11/25 8:48 PM, Steven Price wrote:
-> Entering a realm is done using a SMC call to the RMM. On exit the
-> exit-codes need to be handled slightly differently to the normal KVM
-> path so define our own functions for realm enter/exit and hook them
-> in if the guest is a realm guest.
+> The guest can request that a region of it's protected address space is
+> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
+> RSI_IPA_STATE_SET. This causes a guest exit with the
+> RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
+> protected region to unprotected (or back), exiting to the VMM to make
+> the necessary changes to the guest_memfd and memslot mappings. On the
+> next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
+> calls.
+> 
+> The VMM may wish to reject the RIPAS change requested by the guest. For
+> now it can only do with by no longer scheduling the VCPU as we don't
+> currently have a usecase for returning that rejection to the guest, but
+> by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
+> open for adding a new ioctl in the future for this purpose.
 > 
 > Signed-off-by: Steven Price <steven.price@arm.com>
 > ---
 > Changes since v8:
->   * Introduce kvm_rec_pre_enter() called before entering an atomic
->     section to handle operations that might require memory allocation
->     (specifically completing a RIPAS change introduced in a later patch).
->   * Updates to align with upstream changes to hpfar_el2 which now (ab)uses
->     HPFAR_EL2_NS as a valid flag.
->   * Fix exit reason when racing with PSCI shutdown to return
->     KVM_EXIT_SHUTDOWN rather than KVM_EXIT_UNKNOWN.
+>   * Make use of ripas_change() from a previous patch to implement
+>     realm_set_ipa_state().
+>   * Update exit.ripas_base after a RIPAS change so that, if instead of
+>     entering the guest we exit to user space, we don't attempt to repeat
+>     the RIPAS change (triggering an error from the RMM).
 > Changes since v7:
->   * A return of 0 from kvm_handle_sys_reg() doesn't mean the register has
->     been read (although that can never happen in the current code). Tidy
->     up the condition to handle any future refactoring.
-> Changes since v6:
->   * Use vcpu_err() rather than pr_err/kvm_err when there is an associated
->     vcpu to the error.
->   * Return -EFAULT for KVM_EXIT_MEMORY_FAULT as per the documentation for
->     this exit type.
->   * Split code handling a RIPAS change triggered by the guest to the
->     following patch.
-> Changes since v5:
->   * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
->     change on next entry rather than immediately on the exit. This allows
->     the VMM to 'reject' a RIPAS change by refusing to continue
->     scheduling.
-> Changes since v4:
->   * Rename handle_rme_exit() to handle_rec_exit()
->   * Move the loop to copy registers into the REC enter structure from the
->     to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
->     where the handler exits to user space and user space wants to modify
->     the GPRS.
->   * Some code rearrangement in rec_exit_ripas_change().
-> Changes since v2:
->   * realm_set_ipa_state() now provides an output parameter for the
->     top_iap that was changed. Use this to signal the VMM with the correct
->     range that has been transitioned.
->   * Adapt to previous patch changes.
+>   * Rework the loop in realm_set_ipa_state() to make it clear when the
+>     'next' output value of rmi_rtt_set_ripas() is used.
+> New patch for v7: The code was previously split awkwardly between two
+> other patches.
 > ---
->   arch/arm64/include/asm/kvm_rme.h |   4 +
->   arch/arm64/kvm/Makefile          |   2 +-
->   arch/arm64/kvm/arm.c             |  22 +++-
->   arch/arm64/kvm/rme-exit.c        | 178 +++++++++++++++++++++++++++++++
->   arch/arm64/kvm/rme.c             |  38 +++++++
->   5 files changed, 239 insertions(+), 5 deletions(-)
->   create mode 100644 arch/arm64/kvm/rme-exit.c
+>   arch/arm64/kvm/rme.c | 46 ++++++++++++++++++++++++++++++++++++++++++++
+>   1 file changed, 46 insertions(+)
 > 
 
 Reviewed-by: Gavin Shan <gshan@redhat.com>
