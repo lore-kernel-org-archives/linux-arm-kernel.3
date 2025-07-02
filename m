@@ -4,111 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D29CC83038
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 01:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C19C83038
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 01:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7e2iNuz6UMxuCJt+XXUmdNcGsesfcYP95Zgq3Kiu+4=; b=k2MNlc4ukraeAqRSAUqrZsOGDr
-	7O8S77Kw2jOoBS0rmeq93cL1d75Pr3y5Hd9vL6P2xrkYYkL7+SbqYAV+x+5POvQY+kdP8I7hv5di8
-	kFnDilSar3pKNm9IwkgDIIXW+iCZgILqzcpkwpsI2zWhjpmChcEoWZRBLgNeyKLUGsHxdOP4R2atN
-	bmTJtCBPXi2WLKsMTgpbXYUcCDMYmAkrhIuRonGqPMeGR3M1D5BDp3citgo3g6lU6eVVi6tE/UncH
-	wSP2rZwT0159d8qtKlqicDqR4mXKtPetDGCEPlFGLK4qSk4hh3YXolDOlTr1C/R6JhSrHn0fVu2rT
-	S6XWz1iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NPdUrnuwZaOfmraDIavj++69sz0H/U7ywOtY7+y38Yw=; b=PgqXYzJZFoekil4e3bblZIs0Je
+	7q9J+mKRnxZHzq+UDRUnoAzej1xgK6pJbJp46iOjXyNIWI+lQhvnE6fEja9JgFjjuLRFrzq77qqv8
+	uIOmcnoVyvOMxx+7MjNiEhvcgxaoSsqvFuScyHZk1PmOiAs0WRVfw+xVFfxYIkrfhpVPsCVMung8T
+	JfRTbXjI+vy0AT3edUOGdlOeodunJY825YeD1tMjW2B8F3Nh81wFDV3KPn5kgwgEp90+nQh+WBO5K
+	uguMr6+wxIukh/eh0KFKNZWI9JNXqdSi0UkAeL/h92K1fB49ga6JLsQzdLzMAtBI2j4KEuEYiHzl3
+	yuP34HRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWlx9-00000006xsQ-1Wuu;
-	Wed, 02 Jul 2025 01:07:59 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uWm0K-00000006yDy-0xkE;
+	Wed, 02 Jul 2025 01:11:16 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWluH-00000006xQo-1MWE
+	id 1uWlxz-00000006xy0-0YhG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 01:05:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751418300;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Y7e2iNuz6UMxuCJt+XXUmdNcGsesfcYP95Zgq3Kiu+4=;
-	b=c1pp9fN1U41qzA57o6Vak1iOo8LEP9fqjmkfJd93MLvBaOoM7vAaZGHEknErO/s23MS8G3
-	6iN+n77MSYu5985OH8trHEGE8ylAjcJ49yUUZ42/PtStYySGOoDxtXAZe6PUgjwWh11yIJ
-	UW2NHriG00j3yyMMWvjErp90+bAdRaY=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-18-_C_I4YYGOiK7UaDVj0_zqA-1; Tue, 01 Jul 2025 21:04:56 -0400
-X-MC-Unique: _C_I4YYGOiK7UaDVj0_zqA-1
-X-Mimecast-MFC-AGG-ID: _C_I4YYGOiK7UaDVj0_zqA_1751418296
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2363bb41664so47005275ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 18:04:56 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751418296; x=1752023096;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y7e2iNuz6UMxuCJt+XXUmdNcGsesfcYP95Zgq3Kiu+4=;
-        b=O02SheOnOlpaEInYt2ySK5KaTFQffSoAEzHxRA28udgeYkZgwS1ma8e7mx2k+RnuPk
-         DTFJRdHyoDwwk3xJJHCMTmBM/xC9/xhoyE+p7kk4I3t+neChuZSChCSNgeqJNkQ+8Uux
-         jAUKR2lXB+H1cUzJ3Brguz0sk1wPcnNVylM+za6JjKI9pTMlgQRYgdwVgp/z/qLuAnpH
-         rVbA1hlKPHsr95+zKkyJiLAbFJzdwWSnmdGiT5AF+wCJI8WdAC0GcRaJDmjhKRDFrPL5
-         fR1kcS6kBnHIUCLj3XAHwmEOlUq2pvlmrb/xXhS+5UPUmV3raUwU4CFMpqRbVnovaPcU
-         X6bg==
-X-Forwarded-Encrypted: i=1; AJvYcCVEaX6YSvoQXBK9U8PgWayj7AcyX6VYMJr65nTyIM+h4RffERtCdxrr3XL1ZYHZwvIU1WPXXWaUEdRb+C9cRb/V@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUDJYEUudHqpvkXQkpKXtCKkLAYEfH2qTxHQedt5fwOsxFlGSs
-	cEHSoVDhqKejhDwIwOHcvlen4G8ofh79B73wd0ZtuOCIWoO+wHoPQhicqMa6o+1NRD4UuP44lSS
-	VDnfsgB541fg7sgmDbAOhLZB2dHpVO5Vr1CGjPSe/8xGVFU+LMlnz8676bR9GPgSXzIUue3HjfX
-	Pr
-X-Gm-Gg: ASbGncucdHxIzi1P2NnSRLP8j93Zj+ZKHVnNkP60ez/9VRF7n8IRIsHjJ+aGnt7HvUb
-	qajza3PNEJxTQQ7gRmkg8OmTUYBNe6ULggnFx0bigUJo/93BxxcKSdvuVkZUSr9eGavx+3V6dUc
-	oTvcY/e3c15HWfoiJ0f9nDNcg1fZDy49/VTfpIxnmJy29U9D3Pm5ZicJ1B6zgwMLbQqID0IJqjw
-	d8lbFq8JnZ98U+MmBDNiH/c/Vz402leIlw5rqDYzxQOHxVZtG0ufMf7mR3Q1JsXmOrqC3yIrJx1
-	9rQk2EBEcK5vzeEm+VhteGG/D3P+iekWSveD96zoEaP0eC2Lgyvd4X2agxCo1Q==
-X-Received: by 2002:a17:903:3d0f:b0:215:b1e3:c051 with SMTP id d9443c01a7336-23c6e7849e6mr8884185ad.11.1751418295524;
-        Tue, 01 Jul 2025 18:04:55 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFHOXu/xZ6csxfliZUO8Wh+5iggHLkbPkDpGniLYRwXHCeihkHJH2+rb6i8+X+baqZXhpUZaA==
-X-Received: by 2002:a17:903:3d0f:b0:215:b1e3:c051 with SMTP id d9443c01a7336-23c6e7849e6mr8883735ad.11.1751418294924;
-        Tue, 01 Jul 2025 18:04:54 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23acb3c6e09sm115339825ad.227.2025.07.01.18.04.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Jul 2025 18:04:54 -0700 (PDT)
-Message-ID: <bb75b5fd-7186-4c93-80ff-0a398dc6c78d@redhat.com>
-Date: Wed, 2 Jul 2025 11:04:46 +1000
+	Wed, 02 Jul 2025 01:08:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Lk3XR9cNsxDPRHC7jOLNfNA7LXdoRB2yZg/D+bH3zcCeNesfXPQdzpgr5F/M4y74g6cmksZ62nyRrNcuN1OyvuFwZ04sPup2RDFuGx04rOFshblI5m/HzR7WJ8stI8kDzhxGAiO/VYihAcQOwjbTpzJablvrnMGpbB05h6wEm8CZwgpH1X7KzyPPsj1QKwwIjJ7TGntVuZ46gEKWvx63t3IzfNEwOqwSDP+6Ovbps5gPfQWtUBSIYqpU7vt0vq9jPlK67I8Six0fKL6ofI1neLGvdk7frY1jA0SoN7mgSLql0Aiw9Jhz7FJ3FDTzarDw25Pauw+VfihU/4SJPIlUWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NPdUrnuwZaOfmraDIavj++69sz0H/U7ywOtY7+y38Yw=;
+ b=ygpAn5j/WyYBM9x25DN+ynnTKS4qX/5sC0hEm+0qiM7gwy/Ig5YaOapzkT1d1+omInWvbqln0yIk8Ehon8u5igamILBW7F5FESd205R0JvenupXSaM7mT+B2JY0oc9XoFhxt/1LWMPjGXd181aB8bnME2foddEs0yq0EPMOhqqM1cpeXICoAw4OEehQpGJuBwGIaL8mDJnYiVnDIqOKzZJ2ELdEce7+KqAIvd8uN42mFJ410UEr5AD3eBFO3imaOx5kk1F44GH2rJG06tECehBddXNWb0jBm7LWMAJSEH/vFSXE5sP42RL3TLr8alUmq28cqGHM6pNDktqWCoxLVPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2PR02CA0006.apcprd02.prod.outlook.com (2603:1096:4:194::8) by
+ SG2PR06MB5082.apcprd06.prod.outlook.com (2603:1096:4:1c9::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8880.29; Wed, 2 Jul 2025 01:08:40 +0000
+Received: from SG2PEPF000B66CB.apcprd03.prod.outlook.com
+ (2603:1096:4:194:cafe::95) by SI2PR02CA0006.outlook.office365.com
+ (2603:1096:4:194::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.20 via Frontend Transport; Wed,
+ 2 Jul 2025 01:08:40 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CB.mail.protection.outlook.com (10.167.240.24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8901.15 via Frontend Transport; Wed, 2 Jul 2025 01:08:39 +0000
+Received: from nchen-desktop (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 694ED40A5BD6;
+	Wed,  2 Jul 2025 09:08:38 +0800 (CST)
+Date: Wed, 2 Jul 2025 09:08:33 +0800
+From: Peter Chen <peter.chen@cixtech.com>
+To: <robh@kernel.org>, <arnd@arndb.de>, <jassisinghbrar@gmail.com>
+Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <cix-kernel-upstream@cixtech.com>,
+	<maz@kernel.org>, <sudeep.holla@arm.com>,
+	<kajetan.puchalski@arm.com>, <eballetb@redhat.com>,
+	Guomin Chen <Guomin.Chen@cixtech.com>,
+	Gary Yang <gary.yang@cixtech.com>,
+	Lihua Liu <Lihua.Liu@cixtech.com>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>
+Subject: Re: [PATCH v9 5/9] mailbox: add CIX mailbox driver
+Message-ID: <aGSGkU9Gj_MubOJM@nchen-desktop>
+References: <20250609031627.1605851-1-peter.chen@cixtech.com>
+ <20250609031627.1605851-6-peter.chen@cixtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 20/43] arm64: RME: Runtime faulting of memory
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
- <20250611104844.245235-21-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250611104844.245235-21-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: tEXLzs7ErATOafN7spS_KsHo4_1ai5LjEfRyzIMQ-4w_1751418296
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250609031627.1605851-6-peter.chen@cixtech.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CB:EE_|SG2PR06MB5082:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa5f558d-fd7d-416d-3702-08ddb904faaa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OG8MC7qHGLg7SLCXyHM0XizeDznQV42h6HmwY/81qApBJQd0Ecq/itdgQ187?=
+ =?us-ascii?Q?+A2cdCIlbs6bdav/5jO4M2cENYjItoJNFnNN/GxrnjyBcIVaSgGcfUrd38YM?=
+ =?us-ascii?Q?RyoAjJZfUzCzjuy1NBbsOqRxtW83UYGWzvK7r+UHz29MtBSqA9XaDpbtd1cB?=
+ =?us-ascii?Q?DLFrJRuOCbIgNo79QCBUK0iLLBuqzubhJKD5/xg/z8/lL20oxKzX9Q+X38D6?=
+ =?us-ascii?Q?b8DCMa9eh0ZxQVstOwvAhhXRxgPL3hgWaEk3aGY5yEqiNyD+NWR/8GAhUSWa?=
+ =?us-ascii?Q?nkLuq0V8ZqP5O0WeJs1GIKHfZh9G36PP0Ofuf5Vn4wIaTSqTI30WojuTVmKP?=
+ =?us-ascii?Q?8sBvtLVz61RxfvIBnI4EVDs0B196YUyizx/JtG/hIfcHYj0U9JSu4mv3pFBL?=
+ =?us-ascii?Q?NfwXbfkmzyE8QenEGKAJ16BQOgKtABNPSu52kS66iVRglgWw5ZYXlP/8JqkZ?=
+ =?us-ascii?Q?HFixVX8wNRIuPabvJEy9QhPp01KiZ0bCh1MbX2KtOdz+3Hn5JHXbQjyV48dd?=
+ =?us-ascii?Q?Q/okISA6Xb8umuyA3hjCcofejc4cyLb8wjfk0XjErN+gg7eGi63QeC6WDi8T?=
+ =?us-ascii?Q?bFj5VmMi2aVSvVpAv/lUkrtHuJUp2NNITpIpQmOZ5e4xSuX1NcqjdFGnqlks?=
+ =?us-ascii?Q?E9DSNOHx8Oc/OZ5XJxtZmi7mxd0kJUy7oE7A8ODOM/+5q4vIA+/+qhXgpN4P?=
+ =?us-ascii?Q?TdlOgVKc3mdM4L9yqh4Tj4VO65OfB/GpPzJ03bWAA3vGhjG8REPO6Ujrteq4?=
+ =?us-ascii?Q?6QRKpTskdk4KU/vLThpUuefNEvX8YN2tTKwp14NhmO3w9ZaP0Z4XjGC46NZG?=
+ =?us-ascii?Q?P2BXchKmmz6P1y+w6pB7eJC03/yDZsxLmwQJKrxtTiVuidO0Gw4DoCrkd29A?=
+ =?us-ascii?Q?l2P78Q9NfZNLtuPb584MviyLdHQmlagyT+iE7lAAI6jmzhu3pV5GDSdTh5r6?=
+ =?us-ascii?Q?oyY4++A9Bba4nIV4lf8IVCDEyYYxMsUNxIqgMZuLD3R7bbDDBzDDco/Z2pAf?=
+ =?us-ascii?Q?vFtWkE0CdLOfx53AJaXh4QKIzFpvVaysvQVnf9DpG/0zNBIAnFjjw9VqGZHy?=
+ =?us-ascii?Q?xyikW49ZS4pv4qPqy7+u43NqxrfidRDd8IG2EHfsM7TpJyJ21ILiW1tx17ID?=
+ =?us-ascii?Q?iaIt2q43NKs8XGIjOXBgGCzbEk8xdUGrFFeDZ1Shud+pAubalcoMpeSp8F7e?=
+ =?us-ascii?Q?UGl5Bctem3kZYkWTYPhPfHt+kBe3CB9So+QDizo0mpHIby23Lc/QVUqgy6sy?=
+ =?us-ascii?Q?jRfox+Jgs/lxUUdAfkGMO+Tm/7WjRuHyLhFOyaHSjASMzsfoPrRVvKRkWyqX?=
+ =?us-ascii?Q?wPfBsgp5No5m/lGosTMB0EuY2vcVYmyoGBukksbMO1IMcRuLgN87qoapzGd9?=
+ =?us-ascii?Q?WbxmbWIuPN9WG9QPaqHJQRKigHrw8h6JapxxCAcaIlYLpDsqBGfrTtzv5f2d?=
+ =?us-ascii?Q?qr1nQyXZWSEVBs1OgZtiTviT05tU8+/5IlmKyyUSSkknWVDCacQ7brgQwK+y?=
+ =?us-ascii?Q?wkrM2kLzg0jsIV7ICtkCxUHPXMa+ymUHFqjh?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014)(7416014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2025 01:08:39.1212
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa5f558d-fd7d-416d-3702-08ddb904faaa
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CB.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR06MB5082
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_180501_521182_8D2C3D64 
-X-CRM114-Status: GOOD (  44.58  )
+X-CRM114-CacheID: sfid-20250701_180851_298394_F6D1190A 
+X-CRM114-Status: GOOD (  33.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,520 +140,726 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/11/25 8:48 PM, Steven Price wrote:
-> At runtime if the realm guest accesses memory which hasn't yet been
-> mapped then KVM needs to either populate the region or fault the guest.
+On 25-06-09 11:16:23, Peter Chen wrote:
+> From: Guomin Chen <Guomin.Chen@cixtech.com>
 > 
-> For memory in the lower (protected) region of IPA a fresh page is
-> provided to the RMM which will zero the contents. For memory in the
-> upper (shared) region of IPA, the memory from the memslot is mapped
-> into the realm VM non secure.
+> The CIX mailbox controller, used in the Cix SoCs, like sky1.
+> facilitates message transmission between multiple processors
+> within the SoC, such as the AP, PM, audio DSP, SensorHub MCU,
+> and others.
+
+Hi Jassi,
+
+A gentle ping.
+
+Peter
+
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
+> Reviewed-by: Peter Chen <peter.chen@cixtech.com>
+> Signed-off-by: Guomin Chen <Guomin.Chen@cixtech.com>
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+> Signed-off-by: Lihua Liu <Lihua.Liu@cixtech.com>
+> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
 > ---
-> Changes since v8:
->   * Propagate the may_block flag.
->   * Minor comments and coding style changes.
-> Changes since v7:
->   * Remove redundant WARN_ONs for realm_create_rtt_levels() - it will
->     internally WARN when necessary.
-> Changes since v6:
->   * Handle PAGE_SIZE being larger than RMM granule size.
->   * Some minor renaming following review comments.
-> Changes since v5:
->   * Reduce use of struct page in preparation for supporting the RMM
->     having a different page size to the host.
->   * Handle a race when delegating a page where another CPU has faulted on
->     a the same page (and already delegated the physical page) but not yet
->     mapped it. In this case simply return to the guest to either use the
->     mapping from the other CPU (or refault if the race is lost).
->   * The changes to populate_par_region() are moved into the previous
->     patch where they belong.
-> Changes since v4:
->   * Code cleanup following review feedback.
->   * Drop the PTE_SHARED bit when creating unprotected page table entries.
->     This is now set by the RMM and the host has no control of it and the
->     spec requires the bit to be set to zero.
-> Changes since v2:
->   * Avoid leaking memory if failing to map it in the realm.
->   * Correctly mask RTT based on LPA2 flag (see rtt_get_phys()).
->   * Adapt to changes in previous patches.
-> ---
->   arch/arm64/include/asm/kvm_emulate.h |  10 ++
->   arch/arm64/include/asm/kvm_rme.h     |  10 ++
->   arch/arm64/kvm/mmu.c                 | 133 ++++++++++++++++++++-
->   arch/arm64/kvm/rme.c                 | 165 +++++++++++++++++++++++++++
->   4 files changed, 312 insertions(+), 6 deletions(-)
+> Changes for v9:
+> - Move macro definitions above where they are used
+> - Remove the brackets around the number
+> - Merging and sorting local variable definitions
+> - free the irq in the error path
 > 
-
-With @may_block set to true in kvm_free_stage2_pgd(), as commented previously.
-With below nitpicks addressed:
-
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index 302a691b3723..126c98cded90 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -709,6 +709,16 @@ static inline bool kvm_realm_is_created(struct kvm *kvm)
->   	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
->   }
->   
-> +static inline gpa_t kvm_gpa_from_fault(struct kvm *kvm, phys_addr_t ipa)
-> +{
-> +	if (kvm_is_realm(kvm)) {
-> +		struct realm *realm = &kvm->arch.realm;
-> +
-> +		return ipa & ~BIT(realm->ia_bits - 1);
-> +	}
-> +	return ipa;
-> +}
-> +
-
-It may be more clearer with something like below. Note non-coco VM is still
-preferred than coco VM.
-
-static inline gpa_t kvm_gpa_from_fault(struct kvm *kvm, phys_addr_t ipa)
-{
-	if (!kvm_is_realm(kvm)
-		return ipa;
-
-	return ipa & ~BIT(kvm->arch.realm->ia_bits -1);		
-}
-
->   static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
->   {
->   	if (static_branch_unlikely(&kvm_rme_is_available))
-> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-> index 321970779669..df88ae51b7c9 100644
-> --- a/arch/arm64/include/asm/kvm_rme.h
-> +++ b/arch/arm64/include/asm/kvm_rme.h
-> @@ -110,6 +110,16 @@ void kvm_realm_unmap_range(struct kvm *kvm,
->   			   unsigned long size,
->   			   bool unmap_private,
->   			   bool may_block);
-> +int realm_map_protected(struct realm *realm,
-> +			unsigned long base_ipa,
-> +			kvm_pfn_t pfn,
-> +			unsigned long size,
-> +			struct kvm_mmu_memory_cache *memcache);
-> +int realm_map_non_secure(struct realm *realm,
-> +			 unsigned long ipa,
-> +			 kvm_pfn_t pfn,
-> +			 unsigned long size,
-> +			 struct kvm_mmu_memory_cache *memcache);
->   
->   static inline bool kvm_realm_is_private_address(struct realm *realm,
->   						unsigned long addr)
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 37403eaa5699..1dc644ea26ce 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -338,8 +338,14 @@ static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64
->   
->   	lockdep_assert_held_write(&kvm->mmu_lock);
->   	WARN_ON(size & ~PAGE_MASK);
-> -	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
-> -				   may_block));
-> +
-> +	if (kvm_is_realm(kvm))
-> +		kvm_realm_unmap_range(kvm, start, size, !only_shared,
-> +				      may_block);
-> +	else
-> +		WARN_ON(stage2_apply_range(mmu, start, end,
-> +					   KVM_PGT_FN(kvm_pgtable_stage2_unmap),
-> +					   may_block));
->   }
+> Changes for v3 (As mailbox patch set):
+> - Update MODULE_AUTHOR.
+> - Remove the extra blank lines.
+> 
+> Changes for v2 (As mailbox patch set):
+> - Update the real name and email address.
+> - Remove the ACPI header files.
+> - Update the Copyright from 2024 to 2025.
+> - Update the Module License from "GPL" to "GPL v2"
+> - Add an interface for message length to limit potential out-of-bound access
+> 
+>  drivers/mailbox/Kconfig       |  10 +
+>  drivers/mailbox/Makefile      |   2 +
+>  drivers/mailbox/cix-mailbox.c | 635 ++++++++++++++++++++++++++++++++++
+>  3 files changed, 647 insertions(+)
+>  create mode 100644 drivers/mailbox/cix-mailbox.c
+> 
+> diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+> index 68eeed660a4a..4fef4797b110 100644
+> --- a/drivers/mailbox/Kconfig
+> +++ b/drivers/mailbox/Kconfig
+> @@ -340,4 +340,14 @@ config THEAD_TH1520_MBOX
+>  	  kernel is running, and E902 core used for power management among other
+>  	  things.
 >  
-
-{} is needed here.
-  
->   void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
-> @@ -359,7 +365,10 @@ static void stage2_flush_memslot(struct kvm *kvm,
->   	phys_addr_t addr = memslot->base_gfn << PAGE_SHIFT;
->   	phys_addr_t end = addr + PAGE_SIZE * memslot->npages;
->   
-> -	kvm_stage2_flush_range(&kvm->arch.mmu, addr, end);
-> +	if (kvm_is_realm(kvm))
-> +		kvm_realm_unmap_range(kvm, addr, end - addr, false, true);
-> +	else
-> +		kvm_stage2_flush_range(&kvm->arch.mmu, addr, end);
->   }
->   
->   /**
-> @@ -1053,6 +1062,10 @@ void stage2_unmap_vm(struct kvm *kvm)
->   	struct kvm_memory_slot *memslot;
->   	int idx, bkt;
->   
-> +	/* For realms this is handled by the RMM so nothing to do here */
-> +	if (kvm_is_realm(kvm))
-> +		return;
+> +config CIX_MBOX
+> +        tristate "CIX Mailbox"
+> +        depends on ARCH_CIX || COMPILE_TEST
+> +        depends on OF
+> +        help
+> +          Mailbox implementation for CIX IPC system. The controller supports
+> +          11 mailbox channels with different operating mode and every channel
+> +          is unidirectional. Say Y here if you want to use the CIX Mailbox
+> +          support.
 > +
->   	idx = srcu_read_lock(&kvm->srcu);
->   	mmap_read_lock(current->mm);
->   	write_lock(&kvm->mmu_lock);
-> @@ -1078,6 +1091,9 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->   	if (kvm_is_realm(kvm) &&
->   	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
->   	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
-> +		struct realm *realm = &kvm->arch.realm;
+>  endif
+> diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
+> index 13a3448b3271..786a46587ba1 100644
+> --- a/drivers/mailbox/Makefile
+> +++ b/drivers/mailbox/Makefile
+> @@ -72,3 +72,5 @@ obj-$(CONFIG_QCOM_CPUCP_MBOX)	+= qcom-cpucp-mbox.o
+>  obj-$(CONFIG_QCOM_IPCC)		+= qcom-ipcc.o
+>  
+>  obj-$(CONFIG_THEAD_TH1520_MBOX)	+= mailbox-th1520.o
 > +
-> +		kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), false);
->   		write_unlock(&kvm->mmu_lock);
->   		kvm_realm_destroy_rtts(kvm, pgt->ia_bits);
->   
-> @@ -1486,6 +1502,85 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
->   	return vma->vm_flags & VM_MTE_ALLOWED;
->   }
->   
-> +static int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
-> +			 kvm_pfn_t pfn, unsigned long map_size,
-> +			 enum kvm_pgtable_prot prot,
-> +			 struct kvm_mmu_memory_cache *memcache)
+> +obj-$(CONFIG_CIX_MBOX)	+= cix-mailbox.o
+> diff --git a/drivers/mailbox/cix-mailbox.c b/drivers/mailbox/cix-mailbox.c
+> new file mode 100644
+> index 000000000000..eecb53d59dfe
+> --- /dev/null
+> +++ b/drivers/mailbox/cix-mailbox.c
+> @@ -0,0 +1,635 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright 2025 Cix Technology Group Co., Ltd.
+> + */
+> +
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/kernel.h>
+> +#include <linux/mailbox_controller.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +
+> +#include "mailbox.h"
+> +
+> +/*
+> + * The maximum transmission size is 32 words or 128 bytes.
+> + */
+> +#define CIX_MBOX_MSG_LEN	32	/* Max length = 32 words */
+> +#define MBOX_MSG_LEN_MASK	0x7fL	/* Max length = 128 bytes */
+> +
+> +/* Register define */
+> +#define REG_MSG(n)	(0x0 + 0x4*(n))			/* 0x0~0x7c */
+> +#define REG_DB_ACK	REG_MSG(CIX_MBOX_MSG_LEN)	/* 0x80 */
+> +#define ERR_COMP	(REG_DB_ACK + 0x4)		/* 0x84 */
+> +#define ERR_COMP_CLR	(REG_DB_ACK + 0x8)		/* 0x88 */
+> +#define REG_F_INT(IDX)	(ERR_COMP_CLR + 0x4*(IDX+1))	/* 0x8c~0xa8 */
+> +#define FIFO_WR		(REG_F_INT(MBOX_FAST_IDX+1))	/* 0xac */
+> +#define FIFO_RD		(FIFO_WR + 0x4)			/* 0xb0 */
+> +#define FIFO_STAS	(FIFO_WR + 0x8)			/* 0xb4 */
+> +#define FIFO_WM		(FIFO_WR + 0xc)			/* 0xb8 */
+> +#define INT_ENABLE	(FIFO_WR + 0x10)		/* 0xbc */
+> +#define INT_ENABLE_SIDE_B	(FIFO_WR + 0x14)	/* 0xc0 */
+> +#define INT_CLEAR	(FIFO_WR + 0x18)		/* 0xc4 */
+> +#define INT_STATUS	(FIFO_WR + 0x1c)		/* 0xc8 */
+> +#define FIFO_RST	(FIFO_WR + 0x20)		/* 0xcc */
+> +
+> +/* [0~7] Fast channel
+> + * [8] doorbell base channel
+> + * [9]fifo base channel
+> + * [10] register base channel
+> + */
+> +#define MBOX_FAST_IDX		7
+> +#define MBOX_DB_IDX		8
+> +#define MBOX_FIFO_IDX		9
+> +#define MBOX_REG_IDX		10
+> +#define CIX_MBOX_CHANS		11
+> +
+> +#define MBOX_TX		0
+> +#define MBOX_RX		1
+> +
+> +#define DB_INT_BIT	BIT(0)
+> +#define DB_ACK_INT_BIT	BIT(1)
+> +
+> +#define FIFO_WM_DEFAULT		CIX_MBOX_MSG_LEN
+> +#define FIFO_STAS_WMK		BIT(0)
+> +#define FIFO_STAS_FULL		BIT(1)
+> +#define FIFO_STAS_EMPTY		BIT(2)
+> +#define FIFO_STAS_UFLOW		BIT(3)
+> +#define FIFO_STAS_OFLOW		BIT(4)
+> +
+> +#define FIFO_RST_BIT		BIT(0)
+> +
+> +#define DB_INT			BIT(0)
+> +#define ACK_INT			BIT(1)
+> +#define FIFO_FULL_INT		BIT(2)
+> +#define FIFO_EMPTY_INT		BIT(3)
+> +#define FIFO_WM01_INT		BIT(4)
+> +#define FIFO_WM10_INT		BIT(5)
+> +#define FIFO_OFLOW_INT		BIT(6)
+> +#define FIFO_UFLOW_INT		BIT(7)
+> +#define FIFO_N_EMPTY_INT	BIT(8)
+> +#define FAST_CH_INT(IDX)	BIT((IDX)+9)
+> +
+> +#define SHMEM_OFFSET 0x80
+> +
+> +enum cix_mbox_chan_type {
+> +	CIX_MBOX_TYPE_DB,
+> +	CIX_MBOX_TYPE_REG,
+> +	CIX_MBOX_TYPE_FIFO,
+> +	CIX_MBOX_TYPE_FAST,
+> +};
+> +
+> +struct cix_mbox_con_priv {
+> +	enum cix_mbox_chan_type type;
+> +	struct mbox_chan	*chan;
+> +	int index;
+> +};
+> +
+> +struct cix_mbox_priv {
+> +	struct device *dev;
+> +	int irq;
+> +	int dir;
+> +	bool tx_irq_mode;	/* flag of enabling tx's irq mode */
+> +	void __iomem *base;	/* region for mailbox */
+> +	unsigned int chan_num;
+> +	struct cix_mbox_con_priv con_priv[CIX_MBOX_CHANS];
+> +	struct mbox_chan mbox_chans[CIX_MBOX_CHANS];
+> +	struct mbox_controller mbox;
+> +	bool use_shmem;
+> +};
+> +
+> +/*
+> + * The CIX mailbox supports four types of transfers:
+> + * CIX_MBOX_TYPE_DB, CIX_MBOX_TYPE_FAST, CIX_MBOX_TYPE_REG, and CIX_MBOX_TYPE_FIFO.
+> + * For the REG and FIFO types of transfers, the message format is as follows:
+> + */
+> +union cix_mbox_msg_reg_fifo {
+> +	u32 length;	/* unit is byte */
+> +	u32 buf[CIX_MBOX_MSG_LEN]; /* buf[0] must be the byte length of this array */
+> +};
+> +
+> +static struct cix_mbox_priv *to_cix_mbox_priv(struct mbox_controller *mbox)
 > +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +
-> +	/*
-> +	 * Write permission is required for now even though it's possible to
-> +	 * map unprotected pages (granules) as read-only. It's impossible to
-> +	 * map protected pages (granules) as read-only.
-> +	 */
-> +	if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
-> +		return -EFAULT;
-> +
-> +	ipa = ALIGN_DOWN(ipa, PAGE_SIZE);
-> +
-
-Empty line can be dropped.
-
-> +	if (!kvm_realm_is_private_address(realm, ipa))
-> +		return realm_map_non_secure(realm, ipa, pfn, map_size,
-> +					    memcache);
-> +
-> +	return realm_map_protected(realm, ipa, pfn, map_size, memcache);
+> +	return container_of(mbox, struct cix_mbox_priv, mbox);
 > +}
 > +
-> +static int private_memslot_fault(struct kvm_vcpu *vcpu,
-> +				 phys_addr_t fault_ipa,
-> +				 struct kvm_memory_slot *memslot)
+> +static void cix_mbox_write(struct cix_mbox_priv *priv, u32 val, u32 offset)
 > +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +	gpa_t gpa = kvm_gpa_from_fault(kvm, fault_ipa);
-> +	gfn_t gfn = gpa >> PAGE_SHIFT;
-> +	bool is_priv_gfn = kvm_mem_is_private(kvm, gfn);
-> +	struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
-> +	struct page *page;
-> +	kvm_pfn_t pfn;
-> +	int ret;
-> +	/*
-> +	 * For Realms, the shared address is an alias of the private GPA with
-> +	 * the top bit set. Thus is the fault address matches the GPA then it
-> +	 * is the private alias.
-> +	 */
-> +	bool is_priv_fault = (gpa == fault_ipa);
+> +	if (priv->use_shmem)
+> +		iowrite32(val, priv->base + offset - SHMEM_OFFSET);
+> +	else
+> +		iowrite32(val, priv->base + offset);
+> +}
 > +
-> +	if (is_priv_gfn != is_priv_fault) {
-> +		kvm_prepare_memory_fault_exit(vcpu, gpa, PAGE_SIZE,
-> +					      kvm_is_write_fault(vcpu), false,
-> +					      is_priv_fault);
+> +static u32 cix_mbox_read(struct cix_mbox_priv *priv, u32 offset)
+> +{
+> +	if (priv->use_shmem)
+> +		return ioread32(priv->base + offset - SHMEM_OFFSET);
+> +	else
+> +		return ioread32(priv->base + offset);
+> +}
 > +
-> +		/*
-> +		 * KVM_EXIT_MEMORY_FAULT requires an return code of -EFAULT,
-> +		 * see the API documentation
-> +		 */
-> +		return -EFAULT;
-> +	}
+> +static bool mbox_fifo_empty(struct mbox_chan *chan)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
 > +
-> +	if (!is_priv_fault) {
-> +		/* Not a private mapping, handling normally */
+> +	return ((cix_mbox_read(priv, FIFO_STAS) & FIFO_STAS_EMPTY) ? true : false);
+> +}
+> +
+> +/*
+> + *The transmission unit of the CIX mailbox is word.
+> + *The byte length should be converted into the word length.
+> + */
+> +static inline u32 mbox_get_msg_size(void *msg)
+> +{
+> +	u32 len;
+> +
+> +	len = ((u32 *)msg)[0] & MBOX_MSG_LEN_MASK;
+> +	return DIV_ROUND_UP(len, 4);
+> +}
+> +
+> +static int cix_mbox_send_data_db(struct mbox_chan *chan, void *data)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +
+> +	/* trigger doorbell irq */
+> +	cix_mbox_write(priv, DB_INT_BIT, REG_DB_ACK);
+> +
+> +	return 0;
+> +}
+> +
+> +static int cix_mbox_send_data_reg(struct mbox_chan *chan, void *data)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	union cix_mbox_msg_reg_fifo *msg = data;
+> +	u32 len, i;
+> +
+> +	if (!data)
+> +		return -EINVAL;
+> +
+> +	len = mbox_get_msg_size(data);
+> +	for (i = 0; i < len; i++)
+> +		cix_mbox_write(priv, msg->buf[i], REG_MSG(i));
+> +
+> +	/* trigger doorbell irq */
+> +	cix_mbox_write(priv, DB_INT_BIT, REG_DB_ACK);
+> +
+> +	return 0;
+> +}
+> +
+> +static int cix_mbox_send_data_fifo(struct mbox_chan *chan, void *data)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	union cix_mbox_msg_reg_fifo *msg = data;
+> +	u32 len, val_32, i;
+> +
+> +	if (!data)
+> +		return -EINVAL;
+> +
+> +	len = mbox_get_msg_size(data);
+> +	cix_mbox_write(priv, len, FIFO_WM);
+> +	for (i = 0; i < len; i++)
+> +		cix_mbox_write(priv, msg->buf[i], FIFO_WR);
+> +
+> +	/* Enable fifo empty interrupt */
+> +	val_32 = cix_mbox_read(priv, INT_ENABLE);
+> +	val_32 |= FIFO_EMPTY_INT;
+> +	cix_mbox_write(priv, val_32, INT_ENABLE);
+> +
+> +	return 0;
+> +}
+> +
+> +static int cix_mbox_send_data_fast(struct mbox_chan *chan, void *data)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	struct cix_mbox_con_priv *cp = chan->con_priv;
+> +	u32 *arg = (u32 *)data;
+> +	int index = cp->index;
+> +
+> +	if (!data)
+> +		return -EINVAL;
+> +
+> +	if (index < 0 || index > MBOX_FAST_IDX) {
+> +		dev_err(priv->dev, "Invalid Mbox index %d\n", index);
 > +		return -EINVAL;
 > +	}
 > +
-> +	ret = kvm_mmu_topup_memory_cache(memcache,
-> +					 kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
-> +	if (ret)
+> +	cix_mbox_write(priv, arg[0], REG_F_INT(index));
+> +
+> +	return 0;
+> +}
+> +
+> +static int cix_mbox_send_data(struct mbox_chan *chan, void *data)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	struct cix_mbox_con_priv *cp = chan->con_priv;
+> +
+> +	if (priv->dir != MBOX_TX) {
+> +		dev_err(priv->dev, "Invalid Mbox dir %d\n", priv->dir);
+> +		return -EINVAL;
+> +	}
+> +
+> +	switch (cp->type) {
+> +	case CIX_MBOX_TYPE_DB:
+> +		cix_mbox_send_data_db(chan, data);
+> +		break;
+> +	case CIX_MBOX_TYPE_REG:
+> +		cix_mbox_send_data_reg(chan, data);
+> +		break;
+> +	case CIX_MBOX_TYPE_FIFO:
+> +		cix_mbox_send_data_fifo(chan, data);
+> +		break;
+> +	case CIX_MBOX_TYPE_FAST:
+> +		cix_mbox_send_data_fast(chan, data);
+> +		break;
+> +	default:
+> +		dev_err(priv->dev, "Invalid channel type: %d\n", cp->type);
+> +		return -EINVAL;
+> +	}
+> +	return 0;
+> +}
+> +
+> +static void cix_mbox_isr_db(struct mbox_chan *chan)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	u32 int_status;
+> +
+> +	int_status = cix_mbox_read(priv, INT_STATUS);
+> +
+> +	if (priv->dir == MBOX_RX) {
+> +		/* rx interrupt is triggered */
+> +		if (int_status & DB_INT) {
+> +			cix_mbox_write(priv, DB_INT, INT_CLEAR);
+> +			mbox_chan_received_data(chan, NULL);
+> +			/* trigger ack interrupt */
+> +			cix_mbox_write(priv, DB_ACK_INT_BIT, REG_DB_ACK);
+> +		}
+> +	} else {
+> +		/* tx ack interrupt is triggered */
+> +		if (int_status & ACK_INT) {
+> +			cix_mbox_write(priv, ACK_INT, INT_CLEAR);
+> +			mbox_chan_received_data(chan, NULL);
+> +		}
+> +	}
+> +}
+> +
+> +static void cix_mbox_isr_reg(struct mbox_chan *chan)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	u32 int_status;
+> +
+> +	int_status = cix_mbox_read(priv, INT_STATUS);
+> +
+> +	if (priv->dir == MBOX_RX) {
+> +		/* rx interrupt is triggered */
+> +		if (int_status & DB_INT) {
+> +			u32 data[CIX_MBOX_MSG_LEN], len, i;
+> +
+> +			cix_mbox_write(priv, DB_INT, INT_CLEAR);
+> +			data[0] = cix_mbox_read(priv, REG_MSG(0));
+> +			len = mbox_get_msg_size(data);
+> +			for (i = 1; i < len; i++)
+> +				data[i] = cix_mbox_read(priv, REG_MSG(i));
+> +
+> +			/* trigger ack interrupt */
+> +			cix_mbox_write(priv, DB_ACK_INT_BIT, REG_DB_ACK);
+> +			mbox_chan_received_data(chan, data);
+> +		}
+> +	} else {
+> +		/* tx ack interrupt is triggered */
+> +		if (int_status & ACK_INT) {
+> +			cix_mbox_write(priv, ACK_INT, INT_CLEAR);
+> +			mbox_chan_txdone(chan, 0);
+> +		}
+> +	}
+> +}
+> +
+> +static void cix_mbox_isr_fifo(struct mbox_chan *chan)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	u32 int_status, status;
+> +
+> +	int_status = cix_mbox_read(priv, INT_STATUS);
+> +
+> +	if (priv->dir == MBOX_RX) {
+> +		/* FIFO waterMark interrupt is generated */
+> +		if (int_status & (FIFO_FULL_INT | FIFO_WM01_INT)) {
+> +			u32 data[CIX_MBOX_MSG_LEN] = { 0 }, i = 0;
+> +
+> +			cix_mbox_write(priv, (FIFO_FULL_INT | FIFO_WM01_INT), INT_CLEAR);
+> +			do {
+> +				data[i++] = cix_mbox_read(priv, FIFO_RD);
+> +			} while (!mbox_fifo_empty(chan) && i < CIX_MBOX_MSG_LEN);
+> +
+> +			mbox_chan_received_data(chan, data);
+> +		}
+> +		/* FIFO underflow is generated */
+> +		if (int_status & FIFO_UFLOW_INT) {
+> +			status = cix_mbox_read(priv, FIFO_STAS);
+> +			dev_err(priv->dev, "fifo underflow: int_stats %d\n", status);
+> +			cix_mbox_write(priv, FIFO_UFLOW_INT, INT_CLEAR);
+> +		}
+> +	} else {
+> +		/* FIFO empty interrupt is generated */
+> +		if (int_status & FIFO_EMPTY_INT) {
+> +			u32 val_32;
+> +
+> +			cix_mbox_write(priv, FIFO_EMPTY_INT, INT_CLEAR);
+> +			/* Disable empty irq*/
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE);
+> +			val_32 &= ~FIFO_EMPTY_INT;
+> +			cix_mbox_write(priv, val_32, INT_ENABLE);
+> +			mbox_chan_txdone(chan, 0);
+> +		}
+> +		/* FIFO overflow is generated */
+> +		if (int_status & FIFO_OFLOW_INT) {
+> +			status = cix_mbox_read(priv, FIFO_STAS);
+> +			dev_err(priv->dev, "fifo overlow: int_stats %d\n", status);
+> +			cix_mbox_write(priv, FIFO_OFLOW_INT, INT_CLEAR);
+> +		}
+> +	}
+> +}
+> +
+> +static void cix_mbox_isr_fast(struct mbox_chan *chan)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	struct cix_mbox_con_priv *cp = chan->con_priv;
+> +	u32 int_status, data;
+> +
+> +	/* no irq will be trigger for TX dir mbox */
+> +	if (priv->dir != MBOX_RX)
+> +		return;
+> +
+> +	int_status = cix_mbox_read(priv, INT_STATUS);
+> +
+> +	if (int_status & FAST_CH_INT(cp->index)) {
+> +		cix_mbox_write(priv, FAST_CH_INT(cp->index), INT_CLEAR);
+> +		data = cix_mbox_read(priv, REG_F_INT(cp->index));
+> +		mbox_chan_received_data(chan, &data);
+> +	}
+> +}
+> +
+> +static irqreturn_t cix_mbox_isr(int irq, void *arg)
+> +{
+> +	struct mbox_chan *chan = arg;
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	struct cix_mbox_con_priv *cp = chan->con_priv;
+> +
+> +	switch (cp->type) {
+> +	case CIX_MBOX_TYPE_DB:
+> +		cix_mbox_isr_db(chan);
+> +		break;
+> +	case CIX_MBOX_TYPE_REG:
+> +		cix_mbox_isr_reg(chan);
+> +		break;
+> +	case CIX_MBOX_TYPE_FIFO:
+> +		cix_mbox_isr_fifo(chan);
+> +		break;
+> +	case CIX_MBOX_TYPE_FAST:
+> +		cix_mbox_isr_fast(chan);
+> +		break;
+> +	default:
+> +		dev_err(priv->dev, "Invalid channel type: %d\n", cp->type);
+> +		return IRQ_NONE;
+> +	}
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int cix_mbox_startup(struct mbox_chan *chan)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	struct cix_mbox_con_priv *cp = chan->con_priv;
+> +	int index = cp->index, ret;
+> +	u32 val_32;
+> +
+> +	ret = request_irq(priv->irq, cix_mbox_isr, 0,
+> +			  dev_name(priv->dev), chan);
+> +	if (ret) {
+> +		dev_err(priv->dev, "Unable to acquire IRQ %d\n", priv->irq);
 > +		return ret;
+> +	}
 > +
-> +	ret = kvm_gmem_get_pfn(kvm, memslot, gfn, &pfn, &page, NULL);
-> +	if (ret)
-> +		return ret;
+> +	switch (cp->type) {
+> +	case CIX_MBOX_TYPE_DB:
+> +		/* Overwrite txdone_method for DB channel */
+> +		chan->txdone_method = TXDONE_BY_ACK;
+> +		fallthrough;
+> +	case CIX_MBOX_TYPE_REG:
+> +		if (priv->dir == MBOX_TX) {
+> +			/* Enable ACK interrupt */
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE);
+> +			val_32 |= ACK_INT;
+> +			cix_mbox_write(priv, val_32, INT_ENABLE);
+> +		} else {
+> +			/* Enable Doorbell interrupt */
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE_SIDE_B);
+> +			val_32 |= DB_INT;
+> +			cix_mbox_write(priv, val_32, INT_ENABLE_SIDE_B);
+> +		}
+> +		break;
+> +	case CIX_MBOX_TYPE_FIFO:
+> +		/* reset fifo */
+> +		cix_mbox_write(priv, FIFO_RST_BIT, FIFO_RST);
+> +		/* set default watermark */
+> +		cix_mbox_write(priv, FIFO_WM_DEFAULT, FIFO_WM);
+> +		if (priv->dir == MBOX_TX) {
+> +			/* Enable fifo overflow interrupt */
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE);
+> +			val_32 |= FIFO_OFLOW_INT;
+> +			cix_mbox_write(priv, val_32, INT_ENABLE);
+> +		} else {
+> +			/* Enable fifo full/underflow interrupt */
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE_SIDE_B);
+> +			val_32 |= FIFO_UFLOW_INT|FIFO_WM01_INT;
+> +			cix_mbox_write(priv, val_32, INT_ENABLE_SIDE_B);
+> +		}
+> +		break;
+> +	case CIX_MBOX_TYPE_FAST:
+> +		/* Only RX channel has intterupt */
+> +		if (priv->dir == MBOX_RX) {
+> +			if (index < 0 || index > MBOX_FAST_IDX) {
+> +				dev_err(priv->dev, "Invalid index %d\n", index);
+> +				ret = -EINVAL;
+> +				goto failed;
+> +			}
+> +			/* enable fast channel interrupt */
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE_SIDE_B);
+> +			val_32 |= FAST_CH_INT(index);
+> +			cix_mbox_write(priv, val_32, INT_ENABLE_SIDE_B);
+> +		}
+> +		break;
+> +	default:
+> +		dev_err(priv->dev, "Invalid channel type: %d\n", cp->type);
+> +		ret = -EINVAL;
+> +		goto failed;
+> +	}
+> +	return 0;
 > +
-> +	/* FIXME: Should be able to use bigger than PAGE_SIZE mappings */
-> +	ret = realm_map_ipa(kvm, fault_ipa, pfn, PAGE_SIZE, KVM_PGTABLE_PROT_W,
-> +			    memcache);
-> +	if (!ret)
-> +		return 1; /* Handled */
-> +
-> +	put_page(page);
+> +failed:
+> +	free_irq(priv->irq, chan);
 > +	return ret;
 > +}
 > +
->   static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   			  struct kvm_s2_trans *nested,
->   			  struct kvm_memory_slot *memslot, unsigned long hva,
-> @@ -1513,6 +1608,14 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   	if (fault_is_perm)
->   		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
->   	write_fault = kvm_is_write_fault(vcpu);
+> +static void cix_mbox_shutdown(struct mbox_chan *chan)
+> +{
+> +	struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> +	struct cix_mbox_con_priv *cp = chan->con_priv;
+> +	int index = cp->index;
+> +	u32 val_32;
 > +
-> +	/*
-> +	 * Realms cannot map protected pages read-only
-> +	 * FIXME: It should be possible to map unprotected pages read-only
-> +	 */
-> +	if (vcpu_is_rec(vcpu))
-> +		write_fault = true;
+> +	switch (cp->type) {
+> +	case CIX_MBOX_TYPE_DB:
+> +	case CIX_MBOX_TYPE_REG:
+> +		if (priv->dir == MBOX_TX) {
+> +			/* Disable ACK interrupt */
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE);
+> +			val_32 &= ~ACK_INT;
+> +			cix_mbox_write(priv, val_32, INT_ENABLE);
+> +		} else if (priv->dir == MBOX_RX) {
+> +			/* Disable Doorbell interrupt */
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE_SIDE_B);
+> +			val_32 &= ~DB_INT;
+> +			cix_mbox_write(priv, val_32, INT_ENABLE_SIDE_B);
+> +		}
+> +		break;
+> +	case CIX_MBOX_TYPE_FIFO:
+> +		if (priv->dir == MBOX_TX) {
+> +			/* Disable empty/fifo overflow irq*/
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE);
+> +			val_32 &= ~(FIFO_EMPTY_INT | FIFO_OFLOW_INT);
+> +			cix_mbox_write(priv, val_32, INT_ENABLE);
+> +		} else if (priv->dir == MBOX_RX) {
+> +			/* Disable fifo WM01/underflow interrupt */
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE_SIDE_B);
+> +			val_32 &= ~(FIFO_UFLOW_INT | FIFO_WM01_INT);
+> +			cix_mbox_write(priv, val_32, INT_ENABLE_SIDE_B);
+> +		}
+> +		break;
+> +	case CIX_MBOX_TYPE_FAST:
+> +		if (priv->dir == MBOX_RX) {
+> +			if (index < 0 || index > MBOX_FAST_IDX) {
+> +				dev_err(priv->dev, "Invalid index %d\n", index);
+> +				break;
+> +			}
+> +			/* Disable fast channel interrupt */
+> +			val_32 = cix_mbox_read(priv, INT_ENABLE_SIDE_B);
+> +			val_32 &= ~FAST_CH_INT(index);
+> +			cix_mbox_write(priv, val_32, INT_ENABLE_SIDE_B);
+> +		}
+> +		break;
 > +
->   	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
->   	VM_BUG_ON(write_fault && exec_fault);
->   
-> @@ -1630,7 +1733,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   		ipa &= ~(vma_pagesize - 1);
->   	}
->   
-> -	gfn = ipa >> PAGE_SHIFT;
-> +	gfn = kvm_gpa_from_fault(kvm, ipa) >> PAGE_SHIFT;
->   	mte_allowed = kvm_vma_mte_allowed(vma);
->   
->   	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
-> @@ -1763,6 +1866,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   		 */
->   		prot &= ~KVM_NV_GUEST_MAP_SZ;
->   		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault_ipa, prot, flags);
-> +	} else if (kvm_is_realm(kvm)) {
-> +		ret = realm_map_ipa(kvm, fault_ipa, pfn, vma_pagesize,
-> +				    prot, memcache);
->   	} else {
->   		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
->   					     __pfn_to_phys(pfn), prot,
-> @@ -1911,8 +2017,15 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->   		nested = &nested_trans;
->   	}
->   
-> -	gfn = ipa >> PAGE_SHIFT;
-> +	gfn = kvm_gpa_from_fault(vcpu->kvm, ipa) >> PAGE_SHIFT;
->   	memslot = gfn_to_memslot(vcpu->kvm, gfn);
-> +
-> +	if (kvm_slot_can_be_private(memslot)) {
-> +		ret = private_memslot_fault(vcpu, ipa, memslot);
-> +		if (ret != -EINVAL)
-> +			goto out;
+> +	default:
+> +		dev_err(priv->dev, "Invalid channel type: %d\n", cp->type);
+> +		break;
 > +	}
 > +
->   	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
->   	write_fault = kvm_is_write_fault(vcpu);
->   	if (kvm_is_error_hva(hva) || (write_fault && !writable)) {
-> @@ -1956,7 +2069,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->   		 * of the page size.
->   		 */
->   		ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
-> -		ret = io_mem_abort(vcpu, ipa);
-> +		ret = io_mem_abort(vcpu, kvm_gpa_from_fault(vcpu->kvm, ipa));
->   		goto out_unlock;
->   	}
->   
-> @@ -2004,6 +2117,10 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
->   	if (!kvm->arch.mmu.pgt)
->   		return false;
->   
-> +	/* We don't support aging for Realms */
-> +	if (kvm_is_realm(kvm))
-> +		return true;
+> +	free_irq(priv->irq, chan);
+> +}
 > +
->   	return KVM_PGT_FN(kvm_pgtable_stage2_test_clear_young)(kvm->arch.mmu.pgt,
->   						   range->start << PAGE_SHIFT,
->   						   size, true);
-> @@ -2020,6 +2137,10 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
->   	if (!kvm->arch.mmu.pgt)
->   		return false;
->   
-> +	/* We don't support aging for Realms */
-> +	if (kvm_is_realm(kvm))
-> +		return true;
+> +static const struct mbox_chan_ops cix_mbox_chan_ops = {
+> +	.send_data = cix_mbox_send_data,
+> +	.startup = cix_mbox_startup,
+> +	.shutdown = cix_mbox_shutdown,
+> +};
 > +
->   	return KVM_PGT_FN(kvm_pgtable_stage2_test_clear_young)(kvm->arch.mmu.pgt,
->   						   range->start << PAGE_SHIFT,
->   						   size, false);
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-> index d7bb11583506..0fe55e369782 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-> @@ -750,6 +750,171 @@ static int realm_create_protected_data_page(struct realm *realm,
->   	return -ENXIO;
->   }
->   
-> +static int fold_rtt(struct realm *realm, unsigned long addr, int level)
+> +static void cix_mbox_init(struct cix_mbox_priv *priv)
 > +{
-> +	phys_addr_t rtt_addr;
+> +	struct cix_mbox_con_priv *cp;
+> +	int i;
+> +
+> +	for (i = 0; i < CIX_MBOX_CHANS; i++) {
+> +		cp = &priv->con_priv[i];
+> +		cp->index = i;
+> +		cp->chan = &priv->mbox_chans[i];
+> +		priv->mbox_chans[i].con_priv = cp;
+> +		if (cp->index <= MBOX_FAST_IDX)
+> +			cp->type = CIX_MBOX_TYPE_FAST;
+> +		if (cp->index == MBOX_DB_IDX) {
+> +			cp->type = CIX_MBOX_TYPE_DB;
+> +			priv->use_shmem = true;
+> +		}
+> +		if (cp->index == MBOX_FIFO_IDX)
+> +			cp->type = CIX_MBOX_TYPE_FIFO;
+> +		if (cp->index == MBOX_REG_IDX)
+> +			cp->type = CIX_MBOX_TYPE_REG;
+> +	}
+> +}
+> +
+> +static int cix_mbox_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct cix_mbox_priv *priv;
+> +	const char *dir_str;
 > +	int ret;
 > +
-> +	ret = realm_rtt_fold(realm, addr, level, &rtt_addr);
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	priv->dev = dev;
+> +	priv->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(priv->base))
+> +		return PTR_ERR(priv->base);
+> +
+> +	priv->irq = platform_get_irq(pdev, 0);
+> +	if (priv->irq < 0)
+> +		return priv->irq;
+> +
+> +	if (device_property_read_string(dev, "cix,mbox-dir", &dir_str)) {
+> +		dev_err(priv->dev, "cix,mbox_dir property not found\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (!strcmp(dir_str, "tx"))
+> +		priv->dir = 0;
+> +	else if (!strcmp(dir_str, "rx"))
+> +		priv->dir = 1;
+> +	else {
+> +		dev_err(priv->dev, "cix,mbox_dir=%s is not expected\n", dir_str);
+> +		return -EINVAL;
+> +	}
+> +
+> +	cix_mbox_init(priv);
+> +
+> +	priv->mbox.dev = dev;
+> +	priv->mbox.ops = &cix_mbox_chan_ops;
+> +	priv->mbox.chans = priv->mbox_chans;
+> +	priv->mbox.txdone_irq = true;
+> +	priv->mbox.num_chans = CIX_MBOX_CHANS;
+> +	priv->mbox.of_xlate = NULL;
+> +
+> +	platform_set_drvdata(pdev, priv);
+> +	ret = devm_mbox_controller_register(dev, &priv->mbox);
 > +	if (ret)
-> +		return ret;
+> +		dev_err(dev, "Failed to register mailbox %d\n", ret);
 > +
-> +	free_rtt(rtt_addr);
-> +
-> +	return 0;
+> +	return ret;
 > +}
 > +
-> +int realm_map_protected(struct realm *realm,
-> +			unsigned long ipa,
-> +			kvm_pfn_t pfn,
-> +			unsigned long map_size,
-> +			struct kvm_mmu_memory_cache *memcache)
+> +static const struct of_device_id cix_mbox_dt_ids[] = {
+> +	{ .compatible = "cix,sky1-mbox" },
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, cix_mbox_dt_ids);
+> +
+> +static struct platform_driver cix_mbox_driver = {
+> +	.probe = cix_mbox_probe,
+> +	.driver = {
+> +		.name = "cix_mbox",
+> +		.of_match_table = cix_mbox_dt_ids,
+> +	},
+> +};
+> +
+> +static int __init cix_mailbox_init(void)
 > +{
-> +	phys_addr_t phys = __pfn_to_phys(pfn);
-> +	phys_addr_t rd = virt_to_phys(realm->rd);
-> +	unsigned long base_ipa = ipa;
-> +	unsigned long size;
-> +	int map_level = IS_ALIGNED(map_size, RMM_L2_BLOCK_SIZE) ?
-> +			RMM_RTT_BLOCK_LEVEL : RMM_RTT_MAX_LEVEL;
-> +	int ret = 0;
-> +
-> +	if (WARN_ON(!IS_ALIGNED(map_size, RMM_PAGE_SIZE) ||
-> +		    !IS_ALIGNED(ipa, map_size)))
-> +		return -EINVAL;
-> +
-> +	if (map_level < RMM_RTT_MAX_LEVEL) {
-> +		/*
-> +		 * A temporary RTT is needed during the map, precreate it,
-> +		 * however if there is an error (e.g. missing parent tables)
-> +		 * this will be handled below.
-> +		 */
-> +		realm_create_rtt_levels(realm, ipa, map_level,
-> +					RMM_RTT_MAX_LEVEL, memcache);
-> +	}
-> +
-> +	for (size = 0; size < map_size; size += RMM_PAGE_SIZE) {
-> +		if (rmi_granule_delegate(phys)) {
-> +			/*
-> +			 * It's likely we raced with another VCPU on the same
-> +			 * fault. Assume the other VCPU has handled the fault
-> +			 * and return to the guest.
-> +			 */
-> +			return 0;
-> +		}
-> +
-> +		ret = rmi_data_create_unknown(rd, phys, ipa);
-> +
-> +		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-> +			/* Create missing RTTs and retry */
-> +			int level = RMI_RETURN_INDEX(ret);
-> +
-> +			WARN_ON(level == RMM_RTT_MAX_LEVEL);
-> +
-
-Unnecessary empty line.
-
-> +			ret = realm_create_rtt_levels(realm, ipa, level,
-> +						      RMM_RTT_MAX_LEVEL,
-> +						      memcache);
-> +			if (ret)
-> +				goto err_undelegate;
-> +
-> +			ret = rmi_data_create_unknown(rd, phys, ipa);
-> +		}
-> +
-> +		if (WARN_ON(ret))
-> +			goto err_undelegate;
-> +
-> +		phys += RMM_PAGE_SIZE;
-> +		ipa += RMM_PAGE_SIZE;
-> +	}
-> +
-> +	if (map_size == RMM_L2_BLOCK_SIZE) {
-> +		ret = fold_rtt(realm, base_ipa, map_level + 1);
-> +		if (WARN_ON(ret))
-> +			goto err;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_undelegate:
-> +	if (WARN_ON(rmi_granule_undelegate(phys))) {
-> +		/* Page can't be returned to NS world so is lost */
-> +		get_page(phys_to_page(phys));
-> +	}
-> +err:
-> +	while (size > 0) {
-> +		unsigned long data, top;
-> +
-> +		phys -= RMM_PAGE_SIZE;
-> +		size -= RMM_PAGE_SIZE;
-> +		ipa -= RMM_PAGE_SIZE;
-> +
-> +		WARN_ON(rmi_data_destroy(rd, ipa, &data, &top));
-> +
-> +		if (WARN_ON(rmi_granule_undelegate(phys))) {
-> +			/* Page can't be returned to NS world so is lost */
-> +			get_page(phys_to_page(phys));
-> +		}
-> +	}
-> +	return -ENXIO;
+> +	return platform_driver_register(&cix_mbox_driver);
 > +}
+> +arch_initcall(cix_mailbox_init);
 > +
-> +int realm_map_non_secure(struct realm *realm,
-> +			 unsigned long ipa,
-> +			 kvm_pfn_t pfn,
-> +			 unsigned long size,
-> +			 struct kvm_mmu_memory_cache *memcache)
-> +{
-> +	phys_addr_t rd = virt_to_phys(realm->rd);
-> +	phys_addr_t phys = __pfn_to_phys(pfn);
-> +	unsigned long offset;
-> +	/* TODO: Support block mappings */
-> +	int map_level = RMM_RTT_MAX_LEVEL;
-> +	int map_size = rme_rtt_level_mapsize(map_level);
-> +	int ret = 0;
-> +
-> +	if (WARN_ON(!IS_ALIGNED(size, RMM_PAGE_SIZE) ||
-> +		    !IS_ALIGNED(ipa, size)))
-> +		return -EINVAL;
-> +
-> +	for (offset = 0; offset < size; offset += map_size) {
-> +		/*
-> +		 * realm_map_ipa() enforces that the memory is writable,
-> +		 * so for now we permit both read and write.
-> +		 */
-> +		unsigned long desc = phys |
-> +				     PTE_S2_MEMATTR(MT_S2_FWB_NORMAL) |
-> +				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R |
-> +				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> +		ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
-> +
-> +		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-> +			/* Create missing RTTs and retry */
-> +			int level = RMI_RETURN_INDEX(ret);
-> +
-> +			ret = realm_create_rtt_levels(realm, ipa, level,
-> +						      map_level, memcache);
-> +			if (ret)
-> +				return -ENXIO;
-> +
-> +			ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
-> +		}
-> +		/*
-> +		 * RMI_ERROR_RTT can be reported for two reasons: either the
-> +		 * RTT tables are not there, or there is an RTTE already
-> +		 * present for the address.  The above call to create RTTs
-> +		 * handles the first case, and in the second case this
-> +		 * indicates that another thread has already populated the RTTE
-> +		 * for us, so we can ignore the error and continue.
-> +		 */
-> +		if (ret && RMI_RETURN_STATUS(ret) != RMI_ERROR_RTT)
-> +			return -ENXIO;
-> +
-> +		ipa += map_size;
-> +		phys += map_size;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->   static int populate_region(struct kvm *kvm,
->   			   phys_addr_t ipa_base,
->   			   phys_addr_t ipa_end,
+> +MODULE_AUTHOR("Cix Technology Group Co., Ltd.");
+> +MODULE_DESCRIPTION("CIX mailbox driver");
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.25.1
+> 
 
-Thanks,
-Gavin
+-- 
 
+Best regards,
+Peter
 
