@@ -4,111 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C314CC8303F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4545C83013
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 12:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x9pvwsjMWPA9nQD+iBKKTHpsU97t1wWZ+fWjmxW/6k4=; b=ajCS22FnDASPuWZ/BNT0wfdq1b
-	s5OOvYadS9ik+4H7y1X1DMT77sVlnOpEM+JzwuG3MMXYeS4pm8Nch/UPNqjGENMWSGK3zM2p2EcUu
-	K/KgAYuLv6ujiDh/PglCmLFvrbB95a3bFvN7qgeG58LdPHoKEOD6B59oGFlH45cisCuoqjl8hv2N7
-	r3GOLDE5+DwvZa3h3YoDmtlNlRJkNyee2dqyGqs8k4Jmz4h9/StjEB+jYMrIgf5vlimEKemrz+Cw+
-	VFEEuuMvBNK4TD0e6U/qF0CFZyJHbMQJDQnZy7FdYBhPxc6ciNJ/OssoKFF+I5h0dIGNSERmlFJ5i
-	WAdb++3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cQqQACltrT/HBoI2TB8gqh2+iyTEhCW66lXOfkyTPKw=; b=gtz15Zh/TL1RdQBJo7oSQHl7Bj
+	Zdeb/dmenWHXaJWtmCV24SWc1ZRsc2IXQ4JRP1j8Hg0rfySebPcwDcxUPV0I4aDn3NnuBenZs1RQv
+	SDIo+IsF7LwFx09DWSk4nJtABOSSOrBHHs4m0JguGnab9ncGTeN7ZvpsuMxrfjGEEw/QRh60vPrdE
+	XFuzi4ure0/8EkGe/X6nVuZDywZbgGC1mZ4FjNJkbayBLxB48Ec/D1e/qgrbZjJkvlSBLJweh2KAR
+	F7uHMhQHfvhOJLZ/9Q9K12kwoE+FcO2cn06NrMPYLzkEqq5PaKvgNqlPZxUDh5FekjDmLRiHl+r8K
+	k9keGmfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWwqQ-00000008LYR-1RFE;
-	Wed, 02 Jul 2025 12:45:46 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uWwqS-00000008LZy-2Fzv;
+	Wed, 02 Jul 2025 12:45:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWwN8-00000008GyZ-1jT6
+	id 1uWwT8-00000008IM9-04Vn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 12:15:31 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-453398e90e9so35812435e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 05:15:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751458528; x=1752063328; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=x9pvwsjMWPA9nQD+iBKKTHpsU97t1wWZ+fWjmxW/6k4=;
-        b=XeJGjs+8ncTuIpuSviSXdF8xJF/QZmhrnAxyYnhQ77mrCddeJUkkjbOSBCLGoBfNdb
-         6IsNn+AcQIZoJdpsynMlG/92XTbNcykSoN9XpBY/T1Jz68Kt23bX2FxH5VXHK6G1Fzsl
-         TzxjXNb8+xxAl6UxMJ6Ij7DHQCBnC9JiTjKsgbUCv7ttEIL6n6EXTapryysi5iQp7H0h
-         SnoNGGRmgRRIzmvih7XYwBoyPv2n0PSoQx+KlfClB0EWFub1fCKby5c+YXma7kRFIwEh
-         44X0Dk31uA0f+EEeUBuCD05eNFD+0XkwwYW5XVlbwRs5ZoTesYec41vRu1T+Nv0HLxZh
-         5xkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751458528; x=1752063328;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=x9pvwsjMWPA9nQD+iBKKTHpsU97t1wWZ+fWjmxW/6k4=;
-        b=Wlb4cn5qMPVRFlyWFiGq07vR2+Vcv4EQkzPKrwfcVrdsXdSJEbGambfmMTV5AuIElq
-         XDKCqtdsPC0/xXTR4pvVrYL7GqK1tBNnJ2n1Q3lr8twkerZTeUwoNSs8mXRVlUvIec1T
-         ceedtsNHds0EnhorViaWwMwaP+BPJPpVZFxzXvGz8emieFEw+6um1HpyajHjzL6CquSZ
-         GFFGk86cS7+dxK85ImCi9UUjFkoWNXpTsuTrEKxKPb2ebv2WoGSDfvmtjSv/i4ic/iVs
-         r9eCo3PbgoS0+KlRucP+oWZytxp+tLrjZS9vIXDgAWALJNLXE0SyM0PzttjJ64Ny5jBD
-         PBYA==
-X-Forwarded-Encrypted: i=1; AJvYcCWEXYrLKu7vbkJGptxSCwtCTfv9MJn2oise3w1EA63UxKXjzA/aMUkO3EzTQyjNASmx5OdOmcdUeX71A17b4WAW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1mMDV+Ypkv75wFk7JdqtSjh6MEOXf0O6+XpaijeTYhSZD+l7m
-	KLzS7Vky0tAJJs+aj4x3dl2MkYIQa/7aH31NH1IkYMhfBMaG/j5UrWtT+lIybt73UII=
-X-Gm-Gg: ASbGncsvq665JDfZB8z0LYDo90ip/de9ZiY/eSG0BUVPrIgbq5L6ycrI6fZR5HDHCVz
-	W8++oR5zy5ZZIEf+ucl3CvrT3poRQsf5KfKtGosrP1hilsM4yZju2JL3n0yqU/p8gEc0aOONIxg
-	vbuE3tjDbgP1kzzoDaan8giIeRbrpv1lOveMldV6PnLAPI+xWvNrS61xanAvgNDiz6+1P1Qe5e+
-	rtFFym+aCB6EzJkdiMyHD7HW1M07WKJcCHIC3gaPhsWC9hqOLO7Lx3rCDNFmxy/VdfZwdujF10T
-	eBTC+gO17F9V9HMZzFpSXWTHusoZiwIpSq1gCnRfJMu97I7cHWgy28lL9gVvwMbvggA54v51aJ/
-	gX9PTJIrFLLnr4ZQy
-X-Google-Smtp-Source: AGHT+IELgg5UZzqaTlSfiyc6Ytkoj6C/RHdaT40F4scmmqS3AYJLBC3dMjYCI068eBu4lplMXDVdzA==
-X-Received: by 2002:a05:600c:4f13:b0:43c:f6c6:578c with SMTP id 5b1f17b1804b1-454a36ec540mr34363525e9.15.1751458528249;
-        Wed, 02 Jul 2025 05:15:28 -0700 (PDT)
-Received: from gpeter-l.roam.corp.google.com ([145.224.66.164])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-453823ad01csm228256345e9.22.2025.07.02.05.15.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Jul 2025 05:15:27 -0700 (PDT)
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 02 Jul 2025 13:15:24 +0100
-Subject: [PATCH] pinctrl: samsung: Fix gs101 irq chip
+	Wed, 02 Jul 2025 12:21:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B6637450FB;
+	Wed,  2 Jul 2025 12:21:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08379C4CEED;
+	Wed,  2 Jul 2025 12:21:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751458901;
+	bh=0JyVKoG6XZX61RLsTv4oIIad+TKMElb4fpWrf0SFNWU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MnLIXY18SisYTg+ljLXqJdN6osP5LoKjTbbupBy6liMrfWAkwWBK+hsdkCGFruCSa
+	 y6oA2qCCP0pPrXMZm8E6irxTKKRTfw7BmWMB6uKDAaE4ScZH9LRPzmYQJcIFBRVU4R
+	 Qa2TaQ+fOx8hNFCQess0xbV/G2qQdkToc/pA/Ny/MqUDKaBAgT77AqK+aFX78oHraU
+	 lFAvfM8gZbc1qd0DKrTDyp6ZprvW9FbwfjUDEWeh+twGRiD5bZFmwidfeOv34fgWL6
+	 2Kpv33zyLJioZ808tk0716PNbg61LbeHu6uXodZN3Ggq+HAssyRBRCUQ3QP0TcfqM8
+	 Cm5N1xEJ4OVRQ==
+Message-ID: <d676ddc8-0e4a-456a-8aa2-15ba898c44de@kernel.org>
+Date: Wed, 2 Jul 2025 14:21:30 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250702-fix-gs101-irqchip-v1-1-ccc84b44ad72@linaro.org>
-X-B4-Tracking: v=1; b=H4sIANsiZWgC/x2MywqAIBAAfyX23MJq734lOoRuuhcrhQjCf086D
- szMC4mjcIK5eiHyLUmOUEDVFRi/BccotjBo0h0NpHGXB11SpFDiZbycOFqlbdNPbUsGSndGLtL
- /XNacPzMOKGhjAAAA
-X-Change-ID: 20250702-fix-gs101-irqchip-8d12d369440c
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Linus Walleij <linus.walleij@linaro.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Peter Griffin <peter.griffin@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1589;
- i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=Sonnye7hZy2wt/2sdkee8anX7maKzoAKHEmbBG3T8tA=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBoZSLecwK0sxfmoygPy9wJSjKSBq78rF5mEbSPI
- jagEn353PyJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaGUi3gAKCRDO6LjWAjRy
- ujWQD/9dX1YTX9ZBnRCltukRwwg2+Ex5ETtEJVtNrSYJtAj6JDjMCK32q+2ExEr8o4nxkdDbNZq
- tcQqwCP3OtUaNf5+cZALlUvIrAB9j7MfFyhCK+4V3um44lc60sulhIZZ9X427vxU6Oy2DovBzpn
- 1/22Zjj3t2R9QmskA4AlInV2Rhr3PkPEeQGNS8xa5YGt0kV+oPVPJG94ckz6k0zUh2cvaFeuLfZ
- aPe9UVsynX81YvNMCyFXHB3aH81kI0VBciFnhcky7rL24T7ir+8tADpsIa5rrw9jFYrIWyRv5jy
- AgdOP44wde/WX6EnfhCJHFnQZG8LnefXO9dl0CykpuwsOXzssPy4QjFDm5ZWNHGB/K4t//kezHa
- 9Z/xVRjGJrPI3aS5fvcIgx7kDjGkMSLFln7PadJmY2QzYMB8YJqe7IzXbu3jJ/lMBslF8K1RUNB
- 6EQNW4j3/5j0SmdweFTVhgH6TmxLbKEYqblLtss4jgFvUI1d4eqTlYKzJyQoVsWOliXDsL1/Pa4
- NZSYa+eSrD0GMcItjGp9a6g4VPJcOG+9JgTcU+9kc5VzedjCQP7RrYcXkS2ysi4emDOh5K1sXrV
- bIYsUU73Un5KFJlI4nJsce3Zg58KY/Lm/r4SWokTVsUB/BaD4BGPkOl4lVPNR2nHk4NFvTe1Lwc
- rrGx4t9wNbgLsJQ==
-X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
- fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/8] arm64: Kconfig: add ARCH_BST for bst silicons
+To: Albert Yang <yangzh0906@thundersoft.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, gordon.ge@bst.ai,
+ catalin.marinas@arm.com, geert.uytterhoeven@gmail.com, will@kernel.org,
+ ulf.hansson@linaro.org, adrian.hunter@intel.com, arnd@arndb.de
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, soc@lists.linux.dev,
+ bst-upstream@bstai.top, neil.armstrong@linaro.org,
+ jonathan.cameron@huawei.com, bigfoot@classfun.cn, kever.yang@rock-chips.com,
+ mani@kernel.org, geert+renesas@glider.be, andersson@kernel.org, nm@ti.com,
+ nfraprado@collabora.com, quic_tdas@quicinc.com, ebiggers@google.com,
+ victor.shih@genesyslogic.com.tw, shanchun1218@gmail.com,
+ ben.chuang@genesyslogic.com.tw
+References: <20250528085403.481055-1-yangzh0906@thundersoft.com>
+ <20250702094444.3523973-1-yangzh0906@thundersoft.com>
+ <20250702094444.3523973-4-yangzh0906@thundersoft.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250702094444.3523973-4-yangzh0906@thundersoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_051530_454033_F2B27705 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250702_052142_096362_41D4F84E 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,41 +127,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When adding the dedicated gs101_wkup_irq_chip struct to support the eint
-wakeup mask the .eint_con, eint_mask and .eint_pend fields were missed. The
-result is that irqs on gs101 for the buttons etc are broken.
+On 02/07/2025 11:44, Albert Yang wrote:
+> Add ARCH_BST for bst SoC series support.
+> 
+> Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
+> Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
 
-Reported-by: André Draszik <andre.draszik@linaro.org>
-Fixes: 2642f55d44ce ("pinctrl: samsung: add support for gs101 wakeup mask programming")
-Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
----
-Note: no Closes tag as issue was reported on private chat. Permission has
-been obtained for using the Reported-by tag.
----
- drivers/pinctrl/samsung/pinctrl-exynos.c | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/pinctrl/samsung/pinctrl-exynos.c b/drivers/pinctrl/samsung/pinctrl-exynos.c
-index 5554768d465fe0d8bf6e423b2e835965cde5d8f5..81fe0b08a9af5682421e5a5533a6cb4c9561cd24 100644
---- a/drivers/pinctrl/samsung/pinctrl-exynos.c
-+++ b/drivers/pinctrl/samsung/pinctrl-exynos.c
-@@ -665,6 +665,9 @@ static const struct exynos_irq_chip gs101_wkup_irq_chip __initconst = {
- 		.irq_request_resources = exynos_irq_request_resources,
- 		.irq_release_resources = exynos_irq_release_resources,
- 	},
-+	.eint_con = EXYNOS7_WKUP_ECON_OFFSET,
-+	.eint_mask = EXYNOS7_WKUP_EMASK_OFFSET,
-+	.eint_pend = EXYNOS7_WKUP_EPEND_OFFSET,
- 	.eint_num_wakeup_reg = 3,
- 	.eint_wake_mask_reg = GS101_EINT_WAKEUP_MASK,
- 	.set_eint_wakeup_mask = gs101_pinctrl_set_eint_wakeup_mask,
+All your patches come in some big delays (this one came 2.5h later).
+Maybe there is something with mail server on your side?
 
----
-base-commit: 2aeda9592360c200085898a258c4754bfe879921
-change-id: 20250702-fix-gs101-irqchip-8d12d369440c
+
+> ---
+> Changes for v2:
+> - Placed the configuration entry in correct alphabetical order
+> - Used generic family name (ARCH_BST) instead of SoC-specific naming
+> - Followed upstream kernel naming and description conventions
+> ---
+>  arch/arm64/Kconfig.platforms | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> index a541bb029aa4..4412d54b224d 100644
+> --- a/arch/arm64/Kconfig.platforms
+> +++ b/arch/arm64/Kconfig.platforms
+> @@ -106,6 +106,14 @@ config ARCH_BLAIZE
+>  	help
+>  	  This enables support for the Blaize SoC family
+>  
+> +config ARCH_BST
+> +	bool "Black Sesame Technologies SoC Family"
+> +	help
+> +	  This enables support for Black Sesame Technologies (BST) SoC family.
+> +	  BST produces automotive-grade system-on-chips for intelligent driving,
+> +	  focusing on computer vision and AI capabilities. The BST C1200 family
+> +	  includes SoCs for ADAS and autonomous driving applications.
+> +
+>  config ARCH_EXYNOS
+>  	bool "Samsung Exynos SoC family"
+>  	select COMMON_CLK_SAMSUNG
+> @@ -402,4 +410,6 @@ config ARCH_ZYNQMP
+>  	help
+>  	  This enables support for Xilinx ZynqMP Family
+>  
+> +
+> +
+
+Why this change?
 
 Best regards,
--- 
-Peter Griffin <peter.griffin@linaro.org>
-
+Krzysztof
 
