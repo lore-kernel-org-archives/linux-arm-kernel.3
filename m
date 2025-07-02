@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D17AC83038
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 17:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10565C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 17:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MvrKqU9KXRVMqW4wYVRfFpUOXGEDg+T9aX7yo71XcrY=; b=BBYengjU8xDAaL688wQ+nUnlQz
-	in6AlkVVtBnXTQy2W267/OITinTX7F6G2KjI92MQzFk0giVq/Gigyt+E2tdHwBm1tNUsCSDK90P9q
-	MSLEqPhj8+cL9f7juV1atWybiox0h0FZVkDbpgpOVm5FJSE6m3aj65Y2RvwvfT/YKwX3OY4amMHiN
-	/IAPPFvaB1iAYesXLmXplXBn51hKhh1FQ36QhFgNvwKVLc3BadYk/c0fMLa7ThhfZlox76geEq2/D
-	RCxA6f0yd/t0ctKqWrTeGutHMzW16q411CZCVJVhympacg91bY3HORSSwFVNxZDXnnyv6XGol252u
-	7TSboGQw==;
+	bh=KbuhNMRrCKXU4u00mJ5Il8wxmaNPlMe5QF6RkT4Rrrc=; b=OGu6xXOD61ADGrsTTI9E/NGjKq
+	wnh5ljg9mtL7XdpLBeVcuMerIlpHqo1uwf5PsTfotDL29scI8/cKzXr6nDjfV8tjUp2J9BRs4ttK8
+	moavgGHKPN+ZQzGUDgPGvbIOe0Q2UsaCVID8crG4IJSSPPOfDwyxGrjnIFXGfhkFty6JBIm6q9YqH
+	tDgjl6obauYMnkQx+wzRG4ZzveYV5y8mWbFeirNvs3VGYqVAM79OD9OPGTYSvN7K0XhWLCJxx9uXj
+	B/RTUzGX9Hl1SaaO9swO13TE1youJQrnee0DDlTCa/uHdLXbc4c3NyQN0We1Q1uRExeh8dZZMzwIJ
+	Wdp0CqRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX1ZM-00000009AS3-1NJR;
-	Wed, 02 Jul 2025 17:48:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uX1ZL-00000009AQG-1ajf;
+	Wed, 02 Jul 2025 17:48:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX13o-000000096a1-2kb4
+	id 1uX112-000000096BZ-3rqx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 17:15:53 +0000
+	Wed, 02 Jul 2025 17:13:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F1EB7A4C759;
-	Wed,  2 Jul 2025 17:15:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 130EFC4CEE7;
-	Wed,  2 Jul 2025 17:15:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ED604438D8;
+	Wed,  2 Jul 2025 17:12:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1329C4CEE7;
+	Wed,  2 Jul 2025 17:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751476551;
-	bh=MvrKqU9KXRVMqW4wYVRfFpUOXGEDg+T9aX7yo71XcrY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MZ9RcvdQOreMvSgDQRdVOEc/3VFScLsnmhwqM/sa66bIpvbg3w1OV8quHFH0LNOoB
-	 8FB/kdxkY6aDGF+O/uTnDyUWZVrlDyfq/qNztceUP0tY6uIYbOwi0fSIuszRSCrdzG
-	 QDzzB0LlXvYk1jazJvoITjrYUJfKwNCJSk97GM3O2TstHMJZio4EWnJO849WI7F9RO
-	 ULDfzU7qYCzxNDwwsd/zKqS0TNDWvyGZ+hemOL7S+sw2LuEnJRW00f4KV/rwvU9sJd
-	 aw51UzEocEFbb8N3yvhs28mzsG+HFmuKRJwCtE+QjYr62LYG138yA36eL+aA/KYhZW
-	 Z5PLvkvXx/Yag==
-Date: Wed, 2 Jul 2025 19:15:47 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: =?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>
-Cc: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, M'boumba Cedric Madianga <cedric.madianga@gmail.com>, 
-	Wolfram Sang <wsa@kernel.org>, Pierre-Yves MORDRET <pierre-yves.mordret@st.com>, 
-	linux-i2c@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org
-Subject: Re: [PATCH v3 3/3] i2c: stm32f7: support i2c_*_dma_safe_msg_buf APIs
-Message-ID: <4lqsyuabfwnclt2pbxmgqz5zpd6zm5y6q5djiwopuq5eelz7ui@fgep3x24ur3e>
-References: <20250630-i2c-upstream-v3-0-7a23ab26683a@foss.st.com>
- <20250630-i2c-upstream-v3-3-7a23ab26683a@foss.st.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-15
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250630-i2c-upstream-v3-3-7a23ab26683a@foss.st.com>
+	s=k20201202; t=1751476379;
+	bh=VpA9YeSPV1buBUfGYoBCGhasB5CSNGSo6xEes/APcZ0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fpMEN0HWTd6AsmeJGwtTkpt/5H04AkNJ561DqGQXhkyHY0APvVXDXnxwwKB16QHVu
+	 0c6UgNZ7VOpIAPIqQYqOMahQD1MJLA+vM5Ao6RBG9sV3fdYXnjXKy+0ILaqY7ieGSk
+	 unrek5/cZAqDkVWwsIRVp3diqugRsh3gAVyvkZp+d53lqIG5VUWzGgtxSRPdrmHYjg
+	 6b2Hs5sPV+HViV9IQnbXZroFznOnr+pGqaxNbH9vjg2sNReMsEJVkenL917P9dy3YS
+	 63z6JvmRJDew993R6dLXrcQgYFi6ryWRncULXDb3BpxNqb1sx/JDOljzsnzBwinE0w
+	 heyY+k0IvR58g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uX10y-00C2NV-Sm;
+	Wed, 02 Jul 2025 18:12:57 +0100
+Date: Wed, 02 Jul 2025 18:12:56 +0100
+Message-ID: <86ecuybjon.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com,
+	pcc@google.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	anshuman.khandual@arm.com,
+	joey.gouly@arm.com,
+	oliver.upton@linux.dev,
+	frederic@kernel.org,
+	hardevsinh.palaniya@siliconsignals.io,
+	samuel.holland@sifive.com,
+	palmer@rivosinc.com,
+	charlie@rivosinc.com,
+	thiago.bauermann@linaro.org,
+	bgray@linux.ibm.com,
+	tglx@linutronix.de,
+	puranjay@kernel.org,
+	david@redhat.com,
+	yang@os.amperecomputing.com,
+	mbenes@suse.cz,
+	joel.granados@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 5/8] arm64/kvm: expose MTE_STORE_ONLY feature to guest
+In-Reply-To: <20250618092957.2069907-6-yeoreum.yun@arm.com>
+References: <20250618092957.2069907-1-yeoreum.yun@arm.com>
+	<20250618092957.2069907-6-yeoreum.yun@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, catalin.marinas@arm.com, pcc@google.com, will@kernel.org, broonie@kernel.org, anshuman.khandual@arm.com, joey.gouly@arm.com, oliver.upton@linux.dev, frederic@kernel.org, hardevsinh.palaniya@siliconsignals.io, samuel.holland@sifive.com, palmer@rivosinc.com, charlie@rivosinc.com, thiago.bauermann@linaro.org, bgray@linux.ibm.com, tglx@linutronix.de, puranjay@kernel.org, david@redhat.com, yang@os.amperecomputing.com, mbenes@suse.cz, joel.granados@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_101552_757748_E45262CE 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250702_101300_997738_59EAC58A 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +104,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Clement,
+On Wed, 18 Jun 2025 10:29:54 +0100,
+Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+> 
+> expose MTE_STORE_ONLY feature to guest.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  arch/arm64/kvm/sys_regs.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index c8c92cb9da01..7bc99ed201eb 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1620,7 +1620,8 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+>  		mask = ID_AA64PFR2_EL1_FPMR;
+>  
+>  		if (kvm_has_mte(vcpu->kvm))
+> -			mask |= ID_AA64PFR2_EL1_MTEFAR;
+> +			mask |= ID_AA64PFR2_EL1_MTEFAR |
+> +				ID_AA64PFR2_EL1_MTESTOREONLY;
+>  
+>  		val &= mask;
+>  		break;
+> @@ -2884,7 +2885,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  				       ID_AA64PFR1_EL1_MTE)),
+>  	ID_WRITABLE(ID_AA64PFR2_EL1,
+>  		    ID_AA64PFR2_EL1_FPMR |
+> -		    ID_AA64PFR2_EL1_MTEFAR),
+> +		    ID_AA64PFR2_EL1_MTEFAR |
+> +		    ID_AA64PFR2_EL1_MTESTOREONLY),
+>  	ID_UNALLOCATED(4,3),
+>  	ID_WRITABLE(ID_AA64ZFR0_EL1, ~ID_AA64ZFR0_EL1_RES0),
+>  	ID_HIDDEN(ID_AA64SMFR0_EL1),
 
-On Mon, Jun 30, 2025 at 02:55:15PM +0200, Clément Le Goffic wrote:
-> Use the i2c-core-base APIs to allocate a DMA safe buffer when needed.
+With the subject line fixed:
 
-same here, I don't understand anything... you could have written
-"do some coding" and it would have been the same :-)
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-Thanks,
-Andi
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
