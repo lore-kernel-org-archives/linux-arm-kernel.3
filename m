@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2645AC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 21:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33A0FC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 21:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FnhMLudv+q/D/hSONBTmJZVo154ineWrRQ/21yucmkM=; b=CHH1KXpuIujHKBlH0dYrvSAs9N
-	T9NlMTw19OplT+FRxbd8uHcU/fDAa2gl+FtWW7UYC5482xy6jC5NVul3BKGox/2ptnvKw5lZEgMaa
-	coTO8J4FQN2a4YWTrXt8lHyK26LmcztlCaE2CJ5r7gJZOCrjjPFOGYUMWeza2EVOmPf6lwiW1I2mi
-	QYE8PVP2b/uoEZwuG+6giMVvK2fv15O19bQyBQgy3upc4oDXAbVJS6SKPl1CQcVqYxBPf3qKUJDYx
-	bsY4PIq3Z9x/waU+9iCaqWnot9mbTdDPGqR80hagtmMA3/QfoRoEg8gcSL7eZFqapDv6T+nqst49+
-	xcFdkSLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O2gzKkiuh/7XKQtv3DJDDajNDBRpKD1gmdPIiBKuNb0=; b=U1ahTglZqRj5MK3kCC5FPL3x2r
+	8PSFO3dAmblSN1n6ZXrN2mf6T7zHhnN/U2luwcvngjpwgtQl5243rFFm13tTbRkr3nKI0h1yDn4mU
+	zO7FqkYyGFU1tNrDtZ1FjPZrpYamBYb3+9LiOnl5Pb3k5/t4zbY4vjsl+inH4yFtTCd3JEH8BRNc/
+	/UqJWli69d45nD+o2IKw2z7z+IZIytCivn6d/tN2ivdziMWVGrUuBMUWGqbbqsI5Jw2bu3JO0ubn2
+	Xna4rjBfQVTVSkRGlRfAPU0z9GmcLWLM//+dYDzuOdNYO31fBu/JKTIi5irldxeeF9IFASkMYzGW4
+	t/6sUkZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX5MF-00000009dcR-24wb;
-	Wed, 02 Jul 2025 21:51:11 +0000
-Received: from mx3.wp.pl ([212.77.101.10])
+	id 1uX5SB-00000009e6b-3Mss;
+	Wed, 02 Jul 2025 21:57:19 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX5Js-00000009dR6-3FuS
+	id 1uX5Po-00000009dif-1WtU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 21:48:46 +0000
-Received: (wp-smtpd smtp.wp.pl 33642 invoked from network); 2 Jul 2025 23:48:35 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1751492915; bh=FnhMLudv+q/D/hSONBTmJZVo154ineWrRQ/21yucmkM=;
-          h=From:To:Subject;
-          b=rwSUEglHOPVgT4/GIJwGZNEcF1GJVdBKcJRwuyU/NIAVHU+i9oiuZESyRE3iWDxNl
-           j8AFXvIL3d4Isad15BsyOOdhoEQvJphwlfFmdkoVM1RmoW33Kq0VKS2q8v3aMtEMnI
-           Wmnr2eMYaNNoFCeGcgxu7gwMsYmeGmRnv8VBOPk0Jp35Dfx9dlNH2hUqWu3h3/TJ6U
-           eXH/Q1Li32civ9iShojvR47LYWdB2lYkmr+uUnrnbda5NcU/shWYGZuh2izRRpjbCJ
-           v6rnKJ4Ddq9zqbxeZGigWQlt32R1fxY+veqdd+75p6sEYSgau8VM2Yc/PFBU3bYXFC
-           YwCiyif19cQ9A==
-Received: from 83.5.239.54.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.5.239.54])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
-          for <jic23@kernel.org>; 2 Jul 2025 23:48:35 +0200
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-To: jic23@kernel.org,
-	dlechner@baylibre.com,
-	nuno.sa@analog.com,
-	andy@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	olek2@wp.pl,
-	zhiyong.tao@mediatek.com,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 2/2] arm64: dts: mediatek: add thermal sensor support on mt7981
-Date: Wed,  2 Jul 2025 23:48:30 +0200
-Message-Id: <20250702214830.255898-3-olek2@wp.pl>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250702214830.255898-1-olek2@wp.pl>
-References: <20250702214830.255898-1-olek2@wp.pl>
+	Wed, 02 Jul 2025 21:54:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=O2gzKkiuh/7XKQtv3DJDDajNDBRpKD1gmdPIiBKuNb0=; b=NrnPD4OiDyjcOqPJKQyfvjewYI
+	YyS0T7bf7+dUxAxIu6E7hM8R3UNc3BFnHTEJEM7G0a0jIDcsIrHsdNtQuNMEFi1LFjJZ+DoRB4RYW
+	6b4GWy+3OiY7sMDX8MDtZEeLCZZMOly4GlUB3LfoCVOvmE9QvQKCwPGGv8xP0s95SoOxUmqOBJzAq
+	3UoBHMHJohQI1Qa9r7q/l2b0TQ5gIwQDwMHOZzSdfqhvGvKict8vlJQBIwj64ATUSRdEML5KX1agz
+	D3TN9EOQeJUrKNgUdNlzZg3N5pjDqW7EWc9QfKpPYgAQedxo3WDatmcvsa3lwQ9NCdEO1F3NsZxik
+	+ioV5jUw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45462)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uX5Ne-0008Gr-0D;
+	Wed, 02 Jul 2025 22:52:38 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uX5Nb-0004QW-2f;
+	Wed, 02 Jul 2025 22:52:35 +0100
+Date: Wed, 2 Jul 2025 22:52:35 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm: DT: imx6-sr-som: Replace license text comment with
+ SPDX identifier
+Message-ID: <aGWqIzNvSVw4olz5@shell.armlinux.org.uk>
+References: <20250702-sr-som-dts-lic-v1-1-2e8584e6c837@prolan.hu>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-WP-MailID: b00664f4f4ac2cf6bacf908830148b39
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000000 [0YOR]                               
+In-Reply-To: <20250702-sr-som-dts-lic-v1-1-2e8584e6c837@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_144845_282307_A7122DB5 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250702_145452_404450_D64BECF4 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +85,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The temperature sensor in the MT7981 is same as in the MT7986.
+On Wed, Jul 02, 2025 at 11:41:54PM +0200, Bence Csókás wrote:
+> Replace verbatim license text with a `SPDX-License-Identifier`.
+> 
+> The comment heades mis-attributes this license to be "X11", but the
+> license text does not include the last line "Except as contained in this
+> notice, the name of the X Consortium shall not be used in advertising or
+> otherwise to promote the sale, use or other dealings in this Software
+> without prior written authorization from the X Consortium.". Therefore,
+> this license is actually equivalent to the SPDX "MIT" license (confirmed
+> by text diffing).
+> 
+> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 
-Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
----
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 32 ++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
+As Florian has already mentioned, the preferred format for the summary
+for arch/arm is "ARM: ... " and by extension for arch/arm/boot/dts,
+it's "ARM: dts: ...", not "arm: DT: ..."
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-index 5cbea9cd411f..759b9e8059d9 100644
---- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-@@ -76,7 +76,7 @@ watchdog: watchdog@1001c000 {
- 			#reset-cells = <1>;
- 		};
- 
--		clock-controller@1001e000 {
-+		apmixedsys: clock-controller@1001e000 {
- 			compatible = "mediatek,mt7981-apmixedsys";
- 			reg = <0 0x1001e000 0 0x1000>;
- 			#clock-cells = <1>;
-@@ -184,6 +184,32 @@ spi@1100b000 {
- 			status = "disabled";
- 		};
- 
-+		thermal@1100c800 {
-+			compatible = "mediatek,mt7981-thermal",
-+				     "mediatek,mt7986-thermal";
-+			reg = <0 0x1100c800 0 0x800>;
-+			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&infracfg CLK_INFRA_THERM_CK>,
-+				 <&infracfg CLK_INFRA_ADC_26M_CK>;
-+			clock-names = "therm", "auxadc";
-+			nvmem-cells = <&thermal_calibration>;
-+			nvmem-cell-names = "calibration-data";
-+			#thermal-sensor-cells = <1>;
-+			mediatek,auxadc = <&auxadc>;
-+			mediatek,apmixedsys = <&apmixedsys>;
-+		};
-+
-+		auxadc: adc@1100d000 {
-+			compatible = "mediatek,mt7981-auxadc",
-+				     "mediatek,mt7986-auxadc",
-+				     "mediatek,mt7622-auxadc";
-+			reg = <0 0x1100d000 0 0x1000>;
-+			clocks = <&infracfg CLK_INFRA_ADC_26M_CK>;
-+			clock-names = "main";
-+			#io-channel-cells = <1>;
-+			status = "disabled";
-+		};
-+
- 		pio: pinctrl@11d00000 {
- 			compatible = "mediatek,mt7981-pinctrl";
- 			reg = <0 0x11d00000 0 0x1000>,
-@@ -211,6 +237,10 @@ efuse@11f20000 {
- 			reg = <0 0x11f20000 0 0x1000>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
-+
-+			thermal_calibration: thermal-calib@274 {
-+				reg = <0x274 0xc>;
-+			};
- 		};
- 
- 		clock-controller@15000000 {
+Please ensure that *all* your submissions follow this preferred
+format.
+
+When in doubt, do a git log on the file(s) you are modifying to
+discover what has been used in the past.
+
 -- 
-2.39.5
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
