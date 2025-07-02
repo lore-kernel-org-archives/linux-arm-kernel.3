@@ -4,60 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51C98C83038
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 04:20:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFADC83038
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 05:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jifn7l85GTnSNDXQEy9tm8CcNDlCljJNuXKQNhoufn8=; b=fkSikljBJxf2tX
-	X4QN0Yy5v+Zy7Wv5BJPbTY727R3KF9Ma4qfeleu3/bAqkQPJFFx7e2g0x25SiLbXwGFnjEaP9FR+N
-	tyXc+Hao9LKcp5vXKSZK1NqWPbzJub3Tm0cKk5lOa5531L3/ENijQCXoPnaaw74Sa/RBawVVRGe2x
-	wG/p0Qk/6QCJCAf/vO3kEC/bJ/p+QWlgl6i0mQE+Vve9JnLl/s/Ej9M2iGbr+z/Jn4ai+EVEEmdvm
-	3Mm1eu7nCZHizU5MFRaETfTVMs/6RsKOOJwrwJFCRiTEt1KPVvmY3OOefcZ5Mfp3MMyNvczgsnPR9
-	sV3uVaJNNkMUp5Bee+LQ==;
+	List-Owner; bh=V0rt2nH/TWlCePhqIMfxbMwVAseEB+3Yn8nvDGBHf0Y=; b=KCJsoQzaFYSxUd
+	T/OE2AtvI5MwEggO2uXSTqPh1gXf8fuQ1Ny66UwlLW5e2LqnS6nkcXpwgffVvjUozY/p/u3b6Yl85
+	xa3YFcreyiUd/iL4khfN2YYxmxRqZX39ofZzCkbw+gATqRDmXHcQr/x3lMHiw6ZzatXt6M6PKEcFU
+	ht/X9FDmPBG7jJKOoM71chX5m0vyr1knbZJ7DUxeAyKn7DCa7MpDYqswhQ+iC3F1TLINGAeUf0Y+L
+	hmm0U5cY2CH+7CwIt0JjUkWgsCYQoJgDCG0BQkUR5ua/oOQWW68ZRjYp+v0P2icDzsmc8lqc7RWP/
+	rkxV+ViQIlvms9Uo1Liw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWoxM-00000007B5B-0jGt;
-	Wed, 02 Jul 2025 04:20:24 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1uWpdN-00000007EJF-3gYF;
+	Wed, 02 Jul 2025 05:03:49 +0000
+Received: from mail-lf1-f52.google.com ([209.85.167.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWotl-00000007AtR-0hUb
+	id 1uWpb2-00000007E4E-43JD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 04:16:43 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4bX63J38RBz1d1q9;
-	Wed,  2 Jul 2025 12:14:04 +0800 (CST)
-Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
-	by mail.maildlp.com (Postfix) with ESMTPS id B9A87180064;
-	Wed,  2 Jul 2025 12:16:33 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
- (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 2 Jul
- 2025 12:16:32 +0800
-Message-ID: <fd16c235-b6be-7334-4a34-38b62e7b5cc9@hisilicon.com>
-Date: Wed, 2 Jul 2025 12:16:32 +0800
+	Wed, 02 Jul 2025 05:01:26 +0000
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-553c31542b1so4644653e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 22:01:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751432480; x=1752037280;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=V0rt2nH/TWlCePhqIMfxbMwVAseEB+3Yn8nvDGBHf0Y=;
+        b=PT5dXralgU8JtqRoMcqCqpjhSpPufi0CDWYiB17ScJg2+eTlppnk85HJVkJ6vVhlEQ
+         rp7SZYKHehVyOdL6pQHr4z8mcUwJHEpos0qQa5iltQ7S4LMePGF/EjuSRp1K62UxuXq/
+         ZKlcbT5LJA+LrT+bqBrgyFHGrmvNTgmUYOUPgFbISsmjsPWxOizn5w2D0i3h1t4V3F1L
+         EsopEgOvMv1p6aQw4bcGu7q9/1+/E4B0IjPyjm6WSHVeSgx+3QFBr65Erc15jvajFaMs
+         jqK6VA3mHk+KL/oHP4gOILONT+mv2WMqXOOAwFGGA8JONojasAQBxlToIyAYEUIYolqv
+         6VmA==
+X-Forwarded-Encrypted: i=1; AJvYcCXE08n5QF+FD0WtGmgK32OPgnhPYX3dWpfdZW15kOzLedz9ZqU9rVyTBNI9Yn+YlKC4QNgfSWnj8psAliA32jUB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGTdM4bd1uS6h+AUqxF+Ez3MFurldhv9jK+oSET+cx9Tdy6BBc
+	s4Vc9mbmnzGKNVq5R4DyZx1gb6i+Vg+JcHFdRR59LSLRH3aYKMmWfEY6aM2XEPaJ
+X-Gm-Gg: ASbGnctI7CTQ+nO8QRWgz6r19RLoelrMVGpd3ZbvBLrs+XVvGoY6F6H+TdZX2jz23Ic
+	QavvFe4NDw7qxPxWrVjGgPzcfDOKmMNsedBxUJF6tYh2CcLEs70dUGhnM4IULxWQ0AVYLr4Ie04
+	H/PNkAY+Ggn4Vtp8XwuSatSTzLZl0VGsrVweDW8mN4uP13UM/Z41ZDeGlyslId+OUIVfuXkE2by
+	0faLCdQ1iKZmRQG7A0G4GHnviNdUyEYjAqle/NO6AIZqOCvT/lWN8kcKTNop0P6QjFdRFadavS7
+	TSUqegNx0wiL1XtismxWyU4mlDixAqQfNnUaCaijedgI3PDvvunMkCdcGmVFfMVbaR9oFMeVs65
+	PWVkDwHWF68HbW1rRKrI=
+X-Google-Smtp-Source: AGHT+IFZSrI3NqbglqhP7PvXodGx2dTr5zwTJQfosSOAwH751mN1SPcyhHCoFTiV4zTtSLqsDFxYpA==
+X-Received: by 2002:a05:6512:3d9f:b0:553:3544:2b31 with SMTP id 2adb3069b0e04-5562836d01amr446923e87.40.1751432479281;
+        Tue, 01 Jul 2025 22:01:19 -0700 (PDT)
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com. [209.85.208.180])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2b95b7sm2005712e87.108.2025.07.01.22.01.17
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 01 Jul 2025 22:01:18 -0700 (PDT)
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-32b553e33e6so35004751fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Jul 2025 22:01:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUpBUXnq/ZbVmOAdvzXFEVzsie136fnKXomE6HDOSUaqEl8B2EjHxSjkm7oiR8F75uuJW+xTe7D6CFjI6ptNSEu@lists.infradead.org
+X-Received: by 2002:a05:651c:e1b:b0:32a:6c63:92a with SMTP id
+ 38308e7fff4ca-32e0004b940mr3217911fa.22.1751432477399; Tue, 01 Jul 2025
+ 22:01:17 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v6 0/2] PM / devfreq: Add HiSilicon uncore frequency
- scaling driver
-To: Chanwoo Choi <chanwoo@kernel.org>
-References: <20250623143401.4095045-1-zhanjie9@hisilicon.com>
- <9e028620-75b9-5a9a-dab6-8374b0a4fa4e@hisilicon.com>
- <CAGTfZH0eHz8aRDkSOTNosNqZGv9Qhf2K-Rtz-Yt+_GpNQzXo5g@mail.gmail.com>
-From: Jie Zhan <zhanjie9@hisilicon.com>
-In-Reply-To: <CAGTfZH0eHz8aRDkSOTNosNqZGv9Qhf2K-Rtz-Yt+_GpNQzXo5g@mail.gmail.com>
+References: <20250701165756.258356-1-wens@kernel.org> <20250701165756.258356-5-wens@kernel.org>
+In-Reply-To: <20250701165756.258356-5-wens@kernel.org>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Wed, 2 Jul 2025 13:01:04 +0800
+X-Gmail-Original-Message-ID: <CAGb2v646HvqipGd_C=WJ4LGsumFfF5P9a7XQ7UGO6t1901DDiw@mail.gmail.com>
+X-Gm-Features: Ac12FXxOhT5Y9cipxD-0Dp_WlsoVmLL1HMEja_1PgcoQyh6p3ZogoQeQ7CimJkk
+Message-ID: <CAGb2v646HvqipGd_C=WJ4LGsumFfF5P9a7XQ7UGO6t1901DDiw@mail.gmail.com>
+Subject: Re: [PATCH RFT net-next 04/10] soc: sunxi: sram: register regmap as syscon
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemo100006.china.huawei.com (7.202.195.47)
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_211641_573994_7A196DEA 
-X-CRM114-Status: GOOD (  26.59  )
+X-CRM114-CacheID: sfid-20250701_220125_003750_9C26C4D9 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,103 +96,67 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: yubowen8@huawei.com, Linux PM list <linux-pm@vger.kernel.org>, Lifeng Zheng <zhenglifeng1@huawei.com>, liwei728@huawei.com, linuxarm@huawei.com, =?UTF-8?B?7LWc7LCs7Jqw?= <cw00.choi@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, lihuisong@huawei.com, prime.zeng@hisilicon.com, Jonathan Cameron <jonathan.cameron@huawei.com>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-No worries. Thanks in advance!
+On Wed, Jul 2, 2025 at 12:58=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wrot=
+e:
+>
+> From: Chen-Yu Tsai <wens@csie.org>
+>
+> Until now, if the system controller had a ethernet controller glue layer
+> control register, a limited access regmap would be registered and tied
+> to the system controller struct device for the ethernet driver to use.
+>
+> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+> ---
+>  drivers/soc/sunxi/sunxi_sram.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/drivers/soc/sunxi/sunxi_sram.c b/drivers/soc/sunxi/sunxi_sra=
+m.c
+> index 4f8d510b7e1e..63c23bdffa78 100644
+> --- a/drivers/soc/sunxi/sunxi_sram.c
+> +++ b/drivers/soc/sunxi/sunxi_sram.c
+> @@ -12,6 +12,7 @@
+>
+>  #include <linux/debugfs.h>
+>  #include <linux/io.h>
+> +#include <linux/mfd/syscon.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+> @@ -377,6 +378,7 @@ static int __init sunxi_sram_probe(struct platform_de=
+vice *pdev)
+>         const struct sunxi_sramc_variant *variant;
+>         struct device *dev =3D &pdev->dev;
+>         struct regmap *regmap;
+> +       int ret;
+>
+>         sram_dev =3D &pdev->dev;
+>
+> @@ -394,6 +396,10 @@ static int __init sunxi_sram_probe(struct platform_d=
+evice *pdev)
+>                 regmap =3D devm_regmap_init_mmio(dev, base, &sunxi_sram_r=
+egmap_config);
+>                 if (IS_ERR(regmap))
+>                         return PTR_ERR(regmap);
+> +
+> +               ret =3D of_syscon_register_regmap(dev->of_node, regmap);
+> +               if (IS_ERR(ret))
 
-On 02/07/2025 11:21, Chanwoo Choi wrote:
-> Hi, 
-> 
-> I'm sorry for late review. I'll review and then merge until this week.
-> 
-> Best Regards,
-> Chanwoo Choi
-> 
-> 2025년 7월 2일 (수) 오전 11:37, Jie Zhan <zhanjie9@hisilicon.com <mailto:zhanjie9@hisilicon.com>>님이 작성:
-> 
->     Hi devfreq maintainers,
-> 
->     A kindly ping on this series.
->     I believe it's in a good shape now.
-> 
->     Jie
-> 
->     On 23/06/2025 22:33, Jie Zhan wrote:
->     > Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
->     > the devfreq framework.  The uncore domain contains shared computing
->     > resources, including system interconnects and L3 cache.  The uncore
->     > frequency significantly impacts the system-wide performance as well as
->     > power consumption.  This driver adds support for runtime management of
->     > uncore frequency from kernel and userspace.  The main function includes
->     > setting and getting frequencies, changing frequency scaling policies, and
->     > querying the list of CPUs whose performance is significantly related to
->     > this uncore frequency domain, etc.  The driver communicates with a platform
->     > controller through an ACPI PCC mailbox to take the actual actions of
->     > frequency scaling.
->     >
->     > Changelog:
->     >
->     > v6:
->     > Consolidate hisi_uncore_init_pcc_chan() related stuff:
->     > - Move devm_mutex_init() to hisi_uncore_init_pcc_chan()
->     > - Move devm_add_action_or_reset() into hisi_uncore_request_pcc_chan()
->     >
->     > v5:
->     > https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/>
->     > - Comment more on error code related stuff about
->     >   hisi_uncore_mark_related_cpus(), and return failure early on errors
->     >   except for -EINVAL, which indicates possibly broken firmware.
->     > - Separate error prints apart for two cases in hisi_platform_gov_handler()
->     > - Make the 'related_cpus' sysfs ABI description more generic
->     > - Some coding style cleanups and typo fixes
->     >
->     > v4:
->     > https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/>
->     > - Allow devfreq core to accept device-specific sysfs ABIs
->     > - Replace custom sysfs attrs with dev_groups and let the devfreq core
->     >   manage it
->     > - Update 'related_cpus' description in the devfreq ABI doc
->     > - Remove COMPILE_TEST in Kconfig as the mailbox_client.h doesn't support
->     >   this yet
->     > - Replace dev_err() with dev_err_probe() during drv->probe()
->     > - Replace mutex_init() with devm_mutex_init() to warn on UAF
->     > - Replace uncore->dev with dev in some places to make code a bit shorter
->     > - Remove redundant uncore->pchan check in hisi_uncore_free_pcc_chan()
->     > - Use __free() to let compiler release temporary memory
->     > - Clean up the error handling and redundant 'status = 0' in
->     >   hisi_uncore_send_cmd()
->     > - Some coding style cleanup
->     >
->     > v3:
->     > https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/>
->     > - Remove redundant resource freeing processes when drv->probe() fails as
->     >   they're already handled by devm
->     >
->     > v2:
->     > https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/>
->     > - Make devm manage the release sequence, remove drv->remove()
->     > - Warn on !uncore or !uncore->pchan as they're no longer expected
->     > - Remove ioremap of pcc shared memory because it's done by the pcc driver
->     > - Fix compiler warning of discarding 'const'
->     > - Minor trivial coding style changes
->     >
->     > v1:
->     > https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/>
->     >
->     > Jie Zhan (2):
->     >   PM / devfreq: Allow devfreq driver to add custom sysfs ABIs
->     >   PM / devfreq: Add HiSilicon uncore frequency scaling driver
->     >
->     >  Documentation/ABI/testing/sysfs-class-devfreq |   9 +
->     >  drivers/devfreq/Kconfig                       |  11 +
->     >  drivers/devfreq/Makefile                      |   1 +
->     >  drivers/devfreq/devfreq.c                     |   1 +
->     >  drivers/devfreq/hisi_uncore_freq.c            | 658 ++++++++++++++++++
->     >  include/linux/devfreq.h                       |   4 +
->     >  6 files changed, 684 insertions(+)
->     >  create mode 100644 drivers/devfreq/hisi_uncore_freq.c
->     >
-> 
+BroderTuck on IRC pointed out that this gives a compiler warning.
+Indeed it is incorrect. It should test `ret` directly.
+
+ChenYu
+
+> +                       return ret;
+>         }
+>
+>         of_platform_populate(dev->of_node, NULL, NULL, dev);
+> --
+> 2.39.5
+>
+>
 
