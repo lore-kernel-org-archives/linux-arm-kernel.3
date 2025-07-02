@@ -4,81 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98FFEC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 02:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7010CC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 02:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=77p7M9umS3J+/3ObTGRJCqc6auPs2iEQ+ZeZ7lurq9c=; b=nQc8K/kuxRZE3vbU1m5qfvuSDk
-	qm6ENS/stE3Qby9J/HiS//bo965l0fEfo0QR4tAmoCwffIQNd8ExP2pCutjOxD0qt7d4TdCCXyryg
-	YE0d9M17Yq6R57bIecajTQtYzCmBZ5bHDc/0Iwz4ijZP6xtcZww7+05GBgSxOkNtOwpPLRrxK1/Gs
-	e7IXqAB5jpJlfajd4stjCtWSGfGxVYlIjVW+OqasxfyZ9rq7oBGr5LlJJyR+18ApxLzVvUJ3IISyZ
-	DHa1g7IkzofSviXw9WRNCyTR8CjNJ+7vDGqSYczUx7BEN+IcAXixzTFJCaeTRHkr1lB+uRxYeAt4+
-	hJxr+H/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qJj3XbK+9wZnyXeiW/sIae3Hktc8NkFd05jI//Extsg=; b=Vb7pP6GCivighn
+	f/TpevrJ8YAOYU8tLWV0tNva09br7U5cqxXs7heIEwWV8FqzEQIAQHfFggaw+sBBi5y4CivncDEvb
+	AqD+M2zoJ8EZQtzGpse9PmgNgpez+aiJCFdo8fi1ZXBvyVQnZcNUdzX8AdJ++4EHqPNUbtx7Dzxfk
+	5UkpEUwjQn8DSQfZFOcQGiNL5yAVEBhra5qLN11iU37ZVnpreHgX9jLPkhzILScZ4QFralEJsR7Wa
+	siWOohGJkrFSTuCFcrrDbcni0kjUUjAB+UzNlscQkmfj4y5ZUbMtitG60F9N6tt/n546dOCFqx8qq
+	qpZ7Ey4UY3e8AHjfAEug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWnPE-000000074SY-2DAM;
-	Wed, 02 Jul 2025 02:41:04 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uWnRX-000000074jG-17yA;
+	Wed, 02 Jul 2025 02:43:27 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWnKh-000000073lh-37EJ;
-	Wed, 02 Jul 2025 02:36:25 +0000
-X-UUID: 5536c19a56ed11f09eb0dd999d3936bf-20250701
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=77p7M9umS3J+/3ObTGRJCqc6auPs2iEQ+ZeZ7lurq9c=;
-	b=gwMHFrA4RyL6iGzGsMMgfXydsbzmPEhnFZg6rNcNSClLlqL4xt6EPZtHmPmhwRRx3nnipx0hv5qDKcMPFWFmD7GFLUXX4faacqZSm5KzFQu4jG6osqEqW06AHFEZ+j+IP80jBLO4Sz/GeOCjGjXujaDAiC0pBUFG7fiOK7DE9i4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:1efc3a4c-8b18-4136-973f-649fe12cf60e,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:f414da5f-2aa0-4c76-8faa-804d844c7164,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5536c19a56ed11f09eb0dd999d3936bf-20250701
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <kuyo.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 792088127; Tue, 01 Jul 2025 19:36:18 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 2 Jul 2025 10:36:15 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs13n1.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.1258.39 via Frontend
- Transport; Wed, 2 Jul 2025 10:36:15 +0800
-Message-ID: <fbfc47b461a890eb38552e94b0d07a8315ecdff3.camel@mediatek.com>
-Subject: Re: [PATCH V4 1/1] sched/deadline: Fix dl_server runtime
- calculation formula
-From: Kuyo Chang <kuyo.chang@mediatek.com>
-To: Juri Lelli <juri.lelli@redhat.com>, John Stultz <jstultz@google.com>
-CC: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
-	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, "Ben
- Segall" <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, "Valentin
- Schneider" <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Date: Wed, 2 Jul 2025 10:36:15 +0800
-In-Reply-To: <aGO9KyiJNAm7DLb0@jlelli-thinkpadt14gen4.remote.csb>
-References: <20250627022837.3331827-1-kuyo.chang@mediatek.com>
-	 <CANDhNCorm58L9CqHyNORgfk=++HkCttmyCkM23Pn8rXV7cF41Q@mail.gmail.com>
-	 <aGO9KyiJNAm7DLb0@jlelli-thinkpadt14gen4.remote.csb>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1uWnMC-000000073sf-2hg5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Jul 2025 02:37:58 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4bX3xG2Yb7z27j0R;
+	Wed,  2 Jul 2025 10:38:42 +0800 (CST)
+Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
+	by mail.maildlp.com (Postfix) with ESMTPS id F2C4F140294;
+	Wed,  2 Jul 2025 10:37:45 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
+ (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 2 Jul
+ 2025 10:37:45 +0800
+Message-ID: <9e028620-75b9-5a9a-dab6-8374b0a4fa4e@hisilicon.com>
+Date: Wed, 2 Jul 2025 10:37:44 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v6 0/2] PM / devfreq: Add HiSilicon uncore frequency
+ scaling driver
+To: <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
+	<kyungmin.park@samsung.com>
+References: <20250623143401.4095045-1-zhanjie9@hisilicon.com>
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <20250623143401.4095045-1-zhanjie9@hisilicon.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemo100006.china.huawei.com (7.202.195.47)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250701_193623_788938_5DDBD246 
-X-CRM114-Status: GOOD (  36.58  )
+X-CRM114-CacheID: sfid-20250701_193757_006321_BCFE0DD6 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,80 +68,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: yubowen8@huawei.com, zhenglifeng1@huawei.com, linux-pm@vger.kernel.org, liwei728@huawei.com, linuxarm@huawei.com, lihuisong@huawei.com, prime.zeng@hisilicon.com, Jonathan Cameron <jonathan.cameron@huawei.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-07-01 at 11:49 +0100, Juri Lelli wrote:
-Hi John/Juri,
->=20
-> >=20
-> > > diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> > > index ad45a8fea245..96a21f38fcc3 100644
-> > > --- a/kernel/sched/deadline.c
-> > > +++ b/kernel/sched/deadline.c
-> > > @@ -1624,7 +1626,9 @@ void dl_server_update_idle_time(struct rq
-> > > *rq, struct task_struct *p)
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (delta_exec < 0)
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 return;
-> > >=20
-> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 scaled_delta_exec =3D dl_scaled=
-_delta_exec(rq, &rq-
-> > > >fair_server, delta_exec);
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 scaled_delta_exec =3D delta_exe=
-c;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (!rq->fair_server.dl_server)
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 scaled_delta_exec =3D dl_scaled_delta_exec(rq, &rq-
-> > > >fair_server, delta_exec);
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 rq->fair_server.runtime -=
-=3D scaled_delta_exec;
-> >=20
-> > As I mentioned earlier, I still don't see this conditional as
-> > making a
-> > lot of sense, as I don't believe there is time when this function
-> > would be called and (!rq->fair_server.dl_server) would be true.
-> > And even if there were, I'm not sure it makes sense to scale the
-> > time
-> > interval based on the fair_server.dl_server flag.
-> >=20
-> > From a separate discussion, you highlighted that it might be useful
-> > once we have multiple dl_server types, which may want scaled
-> > accounting, but I think in that case we should use an explicit flag
-> > instead of the dl_server bit to denote if the accounting should be
-> > scaled or not.
-> >=20
-> > So, since your patch is a fix for a pretty bad bug, I think it
-> > should
-> > be focused on fixing the issue in the simplest and clearest way for
-> > the existing code, and not be too worried about integrating with
-> > future changes that haven't landed.
-> >=20
-> > Then, as those future changes land, we can see how best to
-> > generalize
-> > the decision to scale or not scale the accounting on a dl_server.
-> >=20
-> > That said, the conditional is a bit of a moot point, since I don't
-> > think we'll actually hit it, and I'm motivated to get the bug you
-> > are
-> > fixing resolved, so I wouldn't object if this went in as-is, but it
-> > seems like it would be much cleaner to just drop that conditional
-> > as
-> > you did in the original version of this patch.
->=20
-> I agree. It would be better to drop the conditional.
->=20
+Hi devfreq maintainers,
 
-Thanks for your feedback and suggestion.
-So the original version of this patch for fair_server is much better &
-cleaner.
-Updated to v5 as below link
-https://lore.kernel.org/all/20250702021440.2594736-1-kuyo.chang@mediatek.co=
-m/
+A kindly ping on this series.
+I believe it's in a good shape now.
 
-> Thanks!
-> Juri
->=20
+Jie
 
+On 23/06/2025 22:33, Jie Zhan wrote:
+> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
+> the devfreq framework.  The uncore domain contains shared computing
+> resources, including system interconnects and L3 cache.  The uncore
+> frequency significantly impacts the system-wide performance as well as
+> power consumption.  This driver adds support for runtime management of
+> uncore frequency from kernel and userspace.  The main function includes
+> setting and getting frequencies, changing frequency scaling policies, and
+> querying the list of CPUs whose performance is significantly related to
+> this uncore frequency domain, etc.  The driver communicates with a platform
+> controller through an ACPI PCC mailbox to take the actual actions of
+> frequency scaling.
+> 
+> Changelog:
+> 
+> v6:
+> Consolidate hisi_uncore_init_pcc_chan() related stuff:
+> - Move devm_mutex_init() to hisi_uncore_init_pcc_chan()
+> - Move devm_add_action_or_reset() into hisi_uncore_request_pcc_chan()
+> 
+> v5:
+> https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/
+> - Comment more on error code related stuff about
+>   hisi_uncore_mark_related_cpus(), and return failure early on errors
+>   except for -EINVAL, which indicates possibly broken firmware.
+> - Separate error prints apart for two cases in hisi_platform_gov_handler()
+> - Make the 'related_cpus' sysfs ABI description more generic
+> - Some coding style cleanups and typo fixes
+> 
+> v4:
+> https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/
+> - Allow devfreq core to accept device-specific sysfs ABIs
+> - Replace custom sysfs attrs with dev_groups and let the devfreq core
+>   manage it
+> - Update 'related_cpus' description in the devfreq ABI doc
+> - Remove COMPILE_TEST in Kconfig as the mailbox_client.h doesn't support
+>   this yet
+> - Replace dev_err() with dev_err_probe() during drv->probe()
+> - Replace mutex_init() with devm_mutex_init() to warn on UAF
+> - Replace uncore->dev with dev in some places to make code a bit shorter
+> - Remove redundant uncore->pchan check in hisi_uncore_free_pcc_chan()
+> - Use __free() to let compiler release temporary memory
+> - Clean up the error handling and redundant 'status = 0' in
+>   hisi_uncore_send_cmd()
+> - Some coding style cleanup
+> 
+> v3:
+> https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/
+> - Remove redundant resource freeing processes when drv->probe() fails as
+>   they're already handled by devm
+> 
+> v2:
+> https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/
+> - Make devm manage the release sequence, remove drv->remove()
+> - Warn on !uncore or !uncore->pchan as they're no longer expected
+> - Remove ioremap of pcc shared memory because it's done by the pcc driver
+> - Fix compiler warning of discarding 'const'
+> - Minor trivial coding style changes
+> 
+> v1:
+> https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/
+> 
+> Jie Zhan (2):
+>   PM / devfreq: Allow devfreq driver to add custom sysfs ABIs
+>   PM / devfreq: Add HiSilicon uncore frequency scaling driver
+> 
+>  Documentation/ABI/testing/sysfs-class-devfreq |   9 +
+>  drivers/devfreq/Kconfig                       |  11 +
+>  drivers/devfreq/Makefile                      |   1 +
+>  drivers/devfreq/devfreq.c                     |   1 +
+>  drivers/devfreq/hisi_uncore_freq.c            | 658 ++++++++++++++++++
+>  include/linux/devfreq.h                       |   4 +
+>  6 files changed, 684 insertions(+)
+>  create mode 100644 drivers/devfreq/hisi_uncore_freq.c
+> 
 
