@@ -4,72 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEAE6C83F05
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 14:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83510C83F04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 14:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oauedJFcNupQ8Fk1UXI4Sti1IVfsmuuP3kAjEdP6s50=; b=HKfcbmpQ1Y3FODmeIUjlqHnZd7
-	CYMUbqiwTe+jh7cRaw/hLF7rUyr4y5QXNYQDKhl7hzTkSxbFqTFpPLOCgJ9yvRkWg7xDtl8IdbF54
-	vn6Eds9M2n6XBefv/o5+O8ABrpQ0fg/nrxa6nF0OMzE6fg3BbsH+v3PNQp5tXgfwicuwmYXhC/IE6
-	ahFoTm3sW6gSSPvUdzsbkgTiCmnrNDmBt2MYQOmEXdanUfnSnnvcGdBXTVH1cxKQpdmG71Jo/p7U5
-	5kXjz6psg9lkZYCr2fcr4KBtthKFF30eHo+DlnQy6+EOFZbLOupkRUrY8ATsDo9Ku3vT7Wt2Bbatu
-	uQFl6uyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eMG9pPiDXBBKKvDaMKGXpbOZbg8FN9YULFdxboP6NUI=; b=YWbijCgqmKIJBQY71xCok9mAn4
+	0V/A+b7rOxA8cLh2sK+ksc9QVWZ/lmVqdWhcfkE7Yo8ejcG+CwRro2X2Ix18WtHSbMq0niQotdmF9
+	SyKQ0KkegTn/H46FbJSR57Xn23Y+rHCAOkn39IJT4mfUQFtLFfA6LIGBoe65/6YXZmqd/BR99Y/Av
+	WBJlQDW6Jc2Ckz6WHmXkxMuE7txiI6jWt2n+jh1lL+TZAU9UxN7xYzM0kHx76WLaFIHXTQDE8EL0u
+	93NZXGt6VbHSoLPXnaXOb6G/gG+VChQNReznF1NU5yZWZ81hYL2pRJ3x5O50s6ZDD9JEoRKKqP8Lj
+	ArdH911g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWyKo-00000008c4Q-0dLm;
-	Wed, 02 Jul 2025 14:21:14 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uWyMN-00000008cQh-3Pe3;
+	Wed, 02 Jul 2025 14:22:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWxFj-00000008PJb-0t2y
+	id 1uWxPV-00000008R2V-3QB4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 02 Jul 2025 13:22:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=eMG9pPiDXBBKKvDaMKGXpbOZbg8FN9YULFdxboP6NUI=; b=I586/BzYksp/TP1O6BIwJpe+M6
+	MxkV7izhlNJFbudDdpgIuD3xi/MNtsajudUNldT+HC4K5NaVshXBOTJHNjdFsitrrRR2lDGfGHt3G
+	O8VKjZQqGJochqpUPkdvv7kr3JyDnVohuFYOIDf4hVCtbZtnhUbS2sgT+/2o4ddrDqjftkQyZw+S1
+	0htPWYOk3w/lY1gGORaCVKfUDmWZi8tXxYSf9xhSMm9S6CXUuFOyZ1Kn0IyxqhPIL7gxLkG2DUsS/
+	jPb4KDwTrYG1dSFjdOF7VXurlBBlf30XLTrNPwDb/Fwrn96n67wJNHnMB4DY24H9GNNP923z9u55T
+	vMQYPBQw==;
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uWxPT-00000007PKS-0Flh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 13:11:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 39F78A535AE;
-	Wed,  2 Jul 2025 13:11:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69CAFC4CEF0;
-	Wed,  2 Jul 2025 13:11:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751461913;
-	bh=usr+vdh8Cfv5WvS7rBd3qHZjCIE9fEJFds9FkIOefCM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sdILcO/ZVXR3CK4sFxnZRrFNZC9os6Ca2Md/27nxTz4uSSQJJgDg2ZtUqBBAL0UUY
-	 q8YNMlZueUe+olSpZ/lVIl4u52Qzje626rfNfuMBEUZqJkPU6LqN6zvh+nDqE6iOmN
-	 2TXH9ZEGuiH3lhZNoFo+O7XuKb+HAFeHe0Fhe9DJ8p2JVWMJkaznknlKHtUJ9vNkYE
-	 +ENZ+AXsOTTetVgtp57o8oCNlOUNoR34UTgFDhvwiMs3WcgT+q0cWfQu8wZOc1/YPd
-	 Iw0Q9I5rGoK6VfgPL2aBnsur5OIgoKKhR1jaaAviJLcjxdMsm6QvHPNSOOJDzd4vTL
-	 4VLMbOH+VjLaw==
-Date: Wed, 2 Jul 2025 18:41:34 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Kishon Vijay Abraham I <kishon@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, Shuah Khan <shuah@kernel.org>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH v19 06/10] misc: pci_endpoint_test: Add doorbell test case
-Message-ID: <whbsnegk5g4vi626pstz5z3blztyrxdji566hpt6yq5jvna2ks@3nap2g4jiftg>
-References: <20250609-ep-msi-v19-0-77362eaa48fa@nxp.com>
- <20250609-ep-msi-v19-6-77362eaa48fa@nxp.com>
+	Wed, 02 Jul 2025 13:22:00 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ae0c4945c76so642756366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Jul 2025 06:21:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751462517; x=1752067317; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eMG9pPiDXBBKKvDaMKGXpbOZbg8FN9YULFdxboP6NUI=;
+        b=mJBUflGJp0SSE8kpxCY0pY4yBy8HK5GwPFEqbwxL6KuUaOBibqj35NHwmbOG8uglBJ
+         w9jlhqFQcN5xIcqqoZ6NAI0ImQoDuDAFDki9cYtmT72IIPlRJV79iCbHs+D5NiE47B1d
+         Uq1GMrlT9y5HOf6xkTCGj+Thml0sgI+cOwYatxpl/qrSEBlij9hLauHKZU0KVPZI3653
+         /yC1chPPxnosCfHPnwo3RNlxdrG1Mavncvyn7MNFreCJ3fv30/eIzlRuZSvYFRXtw5Zm
+         E3FKmnPf/UAGwtagdRvLvWT0JpCTj76rOyWRvOKYpy3h9zhIz9zZb5usLY+TG47jGgMz
+         Gi1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751462517; x=1752067317;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eMG9pPiDXBBKKvDaMKGXpbOZbg8FN9YULFdxboP6NUI=;
+        b=NXOIgIqfUtODmzhX40K+0tbH88GLoshQJr5/pPgTlxWPHFWUGHxE3uZZw3lMPGPMBG
+         IPYNRZxDSzgDJwoOEe22a4ahWryGShXMyWHH8LwOAJsxwjK0UgbtHWY98/+VgjMP8B3w
+         bJuSuUfGSv9lzK6BNi0LG5QFLGgNzt/RBoIl9U/IPDvrKAGwNLtAitITEKZmMK/79q3L
+         JBDZbswiNDYopfU2/NQHT+QqyDCOrm9KvVWD/BI/mLdquRFbO6S4WIlGx9t9z95v2YRY
+         DTq/YJ0neaiWWQaKlezAZrZgY8MwOnP7EG9VnO3oDlvMy1/yFRH4U2BdPd7Jm1VOz5EK
+         hepQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUBhoiIQ1ZDy0OCs+JyG0bOQAVz+8rvLTl8bryrRSChnoETMdeR6VMh8+6mFEWRDbP6DrgBSnp1/hShjrt33RK6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzPx20dqKvhdBN4Bn9qdjJtg9ikZRqwl2Qq8a9snIEOomWTjLX
+	zQ5yBKU1jnhWdU93neYI6aGs7K8hrZkvSmj0e6NG9yY4emDh8O8Z27M4
+X-Gm-Gg: ASbGncsiz0qbcaxs522CWxwpu925mPlrsBwW73v1e4UphxGgX5rvmw6Qpmp4oSrN7qv
+	MRyNl+UBdm0aZYMsJ1KFGFtXC531B5FYdggtHLx84BIo0EIe+pTT5EfDrGzs8QtNVdVjzA63UGa
+	Bnmm0AYO8yxurNPx1Kyv13ZShEs7Rcg9GRkInloxGD4wfOr6lJ4tCiLFX73pjwYuWgJa4vaT/8K
+	CgbbC6YnTo5Q/SnqeM1/ePGuMs7H3dSr1A86TWbzlXjM1+GMUDoITXX41LXjge1deEMTalLLAMm
+	ydnMb0qizDgGqqsjOsdppQYZ1IE6ctxTlK1g55eOb9aPxZHQQBI3lM5uXS1/pXDzDHZeczsM1IE
+	=
+X-Google-Smtp-Source: AGHT+IFvLZMhZjDSfshoFpRc939n2lwSc6MfwBSslCP+I3o/TmLmEUPehK/4SzQi266zJ8iQw+lKjg==
+X-Received: by 2002:a17:906:c358:b0:ade:470b:d5ac with SMTP id a640c23a62f3a-ae3c2c7d588mr239742866b.56.1751462517204;
+        Wed, 02 Jul 2025 06:21:57 -0700 (PDT)
+Received: from demon-pc.localdomain ([188.27.131.45])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae35363b094sm1063800966b.22.2025.07.02.06.21.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Jul 2025 06:21:56 -0700 (PDT)
+From: Cosmin Tanislav <demonsingur@gmail.com>
+To: Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+	Julien Massot <julien.massot@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-gpio@vger.kernel.org,
+	Cosmin Tanislav <demonsingur@gmail.com>
+Subject: [PATCH v5 21/24] arm64: defconfig: disable deprecated MAX96712 driver
+Date: Wed,  2 Jul 2025 16:20:47 +0300
+Message-ID: <20250702132104.1537926-22-demonsingur@gmail.com>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250702132104.1537926-1-demonsingur@gmail.com>
+References: <20250702132104.1537926-1-demonsingur@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250609-ep-msi-v19-6-77362eaa48fa@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_061155_379303_97F63664 
-X-CRM114-Status: GOOD (  26.30  )
+X-CRM114-CacheID: sfid-20250702_142159_189995_B92DA449 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,178 +127,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 12:34:18PM GMT, Frank Li wrote:
-> Add three registers: PCIE_ENDPOINT_TEST_DB_BAR, PCIE_ENDPOINT_TEST_DB_ADDR,
-> and PCIE_ENDPOINT_TEST_DB_DATA.
-> 
-> Trigger the doorbell by writing data from PCI_ENDPOINT_TEST_DB_DATA to the
-> address provided by PCI_ENDPOINT_TEST_DB_OFFSET and wait for endpoint
-> feedback.
-> 
-> Add two command to COMMAND_ENABLE_DOORBELL and COMMAND_DISABLE_DOORBELL
-> to enable EP side's doorbell support and avoid compatible problem, which
-> host side driver miss-match with endpoint side function driver. See below
-> table:
-> 
-> 		Host side new driver	Host side old driver
-> EP: new driver		S			F
-> EP: old driver		F			F
-> 
-> S: If EP side support MSI, 'pci_endpoint_test -f pcie_ep_doorbell' return
-> success.
->    If EP side doesn't support MSI, the same to 'F'.
-> 
-> F: 'pci_endpoint_test -f pcie_ep_doorbell' return failure, other case as
-> usual.
-> 
-> Tested-by: Niklas Cassel <cassel@kernel.org>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> change from v14 to v16
-> - none
-> 
-> Change from v13 to v14
-> - update to use pci_endpoint_test -f pcie_ep_doorbell
-> - change ioctrl id to fix conflict
-> 
-> Change from v9 to v13
-> - none
-> 
-> Change from v8 to v9
-> - change PCITEST_DOORBELL to 0xa
-> 
-> Change form v6 to v8
-> - none
-> 
-> Change from v5 to v6
-> - %s/PCI_ENDPOINT_TEST_DB_ADDR/PCI_ENDPOINT_TEST_DB_OFFSET/g
-> 
-> Change from v4 to v5
-> - remove unused varible
-> - add irq_type at pci_endpoint_test_doorbell();
-> 
-> change from v3 to v4
-> - Add COMMAND_ENABLE_DOORBELL and COMMAND_DISABLE_DOORBELL.
-> - Remove new DID requirement.
-> ---
->  drivers/misc/pci_endpoint_test.c | 82 ++++++++++++++++++++++++++++++++++++++++
->  include/uapi/linux/pcitest.h     |  1 +
->  2 files changed, 83 insertions(+)
-> 
-> diff --git a/drivers/misc/pci_endpoint_test.c b/drivers/misc/pci_endpoint_test.c
-> index c4e5e2c977be2..0f3af7adea107 100644
-> --- a/drivers/misc/pci_endpoint_test.c
-> +++ b/drivers/misc/pci_endpoint_test.c
-> @@ -37,6 +37,8 @@
->  #define COMMAND_READ				BIT(3)
->  #define COMMAND_WRITE				BIT(4)
->  #define COMMAND_COPY				BIT(5)
-> +#define COMMAND_ENABLE_DOORBELL			BIT(6)
-> +#define COMMAND_DISABLE_DOORBELL		BIT(7)
->  
->  #define PCI_ENDPOINT_TEST_STATUS		0x8
->  #define STATUS_READ_SUCCESS			BIT(0)
-> @@ -48,6 +50,11 @@
->  #define STATUS_IRQ_RAISED			BIT(6)
->  #define STATUS_SRC_ADDR_INVALID			BIT(7)
->  #define STATUS_DST_ADDR_INVALID			BIT(8)
-> +#define STATUS_DOORBELL_SUCCESS			BIT(9)
-> +#define STATUS_DOORBELL_ENABLE_SUCCESS		BIT(10)
-> +#define STATUS_DOORBELL_ENABLE_FAIL		BIT(11)
-> +#define STATUS_DOORBELL_DISABLE_SUCCESS		BIT(12)
-> +#define STATUS_DOORBELL_DISABLE_FAIL		BIT(13)
->  
->  #define PCI_ENDPOINT_TEST_LOWER_SRC_ADDR	0x0c
->  #define PCI_ENDPOINT_TEST_UPPER_SRC_ADDR	0x10
-> @@ -62,6 +69,7 @@
->  #define PCI_ENDPOINT_TEST_IRQ_NUMBER		0x28
->  
->  #define PCI_ENDPOINT_TEST_FLAGS			0x2c
-> +
->  #define FLAG_USE_DMA				BIT(0)
->  
->  #define PCI_ENDPOINT_TEST_CAPS			0x30
-> @@ -70,6 +78,10 @@
->  #define CAP_MSIX				BIT(2)
->  #define CAP_INTX				BIT(3)
->  
-> +#define PCI_ENDPOINT_TEST_DB_BAR		0x34
-> +#define PCI_ENDPOINT_TEST_DB_OFFSET		0x38
-> +#define PCI_ENDPOINT_TEST_DB_DATA		0x3c
-> +
->  #define PCI_DEVICE_ID_TI_AM654			0xb00c
->  #define PCI_DEVICE_ID_TI_J7200			0xb00f
->  #define PCI_DEVICE_ID_TI_AM64			0xb010
-> @@ -100,6 +112,7 @@ enum pci_barno {
->  	BAR_3,
->  	BAR_4,
->  	BAR_5,
-> +	NO_BAR = -1,
->  };
->  
->  struct pci_endpoint_test {
-> @@ -841,6 +854,72 @@ static int pci_endpoint_test_set_irq(struct pci_endpoint_test *test,
->  	return 0;
->  }
->  
-> +static int pci_endpoint_test_doorbell(struct pci_endpoint_test *test)
-> +{
-> +	struct pci_dev *pdev = test->pdev;
-> +	struct device *dev = &pdev->dev;
-> +	int irq_type = test->irq_type;
-> +	enum pci_barno bar;
-> +	u32 data, status;
-> +	u32 addr;
-> +
-> +	if (irq_type < PCITEST_IRQ_TYPE_INTX ||
-> +	    irq_type > PCITEST_IRQ_TYPE_MSIX) {
-> +		dev_err(dev, "Invalid IRQ type option\n");
+The staging MAX96712 driver will be removed as its functionality has
+been moved to the MAX96724 driver which makes use of the Maxim
+GMSL2/3 deserializer framework.
 
-'Invalid IRQ type\n'
+Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+---
+ arch/arm64/configs/defconfig | 1 -
+ 1 file changed, 1 deletion(-)
 
-> +		return -EINVAL;
-> +	}
-> +
-> +	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_IRQ_TYPE, irq_type);
-> +	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_IRQ_NUMBER, 1);
-> +	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_COMMAND,
-> +				 COMMAND_ENABLE_DOORBELL);
-> +
-> +	wait_for_completion_timeout(&test->irq_raised, msecs_to_jiffies(1000));
-
-You should check for the timeout here and below.
-
-> +
-> +	status = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_STATUS);
-> +	if (status & STATUS_DOORBELL_ENABLE_FAIL) {
-> +		dev_err(dev, "Failed to enable doorbell\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	data = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_DB_DATA);
-> +	addr = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_DB_OFFSET);
-> +	bar = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_DB_BAR);
-> +
-> +	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_IRQ_TYPE, irq_type);
-> +	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_IRQ_NUMBER, 1);
-> +
-> +	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_STATUS, 0);
-> +
-> +	bar = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_DB_BAR);
-> +
-> +	writel(data, test->bar[bar] + addr);
-> +
-> +	wait_for_completion_timeout(&test->irq_raised, msecs_to_jiffies(1000));
-> +
-> +	status = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_STATUS);
-> +
-> +	if (!(status & STATUS_DOORBELL_SUCCESS))
-> +		dev_err(dev, "Endpoint have not received Doorbell\n");
-
-'Failed to trigger doorbell in endpoint\n'
-
-- Mani
-
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 897fc686e6a9..6f4254f562da 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1300,7 +1300,6 @@ CONFIG_GREYBUS=m
+ CONFIG_GREYBUS_BEAGLEPLAY=m
+ CONFIG_STAGING=y
+ CONFIG_STAGING_MEDIA=y
+-CONFIG_VIDEO_MAX96712=m
+ CONFIG_VIDEO_MESON_VDEC=m
+ CONFIG_SND_BCM2835=m
+ CONFIG_CHROME_PLATFORMS=y
 -- 
-மணிவண்ணன் சதாசிவம்
+2.50.0
+
 
