@@ -4,120 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28858C7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74AFC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2YEzbtJvwijZ2p+S0uXHj/8W9vMDLgGXxAH7Q6EK2fs=; b=dSLANFCLhbL6AsWscY1bWweHeI
-	5UcQrmPaFtxKJxgCbMQFKx/Dxys/C6FR4XLiD04JZ+dn5OSxfr2TQCAPo4FNRYkUXn39XiV3AjRnD
-	h3DWwpr9tNttPwnpSBnT3ufdYUJ/CMgpHq6ahjhajs3zsqb6wktgImj72OEw2pZodbZOFNGB/Jjgy
-	2kBNQTJiX5ozZ3zL+2uwb4BBrSGCUcJwG8NrA2+M9XPgsUB6SCD9IRpmJ25hnAk2qrTVH4sTg4P/v
-	8mjNc8/rVOKLm/fd1Y+g1BVyHXQ0jt+HFynQGTnAFZ4qnomM6Q+wvkArOY3LlutaNLOyWSd/Thlu5
-	NCMxzYPQ==;
+	bh=Y8tEJ4L12b3FphLKr1i4C2SoKT+sLBX5ZgRwp48HY7c=; b=zI0NBPK9BiS+2kg+5hk0vPFLka
+	uKK7MQ9CwojFWn7bb8nBl++tRSZiwLfd/uLS9NnlZrLSZI5LkfjlTDuNSOrmVGTjM9U8Ag8bnTaOl
+	anyUKlP4qpS4fruGTVvv5tkBaulP8aICcbTZjlVbsVFnP30WZHFnfNRPUIRCUDEwCRbgJQ1SrKeho
+	X7IRI1BWqwg9BoJfOveOntGkgy44TcYlbaZvFUg8tSOKNb77trV1EST9mfvf7q3QzT5Qkq/VrRrgI
+	h7QnTG2YaxsqdYL4SAlSmfsGUAvbjXzCXcryPpljrXsLTr3EYXFKlav2V0NhGMV0/7Tt49Xbl/uWR
+	LcX/Y43Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWv2g-000000080K3-4Bjh;
-	Wed, 02 Jul 2025 10:50:19 +0000
-Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
+	id 1uWv51-000000080yc-0vSz;
+	Wed, 02 Jul 2025 10:52:43 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWu8X-00000007qsp-14qL
+	id 1uWuDU-00000007rnp-21bg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 09:52:19 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id E4ED414002F1;
-	Wed,  2 Jul 2025 05:52:13 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Wed, 02 Jul 2025 05:52:13 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1751449933;
-	 x=1751536333; bh=2YEzbtJvwijZ2p+S0uXHj/8W9vMDLgGXxAH7Q6EK2fs=; b=
-	JZ6i3CMoiycU945nJIMw1Bic84YQqTlMRdq6VsJcOlKh9BdkhXvhK0GuNI5yVlR9
-	P1yY0zfmTJwtbCS508MJbsJ4HokVZ40G72sTGuEhLCIe6I1DDJPPjwX9pOj/b2kY
-	I47EG0Qs5iuhGDQl5ZvfhZLSDElBbKM49HO85f21Dc1qzBZBT9OjTIXEtbQZm1ee
-	PSlnPCuHq4w7nGLz5gUNBTiow3llHeEltPYVg7VGK7f6xwDPL1/60ZyBI53/7QjI
-	iYjGRUEuZEuJ35e5SNG/qmqg/gx55y7l0HqmpvHURbhw/AxxyHAsDTMU/5xeroRa
-	Nptbe7HLRBqJLHWwW2i2og==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1751449933; x=
-	1751536333; bh=2YEzbtJvwijZ2p+S0uXHj/8W9vMDLgGXxAH7Q6EK2fs=; b=X
-	ey2+BFylnofvC6zhDGuLlegKjp+WYQFUJNZfii2JMYaMGzuzQav/TVduoc1Rk85g
-	vQ6ZgxUTnMAmfT+mvyZRomnNHW5clmzy+gZ/EchGf683imOExnIlnhRk1/0mNKPn
-	cs/rWebCYrJ6qcMj5qy0uR3eEWHVO1X3yEBPbtw9QPw6FET4yQyuPahKU8FE+fFw
-	BBTu807cu4R1CXQgyOdSFPwCyRm6U9/x+y6LCqRAsuFiF+DZn8gQeVKDc4RCY7X0
-	CVwSIeXdTD/GUuShvKGH1AaxkmWNmRl6YzBl2rJkhIWW0yw4oTiuUczb+cOzuMtp
-	LBXy0m3iurzh03fDRzFUw==
-X-ME-Sender: <xms:SwFlaMYwZXrcrY5mAS1VReAwIEJMRsniXtJX6lE9I5i_hjK3DoftFg>
-    <xme:SwFlaHbEZfmXOnjWWVsQ21SChuUd6FYpi1kywkm4iiDZoS8Hp_lipsDfwQC1t0apd
-    Puf8knDxQi_x2PGkHs>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddujedtkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenogfuuh
-    hsphgvtghtffhomhgrihhnucdlgeelmdenucfjughrpefoggffhffvvefkjghfufgtgfes
-    thejredtredttdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnug
-    esrghrnhgusgdruggvqeenucggtffrrghtthgvrhhnpefgtdegieeuudfgudfhjeelhfdu
-    vddtfefgheehleettedvieekveevuddtkeetvdenucffohhmrghinhepghhoohhglhgvrd
-    gtohhmnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhep
-    rghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudegpdhmohguvgepshhmth
-    hpohhuthdprhgtphhtthhopehgohhrughonhdrghgvsegsshhtrdgrihdprhgtphhtthho
-    pegsshhtqdhuphhsthhrvggrmhessghsthgrihdrthhophdprhgtphhtthhopegrnhhgvg
-    hlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllhgrsghorhgrrdgtohhm
-    pdhrtghpthhtohepsggvnhdrtghhuhgrnhhgsehgvghnvghshihslhhoghhitgdrtghomh
-    drthifpdhrtghpthhtohepvhhitghtohhrrdhshhhihhesghgvnhgvshihshhlohhgihgt
-    rdgtohhmrdhtfidprhgtphhtthhopehgvggvrhhtodhrvghnvghsrghssehglhhiuggvrh
-    drsggvpdhrtghpthhtohepphgsrhhosghinhhsohhnsehgmhgrihhlrdgtohhmpdhrtghp
-    thhtohepshhhrghntghhuhhnuddvudeksehgmhgrihhlrdgtohhmpdhrtghpthhtoheprg
-    gurhhirghnrdhhuhhnthgvrhesihhnthgvlhdrtghomh
-X-ME-Proxy: <xmx:SwFlaG8C_wY40GX8OzkP4VR2-3tzar6bPRPWwnTPMdMom1X9UfUeAg>
-    <xmx:SwFlaGov-9tjbNIgKuBTKCvqCnT4MDLD-_jcNVq5RGuB8hDLI6moTA>
-    <xmx:SwFlaHowiDQQ84mJ1QEAUxcyvQ4ChT0sSJMS3giqhvV5BRBXM-EdFQ>
-    <xmx:SwFlaETc6LaWbnPOZwJOHfvTLQsr4ZyJ9K8GPv6pXPPVtt3kdmBhcQ>
-    <xmx:TQFlaF5Ykdng2vdIs4q3sObLSgAcZbki-WT22-T_9yb2L68PwE9lUXMe>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id B24C3700065; Wed,  2 Jul 2025 05:52:11 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 02 Jul 2025 09:57:26 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4bXFdD20wTz2Bcph;
+	Wed,  2 Jul 2025 17:55:28 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 471F11A0190;
+	Wed,  2 Jul 2025 17:57:15 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 2 Jul 2025 17:57:15 +0800
+Received: from [10.67.121.115] (10.67.121.115) by
+ kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 2 Jul 2025 17:57:14 +0800
+Message-ID: <ffd3fccc-af4a-6667-3cf6-a55e866f3057@hisilicon.com>
+Date: Wed, 2 Jul 2025 17:57:13 +0800
 MIME-Version: 1.0
-X-ThreadId: Tedb66c89affcaf60
-Date: Wed, 02 Jul 2025 11:51:40 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "yangzh0906@thundersoft.com" <yangzh0906@thundersoft.com>,
- "Adrian Hunter" <adrian.hunter@intel.com>,
- "Ulf Hansson" <ulf.hansson@linaro.org>, "gordon.ge" <gordon.ge@bst.ai>
-Cc: bst-upstream <bst-upstream@bstai.top>,
- "linux-mmc @ vger . kernel . org" <linux-mmc@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Victor Shih" <victor.shih@genesyslogic.com.tw>,
- "Shan-Chun Hung" <shanchun1218@gmail.com>,
- "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
- "Peter Robinson" <pbrobinson@gmail.com>,
- "Ben Chuang" <ben.chuang@genesyslogic.com.tw>
-Message-Id: <5408ab19-3313-494f-a091-46d5ee58b65c@app.fastmail.com>
-In-Reply-To: <202507021657587315993@thundersoft.com>
-References: <20250528085453.481320-1-yangzh0906@thundersoft.com>
- <87619781-629b-4393-8c14-b34483a7c734@intel.com>
- <202506271822530452465@thundersoft.com>
- <b6bf0b53-8812-4099-b5d3-39e7fd264777@intel.com>
- <5c0909b4-f3f6-401d-9a17-8560c5a1d7c0@app.fastmail.com>
- <202507021657587315993@thundersoft.com>
-Subject: Re: [PATCH v1 5/9] mmc: sdhci: add Black Sesame Technologies BST C1200
- controller driver
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH] ARM64: errata: Add workaround for HIP10/HIP10C erratum
+ 162200803
+Content-Language: en-US
+To: Marc Zyngier <maz@kernel.org>
+CC: Oliver Upton <oliver.upton@linux.dev>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<tangnianyao@huawei.com>, <wangwudi@hisilicon.com>
+References: <20250626124142.2035110-1-wangzhou1@hisilicon.com>
+ <86wm8ybpk5.wl-maz@kernel.org>
+ <0b54db94-8a6f-cea0-a6f7-dbe8650d66dd@hisilicon.com>
+ <86h5zwba5i.wl-maz@kernel.org>
+From: Zhou Wang <wangzhou1@hisilicon.com>
+In-Reply-To: <86h5zwba5i.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.115]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_025217_670005_BE372EEB 
-X-CRM114-Status: GOOD (  27.15  )
+X-CRM114-CacheID: sfid-20250702_025724_902110_BF5C879E 
+X-CRM114-Status: GOOD (  30.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,106 +82,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 2, 2025, at 10:57, yangzh0906@thundersoft.com wrote:
->>On Fri, Jun 27, 2025, at 15:19, Adrian Hunter wrote:
->>> On 27/06/2025 13:22, yangzh0906@thundersoft.com wrote:
->> 
->>I would not expect an standard SDHCI to be broken like this any more,
->>and if it is, I think the SDHCI_QUIRK2_BROKEN_64_BIT_DMA quirk is
->>more appropriate than overriding the dma_set_mask() operation.
->
-> I add SDHCI_QUIRK2_BROKEN_64_BIT_DMA in quirks2
->  static const struct sdhci_pltfm_data sdhci_dwcmshc_pdata = {
-> .ops = &sdhci_dwcmshc_ops,
-> .quirks = SDHCI_QUIRK_DELAY_AFTER_POWER |
->   SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
->   SDHCI_QUIRK_INVERTED_WRITE_PROTECT,
-> .quirks2 = SDHCI_QUIRK2_BROKEN_64_BIT_DMA |
->    SDHCI_QUIRK2_BROKEN_DDR50 |
->    SDHCI_QUIRK2_TUNING_WORK_AROUND |
->    SDHCI_QUIRK2_ACMD23_BROKEN,
-> };
-
->>What sometimes happens though is that the SoC integration itself is
->>broken, and a 64-bit capable DMA master like SDHCI is connected
->>to a 32-bit bus. In this case the DMA limitation should be
->>described in the device tree, using the "dma-ranges" property
->>of the broken bus node. The SDHCI code then still sets the correct
->>64-bit DMA mask according for the device, but the dma_map_single()
->>still uses an swiotlb bounce buffer or the IOMMU to work around
->>the bus restriction.
->
-> add the dma-ranges in dts node as below
-> mmc0: mmc@22200000 {
-> compatible = "bst,c1200-dwcmshc-sdhci";
-> reg = <0x0 0x22200000 0x0 0x1000>,
->       <0x0 0x23006000 0x0 0x1000>;
-> interrupts = <GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>;
-> clocks = <&clk_mmc>;
-> clock-names = "core";
-> max-frequency = <200000000>;
-> bus-width = <8>;
-> non-removable;
-> dma-coherent;
-> dma-ranges = <0x0 0x0 0x0 0x0 0x1 0x0>;
-> };
-
-The dma-ranges property makes no sense as part of the device.
-It describes how DMA addresses are translated by a bus, so
-it has to be part of the parent node.
-
-As I tried to explain, you should only need to either set
-the SDHCI device to 'SDHCI_QUIRK2_BROKEN_64_BIT_DMA' /or/
-describe the bus translation, but not both.
-
-Try to find out what the limitation is. If you have a datasheet
-for the chip, it should either describe an erratum if the
-sdhci device is known to be defective, or list the address
-width of the internal link.
-
-The 'dma-coherent' flag in the bst,c1200-dwcmshc-sdhci node is
-suspicious as well: unless all DMA masters on this SoC are
-cache-coherent, the mmc host is likely not the first thing
-that the hardware designers used a coherent port for.
-
-If you bounce all the transfers through an SRAM, it probably
-still works correctly regardless of the dma-coherent flag,
-but if you manage to configure ZONE_DMA32 RAM for SWIOTLB,
-then the 'dma-coherent' flag must only be if the DMA master
-is actually coherent with the CPU caches.
-
->>>>  To resolve this hardware limitation, we implement a bounce buffer allocated via >> dma_alloc_coherent() to satisfy DMA addressing constraints.
+On 2025/7/1 16:14, Marc Zyngier wrote:
+> On Fri, 27 Jun 2025 07:36:31 +0100,
+> Zhou Wang <wangzhou1@hisilicon.com> wrote:
+>>
+>> On 2025/6/26 21:27, Marc Zyngier wrote:
+>>> On Thu, 26 Jun 2025 13:41:42 +0100,
+>>> Zhou Wang <wangzhou1@hisilicon.com> wrote:
+>>>>
+>>>> For GICv4.0 of Hip10 and Hip10C, it has a SoC bug with vPE schedule:
+>>>> when multiple vPEs are sending vpe schedule/deschedule commands
+>>>> concurrently and repeatedly, some vPE schedule command may not be
+>>>> scheduled, and it will cause the command timeout.
+>>>>
+>>>> The hardware implementation is that there is one GIC hardware in one CPU die,
+>>>> which handles all vPE schedule operations one by one in all CPUs of this die.
+>>>> The bug is that if the number of queued vPE schedule operations is more
+>>>> than a certain value, the last vPE schedule operation will be lost.
+>>>>
+>>>> One possible way to solve this problem is to limit the number of vLPIs, so
+>>>> the hardware could spend less time to scan virtual pending table when it
+>>>> handles the vPE schedule operations, so the queued vPE schedule operations
+>>>> will never be more than above certain value.
+>>>>
+>>>> Given the number of CPUs of die, and imagine there is 100 vPE schedule
+>>>> operations per second one CPU, it can be calculated that we can limit
+>>>> the number of vLPI to 4096 for virtual machine to avoid the issue.
+>>>>
+>>>> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+>>>> ---
+>>>>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>>>>  arch/arm64/Kconfig                          | 12 ++++++++++++
+>>>>  arch/arm64/include/asm/cputype.h            |  4 ++++
+>>>>  arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
+>>>>  arch/arm64/kvm/vgic/vgic-mmio-v3.c          |  5 +++++
+>>>>  arch/arm64/tools/cpucaps                    |  1 +
+>>>>  include/linux/irqchip/arm-gic-v3.h          |  1 +
+>>>>  7 files changed, 40 insertions(+)
+>>>>
 >>>
->>> The bounce buffer should not be needed to satisfy DMA addressing
->>> constraints.  It is used when SDHCI ADMA (scatter/gather) is broken.
->> 
->>I wonder if the actual problem here is not the addressing limit
->>but instead the coherency protocol. If the DMA master is cache
->>coherent but listed as non-coherent in DT, or vice versa, there will
->>be data corruption for all addresses, and using a dma_alloc_coherent()
->>bounce buffer may hide this.
->
-> Finally, the kernel will raise swiotlb_map error. 
-> I put the corresponding kernel log and driver files into it, 
-> https://drive.google.com/file/d/10HQE6lr3W-XyqoI7OUBjQzJxwPCaEkpz/view?usp=sharing, 
-> https://drive.google.com/file/d/1F8Hn2a7kPjZfSWiX525iSk634UHMo0Ph/view?usp=sharing
+>>> [...]
+>>>
+>>>> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+>>>> index ae4c0593d114..495a56e9dc4b 100644
+>>>> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+>>>> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+>>>> @@ -81,6 +81,11 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+>>>>  		if (vgic_has_its(vcpu->kvm)) {
+>>>>  			value |= (INTERRUPT_ID_BITS_ITS - 1) << 19;
+>>>>  			value |= GICD_TYPER_LPIS;
+>>>> +			/* Limit the number of vlpis to 4096 */
+>>>> +			if (cpus_have_final_cap(ARM64_WORKAROUND_HISI_162200803) &&
+>>>> +			    kvm_vgic_global_state.has_gicv4 &&
+>>>> +			    !kvm_vgic_global_state.has_gicv4_1)
+>>>> +				value |= 11 << GICD_TYPER_NUM_LPIS_SHIFT;
+>>>
+>>> This really doesn't solve your problem. Yes, the guest *may* honor
+>>> this limit. But KVM doesn't care and will happily allocate 2^16 vLPIs
+>>> if the guest asks -- there is no code enforcing this limit.
+>>
+>> Hi Marc,
+>>
+>> I am not sure if there is any other place guest can ask vLPI over
+>> the limitation except for MAPTI/MAPT below?
+>>
+>>> And even if we did. What would we do on a MAPTI command that tries to
+>>> map a vLPI outside of the allowed range? Do we need to tell the guest
+>>> it has screwed up?
+>>
+>> Thanks for pointing this. Yes, we miss the lpi_nr checking in vgic_its_cmd_handle_mapi.
+>> In fact, the fix of this errata introduces the usage of GICD.num_LPI,
+>> so we need make related logic right as well.
+> 
+> Exactly.
+> 
+>>
+>> I am not sure that if we could add related checking for lpi_nr in MAPTI/MAPI
+>> as part of this errata fix, or we should add the basic support for
+>> GICD.num_LPI before adding this errata?
+> 
+> You definitely need to handle that before allowing such limit to be
+> enforced. Which also means allowing the limit to be saved/restored
+> from userspace in order to support migration.
 
-I see that there is no 32-bit addressable RAM in the system at
-all, the lowest bit of system memory starts at 0x800254000 (32GB)
+Seems that in KVM we do not consider GICD_TYPER in migration. How about
+making GICD_TYPER.num_LPIs as a default configuration, when KVM version is
+same between source and destination during migration, the logic is still right.
 
-[    0.000000] Early memory node ranges
-[    0.000000]   node   0: [mem 0x0000000800254000-0x0000000800254fff]
-[    0.000000]   node   0: [mem 0x0000000810000000-0x000000083fffffff]
-[    0.000000]   node   0: [mem 0x00000008c0000000-0x00000009bfffffff]
-[    0.000000]   node   0: [mem 0x0000000c00000000-0x0000000c3fffffff]
+Something like:
 
-Maybe this is something that can be set up differently by the boot
-loader, otherwise this won't be the only last problem with 32-bit
-DMA you see on this chip.
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index eb1205654ac8..2071b1445b22 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -385,6 +385,7 @@ int vgic_init(struct kvm *kvm)
+ 	/* freeze the number of spis */
+ 	if (!dist->nr_spis)
+ 		dist->nr_spis = VGIC_NR_IRQS_LEGACY - VGIC_NR_PRIVATE_IRQS;
++	dist->nr_lpis = 2 ^ (INTERRUPT_NUM_LPIS + 1);
 
-Try to configure it so that there is at least 1GB of RAM in ZONE_DMA32,
-or in the ideal case move all of the MMIO out of the way so all of
-RAM can stay contiguous starting at a low address.
+ 	ret = kvm_vgic_dist_init(kvm, dist->nr_spis);
+ 	if (ret)
+@@ -433,6 +434,7 @@ static void kvm_vgic_dist_destroy(struct kvm *kvm)
+ 	kfree(dist->spis);
+ 	dist->spis = NULL;
+ 	dist->nr_spis = 0;
++	dist->nr_lpis = 0;
+ 	dist->vgic_dist_base = VGIC_ADDR_UNDEF;
 
-      Arnd
+ 	if (dist->vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 534049c7c94b..c770eadc5188 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -1047,7 +1047,8 @@ static int vgic_its_cmd_handle_mapi(struct kvm *kvm, struct vgic_its *its,
+ 	else
+ 		lpi_nr = event_id;
+ 	if (lpi_nr < GIC_LPI_OFFSET ||
+-	    lpi_nr >= max_lpis_propbaser(kvm->arch.vgic.propbaser))
++	    lpi_nr >= max_lpis_propbaser(kvm->arch.vgic.propbaser) ||
++	    lpi_nr >= GIC_LPI_OFFSET + kvm->arch.vgic.nr_lpis)
+ 		return E_ITS_MAPTI_PHYSICALID_OOR;
+
+ 	/* If there is an existing mapping, behavior is UNPREDICTABLE. */
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index ae4c0593d114..224d0d88c823 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -81,6 +81,7 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+ 		if (vgic_has_its(vcpu->kvm)) {
+ 			value |= (INTERRUPT_ID_BITS_ITS - 1) << 19;
+ 			value |= GICD_TYPER_LPIS;
++			value |= (ilog2(vgic->nr_lpis) - 1) << 11;
+ 		} else {
+ 			value |= (INTERRUPT_ID_BITS_SPIS - 1) << 19;
+ 		}
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index 4349084cb9a6..e11792dafcdf 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -16,6 +16,7 @@
+
+ #define INTERRUPT_ID_BITS_SPIS	10
+ #define INTERRUPT_ID_BITS_ITS	16
++#define INTERRUPT_NUM_LPIS	14
+ #define VGIC_LPI_MAX_INTID	((1 << INTERRUPT_ID_BITS_ITS) - 1)
+ #define VGIC_PRI_BITS		5
+
+diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+index 4a34f7f0a864..b637dc9460d9 100644
+--- a/include/kvm/arm_vgic.h
++++ b/include/kvm/arm_vgic.h
+@@ -296,6 +296,7 @@ struct vgic_dist {
+ 	 * else.
+ 	 */
+ 	struct its_vm		its_vm;
++	int			nr_lpis;
+ };
+
+However，migration between different KVMs will be broken :(
+I am not sure that should we consider this case as well?
+
+Thanks,
+Zhou
+
+> 
+> I was really hoping to never have to support this thing (it really is
+> terrible), but if we have to introduce and honor it for correctness
+> reasons, then it has to be fully supported>
+> Thanks,
+> 
+> 	M.
+> 
 
