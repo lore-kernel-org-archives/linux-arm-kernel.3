@@ -4,68 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0740EC7EE30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 867EBC7EE30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Jul 2025 10:09:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=10CYibGvwIVYchOvUOxwjyPV91vxtw5BqVOM0fUyS28=; b=Rmey7xs5UlvR5Ieij2YXtd2hBF
-	DyiTWuRlEeVmhDSiAB5QVOg9bfbNtq8WCziecrLDQpKbrZV6xm6Rkkj/v9y2utrxTzQ2t/Px7GVeA
-	mV5JVpT82yPbpzwIpuC4gwx+8nZDV44zUKdbbYIZc3ij/ZpV6s4HGhuSEfY5Ic3khc+C/LmlvAMhn
-	TTo0aD7LMx3htWoRoygIXo/Y8asldIEBmYLq2H8U28TLqBgiJ4s2oEWNOh6AqEuuglc4MrOCj5Ecy
-	2ej53fU3OWu/dCWUyJcG2thWNK028SRS1GZeEmFo0qdRoom4SAU3hZ7UAqlkGh+g7FAmYTwumTd3M
-	dlIAw27A==;
+	bh=9KRmkM4Fb8FCHcRKzUg9TALKYkyS1Nd3u4kTB5VrfIo=; b=j3K3kzxCWfouhobz0v4rqpoO9K
+	y6vZdyP45yS+iMPPyrniE/Ue9kUwPgFTLrIn+hxWSA5dbozjsUWomoxT47h2+qz22OjlDBLzsom/y
+	wQfsabL19ZY5nr3je9E7s4fbv24HZwq8TQyxzIXpK2+XLs168OXHN76S1rSl1gIeNmaJrp/crHR1w
+	a5OgnBdm+SzjaG6Dwv1xgY6hu8f3MK9SU74gvt+YGDgzD3LldXcoix/lBB2iow+k0ixJl5FDJdax4
+	/d/hS0cQLdOV4mhwT596lTOSIVTf8a0WzTk/K94oz3nbeiFcgbS4nNdbdzjIfWcLHxcv3JqfTty+V
+	QkFkuBZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWuN2-00000007tJo-47ar;
-	Wed, 02 Jul 2025 10:07:16 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uWuPM-00000007tpQ-3Gct;
+	Wed, 02 Jul 2025 10:09:40 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uWtwJ-00000007nrM-11lE
+	id 1uWtxC-00000007o3V-0IEd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Jul 2025 09:39:40 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1751449177;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=10CYibGvwIVYchOvUOxwjyPV91vxtw5BqVOM0fUyS28=;
-	b=DADx7Gs5oChS8tz124E7PgQoyjZN6PFOt4xrJCp3IqgpGjjCcEC5wYQyUQRUMjZf40GGtd
-	7+o2D0aaPfDvvMnZxlGuhwqZfMHc/MjsHF/bn3YTBPhaD9J1sP7pxpDE92CKIwJKalhrsF
-	S231rF82KkiFdKdaZsK8Ubl4tM+TWB5FuWXcTdgo/XGhYO+RDMlwxoq03lZLxjgeZNdswe
-	M8PcHw4GMz+LIGmpReA+V8d2XAyKB7X+LSo9IxVsQ9crJJx/uJSfevHeKTpxBGQlFCMqQ8
-	dBLVOa5OlWGb+B13Xq8S+Y2YlLBKmxsBLO4QGSV34yQlzcSj6tWDMkNPHO0V3A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1751449177;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=10CYibGvwIVYchOvUOxwjyPV91vxtw5BqVOM0fUyS28=;
-	b=+Fnw+crHy4xmKh/dT5Ygf/U+FvNoiyjfkNEflf8c5EM8g/kWZhBsHHPEN5bLiR0h4eM84O
-	qN71oJUcjhDkrRDg==
-To: Gabriele Monaco <gmonaco@redhat.com>, Peter Zijlstra <peterz@infradead.org>
-Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Andy
- Lutomirski <luto@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Masami
- Hiramatsu <mhiramat@kernel.org>, Ingo Molnar <mingo@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-trace-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] tracing: Fix inconsistency in irq tracking on NMIs
-In-Reply-To: <5097b17cc506af60ca718aba5a0a10e0fda01440.camel@redhat.com>
-References: <20250625120823.60600-1-gmonaco@redhat.com>
- <20250701125459.GL1613200@noisy.programming.kicks-ass.net>
- <5097b17cc506af60ca718aba5a0a10e0fda01440.camel@redhat.com>
-Date: Wed, 02 Jul 2025 11:39:37 +0200
-Message-ID: <87cyajkk2u.ffs@tglx>
+	Wed, 02 Jul 2025 09:40:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1751449234; x=1782985234;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=9KRmkM4Fb8FCHcRKzUg9TALKYkyS1Nd3u4kTB5VrfIo=;
+  b=C+qzGmIVDJxCorfgJcSnpBA82jc/7b4XUiN7AkoHXw9PbRYfl87hmtey
+   85Je4QRm+RplGK+pXG66AkNbqjWWiPTUohwdUaSHJBR3zkYEfzdRd2QIy
+   zywT4zmUIPuIvd0fsiphRq663PvAZ95qqd/RVJcc5rMSNky3JnGPld1v5
+   x3rm/eWJxzGagoFgBLLtkFur++43svOuwOtoDyUiCdXY/ZzrtS7NY3fkA
+   a68hApbBq+CifAOBPeUrsU7tiBjU/UziLzBbdwRDPlgVXbo7QcOuQZkxS
+   vsa+MybmCRWJU7wrFUJhhpJF5Fsi2HUxaqm6EJiIwofo2FIJbbGGCw6cn
+   g==;
+X-CSE-ConnectionGUID: cy0BYnsfTSmmZaIrAOoLwg==
+X-CSE-MsgGUID: g+b4S2W2TumQELfKWu2h4Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11481"; a="53878233"
+X-IronPort-AV: E=Sophos;i="6.16,281,1744095600"; 
+   d="scan'208";a="53878233"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jul 2025 02:40:32 -0700
+X-CSE-ConnectionGUID: 3I8+whlmRemNvqHMscYOlg==
+X-CSE-MsgGUID: g62D2IMaTeKG/3vfuIheDA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,281,1744095600"; 
+   d="scan'208";a="159541665"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jul 2025 02:40:32 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Wed, 2 Jul 2025 02:40:31 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25 via Frontend Transport; Wed, 2 Jul 2025 02:40:31 -0700
+Received: from NAM04-BN8-obe.outbound.protection.outlook.com (40.107.100.48)
+ by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Wed, 2 Jul 2025 02:40:30 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lXCk7xeWE0WIkaNJl1/saU2bztQk1DHNnS1mIYpyZPlZz+wP8GXWpUbkZy/PZ6oRdePmlEogNFi4hl1X+vTdjLb1IBagkBBCfNxj/Uh1NV++v+mUXCB9BQ+KiUAGqi9Ypt9ue6c65svdIP+rMJTMYH8qhGxMmfUXWO62AOGF16qHC8BMtFLlQVknqqVNhKf3nKqCgTJ3xidxdrRiUmck0sDmgjdWL65ts1cTsnmR4UHawP2vS5qTq98kUwPV6JOXTsp0wQYAOMCbxI8SIs5livzfAYYfwGe34+hmCc7rRBPr9EC2lCXONw0Js/P+HEc29R6u3hZVGao0Qx5Ci+Qq4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9KRmkM4Fb8FCHcRKzUg9TALKYkyS1Nd3u4kTB5VrfIo=;
+ b=ZZzQ0bxV5u9Obl8fSGNBa0nuoX8F7dcOxMvSTC8WpRxraw8YmzF9nPqt6x+NBKPxcrjrp7bXijAzJVmaqRlj6ZdpLMnMk1y82b2IrUYnc8HYuAbdOoau76wQoxjlmfK6Os92LDZYzCRslPlo53y99k6rNOC6PdFtxyHzXZ43U4pcjhjQzKJ81s/Herr7HyLkIiPGHalHikG5d8nzA+PMCzvJHDCdiwtubjvMK41x39SgryHuwO8bi9jxv71bZSM/SuwYXaL1uKitYRs+YF0DmTWDl8/k+hTxcGLn1sT4f+WRIldys9beTC4SYPHc+CB9STd7NPpj+hzcnhk6dS4Q9Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by PH8PR11MB6780.namprd11.prod.outlook.com (2603:10b6:510:1cb::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.19; Wed, 2 Jul
+ 2025 09:39:48 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%4]) with mapi id 15.20.8880.029; Wed, 2 Jul 2025
+ 09:39:47 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"corbet@lwn.net" <corbet@lwn.net>, "will@kernel.org" <will@kernel.org>
+CC: "bagasdotme@gmail.com" <bagasdotme@gmail.com>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "vdumpa@nvidia.com"
+	<vdumpa@nvidia.com>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
+	"shuah@kernel.org" <shuah@kernel.org>, "jsnitsel@redhat.com"
+	<jsnitsel@redhat.com>, "nathan@kernel.org" <nathan@kernel.org>,
+	"peterz@infradead.org" <peterz@infradead.org>, "Liu, Yi L"
+	<yi.l.liu@intel.com>, "mshavit@google.com" <mshavit@google.com>,
+	"praan@google.com" <praan@google.com>, "zhangzekun11@huawei.com"
+	<zhangzekun11@huawei.com>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>, "mochs@nvidia.com" <mochs@nvidia.com>,
+	"alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>, "vasant.hegde@amd.com"
+	<vasant.hegde@amd.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>
+Subject: RE: [PATCH v7 01/28] iommufd: Report unmapped bytes in the error path
+ of iopt_unmap_iova_range
+Thread-Topic: [PATCH v7 01/28] iommufd: Report unmapped bytes in the error
+ path of iopt_unmap_iova_range
+Thread-Index: AQHb5tF/lvbLpFwWBEqY7w9B7idgybQenGrA
+Date: Wed, 2 Jul 2025 09:39:47 +0000
+Message-ID: <BN9PR11MB527604B00DDD7F46CFBA1C2E8C40A@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1750966133.git.nicolinc@nvidia.com>
+ <102e38967b38c28abbe8ebe70b39dcc8e14450ba.1750966133.git.nicolinc@nvidia.com>
+In-Reply-To: <102e38967b38c28abbe8ebe70b39dcc8e14450ba.1750966133.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|PH8PR11MB6780:EE_
+x-ms-office365-filtering-correlation-id: 45f751be-a5a9-4e81-2f43-08ddb94c629b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?fh1vX2yJVWRXk88YQPcnHeO5DqVFmYGGFGAs2jI47DHDwXbhMtYZj3G1rL+4?=
+ =?us-ascii?Q?N9pmk8FY3cJFMyoDDxcc1dg90nEuV05aUCHph41nz+kJNvwYEkfN9ussJsuA?=
+ =?us-ascii?Q?9cbJUsMMoDoKz6AeXeLFOZq10fwPPEjcGmBgi2PtgBzlwGZtatUszP9b5Eb3?=
+ =?us-ascii?Q?fbZS6XLHw920kUTrZz+waywWSPHjwfoL6NV3vNl4u6pnDlE6LGKpTPOdDq3O?=
+ =?us-ascii?Q?Al93PEoYFaqswIsNxUba3oPYWkY/iKGj9sKkHkFpjm5BAX6PP7OohH++36Ps?=
+ =?us-ascii?Q?nZs6iKMq+fyRxTo7cgUXY7A79cW02Shc8E/62B+xhnStggSLjBAcMQTeOwKw?=
+ =?us-ascii?Q?zPkYYjaGmsZ1xXzV555t0a6Bu63cnUIEf9u2r6Ujkj6STSTd+6NTQPX9oav0?=
+ =?us-ascii?Q?MdZoaX7Aj/JHHEVyBLrdnB6TqBZe4ecXsi6LGmBiLqF5Tl1qdQ0dv7xFa+cj?=
+ =?us-ascii?Q?ale/sszWaQGfCyzJTPXy3KCuJpgiY8sV4ljMah3tl2Kfg0BEOEcSvcvW9bzF?=
+ =?us-ascii?Q?sswtkjVXHmHWe5OZOVZG1il+OLWUuA+O6/I4QBdFLcZqVmcqK+qf3A+t54j4?=
+ =?us-ascii?Q?NHBezv7/OqKi7ZMqO07XQe258HzdMhOkCNJfOuA2+0IogVD0SLfW4StAv3XS?=
+ =?us-ascii?Q?6TTo+LZQ8bw+BRPZRuU5SkhehsBMZ3qeFghjH6kM6/d6PSGhvd56Wr+FFi19?=
+ =?us-ascii?Q?fE3UlAp+z16l7vNAlCjVPnd+XJwIeBf6PB4/Nzg+NS7xkjPrnPMJFUJdInWv?=
+ =?us-ascii?Q?OKG+AsVMkmRcEEEVo74dwMvCii9b4xttEZb+uaCV3tFYKsCULSYErUr6Cl+B?=
+ =?us-ascii?Q?j5THHFrdBeqylRnvXIiAh0qXxsNc4plFt7rwFqqO0fDWp+mCkKpLBg6cAlRr?=
+ =?us-ascii?Q?ZaGWW4zY1kuyc+UIYbnPWSy0zWLuu8Q/KTGlZcacvCd3X47PsSVwdMk2VOR0?=
+ =?us-ascii?Q?TcDzs0l19xvI0bO1/8iMlwkM+0AktzpRtvH+A0k8VCZ8YWxLFPy8C0KBJeGY?=
+ =?us-ascii?Q?ammrlVjftRmOTgyzFLLmXaRIuTGYLJ41aJ0CFaJAWijCJcfFuvZwcOBp04Et?=
+ =?us-ascii?Q?7xZg4CzLJKy1vxyR+TjOONiB2iboMIZ05HBszvrLCx/I6z5OrC7uG1A57sz4?=
+ =?us-ascii?Q?iQRuQrjD2R2lPhG/mWSKXAwGeTvGi78Dcu7na+Y2DlYyPvx4Rn12FLj76nIj?=
+ =?us-ascii?Q?9lX/HWkuJZ64HJFw4w6+knjLUKMKFLTxY3Lb+5twS5Vov6MTuH5n8WU2a0J+?=
+ =?us-ascii?Q?gek6Prit+9QnlaAyO3kAZfptDvpF66CWh9d5OQpBxhDrJQGCveu0OJUvjlAp?=
+ =?us-ascii?Q?WCuyuyH+UJUWx2HAxhbey5JmPoI1Gp/dFfVZcxQ0GiYtT0RkSzs9tsgZJBPY?=
+ =?us-ascii?Q?kRVihcVhG4Ntyq6l9q2prll6djU6T0ynoEa22S+67+Dpl8eRmDGzFoL+qZIN?=
+ =?us-ascii?Q?77O2svrnbyCBhn5mYqqbSM8qWo0aEXORZFa7RTR9stnTFQc1WcLiQg=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?09hd2MMKSFZwaXzHCboCs5Qu7Aace/qudqW9lhrYH6uftRvgUuQBul1w9L2z?=
+ =?us-ascii?Q?Fk1HtTyBk0EW1FH6Ss0b7NR4BNUKPw35mpcI++Mi3kZx5+67PPAUgtiCZaZA?=
+ =?us-ascii?Q?JXmRDbdVB+YcKAC2zH2VqQ3CLSg3jOjnGcGyk4CXtUEJJ5zL86UJbH01mrNI?=
+ =?us-ascii?Q?QX6Y3zopCJ/FdCY9GKPmeZnOAcEG0xBFhVsvw04IBjILOMeG/jC2JyVWCFVO?=
+ =?us-ascii?Q?MIRftQ9mGG3U9bcvgzo4sDvf+vrprXBTlOzAMGkyW0Gfp+kjOBSA936espMW?=
+ =?us-ascii?Q?Q9ZNlpFbwyYXkOA6XSSQdQ30/eQBIYuh6dxWQ+4mTTCvg9l8a4k3qSf7d6IX?=
+ =?us-ascii?Q?6UJwUm+0k70QBKYyi9l7upFVRMszQEW4CowHE+sfcjhWo/w1CngZ9YUoT/Nb?=
+ =?us-ascii?Q?ihz++ifHtNMSBKxmpx8WsJBYN9axAsnXqba7JyvU7g4DeTO1//XNgIJKlw6C?=
+ =?us-ascii?Q?Mzv40lCQcl/BW1htQPTxbs3pLRLPBVu8gKBjg19hRiUVI5fIjSwlbym7dvOd?=
+ =?us-ascii?Q?pLJau3ot+JCNvzHUnF2ErfFfuSnWJZTi250Eia3tfvXDCm+ziFNYktie45yC?=
+ =?us-ascii?Q?kgMEIiLiEy5eWhWvw5YMmXgCi1DRVxwrhat6C3EfbxlGIQ5QEyhS9vBjJNfS?=
+ =?us-ascii?Q?l7xc8JLQTaUL+IlmMy2FEZ6WBZUoHRoui91/Sgy2Ml0499CedIB+q5H0P/Mo?=
+ =?us-ascii?Q?/BeD5RA4lP16uGUdtQb6IGTm3WvU5Xvylg1Tmn/Merh785kjTVyFytNZcdhK?=
+ =?us-ascii?Q?wwrYc6ANw+RVhYxz9IslnUrUO/U8C73l5Q8tx56KVpDuPVgO1dr470hSErNY?=
+ =?us-ascii?Q?TEHRAqycCQRnFhN5w6d4y8bXsYsNlaCvFs31bBzQxTfHybX5KR6Ni9mfriG2?=
+ =?us-ascii?Q?ExmOaeQZx86dZgO9sFZwIy/QdF525XgcdvmO0tOYCDzalj7Q/wlcdhVXVh27?=
+ =?us-ascii?Q?xdGWRUcoabH0pXiCmqw8J0o66GnaXY6vN3yjQsHHN2wDBHAsCy2tLswvJGkK?=
+ =?us-ascii?Q?vtd752Yr7AsYuV/5LRrmXDrtMUcD1yuJiZRmSQi5J1DyjO9K2PI1Dn+L1Ilm?=
+ =?us-ascii?Q?VG524VTifWJMlp5T8IM3DH6RKxFI4Vu6e+StiT6zaHwjFGPeKllnbwADxkQa?=
+ =?us-ascii?Q?CXvlEQhL5ix80rwV7eM2sKJHMeQhhCLJsDGSWlB3uoYEfQ7skf6TmnEE71ci?=
+ =?us-ascii?Q?Nrsz3hb4yTJy01DDXG3a3M2vuYKq52JEV04T9MfF4aFG/J9Q2028Q+9cGOeB?=
+ =?us-ascii?Q?KW+6caBENc1VZV8cl+yVfslZROwQ2wSfdvyj/wMTpm7k3c5X5f3vG3OQAeWG?=
+ =?us-ascii?Q?b5N8GFc+aQ2t5bEBzfJHlfNBC/qfl4rggR2ZXX4rmNs49VvMG3kmGLbkrknk?=
+ =?us-ascii?Q?0oGcKGpCObKPMlkqJXSO+MuY2a6iIKSbHrosgmnn6V8L+bNpqVK69JxYyRF9?=
+ =?us-ascii?Q?/WQWhp1FolSiPYVVLMlnRhGQre6sHzo1U1Qi0QqLpC7PyxTpe6EAdIWVw34o?=
+ =?us-ascii?Q?TRXeiKqcHTMIXL2jFJruOO8IgzbqeOwAnTe2vKUuG1SuDZzD9CYkr/72FriQ?=
+ =?us-ascii?Q?hMwA2ufa2LmYI8Zs7iyAiot4z58awMrDbuodzzyJ?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 45f751be-a5a9-4e81-2f43-08ddb94c629b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Jul 2025 09:39:47.9411
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: RXK/nQzOfqxxOX8D8H+wZ8epvEEhVEuY9GnHJbzYfGfUF1ioj+CDyMcQrcCkXNHCg/tOxCjC6/yu335tW5hLtA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB6780
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_023939_424436_FAA26E1C 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20250702_024034_126633_441298FC 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,116 +216,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 02 2025 at 09:18, Gabriele Monaco wrote:
-> On Tue, 2025-07-01 at 14:54 +0200, Peter Zijlstra wrote:
-> I could probably only fix this without even considering NMIs when
-> interrupts are disabled, but I believe if that happens, the tracepoints
-> would report something wrong, since using tracing_irq_cpu alone does:
->
-> local_irq_disable -> trace_irq_off
->   nmi_enter -> no trace
->   nmi_exit -> trace_irq_on
->   // here interrupts are still off, aren't they?
-> local_irq_enable -> no trace
->
-> The idea that I described poorly, was to use tracing_irq_cpu in a way
-> that the first context disabling interrupts fires the tracepoint
-> (current behaviour), but when it's time to enable interrupts, an NMI
-> which didn't disable interrupts shouldn't trace but let the next
-> context trace.
-...
-> [1] - https://lore.kernel.org/lkml/87sejup1fe.ffs@tglx
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Friday, June 27, 2025 3:35 AM
+>=20
+> There are callers that read the unmapped bytes even when rc !=3D 0. Thus,=
+ do
+> not forget to report it in the error path too.
+>=20
+> Fixes: 8d40205f6093 ("iommufd: Add kAPI toward external drivers for kerne=
+l
+> access")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-As I told you before:
-
- "As you correctly described, the two states are asynchronous in the
-  context of NMIs, so the obvious thing is to treat them as seperate
-  entities so that the trace really contains the off/on events
-  independent of lockdep enablement and lockdep's internal state. No?"
-
-So I would have expected that you look at the lockdep implementation and
-figure out why that one works correctly. Let's have a look at it:
-
-nmi_entry()
-   irq_state.lockdep = lockdep_hardirqs_enabled();
-
-   lockdep_hardirqs_off(CALLER_ADDR0);
-   ...
-   return irq_state;
-
-nmi_exit(irq_state)
-
-   if (irq_state.lockdep)
-	lockdep_hardirqs_on(CALLER_ADDR0);
-
-On NMI entry the internal state of lockdep tracking is recorded and
-lockdep_hardirqs_off() handles a redundant off gracefully. As I said it
-might be arguable to invoke it only when irq_state.lockdep == true, but
-that's a cosmetic or performance issue not a correctness problem.
-
-On NMI exit lockdep_hardirqs_on() is only invoked when the lockdep internal
-state at entry was 'enabled' so it can restore the state correctly.
-
-If you model the tracer exactly the same way:
-
-   irq_state.lockdep = lockdep_hardirqs_enabled();
-   irq_state.tracer = tracer_hardirqs_enabled();
-   ....
-
-   You get the idea...
-
-That will be "correct" in terms of sequencing depending on your trace side
-implementation:
-
-  trace_hardirqs_off()
-        if (trace_hardirqs_enabled()) {
-        	trace_irqs_enabled = false;     // A
-                emit_trace(OFF);	        // B
-
-If the NMI hits before A, everything is fine because it will record a
-ON->OFF transition on NMI entry and a OFF->ON transition on NMI
-exit. Then the interrupted context records a ON->OFF transition again.
-
-If it hits between A and B, then the NMI tracing wont do anything
-because enabled state is already false, but the resulting trace
-sequencing is messed up:
-
-     irqs on
-     ...
-     nmi_entry
-     nmi_exit
-     irqs off
-
-IOW, it misses the ON->OFF OFF->ON transitions in the NMI.
-
-So you want to do it the other way round:
-
-  trace_hardirqs_off()
-        if (trace_hardirqs_enabled()) {
-                emit_trace(OFF);	        // A
-        	trace_irqs_enabled = false;     // B
-
-If the NMI hits before A, everything is fine because it will record a
-ON->OFF transition on NMI entry and a OFF->ON transition on NMI
-exit. Then the interrupted context records a ON->OFF transition again.
-
-If it hits between A and B then you get a duplicate
-
-     irqs on
-     ...
-     irqs off
-     nmi_entry
-     irqs off
-     irqs on
-     nmi_exit
-
-There is nothing you can do about it, but that's easy enough to filter
-out, no?
-
-I'm pretty sure you can figure out how that should be modeled on the
-on() side of affairs.
-
-Thanks,
-
-        tglx
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 
