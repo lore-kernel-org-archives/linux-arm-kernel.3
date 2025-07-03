@@ -4,75 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD434C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 08:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5A0C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 08:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iurUCQkQ6NU0bD6+V+iw118TmNVywv06hQqDSqml8f4=; b=RCqRF45a3ZyxMiwy7Oi8t15xdd
-	xrsW9xILQtxp5GVBqCAbjh6FON6qeitSQfGFBnwJXzqV3vUH1mHjaDkRuEZK3V5ZTAf5C+oaVtxRq
-	yHg3wTLeRr+H5hf+bH0SHfNdwrsZZy+Bg8x1AHHYlCnYxADYj2U1RgpBDn7dFI/voRhfa6a04k+y0
-	kQGgEn3bm0+aKnhwzkZ6i612Ag2SvZYmnA0uAJ8Ee7tYfYLDi6QZrWtWUdYxCQ3ZwiukqpQWMVsnI
-	zt7zyY9witVSTmlgQ04paN62yO0Ro1bvWqbbEBbg6pNLRqNTPdiLusBlVVq/8SqMa6Nx6BA/WAh6p
-	yDvQ3MuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i/iGXymbVgNuurydK/IcOHrA6N2DZUF7NkoTNmSKj/k=; b=1lchAJ32cy2ViS+pd87jjerKJS
+	lqKwO2gCK8gXNX5VaFsZXXbAKUabuDk8ZAOXncSde89TynBEBd5Ef8jpE70Xl+Me/2eNJB8MDydM3
+	lyOoS0HVxlTyT2avHwZE8Eh8MmYxgu85BdL0ovrPRdszeoxzfX2ShEUfo94R4m4uSElQMFV+Npolo
+	TGV0Q9tLlTNU4n9dkzNp4ZFXiDOTqdo9eb8fY/HD0bnHuqFYc8M/e4M6cSuRK7vjh2+Y5rbMpa7Fy
+	f9MTfl75q2aGTWF/0YmBoku/hMkLjCStDuF3TvsSuSSCjGL50mp41ZzB0QMHjqSSkeifMnQCQIVLG
+	UHiez3Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXF6z-0000000AdpH-2Ddc;
-	Thu, 03 Jul 2025 08:16:05 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uXF9J-0000000Ae9P-1L7Y;
+	Thu, 03 Jul 2025 08:18:29 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXEvb-0000000AbyZ-3lWJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 08:04:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=iurUCQkQ6NU0bD6+V+iw118TmNVywv06hQqDSqml8f4=; b=m+X8rmO7ABcAgVme6uM4LHj+d1
-	WYzvhrViBMOPIoPNblfxEgNGO1uvQRItO3AdLJWOPy/k531y5YFuyWth71nC4/ByK1iCWgfsXPQDo
-	neP4KP+lu27yO8zDeTTWNAVX9bc+j7qY2mq0JEfsLBNbTdoggQOvaV8QBLyLBkb9epgEpsTT06H+u
-	qs9ZlY+I2wofvcd3cJkxEYiTH/fsjrQ1NzuDfyGbRhKaoszL0GPVYwyjZ1wJVKrHgYOjUNoS4bozz
-	PtmhstF51mhw2k+kO4PEAA4il2AJFsIrVErP5Q7YN5KViW1Fl6oO5MQo8e+tn0DhuIURCSvJ9lQwD
-	BUwEH+bQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56566)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uXEvK-0000MI-0j;
-	Thu, 03 Jul 2025 09:04:02 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uXEvI-0004vN-04;
-	Thu, 03 Jul 2025 09:04:00 +0100
-Date: Thu, 3 Jul 2025 09:03:59 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm: DT: imx6-sr-som: Replace license text comment with
- SPDX identifier
-Message-ID: <aGY5bx1Qpx_7Dqea@shell.armlinux.org.uk>
-References: <20250702-sr-som-dts-lic-v1-1-2e8584e6c837@prolan.hu>
- <aGWqIzNvSVw4olz5@shell.armlinux.org.uk>
- <2f628251-5b67-47e0-8038-6c1aeee1ef91@prolan.hu>
+	id 1uXEvz-0000000Ac3l-1KsD;
+	Thu, 03 Jul 2025 08:04:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 770C3A536AD;
+	Thu,  3 Jul 2025 08:04:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7208EC4CEE3;
+	Thu,  3 Jul 2025 08:04:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751529882;
+	bh=i/iGXymbVgNuurydK/IcOHrA6N2DZUF7NkoTNmSKj/k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kAM1Jn36Pz6CMvZHvihRBjfkuyPPp3YFTYGL1AZFAlRUPCvJ+NRZnofreNg+zJBcA
+	 0DRfpGhYOaTLl6rdViNDpqtXVAX2F4LYuTwG7F+gZILeNLiXROfRF4r9HWKIV2V/8z
+	 3MHPMrJ0ygkw2mIBJZ8SfdV74szgpdEBtoj4BToY4Op6xU2ZRNEMN1TGRchys4fwxa
+	 3vh6ySZsyLFETqvecw6JkbfgWp1G7axaxB5FulTvXvdsAPheZzNhbWnNsQVG+Rtmy8
+	 9mNQ+AiE55h1I/EjL3bGNMHBaS1Ok/vlh3G9o3YmOCYTi9rzNTffKLkzf69jJM9ePi
+	 HrNJaIngfMF2A==
+Message-ID: <a42a8774-fc1d-4928-a37f-f6ea5e26f2ee@kernel.org>
+Date: Thu, 3 Jul 2025 10:04:34 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2f628251-5b67-47e0-8038-6c1aeee1ef91@prolan.hu>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH next 1/3] ASoC: dt-bindings: tas2781: fix reset polarity
+To: Catalin Popescu <catalin.popescu@leica-geosystems.com>,
+ lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, shenghao-ding@ti.com,
+ kevin-lu@ti.com, baojun.xu@ti.com, perex@perex.cz, tiwai@suse.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, m.felsch@pengutronix.de,
+ bsp-development.geo@leica-geosystems.com
+References: <20250703075037.2558549-1-catalin.popescu@leica-geosystems.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20250703075037.2558549-1-catalin.popescu@leica-geosystems.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_010419_934133_68B1ABA4 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20250703_010443_512991_044A9AF9 
+X-CRM114-Status: UNSURE (   5.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +122,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 02, 2025 at 11:56:20PM +0200, Csókás Bence wrote:
-> Hi,
-> 
-> On 2025. 07. 02. 23:52, Russell King (Oracle) wrote:
-> > On Wed, Jul 02, 2025 at 11:41:54PM +0200, Bence Csókás wrote:
-> > > Replace verbatim license text with a `SPDX-License-Identifier`.
-> > > 
-> > > The comment heades mis-attributes this license to be "X11", but the
-> > > license text does not include the last line "Except as contained in this
-> > > notice, the name of the X Consortium shall not be used in advertising or
-> > > otherwise to promote the sale, use or other dealings in this Software
-> > > without prior written authorization from the X Consortium.". Therefore,
-> > > this license is actually equivalent to the SPDX "MIT" license (confirmed
-> > > by text diffing).
-> > > 
-> > > Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
-> > 
-> > As Florian has already mentioned, the preferred format for the summary
-> > for arch/arm is "ARM: ... " and by extension for arch/arm/boot/dts,
-> > it's "ARM: dts: ...", not "arm: DT: ..."
-> 
-> Ohh, I misread it, I thought it was just about `imx6: board:` ->
-> `imx6-board:`... Ok, I will re-format it for v2.
+On 03/07/2025 09:50, Catalin Popescu wrote:
+> Both TAS2563 & TAS2781 have a reset active low. Yet, the binding wrongly
+> indicates an active high reset.
 
-Note that it applies to _all_ patches to arch/arm/boot/dts.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+This is just an example, not a binding. If there is an inverter, then
+maybe the example was correct?
+
+Best regards,
+Krzysztof
 
