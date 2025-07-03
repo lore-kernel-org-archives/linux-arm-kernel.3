@@ -4,98 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00140C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AF4C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FklnJtDo9yeFD4xiZdN1VsVaoDfKdcDRiLzMHURLjos=; b=qxYNUbgX9RRO1ZSBwrtqm9/Vrs
-	j95kt3WF2IuhvzrV9JA3DVrDBhGbXJlTF1KLXfGrA5PHx6JYAq/8E2jytvg/CDJVJvr1KRzXQt2xE
-	mnN5pGFy9Z0+wg3Tl1hkeYbf0CokJNvlAi5Aaikw0Ch/ju2eepQZoeVTrD7jZuwc0bjLh1TzJ3nvB
-	PBIkSnvxQSuyp7QqsK9y61GZbbBsNWz0k4Y9sPmy1oDK4WNl6eZOSYQC9oXvxSCYjz2h2SuJXCyyM
-	6UXqv3tb6RegYAPmV52tGlCh9rjPuvIS2SGseuhQ/E3sTiTXd8YibeQPPeVJ9/X+lnrXmag7LRNWI
-	MzSsnECA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WwoTgEey+xgnou75Nab2N4qPS2k7RZR/irHhEaV1Zh8=; b=131AGIgD1gPK57IAAhYCOuN41h
+	depxRBssKUEAJi++mWrH9A3IFCvFF6kPAW52YPxvWCEBHGIapLPHxFb/X08Td1n4rW5OdlEah8gxi
+	XF7jAsH5qH9c3+S8bfmtcGWXJETXaOqOfec4dkTP1QcDFi6KJkZCIknGTJZZTEF1KtkpOxcVQsEks
+	y90hElclmmisOUL3m6dVHEToz4hmie8/tHX6x9GwBSN08MbgAfL5gs24y4aQqNdj0NUyI2Uj++SPq
+	mICYYNk1B/9feG3B6UxPyPV0s+dyUqCtAt+3G+zUwI0LS6ijLRj20a33tymxycApIBd3nCl13eGrF
+	tuMrzSKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXQzX-0000000CTG6-07PL;
-	Thu, 03 Jul 2025 20:57:11 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1uXR0A-0000000CUFN-1FLl;
+	Thu, 03 Jul 2025 20:57:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXLbc-0000000BmCZ-24ZG
+	id 1uXM5v-0000000Bs9A-43a3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 15:12:09 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55502821bd2so16398e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 08:12:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751555527; x=1752160327; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=FklnJtDo9yeFD4xiZdN1VsVaoDfKdcDRiLzMHURLjos=;
-        b=Q+CJGoaEyYn4m+OAuIhHJlrHAPU1cA0zRxEZ9wdZw5SiVyJJKVC6Awa1j8bD4QsknE
-         LO3yAx5tPuN4e4uPeIaYB3xQtq+Z5hTQbCAbSmrLywFrvtatZ28ewrvTVYqWCaXXxGej
-         MHSdllSb42dkcTLjGTyxNw2Swh/lAcWR/QicYiydljaEJ/ep/TgObHywhmX47XVx/fp+
-         QAR+jphWmm1ZsfHRosd34jQb9trKbNmUbGJxOQrShD8Lf7QFvr98LU4lKkDa4lv7SozX
-         OvXJhcadz2Qo5BiUCV1HBwedOIMP5Nz1gB0OabPtb6XaTLiIG8lOTXWUXpQUPtNIDH1J
-         JQew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751555527; x=1752160327;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FklnJtDo9yeFD4xiZdN1VsVaoDfKdcDRiLzMHURLjos=;
-        b=WxOM9nw70e+etLZddTVuM7DJFP5ONPjLWYjnf/g4jhv0j1FLNISi9mZ5gUfRjJBUSX
-         U01WJHLfegt1NHcambvlgEaIV8lEV1AalmtIacH22liQFqDdQvMtYKGeNnPVpxG7VJgi
-         JLCAftPJj3dygAkD2pWeXZskVbX9hfdsU/oRY5t2xvb/MDGuRZgTx6mjUevbfsKnRW6Q
-         pmke4fotw+32gZX5NN27VPfeEOrACmlWELEF8EVvsEsVBgVlMHTNnMksXnrVO+UsdA0Z
-         4tcocrGXOOWcNpitdNsfEVaJ8mglmMfCbBUBGpjoBZ737V+5WUuP7C4/6+awuF/xwD4M
-         6yqg==
-X-Forwarded-Encrypted: i=1; AJvYcCUAgYpzwEH6PXBXm+hY8UmfbCA+YxDR9QJHBuU/zYBCDp2PPfL/SuCcqcN6QnsnT9M9/WDY0V1OpU6qpVIEbyQI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwX2SvZRLhfMqMvmEw22T1Em3aEQQrpdO39lV0/mDo56olgEc+c
-	XC3BdWQcikwp+injpbUTYm6RTem0p8Yak9kcsrySGywR7DjN8+r+ui/a/u398mWKConCdZz0
-X-Gm-Gg: ASbGncs4aXYTCl0P/v5IT1Mw1g/W9w9DobyGG2iEcn1Q2TgDzFYCtGKd+RU+Lnh8W+X
-	e60c12t9bOfYPliVl9l54Zzkg5onsktaA8JnDHmME1fl36dDuzRZFXotOCNoINj1XppUM3An0aS
-	OZRA87I+5NBI1ABsLHEXdThx+n+chbBj3ecFdXGoHA+nGwucSF8y4Wgp56/ZkjpxXp1x2ScedAp
-	oYe3ZyymS8bGgSbFbCwGGOj8NfPYLumSBKYtG/60+cqg/WvLXLdiQ62GGsikItb67qX5DKiiFA/
-	mUiK48DH0lOiFEelDoclUSM6RmHgbEb3MOVFKBsmHVy/AQP4IdqUdOJ5/2N4ugmMH8ART/I=
-X-Google-Smtp-Source: AGHT+IFObnwk1CUw/4SeBMAwtqp40i0kVp9nyZ7PpPHlgqYkcRXB6haIqde1G0SGKx5hXuFwxxb7Og==
-X-Received: by 2002:a05:6512:4025:b0:553:297b:3d4e with SMTP id 2adb3069b0e04-5562efc934fmr1450440e87.52.1751555526425;
-        Thu, 03 Jul 2025 08:12:06 -0700 (PDT)
-Received: from localhost.localdomain ([212.192.12.80])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-556384ae15esm725e87.178.2025.07.03.08.11.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jul 2025 08:12:06 -0700 (PDT)
-From: iuncuim <iuncuim@gmail.com>
-To: Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Thu, 03 Jul 2025 15:43:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 642B261151;
+	Thu,  3 Jul 2025 15:43:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBBCFC4CEE3;
+	Thu,  3 Jul 2025 15:43:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751557407;
+	bh=KPNx93oq+EW5S/Omi2rpiF4iPr+uVFbJwi4esUMXMw8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DQokQwHYANLecf4Ib1umWY+AGlxYxq08A9BPwAQDmyMGnOEUzkN/i53aQU3zQ84xb
+	 qv5GXEFWKjqnfFKbc6ztk2zDSqi7lZANLS7jPwGPQ7+rtWKbR+Wd0l1zm3y7khDZze
+	 R8gzRR/l97lxaGYKzf0GhHjeMyMzPgtW82oHPFRgWfPXvInAjWbGjbDOmWRqQnH+aU
+	 dJH/jQOUVXgvC//Ma3uGHV68ZQB3kcxLNUX5wvX8fP89FPqOWoZ/aLZcb1p3K5X8Nn
+	 Bs/xJLWmppAhz5Q4n/RAWKVvjM8hA1JUVLpI3DgLY3eVW7qAU+kOUdwTZqWqfKbs7j
+	 yl0xlGnRr51KA==
+Date: Thu, 3 Jul 2025 10:43:26 -0500
+From: Rob Herring <robh@kernel.org>
+To: Mao Jinlong <quic_jinlmao@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@arm.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Vasily Khoruzhick <anarsoul@gmail.com>,
-	Yangtao Li <tiny.windzz@gmail.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH v2 0/8] Allwinner: A523: add support for A523 THS0/1 controllers
-Date: Thu,  3 Jul 2025 23:11:24 +0800
-Message-ID: <20250703151132.2642378-1-iuncuim@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v8 1/2] dt-bindings: arm: Add label in the coresight
+ components
+Message-ID: <20250703154326.GA1674898-robh@kernel.org>
+References: <20250703130453.4265-1-quic_jinlmao@quicinc.com>
+ <20250703130453.4265-2-quic_jinlmao@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_081208_541497_AA165851 
-X-CRM114-Status: GOOD (  12.23  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250703130453.4265-2-quic_jinlmao@quicinc.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,66 +78,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mikhail Kalashnikov <iuncuim@gmail.com>
+On Thu, Jul 03, 2025 at 09:04:52PM +0800, Mao Jinlong wrote:
+> Current name of coresight component's folder consists of prefix of
+> the device and the id in the device list. When run 'ls' command,
+> we can get the register address of the device. Take CTI for example,
+> if we want to set the config for modem CTI, but we can't know which
+> CTI is modem CTI from all current information.
+> 
+> cti_sys0 -> ../../../devices/platform/soc@0/138f0000.cti/cti_sys0
+> cti_sys1 -> ../../../devices/platform/soc@0/13900000.cti/cti_sys1
+> 
+> Add label to show hardware context information of each coresight
+> device. There will be a sysfs node label in each device folder.
+> 
+> cat /sys/bus/coresight/devices/cti_sys0/label
+> 
+> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+> ---
+>  .../devicetree/bindings/arm/arm,coresight-cti.yaml          | 6 ++++++
+>  .../devicetree/bindings/arm/arm,coresight-dummy-sink.yaml   | 6 ++++++
+>  .../devicetree/bindings/arm/arm,coresight-dummy-source.yaml | 6 ++++++
+>  .../bindings/arm/arm,coresight-dynamic-funnel.yaml          | 6 ++++++
+>  .../bindings/arm/arm,coresight-dynamic-replicator.yaml      | 6 ++++++
+>  .../bindings/arm/arm,coresight-static-funnel.yaml           | 6 ++++++
+>  .../bindings/arm/arm,coresight-static-replicator.yaml       | 6 ++++++
+>  .../devicetree/bindings/arm/arm,coresight-tmc.yaml          | 6 ++++++
+>  .../devicetree/bindings/arm/qcom,coresight-tpda.yaml        | 6 ++++++
+>  .../devicetree/bindings/arm/qcom,coresight-tpdm.yaml        | 6 ++++++
+>  10 files changed, 60 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+> index 2d5545a2b49c..5ca6d3d313a3 100644
+> --- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+> @@ -98,6 +98,12 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>  
+> +  label:
+> +    $ref: /schemas/types.yaml#/definitions/string
 
-This patch series adds temperature sensor support for the Allwinner A523
-family of processors (same die with H728/A527/T527)
+label already has a type. Drop.
 
-Changes:
-1) dt-bindings: nvmem: SID: Add binding for A523 SID controller
- - added new patch
+> +    description:
+> +      Define the label which can describe what kind of HW or system the
+> +      coresight device belongs to.
 
-2) dt-bindings: thermal: sun8i: Add A523 THS0/1 controllers
- - changed clock order
- - added additional nvmem cell with calibration data
- - added requirements for new controllers
- - added description
+'compatible' tells us 'what kind of HW'.
 
-3) thermal/drivers/sun8i: add gpadc clock
- - removed unnecessary call to clk_prepare_enable() since
- devm_clk_get_enabled()includes this
-
-4) thermal/drivers/sun8i: replace devm_reset_control_get to
- - original function replaced with devm_reset_control_get_shared_deasserted()
- - removed some of the repetitive code executed by 
- devm_reset_control_get_shared_deasserted()
-
-5) thermal/drivers/sun8i: get calibration data from two nvmem cells
- - added possibility to get calibration data from two independent cells
-
-6) thermal/drivers/sun8i: Add support for A523 THS0/1 controllers
- - removed magic digits
- - changed description of calibration data procedure for A523
- - changed numbers of array elements with calibration data
-
-7) arm64: dts: allwinner: A523: Add SID controller node
- - fix typo (sun50i->sun55i)
-
-8) arm64: dts: allwinner: A523: Add thermal sensors and zones
- - cell with calibration data divided into two
- - added passive trips for gpu
- - added information that information obtained from BSP
-
-v1: https://lore.kernel.org/linux-sunxi/20250411003827.782544-1-iuncuim@gmail.com
-
-Mikhail Kalashnikov (8):
-  dt-bindings: nvmem: SID: Add binding for A523 SID controller
-  dt-bindings: thermal: sun8i: Add A523 THS0/1 controllers
-  thermal/drivers/sun8i: add gpadc clock
-  thermal/drivers/sun8i: replace devm_reset_control_get to
-    devm_reset_control_get_shared_deasserted
-  thermal/drivers/sun8i: get calibration data from two nvmem cells
-  thermal/drivers/sun8i: Add support for A523 THS0/1 controllers
-  arm64: dts: allwinner: A523: Add SID controller node
-  arm64: dts: allwinner: A523: Add thermal sensors and zones
-
- .../nvmem/allwinner,sun4i-a10-sid.yaml        |   1 +
- .../thermal/allwinner,sun8i-a83t-ths.yaml     |  49 +++-
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 162 ++++++++++++
- drivers/thermal/sun8i_thermal.c               | 240 ++++++++++++++----
- 4 files changed, 406 insertions(+), 46 deletions(-)
-
--- 
-2.49.0
-
+> +
+>    arm,cti-ctm-id:
+>      $ref: /schemas/types.yaml#/definitions/uint32
+>      description:
 
