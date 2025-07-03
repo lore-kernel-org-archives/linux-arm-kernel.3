@@ -4,88 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB7AC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FA3C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CH34y2DNV0r5uiaudTDEaCsdCiE+vgx/V9LNW6/Ooa0=; b=EhHemdgOTwKL32Fmfp0509eC5f
-	ZFMGbqap6KKted0+y/6vqGHKgk+ZVVIWhbEscuLk01j2wQRrvmdEaf96HOQHJ6pUvm72usOJhMsHH
-	DhcFRLqXT9/WDtYoj101uTNlgKqJR3oXX8DCDSdoAnnhj/OT3oxWNa6uTNlfTpwNDyw3ITHqTMDRT
-	5t+PnLx8WaN+WMafl/6e+MEk0h4siiI7+BAQSOTlPjOEQzAi73MBsSZdV8HAlbaRpFjgiOjKpiF5i
-	CAOdwljQ+bXUi0+a4T6RgHQozdpIHGTzfnHp44gAm4jVsLuJQMzM+0pgQHGP4oxGBeabl0W6+ZuJ5
-	aIvyt7cw==;
+	bh=1W3w9MJ2ChcuTvKxi9ZMSSYzvPLc49TB/TDjBvpqAHg=; b=RQbDPZQbfNKRD6Sydi+PoEFvWz
+	fv8Rh9fqekx19TzIhwt7UQD3Zq0dyw4q+Be170Gev6pey3GMFHqeameFZZJJyJklGFLq5f6s1zV/B
+	KIjDHdqIiGZt0GpOxRYQ/CNTsy3UNuzqyA169msahOnRAAEtkOTEl+utx3MX/iOEPm0PhFxnGpdXn
+	OQI7DEBuzUd7UgLIhE2ucZpCBQfmEAD5j2HZdPvJPJ4ggeF/JA7EO13oweZb2YDaGtyd/2GIbAu1i
+	I+drJfVAaVL0XWr1SCdD8HRRJvU3Vaglru7Py2g06ycx3lWenij8wbPqOk4DCuMGPg6Bp7JuPGWrF
+	pr50qGFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKeZ-0000000Bc2s-1qrw;
-	Thu, 03 Jul 2025 14:11:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uXKgu-0000000BcYM-0gkF;
+	Thu, 03 Jul 2025 14:13:32 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJCj-0000000BM4p-18jW
+	id 1uXIvJ-0000000BIsA-4Ai6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 12:38:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7296943B03;
-	Thu,  3 Jul 2025 12:38:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AA61C4CEE3;
-	Thu,  3 Jul 2025 12:38:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751546295;
-	bh=hWvVF87EVM3mwOjPFZe4ew5uoKrcihEE8r7VGd37jSU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=e4fGec5c+a5XsC3kgG1v/EdvTMJUV2gZBtLRlD9DGZLuyOij9qKsXlWe5wLzV4kYk
-	 7/kMUudklu19iKKFI6MbnQqZSYYoBS7qBGNYHsY/tfCRZd39OEHYsUdSD7oowWMAhd
-	 +6PE5W2ct1AlegAX6RQn+R8Qzlne6LKm4Qw8WAHLMBBk9IIUe2yA6IOBnYXQxIq2Ax
-	 OUBjV8Ws9cCncRJrNtt1YIYtMH19OwSqBi3QMC9mzzD050ap35SFtTts9OUear417j
-	 VWkykKtpqImYAZ3cfD+WzyFs3/02DcMarY3emCiEJq2dgTbhK89uBBRqGJG1+sLPMR
-	 foN3vbumvs9Zw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uXJCf-00CJgJ-5K;
-	Thu, 03 Jul 2025 13:38:13 +0100
-Date: Thu, 03 Jul 2025 13:38:12 +0100
-Message-ID: <8634bdbgaz.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: perlarsen@google.com
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	ahomescu@google.com,
-	armellel@google.com,
-	arve@android.com,
-	ayrton@google.com,
-	qperret@google.com,
-	sebastianene@google.com,
-	qwandor@google.com
-Subject: Re: [PATCH v7 2/5] KVM: arm64: Use SMCCC 1.2 for FF-A initialization and in host handler
-In-Reply-To: <20250701-virtio-msg-ffa-v7-2-995afc3d385e@google.com>
-References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
-	<20250701-virtio-msg-ffa-v7-2-995afc3d385e@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: perlarsen@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, sudeep.holla@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, arve@android.com, ayrton@google.com, qperret@google.com, sebastianene@google.com, qwandor@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 03 Jul 2025 12:20:19 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e898fb745beso764424276.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 05:20:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1751545216; x=1752150016; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=1W3w9MJ2ChcuTvKxi9ZMSSYzvPLc49TB/TDjBvpqAHg=;
+        b=i8lwvQS1n7qbbYPkjIQPP4bGofyj2OcLKt5BmkbsaSG/5eDlrYUuMq3VoBE5WAgCYD
+         RJ9jijOak6k3vPcqYWNOjFiIHdDA5x2aNtgEgnhTuapYK1PJyxvbQUeBxP2C7+2i6ayF
+         Sizza9FWpw9C7qeye2RW0DH4f7oymls+o7ewGA18/gc27neqjvlERuHGg1IVGVaiYhOw
+         vpUu0USWfL9SgMjzLGdalcU3vyogiTT1Hk0PPBqDWwWxH/ZY6FKp0r5aL3T70LNDw15Y
+         xN/SNF+EpaBw1mVdbu2VP87nyZP/231jJRBl8fvavwmqeVpP80Jk4u/AoNQsWbBmydVa
+         lVMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751545216; x=1752150016;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1W3w9MJ2ChcuTvKxi9ZMSSYzvPLc49TB/TDjBvpqAHg=;
+        b=A00FbNg0mtf+J9OQHlkshb24Z9qNKYFI7EmUxI630CxK8NpQ7Mv+eGeoNXrU4jnynz
+         nNwq3jWYaOlIzOEYDoByV4m/1Z5uDrgUOeKWOuWz/GQiZ0j4YV4pWdApbVHK8v0cpRw8
+         Hih7b2u5OEP6d/D6Z/L5Rp+StwmI5fV4V45J3D2D9M5HYk9H/7wdaNO11sZM5xH4lifP
+         mmGnIgTcHmIUzD6O97PuOX8QXFlBTN9wyznpwtJ66YS+ETsrm+XSpY644WMvD3CPksWR
+         oiEmC+MW9hI8W+1ZtZ3Ujxe7bIHXGngljDHBVD3nq/t04MNihzbw0OApNHfLblKn/07u
+         9OJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWOaYV9SSQfwrG9Ve3v4Bg50CS0v6fZwBp7EbjbGxkSFIwDsUy/6Uwmql3E0CMG3euQBuq1al9ZwIIozMB9IT1z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTyh9cNIQ3bdk8BYLvgOtp+Uq4Ssxgn1CBtkJ3cky4ukkfI9IG
+	+AwxBF17l4rUTml31pLQ7qTeuN8U5H8paFvwUzBFBHkcckj1vldIhnX/Txq+dGMgq/eIqLTums6
+	WIbWCQ22T2LlQvWhWrmYiScj/woWT+NEqn9bXR/PQ6A==
+X-Gm-Gg: ASbGncvCoqVVF7doenUsmu2d+tvFBadV6jyn2s+NEEj0xA6kswo0wXEEfp/RaXUKPmg
+	yP9c1SmonEWTjbUB9Ru+jghIY7Z+f1glF/3ZCPL0+LSE0rwzG8ZBVBpTVpc2AkfWX7d0qGqrELn
+	iX4lL13tDddztvJYkwja1MyLZs7f5MyksWD3xFJHTwcpN5
+X-Google-Smtp-Source: AGHT+IEmhW8Ov0Y9jVrvHOwZj8H8nMIFymTr5BFDKBgbv/so+xhj7BgHcBqsC0qPpeL0TROZTppJMnK5zQ5xBecp9QQ=
+X-Received: by 2002:a05:690c:1d:b0:70e:404f:6714 with SMTP id
+ 00721157ae682-7165cb464b8mr25745387b3.19.1751545215794; Thu, 03 Jul 2025
+ 05:20:15 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250630093510.82871-2-fourier.thomas@gmail.com>
+In-Reply-To: <20250630093510.82871-2-fourier.thomas@gmail.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 3 Jul 2025 14:19:38 +0200
+X-Gm-Features: Ac12FXy-fHCOkMVSjWEqOM8yM1ocTCdlPI1Mnhp584Yxu07D6HeH7gPis0rWzRo
+Message-ID: <CAPDyKFpJagX2mUNmMrA1k2iogXgq_reXAf1NEeDyC96jMv807w@mail.gmail.com>
+Subject: Re: [PATCH] mmc: bcm2835: Fix dma_unmap_sg() nents value
+To: Thomas Fourier <fourier.thomas@gmail.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Yumeng Fang <fang.yumeng@zte.com.cn>, Eric Anholt <eric@anholt.net>, linux-mmc@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_053817_353426_53994FB1 
-X-CRM114-Status: GOOD (  30.88  )
+X-CRM114-CacheID: sfid-20250703_052018_029239_EB5769DA 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,150 +97,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Jul 2025 23:06:35 +0100,
-Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org> wrote:
->=20
-> From: Per Larsen <perlarsen@google.com>
->=20
-> SMCCC 1.1 and prior allows four registers to be sent back as a result
-> of an FF-A interface. SMCCC 1.2 increases the number of results that can
-> be sent back to 8 and 16 for 32-bit and 64-bit SMC/HVCs respectively.
->=20
-> FF-A 1.0 references SMCCC 1.2 (reference [4] on page xi) and FF-A 1.2
-> explicitly requires SMCCC 1.2 so it should be safe to use this version
-> unconditionally. Moreover, it is simpler to implement FF-A features
-> without having to worry about compatibility with SMCCC 1.1 and older.
->=20
-> Update the FF-A initialization and host handler code to use SMCCC 1.2.
->=20
-> Signed-off-by: Per Larsen <perlarsen@google.com>
+On Mon, 30 Jun 2025 at 11:35, Thomas Fourier <fourier.thomas@gmail.com> wrote:
+>
+> The dma_unmap_sg() functions should be called with the same nents as the
+> dma_map_sg(), not the value the map function returned.
+>
+> Fixes: 2f5da678351f ("mmc: bcm2835: Properly handle dmaengine_prep_slave_sg")
+> Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
+
+Applied for fixes and by adding a stable-tag, thanks!
+
+Kind regards
+Uffe
+
+
 > ---
->  arch/arm64/kvm/hyp/nvhe/Makefile |   1 +
->  arch/arm64/kvm/hyp/nvhe/ffa.c    | 193 +++++++++++++++++++++++++--------=
-------
->  2 files changed, 125 insertions(+), 69 deletions(-)
->=20
-> diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/M=
-akefile
-> index a76522d63c3e630795db5972a99abc3d24bc5e26..f859a8fb41a25effea1edd977=
-bef889423153399 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/Makefile
-> +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-> @@ -27,6 +27,7 @@ hyp-obj-y :=3D timer-sr.o sysreg-sr.o debug-sr.o switch=
-.o tlb.o hyp-init.o host.o
->  	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
->  hyp-obj-y +=3D ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../=
-entry.o \
->  	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
-> +hyp-obj-y +=3D ../../../kernel/smccc-call.o
->  hyp-obj-$(CONFIG_LIST_HARDENED) +=3D list_debug.o
->  hyp-obj-y +=3D $(lib-objs)
-> =20
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 2c199d40811efb5bfae199c4a67d8ae3d9307357..65d241ba32403d014b43cc4ef=
-4d5bf9693813809 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -71,36 +71,68 @@ static u32 hyp_ffa_version;
->  static bool has_version_negotiated;
->  static hyp_spinlock_t version_lock;
-> =20
-> -static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
-> +static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_e=
-rrno)
->  {
-> -	*res =3D (struct arm_smccc_res) {
-> +	*res =3D (struct arm_smccc_1_2_regs) {
->  		.a0	=3D FFA_ERROR,
->  		.a2	=3D ffa_errno,
->  	};
->  }
-> =20
-> -static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u6=
-4 prop)
-> +static void ffa_to_smccc_res_prop(struct arm_smccc_1_2_regs *res, int re=
-t, u64 prop)
->  {
->  	if (ret =3D=3D FFA_RET_SUCCESS) {
-> -		*res =3D (struct arm_smccc_res) { .a0 =3D FFA_SUCCESS,
-> -						.a2 =3D prop };
-> +		*res =3D (struct arm_smccc_1_2_regs) { .a0 =3D FFA_SUCCESS,
-> +						      .a2 =3D prop };
->  	} else {
->  		ffa_to_smccc_error(res, ret);
->  	}
->  }
-> =20
-> -static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
-> +static void ffa_to_smccc_res(struct arm_smccc_1_2_regs *res, int ret)
->  {
->  	ffa_to_smccc_res_prop(res, ret, 0);
->  }
-> =20
->  static void ffa_set_retval(struct kvm_cpu_context *ctxt,
-> -			   struct arm_smccc_res *res)
-> +			   struct arm_smccc_1_2_regs *res)
->  {
-> +	DECLARE_REG(u64, func_id, ctxt, 0);
->  	cpu_reg(ctxt, 0) =3D res->a0;
->  	cpu_reg(ctxt, 1) =3D res->a1;
->  	cpu_reg(ctxt, 2) =3D res->a2;
->  	cpu_reg(ctxt, 3) =3D res->a3;
-> +	cpu_reg(ctxt, 4) =3D res->a4;
-> +	cpu_reg(ctxt, 5) =3D res->a5;
-> +	cpu_reg(ctxt, 6) =3D res->a6;
-> +	cpu_reg(ctxt, 7) =3D res->a7;
-
-=46rom DEN0028G 2.6:
-
-<quote>
-Registers W4-W7 must be preserved unless they contain results, as
-specified in the function definition.
-</quote>
-
-On what grounds can you blindly change these registers?
-
-> +
-> +	/*
-> +	 * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30.
-> +	 *
-> +	 * The most straightforward approach is to look at the function ID
-> +	 * sent by the caller. However, the caller could send FFA_MSG_WAIT
-> +	 * which is a 32-bit interface but the reply could very well be 64-bit
-> +	 * such as FFA_FN64_MSG_SEND_DIRECT_REQ or FFA_MSG_SEND_DIRECT_REQ2.
-> +	 *
-> +	 * Instead, we could look at the function ID in the response (a0) but
-> +	 * that doesn't work either as FFA_VERSION responses put the version
-> +	 * number (or error code) in w0.
-> +	 *
-> +	 * Set x8-x17 iff response contains 64-bit function ID in a0.
-> +	 */
-> +	if (func_id !=3D FFA_VERSION && ARM_SMCCC_IS_64(res->a0)) {
-> +		cpu_reg(ctxt, 8) =3D res->a8;
-> +		cpu_reg(ctxt, 9) =3D res->a9;
-> +		cpu_reg(ctxt, 10) =3D res->a10;
-> +		cpu_reg(ctxt, 11) =3D res->a11;
-> +		cpu_reg(ctxt, 12) =3D res->a12;
-> +		cpu_reg(ctxt, 13) =3D res->a13;
-> +		cpu_reg(ctxt, 14) =3D res->a14;
-> +		cpu_reg(ctxt, 15) =3D res->a15;
-> +		cpu_reg(ctxt, 16) =3D res->a16;
-> +		cpu_reg(ctxt, 17) =3D res->a17;
-> +	}
->  }
-
-I don't see how that can ever work.
-
-Irrespective of how FFA_MSG_WAIT actually works (and I couldn't find
-anything in the spec that supports the above), the requester will
-fully expect its registers to be preserved based on the initial
-function type, and that alone. No ifs, no buts.
-
-If what you describe can happen (please provide a convincing example),
-then the spec is doomed.
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+>  drivers/mmc/host/bcm2835.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/mmc/host/bcm2835.c b/drivers/mmc/host/bcm2835.c
+> index def054ddd256..4fced9b36c80 100644
+> --- a/drivers/mmc/host/bcm2835.c
+> +++ b/drivers/mmc/host/bcm2835.c
+> @@ -503,7 +503,8 @@ void bcm2835_prepare_dma(struct bcm2835_host *host, struct mmc_data *data)
+>                                        DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
+>
+>         if (!desc) {
+> -               dma_unmap_sg(dma_chan->device->dev, data->sg, sg_len, dir_data);
+> +               dma_unmap_sg(dma_chan->device->dev, data->sg, data->sg_len,
+> +                            dir_data);
+>                 return;
+>         }
+>
+> --
+> 2.43.0
+>
 
