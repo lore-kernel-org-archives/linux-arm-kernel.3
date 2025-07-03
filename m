@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD0DC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB99FC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 15:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4kcJobrOnoamaBnANOlfQkU1M63AHPCa2YelSe1E0P8=; b=ZjM0NbEOTqCE14ZTs3cIlInEH8
-	nqRuKWlPFQXdr8ZRzKj7V+AyKQqarO8rQVD7OpcINLGo2G6eJ/s5DsC22WgQVfPlS88eGaS74ZDQl
-	nqfrgzl93LO71CehU0IKRev0LPUtnq8aX4aHHcVqqS25Ezr60YX74pnsSm27cRJlzZrVrHTErdr1b
-	xMLv9H3CBCSY/H99UBWhRe+Bl2AffGWIUWUW9RIWSg1bMK2nO8Z6bJJcDfmVTIxZQIG29Ugngi67A
-	kEMLGCH2NSVr5JLsTY+Sum6MkcKNvWN3VF2SA4lkhw9Mrrw5ICg9qLBDImkOymt+e24XdpBe98wZO
-	8uBi3OLQ==;
+	bh=4kcJobrOnoamaBnANOlfQkU1M63AHPCa2YelSe1E0P8=; b=0NHnC2X5L2CdVy2+mTHs6Uq7fN
+	FFwbkcJAB3p3QYvuN9v36OPOGHOMH0boPn2zaq+gR7nIU6bv4NQv86N6jTK2nlF9IhCR3m6a2pGjp
+	qc3nCTJiXhqQoAq2qkYXyz8wXVL29W/qqCEi8Xp3igPgYmFn7oIz5KETBz57TQ6Mpql/u5xZi2AF6
+	h6DOV1wj8gq5/eh5pyhoW/MGKTlqhQ/vIrASPONL+cst+GRO9V+bVD8kOWDX/gSMd6QpP4jf9GxGI
+	RpDOPXSVuu8jLs/xHsIE/T6K2kN0GrXbYPJusMQ4fPK5AWjpLbdWxvHgajtLGU8/okHRSEWi04P2L
+	rUjZv9zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXLP3-0000000BkQF-0MXU;
-	Thu, 03 Jul 2025 14:59:09 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uXLRM-0000000BkkN-30j7;
+	Thu, 03 Jul 2025 15:01:32 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJse-0000000BTNa-1tuj;
-	Thu, 03 Jul 2025 13:21:37 +0000
+	id 1uXJtc-0000000BTb9-0p5W;
+	Thu, 03 Jul 2025 13:22:37 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1751548895;
+	s=2020; t=1751548954;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
 	bh=4kcJobrOnoamaBnANOlfQkU1M63AHPCa2YelSe1E0P8=;
-	b=poK89cojJLljpS4cgoWnZb6taDP6yW5SHdznqNdBryXosLz2ulgnRyyZhCQ3LPmC9p+k2+
-	pG8XA++PgQ6zK3IJRPgN8n9zSkK4bhM5YVaZUoy9HXU0inABUpIpauPdIYBJ4tw/SnVrgi
-	SjJp5+/UCHRlY3TSEBwnSOSKOW78Z2rmj8DoZGZAOTtMkJQKi/lF4nB8KgXcHpw9jRVp11
-	jVvqS9SCXKEtzsCLaF025y0exYbM0tRDUc7upJ41CLq89TZ1NjJ7PGDqFprz/sskMZkdr0
-	y2JxW4WyE3cvUXXPl5MqnSLFrnnigMZ/tw3lxoabfHU7fNoWMrAAlJ1eVY36Zg==
+	b=ci1E4SPksCiCJizuztVuBjLDRmAb1MGzgUcyWv8SIXwN+M1AX2hGa4D2vN3gaM7e0Q+oU+
+	/p9ffpL6DEClpZ0ckyBdHUFVfHwrnO51X8+Mph5NSwUUybevxhcxAHzsq0Cb3Uj3sfo9h8
+	Uhx6x9iz0O6ipvcOF2VbOGttyLd7hp4qHHFIde1E7i08lBUSqgO1nSOJff7as0ed0x4nd5
+	++atJOC+2NGamr6YKP42v3B6PE3EFPOeUDoppfa3hKtBllP6el0R71wvy9Il76+E4Vf4A3
+	cFDWnPYExqxxSNAscTM07n+eL9vXZwKtHJQN11Sll5gidzZOWtxv2AEAH6r/Lw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1751548895;
+	s=2020e; t=1751548954;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
 	bh=4kcJobrOnoamaBnANOlfQkU1M63AHPCa2YelSe1E0P8=;
-	b=jbYvE02CmDuIdsfrKfu+PXz2pz8LcW3w3IUS2XXybC2X9UaYyEGLCboJeA0CPkfBebwuMJ
-	OLYEZ12P7cMhlwAA==
+	b=qjM3P6wjxBsAHoR5ygsq0AbjfAjCIQ7A9mh6Zu4VPkYnmr7JerFMJur0ngY+tvLbN11USZ
+	K24MXLHx3sPTx0CA==
 To: Nam Cao <namcao@linutronix.de>, Marc Zyngier <maz@kernel.org>, Lorenzo
  Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?=
  <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob
@@ -73,17 +73,17 @@ To: Nam Cao <namcao@linutronix.de>, Marc Zyngier <maz@kernel.org>, Lorenzo
  linux-rpi-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  linux-renesas-soc@vger.kernel.org
 Cc: Nam Cao <namcao@linutronix.de>
-Subject: Re: [PATCH 03/16] PCI: aardvark: Switch to
+Subject: Re: [PATCH 04/16] PCI: altera-msi: Switch to
  msi_create_parent_irq_domain()
-In-Reply-To: <68b2f9387bbe4f08bcd428bfab83ad1219fb8d80.1750858083.git.namcao@linutronix.de>
+In-Reply-To: <0a88da04bb82bd588828a7889e9d58c515ea5dbb.1750858083.git.namcao@linutronix.de>
 References: <cover.1750858083.git.namcao@linutronix.de>
- <68b2f9387bbe4f08bcd428bfab83ad1219fb8d80.1750858083.git.namcao@linutronix.de>
-Date: Thu, 03 Jul 2025 15:21:34 +0200
-Message-ID: <875xg9wgtd.ffs@tglx>
+ <0a88da04bb82bd588828a7889e9d58c515ea5dbb.1750858083.git.namcao@linutronix.de>
+Date: Thu, 03 Jul 2025 15:22:33 +0200
+Message-ID: <8734bdwgrq.ffs@tglx>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_062136_627130_6825C172 
+X-CRM114-CacheID: sfid-20250703_062236_373154_5A26BD51 
 X-CRM114-Status: UNSURE (   5.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
