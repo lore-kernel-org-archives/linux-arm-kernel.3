@@ -4,98 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1DCAC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 13:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA787C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 13:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q0PO9vUHaZgBz1IsYfLNk31eeg1sVMvAbSihTGEpk+8=; b=NSaSbqJ76rFc7M7OUnLXZSapdr
-	UjhYOLxY+e2WOosU2aNTFlk+0hDU8s/N54GFm8vVzc4G7pE6GZsaB0Gy7I/M2aKaVcPZSWx41ooNC
-	HpGOxPpjfqZOPWb54DCeyX0dqn3N6VMFSi0zw2KFHFA5RVZPYEnbh+JvpJfDia1NYlm6UR+zaqNR7
-	V2mNv9k/9y3d+2a4lqa5vlIQWvf5Ws1dr4qs4cbGUFwbW7o9Kq0cNTNOXlwHwhJ0p43M4bT7MZNHd
-	aaeKlGkdvC91KI2p2y+qHrWTa3aWRRjd4psAqROHFX3u9iIHjazMLMrHG0iI2SqiI0Xfw4mqQY8Zh
-	/Lyr8qtA==;
+	bh=81yxCIGAi+pZiTG+ZtQqhKBsE1y3xIl6UxS2rPadYt8=; b=ethSdzf2bAUdCg6VdXclBAeiRh
+	QykEVaBU4fw6MEeanytyXgLUIgtsccKWzdPcqTWibl81hVgiDUAcdCZVRmRbrVwqsR8tI77oUEvUp
+	nAnjM7ZtTCj6cubE7UuNevNpLBOTwX7dYt31TMWjF5b/ux7bctd2O1UCwalsFYvZC3ugl1HjOtCJA
+	81iUaaeX8k3ZYszKXlg4HstPi6vISWzZAoY6C860ggZe6vWoFUqvaD8ZtUgQhekw0lXgBafOr5kA0
+	+62H8IGiBYHag1/V3pBR7264zeRx/CDIHXpx39WD7ZUlvRSe/S5HSsnbH808v6poiWE38rTy0hNLK
+	m4cDQMdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKIc-0000000BXpk-4349;
-	Thu, 03 Jul 2025 13:48:26 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uXKKw-0000000BYE6-3vv4;
+	Thu, 03 Jul 2025 13:50:50 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIse-0000000BIIV-0Aqb
+	id 1uXItK-0000000BIT3-1yQ5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 12:17:33 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-45348bff79fso56479345e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 05:17:31 -0700 (PDT)
+	Thu, 03 Jul 2025 12:18:16 +0000
+Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-748feca4a61so3163115b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 05:18:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751545050; x=1752149850; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=q0PO9vUHaZgBz1IsYfLNk31eeg1sVMvAbSihTGEpk+8=;
-        b=Fa1eBnzycYZ0q5V6PQuEQPgu8m/JKx9zybjDzl6lr9pg90v/Ty7gu/n3e31aw2HelG
-         FmKztxi66f7PhnY0lE+2vew8UYBNDp0J3eymOh4D+4KfX5bKqKomX4UKCrqPIJ67aRip
-         NduSizKNd4RMnO5gPWlQV5V143OTfYtdXr+Xeh0fR1E7HlUGYwpcV1dRV+e04aHQgdfu
-         RViDRrQ4s/jwAjQEBWajiSW+OmON8qiaDCHc8S+/O2LlDr1LDGo/dWYrVlqk5f9+223e
-         ry2udwaMsofKyEPIyX06ngqKXWC6J0aQILmsiCN77Ot3d/ZQXTSQiHHZIqL0SaJ0FyW6
-         tWLw==
+        d=gmail.com; s=20230601; t=1751545093; x=1752149893; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=81yxCIGAi+pZiTG+ZtQqhKBsE1y3xIl6UxS2rPadYt8=;
+        b=Bv5QQktMB+/eBE0PeZCdNjwjUuQE/QOG0HOiTVI4W4k2u+wtNlSLFw46tET8nmCFDG
+         HW7CObrpvrlRSKvidki35meuorKXko6aR6tqGtJJyoUAvsZSPzsIIyzfNp9YimsBQrgt
+         2cNcMQLV2n5fHO2wFXddmWqQQ9FPe/Vq2OXt/k5wiO8UXqW5B1pb92/Krd7K08Jg3UaB
+         6WZvhzs6bIchU/rP4CY6AjEjrtJwWXXOIYW62bdL1S5d3cWYNoJARsb3M3cqHhBlcat9
+         GGWKVJhL9+oACmuAHq0YlkvJAojPkak4qvEbkzr69oGI0CZaJut5pRy+PwFVB3KWQUAT
+         WHWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751545050; x=1752149850;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=q0PO9vUHaZgBz1IsYfLNk31eeg1sVMvAbSihTGEpk+8=;
-        b=lzb7Kd/zf/ksAd+d4G0X1GDRgsOYGXYmckZBMyMj5HuxBO454mm0nZ0owWSLoSUbFk
-         lA3zxesmvO0Nx3gHL77oC20e6YyM6rV3ySFDHwf4oNmQ2bDE7Vg/vyQNgrGMbjSljiPb
-         rOj9aTLbfjhLwDf2xCXG5k5jo6oQVIZibFtoUm1yr/H6yEuuLWFwPIXiGSrAhZPV8oj3
-         0qU0Y+VKYxFbCSprW6cAyVwYwphWT6RG7bt+yakP09yiGeH/X+0xssGjnSbJDDhcNW7m
-         dcR7vp4s0qoqZPn5gt2XZj5cqsjZnEhFZ844mhp+0UEv6xwInTJRECaEavVInluIpySv
-         4Zeg==
-X-Forwarded-Encrypted: i=1; AJvYcCWebm+qxtCLJQl4nOY8sO4oRrJAcK7uBjCBz5V3ZqMLysSp8SFYQQPFR1lT3+AS3aFnmRN0nWhyGrOpda3R+8Dp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFHzNRKeah8jy6WuCgt7brIOPlqC008RurTPwCgqGwQOewH3FO
-	zsV7saf8ew5XX8r5Y3Ach/daOMoznCttOn4nNQaP19Mh3nveqFj6yRBM
-X-Gm-Gg: ASbGnctCfJOz2AKM8NfwpbsuJ4UETWGdEly1sZj1Iu79z9HAJ+nm27XQAELhZC0/78V
-	wMJ+lFu/gzZIjcbTSOlCnUqAog1wcsIM+tfW3Ea2cxAGEcUxDi+DmoKzw1NkinFKhSjo36jYcIP
-	aD8qFjTyBnvJdSZCpVqbLZXoJYt9uoIuccFAd5upYaC0sr2cRwms9kVl853SAIup8XcvxrC/8Uk
-	PwlcXMdGvfEN6TgsUPnRSr3QNG3ttU0b0PCxJ/1rL9suWdCxNLr9kri9MP4rWaNFF7ZZ1CPOOdG
-	J0weQXunnDmaNc103UVxgo5Ar3DjrxHdcbKgltzvhj8YqmklYLdeEAoU4nn7udazChA/
-X-Google-Smtp-Source: AGHT+IGIdLWrwmGnRWYJF+BAbWXcz3XjGxMdqGkx2yWBwui8Yb0MrOSdMRc75/o7oVGIWW17jokBPA==
-X-Received: by 2002:a05:6000:22c3:b0:3a4:d8f2:d9d with SMTP id ffacd0b85a97d-3b200865a0amr5357704f8f.38.1751545049856;
-        Thu, 03 Jul 2025 05:17:29 -0700 (PDT)
-Received: from [192.168.0.100] ([188.27.131.45])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a892e529c5sm18891832f8f.63.2025.07.03.05.17.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Jul 2025 05:17:29 -0700 (PDT)
-Message-ID: <d4052ab3-9cd1-45e8-81b0-b6512822e646@gmail.com>
-Date: Thu, 3 Jul 2025 15:17:24 +0300
+        d=1e100.net; s=20230601; t=1751545093; x=1752149893;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=81yxCIGAi+pZiTG+ZtQqhKBsE1y3xIl6UxS2rPadYt8=;
+        b=XCNY926NFOK56m/Wx8PEYHku3rxN9t37I+9bm3L82uFqiOEo577lcRsHsZ6HYgoJ8A
+         o4WEOFHaLRfDbnZc9w7lZ361sz8vcV+Pn+M8I/26y4HXd9dV5dth07xEShsdTTH0X728
+         diQ5xd6/QIlMcOQ2M3UxNJwvT7yS828z4tmHKI2VS88cPu9ulE33clgaP5EZZeZjPdzk
+         enChfYvbEom6DynRWkBmT4J87650Dz8vTUGJq8W3vRvwYxl1RTH2Q71ub+JEgGQls5ae
+         Tiqdwm6o55PILZQXa1vKf2j3AXPRku81sHAM5zsqkk6rAe8LbBuqQNyksgg4rXGYTHBk
+         YL5A==
+X-Forwarded-Encrypted: i=1; AJvYcCXhGYFVZLx7ZujOvi8EyL7OQ+KnQbn4UgAyOQSplussED0zvGlPb6HhTcQHeY/JQjX3Yk/84UVE34emLJ/8aK7J@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9BsYMdASMKtPmt3jm59H5HE79ETrkgTsDYgqje6gFGI/rnsTy
+	/1rD7G1oozVQ8ZwpzXY0luk7EthPzixMbIwQGvI0kM+sEdQs5GAwFkLo
+X-Gm-Gg: ASbGncu6+gB5mcl6FK59l9mPswbZwy5sf6l/aaOeBzwdU4h6Uca1PSc6jgVMAIF6FGi
+	hEn1M5/w3gDsnHxg+DIMxewQmXt6auppx5W8nIvvQ4fZr3HClWi8pat05Fzume5J8v/XDkX27LQ
+	Ck+socDKZw8/PYwGCToMQ4z8PiyvfMpSYvDs9f5XAw+mf00fOf84//r/ztA2xOx+V0YmayC7e0l
+	oTpQmczJrxZtL4G1sXDh0l5CNrLQ4UoQfBWlhy8D3zzyY+ef87D2CXatvhr3nFT/jAw/rouwSmd
+	nOL/y4rdMf+z564cWZd1rGC8WXHjCl3R1UIG/3BYyjRFCVriG2jsq78V6SRawDc5sCeWDMJS5hg
+	7KyI=
+X-Google-Smtp-Source: AGHT+IEeULaBlyscxQYttwhGr76vxRO967SQxsaj9KakTVjPulR/8ZvydQtW7zfOnBO+trZkmhwoHQ==
+X-Received: by 2002:a05:6a00:1823:b0:749:8c3:873e with SMTP id d2e1a72fcca58-74b513efdebmr8967270b3a.24.1751545092970;
+        Thu, 03 Jul 2025 05:18:12 -0700 (PDT)
+Received: from localhost.localdomain ([43.129.244.20])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74af5575895sm18591081b3a.94.2025.07.03.05.18.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Jul 2025 05:18:12 -0700 (PDT)
+From: Menglong Dong <menglong8.dong@gmail.com>
+X-Google-Original-From: Menglong Dong <dongml2@chinatelecom.cn>
+To: alexei.starovoitov@gmail.com,
+	rostedt@goodmis.org,
+	jolsa@kernel.org
+Cc: bpf@vger.kernel.org,
+	Menglong Dong <dongml2@chinatelecom.cn>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>,
+	Mykola Lysenko <mykolal@fb.com>,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH bpf-next v2 17/18] selftests/bpf: add basic testcases for tracing_multi
+Date: Thu,  3 Jul 2025 20:15:20 +0800
+Message-Id: <20250703121521.1874196-18-dongml2@chinatelecom.cn>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250703121521.1874196-1-dongml2@chinatelecom.cn>
+References: <20250703121521.1874196-1-dongml2@chinatelecom.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 00/24] media: i2c: add Maxim GMSL2/3 serializer and
- deserializer drivers
-To: Julien Massot <julien.massot@collabora.com>,
- Cosmin Tanislav <cosmin.tanislav@analog.com>,
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
-References: <20250702132104.1537926-1-demonsingur@gmail.com>
- <5e1b26637706f6eac92acbbb3d5a7dafa0c2c232.camel@collabora.com>
-From: Cosmin Tanislav <demonsingur@gmail.com>
-Content-Language: en-US
-In-Reply-To: <5e1b26637706f6eac92acbbb3d5a7dafa0c2c232.camel@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_051732_127722_F8501DDA 
-X-CRM114-Status: GOOD (  43.67  )
+X-CRM114-CacheID: sfid-20250703_051814_531045_CD514E04 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,412 +114,1058 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In this commit, we add some testcases for the following attach types:
 
+BPF_TRACE_FENTRY_MULTI
+BPF_TRACE_FEXIT_MULTI
+BPF_MODIFY_RETURN_MULTI
 
-On 7/3/25 3:07 PM, Julien Massot wrote:
-> Hi Cosmin,
-> 
-> On Wed, 2025-07-02 at 16:20 +0300, Cosmin Tanislav wrote:
->> This series adds new drivers for multiple Maxim GMSL2 and GMSL3 devices,
->> replacing the few GMSL2 drivers already in upstream, and introducing a
->> common framework that can be used to implement such GMSL chips, which
->> avoids code duplication while also adding support for previously
->> unsupported features.
->>
->> While the normally acceptable and polite way would be to extend the
->> current mainline drivers, the choice was made here to add a totally new
->> set of drivers. The current drivers support only a small subset of the
->> possible features, and only a few devices, so the end result after
->> extending them would in any case be essentially fully rewritten, new
->> drivers.
->>
-> Thanks for your work,
-> The common framework will help a lot to drive new GMSL chips, and most of the
-> features are covered.
-> 
->> This series depends on support for internal pads, for which a patch has
->> been added.
->>
->> The previous version is at:
->> https://lore.kernel.org/lkml/20250618095858.2145209-1-demonsingur@gmail.com
->>
->> The following deserializers are supported:
->>   * MAX96712 (already exists in staging)
->>   * MAX96714 (already exists)
->>   * MAX96714F (already exists)
->>   * MAX96714R (GMSL2)
->>   * MAX96716 (GMSL2)
->>   * MAX96724 (already exists as part of existing MAX96712 driver)
->>   * MAX96724F (GMSL2)
->>   * MAX96724R (GMSL2)
->>   * MAX9296A (GMSL2)
->>   * MAX96792A (GMSL3)
->>
->> The following serializers are supported:
->>   * MAX96717 (already exists)
->>   * MAX9295A (GMSL2)
->>   * MAX96793 (GMSL3)
->>
->> Known backward compatibility breakages:
->>   * No default routing. Default routing has been intentionally ommitted
->>     as the devices support quite complex routing and it would be
->>     unfeasible to provide sane defaults for multi-link deserialziers.
->>     It is expected that userspace programs would set appropritate
->>     routing.
->>
-> This part is the most annoying one: at the moment, there is no way to set the routing except by
-> manually enabling a boolean within the kernel source.
-> You can't guess what routing the user really wants, but please at least provide a default routing
-> table that allows using your drivers — for example, the device's default routing.
-> 
+We reuse the testings in fentry_test.c, fexit_test.c and modify_return.c
+by attach the tracing bpf prog as tracing_multi.
 
-It's a very delicate issue... I'll try to see if I can do that.
-It would be great if we could enable the streams API globally since it's
-been merged since Jan 15 2023. It's been over two years.
+We add some functions to skip for tracing progs to bpf_get_ksyms(). The
+functions that in the "btf_id_deny" should be skipped. What's more, the
+kernel can't find the right function address according to the btf type id
+when duplicated function name exist. So we skip such functions that we
+meet. The list is not whole, so we still can fail during attaching the
+FENTRY_MULTI to all the kernel functions. This is something that we need
+to fix in the feature.
 
-> 
-> 
->> The following list enumerates new features that are supported by the
->> common framework and their respective chip-specific drivers:
->>   * Full Streams API support. Most deserializers have support for more
->>     than one link, and more than one PHY. Streams support allows
->>     configuration of routing between these links and PHYs.
->>
->>   * .get_frame_desc() support. Both the serializers and deserializers
->>     implement this to query and provide frame descriptor data. This is
->>     used in features explained in-depth below.
-> 
-> So are almost all the sensor drivers incompatible?
-> 
+Signed-off-by: Menglong Dong <dongml2@chinatelecom.cn>
+---
+ tools/testing/selftests/bpf/Makefile          |   2 +-
+ .../selftests/bpf/prog_tests/fentry_fexit.c   |  22 +-
+ .../selftests/bpf/prog_tests/fentry_test.c    |  79 +++++--
+ .../selftests/bpf/prog_tests/fexit_test.c     |  79 +++++--
+ .../selftests/bpf/prog_tests/modify_return.c  |  60 +++++
+ .../bpf/prog_tests/tracing_multi_link.c       | 210 ++++++++++++++++++
+ .../selftests/bpf/progs/fentry_multi_empty.c  |  13 ++
+ .../selftests/bpf/progs/tracing_multi_test.c  | 181 +++++++++++++++
+ .../selftests/bpf/test_kmods/bpf_testmod.c    |  24 ++
+ tools/testing/selftests/bpf/test_progs.c      |  50 +++++
+ tools/testing/selftests/bpf/test_progs.h      |   3 +
+ tools/testing/selftests/bpf/trace_helpers.c   |  69 ++++++
+ 12 files changed, 744 insertions(+), 48 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/tracing_multi_link.c
+ create mode 100644 tools/testing/selftests/bpf/progs/fentry_multi_empty.c
+ create mode 100644 tools/testing/selftests/bpf/progs/tracing_multi_test.c
 
-Yes, sensor drivers need to have .get_frame_desc() implemented... It's
-not a huge feat and it's the only way this type of bridge could work
-properly.
-
-Alternatively, we could add a fallback that bases its decision on the
-stream format, but I'd prefer if we didn't and we would just implement
-.get_frame_desc(). After this series is merged I can submit my patches
-for imx219.
-
->>
->>   * .get_mbus_config() support. The deserializers implement this to allow
->>     upstream devices to query the link frequency of its pads.
->>
->>   * Address translation with I2C ATR for the serializers.
->>
->>   * I2C ATR translation - some deserializers cannot do muxing since I2C
->>     communication channel masking is not available per-link, and the only
->>     other way to select links is to turn them off, causing link resets.
->>     For such cases, I2C ATR is used to change the address of the
->>     serializers at probe time.
->>
->>   * Automatic GMSL link version negotiation between GMSL3, GMSL2 6Gbps, GMSL2
->>     3Gbps.
->>
->>   * Automatic stream id selection for deserializers which need serializers to
->>     stream on unique stream ids.
->>
->>   * Automatic VC remapping on the deserializers. VCs are picked so that
->>     if they were unique on the sink pad, they will end up as unique on
->>     the source pad they are routed to too, prioritizing using the same
->>     VC ID as the sink pad, to facilitate the possibility of using tunnel
->>     mode.
->>
->>   * Automatic pixel mode / tunnel mode selection. Tunnel mode is used
->>     when VC IDs do not need to be changed and all hardware supports
->>     tunnel mode, otherwise, pixel mode is used. The serializers are
->>     automatically switched between the two by using a private API.
->>
->>   * Automatic double mode selection. In pixel mode, double mode can be
->>     used to pack two pixels into a single data unit, optimizing bandwidth
->>     usage. The serializers are automatically set up to support the double
->>     modes determined by the deserializers using a private API.
->>
->>   * Automatic data padding. In pixel mode, if the data being transferred
->>     uses two different BPPs, data needs to be padded. The serializers
->>     automatically set this up depending on the configured double mode
->>     settings and incoming data types.
->>
->>   * Logging. Both the deserializers and serializers implement the V4L2
->>     .log_status() ops to allow debugging of the internal state and
->>     important chip status registers.
->>
->>   * PHY modes. Deserializer chips commonly have more than a single PHY.
->>     The firmware ports are parsed to determine the modes in which to
->>     configure the PHYs (2x4, 4x2, 1x4+2x2, 2x2+1x4, and variations using
->>     fewer lanes).
->>
->>   * Serializer pinctrl. Serializers implement pinctrl to allow setting
->>     configs which would otherwise be inaccessible through GPIO: TX/RX via
->>     GMSL link, pull-up & pull-down (with strength), open-drain &
->>     push-pull, slew rate, RCLK pin selection.
->>
->>   * TPG with selectable formats, resolutions and framerates for both
->>     serializers and deserializers.
->>
->> The drivers have been tested on the following hardware combinations, but
->> further testing is welcome to ensure no / minimal breakage:
->>   * Raspberry Pi 5 + MAX9296A + 2xMAX96717 + 2xIMX219
->>   * Raspberry Pi 5 + MAX96714 + 1xMAX96717 + 1xIMX219
->>   * Raspberry Pi 5 + MAX96716A + 2xMAX96717 + 2xIMX219
->>   * Raspberry Pi 5 + MAX96712 + 4xMAX96717 + 4xIMX219
->>   * Raspberry Pi 5 + MAX96724 + 4xMAX96717 + 4xIMX219
->>   * Raspberry Pi 5 + MAX96792A + 1xMAX96793 + 1xMAX96717 + 2xIMX219
->>   * Raspberry Pi 5 + MAX96792A + 2xMAX96717 + 2xIMX219
->>   * Renesas V4H + MAX96712 + 2xMAX96717 + 2xIMX219
->>
->> Analog Devices is taking responsibility for the maintenance of these
->> drivers and common framework, and plans to add support for new
->> broad-market chips on top of them.
->>
->> Special thanks go to Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>
->> for testing the drivers, helping debug and coming up with ideas /
->> implementations for various features.
->>
->> V5:
->>   * dt-bindings: max96717: restrict RCLKOUT to pins 2 & 4
->>   * dt-bindings: max96717: remove confusing rclksel pinconf property
->>   * dt-bindings: max96717: remove maxim,gmsl-tx/rx pinconf property
->>   * dt-bindings: max96717: remove gmsl prefix from maxim,gmsl-tx-id/rx-id
->>   * dt-bindings: max96717: remove minimum: 0
->>   * dt-bindings: max96717: better document slew-rate
->>   * dt-bindings: max96717: better document maxim,jitter-compensation
->>   * dt-bindings: max96717: better document maxim,tx-id/rx-id
->>
->>   * max_serdes: add default TPG values
->>   * max_serdes: remove MAX_MIPI_FMT macro
->>   * max_serdes: EXPORT_SYMBOL -> EXPORT_SYMBOL_GPL
->>   * max_serdes: remove EXPORT_SYMBOL_GPL from symbols not used in other
->>     modules
->>   * max_serdes: rename symbols/macros/types to have max_serdes prefix
->>   * max_serdes: slim down TPG functions
->>
->>   * max_des: fix may be used uninitialized errors
->>   * max_des: fix misplaced TPG validation
->>   * max_des: fix setting pipe PHY in tunnel mode for chips that support
->>     both set_pipe_phy() and set_pipe_tunnel_phy()
->>   * max_des: move doubled_bpp/sink_bpps variables to usage place
->>   * max_des: do not dynamically control PHY enable, letting lanes be in
->>     LP-11 when not streaming
->>   * max_des: refactor get/set_pipe_stream_id() logic
->>   * max_des: remove explicit ret = 0
->>
->>   * max_ser: make VC remaps not pipe-specific, allocate dynamically
->>
->>   * max9296a: add missing 1080p30 TPG entry
->>   * max9296a: move BIT() left shift into macro
->>   * max9296a: move BIT() ternary into macro
->>   * max9296a: reuse max_des_ops for chip-specific ops\
->>   * max9296a: document and compress RLMS register writes
->>
->>   * max96717: restrict RCLKOUT to pins 2 & 4 because of hardware
->>     capabilities
->>   * max96717: add support for XTAL/1, XTAL/2, XTAL/4 clocks
->>   * max96717: set RX_EN/TX_EN automatically
->>   * max96717: reorder custom pinconf flags
->>   * max96717: drop OF dependency
->>
->>   * drop of_match_ptr
->>   * re-do some indentation
->>   * implement TPG pattern control
->>   * remove pr_info() usage
->>   * inline lane polarity val = 0
->>   * inline returns
->>   * rewrite some Kconfig docs
->>   * split up patches for easier review
->>
->> V4:
->>   * max_des: fix infinite version loop
->>   * max_des: fix pipe link id when there are more pipes than links
->>   * max_des: implement setting pipe link
->>   * max_des: do not pass routing to phy update
->>   * max_des: move GMSL version strings to max_serdes
->>   * max_des: split finding existing VC remap from adding a new one
->>   * max_des: add tracking for in-use pipes
->>   * max_des: skip unused pipes when finding / setting pixel/tunnel mode
->>   * max_des: simplify remap code
->>   * max_des: split set_pipe_phy() into set_pipe_tunnel_phy()
->>
->>   * max_ser: clean up i2c_xlates printing
->>   * max_ser: fix changing serializer address
->>   * max_ser: move non-continuous mode check into max96717 driver
->>
->>   * max96724: use regmap_set_bits for STREAM_SEL_ALL
->>   * max96724: match surrounding indent for MAX96724_PHY1_ALT_CLOCK
->>   * max96724: fix setting invalid PHY to 1 when PHY 0 is in 4-lane mode
->>   * max96724: remove support for setting pipe phy from max96712
->>   * max96724: fix setting double mode on pipes 4-7
->>   * max96724: drop powerdown gpios
->>
->>   * max96717: use gpio_chip's set_rv
->>
->>   * max9296a: switch versions to unsigned int
->>   * max9296a: remove parantheses from MAX9296A_MIPI_PHY18/20
->>   * max9296a: fix printing of PHY packet counts
->>   * max9296a: fix phy_hw_ids size
->>
->>   * remove usage of cammel case in defines
->>   * move field_get/prep to max_serdes.h
->>   * rework stream id setup
->>   * rework tunnel/pixel mode finding
->>   * rework bpps retrieval
->>   * pass whole subdev state around
->>   * add helper for retrieving a route's hw components / frame desc
->>   * update pipe enable based on active routes
->>   * add support for tunnel-only chips and VC remaps in tunnel mode
->>   * simplify max_get_streams_masks()
->>   * add support for TPG
->>
->> V3:
->>   * dt-bindings: drop reflow text patches
->>
->>   * dt-bindings: max96717: move pinctrl configuration into main file
->>   * dt-bindings: max96717: allow a single level of pins configuration
->>   * dt-bindings: max96717: use regex for matching pins nodes
->>   * dt-bindings: max96717: drop extra allOf in pinctrl configuration
->>   * dt-bindings: max96717: fix i2c-atr channel name regex
->>   * dt-bindings: max96717: limit pinctrl functions to gpio / rclkout
->>   * dt-bindings: max96717: limit pins for gpio / rclkout
->>   * dt-bindings: max96717: add description for bias-pull-up/down
->>   * dt-bindings: max96717: require pins and function properties
->>   * dt-bindings: max96717: turn single compatible strings into an enum
->>
->>   * dt-bindings: max9296a: include indices in port descriptions
->>   * dt-bindings: max9296a: remove property-less schema from input ports
->>   * dt-bindings: max9296a: use ATR for MAX96716A too, removing MUX entirely
->>
->>   * dt-bindings: max96712: include indices in port descriptions
->>   * dt-bindings: max96712: deprecate enable-gpios in favor of powerdown-gpios
->>   * dt-bindings: max96712: switch from MUX to ATR
->>
->>   * dt-bindings: max96714: add support for MAX96714R
->>
->>   * max_des: fix POC NULL check
->>   * max_des: remove index var in POC enable
->>   * max_des: fix writing empty remaps
->>   * max_des: skip mode setting in tunnel mode
->>   * max_des: remove a duplicate source->sd NULL check
->>   * max_des: set pipe tunnel mode even for disabled links
->>
->>   * max_ser: apply TX ID changes irrespective of serializer ID
->>
->>   * max9296a: fix typo in BACKTOP22
->>   * max9296a: make register macros more consistent
->>   * max9296a: switch MAX96716 from MUX to ATR
->>   * max9296a: deduplicate max9296a_phy_id() logic
->>   * max9296a: use proper PHY id in remaps
->>   * max9296a: fix DPLL reset clear
->>   * max9296a: limit MAX96714F to GMSL2 3Gbps
->>   * max9296a: add support for MAX96714R
->>   * max9296a: do not write GMSL3 link select registers in GMSL2 devices
->>   * max9296a: use field_prep when setting RX_RATE
->>   * max9296a: simplify setting SEL_STREAM for MAX96714
->>   * max9296a: max96716_set_pipe_phy -> max96716a_set_pipe_phy
->>   * max9296a: fix off-by-one in lane polarity when using
->>     polarity_on_physical_lanes
->>
->>   * max96724: fix typo in BACKTOP22
->>   * max96724: switch from MUX to ATR
->>   * max96724: add support for powerdown GPIO
->>   * max96724: remove support for tunneling from MAX96712
->>   * max96724: only set tunnel-related bits when in tunnel mode
->>   * max96724: add support for MAX96724F/R
->>   * max96724: oneshot reset links after link selection
->>
->>   * remove GMSL2 version defaults, set all supported versions explicitly
->>   * reorder GMSL versions to start from 0
->>   * add support for GMSL2 3Gbps
->>   * support GMSL version finding for devices using MUX / GATE
->>   * add support for deserializers which don't have individual control
->>     of each link's GMSL version
->>   * add support for deserializers that need unique stream ids across all
->>     serializers
->>   * select_link_version -> set_link_version
->>   * select_resets_link -> use_atr
->>
->> V2:
->>   * add missing compatible for MAX96717F
->>   * fix embarrassing dt-bindings mistakes
->>   * move MAX9296A/MAX96716/MAX96792A to a separate file as they have two
->>     links / PHYs, and adding those conditionally seems impossible
->>
->> Cosmin Tanislav (23):
->>    dt-bindings: media: i2c: max96717: add myself as maintainer
->>    dt-bindings: media: i2c: max96717: add support for I2C ATR
->>    dt-bindings: media: i2c: max96717: add support for pinctrl/pinconf
->>    dt-bindings: media: i2c: max96717: add support for MAX9295A
->>    dt-bindings: media: i2c: max96717: add support for MAX96793
->>    dt-bindings: media: i2c: max96712: add myself as maintainer
->>    dt-bindings: media: i2c: max96712: use pattern properties for ports
->>    dt-bindings: media: i2c: max96712: add support for I2C ATR
->>    dt-bindings: media: i2c: max96712: add support for POC supplies
->>    dt-bindings: media: i2c: max96712: add support for MAX96724F/R
->>    dt-bindings: media: i2c: max96714: add myself as maintainer
->>    dt-bindings: media: i2c: max96714: add support for MAX96714R
->>    dt-bindings: media: i2c: add MAX9296A, MAX96716A, MAX96792A
->>    media: i2c: add Maxim GMSL2/3 serializer and deserializer framework
->>    media: i2c: add Maxim GMSL2/3 serializer framework
->>    media: i2c: add Maxim GMSL2/3 deserializer framework
->>    media: i2c: maxim-serdes: add MAX96717 driver
->>    media: i2c: maxim-serdes: add MAX96724 driver
->>    media: i2c: maxim-serdes: add MAX9296A driver
->>    arm64: defconfig: disable deprecated MAX96712 driver
->>    staging: media: remove MAX96712 driver
->>    media: i2c: remove MAX96717 driver
->>    media: i2c: remove MAX96714 driver
->>
->> Sakari Ailus (1):
->>    media: mc: Add INTERNAL pad flag
->>
->>   .../bindings/media/i2c/maxim,max9296a.yaml    |  242 ++
->>   .../bindings/media/i2c/maxim,max96712.yaml    |   70 +-
->>   .../bindings/media/i2c/maxim,max96714.yaml    |    6 +-
->>   .../bindings/media/i2c/maxim,max96717.yaml    |  155 +-
->>   .../media/mediactl/media-types.rst            |    8 +
->>   MAINTAINERS                                   |   13 +-
->>   arch/arm64/configs/defconfig                  |    1 -
->>   drivers/media/i2c/Kconfig                     |   34 +-
->>   drivers/media/i2c/Makefile                    |    3 +-
->>   drivers/media/i2c/max96714.c                  | 1017 ------
->>   drivers/media/i2c/max96717.c                  | 1102 ------
->>   drivers/media/i2c/maxim-serdes/Kconfig        |   55 +
->>   drivers/media/i2c/maxim-serdes/Makefile       |    6 +
->>   drivers/media/i2c/maxim-serdes/max9296a.c     | 1354 +++++++
->>   drivers/media/i2c/maxim-serdes/max96717.c     | 1685 +++++++++
->>   drivers/media/i2c/maxim-serdes/max96724.c     | 1180 +++++++
->>   drivers/media/i2c/maxim-serdes/max_des.c      | 3111 +++++++++++++++++
->>   drivers/media/i2c/maxim-serdes/max_des.h      |  151 +
->>   drivers/media/i2c/maxim-serdes/max_ser.c      | 2075 +++++++++++
->>   drivers/media/i2c/maxim-serdes/max_ser.h      |  145 +
->>   drivers/media/i2c/maxim-serdes/max_serdes.c   |  413 +++
->>   drivers/media/i2c/maxim-serdes/max_serdes.h   |  183 +
->>   drivers/media/mc/mc-entity.c                  |   10 +-
->>   drivers/staging/media/Kconfig                 |    2 -
->>   drivers/staging/media/Makefile                |    1 -
->>   drivers/staging/media/max96712/Kconfig        |   14 -
->>   drivers/staging/media/max96712/Makefile       |    2 -
->>   drivers/staging/media/max96712/max96712.c     |  487 ---
->>   include/uapi/linux/media.h                    |    1 +
->>   29 files changed, 10839 insertions(+), 2687 deletions(-)
->>   create mode 100644 Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
->>   delete mode 100644 drivers/media/i2c/max96714.c
->>   delete mode 100644 drivers/media/i2c/max96717.c
->>   create mode 100644 drivers/media/i2c/maxim-serdes/Kconfig
->>   create mode 100644 drivers/media/i2c/maxim-serdes/Makefile
->>   create mode 100644 drivers/media/i2c/maxim-serdes/max9296a.c
->>   create mode 100644 drivers/media/i2c/maxim-serdes/max96717.c
->>   create mode 100644 drivers/media/i2c/maxim-serdes/max96724.c
->>   create mode 100644 drivers/media/i2c/maxim-serdes/max_des.c
->>   create mode 100644 drivers/media/i2c/maxim-serdes/max_des.h
->>   create mode 100644 drivers/media/i2c/maxim-serdes/max_ser.c
->>   create mode 100644 drivers/media/i2c/maxim-serdes/max_ser.h
->>   create mode 100644 drivers/media/i2c/maxim-serdes/max_serdes.c
->>   create mode 100644 drivers/media/i2c/maxim-serdes/max_serdes.h
->>   delete mode 100644 drivers/staging/media/max96712/Kconfig
->>   delete mode 100644 drivers/staging/media/max96712/Makefile
->>   delete mode 100644 drivers/staging/media/max96712/max96712.c
-> 
-> Regards,
-> Julien
+diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftests/bpf/Makefile
+index 4863106034df..1fa0da096262 100644
+--- a/tools/testing/selftests/bpf/Makefile
++++ b/tools/testing/selftests/bpf/Makefile
+@@ -496,7 +496,7 @@ LINKED_SKELS := test_static_linked.skel.h linked_funcs.skel.h		\
+ 		test_subskeleton.skel.h test_subskeleton_lib.skel.h	\
+ 		test_usdt.skel.h
+ 
+-LSKELS := fentry_test.c fexit_test.c fexit_sleep.c atomics.c 		\
++LSKELS := fexit_sleep.c atomics.c 		\
+ 	trace_printk.c trace_vprintk.c map_ptr_kern.c 			\
+ 	core_kern.c core_kern_overflow.c test_ringbuf.c			\
+ 	test_ringbuf_n.c test_ringbuf_map_key.c test_ringbuf_write.c
+diff --git a/tools/testing/selftests/bpf/prog_tests/fentry_fexit.c b/tools/testing/selftests/bpf/prog_tests/fentry_fexit.c
+index 130f5b82d2e6..84cc8b669684 100644
+--- a/tools/testing/selftests/bpf/prog_tests/fentry_fexit.c
++++ b/tools/testing/selftests/bpf/prog_tests/fentry_fexit.c
+@@ -1,32 +1,32 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /* Copyright (c) 2019 Facebook */
+ #include <test_progs.h>
+-#include "fentry_test.lskel.h"
+-#include "fexit_test.lskel.h"
++#include "fentry_test.skel.h"
++#include "fexit_test.skel.h"
+ 
+ void test_fentry_fexit(void)
+ {
+-	struct fentry_test_lskel *fentry_skel = NULL;
+-	struct fexit_test_lskel *fexit_skel = NULL;
++	struct fentry_test *fentry_skel = NULL;
++	struct fexit_test *fexit_skel = NULL;
+ 	__u64 *fentry_res, *fexit_res;
+ 	int err, prog_fd, i;
+ 	LIBBPF_OPTS(bpf_test_run_opts, topts);
+ 
+-	fentry_skel = fentry_test_lskel__open_and_load();
++	fentry_skel = fentry_test__open_and_load();
+ 	if (!ASSERT_OK_PTR(fentry_skel, "fentry_skel_load"))
+ 		goto close_prog;
+-	fexit_skel = fexit_test_lskel__open_and_load();
++	fexit_skel = fexit_test__open_and_load();
+ 	if (!ASSERT_OK_PTR(fexit_skel, "fexit_skel_load"))
+ 		goto close_prog;
+ 
+-	err = fentry_test_lskel__attach(fentry_skel);
++	err = fentry_test__attach(fentry_skel);
+ 	if (!ASSERT_OK(err, "fentry_attach"))
+ 		goto close_prog;
+-	err = fexit_test_lskel__attach(fexit_skel);
++	err = fexit_test__attach(fexit_skel);
+ 	if (!ASSERT_OK(err, "fexit_attach"))
+ 		goto close_prog;
+ 
+-	prog_fd = fexit_skel->progs.test1.prog_fd;
++	prog_fd = bpf_program__fd(fexit_skel->progs.test1);
+ 	err = bpf_prog_test_run_opts(prog_fd, &topts);
+ 	ASSERT_OK(err, "ipv6 test_run");
+ 	ASSERT_OK(topts.retval, "ipv6 test retval");
+@@ -40,6 +40,6 @@ void test_fentry_fexit(void)
+ 	}
+ 
+ close_prog:
+-	fentry_test_lskel__destroy(fentry_skel);
+-	fexit_test_lskel__destroy(fexit_skel);
++	fentry_test__destroy(fentry_skel);
++	fexit_test__destroy(fexit_skel);
+ }
+diff --git a/tools/testing/selftests/bpf/prog_tests/fentry_test.c b/tools/testing/selftests/bpf/prog_tests/fentry_test.c
+index aee1bc77a17f..9edd383feabd 100644
+--- a/tools/testing/selftests/bpf/prog_tests/fentry_test.c
++++ b/tools/testing/selftests/bpf/prog_tests/fentry_test.c
+@@ -1,26 +1,16 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /* Copyright (c) 2019 Facebook */
+ #include <test_progs.h>
+-#include "fentry_test.lskel.h"
++#include "fentry_test.skel.h"
+ #include "fentry_many_args.skel.h"
+ 
+-static int fentry_test_common(struct fentry_test_lskel *fentry_skel)
++static int fentry_test_check(struct fentry_test *fentry_skel)
+ {
++	LIBBPF_OPTS(bpf_test_run_opts, topts);
+ 	int err, prog_fd, i;
+-	int link_fd;
+ 	__u64 *result;
+-	LIBBPF_OPTS(bpf_test_run_opts, topts);
+-
+-	err = fentry_test_lskel__attach(fentry_skel);
+-	if (!ASSERT_OK(err, "fentry_attach"))
+-		return err;
+ 
+-	/* Check that already linked program can't be attached again. */
+-	link_fd = fentry_test_lskel__test1__attach(fentry_skel);
+-	if (!ASSERT_LT(link_fd, 0, "fentry_attach_link"))
+-		return -1;
+-
+-	prog_fd = fentry_skel->progs.test1.prog_fd;
++	prog_fd = bpf_program__fd(fentry_skel->progs.test1);
+ 	err = bpf_prog_test_run_opts(prog_fd, &topts);
+ 	ASSERT_OK(err, "test_run");
+ 	ASSERT_EQ(topts.retval, 0, "test_run");
+@@ -31,7 +21,28 @@ static int fentry_test_common(struct fentry_test_lskel *fentry_skel)
+ 			return -1;
+ 	}
+ 
+-	fentry_test_lskel__detach(fentry_skel);
++	return 0;
++}
++
++static int fentry_test_common(struct fentry_test *fentry_skel)
++{
++	struct bpf_link *link;
++	int err;
++
++	err = fentry_test__attach(fentry_skel);
++	if (!ASSERT_OK(err, "fentry_attach"))
++		return err;
++
++	/* Check that already linked program can't be attached again. */
++	link = bpf_program__attach(fentry_skel->progs.test1);
++	if (!ASSERT_ERR_PTR(link, "fentry_attach_link"))
++		return -1;
++
++	err = fentry_test_check(fentry_skel);
++	if (!ASSERT_OK(err, "fentry_test_check"))
++		return err;
++
++	fentry_test__detach(fentry_skel);
+ 
+ 	/* zero results for re-attach test */
+ 	memset(fentry_skel->bss, 0, sizeof(*fentry_skel->bss));
+@@ -40,10 +51,10 @@ static int fentry_test_common(struct fentry_test_lskel *fentry_skel)
+ 
+ static void fentry_test(void)
+ {
+-	struct fentry_test_lskel *fentry_skel = NULL;
++	struct fentry_test *fentry_skel = NULL;
+ 	int err;
+ 
+-	fentry_skel = fentry_test_lskel__open_and_load();
++	fentry_skel = fentry_test__open_and_load();
+ 	if (!ASSERT_OK_PTR(fentry_skel, "fentry_skel_load"))
+ 		goto cleanup;
+ 
+@@ -55,7 +66,7 @@ static void fentry_test(void)
+ 	ASSERT_OK(err, "fentry_second_attach");
+ 
+ cleanup:
+-	fentry_test_lskel__destroy(fentry_skel);
++	fentry_test__destroy(fentry_skel);
+ }
+ 
+ static void fentry_many_args(void)
+@@ -84,10 +95,42 @@ static void fentry_many_args(void)
+ 	fentry_many_args__destroy(fentry_skel);
+ }
+ 
++static void fentry_multi_test(void)
++{
++	struct fentry_test *fentry_skel = NULL;
++	int err, prog_cnt;
++
++	fentry_skel = fentry_test__open();
++	if (!ASSERT_OK_PTR(fentry_skel, "fentry_skel_open"))
++		goto cleanup;
++
++	prog_cnt = sizeof(fentry_skel->progs) / sizeof(long);
++	err = bpf_to_tracing_multi((void *)&fentry_skel->progs, prog_cnt);
++	if (!ASSERT_OK(err, "fentry_to_multi"))
++		goto cleanup;
++
++	err = fentry_test__load(fentry_skel);
++	if (!ASSERT_OK(err, "fentry_skel_load"))
++		goto cleanup;
++
++	err = bpf_attach_as_tracing_multi((void *)&fentry_skel->progs,
++					  prog_cnt,
++					  (void *)&fentry_skel->links);
++	if (!ASSERT_OK(err, "fentry_attach_multi"))
++		goto cleanup;
++
++	err = fentry_test_check(fentry_skel);
++	ASSERT_OK(err, "fentry_first_attach");
++cleanup:
++	fentry_test__destroy(fentry_skel);
++}
++
+ void test_fentry_test(void)
+ {
+ 	if (test__start_subtest("fentry"))
+ 		fentry_test();
++	if (test__start_subtest("fentry_multi"))
++		fentry_multi_test();
+ 	if (test__start_subtest("fentry_many_args"))
+ 		fentry_many_args();
+ }
+diff --git a/tools/testing/selftests/bpf/prog_tests/fexit_test.c b/tools/testing/selftests/bpf/prog_tests/fexit_test.c
+index 1c13007e37dd..5652d02b3ad9 100644
+--- a/tools/testing/selftests/bpf/prog_tests/fexit_test.c
++++ b/tools/testing/selftests/bpf/prog_tests/fexit_test.c
+@@ -1,26 +1,16 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /* Copyright (c) 2019 Facebook */
+ #include <test_progs.h>
+-#include "fexit_test.lskel.h"
++#include "fexit_test.skel.h"
+ #include "fexit_many_args.skel.h"
+ 
+-static int fexit_test_common(struct fexit_test_lskel *fexit_skel)
++static int fexit_test_check(struct fexit_test *fexit_skel)
+ {
++	LIBBPF_OPTS(bpf_test_run_opts, topts);
+ 	int err, prog_fd, i;
+-	int link_fd;
+ 	__u64 *result;
+-	LIBBPF_OPTS(bpf_test_run_opts, topts);
+-
+-	err = fexit_test_lskel__attach(fexit_skel);
+-	if (!ASSERT_OK(err, "fexit_attach"))
+-		return err;
+ 
+-	/* Check that already linked program can't be attached again. */
+-	link_fd = fexit_test_lskel__test1__attach(fexit_skel);
+-	if (!ASSERT_LT(link_fd, 0, "fexit_attach_link"))
+-		return -1;
+-
+-	prog_fd = fexit_skel->progs.test1.prog_fd;
++	prog_fd = bpf_program__fd(fexit_skel->progs.test1);
+ 	err = bpf_prog_test_run_opts(prog_fd, &topts);
+ 	ASSERT_OK(err, "test_run");
+ 	ASSERT_EQ(topts.retval, 0, "test_run");
+@@ -31,7 +21,28 @@ static int fexit_test_common(struct fexit_test_lskel *fexit_skel)
+ 			return -1;
+ 	}
+ 
+-	fexit_test_lskel__detach(fexit_skel);
++	return 0;
++}
++
++static int fexit_test_common(struct fexit_test *fexit_skel)
++{
++	struct bpf_link *link;
++	int err;
++
++	err = fexit_test__attach(fexit_skel);
++	if (!ASSERT_OK(err, "fexit_attach"))
++		return err;
++
++	/* Check that already linked program can't be attached again. */
++	link = bpf_program__attach(fexit_skel->progs.test1);
++	if (!ASSERT_ERR_PTR(link, "fexit_attach_link"))
++		return -1;
++
++	err = fexit_test_check(fexit_skel);
++	if (!ASSERT_OK(err, "fexit_test_check"))
++		return err;
++
++	fexit_test__detach(fexit_skel);
+ 
+ 	/* zero results for re-attach test */
+ 	memset(fexit_skel->bss, 0, sizeof(*fexit_skel->bss));
+@@ -40,10 +51,10 @@ static int fexit_test_common(struct fexit_test_lskel *fexit_skel)
+ 
+ static void fexit_test(void)
+ {
+-	struct fexit_test_lskel *fexit_skel = NULL;
++	struct fexit_test *fexit_skel = NULL;
+ 	int err;
+ 
+-	fexit_skel = fexit_test_lskel__open_and_load();
++	fexit_skel = fexit_test__open_and_load();
+ 	if (!ASSERT_OK_PTR(fexit_skel, "fexit_skel_load"))
+ 		goto cleanup;
+ 
+@@ -55,7 +66,7 @@ static void fexit_test(void)
+ 	ASSERT_OK(err, "fexit_second_attach");
+ 
+ cleanup:
+-	fexit_test_lskel__destroy(fexit_skel);
++	fexit_test__destroy(fexit_skel);
+ }
+ 
+ static void fexit_many_args(void)
+@@ -84,10 +95,42 @@ static void fexit_many_args(void)
+ 	fexit_many_args__destroy(fexit_skel);
+ }
+ 
++static void fexit_test_multi(void)
++{
++	struct fexit_test *fexit_skel = NULL;
++	int err, prog_cnt;
++
++	fexit_skel = fexit_test__open();
++	if (!ASSERT_OK_PTR(fexit_skel, "fexit_skel_open"))
++		goto cleanup;
++
++	prog_cnt = sizeof(fexit_skel->progs) / sizeof(long);
++	err = bpf_to_tracing_multi((void *)&fexit_skel->progs, prog_cnt);
++	if (!ASSERT_OK(err, "fexit_to_multi"))
++		goto cleanup;
++
++	err = fexit_test__load(fexit_skel);
++	if (!ASSERT_OK(err, "fexit_skel_load"))
++		goto cleanup;
++
++	err = bpf_attach_as_tracing_multi((void *)&fexit_skel->progs,
++					  prog_cnt,
++					  (void *)&fexit_skel->links);
++	if (!ASSERT_OK(err, "fexit_attach_multi"))
++		goto cleanup;
++
++	err = fexit_test_check(fexit_skel);
++	ASSERT_OK(err, "fexit_first_attach");
++cleanup:
++	fexit_test__destroy(fexit_skel);
++}
++
+ void test_fexit_test(void)
+ {
+ 	if (test__start_subtest("fexit"))
+ 		fexit_test();
++	if (test__start_subtest("fexit_multi"))
++		fexit_test_multi();
+ 	if (test__start_subtest("fexit_many_args"))
+ 		fexit_many_args();
+ }
+diff --git a/tools/testing/selftests/bpf/prog_tests/modify_return.c b/tools/testing/selftests/bpf/prog_tests/modify_return.c
+index a70c99c2f8c8..3ca454379e90 100644
+--- a/tools/testing/selftests/bpf/prog_tests/modify_return.c
++++ b/tools/testing/selftests/bpf/prog_tests/modify_return.c
+@@ -49,6 +49,56 @@ static void run_test(__u32 input_retval, __u16 want_side_effect, __s16 want_ret)
+ 	modify_return__destroy(skel);
+ }
+ 
++static void run_multi_test(__u32 input_retval, __u16 want_side_effect, __s16 want_ret)
++{
++	struct modify_return *skel = NULL;
++	int err, prog_fd, prog_cnt;
++	__u16 side_effect;
++	__s16 ret;
++	LIBBPF_OPTS(bpf_test_run_opts, topts);
++
++	skel = modify_return__open();
++	if (!ASSERT_OK_PTR(skel, "skel_open"))
++		goto cleanup;
++
++	/* stack function args is not supported by tracing multi-link yet,
++	 * so we only enable the bpf progs without stack function args.
++	 */
++	bpf_program__set_expected_attach_type(skel->progs.fentry_test,
++					      BPF_TRACE_FENTRY_MULTI);
++	bpf_program__set_expected_attach_type(skel->progs.fexit_test,
++					      BPF_TRACE_FEXIT_MULTI);
++	bpf_program__set_expected_attach_type(skel->progs.fmod_ret_test,
++					      BPF_MODIFY_RETURN_MULTI);
++
++	err = modify_return__load(skel);
++	if (!ASSERT_OK(err, "skel_load"))
++		goto cleanup;
++
++	prog_cnt = sizeof(skel->progs) / sizeof(long);
++	err = bpf_attach_as_tracing_multi((void *)&skel->progs,
++					  prog_cnt,
++					  (void *)&skel->links);
++	if (!ASSERT_OK(err, "modify_return__attach failed"))
++		goto cleanup;
++
++	skel->bss->input_retval = input_retval;
++	prog_fd = bpf_program__fd(skel->progs.fmod_ret_test);
++	err = bpf_prog_test_run_opts(prog_fd, &topts);
++	ASSERT_OK(err, "test_run");
++
++	side_effect = UPPER(topts.retval);
++	ret = LOWER(topts.retval);
++
++	ASSERT_EQ(ret, want_ret, "test_run ret");
++	ASSERT_EQ(side_effect, want_side_effect, "modify_return side_effect");
++	ASSERT_EQ(skel->bss->fentry_result, 1, "modify_return fentry_result");
++	ASSERT_EQ(skel->bss->fexit_result, 1, "modify_return fexit_result");
++	ASSERT_EQ(skel->bss->fmod_ret_result, 1, "modify_return fmod_ret_result");
++cleanup:
++	modify_return__destroy(skel);
++}
++
+ /* TODO: conflict with get_func_ip_test */
+ void serial_test_modify_return(void)
+ {
+@@ -59,3 +109,13 @@ void serial_test_modify_return(void)
+ 		 0 /* want_side_effect */,
+ 		 -EINVAL * 2 /* want_ret */);
+ }
++
++void serial_test_modify_return_multi(void)
++{
++	run_multi_test(0 /* input_retval */,
++		       2 /* want_side_effect */,
++		       33 /* want_ret */);
++	run_multi_test(-EINVAL /* input_retval */,
++		       1 /* want_side_effect */,
++		       -EINVAL + 29 /* want_ret */);
++}
+diff --git a/tools/testing/selftests/bpf/prog_tests/tracing_multi_link.c b/tools/testing/selftests/bpf/prog_tests/tracing_multi_link.c
+new file mode 100644
+index 000000000000..1cbe6089472f
+--- /dev/null
++++ b/tools/testing/selftests/bpf/prog_tests/tracing_multi_link.c
+@@ -0,0 +1,210 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (c) 2025 ChinaTelecom */
++
++#include <test_progs.h>
++
++#include "tracing_multi_test.skel.h"
++#include "fentry_multi_empty.skel.h"
++
++static void test_run(struct tracing_multi_test *skel)
++{
++	LIBBPF_OPTS(bpf_test_run_opts, topts);
++	int err, prog_fd;
++
++	skel->bss->pid = getpid();
++	prog_fd = bpf_program__fd(skel->progs.fentry_cookie_test1);
++	err = bpf_prog_test_run_opts(prog_fd, &topts);
++	ASSERT_OK(err, "test_run");
++	ASSERT_EQ(topts.retval, 0, "test_run");
++
++	ASSERT_EQ(skel->bss->fentry_test1_result, 1, "fentry_test1_result");
++	ASSERT_EQ(skel->bss->fentry_test2_result, 1, "fentry_test2_result");
++	ASSERT_EQ(skel->bss->fentry_test3_result, 1, "fentry_test3_result");
++	ASSERT_EQ(skel->bss->fentry_test4_result, 1, "fentry_test4_result");
++	ASSERT_EQ(skel->bss->fentry_test5_result, 1, "fentry_test5_result");
++	ASSERT_EQ(skel->bss->fentry_test6_result, 1, "fentry_test6_result");
++	ASSERT_EQ(skel->bss->fentry_test7_result, 1, "fentry_test7_result");
++	ASSERT_EQ(skel->bss->fentry_test8_result, 1, "fentry_test8_result");
++}
++
++static void test_skel_auto_api(void)
++{
++	struct tracing_multi_test *skel;
++	int err;
++
++	skel = tracing_multi_test__open_and_load();
++	if (!ASSERT_OK_PTR(skel, "tracing_multi_test__open_and_load"))
++		return;
++
++	/* disable all programs that should fail */
++	bpf_program__set_autoattach(skel->progs.fentry_fail_test1, false);
++	bpf_program__set_autoattach(skel->progs.fentry_fail_test2, false);
++	bpf_program__set_autoattach(skel->progs.fentry_fail_test3, false);
++	bpf_program__set_autoattach(skel->progs.fentry_fail_test4, false);
++	bpf_program__set_autoattach(skel->progs.fentry_fail_test5, false);
++	bpf_program__set_autoattach(skel->progs.fentry_fail_test6, false);
++
++	bpf_program__set_autoattach(skel->progs.fexit_fail_test1, false);
++	bpf_program__set_autoattach(skel->progs.fexit_fail_test2, false);
++	bpf_program__set_autoattach(skel->progs.fexit_fail_test3, false);
++
++	err = tracing_multi_test__attach(skel);
++	if (!ASSERT_OK(err, "tracing_multi_test__attach"))
++		goto cleanup;
++
++	test_run(skel);
++
++cleanup:
++	tracing_multi_test__destroy(skel);
++}
++
++static int attach_bpf(struct bpf_program *prog, struct bpf_link **link_ptr,
++		       bool success)
++{
++	struct bpf_link *link;
++	int err;
++
++	link = bpf_program__attach(prog);
++	err = libbpf_get_error(link);
++	if (!ASSERT_OK(success ? err : !err, "attach_bpf"))
++		return err;
++	*link_ptr = link;
++
++	return 0;
++}
++
++#define attach_skel_bpf(name, success) \
++	attach_bpf(skel->progs.name, &skel->links.name, success)
++
++static void test_skel_manual_api(void)
++{
++	struct tracing_multi_test *skel;
++
++	skel = tracing_multi_test__open_and_load();
++	if (!ASSERT_OK_PTR(skel, "tracing_multi_test__open_and_load"))
++		return;
++
++	if (attach_skel_bpf(fentry_success_test1, true) ||
++	    attach_skel_bpf(fentry_success_test2, true) ||
++	    attach_skel_bpf(fentry_success_test3, true) ||
++	    attach_skel_bpf(fentry_success_test4, true) ||
++	    attach_skel_bpf(fexit_success_test1, true) ||
++	    attach_skel_bpf(fexit_success_test2, true) ||
++	    attach_skel_bpf(fentry_fail_test1, false) ||
++	    attach_skel_bpf(fentry_fail_test2, false) ||
++	    attach_skel_bpf(fentry_fail_test3, false) ||
++	    attach_skel_bpf(fentry_fail_test4, false) ||
++	    attach_skel_bpf(fentry_fail_test5, false) ||
++	    attach_skel_bpf(fentry_fail_test6, false) ||
++	    attach_skel_bpf(fexit_fail_test1, false) ||
++	    attach_skel_bpf(fexit_fail_test2, false) ||
++	    attach_skel_bpf(fexit_fail_test3, false) ||
++	    attach_skel_bpf(fentry_cookie_test1, true))
++		goto cleanup;
++
++	test_run(skel);
++
++cleanup:
++	tracing_multi_test__destroy(skel);
++}
++
++static void test_attach_api(void)
++{
++	LIBBPF_OPTS(bpf_trace_multi_opts, opts);
++	struct tracing_multi_test *skel;
++	struct bpf_link *link;
++	const char *syms[8] = {
++		"bpf_fentry_test1",
++		"bpf_fentry_test2",
++		"bpf_fentry_test3",
++		"bpf_fentry_test4",
++		"bpf_fentry_test5",
++		"bpf_fentry_test6",
++		"bpf_fentry_test7",
++		"bpf_fentry_test8",
++	};
++	__u64 cookies[] = {1, 7, 2, 3, 4, 5, 6, 8};
++
++	skel = tracing_multi_test__open_and_load();
++	if (!ASSERT_OK_PTR(skel, "tracing_multi_test__open_and_load"))
++		return;
++
++	opts.syms = syms;
++	opts.cookies = cookies;
++	opts.cnt = ARRAY_SIZE(syms);
++	link = bpf_program__attach_trace_multi_opts(skel->progs.fentry_cookie_test1,
++						    &opts);
++	if (!ASSERT_OK_PTR(link, "bpf_program__attach_trace_multi_opts"))
++		goto cleanup;
++	skel->links.fentry_cookie_test1 = link;
++
++	skel->bss->test_cookie = true;
++	test_run(skel);
++cleanup:
++	tracing_multi_test__destroy(skel);
++}
++
++static void test_attach_bench(bool kernel)
++{
++	LIBBPF_OPTS(bpf_trace_multi_opts, opts);
++	struct fentry_multi_empty *skel;
++	long attach_start_ns, attach_end_ns;
++	long detach_start_ns, detach_end_ns;
++	double attach_delta, detach_delta;
++	struct bpf_link *link = NULL;
++	char **syms = NULL;
++	size_t cnt = 0;
++
++	if (!ASSERT_OK(bpf_get_ksyms(&syms, &cnt, kernel), "get_syms"))
++		return;
++
++	skel = fentry_multi_empty__open_and_load();
++	if (!ASSERT_OK_PTR(skel, "fentry_multi_empty__open_and_load"))
++		goto cleanup;
++
++	opts.syms = (const char **) syms;
++	opts.cnt = cnt;
++	opts.skip_invalid = true;
++
++	attach_start_ns = get_time_ns();
++	link = bpf_program__attach_trace_multi_opts(skel->progs.fentry_multi_empty,
++						    &opts);
++	attach_end_ns = get_time_ns();
++
++	if (!ASSERT_OK_PTR(link, "bpf_program__attach_trace_multi_opts"))
++		return;
++
++	detach_start_ns = get_time_ns();
++	bpf_link__destroy(link);
++	detach_end_ns = get_time_ns();
++
++	attach_delta = (attach_end_ns - attach_start_ns) / 1000000000.0;
++	detach_delta = (detach_end_ns - detach_start_ns) / 1000000000.0;
++
++	printf("%s: found %lu functions\n", __func__, opts.cnt);
++	printf("%s: attached in %7.3lfs\n", __func__, attach_delta);
++	printf("%s: detached in %7.3lfs\n", __func__, detach_delta);
++
++cleanup:
++	fentry_multi_empty__destroy(skel);
++	if (syms)
++		free(syms);
++}
++
++void serial_test_tracing_multi_attach_bench(void)
++{
++	if (test__start_subtest("kernel"))
++		test_attach_bench(true);
++	if (test__start_subtest("modules"))
++		test_attach_bench(false);
++}
++
++void test_tracing_multi_attach_test(void)
++{
++	if (test__start_subtest("skel_auto_api"))
++		test_skel_auto_api();
++	if (test__start_subtest("skel_manual_api"))
++		test_skel_manual_api();
++	if (test__start_subtest("attach_api"))
++		test_attach_api();
++}
+diff --git a/tools/testing/selftests/bpf/progs/fentry_multi_empty.c b/tools/testing/selftests/bpf/progs/fentry_multi_empty.c
+new file mode 100644
+index 000000000000..a09ba216dff8
+--- /dev/null
++++ b/tools/testing/selftests/bpf/progs/fentry_multi_empty.c
+@@ -0,0 +1,13 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (c) 2025 ChinaTelecom */
++#include <linux/bpf.h>
++#include <bpf/bpf_helpers.h>
++#include <bpf/bpf_tracing.h>
++
++char _license[] SEC("license") = "GPL";
++
++SEC("fentry.multi/bpf_fentry_test1")
++int BPF_PROG(fentry_multi_empty)
++{
++	return 0;
++}
+diff --git a/tools/testing/selftests/bpf/progs/tracing_multi_test.c b/tools/testing/selftests/bpf/progs/tracing_multi_test.c
+new file mode 100644
+index 000000000000..fa27851896b9
+--- /dev/null
++++ b/tools/testing/selftests/bpf/progs/tracing_multi_test.c
+@@ -0,0 +1,181 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (c) 2025 ChinaTelecom */
++#include <linux/bpf.h>
++#include <bpf/bpf_helpers.h>
++#include <bpf/bpf_tracing.h>
++
++char _license[] SEC("license") = "GPL";
++
++struct bpf_testmod_struct_arg_1 {
++	int a;
++};
++struct bpf_testmod_struct_arg_2 {
++	long a;
++	long b;
++};
++
++__u64 test_result = 0;
++
++int pid = 0;
++int test_cookie = 0;
++
++__u64 fentry_test1_result = 0;
++__u64 fentry_test2_result = 0;
++__u64 fentry_test3_result = 0;
++__u64 fentry_test4_result = 0;
++__u64 fentry_test5_result = 0;
++__u64 fentry_test6_result = 0;
++__u64 fentry_test7_result = 0;
++__u64 fentry_test8_result = 0;
++
++extern const void bpf_fentry_test1 __ksym;
++extern const void bpf_fentry_test2 __ksym;
++extern const void bpf_fentry_test3 __ksym;
++extern const void bpf_fentry_test4 __ksym;
++extern const void bpf_fentry_test5 __ksym;
++extern const void bpf_fentry_test6 __ksym;
++extern const void bpf_fentry_test7 __ksym;
++extern const void bpf_fentry_test8 __ksym;
++
++SEC("fentry.multi/bpf_testmod_test_struct_arg_1,bpf_testmod_test_struct_arg_13")
++int BPF_PROG2(fentry_success_test1, struct bpf_testmod_struct_arg_2, a)
++{
++	test_result = a.a + a.b;
++	return 0;
++}
++
++SEC("fentry.multi/bpf_testmod_test_struct_arg_2,bpf_testmod_test_struct_arg_10")
++int BPF_PROG2(fentry_success_test2, int, a, struct bpf_testmod_struct_arg_2, b)
++{
++	test_result = a + b.a + b.b;
++	return 0;
++}
++
++SEC("fentry.multi/bpf_testmod_test_struct_arg_1,bpf_testmod_test_struct_arg_4")
++int BPF_PROG2(fentry_success_test3, struct bpf_testmod_struct_arg_2, a, int, b,
++	      int, c)
++{
++	test_result = c;
++	return 0;
++}
++
++SEC("fentry.multi/bpf_testmod_test_struct_arg_1,bpf_testmod_test_struct_arg_2")
++int BPF_PROG2(fentry_success_test4, struct bpf_testmod_struct_arg_2, a, int, b,
++	      int, c)
++{
++	test_result = c;
++	return 0;
++}
++
++SEC("fentry.multi/bpf_testmod_test_struct_arg_1,bpf_testmod_test_struct_arg_1")
++int BPF_PROG2(fentry_fail_test1, struct bpf_testmod_struct_arg_2, a)
++{
++	test_result = a.a + a.b;
++	return 0;
++}
++
++SEC("fentry.multi/bpf_testmod_test_struct_arg_1,bpf_testmod_test_struct_arg_2")
++int BPF_PROG2(fentry_fail_test2, struct bpf_testmod_struct_arg_2, a)
++{
++	test_result = a.a + a.b;
++	return 0;
++}
++
++SEC("fentry.multi/bpf_testmod_test_struct_arg_1,bpf_testmod_test_struct_arg_4")
++int BPF_PROG2(fentry_fail_test3, struct bpf_testmod_struct_arg_2, a)
++{
++	test_result = a.a + a.b;
++	return 0;
++}
++
++SEC("fentry.multi/bpf_testmod_test_struct_arg_2,bpf_testmod_test_struct_arg_2")
++int BPF_PROG2(fentry_fail_test4, int, a, struct bpf_testmod_struct_arg_2, b)
++{
++	test_result = a + b.a + b.b;
++	return 0;
++}
++
++SEC("fentry.multi/bpf_testmod_test_struct_arg_2,bpf_testmod_test_struct_arg_13")
++int BPF_PROG2(fentry_fail_test5, int, a, struct bpf_testmod_struct_arg_2, b)
++{
++	test_result = a + b.a + b.b;
++	return 0;
++}
++
++SEC("fentry.multi/bpf_testmod_test_struct_arg_1,bpf_testmod_test_struct_arg_12")
++int BPF_PROG2(fentry_fail_test6, struct bpf_testmod_struct_arg_2, a, int, b,
++	      int, c)
++{
++	test_result = c;
++	return 0;
++}
++
++SEC("fexit.multi/bpf_testmod_test_struct_arg_1,bpf_testmod_test_struct_arg_2,bpf_testmod_test_struct_arg_3")
++int BPF_PROG2(fexit_success_test1, struct bpf_testmod_struct_arg_2, a, int, b,
++	      int, c, int, retval)
++{
++	test_result = retval;
++	return 0;
++}
++
++SEC("fexit.multi/bpf_testmod_test_struct_arg_2,bpf_testmod_test_struct_arg_12")
++int BPF_PROG2(fexit_success_test2, int, a, struct bpf_testmod_struct_arg_2, b,
++	      int, c, int, retval)
++{
++	test_result = a + b.a + b.b + retval;
++	return 0;
++}
++
++SEC("fexit.multi/bpf_testmod_test_struct_arg_1,bpf_testmod_test_struct_arg_4")
++int BPF_PROG2(fexit_fail_test1, struct bpf_testmod_struct_arg_2, a, int, b,
++	      int, c, int, retval)
++{
++	test_result = retval;
++	return 0;
++}
++
++SEC("fexit.multi/bpf_testmod_test_struct_arg_2,bpf_testmod_test_struct_arg_10")
++int BPF_PROG2(fexit_fail_test2, int, a, struct bpf_testmod_struct_arg_2, b,
++	      int, c, int, retval)
++{
++	test_result = a + b.a + b.b + retval;
++	return 0;
++}
++
++SEC("fexit.multi/bpf_testmod_test_struct_arg_2,bpf_testmod_test_struct_arg_11")
++int BPF_PROG2(fexit_fail_test3, int, a, struct bpf_testmod_struct_arg_2, b,
++	      int, c, int, retval)
++{
++	test_result = a + b.a + b.b + retval;
++	return 0;
++}
++
++static void tracing_multi_check_cookie(unsigned long long *ctx)
++{
++	if (bpf_get_current_pid_tgid() >> 32 != pid)
++		return;
++
++	__u64 cookie = test_cookie ? bpf_get_attach_cookie(ctx) : 0;
++	__u64 addr = bpf_get_func_ip(ctx);
++
++#define SET(__var, __addr, __cookie) ({			\
++	if (((const void *) addr == __addr) &&		\
++	     (!test_cookie || (cookie == __cookie)))	\
++		__var = 1;				\
++})
++	SET(fentry_test1_result, &bpf_fentry_test1, 1);
++	SET(fentry_test2_result, &bpf_fentry_test2, 7);
++	SET(fentry_test3_result, &bpf_fentry_test3, 2);
++	SET(fentry_test4_result, &bpf_fentry_test4, 3);
++	SET(fentry_test5_result, &bpf_fentry_test5, 4);
++	SET(fentry_test6_result, &bpf_fentry_test6, 5);
++	SET(fentry_test7_result, &bpf_fentry_test7, 6);
++	SET(fentry_test8_result, &bpf_fentry_test8, 8);
++}
++
++SEC("fentry.multi/bpf_fentry_test1,bpf_fentry_test2,bpf_fentry_test3,bpf_fentry_test4,bpf_fentry_test5,bpf_fentry_test6,bpf_fentry_test7,bpf_fentry_test8")
++int BPF_PROG(fentry_cookie_test1)
++{
++	tracing_multi_check_cookie(ctx);
++	return 0;
++}
+diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
+index e9e918cdf31f..07ea1d5d3795 100644
+--- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
++++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
+@@ -128,6 +128,30 @@ bpf_testmod_test_struct_arg_9(u64 a, void *b, short c, int d, void *e, char f,
+ 	return bpf_testmod_test_struct_arg_result;
+ }
+ 
++noinline int
++bpf_testmod_test_struct_arg_10(int a, struct bpf_testmod_struct_arg_2 b) {
++	bpf_testmod_test_struct_arg_result = a + b.a + b.b;
++	return bpf_testmod_test_struct_arg_result;
++}
++
++noinline struct bpf_testmod_struct_arg_2 *
++bpf_testmod_test_struct_arg_11(int a, struct bpf_testmod_struct_arg_2 b, int c) {
++	bpf_testmod_test_struct_arg_result = a + b.a + b.b + c;
++	return (void *)bpf_testmod_test_struct_arg_result;
++}
++
++noinline int
++bpf_testmod_test_struct_arg_12(int a, struct bpf_testmod_struct_arg_2 b, int *c) {
++	bpf_testmod_test_struct_arg_result = a + b.a + b.b + *c;
++	return bpf_testmod_test_struct_arg_result;
++}
++
++noinline int
++bpf_testmod_test_struct_arg_13(struct bpf_testmod_struct_arg_2 b) {
++	bpf_testmod_test_struct_arg_result = b.a + b.b;
++	return bpf_testmod_test_struct_arg_result;
++}
++
+ noinline int
+ bpf_testmod_test_arg_ptr_to_struct(struct bpf_testmod_struct_arg_1 *a) {
+ 	bpf_testmod_test_struct_arg_result = a->a;
+diff --git a/tools/testing/selftests/bpf/test_progs.c b/tools/testing/selftests/bpf/test_progs.c
+index 309d9d4a8ace..533b714f1ca6 100644
+--- a/tools/testing/selftests/bpf/test_progs.c
++++ b/tools/testing/selftests/bpf/test_progs.c
+@@ -667,6 +667,56 @@ int bpf_find_map(const char *test, struct bpf_object *obj, const char *name)
+ 	return bpf_map__fd(map);
+ }
+ 
++int bpf_to_tracing_multi(struct bpf_program **progs, int prog_cnt)
++{
++	enum bpf_attach_type type;
++	int i, err;
++
++	for (i = 0; i < prog_cnt; i++) {
++		type = bpf_program__get_expected_attach_type(progs[i]);
++		if (type == BPF_TRACE_FENTRY)
++			type = BPF_TRACE_FENTRY_MULTI;
++		else if (type == BPF_TRACE_FEXIT)
++			type = BPF_TRACE_FEXIT_MULTI;
++		else if (type == BPF_MODIFY_RETURN)
++			type = BPF_MODIFY_RETURN_MULTI;
++		else
++			continue;
++		err = bpf_program__set_expected_attach_type(progs[i], type);
++		if (err)
++			return err;
++	}
++
++	return 0;
++}
++
++int bpf_attach_as_tracing_multi(struct bpf_program **progs, int prog_cnt,
++				struct bpf_link **link)
++{
++	struct bpf_link *__link;
++	int err, type;
++
++	for (int i = 0; i < prog_cnt; i++) {
++		LIBBPF_OPTS(bpf_trace_multi_opts, opts);
++
++		type = bpf_program__get_expected_attach_type(progs[i]);
++		if (type != BPF_TRACE_FENTRY_MULTI &&
++		    type != BPF_TRACE_FEXIT_MULTI &&
++		    type != BPF_MODIFY_RETURN_MULTI)
++			continue;
++
++		opts.attach_tracing = true;
++		__link = bpf_program__attach_trace_multi_opts(progs[i], &opts);
++		err = libbpf_get_error(link);
++		if (err)
++			return err;
++
++		link[i] = __link;
++	}
++
++	return 0;
++}
++
+ int compare_map_keys(int map1_fd, int map2_fd)
+ {
+ 	__u32 key, next_key;
+diff --git a/tools/testing/selftests/bpf/test_progs.h b/tools/testing/selftests/bpf/test_progs.h
+index df2222a1806f..7e30c6dbf35c 100644
+--- a/tools/testing/selftests/bpf/test_progs.h
++++ b/tools/testing/selftests/bpf/test_progs.h
+@@ -496,6 +496,9 @@ int trigger_module_test_write(int write_sz);
+ int write_sysctl(const char *sysctl, const char *value);
+ int get_bpf_max_tramp_links_from(struct btf *btf);
+ int get_bpf_max_tramp_links(void);
++int bpf_to_tracing_multi(struct bpf_program **progs, int prog_cnt);
++int bpf_attach_as_tracing_multi(struct bpf_program **progs, int prog_cnt,
++				struct bpf_link **link);
+ 
+ struct netns_obj;
+ struct netns_obj *netns_new(const char *name, bool open);
+diff --git a/tools/testing/selftests/bpf/trace_helpers.c b/tools/testing/selftests/bpf/trace_helpers.c
+index d24baf244d1f..a9e9dd3be226 100644
+--- a/tools/testing/selftests/bpf/trace_helpers.c
++++ b/tools/testing/selftests/bpf/trace_helpers.c
+@@ -559,6 +559,75 @@ static bool skip_entry(char *name)
+ 	if (!strncmp(name, "__ftrace_invalid_address__",
+ 		     sizeof("__ftrace_invalid_address__") - 1))
+ 		return true;
++
++	/* skip functions in "btf_id_deny" */
++	if (!strcmp(name, "migrate_disable"))
++		return true;
++	if (!strcmp(name, "migrate_enable"))
++		return true;
++	if (!strcmp(name, "rcu_read_unlock_strict"))
++		return true;
++	if (!strcmp(name, "preempt_count_add"))
++		return true;
++	if (!strcmp(name, "preempt_count_sub"))
++		return true;
++	if (!strcmp(name, "__rcu_read_lock"))
++		return true;
++	if (!strcmp(name, "__rcu_read_unlock"))
++		return true;
++
++	/* Following symbols have multi definition in kallsyms, take
++	 * "t_next" for example:
++	 *
++	 *     ffffffff813c10d0 t t_next
++	 *     ffffffff813d31b0 t t_next
++	 *     ffffffff813e06b0 t t_next
++	 *     ffffffff813eb360 t t_next
++	 *     ffffffff81613360 t t_next
++	 *
++	 * but only one of them have corresponding mrecord:
++	 *     ffffffff81613364 t_next
++	 *
++	 * The kernel search the target function address by the symbol
++	 * name "t_next" with kallsyms_lookup_name() during attaching
++	 * and the function "0xffffffff813c10d0" can be matched, which
++	 * doesn't have a corresponding mrecord. And this will make
++	 * the attach failing. Skip the functions like this.
++	 *
++	 * The list maybe not whole, so we still can fail......We need a
++	 * way to make the whole things right. Yes, we need fix it :/
++	 */
++	if (!strcmp(name, "kill_pid_usb_asyncio"))
++		return true;
++	if (!strcmp(name, "t_next"))
++		return true;
++	if (!strcmp(name, "t_stop"))
++		return true;
++	if (!strcmp(name, "t_start"))
++		return true;
++	if (!strcmp(name, "p_next"))
++		return true;
++	if (!strcmp(name, "p_stop"))
++		return true;
++	if (!strcmp(name, "p_start"))
++		return true;
++	if (!strcmp(name, "mem32_serial_out"))
++		return true;
++	if (!strcmp(name, "mem32_serial_in"))
++		return true;
++	if (!strcmp(name, "io_serial_in"))
++		return true;
++	if (!strcmp(name, "io_serial_out"))
++		return true;
++	if (!strcmp(name, "event_callback"))
++		return true;
++	if (!strcmp(name, "amd_pmu_init"))
++		return true;
++	if (!strcmp(name, "sync_regs"))
++		return true;
++	if (!strcmp(name, "empty"))
++		return true;
++
+ 	return false;
+ }
+ 
+-- 
+2.39.5
 
 
