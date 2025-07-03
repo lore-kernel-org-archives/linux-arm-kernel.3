@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303BFC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA628C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ii8Rpl/uFQ8Tn6Jz+3FNiqIY9+Vonh/4EcNS3Y1tXFs=; b=oPdNnLFUqdsfZohAvouUozZT/P
-	7kESdTlVhlyshjKgo+emXTI5mfDzIRCsihFy0rnWHkYlGZ41bin26W3T+P2oyA04GD4/LMgWQZ77e
-	8sy20zRgsZn8aokQhwLlXl0NqwToyhcuMODoh0RHujYUmdsNxc0XL6FKZvuoTii83sRlwZxwjRNMK
-	Zbj9ghuLgQkoGPlXZsbOvrUsT89TYjLCUaSLXji/GNBOmzktU5HN5T4g4GZiLxVta1GPeR+6YYZny
-	z1R0xhxUAPgxwb4xaCcb01u06DlEZZBPdoxZyvZwT/weNgMWE3ufTCUq9BBOmVTOwpml6YokRrcXz
-	QHYjLd6g==;
+	bh=CKKxnWcG+NC+V/ksIM3+Ms0HqSHiV7BnUf5MfIyqI9g=; b=B8zcrbQ1TlHYi24/JQnN4OoH5s
+	8RlOwqZPsst3niDqWKEfFzNSJ2VjPk49Joc6Ktxs4UJdpntXTQJDO4xrvUG9HIAoiA1YF4Ej1iA4O
+	IRiN/zgKnGfWAWM2le8bYprOTndH61D1Blhr+DhLoR+rMcE5RyAhRm/Xx+ero1GXVbFsDh0mQ40R/
+	Ci8VProdnRu1qaHNNIR21YKIOm879aPu8OOmIjmwITYu95WyeGEtbLLx9lWbfTcIc9AnCEb9e6zw9
+	01SKnc30sLOkF0z6z2TIiW0ZTmN7UnSzFxl61mAkCbQCkjdmro/rSpTrD4U4RS/cvd67lGa6w0Wfa
+	Fjm4yz2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIqC-0000000BHeC-1BE6;
-	Thu, 03 Jul 2025 12:15:00 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uXIsW-0000000BIEf-2z9C;
+	Thu, 03 Jul 2025 12:17:24 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHiQ-0000000B5sn-1Lti;
-	Thu, 03 Jul 2025 11:02:55 +0000
+	id 1uXHiR-0000000B5tU-1pxc;
+	Thu, 03 Jul 2025 11:02:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751540572;
-	bh=FfEf8IjEzBgA7KdoP2f2VYa26/4KslWyDnI+7I3w8CA=;
+	s=mail; t=1751540574;
+	bh=AEKCOZLewbT3WJ11kuH+FT6CuFYkZkE6eijdU6k3Ymo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AtqbVI5qDXQmhh/Uz+G519yx06QVmReK+eFyKOSuSCT4RGTuxoQK7EmXzn5LnXllS
-	 3OfYPzL4Becd92vdYEPCAuf7cxrUtz1lxx3nBs70f0z2rj+yU/RJzBIsDT31MdKxUC
-	 IKsag2eTxFDgOixpcRaHgvCNG5zBeyzwLnsHwvZmlMSb6kN4hstgBLsZwUCNtZSENz
-	 8lBSLaxiLMLcCh/X/kp8dBCF+5hZsjz1ZbYI1o7eyxKlrF5EScQAWu6BHORiIn0k/9
-	 BGbHLRF1NE+IcL2XXjk+jo8jf5lUpocBHdNYqRwV/NbBATlf9LfG2xQuxETfy2YANw
-	 FhaZ42q2omvYQ==
+	b=mhi2EzE69pP8XHTrNOpYgalSdx9biM5KLOD33MywcZIZ/UM1dUKmq6frIGrZ5tFvf
+	 G8+36Dine+6wRx9szYDbO5KfaihxhCUPB+kXuWcRypovB7Bic/5PxeRNQ2fOuDM9j3
+	 fc+v51XtLQFyMAeIzNP3/YZBkAxl1IxSDqaxUS55PR7o2WdRT81LnUr8x0dQqrMkqf
+	 cxut3Xu5HuMxVTUDpSTTyZJs5IApEBWR2dE+rKDOTeVwDO1CnPDjOGHq6goUw+Qx9b
+	 zYb1gh9bY7Jdt8fuo6iAfn6bIC2nMWUgFCzgwPRhWkfV0imbhzSoUHIG6Z3sfzUaNL
+	 soo+v93xnp9FQ==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EA0E917E09C6;
-	Thu,  3 Jul 2025 13:02:51 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1763117E0EBD;
+	Thu,  3 Jul 2025 13:02:53 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: robh@kernel.org,
@@ -62,17 +62,17 @@ Cc: robh@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-pm@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH 02/10] dt-bindings: clock: mediatek: Document #access-controller-cells
-Date: Thu,  3 Jul 2025 13:02:39 +0200
-Message-ID: <20250703110247.99927-3-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 03/10] dt-bindings: power: mediatek: Document access-controllers property
+Date: Thu,  3 Jul 2025 13:02:40 +0200
+Message-ID: <20250703110247.99927-4-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250703110247.99927-1-angelogioacchino.delregno@collabora.com>
 References: <20250703110247.99927-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_040254_502912_1071E79C 
-X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-CacheID: sfid-20250703_040255_631654_F0CA23E4 
+X-CRM114-Status: UNSURE (   9.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,131 +88,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the #access-controller-cells property on all of the infracfg
-controllers on all MediaTek SoCs, as this always acts as an access
-control provider.
+Allow specifying access-controllers in the main power controller
+node and deprecate the old mediatek,infracfg, mediatek,infracfg-nao
+and mediatek,smi properties located in the children.
+
+This is done in order to both simplify the power controller
+nodes and in preparation for adding support for new generation
+SoCs like MT8196/MT6991 and other variants, which will need
+to set protection on new busses.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../bindings/clock/mediatek,infracfg.yaml         |  3 +++
- .../bindings/clock/mediatek,mt8186-sys-clock.yaml | 15 +++++++++++++++
- .../bindings/clock/mediatek,mt8192-sys-clock.yaml | 15 +++++++++++++++
- .../bindings/clock/mediatek,mt8365-sys-clock.yaml | 15 +++++++++++++++
- 4 files changed, 48 insertions(+)
+ .../power/mediatek,power-controller.yaml      | 39 +++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,infracfg.yaml b/Documentation/devicetree/bindings/clock/mediatek,infracfg.yaml
-index d1d30700d9b0..27f1a31c3424 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,infracfg.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,infracfg.yaml
-@@ -47,6 +47,9 @@ properties:
-   reg:
-     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+index 9c7cc632abee..82bfd3899b22 100644
+--- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+@@ -44,6 +44,17 @@ properties:
+   '#size-cells':
+     const: 0
  
-+  '#access-controller-cells':
-+    const: 0
++  access-controllers:
++    description:
++      A number of phandles to external blocks to set and clear the required
++      bits to enable or disable bus protection, necessary to avoid any bus
++      faults while enabling or disabling a power domain.
++      For example, this may hold phandles to INFRACFG and SMI.
++    minItems: 1
++    maxItems: 3
++    items:
++      maxItems: 1
 +
-   '#clock-cells':
-     const: 1
+ patternProperties:
+   "^power-domain@[0-9a-f]+$":
+     $ref: "#/$defs/power-domain-node"
+@@ -123,14 +134,17 @@ $defs:
+       mediatek,infracfg:
+         $ref: /schemas/types.yaml#/definitions/phandle
+         description: phandle to the device containing the INFRACFG register range.
++        deprecated: true
  
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-index 1c446fbc5108..2a1bf9073b7d 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-@@ -36,6 +36,9 @@ properties:
-   reg:
-     maxItems: 1
+       mediatek,infracfg-nao:
+         $ref: /schemas/types.yaml#/definitions/phandle
+         description: phandle to the device containing the INFRACFG-NAO register range.
++        deprecated: true
  
-+  '#access-controller-cells':
-+    const: 0
+       mediatek,smi:
+         $ref: /schemas/types.yaml#/definitions/phandle
+         description: phandle to the device containing the SMI register range.
++        deprecated: true
+ 
+     required:
+       - reg
+@@ -138,6 +152,31 @@ $defs:
+ required:
+   - compatible
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt8183-power-controller
++    then:
++      properties:
++        access-controllers:
++          minItems: 2
++          maxItems: 2
 +
-   '#clock-cells':
-     const: 1
- 
-@@ -48,6 +51,18 @@ required:
- 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt8365-power-controller
++    then:
++      properties:
++        access-controllers:
++          minItems: 3
++          maxItems: 3
++
  additionalProperties: false
  
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: mediatek,mt8186-infracfg_ao
-+then:
-+  properties:
-+    '#access-controller-cells': true
-+else:
-+  properties:
-+    '#access-controller-cells': false
-+
  examples:
-   - |
-     topckgen: syscon@10000000 {
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8192-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8192-sys-clock.yaml
-index bf8c9aacdf1e..f1ab8b0e0a98 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8192-sys-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8192-sys-clock.yaml
-@@ -26,6 +26,9 @@ properties:
-   reg:
-     maxItems: 1
- 
-+  '#access-controller-cells':
-+    const: 0
-+
-   '#clock-cells':
-     const: 1
- 
-@@ -38,6 +41,18 @@ required:
- 
- additionalProperties: false
- 
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: mediatek,mt8192-infracfg
-+then:
-+  properties:
-+    '#access-controller-cells': true
-+else:
-+  properties:
-+    '#access-controller-cells': false
-+
- examples:
-   - |
-     topckgen: syscon@10000000 {
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8365-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8365-sys-clock.yaml
-index 643f84660c8e..b6f074f98db7 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8365-sys-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8365-sys-clock.yaml
-@@ -28,6 +28,9 @@ properties:
-   reg:
-     maxItems: 1
- 
-+  '#access-controller-cells':
-+    const: 0
-+
-   '#clock-cells':
-     const: 1
- 
-@@ -38,6 +41,18 @@ required:
- 
- additionalProperties: false
- 
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: mediatek,mt8365-infracfg
-+then:
-+  properties:
-+    '#access-controller-cells': true
-+else:
-+  properties:
-+    '#access-controller-cells': false
-+
- examples:
-   - |
-     topckgen: clock-controller@10000000 {
 -- 
 2.49.0
 
