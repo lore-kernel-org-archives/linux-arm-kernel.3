@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B226C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A866C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lqwk899m7bjekDFuWk2Qz9G77QeT0HBAgeLAE/za1s4=; b=1lFgUWI9n6s5vLiSMXA5W3dxcm
-	xlST45Bie96ifvaE+c/PxQjKnFktB34pnjxVyiLCovCF8p2kNsF6jLCxFq2DdCBPJ1qmrCp2fjYl0
-	nf4vW6FaDg7aFjj43aiYOsFv5HVxBH+rS/dOALbpofHt05T+9UIOezXm0SmtFWwngb+QQE3DVs2U1
-	EhjbRWN+9aIfhnHcfTEvgvvop1bJrpz0rVDU9ZjG1T18JgusrqEqPvRF0dXe73aSADSwV+D3bbAN3
-	2ayqflPbvnyYabgT7VUjyANEiFHF/9bv2V5vjcFvjFiSg1c+mcWm0RGHydMvj666c8nzskWzMV7Ab
-	0n7WRRsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PUMUxTQyz4Rw+I/k6r4nKllDMvLQcH1q/9NQSkvh/Tc=; b=KtnraXP1uae4l/U0mORtOAbIiq
+	pqqafeEb80kNQh64ri6ZQZBKn3OrjrfIowdlHElmxb1F83Sr9Wi/e7L3WfhHfl7oeSygJH/LtkMag
+	3ZSB9w8EXJZYA0x6utRmqMr2HjaDY26NS8eb7QgL/L4We/dtoHZwtvbgwiQV8w4R0t9sc7lLz44nM
+	nYjIuSe51a+/ZEGpBClo7Dq+Rtc4mTutsRJzzfM9q7Hk+jkciM+AZxmk9t308l5qyH735d6Td98rN
+	2vsnIVll6DYqJC5J/rt9f83j9iNNbnyM9skChM5fLFwYwjQSMaQa9KdPdOsNlje+CpY+otYZr3EVT
+	TyXyRZmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXITK-0000000BDol-2IiL;
-	Thu, 03 Jul 2025 11:51:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uXIVK-0000000BEJp-1Ita;
+	Thu, 03 Jul 2025 11:53:26 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXH8P-0000000Ayky-2el7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 10:25:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 141715C4464;
-	Thu,  3 Jul 2025 10:25:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFD56C4CEE3;
-	Thu,  3 Jul 2025 10:25:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751538340;
-	bh=cHsJXMhOTfVZkuFAf0l6aQWEcs6MpJ4efXvwjlVJcKE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=G0amZSU1a8GM156F9LfGG6AaTBkba7mVaz29G51OO7jsNQhASyT0AsvU7daQzZBpd
-	 RyOF3P2EBD7mdgNQcgDHKSqjczJxkjUZTnkiNrOOW5hT1JXilIrIgQnfSGpVxeqzbT
-	 Gdwe6XNv8mj/YYYEkPN38UouE7RhxH2dJuOi6rGF1k0hJGNDnDYVKfRRHAhfr7WUEj
-	 Ry5OlupBmLccs0Wrj3mpO97VPobvmpDoLRDocmu7wYzy6E5ihNmZ9iiXIPNlEld8qw
-	 fvLFEwNcXSosyuznoY8bbe6tq2dE4XFGSvI6xBIGbGWqmIg4FRgSRwHr/PHuDZR+7m
-	 NCEXAevuoCdyg==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Thu, 03 Jul 2025 12:24:55 +0200
-Subject: [PATCH v7 05/31] arm64/sysreg: Add ICC_PPI_HMR<n>_EL1
+	id 1uXHLW-0000000B1qj-1kVn;
+	Thu, 03 Jul 2025 10:39:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1751539145; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=OGmTYjb87a/HQQfJ80nuoMM3J5giu9DFlFLheBZM1lWvnWDiOMp9wWhc6sM77tEy1ydXz087rntZgP0XRPFayh7/+6AIYl4/GsM1wkQ3n8qa6H0FCKLoRUVY6HRRJ61CZ9b1OB/QBYNTWJ3UA09pcCeMVrIaAE3yG/LAQMsMunA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1751539145; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=PUMUxTQyz4Rw+I/k6r4nKllDMvLQcH1q/9NQSkvh/Tc=; 
+	b=gYW8iVfmd0xLbwpe/lltOymsMhP2xnfMuf9kG5gDgz4TIM77kd5B/HOrZYUOxLvR/HxU5dRuW5kbHKrZAECfrY4FR6TvgZRFrBMwIyVjXu0l4aNreUspfiSwGUYHgp026ULp0m84Y1wDGwJtZOeb9kzDr9ML2p9IyKB0j+jh7IE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751539145;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=PUMUxTQyz4Rw+I/k6r4nKllDMvLQcH1q/9NQSkvh/Tc=;
+	b=Ua4joRz7J0WXVyQAc9oiuwImuog9VPquGVoKz8hsGX4MlyXyvGKyYEWhXUMYSB1b
+	bxWzSzqxKFQXqxPM/+iZ+zse3v9BlcQY/CYJ239YdacuajaqPPZhXqldqhvDkvEt+pJ
+	elYxIhb16kp8exk5hBD/X4HuM6rC5REb8wCqfDBU=
+Received: by mx.zohomail.com with SMTPS id 1751539143453232.01329008697712;
+	Thu, 3 Jul 2025 03:39:03 -0700 (PDT)
+Message-ID: <8958966b96140aaaae97b480b7a6c1698a6d2ae2.camel@collabora.com>
+Subject: Re: [PATCH] MFD: mt6397: do not use generic name for keypad
+ sub-devices
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, Lee Jones <lee@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	 <angelogioacchino.delregno@collabora.com>, Yassine Oudjana
+	 <y.oudjana@protonmail.com>, =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado"
+	 <nfraprado@collabora.com>, Fabien Parent <fparent@baylibre.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Date: Thu, 03 Jul 2025 12:38:59 +0200
+In-Reply-To: <r4k3pgd3ew3ypne7ernxuzwgniiyvzosbce4cfajbcu7equblt@yato35tjb3lw>
+References: <r4k3pgd3ew3ypne7ernxuzwgniiyvzosbce4cfajbcu7equblt@yato35tjb3lw>
+Organization: Collabora Ltd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250703-gicv5-host-v7-5-12e71f1b3528@kernel.org>
-References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
-In-Reply-To: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, 
- Sascha Bischoff <sascha.bischoff@arm.com>, 
- Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
- Timothy Hayes <timothy.hayes@arm.com>, Bjorn Helgaas <bhelgaas@google.com>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Peter Maydell <peter.maydell@linaro.org>, 
- Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.15-dev-6f78e
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_032541_757017_C85406BD 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250703_033914_519724_D033AAB5 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,106 +83,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ICC_PPI_HMR<n>_EL1 registers sysreg description.
+Hi Dmitry,
 
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Reviewed-by: Marc Zyngier <maz@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/tools/sysreg | 75 +++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 75 insertions(+)
+On Mon, 2025-06-30 at 16:01 -0700, Dmitry Torokhov wrote:
+> Do not use "mtk-pmic-keys" when creating sub-device for the keypad to
+> make sure the keypad driver will only bind to the sub-device if it
+> has
+> support for the variant/has matching compatible.
+>=20
+> Reported-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Fixes: 6e31bb8d3a63 ("mfd: mt6397: Add initial support for MT6328")
+> Fixes: de58cee8c6b8 ("mfd: mt6397-core: Add MT6357 PMIC support")
+> Fixes: 4a901e305011 ("mfd: mt6397-core: Add resources for PMIC keys
+> for MT6359")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+> ---
+>=20
+> This is not tested so if someone with hardware could try it out that
+> would be great. I *think* it should work...
+>=20
+> =C2=A0drivers/mfd/mt6397-core.c | 12 ++++++------
+> =C2=A01 file changed, 6 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
+> index 5f8ed8988907..3e58d0764c7e 100644
+> --- a/drivers/mfd/mt6397-core.c
+> +++ b/drivers/mfd/mt6397-core.c
+> @@ -136,7 +136,7 @@ static const struct mfd_cell mt6323_devs[] =3D {
+> =C2=A0		.name =3D "mt6323-led",
+> =C2=A0		.of_compatible =3D "mediatek,mt6323-led"
+> =C2=A0	}, {
+> -		.name =3D "mtk-pmic-keys",
+> +		.name =3D "mt6323-keys",
+> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6323_keys_resources),
+> =C2=A0		.resources =3D mt6323_keys_resources,
+> =C2=A0		.of_compatible =3D "mediatek,mt6323-keys"
+> @@ -153,7 +153,7 @@ static const struct mfd_cell mt6328_devs[] =3D {
+> =C2=A0		.name =3D "mt6328-regulator",
+> =C2=A0		.of_compatible =3D "mediatek,mt6328-regulator"
+> =C2=A0	}, {
+> -		.name =3D "mtk-pmic-keys",
+> +		.name =3D "mt6328-keys",
+> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6328_keys_resources),
+> =C2=A0		.resources =3D mt6328_keys_resources,
+> =C2=A0		.of_compatible =3D "mediatek,mt6328-keys"
+> @@ -175,7 +175,7 @@ static const struct mfd_cell mt6357_devs[] =3D {
+> =C2=A0		.name =3D "mt6357-sound",
+> =C2=A0		.of_compatible =3D "mediatek,mt6357-sound"
+> =C2=A0	}, {
+> -		.name =3D "mtk-pmic-keys",
+> +		.name =3D "mt6357-keys",
+> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6357_keys_resources),
+> =C2=A0		.resources =3D mt6357_keys_resources,
+> =C2=A0		.of_compatible =3D "mediatek,mt6357-keys"
+> @@ -196,7 +196,7 @@ static const struct mfd_cell mt6331_mt6332_devs[]
+> =3D {
+> =C2=A0		.name =3D "mt6332-regulator",
+> =C2=A0		.of_compatible =3D "mediatek,mt6332-regulator"
+> =C2=A0	}, {
+> -		.name =3D "mtk-pmic-keys",
+> +		.name =3D "mt6331-keys",
+> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6331_keys_resources),
+> =C2=A0		.resources =3D mt6331_keys_resources,
+> =C2=A0		.of_compatible =3D "mediatek,mt6331-keys"
+> @@ -240,7 +240,7 @@ static const struct mfd_cell mt6359_devs[] =3D {
+> =C2=A0	},
+> =C2=A0	{ .name =3D "mt6359-sound", },
+> =C2=A0	{
+> -		.name =3D "mtk-pmic-keys",
+> +		.name =3D "mt6359-keys",
+> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6359_keys_resources),
+> =C2=A0		.resources =3D mt6359_keys_resources,
+> =C2=A0		.of_compatible =3D "mediatek,mt6359-keys"
+> @@ -272,7 +272,7 @@ static const struct mfd_cell mt6397_devs[] =3D {
+> =C2=A0		.name =3D "mt6397-pinctrl",
+> =C2=A0		.of_compatible =3D "mediatek,mt6397-pinctrl",
+> =C2=A0	}, {
+> -		.name =3D "mtk-pmic-keys",
+> +		.name =3D "mt6397-keys",
+> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6397_keys_resources),
+> =C2=A0		.resources =3D mt6397_keys_resources,
+> =C2=A0		.of_compatible =3D "mediatek,mt6397-keys"
+> --=20
+> 2.50.0.727.gbf7dc18ff4-goog
+>=20
+Thanks for the patch.
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 81b32f567ce3..7f096efee4e7 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -3024,6 +3024,81 @@ Sysreg	PMIAR_EL1	3	0	9	14	7
- Field	63:0	ADDRESS
- EndSysreg
- 
-+SysregFields	ICC_PPI_HMRx_EL1
-+Field	63	HM63
-+Field	62	HM62
-+Field	61	HM61
-+Field	60	HM60
-+Field	59	HM59
-+Field	58	HM58
-+Field	57	HM57
-+Field	56	HM56
-+Field	55	HM55
-+Field	54	HM54
-+Field	53	HM53
-+Field	52	HM52
-+Field	51	HM51
-+Field	50	HM50
-+Field	49	HM49
-+Field	48	HM48
-+Field	47	HM47
-+Field	46	HM46
-+Field	45	HM45
-+Field	44	HM44
-+Field	43	HM43
-+Field	42	HM42
-+Field	41	HM41
-+Field	40	HM40
-+Field	39	HM39
-+Field	38	HM38
-+Field	37	HM37
-+Field	36	HM36
-+Field	35	HM35
-+Field	34	HM34
-+Field	33	HM33
-+Field	32	HM32
-+Field	31	HM31
-+Field	30	HM30
-+Field	29	HM29
-+Field	28	HM28
-+Field	27	HM27
-+Field	26	HM26
-+Field	25	HM25
-+Field	24	HM24
-+Field	23	HM23
-+Field	22	HM22
-+Field	21	HM21
-+Field	20	HM20
-+Field	19	HM19
-+Field	18	HM18
-+Field	17	HM17
-+Field	16	HM16
-+Field	15	HM15
-+Field	14	HM14
-+Field	13	HM13
-+Field	12	HM12
-+Field	11	HM11
-+Field	10	HM10
-+Field	9	HM9
-+Field	8	HM8
-+Field	7	HM7
-+Field	6	HM6
-+Field	5	HM5
-+Field	4	HM4
-+Field	3	HM3
-+Field	2	HM2
-+Field	1	HM1
-+Field	0	HM0
-+EndSysregFields
-+
-+Sysreg	ICC_PPI_HMR0_EL1	3	0	12	10	0
-+Fields ICC_PPI_HMRx_EL1
-+EndSysreg
-+
-+Sysreg	ICC_PPI_HMR1_EL1	3	0	12	10	1
-+Fields ICC_PPI_HMRx_EL1
-+EndSysreg
-+
- Sysreg	ICC_ICSR_EL1	3	0	12	10	4
- Res0	63:48
- Field	47:32	IAFFID
+I've tested it with a kernel based on next-20250702 on both Mediatek
+Genio 350-EVK and Genio 1200-EVK boards with mtk-pmic-keys driver
+enabled either as builtin or module.
 
--- 
-2.48.0
+With the Genio 350-EVK, the mtk-pmic-keys driver probes OK:=20
+```
+[    0.601874] input: mtk-pmic-keys as
+/devices/platform/soc/1000d000.pwrap/1000d000.pwrap:pmic/mt6357-
+keys/input/input0
+```
+The keys work too.
 
+For the Genio 1200-EVK, it fails to probe as expected (because
+'mediatek,mt6359-keys' compatible is missing) and there is indeed no
+kernel panic in the builtin case (the issue I reported with my patch)
+```
+[    0.459178] mt6359-keys: Failed to locate of_node [id: -1]
+```
+
+Tested-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com> # on
+Mediatek Genio 350-EVK and Genio 1200-EVK
+
+Regards,
+Louis-Alexis
 
