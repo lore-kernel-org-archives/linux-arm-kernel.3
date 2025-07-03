@@ -4,59 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6540CC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 10:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F0CC83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 10:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1PyDlmD3cpz5C5ei+JK+AhijZBHjB3NIVCb0+2HugGY=; b=23al23JbSfJNQd9UiKKDSKs2V8
-	25znOxBGxtccCIbu6+RLCwoMmK1+ZwjvVvgDTRDBqKQ7n4IXd7bziNuABeBgqmCMvxmByh3X4douQ
-	fLHvsRqMYFOwnHwTMa1GuNI07BAHfHAqtketR27nkRQe6941u/G+f0HDE2RJt9aAhMYpXhg2HRMCQ
-	vJybv66HOLz3jFXXrI7mj1eA6zdtZspe3BlQrwqUrucVKRHx/JhFVTQyg9ke9MP+XNtp7yAPhosVe
-	y/HBRJTdX4WoivWjGkUAp/fE6G5v+xtuYB2ZZOBXaRADo5sK8CZ0U4fjY3ET/2Mzlpo65/WvG2VJ4
-	Q4Za1myw==;
+	bh=uIu44BVx7umB6WKEOOFl7I+1RhsnHSgM1SeyJ8yQlcQ=; b=Ui1nYwhhW7uJxS1NqZSB2lD3LS
+	vSfJe3B87rxPs9JLTZIfcVhDvFUmY0d9FK8gyCYmySVuaffiH7vzUIgbWGSzekfH6tjBTwyWFCAAj
+	jkeyiRBDvanrGfUGFAExdYB1F6roZ+oG90Gq0pN3SWt3W9QBw+gHwhOXczM2Dwg/IxhVvYyFxscRO
+	FGO8F/bkb3n8JEMDGmvQCdFFSlJ4bJ9s2pc+qncOykjVXdkehipDcm3cPUrDHhEtEn1FkD7C2SysR
+	m6FfRFPntkRXId5cfSR9ozcOyseTBlSrDRwWCyoSbgJwWolviM9kvMmMuSeHJAadT9c0+jpRacYos
+	+ltuN1pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXH7A-0000000AyO7-0d2e;
-	Thu, 03 Jul 2025 10:24:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uXH9w-0000000AzCa-0ucn;
+	Thu, 03 Jul 2025 10:27:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXH2s-0000000Axrs-443s
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 10:20:00 +0000
+	id 1uXH7Z-0000000AyTM-1sNR;
+	Thu, 03 Jul 2025 10:24:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A2D3458C2;
-	Thu,  3 Jul 2025 10:19:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA714C4CEE3;
-	Thu,  3 Jul 2025 10:19:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CCC5E5C03B5;
+	Thu,  3 Jul 2025 10:24:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74F69C4CEF1;
+	Thu,  3 Jul 2025 10:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751537998;
-	bh=2oRl7X8cE7xzvtFjjMrKVe0cbR2T7lD4kiFZPoL+Z1Q=;
+	s=k20201202; t=1751538288;
+	bh=k4+6WuZl1JFuQMq5bahDJoYnn3TBUy2TMNw/4Wabxqw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FzKI0AQsV9y04k7M6FH1poIsF8od3bbnoogf9sONsVQhN0MfGgNmLlRmgDYcIvi/y
-	 F+4NW2dRM7kNSt4rsoNaYeNBRjckMWsOuGf6Y1NaBg9DrSAoMoJ5Qxv/yKAblWImkz
-	 IfBfpnp5KltFsHxza4HiAalX9x0XJc05oK+6L2WaG0mzNq9nmUnvACmyraT+zaD50k
-	 +6JnAHu7sVE4shR74iCpl7dLgBmSoJLx9y+MDnN23MCDS4Ru4WWqcEpigOuVGlJmy6
-	 WJvmY0/f8ypzDU5oTMBy3RCfBM0mU+LGiA/p5503f7wJzkYxaJgHfwkzXH9blRXvIO
-	 ErsWnRSEYalqQ==
-Message-ID: <232267bf-d226-43df-bd4f-5977706176a2@kernel.org>
-Date: Thu, 3 Jul 2025 12:19:53 +0200
+	b=krAAxnOYouM5U1/q0ftUuPyl+7q4y2XMy9vaLMYA2uC8XRQ0IsPHVw5mAsxQimOG7
+	 5XtPhrzPMBKpicendXu+uVma6GANLTbQ4DSkocTcrTUI7uE/KWotvBNCxk8JAnM8rP
+	 UMfQalkC33lvIaGAPy/DngGRO4fJBUudjO+CxStcaxsnp0IJGxvLAKdsQqZdTTs/sq
+	 FF+4MIWta8HEMfuYapcZd1YYKGNjHbAM6RMtiKZM57rpsCoy/VenMTDu34//2L8X13
+	 Xe3RJbnrs3VopOeR0XGpONh3X64J1kX0YGCV+1idryHh3kM81D/kgiWnSHo2Gdp/Ce
+	 F5U++EhAEGvIw==
+Message-ID: <8b8a58f0-9e18-47d6-8382-1d16d630ea15@kernel.org>
+Date: Thu, 3 Jul 2025 12:24:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] soc: samsung: exynos-pmu: Enable CPU Idle for gs101
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: William Mcvicker <willmcvicker@google.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel-team@android.com
-References: <20250627-gs101-cpuidle-v3-1-0200452dfe60@linaro.org>
- <91a9d4dbe5504c493856ef81b30d98e7da925ac0.camel@linaro.org>
+Subject: Re: [PATCH v2 1/2] dt-bindings: dsp: mediatek: add mt8196 dsp
+ document
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "hailong.fan" <hailong.fan@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+ Bard Liao <yung-chuan.liao@linux.intel.com>,
+ Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>,
+ Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250703075632.20758-1-hailong.fan@mediatek.com>
+ <20250703075632.20758-2-hailong.fan@mediatek.com>
+ <defd70cb-4351-4b0b-b4d0-dd1ff831615c@kernel.org>
+ <61784658-c71d-458b-8934-5f5db2330bc0@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,12 +113,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <91a9d4dbe5504c493856ef81b30d98e7da925ac0.camel@linaro.org>
+In-Reply-To: <61784658-c71d-458b-8934-5f5db2330bc0@collabora.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_031959_058755_83965283 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20250703_032449_586626_5BCAFFCA 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,72 +134,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/07/2025 12:12, André Draszik wrote:
-> Thanks Pete for your patch!
-> 
-> On Fri, 2025-06-27 at 14:08 +0100, Peter Griffin wrote:
->> Register cpu pm notifiers for gs101 which call the
->> gs101_cpu_pmu_online/offline callbacks which in turn program the ACPM
->> hint. This is required to actually enter the C2 idle state.
+On 03/07/2025 11:05, AngeloGioacchino Del Regno wrote:
+>>> +
+>>> +  clocks:
+>>> +    items:
+>>> +      - description: mux for dsp clock
+>>> +      - description: 26M clock
+>>> +      - description: ADSP PLL clock
+>>> +
+>>> +  clock-names:
+>>> +    items:
+>>> +      - const: adsp_sel
 >>
->> A couple of corner cases are handled, namely when the system is rebooting
->> or suspending we ignore the request. Additionally the request is ignored if
->> the CPU is in CPU hot plug. Some common code is refactored so that it can
->> be called from both the CPU hot plug callback and CPU PM notifier taking
->> into account that CPU PM notifiers are called with IRQs disabled whereas
->> CPU hotplug callbacks aren't.
+>> Isn't this called audiodsp in other bindings?
 >>
->> Note: this patch has a runtime dependency on adding 'local-timer-stop' dt
->> property to the CPU nodes. This informs the time framework to switch to a
->> broadcast timer as the local timer will be shutdown. Without that DT
->> property specified the system hangs in early boot with this patch applied.
+>>> +      - const: clk26m
 >>
->> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+>> Don't use frequencies. How is the pin or input called in datasheet? How
+>> other devices call it?
 > 
-> With this applied, I see the following during boot:
+> In the datasheet, this is called.... CLK26M (really).
 > 
-> [    1.841304][    T0] =============================
-> [    1.841422][    T0] [ BUG: Invalid wait context ]
-> [    1.841550][    T0] 6.16.0-rc4-next-20250702+ #54 Tainted: G     U          T  
-> [    1.841727][    T0] -----------------------------
-> [    1.841844][    T0] swapper/0/0 is trying to lock:
-> [    1.841965][    T0] ffff000800ee84b8 (&pmu_context->cpupm_lock){....}-{3:3}
-> [    1.842001][    T0] , at: gs101_cpu_pm_notify_callback+0x48/0x100
-> [    1.842309][    T0] other info that might help us debug this:
-> [    1.842613][    T0] context-{5:5}
-> [    1.842987][    T0] 1 lock held by swapper/0/0:
-> [    1.843442][    T0]  #0: 
-> [    1.843859][    T0] ffffafe9d8f1f100
-> [    1.844282][    T0]  (
-> [    1.844618][    T0] cpu_pm_notifier.lock
-> [    1.844980][    T0] ){....}-{2:2}, at: cpu_pm_enter+0x30/0x88
-> [    1.845340][    T0] stack backtrace:
-> [    1.845855][    T0] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G     U          T   6.16.0-rc4-next-20250702+ #54 PREEMPT 
-> [    1.845878][    T0] Tainted: [U]=USER, [T]=RANDSTRUCT
-> [    1.845884][    T0] Hardware name: Oriole (DT)
-> [    1.845897][    T0] Call trace:
-> [    1.845909][    T0]  show_stack+0x24/0x38 (C)
-> [    1.845934][    T0]  dump_stack_lvl+0x40/0xc0
-> [    1.845949][    T0]  dump_stack+0x18/0x24
-> [    1.845956][    T0]  __lock_acquire+0xc68/0xd90
-> [    1.845976][    T0]  lock_acquire+0x14c/0x2b8
-> [    1.845985][    T0]  _raw_spin_lock+0x54/0x78
-> [    1.846011][    T0]  gs101_cpu_pm_notify_callback+0x48/0x100
-> [    1.846021][    T0]  notifier_call_chain+0xb0/0x198
-> [    1.846046][    T0]  raw_notifier_call_chain_robust+0x50/0xb0
-> [    1.846053][    T0]  cpu_pm_enter+0x4c/0x88
-> [    1.846063][    T0]  psci_enter_idle_state+0x2c/0x70
-> [    1.846078][    T0]  cpuidle_enter_state+0x14c/0x4c0
-> [    1.846097][    T0]  cpuidle_enter+0x44/0x68
-> [    1.846121][    T0]  do_idle+0x1f0/0x2a8
-> [    1.846142][    T0]  cpu_startup_entry+0x40/0x50
-> [    1.846152][    T0]  rest_init+0x1c4/0x1d0
-> [    1.846161][    T0]  start_kernel+0x358/0x438
-> [    1.846181][    T0]  __primary_switched+0x88/0x98
+OK, this is a valid argument, however we still try to unify the inputs
+so bindings can share such pieces. It is discouraged to have similar
+devices with different bindings in only one place: clk26m -> clk27m or
+whatever other number.
 
-Thanks for the report. Probably such code should be always tested with
-lock debugging options enabled, e.g.:
-https://github.com/krzk/tools/blob/master/linux/build.sh#L845
+Common is also to name the clock input based on the purpose (like bus, ref).
+
 
 Best regards,
 Krzysztof
