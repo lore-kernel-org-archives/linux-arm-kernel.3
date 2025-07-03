@@ -4,72 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C23C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD386C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ij/wngQgVqc+q1UhSev6oK5/U7gn0KTQd7m8t9C7SqQ=; b=ZrR2dGsFCxx6VeIKwVh1y4l+xm
-	n6TEQR9B9s/URM5eo3Y4lD5hMVGcW2gCrkTjYmvEKlZPzbCBJcZrGDVZD/SRFjS4LJjqZ3oTL6jI9
-	Su0J9v9czsFV+OxMZw4+wD+iye0pKfF3sSs3ESjccMGqcGZZoNk7luIzxDZv+Q/mFjNbnDoz5UQIM
-	bPIJo2dt3QGTl1HHsluHR4PIjWv/bcPrttcnGw2495cWTiWWPZ9JF63/zOPpZozHPrr7Cz/2Eo1VA
-	pqW+NCN9iTaJmUB37HfLjuF6v4IiVbt66xmzS/LbNHdsv5Hfne0ANXnOMzoLKCJZRQrwxdw5Vg6Bo
-	ssjMe0qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N55H91JG7/o0OYijH19DmF+weuiDcP05lYo8pm41Sus=; b=z9mgBPaPeVCqCjQt8B5q25bBgp
+	otPaP80ZyfJp8LKAmc5EJhGCmvbybXabTMBQ1iArZ6DwQ6uxFn0rHHYEzH8dzLq2a09N712QEDYal
+	YZPOQXbxKC8pJqua1KtfV/Y6BwXRziJRdZw9zt2/vkK+9Xr6UYT3DLK/RFoI1XPWNngLcIFpJJm1d
+	nNK8pThZxECRvMWbBFEq3U5L/9MlI/dAHFN3x/XrF1Yl+rItVahAlS0K2oM+FdAhbNRN1FML4hGMa
+	oettU6q6osiyNj+WanXDfhcrNYKSQH0Il6F8cZTSmqoEJVBJNqKSvxhS9zsOvNw9Ctkvn9UwJTSC6
+	LSKADiRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIM3-0000000BCNW-0blG;
-	Thu, 03 Jul 2025 11:43:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHAk-0000000AzVk-0fhr
+	id 1uXIOM-0000000BCjX-3Z3f;
+	Thu, 03 Jul 2025 11:46:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXHBb-0000000Azif-2gU4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 10:28:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B5FF344FA0;
-	Thu,  3 Jul 2025 10:28:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7968C4CEF3;
-	Thu,  3 Jul 2025 10:28:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751538485;
-	bh=W/C4b3BY2gqbZVQ+W28M+ecYH4Ph9mXAsDV/aos0XlQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=BYiDKkibLsr7oj7tfP/jdvaECF/8F81Uy/9i2B+qpAnJxPYXfnIsDLx4NqEIRwX7A
-	 IboCL3ZHok1OqAFcIh1nOQRCR00oAOAFyJsP4PzKxO6NcTp72Q1UYPH0lv55YnJSHc
-	 7WnYXWeHvfQlLAjG4OVls66xxXjLpGAdH4RlotAfvyFbVxxck4UKPxn280Bjvx6ZR7
-	 fdBYFzE+I62ByCsMK66f73g0ZPBF3PK3+sa9PoRI/p2yWSs+MLGUz18HBQOiQTBl77
-	 zjz8QTE3VgxQwpX6FMpbx9euTFaWgXPPGqziLKUjrTWTgsEepktLdWg+3xwp0PzJrO
-	 cH9oLSjwlaFgA==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Thu, 03 Jul 2025 12:25:21 +0200
-Subject: [PATCH v7 31/31] arm64: Kconfig: Enable GICv5
+	Thu, 03 Jul 2025 10:29:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 129CD1596;
+	Thu,  3 Jul 2025 03:28:44 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 981903F58B;
+	Thu,  3 Jul 2025 03:28:56 -0700 (PDT)
+Date: Thu, 3 Jul 2025 11:28:50 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Breno Leitao <leitao@debian.org>
+Cc: cov@codeaurora.org, rmk+kernel@armlinux.org.uk, catalin.marinas@arm.com,
+	linux-serial@vger.kernel.org, rmikey@meta.com,
+	linux-arm-kernel@lists.infradead.org, usamaarif642@gmail.com,
+	leo.yan@arm.com, linux-kernel@vger.kernel.org, paulmck@kernel.org
+Subject: Re: arm64: csdlock at early boot due to slow serial (?)
+Message-ID: <aGZbYmV26kUKJwu_@J2N7QTR9R3>
+References: <aGVn/SnOvwWewkOW@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250703-gicv5-host-v7-31-12e71f1b3528@kernel.org>
-References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
-In-Reply-To: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, 
- Sascha Bischoff <sascha.bischoff@arm.com>, 
- Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
- Timothy Hayes <timothy.hayes@arm.com>, Bjorn Helgaas <bhelgaas@google.com>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Peter Maydell <peter.maydell@linaro.org>, 
- Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.15-dev-6f78e
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aGVn/SnOvwWewkOW@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_032806_229953_94FECA50 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250703_032859_721290_B8A84BBD 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +65,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable GICv5 driver code for the ARM64 architecture.
+Hi Breno,
 
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Reviewed-by: Marc Zyngier <maz@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+On Wed, Jul 02, 2025 at 10:10:21AM -0700, Breno Leitao wrote:
+> Hello,
+> 
+> I'm observing two unusual behaviors during the boot process on my SBSA
+> ARM machine, with upstream kernel (6.16-rc4):
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 55fc331af337..5ff757cb7cd2 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -129,6 +129,7 @@ config ARM64
- 	select ARM_GIC_V2M if PCI
- 	select ARM_GIC_V3
- 	select ARM_GIC_V3_ITS if PCI
-+	select ARM_GIC_V5
- 	select ARM_PSCI_FW
- 	select BUILDTIME_TABLE_SORT
- 	select CLONE_BACKWARDS
+Can you say which SoC in particular that is? Knowing that would help to
+identify whether there's some known erratum, clocking issue, etc.
 
--- 
-2.48.0
+Likewise that might imply more folk to add to Cc.
 
+[...]
+
+> At timestamp 9.69 seconds, the serial console is still flushing messages from
+> 0.92 seconds, indicating that the initial 9-second gap is spent looping in
+> cpu_relax()—about 20,000 times per message, which is clearly suboptimal.
+> 
+> Further debugging revealed the following sequence with the pl011 registers:
+> 
+> 	1) uart_console_write()
+> 	2) REG_FR has BUSY | RXFE | TXFF for a while (~1k cpu_relax())
+> 	3) RXFE and TXFF are cleaned, and BUSY stay on for another 17k-19k cpu_relax()
+> 
+> Michael has reported a hardware issue where the BUSY bit could get
+> stuck (see commit d8a4995bcea1: "tty: pl011: Work around QDF2400 E44 stuck BUSY
+> bit"), which is very similar. TXFE goes down, but BUSY is(?) still stuck for long.
+
+Looking at the commit message, that was an issue with the a "custom
+(non-PrimeCell) implementation of the SBSA UART" present on QDF400. I
+assume that was soemthing that Qualcomm Datacenter Technologies designed
+themselves.
+
+It's possible that your SoC has a similar issue with whatever IP block
+is being used as the UART, but the issue in that commit certainly
+doesn't apply to most PL011 / SBSA-UART implementations.
+
+> If I am having the same hardware issue, I suppose I need to change that logic
+> to exist the cpu_relax() loop by checking when Transmit FIFO Empty (TXFE) is 0
+> instead of BUSY.
+
+If you have the same issue, then applying the same workaround makes
+sense. As above, it's not clear that this is necessarily the same issue.
+Any more detail that you can share regarding the SoC would be very
+helpful.
+
+Mark.
 
