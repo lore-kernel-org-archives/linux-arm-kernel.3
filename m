@@ -4,92 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B3DBC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42622C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OCtxfijaVm+CdySvz4wp4lXx6NKzCfTR5tSHGOmQuhM=; b=lHW4UajoGpy7d2XfJ6JP5NRM2m
-	ODKFUlXWLjh72GDmZOmt8nwn4IOlAkHhSQnFpv00sw1Wwaw5jW25QOCQsQWanHjIXEemniUMdW+HE
-	tmA7626HP9OIN0SwJ/+PBocYKvRaw8f5A4ecOuE7w96gK37Zsrvt5qLyCjZ0ht9Fz6TJUQJ1DyS5W
-	O3RTR8OYZRIRP/+f955XA38VfacEPdGyxEPyFfenJfKGu2oN89SCRPvYS+o+xALu5eTlJgeQFX51J
-	fL4yp9vLD7HUxS45ylbSaXh2WiSZ3hKI+tSM3JdMkrkh9vuFGGIfhDrUuLXZyvl+d4Tb8gksPLA0t
-	AtAFvQHg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MCs3K1Nocgfdm5hTUWEMb6rRK3ZRN34oOYMrfS5yndQ=; b=IO3kYFQsP7sT7faexggd1SqkeV
+	v0o3BtACsdCJvBLw0/uEOutiugONJJCe8JTvTBWl0GtWnv8Tl2pV3wS7i9jw3NS7KOfsdSWoZKUBm
+	8URQ3TLK9Va+DXW6tHhpiR5nkxRqyh/LhO0qD9/L3HLXdAZ9DHkxsD9RqB/OBhcyIqmAVspl2jilA
+	rGwzHyIAY6PtTPntztzEQpTSuxrHqwLEJVe4PgAXOwfLyRoPbdp8cBf9EkhiobkSsBXSFC/U/F9nM
+	6qIJghW7vPFRyjSjIA4KcoVDZvGZogCG+ZVZSpgLlrvGq8PotAEE8hFIc3sBAKJN3djqLczUTfJzG
+	5ooAIdRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJI0-0000000BMtZ-2T1x;
-	Thu, 03 Jul 2025 12:43:44 +0000
-Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
+	id 1uXJKL-0000000BNJs-1J2x;
+	Thu, 03 Jul 2025 12:46:09 +0000
+Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIGj-0000000BBVe-3Z5n
+	id 1uXIGk-0000000BBVv-3Wln
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 11:38:22 +0000
-Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-874a68f6516so681924539f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 04:38:21 -0700 (PDT)
+	Thu, 03 Jul 2025 11:38:23 +0000
+Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-873501d2ca1so124017239f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 04:38:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751542700; x=1752147500; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=OCtxfijaVm+CdySvz4wp4lXx6NKzCfTR5tSHGOmQuhM=;
-        b=fVs3S0I1IdoVLESiaJyrQxIpXey4YkaDhOfWRI7c2FIVE66qW2fS/alDNAvoCfLaKQ
-         cZaTP9uQjB2Lm0IOXBi0+P9PFro7CaYdKOq8/e3/yzSo5fslkXVEZSNMvuYCofKNM5Ii
-         pcQ0+CaTvDqWHAiGCwDN9UYtwL/g0hwYi9LrTPCwcBivsL6Jxsb2W1ORERDtPYM2bLeR
-         gg3gV75oh66TwIPLNBDz2vcjkZ0RdGMY2Sq4IF7QoMoh/fPpl85YtTxAkp1blMMX9kkE
-         KEgWsuIDGeRZDdTe/obu1TAfc8c9AVMyKVXdoScLgzS+3QxYuYa1xBI+Ey5gS9qCvWGf
-         osuA==
+        d=gmail.com; s=20230601; t=1751542702; x=1752147502; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MCs3K1Nocgfdm5hTUWEMb6rRK3ZRN34oOYMrfS5yndQ=;
+        b=AuXe7mlUWzMBnInObvFdHRUkPEhY5OsNYv2bJIkLCzbfQASGCSKaWHDtjSbAntbtIG
+         +7yKeyroUV5gFBdtj5Ajstw9DkPCSlK3fx7SG86mfJAzucJPp/FP4MbtoqVXaxqYKy4I
+         PHeTNfSIfJn8qSrYt2hHiJdq205pTfzEnwWPV7NU6o2hw30mMik27NWU230e7jG1+DIm
+         aUCyFYk217TMR5qgVZxYx2e/cnoACXF0B3CYGCoeasaKUju72Qzzv6UhweW7PlZM70g+
+         gf0iiPPhe3Ts70PSN6/tImLZ4c3w5R/SBVYytFtT0VC1QCv/wUOT8A3PfnqkvLR6uNHr
+         1BtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751542700; x=1752147500;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OCtxfijaVm+CdySvz4wp4lXx6NKzCfTR5tSHGOmQuhM=;
-        b=wDW4rD/+g38hgMqNCSMYA1wfOFdgVBWN9z9mgQiuxVR6YZI+egI78U6PlWYeZgNH9i
-         HCGwjgUn4F+k7Hy+QWNi4LVJMuE1DECX9nT9PLOfGh9ZitnI/aEQ8CV96ghQxEcEjGr5
-         OyDDZAqm/4BDlx7DT5a6FaFIRcqCtUUp3qKGmWslZzmeegIeynBAZF+hLeTJYgZ145hq
-         5TUGdA1mgUtj+wBQuiJ8adOT9RKOnsaezJ3NpDopH+t/0VD5lTkZ0ki7NWGIiH6dDQJQ
-         OxH+lNAq7kdECGBX4v0vQugf+nNnQPGngyYnGZLCCFD+vrCrjrz7UhURj1rn6VNeqCyA
-         o3fQ==
-X-Gm-Message-State: AOJu0Yyb7DSaMg+wsrdlefn3fnm5hjmOK31aanJw8yzu5FUpHVJBDElN
-	96MqNlhy3LHLRvcu7VqRtrM/T5Afdy/Zu13hQBJ3bbyuFV8wRwi7qxxTW/15WA==
-X-Gm-Gg: ASbGncugugSx3PKGkg0SFBufxDYJl3wD9X0aD7BA5Xc0irvmcVqJlmtvy490n+Ywc9L
-	pL5Tl40C/mVSxWcXo/ypJGitDbHN0taG1gHltDqSU1ivOzt47QnAXE3UlmcAwh/tfOqOeFl4s+v
-	JggXO2nSFK/NPULW7o7OJIqDvEE65txNNzOOjh9qlsxOZB96mhTsprwovqadQuLj9VCDqWx2/Ro
-	ez7ZFipD6P+uxRZ1t35W8fkGSJzmJOnQIC0Xh+eisGFIPFIlBLWYsowoLY15dBKrZOyjmqYRwYj
-	2PZNbdEccGvWtzAu/ZhJ4zoYQEbnhHOTvg5aCZx+KD2y2dKIk23I7QvTNUIcwQmpAAK3bz8jtEQ
-	9mTC+R8SSz11Gh0X04/EULeK/Sp9oYsstWjf1rqU+CvFBrhY=
-X-Google-Smtp-Source: AGHT+IHog5B1MQo5B5fqSCOuRreuMqfrr3E0s/Y/+iP0IZARhEP16EmHsjUPLaXR/JQcDkES5v7T1w==
-X-Received: by 2002:a05:6602:6003:b0:876:5527:fe2a with SMTP id ca18e2360f4ac-876c6a6fd54mr836261839f.11.1751542700238;
-        Thu, 03 Jul 2025 04:38:20 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1751542702; x=1752147502;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MCs3K1Nocgfdm5hTUWEMb6rRK3ZRN34oOYMrfS5yndQ=;
+        b=MhYDdR7glI6yS4Ssn3Mq7bvWyYQaabRZv07MWm0VQfO4ysiwj8i8/RzlQUS3rgPRYt
+         PJiTrB09ilTtWze0+cv4we3i4r43iNE5wVLf0K6kv8IV2qEbsPQ2zzgXnkAOWsR7CwoM
+         RIHYRqNmIvzfmReAKDsOPjtNs/fHQrylwcCKLKAmEmR/zFReIn08SVhlENzcvdFlxies
+         oFrpsc054DJz4nHG+RXXydNWEQ6NJTooQK1XCZN02ItZcVKvaucCQJwzDdfjYTxrVzsF
+         Ip5aOgoUsbSzxCoHxGrDRaLr/4qht8eqYcSN0tBK+q+LMkngdSB3fZlD3mkKmYXC9txR
+         eN8Q==
+X-Gm-Message-State: AOJu0YzU7FzBnX+SDcTqj196t27Cz5m8MLJan+rhcCDNJoHUeBzfRqfp
+	x1B7JLcHvU0Zpzv6A8OpagrUiWazgIGHpRYa8v3COjh+D4OuGf7ZyXR0GKq6Ug==
+X-Gm-Gg: ASbGnctLJy6fUVeGQxJXMrqYp0S9dPjlJv389IHyr2XTfJ2tSRZHy+P+jBgMqLTDZeF
+	85qxjd8olFD4+m0hF5U6j2BHvUtbWl0Ev1HZ8iUPvigAjchPDJMDRC7yXlX5fMAnWG8UBxgPJIj
+	fq1V6v0qlaNsR2BNXw3wP3ohLXEeIpEwCJRr0quIidihBrCi0SnSrLCjgnWIa8JK9kWCvuzo20s
+	QisN2Kcn7C+LA26zO7KdDOdc1m26O6JEfNenAuNyLkW/N9wwv8zYz635jr7ZFqDfrSTmK2P5g0i
+	FQFXG19i3C+ByWcpP+SRAXauqxQnoJuj7TbtIg/1CIbJmDLT/GPGi0Wz6fgCt0MtG+/rl83izAW
+	uOR76ASSbAJCdMMj6W60aPrdqmlrIK+10x3Qi
+X-Google-Smtp-Source: AGHT+IEAElfMxhOjH9lhImsexhBa4mz6jk1CGA5i/+dNtcBikMrBN+qolLPRqJUUtETlB6pD742Ssg==
+X-Received: by 2002:a05:6e02:17c7:b0:3dd:f4d5:1c1a with SMTP id e9e14a558f8ab-3e0549f29d8mr72031885ab.17.1751542701597;
+        Thu, 03 Jul 2025 04:38:21 -0700 (PDT)
 Received: from aford-System-Version.. (c-75-72-162-184.hsd1.mn.comcast.net. [75.72.162.184])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50204a57456sm3483544173.72.2025.07.03.04.38.19
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50204a57456sm3483544173.72.2025.07.03.04.38.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jul 2025 04:38:19 -0700 (PDT)
+        Thu, 03 Jul 2025 04:38:21 -0700 (PDT)
 From: Adam Ford <aford173@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: aford@beaconembedded.com,
 	Adam Ford <aford173@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH V2 1/2] arm64: dts: imx8mm: Configure DMA on UART2
-Date: Thu,  3 Jul 2025 06:38:09 -0500
-Message-ID: <20250703113810.73023-1-aford173@gmail.com>
+Subject: [PATCH V2 2/2] arm64: dts: imx8mn: Configure DMA on UART2
+Date: Thu,  3 Jul 2025 06:38:10 -0500
+Message-ID: <20250703113810.73023-2-aford173@gmail.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250703113810.73023-1-aford173@gmail.com>
+References: <20250703113810.73023-1-aford173@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_043821_886056_8DC6F158 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20250703_043822_877988_1677DC22 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,17 +114,16 @@ the console when determining if it should initialize DMA, it
 should be safe to enable DMA on UART2 for all users.
 
 Signed-off-by: Adam Ford <aford173@gmail.com>
-Reviewed-by: Fabio Estevam <festevam@gmail.com>
 ---
 V2:  Fix spelling errors in commit message
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm.dtsi b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-index cfebaa01217e..ded89b046970 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-@@ -915,6 +915,8 @@ uart2: serial@30890000 {
- 					clocks = <&clk IMX8MM_CLK_UART2_ROOT>,
- 						 <&clk IMX8MM_CLK_UART2_ROOT>;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mn.dtsi b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+index 848ba5e46ee6..b98b3d0ddf25 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mn.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+@@ -860,6 +860,8 @@ uart2: serial@30890000 {
+ 					clocks = <&clk IMX8MN_CLK_UART2_ROOT>,
+ 						 <&clk IMX8MN_CLK_UART2_ROOT>;
  					clock-names = "ipg", "per";
 +					dmas = <&sdma1 24 4 0>, <&sdma1 25 4 0>;
 +					dma-names = "rx", "tx";
