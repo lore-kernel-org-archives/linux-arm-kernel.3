@@ -4,112 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE75C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 22:57:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12179C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 23:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DTXvd5Uvp6Q4AKEPN0WQMwq/tMxtiUVrV4mMQxECWg4=; b=s+nTA8aXNx8ynath9C6yK1+9x1
-	eGVNziQHG6p08gs7353wqt6zmI/R66/MTEf77DZkYw4c+QeSaLnApyHZmlq6P8cu5TSBq8ocyvo7K
-	GLqM7QzcoVqK1Bf7Xyzw+yKrOVHjc1E24kAn3cDZ1WFka7i4hV2QHS3rZQaSn/INFRf+Si84jl5N1
-	M9DU5VIp4B5l6fADTzdFT1s9QgGuGltHYjXmafDpowtwKjR2uQHhkRgzUWGa3Hd5K2ESAyYYB60TK
-	UZNbai1MCzwncbAukgHrrJX2PhYApiAqCbREZGpZVpEE+GmcBLZYbJFueqZVVM8L1SZCkbkKSb1SY
-	hLCtkZcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EFQcMOj/6rVLC1lRv14mKmwMyI61WwIzuocvPeK7rF0=; b=n6ZSCyxFy6WzBeKzSTXfKqVxev
+	JtCofHCf/7tOrV2wey6FFim/CoICatWK0TGz3Nwd6UfcHbmfd3XJeGQ259y1iX1lqKj32VyywN5qX
+	zUtu8xxcg3Z2QDSQNoxn6D66Q9N0eW3jB9OMRbgD0X4bm8nfcVTp56fISLYgoFWHibcKdXxb+zV1P
+	ySkKxm7Pkud0pJrF6NYrZ3rZoXfyoTw0yJdeCXSPb9QL6x4p9YpYINzlIdBE0xKC2UUdd+XpMNly/
+	Rugp03rgdXGAOZiE2Rf/KaRYWvG8awVQ5bHUs2inYv12O/W9Gj8MrN/SCum7sW0kc/1uYVTYalerl
+	Crzy0oOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXSs7-0000000CnUi-1QpQ;
-	Thu, 03 Jul 2025 22:57:39 +0000
-Received: from casper.infradead.org ([90.155.50.34])
+	id 1uXSuQ-0000000Cncc-0clw;
+	Thu, 03 Jul 2025 23:00:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR3P-0000000CZCf-2o6c;
-	Thu, 03 Jul 2025 21:01:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=DTXvd5Uvp6Q4AKEPN0WQMwq/tMxtiUVrV4mMQxECWg4=; b=eHbkUpvZHga1VvDSiTyTIqOhp0
-	BJJUJ/s7r/Oti4BL8fowmXQWpzxgutuhwJM+dd9+AR9lu0KpvQADtGj8/M4bZfweCbdJ9zlqNudnm
-	bfHFw1/S5J9UG1XJ2SuwVRq5zrHerOBi8efz3j5jDGB0+aF1PmAVgdP/FCVDbnzax6i71rc8YApIy
-	hOSa1ET/sO1s72kMF8LBKo6/5ccmNvKZVfVRZ7tMcVVir8Zg3RPe2qA7ZWft0ORjkEIsjr5M6y2oT
-	8kY7T4LY5+93Ns0gyKmxwa6YZ96Rz/VPzTZN+1/j59Hb13+Ddu1A/dUDs8xGpLkkIY7xiXzx4kCE7
-	RTUjl/pg==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR3K-0000000EPXR-37Bs;
-	Thu, 03 Jul 2025 21:01:10 +0000
-Date: Thu, 3 Jul 2025 23:00:56 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1751576458;
+	id 1uXRF5-0000000Caxu-3na5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Jul 2025 21:13:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1751577193;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DTXvd5Uvp6Q4AKEPN0WQMwq/tMxtiUVrV4mMQxECWg4=;
-	b=dTn5r7531nUAApuRrJVEdSU1yHQgN8OqgV/tVp18i0lXAnb6BkUZgnHlf7StaSFIv0Jz9M
-	BNNct7Wcf3Poy9tY7EAT9Iv0/Znzi3/8d4/cCyrLJ+jswLaS3RHVFrD2HuVu8VHATIkPvO
-	XQTJ9RS88X/x7KoggIeL5yOlHBDZ3b+BN42a8aWclYymUVLxZ1arwKhzpODAoDqgufFswo
-	8UNzyNBkAaC/orKnvXhYvUMZGfJCQsiuDsvGprxUEc9UZHIGlhDHp19N2pX5+0YgB04iQw
-	uPk2PRvtk4WZCK2bI5q+tmxx3ytZUeE2DMLnQjzoCEl2sh5+gpYGBiLSlHMbNA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1751576458;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DTXvd5Uvp6Q4AKEPN0WQMwq/tMxtiUVrV4mMQxECWg4=;
-	b=mcFlxZK5m7AaTULHDD29cnWKaEO4XCMTydboJXdrQ9VKl2m7LlecU8z5SM+r0xOGESw1hx
-	APh3s/XqB5ssTKAA==
-From: Nam Cao <namcao@linutronix.de>
-To: Michael Kelley <mhklinux@outlook.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	"K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Joyce Ooi <joyce.ooi@intel.com>, Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Nirmal Patel <nirmal.patel@linux.intel.com>,
-	Jonathan Derrick <jonathan.derrick@linux.dev>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-rpi-kernel@lists.infradead.org" <linux-rpi-kernel@lists.infradead.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>
-Subject: Re: [PATCH 14/16] PCI: hv: Switch to msi_create_parent_irq_domain()
-Message-ID: <20250703210056.sDzAytHT@linutronix.de>
-References: <cover.1750858083.git.namcao@linutronix.de>
- <024f0122314198fe0a42fef01af53e8953a687ec.1750858083.git.namcao@linutronix.de>
- <SN6PR02MB4157A6F9B2ABD3C69CE5B521D443A@SN6PR02MB4157.namprd02.prod.outlook.com>
- <87cyaht595.ffs@tglx>
- <SN6PR02MB41576745C28D8F49081B8E77D443A@SN6PR02MB4157.namprd02.prod.outlook.com>
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=EFQcMOj/6rVLC1lRv14mKmwMyI61WwIzuocvPeK7rF0=;
+	b=ivtd7T4JrR1AdDnCqfenHHBf27HyCiqFGEwFH60u/mwEOv/6Q2vML29LQzdHStUzGuuoUJ
+	jNOeHYrKUn4EqwMrs/9n0shlG0DO//pW/QilLBm/3Z10kzGTHWKOJZVm0qoiLS3Vx2K0Hz
+	o573aCoZzlqSxZT2n84BAt7ZF+c61P8=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-615-qD121kk7N5OY7dApcwb_zw-1; Thu,
+ 03 Jul 2025 17:13:07 -0400
+X-MC-Unique: qD121kk7N5OY7dApcwb_zw-1
+X-Mimecast-MFC-AGG-ID: qD121kk7N5OY7dApcwb_zw_1751577186
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 343011956096;
+	Thu,  3 Jul 2025 21:13:06 +0000 (UTC)
+Received: from [172.20.236.189] (unknown [10.30.44.207])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 86F601956087;
+	Thu,  3 Jul 2025 21:13:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS (MISSED 3 of 41): Test report for for-kernelci
+ (6.16.0-rc4, upstream-arm-next, 3cd1604f)
+Date: Thu, 03 Jul 2025 21:13:05 -0000
+To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+ will@kernel.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <SN6PR02MB41576745C28D8F49081B8E77D443A@SN6PR02MB4157.namprd02.prod.outlook.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Message-Id: <06540.125070317130701381@us-mta-615.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: jeaT-5VExSUL3xsARMAuZBs5XHM8a0YpvAszsA7jQJk_1751577186
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_220106_824542_852D0CF1 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20250703_141316_014697_101AAB20 
+X-CRM114-Status: UNSURE (   6.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,65 +84,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 03, 2025 at 08:15:07PM +0000, Michael Kelley wrote:
-> From: Thomas Gleixner <tglx@linutronix.de> Sent: Thursday, July 3, 2025 1:00 PM
-> > 
-> > On Thu, Jul 03 2025 at 17:41, Michael Kelley wrote:
-> > > From: Nam Cao <namcao@linutronix.de> Sent: Thursday, June 26, 2025 7:48 AM
-> > >>
-> > >> Move away from the legacy MSI domain setup, switch to use
-> > >> msi_create_parent_irq_domain().
-> > >
-> > > From a build standpoint, this patch does not apply cleanly to
-> > > linux-next20250630. See also an issue below where a needed irq
-> > > function isn't exported.
-> > 
-> > Does it conflict against the PCI tree?
-> 
-> There's no conflict in the "next" or "for-linus" tags in
-> https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/.
-> 
-> The conflict is with Patch 2 of this series:
-> 
-> https://lore.kernel.org/linux-hyperv/1749650984-9193-1-git-send-email-shradhagupta@linux.microsoft.com/
-> 
-> which is in netdev/net-next.
+Hi, we tested your kernel and here are the results:
 
-I need some guidance here. If I make it apply cleanly to linux-next, it
-won't apply to pci tree.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-I saw this type of conflict being resolved during merging to Linus's tree.
-Shouldn't we do the same for this case?
+Tested-by: CKI Project <cki-project@redhat.com>
 
-> Michael
-> 
-> > 
-> > > At runtime, I've done basic smoke testing on an x86 VM in the Azure
-> > > cloud that has a Mellanox NIC VF and two NVMe devices as PCI devices.
-> > > So far everything looks good. But I'm still doing additional testing, and
-> > > I want to also test on an ARM64 VM. Please give me another day or two
-> > > to be completely satisfied.
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
 
-Good to hear, thanks!
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1905260977
 
-> > Sure.
-> > >> +static void hv_pcie_domain_free(struct irq_domain *d, unsigned int virq, unsigned int nr_irqs)
-> > >> +{
-> > >> +	struct msi_domain_info *info = d->host_data;
-> > >> +
-> > >> +	for (int i = 0; i < nr_irqs; i++)
-> > >> +		hv_msi_free(d, info, virq + i);
-> > >> +
-> > >> +	irq_domain_free_irqs_top(d, virq, nr_irqs);
-> > >
-> > > This code can be built as a module, so irq_domain_free_irqs_top() needs to be
-> > > exported, which it currently is not.
-> > 
-> > Nam, can you please create a seperate patch, which exports this and take
-> > care of the conflict?
+Tests that were not ran because of internal issues:
+    Hardware - Firmware test suite [aarch64]
+    Reboot test [aarch64]
+    selinux-policy: serge-testsuite [aarch64]
 
-Will do.
 
-Best regards,
-Nam
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
