@@ -4,78 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B4FC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF833C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xkiEb1x5aeo2U5t7p61ZjNQh1p++o+M4e3PN96IzcNk=; b=4TABKo+g7CPxOgLLuHJpz9m647
-	ZZq4/OYJzYCsByCKF+o22rbhhGGNNgL9o/QXdjTEl67NHuyqt08tnwNwkpSoFlNg4U9/3z6VOZLXY
-	Rfve6g49r1/6FmXpxU0a3Io+Eb7mQxXfHQTODCR7QJ50/rOI6q1XR3WX6OjijcOCJsll9jbkYHkVw
-	I5kVdZfqZzh9i4rmFuXChyBPSzX3gbx/85RF8BsHV/5/2flTvs7O+VO2hbEf1z6Y1o2K9nHe4+six
-	aVxhMrG/j3HnqLftRHdwr5Txn0WWw/BzAVdXa+NZPY94cchBZIyWaADL9kVKwFC91aCCEkdKQmS5q
-	JIlsexEA==;
+	bh=4kcJobrOnoamaBnANOlfQkU1M63AHPCa2YelSe1E0P8=; b=hXLc+kShsjF1ygnG03LVV3eRpi
+	ot4vOSA6C8P4J2pVcEfPObLlyHdNTL+ADsG+1aL3JxdoF7RqpSUO/35ybPsmPxgN+aA/EAJ1ILO60
+	J/9GZeQ4AeezNoOiZ1JQLnmGdfJIXhz92qiwsuRBnaIQX83pYgzUBDbo484+7PFC0Tvxdcy/m01B6
+	BVbGIRNTiS/nGl+JV5dPABKd6qxIXVcIt3HU3gYv+z9XK3YNmy2UWfLEdsB/FDMMPgv6daXtoTaz3
+	jO/453PfisyHzuv8DVRQqjG17NQra5Fq5f/6jOpUViWGZChW7AnesdtIGeWrsjamWC8S8LzFaZsFR
+	WlGj0r9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXLI4-0000000BjKD-2DDH;
-	Thu, 03 Jul 2025 14:51:56 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uXLKO-0000000BjkJ-22xo;
+	Thu, 03 Jul 2025 14:54:20 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJmH-0000000BSM7-3gpq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 13:15:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AA689A53809;
-	Thu,  3 Jul 2025 13:15:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21FFEC4CEED;
-	Thu,  3 Jul 2025 13:14:58 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
-	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="A5NsHkt/"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
-	t=1751548496;
+	id 1uXJqj-0000000BSz1-4BAJ;
+	Thu, 03 Jul 2025 13:19:39 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751548776;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xkiEb1x5aeo2U5t7p61ZjNQh1p++o+M4e3PN96IzcNk=;
-	b=A5NsHkt/twS0bSDj/dJyaVEYb0DcjCIKrsfieIG5usjSVyLy5UjwXc9Fmro5QFrNm4+oN4
-	zntJYgFFrWmxhGHjKr9bh3rpoCZZEUGfgjRACZntqAV8ad3nPAPoEq+xVC9ViWH+oGBfAo
-	fi7x52XGQtuUYW396Ey2rPe2bCT2vII=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 91f8f88e (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
-	Thu, 3 Jul 2025 13:14:56 +0000 (UTC)
-Date: Thu, 3 Jul 2025 15:14:52 +0200
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-To: Gu Bowen <gubowen5@huawei.com>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
-	David Howells <dhowells@redhat.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lukas Wunner <lukas@wunner.de>,
-	Ignat Korchagin <ignat@cloudflare.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Tianjia Zhang <tianjia.zhang@linux.alibaba.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>, keyrings@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Lu Jialin <lujialin4@huawei.com>,
-	GONG Ruiqi <gongruiqi1@huawei.com>
-Subject: Re: [PATCH RFC 0/4] Reintroduce the sm2 algorithm
-Message-ID: <aGaCTOJ30KNPOBIC@zx2c4.com>
-References: <20250630133934.766646-1-gubowen5@huawei.com>
+	bh=4kcJobrOnoamaBnANOlfQkU1M63AHPCa2YelSe1E0P8=;
+	b=OUCym8psmnaL3rl7otrsXt5ULO8qXzrLiQ2XunZuiGEJq9q2a4WUYJSjC6A4s33xS2xAVN
+	FgAoF0zHaD+LNFcblvIQ1agcGyghfjtYU+CFy68EU28fBzWxytM32qAyBZJ5EeUya6OzqA
+	e51c7FR9heFylKmcRWsPQ9Xzp8eIVrA3emNX793lhLDdEqqm1TmjeiV5nNLnjE0D/f7zqg
+	k+AP+lmNNiEmVsAfPKzEcTY7WWpww4Jvc9KUWdTW4xuDVJQXVCtZP4wMBMzO1yvQnXDVFD
+	hV8UNztJ957RNiqaG7wzbYmreAFoYSQ2ah+/xKFywzjtxBJ7vZz8/uVTGPJVOw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751548776;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4kcJobrOnoamaBnANOlfQkU1M63AHPCa2YelSe1E0P8=;
+	b=CmdzbFLseNS5InsZhBs47LmqjKB+MqkBz9WBhsq8OOSzG0EHoDlJHN0OSyJU/fl/RhFFSj
+	zFhtLTQc7mvGzEBQ==
+To: Nam Cao <namcao@linutronix.de>, Marc Zyngier <maz@kernel.org>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?=
+ <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob
+ Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, Karthikeyan
+ Mitran <m.karthikeyan@mobiveil.co.in>, Hou Zhiqiang
+ <Zhiqiang.Hou@nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Pali =?utf-8?Q?Roh=C3=A1r?= <pali@kernel.org>, "K . Y . Srinivasan"
+ <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Joyce Ooi <joyce.ooi@intel.com>, Jim
+ Quinlan <jim2101024@gmail.com>, Nicolas Saenz Julienne
+ <nsaenz@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Ryder Lee <ryder.lee@mediatek.com>,
+ Jianjun Wang <jianjun.wang@mediatek.com>, Marek Vasut
+ <marek.vasut+renesas@gmail.com>, Yoshihiro Shimoda
+ <yoshihiro.shimoda.uh@renesas.com>, Michal Simek <michal.simek@amd.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>, Nirmal Patel
+ <nirmal.patel@linux.intel.com>, Jonathan Derrick
+ <jonathan.derrick@linux.dev>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org
+Cc: Nam Cao <namcao@linutronix.de>, Jingoo Han <jingoohan1@gmail.com>
+Subject: Re: [PATCH 01/16] PCI: dwc: Switch to msi_create_parent_irq_domain()
+In-Reply-To: <04d4a96046490e50139826c16423954e033cdf89.1750858083.git.namcao@linutronix.de>
+References: <cover.1750858083.git.namcao@linutronix.de>
+ <04d4a96046490e50139826c16423954e033cdf89.1750858083.git.namcao@linutronix.de>
+Date: Thu, 03 Jul 2025 15:19:35 +0200
+Message-ID: <87bjq1wgwo.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250630133934.766646-1-gubowen5@huawei.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_061502_291094_151B4C51 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20250703_061938_173019_B5FD74D8 
+X-CRM114-Status: UNSURE (   5.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,58 +99,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Jun 26 2025 at 16:47, Nam Cao wrote:
 
-On Mon, Jun 30, 2025 at 09:39:30PM +0800, Gu Bowen wrote:
-> To reintroduce the sm2 algorithm, the patch set did the following:
->  - Reintroduce the mpi library based on libgcrypt.
->  - Reintroduce ec implementation to MPI library.
->  - Rework sm2 algorithm.
->  - Support verification of X.509 certificates.
-> 
-> Gu Bowen (4):
->   Revert "Revert "lib/mpi: Extend the MPI library""
->   Revert "Revert "lib/mpi: Introduce ec implementation to MPI library""
->   crypto/sm2: Rework sm2 alg with sig_alg backend
->   crypto/sm2: support SM2-with-SM3 verification of X.509 certificates
+> Move away from the legacy MSI domain setup, switch to use
+> msi_create_parent_irq_domain().
+>
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
 
-I am less than enthusiastic about this. Firstly, I'm kind of biased
-against the whole "national flag algorithms" thing. But I don't know how
-much weight that argument will have here. More importantly, however,
-implementing this atop MPI sounds very bad. The more MPI we can get rid
-of, the better.
-
-Is MPI constant time? Usually the good way to implement EC algorithms
-like this is to very carefully work out constant time (and fast!) field
-arithmetic routines, verify their correctness, and then implement your
-ECC atop that. At this point, there's *lots* of work out there on doing
-fast verified ECC and a bunch of different frameworks for producing good
-implementations. There are also other implementations out there you
-could look at that people have presumably studied a lot. This is old
-news. (In 3 minutes of scrolling around, I noticed that
-count_leading_zeros() on a value is used as a loop index, for example.
-Maybe fine, maybe not, I dunno; this stuff requires analysis.)
-
-On the other hand, maybe you don't care because you only implement
-verification, not signing, so all info is public? If so, the fact that
-you don't care about CT should probably be made pretty visible. But
-either way, you should still be concerned with having an actually good &
-correct implementation of which you feel strongly about the correctness.
-
-Secondly, the MPI stuff you're proposing here adds a 25519 and 448
-implementation, and support for weierstrauss, montgomery, and edwards,
-and... surely you don't need all of this for SM-2. Why add all this
-unused code? Presumably because you don't really understand or "own" all
-of the code that you're proposing to add. And that gives me a lot of
-hesitation, because somebody is going to have to maintain this, and if
-the person sending patches with it isn't fully on top of it, we're not
-off to a good start.
-
-Lastly, just to nip in the bud the argument, "but weierstrauss is all
-the same, so why not just have one library to do all possible
-weierstrauss curves?" -- the fact that this series reintroduces the
-removed "generic EC library" indicates there's actually not another user
-of it, even before we get into questions of whether it's a good idea.
-
-Jason
+Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
 
