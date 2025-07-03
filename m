@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF30C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 23:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A874C83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 23:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=32BzIHGNp0akvBK9OGz37WAORZ5C+YK3ijDeUf8UyCY=; b=K1Qqi/pcW7pP+BLAgmRjD5eXDG
-	U/AA9ljy3MmF5fKweQHTH3/3wIs3LtbOk1s3iKJ+vn2g+Yk5Cpa+Kzg7lFUla5mVekkuA0rn+lDhf
-	pkxJ12mvBmpZDtu78HcjK43YvS+pg/i/KnqAYulKdVJ81ZpJJq3IJAECvf1e9bk9h0N0iph2eCK+2
-	8Qi6fyrJqZV+N4CVUtDtkHcmjZGNMbfPAiCXXnDQiZYKbgKcu4okAWq/J9Q9p7v1ibdMeUWJko51K
-	eCVrQ893JIylTc9keXbnH4r9j9fYV1movimklqoRf1erSt7q/oct5VqegGXnxBTvaDxSqY0gem2XF
-	qlMZB79A==;
+	bh=tI8H2wX5v8zGuMwr587IEjCe4lTn+vWzbXe7WRWsg+o=; b=GQtO+r14dM5VuRbrSCX3EQLvA4
+	gCNa2usIFOdTubMiBjyfrjcxAXg8D9OzEkmy5wsOKIxu/1DNOeTm9XWDQ6WBrunwL97upxdwnf/aa
+	76TCHalCjTtVvlJxpc/MFxGTZ2ZVGGzwGB/sFXD7OEH5F/T/BPVDQhozJbXk/bQZZI8gezz1D653T
+	EIKiczfUnbREZ+tH6+3/2AGeWRJPUNfL2W45yVy+syWal+fxcy8eab7LL+EhsQ3sxKzuDKVPxOfSb
+	CXrk/hbcOftzZyGaUm/3zFwwpXeNMYsamr3Rf4Vynl0EqAqKE+4eczICyGGZR7Zepog547BvjcCFW
+	TCaxZvvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXTXw-0000000Cqw9-2mWr;
-	Thu, 03 Jul 2025 23:40:53 +0000
+	id 1uXTXy-0000000CqyI-0393;
+	Thu, 03 Jul 2025 23:40:54 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXSfl-0000000ClwH-3qa4
+	id 1uXSfm-0000000ClxJ-2SBP
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 03 Jul 2025 22:44:55 +0000
 Received: by linux.microsoft.com (Postfix, from userid 1032)
-	id 92A8821151BE; Thu,  3 Jul 2025 15:44:53 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 92A8821151BE
+	id B0A3B211519B; Thu,  3 Jul 2025 15:44:52 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B0A3B211519B
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1751582693;
-	bh=32BzIHGNp0akvBK9OGz37WAORZ5C+YK3ijDeUf8UyCY=;
+	s=default; t=1751582692;
+	bh=tI8H2wX5v8zGuMwr587IEjCe4lTn+vWzbXe7WRWsg+o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HyWsBdbTfYTmux2z6fic1v81c+SlXy2R+ZaRiPuCKErJfyagh+edfjNDki874GJbA
-	 DzX9C/5z3IYgHEXMfOaooa9OQBw4xm9UguLkcWuqNQIiuM02DjLZOlV1VTn2P5lAkY
-	 KdA4akRVLO3B4QKaiB2dfZ9etbC+Ue9S1QLiRtT8=
+	b=cuzDw/BvqYiWhv4ZVvq35a121EEkTzNqbBH9zE+v3pbZSTS2nZ1rddj1qBA9zM8Es
+	 4b+jEBsHQzVleQGzDcWLBJxRPpU4iDFQTag2XdvQRMn/ihcNGQpd78dlGH0YJcLqMi
+	 WLMMRL0kQG0tQLLjhccZh8PTlySg+5dZ0/34LQGE=
 From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,15 +64,15 @@ Cc: kys@microsoft.com,
 	mrathor@linux.microsoft.com,
 	x86@kernel.org,
 	Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Subject: [PATCH v2 6/6] PCI: hv: Use the correct hypercall for unmasking interrupts on nested
-Date: Thu,  3 Jul 2025 15:44:37 -0700
-Message-Id: <1751582677-30930-7-git-send-email-nunodasneves@linux.microsoft.com>
+Subject: [PATCH v2 4/6] x86/hyperv: Clean up hv_map/unmap_interrupt() return values
+Date: Thu,  3 Jul 2025 15:44:35 -0700
+Message-Id: <1751582677-30930-5-git-send-email-nunodasneves@linux.microsoft.com>
 X-Mailer: git-send-email 1.8.3.1
 In-Reply-To: <1751582677-30930-1-git-send-email-nunodasneves@linux.microsoft.com>
 References: <1751582677-30930-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_154454_054239_7D27240C 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20250703_154454_699448_3AE43DED 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +87,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+Fix the return values of these hypercall helpers so they return
+a negated errno either directly or via hv_result_to_errno().
 
-Running as nested root on MSHV imposes a different requirement
-for the pci-hyperv controller.
+Update the callers to check for errno instead of using
+hv_status_success(), and remove redundant error printing.
 
-In this setup, the interrupt will first come to the L1 (nested) hypervisor,
-which will deliver it to the appropriate root CPU. Instead of issuing the
-RETARGET hypercall, issue the MAP_DEVICE_INTERRUPT hypercall to L1 to
-complete the setup.
+While at it, rearrange some variable declarations to adhere to style
+guidelines i.e. "reverse fir tree order".
 
-Rename hv_arch_irq_unmask() to hv_irq_retarget_interrupt().
-
-Co-developed-by: Jinank Jain <jinankjain@linux.microsoft.com>
-Signed-off-by: Jinank Jain <jinankjain@linux.microsoft.com>
-Signed-off-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
 Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
 ---
- drivers/pci/controller/pci-hyperv.c | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
+ arch/x86/hyperv/irqdomain.c  | 32 ++++++++++++++------------------
+ drivers/iommu/hyperv-iommu.c | 33 ++++++++++++---------------------
+ 2 files changed, 26 insertions(+), 39 deletions(-)
 
-diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
-index 4d25754dfe2f..9a8cba39ea6b 100644
---- a/drivers/pci/controller/pci-hyperv.c
-+++ b/drivers/pci/controller/pci-hyperv.c
-@@ -600,7 +600,7 @@ static unsigned int hv_msi_get_int_vector(struct irq_data *data)
- #define hv_msi_prepare		pci_msi_prepare
+diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
+index e28c317ac9e8..75b25724b045 100644
+--- a/arch/x86/hyperv/irqdomain.c
++++ b/arch/x86/hyperv/irqdomain.c
+@@ -46,7 +46,7 @@ static int hv_map_interrupt(union hv_device_id device_id, bool level,
+ 	if (nr_bank < 0) {
+ 		local_irq_restore(flags);
+ 		pr_err("%s: unable to generate VP set\n", __func__);
+-		return EINVAL;
++		return -EINVAL;
+ 	}
+ 	intr_desc->target.flags = HV_DEVICE_INTERRUPT_TARGET_PROCESSOR_SET;
  
- /**
-- * hv_arch_irq_unmask() - "Unmask" the IRQ by setting its current
-+ * hv_irq_retarget_interrupt() - "Unmask" the IRQ by setting its current
-  * affinity.
-  * @data:	Describes the IRQ
-  *
-@@ -609,7 +609,7 @@ static unsigned int hv_msi_get_int_vector(struct irq_data *data)
-  * is built out of this PCI bus's instance GUID and the function
-  * number of the device.
-  */
--static void hv_arch_irq_unmask(struct irq_data *data)
-+static void hv_irq_retarget_interrupt(struct irq_data *data)
- {
- 	struct msi_desc *msi_desc = irq_data_get_msi_desc(data);
- 	struct hv_retarget_device_interrupt *params;
-@@ -714,6 +714,20 @@ static void hv_arch_irq_unmask(struct irq_data *data)
- 		dev_err(&hbus->hdev->device,
- 			"%s() failed: %#llx", __func__, res);
+@@ -66,7 +66,7 @@ static int hv_map_interrupt(union hv_device_id device_id, bool level,
+ 	if (!hv_result_success(status))
+ 		hv_status_err(status, "\n");
+ 
+-	return hv_result(status);
++	return hv_result_to_errno(status);
  }
+ 
+ static int hv_unmap_interrupt(u64 id, struct hv_interrupt_entry *old_entry)
+@@ -88,7 +88,10 @@ static int hv_unmap_interrupt(u64 id, struct hv_interrupt_entry *old_entry)
+ 	status = hv_do_hypercall(HVCALL_UNMAP_DEVICE_INTERRUPT, input, NULL);
+ 	local_irq_restore(flags);
+ 
+-	return hv_result(status);
++	if (!hv_result_success(status))
++		hv_status_err(status, "\n");
 +
-+static void hv_arch_irq_unmask(struct irq_data *data)
-+{
-+	if (hv_root_partition())
-+		/*
-+		 * In case of the nested root partition, the nested hypervisor
-+		 * is taking care of interrupt remapping and thus the
-+		 * MAP_DEVICE_INTERRUPT hypercall is required instead of
-+		 * RETARGET_INTERRUPT.
-+		 */
-+		(void)hv_map_msi_interrupt(data, NULL);
-+	else
-+		hv_irq_retarget_interrupt(data);
-+}
- #elif defined(CONFIG_ARM64)
- /*
-  * SPI vectors to use for vPCI; arch SPIs range is [32, 1019], but leaving a bit
++	return hv_result_to_errno(status);
+ }
+ 
+ #ifdef CONFIG_PCI_MSI
+@@ -188,12 +191,11 @@ static inline void entry_to_msi_msg(struct hv_interrupt_entry *entry, struct msi
+ static int hv_unmap_msi_interrupt(struct pci_dev *dev, struct hv_interrupt_entry *old_entry);
+ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+ {
+-	struct msi_desc *msidesc;
+-	struct pci_dev *dev;
+ 	struct hv_interrupt_entry out_entry, *stored_entry;
+ 	struct irq_cfg *cfg = irqd_cfg(data);
+-	int cpu;
+-	u64 status;
++	struct msi_desc *msidesc;
++	struct pci_dev *dev;
++	int cpu, ret;
+ 
+ 	msidesc = irq_data_get_msi_desc(data);
+ 	dev = msi_desc_to_pci_dev(msidesc);
+@@ -217,14 +219,12 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+ 		stored_entry = data->chip_data;
+ 		data->chip_data = NULL;
+ 
+-		status = hv_unmap_msi_interrupt(dev, stored_entry);
++		ret = hv_unmap_msi_interrupt(dev, stored_entry);
+ 
+ 		kfree(stored_entry);
+ 
+-		if (status != HV_STATUS_SUCCESS) {
+-			hv_status_debug(status, "failed to unmap\n");
++		if (ret)
+ 			return;
+-		}
+ 	}
+ 
+ 	stored_entry = kzalloc(sizeof(*stored_entry), GFP_ATOMIC);
+@@ -233,8 +233,8 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+ 		return;
+ 	}
+ 
+-	status = hv_map_msi_interrupt(dev, cpu, cfg->vector, &out_entry);
+-	if (status != HV_STATUS_SUCCESS) {
++	ret = hv_map_msi_interrupt(dev, cpu, cfg->vector, &out_entry);
++	if (ret) {
+ 		kfree(stored_entry);
+ 		return;
+ 	}
+@@ -255,7 +255,6 @@ static void hv_teardown_msi_irq(struct pci_dev *dev, struct irq_data *irqd)
+ {
+ 	struct hv_interrupt_entry old_entry;
+ 	struct msi_msg msg;
+-	u64 status;
+ 
+ 	if (!irqd->chip_data) {
+ 		pr_debug("%s: no chip data\n!", __func__);
+@@ -268,10 +267,7 @@ static void hv_teardown_msi_irq(struct pci_dev *dev, struct irq_data *irqd)
+ 	kfree(irqd->chip_data);
+ 	irqd->chip_data = NULL;
+ 
+-	status = hv_unmap_msi_interrupt(dev, &old_entry);
+-
+-	if (status != HV_STATUS_SUCCESS)
+-		hv_status_err(status, "\n");
++	(void)hv_unmap_msi_interrupt(dev, &old_entry);
+ }
+ 
+ static void hv_msi_free_irq(struct irq_domain *domain,
+diff --git a/drivers/iommu/hyperv-iommu.c b/drivers/iommu/hyperv-iommu.c
+index 761ab647f372..0961ac805944 100644
+--- a/drivers/iommu/hyperv-iommu.c
++++ b/drivers/iommu/hyperv-iommu.c
+@@ -193,15 +193,13 @@ struct hyperv_root_ir_data {
+ static void
+ hyperv_root_ir_compose_msi_msg(struct irq_data *irq_data, struct msi_msg *msg)
+ {
+-	u64 status;
+-	u32 vector;
+-	struct irq_cfg *cfg;
+-	int ioapic_id;
+-	const struct cpumask *affinity;
+-	int cpu;
+-	struct hv_interrupt_entry entry;
+ 	struct hyperv_root_ir_data *data = irq_data->chip_data;
++	struct hv_interrupt_entry entry;
++	const struct cpumask *affinity;
+ 	struct IO_APIC_route_entry e;
++	struct irq_cfg *cfg;
++	int cpu, ioapic_id;
++	u32 vector;
+ 
+ 	cfg = irqd_cfg(irq_data);
+ 	affinity = irq_data_get_effective_affinity_mask(irq_data);
+@@ -214,23 +212,16 @@ hyperv_root_ir_compose_msi_msg(struct irq_data *irq_data, struct msi_msg *msg)
+ 	    && data->entry.ioapic_rte.as_uint64) {
+ 		entry = data->entry;
+ 
+-		status = hv_unmap_ioapic_interrupt(ioapic_id, &entry);
+-
+-		if (status != HV_STATUS_SUCCESS)
+-			hv_status_debug(status, "failed to unmap\n");
++		(void)hv_unmap_ioapic_interrupt(ioapic_id, &entry);
+ 
+ 		data->entry.ioapic_rte.as_uint64 = 0;
+ 		data->entry.source = 0; /* Invalid source */
+ 	}
+ 
+ 
+-	status = hv_map_ioapic_interrupt(ioapic_id, data->is_level, cpu,
+-					vector, &entry);
+-
+-	if (status != HV_STATUS_SUCCESS) {
+-		hv_status_err(status, "map failed\n");
++	if (hv_map_ioapic_interrupt(ioapic_id, data->is_level, cpu,
++				    vector, &entry))
+ 		return;
+-	}
+ 
+ 	data->entry = entry;
+ 
+@@ -322,10 +313,10 @@ static void hyperv_root_irq_remapping_free(struct irq_domain *domain,
+ 			data = irq_data->chip_data;
+ 			e = &data->entry;
+ 
+-			if (e->source == HV_DEVICE_TYPE_IOAPIC
+-			      && e->ioapic_rte.as_uint64)
+-				hv_unmap_ioapic_interrupt(data->ioapic_id,
+-							&data->entry);
++			if (e->source == HV_DEVICE_TYPE_IOAPIC &&
++			    e->ioapic_rte.as_uint64)
++				(void)hv_unmap_ioapic_interrupt(data->ioapic_id,
++								&data->entry);
+ 
+ 			kfree(data);
+ 		}
 -- 
 2.34.1
 
