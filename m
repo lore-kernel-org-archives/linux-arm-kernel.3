@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B65C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC36C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wtjRuAyC7vMRMx/UJSaY6ovJK30TPRL48z6eA243l8I=; b=tbegT60D0ZRFFuwSQQ/0jlFxoz
-	74Z7Hsdk1OqO/DuiBp5KuwGq3/PWgz4W3h/MOBOKplHZoY8TYfgBpJJeXxAiYkEzY9CbymaLCGC0q
-	Y7rnWFEZYcqoUenLR6BuxSZRFJPqN03PYpd3d0H+8URei66tDHOY7Odkdcfe9z2PcrObBz/zb/cJ3
-	h74T+g16FgmOjiUiyf06mGIEfEDGq4Kc7FG6npMVv4cT4ps31C3XkTRUBOg8WJGE0LlraJmut7g7+
-	Nc9KrYKitFYFPg9p7z5VYpB6s/I4EgXdkj4I8kPoFuS/6i7UdBMAS+LRSxQ3gZwiyzUMvPxNocHFT
-	TzExglbw==;
+	bh=rfL9+mBJT3Spyk6l1GPZsFyS4n5xbuwhOUhpe3eI0Wg=; b=cUQJarfLAgVgbGG7wR0zu5TsoL
+	Jj5W9DBXzk+mRixX86J9nBA9O7n9iTpk7tZpDN35GfKHsBWGDNaSQHWmk3mhyUofwAF69fwg+Qe6z
+	5p1ORKqeBBLhkntXMqy8Je5hIKR1BQI8SI19GYGIYvJZfGeragIE0cFrSDUkWFNWsgEKjDPYh2ICK
+	+VYbTrqh6IoeNdRcJ5sXjTh5ICrTShTKwkuJuGms28Z7UZGj10m9Py5fff7nnU21NQW01A4hYRpxD
+	FyN3iklRQ04j2qDviYFyXhqF/RLji4nnF0vM4G1jHAnSVCesMkIHfZXNKCgMTBqbdjsCtKBuDWfyp
+	jfq/S/Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR15-0000000CVjw-0ybQ;
-	Thu, 03 Jul 2025 20:58:47 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uXR1C-0000000CVvG-3c2J;
+	Thu, 03 Jul 2025 20:58:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMP7-0000000BvbX-1oUl
+	id 1uXMPI-0000000Bve1-436I
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 16:03:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=wtjRuAyC7vMRMx/UJSaY6ovJK30TPRL48z6eA243l8I=; b=Ei9Kh3pVvB6iyQDYBACPJ3WWRB
-	UA5sMKAdqAeWJyAzn7SUrmaE3ldJGc4cKGtebzXPpzC4fjdvwMYXw2r2JUheQZRFSonaYPrMsc1C3
-	HCwKhbK8CGTH0i0eDzvU0g6Ajqhcu9b8WC+Z3GZkHBqUrndxlszGtilS9tvgQ+roZO8g=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uXMOe-0007HZ-Dn; Thu, 03 Jul 2025 18:02:48 +0200
-Date: Thu, 3 Jul 2025 18:02:48 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: weishangjuan@eswincomputing.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, yong.liang.choong@linux.intel.com,
-	vladimir.oltean@nxp.com, jszhang@kernel.org,
-	jan.petrous@oss.nxp.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
-	inochiama@gmail.com, boon.khai.ng@altera.com,
-	dfustini@tenstorrent.com, 0x1207@gmail.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, lizhi2@eswincomputing.com
-Subject: Re: [PATCH v3 1/2] dt-bindings: ethernet: eswin: Document for
- EIC7700 SoC
-Message-ID: <3efddad3-87f7-4f4b-a406-a0c866ef5fd4@lunn.ch>
-References: <20250703091808.1092-1-weishangjuan@eswincomputing.com>
- <20250703091947.1148-1-weishangjuan@eswincomputing.com>
+	Thu, 03 Jul 2025 16:03:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FDE061151;
+	Thu,  3 Jul 2025 16:03:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E39CC4CEE3;
+	Thu,  3 Jul 2025 16:03:24 +0000 (UTC)
+Date: Thu, 3 Jul 2025 17:03:22 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
+Subject: Re: [PATCH v7 15/31] arm64: Disable GICv5 read/write/instruction
+ traps
+Message-ID: <aGapyvHsFP_xreOj@arm.com>
+References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
+ <20250703-gicv5-host-v7-15-12e71f1b3528@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250703091947.1148-1-weishangjuan@eswincomputing.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_090317_477945_BF6F12A0 
-X-CRM114-Status: UNSURE (   5.45  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250703-gicv5-host-v7-15-12e71f1b3528@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,17 +73,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +    ethernet@50400000 {
-> +        compatible = "eswin,eic7700-qos-eth", "snps,dwmac-5.20";
-> +        reg = <0x50400000 0x10000>;
-> +        interrupt-parent = <&plic>;
-> +        interrupt-names = "macirq";
-> +        interrupts = <61>;
-> +        phy-mode = "rgmii";
+On Thu, Jul 03, 2025 at 12:25:05PM +0200, Lorenzo Pieralisi wrote:
+> GICv5 trap configuration registers value is UNKNOWN at reset.
+> 
+> Initialize GICv5 EL2 trap configuration registers to prevent
+> trapping GICv5 instruction/register access upon entering the
+> kernel.
+> 
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
 
-Please don't user 'rgmii' in examples. It is normally wrong, and we
-don't want DT developers copying it into real DT binding, just for me
-to tell them it is wrong.
-
-	Andrew
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
