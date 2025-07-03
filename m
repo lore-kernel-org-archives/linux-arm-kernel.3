@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52245C83F03
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DA1C83F07
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSM5+fYnMtOsm8GdwVjstZSV2NM3rH5RSvo+XZzua+E=; b=Gk/jheJVacbhdyotrGOx9scaEj
-	Dt9WkkFBJ78j1qaMNqH1jjzVzQ4KT+Z4Ypvc9NrT8g/3bp7U9f+toNKVO5FnZVSbBi86IMAwpU0sh
-	bx2z4iOh1uNaNU4NozWVyMEmcXcVR/d81hj8nbvLK0P5j0YXMUDKGZqTA3uGiiKs62l25ywmi2NE5
-	K43EWk3MVaawr2IqvWjz1fLX1Th7Va4ww/tq0i7rJAilIvC+BsHpKvAMic7byvSnf2A8xscgR23Pe
-	TyuFxYfmK30EoElQrtiI93S8pNBxUSo2WoRQWkHmqR68S4aibxOnboSqnk+NYtAcVK1+TCkhTbzIB
-	S+cbv3aQ==;
+	bh=qTtCCKdSkgMTplzEICqTViHzDjQLzZrHGfmUBwRIypA=; b=yCOcsOcNZca+8ySXLNnp02rVSR
+	Egc8BYC6OaiZapEotGh4B21Kh5CnoVPJfig7zVREvLzZLur1mkS+00zw8BOJLxFgF3A4CjRtNWprC
+	I2xOEceY9uqeHDV0M0Fi/f0dNVjzN4tZ9vVdAQtV/p0gbtZIP/GPnumClyhqiOx0FjYh/oQXhsQ31
+	hYpD9vbyLD6qZA1OAbJE6Y2dJMj7v/bVnbg2AEv2koLtoJnQ7WmROSEKihd8HKVF5FiTZhz9im8lr
+	Z/qxeD0zB2ArygTiY1+z4EOvGsnxq6fTf6xcQr6Z0DAsfAh8+SltpTk+dmGcLRH4pDPkBr39lWYDS
+	a67aPV5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXQzY-0000000CTHf-2lPd;
-	Thu, 03 Jul 2025 20:57:12 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1uXQza-0000000CTIa-1ExG;
+	Thu, 03 Jul 2025 20:57:14 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXLcV-0000000BmK9-1lph
+	id 1uXLd8-0000000BmPv-2kwK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 15:13:04 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-553b60de463so19572e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 08:13:03 -0700 (PDT)
+	Thu, 03 Jul 2025 15:13:43 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-553b6a349ccso52942e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 08:13:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751555582; x=1752160382; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1751555621; x=1752160421; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JSM5+fYnMtOsm8GdwVjstZSV2NM3rH5RSvo+XZzua+E=;
-        b=FTpFIa4Rz91se13AWSanlT+j1P5U4pchlVg6x5edtZxql5HMjksCZrzHzEOfqlKgh1
-         k3498PCvXvNPF1YcCJcIGcEobBnbmCRIKcoAkXf6ybbcc5feWmRex/iCf+WMlNDqNgsq
-         bfNpm8Wh5xaeXf8zkvYcokA7gX1lL9+mFHU7Ro6Wx06d/iLNKPXLagWI0pr8zg7D8UTh
-         8teeZOnNwRLQxjaqgopERcn4OMheQuiYFGYBOcOzrArAJtZmf4KvrlKIHoqUYpej9XX5
-         MTl4F9VdSR+GVUNmU9ajMrnpMSIVZevtDxsp3QHRkHVqGSBasJvj7XqPiapxVpfkLmvT
-         iImw==
+        bh=qTtCCKdSkgMTplzEICqTViHzDjQLzZrHGfmUBwRIypA=;
+        b=mq7lNC9WlYmQ0xFhjCicmAkXSRkpe3mUZYCl2nDwQV+gIcVc0m2tSNwJvnOF5U88h6
+         lfLFw0VsjRIfEtFI8P6AGKzScSgq5FpQ864jBIHj27AmdZ+7Wa8aAIZKXs6ubKUaYU/2
+         aW5hUNgLifqFaKS1FKlbmb8fuGr3ppwXdJPuFQRWntfaQqd1iwBVMB+h/Rhv8u9GpSc7
+         LAvBxGL3fWi9sqMjW/KTOe32SiZnuhGS+aaW40VU/uw31IkzyfPzF3TQstBldv7smE1X
+         YasqWrSoxtQDclPgbz569/I1NVYpnKwGlhyb6Dsd9yfJRQ0AF+aYv78Kl1tMV5WwJ8pb
+         u1/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751555582; x=1752160382;
+        d=1e100.net; s=20230601; t=1751555621; x=1752160421;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JSM5+fYnMtOsm8GdwVjstZSV2NM3rH5RSvo+XZzua+E=;
-        b=qPmyl3cZxxNHqMPQiWx1PuQg0lXSSnG/m+3kEP2RXX+WcxcjzYfqvQx41kJ5UKN1KY
-         6Z4H9ofIEk+cYjJ36yHLb4jW2BB6TE8uPgIrjygThZrVjG7OqzA83+sD8oPUZggHXhBB
-         WGVb9em4VCjiODPF3m2N3PsGMMk5QavAcGyqq/dGWUCJze+GxtqVjJUK8dL9Qc0JQRIq
-         lWuFBDLsAJ0QUzp3it2Y/BHBCCTpdXSlKIqedlxPDyRNGWRGxylHM0gcdfFSWMKjI19i
-         wAtAi5GsQqJdrKI5MGfT1jiOE8ewStq+/EiBWL0KZ6BzBaPLD/SY5XjRna4VI0Oj2jLf
-         ZGjg==
-X-Forwarded-Encrypted: i=1; AJvYcCU+Vdih9jZcpy9zGicJT50LZlk+EUl+doixL8Vcbr5KetdW4iV9L1gN32H2caUP0SFMbP5H3J6TpvrSTWmNEKn5@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywhlat8BJ5CSBTOkRcUckAmR+UitzZdAkvRsvjyY/wCcrv21x2+
-	/VCksCzmQva8wxU1LYIrKfPiwlZzqhHNQj6HwN/v8YohnW3SAvsRkzbx
-X-Gm-Gg: ASbGnctI08zNimGymh8+hyNM6Rdtokhuvm8kZB3+a5azE7YIfy9OxiZFFU1rrUhbdhA
-	x/ky9WwrV3aKdDsRfi/9x/L4IMjnPtCFhF861acpNy6PVhOsOyUYi/kCAfzYYqT/wPO9RSjj5LG
-	Gyz3u0sCPXYjeaYReis2ZZdeJrdOck2oOsij7rciw84D7PxQVFCvk0iAIeSZto27Rahna5pDr6c
-	OorrOOqKO28ghSDng4q/YIwxYANY8AiLYGaKWQsfu+Y6MGP50D7RbBjW6/5e7gQQKUgYui3vELH
-	q/4GNzfYiPUPQAKCLY+Bj0iiIyz8XbslXWYnJMcWw1SB0wxkqZObTic83mCO6Z7b795Z32E=
-X-Google-Smtp-Source: AGHT+IHcwagZ0bz8urHkgSxiQduhEhToNj/qwjiDIvUuGgoplh+L+oS4JKl6ajnw+KxoaxGfavI79w==
-X-Received: by 2002:a05:6512:1390:b0:553:252f:adf3 with SMTP id 2adb3069b0e04-5562ee3f0e3mr1589090e87.16.1751555581341;
-        Thu, 03 Jul 2025 08:13:01 -0700 (PDT)
+        bh=qTtCCKdSkgMTplzEICqTViHzDjQLzZrHGfmUBwRIypA=;
+        b=msMzm9YD7o+aItXPbUn0y+ozfRDzdGJ23f9twd/tSNxuu1waykwIFzFCrKAO9gRa9G
+         OktUQqSnORw87vPOK5hcszQHZr6cpmdYpoylrX+sS2DZzTC3iheBRefjE0dcOTGnpDSf
+         9BjMeLT8WUSsm5ettGZEExu679ZIES72S5yVmzN9XjLoZfsvWiF+rgoZNWKbNoFAWhdT
+         +2JOz1RFLlPPGCx7JmYXX8qZEbDxNFu6Lr+veLB/Sp3ewCB0Fa4smuDYbLF8rqcPZ/NO
+         0JSm6Hr5dJFI/gU6VLf9CRwIe9h3VOQ8op8qROvKcygiScdU6EpiUxUnhPDGoh+z5f9J
+         8X6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUOARrHFls0rh5Pq3llXS7GJqJEJQBHgwtaLs85AYNg83uBJHtLczm2FuArTurqHbYH1LEMMiOgcQDtYIG5HJXS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp+fhM4lyb5a+309WRwpd0YDKt2OFYN0h9toXLJ+lnamfixJGL
+	ChAUvqLxDjLsJP9cN283nxWhAgtplfPU6OWudbaCdnLfFspHLoDuOBXe
+X-Gm-Gg: ASbGncuEkrKu3/oJtbZOQmgPRXUsY4PJs8Ol7vVl0+tQvFkGgKxHSxwfHRu30Tym1O2
+	dC6uFDwyTwV7jtp3mkttJvyPx78xIhwqUGedhnzFxpQqSqtnhZOjvUmMjlC96xVHTHy0OWdNjOU
+	1zIq/r82OyL9rkzUENVKCsCKZuY4ybWFGCxTPXb755GO7UfQsYBE6oLWb4cbreNeZ65Tbv1jqbZ
+	LrN8Cy7b2foja1ch3arkL193N938oH/9FkpnBPF7t7+hB+/brGc21QYawKLGiHB2MMt2gPFRwJk
+	uGm18Jfkkne9o9RiEMwTqa4FCUhggWoiG5M3PL5v53/olXS1Ckn2PlHW+mvGZBsrpkGQitQ=
+X-Google-Smtp-Source: AGHT+IHEoQ3VBnGpUAKadTkkygNlVfx/f5KZwlHVuHvFboG/MKYSU/fiu0UHxdI8WmXTbNEBc9ufgw==
+X-Received: by 2002:a05:6512:b12:b0:553:50f6:ebcd with SMTP id 2adb3069b0e04-5562ee80659mr1189950e87.10.1751555620488;
+        Thu, 03 Jul 2025 08:13:40 -0700 (PDT)
 Received: from localhost.localdomain ([212.192.12.80])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-556384ae15esm725e87.178.2025.07.03.08.12.43
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-556384ae15esm725e87.178.2025.07.03.08.13.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jul 2025 08:13:00 -0700 (PDT)
+        Thu, 03 Jul 2025 08:13:40 -0700 (PDT)
 From: iuncuim <iuncuim@gmail.com>
 To: Srinivas Kandagatla <srini@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -89,17 +89,17 @@ To: Srinivas Kandagatla <srini@kernel.org>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org
-Subject: [PATCH v2 3/8] thermal/drivers/sun8i: add gpadc clock
-Date: Thu,  3 Jul 2025 23:11:27 +0800
-Message-ID: <20250703151132.2642378-4-iuncuim@gmail.com>
+Subject: [PATCH v2 5/8] thermal/drivers/sun8i: get calibration data from two nvmem cells
+Date: Thu,  3 Jul 2025 23:11:29 +0800
+Message-ID: <20250703151132.2642378-6-iuncuim@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250703151132.2642378-1-iuncuim@gmail.com>
 References: <20250703151132.2642378-1-iuncuim@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_081303_459995_25E8CC24 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250703_081342_701294_1C078F52 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,53 +116,114 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mikhail Kalashnikov <iuncuim@gmail.com>
 
-Some processors (e.g. Allwinner A523) require GPADC clocking activation for
-temperature sensors to work. So let's add support for enabling it.
+The A523 processor has calibration data in two nvmem cell. To be able to add
+support, the ability to add data from two cells into one array must be added.
 
 Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
 ---
- drivers/thermal/sun8i_thermal.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ drivers/thermal/sun8i_thermal.c | 77 ++++++++++++++++++++++-----------
+ 1 file changed, 52 insertions(+), 25 deletions(-)
 
 diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
-index 226747906..45aaf5348 100644
+index bdd15ee45..3f57f1a6b 100644
 --- a/drivers/thermal/sun8i_thermal.c
 +++ b/drivers/thermal/sun8i_thermal.c
-@@ -66,8 +66,9 @@ struct tsensor {
- };
+@@ -303,43 +303,70 @@ static int sun50i_h6_ths_calibrate(struct ths_device *tmdev,
  
- struct ths_thermal_chip {
--	bool            has_mod_clk;
--	bool            has_bus_clk_reset;
-+	bool		has_gpadc_clk;
-+	bool		has_mod_clk;
-+	bool		has_bus_clk_reset;
- 	bool		needs_sram;
- 	int		sensor_num;
- 	int		offset;
-@@ -89,7 +90,8 @@ struct ths_device {
- 	struct regmap_field			*sram_regmap_field;
- 	struct reset_control			*reset;
- 	struct clk				*bus_clk;
--	struct clk                              *mod_clk;
-+	struct clk				*mod_clk;
-+	struct clk				*gpadc_clk;
- 	struct tsensor				sensor[MAX_SENSOR_NUM];
- };
+ static int sun8i_ths_calibrate(struct ths_device *tmdev)
+ {
+-	struct nvmem_cell *calcell;
++	struct nvmem_cell *calcell = NULL;
+ 	struct device *dev = tmdev->dev;
+-	u16 *caldata;
+-	size_t callen;
++	struct device_node *np = dev_of_node(dev);
++	struct property *prop;
++	const char *cellname;
++	u8 *caldata = NULL;
++	size_t callen = 0;
+ 	int ret = 0;
  
-@@ -417,6 +419,12 @@ static int sun8i_ths_resource_init(struct ths_device *tmdev)
- 	if (ret)
- 		return ret;
- 
-+	if (tmdev->chip->has_gpadc_clk) {
-+		tmdev->gpadc_clk = devm_clk_get_enabled(&pdev->dev, "gpadc");
-+		if (IS_ERR(tmdev->gpadc_clk))
-+			return PTR_ERR(tmdev->gpadc_clk);
-+	}
+-	calcell = nvmem_cell_get(dev, "calibration");
+-	if (IS_ERR(calcell)) {
+-		if (PTR_ERR(calcell) == -EPROBE_DEFER)
+-			return -EPROBE_DEFER;
+-		/*
+-		 * Even if the external calibration data stored in sid is
+-		 * not accessible, the THS hardware can still work, although
+-		 * the data won't be so accurate.
+-		 *
+-		 * The default value of calibration register is 0x800 for
+-		 * every sensor, and the calibration value is usually 0x7xx
+-		 * or 0x8xx, so they won't be away from the default value
+-		 * for a lot.
+-		 *
+-		 * So here we do not return error if the calibration data is
+-		 * not available, except the probe needs deferring.
+-		 */
+-		goto out;
++	of_property_for_each_string(np, "nvmem-cell-names", prop, cellname) {
++		size_t len;
++		u8 *caldatapart;
 +
- 	if (tmdev->chip->needs_sram) {
- 		struct regmap *regmap;
++  		calcell = of_nvmem_cell_get(np, cellname);
++  		if (IS_ERR(calcell)) {
++			if (PTR_ERR(calcell) == -EPROBE_DEFER)
++				return -EPROBE_DEFER;
++			/*
++			* Even if the external calibration data stored in sid is
++			* not accessible, the THS hardware can still work, although
++			* the data won't be so accurate.
++			*
++			* The default value of calibration register is 0x800 for
++			* every sensor, and the calibration value is usually 0x7xx
++			* or 0x8xx, so they won't be away from the default value
++			* for a lot.
++			*
++			* So here we do not return error if the calibration data is
++			* not available, except the probe needs deferring.
++			*/
++			goto out;
++		}
++
++		caldatapart = nvmem_cell_read(calcell, &len);
++		nvmem_cell_put(calcell);
++		calcell = NULL;
++		if (IS_ERR(caldatapart)) {
++			ret = PTR_ERR(caldatapart);
++			goto out;
++		}
++
++		caldata = devm_krealloc(dev, caldata, callen + len, GFP_KERNEL);
++		if (!caldata) {
++			kfree(caldatapart);
++			ret = -ENOMEM;
++			goto out;
++		}
++
++		memcpy(caldata + callen, caldatapart, len);
++		callen += len;
++		kfree(caldatapart);
+ 	}
  
+-	caldata = nvmem_cell_read(calcell, &callen);
+ 	if (IS_ERR(caldata)) {
+ 		ret = PTR_ERR(caldata);
+ 		goto out;
+ 	}
+ 
+-	tmdev->chip->calibrate(tmdev, caldata, callen);
++	tmdev->chip->calibrate(tmdev, (u16 *)caldata, callen);
+ 
+-	kfree(caldata);
++	devm_kfree(dev, caldata);
++	caldata = NULL;
+ out:
+-	if (!IS_ERR(calcell))
++	if (calcell && !IS_ERR(calcell))
+ 		nvmem_cell_put(calcell);
+ 	return ret;
+ }
 -- 
 2.49.0
 
