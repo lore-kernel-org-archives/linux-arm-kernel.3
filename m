@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929CAC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 06:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03AE5C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 06:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zHVWAXhqijP4YSUaufYjBgcTFHbFADVO5RoqB3KOQMw=; b=nlp50jQRFuE9aXYnLOS4mzps0J
-	CXYZ5qgceZ6X+oQkXBq/CEZn7TVPrtcr997Lj09PDU3986Xna/iDWBCNgwT7ilhgjYSzICzEa7Ccd
-	iZYAaNbVQMq0LfxA7TroCF+ZjGZhJfp/WsIy7F+7Bxi4atrl3LmkbPIqtLPWzPZrs0LygOC10iHcD
-	7ozf4ZVHeCZbAthnCan5P/QzsiDpvQCHpH40voOf7Fq+nWJq9CiaK+LRkNiX8Suqmjdkb9OgG1qAY
-	2geOM6kseSexYildtjgI6Dwn3j20YLWif7Fm861QUfLz5V3b00yDD6IkltrlBlLAxORjtqx7/dMU1
-	HJxyeZ8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HV2KoaCWlJPbq6mOG4DYoW84XpdHe7KC1QwY8y5uXjs=; b=0F9AhNWCnW/d/bJSf2m9Ev16M2
+	cYlEY+bu6dLOOy5qrt8gAlO6Azs6TDFqFCMp+6tTPIyE34lOUr2Lo6FMzAHIrmH5X5U81XS57MyID
+	i2gQX7jOSaGl1DS8oVeHzXZ/n9a+F82l2D7LptynnJWz9kOWQWCw5CCqqScoG+gj5U4q1ipI1cqS3
+	wH7zsLxS9apDXEgf6jSkUsxhMAM9UePVBFiNK4Xmb4sUapZhYTqvmwLgDDNiOhghNFvx2lYxFmmsE
+	5Tyis7nEuGLS4yTZcYpB+RDiEzkBscgdpAFSiKrQO0W3a1wx0zi/oX6XzOAOCm+dKQIrKLaBspMmj
+	RzFNIY3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXDTd-0000000ANas-3jrk;
-	Thu, 03 Jul 2025 06:31:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uXDVy-0000000AO4s-05Mx;
+	Thu, 03 Jul 2025 06:33:46 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXDQb-0000000AMv7-3uNC
+	id 1uXDSU-0000000ANMb-29J9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 06:28:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C1C3D61142;
-	Thu,  3 Jul 2025 06:28:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A16EEC4CEEB;
-	Thu,  3 Jul 2025 06:28:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751524091;
-	bh=T72yXCmWdX5uoyXouBY6LyB4JVY9V6cpBLUYnY5mazQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uL70UOkq3bTbtQc6sV0B15O2BmBs+JKSMF5sViA6FpL5BEFxDRZ2EMCCuGe1EvaaM
-	 APZWQiXwZQJcn56XDKHVuOI7rLGD+Xs1E9FreeF9wIQa/PhwbDmEI2TrrmyJAXfJPW
-	 Z4SP060V1akKVI83GrwoWWlMtTY2fI8hb8AaPKjyYUNuOivHvr7vDLpkkSxtsGGVQq
-	 BsI2UOgEyyShfWxVYe1VW8CodBSutQeeW7mRVA5n+7s/A9ym5TU6fkXMS4V6/NfxKK
-	 81RwZTsLAY8ADwAK5VkoPb9oT0b5ELh2S5CI7coneJ4PeHDrPqfaJHCSJxbm9ZVGci
-	 O5fq+JWp5PBQA==
-Date: Thu, 3 Jul 2025 11:58:01 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>,
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>,
-	robin.murphy@arm.com
-Subject: Re: [PATCH v10 6/9] tee: add tee_shm_alloc_dma_mem()
-Message-ID: <aGYi8QkgI3WyeN59@sumit-X1>
-References: <20250610131600.2972232-1-jens.wiklander@linaro.org>
- <20250610131600.2972232-7-jens.wiklander@linaro.org>
- <aFFSWDiVsxA1CbCX@sumit-X1>
- <CAHUa44HP5EbURyLCmawMLc0d5jz1oTQZ53V1w2h0-ngUC2hbEw@mail.gmail.com>
+	Thu, 03 Jul 2025 06:30:12 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 01429A01EB;
+	Thu,  3 Jul 2025 08:30:09 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=HV2KoaCWlJPbq6mOG4DYoW84XpdHe7KC1QwY8y5uXjs=; b=
+	rojlmlop1aAPybiJ+PsbhaQIeiIfZ4H5wvMyhkf6QEnaxRKaCtNriUsbRHlal7F8
+	B+hlvIlphrXNKCeBvs3cbWcspra2hF83D1CLNmKoEvp3i7fwGFaupE2rKWFl6aQU
+	biBbNR9WEEu1kFYFl1nhV1cCcqrjlBx6uY0ri0/6Hx4jGl0gl+EqoUTadBrM4HOK
+	vsrDPHaij1FcfOGDImaquum/ePawbuA/dPEmSU8EuwNPdJhGbJkMQUJJEFd9zwsk
+	2DljS5fVgPCeVsnzPRgkYM6fHavuhaaw58Iwtb4QSnSwrSkdSV1xbWbeSG0mbhBX
+	E1oLHimbJ6iog8c9nrsZgcd7hw+ErUT9hm9kPdCgEJQkD4p5B0PR7G+hOjCZks1N
+	Pmrq5o8nCLU7HIssn5YFB2gVrjWKylBiMcwMxar4zbVOSYxO1mC8PjjSgDeXYLnb
+	q+7HugJv4gknbcyI+k8mHcTj3v2mGOnLCYqOWNaSbe6Q0Hq8I046gJUfxs45hDp7
+	mw7ONLgCJ0CET6QGZYLCdDLwIDa2riKzudvM1u5W0Fm68rX0gLjqIyI8e4koyRhL
+	Hpm/X71OL2Y6LpTQHcS0tV4CPSFacAxitmzWhFLVSeCNaCm9VvmKGZcybUbUw+jE
+	Go9YDVqHP3ZdHyhyU3NC7Rt42/fFWn/vbTwdSdz7aoU=
+From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+Date: Thu, 3 Jul 2025 08:30:07 +0200
+Subject: [PATCH v2] ARM: dts: imx6-sr-som: Replace license text comment
+ with SPDX identifier
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHUa44HP5EbURyLCmawMLc0d5jz1oTQZ53V1w2h0-ngUC2hbEw@mail.gmail.com>
+Message-ID: <20250703-sr-som-dts-lic-v2-1-0395c9b776d9@prolan.hu>
+X-B4-Tracking: v=1; b=H4sIAG4jZmgC/3WNyw6CMBBFf4V07Zi2yiOu+A/Doi2DbQItmUGiI
+ fy7hb3Lk5x77iYYKSCLR7EJwjVwSDGDvhTCeRNfCKHPLLTUpaylBibgNEG/MIzBgVXV4OpKls5
+ qkUcz4RA+Z/DZZbaGESyZ6PyRmQwvSIfoAy+Jvufxqg7978eqQIHGpmzuWLnmVrczpdHEq3+Lb
+ t/3Hxw8LY/FAAAA
+To: Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>
+CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+X-Mailer: b4 0.13.0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1751524207;VERSION=7994;MC=1480077994;ID=225091;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A296767155D6C726A
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250702_233010_877697_1DB9A046 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,195 +87,328 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 09:03:00AM +0200, Jens Wiklander wrote:
-> On Tue, Jun 17, 2025 at 1:32 PM Sumit Garg <sumit.garg@kernel.org> wrote:
-> >
-> > On Tue, Jun 10, 2025 at 03:13:50PM +0200, Jens Wiklander wrote:
-> > > Add tee_shm_alloc_dma_mem() to allocate DMA memory. The memory is
-> > > represented by a tee_shm object using the new flag TEE_SHM_DMA_MEM to
-> > > identify it as DMA memory. The allocated memory will later be lent to
-> > > the TEE to be used as protected memory.
-> > >
-> > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > > ---
-> > >  drivers/tee/tee_shm.c    | 85 +++++++++++++++++++++++++++++++++++++++-
-> > >  include/linux/tee_core.h |  5 +++
-> > >  2 files changed, 88 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
-> > > index e63095e84644..60b0f3932cee 100644
-> > > --- a/drivers/tee/tee_shm.c
-> > > +++ b/drivers/tee/tee_shm.c
-> > > @@ -5,6 +5,8 @@
-> > >  #include <linux/anon_inodes.h>
-> > >  #include <linux/device.h>
-> > >  #include <linux/dma-buf.h>
-> > > +#include <linux/dma-mapping.h>
-> > > +#include <linux/highmem.h>
-> > >  #include <linux/idr.h>
-> > >  #include <linux/io.h>
-> > >  #include <linux/mm.h>
-> > > @@ -13,9 +15,14 @@
-> > >  #include <linux/tee_core.h>
-> > >  #include <linux/uaccess.h>
-> > >  #include <linux/uio.h>
-> > > -#include <linux/highmem.h>
-> > >  #include "tee_private.h"
-> > >
-> > > +struct tee_shm_dma_mem {
-> > > +     struct tee_shm shm;
-> > > +     dma_addr_t dma_addr;
-> > > +     struct page *page;
-> > > +};
-> > > +
-> > >  static void shm_put_kernel_pages(struct page **pages, size_t page_count)
-> > >  {
-> > >       size_t n;
-> > > @@ -48,7 +55,16 @@ static void tee_shm_release(struct tee_device *teedev, struct tee_shm *shm)
-> > >  {
-> > >       void *p = shm;
-> > >
-> > > -     if (shm->flags & TEE_SHM_DMA_BUF) {
-> > > +     if (shm->flags & TEE_SHM_DMA_MEM) {
-> > > +#if IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS)
-> >
-> > nit: this config check can be merged into the above if check.
-> 
-> No, because dma_free_pages() is only defined if
-> CONFIG_TEE_DMABUF_HEAPS is enabled.
+Replace verbatim license text with a `SPDX-License-Identifier`.
 
-It looks like you misunderstood my above comment, I rather meant:
+The comment heades mis-attributes this license to be "X11", but the
+license text does not include the last line "Except as contained in this
+notice, the name of the X Consortium shall not be used in advertising or
+otherwise to promote the sale, use or other dealings in this Software
+without prior written authorization from the X Consortium.". Therefore,
+this license is actually equivalent to the SPDX "MIT" license (confirmed
+by text diffing).
 
-	if (IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS) &&
-	    (shm->flags & TEE_SHM_DMA_MEM))
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+Changes in v2:
+- fix message tags
+- also patch solidsense files
+- Link to v1: https://lore.kernel.org/r/20250702-sr-som-dts-lic-v1-1-2e8584e6c837@prolan.hu
+---
+ arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts     | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi  | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi   | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi      | 38 +---------------------
+ 6 files changed, 6 insertions(+), 222 deletions(-)
 
--Sumit
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts b/arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts
+index 0e6a325df363..d929f131ff41 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts
+@@ -1,43 +1,7 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright (C) 2015 Rabeeh Khoury <rabeeh@solid-run.com>
+  * Based on dt work by Russell King
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ /dts-v1/;
+ 
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi
+index 60e446ba8f52..d29a60225afc 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi
+@@ -1,42 +1,6 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright (C) 2021 Russell King <rmk@armlinux.org.uk>
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ #include <dt-bindings/leds/common.h>
+ 
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
+index e491f5c9d455..0d7e14a94305 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi
+@@ -1,42 +1,6 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright (C) 2013,2014 Russell King
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ #include <dt-bindings/gpio/gpio.h>
+ / {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
+index ddca24414d26..3053a28c42cd 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi
+@@ -1,42 +1,6 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright (C) 2013,2014 Russell King
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ 
+ &iomuxc {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
+index cd1e682f11ad..5a35436bb30a 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi
+@@ -1,42 +1,6 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright (C) 2013,2014 Russell King
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ #include <dt-bindings/gpio/gpio.h>
+ 
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
+index 7af74b203e39..6aea7bf06e7a 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi
+@@ -1,42 +1,6 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright (C) 2013,2014 Russell King
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ #include <dt-bindings/gpio/gpio.h>
+ 
 
-> 
-> >
-> > > +             struct tee_shm_dma_mem *dma_mem;
-> > > +
-> > > +             dma_mem = container_of(shm, struct tee_shm_dma_mem, shm);
-> > > +             p = dma_mem;
-> > > +             dma_free_pages(&teedev->dev, shm->size, dma_mem->page,
-> > > +                            dma_mem->dma_addr, DMA_BIDIRECTIONAL);
-> > > +#endif
-> > > +     } else if (shm->flags & TEE_SHM_DMA_BUF) {
-> >
-> > Do we need a similar config check for this flag too?
-> 
-> No, because DMA_SHARED_BUFFER is selected, so the dma_buf functions are defined.
-> 
-> Cheers,
-> Jens
-> 
-> 
-> >
-> > With these addressed, feel free to add:
-> >
-> > Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
-> >
-> > -Sumit
-> >
-> > >               struct tee_shm_dmabuf_ref *ref;
-> > >
-> > >               ref = container_of(shm, struct tee_shm_dmabuf_ref, shm);
-> > > @@ -303,6 +319,71 @@ struct tee_shm *tee_shm_alloc_priv_buf(struct tee_context *ctx, size_t size)
-> > >  }
-> > >  EXPORT_SYMBOL_GPL(tee_shm_alloc_priv_buf);
-> > >
-> > > +#if IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS)
-> > > +/**
-> > > + * tee_shm_alloc_dma_mem() - Allocate DMA memory as shared memory object
-> > > + * @ctx:     Context that allocates the shared memory
-> > > + * @page_count:      Number of pages
-> > > + *
-> > > + * The allocated memory is expected to be lent (made inaccessible to the
-> > > + * kernel) to the TEE while it's used and returned (accessible to the
-> > > + * kernel again) before it's freed.
-> > > + *
-> > > + * This function should normally only be used internally in the TEE
-> > > + * drivers.
-> > > + *
-> > > + * @returns a pointer to 'struct tee_shm'
-> > > + */
-> > > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
-> > > +                                   size_t page_count)
-> > > +{
-> > > +     struct tee_device *teedev = ctx->teedev;
-> > > +     struct tee_shm_dma_mem *dma_mem;
-> > > +     dma_addr_t dma_addr;
-> > > +     struct page *page;
-> > > +
-> > > +     if (!tee_device_get(teedev))
-> > > +             return ERR_PTR(-EINVAL);
-> > > +
-> > > +     page = dma_alloc_pages(&teedev->dev, page_count * PAGE_SIZE,
-> > > +                            &dma_addr, DMA_BIDIRECTIONAL, GFP_KERNEL);
-> > > +     if (!page)
-> > > +             goto err_put_teedev;
-> > > +
-> > > +     dma_mem = kzalloc(sizeof(*dma_mem), GFP_KERNEL);
-> > > +     if (!dma_mem)
-> > > +             goto err_free_pages;
-> > > +
-> > > +     refcount_set(&dma_mem->shm.refcount, 1);
-> > > +     dma_mem->shm.ctx = ctx;
-> > > +     dma_mem->shm.paddr = page_to_phys(page);
-> > > +     dma_mem->dma_addr = dma_addr;
-> > > +     dma_mem->page = page;
-> > > +     dma_mem->shm.size = page_count * PAGE_SIZE;
-> > > +     dma_mem->shm.flags = TEE_SHM_DMA_MEM;
-> > > +
-> > > +     teedev_ctx_get(ctx);
-> > > +
-> > > +     return &dma_mem->shm;
-> > > +
-> > > +err_free_pages:
-> > > +     dma_free_pages(&teedev->dev, page_count * PAGE_SIZE, page, dma_addr,
-> > > +                    DMA_BIDIRECTIONAL);
-> > > +err_put_teedev:
-> > > +     tee_device_put(teedev);
-> > > +
-> > > +     return ERR_PTR(-ENOMEM);
-> > > +}
-> > > +EXPORT_SYMBOL_GPL(tee_shm_alloc_dma_mem);
-> > > +#else
-> > > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
-> > > +                                   size_t page_count)
-> > > +{
-> > > +     return ERR_PTR(-EINVAL);
-> > > +}
-> > > +EXPORT_SYMBOL_GPL(tee_shm_alloc_dma_mem);
-> > > +#endif
-> > > +
-> > >  int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, size_t align,
-> > >                            int (*shm_register)(struct tee_context *ctx,
-> > >                                                struct tee_shm *shm,
-> > > diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
-> > > index f17710196c4c..e46a53e753af 100644
-> > > --- a/include/linux/tee_core.h
-> > > +++ b/include/linux/tee_core.h
-> > > @@ -29,6 +29,8 @@
-> > >  #define TEE_SHM_POOL         BIT(2)  /* Memory allocated from pool */
-> > >  #define TEE_SHM_PRIV         BIT(3)  /* Memory private to TEE driver */
-> > >  #define TEE_SHM_DMA_BUF              BIT(4)  /* Memory with dma-buf handle */
-> > > +#define TEE_SHM_DMA_MEM              BIT(5)  /* Memory allocated with */
-> > > +                                     /* dma_alloc_pages() */
-> > >
-> > >  #define TEE_DEVICE_FLAG_REGISTERED   0x1
-> > >  #define TEE_MAX_DEV_NAME_LEN         32
-> > > @@ -310,6 +312,9 @@ void *tee_get_drvdata(struct tee_device *teedev);
-> > >   */
-> > >  struct tee_shm *tee_shm_alloc_priv_buf(struct tee_context *ctx, size_t size);
-> > >
-> > > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
-> > > +                                   size_t page_count);
-> > > +
-> > >  int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, size_t align,
-> > >                            int (*shm_register)(struct tee_context *ctx,
-> > >                                                struct tee_shm *shm,
-> > > --
-> > > 2.43.0
-> > >
+---
+base-commit: 66701750d5565c574af42bef0b789ce0203e3071
+change-id: 20250702-sr-som-dts-lic-b16fc7605cb2
+
+Best regards,
+-- 
+Bence Csókás <csokas.bence@prolan.hu>
+
+
 
