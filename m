@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D26DC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 17:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB4F8C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 17:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFFbXDp6C52Qp3ufM99aJcHE6kgv0crG6musmf5vcj0=; b=avCNAqwjFQs3fFwKuAB8Qk5p+L
-	6t64i+jQdIlLcSPLfBdpOpxWIZWrSdMUW4YaKKU0Wkg0hmj/Bb4i9gWD7r83zj/xiAUqpipssCltT
-	J22taOve8nqT0rgmm1AE9P8osE164FlgLWrFzgSj6zde4CggCLpdxYlwlpF8Bp8qf6e+cquMTCZ4n
-	FxU04C4Os3EMJPwf6C36lptqTD2BiSu+QKnhOXphGlcWP71B2wHJSJey1Tw9rkJsMIcNblEjeqyTH
-	cnQ1UcpLqdIB2xFy8wZUEYM3eh0oTKuJNapMshmpiHJi+NyqPW43OAhOWSDMNwmEzx2iUDIEoepWq
-	jN6nGkGw==;
+	bh=qk25W//DoN3N2kJhDx7gSca0ArJfdFr/tOUyBtKxhDU=; b=ZC9q1I33oxsngc9HLSgamO1p2m
+	6zhPko6HIRXs4WMUeu6dtNNAQLCsSP90+H5LdGokiCv+jcY3eTr2y1oRUwD7YMVaBKtxSp+Qtep7m
+	Rk0nV8CdkJh8UzzLlDLuuJ2HCCoYOmgFAURrET+bvXdaIos8x9cFHqRvtedtLofmMKcvfKpyURTk8
+	gfEsiahygrScK8e3uOPMNq2CJDaWrrjxgNwHDGxKAUfWfT4tuKtX3ow/dksf7c//MLbFgUk4yddol
+	OsiaXUTf866BjiKp3be7z2qO00n6LRuBFq99ABBU8BoByaDvj0Be6JzZk9FMJlxaoAl/ZSuVDZLbj
+	jNpbTnvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXNVo-0000000C6Co-0tEi;
-	Thu, 03 Jul 2025 17:14:16 +0000
-Received: from mx3.molgen.mpg.de ([141.14.17.11])
+	id 1uXNY8-0000000C6b8-1BhN;
+	Thu, 03 Jul 2025 17:16:40 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXL3T-0000000Bh0b-2HVD;
-	Thu, 03 Jul 2025 14:36:53 +0000
-Received: from [141.14.220.36] (g36.guest.molgen.mpg.de [141.14.220.36])
+	id 1uXL7B-0000000Bhbq-2OVx;
+	Thu, 03 Jul 2025 14:40:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751553639;
+	bh=pge19sZrf0PUvRXmEe9xEQSZDWyU6lnUwOcQUIu4hQA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WGwT7TQMUCYTum1QY1ogt/jyEc0WTdGqMnWxcE7uq45SwYmTgRjqhwa6lBd+S/fOp
+	 FFJx495wQGsH10vrUJb/k2uZhIbsvcE21Oi4vPRHgjCHilVNND8vqo2vKsQP5U1wl3
+	 Mj3XwG1dieAd2Dc+3n6K5zTEwCiM2CbOBvyNXYmCgs0CBBsiGP0jeu9S9Dz4k1aQkC
+	 Iv+RoSPp93uQPi5wYl0nhCsPEyHYXlEEoEHspOsnXIxM6u8B3OkfKXVDQL9KW9x6Fy
+	 WeZYklF7A1JPCqmzErZNUUbpYGWx/TZu02f+yuKzo2wKUXHZ3sle1VyQko66pMQP3J
+	 DCtgk3I1XjsgQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 9F6E3601D7115;
-	Thu, 03 Jul 2025 16:35:33 +0200 (CEST)
-Message-ID: <6be1c1c6-8d8a-49e3-bb14-dc8fcbfc2c50@molgen.mpg.de>
-Date: Thu, 3 Jul 2025 16:35:32 +0200
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1C65117E0636;
+	Thu,  3 Jul 2025 16:40:39 +0200 (CEST)
+Message-ID: <cbd79481-474e-4c9f-bbe8-367917115ccd@collabora.com>
+Date: Thu, 3 Jul 2025 16:40:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/7] Bluetooth: btrtl: Fix typo
-To: Bastien Nocera <hadess@hadess.net>
-References: <20250703142542.985248-1-hadess@hadess.net>
- <20250703142542.985248-4-hadess@hadess.net>
+Subject: Re: [PATCH v2 4/6] iio: adc: mt6359: Move reference voltage to
+ platform data
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+ andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20250703141146.171431-1-angelogioacchino.delregno@collabora.com>
+ <20250703141146.171431-5-angelogioacchino.delregno@collabora.com>
+ <aGaThTSAriz46D7T@smile.fi.intel.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-Cc: trivial@kernel.org, Marcel Holtmann <marcel@holtmann.org>,
- Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
- Johan Hedberg <johan.hedberg@gmail.com>, Ingo Molnar <mingo@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Al Viro <viro@zeniv.linux.org.uk>,
- Kees Cook <kees@kernel.org>, Erick Archer <erick.archer@outlook.com>,
- Chris Lu <chris.lu@mediatek.com>, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, asahi@lists.linux.dev
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-In-Reply-To: <20250703142542.985248-4-hadess@hadess.net>
+In-Reply-To: <aGaThTSAriz46D7T@smile.fi.intel.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_073651_723686_7AB865FE 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250703_074041_768924_9EF5B135 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +82,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Bastien,
-
-
-Am 03.07.25 um 16:24 schrieb Bastien Nocera:
-> Found by codespell.
+Il 03/07/25 16:28, Andy Shevchenko ha scritto:
+> On Thu, Jul 03, 2025 at 04:11:44PM +0200, AngeloGioacchino Del Regno wrote:
+>> In preparation to add support for new PMICs, add a `vref_mv`
 > 
-> Signed-off-by: Bastien Nocera <hadess@hadess.net>
-> ---
->   drivers/bluetooth/btrtl.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> I still think that the vref_mV is a better naming.
 > 
-> diff --git a/drivers/bluetooth/btrtl.c b/drivers/bluetooth/btrtl.c
-> index 7838c89e529e..3d137944c458 100644
-> --- a/drivers/bluetooth/btrtl.c
-> +++ b/drivers/bluetooth/btrtl.c
-> @@ -693,7 +693,7 @@ static int rtlbt_parse_firmware(struct hci_dev *hdev,
->   
->   	/* Loop from the end of the firmware parsing instructions, until
->   	 * we find an instruction that identifies the "project ID" for the
-> -	 * hardware supported by this firwmare file.
-> +	 * hardware supported by this firmwmare file.
 
-Without the second m.
+Ouch, I think I missed that comment; if there's nothing else to change,
+I wonder if the capital V can be fixed while applying?
 
->   	 * Once we have that, we double-check that project_id is suitable
->   	 * for the hardware we are working with.
->   	 */
+Otherwise I can send a v3...
 
+Cheers,
+Angelo
 
-Kind regards,
+>> the AUXADC_VOLT_FULL definition.
+>>
+>> As a consequence, the definition was also removed.
+> 
 
-Paul
-
-
-PS: Should you resend, it’d be great if you wrote in the summary/title 
-if it’s in a comment or in a log string.
 
