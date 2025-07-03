@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25EC6C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 13:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E4FC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 13:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTC597t48bncltdn47anMKlxgf1mIXgbQUWYTJlSUZI=; b=bsGBsNCUmj16rnrR+L2GwXK3rj
-	vGCMCLLtKQESjMLTvQ28eap2AXI3zFdPhsHTBR8IiUGwGhDgA77dpvM4Y4z13vZVj+FHPBSqJ7AEM
-	5+AXZAGxGN1u9mdzsbOEbEcQgVfKOlrgycqcC27Fl+mDH+HGve+Sisa0XAG39QriAJnnCEsbmh0ic
-	bQYrtTD9w1cDCYOjjfrAGjd3nXrNA04Lt8XJ0U3/LzfnzvQmAMRNDhFfC/I01Zoud1tc3IJXQwDQ2
-	eYsXFxdZnh1mepd495whNnlCDzUK3rL5DfOBRupDseti19luqepab1QMKK12v8q/7mWZy1q6Mc3Sh
-	GrqEbOVA==;
+	bh=mcLAefjaWtvpnqF0nY+5rDVjK2M4YbMIahxbaluJ0W8=; b=XYpuHo/cNtZHj31XKszVC5yi0y
+	uqbwFHjvPskfjbSbegWy3RKsT0fjKS/VfjOzLxggJu65xWRRkTp2ah5E8f1YFvMue5QcUZghBWWFo
+	Ck9biADVtD+5dkPoe78sHI/FL5bNrJnLNJwOEUi5THBSRQcSxZJ6EhTejtzIg/0VLweOCU0HDQ0Py
+	AFV3hXWMnx7EOIsN5EThr1oTBQH7Flr3sb0qiNwomiVraj90fvk8RMamFt0xBt14BsHrv+e3bHWxJ
+	q/376/pVhxPfAUI8k+A//oWHzWJTgV2k2opuJhY11AaoE83vKevAMgsXZYJgj1mz1+v5OKWph+nCj
+	c5XktoQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKPa-0000000BYsY-2sNJ;
-	Thu, 03 Jul 2025 13:55:38 +0000
-Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
+	id 1uXKRu-0000000BZH9-2agD;
+	Thu, 03 Jul 2025 13:58:02 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIuv-0000000BImL-1ioQ
+	id 1uXIvG-0000000BIqv-1s7F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 12:19:54 +0000
-Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-e8187601f85so7167699276.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 05:19:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751545192; x=1752149992; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=qTC597t48bncltdn47anMKlxgf1mIXgbQUWYTJlSUZI=;
-        b=IVtBU7OF4KjE/js2+y59IRg8ZfRsltgK6zdDNtK/QAulm0/VyrBhCuf1xfMgOgLpYD
-         L3mhzad1RvI5FjDo4gdVQT+lGOK01y60+y9AziHK91WGId7fQ48SX/2FhcsK4ATWIbfO
-         tS9hYCc0ElWGUL/DKHFMf7kax+hbUtJig1+krNIlF0reDsesv5+jQCdMkXVpcZbKF0Xb
-         ELt+hPvY0pvZ0L0gK5kAv3/VemRva/wMxNw928B/1JE098mnL7L0KGcLv4XeBmdrubrA
-         2cCUdnuKwZjxNz8PDijlNAOrzgZ9ZBZSzNw0KTOGVsGlGCXVkVYxvlClxZ9RoSRa7x60
-         mOeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751545192; x=1752149992;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qTC597t48bncltdn47anMKlxgf1mIXgbQUWYTJlSUZI=;
-        b=R+dsAVyvPglHS15ZAJLLSH85QVAK0sX9PPbWrFG36jCiZyoE1+1YluN02gYwGOzvk5
-         y1fl2i1yBSx2z9RlYQ4wC6TqpspSsyWoTPl4fRY1d97EGSsl+gmGHMRspuWa83cPRDrL
-         4CAo2jaGHX1Ltz5S7A+BqQiVi4BCuuID7AESRKohtoKRG1pt6PSU56meblOaLUoAf8Mx
-         Xw+wqv4iKF2FQwwMl67CB6eLTFQaOUuO/YmZxwD9aY0R61c3O2qxNFPBD7rmqnyddNlj
-         UBkbsEhUV+vWhnsj8Uc+AjCxnCARj9Ck5c96TlX6p0mV3CCjH053o0NmsgmfnyE2Gowf
-         xyeA==
-X-Forwarded-Encrypted: i=1; AJvYcCWFehP4JP67shaSyRUPOEwxg8FoIq6gelb/vn81r24Wwo6iVIvw5xLDyWNCl9z3b7lAFhal4U50BmYTCZ38h38j@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0d/LP/Bqr1V55Zqr4+KReI5i1AuJmuWx2Hhg0AKLFhU/kaKpj
-	IRAPyCpEAyHzphE4x38z+AmtDofk4eWmdqKH23SKYpCXvOp92v1wlsg/mCMiIj6kKPwKEAHhc0B
-	eQYi5YT3ryK4lYQFFxpuvCbjPgXM6TNDfHjHW7qfZng==
-X-Gm-Gg: ASbGncu3i2o01f9b+1+TczuDEG9KpbzSRlNrcWAxg9EOab25KJxcR7TVjvNngYns979
-	NAGz1lZtixpJEwUxtoCfly49R5/Z7s7qbYqn8+NoKkMyuh4RF5l5pVKCzqqqeWScQqCT536AglL
-	6E+Soz+3RxaGqX4TaFPHAUsajjLnatkN2xehgK3QXz4d2y
-X-Google-Smtp-Source: AGHT+IEwi+jGBSSdoJm9iL9oKLTvyrTQHOBeWUAEM9l7fKOqqBksvPOst1zV7M7DzNv8oipsKvDD/lmQ+H+HLHXKg+Q=
-X-Received: by 2002:a05:690c:61ca:b0:710:edf9:d940 with SMTP id
- 00721157ae682-7164d5755b7mr87945397b3.36.1751545191877; Thu, 03 Jul 2025
- 05:19:51 -0700 (PDT)
+	Thu, 03 Jul 2025 12:20:16 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 563CK8BV3536857;
+	Thu, 3 Jul 2025 07:20:08 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1751545208;
+	bh=mcLAefjaWtvpnqF0nY+5rDVjK2M4YbMIahxbaluJ0W8=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=LmyAz2btjx138BSDQqjratgAIng2wo3oScXwB1tJVLpNhdi9hpYH8um0kQ9ds86a0
+	 T8O0z+IhCVCeLDV81FE4NE8CgSe73tmG5AedFSznNGsV+yJHqiqg4gOPuLp/EDR4HM
+	 jB8EtMNfBsSD5q9FmN7ao7iAi+cpMUCyJW/dz03A=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 563CK8VC720996
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 3 Jul 2025 07:20:08 -0500
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 3
+ Jul 2025 07:20:08 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 3 Jul 2025 07:20:08 -0500
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 563CK8ud815106;
+	Thu, 3 Jul 2025 07:20:08 -0500
+Date: Thu, 3 Jul 2025 07:20:08 -0500
+From: Bryan Brattlof <bb@ti.com>
+To: Paresh Bhagat <p-bhagat@ti.com>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
+        <afd@ti.com>, <devarsht@ti.com>, <s-vadapalli@ti.com>,
+        <andrew@lunn.ch>
+Subject: Re: [PATCH v5 4/4] arm64: dts: ti: Add support for AM62D2-EVM
+Message-ID: <20250703122008.ygz5udttjdo3l2g4@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20250627115753.2246881-1-p-bhagat@ti.com>
+ <20250627115753.2246881-5-p-bhagat@ti.com>
+ <20250701162504.dck3763ik6kpo7ec@bryanbrattlof.com>
+ <f7b0c7f0-9af1-4105-a143-103c49fe2320@ti.com>
 MIME-Version: 1.0
-References: <20250620043517.172705-1-lidong@vivo.com>
-In-Reply-To: <20250620043517.172705-1-lidong@vivo.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 3 Jul 2025 14:19:15 +0200
-X-Gm-Features: Ac12FXzM1OH6jEp4Aj99iKPDBaVLgh5QaSjxOO1gOJ_img1HJBSw-vdI_UPPTnc
-Message-ID: <CAPDyKFp+w5UvpGKPtehqUrZHsAJ+tivLKtBcn8vJgOm1ZxWJrQ@mail.gmail.com>
-Subject: Re: [PATCH v1] mmc: Convert ternary operator to str_true_false() helper
-To: Li Dong <lidong@vivo.com>
-Cc: Aubin Constans <aubin.constans@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	"open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND..." <linux-mmc@vger.kernel.org>, 
-	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, opensource.kernel@vivo.com, 
-	rongqianfeng@vivo.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+In-Reply-To: <f7b0c7f0-9af1-4105-a143-103c49fe2320@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_051953_461900_96F501F9 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20250703_052014_744323_01B8EB6F 
+X-CRM114-Status: GOOD (  45.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,49 +90,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Jun 2025 at 06:35, Li Dong <lidong@vivo.com> wrote:
->
-> Replace direct ternary condition check with existing helper function
-> str_true_false() to improve code readability and maintain consistency.
->
-> Signed-off-by: Li Dong <lidong@vivo.com>
+On July  3, 2025 thus sayeth Paresh Bhagat:
+> Hi Bryan,
+> 
+> 
+> On 01/07/25 21:55, Bryan Brattlof wrote:
+> > On June 27, 2025 thus sayeth Paresh Bhagat:
+> > > AM62D-EVM evaluation module (EVM) is a low-cost expandable platform board
+> > > designed for AM62D2 SoC from TI. It supports the following interfaces:
+> > > 
+> > > * 4 GB LPDDR4 RAM
+> > > * x2 Gigabit Ethernet expansion connectors
+> > > * x4 3.5mm TRS Audio Jack Line In
+> > > * x4 3.5mm TRS Audio Jack Line Out
+> > > * x2 Audio expansion connectors
+> > > * x1 Type-A USB 2.0, x1 Type-C dual-role device (DRD) USB 2.0
+> > > * x1 UHS-1 capable micro SD card slot
+> > > * 32 GB eMMC Flash
+> > > * 512 Mb OSPI NOR flash
+> > > * x4 UARTs via USB 2.0-B
+> > > * XDS110 for onboard JTAG debug using USB
+> > > * Temperature sensors, user push buttons and LEDs
+> > > 
+> > > Although AM62D2 and AM62A7 differ in peripheral capabilities example
+> > > multimedia, VPAC, and display subsystems, the core architecture remains
+> > > same. To reduce duplication, AM62D support reuses the AM62A dtsi and the
+> > > necessary overrides will be handled in SOC specific dtsi file and a
+> > > board specific dts.
+> > > 
+> > > Add basic support for AM62D2-EVM.
+> > > 
+> > > Schematics Link - https://www.ti.com/lit/zip/sprcal5
+> > > 
+> > > Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+> > > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > > ---
+> > >   arch/arm64/boot/dts/ti/Makefile          |   3 +
+> > >   arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 599 +++++++++++++++++++++++
+> > >   arch/arm64/boot/dts/ti/k3-am62d2.dtsi    |  25 +
+> > >   3 files changed, 627 insertions(+)
+> > >   create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> > >   create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2.dtsi
+> > > 
+> > ...
+> > 
+> > > diff --git a/arch/arm64/boot/dts/ti/k3-am62d2.dtsi
+> > > b/arch/arm64/boot/dts/ti/k3-am62d2.dtsi
+> > > new file mode 100644
+> > > index 000000000000..70aeb40872a9
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/ti/k3-am62d2.dtsi
+> > > @@ -0,0 +1,25 @@
+> > > +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> > > +/*
+> > > + * Device Tree Source for AM62D2 SoC family in Quad core configuration
+> > > + *
+> > > + * TRM: https://www.ti.com/lit/pdf/sprujd4
+> > > + *
+> > > + * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
+> > > + */
+> > > +
+> > > +/dts-v1/;
+> > > +
+> > > +#include "k3-am62a7.dtsi"
+> > If we want to reuse the AM62A chassis I think we should probably reused
+> > the AM62AX_IOPAD() macro instead of creating a new one.
+> 
+> 
+> AM62D does not necessarily have the same pin configuration compared to
+> AM62A. While it is a macro which could be shareable across many boards, i
+> think its preferable we maintain separate definitions to highlight the new
+> SoCs. AM62D is a separate package, with some components reused from AM62a.
 
-Applied for next, thanks!
+I guess I don't understand the need to create a new padconfig macro when 
+we say, in device tree syntax, the AM62D and AM62A uses the same RTL 
+chassis. The pinout will always change with packaging changes but this 
+will not change the padconfig MMR layout.
 
-Note that I am applying this since $subject patch takes care of *all*
-possible conversions (it just happens to one in this case) to
-str_true_false() for the mmc subsystem.
+All that said. It's just a name and honestly when you look at all these 
+macros we haven't changed the padconfig layout for any K3 chip so it not 
+a big deal to me. If it helps people when grepping around i'll relent ;)
 
-Kind regards
-Uffe
+> 
+> 
+> > 
+> > > +
+> > > +/ {
+> > > +	model = "Texas Instruments K3 AM62D SoC";
+> > > +	compatible = "ti,am62d2";
+> > > +};
+> > > +
+> > > +&vpu {
+> > > +	status = "disabled";
+> > > +};
+> > > +
+> > > +&e5010 {
+> > > +	status = "disabled";
+> > > +};
+> > So I could be a little out of date on the style guidelines here, but my
+> > intuition is device trees, much like real trees, can only grow, so we
+> > can't inherit the am62a.dtsi and remove things.
+> > 
+> > My understanding is we have to create a full am62d.dtsi with its
+> > features that the am62a.dtsi can extend with the vpu{} and e5010{} nodes
+> > 
+> > ~Bryan
+> 
+> 
+> Agree we should ideally keep the device trees extending. But in this case it
+> will involve changes not only in am62a.dtsi but ideally it will change
+> k3-am62a-main.dtsi and k3-am62a-mcu.dtsi as well. This moves us back to
+> version 3 of this series
+> https://lore.kernel.org/all/20250508091422.288876-1-p-bhagat@ti.com/ where i
+> created *common*.dtsi files which looks a bit complex.
+> 
+> 
+> The current method also ensures that customers can start their development
+> of a new board with k3-am62d2.dtsi, while maintaining less complexity and is
+> a easier to follow approach.
 
+The issue I take with this approach is what does 'status = "disabled"' 
+mean now. Historically (for TI SoCs at least) it indicated the node was 
+incomplete and would need to be extended in the board.dts to function 
+properly. But now we're trying to say for these two nodes the hardware 
+doesn't exist on this SoC and bad things will happen if you enable them.
 
-> ---
->  drivers/mmc/host/atmel-mci.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/mmc/host/atmel-mci.c b/drivers/mmc/host/atmel-mci.c
-> index 0e0666c0bb6e..1f11626c8f47 100644
-> --- a/drivers/mmc/host/atmel-mci.c
-> +++ b/drivers/mmc/host/atmel-mci.c
-> @@ -38,6 +38,7 @@
->  #include <asm/cacheflush.h>
->  #include <asm/io.h>
->  #include <linux/unaligned.h>
-> +#include <linux/string_choices.h>
->
->  #define ATMCI_MAX_NR_SLOTS     2
->
-> @@ -2264,7 +2265,7 @@ static int atmci_init_slot(struct atmel_mci *host,
->                 "slot[%u]: bus_width=%u, detect_pin=%d, "
->                 "detect_is_active_high=%s, wp_pin=%d\n",
->                 id, slot_data->bus_width, desc_to_gpio(slot_data->detect_pin),
-> -               !gpiod_is_active_low(slot_data->detect_pin) ? "true" : "false",
-> +               str_true_false(!gpiod_is_active_low(slot_data->detect_pin)),
->                 desc_to_gpio(slot_data->wp_pin));
->
->         mmc->ops = &atmci_ops;
-> --
-> 2.34.1
->
+My recommendation is to try to flip this around. The am62a7.dtsi should 
+inherit the am62d2.dtsi and add the vpu{} and e5010{} nodes. I agree we 
+don't need to try to combine the two as we did in v3 just yet but we 
+should try to keep the device trees growing as we inherit things.
+
+~Bryan
+
+> 
+> 
 
