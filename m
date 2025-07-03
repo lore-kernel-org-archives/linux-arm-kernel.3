@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF99C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 08:25:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90195C83F04
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 08:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lQyoWJbqbW3TvYFsVne/NNNNNyVsrYThVV/x8PTZwHU=; b=x7GaGThXrR60i0Y48LG4Ub0eqR
-	wmmcD0+EEWLzKcs2Z31YUUn+L0dgZ9E2twLRqLGNo0B7U33WqLMWcHP34IJFiFdznX6LtE1vLMY8q
-	xNHFNMMOWqS/aFsIQDHMO0ETC2a9BaHfbw51ttWs5d3+ZK7vBRy0oC9KDbJzaTFMW0rfxoRw05HyK
-	S+pFhJ+pHkki/ARWMhD2Rr30oe1sH3AldWDpi3oXsgnQDzTTQFPkua4yMeKe7+p3ZE0ywy05Htncl
-	XbKmYI4Q74ItiBzWNuZmlKmKHkEuZl9Ee8CvT34shIx+8NM+KR1ZB4VIZ7Y/03OvWFdAk6LqH+qT5
-	r8rLEjcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/4ehdOpzG3rPT6AGrEw+vVrqxugddJkP2hU9YmSDZpw=; b=OKtM3/iFrx1lEJRHYX/2sW/hKz
+	zJbQ1eOWRgr3ng+DsYfhMHYPonEEXWIaKLqClx5pxTji0eyyOONWpik85DVmJjYkh3Yqb65hrrSOP
+	iiF3aEaRxikJlfVNyM5MGXc1euPXIo+hzA2dDzWgycM8tuW5MR+X4BBF0MGgXeUkIUKQiWtOwXsoo
+	KOtsJp9g3WrRUfrRYn0iXfSkN7y9RHjugZvtWmDrenXPidR0p3UWdc2k7FlFfYAUw3cW4R7ehDjTQ
+	PnP6YTKoGnlf3bLaOkXtZZyD+qc45jXm6lMSKQAG1MxPeTZJfHFPFrgO7bOVM2da2ZtI3m4yTCHLY
+	UeibCPmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXFGG-0000000AfFJ-1g3j;
-	Thu, 03 Jul 2025 08:25:40 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uXFIa-0000000AfVu-0Yxj;
+	Thu, 03 Jul 2025 08:28:04 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXF3B-0000000AdF8-1s0j
+	id 1uXFAh-0000000AeKv-33Qy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 08:12:11 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uXF2q-0006JI-3y; Thu, 03 Jul 2025 10:11:48 +0200
-Message-ID: <3615415b-7ebd-45e5-8d7b-8a1b26ac7130@pengutronix.de>
-Date: Thu, 3 Jul 2025 10:11:46 +0200
+	Thu, 03 Jul 2025 08:19:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=/4ehdOpzG3rPT6AGrEw+vVrqxugddJkP2hU9YmSDZpw=; b=wBDk1hXEhVm54H6DRSIHM1CyLT
+	VKMzBhKuOCJGU83rblwdomASK9nrS1GmD62Buss7WMQw9qQid2X/KV6EpWKO2dU5WeajZbLOGv5RU
+	Q5Ry7hgXkmCLGWxs8EPgkdB7QfTz+FHjjr8wo6neDeTOhfgwWs8lvUz9CPLuftJpeVss=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uXFAT-0004f0-NH; Thu, 03 Jul 2025 10:19:41 +0200
+Date: Thu, 3 Jul 2025 10:19:41 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH RFT net-next 02/10] net: stmmac: Add support for
+ Allwinner A523 GMAC200
+Message-ID: <c464d56b-dfd2-4e8c-a77a-4a0d05588768@lunn.ch>
+References: <20250701165756.258356-1-wens@kernel.org>
+ <20250701165756.258356-3-wens@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/6] imx8mp: add support for the IMX AIPSTZ bridge
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang
- <shengjiu.wang@nxp.com>, Frank Li <Frank.Li@nxp.com>,
- Marco Felsch <m.felsch@pengutronix.de>,
- Marc Kleine-Budde <mkl@pengutronix.de>,
- Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev
-References: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250701165756.258356-3-wens@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_011209_487025_CD4C6A69 
-X-CRM114-Status: GOOD (  40.62  )
+X-CRM114-CacheID: sfid-20250703_011955_764260_84264E4A 
+X-CRM114-Status: UNSURE (   6.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,128 +80,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Laurentiu,
+> +	if (!of_property_read_u32(node, "allwinner,tx-delay-ps", &val)) {
 
-On 10.06.25 18:01, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> 
-> The AIPSTZ bridge offers some security-related configurations which can
-> be used to restrict master access to certain peripherals on the bridge.
-> 
-> Normally, this could be done from a secure environment such as ATF before
-> Linux boots but the configuration of AIPSTZ5 is lost each time the power
-> domain is powered off and then powered on. Because of this, it has to be
-> configured each time the power domain is turned on and before any master
-> tries to access the peripherals (e.g: AP, CM7, DSP, on i.MX8MP).
+Please use the standard properties rx-internal-delay-ps and
+tx-internal-delay-ps.
 
-Sorry if this has been asked before, but I hoped the cover letter or patch
-3/6 would explain if it were.
+Please also ensure that if the property is missing, the default is
+0ps.
 
-What is the default configuration for the AIPSTZ before this series?
-I assume the SAIs under AIPS5 can be accessed by SDMA already, so why was
-changing the AIPSTZ settings needed for the DSP to work?
-
-Thanks,
-Ahmad
-
-> 
-> The child-parent relationship between the bridge and its peripherals
-> should guarantee that the bridge is configured before the AP attempts
-> to access the IPs.
-> 
-> Other masters should use the 'access-controllers' property to enforce
-> a dependency between their device and the bridge device (see the DSP,
-> for example).
-> 
-> The initial version of the series can be found at [1]. The new version
-> should provide better management of the device dependencies.
-> 
-> [1]: https://lore.kernel.org/linux-arm-kernel/20241119130726.2761726-1-daniel.baluta@nxp.com/
-> 
-> ---
-> Changes in v7:
-> * fix merge conflit caused by addition of the reset-related properties to the
-> dsp node.
-> * align values for the macros defined in "imx8mp-aipstz.h" as per Shawn's
-> comment.
-> * encapsulate the default configuration and base address in a
-> "struct imx_aipstz_data" to make the driver more future-proof as per
-> Shawn's comment.
-> * link to v6: https://lore.kernel.org/lkml/20250415171919.5623-1-laurentiumihalcea111@gmail.com/
-> 
-> Changes in v6:
-> * drop the 'IMX8MP_AIPSTZ_HIFI4_T_RW_PL' macro. Its whole point was to
-> help with making the DTS more readable but if it makes it look worse
-> then there's no point in keeping it.
-> * use consumer ID as first AC cell and consumer type as the second cell.
-> Better to go with a format that more people are used to as long as it
-> still makes sense.
-> * pick up Rob's R-b
-> * link to v5: https://lore.kernel.org/lkml/20250408154236.49421-1-laurentiumihalcea111@gmail.com/
-> 
-> Changes in v5:
-> * merge imx-aipstz.h into imx8mp-aipstz.h. imx-aipstz.h is
-> currently only used in the DTS so it can't be added as a binding.
-> * place 'ranges' property just after 'reg' in the binding DT example
-> as Frank suggested.
-> * use the  (1 << x) notation for the configuration bits. Previously,
-> hex values were used which didn't make it very clear that the
-> configuration options are bits.
-> * shorten the description of the bridge's AC cells.
-> * shorten the message of the commit introducing the bridge's binding.
-> * pick up some more R-b's on patches that remained untouched since V4.
-> * link to v4: https://lore.kernel.org/lkml/20250401154404.45932-1-laurentiumihalcea111@gmail.com/
-> 
-> Changes in v4:
-> * AIPS5 node now only contains a single memory region: that of the AC
-> (just like in V2). 'reg-names' property is dropped.
-> * AIPS5 node now uses 'ranges' property to restrict the size of the bus
-> (1:1 mapping)
-> * change the number of AC cells from 0 to 3
-> * add binding headers
-> * link to v3: https://lore.kernel.org/lkml/20250324162556.30972-1-laurentiumihalcea111@gmail.com/
-> 
-> Changes in v3:
-> * make '#address-cells' and '#size-cells' constants and equal to 1 in the
-> binding. The bus is 32-bit.
-> * add child node in the example DT snippet.
-> * the 'aips5' DT node now contains 2 memory regions: that of the
-> peripherals accessible via this bridge and that of the access controller.
-> * link to v2: https://lore.kernel.org/lkml/20250226165314.34205-1-laurentiumihalcea111@gmail.com/
-> 
-> Changes in v2:
-> * adress Frank Li's comments
-> * pick up some A-b/R-b's
-> * don't use "simple-bus" as the second compatible. As per Krzysztof's
-> comment, AIPSTZ is not a "simple-bus".
-> * link to v1: https://lore.kernel.org/lkml/20250221191909.31874-1-laurentiumihalcea111@gmail.com/
-> ---
-> 
-> Laurentiu Mihalcea (6):
->   dt-bindings: bus: document the IMX AIPSTZ bridge
->   dt-bindings: dsp: fsl,dsp: document 'access-controllers' property
->   bus: add driver for IMX AIPSTZ bridge
->   arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
->   arm64: dts: imx8mp: add aipstz-related definitions
->   arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
-> 
->  .../bindings/bus/fsl,imx8mp-aipstz.yaml       | 104 ++++++++++++++++++
->  .../devicetree/bindings/dsp/fsl,dsp.yaml      |   3 +
->  arch/arm64/boot/dts/freescale/imx8mp-aipstz.h |  33 ++++++
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  16 ++-
->  drivers/bus/Kconfig                           |   6 +
->  drivers/bus/Makefile                          |   1 +
->  drivers/bus/imx-aipstz.c                      |  96 ++++++++++++++++
->  7 files changed, 255 insertions(+), 4 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
->  create mode 100644 drivers/bus/imx-aipstz.c
-> 
-
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+	Andrew
 
