@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6249FC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D85CCC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yV0GKKkUnr57/EO5Ji66D8+BRqmVLAPe27//TyyWkSw=; b=2/bFn+St6j2hf1xId2mVWwuO0P
-	iPwbmmiSwziBXr+Mv8YR041CqlKjXIdGk7fVZZEQrbZXUer90XuSpFWICPBSyKSY0y+3F6EkkdcTx
-	u8A63oA7vT7SKUPLz0RrWrN9yYdWT0qVkg6gfFSUbOLwTk/boisblay5pDecUe/O2Hd4Qq9c92OW2
-	eeqf0Y9N6f2Ar0/PnWL9m2/LxY38/Qt7iCoOy4/qSboZXNfHukXKHUOmwOa5Da33naVi1Z5WVeJUh
-	tPdsDGNbjPB0oKIxk+wLm5xhVyLomAnD+zaN5FEJ49o8aJ0A3oEoNX9FCnOj6mWoNxmgWj2ImlSQn
-	cZ4fVb3w==;
+	bh=IskFXUJdamXGNLMP6+5PbhBsy/pjKTWHhTltzX7oPs4=; b=iql4L3xGx4llXEdDGJ6pafSbSk
+	XINPq06lWoYVENSs5fsg0/Qo7rwcBcwkeOYlWjMie7AILOWO0AW7vKlkVgvbARWddqh7uhSAYu/nM
+	YfWU0Na7fSUGNESwS3mC+jGMJQ+ZVJ8ccCHsX63lNz96SfLx8rASeSWKdmZecBoY/Aiu8NOeXWCW3
+	oYGLmhP2y0xnmlchAdJTZ59398leobIISeM94U3GagznNwVpQHsJd6ckpC8FNkAVIULRh9L1YXZvX
+	fpv13B/xOROtXdV3rDoGMbxl749wPrY+YFhWHoO20b3f6u/9ban0SksU4uMEMX380VPHXEmGHychJ
+	0gJ5BPdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR2Y-0000000CXtI-2tk5;
-	Thu, 03 Jul 2025 21:00:18 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1uXR2d-0000000CXzO-1Rzp;
+	Thu, 03 Jul 2025 21:00:24 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXNZv-0000000C6le-2jsH;
-	Thu, 03 Jul 2025 17:18:32 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A55B9442BC;
-	Thu,  3 Jul 2025 17:18:27 +0000 (UTC)
+	id 1uXNZy-0000000C6mD-0gvZ;
+	Thu, 03 Jul 2025 17:18:35 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 08A6C442C1;
+	Thu,  3 Jul 2025 17:18:29 +0000 (UTC)
 From: Bastien Nocera <hadess@hadess.net>
 To: trivial@kernel.org,
 	Marcel Holtmann <marcel@holtmann.org>,
@@ -52,9 +52,9 @@ To: trivial@kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	asahi@lists.linux.dev
-Subject: [PATCH v2 1/7] Bluetooth: btintel: Fix typo in comment
-Date: Thu,  3 Jul 2025 19:16:55 +0200
-Message-ID: <20250703171815.1011001-2-hadess@hadess.net>
+Subject: [PATCH v2 2/7] Bluetooth: btmtk: Fix typo in log string
+Date: Thu,  3 Jul 2025 19:16:56 +0200
+Message-ID: <20250703171815.1011001-3-hadess@hadess.net>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250703171815.1011001-1-hadess@hadess.net>
 References: <20250703171815.1011001-1-hadess@hadess.net>
@@ -62,13 +62,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvtdekiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeeurghsthhivghnucfpohgtvghrrgcuoehhrgguvghssheshhgruggvshhsrdhnvghtqeenucggtffrrghtthgvrhhnpeekteetgeettdehieduiedttdetffelleehtdejkeeluedvgfffvdevteetudfhkeenucfkphepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefpdhhvghlohepohhlihhmphhitgdpmhgrihhlfhhrohhmpehhrgguvghssheshhgruggvshhsrdhnvghtpdhnsggprhgtphhtthhopedvfedprhgtphhtthhopehtrhhivhhirghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrghnrdifrghnghesmhgvughirghtvghkrdgtohhmpdhrtghpthhtohepmhgrthhth
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvtdekiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeeurghsthhivghnucfpohgtvghrrgcuoehhrgguvghssheshhgruggvshhsrdhnvghtqeenucggtffrrghtthgvrhhnpeekteetgeettdehieduiedttdetffelleehtdejkeeluedvgfffvdevteetudfhkeenucfkphepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefpdhhvghlohepohhlihhmphhitgdpmhgrihhlfhhrohhmpehhrgguvghssheshhgruggvshhsrdhnvghtpdhnsggprhgtphhtthhopedvfedprhgtphhtthhopehtrhhivhhirghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrghnrdifrghnghesmhgvughirghtvghkrdgtohhmpdhrtghpthhtohepmhgrthhth
  hhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhesjhgrnhhnrghurdhnvght
 X-GND-Sasl: hadess@hadess.net
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_101831_812361_5BACC788 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250703_101834_338028_2FC563A7 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,22 +86,22 @@ Found by codespell.
 
 Signed-off-by: Bastien Nocera <hadess@hadess.net>
 ---
- drivers/bluetooth/btintel.c | 2 +-
+ drivers/bluetooth/btmtkuart.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/bluetooth/btintel.c b/drivers/bluetooth/btintel.c
-index 55cc1652bfe4..7cf834089696 100644
---- a/drivers/bluetooth/btintel.c
-+++ b/drivers/bluetooth/btintel.c
-@@ -555,7 +555,7 @@ int btintel_parse_version_tlv(struct hci_dev *hdev,
- 	/* Consume Command Complete Status field */
- 	skb_pull(skb, 1);
+diff --git a/drivers/bluetooth/btmtkuart.c b/drivers/bluetooth/btmtkuart.c
+index c97e260fcb0c..4208ebecd560 100644
+--- a/drivers/bluetooth/btmtkuart.c
++++ b/drivers/bluetooth/btmtkuart.c
+@@ -316,7 +316,7 @@ mtk_stp_split(struct btmtkuart_dev *bdev, const unsigned char *data, int count,
  
--	/* Event parameters contatin multiple TLVs. Read each of them
-+	/* Event parameters contain multiple TLVs. Read each of them
- 	 * and only keep the required data. Also, it use existing legacy
- 	 * version field like hw_platform, hw_variant, and fw_variant
- 	 * to keep the existing setup flow
+ 		/* Resync STP when unexpected data is being read */
+ 		if (shdr->prefix != 0x80 || bdev->stp_dlen > 2048) {
+-			bt_dev_err(bdev->hdev, "stp format unexpect (%d, %d)",
++			bt_dev_err(bdev->hdev, "stp format unexpected (%d, %d)",
+ 				   shdr->prefix, bdev->stp_dlen);
+ 			bdev->stp_cursor = 2;
+ 			bdev->stp_dlen = 0;
 -- 
 2.50.0
 
