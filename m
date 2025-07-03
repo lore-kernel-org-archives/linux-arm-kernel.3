@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C724FC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 23:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C901CC83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 23:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yuiKy6HzLGMzTMoD6eaD/m/nf1gAtFL5nYBYhD5Qphs=; b=XREHdcorFMXNRvTzbhBA++tnOk
-	DRYu1qGKSQNaoak9k1DD392skZef7HtH1objvstthtg4hG/CIU1eOdJ0Kcr4ilFO7GxD2FzW7rkss
-	ReYMSHmoEiKdeYlPOJNmVv1nzC/pkKmtV6xTlSgaMaBSHlXUmmuGqCMu/C7tKmN1Ok8yxwJ36ZECX
-	nqlwvoH5IfnkWb+eqIxoevKcM26VAaB4DI/PqlNmQpUxFWu8xx6cOojWKx+pj73LSmyP+9gXcWdLC
-	U1Y6mUzVK9OjkWTwf+ZVutl6EXAqohn82K6c6kmvWuc/UGKBy1h51nuNVoq7NPxWBUihAO4JbaeQN
-	70NItKUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LIyqDlLt3CT1utfTbk2TkfmajXEi5ZvgikV+/3VcJck=; b=l3/CEJM6sGNWUlqSo71jZSkdqH
+	xesu+VNJZ2K6CVGe2RfgEaKEjS4N4yQu5L7gRh5WqtlQTWwoC738S/ZuStKrcPL7nrX6gtf7YK51M
+	J0FTNcGqgShX89fFyZvCc0vfGOqINK9IZ9SzE4OKmnuWov2u9KsdSznMBqM77Ezmuslmi2LH8zKiQ
+	8hJ+1BhTZH5ZrpHPXQtnJrEIxzpAbf0uxu8o79PVhNNk+Jl1rajW6L/xAqqq+0El0p65E2tNrCJ+K
+	if4rzmV9zDKSn8g/J06UggDeQkn3n4p6J8Twkq6JyFU4HH8s93iBkPkEGQ6MXkrk9MgAEMtbiTWYi
+	9MmAi9ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXTXz-0000000Cqzr-0NhW;
-	Thu, 03 Jul 2025 23:40:55 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXSfm-0000000Clxf-3ccB
+	id 1uXTY0-0000000Cr2e-17Sn;
+	Thu, 03 Jul 2025 23:40:56 +0000
+Received: from out-170.mta0.migadu.com ([91.218.175.170])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXSnn-0000000Cn9T-3jqc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 22:44:56 +0000
-Received: by linux.microsoft.com (Postfix, from userid 1032)
-	id 2C6602115816; Thu,  3 Jul 2025 15:44:53 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2C6602115816
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1751582693;
-	bh=yuiKy6HzLGMzTMoD6eaD/m/nf1gAtFL5nYBYhD5Qphs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oDblWI43lsxH9jUfMZeRB1+emFtnDegfbB6mjKyHcpOhYrcXlgm8Gu7Am5Kmj0HpG
-	 71EJOHAo+qzhsCv8jE4vWyx5qbIbcBNn3Kwbvt+zUEpaFh6H8v9KrfGVnmOWkcG6RR
-	 Tqm8oVDvfAIovGG7P/VQMNewAbD17k6t4ZCEBHDA=
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-To: linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	mhklinux@outlook.com,
-	tglx@linutronix.de,
-	bhelgaas@google.com,
-	romank@linux.microsoft.com
-Cc: kys@microsoft.com,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	robh@kernel.org,
-	jinankjain@linux.microsoft.com,
-	skinsburskii@linux.microsoft.com,
-	mrathor@linux.microsoft.com,
-	x86@kernel.org,
-	Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Subject: [PATCH v2 5/6] x86: hyperv: Expose hv_map_msi_interrupt function
-Date: Thu,  3 Jul 2025 15:44:36 -0700
-Message-Id: <1751582677-30930-6-git-send-email-nunodasneves@linux.microsoft.com>
-X-Mailer: git-send-email 1.8.3.1
-In-Reply-To: <1751582677-30930-1-git-send-email-nunodasneves@linux.microsoft.com>
-References: <1751582677-30930-1-git-send-email-nunodasneves@linux.microsoft.com>
+	Thu, 03 Jul 2025 22:53:13 +0000
+Message-ID: <218ed5ce-6e0d-41f7-809b-04e554d08c5a@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1751583186;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LIyqDlLt3CT1utfTbk2TkfmajXEi5ZvgikV+/3VcJck=;
+	b=let/ROpgpEs+HqLRrGdvieskEbzt9tFEKP9ekxEOGcwqnmErdLrGJ016+f28aLWFswBbmF
+	exExgIED9KiRFUeIyT4jn1VfJq/r0JPY0xLLmJbbbF+GAA6mGFCUB1WGIJTwYsMse1RLb4
+	HiQRVv3DpWbFq6UjPVjAFyXhxzupLh0=
+Date: Thu, 3 Jul 2025 23:52:17 +0100
+MIME-Version: 1.0
+Subject: Re: [PATCH net-next v10 06/11] net: ti: prueth: Adds HW timestamping
+ support for PTP using PRU-ICSS IEP module
+To: Parvathi Pudi <parvathi@couthit.com>, danishanwar@ti.com,
+ rogerq@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, ssantosh@kernel.org,
+ richardcochran@gmail.com, s.hauer@pengutronix.de, m-karicheri2@ti.com,
+ glaroque@baylibre.com, afd@ti.com, saikrishnag@marvell.com,
+ m-malladi@ti.com, jacob.e.keller@intel.com, diogo.ivo@siemens.com,
+ javier.carrasco.cruz@gmail.com, horms@kernel.org, s-anna@ti.com,
+ basharath@couthit.com
+Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, pratheesh@ti.com,
+ prajith@ti.com, vigneshr@ti.com, praneeth@ti.com, srk@ti.com, rogerq@ti.com,
+ krishna@couthit.com, pmohan@couthit.com, mohan@couthit.com
+References: <20250702140633.1612269-1-parvathi@couthit.com>
+ <20250702151756.1656470-7-parvathi@couthit.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <20250702151756.1656470-7-parvathi@couthit.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_154455_005261_DC52A02D 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250703_155312_091004_1BA2B708 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,117 +81,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+On 02/07/2025 16:17, Parvathi Pudi wrote:
+> From: Roger Quadros <rogerq@ti.com>
+> 
+> PRU-ICSS IEP module, which is capable of timestamping RX and
+> TX packets at HW level, is used for time synchronization by PTP4L.
+> 
+> This change includes interaction between firmware and user space
+> application (ptp4l) with required packet timestamps. The driver
+> initializes the PRU firmware with appropriate mode and configuration
+> flags. Firmware updates local registers with the flags set by driver
+> and uses for further operation. RX SOF timestamp comes along with
+> packet and firmware will rise interrupt with TX SOF timestamp after
+> pushing the packet on to the wire.
+> 
+> IEP driver is available in upstream and we are reusing for hardware
+> configuration for ICSSM as well. On top of that we have extended it
+> with the changes for AM57xx SoC.
+> 
+> Extended ethtool for reading HW timestamping capability of the PRU
+> interfaces.
+> 
+> Currently ordinary clock (OC) configuration has been validated with
+> Linux ptp4l.
+> 
+> Signed-off-by: Roger Quadros <rogerq@ti.com>
+> Signed-off-by: Andrew F. Davis <afd@ti.com>
+> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+> ---
+>   drivers/net/ethernet/ti/icssg/icss_iep.c      |  42 ++
+>   drivers/net/ethernet/ti/icssm/icssm_ethtool.c |  23 +
+>   drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 423 +++++++++++++++++-
+>   drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  11 +
+>   .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |  85 ++++
+>   5 files changed, 582 insertions(+), 2 deletions(-)
+>   create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+> 
 
-This patch moves a part of currently internal logic into the
-hv_map_msi_interrupt function and makes it globally available helper
-function, which will be used to map PCI interrupts in case of root
-partition.
-
-Signed-off-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
----
- arch/x86/hyperv/irqdomain.c     | 38 +++++++++++++++++++++++----------
- arch/x86/include/asm/mshyperv.h |  2 ++
- 2 files changed, 29 insertions(+), 11 deletions(-)
-
-diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
-index 75b25724b045..eca015563420 100644
---- a/arch/x86/hyperv/irqdomain.c
-+++ b/arch/x86/hyperv/irqdomain.c
-@@ -172,13 +172,32 @@ static union hv_device_id hv_build_pci_dev_id(struct pci_dev *dev)
- 	return dev_id;
- }
- 
--static int hv_map_msi_interrupt(struct pci_dev *dev, int cpu, int vector,
--				struct hv_interrupt_entry *entry)
-+/**
-+ * hv_map_msi_interrupt() - "Map" the MSI IRQ in the hypervisor.
-+ * @data:      Describes the IRQ
-+ * @out_entry: Hypervisor (MSI) interrupt entry (can be NULL)
-+ *
-+ * Map the IRQ in the hypervisor by issuing a MAP_DEVICE_INTERRUPT hypercall.
-+ */
-+int hv_map_msi_interrupt(struct irq_data *data,
-+			 struct hv_interrupt_entry *out_entry)
- {
--	union hv_device_id device_id = hv_build_pci_dev_id(dev);
-+	struct irq_cfg *cfg = irqd_cfg(data);
-+	struct hv_interrupt_entry dummy;
-+	union hv_device_id device_id;
-+	struct msi_desc *msidesc;
-+	struct pci_dev *dev;
-+	int cpu;
- 
--	return hv_map_interrupt(device_id, false, cpu, vector, entry);
-+	msidesc = irq_data_get_msi_desc(data);
-+	dev = msi_desc_to_pci_dev(msidesc);
-+	device_id = hv_build_pci_dev_id(dev);
-+	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
-+
-+	return hv_map_interrupt(device_id, false, cpu, cfg->vector,
-+				out_entry ? out_entry : &dummy);
- }
-+EXPORT_SYMBOL_GPL(hv_map_msi_interrupt);
- 
- static inline void entry_to_msi_msg(struct hv_interrupt_entry *entry, struct msi_msg *msg)
- {
-@@ -191,11 +210,11 @@ static inline void entry_to_msi_msg(struct hv_interrupt_entry *entry, struct msi
- static int hv_unmap_msi_interrupt(struct pci_dev *dev, struct hv_interrupt_entry *old_entry);
- static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- {
--	struct hv_interrupt_entry out_entry, *stored_entry;
-+	struct hv_interrupt_entry *stored_entry;
- 	struct irq_cfg *cfg = irqd_cfg(data);
- 	struct msi_desc *msidesc;
- 	struct pci_dev *dev;
--	int cpu, ret;
-+	int ret;
- 
- 	msidesc = irq_data_get_msi_desc(data);
- 	dev = msi_desc_to_pci_dev(msidesc);
-@@ -205,8 +224,6 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- 		return;
- 	}
- 
--	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
--
- 	if (data->chip_data) {
- 		/*
- 		 * This interrupt is already mapped. Let's unmap first.
-@@ -233,15 +250,14 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- 		return;
- 	}
- 
--	ret = hv_map_msi_interrupt(dev, cpu, cfg->vector, &out_entry);
-+	ret = hv_map_msi_interrupt(data, stored_entry);
- 	if (ret) {
- 		kfree(stored_entry);
- 		return;
- 	}
- 
--	*stored_entry = out_entry;
- 	data->chip_data = stored_entry;
--	entry_to_msi_msg(&out_entry, msg);
-+	entry_to_msi_msg(data->chip_data, msg);
- 
- 	return;
- }
-diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
-index e00a8431ef8e..42ea9c68f8c8 100644
---- a/arch/x86/include/asm/mshyperv.h
-+++ b/arch/x86/include/asm/mshyperv.h
-@@ -241,6 +241,8 @@ static inline void hv_apic_init(void) {}
- 
- struct irq_domain *hv_create_pci_msi_domain(void);
- 
-+int hv_map_msi_interrupt(struct irq_data *data,
-+			 struct hv_interrupt_entry *out_entry);
- int hv_map_ioapic_interrupt(int ioapic_id, bool level, int vcpu, int vector,
- 		struct hv_interrupt_entry *entry);
- int hv_unmap_ioapic_interrupt(int ioapic_id, struct hv_interrupt_entry *entry);
--- 
-2.34.1
+Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 
 
