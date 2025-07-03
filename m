@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F930C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB1DC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e5fJHlPp3ZJSj+jBlOO9EXIVmAWxWmS5wNBrlA6uCd8=; b=im3u20LhmCXlgwFOqmV4dJAwPJ
-	F3usFnKsWMmGtD0wtWQY9YXCPEtq1nE6skX1aQepcxCikNqRQZtEvhXD251ubdI1WFL5bf4P81SIC
-	KZLLEVdBPC4S7ifLn7IuywMFvwibBZvB/68ron5kt0kzalXMZNLT0Ui9iAATe8tmW4OwnYhaK6VUw
-	Ns+Rs7kpRDKYtJF+hUaKL+F+EWu+vL/LrUmx5P32TyGfAvvvZdNEfHl+Q2wZuBQLL2OO1U6d4qPiI
-	7wpRSVub4uaxU7Tm0wH98Ywp/P2tuXxkiTutmh6VZDIWJft9TmI/qJ0OHeHiUOuc/K0UYMivLzNlv
-	gtgK9DWQ==;
+	bh=QqsxCUDOwR+kyeizGeX/1aA09BNpTq/0Eu0e0g5M6Vk=; b=0J2SjGVUis50XmFmSDNA7JK/Gq
+	rYqiHVnDjrUjn+lfiKA7XGuGUnAzrQKKn/Wy3fW0TXnx1bviCApih3i2//27cNXsWXqge23wKfO4O
+	WI7ssbRz4yv9FZv1OfUUk2zn/vtgBGBlJr8/uUM0K29TBAblxtYRYXqNrfTZ+DBDtnNE4mS1L5usv
+	H7YQUbY+ZVzoSBYfBe45/oFaFxouqkZ4/w9QSFSKBmbwx/C5kdbIISaG/l1D9XBkWTAvB1S+Z70rE
+	AJg0JaDDgI4vMGhXmJdzwq2xZ5+XTbUA5EWbcyxeeRqjSTLTIFhZisuFSLco2GWSyPKbPqtNJbrai
+	Nh6FDIog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR1K-0000000CW6e-2CUB;
-	Thu, 03 Jul 2025 20:59:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uXR1O-0000000CWCH-3nsL;
+	Thu, 03 Jul 2025 20:59:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMPf-0000000Bvi9-0o1J
+	id 1uXMPy-0000000Bvk6-3XNU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 16:03:51 +0000
+	Thu, 03 Jul 2025 16:04:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9FA6261451;
-	Thu,  3 Jul 2025 16:03:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D8FAC4CEED;
-	Thu,  3 Jul 2025 16:03:46 +0000 (UTC)
-Date: Thu, 3 Jul 2025 17:03:45 +0100
+	by dfw.source.kernel.org (Postfix) with ESMTP id 39C415C4A7B;
+	Thu,  3 Jul 2025 16:04:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A984C4CEE3;
+	Thu,  3 Jul 2025 16:04:06 +0000 (UTC)
+Date: Thu, 3 Jul 2025 17:04:04 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
@@ -50,15 +50,19 @@ Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
 	Jiri Slaby <jirislaby@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v7 16/31] arm64: cpucaps: Rename GICv3 CPU interface
+Subject: Re: [PATCH v7 17/31] arm64: cpucaps: Add GICv5 CPU interface (GCIE)
  capability
-Message-ID: <aGap4RilZskz-L7F@arm.com>
+Message-ID: <aGap9JWMRDk_BIG1@arm.com>
 References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
- <20250703-gicv5-host-v7-16-12e71f1b3528@kernel.org>
+ <20250703-gicv5-host-v7-17-12e71f1b3528@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250703-gicv5-host-v7-16-12e71f1b3528@kernel.org>
+In-Reply-To: <20250703-gicv5-host-v7-17-12e71f1b3528@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250703_090410_922430_707D882E 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,13 +77,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 03, 2025 at 12:25:06PM +0200, Lorenzo Pieralisi wrote:
-> In preparation for adding a GICv5 CPU interface capability,
-> rework the existing GICv3 CPUIF capability - change its name and
-> description so that the subsequent GICv5 CPUIF capability
-> can be added with a more consistent naming on top.
+On Thu, Jul 03, 2025 at 12:25:07PM +0200, Lorenzo Pieralisi wrote:
+> Implement the GCIE capability as a strict boot cpu capability to
+> detect whether architectural GICv5 support is available in HW.
 > 
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> Plug it in with a naming consistent with the existing GICv3
+> CPU interface capability.
+> 
 > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 > Reviewed-by: Marc Zyngier <maz@kernel.org>
 > Cc: Will Deacon <will@kernel.org>
