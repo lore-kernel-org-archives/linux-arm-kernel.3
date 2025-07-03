@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA499C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 09:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6741C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 09:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IewV1RdEukVa5CLXolCED0clw45h/BhQk5s7ksfL4Ds=; b=tSq4E1bya+kt8DXd1fTmZsdN14
-	bitsYHgiRvkbCEfXn2LGTicSYLR8HCbARpQNKB4i7VLA8WAg1AaJGaCmG38aBGMooZZeNFPRyQsAH
-	GfvjIytijuQbcQdh9lgpIFCMgCoz0pUbRM7sBa1k8EUSR/kRLfBakHxOCGtDW7gXUcZ9Ldc2/mt9I
-	3TL4Ph3BdyQS+nJAHpLiLUlrkgn954wJZ/m8kpA5wrtdC7uU+vgYA8DyU2JR7tNdxgRKOTlLBw1/K
-	XtYDEK9oNnyO24nusEd1m+INjSRYDGDf20JVK2pl79dfTaVQwwiXd6kxbYDUZL+P2sx1QYuocyPR2
-	EufM0sNg==;
+	bh=1c7OngIzlsTJ+yenhbfDz2B7E6ete91I7BhfmNw247E=; b=btLLo/B6u+4iHFmz6xkawEW74b
+	V7/toQYbW8xhb2P8M70VgayKQyx/wInd5VVsFe8L1nyzGmTiunsrSvO7k+QWbQ+uXXdVNPn/KKYSC
+	+D49VSCVqNs9Yow+nPxyvGaSBotZ+oGxNjqkDD8SVItTMbfByVAoTqqEeMEKoy+6DMasv9kJr1Pyx
+	Q8ZMd68Uqp/Ob6wk6pUFspoAD0h4j5f0n4kWnga/8SOLIeVlkbXGYMBx83P16NuxG5VYpaEtPgACm
+	f7JUUvj3GSf1nuSXF9IfiLKNKDRZwcDQGFIrnOaZFl6xhv+ux7QwG4mwx5HQ/RdMqhMrF6M3pZ+sf
+	WKkVPM4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXGel-0000000Au92-3km4;
-	Thu, 03 Jul 2025 09:55:03 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uXGh5-0000000AuXm-2nMw;
+	Thu, 03 Jul 2025 09:57:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXGY2-0000000Asv2-40o0
+	id 1uXGbl-0000000AtMs-1oa3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 09:48:08 +0000
+	Thu, 03 Jul 2025 09:51:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1970CA5311A;
-	Thu,  3 Jul 2025 09:48:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E110C4CEE3;
-	Thu,  3 Jul 2025 09:48:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DBAAD437EC;
+	Thu,  3 Jul 2025 09:51:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D2B0C4CEE3;
+	Thu,  3 Jul 2025 09:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751536085;
-	bh=ZTKqPImjcSOKSC55g+yqnIgIOsq+T6lJltFiNCqWR0k=;
+	s=k20201202; t=1751536316;
+	bh=2ntYrlK1cqffKZY1IjFAi1d0w6hK+W+A95jFi0JZ1sM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ut4lMuLUHKYWdPGOyZYT5AsrAP9kud6PSAMMuh11fAxAvg4ptqJFU12FDlM3EVu0u
-	 1ce24of77xsiBsF1c45R23a6bbTaZcW0dWzOsLMqM7PBgi9EVI81E78Qy5NMPS93qP
-	 CN771AOLJVenkTSZ61A5GL3o0PuTYt70YSRX2D/2H+k7mFRsA3u/Qc1v9YVfRxl59x
-	 4UvmHrFD31/TY9g2E4sEjJAgy2DQUQ6yhUO2+8ONRzEb+NNJR+qzDQRP8No23R9gZn
-	 LT6fqE7OfokYE0M6rnSPyCut7vRFpIMGpZECOtl8Q9A6QWNztBpgSFt87vOKMXYHod
-	 3rNzWUb+q9iNg==
-Message-ID: <1290da56-1d43-4bb5-a224-f827b411909d@kernel.org>
-Date: Thu, 3 Jul 2025 11:47:58 +0200
+	b=elZhqrVwFWec9SPbr8X4Ggmzt+owTzcEiF8B2LpTjJGI/2DwjK/pH8WqCcI8vqytD
+	 n/Wz5F5a4piDtE/bAF14ppZV0MnsXLmouknbPvR83puKGR5aRGZhDi8CZfIqv+Q4PD
+	 B46c7Q+mZ0RY7j4hTOFSzYly44gi08CaZM+tpzbwpiBtbKy5KHr0pOfx18m8qEMzFZ
+	 TUm2lkq2cVDpJTlHbHzevOWz+AQs6xydYAmkEABNzUWhO2vBSmoDS9Fp0ZmYe/SwYh
+	 meR5vsuiEee3rHuwPb634sL2FH/9m0NdkL2C3W2O8AP9wPegnUp5a7BtYNJ1fLuw6l
+	 02UbmdXUENMQg==
+Message-ID: <9316adcb-4626-4ff8-a308-725c6ab34eba@kernel.org>
+Date: Thu, 3 Jul 2025 11:51:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] ARM: dts: aspeed: clemente: add Meta Clemente BMC
-To: Leo Wang <leo.jt.wang@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Kees Cook <kees@kernel.org>,
- Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
- <gpiccoli@igalia.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, bruce.jy.hung@fii-foxconn.com,
- george.kw.lee@fii-foxconn.com, Leo Wang <leo.jt.wang@fii-foxconn.com>
-References: <20250627-add-support-for-meta-clemente-bmc-v5-0-038ed6f1cb9f@fii-foxconn.com>
- <20250627-add-support-for-meta-clemente-bmc-v5-2-038ed6f1cb9f@fii-foxconn.com>
- <06178661-5665-4b9d-8652-de12c2a55f94@kernel.org>
- <CAF9ZvUvBtMVwUZLaqMLVJryx_0OqDXsybMDDcimSMPoPV0Pmyg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: ethernet: eswin: Document for EIC7700
+ SoC
+To: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ rmk+kernel@armlinux.org.uk, yong.liang.choong@linux.intel.com,
+ vladimir.oltean@nxp.com, jszhang@kernel.org, jan.petrous@oss.nxp.com,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+ boon.khai.ng@altera.com, dfustini@tenstorrent.com, 0x1207@gmail.com,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
+ lizhi2@eswincomputing.com
+References: <20250703091808.1092-1-weishangjuan@eswincomputing.com>
+ <20250703091947.1148-1-weishangjuan@eswincomputing.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <CAF9ZvUvBtMVwUZLaqMLVJryx_0OqDXsybMDDcimSMPoPV0Pmyg@mail.gmail.com>
+In-Reply-To: <20250703091947.1148-1-weishangjuan@eswincomputing.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_024807_129404_EDBDAE28 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20250703_025157_537720_28C42ED4 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,28 +128,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/07/2025 11:44, Leo Wang wrote:
-> Hi Krzysztof,
+On 03/07/2025 11:19, weishangjuan@eswincomputing.com wrote:
+> From: Shangjuan Wei <weishangjuan@eswincomputing.com>
 > 
-> Thanks for your feedback.
+> Add ESWIN EIC7700 Ethernet controller, supporting clock
+> configuration, delay adjustment and speed adaptive functions.
 > 
-> I checked my patches using b4 prep --check, and I see the following two
-> checkpatch warnings:
+> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+> Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
+> ---
+>  .../bindings/net/eswin,eic7700-eth.yaml       | 175 ++++++++++++++++++
+>  1 file changed, 175 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
 > 
->    1.
-> 
->    WARNING: added, moved or deleted file(s), does MAINTAINERS need updating?
->    2.
-> 
->    WARNING: From:/Signed-off-by: email address mismatch: 'From: Leo Wang <
->    leo.jt.wang@gmail.com>' != 'Signed-off-by: Leo Wang <
->    leo.jt.wang@fii-foxconn.com>'
-> 
-> Are these the issues you were referring to?  If there are any other issues
-> I missed, I’d appreciate your guidance.
+> diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+> new file mode 100644
+> index 000000000000..04b4c7bfbb5b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+> @@ -0,0 +1,175 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/eswin,eic7700-eth.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Eswin EIC7700 SOC Eth Controller
+> +
+> +maintainers:
+> +  - Shuang Liang <liangshuang@eswincomputing.com>
+> +  - Zhi Li <lizhi2@eswincomputing.com>
+> +  - Shangjuan Wei <weishangjuan@eswincomputing.com>
+> +
+> +description:
+> +  The eth controller registers are part of the syscrg block on
+> +  the EIC7700 SoC.
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - eswin,eic7700-qos-eth
+> +  required:
+> +    - compatible
+> +
+> +allOf:
+> +  - $ref: snps,dwmac.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: eswin,eic7700-qos-eth
+> +      - const: snps,dwmac-5.20
+> +
+> +  reg:
+> +    minItems: 1
 
-The second warning. Please don't top post. It makes it difficult to
-understand what you refer to.
+Nope. Changelog does not explain that, it is not correct and no one ever
+requested something like that. See also writing bindings about constraints.
+
+> +
+> +  interrupt-names:
+> +    const: macirq
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  phy-mode:
+> +    $ref: /schemas/types.yaml#/definitions/string
+> +    enum:
+> +      - rgmii
+> +      - rgmii-rxid
+> +      - rgmii-txid
+> +      - rgmii-id
+> +
+> +  phy-handle:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: Reference to the PHY device
+> +
+> +  clocks:
+> +    minItems: 2
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    minItems: 2
+> +    maxItems: 2
+> +    contains:
+> +      enum:
+> +        - stmmaceth
+> +        - tx
+
+Not much changed, nothing explained in the changelog in cover letter.
+
+You got already feedback that you keep pushing same code without fixing
+anything. You don't respond to feedback. You don't address it.
+
+What is left for me? Start treating us seriously. I am not going to
+review the rest.
+
+Respond to previous feedback with acknowledging that you understood it
+or further questions if you did not understand it, but you made thorough
+research on other bindings and example schema how to do it.
+
+NAK
 
 Best regards,
 Krzysztof
