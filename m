@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03768C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD87C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x1H/LJVni2QpyNRLeOu5Y609wueVH5cmiPU/fiF5jBo=; b=iVjFakoz2Am7sElpglb11UY+s3
-	tK/q5Vfty1D283KbWEhHc4Qwc5uRRqy4eUM6kaLRB8O18YPUFY9GkE5Z5vwUBe0PPARIgc0Nc5tDT
-	00lR/T29neN/JGx5UVgDmCcL5+Fn79+7FMnW4LsPdAAuIhaLnRgsusA9u7L10YF+O4NdP5//3oP2T
-	YI+Z8nN82/cRY1J30Yuo9D9KFCPSfJWwLrpsApwRHBdlNaaR27YXmw4YFlZG2QI05u9hz9JHlJtt4
-	LDpyZ9P7mIxpEmTSvG5NjdSv+Kbcky0w623Lke0f2q+7rk3lQyA9A1xwds/V4mVNuN3CR2vHs26j0
-	vfxo/1kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/TTwQzlhRs37zq41FBmSpaMorQUxrV87sLo89EafKEc=; b=u1dozPA8lAETWM9nnrvcJgwBZV
+	grXLazmlS1qL8W6lAz39MGVaTiQgtYJig6APBtn7nTIfGdF9CcmmtUX1CkCyU9A6o7zq7JxIORMxZ
+	5+rs7F0odkm6MP392Eujjh2KDOHksyiCNH7wkQ+ls0JNaaVeqdQdRhGmAH3dK0LLAW10+urjboMMF
+	FkgDNXH/7XrCP0mptcVyXROi9ehCcBV6DO7mIZr6CreGGpbo0E74WmS7NqWVd54SdwONB5B7FKHht
+	YxsBINYADrZAF9qnC15B89u7FjazJIBN63a4zzFncxm/aAkMJTZLOOU2WqbmjXHfNTGBoW13IMojd
+	m8fmlcpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJB3-0000000BLsJ-0K1E;
-	Thu, 03 Jul 2025 12:36:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uXJDN-0000000BMBM-0cqo;
+	Thu, 03 Jul 2025 12:38:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHrh-0000000B7nc-1tfX
+	id 1uXHy8-0000000B8fh-13nf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 11:12:29 +0000
+	Thu, 03 Jul 2025 11:19:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 868F8613B2
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Jul 2025 11:12:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57C2DC4CEEB
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Jul 2025 11:12:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0B8F05C628D;
+	Thu,  3 Jul 2025 11:19:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35068C4CEE3;
+	Thu,  3 Jul 2025 11:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751541148;
-	bh=x1H/LJVni2QpyNRLeOu5Y609wueVH5cmiPU/fiF5jBo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=k1Wd59UB0IZEA91+BHb7t63Nh1bSGOI5TPt0hkZVA8rgdqPS7X9Byv8PvHf9pEots
-	 a0+mzYi9P2Jf8hg/ioX6teNAHw3G14IqJKKg4w829s+aJXFivMGOHo3fFcWFYxyDUD
-	 ms8g1ZaQh79djWZ5HShUWrlVLOfUry2mArm016GlzYSPFsU3HwURM/nOjTrPyh8P36
-	 sUs6qXloI1VNlAztagY698UYRqHZ1c5IBOiAznMmO6ZgQu5/TJHHUe1kNs2baON4ob
-	 YuUq2EnwFDOrPXDeOuIE5CnN+UylxW30KA6HD6KNtcQCZk+NyplbuYFASkWs9A+qX/
-	 /va9V0zUCq+Uw==
-Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-611f48c6e30so1495152eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 04:12:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW6eZKs2IXq3R5g4hg/3jzd3tKHbHwqbJvzrRmXn7FyGvS2gAA83jIN03ioRgbLWJfAOCFWlVu+EPTrGU9OiP4y@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywpwpp08CJTSKm+fGYhu3YZmxmJEmGh8zUsIzwk0WC4AgoXctc2
-	2UrfL2JJk/PCmTC1JW7KmRCHXEUqypWBgMYkrmDAfRnyTHBr0z2+Qz9ZQfY3OWoLU5AmPelqZun
-	Xkgqxqkz2LL0eygQxEGvR+PGDQkmgJrA=
-X-Google-Smtp-Source: AGHT+IEfdnhboU4n2/R077RhtD1Otv/SP8fZ3dMXlRneGldlg5mu/9PR8Jraj6CY4DRR0obpUxWAkOsMSMDyaRWTzKs=
-X-Received: by 2002:a05:6820:2713:b0:611:bbad:7b62 with SMTP id
- 006d021491bc7-6120112a218mr4411300eaf.3.1751541147647; Thu, 03 Jul 2025
- 04:12:27 -0700 (PDT)
+	s=k20201202; t=1751541546;
+	bh=nyCHXu44AYG125jm9G4lxVXvhWsTPk95gOqRhQ+06NQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Fe3QCXwDlnP9CTt7wsSz3leRINY1NfRDcuUqgjhzQjbVEX2TU5IlTrFXp8DoZrtk0
+	 C70I6Hk7cBHS7fE/SvXIpvfMjRKAzsA/ildfa6+PCtSSHVkcgYiooXTGxZUzwvb94D
+	 7p/c5slT+/29VUHj4OMrMa7FE5xU8x4XUvYS68LdRZpUDLcRm+Bd3jMrPhA14T59UO
+	 At0u2pD4ESSRcZY4QNGxRxGUVaI81nSVO135BXF6tWXIJwVb1y9IMWt2qQHHIteDyy
+	 JuWqneQo59bdxnqVlWCz/MqC/NvJyKojZ+6/Lgdp2EezsfcePI2N0XF1XqO+nMWlmc
+	 XsMO8GZBY+ncw==
+Date: Thu, 3 Jul 2025 12:19:01 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Willy Tarreau <w@1wt.eu>,
+	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
+	Christian Brauner <brauner@kernel.org>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] kselftest/arm64: Add a test for vfork() with GCS
+Message-ID: <6aa6e38a-c874-45ac-b2bd-c876cdd9c8a9@sirena.org.uk>
+References: <20250610-arm64-gcs-vfork-exit-v2-0-929443dfcf82@kernel.org>
+ <20250610-arm64-gcs-vfork-exit-v2-3-929443dfcf82@kernel.org>
+ <aGZd0vdu8PpLKfX1@arm.com>
 MIME-Version: 1.0
-References: <rlzpjdsg6cbgxc553j6m25ysb6tyldy4lnxsjjn4hdzv7rszpp@y6rfcrbjfook> <fbfc6bf9-d7c6-4df5-85d0-b1d357159d88@suse.com>
-In-Reply-To: <fbfc6bf9-d7c6-4df5-85d0-b1d357159d88@suse.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 3 Jul 2025 13:12:15 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0hPh19h9uVRVHSXiLaHxm3PR9A3W5+j=2=-B-YCyBr=uw@mail.gmail.com>
-X-Gm-Features: Ac12FXx58ZcYu75iGXYHPl0jrmN8qLhIg29N7RATyquq_k1ymybhva0tDayjTm4
-Message-ID: <CAJZ5v0hPh19h9uVRVHSXiLaHxm3PR9A3W5+j=2=-B-YCyBr=uw@mail.gmail.com>
-Subject: Re: Forcing devices into idle
-To: Oliver Neukum <oneukum@suse.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-tegra@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rGV4m2bsRAZx+JSb"
+Content-Disposition: inline
+In-Reply-To: <aGZd0vdu8PpLKfX1@arm.com>
+X-Cookie: Uh-oh!!  I'm having TOO MUCH FUN!!
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250703_041908_338257_DDAD5C5B 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,28 +79,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 3, 2025 at 12:33=E2=80=AFPM Oliver Neukum <oneukum@suse.com> wr=
-ote:
->
-> On 03.07.25 12:08, Thierry Reding wrote:
->
-> > Any thoughts on how to solve this? Is the pm_runtime_{put,get}_sync()
-> > method acceptable? If not, are there other alternatives to achieve the
-> > same thing that I'm not aware of? Would it be useful to add a new set o=
-f
-> > APIs to force devices into an idle state (which could be semantically
-> > different from runtime suspend)? Or is this all too specific for any
-> > kind of generic API?
->
-> Basically what you need is what happens when the system prepares to
-> do a snapshot for S4. However, if you just perform FREEZE and then THAW,
-> devices will assume that user space has been frozen. You need a way
-> to substitute for that assumption.
 
-Well, you just need to freeze user space beforehand.
+--rGV4m2bsRAZx+JSb
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> Runtime power management is unlikely to be a fruitful approach to your
-> needs.
+On Thu, Jul 03, 2025 at 11:39:14AM +0100, Catalin Marinas wrote:
+> On Tue, Jun 10, 2025 at 01:29:46PM +0100, Mark Brown wrote:
 
-Agreed.
+> > +		exit(ret);
+
+> Should this be _exit() instead? IIRC exit() does some clean-ups which
+> are not safe in the vfork'ed child.
+
+This test is written to nolibc so that we don't get any of that libc
+level stuff, but yeah it would be a bit more correct.
+
+--rGV4m2bsRAZx+JSb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhmZyQACgkQJNaLcl1U
+h9C3sQf/Zjyv/4tU0gG1+behcSAImRmsr++fqj4ba2/X9B+mbKG26y3hkGkNQ6eT
+HhNBykYnmsG5nkBA8IEQ4sq8dhZrQ5HOs6k/Ez+n/ibeHm0GK024XG6qmUTEZ1ST
+5ibrqVltjCSb6x4wBVpLm/zdQAR06toxHvUdA2Dk7dvlUUNkP1A+fmXdPC/F7wTl
+MvSrq0LFIBJj6Ig0MC4BJorezR5en/omZKFJflypCmelM3CVsw1e6yGWpr1lm9cb
+QFPLB3b50mtHcnspolCOpcbqpY1Io3mopOGA/Lasjs9L9tJ30MAGgRKNlrLy4Yij
+5e6452XWIEVfUcKmLt79G8xYOi6K2Q==
+=nUf4
+-----END PGP SIGNATURE-----
+
+--rGV4m2bsRAZx+JSb--
 
