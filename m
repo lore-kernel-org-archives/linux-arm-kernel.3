@@ -4,59 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11524C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 16:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E8FC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 16:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x+HY7XJbmdNHVYTCKXTCx/iteKlpELAA1uB2o3ffVBA=; b=cyFvooLekveCVfFixENltIDpVi
-	n2XVELit+dWYib4c0UPME+wHg+VbkFFqhssqqmUh0TUa9Y9a/OWN867yYV2Nwscfr7K+49RfoOpca
-	tZ6NkE4JsFzhwuk7LGHze00bhWJip1GA9xvUr8m3mcMX+XNS3+YGgJ0OGYKFGc80H258DYN5Q4YwU
-	JmtEPRZQ9ZJQhF10sYd39btXFZKMC3x6gP+NV+hTyq2ExSkqXibqwls5BeCY90Ufuk0R0rF7nEO87
-	PccnAENh5VpTUZRS0b13r8R9g4egTPIU3Uj26NQfJ3tGtJBlOSx/Q55Le+3lQZf+fsPirL7tbj5Jy
-	WuZfjqew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FklnJtDo9yeFD4xiZdN1VsVaoDfKdcDRiLzMHURLjos=; b=jodo1AjwmdaAsOBfirReYJkoHD
+	igfr92/0X19nCjGhwE2ETZQiV/OkZYH0sXeHI0yfwtQ0M+uF+0el2i0W6WB89RdhEyxmG+x5w35SK
+	Tf1kzXvztoXD0Bchs9WGCqHv8N0XLrV1grADJrhtXNZRB+7WVpBRHjJ2f89u0d2Vp0GTH7b4JYlfj
+	FbPsyuL7ibXpdDNoQ4GIOz/Sk3HaDBFyAiNECZGwUcC5uun50qmt8jJsfyMJUO+AKSc8pPD4s6Ca5
+	Bk+g/9InYQtKr3VNkBbOtAx9FMkSFKkQTgfEY1cN0UqlBFZYzhzvCm+P7dK6SbqEqwnE4x+ViIrW1
+	mNFjvrsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMps-0000000C088-1IgJ;
-	Thu, 03 Jul 2025 16:30:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKmK-0000000BdbN-2HUN
+	id 1uXMsC-0000000C0P2-0ZvI;
+	Thu, 03 Jul 2025 16:33:20 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXKoR-0000000Bdyo-2dg7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 14:19:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 463221596;
-	Thu,  3 Jul 2025 07:18:53 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4150E3F66E;
-	Thu,  3 Jul 2025 07:19:07 -0700 (PDT)
-Date: Thu, 3 Jul 2025 15:19:05 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Mao Jinlong <quic_jinlmao@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@arm.com>, Rob Herring <robh@kernel.org>,
+	Thu, 03 Jul 2025 14:21:20 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5562838ce68so2164429e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 07:21:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751552477; x=1752157277; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FklnJtDo9yeFD4xiZdN1VsVaoDfKdcDRiLzMHURLjos=;
+        b=LkI3/fkAs7ji/98h2ITcTDktIliIXzONrLKOYuggZ9MCprZu3krZfPvhBJV395kP0B
+         IX1feTRzJ9bnwX2z7En43VkxCPBy7q0LmYnD6z7LL/xyRI2MzPgCO9jtXYfJi2Kgvbeh
+         weyo8rN7/jT/TP6rBgOTAh3h4aB5M1pIz5qjNBw6CBD50wInuuqudPjsYoHFs/z327RI
+         BINlllGhU0HpOEkHyd3Pkr3L9Eb7aV/19qwFLA7pkPKb39MgcafaU91KPVgBC88pBeZR
+         7acXBkAwwLzfqaVMST7Pc2XO+dlBryjq2nCV9DVmi8mVgZiOr5hqo68QXfbrfKoWURnO
+         iEmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751552477; x=1752157277;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FklnJtDo9yeFD4xiZdN1VsVaoDfKdcDRiLzMHURLjos=;
+        b=pl+2wErWUXZcMXJ6P+cQebwXr5L1xbr/kNifQ5sF0PMWVrwGD7SpBaJOGe97gp3ca0
+         jh9KWVLQxLZYEq7ffJ/j1eBxPoESYN9gBT02F5BEiJKOC3kkDirlms3Uw/tE/IFybjHV
+         llEJD7x7B5ibOjTZFhtaYYCfPweiqlE/cxRHbt2cNrRCj0KytFcLj+uLNTYeAMQ9JPe4
+         Ec/eRwXirIAIZ7FxEEAkZPJJJQxL/y2nnNqazA+t9I2brQ99mBdZ8l6VBOElsHf43UAZ
+         OblOk3YFAZ4hyR0ofUpJHivHY8leE1wK9aOiHYV26HbJz5QAhV7tbRLEcxTjp18ZeTbO
+         pMPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWXD2ax/+Q72d4muoCAXQjmC82qmfGEWMVwx76m7+ZgBed+21ccvFj9nf6FLg0KucoKlk++5GmV6ZBWmnpZaNt1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyc72ouPjykRjL5trrInSDIWEB3n/RPv2vtEtXyaHTU2vcjMh5C
+	A7a0i+i3TbH++tfOkFJrf46YU6Vwt6FuEnWOOMgwcmFk3LhTLryDK0aa
+X-Gm-Gg: ASbGncsgwu7GzI7O6Iv5SF+K5UpWzejOAwMjNFjIw92loUtVHXqu+SDIWRqsO4BLkTL
+	uYv085yr/ld4qWXqF+Ku/PL9v6TrU1FA3/E087pBrqdX78E+pDohmpUnyEXFuL+3DChbGM957oV
+	gVTW2rqaVvxSnPrkxXNXyIcaEZfsmmwe5c8Au2PnZFPAo41MnzPkdUxB4ri4OhCR8NZXpPD7jd4
+	0YC41paosddxCaWbb0dWhOgQfdMZ2i2QN3D5AckcTt366Qq53fGnu/YiD24hHBWY+fWYbiIjY4U
+	YZ0wYj8snr+lCyVzQbpGJ90x4V4NoDXGDE/oTfXwSEafTsVwslurgWFb2vY+LFTnltVFKxY=
+X-Google-Smtp-Source: AGHT+IFUX1eZbzcysBzHHtBsEBGjLX6NVKG8N8wt7URL6mkGsrdwM/ImOqWq0Nxkz3QPURabSYjy1A==
+X-Received: by 2002:a05:6512:2307:b0:553:2868:6355 with SMTP id 2adb3069b0e04-5562ee3f0d8mr1549077e87.18.1751552476789;
+        Thu, 03 Jul 2025 07:21:16 -0700 (PDT)
+Received: from localhost.localdomain ([176.106.241.81])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2a861esm2483058e87.97.2025.07.03.07.20.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Jul 2025 07:21:16 -0700 (PDT)
+From: iuncuim <iuncuim@gmail.com>
+To: Srinivas Kandagatla <srini@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v8 2/2] coresight: Add label sysfs node support
-Message-ID: <20250703141905.GE1039028@e132581.arm.com>
-References: <20250703130453.4265-1-quic_jinlmao@quicinc.com>
- <20250703130453.4265-3-quic_jinlmao@quicinc.com>
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Vasily Khoruzhick <anarsoul@gmail.com>,
+	Yangtao Li <tiny.windzz@gmail.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Subject: [PATCH v2 0/8] Allwinner: A523: add support for A523 THS0/1 controllers
+Date: Thu,  3 Jul 2025 22:20:32 +0800
+Message-ID: <20250703142040.2639742-1-iuncuim@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250703130453.4265-3-quic_jinlmao@quicinc.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_071908_669313_9C98EB76 
-X-CRM114-Status: GOOD (  22.89  )
+X-CRM114-CacheID: sfid-20250703_072119_667460_5E029680 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,99 +110,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 03, 2025 at 09:04:53PM +0800, Mao Jinlong wrote:
+From: Mikhail Kalashnikov <iuncuim@gmail.com>
 
-[...]
+This patch series adds temperature sensor support for the Allwinner A523
+family of processors (same die with H728/A527/T527)
 
-> +static ssize_t label_show(struct device *dev,
-> +		struct device_attribute *attr, char *buf)
-> +{
-> +
-> +	const char *str;
-> +	int ret = 0;
+Changes:
+1) dt-bindings: nvmem: SID: Add binding for A523 SID controller
+ - added new patch
 
-No need to init ret to 0.
+2) dt-bindings: thermal: sun8i: Add A523 THS0/1 controllers
+ - changed clock order
+ - added additional nvmem cell with calibration data
+ - added requirements for new controllers
+ - added description
 
-> +	ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
-> +	if (ret == 0)
-> +		return scnprintf(buf, PAGE_SIZE, "%s\n", str);
-> +	else
-> +		return ret;
-> +}
-> +static DEVICE_ATTR_RO(label);
-> +
->  static struct attribute *coresight_sink_attrs[] = {
->  	&dev_attr_enable_sink.attr,
-> +	&dev_attr_label.attr,
->  	NULL,
->  };
->  ATTRIBUTE_GROUPS(coresight_sink);
->  
->  static struct attribute *coresight_source_attrs[] = {
->  	&dev_attr_enable_source.attr,
-> +	&dev_attr_label.attr,
->  	NULL,
->  };
->  ATTRIBUTE_GROUPS(coresight_source);
->  
-> +static struct attribute *coresight_link_attrs[] = {
-> +	&dev_attr_label.attr,
-> +	NULL,
-> +};
-> +ATTRIBUTE_GROUPS(coresight_link);
-> +
-> +static struct attribute *coresight_helper_attrs[] = {
-> +	&dev_attr_label.attr,
-> +	NULL,
-> +};
-> +ATTRIBUTE_GROUPS(coresight_helper);
-> +
+3) thermal/drivers/sun8i: add gpadc clock
+ - removed unnecessary call to clk_prepare_enable() since
+ devm_clk_get_enabled()includes this
 
-This change adds a 'label' entry for source, link, helper, and sink
-components, but the documentation has only updated for three components:
-CTI, funnel, and TPDM.
+4) thermal/drivers/sun8i: replace devm_reset_control_get to
+ - original function replaced with devm_reset_control_get_shared_deasserted()
+ - removed some of the repetitive code executed by 
+ devm_reset_control_get_shared_deasserted()
 
-Should we also update the documentation for all relevant components,
-such as ETM, ETR, etc.?
+5) thermal/drivers/sun8i: get calibration data from two nvmem cells
+ - added possibility to get calibration data from two independent cells
 
-Additionally, patch 01 is missing the update to the ETM yaml file for
-the new property. I checked patch v4 [1], which includes a change to
-etm.yaml, but this change was dropped since v5. I briefly read the
-v4 discussion thread and didn't see any mention of removing the ETM
-related change. Did you see any particular issue when add label for
-ETM devices?
+6) thermal/drivers/sun8i: Add support for A523 THS0/1 controllers
+ - removed magic digits
+ - changed description of calibration data procedure for A523
+ - changed numbers of array elements with calibration data
 
-Overall, this series is fine for me. Just please ensure that all
-relevant components are covered for completeness.
+7) arm64: dts: allwinner: A523: Add SID controller node
+ - fix typo (sun50i->sun55i)
 
-Thanks,
-Leo
+8) arm64: dts: allwinner: A523: Add thermal sensors and zones
+ - cell with calibration data divided into two
+ - added passive trips for gpu
+ - added information that information obtained from BSP
 
-[1] https://patchwork.kernel.org/project/linux-arm-msm/cover/20240703122340.26864-1-quic_jinlmao@quicinc.com/
+v1: https://lore.kernel.org/linux-sunxi/20250411003827.782544-1-iuncuim@gmail.com
 
->  const struct device_type coresight_dev_type[] = {
->  	[CORESIGHT_DEV_TYPE_SINK] = {
->  		.name = "sink",
-> @@ -390,6 +420,7 @@ const struct device_type coresight_dev_type[] = {
->  	},
->  	[CORESIGHT_DEV_TYPE_LINK] = {
->  		.name = "link",
-> +		.groups = coresight_link_groups,
->  	},
->  	[CORESIGHT_DEV_TYPE_LINKSINK] = {
->  		.name = "linksink",
-> @@ -401,6 +432,7 @@ const struct device_type coresight_dev_type[] = {
->  	},
->  	[CORESIGHT_DEV_TYPE_HELPER] = {
->  		.name = "helper",
-> +		.groups = coresight_helper_groups,
->  	}
->  };
->  /* Ensure the enum matches the names and groups */
-> -- 
-> 2.17.1
-> 
-> _______________________________________________
-> CoreSight mailing list -- coresight@lists.linaro.org
-> To unsubscribe send an email to coresight-leave@lists.linaro.org
+Mikhail Kalashnikov (8):
+  dt-bindings: nvmem: SID: Add binding for A523 SID controller
+  dt-bindings: thermal: sun8i: Add A523 THS0/1 controllers
+  thermal/drivers/sun8i: add gpadc clock
+  thermal/drivers/sun8i: replace devm_reset_control_get to
+    devm_reset_control_get_shared_deasserted
+  thermal/drivers/sun8i: get calibration data from two nvmem cells
+  thermal/drivers/sun8i: Add support for A523 THS0/1 controllers
+  arm64: dts: allwinner: A523: Add SID controller node
+  arm64: dts: allwinner: A523: Add thermal sensors and zones
+
+ .../nvmem/allwinner,sun4i-a10-sid.yaml        |   1 +
+ .../thermal/allwinner,sun8i-a83t-ths.yaml     |  49 +++-
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 162 ++++++++++++
+ drivers/thermal/sun8i_thermal.c               | 240 ++++++++++++++----
+ 4 files changed, 406 insertions(+), 46 deletions(-)
+
+-- 
+2.49.0
+
 
