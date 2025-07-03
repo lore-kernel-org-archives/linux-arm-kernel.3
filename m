@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53310C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 06:43:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A900C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 06:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=40MXxWYeDNjZagsuTaP7QwFZzqbezmSCe2UvZWHccEM=; b=pk6tfR0GIauZD1796pGsGjGMOE
-	MM+hLjmx2a+F9ibVrnQ4kj1g4hFc+LiJ17aqipiz5CXOzlXNhiWMKnRdqq8x3Bdx1hFYvmDlwDju8
-	f5DNrN2qXbgiGy1Q4RYnYQ2ebJAizLF/IqhJqZUKYVyD3GGlZi9eJT1KAPtlcvOEIeD8HvFZgcSHk
-	7njmYiRIrzHsrabWBlW9Iflz7R/J5hpkv6Ey/HcAM11xwfHLgTIRN6dfxALSyplsFk1FxncGDQqBJ
-	SYeqG3ERYAZwF7AyoDXBfN1zxZTwk2P0cewlqXJSJM320gLImunisbeoEL4xfuotDbddIVqYIByko
-	eOEb6DZg==;
+	bh=8/0NfYReul9BIoYb9oqMhcazXQU5kGjg3yqY/DCG/Yc=; b=QNWg8p/lvyohdKlWf2sI5yLv8D
+	JAP6fzxLRnTJ2Ul9NzUfpI+9hbCsjfINqAfm9oBc/qjyXZzepSjbCbUTHdMHNwEEHm2Nq/hVKStEB
+	5rGbCb2oKXdlgJ9wJ36dDRVE+0naf8aNy6AXSIX6Vt4IWeOXjgBbbu6dfCX86zfCLqSalv1xjckZ0
+	0OREjSbkuAZFQ5KvwZfXPoDZwPCmlIhRKNxG+V/ko3jG8fV28Dn8L0F+8Lc5MpvRxa5So4USrpWSc
+	kp5RXTshcuKU13KCT3BVtvR/ozw2lrXnc31rFUZsPHo3P2Bw3K7Wb2SH/YLeXT9SAl/9aG4u+3djt
+	xzX7VeuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXDeo-0000000APIA-0Ia8;
-	Thu, 03 Jul 2025 06:42:54 +0000
+	id 1uXDh7-0000000APsU-1xNK;
+	Thu, 03 Jul 2025 06:45:17 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXDba-0000000AOnM-3uvA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 06:39:36 +0000
+	id 1uXDdG-0000000AP20-3Hzv;
+	Thu, 03 Jul 2025 06:41:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AB93DA5368F;
-	Thu,  3 Jul 2025 06:39:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD322C4CEE3;
-	Thu,  3 Jul 2025 06:39:27 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1A225A53695;
+	Thu,  3 Jul 2025 06:41:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7168C4CEE3;
+	Thu,  3 Jul 2025 06:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751524773;
-	bh=uGmOEB8HXhHTfPCK2JSdH/CwSNxDdA0HV29gtXOyAhE=;
+	s=k20201202; t=1751524877;
+	bh=ncrD98iiLFJbPShjAOf5A3NEl54bVpETW6dALyx24ms=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rwZqRo+Rvx4f80qSFYTWMio/N3fc0lbGK7gwvgl9BA3bxPrUGbYmsaBgp9hkARaHR
-	 S03BL/nZNvNQS4P3+Ab0+4OEPPfpFK5KyjU/bjJlFZlDAlAZtKD5qtwymb2DFOFflK
-	 31xej2VHt7Ky4OqIugpFeOGhNUYQaQBjs6ewFvdLXP9xZkYa5RLgwV9fRaZorbUKSZ
-	 nCUsVELko/5N3KOLZ8gLk8EMkQ0EFUN84MRzL+XFb12g0C9RJl4IoreGTC9gtUe8kL
-	 mLq8WPwu9dil9qd2Ch2fyuxQg33lEKHF83YrDt6nyV4F5US8oiov7kJtFvj+L8ruwQ
-	 q5+xUJ+VT0DNg==
-Message-ID: <264fec16-5974-4f9c-98a8-67c21b5fbf7f@kernel.org>
-Date: Thu, 3 Jul 2025 08:39:26 +0200
+	b=Y9vm6c3ri71NJv4gLylNXYKmJ+4XYh7QqlcjRY4miSpMkFMdVaDzc7VCYrbrjD5qk
+	 rGBMf51PvjSCAivNLPZ/uBEH7NzGyWOX21QyRLpB7NtW0rrRco2Dqr4yxrJoPO2lww
+	 pRgsTtpMSnR/+szmyc/47Zde5E1ILObb/EoYKqudF5igysw0f6NmLVCEbYVN+TOHca
+	 WXuUu7zKL9t3RbUd0b9+nDXJLMpMWABJ4tbEEAgcrWcIMMiqku/f9zU3aNwsWzTR4d
+	 zRGyb/w5xrMjB79AA9JUkMDm6WFW8RoVhGTDOn38Arrv0t+4tEYn0+esqga53f2QYc
+	 9K6ngBtc0ndCA==
+Message-ID: <080320eb-0ff0-41cd-833c-62b4738c869a@kernel.org>
+Date: Thu, 3 Jul 2025 08:41:10 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] dt-bindings: clock: Add support for i.MX94
- LVDS/DISPLAY CSR
-To: Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v5 04/10] dt-bindings: gpio: cdns: add Axiado AX3000 GPIO
+ variant
+To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
- Frank Li <frank.li@nxp.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Abel Vesa <abel.vesa@linaro.org>
-References: <20250703-imx95-blk-ctl-7-1-v2-0-b378ad796330@nxp.com>
- <20250703-imx95-blk-ctl-7-1-v2-1-b378ad796330@nxp.com>
+ <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jan Kotas <jank@cadence.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, =?UTF-8?Q?Przemys=C5=82aw_Gaj?=
+ <pgaj@cadence.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Frank Li <Frank.Li@nxp.com>, Boris Brezillon <bbrezillon@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ soc@lists.linux.dev, linux-serial@vger.kernel.org,
+ linux-i3c@lists.infradead.org
+References: <20250702-axiado-ax3000-soc-and-evaluation-board-support-v5-0-6ade160ea23b@axiado.com>
+ <20250702-axiado-ax3000-soc-and-evaluation-board-support-v5-4-6ade160ea23b@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,13 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250703-imx95-blk-ctl-7-1-v2-1-b378ad796330@nxp.com>
+In-Reply-To: <20250702-axiado-ax3000-soc-and-evaluation-board-support-v5-4-6ade160ea23b@axiado.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_233935_115080_7EFDCBDD 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250702_234118_964219_F48439B5 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,17 +128,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/07/2025 05:40, Peng Fan wrote:
->            - nxp,imx95-hsio-blk-ctl
-> diff --git a/include/dt-bindings/clock/nxp,imx94-clock.h b/include/dt-bindings/clock/nxp,imx94-clock.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..b47f74f00f119ff1c1e6dad885b5b1e3b1f248a1
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/nxp,imx94-clock.h
-> @@ -0,0 +1,13 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
+On 03/07/2025 02:22, Harshit Shah wrote:
+> Add binding for Axiado AX3000 GPIO controller. So far, no changes
+> are known, so it can fallback to default compatible.
+> 
+> Signed-off-by: Harshit Shah <hshah@axiado.com>
+> ---
+>  Documentation/devicetree/bindings/gpio/cdns,gpio.yaml | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml b/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml
+> index f1a64c17366500cb0e02a0ca90da691fd992fe7d..ba55890d34bb41e14c3e8afde74111291e40ba7b 100644
+> --- a/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/cdns,gpio.yaml
+> @@ -11,8 +11,12 @@ maintainers:
+>  
+>  properties:
+>    compatible:
+> -    const: cdns,gpio-r1p02
+> -
 
-Use the same license as checkpatch and DT submitting patches ask.
+Why? The blank space is the style we prefer, as visible in every binding.
+
+> +    oneOf:
+> +      - const: cdns,gpio-r1p02
+> +      - items:
+> +          - enum:
+> +              - axiado,ax3000-gpio
+> +          - const: cdns,gpio-r1p02
+>    reg:
 
 Best regards,
 Krzysztof
