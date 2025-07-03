@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A267C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 10:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D343C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5UU0znfFus1yM64z5C0VN3v98yFzrtO9oKXC0Y0UHoM=; b=DCe5TBIne/NfF2IrSy8Up5rlyg
-	JpgAUqnRqUv+TTn1mfyseQnmfZxyLgBHWReIEPYA17YkLLR1YjejTjAB4kfGv4lQrrEqFyH9tx7Cp
-	W5Z3bw9+HKI7D/SzlzeCKLQmgSxQo+Qd57RSxbB4VmWrPyCsw8QbTLRHRc1sSw6w9UDy6zs5DEG8K
-	mtD3MXcLg5BV3mNRdAEerJZz4gpySzO/t3zeV9Zm+IJL4dzM/O213CqFsm/M+Dc4zs27/3hxRsN3e
-	uST0/Mz1k3daoY8+50+bwaEi8s4fim4vKD1+t/tNaeDl+X/1cJpAJ/SmhOc/r1ljK+NlkCdHLsKSx
-	hATojzew==;
+	bh=nRkKt0g+cSgDRdGDbSoiCl8i8T6e0CHFYaIxU2Cv1ew=; b=SI/affTQzWUncFdkLFHOUgCPU5
+	8SwGHZKcc39BL3F7WJvbZYohVj+0sc+6NZJ2BcYeH6mYJr0kTO4Qm3cfhhClUPK+V9tiMAJA4obsD
+	tdq7QLwokjZouX0VNW0OSQCel0h2WwxB84onEqr1FFA38tR3aEDVk4EzO7ZHJilznlHenRZL8vZGe
+	yhxhmJwsMknE8EgbuCSW4mYAn814l2OwFTz7sxOGGD+rZ+2YbwxH1cUepsWax1upT3eSSj+SAFW7y
+	zi6UIQoIKgpdJBlnPLorf7F+YEEG1CBS6BMswgOFtgcCr7NtDj5ECPn8g2JN60llnDNaZyoyNZBRe
+	91WljdJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHe3-0000000B4fY-1v2C;
-	Thu, 03 Jul 2025 10:58:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uXHgN-0000000B5KK-0YUD;
+	Thu, 03 Jul 2025 11:00:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXH92-0000000Ayyp-0Chc
+	id 1uXH98-0000000AyzL-0qoh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 10:26:21 +0000
+	Thu, 03 Jul 2025 10:26:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBBC042B9B;
+	by tor.source.kernel.org (Postfix) with ESMTP id A0737613B1;
+	Thu,  3 Jul 2025 10:26:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24199C4CEE3;
 	Thu,  3 Jul 2025 10:26:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A11FC4CEF2;
-	Thu,  3 Jul 2025 10:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751538379;
-	bh=5Ub3u81eGIQRAdBkAtaKfQGXjVbPb4ZZ4unaU8IL8fw=;
+	s=k20201202; t=1751538385;
+	bh=UE4nEEMoVD3v/SaKmpCCe4YLHuNFyOzbWblW9VqVH1s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XahIgNOIwGD4FfXM7oJH6nn3cZHPbtKUCwru4dXvSm0GketQOfmMenK/vKGQMo0u9
-	 eYmtOGTXoCwzwcdFbMXDAnuc9gWD3QR8HZFkBkn38F7g2P0+/Xu2VzqGt+cj6pHCpY
-	 9ryZA+GRJFSe7+dzEWDFHl4r3HTuf7dLdH4MZmcn6kjw8a6jq2Rcqha9xjs/EYYHCD
-	 5DY5OfGiCifiYRG6k2Db4JAid8ylxHhnXGBc369EXgKxhRI6AiK66txjZMhDG+eExr
-	 I89qDSIGiIWvCZwRgwHHOKGt988eujXvL7hIo2Y0ces7NryjGPbCjf8DjIpWUD0zkJ
-	 zh/6gbPWB5vrA==
+	b=cp0aMRMn7sx5hbAcfZjcgwh8aowL56Zl/ckK1KlpLaLeel3CaE9dodywSVW+e3dMk
+	 usR0hpUzgMDAUNWpLOL/QD8AddrWE3eSMjifR1N9xZ5c6iDPQbU3V311ySDs+STz7j
+	 TCIi5w0379cGYHqO+SlxbUAYWuAwzKIb5cCVxrLXaZsC1UTCMvOgg6RPVOOFoL+8un
+	 EBOQBg2yVPNo4AXj23WgrnXT2+16yxfHg4YpVHqGtIKPpeC1XrCbg4CjhxJDA1L0Rr
+	 MU/NPacBBJwPlTQGAbKdD2tn/cYUOIqRjZXMd/PM+eeIH1Q6jQ22oLRC/caQK/tPmL
+	 WtQvNZLOm49gg==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Thu, 03 Jul 2025 12:25:02 +0200
-Subject: [PATCH v7 12/31] arm64/sysreg: Add ICH_HFGRTR_EL2
+Date: Thu, 03 Jul 2025 12:25:03 +0200
+Subject: [PATCH v7 13/31] arm64/sysreg: Add ICH_HFGWTR_EL2
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250703-gicv5-host-v7-12-12e71f1b3528@kernel.org>
+Message-Id: <20250703-gicv5-host-v7-13-12e71f1b3528@kernel.org>
 References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
 In-Reply-To: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -66,10 +66,6 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
  devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>
 X-Mailer: b4 0.15-dev-6f78e
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_032620_115291_CACD69C0 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,7 +80,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ICH_HFGRTR_EL2 register description.
+Add ICH_HFGWTR_EL2 register description to sysreg.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
@@ -93,32 +89,29 @@ Cc: Will Deacon <will@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/tools/sysreg | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ arch/arm64/tools/sysreg | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 8be5e4af4ad6..0202b3bd3dda 100644
+index 0202b3bd3dda..9def240582dc 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -4434,6 +4434,24 @@ Field	31:16	PhyPARTID29
- Field	15:0	PhyPARTID28
+@@ -4452,6 +4452,21 @@ Field	1	ICC_IDRn_EL1
+ Field	0	ICC_APR_EL1
  EndSysreg
  
-+Sysreg	ICH_HFGRTR_EL2	3	4	12	9	4
++Sysreg	ICH_HFGWTR_EL2	3	4	12	9	6
 +Res0	63:21
 +Field	20	ICC_PPI_ACTIVERn_EL1
 +Field	19	ICC_PPI_PRIORITYRn_EL1
 +Field	18	ICC_PPI_PENDRn_EL1
 +Field	17	ICC_PPI_ENABLERn_EL1
-+Field	16	ICC_PPI_HMRn_EL1
-+Res0	15:8
-+Field	7	ICC_IAFFIDR_EL1
++Res0	16:7
 +Field	6	ICC_ICSR_EL1
 +Field	5	ICC_PCR_EL1
-+Field	4	ICC_HPPIR_EL1
-+Field	3	ICC_HAPR_EL1
++Res0    4:3
 +Field	2	ICC_CR0_EL1
-+Field	1	ICC_IDRn_EL1
++Res0	1
 +Field	0	ICC_APR_EL1
 +EndSysreg
 +
