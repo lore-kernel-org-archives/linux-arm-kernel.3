@@ -4,56 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E84C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25DF3C83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LPKrKT5uxyeXAMxgVK0JE1SStj/+obPZ0SZGDe7qYpE=; b=eppQBEHvLDXcnmxgOrF8vUl3vQ
-	h8H5BBzecENE2SzaMpxtYYcUSHyHKSjV8hoodMp9+36Ido1fHJOyrODf9CAaaj/3sZDEOasUCX2t8
-	7Vn6qblagFD7Jybv2lpCed1yhz2ozhWLzE4Qlrg+aQ5eibDBzTqaxuOwBvtTKAy/ciEoxhKd/f+ZF
-	DiT8oE9PPp8EHEX18/EyXfnDzCNrEdZ9XdUZWn9UokhTqm27+5SWZSjCprbdp/xMdyQ9DXqOVPCnw
-	whONDnpvAp+SzAikH19OCpQ5vEaF9j0iq2ZxF8tkiePGmG/0+9uM3BCwrdozH53rN9v2hUtosIarW
-	olFC604w==;
+	bh=rF2qYrvErubAyGK8fOu3JYouiv0z9Oj4BLs/e8Dkg7g=; b=nGyGBugtWU07RuI9RUSbaCSw9B
+	ImFPwokiEdOyd6DX3WXRPt+3LTf0NixMwTqGdq/550BoZPU98+QEMGRAcy4UOyx27+H7XewJUJeXl
+	HW4PcLRY/v3w9iN1Ioc/5juB1GKMrHRCuS7Hs8abSWB15eHH79g2pWMfLmpB51rzavd3iiH6cPbY3
+	Zlvlq2/zaQazmYlpqVwQCQfPyo7EpklKPU/8eHLVgirOPiRfaC3Qih7XynkQnJgZL5XSPiqLlTT9M
+	QLFRbaOVc624YHESgsdRXE4mEDxXwZbPxEu3bmmb+pm3V592CdiMicVEs5nS943ek8oXTeFSDcz3r
+	LKoFO1zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR2G-0000000CXR2-2TT3;
-	Thu, 03 Jul 2025 21:00:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMqC-0000000C0BL-3Gy6
+	id 1uXR2I-0000000CXUi-41Ys;
+	Thu, 03 Jul 2025 21:00:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXMuf-0000000C0p3-3XF3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 16:31:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 714C41596;
-	Thu,  3 Jul 2025 09:30:59 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D6E33F6A8;
-	Thu,  3 Jul 2025 09:31:12 -0700 (PDT)
-Date: Thu, 3 Jul 2025 17:31:09 +0100
-From: Mark Rutland <mark.rutland@arm.com>
+	Thu, 03 Jul 2025 16:35:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EBAF461446;
+	Thu,  3 Jul 2025 16:35:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4BADC4CEE3;
+	Thu,  3 Jul 2025 16:35:50 +0000 (UTC)
+Date: Thu, 3 Jul 2025 17:35:48 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
 To: Breno Leitao <leitao@debian.org>
-Cc: cov@codeaurora.org, rmk+kernel@armlinux.org.uk, catalin.marinas@arm.com,
-	linux-serial@vger.kernel.org, rmikey@meta.com,
-	linux-arm-kernel@lists.infradead.org, usamaarif642@gmail.com,
-	leo.yan@arm.com, linux-kernel@vger.kernel.org, paulmck@kernel.org,
-	Ankit Agrawal <ankita@nvidia.com>,
-	Besar Wicaksono <bwicaksono@nvidia.com>
-Subject: Re: arm64: csdlock at early boot due to slow serial (?)
-Message-ID: <aGawTd8N2i8MDCmL@J2N7QTR9R3>
-References: <aGVn/SnOvwWewkOW@gmail.com>
- <aGZbYmV26kUKJwu_@J2N7QTR9R3>
- <aGaQBghdAl8VGWmV@gmail.com>
+Cc: Will Deacon <will@kernel.org>, usamaarif642@gmail.com,
+	Ard Biesheuvel <ardb@kernel.org>, rmikey@meta.com,
+	andreyknvl@gmail.com, kasan-dev@googlegroups.com,
+	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH] arm64: efi: Fix KASAN false positive for EFI runtime
+ stack
+Message-ID: <aGaxZHLnDQc_kSur@arm.com>
+References: <20250624-arm_kasan-v1-1-21e80eab3d70@debian.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aGaQBghdAl8VGWmV@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_093116_907292_A71337C4 
-X-CRM114-Status: GOOD (  30.18  )
+In-Reply-To: <20250624-arm_kasan-v1-1-21e80eab3d70@debian.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,102 +62,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 03, 2025 at 03:13:26PM +0100, Breno Leitao wrote:
-> On Thu, Jul 03, 2025 at 11:28:50AM +0100, Mark Rutland wrote:
-> > On Wed, Jul 02, 2025 at 10:10:21AM -0700, Breno Leitao wrote:
-> > > I'm observing two unusual behaviors during the boot process on my SBSA
-> > > ARM machine, with upstream kernel (6.16-rc4):
-> > 
-> > Can you say which SoC in particular that is? Knowing that would help to
-> > identify whether there's some known erratum, clocking issue, etc.
+On Tue, Jun 24, 2025 at 05:55:53AM -0700, Breno Leitao wrote:
+> KASAN reports invalid accesses during arch_stack_walk() for EFI runtime
+> services due to vmalloc tagging[1]. The EFI runtime stack must be allocated
+> with KASAN tags reset to avoid false positives.
 > 
-> This is custom made rack mounted machine based on Grace CPU. Here are
-> some info about the hardware:
+> This patch uses arch_alloc_vmap_stack() instead of __vmalloc_node() for
+> EFI stack allocation, which internally calls kasan_reset_tag()
 > 
-> 	# lscpu:
-> 		Vendor ID:                   ARM
-> 		  Model name:                Neoverse-V2
-> 		    Model:                   0
-> 		    Thread(s) per core:      1
-> 		    Core(s) per socket:      72
-> 		    Socket(s):               1
-> 		    Stepping:                r0p0
+> The changes ensure EFI runtime stacks are properly sanitized for KASAN
+> while maintaining functional consistency.
 > 
-> 	# /proc/cpuinfo
-> 		processor	: 71
-> 		BogoMIPS	: 2000.00
-> 		Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp sve2 sveaes svepmull svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16 dgh bti
-> 		CPU implementer	: 0x41
-> 		CPU architecture: 8
-> 		CPU variant	: 0x0
-> 		CPU part	: 0xd4f
-> 		CPU revision	: 0
+> Link: https://lore.kernel.org/all/aFVVEgD0236LdrL6@gmail.com/ [1]
+> Suggested-by: Andrey Konovalov <andreyknvl@gmail.com>
+> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Breno Leitao <leitao@debian.org>
+> ---
+>  arch/arm64/kernel/efi.c | 9 ++++++---
+>  1 file changed, 6 insertions(+), 3 deletions(-)
 > 
-> 	# lshw
-> 	    description: Rack Mount Chassis
-> 	    product: <Internal name>
-> 	    vendor: Quanta
-> 	    version: <Internal name>
-> 	    width: 64 bits
-> 	    capabilities: smbios-3.6.0 dmi-3.6.0 smp sve_default_vector_length tagged_addr_disabled
-> 	    configuration: boot=normal chassis=rackmount family=Default string sku=Default string uuid=...
-> 
-> How do I find the SoC exactly?
+> diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
+> index 3857fd7ee8d46..d2af881a48290 100644
+> --- a/arch/arm64/kernel/efi.c
+> +++ b/arch/arm64/kernel/efi.c
+> @@ -15,6 +15,7 @@
+>  
+>  #include <asm/efi.h>
+>  #include <asm/stacktrace.h>
+> +#include <asm/vmap_stack.h>
+>  
+>  static bool region_is_misaligned(const efi_memory_desc_t *md)
+>  {
+> @@ -214,9 +215,11 @@ static int __init arm64_efi_rt_init(void)
+>  	if (!efi_enabled(EFI_RUNTIME_SERVICES))
+>  		return 0;
+>  
+> -	p = __vmalloc_node(THREAD_SIZE, THREAD_ALIGN, GFP_KERNEL,
+> -			   NUMA_NO_NODE, &&l);
+> -l:	if (!p) {
+> +	if (!IS_ENABLED(CONFIG_VMAP_STACK))
+> +		return -ENOMEM;
 
-From what you've told me above, the SoC is Nvidia Grace; what they call
-the CPU is the whole SoC.
+Mark Rutland pointed out in a private chat that this should probably
+clear the EFI_RUNTIME_SERVICES flag as well.
 
-> > Likewise that might imply more folk to add to Cc.
-
-I've added Ankit and Besar, since they've both worked on some system
-level bits on Grace, and might have an idea.
-
-Ankit, Besar, are you aware of any UART issues on Grace (as described in
-Breno's messages below), or do you know of anyone who might have an
-idea?
-
-Thanks,
-Mark.
-
-> > [...]
-> > 
-> > > At timestamp 9.69 seconds, the serial console is still flushing messages from
-> > > 0.92 seconds, indicating that the initial 9-second gap is spent looping in
-> > > cpu_relax()-about 20,000 times per message, which is clearly suboptimal.
-> > > 
-> > > Further debugging revealed the following sequence with the pl011 registers:
-> > > 
-> > > 	1) uart_console_write()
-> > > 	2) REG_FR has BUSY | RXFE | TXFF for a while (~1k cpu_relax())
-> > > 	3) RXFE and TXFF are cleaned, and BUSY stay on for another 17k-19k cpu_relax()
-> > > 
-> > > Michael has reported a hardware issue where the BUSY bit could get
-> > > stuck (see commit d8a4995bcea1: "tty: pl011: Work around QDF2400 E44 stuck BUSY
-> > > bit"), which is very similar. TXFE goes down, but BUSY is(?) still stuck for long.
-> > 
-> > Looking at the commit message, that was an issue with the a "custom
-> > (non-PrimeCell) implementation of the SBSA UART" present on QDF400. I
-> > assume that was soemthing that Qualcomm Datacenter Technologies designed
-> > themselves.
-> > 
-> > It's possible that your SoC has a similar issue with whatever IP block
-> > is being used as the UART, but the issue in that commit certainly
-> > doesn't apply to most PL011 / SBSA-UART implementations.
+> +
+> +	p = arch_alloc_vmap_stack(THREAD_SIZE, NUMA_NO_NODE);
+> +	if (!p) {
+>  		pr_warn("Failed to allocate EFI runtime stack\n");
+>  		clear_bit(EFI_RUNTIME_SERVICES, &efi.flags);
+>  		return -ENOMEM;
 > 
-> That makes total sense. Decoding SPCR I see the following:
-> 
-> 	# iasl -d spcr.dat
-> 	Intel ACPI Component Architecture
-> 	ASL+ Optimizing Compiler/Disassembler version 20210604
-> 	Copyright (c) 2000 - 2021 Intel Corporation
-> 
-> 	File appears to be binary: found 56 non-ASCII characters, disassembling
-> 	Binary file appears to be a valid ACPI table, disassembling
-> 	Input file spcr.dat, Length 0x50 (80) bytes
-> 	ACPI: SPCR 0x0000000000000000 000050 (v02 NVIDIA A M I    00000001 ARMH 00010000)
-> 	Acpi Data Table [SPCR] decoded
-> 	Formatted output:  spcr.dsl - 2624 bytes
-> 
-> Thanks,
-> --breno
+
+With that:
+
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+
+(but let's see if Ard has a different opinion on the approach)
 
