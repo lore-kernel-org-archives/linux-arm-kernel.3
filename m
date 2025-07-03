@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC22C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 15:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D66C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 15:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BYf/S9xtt01/l1c14cB1l1e58lU7oORyVWQF3hvnGxk=; b=iI4iV7GsQgE3DkuinIa/zHSKgY
-	pLJtIwM3boX+UqnlZ4pRHe9hw5xQOFqMtrG/uSxVNVzYzQjZfhrY57dPXfm0pp5ulIHSXMUtFSD6u
-	FTvZea1EXpH6K7jz6Xe+LD6duvDGZ/Jkksc2dQpKmgy/LFoBtP33gNivQH8YsA4XJDmaQ+7MRonxg
-	Oc1hutjYZ0r47wXj0gqk2ey3Lhb0tnDnCuUa7612Q2ulHYM5l248cFXwzLfTI0hmxUYB1u9RH1mlD
-	jDJ1Hfgroe1CU97AhbuOkS1jUwRvhwQymVhMhtYLIRpmejOMXdRuiV5D/BGJRM2yMUaNjL1dJgTDB
-	qS9Z9TqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IivRk5GlnKWePlP7UJ4Y0/E4K2dP4HjS3F1bQnNamjc=; b=x4NZK0enmFqj4Qgtfxmay/En5n
+	e3A/3EH1zPQoBlSymGl6PYj1McUWwHvCD7jLucdhjVYh9pdys9gOUXxWocYU42Cza65bSNMx+Am8V
+	3OozgYSkqCj+48bLrPrUTc3E18DMuAdCpQabXDo73LMMSOg7rxJjBmBX7wz+LNxZlc6lGxeB+1qMj
+	IZN28/F3aV040yiW3ply37uqfMIUPH1cVvQjUKQE66ii7wwkHP3jQs1aZlgxN4h9lND4ak+Mrrfrz
+	0dCUakLlVEoccmOGOu+Na6AquYpOYlrdXoDkG9GnR0SPgK6lVpyItpVfQQ6ZcokUrR/y49JBcBOlH
+	VRswwEPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXM32-0000000BrXq-0tuV;
-	Thu, 03 Jul 2025 15:40:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uXM5L-0000000Brzx-2M6g;
+	Thu, 03 Jul 2025 15:42:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKCK-0000000BX1A-1gCL;
-	Thu, 03 Jul 2025 13:41:57 +0000
+	id 1uXKGW-0000000BXYD-3YnP
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Jul 2025 13:46:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 59F43A53819;
-	Thu,  3 Jul 2025 13:41:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8872C4CEE3;
-	Thu,  3 Jul 2025 13:41:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EBF214598E
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Jul 2025 13:46:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9A95C4CEF2
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Jul 2025 13:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751550115;
-	bh=AzCyOeLYvvkd8ESz+bYjZcDSyDUTK6UgemqQUMKPmC8=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=O3EaC7pG9AYMtZ1GnmxlMDAujjKd2jjjy8oV9NgoYzH33twFw/sto/xm7oA/kF4wm
-	 QKXDolNstpowlpxlrxtFoYSELRJCAvHsmAyB9bIO4x0OOcS3jLkwCJPhzS/Xh5rqgz
-	 hk1vVueopNKfKZwerZQwRC1wTfPrEKXOhzdgvICHl5lxnT3QGCcSpRVfZwU2Yvpf2P
-	 gwlN76MM4FZmH3RjfneQUsu52PA9EtUPDjDJyOSwwjbtj7GzYI4Hl0r3FlkazbeZzQ
-	 YrlMpFfSPcWldPwJK0mnkJCRlSXQFfqiCuJbJ6NKbsa+4YwMgk3ttTtcbZ6Kkg8s4G
-	 1KS1rB+xP+p8w==
-Date: Thu, 03 Jul 2025 08:41:53 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1751550375;
+	bh=KfUSNGQ37UCIpa1WbY7nTzUA43ohR2bW2z8Jpfr5BKw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=q3LvqclkARsqKciZGJOJT7P26FiQtVqc05WYWQZiBpUjn5a82y8E3aL0vg2u300l5
+	 yt50ByR9EoUThOSkXQGpnbTHtPnoG4fuCpm1hup/KH/mEsqTn4K0/zsJdzn8UMd+J8
+	 jk0wLOtHtulIXi4tZAwURuLchdpZPDCV+0wSHE9etKSWPwTfcerzTluGT+89/up91i
+	 EID7d4jDubkd4OupVaEkp3ZG3DcFwppAINTX3dlLggrates+h3j52k6WbEfe/Q48E3
+	 uS6xJeszHNBqYUW+yP8xcp/AENv1Ly8gQeh8vJedw7zQbDVgwwZCnXGjvfl7vPf8t7
+	 GG3iPeG9yKOhA==
+Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-611a7c617b4so2383642eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 06:46:15 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVRcVPUid+9+wS4tizURmIBVtsOGvck7soRuvqOoC9IGQ+5PWkX4zj9F5Y2D2DCBHOGgzzkmVyIAgizcWwhEMfM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxilJ0Fe8ZHI1l4ML3FslyXNARuWKcszH2htX7FK2WjkROZj8TO
+	yPsbaeOsJ8X/PV/su60FK2wsfsYIENGWiYpxdgHcgfnbnbnTRLgVN9q6IT0A6KbJd/KAKFvMXeo
+	0rxeNSbpq4Hkz9c3lAFeqPQXq5oEgskc=
+X-Google-Smtp-Source: AGHT+IFRGzpNAwgOZYcA9ML7MvvQBl1ZOes81gaH7XnaiyMopbp7+DoCLDWZ2ljxNjM14Z1CdAkyQT97LqNFXudCjGU=
+X-Received: by 2002:a05:6820:2483:b0:613:87ee:10e with SMTP id
+ 006d021491bc7-61387ee02d3mr627853eaf.5.1751550375080; Thu, 03 Jul 2025
+ 06:46:15 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, nuno.sa@analog.com, conor+dt@kernel.org, 
- zhiyong.tao@mediatek.com, matthias.bgg@gmail.com, linux-iio@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- krzk+dt@kernel.org, andy@kernel.org, 
- angelogioacchino.delregno@collabora.com, linux-mediatek@lists.infradead.org, 
- dlechner@baylibre.com, jic23@kernel.org
-To: Aleksander Jan Bajkowski <olek2@wp.pl>
-In-Reply-To: <20250702214830.255898-1-olek2@wp.pl>
-References: <20250702214830.255898-1-olek2@wp.pl>
-Message-Id: <175155007600.1164337.2694125057173487421.robh@kernel.org>
-Subject: Re: [PATCH v2 0/2] Add thermal sensors support for MT7981
+References: <rlzpjdsg6cbgxc553j6m25ysb6tyldy4lnxsjjn4hdzv7rszpp@y6rfcrbjfook>
+ <fbfc6bf9-d7c6-4df5-85d0-b1d357159d88@suse.com> <CAJZ5v0hPh19h9uVRVHSXiLaHxm3PR9A3W5+j=2=-B-YCyBr=uw@mail.gmail.com>
+ <hjkm55hus3ctueydf7ebfb25hbdw6w3spdzx7maauzlzmnakas@noqexx2pxxtj> <e635l6gfpg7amck2hnu4l47tnc54lr6e26v7y3ohaywil6pjwr@4trxzfdigo62>
+In-Reply-To: <e635l6gfpg7amck2hnu4l47tnc54lr6e26v7y3ohaywil6pjwr@4trxzfdigo62>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Thu, 3 Jul 2025 15:46:03 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0gsLCpGnA5fNSSVLOoPL6Qinw=o_fBGG-0iFKeWyQtFZQ@mail.gmail.com>
+X-Gm-Features: Ac12FXyvXICzxs9Gum-bU5T0wa6naIqz0g09M3W8Ukt8GohaVls9utaM8cGw-Ws
+Message-ID: <CAJZ5v0gsLCpGnA5fNSSVLOoPL6Qinw=o_fBGG-0iFKeWyQtFZQ@mail.gmail.com>
+Subject: Re: Forcing devices into idle
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Oliver Neukum <oneukum@suse.com>, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_064156_583676_B54466B8 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20250703_064616_933615_55A5E72D 
+X-CRM114-Status: GOOD (  44.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,89 +85,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 3, 2025 at 3:32=E2=80=AFPM Thierry Reding <thierry.reding@gmail=
+.com> wrote:
+>
+> On Thu, Jul 03, 2025 at 02:06:00PM +0200, Thierry Reding wrote:
+> > On Thu, Jul 03, 2025 at 01:12:15PM +0200, Rafael J. Wysocki wrote:
+> > > On Thu, Jul 3, 2025 at 12:33=E2=80=AFPM Oliver Neukum <oneukum@suse.c=
+om> wrote:
+> > > >
+> > > > On 03.07.25 12:08, Thierry Reding wrote:
+> > > >
+> > > > > Any thoughts on how to solve this? Is the pm_runtime_{put,get}_sy=
+nc()
+> > > > > method acceptable? If not, are there other alternatives to achiev=
+e the
+> > > > > same thing that I'm not aware of? Would it be useful to add a new=
+ set of
+> > > > > APIs to force devices into an idle state (which could be semantic=
+ally
+> > > > > different from runtime suspend)? Or is this all too specific for =
+any
+> > > > > kind of generic API?
+> > > >
+> > > > Basically what you need is what happens when the system prepares to
+> > > > do a snapshot for S4. However, if you just perform FREEZE and then =
+THAW,
+> > > > devices will assume that user space has been frozen. You need a way
+> > > > to substitute for that assumption.
+> > >
+> > > Well, you just need to freeze user space beforehand.
+> >
+> > Freezing userspace seems a bit heavy-handed. There's only a very few
+> > devices that need to be put into reset (such as the GPU), so most of
+> > userspace should be fine to continue to run. For the GPU the idea is
+> > to block all incoming requests while the device is forced into idle,
+> > and then to resume processing these requests after the VPR resize.
+> >
+> > But maybe freezing userspace isn't the heavy operation that I think it
+> > is. Ideally we do not want to suspend things for too long to avoid
+> > stuttering on the userspace side.
+> >
+> > Also, I think we'd want the freezing to be triggered by the VPR driver
+> > because userspace ideally doesn't know when the resizing happens. The
+> > DMA BUF heap API that I'm trying to use is too simple for that, and
+> > only the VPR driver knows when a resize needs to happen.
+> >
+> > Is it possible to trigger the freeze from a kernel driver? Or localize
+> > the freezing of userspace to only the processes that are accessing a
+> > given device?
+> >
+> > Other than that, freeze() and thaw() seem like the right callbacks for
+> > this.
+>
+> I've prototyped this using the sledgehammer freeze_processes() and
+> thaw_processes() functions and the entire process seems to be pretty
+> quick. I can get through most of it in ~30 ms. This is on a mostly
+> idle test system, so I expect this to go up significantly if there
+> is a high load.
+>
+> On the other hand, this will drastically simplify the GPU driver
+> implementation, because by the time ->freeze() is called, all userspace
+> will be frozen, so there's no need to do any blocking on the kernel
+> side.
+>
+> What I have now is roughly this:
+>
+>         freeze_processes();
+>
+>         for each VPR device dev:
+>                 pm_generic_freeze(dev);
+>
+>         resize_vpr();
+>
+>         for each VPR device dev:
+>                 pm_generic_thaw(dev);
+>
+>         thaw_processes()
+>
+> I still can't shake the feeling that this is sketchy, but it seems to
+> work. Is there anything blatantly wrong about this?
 
-On Wed, 02 Jul 2025 23:48:28 +0200, Aleksander Jan Bajkowski wrote:
-> This patch adds support for the temperature sensor in the MT7981 SoC.
-> This sensor is exactly the same as the one in the MT7986.
-> 
-> Changes in v2:
->  - added fallback to an existing compatible string
->  - removed second patch as obsolete
-> 
-> Aleksander Jan Bajkowski (2):
->   dt-bindings: iio: adc: Add support for MT7981
->   arm64: dts: mediatek: add thermal sensor support on mt7981
-> 
->  .../iio/adc/mediatek,mt2701-auxadc.yaml       |  1 +
->  arch/arm64/boot/dts/mediatek/mt7981b.dtsi     | 32 ++++++++++++++++++-
->  2 files changed, 32 insertions(+), 1 deletion(-)
-> 
-> --
-> 2.39.5
-> 
-> 
-> 
+There are a few things to take into consideration.
 
+First, there are 4 tiers of "freeze" callbacks (->prepare, ->freeze,
+->freeze_late, ->freeze_noirq), and analogously for "thaw" callbacks,
+but you only use one of them.  This may be fine in a particular case,
+but you need to ensure that the other tiers are not needed and, in
+particular, the _noirq ones need not be involved.  Also ensure that
+they don't assume that PM notifiers have run (or that they will run on
+the resume side).
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Second, if there are dependencies between the devices being frozen and
+other devices, they will have to be taken into account.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Also note that kernel threads are generally not affected by
+freeze_processes(), but I guess this is not a problem in your use
+case.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250702 (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250702214830.255898-1-olek2@wp.pl:
-
-arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dtb: thermal@1100c800 (mediatek,mt7981-thermal): compatible: ['mediatek,mt7981-thermal', 'mediatek,mt7986-thermal'] is too long
-	from schema $id: http://devicetree.org/schemas/thermal/mediatek,thermal.yaml#
-arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dtb: thermal@1100c800 (mediatek,mt7981-thermal): Unevaluated properties are not allowed ('compatible' was unexpected)
-	from schema $id: http://devicetree.org/schemas/thermal/mediatek,thermal.yaml#
-arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
-	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt7622-auxadc'] is too long
-	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
-	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
-	'mediatek,mt2701-auxadc' was expected
-	'mediatek,mt8173-auxadc' was expected
-	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
-arch/arm64/boot/dts/mediatek/mt7981b-cudy-wr3000-v1.dtb: thermal@1100c800 (mediatek,mt7981-thermal): compatible: ['mediatek,mt7981-thermal', 'mediatek,mt7986-thermal'] is too long
-	from schema $id: http://devicetree.org/schemas/thermal/mediatek,thermal.yaml#
-arch/arm64/boot/dts/mediatek/mt7981b-cudy-wr3000-v1.dtb: thermal@1100c800 (mediatek,mt7981-thermal): Unevaluated properties are not allowed ('compatible' was unexpected)
-	from schema $id: http://devicetree.org/schemas/thermal/mediatek,thermal.yaml#
-arch/arm64/boot/dts/mediatek/mt7981b-cudy-wr3000-v1.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
-	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt7622-auxadc'] is too long
-	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
-	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
-	'mediatek,mt2701-auxadc' was expected
-	'mediatek,mt8173-auxadc' was expected
-	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
-arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dtb: thermal@1100c800 (mediatek,mt7981-thermal): compatible: ['mediatek,mt7981-thermal', 'mediatek,mt7986-thermal'] is too long
-	from schema $id: http://devicetree.org/schemas/thermal/mediatek,thermal.yaml#
-arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dtb: thermal@1100c800 (mediatek,mt7981-thermal): Unevaluated properties are not allowed ('compatible' was unexpected)
-	from schema $id: http://devicetree.org/schemas/thermal/mediatek,thermal.yaml#
-arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
-	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt7622-auxadc'] is too long
-	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
-	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
-	'mediatek,mt2701-auxadc' was expected
-	'mediatek,mt8173-auxadc' was expected
-	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
-
-
-
-
-
+Thanks!
 
