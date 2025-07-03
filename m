@@ -4,77 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D55C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 22:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6475C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 22:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EyAAmzRd4ACr//ZBtdwhdaSbEwuX2K9tOqctWHmBUDM=; b=NZ1o8j/9ElWBPKJ4tAdSicMmGQ
-	t/K4EBTtxRvi2oVMFQfs/4WRfxoQl9BhFAx03a/vprN0ByaBzlwwVZaSsqQG588xhasFrfn3NodBv
-	VVPFMYluqd5nuF+pHGSbfnWMML0p7t8UYb5EYEgO+zcw/dVFM1D15QAfjplNMjIftBuM0TUpMKuoY
-	xMTXCxnZpd3jsiVet24e89KvzdkqWD/LArTp6Kca6XViYnxUrfiLUi8HFEo5z4Jjj3mPGezSTtpOc
-	2f4XpZltoQnFjvguQT7WvF8JYKtvpAR1a61EJo547bXU8SVKuciWqJxAAJV0G/BdfA6aVc8issv9u
-	oyS4Weug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zgxsuIMDDXARhsRWgLrILUs/XsyS+TZEtoBBb/RsYm0=; b=yi1g2ICn8q1tfCrz4Y0YdQJy+9
+	pz+WpTAVpqpvfrnLl7Agd4R1udF0ZKWtxIuwLPZnx/rItMQIs28BjlxD0BUYCORacWkV+BBwxaLyI
+	ER8xYpCVlqT1llC5U2Raiv4TdLmXJSj+ZYquLpucKq+uMP02fOhTwetoocU0++GuNoleQSp/RBjAG
+	mJXUALuITsuJ6BMdiBU6LGIhR476mPfC2pjfD9MnzN18m6sSek508gJL58GkoNWcy9e13xh3C/IOm
+	tnVfIR6+OQnBdCYEOeT9wHoxBENwRgnbhLhQv5uEIp1hkKGrlInb6fLLzRpmy6mIlUifEvnKPFSNj
+	bb3x5rUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXSX8-0000000CjxS-37Wb;
-	Thu, 03 Jul 2025 22:35:58 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uXSZS-0000000Ck9f-42ON;
+	Thu, 03 Jul 2025 22:38:22 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXPeQ-0000000CMoQ-1iKf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 19:31:20 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 563JVBcC108295;
-	Thu, 3 Jul 2025 14:31:11 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1751571071;
-	bh=EyAAmzRd4ACr//ZBtdwhdaSbEwuX2K9tOqctWHmBUDM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=hbg+t8G2c+PJbpP3mdlaPPXms6ITfVf8IMgdGLXzweIxJNLK29vYIKmNsixnYju4H
-	 PNrnUDr6Uz5/ZmpbjJ4l1VwJ9UhADPIZF0oFopbr2rvG89+3tK/3hEekjiFa0X50IB
-	 IfcZHU0ozK3rtBOEQhRgpcCAHSOe+gA84WDeIhwI=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 563JVBMD2640475
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 3 Jul 2025 14:31:11 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 3
- Jul 2025 14:31:10 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 3 Jul 2025 14:31:10 -0500
-Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 563JVAZQ1364345;
-	Thu, 3 Jul 2025 14:31:10 -0500
-Message-ID: <049171d7-d4ee-4499-8414-4b66b2c6e5b2@ti.com>
-Date: Thu, 3 Jul 2025 14:31:10 -0500
+	id 1uXQ5s-0000000CP3y-01A8;
+	Thu, 03 Jul 2025 19:59:41 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751572775;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zgxsuIMDDXARhsRWgLrILUs/XsyS+TZEtoBBb/RsYm0=;
+	b=FEw4D24yX86GGy1rTWJ6zgH6Tlp5yOHO2h19VrQVJd4soMjXNtcLFhCIhBmDcIfo3afyMj
+	GH127yUbXDNuBwtaRHEi3ZdZq1EtVgrFX538bhU2DxEWijBcrYdtsbcPrHNXmmJo9oigK2
+	p8tlXD9sQkkbAEVYgixGuE4g/C1C8SERxleQFZ6JK4QAYdSnvoCipiRlj9XG1+zgC+PcYi
+	P1+WPyUM/DcSNaeacoqIXzqO0l/JuCUlWJVgJtqJD9sBqQW82ryw/C9BjBZLTQ2Ex85h76
+	JpECmRlt2nY9d/HdGO8XKDQWVUSZHBMUUcyw4iSOA9qF3eLPWuCRcbf7lfETnQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751572775;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zgxsuIMDDXARhsRWgLrILUs/XsyS+TZEtoBBb/RsYm0=;
+	b=gcOi8AamD60gBuSLM6+XBj7cc6BNGHuWvnQ0nejzuIxbahpVhbP1ZuQex8HvkFndFkmXZR
+	hOi5o2qE1taW8LDw==
+To: Michael Kelley <mhklinux@outlook.com>, Nam Cao <namcao@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Manivannan
+ Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas
+ <bhelgaas@google.com>, "linux-pci@vger.kernel.org"
+ <linux-pci@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, Karthikeyan Mitran
+ <m.karthikeyan@mobiveil.co.in>, Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+ Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>, Pali =?utf-8?Q?Roh=C3=A1r?=
+ <pali@kernel.org>, "K
+ . Y . Srinivasan" <kys@microsoft.com>, Haiyang Zhang
+ <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui
+ <decui@microsoft.com>, Joyce Ooi <joyce.ooi@intel.com>, Jim Quinlan
+ <jim2101024@gmail.com>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian
+ Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review
+ list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Ryder Lee <ryder.lee@mediatek.com>,
+ Jianjun Wang <jianjun.wang@mediatek.com>, Marek Vasut
+ <marek.vasut+renesas@gmail.com>, Yoshihiro Shimoda
+ <yoshihiro.shimoda.uh@renesas.com>, Michal Simek <michal.simek@amd.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>, Nirmal Patel
+ <nirmal.patel@linux.intel.com>, Jonathan Derrick
+ <jonathan.derrick@linux.dev>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-hyperv@vger.kernel.org"
+ <linux-hyperv@vger.kernel.org>, "linux-rpi-kernel@lists.infradead.org"
+ <linux-rpi-kernel@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>
+Subject: RE: [PATCH 14/16] PCI: hv: Switch to msi_create_parent_irq_domain()
+In-Reply-To: <SN6PR02MB4157A6F9B2ABD3C69CE5B521D443A@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <cover.1750858083.git.namcao@linutronix.de>
+ <024f0122314198fe0a42fef01af53e8953a687ec.1750858083.git.namcao@linutronix.de>
+ <SN6PR02MB4157A6F9B2ABD3C69CE5B521D443A@SN6PR02MB4157.namprd02.prod.outlook.com>
+Date: Thu, 03 Jul 2025 21:59:34 +0200
+Message-ID: <87cyaht595.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] pmdomain: ti_sci: Add LPM abort sequence to suspend
- path
-To: Ulf Hansson <ulf.hansson@linaro.org>
-CC: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-pm@vger.kernel.org>, <d-gole@ti.com>, <vishalm@ti.com>,
-        <sebin.francis@ti.com>, <msp@baylibre.com>, <khilman@baylibre.com>
-References: <20250627204821.1150459-1-k-willis@ti.com>
- <20250627204821.1150459-3-k-willis@ti.com>
- <CAPDyKForKeb=uTkOXWcJea-P9c+7wQ3ZRWFYpTXk=xLoQPsQaw@mail.gmail.com>
-Content-Language: en-US
-From: Kendall Willis <k-willis@ti.com>
-In-Reply-To: <CAPDyKForKeb=uTkOXWcJea-P9c+7wQ3ZRWFYpTXk=xLoQPsQaw@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_123118_591906_5042BDC7 
-X-CRM114-Status: GOOD (  28.17  )
+X-CRM114-CacheID: sfid-20250703_125940_184641_28275323 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,131 +104,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/2/25 07:06, Ulf Hansson wrote:
-> On Fri, 27 Jun 2025 at 22:49, Kendall Willis <k-willis@ti.com> wrote:
->>
->> Create ->suspend_late() and ->suspend_noirq() hooks to add abort sequence
->> to any driver within the PM domain with either of those hooks. If a driver
->> fails to suspend with those hooks, add a call to the DM to abort entering
->> the LPM. The suspend hooks of the PM domains driver inserts itself into
->> the suspend path of all devices connected to the TI SCI PM domain. So if
->> any device in the PM domain with either a ->suspend_late() or
->> ->suspend_noirq hook fails to suspend, the PM domain drivers suspend hook
->> will send the abort call to the DM.
->>
->> Adding an abort call in the ->suspend() hook is not necessary. TI SCI
->> suspend sends the message to the DM to prepare to enter a low power mode.
->> TI SCI suspend ALWAYS occurs after the ->suspend() hook for all TI SCI
->> devices has been called.
->>
->> Signed-off-by: Kendall Willis <k-willis@ti.com>
->> ---
->>   drivers/pmdomain/ti/ti_sci_pm_domains.c | 46 ++++++++++++++++++++++++-
->>   1 file changed, 45 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
->> index 82df7e44250bb..975defc16271d 100644
->> --- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
->> +++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
->> @@ -2,7 +2,7 @@
->>   /*
->>    * TI SCI Generic Power Domain Driver
->>    *
->> - * Copyright (C) 2015-2017 Texas Instruments Incorporated - http://www.ti.com/
->> + * Copyright (C) 2015-2025 Texas Instruments Incorporated - http://www.ti.com/
->>    *     J Keerthy <j-keerthy@ti.com>
->>    *     Dave Gerlach <d-gerlach@ti.com>
->>    */
->> @@ -149,8 +149,47 @@ static int ti_sci_pd_suspend(struct device *dev)
->>
->>          return 0;
->>   }
->> +
->> +static int ti_sci_pd_suspend_late(struct device *dev)
->> +{
->> +       struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
->> +       struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
->> +       const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
->> +       int ret;
->> +
->> +       ret = pm_generic_suspend_late(dev);
->> +       if (ret) {
->> +               dev_err(dev, "%s: Failed to suspend. Abort entering low power mode.\n", __func__);
->> +               if (ti_sci->ops.pm_ops.lpm_abort(ti_sci))
->> +                       dev_err(dev, "%s: Failed to abort.\n", __func__);
->> +               return ret;
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->> +static int ti_sci_pd_suspend_noirq(struct device *dev)
->> +{
->> +       struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
->> +       struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
->> +       const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
->> +       int ret;
->> +
->> +       ret = pm_generic_suspend_noirq(dev);
->> +       if (ret) {
->> +               dev_err(dev, "%s: Failed to suspend. Abort entering low power mode.\n", __func__);
->> +               if (ti_sci->ops.pm_ops.lpm_abort(ti_sci))
->> +                       dev_err(dev, "%s: Failed to abort.\n", __func__);
->> +               return ret;
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->>   #else
->>   #define ti_sci_pd_suspend              NULL
->> +#define ti_sci_pd_suspend_late         NULL
->> +#define ti_sci_pd_suspend_noirq                NULL
->>   #endif
->>
->>   /*
->> @@ -264,6 +303,11 @@ static int ti_sci_pm_domain_probe(struct platform_device *pdev)
->>                                      pd_provider->ti_sci->ops.pm_ops.set_latency_constraint)
->>                                          pd->pd.domain.ops.suspend = ti_sci_pd_suspend;
->>
->> +                               if (pd_provider->ti_sci->ops.pm_ops.lpm_abort) {
->> +                                       pd->pd.domain.ops.suspend_late = ti_sci_pd_suspend_late;
->> +                                       pd->pd.domain.ops.suspend_noirq = ti_sci_pd_suspend_noirq;
-> 
-> This doesn't work as pm_genpd_init() is assigning the
-> ->suspend_noirq() callback, hence overriding the callback.
-> 
-> Moreover I am not sure this is the correct thing to do, as having your
-> own ->suspend_noirq() callback would mean that you will be by-passing
-> genpd's internal reference counting to understand when it's fine to
-> power-off the PM domain, vi a the ->power_off() callback.
-> 
-> Can the LPM abort be handled from a ->complete() callback instead?
+On Thu, Jul 03 2025 at 17:41, Michael Kelley wrote:
+> From: Nam Cao <namcao@linutronix.de> Sent: Thursday, June 26, 2025 7:48 AM
+>> 
+>> Move away from the legacy MSI domain setup, switch to use
+>> msi_create_parent_irq_domain().
+>
+> From a build standpoint, this patch does not apply cleanly to
+> linux-next20250630. See also an issue below where a needed irq
+> function isn't exported.
 
-Handling the abort from a ->complete() callback does look like a much 
-better solution than adding the ->suspend_late() and ->suspend_noirq() 
-callbacks. The only problem with it is that there doesn't seem to be a 
-way to tell if system suspend failed in order to call the abort sequence.
+Does it conflict against the PCI tree?
 
-However, the abort sequence just clears the LPM selection in the DM 
-which the DM already does upon successful suspend/resume. Clearing it 
-multiple times shouldn't be an issue, but I will have to look into this 
-more.
+> At runtime, I've done basic smoke testing on an x86 VM in the Azure
+> cloud that has a Mellanox NIC VF and two NVMe devices as PCI devices.
+> So far everything looks good. But I'm still doing additional testing, and
+> I want to also test on an ARM64 VM. Please give me another day or two
+> to be completely satisfied.
+
+Sure.
+>> +static void hv_pcie_domain_free(struct irq_domain *d, unsigned int virq, unsigned int nr_irqs)
+>> +{
+>> +	struct msi_domain_info *info = d->host_data;
+>> +
+>> +	for (int i = 0; i < nr_irqs; i++)
+>> +		hv_msi_free(d, info, virq + i);
+>> +
+>> +	irq_domain_free_irqs_top(d, virq, nr_irqs);
+>
+> This code can be built as a module, so irq_domain_free_irqs_top() needs to be
+> exported, which it currently is not.
+
+Nam, can you please create a seperate patch, which exports this and take
+care of the conflict?
 
 Thanks,
-Kendall
 
-> 
->> +                               }
->> +
->>                                  pm_genpd_init(&pd->pd, NULL, true);
->>
->>                                  list_add(&pd->node, &pd_provider->pd_list);
->> --
->> 2.34.1
->>
-> 
-> Kind regards
-> Uffe
-
+        tglx
 
