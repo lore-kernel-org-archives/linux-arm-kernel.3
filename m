@@ -4,76 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11679C83F05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D43DC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Wb7ryl1h9inAbssxgRRcYN71OQc+xlwlTh30aapwQ0=; b=NjlVxyp8iATsWtkxNFvcePjsKV
-	0Jabe9rhz+MGzuvmbnp/ePM7tyIE69mTGX4EeBudZ10HktL6/d1iiEBUyCv7iWyw7kGJ2mUTDsP1S
-	gfWN6B0skkcOByYLPyasYW5rL6ZBGJyoEgsVU3ziDtbu2wgzFZH2AOAK9HKOOARSX06AfxOhXnkrr
-	Sucx/W2c/GNreumdwO5GDfdhH8E8Gp26e98uupELGYTmfnp/sTthZMgNpAkLYZBjRrdF0H7Nzd63V
-	tx+VWYciZJ9NzE69o2jY++Pv6CVVWemftNQ3Eb2D0pSUrh0n5x/vpmhhkWzkEq/W/nzGrop0d9sxJ
-	cFHw3/Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N4xswAcOCiDxtwue83ObsxfZ7pep/Cfzt8s7Ua/cbyI=; b=P2y6aEfB51rOkOw4MVCxK9ByDO
+	6O6YB5umDVoEoydgzX5DAY9gP6WHbiflrsAPlgoOrb/3Ea8dIrBfBLgTtlWKpABH7Oc9DhPhQ8GkX
+	IwduEGw37VhCpc7LRXhRNiR0MBghZfowenH5BNV8bqeElh3NL//qhtWlLpzP/rehjYIUN80z99qbZ
+	MWk+lH/1yK2sdYN+KjG75jnng+1LLSReonukiCAiVhG5m+IEmqb4zzcgGgKq/dhMLAlZbEs0P+/ad
+	JaxTTPajZ8WdvG3ISqdx57I7CkyM0Whj7pudMscSIwFEsY30iOTQCGmZVcufcGG7JR2TYWnslTqUJ
+	tDHQiolg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXQzm-0000000CTWo-11xW;
-	Thu, 03 Jul 2025 20:57:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uXQzU-0000000CTF4-2NCC;
+	Thu, 03 Jul 2025 20:57:08 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXLte-0000000BpXh-2jv2
+	id 1uXLZR-0000000BlwF-1Jbp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 15:30:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 17D9E4652C
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Jul 2025 15:30:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED631C4CEF6
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Jul 2025 15:30:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751556646;
-	bh=kf3R69g/8+n9ejwwkL6h4el8NdPueW74hEy4yuQ+Fcs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=PZMwGe5dNAHXaQXy7PzKulv/A+zJtJvHhx/HmtZ/JUiEEL3LTDkl/EkJGRoMJXlMK
-	 4edeGRsBNALWZAnkPPW+RYmJKC67N8n1NeFbAFo3Yhd2LcsB6Ay7qVRFI2a5t6bBsL
-	 Pfu87cyQNJvfsrb4xhkgIRx5cqx4xEYj3bcccNodHNShokUkNoTFGqLHzDE6yZ0bPN
-	 QzUm6SSXCQ6EVw4MslSkk9Q+h/3NnJYUly4YGAWNFida9xCXJCPfMyO3OC6U6cQcG8
-	 /fs/DBU89ZIQZPrWKAUxlJlVQEp+hylznjNgXArJ5VkSM0cZ2JzlVYjKtKnb/YwrFB
-	 isoGvoUwwbrqQ==
-Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6099d89a19cso10871612a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 08:30:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVKCfkUS3YRw3rYyVvUxvfwTi0uiUX2tAwTqDrpc2nKJlPdpYGCkR2a05lFWmXbcMuuA8/F7qdqJeqPxg5GLzQm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUd4UNLfDEAPvRSdveztiNCW7dWdgZ9SxKWOs+qYugjtIHyrWj
-	ir9RfzXtvFozl2vWLtiI8uleQ9L0+j2zoCpijoZPUey/l7gHZi1QIkjppIcOFTaANjEPFQW5ucj
-	89oIcRvpGJYXdBIjE7wJzTt57WI43ow==
-X-Google-Smtp-Source: AGHT+IFGK3wNYEmDTQE7cJvW5bwhu5w4lNajdS9akjc5i1/E/t6dIX21GgObTKsLF38FMy+/VygKrLB7PYcfFn+IPck=
-X-Received: by 2002:a17:907:94cb:b0:ade:44f8:569 with SMTP id
- a640c23a62f3a-ae3c2c9d41bmr815278466b.42.1751556644360; Thu, 03 Jul 2025
- 08:30:44 -0700 (PDT)
+	Thu, 03 Jul 2025 15:09:54 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3a52874d593so4817693f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 08:09:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1751555391; x=1752160191; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=N4xswAcOCiDxtwue83ObsxfZ7pep/Cfzt8s7Ua/cbyI=;
+        b=Ebg2/opwf9Wjyo2igtCRHWyKUVvS0IhSysgErk4UwN7KZlfDBcJK6vMUPe4KwOw/fo
+         DDdt+B5x5jz9mYahvHjAyd4jsME5s5LLdfkWIDrYdYisnP0AiXk1IUI26o3kDgmgBUij
+         TsAfrq9zEMqnzAlgZRPXzYBBYfkiZ0QwtnVvEZj5aa0lbJMvKnoVKXPoWDNGoUFa+5Og
+         0smORGst1Eju1dwHMJih/8ylaXEWVUlVVi+2Lm+0Z9+zo9/PH2vLMKf61wtuaJTQoFu6
+         Hu0bwfGCB1qIbjxOq2UacNL77Bd4nvGAiVwv4NtK4eIJ3k2NpexiSr1AceeCjuqP1XNx
+         qg2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751555391; x=1752160191;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N4xswAcOCiDxtwue83ObsxfZ7pep/Cfzt8s7Ua/cbyI=;
+        b=hornO/cMjzXTLzmddh3sD3Dtyu3xv5OmURtSW0lDa7JJOveOM1IjCvhDekzq072zMR
+         XLJmfsswfZkVpgon1bvys412/HACRCcMb3QuLtO+roKqg9+56glupD6v74HnHPxBbve1
+         II/Xnq6T74iZa9d1rRWwCwrs02SvHwj8myeS90QhCvB5r3Uc0GFfFEIqS+vLT0nw3K5j
+         yjLGhEfeVSAgTlCA5/4gY4m6qcNC6HZCGkuaKbj77ESn5y5oaPxIfvbyXrLlkJ3WZNSY
+         2fXowyrYbpu9zBcC2uKzR5ogVpGvI08l7Cay0Axr+q2ZqrLgv4hmOKzx9a0EAoRzn73x
+         UmyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX8reNJEYyU7qT/GxEVrtsOrRvwscLO5inDR7ZVuoNXEM1fIu5aSxopEpOAscewWZYiZYYa3p86nu+wYsQklWbb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzi8L+VET2Cg5sLYxOf/Ql2CA0z7mZ4nJ7BlJX2yaD+Nan8tKHk
+	0Xh5s18y+mJh2NuJqHPZ6TigXGPBDIjZyir5cWRJD4CDuW3HdMPet1hqWjxMPqzJ1HQ=
+X-Gm-Gg: ASbGncstQlMgkvxi0CKXvBi8IS1C8qh0J8IA0i141IaBriyeupetkNBE6gTd7ymK1r/
+	K1wC4vNLd0K+tI78OCGXf2585gplMcgDsnyFqG9pbas4SMR5TDSShT1kKUZRrd8reZxAzX7IjO4
+	3Y5QyzdU0lCApHEi5bKcB+Nxp+NSOMQfV/eHVE73XxYrYpMmXiUxs5/UyXRG3824vyQwHy0r8gl
+	l9Sh1Ofi+4aGKGKzV3IwQRAfAw9NJuCZtPpnZy9u3Fv18nUI2eP+owgcxl0pIeZzjZcSJ5NxOI/
+	Af1me/lhuAe7RMJYtIyFnXpTLno2rFTo5uGa5xd/TW4kJIGoI2N7tdlkCt4=
+X-Google-Smtp-Source: AGHT+IEmRzbd+GUqMa9EtpxZkxLu0N77USju2BDfKfk5a8aVAGwl1ML9f6DqwUQeD0xjX4cStIATAQ==
+X-Received: by 2002:a05:6000:23c9:b0:3a4:e7d3:bd9c with SMTP id ffacd0b85a97d-3b32bbd66bfmr2181064f8f.17.1751555391014;
+        Thu, 03 Jul 2025 08:09:51 -0700 (PDT)
+Received: from linaro.org ([82.79.186.23])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c8290d670sm10712164a12.30.2025.07.03.08.09.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Jul 2025 08:09:50 -0700 (PDT)
+Date: Thu, 3 Jul 2025 18:09:47 +0300
+From: Abel Vesa <abel.vesa@linaro.org>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
+	Frank Li <frank.li@nxp.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 5/5] arm64: dts: imx943: Add LVDS/DISPLAY CSR nodes
+Message-ID: <aGadO/7e4ndjK2Wg@linaro.org>
+References: <20250703-imx95-blk-ctl-7-1-v2-0-b378ad796330@nxp.com>
+ <20250703-imx95-blk-ctl-7-1-v2-5-b378ad796330@nxp.com>
 MIME-Version: 1.0
-References: <20250630213748.71919-1-matthew.gerlach@altera.com>
-In-Reply-To: <20250630213748.71919-1-matthew.gerlach@altera.com>
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 3 Jul 2025 10:30:32 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqLrLJ6wiqBk31NhronsUqX4_5FN-Lb26r-3SceDD7kkAA@mail.gmail.com>
-X-Gm-Features: Ac12FXxuKTihI_ySZjceamap3hZ9PwUnYru49iIiSxON-urQArDwhuRwHAUu1ZI
-Message-ID: <CAL_JsqLrLJ6wiqBk31NhronsUqX4_5FN-Lb26r-3SceDD7kkAA@mail.gmail.com>
-Subject: Re: [PATCH v7] dt-bindings: net: Convert socfpga-dwmac bindings to yaml
-To: Matthew Gerlach <matthew.gerlach@altera.com>
-Cc: dinguyen@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, richardcochran@gmail.com, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Mun Yew Tham <mun.yew.tham@altera.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250703-imx95-blk-ctl-7-1-v2-5-b378ad796330@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_083046_708871_7E28F62A 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250703_080953_372724_887BD95A 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +106,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 4:38=E2=80=AFPM Matthew Gerlach
-<matthew.gerlach@altera.com> wrote:
->
-> Convert the bindings for socfpga-dwmac to yaml. Since the original
-> text contained descriptions for two separate nodes, two separate
-> yaml files were created.
+On 25-07-03 11:40:24, Peng Fan wrote:
+> Add nodes for LVDS/DISPLAY CSR.
+> 
+> Add clock-ldb-pll-div7 node which is used for clock source of DISPLAY CSR.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Did you test this against your dts files?:
-
-ethernet@ff804000 (altr,socfpga-stmmac-a10-s10): iommus: [[11, 3]] is too s=
-hort
-ethernet@ff802000 (altr,socfpga-stmmac-a10-s10): iommus: [[11, 2]] is too s=
-hort
-ethernet@ff800000 (altr,socfpga-stmmac-a10-s10): iommus: [[11, 1]] is too s=
-hort
-
-There's also one for 'phy-addr', but that needs to be dropped from the
-.dts files as it doesn't appear to be used.
-
-[...]
-
-> +  iommus:
-> +    maxItems: 2
-
-You need to add:
-
-minItems: 1
-
-
-Rob
+Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
 
