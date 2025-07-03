@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5045C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B3DBC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dI69ri/EaV+tRdPKe/oBg6h4lvOGu3Vkj944fBiFCGc=; b=ARrDQz+h1dwl0aFmC2sGwxIqGf
-	8m5+bfr8sFe7qcqQNj36dhztuRvObWw35R/dzvQP4YNa6QVA5At2GBUmW9at5oEXeZxA5u6hwWm03
-	kZlAiLiCQf1A3k7NE/1Z5oYJ4sXhacZ6zO4Aw44ryOAWTx9WBTFmkjYP0ccwnS0Zbeok9YEhUxm7a
-	PkgJbOAqPPBNLNhAAyRVKp0Y1pveDeUxE/N/dfum270S2lOPutPJlJFpU8NOrmRv7mgxkU3lgPj1C
-	rb37yw6bHgziwqYcXLy3WqW5ZnmcbNHc9yu8KHMbYn6/pUoY3YBC3o2+cmAxhHSWebA9Pfa598WYC
-	Jko4hRNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OCtxfijaVm+CdySvz4wp4lXx6NKzCfTR5tSHGOmQuhM=; b=lHW4UajoGpy7d2XfJ6JP5NRM2m
+	ODKFUlXWLjh72GDmZOmt8nwn4IOlAkHhSQnFpv00sw1Wwaw5jW25QOCQsQWanHjIXEemniUMdW+HE
+	tmA7626HP9OIN0SwJ/+PBocYKvRaw8f5A4ecOuE7w96gK37Zsrvt5qLyCjZ0ht9Fz6TJUQJ1DyS5W
+	O3RTR8OYZRIRP/+f955XA38VfacEPdGyxEPyFfenJfKGu2oN89SCRPvYS+o+xALu5eTlJgeQFX51J
+	fL4yp9vLD7HUxS45ylbSaXh2WiSZ3hKI+tSM3JdMkrkh9vuFGGIfhDrUuLXZyvl+d4Tb8gksPLA0t
+	AtAFvQHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJFg-0000000BMa4-3nym;
-	Thu, 03 Jul 2025 12:41:20 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1uXJI0-0000000BMtZ-2T1x;
+	Thu, 03 Jul 2025 12:43:44 +0000
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIEm-0000000BAyv-3UD4;
-	Thu, 03 Jul 2025 11:36:21 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1uXIES-000000004sT-1IDF;
-	Thu, 03 Jul 2025 11:36:00 +0000
-Date: Thu, 3 Jul 2025 12:35:56 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: "Frank Wunderlich (linux)" <linux@fw-web.de>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, frank-w@public-files.de,
-	MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Georgi Djakov <djakov@kernel.org>, Rob Herring <robh@kernel.org>,
+	id 1uXIGj-0000000BBVe-3Z5n
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Jul 2025 11:38:22 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-874a68f6516so681924539f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 04:38:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751542700; x=1752147500; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OCtxfijaVm+CdySvz4wp4lXx6NKzCfTR5tSHGOmQuhM=;
+        b=fVs3S0I1IdoVLESiaJyrQxIpXey4YkaDhOfWRI7c2FIVE66qW2fS/alDNAvoCfLaKQ
+         cZaTP9uQjB2Lm0IOXBi0+P9PFro7CaYdKOq8/e3/yzSo5fslkXVEZSNMvuYCofKNM5Ii
+         pcQ0+CaTvDqWHAiGCwDN9UYtwL/g0hwYi9LrTPCwcBivsL6Jxsb2W1ORERDtPYM2bLeR
+         gg3gV75oh66TwIPLNBDz2vcjkZ0RdGMY2Sq4IF7QoMoh/fPpl85YtTxAkp1blMMX9kkE
+         KEgWsuIDGeRZDdTe/obu1TAfc8c9AVMyKVXdoScLgzS+3QxYuYa1xBI+Ey5gS9qCvWGf
+         osuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751542700; x=1752147500;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OCtxfijaVm+CdySvz4wp4lXx6NKzCfTR5tSHGOmQuhM=;
+        b=wDW4rD/+g38hgMqNCSMYA1wfOFdgVBWN9z9mgQiuxVR6YZI+egI78U6PlWYeZgNH9i
+         HCGwjgUn4F+k7Hy+QWNi4LVJMuE1DECX9nT9PLOfGh9ZitnI/aEQ8CV96ghQxEcEjGr5
+         OyDDZAqm/4BDlx7DT5a6FaFIRcqCtUUp3qKGmWslZzmeegIeynBAZF+hLeTJYgZ145hq
+         5TUGdA1mgUtj+wBQuiJ8adOT9RKOnsaezJ3NpDopH+t/0VD5lTkZ0ki7NWGIiH6dDQJQ
+         OxH+lNAq7kdECGBX4v0vQugf+nNnQPGngyYnGZLCCFD+vrCrjrz7UhURj1rn6VNeqCyA
+         o3fQ==
+X-Gm-Message-State: AOJu0Yyb7DSaMg+wsrdlefn3fnm5hjmOK31aanJw8yzu5FUpHVJBDElN
+	96MqNlhy3LHLRvcu7VqRtrM/T5Afdy/Zu13hQBJ3bbyuFV8wRwi7qxxTW/15WA==
+X-Gm-Gg: ASbGncugugSx3PKGkg0SFBufxDYJl3wD9X0aD7BA5Xc0irvmcVqJlmtvy490n+Ywc9L
+	pL5Tl40C/mVSxWcXo/ypJGitDbHN0taG1gHltDqSU1ivOzt47QnAXE3UlmcAwh/tfOqOeFl4s+v
+	JggXO2nSFK/NPULW7o7OJIqDvEE65txNNzOOjh9qlsxOZB96mhTsprwovqadQuLj9VCDqWx2/Ro
+	ez7ZFipD6P+uxRZ1t35W8fkGSJzmJOnQIC0Xh+eisGFIPFIlBLWYsowoLY15dBKrZOyjmqYRwYj
+	2PZNbdEccGvWtzAu/ZhJ4zoYQEbnhHOTvg5aCZx+KD2y2dKIk23I7QvTNUIcwQmpAAK3bz8jtEQ
+	9mTC+R8SSz11Gh0X04/EULeK/Sp9oYsstWjf1rqU+CvFBrhY=
+X-Google-Smtp-Source: AGHT+IHog5B1MQo5B5fqSCOuRreuMqfrr3E0s/Y/+iP0IZARhEP16EmHsjUPLaXR/JQcDkES5v7T1w==
+X-Received: by 2002:a05:6602:6003:b0:876:5527:fe2a with SMTP id ca18e2360f4ac-876c6a6fd54mr836261839f.11.1751542700238;
+        Thu, 03 Jul 2025 04:38:20 -0700 (PDT)
+Received: from aford-System-Version.. (c-75-72-162-184.hsd1.mn.comcast.net. [75.72.162.184])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50204a57456sm3483544173.72.2025.07.03.04.38.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Jul 2025 04:38:19 -0700 (PDT)
+From: Adam Ford <aford173@gmail.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: aford@beaconembedded.com,
+	Adam Ford <aford173@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Johnson Wang <johnson.wang@mediatek.com>,
-	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
-	Landen Chao <Landen.Chao@mediatek.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v7 01/14] dt-bindings: net: mediatek,net: allow irq names
-Message-ID: <aGZrHMnpMMzNkIjF@makrotopia.org>
-References: <20250628165451.85884-1-linux@fw-web.de>
- <20250628165451.85884-2-linux@fw-web.de>
- <20250701-wisteria-walrus-of-perfection-bdfbec@krzk-bin>
- <9AF787EF-A184-4492-A6F1-50B069D780E7@public-files.de>
- <158755b2-7b1c-4b1c-8577-b00acbfadbdc@kernel.org>
- <b68435e3e44de0532fc1e0c2e7f7bf54@fw-web.de>
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V2 1/2] arm64: dts: imx8mm: Configure DMA on UART2
+Date: Thu,  3 Jul 2025 06:38:09 -0500
+Message-ID: <20250703113810.73023-1-aford173@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b68435e3e44de0532fc1e0c2e7f7bf54@fw-web.de>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_043620_868326_133B6627 
-X-CRM114-Status: GOOD (  36.42  )
+X-CRM114-CacheID: sfid-20250703_043821_886056_8DC6F158 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,85 +104,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 03, 2025 at 01:01:40PM +0200, Frank Wunderlich (linux) wrote:
-> Am 2025-07-02 08:27, schrieb Krzysztof Kozlowski:
-> > On 01/07/2025 12:51, Frank Wunderlich wrote:
-> > > Am 1. Juli 2025 08:44:02 MESZ schrieb Krzysztof Kozlowski
-> > > <krzk@kernel.org>:
-> > > > On Sat, Jun 28, 2025 at 06:54:36PM +0200, Frank Wunderlich wrote:
-> > > > > From: Frank Wunderlich <frank-w@public-files.de>
-> > > > > 
-> > > > > In preparation for MT7988 and RSS/LRO allow the interrupt-names
-> > > > 
-> > > > Why? What preparation, what is the purpose of adding the names,
-> > > > what do
-> > > > they solve?
-> > > 
-> > > Devicetree handled by the mtk_eth_soc driver have
-> > > a wild mix of shared and non-shared irq definitions
-> > > accessed by index (shared use index 0,
-> > > non-shared
-> > > using 1+2). Some soc have only 3 FE irqs (like mt7622).
-> > > 
-> > > This makes it unclear which irq is used for what
-> > > on which SoC. Adding names for irq cleans this a bit
-> > > in device tree and driver.
-> > 
-> > It's implied ABI now, even if the binding did not express that. But
-> > interrupt-names are not necessary to express that at all. Look at other
-> > bindings: we express the list by describing the items:
-> > items:
-> >   - description: foo
-> >   - ... bar
-> 
-> ok, so i need to define descriptions for all interrupts instead of only
-> increasing the count. Ok, was not clear to me.
-> 
-> so something like this:
-> 
-> item0: on SoCs with shared IRQ (mt762[18]) used for RX+TX, on other free to
-> be used
-> item1: on non-shared SoCs used for TX
-> item2: on non-shared SoCs used for RX (except RSS/LRO is used)
-> item3: reserved / currently unused
-> item4-7: IRQs for RSS/LRO
+UART2 is often used as the console, so the DMA was likely left
+off on purpose, since it's recommended to not use the DMA on the
+console. Because, the driver checks to see if the UART is used for
+the console when determining if it should initialize DMA, it
+should be safe to enable DMA on UART2 for all users.
 
-These descriptions match the current *software* use of those interrupts,
-however, DT should describe the hardware and esp. item0 up to item3 could
-be used in different ways in the future (by programming MTK_FE_INT_GRP
-register differently).
+Signed-off-by: Adam Ford <aford173@gmail.com>
+Reviewed-by: Fabio Estevam <festevam@gmail.com>
+---
+V2:  Fix spelling errors in commit message
 
-I think using interrupt-names fe0...fe3 and pdma0...pdma3 is still the
-best option, so the driver can request the interrupts by name which is
-much more readable in the driver code and SoC's dtsi than relying on a
-specific order.
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm.dtsi b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
+index cfebaa01217e..ded89b046970 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
+@@ -915,6 +915,8 @@ uart2: serial@30890000 {
+ 					clocks = <&clk IMX8MM_CLK_UART2_ROOT>,
+ 						 <&clk IMX8MM_CLK_UART2_ROOT>;
+ 					clock-names = "ipg", "per";
++					dmas = <&sdma1 24 4 0>, <&sdma1 25 4 0>;
++					dma-names = "rx", "tx";
+ 					status = "disabled";
+ 				};
+ 			};
+-- 
+2.48.1
 
-> > 
-> > There were only 4 before and you do not explain why all devices get 8.
-> > You mentioned that MT7988 has 8 but now make 8 for all other variants!
-> > 
-> > Why you are not answering this question?
-> 
-> The original binding excluded the 4 RSS/LRO IRQs as this is an optional
-> feature not
-> yet available in driver. It is needed to get the full speed on the 10G
-> interfaces.
-> MT7988 is the first SoC which has 10G MACs. Older Socs like mt7986 and
-> mt7981 can also
-> support RSS/LRO to reduce cpu load. But here we will run into the "new
-> kernel - old
-> devicetree" issue, if we try to upstream this. Maybe we do not add this
-> because these
-> only have 2.5G MACs.
-
-It might be important to note that
-
-MT7621, MT7628: 1 IRQ
-MT7622, MT7623: 3 IRQs (only two used by the driver for now)
-MT7981, MT7986: 4 IRQs (only two used by the driver for now)
-
-While older SoCs MT7981 and MT7986 have limited support for *either LRO
-or RSS* in hardware, only MT7988 got 4 frame-engine IRQs like MT7981 and
-MT7986 and an additional 4 IRQs for the 4 RX DMA rings on top of that,
-so a total of 8, and can do both RSS and LRO.
 
