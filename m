@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD6E5C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47CA6C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QkjKWy8yhoZ987+3foqsduRcrWwEcugIYUWq0+gy8nE=; b=g6fg4HugKFXqgnp1yzArDYiP3u
-	rzL1O1lxdhi1MF/5m4K+f8bI3+mKeZosXZJWFw67MqNG//evLFBcnLQci2XlcmgMGvVG991Mcy0Ya
-	Qbt5iteshII78kxfg6LHa8NOtOkueSXZOIJjQnvvsUJDd0uc7J773EcBjVVmps784YdSiIAQczqnH
-	yZyQD2chPge0JAJbEjOIR3xlMq1ac5zVgVqqLr31c3tBYHSdZW7twY06uDkxSxkHRWsa7t9V1XS94
-	QQqlMWwpjryp4sDNkRVELReZlIGpqLcaR3M0RV/u7MZW+JPvRVY++s/yzU+1wDjesF4qfP9N+qFDd
-	7Vgg4Tqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gDlYEkubd96z9MwJzBRtpwFB7aA0Q1bDJcX399/Kjr8=; b=OYPsZ6fJ9f8wwmkbjEU3IkxJC+
+	euxfmEZkvU39uZBD1e4n9r8nmmIlLyerGR1cRGVgxkwtW0k3PCb+l3bt5Juhyg9sUmaZd5djg0ZqS
+	skwqwpCC1SKLi4gZfoRs0ymV4fOQj8tz9oc6bVlzaEdOlw6drg7Vtd78DV8/oJ0OWqui8EEVSOpYa
+	IPrtP1aMfCGsyyykSuxkdC0vSuNNjCpVrSma+nRhXBGHnvHLRZOOZMzauu29jvV5KJ/6htzfnpEWs
+	QD9X7d1jiT+Jdj8OcvPmQGX6CWV7/OEgq/hTzqMr+xnS8E49SW16DE2tS1jakLbHFYxEn/WBbp3w4
+	NLh26yoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKqC-0000000BeIQ-11w7;
-	Thu, 03 Jul 2025 14:23:08 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uXKsW-0000000Bemq-44lc;
+	Thu, 03 Jul 2025 14:25:32 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJ3B-0000000BKee-2XSd
+	id 1uXJJ6-0000000BN54-3FmY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 12:28:27 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 563CSDqS3538125;
-	Thu, 3 Jul 2025 07:28:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1751545693;
-	bh=QkjKWy8yhoZ987+3foqsduRcrWwEcugIYUWq0+gy8nE=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=xSESKE3NFLWEFLG+QvGZeMTwqbPd/t/LVxDEh+a2/IbU0FGTHUk0YFVjJRqxXetSj
-	 tIv//kknACE2fQ1ITzU7SCSypIJMIxDU9F5KFlvyTxuByPBDdp8fIVOy/Fm0Wl1KmZ
-	 VOA5N9v678rCXKZngrEqBCBc6DeuKdR2dyHLRR3w=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 563CSD7n725387
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 3 Jul 2025 07:28:13 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 3
- Jul 2025 07:28:12 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 3 Jul 2025 07:28:12 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 563CSDWQ1103740;
-	Thu, 3 Jul 2025 07:28:13 -0500
-Date: Thu, 3 Jul 2025 07:28:13 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-CC: Guillaume La Roque <glaroque@baylibre.com>, Andrew Davis <afd@ti.com>,
-        <vishalm@ti.com>, <linux-omap@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <linux@ew.tq-group.com>
-Subject: Re: [PATCH v2] arm64: Kconfig.platforms: remove useless select for
- ARCH_K3
-Message-ID: <20250703122813.jh2muwzwe4ok6b6d@process>
-References: <20250519-kconfig-v2-1-56c1a0137a0f@baylibre.com>
- <f44c7074337b79df9ad67f62acbc268acc344a23.camel@ew.tq-group.com>
- <e0773f0e-8d2f-4918-aaad-aab6345fdb81@baylibre.com>
- <9042d63de85f7ae8bf73760e9d2d7652c18a738c.camel@ew.tq-group.com>
+	Thu, 03 Jul 2025 12:44:53 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55622414cf4so2885776e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 05:44:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751546691; x=1752151491; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gDlYEkubd96z9MwJzBRtpwFB7aA0Q1bDJcX399/Kjr8=;
+        b=Bmq8waMJZC1Ea97ze7f0flP643gA6Lcr/WXjXoSJkW3opyYqWK8dVvCN9lPQ1PdMaX
+         +n0ywuE9zeVH+JIVay/Us7L66KvSO33vUhm160frLZi8+8O+ZJQmGkuFilyuTftj5WQP
+         ojDdkFPjVPsZe8ybGcgUyxlBgkXddvxBV2ekx+gsxTJHIq8tiu7UBy4pYf+oyglzb33F
+         NIuJ4Qkgwl8QvoFZuYDYM6Gzq81NUwcYd3iAtPCiDN2liU1B0FSzkxYfq8d8wyZlD6ku
+         02hrnQQABflmsHtsFVCR9Ynk18ZZEU2wCk7SwwhcyzZdIONZBfAcZtnmPRnyuaGmWU0h
+         n4LQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751546691; x=1752151491;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gDlYEkubd96z9MwJzBRtpwFB7aA0Q1bDJcX399/Kjr8=;
+        b=o0omiNHMqpK+3C+6JEg6g/JzA91cbavTBiRpN6X1Fk9GstphNQc9HhLTKiwQdI0WXR
+         Ct0mJqUATae8stECBqDYcQwd7Ku2hgVJiVuQ1XojkuQ7Vk2rpbjmHbXzr0mTVYcjIjZd
+         iofhZnPqbGZiQhPKAh5Lc+5sDm3wsIY+us9Tso9P7s9KJWEprTouM2VV3MWVVyt4Q7IR
+         ONH/osWMl4g+RWJdB/tT44AK8sonfG042IQX4XbWeu2EdCzWB/Vpxmnlf1e1EOypbRbt
+         eMEFtQNE3ysx+JpbFN+f7cR3H9maXLyyJGrhQGZJzh9LKQwafWJotR++Mt0h7axN46zz
+         s7ZA==
+X-Gm-Message-State: AOJu0YzxdtC60iZdDinQGjLGM+uvbEN6zPjdEXUI6NMtGTo8CC81oJ4s
+	RWpJP4l5mfN0idn8MUcB5Si5bUYx0cS5bt98lDEMTTpxf0bkXaxoqDBDOpQBPKIn9S91TopiKQr
+	+G+DwFAL85hAn0YxkUCfur4qPkBN9r7c+Iw==
+X-Gm-Gg: ASbGncu0j8iO3lsRIiudm8PDhg2MZoAca66aEDfiD7jh+CgGONFdus2BwJVOL2b4x2a
+	pQ09wVJjh0aReka6TpXaS65+1o8W0knznjLbVA7/KLkaNZWpGfo0CntHc0uW3q1EL39eluDOjBq
+	AX63RDv2X6l0PK1TZEQv8+bn1eWFMyG/QagQToZE85EjvUy/Mmvwc2lwZKoYu+4QX01DMnLedF4
+	mg=
+X-Google-Smtp-Source: AGHT+IFKVEiV+VQbUtpCqC9WckskybLMn53BW4tS3ehL1ZkM1xl1Mfgo8fk6N8Koy0lM0uprCJl6fTzRVH+Gd2z/05I=
+X-Received: by 2002:a05:6512:39c7:b0:553:2cfe:9f1f with SMTP id
+ 2adb3069b0e04-5562ee21536mr1060794e87.6.1751546690574; Thu, 03 Jul 2025
+ 05:44:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <9042d63de85f7ae8bf73760e9d2d7652c18a738c.camel@ew.tq-group.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250620213447.56392-1-aford173@gmail.com>
+In-Reply-To: <20250620213447.56392-1-aford173@gmail.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Thu, 3 Jul 2025 09:44:36 -0300
+X-Gm-Features: Ac12FXx8tubzpqCb7QAhaROTPHQN2B3IX372b8SYzWGNI2K_HNEsG1Iuj4faMGA
+Message-ID: <CAOMZO5B-7LuYs34ACmMD7S3B0Sxihe8A+atdNi_3QfMP3VFYtg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] arm64: dts: imx8mm-beacon: Fix HS400 USDHC clock speed
+To: Adam Ford <aford173@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, aford@beaconembedded.com, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_052825_731529_9EACA45D 
-X-CRM114-Status: GOOD (  28.66  )
+X-CRM114-CacheID: sfid-20250703_054452_814361_56F18DD5 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,62 +97,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09:25-20250702, Matthias Schiffer wrote:
-> On Tue, 2025-07-01 at 20:57 +0200, Guillaume La Roque wrote:
-> > 
-> > Le 01/07/2025 à 16:36, Matthias Schiffer a écrit :
-> > > On Mon, 2025-05-19 at 10:20 +0200, Guillaume La Roque wrote:
-> > > > 
-> > > > After patch done on TI_MESSAGE_MANAGER[1] and TI_SCI_PROTOCOL[2] driver
-> > > > select on ARCH_K3 are not needed anymore.
-> > > > Select MAILBOX by default is not needed anymore[3],
-> > > > PM_GENERIC_DOMAIN if PM was enabled by default so not needed.
-> > > 
-> > > Hi,
-> > 
-> > Hi,
-> > 
-> > > 
-> > > what selects PM_GENERIC_DOMAIN in your configuration? linux-next fails to boot
-> > > on our AM62x-based TQMa62xx if I don't (partially) revert this patch - I have
-> > > not found a way to enable PM_GENERIC_DOMAIN and TI_SCI_PM_DOMAINS without
-> > > enabling other unneeded features to pull it in.
-> > > 
-> > With master branch if i apply this patch and i do make ARCH=arm64 
-> > defconfig and check in .config  both TI_SCI_PM_DOMAINS and 
-> > PM_GENERIC_DOMAINS are enabled.
-> > with linux-next it's same. i don't really understand link with  PM part 
-> > in this patch and boot issue on your SOM.
-> > 
-> > I probably misunderstand something.
-> > 
-> > 
-> > what is your problem exactly ?
-> > 
-> > if you can share log or link to jobs
-> 
-> 
-> Hi Guillaume,
-> 
-> with arm64_defconfig, this problem doesn't occur, as other CONFIG_ARCH_* symbols
-> also have "select PM_GENERIC_DOMAINS" (with or without "if PM").
-> 
-> We are using a smaller config specific to our K3-based SOMs however. I have
-> attached a defconfig that shows the problem - if you use this as the base for
-> .config on linux-next, there is no way to enable TI_SCI_PM_DOMAINS, as nothing
-> selects PM_GENERIC_DOMAINS.
-> 
-> So unless I'm missing some other configuration that would actually be useful on
-> the K3 platform and that would pull in PM_GENERIC_DOMAINS, I think that part
-> needs to be reverted. I can send a patch to that effect later.
+On Fri, Jun 20, 2025 at 6:34=E2=80=AFPM Adam Ford <aford173@gmail.com> wrot=
+e:
+>
+> The reference manual for the i.MX8MM states the clock rate in
+> MMC mode is 1/2 of the input clock, therefore to properly run
+> at HS400 rates, the input clock must be 400MHz to operate at
+> 200MHz.  Currently the clock is set to 200MHz which is half the
+> rate it should be, so the throughput is half of what it should be
+> for HS400 operation.
+>
+> Fixes: 593816fa2f35 ("arm64: dts: imx: Add Beacon i.MX8m-Mini development=
+ kit")
+> Signed-off-by: Adam Ford <aford173@gmail.com>
 
-Is a better approach to select PM_GENERIC_DOMAINS in
-drivers/pmdomain/ti/Kconfig instead of depends (similar to what
-drivers/pmdomain/qcom/Kconfig or drivers/pmdomain/arm/Kconfig does since
-TI_SCI_PM_DOMAINS requires PM_GENERIC_DOMAINS?
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Reviewed-by: Fabio Estevam <festevam@gmail.com>
 
