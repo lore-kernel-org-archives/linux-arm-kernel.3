@@ -4,90 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730BFC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84892C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=he9iT9WyI7YlpqKEh8jhMVFH9zJFZphKaP2582ttrGw=; b=eRgVkVsr6xBAvkArfTYiAN8ZYV
-	VTLh8QqkKt+OonBfh3dHOAY3P6w28QfSIahBhpM08DmGhJ8jMtIx6evUNQw9FaclH3uzCvXSOf2BR
-	mSsOJV7n0MsCKzvySluH0xkUm54XKj7E5NMhglIt3GT6mNn/LQ+Z0gIKVKWIM1rAOjeSUYN40IkHx
-	Z22BD8eDISH4VLr+RFjn78FoMSfReWzb/9hqIx4zFx3aKRVjHBy6fS7luGUU/UIDlHfZvkaFIhvKL
-	JwEdK+VMPm6NVrXSpJfNQkT7dO0ZitjYrG1nCVS8PGv7YbIF7Q0j+leu82FIxiDEFIBNSupd+HoC6
-	978Kc7Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IUOk9rg8FJKLiO2I6XaC3qKD4aR5RnkKJ8cRJENolq0=; b=SbMhg8jiBZVOKLNgjFh+he1sF+
+	0z+Nd7BzEt94s/jjoJPJ7ZgOhgWhY9/js5nthMw/dsH4w2NaNj6Gd+NMMvTyaiyjT4Goh4CUQtNsO
+	ovjStnjbKPK5/kJQo2YN1/jul4r0S0K7N6QVHx0g9aqQlpJepbH2CqKS/QB0lffv03l2fScIEjS4h
+	HZXeaPt4SmZhl1zqjQd++eJJm9RvGQmeOxcRig4E30iAqM8Yl5Z1S2LUBzVzxgt+0a07sTuNRUMdp
+	iQsJ2CsypJw5uBdu+azTUSKTkd+uCvp4nRLglP0JGEzSOKA4b5XwxRgH6BbHeB0L24WLShSuvpyXg
+	qc71L4rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIgw-0000000BGFv-0Mmb;
-	Thu, 03 Jul 2025 12:05:26 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1uXIjE-0000000BGZW-3Q3l;
+	Thu, 03 Jul 2025 12:07:49 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHgr-0000000B5Sj-080L
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 11:01:18 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-451d7b50815so42294705e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 04:01:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751540475; x=1752145275; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=he9iT9WyI7YlpqKEh8jhMVFH9zJFZphKaP2582ttrGw=;
-        b=j7CK2dZ3eALfcxdN2KYkROdfuzK/ue57S8JVRYuN+i1x/Dz7NMQvG3O9iaujqrp0NJ
-         J0QTDFdws0NFAhD2F5H6R8IazkasI1JMctx7XONTq7hzY5Ldr3z3QfBIwVW1XOErzPUz
-         v7GwJkBp5+1JTbxZcOahglFocduOoN1DmR9V6weUMnYPcmdWoF6kHzGXd4N+5FULZxP6
-         qWRgWxx9FP5NC0FXLJODQ6ZY7sqXB6ZcdldlXlGoBWgpn+WywR/EUqGMQzT/UpJ3amME
-         x6R4d3WwUgotpJSUChvWNsATpbbkSzHgtqcQO6onC1bcuIbXvpZpS/euHxUMBFraQH4+
-         q5xA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751540475; x=1752145275;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=he9iT9WyI7YlpqKEh8jhMVFH9zJFZphKaP2582ttrGw=;
-        b=ZrOiniREKrjUlLjzsL4B4Z3UEonRwVb+h8A3fKFrFmQSfAxH5Nim4Zp7vV6+Qz1QDa
-         JDAA8Eg6va8G16uwBLc82hFLvyx6xclVHD1WBa3RRwXtqAtGzH2zedMdAgziBFQOYqgp
-         OqZhp5i/mn4XmO7PYNW8yepxd7oG0rXYVQjKNhMvH8F79PkRN+HPpHa6XhiNLNTusNiH
-         wNux/xfSRQJa6TZ9YUudPl7cgz0KlKz6J3+PskZaeSpo7qQiQnOdmJxo5Grru5jUps/U
-         CVxFnEd6q95C+ce69DYYnnc/j8PuYQMETc6Dt85CNWm0xbCE01FAG6I3WUfGgITtS/1W
-         FSzg==
-X-Forwarded-Encrypted: i=1; AJvYcCVMkZahVYBkLDwVM1zXqiLTNVx90nl8ggJzt90TuFUM74l2CtrWqWzwTGyUzqmqChPN+I3U+rCQ+h1JtdCWym2m@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnERtrkEeU+HL9RF3q+UhBh5BFeWiYoi+0PWIISCjujCzmNfW4
-	SPZLgx6cj7TJP9NtPYmzuJsMniNuniFLNQ+965+0iNfIJhEGte1t7dxfxmYBX6KQ7G4=
-X-Gm-Gg: ASbGncu57NQTHhzRPyhmPe0tkSqk0D29xWD/XMbl5JqSdnf/fcIyB+nKWIQCQ3QUvHq
-	1igJpLrxEA/+XSG8kONp/XbjgyrF6mvWSm3A12Ago5XL4ReH++XMfWcZaLbE1PSwfkb+EJusJCi
-	h78ely4/QQ0M6RJbvEFHe1P1Md7BcdAJRgagM0kubYxOmd+5IMxjyk84NX6c9xpj/HcfempbS+2
-	q2o5RhOZQSUekR7POtDIVC6KFYVCBrNM1t9ns0tX1S5WaXog4bGQOVnV5T1ReLoIeOGszRIGZSc
-	WvpG6iBYPiRPvwxHRLJ3NorfHNPWk18cXgafWk7QwOJUJugtuaSy3kVvXwzd35sdAg==
-X-Google-Smtp-Source: AGHT+IFmsyLTW5PbUc7ffB5ixd3FjfkYoUZQCDDDXT+dNjoFbQ1TMzjLRO6Z08bG9VoRMBxKr/UkgA==
-X-Received: by 2002:a05:600c:1554:b0:450:d4a6:79ad with SMTP id 5b1f17b1804b1-454a9ca8543mr30636995e9.23.1751540475173;
-        Thu, 03 Jul 2025 04:01:15 -0700 (PDT)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a9967ee7sm24208965e9.8.2025.07.03.04.01.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jul 2025 04:01:14 -0700 (PDT)
-Message-ID: <53a214b4039872ce7584a2ae6e688fcef0c86d7e.camel@linaro.org>
-Subject: Re: [PATCH v3] soc: samsung: exynos-pmu: Enable CPU Idle for gs101
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus	
- <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: William Mcvicker <willmcvicker@google.com>, Krzysztof Kozlowski
-	 <krzysztof.kozlowski@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kernel-team@android.com
-Date: Thu, 03 Jul 2025 12:01:13 +0100
-In-Reply-To: <20250627-gs101-cpuidle-v3-1-0200452dfe60@linaro.org>
-References: <20250627-gs101-cpuidle-v3-1-0200452dfe60@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1+build1 
+	id 1uXHhL-0000000B5bH-3RXv;
+	Thu, 03 Jul 2025 11:01:49 +0000
+Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
+	by mxout3.routing.net (Postfix) with ESMTP id CC90E60470;
+	Thu,  3 Jul 2025 11:01:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1751540502;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IUOk9rg8FJKLiO2I6XaC3qKD4aR5RnkKJ8cRJENolq0=;
+	b=mg0ppVZEIw2vFYZi1hGkgJFJzAXnpBgCwsBZ+eYDHO0mNLiKdLRhwZzoTD4po6PiM9nvFJ
+	q0THIholsJJYhvoQrILHnJu65UtCGFkNtZDA24jOfd/E/spJoSTHi0pdax7rqLjmpS/VcA
+	3IhAAhmnP1/f+bskKEhHPKQtnFk07Qc=
+Received: from webmail.hosting.de (unknown [134.0.26.148])
+	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 7E23B3603D0;
+	Thu,  3 Jul 2025 11:01:40 +0000 (UTC)
 MIME-Version: 1.0
+Date: Thu, 03 Jul 2025 13:01:40 +0200
+From: "Frank Wunderlich (linux)" <linux@fw-web.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: frank-w@public-files.de, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi
+ <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean
+ <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Johnson Wang <johnson.wang@mediatek.com>, =?UTF-8?Q?Ar=C4=B1n=C3=A7_?=
+ =?UTF-8?Q?=C3=9CNAL?= <arinc.unal@arinc9.com>, Landen Chao
+ <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>, Sean Wang
+ <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>, Lorenzo
+ Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v7 01/14] dt-bindings: net: mediatek,net: allow irq names
+In-Reply-To: <158755b2-7b1c-4b1c-8577-b00acbfadbdc@kernel.org>
+References: <20250628165451.85884-1-linux@fw-web.de>
+ <20250628165451.85884-2-linux@fw-web.de>
+ <20250701-wisteria-walrus-of-perfection-bdfbec@krzk-bin>
+ <9AF787EF-A184-4492-A6F1-50B069D780E7@public-files.de>
+ <158755b2-7b1c-4b1c-8577-b00acbfadbdc@kernel.org>
+Message-ID: <b68435e3e44de0532fc1e0c2e7f7bf54@fw-web.de>
+X-Sender: linux@fw-web.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Mail-ID: f16835e3-c754-4e77-8260-ceabe9311a0a
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_040117_065857_FB90B55C 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250703_040148_174109_E1C47B48 
+X-CRM114-Status: GOOD (  41.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,48 +93,269 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-More small comments. Sorry for the drip feed, just trying to understand
-things...
+Am 2025-07-02 08:27, schrieb Krzysztof Kozlowski:
+> On 01/07/2025 12:51, Frank Wunderlich wrote:
+>> Am 1. Juli 2025 08:44:02 MESZ schrieb Krzysztof Kozlowski 
+>> <krzk@kernel.org>:
+>>> On Sat, Jun 28, 2025 at 06:54:36PM +0200, Frank Wunderlich wrote:
+>>>> From: Frank Wunderlich <frank-w@public-files.de>
+>>>> 
+>>>> In preparation for MT7988 and RSS/LRO allow the interrupt-names
+>>> 
+>>> Why? What preparation, what is the purpose of adding the names, what 
+>>> do
+>>> they solve?
+>> 
+>> Devicetree handled by the mtk_eth_soc driver have
+>> a wild mix of shared and non-shared irq definitions
+>> accessed by index (shared use index 0,
+>> non-shared
+>> using 1+2). Some soc have only 3 FE irqs (like mt7622).
+>> 
+>> This makes it unclear which irq is used for what
+>> on which SoC. Adding names for irq cleans this a bit
+>> in device tree and driver.
+> 
+> It's implied ABI now, even if the binding did not express that. But
+> interrupt-names are not necessary to express that at all. Look at other
+> bindings: we express the list by describing the items:
+> items:
+>   - description: foo
+>   - ... bar
 
-On Fri, 2025-06-27 at 14:08 +0100, Peter Griffin wrote:
-> [...]
-> =C2=A0
-> +static int gs101_cpu_pm_notify_callback(struct notifier_block *self,
-> +					unsigned long action, void *v)
-> +{
-> +	switch (action) {
-> +	case CPU_PM_ENTER:
-> +		/*
-> +		 * Ignore CPU_PM_ENTER event in reboot or
-> +		 * suspend sequence.
-> +		 */
-> +
-> +		if (atomic_read(&pmu_context->sys_suspended) ||
-> +		=C2=A0=C2=A0=C2=A0 atomic_read(&pmu_context->sys_rebooting))
-> +			return NOTIFY_OK;
-> +
-> +		return gs101_cpu_pmu_offline();
-> +
-> +		break;
+ok, so i need to define descriptions for all interrupts instead of only 
+increasing the count. Ok, was not clear to me.
 
-break is not needed after return, and generally there should be an empty
-line before the next case statement.
+so something like this:
 
-> +	case CPU_PM_EXIT:
+item0: on SoCs with shared IRQ (mt762[18]) used for RX+TX, on other free 
+to be used
+item1: on non-shared SoCs used for TX
+item2: on non-shared SoCs used for RX (except RSS/LRO is used)
+item3: reserved / currently unused
+item4-7: IRQs for RSS/LRO
 
-Should this also handle CPU_PM_ENTER_FAILED in the same way to bring
-the CPU back up in case of failures?
+>> 
+>>>> property. Also increase the maximum IRQ count to 8 (4 FE + 4 RSS),
+>>> 
+>>> Why? There is no user of 8 items.
+>> 
+>> MT7988 *with* RSS/LRO (not yet supported by driver
+>> yet,but i add the irqs in devicetree in this series)
+>> use 8 irqs,but RSS is optional and 4 irqs get working
+>> ethernet stack.
+> 
+> That's separate change than fixing ABI and that user MUST BE HERE. You
+> cannot add some future interrupts for some future device. Adding new
+> device is the only reason to add more interrupts.
 
-> +
-> +		if (atomic_read(&pmu_context->sys_rebooting))
-> +			return NOTIFY_OK;
-> +
-> +		return gs101_cpu_pmu_online();
-> +
-> +		break;
+MT7988 is basicly new because there is no devicetree there yet...only 
+driver and
+this (incomplete) binding.
 
-No break needed.
+>> 
+>> I hope this explanation makes things clearer...
+> 
+> 
+> Commit msg must explain all this, not me asking.
+> 
+>> 
+>>>> but set boundaries for all compatibles same as irq count.
+>>> 
+>>> Your patch does not do it.
+>> 
+>> I set Min/max-items for interrupt names below like
+>> interrupts count defined.
+> 
+> No, you don't. It's all fluid and flexible - limited constraints.
 
-Cheers,
-Andre'
+i thought i can limit is by setting the MaxItems in the soc-spcific 
+blocks below.
+What reason does MaxItems have there if not this? of course if there is 
+any Soc not
+having a specific block it is open.But this is also the case for 
+interrupts property
+handles the same way before.
+
+I only left it open on mt7988 (only set minitems because all 8 can be 
+used, but 4 are required).
+
+>> 
+>>>> 
+>>>> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+>>>> ---
+>>>> v7: fixed wrong rebase
+>>>> v6: new patch splitted from the mt7988 changes
+>>>> ---
+>>>>  .../devicetree/bindings/net/mediatek,net.yaml | 38 
+>>>> ++++++++++++++++++-
+>>>>  1 file changed, 37 insertions(+), 1 deletion(-)
+>>>> 
+>>>> diff --git a/Documentation/devicetree/bindings/net/mediatek,net.yaml 
+>>>> b/Documentation/devicetree/bindings/net/mediatek,net.yaml
+>>>> index 9e02fd80af83..6672db206b38 100644
+>>>> --- a/Documentation/devicetree/bindings/net/mediatek,net.yaml
+>>>> +++ b/Documentation/devicetree/bindings/net/mediatek,net.yaml
+>>>> @@ -40,7 +40,19 @@ properties:
+>>>> 
+>>>>    interrupts:
+>>>>      minItems: 1
+>>>> -    maxItems: 4
+>>>> +    maxItems: 8
+>>>> +
+>>>> +  interrupt-names:
+>>>> +    minItems: 1
+>>>> +    items:
+>>>> +      - const: fe0
+>>>> +      - const: fe1
+>>>> +      - const: fe2
+>>>> +      - const: fe3
+>>>> +      - const: pdma0
+>>>> +      - const: pdma1
+>>>> +      - const: pdma2
+>>>> +      - const: pdma3
+>>>> 
+>>>>    power-domains:
+>>>>      maxItems: 1
+>>>> @@ -135,6 +147,10 @@ allOf:
+>>>>            minItems: 3
+>>>>            maxItems: 3
+>>>> 
+>>>> +        interrupt-names:
+>>>> +          minItems: 3
+>>>> +          maxItems: 3
+
+limited here to the same as interrupts.
+
+>>>>          clocks:
+>>>>            minItems: 4
+>>>>            maxItems: 4
+>>>> @@ -166,6 +182,9 @@ allOf:
+>>>>          interrupts:
+>>>>            maxItems: 1
+>>>> 
+>>>> +        interrupt-namess:
+>>>> +          maxItems: 1
+dito
+
+>>>>          clocks:
+>>>>            minItems: 2
+>>>>            maxItems: 2
+>>>> @@ -192,6 +211,10 @@ allOf:
+>>>>            minItems: 3
+>>>>            maxItems: 3
+>>>> 
+>>>> +        interrupt-names:
+>>>> +          minItems: 3
+>>>> +          maxItems: 3
+dito and so on
+
+>>>>          clocks:
+>>>>            minItems: 11
+>>>>            maxItems: 11
+>>>> @@ -232,6 +255,10 @@ allOf:
+>>>>            minItems: 3
+>>>>            maxItems: 3
+>>>> 
+>>>> +        interrupt-names:
+>>>> +          minItems: 3
+>>>> +          maxItems: 3
+>>>> +
+>>>>          clocks:
+>>>>            minItems: 17
+>>>>            maxItems: 17
+>>>> @@ -274,6 +301,9 @@ allOf:
+>>>>          interrupts:
+>>>>            minItems: 4
+>>>> 
+>>>> +        interrupt-names:
+>>>> +          minItems: 4
+>>>> +
+>>>>          clocks:
+>>>>            minItems: 15
+>>>>            maxItems: 15
+>>>> @@ -312,6 +342,9 @@ allOf:
+>>>>          interrupts:
+>>>>            minItems: 4
+>>>> 
+>>>> +        interrupt-names:
+>>>> +          minItems: 4
+>>> 
+>>> 8 interrupts is now valid?
+>>> 
+>>>> +
+>>>>          clocks:
+>>>>            minItems: 15
+>>>>            maxItems: 15
+>>>> @@ -350,6 +383,9 @@ allOf:
+>>>>          interrupts:
+>>>>            minItems: 4
+>>>> 
+>>>> +        interrupt-names:
+>>>> +          minItems: 4
+>>> 
+>>> So why sudenly this device gets 8 interrupts? This makes no sense,
+>>> nothing explained in the commit msg.
+>> 
+>> 4 FrameEngine IRQs are required to be defined (currently 2 are used in 
+>> driver).
+>> The other 4 are optional,but added in the devicetree
+> 
+> There were only 4 before and you do not explain why all devices get 8.
+> You mentioned that MT7988 has 8 but now make 8 for all other variants!
+> 
+> Why you are not answering this question?
+
+The original binding excluded the 4 RSS/LRO IRQs as this is an optional 
+feature not
+yet available in driver. It is needed to get the full speed on the 10G 
+interfaces.
+MT7988 is the first SoC which has 10G MACs. Older Socs like mt7986 and 
+mt7981 can also
+support RSS/LRO to reduce cpu load. But here we will run into the "new 
+kernel - old
+devicetree" issue, if we try to upstream this. Maybe we do not add this 
+because these
+only have 2.5G MACs.
+
+>> to not run into problems supporting old devicetree
+>> when adding RSS/LRO to driver.
+> 
+> This is not about driver, it does not matter for the driver. Binding 
+> and
+> DTS are supposed to be complete.
+
+if i upstream the ethernet-node now with only 4 IRQS, we have to extend 
+them later and
+have to deal with only 4 IRQs in driver to be compatible with older DTS. 
+So newer
+kernel with RSS/LRO support cannot work with older DT.
+To avoid this i add all related IRQs now (from DT perspective a new 
+device - there is
+no mt7988 device with ethernet node in devicetree yet).
+
+>> 
+>>> I understand nothing from this patch and I already asked you to 
+>>> clearly
+>>> explain why you are doing things. This patch on its own makes no 
+>>> sense.
+
+i tried to explain :(
+i have a working dts for mt7988 and try to upstream it in this series 
+and thats the
+cause i have to update the binding. Imho i cannot increase the 
+interrupt-count in SoC
+specific block (e.g. setting count globally to 4 but to 8 for only 
+mt7988).
+
+I added interrupt-names to get it cleaner in driver (access via name 
+instead of
+index). And also in Devicetree we see the meaning of IRQs without 
+looking through
+driver. I see really no reason for not adding the interrupt names.
+
+>>> Best regards,
+>>> Krzysztof
+
+regards Frank
 
