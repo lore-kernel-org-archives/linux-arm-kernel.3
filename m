@@ -4,85 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FA3C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B620C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1W3w9MJ2ChcuTvKxi9ZMSSYzvPLc49TB/TDjBvpqAHg=; b=RQbDPZQbfNKRD6Sydi+PoEFvWz
-	fv8Rh9fqekx19TzIhwt7UQD3Zq0dyw4q+Be170Gev6pey3GMFHqeameFZZJJyJklGFLq5f6s1zV/B
-	KIjDHdqIiGZt0GpOxRYQ/CNTsy3UNuzqyA169msahOnRAAEtkOTEl+utx3MX/iOEPm0PhFxnGpdXn
-	OQI7DEBuzUd7UgLIhE2ucZpCBQfmEAD5j2HZdPvJPJ4ggeF/JA7EO13oweZb2YDaGtyd/2GIbAu1i
-	I+drJfVAaVL0XWr1SCdD8HRRJvU3Vaglru7Py2g06ycx3lWenij8wbPqOk4DCuMGPg6Bp7JuPGWrF
-	pr50qGFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3O9Nwb7NMBKcKy74nEtXI2uzLYmaeHZdPPYuYaDOGJs=; b=NGHPTBtxdP8I4N8WXVSiFXL9pF
+	1SoijPJwmqLbL9iCmw9ttT/DCu3FgbIwid9Dkq9k5IJpz4ACcSC6tbn9fxiNYst6f2w86BCPjfRzV
+	GVm1CSzr1psDN4j7DY02t9sEl/cTeRkMTfiDDZsW3+fbvB8pxlG2ZeXkMRxfHCwF4r197DOxGLYvl
+	BDwh9fraHI2U7yq+5jjxRUdOkjSeIzK4I/HhCa80JRY7LYf+5Ch0va+F78yt4mf460vzXg6cjRq1q
+	1DK1fr+8kzApF7YuK1YvF0a1RjPJzGw7RHR98iB0lDXMkojnSKXXxT7bqNEE+CwV+L+RUNMadLAn/
+	gzenV2GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKgu-0000000BcYM-0gkF;
-	Thu, 03 Jul 2025 14:13:32 +0000
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	id 1uXKjD-0000000Bd3O-3t0O;
+	Thu, 03 Jul 2025 14:15:55 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIvJ-0000000BIsA-4Ai6
+	id 1uXIwG-0000000BJ3c-2G51
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 12:20:19 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e898fb745beso764424276.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 05:20:17 -0700 (PDT)
+	Thu, 03 Jul 2025 12:21:17 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ae223591067so911219266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 05:21:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751545216; x=1752150016; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=1W3w9MJ2ChcuTvKxi9ZMSSYzvPLc49TB/TDjBvpqAHg=;
-        b=i8lwvQS1n7qbbYPkjIQPP4bGofyj2OcLKt5BmkbsaSG/5eDlrYUuMq3VoBE5WAgCYD
-         RJ9jijOak6k3vPcqYWNOjFiIHdDA5x2aNtgEgnhTuapYK1PJyxvbQUeBxP2C7+2i6ayF
-         Sizza9FWpw9C7qeye2RW0DH4f7oymls+o7ewGA18/gc27neqjvlERuHGg1IVGVaiYhOw
-         vpUu0USWfL9SgMjzLGdalcU3vyogiTT1Hk0PPBqDWwWxH/ZY6FKp0r5aL3T70LNDw15Y
-         xN/SNF+EpaBw1mVdbu2VP87nyZP/231jJRBl8fvavwmqeVpP80Jk4u/AoNQsWbBmydVa
-         lVMg==
+        d=gmail.com; s=20230601; t=1751545274; x=1752150074; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=3O9Nwb7NMBKcKy74nEtXI2uzLYmaeHZdPPYuYaDOGJs=;
+        b=UgWMyP4U1/Q5ttY/5P8db03JlDhCK+clJcE5UuERn2GOKUG1uQEb8nBXHg32p+cukP
+         NCKzKwa3wVpCvyxt1+4RmebXwLKjY/SHYzVZXZr0LkNXFA8jgvVsZYcNTo1n/+CVdwSC
+         Re4PQxwS4cw8PxDeg1U1tDyzQTIAfSZR7vIMh+AwjYqnuy1RGqfk9eQppGTOw62l4cbw
+         d6Lu0uLAP7B7bQBmuBTJJtKyTF9acHhPh/AQ5Q7NNjhq6CQVkslcBpM65s9yS28dZ9Fu
+         ray6KBrsw/JcnVvTXpnYZLsvX8wISk9IcYGi+ruiuiNIe8YwIZgo0C13XVnresiPzElZ
+         xxTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751545216; x=1752150016;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1W3w9MJ2ChcuTvKxi9ZMSSYzvPLc49TB/TDjBvpqAHg=;
-        b=A00FbNg0mtf+J9OQHlkshb24Z9qNKYFI7EmUxI630CxK8NpQ7Mv+eGeoNXrU4jnynz
-         nNwq3jWYaOlIzOEYDoByV4m/1Z5uDrgUOeKWOuWz/GQiZ0j4YV4pWdApbVHK8v0cpRw8
-         Hih7b2u5OEP6d/D6Z/L5Rp+StwmI5fV4V45J3D2D9M5HYk9H/7wdaNO11sZM5xH4lifP
-         mmGnIgTcHmIUzD6O97PuOX8QXFlBTN9wyznpwtJ66YS+ETsrm+XSpY644WMvD3CPksWR
-         oiEmC+MW9hI8W+1ZtZ3Ujxe7bIHXGngljDHBVD3nq/t04MNihzbw0OApNHfLblKn/07u
-         9OJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWOaYV9SSQfwrG9Ve3v4Bg50CS0v6fZwBp7EbjbGxkSFIwDsUy/6Uwmql3E0CMG3euQBuq1al9ZwIIozMB9IT1z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTyh9cNIQ3bdk8BYLvgOtp+Uq4Ssxgn1CBtkJ3cky4ukkfI9IG
-	+AwxBF17l4rUTml31pLQ7qTeuN8U5H8paFvwUzBFBHkcckj1vldIhnX/Txq+dGMgq/eIqLTums6
-	WIbWCQ22T2LlQvWhWrmYiScj/woWT+NEqn9bXR/PQ6A==
-X-Gm-Gg: ASbGncvCoqVVF7doenUsmu2d+tvFBadV6jyn2s+NEEj0xA6kswo0wXEEfp/RaXUKPmg
-	yP9c1SmonEWTjbUB9Ru+jghIY7Z+f1glF/3ZCPL0+LSE0rwzG8ZBVBpTVpc2AkfWX7d0qGqrELn
-	iX4lL13tDddztvJYkwja1MyLZs7f5MyksWD3xFJHTwcpN5
-X-Google-Smtp-Source: AGHT+IEmhW8Ov0Y9jVrvHOwZj8H8nMIFymTr5BFDKBgbv/so+xhj7BgHcBqsC0qPpeL0TROZTppJMnK5zQ5xBecp9QQ=
-X-Received: by 2002:a05:690c:1d:b0:70e:404f:6714 with SMTP id
- 00721157ae682-7165cb464b8mr25745387b3.19.1751545215794; Thu, 03 Jul 2025
- 05:20:15 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1751545275; x=1752150075;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3O9Nwb7NMBKcKy74nEtXI2uzLYmaeHZdPPYuYaDOGJs=;
+        b=mOfXEze682LVxnyLEnKEluXmQnS34YItmmLTi5282GW7hmRbciDeka4iTTfyvB1rxQ
+         UpZNZBK/e2FU3X7YnY52hyLRt2oOzJI2Gi10TFbm87smrlwTUFuUDMUhacNcu1zajhmS
+         ZcuiBbqihoFUT93VXnCY2h8OONTgW9sxDhDg+cAuKSJMe2Z6CL9G7DAnf9Xj6w4VdXY3
+         pc/VIG9wXsLK+f9SP9dcu8x6Oos+kKcxlctcVImsnc2eJ5kYw+28lQ9E8LpomAoRBD2O
+         RnBJyo02+rVAnhxaFHs/Q1rvQZ0RCcM4n7SiQd2P/Kqaihj1TNcKkmbC/uPl6NSSfG8U
+         cRXA==
+X-Forwarded-Encrypted: i=1; AJvYcCW3bxauj0RRfyuqBhYS600AZdzydaqnztFQ1posr/DpPZB4L+pJLX27VgG1EXxbsNmS5jE3VbZlxvoDrDpnI+6T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzx6su8VgVtIa9pifBzH0wCCmbLkg4uwZjusR8gUg4uCkPklH1a
+	u2mJ1Dj264IxsKe7j07/xKL8DwmKY9OBd0XJPxOswsHbgi4MufgnQhbn
+X-Gm-Gg: ASbGncsBk752/BT9dZSZ7JnV+/Ng/Lkla5yI2s/6oG5RLxCd3y7UAZV0Fvi/6U8RorA
+	GP7bD2Q5IXhH+g4cwsVxuNrfoHkf1GO8GPMYm/+ntzf8TKU+Oge4RC9S+JidWhyAJb1UKlm1zqs
+	sHix1ehiLnoS+XpYZZqJGp9+Sl+dy2QyHMZ0flZYJwsQ7jW+EOB0NTqJzwdsaLoBMzc9nPq9DKY
+	+FCn2YzQlSLgDRQH6EA7BmqjxD8zacmL+9XVWwngr5w9fItcJ6Mj92S+ALrm/8ShHjSOkL7wiwW
+	2IoUIln9cUYsYw3PEvk1bW8+6cHp27Gee/WXkBT20IqvMDLBSCFFkUtdg9Pgguicyk+XUOmrwZB
+	/Y28=
+X-Google-Smtp-Source: AGHT+IHLeJ01b5atzZIIJ/mg/y/UYcm4fOhY+JzfF8YHm6pUsLqtuITwp2L0NwJAOPIM60GJdK46xg==
+X-Received: by 2002:a17:907:9448:b0:ade:35fc:1a73 with SMTP id a640c23a62f3a-ae3d89dbffbmr298319166b.55.1751545273880;
+        Thu, 03 Jul 2025 05:21:13 -0700 (PDT)
+Received: from [192.168.0.100] ([188.27.131.45])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae35365a0a8sm1259846166b.71.2025.07.03.05.21.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 03 Jul 2025 05:21:13 -0700 (PDT)
+Message-ID: <716bf11b-b1fc-4706-965f-d3975c317c57@gmail.com>
+Date: Thu, 3 Jul 2025 15:21:08 +0300
 MIME-Version: 1.0
-References: <20250630093510.82871-2-fourier.thomas@gmail.com>
-In-Reply-To: <20250630093510.82871-2-fourier.thomas@gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 3 Jul 2025 14:19:38 +0200
-X-Gm-Features: Ac12FXy-fHCOkMVSjWEqOM8yM1ocTCdlPI1Mnhp584Yxu07D6HeH7gPis0rWzRo
-Message-ID: <CAPDyKFpJagX2mUNmMrA1k2iogXgq_reXAf1NEeDyC96jMv807w@mail.gmail.com>
-Subject: Re: [PATCH] mmc: bcm2835: Fix dma_unmap_sg() nents value
-To: Thomas Fourier <fourier.thomas@gmail.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Yumeng Fang <fang.yumeng@zte.com.cn>, Eric Anholt <eric@anholt.net>, linux-mmc@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 15/24] media: i2c: add Maxim GMSL2/3 serializer and
+ deserializer framework
+To: Julien Massot <julien.massot@collabora.com>,
+ Cosmin Tanislav <cosmin.tanislav@analog.com>,
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
+References: <20250702132104.1537926-1-demonsingur@gmail.com>
+ <20250702132104.1537926-16-demonsingur@gmail.com>
+ <cc449f4230ebf2cc854c456d60db4814bb1e1f8a.camel@collabora.com>
+From: Cosmin Tanislav <demonsingur@gmail.com>
+Content-Language: en-US
+In-Reply-To: <cc449f4230ebf2cc854c456d60db4814bb1e1f8a.camel@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_052018_029239_EB5769DA 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20250703_052116_589195_207C3567 
+X-CRM114-Status: GOOD (  29.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,39 +112,749 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 30 Jun 2025 at 11:35, Thomas Fourier <fourier.thomas@gmail.com> wrote:
->
-> The dma_unmap_sg() functions should be called with the same nents as the
-> dma_map_sg(), not the value the map function returned.
->
-> Fixes: 2f5da678351f ("mmc: bcm2835: Properly handle dmaengine_prep_slave_sg")
-> Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
-
-Applied for fixes and by adding a stable-tag, thanks!
-
-Kind regards
-Uffe
 
 
-> ---
->  drivers/mmc/host/bcm2835.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/mmc/host/bcm2835.c b/drivers/mmc/host/bcm2835.c
-> index def054ddd256..4fced9b36c80 100644
-> --- a/drivers/mmc/host/bcm2835.c
-> +++ b/drivers/mmc/host/bcm2835.c
-> @@ -503,7 +503,8 @@ void bcm2835_prepare_dma(struct bcm2835_host *host, struct mmc_data *data)
->                                        DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
->
->         if (!desc) {
-> -               dma_unmap_sg(dma_chan->device->dev, data->sg, sg_len, dir_data);
-> +               dma_unmap_sg(dma_chan->device->dev, data->sg, data->sg_len,
-> +                            dir_data);
->                 return;
->         }
->
-> --
-> 2.43.0
->
+On 7/3/25 3:08 PM, Julien Massot wrote:
+> Hi Cosmin,
+> 
+> On Wed, 2025-07-02 at 16:20 +0300, Cosmin Tanislav wrote:
+>> These drivers are meant to be used as a common framework for Maxim
+>> GMSL2/3 serializers and deserializers.
+>>
+>> This framework enables support for the following new features across
+>> all the chips:
+>>   * Full Streams API support
+>>   * .get_frame_desc()
+>>   * .get_mbus_config()
+>>   * I2C ATR
+>>   * automatic GMSL link version negotiation
+>>   * automatic stream id selection
+>>   * automatic VC remapping
+>>   * automatic pixel mode / tunnel mode selection
+>>   * automatic double mode selection / data padding
+>>   * logging of internal state and chip status registers via .log_status()
+>>   * PHY modes
+>>   * serializer pinctrl
+>>   * TPG
+>>
+>> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+>> ---
+>>   MAINTAINERS                                 |   1 +
+>>   drivers/media/i2c/Kconfig                   |   2 +
+>>   drivers/media/i2c/Makefile                  |   1 +
+>>   drivers/media/i2c/maxim-serdes/Kconfig      |  16 +
+>>   drivers/media/i2c/maxim-serdes/Makefile     |   3 +
+>>   drivers/media/i2c/maxim-serdes/max_serdes.c | 413 ++++++++++++++++++++
+>>   drivers/media/i2c/maxim-serdes/max_serdes.h | 183 +++++++++
+>>   7 files changed, 619 insertions(+)
+>>   create mode 100644 drivers/media/i2c/maxim-serdes/Kconfig
+>>   create mode 100644 drivers/media/i2c/maxim-serdes/Makefile
+>>   create mode 100644 drivers/media/i2c/maxim-serdes/max_serdes.c
+>>   create mode 100644 drivers/media/i2c/maxim-serdes/max_serdes.h
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 334195989c00..8cd57b66afe3 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -14769,6 +14769,7 @@ M:	Cosmin Tanislav <cosmin.tanislav@analog.com>
+>>   L:	linux-media@vger.kernel.org
+>>   S:	Maintained
+>>   F:	Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
+>> +F:	drivers/media/i2c/maxim-serdes/
+>>   
+>>   MAXIM MAX11205 DRIVER
+>>   M:	Ramona Bolboaca <ramona.bolboaca@analog.com>
+>> diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
+>> index 4b4c199da6ea..f504016aadfd 100644
+>> --- a/drivers/media/i2c/Kconfig
+>> +++ b/drivers/media/i2c/Kconfig
+>> @@ -1700,6 +1700,8 @@ config VIDEO_MAX96717
+>>   	  To compile this driver as a module, choose M here: the
+>>   	  module will be called max96717.
+>>   
+>> +source "drivers/media/i2c/maxim-serdes/Kconfig"
+>> +
+>>   endmenu
+>>   
+>>   endif # VIDEO_DEV
+>> diff --git a/drivers/media/i2c/Makefile b/drivers/media/i2c/Makefile
+>> index 5873d29433ee..25a0093d40ec 100644
+>> --- a/drivers/media/i2c/Makefile
+>> +++ b/drivers/media/i2c/Makefile
+>> @@ -70,6 +70,7 @@ obj-$(CONFIG_VIDEO_MAX9271_LIB) += max9271.o
+>>   obj-$(CONFIG_VIDEO_MAX9286) += max9286.o
+>>   obj-$(CONFIG_VIDEO_MAX96714) += max96714.o
+>>   obj-$(CONFIG_VIDEO_MAX96717) += max96717.o
+>> +obj-$(CONFIG_VIDEO_MAXIM_SERDES) += maxim-serdes/
+>>   obj-$(CONFIG_VIDEO_ML86V7667) += ml86v7667.o
+>>   obj-$(CONFIG_VIDEO_MSP3400) += msp3400.o
+>>   obj-$(CONFIG_VIDEO_MT9M001) += mt9m001.o
+>> diff --git a/drivers/media/i2c/maxim-serdes/Kconfig b/drivers/media/i2c/maxim-serdes/Kconfig
+>> new file mode 100644
+>> index 000000000000..cae1d5a1293e
+>> --- /dev/null
+>> +++ b/drivers/media/i2c/maxim-serdes/Kconfig
+>> @@ -0,0 +1,16 @@
+>> +# SPDX-License-Identifier: GPL-2.0
+>> +
+>> +config VIDEO_MAXIM_SERDES
+>> +	tristate "Maxim GMSL2/3 Serializer and Deserializer support"
+>> +	depends on VIDEO_DEV
+>> +	select I2C_ATR
+>> +	select I2C_MUX
+>> +	select MEDIA_CONTROLLER
+>> +	select V4L2_FWNODE
+>> +	select VIDEO_V4L2_SUBDEV_API
+>> +	help
+>> +	  This driver supports the Maxim GMSL2/3 common Serializer and
+>> +	  Deserializer framework.
+>> +
+>> +	  To compile this driver as a module, choose M here: the module
+>> +	  will be called max_serdes.
+>> diff --git a/drivers/media/i2c/maxim-serdes/Makefile b/drivers/media/i2c/maxim-serdes/Makefile
+>> new file mode 100644
+>> index 000000000000..630fbb486bab
+>> --- /dev/null
+>> +++ b/drivers/media/i2c/maxim-serdes/Makefile
+>> @@ -0,0 +1,3 @@
+>> +# SPDX-License-Identifier: GPL-2.0
+>> +max-serdes-objs := max_serdes.o
+>> +obj-$(CONFIG_VIDEO_MAXIM_SERDES) += max-serdes.o
+>> diff --git a/drivers/media/i2c/maxim-serdes/max_serdes.c b/drivers/media/i2c/maxim-
+>> serdes/max_serdes.c
+>> new file mode 100644
+>> index 000000000000..73e018d1f0d2
+>> --- /dev/null
+>> +++ b/drivers/media/i2c/maxim-serdes/max_serdes.c
+>> @@ -0,0 +1,413 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Copyright (C) 2025 Analog Devices Inc.
+>> + */
+>> +
+>> +#include <linux/export.h>
+>> +#include <linux/kernel.h>
+>> +#include <linux/module.h>
+>> +#include <linux/stringify.h>
+>> +
+>> +#include <media/mipi-csi2.h>
+>> +
+>> +#include <video/videomode.h>
+>> +
+>> +#include <uapi/linux/media-bus-format.h>
+>> +
+>> +#include "max_serdes.h"
+>> +
+>> +const char * const max_serdes_tpg_patterns[] = {
+>> +	[MAX_SERDES_TPG_PATTERN_GRADIENT] = "Gradient",
+>> +	[MAX_SERDES_TPG_PATTERN_CHECKERBOARD] = "Checkerboard",
+>> +};
+>> +
+>> +static const char * const max_gmsl_versions[] = {
+>> +	[MAX_SERDES_GMSL_2_3GBPS] = "GMSL2 3Gbps",
+>> +	[MAX_SERDES_GMSL_2_6GBPS] = "GMSL2 6Gbps",
+>> +	[MAX_SERDES_GMSL_3] = "GMSL3",
+>> +};
+> GMSL3 12Gbps for consistency ?
+> 
+
+Sure.
+
+>>
+>> +
+>> +const char *max_serdes_gmsl_version_str(enum max_serdes_gmsl_version version)
+>> +{
+>> +	if (version > MAX_SERDES_GMSL_3)
+>> +		return NULL;
+>> +
+>> +	return max_gmsl_versions[version];
+>> +}
+>> +
+>> +static const char * const max_gmsl_mode[] = {
+>> +	[MAX_SERDES_GMSL_PIXEL_MODE] = "pixel",
+>> +	[MAX_SERDES_GMSL_TUNNEL_MODE] = "tunnel",
+>> +};
+>> +
+>> +const char *max_serdes_gmsl_mode_str(enum max_serdes_gmsl_mode mode)
+>> +{
+>> +	if (mode > MAX_SERDES_GMSL_TUNNEL_MODE)
+>> +		return NULL;
+>> +
+>> +	return max_gmsl_mode[mode];
+>> +}
+>> +
+>> +static const struct max_serdes_mipi_format max_serdes_mipi_formats[] = {
+>> +	{ MIPI_CSI2_DT_EMBEDDED_8B, 8 },
+>> +	{ MIPI_CSI2_DT_YUV422_8B, 16 },
+>> +	{ MIPI_CSI2_DT_YUV422_10B, 20 },
+>> +	{ MIPI_CSI2_DT_RGB565, 16 },
+>> +	{ MIPI_CSI2_DT_RGB666, 18 },
+>> +	{ MIPI_CSI2_DT_RGB888, 24 },
+>> +	{ MIPI_CSI2_DT_RAW8, 8 },
+>> +	{ MIPI_CSI2_DT_RAW10, 10 },
+>> +	{ MIPI_CSI2_DT_RAW12, 12 },
+>> +	{ MIPI_CSI2_DT_RAW14, 14 },
+>> +	{ MIPI_CSI2_DT_RAW16, 16 },
+>> +};
+>> +
+>> +const struct max_serdes_mipi_format *max_serdes_mipi_format_by_dt(u8 dt)
+>> +{
+>> +	unsigned int i;
+>> +
+>> +	for (i = 0; i < ARRAY_SIZE(max_serdes_mipi_formats); i++)
+>> +		if (max_serdes_mipi_formats[i].dt == dt)
+>> +			return &max_serdes_mipi_formats[i];
+>> +
+>> +	return NULL;
+>> +}
+>> +
+>> +int max_serdes_get_fd_stream_entry(struct v4l2_subdev *sd, u32 pad, u32 stream,
+>> +				   struct v4l2_mbus_frame_desc_entry *entry)
+>> +{
+>> +	struct v4l2_mbus_frame_desc fd;
+>> +	unsigned int i;
+>> +	int ret;
+>> +
+>> +	ret = v4l2_subdev_call(sd, pad, get_frame_desc, pad, &fd);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	if (fd.type != V4L2_MBUS_FRAME_DESC_TYPE_CSI2)
+>> +		return -EOPNOTSUPP;
+>> +
+>> +	for (i = 0; i < fd.num_entries; i++) {
+>> +		if (fd.entry[i].stream == stream) {
+>> +			*entry = fd.entry[i];
+>> +			return 0;
+>> +		}
+>> +	}
+>> +
+>> +	return -ENOENT;
+>> +}
+>> +
+>> +int max_serdes_get_fd_bpp(struct v4l2_mbus_frame_desc_entry *entry,
+>> +			  unsigned int *bpp)
+>> +{
+>> +	const struct max_serdes_mipi_format *format;
+>> +
+>> +	format = max_serdes_mipi_format_by_dt(entry->bus.csi2.dt);
+>> +	if (!format)
+>> +		return -ENOENT;
+>> +
+>> +	*bpp = format->bpp;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +int max_serdes_process_bpps(struct device *dev, u32 bpps,
+>> +			    u32 allowed_double_bpps, unsigned int *doubled_bpp)
+>> +{
+>> +	unsigned int min_bpp;
+>> +	unsigned int max_bpp;
+>> +	bool doubled = false;
+>> +
+>> +	if (!bpps)
+>> +		return 0;
+>> +
+>> +	*doubled_bpp = 0;
+>> +
+>> +	/*
+>> +	 * Hardware can double bpps 8, 10, 12, and it can pad bpps < 16
+>> +	 * to another bpp <= 16:
+>> +	 * Hardware can only stream a single constant bpp up to 24.
+>> +	 *
+>> +	 * From these features and limitations, the following rules
+>> +	 * can be deduced:
+>> +	 *
+>> +	 * A bpp of 8 can always be doubled if present.
+>> +	 * A bpp of 10 can be doubled only if there are no other bpps or the
+>> +	 * only other bpp is 20.
+>> +	 * A bpp of 12 can be doubled only if there are no other bpps or the
+>> +	 * only other bpp is 24.
+>> +	 * Bpps <= 16 cannot coexist with bpps > 16.
+>> +	 * Bpps <= 16 need to be padded to the biggest bpp.
+>> +	 */
+>> +
+>> +	min_bpp = __ffs(bpps);
+>> +	max_bpp = __fls(bpps);
+>> +
+>> +	if (min_bpp == 8) {
+>> +		doubled = true;
+>> +	} else if (min_bpp == 10 || min_bpp == 12) {
+>> +		u32 bpp_or_double = BIT(min_bpp) | BIT(min_bpp * 2);
+>> +		u32 other_bpps = bpps & ~bpp_or_double;
+>> +
+>> +		if (!other_bpps)
+>> +			doubled = true;
+>> +	}
+>> +
+>> +	if (doubled && (allowed_double_bpps & BIT(min_bpp))) {
+>> +		*doubled_bpp = min_bpp;
+>> +		bpps &= ~BIT(min_bpp);
+>> +		bpps |= BIT(min_bpp * 2);
+>> +	}
+>> +
+>> +	min_bpp = __ffs(bpps);
+>> +	max_bpp = __fls(bpps);
+>> +
+>> +	if (max_bpp > 24) {
+>> +		dev_err(dev, "Cannot stream bpps > 24\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	if (min_bpp <= 16 && max_bpp > 16) {
+>> +		dev_err(dev, "Cannot stream bpps <= 16 with bpps > 16\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	if (max_bpp > 16 && min_bpp != max_bpp) {
+>> +		dev_err(dev, "Cannot stream multiple bpps when one is > 16\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +int max_serdes_xlate_enable_disable_streams(struct max_serdes_source *sources,
+>> +					    u32 source_sink_pad_offset,
+>> +					    const struct v4l2_subdev_state *state,
+>> +					    u32 pad, u64 updated_streams_mask,
+>> +					    u32 sink_pad_start, u32 num_sink_pads,
+>> +					    bool enable)
+>> +{
+>> +	u32 failed_sink_pad;
+>> +	int ret;
+>> +	u32 i;
+>> +
+>> +	for (i = sink_pad_start; i < sink_pad_start + num_sink_pads; i++) {
+>> +		u64 matched_streams_mask = updated_streams_mask;
+>> +		u64 updated_sink_streams_mask;
+>> +		struct max_serdes_source *source;
+>> +
+>> +		updated_sink_streams_mask =
+>> +			v4l2_subdev_state_xlate_streams(state, pad, i,
+>> +							&matched_streams_mask);
+>> +		if (!updated_sink_streams_mask)
+>> +			continue;
+>> +
+>> +		source = &sources[i + source_sink_pad_offset];
+>> +		if (!source)
+>> +			continue;
+>> +
+>> +		if (enable)
+>> +			ret = v4l2_subdev_enable_streams(source->sd, source->pad,
+>> +							 updated_sink_streams_mask);
+>> +		else
+>> +			ret = v4l2_subdev_disable_streams(source->sd, source->pad,
+>> +							  updated_sink_streams_mask);
+>> +		if (ret) {
+>> +			failed_sink_pad = i;
+>> +			goto err;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +
+>> +err:
+>> +	for (i = sink_pad_start; i < failed_sink_pad; i++) {
+>> +		u64 matched_streams_mask = updated_streams_mask;
+>> +		u64 updated_sink_streams_mask;
+>> +		struct max_serdes_source *source;
+>> +
+>> +		updated_sink_streams_mask =
+>> +			v4l2_subdev_state_xlate_streams(state, pad, i,
+>> +							&matched_streams_mask);
+>> +		if (!updated_sink_streams_mask)
+>> +			continue;
+>> +
+>> +		source = &sources[i + source_sink_pad_offset];
+>> +		if (!source)
+>> +			continue;
+>> +
+>> +		if (!enable)
+>> +			v4l2_subdev_enable_streams(source->sd, source->pad,
+>> +						   updated_sink_streams_mask);
+>> +		else
+>> +			v4l2_subdev_disable_streams(source->sd, source->pad,
+>> +						    updated_sink_streams_mask);
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +int max_serdes_get_streams_masks(struct device *dev,
+>> +				 const struct v4l2_subdev_state *state,
+>> +				 u32 pad, u64 updated_streams_mask,
+>> +				 u32 num_pads, u64 *old_streams_masks,
+>> +				 u64 **new_streams_masks, bool enable)
+>> +{
+>> +	u64 *streams_masks;
+>> +	unsigned int i;
+>> +
+>> +	streams_masks = devm_kcalloc(dev, num_pads, sizeof(*streams_masks), GFP_KERNEL);
+>> +	if (!streams_masks)
+>> +		return -ENOMEM;
+>> +
+>> +	for (i = 0; i < num_pads; i++) {
+>> +		u64 matched_streams_mask = updated_streams_mask;
+>> +		u64 updated_sink_streams_mask;
+>> +
+>> +		updated_sink_streams_mask =
+>> +			v4l2_subdev_state_xlate_streams(state, pad, i,
+>> +							&matched_streams_mask);
+>> +		if (!updated_sink_streams_mask)
+>> +			continue;
+>> +
+>> +		streams_masks[i] = old_streams_masks[i];
+>> +		if (enable)
+>> +			streams_masks[i] |= updated_sink_streams_mask;
+>> +		else
+>> +			streams_masks[i] &= ~updated_sink_streams_mask;
+>> +	}
+>> +
+>> +	if (enable)
+>> +		streams_masks[pad] |= updated_streams_mask;
+>> +	else
+>> +		streams_masks[pad] &= ~updated_streams_mask;
+>> +
+>> +	*new_streams_masks = streams_masks;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static const struct videomode max_serdes_tpg_pixel_videomodes[] = {
+>> +	{
+>> +		.pixelclock = 25000000,
+>> +		.hactive = 640,
+>> +		.hfront_porch = 10,
+>> +		.hsync_len = 96,
+>> +		.hback_porch = 40,
+>> +		.vactive = 480,
+>> +		.vfront_porch = 2,
+>> +		.vsync_len = 24,
+>> +		.vback_porch = 24,
+>> +	},
+>> +	{
+>> +		.pixelclock = 75000000,
+>> +		.hactive = 1920,
+>> +		.hfront_porch = 88,
+>> +		.hsync_len = 44,
+>> +		.hback_porch = 148,
+>> +		.vactive = 1080,
+>> +		.vfront_porch = 4,
+>> +		.vsync_len = 16,
+>> +		.vback_porch = 36,
+>> +	},
+>> +	{
+>> +		.pixelclock = 150000000,
+>> +		.hactive = 1920,
+>> +		.hfront_porch = 88,
+>> +		.hsync_len = 44,
+>> +		.hback_porch = 148,
+>> +		.vactive = 1080,
+>> +		.vfront_porch = 4,
+>> +		.vsync_len = 16,
+>> +		.vback_porch = 36,
+>> +	},
+>> +};
+>> +
+>> +static void max_serdes_get_vm_timings(const struct videomode *vm,
+>> +				      struct max_serdes_tpg_timings *timings)
+>> +{
+>> +	u32 hact = vm->hactive;
+>> +	u32 hfp = vm->hfront_porch;
+>> +	u32 hsync = vm->hsync_len;
+>> +	u32 hbp = vm->hback_porch;
+>> +	u32 htot = hact + hfp + hbp + hsync;
+>> +
+>> +	u32 vact = vm->vactive;
+>> +	u32 vfp = vm->vfront_porch;
+>> +	u32 vsync = vm->vsync_len;
+>> +	u32 vbp = vm->vback_porch;
+>> +	u32 vtot = vact + vfp + vbp + vsync;
+>> +
+>> +	*timings = (struct max_serdes_tpg_timings) {
+>> +		.gen_vs = true,
+>> +		.gen_hs = true,
+>> +		.gen_de = true,
+>> +		.vs_inv = true,
+>> +		.vs_dly = 0,
+>> +		.vs_high = vsync * htot,
+>> +		.vs_low = (vact + vfp + vbp) * htot,
+>> +		.v2h = 0,
+>> +		.hs_high = hsync,
+>> +		.hs_low = hact + hfp + hbp,
+>> +		.hs_cnt = vact + vfp + vbp + vsync,
+>> +		.v2d = htot * (vsync + vbp) + (hsync + hbp),
+>> +		.de_high = hact,
+>> +		.de_low = hfp + hsync + hbp,
+>> +		.de_cnt = vact,
+>> +		.clock = vm->pixelclock,
+>> +		.fps = DIV_ROUND_CLOSEST(vm->pixelclock, vtot * htot),
+>> +	};
+>> +}
+>> +
+>> +int max_serdes_get_tpg_timings(const struct max_serdes_tpg_entry *entry,
+>> +			       struct max_serdes_tpg_timings *timings)
+>> +{
+>> +	u32 fps;
+>> +
+>> +	if (!entry)
+>> +		return 0;
+>> +
+>> +	fps = DIV_ROUND_CLOSEST(1 * entry->interval.denominator,
+>> +				entry->interval.numerator);
+>> +
+>> +	for (unsigned int i = 0; i < ARRAY_SIZE(max_serdes_tpg_pixel_videomodes); i++) {
+>> +		struct max_serdes_tpg_timings vm_timings;
+>> +		const struct videomode *vm;
+>> +
+>> +		vm = &max_serdes_tpg_pixel_videomodes[i];
+>> +
+>> +		max_serdes_get_vm_timings(vm, &vm_timings);
+>> +
+>> +		if (vm->hactive == entry->width &&
+>> +		    vm->vactive == entry->height &&
+>> +		    vm_timings.fps == fps) {
+>> +			*timings = vm_timings;
+>> +			return 0;
+>> +		}
+>> +	}
+>> +
+>> +	return -EINVAL;
+>> +}
+>> +EXPORT_SYMBOL_GPL(max_serdes_get_tpg_timings);
+>> +
+>> +int max_serdes_validate_tpg_routing(struct v4l2_subdev_krouting *routing)
+>> +{
+>> +	const struct v4l2_subdev_route *route;
+>> +
+>> +	if (routing->num_routes != 1)
+>> +		return -EINVAL;
+>> +
+>> +	route = &routing->routes[0];
+>> +
+>> +	if (!(route->flags & V4L2_SUBDEV_ROUTE_FL_ACTIVE))
+>> +		return -EINVAL;
+>> +
+>> +	if (route->sink_stream != MAX_SERDES_TPG_STREAM)
+>> +		return -EINVAL;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +MODULE_DESCRIPTION("Maxim GMSL2 Serializer/Deserializer Driver");
+>> +MODULE_AUTHOR("Cosmin Tanislav <cosmin.tanislav@analog.com>");
+>> +MODULE_LICENSE("GPL");
+>> diff --git a/drivers/media/i2c/maxim-serdes/max_serdes.h b/drivers/media/i2c/maxim-
+>> serdes/max_serdes.h
+>> new file mode 100644
+>> index 000000000000..fdd761fcd8b2
+>> --- /dev/null
+>> +++ b/drivers/media/i2c/maxim-serdes/max_serdes.h
+>> @@ -0,0 +1,183 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/*
+>> + * Copyright (C) 2025 Analog Devices Inc.
+>> + */
+>> +
+>> +#ifndef MAX_SERDES_H
+>> +#define MAX_SERDES_H
+>> +
+>> +#include <linux/types.h>
+>> +
+>> +#include <media/mipi-csi2.h>
+>> +#include <media/v4l2-subdev.h>
+>> +
+>> +#define REG_SEQUENCE_2(reg, val) \
+>> +	{ (reg),     ((val) >> 8) & 0xff }, \
+>> +	{ (reg) + 1, ((val) >> 0) & 0xff }
+>> +
+>> +#define REG_SEQUENCE_3(reg, val) \
+>> +	{ (reg),     ((val) >> 16) & 0xff }, \
+>> +	{ (reg) + 1, ((val) >> 8)  & 0xff }, \
+>> +	{ (reg) + 2, ((val) >> 0)  & 0xff }
+>> +
+>> +#define REG_SEQUENCE_3_LE(reg, val) \
+>> +	{ (reg),     ((val) >> 0) & 0xff }, \
+>> +	{ (reg) + 1, ((val) >> 8)  & 0xff }, \
+>> +	{ (reg) + 2, ((val) >> 16)  & 0xff }
+>> +
+>>
+>> cci helper handle that nicely.
+
+I don't really want to change to CCI helpers for a handful of registers
+when the rest have 8-bit values. And the LE ones would still need to
+have their bytes flipped.
+
+>>
+>> +#define field_get(mask, val) (((val) & (mask)) >> __ffs(mask))
+>> +#define field_prep(mask, val) (((val) << __ffs(mask)) & (mask))
+>> +
+> At some place you use FIELD_PREP some other field_prep, this is confusing
+> can you use only the FIELD_GET/PREP ?
+> 
+
+FIELD_GET/PREP require constant masks, sometimes we don't have that.
+These helpers are present in other files too.
+
+rg "#define field_get" -l | wc -l
+9
+
+> 
+>> +#define MAX_SERDES_PHYS_MAX		4
+>> +#define MAX_SERDES_STREAMS_NUM		4
+>> +#define MAX_SERDES_VC_ID_NUM		4
+>> +#define MAX_SERDES_TPG_STREAM		0
+>> +
+>> +#define MAX_SERDES_GRAD_INCR		4
+>> +#define MAX_SERDES_CHECKER_COLOR_A	0x00ccfe
+>> +#define MAX_SERDES_CHECKER_COLOR_B	0xa76a00
+>> +#define MAX_SERDES_CHECKER_SIZE		60
+>> +
+>> +extern const char * const max_serdes_tpg_patterns[];
+>> +
+>> +enum max_serdes_gmsl_version {
+>> +	MAX_SERDES_GMSL_MIN,
+>> +	MAX_SERDES_GMSL_2_3GBPS = MAX_SERDES_GMSL_MIN,
+>> +	MAX_SERDES_GMSL_2_6GBPS,
+>> +	MAX_SERDES_GMSL_3,
+>> +	MAX_SERDES_GMSL_MAX = MAX_SERDES_GMSL_3,
+>> +};
+>> +
+>> +enum max_serdes_gmsl_mode {
+>> +	MAX_SERDES_GMSL_PIXEL_MODE,
+>> +	MAX_SERDES_GMSL_TUNNEL_MODE,
+>> +};
+>> +
+>> +enum max_serdes_tpg_pattern {
+>> +	MAX_SERDES_TPG_PATTERN_MIN,
+>> +	MAX_SERDES_TPG_PATTERN_CHECKERBOARD = MAX_SERDES_TPG_PATTERN_MIN,
+>> +	MAX_SERDES_TPG_PATTERN_GRADIENT,
+>> +	MAX_SERDES_TPG_PATTERN_MAX = MAX_SERDES_TPG_PATTERN_GRADIENT,
+>> +};
+>> +
+>> +struct max_serdes_phys_config {
+>> +	unsigned int lanes[MAX_SERDES_PHYS_MAX];
+>> +	unsigned int clock_lane[MAX_SERDES_PHYS_MAX];
+>> +};
+>> +
+>> +struct max_serdes_phys_configs {
+>> +	const struct max_serdes_phys_config *configs;
+>> +	unsigned int num_configs;
+>> +};
+>> +
+>> +struct max_serdes_i2c_xlate {
+>> +	u8 src;
+>> +	u8 dst;
+>> +	bool en;
+>> +};
+>> +
+>> +struct max_serdes_mipi_format {
+>> +	u8 dt;
+>> +	u8 bpp;
+>> +};
+>> +
+>> +struct max_serdes_vc_remap {
+>> +	u8 src;
+>> +	u8 dst;
+>> +};
+>> +
+>> +struct max_serdes_source {
+>> +	struct v4l2_subdev *sd;
+>> +	u16 pad;
+>> +	struct fwnode_handle *ep_fwnode;
+>> +
+>> +	unsigned int index;
+>> +};
+>> +
+>> +struct max_serdes_asc {
+>> +	struct v4l2_async_connection base;
+>> +	struct max_serdes_source *source;
+>> +};
+>> +
+>> +struct max_serdes_tpg_entry {
+>> +	u32 width;
+>> +	u32 height;
+>> +	struct v4l2_fract interval;
+>> +	u32 code;
+>> +	u8 dt;
+>> +	u8 bpp;
+>> +};
+>> +
+>> +#define MAX_TPG_ENTRY_640X480P60_RGB888 \
+>> +	{ 640, 480, { 1, 60 }, MEDIA_BUS_FMT_RGB888_1X24, MIPI_CSI2_DT_RGB888, 24 }
+>> +
+>> +#define MAX_TPG_ENTRY_1920X1080P30_RGB888 \
+>> +	{ 1920, 1080, { 1, 30 }, MEDIA_BUS_FMT_RGB888_1X24, MIPI_CSI2_DT_RGB888, 24 }
+>> +
+>> +#define MAX_TPG_ENTRY_1920X1080P60_RGB888 \
+>> +	{ 1920, 1080, { 1, 60 }, MEDIA_BUS_FMT_RGB888_1X24, MIPI_CSI2_DT_RGB888, 24 }
+>> +
+>> +struct max_serdes_tpg_entries {
+>> +	const struct max_serdes_tpg_entry *entries;
+>> +	unsigned int num_entries;
+>> +};
+>> +
+>> +struct max_serdes_tpg_timings {
+>> +	bool gen_vs;
+>> +	bool gen_hs;
+>> +	bool gen_de;
+>> +	bool vs_inv;
+>> +	bool hs_inv;
+>> +	bool de_inv;
+>> +	u32 vs_dly;
+>> +	u32 vs_high;
+>> +	u32 vs_low;
+>> +	u32 v2h;
+>> +	u32 hs_high;
+>> +	u32 hs_low;
+>> +	u32 hs_cnt;
+>> +	u32 v2d;
+>> +	u32 de_high;
+>> +	u32 de_low;
+>> +	u32 de_cnt;
+>> +	u32 clock;
+>> +	u32 fps;
+>> +};
+>> +
+>> +static inline struct max_serdes_asc *asc_to_max(struct v4l2_async_connection *asc)
+>> +{
+>> +	return container_of(asc, struct max_serdes_asc, base);
+>> +}
+>> +
+>> +const char *max_serdes_gmsl_version_str(enum max_serdes_gmsl_version version);
+>> +const char *max_serdes_gmsl_mode_str(enum max_serdes_gmsl_mode mode);
+>> +
+>> +const struct max_serdes_mipi_format *max_serdes_mipi_format_by_dt(u8 dt);
+>> +
+>> +int max_serdes_get_fd_stream_entry(struct v4l2_subdev *sd, u32 pad, u32 stream,
+>> +				   struct v4l2_mbus_frame_desc_entry *entry);
+>> +
+>> +int max_serdes_get_fd_bpp(struct v4l2_mbus_frame_desc_entry *entry,
+>> +			  unsigned int *bpp);
+>> +int max_serdes_process_bpps(struct device *dev, u32 bpps,
+>> +			    u32 allowed_double_bpps, unsigned int *doubled_bpp);
+>> +
+>> +int max_serdes_xlate_enable_disable_streams(struct max_serdes_source *sources,
+>> +					    u32 source_sink_pad_offset,
+>> +					    const struct v4l2_subdev_state *state,
+>> +					    u32 pad, u64 updated_streams_mask,
+>> +					    u32 sink_pad_start, u32 num_sink_pads,
+>> +					    bool enable);
+>> +
+>> +int max_serdes_get_streams_masks(struct device *dev,
+>> +				 const struct v4l2_subdev_state *state,
+>> +				 u32 pad, u64 updated_streams_mask,
+>> +				 u32 num_pads, u64 *old_streams_masks,
+>> +				 u64 **new_streams_masks, bool enable);
+>> +
+>> +int max_serdes_get_tpg_timings(const struct max_serdes_tpg_entry *entry,
+>> +			       struct max_serdes_tpg_timings *timings);
+>> +
+>> +int max_serdes_validate_tpg_routing(struct v4l2_subdev_krouting *routing);
+>> +
+>> +#endif // MAX_SERDES_H
+> 
+
 
