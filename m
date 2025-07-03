@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B85BC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B51C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q8Ccedz8EElE2V+Y6+aaV+/w9H1IzMx8EGuwT817N3k=; b=BLvIe01SqgrS0LO5MDw9NXqYzB
-	mC2IYFiGchGrMcVhNbo43CnSut9sFYZ+gSpgjTAzDm/rEy2W3wZfzXcIBQ5648qIGjaMFposX2FP8
-	ZSMsFIxLvrZQRMIM1ie4TBwIvMQF6Sl3myB8vXd+d8RaOEXPawdT+ZxiiXTuwtSoMRQi1yYCVlgCS
-	xzURRYupEQz0vkc1IjaPGFY6tkrAByYAS0KS758QIsqHLH1kcrzT9GFynKP7B4a3wdQ1StCLDrchn
-	YoSrsAvR1V4wvMIONTh0QCZzKEqEsXelE+BJFQVIUydPWBj+GWe8KLKfZX6pMPKxbXvSXv6GTpl3L
-	RhlEIN8Q==;
+	bh=26WGKl2CjErDnRZj92F5aoGvawaC5Vv0h6Pq/RNM9GI=; b=HyXGaP9BGA88LvLXmx+uEu6D7r
+	JzYh05FpFTRYh1VIB9MRagVKLA6VB3Xb4Y+shu959ggDf8JCoIfm/IP+rpyJGrTfKNs1Dn8+sN3oX
+	2LkLedDeYTv72fS4gp6YKlhE5VwIJ9TxUXWhHzflXF5n3smSNucKL+JVEFx32qZPVYCjEiqyK5oiB
+	SMNXMEV36MdO647VKXuvgahlnzqsFeGwSgf/+SeCaGolfPqckdBisx5phk4exMx/LdiwUH/Tknbcp
+	osl0FGQtWMnq5D3x9klWWr6YJAhLEJpi2z9vEwga7D3JOWuzNxxnpa9z3RiwM3R1nBbxIFC+d85tC
+	EXOGcRjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR2v-0000000CYPb-2Atr;
-	Thu, 03 Jul 2025 21:00:41 +0000
+	id 1uXR2y-0000000CYUb-1Qgp;
+	Thu, 03 Jul 2025 21:00:45 +0000
 Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXNa5-0000000C6o9-07D6;
-	Thu, 03 Jul 2025 17:18:42 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 30902442C7;
-	Thu,  3 Jul 2025 17:18:37 +0000 (UTC)
+	id 1uXNa7-0000000C6p1-1oeK;
+	Thu, 03 Jul 2025 17:18:44 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 816A4442C0;
+	Thu,  3 Jul 2025 17:18:39 +0000 (UTC)
 From: Bastien Nocera <hadess@hadess.net>
 To: trivial@kernel.org,
 	Marcel Holtmann <marcel@holtmann.org>,
@@ -52,9 +52,9 @@ To: trivial@kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	asahi@lists.linux.dev
-Subject: [PATCH v2 5/7] Bluetooth: aosp: Fix typo in comment
-Date: Thu,  3 Jul 2025 19:16:59 +0200
-Message-ID: <20250703171815.1011001-6-hadess@hadess.net>
+Subject: [PATCH v2 6/7] Bluetooth: RFCOMM: Fix typos in comments
+Date: Thu,  3 Jul 2025 19:17:00 +0200
+Message-ID: <20250703171815.1011001-7-hadess@hadess.net>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250703171815.1011001-1-hadess@hadess.net>
 References: <20250703171815.1011001-1-hadess@hadess.net>
@@ -66,8 +66,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvtdekiecutefuodetggdotef
  hhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhesjhgrnhhnrghurdhnvght
 X-GND-Sasl: hadess@hadess.net
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_101841_205637_5B50E048 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20250703_101843_615873_AB21881B 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,21 +86,36 @@ Found by codespell.
 
 Signed-off-by: Bastien Nocera <hadess@hadess.net>
 ---
- net/bluetooth/aosp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ net/bluetooth/rfcomm/core.c | 3 ++-
+ net/bluetooth/rfcomm/tty.c  | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/net/bluetooth/aosp.c b/net/bluetooth/aosp.c
-index 1d67836e95e1..59025771af53 100644
---- a/net/bluetooth/aosp.c
-+++ b/net/bluetooth/aosp.c
-@@ -70,7 +70,7 @@ void aosp_do_open(struct hci_dev *hdev)
- 	rp = (struct aosp_rp_le_get_vendor_capa *)skb->data;
+diff --git a/net/bluetooth/rfcomm/core.c b/net/bluetooth/rfcomm/core.c
+index 3b8f39618d65..96250807b32b 100644
+--- a/net/bluetooth/rfcomm/core.c
++++ b/net/bluetooth/rfcomm/core.c
+@@ -1962,7 +1962,8 @@ static void rfcomm_accept_connection(struct rfcomm_session *s)
+ 	int err;
  
- 	version_supported = le16_to_cpu(rp->version_supported);
--	/* AOSP displays the verion number like v0.98, v1.00, etc. */
-+	/* AOSP displays the version number like v0.98, v1.00, etc. */
- 	bt_dev_info(hdev, "AOSP extensions version v%u.%02u",
- 		    version_supported >> 8, version_supported & 0xff);
+ 	/* Fast check for a new connection.
+-	 * Avoids unnesesary socket allocations. */
++	 * Avoids unnecessary socket allocations.
++	 */
+ 	if (list_empty(&bt_sk(sock->sk)->accept_q))
+ 		return;
+ 
+diff --git a/net/bluetooth/rfcomm/tty.c b/net/bluetooth/rfcomm/tty.c
+index 21a5b5535ebc..58d1707f7daf 100644
+--- a/net/bluetooth/rfcomm/tty.c
++++ b/net/bluetooth/rfcomm/tty.c
+@@ -980,7 +980,7 @@ static void rfcomm_tty_set_termios(struct tty_struct *tty,
+ 		baud = RFCOMM_RPN_BR_230400;
+ 		break;
+ 	default:
+-		/* 9600 is standard accordinag to the RFCOMM specification */
++		/* 9600 is standard according to the RFCOMM specification */
+ 		baud = RFCOMM_RPN_BR_9600;
+ 		break;
  
 -- 
 2.50.0
