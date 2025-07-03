@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4557CC83F05
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA11C83030
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhdP3/FQHSjrxWTqzuu19PBxD9WUK22oYYs22W3Au0g=; b=mvgEODHmjoBaPkfh0+EGtFbCcW
-	14zgPyj59DnbuvjG0qqtbS1LZDf7Tsi/vC7qs1Q/rUG9MvnPUCYAnZKuJhiFuC8BPBeiZgdYTlOd0
-	eGSMwbS0mGyL30GeCJxur+Plm+JESlfuBq5tXqJre5zqPuw6L0mTCyale5ky/gPRIRwBvUPbB6l5w
-	L3Ysyz6bq/Ydom/0Q1OiqdxBPHt4gYAoPLiaRZXl+PEifMYwY/S8t7BSprPISSSna7/gxJDXyu/94
-	fYAl2R4uZmY9JZ2rLNJ62+p1WUO0/NNGMj9DVv30VafY0Od4wG8etTxqRRoJ0QNtnWzj6uHo0WUwW
-	y3Cwi7sA==;
+	bh=0h1PukO+UHeQFLXtNBQr0NfD52qecvWe2RZsBueRTTE=; b=xUwfDyoM6jARBOuXbAOi9u73xA
+	0mBNZyaX2FpGmLIDbY5LPfWuUmm1QONxYm6ydA9Y847vS7oVMEm2tb3qj8MdeC+1f9PirucK03w0V
+	ku8usFbQmpydTUbSaibUu3zMEjd4e4pIfgWpPnVuw1/VDftvk/kFCdE+s7yTt/WNcs+sWoqptzJ9X
+	mw+gSaR9SJZo0OgiTxoRK+v0AgFqKAFFA38jyctIypsMvah1q3T/vUOyUF920od7x8XnUDTxM0O7N
+	E42MENSsg3I0ddW2V2SWyoRtVm9HSih7qo1BEFeCxgnOSNNf6jN1d5Nb5VWQrkhe1y9jdWCe7OfOt
+	sX1KIAwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR1n-0000000CWfN-1rdr;
-	Thu, 03 Jul 2025 20:59:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uXR1o-0000000CWhn-2Beq;
+	Thu, 03 Jul 2025 20:59:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMRz-0000000BwAw-2ahv
+	id 1uXMS2-0000000BwCZ-2ydd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 16:06:16 +0000
+	Thu, 03 Jul 2025 16:06:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 584A34657A;
+	by tor.source.kernel.org (Postfix) with ESMTP id 29B0061446;
+	Thu,  3 Jul 2025 16:06:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1670C4CEEE;
 	Thu,  3 Jul 2025 16:06:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57B52C4CEE3;
-	Thu,  3 Jul 2025 16:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751558775;
-	bh=JqVBI6zD71hSTx5yFb78+uxctGMkoxR2pJgkc2W8UzQ=;
+	s=k20201202; t=1751558777;
+	bh=k95pgC8uYho6a+kXi0z4LRYhCqPs5d/JUrw8wGO3J2U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=AkPCTteMy81OpE3Mi26WPe1/iz9nJQ48IWOz3etCp8VLyWjeJcPoJeFuwa/7M5SgQ
-	 FsehYh6aWSwv3z5RMRCAJ0IdSR4g2w23B0PW0xhkrehHTEK6D/oYSj66r/2KmK8u0o
-	 5hd0pjGe3ubSEzs8Iiz976lEXahx1fU+/dGADjjh253rYgbCFIz95VIKUV5rkBlpKu
-	 RXrZD9B3F2kgjPH2waWt5YLV1AZv07/eWX7GpqMMxmRTDaVbepFiBBEjMHPQpslCzj
-	 lu9aEbULrwFMKD/lU30BUovod8bq7WVba9kgK3j3y1cErcQwFYUyJugVSHrRB30jgi
-	 92RWrld9xZbpA==
+	b=sZlNlyTttCKjCKDEo8ZvK65gLEsZunjGIXsP5gHiBfqrFJbIFhcXTs6X3P5LOtxPm
+	 VgDQNJD4JdNzbPL5OWGyWLWFHmAiHV21mBI5VjqiTGkAUqk9sY/78KWKK+ONvC+onB
+	 k5QMMuBXcSqpvs5xjg+qLQJz3mhhev98wO6GUX1ueaxXDNmPorRoJxboxe9rDVIRqG
+	 gnNoiMcD42iPK6tG+fBR78lcSX/alafSN/bFlvYAgpUaMrn5Uflmo+Q5KEeLyivCe5
+	 7pybOZVPCUmJcKKYOkEoucLTz2QQ86DBvfgZENH/0EJzTUBUMTP/tyQIeNF6ThXJVf
+	 AysWdl4zV3alQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 03 Jul 2025 17:00:17 +0100
-Subject: [PATCH v3 3/4] kselftest/arm64: Add a test for vfork() with GCS
+Date: Thu, 03 Jul 2025 17:00:18 +0100
+Subject: [PATCH v3 4/4] selftests/nolibc: Add coverage of vfork()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250703-arm64-gcs-vfork-exit-v3-3-1e9a9d2ddbbe@kernel.org>
+Message-Id: <20250703-arm64-gcs-vfork-exit-v3-4-1e9a9d2ddbbe@kernel.org>
 References: <20250703-arm64-gcs-vfork-exit-v3-0-1e9a9d2ddbbe@kernel.org>
 In-Reply-To: <20250703-arm64-gcs-vfork-exit-v3-0-1e9a9d2ddbbe@kernel.org>
 To: Willy Tarreau <w@1wt.eu>, 
@@ -59,20 +59,17 @@ To: Willy Tarreau <w@1wt.eu>,
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2448; i=broonie@kernel.org;
- h=from:subject:message-id; bh=JqVBI6zD71hSTx5yFb78+uxctGMkoxR2pJgkc2W8UzQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoZqpoRTfqCavfvOeI6HiW0fO9+7QniM8meqnva
- KfwmnOt5gKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaGaqaAAKCRAk1otyXVSH
- 0BjAB/4x6C2kGb8P+uyoBFDtAItZkZ+dJBICIFrZzPMjdrZr4zbvUc5btpxrBDbB9ZtDFwSKXUG
- TsU8WJwomcs7GYmNStpckecKrA56vDlSJxQFETIBkONQGgCb+JTKMWo1fW9CKZG4Q7Nc9zI1opC
- ZeYK72T8ZQPxyECGphNjLo5PSnwoJ2kC2MuHNKoSZ4QCdGQ9WXL9KngRKaRWg5iqzZDhKHLZNrL
- F+rZIkIfpViRFvnW98R24jkrIckOfM518Ni0A53po5NSWNRk/Huqkgw2wHxN4gIJHKU1gqFIrGs
- CGYxvbME5UfD4P6v+2i7jOmpeSoIIdW70acTy31OJpwpPDSz
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2649; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=k95pgC8uYho6a+kXi0z4LRYhCqPs5d/JUrw8wGO3J2U=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoZqpp3i92RBIH/xgX25THZxzWR1YIDTNkbJkXN
+ aX0+ZotRh2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaGaqaQAKCRAk1otyXVSH
+ 0EP3B/9g2ihNKWqWkt4iW9QbyCgKDPCPqf+nZBPeEOOS7APQmwzTyQnuCfYmcEBB1fqKDN8wgss
+ gBxNEKi9+ZtR4twbwAqnOr4+44Tq1oU1/hyBKt/6gFP0NkojKMOuKDVt1Z9b9Ac8qjGW/Z+zqcT
+ tnnAFa5iY2+8MSMd8cO04Jc9FYZ8IeF+oKwfXfHL/1e6gpvSKS7cY7pcgil6Fiqx4TdYahvBdmq
+ S2t4AeIyE5WcHgJdxol0nkzHlXry4UMz0tYsWsdlnkrzwovKBSTGtbkAqBjRrqoYTKuvoMvdz8t
+ LKTVIDb5ETcI1KEUqCcSbZBVeXpDSJeYAS80FxSbHyKQAoxN
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_090615_734490_EBB996C3 
-X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,97 +84,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ensure that we've got at least some coverage of the special cases around
-vfork() by adding a test case in basic-gcs doing the same thing as the
-plain fork() one - vfork(), do a few checks and then return to the parent.
+Generalise the existing fork() test to also cover the newly added vfork()
+implementation.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/gcs/basic-gcs.c | 63 +++++++++++++++++++++++++++
- 1 file changed, 63 insertions(+)
+ tools/testing/selftests/nolibc/nolibc-test.c | 23 +++++++++++++++++++----
+ 1 file changed, 19 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/gcs/basic-gcs.c b/tools/testing/selftests/arm64/gcs/basic-gcs.c
-index 3fb9742342a3..54f9c888249d 100644
---- a/tools/testing/selftests/arm64/gcs/basic-gcs.c
-+++ b/tools/testing/selftests/arm64/gcs/basic-gcs.c
-@@ -298,6 +298,68 @@ static bool test_fork(void)
- 	return pass;
+diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
+index dbe13000fb1a..d682434c6442 100644
+--- a/tools/testing/selftests/nolibc/nolibc-test.c
++++ b/tools/testing/selftests/nolibc/nolibc-test.c
+@@ -877,7 +877,12 @@ int test_file_stream(void)
+ 	return 0;
  }
  
-+/* A vfork()ed process can run and exit */
-+static bool test_vfork(void)
-+{
-+	unsigned long child_mode;
-+	int ret, status;
-+	pid_t pid;
-+	bool pass = true;
+-int test_fork(void)
++enum fork_type {
++	FORK_STANDARD,
++	FORK_VFORK,
++};
 +
-+	pid = vfork();
-+	if (pid == -1) {
-+		ksft_print_msg("vfork() failed: %d\n", errno);
-+		pass = false;
-+		goto out;
-+	}
-+	if (pid == 0) {
-+		/*
-+		 * In child, make sure we can call a function, read
-+		 * the GCS pointer and status and then exit.
-+		 */
-+		valid_gcs_function();
-+		get_gcspr();
-+
-+		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-+				  &child_mode, 0, 0, 0);
-+		if (ret == 0 && !(child_mode & PR_SHADOW_STACK_ENABLE)) {
-+			ksft_print_msg("GCS not enabled in child\n");
-+			ret = EXIT_FAILURE;
-+		}
-+
-+		_exit(ret);
-+	}
-+
-+	/*
-+	 * In parent, check we can still do function calls then check
-+	 * on the child.
-+	 */
-+	valid_gcs_function();
-+
-+	ksft_print_msg("Waiting for child %d\n", pid);
-+
-+	ret = waitpid(pid, &status, 0);
-+	if (ret == -1) {
-+		ksft_print_msg("Failed to wait for child: %d\n",
-+			       errno);
-+		return false;
-+	}
-+
-+	if (!WIFEXITED(status)) {
-+		ksft_print_msg("Child exited due to signal %d\n",
-+			       WTERMSIG(status));
-+		pass = false;
-+	} else if (WEXITSTATUS(status)) {
-+		ksft_print_msg("Child exited with status %d\n",
-+			       WEXITSTATUS(status));
-+		pass = false;
-+	}
-+
-+out:
-+
-+	return pass;
-+}
-+
- typedef bool (*gcs_test)(void);
++int test_fork(enum fork_type type)
+ {
+ 	int status;
+ 	pid_t pid;
+@@ -886,14 +891,23 @@ int test_fork(void)
+ 	fflush(stdout);
+ 	fflush(stderr);
  
- static struct {
-@@ -314,6 +376,7 @@ static struct {
- 	{ "enable_invalid", enable_invalid, true },
- 	{ "map_guarded_stack", map_guarded_stack },
- 	{ "fork", test_fork },
-+	{ "vfork", test_vfork },
- };
+-	pid = fork();
++	switch (type) {
++	case FORK_STANDARD:
++		pid = fork();
++		break;
++	case FORK_VFORK:
++		pid = vfork();
++		break;
++	default:
++		return 1;
++	}
  
- int main(void)
+ 	switch (pid) {
+ 	case -1:
+ 		return 1;
+ 
+ 	case 0:
+-		exit(123);
++		_exit(123);
+ 
+ 	default:
+ 		pid = waitpid(pid, &status, 0);
+@@ -1330,7 +1344,7 @@ int run_syscall(int min, int max)
+ 		CASE_TEST(dup3_m1);           tmp = dup3(-1, 100, 0); EXPECT_SYSER(1, tmp, -1, EBADF); if (tmp != -1) close(tmp); break;
+ 		CASE_TEST(execve_root);       EXPECT_SYSER(1, execve("/", (char*[]){ [0] = "/", [1] = NULL }, NULL), -1, EACCES); break;
+ 		CASE_TEST(file_stream);       EXPECT_SYSZR(1, test_file_stream()); break;
+-		CASE_TEST(fork);              EXPECT_SYSZR(1, test_fork()); break;
++		CASE_TEST(fork);              EXPECT_SYSZR(1, test_fork(FORK_STANDARD)); break;
+ 		CASE_TEST(getdents64_root);   EXPECT_SYSNE(1, test_getdents64("/"), -1); break;
+ 		CASE_TEST(getdents64_null);   EXPECT_SYSER(1, test_getdents64("/dev/null"), -1, ENOTDIR); break;
+ 		CASE_TEST(directories);       EXPECT_SYSZR(proc, test_dirent()); break;
+@@ -1374,6 +1388,7 @@ int run_syscall(int min, int max)
+ 		CASE_TEST(uname_fault);       EXPECT_SYSER(1, uname(NULL), -1, EFAULT); break;
+ 		CASE_TEST(unlink_root);       EXPECT_SYSER(1, unlink("/"), -1, EISDIR); break;
+ 		CASE_TEST(unlink_blah);       EXPECT_SYSER(1, unlink("/proc/self/blah"), -1, ENOENT); break;
++		CASE_TEST(vfork);             EXPECT_SYSZR(1, test_fork(FORK_VFORK)); break;
+ 		CASE_TEST(wait_child);        EXPECT_SYSER(1, wait(&tmp), -1, ECHILD); break;
+ 		CASE_TEST(waitpid_min);       EXPECT_SYSER(1, waitpid(INT_MIN, &tmp, WNOHANG), -1, ESRCH); break;
+ 		CASE_TEST(waitpid_child);     EXPECT_SYSER(1, waitpid(getpid(), &tmp, WNOHANG), -1, ECHILD); break;
 
 -- 
 2.39.5
