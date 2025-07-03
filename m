@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FEEC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 22:06:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E9C9C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 22:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=z8GgfWrnJFJHxADsbByj/O1WY+W+lK44BD1usBbr6PQ=; b=CaAj7XiLv/6biR
-	MIIFGWR1LM2T29zTMyCC6hAhGDj2jeA6jTeveBU4esGP6zBinp87uVnOulRRdVPpazxcooTvQrFJe
-	H0oThCsi+Ri1tw9QliFgQpYbRmBtIIrSWCs0jLyKxMTT4SflBE3On5EiT2dBSUiKQaPCCbWVg+Uoq
-	Nm0A+FflvISRyWoImhC0NICj5m32GpOWW4asBF1mRcyTabNksM5c3Gf5YKYuxoRnlufg0AWw8X4oh
-	U9LQB4i38zm38NASEMdQF2aRtNtKlfgDZsPTrUJ7POTKr9ZI0neiQn+mK/hk7ruHoMF57PyCEPsVY
-	ua2j8Ea9XAw7yYN+Muog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FhHlqYaDrf8Cdug9gh+1inM7EWHioRFTraMqOwHdEbo=; b=KUf/nahgtSfzN0ZCGLHGTi3IBj
+	ydB8QqRCHLtsOcikMuPSf/pbg3/C3splcFGoMCDQmqSPWHFWfd/IJseCDX2/cWsWKhxxkkhQsdqY6
+	IvgsCkwMJTy3N7Gn51BMAsSWFicHZk/nvtVXmSvbd5Y1CaRc04FGpAnZ30gGPFPBlYrN166kFPPUx
+	9nnlcKuh3MZnpUgLOiVsjeiTuHB8rDlNJta1wAnpSMTCvRGDxjObacrvmMxkSfzumm/gdN5tXmTzm
+	RXaPehG/qR4FmLA4NDe0tI9JDamAYSv1Pv17SwgAoXvDc817DS+Cx5tY8BTcTj6FJ+o+DW2fWjIwx
+	81vte9lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXS4f-0000000CgDg-3jtC;
-	Thu, 03 Jul 2025 22:06:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uXS5E-0000000Cgcy-2qhV;
+	Thu, 03 Jul 2025 22:07:08 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXNjA-0000000C8na-2MFz;
-	Thu, 03 Jul 2025 17:28:04 +0000
+	id 1uXOkE-0000000CF4s-1K92
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Jul 2025 18:33:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7831C61453;
-	Thu,  3 Jul 2025 17:28:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D73C4CEE3;
-	Thu,  3 Jul 2025 17:28:02 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 18D05A539E6;
+	Thu,  3 Jul 2025 18:33:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A17EFC4CEED;
+	Thu,  3 Jul 2025 18:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751563683;
-	bh=7DItQyd/iDiXcaQ1oEjOGACHtzfWw4WzefkYn8OTkwU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=H5ZftxTxWMfwxHZ+Pz3upY30k01iBoXdImqR+W/HMOoyYzD3f9V7nCF4lK/kiNDZk
-	 Iv/a4u5MSqT8IyVdWMKt/77YNztWhnMVkI9jWlOVKXqlAoxQpMObMsOsZNgt3mrBzd
-	 azBm0mh/xpH1TaR6W097mqBwLGUYZw+hfLFuqmy0dHTsMlEx3NfczGuOn3DQJBYmTs
-	 rmwl0RQjoupydZDcb1P37q76NVU3kFSi5kZwkrCDNvz1ducn1Tc2kKbXh0JmDQBSVI
-	 hQjavWGtQqoz8VzpB9ZusWsjtax/P5fIQ0C+xaskpPdNwILfdXtRyVYmu4AXYp6DXJ
-	 eN5ZOW0iYQJgA==
-Date: Thu, 3 Jul 2025 12:28:01 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Nam Cao <namcao@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	"K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Joyce Ooi <joyce.ooi@intel.com>, Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Nirmal Patel <nirmal.patel@linux.intel.com>,
-	Jonathan Derrick <jonathan.derrick@linux.dev>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 00/16] PCI: MSI parent domain conversion
-Message-ID: <20250703172801.GA1934994@bhelgaas>
+	s=k20201202; t=1751567592;
+	bh=+RKXSd49QNGxofon9O/ZcqEa2ERFrhs7K98DpEYCjC0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=FvZ0T79U5BC4bXeJoKKGOoYWP/Jkmx2D+LX++NlPea5UNG092WKAk6ck4szKB5/gn
+	 lICR87gKfM2tzA9aAqCQIxd5GRM0onRg6HXafN5ExRpwRruua1BtdeWynLgwQAS8qm
+	 1R8sRx7Ivlx39CXkmqCDDn1c0DdN+BRq+j9wUNuO1BmC2mIy1wMi2mqtyHoXolEmYE
+	 t35iaG6BxCBaEKMMAMrIGG52roi4JvGnZEMHqfjUhf7Cal1B1bVdym832wEMNVzGro
+	 m+MkqM2mR6OJSK3FNLEwHSgWEYNZ5iEWbEASaSWCM/Ew1G+C47/4Bk+xfjhFays8vJ
+	 DG31TbkL6fwuA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 912ECC83F03;
+	Thu,  3 Jul 2025 18:33:12 +0000 (UTC)
+From: Frank Li via B4 Relay <devnull+Frank.Li.nxp.com@kernel.org>
+Date: Thu, 03 Jul 2025 14:33:06 -0400
+Subject: [PATCH v2 1/4] dt-bindings: media: add i.MX parallel csi support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1750858083.git.namcao@linutronix.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250703-imx8qxp_pcam-v2-1-188be85f06f1@nxp.com>
+References: <20250703-imx8qxp_pcam-v2-0-188be85f06f1@nxp.com>
+In-Reply-To: <20250703-imx8qxp_pcam-v2-0-188be85f06f1@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Rui Miguel Silva <rmfrfs@gmail.com>, 
+ Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Frank Li <Frank.Li@nxp.com>, 
+ Alice Yuan <alice.yuan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751567591; l=4271;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=F6iDqFZ8amoJXqI666QahOsEJxKCsFei15ZM+Oj2BqQ=;
+ b=7ppXxyhOnTf0rhvMnaPHXuBxIhJFJ6XuY6YkyCBO1UEaSQ0AIcE7qhCD4ApvPzaVhKGn9xJQK
+ xYkZ3SuXoc+Ajmw8pv+yKY8oUs119hDRMkjhSlxTDhbOWu8O0pz9FuR
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-Endpoint-Received: by B4 Relay for Frank.Li@nxp.com/20240130 with
+ auth_id=121
+X-Original-From: Frank Li <Frank.Li@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250703_113314_532991_F4C87D73 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,71 +91,156 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Frank.Li@nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 04:47:50PM +0200, Nam Cao wrote:
-> The initial implementation of PCI/MSI interrupt domains in the hierarchical
-> interrupt domain model used a shortcut by providing a global PCI/MSI
-> domain.
-> 
-> This works because the PCI/MSI[X] hardware is standardized and uniform, but
-> it violates the basic design principle of hierarchical interrupt domains:
-> Each hardware block involved in the interrupt delivery chain should have a
-> separate interrupt domain.
-> 
-> For PCI/MSI[X], the interrupt controller is per PCI device and not a global
-> made-up entity.
-> 
-> Unsurprisingly, the shortcut turned out to have downsides as it does not
-> allow dynamic allocation of interrupt vectors after initialization and it
-> prevents supporting IMS on PCI. For further details, see:
-> 
-> https://lore.kernel.org/lkml/20221111120501.026511281@linutronix.de/
-> 
-> The solution is implementing per device MSI domains, this means the
-> entities which provide global PCI/MSI domain so far have to implement MSI
-> parent domain functionality instead.
-> 
-> This series converts the PCI controller drivers to implement MSI parent
-> domain.
-> 
->  drivers/pci/Kconfig                           |   1 +
->  drivers/pci/controller/Kconfig                |  11 +
->  drivers/pci/controller/dwc/Kconfig            |   1 +
->  .../pci/controller/dwc/pcie-designware-host.c |  68 ++----
->  drivers/pci/controller/dwc/pcie-designware.h  |   1 -
->  drivers/pci/controller/mobiveil/Kconfig       |   1 +
->  .../controller/mobiveil/pcie-mobiveil-host.c  |  42 ++--
->  .../pci/controller/mobiveil/pcie-mobiveil.h   |   1 -
->  drivers/pci/controller/pci-aardvark.c         |  59 ++---
->  drivers/pci/controller/pci-hyperv.c           |  98 ++++++--
->  drivers/pci/controller/pcie-altera-msi.c      |  44 ++--
->  drivers/pci/controller/pcie-brcmstb.c         |  44 ++--
->  drivers/pci/controller/pcie-iproc-msi.c       |  45 ++--
->  drivers/pci/controller/pcie-mediatek-gen3.c   |  67 ++---
->  drivers/pci/controller/pcie-mediatek.c        |  46 ++--
->  drivers/pci/controller/pcie-rcar-host.c       |  69 ++----
->  drivers/pci/controller/pcie-xilinx-dma-pl.c   |  48 ++--
->  drivers/pci/controller/pcie-xilinx-nwl.c      |  45 ++--
->  drivers/pci/controller/pcie-xilinx.c          |  55 +++--
->  drivers/pci/controller/plda/Kconfig           |   1 +
->  drivers/pci/controller/plda/pcie-plda-host.c  |  44 ++--
->  drivers/pci/controller/plda/pcie-plda.h       |   1 -
->  drivers/pci/controller/vmd.c                  | 229 +++++++++---------
->  23 files changed, 504 insertions(+), 517 deletions(-)
+From: Alice Yuan <alice.yuan@nxp.com>
 
-Looks good to me, thanks!  I think Mani will probably pick this up.
+Document the binding for parallel CSI controller found in i.MX8QXP, i.MX93
+and i.MX91 SoCs.
 
-I might have included the specific "legacy MSI domain" thing you're
-replacing.  It looks like you're replacing pci_msi_create_irq_domain()
-with msi_create_parent_irq_domain()?
+Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Change in v2:
+- use pcif surfix as Laurent Pinchart's suggest.
+- put power-domains into required list
+---
+ .../devicetree/bindings/media/fsl,imx93-pcif.yaml  | 109 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ 2 files changed, 110 insertions(+)
 
-Minor merge conflict in pcie-mediatek-gen3.c with dcbea1c7e94e ("PCI:
-mediatek-gen3: Use dev_fwnode() for irq_domain_create_linear()").  No
-problem, we can easily fix that up.
+diff --git a/Documentation/devicetree/bindings/media/fsl,imx93-pcif.yaml b/Documentation/devicetree/bindings/media/fsl,imx93-pcif.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..ff9a32e0bec1d1bd90d93f45dbd7825d1e12650e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/fsl,imx93-pcif.yaml
+@@ -0,0 +1,109 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/fsl,imx93-pcif.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: i.MX8/9 Parallel Camera Interface
++
++maintainers:
++  - Frank Li <Frank.Li@nxp.com>
++
++description: |
++  This is device node for the Parallel Camera Interface which enables the
++  chip to connect directly to external Parallel CMOS image sensors.
++  Supports up to 80MHz input clock from sensor.
++  Supports the following input data formats
++    - 8-bit/10-bit Camera Sensor Interface (CSI)
++    - 8-bit data port for RGB, YCbCr, and YUV data input
++    - 8-bit/10-bit data ports for Bayer data input
++  Parallel Camera Interface is hooked to the Imaging subsystem via the
++  Pixel Link.
++
++properties:
++  compatible:
++    oneOf:
++      - const: fsl,imx8qxp-pcif
++      - items:
++          - enum:
++              - fsl,imx91-pcif
++          - const: fsl,imx93-pcif
++      - const: fsl,imx93-pcif
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 2
++
++  clock-names:
++    items:
++      - const: pixel
++      - const: ipg
++
++  power-domains:
++    maxItems: 1
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description:
++          Input port node.
++
++      port@1:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description:
++          Output port node.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - power-domains
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/imx93-clock.h>
++    #include <dt-bindings/power/fsl,imx93-power.h>
++
++    pcif@4ac10070 {
++        compatible = "fsl,imx93-pcif";
++        reg = <0x4ac10070 0x10>;
++        clocks = <&clk IMX93_CLK_MIPI_CSI_GATE>,
++                 <&clk IMX93_CLK_MEDIA_APB>;
++        clock-names = "pixel", "ipg";
++        assigned-clocks = <&clk IMX93_CLK_CAM_PIX>;
++        assigned-clock-parents = <&clk IMX93_CLK_VIDEO_PLL>;
++        assigned-clock-rates = <140000000>;
++        power-domains = <&media_blk_ctrl IMX93_MEDIABLK_PD_MIPI_CSI>;
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++
++                endpoint {
++                    remote-endpoint = <&mt9m114_ep>;
++                };
++            };
++
++            port@1 {
++                reg = <1>;
++                endpoint {
++                    remote-endpoint = <&isi_in>;
++                };
++            };
++        };
++    };
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8dc0f6609d1fe2e3eefd50088dbe566d9e107bfa..8ae0667d2bb41fb6a1549bd3b2b33f326cbd1303 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -15107,6 +15107,7 @@ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ T:	git git://linuxtv.org/media.git
+ F:	Documentation/admin-guide/media/imx7.rst
++F:	Documentation/devicetree/bindings/media/fsl,imx93-pcif.yaml
+ F:	Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+ F:	Documentation/devicetree/bindings/media/nxp,imx7-csi.yaml
+ F:	Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
 
-The "++i" in vmd.c stuck out to me since "i++" is so much more common.
+-- 
+2.34.1
 
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+
 
