@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90838C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B46C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=txRBh7S4cawgq1ZSxM+F+0FygDBvV8H5jHUTVQpiJ3w=; b=TDsSeladclZJouagnWMtFjGCOL
-	DhBlVspkry3XrHPrUNAkd0nBIWv9DpI5QEFKMRDXHZU6cnKe+lQLDM2XEve4Cgd0V+YtRKqrHtM0l
-	eVurALz6lgYRZt34GTeU0VW64K6ZMb6GHB7XgOQtxbrkdiBGX+qJMV4eIkMYfsTuditBrn4xe2gRc
-	fSVWuiKHYiDeGV/bjgU/X6BGHePkX91qcOil2nGGUD5V+r33D14vDhozspvit12TUlPT0LG2xQEAa
-	HYZn+S97byrP7kzvh4xt9U9U7W197Ex2l3IqvNRW7h5k2Tk2b4CO9uffq5wK9/+rZBmP7fKeRxvEV
-	y25wFf1Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mKP39/U4XTctXDVql5W+xKhlwCkWJJYfYnnN56FY6aY=; b=O0CSAtgDR0ty46cZy5JganS33l
+	6bivrBGnBBqfvaxjddzK/Ldue1rymiXZOs+TR5U3Ev9ksKih/7JP7vMbuqwSykgwXCpEgkhDvALB9
+	WRFc68NEVo3UC1ste39eYeBFBAmchqrXjEAtD05aXzzB4tvKWIFQyHO10p818O+095oO6BTAKMZa1
+	4QATjKHPROoV7MzFFJGW97S63cvrCUv3ftiKbYtpBrDlafeyhSW0o5EOqCUDyytw3xthcTHw/zVZp
+	nkXwI5whkHoO53KZ8cP33S8qBvToqSDXBIZPItqWtkyYW6hI41kdIddvHFPWZjDc+QN7yFGOrbpWX
+	nklL81Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIlZ-0000000BH2w-0wxQ;
-	Thu, 03 Jul 2025 12:10:13 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uXInt-0000000BHOS-0vfw;
+	Thu, 03 Jul 2025 12:12:37 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHiO-0000000B5sS-23IW;
-	Thu, 03 Jul 2025 11:02:53 +0000
+	id 1uXHiP-0000000B5sW-1czV;
+	Thu, 03 Jul 2025 11:02:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751540570;
-	bh=ShAkXJTrY2H585u2Y0kPTLCVBGJjzKXyM8RMqv17/SQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=otLSq5OqUViy5CQhSmfYg7aq0dtdg7wBm9RDsYZFWyH2ykNg3kck4Z0SflpMNEvcg
-	 EHEt6ROjyNhuyNvWYHCrMixtzvkEHL208FByFQRHRaWfGufttDmaUC+n53Nm5oz094
-	 1zB0WoYqgt+iJKfqXOJ45MwT0r8dQql4gfR+fDLPlmPUvJmU9i8FyXnzg/qfgJDGaB
-	 QzvBvNrfmp1r1F81wq2D4elp8l4Z4ZzsLJXeMW+2e6ikFqebQT1TdceIURX65yYEw/
-	 yMjd/UXr3oEMJYX6tTRJ2r6/NU+/6Bi97bBHzV6rWylBjQqw5bJHl/8KplkpkKuH59
-	 VmgM86HnH7kcw==
+	s=mail; t=1751540571;
+	bh=idYJiFGibqM6lxG/y187gCKeyxMBI1SWWRI1kD+0Uu4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=UzlvJQhpmfcuCLEv0Qd8fN0ZG5D95CxPRPyekj6eZnTgU+rUhr/EZZrUCya+K3PKk
+	 aClmxwWPGnwFh1jP3ukEJpVCzaonsUO3IZe6B+BteO3HcD0lI9ypr6ti9t676eVqqU
+	 q0GX3zuGpc16ypNblJSh0cqh+REHZ5OOSSoO284HONwoQQRjDLWmImPlMupjTxTJI3
+	 8Y9ZTU75XYsRaRDgbLL3dcYxIn6W8tuKrdF2hkp5C3rKI8t3j+KxfT+VC7nFKszqAc
+	 fcz0YXM8gOR7rriISWRstgGPaSnADJela19pLpP5YBGIQKLx3kRPl1iDrKLw3p7kfS
+	 DqbkqmGN6c9zw==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9A7BC17E04C0;
-	Thu,  3 Jul 2025 13:02:49 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C245217E059B;
+	Thu,  3 Jul 2025 13:02:50 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: robh@kernel.org,
@@ -62,15 +62,18 @@ Cc: robh@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-pm@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH 00/10] pmdomain: Partial refactor, support modem and RTFF
-Date: Thu,  3 Jul 2025 13:02:37 +0200
-Message-ID: <20250703110247.99927-1-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 01/10] dt-bindings: memory: mtk-smi: Document #access-controller-cells
+Date: Thu,  3 Jul 2025 13:02:38 +0200
+Message-ID: <20250703110247.99927-2-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250703110247.99927-1-angelogioacchino.delregno@collabora.com>
+References: <20250703110247.99927-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_040252_681605_8BFEE995 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20250703_040253_570087_E656CC70 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,103 +88,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is a subset of [1], leaving out the Hardware Voter specific
-bits for MT8196 until the discussion around it reaches a conclusion.
+Some of the SMI Common HW provides access control to at least
+the power controller: document the #access-controller-cells
+property and allow specifying it only for MT8183 and MT8365
+as those are the only known SoCs with an SMI acting as access
+controller.
 
-Even though the proposed code was born as a preparation to support the
-MT8196/MT6991 SoCs power domain controllers, it is a necessary cleanup
-for all power domain controllers of all of the currently supported SoCs
-from MediaTek.
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../memory-controllers/mediatek,smi-common.yaml  | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-You may also notice the addition of support for modem power sequences:
-this was brought up 6 months ago (or more) by community contributors
-(mainly Yassine Oudjana) that were trying to upstream the MediaTek
-MT6735 Smartphone SoC and needed support to provide power to the MD
-subsystem - so, even though in this specific series the code for the
-modem power sequence is not yet triggered by any SoC, please please
-please, let it in.
-Besides, "a bunch" of upstream supported SoCs do have the MD power
-domain even though it wasn't added to their drivers (because if there
-was no support in the driver, it would just crash the system); the
-addition is something that I plan to do at some point, but definitely
-not now as I have no bandwidth for that (bar MT8196, which will have
-this domain).
-
-Compared to v1 in [1]:
- - Changed mediatek,bus-protection to access-controllers
-   as suggested by Rob (thanks!)
- - Added commits to document #access-controller-cells on all of
-   the access control providers
-
-In the meanwhile.... relevant excerpt from the old series:
-
-This series refactors the bus protection regmaps retrieval to avoid
-searching in all power domain devicetree subnodes for vendor properties
-to get syscons for different busses, and adds a new property which is
-located in the power controller root node containing handles to the same.
-
-Retrocompatibility is retained and was tested on multiple SoCs in the
-Collabora lab - specifically, on Genio 350/510/700/1200, and manually
-on MT6795 Helio (Xperia M5 Smartphone), MT8186, MT8192 and MT8195
-Chromebooks.
-
-This was tested *three times*:
- - Before the per-SoC conversion in drivers/pmdomain/mediatek
- - With per-SoC conversion code but with *legacy* devicetree
- - With per-SoC conversion code and with *new* devicetree conversion
-
-All of those tests were successful on all of the aforementioned SoCs.
-
-This also adds support for:
- - Modem power domain for both old and new MediaTek SoCs, useful for
-   bringing up the GSM/3G/4G/5G modem for both laptop and smartphone use
- - RTFF MCU HW, as found in MT8196 Chromebooks and MT6991 Dimensity 9400
-
-...and prepares the pmdomain code to accomodate only the directly
-controlled power domains for MT8196 (HW Voter support was left out).
-
-[1] https://lore.kernel.org/all/20250623120154.109429-1-angelogioacchino.delregno@collabora.com
-
-AngeloGioacchino Del Regno (10):
-  dt-bindings: memory: mtk-smi: Document #access-controller-cells
-  dt-bindings: clock: mediatek: Document #access-controller-cells
-  dt-bindings: power: mediatek: Document access-controllers property
-  pmdomain: mediatek: Refactor bus protection regmaps retrieval
-  pmdomain: mediatek: Handle SoCs with inverted SRAM power-down bits
-  pmdomain: mediatek: Move ctl sequences out of power_on/off functions
-  pmdomain: mediatek: Add support for modem power sequences
-  pmdomain: mediatek: Add support for RTFF Hardware in MT8196/MT6991
-  pmdomain: mediatek: Convert all SoCs to new style regmap retrieval
-  arm64: dts: mediatek: Convert all SoCs to use access-controllers
-
- .../bindings/clock/mediatek,infracfg.yaml     |   3 +
- .../clock/mediatek,mt8186-sys-clock.yaml      |  15 +
- .../clock/mediatek,mt8192-sys-clock.yaml      |  15 +
- .../clock/mediatek,mt8365-sys-clock.yaml      |  15 +
- .../mediatek,smi-common.yaml                  |  16 +
- .../power/mediatek,power-controller.yaml      |  39 ++
- arch/arm64/boot/dts/mediatek/mt6795.dtsi      |   5 +-
- arch/arm64/boot/dts/mediatek/mt8167.dtsi      |   6 +-
- arch/arm64/boot/dts/mediatek/mt8173.dtsi      |   4 +-
- arch/arm64/boot/dts/mediatek/mt8183.dtsi      |  17 +-
- arch/arm64/boot/dts/mediatek/mt8186.dtsi      |  12 +-
- arch/arm64/boot/dts/mediatek/mt8188.dtsi      |  23 +-
- arch/arm64/boot/dts/mediatek/mt8192.dtsi      |  13 +-
- arch/arm64/boot/dts/mediatek/mt8195.dtsi      |  20 +-
- arch/arm64/boot/dts/mediatek/mt8365.dtsi      |  16 +-
- drivers/pmdomain/mediatek/mt6795-pm-domains.h |   5 +
- drivers/pmdomain/mediatek/mt8167-pm-domains.h |   5 +
- drivers/pmdomain/mediatek/mt8173-pm-domains.h |   5 +
- drivers/pmdomain/mediatek/mt8183-pm-domains.h |   5 +
- drivers/pmdomain/mediatek/mt8186-pm-domains.h |   5 +
- drivers/pmdomain/mediatek/mt8188-pm-domains.h |   6 +
- drivers/pmdomain/mediatek/mt8192-pm-domains.h |   5 +
- drivers/pmdomain/mediatek/mt8195-pm-domains.h |   5 +
- drivers/pmdomain/mediatek/mt8365-pm-domains.h |  14 +-
- drivers/pmdomain/mediatek/mtk-pm-domains.c    | 399 +++++++++++++++---
- drivers/pmdomain/mediatek/mtk-pm-domains.h    |  74 +++-
- 26 files changed, 566 insertions(+), 181 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
+index 0762e0ff66ef..74b355a08493 100644
+--- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
++++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
+@@ -74,6 +74,9 @@ properties:
+     minItems: 2
+     maxItems: 4
+ 
++  '#access-controller-cells':
++    const: 0
++
+   mediatek,smi:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description: a phandle to the smi-common node above. Only for sub-common.
+@@ -168,6 +171,19 @@ allOf:
+             - const: apb
+             - const: smi
+ 
++  - if:  # for SMI providing access control
++      properties:
++        compatible:
++          enum:
++            - mediatek,mt8183-smi-common
++            - mediatek,mt8365-smi-common
++    then:
++      properties:
++        '#access-controller-cells': true
++    else:
++      properties:
++        '#access-controller-cells': false
++
+ additionalProperties: false
+ 
+ examples:
 -- 
 2.49.0
 
