@@ -4,208 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9751EC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 06:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AFBBC83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 07:16:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwunKvz2TOUT1Lhx3Ui0cVZrNR+rXqImhceSX6MpMuo=; b=URtJQFNvtm3kXc4n3+Qjt2hS+0
-	dkGP1j7naanzQalF4evBPwxlBx8mIelDlc66qK/HBiG5H5dfhcqlYTU8YjJ0xJs2f0hgun9g8fxfT
-	a1rovj/+zFl20U+b9Kii3ZbtvjdCmxUZBfMXq3mMjsvCMU5SUSo4OBv32gGyxc/iitzseC8tht0nV
-	jHdrbEThsiw2FMrQkG2MymJ6bJGjlGuhp/lIHOLEyto+R+lXkBp8S81693UpLfIJ4fKHuIfGqU33z
-	v6x0LHdTnNGv0u6keUAJb8Dg+UhgVGEJ1n6/P/Zsu6t04xAJep7eh+xru3AAm55Bedrf44ed7sIe6
-	ocVkWbvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3dr0G0HPuVKXln/Mnb/5UY0SQE5MginO3Nb336jQ6YM=; b=iBi50bkbPkQnJpD2aV5vkGZ764
+	8Qd+KoIa+ikkyFENV+FRg0+CA8JSlq8CarbKNGFDqm6SmISS+hxicxsz84kThn35mcFJS5jxqx3ZE
+	t+cDFnx0aUIdQgUyTcyMUhv2crW5rCnrlfV/RF2+5CHRdfN4ZinxapplA4EquFYCBVYH00cU+5nUf
+	GiCdsqEnwlUw1UijdsNYmczHL9+0i8up8ms5Hh8AKgg9psk7bRcezGnIDiYvHQBLmR5IholIVmvwK
+	urofktJtchAz0k7Y9rJ84E3mk7SAzfqkw6F9p01uehajGHTxMBE44YO1QPXZJO7KVTh0f3xFqWNS9
+	UfJU38jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXDqQ-0000000ARJ3-1Cj3;
-	Thu, 03 Jul 2025 06:54:54 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uXEAy-0000000AU4t-3EDV;
+	Thu, 03 Jul 2025 07:16:08 +0000
+Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXDnl-0000000AQkk-45xc;
-	Thu, 03 Jul 2025 06:52:11 +0000
-X-UUID: 3ad9448857da11f09eb0dd999d3936bf-20250702
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=pwunKvz2TOUT1Lhx3Ui0cVZrNR+rXqImhceSX6MpMuo=;
-	b=UphV+UGzXA+xAN6l5q3/9D2fcybQure7gyY2CqqpPUoLYoc84gHiT9nGD1ogMUEA6ifngQP4c7ouwwdT2vLZTPBT3OIVLnFMbfkNa3d37teMBnQXeCXWteqX9b7Ski/wefZkpLX3NiFxlvLkS4qzin4nvCR2zVw/4MZhvPNeGDk=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:a9bfdffa-204b-47bd-9cf0-1bf0970ec96c,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:ef3de75f-2aa0-4c76-8faa-804d844c7164,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:0|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 3ad9448857da11f09eb0dd999d3936bf-20250702
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1079798831; Wed, 02 Jul 2025 23:52:05 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 3 Jul 2025 14:51:55 +0800
-Received: from TYDPR03CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 3 Jul 2025 14:51:55 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HSBY6JKNICxAP+kJ/RBRin2Qj2rYDZ8Nwu7iAV1ryxNXoilSmOBoAmj9GCNBR0Z0o99ogi5Tp8pbBFNiZsuu3Lb0r3ByPiIIY6tEX3MRXIjUhvykrHQNhpX7WtVX2WKOCgJIiSktU1MY43ong96RnVTuLnhpFaWooQT4DwCiJVhb0ds02n/FClYznRAJn5CuMSKz/wouaoy7D9oxfuqLZeVJ7GyU8Bsq/ezFUPt3KTtSDmZuIhhHV3WGQxFLkBpyf2gwMSGt7QNICk4nfpReXwera3d8azKZz1rQegtIx0PkerZs1NEx6cdD/5fDvV3bP/BB6MGWe5ONuKxTTN9YMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pwunKvz2TOUT1Lhx3Ui0cVZrNR+rXqImhceSX6MpMuo=;
- b=VezkmohT3dwjHfL+h5k+79RA6mDhUs8jq+axxxbBjv+G9RLWu3VkgcdWbm5MZrpHN3g4812Wtr1TvAK6umpLq5OafMVPLZAWJX7B5xA4bpfzjayAD7Pbxm+oHkp5dZlraw/Uc17I14sswjzmI0MTqQLp9vqV4ropRSVac3tbaCSwc3Kd3RTsVzPf4M9SoqSvEZsmo551KrZnlTCNyO+vs3JF0Sh6uMKcgmBxmNwSAEAnoW8wU8GXkeF53V5LFLsplETItSMee1j0cPqdHrvoP3n+UHDkfv/dQCNvGQHG+m7Aivo65t2PSfZTzJitoGuglLEMylk5BC3LNbmq12EIGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1uXE8c-0000000ATs2-0CyK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Jul 2025 07:13:43 +0000
+Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-612033bb26cso656486eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 00:13:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pwunKvz2TOUT1Lhx3Ui0cVZrNR+rXqImhceSX6MpMuo=;
- b=HJ4zvweD8B24G/7czj98U6FjfIIasSkaqYOC3czTv9JIdskHGle07QjjdSN3SOWTTXa3kS0Aqa7jdT1VXtFOlzYbxauxZg5Qj1fIeS29gWGRveXteetq54LmyXcp1LQ/L7SYt5+VW9ejLmkXj621qGjnSTSLEK4A2UhhDBT9EN4=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by SE2PPF543967443.apcprd03.prod.outlook.com (2603:1096:108:1::498) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8857.30; Thu, 3 Jul
- 2025 06:51:11 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8901.021; Thu, 3 Jul 2025
- 06:51:11 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "tzimmermann@suse.de" <tzimmermann@suse.de>, "chunkuang.hu@kernel.org"
-	<chunkuang.hu@kernel.org>, "simona@ffwll.ch" <simona@ffwll.ch>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"airlied@gmail.com" <airlied@gmail.com>, "a-bhatia1@ti.com"
-	<a-bhatia1@ti.com>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, Louis-Alexis Eyraud
-	<louisalexis.eyraud@collabora.com>, "mripard@kernel.org"
-	<mripard@kernel.org>, "tomi.valkeinen@ideasonboard.com"
-	<tomi.valkeinen@ideasonboard.com>, "lumag@kernel.org" <lumag@kernel.org>
-CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kernel@collabora.com"
-	<kernel@collabora.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] drm/mediatek: dsi: Fix DSI host and panel bridge
- pre-enable order
-Thread-Topic: [PATCH] drm/mediatek: dsi: Fix DSI host and panel bridge
- pre-enable order
-Thread-Index: AQHb6lowDwL+Oq7N+E6xEvzKycJpV7Qf+QKA
-Date: Thu, 3 Jul 2025 06:51:10 +0000
-Message-ID: <7de3ce656c7fd2f53948abc862a222719b7bce0f.camel@mediatek.com>
-References: <20250701-mediatek-drm-fix-dsi-panel-init-v1-1-7af4adb9fdeb@collabora.com>
-In-Reply-To: <20250701-mediatek-drm-fix-dsi-panel-init-v1-1-7af4adb9fdeb@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|SE2PPF543967443:EE_
-x-ms-office365-filtering-correlation-id: 93c40590-13ea-45d9-533a-08ddb9fdff18
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|42112799006|376014|366016|921020|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?MllsbEdZMDh1T3M0M0llc3pJUkhKTnVHUzAzVlBDOFhhS3NmalByWWdraUpO?=
- =?utf-8?B?VG9rZXF0UUJLMGl4N3g3NWpBM2svWTJ0T3hWZDZNVDNubitod2pHSlNZVEx1?=
- =?utf-8?B?MlVUVWlzaWhGWkhuTjhydjM5ZkVtYTFxMmFJMkJ6WWxlNTRiVXJJbjhMM2hv?=
- =?utf-8?B?WHhCTzBma2w2OVlBVWFIVmRzUnlxT0FnRjJpczczTUZrY1Yrd3RYTFlqODI3?=
- =?utf-8?B?YThzZ0tpZk1mcnVJaUZJbHg5b2hwSzdnYXpXWHRENk9GQkc5WXJrYzZrcDBV?=
- =?utf-8?B?QWJ2dTJkNnZ4QXNwWHNNUStmZUtYa0FQQytiTTlHc21WY2R1d3FSMEFiamJM?=
- =?utf-8?B?UDJaNS9UMkJrT2haRFZYYWhRL0l2RXJKMTNTc2hUOWc4eGZvcTFmWjhNcG1Y?=
- =?utf-8?B?TTRMTVREY0hnMEw5SnVjNVo3bjlKUGZvU28xMFdUK0FJTlJTOUdkd294eFlV?=
- =?utf-8?B?bkZuS3NHTjZUaW5MYk9CdEJKQldGN1RaT2UrVzFESWR1UEdRWkE3NFBiT1p5?=
- =?utf-8?B?TDZBeHJQcmZqY2s0TjluOWROdzdKT1FnYVhDTEZRbmtWNTFJYnhzN1dYNlBC?=
- =?utf-8?B?c1ZzMXFqKzljR1NrMzRuZFg4ZHQvdjl5c3RkRWMwVkZRZzl1QlVRZVp4alRX?=
- =?utf-8?B?dXVvNUxEK1pzZ3FCWXo5THNTcnRaaE8wbTJiKzh3eTNmRnFTdEdaMGlVZ1Fs?=
- =?utf-8?B?WlU2MkpHbnViYVN2ZnRvRGlwUlN2cWFrRDIrbDFLaW1uZDNCalB4bTVtVzM3?=
- =?utf-8?B?RTVUSnYyajhlVVl2UzRtTVVKZ3BTT3duekdOR2FFd2k5ZVcyQ3RZOUc5QVFM?=
- =?utf-8?B?c2FMcjhRMVhlZ1N5N0hmVTJEMTRrcE1NT3ZyK1llV0tGR1pZdWZxZzZhY2JV?=
- =?utf-8?B?UFlaRXA0ejRoYnp3WFdSUTZsSDUrbEJjY01MYlBSeDJqUllwWW90Ymc4SkQ4?=
- =?utf-8?B?SWVZTlRiczRyMGg2M3dJVWVhcFRPeFJsTWs4R0JRU2g0MFdjQWpjZVNWaTkr?=
- =?utf-8?B?WmhzbUhqRTk4bHBEc0JkSzRmbWIwbFIvQnpHWFE0M0M4TFJDYy9TaG1kbmY4?=
- =?utf-8?B?QnhqYWRhNGVQbm5RMDAxaTVtbDNhVGJBeUdTMTlSWmh2aUFacktSRDhUVFcw?=
- =?utf-8?B?cmhkSEt4MEF6OVhDaWVWajJNM0F1TjFWZEtzcXFGYm9UdXEwc0VISXdab1Z1?=
- =?utf-8?B?UFVOTmtUYlVFUzdzdVhPRzcwVlJJYXNYMXRyR2hJRXZlYTlIbkFuYy85UkE5?=
- =?utf-8?B?Q1Z6aTIzblQrRC9pZVRMZEpqdUZ3cGdHbzdUVmZqTTF1Zks1ZXYrcUdITEZB?=
- =?utf-8?B?b28ySkUzU1g2SjZtc2xmWGIwVFpXUGF3M2JyK24zWWtEbGRSUDRDY01ZLy81?=
- =?utf-8?B?U3hQU3dHbHZIQjA4WFlsSEFnSUtpeDdrVlk0U3dKQzdIMDZ5cDB0ZS9PNmIz?=
- =?utf-8?B?RHlYdlZnUHFvNXIrM1pvbm9QZzg0SkdDVktwY2p3L25xV3daVU14QUxvZk9N?=
- =?utf-8?B?VUtYWVRaWXBaRC82WTZ5eHVrZFdYOS9HNHVXOTFQMW02aEg2ZnF3djN4WHd3?=
- =?utf-8?B?ZWNObmdVRjk0Zmljd0ZjZGJ0VTRkSmlqVDFoUkFVZ2w1c081MFV6Mk02dkt5?=
- =?utf-8?B?a05wVFNxK1RHeXAxYUNudGxhZ0tFcnRrNmZnOXpzUmtqNzNGajhTTThWWHlV?=
- =?utf-8?B?UG1rbTR0WG9RREczK0NnUjcvUE01Ky9KbU5PYXVpK3JmdjZ0V3dqQk5DdElh?=
- =?utf-8?B?byt4Y1NCdUdjZVFpZzJMQUtPbmpwdlJRUmF0ZlNDR21mZEtXM2dibVhaL0F1?=
- =?utf-8?B?WER2OVlYNU44Ym9FSjR6MG5oeExTN1Uzcmc1WkVjRDg2dGxyNWxaRENpNUMr?=
- =?utf-8?B?WGFDeUN6SG5SRVhWWlY1NnUweVFFK0NlVUhGR3A0QWdlYU81K1hRS0l0T2Jz?=
- =?utf-8?B?UzNvMUpBejhRZ2xSUmIxSkFibVRQNmlzbXhEaitYNVNPak5ORjRGbHNibzVR?=
- =?utf-8?Q?RQEbXSiONEZUC8CUB2XcTfeSBJ2Slo=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(42112799006)(376014)(366016)(921020)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZC9LZXRrb2t5dk9lYUltc0xlNXZsaFozNGFNNnlvU1lXUVcwMVFUNWpPMUIr?=
- =?utf-8?B?WkUrRjc2aE5pZUo2NGsxeWJSb1g3Nm0yUlVNKzdtZWZ4RzgrZy9QT3dUSWwz?=
- =?utf-8?B?eHh2R3pLY2NtSElOTFQ1RHdXSjdhYXdDVkNuTzZLVC9jRUp4NlJwVjBOWjg5?=
- =?utf-8?B?L2ZiQkZvb1JSY1FBZEt4Lzh2Wk5GT3FFRzVhY3R1NHh4V3VNNlYyLzYwd3ox?=
- =?utf-8?B?NlplRW9oSWEySStLZ2JjL09PVUhnNTVGTjQ1T1h4S05Db2JFVGYwQ21UaUFU?=
- =?utf-8?B?TW9SRjJ6N1VBUWNUR2U4a3JmL3FXQVlvVUhLalRtRjFwYzhpMThFekpGcHJC?=
- =?utf-8?B?YnZkVUt6RGphOWtTamp3S3FpODgzaEk1eUhMNi9INng3TFpocld3alI1OUsx?=
- =?utf-8?B?WEhLaXhtNTV6UVJSUnAzZWdRQmIwUUJQazYvUEY5YkxxRkpoWFhFQ2g1cUY0?=
- =?utf-8?B?QlU5Q0ZKZzE4c0M4c0Vyb0pRUnQ1UTQ3Z1pZRlU1ayt0RXFSSlRUNU43cmJW?=
- =?utf-8?B?bW94VnNRTFhvSHFqYmNZdHN3VDY0NGlSMERQOUZubDU5TTl1c002aHY3RkJO?=
- =?utf-8?B?WmhnTVI2T2FyemtkVVJadksyL2tuL2J0RnBwTi82YUFNMjRnWmowcHE2NkZr?=
- =?utf-8?B?RlpTU2prU1pLSW5NeDh6ZlJjZkxWa1NIVG9OcXUwam4vTDBKRk83RDhWK0xM?=
- =?utf-8?B?UUNKckozN3BwMnh1NVZjTmpWZ2c5ZE9xY0xWZEdBaFFsVjIrblN3YTN3UDFJ?=
- =?utf-8?B?eVhLWGYvSFFyN251d2h3eU1hbDJyRm5zVzRqb0llcWEzKzNKN3YyMCtYeUV3?=
- =?utf-8?B?aGRxTnpoSlNWbjJxVEx2bVk5dkdaUXdBcFM0VlZrRnUrTGZPeERIb2p6QXJJ?=
- =?utf-8?B?VVp2SldJM1VmR3hQdTlXYWE3UElVWGNzRnd0TDdUNmdrR3FNQTNoamRBbkNt?=
- =?utf-8?B?dEJoKzRnWEsrRUdMTXl6M3dpRWR0K0hYak03N0NjTnJrY2FreGtFMVVwZTZ2?=
- =?utf-8?B?T0R1T1FxMlJlWUFXTng0dVMyc28wZ2dobjJjT2RqcUNvUGNqY08wbTlLRExX?=
- =?utf-8?B?dGpMVGZYRkd4Z3c3QzdwVGUzRCtITFFLSTBhZWdJUHVpT25KVWswTERaKzJk?=
- =?utf-8?B?b3lLTnI2OFNQWi82R3BHMkFvRk4wSzhRVkhoVm1FdXppMksrd0hPL1lXWTY3?=
- =?utf-8?B?UXVoVVpOMmtWR2tra05ObnNScEVSZzFxSzZaTUd1ZVFtVjdnVzM1VlNhMUph?=
- =?utf-8?B?c2JJSXVCeWtGNlNpM2VqSmQ5U0lkL2xZTTdSNkNVcHpaYU9POTJPcDZPNWpK?=
- =?utf-8?B?YWdQV3NxUGtWM1lxTGJ4Qm05dFl3dXFacGJoN0FOenZoTHRmTHNCS1JwTm01?=
- =?utf-8?B?U1NYK1VjbFByQlkvTTc0TUxhZ1dPK1hTNFRQOWFrVkgvVFpEcWJKSzlmU3ZW?=
- =?utf-8?B?VTNOMitVaCtBaFluSis2THhrcFBoQ2Q1TjNKMWdpV3JCZldSTWVwUm1DL2hK?=
- =?utf-8?B?UGdLb3VXeUxuR0N3emd1NTZnL2VOSzl3d3ZHNlhYUWVVempjR3Z2KzRqRXFY?=
- =?utf-8?B?bjVTV3dxQldITG5FdjI2L0oxRnBBMjFrSlBBVW9Kb3p4aE8wU1AweXFXUUhj?=
- =?utf-8?B?Z2MxeVp0N2JPUlk1SmpuOXNCNHdBWUl1dFJiMHVPZnBsMEc0NUtUNDJaelVo?=
- =?utf-8?B?a2xBc0FtWk9KK2srTVFMRzZrSSs0d3o3ZFJqQ09wQ2FGWWZ5R1dkZXRhaE9W?=
- =?utf-8?B?enYwZytRbU1ZRURmaFZVVjNFR2ZPWmZzNXoxM2Q2OXM2a1plS25jaDIwdVA5?=
- =?utf-8?B?czJkeWkxRlo0R0J2OFMwcGE3bnJDVEM0Vnd5VzZpZkozY0s3TWFFRWQranR3?=
- =?utf-8?B?REwzcDhvcXhVTFVhWG9nL2NUWlY3T1dHRmphZW1lWld2U0pORTc4ZENOcGEy?=
- =?utf-8?B?TDdZVzFqbDlYTXk0Wm1TV2Q4VU9EYXZZeUtXL0lrbm1lZU4rNnNYdSttWXB6?=
- =?utf-8?B?Wm9pN0oyZnkvdzB5bzBIN3FGRmxoVFJQR1RLRjRsRTRudW5oalhSSVpZeFBT?=
- =?utf-8?B?N2pwNHpUYWRkT1cxbTlzTStHTTI1TVNmQko3ZzZRZ0twUVFMQWtOWHhiejkv?=
- =?utf-8?Q?UDtqYciLC26VIhzVbKiEd6QnH?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <B17471BD1A86E445A141863C3A50ACD2@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=linaro.org; s=google; t=1751526820; x=1752131620; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3dr0G0HPuVKXln/Mnb/5UY0SQE5MginO3Nb336jQ6YM=;
+        b=fb/n03gtgUW1yXkOyW4NPksF4xeL3bKcJiYiVHU4ytawd+k+6guwIEZDQRd/CSJ660
+         k64swEs3sX8lZbJY1yNKLPsZrWdcqM8XnxaFhlrkVAZ5a10DXaIUVtdD/UXkRbE5UfPX
+         ox8sbEh0jjNzo/WtaJMlFkZ9bnNuUBvqHK//VXfiWpk97zcD+TjhdEyHNnSoFDAr+1dB
+         Jydb+DenQN+WSHAN/fKHBq5OL6F/3SXNqKl+yAQ4yQV9t8jbzIPg0RJ6KUZI/S2R6Uwg
+         n/EFagrinclSyyQvr50vCz+23pE9QuBlLTlL5JmEwYcsbbOZ7KvGMuYzVGyWb953V8dq
+         smJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751526820; x=1752131620;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3dr0G0HPuVKXln/Mnb/5UY0SQE5MginO3Nb336jQ6YM=;
+        b=ntSvpOKnXudASNfmwG0vnPx5/GgpRHjq9Y9wMIrgYZPk0V0GfNn7xLXz836PoJqkOQ
+         +8/4f4zFhZjv698oj1J3nxmdg/8aBcr6EKtdDan0zCKdPF0vFJeC6EPVTdqJWHKy8ojL
+         CbrWLIH0CmzVTqFtpzpMowsxTDgj9+lxj/fKTQ6ORdAwoxB/xLtejJpmpgEMzprLw+EH
+         QJ95IIBNuPjPPtHbC4UYq9pfX84mZeyrU1GJuNFXNcaItAVtFA4fCksFZqRAYyDAObqM
+         GFt5jYHDNnswsc2lU9nuHL49uAoCKO3svv/fggdZDS9j9zNeSp3mmZcymUOn4s1kbhQq
+         KzUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUo0y9nTVsLf8GirNynizKX9MVnNRytSTO9JW8BeZpnrKV07DlUomJHm/QNraiC3JUIuXJdHDMcfti4BACryBpW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOqyh5THYI08Xu3GIkP8Cu6FCr+wlXdrAqdz1HVnrBMbubCjV6
+	n1g69EWqp9iwjancgNQ1iF+CnOamqF8dKuWXCURZ9dObuk06F0KmXC9p6ebNLshaJxOQC9gUofU
+	45zPfh7ypypNBOaq6bktCT9IajbmuktJAAQ5K3M95cg==
+X-Gm-Gg: ASbGncuIld/9M3OnL+IetzHr866ye0x+6BMsNYFiMnSJACq3wH6nn4w1TaA7KpCo2j+
+	Zf5Jv1+lSPKTNC0wIaCrR4CBZU+0EkErF+78npZM9DbViDIIyz1FbEAsIlGObESCJQdYGgikb/o
+	VNOZu7bBgUJBKG3PA4iGLjT/xisVR9/gBph4oPfZ0LvD12
+X-Google-Smtp-Source: AGHT+IGzumX+zMN3Zsc0frMnoZjTbrKq52LE81xJcdL6f0gu7EmyIA9p7bwSTX/LNs7SEM2NnBBBJP0kpnIk//vZz6Q=
+X-Received: by 2002:a05:6820:198d:b0:611:e30a:fa1c with SMTP id
+ 006d021491bc7-61200f7034bmr3538676eaf.1.1751526820429; Thu, 03 Jul 2025
+ 00:13:40 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93c40590-13ea-45d9-533a-08ddb9fdff18
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Jul 2025 06:51:11.3697
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: AW5o15KLjrddBE34hOkazcjQgjwEfgyfy5ckvfCgy1m/vftCrfc1dLS79UsVvUCGs4uLPDNmRTDRhWxHZjHMMw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE2PPF543967443
+References: <20250610131600.2972232-1-jens.wiklander@linaro.org>
+ <20250610131600.2972232-7-jens.wiklander@linaro.org> <aFFSWDiVsxA1CbCX@sumit-X1>
+ <CAHUa44HP5EbURyLCmawMLc0d5jz1oTQZ53V1w2h0-ngUC2hbEw@mail.gmail.com> <aGYi8QkgI3WyeN59@sumit-X1>
+In-Reply-To: <aGYi8QkgI3WyeN59@sumit-X1>
+From: Jens Wiklander <jens.wiklander@linaro.org>
+Date: Thu, 3 Jul 2025 09:13:28 +0200
+X-Gm-Features: Ac12FXzyoTs9Jn3XWoE-_WRgcRKkI1fV8anRZvH7Atzw9NHwCMp1fhg-J6G_50I
+Message-ID: <CAHUa44EMtaSw9uMz5WNSMXSfYXwQ-1TwFjd=R1ZfCo02ir2cjw@mail.gmail.com>
+Subject: Re: [PATCH v10 6/9] tee: add tee_shm_alloc_dma_mem()
+To: Sumit Garg <sumit.garg@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_235210_047886_7939A72A 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20250703_001342_096674_CB01DA99 
+X-CRM114-Status: GOOD (  34.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -220,26 +106,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMDI1LTA3LTAxIGF0IDA5OjMwICswMjAwLCBMb3Vpcy1BbGV4aXMgRXlyYXVkIHdy
-b3RlOg0KPiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBub3QgY2xpY2sgbGlua3Mgb3Igb3Bl
-biBhdHRhY2htZW50cyB1bnRpbCB5b3UgaGF2ZSB2ZXJpZmllZCB0aGUgc2VuZGVyIG9yIHRoZSBj
-b250ZW50Lg0KPiANCj4gDQo+IFNpbmNlIGNvbW1pdCBjOWIxMTUwYTY4ZDkgKCJkcm0vYXRvbWlj
-LWhlbHBlcjogUmUtb3JkZXIgYnJpZGdlIGNoYWluDQo+IHByZS1lbmFibGUgYW5kIHBvc3QtZGlz
-YWJsZSIpLCB0aGUgYnJpZGdlIHByZV9lbmFibGUgY2FsbGJhY2tzIGFyZSBub3cNCj4gY2FsbGVk
-IGJlZm9yZSBjcnRjIGVuYWJsZSwgYW5kIHRoZSBicmlkZ2UgcG9zdF9kaXNhYmxlIGNhbGxiYWNr
-cyBhZnRlcg0KPiB0aGUgY3J0YyBkaXNhYmxlLg0KPiBJbiB0aGUgbWVkaWF0ZWstZHJtIGRyaXZl
-ciwgdGhpcyBjaGFuZ2UgbGVhZHMgdG8gdHJhbnNmZXIgZXJyb3JzIG9uDQo+IG10a19kc2lfaG9z
-dF90cmFuc2ZlciBjYWxsYmFjayBwcm9jZXNzaW5nIGR1cmluZyB0aGUgcGFuZWwgYnJpZGdlDQo+
-IHByZS1lbmFibGUgc2VxdWVuY2UgYmVjYXVzZSB0aGUgRFNJIGhvc3QgYnJpZGdlIHByZV9lbmFi
-bGUgYW5kIENSVEMNCj4gZW5hYmxlIHNlcXVlbmNlcywgdGhhdCBhcmUgZW5hYmxpbmcgdGhlIHJl
-cXVpcmVkIGNsb2NrcyBhbmQgUEhZIHVzaW5nDQo+IG10a19kc2lfcG93ZXJvbiBmdW5jdGlvbiwg
-YXJlIGNhbGxlZCBhZnRlci4NCj4gDQo+IFNvLCBpbiBvcmRlciB0byBmaXggdGhpcyBjYWxsIG9y
-ZGVyIGlzc3VlLCByZXF1ZXN0IHRoZSBEU0kgaG9zdCBicmlkZ2UNCj4gYmUgcHJlLWVuYWJsZWQg
-YmVmb3JlIHBhbmVsIGJyaWRnZSBieSBzZXR0aW5nIHByZV9lbmFibGVfcHJldl9maXJzdA0KPiBm
-bGFnIG9uIERTSSBkZXZpY2UgYnJpZGdlIGluIHRoZSBtdGtfZHNpX2hvc3RfYXR0YWNoIGZ1bmN0
-aW9uLg0KDQpSZXZpZXdlZC1ieTogQ0sgSHUgPGNrLmh1QG1lZGlhdGVrLmNvbT4NCg0KPiANCj4g
-Rml4ZXM6IGM5YjExNTBhNjhkOSAoImRybS9hdG9taWMtaGVscGVyOiBSZS1vcmRlciBicmlkZ2Ug
-Y2hhaW4gcHJlLWVuYWJsZSBhbmQgcG9zdC1kaXNhYmxlIikNCj4gU2lnbmVkLW9mZi1ieTogTG91
-aXMtQWxleGlzIEV5cmF1ZCA8bG91aXNhbGV4aXMuZXlyYXVkQGNvbGxhYm9yYS5jb20+DQo+IC0t
-LQ0KPiANCg0K
+On Thu, Jul 3, 2025 at 8:28=E2=80=AFAM Sumit Garg <sumit.garg@kernel.org> w=
+rote:
+>
+> On Wed, Jun 18, 2025 at 09:03:00AM +0200, Jens Wiklander wrote:
+> > On Tue, Jun 17, 2025 at 1:32=E2=80=AFPM Sumit Garg <sumit.garg@kernel.o=
+rg> wrote:
+> > >
+> > > On Tue, Jun 10, 2025 at 03:13:50PM +0200, Jens Wiklander wrote:
+> > > > Add tee_shm_alloc_dma_mem() to allocate DMA memory. The memory is
+> > > > represented by a tee_shm object using the new flag TEE_SHM_DMA_MEM =
+to
+> > > > identify it as DMA memory. The allocated memory will later be lent =
+to
+> > > > the TEE to be used as protected memory.
+> > > >
+> > > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > > > ---
+> > > >  drivers/tee/tee_shm.c    | 85 ++++++++++++++++++++++++++++++++++++=
++++-
+> > > >  include/linux/tee_core.h |  5 +++
+> > > >  2 files changed, 88 insertions(+), 2 deletions(-)
+> > > >
+> > > > diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
+> > > > index e63095e84644..60b0f3932cee 100644
+> > > > --- a/drivers/tee/tee_shm.c
+> > > > +++ b/drivers/tee/tee_shm.c
+> > > > @@ -5,6 +5,8 @@
+> > > >  #include <linux/anon_inodes.h>
+> > > >  #include <linux/device.h>
+> > > >  #include <linux/dma-buf.h>
+> > > > +#include <linux/dma-mapping.h>
+> > > > +#include <linux/highmem.h>
+> > > >  #include <linux/idr.h>
+> > > >  #include <linux/io.h>
+> > > >  #include <linux/mm.h>
+> > > > @@ -13,9 +15,14 @@
+> > > >  #include <linux/tee_core.h>
+> > > >  #include <linux/uaccess.h>
+> > > >  #include <linux/uio.h>
+> > > > -#include <linux/highmem.h>
+> > > >  #include "tee_private.h"
+> > > >
+> > > > +struct tee_shm_dma_mem {
+> > > > +     struct tee_shm shm;
+> > > > +     dma_addr_t dma_addr;
+> > > > +     struct page *page;
+> > > > +};
+> > > > +
+> > > >  static void shm_put_kernel_pages(struct page **pages, size_t page_=
+count)
+> > > >  {
+> > > >       size_t n;
+> > > > @@ -48,7 +55,16 @@ static void tee_shm_release(struct tee_device *t=
+eedev, struct tee_shm *shm)
+> > > >  {
+> > > >       void *p =3D shm;
+> > > >
+> > > > -     if (shm->flags & TEE_SHM_DMA_BUF) {
+> > > > +     if (shm->flags & TEE_SHM_DMA_MEM) {
+> > > > +#if IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS)
+> > >
+> > > nit: this config check can be merged into the above if check.
+> >
+> > No, because dma_free_pages() is only defined if
+> > CONFIG_TEE_DMABUF_HEAPS is enabled.
+>
+> It looks like you misunderstood my above comment, I rather meant:
+>
+>         if (IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS) &&
+>             (shm->flags & TEE_SHM_DMA_MEM))
+
+That depends on the compiler optimizing away the call to
+dma_free_pages() if CONFIG_TEE_DMABUF_HEAPS isn't defined. This is
+normally the case, but if you compile for debugging, you may get
+unresolved symbols.
+
+Cheers,
+Jens
+
+>
+> -Sumit
+>
+> >
+> > >
+> > > > +             struct tee_shm_dma_mem *dma_mem;
+> > > > +
+> > > > +             dma_mem =3D container_of(shm, struct tee_shm_dma_mem,=
+ shm);
+> > > > +             p =3D dma_mem;
+> > > > +             dma_free_pages(&teedev->dev, shm->size, dma_mem->page=
+,
+> > > > +                            dma_mem->dma_addr, DMA_BIDIRECTIONAL);
+> > > > +#endif
+> > > > +     } else if (shm->flags & TEE_SHM_DMA_BUF) {
+> > >
+> > > Do we need a similar config check for this flag too?
+> >
+> > No, because DMA_SHARED_BUFFER is selected, so the dma_buf functions are=
+ defined.
+> >
+> > Cheers,
+> > Jens
+> >
+> >
+> > >
+> > > With these addressed, feel free to add:
+> > >
+> > > Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> > >
+> > > -Sumit
+> > >
+> > > >               struct tee_shm_dmabuf_ref *ref;
+> > > >
+> > > >               ref =3D container_of(shm, struct tee_shm_dmabuf_ref, =
+shm);
+> > > > @@ -303,6 +319,71 @@ struct tee_shm *tee_shm_alloc_priv_buf(struct =
+tee_context *ctx, size_t size)
+> > > >  }
+> > > >  EXPORT_SYMBOL_GPL(tee_shm_alloc_priv_buf);
+> > > >
+> > > > +#if IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS)
+> > > > +/**
+> > > > + * tee_shm_alloc_dma_mem() - Allocate DMA memory as shared memory =
+object
+> > > > + * @ctx:     Context that allocates the shared memory
+> > > > + * @page_count:      Number of pages
+> > > > + *
+> > > > + * The allocated memory is expected to be lent (made inaccessible =
+to the
+> > > > + * kernel) to the TEE while it's used and returned (accessible to =
+the
+> > > > + * kernel again) before it's freed.
+> > > > + *
+> > > > + * This function should normally only be used internally in the TE=
+E
+> > > > + * drivers.
+> > > > + *
+> > > > + * @returns a pointer to 'struct tee_shm'
+> > > > + */
+> > > > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
+> > > > +                                   size_t page_count)
+> > > > +{
+> > > > +     struct tee_device *teedev =3D ctx->teedev;
+> > > > +     struct tee_shm_dma_mem *dma_mem;
+> > > > +     dma_addr_t dma_addr;
+> > > > +     struct page *page;
+> > > > +
+> > > > +     if (!tee_device_get(teedev))
+> > > > +             return ERR_PTR(-EINVAL);
+> > > > +
+> > > > +     page =3D dma_alloc_pages(&teedev->dev, page_count * PAGE_SIZE=
+,
+> > > > +                            &dma_addr, DMA_BIDIRECTIONAL, GFP_KERN=
+EL);
+> > > > +     if (!page)
+> > > > +             goto err_put_teedev;
+> > > > +
+> > > > +     dma_mem =3D kzalloc(sizeof(*dma_mem), GFP_KERNEL);
+> > > > +     if (!dma_mem)
+> > > > +             goto err_free_pages;
+> > > > +
+> > > > +     refcount_set(&dma_mem->shm.refcount, 1);
+> > > > +     dma_mem->shm.ctx =3D ctx;
+> > > > +     dma_mem->shm.paddr =3D page_to_phys(page);
+> > > > +     dma_mem->dma_addr =3D dma_addr;
+> > > > +     dma_mem->page =3D page;
+> > > > +     dma_mem->shm.size =3D page_count * PAGE_SIZE;
+> > > > +     dma_mem->shm.flags =3D TEE_SHM_DMA_MEM;
+> > > > +
+> > > > +     teedev_ctx_get(ctx);
+> > > > +
+> > > > +     return &dma_mem->shm;
+> > > > +
+> > > > +err_free_pages:
+> > > > +     dma_free_pages(&teedev->dev, page_count * PAGE_SIZE, page, dm=
+a_addr,
+> > > > +                    DMA_BIDIRECTIONAL);
+> > > > +err_put_teedev:
+> > > > +     tee_device_put(teedev);
+> > > > +
+> > > > +     return ERR_PTR(-ENOMEM);
+> > > > +}
+> > > > +EXPORT_SYMBOL_GPL(tee_shm_alloc_dma_mem);
+> > > > +#else
+> > > > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
+> > > > +                                   size_t page_count)
+> > > > +{
+> > > > +     return ERR_PTR(-EINVAL);
+> > > > +}
+> > > > +EXPORT_SYMBOL_GPL(tee_shm_alloc_dma_mem);
+> > > > +#endif
+> > > > +
+> > > >  int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, siz=
+e_t align,
+> > > >                            int (*shm_register)(struct tee_context *=
+ctx,
+> > > >                                                struct tee_shm *shm,
+> > > > diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
+> > > > index f17710196c4c..e46a53e753af 100644
+> > > > --- a/include/linux/tee_core.h
+> > > > +++ b/include/linux/tee_core.h
+> > > > @@ -29,6 +29,8 @@
+> > > >  #define TEE_SHM_POOL         BIT(2)  /* Memory allocated from pool=
+ */
+> > > >  #define TEE_SHM_PRIV         BIT(3)  /* Memory private to TEE driv=
+er */
+> > > >  #define TEE_SHM_DMA_BUF              BIT(4)  /* Memory with dma-bu=
+f handle */
+> > > > +#define TEE_SHM_DMA_MEM              BIT(5)  /* Memory allocated w=
+ith */
+> > > > +                                     /* dma_alloc_pages() */
+> > > >
+> > > >  #define TEE_DEVICE_FLAG_REGISTERED   0x1
+> > > >  #define TEE_MAX_DEV_NAME_LEN         32
+> > > > @@ -310,6 +312,9 @@ void *tee_get_drvdata(struct tee_device *teedev=
+);
+> > > >   */
+> > > >  struct tee_shm *tee_shm_alloc_priv_buf(struct tee_context *ctx, si=
+ze_t size);
+> > > >
+> > > > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
+> > > > +                                   size_t page_count);
+> > > > +
+> > > >  int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, siz=
+e_t align,
+> > > >                            int (*shm_register)(struct tee_context *=
+ctx,
+> > > >                                                struct tee_shm *shm,
+> > > > --
+> > > > 2.43.0
+> > > >
 
