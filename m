@@ -4,102 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40712C83F0D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F0FC83F03
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K/HlbY0O85zcixYzgYTA8H0Mdv+GR5C9KDIOJVQIiKc=; b=MLQIz6MlnkR9EgRz74hAsfT9gY
-	FjS9KwfSLFZ4m+KnS8KxoCyEkGPD1Zbz1GFiwp+ioSuZWvZ8OHd9xba3MjPfRGRvSuttqr3EU1cDE
-	amcuRtK/IV+qj7GYRvotRTqGIn7XwY0tbKtDXXXX76bhwtaZAfIIJk7o8UZ/fEgQ1yl5x58MejlC4
-	TFKE/oa1VD+4zAURV3ZaGQrS9FPtugRgEf78gUPbt3ELz4Sfrl2Ntuved8Yd/Jv/zRJ2fowJjwbg/
-	h3hTExPVmZq4zezTxfMnAkIhl5GaQU4qOqL2igKrelA86j/Cxq5vQ9wnnFWUFKYkoZSj8GWi7iggx
-	ABcVQurw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+rhVhsVllegKUMnK5NOGl/rqgDtbDtwFSHzwLKRqIUk=; b=whbpMHyCs7FQWBCgVAX78OJ5ee
+	rsHNkzZLakuk5eLTz7cc3quEMFNCDcQqcqDroHwe/myaxylWyBU3BcyegUEnSK/75glQGJPizLcjq
+	FBgaOqPyUs7X0LXbZDLqx/G6WJfLJrBwwPE/5xe219I/18PO8Mcoic6W2VaIYncXt4cEmMVlcKWlX
+	dvu1SNPvXM1+a9hBt4xVjiCgUsH8/8uIec7NU3DvVLIUoBGdoer0/Oc4Gtmj/9LgmbkusMvUjgogS
+	0aBprwlTUVAhG/0Hz0GDkpWcFy+/+EDbVaiZFeUaIxJynjTPE2KQ1NNSkM+nmDqdE8nGzusaJesnt
+	49M+ONzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXQzZ-0000000CTIE-2vSS;
-	Thu, 03 Jul 2025 20:57:13 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1uXQza-0000000CTJ1-3se9;
+	Thu, 03 Jul 2025 20:57:14 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXLco-0000000BmOU-3rbb
+	id 1uXLdB-0000000BmQI-092y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 15:13:23 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-32ce1b2188dso131901fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 08:13:22 -0700 (PDT)
+	Thu, 03 Jul 2025 15:13:46 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-60700a745e5so11172822a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 08:13:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751555601; x=1752160401; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=K/HlbY0O85zcixYzgYTA8H0Mdv+GR5C9KDIOJVQIiKc=;
-        b=Bz5muc13TZknInWNc6ejUb/2Kloqi1VYlo00RaIwBhaS8JNJ9KMFLNY7fhmIELzAL/
-         Bve/+lw1JJKV5Ae6hZrm0uLjzfSvX9uN6/FAh1OhNO+kv0xAUO8446NXYpfCjRA7Y3zd
-         ZjAGEpgtswgYqGBqHYD1bwh8q99BXn5X+J1SMd5eaHZPRxygcPbz8N3amk6CgL0iRkd/
-         +wsvB9PAYK6uHgmcC+PwWh9zak06bscJfy9Z0wNqLesZUuVKBI4IGvJlC1W6u317AmEP
-         fuM8AiYlGJGozCNk6bWD2RMKEeTSHffunkSAy5OwV8F3dmVtGmho6VImkvEeStVzu12u
-         oLSA==
+        d=linaro.org; s=google; t=1751555623; x=1752160423; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+rhVhsVllegKUMnK5NOGl/rqgDtbDtwFSHzwLKRqIUk=;
+        b=GhTVONAg95wjGqlCbkV4kUyTpGZ/4lV3vlJRSsp05xS2GLAHw55A1E3zlze/jo1m9z
+         sDoWfovqC+DmSnRd8BNCdmmVFDTS2eckTHS6sYtF43SnEdrRPd8yENiKFz71OFgozjLm
+         Yqx9jWvtgT/HbQT40bsQZE74jEPZlqrQwJ055crxKGXyeQvya0GrCipofb5jxBjl1o6o
+         3qEnln4SGT5a9ASpOdumTxgwSzSnl3wTZ9S5TOw0vWaCEta2/co4fxMzvag9sHVj7K6A
+         DjfgCwkdAN9kzT8lGRwaIYBVu/160h1p9joyGqIMLLaohwLVXymcrN2h8PTPc9/khOBO
+         2xVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751555601; x=1752160401;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K/HlbY0O85zcixYzgYTA8H0Mdv+GR5C9KDIOJVQIiKc=;
-        b=iJxrLu2ZDdTcz20FDRVAKBlbVJMI3BDunOSrlgxVcbAWdxpjGr8vS5kyYdzAycAaUg
-         E90LoxBEEPpf5UNnT5cl/JCaAQFD7BgU6OOirYzPgUApD0rrOnEI1Uub3ThwokdtvSFq
-         w6jzfm/yJBQ62cFL78TeEaRuWlMqx9QLFNPMENKIM7yoXcwWKsdV1TiMA9VGmSudG+Yu
-         qxwZS273RPnFpqxFtWV2lnN6RWJ17f2xUeOhRy3yCg8mQ6crXIhJVH3rr9f4954wBkgl
-         yNLrrSLQdQyI+8ETgRPqCDNvYZlX+XSrnLcevnV4hbHOsvNq6U0qovmNzsm+V7pk7+I0
-         A8Ag==
-X-Forwarded-Encrypted: i=1; AJvYcCU/XAp/P4JE/5EYHFSiF8D4F7ByJZtV6RDwN6Cko5fW3R9TikB+OIbbAMAY/iz0hXBXtFua6uISUKYczerhRDj0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8iywE/IskHw/eIX0+Is5XSTDRzMlPwqMO38FUcpoN2pvsf3uf
-	tK2HyFzDLZZZvcBiRWT9zE+We52SmyAdCuz/cg4SBkzzke0MtVomr07p
-X-Gm-Gg: ASbGncsnlrUVc2nVu1z0vnjvrr8N0k4+M56wB8u0H4c0uAncz06AsUL93+WyIp+Myip
-	ADwKRo5+VCaONxzr87ctoYdmtGRmI++wtF2W8vRmpBLhQ6xEH2vw0Fi2kCEqbrtKJIuQgGT8lmL
-	k7CDYhlszVpO/9IbbXimLZPYlQaR/5ejb+OPaANIXhj1c3Q3bRXelwqZqKjuh5ffm8k9fWCAuqu
-	NbA5o6zSJvUkxaB+EazItphktJLar1ZlgDJmDaVrPiZznHMlgoOy6bkOPEF0tH/9OSaBmaitq3T
-	XfFTUtGkcRslxdn+mPWkT4aJZlbaNAqgHElnpL0j8XlP9eLThuiYHHFrscxQ6Lc41kxfDnM=
-X-Google-Smtp-Source: AGHT+IFizivHRCGbn2xa6qy5KahETw6sFgoEVp5+fipVdvBjkYyulTltzT89w8oz7cos8x+uQdLuBg==
-X-Received: by 2002:a05:6512:aca:b0:553:25e4:274b with SMTP id 2adb3069b0e04-55628344003mr2815796e87.41.1751555601020;
-        Thu, 03 Jul 2025 08:13:21 -0700 (PDT)
-Received: from localhost.localdomain ([212.192.12.80])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-556384ae15esm725e87.178.2025.07.03.08.13.02
+        d=1e100.net; s=20230601; t=1751555623; x=1752160423;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+rhVhsVllegKUMnK5NOGl/rqgDtbDtwFSHzwLKRqIUk=;
+        b=LzqoHi1JE+9vpPXJsmk+GziCUnA/xpiHi+Hhxt/0p5AxG55/+zElVlcE//oTfO5Uua
+         Kt3+nBJTmFeGwn58Yv76W1R5/z0hSE8dze79lPJxZP18kz4SSUy/HgAQuv+5gxhaJe0Y
+         nDZ3w4zkJjl02mXwiVPlw2fPvAQ6cgvrbJA2umwvrm4mafGmey3aUY7wVV5U8m3q1uaG
+         cARb+rTx3WjTaVe/k4J7FG2if15RNNU2Hq9GH1rp89s6vOt3ufZh9JNd+bkC4LmAFz5z
+         5lX4PVuDknATgeZUI5xYK5iV3PCSr+8S7TgIVet/c/KscP2lKTf/AD5IiRuBE2IOZIz8
+         sStw==
+X-Forwarded-Encrypted: i=1; AJvYcCXbbK/MC98tiF+KODFFcvKyzqs3SmMHS3OOeP3kzitrXGwAlnv1AioQG5BCSPG6XdcnWgLsRzQVcqoaXd8Jr//T@lists.infradead.org
+X-Gm-Message-State: AOJu0YytLiUkZ3DLPStPRcIX1hmzmSjJakZXAk/5kQxpV/O0VZoTtYfY
+	ba9mT19Hq7ueZtXosq7RvWZ0eEYLG1RovNBxNww+tw+la8ehQVuJtFSE5ARZqvGGrVo=
+X-Gm-Gg: ASbGncvYx0Yl9osV5fvZjMkrI9RtFG1Dh/CJnMa6Xdzr1Duh01H64xDWKnljom1cONY
+	Y2SCmhNqrvpAHEBqxW6t4ccRcVXCwjs+mkIwDt+cCAxD1FMRBGxGfF63vSkPkMeL/u63gBpPkJz
+	T3r70FVGETRmDLs6fMYfQSC5bZCGbD7VKEjYYTuLr7TBYLoogxEQpRB/6O2Q1awS1AMUb/vrsoQ
+	2onKtEw1THKcympUnTO4RsUWwESrZrZI7np+3wHXl70CbPqREwc1jY83aCtsKhCxcZRMZrEoTlm
+	dEgBGDkYihyUZHWWA+T1kHazAr8+TWv1vgXFMFD94kvLsa9qF2ky4Fpfgc/6UDNtqp0mJA==
+X-Google-Smtp-Source: AGHT+IHLbeEWvDtZyLpkZYq9v/9MjHWg44ua068Wk7HOmNac3d6CS9uj1wvGNiv38jkJSQ0CP6C9+w==
+X-Received: by 2002:a05:6402:22ca:b0:60c:39e4:93e6 with SMTP id 4fb4d7f45d1cf-60e52d1939cmr4886568a12.24.1751555623170;
+        Thu, 03 Jul 2025 08:13:43 -0700 (PDT)
+Received: from linaro.org ([82.79.186.23])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c828e1845sm10903471a12.23.2025.07.03.08.13.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jul 2025 08:13:20 -0700 (PDT)
-From: iuncuim <iuncuim@gmail.com>
-To: Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+        Thu, 03 Jul 2025 08:13:42 -0700 (PDT)
+Date: Thu, 3 Jul 2025 18:13:40 +0300
+From: Abel Vesa <abel.vesa@linaro.org>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Vasily Khoruzhick <anarsoul@gmail.com>,
-	Yangtao Li <tiny.windzz@gmail.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH v2 4/8] thermal/drivers/sun8i: replace devm_reset_control_get to devm_reset_control_get_shared_deasserted
-Date: Thu,  3 Jul 2025 23:11:28 +0800
-Message-ID: <20250703151132.2642378-5-iuncuim@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250703151132.2642378-1-iuncuim@gmail.com>
-References: <20250703151132.2642378-1-iuncuim@gmail.com>
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
+	Frank Li <frank.li@nxp.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/5] dt-bindings: clock: Add support for i.MX94
+ LVDS/DISPLAY CSR
+Message-ID: <aGaeJIjFMLcV8ly1@linaro.org>
+References: <20250703-imx95-blk-ctl-7-1-v2-0-b378ad796330@nxp.com>
+ <20250703-imx95-blk-ctl-7-1-v2-1-b378ad796330@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250703-imx95-blk-ctl-7-1-v2-1-b378ad796330@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_081322_958902_50F35E54 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250703_081345_070833_88D447C0 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,55 +106,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mikhail Kalashnikov <iuncuim@gmail.com>
+On 25-07-03 11:40:20, Peng Fan wrote:
+> Add i.MX94 LVDS/DISPLAY CSR compatible string.
+> 
+> Add clock index for the two CSRs.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  .../devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml        |  2 ++
+>  include/dt-bindings/clock/nxp,imx94-clock.h                 | 13 +++++++++++++
+>  2 files changed, 15 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> index d0291bfff23a27cb55683880fe3a1f8b3e2ada5a..27403b4c52d6219d31649d75539af93edae0f17d 100644
+> --- a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> +++ b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> @@ -13,6 +13,8 @@ properties:
+>    compatible:
+>      items:
+>        - enum:
+> +          - nxp,imx94-display-csr
+> +          - nxp,imx94-lvds-csr
+>            - nxp,imx95-camera-csr
+>            - nxp,imx95-display-csr
+>            - nxp,imx95-hsio-blk-ctl
+> diff --git a/include/dt-bindings/clock/nxp,imx94-clock.h b/include/dt-bindings/clock/nxp,imx94-clock.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..b47f74f00f119ff1c1e6dad885b5b1e3b1f248a1
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/nxp,imx94-clock.h
+> @@ -0,0 +1,13 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
 
-The A523 processor has two temperature controllers, but they share a common
-reset line. We can to use devm_reset_control_get_shared_deasserted() instead
-of devm_reset_control_get(). This will simplify the driver.
+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
 
-Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
----
- drivers/thermal/sun8i_thermal.c | 16 +---------------
- 1 file changed, 1 insertion(+), 15 deletions(-)
+With that fixed:
 
-diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
-index 45aaf5348..bdd15ee45 100644
---- a/drivers/thermal/sun8i_thermal.c
-+++ b/drivers/thermal/sun8i_thermal.c
-@@ -344,11 +344,6 @@ static int sun8i_ths_calibrate(struct ths_device *tmdev)
- 	return ret;
- }
- 
--static void sun8i_ths_reset_control_assert(void *data)
--{
--	reset_control_assert(data);
--}
--
- static struct regmap *sun8i_ths_get_sram_regmap(struct device_node *node)
- {
- 	struct platform_device *sram_pdev;
-@@ -391,19 +386,10 @@ static int sun8i_ths_resource_init(struct ths_device *tmdev)
- 		return PTR_ERR(tmdev->regmap);
- 
- 	if (tmdev->chip->has_bus_clk_reset) {
--		tmdev->reset = devm_reset_control_get(dev, NULL);
-+		tmdev->reset = devm_reset_control_get_shared_deasserted(dev, NULL);
- 		if (IS_ERR(tmdev->reset))
- 			return PTR_ERR(tmdev->reset);
- 
--		ret = reset_control_deassert(tmdev->reset);
--		if (ret)
--			return ret;
--
--		ret = devm_add_action_or_reset(dev, sun8i_ths_reset_control_assert,
--					       tmdev->reset);
--		if (ret)
--			return ret;
--
- 		tmdev->bus_clk = devm_clk_get_enabled(&pdev->dev, "bus");
- 		if (IS_ERR(tmdev->bus_clk))
- 			return PTR_ERR(tmdev->bus_clk);
--- 
-2.49.0
-
+Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
 
