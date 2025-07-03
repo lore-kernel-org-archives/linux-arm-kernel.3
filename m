@@ -4,89 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CDCC83F05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9BB0C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=prWJz74m5rfRQ97FrkwQm8W3Nfiw8mTBiOQN25+dW0I=; b=pfNYLlwJABi7cFyYjc//hMEzYl
-	A6pY7Lmk1Ci5Ji/qrzsGZVQnC4DqlFiSBzUd28B+/6vXhY+F1D+XCKd8yLsFeK/E5dtURtjmLG0tg
-	itbY3/4hzpdzH5/GWDntWicDM1Z8Y1QfXL7rmtDUim3bAwdS2uHKu3IsamxbFWsMw1oW+a4N5H10B
-	LtwCgpi4ERRescOppA7KSVTlGylTJxoqd9FcAKhHirLkeSKcHn3CYcfG6mVU4I5o6MdswIZv61QtP
-	0SnUHnuWPdTZHvwgsDT4GK3x4LBZdCG/JHdlbnFDdWfK3Fla9D+g356vm/XHNTd5cyysL4LsDFduc
-	O5smQ9qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tlu4VFMIhvOp0YDUhzyQGnue/ID8aaMujsNRRSk/WGM=; b=UTpHG9Trx9XPvKdfSRSM8iE0HO
+	0eVkRLfWNS9bw0tqy5jO9C2iOOi6L5+sp70cvfyMzcH4X88GBXlYUVZdRklONpbA2RJPB2Ym4DIZQ
+	uvZQ4ZCcPdVOHXWPBQF6vo7QJw48QeoWt/dnl7oPZcs+tz5CYx71Ixt6LD+eIwYDbjllE0bXbyvf6
+	LKaDDYNYyyjm+3Rd2G5Ap3eLB0cl9xGBZiRQ6ldgu2oQE5ZhD9QuzSBsYvtxZcNDZ83k8DM5TZ5q+
+	yXcjNtC/t81wqu/hSDrzkuJqgzY1nSxm8C/JsvfxvCX050IBALPerH9gYpKkk5IGsWUd1kD8hF8ym
+	qwKouorQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR0O-0000000CUbW-0sQ1;
-	Thu, 03 Jul 2025 20:58:05 +0000
-Received: from mail-gw02.astralinux.ru ([93.188.205.243])
+	id 1uXR0U-0000000CUkC-2EFc;
+	Thu, 03 Jul 2025 20:58:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMJC-0000000BuFR-0B7L;
-	Thu, 03 Jul 2025 15:57:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=astralinux.ru;
-	s=mail; t=1751558223;
-	bh=/5x31bYLbnmAB83D37kcWKmGopV4qwGGMcLgHfFnwYY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gr9PokIw4mIydopjmsjlW9V00fNc/aOuSYdYpsM6iLdWO/JXrAyvB97mwUZP+1Uoq
-	 +a6gELptkbQ4K0U3gYkSJaYHnNc2KGpf4CIrhTDoDPiBSfMhl6kTMgrJI2OO6h98vr
-	 xB58gK0sZSTYYH+obolVodBju+V5feyUlj2AJz0ZcAuJttgTt9d6ofYSeAT1WU3YdD
-	 6dFX4DHqYhwVMNBz9KC8BNoQZlQR/1ieoMyyPmjNfdV6lNZlbUHduV1pmrzvQczTjd
-	 62C8sdytROg9EIuwQxsYteCbrFNDydAmjDWh2JUBKs4GseXbYjfNuruQ/fcp5Z4eY5
-	 pHkPfc0EyM1Ug==
-Received: from gca-msk-a-srv-ksmg01.astralinux.ru (localhost [127.0.0.1])
-	by mail-gw02.astralinux.ru (Postfix) with ESMTP id 5C9D21FA52;
-	Thu,  3 Jul 2025 18:57:03 +0300 (MSK)
-Received: from new-mail.astralinux.ru (unknown [10.177.185.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-gw02.astralinux.ru (Postfix) with ESMTPS;
-	Thu,  3 Jul 2025 18:57:02 +0300 (MSK)
-Received: from localhost.localdomain (unknown [10.198.59.101])
-	by new-mail.astralinux.ru (Postfix) with ESMTPA id 4bY1bv6HP3z16Hnq;
-	Thu,  3 Jul 2025 18:56:59 +0300 (MSK)
-From: Anastasia Belova <abelova@astralinux.ru>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Anastasia Belova <abelova@astralinux.ru>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Johan Hedberg <johan.hedberg@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	linux-bluetooth@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Yake Yang <yake.yang@mediatek.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.10] Bluetooth: btmtksdio: fix use-after-free at btmtksdio_recv_event
-Date: Thu,  3 Jul 2025 18:56:56 +0300
-Message-ID: <20250703155657.32865-1-abelova@astralinux.ru>
-X-Mailer: git-send-email 2.47.0
+	id 1uXMJz-0000000BuPr-03cm
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Jul 2025 15:58:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D01A6A536FC;
+	Thu,  3 Jul 2025 15:57:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DBC6C4CEE3;
+	Thu,  3 Jul 2025 15:57:53 +0000 (UTC)
+Date: Thu, 3 Jul 2025 16:57:51 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
+Subject: Re: [PATCH v7 02/31] arm64/sysreg: Add GCIE field to ID_AA64PFR2_EL1
+Message-ID: <aGaofy9k0TtBOexm@arm.com>
+References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
+ <20250703-gicv5-host-v7-2-12e71f1b3528@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-KSMG-AntiPhishing: NotDetected
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Envelope-From: abelova@astralinux.ru
-X-KSMG-AntiSpam-Info: LuaCore: 63 0.3.63 9cc2b4b18bf16653fda093d2c494e542ac094a39, {Tracking_uf_ne_domains}, {Tracking_from_domain_doesnt_match_to}, d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;astralinux.ru:7.1.1;127.0.0.199:7.1.2;new-mail.astralinux.ru:7.1.1, FromAlignment: s
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiSpam-Lua-Profiles: 194547 [Jul 03 2025]
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Version: 6.1.1.11
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.0.7854, bases: 2025/07/03 14:34:00 #27614855
-X-KSMG-AntiVirus-Status: NotDetected, skipped
-X-KSMG-LinksScanning: NotDetected
-X-KSMG-Message-Action: skipped
-X-KSMG-Rule-ID: 1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250703-gicv5-host-v7-2-12e71f1b3528@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_085710_426627_18548C3E 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20250703_085759_119997_4928A942 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,87 +76,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sean Wang <sean.wang@mediatek.com>
+On Thu, Jul 03, 2025 at 12:24:52PM +0200, Lorenzo Pieralisi wrote:
+> Add field reporting the GCIE feature to ID_AA64PFR2_EL1 sysreg.
+> 
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
 
-[ Upstream commit 0fab6361c4ba17d1b43a991bef4238a3c1754d35 ]
-
-We should not access skb buffer data anymore after hci_recv_frame was
-called.
-
-[   39.634809] BUG: KASAN: use-after-free in btmtksdio_recv_event+0x1b0
-[   39.634855] Read of size 1 at addr ffffff80cf28a60d by task kworker
-[   39.634962] Call trace:
-[   39.634974]  dump_backtrace+0x0/0x3b8
-[   39.634999]  show_stack+0x20/0x2c
-[   39.635016]  dump_stack_lvl+0x60/0x78
-[   39.635040]  print_address_description+0x70/0x2f0
-[   39.635062]  kasan_report+0x154/0x194
-[   39.635079]  __asan_report_load1_noabort+0x44/0x50
-[   39.635099]  btmtksdio_recv_event+0x1b0/0x1c4
-[   39.635129]  btmtksdio_txrx_work+0x6cc/0xac4
-[   39.635157]  process_one_work+0x560/0xc5c
-[   39.635177]  worker_thread+0x7ec/0xcc0
-[   39.635195]  kthread+0x2d0/0x3d0
-[   39.635215]  ret_from_fork+0x10/0x20
-[   39.635247] Allocated by task 0:
-[   39.635260] (stack is not available)
-[   39.635281] Freed by task 2392:
-[   39.635295]  kasan_save_stack+0x38/0x68
-[   39.635319]  kasan_set_track+0x28/0x3c
-[   39.635338]  kasan_set_free_info+0x28/0x4c
-[   39.635357]  ____kasan_slab_free+0x104/0x150
-[   39.635374]  __kasan_slab_free+0x18/0x28
-[   39.635391]  slab_free_freelist_hook+0x114/0x248
-[   39.635410]  kfree+0xf8/0x2b4
-[   39.635427]  skb_free_head+0x58/0x98
-[   39.635447]  skb_release_data+0x2f4/0x410
-[   39.635464]  skb_release_all+0x50/0x60
-[   39.635481]  kfree_skb+0xc8/0x25c
-[   39.635498]  hci_event_packet+0x894/0xca4 [bluetooth]
-[   39.635721]  hci_rx_work+0x1c8/0x68c [bluetooth]
-[   39.635925]  process_one_work+0x560/0xc5c
-[   39.635951]  worker_thread+0x7ec/0xcc0
-[   39.635970]  kthread+0x2d0/0x3d0
-[   39.635990]  ret_from_fork+0x10/0x20
-[   39.636021] The buggy address belongs to the object at ffffff80cf28a600
-                which belongs to the cache kmalloc-512 of size 512
-[   39.636039] The buggy address is located 13 bytes inside of
-                512-byte region [ffffff80cf28a600, ffffff80cf28a800)
-
-Fixes: 9aebfd4a2200 ("Bluetooth: mediatek: add support for MediaTek MT7663S and MT7668S SDIO devices")
-Co-developed-by: Yake Yang <yake.yang@mediatek.com>
-Signed-off-by: Yake Yang <yake.yang@mediatek.com>
-Signed-off-by: Sean Wang <sean.wang@mediatek.com>
-Signed-off-by: Marcel Holtmann <marcel@holtmann.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
-Signed-off-by: Anastasia Belova <abelova@astralinux.ru>
----
-Backport fix for CVE-2022-49470
- drivers/bluetooth/btmtksdio.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
-index c41560be39fb..6b31ee1a1dd9 100644
---- a/drivers/bluetooth/btmtksdio.c
-+++ b/drivers/bluetooth/btmtksdio.c
-@@ -331,6 +331,7 @@ static int btmtksdio_recv_event(struct hci_dev *hdev, struct sk_buff *skb)
- {
- 	struct btmtksdio_dev *bdev = hci_get_drvdata(hdev);
- 	struct hci_event_hdr *hdr = (void *)skb->data;
-+	u8 evt = hdr->evt;
- 	int err;
- 
- 	/* Fix up the vendor event id with 0xff for vendor specific instead
-@@ -355,7 +356,7 @@ static int btmtksdio_recv_event(struct hci_dev *hdev, struct sk_buff *skb)
- 	if (err < 0)
- 		goto err_free_skb;
- 
--	if (hdr->evt == HCI_EV_VENDOR) {
-+	if (evt == HCI_EV_VENDOR) {
- 		if (test_and_clear_bit(BTMTKSDIO_TX_WAIT_VND_EVT,
- 				       &bdev->tx_state)) {
- 			/* Barrier to sync with other CPUs */
--- 
-2.43.0
-
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
