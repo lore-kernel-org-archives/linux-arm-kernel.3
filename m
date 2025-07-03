@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3FF6C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 22:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62EDBC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 22:24:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q3Fs+FI8nKUbkSPnfF+C1Vd7WakoexD0IrqitTstL+w=; b=WnZk+BdrG3AqFSxblsbKc5a7vj
-	JdlawxIKoVzWlG4m9US2b265XzeJ4Pe5T0otDwnJK4HG87Nt5t4MHR2gRH3RgNo7RVSufU1mZIase
-	EEGvcHUOM0cU5R50up4hAhJX8pUtU/uaxzAFk8JH7ZODS5x2+LZJzNxyB5AqYjVPAwz8MHWcI+OiT
-	eWUIJMnyUsK1i12A40sdK8k4JaYXGWd8yW/i+RwbfSi7N/dnRrlpC6B7yxkVwzNKtn/x7UwKGQiRV
-	1GlEE1+8OSi+1mwfsSKGkSdFH3i3iA7BqcBBTuQutKdKgwybYzVBjvQwUlUlszzV8vK0UqFPhznmG
-	aBepZubg==;
+	bh=bbyCA7u4oRyb4IfwLbd0OeJ+mk3+/I0J5p5dTLG50kI=; b=aImX1lrfDrEV7jcr68vuxZ+jMT
+	pi2KRrN7XBPOq9l8PPfzjVT+mUD12+rsMRKGjDia+VOrDwuryMb3VnSLqpCojcgFT1H8P2DX2LLP2
+	WafzrbXYnMFh9m9pVdOV9ndDSkPBKVAtPG+LKBTmL13nDtiSmwCn49Q+lG49NjMQ1by+ESwZmv9Ut
+	gp3IxFN1vIKrpFR9wUXbqkZQIpWoYZ8iSjtxMLnRtKT5JZwJl786lemk16qxYOfIpWW5wDiXl4WB7
+	N+22K2ycLAjYzczjuTXwxKZEcTHk3P7tueBjCjrF4uyeChitVBoX6E0c4IwTaALOPJb3i2Y4+p6Gg
+	/kfodTfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXSJB-0000000CiDG-1W95;
-	Thu, 03 Jul 2025 22:21:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uXSLW-0000000CiYk-0H0H;
+	Thu, 03 Jul 2025 22:23:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXOmX-0000000CFay-0fnB
+	id 1uXOmd-0000000CFcU-0HqN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 18:35:38 +0000
+	Thu, 03 Jul 2025 18:35:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DCFDA448EB;
-	Thu,  3 Jul 2025 18:35:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87C6FC4CEEB;
-	Thu,  3 Jul 2025 18:35:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9599B5C546D;
+	Thu,  3 Jul 2025 18:35:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F4F4C4CEE3;
+	Thu,  3 Jul 2025 18:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751567736;
-	bh=4IQJmfRPn5wOvf8eRJE9LC5lIdjzqxsiARifvlsXhAk=;
+	s=k20201202; t=1751567742;
+	bh=IC0AaW5NceEW8wxtKNxGomplDZEXFb+Zwef0eWisnmM=;
 	h=From:To:Cc:Subject:Date:From;
-	b=l5PR6d7ij5o2bBnv3i4c24V4q+HIAjYLh8cszOeCWYjKOpgo79o6h5WGPGnTDygOH
-	 yC3XzD7djv814c0IMAcvcPSBvtTEt0cAc2+0+qQCXyJ+J8qweyrqKeVsuVxnimTs8b
-	 Zo5+AuLmBPopJ1DBv+2vcFWhvKowclDkkjEPJmPu8+AURPigEHktPShNgkVQyC8W4q
-	 etaA28PNFdeHpmTibqbndNc+6tFSft3fyuQZxVVfwMhexKN3COovYk9onNeqZ7JoYe
-	 TbUU92VGOj3rrchpEMeWYpj1vlmSGolyHJFn4/sMeVvnj3TPw0vYg0+hN6h74DAlPC
-	 pVv96QlPCJAcQ==
+	b=PheJp7dWH1mp9+0iIi+SIENaoI39JddxSfVd9oADxS2XX9TvHBmG8aVj5XsY99dtU
+	 8GAh+dffJIKsFZ87UQTsXNggJL2zVcssdldw1A/BPNtjcUGxZyfkO19lnr+vK3Ranr
+	 nVI1qh0IZZ5HuI7yfcgdZeHuio9qskwZ7ooRvlHSgai/C6+YjSFCPthc8wDkg2p19s
+	 smvV/H1emWZbk3ie33DnFEt5FzUk2naSynnrHwRE0iNQ20RArlo+bL8Avz5McfVqaJ
+	 lzQDY2QlYjYs2khC6a74BnjN/pY7fzWFIhwOD65jbP652AkmRX03pqBcST9M8yjwDc
+	 Ub8ed2A0aHHWA==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org,
+To: Mark Brown <broonie@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] hwtracing: coresight: Use of_reserved_mem_region_to_resource() for "memory-region"
-Date: Thu,  3 Jul 2025 13:35:33 -0500
-Message-ID: <20250703183534.2075569-1-robh@kernel.org>
+Subject: [PATCH] spi: stm32-ospi: Use of_reserved_mem_region_to_resource() for "memory-region"
+Date: Thu,  3 Jul 2025 13:35:37 -0500
+Message-ID: <20250703183537.2075746-1-robh@kernel.org>
 X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_113537_217907_492093D1 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20250703_113543_147181_54EB903D 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,52 +78,46 @@ handle "memory-region" properties.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../hwtracing/coresight/coresight-tmc-core.c  | 22 +++++--------------
- 1 file changed, 6 insertions(+), 16 deletions(-)
+ drivers/spi/spi-stm32-ospi.c | 18 +++++++-----------
+ 1 file changed, 7 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index 88afb16bb6be..be964656be93 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -24,6 +24,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-+#include <linux/of_reserved_mem.h>
- #include <linux/coresight.h>
- #include <linux/amba/bus.h>
- #include <linux/platform_device.h>
-@@ -634,25 +635,14 @@ static int of_tmc_get_reserved_resource_by_name(struct device *dev,
- 						const char *name,
- 						struct resource *res)
+diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
+index 7c1fa55fbc47..fbf00909b6c5 100644
+--- a/drivers/spi/spi-stm32-ospi.c
++++ b/drivers/spi/spi-stm32-ospi.c
+@@ -771,7 +771,7 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
  {
--	int index, rc = -ENODEV;
--	struct device_node *node;
-+	int rc = -ENODEV;
+ 	struct device *dev = &pdev->dev;
+ 	struct stm32_ospi *ospi = platform_get_drvdata(pdev);
+-	struct resource *res;
++	struct resource *res, _res;
+ 	struct reserved_mem *rmem = NULL;
+ 	struct device_node *node;
+ 	int ret;
+@@ -825,17 +825,13 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
+ 			goto err_dma;
+ 	}
  
--	if (!is_of_node(dev->fwnode))
--		return -ENODEV;
--
--	index = of_property_match_string(dev->of_node, "memory-region-names",
--					 name);
--	if (index < 0)
--		return rc;
--
--	node = of_parse_phandle(dev->of_node, "memory-region", index);
--	if (!node)
-+	rc = of_reserved_mem_region_to_resource_byname(dev->of_node, name, res);
-+	if (rc < 0)
- 		return rc;
- 
--	if (!of_address_to_resource(node, 0, res) &&
--	    res->start != 0 && resource_size(res) != 0)
--		rc = 0;
+-	node = of_parse_phandle(dev->of_node, "memory-region", 0);
+-	if (node)
+-		rmem = of_reserved_mem_lookup(node);
 -	of_node_put(node);
-+	if (res->start == 0 || resource_size(res) == 0)
-+		rc = -ENODEV;
- 
- 	return rc;
- }
+-
+-	if (rmem) {
+-		ospi->mm_size = rmem->size;
+-		ospi->mm_base = devm_ioremap(dev, rmem->base, rmem->size);
++	res = &_res;
++	ret = of_reserved_mem_region_to_resource(dev->of_node, 0, res);
++	if (!ret) {
++		ospi->mm_size = resource_size(res);
++		ospi->mm_base = devm_ioremap_resource(dev, res);
+ 		if (!ospi->mm_base) {
+-			dev_err(dev, "unable to map memory region: %pa+%pa\n",
+-				&rmem->base, &rmem->size);
++			dev_err(dev, "unable to map memory region: %pR\n", res);
+ 			ret = -ENOMEM;
+ 			goto err_dma;
+ 		}
 -- 
 2.47.2
 
