@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77EAFC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 09:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 977BFC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 09:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=srX6kH0UrTbZhO+d3+7kFfFmGiVeOERQzXEmjHHH1Q0=; b=qTShLdSFsydoCc4qyvtud7Z+cq
-	y/LqFfUZfZ46PX710/rshPazeLf+yUZK4BE7MHWb6TyeXYR9x3BCXs/ZiFhSFFs/ANUUlDaof+TS1
-	7Qd4Tfcn3xJ4Vv8PW5LVp4942tmvKb0sTLHOvUSI6z01nHCsFQ/ciARJFoCUTz9x9I3HbiRLo+3NP
-	Jj7JrGXAGhOvkU/xyjSbyXMTiY6SvxqUTQtgCLn0hyq9ANBew+REdUDYjmnbfY6AbETnjEpgX+/eT
-	Fzc2JesdOi9i7I+/+T5Ycw9A7Xy0efTLwzJqTOy5WuxpdpP0gVDGLX0K/evTO0bguVJ/Vn/axFF+u
-	fhWUztuA==;
+	bh=mi/np96huTpzemlSEPT47ivnNTAhi9p9kP4BY7V5Dek=; b=sl+RvyftsTtZZgrJZuQdv+qFHw
+	BiXGDZcoRaSUaghM+CGFkutFzIASBjmfI3k7obZ+f9mo2HKlsHAgNLqBNbJ5REAWpSXIdwxJFL1++
+	HMLIQ9SbkErV3Y+jzMMg57+MOmzeAF4ajHqowJ26ej0CmIs9GXzQYgtKW5klMnSkfaBjAVgFIc1eP
+	sKKHaTt82JgVSt3jGt1dSoSgrG/8Jw6qFb2DROxgHgoHo+C8+v4/4OjLts8KOcDymvVqPZIMmwfoN
+	h83KqxwMQKc7NQyRqRWtJ4mgLVLnosPcTzDyZVsTNUjAnO7STgH0N44a0RSyllgxBuxZTTplP1jld
+	tW2vFjsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXGJT-0000000Aptb-3Ycb;
-	Thu, 03 Jul 2025 09:33:04 +0000
-Received: from mail-m49206.qiye.163.com ([45.254.49.206])
+	id 1uXGLn-0000000AqKO-48Io;
+	Thu, 03 Jul 2025 09:35:28 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXG9D-0000000AoDV-0UiD
+	id 1uXGAU-0000000AoOD-32Nk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 09:22:28 +0000
-Received: from localhost.localdomain (unknown [117.184.129.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1accb52e0;
-	Thu, 3 Jul 2025 17:22:14 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: krzk@kernel.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/8] arm64: Kconfig: add ARCH_BST for bst silicons
-Date: Thu,  3 Jul 2025 17:22:13 +0800
-Message-Id: <20250703092213.222474-1-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <d676ddc8-0e4a-456a-8aa2-15ba898c44de@kernel.org>
-References: <d676ddc8-0e4a-456a-8aa2-15ba898c44de@kernel.org>
+	Thu, 03 Jul 2025 09:23:48 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5637OLbU018922;
+	Thu, 3 Jul 2025 11:23:26 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	mi/np96huTpzemlSEPT47ivnNTAhi9p9kP4BY7V5Dek=; b=plTe8ttnU3beSTHr
+	Oq7OU+9mH5o57+1TikvjDuCxgr+8f1FVkcIWT777l+P3VM4cp8lHkPxMN97FoDWN
+	mumYZ3vLNIuCYKoKyPLLg76qriKwwVLUwkI+A46tjtUp5O59pbaHeI8N57ElxEpX
+	8o9rkdDBtRsz+hx+jfaloob+i+rhesP5mWMdeIjjiiO9ZbOSBx3E3MuZaSeViRy2
+	XD7kze4NlfLXeahkYLkR/+Qp4ZTN3lkkLIAwxgMdgfsXEMKqKx2n1vuFppXsIOaE
+	rlkBHxVlTYS5w7dlwoSLudMlie04jdTbTfTfScCtCg3DGxNw6mZoEsdhE3I569ge
+	vwrbuw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47j5tmf6ec-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 03 Jul 2025 11:23:26 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 27B8440059;
+	Thu,  3 Jul 2025 11:22:03 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 92F68AF65C7;
+	Thu,  3 Jul 2025 11:21:01 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 3 Jul
+ 2025 11:21:00 +0200
+Message-ID: <313d1cc7-eff9-47c7-940f-4ef9e92bccd0@foss.st.com>
+Date: Thu, 3 Jul 2025 11:21:00 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] i2c: stm32f7: support i2c_*_dma_safe_msg_buf APIs
+To: Andi Shyti <andi.shyti@kernel.org>
+CC: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
+        Alain Volmat
+	<alain.volmat@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Sumit Semwal
+	<sumit.semwal@linaro.org>,
+        =?UTF-8?Q?Christian_K=C3=B6nig?=
+	<christian.koenig@amd.com>,
+        M'boumba Cedric Madianga
+	<cedric.madianga@gmail.com>,
+        Wolfram Sang <wsa@kernel.org>,
+        "Pierre-Yves
+ MORDRET" <pierre-yves.mordret@st.com>,
+        <linux-i2c@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <linaro-mm-sig@lists.linaro.org>
+References: <20250630-i2c-upstream-v3-0-7a23ab26683a@foss.st.com>
+ <20250630-i2c-upstream-v3-3-7a23ab26683a@foss.st.com>
+ <4lqsyuabfwnclt2pbxmgqz5zpd6zm5y6q5djiwopuq5eelz7ui@fgep3x24ur3e>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <4lqsyuabfwnclt2pbxmgqz5zpd6zm5y6q5djiwopuq5eelz7ui@fgep3x24ur3e>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDGEoeVk9NTE9LHxofHRofTVYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSk
-	tLVUpCS0tZBg++
-X-HM-Tid: 0a97cf97ff7f09cckunmb83f96175e4255
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Mjo6Mxw5MjE9HkI8Fj0NH0hK
-	EEoaCQlVSlVKTE5KTkhPTkhOTUlPVTMWGhIXVQIaFRwBE0tCS007DxMOFR8eCQgUHQ9VGBQWRVlX
-	WRILWUFZSkpMVUpDT1VKSUJVSkhPWVdZCAFZQUpDSUo3Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=NBqBLOYnDCn/2rlXT10GVPpUFrc06QR5PA2DEARJJ7Tko0jmjtlrXKxUA2Cftzxp685Pr3C8FNS/0yWYMPoajYQWahA0ElXugzahBEfppwO7wNcJodTmNCGQMi+mLRcqMN5HNLsRBSYZMeh3ZadBWoj9xVAVZhb3Iss9h5bXsEY=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=srX6kH0UrTbZhO+d3+7kFfFmGiVeOERQzXEmjHHH1Q0=;
-	h=date:mime-version:subject:message-id:from;
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-03_02,2025-07-02_04,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_022227_605641_A0C77003 
-X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-CacheID: sfid-20250703_022347_067453_0C1AAC82 
+X-CRM114-Status: UNSURE (   8.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,29 +111,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Andy,
 
-Thank you for the feedback.
+On 7/2/25 19:15, Andi Shyti wrote:
+> Hi Clement,
+> 
+> On Mon, Jun 30, 2025 at 02:55:15PM +0200, Clément Le Goffic wrote:
+>> Use the i2c-core-base APIs to allocate a DMA safe buffer when needed.
+> 
+> same here, I don't understand anything... you could have written
+> "do some coding" and it would have been the same :-)
 
-> All your patches come in some big delays (this one came 2.5h later).
-> Maybe there is something with mail server on your side?
-
-You are right, there seems to be an issue with mail delivery timing. I will investigate this and consider using b4 send for future submissions to ensure reliable delivery.
-
-> Why this change?
-
-You are absolutely correct to point this out. The extra blank lines at the end of the file were added accidentally and serve no purpose. I have removed them.
-
-Changes made:
-1. Removed the unnecessary blank lines at the end of Kconfig.platforms
-2. Corrected changelog placement:
-   - Initially I incorrectly placed changelog in the commit message
-   - Per Linux kernel documentation, changelog should be placed after the "---" separator
-   - Removed changelog from commit message to follow proper kernel conventions
-   - The changelog will be included after "---" when sending patches via git format-patch
-
-The updated commit properly describes the purpose and scope of the configuration option without any extraneous whitespace changes, and follows correct Linux kernel commit message format.
+Ok I'll try to be more precise here also.
 
 Best regards,
-Albert Yang
+Clément
 
