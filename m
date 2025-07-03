@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC639C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 10:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D50C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 10:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bo19pTDeC7E4MksRobmwLLN7Ms/zSFedDijHv+PzQfQ=; b=4HIGAKjQgBsKezsJCuGkuX5VTb
-	RL/leSDNXkKSvyIk0gNu6cKSLJJsuVy8RS5oU63mE7ucXmhSsFKRPXaM0WVl2zt0tUvdMd6HQ/Um9
-	gaR2o9E/9ylQ6ktkz2aQObnzm3xDyiP6YtdmMg3cwh4tssxlOYdCmTFwgWR180/pCLaeCwgzXmrZ5
-	nCz8QlooDxsEdSZrQo+zIsdyyT/4uZ2rK8KV3weQFGN56/fOa8Fxe8X1EZwQb2ZIURGJQdYsokPSU
-	ZqGIF4UZmwSn3O+Vq4O4nIZgkArGaTf3KPbvG68p+de1BEY41KMj/P0YeT5vNMwNkXILUah1ySXiZ
-	0mQc+i/g==;
+	bh=87SVnMX5pt349CAbo3fNYcPH9zAwpzgYWDzLK8ior6I=; b=1q/3tgZLA7wjYKxXXa2/cjPovi
+	ih6yBZaNt4MyKiNR/8ji5tDzmCnpl4F5EaYBY35a7USm+qgrTxqFdiA82WvcA/nY/XcUYIMVJ9Xd1
+	Ix6wEYlVskHtsTMG8kIFF+k0L8DhhXBT98EiVucPeKWezkzUebYj311MsTmabDEfdm3yADdWl6Iv9
+	KQE6l0hxUrdkY7AqdZZPlC2CLwoGKHwXM98v2FFOT6GqWd+o/+aRDDexmAf1hSVBvB2cj5CK869IQ
+	k02DdMqOkU5p0vB0blrMUSqQzs9i7OiUADIvIeX2zqytDPcmeIQt7eZH4pnemAzeBVmCHlXJ5GXZJ
+	KMFEyF9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHST-0000000B2zd-2hOq;
-	Thu, 03 Jul 2025 10:46:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uXHUm-0000000B3BZ-1Z8R;
+	Thu, 03 Jul 2025 10:48:48 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXH8a-0000000Ayog-0haA
+	id 1uXH8f-0000000Ayqo-2aGZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 10:25:53 +0000
+	Thu, 03 Jul 2025 10:25:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A96195C4BF4;
+	by nyc.source.kernel.org (Postfix) with ESMTP id EF83EA537C4;
+	Thu,  3 Jul 2025 10:25:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9621C4CEEB;
 	Thu,  3 Jul 2025 10:25:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910FBC4CEE3;
-	Thu,  3 Jul 2025 10:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751538351;
-	bh=chydQxXcGR8/rPWKQhdfhuVdKgKCKmATlQG6keW9CpI=;
+	s=k20201202; t=1751538356;
+	bh=k0GoQ2NGfAMMIU1lVW2V4PQGiGiFH+CwZGL10BHe130=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Zgs424TNZImaYIXJxO59cIEt8frm3mtcn4jc3rus1qqT/r5E748rvuZJdO1Isxybs
-	 fByDxSeRWLeYBiZzQKssUqAtJIVCp2M4VbL6xEd0/NlBlV8phfQ/+o5jjAws5G81ct
-	 NH8Z+cVpDVsGexOwOkY7NX67+z5MkAuyTJHAPJph8GAo/aTrKVoWmAcPlmAI+w4YYT
-	 /gkZ2jGgx7vitU/aj8a+u61LEeWJa6EXIjm+Zq2erpQKczW7u+pPGFJnIqLowWb61i
-	 y54Z6Lp8Jfj8Nlmw7NSu4MGAEN+sznUprgLFGFjLi9JJ5KPx81otbhjDL1geLpSwMh
-	 FNiqyibHij9rg==
+	b=UNbE5QLEtrXdP2sOxCP76deq2RD55Utw2zWU8Gl3ovbFNyPF2oynM5JUqVG56gu/Q
+	 t1wmxXLJH11lzCMPyKnD4AvpfW+VIZFOTbyO1cJ8uHVbV+Ia56Ehsz6v+KCcZRRE6i
+	 zBH0oiyku4ln7omP97MWBNLaz/8FcHf9oqoAHxfgUZO7uC0UVQlaepzyZe8mNIaCu7
+	 Z+H6PUnQTlFsqUpbt+FLiYIRvwvWeeF3CIlh35Q/+xbG+CFeUHadcnUBSDBG9EdT2A
+	 gQwA9Fhf5YegptKwBOEmqs9U8EUaHnLZnnINOj3gJ2GbTDhyjo4Pnw2dnx2zvdubzX
+	 3awxGow1Hj7ig==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Thu, 03 Jul 2025 12:24:57 +0200
-Subject: [PATCH v7 07/31] arm64/sysreg: Add ICC_PPI_{C/S}ACTIVER<n>_EL1
+Date: Thu, 03 Jul 2025 12:24:58 +0200
+Subject: [PATCH v7 08/31] arm64/sysreg: Add ICC_PPI_{C/S}PENDR<n>_EL1
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250703-gicv5-host-v7-7-12e71f1b3528@kernel.org>
+Message-Id: <20250703-gicv5-host-v7-8-12e71f1b3528@kernel.org>
 References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
 In-Reply-To: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -67,8 +67,8 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>
 X-Mailer: b4 0.15-dev-6f78e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_032552_293634_82C062B2 
-X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-CacheID: sfid-20250703_032557_788581_3B0DEB49 
+X-CRM114-Status: UNSURE (   7.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,7 +84,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ICC_PPI_{C/S}ACTIVER<n>_EL1 registers description.
+Add ICC_PPI_{C/S}PENDR<n>_EL1 registers description.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
@@ -97,94 +97,94 @@ Cc: Marc Zyngier <maz@kernel.org>
  1 file changed, 83 insertions(+)
 
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 728223df482d..f1650034e348 100644
+index f1650034e348..78a51fbf3a99 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -3188,6 +3188,89 @@ Sysreg	ICC_PPI_ENABLER1_EL1	3	0	12	10	7
- Fields ICC_PPI_ENABLERx_EL1
+@@ -3271,6 +3271,89 @@ Sysreg	ICC_PPI_SACTIVER1_EL1	3	0	12	13	3
+ Fields ICC_PPI_ACTIVERx_EL1
  EndSysreg
  
-+SysregFields	ICC_PPI_ACTIVERx_EL1
-+Field	63	Active63
-+Field	62	Active62
-+Field	61	Active61
-+Field	60	Active60
-+Field	59	Active59
-+Field	58	Active58
-+Field	57	Active57
-+Field	56	Active56
-+Field	55	Active55
-+Field	54	Active54
-+Field	53	Active53
-+Field	52	Active52
-+Field	51	Active51
-+Field	50	Active50
-+Field	49	Active49
-+Field	48	Active48
-+Field	47	Active47
-+Field	46	Active46
-+Field	45	Active45
-+Field	44	Active44
-+Field	43	Active43
-+Field	42	Active42
-+Field	41	Active41
-+Field	40	Active40
-+Field	39	Active39
-+Field	38	Active38
-+Field	37	Active37
-+Field	36	Active36
-+Field	35	Active35
-+Field	34	Active34
-+Field	33	Active33
-+Field	32	Active32
-+Field	31	Active31
-+Field	30	Active30
-+Field	29	Active29
-+Field	28	Active28
-+Field	27	Active27
-+Field	26	Active26
-+Field	25	Active25
-+Field	24	Active24
-+Field	23	Active23
-+Field	22	Active22
-+Field	21	Active21
-+Field	20	Active20
-+Field	19	Active19
-+Field	18	Active18
-+Field	17	Active17
-+Field	16	Active16
-+Field	15	Active15
-+Field	14	Active14
-+Field	13	Active13
-+Field	12	Active12
-+Field	11	Active11
-+Field	10	Active10
-+Field	9	Active9
-+Field	8	Active8
-+Field	7	Active7
-+Field	6	Active6
-+Field	5	Active5
-+Field	4	Active4
-+Field	3	Active3
-+Field	2	Active2
-+Field	1	Active1
-+Field	0	Active0
++SysregFields	ICC_PPI_PENDRx_EL1
++Field	63	Pend63
++Field	62	Pend62
++Field	61	Pend61
++Field	60	Pend60
++Field	59	Pend59
++Field	58	Pend58
++Field	57	Pend57
++Field	56	Pend56
++Field	55	Pend55
++Field	54	Pend54
++Field	53	Pend53
++Field	52	Pend52
++Field	51	Pend51
++Field	50	Pend50
++Field	49	Pend49
++Field	48	Pend48
++Field	47	Pend47
++Field	46	Pend46
++Field	45	Pend45
++Field	44	Pend44
++Field	43	Pend43
++Field	42	Pend42
++Field	41	Pend41
++Field	40	Pend40
++Field	39	Pend39
++Field	38	Pend38
++Field	37	Pend37
++Field	36	Pend36
++Field	35	Pend35
++Field	34	Pend34
++Field	33	Pend33
++Field	32	Pend32
++Field	31	Pend31
++Field	30	Pend30
++Field	29	Pend29
++Field	28	Pend28
++Field	27	Pend27
++Field	26	Pend26
++Field	25	Pend25
++Field	24	Pend24
++Field	23	Pend23
++Field	22	Pend22
++Field	21	Pend21
++Field	20	Pend20
++Field	19	Pend19
++Field	18	Pend18
++Field	17	Pend17
++Field	16	Pend16
++Field	15	Pend15
++Field	14	Pend14
++Field	13	Pend13
++Field	12	Pend12
++Field	11	Pend11
++Field	10	Pend10
++Field	9	Pend9
++Field	8	Pend8
++Field	7	Pend7
++Field	6	Pend6
++Field	5	Pend5
++Field	4	Pend4
++Field	3	Pend3
++Field	2	Pend2
++Field	1	Pend1
++Field	0	Pend0
 +EndSysregFields
 +
-+Sysreg	ICC_PPI_CACTIVER0_EL1	3	0	12	13	0
-+Fields ICC_PPI_ACTIVERx_EL1
++Sysreg	ICC_PPI_CPENDR0_EL1	3	0	12	13	4
++Fields ICC_PPI_PENDRx_EL1
 +EndSysreg
 +
-+Sysreg	ICC_PPI_CACTIVER1_EL1	3	0	12	13	1
-+Fields ICC_PPI_ACTIVERx_EL1
++Sysreg	ICC_PPI_CPENDR1_EL1	3	0	12	13	5
++Fields ICC_PPI_PENDRx_EL1
 +EndSysreg
 +
-+Sysreg	ICC_PPI_SACTIVER0_EL1	3	0	12	13	2
-+Fields ICC_PPI_ACTIVERx_EL1
++Sysreg	ICC_PPI_SPENDR0_EL1	3	0	12	13	6
++Fields ICC_PPI_PENDRx_EL1
 +EndSysreg
 +
-+Sysreg	ICC_PPI_SACTIVER1_EL1	3	0	12	13	3
-+Fields ICC_PPI_ACTIVERx_EL1
++Sysreg	ICC_PPI_SPENDR1_EL1	3	0	12	13	7
++Fields ICC_PPI_PENDRx_EL1
 +EndSysreg
 +
  SysregFields	ICC_PPI_PRIORITYRx_EL1
