@@ -4,99 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 004ECC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB7AC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 14:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SZPLWfXiCCARjQLVMbM6O6mOQhpsqAEIICbBKDhLFXs=; b=QQCp0O75IZ1Xiq6y0Tdm5GGpi9
-	XNn6hWiuFPt7mtIAha964drhwop3h/UC0NoBIxCCJNkT8Vu1TG8AdnWvLDIn/brV/CuZ/BKg+XlWw
-	TNDnuEsT3FEKQ3Gy9NE5r1PkFGcK4c797bXZdlOS0sLOECQEr4qXIMuo55nk3MT5YHzIgfe+5xCc0
-	hAzgi+efXY7nMyaa3zrvIo/Cv7K+AXkYTOcErO0jRAT8aWi68mDy0zb4J5ZyqO6RsOFz+k2WnrnTt
-	CwD7J6uzZtSmpElrXP5wlXhyhoMDFj+PPPjBpyd812vVYd24UBQKYuOii7oC9Is+2sCXoG9lurAd0
-	cpByqyYQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CH34y2DNV0r5uiaudTDEaCsdCiE+vgx/V9LNW6/Ooa0=; b=EhHemdgOTwKL32Fmfp0509eC5f
+	ZFMGbqap6KKted0+y/6vqGHKgk+ZVVIWhbEscuLk01j2wQRrvmdEaf96HOQHJ6pUvm72usOJhMsHH
+	DhcFRLqXT9/WDtYoj101uTNlgKqJR3oXX8DCDSdoAnnhj/OT3oxWNa6uTNlfTpwNDyw3ITHqTMDRT
+	5t+PnLx8WaN+WMafl/6e+MEk0h4siiI7+BAQSOTlPjOEQzAi73MBsSZdV8HAlbaRpFjgiOjKpiF5i
+	CAOdwljQ+bXUi0+a4T6RgHQozdpIHGTzfnHp44gAm4jVsLuJQMzM+0pgQHGP4oxGBeabl0W6+ZuJ5
+	aIvyt7cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKcE-0000000BbYi-3dCW;
-	Thu, 03 Jul 2025 14:08:42 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1uXKeZ-0000000Bc2s-1qrw;
+	Thu, 03 Jul 2025 14:11:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJ6j-0000000BLFk-36px
+	id 1uXJCj-0000000BM4p-18jW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 12:32:06 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-60c4f796446so13348743a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 05:32:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751545924; x=1752150724; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SZPLWfXiCCARjQLVMbM6O6mOQhpsqAEIICbBKDhLFXs=;
-        b=m/q4yQS+FMlEBYP5V/HExLXkO1f4KLt4izq1/6C/1hr4kMAh/nCy46cEwmf3vHaAV3
-         sxz5ZdgIPqDfUp1WyJHua4yDZ7+78/tHcgRoImyq9ReBCENE0msVSsAqGWHWycptV8kQ
-         +AFbIHPDvI0+4Tkm5OaxXewAZyIJaD+Oa5iB3jWOUwBh+mbj8bMlqDvveRnvVcYDrnWS
-         EsPbd4VxI3Uj+PH6TNjw7GqxTAyHD4ou4kjX/s72Q9Akzde2/QALGktQLszBKHd3pEEi
-         XHJzT7s3E7MnYuJ4/SsrAAVE68FRfkWD3s1HpalAEzKadxPysAvByo2MllX1mYgT4ZGF
-         1+6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751545924; x=1752150724;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SZPLWfXiCCARjQLVMbM6O6mOQhpsqAEIICbBKDhLFXs=;
-        b=aTYGcz0kSYExbHRfr0ptUpCjTv3kkRmbNDySY39xPWCKSU4TeevF9t8nnShED8KzyV
-         /zIWJNf+pe2MOiBpAsekadCnMsKZkzUX4cutIHYaJjkXqxyhaDyeIShRCk8aOMFldINW
-         4v/0NBZfZ09B8prRFGfaYww/37j2gO3EMYAuemm1vDqg5XI1szr6guyL4T//eWQXdMZK
-         exOOjC3tVtlkCuTu1jK3VjsBQV8MBraOdqsZhDq7mSUX2Q4dA9zbvFxUOA4DIT4HeIjb
-         wf/1JFAZfUvmiAbfPK6BTQC05BfQ5972S7POfgW5jtnG1lxZ8Zr77/X2dTClr1Jvd81p
-         OFWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUaCf6Idf6eXYHM21KnSwOkAyjXwq/Vb2QLXyJoDx8D9Oa97so5TEWgsEIDoL8CcRLNL2kSBCNvqDsj6RbhqITG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzzt/r+4gksLlAdXElqcodZpClkJBEx/mK4jgeRGOQ0j1CfCwvi
-	MZ9upiyBnf3gfGhlFzoCk4JgfToukbkQn/KjnjryfHCIXIl5DuIsI3QB
-X-Gm-Gg: ASbGncvZH+U1Yi4oC8xfGNUknhDfFPk7TqRqir24z65F6dsVF2mk+8C6+Rkx+UMEUYb
-	8kZkWKmBDhXRgx1q/WGy+9gUQy7lfkXxHCLtEU/pt4bkUioIiQ00gPxsyzWdmMp26KxHSInOQVh
-	cmEVjLVPVHlvH+chgvtF04i+COnhF+SyTMN2IAU03hWOA+Rm+PY83NaqRSKtBJ8BgK1q5Zd18aF
-	A44lev9v8xV7mhnSpDZ4rBtOIGW6qQ8Q1sc3s+6vQn8o7v3zx8IymgATh076ao9iolLxABL1ZPd
-	6JHd+hu3kqY2nrFP3/RE8wZuFEBltpKD7IMfsSLDCzF13RphtaopB5fuf3x661yjtjcV8/O7qLB
-	Xr0k=
-X-Google-Smtp-Source: AGHT+IHuheH2n6bV6dLkCNbg1HG9FS/Kp24cqUOr7wqs04JRCAIlvn2pDbqaGZ7WBJdV42dGc8EYOw==
-X-Received: by 2002:a05:6402:238a:b0:60c:44d6:2817 with SMTP id 4fb4d7f45d1cf-60e536053a9mr5295465a12.20.1751545923806;
-        Thu, 03 Jul 2025 05:32:03 -0700 (PDT)
-Received: from [192.168.0.100] ([188.27.131.45])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60c8320b5aasm10343175a12.76.2025.07.03.05.32.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Jul 2025 05:32:03 -0700 (PDT)
-Message-ID: <5fad0945-27a5-4c49-8f20-59c197fc1ba0@gmail.com>
-Date: Thu, 3 Jul 2025 15:31:58 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 18/24] media: i2c: maxim-serdes: add MAX96717 driver
-To: Julien Massot <julien.massot@collabora.com>,
- Cosmin Tanislav <cosmin.tanislav@analog.com>,
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
-References: <20250702132104.1537926-1-demonsingur@gmail.com>
- <20250702132104.1537926-19-demonsingur@gmail.com>
- <b591e7daf1e351fbfee181fcce399db08b28faf9.camel@collabora.com>
-From: Cosmin Tanislav <demonsingur@gmail.com>
-Content-Language: en-US
-In-Reply-To: <b591e7daf1e351fbfee181fcce399db08b28faf9.camel@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Thu, 03 Jul 2025 12:38:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7296943B03;
+	Thu,  3 Jul 2025 12:38:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AA61C4CEE3;
+	Thu,  3 Jul 2025 12:38:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751546295;
+	bh=hWvVF87EVM3mwOjPFZe4ew5uoKrcihEE8r7VGd37jSU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=e4fGec5c+a5XsC3kgG1v/EdvTMJUV2gZBtLRlD9DGZLuyOij9qKsXlWe5wLzV4kYk
+	 7/kMUudklu19iKKFI6MbnQqZSYYoBS7qBGNYHsY/tfCRZd39OEHYsUdSD7oowWMAhd
+	 +6PE5W2ct1AlegAX6RQn+R8Qzlne6LKm4Qw8WAHLMBBk9IIUe2yA6IOBnYXQxIq2Ax
+	 OUBjV8Ws9cCncRJrNtt1YIYtMH19OwSqBi3QMC9mzzD050ap35SFtTts9OUear417j
+	 VWkykKtpqImYAZ3cfD+WzyFs3/02DcMarY3emCiEJq2dgTbhK89uBBRqGJG1+sLPMR
+	 foN3vbumvs9Zw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uXJCf-00CJgJ-5K;
+	Thu, 03 Jul 2025 13:38:13 +0100
+Date: Thu, 03 Jul 2025 13:38:12 +0100
+Message-ID: <8634bdbgaz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: perlarsen@google.com
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	ahomescu@google.com,
+	armellel@google.com,
+	arve@android.com,
+	ayrton@google.com,
+	qperret@google.com,
+	sebastianene@google.com,
+	qwandor@google.com
+Subject: Re: [PATCH v7 2/5] KVM: arm64: Use SMCCC 1.2 for FF-A initialization and in host handler
+In-Reply-To: <20250701-virtio-msg-ffa-v7-2-995afc3d385e@google.com>
+References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
+	<20250701-virtio-msg-ffa-v7-2-995afc3d385e@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: perlarsen@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, sudeep.holla@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, arve@android.com, ayrton@google.com, qperret@google.com, sebastianene@google.com, qwandor@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_053205_780956_45781F5B 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20250703_053817_353426_53994FB1 
+X-CRM114-Status: GOOD (  30.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,113 +100,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 01 Jul 2025 23:06:35 +0100,
+Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org> wrote:
+>=20
+> From: Per Larsen <perlarsen@google.com>
+>=20
+> SMCCC 1.1 and prior allows four registers to be sent back as a result
+> of an FF-A interface. SMCCC 1.2 increases the number of results that can
+> be sent back to 8 and 16 for 32-bit and 64-bit SMC/HVCs respectively.
+>=20
+> FF-A 1.0 references SMCCC 1.2 (reference [4] on page xi) and FF-A 1.2
+> explicitly requires SMCCC 1.2 so it should be safe to use this version
+> unconditionally. Moreover, it is simpler to implement FF-A features
+> without having to worry about compatibility with SMCCC 1.1 and older.
+>=20
+> Update the FF-A initialization and host handler code to use SMCCC 1.2.
+>=20
+> Signed-off-by: Per Larsen <perlarsen@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/Makefile |   1 +
+>  arch/arm64/kvm/hyp/nvhe/ffa.c    | 193 +++++++++++++++++++++++++--------=
+------
+>  2 files changed, 125 insertions(+), 69 deletions(-)
+>=20
+> diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/M=
+akefile
+> index a76522d63c3e630795db5972a99abc3d24bc5e26..f859a8fb41a25effea1edd977=
+bef889423153399 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/Makefile
+> +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+> @@ -27,6 +27,7 @@ hyp-obj-y :=3D timer-sr.o sysreg-sr.o debug-sr.o switch=
+.o tlb.o hyp-init.o host.o
+>  	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
+>  hyp-obj-y +=3D ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../=
+entry.o \
+>  	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
+> +hyp-obj-y +=3D ../../../kernel/smccc-call.o
+>  hyp-obj-$(CONFIG_LIST_HARDENED) +=3D list_debug.o
+>  hyp-obj-y +=3D $(lib-objs)
+> =20
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 2c199d40811efb5bfae199c4a67d8ae3d9307357..65d241ba32403d014b43cc4ef=
+4d5bf9693813809 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -71,36 +71,68 @@ static u32 hyp_ffa_version;
+>  static bool has_version_negotiated;
+>  static hyp_spinlock_t version_lock;
+> =20
+> -static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
+> +static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_e=
+rrno)
+>  {
+> -	*res =3D (struct arm_smccc_res) {
+> +	*res =3D (struct arm_smccc_1_2_regs) {
+>  		.a0	=3D FFA_ERROR,
+>  		.a2	=3D ffa_errno,
+>  	};
+>  }
+> =20
+> -static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u6=
+4 prop)
+> +static void ffa_to_smccc_res_prop(struct arm_smccc_1_2_regs *res, int re=
+t, u64 prop)
+>  {
+>  	if (ret =3D=3D FFA_RET_SUCCESS) {
+> -		*res =3D (struct arm_smccc_res) { .a0 =3D FFA_SUCCESS,
+> -						.a2 =3D prop };
+> +		*res =3D (struct arm_smccc_1_2_regs) { .a0 =3D FFA_SUCCESS,
+> +						      .a2 =3D prop };
+>  	} else {
+>  		ffa_to_smccc_error(res, ret);
+>  	}
+>  }
+> =20
+> -static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
+> +static void ffa_to_smccc_res(struct arm_smccc_1_2_regs *res, int ret)
+>  {
+>  	ffa_to_smccc_res_prop(res, ret, 0);
+>  }
+> =20
+>  static void ffa_set_retval(struct kvm_cpu_context *ctxt,
+> -			   struct arm_smccc_res *res)
+> +			   struct arm_smccc_1_2_regs *res)
+>  {
+> +	DECLARE_REG(u64, func_id, ctxt, 0);
+>  	cpu_reg(ctxt, 0) =3D res->a0;
+>  	cpu_reg(ctxt, 1) =3D res->a1;
+>  	cpu_reg(ctxt, 2) =3D res->a2;
+>  	cpu_reg(ctxt, 3) =3D res->a3;
+> +	cpu_reg(ctxt, 4) =3D res->a4;
+> +	cpu_reg(ctxt, 5) =3D res->a5;
+> +	cpu_reg(ctxt, 6) =3D res->a6;
+> +	cpu_reg(ctxt, 7) =3D res->a7;
 
+=46rom DEN0028G 2.6:
 
-On 7/3/25 3:16 PM, Julien Massot wrote:
-> On Wed, 2025-07-02 at 16:20 +0300, Cosmin Tanislav wrote:
->> Add a new MAX96717 driver that also supports MAX9295A, MAX96717F and
->> MAX96793.
->>
->> Integrate it with the common serializer framework, while keeping
->> compatibility with existing usecases, avoiding code duplication, and
->> also enabling more features across all chips.
->>
->> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
->> ---
->>   drivers/media/i2c/maxim-serdes/Kconfig    |   16 +
->>   drivers/media/i2c/maxim-serdes/Makefile   |    1 +
->>   drivers/media/i2c/maxim-serdes/max96717.c | 1685 +++++++++++++++++++++
->>   3 files changed, 1702 insertions(+)
->>   create mode 100644 drivers/media/i2c/maxim-serdes/max96717.c
->>
->> diff --git a/drivers/media/i2c/maxim-serdes/Kconfig b/drivers/media/i2c/maxim-serdes/Kconfig
->> index cae1d5a1293e..648cb891eefe 100644
->> --- a/drivers/media/i2c/maxim-serdes/Kconfig
->> +++ b/drivers/media/i2c/maxim-serdes/Kconfig
->> @@ -14,3 +14,19 @@ config VIDEO_MAXIM_SERDES
->>   
->>   	  To compile this driver as a module, choose M here: the module
->>   	  will be called max_serdes.
->> +
->> +config VIDEO_MAX96717
->> +	tristate "Maxim MAX96717 Serializer support"
->> +	depends on COMMON_CLK
->> +	select VIDEO_MAXIM_SERDES
->> +	select GENERIC_PINCONF
->> +	select GENERIC_PINCTRL_GROUPS
->> +	select GENERIC_PINMUX_FUNCTIONS
->> +	select GPIOLIB
->> +	help
->> +	  This driver supports the Maxim MAX9295A, MAX96717, MAX96717F,
->> +	  MAX96793 Serializers, which receive video on a MIPI CSI-2
->> +	  interface and output it on a GMSL2/3 link.
->> +
->> +	  To compile this driver as a module, choose M here: the module
->> +	  will be called max96717.
->> diff --git a/drivers/media/i2c/maxim-serdes/Makefile b/drivers/media/i2c/maxim-serdes/Makefile
->> index b54326a5c81b..04abda6a5437 100644
->> --- a/drivers/media/i2c/maxim-serdes/Makefile
->> +++ b/drivers/media/i2c/maxim-serdes/Makefile
->> @@ -1,3 +1,4 @@
->>   # SPDX-License-Identifier: GPL-2.0
->>   max-serdes-objs := max_serdes.o max_ser.o max_des.o
->>   obj-$(CONFIG_VIDEO_MAXIM_SERDES) += max-serdes.o
->> +obj-$(CONFIG_VIDEO_MAX96717) += max96717.o
->> diff --git a/drivers/media/i2c/maxim-serdes/max96717.c b/drivers/media/i2c/maxim-serdes/max96717.c
->> new file mode 100644
->> index 000000000000..60b285e547b7
->> --- /dev/null
->> +++ b/drivers/media/i2c/maxim-serdes/max96717.c
->> @@ -0,0 +1,1685 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Maxim MAX96717 GMSL2 Serializer Driver
->> + *
->> + * Copyright (C) 2025 Analog Devices Inc.
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/clk-provider.h>
->> +#include <linux/gpio/driver.h>
->> +#include <linux/pinctrl/pinctrl.h>
->> +#include <linux/pinctrl/pinmux.h>
->> +#include <linux/pinctrl/pinconf.h>
->> +#include <linux/pinctrl/pinconf-generic.h>
->> +#include <linux/regmap.h>
->> +
->> +#include "max_ser.h"
->> +
->> +#define MAX96717_REG0				0x0
->> +
->> +#define MAX96717_REG2				0x2
->> +#define MAX96717_REG2_VID_TX_EN_P(p)		BIT(4 + (p))
->> +
->> +#define MAX96717_REG3				0x3
->> +#define MAX96717_REG3_RCLKSEL			GENMASK(1, 0)
->> +#define MAX96717_REG3_RCLK_ALT			BIT(2)
->> +
->> +#define MAX96717_REG6				0x6
->> +#define MAX96717_REG6_RCLKEN			BIT(5)
->> +
->> +#define MAX96717_I2C_2(x)			(0x42 + (x) * 0x2)
->> +#define MAX96717_I2C_2_SRC			GENMASK(7, 1)
->> +
->> +#define MAX96717_I2C_3(x)			(0x43 + (x) * 0x2)
->> +#define MAX96717_I2C_3_DST			GENMASK(7, 1)
->> +
->> +#define MAX96717_TX3(p)				(0x53 + (p) * 0x4)
->> +#define MAX96717_TX3_TX_STR_SEL			GENMASK(1, 0)
->> +
->> +#define MAX96717_VIDEO_TX0(p)			(0x100 + (p) * 0x8)
-> This is a bit confusing, looks like this register address is valid for MAX9295a VIDEO_TX0
-> but not for MAX96717, VIDEO_TX0 (Z) is at 0x110.
-> 
+<quote>
+Registers W4-W7 must be preserved unless they contain results, as
+specified in the function definition.
+</quote>
 
-See pipe_hw_ids field of max96717_chip_info.
-MAX9295A has pipes 0, 1, 2, 3, MAX96717 has pipe 2 only.
-Registers and strides are the same, just pipes are missing.
+On what grounds can you blindly change these registers?
 
-> 
-> 
+> +
+> +	/*
+> +	 * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30.
+> +	 *
+> +	 * The most straightforward approach is to look at the function ID
+> +	 * sent by the caller. However, the caller could send FFA_MSG_WAIT
+> +	 * which is a 32-bit interface but the reply could very well be 64-bit
+> +	 * such as FFA_FN64_MSG_SEND_DIRECT_REQ or FFA_MSG_SEND_DIRECT_REQ2.
+> +	 *
+> +	 * Instead, we could look at the function ID in the response (a0) but
+> +	 * that doesn't work either as FFA_VERSION responses put the version
+> +	 * number (or error code) in w0.
+> +	 *
+> +	 * Set x8-x17 iff response contains 64-bit function ID in a0.
+> +	 */
+> +	if (func_id !=3D FFA_VERSION && ARM_SMCCC_IS_64(res->a0)) {
+> +		cpu_reg(ctxt, 8) =3D res->a8;
+> +		cpu_reg(ctxt, 9) =3D res->a9;
+> +		cpu_reg(ctxt, 10) =3D res->a10;
+> +		cpu_reg(ctxt, 11) =3D res->a11;
+> +		cpu_reg(ctxt, 12) =3D res->a12;
+> +		cpu_reg(ctxt, 13) =3D res->a13;
+> +		cpu_reg(ctxt, 14) =3D res->a14;
+> +		cpu_reg(ctxt, 15) =3D res->a15;
+> +		cpu_reg(ctxt, 16) =3D res->a16;
+> +		cpu_reg(ctxt, 17) =3D res->a17;
+> +	}
+>  }
 
+I don't see how that can ever work.
+
+Irrespective of how FFA_MSG_WAIT actually works (and I couldn't find
+anything in the spec that supports the above), the requester will
+fully expect its registers to be preserved based on the initial
+function type, and that alone. No ifs, no buts.
+
+If what you describe can happen (please provide a convincing example),
+then the spec is doomed.
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
