@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90060C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 15:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E14AC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 15:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y78VCoYM7VevEWRRosTle7tdkMGhmFsw5rVCtfwQPJE=; b=ngH6u8iPETecO7vStrm1DKMOvu
-	i7wf+Th7/LEGTLBBsMtyHNTzBf5z7pmjk3blhqQyYy3AN/GgUjLq9411rfMZjHVg7hNC8y2TRe1li
-	NyuOFvuxuX1YQiic5vBAQfobnPyGG2SFHEe9CbZIbV3ZKrAL6lsK2YkS29ZuqAr3BIvCfkw9D2Ltk
-	OlGNj+GtVXa+IJX+/TFOkynDpckuYWbXioV6YWcuI6DsLyw+oZcJOFEkRTs2gLYsmAV7S2IYgoCOU
-	vBB5LhXbJra09yklPMxz99wbRqPRwn/CAt9ewfQzHhH5PZkoZ9PJOGkqIiRmmbhQFdsJf2BIKot5N
-	favoNL8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AVUcdyabin1Xsy1KBksxVemk6XUREcwoqSWebUTwwQc=; b=utWtpr1n4DdkLZfAU1H5Hp5bLE
+	srXYjGQpf/sV6FL9ByjtmaEgsCfeTMuYwvMQQrpH4oLo4zrIznnSMBSU27ehqF1OkJbRFEfXSdcdg
+	e+epkjbyTInV1Xc/z76VO5rrFp/rky4Lx6XKKA6+VLwRhIE7r8fwGky+RPPy6pCx9M1JHMXamcVwK
+	MvhXUvNaIRSfRDau/Q76CvbMNrtfC1giwZxK+0Yb2015K274fawK8E+LZb9l76AAytdpXWFgNB1rN
+	AY2ulFWcwaLq4UhRbzATvt5LRuyCtMYRQhmOyIvVIVhgFLgLO7xuAKwd0QBnyWOKuNlG6kT5LiYI1
+	T3yvTUTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXM7f-0000000BsRf-2CKO;
-	Thu, 03 Jul 2025 15:45:15 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uXMA0-0000000BsvI-03Tp;
+	Thu, 03 Jul 2025 15:47:40 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKON-0000000BYeB-1CxC
+	id 1uXKQW-0000000BYyK-3kqF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 13:54:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751550861;
-	bh=y78VCoYM7VevEWRRosTle7tdkMGhmFsw5rVCtfwQPJE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Vn1T+Adm7dAOD3R6Sydh5vATGD9TWJZ4xQXiRE2DGkOlDTfk8bXDfo1eKlk5S0p09
-	 Cs1wSRHanBGrFcD7QGpKHsDdMM6DPuPD5fq9rgNa+XNfdApZ+QCISKe+Ehdavsq38a
-	 3/U6GI2l5Fd+yxnDlYMfCO+flzBFFXnm8D4eKs771kVmY/bUWBqJVEA1pSJTc/Umkh
-	 Z0NjYxF51gOFpCuK07R3mhiGz1KP9VVVfkS0z6+nJACp5nzBw8zKn0b7lA50o6lNzI
-	 x4oH7h8fKJJgQtvZ34p/4pPJ0J8CqnjwaSl+xugSXkP65tazWhdrDHqH96Kj65JoGQ
-	 R6D9TUmYAR9FQ==
-Received: from 2a01cb0892f2d600c8f85cf092d4af51.ipv6.abo.wanadoo.fr (2a01cb0892f2D600c8F85cf092d4aF51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AA95C17E04C0;
-	Thu,  3 Jul 2025 15:54:20 +0200 (CEST)
-Message-ID: <c661e7f3faec269f73d6240fbe7b84e3bc97157a.camel@collabora.com>
-Subject: Re: [PATCH v5 00/24] media: i2c: add Maxim GMSL2/3 serializer and
- deserializer drivers
-From: Julien Massot <julien.massot@collabora.com>
-To: Cosmin Tanislav <demonsingur@gmail.com>, Cosmin Tanislav	
- <cosmin.tanislav@analog.com>, Tomi Valkeinen	
- <tomi.valkeinen+renesas@ideasonboard.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Niklas
- =?ISO-8859-1?Q?S=F6derlund?=	 <niklas.soderlund@ragnatech.se>, Sakari Ailus
- <sakari.ailus@linux.intel.com>,  Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
-Date: Thu, 03 Jul 2025 15:54:20 +0200
-In-Reply-To: <d4052ab3-9cd1-45e8-81b0-b6512822e646@gmail.com>
-References: <20250702132104.1537926-1-demonsingur@gmail.com>
-	 <5e1b26637706f6eac92acbbb3d5a7dafa0c2c232.camel@collabora.com>
-	 <d4052ab3-9cd1-45e8-81b0-b6512822e646@gmail.com>
-Organization: Collabora Ltd.
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+	Thu, 03 Jul 2025 13:56:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1751550996; x=1783086996;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=y4ooV2WhBZfJ2d538OTlPKZEGsSC5494XT/RIfWXDLk=;
+  b=GFNTBNZqwk1m5EiwLij7Lx8w4lcMV0IolQmGXpz90m3ZQSe37jnSHLxa
+   YL8z9yKeHpd5p2OZP0kqzu8NIrHzH/cCeMKxA4FuWFPbBTf0LAoa+TYQf
+   80SNfQKh4BXh+O0CqQZkJVrXe2RHFxOr6yY49erT+nhvts+fnobJqdzRB
+   +De0K+HM7xRcuf/KloINVLiqpVnhMSGB+rtQiYKAeWkLO0TSCRTh5g6wC
+   yxJmE5PQPuARp981etfVQIjC7qfTXyin2R8My/a2kuFEh3H2nMPiKXu2c
+   kB0ZpwLYNBcs4WSkLC5gxSBWsNdm1LEtYs2XIi6nKfPsXFHZVp/RCm0kJ
+   g==;
+X-CSE-ConnectionGUID: bVLJ8fMtTTSJrF3ArC6WlA==
+X-CSE-MsgGUID: UqmCzDwdQLKXTFtb/xi4uA==
+X-IronPort-AV: E=Sophos;i="6.16,284,1744095600"; 
+   d="scan'208";a="43062061"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 03 Jul 2025 06:56:33 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Thu, 3 Jul 2025 06:55:53 -0700
+Received: from [10.171.248.31] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Thu, 3 Jul 2025 06:55:47 -0700
+Message-ID: <421d61db-27eb-4ad2-bd98-eb187fd14b1e@microchip.com>
+Date: Thu, 3 Jul 2025 15:55:47 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 01/10] arm64: Add config for Microchip SoC platforms
+To: Robert Marko <robert.marko@sartura.hr>, Arnd Bergmann <arnd@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>
+CC: Russell King <linux@armlinux.org.uk>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Olivia Mackall <olivia@selenic.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>,
+	Vinod Koul <vkoul@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, Lee Jones
+	<lee@kernel.org>, Mark Brown <broonie@kernel.org>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-crypto@vger.kernel.org>, <dmaengine@vger.kernel.org>,
+	<linux-i2c@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+	<linux-serial@vger.kernel.org>, Oleksij Rempel <o.rempel@pengutronix.de>,
+	Daniel Machon <daniel.machon@microchip.com>, <luka.perkov@sartura.hr>, "Conor
+ Dooley" <Conor.Dooley@microchip.com>, Lars Povlsen - M31675
+	<Lars.Povlsen@microchip.com>
+References: <20250702183856.1727275-1-robert.marko@sartura.hr>
+ <20250702183856.1727275-2-robert.marko@sartura.hr>
+ <ea353170-6e03-4231-afc2-3dc45253931d@app.fastmail.com>
+ <CA+HBbNHxiU5+xVJTyPQFuCJLyEs5_MpybSBEgxi25bzaGfiVHA@mail.gmail.com>
+Content-Language: en-US, fr
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Organization: microchip
+In-Reply-To: <CA+HBbNHxiU5+xVJTyPQFuCJLyEs5_MpybSBEgxi25bzaGfiVHA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_065423_482795_1D1CA709 
-X-CRM114-Status: GOOD (  40.72  )
+X-CRM114-CacheID: sfid-20250703_065637_164265_BB432D99 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,131 +102,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-07-03 at 15:17 +0300, Cosmin Tanislav wrote:
->=20
->=20
-> On 7/3/25 3:07 PM, Julien Massot wrote:
-> > Hi Cosmin,
-> >=20
-> > On Wed, 2025-07-02 at 16:20 +0300, Cosmin Tanislav wrote:
-> > > This series adds new drivers for multiple Maxim GMSL2 and GMSL3 devic=
-es,
-> > > replacing the few GMSL2 drivers already in upstream, and introducing =
-a
-> > > common framework that can be used to implement such GMSL chips, which
-> > > avoids code duplication while also adding support for previously
-> > > unsupported features.
-> > >=20
-> > > While the normally acceptable and polite way would be to extend the
-> > > current mainline drivers, the choice was made here to add a totally n=
-ew
-> > > set of drivers. The current drivers support only a small subset of th=
-e
-> > > possible features, and only a few devices, so the end result after
-> > > extending them would in any case be essentially fully rewritten, new
-> > > drivers.
-> > >=20
-> > Thanks for your work,
-> > The common framework will help a lot to drive new GMSL chips, and most =
-of the
-> > features are covered.
-> >=20
-> > > This series depends on support for internal pads, for which a patch h=
-as
-> > > been added.
-> > >=20
-> > > The previous version is at:
-> > > https://lore.kernel.org/lkml/20250618095858.2145209-1-demonsingur@gma=
-il.com
-> > >=20
-> > > The following deserializers are supported:
-> > > =C2=A0=C2=A0* MAX96712 (already exists in staging)
-> > > =C2=A0=C2=A0* MAX96714 (already exists)
-> > > =C2=A0=C2=A0* MAX96714F (already exists)
-> > > =C2=A0=C2=A0* MAX96714R (GMSL2)
-> > > =C2=A0=C2=A0* MAX96716 (GMSL2)
-> > > =C2=A0=C2=A0* MAX96724 (already exists as part of existing MAX96712 d=
-river)
-> > > =C2=A0=C2=A0* MAX96724F (GMSL2)
-> > > =C2=A0=C2=A0* MAX96724R (GMSL2)
-> > > =C2=A0=C2=A0* MAX9296A (GMSL2)
-> > > =C2=A0=C2=A0* MAX96792A (GMSL3)
-> > >=20
-> > > The following serializers are supported:
-> > > =C2=A0=C2=A0* MAX96717 (already exists)
-> > > =C2=A0=C2=A0* MAX9295A (GMSL2)
-> > > =C2=A0=C2=A0* MAX96793 (GMSL3)
-> > >=20
-> > > Known backward compatibility breakages:
-> > > =C2=A0=C2=A0* No default routing. Default routing has been intentiona=
-lly ommitted
-> > > =C2=A0=C2=A0=C2=A0 as the devices support quite complex routing and i=
-t would be
-> > > =C2=A0=C2=A0=C2=A0 unfeasible to provide sane defaults for multi-link=
- deserialziers.
-> > > =C2=A0=C2=A0=C2=A0 It is expected that userspace programs would set a=
-ppropritate
-> > > =C2=A0=C2=A0=C2=A0 routing.
-> > >=20
-> > This part is the most annoying one: at the moment, there is no way to s=
-et the routing except by
-> > manually enabling a boolean within the kernel source.
-> > You can't guess what routing the user really wants, but please at least=
- provide a default
-> > routing
-> > table that allows using your drivers =E2=80=94 for example, the device'=
-s default routing.
-> >=20
->=20
-> It's a very delicate issue... I'll try to see if I can do that.
-> It would be great if we could enable the streams API globally since it's
-> been merged since Jan 15 2023. It's been over two years.
->=20
->=20
-> Thanks,
->=20
-> >=20
-> >=20
-> > > The following list enumerates new features that are supported by the
-> > > common framework and their respective chip-specific drivers:
-> > > =C2=A0=C2=A0* Full Streams API support. Most deserializers have suppo=
-rt for more
-> > > =C2=A0=C2=A0=C2=A0 than one link, and more than one PHY. Streams supp=
-ort allows
-> > > =C2=A0=C2=A0=C2=A0 configuration of routing between these links and P=
-HYs.
-> > >=20
-> > > =C2=A0=C2=A0* .get_frame_desc() support. Both the serializers and des=
-erializers
-> > > =C2=A0=C2=A0=C2=A0 implement this to query and provide frame descript=
-or data. This is
-> > > =C2=A0=C2=A0=C2=A0 used in features explained in-depth below.
-> >=20
-> > So are almost all the sensor drivers incompatible?
-> >=20
->=20
-> Yes, sensor drivers need to have .get_frame_desc() implemented... It's
-> not a huge feat and it's the only way this type of bridge could work
-> properly.
->=20
-> Alternatively, we could add a fallback that bases its decision on the
-> stream format, but I'd prefer if we didn't and we would just implement
-> .get_frame_desc(). After this series is merged I can submit my patches
-> for imx219.
-There is already one pending on the mailing list
-"media: i2c: imx219: Report streams using frame descriptors"
-I guess it's fine if we require the sensor to implement this function.
+Robert, Arnd,
 
-But I had to do it for vgxy61.
+On 03/07/2025 at 14:25, Robert Marko wrote:
+> On Wed, Jul 2, 2025 at 9:57 PM Arnd Bergmann <arnd@kernel.org> wrote:
+>>
+>> On Wed, Jul 2, 2025, at 20:35, Robert Marko wrote:
+>>> Currently, Microchip SparX-5 SoC is supported and it has its own symbol.
+>>>
+>>> However, this means that new Microchip platforms that share drivers need
+>>> to constantly keep updating depends on various drivers.
+>>>
+>>> So, to try and reduce this lets add ARCH_MICROCHIP symbol that drivers
+>>> could instead depend on.
+>>
+>> Thanks for updating the series to my suggestion!
+>>
+>>> @@ -174,6 +160,27 @@ config ARCH_MESON
+>>>          This enables support for the arm64 based Amlogic SoCs
+>>>          such as the s905, S905X/D, S912, A113X/D or S905X/D2
+>>>
+>>> +menuconfig ARCH_MICROCHIP
+>>> +     bool "Microchip SoC support"
+>>> +
+>>> +if ARCH_MICROCHIP
+>>> +
+>>> +config ARCH_SPARX5
+>>> +     bool "Microchip Sparx5 SoC family"
+>>
+>> This part is the one bit I'm not sure about: The user-visible
+>> arm64 CONFIG_ARCH_* symbols are usually a little higher-level,
+>> so I don't think we want both ARCH_MICROCHIP /and/ ARCH_SPARX5
+>> here, or more generally speaking any of the nested ARCH_*
+>> symbols.
 
-Btw I tested:
-TI AM62x + max96716 + 1 x max96717f + stvg5661 (tunnel mode)
-With special lanes mapping and polarities.
+Well, having a look at arch/arm64/Kconfig.platforms, I like how NXP is 
+organized.
 
-And I had to:
+SPARX5, LAN969x or other MPU platforms, even if they share some common 
+IPs, are fairly different in terms of internal architecture or feature set.
+So, to me, different ARCH_SPARX5, ARCH_LAN969X (as Robert proposed) or 
+future ones make a lot sense.
+It will help in selecting not only different device drivers but 
+different PM architectures, cores or TrustZone implementation...
 
-- Apply pending patches for j721e to support the enable_stream API instead =
-of s_stream
-- Enable the experimental v4l2_subdev_enable_streams_api
-- Add get_frame_desc to the sensor driver
+>> This version of your patch is going to be slightly annoying
+>> to existing sparx5 users because updating an old .config
+>> breaks when ARCH_MICROCHIP is not enabled.
+
+Oh, yeah, indeed. Even if I find Robert's proposal ideal.
+
+Alexandre, Lars, can you evaluate this level of annoyance?
+
+>> The two options that I would prefer here are
+>>
+>> a) make ARCH_SPARX5 a hidden symbol in order to keep the
+>>     series bisectable, remove it entirely once all references
+>>     are moved over to ARCH_MICROCHIP
+>>
+>> b) Make ARCH_MICROCHIP a hidden symbol that is selected by
+>>     ARCH_SPARX5 but keep the menu unchanged.
+> 
+> Hi Arnd,
+> Ok, I see the issue, and I would prefer to go with option b and do
+> what I did for
+> AT91 with the hidden ARCH_MICROCHIP symbol to avoid breaking current configs.
+
+Yep, but at the cost of multiple entries for Microchip arm64 SoCs at the 
+"Platform selection" menu level. Nuvoton or Cavium have this already, so 
+it's probably fine.
+
+>> Let's see what the sparx5 and at91 maintainers think about
+>> these options.
+> 
+> Sounds good, let's give them some time before I respin this series.
+
+Thanks to both of you. Best regards,
+   Nicolas
 
