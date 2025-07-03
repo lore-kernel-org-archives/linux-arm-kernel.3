@@ -4,71 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A866C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B480C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PUMUxTQyz4Rw+I/k6r4nKllDMvLQcH1q/9NQSkvh/Tc=; b=KtnraXP1uae4l/U0mORtOAbIiq
-	pqqafeEb80kNQh64ri6ZQZBKn3OrjrfIowdlHElmxb1F83Sr9Wi/e7L3WfhHfl7oeSygJH/LtkMag
-	3ZSB9w8EXJZYA0x6utRmqMr2HjaDY26NS8eb7QgL/L4We/dtoHZwtvbgwiQV8w4R0t9sc7lLz44nM
-	nYjIuSe51a+/ZEGpBClo7Dq+Rtc4mTutsRJzzfM9q7Hk+jkciM+AZxmk9t308l5qyH735d6Td98rN
-	2vsnIVll6DYqJC5J/rt9f83j9iNNbnyM9skChM5fLFwYwjQSMaQa9KdPdOsNlje+CpY+otYZr3EVT
-	TyXyRZmg==;
+	bh=bYHODzHOPHEJM9bHrQH4mOnRN8s24HVmJ416cR8kp8Y=; b=k5zk7N9/kriV60lKtVN98EvfLV
+	9jQz39YlukHVc/wwvEVPf/HcpWw5efeaVGx1GhW3Iafk915xnMG0+V6++inzhF8+on6AzuXjyAL+p
+	rgJ87CvW91egHo1P0K8p6brJ1uAVwip/dpC76xbDCS1zYi+1gjeIypHEVpcTAIrk5Ucj1b1EtRx9U
+	iotAvTcejFZ27+yrcKNQNdf11T7xaXJL9VsUMgA/q/3J++r5e0XFsMxob4eIw9AbLSEGbqnWyE3FV
+	W15DR1Gp2Z3i50O9xVOGc8/1X4sBlU2KX3K1O3QROrGgnHJFceFQn+pRY/pAiOvH30tlR8xpdhCEN
+	Jos3xq8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIVK-0000000BEJp-1Ita;
-	Thu, 03 Jul 2025 11:53:26 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uXIXe-0000000BEg4-2zpH;
+	Thu, 03 Jul 2025 11:55:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHLW-0000000B1qj-1kVn;
-	Thu, 03 Jul 2025 10:39:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751539145; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=OGmTYjb87a/HQQfJ80nuoMM3J5giu9DFlFLheBZM1lWvnWDiOMp9wWhc6sM77tEy1ydXz087rntZgP0XRPFayh7/+6AIYl4/GsM1wkQ3n8qa6H0FCKLoRUVY6HRRJ61CZ9b1OB/QBYNTWJ3UA09pcCeMVrIaAE3yG/LAQMsMunA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751539145; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=PUMUxTQyz4Rw+I/k6r4nKllDMvLQcH1q/9NQSkvh/Tc=; 
-	b=gYW8iVfmd0xLbwpe/lltOymsMhP2xnfMuf9kG5gDgz4TIM77kd5B/HOrZYUOxLvR/HxU5dRuW5kbHKrZAECfrY4FR6TvgZRFrBMwIyVjXu0l4aNreUspfiSwGUYHgp026ULp0m84Y1wDGwJtZOeb9kzDr9ML2p9IyKB0j+jh7IE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751539145;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=PUMUxTQyz4Rw+I/k6r4nKllDMvLQcH1q/9NQSkvh/Tc=;
-	b=Ua4joRz7J0WXVyQAc9oiuwImuog9VPquGVoKz8hsGX4MlyXyvGKyYEWhXUMYSB1b
-	bxWzSzqxKFQXqxPM/+iZ+zse3v9BlcQY/CYJ239YdacuajaqPPZhXqldqhvDkvEt+pJ
-	elYxIhb16kp8exk5hBD/X4HuM6rC5REb8wCqfDBU=
-Received: by mx.zohomail.com with SMTPS id 1751539143453232.01329008697712;
-	Thu, 3 Jul 2025 03:39:03 -0700 (PDT)
-Message-ID: <8958966b96140aaaae97b480b7a6c1698a6d2ae2.camel@collabora.com>
-Subject: Re: [PATCH] MFD: mt6397: do not use generic name for keypad
- sub-devices
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, Lee Jones <lee@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	 <angelogioacchino.delregno@collabora.com>, Yassine Oudjana
-	 <y.oudjana@protonmail.com>, =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado"
-	 <nfraprado@collabora.com>, Fabien Parent <fparent@baylibre.com>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Date: Thu, 03 Jul 2025 12:38:59 +0200
-In-Reply-To: <r4k3pgd3ew3ypne7ernxuzwgniiyvzosbce4cfajbcu7equblt@yato35tjb3lw>
-References: <r4k3pgd3ew3ypne7ernxuzwgniiyvzosbce4cfajbcu7equblt@yato35tjb3lw>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+	id 1uXHLb-0000000B1tS-0htc
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Jul 2025 10:39:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 48CFEA537D9;
+	Thu,  3 Jul 2025 10:39:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7234BC4CEF1;
+	Thu,  3 Jul 2025 10:39:16 +0000 (UTC)
+Date: Thu, 3 Jul 2025 11:39:14 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Willy Tarreau <w@1wt.eu>,
+	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
+	Christian Brauner <brauner@kernel.org>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] kselftest/arm64: Add a test for vfork() with GCS
+Message-ID: <aGZd0vdu8PpLKfX1@arm.com>
+References: <20250610-arm64-gcs-vfork-exit-v2-0-929443dfcf82@kernel.org>
+ <20250610-arm64-gcs-vfork-exit-v2-3-929443dfcf82@kernel.org>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250610-arm64-gcs-vfork-exit-v2-3-929443dfcf82@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_033914_519724_D033AAB5 
-X-CRM114-Status: GOOD (  22.32  )
+X-CRM114-CacheID: sfid-20250703_033919_287533_29893441 
+X-CRM114-Status: GOOD (  26.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,115 +66,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+On Tue, Jun 10, 2025 at 01:29:46PM +0100, Mark Brown wrote:
+> diff --git a/tools/testing/selftests/arm64/gcs/basic-gcs.c b/tools/testing/selftests/arm64/gcs/basic-gcs.c
+> index 3fb9742342a3..96ea51cf7163 100644
+> --- a/tools/testing/selftests/arm64/gcs/basic-gcs.c
+> +++ b/tools/testing/selftests/arm64/gcs/basic-gcs.c
+> @@ -298,6 +298,68 @@ static bool test_fork(void)
+>  	return pass;
+>  }
+>  
+> +/* A vfork()ed process can run and exit */
+> +static bool test_vfork(void)
+> +{
+> +	unsigned long child_mode;
+> +	int ret, status;
+> +	pid_t pid;
+> +	bool pass = true;
+> +
+> +	pid = vfork();
+> +	if (pid == -1) {
+> +		ksft_print_msg("vfork() failed: %d\n", errno);
+> +		pass = false;
+> +		goto out;
+> +	}
+> +	if (pid == 0) {
+> +		/* In child, make sure we can call a function, read
+> +		 * the GCS pointer and status and then exit */
 
-On Mon, 2025-06-30 at 16:01 -0700, Dmitry Torokhov wrote:
-> Do not use "mtk-pmic-keys" when creating sub-device for the keypad to
-> make sure the keypad driver will only bind to the sub-device if it
-> has
-> support for the variant/has matching compatible.
->=20
-> Reported-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> Fixes: 6e31bb8d3a63 ("mfd: mt6397: Add initial support for MT6328")
-> Fixes: de58cee8c6b8 ("mfd: mt6397-core: Add MT6357 PMIC support")
-> Fixes: 4a901e305011 ("mfd: mt6397-core: Add resources for PMIC keys
-> for MT6359")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-> ---
->=20
-> This is not tested so if someone with hardware could try it out that
-> would be great. I *think* it should work...
->=20
-> =C2=A0drivers/mfd/mt6397-core.c | 12 ++++++------
-> =C2=A01 file changed, 6 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
-> index 5f8ed8988907..3e58d0764c7e 100644
-> --- a/drivers/mfd/mt6397-core.c
-> +++ b/drivers/mfd/mt6397-core.c
-> @@ -136,7 +136,7 @@ static const struct mfd_cell mt6323_devs[] =3D {
-> =C2=A0		.name =3D "mt6323-led",
-> =C2=A0		.of_compatible =3D "mediatek,mt6323-led"
-> =C2=A0	}, {
-> -		.name =3D "mtk-pmic-keys",
-> +		.name =3D "mt6323-keys",
-> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6323_keys_resources),
-> =C2=A0		.resources =3D mt6323_keys_resources,
-> =C2=A0		.of_compatible =3D "mediatek,mt6323-keys"
-> @@ -153,7 +153,7 @@ static const struct mfd_cell mt6328_devs[] =3D {
-> =C2=A0		.name =3D "mt6328-regulator",
-> =C2=A0		.of_compatible =3D "mediatek,mt6328-regulator"
-> =C2=A0	}, {
-> -		.name =3D "mtk-pmic-keys",
-> +		.name =3D "mt6328-keys",
-> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6328_keys_resources),
-> =C2=A0		.resources =3D mt6328_keys_resources,
-> =C2=A0		.of_compatible =3D "mediatek,mt6328-keys"
-> @@ -175,7 +175,7 @@ static const struct mfd_cell mt6357_devs[] =3D {
-> =C2=A0		.name =3D "mt6357-sound",
-> =C2=A0		.of_compatible =3D "mediatek,mt6357-sound"
-> =C2=A0	}, {
-> -		.name =3D "mtk-pmic-keys",
-> +		.name =3D "mt6357-keys",
-> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6357_keys_resources),
-> =C2=A0		.resources =3D mt6357_keys_resources,
-> =C2=A0		.of_compatible =3D "mediatek,mt6357-keys"
-> @@ -196,7 +196,7 @@ static const struct mfd_cell mt6331_mt6332_devs[]
-> =3D {
-> =C2=A0		.name =3D "mt6332-regulator",
-> =C2=A0		.of_compatible =3D "mediatek,mt6332-regulator"
-> =C2=A0	}, {
-> -		.name =3D "mtk-pmic-keys",
-> +		.name =3D "mt6331-keys",
-> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6331_keys_resources),
-> =C2=A0		.resources =3D mt6331_keys_resources,
-> =C2=A0		.of_compatible =3D "mediatek,mt6331-keys"
-> @@ -240,7 +240,7 @@ static const struct mfd_cell mt6359_devs[] =3D {
-> =C2=A0	},
-> =C2=A0	{ .name =3D "mt6359-sound", },
-> =C2=A0	{
-> -		.name =3D "mtk-pmic-keys",
-> +		.name =3D "mt6359-keys",
-> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6359_keys_resources),
-> =C2=A0		.resources =3D mt6359_keys_resources,
-> =C2=A0		.of_compatible =3D "mediatek,mt6359-keys"
-> @@ -272,7 +272,7 @@ static const struct mfd_cell mt6397_devs[] =3D {
-> =C2=A0		.name =3D "mt6397-pinctrl",
-> =C2=A0		.of_compatible =3D "mediatek,mt6397-pinctrl",
-> =C2=A0	}, {
-> -		.name =3D "mtk-pmic-keys",
-> +		.name =3D "mt6397-keys",
-> =C2=A0		.num_resources =3D ARRAY_SIZE(mt6397_keys_resources),
-> =C2=A0		.resources =3D mt6397_keys_resources,
-> =C2=A0		.of_compatible =3D "mediatek,mt6397-keys"
-> --=20
-> 2.50.0.727.gbf7dc18ff4-goog
->=20
-Thanks for the patch.
+Nit: coding style for multi-line comment. I guess we follow the kernel
+style.
 
-I've tested it with a kernel based on next-20250702 on both Mediatek
-Genio 350-EVK and Genio 1200-EVK boards with mtk-pmic-keys driver
-enabled either as builtin or module.
+> +		valid_gcs_function();
+> +		get_gcspr();
+> +
+> +		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
+> +				  &child_mode, 0, 0, 0);
+> +		if (ret == 0 && !(child_mode & PR_SHADOW_STACK_ENABLE)) {
+> +			ksft_print_msg("GCS not enabled in child\n");
+> +			ret = -EINVAL;
 
-With the Genio 350-EVK, the mtk-pmic-keys driver probes OK:=20
-```
-[    0.601874] input: mtk-pmic-keys as
-/devices/platform/soc/1000d000.pwrap/1000d000.pwrap:pmic/mt6357-
-keys/input/input0
-```
-The keys work too.
+Does it make sense in user-space to pass negative values to exit()? I
+thought it should be between 0 and 255.
 
-For the Genio 1200-EVK, it fails to probe as expected (because
-'mediatek,mt6359-keys' compatible is missing) and there is indeed no
-kernel panic in the builtin case (the issue I reported with my patch)
-```
-[    0.459178] mt6359-keys: Failed to locate of_node [id: -1]
-```
+> +		}
+> +
+> +		exit(ret);
 
-Tested-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com> # on
-Mediatek Genio 350-EVK and Genio 1200-EVK
+Should this be _exit() instead? IIRC exit() does some clean-ups which
+are not safe in the vfork'ed child.
 
-Regards,
-Louis-Alexis
+> +	}
+> +
+> +	/*
+> +	 * In parent, check we can still do function calls then block
+> +	 * for the child.
+> +	 */
+
+The comment "block for the child" doesn't make sense in this context.
+vfork() already blocks the parent until exec() or _exit(). But I can see
+why you wanted waitpid() to retrieve the return status.
+
+> +	valid_gcs_function();
+> +
+> +	ksft_print_msg("Waiting for child %d\n", pid);
+> +
+> +	ret = waitpid(pid, &status, 0);
+> +	if (ret == -1) {
+> +		ksft_print_msg("Failed to wait for child: %d\n",
+> +			       errno);
+> +		return false;
+> +	}
+> +
+> +	if (!WIFEXITED(status)) {
+> +		ksft_print_msg("Child exited due to signal %d\n",
+> +			       WTERMSIG(status));
+> +		pass = false;
+> +	} else {
+> +		if (WEXITSTATUS(status)) {
+
+Nit: } else if {
+
+> +			ksft_print_msg("Child exited with status %d\n",
+> +				       WEXITSTATUS(status));
+> +			pass = false;
+> +		}
+> +	}
+> +
+> +out:
+> +
+> +	return pass;
+> +}
+> +
+>  typedef bool (*gcs_test)(void);
+>  
+>  static struct {
+> @@ -314,6 +376,7 @@ static struct {
+>  	{ "enable_invalid", enable_invalid, true },
+>  	{ "map_guarded_stack", map_guarded_stack },
+>  	{ "fork", test_fork },
+> +	{ "vfork", test_vfork },
+>  };
+>  
+>  int main(void)
+
+Other than the above, feel free add
+
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+
+Thomas, do you want to merge this via your tree? Thanks.
+
+-- 
+Catalin
 
