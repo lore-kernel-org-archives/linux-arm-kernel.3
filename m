@@ -4,93 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F720C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD884C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SLZYMAMnvdJXcm+be13+1Uu5xt2dhbKp+QVkop+i5OU=; b=1Y3z/cIWX1VHe8OFSejkTsgN6P
-	NjYK/FHwwR+Gb3VY44GjS7axaticcjuSsjkU55aCmwJNOcB7kws/KeVmiY0KZNcR0lPBO5HvJJLvw
-	4IFnYd9aMkXDKP4rvalWdjf2wwf+uLgQwbaZrY3EqQ82g3qnxW6H+UUAy7Qlf6fbgeWvZCZqa5L/l
-	sCbIeD0W60/4lGxDgVffERn/ivcbOBzAcz1wD0/X4GSJ1A37+37db29nUBOEWZVE8EPMLnrRA1myb
-	aw2vyh7+kHR1ZmDJqc6Wx481LqOT4PUid6Khzt5Fm70UEstyHg+MXm6tK1OXBGMOBl/eOI9qSwt6y
-	FWVHTHEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/VAFSTBpM8aaRN1aRNspaAZrjHQIotwTq1huwaSnwso=; b=2p7A841j5PNLZMdJgYlxRyPifB
+	xrto3kbaVlUZ6tw2Ery6zbHVqEi6CDfpC7Ii4ttYjT5HUTezltA640T21PQRNU1hyAxcbbaj6MPYs
+	NdT0BWsuKLU5affxEAgM8tVpos7jJJI1vbaAbg10n5LBW7GiTGgs3BbECLfIrKaNeBMIuSwXidA06
+	9sdNOukFPrS0H8pkxEwF6HLv9Q0KpeTVxoQ7PFBF/MBYe7GjabzEOzS0SWAGFUrE24C0smyuaEQNQ
+	fX2Y8As0MPuG6GNQGUfMYWdyQnWqr2QNJ2jFiVSu0UlPNI4D3YNnahkFk5LO9S6Y35jN04I60xw52
+	RTEcqTFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXRDi-0000000Can3-10nM;
-	Thu, 03 Jul 2025 21:11:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uXRG2-0000000Cayp-3BqV;
+	Thu, 03 Jul 2025 21:14:14 +0000
+Received: from mail-mw2nam12olkn20830.outbound.protection.outlook.com ([2a01:111:f403:2805::830] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXNuZ-0000000CAMx-27CT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 17:39:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751564390;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SLZYMAMnvdJXcm+be13+1Uu5xt2dhbKp+QVkop+i5OU=;
-	b=f6aO+Q6suDBF45/qSCuKWdrJgWxy81BBtFO0/EevE8HdauJZ9YYNdpwhC+T7s+d1lSSfhb
-	VuQxqvDIwWy5TWvwyO+mSqN/phieFlPh60Imm8YKgQtSunJOezusgt38dyBU93kNIFFCgM
-	sW3fnW9ffnbivs++kgPREc5FyA8ymU8=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-209-JvV5Khj8Nima0Mb-T50azA-1; Thu,
- 03 Jul 2025 13:39:46 -0400
-X-MC-Unique: JvV5Khj8Nima0Mb-T50azA-1
-X-Mimecast-MFC-AGG-ID: JvV5Khj8Nima0Mb-T50azA_1751564383
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 122F6180028B;
-	Thu,  3 Jul 2025 17:39:43 +0000 (UTC)
-Received: from thuth-p1g4.redhat.com (unknown [10.44.32.252])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1EE691956087;
-	Thu,  3 Jul 2025 17:39:30 +0000 (UTC)
-From: Thomas Huth <thuth@redhat.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Russell King <linux@armlinux.org.uk>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tony Lindgren <tony@atomide.com>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	linux-samsung-soc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-omap@vger.kernel.org,
-	linux-tegra@vger.kernel.org
-Subject: [PATCH v2 2/2] arm: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi headers
-Date: Thu,  3 Jul 2025 19:38:59 +0200
-Message-ID: <20250703173859.246664-3-thuth@redhat.com>
-In-Reply-To: <20250703173859.246664-1-thuth@redhat.com>
-References: <20250703173859.246664-1-thuth@redhat.com>
+	id 1uXNw8-0000000CAcJ-3gKE;
+	Thu, 03 Jul 2025 17:41:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RGPCVbFH6ZiceRcrKJW09A02H79EcZ9mjyndzEgCMO9cd5TzDRPRUmRoTok5eWr6bWjzcUQAkGQohv+BSqnV8dv3MhbxSyGH4NPrcIJ0S7wDwLzbdN41Tim/FivOOploRArOZbh4h/l0NRPtLFNBDwMw2PrRuRimNU9784PH0/SnOrEPS9E/kOMmNBQ7yZhmIbHAiAPBzNiqcL9InOMHt4mWJ4AShw7PTq5yIGRwnix5ww5rH3+pR7uswuUu/9h/ztK9d6F/zlCwXxe4MM/9KSf4xAd707X/1s4qyb7IWxaho0F5LE3OiP1rgqLCO5qBnHsUA/lCpx5mC4aXA9IecA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/VAFSTBpM8aaRN1aRNspaAZrjHQIotwTq1huwaSnwso=;
+ b=CkFjUY5/NByi/0U8guzlcuyGST2SvDXbL0hdrN5bgArNkvFvsGnnASKYDdAe59/aj/5k580RtBgtZWc05rGhD+BcDpvWsuGbWyQC2K7SWd2AnZdXbM3lg1LV/PhHbo2s1G237KzHUcKNwyvRrbkEwXgzS7VPcXmH7aA2SdZ0uM/b4+snCNqVbROsO/1xRZQo4RUb3Edmwws8FkzeOt6ATBssATM+6GSl2DH9VDu31dLU13CYzXUaCpvJCmv8dLr0LQwuLUAU8T/NOq96VzJhVogEpoLvfGxODKHVp0fAWaJB/Vyab/ClwCuZDS9ukbNkOluXK9xhDvHDktswSxhowA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/VAFSTBpM8aaRN1aRNspaAZrjHQIotwTq1huwaSnwso=;
+ b=alaFhBs1BDu/Ojvfg4v4Gd/qqZ2jLccYF9CpF3X0bXKB9EF6BryDPIR6SyqEiBkH3BE43KCW/pBW8j+vGC85WhbReIV6g/D7Vu8BWXBnvPxeyCJuoBFcqD5Ys28Pm9P/Qo1O0ytLzqbjejfa8EeeWo2rc09X2G5NrYGWRVGD0x9Y44snq8BiMqeZrXAfPvLM3AEZ3YTZTAn4z2IYWLHjatk5YgL++2NOqf8CuhTaKL2Ukx4d2pivz3fAHO+vN7KOtVD+k6nqFwySmG5ue0LFdEdmybveQNevhn2e/HAB2n2ffnZTJzKa7BouRAKFkwc4lOCK2cRz7+8c8llTOEh2iw==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by SN7PR02MB10177.namprd02.prod.outlook.com (2603:10b6:806:2a5::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.23; Thu, 3 Jul
+ 2025 17:41:20 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8901.018; Thu, 3 Jul 2025
+ 17:41:19 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Nam Cao <namcao@linutronix.de>, Marc Zyngier <maz@kernel.org>, Thomas
+ Gleixner <tglx@linutronix.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kwilczynski@kernel.org>, Manivannan
+ Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Karthikeyan Mitran
+	<m.karthikeyan@mobiveil.co.in>, Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>, =?iso-8859-2?Q?Pali_Roh=E1r?=
+	<pali@kernel.org>, "K . Y . Srinivasan" <kys@microsoft.com>, Haiyang Zhang
+	<haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui
+	<decui@microsoft.com>, Joyce Ooi <joyce.ooi@intel.com>, Jim Quinlan
+	<jim2101024@gmail.com>, Nicolas Saenz Julienne <nsaenz@kernel.org>, Florian
+ Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review
+ list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>, Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>, Marek Vasut
+	<marek.vasut+renesas@gmail.com>, Yoshihiro Shimoda
+	<yoshihiro.shimoda.uh@renesas.com>, Michal Simek <michal.simek@amd.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>, Nirmal Patel
+	<nirmal.patel@linux.intel.com>, Jonathan Derrick
+	<jonathan.derrick@linux.dev>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "linux-rpi-kernel@lists.infradead.org"
+	<linux-rpi-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-renesas-soc@vger.kernel.org"
+	<linux-renesas-soc@vger.kernel.org>
+Subject: RE: [PATCH 14/16] PCI: hv: Switch to msi_create_parent_irq_domain()
+Thread-Topic: [PATCH 14/16] PCI: hv: Switch to msi_create_parent_irq_domain()
+Thread-Index: AQHb5qqGWI9T0Ene10yNxUr1s0p/CbQgsvtA
+Date: Thu, 3 Jul 2025 17:41:19 +0000
+Message-ID: <SN6PR02MB4157A6F9B2ABD3C69CE5B521D443A@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <cover.1750858083.git.namcao@linutronix.de>
+ <024f0122314198fe0a42fef01af53e8953a687ec.1750858083.git.namcao@linutronix.de>
+In-Reply-To: <024f0122314198fe0a42fef01af53e8953a687ec.1750858083.git.namcao@linutronix.de>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|SN7PR02MB10177:EE_
+x-ms-office365-filtering-correlation-id: 1a7b9f80-e47d-4e33-f013-08ddba58d183
+x-microsoft-antispam: BCL:0;ARA:14566002|8062599006|461199028|41001999006|19110799006|15080799009|31055399003|440099028|53005399003|3412199025|40105399003|19111999003|12091999003|102099032;
+x-microsoft-antispam-message-info: =?iso-8859-2?Q?yVAYVYitFHJhgU8knHDpuxs0gE4/2cnNKt9w6DFAxOG6VaR5isSNaUXlCF?=
+ =?iso-8859-2?Q?lQBaqzfAgD0+nx4VuUBXOh4FtEu0dmMaLhprG/hVaFlSFkWI0FUCt0ahkn?=
+ =?iso-8859-2?Q?9GvdXSeTWn2FZR+goYSa7TynEXPp74j0uHN8X9ddGs2BonDD9WEMaMg3bA?=
+ =?iso-8859-2?Q?2NmQtMwLfgRSdwV/KyU40SYhPNFN9ndpj2SrBJWRaZLXneuZf3ib3kQImZ?=
+ =?iso-8859-2?Q?QIbbR6Gsv61FpVjSDzhJ/fmCD2y14h/4r/iukcz9sIAcRYEYqwd2nAWoXs?=
+ =?iso-8859-2?Q?wRYVcz2wMzf8sbC9y01mR6UhMck61fQDqbHa16BV1KmVszp7tK4bi4n91s?=
+ =?iso-8859-2?Q?pADnY9duYy81T0BWyyWiI8vtZWFCAcrtVU8ouu/2cBgTFTULlqcp0YQNXh?=
+ =?iso-8859-2?Q?Zt7D6t9UoEmqGbSL2a9jb54dBU4ONWwUWwo7caH2zUlsXmYCLE/imEqLoM?=
+ =?iso-8859-2?Q?d4/Y/Rb3Ad0A62gUxtIGLCaa4Eg3/DLxT892M1WjyD2T1H3d82rPgg8x66?=
+ =?iso-8859-2?Q?/htLovYMx6LV23p/JbZ4aW9k27zuf2qQt++ebS42fzVo5xhW1wk6LQoZMM?=
+ =?iso-8859-2?Q?+0rRfgUBs+wpHKE0eiYAGIMNAsvjv76HfFF5uW69fVOMj7RieU7bnaFFEc?=
+ =?iso-8859-2?Q?PmOttx+krYVVTJae+WwCMxV1Brzq7Q/qUl8xGf58kiQ7F1uw5vVG3CyTN0?=
+ =?iso-8859-2?Q?Dwgez2m8U+fiKX0xHMszvjJvgi1hGbc1ZbLXfZNA3Peasp19PmHNkLzNw1?=
+ =?iso-8859-2?Q?NKIHuaPhtQSQiVo3eaTel4GDpfx2I3aYDYxbs3x35M6lz0cwuMe7wAg0Ni?=
+ =?iso-8859-2?Q?XmiKIL1+uGSi+tkQTY70GPUfv2YZ/XCpOpQIg9Qy14IUeRecE4XFHDnGbe?=
+ =?iso-8859-2?Q?7ccdicByrejhQrcaIGOcqYRH0W9upu3a0gpvK8sb+2eUd/caeszAs91TII?=
+ =?iso-8859-2?Q?aIB2X4PKS6WZDixtdzeUJR7XaUEbefNtSz1p3R3JhOFxbuwWj2lA1idvb0?=
+ =?iso-8859-2?Q?/0hgUhqYAlKRQBzner+5+RFT47+z5+FguoIY7+fPBQmBISQOsaGjNNrlNz?=
+ =?iso-8859-2?Q?5cKgfbpNz69f6YUa/ra1XDXdVTenIQSvqNoVEKvZlAIpV0mXkGxt1623bf?=
+ =?iso-8859-2?Q?TFbT76NVsrSBiBAjjrUXQtB2kBl90=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?Z59M2Z+eP8SHsbWZjgdDZJ4vTSM6uchbZKh9qeD0dtqkqhvuBRiQdSosIQ?=
+ =?iso-8859-2?Q?XKTg7FLr4KY4WGh+HzsMDwomc8JbOv1uJd3UdlodF0Q4NN8d6QK3MG3qlb?=
+ =?iso-8859-2?Q?0mxhZxN9gyFZ6/fQcE+X8IdLucZ8AL8iL+Udp9BFshbh+uaolQAeVkWVgx?=
+ =?iso-8859-2?Q?RiP811I7+cxEz0kEhWMMsA9pHA26KNHSJ81AWBOJHchUvtir5zyj5bqqrO?=
+ =?iso-8859-2?Q?m8HRN8hWPtWf7O1gq2eg079LPYq8FBAxwO2QG2+MEJ0zvBIGpVhmJ5cqTD?=
+ =?iso-8859-2?Q?UgwL3nIjt1xUhDtjkzODd9KzDxskCxb73bb59zU6iVLkL70mmbjHfgNRjD?=
+ =?iso-8859-2?Q?kL4kiyR4sNQJADbQZzrwzoTQ3jTFrKO6VETMJpRMW66/hlkOBAKY3ilxeh?=
+ =?iso-8859-2?Q?J4YT70KxTm5onE8DwscZ6Y7Cu9JZbks4R5m3Mhd3F4EaGe9IiIWX56+vwj?=
+ =?iso-8859-2?Q?UpSLRf5P6XXREt/koUMRtsNc5QPOj3ZWRQ6uzk7Qen0xS2oPTW/jdxAM7e?=
+ =?iso-8859-2?Q?qDC39UVG3QFR23i0sQufNZ0+GSkFbdy4VOX0oWvn+5ynBXnDms57RoFNHr?=
+ =?iso-8859-2?Q?rQPqbicI0J6dAjMgqqlSkhSheKLUjMmzcas3hP5wRUBSkGuApjkSOjZZic?=
+ =?iso-8859-2?Q?ggV29dVFG96a4lbSCjFXGibVq6GklU27CnBW810rIwlwXYF/9M5UM97Ki1?=
+ =?iso-8859-2?Q?lFe/DoQKc2n7HVLEh8CtbmfNsNSTtNn0ob9irStykUB0TW+/Z46IQygrNX?=
+ =?iso-8859-2?Q?XJZFKT65WxqY+xDWUlQDAJlm/UMhH4lmo3zvIVcUQiE6OvWLkjpIy4tvpk?=
+ =?iso-8859-2?Q?XXCPPjC2fE1o+RLG5vLNv4cW2ZZgMiJGLP2KQS0qMo4wqc8XyK7k6N21Qr?=
+ =?iso-8859-2?Q?4lqxPOelUeKTy4uHlFtwhWyAjEwiTo2iZwng9/xX1NTXba03wcAgfMEX9N?=
+ =?iso-8859-2?Q?gCme2jfUS5I7IPnje+67dr50Se+0lRWXn83d6hzrYT7E1UlXo3tWpwroDj?=
+ =?iso-8859-2?Q?meZ7uWeR0PKGuMBj35LwnVFcIrrTf0vlNLhrBJ112A6CnI/hYhISSzQhkd?=
+ =?iso-8859-2?Q?WpOlqTT9rLQNmww55LX9rcMXQSB1sYD0QCXIt/PQl3AG5gklmNv+6tbC9H?=
+ =?iso-8859-2?Q?cm9uTJvidVAfs6m2Yosz2z4ijePtFA1CsiiZKnz5PEU1J2imjZlDseuT9a?=
+ =?iso-8859-2?Q?sU06bN0/1JZELfuNQ7lK+SP++WTikwdQQxjZeD16foY83jhd45NLBNAPSo?=
+ =?iso-8859-2?Q?Hy7QVQryY8bVNpD46yFNfxMAvwTFCUUneMbsTCTHM=3D?=
+Content-Type: text/plain; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a7b9f80-e47d-4e33-f013-08ddba58d183
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Jul 2025 17:41:19.1261
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR02MB10177
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_103951_780452_FDFD5BD6 
-X-CRM114-Status: GOOD (  20.64  )
+X-CRM114-CacheID: sfid-20250703_104128_983921_A1F02005 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,1466 +169,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Huth <thuth@redhat.com>
+From: Nam Cao <namcao@linutronix.de> Sent: Thursday, June 26, 2025 7:48 AM
+>=20
+> Move away from the legacy MSI domain setup, switch to use
+> msi_create_parent_irq_domain().
 
-While the GCC and Clang compilers already define __ASSEMBLER__
-automatically when compiling assembly code, __ASSEMBLY__ is a
-macro that only gets defined by the Makefiles in the kernel.
-This is bad since macros starting with two underscores are names
-that are reserved by the C language. It can also be very confusing
-for the developers when switching between userspace and kernelspace
-coding, or when dealing with uapi headers that rather should use
-__ASSEMBLER__  instead. So let's standardize on the __ASSEMBLER__
-macro that is provided by the compilers.
+From a build standpoint, this patch does not apply cleanly to
+linux-next20250630. See also an issue below where a needed irq
+function isn't exported.
 
-This is a completely mechanical patch (done with a simple "sed -i"
-statement).
+At runtime, I've done basic smoke testing on an x86 VM in the Azure
+cloud that has a Mellanox NIC VF and two NVMe devices as PCI devices.
+So far everything looks good. But I'm still doing additional testing, and
+I want to also test on an ARM64 VM. Please give me another day or two
+to be completely satisfied.
 
-Cc: Russell King <linux@armlinux.org.uk>
-Signed-off-by: Thomas Huth <thuth@redhat.com>
----
- arch/arm/include/asm/arch_gicv3.h                |  4 ++--
- arch/arm/include/asm/assembler.h                 |  2 +-
- arch/arm/include/asm/barrier.h                   |  4 ++--
- arch/arm/include/asm/cache.h                     |  2 +-
- arch/arm/include/asm/cp15.h                      |  4 ++--
- arch/arm/include/asm/cputype.h                   |  4 ++--
- arch/arm/include/asm/current.h                   |  4 ++--
- arch/arm/include/asm/delay.h                     |  4 ++--
- arch/arm/include/asm/domain.h                    |  8 ++++----
- arch/arm/include/asm/fpstate.h                   |  2 +-
- arch/arm/include/asm/ftrace.h                    |  6 +++---
- arch/arm/include/asm/hardware/cache-b15-rac.h    |  2 +-
- arch/arm/include/asm/hardware/cache-l2x0.h       |  4 ++--
- arch/arm/include/asm/hardware/dec21285.h         |  2 +-
- arch/arm/include/asm/hardware/ioc.h              |  2 +-
- arch/arm/include/asm/hardware/iomd.h             |  4 ++--
- arch/arm/include/asm/hardware/memc.h             |  2 +-
- arch/arm/include/asm/hwcap.h                     |  2 +-
- arch/arm/include/asm/irq.h                       |  2 +-
- arch/arm/include/asm/jump_label.h                |  4 ++--
- arch/arm/include/asm/kexec.h                     |  4 ++--
- arch/arm/include/asm/kgdb.h                      |  4 ++--
- arch/arm/include/asm/mach/arch.h                 |  2 +-
- arch/arm/include/asm/mcpm.h                      |  4 ++--
- arch/arm/include/asm/memory.h                    |  4 ++--
- arch/arm/include/asm/mpu.h                       |  4 ++--
- arch/arm/include/asm/opcodes.h                   | 12 ++++++------
- arch/arm/include/asm/page.h                      |  4 ++--
- arch/arm/include/asm/pgtable-2level.h            |  4 ++--
- arch/arm/include/asm/pgtable-3level.h            |  4 ++--
- arch/arm/include/asm/pgtable-nommu.h             |  4 ++--
- arch/arm/include/asm/pgtable.h                   | 10 +++++-----
- arch/arm/include/asm/probes.h                    |  4 ++--
- arch/arm/include/asm/proc-fns.h                  |  4 ++--
- arch/arm/include/asm/ptrace.h                    |  4 ++--
- arch/arm/include/asm/system_info.h               |  4 ++--
- arch/arm/include/asm/system_misc.h               |  4 ++--
- arch/arm/include/asm/thread_info.h               |  2 +-
- arch/arm/include/asm/thread_notify.h             |  2 +-
- arch/arm/include/asm/tlbflush.h                  | 10 +++++-----
- arch/arm/include/asm/tls.h                       |  4 ++--
- arch/arm/include/asm/unified.h                   |  6 +++---
- arch/arm/include/asm/unwind.h                    |  4 ++--
- arch/arm/include/asm/v7m.h                       |  4 ++--
- arch/arm/include/asm/vdso.h                      |  4 ++--
- arch/arm/include/asm/vdso/cp15.h                 |  4 ++--
- arch/arm/include/asm/vdso/gettimeofday.h         |  4 ++--
- arch/arm/include/asm/vdso/processor.h            |  4 ++--
- arch/arm/include/asm/vdso/vsyscall.h             |  4 ++--
- arch/arm/include/asm/vfp.h                       |  2 +-
- arch/arm/include/asm/virt.h                      |  4 ++--
- arch/arm/mach-at91/pm.h                          |  2 +-
- arch/arm/mach-exynos/smc.h                       |  4 ++--
- arch/arm/mach-footbridge/include/mach/hardware.h |  2 +-
- arch/arm/mach-imx/hardware.h                     |  2 +-
- arch/arm/mach-imx/mxc.h                          |  2 +-
- arch/arm/mach-omap2/control.h                    |  8 ++++----
- arch/arm/mach-omap2/soc.h                        |  4 ++--
- arch/arm/mach-omap2/sram.h                       |  4 ++--
- arch/arm/mach-pxa/irqs.h                         |  2 +-
- arch/arm/mach-pxa/pxa-regs.h                     |  2 +-
- arch/arm/mach-s3c/map-base.h                     |  2 +-
- arch/arm/mach-sa1100/include/mach/bitfield.h     |  2 +-
- arch/arm/mach-sa1100/include/mach/hardware.h     |  2 +-
- arch/arm/mach-tegra/reset.h                      |  2 +-
- arch/arm/mach-tegra/sleep.h                      |  2 +-
- arch/arm/tools/gen-mach-types                    |  2 +-
- drivers/memory/emif.h                            |  4 ++--
- 68 files changed, 127 insertions(+), 127 deletions(-)
+Michael Kelley
 
-diff --git a/arch/arm/include/asm/arch_gicv3.h b/arch/arm/include/asm/arch_gicv3.h
-index 311e83038bdb3..847590df75511 100644
---- a/arch/arm/include/asm/arch_gicv3.h
-+++ b/arch/arm/include/asm/arch_gicv3.h
-@@ -7,7 +7,7 @@
- #ifndef __ASM_ARCH_GICV3_H
- #define __ASM_ARCH_GICV3_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/io.h>
- #include <linux/io-64-nonatomic-lo-hi.h>
-@@ -257,5 +257,5 @@ static inline bool gic_has_relaxed_pmr_sync(void)
- 	return false;
- }
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- #endif /* !__ASM_ARCH_GICV3_H */
-diff --git a/arch/arm/include/asm/assembler.h b/arch/arm/include/asm/assembler.h
-index d33c1e24e00b3..0f1f3b907825e 100644
---- a/arch/arm/include/asm/assembler.h
-+++ b/arch/arm/include/asm/assembler.h
-@@ -13,7 +13,7 @@
- #ifndef __ASM_ASSEMBLER_H__
- #define __ASM_ASSEMBLER_H__
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #error "Only include this from assembly code"
- #endif
- 
-diff --git a/arch/arm/include/asm/barrier.h b/arch/arm/include/asm/barrier.h
-index 83ae97c049d9b..af3516cfa8dcd 100644
---- a/arch/arm/include/asm/barrier.h
-+++ b/arch/arm/include/asm/barrier.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_BARRIER_H
- #define __ASM_BARRIER_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #define nop() __asm__ __volatile__("mov\tr0,r0\t@ nop\n\t");
- 
-@@ -99,5 +99,5 @@ static inline unsigned long array_index_mask_nospec(unsigned long idx,
- 
- #include <asm-generic/barrier.h>
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- #endif /* __ASM_BARRIER_H */
-diff --git a/arch/arm/include/asm/cache.h b/arch/arm/include/asm/cache.h
-index ecbc100d22a56..38a38a53badc9 100644
---- a/arch/arm/include/asm/cache.h
-+++ b/arch/arm/include/asm/cache.h
-@@ -26,7 +26,7 @@
- 
- #define __read_mostly __section(".data..read_mostly")
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #ifdef CONFIG_ARCH_HAS_CACHE_LINE_SIZE
- int cache_line_size(void);
- #endif
-diff --git a/arch/arm/include/asm/cp15.h b/arch/arm/include/asm/cp15.h
-index a54230e656479..603a33c4bf572 100644
---- a/arch/arm/include/asm/cp15.h
-+++ b/arch/arm/include/asm/cp15.h
-@@ -40,7 +40,7 @@
- #define CR_AFE	(1 << 29)	/* Access flag enable			*/
- #define CR_TE	(1 << 30)	/* Thumb exception enable		*/
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #if __LINUX_ARM_ARCH__ >= 4
- #define vectors_high()	(get_cr() & CR_V)
-@@ -117,6 +117,6 @@ static inline unsigned long get_cr(void)
- 
- #endif /* ifdef CONFIG_CPU_CP15 / else */
- 
--#endif /* ifndef __ASSEMBLY__ */
-+#endif /* ifndef __ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/arm/include/asm/cputype.h b/arch/arm/include/asm/cputype.h
-index 0163c3e78a67f..4b2832e14c3e1 100644
---- a/arch/arm/include/asm/cputype.h
-+++ b/arch/arm/include/asm/cputype.h
-@@ -109,7 +109,7 @@
- /* Qualcomm implemented cores */
- #define ARM_CPU_PART_SCORPION		0x510002d0
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/stringify.h>
- #include <linux/kernel.h>
-@@ -343,6 +343,6 @@ static inline int __attribute_const__ cpuid_feature_extract_field(u32 features,
- #define cpuid_feature_extract(reg, field) \
- 	cpuid_feature_extract_field(read_cpuid_ext(reg), field)
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/arm/include/asm/current.h b/arch/arm/include/asm/current.h
-index 5225cb1c803b1..12968d3cdc269 100644
---- a/arch/arm/include/asm/current.h
-+++ b/arch/arm/include/asm/current.h
-@@ -7,7 +7,7 @@
- #ifndef _ASM_ARM_CURRENT_H
- #define _ASM_ARM_CURRENT_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <asm/insn.h>
- 
- struct task_struct;
-@@ -60,6 +60,6 @@ static __always_inline __attribute_const__ struct task_struct *get_current(void)
- 
- #define current get_current()
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_ARM_CURRENT_H */
-diff --git a/arch/arm/include/asm/delay.h b/arch/arm/include/asm/delay.h
-index 1d069e558d8de..6fffc2547f9df 100644
---- a/arch/arm/include/asm/delay.h
-+++ b/arch/arm/include/asm/delay.h
-@@ -41,7 +41,7 @@
- #define UDELAY_MULT	UL(2147 * HZ + 483648 * HZ / 1000000)
- #define UDELAY_SHIFT	31
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- struct delay_timer {
- 	unsigned long (*read_current_timer)(void);
-@@ -94,7 +94,7 @@ extern void __loop_const_udelay(unsigned long);
- #define ARCH_HAS_READ_CURRENT_TIMER
- extern void register_current_timer_delay(const struct delay_timer *timer);
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* defined(_ARM_DELAY_H) */
- 
-diff --git a/arch/arm/include/asm/domain.h b/arch/arm/include/asm/domain.h
-index d48859fdf32c5..66a06feb16c67 100644
---- a/arch/arm/include/asm/domain.h
-+++ b/arch/arm/include/asm/domain.h
-@@ -7,7 +7,7 @@
- #ifndef __ASM_PROC_DOMAIN_H
- #define __ASM_PROC_DOMAIN_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/thread_info.h>
- #include <asm/barrier.h>
- #endif
-@@ -79,7 +79,7 @@
- #define DACR_UACCESS_ENABLE	\
- 	(__DACR_DEFAULT | domain_val(DOMAIN_USER, DOMAIN_CLIENT))
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #ifdef CONFIG_CPU_CP15_MMU
- static __always_inline unsigned int get_domain(void)
-@@ -124,7 +124,7 @@ static __always_inline void set_domain(unsigned int val)
- #define TUSERCOND(instr, cond)	#instr #cond
- #endif
- 
--#else /* __ASSEMBLY__ */
-+#else /* __ASSEMBLER__ */
- 
- /*
-  * Generate the T (user) versions of the LDR/STR and related
-@@ -136,6 +136,6 @@ static __always_inline void set_domain(unsigned int val)
- #define TUSER(instr)	instr
- #endif
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* !__ASM_PROC_DOMAIN_H */
-diff --git a/arch/arm/include/asm/fpstate.h b/arch/arm/include/asm/fpstate.h
-index e29d9c7a52388..2b4469e151851 100644
---- a/arch/arm/include/asm/fpstate.h
-+++ b/arch/arm/include/asm/fpstate.h
-@@ -9,7 +9,7 @@
- #define __ASM_ARM_FPSTATE_H
- 
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- /*
-  * VFP storage area has:
-diff --git a/arch/arm/include/asm/ftrace.h b/arch/arm/include/asm/ftrace.h
-index 5be3ddc96a503..9675ede04f09c 100644
---- a/arch/arm/include/asm/ftrace.h
-+++ b/arch/arm/include/asm/ftrace.h
-@@ -12,7 +12,7 @@
- #define MCOUNT_ADDR		((unsigned long)(__gnu_mcount_nc))
- #define MCOUNT_INSN_SIZE	4 /* sizeof mcount call */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- extern void __gnu_mcount_nc(void);
- 
- #ifdef CONFIG_DYNAMIC_FTRACE
-@@ -33,7 +33,7 @@ static inline unsigned long ftrace_call_adjust(unsigned long addr)
- 
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #if defined(CONFIG_FRAME_POINTER) && !defined(CONFIG_ARM_UNWIND)
- /*
-@@ -79,6 +79,6 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self,
- 			   unsigned long frame_pointer,
- 			   unsigned long stack_pointer);
- 
--#endif /* ifndef __ASSEMBLY__ */
-+#endif /* ifndef __ASSEMBLER__ */
- 
- #endif /* _ASM_ARM_FTRACE */
-diff --git a/arch/arm/include/asm/hardware/cache-b15-rac.h b/arch/arm/include/asm/hardware/cache-b15-rac.h
-index 3d43ec06fd359..b96365bfb2a87 100644
---- a/arch/arm/include/asm/hardware/cache-b15-rac.h
-+++ b/arch/arm/include/asm/hardware/cache-b15-rac.h
-@@ -1,7 +1,7 @@
- #ifndef __ASM_ARM_HARDWARE_CACHE_B15_RAC_H
- #define __ASM_ARM_HARDWARE_CACHE_B15_RAC_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- void b15_flush_kern_cache_all(void);
- 
-diff --git a/arch/arm/include/asm/hardware/cache-l2x0.h b/arch/arm/include/asm/hardware/cache-l2x0.h
-index 5a7ee70f561c9..2c9568768ad73 100644
---- a/arch/arm/include/asm/hardware/cache-l2x0.h
-+++ b/arch/arm/include/asm/hardware/cache-l2x0.h
-@@ -147,7 +147,7 @@
- 
- #define L2X0_WAY_SIZE_SHIFT		3
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- extern void __init l2x0_init(void __iomem *base, u32 aux_val, u32 aux_mask);
- #if defined(CONFIG_CACHE_L2X0) && defined(CONFIG_OF)
- extern int l2x0_of_init(u32 aux_val, u32 aux_mask);
-@@ -187,6 +187,6 @@ struct l2x0_regs {
- 
- extern struct l2x0_regs l2x0_saved_regs;
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/arm/include/asm/hardware/dec21285.h b/arch/arm/include/asm/hardware/dec21285.h
-index 894f2a635cbbd..bf722733bbb6f 100644
---- a/arch/arm/include/asm/hardware/dec21285.h
-+++ b/arch/arm/include/asm/hardware/dec21285.h
-@@ -15,7 +15,7 @@
- #define DC21285_PCI_IO			0x7c000000
- #define DC21285_PCI_MEM			0x80000000
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <mach/hardware.h>
- #define DC21285_IO(x)		((volatile unsigned long *)(ARMCSR_BASE+(x)))
- #else
-diff --git a/arch/arm/include/asm/hardware/ioc.h b/arch/arm/include/asm/hardware/ioc.h
-index 6edd27fcd0483..bd4f66591026b 100644
---- a/arch/arm/include/asm/hardware/ioc.h
-+++ b/arch/arm/include/asm/hardware/ioc.h
-@@ -10,7 +10,7 @@
- #ifndef __ASMARM_HARDWARE_IOC_H
- #define __ASMARM_HARDWARE_IOC_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- /*
-  * We use __raw_base variants here so that we give the compiler the
-diff --git a/arch/arm/include/asm/hardware/iomd.h b/arch/arm/include/asm/hardware/iomd.h
-index 53006ba5350f0..9b8a289f4db63 100644
---- a/arch/arm/include/asm/hardware/iomd.h
-+++ b/arch/arm/include/asm/hardware/iomd.h
-@@ -11,7 +11,7 @@
- #define __ASMARM_HARDWARE_IOMD_H
- 
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- /*
-  * We use __raw_base variants here so that we give the compiler the
-@@ -167,7 +167,7 @@
- #define VDMA_START	IOMD_VIDSTART
- #define VDMA_END	IOMD_VIDEND
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- extern unsigned int vram_half_sam;
- #define video_set_dma(start,end,offset)				\
- do {								\
-diff --git a/arch/arm/include/asm/hardware/memc.h b/arch/arm/include/asm/hardware/memc.h
-index 1d4ebe0a9678f..8b1865cb564ec 100644
---- a/arch/arm/include/asm/hardware/memc.h
-+++ b/arch/arm/include/asm/hardware/memc.h
-@@ -10,7 +10,7 @@
- #define VDMA_START	1
- #define VDMA_END	2
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- extern void memc_write(unsigned int reg, unsigned long val);
- 
- #define video_set_dma(start,end,offset)				\
-diff --git a/arch/arm/include/asm/hwcap.h b/arch/arm/include/asm/hwcap.h
-index e31d9f1b8549b..d5b5ebaad011b 100644
---- a/arch/arm/include/asm/hwcap.h
-+++ b/arch/arm/include/asm/hwcap.h
-@@ -4,7 +4,7 @@
- 
- #include <uapi/asm/hwcap.h>
- 
--#if !defined(__ASSEMBLY__)
-+#if !defined(__ASSEMBLER__)
- /*
-  * This yields a mask that user programs can use to figure out what
-  * instruction set this cpu supports.
-diff --git a/arch/arm/include/asm/irq.h b/arch/arm/include/asm/irq.h
-index 26c1d2ced4ce1..7c8f826071162 100644
---- a/arch/arm/include/asm/irq.h
-+++ b/arch/arm/include/asm/irq.h
-@@ -22,7 +22,7 @@
- #define NO_IRQ	((unsigned int)(-1))
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- struct irqaction;
- struct pt_regs;
- 
-diff --git a/arch/arm/include/asm/jump_label.h b/arch/arm/include/asm/jump_label.h
-index a35aba7f548cc..11024b7f1ef4a 100644
---- a/arch/arm/include/asm/jump_label.h
-+++ b/arch/arm/include/asm/jump_label.h
-@@ -2,7 +2,7 @@
- #ifndef _ASM_ARM_JUMP_LABEL_H
- #define _ASM_ARM_JUMP_LABEL_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/types.h>
- #include <asm/unified.h>
-@@ -49,5 +49,5 @@ struct jump_entry {
- 	jump_label_t key;
- };
- 
--#endif  /* __ASSEMBLY__ */
-+#endif  /* __ASSEMBLER__ */
- #endif
-diff --git a/arch/arm/include/asm/kexec.h b/arch/arm/include/asm/kexec.h
-index a8287e7ab9d41..8488f4b611402 100644
---- a/arch/arm/include/asm/kexec.h
-+++ b/arch/arm/include/asm/kexec.h
-@@ -16,7 +16,7 @@
- #define KEXEC_ARM_ATAGS_OFFSET  0x1000
- #define KEXEC_ARM_ZIMAGE_OFFSET 0x8000
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #define ARCH_HAS_KIMAGE_ARCH
- struct kimage_arch {
-@@ -78,6 +78,6 @@ static inline struct page *boot_pfn_to_page(unsigned long boot_pfn)
- }
- #define boot_pfn_to_page boot_pfn_to_page
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ARM_KEXEC_H */
-diff --git a/arch/arm/include/asm/kgdb.h b/arch/arm/include/asm/kgdb.h
-index 8de1100d10674..1b7c65935976f 100644
---- a/arch/arm/include/asm/kgdb.h
-+++ b/arch/arm/include/asm/kgdb.h
-@@ -39,7 +39,7 @@
- #define KGDB_COMPILED_BREAK	0xe7ffdeff
- #define CACHE_FLUSH_IS_SAFE	1
- 
--#ifndef	__ASSEMBLY__
-+#ifndef	__ASSEMBLER__
- 
- static inline void arch_kgdb_breakpoint(void)
- {
-@@ -49,7 +49,7 @@ static inline void arch_kgdb_breakpoint(void)
- extern void kgdb_handle_bus_error(void);
- extern int kgdb_fault_expected;
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- /*
-  * From Kevin Hilman:
-diff --git a/arch/arm/include/asm/mach/arch.h b/arch/arm/include/asm/mach/arch.h
-index 2b18a258204d7..ce0137aee0845 100644
---- a/arch/arm/include/asm/mach/arch.h
-+++ b/arch/arm/include/asm/mach/arch.h
-@@ -7,7 +7,7 @@
- 
- #include <linux/types.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/reboot.h>
- 
- struct tag;
-diff --git a/arch/arm/include/asm/mcpm.h b/arch/arm/include/asm/mcpm.h
-index 755c97de348c3..743f68f89337e 100644
---- a/arch/arm/include/asm/mcpm.h
-+++ b/arch/arm/include/asm/mcpm.h
-@@ -24,7 +24,7 @@
- #define MAX_NR_CLUSTERS		2
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/types.h>
- #include <asm/cacheflush.h>
-@@ -307,7 +307,7 @@ struct sync_struct {
- #include <asm/asm-offsets.h>
- #define __CACHE_WRITEBACK_GRANULE CACHE_WRITEBACK_GRANULE
- 
--#endif /* ! __ASSEMBLY__ */
-+#endif /* ! __ASSEMBLER__ */
- 
- /* Definitions for mcpm_sync_struct */
- #define CPU_DOWN		0x11
-diff --git a/arch/arm/include/asm/memory.h b/arch/arm/include/asm/memory.h
-index 7c2fa7dcec6d4..308418f236e42 100644
---- a/arch/arm/include/asm/memory.h
-+++ b/arch/arm/include/asm/memory.h
-@@ -98,7 +98,7 @@
- 
- #else /* CONFIG_MMU */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- extern unsigned long setup_vectors_base(void);
- extern unsigned long vectors_base;
- #define VECTORS_BASE		vectors_base
-@@ -155,7 +155,7 @@ extern unsigned long vectors_base;
-  */
- #define PLAT_PHYS_OFFSET	UL(CONFIG_PHYS_OFFSET)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- /*
-  * Physical start and end address of the kernel sections. These addresses are
-diff --git a/arch/arm/include/asm/mpu.h b/arch/arm/include/asm/mpu.h
-index 5e088c83d3d8e..6058788a85730 100644
---- a/arch/arm/include/asm/mpu.h
-+++ b/arch/arm/include/asm/mpu.h
-@@ -91,7 +91,7 @@
- #define PMSAv7_DATA_SIDE	0
- #define PMSAv7_INSTR_SIDE	1
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- struct mpu_rgn {
- 	/* Assume same attributes for d/i-side  */
-@@ -128,6 +128,6 @@ static inline void pmsav7_setup(void) {};
- static inline void pmsav8_setup(void) {};
- #endif
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/arm/include/asm/opcodes.h b/arch/arm/include/asm/opcodes.h
-index 38e3eabff5c3f..c2e3ed5157cf3 100644
---- a/arch/arm/include/asm/opcodes.h
-+++ b/arch/arm/include/asm/opcodes.h
-@@ -6,7 +6,7 @@
- #ifndef __ASM_ARM_OPCODES_H
- #define __ASM_ARM_OPCODES_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/linkage.h>
- extern asmlinkage unsigned int arm_check_condition(u32 opcode, u32 psr);
- #endif
-@@ -71,7 +71,7 @@ extern asmlinkage unsigned int arm_check_condition(u32 opcode, u32 psr);
-  * involving inline assembler.  For .S files, the normal __opcode_*() macros
-  * should do the right thing.
-  */
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- #define ___opcode_swab32(x) ___asm_opcode_swab32(x)
- #define ___opcode_swab16(x) ___asm_opcode_swab16(x)
-@@ -80,7 +80,7 @@ extern asmlinkage unsigned int arm_check_condition(u32 opcode, u32 psr);
- #define ___opcode_identity32(x) ___asm_opcode_identity32(x)
- #define ___opcode_identity16(x) ___asm_opcode_identity16(x)
- 
--#else /* ! __ASSEMBLY__ */
-+#else /* ! __ASSEMBLER__ */
- 
- #include <linux/types.h>
- #include <linux/swab.h>
-@@ -92,7 +92,7 @@ extern asmlinkage unsigned int arm_check_condition(u32 opcode, u32 psr);
- #define ___opcode_identity32(x) ((u32)(x))
- #define ___opcode_identity16(x) ((u16)(x))
- 
--#endif /* ! __ASSEMBLY__ */
-+#endif /* ! __ASSEMBLER__ */
- 
- 
- #ifdef CONFIG_CPU_ENDIAN_BE8
-@@ -111,7 +111,7 @@ extern asmlinkage unsigned int arm_check_condition(u32 opcode, u32 psr);
- #define ___asm_opcode_to_mem_arm(x) ___asm_opcode_identity32(x)
- #define ___asm_opcode_to_mem_thumb16(x) ___asm_opcode_identity16(x)
- #ifdef CONFIG_CPU_ENDIAN_BE32
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- /*
-  * On BE32 systems, using 32-bit accesses to store Thumb instructions will not
-  * work in all cases, due to alignment constraints.  For now, a correct
-@@ -219,7 +219,7 @@ extern __u32 __opcode_to_mem_thumb32(__u32);
- #endif
- 
- /* Helpers for the helpers.  Don't use these directly. */
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #define ___inst_arm(x) .long x
- #define ___inst_thumb16(x) .short x
- #define ___inst_thumb32(first, second) .short first, second
-diff --git a/arch/arm/include/asm/page.h b/arch/arm/include/asm/page.h
-index ef11b721230e2..79bdff0c34ab1 100644
---- a/arch/arm/include/asm/page.h
-+++ b/arch/arm/include/asm/page.h
-@@ -9,7 +9,7 @@
- 
- #include <vdso/page.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #ifndef CONFIG_MMU
- 
-@@ -180,7 +180,7 @@ extern int pfn_valid(unsigned long);
- #define pfn_valid pfn_valid
- #endif
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #include <asm/memory.h>
- 
-diff --git a/arch/arm/include/asm/pgtable-2level.h b/arch/arm/include/asm/pgtable-2level.h
-index 6b5392e20f411..5edc1f3bdb090 100644
---- a/arch/arm/include/asm/pgtable-2level.h
-+++ b/arch/arm/include/asm/pgtable-2level.h
-@@ -175,7 +175,7 @@
- #define L_PTE_MT_VECTORS	(_AT(pteval_t, 0x0f) << 2)	/* 1111 */
- #define L_PTE_MT_MASK		(_AT(pteval_t, 0x0f) << 2)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- /*
-  * The "pud_xxx()" functions here are trivial when the pmd is folded into
-@@ -242,6 +242,6 @@ static inline pmd_t *pmd_offset(pud_t *pud, unsigned long addr)
-  */
- #define pmd_hugewillfault(pmd)	(0)
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_PGTABLE_2LEVEL_H */
-diff --git a/arch/arm/include/asm/pgtable-3level.h b/arch/arm/include/asm/pgtable-3level.h
-index 7b71a3d414b72..5b17ebef203ea 100644
---- a/arch/arm/include/asm/pgtable-3level.h
-+++ b/arch/arm/include/asm/pgtable-3level.h
-@@ -109,7 +109,7 @@
-  */
- #define L_PGD_SWAPPER		(_AT(pgdval_t, 1) << 55)	/* swapper_pg_dir entry */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #define pud_none(pud)		(!pud_val(pud))
- #define pud_bad(pud)		(!(pud_val(pud) & PUD_TABLE_BIT))
-@@ -245,6 +245,6 @@ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 	flush_pmd_entry(pmdp);
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_PGTABLE_3LEVEL_H */
-diff --git a/arch/arm/include/asm/pgtable-nommu.h b/arch/arm/include/asm/pgtable-nommu.h
-index 61480d096054d..a8bca82198381 100644
---- a/arch/arm/include/asm/pgtable-nommu.h
-+++ b/arch/arm/include/asm/pgtable-nommu.h
-@@ -8,7 +8,7 @@
- #ifndef _ASMARM_PGTABLE_NOMMU_H
- #define _ASMARM_PGTABLE_NOMMU_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/slab.h>
- #include <asm/processor.h>
-@@ -84,6 +84,6 @@ extern unsigned int kobjsize(const void *objp);
- #define v6_user_fns	(0)
- #define xscale_mc_user_fns (0)
- 
--#endif /*__ASSEMBLY__*/
-+#endif /*__ASSEMBLER__*/
- 
- #endif /* _ASMARM_PGTABLE_H */
-diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
-index 86378eec77573..2e9dac29f3d66 100644
---- a/arch/arm/include/asm/pgtable.h
-+++ b/arch/arm/include/asm/pgtable.h
-@@ -10,7 +10,7 @@
- #include <linux/const.h>
- #include <asm/proc-fns.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- /*
-  * ZERO_PAGE is a global shared page that is always zero: used
-  * for zero-mapped memory areas etc..
-@@ -52,7 +52,7 @@ extern struct page *empty_zero_page;
- 
- #define LIBRARY_TEXT_START	0x0c000000
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- extern void __pte_error(const char *file, int line, pte_t);
- extern void __pmd_error(const char *file, int line, pmd_t);
- extern void __pgd_error(const char *file, int line, pgd_t);
-@@ -135,7 +135,7 @@ extern pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
- 	__pgprot_modify(prot, L_PTE_MT_MASK, L_PTE_MT_UNCACHED | L_PTE_XN)
- #endif
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- /*
-  * The table below defines the page protection levels that we insert into our
-@@ -146,7 +146,7 @@ extern pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
-  *  3) write implies read permissions
-  */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- extern pgd_t swapper_pg_dir[PTRS_PER_PGD];
- 
-@@ -329,7 +329,7 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
- #define HAVE_ARCH_UNMAPPED_AREA
- #define HAVE_ARCH_UNMAPPED_AREA_TOPDOWN
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* CONFIG_MMU */
- 
-diff --git a/arch/arm/include/asm/probes.h b/arch/arm/include/asm/probes.h
-index ebbd9ec95d21c..0d5067e7f51a9 100644
---- a/arch/arm/include/asm/probes.h
-+++ b/arch/arm/include/asm/probes.h
-@@ -11,7 +11,7 @@
- #ifndef _ASM_PROBES_H
- #define _ASM_PROBES_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- typedef u32 probes_opcode_t;
- 
-@@ -37,7 +37,7 @@ struct arch_probes_insn {
- 	bool				kprobe_direct_exec;
- };
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- /*
-  * We assume one instruction can consume at most 64 bytes stack, which is
-diff --git a/arch/arm/include/asm/proc-fns.h b/arch/arm/include/asm/proc-fns.h
-index b4986a23d8528..fd72f5fac6602 100644
---- a/arch/arm/include/asm/proc-fns.h
-+++ b/arch/arm/include/asm/proc-fns.h
-@@ -13,7 +13,7 @@
- #include <asm/glue-proc.h>
- #include <asm/page.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- struct mm_struct;
- 
-@@ -196,6 +196,6 @@ static inline void cpu_set_ttbcr(unsigned int ttbcr)
- 
- #endif
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* __KERNEL__ */
- #endif /* __ASM_PROCFNS_H */
-diff --git a/arch/arm/include/asm/ptrace.h b/arch/arm/include/asm/ptrace.h
-index 6eb311fb2da06..de3378a8845ec 100644
---- a/arch/arm/include/asm/ptrace.h
-+++ b/arch/arm/include/asm/ptrace.h
-@@ -9,7 +9,7 @@
- 
- #include <uapi/asm/ptrace.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/bitfield.h>
- #include <linux/types.h>
- 
-@@ -198,5 +198,5 @@ static inline unsigned long it_advance(unsigned long cpsr)
- int syscall_trace_enter(struct pt_regs *regs);
- void syscall_trace_exit(struct pt_regs *regs);
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif
-diff --git a/arch/arm/include/asm/system_info.h b/arch/arm/include/asm/system_info.h
-index ef7fdb588b5fe..3a872ec5d4e2e 100644
---- a/arch/arm/include/asm/system_info.h
-+++ b/arch/arm/include/asm/system_info.h
-@@ -14,7 +14,7 @@
- #define CPU_ARCH_ARMv7		9
- #define CPU_ARCH_ARMv7M		10
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- /* information about the system we're running on */
- extern unsigned int system_rev;
-@@ -25,6 +25,6 @@ extern unsigned int mem_fclk_21285;
- 
- extern int __pure cpu_architecture(void);
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_ARM_SYSTEM_INFO_H */
-diff --git a/arch/arm/include/asm/system_misc.h b/arch/arm/include/asm/system_misc.h
-index 98b37340376bc..8f9f7e833c013 100644
---- a/arch/arm/include/asm/system_misc.h
-+++ b/arch/arm/include/asm/system_misc.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_ARM_SYSTEM_MISC_H
- #define __ASM_ARM_SYSTEM_MISC_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/compiler.h>
- #include <linux/linkage.h>
-@@ -37,6 +37,6 @@ static inline void harden_branch_predictor(void)
- 
- extern unsigned int user_debug;
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_ARM_SYSTEM_MISC_H */
-diff --git a/arch/arm/include/asm/thread_info.h b/arch/arm/include/asm/thread_info.h
-index 943ffcf069d29..186fd662b1c62 100644
---- a/arch/arm/include/asm/thread_info.h
-+++ b/arch/arm/include/asm/thread_info.h
-@@ -33,7 +33,7 @@
- 
- #define OVERFLOW_STACK_SIZE	SZ_4K
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- struct task_struct;
- 
-diff --git a/arch/arm/include/asm/thread_notify.h b/arch/arm/include/asm/thread_notify.h
-index 1c1542e2ed634..eac8fc4837651 100644
---- a/arch/arm/include/asm/thread_notify.h
-+++ b/arch/arm/include/asm/thread_notify.h
-@@ -9,7 +9,7 @@
- 
- #ifdef __KERNEL__
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/notifier.h>
- #include <asm/thread_info.h>
-diff --git a/arch/arm/include/asm/tlbflush.h b/arch/arm/include/asm/tlbflush.h
-index 38c6e4a2a0b60..3eb0b3fa6cc9c 100644
---- a/arch/arm/include/asm/tlbflush.h
-+++ b/arch/arm/include/asm/tlbflush.h
-@@ -7,7 +7,7 @@
- #ifndef _ASMARM_TLBFLUSH_H
- #define _ASMARM_TLBFLUSH_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- # include <linux/mm_types.h>
- #endif
- 
-@@ -200,7 +200,7 @@
- #error Unknown TLB model
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/sched.h>
- 
-@@ -641,7 +641,7 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 
- #elif defined(CONFIG_SMP)	/* !CONFIG_MMU */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- static inline void local_flush_tlb_all(void)									{ }
- static inline void local_flush_tlb_mm(struct mm_struct *mm)							{ }
- static inline void local_flush_tlb_page(struct vm_area_struct *vma, unsigned long uaddr)			{ }
-@@ -657,11 +657,11 @@ extern void flush_tlb_kernel_page(unsigned long kaddr);
- extern void flush_tlb_range(struct vm_area_struct *vma, unsigned long start, unsigned long end);
- extern void flush_tlb_kernel_range(unsigned long start, unsigned long end);
- extern void flush_bp_all(void);
--#endif	/* __ASSEMBLY__ */
-+#endif	/* __ASSEMBLER__ */
- 
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #ifdef CONFIG_ARM_ERRATA_798181
- extern void erratum_a15_798181_init(void);
- #else
-diff --git a/arch/arm/include/asm/tls.h b/arch/arm/include/asm/tls.h
-index 3dcd0f71a0dae..9b09775e20931 100644
---- a/arch/arm/include/asm/tls.h
-+++ b/arch/arm/include/asm/tls.h
-@@ -5,7 +5,7 @@
- #include <linux/compiler.h>
- #include <asm/thread_info.h>
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #include <asm/asm-offsets.h>
- 	.macro switch_tls_none, base, tp, tpuser, tmp1, tmp2
- 	.endm
-@@ -68,7 +68,7 @@ ALT_UP_B(.L0_\@)
- #define switch_tls	switch_tls_software
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- static inline void set_tls(unsigned long val)
- {
-diff --git a/arch/arm/include/asm/unified.h b/arch/arm/include/asm/unified.h
-index ce9689118dbb9..2cdeafb6afb63 100644
---- a/arch/arm/include/asm/unified.h
-+++ b/arch/arm/include/asm/unified.h
-@@ -8,7 +8,7 @@
- #ifndef __ASM_UNIFIED_H
- #define __ASM_UNIFIED_H
- 
--#if defined(__ASSEMBLY__)
-+#if defined(__ASSEMBLER__)
- 	.syntax unified
- #else
- __asm__(".syntax unified");
-@@ -29,7 +29,7 @@ __asm__(".syntax unified");
- 
- #define ARM(x...)
- #define THUMB(x...)	x
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #define W(instr)	instr.w
- #else
- #define WASM(instr)	#instr ".w"
-@@ -42,7 +42,7 @@ __asm__(".syntax unified");
- 
- #define ARM(x...)	x
- #define THUMB(x...)
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #define W(instr)	instr
- #else
- #define WASM(instr)	#instr
-diff --git a/arch/arm/include/asm/unwind.h b/arch/arm/include/asm/unwind.h
-index d60b09a5acfc3..071c89b1b4099 100644
---- a/arch/arm/include/asm/unwind.h
-+++ b/arch/arm/include/asm/unwind.h
-@@ -8,7 +8,7 @@
- #ifndef __ASM_UNWIND_H
- #define __ASM_UNWIND_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- /* Unwind reason code according the the ARM EABI documents */
- enum unwind_reason_code {
-@@ -44,7 +44,7 @@ void __aeabi_unwind_cpp_pr0(void);
- void __aeabi_unwind_cpp_pr1(void);
- void __aeabi_unwind_cpp_pr2(void);
- 
--#endif	/* !__ASSEMBLY__ */
-+#endif	/* !__ASSEMBLER__ */
- 
- #ifdef CONFIG_ARM_UNWIND
- #define UNWIND(code...)		code
-diff --git a/arch/arm/include/asm/v7m.h b/arch/arm/include/asm/v7m.h
-index 4512f7e1918f0..b334f8009a505 100644
---- a/arch/arm/include/asm/v7m.h
-+++ b/arch/arm/include/asm/v7m.h
-@@ -89,10 +89,10 @@
- #define	V7M_SCB_DCCISW		0x274	/* D-cache clean and invalidate by set-way */
- #define	V7M_SCB_BPIALL		0x278	/* D-cache clean and invalidate by set-way */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- enum reboot_mode;
- 
- void armv7m_restart(enum reboot_mode mode, const char *cmd);
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
-diff --git a/arch/arm/include/asm/vdso.h b/arch/arm/include/asm/vdso.h
-index 88364a6727ffc..93a7338cd3057 100644
---- a/arch/arm/include/asm/vdso.h
-+++ b/arch/arm/include/asm/vdso.h
-@@ -6,7 +6,7 @@
- 
- #define __VDSO_PAGES	4
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- struct mm_struct;
- 
-@@ -26,7 +26,7 @@ static inline void arm_install_vdso(struct mm_struct *mm, unsigned long addr)
- 
- #endif /* CONFIG_VDSO */
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __KERNEL__ */
- 
-diff --git a/arch/arm/include/asm/vdso/cp15.h b/arch/arm/include/asm/vdso/cp15.h
-index bed16fa1865e9..f5dea30743765 100644
---- a/arch/arm/include/asm/vdso/cp15.h
-+++ b/arch/arm/include/asm/vdso/cp15.h
-@@ -5,7 +5,7 @@
- #ifndef __ASM_VDSO_CP15_H
- #define __ASM_VDSO_CP15_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #ifdef CONFIG_CPU_CP15
- 
-@@ -33,6 +33,6 @@
- 
- #endif /* CONFIG_CPU_CP15 */
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_CP15_H */
-diff --git a/arch/arm/include/asm/vdso/gettimeofday.h b/arch/arm/include/asm/vdso/gettimeofday.h
-index 1e9f81639c88c..7e70c0998f1db 100644
---- a/arch/arm/include/asm/vdso/gettimeofday.h
-+++ b/arch/arm/include/asm/vdso/gettimeofday.h
-@@ -5,7 +5,7 @@
- #ifndef __ASM_VDSO_GETTIMEOFDAY_H
- #define __ASM_VDSO_GETTIMEOFDAY_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/barrier.h>
- #include <asm/errno.h>
-@@ -135,6 +135,6 @@ static __always_inline u64 __arch_get_hw_counter(int clock_mode,
- #endif
- }
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_GETTIMEOFDAY_H */
-diff --git a/arch/arm/include/asm/vdso/processor.h b/arch/arm/include/asm/vdso/processor.h
-index 45efb3ff511c9..b24304f248b71 100644
---- a/arch/arm/include/asm/vdso/processor.h
-+++ b/arch/arm/include/asm/vdso/processor.h
-@@ -5,7 +5,7 @@
- #ifndef __ASM_VDSO_PROCESSOR_H
- #define __ASM_VDSO_PROCESSOR_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #if __LINUX_ARM_ARCH__ == 6 || defined(CONFIG_ARM_ERRATA_754327)
- #define cpu_relax()						\
-@@ -17,6 +17,6 @@
- #define cpu_relax()			barrier()
- #endif
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_PROCESSOR_H */
-diff --git a/arch/arm/include/asm/vdso/vsyscall.h b/arch/arm/include/asm/vdso/vsyscall.h
-index 4e7226ad02ec4..b1df6e02d273c 100644
---- a/arch/arm/include/asm/vdso/vsyscall.h
-+++ b/arch/arm/include/asm/vdso/vsyscall.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_VDSO_VSYSCALL_H
- #define __ASM_VDSO_VSYSCALL_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <vdso/datapage.h>
- #include <asm/cacheflush.h>
-@@ -19,6 +19,6 @@ void __arch_sync_vdso_time_data(struct vdso_time_data *vdata)
- /* The asm-generic header needs to be included after the definitions above */
- #include <asm-generic/vdso/vsyscall.h>
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_VSYSCALL_H */
-diff --git a/arch/arm/include/asm/vfp.h b/arch/arm/include/asm/vfp.h
-index 85ccc422d4d0b..94171e09bda0b 100644
---- a/arch/arm/include/asm/vfp.h
-+++ b/arch/arm/include/asm/vfp.h
-@@ -90,7 +90,7 @@
- #define VFPOPDESC_UNUSED_MASK	(0xFF << VFPOPDESC_UNUSED_BIT)
- #define VFPOPDESC_OPDESC_MASK	(~(VFPOPDESC_LENGTH_MASK | VFPOPDESC_UNUSED_MASK))
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- void vfp_disable(void);
- #endif
- 
-diff --git a/arch/arm/include/asm/virt.h b/arch/arm/include/asm/virt.h
-index dd9697b2bde80..719a08fa6a29b 100644
---- a/arch/arm/include/asm/virt.h
-+++ b/arch/arm/include/asm/virt.h
-@@ -15,7 +15,7 @@
-  */
- #define BOOT_CPU_MODE_MISMATCH	PSR_N_BIT
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <asm/cacheflush.h>
- 
- #ifdef CONFIG_ARM_VIRT_EXT
-@@ -74,7 +74,7 @@ static inline bool is_kernel_in_hyp_mode(void)
- #define HVC_SET_VECTORS 0
- #define HVC_SOFT_RESTART 1
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #define HVC_STUB_ERR	0xbadca11
- 
-diff --git a/arch/arm/mach-at91/pm.h b/arch/arm/mach-at91/pm.h
-index 50c3a425d1400..2193e1ab98476 100644
---- a/arch/arm/mach-at91/pm.h
-+++ b/arch/arm/mach-at91/pm.h
-@@ -25,7 +25,7 @@
- #define AT91_PM_ULP1		0x03
- #define	AT91_PM_BACKUP		0x04
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- struct at91_pm_data {
- 	void __iomem *pmc;
- 	void __iomem *ramc[2];
-diff --git a/arch/arm/mach-exynos/smc.h b/arch/arm/mach-exynos/smc.h
-index 5c30feb8f07d9..5c7730f6259fc 100644
---- a/arch/arm/mach-exynos/smc.h
-+++ b/arch/arm/mach-exynos/smc.h
-@@ -32,11 +32,11 @@
- #define SMC_REG_CLASS_SFR_W	(0x1 << 30)
- #define SMC_REG_ID_SFR_W(addr)	(SMC_REG_CLASS_SFR_W | ((addr) >> 2))
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- extern void exynos_smc(u32 cmd, u32 arg1, u32 arg2, u32 arg3);
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- /* op type for SMC_CMD_SAVE and SMC_CMD_SHUTDOWN */
- #define OP_TYPE_CORE		0x0
-diff --git a/arch/arm/mach-footbridge/include/mach/hardware.h b/arch/arm/mach-footbridge/include/mach/hardware.h
-index 985ad3a956712..5391848d8c8cc 100644
---- a/arch/arm/mach-footbridge/include/mach/hardware.h
-+++ b/arch/arm/mach-footbridge/include/mach/hardware.h
-@@ -79,7 +79,7 @@
- #define CPLD_UNMUTE		2
- #define CPLD_FLASH_WR_ENABLE	1
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- extern raw_spinlock_t nw_gpio_lock;
- extern void nw_gpio_modify_op(unsigned int mask, unsigned int set);
- extern void nw_gpio_modify_io(unsigned int mask, unsigned int in);
-diff --git a/arch/arm/mach-imx/hardware.h b/arch/arm/mach-imx/hardware.h
-index 0760fff39a0b3..71f09648c7778 100644
---- a/arch/arm/mach-imx/hardware.h
-+++ b/arch/arm/mach-imx/hardware.h
-@@ -7,7 +7,7 @@
- #ifndef __ASM_ARCH_MXC_HARDWARE_H__
- #define __ASM_ARCH_MXC_HARDWARE_H__
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <asm/io.h>
- #include <soc/imx/revision.h>
- #endif
-diff --git a/arch/arm/mach-imx/mxc.h b/arch/arm/mach-imx/mxc.h
-index fe2d0f5abfcc2..1d13e3959159e 100644
---- a/arch/arm/mach-imx/mxc.h
-+++ b/arch/arm/mach-imx/mxc.h
-@@ -16,7 +16,7 @@
- 
- #define IMX_DDR_TYPE_LPDDR2		1
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #ifdef CONFIG_SOC_IMX6SL
- static inline bool cpu_is_imx6sl(void)
-diff --git a/arch/arm/mach-omap2/control.h b/arch/arm/mach-omap2/control.h
-index 7e7440533bf90..e4f4b16958084 100644
---- a/arch/arm/mach-omap2/control.h
-+++ b/arch/arm/mach-omap2/control.h
-@@ -18,7 +18,7 @@
- 
- #include "am33xx.h"
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #define OMAP242X_CTRL_REGADDR(reg)					\
- 		OMAP2_L4_IO_ADDRESS(OMAP242X_CTRL_BASE + (reg))
- #define OMAP243X_CTRL_REGADDR(reg)					\
-@@ -36,7 +36,7 @@
- 		OMAP2_L4_IO_ADDRESS(OMAP343X_CTRL_BASE + (reg))
- #define AM33XX_CTRL_REGADDR(reg)					\
- 		AM33XX_L4_WK_IO_ADDRESS(AM33XX_SCM_BASE + (reg))
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- /*
-  * As elsewhere, the "OMAP2_" prefix indicates that the macro is valid for
-@@ -503,7 +503,7 @@
- #define		FEAT_NEON_NONE		1
- 
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #ifdef CONFIG_ARCH_OMAP2PLUS
- extern u8 omap_ctrl_readb(u16 offset);
- extern u16 omap_ctrl_readw(u16 offset);
-@@ -534,7 +534,7 @@ int omap_control_init(void);
- #define omap_ctrl_writel(x, y)		WARN_ON(1)
- #define omap4_ctrl_pad_writel(x, y)	WARN_ON(1)
- #endif
--#endif	/* __ASSEMBLY__ */
-+#endif	/* __ASSEMBLER__ */
- 
- #endif /* __ARCH_ARM_MACH_OMAP2_CONTROL_H */
- 
-diff --git a/arch/arm/mach-omap2/soc.h b/arch/arm/mach-omap2/soc.h
-index 9e3dbb743e5c4..b3949559edadf 100644
---- a/arch/arm/mach-omap2/soc.h
-+++ b/arch/arm/mach-omap2/soc.h
-@@ -19,7 +19,7 @@
- #include "am33xx.h"
- #include "omap54xx.h"
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/bitops.h>
- #include <linux/of.h>
-@@ -501,4 +501,4 @@ level(__##fn);
- #define cpu_is_ti816x()		soc_is_ti816x()
- #define cpu_is_ti81xx()		soc_is_ti81xx()
- 
--#endif	/* __ASSEMBLY__ */
-+#endif	/* __ASSEMBLER__ */
-diff --git a/arch/arm/mach-omap2/sram.h b/arch/arm/mach-omap2/sram.h
-index 030cabc39821d..a1d72e014e62b 100644
---- a/arch/arm/mach-omap2/sram.h
-+++ b/arch/arm/mach-omap2/sram.h
-@@ -3,7 +3,7 @@
-  * Interface for functions that need to be run in internal SRAM
-  */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- extern void omap2_sram_ddr_init(u32 *slow_dll_ctrl, u32 fast_dll_ctrl,
- 				u32 base_cs, u32 force_unlock);
-@@ -48,7 +48,7 @@ extern void omap_push_sram_idle(void);
- static inline void omap_push_sram_idle(void) {}
- #endif /* CONFIG_PM */
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- /*
-  * OMAP2+: define the SRAM PA addresses.
-diff --git a/arch/arm/mach-pxa/irqs.h b/arch/arm/mach-pxa/irqs.h
-index 22bf536a462d0..07d7aa3a65065 100644
---- a/arch/arm/mach-pxa/irqs.h
-+++ b/arch/arm/mach-pxa/irqs.h
-@@ -94,7 +94,7 @@
- 
- #define PXA_NR_IRQS		(IRQ_BOARD_START)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- struct irq_data;
- struct pt_regs;
- 
-diff --git a/arch/arm/mach-pxa/pxa-regs.h b/arch/arm/mach-pxa/pxa-regs.h
-index ba5120c06b8a5..b56c8899042c4 100644
---- a/arch/arm/mach-pxa/pxa-regs.h
-+++ b/arch/arm/mach-pxa/pxa-regs.h
-@@ -31,7 +31,7 @@
- #define io_v2p(x) (0x3c000000 + ((x) & 0x01ffffff) + (((x) & 0x0e000000) << 1))
- #define io_p2v(x) IOMEM(0xf2000000 + ((x) & 0x01ffffff) + (((x) & 0x1c000000) >> 1))
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- # define __REG(x)	(*((volatile u32 __iomem *)io_p2v(x)))
- 
- /* With indexed regs we don't want to feed the index through io_p2v()
-diff --git a/arch/arm/mach-s3c/map-base.h b/arch/arm/mach-s3c/map-base.h
-index 463a995b399bc..beb58e6f12e16 100644
---- a/arch/arm/mach-s3c/map-base.h
-+++ b/arch/arm/mach-s3c/map-base.h
-@@ -20,7 +20,7 @@
- 
- #define S3C_ADDR_BASE	0xF6000000
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #define S3C_ADDR(x)	((void __iomem __force *)S3C_ADDR_BASE + (x))
- #else
- #define S3C_ADDR(x)	(S3C_ADDR_BASE + (x))
-diff --git a/arch/arm/mach-sa1100/include/mach/bitfield.h b/arch/arm/mach-sa1100/include/mach/bitfield.h
-index f1f0e3387d9c6..e786bf730b31c 100644
---- a/arch/arm/mach-sa1100/include/mach/bitfield.h
-+++ b/arch/arm/mach-sa1100/include/mach/bitfield.h
-@@ -15,7 +15,7 @@
- #ifndef __BITFIELD_H
- #define __BITFIELD_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #define UData(Data)	((unsigned long) (Data))
- #else
- #define UData(Data)	(Data)
-diff --git a/arch/arm/mach-sa1100/include/mach/hardware.h b/arch/arm/mach-sa1100/include/mach/hardware.h
-index 6f2dbdc286632..350e2665ca495 100644
---- a/arch/arm/mach-sa1100/include/mach/hardware.h
-+++ b/arch/arm/mach-sa1100/include/mach/hardware.h
-@@ -39,7 +39,7 @@
- 
- #define __MREG(x)	IOMEM(io_p2v(x))
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- # define __REG(x)	(*((volatile unsigned long __iomem *)io_p2v(x)))
- # define __PREG(x)	(io_v2p((unsigned long)&(x)))
-diff --git a/arch/arm/mach-tegra/reset.h b/arch/arm/mach-tegra/reset.h
-index 51265592cb1ae..92a89713d5e57 100644
---- a/arch/arm/mach-tegra/reset.h
-+++ b/arch/arm/mach-tegra/reset.h
-@@ -21,7 +21,7 @@
- 
- #define RESET_DATA(x)	((TEGRA_RESET_##x)*4)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include "irammap.h"
- 
-diff --git a/arch/arm/mach-tegra/sleep.h b/arch/arm/mach-tegra/sleep.h
-index 4718a3cb45a16..e332d261c1dbd 100644
---- a/arch/arm/mach-tegra/sleep.h
-+++ b/arch/arm/mach-tegra/sleep.h
-@@ -38,7 +38,7 @@
- #define TEGRA_FLUSH_CACHE_LOUIS	0
- #define TEGRA_FLUSH_CACHE_ALL	1
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- /* waits until the microsecond counter (base) is > rn */
- .macro wait_until, rn, base, tmp
- 	add	\rn, \rn, #1
-diff --git a/arch/arm/tools/gen-mach-types b/arch/arm/tools/gen-mach-types
-index cbe1c33bb8710..6ad8f055ba6b5 100644
---- a/arch/arm/tools/gen-mach-types
-+++ b/arch/arm/tools/gen-mach-types
-@@ -29,7 +29,7 @@ END	{
- 	  printf(" */\n\n");
- 	  printf("#ifndef __ASM_ARM_MACH_TYPE_H\n");
- 	  printf("#define __ASM_ARM_MACH_TYPE_H\n\n");
--	  printf("#ifndef __ASSEMBLY__\n");
-+	  printf("#ifndef __ASSEMBLER__\n");
- 	  printf("/* The type of machine we're running on */\n");
- 	  printf("extern unsigned int __machine_arch_type;\n");
- 	  printf("#endif\n\n");
-diff --git a/drivers/memory/emif.h b/drivers/memory/emif.h
-index 55aeb36a5bf24..5dfb09adb0960 100644
---- a/drivers/memory/emif.h
-+++ b/drivers/memory/emif.h
-@@ -558,7 +558,7 @@
- #define EMIF_SRAM_AM33_REG_LAYOUT			0x00000000
- #define EMIF_SRAM_AM43_REG_LAYOUT			0x00000001
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- /*
-  * Structure containing shadow of important registers in EMIF
-  * The calculation function fills in this structure to be later used for
-@@ -603,5 +603,5 @@ void ti_emif_enter_sr(void);
- void ti_emif_exit_sr(void);
- void ti_emif_abort_sr(void);
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* __EMIF_H */
--- 
-2.50.0
+>=20
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> ---
+> Cc: K. Y. Srinivasan <kys@microsoft.com>
+> Cc: Haiyang Zhang <haiyangz@microsoft.com>
+> Cc: Wei Liu <wei.liu@kernel.org>
+> Cc: Dexuan Cui <decui@microsoft.com>
+> Cc: linux-hyperv@vger.kernel.org
+> ---
+>  drivers/pci/Kconfig                 |  1 +
+>  drivers/pci/controller/pci-hyperv.c | 98 +++++++++++++++++++++++------
+>  2 files changed, 80 insertions(+), 19 deletions(-)
+>=20
+> diff --git a/drivers/pci/Kconfig b/drivers/pci/Kconfig
+> index 9c0e4aaf4e8cb..9a249c65aedcd 100644
+> --- a/drivers/pci/Kconfig
+> +++ b/drivers/pci/Kconfig
+> @@ -223,6 +223,7 @@ config PCI_HYPERV
+>  	tristate "Hyper-V PCI Frontend"
+>  	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI && SYSFS
+>  	select PCI_HYPERV_INTERFACE
+> +	select IRQ_MSI_LIB
+>  	help
+>  	  The PCI device frontend driver allows the kernel to import arbitrary
+>  	  PCI devices from a PCI backend to support PCI driver domains.
+> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller=
+/pci-hyperv.c
+> index ef5d655a0052c..3a24fadddb83b 100644
+> --- a/drivers/pci/controller/pci-hyperv.c
+> +++ b/drivers/pci/controller/pci-hyperv.c
+> @@ -44,6 +44,7 @@
+>  #include <linux/delay.h>
+>  #include <linux/semaphore.h>
+>  #include <linux/irq.h>
+> +#include <linux/irqchip/irq-msi-lib.h>
+>  #include <linux/msi.h>
+>  #include <linux/hyperv.h>
+>  #include <linux/refcount.h>
+> @@ -508,7 +509,6 @@ struct hv_pcibus_device {
+>  	struct list_head children;
+>  	struct list_head dr_list;
+>=20
+> -	struct msi_domain_info msi_info;
+>  	struct irq_domain *irq_domain;
+>=20
+>  	struct workqueue_struct *wq;
+> @@ -1687,7 +1687,7 @@ static void hv_msi_free(struct irq_domain *domain, =
+struct msi_domain_info *info,
+>  	struct msi_desc *msi =3D irq_data_get_msi_desc(irq_data);
+>=20
+>  	pdev =3D msi_desc_to_pci_dev(msi);
+> -	hbus =3D info->data;
+> +	hbus =3D domain->host_data;
+>  	int_desc =3D irq_data_get_irq_chip_data(irq_data);
+>  	if (!int_desc)
+>  		return;
+> @@ -1705,7 +1705,6 @@ static void hv_msi_free(struct irq_domain *domain, =
+struct msi_domain_info *info,
+>=20
+>  static void hv_irq_mask(struct irq_data *data)
+>  {
+> -	pci_msi_mask_irq(data);
+>  	if (data->parent_data->chip->irq_mask)
+>  		irq_chip_mask_parent(data);
+>  }
+> @@ -1716,7 +1715,6 @@ static void hv_irq_unmask(struct irq_data *data)
+>=20
+>  	if (data->parent_data->chip->irq_unmask)
+>  		irq_chip_unmask_parent(data);
+> -	pci_msi_unmask_irq(data);
+>  }
+>=20
+>  struct compose_comp_ctxt {
+> @@ -2101,6 +2099,44 @@ static void hv_compose_msi_msg(struct irq_data *da=
+ta, struct msi_msg *msg)
+>  	msg->data =3D 0;
+>  }
+>=20
+> +static bool hv_pcie_init_dev_msi_info(struct device *dev, struct irq_dom=
+ain *domain,
+> +				      struct irq_domain *real_parent, struct msi_domain_info *info)
+> +{
+> +	struct irq_chip *chip =3D info->chip;
+> +
+> +	if (!msi_lib_init_dev_msi_info(dev, domain, real_parent, info))
+> +		return false;
+> +
+> +	info->ops->msi_prepare =3D hv_msi_prepare;
+> +
+> +	chip->irq_set_affinity =3D irq_chip_set_affinity_parent;
+> +
+> +	if (IS_ENABLED(CONFIG_X86))
+> +		chip->flags |=3D IRQCHIP_MOVE_DEFERRED;
+> +
+> +	return true;
+> +}
+> +
+> +#define HV_PCIE_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS
+> 	| \
+> +				    MSI_FLAG_USE_DEF_CHIP_OPS		| \
+> +				    MSI_FLAG_PCI_MSI_MASK_PARENT)
+> +#define HV_PCIE_MSI_FLAGS_SUPPORTED (MSI_FLAG_MULTI_PCI_MSI
+> 	| \
+> +				     MSI_FLAG_PCI_MSIX			| \
+> +				     MSI_GENERIC_FLAGS_MASK)
+> +
+> +static const struct msi_parent_ops hv_pcie_msi_parent_ops =3D {
+> +	.required_flags		=3D HV_PCIE_MSI_FLAGS_REQUIRED,
+> +	.supported_flags	=3D HV_PCIE_MSI_FLAGS_SUPPORTED,
+> +	.bus_select_token	=3D DOMAIN_BUS_PCI_MSI,
+> +#ifdef CONFIG_X86
+> +	.chip_flags		=3D MSI_CHIP_FLAG_SET_ACK,
+> +#elif defined(CONFIG_ARM64)
+> +	.chip_flags		=3D MSI_CHIP_FLAG_SET_EOI,
+> +#endif
+> +	.prefix			=3D "HV-",
+> +	.init_dev_msi_info	=3D hv_pcie_init_dev_msi_info,
+> +};
+> +
+>  /* HW Interrupt Chip Descriptor */
+>  static struct irq_chip hv_msi_irq_chip =3D {
+>  	.name			=3D "Hyper-V PCIe MSI",
+> @@ -2108,7 +2144,6 @@ static struct irq_chip hv_msi_irq_chip =3D {
+>  	.irq_set_affinity	=3D irq_chip_set_affinity_parent,
+>  #ifdef CONFIG_X86
+>  	.irq_ack		=3D irq_chip_ack_parent,
+> -	.flags			=3D IRQCHIP_MOVE_DEFERRED,
+>  #elif defined(CONFIG_ARM64)
+>  	.irq_eoi		=3D irq_chip_eoi_parent,
+>  #endif
+> @@ -2116,9 +2151,37 @@ static struct irq_chip hv_msi_irq_chip =3D {
+>  	.irq_unmask		=3D hv_irq_unmask,
+>  };
+>=20
+> -static struct msi_domain_ops hv_msi_ops =3D {
+> -	.msi_prepare	=3D hv_msi_prepare,
+> -	.msi_free	=3D hv_msi_free,
+> +static int hv_pcie_domain_alloc(struct irq_domain *d, unsigned int virq,=
+ unsigned int nr_irqs,
+> +			       void *arg)
+> +{
+> +	/* TODO: move the content of hv_compose_msi_msg() in here */
+> +	int ret;
+> +
+> +	ret =3D irq_domain_alloc_irqs_parent(d, virq, nr_irqs, arg);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	for (int i =3D 0; i < nr_irqs; i++) {
+> +		irq_domain_set_info(d, virq + i, 0, &hv_msi_irq_chip, NULL, FLOW_HANDL=
+ER, NULL,
+> +				    FLOW_NAME);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void hv_pcie_domain_free(struct irq_domain *d, unsigned int virq,=
+ unsigned int nr_irqs)
+> +{
+> +	struct msi_domain_info *info =3D d->host_data;
+> +
+> +	for (int i =3D 0; i < nr_irqs; i++)
+> +		hv_msi_free(d, info, virq + i);
+> +
+> +	irq_domain_free_irqs_top(d, virq, nr_irqs);
+
+This code can be built as a module, so irq_domain_free_irqs_top() needs to =
+be
+exported, which it currently is not.
+
+> +}
+> +
+> +static const struct irq_domain_ops hv_pcie_domain_ops =3D {
+> +	.alloc	=3D hv_pcie_domain_alloc,
+> +	.free	=3D hv_pcie_domain_free,
+>  };
+>=20
+>  /**
+> @@ -2136,17 +2199,14 @@ static struct msi_domain_ops hv_msi_ops =3D {
+>   */
+>  static int hv_pcie_init_irq_domain(struct hv_pcibus_device *hbus)
+>  {
+> -	hbus->msi_info.chip =3D &hv_msi_irq_chip;
+> -	hbus->msi_info.ops =3D &hv_msi_ops;
+> -	hbus->msi_info.flags =3D (MSI_FLAG_USE_DEF_DOM_OPS |
+> -		MSI_FLAG_USE_DEF_CHIP_OPS | MSI_FLAG_MULTI_PCI_MSI |
+> -		MSI_FLAG_PCI_MSIX);
+> -	hbus->msi_info.handler =3D FLOW_HANDLER;
+> -	hbus->msi_info.handler_name =3D FLOW_NAME;
+> -	hbus->msi_info.data =3D hbus;
+> -	hbus->irq_domain =3D pci_msi_create_irq_domain(hbus->fwnode,
+> -						     &hbus->msi_info,
+> -						     hv_pci_get_root_domain());
+> +	struct irq_domain_info info =3D {
+> +		.fwnode		=3D hbus->fwnode,
+> +		.ops		=3D &hv_pcie_domain_ops,
+> +		.host_data	=3D hbus,
+> +		.parent		=3D hv_pci_get_root_domain(),
+> +	};
+> +
+> +	hbus->irq_domain =3D msi_create_parent_irq_domain(&info, &hv_pcie_msi_p=
+arent_ops);
+>  	if (!hbus->irq_domain) {
+>  		dev_err(&hbus->hdev->device,
+>  			"Failed to build an MSI IRQ domain\n");
+> --
+> 2.39.5
+>=20
 
 
