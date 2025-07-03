@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD02DC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03768C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Np4gP+kVZ9dH3S8OkU+k3ieJFZn7l6DRLrAoselSPRg=; b=YfR4mYhbAToqWC29K6ZR/9kHUR
-	SeF+8Is6lZW+etVPEsCym3TCLJehQpdKMQMgLKsfhyv6CfIUVC1R8BCpqsiQysN0GFJvndfHV49D3
-	QJdHKuCSrgkuUNeY784OgumDoXwsjvnXzurZBS8wMmY00Yrh657SuVVbkgc/AHOhXDFMFk805/4Dq
-	a2jHGBxdAnYZFjmohUjMtddH7p+IwFuVewkKlNPNJWaJg+ayf1BTlLBV2py8KjXlWoVlQbZ0iI0Sj
-	3CGir1y7kQ3O5TK7P3zxCKl7dUkQiTlN5m9B4sJEoOz0bfMVhW0bX9OGlYfvMZzji4ep2Lsf1dDDq
-	QIImn4MQ==;
+	bh=x1H/LJVni2QpyNRLeOu5Y609wueVH5cmiPU/fiF5jBo=; b=iVjFakoz2Am7sElpglb11UY+s3
+	tK/q5Vfty1D283KbWEhHc4Qwc5uRRqy4eUM6kaLRB8O18YPUFY9GkE5Z5vwUBe0PPARIgc0Nc5tDT
+	00lR/T29neN/JGx5UVgDmCcL5+Fn79+7FMnW4LsPdAAuIhaLnRgsusA9u7L10YF+O4NdP5//3oP2T
+	YI+Z8nN82/cRY1J30Yuo9D9KFCPSfJWwLrpsApwRHBdlNaaR27YXmw4YFlZG2QI05u9hz9JHlJtt4
+	LDpyZ9P7mIxpEmTSvG5NjdSv+Kbcky0w623Lke0f2q+7rk3lQyA9A1xwds/V4mVNuN3CR2vHs26j0
+	vfxo/1kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJ8i-0000000BLWl-3QPj;
-	Thu, 03 Jul 2025 12:34:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uXJB3-0000000BLsJ-0K1E;
+	Thu, 03 Jul 2025 12:36:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHif-0000000B61K-2rMD;
-	Thu, 03 Jul 2025 11:03:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Np4gP+kVZ9dH3S8OkU+k3ieJFZn7l6DRLrAoselSPRg=; b=a5SmEN1lokztZtNF4HCFWGaExs
-	EpeWl+JVe1cG19qajhOzUNefW+Xy4UmEIzNOOZuj8t9fHax1d6qWkAVNm5d0GXt5p2r2k2oWEGgyQ
-	xqcIwyZZO6JOfe14kiuWKckt8N1cbg7u4GONvPABhTvMRW3eK+N8GqFIhyzBV4MrQH15uBPilNAx4
-	tMYgp99hHqBQp2N8kjYJSeJ1eQHjASEG7EEW1HBGA7nmdl8SRof/roOj15vOePPafkQ6fTzOIJyGa
-	8IUhQrPog1pBoRHTRcGSzLX9f/uBsA2Dd5QmnEdpUnIglOu10EVER6rCij2vXBzSFi8VzE3ede79U
-	eQ89YHHw==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHic-00000007g68-2Cng;
-	Thu, 03 Jul 2025 11:03:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751540580;
-	bh=eim72WFFw0hgS/DlK1JwbuAVE47pGc2rjtb1MD+9DwM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GYDVRFMxetn67Ao1IeHBmjHWuR9rLSycwXpKNdUsxMFw284f/wqIyXZ8hmZZ5RHOg
-	 9mVYDw5fKcf8XxC4DAcWlNP6vNRDq61WcEz74SP5S/sLWxMQGDGA8cBTBuJ6Bi3CZg
-	 1zMFdhTXYoCkXG8L4kyTX0loe4LhRN6CYEFZwK09Mx8PsIrp/94bW7TN5WNZ3UPQt6
-	 nXUTwMnHaCjKDbfVusG20dZUbrnoM/xFyBG7qbXQMK8fVh3ehqlEqB7JnnqhpNqBJs
-	 GjuOMYgFjQ0iCRowa4aJVX8WfUJd6JcaFkN8Uq+5dDgwMzuoEqcFKEBgXe9bwJNjBu
-	 bXdEQevmDs12A==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E10A717E1008;
-	Thu,  3 Jul 2025 13:02:59 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-mediatek@lists.infradead.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	ulf.hansson@linaro.org,
-	y.oudjana@protonmail.com,
-	fshao@chromium.org,
-	wenst@chromium.org,
-	lihongbo22@huawei.com,
-	mandyjh.liu@mediatek.com,
-	mbrugger@suse.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	kernel@collabora.com
-Subject: [PATCH 09/10] pmdomain: mediatek: Convert all SoCs to new style regmap retrieval
-Date: Thu,  3 Jul 2025 13:02:46 +0200
-Message-ID: <20250703110247.99927-10-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250703110247.99927-1-angelogioacchino.delregno@collabora.com>
-References: <20250703110247.99927-1-angelogioacchino.delregno@collabora.com>
+	id 1uXHrh-0000000B7nc-1tfX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Jul 2025 11:12:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 868F8613B2
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Jul 2025 11:12:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57C2DC4CEEB
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Jul 2025 11:12:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751541148;
+	bh=x1H/LJVni2QpyNRLeOu5Y609wueVH5cmiPU/fiF5jBo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=k1Wd59UB0IZEA91+BHb7t63Nh1bSGOI5TPt0hkZVA8rgdqPS7X9Byv8PvHf9pEots
+	 a0+mzYi9P2Jf8hg/ioX6teNAHw3G14IqJKKg4w829s+aJXFivMGOHo3fFcWFYxyDUD
+	 ms8g1ZaQh79djWZ5HShUWrlVLOfUry2mArm016GlzYSPFsU3HwURM/nOjTrPyh8P36
+	 sUs6qXloI1VNlAztagY698UYRqHZ1c5IBOiAznMmO6ZgQu5/TJHHUe1kNs2baON4ob
+	 YuUq2EnwFDOrPXDeOuIE5CnN+UylxW30KA6HD6KNtcQCZk+NyplbuYFASkWs9A+qX/
+	 /va9V0zUCq+Uw==
+Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-611f48c6e30so1495152eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 04:12:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW6eZKs2IXq3R5g4hg/3jzd3tKHbHwqbJvzrRmXn7FyGvS2gAA83jIN03ioRgbLWJfAOCFWlVu+EPTrGU9OiP4y@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywpwpp08CJTSKm+fGYhu3YZmxmJEmGh8zUsIzwk0WC4AgoXctc2
+	2UrfL2JJk/PCmTC1JW7KmRCHXEUqypWBgMYkrmDAfRnyTHBr0z2+Qz9ZQfY3OWoLU5AmPelqZun
+	Xkgqxqkz2LL0eygQxEGvR+PGDQkmgJrA=
+X-Google-Smtp-Source: AGHT+IEfdnhboU4n2/R077RhtD1Otv/SP8fZ3dMXlRneGldlg5mu/9PR8Jraj6CY4DRR0obpUxWAkOsMSMDyaRWTzKs=
+X-Received: by 2002:a05:6820:2713:b0:611:bbad:7b62 with SMTP id
+ 006d021491bc7-6120112a218mr4411300eaf.3.1751541147647; Thu, 03 Jul 2025
+ 04:12:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_120306_809873_8CCE89AC 
-X-CRM114-Status: GOOD (  11.54  )
+References: <rlzpjdsg6cbgxc553j6m25ysb6tyldy4lnxsjjn4hdzv7rszpp@y6rfcrbjfook> <fbfc6bf9-d7c6-4df5-85d0-b1d357159d88@suse.com>
+In-Reply-To: <fbfc6bf9-d7c6-4df5-85d0-b1d357159d88@suse.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Thu, 3 Jul 2025 13:12:15 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0hPh19h9uVRVHSXiLaHxm3PR9A3W5+j=2=-B-YCyBr=uw@mail.gmail.com>
+X-Gm-Features: Ac12FXx58ZcYu75iGXYHPl0jrmN8qLhIg29N7RATyquq_k1ymybhva0tDayjTm4
+Message-ID: <CAJZ5v0hPh19h9uVRVHSXiLaHxm3PR9A3W5+j=2=-B-YCyBr=uw@mail.gmail.com>
+Subject: Re: Forcing devices into idle
+To: Oliver Neukum <oneukum@suse.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-tegra@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,235 +81,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the bus_prot_blocks handle and declare num_bus_prot_blocks to
-allow all of the currently supported AArch64 MediaTek SoCs to use
-the new style regmap retrieval in the driver when a new style
-devicetree declaring the mediatek,bus-protection phandle(s) in
-the main power controller node is found.
+On Thu, Jul 3, 2025 at 12:33=E2=80=AFPM Oliver Neukum <oneukum@suse.com> wr=
+ote:
+>
+> On 03.07.25 12:08, Thierry Reding wrote:
+>
+> > Any thoughts on how to solve this? Is the pm_runtime_{put,get}_sync()
+> > method acceptable? If not, are there other alternatives to achieve the
+> > same thing that I'm not aware of? Would it be useful to add a new set o=
+f
+> > APIs to force devices into an idle state (which could be semantically
+> > different from runtime suspend)? Or is this all too specific for any
+> > kind of generic API?
+>
+> Basically what you need is what happens when the system prepares to
+> do a snapshot for S4. However, if you just perform FREEZE and then THAW,
+> devices will assume that user space has been frozen. You need a way
+> to substitute for that assumption.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/pmdomain/mediatek/mt6795-pm-domains.h | 5 +++++
- drivers/pmdomain/mediatek/mt8167-pm-domains.h | 5 +++++
- drivers/pmdomain/mediatek/mt8173-pm-domains.h | 5 +++++
- drivers/pmdomain/mediatek/mt8183-pm-domains.h | 5 +++++
- drivers/pmdomain/mediatek/mt8186-pm-domains.h | 5 +++++
- drivers/pmdomain/mediatek/mt8188-pm-domains.h | 6 ++++++
- drivers/pmdomain/mediatek/mt8192-pm-domains.h | 5 +++++
- drivers/pmdomain/mediatek/mt8195-pm-domains.h | 5 +++++
- drivers/pmdomain/mediatek/mt8365-pm-domains.h | 6 ++++++
- 9 files changed, 47 insertions(+)
+Well, you just need to freeze user space beforehand.
 
-diff --git a/drivers/pmdomain/mediatek/mt6795-pm-domains.h b/drivers/pmdomain/mediatek/mt6795-pm-domains.h
-index a3f7785b04bd..dc8e9f8877ad 100644
---- a/drivers/pmdomain/mediatek/mt6795-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt6795-pm-domains.h
-@@ -9,6 +9,9 @@
- /*
-  * MT6795 power domain support
-  */
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt6795[] = {
-+	BUS_PROT_BLOCK_INFRA
-+};
- 
- static const struct scpsys_domain_data scpsys_domain_data_mt6795[] = {
- 	[MT6795_POWER_DOMAIN_VDEC] = {
-@@ -107,6 +110,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt6795[] = {
- static const struct scpsys_soc_data mt6795_scpsys_data = {
- 	.domains_data = scpsys_domain_data_mt6795,
- 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt6795),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt6795,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt6795),
- };
- 
- #endif /* __SOC_MEDIATEK_MT6795_PM_DOMAINS_H */
-diff --git a/drivers/pmdomain/mediatek/mt8167-pm-domains.h b/drivers/pmdomain/mediatek/mt8167-pm-domains.h
-index 8a0e898b79ab..f6ee48a711a1 100644
---- a/drivers/pmdomain/mediatek/mt8167-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8167-pm-domains.h
-@@ -12,6 +12,9 @@
- /*
-  * MT8167 power domain support
-  */
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8167[] = {
-+	BUS_PROT_BLOCK_INFRA
-+};
- 
- static const struct scpsys_domain_data scpsys_domain_data_mt8167[] = {
- 	[MT8167_POWER_DOMAIN_MM] = {
-@@ -99,6 +102,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8167[] = {
- static const struct scpsys_soc_data mt8167_scpsys_data = {
- 	.domains_data = scpsys_domain_data_mt8167,
- 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8167),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8167,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8167),
- };
- 
- #endif /* __SOC_MEDIATEK_MT8167_PM_DOMAINS_H */
-diff --git a/drivers/pmdomain/mediatek/mt8173-pm-domains.h b/drivers/pmdomain/mediatek/mt8173-pm-domains.h
-index 7be0f47f5214..561a644b5d1c 100644
---- a/drivers/pmdomain/mediatek/mt8173-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8173-pm-domains.h
-@@ -9,6 +9,9 @@
- /*
-  * MT8173 power domain support
-  */
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8173[] = {
-+	BUS_PROT_BLOCK_INFRA
-+};
- 
- static const struct scpsys_domain_data scpsys_domain_data_mt8173[] = {
- 	[MT8173_POWER_DOMAIN_VDEC] = {
-@@ -118,6 +121,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8173[] = {
- static const struct scpsys_soc_data mt8173_scpsys_data = {
- 	.domains_data = scpsys_domain_data_mt8173,
- 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8173),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8173,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8173),
- };
- 
- #endif /* __SOC_MEDIATEK_MT8173_PM_DOMAINS_H */
-diff --git a/drivers/pmdomain/mediatek/mt8183-pm-domains.h b/drivers/pmdomain/mediatek/mt8183-pm-domains.h
-index c4c1b63d85b1..3742782a2702 100644
---- a/drivers/pmdomain/mediatek/mt8183-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8183-pm-domains.h
-@@ -9,6 +9,9 @@
- /*
-  * MT8183 power domain support
-  */
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8183[] = {
-+	BUS_PROT_BLOCK_INFRA, BUS_PROT_BLOCK_SMI
-+};
- 
- static const struct scpsys_domain_data scpsys_domain_data_mt8183[] = {
- 	[MT8183_POWER_DOMAIN_AUDIO] = {
-@@ -290,6 +293,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8183[] = {
- static const struct scpsys_soc_data mt8183_scpsys_data = {
- 	.domains_data = scpsys_domain_data_mt8183,
- 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8183),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8183,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8183),
- };
- 
- #endif /* __SOC_MEDIATEK_MT8183_PM_DOMAINS_H */
-diff --git a/drivers/pmdomain/mediatek/mt8186-pm-domains.h b/drivers/pmdomain/mediatek/mt8186-pm-domains.h
-index cbac715c38fa..00b9861af7c9 100644
---- a/drivers/pmdomain/mediatek/mt8186-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8186-pm-domains.h
-@@ -13,6 +13,9 @@
- /*
-  * MT8186 power domain support
-  */
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8186[] = {
-+	BUS_PROT_BLOCK_INFRA
-+};
- 
- static const struct scpsys_domain_data scpsys_domain_data_mt8186[] = {
- 	[MT8186_POWER_DOMAIN_MFG0] = {
-@@ -361,6 +364,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8186[] = {
- static const struct scpsys_soc_data mt8186_scpsys_data = {
- 	.domains_data = scpsys_domain_data_mt8186,
- 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8186),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8186,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8186),
- };
- 
- #endif /* __SOC_MEDIATEK_MT8186_PM_DOMAINS_H */
-diff --git a/drivers/pmdomain/mediatek/mt8188-pm-domains.h b/drivers/pmdomain/mediatek/mt8188-pm-domains.h
-index 007235be9efe..3a989e83e9b7 100644
---- a/drivers/pmdomain/mediatek/mt8188-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8188-pm-domains.h
-@@ -14,6 +14,10 @@
-  * MT8188 power domain support
-  */
- 
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8188[] = {
-+	BUS_PROT_BLOCK_INFRA
-+};
-+
- static const struct scpsys_domain_data scpsys_domain_data_mt8188[] = {
- 	[MT8188_POWER_DOMAIN_MFG0] = {
- 		.name = "mfg0",
-@@ -685,6 +689,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8188[] = {
- static const struct scpsys_soc_data mt8188_scpsys_data = {
- 	.domains_data = scpsys_domain_data_mt8188,
- 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8188),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8188,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8188),
- };
- 
- #endif /* __SOC_MEDIATEK_MT8188_PM_DOMAINS_H */
-diff --git a/drivers/pmdomain/mediatek/mt8192-pm-domains.h b/drivers/pmdomain/mediatek/mt8192-pm-domains.h
-index 6f139eed3769..5d62fac5f682 100644
---- a/drivers/pmdomain/mediatek/mt8192-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8192-pm-domains.h
-@@ -9,6 +9,9 @@
- /*
-  * MT8192 power domain support
-  */
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8192[] = {
-+	BUS_PROT_BLOCK_INFRA
-+};
- 
- static const struct scpsys_domain_data scpsys_domain_data_mt8192[] = {
- 	[MT8192_POWER_DOMAIN_AUDIO] = {
-@@ -380,6 +383,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8192[] = {
- static const struct scpsys_soc_data mt8192_scpsys_data = {
- 	.domains_data = scpsys_domain_data_mt8192,
- 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8192),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8192,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8192),
- };
- 
- #endif /* __SOC_MEDIATEK_MT8192_PM_DOMAINS_H */
-diff --git a/drivers/pmdomain/mediatek/mt8195-pm-domains.h b/drivers/pmdomain/mediatek/mt8195-pm-domains.h
-index 59aa031ae632..9405e8f62eaf 100644
---- a/drivers/pmdomain/mediatek/mt8195-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8195-pm-domains.h
-@@ -13,6 +13,9 @@
- /*
-  * MT8195 power domain support
-  */
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8195[] = {
-+	BUS_PROT_BLOCK_INFRA
-+};
- 
- static const struct scpsys_domain_data scpsys_domain_data_mt8195[] = {
- 	[MT8195_POWER_DOMAIN_PCIE_MAC_P0] = {
-@@ -661,6 +664,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8195[] = {
- static const struct scpsys_soc_data mt8195_scpsys_data = {
- 	.domains_data = scpsys_domain_data_mt8195,
- 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8195),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8195,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8195),
- };
- 
- #endif /* __SOC_MEDIATEK_MT8195_PM_DOMAINS_H */
-diff --git a/drivers/pmdomain/mediatek/mt8365-pm-domains.h b/drivers/pmdomain/mediatek/mt8365-pm-domains.h
-index 6fbd5ef8d672..33265ab8ce76 100644
---- a/drivers/pmdomain/mediatek/mt8365-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8365-pm-domains.h
-@@ -33,6 +33,10 @@
- 			      _sta_mask, _sta,				\
- 			      BUS_PROT_INVERTED | BUS_PROT_REG_UPDATE)
- 
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8365[] = {
-+	BUS_PROT_BLOCK_INFRA, BUS_PROT_BLOCK_INFRA_NAO, BUS_PROT_BLOCK_SMI
-+};
-+
- static const struct scpsys_domain_data scpsys_domain_data_mt8365[] = {
- 	[MT8365_POWER_DOMAIN_MM] = {
- 		.name = "mm",
-@@ -190,6 +194,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8365[] = {
- static const struct scpsys_soc_data mt8365_scpsys_data = {
- 	.domains_data = scpsys_domain_data_mt8365,
- 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8365),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8365,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8365),
- };
- 
- #endif /* __SOC_MEDIATEK_MT8365_PM_DOMAINS_H */
--- 
-2.49.0
+> Runtime power management is unlikely to be a fruitful approach to your
+> needs.
 
+Agreed.
 
