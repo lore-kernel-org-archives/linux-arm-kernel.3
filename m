@@ -4,98 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E8FC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 16:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29DAC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 16:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FklnJtDo9yeFD4xiZdN1VsVaoDfKdcDRiLzMHURLjos=; b=jodo1AjwmdaAsOBfirReYJkoHD
-	igfr92/0X19nCjGhwE2ETZQiV/OkZYH0sXeHI0yfwtQ0M+uF+0el2i0W6WB89RdhEyxmG+x5w35SK
-	Tf1kzXvztoXD0Bchs9WGCqHv8N0XLrV1grADJrhtXNZRB+7WVpBRHjJ2f89u0d2Vp0GTH7b4JYlfj
-	FbPsyuL7ibXpdDNoQ4GIOz/Sk3HaDBFyAiNECZGwUcC5uun50qmt8jJsfyMJUO+AKSc8pPD4s6Ca5
-	Bk+g/9InYQtKr3VNkBbOtAx9FMkSFKkQTgfEY1cN0UqlBFZYzhzvCm+P7dK6SbqEqwnE4x+ViIrW1
-	mNFjvrsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GlXjQfP8GnxX9ajgir2dOyxEvzms+UWr9GzE+yiGVRo=; b=nxPMTAt+uiE8H6AaN3Mt9BoHAv
+	wkJSQUrFBdqFGQkagiajo+eat21X1HfwCTbHITjSSX85E5jN8tYHSQd9i6nnwxMhIL2wmhkFUlt5r
+	J88tBuQXj5eVy7BTyJK/1qcobE0+okRwZ0foPfkVai5hUvWn8sSTcI7fuN5pzTHiUnLYcxgALmSkR
+	wZFm7A+sUFuIOTnrZP8rxe4h4BUcX2BNcCbGhdSfI6VdQvlLvg3KXtBbl83N6mpNZkTkXrkOWxZoC
+	P3Kvx2TIK6GXiZX+nYpd61y5A6V+a7YG5A/PtaCUcMntJtGHijHDzPzpxL45E0SRpHtihe+SgJTUy
+	URJVLfuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMsC-0000000C0P2-0ZvI;
-	Thu, 03 Jul 2025 16:33:20 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1uXMuW-0000000C0lS-0YpN;
+	Thu, 03 Jul 2025 16:35:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKoR-0000000Bdyo-2dg7
+	id 1uXKor-0000000Be61-24fs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 14:21:20 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5562838ce68so2164429e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 07:21:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751552477; x=1752157277; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=FklnJtDo9yeFD4xiZdN1VsVaoDfKdcDRiLzMHURLjos=;
-        b=LkI3/fkAs7ji/98h2ITcTDktIliIXzONrLKOYuggZ9MCprZu3krZfPvhBJV395kP0B
-         IX1feTRzJ9bnwX2z7En43VkxCPBy7q0LmYnD6z7LL/xyRI2MzPgCO9jtXYfJi2Kgvbeh
-         weyo8rN7/jT/TP6rBgOTAh3h4aB5M1pIz5qjNBw6CBD50wInuuqudPjsYoHFs/z327RI
-         BINlllGhU0HpOEkHyd3Pkr3L9Eb7aV/19qwFLA7pkPKb39MgcafaU91KPVgBC88pBeZR
-         7acXBkAwwLzfqaVMST7Pc2XO+dlBryjq2nCV9DVmi8mVgZiOr5hqo68QXfbrfKoWURnO
-         iEmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751552477; x=1752157277;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FklnJtDo9yeFD4xiZdN1VsVaoDfKdcDRiLzMHURLjos=;
-        b=pl+2wErWUXZcMXJ6P+cQebwXr5L1xbr/kNifQ5sF0PMWVrwGD7SpBaJOGe97gp3ca0
-         jh9KWVLQxLZYEq7ffJ/j1eBxPoESYN9gBT02F5BEiJKOC3kkDirlms3Uw/tE/IFybjHV
-         llEJD7x7B5ibOjTZFhtaYYCfPweiqlE/cxRHbt2cNrRCj0KytFcLj+uLNTYeAMQ9JPe4
-         Ec/eRwXirIAIZ7FxEEAkZPJJJQxL/y2nnNqazA+t9I2brQ99mBdZ8l6VBOElsHf43UAZ
-         OblOk3YFAZ4hyR0ofUpJHivHY8leE1wK9aOiHYV26HbJz5QAhV7tbRLEcxTjp18ZeTbO
-         pMPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWXD2ax/+Q72d4muoCAXQjmC82qmfGEWMVwx76m7+ZgBed+21ccvFj9nf6FLg0KucoKlk++5GmV6ZBWmnpZaNt1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyc72ouPjykRjL5trrInSDIWEB3n/RPv2vtEtXyaHTU2vcjMh5C
-	A7a0i+i3TbH++tfOkFJrf46YU6Vwt6FuEnWOOMgwcmFk3LhTLryDK0aa
-X-Gm-Gg: ASbGncsgwu7GzI7O6Iv5SF+K5UpWzejOAwMjNFjIw92loUtVHXqu+SDIWRqsO4BLkTL
-	uYv085yr/ld4qWXqF+Ku/PL9v6TrU1FA3/E087pBrqdX78E+pDohmpUnyEXFuL+3DChbGM957oV
-	gVTW2rqaVvxSnPrkxXNXyIcaEZfsmmwe5c8Au2PnZFPAo41MnzPkdUxB4ri4OhCR8NZXpPD7jd4
-	0YC41paosddxCaWbb0dWhOgQfdMZ2i2QN3D5AckcTt366Qq53fGnu/YiD24hHBWY+fWYbiIjY4U
-	YZ0wYj8snr+lCyVzQbpGJ90x4V4NoDXGDE/oTfXwSEafTsVwslurgWFb2vY+LFTnltVFKxY=
-X-Google-Smtp-Source: AGHT+IFUX1eZbzcysBzHHtBsEBGjLX6NVKG8N8wt7URL6mkGsrdwM/ImOqWq0Nxkz3QPURabSYjy1A==
-X-Received: by 2002:a05:6512:2307:b0:553:2868:6355 with SMTP id 2adb3069b0e04-5562ee3f0d8mr1549077e87.18.1751552476789;
-        Thu, 03 Jul 2025 07:21:16 -0700 (PDT)
-Received: from localhost.localdomain ([176.106.241.81])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5550b2a861esm2483058e87.97.2025.07.03.07.20.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jul 2025 07:21:16 -0700 (PDT)
-From: iuncuim <iuncuim@gmail.com>
-To: Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Vasily Khoruzhick <anarsoul@gmail.com>,
-	Yangtao Li <tiny.windzz@gmail.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH v2 0/8] Allwinner: A523: add support for A523 THS0/1 controllers
-Date: Thu,  3 Jul 2025 22:20:32 +0800
-Message-ID: <20250703142040.2639742-1-iuncuim@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	Thu, 03 Jul 2025 14:21:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6880A5C600D;
+	Thu,  3 Jul 2025 14:21:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FE4AC4CEE3;
+	Thu,  3 Jul 2025 14:21:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751552504;
+	bh=8q/IVKrUxZauGxiUn174NgZfIXYmxkzaKI174acXcJY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gOnfj6JddvGC2tczpxc5Nhlp+9Z0UiFGRRU3sr4q71VnRB/GwYAQRCLZmuHr4sxxA
+	 vEZU7xqhdgzNxuNCO3jBWjnpljc8VTGcskBdQEC556pU9PhKZcOTRVcBCzaMmQR+bJ
+	 s9+uOMF6FGLhRLlVxnWJqQgXF4lPrSwE7sfN3zlKS0x9xMxXxyfq5b0b/Ys53xJ79N
+	 3/rhDg3aIR2ZYVy29OK+y6hX9gwwhCcLOcDN1+TDIDhuxGHglj5hs8laI0aqAr8uf2
+	 2UxfmVUtfg2N/objv3RDgkIZOnSwMCKi9DT6cACPvZ4UCg5vDGQ6jOT5EC7Tjapg5B
+	 Nu+V/A49DF7fQ==
+Date: Thu, 3 Jul 2025 15:21:36 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Robert Marko <robert.marko@sartura.hr>,
+	Russell King <linux@armlinux.org.uk>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	Vinod Koul <vkoul@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Lee Jones <lee@kernel.org>, Mark Brown <broonie@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Daniel Machon <daniel.machon@microchip.com>, luka.perkov@sartura.hr
+Subject: Re: [PATCH v8 01/10] arm64: Add config for Microchip SoC platforms
+Message-ID: <20250703-lapped-itunes-1cd711479f75@spud>
+References: <20250702183856.1727275-1-robert.marko@sartura.hr>
+ <20250702183856.1727275-2-robert.marko@sartura.hr>
+ <ea353170-6e03-4231-afc2-3dc45253931d@app.fastmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="MYqRzWYWScpig/dd"
+Content-Disposition: inline
+In-Reply-To: <ea353170-6e03-4231-afc2-3dc45253931d@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_072119_667460_5E029680 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250703_072145_625912_57F95B57 
+X-CRM114-Status: GOOD (  25.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,66 +91,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mikhail Kalashnikov <iuncuim@gmail.com>
 
-This patch series adds temperature sensor support for the Allwinner A523
-family of processors (same die with H728/A527/T527)
+--MYqRzWYWScpig/dd
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Changes:
-1) dt-bindings: nvmem: SID: Add binding for A523 SID controller
- - added new patch
+On Wed, Jul 02, 2025 at 09:57:10PM +0200, Arnd Bergmann wrote:
+> On Wed, Jul 2, 2025, at 20:35, Robert Marko wrote:
+> > Currently, Microchip SparX-5 SoC is supported and it has its own symbol.
+> >
+> > However, this means that new Microchip platforms that share drivers need
+> > to constantly keep updating depends on various drivers.
+> >
+> > So, to try and reduce this lets add ARCH_MICROCHIP symbol that drivers
+> > could instead depend on.
+>=20
+> Thanks for updating the series to my suggestion!
+>=20
+> > @@ -174,6 +160,27 @@ config ARCH_MESON
+> >  	  This enables support for the arm64 based Amlogic SoCs
+> >  	  such as the s905, S905X/D, S912, A113X/D or S905X/D2
+> >=20
+> > +menuconfig ARCH_MICROCHIP
+> > +	bool "Microchip SoC support"
+> > +
+> > +if ARCH_MICROCHIP
+> > +
+> > +config ARCH_SPARX5
+> > +	bool "Microchip Sparx5 SoC family"
+>=20
+> This part is the one bit I'm not sure about: The user-visible
+> arm64 CONFIG_ARCH_* symbols are usually a little higher-level,
+> so I don't think we want both ARCH_MICROCHIP /and/ ARCH_SPARX5
+> here, or more generally speaking any of the nested ARCH_*
+> symbols.
+>=20
+> This version of your patch is going to be slightly annoying
+> to existing sparx5 users because updating an old .config
+> breaks when ARCH_MICROCHIP is not enabled.
+>=20
+> The two options that I would prefer here are=20
+>=20
+> a) make ARCH_SPARX5 a hidden symbol in order to keep the
+>    series bisectable, remove it entirely once all references
+>    are moved over to ARCH_MICROCHIP
+>=20
+> b) Make ARCH_MICROCHIP a hidden symbol that is selected by
+>    ARCH_SPARX5 but keep the menu unchanged.
+>=20
+> Let's see what the sparx5 and at91 maintainers think about
+> these options.
+>=20
+> The other patches all look fine to me.
 
-2) dt-bindings: thermal: sun8i: Add A523 THS0/1 controllers
- - changed clock order
- - added additional nvmem cell with calibration data
- - added requirements for new controllers
- - added description
+One more fun thing to consider is that we ended up defining
+ARCH_MICROCHIP on riscv because people didn't want to have an
+ARCH_MICROCHIP_POLARFIRE symbol enabling the pic64gx SoC. Therefore,
+anything that relies on CONFIG_AT91 to be only selectable by users on
+arm/arm64 when moved to CONFIG_ARCH_MICROCHIP (as this patch does) will
+become selectable on riscv as a result.
 
-3) thermal/drivers/sun8i: add gpadc clock
- - removed unnecessary call to clk_prepare_enable() since
- devm_clk_get_enabled()includes this
+--MYqRzWYWScpig/dd
+Content-Type: application/pgp-signature; name="signature.asc"
 
-4) thermal/drivers/sun8i: replace devm_reset_control_get to
- - original function replaced with devm_reset_control_get_shared_deasserted()
- - removed some of the repetitive code executed by 
- devm_reset_control_get_shared_deasserted()
+-----BEGIN PGP SIGNATURE-----
 
-5) thermal/drivers/sun8i: get calibration data from two nvmem cells
- - added possibility to get calibration data from two independent cells
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaGaRywAKCRB4tDGHoIJi
+0kalAP9rQkzuJjuFkyPd9IlOQj3R+Ld5bQNONlz6IG3u/RaW3wEA1mcw+qjQrIc8
+tzY+P2Bw7n2cprxDhZQKO1xk0ihwGws=
+=qB70
+-----END PGP SIGNATURE-----
 
-6) thermal/drivers/sun8i: Add support for A523 THS0/1 controllers
- - removed magic digits
- - changed description of calibration data procedure for A523
- - changed numbers of array elements with calibration data
-
-7) arm64: dts: allwinner: A523: Add SID controller node
- - fix typo (sun50i->sun55i)
-
-8) arm64: dts: allwinner: A523: Add thermal sensors and zones
- - cell with calibration data divided into two
- - added passive trips for gpu
- - added information that information obtained from BSP
-
-v1: https://lore.kernel.org/linux-sunxi/20250411003827.782544-1-iuncuim@gmail.com
-
-Mikhail Kalashnikov (8):
-  dt-bindings: nvmem: SID: Add binding for A523 SID controller
-  dt-bindings: thermal: sun8i: Add A523 THS0/1 controllers
-  thermal/drivers/sun8i: add gpadc clock
-  thermal/drivers/sun8i: replace devm_reset_control_get to
-    devm_reset_control_get_shared_deasserted
-  thermal/drivers/sun8i: get calibration data from two nvmem cells
-  thermal/drivers/sun8i: Add support for A523 THS0/1 controllers
-  arm64: dts: allwinner: A523: Add SID controller node
-  arm64: dts: allwinner: A523: Add thermal sensors and zones
-
- .../nvmem/allwinner,sun4i-a10-sid.yaml        |   1 +
- .../thermal/allwinner,sun8i-a83t-ths.yaml     |  49 +++-
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 162 ++++++++++++
- drivers/thermal/sun8i_thermal.c               | 240 ++++++++++++++----
- 4 files changed, 406 insertions(+), 46 deletions(-)
-
--- 
-2.49.0
-
+--MYqRzWYWScpig/dd--
 
