@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC36C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F930C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rfL9+mBJT3Spyk6l1GPZsFyS4n5xbuwhOUhpe3eI0Wg=; b=cUQJarfLAgVgbGG7wR0zu5TsoL
-	Jj5W9DBXzk+mRixX86J9nBA9O7n9iTpk7tZpDN35GfKHsBWGDNaSQHWmk3mhyUofwAF69fwg+Qe6z
-	5p1ORKqeBBLhkntXMqy8Je5hIKR1BQI8SI19GYGIYvJZfGeragIE0cFrSDUkWFNWsgEKjDPYh2ICK
-	+VYbTrqh6IoeNdRcJ5sXjTh5ICrTShTKwkuJuGms28Z7UZGj10m9Py5fff7nnU21NQW01A4hYRpxD
-	FyN3iklRQ04j2qDviYFyXhqF/RLji4nnF0vM4G1jHAnSVCesMkIHfZXNKCgMTBqbdjsCtKBuDWfyp
-	jfq/S/Ag==;
+	bh=e5fJHlPp3ZJSj+jBlOO9EXIVmAWxWmS5wNBrlA6uCd8=; b=im3u20LhmCXlgwFOqmV4dJAwPJ
+	F3usFnKsWMmGtD0wtWQY9YXCPEtq1nE6skX1aQepcxCikNqRQZtEvhXD251ubdI1WFL5bf4P81SIC
+	KZLLEVdBPC4S7ifLn7IuywMFvwibBZvB/68ron5kt0kzalXMZNLT0Ui9iAATe8tmW4OwnYhaK6VUw
+	Ns+Rs7kpRDKYtJF+hUaKL+F+EWu+vL/LrUmx5P32TyGfAvvvZdNEfHl+Q2wZuBQLL2OO1U6d4qPiI
+	7wpRSVub4uaxU7Tm0wH98Ywp/P2tuXxkiTutmh6VZDIWJft9TmI/qJ0OHeHiUOuc/K0UYMivLzNlv
+	gtgK9DWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR1C-0000000CVvG-3c2J;
-	Thu, 03 Jul 2025 20:58:55 +0000
+	id 1uXR1K-0000000CW6e-2CUB;
+	Thu, 03 Jul 2025 20:59:02 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMPI-0000000Bve1-436I
+	id 1uXMPf-0000000Bvi9-0o1J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 16:03:29 +0000
+	Thu, 03 Jul 2025 16:03:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1FDE061151;
-	Thu,  3 Jul 2025 16:03:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E39CC4CEE3;
-	Thu,  3 Jul 2025 16:03:24 +0000 (UTC)
-Date: Thu, 3 Jul 2025 17:03:22 +0100
+	by tor.source.kernel.org (Postfix) with ESMTP id 9FA6261451;
+	Thu,  3 Jul 2025 16:03:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D8FAC4CEED;
+	Thu,  3 Jul 2025 16:03:46 +0000 (UTC)
+Date: Thu, 3 Jul 2025 17:03:45 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
@@ -50,15 +50,15 @@ Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
 	Jiri Slaby <jirislaby@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v7 15/31] arm64: Disable GICv5 read/write/instruction
- traps
-Message-ID: <aGapyvHsFP_xreOj@arm.com>
+Subject: Re: [PATCH v7 16/31] arm64: cpucaps: Rename GICv3 CPU interface
+ capability
+Message-ID: <aGap4RilZskz-L7F@arm.com>
 References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
- <20250703-gicv5-host-v7-15-12e71f1b3528@kernel.org>
+ <20250703-gicv5-host-v7-16-12e71f1b3528@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250703-gicv5-host-v7-15-12e71f1b3528@kernel.org>
+In-Reply-To: <20250703-gicv5-host-v7-16-12e71f1b3528@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,13 +73,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 03, 2025 at 12:25:05PM +0200, Lorenzo Pieralisi wrote:
-> GICv5 trap configuration registers value is UNKNOWN at reset.
+On Thu, Jul 03, 2025 at 12:25:06PM +0200, Lorenzo Pieralisi wrote:
+> In preparation for adding a GICv5 CPU interface capability,
+> rework the existing GICv3 CPUIF capability - change its name and
+> description so that the subsequent GICv5 CPUIF capability
+> can be added with a more consistent naming on top.
 > 
-> Initialize GICv5 EL2 trap configuration registers to prevent
-> trapping GICv5 instruction/register access upon entering the
-> kernel.
-> 
+> Suggested-by: Mark Rutland <mark.rutland@arm.com>
 > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 > Reviewed-by: Marc Zyngier <maz@kernel.org>
 > Cc: Will Deacon <will@kernel.org>
