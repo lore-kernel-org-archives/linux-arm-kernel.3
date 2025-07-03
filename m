@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED315C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 02:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E657CC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 02:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=e314njA2BERK6tvztUrSe1Und5o6GCgqme1DHXig4KU=; b=5B48X+Zku2anBOFuyLFS6U8AhL
-	zDevWlfqzY/tNVKv7wg9XdFFfVELZphgnRJlRkiIBc6H/HZuZsOb0fBjui6VcIabsgbmRrHQjIFeL
-	WyIccoCxFDUiO3ng1abTWRPq5PRx79VOAbTKnwwkDbcLsZ8315guqMvpQy1Ixvn5KF7aJ1AGAy19G
-	4i5eNuT0hmf8oVcf7Sd5x5AY41KuSnUPu0treirHutcWPurmyPK2NPQEm30MpTFRewQDPIJ8Z3ddB
-	Poem44bZ5+drAmmeXaQa6BSwDD4d4Qgld0I1qMSamJqbxJ69q6ukyW6e97YJpHj0U1fIRaMQU/OZY
-	hKeDnMHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=934E9G/VFk13K7ue7jt2ZAeg69cidVPg44xfl0uq5KI=; b=jFebRpIGHXWFUEtFYlX5Eey/I8
+	hSmgYc05QBqhqYOB13W8GidKgBrpdhdLn7tUcWWwiawpPIA1i7NpYbOThExdYdZWYpK7BY71pO2lW
+	M35ObFp7drT6es+FY/nhjPxVvJ0vtRDjj8ASQusOGO91M13SG9lP9kh9Z19U8FPZ7LQTusxmvT4Zb
+	DMjC4Eefd38WTXvRXwe1IghDA86cmAd4M+SJfdtwcRr7gFifge/B62zmaKam9lqhf8W+ZfsJFJrvA
+	UQlOdqxIGPWYYVQatdvnpl3rSJ2gU2UHMrAySI9Yt8FqUukYkx8UxEj9YtM6d7xeAij5WFaI7C1DT
+	zzhwT2bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX9MD-00000009zNx-3xh0;
-	Thu, 03 Jul 2025 02:07:25 +0000
-Received: from outboundhk.mxmail.xiaomi.com ([207.226.244.123])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uX9Js-00000009zC5-2KLO
+	id 1uX9ck-0000000A1NE-2dzw;
+	Thu, 03 Jul 2025 02:24:30 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uX9aO-0000000A1Cx-494h
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 02:05:02 +0000
-X-CSE-ConnectionGUID: ZOVxFStkT5m10cX1qUjs4g==
-X-CSE-MsgGUID: TXEYWHe4TQypI/PVxupgTQ==
-X-IronPort-AV: E=Sophos;i="6.16,283,1744041600"; 
-   d="scan'208";a="145040541"
-From: EricChan <chenchuangyu@xiaomi.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre
- Torgue" <alexandre.torgue@foss.st.com>
-CC: Serge Semin <fancer.lancer@gmail.com>, Yinggang Gu
-	<guyinggang@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, Yanteng Si
-	<si.yanteng@linux.dev>, <netdev@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, xiaojianfeng
-	<xiaojianfeng1@xiaomi.com>, EricChan <chenchuangyu@xiaomi.com>, xiongliang
-	<xiongliang@xiaomi.com>
-Subject: [PATCH v2] net: stmmac: Fix interrupt handling for level-triggered mode in DWC_XGMAC2
-Date: Thu, 3 Jul 2025 10:04:49 +0800
-Message-ID: <20250703020449.105730-1-chenchuangyu@xiaomi.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 03 Jul 2025 02:22:06 +0000
+Message-ID: <9565e540-3dc5-4831-b9bb-7453e5979a21@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1751509321;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=934E9G/VFk13K7ue7jt2ZAeg69cidVPg44xfl0uq5KI=;
+	b=gxMjs3vQ3tOa+mTvpJv6AjmHN0EyRg0DcW5fQzAaRbnPbRuI111+pbCJRpbIBCXJmmtwMH
+	5Etpal8fel6d5RO2Ft4TpaiVEznDYLn91e58qEhESQ8Z7DOrIljjOprRFMDuG5Hj5WIiHe
+	jURBv2u3HB7Zw7nGfB7qGGa/+ABJh3M=
+Date: Thu, 3 Jul 2025 10:21:52 +0800
 MIME-Version: 1.0
+Subject: Re: [PATCH v2] net: stmmac: Fix interrupt handling for
+ level-triggered mode in DWC_XGMAC2
+To: EricChan <chenchuangyu@xiaomi.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Serge Semin <fancer.lancer@gmail.com>,
+ Yinggang Gu <guyinggang@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, xiaojianfeng
+ <xiaojianfeng1@xiaomi.com>, xiongliang <xiongliang@xiaomi.com>
+References: <20250703020449.105730-1-chenchuangyu@xiaomi.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yanteng Si <si.yanteng@linux.dev>
+In-Reply-To: <20250703020449.105730-1-chenchuangyu@xiaomi.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.237.8.163]
-X-ClientProxiedBy: BJ-MBX03.mioffice.cn (10.237.8.123) To BJ-MBX15.mioffice.cn
- (10.237.8.135)
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250702_190500_742784_8C12EECE 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20250702_192205_234724_ED302DAE 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,74 +77,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the Synopsys Controller IP XGMAC-10G Ethernet MAC Databook
-v3.30a (section 2.7.2), when the INTM bit in the DMA_Mode register is set
-to 2, the sbd_perch_tx_intr_o[] and sbd_perch_rx_intr_o[] signals operate
-in level-triggered mode. However, in this configuration, the DMA does not
-assert the XGMAC_NIS status bit for Rx or Tx interrupt events.
+在 7/3/25 10:04 AM, EricChan 写道:
+> According to the Synopsys Controller IP XGMAC-10G Ethernet MAC Databook
+> v3.30a (section 2.7.2), when the INTM bit in the DMA_Mode register is set
+> to 2, the sbd_perch_tx_intr_o[] and sbd_perch_rx_intr_o[] signals operate
+> in level-triggered mode. However, in this configuration, the DMA does not
+> assert the XGMAC_NIS status bit for Rx or Tx interrupt events.
+> 
+> This creates a functional regression where the condition
+> if (likely(intr_status & XGMAC_NIS)) in dwxgmac2_dma_interrupt() will
+> never evaluate to true, preventing proper interrupt handling for
+> level-triggered mode. The hardware specification explicitly states that
+> "The DMA does not assert the NIS status bit for the Rx or Tx interrupt
+> events" (Synopsys DWC_XGMAC2 Databook v3.30a, sec. 2.7.2).
+> 
 
-This creates a functional regression where the condition
-if (likely(intr_status & XGMAC_NIS)) in dwxgmac2_dma_interrupt() will
-never evaluate to true, preventing proper interrupt handling for
-level-triggered mode. The hardware specification explicitly states that
-"The DMA does not assert the NIS status bit for the Rx or Tx interrupt
-events" (Synopsys DWC_XGMAC2 Databook v3.30a, sec. 2.7.2).
+> The fix ensures correct handling of both edge and level-triggered
+> interrupts while maintaining backward compatibility with existing
+> configurations. It has been tested on the hardware device (not publicly
+> available), and it can properly trigger the RX and TX interrupt handling
+> in both the INTM=0 and INTM=2 configurations.
+Is there anyone willing to help test this patch on a publicly
+available DWC_XGMAC2 hardware device (if such a public device exists)?
 
-The fix ensures correct handling of both edge and level-triggered
-interrupts while maintaining backward compatibility with existing
-configurations. It has been tested on the hardware device (not publicly
-available), and it can properly trigger the RX and TX interrupt handling
-in both the INTM=0 and INTM=2 configurations.
 
-Fixes: d6ddfacd95c7 ("net: stmmac: Add DMA related callbacks for XGMAC2")
-Tested-by: EricChan <chenchuangyu@xiaomi.com>
-Signed-off-by: EricChan <chenchuangyu@xiaomi.com>
----
-Changes from v1:
-- Add a Fixes tag pointing to the commit in which the problem was introduced
-- Add the testing results of this patch
-
-[v1] https://lore.kernel.org/all/20250625025134.97056-1-chenchuangyu@xiaomi.com/
----
- .../ethernet/stmicro/stmmac/dwxgmac2_dma.c    | 24 +++++++++----------
- 1 file changed, 11 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-index 7840bc403788..5dcc95bc0ad2 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-@@ -364,19 +364,17 @@ static int dwxgmac2_dma_interrupt(struct stmmac_priv *priv,
- 	}
- 
- 	/* TX/RX NORMAL interrupts */
--	if (likely(intr_status & XGMAC_NIS)) {
--		if (likely(intr_status & XGMAC_RI)) {
--			u64_stats_update_begin(&stats->syncp);
--			u64_stats_inc(&stats->rx_normal_irq_n[chan]);
--			u64_stats_update_end(&stats->syncp);
--			ret |= handle_rx;
--		}
--		if (likely(intr_status & (XGMAC_TI | XGMAC_TBU))) {
--			u64_stats_update_begin(&stats->syncp);
--			u64_stats_inc(&stats->tx_normal_irq_n[chan]);
--			u64_stats_update_end(&stats->syncp);
--			ret |= handle_tx;
--		}
-+	if (likely(intr_status & XGMAC_RI)) {
-+		u64_stats_update_begin(&stats->syncp);
-+		u64_stats_inc(&stats->rx_normal_irq_n[chan]);
-+		u64_stats_update_end(&stats->syncp);
-+		ret |= handle_rx;
-+	}
-+	if (likely(intr_status & (XGMAC_TI | XGMAC_TBU))) {
-+		u64_stats_update_begin(&stats->syncp);
-+		u64_stats_inc(&stats->tx_normal_irq_n[chan]);
-+		u64_stats_update_end(&stats->syncp);
-+		ret |= handle_tx;
- 	}
- 
- 	/* Clear interrupts */
--- 
-2.34.1
-
+Thanks,
+Yanteng
 
