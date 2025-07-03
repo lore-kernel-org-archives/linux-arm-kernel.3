@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F66DC83F05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4557CC83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LRPNjfhrbsMUZndx2hp8tCgYSPOkDHttNgx1fK1PnE0=; b=20pj4lDOtg+b8oGNBYFNL5clWF
-	MNZXLwiqRs34J2KdMbJdzTT2iKNeST2iKf6ijQ4bQCQ/VfdMiGrk/l8feD4tsKMARrDy+CH8gq2dG
-	7qPuPxqR6I5TOIaDbTiRLcYvwlbTJMvihVih22Tr/pVwL0HXnWGYaKZtQ/MK1pJnUWrxqxfHGcpcK
-	hwwGzuCv3qjBFW+Ql30VZvrqUQqvkXWfIwvbAWk64Ycr/8Zn0oYJjFBu8/AMn/1cQcTWGwlk2MQ3I
-	ZN6tzjaJSIni9sCQlHlf0VOeRD/4FmPZ+02tiTR8gWKiNHAqkDv124hiGeL1DJl6bgy4OQYTzLG/W
-	GPqYT3Ag==;
+	bh=AhdP3/FQHSjrxWTqzuu19PBxD9WUK22oYYs22W3Au0g=; b=mvgEODHmjoBaPkfh0+EGtFbCcW
+	14zgPyj59DnbuvjG0qqtbS1LZDf7Tsi/vC7qs1Q/rUG9MvnPUCYAnZKuJhiFuC8BPBeiZgdYTlOd0
+	eGSMwbS0mGyL30GeCJxur+Plm+JESlfuBq5tXqJre5zqPuw6L0mTCyale5ky/gPRIRwBvUPbB6l5w
+	L3Ysyz6bq/Ydom/0Q1OiqdxBPHt4gYAoPLiaRZXl+PEifMYwY/S8t7BSprPISSSna7/gxJDXyu/94
+	fYAl2R4uZmY9JZ2rLNJ62+p1WUO0/NNGMj9DVv30VafY0Od4wG8etTxqRRoJ0QNtnWzj6uHo0WUwW
+	y3Cwi7sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR1h-0000000CWXu-02Zk;
-	Thu, 03 Jul 2025 20:59:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uXR1n-0000000CWfN-1rdr;
+	Thu, 03 Jul 2025 20:59:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMRv-0000000Bw8a-04WQ
+	id 1uXMRz-0000000BwAw-2ahv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 16:06:11 +0000
+	Thu, 03 Jul 2025 16:06:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 75ABD61151;
-	Thu,  3 Jul 2025 16:06:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71082C4CEED;
-	Thu,  3 Jul 2025 16:06:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 584A34657A;
+	Thu,  3 Jul 2025 16:06:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57B52C4CEE3;
+	Thu,  3 Jul 2025 16:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751558770;
-	bh=6UL7PmSArRGjWy99kORj1lgNcSgJ/MyAd1s1wJFb20E=;
+	s=k20201202; t=1751558775;
+	bh=JqVBI6zD71hSTx5yFb78+uxctGMkoxR2pJgkc2W8UzQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hZp9j/elDbkVRa1hPIlp8wyavHB5T58I9Eldyon7jhZQ3iyMpuq8SfOQxWXXKODb1
-	 Qm72oenFg5EWLt4vjdB6Y5sk9XjJxbsmk+sLNgNCspis2cFXDNmQQvPp66tiXNVIp9
-	 Sf1r8H/HXrCg2+qv9JBpSEi+WlUtWk+e3RfJT+/845Fw6+IXxRfGwSp59mObhHCaf5
-	 4TzEGl/QgLykvyptFrM4+sXRVZnDLtp5Jli7ZRM28q3tmgnm+Pd17dYEpo8wkao3mW
-	 fjUGNM9L4HEr+QyD+LkVH+cOwyF48II/7bu3Wh0ZvwziCe0o2PpPk1RggWz53xWaFH
-	 5T2nFhEzuNiNg==
+	b=AkPCTteMy81OpE3Mi26WPe1/iz9nJQ48IWOz3etCp8VLyWjeJcPoJeFuwa/7M5SgQ
+	 FsehYh6aWSwv3z5RMRCAJ0IdSR4g2w23B0PW0xhkrehHTEK6D/oYSj66r/2KmK8u0o
+	 5hd0pjGe3ubSEzs8Iiz976lEXahx1fU+/dGADjjh253rYgbCFIz95VIKUV5rkBlpKu
+	 RXrZD9B3F2kgjPH2waWt5YLV1AZv07/eWX7GpqMMxmRTDaVbepFiBBEjMHPQpslCzj
+	 lu9aEbULrwFMKD/lU30BUovod8bq7WVba9kgK3j3y1cErcQwFYUyJugVSHrRB30jgi
+	 92RWrld9xZbpA==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 03 Jul 2025 17:00:15 +0100
-Subject: [PATCH v3 1/4] tools/nolibc: Replace ifdef with if defined() in
- sys.h
+Date: Thu, 03 Jul 2025 17:00:17 +0100
+Subject: [PATCH v3 3/4] kselftest/arm64: Add a test for vfork() with GCS
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250703-arm64-gcs-vfork-exit-v3-1-1e9a9d2ddbbe@kernel.org>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250703-arm64-gcs-vfork-exit-v3-3-1e9a9d2ddbbe@kernel.org>
 References: <20250703-arm64-gcs-vfork-exit-v3-0-1e9a9d2ddbbe@kernel.org>
 In-Reply-To: <20250703-arm64-gcs-vfork-exit-v3-0-1e9a9d2ddbbe@kernel.org>
 To: Willy Tarreau <w@1wt.eu>, 
@@ -60,17 +59,20 @@ To: Willy Tarreau <w@1wt.eu>,
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5318; i=broonie@kernel.org;
- h=from:subject:message-id; bh=6UL7PmSArRGjWy99kORj1lgNcSgJ/MyAd1s1wJFb20E=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoZqpn4RKP1oQrJeLjT5BiI+auQ1fej5ipZov3Q
- Hav2GLNCg+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaGaqZwAKCRAk1otyXVSH
- 0FKGB/wPv6hjzFqQvNiZk2ovk/THH6J+r+dQotin/1l82zGkMi1bzO+UubpLmzr6YTiImt45TqQ
- wjNZPSlJhmhgKFedGOo5xFuE2nhDA1UfnpBKa4aKxTKwVUmh/xdgP2PlHI4q7p7cFJsad0gyYt0
- +aizzgFEHtJ0QZvUotoFAAqsXw10cnIH6R+CrR4QYXronAsYuSgmpHei+tZv4ahF8LhiT8/yf3k
- VVvoNRiOUaOXSNx5NigHi9j87u/LdoKdIK4oVBKkzjNJjTjqWE71AYNS05AeY2+zZg2/iyBPESE
- w8qF2rtGCPySZvWkczZ9pScrTkak1Uzes3NCCyQA+aSwMX/y
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2448; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=JqVBI6zD71hSTx5yFb78+uxctGMkoxR2pJgkc2W8UzQ=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoZqpoRTfqCavfvOeI6HiW0fO9+7QniM8meqnva
+ KfwmnOt5gKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaGaqaAAKCRAk1otyXVSH
+ 0BjAB/4x6C2kGb8P+uyoBFDtAItZkZ+dJBICIFrZzPMjdrZr4zbvUc5btpxrBDbB9ZtDFwSKXUG
+ TsU8WJwomcs7GYmNStpckecKrA56vDlSJxQFETIBkONQGgCb+JTKMWo1fW9CKZG4Q7Nc9zI1opC
+ ZeYK72T8ZQPxyECGphNjLo5PSnwoJ2kC2MuHNKoSZ4QCdGQ9WXL9KngRKaRWg5iqzZDhKHLZNrL
+ F+rZIkIfpViRFvnW98R24jkrIckOfM518Ni0A53po5NSWNRk/Huqkgw2wHxN4gIJHKU1gqFIrGs
+ CGYxvbME5UfD4P6v+2i7jOmpeSoIIdW70acTy31OJpwpPDSz
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250703_090615_734490_EBB996C3 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,155 +87,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thomas has requested that if defined() be used in place of ifdef but
-currently ifdef is used consistently in sys.h. Update all the instances of
-ifdef to if defined().
+Ensure that we've got at least some coverage of the special cases around
+vfork() by adding a test case in basic-gcs doing the same thing as the
+plain fork() one - vfork(), do a few checks and then return to the parent.
 
-Suggested-by: Thomas Weißschuh <linux@weissschuh.net>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/include/nolibc/sys.h | 30 +++++++++++++++---------------
- 1 file changed, 15 insertions(+), 15 deletions(-)
+ tools/testing/selftests/arm64/gcs/basic-gcs.c | 63 +++++++++++++++++++++++++++
+ 1 file changed, 63 insertions(+)
 
-diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-index 9556c69a6ae1..aabac97a7fb0 100644
---- a/tools/include/nolibc/sys.h
-+++ b/tools/include/nolibc/sys.h
-@@ -139,7 +139,7 @@ int chdir(const char *path)
- static __attribute__((unused))
- int sys_chmod(const char *path, mode_t mode)
- {
--#ifdef __NR_fchmodat
-+#if defined(__NR_fchmodat)
- 	return my_syscall4(__NR_fchmodat, AT_FDCWD, path, mode, 0);
- #elif defined(__NR_chmod)
- 	return my_syscall2(__NR_chmod, path, mode);
-@@ -162,7 +162,7 @@ int chmod(const char *path, mode_t mode)
- static __attribute__((unused))
- int sys_chown(const char *path, uid_t owner, gid_t group)
- {
--#ifdef __NR_fchownat
-+#if defined(__NR_fchownat)
- 	return my_syscall5(__NR_fchownat, AT_FDCWD, path, owner, group, 0);
- #elif defined(__NR_chown)
- 	return my_syscall3(__NR_chown, path, owner, group);
-@@ -236,7 +236,7 @@ int dup(int fd)
- static __attribute__((unused))
- int sys_dup2(int old, int new)
- {
--#ifdef __NR_dup3
-+#if defined(__NR_dup3)
- 	return my_syscall3(__NR_dup3, old, new, 0);
- #elif defined(__NR_dup2)
- 	return my_syscall2(__NR_dup2, old, new);
-@@ -256,7 +256,7 @@ int dup2(int old, int new)
-  * int dup3(int old, int new, int flags);
-  */
+diff --git a/tools/testing/selftests/arm64/gcs/basic-gcs.c b/tools/testing/selftests/arm64/gcs/basic-gcs.c
+index 3fb9742342a3..54f9c888249d 100644
+--- a/tools/testing/selftests/arm64/gcs/basic-gcs.c
++++ b/tools/testing/selftests/arm64/gcs/basic-gcs.c
+@@ -298,6 +298,68 @@ static bool test_fork(void)
+ 	return pass;
+ }
  
--#ifdef __NR_dup3
-+#if defined(__NR_dup3)
- static __attribute__((unused))
- int sys_dup3(int old, int new, int flags)
- {
-@@ -320,7 +320,7 @@ void exit(int status)
- static __attribute__((unused))
- pid_t sys_fork(void)
- {
--#ifdef __NR_clone
-+#if defined(__NR_clone)
- 	/* note: some archs only have clone() and not fork(). Different archs
- 	 * have a different API, but most archs have the flags on first arg and
- 	 * will not use the rest with no other flag.
-@@ -382,7 +382,7 @@ int getdents64(int fd, struct linux_dirent64 *dirp, int count)
- static __attribute__((unused))
- uid_t sys_geteuid(void)
- {
--#ifdef __NR_geteuid32
-+#if defined(__NR_geteuid32)
- 	return my_syscall0(__NR_geteuid32);
- #else
- 	return my_syscall0(__NR_geteuid);
-@@ -500,7 +500,7 @@ int getpagesize(void)
- static __attribute__((unused))
- uid_t sys_getuid(void)
- {
--#ifdef __NR_getuid32
-+#if defined(__NR_getuid32)
- 	return my_syscall0(__NR_getuid32);
- #else
- 	return my_syscall0(__NR_getuid);
-@@ -538,7 +538,7 @@ int kill(pid_t pid, int signal)
- static __attribute__((unused))
- int sys_link(const char *old, const char *new)
- {
--#ifdef __NR_linkat
-+#if defined(__NR_linkat)
- 	return my_syscall5(__NR_linkat, AT_FDCWD, old, AT_FDCWD, new, 0);
- #elif defined(__NR_link)
- 	return my_syscall2(__NR_link, old, new);
-@@ -561,7 +561,7 @@ int link(const char *old, const char *new)
- static __attribute__((unused))
- off_t sys_lseek(int fd, off_t offset, int whence)
- {
--#ifdef __NR_lseek
-+#if defined(__NR_lseek)
- 	return my_syscall3(__NR_lseek, fd, offset, whence);
- #else
- 	return __nolibc_enosys(__func__, fd, offset, whence);
-@@ -572,7 +572,7 @@ static __attribute__((unused))
- int sys_llseek(int fd, unsigned long offset_high, unsigned long offset_low,
- 	       __kernel_loff_t *result, int whence)
- {
--#ifdef __NR_llseek
-+#if defined(__NR_llseek)
- 	return my_syscall5(__NR_llseek, fd, offset_high, offset_low, result, whence);
- #else
- 	return __nolibc_enosys(__func__, fd, offset_high, offset_low, result, whence);
-@@ -609,7 +609,7 @@ off_t lseek(int fd, off_t offset, int whence)
- static __attribute__((unused))
- int sys_mkdir(const char *path, mode_t mode)
- {
--#ifdef __NR_mkdirat
-+#if defined(__NR_mkdirat)
- 	return my_syscall3(__NR_mkdirat, AT_FDCWD, path, mode);
- #elif defined(__NR_mkdir)
- 	return my_syscall2(__NR_mkdir, path, mode);
-@@ -631,7 +631,7 @@ int mkdir(const char *path, mode_t mode)
- static __attribute__((unused))
- int sys_rmdir(const char *path)
- {
--#ifdef __NR_rmdir
-+#if defined(__NR_rmdir)
- 	return my_syscall1(__NR_rmdir, path);
- #elif defined(__NR_unlinkat)
- 	return my_syscall3(__NR_unlinkat, AT_FDCWD, path, AT_REMOVEDIR);
-@@ -654,7 +654,7 @@ int rmdir(const char *path)
- static __attribute__((unused))
- long sys_mknod(const char *path, mode_t mode, dev_t dev)
- {
--#ifdef __NR_mknodat
-+#if defined(__NR_mknodat)
- 	return my_syscall4(__NR_mknodat, AT_FDCWD, path, mode, dev);
- #elif defined(__NR_mknod)
- 	return my_syscall3(__NR_mknod, path, mode, dev);
-@@ -843,7 +843,7 @@ pid_t setsid(void)
- static __attribute__((unused))
- int sys_symlink(const char *old, const char *new)
- {
--#ifdef __NR_symlinkat
-+#if defined(__NR_symlinkat)
- 	return my_syscall3(__NR_symlinkat, old, AT_FDCWD, new);
- #elif defined(__NR_symlink)
- 	return my_syscall2(__NR_symlink, old, new);
-@@ -900,7 +900,7 @@ int umount2(const char *path, int flags)
- static __attribute__((unused))
- int sys_unlink(const char *path)
- {
--#ifdef __NR_unlinkat
-+#if defined(__NR_unlinkat)
- 	return my_syscall3(__NR_unlinkat, AT_FDCWD, path, 0);
- #elif defined(__NR_unlink)
- 	return my_syscall1(__NR_unlink, path);
++/* A vfork()ed process can run and exit */
++static bool test_vfork(void)
++{
++	unsigned long child_mode;
++	int ret, status;
++	pid_t pid;
++	bool pass = true;
++
++	pid = vfork();
++	if (pid == -1) {
++		ksft_print_msg("vfork() failed: %d\n", errno);
++		pass = false;
++		goto out;
++	}
++	if (pid == 0) {
++		/*
++		 * In child, make sure we can call a function, read
++		 * the GCS pointer and status and then exit.
++		 */
++		valid_gcs_function();
++		get_gcspr();
++
++		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
++				  &child_mode, 0, 0, 0);
++		if (ret == 0 && !(child_mode & PR_SHADOW_STACK_ENABLE)) {
++			ksft_print_msg("GCS not enabled in child\n");
++			ret = EXIT_FAILURE;
++		}
++
++		_exit(ret);
++	}
++
++	/*
++	 * In parent, check we can still do function calls then check
++	 * on the child.
++	 */
++	valid_gcs_function();
++
++	ksft_print_msg("Waiting for child %d\n", pid);
++
++	ret = waitpid(pid, &status, 0);
++	if (ret == -1) {
++		ksft_print_msg("Failed to wait for child: %d\n",
++			       errno);
++		return false;
++	}
++
++	if (!WIFEXITED(status)) {
++		ksft_print_msg("Child exited due to signal %d\n",
++			       WTERMSIG(status));
++		pass = false;
++	} else if (WEXITSTATUS(status)) {
++		ksft_print_msg("Child exited with status %d\n",
++			       WEXITSTATUS(status));
++		pass = false;
++	}
++
++out:
++
++	return pass;
++}
++
+ typedef bool (*gcs_test)(void);
+ 
+ static struct {
+@@ -314,6 +376,7 @@ static struct {
+ 	{ "enable_invalid", enable_invalid, true },
+ 	{ "map_guarded_stack", map_guarded_stack },
+ 	{ "fork", test_fork },
++	{ "vfork", test_vfork },
+ };
+ 
+ int main(void)
 
 -- 
 2.39.5
