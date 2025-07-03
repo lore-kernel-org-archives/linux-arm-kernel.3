@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58CEC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 15:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75DFC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 15:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3rSHJreGoaADlAiRFL0ez0+/BHUXJFX6FSdatFOSpG8=; b=vor11SC3VCCrLS7Zl7RrjIfWgP
-	w6/EznrVd0pNc8wqCRVXOA9ltUVzIFYRyhZ+2W4w4rNR4Fc2RT4hLfoOWd3Dk09yvnbqlIUazibDW
-	sUG0ykezi8sVaRUHjfcqGcdZwI+LwLCtiFAUI/CUeF8xs4VfPEwQe9m+xYAl0eg+xmg1E51Zw8gMI
-	yR1GziBwsgaa4vItPWH0XSXkcSHdGV4Zdby523pF5jZJzIa40kKR0LaL50xR6AN+BCIZ8npRYyXfG
-	v6VhqX238DLV8y3EZTjJsbwfQIlGSAQyer6kWoUXtz7YdsTCuNCggd6GSCgQP5Crmw2L3TdQGNLzr
-	FevrjpSA==;
+	bh=LfmHwtO5VGLHZ5qx+q0QzCiOoHRJOgVOO+DpSeTJTXw=; b=EgmybPLA4nahf/C6l6xjhYCIfQ
+	oj3mdNNhyyzjSk+pWDPP/V7lCnB6IEVmuqhCmsaxqiRlBvG7OoppRu21uQe8ejvOYDsmOt31MUCR/
+	65B9LhBOedS5y10o/U10BBTwsJBIYhZVncZCQiQFJZ3Iy3Tjd8UKnvFxEZ4VKNh7rx1W08+5575Gd
+	0ewdEPwyViKkMTygLe01FswKE7N+iN+JyfgrdAxqsuVcbyfe963mUoHtVnTfdAHOJUcZ26RuqLOsy
+	xKt8pFhV1O6hi85byRdzebNvyc5xiFQcNqamr+EWoiMr3kupp4T+ueMBeG1PZlo7zSPLglxSHNZte
+	k9PLu+XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMEd-0000000Btjd-42cn;
-	Thu, 03 Jul 2025 15:52:27 +0000
+	id 1uXMGw-0000000Btyu-3K1T;
+	Thu, 03 Jul 2025 15:54:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKRv-0000000BZHl-3rPI
+	id 1uXKS1-0000000BZK1-0NO1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 13:58:05 +0000
+	Thu, 03 Jul 2025 13:58:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 24F081655;
-	Thu,  3 Jul 2025 06:57:49 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 539CD1596;
+	Thu,  3 Jul 2025 06:57:54 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D8D7B3F63F;
-	Thu,  3 Jul 2025 06:58:00 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 32AF13F63F;
+	Thu,  3 Jul 2025 06:58:06 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -47,19 +47,18 @@ To: catalin.marinas@arm.com,
 	linux@rasmusvillemoes.dk,
 	linux-kernel@vger.kernel.org
 Cc: james.morse@arm.com,
-	Ben Horgan <ben.horgan@arm.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 1/2] KVM: arm64: Fix enforcement of upper bound on MDCR_EL2.HPMN
-Date: Thu,  3 Jul 2025 14:57:28 +0100
-Message-ID: <20250703135729.1807517-2-ben.horgan@arm.com>
+	Ben Horgan <ben.horgan@arm.com>
+Subject: [PATCH 2/2] bitfield: Ensure the return value of type##_replace_bits() is checked
+Date: Thu,  3 Jul 2025 14:57:29 +0100
+Message-ID: <20250703135729.1807517-3-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250703135729.1807517-1-ben.horgan@arm.com>
 References: <20250703135729.1807517-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_065804_019505_CA52F949 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20250703_065809_168193_68FFF139 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,31 +73,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previously, u64_replace_bits() was used to no effect as the return value
-was ignored. Convert to u64p_replace_bits() so the value is updated in
-place.
+As type##_replace_bits() has no side effects it is only useful if its
+return value is checked. Add __must_check to enforce this usage. To have
+the bits replaced in-place typep##_replace_bits() can be used instead.
 
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-Fixes: efff9dd2fee7 ("KVM: arm64: Handle out-of-bound write to MDCR_EL2.HPMN")
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
 ---
- arch/arm64/kvm/sys_regs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/bitfield.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 76c2f0da821f..c20bd6f21e60 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2624,7 +2624,7 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
- 	 */
- 	if (hpmn > vcpu->kvm->arch.nr_pmu_counters) {
- 		hpmn = vcpu->kvm->arch.nr_pmu_counters;
--		u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
-+		u64p_replace_bits(&val, hpmn, MDCR_EL2_HPMN);
- 	}
- 
- 	__vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
+diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
+index 6d9a53db54b6..39333b80d22b 100644
+--- a/include/linux/bitfield.h
++++ b/include/linux/bitfield.h
+@@ -195,8 +195,8 @@ static __always_inline __##type type##_encode_bits(base v, base field)	\
+ 		__field_overflow();					\
+ 	return to((v & field_mask(field)) * field_multiplier(field));	\
+ }									\
+-static __always_inline __##type type##_replace_bits(__##type old,	\
+-					base val, base field)		\
++static __always_inline __##type __must_check type##_replace_bits(__##type old,	\
++							base val, base field)	\
+ {									\
+ 	return (old & ~to(field)) | type##_encode_bits(val, field);	\
+ }									\
 -- 
 2.43.0
 
