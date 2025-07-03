@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B974C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C85FC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxMTlhxWU57nA7Q4F+UtfAVqht6xflsvFvNCCdkrARE=; b=4EdsGwr7hEXD2qd7u0uIbX1jKw
-	Oni/xwJgPXkatZAt7TiaWPdSnd6vEXt6L+fSjsbbznD/zrsdbFIwPzmzQckAadMOVstwbO97b+qAQ
-	MiiFIpPjho72Y87AP48Wh1mJnaZHO6Cb4o23B1qy7xZ7JSDFqBaAe8QnJThZZhQEslxCUA611Efky
-	eWRnjZzNomk7wp13CutsLMjTSJ3YykONilcovjUB5H44kKoEignkC2gBf6wDAfPJazTXymYG7J4Pv
-	8O9VA4MpFzz61TgXh4pXFOu3QkIjvqaBvFfd6ipbjcALKl3PuCI5p+L5cxiZ8c6pKQZZWFs2Hdn8z
-	FBgIimCg==;
+	bh=mQvW7uv8h7VjoxjI/7AQUIIRYv1qWvjecjEBCTXw3Kg=; b=Dfjhq/YUp7q+hyA72OCuZPpVUt
+	8KNDvbeYgxACo5kKNn5vqqys8nRb0K96vausfcm38VqQLjopbBzSO9PyngHrQeZkW3UcfqHtQMi4F
+	+eTuXOzSlF+4tiKKBiaZgR+WzfPO3YtISSin+qkwz8Z05zbSGQhSHboCU3MmFD043Am+SQCvblEOx
+	XT5tMopH2QHeaaSsSESBe0AkzLTfiVTeqnPpLq4zYR07QHs78PepLD5iUwTPB2Fhy02co7GMdqnel
+	5yCj7YTXKW/aUgjKsMvbFK5Q4YUo57hLm8OEkv61umRJXjTIAf5yPN6vD6dKNEJpAAwQwd081OabK
+	psOFxppQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXRPL-0000000CbuO-1tSQ;
-	Thu, 03 Jul 2025 21:23:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uXRRg-0000000Cc55-0mqO;
+	Thu, 03 Jul 2025 21:26:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXOHM-0000000CCNq-3YVw
+	id 1uXOPZ-0000000CCxx-2Bhp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 18:03:25 +0000
+	Thu, 03 Jul 2025 18:11:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70ED244D38;
-	Thu,  3 Jul 2025 18:03:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C95AAC4CEE3;
-	Thu,  3 Jul 2025 18:03:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C21EE61151;
+	Thu,  3 Jul 2025 18:11:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C54A4C4CEE3;
+	Thu,  3 Jul 2025 18:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751565802;
-	bh=DAlQxIcteaDn8QOHRzwZvy79winbFs5xEUAf0FyF0aw=;
+	s=k20201202; t=1751566311;
+	bh=VkIlwgd4byBd91qWdEkLK/tbWjhRo/xQa76/hK2+qYg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WDbd9qquuPLQ/EAUpln2smNPbxdrJ3tuUba8ONxsrbhMpdG/wrPKE29RjfbT84y8W
-	 wuQXP9hwff4X73xRuO6IWbzDVYI3hX/GTvsNJl5BXvlvPTMJwIppkiNib7uF8EdAgD
-	 jyDBtCmfRFvLyQxgSl0t1Z0Ze5UQyQqpSLMZjn+eebnyZuVEKbeXjNqZAH/FQG5vGm
-	 48aJVBD62eB0H8PxRK9DoGOXEPCOCUv36abG/uZwkawxyCR5IwFlOJzSwvn+n0t3Mh
-	 VFU0RO4QYYAK0ajkKCt556ks2Yf6OUH3hnT2L+cFTTJikcJajjFcAVUiExcd+YMRj+
-	 B9IeeM2LItFqw==
-Date: Thu, 3 Jul 2025 19:03:12 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v6 18/28] KVM: arm64: Support SME priority registers
-Message-ID: <3ada3079-6f01-41d5-927f-afbbd57d934b@sirena.org.uk>
-References: <20250625-kvm-arm64-sme-v6-0-114cff4ffe04@kernel.org>
- <20250625-kvm-arm64-sme-v6-18-114cff4ffe04@kernel.org>
- <86o6u6c2qg.wl-maz@kernel.org>
+	b=i4QhAFfJxzBP6eDj7S/rqEadSTALJZGw8lbX49bsX+XyJ5tZs+g0wDKNXZNi8h6Ax
+	 lKroWL/fWjKzVUuGGD1FoAMC72kq9L9CLsLTxYDrYhsqoAuXraNfbrQOkdKfOyo96/
+	 BznzvmGLAGk32hT81BFM/w0roHsSuF34Ub0nB6VYWdXQTYQobAQCvk/ZaumvGuIS9w
+	 Fa9VS+oSv1Ki59sQzZcGVuDIpYvyybFhpDcDMp6ZTx2uYsl5M8kz5ZP2xOV81/M2kP
+	 mK3owdxKY5SccqjGbens4jXLUeVaiKRoAbHXCxN61paL/ZcnZmNmxR9JqVifUpmpnR
+	 aZlXd0ssexXDg==
+Date: Thu, 3 Jul 2025 20:11:47 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Qianfeng Rong <rongqianfeng@vivo.com>
+Cc: Patrice Chotard <patrice.chotard@foss.st.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	opensource.kernel@vivo.com
+Subject: Re: [PATCH] i2c: busses: Use min() to improve code
+Message-ID: <gheuqazqnfbnxhdjcubhdvnfw6vsjspanllkwblbf63ifll7d3@lchelksxegdw>
+References: <20250619142609.323082-1-rongqianfeng@vivo.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pjNON9hcckQNbems"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86o6u6c2qg.wl-maz@kernel.org>
-X-Cookie: Uh-oh!!  I'm having TOO MUCH FUN!!
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_110324_926445_9585FE15 
-X-CRM114-Status: GOOD (  20.11  )
+In-Reply-To: <20250619142609.323082-1-rongqianfeng@vivo.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,62 +69,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Qianfeng,
 
---pjNON9hcckQNbems
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> @@ -422,10 +423,7 @@ static void st_i2c_wr_fill_tx_fifo(struct st_i2c_dev *i2c_dev)
+>  	tx_fstat = readl_relaxed(i2c_dev->base + SSC_TX_FSTAT);
+>  	tx_fstat &= SSC_TX_FSTAT_STATUS;
+>  
+> -	if (c->count < (SSC_TXFIFO_SIZE - tx_fstat))
+> -		i = c->count;
+> -	else
+> -		i = SSC_TXFIFO_SIZE - tx_fstat;
+> +	i = min(c->count, SSC_TXFIFO_SIZE - tx_fstat);
 
-On Sun, Jun 29, 2025 at 10:32:23AM +0100, Marc Zyngier wrote:
-> Mark Brown <broonie@kernel.org> wrote:
+I think it's safe enough not to need a min_t(int,...
 
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -495,6 +495,7 @@ enum vcpu_sysreg {
-> >  	SVCR,
-> >  	FPMR,
-> >  	SMIDR_EL1,	/* Streaming Mode Identification Register */
-> > +	SMPRI_EL1,	/* Streaming Mode Priority Register */
+merged to i2c/i2c-host.
 
-> What is the point of making the sysreg file larger for the sole
-> purpose of returning a value that is firmly always 0? Can't that be
-> synthesised on the fly whenever needed?
-
-This was patterned of what you'd done with SVCR, I'd formed the
-impression that the idea was that for registers that really exist like
-this one it was more robust and less code to set them up in the sysreg
-file and have everything look standard than do custom handling.  That
-case was a bit different as the arch FP code needs a variable to point
-at, I'll remove this and synthesise instead.
-
-> > +	EL2_REG_FILTERED(SMPRIMAP_EL2, trap_raz_wi, reset_val, 0,
-> > +			 sme_el2_visibility),
-
-> Wut??? You clearly said it yourself: this register "has no specific
-> traps available". If you end-up here from a guest access, this is a
-> bug. So this "trap_raz_wi" makes no sense.
-
-I see, so the callback should be NULL?  Access to the register will get
-trapped as part of the general trapping of EL2 access by a NV hypervisor
-so it wasn't clear to me that that we shouldn't have the handling.
-
-> I also cannot see where this register is properly configured to be
-> fully RES0, as it should.
-
-Me either now that you point it out, thanks.
-
---pjNON9hcckQNbems
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhmxd8ACgkQJNaLcl1U
-h9Cnigf9FOTIvLzH7nW4Ne5KezFk5Oy7PnPYWnqdug2uCPZ/c0vKArSLFLGgbaQC
-LNFKKt/Ki9NPakD73zenb2iRfQHst2Z/XNgHqvDVczgNsuJx4BVX5hsObCeIKdrj
-RCTmY9X9Jb4b6lHsM/BH6pEIysEYRA8zj5+KbHhi5vm9EgAoq6um6H1kW2kCEUXb
-10We2nKb5cHNobBonc54HhAgxOpEM52E+dE9MdDa9SoUWwKBzzaJHTv6FRIHomJN
-EhsF7DLO6ovjqOaXBLj9tGalSO4xXR+EPQdJSmhExqjSywYoQP0S6ncSlwwS0PdG
-W7906Lv0olpdyCLF/Cav9KCU4YU9AA==
-=/1vV
------END PGP SIGNATURE-----
-
---pjNON9hcckQNbems--
+Thanks,
+Andi
 
