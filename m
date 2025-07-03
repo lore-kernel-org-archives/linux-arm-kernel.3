@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B86EAC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB65C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+o76Ckd7XdMmhjnEK7p7nJKP4dUpOoO+YaSNjgrxxEI=; b=gu1o8NLlyS8WKcqXB2pcE4OeUe
-	QaB62PeU98rcUQWDb9VnfjUTDzo1oOtwJ00QY3zIz613oPT5GmX3X/JhZuF17fWKK9+8VR3ia2Pcl
-	ZC0/Xug6jpgbXOuIQTDZpEh7fTCFw9DoXOTI9GZ4NdrFzvSCoSg22yth2NHzij5lCtfkFe0uTp0AF
-	xrRdUgkqzENAqI2RQRoGu3rkVXTx3j2UYtR1vpdOpkbLUM5vcvs5NP1CwSxKKh6Q1ZFdUoOaOUZtj
-	2704nzpoQeWjp1p3fSI/2vmWuf7nz7euj0fQGXz6ggbSX2oJXZRfAHAOWU8gfhXavR2N3qTgFn2UY
-	eHMS53jw==;
+	bh=0xjF9sNGqZ/cA5hk8shCQ1Qr1FJ8VDk9Xy/fDKZG1ug=; b=WPmh4IgFs+oxqdyO0TLb0EbQAY
+	7DMDzZsQSw8PuM0VGH5erG8B699WW3YxWMgnb1/TaHqcbMfNE7TNAFq9bG0/3el20ArhbjuJq4YIV
+	/nCKD/H3ECmsaac3Q9Slmx4kl6oBmMBmLsezCNI52PibSTfvHEKzQ37d/fgJnBBEVQ9n0CZnHxIEi
+	I///YL0LfkOAhxh11hfu5BbmpgLDVSiYRor1dgpZnJD9r3LUeZuxwsdbNUgmc72AjG4KPZxlJ9zVF
+	0epqx5W4ObpHvOG3Q4C/qnLg/F5G7k6EO+tp+rY43oODfCsvHJOK0wKWfj4Q6Y6xE1mvsMVie218x
+	NrUXC4+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIF6-0000000BB6R-3h15;
-	Thu, 03 Jul 2025 11:36:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uXIHQ-0000000BBdM-2npQ;
+	Thu, 03 Jul 2025 11:39:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHAW-0000000AzN0-3sfZ
+	id 1uXHAZ-0000000AzPD-3C7c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 10:27:53 +0000
+	Thu, 03 Jul 2025 10:27:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 523716141F;
-	Thu,  3 Jul 2025 10:27:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BADBC4CEFA;
-	Thu,  3 Jul 2025 10:27:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 22B505C5E02;
+	Thu,  3 Jul 2025 10:27:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3643C4CEED;
+	Thu,  3 Jul 2025 10:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751538442;
-	bh=xP1ZSDvdEMNzLFTksEUUUoXYt9M+SQ6BRBD+ihLwiLw=;
+	s=k20201202; t=1751538474;
+	bh=6xMnWOG8+UY1fkqV4BBV0oBxtt0IAo27S1yVhH1NjGY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=uxmPvPSpq33kyeY4be5Z2tqaZ5bDx4d3LlGrIKmUr5634blz9o5VEZeSLXUrMS1nZ
-	 mhH11KUbpxOkDlCQlJs2yiKoECjGL8Pzm7npRb+rjy/A3SUxXXyp2oHqRLV74lKMMv
-	 g8fY+nOfY3FFnsfER/ALJ2DQtFemxK5Uzf+kITaq/WHIZ7oEsFRXkqrsAJi/fxBgua
-	 wEC9e/S5elECcAptXiOMht8j6MuwPWcF37gdyiv/b0JkyTJ1HEvjcryVM8pCgGxAUO
-	 JBPlUGzstqUI795XYxO5g1usxHGR5qmD5MoA488hPKCIt24HkB5C2hjZnrfPader6g
-	 T+2kfttwTkpIg==
+	b=lulaPQY4gRzQ8Si1hTl/r3fN49UaWNsrlqLJl4MLrOgD3xunVb2sV9RK+OB2Fa6bt
+	 aFcMNYKWPBVsz+b0qHN4ZU6PVXC5nT1268MA6rUFA91oyO0DD2jonJPLgj1icuATpX
+	 9LkoSaBQ7UhLdHw30Fvl5a6v9q6n+49WOZYeOOSW1wqmCsnUv19ciFqtrJ1zlrTUGr
+	 K0N09Brd+bQwee/XEaUTJSmCE14T4hWpnPt1w8McVwaQA6EPSSJXIhZGKe5gu2INbd
+	 CFiNZNeB26Wf0F16Vtoe2uVwAbHt5YP6FxyALuPxO4JcJR9LVzbYN7k/MMHpfIop/n
+	 4pW7dNz5Czr4A==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Thu, 03 Jul 2025 12:25:13 +0200
-Subject: [PATCH v7 23/31] irqchip/gic-v5: Enable GICv5 SMP booting
+Date: Thu, 03 Jul 2025 12:25:19 +0200
+Subject: [PATCH v7 29/31] irqchip/gic-v5: Add GICv5 IWB support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250703-gicv5-host-v7-23-12e71f1b3528@kernel.org>
+Message-Id: <20250703-gicv5-host-v7-29-12e71f1b3528@kernel.org>
 References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
 In-Reply-To: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -66,6 +66,9 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
  devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>
 X-Mailer: b4 0.15-dev-6f78e
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250703_032755_900843_815320E3 
+X-CRM114-Status: GOOD (  33.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,12 +83,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set up IPIs by allocating IPI IRQs for all cpus and call into
-arm64 core code to initialise IPIs IRQ descriptors and
-request the related IRQ.
+The GICv5 architecture implements the Interrupt Wire Bridge (IWB) in
+order to support wired interrupts that cannot be connected directly
+to an IRS and instead uses the ITS to translate a wire event into
+an IRQ signal.
 
-Implement hotplug callback to enable interrupts on a cpu
-and register the cpu with an IRS.
+Add the wired-to-MSI IWB driver to manage IWB wired interrupts.
+
+An IWB is connected to an ITS and it has its own deviceID for all
+interrupt wires that it manages; the IWB input wire number must be
+exposed to the ITS as an eventID with a 1:1 mapping.
+
+This eventID is not programmable and therefore requires a new
+msi_alloc_info_t flag to make sure the ITS driver does not allocate
+an eventid for the wire but rather it uses the msi_alloc_info_t.hwirq
+number to gather the ITS eventID.
 
 Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
@@ -96,62 +108,420 @@ Reviewed-by: Marc Zyngier <maz@kernel.org>
 Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-gic-v5.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ drivers/irqchip/Makefile           |   3 +-
+ drivers/irqchip/irq-gic-v5-its.c   |  40 ++++--
+ drivers/irqchip/irq-gic-v5-iwb.c   | 284 +++++++++++++++++++++++++++++++++++++
+ include/asm-generic/msi.h          |   1 +
+ include/linux/irqchip/arm-gic-v5.h |  17 +++
+ 5 files changed, 335 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-index 84ed13c4f2b1..97ff935d79bd 100644
---- a/drivers/irqchip/irq-gic-v5.c
-+++ b/drivers/irqchip/irq-gic-v5.c
-@@ -5,6 +5,7 @@
- 
- #define pr_fmt(fmt)	"GICv5: " fmt
- 
-+#include <linux/cpuhotplug.h>
- #include <linux/idr.h>
- #include <linux/irqdomain.h>
- #include <linux/slab.h>
-@@ -918,6 +919,8 @@ static void gicv5_cpu_enable_interrupts(void)
- 	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index 5459f66e597f..e83dad932ac0 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -37,7 +37,8 @@ obj-$(CONFIG_ARM_GIC_ITS_PARENT)	+= irq-gic-its-msi-parent.o
+ obj-$(CONFIG_ARM_GIC_V3_ITS)		+= irq-gic-v3-its.o irq-gic-v4.o
+ obj-$(CONFIG_ARM_GIC_V3_ITS_FSL_MC)	+= irq-gic-v3-its-fsl-mc-msi.o
+ obj-$(CONFIG_PARTITION_PERCPU)		+= irq-partition-percpu.o
+-obj-$(CONFIG_ARM_GIC_V5)		+= irq-gic-v5.o irq-gic-v5-irs.o irq-gic-v5-its.o
++obj-$(CONFIG_ARM_GIC_V5)		+= irq-gic-v5.o irq-gic-v5-irs.o irq-gic-v5-its.o \
++					   irq-gic-v5-iwb.o
+ obj-$(CONFIG_HISILICON_IRQ_MBIGEN)	+= irq-mbigen.o
+ obj-$(CONFIG_ARM_NVIC)			+= irq-nvic.o
+ obj-$(CONFIG_ARM_VIC)			+= irq-vic.o
+diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+index 700df6d0687e..340640fdbdf6 100644
+--- a/drivers/irqchip/irq-gic-v5-its.c
++++ b/drivers/irqchip/irq-gic-v5-its.c
+@@ -880,19 +880,41 @@ static void gicv5_its_unmap_event(struct gicv5_its_dev *its_dev, u16 event_id)
+ 	gicv5_its_itt_cache_inv(its, its_dev->device_id, event_id);
  }
  
-+static int base_ipi_virq;
-+
- static int gicv5_starting_cpu(unsigned int cpu)
+-static int gicv5_its_alloc_eventid(struct gicv5_its_dev *its_dev,
++static int gicv5_its_alloc_eventid(struct gicv5_its_dev *its_dev, msi_alloc_info_t *info,
+ 				   unsigned int nr_irqs, u32 *eventid)
  {
- 	if (WARN(!gicv5_cpuif_has_gcie(),
-@@ -929,6 +932,22 @@ static int gicv5_starting_cpu(unsigned int cpu)
- 	return gicv5_irs_register_cpu(cpu);
- }
+-	int ret;
++	int event_id_base;
  
-+static void __init gicv5_smp_init(void)
+-	ret = bitmap_find_free_region(its_dev->event_map,
+-				      its_dev->num_events,
+-				      get_count_order(nr_irqs));
++	if (!(info->flags & MSI_ALLOC_FLAGS_FIXED_MSG_DATA)) {
++		event_id_base = bitmap_find_free_region(its_dev->event_map,
++							its_dev->num_events,
++							get_count_order(nr_irqs));
++		if (event_id_base < 0)
++			return event_id_base;
++	} else {
++		/*
++		 * We want to have a fixed EventID mapped for hardcoded
++		 * message data allocations.
++		 */
++		if (WARN_ON_ONCE(nr_irqs != 1))
++			return -EINVAL;
+ 
+-	if (ret < 0)
+-		return ret;
++		event_id_base = info->hwirq;
+ 
+-	*eventid = ret;
++		if (event_id_base >= its_dev->num_events) {
++			pr_err("EventID ouside of ITT range; cannot allocate an ITT entry!\n");
++
++			return -EINVAL;
++		}
++
++		if (test_and_set_bit(event_id_base, its_dev->event_map)) {
++			pr_warn("Can't reserve event_id bitmap\n");
++			return -EINVAL;
++
++		}
++	}
++
++	*eventid = event_id_base;
+ 
+ 	return 0;
+ }
+@@ -916,7 +938,7 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
+ 
+ 	its_dev = info->scratchpad[0].ptr;
+ 
+-	ret = gicv5_its_alloc_eventid(its_dev, nr_irqs, &event_id_base);
++	ret = gicv5_its_alloc_eventid(its_dev, info, nr_irqs, &event_id_base);
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
+new file mode 100644
+index 000000000000..ed72fbdd4900
+--- /dev/null
++++ b/drivers/irqchip/irq-gic-v5-iwb.c
+@@ -0,0 +1,284 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2024-2025 ARM Limited, All Rights Reserved.
++ */
++#define pr_fmt(fmt)	"GICv5 IWB: " fmt
++
++#include <linux/init.h>
++#include <linux/kernel.h>
++#include <linux/msi.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/of_platform.h>
++
++#include <linux/irqchip.h>
++#include <linux/irqchip/arm-gic-v5.h>
++
++struct gicv5_iwb_chip_data {
++	void __iomem	*iwb_base;
++	u16		nr_regs;
++};
++
++static u32 iwb_readl_relaxed(struct gicv5_iwb_chip_data *iwb_node, const u32 reg_offset)
 +{
-+	unsigned int num_ipis = GICV5_IPIS_PER_CPU * nr_cpu_ids;
-+
-+	cpuhp_setup_state_nocalls(CPUHP_AP_IRQ_GIC_STARTING,
-+				  "irqchip/arm/gicv5:starting",
-+				  gicv5_starting_cpu, NULL);
-+
-+	base_ipi_virq = irq_domain_alloc_irqs(gicv5_global_data.ipi_domain,
-+					      num_ipis, NUMA_NO_NODE, NULL);
-+	if (WARN(base_ipi_virq <= 0, "IPI IRQ allocation was not successful"))
-+		return;
-+
-+	set_smp_ipi_range_percpu(base_ipi_virq, GICV5_IPIS_PER_CPU, nr_cpu_ids);
++	return readl_relaxed(iwb_node->iwb_base + reg_offset);
 +}
 +
- static void __init gicv5_free_domains(void)
- {
- 	if (gicv5_global_data.ppi_domain)
-@@ -1050,6 +1069,8 @@ static int __init gicv5_of_init(struct device_node *node, struct device_node *pa
- 	if (ret)
- 		goto out_int;
- 
-+	gicv5_smp_init();
++static void iwb_writel_relaxed(struct gicv5_iwb_chip_data *iwb_node, const u32 val,
++			       const u32 reg_offset)
++{
++	writel_relaxed(val, iwb_node->iwb_base + reg_offset);
++}
 +
- 	return 0;
++static int gicv5_iwb_wait_for_wenabler(struct gicv5_iwb_chip_data *iwb_node)
++{
++	return gicv5_wait_for_op_atomic(iwb_node->iwb_base, GICV5_IWB_WENABLE_STATUSR,
++					GICV5_IWB_WENABLE_STATUSR_IDLE, NULL);
++}
++
++static int __gicv5_iwb_set_wire_enable(struct gicv5_iwb_chip_data *iwb_node,
++				       u32 iwb_wire, bool enable)
++{
++	u32 n = iwb_wire / 32;
++	u8 i = iwb_wire % 32;
++	u32 val;
++
++	if (n >= iwb_node->nr_regs) {
++		pr_err("IWB_WENABLER<n> is invalid for n=%u\n", n);
++		return -EINVAL;
++	}
++
++	/*
++	 * Enable IWB wire/pin at this point
++	 * Note: This is not the same as enabling the interrupt
++	 */
++	val = iwb_readl_relaxed(iwb_node, GICV5_IWB_WENABLER + (4 * n));
++	if (enable)
++		val |= BIT(i);
++	else
++		val &= ~BIT(i);
++	iwb_writel_relaxed(iwb_node, val, GICV5_IWB_WENABLER + (4 * n));
++
++	return gicv5_iwb_wait_for_wenabler(iwb_node);
++}
++
++static int gicv5_iwb_enable_wire(struct gicv5_iwb_chip_data *iwb_node,
++				 u32 iwb_wire)
++{
++	return __gicv5_iwb_set_wire_enable(iwb_node, iwb_wire, true);
++}
++
++static int gicv5_iwb_disable_wire(struct gicv5_iwb_chip_data *iwb_node,
++				  u32 iwb_wire)
++{
++	return __gicv5_iwb_set_wire_enable(iwb_node, iwb_wire, false);
++}
++
++static void gicv5_iwb_irq_disable(struct irq_data *d)
++{
++	struct gicv5_iwb_chip_data *iwb_node = irq_data_get_irq_chip_data(d);
++
++	gicv5_iwb_disable_wire(iwb_node, d->hwirq);
++	irq_chip_disable_parent(d);
++}
++
++static void gicv5_iwb_irq_enable(struct irq_data *d)
++{
++	struct gicv5_iwb_chip_data *iwb_node = irq_data_get_irq_chip_data(d);
++
++	gicv5_iwb_enable_wire(iwb_node, d->hwirq);
++	irq_chip_enable_parent(d);
++}
++
++static int gicv5_iwb_set_type(struct irq_data *d, unsigned int type)
++{
++	struct gicv5_iwb_chip_data *iwb_node = irq_data_get_irq_chip_data(d);
++	u32 iwb_wire, n, wtmr;
++	u8 i;
++
++	iwb_wire = d->hwirq;
++	i = iwb_wire % 32;
++	n = iwb_wire / 32;
++
++	if (n >= iwb_node->nr_regs) {
++		pr_err_once("reg %u out of range\n", n);
++		return -EINVAL;
++	}
++
++	wtmr = iwb_readl_relaxed(iwb_node, GICV5_IWB_WTMR + (4 * n));
++
++	switch (type) {
++	case IRQ_TYPE_LEVEL_HIGH:
++	case IRQ_TYPE_LEVEL_LOW:
++		wtmr |= BIT(i);
++		break;
++	case IRQ_TYPE_EDGE_RISING:
++	case IRQ_TYPE_EDGE_FALLING:
++		wtmr &= ~BIT(i);
++		break;
++	default:
++		pr_debug("unexpected wire trigger mode");
++		return -EINVAL;
++	}
++
++	iwb_writel_relaxed(iwb_node, wtmr, GICV5_IWB_WTMR + (4 * n));
++
++	return 0;
++}
++
++static void gicv5_iwb_domain_set_desc(msi_alloc_info_t *alloc_info, struct msi_desc *desc)
++{
++	alloc_info->desc = desc;
++	alloc_info->hwirq = (u32)desc->data.icookie.value;
++}
++
++static int gicv5_iwb_irq_domain_translate(struct irq_domain *d, struct irq_fwspec *fwspec,
++					  irq_hw_number_t *hwirq,
++					  unsigned int *type)
++{
++	if (!is_of_node(fwspec->fwnode))
++		return -EINVAL;
++
++	if (fwspec->param_count < 2)
++		return -EINVAL;
++
++	/*
++	 * param[0] is be the wire
++	 * param[1] is the interrupt type
++	 */
++	*hwirq = fwspec->param[0];
++	*type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
++
++	return 0;
++}
++
++static void gicv5_iwb_write_msi_msg(struct irq_data *d, struct msi_msg *msg) {}
++
++static const struct msi_domain_template iwb_msi_template = {
++	.chip = {
++		.name			= "GICv5-IWB",
++		.irq_mask		= irq_chip_mask_parent,
++		.irq_unmask		= irq_chip_unmask_parent,
++		.irq_enable		= gicv5_iwb_irq_enable,
++		.irq_disable		= gicv5_iwb_irq_disable,
++		.irq_eoi		= irq_chip_eoi_parent,
++		.irq_set_type		= gicv5_iwb_set_type,
++		.irq_write_msi_msg	= gicv5_iwb_write_msi_msg,
++		.irq_set_affinity	= irq_chip_set_affinity_parent,
++		.irq_get_irqchip_state	= irq_chip_get_parent_state,
++		.irq_set_irqchip_state	= irq_chip_set_parent_state,
++		.flags			= IRQCHIP_SET_TYPE_MASKED |
++					  IRQCHIP_SKIP_SET_WAKE |
++					  IRQCHIP_MASK_ON_SUSPEND,
++	},
++
++	.ops = {
++		.set_desc		= gicv5_iwb_domain_set_desc,
++		.msi_translate		= gicv5_iwb_irq_domain_translate,
++	},
++
++	.info = {
++		.bus_token		= DOMAIN_BUS_WIRED_TO_MSI,
++		.flags			= MSI_FLAG_USE_DEV_FWNODE,
++	},
++
++	.alloc_info = {
++		.flags			= MSI_ALLOC_FLAGS_FIXED_MSG_DATA,
++	},
++};
++
++static bool gicv5_iwb_create_device_domain(struct device *dev, unsigned int size,
++				     struct gicv5_iwb_chip_data *iwb_node)
++{
++	if (WARN_ON_ONCE(!dev->msi.domain))
++		return false;
++
++	return msi_create_device_irq_domain(dev, MSI_DEFAULT_DOMAIN,
++					    &iwb_msi_template, size,
++					    NULL, iwb_node);
++}
++
++static struct gicv5_iwb_chip_data *
++gicv5_iwb_init_bases(void __iomem *iwb_base, struct platform_device *pdev)
++{
++	u32 nr_wires, idr0, cr0;
++	unsigned int n;
++	int ret;
++
++	struct gicv5_iwb_chip_data *iwb_node __free(kfree) = kzalloc(sizeof(*iwb_node),
++								     GFP_KERNEL);
++	if (!iwb_node)
++		return ERR_PTR(-ENOMEM);
++
++	iwb_node->iwb_base = iwb_base;
++
++	idr0 = iwb_readl_relaxed(iwb_node, GICV5_IWB_IDR0);
++	nr_wires = (FIELD_GET(GICV5_IWB_IDR0_IW_RANGE, idr0) + 1) * 32;
++
++	cr0 = iwb_readl_relaxed(iwb_node, GICV5_IWB_CR0);
++	if (!FIELD_GET(GICV5_IWB_CR0_IWBEN, cr0)) {
++		dev_err(&pdev->dev, "IWB must be enabled in firmware\n");
++		return ERR_PTR(-EINVAL);
++	}
++
++	iwb_node->nr_regs = FIELD_GET(GICV5_IWB_IDR0_IW_RANGE, idr0) + 1;
++
++	for (n = 0; n < iwb_node->nr_regs; n++)
++		iwb_writel_relaxed(iwb_node, 0, GICV5_IWB_WENABLER + (sizeof(u32) * n));
++
++	ret = gicv5_iwb_wait_for_wenabler(iwb_node);
++	if (ret)
++		return ERR_PTR(ret);
++
++	if (!gicv5_iwb_create_device_domain(&pdev->dev, nr_wires, iwb_node))
++		return ERR_PTR(-ENOMEM);
++
++	return_ptr(iwb_node);
++}
++
++static int gicv5_iwb_device_probe(struct platform_device *pdev)
++{
++	struct gicv5_iwb_chip_data *iwb_node;
++	void __iomem *iwb_base;
++	struct resource *res;
++	int ret;
++
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!res)
++		return -EINVAL;
++
++	iwb_base = devm_ioremap(&pdev->dev, res->start, resource_size(res));
++	if (!iwb_base) {
++		dev_err(&pdev->dev, "failed to ioremap %pR\n", res);
++		return -ENOMEM;
++	}
++
++	iwb_node = gicv5_iwb_init_bases(iwb_base, pdev);
++	if (IS_ERR(iwb_node)) {
++		ret = PTR_ERR(iwb_node);
++		goto out_unmap;
++	}
++
++	return 0;
++
++out_unmap:
++	iounmap(iwb_base);
++	return ret;
++}
++
++static const struct of_device_id gicv5_iwb_of_match[] = {
++	{ .compatible = "arm,gic-v5-iwb" },
++	{ /* END */ }
++};
++MODULE_DEVICE_TABLE(of, gicv5_iwb_of_match);
++
++static struct platform_driver gicv5_iwb_platform_driver = {
++	.driver = {
++		.name			= "GICv5 IWB",
++		.of_match_table		= gicv5_iwb_of_match,
++		.suppress_bind_attrs	= true,
++	},
++	.probe				= gicv5_iwb_device_probe,
++};
++
++module_platform_driver(gicv5_iwb_platform_driver);
+diff --git a/include/asm-generic/msi.h b/include/asm-generic/msi.h
+index 124c734ca5d9..92cca4b23f13 100644
+--- a/include/asm-generic/msi.h
++++ b/include/asm-generic/msi.h
+@@ -33,6 +33,7 @@ typedef struct msi_alloc_info {
  
- out_int:
+ /* Device generating MSIs is proxying for another device */
+ #define MSI_ALLOC_FLAGS_PROXY_DEVICE	(1UL << 0)
++#define MSI_ALLOC_FLAGS_FIXED_MSG_DATA	(1UL << 1)
+ 
+ #define GENERIC_MSI_DOMAIN_OPS		1
+ 
+diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
+index 07b952549bfa..68ddcdb1cec5 100644
+--- a/include/linux/irqchip/arm-gic-v5.h
++++ b/include/linux/irqchip/arm-gic-v5.h
+@@ -248,6 +248,23 @@
+ #define GICV5_ITS_HWIRQ_DEVICE_ID		GENMASK_ULL(31, 0)
+ #define GICV5_ITS_HWIRQ_EVENT_ID		GENMASK_ULL(63, 32)
+ 
++/*
++ * IWB registers
++ */
++#define GICV5_IWB_IDR0				0x0000
++#define GICV5_IWB_CR0				0x0080
++#define GICV5_IWB_WENABLE_STATUSR		0x00c0
++#define GICV5_IWB_WENABLER			0x2000
++#define GICV5_IWB_WTMR				0x4000
++
++#define GICV5_IWB_IDR0_INT_DOMS			GENMASK(14, 11)
++#define GICV5_IWB_IDR0_IW_RANGE			GENMASK(10, 0)
++
++#define GICV5_IWB_CR0_IDLE			BIT(1)
++#define GICV5_IWB_CR0_IWBEN			BIT(0)
++
++#define GICV5_IWB_WENABLE_STATUSR_IDLE		BIT(0)
++
+ /*
+  * Global Data structures and functions
+  */
 
 -- 
 2.48.0
