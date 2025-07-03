@@ -4,90 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64B1FC77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 09:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 321EDC77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 09:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LsmmnatiCRLg/wZSzG2lIua0BjHMgi6/ML5YNf8IQ4A=; b=e08QNniITLQZghXRgd+lD4fHvJ
-	VlaaVOB5dtcIN5rVcPL4dS9saqClQ8JVCWNyMc3iF4jwfURVWhQJ++MHBl4twHPLhEmBBGtJjhgEr
-	gwv3U/GSWGxanGzk2fg+5dCqmRnbfW7sHyiiM8cmHWQ9RYLhkbDPYZ/pKVlUIoUhxTfXvZG/9Pbm4
-	FzMknBIbXA/LJhue+wj/5N5S+L3ddlRYBmig57V216Qx2MM1XzlAbkCDgFKO0lK/H1hQe34awZVrj
-	g7kZrcCVB2O4uhULCVk5p4UgYNUmoH42EQ83jmVqw7Ev2OgiOlRHWD5o37SF/xqjbUTTwf5MCj4Ic
-	UA7Ntxcg==;
+	bh=U8/3UFXjScc/VhoP6EsW6/w+rmVzUP3VLZMHXQEnMOc=; b=CiCQUO2Y3pC3SZkm9sijWEi5xp
+	RgzuGrquwltgGSr9LyQ6zQ/kNmfMkcQa2saxcw3USg5VNMsMVSx6UCNkge7GcAteEZ2sDP7kkv2vl
+	5B1nPdu7BTeEfRvahGy/OO5qRc4cGxXf79ADNdidfgoTC06YFzT4vJPQDNJgr2cFUlZKoS0TBXkXl
+	Rpg+l7p75rnAHZgFhxrB6AMdStEKFpX5BRSVo05N6ih8n+ZMcm3YtEYuu+eID/LrvH5i+NIMv7rVE
+	7rmgehXRTFij17uW/0dpGu4nAV+6C1g5Wk/gNrVe7py3ubHnzc/19qR8xQNDNxSphFFX/iyPk7hWd
+	FSmHKoIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXGEo-0000000Ap5q-1RPQ;
-	Thu, 03 Jul 2025 09:28:14 +0000
-Received: from zg8tmja5ljk3lje4mi4ymjia.icoremail.net ([209.97.182.222])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXG7L-0000000Antx-1jyy
+	id 1uXGH8-0000000ApVz-0Geu;
+	Thu, 03 Jul 2025 09:30:38 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXG8a-0000000Ao7D-3owj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 09:20:32 +0000
-Received: from E0005182LT.eswin.cn (unknown [10.12.96.155])
-	by app2 (Coremail) with SMTP id TQJkCgDXaJJQS2Zocl+oAA--.41647S2;
-	Thu, 03 Jul 2025 17:20:19 +0800 (CST)
-From: weishangjuan@eswincomputing.com
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	yong.liang.choong@linux.intel.com,
-	vladimir.oltean@nxp.com,
-	jszhang@kernel.org,
-	jan.petrous@oss.nxp.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	inochiama@gmail.com,
-	boon.khai.ng@altera.com,
-	dfustini@tenstorrent.com,
-	0x1207@gmail.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	lizhi2@eswincomputing.com,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>
-Subject: [PATCH v3 2/2] ethernet: eswin: Add eic7700 ethernet driver
-Date: Thu,  3 Jul 2025 17:20:15 +0800
-Message-Id: <20250703092015.1200-1-weishangjuan@eswincomputing.com>
-X-Mailer: git-send-email 2.31.1.windows.1
-In-Reply-To: <20250703091808.1092-1-weishangjuan@eswincomputing.com>
-References: <20250703091808.1092-1-weishangjuan@eswincomputing.com>
+	Thu, 03 Jul 2025 09:21:51 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5639KN7v012395;
+	Thu, 3 Jul 2025 11:21:37 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	U8/3UFXjScc/VhoP6EsW6/w+rmVzUP3VLZMHXQEnMOc=; b=Rg6zIqxXVN/lfQGs
+	fKnQFf0q/7ilTG9vRlVMMzqP/IgJ92tkaLQr0rS2KExqysC3Gy6bGWQZhiSg9SRA
+	jPXgr7nCkK63QVKuTpnMDT6fg8jn97ZefaBY+hOB+VJ8t3DSDHOupGONAyg8dHE5
+	sHbhWZGSOr88smm5nf3mNdHedMB6jSUpHqp2dRgtTQQp53Pt5zv7CgCk5S74shfW
+	u0lGL8pRyaqSKir+pjJ/47XtcfNMHjAG6Q2vykONLC6UkAYpCthqqASIIu8KvJa5
+	w2Gvkb2yRzCfgbdOCIrjV6GU3SY6XNIPh/8VDNxIlmXv6nxOEC/QwvH+yk5bCZws
+	8I56Bg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47jubp3tx3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 03 Jul 2025 11:21:37 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 570B54002D;
+	Thu,  3 Jul 2025 11:20:00 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BD797B2B8A3;
+	Thu,  3 Jul 2025 11:19:06 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 3 Jul
+ 2025 11:19:05 +0200
+Message-ID: <01d03052-4d9b-4d71-9781-a050ee669d45@foss.st.com>
+Date: Thu, 3 Jul 2025 11:19:05 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] i2c: stm32f7: unmap DMA mapped buffer
+To: Andi Shyti <andi.shyti@kernel.org>
+CC: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
+        Alain Volmat
+	<alain.volmat@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Sumit Semwal
+	<sumit.semwal@linaro.org>,
+        =?UTF-8?Q?Christian_K=C3=B6nig?=
+	<christian.koenig@amd.com>,
+        M'boumba Cedric Madianga
+	<cedric.madianga@gmail.com>,
+        Wolfram Sang <wsa@kernel.org>,
+        "Pierre-Yves
+ MORDRET" <pierre-yves.mordret@st.com>,
+        <linux-i2c@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <linaro-mm-sig@lists.linaro.org>
+References: <20250630-i2c-upstream-v3-0-7a23ab26683a@foss.st.com>
+ <20250630-i2c-upstream-v3-2-7a23ab26683a@foss.st.com>
+ <zp3pagbojmu67o4sjm65a44ovvui5uvybs32nayvhtewfbm4el@n5lro4v5iq36>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <zp3pagbojmu67o4sjm65a44ovvui5uvybs32nayvhtewfbm4el@n5lro4v5iq36>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TQJkCgDXaJJQS2Zocl+oAA--.41647S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3tF45CrWxKr1rZr1fGrWfXwb_yoWkWr4rpa
-	y8Aa45trnrAr1xG3ykJF48Ga4F9w12ga1fuF93tFn3ZFWayrZ8W3s5tFyakFyDKr9xZr13
-	Gw4UAFyfuF1q9rDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1U
-	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
-	8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7sRiWrW5UUUUU==
-X-CM-SenderInfo: pzhl2xxdqjy31dq6v25zlqu0xpsx3x1qjou0bp/
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-03_02,2025-07-02_04,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_022031_714865_764CFCEC 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20250703_022149_566014_D045B5EC 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,321 +110,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shangjuan Wei <weishangjuan@eswincomputing.com>
+Hi Andi,
 
-Add Ethernet controller support for Eswin's eic7700 SoC. The driver
-provides management and control of Ethernet signals for the eiC7700
-series chips.
+On 7/2/25 19:08, Andi Shyti wrote:
+> Hi Clement,
+> 
+> On Mon, Jun 30, 2025 at 02:55:14PM +0200, Clément Le Goffic wrote:
+>> Fix an issue where the mapped DMA buffer was not unmapped.
+> 
+> "Fix an issue..." is too generic. Can you be more specific? Where
+> was it mapped? Where was it left unmapped?
+> 
+> Please, do consider that the user needs to understand what
+> happens in the patch without needing to look into the patch.
 
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 257 ++++++++++++++++++
- 3 files changed, 269 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+Ok sure I'll refine the commit message.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 67fa879b1e52..a13b15ce1abd 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -67,6 +67,17 @@ config DWMAC_ANARION
+> 
+>> Fixes: 7ecc8cfde553 ("i2c: i2c-stm32f7: Add DMA support")
+>> Acked-by: Alain Volmat <alain.volmat@foss.st.com>
+>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>> ---
+>>   drivers/i2c/busses/i2c-stm32f7.c | 6 ++++++
+>>   1 file changed, 6 insertions(+)
+>>
+>> diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
+>> index e4aaeb2262d0..042386b4cabe 100644
+>> --- a/drivers/i2c/busses/i2c-stm32f7.c
+>> +++ b/drivers/i2c/busses/i2c-stm32f7.c
+>> @@ -1554,6 +1554,8 @@ static irqreturn_t stm32f7_i2c_handle_isr_errs(struct stm32f7_i2c_dev *i2c_dev,
+>>   	if (i2c_dev->use_dma) {
+>>   		stm32f7_i2c_disable_dma_req(i2c_dev);
+>>   		dmaengine_terminate_async(dma->chan_using);
+>> +		dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
+>> +				 dma->dma_data_dir);
+>>   	}
+>>   
+>>   	i2c_dev->master_mode = false;
+>> @@ -1622,6 +1624,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+>>   		if (i2c_dev->use_dma) {
+>>   			stm32f7_i2c_disable_dma_req(i2c_dev);
+>>   			dmaengine_terminate_async(dma->chan_using);
+>> +			dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
+>> +					 dma->dma_data_dir);
+>>   		}
+>>   		f7_msg->result = -ENXIO;
+>>   	}
+>> @@ -1642,6 +1646,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+>>   				dev_dbg(i2c_dev->dev, "<%s>: Timed out\n", __func__);
+>>   				stm32f7_i2c_disable_dma_req(i2c_dev);
+>>   				dmaengine_terminate_async(dma->chan_using);
+>> +				dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
+>> +						 dma->dma_data_dir);
+> 
+> Can't we use the dma_callback here, or similar? I see some
+> similar patterns and I think the code can be improved.
 
- 	  This selects the Anarion SoC glue layer support for the stmmac driver.
+Yes, it seems the code can be factorized.
+I'll submit a new version with the factorization.
 
-+config DWMAC_EIC7700
-+	tristate "Support for Eswin eic7700 ethernet driver"
-+	select CRC32
-+	select MII
-+	depends on OF && HAS_DMA && ARCH_ESWIN || COMPILE_TEST
-+	help
-+	  This driver supports the Eswin EIC7700 Ethernet controller,
-+	  which integrates Synopsys DesignWare QoS features. It enables
-+	  high-speed networking with DMA acceleration and is optimized
-+	  for embedded systems.
-+
- config DWMAC_INGENIC
- 	tristate "Ingenic MAC support"
- 	default MACH_INGENIC
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index b591d93f8503..f4ec5fc16571 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -14,6 +14,7 @@ stmmac-$(CONFIG_STMMAC_SELFTESTS) += stmmac_selftests.o
- # Ordering matters. Generic driver must be last.
- obj-$(CONFIG_STMMAC_PLATFORM)	+= stmmac-platform.o
- obj-$(CONFIG_DWMAC_ANARION)	+= dwmac-anarion.o
-+obj-$(CONFIG_DWMAC_EIC7700)	+= dwmac-eic7700.o
- obj-$(CONFIG_DWMAC_INGENIC)	+= dwmac-ingenic.o
- obj-$(CONFIG_DWMAC_IPQ806X)	+= dwmac-ipq806x.o
- obj-$(CONFIG_DWMAC_LPC18XX)	+= dwmac-lpc18xx.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-new file mode 100644
-index 000000000000..000362e9987d
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-@@ -0,0 +1,257 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Eswin DWC Ethernet linux driver
-+ *
-+ * Copyright 2025, Beijing ESWIN Computing Technology Co., Ltd.
-+ *
-+ * Authors:
-+ *   Shuang Liang <liangshuang@eswincomputing.com>
-+ *   Shangjuan Wei <weishangjuan@eswincomputing.com>
-+ */
-+
-+#include <linux/platform_device.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/stmmac.h>
-+#include <linux/regmap.h>
-+#include <linux/of.h>
-+
-+#include "stmmac_platform.h"
-+
-+/* eth_phy_ctrl_offset eth0:0x100; eth1:0x200 */
-+#define EIC7700_ETH_TX_CLK_SEL		BIT(16)
-+#define EIC7700_ETH_PHY_INTF_SELI	BIT(0)
-+
-+/* eth_axi_lp_ctrl_offset eth0:0x108; eth1:0x208 */
-+#define EIC7700_ETH_CSYSREQ_VAL		BIT(0)
-+
-+/* hsp_aclk_ctrl_offset (0x148) */
-+#define EIC7700_HSP_ACLK_CLKEN		BIT(31)
-+#define EIC7700_HSP_ACLK_DIVSOR		(0x2 << 4)
-+
-+/* hsp_cfg_ctrl_offset (0x14c) */
-+#define EIC7700_HSP_CFG_CLKEN		BIT(31)
-+#define EIC7700_SCU_HSP_PCLK_EN		BIT(30)
-+#define EIC7700_HSP_CFG_CTRL_REGSET	(EIC7700_HSP_CFG_CLKEN | EIC7700_SCU_HSP_PCLK_EN)
-+
-+/* TX/RX clock delay (unit: 0.1ns per bit) */
-+#define EIC7700_ETH_TX_ADJ_DELAY	GENMASK(14, 8)
-+#define EIC7700_ETH_RX_ADJ_DELAY	GENMASK(30, 24)
-+
-+/* Default delay value*/
-+#define EIC7700_DELAY_VALUE0 0x20202020
-+#define EIC7700_DELAY_VALUE1 0x96205A20
-+
-+struct eic7700_qos_priv {
-+	struct device *dev;
-+	struct regmap *crg_regmap;
-+	struct regmap *hsp_regmap;
-+	u32 tx_delay_ps;
-+	u32 rx_delay_ps;
-+	u32 dly_hsp_reg[3];
-+	u32 dly_param_1000m[3];
-+	u32 dly_param_100m[3];
-+	u32 dly_param_10m[3];
-+};
-+
-+static inline void eic7700_set_delay(u32 rx_ps, u32 tx_ps, u32 *reg)
-+{
-+	u32 rx_val = rx_ps / 100;
-+
-+	if (rx_val > 0x7F)
-+		rx_val = 0x7F;
-+
-+	*reg &= ~EIC7700_ETH_RX_ADJ_DELAY;
-+	*reg |= (rx_val << 24) & EIC7700_ETH_RX_ADJ_DELAY;
-+
-+	u32 tx_val = tx_ps / 100;
-+
-+	if (tx_val > 0x7F)
-+		tx_val = 0x7F;
-+
-+	*reg &= ~EIC7700_ETH_TX_ADJ_DELAY;
-+	*reg |= (tx_val << 8) & EIC7700_ETH_TX_ADJ_DELAY;
-+}
-+
-+static void eic7700_qos_fix_speed(void *priv, int speed, u32 mode)
-+{
-+	struct eic7700_qos_priv *dwc_priv = priv;
-+	int i;
-+
-+	switch (speed) {
-+	case SPEED_1000:
-+		for (i = 0; i < 3; i++)
-+			regmap_write(dwc_priv->hsp_regmap,
-+				     dwc_priv->dly_hsp_reg[i],
-+				     dwc_priv->dly_param_1000m[i]);
-+		break;
-+	case SPEED_100:
-+		for (i = 0; i < 3; i++) {
-+			regmap_write(dwc_priv->hsp_regmap,
-+				     dwc_priv->dly_hsp_reg[i],
-+				     dwc_priv->dly_param_100m[i]);
-+		}
-+		break;
-+	case SPEED_10:
-+		for (i = 0; i < 3; i++) {
-+			regmap_write(dwc_priv->hsp_regmap,
-+				     dwc_priv->dly_hsp_reg[i],
-+				     dwc_priv->dly_param_10m[i]);
-+		}
-+		break;
-+	default:
-+		dev_err(dwc_priv->dev, "invalid speed %u\n", speed);
-+		break;
-+	}
-+}
-+
-+static int eic7700_dwmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	struct eic7700_qos_priv *dwc_priv;
-+	u32 hsp_aclk_ctrl_offset;
-+	u32 hsp_aclk_ctrl_regset;
-+	u32 hsp_cfg_ctrl_offset;
-+	u32 eth_axi_lp_ctrl_offset;
-+	u32 eth_phy_ctrl_offset;
-+	u32 eth_phy_ctrl_regset;
-+	bool has_rx_dly = false;
-+	bool has_tx_dly = false;
-+	int ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				"failed to get resources\n");
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
-+				"dt configuration failed\n");
-+
-+	dwc_priv = devm_kzalloc(&pdev->dev, sizeof(*dwc_priv), GFP_KERNEL);
-+	if (!dwc_priv)
-+		return -ENOMEM;
-+
-+	dwc_priv->dev = &pdev->dev;
-+	dwc_priv->dly_param_1000m[0] = EIC7700_DELAY_VALUE0;
-+	dwc_priv->dly_param_1000m[1] = EIC7700_DELAY_VALUE1;
-+	dwc_priv->dly_param_1000m[2] = EIC7700_DELAY_VALUE0;
-+	dwc_priv->dly_param_100m[0] = EIC7700_DELAY_VALUE0;
-+	dwc_priv->dly_param_100m[1] = EIC7700_DELAY_VALUE1;
-+	dwc_priv->dly_param_100m[2] = EIC7700_DELAY_VALUE0;
-+	dwc_priv->dly_param_10m[0] = 0x0;
-+	dwc_priv->dly_param_10m[1] = 0x0;
-+	dwc_priv->dly_param_10m[2] = 0x0;
-+
-+	ret = of_property_read_u32(pdev->dev.of_node, "rx-internal-delay-ps",
-+				   &dwc_priv->rx_delay_ps);
-+	if (ret)
-+		dev_dbg(&pdev->dev, "can't get rx-internal-delay-ps, ret(%d).", ret);
-+	else
-+		has_rx_dly = true;
-+
-+	ret = of_property_read_u32(pdev->dev.of_node, "tx-internal-delay-ps",
-+				   &dwc_priv->tx_delay_ps);
-+	if (ret)
-+		dev_dbg(&pdev->dev, "can't get tx-internal-delay-ps, ret(%d).", ret);
-+	else
-+		has_tx_dly = true;
-+	if (has_rx_dly && has_tx_dly) {
-+		eic7700_set_delay(dwc_priv->rx_delay_ps, dwc_priv->tx_delay_ps,
-+				  &dwc_priv->dly_param_1000m[1]);
-+		eic7700_set_delay(dwc_priv->rx_delay_ps, dwc_priv->tx_delay_ps,
-+				  &dwc_priv->dly_param_100m[1]);
-+		eic7700_set_delay(dwc_priv->rx_delay_ps, dwc_priv->tx_delay_ps,
-+				  &dwc_priv->dly_param_10m[1]);
-+	} else {
-+		dev_dbg(&pdev->dev, " use default dly\n");
-+	}
-+
-+	ret = of_property_read_variable_u32_array(pdev->dev.of_node, "eswin,dly_hsp_reg",
-+						  &dwc_priv->dly_hsp_reg[0], 3, 0);
-+	if (ret != 3) {
-+		dev_err(&pdev->dev, "can't get delay hsp reg.ret(%d)\n", ret);
-+		return ret;
-+	}
-+
-+	dwc_priv->crg_regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-+							       "eswin,syscrg_csr");
-+	if (IS_ERR(dwc_priv->crg_regmap))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(dwc_priv->crg_regmap),
-+				"Failed to get syscrg_csr regmap\n");
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node, "eswin,syscrg_csr", 1,
-+					 &hsp_aclk_ctrl_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "can't get hsp_aclk_ctrl_offset\n");
-+
-+	regmap_read(dwc_priv->crg_regmap, hsp_aclk_ctrl_offset, &hsp_aclk_ctrl_regset);
-+	hsp_aclk_ctrl_regset |= (EIC7700_HSP_ACLK_CLKEN | EIC7700_HSP_ACLK_DIVSOR);
-+	regmap_write(dwc_priv->crg_regmap, hsp_aclk_ctrl_offset, hsp_aclk_ctrl_regset);
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node, "eswin,syscrg_csr", 2,
-+					 &hsp_cfg_ctrl_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "can't get hsp_cfg_ctrl_offset\n");
-+
-+	regmap_write(dwc_priv->crg_regmap, hsp_cfg_ctrl_offset, EIC7700_HSP_CFG_CTRL_REGSET);
-+
-+	dwc_priv->hsp_regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-+							       "eswin,hsp_sp_csr");
-+	if (IS_ERR(dwc_priv->hsp_regmap))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(dwc_priv->hsp_regmap),
-+				"Failed to get hsp_sp_csr regmap\n");
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node, "eswin,hsp_sp_csr", 2,
-+					 &eth_phy_ctrl_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "can't get eth_phy_ctrl_offset\n");
-+
-+	regmap_read(dwc_priv->hsp_regmap, eth_phy_ctrl_offset, &eth_phy_ctrl_regset);
-+	eth_phy_ctrl_regset |= (EIC7700_ETH_TX_CLK_SEL | EIC7700_ETH_PHY_INTF_SELI);
-+	regmap_write(dwc_priv->hsp_regmap, eth_phy_ctrl_offset, eth_phy_ctrl_regset);
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node, "eswin,hsp_sp_csr", 3,
-+					 &eth_axi_lp_ctrl_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "can't get eth_axi_lp_ctrl_offset\n");
-+
-+	regmap_write(dwc_priv->hsp_regmap, eth_axi_lp_ctrl_offset, EIC7700_ETH_CSYSREQ_VAL);
-+
-+	plat_dat->clk_tx_i = devm_clk_get_enabled(&pdev->dev, "tx");
-+	if (IS_ERR(plat_dat->clk_tx_i))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat->clk_tx_i),
-+				"error getting tx clock\n");
-+
-+	plat_dat->fix_mac_speed = eic7700_qos_fix_speed;
-+	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
-+	plat_dat->bsp_priv = dwc_priv;
-+
-+	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "Failed to driver probe\n");
-+
-+	return ret;
-+}
-+
-+static const struct of_device_id eic7700_dwmac_match[] = {
-+	{ .compatible = "eswin,eic7700-qos-eth" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, eic7700_dwmac_match);
-+
-+static struct platform_driver eic7700_dwmac_driver = {
-+	.probe  = eic7700_dwmac_probe,
-+	.remove = stmmac_pltfr_remove,
-+	.driver = {
-+		.name           = "eic7700-eth-dwmac",
-+		.pm             = &stmmac_pltfr_pm_ops,
-+		.of_match_table = eic7700_dwmac_match,
-+	},
-+};
-+module_platform_driver(eic7700_dwmac_driver);
-+
-+MODULE_AUTHOR("Eswin");
-+MODULE_AUTHOR("Shuang Liang <liangshuang@eswincomputing.com>");
-+MODULE_AUTHOR("Shangjuan Wei <weishangjuan@eswincomputing.com>");
-+MODULE_DESCRIPTION("Eswin eic7700 qos ethernet driver");
-+MODULE_LICENSE("GPL");
---
-2.17.1
+Best regards,
+Clément
 
 
