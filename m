@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6741C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 09:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE5FC83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 09:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1c7OngIzlsTJ+yenhbfDz2B7E6ete91I7BhfmNw247E=; b=btLLo/B6u+4iHFmz6xkawEW74b
-	V7/toQYbW8xhb2P8M70VgayKQyx/wInd5VVsFe8L1nyzGmTiunsrSvO7k+QWbQ+uXXdVNPn/KKYSC
-	+D49VSCVqNs9Yow+nPxyvGaSBotZ+oGxNjqkDD8SVItTMbfByVAoTqqEeMEKoy+6DMasv9kJr1Pyx
-	Q8ZMd68Uqp/Ob6wk6pUFspoAD0h4j5f0n4kWnga/8SOLIeVlkbXGYMBx83P16NuxG5VYpaEtPgACm
-	f7JUUvj3GSf1nuSXF9IfiLKNKDRZwcDQGFIrnOaZFl6xhv+ux7QwG4mwx5HQ/RdMqhMrF6M3pZ+sf
-	WKkVPM4w==;
+	bh=hbCW55W4iJqqpGh8ZAEP84aVK7u5VS7goAhNXeXtdBE=; b=xmlnw+IcJOWSjVIExApwWkyTht
+	QFtsOX1LeneFRSCj8xRHj6KNlnMIyh2kW4+p+crrypM0t8Ycy+ScUU/9xRtWab4B+0O0r9ZYe7GaJ
+	vCsOTpGXpW+VkMVhGMlzNjeh0eoQ++24d3yRir7YEjH0lcoQ3RRdUaNyd7QE3PEWbhXfgpuHLM333
+	YvtK9oyfaA6IIe/ZjA8bNMakIzgOHCmDjMO3sgs79kmie4ne0b/F2rBMbxW9yMS2Ad0wY2OP8TDeL
+	5z6OlMZKIzBciWiZTUIqFLbwNX+U/YvxNs95MS8PJCdI66DDFRguh7kYhqRXIgLLYIxJcoT5k1h7T
+	dXHsEIeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXGh5-0000000AuXm-2nMw;
-	Thu, 03 Jul 2025 09:57:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uXGjQ-0000000AuyE-1hKj;
+	Thu, 03 Jul 2025 09:59:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXGbl-0000000AtMs-1oa3
+	id 1uXGdS-0000000Attm-2zHy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 09:51:58 +0000
+	Thu, 03 Jul 2025 09:53:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DBAAD437EC;
-	Thu,  3 Jul 2025 09:51:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D2B0C4CEE3;
-	Thu,  3 Jul 2025 09:51:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E036AA5379D;
+	Thu,  3 Jul 2025 09:53:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07ACFC4CEE3;
+	Thu,  3 Jul 2025 09:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751536316;
-	bh=2ntYrlK1cqffKZY1IjFAi1d0w6hK+W+A95jFi0JZ1sM=;
+	s=k20201202; t=1751536421;
+	bh=Bi7+i0xNf9WQfukuXGjoBWe+6weV84Rvxqt6OcF2qAc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=elZhqrVwFWec9SPbr8X4Ggmzt+owTzcEiF8B2LpTjJGI/2DwjK/pH8WqCcI8vqytD
-	 n/Wz5F5a4piDtE/bAF14ppZV0MnsXLmouknbPvR83puKGR5aRGZhDi8CZfIqv+Q4PD
-	 B46c7Q+mZ0RY7j4hTOFSzYly44gi08CaZM+tpzbwpiBtbKy5KHr0pOfx18m8qEMzFZ
-	 TUm2lkq2cVDpJTlHbHzevOWz+AQs6xydYAmkEABNzUWhO2vBSmoDS9Fp0ZmYe/SwYh
-	 meR5vsuiEee3rHuwPb634sL2FH/9m0NdkL2C3W2O8AP9wPegnUp5a7BtYNJ1fLuw6l
-	 02UbmdXUENMQg==
-Message-ID: <9316adcb-4626-4ff8-a308-725c6ab34eba@kernel.org>
-Date: Thu, 3 Jul 2025 11:51:47 +0200
+	b=V1W0cLuADda8+8dkcJQZ6ONYe+BTc32UJh52Ihb0I074zOxXB8bR/F9I+cB+BT2uG
+	 83MOZGrwN15ugDYfvoAakYItQIFz5xbrI4/99Z+I30+DnNpBB55+PtjKlvmhwU78O4
+	 APJnwZRgJydgdgkd1ekU9K2uZgCYZgM39prCX4/Hil1G60RlhqwbmWXpo7UOk4N2P5
+	 42bATMK7m3sl6psUl7bRE3udWeMHOPdxHztv6VJIgUSFgvG7gPvb1oSMtKlF5FeHZN
+	 MtdHcfFLj9SOoiOt2UynwTYVnXmg62qs0d5xunlTuPasgnB5lPZwh4oXDp+VDoeSd7
+	 cSj1VwLmkbn+g==
+Message-ID: <f096afa1-260e-4f8c-8595-3b41425b2964@kernel.org>
+Date: Thu, 3 Jul 2025 11:53:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: ethernet: eswin: Document for EIC7700
- SoC
+Subject: Re: [PATCH v3 2/2] ethernet: eswin: Add eic7700 ethernet driver
 To: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
  davem@davemloft.net, edumazet@google.com, kuba@kernel.org, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
@@ -62,7 +61,7 @@ To: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
 Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
  lizhi2@eswincomputing.com
 References: <20250703091808.1092-1-weishangjuan@eswincomputing.com>
- <20250703091947.1148-1-weishangjuan@eswincomputing.com>
+ <20250703092015.1200-1-weishangjuan@eswincomputing.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250703091947.1148-1-weishangjuan@eswincomputing.com>
+In-Reply-To: <20250703092015.1200-1-weishangjuan@eswincomputing.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_025157_537720_28C42ED4 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20250703_025342_882210_A89D58EC 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,110 +127,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/07/2025 11:19, weishangjuan@eswincomputing.com wrote:
-> From: Shangjuan Wei <weishangjuan@eswincomputing.com>
-> 
-> Add ESWIN EIC7700 Ethernet controller, supporting clock
-> configuration, delay adjustment and speed adaptive functions.
-> 
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
-> ---
->  .../bindings/net/eswin,eic7700-eth.yaml       | 175 ++++++++++++++++++
->  1 file changed, 175 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-> new file mode 100644
-> index 000000000000..04b4c7bfbb5b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-> @@ -0,0 +1,175 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/eswin,eic7700-eth.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+On 03/07/2025 11:20, weishangjuan@eswincomputing.com wrote:
+> +	ret = of_property_read_u32_index(pdev->dev.of_node, "eswin,syscrg_csr", 1,
+> +					 &hsp_aclk_ctrl_offset);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "can't get hsp_aclk_ctrl_offset\n");
 > +
-> +title: Eswin EIC7700 SOC Eth Controller
+> +	regmap_read(dwc_priv->crg_regmap, hsp_aclk_ctrl_offset, &hsp_aclk_ctrl_regset);
+> +	hsp_aclk_ctrl_regset |= (EIC7700_HSP_ACLK_CLKEN | EIC7700_HSP_ACLK_DIVSOR);
+> +	regmap_write(dwc_priv->crg_regmap, hsp_aclk_ctrl_offset, hsp_aclk_ctrl_regset);
 > +
-> +maintainers:
-> +  - Shuang Liang <liangshuang@eswincomputing.com>
-> +  - Zhi Li <lizhi2@eswincomputing.com>
-> +  - Shangjuan Wei <weishangjuan@eswincomputing.com>
+> +	ret = of_property_read_u32_index(pdev->dev.of_node, "eswin,syscrg_csr", 2,
+> +					 &hsp_cfg_ctrl_offset);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "can't get hsp_cfg_ctrl_offset\n");
 > +
-> +description:
-> +  The eth controller registers are part of the syscrg block on
-> +  the EIC7700 SoC.
+> +	regmap_write(dwc_priv->crg_regmap, hsp_cfg_ctrl_offset, EIC7700_HSP_CFG_CTRL_REGSET);
 > +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - eswin,eic7700-qos-eth
-> +  required:
-> +    - compatible
-> +
-> +allOf:
-> +  - $ref: snps,dwmac.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: eswin,eic7700-qos-eth
-> +      - const: snps,dwmac-5.20
-> +
-> +  reg:
-> +    minItems: 1
+> +	dwc_priv->hsp_regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
+> +							       "eswin,hsp_sp_csr");
 
-Nope. Changelog does not explain that, it is not correct and no one ever
-requested something like that. See also writing bindings about constraints.
+There is no such property. I already said at v2 you cannot have
+undocumented ABI.
 
+> +	if (IS_ERR(dwc_priv->hsp_regmap))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(dwc_priv->hsp_regmap),
+> +				"Failed to get hsp_sp_csr regmap\n");
 > +
-> +  interrupt-names:
-> +    const: macirq
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  phy-mode:
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    enum:
-> +      - rgmii
-> +      - rgmii-rxid
-> +      - rgmii-txid
-> +      - rgmii-id
-> +
-> +  phy-handle:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Reference to the PHY device
-> +
-> +  clocks:
-> +    minItems: 2
-> +    maxItems: 2
-> +
-> +  clock-names:
-> +    minItems: 2
-> +    maxItems: 2
-> +    contains:
-> +      enum:
-> +        - stmmaceth
-> +        - tx
-
-Not much changed, nothing explained in the changelog in cover letter.
-
-You got already feedback that you keep pushing same code without fixing
-anything. You don't respond to feedback. You don't address it.
-
-What is left for me? Start treating us seriously. I am not going to
-review the rest.
-
-Respond to previous feedback with acknowledging that you understood it
-or further questions if you did not understand it, but you made thorough
-research on other bindings and example schema how to do it.
+> +	ret = of_property_read_u32_index(pdev->dev.of_node, "eswin,hsp_sp_csr", 2,
 
 NAK
+
+> +					 &eth_phy_ctrl_offset);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "can't get eth_phy_ctrl_offset\n");
+> +
+> +	regmap_read(dwc_priv->hsp_regmap, eth_phy_ctrl_offset, &eth_phy_ctrl_regset);
+> +	eth_phy_ctrl_regset |= (EIC7700_ETH_TX_CLK_SEL | EIC7700_ETH_PHY_INTF_SELI);
+> +	regmap_write(dwc_priv->hsp_regmap, eth_phy_ctrl_offset, eth_phy_ctrl_regset);
+> +
+> +	ret = of_property_read_u32_index(pdev->dev.of_node, "eswin,hsp_sp_csr", 3,
+> +					 &eth_axi_lp_ctrl_offset);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "can't get eth_axi_lp_ctrl_offset\n");
+> +
+> +	regmap_write(dwc_priv->hsp_regmap, eth_axi_lp_ctrl_offset, EIC7700_ETH_CSYSREQ_VAL);
+> +
+> +	plat_dat->clk_tx_i = devm_clk_get_enabled(&pdev->dev, "tx");
+> +	if (IS_ERR(plat_dat->clk_tx_i))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat->clk_tx_i),
+> +				"error getting tx clock\n");
+> +
+> +	plat_dat->fix_mac_speed = eic7700_qos_fix_speed;
+> +	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
+> +	plat_dat->bsp_priv = dwc_priv;
+> +
+> +	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "Failed to driver probe\n");
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct of_device_id eic7700_dwmac_match[] = {
+> +	{ .compatible = "eswin,eic7700-qos-eth" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, eic7700_dwmac_match);
+> +
+> +static struct platform_driver eic7700_dwmac_driver = {
+> +	.probe  = eic7700_dwmac_probe,
+> +	.remove = stmmac_pltfr_remove,
+> +	.driver = {
+> +		.name           = "eic7700-eth-dwmac",
+> +		.pm             = &stmmac_pltfr_pm_ops,
+> +		.of_match_table = eic7700_dwmac_match,
+> +	},
+> +};
+> +module_platform_driver(eic7700_dwmac_driver);
+> +
+> +MODULE_AUTHOR("Eswin");
+
+Drop, that's not a person.
+
 
 Best regards,
 Krzysztof
