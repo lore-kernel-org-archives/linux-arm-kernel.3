@@ -4,124 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 309B1C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 08:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 555E1C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 08:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TIb8Vu1zmttjZ1M0dwM7ar8hOBslW93Xl1m9iCYHcQs=; b=OwA1cCaurPDdAfk8d7dPJGrvfw
-	uSVFLzizYQmzNgfkvtzMT7UbSQC/2SCwYSGTGVfzoz28TIf73p1uizHUYkhDvPZn26YWFip8gzx67
-	uJfZ+WnJpAKT/Xhv0hgISJiApiebq2SITsc30PXBIvWE/g/Lkoxb2CxQPPsU9/5nc7dZVOLNGVeZT
-	PLzCYAIsnst9GzXsnW596iMXX4AfFB3uUz4fKM5ZvLbUGSgsA13GVRXoncm5ig9Xg+Ouldu2wJFjP
-	9oPyN2SBygiODpZ38MPy0zRQFe5LBXWoK0ftHmkOKkCfHtnHnd80QDbzpZrEQX3w92OIlfeDwuWO4
-	gKlNYdtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SA99F68Gvyu1KWTj0/viDoHSk80kTdTfBAzHsy9w0dE=; b=A/btG4Ro9FOoCsIeBHN4U8aBsV
+	iwusH9bT+G6QOCAmuo2PGqEGJ1Vq9HyoHLER+OUwdW6KgI+eAKttiUzm5sd8x0iEIhH9kULe8P1WR
+	zJ1hpKc2YLJcznrmFVpwGZyaVZVsQ+6HMJAk3AVPBGTvzIEwt1oR4A0F0wxMlzqZ643vqS8HV6KIA
+	OrXSiJg8OIPmSYtDVhqPVPquzt8M4E8Cm6LKjr6C7ZuNWGojsLcJL8iiXaEFi8EPEJIth5Z5N8VKK
+	B+sjGkixAKAVbT/1Vqb5F1yagwbs1wPi5lgLd2pBnHXAZpXGVv+4VVu04rSqYkbiPtJro5ze6x/C+
+	lPrsS5zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXEt5-0000000AbSQ-0vMN;
-	Thu, 03 Jul 2025 08:01:43 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1uXEvP-0000000AbvW-2LVo;
+	Thu, 03 Jul 2025 08:04:07 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXEjv-0000000AZT2-2s12;
-	Thu, 03 Jul 2025 07:52:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1751529104; x=1752133904; i=frank-w@public-files.de;
-	bh=TIb8Vu1zmttjZ1M0dwM7ar8hOBslW93Xl1m9iCYHcQs=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:Date:In-Reply-To:References:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=JzhbKh2SwdXzZM9Ks4J8reStpKuZOQyBvGxhiTwZ+W3Aa9k5MrNrl715l3LP1jjW
-	 jfUV9h2zU860mQOZb3G5mX45+EL/53v4p3Gh0ubCwIuBvpz1S/xtOBTU3FYNJGlLq
-	 FFUF0RNHktl39DIfrn0V5MY9TuGH+T0GAIdT5dCU9d/pd3zsKHPHjBEP2GGUAm+HB
-	 ZghZmcrKZYwhV3wKwcyIYnGdglBdTL8TlUoe9/wqfbIIf+D4dCic3vs2cSYeRDcWo
-	 AE+QUIe8FuVAgkvI9HHCsOrK5jLturcTrmgFfpa29bkNOq8dEybT40sJbnfb+ALAI
-	 g6T8CbzZNNczXvk28w==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [100.71.3.167] ([100.71.3.167]) by
- trinity-msg-rest-gmx-gmx-live-847b5f5c86-wpb8f (via HTTP); Thu, 3 Jul 2025
- 07:51:44 +0000
+	id 1uXEoH-0000000AaIi-3t1i;
+	Thu, 03 Jul 2025 07:56:47 +0000
+X-UUID: 3fd9942057e311f09eb0dd999d3936bf-20250703
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=SA99F68Gvyu1KWTj0/viDoHSk80kTdTfBAzHsy9w0dE=;
+	b=heLqocMHVOoeHbIqCim1byVclO7d+pVUlU9eHWSacpons7a7mwIa/A8w9GBLkqfKhS4rV590/3knL15QOz5JlPY9SAd52MBi/unnL3UL/kdUTNE9a38xqHY1MVtAJD+y+P68eyTwyYEQJ7WMe48YWN3hLh72kafNpIMwARHxjWA=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:7b80be12-68c6-4541-b464-79d4ff705b49,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:681cd673-15a7-4ae6-ad4b-94c27b45c266,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 3fd9942057e311f09eb0dd999d3936bf-20250703
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
+	(envelope-from <hailong.fan@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1304544520; Thu, 03 Jul 2025 00:56:38 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 3 Jul 2025 15:56:33 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 3 Jul 2025 15:56:32 +0800
+From: hailong.fan <hailong.fan@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Liam Girdwood
+	<lgirdwood@gmail.com>, Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, "Bard
+ Liao" <yung-chuan.liao@linux.intel.com>, Ranjani Sridharan
+	<ranjani.sridharan@linux.intel.com>, Daniel Baluta <daniel.baluta@nxp.com>,
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>, Pierre-Louis Bossart
+	<pierre-louis.bossart@linux.dev>, Mark Brown <broonie@kernel.org>, "Jaroslav
+ Kysela" <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<sound-open-firmware@alsa-project.org>, <linux-sound@vger.kernel.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Hailong Fan
+	<hailong.fan@mediatek.com>
+Subject: [PATCH v2 0/2] ASoC: mediatek: Add support of SOF on Mediatek mt8196 SoC.
+Date: Thu, 3 Jul 2025 15:56:22 +0800
+Message-ID: <20250703075632.20758-1-hailong.fan@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Message-ID: <trinity-112cc1ce-74d3-4fd8-a800-e302916dde33-1751529104009@trinity-msg-rest-gmx-gmx-live-847b5f5c86-wpb8f>
-From: frank-w@public-files.de
-To: krzk@kernel.org, linux@fw-web.de
-Cc: myungjoo.ham@samsung.com, kyungmin.park@samsung.com,
- cw00.choi@samsung.com, djakov@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, johnson.wang@mediatek.com,
- arinc.unal@arinc9.com, Landen.Chao@mediatek.com, dqfext@gmail.com,
- sean.wang@mediatek.com, daniel@makrotopia.org, lorenzo@kernel.org,
- nbd@nbd.name, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Aw: Re: [PATCH v7 02/14] dt-bindings: net: mediatek,net: update for
- mt7988
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 3 Jul 2025 07:51:44 +0000
-In-Reply-To: <24081402-4690-4a1b-a6d0-adab803d0049@kernel.org>
-References: <20250628165451.85884-1-linux@fw-web.de>
- <20250628165451.85884-3-linux@fw-web.de>
- <20250701-rebel-mellow-parrot-fda216@krzk-bin>
- <8C311FDD-094A-4F1C-AE26-7E3ABB337C14@public-files.de>
- <24081402-4690-4a1b-a6d0-adab803d0049@kernel.org>
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:Y5ZQ8Y1C/j8ZgyHcUkGFJFXJlcCBeb2rydmw7I1JcmLTb5aoJmKZa/IEDJj1c37Qi5y5f
- CdmV/21E99vlXJVPNGgppFsjOEBqrmZnjdXOeecSli/Ktb2cb0So+H9d2MG/b6mJlEi/VCo0w3hC
- 5h7V5tCJzvWG+0fGtsqlHu/sRR0kKL90/VbvCmL5p20oS6GCjb93AHx4kPPUBy9MqaRhKASxrj2y
- +tBrYRB3BjvCGL4VbSyPitzOO6WyqHBei0SfyKkLh4vZkPpZSm+udN+KyvVsuMsjDdSaKpuv8UXt
- YU2mZydqBntLo1TNjKeKPesXQ4rzsPf2PtPRUaHPS44Ws3ExTuaiAX+fr3+Cg9Du3w=
-UI-OutboundReport: notjunk:1;M01:P0:5IGurp4wuy4=;61DYLIahmylHpOzMtce5fa0vxtC
- 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
- 3meBAARWEA==
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_005216_012022_07F88B7B 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20250703_005645_974261_14042A88 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,83 +95,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Gesendet: Mittwoch, 2. Juli 2025 um 08:29
-> Von: "Krzysztof Kozlowski" <krzk@kernel.org>
-> Betreff: Re: [PATCH v7 02/14] dt-bindings: net: mediatek,net: update for=
- mt7988
->
-> On 01/07/2025 12:33, Frank Wunderlich wrote:
-> > Am 1. Juli 2025 08:41:42 MESZ schrieb Krzysztof Kozlowski <krzk@kernel=
-.org>:
-> >> On Sat, Jun 28, 2025 at 06:54:37PM +0200, Frank Wunderlich wrote:
-> >>> From: Frank Wunderlich <frank-w@public-files.de>
-> >>>
-> >>> Update binding for mt7988 which has 3 gmac and a sram for dma
-> >>> operations.
-> >>
-> >> I asked why you are updating. You claim you update because it has 3
-> >> GMAC... but that's irrelevant, because it is easy to answer with: it =
-did
-> >> not have 3 GMAC before?
-> >>
-> >> So same question: Provide real reason why you are making updates. Tha=
-t's
-> >> why you have commit msg.
-> >=20
-> > MT7988 had always 3 gmac,but no dts with ethernet
-> > node till now.
-> > As i try to upstream the dts,i fell over this.
->=20
-> What does it mean? Are you adding new device or not? Nothing explains
-> that something was missing.
+From: Hailong Fan <hailong.fan@mediatek.com>
 
-The binding already exists, but was incomplete. It was added while changin=
-g ethernet driver but was not used
-because i'm the first person adding mt7988 Ethernet node to devicetree in =
-this series.
+Sorry for late reply.
 
-> >=20
-> > Imho changing the regex for the mac subnodes was
-> > simply forgotten to be updated on initial mt7988
-> > support patch.
->=20
-> Fix
-> your
-> wrapping because
-> it is
-> difficult
-> to follow
-> such
-> style.
+Add support of MediaTek mt8196 SoC DSP to SOF.
+This series is based on linux-next, tag: next-20250702.
 
-i understand that it is not the best, but i have to manually wrap lines be=
-cause neither my webmail nor
-my Android Mail-App (K9Mail) supports automatic wrapping (created a featur=
-e-request some years ago which
-got rejected). I try to wrap it as good as possible, but still manually (o=
-n phone it is not that easy).
+---
+Changes in v2:
+- Rebase onto https://lore.kernel.org/all/20250320115300.137410-1-angelogioacchino.delregno@collabora.com/
+- Link to v1: https://lore.kernel.org/lkml/20250320031753.13669-1-hailong.fan@mediatek.com/
 
-> >=20
-> > I try to rephrase it like this:
-> >=20
-> > Binding was not aware for 3 MAC subnodes because
-> > previous mediatek SoC had only 2. Change this to allow
-> > 3 GMAC in mt7988 devicetree.
->=20
-> So a fix for existing? Than add Fixes tag, describe the issue and fix
-> ONLY that issue.
+This series patches dependent on:
+[1]
+https://lore.kernel.org/all/20250307032942.10447-1-guangjie.song@mediatek.com/
+[2]
+https://lore.kernel.org/all/20250307034454.12243-1-guangjie.song@mediatek.com/
 
-Yes, binding for mt7988 already exists withing the mediatek,net binding, b=
-ut the pattern for mac subnodes
-was not updated while adding. So i had to do it before adding the ethernet=
- node to dts in same series.
+Hailong Fan (2):
+  dt-bindings: dsp: mediatek: add mt8196 dsp document
+  ASoC: SOF: MediaTek: Add mt8196 hardware support
 
-But yes, i can separate this change again and add Fixes Tag. So just the s=
-ram-Property is added in this patch
-and i repharse it like this.
+ .../bindings/sound/mediatek,mt8196-dsp.yaml   |  95 +++
+ sound/soc/sof/mediatek/Kconfig                |   9 +
+ sound/soc/sof/mediatek/Makefile               |   1 +
+ sound/soc/sof/mediatek/mt8196/Makefile        |   3 +
+ sound/soc/sof/mediatek/mt8196/mt8196-clk.c    |  98 +++
+ sound/soc/sof/mediatek/mt8196/mt8196-clk.h    |  23 +
+ sound/soc/sof/mediatek/mt8196/mt8196-loader.c |  60 ++
+ sound/soc/sof/mediatek/mt8196/mt8196.c        | 556 ++++++++++++++++++
+ sound/soc/sof/mediatek/mt8196/mt8196.h        | 124 ++++
+ 9 files changed, 969 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-dsp.yaml
+ create mode 100644 sound/soc/sof/mediatek/mt8196/Makefile
+ create mode 100644 sound/soc/sof/mediatek/mt8196/mt8196-clk.c
+ create mode 100644 sound/soc/sof/mediatek/mt8196/mt8196-clk.h
+ create mode 100644 sound/soc/sof/mediatek/mt8196/mt8196-loader.c
+ create mode 100644 sound/soc/sof/mediatek/mt8196/mt8196.c
+ create mode 100644 sound/soc/sof/mediatek/mt8196/mt8196.h
 
-> Best regards,
-> Krzysztof
+-- 
+2.45.2
 
-regards Frank
 
