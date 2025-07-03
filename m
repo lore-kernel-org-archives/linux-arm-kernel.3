@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999DCC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 16:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87DD5C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 16:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w1S70yXehQwUor8mk22xNNNTE2feQWv7DxDcqsYdwDs=; b=d9qqmuLp5hzTa43ssj1z88ELVH
-	KDizMA5LEmnk5jGn6d17lwiXa7FvrsZqcJTKz1L4AgsWnMsvQG0fPC1iuZhJrdhwFG2fSrw7CO0UU
-	N51dv78QsbzjP9TvOnC22lnrWAueYZ/9YY0/IeijFYAu/ukrtEsMXrNz/a0CuEYfhRhYZWO/iPmU3
-	rwBju75UZdMK9OWiz+rm955CLdMNVioXGkmvdT1XpfmQ/Yw6xbjNZbOV0INLt/saMIz/GCAXRToje
-	PEYzcQ2c/JsErHK1mgK8zalX5EGRetH+8Agxo3CsU6cl1ldVZMIduo3yx2fGyOQAKrYo7Cnh9RYGa
-	gNpHo+3w==;
+	bh=q8Ccedz8EElE2V+Y6+aaV+/w9H1IzMx8EGuwT817N3k=; b=lbypnDA2+oE3vY8OWNd7YsOimC
+	T+oet4mK9L9LauVgo8N2MORhSa82iD3zml2Wnloi8dUbWUh384UkZJCOcFfKv6O17kOFzyAubVoL4
+	Uo74kwQTaEfc+0rLRkVFXQ2KoDMdPOnOlHl2hw+xx5R9cqNZEefhoIrxSMiAsU1ojzacZy9eJmnxv
+	epv17X+yS+CqIHB0nqt7MWtofqwXczgAWCe/a67duT5KnQ5twCLynDSgmIY0+lXBeAnYZtWeXc7WL
+	I2R0u9pXLLwkykRbp//GBsfC8Z4Sgu8nre8OBD5cc6NPnFNtNNfZQQRqH6/jOITWRntjh3w/7qvW0
+	R8dGwJ0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXND6-0000000C3Pu-0qyu;
-	Thu, 03 Jul 2025 16:54:56 +0000
+	id 1uXNFQ-0000000C3i7-1sYg;
+	Thu, 03 Jul 2025 16:57:20 +0000
 Received: from relay16.mail.gandi.net ([217.70.178.236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKt4-0000000BewB-1lrY;
-	Thu, 03 Jul 2025 14:26:07 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7C476449C5;
-	Thu,  3 Jul 2025 14:26:02 +0000 (UTC)
+	id 1uXKt6-0000000BexZ-3yfK;
+	Thu, 03 Jul 2025 14:26:10 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 15E8E449C7;
+	Thu,  3 Jul 2025 14:26:04 +0000 (UTC)
 From: Bastien Nocera <hadess@hadess.net>
 To: trivial@kernel.org,
 	Marcel Holtmann <marcel@holtmann.org>,
@@ -52,9 +52,9 @@ To: trivial@kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	asahi@lists.linux.dev
-Subject: [PATCH 4/7] Bluetooth: hci_bcm4377: Fix typo
-Date: Thu,  3 Jul 2025 16:24:32 +0200
-Message-ID: <20250703142542.985248-5-hadess@hadess.net>
+Subject: [PATCH 5/7] Bluetooth: aosp: Fix typo
+Date: Thu,  3 Jul 2025 16:24:33 +0200
+Message-ID: <20250703142542.985248-6-hadess@hadess.net>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250703142542.985248-1-hadess@hadess.net>
 References: <20250703142542.985248-1-hadess@hadess.net>
@@ -62,11 +62,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvtdehudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeeurghsthhivghnucfpohgtvghrrgcuoehhrgguvghssheshhgruggvshhsrdhnvghtqeenucggtffrrghtthgvrhhnpeekteetgeettdehieduiedttdetffelleehtdejkeeluedvgfffvdevteetudfhkeenucfkphepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefpdhhvghlohepohhlihhmphhitgdpmhgrihhlfhhrohhmpehhrgguvghssheshhgruggvshhsrdhnvghtpdhnsggprhgtphhtthhopedvfedprhgtphhtthhopehtrhhivhhirghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrghnrdifrghnghesmhgvughirghtvghkrdgtohhmpdhrtghpthhtohepmhgrthhth
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvtdehudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeeurghsthhivghnucfpohgtvghrrgcuoehhrgguvghssheshhgruggvshhsrdhnvghtqeenucggtffrrghtthgvrhhnpeekteetgeettdehieduiedttdetffelleehtdejkeeluedvgfffvdevteetudfhkeenucfkphepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefnecuvehluhhsthgvrhfuihiivgepgeenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefpdhhvghlohepohhlihhmphhitgdpmhgrihhlfhhrohhmpehhrgguvghssheshhgruggvshhsrdhnvghtpdhnsggprhgtphhtthhopedvfedprhgtphhtthhopehtrhhivhhirghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrghnrdifrghnghesmhgvughirghtvghkrdgtohhmpdhrtghpthhtohepmhgrthhth
  hhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhesjhgrnhhnrghurdhnvght
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_072606_591906_723B1B8F 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20250703_072609_114111_C7A68B31 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,22 +85,22 @@ Found by codespell.
 
 Signed-off-by: Bastien Nocera <hadess@hadess.net>
 ---
- drivers/bluetooth/hci_bcm4377.c | 2 +-
+ net/bluetooth/aosp.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/bluetooth/hci_bcm4377.c b/drivers/bluetooth/hci_bcm4377.c
-index 9bce53e49cfa..1393580ad075 100644
---- a/drivers/bluetooth/hci_bcm4377.c
-+++ b/drivers/bluetooth/hci_bcm4377.c
-@@ -420,7 +420,7 @@ struct bcm4377_ring_state {
-  * payloads_dma:DMA address for payload buffer
-  * events: pointer to array of completions if waiting is allowed
-  * msgids: bitmap to keep track of used message ids
-- * lock: Spinlock to protect access to ring structurs used in the irq handler
-+ * lock: Spinlock to protect access to ring structures used in the irq handler
-  */
- struct bcm4377_transfer_ring {
- 	enum bcm4377_transfer_ring_id ring_id;
+diff --git a/net/bluetooth/aosp.c b/net/bluetooth/aosp.c
+index 1d67836e95e1..59025771af53 100644
+--- a/net/bluetooth/aosp.c
++++ b/net/bluetooth/aosp.c
+@@ -70,7 +70,7 @@ void aosp_do_open(struct hci_dev *hdev)
+ 	rp = (struct aosp_rp_le_get_vendor_capa *)skb->data;
+ 
+ 	version_supported = le16_to_cpu(rp->version_supported);
+-	/* AOSP displays the verion number like v0.98, v1.00, etc. */
++	/* AOSP displays the version number like v0.98, v1.00, etc. */
+ 	bt_dev_info(hdev, "AOSP extensions version v%u.%02u",
+ 		    version_supported >> 8, version_supported & 0xff);
+ 
 -- 
 2.50.0
 
