@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD87C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5045C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 12:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/TTwQzlhRs37zq41FBmSpaMorQUxrV87sLo89EafKEc=; b=u1dozPA8lAETWM9nnrvcJgwBZV
-	grXLazmlS1qL8W6lAz39MGVaTiQgtYJig6APBtn7nTIfGdF9CcmmtUX1CkCyU9A6o7zq7JxIORMxZ
-	5+rs7F0odkm6MP392Eujjh2KDOHksyiCNH7wkQ+ls0JNaaVeqdQdRhGmAH3dK0LLAW10+urjboMMF
-	FkgDNXH/7XrCP0mptcVyXROi9ehCcBV6DO7mIZr6CreGGpbo0E74WmS7NqWVd54SdwONB5B7FKHht
-	YxsBINYADrZAF9qnC15B89u7FjazJIBN63a4zzFncxm/aAkMJTZLOOU2WqbmjXHfNTGBoW13IMojd
-	m8fmlcpw==;
+	bh=dI69ri/EaV+tRdPKe/oBg6h4lvOGu3Vkj944fBiFCGc=; b=ARrDQz+h1dwl0aFmC2sGwxIqGf
+	8m5+bfr8sFe7qcqQNj36dhztuRvObWw35R/dzvQP4YNa6QVA5At2GBUmW9at5oEXeZxA5u6hwWm03
+	kZlAiLiCQf1A3k7NE/1Z5oYJ4sXhacZ6zO4Aw44ryOAWTx9WBTFmkjYP0ccwnS0Zbeok9YEhUxm7a
+	PkgJbOAqPPBNLNhAAyRVKp0Y1pveDeUxE/N/dfum270S2lOPutPJlJFpU8NOrmRv7mgxkU3lgPj1C
+	rb37yw6bHgziwqYcXLy3WqW5ZnmcbNHc9yu8KHMbYn6/pUoY3YBC3o2+cmAxhHSWebA9Pfa598WYC
+	Jko4hRNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJDN-0000000BMBM-0cqo;
-	Thu, 03 Jul 2025 12:38:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uXJFg-0000000BMa4-3nym;
+	Thu, 03 Jul 2025 12:41:20 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHy8-0000000B8fh-13nf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 11:19:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0B8F05C628D;
-	Thu,  3 Jul 2025 11:19:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35068C4CEE3;
-	Thu,  3 Jul 2025 11:19:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751541546;
-	bh=nyCHXu44AYG125jm9G4lxVXvhWsTPk95gOqRhQ+06NQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fe3QCXwDlnP9CTt7wsSz3leRINY1NfRDcuUqgjhzQjbVEX2TU5IlTrFXp8DoZrtk0
-	 C70I6Hk7cBHS7fE/SvXIpvfMjRKAzsA/ildfa6+PCtSSHVkcgYiooXTGxZUzwvb94D
-	 7p/c5slT+/29VUHj4OMrMa7FE5xU8x4XUvYS68LdRZpUDLcRm+Bd3jMrPhA14T59UO
-	 At0u2pD4ESSRcZY4QNGxRxGUVaI81nSVO135BXF6tWXIJwVb1y9IMWt2qQHHIteDyy
-	 JuWqneQo59bdxnqVlWCz/MqC/NvJyKojZ+6/Lgdp2EezsfcePI2N0XF1XqO+nMWlmc
-	 XsMO8GZBY+ncw==
-Date: Thu, 3 Jul 2025 12:19:01 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Willy Tarreau <w@1wt.eu>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Christian Brauner <brauner@kernel.org>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] kselftest/arm64: Add a test for vfork() with GCS
-Message-ID: <6aa6e38a-c874-45ac-b2bd-c876cdd9c8a9@sirena.org.uk>
-References: <20250610-arm64-gcs-vfork-exit-v2-0-929443dfcf82@kernel.org>
- <20250610-arm64-gcs-vfork-exit-v2-3-929443dfcf82@kernel.org>
- <aGZd0vdu8PpLKfX1@arm.com>
+	id 1uXIEm-0000000BAyv-3UD4;
+	Thu, 03 Jul 2025 11:36:21 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1uXIES-000000004sT-1IDF;
+	Thu, 03 Jul 2025 11:36:00 +0000
+Date: Thu, 3 Jul 2025 12:35:56 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Frank Wunderlich (linux)" <linux@fw-web.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, frank-w@public-files.de,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Georgi Djakov <djakov@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Johnson Wang <johnson.wang@mediatek.com>,
+	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+	Landen Chao <Landen.Chao@mediatek.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v7 01/14] dt-bindings: net: mediatek,net: allow irq names
+Message-ID: <aGZrHMnpMMzNkIjF@makrotopia.org>
+References: <20250628165451.85884-1-linux@fw-web.de>
+ <20250628165451.85884-2-linux@fw-web.de>
+ <20250701-wisteria-walrus-of-perfection-bdfbec@krzk-bin>
+ <9AF787EF-A184-4492-A6F1-50B069D780E7@public-files.de>
+ <158755b2-7b1c-4b1c-8577-b00acbfadbdc@kernel.org>
+ <b68435e3e44de0532fc1e0c2e7f7bf54@fw-web.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rGV4m2bsRAZx+JSb"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aGZd0vdu8PpLKfX1@arm.com>
-X-Cookie: Uh-oh!!  I'm having TOO MUCH FUN!!
+In-Reply-To: <b68435e3e44de0532fc1e0c2e7f7bf54@fw-web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_041908_338257_DDAD5C5B 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250703_043620_868326_133B6627 
+X-CRM114-Status: GOOD (  36.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,36 +87,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 03, 2025 at 01:01:40PM +0200, Frank Wunderlich (linux) wrote:
+> Am 2025-07-02 08:27, schrieb Krzysztof Kozlowski:
+> > On 01/07/2025 12:51, Frank Wunderlich wrote:
+> > > Am 1. Juli 2025 08:44:02 MESZ schrieb Krzysztof Kozlowski
+> > > <krzk@kernel.org>:
+> > > > On Sat, Jun 28, 2025 at 06:54:36PM +0200, Frank Wunderlich wrote:
+> > > > > From: Frank Wunderlich <frank-w@public-files.de>
+> > > > > 
+> > > > > In preparation for MT7988 and RSS/LRO allow the interrupt-names
+> > > > 
+> > > > Why? What preparation, what is the purpose of adding the names,
+> > > > what do
+> > > > they solve?
+> > > 
+> > > Devicetree handled by the mtk_eth_soc driver have
+> > > a wild mix of shared and non-shared irq definitions
+> > > accessed by index (shared use index 0,
+> > > non-shared
+> > > using 1+2). Some soc have only 3 FE irqs (like mt7622).
+> > > 
+> > > This makes it unclear which irq is used for what
+> > > on which SoC. Adding names for irq cleans this a bit
+> > > in device tree and driver.
+> > 
+> > It's implied ABI now, even if the binding did not express that. But
+> > interrupt-names are not necessary to express that at all. Look at other
+> > bindings: we express the list by describing the items:
+> > items:
+> >   - description: foo
+> >   - ... bar
+> 
+> ok, so i need to define descriptions for all interrupts instead of only
+> increasing the count. Ok, was not clear to me.
+> 
+> so something like this:
+> 
+> item0: on SoCs with shared IRQ (mt762[18]) used for RX+TX, on other free to
+> be used
+> item1: on non-shared SoCs used for TX
+> item2: on non-shared SoCs used for RX (except RSS/LRO is used)
+> item3: reserved / currently unused
+> item4-7: IRQs for RSS/LRO
 
---rGV4m2bsRAZx+JSb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+These descriptions match the current *software* use of those interrupts,
+however, DT should describe the hardware and esp. item0 up to item3 could
+be used in different ways in the future (by programming MTK_FE_INT_GRP
+register differently).
 
-On Thu, Jul 03, 2025 at 11:39:14AM +0100, Catalin Marinas wrote:
-> On Tue, Jun 10, 2025 at 01:29:46PM +0100, Mark Brown wrote:
+I think using interrupt-names fe0...fe3 and pdma0...pdma3 is still the
+best option, so the driver can request the interrupts by name which is
+much more readable in the driver code and SoC's dtsi than relying on a
+specific order.
 
-> > +		exit(ret);
+> > 
+> > There were only 4 before and you do not explain why all devices get 8.
+> > You mentioned that MT7988 has 8 but now make 8 for all other variants!
+> > 
+> > Why you are not answering this question?
+> 
+> The original binding excluded the 4 RSS/LRO IRQs as this is an optional
+> feature not
+> yet available in driver. It is needed to get the full speed on the 10G
+> interfaces.
+> MT7988 is the first SoC which has 10G MACs. Older Socs like mt7986 and
+> mt7981 can also
+> support RSS/LRO to reduce cpu load. But here we will run into the "new
+> kernel - old
+> devicetree" issue, if we try to upstream this. Maybe we do not add this
+> because these
+> only have 2.5G MACs.
 
-> Should this be _exit() instead? IIRC exit() does some clean-ups which
-> are not safe in the vfork'ed child.
+It might be important to note that
 
-This test is written to nolibc so that we don't get any of that libc
-level stuff, but yeah it would be a bit more correct.
+MT7621, MT7628: 1 IRQ
+MT7622, MT7623: 3 IRQs (only two used by the driver for now)
+MT7981, MT7986: 4 IRQs (only two used by the driver for now)
 
---rGV4m2bsRAZx+JSb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhmZyQACgkQJNaLcl1U
-h9C3sQf/Zjyv/4tU0gG1+behcSAImRmsr++fqj4ba2/X9B+mbKG26y3hkGkNQ6eT
-HhNBykYnmsG5nkBA8IEQ4sq8dhZrQ5HOs6k/Ez+n/ibeHm0GK024XG6qmUTEZ1ST
-5ibrqVltjCSb6x4wBVpLm/zdQAR06toxHvUdA2Dk7dvlUUNkP1A+fmXdPC/F7wTl
-MvSrq0LFIBJj6Ig0MC4BJorezR5en/omZKFJflypCmelM3CVsw1e6yGWpr1lm9cb
-QFPLB3b50mtHcnspolCOpcbqpY1Io3mopOGA/Lasjs9L9tJ30MAGgRKNlrLy4Yij
-5e6452XWIEVfUcKmLt79G8xYOi6K2Q==
-=nUf4
------END PGP SIGNATURE-----
-
---rGV4m2bsRAZx+JSb--
+While older SoCs MT7981 and MT7986 have limited support for *either LRO
+or RSS* in hardware, only MT7988 got 4 frame-engine IRQs like MT7981 and
+MT7986 and an additional 4 IRQs for the 4 RX DMA rings on top of that,
+so a total of 8, and can do both RSS and LRO.
 
