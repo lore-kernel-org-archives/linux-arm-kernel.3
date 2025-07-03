@@ -4,62 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BDA5C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AECCC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 21:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BA/9Pe8XZQ/jID49Te+dgUeGLEGFsQ/bzJ60aah+lV8=; b=QpJqtY4U40Gl7GKPnZ9glXQN8T
-	yu7I1tFy27cdmzy7CzCLkPlT/KhZVk6rqhefAX4Sokfgc3/QAIOS7HMSizJ9fwBFdC6r35OVxTdDC
-	qFdSCIg6UmUCQZeAKxfBY7Fy+EtWdZmPrjerlLNl9U7ByDQiiWeD0coSKWjcfdpTfFkU/72YUw1wq
-	MhAUVtiwhNeam4LbIWDb4MuxQM+voyxecn8qsM7CQrdWdywKo2akRxp72AdTx0PaR2ug1jf3FkAA2
-	dP3+K+El8sfLxQKtaZ+VRZN0kX5+DAC8sHeU4B+pVffaan1iArNyz8O8Y3oSRtknlAISmY9yxSP20
-	mQRky9zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gl3Zyf4ZSimQPGbeTiubO4TjhFC2spGCxnXYqcITWhQ=; b=kw+sELFLQPVBa4uuoCT8HgMxzZ
+	7lnNd7GI8FmWD0V9LkANnSxOM4VBgBSPlocqRPLvvF8F1OiQfhsP4qzm7Eu0cKmJZTgUKKQxWbXmp
+	poaXra+rIPlQFL/2/9T5nAkVC83eu5ijrAGil9QH7gd4ICgF0aBEBDalLz5sUZYCcX/SwRXHv/6jb
+	mf42v19AjQo3RAD/JF9Y4FKz2RVioWSZUNDK8rBwu+/oy1HhyAViGl1MHVyW+AusX0YHtUmDUcEOc
+	vV8B5UztOywaKCabwdqFdYXA7X3zSITCB30rE/utCfBfVtF2Sq7HEUvlpokEk+6NM06R2zJM1Lx58
+	VKkJRh1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR94-0000000CaP0-0hZn;
-	Thu, 03 Jul 2025 21:07:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uXRBO-0000000Cael-2Eda;
+	Thu, 03 Jul 2025 21:09:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXNuE-0000000CAHR-1sSo;
-	Thu, 03 Jul 2025 17:39:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 581475C4D09;
-	Thu,  3 Jul 2025 17:39:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A728FC4CEEE;
-	Thu,  3 Jul 2025 17:39:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751564369;
-	bh=CjXapFJRn6jr02iNiY/fdYyplTrLIb9R/H97pjZWheY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O0dZv+fn7ZOGn/n+ubYI9NUTtwxmvb9diBgsUdEhHae7Zutp0YZ/+WA2QVDvdceiE
-	 O7nTHh2055ZVNVomkVuKLY51txoTK4sQYkxGKJLuNGWjgzMCqLrTSI5Zrmre6E3N9d
-	 fCqJIJIrxGQVxECwKzwOsl0MmJKaXvuoOJBu7JvuajS+a7E5T7s6Jw4u0HPzn2fuBc
-	 54A/tyxdEBU9TN8TDN+tWrXb6uTuzTklHPasl0pvtNY3Cpy1Z6/shg/mObJA41LApq
-	 X+dBhsWzfe+qFZKn+tPjo/AztvrCYwi/805NTK1OeGQuHpPC0XEgAeQNLWLO7L2VOg
-	 LRPocxpDJ4F5w==
-Date: Thu, 3 Jul 2025 10:38:47 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [PATCH v2 00/14] SHA-256 library improvements
-Message-ID: <20250703173847.GB2284@sol>
-References: <20250630160645.3198-1-ebiggers@kernel.org>
+	id 1uXNuN-0000000CAJR-1W6e
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Jul 2025 17:39:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1751564378;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gl3Zyf4ZSimQPGbeTiubO4TjhFC2spGCxnXYqcITWhQ=;
+	b=RFrDOkDFrQVbD71bdPmOVvy6BSE3fOIh6sDrjydrJ2RizQyqrpqmsN+zJFtL79X5ASEDq4
+	65GbsVPsWLeT6Ir5vVvy+tz4GpVvBrprOhHQPlFTwWPvcmJKeexg4+1fCQhP48lDitabME
+	5QDeELK90hykizZ5kPgJxGJx8eKBc94=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-353-vSClaZNsPnK1n2VrLjHSSA-1; Thu,
+ 03 Jul 2025 13:39:34 -0400
+X-MC-Unique: vSClaZNsPnK1n2VrLjHSSA-1
+X-Mimecast-MFC-AGG-ID: vSClaZNsPnK1n2VrLjHSSA_1751564372
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7C9C41944A8D;
+	Thu,  3 Jul 2025 17:39:30 +0000 (UTC)
+Received: from thuth-p1g4.redhat.com (unknown [10.44.32.252])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B234219560B0;
+	Thu,  3 Jul 2025 17:39:18 +0000 (UTC)
+From: Thomas Huth <thuth@redhat.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Russell King <linux@armlinux.org.uk>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	linux-samsung-soc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-omap@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: [PATCH v2 1/2] arm: Replace __ASSEMBLY__ with __ASSEMBLER__ in uapi headers
+Date: Thu,  3 Jul 2025 19:38:58 +0200
+Message-ID: <20250703173859.246664-2-thuth@redhat.com>
+In-Reply-To: <20250703173859.246664-1-thuth@redhat.com>
+References: <20250703173859.246664-1-thuth@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250630160645.3198-1-ebiggers@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_103930_567780_6125A240 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20250703_103939_473210_7B04AA10 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,73 +105,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 09:06:31AM -0700, Eric Biggers wrote:
-> This series is also available at:
-> 
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha256-lib-cleanup-v2
-> 
-> This series improves the SHA-224 and SHA-256 library code to be
-> consistent with what I did for SHA-384 and SHA-512.  This includes:
-> 
-> - Use stronger typing in the SHA-224 and SHA-256 functions.
-> 
-> - Add support for HMAC-SHA224 and HMAC-SHA256.  (I'll send a separate
->   patch with KUnit test cases for this.)
-> 
-> - Make the old-school crypto API's support for sha224 and sha256 just
->   use the actual library API, instead of unsafe low-level functions.
-> 
-> - Consolidate the CPU-based SHA-224 and SHA-256 code into a single
->   module, with better inlining and dead code elimination.
-> 
-> - Properly document the SHA-224 and SHA-256 functions.
-> 
-> - Other changes to synchronize the code with SHA-384 and SHA-512.
-> 
-> Changed in v2:
-> - Dropped sha224_kunit.c changes; it will be added later in the history
-> - Dropped some patches that I folded into the SHA-512 series
-> - Removed redundant checks of IS_ENABLED(CONFIG_KERNEL_MODE_NEON)
-> - Removed obsolete setting of -DARCH for sha256.o
-> - Fixed a commit title to mention sha256 instead of sha512
-> - Excluded HMAC-SHA{224,256} code from purgatory, where it isn't needed
-> 
-> Eric Biggers (14):
->   libceph: Rename hmac_sha256() to ceph_hmac_sha256()
->   cxl/test: Simplify fw_buf_checksum_show()
->   lib/crypto: sha256: Reorder some code
->   lib/crypto: sha256: Remove sha256_blocks_simd()
->   lib/crypto: sha256: Add sha224() and sha224_update()
->   lib/crypto: sha256: Make library API use strongly-typed contexts
->   lib/crypto: sha256: Propagate sha256_block_state type to
->     implementations
->   lib/crypto: sha256: Add HMAC-SHA224 and HMAC-SHA256 support
->   crypto: sha256 - Wrap library and add HMAC support
->   crypto: sha256 - Use same state format as legacy drivers
->   lib/crypto: sha256: Remove sha256_is_arch_optimized()
->   lib/crypto: sha256: Consolidate into single module
->   lib/crypto: sha256: Sync sha256_update() with sha512_update()
->   lib/crypto: sha256: Document the SHA-224 and SHA-256 API
+From: Thomas Huth <thuth@redhat.com>
 
-FYI, applied to libcrypto-next.  Reviews and acks would be greatly appreciated,
-though!
+__ASSEMBLY__ is only defined by the Makefile of the kernel, so
+this is not really useful for uapi headers (unless the userspace
+Makefile defines it, too). Let's switch to __ASSEMBLER__ which
+gets set automatically by the compiler when compiling assembly
+code.
 
-To fix https://lore.kernel.org/r/202507010837.ERX7aWw7-lkp@intel.com/
-I applied the following fixup to
-"lib/crypto: sha256: Propagate sha256_block_state type to implementations".
+Cc: Russell King <linux@armlinux.org.uk>
+Signed-off-by: Thomas Huth <thuth@redhat.com>
+---
+ arch/arm/include/uapi/asm/ptrace.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/lib/crypto/powerpc/sha256.c b/lib/crypto/powerpc/sha256.c
-index c3f844ae0aceb..55f42403d572a 100644
---- a/lib/crypto/powerpc/sha256.c
-+++ b/lib/crypto/powerpc/sha256.c
-@@ -26,7 +26,8 @@
-  */
- #define MAX_BYTES 1024
+diff --git a/arch/arm/include/uapi/asm/ptrace.h b/arch/arm/include/uapi/asm/ptrace.h
+index 8896c23ccba78..fb829c96dc2ae 100644
+--- a/arch/arm/include/uapi/asm/ptrace.h
++++ b/arch/arm/include/uapi/asm/ptrace.h
+@@ -119,7 +119,7 @@
+ #define PT_DATA_ADDR		0x10004
+ #define PT_TEXT_END_ADDR	0x10008
  
--extern void ppc_spe_sha256_transform(u32 *state, const u8 *src, u32 blocks);
-+extern void ppc_spe_sha256_transform(struct sha256_block_state *state,
-+				     const u8 *src, u32 blocks);
+-#ifndef __ASSEMBLY__
++#ifndef __ASSEMBLER__
  
- static void spe_begin(void)
- {
+ /*
+  * This struct defines the way the registers are stored on the
+@@ -158,6 +158,6 @@ struct pt_regs {
+ #define ARM_VFPREGS_SIZE ( 32 * 8 /*fpregs*/ + 4 /*fpscr*/ )
+ 
+ 
+-#endif /* __ASSEMBLY__ */
++#endif /* __ASSEMBLER__ */
+ 
+ #endif /* _UAPI__ASM_ARM_PTRACE_H */
+-- 
+2.50.0
+
 
