@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 815A1C83030
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8369C83F05
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 23:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,31 +12,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sr/aIsRtVZTTmdi0MYbRiz/Hji+Rbh1yrHyYblC7Xtg=; b=GQeAOhdIbqbHAu7sEOm5XUfA4u
-	IQs9IXYYRJiSMEVOoWNb+cmAxAxbGtoqu3hETpjjpxlj0DDWj3EiPwlzb2tcM26jlV9pdzsD6MuHZ
-	haQUL5ia5KzhaWQZVsSqJFBn9GwKvnOfz3JlCAs0aVwrFjASMW86hBvAqQ0IyHmyqUMn+GOBkqqjW
-	uCXpBImozsxvBXfx2v9QCCuU8aFReacxEHab+/CW7nkDI7CZHdE1mIIOKfdAY4Lb+UZa3GBoeSk/H
-	198TI9Ln0WbIJgE7w6LSMFNWO15XVo0GJObEs+UDlOo46K6rf8frd0V01M7zDpbtJ3IGq0gdaIP4E
-	cxEbza8w==;
+	bh=ejh03XwHi8XDCLlghgIiwbsg6jskRGIuuAKzLCeBRKc=; b=ROJMVnvi3NzsuYJHCl4JGgb6i3
+	yGxo8fodUf33VBcGVEz6Ev/64ey4KDuA1kqsAWxwHaM/G5QQVSvTF4qJfQzA3B+1j9XG/4LkbRhIi
+	7OtsKxKRkqc3pLZnkNZlb1xBL94w6A7GF9mcO9NvkM2f7bCwo9oR7h+G+fbvLyc+pQu/wMcy/awe3
+	/VSDg7VqC8ah2kIpHMJXIYqdZIVaROKfhrBs/Gy+lOpE5JmpY6nCOQCQ1e/FceCi6POCsGs4B17Ov
+	j7fbd6b69EWWc8wvc18Jc/21ScmtnCJBS5w6mJX9+Rim+YesvzIKtya75aq+EaXVHHou86TLEgpVx
+	+PdM8KCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXTXu-0000000CqsO-1AP7;
-	Thu, 03 Jul 2025 23:40:50 +0000
+	id 1uXTXv-0000000Cqtq-0UJN;
+	Thu, 03 Jul 2025 23:40:51 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXSfj-0000000Clv3-0axT
+	id 1uXSfk-0000000ClvI-0zIz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 22:44:52 +0000
+	Thu, 03 Jul 2025 22:44:53 +0000
 Received: by linux.microsoft.com (Postfix, from userid 1032)
-	id 656EC201657A; Thu,  3 Jul 2025 15:44:50 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 656EC201657A
+	id AA101211518E; Thu,  3 Jul 2025 15:44:51 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com AA101211518E
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1751582690;
-	bh=Sr/aIsRtVZTTmdi0MYbRiz/Hji+Rbh1yrHyYblC7Xtg=;
+	s=default; t=1751582691;
+	bh=ejh03XwHi8XDCLlghgIiwbsg6jskRGIuuAKzLCeBRKc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UShXlfxHkXNG+/p6Ib7AxuHsBUIW7JFqBhlADi7hQCc+vtt/Ur/1j3nh6AhR89UuE
-	 XLNznSCEjpeN94Fclp5X/o1R13niEshvr1UqmyP+o5tRzadYLsSWlWJXnFx04wD7Qm
-	 JcLMRZviYW3FZAldMYu7zn8/oQnB9ZRNzDB2JyD4=
+	b=EcAR4NuW3QI7k24XLVV+tA58bvaDDeUsu+DP5/F/nMID4kNfofCnY9JTEX3afeRtb
+	 fN+6khLyaXxQOH8SJzOGvfGJIYM44Y5Xa7kWUFGc08ixcQM1WDHvL6cSwUwpBJN+L1
+	 XGTiHzx0djTqDp1u58VqI9EB9xOs265BfVK9Qseg=
 From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,15 +64,15 @@ Cc: kys@microsoft.com,
 	mrathor@linux.microsoft.com,
 	x86@kernel.org,
 	Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Subject: [PATCH v2 1/6] PCI: hv: Don't load the driver for baremetal root partition
-Date: Thu,  3 Jul 2025 15:44:32 -0700
-Message-Id: <1751582677-30930-2-git-send-email-nunodasneves@linux.microsoft.com>
+Subject: [PATCH v2 2/6] Drivers: hv: Use nested hypercall for post message and signal event
+Date: Thu,  3 Jul 2025 15:44:33 -0700
+Message-Id: <1751582677-30930-3-git-send-email-nunodasneves@linux.microsoft.com>
 X-Mailer: git-send-email 1.8.3.1
 In-Reply-To: <1751582677-30930-1-git-send-email-nunodasneves@linux.microsoft.com>
 References: <1751582677-30930-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_154451_202397_196FA547 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20250703_154452_361083_8BE77368 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +87,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mukesh Rathor <mrathor@linux.microsoft.com>
+When running nested, these hypercalls must be sent to the L0 hypervisor
+or VMBus will fail.
 
-The root partition only uses VMBus when running nested.
+Remove hv_do_nested_hypercall() and hv_do_fast_nested_hypercall8()
+altogether and open-code these cases, since there are only 2 and all
+they do is add the nested bit.
 
-When running on baremetal the Hyper-V PCI driver is not needed,
-so do not initialize it.
-
-Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
 Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
 ---
- drivers/pci/controller/pci-hyperv.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/x86/include/asm/mshyperv.h | 20 --------------------
+ drivers/hv/connection.c         |  7 +++++--
+ drivers/hv/hv.c                 |  6 ++++--
+ 3 files changed, 9 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
-index b4f29ee75848..4d25754dfe2f 100644
---- a/drivers/pci/controller/pci-hyperv.c
-+++ b/drivers/pci/controller/pci-hyperv.c
-@@ -4150,6 +4150,9 @@ static int __init init_hv_pci_drv(void)
- 	if (!hv_is_hyperv_initialized())
- 		return -ENODEV;
+diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+index 5ec92e3e2e37..e00a8431ef8e 100644
+--- a/arch/x86/include/asm/mshyperv.h
++++ b/arch/x86/include/asm/mshyperv.h
+@@ -111,12 +111,6 @@ static inline u64 hv_do_hypercall(u64 control, void *input, void *output)
+ 	return hv_status;
+ }
  
-+	if (hv_root_partition() && !hv_nested)
-+		return -ENODEV;
+-/* Hypercall to the L0 hypervisor */
+-static inline u64 hv_do_nested_hypercall(u64 control, void *input, void *output)
+-{
+-	return hv_do_hypercall(control | HV_HYPERCALL_NESTED, input, output);
+-}
+-
+ /* Fast hypercall with 8 bytes of input and no output */
+ static inline u64 _hv_do_fast_hypercall8(u64 control, u64 input1)
+ {
+@@ -164,13 +158,6 @@ static inline u64 hv_do_fast_hypercall8(u16 code, u64 input1)
+ 	return _hv_do_fast_hypercall8(control, input1);
+ }
+ 
+-static inline u64 hv_do_fast_nested_hypercall8(u16 code, u64 input1)
+-{
+-	u64 control = (u64)code | HV_HYPERCALL_FAST_BIT | HV_HYPERCALL_NESTED;
+-
+-	return _hv_do_fast_hypercall8(control, input1);
+-}
+-
+ /* Fast hypercall with 16 bytes of input */
+ static inline u64 _hv_do_fast_hypercall16(u64 control, u64 input1, u64 input2)
+ {
+@@ -222,13 +209,6 @@ static inline u64 hv_do_fast_hypercall16(u16 code, u64 input1, u64 input2)
+ 	return _hv_do_fast_hypercall16(control, input1, input2);
+ }
+ 
+-static inline u64 hv_do_fast_nested_hypercall16(u16 code, u64 input1, u64 input2)
+-{
+-	u64 control = (u64)code | HV_HYPERCALL_FAST_BIT | HV_HYPERCALL_NESTED;
+-
+-	return _hv_do_fast_hypercall16(control, input1, input2);
+-}
+-
+ extern struct hv_vp_assist_page **hv_vp_assist_page;
+ 
+ static inline struct hv_vp_assist_page *hv_get_vp_assist_page(unsigned int cpu)
+diff --git a/drivers/hv/connection.c b/drivers/hv/connection.c
+index be490c598785..47c93cee1ef6 100644
+--- a/drivers/hv/connection.c
++++ b/drivers/hv/connection.c
+@@ -518,8 +518,11 @@ void vmbus_set_event(struct vmbus_channel *channel)
+ 					 channel->sig_event, 0);
+ 		else
+ 			WARN_ON_ONCE(1);
+-	} else {
+-		hv_do_fast_hypercall8(HVCALL_SIGNAL_EVENT, channel->sig_event);
++	} else if (hv_nested) {
++		u64 control = HVCALL_SIGNAL_EVENT;
 +
- 	ret = hv_pci_irqchip_init();
- 	if (ret)
- 		return ret;
++		control |= hv_nested ? HV_HYPERCALL_NESTED : 0;
++		hv_do_fast_hypercall8(control, channel->sig_event);
+ 	}
+ }
+ EXPORT_SYMBOL_GPL(vmbus_set_event);
+diff --git a/drivers/hv/hv.c b/drivers/hv/hv.c
+index 308c8f279df8..b14c5f9e0ef2 100644
+--- a/drivers/hv/hv.c
++++ b/drivers/hv/hv.c
+@@ -85,8 +85,10 @@ int hv_post_message(union hv_connection_id connection_id,
+ 		else
+ 			status = HV_STATUS_INVALID_PARAMETER;
+ 	} else {
+-		status = hv_do_hypercall(HVCALL_POST_MESSAGE,
+-					 aligned_msg, NULL);
++		u64 control = HVCALL_POST_MESSAGE;
++
++		control |= hv_nested ? HV_HYPERCALL_NESTED : 0;
++		status = hv_do_hypercall(control, aligned_msg, NULL);
+ 	}
+ 
+ 	local_irq_restore(flags);
 -- 
 2.34.1
 
