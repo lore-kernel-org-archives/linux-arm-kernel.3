@@ -4,54 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B480C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBC0C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 11:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bYHODzHOPHEJM9bHrQH4mOnRN8s24HVmJ416cR8kp8Y=; b=k5zk7N9/kriV60lKtVN98EvfLV
-	9jQz39YlukHVc/wwvEVPf/HcpWw5efeaVGx1GhW3Iafk915xnMG0+V6++inzhF8+on6AzuXjyAL+p
-	rgJ87CvW91egHo1P0K8p6brJ1uAVwip/dpC76xbDCS1zYi+1gjeIypHEVpcTAIrk5Ucj1b1EtRx9U
-	iotAvTcejFZ27+yrcKNQNdf11T7xaXJL9VsUMgA/q/3J++r5e0XFsMxob4eIw9AbLSEGbqnWyE3FV
-	W15DR1Gp2Z3i50O9xVOGc8/1X4sBlU2KX3K1O3QROrGgnHJFceFQn+pRY/pAiOvH30tlR8xpdhCEN
-	Jos3xq8w==;
+	bh=iUK3rhW6uhrZQyxtSfLnX49Edb7aTXH0rO7ijLUoo0M=; b=fAU8tgXpSZtJMJv0GKB6sWNk5a
+	37/5BOjrUWVc0Gh6i1sA2pE8zZK8VRrs1anB8XfH254I/SFg/xZ+VvQAcQ63UjS0v2HnxBQxEhuDR
+	RYPIRKF0JADeMSqSyc4axXoaKWzm8VCZU3cBj0DfDc6ta6ukzDKYGUuLFt4wGXi+QoIBYebwPFPNg
+	nepqTx0xhj/iUjWuFnOtLNt7TqSjLyWeIUrZEl4JabnNbJWsaRhvBt6YDKhdTFWa+B+wlW/23VHmm
+	5Wj7Qh825TsDb0ljlQaLzZIG13eIaUY4bYSVORaSyRuZrkHqdDBNgAp+mpGWKV8sgwh4aLRnYQxea
+	swLZINBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIXe-0000000BEg4-2zpH;
-	Thu, 03 Jul 2025 11:55:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uXIZx-0000000BEow-1hV2;
+	Thu, 03 Jul 2025 11:58:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXHLb-0000000B1tS-0htc
+	id 1uXHQM-0000000B2ki-1XK1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 10:39:20 +0000
+	Thu, 03 Jul 2025 10:44:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 48CFEA537D9;
-	Thu,  3 Jul 2025 10:39:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7234BC4CEF1;
-	Thu,  3 Jul 2025 10:39:16 +0000 (UTC)
-Date: Thu, 3 Jul 2025 11:39:14 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Willy Tarreau <w@1wt.eu>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Christian Brauner <brauner@kernel.org>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] kselftest/arm64: Add a test for vfork() with GCS
-Message-ID: <aGZd0vdu8PpLKfX1@arm.com>
-References: <20250610-arm64-gcs-vfork-exit-v2-0-929443dfcf82@kernel.org>
- <20250610-arm64-gcs-vfork-exit-v2-3-929443dfcf82@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250610-arm64-gcs-vfork-exit-v2-3-929443dfcf82@kernel.org>
+	by sea.source.kernel.org (Postfix) with ESMTP id 15CC445C32;
+	Thu,  3 Jul 2025 10:44:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2870C4CEE3;
+	Thu,  3 Jul 2025 10:44:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751539453;
+	bh=3yKG6GVto6Q8McY6qTvWdt7LhY+zG3Z8PYTQ98/hf4s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oy8noB177HGbDejapW18F2KrmGcs7wP2vkd7AkkgRnrRtUTt10paZr+Rq/cmoT6wS
+	 f+zvjtvsiSJP5yZYMCiRNw4mU2JIrMtMV/9+/wNmA6FoN3ZnFE+H/D03+WJ4gAV7F2
+	 SqxaDJymmIf5epTrCFKs7HYqhAG+I8UW4/3qZPNi7Mcp6M6hSwLRivoHJtsOyYVOMq
+	 Xhzr+5fTUG6cNd+u2+YRL9wS6V80dTH8pzDHcD+THJyYus0iye+mAW0p8giwtkSjyi
+	 v2wVXD6iWHzvmQd6Hf9XyEDRd+8Xw1vWrR574wvfp1Q64ZADAKCLMyctcD/il2y6PD
+	 EM11bGANmuxIQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uXHQJ-00CH07-JP;
+	Thu, 03 Jul 2025 11:44:11 +0100
+Date: Thu, 03 Jul 2025 11:44:11 +0100
+Message-ID: <864ivtbll0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<tangnianyao@huawei.com>,
+	<wangwudi@hisilicon.com>
+Subject: Re: [PATCH] ARM64: errata: Add workaround for HIP10/HIP10C erratum 162200803
+In-Reply-To: <ffd3fccc-af4a-6667-3cf6-a55e866f3057@hisilicon.com>
+References: <20250626124142.2035110-1-wangzhou1@hisilicon.com>
+	<86wm8ybpk5.wl-maz@kernel.org>
+	<0b54db94-8a6f-cea0-a6f7-dbe8650d66dd@hisilicon.com>
+	<86h5zwba5i.wl-maz@kernel.org>
+	<ffd3fccc-af4a-6667-3cf6-a55e866f3057@hisilicon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, oliver.upton@linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, tangnianyao@huawei.com, wangwudi@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_033919_287533_29893441 
-X-CRM114-Status: GOOD (  26.46  )
+X-CRM114-CacheID: sfid-20250703_034414_459145_BF9A8934 
+X-CRM114-Status: GOOD (  50.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,115 +93,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 01:29:46PM +0100, Mark Brown wrote:
-> diff --git a/tools/testing/selftests/arm64/gcs/basic-gcs.c b/tools/testing/selftests/arm64/gcs/basic-gcs.c
-> index 3fb9742342a3..96ea51cf7163 100644
-> --- a/tools/testing/selftests/arm64/gcs/basic-gcs.c
-> +++ b/tools/testing/selftests/arm64/gcs/basic-gcs.c
-> @@ -298,6 +298,68 @@ static bool test_fork(void)
->  	return pass;
->  }
->  
-> +/* A vfork()ed process can run and exit */
-> +static bool test_vfork(void)
-> +{
-> +	unsigned long child_mode;
-> +	int ret, status;
-> +	pid_t pid;
-> +	bool pass = true;
-> +
-> +	pid = vfork();
-> +	if (pid == -1) {
-> +		ksft_print_msg("vfork() failed: %d\n", errno);
-> +		pass = false;
-> +		goto out;
-> +	}
-> +	if (pid == 0) {
-> +		/* In child, make sure we can call a function, read
-> +		 * the GCS pointer and status and then exit */
+On Wed, 02 Jul 2025 10:57:13 +0100,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
+>=20
+> On 2025/7/1 16:14, Marc Zyngier wrote:
+> > On Fri, 27 Jun 2025 07:36:31 +0100,
+> > Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> >>
+> >> On 2025/6/26 21:27, Marc Zyngier wrote:
+> >>> On Thu, 26 Jun 2025 13:41:42 +0100,
+> >>> Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> >>>>
+> >>>> For GICv4.0 of Hip10 and Hip10C, it has a SoC bug with vPE schedule:
+> >>>> when multiple vPEs are sending vpe schedule/deschedule commands
+> >>>> concurrently and repeatedly, some vPE schedule command may not be
+> >>>> scheduled, and it will cause the command timeout.
+> >>>>
+> >>>> The hardware implementation is that there is one GIC hardware in one=
+ CPU die,
+> >>>> which handles all vPE schedule operations one by one in all CPUs of =
+this die.
+> >>>> The bug is that if the number of queued vPE schedule operations is m=
+ore
+> >>>> than a certain value, the last vPE schedule operation will be lost.
+> >>>>
+> >>>> One possible way to solve this problem is to limit the number of vLP=
+Is, so
+> >>>> the hardware could spend less time to scan virtual pending table whe=
+n it
+> >>>> handles the vPE schedule operations, so the queued vPE schedule oper=
+ations
+> >>>> will never be more than above certain value.
+> >>>>
+> >>>> Given the number of CPUs of die, and imagine there is 100 vPE schedu=
+le
+> >>>> operations per second one CPU, it can be calculated that we can limit
+> >>>> the number of vLPI to 4096 for virtual machine to avoid the issue.
+> >>>>
+> >>>> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+> >>>> ---
+> >>>>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+> >>>>  arch/arm64/Kconfig                          | 12 ++++++++++++
+> >>>>  arch/arm64/include/asm/cputype.h            |  4 ++++
+> >>>>  arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
+> >>>>  arch/arm64/kvm/vgic/vgic-mmio-v3.c          |  5 +++++
+> >>>>  arch/arm64/tools/cpucaps                    |  1 +
+> >>>>  include/linux/irqchip/arm-gic-v3.h          |  1 +
+> >>>>  7 files changed, 40 insertions(+)
+> >>>>
+> >>>
+> >>> [...]
+> >>>
+> >>>> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgi=
+c/vgic-mmio-v3.c
+> >>>> index ae4c0593d114..495a56e9dc4b 100644
+> >>>> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> >>>> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> >>>> @@ -81,6 +81,11 @@ static unsigned long vgic_mmio_read_v3_misc(struc=
+t kvm_vcpu *vcpu,
+> >>>>  		if (vgic_has_its(vcpu->kvm)) {
+> >>>>  			value |=3D (INTERRUPT_ID_BITS_ITS - 1) << 19;
+> >>>>  			value |=3D GICD_TYPER_LPIS;
+> >>>> +			/* Limit the number of vlpis to 4096 */
+> >>>> +			if (cpus_have_final_cap(ARM64_WORKAROUND_HISI_162200803) &&
+> >>>> +			    kvm_vgic_global_state.has_gicv4 &&
+> >>>> +			    !kvm_vgic_global_state.has_gicv4_1)
+> >>>> +				value |=3D 11 << GICD_TYPER_NUM_LPIS_SHIFT;
+> >>>
+> >>> This really doesn't solve your problem. Yes, the guest *may* honor
+> >>> this limit. But KVM doesn't care and will happily allocate 2^16 vLPIs
+> >>> if the guest asks -- there is no code enforcing this limit.
+> >>
+> >> Hi Marc,
+> >>
+> >> I am not sure if there is any other place guest can ask vLPI over
+> >> the limitation except for MAPTI/MAPT below?
+> >>
+> >>> And even if we did. What would we do on a MAPTI command that tries to
+> >>> map a vLPI outside of the allowed range? Do we need to tell the guest
+> >>> it has screwed up?
+> >>
+> >> Thanks for pointing this. Yes, we miss the lpi_nr checking in vgic_its=
+_cmd_handle_mapi.
+> >> In fact, the fix of this errata introduces the usage of GICD.num_LPI,
+> >> so we need make related logic right as well.
+> >=20
+> > Exactly.
+> >=20
+> >>
+> >> I am not sure that if we could add related checking for lpi_nr in MAPT=
+I/MAPI
+> >> as part of this errata fix, or we should add the basic support for
+> >> GICD.num_LPI before adding this errata?
+> >=20
+> > You definitely need to handle that before allowing such limit to be
+> > enforced. Which also means allowing the limit to be saved/restored
+> > from userspace in order to support migration.
+>=20
+> Seems that in KVM we do not consider GICD_TYPER in migration.
 
-Nit: coding style for multi-line comment. I guess we follow the kernel
-style.
+What do you mean by that?
 
-> +		valid_gcs_function();
-> +		get_gcspr();
-> +
-> +		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
-> +				  &child_mode, 0, 0, 0);
-> +		if (ret == 0 && !(child_mode & PR_SHADOW_STACK_ENABLE)) {
-> +			ksft_print_msg("GCS not enabled in child\n");
-> +			ret = -EINVAL;
+Today, we don't support anything being written to GICD_TYPER, just
+like on a HW implementation. If you want it to be writable from
+userspace (and I think you do), then it needs to be added.
 
-Does it make sense in user-space to pass negative values to exit()? I
-thought it should be between 0 and 255.
+> How about making GICD_TYPER.num_LPIs as a default configuration,
+> when KVM version is same between source and destination during
+> migration, the logic is still right.
 
-> +		}
-> +
-> +		exit(ret);
+The default configuration should be that GICD_TYPERR.num_LPIs is 0,
+indicating that the hypervisor doesn't limit anything at all.
 
-Should this be _exit() instead? IIRC exit() does some clean-ups which
-are not safe in the vfork'ed child.
+>
+> Something like:
+>=20
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-i=
+nit.c
+> index eb1205654ac8..2071b1445b22 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -385,6 +385,7 @@ int vgic_init(struct kvm *kvm)
+>  	/* freeze the number of spis */
+>  	if (!dist->nr_spis)
+>  		dist->nr_spis =3D VGIC_NR_IRQS_LEGACY - VGIC_NR_PRIVATE_IRQS;
+> +	dist->nr_lpis =3D 2 ^ (INTERRUPT_NUM_LPIS + 1);
 
-> +	}
-> +
-> +	/*
-> +	 * In parent, check we can still do function calls then block
-> +	 * for the child.
-> +	 */
+No, this really should default to 0, and 0 being treated as "no limit
+other than the architectural one", as per the architecture spec.
 
-The comment "block for the child" doesn't make sense in this context.
-vfork() already blocks the parent until exec() or _exit(). But I can see
-why you wanted waitpid() to retrieve the return status.
-
-> +	valid_gcs_function();
-> +
-> +	ksft_print_msg("Waiting for child %d\n", pid);
-> +
-> +	ret = waitpid(pid, &status, 0);
-> +	if (ret == -1) {
-> +		ksft_print_msg("Failed to wait for child: %d\n",
-> +			       errno);
-> +		return false;
-> +	}
-> +
-> +	if (!WIFEXITED(status)) {
-> +		ksft_print_msg("Child exited due to signal %d\n",
-> +			       WTERMSIG(status));
-> +		pass = false;
-> +	} else {
-> +		if (WEXITSTATUS(status)) {
-
-Nit: } else if {
-
-> +			ksft_print_msg("Child exited with status %d\n",
-> +				       WEXITSTATUS(status));
-> +			pass = false;
-> +		}
-> +	}
-> +
-> +out:
-> +
-> +	return pass;
-> +}
-> +
->  typedef bool (*gcs_test)(void);
->  
->  static struct {
-> @@ -314,6 +376,7 @@ static struct {
->  	{ "enable_invalid", enable_invalid, true },
->  	{ "map_guarded_stack", map_guarded_stack },
->  	{ "fork", test_fork },
-> +	{ "vfork", test_vfork },
+>=20
+>  	ret =3D kvm_vgic_dist_init(kvm, dist->nr_spis);
+>  	if (ret)
+> @@ -433,6 +434,7 @@ static void kvm_vgic_dist_destroy(struct kvm *kvm)
+>  	kfree(dist->spis);
+>  	dist->spis =3D NULL;
+>  	dist->nr_spis =3D 0;
+> +	dist->nr_lpis =3D 0;
+>  	dist->vgic_dist_base =3D VGIC_ADDR_UNDEF;
+>=20
+>  	if (dist->vgic_model =3D=3D KVM_DEV_TYPE_ARM_VGIC_V3) {
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-it=
+s.c
+> index 534049c7c94b..c770eadc5188 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -1047,7 +1047,8 @@ static int vgic_its_cmd_handle_mapi(struct kvm *kvm=
+, struct vgic_its *its,
+>  	else
+>  		lpi_nr =3D event_id;
+>  	if (lpi_nr < GIC_LPI_OFFSET ||
+> -	    lpi_nr >=3D max_lpis_propbaser(kvm->arch.vgic.propbaser))
+> +	    lpi_nr >=3D max_lpis_propbaser(kvm->arch.vgic.propbaser) ||
+> +	    lpi_nr >=3D GIC_LPI_OFFSET + kvm->arch.vgic.nr_lpis)
+>  		return E_ITS_MAPTI_PHYSICALID_OOR;
+>=20
+>  	/* If there is an existing mapping, behavior is UNPREDICTABLE. */
+> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgi=
+c-mmio-v3.c
+> index ae4c0593d114..224d0d88c823 100644
+> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> @@ -81,6 +81,7 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_=
+vcpu *vcpu,
+>  		if (vgic_has_its(vcpu->kvm)) {
+>  			value |=3D (INTERRUPT_ID_BITS_ITS - 1) << 19;
+>  			value |=3D GICD_TYPER_LPIS;
+> +			value |=3D (ilog2(vgic->nr_lpis) - 1) << 11;
+>  		} else {
+>  			value |=3D (INTERRUPT_ID_BITS_SPIS - 1) << 19;
+>  		}
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index 4349084cb9a6..e11792dafcdf 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -16,6 +16,7 @@
+>=20
+>  #define INTERRUPT_ID_BITS_SPIS	10
+>  #define INTERRUPT_ID_BITS_ITS	16
+> +#define INTERRUPT_NUM_LPIS	14
+>  #define VGIC_LPI_MAX_INTID	((1 << INTERRUPT_ID_BITS_ITS) - 1)
+>  #define VGIC_PRI_BITS		5
+>=20
+> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+> index 4a34f7f0a864..b637dc9460d9 100644
+> --- a/include/kvm/arm_vgic.h
+> +++ b/include/kvm/arm_vgic.h
+> @@ -296,6 +296,7 @@ struct vgic_dist {
+>  	 * else.
+>  	 */
+>  	struct its_vm		its_vm;
+> +	int			nr_lpis;
 >  };
->  
->  int main(void)
+>=20
+> However=EF=BC=8Cmigration between different KVMs will be broken :(
+> I am not sure that should we consider this case as well?
 
-Other than the above, feel free add
+This isn't optional. You cannot break migration on existing systems,
+and the only case that *must* break is to restore a VM that hasn't
+seen this limitation on a HW that enforces it.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Thanks,
 
-Thomas, do you want to merge this via your tree? Thanks.
+	M.
 
--- 
-Catalin
+--=20
+Without deviation from the norm, progress is not possible.
 
