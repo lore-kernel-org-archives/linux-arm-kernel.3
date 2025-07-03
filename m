@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5984FC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 13:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84843C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 13:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IibvEDfU5pDtwviHhcb79KmPZ4Rn4kJshSgDDpZdaCM=; b=QO0pp4OCPqpl/w+5rjIrf3+J9k
-	/MPD5egFfCzIF/yCPs6CQ1kW9I/rob2Z7vFUXLpEmPspm+GS/kgNHlQCWOvPtgIZA5zVJth9fdDLY
-	XAVKdDNxa4Zdfi+AretVady/lc6SGY10jJ3PvYGhrOB6StaIJwdvmfBwpr/aPb31BJr0Fgj/fbhT/
-	X2dTKPC6wtb7br7WWPK3WiC3Lb4i/hHPzrW7WZ3fvrzaKm6JFDuBmrQoXXUQxc8lVphieXJAjxFjY
-	W1H5J2pnN5ZxDPkjHeH+E/m2dO6aPQo64DXbMAywXqU0ZoUt4o+VC+07EtcndQUX06lxrf2ksETrY
-	huHGs1JQ==;
+	bh=eu4OT8lRhEaBVBDPV8SI9EQa1IJ95wFwqepn/iBJR00=; b=c3P2eI+A9tC9GL0PsNIxrnGRkw
+	08NiCToSCSFQHxboP+jVag7hJPBPU99zrZVYT4MfwL6EXzrxD1HM2XKfsskG+9i4gkJzn/zw3799K
+	Wak91HC5IXqew1dCkHzeYELPiwP29NMlT5ZI31PNkZq00lmNYqR4gDkHdcY1Yek+o53FBVXV6UmtI
+	gmV1JGsanrRdp15gsJueJGSThTmGvika5Uf1SAH5sz4NYdGDe8c4F6uhPCARC6CtQjNEDhwx9jOR7
+	JgzuyuxH7AwV9E3V9VrfJ6+hraeCS04cqXv6pp+cAzNfa1fKRB/BwpPJeyb49dgrCUk2rpS8qoQ4X
+	T71t6S+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXJha-0000000BRlc-2y8u;
-	Thu, 03 Jul 2025 13:10:10 +0000
+	id 1uXJju-0000000BS5e-0Shn;
+	Thu, 03 Jul 2025 13:12:34 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXIaW-0000000BEvJ-0lXN;
-	Thu, 03 Jul 2025 11:58:49 +0000
+	id 1uXIaX-0000000BEvl-0zc2;
+	Thu, 03 Jul 2025 11:58:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751543926;
-	bh=ojyHKKUBJevSxg55lobUPvFa9HOU6QJqurGf4S9k4ik=;
+	s=mail; t=1751543927;
+	bh=t9HODM5Y2GDbH0AxGuEt+4umoitypeYCGG0NoQDFuM8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=H7wZBbwIReJ85iRip1yeC3gsbVcRuki27ZJZIw1mFE3sU0/gIQilcFMry8mY7TnSq
-	 h4O8ZatahkLL6eIEjuRC/Oe/DRav28/OSmsQCm9rM+T1qNM3dVoMVN80SV5j9PabOn
-	 BLNVmXPvtLQwBbFtokn1Si9WwDqww0vjWxB+MOoj7k1OVdfhCr7TsoYQEBmJuq5X8K
-	 Jy09EmHdbn28AqtNHUUwqNs/4oaahkghqUJGY1ZmA2mGrYZwZjV5hjn8TlL8B6LF9E
-	 ruDZVppbSQfGYy+TMtW7ZokgVoQFlERz1iW/D6jbZSWpVKt/38/jT5gcK+mXSa22bl
-	 0319gwkkacekA==
+	b=Ysp8eiNBIz86UIZ8qfWnK0XnxCnYRoGybBrPmQ5gs/AhZDOGDfh7THBFFeFq1tdW1
+	 1tM6/u3fq3VRAbyzXEFFtLteuB50YawgKA8UZnPqZK1vhDXIVRJhu0+B+UK909zoKw
+	 rKexJxpxybrszcvwA7a2OhnHMKvce7hc2am4SO8FtC61Fw4BGiJgJSHqsQrKSGk7Ok
+	 Kxz+FvmJJIJnvb5wpqpWWVl6B9kzbprfpluw2twAwggFasaZdgd9CZWICVl1x/xUnY
+	 +ABqMYUOhi6Xe+6Vfepp6yanr1HrpJJWpllVS+n8z0bBSrSMnTZsk+enJPeIMdPV2B
+	 G+ZxgDZxEg86A==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 35AAA17E07FF;
-	Thu,  3 Jul 2025 13:58:46 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0F26117E09C6;
+	Thu,  3 Jul 2025 13:58:47 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: sboyd@kernel.org
 Cc: robh@kernel.org,
@@ -57,9 +57,9 @@ Cc: robh@kernel.org,
 	linux-mediatek@lists.infradead.org,
 	kernel@collabora.com,
 	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>
-Subject: [PATCH v2 4/5] spmi: mtk-pmif: Implement Request Capable Slave (RCS) interrupt
-Date: Thu,  3 Jul 2025 13:58:27 +0200
-Message-ID: <20250703115828.118425-5-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v2 5/5] spmi: mtk-pmif: Add support for MT8196 SPMI Controller
+Date: Thu,  3 Jul 2025 13:58:28 +0200
+Message-ID: <20250703115828.118425-6-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250703115828.118425-1-angelogioacchino.delregno@collabora.com>
 References: <20250703115828.118425-1-angelogioacchino.delregno@collabora.com>
@@ -67,8 +67,9 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_045848_378222_531E44B0 
-X-CRM114-Status: GOOD (  25.23  )
+X-CRM114-CacheID: sfid-20250703_045849_460993_441F6746 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,349 +84,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the per-bus RCS interrupt by adding a new linear
-irqdomain and its irqchip.
-
-The SPMI controller will raise an interrupt when any of the SPMI
-connected devices' irq needs attention (whenever any interrupt
-fires on any SID) in one of four registers, where each register
-holds four sets of four bits of information about a SID interrupt.
-
-This controller's RCS interrupt status knowledge is limited to the
-address of the SID that raised an interrupt, but does not have any
-details about the devices irq numbers: as this may change with a
-future SPMI controller IP version, the devicetree is meant to hold
-three cells, where the first one is the SPMI SID interrupt number,
-the second one is a device interrupt number, and the third one is
-the irq sense type.
+Add support for the SPMI controller found in the MT8196 SoC:
+this supports SPMI 2.0 and features two SPMI buses.
 
 Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/spmi/spmi-mtk-pmif.c | 231 ++++++++++++++++++++++++++++++++++-
- 1 file changed, 226 insertions(+), 5 deletions(-)
+ drivers/spmi/spmi-mtk-pmif.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
 diff --git a/drivers/spmi/spmi-mtk-pmif.c b/drivers/spmi/spmi-mtk-pmif.c
-index 9f416b231ab8..ad7b0cc9cdaa 100644
+index ad7b0cc9cdaa..719753651234 100644
 --- a/drivers/spmi/spmi-mtk-pmif.c
 +++ b/drivers/spmi/spmi-mtk-pmif.c
-@@ -5,12 +5,17 @@
- //                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
- 
- #include <linux/clk.h>
-+#include <linux/interrupt.h>
- #include <linux/iopoll.h>
-+#include <linux/irq.h>
-+#include <linux/irqdomain.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/of_irq.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
- #include <linux/spmi.h>
-+#include <linux/irqchip/chained_irq.h>
- 
- #define SWINF_IDLE	0x00
- #define SWINF_WFVLDCLR	0x06
-@@ -26,6 +31,7 @@
- #define PMIF_TIMEOUT_US (10 * 1000)
- 
- #define PMIF_CHAN_OFFSET 0x5
-+#define PMIF_RCS_IRQ_MASK	GENMASK(7, 0)
- 
- #define PMIF_MAX_BUSES	2
- #define PMIF_MAX_CLKS	3
-@@ -44,6 +50,7 @@ struct pmif_data {
- 	const u32	*regs;
- 	const u32	*spmimst_regs;
- 	u32	soc_chan;
-+	u8	spmi_ver;
- 	u32	num_spmi_buses;
- };
- 
-@@ -51,8 +58,14 @@ struct pmif_bus {
- 	void __iomem	*base;
- 	void __iomem	*spmimst_base;
- 	struct spmi_controller *ctrl;
-+	struct irq_domain *dom;
-+	int irq;
- 	struct clk_bulk_data clks[PMIF_MAX_CLKS];
- 	size_t nclks;
-+	struct mutex rcs_lock;
-+	u8 irq_min_sid;
-+	u8 irq_max_sid;
-+	u16 irq_en;
- 	raw_spinlock_t	lock;
- };
- 
-@@ -287,6 +300,11 @@ static void pmif_writel(struct pmif *arb, struct pmif_bus *pbus,
- 	writel(val, pbus->base + arb->data->regs[reg]);
- }
- 
-+static u32 mtk_spmi_readl(struct pmif *arb, struct pmif_bus *pbus, enum spmi_regs reg)
-+{
-+	return readl(pbus->spmimst_base + arb->data->spmimst_regs[reg]);
-+}
-+
- static void mtk_spmi_writel(struct pmif *arb, struct pmif_bus *pbus,
- 			    u32 val, enum spmi_regs reg)
- {
-@@ -455,6 +473,157 @@ static int pmif_spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 	return 0;
- }
- 
-+static void mtk_spmi_handle_chained_irq(struct irq_desc *desc)
-+{
-+	struct pmif_bus *pbus = irq_desc_get_handler_data(desc);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	struct pmif *arb = to_mtk_pmif(pbus->ctrl);
-+	u8 regidx_min, regidx_max;
-+	bool irq_handled = false;
-+	unsigned int i;
-+
-+	regidx_min = pbus->irq_min_sid / 4;
-+	regidx_min += SPMI_SLV_3_0_EINT;
-+
-+	regidx_max = pbus->irq_max_sid / 4;
-+	regidx_min += SPMI_SLV_3_0_EINT;
-+
-+	chained_irq_enter(chip, desc);
-+
-+	for (i = regidx_min; i <= regidx_max; i++) {
-+		u32 val = mtk_spmi_readl(arb, pbus, i);
-+
-+		while (val) {
-+			u8 bit = __ffs(val);
-+			u8 bank = bit / 7;
-+			u8 sid = ((i - SPMI_SLV_3_0_EINT) * 4) + bank;
-+
-+			val &= ~(PMIF_RCS_IRQ_MASK << (8 * bank));
-+
-+			/* Check if IRQs for this SID are enabled */
-+			if (!(pbus->irq_en & BIT(sid)))
-+				continue;
-+
-+			generic_handle_domain_irq(pbus->dom, sid);
-+			irq_handled = true;
-+		}
-+	}
-+
-+	if (!irq_handled)
-+		handle_bad_irq(desc);
-+
-+	chained_irq_exit(chip, desc);
-+}
-+
-+static void mtk_spmi_rcs_irq_ack(struct irq_data *d)
-+{
-+	struct pmif_bus *pbus = irq_data_get_irq_chip_data(d);
-+	struct pmif *arb = to_mtk_pmif(pbus->ctrl);
-+	irq_hw_number_t irq = irqd_to_hwirq(d);
-+	unsigned int reg, shift;
-+
-+	/* There are four interrupts (8 bits each) per register */
-+	reg = SPMI_SLV_3_0_EINT + d->hwirq / 4;
-+	shift = (irq % 4) * 8;
-+
-+	mtk_spmi_writel(arb, pbus, PMIF_RCS_IRQ_MASK << shift, reg);
-+}
-+
-+static void mtk_spmi_rcs_irq_lock(struct irq_data *d)
-+{
-+	struct pmif_bus *pbus = irq_data_get_irq_chip_data(d);
-+
-+	mutex_lock(&pbus->rcs_lock);
-+}
-+
-+static void mtk_spmi_rcs_irq_sync_unlock(struct irq_data *d)
-+{
-+	struct pmif_bus *pbus = irq_data_get_irq_chip_data(d);
-+
-+	mutex_unlock(&pbus->rcs_lock);
-+}
-+
-+static void mtk_spmi_rcs_irq_enable(struct irq_data *d)
-+{
-+	struct pmif_bus *pbus = irq_data_get_irq_chip_data(d);
-+	irq_hw_number_t irq = irqd_to_hwirq(d);
-+
-+	pbus->irq_en |= BIT(irq);
-+}
-+
-+static void mtk_spmi_rcs_irq_disable(struct irq_data *d)
-+{
-+	struct pmif_bus *pbus = irq_data_get_irq_chip_data(d);
-+	irq_hw_number_t irq = irqd_to_hwirq(d);
-+
-+	pbus->irq_en &= ~BIT(irq);
-+}
-+
-+static int mtk_spmi_rcs_irq_set_wake(struct irq_data *d, unsigned int on)
-+{
-+	struct pmif_bus *pbus = irq_data_get_irq_chip_data(d);
-+
-+	return irq_set_irq_wake(pbus->irq, on);
-+}
-+
-+static const struct irq_chip mtk_spmi_rcs_irq_chip = {
-+	.name			= "spmi_rcs",
-+	.irq_ack		= mtk_spmi_rcs_irq_ack,
-+	.irq_bus_lock		= mtk_spmi_rcs_irq_lock,
-+	.irq_bus_sync_unlock	= mtk_spmi_rcs_irq_sync_unlock,
-+	.irq_enable		= mtk_spmi_rcs_irq_enable,
-+	.irq_disable		= mtk_spmi_rcs_irq_disable,
-+	.irq_set_wake		= mtk_spmi_rcs_irq_set_wake,
-+};
-+
-+static int mtk_spmi_rcs_irq_map(struct irq_domain *d, unsigned int virq,
-+				irq_hw_number_t hwirq)
-+{
-+	struct pmif_bus *pbus = d->host_data;
-+
-+	irq_set_chip_data(virq, pbus);
-+	irq_set_chip_and_handler(virq, &mtk_spmi_rcs_irq_chip, handle_level_irq);
-+
-+	return 0;
-+}
-+
-+static int mtk_spmi_rcs_irq_xlate(struct irq_domain *d, struct device_node *ctrlr,
-+				  const u32 *intspec, unsigned int intsize,
-+				  unsigned long *out_hwirq, unsigned int *out_type)
-+{
-+	struct pmif_bus *pbus = d->host_data;
-+	struct device *dev = &pbus->ctrl->dev;
-+	struct irq_fwspec fwspec;
-+
-+	of_phandle_args_to_fwspec(ctrlr, intspec, intsize, &fwspec);
-+	if (WARN_ON(fwspec.param_count < 3))
-+		return -EINVAL;
-+
-+	/*
-+	 * The IRQ number in intspec[1] is ignored on purpose here!
-+	 *
-+	 * The controller only has knowledge of which SID raised an interrupt
-+	 * and the type of irq, but doesn't know about any device irq number,
-+	 * hence that must be read from the SPMI device's registers.
-+	 */
-+	*out_hwirq = intspec[0];
-+	*out_type = intspec[2] & IRQ_TYPE_SENSE_MASK;
-+
-+	if (pbus->irq_min_sid > intspec[0])
-+		pbus->irq_min_sid = intspec[0];
-+
-+	if (pbus->irq_max_sid < intspec[0])
-+		pbus->irq_max_sid = intspec[0];
-+
-+	dev_dbg(dev, "Found SPMI IRQ %u (map: 0x%lx)\n", intspec[0], *out_hwirq);
-+	return 0;
-+}
-+
-+static const struct irq_domain_ops mtk_spmi_rcs_irq_domain_ops = {
-+	.map	= mtk_spmi_rcs_irq_map,
-+	.xlate	= mtk_spmi_rcs_irq_xlate,
-+};
-+
- static const struct pmif_data mt6873_pmif_arb = {
- 	.regs = mt6873_regs,
- 	.spmimst_regs = mt6873_spmi_regs,
-@@ -467,6 +636,45 @@ static const struct pmif_data mt8195_pmif_arb = {
+@@ -636,6 +636,14 @@ static const struct pmif_data mt8195_pmif_arb = {
  	.soc_chan = 2,
  };
  
-+static int mtk_spmi_irq_init(struct device_node *node,
-+			     const struct pmif_data *pdata,
-+			     struct pmif_bus *pbus)
-+{
-+	struct pmif *arb = to_mtk_pmif(pbus->ctrl);
-+	unsigned int i;
++static const struct pmif_data mt8196_pmif_arb = {
++	.regs = mt8195_regs,
++	.spmimst_regs = mt8195_spmi_regs,
++	.soc_chan = 2,
++	.spmi_ver = 2,
++	.num_spmi_buses = 2,
++};
 +
-+	/* No interrupts required for SPMI 1.x controller */
-+	if (pdata->spmi_ver < 2) {
-+		pbus->dom = NULL;
-+		return 0;
-+	}
-+
-+	pbus->irq = of_irq_get_byname(node, "rcs");
-+	if (pbus->irq <= 0)
-+		return pbus->irq ? : -ENXIO;
-+
-+	mutex_init(&pbus->rcs_lock);
-+
-+	pbus->dom = irq_domain_add_tree(node, &mtk_spmi_rcs_irq_domain_ops, pbus);
-+	if (!pbus->dom)
-+		return -ENOMEM;
-+
-+	/* Clear possible unhandled interrupts coming from bootloader SPMI init */
-+	for (i = SPMI_SLV_3_0_EINT; i <= SPMI_SLV_F_C_EINT; i++)
-+		mtk_spmi_writel(arb, pbus, GENMASK(31, 0), i);
-+
-+	return 0;
-+}
-+
-+static void mtk_spmi_irq_remove(struct pmif_bus *pbus)
-+{
-+	if (!pbus->dom)
-+		return;
-+
-+	irq_set_chained_handler_and_data(pbus->irq, NULL, NULL);
-+	irq_domain_remove(pbus->dom);
-+}
-+
- static int mtk_spmi_bus_probe(struct platform_device *pdev,
- 			      struct device_node *node,
- 			      const struct pmif_data *pdata,
-@@ -512,12 +720,21 @@ static int mtk_spmi_bus_probe(struct platform_device *pdev,
- 		pbus->clks[i].id = pmif_clock_names[i];
- 		pbus->clks[i].clk = of_clk_get_by_name(node, pbus->clks[i].id);
- 		if (IS_ERR(pbus->clks[i].clk))
--			return PTR_ERR(pbus->clks[i].clk);
-+			return dev_err_probe(&pdev->dev, PTR_ERR(pbus->clks[i].clk),
-+					     "Failed to get clocks\n");
- 	}
- 
- 	err = clk_bulk_prepare_enable(pbus->nclks, pbus->clks);
--	if (err)
-+	if (err) {
-+		dev_err_probe(&pdev->dev, err, "Failed to enable clocks\n");
- 		goto err_put_clks;
-+	}
-+
-+	err = mtk_spmi_irq_init(node, pdata, pbus);
-+	if (err) {
-+		dev_err_probe(&pdev->dev, err, "Cannot initialize SPMI IRQs\n");
-+		goto err_disable_clks;
-+	}
- 
- 	ctrl->cmd = pmif_arb_cmd;
- 	ctrl->read_cmd = pmif_spmi_read_cmd;
-@@ -529,13 +746,16 @@ static int mtk_spmi_bus_probe(struct platform_device *pdev,
- 
- 	err = spmi_controller_add(ctrl);
- 	if (err)
--		goto err_domain_remove;
-+		goto err_remove_irq;
- 
--	pbus->ctrl = ctrl;
-+	if (pbus->dom)
-+		irq_set_chained_handler_and_data(pbus->irq, mtk_spmi_handle_chained_irq, pbus);
- 
- 	return 0;
- 
--err_domain_remove:
-+err_remove_irq:
-+	mtk_spmi_irq_remove(pbus);
-+err_disable_clks:
- 	clk_bulk_disable_unprepare(pbus->nclks, pbus->clks);
- err_put_clks:
- 	clk_bulk_put(pbus->nclks, pbus->clks);
-@@ -600,6 +820,7 @@ static void mtk_spmi_remove(struct platform_device *pdev)
- 		if (!pbus->ctrl)
- 			continue;
- 
-+		mtk_spmi_irq_remove(pbus);
- 		spmi_controller_remove(pbus->ctrl);
- 		clk_bulk_disable_unprepare(pbus->nclks, pbus->clks);
- 		clk_bulk_put(pbus->nclks, pbus->clks);
+ static int mtk_spmi_irq_init(struct device_node *node,
+ 			     const struct pmif_data *pdata,
+ 			     struct pmif_bus *pbus)
+@@ -834,6 +842,9 @@ static const struct of_device_id mtk_spmi_match_table[] = {
+ 	}, {
+ 		.compatible = "mediatek,mt8195-spmi",
+ 		.data = &mt8195_pmif_arb,
++	}, {
++		.compatible = "mediatek,mt8196-spmi",
++		.data = &mt8196_pmif_arb,
+ 	}, {
+ 		/* sentinel */
+ 	},
 -- 
 2.49.0
 
