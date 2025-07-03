@@ -4,58 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5A0C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 08:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AD4C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 08:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/iGXymbVgNuurydK/IcOHrA6N2DZUF7NkoTNmSKj/k=; b=1lchAJ32cy2ViS+pd87jjerKJS
-	lqKwO2gCK8gXNX5VaFsZXXbAKUabuDk8ZAOXncSde89TynBEBd5Ef8jpE70Xl+Me/2eNJB8MDydM3
-	lyOoS0HVxlTyT2avHwZE8Eh8MmYxgu85BdL0ovrPRdszeoxzfX2ShEUfo94R4m4uSElQMFV+Npolo
-	TGV0Q9tLlTNU4n9dkzNp4ZFXiDOTqdo9eb8fY/HD0bnHuqFYc8M/e4M6cSuRK7vjh2+Y5rbMpa7Fy
-	f9MTfl75q2aGTWF/0YmBoku/hMkLjCStDuF3TvsSuSSCjGL50mp41ZzB0QMHjqSSkeifMnQCQIVLG
-	UHiez3Ng==;
+	bh=FXKSWlNRQFkY5704jNioFae9hU8FSXk25Y3K5CT6XCA=; b=dV2Tv820V1rtwBXj0sr2D7Q0cS
+	TpLkBB0aWZHxnY23RUYRWUOBPoaSxMET8EGDP00cqKkxSHWWCJYOTMlTbUsAfInL71ZD4opTdfSH8
+	rFuBrOOpEftye81tb4qZq07z9tsZ32McxgLl1QcLReoBgotIcKpCg7vU+oucqg7YDJOiU8FA+TXEj
+	7pLJzSgccvhqbRS0BkMe9b+wH8pk0DxN2nmq9epWsQ/tHfq+rlvX3rbElAf9ak2yxcVd+cR8zwQ/8
+	om4KqwHsMjQpDR/SAcNbB6X+VJmwKNtjkTNLEV2WrC/jIUU2jV75KohGMs4Mc7C9MIKBxwFD6pZWc
+	a4NiuD5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXF9J-0000000Ae9P-1L7Y;
-	Thu, 03 Jul 2025 08:18:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uXFBd-0000000AeUX-1NTl;
+	Thu, 03 Jul 2025 08:20:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXEvz-0000000Ac3l-1KsD;
-	Thu, 03 Jul 2025 08:04:44 +0000
+	id 1uXF02-0000000AcZB-44ep;
+	Thu, 03 Jul 2025 08:08:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 770C3A536AD;
-	Thu,  3 Jul 2025 08:04:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7208EC4CEE3;
-	Thu,  3 Jul 2025 08:04:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 628D344790;
+	Thu,  3 Jul 2025 08:08:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4A09C4CEE3;
+	Thu,  3 Jul 2025 08:08:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751529882;
-	bh=i/iGXymbVgNuurydK/IcOHrA6N2DZUF7NkoTNmSKj/k=;
+	s=k20201202; t=1751530134;
+	bh=bm2jknTdnxhbI/Q/FCLLjjBDjk4OaS61afFuDR5COX4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kAM1Jn36Pz6CMvZHvihRBjfkuyPPp3YFTYGL1AZFAlRUPCvJ+NRZnofreNg+zJBcA
-	 0DRfpGhYOaTLl6rdViNDpqtXVAX2F4LYuTwG7F+gZILeNLiXROfRF4r9HWKIV2V/8z
-	 3MHPMrJ0ygkw2mIBJZ8SfdV74szgpdEBtoj4BToY4Op6xU2ZRNEMN1TGRchys4fwxa
-	 3vh6ySZsyLFETqvecw6JkbfgWp1G7axaxB5FulTvXvdsAPheZzNhbWnNsQVG+Rtmy8
-	 9mNQ+AiE55h1I/EjL3bGNMHBaS1Ok/vlh3G9o3YmOCYTi9rzNTffKLkzf69jJM9ePi
-	 HrNJaIngfMF2A==
-Message-ID: <a42a8774-fc1d-4928-a37f-f6ea5e26f2ee@kernel.org>
-Date: Thu, 3 Jul 2025 10:04:34 +0200
+	b=MCrZh1gZXDj6kfFLveBXi46IBDJUAUqC0pELll+5kKwUZfHupGASilVzb1nW69pxk
+	 UCaE631VUXiG8En/UdmzXxu+6t/fK3lAMa91fElQHq/7UuxepM0caK1Wj7/c4dfboQ
+	 gXdvRZdTmNEMwdLgpgNZyh6QsJZnD163TDyUqXGq6fgywSYzkc0INwqN15myy4b/EV
+	 PVkCuOt0mk0/wE9xLRxP7iz+xGGKJzkqU9F15Pmk6YMBRBrtg+92DMHo/Hu4hGQ+BI
+	 tidht/F7pDhWQXSHY1Rw1DdzcE7ZazuRTfsgWEFD70mwCbZ1V3zbDvsyWqcs8sgFRm
+	 yXbh5iiQD/PXg==
+Message-ID: <defd70cb-4351-4b0b-b4d0-dd1ff831615c@kernel.org>
+Date: Thu, 3 Jul 2025 10:08:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH next 1/3] ASoC: dt-bindings: tas2781: fix reset polarity
-To: Catalin Popescu <catalin.popescu@leica-geosystems.com>,
- lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, shenghao-ding@ti.com,
- kevin-lu@ti.com, baojun.xu@ti.com, perex@perex.cz, tiwai@suse.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, m.felsch@pengutronix.de,
- bsp-development.geo@leica-geosystems.com
-References: <20250703075037.2558549-1-catalin.popescu@leica-geosystems.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: dsp: mediatek: add mt8196 dsp
+ document
+To: "hailong.fan" <hailong.fan@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+ Bard Liao <yung-chuan.liao@linux.intel.com>,
+ Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>,
+ Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250703075632.20758-1-hailong.fan@mediatek.com>
+ <20250703075632.20758-2-hailong.fan@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,13 +111,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250703075037.2558549-1-catalin.popescu@leica-geosystems.com>
+In-Reply-To: <20250703075632.20758-2-hailong.fan@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_010443_512991_044A9AF9 
-X-CRM114-Status: UNSURE (   5.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250703_010855_102066_87DA9131 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,14 +131,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/07/2025 09:50, Catalin Popescu wrote:
-> Both TAS2563 & TAS2781 have a reset active low. Yet, the binding wrongly
-> indicates an active high reset.
+On 03/07/2025 09:56, hailong.fan wrote:
+> From: Hailong Fan <hailong.fan@mediatek.com>
+> 
+> This patch adds mt8196 dsp document. The dsp is used for Sound Open
+
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
+
+> Firmware driver node. It includes registers,  clocks, memory regions,
+> and mailbox for dsp.
+> 
+> Signed-off-by: Hailong Fan <hailong.fan@mediatek.com>
+> ---
+>  .../bindings/sound/mediatek,mt8196-dsp.yaml   | 95 +++++++++++++++++++
+>  1 file changed, 95 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-dsp.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8196-dsp.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8196-dsp.yaml
+> new file mode 100644
+> index 000000000000..68f594f476e8
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8196-dsp.yaml
+> @@ -0,0 +1,95 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/sound/mediatek,mt8196-dsp.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek mt8196 DSP core
+> +
+> +maintainers:
+> +  - Hailong Fan <hailong.fan@mediatek.com>
+> +
+> +description: The MediaTek mt8196 SoC mt8196 contain a DSP core used for advanced
+
+Missing blank line. Look at other bindings. Also does not look wrapped
+at 80 (see Linux coding style doc).
 
 
-This is just an example, not a binding. If there is an inverter, then
-maybe the example was correct?
+> +  pre- and post- audio processing.
+> +
+> +properties:
+> +  compatible:
+> +    const: mediatek,mt8196-dsp
+> +
+> +  reg:
+> +    items:
+> +      - description: DSP configuration registers
+> +      - description: DSP SRAM
+> +      - description: DSP secure registers
+> +      - description: DSP bus registers
+> +
+> +  reg-names:
+> +    items:
+> +      - const: cfg
+> +      - const: sram
+> +      - const: sec
+> +      - const: bus
+> +
+> +  clocks:
+> +    items:
+> +      - description: mux for dsp clock
+> +      - description: 26M clock
+> +      - description: ADSP PLL clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: adsp_sel
 
+Isn't this called audiodsp in other bindings?
+
+> +      - const: clk26m
+
+Don't use frequencies. How is the pin or input called in datasheet? How
+other devices call it?
+
+> +      - const: adsppll
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
 Best regards,
 Krzysztof
 
