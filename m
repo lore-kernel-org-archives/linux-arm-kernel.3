@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201B2C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 15:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58CEC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 15:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pVIr4humR6TBu1+iRIPQQ1ib1N4hNVLHGDx+5WEIxSk=; b=vGk4yaJ2Ph75mrouvnu+L1DYnb
-	E7F+GDxu6DpGGfzll7nI2OPZz8rT9KKltjIFe9C3jamituSG+y3YpCzHAGa0o19/wz8Auoa+g0bYu
-	qC4Y1BrPPrsP7XjoYV+0hWAWyKgWzhv8xteFRAI/gHN7moL44H/piwxJgqsKoWQcI7LvDknQm66gB
-	aYkmMtfGzlgJ5+Wq/zaBKmjhsFeQCnyautWacGXcYPG2Xh9qBYmhWEAxP81zrJnAcc37bPQZ22FJB
-	nOQ9m2s5nXas6knlerXkFtahPabTbqmh0Dr9dU+dUF1OZ73eiJeU8cZiwP3kZVpk7emUL8tJ5up/G
-	y05CRhUA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3rSHJreGoaADlAiRFL0ez0+/BHUXJFX6FSdatFOSpG8=; b=vor11SC3VCCrLS7Zl7RrjIfWgP
+	w6/EznrVd0pNc8wqCRVXOA9ltUVzIFYRyhZ+2W4w4rNR4Fc2RT4hLfoOWd3Dk09yvnbqlIUazibDW
+	sUG0ykezi8sVaRUHjfcqGcdZwI+LwLCtiFAUI/CUeF8xs4VfPEwQe9m+xYAl0eg+xmg1E51Zw8gMI
+	yR1GziBwsgaa4vItPWH0XSXkcSHdGV4Zdby523pF5jZJzIa40kKR0LaL50xR6AN+BCIZ8npRYyXfG
+	v6VhqX238DLV8y3EZTjJsbwfQIlGSAQyer6kWoUXtz7YdsTCuNCggd6GSCgQP5Crmw2L3TdQGNLzr
+	FevrjpSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMCK-0000000BtN0-0DbP;
-	Thu, 03 Jul 2025 15:50:04 +0000
+	id 1uXMEd-0000000Btjd-42cn;
+	Thu, 03 Jul 2025 15:52:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKRt-0000000BZGl-3hp7
+	id 1uXKRv-0000000BZHl-3rPI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 13:58:02 +0000
+	Thu, 03 Jul 2025 13:58:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AFCBF1596;
-	Thu,  3 Jul 2025 06:57:44 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 24F081655;
+	Thu,  3 Jul 2025 06:57:49 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8C8B83F63F;
-	Thu,  3 Jul 2025 06:57:56 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D8D7B3F63F;
+	Thu,  3 Jul 2025 06:58:00 -0700 (PDT)
 From: Ben Horgan <ben.horgan@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -47,17 +47,19 @@ To: catalin.marinas@arm.com,
 	linux@rasmusvillemoes.dk,
 	linux-kernel@vger.kernel.org
 Cc: james.morse@arm.com,
-	Ben Horgan <ben.horgan@arm.com>
-Subject: [PATCH 0/2] Fix and add warning of misuse of type##_replace_bits()
-Date: Thu,  3 Jul 2025 14:57:27 +0100
-Message-ID: <20250703135729.1807517-1-ben.horgan@arm.com>
+	Ben Horgan <ben.horgan@arm.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/2] KVM: arm64: Fix enforcement of upper bound on MDCR_EL2.HPMN
+Date: Thu,  3 Jul 2025 14:57:28 +0100
+Message-ID: <20250703135729.1807517-2-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250703135729.1807517-1-ben.horgan@arm.com>
+References: <20250703135729.1807517-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_065801_964731_9ED099C5 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250703_065804_019505_CA52F949 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,18 +74,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-By inspection there is one mistake in the use of u64_replace_bits(). Fix
-this and while I'm here add a __must_check annotation to help avoid the
-same mistake happening again.
+Previously, u64_replace_bits() was used to no effect as the return value
+was ignored. Convert to u64p_replace_bits() so the value is updated in
+place.
 
-Ben Horgan (2):
-  KVM: arm64: Fix enforcement of upper bound on MDCR_EL2.HPMN
-  bitfield: Ensure the return value of type##_replace_bits() is checked
-
+Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Fixes: efff9dd2fee7 ("KVM: arm64: Handle out-of-bound write to MDCR_EL2.HPMN")
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+---
  arch/arm64/kvm/sys_regs.c | 2 +-
- include/linux/bitfield.h  | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 76c2f0da821f..c20bd6f21e60 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2624,7 +2624,7 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
+ 	 */
+ 	if (hpmn > vcpu->kvm->arch.nr_pmu_counters) {
+ 		hpmn = vcpu->kvm->arch.nr_pmu_counters;
+-		u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
++		u64p_replace_bits(&val, hpmn, MDCR_EL2_HPMN);
+ 	}
+ 
+ 	__vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
 -- 
 2.43.0
 
