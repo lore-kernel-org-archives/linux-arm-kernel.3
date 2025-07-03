@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D10D1C77B7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 16:59:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E95A5C77B7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 17:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26WGKl2CjErDnRZj92F5aoGvawaC5Vv0h6Pq/RNM9GI=; b=oOw5P+XQhSVg6g+JrVD4AOUOqo
-	2a7XphXNM+kzgkdObO8ecQ5saJHt89GeFh6mA4949W2r33QVL7UXaq+sttgFwrV/5nX6UOcfCLzeD
-	IEuU7Yzq46TZjHDM3EAzRSqKTG+5bIjrTb/A4Yg2TGImBG8i9y2S7q+x81vxkz6Qa26oVZWa57AvL
-	VMCEOBVyme+n6/CqC48DaLb6kLMsAflslEOoyyOIU3IylR2eRCFfeUe2l1eXTDjzlFZPufVsfn4df
-	UsoH4tAt7vEHAx4IEv+lRmW8DGiEK7vm1py1lQuMfLMWqyW9NX5503wJ0t8GwbHpvbPusUEXYf118
-	1/U0J4xg==;
+	bh=Q/iOuHj5KX9GuXeKQABZ2gCw3mHlOv+e0egMHCqcqhc=; b=MZjI0wJSMssB2HMr+80Eun56wW
+	dusqouuBWsZvsyFZ5ByHEdttwZ0iKzD7vGmJ78OuMa/4DDTgCbfJ/nNgYRrsoP8MGEihO35XQ5jk0
+	jvwm8EnrZZ6I5J9BQuFp5anoMlcavi0t4pNDFurNs4D0NoiFZ2eXzZHyhyPpkzaHQTb1rLkCIb5Vs
+	8SRH/gacgiE4P7/FbCvb+QySxG82pvWq+E4Bz0xnnmU6NPxxAVpJsGC4zSthukyz8kdwPrtw4bzuC
+	uknD0VYInQAEz6x7xzznul5dAO36tZZ5rSIg460Wk7YFr+lJTpPVeAF0jUVmA3kSip/Pv/HZX6Aa9
+	jbpa7duw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXNHj-0000000C45r-3yJb;
-	Thu, 03 Jul 2025 16:59:43 +0000
+	id 1uXNK3-0000000C4G5-3uXb;
+	Thu, 03 Jul 2025 17:02:07 +0000
 Received: from relay16.mail.gandi.net ([217.70.178.236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXKt9-0000000BeyZ-27Fl;
-	Thu, 03 Jul 2025 14:26:12 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 95D75449C4;
-	Thu,  3 Jul 2025 14:26:07 +0000 (UTC)
+	id 1uXKtC-0000000BezC-0CjS;
+	Thu, 03 Jul 2025 14:26:15 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 236EB449C8;
+	Thu,  3 Jul 2025 14:26:10 +0000 (UTC)
 From: Bastien Nocera <hadess@hadess.net>
 To: trivial@kernel.org,
 	Marcel Holtmann <marcel@holtmann.org>,
@@ -52,9 +52,9 @@ To: trivial@kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	asahi@lists.linux.dev
-Subject: [PATCH 6/7] Bluetooth: RFCOMM: Fix typos
-Date: Thu,  3 Jul 2025 16:24:34 +0200
-Message-ID: <20250703142542.985248-7-hadess@hadess.net>
+Subject: [PATCH 7/7] Bluetooth: Fix typos
+Date: Thu,  3 Jul 2025 16:24:35 +0200
+Message-ID: <20250703142542.985248-8-hadess@hadess.net>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250703142542.985248-1-hadess@hadess.net>
 References: <20250703142542.985248-1-hadess@hadess.net>
@@ -62,11 +62,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvtdehudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeeurghsthhivghnucfpohgtvghrrgcuoehhrgguvghssheshhgruggvshhsrdhnvghtqeenucggtffrrghtthgvrhhnpeekteetgeettdehieduiedttdetffelleehtdejkeeluedvgfffvdevteetudfhkeenucfkphepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefnecuvehluhhsthgvrhfuihiivgepgeenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefpdhhvghlohepohhlihhmphhitgdpmhgrihhlfhhrohhmpehhrgguvghssheshhgruggvshhsrdhnvghtpdhnsggprhgtphhtthhopedvfedprhgtphhtthhopehtrhhivhhirghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrghnrdifrghnghesmhgvughirghtvghkrdgtohhmpdhrtghpthhtohepmhgrthhth
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddvtdehudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeeurghsthhivghnucfpohgtvghrrgcuoehhrgguvghssheshhgruggvshhsrdhnvghtqeenucggtffrrghtthgvrhhnpeekteetgeettdehieduiedttdetffelleehtdejkeeluedvgfffvdevteetudfhkeenucfkphepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefnecuvehluhhsthgvrhfuihiivgepieenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgejfeemtghfvddtmeejudgurgemfegsugemvddtrgelmedufeefpdhhvghlohepohhlihhmphhitgdpmhgrihhlfhhrohhmpehhrgguvghssheshhgruggvshhsrdhnvghtpdhnsggprhgtphhtthhopedvfedprhgtphhtthhopehtrhhivhhirghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrghnrdifrghnghesmhgvughirghtvghkrdgtohhmpdhrtghpthhtohepmhgrthhth
  hhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhesjhgrnhhnrghurdhnvght
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_072611_672790_C14FC494 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20250703_072614_222408_43A1209C 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +85,87 @@ Found by codespell.
 
 Signed-off-by: Bastien Nocera <hadess@hadess.net>
 ---
- net/bluetooth/rfcomm/core.c | 3 ++-
- net/bluetooth/rfcomm/tty.c  | 2 +-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ net/bluetooth/hci_conn.c  | 2 +-
+ net/bluetooth/hci_event.c | 4 ++--
+ net/bluetooth/hci_sync.c  | 2 +-
+ net/bluetooth/lib.c       | 2 +-
+ net/bluetooth/smp.c       | 2 +-
+ 5 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/net/bluetooth/rfcomm/core.c b/net/bluetooth/rfcomm/core.c
-index 3b8f39618d65..96250807b32b 100644
---- a/net/bluetooth/rfcomm/core.c
-+++ b/net/bluetooth/rfcomm/core.c
-@@ -1962,7 +1962,8 @@ static void rfcomm_accept_connection(struct rfcomm_session *s)
- 	int err;
+diff --git a/net/bluetooth/hci_conn.c b/net/bluetooth/hci_conn.c
+index 4f379184df5b..cb360adbb6ec 100644
+--- a/net/bluetooth/hci_conn.c
++++ b/net/bluetooth/hci_conn.c
+@@ -814,7 +814,7 @@ static int hci_le_big_terminate(struct hci_dev *hdev, u8 big, struct hci_conn *c
+  *
+  * Detects if there any BIS left connected in a BIG
+  * broadcaster: Remove advertising instance and terminate BIG.
+- * broadcaster receiver: Teminate BIG sync and terminate PA sync.
++ * broadcaster receiver: Terminate BIG sync and terminate PA sync.
+  */
+ static void bis_cleanup(struct hci_conn *conn)
+ {
+diff --git a/net/bluetooth/hci_event.c b/net/bluetooth/hci_event.c
+index 66052d6aaa1d..a546cb058e8e 100644
+--- a/net/bluetooth/hci_event.c
++++ b/net/bluetooth/hci_event.c
+@@ -5754,7 +5754,7 @@ static void le_conn_complete_evt(struct hci_dev *hdev, u8 status,
+ 	conn->state = BT_CONFIG;
  
- 	/* Fast check for a new connection.
--	 * Avoids unnesesary socket allocations. */
-+	 * Avoids unnecessary socket allocations.
-+	 */
- 	if (list_empty(&bt_sk(sock->sk)->accept_q))
- 		return;
+ 	/* Store current advertising instance as connection advertising instance
+-	 * when sotfware rotation is in use so it can be re-enabled when
++	 * when software rotation is in use so it can be re-enabled when
+ 	 * disconnected.
+ 	 */
+ 	if (!ext_adv_capable(hdev))
+@@ -7077,7 +7077,7 @@ static void hci_le_big_info_adv_report_evt(struct hci_dev *hdev, void *data,
+ /* Entries in this table shall have their position according to the subevent
+  * opcode they handle so the use of the macros above is recommend since it does
+  * attempt to initialize at its proper index using Designated Initializers that
+- * way events without a callback function can be ommited.
++ * way events without a callback function can be omitted.
+  */
+ static const struct hci_le_ev {
+ 	void (*func)(struct hci_dev *hdev, void *data, struct sk_buff *skb);
+diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
+index 6687f2a4d1eb..febad7922008 100644
+--- a/net/bluetooth/hci_sync.c
++++ b/net/bluetooth/hci_sync.c
+@@ -5633,7 +5633,7 @@ int hci_abort_conn_sync(struct hci_dev *hdev, struct hci_conn *conn, u8 reason)
+ 	}
  
-diff --git a/net/bluetooth/rfcomm/tty.c b/net/bluetooth/rfcomm/tty.c
-index 21a5b5535ebc..58d1707f7daf 100644
---- a/net/bluetooth/rfcomm/tty.c
-+++ b/net/bluetooth/rfcomm/tty.c
-@@ -980,7 +980,7 @@ static void rfcomm_tty_set_termios(struct tty_struct *tty,
- 		baud = RFCOMM_RPN_BR_230400;
- 		break;
- 	default:
--		/* 9600 is standard accordinag to the RFCOMM specification */
-+		/* 9600 is standard according to the RFCOMM specification */
- 		baud = RFCOMM_RPN_BR_9600;
- 		break;
- 
+ 	/* Cleanup hci_conn object if it cannot be cancelled as it
+-	 * likelly means the controller and host stack are out of sync
++	 * likely means the controller and host stack are out of sync
+ 	 * or in case of LE it was still scanning so it can be cleanup
+ 	 * safely.
+ 	 */
+diff --git a/net/bluetooth/lib.c b/net/bluetooth/lib.c
+index 43aa01fd07b9..305044a84478 100644
+--- a/net/bluetooth/lib.c
++++ b/net/bluetooth/lib.c
+@@ -54,7 +54,7 @@ EXPORT_SYMBOL(baswap);
+  * bt_to_errno() - Bluetooth error codes to standard errno
+  * @code: Bluetooth error code to be converted
+  *
+- * This function takes a Bluetooth error code as input and convets
++ * This function takes a Bluetooth error code as input and converts
+  * it to an equivalent Unix/standard errno value.
+  *
+  * Return:
+diff --git a/net/bluetooth/smp.c b/net/bluetooth/smp.c
+index 47f359f24d1f..5b4ade03bdcc 100644
+--- a/net/bluetooth/smp.c
++++ b/net/bluetooth/smp.c
+@@ -3172,7 +3172,7 @@ static void smp_ready_cb(struct l2cap_chan *chan)
+ 	/* No need to call l2cap_chan_hold() here since we already own
+ 	 * the reference taken in smp_new_conn_cb(). This is just the
+ 	 * first time that we tie it to a specific pointer. The code in
+-	 * l2cap_core.c ensures that there's no risk this function wont
++	 * l2cap_core.c ensures that there's no risk this function won't
+ 	 * get called if smp_new_conn_cb was previously called.
+ 	 */
+ 	conn->smp = chan;
 -- 
 2.50.0
 
