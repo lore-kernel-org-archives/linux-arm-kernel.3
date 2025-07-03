@@ -4,57 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82355C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE11C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OaBrLqMgKU4HKXh0lzWWTvtQjBlhzlybZJ2IGjQSb0o=; b=Ut0GbOWmxQop7r
-	yacxghgBGvEtJ3tYon6g2QPTBUQ4tlmGMK8uqI2i0pZpktwMOInzgqBMoIOvk4Q2WRTbU+TLkaeH+
-	UzZCSrqvApegbbwaeNWlz9+pyl6u9cq6UNZtF7ft2XiNmT0S/DCR76fncSy434/WiMG6tTl7YZzAL
-	ROICKH1M7kwrCIwNAwGwiVIOU1U4wYcyYy67NHp4q71gfja34lWVG5h2wyFKyxHeWMdOx2reoqZtT
-	Mtx2z4bup5bfmBTA6Vs3AKmGMRo9lfF06syt1kMfwY2TzhJRufgBU2ozo1K1y5b6e+YkK4C/VZx3s
-	tO/J30FUN0dwMDBsD24g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2n5GPoM+S1Y9eG2a1vR2ESEhyb13gnb5FcF3ixDPxs4=; b=awBfJV4arYSagCkyX8v3wFyO8q
+	G4UkbudDrih+Xbx2X5z7WI2AZNetqc6KagXbxRdfs4j+1k9tFazO4j5J2ABLuweE1ewSy5IsgONkU
+	UuUc+P6xGMFynVo3BsLo4LbHjtIcLRyKBeUA7GMNyCC5IOa5m59g0dvpHbuod6suONhxN5E+RcGTO
+	aEeQF35RqcGmTI64R+XZGIjC9LySPEyK1geO2U/+rWoBjL2mmNsTumwWj16SDBz0qQ3EKpRqDhiEs
+	s2403q9pJ9ElwTvUQN1xpQg8O1lnQ2QZ48zcI61SaEIVXPlsglg3F55eMlXJUpmvvXk+Mrf2Edg2G
+	g7IDlQZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXR1e-0000000CWTm-1hpG;
-	Thu, 03 Jul 2025 20:59:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uXR1i-0000000CWZX-1Wfy;
+	Thu, 03 Jul 2025 20:59:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXMRq-0000000Bw6y-1ZII
+	id 1uXMRx-0000000Bw9F-30U6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 16:06:07 +0000
+	Thu, 03 Jul 2025 16:06:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 187C64432D;
-	Thu,  3 Jul 2025 16:06:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7C7EC4CEE3;
-	Thu,  3 Jul 2025 16:06:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2BFFC61446;
+	Thu,  3 Jul 2025 16:06:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2497C4CEEE;
+	Thu,  3 Jul 2025 16:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751558766;
-	bh=jscWpusFJ8+GtruSvYfX4sZd6NM08wNAfoGwbX7hARg=;
-	h=From:Subject:Date:To:Cc:From;
-	b=A/Af3uuJ9Rb75VKRKFSZpo60tgELsxvze3GiO+tvgALR45Oc5FnwaW/s3gWVHnHno
-	 wtAnMK7Pkra9/9GYykEEyE8V+UhVKgcP7+V4M2CWr1dFcEB5CVRThgoG2K1lZKOGIP
-	 JuHT2Sgx4tuhuRZ4rp9yGtzYDfd0NprhQJE3DZBz0Hma+AkkBMWtdAcMlWybx1EXwf
-	 i1rB2XIUb8705skRmHvXftKvYcB8wmtO2LUGtO0FtWBCvRdHV8VsYVSZJmz1D/j6gG
-	 5CjIkOlGam5P3PrDGrs5MlMX2pPniYTBI8x7oiJFTUZ3GAYPUNqWKyozoY6wp8tjLU
-	 KWxeyDdIUnV2g==
+	s=k20201202; t=1751558772;
+	bh=GxdG/hxlVXdujOXju8isvSn0cSnu8pfZPpii65s9OeY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=jZvLlvK4KtyF36UH0E1bZawCzUi8Kid1J3IPwZe3EV78RaxMJzahhqUyj+oUYffuL
+	 YZQ1j/8GwbbDkc9kvjggLLsgteMKKbsAm0TAF8fa5H7UIWoaFFaZx7Xv7Nq69dYpp4
+	 dWlS1ernWtbW8HigeLXYBKNTf8EccSbH+VO27hD2zm3k5lBe1ojTmYikmd1IDRirbO
+	 saKBlkqRZfeMHpewSLxTKu3CrRzZaawr+lRPXyUSQVP7sj2ydkkGJZz23lv2TAPzF3
+	 vjlKAEq5ohnsUcfXgos2/PqZPJvpY/FexOGY0yCx0BWwm8a+kBbTkNiquQZgtVYJEk
+	 LSjFpNEJiXZUQ==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH v3 0/4] kselftest/arm64: Add coverage for the interaction
- of vfork() and GCS
-Date: Thu, 03 Jul 2025 17:00:14 +0100
-Message-Id: <20250703-arm64-gcs-vfork-exit-v3-0-1e9a9d2ddbbe@kernel.org>
+Date: Thu, 03 Jul 2025 17:00:16 +0100
+Subject: [PATCH v3 2/4] tools/nolibc: Provide vfork()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAA+pZmgC/3XNTQ6CMBCG4auYrq0pQ8uPK+9hXFQ6hQalZkoaD
- OHuFtxoosv3S+aZmQUkh4EddzMjjC44P6TI9zvWdHpokTuTmoEAJRRUXNO9kLxtAo/WU89xciO
- XujTaloUCRJZOH4TWTRt7vqTuXBg9PbcvMVvXN1iI+jcYMy74VWsjrKhUKctTjzTg7eCpZasY4
- UPJxB8FklJDLWVubGMr+FKWZXkB/NBjL/8AAAA=
-X-Change-ID: 20250528-arm64-gcs-vfork-exit-4a7daf7652ee
+Message-Id: <20250703-arm64-gcs-vfork-exit-v3-2-1e9a9d2ddbbe@kernel.org>
+References: <20250703-arm64-gcs-vfork-exit-v3-0-1e9a9d2ddbbe@kernel.org>
+In-Reply-To: <20250703-arm64-gcs-vfork-exit-v3-0-1e9a9d2ddbbe@kernel.org>
 To: Willy Tarreau <w@1wt.eu>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
  Christian Brauner <brauner@kernel.org>, 
@@ -63,21 +59,17 @@ To: Willy Tarreau <w@1wt.eu>,
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1520; i=broonie@kernel.org;
- h=from:subject:message-id; bh=jscWpusFJ8+GtruSvYfX4sZd6NM08wNAfoGwbX7hARg=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoZqpmO/tREkuh6QDv6tS66hUZmiy2srI0RMbDv
- H6NfA3zhpuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaGaqZgAKCRAk1otyXVSH
- 0M82B/9IWr8jKeogcUOCsJ29Xy4yksQCrWaixdsv+ivWdPhePEkOF9in+1wur5EfZ+l2qgCdWnn
- 8lactjzxDDZuFpkZe0h1SMXCtoObhDKFuM31t8VM6KNYLWabWIlXEMPU5htK8AbqSvo1d++HisJ
- 7kLjvw+KTyve9tcNgFDQfngnC1Alzo+W09LmmJgwB7ec08acaKrt4OXMAjVuuhLOxtlsgyMp+7M
- W+u2R9eWldITBx70d4VkUHHNhhItxoeLqKCEowCoV9KBQyaFArUms2R3RkrOzKuN9T/8sGPWKUV
- sjwz9ZOtVwG0eB+L21KEsnsEhxjdV8s50e0yNhmiuEyGEDfM
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2392; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=GxdG/hxlVXdujOXju8isvSn0cSnu8pfZPpii65s9OeY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoZqpolC4QV+kVaH7lmRS7MVzRQG/lpBJvGQc3J
+ i7h+RBSX8+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaGaqaAAKCRAk1otyXVSH
+ 0FrpB/9I3DAFv0+6RCslFfJA0deSaq6YBHh3AdbS42ZTfrykVfsGWq8ZpCb4ADUlEo8SDuYh0QV
+ VWBJm88L7lT+dM/UD+uzXJ7WOZ15vGoYwe45Nb4MkJehqBNiau+VsCzZC43GKA48hmIRSfzGAmP
+ wp4sYbvL7FQJcOm3pxsU+lQOto3b76hL0g4erR3nuyKsGcLu1lpIFuRUxO//RhMakGGCwGPq4bi
+ 4zg0LaTrDM8U46xqkIZdqy+IxfIVBqTAFetz7mjfwRzU41h1KWxAHPlKbG55nenb/BhBwiRbbPe
+ KR14YnK3PQxkuokqahgRZpfvj4+iQxh8OLCnFtNjYK0aKixZ
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_090606_454762_73CCCE11 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,42 +84,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I had cause to look at the vfork() support for GCS and realised that we
-don't have any direct test coverage, this series does so by adding
-vfork() to nolibc and then using that in basic-gcs to provide some
-simple vfork() coverage.
+To allow testing of vfork() support in the arm64 basic-gcs test provide an
+implementation for nolibc, using the vfork() syscall if one is available
+and otherwise clone3(). We implement in terms of clone3() since the order
+of the arguments for clone() varies between architectures.
+
+As for fork() SPARC returns the parent PID rather than 0 in the child
+for vfork() so needs custom handling.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Changes in v3:
-- Stylistic nits in the GCS vfork() test.
-- SPARC has a non-standard vfork() ABI which needs handling.
-- Link to v2: https://lore.kernel.org/r/20250610-arm64-gcs-vfork-exit-v2-0-929443dfcf82@kernel.org
+ tools/include/nolibc/arch-sparc.h | 16 ++++++++++++++++
+ tools/include/nolibc/sys.h        | 29 +++++++++++++++++++++++++++++
+ 2 files changed, 45 insertions(+)
 
-Changes in v2:
-- Add replacement of ifdef with if defined() in nolibc since the code
-  doesn't reflect the coding style.
-- Remove check for arch specific vfork().
-- Link to v1: https://lore.kernel.org/r/20250609-arm64-gcs-vfork-exit-v1-0-baad0f085747@kernel.org
+diff --git a/tools/include/nolibc/arch-sparc.h b/tools/include/nolibc/arch-sparc.h
+index 1435172f3dfe..ca420d843e25 100644
+--- a/tools/include/nolibc/arch-sparc.h
++++ b/tools/include/nolibc/arch-sparc.h
+@@ -188,4 +188,20 @@ pid_t sys_fork(void)
+ }
+ #define sys_fork sys_fork
+ 
++static __attribute__((unused))
++pid_t sys_vfork(void)
++{
++	pid_t parent, ret;
++
++	parent = getpid();
++	ret = my_syscall0(__NR_vfork);
++
++	/* The syscall returns the parent pid in the child instead of 0 */
++	if (ret == parent)
++		return 0;
++	else
++		return ret;
++}
++#define sys_vfork sys_vfork
++
+ #endif /* _NOLIBC_ARCH_SPARC_H */
+diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+index aabac97a7fb0..295e71d34aba 100644
+--- a/tools/include/nolibc/sys.h
++++ b/tools/include/nolibc/sys.h
+@@ -22,6 +22,7 @@
+ #include <linux/time.h>
+ #include <linux/auxvec.h>
+ #include <linux/fcntl.h> /* for O_* and AT_* */
++#include <linux/sched.h> /* for clone_args */
+ #include <linux/stat.h>  /* for statx() */
+ 
+ #include "errno.h"
+@@ -340,6 +341,34 @@ pid_t fork(void)
+ 	return __sysret(sys_fork());
+ }
+ 
++#ifndef sys_vfork
++static __attribute__((unused))
++pid_t sys_vfork(void)
++{
++#if defined(__NR_vfork)
++	return my_syscall0(__NR_vfork);
++#elif defined(__NR_clone3)
++	/*
++	 * clone() could be used but has different argument orders per
++	 * architecture.
++	 */
++	struct clone_args args = {
++		.flags		= CLONE_VM | CLONE_VFORK,
++		.exit_signal	= SIGCHLD,
++	};
++
++	return my_syscall2(__NR_clone3, &args, sizeof(args));
++#else
++	return __nolibc_enosys(__func__);
++#endif
++}
++#endif
++
++static __attribute__((unused))
++pid_t vfork(void)
++{
++	return __sysret(sys_vfork());
++}
+ 
+ /*
+  * int fsync(int fd);
 
----
-Mark Brown (4):
-      tools/nolibc: Replace ifdef with if defined() in sys.h
-      tools/nolibc: Provide vfork()
-      kselftest/arm64: Add a test for vfork() with GCS
-      selftests/nolibc: Add coverage of vfork()
-
- tools/include/nolibc/arch-sparc.h             | 16 +++++++
- tools/include/nolibc/sys.h                    | 59 ++++++++++++++++++-------
- tools/testing/selftests/arm64/gcs/basic-gcs.c | 63 +++++++++++++++++++++++++++
- tools/testing/selftests/nolibc/nolibc-test.c  | 23 ++++++++--
- 4 files changed, 142 insertions(+), 19 deletions(-)
----
-base-commit: 86731a2a651e58953fc949573895f2fa6d456841
-change-id: 20250528-arm64-gcs-vfork-exit-4a7daf7652ee
-
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
+-- 
+2.39.5
 
 
