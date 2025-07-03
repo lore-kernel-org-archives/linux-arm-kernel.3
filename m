@@ -4,97 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F41B1C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C41C83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 20:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AmKfwzTfOhC2oXAq+cEF+jaaYpcNa1VuxJKcbwQc1W0=; b=Am+y3vVZLPwZdm8mg//tR3AGoj
-	pMHrEaiwRs2pYg/pzbBx6XlUjS0CAqtRlLTRoOgoLZGVEXNs3GfNKugRDhEnGTXO3ZlLd31MEWcqK
-	cZMVVIATkg/5mamVWSg9DwykMyyyMZJ1xlLO7vgjO6qmbtUYjIUwJcmuBepEKMlTwViD0GNJkRnOz
-	wbF7OrD5UfvLUFW4ZmQYgh0tUaLMOu+XgDJh87NkeWpY2WjGEnVKd8QhCxZKAtcZLBWqprlF8ASt1
-	AjLXwSd+vvcce8lW4si8K+29Js8m8KHx55NzzTMEG8BvLC2JBg8OYaQskchtzXpwY7Hc8TQ5KfTj/
-	9tcLofKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mrLcFFTBNy2GALhK2bqsbtufwTc98WKvdD69kxXbf7s=; b=S7UN4/z3gY90WrsIaAOvdCNcAk
+	nr3ZasDRoFxbzSuzkBZkupTjTeZF+pVA6HmqswBKDSmY+MUZUt5sz2tFlXFQRXU2Wpo3EDR8TF8v4
+	QvVn/CSm413pFTi2eW2xwb5II3wq2jJFhHrdNMZYoqRfEebP04WAztMBRXlH4OjwFBScz0bm7bGqT
+	UmO5qF6jVaIYnSvtNQdb5krdGxxr79EWzJRsoWHsq48NYS5XtW6sfs/34Y+aJ12UWLGJe9BLIYsxX
+	qCnc8S4sIxosUGKiwON3OjD3SLH3PRHHOnJD6gCUK3Zr+WXHmI55nAjK3gQvInCOptELoUeupu9Rv
+	l6Qp5fZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXQzV-0000000CTFk-3FCH;
-	Thu, 03 Jul 2025 20:57:09 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1uXQzy-0000000CTuI-39PL;
+	Thu, 03 Jul 2025 20:57:38 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXLae-0000000Bm3R-0OSy
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 15:11:09 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-60dffae17f3so8592050a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 08:11:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751555466; x=1752160266; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=AmKfwzTfOhC2oXAq+cEF+jaaYpcNa1VuxJKcbwQc1W0=;
-        b=yzQcBX2kCxJOCwgjP0OMs0dXjEzuEqF9vQ9CfBRTgZUjPu6GV4yxQsByndKZEhUnVH
-         EIiqqRSA3ewWBLNAOVwIU8njwrjKf9RaBBa1JmOQ8Jw6uyCVhOjoOzXOnMepv7BRgCE+
-         mr7hP/M5dZql3wEbe2XecW8S8a+aJyx1lRqrtBUmsA0lWou8KsI2ugEIdH6AQWSTevJA
-         +CTi+3I8fk5oZhulEQgFF2g6vPekvtU38NMn6HTEID0UhJfLP3/IsTkg0GxUtJiXIDcx
-         ilSMNlBChFIJVNeXmmcgUUqvLyRcJY03ufHMatzrolwJK3sIM3lMo5pqXT7CwBkUn1fm
-         qqkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751555466; x=1752160266;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AmKfwzTfOhC2oXAq+cEF+jaaYpcNa1VuxJKcbwQc1W0=;
-        b=C0rEwyvZ6ELaZ32EaZWd6aU4R3ghVWTXIoVaRah5xhmIMWT3jOWMb5TbJolXnGK4Dd
-         SIgo4JjgEXl56i/gafPSUcZ+zXrOxlO9/YCA+lJJWRFm4hBPQch9czXFTXxjgBVid5AO
-         XsxTCd+GZpr7sP2bnsxAXPQYrDfiEDmX/UuqLHKRxTT5PA4NBQCoO8dxiQ5aGl+jEKJs
-         9+m287zvv63n/QhWXrWdyclp/gGy6jJkbj2csVG7+AzywJ7+HlgCPSvTsufj8yguFU3N
-         i7fVBQv2aFOWwCHdHsl7J/+vgAEuGcohWeTACjSHqQjfQTrVpoYcwQAdA+l5AXcMPXpB
-         v4Dw==
-X-Forwarded-Encrypted: i=1; AJvYcCVB1NXfwylwQnEjeHeQxK3/sAKA7LoGvhE3J4EZm23LFbFLKBvQ9V/tbQ0iGaqn6IHChG8Y16yTNgGTSpgQz2+N@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSZLobKwQeOdwBo++JCO2/77gxOa3u2Q+7LZXbi/VS5RXeUuf/
-	tyPrepBUMZN9fsq8C8BhJ0pZXzOpwxGaa+MLwRzz2snMH20ptzva/EEZ7FgRgPzM+Hw=
-X-Gm-Gg: ASbGncs695tUASRu74D2vK2Arzg+ocV/oB06GNii0qTGA5HVnRex01vKRc0otJCujsD
-	JeiO8t0Ze5ZjWoSv+J1vByQ86m93Okyhv64SLYjwyMG2JN0Ylebsh0Tby7ROgI2igGPLGDjF+EC
-	hDuxneZKaCIUW5crZhRgOBgq4xHZ8lyVpnjeAGHwXxmYY8Mi2nk7BzKGpR1G7W1QZxi5c/Rc+qe
-	AJBGOLUJWCTvLbXwcmwU50z32BpUp5y29UuJkPc99AvPHK0bsEVusJbcvumEyLxzkQLK2skwuP+
-	4/NoEtM2aid7N+VGPXogpGF4rklVW4xtdn1VfPe/5zV7In5gLHo6gCXzYsM=
-X-Google-Smtp-Source: AGHT+IHzpMVd5ZdMJKAden1BEk7leNnkWoWJcBZRiZrrIpoemL5vbs9A7FF6CC6wG99E12R7ltKp/Q==
-X-Received: by 2002:a50:a412:0:b0:604:bbd2:7c88 with SMTP id 4fb4d7f45d1cf-60e5350025emr5522209a12.26.1751555466332;
-        Thu, 03 Jul 2025 08:11:06 -0700 (PDT)
-Received: from linaro.org ([82.79.186.23])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60fbf791d06sm258603a12.2.2025.07.03.08.11.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jul 2025 08:11:05 -0700 (PDT)
-Date: Thu, 3 Jul 2025 18:11:04 +0300
-From: Abel Vesa <abel.vesa@linaro.org>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
-	Frank Li <frank.li@nxp.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sandor Yu <Sandor.yu@nxp.com>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Subject: Re: [PATCH v2 3/5] clk: imx95-blk-ctl: Rename lvds and displaymix
- csr blk
-Message-ID: <aGadiPWIKbqDVek9@linaro.org>
-References: <20250703-imx95-blk-ctl-7-1-v2-0-b378ad796330@nxp.com>
- <20250703-imx95-blk-ctl-7-1-v2-3-b378ad796330@nxp.com>
+	id 1uXM4q-0000000Brrx-4BLo;
+	Thu, 03 Jul 2025 15:42:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751557339;
+	bh=QTbnWAayA30BBivWJPpqyOG+fUTqPYXweWMPu/sAVpw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=fuECaOsRJ+a5oKQv/+vraH3cGWALtojlLUzAlblxBoqEmM+B0kHCQcsqsN4fZpMHp
+	 h8R2raZElyNnef+3cjyYAd+HaZ/Db6p4B7UYuD+jfIZmZJdQDclhb0UM4ynmJWdH5/
+	 xFY33Ley4YTSJH3xnj/bDjJC6KUdRRdakq9Xi968iGhnMOpDG+dOSWMRJtPMikkbLE
+	 jGYxI/76dIZbEcsigPEJpV+dkY4EEKu5U+o568BGTGG0z8y5d7Q321xHNByDa47v2y
+	 OnQZljJXiqBp91Vh+9q2dTTdsaj7yuec8790J4pGPrxGn91OT0Idujv6y1fKYezkY5
+	 vigfm0jVqPxHw==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B288617E0B1E;
+	Thu,  3 Jul 2025 17:42:18 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Thu, 03 Jul 2025 17:41:03 +0200
+Subject: [PATCH 1/3] Input: mtk-pmic-keys - add support for MT6359 PMIC
+ keys
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250703-imx95-blk-ctl-7-1-v2-3-b378ad796330@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250703-add-mt6359-pmic-keys-support-v1-1-21a4d2774e34@collabora.com>
+References: <20250703-add-mt6359-pmic-keys-support-v1-0-21a4d2774e34@collabora.com>
+In-Reply-To: <20250703-add-mt6359-pmic-keys-support-v1-0-21a4d2774e34@collabora.com>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@collabora.com, linux-input@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751557337; l=1760;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=QTbnWAayA30BBivWJPpqyOG+fUTqPYXweWMPu/sAVpw=;
+ b=khzbvBhxLyH1a2Q/3rP/3wy8zQTM35b3ONQBLfWQnTAxVIyv5iTy90OoIV3ClQHtjZmALABm+
+ b3jKceypMLRAPrZ+EwbNQPJmjG9TuHyf1RyWX8dDqBkzaIHV34Ra676
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_081108_134310_43CEECC8 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250703_084221_211941_D3BB9673 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,15 +87,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-07-03 11:40:22, Peng Fan wrote:
-> From: Sandor Yu <Sandor.yu@nxp.com>
-> 
-> Rename i.MX95 lvds and displaymix csr blk drvdata in order to add
-> support for i.MX943.
-> 
-> Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Add PMIC key support on MT6359 SoC.
 
-Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ drivers/input/keyboard/mtk-pmic-keys.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/drivers/input/keyboard/mtk-pmic-keys.c b/drivers/input/keyboard/mtk-pmic-keys.c
+index 061d48350df661dd26832b307e1460ee8b8fd535..50e2e792c91d2626d3f282d04a1db60845827ef2 100644
+--- a/drivers/input/keyboard/mtk-pmic-keys.c
++++ b/drivers/input/keyboard/mtk-pmic-keys.c
+@@ -12,6 +12,7 @@
+ #include <linux/mfd/mt6331/registers.h>
+ #include <linux/mfd/mt6357/registers.h>
+ #include <linux/mfd/mt6358/registers.h>
++#include <linux/mfd/mt6359/registers.h>
+ #include <linux/mfd/mt6397/core.h>
+ #include <linux/mfd/mt6397/registers.h>
+ #include <linux/module.h>
+@@ -117,6 +118,19 @@ static const struct mtk_pmic_regs mt6358_regs = {
+ 	.rst_lprst_mask = MTK_PMIC_RST_DU_MASK,
+ };
+ 
++static const struct mtk_pmic_regs mt6359_regs = {
++	.keys_regs[MTK_PMIC_PWRKEY_INDEX] =
++		MTK_PMIC_KEYS_REGS(MT6359_TOPSTATUS,
++				   0x2, MT6359_PSC_TOP_INT_CON0, 0x5,
++				   MTK_PMIC_PWRKEY_RST),
++	.keys_regs[MTK_PMIC_HOMEKEY_INDEX] =
++		MTK_PMIC_KEYS_REGS(MT6359_TOPSTATUS,
++				   0x8, MT6359_PSC_TOP_INT_CON0, 0xa,
++				   MTK_PMIC_HOMEKEY_RST),
++	.pmic_rst_reg = MT6359_TOP_RST_MISC,
++	.rst_lprst_mask = MTK_PMIC_RST_DU_MASK,
++};
++
+ struct mtk_pmic_keys_info {
+ 	struct mtk_pmic_keys *keys;
+ 	const struct mtk_pmic_keys_regs *regs;
+@@ -296,6 +310,9 @@ static const struct of_device_id of_mtk_pmic_keys_match_tbl[] = {
+ 	}, {
+ 		.compatible = "mediatek,mt6358-keys",
+ 		.data = &mt6358_regs,
++	}, {
++		.compatible = "mediatek,mt6359-keys",
++		.data = &mt6359_regs,
+ 	}, {
+ 		/* sentinel */
+ 	}
+
+-- 
+2.50.0
+
 
