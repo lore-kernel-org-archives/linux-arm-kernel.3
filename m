@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57FBEC83F04
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 08:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F77C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 08:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VZZ5suwPV8JvNIE1HcHsv0fY/f507EGEB4rZQRxbOPs=; b=E/Pq8RY4nec9y0Jjbk6/CKlYyX
-	Na+qf7UnN4JkvaPodDJ87PUwPcnPDwwfE2ltfmZSbe3czjYbc/IdND18YyXjUhhB95um5pFv2B2Yp
-	EVnAdzSyptNNIbhEyGqO4xm1DoJO+EhCF2ntdsZWZPOMeXyuHC95mj/tFNvOrvAbpQ/Z570p8Qgnz
-	48R6PP1NiZR5YSkA92zHuj0jIiMugcLVyUjtqzxE8y6CFWegLNr/SgOPOpXokd5E5gjrwgP/Zejyr
-	dggzHTwpQK/H5Nfc/iY4vtrkMpH1jY79kCOb1s9ZyfLO5cv3lxsL3xDPAGsVtfiyTjaEiXt/qEGvD
-	1wWAJ2Ig==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/cYj0q/giLszIR3kilyQWrZxMIeIjICge0MHLXkjJFo=; b=OwDoI2mJd/BMwmI4PCf4VAryfb
+	ohpfiWl6j4TsSeTpwS+Zso9o8MD4EQiNbjFFBh67TdU5BGFK8TimawIZz+Zkw2WydIVinWwOkhEG+
+	xiRvi7lEBR/TAQh4m5WDwKWzKvhXU/mgcNy/bzvFPiCkY5ONIGvgv4OJZiBnPR8eEnCvC1w4f4aiw
+	CzuQhJf5TuZ3CMBTgffpFcAHETkmgCc1fwU+aQzefXvYKGl/oh1/JhIE1xqvVW5R+9yIjgvFxGaDg
+	f0eENEAlrHLsWAsBCqXHgymtP+aWe+gHMk3/1qEusNhmTHG/QpNCI38mXvCKnR17LI9n/hLHWzjpH
+	3VlkV96Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXFco-0000000Aj76-1Xkb;
-	Thu, 03 Jul 2025 08:48:58 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1uXFf8-0000000AjUo-0tu0;
+	Thu, 03 Jul 2025 08:51:22 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXFZq-0000000AiSg-458g
+	id 1uXFac-0000000AifG-2ue3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 08:45:56 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3a53359dea5so3028581f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 01:45:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751532353; x=1752137153; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VZZ5suwPV8JvNIE1HcHsv0fY/f507EGEB4rZQRxbOPs=;
-        b=cvDe/IXYEmhkPdQLF4hfOmJOcxjNYMFj0SM+4F5E7o+RfuvjEWmsoJBGP4A9KOD1wd
-         28Np7jcvnWVYhwFsJcgatunCfu+oIlri2S8yrOlRUC2FbUeQIjW8l/4Ynwbd10XuroaM
-         nshsRnHivJDT7LRGJFP8DcVbTcQaIfooGs3GfL95jjiv7IcidokQ/3al35jckPXE2Bb7
-         Vek3h7WkpzlQPCtRNdY74dgMVJTQyL/P62Qo70d3A7BEVVm46v91gjK/+r/aEa6PSotT
-         M4h793t/tK9AuF3z61fGNltoc5RQ3eGOjs4WILfAJffscCKtFBWDIloqU0LHT6iQYJRT
-         02DQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751532353; x=1752137153;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VZZ5suwPV8JvNIE1HcHsv0fY/f507EGEB4rZQRxbOPs=;
-        b=l9EaX8gZ3i7+tTVxolrM8PyITD5/LDHE4sWGe+dpMpZ5kdqjvsIO0AekOsmX5AauYk
-         rOvPbWN9ZFGUl/IImWMHnt6zxA4B3/Yl9Ks4dCQKQJ2lIjhszzoXsDx/tXE3y7YWFyVI
-         6bbc0jnP7XQcPsnCGxzMOmwNLg/H5oYF9wEAQz/RZVbCByEZ36FJVNcLdrVGDhJ3bUM9
-         Fw7qu9Jh6pwg9SD/OWrsHoB/1H+6iteMiAwZ5hVwG3d5kCEVTsms6tRmvK6SMuLhSVPs
-         mTpOXnd3tN4q4GqS11FC7AyGpWVQ3069Gt+JO0JY+fozFIGQw0E06OZXf2TS+RYIfMQc
-         /kyA==
-X-Forwarded-Encrypted: i=1; AJvYcCUvkOzJ6vtIBiqqcRyzGvngR3vUZpttZlGd/VDVI8kxZ7MEnlW+jPNaco6eLdsns8PYXruZRjFTWFm4u6o7fJjS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwR43S2Hx1c4isGBcY2vTiQtB9yZriPwwUR/kXkSWHIYtyyfCrl
-	dvKJ/pNJqALq5NHEy6Zq3fqhj+dLxKp2CU5Q0L5dpM58H51g1UHiFSMt
-X-Gm-Gg: ASbGncvQHLVcDAJnkFKG9gGburIFaYMvHWhmUCAueGnuVAHNGDjHqG5851uc3aD5weu
-	Sy7bSGTrJDOi8w2RVuWVCI8dkRjYbgE5CBhgJvEe+UtJ5+Fq5IW68wqRMtxGCCGzkmEvZ2rvSxY
-	bPqkiuuT6F+CwkfT9bWP2tdUnffHccMuP/t24NPFKcUrkicW30+PZQwvmU6T6swNl/BiW7Bgll1
-	xCUzXgYdkvOmCD7sgg4dBvpfShNWWyRSCOUaUM1pXzDRityh70JfLosB2Bd/uXklPS0bck2U2Hh
-	P3NBUo4c5xVRrqoQaUypbwH48QndCH/ZW6Rb+mQmfDQc95JiVcpkdy8HJofVAlvQZgVjulYdL0l
-	SYQa/40GdVXruSVSAUJbhylTb51rUFPeNw3cRtdsYMQvXe47wVUZWFad+9ZWoyzkLQZMR
-X-Google-Smtp-Source: AGHT+IHKVzrFH8EdFJRt9+sIGdgnsO77Zqi7iCWJlIKvDOF7Fz7qaovoCqBOU4nm+R3zMocdJDsu9Q==
-X-Received: by 2002:a05:6000:2f85:b0:3a5:2257:17b4 with SMTP id ffacd0b85a97d-3b201ba2a5dmr5403191f8f.55.1751532352765;
-        Thu, 03 Jul 2025 01:45:52 -0700 (PDT)
-Received: from partp-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a88c7e76e1sm18392949f8f.16.2025.07.03.01.45.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jul 2025 01:45:52 -0700 (PDT)
-From: Parth Pancholi <parth105105@gmail.com>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Parth Pancholi <parth.pancholi@toradex.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: ti: k3-am62p-verdin: fix PWM_3_DSI GPIO direction
-Date: Thu,  3 Jul 2025 10:45:34 +0200
-Message-Id: <20250703084534.1649594-1-parth105105@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 03 Jul 2025 08:46:44 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7AD90432F4;
+	Thu,  3 Jul 2025 08:46:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1751532400;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/cYj0q/giLszIR3kilyQWrZxMIeIjICge0MHLXkjJFo=;
+	b=LrYxjxAThrFQpeyWKPo7KHXblOcrN7BiWBU1ybIgmr/F8jlZn3oMMuFSHLRpDBJCmRCA1w
+	MsFwFPjimMNCZQBEGw0AUhUDK+RAMDTtWJ2veBlFxBS70NDSyClS2oazJsm9GXuSSiABnA
+	oV403Rb+nr5PpxxEXLcxSLdmT4WfVx+scbhDaUmQmv71EzmVWmfh952msl/4kd5FhS3UgG
+	H6v5SK89osI7/Zr7u5WkZX5kRsBq/netzt1snf3UAWVuxgU+g1X7fWrnla9+ir1xgj8s0A
+	kz1ZlldSa5AVR+gsrbQOELucUNukpblb0eV9CI8FzxxdgnsPKwKF60r3zk4j5Q==
+Date: Thu, 3 Jul 2025 10:46:36 +0200
+From: Herve Codina <herve.codina@bootlin.com>
+To: Rob Herring <robh@kernel.org>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>
+Cc: Andrew Lunn <andrew@lunn.ch>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Andi
+ Shyti <andi.shyti@kernel.org>, Wolfram Sang
+ <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, Derek
+ Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
+ Arnd Bergmann <arnd@arndb.de>, Saravana Kannan <saravanak@google.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, Mark Brown <broonie@kernel.org>, Len
+ Brown <lenb@kernel.org>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus
+ <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, Geert
+ Uytterhoeven <geert+renesas@glider.be>, Davidlohr Bueso
+ <dave@stgolabs.net>, Dave Jiang <dave.jiang@intel.com>, Alison Schofield
+ <alison.schofield@intel.com>, Vishal Verma <vishal.l.verma@intel.com>, Ira
+ Weiny <ira.weiny@intel.com>, Dan Williams <dan.j.williams@intel.com>,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-acpi@vger.kernel.org, linux-cxl@vger.kernel.org, Allan Nielsen
+ <allan.nielsen@microchip.com>, Horatiu Vultur
+ <horatiu.vultur@microchip.com>, Steen Hegelund
+ <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v3 00/28] lan966x pci device: Add support for SFPs
+Message-ID: <20250703104636.5012907d@bootlin.com>
+In-Reply-To: <20250627155837.GC3234475-robh@kernel.org>
+References: <20250613134817.681832-1-herve.codina@bootlin.com>
+	<20250627155837.GC3234475-robh@kernel.org>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduleekgecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthekredtredtjeenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeviefffeegiedtleelieeghfejleeuueevkeevteegffehledtkeegudeigffgvdenucfkphepvdgrtddumegvtdgrmedvkeehmegsleektdemvgegtdgtmeeitgegfeemsgehsggsmegrgedvkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemvdekheemsgelkedtmegvgedttgemiegtgeefmegshegssgemrgegvdekpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeekpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgp
+ dhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvg
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_014555_010584_AEC6E6E4 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20250703_014643_195765_CE4A9B28 
+X-CRM114-Status: GOOD (  45.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,37 +104,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Parth Pancholi <parth.pancholi@toradex.com>
+Hi Rob,
 
-PWM_3_DSI is used as the HDMI Hot-Plug Detect (HPD) GPIO for the Verdin
-DSI-to-HDMI adapter. After the commit 33bab9d84e52 ("arm64: dts: ti:
-k3-am62p: fix pinctrl settings"), the pin was incorrectly set as output
-without RXACTIVE, breaking HPD detection and display functionality.
-The issue was previously hidden and worked by chance before the mentioned
-pinctrl fix.
+On Fri, 27 Jun 2025 10:58:37 -0500
+Rob Herring <robh@kernel.org> wrote:
 
-Fix the pinmux configuration to correctly set PWM_3_DSI GPIO as an input.
+> On Fri, Jun 13, 2025 at 03:47:40PM +0200, Herve Codina wrote:
+> > Hi,
+> > 
+> > This series add support for SFPs ports available on the LAN966x PCI
+> > device. In order to have the SFPs supported, additional devices are
+> > needed such as clock controller and I2C.
+> > 
+> > As a reminder, the LAN966x PCI device driver use a device-tree overlay
+> > to describe devices available on the PCI board. Adding support for SFPs
+> > ports consists in adding more devices in the already existing
+> > device-tree overlay.
+> > 
+> > With those devices added, the device-tree overlay is more complex and
+> > some consumer/supplier relationship are needed in order to remove
+> > devices in correct order when the LAN966x PCI driver is removed.
+> > 
+> > Those links are typically provided by fw_devlink and we faced some
+> > issues with fw_devlink and overlays.
+> > 
+> > This series gives the big picture related to the SFPs support from
+> > fixing issues to adding new devices. Of course, it can be split if
+> > needed.
+> > 
+> > The first part of the series (patch 1, 2 and 3) fixes fw_devlink when it
+> > is used with overlay. Patches 1 and 3 were previously sent by Saravana
+> > [0]. I just rebased them on top of v6.15-rc1 and added patch 2 in order
+> > to take into account feedback received on the series sent by Saravana.
+> > 
+> > Those modification were not sufficient in our case and so, on top of
+> > that, patch 4 and 5 fix some more issues related to fw_devlink.
+> > 
+> > Patches 6 to 12 introduce and use fw_devlink_set_device() in already
+> > existing code.
+> > 
+> > Patches 13 and 14 are related also to fw_devlink but specific to PCI and
+> > the device-tree nodes created during enumeration.
+> > 
+> > Patches 15, 15 and 17 are related fw_devlink too but specific to I2C
+> > muxes. Patches purpose is to correctly set a link between an adapter
+> > supplier and its consumer. Indeed, an i2c mux adapter's parent is not
+> > the i2c mux supplier but the adapter the i2c mux is connected to. Adding
+> > a new link between the adapter supplier involved when i2c muxes are used
+> > avoid a freeze observed during device removal.
+> > 
+> > Patch 18 adds support for fw_delink on x86. fw_devlink is needed to have
+> > the consumer/supplier relationship between devices in order to ensure a
+> > correct device removal order. Adding fw_devlink support for x86 has been
+> > tried in the past but was reverted [1] because it broke some systems.
+> > Instead of enabling fw_devlink on *all* x86 system or on *all* x86
+> > system except on those where it leads to issue, enable it only on system
+> > where it is needed.
+> > 
+> > Patches 19 and 20 allow to build clock and i2c controller used by the
+> > LAN966x PCI device when the LAN966x PCI device is enabled.
+> > 
+> > Patches 21 to 25 are specific to the LAN966x. They touch the current
+> > dtso, split it in dtsi/dtso files, rename the dtso and improve the
+> > driver to allow easier support for other boards.
+> > 
+> > The next patch (patch 26) update the LAN966x device-tree overlay itself
+> > to have the SPF ports and devices they depends on described.
+> > 
+> > The last two patches (patches 27 and 28) sort the existing drivers in
+> > the needed driver list available in the Kconfig help and add new drivers
+> > in this list keep the list up to date with the devices described in the
+> > device-tree overlay.
+> > 
+> > Once again, this series gives the big picture and can be split if
+> > needed. Let me know.  
+> 
+> Please suggest how you think this should get merged? There's 8 
+> maintainer trees involved here. Some parts can be merged independently? 
+> We need to spread over 2 cycles? Greg just takes it all?
+> 
+> Rob
 
-Fixes: 87f95ea316ac ("arm64: dts: ti: Add Toradex Verdin AM62P")
-Signed-off-by: Parth Pancholi <parth.pancholi@toradex.com>
----
- arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I will add this information in the next iteration.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-index d90d13287076..1a6490572453 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-@@ -426,7 +426,7 @@ AM62PX_IOPAD(0x00f4, PIN_INPUT, 7) /* (Y20) VOUT0_DATA15.GPIO0_60 */ /* WIFI_SPI
- 	/* Verdin PWM_3_DSI as GPIO */
- 	pinctrl_pwm3_dsi_gpio: main-gpio1-16-default-pins {
- 		pinctrl-single,pins = <
--			AM62PX_IOPAD(0x01b8, PIN_OUTPUT, 7) /* (E20) SPI0_CS1.GPIO1_16 */ /* SODIMM 19 */
-+			AM62PX_IOPAD(0x01b8, PIN_INPUT, 7) /* (E20) SPI0_CS1.GPIO1_16 */ /* SODIMM 19 */
- 		>;
- 	};
- 
--- 
-2.34.1
+I think, the merge strategy could be the following:
+ - patches 1 to 14 could be merged by driver core maintainers in cycle N
 
+ - patches 15 to 17 and 20 could be merged by I2C maintainers in cycle N
+   without any dependency issues against other patches.
+
+ - patch 18 could be merged by OF maintainers in cycle N without any
+   dependency issues
+
+ - patch 19 could be merged by clock maintainers in cycle N without any
+   dependency issues.
+
+ - patch 21 to 25 could be merged by misc maintainers in cycle N without any
+   dependency issues.
+
+ - patch 26 to 28, even if there is no compilation dependencies with other
+   patches, they need the other patches applied to have a working system and
+   so they could be merged in cycle N+1.
+
+Also, as the big picture and the goal of this series has been shown, I can
+extract patches from this series and send them alone depending on maintainers
+preferences.
+
+Maintainers, just tell me.
+
+Best regards,
+Hervé
 
