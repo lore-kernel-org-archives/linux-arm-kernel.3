@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF31CC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 22:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50388C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Jul 2025 22:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NYlX3ZZkKCv0zsZmTBGfcGnARoW6yQhWGD9ntTDvZCA=; b=jgbKMsCEmSXBGoqemftoctJss8
-	vAn5Ys2d3J4BmAiVyRFuJVMzdYn7YVJ+LcQ0QRgGOIRanRB7G0DqOHcTiDClSRyjVhbPw+3xzYTZ+
-	timu4Hp58TC3JZ7qlDisx5Dgfq78lHRe9/1Fui9CxjkL5HKqxdzcq+OmNBYnVRCIQruT2oKbundSp
-	WNXRh4AG+zaNGifHeg2kXNnSCw1rcKAzBKuAQOo/ELN5arM1VUgroL2LLaMGUSkHY7YxqXvBGqr+I
-	daxzgoymh5oj/tGEFA54ME42mpjmrbUMMHEPWo3zXUPLZl4crCqYy9NIJMKyYX9XnUtJqWCixjr4A
-	yyFXPJPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MuHvBdZctEtzhPELFeCYnZqsR6O+CCEh7cw6bo3Z+rc=; b=ox/ZtIcjaZ6u5s0UMALes1pv9Q
+	/AizD0XkherU0Nq/FF2/Crl8YZ9Feaa7frcOIeDxLvZWez7orGhYDWPwwPKzXNEWkhgy7SYWDAIxz
+	89C4QAjFqqkFUC39R0JjeIw2pr9e5jE36lrMHgXIdlRH9zI8RXRKJ2X+wAIuD9iBVqQX+IaG9IBie
+	HVJdYW9qRLn7r2rvixQNt6GC83KMTBuJy2EL8BXj5c5OVzJd47e/KqjsQTiXCuWn6x2+CRWfAx/nu
+	Ag51OaNAf90eAKBXjJPHC2uAwllNabtSgKd+umbk9sb14AQ5rBw00fHGwSwpMBVXtvNFpPmUP92Di
+	VwVLIkKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXSgV-0000000Cm9H-2F8d;
-	Thu, 03 Jul 2025 22:45:39 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1uXSiq-0000000Cmiq-124e;
+	Thu, 03 Jul 2025 22:48:04 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXS2r-0000000CfxQ-3ZRg
+	id 1uXSBw-0000000ChQK-2dTC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Jul 2025 22:04:43 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-32b910593edso2745591fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 15:04:41 -0700 (PDT)
+	Thu, 03 Jul 2025 22:14:05 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-235e389599fso273395ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 15:14:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751580280; x=1752185080; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NYlX3ZZkKCv0zsZmTBGfcGnARoW6yQhWGD9ntTDvZCA=;
-        b=L2Ugyto3sWXqeZ3Egw6G4uPn6++pFoe1witiRL1XufZ2Sxg6jVF39ePjjMDHrQ8UZs
-         jGEySYIepScZJZGoWcGSbiSwqqDeHcmbx4AODmUX9pXmRo/4vx31anuda0gsL9Q7XiN8
-         ZZM9cs6sVFRWeWUBJ4DPdgcNZWc2yvT+1AJF+oQ06YLjp+AYWsqYZLWjc4HGvD6SzK8v
-         cpbtvg+lqnDhPe1M6ftnRrv3p4ELhPctMAQl9zWjJYvXAQI+vT0ugIsO56/wyrnRbjLv
-         9/qP3zUamD0qz99AmpiGSUa+7yE/rAqvkTAtNqGvPYkSRiB59adpfeg0AX4Ji6SyFJlT
-         Y4eg==
+        d=google.com; s=20230601; t=1751580843; x=1752185643; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MuHvBdZctEtzhPELFeCYnZqsR6O+CCEh7cw6bo3Z+rc=;
+        b=YOQoHUXnOnRSS/14dhxoTQ9vBUKcNLmrq/vhvCoQ2ZuAtsl6gMrNAf1MQKSY9FpGTw
+         smVqPFMyKYEwqPaiJ5UOnLgQLo8ee4lHq01S8JKmIyYy891Npp0Fh3rAe4cyR6w2FjPl
+         KjPUTqhl4vHFHa2Ekn3GmG1GTLcJMIk+VF7Zm0BbJeNk967GAkan0mCOE8fZEoxTYlsP
+         L97Z94JBX74x0C7WsXryGXy6N0zfXLhrB/bD5Jze/LgT/rngyxvXTduVKXTYhR19YiuV
+         i1K54GyMqRLP9wfnKvKvh+oUtnpch6k/glH+/+5vLADruIoT7BVAmg+YoA5VWWGunSW8
+         Vt7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751580280; x=1752185080;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NYlX3ZZkKCv0zsZmTBGfcGnARoW6yQhWGD9ntTDvZCA=;
-        b=khPx3oldYec0ekSEhc7DdjQlPPpy3hZTVJr1VecuQYQZybf97QaAY3fiwqQVBc1mjS
-         +Ra8FB60uUgX4yD0+mDl1p9T1blhTx4o8eINjnmwogcpASk8eNeHqQgvzbP/jakJlwpv
-         h3nADhEbFMtHwbAyAiiYKCcb8uCMmjzHsXgIDtJtVnI+HB1ugBtQgHX3RMkHOYKTS32T
-         tL6aWPbuq2dZMTgtNSRM/IxQl3a6UPrkMW8q7uzxDg67O/mlFlpXJoilQUL46p3sagVU
-         Wcy1UIujhpUZR+gmKxzAgqcbfnCbFW7X7Sf4mHNTdXJ3A2qpAR6XCUD7u/tDcfBFIVr5
-         qKPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXCp9qf2NDsC9PKi/Evn1EieIJjXYQTIs7uogRqsg24yxECD3Nf0rovEmfB90u8U5BHCTsMQTTKbguoc1ub3TyX@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRano1lqLTHAcpkY4gJbR4dR7yU3ouYclidyvAuD8M6XZDY51L
-	FRuM0X7Ku2q+0x4AddYmDK2k+CWJftyp0w5X+etMvsIMn/YEjUYnBm61z9OvoorXJnnPbz0ge5v
-	lCg8nJs77QC0+a/IBjeZhEe0dYHvSCTNQnhX/7GdquA==
-X-Gm-Gg: ASbGncsK6KvaCzJmIdj45mfXQIGH9nL1GEkKq9C7slnY4FfVI1LNmqQ4WLlx2LsFH15
-	kc5xaj3VMvjTvm6Lx3rzpGRN2UJsEQnyQUcPWR1zNzBShxnIUGrjTcVNPJTNyUavWMohFdfoY0k
-	fP0Kxzz7YsfN3UNlaKZzUk2O/hjOrkTnkKYIXE4BkGRFo=
-X-Google-Smtp-Source: AGHT+IGImGMP5Fq/y4gpdZAXe/bNUj9t48oLyRIX8c3HTSvwJygjhM/8i/8L71e57dTnyWSS9tDnQTa49ULtKebAmMU=
-X-Received: by 2002:a2e:8a8f:0:b0:319:d856:c2f3 with SMTP id
- 38308e7fff4ca-32e5f581285mr443871fa.10.1751580280107; Thu, 03 Jul 2025
- 15:04:40 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1751580843; x=1752185643;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MuHvBdZctEtzhPELFeCYnZqsR6O+CCEh7cw6bo3Z+rc=;
+        b=icxrw0C56P8V/DRCOv8H6r9QdfLrGKUvPnoQ3AI+XdFdOFxKSaJLUWCTvFrJl65JK6
+         KeRfObjscRV5i54q2YmyWp4kRINO/giaToo1wP6nHKC0/rI4vsaM07xAUSMRfAh0c008
+         xuSbtuUkuOh14ZlY38TBudJCW0K4k8L3/BPBtURWVMIkLFHgcYx3vsoIjPgh6ovzBJvu
+         1a/nsoPXjLl43Ca4tp5Oz1FOn6j2J7dB3TSbMW3EaktKVbcuZQOdXNC3wY+AoznhaZNV
+         +ojtVwPF3IXZOpNPXfsMCjniHf/X4rnHCHbYsQmJN4Y90G6/UuZ76epFOYY5zoCMpP6M
+         5FxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWBrBLFC7qNBZnDaSYazcNnuuoMs+bbbCb4H7TqNfjrBaFSMmHCNvVK6rzXwN1pVInjNk30XjAHyek9YRSaGRF8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAZWgdhA+VMCcwXhyk87A62edm0xdqysfwZ2wKfic6dbbjgita
+	c3EXQ8X8Ue+ml5ZOzfO6gxXKi+EKoMZtr8IM6zxukqujfpkXfc+u2WeoSGHEzUWkUA==
+X-Gm-Gg: ASbGncvYLgIJc2gVCeea8qncJVre27yos9S+Z9SPfTZflKC5pDSUi/3bWOaNpyBd1/s
+	6J/erXqZappqqw2IY5xi9bSLYYW2sHZRsUCxF0Y11zDdGeTUVA5JY7C2WtLJXXo0f/gPGhFLbSt
+	F0Wr7j3n3VaRVBVzPVCL1hoe2thMGa30mKOGkNyoJJvUhvXuG9/RkaCN/iKBeU8OaCevcqTzj8J
+	67h1axooTP8ThRLmJSEh4jpHuCBgpBJvqEgc0qXJ4vYHSoBu4WyLOwovuCmk95aFAGFessnsCdS
+	DB78H33qoYktxAXCpL+r4Z5ckLz8k57/KbEpNis660njslHzCjM3lch6vWcIX8K0XN+pbt85FwP
+	9uIsXe8Jah36PGJVqF+D6Re21k+al5pFw/uaHaQ==
+X-Google-Smtp-Source: AGHT+IH31YOAgpp6cWXPyDDiSdW0FsgI8z3zIJNlzWY7vAq0H2n7kS+w2YKYWOMSnIdeLnEkqfRSUA==
+X-Received: by 2002:a17:902:ebca:b0:234:9f02:e937 with SMTP id d9443c01a7336-23c7ac250c0mr3191765ad.25.1751580842742;
+        Thu, 03 Jul 2025 15:14:02 -0700 (PDT)
+Received: from google.com (135.228.125.34.bc.googleusercontent.com. [34.125.228.135])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c8455ec28sm4302055ad.117.2025.07.03.15.14.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Jul 2025 15:14:02 -0700 (PDT)
+Date: Thu, 3 Jul 2025 22:13:55 +0000
+From: Carlos Llamas <cmllamas@google.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>, Rolf Eike Beer <eb@emlix.com>,
+	Arnd Bergmann <arnd@arndb.de>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>,
+	Nate Watterson <nwatterson@nvidia.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu: arm: fix building smmuv3 as loadable module
+Message-ID: <aGcAo3pUwdsa-mON@google.com>
+References: <20250523121257.2340274-1-arnd@kernel.org>
 MIME-Version: 1.0
-References: <20250610152309.299438-1-antonio.borneo@foss.st.com> <20250610152309.299438-6-antonio.borneo@foss.st.com>
-In-Reply-To: <20250610152309.299438-6-antonio.borneo@foss.st.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 4 Jul 2025 00:04:28 +0200
-X-Gm-Features: Ac12FXyERrVVYpDPvl_uPGT_I6xGEjEKe5SU2NHnd5_uoaadOpsZN_FvQyb9INI
-Message-ID: <CACRpkdbKNDr00y9-7gL5vixuvtdx7WgkPh5krGKkW9fNizx_HA@mail.gmail.com>
-Subject: Re: [RESEND PATCH v2 5/5] dt-bindings: pinctrl: stm32: Add missing
- blank lines
-To: Antonio Borneo <antonio.borneo@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Fabien Dessenne <fabien.dessenne@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250523121257.2340274-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_150441_905381_79091473 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250703_151404_683023_98759A55 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,15 +103,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 5:24=E2=80=AFPM Antonio Borneo
-<antonio.borneo@foss.st.com> wrote:
+On Fri, May 23, 2025 at 02:12:53PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> The smmu-v3 kunit test fail to link when the SMMU driver is configured
+> as a loadable mdoule:
+> 
+> ERROR: modpost: "arm_smmu_make_cdtable_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+> ERROR: modpost: "arm_smmu_make_s2_domain_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+> ERROR: modpost: "arm_smmu_make_s1_cd" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+> ERROR: modpost: "arm_smmu_make_bypass_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+> ERROR: modpost: "arm_smmu_make_abort_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+> ERROR: modpost: "arm_smmu_make_sva_cd" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+> ERROR: modpost: "arm_smmu_get_ste_used" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+> ERROR: modpost: "arm_smmu_write_entry" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+> ERROR: modpost: "arm_smmu_get_cd_used" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+> 
+> The problem is that the drivers/iommu/arm/arm-smmu-v3/Makefile only gets
+> parsed while building modules, but the driver itself is accidentally marked
+> as built-in unconditionally, so not only does the kunit test fail, but the
+> entire driver is missing.
+> 
+> Change the driver configuration back to $(CONFIG_ARM_SMMU_V3) so it
+> actually gets build here.
+> 
+> Fixes: e436576b0231 ("iommu: make inclusion of arm/arm-smmu-v3 directory conditional")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
 
-> Separate the properties through a blank line.
->
-> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+Thanks, this fixed our allmodconfig builds downstream.
 
-This patch 5/5 applied to the pinctrl tree.
-
-Yours,
-Linus Walleij
+Tested-by: Carlos Llamas <cmllamas@google.com>
 
