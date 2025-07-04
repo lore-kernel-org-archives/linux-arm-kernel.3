@@ -4,157 +4,203 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB395C8303D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0163C83F0B
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AUFLIVBVQJD5vLk6usm6FS0qVBUoP0k7vLIFOEPed+4=; b=3nuPY835M0MdRWvThXeEObB2Fs
-	/GMdD5MA7Os6oS4542EJ0aGbMP9aKLQ2pJaaKjsRoFSfYG4VqsvdEC4vxTcb0CyqJGzaHWdp03MkG
-	+aiRI5uUyua0IxfVsyTyYJitrXng4vzrwPNcaDhF8YFMJYKhI+2PsAMaGNSqmLDsoPP324RcF8pe9
-	PlVwJNlvZRqSt8LggQfMmcNHxwjvrc5i4zuUx6V1nInnhedOz99AW1QnAzemN2pyG2F8S0jGH4q9w
-	djqbXwsZESjUEbCBgJMIjwLr3Ka0EWlWdZJcvpoHOSAFR/CB+tsmhfFCosBnASak32LuLC3HzesJb
-	2Te49Sxg==;
+	bh=raPsVFWEaCyyV8Wec/3iUFkmwSyJo7o4mHbLBHjDbfY=; b=zc8sjVtehW3zKgipMnigJAifLp
+	rrO5+KVsbck4mc9qk/I+ChnbifbVPsaJFJWBQgITVPB72wyCqOd0xesjsc5+LQtGvoQZ1x585edAN
+	Y/i6c4bGqKPe4hJjwi8+CJ3yOpXpv392XPgqHQTr2svGcbpGIhSovBI0S6g7iqsOwHhL9Gg+fmD7g
+	FdV6eoAH2TKJxIyLwmmTgjINw1Wy/rzBiiwuOUA2JuhOzaUaZhCmFuBFN9f+kqzX2YbAW9tSC8AEH
+	N8AU9Cbt4JfgdiiA1yTO2ddPTM4ufBKkgsWBh7MoEpOjZTTfA65cFjYltJKoKDt5SCyWwflacZ4AR
+	yZ8+8uRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXeyM-0000000EI6A-0jXj;
-	Fri, 04 Jul 2025 11:52:54 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1uXeyE-0000000EHtP-445Z;
+	Fri, 04 Jul 2025 11:52:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXdpx-0000000E6BH-0fJ8
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 10:40:10 +0000
+	id 1uXcn8-0000000DwWw-2CDr;
+	Fri, 04 Jul 2025 09:33:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=raPsVFWEaCyyV8Wec/3iUFkmwSyJo7o4mHbLBHjDbfY=; b=hPvohN99cd/21jguNnc6hf228t
+	26zpUTmYfGsv9O7U7ruDW+mBBwgX2KhaG1RBBRwVgb/mmP17kNNmSG+emMK1asGXFE7QyiRg8V8s7
+	tdxutGvKXbx7FF8tlRtGMMWBRbkIT7FdG6MyFrJ204DdBmOGGcck9Or2oZufS164KdGklWuXxa3BW
+	AzDef/YnnxfWHTCsqh8BZFHOJFwZTT1jPNMm4FnpFUAh8c3HMET+4pKj0XvBVYRqHr/SXX4pVzUtx
+	ZvGG9tcnhU/pjJjlC6ptpLfVj8YmYNp20pSDJEKAP2pkWqYIHDgPkyV5rWYuSxzlp5VMsIMZCRLj3
+	W6qZI4JA==;
+Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXcn2-00000007udc-2EHN;
+	Fri, 04 Jul 2025 09:33:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SBskSGnA2dgFZAY6pNsX10osNSqZIAsrwTmZPVs/IuPYi5nqs+YGCK7GqgB2TmnlO4Ii3PCHn3zGwM0/4zaeSqzGX3Y9lu/+DKoRsSxZxeCK18BeoT9tF6jdsN/o5jtjmwlQvwvqohE0kh6DtqprxFUggu8ad5CkwhDrln4ZDhujQixyV8onmwtV6XWjk3lPZyDu6N2XCQQ4JrYEFagpRlws8eC2vrozEKnZZLhssDp6X868GHJ7255S0Y91YRDyv7dwavO+Q3Or8BK5Ve7/tqqwgB9milhBnq4Ci1SWI+XPdxZG8s/UWTtxR+TYaGbatSacr8KJmh/VG9wkyroPQw==
+ b=sH0McuG8gWzto9cIV8MeZjQd60WXVuFacOmBkYz9GJhxGU6/JUbxw3vnc9I98EgEMmSb/kH9oIcMVH2MNJXzSy1yAn3A1Y5c6/JrzlGYl6/xLLeyXEynMSM1KBgMSfwaLNxn736GGOCbgsTSiw7s2vIkIrlaGebxnR8uUlYGmQ4ZNrB+smSHEIunHQyd7ycnFElGLpCS46bcCWzGaxqbZlXSkcV9o56rP+u+mm6sr14H6xU53dc12STZS4se6J3O6SxvrydGVl580/vWv+kAp27BXl5kWRVkGTk/Fmpj3xurmc+uJ6Iqd4kCVKNCcNnOMsnhhvbTK0F6YRuRxpcb3A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AUFLIVBVQJD5vLk6usm6FS0qVBUoP0k7vLIFOEPed+4=;
- b=PRTTNzl1+xge0Kn5um4WFDeN0SxLSwEUEjaHAZ5fKUFPDytnXkWy7TsQnmIILavrh+MUE996RC++66gzYUwoKR7JKgC5YJl5KB+CM7aqfFlUFCB1/PZfN4RcVUdrC4gdnyhccPkiNTkZ9ULqtfQr0k6CF/5aT02PMx96gYNV0osRFGF90zVSxgGloEY1E/Eq8eNCU1qVKM+FKSubtamNnvGmB3vENBnABl3HQj0X+y6a4bIQfwxpMw8els+p4Ga6DknHmLOLMd51vHghvDuo8C1Ce7RtRu14S4vu8ZEzW7HuIvT+yAzjVEiEq2TX4wk4isAmHGNBw4JssVJXpBVuug==
+ bh=raPsVFWEaCyyV8Wec/3iUFkmwSyJo7o4mHbLBHjDbfY=;
+ b=RpQtNwOfZsWwKPfXP9/MqjXPzGCgVfKLK7q7s8OHg7f+wdm/+yRvvCxArobGwvn/28uNTb3I7HLm5GbXMkkbU/HlhVS/Ux+5MYOD00zv8S/lDJ1VpBVNuRCI7ImCnNPizh/SVBH3Kl+NwsbeAUjb3e427hiOkFDYn5o5bD9G3L2u6XQWYB3wTlqMG093/lY5I4PoSNIgfZ9F7OW8DuOvCHiwTy5WtVfqXQIjqw0sh5uh2lDZLsQQ5AKTpokO6uifoB14DobBw7zYYj9AjJ9AUoaO3wXUlVVNjdBVEahvdw2dOEvxP/qWpYqcJ2fK1/wMiAmEdHo/1107HD96MiwIHg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AUFLIVBVQJD5vLk6usm6FS0qVBUoP0k7vLIFOEPed+4=;
- b=BOpLLc6/4blK/lMrXBPOlFOUb2e24Put1Wd/VDexGYVpI1SyEHnqj4kkgJd2Zolaiy4AAM0psY6K/9CeTUD7zxJYO9uo5ffu2wWa3iWKDC0eTdZB09Vva9T+QTL4Gqd1ntjQvA/kyB/IYtVn6ae1xtQmiz8qdY83RG4+Y5WJ5n/XgQC8TpPKOU/5B9l/lKrRYG8c4M6k+35GAPOCYmcNeC/Q2I6qfWdLabv4EYuylDVuDt+ODl6wkaRn8ZcgFGeZtXiffW7Ij4G7fyh0Ih1DIc7E2bZ9cq3KONDGQwsOYpUqTJiAVMecKWVrX8KsNMv3Jpd7H19lvynIzI8EiYbPHg==
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
- by GV2PR04MB11448.eurprd04.prod.outlook.com (2603:10a6:150:2a3::14) with
+ bh=raPsVFWEaCyyV8Wec/3iUFkmwSyJo7o4mHbLBHjDbfY=;
+ b=s3SZ1LBXEz0mgdzv9RQcmtoHwyaEZhytfJkeLCKo6jKtRp1PqX5i3FHzI5+lIIq4Q5yHM9fNpGBkiG/qJ9SBdQzZXzsCGQ/08O4A0rfjCG47Fs3WlDaxlthpfWSll40lYm/vlngGaZerrszbmm4UqFEHm/logNgch7n1oCTt9GY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+Received: from OS9PR01MB13950.jpnprd01.prod.outlook.com (2603:1096:604:35e::5)
+ by TY1PR01MB10706.jpnprd01.prod.outlook.com (2603:1096:400:31d::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.23; Fri, 4 Jul
- 2025 10:39:53 +0000
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197%3]) with mapi id 15.20.8901.021; Fri, 4 Jul 2025
- 10:39:53 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, Chuck Cannon <chuck.cannon@nxp.com>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-CC: Cristian Marussi <cristian.marussi@arm.com>, Shawn Guo
-	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH 3/7] firmware: arm_scmi: imx: Support getting cfg info of
- MISC protocol
-Thread-Topic: [PATCH 3/7] firmware: arm_scmi: imx: Support getting cfg info of
- MISC protocol
-Thread-Index: AQHb5ymI+0/IBGmTVESL7UE/Kt4EqbQe+8YAgALM24D//+3FAIAAGxHg
-Date: Fri, 4 Jul 2025 10:39:53 +0000
-Message-ID: <DB9PR04MB8461CD9CBAE26448D5610BF28842A@DB9PR04MB8461.eurprd04.prod.outlook.com>
-References: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
- <20250627-sm-misc-api-v1-v1-3-2b99481fe825@nxp.com>
- <20250702-arrogant-jackdaw-of-skill-bb9fd3@sudeepholla>
- <20250704100741.GC4525@nxa18884-linux> <aGeYomz9DmmAOSEw@bogus>
-In-Reply-To: <aGeYomz9DmmAOSEw@bogus>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DB9PR04MB8461:EE_|GV2PR04MB11448:EE_
-x-ms-office365-filtering-correlation-id: 91451e91-0d63-4247-0476-08ddbae71c4a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?K3XkWvYz68s8ghptoadvRMrK9+FgNf/VbRXGFFW6+9g5j6X0iL8Je6yhyHYn?=
- =?us-ascii?Q?3kKBqwhtkVJ9MOqRlV8Qa21AxhENbI9WF80vhhHwStfrjv7NDxsCIu1Wegqp?=
- =?us-ascii?Q?HVFsy8AIFOH3yOF2vhQ9/29ZGOzNJsNjQlF3HIet4awvS9/xA7E8gC/jlt7L?=
- =?us-ascii?Q?ifYPi51r5nVW3q8dj105n8WIbgHPftDeUjvWmZzC/fgssSrgjvyjZClCz+hD?=
- =?us-ascii?Q?bACwAZEX9YR2QxWCaV6bgecT8aY7eBqE1pzD0Zcl8zkd6mXeRkBrauhSdjyG?=
- =?us-ascii?Q?Df+9s6lCySHzwvLl+wKzMFVERjpTe+4690S02txz6dogBZwuiX+hSg/I+vF1?=
- =?us-ascii?Q?qqJ6uRcWlLyqSPX+EBcUB05uLzIRYjkp3pTAmE5KQ94ec5X8ML/xHfkv44Hi?=
- =?us-ascii?Q?G1+aNOGVNJz2FPOnBu5Kluv3+SHPdGIUDvt21caOLmms3ZzZ5SWMCqoOfgVK?=
- =?us-ascii?Q?3raJrcFle0lhj9NwHHiNsOIU/3AuAbTfTGBc3MYpn6PZxhWD81pzCfsBydGJ?=
- =?us-ascii?Q?5vs+E64i5WaPijkhO3EYjEK0KZFQi7mQ8S515HeqhAaIEscrVkeHe71tlqEH?=
- =?us-ascii?Q?iGhUUCNkhmK8BcXqfzWm1+kjRc9PobQRatVhV+8mPHm2KmQuKNiV5z/eCXUD?=
- =?us-ascii?Q?xCcyAumnZTzwuqrMqxZWy8H63SGfv8tZLULjcwOxUE7lKzZP5h+v4Y3wQGoe?=
- =?us-ascii?Q?X0BegAsOY4unXI2EJHhs/bdglE1bLwbO5I35IVScly1VlLx0lOzo5YaiZksl?=
- =?us-ascii?Q?xcNVdA28WreWIReyYztPnD3/jc6fwwY3Vu35pSxcJCuCzF6pAUiE36hf7nPm?=
- =?us-ascii?Q?U6zTJFeJ9EPHJqfP2ew4dHA8MDNVYYegkKW0xLBJV3gh70d6Gfe3Z49OwToQ?=
- =?us-ascii?Q?rn1zKk6wwtATvl6I5WH6NCAoFhJDZFiXZiTyB57CNA5Y523C9r1qjmzyiEYU?=
- =?us-ascii?Q?eG+vA25NLswjeYeYx+My1H2X8pfs6hYH1/OMa+3hgs21iF/XId1lYj8nmjQq?=
- =?us-ascii?Q?l7hn7cflisc+pU1Ii/hwiYi+oSGQZHNAhBrEKiIcCCdpZJh6JtWreXcIRVmq?=
- =?us-ascii?Q?rt7K2BzLC60AqHm3q5sIbhSi7Y/iQoCSCsHHbjioLpM/tAQBG4VdWmb2cBD8?=
- =?us-ascii?Q?1OZFiWd/EsWUaUOeKScjZJvxFpozuftP2iwJ31PMAzzgw9LbNkxb87ecH1Ef?=
- =?us-ascii?Q?TtbCLDCshJG0PHbfqeZwvTbfx1tMIzSXYEVbCPPhUbwC1OzAagcV2G7P5RDs?=
- =?us-ascii?Q?UZx0c4gr88desR8oE5hWvQhwB1P6IH14rl4c7mBxJagUi+yjeXA+Le2RV4wl?=
- =?us-ascii?Q?LeccTV8hkb3MgQCj8PgRySkw6DPkWbgxbdds1wzam6l0RHzJizrwZzq2raie?=
- =?us-ascii?Q?wblH9n+q4w9agJRKaYxfkpQ0dNoZQYfvAlLHK4TUr+axlULaP2Bie0hQWydw?=
- =?us-ascii?Q?pY05dIjgTVbgBjkPO1wccbSiW0ZFBhKkdjqsIGHSVMOdB2CG1NsNVQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?yMUwoI7Lc4W5QoX5zS5FLvq33z18V0k/c88CIHpNzDFH2n2upAdJ4I964ZlX?=
- =?us-ascii?Q?WsQkzsK+EB3jAKgSBhyt8oheqBYVc4vrmp6wWpmsBtAAqiFZA1XrfIkkVvea?=
- =?us-ascii?Q?1u++ga0PwvhBsAlOpKPZbS5JWyqKCB9xj4u7S9WqMAs79hU1NQY31yTUuwzz?=
- =?us-ascii?Q?XqPd7nHKZ62ViS08YizmaIk87uamS7m1n0/TRCl+DSmvEL9BU/IrKQ3UJAwb?=
- =?us-ascii?Q?3WC326DF1uqNl9sDVsdbxMhZTSm9pbBx9hj3ZImeahuHptX58+5rH8SmN9Lt?=
- =?us-ascii?Q?zWkfgG774h9jcONn4D79U2K4MIxpLX7IXwSYsEK2/10ktdy09LGYc3fGY39y?=
- =?us-ascii?Q?8p6aA8BB4aEpXkCnGUcKgSctIq6UsLVxpz7N7YNuA71VQypRpMpsmPqO74tR?=
- =?us-ascii?Q?/UVx0cjTtcH+ZC6+jM+QQRn8aix6kkToKtA1WpuCueLwV/89mgeFmYfnT8Tf?=
- =?us-ascii?Q?Mp/slTiW5HP+D67TFVZBXgaXeXsmagJB4W2EIMzTK5SLFaCAg2oU1SpvO75P?=
- =?us-ascii?Q?pv60oIJzyoG93kdW65g39CBahMCjylwLC0fZUK6ZUN/0+GZLImOd8voxuRH5?=
- =?us-ascii?Q?Usx6CqrR3tuh/5XbUNr1ft8n0KRyxE5II8KF3rGQJCLV0bT1C7ae8fn/Nys4?=
- =?us-ascii?Q?mp4stKZ7K5OHYah9lVt5tyqPM4Se5lxsQIuyxcVYYqK3v8cZ8/Ed4FvUAmsP?=
- =?us-ascii?Q?Z2VBMiNwGCF09malvJVkFvmGmyiGxAn3gLP7jEGK8B/+2bQYt9wqUBcn6ioj?=
- =?us-ascii?Q?x4Xsh+MV/e6Q8JxUy6MyDwA9i3usjgxDF13fzvcSTokvU0vz32Qd2tfjYK/Q?=
- =?us-ascii?Q?Qh0BJ8VmDUK2H3gmHfbbART7ZA6f9It7uTsXT0GckQp874xXgAlgMDa3hJPl?=
- =?us-ascii?Q?w62fDSaUO471tBV9/3rYzk1IkI/Rc5iyi3VORuw7L1p/XbROwXq89MeqqpM1?=
- =?us-ascii?Q?dgMeN44czsFBBtZVLjU1cuoh40bBtS9DSUr5m/9I/RfMXxhufv61Qx33m8b8?=
- =?us-ascii?Q?Hf8z4az51nUfgsUxaxLVn9Lcm9fltTflusn++HvZbbTRHOpM4pctga+AcwPL?=
- =?us-ascii?Q?qF+tNoT4Mjrz8YsY1RpiXTd0Yex/hy1+3Xmq0ETA6pEwDD/DgFcoP1jsgDza?=
- =?us-ascii?Q?mP3qeR1CfEWIWr0ahdiU6MWHBbxWfLUf7R/5EJiGH4W35OLkutRgMFDIsGSr?=
- =?us-ascii?Q?9rIdBplRNKz1cNNRs9N9YUEDPZ9Co47CQL4t7YqXAD5+oukEwoSSWDBrqjkx?=
- =?us-ascii?Q?Jrz6nrGHfhZ8DY6X/zdkK0cGz5KbeOL/sz/JsF79apQY5ewB1ND+ndrsOlW6?=
- =?us-ascii?Q?GgsxoQKy3weYPpVa718Znc1GnnF34Itl4dwakxYV2mB1sK1C6Y/xGzIsZFeh?=
- =?us-ascii?Q?YplM8XTwiput/aSerhJEQJ6wPmwQQNElJjhkuN8N62rbApx/bXkB9GPt9PxS?=
- =?us-ascii?Q?m+F2pZNhLRcW67YFJXgFjQY7gOi2R/KKZblfjMGIGMjoDECMxrO/JzanBYUB?=
- =?us-ascii?Q?OIHZEcm5L9t8tLH0KoTgGRPvHF7wh7FeD36ObyclvAmCLY1Z5RP/9K1X+J3p?=
- =?us-ascii?Q?4Gt3NyxKhNgo3yA4kak=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.20; Fri, 4 Jul
+ 2025 09:32:42 +0000
+Received: from OS9PR01MB13950.jpnprd01.prod.outlook.com
+ ([fe80::244d:8815:7064:a9f3]) by OS9PR01MB13950.jpnprd01.prod.outlook.com
+ ([fe80::244d:8815:7064:a9f3%7]) with mapi id 15.20.8880.027; Fri, 4 Jul 2025
+ 09:32:42 +0000
+Date: Fri, 4 Jul 2025 11:32:17 +0200
+From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Tommaso Merciai <tomm.merciai@gmail.com>,
+	Martin Hecht <mhecht73@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Umang Jain <umang.jain@ideasonboard.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Mikhail Rudenko <mike.rudenko@gmail.com>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Nicholas Roth <nicholas@rothemail.net>,
+	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+	Sylvain Petinot <sylvain.petinot@foss.st.com>,
+	Paul Elder <paul.elder@ideasonboard.com>,
+	Matt Ranostay <matt@ranostay.sg>,
+	Nas Chung <nas.chung@chipsnmedia.com>,
+	Jackson Lee <jackson.lee@chipsnmedia.com>,
+	Dmitry Osipenko <digetx@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Vikash Garodia <quic_vgarodia@quicinc.com>,
+	Dikshita Agarwal <quic_dikshita@quicinc.com>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Sean Young <sean@mess.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Matthias Fend <matthias.fend@emfend.at>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Ricardo Ribalda <ribalda@chromium.org>, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 41/80] media: Remove redundant
+ pm_runtime_mark_last_busy() calls
+Message-ID: <aGefoTAKt6yu8uc6@tom-desktop>
+References: <20250704075225.3212486-1-sakari.ailus@linux.intel.com>
+ <20250704075431.3220262-1-sakari.ailus@linux.intel.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250704075431.3220262-1-sakari.ailus@linux.intel.com>
+X-ClientProxiedBy: ZR0P278CA0018.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:16::28) To OS9PR01MB13950.jpnprd01.prod.outlook.com
+ (2603:1096:604:35e::5)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OS9PR01MB13950:EE_|TY1PR01MB10706:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9cda9722-deae-4928-b928-08ddbaddb967
+X-LD-Processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|7416014|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ik6WsKStNmAPYYZO4Zf1FGQnphJqUrHki7kqefqF2wUunpBvcYbWCpVDDWDJ?=
+ =?us-ascii?Q?URzAs1Jq+ZwDSNHcQFcdionIlmCmuqajro8yqhdtInIt3pud1+5ke4XReuPE?=
+ =?us-ascii?Q?QHMbm+uzXCNz0ROyeLSX47CWnr5vCd/XCYtaYFOT4OJdwDnRhwDxkdbRF9f9?=
+ =?us-ascii?Q?I0EJU4GJzLOFJdnH/C8Pxg6zEICuBg1cQKG4W08er/bjzY/t+xSFvQ7d/WAx?=
+ =?us-ascii?Q?dE28VS2s2/AatXyD2moMQvd4o0POyqEVTSLnglA9/KiFwppG9Fn6ZihDvZhU?=
+ =?us-ascii?Q?r+nu+i/ko2s/fU4bXmBOtIxXBtVG9A8MP1IZXidu7TBrhioHwekX/05zJf0V?=
+ =?us-ascii?Q?Ef+4w9v64L3kPzqSnh37pFYNcflvLeSjDNX7tg4+HEa71yHQhpMSeW22CTCQ?=
+ =?us-ascii?Q?74bYj0uLQmpkWmyUGP71+rmfx4sZUjJx+LIrs0RwhvdlcXx0hcXxAbtfcY3E?=
+ =?us-ascii?Q?50DMLtyGG6lSMCoy807n/wE8aN1g5S/GFTDtYO5fQ1kX/lgV3LFAuEjN+/BU?=
+ =?us-ascii?Q?7faEm9Vuh+MQQwNgktH5A1CaCAAN3sEfYSbrEj5nyX5oO40dwnosgMfmFtUs?=
+ =?us-ascii?Q?+yoQ9IU4Ry/TlAXjW5DZ4LBrjmUCdr0TDlzmKEXZAA1bSq0Cq/CYEAKwJ9/b?=
+ =?us-ascii?Q?0TmIDJPz+OPQZFqNh2XTck3fRraqkB0bFVPlncP5mlHSbvD2QJJaKr4gAwWO?=
+ =?us-ascii?Q?J+y9AvXNh2ViA2YUrt1woeV6GG0uUMRWh6PPEmacom5cxHHs1O8P6kFr1w7m?=
+ =?us-ascii?Q?uKF5mu+fsb8xh4WmAEM5lIyPQcl77yfPRx85WsG2qn9+bOTpX2o4LPt/ZUFQ?=
+ =?us-ascii?Q?99Y+ztJwkxTi6PhPb5efn4AsCkQuaPef4xLN34xbkX2AMNUveBjAPBPd0XH5?=
+ =?us-ascii?Q?Op6x1a7yyFQhpwW6scb+Y/aSs1zgSlaKn9rBePsjd8zB5Y12AshOomY7vY+4?=
+ =?us-ascii?Q?HAbAYxUxVqdNoVgcvxnV3f58Csq/kAnvJfQtJT7YiL0Sad5EQXKECLRJ52ol?=
+ =?us-ascii?Q?hkD2/BLrmbir6vtCoNK/0vaDXeR6bFYrmVRZv6L6dObQGfperAmkQgUb2XYx?=
+ =?us-ascii?Q?Vx8dRS38NpUHHcIvaKUrzOCvw4824TGwNn4Lg7TLHDmVE010XElLAG/CBkEw?=
+ =?us-ascii?Q?aTqcqJNDclrChkUgw6lO6ialUQHAeaaqjdvUmeu29qW7fFYgLEz8MbJQ0k62?=
+ =?us-ascii?Q?a8bSuX5df0BFiHSjHPWNHyOX39OpoRjf+uJ5OrXLavt84VKdKhRVs8I2aq17?=
+ =?us-ascii?Q?XCAZjiocgew570yts2bU4Pse6jS5Gw7Yp4x6L2+U4jnafIjpotPiknO4B/nR?=
+ =?us-ascii?Q?He8egdrsdaJLHOEL4I//vthPvunJEfm37e0Xd9lCKGEB73/nb9UXIwBMln8D?=
+ =?us-ascii?Q?VGPLS0jd7qlbkvrKVjh5DLdc2yOvk5VTyd44w23oyk3x1mffaysH5d6RQ6cU?=
+ =?us-ascii?Q?0yQmE2M6X9jR8VC0xN0bSdnyU/eHv1Q26EVFlt8vOVL9skfLTvBDBsU9Igag?=
+ =?us-ascii?Q?dfcnUAX6tkVMxAQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS9PR01MB13950.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(7416014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QfnrK19IPgLtFtKK1wdRswuWoWlz83FoRGYgQXI45RhLktG4h5VLH4i3DUmi?=
+ =?us-ascii?Q?VI/FkedWR7D7GL+17LWzugPdNpn3xFRBV2xjfw4+Se/m2BBKKY7NGQugKX5D?=
+ =?us-ascii?Q?sX0aYoRi5Qk+Hw0c0qSlSlFiDg8n08s6O9IDY47Yj1ZfMGXs1jNaWG7dR8XG?=
+ =?us-ascii?Q?WRZ7C8B2gijfJ7E/0TL9KgBDsIKA9sRsKzyoU0GdioGyY6zsxvoj6CyCx7f2?=
+ =?us-ascii?Q?RN2/MnXpXN6Mus8qaQeHPDymSdglv8q862fPsQyUmmAyl57f7/0SRBWFbF6I?=
+ =?us-ascii?Q?gWzJGdT5qWj/YWopMXTROR/9GK6W3QaNf+XaoTFO8xtqGColq9ME4zmQCN9l?=
+ =?us-ascii?Q?P5Fw6DJuCaOQSwojZq+YPhnSEOK1lYrdHCU7m89zH6UlKk35c6UG/iKGbRt0?=
+ =?us-ascii?Q?IHSO5exMbN7tWrtGmexX8qOOPMd9CvaUZNx/wyHb8T/3QgxJlHFPtt6IbjWP?=
+ =?us-ascii?Q?9lgD0WA0h05HTDnaegDEJIKwhEO1O1DoPdlHg+3R0KoMnTm9toJjav+fJ1K4?=
+ =?us-ascii?Q?D1xnQkB9eQt7veq8rbc25Q13SHD6NLHaH3To8HZlTFixho4Er2+Rm0hiQS44?=
+ =?us-ascii?Q?piRgZ+p79YI+xY15cvDqCobVZqfD7MZCCl+rdWe4pI9mAu9tHU9QIZQ4XZ/Y?=
+ =?us-ascii?Q?gGM/uN24jgWCSwC1xeks/zdTFYiOtSx7PV4fWbNOZG4ajQcWMbg0apyFRxLW?=
+ =?us-ascii?Q?ZIRi8NRq3YWIX8C/bK/Vt3nC0XNXWHhTjTce4DUdVA8CZZdwMZUWftTOrEMQ?=
+ =?us-ascii?Q?bxCx2E4wE6RjFUjXbuDt1cUdDpgpkSkPZ4/cMlckn7dvJGiN4dYU3iLeh1hd?=
+ =?us-ascii?Q?SNEasTGHnMf3Tmp5cKhwZi/vHHaNnOJigmaWHtzSA94F06Pg/2KgduOphRWx?=
+ =?us-ascii?Q?Rh+vHo3zQbyu8W6K7dOxnUlZyPSjuF985MTsg08varnK63wZtU8b9YRIIidm?=
+ =?us-ascii?Q?M1+hyzlxwrFhPocHxWZlh2UHVhd1BLFRfQI2MnJECPDopWRDtymkgxo99Cs7?=
+ =?us-ascii?Q?oG+H8p/LrDySfFEZQczwcJwFi7QFAk8Jtr3Ozegrsq0mc/aErj/U8GFgaAKl?=
+ =?us-ascii?Q?Vnp0lG3U9eut3PFhkNg32Wvb8SxkNfvOrOsrQ+IW8iKjxjAbGIp2DTQecV7M?=
+ =?us-ascii?Q?VdHbOP2a19IGqR6WeATUN1nTSHJLViiLjgUdS5UrpmZHkLpPnzhKyDmXbcLZ?=
+ =?us-ascii?Q?ujgP90T3pbdNA8hPb3lY+ooZmLq4QFjt0RSEQVE5/aM/3R0/grAP0mQefPGv?=
+ =?us-ascii?Q?UgAPQrM7AGpFNQ1wxDqkp2kRHtKw7aGjSMTjmhMLQuA4vtzQMf+YjATFfmkB?=
+ =?us-ascii?Q?IvPRqkJNtNcmp3AHN2+cGNMfmJVSjYNXVlXQgf8on3c9gHYsQm7DYwb9EbBD?=
+ =?us-ascii?Q?+IQl9Kf2qwpJ51WwxQ6rXdNJ51LqK9iji8v4qMmp+pgR/c6s/HJB4HYuLwjv?=
+ =?us-ascii?Q?MvXTdwRne6epUh+Nn9ZKgBzIJBSJNmJDMv6QPC8d3dSEqo0wvvcwACWTYbHA?=
+ =?us-ascii?Q?Xg5uSEJTL9SwTxZNP/PvNdV4A/yEgJD/Sz6+Vl5dM2YOYQndvL8575QJiv2D?=
+ =?us-ascii?Q?WQbo1q3IE0aGRuQ7WXrUsqK8DRY8s2Oc3d1ZB8rLb48HErWGfFZVhId8xRic?=
+ =?us-ascii?Q?UQNMNzPuK4tF2TcjAV9L6/M=3D?=
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9cda9722-deae-4928-b928-08ddbaddb967
+X-MS-Exchange-CrossTenant-AuthSource: OS9PR01MB13950.jpnprd01.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 91451e91-0d63-4247-0476-08ddbae71c4a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jul 2025 10:39:53.1088
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 09:32:42.1345
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: m0At3RVgU/4JshklY1Y1x3xOJRVkbZiUOuNa9jSe0OMXMBfTrrT+Um4sYXBGk4nlQpsT0QRaXZITffFu1jZntQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11448
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AMOCSVHfZzyWn+jLMx+GJNgJS6VshuyoF5yhnhkhNerbw1Nlm4zNGP2a2w/nn5dRow9RHSBR2IgHwv8pqMi2q6KRv1tMz9GGG5XNSfgQwi/q67hn8Ht1HHvsi5Vg5vbM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY1PR01MB10706
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_034009_198856_0E0826D1 
-X-CRM114-Status: GOOD (  26.37  )
+X-CRM114-CacheID: sfid-20250704_103305_285707_E390696A 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,74 +215,841 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH 3/7] firmware: arm_scmi: imx: Support getting cfg
-> info of MISC protocol
->=20
-> On Fri, Jul 04, 2025 at 06:07:41PM +0800, Peng Fan wrote:
-> > On Wed, Jul 02, 2025 at 04:21:58PM +0100, Sudeep Holla wrote:
-> > >On Fri, Jun 27, 2025 at 02:03:46PM +0800, Peng Fan wrote:
-> > >> MISC protocol supports getting the System Manager(SM) mode
-> > >> selection and configuration name. Add the API for user to retrieve
-> > >> the information from SM.
-> > >>
-> > >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > >> ---
-> > >>  .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 30
-> ++++++++++++++++++++++
-> > >>  include/linux/scmi_imx_protocol.h                  |  5 ++++
-> > >>  2 files changed, 35 insertions(+)
-> > >>
-> > >> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> > >> b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> > >> index
-> > >>
-> 1b24d070c6f4856b92f515fcdba5836fd6498ce6..8ce4bf92e6535af2f3
-> 0d72a34
-> > >> 717678613b35049 100644
-> > >> --- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> > >> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> > >> @@ -26,6 +26,7 @@ enum scmi_imx_misc_protocol_cmd {
-> > >>  	SCMI_IMX_MISC_CTRL_SET	=3D 0x3,
-> > >>  	SCMI_IMX_MISC_CTRL_GET	=3D 0x4,
-> > >>  	SCMI_IMX_MISC_DISCOVER_BUILDINFO =3D 0x6,
-> > >> +	SCMI_IMX_MISC_CFG_INFO =3D 0xC,
-> > >>  	SCMI_IMX_MISC_CTRL_NOTIFY =3D 0x8,
-> > >>  };
-> > >>
-> > >> @@ -73,6 +74,11 @@ struct scmi_imx_misc_buildinfo_out {
-> > >>  	u8 buildtime[MISC_MAX_BUILDTIME];  };
-> > >>
-> > >> +struct scmi_imx_misc_cfg_info_out {
-> > >> +	__le32 msel;
-> > >
-> > >Now, I realise, this mode select is not properly defined in the
-> document.
-> > >Just 32-bit word. What are those values ? Any fixed list of values
-> > >with well defined modes or configurations ? If so, please add to the
-> document.
-> >
-> > The current used value are 0,1,2. It is used to decide the logic
-> > machine boot order, such as 0 means booting LM0, LM1, LM2, LM3...
-> > Regarding 0,1,2 using which LM order, it could be defined by user in
-> > i.MX9 System Manger cfg file. That means 1 could mean LM0, LM2,
-> LM3,
-> > LM1 or LM0, LM3, LM1, LM2.
-> >
->=20
-> This sounds like this is not well defined and could change on a different
-> platform ? If so, how will you manage this extension across i.MX
-> platforms ?
->=20
-> Or the above order is actually fixed and will remain same across the
-> platforms ?
+Hi Sakari,
+Thanks for your patch!
 
-+ Chuck who is the best person to answer this. I may not explain it clear.
+On Fri, Jul 04, 2025 at 10:54:31AM +0300, Sakari Ailus wrote:
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
+> 
+> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+> ---
+> The cover letter of the set can be found here
+> <URL:https://lore.kernel.org/linux-pm/20250704075225.3212486-1-sakari.ailus@linux.intel.com>.
+> 
+> In brief, this patch depends on PM runtime patches adding marking the last
+> busy timestamp in autosuspend related functions. The patches are here, on
+> rc2:
+> 
+>         git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
+>                 pm-runtime-6.17-rc1
+> 
+>  drivers/media/i2c/alvium-csi2.c                          | 1 -
 
-Regards
-Peng
+Acked-by: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
 
->=20
-> --
-> Regards,
-> Sudeep
+Thanks & Regards,
+Tommaso
+
+>  drivers/media/i2c/ccs/ccs-core.c                         | 4 ----
+>  drivers/media/i2c/dw9768.c                               | 1 -
+>  drivers/media/i2c/gc0308.c                               | 3 ---
+>  drivers/media/i2c/gc2145.c                               | 3 ---
+>  drivers/media/i2c/imx219.c                               | 2 --
+>  drivers/media/i2c/imx283.c                               | 3 ---
+>  drivers/media/i2c/imx290.c                               | 3 ---
+>  drivers/media/i2c/imx296.c                               | 1 -
+>  drivers/media/i2c/imx415.c                               | 1 -
+>  drivers/media/i2c/mt9m114.c                              | 6 ------
+>  drivers/media/i2c/ov4689.c                               | 3 ---
+>  drivers/media/i2c/ov5640.c                               | 4 ----
+>  drivers/media/i2c/ov5645.c                               | 3 ---
+>  drivers/media/i2c/ov64a40.c                              | 4 ----
+>  drivers/media/i2c/ov8858.c                               | 2 --
+>  drivers/media/i2c/st-mipid02.c                           | 2 --
+>  drivers/media/i2c/tc358746.c                             | 5 -----
+>  drivers/media/i2c/thp7312.c                              | 4 ----
+>  drivers/media/i2c/vd55g1.c                               | 4 ----
+>  drivers/media/i2c/vd56g3.c                               | 4 ----
+>  drivers/media/i2c/video-i2c.c                            | 4 ----
+>  drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c | 4 ----
+>  drivers/media/platform/chips-media/wave5/wave5-vpu-enc.c | 5 -----
+>  drivers/media/platform/nvidia/tegra-vde/h264.c           | 2 --
+>  drivers/media/platform/qcom/iris/iris_hfi_queue.c        | 1 -
+>  drivers/media/platform/raspberrypi/pisp_be/pisp_be.c     | 2 --
+>  drivers/media/platform/verisilicon/hantro_drv.c          | 1 -
+>  drivers/media/rc/gpio-ir-recv.c                          | 1 -
+>  29 files changed, 83 deletions(-)
+> 
+> diff --git a/drivers/media/i2c/alvium-csi2.c b/drivers/media/i2c/alvium-csi2.c
+> index 05b708bd0a64..1f088acecf36 100644
+> --- a/drivers/media/i2c/alvium-csi2.c
+> +++ b/drivers/media/i2c/alvium-csi2.c
+> @@ -1841,7 +1841,6 @@ static int alvium_s_stream(struct v4l2_subdev *sd, int enable)
+>  
+>  	} else {
+>  		alvium_set_stream_mipi(alvium, enable);
+> -		pm_runtime_mark_last_busy(&client->dev);
+>  		pm_runtime_put_autosuspend(&client->dev);
+>  	}
+>  
+> diff --git a/drivers/media/i2c/ccs/ccs-core.c b/drivers/media/i2c/ccs/ccs-core.c
+> index 487bcabb4a19..3316639b695e 100644
+> --- a/drivers/media/i2c/ccs/ccs-core.c
+> +++ b/drivers/media/i2c/ccs/ccs-core.c
+> @@ -788,7 +788,6 @@ static int ccs_set_ctrl(struct v4l2_ctrl *ctrl)
+>  	}
+>  
+>  	if (pm_status > 0) {
+> -		pm_runtime_mark_last_busy(&client->dev);
+>  		pm_runtime_put_autosuspend(&client->dev);
+>  	}
+>  
+> @@ -1914,7 +1913,6 @@ static int ccs_set_stream(struct v4l2_subdev *subdev, int enable)
+>  	if (!enable) {
+>  		ccs_stop_streaming(sensor);
+>  		sensor->streaming = false;
+> -		pm_runtime_mark_last_busy(&client->dev);
+>  		pm_runtime_put_autosuspend(&client->dev);
+>  
+>  		return 0;
+> @@ -1929,7 +1927,6 @@ static int ccs_set_stream(struct v4l2_subdev *subdev, int enable)
+>  	rval = ccs_start_streaming(sensor);
+>  	if (rval < 0) {
+>  		sensor->streaming = false;
+> -		pm_runtime_mark_last_busy(&client->dev);
+>  		pm_runtime_put_autosuspend(&client->dev);
+>  	}
+>  
+> @@ -2677,7 +2674,6 @@ nvm_show(struct device *dev, struct device_attribute *attr, char *buf)
+>  		return -ENODEV;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(&client->dev);
+>  	pm_runtime_put_autosuspend(&client->dev);
+>  
+>  	/*
+> diff --git a/drivers/media/i2c/dw9768.c b/drivers/media/i2c/dw9768.c
+> index 3a4d100b9199..d434721ba8ed 100644
+> --- a/drivers/media/i2c/dw9768.c
+> +++ b/drivers/media/i2c/dw9768.c
+> @@ -374,7 +374,6 @@ static int dw9768_open(struct v4l2_subdev *sd, struct v4l2_subdev_fh *fh)
+>  
+>  static int dw9768_close(struct v4l2_subdev *sd, struct v4l2_subdev_fh *fh)
+>  {
+> -	pm_runtime_mark_last_busy(sd->dev);
+>  	pm_runtime_put_autosuspend(sd->dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/i2c/gc0308.c b/drivers/media/i2c/gc0308.c
+> index 069f42785b3c..cbcda0e18ff1 100644
+> --- a/drivers/media/i2c/gc0308.c
+> +++ b/drivers/media/i2c/gc0308.c
+> @@ -974,7 +974,6 @@ static int gc0308_s_ctrl(struct v4l2_ctrl *ctrl)
+>  	if (ret)
+>  		dev_err(gc0308->dev, "failed to set control: %d\n", ret);
+>  
+> -	pm_runtime_mark_last_busy(gc0308->dev);
+>  	pm_runtime_put_autosuspend(gc0308->dev);
+>  
+>  	return ret;
+> @@ -1157,14 +1156,12 @@ static int gc0308_start_stream(struct gc0308 *gc0308)
+>  	return 0;
+>  
+>  disable_pm:
+> -	pm_runtime_mark_last_busy(gc0308->dev);
+>  	pm_runtime_put_autosuspend(gc0308->dev);
+>  	return ret;
+>  }
+>  
+>  static int gc0308_stop_stream(struct gc0308 *gc0308)
+>  {
+> -	pm_runtime_mark_last_busy(gc0308->dev);
+>  	pm_runtime_put_autosuspend(gc0308->dev);
+>  	return 0;
+>  }
+> diff --git a/drivers/media/i2c/gc2145.c b/drivers/media/i2c/gc2145.c
+> index ba02161d46e7..559a851669aa 100644
+> --- a/drivers/media/i2c/gc2145.c
+> +++ b/drivers/media/i2c/gc2145.c
+> @@ -963,7 +963,6 @@ static int gc2145_enable_streams(struct v4l2_subdev *sd,
+>  	return 0;
+>  
+>  err_rpm_put:
+> -	pm_runtime_mark_last_busy(&client->dev);
+>  	pm_runtime_put_autosuspend(&client->dev);
+>  	return ret;
+>  }
+> @@ -985,7 +984,6 @@ static int gc2145_disable_streams(struct v4l2_subdev *sd,
+>  	if (ret)
+>  		dev_err(&client->dev, "%s failed to write regs\n", __func__);
+>  
+> -	pm_runtime_mark_last_busy(&client->dev);
+>  	pm_runtime_put_autosuspend(&client->dev);
+>  
+>  	return ret;
+> @@ -1193,7 +1191,6 @@ static int gc2145_s_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(&client->dev);
+>  	pm_runtime_put_autosuspend(&client->dev);
+>  
+>  	return ret;
+> diff --git a/drivers/media/i2c/imx219.c b/drivers/media/i2c/imx219.c
+> index 3b4f68543342..3faf48f34af4 100644
+> --- a/drivers/media/i2c/imx219.c
+> +++ b/drivers/media/i2c/imx219.c
+> @@ -771,7 +771,6 @@ static int imx219_enable_streams(struct v4l2_subdev *sd,
+>  	return 0;
+>  
+>  err_rpm_put:
+> -	pm_runtime_mark_last_busy(&client->dev);
+>  	pm_runtime_put_autosuspend(&client->dev);
+>  	return ret;
+>  }
+> @@ -793,7 +792,6 @@ static int imx219_disable_streams(struct v4l2_subdev *sd,
+>  	__v4l2_ctrl_grab(imx219->vflip, false);
+>  	__v4l2_ctrl_grab(imx219->hflip, false);
+>  
+> -	pm_runtime_mark_last_busy(&client->dev);
+>  	pm_runtime_put_autosuspend(&client->dev);
+>  
+>  	return ret;
+> diff --git a/drivers/media/i2c/imx283.c b/drivers/media/i2c/imx283.c
+> index da618c8cbadc..67e8bb432d10 100644
+> --- a/drivers/media/i2c/imx283.c
+> +++ b/drivers/media/i2c/imx283.c
+> @@ -1143,7 +1143,6 @@ static int imx283_enable_streams(struct v4l2_subdev *sd,
+>  	return 0;
+>  
+>  err_rpm_put:
+> -	pm_runtime_mark_last_busy(imx283->dev);
+>  	pm_runtime_put_autosuspend(imx283->dev);
+>  
+>  	return ret;
+> @@ -1163,7 +1162,6 @@ static int imx283_disable_streams(struct v4l2_subdev *sd,
+>  	if (ret)
+>  		dev_err(imx283->dev, "Failed to stop stream\n");
+>  
+> -	pm_runtime_mark_last_busy(imx283->dev);
+>  	pm_runtime_put_autosuspend(imx283->dev);
+>  
+>  	return ret;
+> @@ -1558,7 +1556,6 @@ static int imx283_probe(struct i2c_client *client)
+>  	 * Decrease the PM usage count. The device will get suspended after the
+>  	 * autosuspend delay, turning the power off.
+>  	 */
+> -	pm_runtime_mark_last_busy(imx283->dev);
+>  	pm_runtime_put_autosuspend(imx283->dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/i2c/imx290.c b/drivers/media/i2c/imx290.c
+> index fbf7eba3d71d..970a8d89a3e7 100644
+> --- a/drivers/media/i2c/imx290.c
+> +++ b/drivers/media/i2c/imx290.c
+> @@ -869,7 +869,6 @@ static int imx290_set_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(imx290->dev);
+>  	pm_runtime_put_autosuspend(imx290->dev);
+>  
+>  	return ret;
+> @@ -1099,7 +1098,6 @@ static int imx290_set_stream(struct v4l2_subdev *sd, int enable)
+>  		}
+>  	} else {
+>  		imx290_stop_streaming(imx290);
+> -		pm_runtime_mark_last_busy(imx290->dev);
+>  		pm_runtime_put_autosuspend(imx290->dev);
+>  	}
+>  
+> @@ -1295,7 +1293,6 @@ static int imx290_subdev_init(struct imx290 *imx290)
+>  	 */
+>  	v4l2_i2c_subdev_init(&imx290->sd, client, &imx290_subdev_ops);
+>  	imx290->sd.dev = imx290->dev;
+> -	pm_runtime_mark_last_busy(imx290->dev);
+>  	pm_runtime_put_autosuspend(imx290->dev);
+>  
+>  	imx290->sd.internal_ops = &imx290_internal_ops;
+> diff --git a/drivers/media/i2c/imx296.c b/drivers/media/i2c/imx296.c
+> index f3bec16b527c..61116f4e3f76 100644
+> --- a/drivers/media/i2c/imx296.c
+> +++ b/drivers/media/i2c/imx296.c
+> @@ -604,7 +604,6 @@ static int imx296_s_stream(struct v4l2_subdev *sd, int enable)
+>  	if (!enable) {
+>  		ret = imx296_stream_off(sensor);
+>  
+> -		pm_runtime_mark_last_busy(sensor->dev);
+>  		pm_runtime_put_autosuspend(sensor->dev);
+>  
+>  		goto unlock;
+> diff --git a/drivers/media/i2c/imx415.c b/drivers/media/i2c/imx415.c
+> index 278e743646ea..276bf4d6f39d 100644
+> --- a/drivers/media/i2c/imx415.c
+> +++ b/drivers/media/i2c/imx415.c
+> @@ -952,7 +952,6 @@ static int imx415_s_stream(struct v4l2_subdev *sd, int enable)
+>  	if (!enable) {
+>  		ret = imx415_stream_off(sensor);
+>  
+> -		pm_runtime_mark_last_busy(sensor->dev);
+>  		pm_runtime_put_autosuspend(sensor->dev);
+>  
+>  		goto unlock;
+> diff --git a/drivers/media/i2c/mt9m114.c b/drivers/media/i2c/mt9m114.c
+> index 3f540ca40f3c..aa3fd6c6c76c 100644
+> --- a/drivers/media/i2c/mt9m114.c
+> +++ b/drivers/media/i2c/mt9m114.c
+> @@ -974,7 +974,6 @@ static int mt9m114_start_streaming(struct mt9m114 *sensor,
+>  	return 0;
+>  
+>  error:
+> -	pm_runtime_mark_last_busy(&sensor->client->dev);
+>  	pm_runtime_put_autosuspend(&sensor->client->dev);
+>  
+>  	return ret;
+> @@ -988,7 +987,6 @@ static int mt9m114_stop_streaming(struct mt9m114 *sensor)
+>  
+>  	ret = mt9m114_set_state(sensor, MT9M114_SYS_STATE_ENTER_SUSPEND);
+>  
+> -	pm_runtime_mark_last_busy(&sensor->client->dev);
+>  	pm_runtime_put_autosuspend(&sensor->client->dev);
+>  
+>  	return ret;
+> @@ -1046,7 +1044,6 @@ static int mt9m114_pa_g_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(&sensor->client->dev);
+>  	pm_runtime_put_autosuspend(&sensor->client->dev);
+>  
+>  	return ret;
+> @@ -1113,7 +1110,6 @@ static int mt9m114_pa_s_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(&sensor->client->dev);
+>  	pm_runtime_put_autosuspend(&sensor->client->dev);
+>  
+>  	return ret;
+> @@ -1565,7 +1561,6 @@ static int mt9m114_ifp_s_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(&sensor->client->dev);
+>  	pm_runtime_put_autosuspend(&sensor->client->dev);
+>  
+>  	return ret;
+> @@ -2472,7 +2467,6 @@ static int mt9m114_probe(struct i2c_client *client)
+>  	 * Decrease the PM usage count. The device will get suspended after the
+>  	 * autosuspend delay, turning the power off.
+>  	 */
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/i2c/ov4689.c b/drivers/media/i2c/ov4689.c
+> index 1c3a449f9354..7d740ad3926f 100644
+> --- a/drivers/media/i2c/ov4689.c
+> +++ b/drivers/media/i2c/ov4689.c
+> @@ -497,7 +497,6 @@ static int ov4689_s_stream(struct v4l2_subdev *sd, int on)
+>  	} else {
+>  		cci_write(ov4689->regmap, OV4689_REG_CTRL_MODE,
+>  			  OV4689_MODE_SW_STANDBY, NULL);
+> -		pm_runtime_mark_last_busy(dev);
+>  		pm_runtime_put_autosuspend(dev);
+>  	}
+>  
+> @@ -702,7 +701,6 @@ static int ov4689_set_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  	return ret;
+> @@ -999,7 +997,6 @@ static int ov4689_probe(struct i2c_client *client)
+>  		goto err_clean_subdev_pm;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/i2c/ov5640.c b/drivers/media/i2c/ov5640.c
+> index 0dae0438aa80..84198613381d 100644
+> --- a/drivers/media/i2c/ov5640.c
+> +++ b/drivers/media/i2c/ov5640.c
+> @@ -3341,7 +3341,6 @@ static int ov5640_g_volatile_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(&sensor->i2c_client->dev);
+>  	pm_runtime_put_autosuspend(&sensor->i2c_client->dev);
+>  
+>  	return 0;
+> @@ -3417,7 +3416,6 @@ static int ov5640_s_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(&sensor->i2c_client->dev);
+>  	pm_runtime_put_autosuspend(&sensor->i2c_client->dev);
+>  
+>  	return ret;
+> @@ -3754,7 +3752,6 @@ static int ov5640_s_stream(struct v4l2_subdev *sd, int enable)
+>  	mutex_unlock(&sensor->lock);
+>  
+>  	if (!enable || ret) {
+> -		pm_runtime_mark_last_busy(&sensor->i2c_client->dev);
+>  		pm_runtime_put_autosuspend(&sensor->i2c_client->dev);
+>  	}
+>  
+> @@ -3965,7 +3962,6 @@ static int ov5640_probe(struct i2c_client *client)
+>  
+>  	pm_runtime_set_autosuspend_delay(dev, 1000);
+>  	pm_runtime_use_autosuspend(dev);
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/i2c/ov5645.c b/drivers/media/i2c/ov5645.c
+> index 004d0ee5c3f5..58c846a44376 100644
+> --- a/drivers/media/i2c/ov5645.c
+> +++ b/drivers/media/i2c/ov5645.c
+> @@ -808,7 +808,6 @@ static int ov5645_s_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(ov5645->dev);
+>  	pm_runtime_put_autosuspend(ov5645->dev);
+>  
+>  	return ret;
+> @@ -979,7 +978,6 @@ static int ov5645_disable_streams(struct v4l2_subdev *sd,
+>  			       OV5645_SYSTEM_CTRL0_STOP);
+>  
+>  rpm_put:
+> -	pm_runtime_mark_last_busy(ov5645->dev);
+>  	pm_runtime_put_autosuspend(ov5645->dev);
+>  
+>  	return ret;
+> @@ -1196,7 +1194,6 @@ static int ov5645_probe(struct i2c_client *client)
+>  
+>  	pm_runtime_set_autosuspend_delay(dev, 1000);
+>  	pm_runtime_use_autosuspend(dev);
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/i2c/ov64a40.c b/drivers/media/i2c/ov64a40.c
+> index a5da4fe47e0b..15912ecb8d26 100644
+> --- a/drivers/media/i2c/ov64a40.c
+> +++ b/drivers/media/i2c/ov64a40.c
+> @@ -2990,7 +2990,6 @@ static int ov64a40_start_streaming(struct ov64a40 *ov64a40,
+>  	return 0;
+>  
+>  error_power_off:
+> -	pm_runtime_mark_last_busy(ov64a40->dev);
+>  	pm_runtime_put_autosuspend(ov64a40->dev);
+>  
+>  	return ret;
+> @@ -3000,7 +2999,6 @@ static int ov64a40_stop_streaming(struct ov64a40 *ov64a40,
+>  				  struct v4l2_subdev_state *state)
+>  {
+>  	cci_update_bits(ov64a40->cci, OV64A40_REG_SMIA, BIT(0), 0, NULL);
+> -	pm_runtime_mark_last_busy(ov64a40->dev);
+>  	pm_runtime_put_autosuspend(ov64a40->dev);
+>  
+>  	__v4l2_ctrl_grab(ov64a40->link_freq, false);
+> @@ -3330,7 +3328,6 @@ static int ov64a40_set_ctrl(struct v4l2_ctrl *ctrl)
+>  	}
+>  
+>  	if (pm_status > 0) {
+> -		pm_runtime_mark_last_busy(ov64a40->dev);
+>  		pm_runtime_put_autosuspend(ov64a40->dev);
+>  	}
+>  
+> @@ -3622,7 +3619,6 @@ static int ov64a40_probe(struct i2c_client *client)
+>  		goto error_subdev_cleanup;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(&client->dev);
+>  	pm_runtime_put_autosuspend(&client->dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/i2c/ov8858.c b/drivers/media/i2c/ov8858.c
+> index 95f9ae794846..6b7193eaea1f 100644
+> --- a/drivers/media/i2c/ov8858.c
+> +++ b/drivers/media/i2c/ov8858.c
+> @@ -1391,7 +1391,6 @@ static int ov8858_s_stream(struct v4l2_subdev *sd, int on)
+>  		}
+>  	} else {
+>  		ov8858_stop_stream(ov8858);
+> -		pm_runtime_mark_last_busy(&client->dev);
+>  		pm_runtime_put_autosuspend(&client->dev);
+>  	}
+>  
+> @@ -1945,7 +1944,6 @@ static int ov8858_probe(struct i2c_client *client)
+>  		goto err_power_off;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/i2c/st-mipid02.c b/drivers/media/i2c/st-mipid02.c
+> index f4568e87f018..41ae25b0911f 100644
+> --- a/drivers/media/i2c/st-mipid02.c
+> +++ b/drivers/media/i2c/st-mipid02.c
+> @@ -465,7 +465,6 @@ static int mipid02_disable_streams(struct v4l2_subdev *sd,
+>  	if (ret)
+>  		goto error;
+>  
+> -	pm_runtime_mark_last_busy(&client->dev);
+>  	pm_runtime_put_autosuspend(&client->dev);
+>  
+>  error:
+> @@ -542,7 +541,6 @@ static int mipid02_enable_streams(struct v4l2_subdev *sd,
+>  	cci_write(bridge->regmap, MIPID02_DATA_LANE0_REG1, 0, &ret);
+>  	cci_write(bridge->regmap, MIPID02_DATA_LANE1_REG1, 0, &ret);
+>  
+> -	pm_runtime_mark_last_busy(&client->dev);
+>  	pm_runtime_put_autosuspend(&client->dev);
+>  	return ret;
+>  }
+> diff --git a/drivers/media/i2c/tc358746.c b/drivers/media/i2c/tc358746.c
+> index 143aa1359aba..bcfc274cf891 100644
+> --- a/drivers/media/i2c/tc358746.c
+> +++ b/drivers/media/i2c/tc358746.c
+> @@ -816,7 +816,6 @@ static int tc358746_s_stream(struct v4l2_subdev *sd, int enable)
+>  		return 0;
+>  
+>  err_out:
+> -		pm_runtime_mark_last_busy(sd->dev);
+>  		pm_runtime_put_sync_autosuspend(sd->dev);
+>  
+>  		return err;
+> @@ -838,7 +837,6 @@ static int tc358746_s_stream(struct v4l2_subdev *sd, int enable)
+>  	if (err)
+>  		return err;
+>  
+> -	pm_runtime_mark_last_busy(sd->dev);
+>  	pm_runtime_put_sync_autosuspend(sd->dev);
+>  
+>  	return v4l2_subdev_call(src, video, s_stream, 0);
+> @@ -1016,7 +1014,6 @@ tc358746_g_register(struct v4l2_subdev *sd, struct v4l2_dbg_register *reg)
+>  	err = tc358746_read(tc358746, reg->reg, &val);
+>  	reg->val = val;
+>  
+> -	pm_runtime_mark_last_busy(sd->dev);
+>  	pm_runtime_put_sync_autosuspend(sd->dev);
+>  
+>  	return err;
+> @@ -1032,7 +1029,6 @@ tc358746_s_register(struct v4l2_subdev *sd, const struct v4l2_dbg_register *reg)
+>  
+>  	tc358746_write(tc358746, (u32)reg->reg, (u32)reg->val);
+>  
+> -	pm_runtime_mark_last_busy(sd->dev);
+>  	pm_runtime_put_sync_autosuspend(sd->dev);
+>  
+>  	return 0;
+> @@ -1395,7 +1391,6 @@ static int tc358746_init_hw(struct tc358746 *tc358746)
+>  	}
+>  
+>  	err = tc358746_read(tc358746, CHIPID_REG, &val);
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_sync_autosuspend(dev);
+>  	if (err)
+>  		return -ENODEV;
+> diff --git a/drivers/media/i2c/thp7312.c b/drivers/media/i2c/thp7312.c
+> index 8852c56431fe..775cfba188d8 100644
+> --- a/drivers/media/i2c/thp7312.c
+> +++ b/drivers/media/i2c/thp7312.c
+> @@ -808,7 +808,6 @@ static int thp7312_s_stream(struct v4l2_subdev *sd, int enable)
+>  	if (!enable) {
+>  		thp7312_stream_enable(thp7312, false);
+>  
+> -		pm_runtime_mark_last_busy(thp7312->dev);
+>  		pm_runtime_put_autosuspend(thp7312->dev);
+>  
+>  		v4l2_subdev_unlock_state(sd_state);
+> @@ -839,7 +838,6 @@ static int thp7312_s_stream(struct v4l2_subdev *sd, int enable)
+>  	goto finish_unlock;
+>  
+>  finish_pm:
+> -	pm_runtime_mark_last_busy(thp7312->dev);
+>  	pm_runtime_put_autosuspend(thp7312->dev);
+>  finish_unlock:
+>  	v4l2_subdev_unlock_state(sd_state);
+> @@ -1147,7 +1145,6 @@ static int thp7312_s_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(thp7312->dev);
+>  	pm_runtime_put_autosuspend(thp7312->dev);
+>  
+>  	return ret;
+> @@ -2183,7 +2180,6 @@ static int thp7312_probe(struct i2c_client *client)
+>  	 * Decrease the PM usage count. The device will get suspended after the
+>  	 * autosuspend delay, turning the power off.
+>  	 */
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  	dev_info(dev, "THP7312 firmware version %02u.%02u\n",
+> diff --git a/drivers/media/i2c/vd55g1.c b/drivers/media/i2c/vd55g1.c
+> index c0754fd03b1d..7c39183dd44b 100644
+> --- a/drivers/media/i2c/vd55g1.c
+> +++ b/drivers/media/i2c/vd55g1.c
+> @@ -1104,7 +1104,6 @@ static int vd55g1_disable_streams(struct v4l2_subdev *sd,
+>  
+>  	vd55g1_grab_ctrls(sensor, false);
+>  
+> -	pm_runtime_mark_last_busy(sensor->dev);
+>  	pm_runtime_put_autosuspend(sensor->dev);
+>  
+>  	return ret;
+> @@ -1338,7 +1337,6 @@ static int vd55g1_g_volatile_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(sensor->dev);
+>  	pm_runtime_put_autosuspend(sensor->dev);
+>  
+>  	return ret;
+> @@ -1433,7 +1431,6 @@ static int vd55g1_s_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(sensor->dev);
+>  	pm_runtime_put_autosuspend(sensor->dev);
+>  
+>  	return ret;
+> @@ -1895,7 +1892,6 @@ static int vd55g1_probe(struct i2c_client *client)
+>  	pm_runtime_enable(dev);
+>  	pm_runtime_set_autosuspend_delay(dev, 4000);
+>  	pm_runtime_use_autosuspend(dev);
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  	ret = vd55g1_subdev_init(sensor);
+> diff --git a/drivers/media/i2c/vd56g3.c b/drivers/media/i2c/vd56g3.c
+> index 5d951ad0b478..d66e21ba4498 100644
+> --- a/drivers/media/i2c/vd56g3.c
+> +++ b/drivers/media/i2c/vd56g3.c
+> @@ -493,7 +493,6 @@ static int vd56g3_g_volatile_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(sensor->dev);
+>  	pm_runtime_put_autosuspend(sensor->dev);
+>  
+>  	return ret;
+> @@ -577,7 +576,6 @@ static int vd56g3_s_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  
+> -	pm_runtime_mark_last_busy(sensor->dev);
+>  	pm_runtime_put_autosuspend(sensor->dev);
+>  
+>  	return ret;
+> @@ -1021,7 +1019,6 @@ static int vd56g3_disable_streams(struct v4l2_subdev *sd,
+>  	__v4l2_ctrl_grab(sensor->vflip_ctrl, false);
+>  	__v4l2_ctrl_grab(sensor->patgen_ctrl, false);
+>  
+> -	pm_runtime_mark_last_busy(sensor->dev);
+>  	pm_runtime_put_autosuspend(sensor->dev);
+>  
+>  	return ret;
+> @@ -1527,7 +1524,6 @@ static int vd56g3_probe(struct i2c_client *client)
+>  	}
+>  
+>  	/* Sensor could now be powered off (after the autosuspend delay) */
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  	dev_dbg(dev, "Successfully probe %s sensor\n",
+> diff --git a/drivers/media/i2c/video-i2c.c b/drivers/media/i2c/video-i2c.c
+> index 0dd991d70d53..1eee2d4f5b40 100644
+> --- a/drivers/media/i2c/video-i2c.c
+> +++ b/drivers/media/i2c/video-i2c.c
+> @@ -288,7 +288,6 @@ static int amg88xx_read(struct device *dev, enum hwmon_sensor_types type,
+>  		return tmp;
+>  
+>  	tmp = regmap_bulk_read(data->regmap, AMG88XX_REG_TTHL, &buf, 2);
+> -	pm_runtime_mark_last_busy(regmap_get_device(data->regmap));
+>  	pm_runtime_put_autosuspend(regmap_get_device(data->regmap));
+>  	if (tmp)
+>  		return tmp;
+> @@ -527,7 +526,6 @@ static int start_streaming(struct vb2_queue *vq, unsigned int count)
+>  		return 0;
+>  
+>  error_rpm_put:
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  error_del_list:
+>  	video_i2c_del_list(vq, VB2_BUF_STATE_QUEUED);
+> @@ -544,7 +542,6 @@ static void stop_streaming(struct vb2_queue *vq)
+>  
+>  	kthread_stop(data->kthread_vid_cap);
+>  	data->kthread_vid_cap = NULL;
+> -	pm_runtime_mark_last_busy(regmap_get_device(data->regmap));
+>  	pm_runtime_put_autosuspend(regmap_get_device(data->regmap));
+>  
+>  	video_i2c_del_list(vq, VB2_BUF_STATE_ERROR);
+> @@ -853,7 +850,6 @@ static int video_i2c_probe(struct i2c_client *client)
+>  	if (ret < 0)
+>  		goto error_pm_disable;
+>  
+> -	pm_runtime_mark_last_busy(&client->dev);
+>  	pm_runtime_put_autosuspend(&client->dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c b/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
+> index fd71f0c43ac3..a9ce032cc5a2 100644
+> --- a/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
+> +++ b/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
+> @@ -451,7 +451,6 @@ static void wave5_vpu_dec_finish_decode(struct vpu_instance *inst)
+>  	if (q_status.report_queue_count == 0 &&
+>  	    (q_status.instance_queue_count == 0 || dec_info.sequence_changed)) {
+>  		dev_dbg(inst->dev->dev, "%s: finishing job.\n", __func__);
+> -		pm_runtime_mark_last_busy(inst->dev->dev);
+>  		pm_runtime_put_autosuspend(inst->dev->dev);
+>  		v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
+>  	}
+> @@ -1364,7 +1363,6 @@ static int wave5_vpu_dec_start_streaming(struct vb2_queue *q, unsigned int count
+>  		}
+>  
+>  	}
+> -	pm_runtime_mark_last_busy(inst->dev->dev);
+>  	pm_runtime_put_autosuspend(inst->dev->dev);
+>  	return ret;
+>  
+> @@ -1498,7 +1496,6 @@ static void wave5_vpu_dec_stop_streaming(struct vb2_queue *q)
+>  	else
+>  		streamoff_capture(q);
+>  
+> -	pm_runtime_mark_last_busy(inst->dev->dev);
+>  	pm_runtime_put_autosuspend(inst->dev->dev);
+>  }
+>  
+> @@ -1662,7 +1659,6 @@ static void wave5_vpu_dec_device_run(void *priv)
+>  
+>  finish_job_and_return:
+>  	dev_dbg(inst->dev->dev, "%s: leave and finish job", __func__);
+> -	pm_runtime_mark_last_busy(inst->dev->dev);
+>  	pm_runtime_put_autosuspend(inst->dev->dev);
+>  	v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
+>  }
+> diff --git a/drivers/media/platform/chips-media/wave5/wave5-vpu-enc.c b/drivers/media/platform/chips-media/wave5/wave5-vpu-enc.c
+> index 1e5fc5f8b856..35913a7de834 100644
+> --- a/drivers/media/platform/chips-media/wave5/wave5-vpu-enc.c
+> +++ b/drivers/media/platform/chips-media/wave5/wave5-vpu-enc.c
+> @@ -1391,12 +1391,10 @@ static int wave5_vpu_enc_start_streaming(struct vb2_queue *q, unsigned int count
+>  	if (ret)
+>  		goto return_buffers;
+>  
+> -	pm_runtime_mark_last_busy(inst->dev->dev);
+>  	pm_runtime_put_autosuspend(inst->dev->dev);
+>  	return 0;
+>  return_buffers:
+>  	wave5_return_bufs(q, VB2_BUF_STATE_QUEUED);
+> -	pm_runtime_mark_last_busy(inst->dev->dev);
+>  	pm_runtime_put_autosuspend(inst->dev->dev);
+>  	return ret;
+>  }
+> @@ -1465,7 +1463,6 @@ static void wave5_vpu_enc_stop_streaming(struct vb2_queue *q)
+>  	else
+>  		streamoff_capture(inst, q);
+>  
+> -	pm_runtime_mark_last_busy(inst->dev->dev);
+>  	pm_runtime_put_autosuspend(inst->dev->dev);
+>  }
+>  
+> @@ -1520,7 +1517,6 @@ static void wave5_vpu_enc_device_run(void *priv)
+>  			break;
+>  		}
+>  		dev_dbg(inst->dev->dev, "%s: leave with active job", __func__);
+> -		pm_runtime_mark_last_busy(inst->dev->dev);
+>  		pm_runtime_put_autosuspend(inst->dev->dev);
+>  		return;
+>  	default:
+> @@ -1529,7 +1525,6 @@ static void wave5_vpu_enc_device_run(void *priv)
+>  		break;
+>  	}
+>  	dev_dbg(inst->dev->dev, "%s: leave and finish job", __func__);
+> -	pm_runtime_mark_last_busy(inst->dev->dev);
+>  	pm_runtime_put_autosuspend(inst->dev->dev);
+>  	v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
+>  }
+> diff --git a/drivers/media/platform/nvidia/tegra-vde/h264.c b/drivers/media/platform/nvidia/tegra-vde/h264.c
+> index 0e56a4331b0d..45f8f6904867 100644
+> --- a/drivers/media/platform/nvidia/tegra-vde/h264.c
+> +++ b/drivers/media/platform/nvidia/tegra-vde/h264.c
+> @@ -585,7 +585,6 @@ static int tegra_vde_decode_begin(struct tegra_vde *vde,
+>  	return 0;
+>  
+>  put_runtime_pm:
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  unlock:
+> @@ -612,7 +611,6 @@ static void tegra_vde_decode_abort(struct tegra_vde *vde)
+>  	if (err)
+>  		dev_err(dev, "DEC end: Failed to assert HW reset: %d\n", err);
+>  
+> -	pm_runtime_mark_last_busy(dev);
+>  	pm_runtime_put_autosuspend(dev);
+>  
+>  	mutex_unlock(&vde->lock);
+> diff --git a/drivers/media/platform/qcom/iris/iris_hfi_queue.c b/drivers/media/platform/qcom/iris/iris_hfi_queue.c
+> index fac7df0c4d1a..0b37f9b76da5 100644
+> --- a/drivers/media/platform/qcom/iris/iris_hfi_queue.c
+> +++ b/drivers/media/platform/qcom/iris/iris_hfi_queue.c
+> @@ -142,7 +142,6 @@ int iris_hfi_queue_cmd_write(struct iris_core *core, void *pkt, u32 pkt_size)
+>  	}
+>  	mutex_unlock(&core->lock);
+>  
+> -	pm_runtime_mark_last_busy(core->dev);
+>  	pm_runtime_put_autosuspend(core->dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> index 7596ae1f7de6..8a10a36abbc2 100644
+> --- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> +++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> @@ -951,7 +951,6 @@ static void pispbe_node_stop_streaming(struct vb2_queue *q)
+>  	pispbe->streaming_map &= ~BIT(node->id);
+>  	spin_unlock_irqrestore(&pispbe->hw_lock, flags);
+>  
+> -	pm_runtime_mark_last_busy(pispbe->dev);
+>  	pm_runtime_put_autosuspend(pispbe->dev);
+>  
+>  	dev_dbg(pispbe->dev, "Nodes streaming now 0x%x\n",
+> @@ -1740,7 +1739,6 @@ static int pispbe_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto disable_devs_err;
+>  
+> -	pm_runtime_mark_last_busy(pispbe->dev);
+>  	pm_runtime_put_autosuspend(pispbe->dev);
+>  
+>  	return 0;
+> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+> index 8542238e0fb1..fa972effd4a2 100644
+> --- a/drivers/media/platform/verisilicon/hantro_drv.c
+> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
+> @@ -89,7 +89,6 @@ static void hantro_job_finish(struct hantro_dev *vpu,
+>  			      struct hantro_ctx *ctx,
+>  			      enum vb2_buffer_state result)
+>  {
+> -	pm_runtime_mark_last_busy(vpu->dev);
+>  	pm_runtime_put_autosuspend(vpu->dev);
+>  
+>  	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
+> diff --git a/drivers/media/rc/gpio-ir-recv.c b/drivers/media/rc/gpio-ir-recv.c
+> index bf6d8fa983bf..161f8919022c 100644
+> --- a/drivers/media/rc/gpio-ir-recv.c
+> +++ b/drivers/media/rc/gpio-ir-recv.c
+> @@ -49,7 +49,6 @@ static irqreturn_t gpio_ir_recv_irq(int irq, void *dev_id)
+>  		ir_raw_event_store_edge(gpio_dev->rcdev, val == 1);
+>  
+>  	if (pmdev) {
+> -		pm_runtime_mark_last_busy(pmdev);
+>  		pm_runtime_put_autosuspend(pmdev);
+>  	}
+>  
+> -- 
+> 2.39.5
+> 
 
