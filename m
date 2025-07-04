@@ -4,162 +4,203 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F122C83F03
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC16C83F0B
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2C1tL1cyUjmdUt5666UxjttpvYe1I2PpGbZ0Gq7p9u0=; b=bm8oueh/bq692DAtetE2v5GwkB
-	FQtDDQVuKjzq61As7qIYGfmK8kKQ+6j+3/Vk4tYF9uaE4CQuR5goJYXBRku91FF9hOR4T4z3zi5wU
-	xfo5DcqmK9kEbxm2r24PbIOuq3v0QakpIYFKlnwX0cxI1J60RwUrAWNU93291cgGdeMmBInkuJUz8
-	L/4ryBbr4sQM0janRCaXNn51dnoGi9gLpNNGvrrUpN2QwvA7li7NdOUHXlv+BDq7h+raRUDnn8UhI
-	OaKfyaaS+xDolWVEAyWVBLGXX4y4F8bY2jmni/5Mg/UqYd05+7WsRCKV8yZMmCTId5VIXv5uJz0Cc
-	wapu3M+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dvLoV0key556t9jrmUKrGP92NCS4XYtDX01BqeM/Xj4=; b=VuHSlryHj9L/L18hZ9h1XgAdMp
+	PRfAELlaGaOhNG1q7VkghB455pOU2Ibwocj6pCIu1kbceuiGNB4c2j5zhOTMOXEdF0odu4QEsHm1x
+	JclmGLnKdE7vCrYv2bNVtsjHjXEEcVBMeG2nB6OgPrZzhkHoys1Iriny5xJmOLRzsRMZyFzLHdtjp
+	5vyFr+lvW6kTR5CgYyGkaz+Ph5xZ0mqLH0Qn6046zQutt0XRh2oWztsoc3cxP5Yp3oPstsVJO65nP
+	jawFVRC0cZnvbJ5aj3dbVk5BYkJ0vlXtdbG6SsSoJEVhQi8Fk1r8DnejSAfYKTc3R+Cyqwk6vft2F
+	5rFfCAyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXeyq-0000000EIoV-1cJl;
-	Fri, 04 Jul 2025 11:53:24 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uXeyr-0000000EIqq-31rU;
+	Fri, 04 Jul 2025 11:53:25 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXeeV-0000000EFUd-34YC;
-	Fri, 04 Jul 2025 11:32:25 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5645iBLC018568;
-	Fri, 4 Jul 2025 11:31:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2C1tL1cyUjmdUt5666UxjttpvYe1I2PpGbZ0Gq7p9u0=; b=DQHc7R8C6yKFEVK/
-	6IboEgwHcO3cocNXxQqLXFhnT2HU/ASiS1aEsWxKDNo96h0JIevrTyWfg0BzweZS
-	uxasC4MbRMOBokwc7WL105SP5o8CF9e9jhIjI17G2WK8gsie3QbpNsr5d7Qn43Jr
-	vDUT/NZGrHTAa2LUHRqFupSTjLZRN/kq/hP/yem0y2tQtKym33+fthgb6rah7y8C
-	Q68Jg4Q6vVUVFlnS0Rhx00T+JrvHESixRuV6u9g0ruedJQMQD1Lhm/w8ESdmPE1L
-	hRBgMIeruYtmoc9U8Ky1I7CIQ8s6kg5w/hLlDE1b2o8xE1i+uIYRjpsCbGa40iei
-	NDLwjg==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47j8fxuupq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 04 Jul 2025 11:31:09 +0000 (GMT)
-Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 564BV8lC008382
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 4 Jul 2025 11:31:08 GMT
-Received: from [10.50.59.132] (10.80.80.8) by nasanex01c.na.qualcomm.com
- (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 4 Jul
- 2025 04:30:55 -0700
-Message-ID: <edfd0bd9-e2b0-93ef-a573-2f2a3ae8d810@quicinc.com>
-Date: Fri, 4 Jul 2025 17:00:48 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [PATCH 41/80] media: Remove redundant pm_runtime_mark_last_busy()
- calls
+	id 1uXeot-0000000EGpa-0DCO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Jul 2025 11:43:09 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=RgD5Tmw9V1Ci9NtmiFNvhgrd8ukoyhZHv+LgOBiGY6rf0NpWXqUHLctTcucLCIPAYCeaVNHmRafgW9tSQRVzpaJEICuCYixvGdBDlbNVlSYsxNVG+OJkKlTFEVLGqcZdLFFDj58VkGFpA2ngFwhQnu7jMNeTGJZ7O4TP3q2/bavddBDk9yfGgqZhKZr1xA9CZsKiHdL2wN6hQ7daZ6YAPLfvG4RZlhC2rSiM8mQmAroyBQxetUZlxsGdaqQc80rlhr3rBQpUcJjLCxRSf4Ap/BIFAYkQuhfo/jRpODjKBh5yRZNHqzn0kfAI+8/Xp/0jXlCw4Y6yG8R2RbaVmCSqJQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dvLoV0key556t9jrmUKrGP92NCS4XYtDX01BqeM/Xj4=;
+ b=YJn9BtHNCrK5xT8XhWtytZvYS9FDjU/lNMZ4WhlPxkkREBKqS548FGJ1Crk7Iqgoim6NCWC4ZFlw8HCI/0lKUPKwXrvupeZRUYLl6xfdov29GqlRINcZwf1omT8DR4/1DKVIeenSGy52aT0NsF8K/eDmQPGz1nc4xILGgCueG9jN/QA6DtMb1OYkqfm2LkAUtYuBV2vw2L2B/n7AbtAYtAuDAwfaB8iHztSqGB6Fxt4/aofwGp+86JskRKBiXG1dGwcrwHlHahKDssQuu3htX8sx6aRJMQ3l92+H5qQlQUl1qxiS0sPUklfFPznYGUFwzR9D4KRmR/BNGrd0VISVCA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dvLoV0key556t9jrmUKrGP92NCS4XYtDX01BqeM/Xj4=;
+ b=aaFJpA/F7Pq09zURF2j1V4b+Ucw+PJPzC8zpY2ZmyTQA5DXC1NpNfDaOOEic6KaXSiDF9oxLv39XqaiKznwDe2P0h8KFM3C2UoMxm+h/bgNkgiDB176QCS1zn1NmNmEAv4YFaYgm0Fpx7FZ7FrlTW+8IspncpEEFOBUF9iF2NzU=
+Received: from AM6PR01CA0071.eurprd01.prod.exchangelabs.com
+ (2603:10a6:20b:e0::48) by PR3PR08MB5868.eurprd08.prod.outlook.com
+ (2603:10a6:102:81::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.21; Fri, 4 Jul
+ 2025 11:42:53 +0000
+Received: from AM3PEPF0000A790.eurprd04.prod.outlook.com
+ (2603:10a6:20b:e0:cafe::82) by AM6PR01CA0071.outlook.office365.com
+ (2603:10a6:20b:e0::48) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.23 via Frontend Transport; Fri,
+ 4 Jul 2025 11:43:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM3PEPF0000A790.mail.protection.outlook.com (10.167.16.119) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.15
+ via Frontend Transport; Fri, 4 Jul 2025 11:42:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AcVbfeZw71wHqYPug/KvCYdpQ4CDWWvrjL6nGfox69SBq132Qwe8rVMDgpXwGQrKtYsXKf56qzGdJeBqmTj6qRkMT09P/4axtnsWjwoGd55gupPgx4jQjCNBthhi0NxRo4+qhNG5t7DstOl3Oxk2L68hXOkxYBmEOOvRIU+OUDgkZThzwSL+qXvtM98Zg4EnM4Ajg55AuvG6YMexU+MK+IdxzBkJigz9nZXBjZfEgITuxyq74IT8NY7xMvUvEisJu8GrNwoBq5xorCPR90jp+EpANek2s2TPSCvWXlTShXw2BbwdFFYkPPQMPKraA6+O4Jrr/32haYHjOQ+dg4xYOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dvLoV0key556t9jrmUKrGP92NCS4XYtDX01BqeM/Xj4=;
+ b=VZ7dxt4y/g8NEszIIKRtqvoiF5KH/J6klhoG+RFskf1zoErZ12Ms11urE8c6JfKWaFiaEeIPFM6Io5it54u8SeeAh+kyntLQwL1jfUA/pDwWRoy2VPgKm7wtojp2zXNlLsxTstVSe+Vz02YlZpnaxx9KriUlA6V47h0E96n5hK2XBJfZJEUKCr8O27QDYjPN/m/2+E7bE3qwzuS8/RYuE3drZjf5AVhrdQrSRMCtHxUtcX+AxOBMyqcWj559EyGq5VolsJaQMDb1VUKYSaL+1fFZLCvDwU+rqG4uCeJIBzIx4i48MptxivCSA5nQydA1CBt98hjoawInCmPxkXU4Ig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dvLoV0key556t9jrmUKrGP92NCS4XYtDX01BqeM/Xj4=;
+ b=aaFJpA/F7Pq09zURF2j1V4b+Ucw+PJPzC8zpY2ZmyTQA5DXC1NpNfDaOOEic6KaXSiDF9oxLv39XqaiKznwDe2P0h8KFM3C2UoMxm+h/bgNkgiDB176QCS1zn1NmNmEAv4YFaYgm0Fpx7FZ7FrlTW+8IspncpEEFOBUF9iF2NzU=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
+ by DU0PR08MB8116.eurprd08.prod.outlook.com (2603:10a6:10:3ec::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.23; Fri, 4 Jul
+ 2025 11:42:19 +0000
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e%3]) with mapi id 15.20.8901.021; Fri, 4 Jul 2025
+ 11:42:19 +0000
+Message-ID: <bc201f93-7743-4d9d-a62e-3c8ea22e2cfd@arm.com>
+Date: Fri, 4 Jul 2025 17:12:13 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] arm64: Enable vmalloc-huge with ptdump
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: will@kernel.org, anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
+ ryan.roberts@arm.com, kevin.brodsky@arm.com, yangyicong@hisilicon.com,
+ joey.gouly@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, david@redhat.com
+References: <20250626052524.332-1-dev.jain@arm.com> <aGe5XjWKhgjzcw7L@arm.com>
 Content-Language: en-US
-To: Sakari Ailus <sakari.ailus@linux.intel.com>,
-        Tommaso Merciai
-	<tomm.merciai@gmail.com>,
-        Martin Hecht <mhecht73@gmail.com>,
-        "Mauro Carvalho
- Chehab" <mchehab@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>,
-        Alain
- Volmat <alain.volmat@foss.st.com>,
-        Dave Stevenson
-	<dave.stevenson@raspberrypi.com>,
-        Kieran Bingham
-	<kieran.bingham@ideasonboard.com>,
-        Umang Jain <umang.jain@ideasonboard.com>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Laurent Pinchart
-	<laurent.pinchart@ideasonboard.com>,
-        Michael Riesch
-	<michael.riesch@collabora.com>,
-        Mikhail Rudenko <mike.rudenko@gmail.com>,
-        Steve Longerbeam <slongerbeam@gmail.com>,
-        Jacopo Mondi
-	<jacopo.mondi@ideasonboard.com>,
-        Nicholas Roth <nicholas@rothemail.net>,
-        Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-        Sylvain Petinot
-	<sylvain.petinot@foss.st.com>,
-        Paul Elder <paul.elder@ideasonboard.com>,
-        "Matt Ranostay" <matt@ranostay.sg>,
-        Nas Chung <nas.chung@chipsnmedia.com>,
-        "Jackson Lee" <jackson.lee@chipsnmedia.com>,
-        Dmitry Osipenko
-	<digetx@gmail.com>,
-        Thierry Reding <thierry.reding@gmail.com>,
-        Jonathan
- Hunter <jonathanh@nvidia.com>,
-        Vikash Garodia <quic_vgarodia@quicinc.com>,
-        "Abhinav Kumar" <abhinav.kumar@linux.dev>,
-        Bryan O'Donoghue
-	<bryan.odonoghue@linaro.org>,
-        Raspberry Pi Kernel Maintenance
-	<kernel-list@raspberrypi.com>,
-        Florian Fainelli
-	<florian.fainelli@broadcom.com>,
-        Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>,
-        Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>,
-        Benjamin Gaignard
-	<benjamin.gaignard@collabora.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>, Sean Young <sean@mess.org>,
-        Hans Verkuil <hverkuil@xs4all.nl>,
-        Matthias Fend
-	<matthias.fend@emfend.at>,
-        Marco Felsch <m.felsch@pengutronix.de>,
-        "Tomi
- Valkeinen" <tomi.valkeinen@ideasonboard.com>,
-        Ricardo Ribalda
-	<ribalda@chromium.org>
-CC: <linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-tegra@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-rpi-kernel@lists.infradead.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-rockchip@lists.infradead.org>
-References: <20250704075225.3212486-1-sakari.ailus@linux.intel.com>
- <20250704075431.3220262-1-sakari.ailus@linux.intel.com>
-From: Dikshita Agarwal <quic_dikshita@quicinc.com>
-In-Reply-To: <20250704075431.3220262-1-sakari.ailus@linux.intel.com>
-Content-Type: text/plain; charset="UTF-8"
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <aGe5XjWKhgjzcw7L@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01c.na.qualcomm.com (10.45.79.139)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzA0MDA4OCBTYWx0ZWRfX94SUNz9Zog9s
- 241uiCiS8OVAytLuDJY25SN5WBo2A15VpvTMJToQUJBTBD5tSk4brYdb7zaZPtNru1KP2D7ucOI
- MP7OoWwNRfSp2vZyGAhRtK+GWPKPTC8CYcaz3pJrf0bvbPF0p6Tg6lQG8kNVwjM1v/lwgpbm1sI
- 9W3lBD8vDg9u5BhiyrHx5ES5xCkubkQOLvlAYhlLN0xeAziKI1O0M/r0b5MHvmDpyLTQ/s38Dus
- XjjluoWlT5f2jJF+Y1Ri81wN8xu6nn2AJfKF+gtxVeKeSC6SS29JcpLv2ONoxL/lbwrkxGfP05S
- WrLFk95oIfphsWUlPaLpl9uKyc9zZz6KR54Jmd1IWdNNg8BmRm8DRjzYRKFQFU3BwFHPABy84mN
- k7jN9W2mHATSPb7ZegYBV/S0C/iK3zQm+yZ/iqD+JuVLZ4pubHA+BceFQgNCaautkqWZ1okn
-X-Proofpoint-GUID: L0pLOEq6Xr5MYWPfr9s13YUNZ-ZnYjRo
-X-Proofpoint-ORIG-GUID: L0pLOEq6Xr5MYWPfr9s13YUNZ-ZnYjRo
-X-Authority-Analysis: v=2.4 cv=TqPmhCXh c=1 sm=1 tr=0 ts=6867bb7d cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8
- a=QyXUC8HyAAAA:8 a=COk6AnOGAAAA:8 a=PTLqzckoA416w6NZUygA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-04_04,2025-07-02_04,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 mlxlogscore=999 suspectscore=0 adultscore=0
- phishscore=0 malwarescore=0 clxscore=1011 lowpriorityscore=0 mlxscore=0
- impostorscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507040088
+X-ClientProxiedBy: MA0PR01CA0099.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:af::7) To AM9PR08MB7120.eurprd08.prod.outlook.com
+ (2603:10a6:20b:3dc::22)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|DU0PR08MB8116:EE_|AM3PEPF0000A790:EE_|PR3PR08MB5868:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5ef7e528-43da-4069-20e9-08ddbaefe958
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?VVQ5aUdBMVNuNXlQRk1IbzRPTDVtN1dIMlBGVGFPZDVucFlwRnNUbW9nRDlE?=
+ =?utf-8?B?d3U1QUszdHdzK1VpVitJTWJBQWdPc3VhelZtWWo1VTVrM0hzaDFIWHBGZHNK?=
+ =?utf-8?B?S0QrUG90bWRzbFlDVENoSTVIblN2ZWxwVXdBVm84MFFQdDBJaUZRRmQ3YTBM?=
+ =?utf-8?B?OThFYTZ2SEFTK0tVeThueERjcmVBUVdNbXNtY3d5TkJ0VTVXMjlKUWFJalhN?=
+ =?utf-8?B?T0E4M1V6VUJVYkFvWmdrcGFKY1NOdXVVWWljcXNBVkx6c2NMYzdmREs2RCtY?=
+ =?utf-8?B?NnJZZTlqV1BocmxaNGx5ZDhWMWgyaEhiV1c2RXpuV0phUUFkY0FFKzliZlN2?=
+ =?utf-8?B?d01kSnl1VjJabDlBWm4rbHFzc3dDOXRvWW9WODBsY3NoY1h5YWdYbkhpcWtp?=
+ =?utf-8?B?ZDlZSnZSREJ2TGY3ZHdENytHdi9yN3FqOGg1SE8vVEJIbjJsOHU5WUF0SG94?=
+ =?utf-8?B?V3NJVUU5WWdLQ2o2RVEvOThCMmhsbk9wOGYzcWdHR0RJZm1MdzNkd0lyQlpE?=
+ =?utf-8?B?Ymo5SVp5eXJqL2ZZR3A1NldxenFjeHRHOWdUWEJ1WW1yNmhQbkdvT3pjdkRr?=
+ =?utf-8?B?TzB4dGkralgxZDFDNnB6T3l2RHh3MjlycGZIKzcwK1F6S2wwQmpaY0NtZmw1?=
+ =?utf-8?B?cVhuWXNhOHA5RUt4dzJuZ0RNOTVpNytRVVQ3NUJoTUJVa1lRRnJWZkU5cmpO?=
+ =?utf-8?B?d3p2b0ZOZ3NGWWdpT25pMDdqeVA1TDVpWDA1QUJZdVM5WEloZ0hzc2hZTnRx?=
+ =?utf-8?B?M3dFTVRabHZDVWZ0dDlRSi9VUUdsa1RXUHBuZGJrU1hrT0hXUWhPdmxTa3FS?=
+ =?utf-8?B?aTRudThOdkhhdzd5TlJFS0JwR3E2a1ZoV3BtNkNCR2M5QUJiekNoc3ZqWjRP?=
+ =?utf-8?B?Q2NFSWU5dWFvbldFNzVaMnd3Q3dOaTkwbTdHZjQrNTBzTjdFcUFtWU9MV1A4?=
+ =?utf-8?B?aWcxTWJCMy81enc2WjBQQUlaQ3R5RGZlZ2R4QlE4bFg0cFFKQTY5NHNzM29n?=
+ =?utf-8?B?YjBNSUp4bGRWYVFqYzBNZTY2UGVvTFZkTzk4QkRaM1dEK2JTbWlBL0NNQ0Mz?=
+ =?utf-8?B?WXdxMW5BSThHVWNtMitsaGhFUnFnWDhzOGNqekhBbFBTWnJ0WjR0aUVrZUxD?=
+ =?utf-8?B?elBuOU9HSU5SRGR0ZktuVDViNHhuT3VMU0ZzeS9UZDBGUmQxdVdpVXlGKzIz?=
+ =?utf-8?B?RmxaUWRNNlZzczh1OW5aWkxXelNJbDlVMGd0Vnk1Y3RJWDRMdy80NFBGaVJ5?=
+ =?utf-8?B?QlZiSzdOcTV5VlFQMk10ZUJKWTJsS29vS3BFV1RzL2IrMk45WUJXY1J4d0ZC?=
+ =?utf-8?B?b2Y3ZTJXNWdZNkZwUmpmbEdxZm1waHNTQStBUjY0NTNYcVpKWUJTVnJuR2No?=
+ =?utf-8?B?ZENBMm13SS85WWJ0cWlKVnhyajZRSzd2SzdHeGpNU0h4d25VbzBycFRMZG03?=
+ =?utf-8?B?eVJDZDN4VEZ4TW9RTDVlWVdnRnkzYk56b2VUS29PQzlsQnBBTFM4RGdYMVll?=
+ =?utf-8?B?WlI2SDJaaElLbTVJaGoxVmNINTlHQXFzUFdpR0FMK3EwSjJUbHBjTFI4L2dr?=
+ =?utf-8?B?ZmRjeTMwMy9ZVVBHanZkSldDUnFsdzhCU0RIQnZRVllmWkNWd0lwTlhYYk4v?=
+ =?utf-8?B?TmlUYm5UWTJqaVl1TjdJUGZ3UlFBb2JZc1JBWW5kemlUVVBNQUhvRy9tdFJm?=
+ =?utf-8?B?ZThveWIrTStkTS95OWswN3h1WWhCRnpFUjlNdXB5UlE4azJEYWkydXV4V015?=
+ =?utf-8?B?eVNzajBaaXh4dzU5WWhEd2dXYzJZVlpyQWR3N3VFUFNjS09wTHNtYXZLT3Fn?=
+ =?utf-8?Q?3b/Jgo9vpZZuYolBkgGFjAjsDjocNZ53O3V7g=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8116
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A790.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: dc8498d2-88c8-4583-e5a0-08ddbaefd4ea
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|35042699022|376014|1800799024|36860700013|14060799003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cVcwRHZPbHhRaEIxSER4ZlpFWW5WWTRBSVp2bVJXMDRyc2FjVUVvVExPQkhH?=
+ =?utf-8?B?MG9OQ0ZuTHdNQmh4K2Y0RTVmSGUzWEdhZEJqUHRFNmM1dFdNN05PWFhvQUtI?=
+ =?utf-8?B?VnBYYkdLNzZveW83N1h3RVdyRCt1cEI5dlBEWVRybVFDa00zQkRUTGh5L3Yr?=
+ =?utf-8?B?U29Mb0lHRmZCWmc2TVdMd3luVWFUSFRkMmgzK0krb1F3MzZpZHBCSkwwTENT?=
+ =?utf-8?B?K0tCNk1BUWd5MEF4cFQxSVlkVU5QQjV6cFBlc2FXejdTYUtJV1BheTlCSXRk?=
+ =?utf-8?B?OXE0UnFtbXdDRlVHaDE1Zm9SdUdmZlptN0c4aVduZmR3M1p2WEViU2dDdlk5?=
+ =?utf-8?B?TUs0USt5ZXJkQmt5d1FaUXlucXp4aDB1d2NOUFAzbHVKelNxK1RUL3hGTG9m?=
+ =?utf-8?B?RnpxS3BUYm0wZ1hOUDZUeFM0V0orM0IzTVd2QTVGZ2dZZmI1ME01K2RRSVZ0?=
+ =?utf-8?B?VTc0TjJ4UjJFUGVtdjZ5K09rbFBkVzIvQ2pJRHQ5ZTVLU2ZJclYvci93bkd6?=
+ =?utf-8?B?WXErVmROUjBmVGU3RUtZYzEwWGEvTThkaDlONmszUk95bVZXQ01ZeUpSdE1K?=
+ =?utf-8?B?N2MwdW9peWZXS2VmQVc1SWRkRU5LNE9uRXB1eVUrT1l2Sis5cFNDcE5Xd1Bl?=
+ =?utf-8?B?RnM0VlJld296WEMydmZXMCtrSno1ZmIxVUJ0REF1WEIxZU9pdEtxUUlHNGZj?=
+ =?utf-8?B?K0VRbDhaUHE2c0ZrT0wycWpPU0JRMHlWVU1oTU9SN2VkbUVONUEraTZjV1BP?=
+ =?utf-8?B?TDRQcExHemJGMDZlcm5mc0VqOXVaWEMybmZqSjhkN0F3eVF4Nnl5SEtHM3c2?=
+ =?utf-8?B?bTZNTG9UL2dzeXppamw4NllOeHNYc3p0SWY4VXE2ZWIrMGo1MzJkd1JISlR3?=
+ =?utf-8?B?Q3d5TDRabU1MKzlYc21UWXpRUGpTeWNRSlNCNnk1WFpSUWxjcFZxejRBNzdL?=
+ =?utf-8?B?czIzVWFuWml3QWhEY3ZnU1RHMVlrQWdXQVozNGwvTThLUy9ZVjB6VFhIM2hr?=
+ =?utf-8?B?RWZ6c0VrbEhaTmpqU3J5U1gycHNjS1JNRldoT1liSDBCNEhxdkxBQjhVRnpL?=
+ =?utf-8?B?Rk5QT3RmOE9Zb3YrcWJiMUovNHFtY2tWeThqUjVSZVZsMnpBcWQ5NkZZK3FJ?=
+ =?utf-8?B?b2tWT1lRc3FVZUI2eGRkazhlOTFzRWNlQU9sejJmT0RZRkorMFNaQnhOWERT?=
+ =?utf-8?B?b08wNnFrcWlWdDlvY2l4Wm5LU2R1blFYeEJoTklnRm93eDgwdnk3Rk9iQU83?=
+ =?utf-8?B?RmliL0oyaEZzYnJCY21WNko4ODQ4aUFINEFXeExXRlNWY1hVVmt4aGczVU5F?=
+ =?utf-8?B?VGF6T2NyajBYQ1pZTlBBajlHemIxNTNPVU15cEw4WkJ2TGtWTFdaaU9nbEJq?=
+ =?utf-8?B?WDFiUTJlNkpwd0N5aVNOLzhrM2xGbExoNDdtdHZGVjNCdEpvT1BVaW1IY0lP?=
+ =?utf-8?B?VStiRHYrOWd5R2hFRUpGdUZDd2ZvQjZ1WFlabkt0RUdHVFJlUkx4Ni9BWXZo?=
+ =?utf-8?B?d3pweEp1QmRuNUd0TXlpZkVXZGYwUllQRWhpUHoxN0lhWnozUGx5aEt1YTdI?=
+ =?utf-8?B?MnljcVVkNElTQUJUS1dIaEVVaVlndmk0ZWt5dklMNCtGL0hJMjc1LytaTVo3?=
+ =?utf-8?B?b0F4YlV3Mm5FbFZPZHUwR0JUcmpXbWlDUG9XMi92b3ZweDd3bWlEdlBHdlBp?=
+ =?utf-8?B?TVAvb3hXVEtzSC9JbkF6VlFVV2M3eXpJVDZ5K2JzLytYOXhOMjJuVHpTeXZJ?=
+ =?utf-8?B?dW1aNlMxR1ZEZVc1UHRlT0dTUmJSV3pobi9NbDhLdkZPZnpZUURRUnYzNytS?=
+ =?utf-8?B?Y2prMEVXQkhYazN1eDc1bEZrcHB5WGhCTTlFcjlHam5ENzN6QWZhaWRUL2Jv?=
+ =?utf-8?B?RnZoSzhuZVhUMTdwNXdCOHVuNCs5eFhtREhNRjRVcStSRGNJdDFGUHc5aW00?=
+ =?utf-8?B?Rk1vMHlld2VZTXNOdXNXTFhQYW5nWkUzL2tUWTdmejhwTVlFS2VWTWhtSXJv?=
+ =?utf-8?B?dnl0enpkTllRPT0=?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(35042699022)(376014)(1800799024)(36860700013)(14060799003);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 11:42:53.0293
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5ef7e528-43da-4069-20e9-08ddbaefe958
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A790.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR08MB5868
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_043223_884945_3EAE679D 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20250704_044307_258997_C69E9D6A 
+X-CRM114-Status: GOOD (  22.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,71 +216,92 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 04/07/25 4:52 pm, Catalin Marinas wrote:
+> On Thu, Jun 26, 2025 at 10:55:24AM +0530, Dev Jain wrote:
+>> @@ -1301,16 +1314,39 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>>   	}
+>>   
+>>   	table = pmd_offset(pudp, addr);
+>> +	/*
+>> +	 * Isolate the PMD table; in case of race with ptdump, this helps
+>> +	 * us to avoid taking the lock in __pmd_free_pte_page().
+>> +	 *
+>> +	 * Static key logic:
+>> +	 *
+>> +	 * Case 1: If ptdump does static_branch_enable(), and after that we
+>> +	 * execute the if block, then this patches in the read lock, ptdump has
+>> +	 * the write lock patched in, therefore ptdump will never read from
+>> +	 * a potentially freed PMD table.
+>> +	 *
+>> +	 * Case 2: If the if block starts executing before ptdump's
+>> +	 * static_branch_enable(), then no locking synchronization
+>> +	 * will be done. However, pud_clear() + the dsb() in
+>> +	 * __flush_tlb_kernel_pgtable will ensure that ptdump observes an
+> Statements like "observes" really need to be relative, not absolute.
+> Like in "observes an empty PUD before/after ...".
+>
+>> +	 * empty PUD. Thus, it will never walk over a potentially freed
+>> +	 * PMD table.
+>> +	 */
+>> +	pud_clear(pudp);
+>> +	__flush_tlb_kernel_pgtable(addr);
+>> +	if (static_branch_unlikely(&ptdump_lock_key)) {
+>> +		mmap_read_lock(&init_mm);
+>> +		mmap_read_unlock(&init_mm);
+>> +	}
+> This needs a formal model ;).
+>
+> static_branch_enable() is called before the mmap_write_lock(), so even
+> if the above observes the new branch, it may do the read_unlock() before
+> the ptdump_walk_pgd() attempted the write lock. So your case 1
+> description is not entirely correct.
 
-On 7/4/2025 1:24 PM, Sakari Ailus wrote:
-> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
-> pm_runtime_mark_last_busy().
-> 
-> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> ---
-> The cover letter of the set can be found here
-> <URL:https://lore.kernel.org/linux-pm/20250704075225.3212486-1-sakari.ailus@linux.intel.com>.
-> 
-> In brief, this patch depends on PM runtime patches adding marking the last
-> busy timestamp in autosuspend related functions. The patches are here, on
-> rc2:
-> 
->         git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
->                 pm-runtime-6.17-rc1
-> 
->  drivers/media/i2c/alvium-csi2.c                          | 1 -
->  drivers/media/i2c/ccs/ccs-core.c                         | 4 ----
->  drivers/media/i2c/dw9768.c                               | 1 -
->  drivers/media/i2c/gc0308.c                               | 3 ---
->  drivers/media/i2c/gc2145.c                               | 3 ---
->  drivers/media/i2c/imx219.c                               | 2 --
->  drivers/media/i2c/imx283.c                               | 3 ---
->  drivers/media/i2c/imx290.c                               | 3 ---
->  drivers/media/i2c/imx296.c                               | 1 -
->  drivers/media/i2c/imx415.c                               | 1 -
->  drivers/media/i2c/mt9m114.c                              | 6 ------
->  drivers/media/i2c/ov4689.c                               | 3 ---
->  drivers/media/i2c/ov5640.c                               | 4 ----
->  drivers/media/i2c/ov5645.c                               | 3 ---
->  drivers/media/i2c/ov64a40.c                              | 4 ----
->  drivers/media/i2c/ov8858.c                               | 2 --
->  drivers/media/i2c/st-mipid02.c                           | 2 --
->  drivers/media/i2c/tc358746.c                             | 5 -----
->  drivers/media/i2c/thp7312.c                              | 4 ----
->  drivers/media/i2c/vd55g1.c                               | 4 ----
->  drivers/media/i2c/vd56g3.c                               | 4 ----
->  drivers/media/i2c/video-i2c.c                            | 4 ----
->  drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c | 4 ----
->  drivers/media/platform/chips-media/wave5/wave5-vpu-enc.c | 5 -----
->  drivers/media/platform/nvidia/tegra-vde/h264.c           | 2 --
->  drivers/media/platform/qcom/iris/iris_hfi_queue.c        | 1 -
->  drivers/media/platform/raspberrypi/pisp_be/pisp_be.c     | 2 --
->  drivers/media/platform/verisilicon/hantro_drv.c          | 1 -
->  drivers/media/rc/gpio-ir-recv.c                          | 1 -
->  29 files changed, 83 deletions(-)
-> 
-[snip]> diff --git a/drivers/media/platform/qcom/iris/iris_hfi_queue.c
-b/drivers/media/platform/qcom/iris/iris_hfi_queue.c
-> index fac7df0c4d1a..0b37f9b76da5 100644
-> --- a/drivers/media/platform/qcom/iris/iris_hfi_queue.c
-> +++ b/drivers/media/platform/qcom/iris/iris_hfi_queue.c
-> @@ -142,7 +142,6 @@ int iris_hfi_queue_cmd_write(struct iris_core *core, void *pkt, u32 pkt_size)
->  	}
->  	mutex_unlock(&core->lock);
->  
-> -	pm_runtime_mark_last_busy(core->dev);
->  	pm_runtime_put_autosuspend(core->dev);
->  
->  	return 0;
-Reviewed-by: Dikshita Agarwal <quic_dikshita@quicinc.com>
+Thanks, I see I escaped by saying "we have read and write locks patched
+in so it will all work out" this surely needs a better explanation.
 
-Thanks,
-Dikshita
+>
+> I don't get case 2. You want to ensure pud_clear() is observed by the
+> ptdump code before the pmd_free(). The DSB in the TLB flushing code
+> ensures some ordering between the pud_clear() and presumably something
+> that the ptdump code can observe as well. Would that be the mmap
+> semaphore? However, the read_lock would only be attempted if this code
+> is seeing the static branch update, which is not guaranteed. I don't
+> think it even matters since the lock may be released anyway before the
+> write_lock in ptdump.
+>
+> For example, you do a pud_clear() above, skip the whole static branch.
+> The ptdump comes along on another CPU but does not observe the
+> pud_clear() since there's no synchronisation. It goes ahead and
+> dereferences it while this CPU does a pmd_free().
+
+The objective is: ptdump must not dereference a freed pagetable.
+So for your example, if the static branch is not observed by
+pud_free_pmd_page, this means that ptdump will take the write lock
+after the execution of flush_tlb_kernel_pagetable completes (for if ptdump takes
+the write lock before execution of flush_tlb_kernel_pagetable completes, we have
+executed static_branch_enable(), contradiction). Since that contains a
+dsb(ishst), that means that the store is observed by all observers in the inner shareable domain,
+which is (I think?) all CPUs. Therefore before taking the write lock, ptdump
+will observe an empty pud, so we cannot have an invalid dereference.
+What is wrong with my reasoning here?
+
+>
+> And I can't get my head around memory ordering, it doesn't look sound.
+> static_branch_enable() I don't think has acquire semantics, at least not
+> in relation to the actual branch update. The static_branch_unlikely()
+> test, again, not sure what guarantees it has (I don't think it has any
+> in relation to memory loads). Maybe you have worked it all out and is
+> fine but it needs a better explanation and ideally some simple formal
+> model. Show it's correct with a global variable first and then we can
+> optimise with static branches.
+
+What do you suggest? As in what do you mean by showing its correct with
+a global variable first...and, for the formal model thingy, do you
+want mathematical rigor similar to what you explain in [1] :P, because unfortunately
+(and quite embarrassingly) I didn't have formal methods in college : )
+
+[1] https://www.youtube.com/watch?v=qeUHlXOBXmg
+
+
+>
 
