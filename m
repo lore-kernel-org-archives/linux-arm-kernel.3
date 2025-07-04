@@ -4,80 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB5AC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 13:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF41AC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 13:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4CgzvQiInbe8bc3VV3PcAVGmZbXimShPwMNviMcn6Q=; b=vQjec0qhC2GeQRuNYUPd3AbmAC
-	jiOsFbvfkD8NGxDKnJgejzOWIf2DeCMRosCjeDx25R4pRTLV9cFivePPB3IieNCrZByD8trKQzuXB
-	7a9jJqRnZICCgoX+ccZ23XW9fBuO5ew+m0fQx3BD/o6P56VHIujW3auiQXlbWzGndWeBOwhwJQc5j
-	d9C1XGST+5c3KWvw7cXIRVvl/x9UdBFwyy9T1cYyhpJ8QRdshc5xbMnpMRMVOaxIHG7ciTcr+dlS/
-	wzDbMuRAhT+0ZqwLuuH63TQIBA7jncmLlnAt6H7MtCUCSoAhsyBzvTgDsmhutnLVkXSc3zo60OyGE
-	N3gaxd2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J2XY1GGeVjic60yRWPsyfi+u9+wCm4/unrLGFx/UiaA=; b=aVseBAZ2cajvxxw+46DS+dm4K0
+	ioY5qPJMU1sPnhgJib0xoBE4cTQeBAPWHyVqBKMVAxgMUsAEMkJP2RWUA1D+U8c4u3/Aar5SS+8Cb
+	0cGX+MvLPsbzwT7oKrVBiTw/0ld3l5DM7K9LwaKHL7l5b2QaIgUyxQd29memhDDHCjzZP+AEqbdrn
+	h4TeUxJeAH3Sr+CYGpqVyPBzqKz++hVGp9a7AwEgdFHJZ6/uMLzeFLoAMtsmXhVThbh0wQ6uv9s7I
+	E6818ZVHFbjBZaSOv+SJhDTV7b5E+ENxzxRyGhXTpRjS2bhfLaijNSGmd7DSTSPDsaCbwpXRxO6OX
+	4ktJhR+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXge7-0000000EXh0-3ha1;
-	Fri, 04 Jul 2025 13:40:07 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uXggR-0000000EY0t-16mz;
+	Fri, 04 Jul 2025 13:42:31 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXgAi-0000000ETdt-12qc
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 13:09:45 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 564CYv65012818;
-	Fri, 4 Jul 2025 15:09:37 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	V4CgzvQiInbe8bc3VV3PcAVGmZbXimShPwMNviMcn6Q=; b=NHe2yd9m470sdg9H
-	NHs26SleVaFuy/p54nAVaL9c8Ape8CbpgMEnrfV87HUKUirsnpaqxq5v8pkNVSka
-	ZCvqnuh2rtJjKdlehg5NSsGb4Tcf0nauSz9MLoI2DapPVM/CBUVuZKulJ96ZOQp+
-	yWgEAme1KP4HWewoxOUOlhYu4QdYybF0GidBYmU/IIGR5yc0PfV3O8RGxSQu+ioq
-	OmiCZn1ihYllNwZrgB5Cq5hFM/FWIGXfrvrsWaiMAVIzePMTDrl7Pgs3DrcIkG4o
-	zX63VhphJb8bU+fOUNXfiezDBgP1uIACdiD3fY1bdItdds44z5Zf1vQgCFsIwISq
-	K/GG5w==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47j5tmnkws-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 04 Jul 2025 15:09:37 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0CD6840046;
-	Fri,  4 Jul 2025 15:08:47 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E9343B51B49;
-	Fri,  4 Jul 2025 15:08:23 +0200 (CEST)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 4 Jul
- 2025 15:08:23 +0200
-Message-ID: <304da1be-c0de-475e-92be-ef7a9727e281@foss.st.com>
-Date: Fri, 4 Jul 2025 15:08:22 +0200
+	id 1uXgCG-0000000ETtn-2GZx;
+	Fri, 04 Jul 2025 13:11:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OLRx36dTwU010gWFtB8mOOCUf3GFd5ndqnBW7R0a2//Oz7/QQnWqP3rY7UvgHknYweFzTBkPzjWHwAN3T0Rpxg9YXXyvMrhQI/bhSKwnQDmxqlbuGiaXbmcK0zDt7ieXXmNpY/ZbOqmBb3WDEkH1ZY67MrsQMsDLQwQUJfmGIFDHPH8qf6C9CI0YoNZkD+9WQCsXasOEjn2DId7EDPCsxm9fU78D/PKAs/hDGQ4dqWErBAC+AzjuRGNy3jX5+lJQlKc5BXfuoIr5uBEAVO8A3HnUbHVrugwYZyxHjZf4wZGgxfokgJwi4rNau4qIN5HtDNmvVaXFifRuAuSTQ8fMTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J2XY1GGeVjic60yRWPsyfi+u9+wCm4/unrLGFx/UiaA=;
+ b=PZcPupjFsELu1ftS7oowm9vEV+trrIMUOqiw7X/axDRuc94WfgwTE3r2TxjM9Mk3s1ht/2qgyhSs7hRaKFMgjwCu6AC81ee3Dw+VcqBYbJCE9rC0BglI2mbBKdxw0vkKePrgVqXUbwXM7QbE8xW74GE7OWMQ2F8Or4qtNzoA9ZUeSiMCh8dPPBxbArkB+aTJzll2nEKECgjVnkeepEn/+chz+MMJ2qBscbWNRRvM+idCQWetY9GVTq+2KKGYF33o2+FQ9EB+RicvInG4r8YUhjEpUrxdr1IiAXpVmt1A1Ph3cG/qWdOcz5ACAHQMPo+8f+T0EMSYKBokkET4sSCmWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=J2XY1GGeVjic60yRWPsyfi+u9+wCm4/unrLGFx/UiaA=;
+ b=nmCzChiBOa+6TulJb/VLfr+OhgEbGCazo52TGy7jgUUDJGmrjbo7YYQ3xHiv8uVFmlurSYAhOYAGGQGhM5BNw+Pc5VnaAbxBVStLvUqVU9R/OwhU2TB2D3Bq2OjPoCMmW9V4GBybLPG4wiVohXirbL9oMcUZ/Ds9bjlCmsfOPCWcV1asXzxhYeafmIOkFtJ/bASBAlXs4XRJjOFjZsJRdP+Y/AUeYGGGP/ZNvmJsXyCgRLIzBVAVJBLIGYomrTX0mR0ii5d1OPs3ZLyFNmihqV0iLEzXsTYpzCLaBBrHiT/7Y3UI0XzZm+5XrfebuNMrnOMicHiv+jjQWTvchh2FbQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by AM8PR04MB7971.eurprd04.prod.outlook.com (2603:10a6:20b:234::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.21; Fri, 4 Jul
+ 2025 13:11:15 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197%3]) with mapi id 15.20.8901.021; Fri, 4 Jul 2025
+ 13:11:15 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org (open list:ROCKCHIP SAI DRIVER),
+	linux-sound@vger.kernel.org (open list:SOUND - SOC LAYER / DYNAMIC AUDIO POWER MANAGEM...),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: linus.walleij@linaro.org,
+	brgl@bgdev.pl,
+	Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH] ASoC: codec: rockchip_sai: Remove including of_gpio.h
+Date: Fri,  4 Jul 2025 21:09:06 +0800
+Message-Id: <20250704130906.1207134-1-peng.fan@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0PR01CA0098.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:af::8) To DB9PR04MB8461.eurprd04.prod.outlook.com
+ (2603:10a6:10:2cf::20)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] i2c: busses: Use min() to improve code
-To: Qianfeng Rong <rongqianfeng@vivo.com>, Andi Shyti <andi.shyti@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-i2c@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <opensource.kernel@vivo.com>
-References: <20250619142609.323082-1-rongqianfeng@vivo.com>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20250619142609.323082-1-rongqianfeng@vivo.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-04_05,2025-07-04_01,2025-03-28_01
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|AM8PR04MB7971:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8da1d6f-4a86-418f-eb54-08ddbafc4172
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|19092799006|366016|376014|7416014|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?E9kfEp93dnt/U0l065Z8g6T+cgI9oGcPPaH8/x7Op/fByQP5tB4LG6AdxSUo?=
+ =?us-ascii?Q?5ziA79amQH5hAUhrt2Gd/sYt5W0jgoFO5s6dLDLvG7empJOkhjSvuibGAkJc?=
+ =?us-ascii?Q?jFZujubFFfyLVJFv5jCiABa4CcZ/qeylvFx4rczeQjtBh5wgHNuK7PQ+pHue?=
+ =?us-ascii?Q?NzMOqel8RFAxBSK5fbWtjsgI2zem+vFQ7XNqFzl5rqlRCgGCzHT/Zi3dZv3r?=
+ =?us-ascii?Q?lXZcMWvOVxwqZG0vqRFP7KokmPAuCfIrLsFGQiZAfeia20aiqULQCfX0AgJj?=
+ =?us-ascii?Q?VLYJ0+8tDXn3JxAsZtuwT35ngTjSQlmNakkv32jiprCA3SG/6dXAFCd1587f?=
+ =?us-ascii?Q?BOewjpz3dZs+5uio8KgJwtS8o484NVYIaqqPz1/1/zaDqjVyNtNabs/t1CXy?=
+ =?us-ascii?Q?WzJHo7HCkIAftEp/5ZBd/nwFYrMOMVscatyOcJYrfIsn9SAaaYmnD7E7+gLZ?=
+ =?us-ascii?Q?HhRKyI9nkN/0znaOqgPTDvcbLdsXErINZTnioYUOj7GFqGtw6zK7L5ECYP/I?=
+ =?us-ascii?Q?psY/xAXU2clYCCjdj5j50i3s0cYEX9PmTDzrSZuL6aC1kSuYnYT+PstvOqhx?=
+ =?us-ascii?Q?wEabnr8ui/v76IL7WI7QW6139zsxvjRQbaLhU0jW4mb6C9U5/VnzxBurYFiv?=
+ =?us-ascii?Q?8/7Kl8FEaTeVU6ghvpdaxXdZhhcwiB52ejYgTtuPsUSsZjO5wxnH8amVHHGi?=
+ =?us-ascii?Q?KOsG20IMWmOKmG5OUr8A9BqI/1LblXHiLdaRqzAN1YgJggV5NNwwL9agWxwH?=
+ =?us-ascii?Q?+LRubYo9LgUsOWSZ1S87Pz4IG8k8eehgAkShN/EH+x09LX+XI98d7ajY+g0J?=
+ =?us-ascii?Q?zkpu6dTWUW9msYlHjzPDWTZY1unn6ZPoKrt060GR+yJko5poMGzbdCNO6xdB?=
+ =?us-ascii?Q?wOQEnguxy/BO0xzhEJryYSp+yQxDvAQsPAogE4ioynd7lsLTkQxVFq22Ulo7?=
+ =?us-ascii?Q?Bp9mZuqhq3ak/wu559skKSfznhffpvXfkhl4+QmcDh3mtfv6K2H8jco9DqPh?=
+ =?us-ascii?Q?//ArK5Y+/zdenMsha1Krz3piKaiz5H1X4+VLVM0mPBTW6K3/EYLY6HmLBQlw?=
+ =?us-ascii?Q?o0mrUwOpfwQw4PW5xl5LD+hIBe9+kdQQ7MEKNKlkJzDhKTbcYl0lsAgVqBG3?=
+ =?us-ascii?Q?V8TBRS1Vt/cN1GlGTmqFKS4pKg2iYoNxhGTHFqCp/BRB5iXuj3CZITKvmmqH?=
+ =?us-ascii?Q?DdwjTeTz3atA8yJp+U0HohLGn0mEaA6nmLGqDQLqDmOKnYYsSs+MjW3Uus8/?=
+ =?us-ascii?Q?8ii5i8GpNbCekNfNlsSIgrCuFiA47qY89ECHRUKNv/41DUMcwV1yj7FQCRPa?=
+ =?us-ascii?Q?wZKflqdtZytkS7Vu/owPm09Ms0wVIjPGO6YUKM/qi3jIjR2QUO0vz87BBX7i?=
+ =?us-ascii?Q?ZSgWgWe7wjQJv3nHibexJn5cTcY7d0uqPvgZDwKlUgnAHGpG8gthF8gio6J8?=
+ =?us-ascii?Q?lkAqUhg/HWlMgJYgzwUCh3NnIocq1MiCV7gokdpZk4UklOBmWWLxCXZxb0Mz?=
+ =?us-ascii?Q?RDnPs7UqWS5Cm10=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(19092799006)(366016)(376014)(7416014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LLfUhFCpyJX3DibD7jj4KlTqiE1V7Ax0sjn2jhQaDH2mUKYxNrZuCfL482bt?=
+ =?us-ascii?Q?EzaTetl+lMZdpnPKtxYL9pciigKgMHyB97HdVMzWNnHLA+YCkK7RfbitrUmp?=
+ =?us-ascii?Q?aC6Zad01bAzLsoPH1NaiVEcKiNptJ8QNOUUHj29R7K+oQcEm6UoSg337OH9t?=
+ =?us-ascii?Q?o0t0yK20gibZm6AwLfKqs85cpjQE4yDu4A3A4Psv4BSlY2CeUJON1FljHzUq?=
+ =?us-ascii?Q?aU08Gk8XYtoyIsIHeOk6mRAROSH1Nl8QHolrQ0d/h1mzXRheiroX81hffcsa?=
+ =?us-ascii?Q?tgGodBCvMiC4KkEgSTBDTAGvwUWQYNpMh5y1OBpvIaBvKHAPsXq7l2ePvWY6?=
+ =?us-ascii?Q?7y4f0MUCxXsdvEpuwheRAvUPuVorp+gRm/u77Q7iDuQscXFlivnhEYjlrhqJ?=
+ =?us-ascii?Q?4wQosHy7DE52sYiWY+T/RLEhWCs0399V2UKlVsHrrpA8Cp/n5qdn5ZHMaKN+?=
+ =?us-ascii?Q?Ve8EO1nqPaMHYX3JU0OEVCSa/hdAuNLtM4F1uWqvu/qUtsxeUKl/DqYGik0e?=
+ =?us-ascii?Q?qk95n6dNRPytbngwWYOm939zaB4oQrIVcCwcq8k4NLepzVK33aJqIgE//Szg?=
+ =?us-ascii?Q?xeBuAC/d0icy8k+MFitM1Kay9PedDOwFPE8a0w8y4Bht73qmaqNOnjURKPfx?=
+ =?us-ascii?Q?iIHPR01m8QeUamXfs0gb6X6v2iuavgDrXUJ5XasIUeLF/ZIykxZzKGtsHqqQ?=
+ =?us-ascii?Q?qv4Sgc9Revq4vuGaM7UFLhga7647ed98WaIWfwMmG0aobzF5rL4lK5BDuVni?=
+ =?us-ascii?Q?/NiV0wbLuX7nTQTM7nYFtlxtPoJd7pcWeeSomXC+uj1OC0XhJFHHxDVo+2UB?=
+ =?us-ascii?Q?myBxYc5gHXgYezTtI1EwClFOcW6bCnw0Ce3PoKZruISfdzCjt3XBW2b4MGF9?=
+ =?us-ascii?Q?A2rDpxLjM2WDOv67JT8kIvd1uGrSttbMdXdCaTLYj39vNz/zW67NXJqgG3bR?=
+ =?us-ascii?Q?CZ+Cyp0MiWtgyOPfIB8MHae2/AcvFx06r8FK7rfAcZSHecghrrNAt478mSJl?=
+ =?us-ascii?Q?UB5w3xuJcHEZWt9hzZ061yS6d+cesF0xUoyVR7kn4I5ErjXHOJTctUBeyKgh?=
+ =?us-ascii?Q?QrUgjCx3eKqwB3IyAdgDy/gfzxAvSizm4JWVXwbJ8KORdczWMT7y9Zz7fhm9?=
+ =?us-ascii?Q?N0AoC2Q7KBsQPTeUVudFs+oaRwzyQhnyGVOzZgccKwkpsyF6SirzPxQ4MSLB?=
+ =?us-ascii?Q?paGZAWGlRyqOv6HR3+zNdkBoQNTM3FbdCTxYy8256Gqi5XQxm1lx7bHLjCIH?=
+ =?us-ascii?Q?xmEtRsFEsgcAofo92K7i41vHKeqv/mQzC26TYC6K31VDayb1ZRp1JwdRzZWe?=
+ =?us-ascii?Q?O8M3YcMaYgtUYg1/V8muL5hpJzKx6jA/sxfj9W04c5Tmjn09T7p5Jja68M8L?=
+ =?us-ascii?Q?8DAkR4Wg+2DKfMRKUlOoNizbapdLfNurI+u0Kue8Rvbblc2W1GffzcnzPMAR?=
+ =?us-ascii?Q?I4JW1qlQ7wFUwq9NPHYNt6DdVp4lTU8qST1tzvEH4UBFaEiyIDIrMtfyB5v3?=
+ =?us-ascii?Q?g8cNCE486zax8rEC+UXPMCLEeno4nJr9JBOLw8k748fL3UtEAoWJJPkDWaPk?=
+ =?us-ascii?Q?O4Txnv0UYjZ1bCK+HtVHn/ZgHms3Xp5xSIgvm0oK?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8da1d6f-4a86-418f-eb54-08ddbafc4172
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 13:11:15.2505
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2FnUqHyZH1y0Spp9krjoHGfax8JZL8ql61Im2L4EpuFrTr60b7AAFkb2gz/Li3ZmvErF48sr12NeWr6aPWytBQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7971
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_060944_802173_65514A0E 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20250704_061120_591917_33B041FF 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,58 +164,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+of_gpio.h is deprecated. And there is no user in this driver
+using API in of_gpio.h, so remove it.
 
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ sound/soc/rockchip/rockchip_sai.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-On 6/19/25 16:26, Qianfeng Rong wrote:
-> Use min() to reduce the code and improve its readability.
-> 
-> Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
-> ---
->  drivers/i2c/busses/i2c-st.c | 11 +++--------
->  1 file changed, 3 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-st.c b/drivers/i2c/busses/i2c-st.c
-> index 750fff3d2389..3373a828b5a0 100644
-> --- a/drivers/i2c/busses/i2c-st.c
-> +++ b/drivers/i2c/busses/i2c-st.c
-> @@ -19,6 +19,7 @@
->  #include <linux/of.h>
->  #include <linux/pinctrl/consumer.h>
->  #include <linux/platform_device.h>
-> +#include <linux/minmax.h>
->  
->  /* SSC registers */
->  #define SSC_BRG				0x000
-> @@ -422,10 +423,7 @@ static void st_i2c_wr_fill_tx_fifo(struct st_i2c_dev *i2c_dev)
->  	tx_fstat = readl_relaxed(i2c_dev->base + SSC_TX_FSTAT);
->  	tx_fstat &= SSC_TX_FSTAT_STATUS;
->  
-> -	if (c->count < (SSC_TXFIFO_SIZE - tx_fstat))
-> -		i = c->count;
-> -	else
-> -		i = SSC_TXFIFO_SIZE - tx_fstat;
-> +	i = min(c->count, SSC_TXFIFO_SIZE - tx_fstat);
->  
->  	for (; i > 0; i--, c->count--, c->buf++)
->  		st_i2c_write_tx_fifo(i2c_dev, *c->buf);
-> @@ -452,10 +450,7 @@ static void st_i2c_rd_fill_tx_fifo(struct st_i2c_dev *i2c_dev, int max)
->  	tx_fstat = readl_relaxed(i2c_dev->base + SSC_TX_FSTAT);
->  	tx_fstat &= SSC_TX_FSTAT_STATUS;
->  
-> -	if (max < (SSC_TXFIFO_SIZE - tx_fstat))
-> -		i = max;
-> -	else
-> -		i = SSC_TXFIFO_SIZE - tx_fstat;
-> +	i = min(max, SSC_TXFIFO_SIZE - tx_fstat);
->  
->  	for (; i > 0; i--, c->xfered++)
->  		st_i2c_write_tx_fifo(i2c_dev, 0xff);
+diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
+index 0b9f54102d69..6695349ee561 100644
+--- a/sound/soc/rockchip/rockchip_sai.c
++++ b/sound/soc/rockchip/rockchip_sai.c
+@@ -9,7 +9,6 @@
+ #include <linux/module.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/delay.h>
+-#include <linux/of_gpio.h>
+ #include <linux/of_device.h>
+ #include <linux/clk.h>
+ #include <linux/pm_runtime.h>
+-- 
+2.37.1
 
-
-Hi Qianfeng
-
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
-
-Thanks
-Patrice
 
