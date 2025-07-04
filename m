@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74265C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BF0C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:21:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i2XDHJ0MeEQmXTlZkkvpVFiRAD3UEq3gNigfSYol0ps=; b=U2Zscfl+ODcHXyigrc1PLL4t3O
-	2h2WG+/ko1Db2/6q4ghdc7bHZO4E1OPY/33DPLX6CHxn2knWd1gOM/lu2ns1Seo3i80ePsIkojv4Y
-	ZXqbEWXAMtJfhEDccc9VgThQ6ZQAYc9vtDKhc3QNn3h0UtZ4nY955a3fyWfCLdTl81J6lfHjGSNPq
-	ZR7gNlawuzbhQLtnEafyefQ4lnCi8JOyWBQPahIjP3o6tzBLVZAt/BKr04JNyBAWxmqgGfh7RC3fw
-	GXeRrhAHL+amGMUqlzy/gdBQWWlLI7E2+mEQBouXSksCcC/MEFmIlrYhSfjHhrALfrt+2TsoyrNSQ
-	80OVGEzQ==;
+	bh=Npsdh7o/phl+J0hTe78rjYAxCLG4BlzPDCZswKqor3Y=; b=SPSS6DaUyFnGG7umKbqoXuAffT
+	nROWSx/kfMVZ/xeYoJso1VMUd/caluTUKGPfDS24FQAs0dXlsi//j+lN2KjKJy0Gve7tPclkiBe0L
+	Edc57x0Pddc8yI+AaQa2wFbHY038QMbySwVy4yLJ0H5iQc3k9r2kLd7tea6+Lrm+/p9QnTR6uOvIW
+	TLQjGEbQakCnlY+t3G5Esc139VJAcXpAm6Qlsya1o/gqOyaqMmbXmLOuVeBqVq/PPsFwMrnbFrYcD
+	dUIlCs7avhra+w0yryqFGeqeJeTC+ey+jKTfZW3MMGJBJrh07U1QwsyRIdLIZvMpHJumduzvupVB9
+	B0i4FZJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXeU8-0000000EBxx-2zci;
-	Fri, 04 Jul 2025 11:21:40 +0000
-Received: from mail.8bytes.org ([85.214.250.239])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXbr9-0000000DkdY-23jj;
-	Fri, 04 Jul 2025 08:33:16 +0000
-Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id C85A94D68A;
-	Fri,  4 Jul 2025 10:33:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1751617990;
-	bh=1Wb4ZmTEJsSifboKDjUkFOYzbSZxSp7Cj7bjm5Uh7PE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CNnwCTPpeQ3dIUBs3CEaEcBZC9ZSCczy9UgnBvT7RwXD1li0Fl8Ns8E8bRwMZ8hb1
-	 aQVU10Jcq3V0vKhxLAUFoQ/yGL8ptcDaFIb/hDqL4JajHDN/IFDoi5rKadoCQLbTve
-	 5yD2txFQ7Rj6wyMYHK60tT7rAsOkkrOg4a0bZ0yWrS2x/2rZnS8fqRG1daeQysxkNa
-	 sA7BKstvqe0xAnCjwwsPwYDyOvyh35vX+heZDh0EsJcrm1lBRiJCc4HWcHEGxzz5x8
-	 b+xhiH7C2xJu2YcPBLrbFndAWwFjAANtkqudWJB4wt42MxtqZjuB/cL2+mzE5olZKY
-	 gC4UcxuJ7rqcg==
-Date: Fri, 4 Jul 2025 10:33:09 +0200
-From: Joerg Roedel <joro@8bytes.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, yong.wu@mediatek.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH] iommu/mediatek-v1: Tidy up probe_finalize
-Message-ID: <aGeRxYJrd48SIlJF@8bytes.org>
-References: <7c78149504900bc6c98a9c48f4418934b72d89ac.1751036478.git.robin.murphy@arm.com>
+	id 1uXeUA-0000000EC03-0Yy3;
+	Fri, 04 Jul 2025 11:21:42 +0000
+Received: from casper.infradead.org ([90.155.50.34])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXbtE-0000000DkuX-1IQ7;
+	Fri, 04 Jul 2025 08:35:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Npsdh7o/phl+J0hTe78rjYAxCLG4BlzPDCZswKqor3Y=; b=Z5Uyd6WafiGI7Vj8mvDeVq4djE
+	qakNSYai6eHyIpoQkdTzaKX7zqRJfyAVahsqdKs1IGgeht/7jtw4gTXnR3Alg1M2rFIOZgXn/7roD
+	jCVja9IVRUsPmFN6lUlIO7KIr0P1d2l90Vkc3DG9RKXxvo5D0o30C0+7oQdcphpH4ei4Ni4rWvZWd
+	o2u7U6mfbUx9FnudypN/+rgpXqyp8Wrx+5WWgjx2pTSH+w5mqnhpZgdFAC6rPjRa8AnFhaJ9fTDgt
+	voPz9xhG5y/GtENkxuTYiF9dG5m6Ja+2spJ/waLdpMpV/lM3kaIMaKd1gK/SVgkTpDnvIIHdHpRhk
+	8E0YXKyQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXbt9-0000000GDWP-1cvL;
+	Fri, 04 Jul 2025 08:35:19 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 8EB56300212; Fri, 04 Jul 2025 10:35:18 +0200 (CEST)
+Date: Fri, 4 Jul 2025 10:35:18 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: John Stultz <jstultz@google.com>
+Cc: Kuyo Chang <kuyo.chang@mediatek.com>, Ingo Molnar <mingo@redhat.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v5 1/1] sched/deadline: Fix dl_server runtime calculation
+ formula
+Message-ID: <20250704083518.GE2001818@noisy.programming.kicks-ass.net>
+References: <20250702021440.2594736-1-kuyo.chang@mediatek.com>
+ <CANDhNCqYCpdhYS9afdKeY34Bmw8MXyqKWCSTxOZNLTjYrUaVXg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <7c78149504900bc6c98a9c48f4418934b72d89ac.1751036478.git.robin.murphy@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_013315_742590_BDB64F77 
-X-CRM114-Status: UNSURE (   7.04  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <CANDhNCqYCpdhYS9afdKeY34Bmw8MXyqKWCSTxOZNLTjYrUaVXg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,9 +79,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 04:07:10PM +0100, Robin Murphy wrote:
->  drivers/iommu/mtk_iommu_v1.c | 8 ++------
->  1 file changed, 2 insertions(+), 6 deletions(-)
+On Tue, Jul 01, 2025 at 08:28:12PM -0700, John Stultz wrote:
+> On Tue, Jul 1, 2025 at 7:14???PM Kuyo Chang <kuyo.chang@mediatek.com> wrote:
+> >
+> > In our testing with 6.12 based kernel on a big.LITTLE system, we were
+> > seeing instances of RT tasks being blocked from running on the LITTLE
+> > cpus for multiple seconds of time, apparently by the dl_server. This
+> > far exceeds the default configured 50ms per second runtime.
+> >
+> > This is due to the fair dl_server runtime calculation being scaled
+> > for frequency & capacity of the cpu.
+> >
+> > Consider the following case under a Big.LITTLE architecture:
+> > Assume the runtime is: 50,000,000 ns, and Frequency/capacity
+> > scale-invariance defined as below:
+> > Frequency scale-invariance: 100
+> > Capacity scale-invariance: 50
+> > First by Frequency scale-invariance,
+> > the runtime is scaled to 50,000,000 * 100 >> 10 = 4,882,812
+> > Then by capacity scale-invariance,
+> > it is further scaled to 4,882,812 * 50 >> 10 = 238,418.
+> > So it will scaled to 238,418 ns.
+> >
+> > This smaller "accounted runtime" value is what ends up being
+> > subtracted against the fair-server's runtime for the current period.
+> > Thus after 50ms of real time, we've only accounted ~238us against the
+> > fair servers runtime. This 209:1 ratio in this example means that on
+> > the smaller cpu the fair server is allowed to continue running,
+> > blocking RT tasks, for over 10 seconds before it exhausts its supposed
+> > 50ms of runtime.  And on other hardware configurations it can be even
+> > worse.
+> >
+> > For the fair deadline_server, to prevent realtime tasks from being
+> > unexpectedly delayed, we really do want to use fixed time, and not
+> > scaled time for smaller capacity/frequency cpus. So remove the scaling
+> > from the fair server's accounting to fix this.
+> >
+> > Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
+> > Acked-by: Juri Lelli <juri.lelli@redhat.com>
+> > Suggested-by: Peter Zijlstra <peterz@infradead.org>
+> > Suggested-by: John Stultz <jstultz@google.com>
+> > Tested-by: John Stultz <jstultz@google.com>
+> 
+> Thanks so much again for the multiple iterations here.
+> 
+> I've re-tested this and it still looks good.
+> 
+> For what its worth:
+> Acked-by: John Stultz <jstultz@google.com>
+> 
+> Juril/Peter: if/when you take this, could you add a:
+> Fixes: a110a81c52a9 ("sched/deadline: Deferrable dl server")
 
-Applied, thanks Robin.
+Nice, b4 picked it up and DTRT.
+
+Thanks!
 
