@@ -4,159 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 394FEC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB90C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kHE17Jp11Nl56HMddAVtk8HO9MOFi4r48pOyV880a2w=; b=wO5nGrExQkMUqgV9GSwBOUv1o5
-	umg8WSkLnG9wAGebQgRWOqjWXbNcyI4UJbFPwlsERWV2KlOPgCuHJCWaGMp0hr/BwxAt27cnh/vHm
-	WVxVi3l8aWOrVqc9jzAQTppizi+ggjAI/VGdwlMjgmT/p4vEI0Ts48RC+b6Srf1d3lSKObdhn+XhL
-	yOcrmwrN7qxxhM6TxTqAg7Ej+LKx4Idzl3ES1wgadMYgDj6pDpyBhtFDPTbmOgbQSrBNWAbnrej9T
-	CzXgRpBuMtjNqW1OJsapY6lfAfPunOb38HkwlvGnjvAvX3XRZGcBHHRneAt0Pc+zRQDoK+hf9tONU
-	GIxDrmGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ejMKBHWNKl9mQoEViy73YjZohnREweBs4rwRhvOzSEQ=; b=CSSOw9ymY2lgxdPlF6s/BXJlm/
+	rHueYe8kvUfWD+J6AYCExZSXG6c/YCC490gzIaBGNyeDD4XNjrHnZ9JIHBrq5oP0bKcg8Lbir1Z32
+	zIn9RMXADhDSNtU4byw6MAFSkVxTyjZzKpOqMz8Q1TX0hag6rNw0JQ0warjY3DX34mtLUfd4aYGVt
+	J1idld0yH2DxlgSJHtzIse1ONqk6tbWkgs7OSsPsFHodSUZzeAtzI5TCEIY6ZHTYl7xKd5EcrnTZ6
+	OJyRr4c63Jahpwou/W8tZHYoqlU5K2Qmw09WfWHKokRS3TGNX6Rg12Jk21YRW8cywkNWiH5jg3QGe
+	w980B9hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhHl-0000000Eeb6-1P18;
-	Fri, 04 Jul 2025 14:21:05 +0000
-Received: from mail-dm3nam02on20611.outbound.protection.outlook.com ([2a01:111:f403:2405::611] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1uXhID-0000000EefW-3q5d;
+	Fri, 04 Jul 2025 14:21:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXh1u-0000000EbiA-1kEW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 14:04:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vrOLgFhNkPtd9IardNcxxM9LTf7kTgbGZ0qdx0k4UMqEdd553vkkfZOF2IZWsUh4OFAeC6hF9MpE3YT357SzPWTh8bKQvJYkbs8AuAYYzCodvIhsOjlk7di3GLLKHapCEsML4wZ2Zjlu4Nq2Zy4C55mDoifQ9iAsAdbiWYT/zgsRDv5AH3frs/G/G41c/r8zXjEo8yM5tn1UPlF7hVcqTuTYTFdWIwiKIWBJK+mz7L8G7fN0v734Or+p7uIdqwHJN4IFzSTC6ZfAgAnQnq+pB2y9vBD9BhxmD1ZANAg0Ua46amCIKwXWbrAwtJ8HHv+SHkQp5OUCMSGcZHQ57bUtpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kHE17Jp11Nl56HMddAVtk8HO9MOFi4r48pOyV880a2w=;
- b=pJzOqmoKmP+n0WNMWFisnDrKZiG5SGdqU4mBYItTHfoEcmoqj2HqKs1FwyuUHtVNpLnjt6Al3kf2ngffed2F8WJWbEMYtm7qpIeiCnjW7w5uqSn/mm7N9D7Ly+atpRodL3xB+nkgugPp0mmnaDC0uJKTpuVt+jDLxaGuYwGhujK9lPapZ57GVeUvs1Unh2bxBa15+5hZgMipbnFNvrXBlRP/uhoZQ2CR7E7KLWg/A8Nno5jM1ysmZxZelAIB7nVx9PgUqkAHvbMnPMfkzHa64xbQ3Cq2W/Pz2K+WjqsN8VQTFNJM42WZiWfgEbdh+16dwjx/NAJcTE2w2vPSkpNVzw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kHE17Jp11Nl56HMddAVtk8HO9MOFi4r48pOyV880a2w=;
- b=M7NkmRTBTTB6GtRM7D8QIKCynU14w7Zl75Wg5pc3Eirk26c4N1sjgwzd2LdVa4TIKOAK1T1ZuP0vG6bHG1NVqTe7s77gbQZXGhaDR9gbC6uBOmE5ZdPvinDvEbW2cFPWuf+TJwwn1zqvKI6fA4y9kyIG3nsUKremZNzsmzk++umlRjOoNwnTFLTE/wOJkvAdutGL83GOh7d9TLmrSx3fzJChx+RkahX6GkquTMrFYIUUk1TiTEngxcRjIzij/+EligCFnGiiC1UyVMH7eFTJB0EU+eeqOCOctnAU3CmGI00JbFMkm9hQY5LDdNQi7YWtv+/E2/9b3bxo4Wyi019nzg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DS0PR12MB6462.namprd12.prod.outlook.com (2603:10b6:8:c6::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.20; Fri, 4 Jul
- 2025 14:04:35 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8880.030; Fri, 4 Jul 2025
- 14:04:34 +0000
-Date: Fri, 4 Jul 2025 11:04:31 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: ankita@nvidia.com, david@redhat.com
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com,
-	shahuang@redhat.com, lpieralisi@kernel.org, ddutile@redhat.com,
-	seanjc@google.com, aniketa@nvidia.com, cjia@nvidia.com,
-	kwankhede@nvidia.com, kjaju@nvidia.com, targupta@nvidia.com,
-	vsethi@nvidia.com, acurrid@nvidia.com, apopple@nvidia.com,
-	jhubbard@nvidia.com, danw@nvidia.com, zhiw@nvidia.com,
-	mochs@nvidia.com, udhoke@nvidia.com, dnigam@nvidia.com,
-	alex.williamson@redhat.com, sebastianene@google.com,
-	coltonlewis@google.com, kevin.tian@intel.com, yi.l.liu@intel.com,
-	ardb@kernel.org, akpm@linux-foundation.org, gshan@redhat.com,
-	linux-mm@kvack.org, tabba@google.com, qperret@google.com,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, maobibo@loongson.cn
-Subject: Re: [PATCH v9 5/6] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Message-ID: <20250704140431.GH1410929@nvidia.com>
-References: <20250621042111.3992-1-ankita@nvidia.com>
- <20250621042111.3992-6-ankita@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250621042111.3992-6-ankita@nvidia.com>
-X-ClientProxiedBy: SN1PR12CA0061.namprd12.prod.outlook.com
- (2603:10b6:802:20::32) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1uXg9T-0000000ETIN-3Mau;
+	Fri, 04 Jul 2025 13:08:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4CA735C6526;
+	Fri,  4 Jul 2025 13:08:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EABAC4CEE3;
+	Fri,  4 Jul 2025 13:08:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751634507;
+	bh=tQbN0zpDKtZUkhv/MpLlcCccFqUgkW64nZndPIHZEfQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=anzXzF2uMEeKjaXubq2vr+o1Z7qkBGyYRG8NnDMFZjsAS97unymxdNGhOc/dMEgQF
+	 LPVTDBCkbTypHKFZ1Sy1TpmG+/e1XEkYmNXTnf76JqeRvGF4B9wJXdZxDeUD4gwCbx
+	 85lTxmunxhPgLQGfv99kyBbinH5gsHyAMcLTP4RGaHADZLUGAyFnRXZMshq8LeB599
+	 aMS+Z6AC3lJlyOX6FMFdFrQb0ymYcdAL3SOrH0if4xNa6NSSPqehmNKcDOrT2JEdmt
+	 +Oul4BJruit9wb5uZA52gIuQFpoGAjVfUk//kF+gvEzqGHhgCPljHN3iYmltiHSuLe
+	 tIggKCmSRq4/Q==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Fri, 04 Jul 2025 15:08:05 +0200
+Subject: [PATCH mt76 1/9] wifi: mt76: fix vif link allocation
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS0PR12MB6462:EE_
-X-MS-Office365-Filtering-Correlation-Id: 985cda36-9e99-4810-a922-08ddbb03b429
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0cTE7czBh/uJSMjNaSWq5yPVDOphv42bXSE0k/T6XaK6/dQSBIBojh1JUwS2?=
- =?us-ascii?Q?XWznAS3m91V6svk59yV/olwxIvbe5tMoofKoIBVK6R4hcCUfY1iJBY1HfBdU?=
- =?us-ascii?Q?c1XjxtU0oVoA9sMnAL/YmrtHD657vsxTzsy043ywMBVXwE0hoLlTRhdvITPE?=
- =?us-ascii?Q?7WOLpsS76/rQNcln68o7gSGa3AOrVmiCNb86H3xKx6+exsJTQldqbJmsOijC?=
- =?us-ascii?Q?VG2Bgj8eF5z3jQEe/W8G5lG9IPyt3Ilf+ctXf+GhAwv0QrKmxTHG58q/pXiG?=
- =?us-ascii?Q?tWGhQR8NUMmyA+RMYawp5tM/jl93OYrqjJ7ldH9u4QXZJnE2Vczg3ttLM6aI?=
- =?us-ascii?Q?ccIM0rCFTTLqZFxP1PDtByxLOgsdLkOZFvE3eMbk6NCe6U4POdAw9ivK6GOD?=
- =?us-ascii?Q?F3WrAAw/4tEMnSm75Zu7JQgZhAAqa59HGtgH8BKDZuLNyzlK5867hBzyWhQT?=
- =?us-ascii?Q?fJyN+vJXvw1neTEwXRT+qO8xfDN1d0ZNYhL8R/fZA3pIOmf7Es95+LsMmovw?=
- =?us-ascii?Q?JHI4jWniWoLVCmcXWQcCpolM0TU3WEtj4sAmklwZA1HkTR9We2T3/JxKlRt0?=
- =?us-ascii?Q?VR9/IygU/3OVPOVjeHiP40cyzysxeIQN3RsZfkRT/O3QbDpcYAYkHKCoqy6l?=
- =?us-ascii?Q?X0FNwDZyvColYsZgWs65doYHvyQKV7b037xpzO716ierEbuI+buLPwgvLQqA?=
- =?us-ascii?Q?GJ7kictrsSkDg37td69IMXlxi3kvnzpg13WdSc77bFridzpndk+zYB8JM8aD?=
- =?us-ascii?Q?TfvxxdvqbN6XhtusytzKPAIUYJARU52QG1ctgHCrTvTaWjxhwv7oZXjiqL7n?=
- =?us-ascii?Q?AQusrJYhzx7WG2TPBrrOEwvf0HYcctJg0zAM1/BA8+icqEx8g0vfbpfHsPFQ?=
- =?us-ascii?Q?dKcho5SKokU7hu8Quqizgp6TQGBVfiZNOC2aT2/ZV8rRRbD9U8e+nm3xMkT/?=
- =?us-ascii?Q?kzz81gUiXW6KOFY0r7Lb2jnQlvkYIWPZDZaz3GD5318JpADHQiVLUiPLP+S7?=
- =?us-ascii?Q?tcwCqS+dPvhLNHWMYACpMEnDs0aY5rcIGaUhOLbiuCsIgK9TSjXEAQqJpAnF?=
- =?us-ascii?Q?H75KT5wtWAJREkH3ks8fxYjMq6qkheGea56r1uBe3+IN7PYYVl80J6wjL/K9?=
- =?us-ascii?Q?NRzl1B9bt3jrgfFvHNYkHc7L5KSWLeMQeUMmPvRJu9gF9MAq6JJ0fpWmNGQC?=
- =?us-ascii?Q?nrhLl+bupCZDwoAAwcFnhWc9Qhui97+qvJ7HzB74uPP2QfCQA/BTExYObDXh?=
- =?us-ascii?Q?/rF2TT7UqMu6UGWDtt0EPRXE0IgCz+6WwkZ6ohJZtT8a+U8BLfFYEGBKCnPo?=
- =?us-ascii?Q?+qB8pJoGpNMgzsphWvfiHwb6QvlzKgOQNmtOEagZqbFfYGV3tBff06toPZDR?=
- =?us-ascii?Q?48qiDYYdJqDWOUa6AcByonbHLcyzyzCHjM89Qg1cbSDsDsD0oYL6juzRWwb/?=
- =?us-ascii?Q?wWMWAtVvMQ4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nV4l9kiY6mt+S5xcezuC/ps1APgaUfww8g5G6RZh98sSxCyx0y5t901JiZF8?=
- =?us-ascii?Q?h0pHzWPtypf5vndeRSxGz4aZIWJDBHf3Fjp7f7RWzWRXBQuDiOlRNC7z0Zqn?=
- =?us-ascii?Q?4sxbWzAmKfQesDsNKefy9HPxn+i0MrONRyRgWqdaeP8HqhTzlxxApE+axOuc?=
- =?us-ascii?Q?nvt7KhZsawP3SRIsYWj8sgWvtNdaYeUPLD0s/XdSabCsLA0TK2Vii+qEEPL4?=
- =?us-ascii?Q?+pybSws/4z8orK9qPbkgH62n6DjPv5af+dj55Xw7bnB15tRxOl+Uip6WGvdu?=
- =?us-ascii?Q?j/oc4WuaAGhlT5aqDeDbk84Lkcv6ZTodqhdTfiMyZUavwVSZURzhqw2rCVVv?=
- =?us-ascii?Q?wEQmaC8RXGmJ61893vbJlxf6A+WAsSbnKbOzo0PyUZxjwy6ntmghyxvEZz62?=
- =?us-ascii?Q?0J39N9jsudWmy9aZgMroGPfM92pF77uPc19IHEVJx3Ug73PWdEdkywPrPbUy?=
- =?us-ascii?Q?Clkz6q6IfqiswPEBeSXYHe0STFVgbBWLYGOeSg1zjoPOf6kpY37rzupF5RHY?=
- =?us-ascii?Q?TzCFXl8cIETx8PKMl6zwupciFnS2kui4c3Lqnfn3LDDcEKrBn9Dl1M9glzTc?=
- =?us-ascii?Q?J0n4AVNcnDuX1prNx0OGpIdPSBMKZDBuqPV2HaOiWisaV1q676q+e2lHDh+M?=
- =?us-ascii?Q?98DiRIrXeBJvJF6dXlXw5eC45JQJX4Z86nUTYV8x9HxJjV738HLLR9B/ijGz?=
- =?us-ascii?Q?kbkJBKK/bVpkX3q2X1kc3Os88o9bBAdQqk8x7rgiDTdQSPe6mAo7iuv23WEr?=
- =?us-ascii?Q?/OrnKJI0IP48LUS7JQEnAueuhV7Xbnj5Olv+ijd4Xpc9kVSl+asj7+mV4i0D?=
- =?us-ascii?Q?m6yHxfa+JGVmvqYmECUpHeH9B1dU/AJPCvE9wyuz6qKNIXWB6N2UoNFf9q8j?=
- =?us-ascii?Q?CxRcleFEHOVPCY887s5F8MeMIFhK09x5UYeqkjFcGov6wITP1AurZ+ooFrjS?=
- =?us-ascii?Q?RdJGkQ5m8X1uSO+YZMhTnd5b9YzNdYhpZ9z+M8h8SSny32OsPux4Jg38bwvY?=
- =?us-ascii?Q?aOjxQZqYHuxPixyG83Pt+dXmtYW3wqc3dtEl/ovma7RBVIbef8On2/pSokmS?=
- =?us-ascii?Q?na1ZqbnKckset8dtBoSpsSVUqUW9mWWsgb5hfO3Ds6OhJCiNjxtiK5oAbCgN?=
- =?us-ascii?Q?Aaz5Q4e559/7fmJ2avOdbmeLchqo+o6ctzn0Oz/a++KrFhtYHWnmuMvBqlgr?=
- =?us-ascii?Q?U5ll0+tXpm2BIP8GFF39UjBuNek5jn7WDFMW7XpayX9oS2gIp/kz5WIujm0Q?=
- =?us-ascii?Q?nD+WI//nR6GzkAfnsIddxpU/6Q+2Egc7w6DQK3CQNUVduo5S7srf/+BfbIzR?=
- =?us-ascii?Q?wW9XwOVTySOT718+IQNS1qrpyYfhv8QWPggOhjprn840jpO5DPPxyarCjI9X?=
- =?us-ascii?Q?Hdem/DfEqxrtWHDwfRoQbS89tjQoUh7VT4AqzhfKb8h0oVj00tneoovjpGvO?=
- =?us-ascii?Q?5yxOsctY4eClOr8Iw86kZH8gs8yMKDOnBLE9Mg7Qab8Eljo0byXmBnLXD6v2?=
- =?us-ascii?Q?SkAJ6V8KQcH4OYjFkad3f0S678v3SMgpl70AqH5DUTUa0HFWwVGCpaPwOu23?=
- =?us-ascii?Q?vFt8+5IfzxKgmv1RrF+QmACd5F0HbWcD9u3wTNq7?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 985cda36-9e99-4810-a922-08ddbb03b429
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 14:04:34.3023
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9FyGn0BoCDoax0gmEehtmn5XDXeMt84Cl6SYVRy6Vw/5nAZebnLZ+iE/4Rog2/MR
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6462
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250704-mt7996-mlo-fixes-v1-1-356456c73f43@kernel.org>
+References: <20250704-mt7996-mlo-fixes-v1-0-356456c73f43@kernel.org>
+In-Reply-To: <20250704-mt7996-mlo-fixes-v1-0-356456c73f43@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Bo Jiao <Bo.Jiao@mediatek.com>, Peter Chiu <chui-hao.chiu@mediatek.com>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_070442_456276_4688E250 
-X-CRM114-Status: GOOD (  29.64  )
+X-CRM114-CacheID: sfid-20250704_060827_890735_BE9B6F25 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,108 +75,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 21, 2025 at 04:21:10AM +0000, ankita@nvidia.com wrote:
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1681,18 +1681,53 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  	if (is_error_noslot_pfn(pfn))
->  		return -EFAULT;
->  
-> +	/*
-> +	 * Check if this is non-struct page memory PFN, and cannot support
-> +	 * CMOs. It could potentially be unsafe to access as cachable.
-> +	 */
->  	if (vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(pfn)) {
->  		/*
-> -		 * If the page was identified as device early by looking at
-> -		 * the VMA flags, vma_pagesize is already representing the
-> -		 * largest quantity we can map.  If instead it was mapped
-> -		 * via __kvm_faultin_pfn(), vma_pagesize is set to PAGE_SIZE
-> -		 * and must not be upgraded.
-> -		 *
-> -		 * In both cases, we don't let transparent_hugepage_adjust()
-> -		 * change things at the last minute.
-> +		 * COW VM_PFNMAP is possible when doing a MAP_PRIVATE
-> +		 * /dev/mem mapping on systems that allow such mapping.
-> +		 * Reject such case.
->  		 */
-> -		s2_force_noncacheable = true;
-> +		if (is_cow_mapping(vm_flags))
-> +			return -EINVAL;
+From: Felix Fietkau <nbd@nbd.name>
 
-I still would like an explanation why we need to block this.
+Reuse the vif deflink for link_id = 0 in order to avoid confusion with
+vif->bss_conf, which also gets a link id of 0.
 
-COW PFNMAP is like MIXEDMAP, you end up with a VMA where there is a
-mixture of MMIO and normal pages. Arguably you are supposed to use
-vm_normal_page() not pfn_is_map_memory(), but that seems difficult for
-KVM.
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
+---
+ drivers/net/wireless/mediatek/mt76/channel.c | 4 ++--
+ drivers/net/wireless/mediatek/mt76/mt76.h    | 5 ++++-
+ 2 files changed, 6 insertions(+), 3 deletions(-)
 
-Given we exclude the cachable case with the pfn_is_map_memory() we
-know this is the non-struct page memory already, so why do we need to
-block the COW?
+diff --git a/drivers/net/wireless/mediatek/mt76/channel.c b/drivers/net/wireless/mediatek/mt76/channel.c
+index cc2d888e3f17a58512e6282686b446109ec7ab3c..77b75792eb488e9c5da9ca8026c04157182c13a4 100644
+--- a/drivers/net/wireless/mediatek/mt76/channel.c
++++ b/drivers/net/wireless/mediatek/mt76/channel.c
+@@ -173,13 +173,13 @@ void mt76_unassign_vif_chanctx(struct ieee80211_hw *hw,
+ 	if (!mlink)
+ 		goto out;
+ 
+-	if (link_conf != &vif->bss_conf)
++	if (mlink != (struct mt76_vif_link *)vif->drv_priv)
+ 		rcu_assign_pointer(mvif->link[link_id], NULL);
+ 
+ 	dev->drv->vif_link_remove(phy, vif, link_conf, mlink);
+ 	mlink->ctx = NULL;
+ 
+-	if (link_conf != &vif->bss_conf)
++	if (mlink != (struct mt76_vif_link *)vif->drv_priv)
+ 		kfree_rcu(mlink, rcu_head);
+ 
+ out:
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
+index 14927a92f9d1b313253158c0e53dce8fab9fba18..022d83bb03da1803440c942c9343b709d76aecd4 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76.h
++++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+@@ -1865,6 +1865,9 @@ mt76_vif_link(struct mt76_dev *dev, struct ieee80211_vif *vif, int link_id)
+ 	struct mt76_vif_link *mlink = (struct mt76_vif_link *)vif->drv_priv;
+ 	struct mt76_vif_data *mvif = mlink->mvif;
+ 
++	if (!link_id)
++		return mlink;
++
+ 	return mt76_dereference(mvif->link[link_id], dev);
+ }
+ 
+@@ -1875,7 +1878,7 @@ mt76_vif_conf_link(struct mt76_dev *dev, struct ieee80211_vif *vif,
+ 	struct mt76_vif_link *mlink = (struct mt76_vif_link *)vif->drv_priv;
+ 	struct mt76_vif_data *mvif = mlink->mvif;
+ 
+-	if (link_conf == &vif->bss_conf)
++	if (link_conf == &vif->bss_conf || !link_conf->link_id)
+ 		return mlink;
+ 
+ 	return mt76_dereference(mvif->link[link_conf->link_id], dev);
 
-I think the basic rule we are going for is that within the VMA the
-non-normal/special PTE have to follow the vma->vm_pgprot while the
-normal pages have to be cachable.
+-- 
+2.50.0
 
-So if we find a normal page (ie pfn_is_map_memory()) then we know it
-is cachable and s2_force_noncacheable = false. Otherwise we use the
-vm_pgprot to decide if the special PTE is cachable.
-
-David can you think of any reason to have this is_cow_mapping() test?
-
-> +		if (is_vma_cacheable) {
-> +			/*
-> +			 * Whilst the VMA owner expects cacheable mapping to this
-> +			 * PFN, hardware also has to support the FWB and CACHE DIC
-> +			 * features.
-> +			 *
-> +			 * ARM64 KVM relies on kernel VA mapping to the PFN to
-> +			 * perform cache maintenance as the CMO instructions work on
-> +			 * virtual addresses. VM_PFNMAP region are not necessarily
-> +			 * mapped to a KVA and hence the presence of hardware features
-> +			 * S2FWB and CACHE DIC are mandatory for cache maintenance.
-> +			 *
-> +			 * Check if the hardware supports it before allowing the VMA
-> +			 * owner request for cacheable mapping.
-> +			 */
-> +			if (!kvm_arch_supports_cacheable_pfnmap())
-> +				return -EFAULT;
-> +
-> +			/* Cannot degrade cachable to non cachable */
-> +			if (s2_force_noncacheable)
-> +				return -EINVAL;
-
-What am I missing? After the whole series is applied this is the first
-reference to s2_force_noncacheable after it is initialized to
-false. So this can't happen?
-
-> +		} else {
-> +			/*
-> +			 * If the page was identified as device early by looking at
-> +			 * the VMA flags, vma_pagesize is already representing the
-> +			 * largest quantity we can map.  If instead it was mapped
-> +			 * via __kvm_faultin_pfn(), vma_pagesize is set to PAGE_SIZE
-> +			 * and must not be upgraded.
-> +			 *
-> +			 * In both cases, we don't let transparent_hugepage_adjust()
-> +			 * change things at the last minute.
-> +			 */
-> +			s2_force_noncacheable = true;
-> +		}
-
-
-Then this logic that immediately follows:
-
-        if (is_vma_cacheable && s2_force_noncacheable)
-                return -EINVAL;
-
-Doesn't make alot of sense either, the only cases that set
-s2_force_noncacheable=true are the else block of 'if (is_vma_cacheable)'
-so this is dead code too.
-
-Seems like this still needs some cleanup to remove these impossible
-conditions. The logic make sense to me otherwise though.
-
-Jason
 
