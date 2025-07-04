@@ -4,160 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93400C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7449C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qrVWBPfkZG2YTS29zTaM48UOtOrXQm+m5Oxp5k6Mxsk=; b=RTkkD571OORmOVndB2GYNeaBH+
-	N6+9ouHeovl5M/SPIzT3ATtcNPOzbL7L7xELL0/ntUTspwpQF3uT75se0yJnMS6pnaUgBqYDUW4gM
-	YTBrLgyzvFAceZ8U2orThkmw2glnnLI/KO10dmEKaZGcHI9YCi6mVFYj6kiQWTIzG42aYjJ1HWcwA
-	uyuwYaMfzG+VqgdCQiouBN+D4OnbAfT+HHEZhvuPvm7qmeTeV1NovnFUtBcM9a/IpIfg2V5bJQ1Rj
-	vFm5yjxxMTNFgqt+zDMP87jmG81JzFfxgUhMu3vztdx/F8BRpFEcm5/GngO3rpAgLdfeIYoePZxut
-	mGS9Jexg==;
+	bh=tfpaTDEv8xfOL3kDJIHBrAk/O093H/832p07pj4aBZc=; b=iEN2gp0AbK0EPZF6Y4X3d4jo5c
+	jP3O5tocYSwsqYws3j5XhxOt5oxCbU3gm62KrI1ESwQ0EbonE72O+xi5b49n2FoELg7RNU5J/Q7pS
+	dfDWeNo+hgV10+uUZv2bmOI+nGsqPGfEdLpvb9cucD/ITvK4yjKM6dYCB4hOgTt241CxwPzzAAe34
+	ODu7YVKRxjsV4ZbXTVfxtj1Pgq8ySJvFvvt1P6yeYbkah/3oLno8HBzcKwfxUtz7hg/RMTL6RU1b5
+	U2BsLHuzEtw3c/MFcYS9Nzy5xgMLOC4U6HTjnV2as5KAChEmS1i5b7zbqNOpp0VdMVPnkSUneG2lA
+	Skn+Fo0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXh8U-0000000Ecyx-3NXO;
-	Fri, 04 Jul 2025 14:11:30 +0000
-Received: from mail-mw2nam12on2061c.outbound.protection.outlook.com ([2a01:111:f403:200a::61c] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1uXhAo-0000000EdP6-0Yxe;
+	Fri, 04 Jul 2025 14:13:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXgla-0000000EZLx-2sYQ
+	id 1uXgo9-0000000EZnn-3pJy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 13:47:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AEKI0E3FYRIhth4DPK2SG2zEOZqNC0jXsInX06cVh+bCfusZIaLH4UQhlPnk7beNYtb7YKp+b41Qe29aSy1ynEnprXfnPx2nLC4snbZh/Io7Yg3hxDaNvuE584kXaIkhMZPhESasKVWJQMiAGRmrmYIVQFs0gW61FZ4GGwlkSMXOc405AGP6sQ/HeVzWOOd3ZUZcgeLgNiupuvamCk/4xJ0PfxGVbxWZ0/cu2TFvXwH8fLXIPz6DInpZ/A8KLLKVrk064+lE/PHrAZZwnf475iZ2MkrGZUORBE2DVzmmu8rYhQunl+3hT1nsZLo5olxu2ukokfccnP06Pni8O040aQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qrVWBPfkZG2YTS29zTaM48UOtOrXQm+m5Oxp5k6Mxsk=;
- b=Ua0luVwuCqvASXO0Ze0aQTffjhnFmtRmNHKLEjUVVEjXnSooKWB3raTWadOaXE9qT0PDokjQNYYbyXmNziedYNDitXmRxbBJOr2YiMkbOZaausJtSwomw+zHTqk+kJGc25hBpGI3+gduIEkUsymLSA3TK3QZtUQYQlD3d6SD0S1cbeYRB2HczWe9L2SMM8lgKdyDyGsJsE7bEjYdR0GckZo0uiHXy3/O0kek/wzr4rZZ4Uk7CaDod9yj/fPh+frynUmK+DQHuAXlIDPPyNTQOkTn4XI1tsSu2YBhOPWQjCrsKq7JUo0GfWg6y4YX+n2h4psgZ+DZlKUVwH8PldHTew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qrVWBPfkZG2YTS29zTaM48UOtOrXQm+m5Oxp5k6Mxsk=;
- b=TB2hEznHCCj/9coMAZJiOIi5YuZ1pzxLtuGwu0xSFXmun23NrVctSz8v798y75ru4N4DSD4f4UxxVUFnMZ6eISRqaT0YMAAgF6SIJX6lLQQshWpU9mKbie9hRJsQzlAyZvKCOma+5Z1Tpp9kL+zo2Ea7yGlI/AYb2HALbZDJxpAP1lAGTAA6BmFqgxgWyjmDD6wKQshMVdSsjVuPRNw6LJr2CA3r8+k02ARH71i1oQnfq2ykH/Xif6tvJyl9DPjrAMHMAX1hMB16EReIY7hAcXPlHiP9b61eKOkvzwmbIpr3ACsI3mCov+qtGPDJnnueiyUlk0n06jfqxOfE+2pIjA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by IA0PPF04DCE520E.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bc5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.26; Fri, 4 Jul
- 2025 13:47:42 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8880.030; Fri, 4 Jul 2025
- 13:47:42 +0000
-Date: Fri, 4 Jul 2025 10:47:40 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: ankita@nvidia.com
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com,
-	shahuang@redhat.com, lpieralisi@kernel.org, david@redhat.com,
-	ddutile@redhat.com, seanjc@google.com, aniketa@nvidia.com,
-	cjia@nvidia.com, kwankhede@nvidia.com, kjaju@nvidia.com,
-	targupta@nvidia.com, vsethi@nvidia.com, acurrid@nvidia.com,
-	apopple@nvidia.com, jhubbard@nvidia.com, danw@nvidia.com,
-	zhiw@nvidia.com, mochs@nvidia.com, udhoke@nvidia.com,
-	dnigam@nvidia.com, alex.williamson@redhat.com,
-	sebastianene@google.com, coltonlewis@google.com,
-	kevin.tian@intel.com, yi.l.liu@intel.com, ardb@kernel.org,
-	akpm@linux-foundation.org, gshan@redhat.com, linux-mm@kvack.org,
-	tabba@google.com, qperret@google.com, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	maobibo@loongson.cn
-Subject: Re: [PATCH v9 4/6] KVM: arm64: New function to determine hardware
- cache management support
-Message-ID: <20250704134740.GG1410929@nvidia.com>
-References: <20250621042111.3992-1-ankita@nvidia.com>
- <20250621042111.3992-5-ankita@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250621042111.3992-5-ankita@nvidia.com>
-X-ClientProxiedBy: BY3PR05CA0037.namprd05.prod.outlook.com
- (2603:10b6:a03:39b::12) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Fri, 04 Jul 2025 13:50:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6DB1A5C6367;
+	Fri,  4 Jul 2025 13:50:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CAFAC4CEEE;
+	Fri,  4 Jul 2025 13:50:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751637029;
+	bh=H8pS8KHBQfQCZOxaW9Nq6KsExgCXwxkJothpg5OYWxY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DWRM1iZDqc8SoZaQPC8XvcPUt2jHoSFrYDSEVTnheFxunM40lgJSfNI9Cx1HXts/P
+	 97RoWcEjhifrX+fWcApr5fRkNtO8+oXdBgQCRd8DOZLsGieMB7oboGkk5GZoiSeLme
+	 I8JZgiYMgEKeup10LZ7lJZian7zgFkHq7xTGazB1AvXxyr9RBnjVfZ5fKPauEueK7z
+	 StABYyemKJTjlPsIbyjzh3Qh1GjXwWEjUlJi8Or54bb5mAaojIHE/Vh3GnQhUukFGa
+	 cISdUHoazFZfLMOa6RDlihqD0VkIOJmbMZ6YukcsS7/r0WLIe+Ja/dJBX3iIaDURHi
+	 XVVWokqBV7jQQ==
+Date: Fri, 4 Jul 2025 14:50:24 +0100
+From: Mark Brown <broonie@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] spi: stm32-ospi: Use
+ of_reserved_mem_region_to_resource() for "memory-region"
+Message-ID: <1e33e6b6-845a-44bf-a398-4a9fb895a125@sirena.org.uk>
+References: <20250703183537.2075746-1-robh@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA0PPF04DCE520E:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8ae90d3e-e87f-4975-162b-08ddbb015947
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+sF5q/XYMTgyiLRYYe6lvKL0LCGNQo0qjrfkv6yMKxz/v216UwxpBlE6jjxM?=
- =?us-ascii?Q?t/ItilWTq8T6CuDXQb9MA3kpS5RdU30tQLTfldv4b91WwY0V2Dx8qvSr1ZjS?=
- =?us-ascii?Q?YUr+2z1n1us+508eavxyQVSaxlTQ1kThxEgvY8UdpPE128S9raRui+WIZp9M?=
- =?us-ascii?Q?dmYo8yVSs/zjCRHz3IqBU28R6hJ1WwE4zfnwNiL4QXhfvcv5pfyI3dHL2h5W?=
- =?us-ascii?Q?+65FbXhbAOVAOgREJNcsq48ccD48OnJjdHdWql16aZfpTNb5FPHzCFjvoLiT?=
- =?us-ascii?Q?AEiPt4zqexfqqfvMnK5laCYItqmfbbejIwEXoT5SlA/14RFnwk3wFlDlmJYU?=
- =?us-ascii?Q?zl32gDTxjxS+xEeYnG2KICWvaP6tEqzqBDiKj3QHEeuvqwW+O7uwANMa+dVt?=
- =?us-ascii?Q?sx+j+y3Y3H6RVZEQXT0o4QCecYmmfFJHsV8FRnDYAEZj75LbzXpzUk5sbg7k?=
- =?us-ascii?Q?/8Sz5+dl6G8MhrwCy9HrHQg2dzjIl9X323ZjkNBcEgTWRxvK0firPlC6f3id?=
- =?us-ascii?Q?8aMP+5iuqZ2me5RKvIykuP4gakGBpNdvHPs0BFI46vxJNnXciM2a0RCIwcXZ?=
- =?us-ascii?Q?ZYErE90l0BXQM3FHItu8vbnQM8+8YwoEdX1gM6SDp2y29HDmPFkyCj2ie5Xi?=
- =?us-ascii?Q?B+u4dsShwse2Qxoev8BliG1CUXrREePUoqBVargBrXJdz5byToCP6+8kl0aA?=
- =?us-ascii?Q?RMfxr75w9rYPYrpfNHCbHF6ND28hh7aYjQfgMiyjDKWIZF2sMk2PCMfnyhmv?=
- =?us-ascii?Q?ffkjWMy2wmw/mw3+kYwDhLNKj5zCEJkirja2RIDMTnLqWgxkdklVcbIMZKhK?=
- =?us-ascii?Q?hfN/jZuGceknSDMcEi83vQT9jNc1Nuxi689/ehtLxvzQkxzj2cxkNFCnuDop?=
- =?us-ascii?Q?yRjZlCXLX4hUyYERrOV/CtQ+6whAZRgO5q1yaMU7SGtGJUAc2fMz/ZYUHFWn?=
- =?us-ascii?Q?4uC7rfM6y27Nb/nQaee23TSkxD6syBNz9uyB8No7Ys+mXplTmzXDt4x5RAKt?=
- =?us-ascii?Q?ClY2rZtf6uL9ohN9951X5SAJ1t7/QrgyCSdxNgZyFgGJ5uUo8LVHeAQOCKCj?=
- =?us-ascii?Q?tEFCZfbF09AAU1mC7mRVfoM2x657Kbp83MBP6NdfALhjH6BVnU3SLZkohbpw?=
- =?us-ascii?Q?0Um9jP7y6ARYinyDaaDR+cvYoJQS+p4NjLxkVj5d9sfbuC/I9TRRhGQSzm6A?=
- =?us-ascii?Q?Vnp5YxEVLaVZ/Vzrt+OK/h46KPRBIe4xAZKuG6uTqDjcum2+nv+PfHTPCJAS?=
- =?us-ascii?Q?C/5cmYnN67MwOqrpmHj2bdavtpTf1vDyxnRcYEmPEOgj8tu7xNcCDiqenlQ6?=
- =?us-ascii?Q?Ty44p5mgnruewsVcYYNC11NZrtaTtKhA6rZBIm2B0YIUfjAnB+q1Im51vVb9?=
- =?us-ascii?Q?fbso3EF3zFnuInGbw8qLn0q8e0lxAD/qBMkSBNkJlSLpa2fHBr2+dTZT2zno?=
- =?us-ascii?Q?bruUtVhXdmk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eIRzgsJzwYFJeadB9YG3LbkDrTIOtJoArTr0FpCwchl+Gn/qHUvXi++81hmH?=
- =?us-ascii?Q?5eNtGjZuPtResGLrEnupAlY7RMuYeadu0uAXZNWs7K34sXlIX6wXq5A5KCHK?=
- =?us-ascii?Q?CZ2IbQX34eXIneqIrPh/Mwwqe/prwxzypcZBT1XnN2WWoD4apff81PkmtcAM?=
- =?us-ascii?Q?ZPQNBHb8CrCtWT9M8zBUEvLtTPISgooIlvXBNxaAB4TR70BZ9S8I3huOUBc1?=
- =?us-ascii?Q?2IFycwyUgJXvqOy6BvP2GGpgYo5RsKBZLOllUZQ7khQnwQ/+NArJOYGLWeay?=
- =?us-ascii?Q?tI2CLciH8tiPI6DFXCi6rbpaH9FKoSjqZZJ7/DB10IWcjHBVqbvmyl7CxA8i?=
- =?us-ascii?Q?uHXE6M/9AcXqMf3ojUG736GZVd28isL8MDtnCYlM6iGXstSRD9zGY7K4sbjP?=
- =?us-ascii?Q?XYse2PV4BDdkcF3XqqDd9UC2sJczGlleuHbzAwiR8Jy9CfwZgOkbu8o1W93I?=
- =?us-ascii?Q?xyqeCbrcFn2nzI8VJhyw5BXPrMpNxZDTgGAqx6q7CqLViAEWJimzS0mSGrDH?=
- =?us-ascii?Q?Ugu8G4gfSgEdQAP4OozXT9Sa6AXew+lGzaWuRJS8t4bNGdaxc8LKGbVemYmK?=
- =?us-ascii?Q?Gfck5oZTdahb71XCBzJpKGteqenXxPGLJgTGbV2e0l2j6ctwTjVQZQiJvHsD?=
- =?us-ascii?Q?Su2AK4lUZLdBKBlkN3UF6i5hvyG8N9hKXVxYLqldmaG4Ut7tnmtaLcx7uEsJ?=
- =?us-ascii?Q?KSHygvjIAEN8U2uz2GcniZVChE2GoW6lkYC3J09iGupnVsyih2TFKujD8MkR?=
- =?us-ascii?Q?6tqrT+tCFiFd0f6PfcmwFJXVBNxGpHyh4TchlP2GKkLYELly/TaXlW8aYy9b?=
- =?us-ascii?Q?mdlhfvXIy6E5gRRKdXYD4R6dHI4CQRd7WHOztXadtj5KpvZXHeTCcq8m4XTY?=
- =?us-ascii?Q?l7e4lTyBTR5e04+J62E1fNlWYvUzeTy2X9690UNi5an5Aq+SWz1xNJ6t63mS?=
- =?us-ascii?Q?LG6oxB6x8NyNBhGQXAsR4U4qGlnWJJ+JIInwD0CUE0JgxOJvi/rFHhUPkD2h?=
- =?us-ascii?Q?Ov2gn9TeKlzHLfEzlP9rRtmrCHQ2D9E5BBKoMQJos7aCE0p4OJRZ82bl5Mkm?=
- =?us-ascii?Q?TeIGoM84QYMB8IiQRIAM8TLZD09RPMZ0uLz0ETGEFb1nDLylWxj8BnM5FC47?=
- =?us-ascii?Q?VmBs/ug822dWumUwasDutxieDpo39sFJk6vtQ7WDWIZQRn5xEeOKkF38Svb1?=
- =?us-ascii?Q?a9farh7oocq8wTV1988CpifJBhWO1fD+qQgKcMPphWb5rxLkKHBFe8iRyFla?=
- =?us-ascii?Q?Kw3RlalzMGKpL/QOYuXxwtErzS5XE84RXM7SnoMDVF+6f2dtwszda8aU53M2?=
- =?us-ascii?Q?9YnFEODO1U6GDS1MQeWzDwFIS7MjGtT2UtwjjzMrgsl8b2jiBslV3Fi5DaqH?=
- =?us-ascii?Q?ka05d9MM5+VBCCxEdKTUwUvy9+lKS+cWFPtKCX+BkPyleCh2lvGn2IqUR+nv?=
- =?us-ascii?Q?jxxiWNWFJHYObHT48CA1a68+s9NYiT4gE/8m51jjU/z9PEjXweWPULFeOr1e?=
- =?us-ascii?Q?9zcltins9sQjsIMU2kS6ZcCxQ5eXeQZYLqu+drNDUjW06PowqD7Fm62drXqq?=
- =?us-ascii?Q?KtvYLVOns6/DXfppvXE7K6BYizKFfGSGZxE85xw2?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8ae90d3e-e87f-4975-162b-08ddbb015947
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 13:47:42.7590
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bBfkyeAr7Ulnd/rBUG7PT/ZOWCsjdF/rTWlJbuqH7/OLqUZ/JDxCadMBpLOuDrx/
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF04DCE520E
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Lr37qIzB0o1A4+Ag"
+Content-Disposition: inline
+In-Reply-To: <20250703183537.2075746-1-robh@kernel.org>
+X-Cookie: f u cn rd ths, itn tyg h myxbl cd.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_064750_727416_22429CE8 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20250704_065029_994224_D2BBBD58 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,41 +77,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 21, 2025 at 04:21:09AM +0000, ankita@nvidia.com wrote:
-> From: Ankit Agrawal <ankita@nvidia.com>
-> 
-> VM_PFNMAP VMA's are allowed to contain PTE's which point to physical
-> addresses that does not have a struct page and may not be in the kernel
-> direct map.
-> 
-> However ARM64 KVM relies on a simple conversion from physaddr to a
-> kernel virtual address when it does cache maintenance as the CMO
-> instructions work on virtual addresses. This simple approach does not
-> work for physical addresses from VM_PFNMAP since those addresses may
-> not have a kernel virtual address, or it may be difficult to find it.
-> 
-> Fortunately if the ARM64 CPU has two features, S2FWB and CACHE DIC,
-> then KVM no longer needs to do cache flushing and NOP's all the
-> CMOs. This has the effect of no longer requiring a KVA for addresses
-> mapped into the S2.
-> 
-> Add a new function, kvm_arch_supports_cacheable_pfnmap(), to report
-> this capability. From a core prespective it means the arch can accept
-> a cachable VM_PFNMAP as a memslot. From an ARM64 perspective it means
-> that no KVA is required.
-> 
-> CC: Jason Gunthorpe <jgg@nvidia.com>
-> CC: David Hildenbrand <david@redhat.com>
-> CC: Donald Dutile <ddutile@redhat.com>
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
-> ---
->  arch/arm64/kvm/mmu.c     | 23 +++++++++++++++++++++++
->  include/linux/kvm_host.h |  2 ++
->  virt/kvm/kvm_main.c      |  5 +++++
->  3 files changed, 30 insertions(+)
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+--Lr37qIzB0o1A4+Ag
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Jason
+On Thu, Jul 03, 2025 at 01:35:37PM -0500, Rob Herring (Arm) wrote:
+> Use the newly added of_reserved_mem_region_to_resource() function to
+> handle "memory-region" properties.
+
+This breaks an allmodconfig build:
+
+/build/stage/linux/drivers/spi/spi-stm32-ospi.c:775:23: error: unused variable 'rmem' [-Werror,-Wunused-variable]
+  775 |         struct reserved_mem *rmem = NULL;
+      |                              ^~~~
+/build/stage/linux/drivers/spi/spi-stm32-ospi.c:776:22: error: unused variable 'node' [-Werror,-Wunused-variable]
+  776 |         struct device_node *node;
+      |                             ^~~~
+
+--Lr37qIzB0o1A4+Ag
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhn3CAACgkQJNaLcl1U
+h9DVRQf8D1AxmRv5Ojv+GEHol13LiGp7nkJN0LfuSBN6gWwV5TqcAVMFganzfiNP
+XEh8akPtA7v3GAW0p3oNRN2/IrzP3kJ/XMkd65XCNMjL/eSWkhumXlAm2eG3x4I1
+9QVOAHniUh7usC0bnhTMaNHvq7NQIrg0DSrWH3GkN5Zu53mYnWo8CXCYxqBEtJ/Z
+vyJEvDWeyvubDhQT/rjARru7quA0vGfW9Kk5Z8tUJVrJYv6EhU3UKjfSr+FxNLsA
+0ZAPRipto6tHlUe4f+BZfvvI2vAJ9r6d/vd4y+J29NAxB7/YF81V2qcs3Km7SdUS
+vU4DbbrSRKtZlkaS1N4s9BYJIhO5ig==
+=4Mpz
+-----END PGP SIGNATURE-----
+
+--Lr37qIzB0o1A4+Ag--
 
