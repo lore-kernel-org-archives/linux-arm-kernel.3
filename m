@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49591C83F0B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 15:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3123BC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 15:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zzKM1uvH98tOailuzjR5y0Fv7Qdo/RsLXHElN80NIZI=; b=Ps98dswjlXPUBgEA0ZRTKRHUvO
-	Z1CzgVE3oiIuoUrolA4OwJPzVr2RRsfUjkjZzSKJUppFufjYhO8edLaYXWvGaQjr17KfGMHFAHGEg
-	QTn2lG5/6P9iAayP9+4DE3FUQh18a+AwFtTFVad05/VsD4zacC9cx7UIAMaIaYTsvU0dN8Ev2lIvx
-	lq+kqeOtfAjtkWWEq4+jqCl5Wq4F8FT5UVL7pba5M8W7Q5cwxOgLY1wHnY8B6Hr5t4Ba53CMnVkh2
-	z6PlUld9M6FWFV5ZdkkaD58dk+GQcDCqRS/gJST6iwllNQ0TsczBm3X9SYxJ3/DvGu37fH/7PhVkQ
-	/70L9deA==;
+	bh=4zfUJz82lCcOlEvES9OKZvhzjAWT7OKMPA/+q8H16l8=; b=hy2bj1JtTxgMb/IEY/UyEuf99i
+	XglTT7pywvvi6R3IBVOgFbbqERz32Xh7kU99CbhdTq4u9uu7hBl1mBbuZrNNla+a4hEhg2qaPM/F8
+	l9LF3kfBB9Wy+IaY6bnUZQjzLeQRlYWAC67sdMtxeuzDfyO7eR94Md/IqbWjptPAascupRExmQode
+	eiQrd4bVeOo7jmB8MXFJsCtDJ5HIe6Iegd+X/iQChPtzQKeXqFVbvi+FaBNQxL4T3uUEHU1yIpXk7
+	LbywxEKQ6tmGf2xTilsiYQTOwC3mlr6uqIJUmyhfxDOxYtfFxlri3aXhk+9jIhmyRVkZl2icOit6Q
+	2eW5cITQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhzn-0000000El5s-2UHt;
-	Fri, 04 Jul 2025 15:06:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXgeM-0000000EXnK-3qgm
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 13:40:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22BA9153B;
-	Fri,  4 Jul 2025 06:40:08 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC95C3F6A8;
-	Fri,  4 Jul 2025 06:40:19 -0700 (PDT)
-Date: Fri, 4 Jul 2025 14:40:17 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>, usamaarif642@gmail.com,
-	rmikey@meta.com, andreyknvl@gmail.com, kasan-dev@googlegroups.com,
-	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH] arm64: efi: Fix KASAN false positive for EFI runtime
- stack
-Message-ID: <aGfZwTCNO_10Ceng@J2N7QTR9R3>
-References: <20250624-arm_kasan-v1-1-21e80eab3d70@debian.org>
- <aGaxZHLnDQc_kSur@arm.com>
- <CAMj1kXFadibWLnhFv3cOk-7Ah2MmPz8RqDuQjGr-3gmq+hEnMg@mail.gmail.com>
- <aGfK2N6po39zyVIp@gmail.com>
- <aGfYL8eXjTA9puQr@willie-the-truck>
+	id 1uXi0g-0000000ElOK-14E7;
+	Fri, 04 Jul 2025 15:07:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXhmE-0000000Ej9X-2A4t;
+	Fri, 04 Jul 2025 14:52:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C97D1A53C98;
+	Fri,  4 Jul 2025 14:52:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45462C4CEE3;
+	Fri,  4 Jul 2025 14:52:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751640753;
+	bh=wvOUH9o5gF0uSYr6gvxt4vxQuZRlLrBQ6mBTFf1tR+c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pkDeEF/aBKKjiyfySfAjHWe+wKIukH1FABhdvHAn5Focb1nEhYzIM0QS2MWnKCp17
+	 SkWenXLA1NkTCT9p0SjGCICseqYQ3ZoHgXXyLCWUIOMHNVFl2A9b4psdS7MYRJZ+lM
+	 tHlMG5+EYOmuCJL/KfaFn9fRZ6KCD5eGAGeARiEK5FmjtZ7ofBqjnfjzeAIrEcJ3Hf
+	 CNQLW+Yy680g0P4W5Ew84TgJj3MFNiYJsqzD4qEw7yN7qqPpNqqqcgHW8cg68FAL1n
+	 Sat727tIQTMcYeJteADAs1b/ryX051qt07Xv67OValRQ7mzDqIMy32Q614E0sqcb3Y
+	 LFkWfSKsuK2qQ==
+Date: Fri, 4 Jul 2025 15:52:28 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next 5/6] net: airoha: npu: Enable core 3 for WiFi
+ offloading
+Message-ID: <20250704145228.GC41770@horms.kernel.org>
+References: <20250702-airoha-en7581-wlan-offlaod-v1-0-803009700b38@kernel.org>
+ <20250702-airoha-en7581-wlan-offlaod-v1-5-803009700b38@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aGfYL8eXjTA9puQr@willie-the-truck>
+In-Reply-To: <20250702-airoha-en7581-wlan-offlaod-v1-5-803009700b38@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_064023_003011_47C57309 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20250704_075234_627727_3BD8998D 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,26 +77,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 02:33:35PM +0100, Will Deacon wrote:
-> I would actually like to select VMAP_STACK unconditionally for arm64.
-> Historically, we were held back waiting for all the various KASAN modes
-> to support vmalloc properly, but I _think_ that's fixed now...
+On Wed, Jul 02, 2025 at 12:23:34AM +0200, Lorenzo Bianconi wrote:
+> NPU core 3 is responsible for WiFi offloading so enable it during NPU
+> probe.
 > 
-> The VMAP_STACK dependency is:
-> 
-> 	depends on !KASAN || KASAN_HW_TAGS || KASAN_VMALLOC
-> 
-> and in arm64 we have:
-> 
-> 	select KASAN_VMALLOC if KASAN
-> 
-> so it should be fine to select it afaict.
-> 
-> Any reason not to do that?
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Not that I am aware of.
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-I'm also in favour of unconditionally selecting VMAP_STACK.
-
-Mark.
 
