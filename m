@@ -4,93 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB418C83F0B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F95C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4fTZsufhobrcLHUOAcRJ3Fl2i32zbzHVNr3uBnZDQ4=; b=rkQ21iEo2XB1jA7H7lVWofSKSA
-	3iyk+OKfMTwoPgg19Z0ZHt+Iet/eD4UOzsyqv5ytwTvZyMHYQlvrKCW0wOwXTLxqfN4GHe4wfcakX
-	hGbzO/27lSTmmIOCz/RFniYcGzsuXC3aS7kLFJefdy5nBMjWm2XreGDAuOuITZDOcTR7hAx0rFRIb
-	YCkQD8TS3vErudyWNNzgEtPdOCwlahnG+2q73z1xBUFxEl6rn6qixYSIqn+9Gt2pDIaOBTHq1Fu0D
-	ji1fCnMLLg0oypJEezGvX1DmG3Cyh5u/XV64g85E7Y8AbGvDgcRjd1IR8OkuMs15pFsJatP+Hk5/4
-	RZwuwAcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ltrQ5f+R9n+TwExvQKzRlfb6et3d7Gh2xk5qyOaX/r8=; b=XJZbRvRy8mA1IuG/2OjhraJxf2
+	OKWC82sebfaLSepwIXrH2WYsRvQdDUHe9gFTi8GATu91VK3SmX6AAhtDKZb0yQMNS1pJ5Aokd5GOg
+	vkGVZbTnLQKTGbQvmphRYFffSR9m7+I/MI17BN7MKrMYlzEdRhbQ5tbFVx5yJpi+PDo2u9805edKJ
+	nRrMJNmLxzp6CnZFMRLV+tx+df3ynyhOusDK4RcOdwb5KQNYQqbm0jOWdx+TOGb3iYfOLdac1z7Bo
+	03QzKZAOXCnRQPuJncwgWBxIhIt/fVDLfTE8Vj1hazYQ0k35Iu3QzZIwk2aHatYj7wfCyUmSrFwcS
+	FmwUp52Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXeRV-0000000EBHP-1F0K;
-	Fri, 04 Jul 2025 11:18:57 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXdRT-0000000E18T-2rTK
+	id 1uXeTq-0000000EBl5-1FTo;
+	Fri, 04 Jul 2025 11:21:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXdo4-0000000E5sN-0D8y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 10:14:52 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b3507b63c6fso820235a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Jul 2025 03:14:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1751624090; x=1752228890; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=n4fTZsufhobrcLHUOAcRJ3Fl2i32zbzHVNr3uBnZDQ4=;
-        b=P2WG3TnVcGeIrdbJtab1NHXUWdf8r/TarPVvVleN7Tpj7FT9HpSq5prOtO7vGhcLLx
-         QRHrvbvCKVrkJ4wAH1ZZYqvKHdgVwo3sa6EaivzYlSd+b/TVWXigcCUcTFK4EJhsvWx7
-         LzWzPU+tHSeVaf3ZJK+GAe9s2D7KN97IxL6ATv03APxnQXdpqjwoIgDo4Ee/9CRsP0pX
-         ljngOalqDTQIggxdQr6vWOPy+Y/wPeel8uolbcKTReP1RBzdEDaDDvkkLKgmkdzwgg9M
-         Nqekyzotb35j6CsOU9W6E9tpPOmLvlBQ0n8ezXuLDdTJ8NJ9J0DQxLeu7kDF0fmVenxn
-         4smA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751624090; x=1752228890;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n4fTZsufhobrcLHUOAcRJ3Fl2i32zbzHVNr3uBnZDQ4=;
-        b=aIkdSY8zhJKAoq2/5rpFpISlQzD5a0qLt1VSFrYbhXPiKnDA+pJZM+NgcQkvo60/72
-         lavVE4Hhd0xhY2CzLQzo2GfBVIHBkUFvPgQ8l7okMkwmrP0eK/kR4TjSU8ZQa/CKUMzz
-         iGpOHxS4RQ8ekiPFaG9Em0sR99Jcw4UCcenJNo1+OIiyHr2GWpxU4EFkxEHk1/FBQUGX
-         8faMOrGmVCG1oN0RLQl/eQHc9+wxfkImy8mfRU3tdIem8Pdf8zJiF+8tPjj/Dmeaen0j
-         4gKavhPiohu+LWPUzYSfC2Bsj1SNkc5UH21bUC9BJfCGgWEiwRR4iARaPdwTcWh/2Fk9
-         WNcg==
-X-Forwarded-Encrypted: i=1; AJvYcCVsPoWjhmcgWBnVMxSJFC1NcW2KwuhnUAJrIp9vzwV31foG3tQlL4X3enZlPihRH4WLICapnhsPh84d17sOP/bK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvqimF6KYDSni5JquZhXdAuqc2jTTaOfCe9nZTquP1KBDGJ1yX
-	HxtBZwMYqv2gcp5aFaVkPlG0ehcbshD+CuzA6gQ3GL8Wa6SqOll8VZWU1Qa/wZ6geSDNc49RWW6
-	7WFL25e7zlSjE22RMt2cCfAs6VmOicTtjtilIrKPlcA==
-X-Gm-Gg: ASbGncu6fDMNjbREXcOwqwFHueVmkbC4Y7yH/rd1z1/zSknkcPUxkQgJtTObhEyRJZb
-	ZzXLlyIVLKWVSUGmek/MxfySt8GAX3oXUqQXsCZmRhTJ3jBSX1omw7uZZ0AduL24lBY5bpY9TRp
-	HND66Fly6Jcgpo2xPzi8wwqLnGtyJQr7N5rLI9a8oAjynLK96kmoFOCuFA65izDGPr234W73rSd
-	3hf
-X-Google-Smtp-Source: AGHT+IFjwg/psNUtt35b9Gmob0BLVqWk1GkmmuqjzaAL0gJFNIEsazYmsIVCo4iVpxvsNBxNzV3/0MwU6x9tzdeiXKA=
-X-Received: by 2002:a17:90b:1fc3:b0:313:23ed:6ff with SMTP id
- 98e67ed59e1d1-31aadcf4979mr1915406a91.1.1751624090581; Fri, 04 Jul 2025
- 03:14:50 -0700 (PDT)
+	Fri, 04 Jul 2025 10:38:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA8F9152B;
+	Fri,  4 Jul 2025 03:37:56 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 495783F63F;
+	Fri,  4 Jul 2025 03:38:07 -0700 (PDT)
+Date: Fri, 4 Jul 2025 11:38:01 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Zaid Alali <zaidal@os.amperecomputing.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
+	maz@kernel.org, mbenes@suse.cz, puranjay@kernel.org,
+	broonie@kernel.org, oliver.upton@linux.dev, andre.przywara@arm.com,
+	kevin.brodsky@arm.com, scott@os.amperecomputing.com,
+	james.clark@linaro.org, james.morse@arm.com,
+	anshuman.khandual@arm.com, shameerali.kolothum.thodi@huawei.com,
+	joey.gouly@arm.com, gshan@redhat.com, yangyicong@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: errata: Add Ampere erratum AC03_CPU_50
+ workaround alternative
+Message-ID: <aGevCYzaRPLMGzL0@J2N7QTR9R3>
+References: <20250703214657.786288-1-zaidal@os.amperecomputing.com>
 MIME-Version: 1.0
-References: <20250701114733.636510-1-ulf.hansson@linaro.org> <20250701114733.636510-12-ulf.hansson@linaro.org>
-In-Reply-To: <20250701114733.636510-12-ulf.hansson@linaro.org>
-From: Rahul Pathak <rpathak@ventanamicro.com>
-Date: Fri, 4 Jul 2025 15:44:14 +0530
-X-Gm-Features: Ac12FXyDa0B0X6sfvOQzisE8yH6dk2kS-j3Pq5vg4WlBzfStBdZqCfBVav2JDDs
-Message-ID: <CA+Oz1=ZnwUX2_s0rvY28um8eMDqqWKkJ5KRc+hqgL_7ghQf8Wg@mail.gmail.com>
-Subject: Re: [PATCH v3 11/24] cpuidle: riscv-sbi: Opt-out from genpd's common
- ->sync_state() support
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>, 
-	linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250703214657.786288-1-zaidal@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_031451_716900_D3722379 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250704_033812_191191_6FB2F790 
+X-CRM114-Status: GOOD (  38.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,27 +70,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 1, 2025 at 5:20=E2=80=AFPM Ulf Hansson <ulf.hansson@linaro.org>=
- wrote:
->
-> The riscv-sbi-domain implements its own specific ->sync_state() callback.
-> Let's set the GENPD_FLAG_NO_SYNC_STATE to inform genpd about it.
->
-> Moreover, let's call of_genpd_sync_state() to make sure genpd tries to
-> power off unused PM domains.
->
-> Cc: Anup Patel <anup@brainfault.org>
-> Cc: linux-riscv@lists.infradead.org
-> Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
-> Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xi=
-linx ZynqMP ZCU106
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+On Thu, Jul 03, 2025 at 02:46:57PM -0700, Zaid Alali wrote:
+> Add an alternative code sequence to work around Ampere erratum
+> AC03_CPU_50 on AmpereOne and AC04_CPU_19 on AmpereOne AC04.
+> 
+> Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
+> direct read of the register will return a value of 0xf8. An incorrect
+> value from a direct read can only happen with the value 0xf0.
+> 
+> This only occurs when the following conditions are met:
+> SCR_EL3.FIQ=1 and,
+> PE is NOT in EL3/Secure state and,
+> ICC_PMR_EL1.Priority=0xf8 (Non-Secure Group 1)
+> 
+> The returned interrupt filter priority is affected by this, and
+> returns 0xf8 but should be 0xf0, as per ARM. This workaround fixes
+> the issue here.
+> 
+> Based on this Defect (AArch-21735), this does not apply to virtual
+> interrupts. It also does not apply when SCR_EL3.FIQ=0, as no
+> modification of ICC_PMR_EL1 is required.
+
+Last time this was posted:
+
+  https://lore.kernel.org/linux-arm-kernel/20250127201829.209258-1-zaidal@os.amperecomputing.com/
+
+... Marc Zyngier asked:
+
+  Are you saying that this is erratum is *strictly* AARCH-21735?
+
+... can you please confirm?
+
+> Note: Currently there are no checks against a value of 0xf0, and that
+> save restore of 0xf8 -> 0xf0 is fine, so this is all future proofing.
+
+This is a fair amount of work for no functional change.
+
+AFAICT, this can only possibly matter when PMR is configured with
+(GICV3_PRIO_UNMASKED | GICV3_PRIO_PSR_I_SET), and I hope to remove
+GICV3_PRIO_PSR_I_SET entirely in the near future with a rework of the
+way we manipulate DAIF and PMR.
+
+If we did that, we'd only ever program PMR with:
+
+* GICV3_PRIO_UNMASKED // 0xe0
+* GICV3_PRIO_IRQ      // 0xc0
+* GICV3_PRIO_NMI      // 0x80
+
+... and IIUC that would avoid the problem entirely, no runtime patching
+required.
+
+Given there's no functional issue today, I wonder if we should just
+leave this as-is for now, and mabye just add an N/A entry in
+silicon-errata.txt.
+
+Mark.
+
+> 
+> V2:
+>   - Update commit message to clarify the conditions when the issue
+>     occurs.
+>   - Add entry in silicon errata documentation.
+> 
+> Signed-off-by: Zaid Alali <zaidal@os.amperecomputing.com>
 > ---
->  drivers/cpuidle/cpuidle-riscv-sbi.c | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
->
-
-LGTM
-
-Reviewed-by: Rahul Pathak <rpathak@ventanamicro.com>
+>  Documentation/arch/arm64/silicon-errata.rst |  4 ++++
+>  arch/arm64/Kconfig                          | 14 ++++++++++++++
+>  arch/arm64/include/asm/arch_gicv3.h         |  2 +-
+>  arch/arm64/include/asm/daifflags.h          |  5 ++---
+>  arch/arm64/include/asm/irqflags.h           |  6 +++---
+>  arch/arm64/include/asm/sysreg.h             |  9 +++++++++
+>  arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
+>  arch/arm64/kernel/entry.S                   |  3 +++
+>  arch/arm64/tools/cpucaps                    |  1 +
+>  9 files changed, 52 insertions(+), 7 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index b18ef4064bc0..29e0bd8b07cd 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -59,6 +59,10 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Ampere         | AmpereOne AC04  | AC04_CPU_23     | AMPERE_ERRATUM_AC04_CPU_23  |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Ampere         | AmpereOne       | AC03_CPU_50     | AMPERE_ERRATUM_AC03_CPU_50  |
+> ++----------------+-----------------+-----------------+-----------------------------+
+> +| Ampere         | AmpereOne AC04  | AC04_CPU_19     | AMPERE_ERRATUM_AC03_CPU_50  |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Cortex-A510     | #2457168        | ARM64_ERRATUM_2457168       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 55fc331af337..1ca4c296deaa 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -479,6 +479,20 @@ config AMPERE_ERRATUM_AC04_CPU_23
+>  	  for corruption, and an ISB after is sufficient to prevent younger
+>  	  instructions from hitting the window for corruption.
+>  
+> +config AMPERE_ERRATUM_AC03_CPU_50
+> +	bool "AmpereOne: AC03_CPU_50: Certain checks for ICC_PMR_EL1 that expects the value 0xf0 may read 0xf8 instead"
+> +	default y
+> +	help
+> +	  This option adds an alternative code sequence to work around Ampere
+> +	  erratum AC03_CPU_50 on AmperOne and AC04_CPU_19 on AmpereOne AC04.
+> +
+> +	  Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
+> +	  direct read of the register will return a value of 0xf8. An incorrect
+> +	  value from a direct read can only happen with the value 0xf0.
+> +
+> +	  The workaround for the erratum will do logical AND 0xf0 to the
+> +	  value read from ICC_PMR_EL1 register before returning the value.
+> +
+>  	  If unsure, say Y.
+>  
+>  config ARM64_WORKAROUND_CLEAN_CACHE
+> diff --git a/arch/arm64/include/asm/arch_gicv3.h b/arch/arm64/include/asm/arch_gicv3.h
+> index 9e96f024b2f1..299d7e17abdf 100644
+> --- a/arch/arm64/include/asm/arch_gicv3.h
+> +++ b/arch/arm64/include/asm/arch_gicv3.h
+> @@ -127,7 +127,7 @@ static inline void gic_write_bpr1(u32 val)
+>  
+>  static inline u32 gic_read_pmr(void)
+>  {
+> -	return read_sysreg_s(SYS_ICC_PMR_EL1);
+> +	return read_sysreg_pmr();
+>  }
+>  
+>  static __always_inline void gic_write_pmr(u32 val)
+> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+> index fbb5c99eb2f9..022a3640d584 100644
+> --- a/arch/arm64/include/asm/daifflags.h
+> +++ b/arch/arm64/include/asm/daifflags.h
+> @@ -22,8 +22,7 @@
+>  static inline void local_daif_mask(void)
+>  {
+>  	WARN_ON(system_has_prio_mask_debugging() &&
+> -		(read_sysreg_s(SYS_ICC_PMR_EL1) == (GIC_PRIO_IRQOFF |
+> -						    GIC_PRIO_PSR_I_SET)));
+> +		(read_sysreg_pmr() == (GIC_PRIO_IRQOFF | GIC_PRIO_PSR_I_SET)));
+>  
+>  	asm volatile(
+>  		"msr	daifset, #0xf		// local_daif_mask\n"
+> @@ -46,7 +45,7 @@ static inline unsigned long local_daif_save_flags(void)
+>  
+>  	if (system_uses_irq_prio_masking()) {
+>  		/* If IRQs are masked with PMR, reflect it in the flags */
+> -		if (read_sysreg_s(SYS_ICC_PMR_EL1) != GIC_PRIO_IRQON)
+> +		if (read_sysreg_pmr() != GIC_PRIO_IRQON)
+>  			flags |= PSR_I_BIT | PSR_F_BIT;
+>  	}
+>  
+> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+> index d4d7451c2c12..757e7e837992 100644
+> --- a/arch/arm64/include/asm/irqflags.h
+> +++ b/arch/arm64/include/asm/irqflags.h
+> @@ -30,7 +30,7 @@ static __always_inline void __daif_local_irq_enable(void)
+>  static __always_inline void __pmr_local_irq_enable(void)
+>  {
+>  	if (IS_ENABLED(CONFIG_ARM64_DEBUG_PRIORITY_MASKING)) {
+> -		u32 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+> +		u32 pmr = read_sysreg_pmr();
+>  		WARN_ON_ONCE(pmr != GIC_PRIO_IRQON && pmr != GIC_PRIO_IRQOFF);
+>  	}
+>  
+> @@ -59,7 +59,7 @@ static __always_inline void __daif_local_irq_disable(void)
+>  static __always_inline void __pmr_local_irq_disable(void)
+>  {
+>  	if (IS_ENABLED(CONFIG_ARM64_DEBUG_PRIORITY_MASKING)) {
+> -		u32 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+> +		u32 pmr = read_sysreg_pmr();
+>  		WARN_ON_ONCE(pmr != GIC_PRIO_IRQON && pmr != GIC_PRIO_IRQOFF);
+>  	}
+>  
+> @@ -84,7 +84,7 @@ static __always_inline unsigned long __daif_local_save_flags(void)
+>  
+>  static __always_inline unsigned long __pmr_local_save_flags(void)
+>  {
+> -	return read_sysreg_s(SYS_ICC_PMR_EL1);
+> +	return read_sysreg_pmr();
+>  }
+>  
+>  /*
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index f1bb0d10c39a..9033110a4589 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -1223,6 +1223,15 @@
+>  	par;								\
+>  })
+>  
+> +#define read_sysreg_pmr() ({						\
+> +	u64 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);			\
+> +	asm(ALTERNATIVE("nop", "and %0, %0, #0xf0",			\
+> +			ARM64_WORKAROUND_AMPERE_AC03_CPU_50)		\
+> +			: "+r" (pmr)					\
+> +			);						\
+> +	pmr;								\
+> +})
+> +
+>  #define SYS_FIELD_VALUE(reg, field, val)	reg##_##field##_##val
+>  
+>  #define SYS_FIELD_GET(reg, field, val)		\
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 59d723c9ab8f..9eec9977ee21 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -564,6 +564,14 @@ static const struct midr_range erratum_ac04_cpu_23_list[] = {
+>  };
+>  #endif
+>  
+> +#ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_50
+> +static const struct midr_range erratum_ac03_cpu_50_list[] = {
+> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+> +	{},
+> +};
+> +#endif
+> +
+>  const struct arm64_cpu_capabilities arm64_errata[] = {
+>  #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
+>  	{
+> @@ -905,6 +913,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  		.matches = has_impdef_pmuv3,
+>  		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
+>  	},
+> +#ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_50
+> +	{
+> +		.desc = "AmpereOne erratum AC03_CPU_50",
+> +		.capability = ARM64_WORKAROUND_AMPERE_AC03_CPU_50,
+> +		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_50_list),
+> +	},
+> +#endif
+>  	{
+>  	}
+>  };
+> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+> index 5ae2a34b50bd..6d76f79335a0 100644
+> --- a/arch/arm64/kernel/entry.S
+> +++ b/arch/arm64/kernel/entry.S
+> @@ -317,6 +317,9 @@ alternative_if_not ARM64_HAS_GIC_PRIO_MASKING
+>  alternative_else_nop_endif
+>  
+>  	mrs_s	x20, SYS_ICC_PMR_EL1
+> +alternative_if ARM64_WORKAROUND_AMPERE_AC03_CPU_50
+> +	and	x20, x20, #0xf0
+> +alternative_else_nop_endif
+>  	str	w20, [sp, #S_PMR]
+>  	mov	x20, #GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET
+>  	msr_s	SYS_ICC_PMR_EL1, x20
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 10effd4cff6b..de34e36c79ee 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -96,6 +96,7 @@ WORKAROUND_2645198
+>  WORKAROUND_2658417
+>  WORKAROUND_AMPERE_AC03_CPU_38
+>  WORKAROUND_AMPERE_AC04_CPU_23
+> +WORKAROUND_AMPERE_AC03_CPU_50
+>  WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+>  WORKAROUND_TSB_FLUSH_FAILURE
+>  WORKAROUND_TRBE_WRITE_OUT_OF_RANGE
+> -- 
+> 2.43.0
+> 
 
