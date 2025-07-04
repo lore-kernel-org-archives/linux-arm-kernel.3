@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDC5DC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1799C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=66jwWf5WSWH6aoArMkkqiDugR24CPiwQ2W8r/VhkBtI=; b=A2uyxYuzkCoUTHrBjfoqDt0VDl
-	oCsofX8gcKD5GsYApTZQlROkmCED5wQ7HhJF+BKAI288y0h1aCnpDhGMNbZg4LA3eF8GoQQ/mnH2P
-	U/GjoJHxMO1Laery0+YhBvS+9BgmfNRSyAXfCsx4YshvAOIQRR81hIeNU25p7Fvt6WyWiOnNP+y5V
-	wPHh8cLccThtRUL2jytupnM3/I3E9bB2OgaZxn43Cm759ctvyRlNZQIdug0Z1NWtB4CPYFoWbZoj9
-	Bh0Q+V8GTgSaqfiNy5A2bCQbvRuRcn1X/vdDbro0EFqIYNwuGociMdsGVFwJF1ZnbjbkgAc48O9Q1
-	lNY2Yo7A==;
+	bh=LBn7YewcGLqcJwIQMeePqXaU86WOWyp8TwMnIsNgXlU=; b=gkgyP4mVfT2xyLQKcjI26lVOb3
+	y4OMwqZPl4AtrNDO0J1536mEgjrgMHZSLnLzt2UwI7Zfhi5Bnv7A1q/gvg0+I9z1aJTyhQHH9IaIe
+	9L79DUVvnJVvD3HNAwUR6ksAcw/FuSjmFrrvYnaguwe5w0kmBIAsw/N6H2YvMt+k44GlAOE/OpUMe
+	HQ+1N/7uxEv7MpDbfzcNLxGOpku8NIoNT9g9uKdRGXjHZR74vLDIMcZqKZYdbKQQqGJPud8ljPyzD
+	pyVQNfNuQMpeo9YDFUaqxC4EP+QOjbcARlvCq8H+0BSNo5DoWu6bNakDtbHwaBn7f5vVFvCWD2MLu
+	LaEQ3Bvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhRB-0000000Efu3-2u4v;
-	Fri, 04 Jul 2025 14:30:49 +0000
+	id 1uXhTW-0000000EgBy-2tqT;
+	Fri, 04 Jul 2025 14:33:14 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhAQ-0000000EdJg-49YG
+	id 1uXhCR-0000000EdvM-2TW7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 14:13:32 +0000
+	Fri, 04 Jul 2025 14:15:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751638410;
+	s=mimecast20190719; t=1751638534;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=66jwWf5WSWH6aoArMkkqiDugR24CPiwQ2W8r/VhkBtI=;
-	b=fV9zzG+WcdOa3lDHr+HPrmPPt+JOayjyhDsmmXoO7k5eTEulquch8A6GQFPYFvAol/5QAt
-	8gxjE7l6si1nmEqOfJ3q5VOxWXzRXoDMXiIToy1rpDREgRMfgjDDb12mefQE0J4AtNaumY
-	EKCo7MmoqpS9MqiaQjxL7WFuqjCvfvM=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=LBn7YewcGLqcJwIQMeePqXaU86WOWyp8TwMnIsNgXlU=;
+	b=KPGp4YUxZmelhHhypD15KA0oQZBizbl5cQeKFnjf7wlt5xR224Yd+DVAmVSui82WrEVgOo
+	RfzIon9F3s5Mu7yVH6c1wkxSdLJ7JRbjpxiXbHViwlBUmZWCCsbZTJttE+hAOd9tTdlDw9
+	vdA26+vqjT+/EJfgW+GNVO+laWB8oiA=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-681-7JJ_rlbMO2-n1zFW_XBHRg-1; Fri, 04 Jul 2025 10:13:27 -0400
-X-MC-Unique: 7JJ_rlbMO2-n1zFW_XBHRg-1
-X-Mimecast-MFC-AGG-ID: 7JJ_rlbMO2-n1zFW_XBHRg_1751638406
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-454b907e338so957305e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Jul 2025 07:13:26 -0700 (PDT)
+ us-mta-449-gdf_TfZuMXGPthFSQNom_Q-1; Fri, 04 Jul 2025 10:15:33 -0400
+X-MC-Unique: gdf_TfZuMXGPthFSQNom_Q-1
+X-Mimecast-MFC-AGG-ID: gdf_TfZuMXGPthFSQNom_Q_1751638532
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a4ff581df3so498547f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Jul 2025 07:15:33 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751638406; x=1752243206;
+        d=1e100.net; s=20230601; t=1751638532; x=1752243332;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=66jwWf5WSWH6aoArMkkqiDugR24CPiwQ2W8r/VhkBtI=;
-        b=aJ3q40ZeBF6iQd+hGsJuDyAXTrJtbfBgsDDwPXtAX4D7u6oEz3RR3ma04coxUgEys6
-         9y1WZ4DczEu11LuxFAZq+MA4q6gPonouKnGYjJk03BaSOxRuwi2lmVgJZjEo7IWRTBxv
-         gRkWHRZj7sGc61YosNiBpqqv/jwLCVFopug1yMlvBZW31kjaRkDgLgqWqC2U/ZuSNMfl
-         45tnJiLznQhzyUeFe5jaQ01q28RyAOeYF1VrSLa6EqnCrkDGJjCvMe8Pnsg/qY24ZYDe
-         r/Rvu4GB6Uy6aOGCVAnLB1QEgUvPnuBGWdes4UqeTThYXtiWSfp1sFXMt7aqqZDmvDgj
-         YhyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVbv8DNTQHdGiQ9OUXm8eTDw9bke//QE3qVUVVuf6Sqlpu7EXjC7V+wAhR5F4LC3qNEpdx3GOREAsHFfG+/YBmM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzWXeOcn0Nif43vRBJ899pnkiawYZWkia0DNq+MAouvQ+sfs5o
-	XAwzoOs0bQI8z0r57spKGx/z875MH6bIJkveCHBWoyq0ibaINdkJTX51q84fXLLZUfsv/CuxaOj
-	lQE0R4HPZjCwI//nMW44vGC5ILIvD95i26ka/FNc6gd72XeAmKP6k9TuK1iueXDQ8YEsmLvoD5W
-	vY
-X-Gm-Gg: ASbGncu4c/5eXFw81EiLW2mhSrw51SR3gQr7g0WjhM3ZJjD+WD2uQhfBIBbYlDYyf6e
-	WMJtbFDrx1o9hrLB4D9xfu2bG4GRih0xklXvtHrghYyMqT08mlRXl9tiVMtOQBIhGFNrdv2jHn/
-	NSSHmTjo6/p6KkdaAYt52fosJ4QXVFM8P5V/WVK6gH7lzIFGxwISDZYQgZuOfgNXJLdAiCUcMvZ
-	hqqjC7QUJXpAis27cknMIdsELx1z7w0jsxkO8cn2h3QI+W5UqvFB3Won7K+V3Um9aFNeIm58aij
-	y/ZSWq/wdIxAy6kiOVZKgWUFmRNMsa+wyIwQdcEQK5mohfiLxy3Ys4I2Pkycc9lNqBpGZmQMCuC
-	bNPc2es7ZQq7jirPNLFbqoSLwR5NY7wKxxKZ92aKGFMVpxNA=
-X-Received: by 2002:a05:600c:c16c:b0:454:aec9:1db5 with SMTP id 5b1f17b1804b1-454b30df141mr31186925e9.16.1751638405702;
-        Fri, 04 Jul 2025 07:13:25 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE3/ZP6YJd4U4iMxyo/3QGq6Le91Xz4xHpipCk15FkeiV8LSbzIkEeChr/ZjP5+m4GsKle6eQ==
-X-Received: by 2002:a05:600c:c16c:b0:454:aec9:1db5 with SMTP id 5b1f17b1804b1-454b30df141mr31186425e9.16.1751638405241;
-        Fri, 04 Jul 2025 07:13:25 -0700 (PDT)
+        bh=LBn7YewcGLqcJwIQMeePqXaU86WOWyp8TwMnIsNgXlU=;
+        b=sda+sIRPEiS3DHUE+jlfOCNumpRzYwRWVv6EqZ4x0RSolLbAXpAeoDwJ7r09mB3xyp
+         r/sBrT0aev1/Q3U0r9MblNKKp2hzCyDDopEtrF2QcpuYzh1feF5Ot2NdgmzmheDELIQx
+         5sZPCTKwljyZSoYMAoJI6hZvRQ3COqh555uheJlLcu7QxSHPPKXAWzTtf2qX7+tfxd+T
+         5Mg0Omq2yuf+AEPWiaPj4BE8W0TuXVnmgICBHblMb6eaQfcoo/MygyFCTtkleVxiYF9U
+         HKjXF5Qjp9XVE7gJ+/lJdInEy29sTOSYIY/urNixMX/qj0271Jf/hzM2eigu2nJak08c
+         TmSg==
+X-Forwarded-Encrypted: i=1; AJvYcCUHT0H5xk1RGXmtF6x4FlFvGXr17UvYCVyHD74iIKd8v6byBK95T1r4kPN4/G1BADQJQLKKh/rI3iPml3bcp8Xw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/R5VX80GvwQj1jsRw3rcjk2I/y1Y/9zToVC9wkS3wz/swoErl
+	kyxG+T5BHuqx8rbjCU42mtLZZ2/JTr2nQSErKtcHUYWd0LMI/qRwCxDQXfzm9t0jlyHPck4+vKV
+	jQ7rzqKeAf1Ap5eOct50Fw7R/N9i65LuclUUoK5TLzvNZCqx6wo4qBJmTXkNFqnNd5bcLKve4ut
+	kl
+X-Gm-Gg: ASbGncuyLQf9hy5cenHJi4Im8LxtSumYf3s5VOT7qeH5tt96gTPQ2cVeKUYS4WGIL+p
+	jF7UHkH+p0L7Bsytg86jVDmdVfQ+cBr09JLYKYrAto1iLd/+mAG6sNc+9CPWG0BQUNKQ3CESwb2
+	RBzuyLqjjZX0UAewz5KouaiKVUIjfUNZv7dl8kevts1tlctS/rdn9l9afm/0eTD/fIjwwOG3Jnb
+	41vtI/Qf/luBDiBTDkochhu/s6T2V9UXmrI334562BWc3EHzDSqLEKm0xtUyPaTx/aKk++0gmm+
+	mxGtxryGmIiP+KosbJTKAOvRE38H49M9SLOcoaorubUeo7tNEHbI5xLPxhb7HrmzchijA0qH4Sk
+	zjRASMsjw2Mn+R0rxheKQWkVBbXSn/KYhi2XAGMSdSIIV7ek=
+X-Received: by 2002:a05:6000:2386:b0:3a5:8977:e0fd with SMTP id ffacd0b85a97d-3b48f763f20mr3038247f8f.0.1751638531789;
+        Fri, 04 Jul 2025 07:15:31 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFFFZfrZGXx1jIEHCw4iULGVHb/HshXOPXs2ODzOAd6Gc9BaMJ2C1ZIpAirKVHX6TqTgT60YQ==
+X-Received: by 2002:a05:6000:2386:b0:3a5:8977:e0fd with SMTP id ffacd0b85a97d-3b48f763f20mr3038165f8f.0.1751638531220;
+        Fri, 04 Jul 2025 07:15:31 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f2c:5500:988:23f9:faa0:7232? (p200300d82f2c5500098823f9faa07232.dip0.t-ipconnect.de. [2003:d8:2f2c:5500:988:23f9:faa0:7232])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a1705ed5sm47240875e9.2.2025.07.04.07.13.22
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a9bcef22sm57156535e9.19.2025.07.04.07.15.28
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 04 Jul 2025 07:13:24 -0700 (PDT)
-Message-ID: <07e0fddd-76ba-4905-95f4-b98063215866@redhat.com>
-Date: Fri, 4 Jul 2025 16:13:22 +0200
+        Fri, 04 Jul 2025 07:15:30 -0700 (PDT)
+Message-ID: <29cc7d2a-b174-4ed3-ae1a-22db478c62ec@redhat.com>
+Date: Fri, 4 Jul 2025 16:15:28 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 5/6] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
+Subject: Re: [PATCH v9 6/6] KVM: arm64: Expose new KVM cap for cacheable
+ PFNMAP
 To: Jason Gunthorpe <jgg@nvidia.com>, ankita@nvidia.com
 Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
  suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
@@ -100,8 +100,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  maobibo@loongson.cn
 References: <20250621042111.3992-1-ankita@nvidia.com>
- <20250621042111.3992-6-ankita@nvidia.com>
- <20250704140431.GH1410929@nvidia.com>
+ <20250621042111.3992-7-ankita@nvidia.com>
+ <20250704134413.GE1410929@nvidia.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -148,16 +148,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20250704140431.GH1410929@nvidia.com>
+In-Reply-To: <20250704134413.GE1410929@nvidia.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: h2hTQWvrDaytS-b-yDFKny5-JJzH3bp_uG5tlFUTZBQ_1751638406
+X-Mimecast-MFC-PROC-ID: cugr5OdfzGTsylZ1ovcZr5r2oBPoXeNJeb_uQ6NaUXg_1751638532
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_071331_109106_014B1ED1 
-X-CRM114-Status: GOOD (  28.68  )
+X-CRM114-CacheID: sfid-20250704_071535_706436_BE448E77 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,62 +172,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04.07.25 16:04, Jason Gunthorpe wrote:
-> On Sat, Jun 21, 2025 at 04:21:10AM +0000, ankita@nvidia.com wrote:
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -1681,18 +1681,53 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->>   	if (is_error_noslot_pfn(pfn))
->>   		return -EFAULT;
->>   
->> +	/*
->> +	 * Check if this is non-struct page memory PFN, and cannot support
->> +	 * CMOs. It could potentially be unsafe to access as cachable.
->> +	 */
->>   	if (vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(pfn)) {
->>   		/*
->> -		 * If the page was identified as device early by looking at
->> -		 * the VMA flags, vma_pagesize is already representing the
->> -		 * largest quantity we can map.  If instead it was mapped
->> -		 * via __kvm_faultin_pfn(), vma_pagesize is set to PAGE_SIZE
->> -		 * and must not be upgraded.
->> -		 *
->> -		 * In both cases, we don't let transparent_hugepage_adjust()
->> -		 * change things at the last minute.
->> +		 * COW VM_PFNMAP is possible when doing a MAP_PRIVATE
->> +		 * /dev/mem mapping on systems that allow such mapping.
->> +		 * Reject such case.
->>   		 */
->> -		s2_force_noncacheable = true;
->> +		if (is_cow_mapping(vm_flags))
->> +			return -EINVAL;
+On 04.07.25 15:44, Jason Gunthorpe wrote:
+> On Sat, Jun 21, 2025 at 04:21:11AM +0000, ankita@nvidia.com wrote:
+>> From: Ankit Agrawal <ankita@nvidia.com>
+>>
+>> Introduce a new KVM capability to expose to the userspace whether
+>> cacheable mapping of PFNMAP is supported.
+>>
+>> The ability to safely do the cacheable mapping of PFNMAP is contingent
+>> on S2FWB and ARM64_HAS_CACHE_DIC. S2FWB allows KVM to avoid flushing
+>> the D cache, ARM64_HAS_CACHE_DIC allows KVM to avoid flushing the icache
+>> and turns icache_inval_pou() into a NOP. The cap would be false if
+>> those requirements are missing and is checked by making use of
+>> kvm_arch_supports_cacheable_pfnmap.
+>>
+>> This capability would allow userspace to discover the support.
+>> It could for instance be used by userspace to prevent live-migration
+>> across FWB and non-FWB hosts.
+>>
+>> CC: Catalin Marinas <catalin.marinas@arm.com>
+>> CC: Jason Gunthorpe <jgg@nvidia.com>
+>> CC: Oliver Upton <oliver.upton@linux.dev>
+>> CC: David Hildenbrand <david@redhat.com>
+>> Suggested-by: Marc Zyngier <maz@kernel.org>
+>> Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
+>> ---
+>>   Documentation/virt/kvm/api.rst | 13 ++++++++++++-
+>>   arch/arm64/kvm/arm.c           |  7 +++++++
+>>   include/uapi/linux/kvm.h       |  1 +
+>>   3 files changed, 20 insertions(+), 1 deletion(-)
 > 
-> I still would like an explanation why we need to block this.
-> 
-> COW PFNMAP is like MIXEDMAP, you end up with a VMA where there is a
-> mixture of MMIO and normal pages. Arguably you are supposed to use
-> vm_normal_page() not pfn_is_map_memory(), but that seems difficult for
-> KVM.
-> 
-> Given we exclude the cachable case with the pfn_is_map_memory() we
-> know this is the non-struct page memory already, so why do we need to
-> block the COW?
-> 
-> I think the basic rule we are going for is that within the VMA the
-> non-normal/special PTE have to follow the vma->vm_pgprot while the
-> normal pages have to be cachable.
-> 
-> So if we find a normal page (ie pfn_is_map_memory()) then we know it
-> is cachable and s2_force_noncacheable = false. Otherwise we use the
-> vm_pgprot to decide if the special PTE is cachable.
-> 
-> David can you think of any reason to have this is_cow_mapping() test?
+> I don't know if any VMM will ever use this, but it looks OK
 
-I think with that reasoning, it should be fine to drop it.
+So, should we defer it to the point where we actually have a use case?
 
-I think, the COW test made sense when we were talking about limiting it 
-to VM_PFNMAP only and simplifying by dropping other checks. Then, it 
-would have identified that something is certainly not "normal" memory.
+I mean, patch #4 could be simplified by modifying arm64 code in patch #5 
+only. No need for a common kvm_arch function etc.
 
 -- 
 Cheers,
