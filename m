@@ -4,97 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41525C83F09
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAAB0C8303D
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 15:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4pmEMq0sA8so0SufoVdKWZBwKQieQ0nXXy/exmOOu7Q=; b=o2i2aaPcAglGHHzMHhyKWZrgqK
-	B8CI4xvvjus5UBD9+otu/B78degPoWgWb7GHOY3D2bLnhJ1eRevutxcN8waTd5k5fc04jaI+ilrTe
-	HlDblvC3FIyABNHLOpcjftIWMZUSc3camWyme9nToz0QMGbpEUERdYb2B27uNrb2q+hVAiXjiW1XG
-	HPXgYSeFpP2EWK/Ame0Lc6G1Da5ss53UoF3DLpibBTa1aFb+/6jQFkELBg+fBpAns0Lo+YYSFwp7t
-	fQsrpAty6ho+XZpQfvnvVri2luv4lRqULrTJ43OPoH4z5flKBYWdV75BCjOD/L1U5ioIx76IhLkH8
-	wsMbH+jA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=smeJXW9cU9+dKFV1jIxhMhGZGNaUAZU2qdMN4VFIzBk=; b=WzK9fq461G3D46I4QRrdGwODp5
+	51wGYnDmEpVWDmSVlACfd6cKWwGqiuEiJgHmbp1LH6fgxi4KwFVl7YPL0PMHSt0wIqaP6tKBLRBh6
+	A6Z9iFXdBnQAMmXGIWxg/vbxtnhzHZ8dwEhHxpRcrlG5XelrBAV7HQeb4PgA7M2JzVANsmifxGxHY
+	URW1Gn+sI4w3n1u1XflvjHfqmg83CS8IHIFA4fZ4M+bK5g/2fhuVsAVLDtRo/Gc/0L8H9w/dOqV5u
+	9IpkvCfrVOjDXkrwuGpMe+qz4GLtTTDGDMb9vb5wgFCdLw8jDrFMONW234bY/RvonEdiH67092aQ+
+	53gxTYlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXiOA-0000000EpQA-1uLS;
-	Fri, 04 Jul 2025 15:31:46 +0000
-Received: from gofer.mess.org ([88.97.38.141])
+	id 1uXiOB-0000000EpRW-3vyT;
+	Fri, 04 Jul 2025 15:31:47 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXi9g-0000000EnW0-2Ust;
-	Fri, 04 Jul 2025 15:16:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1751642202; bh=fw+3kHpH71x1Y/Yo4BaIBNzC5KdPfbmT9z0yHAtrnEg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OZN6bha/FAxDe4H3fOtXJMB05O6PSsOIO8iLAT0AKWh6sAQ6HB3DJiCrUOfFJq89K
-	 JlEVcbJXJWChT72to/oZT3GU/laMbw/fzI0RLjd8Hy4W+YhrBNIcS7FBMyf1Br408n
-	 D+vIYlKlKvQaBNxdLEYY206FNUOmF3WpRVHBHZ1vmtW+7G5wC/1YrvfLV23GVAUdqp
-	 B/az+zmd5IfyH8fsuSPeJ7Tso4Nt+VLxtIvSJqcA5OjODsIW08BHHuUVTWKUjj/mSP
-	 J09uIe2u1xXvKRqvzYMMRCl9G9OAJjjyA8Iaelz6sx05RL8u10fivwd9m8ceR6d7VY
-	 +wjycNZVop6Vg==
-Received: by gofer.mess.org (Postfix, from userid 1000)
-	id 34B531003B9; Fri,  4 Jul 2025 16:16:42 +0100 (BST)
-Date: Fri, 4 Jul 2025 16:16:42 +0100
-From: Sean Young <sean@mess.org>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Tommaso Merciai <tomm.merciai@gmail.com>,
-	Martin Hecht <mhecht73@gmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Umang Jain <umang.jain@ideasonboard.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Mikhail Rudenko <mike.rudenko@gmail.com>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Nicholas Roth <nicholas@rothemail.net>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Sylvain Petinot <sylvain.petinot@foss.st.com>,
-	Paul Elder <paul.elder@ideasonboard.com>,
-	Matt Ranostay <matt@ranostay.sg>,
-	Nas Chung <nas.chung@chipsnmedia.com>,
-	Jackson Lee <jackson.lee@chipsnmedia.com>,
-	Dmitry Osipenko <digetx@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Vikash Garodia <quic_vgarodia@quicinc.com>,
-	Dikshita Agarwal <quic_dikshita@quicinc.com>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Matthias Fend <matthias.fend@emfend.at>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Ricardo Ribalda <ribalda@chromium.org>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 41/80] media: Remove redundant
- pm_runtime_mark_last_busy() calls
-Message-ID: <aGfwWkZg48T1tooH@gofer.mess.org>
-References: <20250704075225.3212486-1-sakari.ailus@linux.intel.com>
- <20250704075431.3220262-1-sakari.ailus@linux.intel.com>
+	id 1uXiIm-0000000EolE-2dy8;
+	Fri, 04 Jul 2025 15:26:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751642770;
+	bh=ohRy4gcoGuEcRKZpJdSU1G0sKmqubXx68E7KSC1A01I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IQpuTJ46xB7t9TZsLEqdQUqcaUBAf7UcGR9KeXm5AbW+VdHtVw9PDpxe3+Zx8pk1A
+	 2tofxiaQsxOsBqI1Xoko5rRmH1K5bu7qQfSPpuDh9FHDevntD6KW1HNq8gawLU7HWj
+	 QN/lN+G1R0r+Nw79biJPjRdmz1WYurJMekV6zpmEDl6scwasEp6xsbqmNTSljPz6J6
+	 pDCt8GB71tdiXMdZ++n5SpjvzRnxX7/0eOzOnA9yMMhfpHs04vvBc2wV18ZLD0P/6T
+	 hvRxPGgcRDfX0NNfaE6a/UgspTX3s/2td2/OaNlIvJoPeuPYsoHL9B+Vb1799nm2kj
+	 uNYYV5pFL+w3w==
+Received: from [192.168.1.90] (unknown [212.93.144.165])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDC8517E07C9;
+	Fri,  4 Jul 2025 17:26:09 +0200 (CEST)
+Message-ID: <c08e55bb-fb93-44d6-bcb2-f1a1b78a5fb7@collabora.com>
+Date: Fri, 4 Jul 2025 18:26:09 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250704075431.3220262-1-sakari.ailus@linux.intel.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in
+ dw_hdmi_qp_plat_data
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250704-rk3588-hdmi-cec-v1-0-2bd8de8700cd@collabora.com>
+ <20250704-rk3588-hdmi-cec-v1-3-2bd8de8700cd@collabora.com>
+ <20250704-granite-piculet-of-elevation-f01e08@houat>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20250704-granite-piculet-of-elevation-f01e08@houat>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_081649_100116_D9CF6EA2 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20250704_082612_825315_D78B3029 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,33 +88,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 10:54:31AM +0300, Sakari Ailus wrote:
-> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
-> pm_runtime_mark_last_busy().
+Hi Maxime,
+
+On 7/4/25 6:07 PM, Maxime Ripard wrote:
+> On Fri, Jul 04, 2025 at 05:23:24PM +0300, Cristian Ciocaltea wrote:
+>> In order to support correct initialization of the timer base in the HDMI
+>> QP IP block, extend the platform data to provide the necessary reference
+>> clock rate.
+>>
+>> While at it, ensure plat_data is zero-initialized in
+>> dw_hdmi_qp_rockchip_bind().
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 13 ++++++++++++-
+>>  include/drm/bridge/dw_hdmi_qp.h                |  1 +
+>>  2 files changed, 13 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+>> index 126e556025961e8645f3567b4d7a1c73cc2f2e7f..8c1185490009c5f1bc658998a868f8b18dc479a3 100644
+>> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+>> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+>> @@ -431,8 +431,8 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>>  				    void *data)
+>>  {
+>>  	struct platform_device *pdev = to_platform_device(dev);
+>> +	struct dw_hdmi_qp_plat_data plat_data = {};
+>>  	const struct rockchip_hdmi_qp_cfg *cfg;
+>> -	struct dw_hdmi_qp_plat_data plat_data;
+>>  	struct drm_device *drm = data;
+>>  	struct drm_connector *connector;
+>>  	struct drm_encoder *encoder;
+>> @@ -515,6 +515,17 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>>  		return ret;
+>>  	}
+>>  
+>> +	for (i = 0; i < ret; i++) {
+>> +		if (!strcmp(clks[i].id, "ref")) {
+>> +			plat_data.ref_clk_rate = clk_get_rate(clks[i].clk);
+>> +			break;
+>> +		}
+>> +	}
+>> +	if (!plat_data.ref_clk_rate) {
+>> +		dev_err(hdmi->dev, "Missing ref clock\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
 > 
-> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> ---
- 
-...
+> You'd be better off not using clk_bulk, or calling an additional clk_get
+> for the ref clock only.
 
->  diff --git a/drivers/media/rc/gpio-ir-recv.c b/drivers/media/rc/gpio-ir-recv.c
-> index bf6d8fa983bf..161f8919022c 100644
-> --- a/drivers/media/rc/gpio-ir-recv.c
-> +++ b/drivers/media/rc/gpio-ir-recv.c
-> @@ -49,7 +49,6 @@ static irqreturn_t gpio_ir_recv_irq(int irq, void *dev_id)
->  		ir_raw_event_store_edge(gpio_dev->rcdev, val == 1);
->  
->  	if (pmdev) {
-> -		pm_runtime_mark_last_busy(pmdev);
->  		pm_runtime_put_autosuspend(pmdev);
->  	}
+I'd keep clk_bulk as there are 5 more clocks in the list.  But replacing the
+loop with just an extra clk_get would be a simpler approach, indeed, so
+thanks for the hint!
 
-No need for braces any more - as Laurent already pointed out.
-
-Reviewed-by: Sean Young <sean@mess.org>
-
-
-Sean
+Regards,
+Cristian
 
