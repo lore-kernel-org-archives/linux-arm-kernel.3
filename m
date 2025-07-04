@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C091FC83F0C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90076C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=632+rhx9yB6Fm/tjsLJEwD3si/omCndt8TY0nCUbZ2U=; b=YikV9uAajeuG5FaBxdS5YJSpWO
-	1RevbTDf90xqy5VHySAFEnh3F0OvHUj2xBYsX2xwrarOU/CdNL3u15SRGfwp680vldpltXo/eZObo
-	mXexhgaru8t3T0OFi8svBEFaapeRmIN3Y5QPCLA7riy7p0acjzhA+4LYp8rGR6UJz3EPrVAiH69gV
-	2cnKYfGY83kpeN6IisC8UdVtiIDcpF3SmWW8XJUBVgGKvcF8qTNcMrAylUrrDf/qLRtaGvBGZAwZG
-	lQr0zOvTGCphrcTWhKN/QATAk3UF7k4bwe05mLMddIFiY+Y/8M+PT130I86MzmrK0ey9RQjr6zsab
-	nB4a+VFg==;
+	bh=GFXgb0s+IYJqr9jWmdPiymgN4kIkfeX4NU0o6gBVPfI=; b=ZmKvKkawFNEE0rcRBYyyNmpVTe
+	v3cQGrmZKWML9W/UnnpZvgQbczyIBcPjM0VQWvi0jBtBpRUeEWSc5Y5mdL8t4e4Mtw+udDFFqIu9c
+	YvZBugi0EZODUpybiP5J6JEi6d4uTsQtWnaIN3t4d2jPEVS9PeX8T1LiJww7sRLxyn+qldYzTe/ZM
+	w85+xF2cq0hVdazRqxxiSaYKrUEktW6jmTxk59Wns19S32Ijzkm7nctglQOca0W9Ue52Mygihq5m9
+	+Qcy/B5HEmbXSfrsN3kwXd7oCFqekvwTQAsjC3D4IDdEgFsy8N0a3j+VdPUtgM1N7GhdWwrR7eAuZ
+	sfdgku4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXeyC-0000000EHq6-27xb;
-	Fri, 04 Jul 2025 11:52:44 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uXeyG-0000000EHvf-0dOw;
+	Fri, 04 Jul 2025 11:52:48 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXcVN-0000000DtuA-0PVu;
-	Fri, 04 Jul 2025 09:14:50 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bYScg4BMbz6L55T;
-	Fri,  4 Jul 2025 17:14:11 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 546161404A9;
-	Fri,  4 Jul 2025 17:14:43 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 4 Jul
- 2025 11:14:42 +0200
-Date: Fri, 4 Jul 2025 10:14:41 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Andy Shevchenko <andriy.shevchenko@intel.com>, <jic23@kernel.org>,
-	<dlechner@baylibre.com>, <nuno.sa@analog.com>, <andy@kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<matthias.bgg@gmail.com>, <linux-iio@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<kernel@collabora.com>
-Subject: Re: [PATCH v2 4/6] iio: adc: mt6359: Move reference voltage to
- platform data
-Message-ID: <20250704101441.00004cbd@huawei.com>
-In-Reply-To: <cbd79481-474e-4c9f-bbe8-367917115ccd@collabora.com>
-References: <20250703141146.171431-1-angelogioacchino.delregno@collabora.com>
-	<20250703141146.171431-5-angelogioacchino.delregno@collabora.com>
-	<aGaThTSAriz46D7T@smile.fi.intel.com>
-	<cbd79481-474e-4c9f-bbe8-367917115ccd@collabora.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1uXcqm-0000000DwrI-0QGO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Jul 2025 09:36:57 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5647ZtkU028698;
+	Fri, 4 Jul 2025 11:36:50 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	GFXgb0s+IYJqr9jWmdPiymgN4kIkfeX4NU0o6gBVPfI=; b=hU0tCFXHvr+dCiAS
+	6Rm8b/FkxRWvkvOZmSbIVq7pEw3FTHO9afQGrN01sm+qrdT1yKvVW6bxkaKU1R/p
+	q2eFkqD8byzZO+6nxEGUWGTTPiHrfl/VOkgElDJyz+iQaH2vyX3RM80F5EUtuFxo
+	0nsEaKWdholSf9mlnB3S0rdIfTO/g/xVVAb6y5YdmP4E6tNOjm8JNgrdVImbh0JW
+	Pf8ZDaJ/oRHUdecw1zUcCf2SZMCHzUIG/TRHxMqBGlm4B1iWg9O7oLxypMtXvdGu
+	bALlGlmcBGOaYaRBqEgls1Va9P930hkO392icIriy+hCBJjX9969Q4PRBQr9OF3s
+	Eah4qQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47jsy59w9f-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 04 Jul 2025 11:36:50 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7967340046;
+	Fri,  4 Jul 2025 11:36:10 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 60CCEAAF64F;
+	Fri,  4 Jul 2025 11:35:52 +0200 (CEST)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 4 Jul
+ 2025 11:35:51 +0200
+Message-ID: <64d4d444-1317-4b55-be47-67fe7d1184d3@foss.st.com>
+Date: Fri, 4 Jul 2025 11:35:52 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11] arm64: defconfig: Enable STM32 Octo Memory Manager
+ and OcstoSPI driver
+To: Patrice Chotard <patrice.chotard@foss.st.com>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250630-upstream_omm_ospi_defconfig-v11-1-6e934fabe698@foss.st.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20250630-upstream_omm_ospi_defconfig-v11-1-6e934fabe698@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100001.china.huawei.com (7.191.160.183) To
- frapeml500008.china.huawei.com (7.182.85.71)
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-04_03,2025-07-02_04,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_021449_280963_76B9E2C9 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20250704_023656_446165_D5D9D487 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +94,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 3 Jul 2025 16:40:38 +0200
-AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> wrote:
+Hi Patrice
 
-> Il 03/07/25 16:28, Andy Shevchenko ha scritto:
-> > On Thu, Jul 03, 2025 at 04:11:44PM +0200, AngeloGioacchino Del Regno wrote:  
-> >> In preparation to add support for new PMICs, add a `vref_mv`  
-> > 
-> > I still think that the vref_mV is a better naming.
-> >   
+On 6/30/25 10:44, Patrice Chotard wrote:
+> Enable STM32 OctoSPI driver.
+> Enable STM32 Octo Memory Manager (OMM) driver which is needed
+> for OSPI usage on STM32MP257F-EV1 board.
 > 
-> Ouch, I think I missed that comment; if there's nothing else to change,
-> I wonder if the capital V can be fixed while applying?
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> ---
+> Changes in v11:
+>    - rebase on top of next-20250627.
+>    - Add Alexandre in recipients.
 > 
-> Otherwise I can send a v3...
+> Changes in v10:
+>    - rebase on top of next-20250509.
+>    - Link to v9: https://lore.kernel.org/r/20250428-upstream_omm_ospi_defconfig-v9-1-66c1bbac5461@foss.st.com
 > 
+> Changes in v9:
+>    - split patchset by susbsystem, current one include only defconfig related
+>      patch.
+>    - Link to v8: https://lore.kernel.org/r/20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com
+> ---
+>   arch/arm64/configs/defconfig | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index 2211c385195456f8609edfad40202002df0abb5f..978bcd554ee18b0fa1975a984b9eb9058727df81 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -582,6 +582,7 @@ CONFIG_SPI_QUP=y
+>   CONFIG_SPI_QCOM_GENI=m
+>   CONFIG_SPI_S3C64XX=y
+>   CONFIG_SPI_SH_MSIOF=m
+> +CONFIG_SPI_STM32_OSPI=m
+>   CONFIG_SPI_SUN6I=y
+>   CONFIG_SPI_TEGRA210_QUAD=m
+>   CONFIG_SPI_TEGRA114=m
+> @@ -1528,6 +1529,7 @@ CONFIG_EXTCON_USB_GPIO=y
+>   CONFIG_EXTCON_USBC_CROS_EC=y
+>   CONFIG_FSL_IFC=y
+>   CONFIG_RENESAS_RPCIF=m
+> +CONFIG_STM32_OMM=m
+>   CONFIG_IIO=y
+>   CONFIG_EXYNOS_ADC=y
+>   CONFIG_IMX8QXP_ADC=m
+> 
+> ---
+> base-commit: 2aeda9592360c200085898a258c4754bfe879921
+> change-id: 20250410-upstream_omm_ospi_defconfig-cbeda7cb302a
+> 
+> Best regards,
 
-If that's all that comes up I'll tweak whilst applying.
 
-J
+Applied on stm32-next.
 
-> Cheers,
-> Angelo
-> 
-> >> the AUXADC_VOLT_FULL definition.
-> >>
-> >> As a consequence, the definition was also removed.  
-> >   
-> 
-> 
-
+thanks
+Alex
 
