@@ -4,161 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB81C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 15:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC1F3C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 15:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3YdLrtcWjC8TXgcV8EEsUT1uJOEj/REERA7ISvmB188=; b=qg+pgpaz+Ac6LO5olDGVro2Ka7
-	+BnoFOxTiJlzLuyVIZkp9KNSX0k+Nf+o5WbukujYOUsYYA11oiMTQGIrYoyHTYdUaJEoI8bJlAYbp
-	8B2x9jhEg8J2HTr09uyQLIRp719+UuVptOV1ZlQuVAxhGNVeAp9UzZwGGT/XnHnxrcsEYM1z0TFKK
-	+b8qQxLmYxSmRm4eJvGqWLL9fmeQHb9FhsemlvxnK13USpW+Ox4gm6ys4MiGd4muAfrNiFYvWd/+1
-	PaYhCV1BPqaBUBDff2QR565kg6SibCr9DN5G5X5oigS07OalbmmIn2SENXAxzOxDkVTds8/2qElEV
-	vihs0Dow==;
+	bh=rHZFdSSzEiuF7lehEB6m8VbOMkuSLfFX5QUFV4y4OvU=; b=zzScNJSsccYlVul1SWSpzjMqI9
+	mPrTUO93cMIfWkQPfM9uPn2l7F7qUfIShFpxMzNseB7XqZ6JbXgaSjjgMq0SJ+CSj/Ltso/hUa5Rt
+	2RxfnhWvB1rabadC4vFF5OytyV7Hx8nwZEgRPc/GskxXGHvS0ZBGUNpACwRhAm+NLcyoeFT1haBDA
+	lA1bNdeGLnRcwBX/ZJNCe2sEzTR4n+snUPePtb4RPFupxa2N0P+CTxdU/9LI5P9DWqnl5XyFcr6Cz
+	xFb44vt2Djwigl3DNuTFd/5hiFLsCRr+tMnBF8W65iMxZy3BlysXinVsb2miGFjCDSpzoMRrdIdoA
+	xJYgVh1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXi5K-0000000EmZM-48dw;
-	Fri, 04 Jul 2025 15:12:18 +0000
-Received: from mail-dm6nam10on20622.outbound.protection.outlook.com ([2a01:111:f403:2413::622] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uXi7m-0000000En85-31Lu;
+	Fri, 04 Jul 2025 15:14:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhy5-0000000EkhI-2tLd
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 15:04:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KIMayfKnd6orYtWduPvZxsjZ+BDxUMXtpXFHTkaOka42b2rfPIULYVLaH/pcLmawEbKxBH0oNGcfTsj4kmxtJgKAz62NiUp5N0UVnjeGUv1/XYPQ7nwI5CxZ1MxQ5ZLixYJqrhRWePER/drXe+8YU87+K6tvtUd8EP9UoB8k+MGc+mIM1QGomwZoU4q/6vdsvCo2aXxSqOHvKL2pGgbjoihu0x+LUN7EhGu5xz3J305qFdGrOd4NhH9lFW6xtJ6XraCtnM9of0y3w6adTUkbS6gyCmTUTAHt2siWWZAyozpPTGsmA93M5xfy9AU0xDSj0HU6Rk++xigyZOAqj7GX6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3YdLrtcWjC8TXgcV8EEsUT1uJOEj/REERA7ISvmB188=;
- b=sL4BhRzaAYGDaGNr/vrg2/PF7MUrKGI7zfLPHU8CQSjSSiExo9U8JMRWONoHILbmLvAEGj3huhD3zeor6Z3Hq9t/rNM7+W4rpRdPm1nZlbq4FScGQMAiMlQ20MNO0m8UujsiS2OjP3otzmPYyjZyb3sArUn6L/sJ7XIapetIA3jGIJsclyWn9HZb/X3EJgTdU6JwGls4rgwzJOw/7rZkhf5TvhUB5bp68basI1xpFTdQLQRLizsfztXiECGirXxl7U1PrRGckhrJi3SLNAJxcB1YMQ7dV31MgTE91K5Riq851LxIASuyExcqJwBjHBfNfocDdrvEdHOFTtjXqwOugQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3YdLrtcWjC8TXgcV8EEsUT1uJOEj/REERA7ISvmB188=;
- b=WdKLKeL9jlks6aMhpWXckiilMjm9j3LaVCOqG7RHu86AkBKeL195BotsUhHqG+47snh9s66DbErMz2tV4lwxYQLVpvtvha578xBaU6ufwbm8PKK+91/IvqVSWEYf7NBJRwc59NA7VERKa8ZC15tIXUdctBPjMfjefEzwVdHQU060/TtcqshDbvvP1s0qPii+a3cbgspzH5Al+TiNz1D53PcD2t0/tuGak8qwtVez4JI9N75cJrjr/GqIy41geeIMvjhhEEi5/cgXvzdRwJGWgRR/6F/Nf9K+MBec3CKTiS3AK166xP70YEQTkXGc2QQvxZHubx1Pgfp7uQ8JlC/tQQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by PH7PR12MB6468.namprd12.prod.outlook.com (2603:10b6:510:1f4::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.20; Fri, 4 Jul
- 2025 15:04:44 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8880.030; Fri, 4 Jul 2025
- 15:04:44 +0000
-Date: Fri, 4 Jul 2025 12:04:42 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: ankita@nvidia.com, maz@kernel.org, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com,
-	shahuang@redhat.com, lpieralisi@kernel.org, ddutile@redhat.com,
-	seanjc@google.com, aniketa@nvidia.com, cjia@nvidia.com,
-	kwankhede@nvidia.com, kjaju@nvidia.com, targupta@nvidia.com,
-	vsethi@nvidia.com, acurrid@nvidia.com, apopple@nvidia.com,
-	jhubbard@nvidia.com, danw@nvidia.com, zhiw@nvidia.com,
-	mochs@nvidia.com, udhoke@nvidia.com, dnigam@nvidia.com,
-	alex.williamson@redhat.com, sebastianene@google.com,
-	coltonlewis@google.com, kevin.tian@intel.com, yi.l.liu@intel.com,
-	ardb@kernel.org, akpm@linux-foundation.org, gshan@redhat.com,
-	linux-mm@kvack.org, tabba@google.com, qperret@google.com,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, maobibo@loongson.cn
-Subject: Re: [PATCH v9 6/6] KVM: arm64: Expose new KVM cap for cacheable
- PFNMAP
-Message-ID: <20250704150442.GI1410929@nvidia.com>
-References: <20250621042111.3992-1-ankita@nvidia.com>
- <20250621042111.3992-7-ankita@nvidia.com>
- <20250704134413.GE1410929@nvidia.com>
- <29cc7d2a-b174-4ed3-ae1a-22db478c62ec@redhat.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <29cc7d2a-b174-4ed3-ae1a-22db478c62ec@redhat.com>
-X-ClientProxiedBy: MN2PR08CA0030.namprd08.prod.outlook.com
- (2603:10b6:208:239::35) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1uXi0y-0000000EldY-3eYQ;
+	Fri, 04 Jul 2025 15:07:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=rHZFdSSzEiuF7lehEB6m8VbOMkuSLfFX5QUFV4y4OvU=; b=QwOyQ8KtbBVWK3GnwzXU2PT/s9
+	DU0e3ZMNAQM5b+Nfi9/nEtLWMmIY3UgYr4aYjkK8g2c4ge+uxUipFV77P/NBFDrQi2f00EE7e3vfh
+	Dfhlz5zTn9Wg4c0IzPGlg4l1hWz+YtWP5HYBagBoQLS19qcSR+liOoz03JjuP/GVWdp9KHMwuN/4u
+	RRDiF85xuUVqrfs5Iyc0LkSZoicp9PNoO1oxonahC3tKiFzI5hmnnlGtATgNguJWylHHF+DAwwpwY
+	g5zdNkRYwKQheQkjCZuL9yBhMyVhl/oMYrrLlZ3CDEKYlLK7qLJYodFYtP88m8RXkYUbnBAlC7xl/
+	LgwipyuQ==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXi0v-000000081B8-3OdK;
+	Fri, 04 Jul 2025 15:07:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6D046A53C59;
+	Fri,  4 Jul 2025 15:07:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF17AC4CEE3;
+	Fri,  4 Jul 2025 15:07:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751641661;
+	bh=xY/yriO6tBXfy5srN553QPb2aXYA16dzeg1QniS6sGE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S3C1949LJUYLkuDiWGT3TQF97d10CRTILMNnFMrDU8BasTdu+D1z7NslqV7Mwnt3B
+	 tWZRqRWBjDuwqGAR3WJ2iR8T4mAsTVoNSRZJjD4iKOCdC6rZFfZ/PlFoOAn4BShq3S
+	 lwXdMu4kaA+UXlgPSnpAnObWhmg5qWwIu5gtbggwCK5b7l8vf//Mez1ov5ym16rWKv
+	 BPagAflTusNu+6uh+4hlgIIyrTvaA6aVFEy0aplzhe1zC4p6QDqNyqB/BCFigTxdzH
+	 RBY3HIKxJhdpcRNbX8zhCy3JDBoRkyxXONeZohARzWT/qAe2dfU6DW58jbHLS7sg29
+	 QUVPtYv+5JXDg==
+Date: Fri, 4 Jul 2025 17:07:38 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/5] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in
+ dw_hdmi_qp_plat_data
+Message-ID: <20250704-granite-piculet-of-elevation-f01e08@houat>
+References: <20250704-rk3588-hdmi-cec-v1-0-2bd8de8700cd@collabora.com>
+ <20250704-rk3588-hdmi-cec-v1-3-2bd8de8700cd@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH7PR12MB6468:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5b64b77e-6709-4d4d-876a-08ddbb0c1bad
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YIolxF4JAz3rsdJGpiQavif1w80pfwXc0cpLXeXz3G8r1t79IHl8DwJxmzMs?=
- =?us-ascii?Q?/dKqKTDxJ9aPSR92luod5/xk+LItpYclh+XQGQ7FFBqflHIVKA664KkEJ25v?=
- =?us-ascii?Q?y2NVD1tESL4g47GJrEDZArpnzvMvdgyEbtI9m1QkMM5Y1W73/+u1cTgS5F5m?=
- =?us-ascii?Q?NvCq1u8zVruvAwuBfvkp9FaTFyX1ej/vzPhcFNns92E+1yrxxvEFxIEy3vK/?=
- =?us-ascii?Q?qCBIaa3UpoDlnTJR+/e7FLwVuMZTBTA4HhC4lJZsz3FjDVexP+OLYKTpEgic?=
- =?us-ascii?Q?fBkPZ8ahYzJC/OtvMGbwuv8iyfYncuXTReNEm4TY3vHeBQ6X96X5MObMZxDQ?=
- =?us-ascii?Q?yJFLA2r/b/653CdveJ8wCWJTcIIS4Hl8FodzAwGAWpSKOrjy63uAYfUxUT2j?=
- =?us-ascii?Q?5BKPMu4EwCeid+WmchH34oBbKkjKmZNXVLjnlcsZ0/wNAfxzEK6S2q6bm//y?=
- =?us-ascii?Q?CY2uCnPY1VExJlT6lW99wKuz3hzULfkg3Vog9vnOmNHvg9QyAL21Ewfn92ZW?=
- =?us-ascii?Q?t3Qgz5VSIUn0AbtmpJuDRRR8iOgJdHIY+ulzPIUqDR8CdcaQ0EyXxBwrQW4S?=
- =?us-ascii?Q?uDlQJ1GUvxo7AH0Eq4NrBtkvv+j1SSZzbc3u7D9G8xPLSssBqbvLNM5RKGVD?=
- =?us-ascii?Q?Mh0823hjZGYJeiZZPUmYkHh5DPOmri8QI1OnXgkCjfndGpdsFnZkMUGWo1bd?=
- =?us-ascii?Q?y7VMJQIql9LpY2exkZm+/D/viAfvGKdZi83yqbvFzVB6ZUaIN8K0nUShvSJj?=
- =?us-ascii?Q?mQcNUvs61GMei252wIdh/aA0zh+SvvT4+Ke3U1JSaPQu7uf7x0NJHvNHzVIB?=
- =?us-ascii?Q?cDxB41drqU9jrjQ8ljGxvYtYx3hMJV/lglpdaqH64Sg4rIRbNjH2JR2vnQmn?=
- =?us-ascii?Q?+0ngVChUcVTNchvS5SSpTZViq/1rhPzlVNBMCsAn3rEpSd0gyyeQDa5NEURD?=
- =?us-ascii?Q?5YKt+lRDp3oASxO9ATFTWfGydpIGoxdLrP11g/72+iaFxmEAl1dZ+BQtzeXl?=
- =?us-ascii?Q?0EqLvbH256YnTtIVrO6fOSOjFFt1/ZlpBBjA29JAgfM3eRseV6rTbaSo/1De?=
- =?us-ascii?Q?iodFuQ7RwD/v+NaO+V1/uujQxvCHpUg77I0eNzAwE6n7kP0YrLQWuV3AVqVf?=
- =?us-ascii?Q?B3aLlOlrfELdT7jlozq5Jk8qFqXPiwWWXSeZk3UesGx2wivoYcV+EIZV+pxm?=
- =?us-ascii?Q?lnNVc4NKckM0Wsy3WJUeT0U8HYxjGyj2QFGuHmjQn0UnwS9AIKqu8oJGeazC?=
- =?us-ascii?Q?9pqq7Xpv+TUeK5hbeKzmQMnMMnLobreRbutx603P5FE5LODIW511D4q22cg+?=
- =?us-ascii?Q?flLfAL8sliQX0nBTkDCfN5Y9i3WeGkenpLYSqAnOyv/XbhQNXoT/j7Be8/Ih?=
- =?us-ascii?Q?YGbRYd7xpMR9xwSGxi9NjEoDaiThjIXjehPu1S7VlSra7P+PVNTT0+hT66TE?=
- =?us-ascii?Q?iKtu2Bw2Zd4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ufrEhsHO4ZE33ZvKpTQ1Zr1LhdhbfFSMPCGpTnnDRmBkchg8R24y0oRa+arD?=
- =?us-ascii?Q?kHB+A+nhlL9tPy5px/LxCiZLBpOaa6X1pYXXOVTZfX65F/Bo9WcFlm7aCkbU?=
- =?us-ascii?Q?ViGJS2tUrwcc56++vMV9b5/nZap5P0cna/G7NiMeTsJ+F6lm/Lk4mGwWrqax?=
- =?us-ascii?Q?fNSpLPGTjdJb93RIO57x9EjY1DzCBQb6UC3p8MpIaeNQSEi5qr+V954a8IBV?=
- =?us-ascii?Q?8UZz0/QdZczx/qSL541fWc1T5yGpe4d9pgpiYjkRl/T78mZLmgTrWA31FTdg?=
- =?us-ascii?Q?MFcXxXknquXDxo9ApKaZUjWG3dN+9nadopAQO6Krw+SHISrnpU5dpSOjEunU?=
- =?us-ascii?Q?xpRrzjywziKZjzB6dyKygWIGkZuomMPMY1KxAuAyn37/lLgys1JWCgt4wCFb?=
- =?us-ascii?Q?NGIP0FMFdwjLpl285fzz4jecj08Ytwb0e5TW1Un12Zq5BYi2vDj32+WsQeLL?=
- =?us-ascii?Q?UyJuzx0NsilU84DNFpF0tgw3zP0cFE6FRPI0ta6jiuUSGv2S49u2l10cJtTr?=
- =?us-ascii?Q?ipI3EBSJafnpI6dNuBY4/iI9y0Smn8LSNaIAUTkl/YCANeyaJ+Y0U1J/o26J?=
- =?us-ascii?Q?5VV4IDzTrgydBH6tUYcoqnW2MTE44JFfMzs74vg+0R7NWWK5DsA9VWFGfgf7?=
- =?us-ascii?Q?a2kAQ9f35wkPDqFJmOaaEwzFqSkfIZs8lQeYkiXBaVNU+XYjIraLAGk2j9hD?=
- =?us-ascii?Q?aCJ+x6s7cfUZhg7UPLDBXcjp7lHi8jpe0UAtC201O0pK71/Z7+5TyfE75jgd?=
- =?us-ascii?Q?OpJfhwyFH22asBmSzc6yzdkVcnHDVOaxcl/LkdKAv9hJmoqyFrvL5A3u6Rag?=
- =?us-ascii?Q?FHbuo2GweWKNwH3Nc905OPIrLJZvvuRA2AdR4VdqDnrVMfUUMFIZhx6wrr59?=
- =?us-ascii?Q?szM/lAv6DWWN+EllN6OsXS9gAaBFbbogYLYjgjMnm7XASNppQmQx9dRvRAqO?=
- =?us-ascii?Q?kZ1ZmD7IfWtG183nVrSghuLrmBs09c0dv0MT8UyrEq8YHwqS2KMYbmAalAz7?=
- =?us-ascii?Q?SnLju/fPnqHonUSFEatfjWSBrNyRiCMzHm7Np217uT41NzS8QTAuxqlj1Ija?=
- =?us-ascii?Q?SWI79Rej5Fic/Wo1wVNEnpIYwivQFL/7KVIhro3AdlnzacqhjeS01XliobK1?=
- =?us-ascii?Q?0bQ/bG6/BgocnI2B8Kku3cgCN4KpPVGcwPNeUiOLZyY0yVi7+SKna3mtbd5g?=
- =?us-ascii?Q?YcWHVYmLubA0nllq0EDsRfCppqQqlR14mV8YIJsiknpWsfOgqy4JCiN6RLmG?=
- =?us-ascii?Q?CfpasCx3x5R+946UzJGoM63/vpas24iNWc2liiZHpdMK3pQjXpnIUdOXeTPu?=
- =?us-ascii?Q?HTPyDgRI/gAh46oKnpaL2zFolLI50jcaOnMena0x0TQIk9A2W2aLHjHnCT2C?=
- =?us-ascii?Q?7LpcNc7C3VFZvIf0q4/i9QHsBdMlO6vrtTnyzOneUagGZKuHciE+hkJ4uGgi?=
- =?us-ascii?Q?/SvQcYHoALBqYUiY48peRIG5UVlGT0kwqAQJyFhtMBuGkbCFIuOTIhkJGXEb?=
- =?us-ascii?Q?XyYQppVuKbBntY47bE37AHijePA9/ff8dNeGi1Zay0uinE4mpjwrMFveeBUQ?=
- =?us-ascii?Q?y9UJv2vtg1Sq+Rv3WBRoPsLbXfqsIPzLSVleO5gw?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b64b77e-6709-4d4d-876a-08ddbb0c1bad
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 15:04:43.9939
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4m57VUMCSivSGqGx+2H7IFonh/On1B0vgrVI3X86WK6/RBU170+dU2Jo0zhN6ZNe
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6468
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="oszopqzjak6ldkji"
+Content-Disposition: inline
+In-Reply-To: <20250704-rk3588-hdmi-cec-v1-3-2bd8de8700cd@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_080449_731692_18D0CBA4 
-X-CRM114-Status: GOOD (  26.74  )
+X-CRM114-CacheID: sfid-20250704_160746_098148_FE8B120C 
+X-CRM114-Status: GOOD (  21.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,46 +95,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 04:15:28PM +0200, David Hildenbrand wrote:
-> On 04.07.25 15:44, Jason Gunthorpe wrote:
-> > On Sat, Jun 21, 2025 at 04:21:11AM +0000, ankita@nvidia.com wrote:
-> > > From: Ankit Agrawal <ankita@nvidia.com>
-> > > 
-> > > Introduce a new KVM capability to expose to the userspace whether
-> > > cacheable mapping of PFNMAP is supported.
-> > > 
-> > > The ability to safely do the cacheable mapping of PFNMAP is contingent
-> > > on S2FWB and ARM64_HAS_CACHE_DIC. S2FWB allows KVM to avoid flushing
-> > > the D cache, ARM64_HAS_CACHE_DIC allows KVM to avoid flushing the icache
-> > > and turns icache_inval_pou() into a NOP. The cap would be false if
-> > > those requirements are missing and is checked by making use of
-> > > kvm_arch_supports_cacheable_pfnmap.
-> > > 
-> > > This capability would allow userspace to discover the support.
-> > > It could for instance be used by userspace to prevent live-migration
-> > > across FWB and non-FWB hosts.
-> > > 
-> > > CC: Catalin Marinas <catalin.marinas@arm.com>
-> > > CC: Jason Gunthorpe <jgg@nvidia.com>
-> > > CC: Oliver Upton <oliver.upton@linux.dev>
-> > > CC: David Hildenbrand <david@redhat.com>
-> > > Suggested-by: Marc Zyngier <maz@kernel.org>
-> > > Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
-> > > ---
-> > >   Documentation/virt/kvm/api.rst | 13 ++++++++++++-
-> > >   arch/arm64/kvm/arm.c           |  7 +++++++
-> > >   include/uapi/linux/kvm.h       |  1 +
-> > >   3 files changed, 20 insertions(+), 1 deletion(-)
-> > 
-> > I don't know if any VMM will ever use this, but it looks OK
-> 
-> So, should we defer it to the point where we actually have a use case?
-> 
-> I mean, patch #4 could be simplified by modifying arm64 code in patch #5
-> only. No need for a common kvm_arch function etc.
 
-IDK, I think Marc and Oliver are right it makes sense to have it, I
-just don't really see how a VMM would make use of it..
+--oszopqzjak6ldkji
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 3/5] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in
+ dw_hdmi_qp_plat_data
+MIME-Version: 1.0
 
-Jason
+On Fri, Jul 04, 2025 at 05:23:24PM +0300, Cristian Ciocaltea wrote:
+> In order to support correct initialization of the timer base in the HDMI
+> QP IP block, extend the platform data to provide the necessary reference
+> clock rate.
+>=20
+> While at it, ensure plat_data is zero-initialized in
+> dw_hdmi_qp_rockchip_bind().
+>=20
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 13 ++++++++++++-
+>  include/drm/bridge/dw_hdmi_qp.h                |  1 +
+>  2 files changed, 13 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu=
+/drm/rockchip/dw_hdmi_qp-rockchip.c
+> index 126e556025961e8645f3567b4d7a1c73cc2f2e7f..8c1185490009c5f1bc658998a=
+868f8b18dc479a3 100644
+> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> @@ -431,8 +431,8 @@ static int dw_hdmi_qp_rockchip_bind(struct device *de=
+v, struct device *master,
+>  				    void *data)
+>  {
+>  	struct platform_device *pdev =3D to_platform_device(dev);
+> +	struct dw_hdmi_qp_plat_data plat_data =3D {};
+>  	const struct rockchip_hdmi_qp_cfg *cfg;
+> -	struct dw_hdmi_qp_plat_data plat_data;
+>  	struct drm_device *drm =3D data;
+>  	struct drm_connector *connector;
+>  	struct drm_encoder *encoder;
+> @@ -515,6 +515,17 @@ static int dw_hdmi_qp_rockchip_bind(struct device *d=
+ev, struct device *master,
+>  		return ret;
+>  	}
+> =20
+> +	for (i =3D 0; i < ret; i++) {
+> +		if (!strcmp(clks[i].id, "ref")) {
+> +			plat_data.ref_clk_rate =3D clk_get_rate(clks[i].clk);
+> +			break;
+> +		}
+> +	}
+> +	if (!plat_data.ref_clk_rate) {
+> +		dev_err(hdmi->dev, "Missing ref clock\n");
+> +		return -EINVAL;
+> +	}
+> +
+
+You'd be better off not using clk_bulk, or calling an additional clk_get
+for the ref clock only.
+
+Maxime
+
+--oszopqzjak6ldkji
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaGfuNQAKCRAnX84Zoj2+
+dpLOAX9Fn+AyL0zuC8EJRGUMhLDwcaUmA/NnkN/yj+RvnyGSEiCcN475EqSfs8Ar
+XN9rlt8BgIP56Bw6kg86quaBe4oPgxNoKon98/DCRRHYCKPCWZeNss8Bcb7pDsas
+Q/Kd1zxghA==
+=fwlI
+-----END PGP SIGNATURE-----
+
+--oszopqzjak6ldkji--
 
