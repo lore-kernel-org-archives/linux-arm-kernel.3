@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5542DC8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 04:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67530C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 04:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gR0BMt/7ClaYB10TOF34a5J5p7dcrWpr3dm66JCqLfE=; b=MVBoYbFjR1f1wybaiPNveXtb5k
-	p9UhFTWokTWZTxbZaZw/+H6b9Shd7kdhI8TptGZKItIXqdtY07ZpAgqNjxkfT5tU46lKbt4f7DYqm
-	tcOvpMQvl8FxtygvJIBIf0ARdtxbhKVVOCROHy0AKRNE0FyIUZn8co8yugq+xnEFP09ty7wVJ+pxP
-	CizKFShaU0ULVOLHI54afLR0/G6D+D2mGglB/8+CNaC9ZHjB7yZS0sEXk3h9jfNxhSEOYGV0ik96c
-	ppTB6bXOrUnaIJI45IMvynnquZW0EKzCnjUsLTzaEostlXUOLJCjo7yDWqxDsfSNOXy/C+xOW75pJ
-	PdQ7bmMA==;
+	bh=1qh1igbapZkuhPlj+7hCpE5j4ovp0JazbGtIkn59jcM=; b=lfQxLJv9mj8XvhxOvXZcISSIP/
+	jbDKbYS06lVMWGzipZ93NsNKnm00Pd7VX9owb5LfSMGzBDU0+K6ecW6vPGj17WGzqG6hFrG5ppo3r
+	N5A66Vto15elWHyuxWuL4cYBYUAAtkEFc8omwXrWmcW8dNiH6egToj3Jwu5vfuTQ3ck95F8GImrR/
+	aZl12V2zVxvePcdgPYT3cabr3pQzpHZ52Z0RmdZ3Y+4LjN23NFwaFJXq7XIAgApAbXXD9gQ5p1HlJ
+	XReu9BiR33yXYLX2Ky92C0XAe2LZokeo8/M8SddTWP83kSMVIvJtro9VyR5+PvP2wwuAKNM0j+FI6
+	f8vh/Xbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXY0P-0000000DEZF-2z0r;
-	Fri, 04 Jul 2025 04:26:33 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1uXY2k-0000000DFEM-1ica;
+	Fri, 04 Jul 2025 04:28:58 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXXy3-0000000DDwN-0MX6
+	id 1uXXzz-0000000DEUt-1l42
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 04:24:08 +0000
+	Fri, 04 Jul 2025 04:26:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751603047; x=1783139047;
+  t=1751603168; x=1783139168;
   h=date:from:to:cc:subject:message-id;
-  bh=3tYaQVVUfh0Udj9yEd/37c03fRohN/ycDvbe2l0hHxk=;
-  b=D1sndEDJ83i8w0bQnbva0ffjjaA3nR4y0V/8sLU1upXmaXHICWUW6eBP
-   3cRogs9w+N6r1XX7tmq6TLhLkT7TMBsCv7/2ubB4cVWOaTiJ58oVnONmu
-   zKTu3zr1BLszuul22woaoQyelnXIk87Y5Hh/91A7EtZO9pzX7wPAlOmds
-   1/EnYypMNW/wduoW+6zcjlpWGWa2EAVdgD5p9pnqAgJSzCovcAG35wZi6
-   LrBEq0HRzIG3gcBGyFMwl9918RQWKA93Wl6rNvj9FLvyN6VOFtO0cvEBS
-   8AlGE3HvedWl1cgIftiXtfoU3rmonzH2kuxqZLdL4DDJVi+mLFaepk7/9
-   g==;
-X-CSE-ConnectionGUID: KJSLh3edRO6Lxd44HcmmnQ==
-X-CSE-MsgGUID: 4f/PcyNfQ5Cve4qluxwW7g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11483"; a="53909366"
+  bh=G9KeVq8Fo3PyLyS0I8EbJKcczzB4BR0bLZv7d0B0rTI=;
+  b=YUsKkwRw5XOg4xTe6TnO1UmbXioDIoYTa5pbL6U8SjBuElMZ5W/6ypUr
+   JnqBVGfpDofANG2I7Ps5Hup2WI44WvVLov5nBrZpbL2KAAd7F6xAHBwm+
+   clXq/ASfW70/UHXNRz5F0WmjB1REGSKrdJPM1TDEtlGZ3LurdtErjlf9R
+   CwVGZfBoRQ7Oya16ofplXvhaxwJNw75lhLFOvPk8mMATWZuLOPKNnxWMa
+   qUPzVNiRjar77ef1wM7eSa5ZkuSIDYY6C59/QySRKsuJ41Za+RwvS+Uiw
+   lsu5LUwH+B7DKNxLr+zXzMjY8SVj2LVJ4kD9wgCPImCtZL02CK1w7cyN+
+   Q==;
+X-CSE-ConnectionGUID: em90zuE1RfuWRGUnp8e6bg==
+X-CSE-MsgGUID: oPPnYL8iRl2qwklYHrMT5w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11483"; a="54056312"
 X-IronPort-AV: E=Sophos;i="6.16,286,1744095600"; 
-   d="scan'208";a="53909366"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2025 21:24:07 -0700
-X-CSE-ConnectionGUID: bFJnJ2B9SI+A/vIAzvqOPQ==
-X-CSE-MsgGUID: TpYRXA1pQzqz9dUcko6LOw==
+   d="scan'208";a="54056312"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2025 21:26:07 -0700
+X-CSE-ConnectionGUID: TkCXcDpLTUWsPPIFYOWRdA==
+X-CSE-MsgGUID: LZszCJjSRzOgxT2dO3silw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.16,286,1744095600"; 
-   d="scan'208";a="153968784"
+   d="scan'208";a="160230295"
 Received: from lkp-server01.sh.intel.com (HELO 0b2900756c14) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 03 Jul 2025 21:24:05 -0700
+  by orviesa005.jf.intel.com with ESMTP; 03 Jul 2025 21:26:05 -0700
 Received: from kbuild by 0b2900756c14 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1uXXxy-0003KZ-2A;
-	Fri, 04 Jul 2025 04:24:02 +0000
-Date: Fri, 04 Jul 2025 12:24:01 +0800
+	id 1uXXzu-0003Kd-2c;
+	Fri, 04 Jul 2025 04:26:02 +0000
+Date: Fri, 04 Jul 2025 12:25:04 +0800
 From: kernel test robot <lkp@intel.com>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- 2ee49a6143b6313b8808ff505eb85958126d7e7e
-Message-ID: <202507041248.H5VMecrr-lkp@intel.com>
+Subject: [soc:for-next] BUILD SUCCESS
+ 33cfdf503bdecfdb196b6492907e0a2b49da423a
+Message-ID: <202507041252.bOoD7acE-lkp@intel.com>
 User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_212407_160177_74F7E0C2 
+X-CRM114-CacheID: sfid-20250703_212607_494339_E74E4AB3 
 X-CRM114-Status: UNSURE (   5.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,24 +83,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: 2ee49a6143b6313b8808ff505eb85958126d7e7e  Merge tag 'arm-soc/for-6.17/devicetree-arm64' of https://github.com/Broadcom/stblinux into soc/dt
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 33cfdf503bdecfdb196b6492907e0a2b49da423a  soc: document merges
 
-elapsed time: 725m
+elapsed time: 727m
 
-configs tested: 163
+configs tested: 167
 configs skipped: 4
 
 The following configs have been built successfully.
 More configs may be tested in the coming days.
 
 tested configs:
-alpha                             allnoconfig    clang-21
 alpha                             allnoconfig    gcc-15.1.0
 alpha                            allyesconfig    clang-19
 alpha                            allyesconfig    gcc-15.1.0
 arc                              allmodconfig    clang-19
-arc                               allnoconfig    clang-21
 arc                               allnoconfig    gcc-15.1.0
 arc                              allyesconfig    clang-19
 arc                   randconfig-001-20250704    gcc-8.5.0
@@ -113,13 +111,11 @@ arm                   randconfig-002-20250704    clang-21
 arm                   randconfig-003-20250704    gcc-8.5.0
 arm                   randconfig-004-20250704    gcc-13.4.0
 arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    clang-21
 arm64                             allnoconfig    gcc-15.1.0
 arm64                 randconfig-001-20250704    gcc-14.3.0
 arm64                 randconfig-002-20250704    clang-21
 arm64                 randconfig-003-20250704    clang-16
 arm64                 randconfig-004-20250704    gcc-10.5.0
-csky                              allnoconfig    clang-21
 csky                              allnoconfig    gcc-15.1.0
 csky                  randconfig-001-20250704    gcc-15.1.0
 csky                  randconfig-002-20250704    gcc-15.1.0
@@ -166,7 +162,6 @@ microblaze                          defconfig    gcc-15.1.0
 mips                              allnoconfig    gcc-15.1.0
 nios2                            allmodconfig    clang-21
 nios2                             allnoconfig    gcc-14.2.0
-nios2                             allnoconfig    gcc-15.1.0
 nios2                            allyesconfig    clang-21
 nios2                               defconfig    gcc-15.1.0
 nios2                 randconfig-001-20250704    gcc-8.5.0
@@ -174,6 +169,7 @@ nios2                 randconfig-002-20250704    gcc-10.5.0
 openrisc                         allmodconfig    clang-21
 openrisc                          allnoconfig    clang-21
 openrisc                         allyesconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-12
 parisc                           allmodconfig    gcc-15.1.0
 parisc                            allnoconfig    clang-21
 parisc                           allyesconfig    gcc-15.1.0
@@ -193,11 +189,14 @@ powerpc64             randconfig-003-20250704    clang-18
 riscv                            allmodconfig    gcc-15.1.0
 riscv                             allnoconfig    clang-21
 riscv                            allyesconfig    gcc-15.1.0
+riscv                               defconfig    gcc-12
 riscv                 randconfig-001-20250704    clang-21
 riscv                 randconfig-002-20250704    clang-21
 s390                             allmodconfig    clang-18
+s390                             allmodconfig    gcc-15.1.0
 s390                              allnoconfig    clang-21
 s390                             allyesconfig    gcc-15.1.0
+s390                                defconfig    gcc-12
 s390                  randconfig-001-20250704    clang-21
 s390                  randconfig-001-20250704    gcc-15.1.0
 s390                  randconfig-002-20250704    clang-21
@@ -205,6 +204,7 @@ s390                  randconfig-002-20250704    gcc-8.5.0
 sh                               allmodconfig    gcc-15.1.0
 sh                                allnoconfig    gcc-15.1.0
 sh                               allyesconfig    gcc-15.1.0
+sh                                  defconfig    gcc-12
 sh                    randconfig-001-20250704    clang-21
 sh                    randconfig-001-20250704    gcc-15.1.0
 sh                    randconfig-002-20250704    clang-21
@@ -219,6 +219,7 @@ sparc                 randconfig-002-20250704    clang-21
 sparc                 randconfig-002-20250704    gcc-8.5.0
 sparc64                          allmodconfig    clang-21
 sparc64                          allyesconfig    clang-21
+sparc64                             defconfig    gcc-12
 sparc64               randconfig-001-20250704    clang-21
 sparc64               randconfig-001-20250704    gcc-13.4.0
 sparc64               randconfig-002-20250704    clang-20
@@ -227,8 +228,11 @@ um                               allmodconfig    clang-19
 um                                allnoconfig    clang-21
 um                               allyesconfig    clang-19
 um                               allyesconfig    gcc-12
+um                                  defconfig    gcc-12
+um                             i386_defconfig    gcc-12
 um                    randconfig-001-20250704    clang-21
 um                    randconfig-002-20250704    clang-21
+um                           x86_64_defconfig    gcc-12
 x86_64                            allnoconfig    clang-20
 x86_64                           allyesconfig    clang-20
 x86_64      buildonly-randconfig-001-20250704    clang-20
