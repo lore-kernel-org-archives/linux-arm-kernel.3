@@ -4,66 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 872B2C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:53:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D053C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+82/1t755uTfXW3ST8sS2iDG+BfPnPQBew3rfjsvk0=; b=Esa67LwAUBceXu8/tfwl7Wc/QQ
-	hDr4WSMSflaJ/EGzjBBK260m59HA0YAqIv5xQ6Sdm73ByeNIg2HHKyGGIb2wXhDbx3QNxDyhbBgSg
-	Sri7wmZRZh2iU8vLG5QSSz4aO6cm0lEgsIhb+coeEKTDlRR18C5wnVWEHAFGc6ZEccKk4geaz3/3r
-	mTgyTvCudDHqKOC9fjw2NnpkGkMbLqujllYzFcKixHyoGXUbnvhMkvoArMNP2Av0OFi+DT7WKD9W9
-	ubtKULi7P8yN50s/GT8WLmIOZquQOJhm8aEqC6tIxN5tm51PJUaZczOwQQFm/hN5+LZpAgwqveLsV
-	8Np3xF9Q==;
+	bh=cI/8O2/D5ep0lVKPSdtjHlEeEGGOBvVPbnuVh1y/EII=; b=vViEz0PdBeVSyAqAzysUJ10mye
+	SosU2d2z5llAz6qG+7o8smBLEUavd9lsN34ZyKteE/yoEjYoxC0mQA+uksQP56k3ffwTSEJDpVGhn
+	jmrkKII5VvsJ5IEMI+clEhcVfSA1d3YQbdDuEVaQgeC69fdyxlQ/EgYYUeZ7mvPsGm8cN4n5oKqAN
+	NIJ9ZDX1wbmp+u3x/ZA5Ap5NZY4q4/ZfRfRFUpVS5fiwrtGPKdTwizqQrWrSNPBGa9GWdoaqDGE9z
+	7bgYIRkh/IVVm5i6NHMqtztP6ZEkUMJ47PSCKjmldXGPNEoMX60Y+V2laroFnMMog71fTi3rh6cO+
+	CxSGUghg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXeyQ-0000000EIC9-1pQ1;
-	Fri, 04 Jul 2025 11:52:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXe16-0000000E7lO-3QCK
+	id 1uXeym-0000000EIgm-1sfE;
+	Fri, 04 Jul 2025 11:53:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXeUd-0000000ECom-3jy4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 10:51:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 318F12661;
-	Fri,  4 Jul 2025 03:51:26 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF38A3F6A8;
-	Fri,  4 Jul 2025 03:51:37 -0700 (PDT)
-Date: Fri, 4 Jul 2025 11:51:35 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Chuck Cannon <chuck.cannon@nxp.com>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	"Pengutronix Kernel Team" <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 3/7] firmware: arm_scmi: imx: Support getting cfg info of
- MISC protocol
-Message-ID: <aGeyN4gp4qnLzgj2@bogus>
-References: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
- <20250627-sm-misc-api-v1-v1-3-2b99481fe825@nxp.com>
- <20250702-arrogant-jackdaw-of-skill-bb9fd3@sudeepholla>
- <20250704100741.GC4525@nxa18884-linux>
- <aGeYomz9DmmAOSEw@bogus>
- <DB9PR04MB8461CD9CBAE26448D5610BF28842A@DB9PR04MB8461.eurprd04.prod.outlook.com>
+	Fri, 04 Jul 2025 11:22:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 425376145A;
+	Fri,  4 Jul 2025 11:22:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA469C4CEEF;
+	Fri,  4 Jul 2025 11:22:08 +0000 (UTC)
+Date: Fri, 4 Jul 2025 12:22:06 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: will@kernel.org, anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
+	ryan.roberts@arm.com, kevin.brodsky@arm.com,
+	yangyicong@hisilicon.com, joey.gouly@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	david@redhat.com
+Subject: Re: [PATCH v4] arm64: Enable vmalloc-huge with ptdump
+Message-ID: <aGe5XjWKhgjzcw7L@arm.com>
+References: <20250626052524.332-1-dev.jain@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <DB9PR04MB8461CD9CBAE26448D5610BF28842A@DB9PR04MB8461.eurprd04.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_035140_947034_E25FD001 
-X-CRM114-Status: GOOD (  28.61  )
+In-Reply-To: <20250626052524.332-1-dev.jain@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,77 +61,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 10:39:53AM +0000, Peng Fan wrote:
-> > Subject: Re: [PATCH 3/7] firmware: arm_scmi: imx: Support getting cfg
-> > info of MISC protocol
-> > 
-> > On Fri, Jul 04, 2025 at 06:07:41PM +0800, Peng Fan wrote:
-> > > On Wed, Jul 02, 2025 at 04:21:58PM +0100, Sudeep Holla wrote:
-> > > >On Fri, Jun 27, 2025 at 02:03:46PM +0800, Peng Fan wrote:
-> > > >> MISC protocol supports getting the System Manager(SM) mode
-> > > >> selection and configuration name. Add the API for user to retrieve
-> > > >> the information from SM.
-> > > >>
-> > > >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > > >> ---
-> > > >>  .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 30
-> > ++++++++++++++++++++++
-> > > >>  include/linux/scmi_imx_protocol.h                  |  5 ++++
-> > > >>  2 files changed, 35 insertions(+)
-> > > >>
-> > > >> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> > > >> b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> > > >> index
-> > > >>
-> > 1b24d070c6f4856b92f515fcdba5836fd6498ce6..8ce4bf92e6535af2f3
-> > 0d72a34
-> > > >> 717678613b35049 100644
-> > > >> --- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> > > >> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-> > > >> @@ -26,6 +26,7 @@ enum scmi_imx_misc_protocol_cmd {
-> > > >>  	SCMI_IMX_MISC_CTRL_SET	= 0x3,
-> > > >>  	SCMI_IMX_MISC_CTRL_GET	= 0x4,
-> > > >>  	SCMI_IMX_MISC_DISCOVER_BUILDINFO = 0x6,
-> > > >> +	SCMI_IMX_MISC_CFG_INFO = 0xC,
-> > > >>  	SCMI_IMX_MISC_CTRL_NOTIFY = 0x8,
-> > > >>  };
-> > > >>
-> > > >> @@ -73,6 +74,11 @@ struct scmi_imx_misc_buildinfo_out {
-> > > >>  	u8 buildtime[MISC_MAX_BUILDTIME];  };
-> > > >>
-> > > >> +struct scmi_imx_misc_cfg_info_out {
-> > > >> +	__le32 msel;
-> > > >
-> > > >Now, I realise, this mode select is not properly defined in the
-> > document.
-> > > >Just 32-bit word. What are those values ? Any fixed list of values
-> > > >with well defined modes or configurations ? If so, please add to the
-> > document.
-> > >
-> > > The current used value are 0,1,2. It is used to decide the logic
-> > > machine boot order, such as 0 means booting LM0, LM1, LM2, LM3...
-> > > Regarding 0,1,2 using which LM order, it could be defined by user in
-> > > i.MX9 System Manger cfg file. That means 1 could mean LM0, LM2,
-> > LM3,
-> > > LM1 or LM0, LM3, LM1, LM2.
-> > >
-> > 
-> > This sounds like this is not well defined and could change on a different
-> > platform ? If so, how will you manage this extension across i.MX
-> > platforms ?
-> > 
-> > Or the above order is actually fixed and will remain same across the
-> > platforms ?
-> 
-> + Chuck who is the best person to answer this. I may not explain it clear.
-> 
+On Thu, Jun 26, 2025 at 10:55:24AM +0530, Dev Jain wrote:
+> @@ -1301,16 +1314,39 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>  	}
+>  
+>  	table = pmd_offset(pudp, addr);
+> +	/*
+> +	 * Isolate the PMD table; in case of race with ptdump, this helps
+> +	 * us to avoid taking the lock in __pmd_free_pte_page().
+> +	 *
+> +	 * Static key logic:
+> +	 *
+> +	 * Case 1: If ptdump does static_branch_enable(), and after that we
+> +	 * execute the if block, then this patches in the read lock, ptdump has
+> +	 * the write lock patched in, therefore ptdump will never read from
+> +	 * a potentially freed PMD table.
+> +	 *
+> +	 * Case 2: If the if block starts executing before ptdump's
+> +	 * static_branch_enable(), then no locking synchronization
+> +	 * will be done. However, pud_clear() + the dsb() in
+> +	 * __flush_tlb_kernel_pgtable will ensure that ptdump observes an
 
-Sorry I missed the mention of i.MX9 System Manger cfg file. So the exact
-order is specified in that file and this seems like an index to that entry.
-It is better to mention that in the document at the least if nothing else
-can be fixed and you need flexibility to keep that variable.
+Statements like "observes" really need to be relative, not absolute.
+Like in "observes an empty PUD before/after ...".
+
+> +	 * empty PUD. Thus, it will never walk over a potentially freed
+> +	 * PMD table.
+> +	 */
+> +	pud_clear(pudp);
+> +	__flush_tlb_kernel_pgtable(addr);
+> +	if (static_branch_unlikely(&ptdump_lock_key)) {
+> +		mmap_read_lock(&init_mm);
+> +		mmap_read_unlock(&init_mm);
+> +	}
+
+This needs a formal model ;).
+
+static_branch_enable() is called before the mmap_write_lock(), so even
+if the above observes the new branch, it may do the read_unlock() before
+the ptdump_walk_pgd() attempted the write lock. So your case 1
+description is not entirely correct.
+
+I don't get case 2. You want to ensure pud_clear() is observed by the
+ptdump code before the pmd_free(). The DSB in the TLB flushing code
+ensures some ordering between the pud_clear() and presumably something
+that the ptdump code can observe as well. Would that be the mmap
+semaphore? However, the read_lock would only be attempted if this code
+is seeing the static branch update, which is not guaranteed. I don't
+think it even matters since the lock may be released anyway before the
+write_lock in ptdump.
+
+For example, you do a pud_clear() above, skip the whole static branch.
+The ptdump comes along on another CPU but does not observe the
+pud_clear() since there's no synchronisation. It goes ahead and
+dereferences it while this CPU does a pmd_free().
+
+And I can't get my head around memory ordering, it doesn't look sound.
+static_branch_enable() I don't think has acquire semantics, at least not
+in relation to the actual branch update. The static_branch_unlikely()
+test, again, not sure what guarantees it has (I don't think it has any
+in relation to memory loads). Maybe you have worked it all out and is
+fine but it needs a better explanation and ideally some simple formal
+model. Show it's correct with a global variable first and then we can
+optimise with static branches.
 
 -- 
-Regards,
-Sudeep
+Catalin
 
