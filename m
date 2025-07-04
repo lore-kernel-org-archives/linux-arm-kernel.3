@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60814C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D56F0C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aZaOhFf4xFqn/MuLqb47tUCmytNik21097vodGYyRwU=; b=3tW3hsRzardNSROcyUWNlbzLfR
-	4vbMmOsI1nCRdf4ZHTI+uG0pSrPkFg9ky1x4URviGwKQMhjczL7M4iQRJjfZRAT0RKaEo1aphAtGI
-	DnEJxiJs3c7yUjHn6FpkwJkSayTxKywhLNMldduSx72TBc6yhSkcEt2SrDyjerwMqOvVlR7gSDgjj
-	llqTY7cuiVtKQK6wZi6U+TE+sZaE689tFUi7vpiYqV3+weF4uHBzljq7WoaZBy099lqW2Vm+PSG2d
-	iMQE77cw20jDEtd+da5RrhhiljtBzAavoIOaRGtW+5aMiAzUXO4hojcnaPhqqdAxBp6TMVz7aaCM3
-	GGGcJWSw==;
+	bh=5j+ildZKdAgbAL0LgvuikIYArGpe1jtgC3xFGYVg0vU=; b=JYt/b5/aBjrO4K41iRQ0lWM5t6
+	u3nAeeyUax78x24e6V2alXaAhHvUibfI6cXDiUY99I/hzLPC0FVK6Z/rVK7KU/vJoPYS6O2qsjRJX
+	C6HWtcnn28NU/7ci6FdGkpLKoqcctTd5NyCuR8NfNuoq0FXVc2TlQvYwWEiobnodDNT4YPZ+zg4GI
+	zrW6Kw7ZcrNacESMw5ah6VmVeVCtaZ1b+ZrLK8lneO7l3BMgYhu9xqVpe2rpAI95FMcXw0JOs4pXO
+	ZyKbrI7F5HFQ0YrUz1sdh2ByKrc2aBpWdsyiwaoTj7EjQks3FmO3C9vgaMAqt8W930qa5k46vD0NA
+	C4rS864w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhVs-0000000EgML-1poo;
-	Fri, 04 Jul 2025 14:35:40 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uXhWk-0000000EgV3-0CkS;
+	Fri, 04 Jul 2025 14:36:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhKA-0000000Eeyv-0eDA;
-	Fri, 04 Jul 2025 14:23:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751639012;
-	bh=ldghlCA/gMRJSmgWfHfOpqHHla57kEBIADI+qzIkLJM=;
+	id 1uXg9g-0000000ETKg-2FAH;
+	Fri, 04 Jul 2025 13:08:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 464AB44B38;
+	Fri,  4 Jul 2025 13:08:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C89E2C4CEEB;
+	Fri,  4 Jul 2025 13:08:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751634520;
+	bh=0J163NQ2g6iT1JWmoTnRElFmVhhyQWnZB3Sm6WBqxYI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=j0OSfDCFH8OfiJOhvUn9D6WUpQJvvU4qXHErh4TQF0dt4QlncVUY7xgM7zYF32CGe
-	 mfHoZ8eiivxE2b/t3EDAaHeJUjaLpCVjCSUCExJypkk19O5QSBfY9d91nqPjsQ8gvE
-	 jyih9f9bX3SHlnoIZkl+KLy0qTotzF4ZOI9uswffr2YhjkWxIZEpNRIpjfarVGz/lW
-	 x8EkNZeZR4fGWPJ2kAM/RuxGhh1pHKxsIJwRYKRg6ZJ/76kYx8m8chW0ChJc5UzTJa
-	 ZJjolJHfLo9uVPSYX5kfwLG51cJ85x6EioqsO6eLm63jQfz8818VaJEUGwQdXtaVI1
-	 B6uTSDgXViuUQ==
-Received: from localhost (unknown [212.93.144.165])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 2C9D917E090E;
-	Fri,  4 Jul 2025 16:23:32 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 04 Jul 2025 17:23:22 +0300
-Subject: [PATCH 1/5] drm/rockchip: dw_hdmi_qp: Provide CEC IRQ in
- dw_hdmi_qp_plat_data
+	b=kr/rEHuwj5fB0VR4i2MVTfDTBCvShkGCupuPkp6XlfLP86Rk3VavV1JjZfEX2+/E1
+	 tXmIsy3NSLe/b/jS35DS4Pujb2TaarVpaGB7XM7O5EaeeNzcexzNfVRKOzdr17JlUj
+	 KFIDoKGExUYNUOGEfQEswH2hu4yJS2If/SDOMbdp9ucuCwrl6vNQAsmR9VgBnuGObs
+	 xvi8g/5qxkg+G4N3Q6ftibwj865HZm2EUmz5xT3xRMpJqknzwOBXoWjdDOxR5TeOOn
+	 PjWwE6G/4Xdx6y68XWx4sCPe0j/jdeAUjBehaan+WSKTJjcnpTtBpcQ9iw6LMSz+DN
+	 AzXELV6R8DeKA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Fri, 04 Jul 2025 15:08:10 +0200
+Subject: [PATCH mt76 6/9] wifi: mt76: mt7996: Fix possible OOB access in
+ mt7996_tx()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250704-rk3588-hdmi-cec-v1-1-2bd8de8700cd@collabora.com>
-References: <20250704-rk3588-hdmi-cec-v1-0-2bd8de8700cd@collabora.com>
-In-Reply-To: <20250704-rk3588-hdmi-cec-v1-0-2bd8de8700cd@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
+Message-Id: <20250704-mt7996-mlo-fixes-v1-6-356456c73f43@kernel.org>
+References: <20250704-mt7996-mlo-fixes-v1-0-356456c73f43@kernel.org>
+In-Reply-To: <20250704-mt7996-mlo-fixes-v1-0-356456c73f43@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Bo Jiao <Bo.Jiao@mediatek.com>, Peter Chiu <chui-hao.chiu@mediatek.com>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_072334_368236_B70D782B 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250704_060840_597014_19F76031 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,42 +76,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation to support the CEC interface of the DesignWare HDMI QP IP
-block, extend the platform data to provide the required IRQ number.
+Fis possible Out-Of-Boundary access in mt7996_tx routine if link_id is
+set to IEEE80211_LINK_UNSPECIFIED
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Fixes: 3ce8acb86b661 ("wifi: mt76: mt7996: Update mt7996_tx to MLO support")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 4 ++++
- include/drm/bridge/dw_hdmi_qp.h                | 1 +
- 2 files changed, 5 insertions(+)
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 7d531b6f4c098c6c548788dad487ce4613a2f32b..126e556025961e8645f3567b4d7a1c73cc2f2e7f 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -539,6 +539,10 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	if (plat_data.main_irq < 0)
- 		return plat_data.main_irq;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index d1f90dea512bade652743611b7d062863a63ccfe..6404514556419f75b69a783d96b0920157263e04 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -1216,10 +1216,17 @@ static void mt7996_tx(struct ieee80211_hw *hw,
  
-+	plat_data.cec_irq = platform_get_irq_byname(pdev, "cec");
-+	if (plat_data.cec_irq < 0)
-+		return plat_data.cec_irq;
+ 	if (vif) {
+ 		struct mt7996_vif *mvif = (void *)vif->drv_priv;
+-		struct mt76_vif_link *mlink;
++		struct mt76_vif_link *mlink = &mvif->deflink.mt76;
+ 
+-		mlink = rcu_dereference(mvif->mt76.link[link_id]);
+-		if (mlink && mlink->wcid)
++		if (link_id < IEEE80211_LINK_UNSPECIFIED)
++			mlink = rcu_dereference(mvif->mt76.link[link_id]);
 +
- 	irq = platform_get_irq_byname(pdev, "hpd");
- 	if (irq < 0)
- 		return irq;
-diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index e9be6d507ad9cdc55f5c7d6d3ef37eba41f1ce74..b4a9b739734ec7b67013b683fe6017551aa19172 100644
---- a/include/drm/bridge/dw_hdmi_qp.h
-+++ b/include/drm/bridge/dw_hdmi_qp.h
-@@ -23,6 +23,7 @@ struct dw_hdmi_qp_plat_data {
- 	const struct dw_hdmi_qp_phy_ops *phy_ops;
- 	void *phy_data;
- 	int main_irq;
-+	int cec_irq;
- };
++		if (!mlink) {
++			ieee80211_free_txskb(hw, skb);
++			goto unlock;
++		}
++
++		if (mlink->wcid)
+ 			wcid = mlink->wcid;
  
- struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 		if (mvif->mt76.roc_phy &&
+@@ -1228,7 +1235,7 @@ static void mt7996_tx(struct ieee80211_hw *hw,
+ 			if (mphy->roc_link)
+ 				wcid = mphy->roc_link->wcid;
+ 		} else {
+-			mphy = mt76_vif_link_phy(&mvif->deflink.mt76);
++			mphy = mt76_vif_link_phy(mlink);
+ 		}
+ 	}
+ 
+@@ -1237,7 +1244,7 @@ static void mt7996_tx(struct ieee80211_hw *hw,
+ 		goto unlock;
+ 	}
+ 
+-	if (control->sta) {
++	if (control->sta && link_id < IEEE80211_LINK_UNSPECIFIED) {
+ 		struct mt7996_sta *msta = (void *)control->sta->drv_priv;
+ 		struct mt7996_sta_link *msta_link;
+ 
 
 -- 
 2.50.0
