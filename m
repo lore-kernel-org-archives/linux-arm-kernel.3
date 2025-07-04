@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08235C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 15:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D08EC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDRobQG93IsDOo+tSPuojQZ/LuqgZ2Bn6Fop8yAcZPE=; b=MZKUbBmWKd0vBR89GvW1aimleE
-	iSlY/olcaziSqKoV/GLGC8iaXkBwKMGSIfpYth72Z1fKtEwiJXtinA4re5VV6dHFJF1sKYe0qWuhe
-	p4+IScp2I+L9VzxEUuL7Mb/jKHEJTZWSOt8UlknYYsWrNy/wpucSAfd/p6nUtXtmoYr1MkUJeVBy7
-	onYPVQITNCGjyn1s4nBK9Mi6qYlBPUJkHANt1y8lLx0rtL6aB+vyqcVU8kSXr3eBv++CwEjiW+D3t
-	yeaKZqRSfz1caAvTOAQuhDvW/eGcp5kS7//j2m6dXdCYHjiQT8CO0dCr+AxeiblFIDKYARh/fG6pv
-	s6RhjwNg==;
+	bh=oGE18HFhbPACWMtVDKZk/HQiAdK27QXK2u/EKXUjGYo=; b=OewyASz3RL88OOWblw0ifcFb9U
+	fAJV3GErxCWyC2B/bmMZZP12v6uo6Ya+QWiAiEwHmIHKmNmnaus7RzId6VHx9PVYsDnim5N4Ninc3
+	Jrb/uyJ2+BsHVzfGxhqVgvkHnjLKx2+CfhNvEKCwhBXwvdXlU+8CpertgXuQWuUu3XbGgg75wKGmh
+	y4aUovKoSZbQO7vbbFPQYRbCopQVJ/nZsAL1gXzWSlPb0zYeZyHfAquiMLIDNihoF62dkasmtlTNa
+	Z55AQBnc3J7pkB648iuIBtceCH96hmPHmyy8JUVIXQS8pZLBc4MMQWFWh7WlDg+Llu8dwjX2XfHBU
+	WWmkyn7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXinR-0000000EtO6-3VC4;
-	Fri, 04 Jul 2025 15:57:53 +0000
+	id 1uXipl-0000000EtlJ-2Kxm;
+	Fri, 04 Jul 2025 16:00:17 +0000
 Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXijg-0000000Ess6-3UJw
+	id 1uXijm-0000000EstL-1bV2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 15:54:01 +0000
+	Fri, 04 Jul 2025 15:54:07 +0000
 Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 5FF331F00053
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 15:53:54 +0000 (UTC)
+	by leonov.paulk.fr (Postfix) with ESMTPS id 12FD71F0005B
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 15:53:55 +0000 (UTC)
 Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 9CDCEACA677; Fri,  4 Jul 2025 15:48:13 +0000 (UTC)
+	id ABE56ACA66D; Fri,  4 Jul 2025 15:47:40 +0000 (UTC)
 Received: from localhost.localdomain (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id 82FF0ACA650;
+	by laika.paulk.fr (Postfix) with ESMTP id 1912BACA64F;
 	Fri,  4 Jul 2025 15:46:34 +0000 (UTC)
 From: Paul Kocialkowski <paulk@sys-base.io>
 To: linux-media@vger.kernel.org,
@@ -54,17 +54,17 @@ Cc: Yong Deng <yong.deng@magewell.com>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
 	Maxime Ripard <mripard@kernel.org>
-Subject: [PATCH v8 2/9] dt-bindings: media: sun6i-a31-isp: Add optional interconnect properties
-Date: Fri,  4 Jul 2025 17:46:19 +0200
-Message-ID: <20250704154628.3468793-3-paulk@sys-base.io>
+Subject: [PATCH v8 1/9] dt-bindings: media: sun6i-a31-csi: Add optional interconnect properties
+Date: Fri,  4 Jul 2025 17:46:18 +0200
+Message-ID: <20250704154628.3468793-2-paulk@sys-base.io>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250704154628.3468793-1-paulk@sys-base.io>
 References: <20250704154628.3468793-1-paulk@sys-base.io>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_085401_026674_E4A45B22 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250704_085406_572173_D3CA3CEB 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,14 +84,14 @@ useful to attach the dma memory offset. Add related properties.
 
 Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
 ---
- .../devicetree/bindings/media/allwinner,sun6i-a31-isp.yaml  | 6 ++++++
+ .../devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml  | 6 ++++++
  1 file changed, 6 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-isp.yaml b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-isp.yaml
-index 3ea4a4290f23..c0d7accc7bbe 100644
---- a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-isp.yaml
-+++ b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-isp.yaml
-@@ -36,6 +36,12 @@ properties:
+diff --git a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml
+index 1aa5775ba2bc..978ef2dc0ae7 100644
+--- a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml
++++ b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml
+@@ -40,6 +40,12 @@ properties:
    resets:
      maxItems: 1
  
@@ -101,9 +101,9 @@ index 3ea4a4290f23..c0d7accc7bbe 100644
 +  interconnect-names:
 +    const: dma-mem
 +
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
- 
+   port:
+     $ref: /schemas/graph.yaml#/$defs/port-base
+     description: Parallel input port, connect to a parallel sensor
 -- 
 2.49.0
 
