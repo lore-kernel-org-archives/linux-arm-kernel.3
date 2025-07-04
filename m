@@ -4,68 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED2FC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B56C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8sPcZjKUdUBDWpvEshAPyOhZ/0NuBS4zgSCgP9w7a4=; b=UESPL706O3pADQev7dfnUtKkAW
-	nPr+CJeB4JfG2McOcvZ6/q8xd1dj7mzlTAi4y88xPohSFBeQhFyGB5nSSdGXsczMkeUSZn8Lc4681
-	WISN6hIkhWBx+/bIQUcGGKqqFR5kdlNgH0mQROcYahbeBiKnQ8q736Gyecvcth4bau5ixeIvPGB/Y
-	5VjrgA7kC6K/lUseEw+bbiY5IbAJH0IcI1W/3yJRRnmWcKAEqGZElsxvVSzkS25YxT3FcOKpYqqV3
-	fQ248FIMi3+QEu/igpPInhe5nCenA12jznsJ6k4aiUCCVeeRqNOXu3Cuaa3tRM6VegajQ4Nx9/U7Q
-	3PQeLsQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zr1cPFt1ocI87tcXWWTIGTy3VVDZtRQqFIo86Zh/iAA=; b=yzFT58hYJjO3ow0vW2OjiuTkuy
+	gDxf6gRH8T5uH2MT74KYvT5ErfK9XCf12QjUClVlDZ3gHqGaj1zecIN8j8B5RVfco9ydm9YabEFeK
+	apgzNJv/PUgAH4RuXg8ACv1SyeMuCnXHIGLkmyQjQ+R31XupmvYSrTt085zDbQBD+z39JQz9K7lRQ
+	TF/tM4UbMMaZ6ao5/9klNucpcHXiL/C2riXESRJ3SSo4z3KV/BBUe4gCVCDjg+GSEqRa3Q2cSeJqf
+	knbcmlUNYJHVuZtRd9z7pMK5gSihqXXZL0avrxc4FocvsW+kExehNlE7yZdytxECR2W/5D4Rdg3D8
+	in8lNWmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXjAi-0000000Ewdt-1Bwx;
-	Fri, 04 Jul 2025 16:21:56 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uXjD1-0000000Ewtf-0027;
+	Fri, 04 Jul 2025 16:24:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXip7-0000000Etdy-0t4Y
+	id 1uXito-0000000EuAy-2x31
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 15:59:38 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 32C941F0007E
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 15:59:07 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 4A964ACA6B8; Fri,  4 Jul 2025 15:52:15 +0000 (UTC)
-Received: from localhost.localdomain (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id AD114ACA65D;
-	Fri,  4 Jul 2025 15:46:45 +0000 (UTC)
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Cc: Yong Deng <yong.deng@magewell.com>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paul.kocialkowski@bootlin.com>
-Subject: [PATCH v8 8/9] ARM: dts: sun8i-a83t: Add BananaPi M3 OV5640 camera overlay
-Date: Fri,  4 Jul 2025 17:46:25 +0200
-Message-ID: <20250704154628.3468793-9-paulk@sys-base.io>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250704154628.3468793-1-paulk@sys-base.io>
-References: <20250704154628.3468793-1-paulk@sys-base.io>
+	Fri, 04 Jul 2025 16:04:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C185360054;
+	Fri,  4 Jul 2025 16:04:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DEA0C4CEE3;
+	Fri,  4 Jul 2025 16:04:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751645067;
+	bh=M9n2Q9cXb3bGzai3G9o0+Afu6gYoxXbovRVunTPC6tQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tU7+z4FYuh0BVlLIvRisojhalfOl91C0FNBPhC7Xq/ur/19ujU8uZOP8Vfh8ft/IP
+	 xpkCMrVGdW0UecnEOmcxvvOVaIaJcbjHzaXOk4kKRES5AWDiQlWSpwh+bzY8ekCaU1
+	 SvjjRnmpl6Lg9d3THr39a6aVD1vWHi80o/RncyG8r4Sp8QDOpxwkTejBQZkgO14bRu
+	 QeI+oVIOyPMxQgXaAnVDt5Imhl+RXCVBz2xEbZqVJ305jUvyoPMCdSjlFB0oSZf+Pd
+	 nQ8HOlRj9225heyBvWv2GBkEhbb/lHmFZaFEDIctjblBDGohhg4Fk+3zdwuHCQstFe
+	 0BmXU07FbmmFQ==
+Date: Fri, 4 Jul 2025 17:04:17 +0100
+From: Will Deacon <will@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, Ankit Agrawal <ankita@nvidia.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"seanjc@google.com" <seanjc@google.com>,
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>,
+	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"maobibo@loongson.cn" <maobibo@loongson.cn>,
+	"pbonzini@redhat.com" <pbonzini@redhat.com>
+Subject: Re: [PATCH v9 3/6] KVM: arm64: Block cacheable PFNMAP mapping
+Message-ID: <aGf7gfMjLhrqU5Kv@willie-the-truck>
+References: <20250621042111.3992-1-ankita@nvidia.com>
+ <20250621042111.3992-4-ankita@nvidia.com>
+ <aF6hamOI7YVDP1Cp@willie-the-truck>
+ <SA1PR12MB7199144BBDA23C9A06DA12F9B046A@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <20250630122501.GQ167785@nvidia.com>
+ <4b06b163-e1ce-4c20-b878-4593bc86bf53@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_085937_576449_49A8867D 
-X-CRM114-Status: GOOD (  18.00  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4b06b163-e1ce-4c20-b878-4593bc86bf53@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,156 +108,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+On Fri, Jul 04, 2025 at 02:21:32PM +0200, David Hildenbrand wrote:
+> On 30.06.25 14:25, Jason Gunthorpe wrote:
+> > On Mon, Jun 30, 2025 at 01:56:43AM +0000, Ankit Agrawal wrote:
+> > > > Sorry for the drive-by comment, but I was looking at this old series from
+> > > > Paolo (look at the cover letter and patch 5):
+> > > > 
+> > > > https://lore.kernel.org/r/20250109133817.314401-1-pbonzini@redhat.com
+> > > > 
+> > > > in which he points out that the arm64 get_vma_page_shift() function
+> > > > incorrectly assumes that a VM_PFNMAP VMA is physically contiguous, which
+> > > > may not be the case if a driver calls remap_pfn_range() to mess around
+> > > > with mappings within the VMA. I think that implies that the optimisation
+> > > > in 2aa53d68cee6 ("KVM: arm64: Try stage2 block mapping for host device
+> > > > MMIO") is unsound.
+> > > 
+> > > Hm yeah, that does seem problematic. Perhaps we need a new
+> > > vma flag that could help the driver communicate to the KVM that the
+> > > mapping is contiguous and it can go ahead with the optimization?
+> > > E.g. something similar to VM_ALLOW_ANY_UNCACHED.
+> > 
+> > I think Paolo has the right direction - remove any attempts by KVM to
+> > expand contiguity, it should only copy the primary's PTEs and rely on
+> > the primary to discover contiguity. No new flags.
+> 
+> 100%
 
-Add an overlay supporting the OV5640 from the BananaPi Camera v3
-peripheral board. The board has two sensors (OV5640 and OV8865)
-which cannot be supported in parallel as they share the same reset
-pin and the kernel currently has no support for this case.
+The part I don't understand, however, is that I can't see an MMU notifier
+anywhere on the successful remap_pfn_range() path. So if a driver is
+using that interface to change the mapping properties of a VM_PFNMAP VMA,
+how do we ensure that the guest doesn't use whatever stale mappings it's
+faulted in previously? Did I just miss something?
 
-Signed-off-by: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
----
- arch/arm/boot/dts/allwinner/Makefile          |   1 +
- .../sun8i-a83t-bananapi-m3-camera-ov5640.dtso | 117 ++++++++++++++++++
- 2 files changed, 118 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3-camera-ov5640.dtso
-
-diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index 7318ce6d7fa3..de13da013732 100644
---- a/arch/arm/boot/dts/allwinner/Makefile
-+++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -219,6 +219,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-a33-vstar.dtb \
- 	sun8i-a83t-allwinner-h8homlet-v2.dtb \
- 	sun8i-a83t-bananapi-m3.dtb \
-+	sun8i-a83t-bananapi-m3-camera-ov5640.dtbo \
- 	sun8i-a83t-cubietruck-plus.dtb \
- 	sun8i-a83t-tbs-a711.dtb \
- 	sun8i-h2-plus-bananapi-m2-zero.dtb \
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3-camera-ov5640.dtso b/arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3-camera-ov5640.dtso
-new file mode 100644
-index 000000000000..469faf8cd2c4
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3-camera-ov5640.dtso
-@@ -0,0 +1,117 @@
-+// SPDX-License-Identifier: GPL-2.0 OR X11
-+/*
-+ * Copyright 2022 Bootlin
-+ * Author: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/sun8i-a83t-ccu.h>
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&{/} {
-+	compatible = "sinovoip,bpi-m3";
-+
-+	/*
-+	 * These regulators actually have DLDO4 tied to their EN pin, which is
-+	 * described as input supply here for lack of a better representation.
-+	 * Their actual supply is PS, which is always-on.
-+	 */
-+
-+	ov5640_avdd: ov5640-avdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "ov5640-avdd";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&reg_dldo4>;
-+	};
-+
-+	ov5640_dovdd: ov5640-dovdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "ov5640-dovdd";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&reg_dldo4>;
-+	};
-+
-+	ov5640_dvdd: ov5640-dvdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "ov5640-dvdd";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+		vin-supply = <&reg_dldo4>;
-+	};
-+};
-+
-+&csi {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&csi_8bit_parallel_pins>;
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+
-+			csi_in_ov5640: endpoint {
-+				remote-endpoint = <&ov5640_out_csi>;
-+				bus-width = <8>;
-+				data-shift = <2>;
-+				hsync-active = <1>;
-+				vsync-active = <1>;
-+				pclk-sample = <1>;
-+			};
-+		};
-+	};
-+};
-+
-+&i2c2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c2_pe_pins>;
-+	status = "okay";
-+
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	ov5640: camera@3c {
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&csi_mclk_pin>;
-+
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+
-+		clocks = <&ccu CLK_CSI_MCLK>;
-+		clock-names = "xclk";
-+		assigned-clocks = <&ccu CLK_CSI_MCLK>;
-+		assigned-clock-parents = <&osc24M>;
-+		assigned-clock-rates = <24000000>;
-+
-+		AVDD-supply = <&ov5640_avdd>;
-+		DOVDD-supply = <&ov5640_dovdd>;
-+		DVDD-supply = <&ov5640_dvdd>;
-+
-+		powerdown-gpios = <&pio 3 15 GPIO_ACTIVE_HIGH>; /* PD15 */
-+		reset-gpios = <&pio 4 16 GPIO_ACTIVE_LOW>; /* PE16 */
-+
-+		rotation = <180>;
-+
-+		port {
-+			ov5640_out_csi: endpoint {
-+				remote-endpoint = <&csi_in_ov5640>;
-+				bus-width = <8>;
-+				data-shift = <2>;
-+				hsync-active = <1>; 
-+				vsync-active = <1>;
-+				pclk-sample = <1>;
-+			};
-+		};
-+	};
-+};
-+
-+&reg_dldo4 {
-+	regulator-min-microvolt = <2800000>;
-+	regulator-max-microvolt = <2800000>;
-+};
--- 
-2.49.0
-
+Will
 
