@@ -4,83 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC1F3C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 15:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A79AC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 15:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rHZFdSSzEiuF7lehEB6m8VbOMkuSLfFX5QUFV4y4OvU=; b=zzScNJSsccYlVul1SWSpzjMqI9
-	mPrTUO93cMIfWkQPfM9uPn2l7F7qUfIShFpxMzNseB7XqZ6JbXgaSjjgMq0SJ+CSj/Ltso/hUa5Rt
-	2RxfnhWvB1rabadC4vFF5OytyV7Hx8nwZEgRPc/GskxXGHvS0ZBGUNpACwRhAm+NLcyoeFT1haBDA
-	lA1bNdeGLnRcwBX/ZJNCe2sEzTR4n+snUPePtb4RPFupxa2N0P+CTxdU/9LI5P9DWqnl5XyFcr6Cz
-	xFb44vt2Djwigl3DNuTFd/5hiFLsCRr+tMnBF8W65iMxZy3BlysXinVsb2miGFjCDSpzoMRrdIdoA
-	xJYgVh1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GclhZB+I+gWjc1PWB+Tmja4z4M9XT8ugZhSsO+bEP7o=; b=pYs1Q3DOiHMjJDHTe4MGqxPCvq
+	zglaHjoVxZ8EiezVT51wkOfPoLloW3u2mF/O+xVCFbT8fv3zakkEX2XE2l0vOnzk7WzypPMX/lQk1
+	2m2I7wahUSObNWpTkjzSXvddMvYyNdmlBrzwtKOE8kCHubiObf6g/6Gf3lMZIed4YyM0naRDSc2we
+	5N9BC4t7BsjRTQvBEUSRybJKX7/yBX/YjCfbWKOZJXgdnxHGm8iO1GCA7dTTLT3bK97iWH+iz/eBv
+	zfJEmuY1qN+NsfsTPiRaCAm57TFdEfUlJbiB5T8uNLb9m8Y0s0syDUWo+rBL65n85Ug4hCq0F+Qsr
+	ir8Qdyhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXi7m-0000000En85-31Lu;
-	Fri, 04 Jul 2025 15:14:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uXiA6-0000000Enab-2l8K;
+	Fri, 04 Jul 2025 15:17:14 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXi0y-0000000EldY-3eYQ;
-	Fri, 04 Jul 2025 15:07:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=rHZFdSSzEiuF7lehEB6m8VbOMkuSLfFX5QUFV4y4OvU=; b=QwOyQ8KtbBVWK3GnwzXU2PT/s9
-	DU0e3ZMNAQM5b+Nfi9/nEtLWMmIY3UgYr4aYjkK8g2c4ge+uxUipFV77P/NBFDrQi2f00EE7e3vfh
-	Dfhlz5zTn9Wg4c0IzPGlg4l1hWz+YtWP5HYBagBoQLS19qcSR+liOoz03JjuP/GVWdp9KHMwuN/4u
-	RRDiF85xuUVqrfs5Iyc0LkSZoicp9PNoO1oxonahC3tKiFzI5hmnnlGtATgNguJWylHHF+DAwwpwY
-	g5zdNkRYwKQheQkjCZuL9yBhMyVhl/oMYrrLlZ3CDEKYlLK7qLJYodFYtP88m8RXkYUbnBAlC7xl/
-	LgwipyuQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXi0v-000000081B8-3OdK;
-	Fri, 04 Jul 2025 15:07:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6D046A53C59;
-	Fri,  4 Jul 2025 15:07:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF17AC4CEE3;
-	Fri,  4 Jul 2025 15:07:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751641661;
-	bh=xY/yriO6tBXfy5srN553QPb2aXYA16dzeg1QniS6sGE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S3C1949LJUYLkuDiWGT3TQF97d10CRTILMNnFMrDU8BasTdu+D1z7NslqV7Mwnt3B
-	 tWZRqRWBjDuwqGAR3WJ2iR8T4mAsTVoNSRZJjD4iKOCdC6rZFfZ/PlFoOAn4BShq3S
-	 lwXdMu4kaA+UXlgPSnpAnObWhmg5qWwIu5gtbggwCK5b7l8vf//Mez1ov5ym16rWKv
-	 BPagAflTusNu+6uh+4hlgIIyrTvaA6aVFEy0aplzhe1zC4p6QDqNyqB/BCFigTxdzH
-	 RBY3HIKxJhdpcRNbX8zhCy3JDBoRkyxXONeZohARzWT/qAe2dfU6DW58jbHLS7sg29
-	 QUVPtYv+5JXDg==
-Date: Fri, 4 Jul 2025 17:07:38 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/5] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in
- dw_hdmi_qp_plat_data
-Message-ID: <20250704-granite-piculet-of-elevation-f01e08@houat>
-References: <20250704-rk3588-hdmi-cec-v1-0-2bd8de8700cd@collabora.com>
- <20250704-rk3588-hdmi-cec-v1-3-2bd8de8700cd@collabora.com>
+	id 1uXi1x-0000000ElqO-14Rk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Jul 2025 15:08:50 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a53359dea5so503207f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Jul 2025 08:08:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1751641727; x=1752246527; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GclhZB+I+gWjc1PWB+Tmja4z4M9XT8ugZhSsO+bEP7o=;
+        b=cF58w540SFdg3SCF+3x672ttOEp+H5O7/t/b/4oYwJElkuKJLwUykKq8P2kslfUFXC
+         cRTnkJj5sICbP9qYLhbwtQChXyi/D0I6u0qiCZm7kexmf/XLhW0rkG62zDwPIf2y3Oq0
+         cihYO0cMgwlwPzk/hmJyGjANjhXiTTDzI2GBhqCRENFKgfKdRh9v5Xis15XoqIXnYpM4
+         TDkuqCBbZUZyCotzchr9vky/oKO4NB7unBSYDxpi4FD0P54JTayYTyEP2tzPofos0D+3
+         avpAF6zuPHKmLzmUrMhEgjsA0xbWxI7BGBPqqw6OGp2qZ4SiJ9Zw/joo6zfAiUyohLUe
+         pj/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751641727; x=1752246527;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GclhZB+I+gWjc1PWB+Tmja4z4M9XT8ugZhSsO+bEP7o=;
+        b=SkSUzFMiLvmDMkwPnJMeupCWNUExZojwyEmda1IGinU5r5KtO85CDCcBTtMXKiRA+M
+         V2Co3x6mHnAYG3k70Q2X7rXrhscK+Hdk2NVxGfNMtelJfYldhKMIP6o//LomRzRFWQFH
+         kwAqTevHu6JuGL2gug8C8+iMmQ3gN5z6qL5Yn730R1iU1BXnkMhLqykMRmSMcx+vatQv
+         44t4tlpXvuxpuCAMhRbqnhqrgKgSuZEEIr/W+uL+z8MacZ8yBt5wb3y8C97dc7L26TVy
+         g5r0pCuh5nf/5WEJfGUpFx9bozmn72kINBwO4LeZwMCgW4uf6XBcNGDH/B5z8oesAGll
+         rYKA==
+X-Forwarded-Encrypted: i=1; AJvYcCVMArjbRRpsor5WKLs7iT4+5qrihwnjgLuj85tR3qngNHcZTOfo/sMfscN+CzYJlFd2E+GU+mqFMtLP/hWjUnjp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFxmTsW/qw0P3Cx3C7qeG3uwZm+oNOdi4uqDthmtCodcpVj0nK
+	3wU/AZxlnw0flqTU2lUyk+T8UbvP5My5VVPDTF/jSD2fTIIQCYCe5wEeYhUiTyz4ckM=
+X-Gm-Gg: ASbGnctEZOYD4butLM6kgtW3N5B4+pR4LyKDADc3Dn9Wp4uKHiBxdXQND/7P4ubzYba
+	vtjLljzJ4b1ikBrfIpaU8/cs2oWoDPw569lChlb8jk03rMfUkEjE3X2ZK+br5NVUjb3yUA8WfwK
+	UWlJt+wADxAhyptw+kiacttfMDvSH5U/wuzPz0z/zstxQ45dSBh1PuyIJVmMgOtQxsdGsFR7GIM
+	PR810FNohH9fKiS3cWjUi34SeQoG0rEfnETqUCIqgtRGGcLxJlzAmf7ZKouLWTddUxNkPeO1abs
+	lv5OeHZGhmOqcXFKk9exBf4LoUp5WIBQWqERBqvX/QBN1H8ujBVqfq5ckLWTilQ0oWCrlO/Y3dv
+	u1X5GXLQ=
+X-Google-Smtp-Source: AGHT+IE7H9vRYfC7d4kJ+PSNtqfq+5KdOErVu7jZId1urOwLE5iqgduTgGoQI9kj0MA3An7JAcpEWQ==
+X-Received: by 2002:a05:6000:2910:b0:3a4:ec23:dba7 with SMTP id ffacd0b85a97d-3b497038e99mr2076301f8f.31.1751641727135;
+        Fri, 04 Jul 2025 08:08:47 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a9bead7csm57231595e9.39.2025.07.04.08.08.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Jul 2025 08:08:46 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
+ =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250613-ugoos-am3-v3-0-f8a43e6bbfdb@posteo.net>
+References: <20250613-ugoos-am3-v3-0-f8a43e6bbfdb@posteo.net>
+Subject: Re: [PATCH v3 0/2] arm64: Device Tree for Ugoos AM3 board
+Message-Id: <175164172639.2841706.12481135333211530140.b4-ty@linaro.org>
+Date: Fri, 04 Jul 2025 17:08:46 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="oszopqzjak6ldkji"
-Content-Disposition: inline
-In-Reply-To: <20250704-rk3588-hdmi-cec-v1-3-2bd8de8700cd@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_160746_098148_FE8B120C 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20250704_080849_285790_DC101FF4 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,79 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---oszopqzjak6ldkji
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 3/5] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in
- dw_hdmi_qp_plat_data
-MIME-Version: 1.0
+On Fri, 13 Jun 2025 15:39:12 +0200, J. Neuschäfer wrote:
+> This patchset adds a device tree for Ugoos AM3, an Android TV box from
+> 2018. Most hardware functionality has been tested, as noted in patch 2/2.
+> 
+> 
 
-On Fri, Jul 04, 2025 at 05:23:24PM +0300, Cristian Ciocaltea wrote:
-> In order to support correct initialization of the timer base in the HDMI
-> QP IP block, extend the platform data to provide the necessary reference
-> clock rate.
->=20
-> While at it, ensure plat_data is zero-initialized in
-> dw_hdmi_qp_rockchip_bind().
->=20
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 13 ++++++++++++-
->  include/drm/bridge/dw_hdmi_qp.h                |  1 +
->  2 files changed, 13 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu=
-/drm/rockchip/dw_hdmi_qp-rockchip.c
-> index 126e556025961e8645f3567b4d7a1c73cc2f2e7f..8c1185490009c5f1bc658998a=
-868f8b18dc479a3 100644
-> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> @@ -431,8 +431,8 @@ static int dw_hdmi_qp_rockchip_bind(struct device *de=
-v, struct device *master,
->  				    void *data)
->  {
->  	struct platform_device *pdev =3D to_platform_device(dev);
-> +	struct dw_hdmi_qp_plat_data plat_data =3D {};
->  	const struct rockchip_hdmi_qp_cfg *cfg;
-> -	struct dw_hdmi_qp_plat_data plat_data;
->  	struct drm_device *drm =3D data;
->  	struct drm_connector *connector;
->  	struct drm_encoder *encoder;
-> @@ -515,6 +515,17 @@ static int dw_hdmi_qp_rockchip_bind(struct device *d=
-ev, struct device *master,
->  		return ret;
->  	}
-> =20
-> +	for (i =3D 0; i < ret; i++) {
-> +		if (!strcmp(clks[i].id, "ref")) {
-> +			plat_data.ref_clk_rate =3D clk_get_rate(clks[i].clk);
-> +			break;
-> +		}
-> +	}
-> +	if (!plat_data.ref_clk_rate) {
-> +		dev_err(hdmi->dev, "Missing ref clock\n");
-> +		return -EINVAL;
-> +	}
-> +
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.17/arm64-dt)
 
-You'd be better off not using clk_bulk, or calling an additional clk_get
-for the ref clock only.
+[1/2] dt-bindings: arm: amlogic: Add Ugoos AM3
+      https://git.kernel.org/amlogic/c/ef491ab7cbf6a460476a41d8b5dbd8a4394282ba
+[2/2] arm64: dts: amlogic: Add Ugoos AM3
+      https://git.kernel.org/amlogic/c/b33f8cfb2b4d91c4bb7c16b354138cc205befed2
 
-Maxime
+These changes has been applied on the intermediate git tree [1].
 
---oszopqzjak6ldkji
-Content-Type: application/pgp-signature; name="signature.asc"
+The v6.17/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
 
------BEGIN PGP SIGNATURE-----
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaGfuNQAKCRAnX84Zoj2+
-dpLOAX9Fn+AyL0zuC8EJRGUMhLDwcaUmA/NnkN/yj+RvnyGSEiCcN475EqSfs8Ar
-XN9rlt8BgIP56Bw6kg86quaBe4oPgxNoKon98/DCRRHYCKPCWZeNss8Bcb7pDsas
-Q/Kd1zxghA==
-=fwlI
------END PGP SIGNATURE-----
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
 
---oszopqzjak6ldkji--
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+
+-- 
+Neil
+
 
