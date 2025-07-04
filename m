@@ -4,128 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E439C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B79AC8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QnCd8EhWi608gG2ZJYlh4eX8dcVJgRAAdrIHdUvyEVw=; b=jTFcd4XwR8a5K32xHJqLUR1Ygf
-	tAJV6AnBoCN1/z/XLrWQRMWRch+Z/PlPpzgiCyuYi8xTPA99wi7kgAapkEzydAxaKzlN6+yVohTi3
-	v/PnXdwQyaLWuzAZpv2DyV+e9hACsYANsx5rfuNOEMGu6ljht+AkZkuo1p+O23RJrzZcDKZ5+wlfL
-	TuBPj/SeifC1g6lte7eSwcdssOVbqbe6eW6ZFD7rt5Eau9YtgiSduKFmHvJahdL//9nZ1JeqYlGKS
-	AuAGp7g1gnhEmgpLObsRXsKxuSxUlblfIaa2B3pAX6N1MyaT/uHrBxmbGnkZAH51cyWA8tpGGAJQy
-	OPuP6itg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gLPE6u9pVE9mFKhORQsoD2PjZ8/6f/PPPShr0ovcjeY=; b=ga8gtUsdjxg2iZvs3ocpQnQRMt
+	aerBDiIcHqgcUK6znK/nFWCTiWFqebV48c8+Rt9Z6FCOFamvrva41vbuq6VayJ50MBxAYjl+vDWLJ
+	WQhik692vFB8uf2bqd62qE2wpern4Ei53Rny5CJXbX81wUUlXDHL/JeL7FifBVp6CWABwQy05Pvyz
+	HDn2MGeYzk/ZSBg2aU1vdMi9L1UAny/Y3Ocf3Q9cT5kijTxJS4ZIzTX8Hfqsw3AcGflefo3K+xpQi
+	55935cklXBK4rDzrYONPg4KaVAF2MojSa9XQUAfVpR1XX40MaOsIwNCN+n6vLccXN2D0TWlCWGNJt
+	g1Mq+PMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXjhQ-0000000F28C-3uam;
-	Fri, 04 Jul 2025 16:55:44 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1uXjjl-0000000F2RD-2fw8;
+	Fri, 04 Jul 2025 16:58:09 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXjCd-0000000Ewqe-1GLT
+	id 1uXjE3-0000000Ex2F-16S7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 16:23:56 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id BA2A51F38A;
-	Fri,  4 Jul 2025 16:23:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1751646233; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QnCd8EhWi608gG2ZJYlh4eX8dcVJgRAAdrIHdUvyEVw=;
-	b=L2gR8tuP/PGpICezWU6I/FHdzfdVJ014+mXt7VCUxfIQQGuLHGkju0of77fIkhWtrXhLlv
-	6B6Nnw61wPYIIbP4VKNpFWgCSNIN7tPBAOsVBDPKwM6gVGRueQs4W3TQ4dj3xYzz/Imi/M
-	8K8tJAs/q55YfzyCxE5lnc279+Ynnyw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1751646233;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QnCd8EhWi608gG2ZJYlh4eX8dcVJgRAAdrIHdUvyEVw=;
-	b=2ovIm12+Lw1AIzV5K/Ddziql1f/EX0Vn9Xt4Lt+ZdAxmlKIPcDAKDV1CHX+WjgoQJFWuV6
-	kQc3a1yAdZFyzRBA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1751646233; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QnCd8EhWi608gG2ZJYlh4eX8dcVJgRAAdrIHdUvyEVw=;
-	b=L2gR8tuP/PGpICezWU6I/FHdzfdVJ014+mXt7VCUxfIQQGuLHGkju0of77fIkhWtrXhLlv
-	6B6Nnw61wPYIIbP4VKNpFWgCSNIN7tPBAOsVBDPKwM6gVGRueQs4W3TQ4dj3xYzz/Imi/M
-	8K8tJAs/q55YfzyCxE5lnc279+Ynnyw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1751646233;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QnCd8EhWi608gG2ZJYlh4eX8dcVJgRAAdrIHdUvyEVw=;
-	b=2ovIm12+Lw1AIzV5K/Ddziql1f/EX0Vn9Xt4Lt+ZdAxmlKIPcDAKDV1CHX+WjgoQJFWuV6
-	kQc3a1yAdZFyzRBA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 48A4613757;
-	Fri,  4 Jul 2025 16:23:53 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Kke6DxkAaGhNGgAAD6G6ig
-	(envelope-from <jdelvare@suse.de>); Fri, 04 Jul 2025 16:23:53 +0000
-Date: Fri, 4 Jul 2025 18:23:48 +0200
-From: Jean Delvare <jdelvare@suse.de>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: linux-aspeed@lists.ozlabs.org, Joel Stanley <joel@jms.id.au>, Henry
- Martin <bsdhenrymartin@gmail.com>, Patrick Rudolph
- <patrick.rudolph@9elements.com>, Andrew Geissler <geissonator@yahoo.com>,
- Ninad Palsule <ninad@linux.ibm.com>, Patrick Venture <venture@google.com>,
- Robert Lippert <roblip@gmail.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 10/10] soc: aspeed: lpc-snoop: Lift channel config to
- const structs
-Message-ID: <20250704182348.53808e0f@endymion>
-In-Reply-To: <20250616-aspeed-lpc-snoop-fixes-v2-10-3cdd59c934d3@codeconstruct.com.au>
-References: <20250616-aspeed-lpc-snoop-fixes-v2-0-3cdd59c934d3@codeconstruct.com.au>
-	<20250616-aspeed-lpc-snoop-fixes-v2-10-3cdd59c934d3@codeconstruct.com.au>
-Organization: SUSE Linux
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.43; x86_64-suse-linux-gnu)
+	Fri, 04 Jul 2025 16:25:24 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-748fe69a7baso997407b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Jul 2025 09:25:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1751646322; x=1752251122; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gLPE6u9pVE9mFKhORQsoD2PjZ8/6f/PPPShr0ovcjeY=;
+        b=sqkAkMBDfbNUiopU/6LSqoT9j7ikB8FvL8ulGfXl7N+rVYJ5AevBbN+Na97KX63FhK
+         ipjp9GtMGfzhLbzNPgGnYgo5CwKVCmEL4+3Zk6VkaNeY9w6QSJxG8ly1224AGaOomGew
+         31ES/y+wOsUSYE8/FXD/amdYrEZrtBZKM6tdNNL7+DnkQYwdbR1fbqsfZ+ksuGymiTeS
+         TISA4mpRYdfJCZPnLXMD7S6/UOz8LTRfDI7aYbp898tt1C1YQez/BXnpThdkTK9unN3t
+         8VdCCvE2fUXq0I8sC0rPpMf9DcPABEhM3dWYzA9uoR9u8eA7SQ90KnRlSshKqshe+tlX
+         00bQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751646322; x=1752251122;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gLPE6u9pVE9mFKhORQsoD2PjZ8/6f/PPPShr0ovcjeY=;
+        b=N6Dov5omQzVHzizIJaQ9jRq3B3N4He+EfORhSHuImM1/4zxr9EhFpfGdKn46+0CcNO
+         FY41Ts2wbriGu4riax3P5Gv3VFnM102jPDCrNMsghJmwGIF6+7YtkQKcbMtPRGhYt8xW
+         nFRWaZrhUwQWmZ8WexnocZy+ZHv5crhw/9QVvLCegtmkeOdT2K6WWVnymNymrQ/xX7yp
+         SYq0UeMckfRr57FyuHTvae+iSYSOMvw1Pas1NTZWD3ZhGZrtDTKM/MZl0uVkipJrolhA
+         LphzLu5eeQImP4q/ooCnsTF1Hx6D8dTF9lr2VWfxGS+qD0BkDoSOxDMQkSmC3n/g6o5t
+         FzYA==
+X-Forwarded-Encrypted: i=1; AJvYcCUvrYOkgB5NSU1FGElo2J2kspW8pPD+5+4+plHdole4Qa9Ka0ON7ZjtHamSZyhD0/k6gl7gpaVgajwMIzoU022P@lists.infradead.org
+X-Gm-Message-State: AOJu0YxECKscpcHgtFc73jfIwTDZuzpeF7uGbbrg4NOB0YGonidRpDw4
+	m84yhP4Vt4/KTPkLaFnjqBCAkMGhQCO0wUE2u/K+mXCcMWGUBw5ArfHH0VO+ea/C9eM=
+X-Gm-Gg: ASbGncvPEibnQEfpdqmiCMmUo3Wch/dAHRpXUfuHNZiq/S9hQeQSxZrsnK8uKXuy7P2
+	vlqaMLPYf+/RetLFudCjxz1veTAvtYT0OkmCkrTyjLcPa2QAzuwQvnGUV5emczbmT4PxrO59VPy
+	GfOB0TtBklRINRbHd3dhsFKAqJoNJXybfT/2gmM1UyO032ruNOcOy0a2R7UgPZKkFU4y5vzKSXG
+	7UkunYMKkSEsmjZVjaKb+Otze+T5q2Dn9qIX7Cg9n8PZ3e5VNjHzkXKVQdX2QLRO+M78AqU6agU
+	iTL6TbiGUv72+H8aRdWoURTX13eKK/JSnoqOBmyWcr3vqmIKvT+mUtO728UstHPCFw==
+X-Google-Smtp-Source: AGHT+IFBiad93Pn2/FAtXLpWzkQ49cPn+B6HjvtiH5Apy3jz1Cm6ZSX7XnZ5N4+nL8xIggbIhrfCsA==
+X-Received: by 2002:a05:6a20:548d:b0:215:eafc:abda with SMTP id adf61e73a8af0-225be8d93abmr5288088637.18.1751646322493;
+        Fri, 04 Jul 2025 09:25:22 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:ebf3:da99:de93:f600])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74ce35cba78sm2572801b3a.57.2025.07.04.09.25.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Jul 2025 09:25:22 -0700 (PDT)
+Date: Fri, 4 Jul 2025 10:25:19 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Hiago De Franco <hiagofranco@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	Ritesh Kumar <ritesh.kumar@toradex.com>
+Subject: Re: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM regions
+Message-ID: <aGgAbwToGhsc5VV9@p14s>
+References: <20250703130831.18830-1-hiagofranco@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-3.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	HAS_ORG_HEADER(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,yahoo.com];
-	FREEMAIL_CC(0.00)[lists.ozlabs.org,jms.id.au,gmail.com,9elements.com,yahoo.com,linux.ibm.com,google.com,lists.infradead.org,vger.kernel.org];
-	RCVD_TLS_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[11];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250703130831.18830-1-hiagofranco@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_092355_642932_4B5E09AE 
-X-CRM114-Status: GOOD (  32.12  )
+X-CRM114-CacheID: sfid-20250704_092523_343908_E70991E3 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,244 +102,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Good morning,
 
-On Mon, 16 Jun 2025 22:43:47 +0930, Andrew Jeffery wrote:
-> The shifts and masks for each channel are defined by hardware and
-> are not something that changes at runtime. Accordingly, describe the
-> information in an array of const structs and associate elements with
-> each channel instance, removing the need for the switch and handling of
-> its default case.
-
-I like this.
-
-Note that technically, the removal of the default case in the switch
-was already possible since patch 06/10 (soc: aspeed: lpc-snoop:
-Constrain parameters in channel paths).
-
-> Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+On Thu, Jul 03, 2025 at 10:08:31AM -0300, Hiago De Franco wrote:
+> From: Hiago De Franco <hiago.franco@toradex.com>
+> 
+> Merge the contiguous ITCM and DTCM regions into a single region to
+> prevent failures when loading ELF files with large sections:
+> 
+> remoteproc remoteproc0: powering up imx-rproc
+> remoteproc remoteproc0: Booting fw image rproc-imx-rproc-fw, size 151824
+> imx-rproc imx8mp-cm7: Translation failed: da = 0x1f48 len = 0x1fcb0
+> remoteproc remoteproc0: bad phdr da 0x1f48 mem 0x1fcb0
+> remoteproc remoteproc0: Failed to load program segments: -22
+> remoteproc remoteproc0: Boot failed: -22
+> 
+> This approach is the same as commit 8749919defb8 ("remoteproc:
+> imx_rproc: Merge TCML/U").
+> 
+> Suggested-by: Ritesh Kumar <ritesh.kumar@toradex.com>
+> Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
 > ---
->  drivers/soc/aspeed/aspeed-lpc-snoop.c | 100 +++++++++++++++-------------------
->  1 file changed, 45 insertions(+), 55 deletions(-)
+> Hi,
 > 
-> diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> index 9f88c5471b1b6d85f6d9e1970240f3d1904d166c..2d97b8d5fb429e215c321c9c2ee3fa35d39f8618 100644
-> --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> @@ -63,7 +63,16 @@ enum aspeed_lpc_snoop_index {
->  	ASPEED_LPC_SNOOP_INDEX_MAX = ASPEED_LPC_SNOOP_INDEX_1,
->  };
->  
-> +struct aspeed_lpc_snoop_channel_cfg {
-> +	enum aspeed_lpc_snoop_index index;
-> +	u32 hicr5_en;
-> +	u32 snpwadr_mask;
-> +	u32 snpwadr_shift;
-> +	u32 hicrb_en;
-> +};
-> +
->  struct aspeed_lpc_snoop_channel {
-> +	const struct aspeed_lpc_snoop_channel_cfg *cfg;
->  	bool enabled;
->  	struct kfifo		fifo;
->  	wait_queue_head_t	wq;
-> @@ -77,6 +86,23 @@ struct aspeed_lpc_snoop {
->  	struct aspeed_lpc_snoop_channel chan[ASPEED_LPC_SNOOP_INDEX_MAX + 1];
->  };
->  
-> +static const struct aspeed_lpc_snoop_channel_cfg channel_cfgs[ASPEED_LPC_SNOOP_INDEX_MAX + 1] = {
-> +	{
-> +		.index = ASPEED_LPC_SNOOP_INDEX_0,
-> +		.hicr5_en = HICR5_EN_SNP0W | HICR5_ENINT_SNP0W,
-> +		.snpwadr_mask = SNPWADR_CH0_MASK,
-> +		.snpwadr_shift = SNPWADR_CH0_SHIFT,
-> +		.hicrb_en = HICRB_ENSNP0D,
-> +	},
-> +	{
-> +		.index = ASPEED_LPC_SNOOP_INDEX_1,
-> +		.hicr5_en = HICR5_EN_SNP1W | HICR5_ENINT_SNP1W,
-> +		.snpwadr_mask = SNPWADR_CH1_MASK,
-> +		.snpwadr_shift = SNPWADR_CH1_SHIFT,
-> +		.hicrb_en = HICRB_ENSNP1D,
-> +	},
-> +};
-> +
->  static struct aspeed_lpc_snoop_channel *snoop_file_to_chan(struct file *file)
->  {
->  	return container_of(file->private_data,
-> @@ -189,28 +215,27 @@ static int aspeed_lpc_snoop_config_irq(struct aspeed_lpc_snoop *lpc_snoop,
->  }
->  
->  __attribute__((nonnull))
-> -static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
-> -				   struct device *dev,
-> -				   enum aspeed_lpc_snoop_index index, u16 lpc_port)
-> +static int aspeed_lpc_enable_snoop(struct device *dev,
-> +				    struct aspeed_lpc_snoop *lpc_snoop,
-> +				    struct aspeed_lpc_snoop_channel *channel,
-> +				    const struct aspeed_lpc_snoop_channel_cfg *cfg,
-> +				    u16 lpc_port)
->  {
-
-I'm confused by this new calling convention. With lpc_snoop and index,
-you could already retrieve the aspeed_lpc_snoop_channel struct and the
-aspeed_lpc_snoop_channel_cfg struct. I can't see the benefit of the
-change. It even forces you to add an index field to struct
-aspeed_lpc_snoop_channel_cfg, which would otherwise not be needed.
-
-If you prefer to pass cfg instead of index as a parameter, that does
-not imply passing channel too. You can get the index from the cfg (if
-you decide to keep it in that struct), and then the channel from index.
-
-Or you could even pass only the channel (to be consistent with
-aspeed_lpc_disable_snoop), if you set channel->cfg before calling this
-function. Again this implies keeping index in struct
-aspeed_lpc_snoop_channel_cfg.
-
->  	const struct aspeed_lpc_snoop_model_data *model_data;
-> -	u32 hicr5_en, snpwadr_mask, snpwadr_shift, hicrb_en;
-> -	struct aspeed_lpc_snoop_channel *channel;
->  	int rc = 0;
->  
-> -	channel = &lpc_snoop->chan[index];
-> -
->  	if (WARN_ON(channel->enabled))
->  		return -EBUSY;
->  
->  	init_waitqueue_head(&channel->wq);
->  
-> +	channel->cfg = cfg;
->  	channel->miscdev.minor = MISC_DYNAMIC_MINOR;
->  	channel->miscdev.fops = &snoop_fops;
->  	channel->miscdev.parent = dev;
->  
->  	channel->miscdev.name =
-> -		devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, index);
-> +		devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, cfg->index);
->  	if (!channel->miscdev.name)
->  		return -ENOMEM;
->  
-> @@ -223,39 +248,18 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
->  		goto err_free_fifo;
->  
->  	/* Enable LPC snoop channel at requested port */
-> -	switch (index) {
-> -	case 0:
-> -		hicr5_en = HICR5_EN_SNP0W | HICR5_ENINT_SNP0W;
-> -		snpwadr_mask = SNPWADR_CH0_MASK;
-> -		snpwadr_shift = SNPWADR_CH0_SHIFT;
-> -		hicrb_en = HICRB_ENSNP0D;
-> -		break;
-> -	case 1:
-> -		hicr5_en = HICR5_EN_SNP1W | HICR5_ENINT_SNP1W;
-> -		snpwadr_mask = SNPWADR_CH1_MASK;
-> -		snpwadr_shift = SNPWADR_CH1_SHIFT;
-> -		hicrb_en = HICRB_ENSNP1D;
-> -		break;
-> -	default:
-> -		rc = -EINVAL;
-> -		goto err_misc_deregister;
-> -	}
-> -
-> -	/* Enable LPC snoop channel at requested port */
-> -	regmap_update_bits(lpc_snoop->regmap, HICR5, hicr5_en, hicr5_en);
-> -	regmap_update_bits(lpc_snoop->regmap, SNPWADR, snpwadr_mask,
-> -			   lpc_port << snpwadr_shift);
-> +	regmap_set_bits(lpc_snoop->regmap, HICR5, cfg->hicr5_en);
-> +	regmap_update_bits(lpc_snoop->regmap, SNPWADR, cfg->snpwadr_mask,
-> +		lpc_port << cfg->snpwadr_shift);
-
-It is a good practice to align the second line on the opening
-parenthesis of the first line (as was done originally).
-
->  
->  	model_data = of_device_get_match_data(dev);
->  	if (model_data && model_data->has_hicrb_ensnp)
-> -		regmap_update_bits(lpc_snoop->regmap, HICRB, hicrb_en, hicrb_en);
-> +		regmap_set_bits(lpc_snoop->regmap, HICRB, cfg->hicrb_en);
->  
->  	channel->enabled = true;
->  
->  	return 0;
->  
-> -err_misc_deregister:
-> -	misc_deregister(&channel->miscdev);
->  err_free_fifo:
->  	kfifo_free(&channel->fifo);
->  	return rc;
-> @@ -263,30 +267,13 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
->  
->  __attribute__((nonnull))
->  static void aspeed_lpc_disable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
-> -				     enum aspeed_lpc_snoop_index index)
-> +				     struct aspeed_lpc_snoop_channel *channel)
->  {
-> -	struct aspeed_lpc_snoop_channel *channel;
-> -
-> -	channel = &lpc_snoop->chan[index];
-> -
->  	if (!channel->enabled)
->  		return;
->  
->  	/* Disable interrupts along with the device */
-> -	switch (index) {
-> -	case 0:
-> -		regmap_update_bits(lpc_snoop->regmap, HICR5,
-> -				   HICR5_EN_SNP0W | HICR5_ENINT_SNP0W,
-> -				   0);
-> -		break;
-> -	case 1:
-> -		regmap_update_bits(lpc_snoop->regmap, HICR5,
-> -				   HICR5_EN_SNP1W | HICR5_ENINT_SNP1W,
-> -				   0);
-> -		break;
-> -	default:
-> -		return;
-> -	}
-> +	regmap_clear_bits(lpc_snoop->regmap, HICR5, channel->cfg->hicr5_en);
->  
->  	channel->enabled = false;
->  	/* Consider improving safety wrt concurrent reader(s) */
-> @@ -299,8 +286,8 @@ static void aspeed_lpc_snoop_remove(struct platform_device *pdev)
->  	struct aspeed_lpc_snoop *lpc_snoop = dev_get_drvdata(&pdev->dev);
->  
->  	/* Disable both snoop channels */
-> -	aspeed_lpc_disable_snoop(lpc_snoop, ASPEED_LPC_SNOOP_INDEX_0);
-> -	aspeed_lpc_disable_snoop(lpc_snoop, ASPEED_LPC_SNOOP_INDEX_1);
-> +	aspeed_lpc_disable_snoop(lpc_snoop, &lpc_snoop->chan[0]);
-> +	aspeed_lpc_disable_snoop(lpc_snoop, &lpc_snoop->chan[1]);
->  }
->  
->  static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
-> @@ -339,6 +326,8 @@ static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
->  	if (rc)
->  		return rc;
->  
-> +	static_assert(ARRAY_SIZE(channel_cfgs) == ARRAY_SIZE(lpc_snoop->chan),
-> +		"Broken implementation assumption regarding cfg count");
-
-Both also need to be equal to ASPEED_LPC_SNOOP_INDEX_MAX + 1, right?
-Otherwise the loop below would break. But it turns out that both arrays
-are now declared that way, so it just has to be true. This makes me
-believe that this static assert is no longer needed.
-
->  	for (idx = ASPEED_LPC_SNOOP_INDEX_0; idx <= ASPEED_LPC_SNOOP_INDEX_MAX; idx++) {
->  		u32 port;
->  
-> @@ -346,7 +335,8 @@ static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
->  		if (rc)
->  			break;
->  
-> -		rc = aspeed_lpc_enable_snoop(lpc_snoop, dev, idx, port);
-> +		rc = aspeed_lpc_enable_snoop(dev, lpc_snoop, &lpc_snoop->chan[idx],
-> +					     &channel_cfgs[idx], port);
->  		if (rc)
->  			goto cleanup_channels;
->  	}
+> The ELF I tested had the following data section:
 > 
+> Memory region         Used Size  Region Size  %age Used
+>     m_interrupts:         680 B         1 KB     66.41%
+>           m_text:        6984 B       127 KB      5.37%
+>           m_data:      130224 B       128 KB     99.35%
+>          m_data2:          0 GB        16 MB      0.00%
+> [100%] Built target hello_world_cm7.elf
+> 
+> Which triggered the error. After this patch, remoteproc was able to boot
+> and work fine. Thanks!
+> ---
+>  drivers/remoteproc/imx_rproc.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 74299af1d7f1..bbf089ef48ee 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -166,8 +166,8 @@ static const struct imx_rproc_att imx_rproc_att_imx8qxp[] = {
+>  
+>  static const struct imx_rproc_att imx_rproc_att_imx8mn[] = {
+>  	/* dev addr , sys addr  , size	    , flags */
+> -	/* ITCM   */
+> -	{ 0x00000000, 0x007E0000, 0x00020000, ATT_OWN | ATT_IOMEM },
+> +	/* D/ITCM */
+> +	{ 0x00000000, 0x007E0000, 0x00040000, ATT_OWN | ATT_IOMEM },
+>  	/* OCRAM_S */
+>  	{ 0x00180000, 0x00180000, 0x00009000, 0 },
+>  	/* OCRAM */
+> @@ -180,8 +180,6 @@ static const struct imx_rproc_att imx_rproc_att_imx8mn[] = {
+>  	{ 0x08000000, 0x08000000, 0x08000000, 0 },
+>  	/* DDR (Code) - alias */
+>  	{ 0x10000000, 0x40000000, 0x0FFE0000, 0 },
+> -	/* DTCM */
+> -	{ 0x20000000, 0x00800000, 0x00020000, ATT_OWN | ATT_IOMEM },
 
+In commit 8749919defb8 "dev addr" and "sys addr" were both contiguous, but in
+this patch "dev addr" is not.  How will this work with new kernel that use old
+FW images?  Am I missing something?
 
--- 
-Jean Delvare
-SUSE L3 Support
+Thanks,
+Mathieu
+
+>  	/* OCRAM_S - alias */
+>  	{ 0x20180000, 0x00180000, 0x00008000, ATT_OWN },
+>  	/* OCRAM */
+> -- 
+> 2.39.5
+> 
 
