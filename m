@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AC9C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 17:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D1F6C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 17:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EKfe5tVOLWCJaJDex6l3qnCQYVKo+kdFKG9FdUEXfpY=; b=Jb+diLjClN37Ci9XJUNLvSF6ug
-	b9RMPuW3A6FPVf+3VDUrPxxOGLWsEHAhJh5vS7xwfnqL2rLwLr98zzjKXKrofsFG+BOkoGtzf4KNc
-	hzM8aax6wTinniujsF056eAjbVyLWdQ9NCu7fqAFRywRG/h4rtlCcJLtBp1jzFrtOp9fYpLCUu0Cv
-	xF6GRxkb2t1g063SalGL6yuZgQhQv3bHWOGguqQ9/jZGuUNh5kzGJu5Y16V48iOVEM9eCmuZj6LKZ
-	Edwhw4tTLRkqo33YlbR0fQy5ovKmkE6MzIdut7mxeLgm/O70t7hE+yNV1rBCQffZg86IEo9B5RvjQ
-	KfsrQD5g==;
+	bh=fmjzpOb1BSLSJgzl8E+e3sQpFM231jK8ASoB1iHUY7I=; b=q/vshm4a6T5MYAeTFjl5SJON9B
+	7eOAUtzbyfcAEsnOZHJXqRmxsfMHUsG/Tlc7uMHsYprOtxk4UmMzdkyCksJstKRKzkoqQQqgwaMjD
+	wprREABVv4qB9Qt8WNhA72FtJ6SrIH5gGkBunmxiq0Lbf4hTolzSm+0l5ncbFpp/BFBzexvKNxWmj
+	JdIME+PCBbg9kY/BzuA4ivXz2XF0N+AX277Zmjj4DDIi9eCpmFz6udzeJw6Xl2t9YuTcnq3e58pp0
+	IFehd1J/zvz7X8aEdM8FfQG7gYD1COhL7WJgOSroWXnyYfZ+t7k4FR+gBFy8b0vGwl4iq7xe7miFj
+	S4wE8u3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkX6-0000000F8xf-3hxi;
-	Fri, 04 Jul 2025 17:49:08 +0000
+	id 1uXkZR-0000000F9Et-3cY3;
+	Fri, 04 Jul 2025 17:51:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkNF-0000000F78P-0bGf
+	id 1uXkNN-0000000F7AU-1m8t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 17:38:58 +0000
+	Fri, 04 Jul 2025 17:39:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B39D302D;
-	Fri,  4 Jul 2025 10:38:42 -0700 (PDT)
-Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6C873F66E;
-	Fri,  4 Jul 2025 10:38:54 -0700 (PDT)
-From: James Morse <james.morse@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	sudeep.holla@arm.com,
-	Rob Herring <robh@kernel.org>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	WillDeaconwill@kernel.org,
-	James Morse <james.morse@arm.com>
-Subject: [PATCH v2 3/3] arm64: cacheinfo: Provide helper to compress MPIDR value into u32
-Date: Fri,  4 Jul 2025 17:38:26 +0000
-Message-Id: <20250704173826.13025-4-james.morse@arm.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250704173826.13025-1-james.morse@arm.com>
-References: <20250704173826.13025-1-james.morse@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9D1C293B;
+	Fri,  4 Jul 2025 10:38:50 -0700 (PDT)
+Received: from [10.1.197.43] (eglon.cambridge.arm.com [10.1.197.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6C7A83F66E;
+	Fri,  4 Jul 2025 10:39:03 -0700 (PDT)
+Message-ID: <642f2fa8-cd61-47ed-9d63-a15de263d36d@arm.com>
+Date: Fri, 4 Jul 2025 18:39:02 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] cacheinfo: Add arch hook to compress CPU h/w id into
+ 32 bits for cache-id
+To: Rob Herring <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, sudeep.holla@arm.com,
+ Ben Horgan <ben.horgan@arm.com>
+References: <20250613130356.8080-1-james.morse@arm.com>
+ <20250613130356.8080-3-james.morse@arm.com>
+ <CAL_Jsq+rsBq1Dsw4+hfkMhopN9Pdwyp9JJbqeT6yB+d++s4v7g@mail.gmail.com>
+ <ee08ba7e-2669-447f-ae04-5a6b00a16e77@arm.com>
+ <CAL_Jsq+mXkQTM-zbozPGkCQ40CusOUudWgtaxx_ufqL+0t96mQ@mail.gmail.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <CAL_Jsq+mXkQTM-zbozPGkCQ40CusOUudWgtaxx_ufqL+0t96mQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_103857_227253_8A05996A 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20250704_103905_556924_2166817C 
+X-CRM114-Status: GOOD (  31.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,64 +71,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Filesystems like resctrl use the cache-id exposed via sysfs to identify
-groups of CPUs. The value is also used for PCIe cache steering tags. On
-DT platforms cache-id is not something that is described in the
-device-tree, but instead generated from the smallest MPIDR of the CPUs
-associated with that cache. The cache-id exposed to user-space has
-historically been 32 bits.
+Hi Rob,
 
-MPIDR values may be larger than 32 bits.
+On 30/06/2025 20:43, Rob Herring wrote:
+> On Fri, Jun 27, 2025 at 11:38 AM James Morse <james.morse@arm.com> wrote:
+>> On 23/06/2025 15:48, Rob Herring wrote:
+>>> On Fri, Jun 13, 2025 at 8:04 AM James Morse <james.morse@arm.com> wrote:
+>>>> Filesystems like resctrl use the cache-id exposed via sysfs to identify
+>>>> groups of CPUs. The value is also used for PCIe cache steering tags. On
+>>>> DT platforms cache-id is not something that is described in the
+>>>> device-tree, but instead generated from the smallest CPU h/w id of the
+>>>> CPUs associated with that cache.
+>>>>
+>>>> CPU h/w ids may be larger than 32 bits.
+>>>>
+>>>> Add a hook to allow architectures to compress the value from the devicetree
+>>>> into 32 bits. Returning the same value is always safe as cache_of_set_id()
+>>>> will stop if a value larger than 32 bits is seen.
+>>>>
+>>>> For example, on arm64 the value is the MPIDR affinity register, which only
+>>>> has 32 bits of affinity data, but spread across the 64 bit field. An
+>>>> arch-specific bit swizzle gives a 32 bit value.
+>>
+>>> What's missing here is why do we need the cache id to be only 32-bits?
+>>> I suppose it is because the sysfs 'id' file has been implicitly that?
+>>
+>> Yup, and its too late to change.
+>>
+>>
+>>> Why can't we just allow 64-bit values there? Obviously, you can't have
+>>> a 64-bit value on x86 because that might break existing userspace.
+>>
+>> It's the same user-space. Users of resctrl should be portable between architectures.
+>> Resctrl isn't the only user, of the cache-id field.
+>>
+>>
+>>> But for Arm, there is no existing userspace to break.
+>>
+>> libvirt: https://github.com/libvirt/libvirt/blob/master/src/util/virresctrl.c#L1588
+> 
+> Looks to me like AMD wasn't even supported til v10.8.0 (2024-10-01)[1].
 
-MPIDR only has 32 bits worth of affinity data, but the aff3 field lives
-above 32bits. The corresponding lower bits are masked out by
-MPIDR_HWID_BITMASK and contain an SMT flag and Uni-Processor flag.
+'when mounted with [a particular option]'
 
-Swizzzle the aff3 field into the bottom 32 bits and using that.
+AMDs bandwidth controls count in 1/8ths of 1GB/s - and you have to know you're running on
+an AMD machine. I'm aiming for the arm64 support to be portable between Intel and RISC-V.
 
-In case more affinity fields are added in the future, the upper RES0
-area should be checked. Returning a value greater than 32 bits from
-this helper will cause the caller to give up on allocating cache-ids.
 
-Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
----
-Changes since v1:
- * Removal of unrelated changes.
- * Added a comment about how the RES0 bit safety net works.
----
- arch/arm64/include/asm/cache.h | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+>> DPDK: http://inbox.dpdk.org/dev/20241021015246.304431-2-wathsala.vithanage@arm.com/
+> 
+> Is that even applied yet?
 
-diff --git a/arch/arm64/include/asm/cache.h b/arch/arm64/include/asm/cache.h
-index 99cd6546e72e..09963004ceea 100644
---- a/arch/arm64/include/asm/cache.h
-+++ b/arch/arm64/include/asm/cache.h
-@@ -87,6 +87,23 @@ int cache_line_size(void);
- 
- #define dma_get_cache_alignment	cache_line_size
- 
-+/* Compress a u64 MPIDR value into 32 bits. */
-+static inline u64 arch_compact_of_hwid(u64 id)
-+{
-+	u64 aff3 = MPIDR_AFFINITY_LEVEL(id, 3);
-+
-+	/*
-+	 * These bits are expected to be RES0. If not, return a value with
-+	 * the upper 32 bits set to force the caller to give up on 32 bit
-+	 * cache ids.
-+	 */
-+	if (FIELD_GET(GENMASK_ULL(63, 40), id))
-+		return id;
-+
-+	return (aff3 << 24) | FIELD_GET(GENMASK_ULL(23, 0), id);
-+}
-+#define arch_compact_of_hwid	arch_compact_of_hwid
-+
- /*
-  * Read the effective value of CTR_EL0.
-  *
--- 
-2.39.5
+No idea, but its equally likely that I haven't found all the places this gets parsed by
+user-space. I don't think we have a way of telling people using stable-kernels that we
+might change the size of that field. It's pretty clear people don't anticipate it changing!
 
+This is just the downside of exposing anything to user-space!
+
+[...]
+
+>>> It is obviously nice
+>>> if we can avoid modifying userspace, but I don't think that's a
+>>> requirement and I'd be surprised if there's not other things that need
+>>> to be adapted for MPAM support.
+>>
+>> The whole multi-year effort has been to make existing user-space work without any ABI
+>> changes. The effect is some platforms have features that can't be used because resctrl
+>> expects things to be Xeon shaped.
+>> But if your platform looks a bit like a Xeon (cache portion controls on the L3, memory
+>> bandwidth controls somewhere that is believably the L3), then resctrl works as it does on
+>> Intel. The only thing that has come a little unstuck is the 'num_rmid' property where MPAM
+>> doesn't have an equivalent, so '1' is exposed as a safe value.
+> 
+> Fair enough, but I'd be rather surprised if there doesn't end up being
+> changes to support Arm platforms.
+> 
+>>> Also, what if an architecture can't swizzle their value into 32-bits?
+>>> They would be stuck with requiring userspace to deal with 64-bit
+>>> values.
+>>
+>> Remap them in a more complicated way. Chances are there aren't 2^32 CPUs.
+
+> What about using the logical CPU number instead? That's stable for a
+> given machine and firmware.
+
+Hmmm, if you offline CPU-0 then kexec, then CPU-1 becomes the new CPU-0 and the numbers
+get doled out differently.
+
+
+> And then instead of having 3 sets of
+> numbers (MPIDR, compressed MPIDR, and logical CPU), we'd still only
+> have 2. And logical CPU is what sysfs already exposes to userspace.
+
+I don't think the linux allocated CPU number is robust enough.
+
+We could use the CPU number as seen when walking through the DT to make it stable, but
+that would still be a third type of number. It would save the arch hook to swizzle the
+bits, but changing the DT would change the numbers which doesn't happen with this scheme.
+
+Let me know if that is what you prefer.
+(I'll summarise this on the cover-letter/patch-1 of the incoming series)
+
+
+Thanks,
+
+James
 
