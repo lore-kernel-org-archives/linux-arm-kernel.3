@@ -4,181 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B6D9C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E439C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iv0/ku5mI4wUaI4wavA/6eXM2T6u81pAIXMVUhqK17o=; b=uoqo3SDTF+sSSnZ35PCzDtCrjD
-	z9+tdi724glYsrxSBiRggGPRrQlFXNM+VfwS+9FnWlFqIaGKtviCkABvplVcHBkm/xAlB0JguOOfn
-	jBg36kk64sLQg9cacGoCy2LHFobzPd1JzMWosM0inuJFsA0f29zfVKZEpodeeKjyTs/TlhCforEUh
-	m8uLwk20qCMDg07tUQyYMSaqdBJz0ZMAp4gUPk7nnTHjon04eLgK6jegaTuPU5T9ySSu0ZeQED2u0
-	8O8mMBxMF/vcbq1s25SGOUEBpWycsSCmB1yecqHPVC38yKbBkZGri2LkCjDovv/3cRibPThKdriMD
-	QBXv4EhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QnCd8EhWi608gG2ZJYlh4eX8dcVJgRAAdrIHdUvyEVw=; b=jTFcd4XwR8a5K32xHJqLUR1Ygf
+	tAJV6AnBoCN1/z/XLrWQRMWRch+Z/PlPpzgiCyuYi8xTPA99wi7kgAapkEzydAxaKzlN6+yVohTi3
+	v/PnXdwQyaLWuzAZpv2DyV+e9hACsYANsx5rfuNOEMGu6ljht+AkZkuo1p+O23RJrzZcDKZ5+wlfL
+	TuBPj/SeifC1g6lte7eSwcdssOVbqbe6eW6ZFD7rt5Eau9YtgiSduKFmHvJahdL//9nZ1JeqYlGKS
+	AuAGp7g1gnhEmgpLObsRXsKxuSxUlblfIaa2B3pAX6N1MyaT/uHrBxmbGnkZAH51cyWA8tpGGAJQy
+	OPuP6itg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXjf6-0000000F1tK-0Wlo;
-	Fri, 04 Jul 2025 16:53:20 +0000
-Received: from mail-bn8nam12on2061c.outbound.protection.outlook.com ([2a01:111:f403:2418::61c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1uXjhQ-0000000F28C-3uam;
+	Fri, 04 Jul 2025 16:55:44 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXj97-0000000EwNY-1RLk
+	id 1uXjCd-0000000Ewqe-1GLT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 16:20:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l6cbqxy88Riyh8Zr38PLfCDEPjlzv63rgCTv+EBOhXu6GHnY7FiJ4uhnRIHC8wUbeLZjJknVTXz/XoNGpynIbtVg4mCiBsdX+1EyA+1gL11i6QlrhnsZql7E5AcPHWosGU0rU0aWA4/AFg/ylNFnsc221T9gQva/9qRcFJNkJ3zxxWP/1U3wOvQKC2hU2/j1M85T7k9RDyVXABfTKvrvNOA/psbFMDK/5wArvbUHD0//swCQP6O6xNobuxKnrWcZ9andYZQSUkPTlxv44l63trWMK5Uk/+8aTJQmHftDL7DYQ2LfM4f6Bapyn3q0ukYZuVMhR/8wqn6TCOPyoA1FaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Iv0/ku5mI4wUaI4wavA/6eXM2T6u81pAIXMVUhqK17o=;
- b=V7VAtgtDQGldbfxqHL92X5tpLNLDueuf0Dmx3DsacX2L8im1Y6De7f8KoYXDil6gYOyAmPvNL7tluMfkfpxMaOftAI5KraXtZFnL4vLotj7ubCJNqy7iLPU4lho0PfQIMVo6ejCYmRlTeODy5tButJ3IvhWUZkklsx7MdthHTFpeQmHvp/EfXHD0iXpeCnvxk5hfhvwCh6sVa8oiaKx4UMSs+uj3VOvmz5RcNsdH/XXovNcpjT21qrKjx5TTupgdpT+RIrvZTTYYhjvruMZBLRA8LVGdgi7SONJ3vCIxDeuIWuHcBjy5O9kNLYQrkNtC6GEkPBoeOUNPtTD6r/6j4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Iv0/ku5mI4wUaI4wavA/6eXM2T6u81pAIXMVUhqK17o=;
- b=i+iw0Fvc2UfQn34s4v3rHMx6SDs4Vp3m0W7hj/x+2LncUcN0ruBGWod4uw/G8ZQJYxuoYTkVnMgksH8Ay4US4U/VgooJ3hU9uoABliFpq0C2SQHtkUV7NQAKThsjMPSLNc33En+s8vxom69NK597xtyATcrPLiDETmO3cbYjGA0XLF60fPj6HUo0UtpSA33Y0gwT/8VLkQUttVvUhfEZHs/UmJMnF5ORuDUHM/a2+NedXw5tJkYfIzFv0YQjdQCiwyLwf55yWFYmR31Lqa3WiIrb0uAtp9eUVrL2fwl7bT3P7Ad+hX53oVv6l53nTROo8HpaAP1J9XXYzdGEmHBC7Q==
-Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
- by SJ2PR12MB8692.namprd12.prod.outlook.com (2603:10b6:a03:543::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.19; Fri, 4 Jul
- 2025 16:20:07 +0000
-Received: from SA1PR12MB7199.namprd12.prod.outlook.com
- ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
- ([fe80::ae1b:d89a:dfb6:37c2%3]) with mapi id 15.20.8901.018; Fri, 4 Jul 2025
- 16:20:07 +0000
-From: Ankit Agrawal <ankita@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, David Hildenbrand <david@redhat.com>
-CC: "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "ryan.roberts@arm.com"
-	<ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "ddutile@redhat.com"
-	<ddutile@redhat.com>, "seanjc@google.com" <seanjc@google.com>, Aniket Agashe
-	<aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, Kirti Wankhede
-	<kwankhede@nvidia.com>, Krishnakant Jaju <kjaju@nvidia.com>, "Tarun Gupta
- (SW-GPU)" <targupta@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, Andy
- Currid <acurrid@nvidia.com>, Alistair Popple <apopple@nvidia.com>, John
- Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>, Zhi Wang
-	<zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Uday Dhoke
-	<udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com"
-	<coltonlewis@google.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
-	<ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org"
-	<linux-mm@kvack.org>, "tabba@google.com" <tabba@google.com>,
-	"qperret@google.com" <qperret@google.com>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "maobibo@loongson.cn"
-	<maobibo@loongson.cn>
-Subject: Re: [PATCH v9 6/6] KVM: arm64: Expose new KVM cap for cacheable
- PFNMAP
-Thread-Topic: [PATCH v9 6/6] KVM: arm64: Expose new KVM cap for cacheable
- PFNMAP
-Thread-Index: AQHb4mP2pJdwzIX63ESIo/O5CRPnN7QiDqyAgAAIuwCAAA3BAIAADBWE
-Date: Fri, 4 Jul 2025 16:20:07 +0000
-Message-ID: <SA1PR12MB7199AB9F09DF483AEC41777AB042A@SA1PR12MB7199.namprd12.prod.outlook.com>
-References: <20250621042111.3992-1-ankita@nvidia.com>
- <20250621042111.3992-7-ankita@nvidia.com>
- <20250704134413.GE1410929@nvidia.com>
- <29cc7d2a-b174-4ed3-ae1a-22db478c62ec@redhat.com>
- <20250704150442.GI1410929@nvidia.com>
-In-Reply-To: <20250704150442.GI1410929@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|SJ2PR12MB8692:EE_
-x-ms-office365-filtering-correlation-id: b64473b2-55de-4dd0-4859-08ddbb16a423
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?4+JzDn6E6a34IF2RwgeEJPVwx908/0MM9fVzEvhQ4s0zZA2S+CEVJH6KQj?=
- =?iso-8859-1?Q?bzXkcVoNZt7yNoAGYyvisJ2osQ1jrF6HHOluqTmanZLcTBu3aNXd5HIgwq?=
- =?iso-8859-1?Q?un0zG0f6zrKS5y7+RkhDsROlkjptcWomCmD+DF6Dg/yAAI32MO8oKwpLvO?=
- =?iso-8859-1?Q?6pFDMKlYiUWVBlCJa/hBimoCEqYH60AESfNBerCrNVMsczFHcp47Cm+ERl?=
- =?iso-8859-1?Q?HFGetSgdgrge8gyWnUO6aufXrVKMjDmryB6YufIcIE7T6WEcqWOJt/MX0b?=
- =?iso-8859-1?Q?BuwP1bW8OuvKzHzVULAHmKNKyXHt4ZX3L1fCYZq/6lqnATm/oTMFdcsCfv?=
- =?iso-8859-1?Q?CPGTGUbkRC6O8MQ1KrgectkJ3nYZbk9GIKbgisALSJWF2Uxi92vvTBMYEn?=
- =?iso-8859-1?Q?KPHPavfW3NZ9zNtHEQqlNl9GWNgRlYiMJNIh2CeG41/BZe5P+KAYuJoqHw?=
- =?iso-8859-1?Q?VLdwaYI5qOS6wCptpVFCt3ZDK1LKupkPspbME3MhhUMn9NVK448P0p6q/c?=
- =?iso-8859-1?Q?Y/a9rd0PDZza7MGS4oufcJF6aRi2XDCvHtXOizQnCSNpd3xgi+jrKV5jMP?=
- =?iso-8859-1?Q?1SSAozU3YtorZPirB5Zro74HCmtJIYRkBpi130PlX/T77ESRLKYEPkOwIB?=
- =?iso-8859-1?Q?DfyCFOuAduGY5IlRatK/tLzS7rx/o1DhPHE3uGs+oa9ndqQb9jI1fP5J2O?=
- =?iso-8859-1?Q?ENZmJILDGp5+hiE7Xsn7w0bfwyqsGqbWqBZoYqS9nZpW9ZLQp/KysHwkfA?=
- =?iso-8859-1?Q?WHIOWJnGotpcD46NK+K44V2aKa+W+NGXb7DUfkRQaLJhtQ8YDWBpJPeTFb?=
- =?iso-8859-1?Q?pGjZfQhoYBZNtVtj9pG3pmZZNcjGlX0H7/Pfl70rksA/Q9YvMRrvccB2aV?=
- =?iso-8859-1?Q?7Fuezb1RjTYsT3pgQILh35n3Mv3QpbRgeF2NmUv2JPMU4k2Q+5SS5nL2Pl?=
- =?iso-8859-1?Q?KsxYpM9hIKoCoesldBa9SFb9yQ5+XljwW64JTl8PkM+shfiVDBQ+AnlLUG?=
- =?iso-8859-1?Q?KgKb8jT9iQzVX2D1BLY+SOnbHypA9EFlRRpZCWGdP5j4thsZzya4N0hJkm?=
- =?iso-8859-1?Q?OkKRER4kVJ+GBBEymB/MM44oPCdDt//cV84sft7P2gwiCiT+rg6ZioZnXd?=
- =?iso-8859-1?Q?96kqFkN8WSDzuW8xpHVG9mwduz+MPVAHXPtnyrHef6TkNnaAjoke6sp2Cq?=
- =?iso-8859-1?Q?W/hTui0LAMQ9YIT5H4yHBQ5ryDVlxcxf7HJP9U/YBCKeeeUp4iuCWryE1P?=
- =?iso-8859-1?Q?BlKwag2cLuJ6dC5/rlOgpdsW/MIx0PCbgkFVIPQpREJkSpFLE84TSTsY+A?=
- =?iso-8859-1?Q?Vn1rVh87womQP4VcIluEREGVrvKj/xArDgQy3kyVpQAd7UlcTXPbe4GWJQ?=
- =?iso-8859-1?Q?tQ+jsCazL/Yw7x0tVfoYeQF/sGaNYtGAyBXIyM+/4CoHBkLiVuenFbGk3a?=
- =?iso-8859-1?Q?PqZBSGxkuXCZor6NpvQZ2pvTqV+QNqapGvLOFsG2bDst1uui2YwmQYkeyU?=
- =?iso-8859-1?Q?p5XjOx81ep2wa+W9n67eCVufUemPY5n9WART2uJLQhhw=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?ox1kekyTg/L8i4XBFR0wflIbOlJhIYrn9NMgRAan0rE+wDePQeMmya91eo?=
- =?iso-8859-1?Q?L5LYqFJLtsam2onY+LLcN9ET1jpz7OiV5v42YdbKxEiwI++wOGjz3rSshH?=
- =?iso-8859-1?Q?o3iZtCjLN07UnKay9/R/2DDefz1iY+PjLrpsvVYWdn213UJPRf7/c7JTlk?=
- =?iso-8859-1?Q?qABDskXVNSGElFjkx9f5bSzUteNVTKtVbo0QdHzcC58AhkgU+FC16kil5s?=
- =?iso-8859-1?Q?azg2Zmh4sDgCDjnle63T7FlxmVH091OfxoTxZvrkun9ktJ/XJ3kNL/5b//?=
- =?iso-8859-1?Q?CgclzaWurROZBD4x42c2uEZ2U+lw7ArE30PnrY/8THa/WxhQnWpukA51nz?=
- =?iso-8859-1?Q?L+a/a68cAbLmajkEx7m/Zifm730OsRoRlt9HFbncB2SUnfpJnw81Su3aqa?=
- =?iso-8859-1?Q?z7M89ZphCdKm3oKHEZlG14NLrJr30NU/8+dKGeOUREqImNUP+P84V7z4Vt?=
- =?iso-8859-1?Q?OjFFnp7aaDyMOvcIx3Kiq9BbRYY95os7oxY1PTpD4H3OCMf5/ziibgFS5Y?=
- =?iso-8859-1?Q?U38gwRkxlhygAeBDv3wdm2WzHOq7hkxLOwfFPDzJjvfkb6HPGJZ239zDyo?=
- =?iso-8859-1?Q?Q1QdbsKOWKU7Q2oxxzHz78RICQyh+eGL7vOEYYq1hQc24CmdgIYmdD4X/1?=
- =?iso-8859-1?Q?KDxg/lkfnU310ARVMJGfiI0vO2Ws8RIzAdZaD5x1rmXO3BMkRbSY8dl6lM?=
- =?iso-8859-1?Q?qLZhvhdWawagjW1ZBFjntRkDvu+imqB1/+vYuC75mSNiosIllXlQX0qp8e?=
- =?iso-8859-1?Q?aOkd3686xIk4p/L/bxCxrEQ0/MlwKl58eNJwg1Hg9Vst0n0GcFcaF2cg0o?=
- =?iso-8859-1?Q?Mc2/hHfC4iuYjga5VBdLi260Pw03oaOiPOLWU3Aa0gZ/XzdOSOIAxBvKdR?=
- =?iso-8859-1?Q?Om5QxGhJQ1vHb1Q2IGnaIJpQUR3BKLJ08ZvPbV9lHa7LghNu08MTpHjHzd?=
- =?iso-8859-1?Q?PSkuRDyB+cOM1w3oUMrqz3FPqvGSDOVcJBJCpFApLj7lX21/tBb11esL4M?=
- =?iso-8859-1?Q?uUuDdh9XAVubKWBaEhAJqBfUPZfB2IL2FldF7h1dVGZPgQXokF6sxJTebB?=
- =?iso-8859-1?Q?kwvJ/PGiITJHCCHr1JkY6O59yWMMEu5js4YKPxchZuTsGgEyZr0UCTrXWw?=
- =?iso-8859-1?Q?pBApErNFXGvBRX9YZJYQlCgosWLrDYGBHftXrAf8CylbXAw/QmzF2utsAq?=
- =?iso-8859-1?Q?S0h71Dof/FEOfT9LxQudly8ct1J+eIPRiInaHHeHKyIG2BPiqYNCrlOphm?=
- =?iso-8859-1?Q?JPY0+Cvv/29Dl6ouMjK7nqqscEu5f6HWiKJcOoX/rYvrrXTPA+cQZoJ+j0?=
- =?iso-8859-1?Q?cIxNvrr78q5xuaceMcLZToxaQhPlL4upI2RWWHpxhdlMR/Ud+9xtBTR5ev?=
- =?iso-8859-1?Q?SjFcse6N/EzkiruAOxIKR3ilwls+BVf2pGZqcAOYKLYeZhCcooLRyKMHxw?=
- =?iso-8859-1?Q?HbxsVtWrnb2j2FfBnM0oubRClwF8ejlH9ePDTqNkWvjs+6Vfz4YIBI1CD5?=
- =?iso-8859-1?Q?v13BStptG/pIYE0gss02WnJsDr+oEksZz600q7bRpHOVmu7O9zm+1Dm0Wu?=
- =?iso-8859-1?Q?rY/MAadjn4sIPIi4MvZ+aXJ9lv2H1ktIi8uODaVm93qnEKSwrRQcTq1tiY?=
- =?iso-8859-1?Q?fdsFD1CWjfqg8=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 04 Jul 2025 16:23:56 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id BA2A51F38A;
+	Fri,  4 Jul 2025 16:23:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1751646233; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QnCd8EhWi608gG2ZJYlh4eX8dcVJgRAAdrIHdUvyEVw=;
+	b=L2gR8tuP/PGpICezWU6I/FHdzfdVJ014+mXt7VCUxfIQQGuLHGkju0of77fIkhWtrXhLlv
+	6B6Nnw61wPYIIbP4VKNpFWgCSNIN7tPBAOsVBDPKwM6gVGRueQs4W3TQ4dj3xYzz/Imi/M
+	8K8tJAs/q55YfzyCxE5lnc279+Ynnyw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1751646233;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QnCd8EhWi608gG2ZJYlh4eX8dcVJgRAAdrIHdUvyEVw=;
+	b=2ovIm12+Lw1AIzV5K/Ddziql1f/EX0Vn9Xt4Lt+ZdAxmlKIPcDAKDV1CHX+WjgoQJFWuV6
+	kQc3a1yAdZFyzRBA==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1751646233; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QnCd8EhWi608gG2ZJYlh4eX8dcVJgRAAdrIHdUvyEVw=;
+	b=L2gR8tuP/PGpICezWU6I/FHdzfdVJ014+mXt7VCUxfIQQGuLHGkju0of77fIkhWtrXhLlv
+	6B6Nnw61wPYIIbP4VKNpFWgCSNIN7tPBAOsVBDPKwM6gVGRueQs4W3TQ4dj3xYzz/Imi/M
+	8K8tJAs/q55YfzyCxE5lnc279+Ynnyw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1751646233;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QnCd8EhWi608gG2ZJYlh4eX8dcVJgRAAdrIHdUvyEVw=;
+	b=2ovIm12+Lw1AIzV5K/Ddziql1f/EX0Vn9Xt4Lt+ZdAxmlKIPcDAKDV1CHX+WjgoQJFWuV6
+	kQc3a1yAdZFyzRBA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 48A4613757;
+	Fri,  4 Jul 2025 16:23:53 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id Kke6DxkAaGhNGgAAD6G6ig
+	(envelope-from <jdelvare@suse.de>); Fri, 04 Jul 2025 16:23:53 +0000
+Date: Fri, 4 Jul 2025 18:23:48 +0200
+From: Jean Delvare <jdelvare@suse.de>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: linux-aspeed@lists.ozlabs.org, Joel Stanley <joel@jms.id.au>, Henry
+ Martin <bsdhenrymartin@gmail.com>, Patrick Rudolph
+ <patrick.rudolph@9elements.com>, Andrew Geissler <geissonator@yahoo.com>,
+ Ninad Palsule <ninad@linux.ibm.com>, Patrick Venture <venture@google.com>,
+ Robert Lippert <roblip@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 10/10] soc: aspeed: lpc-snoop: Lift channel config to
+ const structs
+Message-ID: <20250704182348.53808e0f@endymion>
+In-Reply-To: <20250616-aspeed-lpc-snoop-fixes-v2-10-3cdd59c934d3@codeconstruct.com.au>
+References: <20250616-aspeed-lpc-snoop-fixes-v2-0-3cdd59c934d3@codeconstruct.com.au>
+	<20250616-aspeed-lpc-snoop-fixes-v2-10-3cdd59c934d3@codeconstruct.com.au>
+Organization: SUSE Linux
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.43; x86_64-suse-linux-gnu)
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b64473b2-55de-4dd0-4859-08ddbb16a423
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jul 2025 16:20:07.3421
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9MZ9Np/TawOgey8idMyCN44Haa76Sb+1ZO/PjEqyzM5tjHYVms+7Z/P3trF/33bhjG8wxPMN8dkwsba3mlPrmA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8692
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Spamd-Result: default: False [-3.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	HAS_ORG_HEADER(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,yahoo.com];
+	FREEMAIL_CC(0.00)[lists.ozlabs.org,jms.id.au,gmail.com,9elements.com,yahoo.com,linux.ibm.com,google.com,lists.infradead.org,vger.kernel.org];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[11];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_092017_385509_22F3C744 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250704_092355_642932_4B5E09AE 
+X-CRM114-Status: GOOD (  32.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,27 +140,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks Jason and David for reviewing the patch!=0A=
-=0A=
->> >=0A=
->> > I don't know if any VMM will ever use this, but it looks OK=0A=
->>=0A=
->> So, should we defer it to the point where we actually have a use case?=
-=0A=
->>=0A=
->> I mean, patch #4 could be simplified by modifying arm64 code in patch #5=
-=0A=
->> only. No need for a common kvm_arch function etc.=0A=
->=0A=
-> IDK, I think Marc and Oliver are right it makes sense to have it, I=0A=
-> just don't really see how a VMM would make use of it..=0A=
->=0A=
-> Jason=0A=
-=0A=
-Right, it was also pointed out that the VMM could make use of it=0A=
-for early termination during VM migration between incompatible =0A=
-systems (i.e. across systems with and without FWB and CACHE DIC).=0A=
-=0A=
-=0A=
-=0A=
+Hi Andrew,
+
+On Mon, 16 Jun 2025 22:43:47 +0930, Andrew Jeffery wrote:
+> The shifts and masks for each channel are defined by hardware and
+> are not something that changes at runtime. Accordingly, describe the
+> information in an array of const structs and associate elements with
+> each channel instance, removing the need for the switch and handling of
+> its default case.
+
+I like this.
+
+Note that technically, the removal of the default case in the switch
+was already possible since patch 06/10 (soc: aspeed: lpc-snoop:
+Constrain parameters in channel paths).
+
+> Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+> ---
+>  drivers/soc/aspeed/aspeed-lpc-snoop.c | 100 +++++++++++++++-------------------
+>  1 file changed, 45 insertions(+), 55 deletions(-)
+> 
+> diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> index 9f88c5471b1b6d85f6d9e1970240f3d1904d166c..2d97b8d5fb429e215c321c9c2ee3fa35d39f8618 100644
+> --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> @@ -63,7 +63,16 @@ enum aspeed_lpc_snoop_index {
+>  	ASPEED_LPC_SNOOP_INDEX_MAX = ASPEED_LPC_SNOOP_INDEX_1,
+>  };
+>  
+> +struct aspeed_lpc_snoop_channel_cfg {
+> +	enum aspeed_lpc_snoop_index index;
+> +	u32 hicr5_en;
+> +	u32 snpwadr_mask;
+> +	u32 snpwadr_shift;
+> +	u32 hicrb_en;
+> +};
+> +
+>  struct aspeed_lpc_snoop_channel {
+> +	const struct aspeed_lpc_snoop_channel_cfg *cfg;
+>  	bool enabled;
+>  	struct kfifo		fifo;
+>  	wait_queue_head_t	wq;
+> @@ -77,6 +86,23 @@ struct aspeed_lpc_snoop {
+>  	struct aspeed_lpc_snoop_channel chan[ASPEED_LPC_SNOOP_INDEX_MAX + 1];
+>  };
+>  
+> +static const struct aspeed_lpc_snoop_channel_cfg channel_cfgs[ASPEED_LPC_SNOOP_INDEX_MAX + 1] = {
+> +	{
+> +		.index = ASPEED_LPC_SNOOP_INDEX_0,
+> +		.hicr5_en = HICR5_EN_SNP0W | HICR5_ENINT_SNP0W,
+> +		.snpwadr_mask = SNPWADR_CH0_MASK,
+> +		.snpwadr_shift = SNPWADR_CH0_SHIFT,
+> +		.hicrb_en = HICRB_ENSNP0D,
+> +	},
+> +	{
+> +		.index = ASPEED_LPC_SNOOP_INDEX_1,
+> +		.hicr5_en = HICR5_EN_SNP1W | HICR5_ENINT_SNP1W,
+> +		.snpwadr_mask = SNPWADR_CH1_MASK,
+> +		.snpwadr_shift = SNPWADR_CH1_SHIFT,
+> +		.hicrb_en = HICRB_ENSNP1D,
+> +	},
+> +};
+> +
+>  static struct aspeed_lpc_snoop_channel *snoop_file_to_chan(struct file *file)
+>  {
+>  	return container_of(file->private_data,
+> @@ -189,28 +215,27 @@ static int aspeed_lpc_snoop_config_irq(struct aspeed_lpc_snoop *lpc_snoop,
+>  }
+>  
+>  __attribute__((nonnull))
+> -static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+> -				   struct device *dev,
+> -				   enum aspeed_lpc_snoop_index index, u16 lpc_port)
+> +static int aspeed_lpc_enable_snoop(struct device *dev,
+> +				    struct aspeed_lpc_snoop *lpc_snoop,
+> +				    struct aspeed_lpc_snoop_channel *channel,
+> +				    const struct aspeed_lpc_snoop_channel_cfg *cfg,
+> +				    u16 lpc_port)
+>  {
+
+I'm confused by this new calling convention. With lpc_snoop and index,
+you could already retrieve the aspeed_lpc_snoop_channel struct and the
+aspeed_lpc_snoop_channel_cfg struct. I can't see the benefit of the
+change. It even forces you to add an index field to struct
+aspeed_lpc_snoop_channel_cfg, which would otherwise not be needed.
+
+If you prefer to pass cfg instead of index as a parameter, that does
+not imply passing channel too. You can get the index from the cfg (if
+you decide to keep it in that struct), and then the channel from index.
+
+Or you could even pass only the channel (to be consistent with
+aspeed_lpc_disable_snoop), if you set channel->cfg before calling this
+function. Again this implies keeping index in struct
+aspeed_lpc_snoop_channel_cfg.
+
+>  	const struct aspeed_lpc_snoop_model_data *model_data;
+> -	u32 hicr5_en, snpwadr_mask, snpwadr_shift, hicrb_en;
+> -	struct aspeed_lpc_snoop_channel *channel;
+>  	int rc = 0;
+>  
+> -	channel = &lpc_snoop->chan[index];
+> -
+>  	if (WARN_ON(channel->enabled))
+>  		return -EBUSY;
+>  
+>  	init_waitqueue_head(&channel->wq);
+>  
+> +	channel->cfg = cfg;
+>  	channel->miscdev.minor = MISC_DYNAMIC_MINOR;
+>  	channel->miscdev.fops = &snoop_fops;
+>  	channel->miscdev.parent = dev;
+>  
+>  	channel->miscdev.name =
+> -		devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, index);
+> +		devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, cfg->index);
+>  	if (!channel->miscdev.name)
+>  		return -ENOMEM;
+>  
+> @@ -223,39 +248,18 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+>  		goto err_free_fifo;
+>  
+>  	/* Enable LPC snoop channel at requested port */
+> -	switch (index) {
+> -	case 0:
+> -		hicr5_en = HICR5_EN_SNP0W | HICR5_ENINT_SNP0W;
+> -		snpwadr_mask = SNPWADR_CH0_MASK;
+> -		snpwadr_shift = SNPWADR_CH0_SHIFT;
+> -		hicrb_en = HICRB_ENSNP0D;
+> -		break;
+> -	case 1:
+> -		hicr5_en = HICR5_EN_SNP1W | HICR5_ENINT_SNP1W;
+> -		snpwadr_mask = SNPWADR_CH1_MASK;
+> -		snpwadr_shift = SNPWADR_CH1_SHIFT;
+> -		hicrb_en = HICRB_ENSNP1D;
+> -		break;
+> -	default:
+> -		rc = -EINVAL;
+> -		goto err_misc_deregister;
+> -	}
+> -
+> -	/* Enable LPC snoop channel at requested port */
+> -	regmap_update_bits(lpc_snoop->regmap, HICR5, hicr5_en, hicr5_en);
+> -	regmap_update_bits(lpc_snoop->regmap, SNPWADR, snpwadr_mask,
+> -			   lpc_port << snpwadr_shift);
+> +	regmap_set_bits(lpc_snoop->regmap, HICR5, cfg->hicr5_en);
+> +	regmap_update_bits(lpc_snoop->regmap, SNPWADR, cfg->snpwadr_mask,
+> +		lpc_port << cfg->snpwadr_shift);
+
+It is a good practice to align the second line on the opening
+parenthesis of the first line (as was done originally).
+
+>  
+>  	model_data = of_device_get_match_data(dev);
+>  	if (model_data && model_data->has_hicrb_ensnp)
+> -		regmap_update_bits(lpc_snoop->regmap, HICRB, hicrb_en, hicrb_en);
+> +		regmap_set_bits(lpc_snoop->regmap, HICRB, cfg->hicrb_en);
+>  
+>  	channel->enabled = true;
+>  
+>  	return 0;
+>  
+> -err_misc_deregister:
+> -	misc_deregister(&channel->miscdev);
+>  err_free_fifo:
+>  	kfifo_free(&channel->fifo);
+>  	return rc;
+> @@ -263,30 +267,13 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+>  
+>  __attribute__((nonnull))
+>  static void aspeed_lpc_disable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+> -				     enum aspeed_lpc_snoop_index index)
+> +				     struct aspeed_lpc_snoop_channel *channel)
+>  {
+> -	struct aspeed_lpc_snoop_channel *channel;
+> -
+> -	channel = &lpc_snoop->chan[index];
+> -
+>  	if (!channel->enabled)
+>  		return;
+>  
+>  	/* Disable interrupts along with the device */
+> -	switch (index) {
+> -	case 0:
+> -		regmap_update_bits(lpc_snoop->regmap, HICR5,
+> -				   HICR5_EN_SNP0W | HICR5_ENINT_SNP0W,
+> -				   0);
+> -		break;
+> -	case 1:
+> -		regmap_update_bits(lpc_snoop->regmap, HICR5,
+> -				   HICR5_EN_SNP1W | HICR5_ENINT_SNP1W,
+> -				   0);
+> -		break;
+> -	default:
+> -		return;
+> -	}
+> +	regmap_clear_bits(lpc_snoop->regmap, HICR5, channel->cfg->hicr5_en);
+>  
+>  	channel->enabled = false;
+>  	/* Consider improving safety wrt concurrent reader(s) */
+> @@ -299,8 +286,8 @@ static void aspeed_lpc_snoop_remove(struct platform_device *pdev)
+>  	struct aspeed_lpc_snoop *lpc_snoop = dev_get_drvdata(&pdev->dev);
+>  
+>  	/* Disable both snoop channels */
+> -	aspeed_lpc_disable_snoop(lpc_snoop, ASPEED_LPC_SNOOP_INDEX_0);
+> -	aspeed_lpc_disable_snoop(lpc_snoop, ASPEED_LPC_SNOOP_INDEX_1);
+> +	aspeed_lpc_disable_snoop(lpc_snoop, &lpc_snoop->chan[0]);
+> +	aspeed_lpc_disable_snoop(lpc_snoop, &lpc_snoop->chan[1]);
+>  }
+>  
+>  static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
+> @@ -339,6 +326,8 @@ static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
+>  	if (rc)
+>  		return rc;
+>  
+> +	static_assert(ARRAY_SIZE(channel_cfgs) == ARRAY_SIZE(lpc_snoop->chan),
+> +		"Broken implementation assumption regarding cfg count");
+
+Both also need to be equal to ASPEED_LPC_SNOOP_INDEX_MAX + 1, right?
+Otherwise the loop below would break. But it turns out that both arrays
+are now declared that way, so it just has to be true. This makes me
+believe that this static assert is no longer needed.
+
+>  	for (idx = ASPEED_LPC_SNOOP_INDEX_0; idx <= ASPEED_LPC_SNOOP_INDEX_MAX; idx++) {
+>  		u32 port;
+>  
+> @@ -346,7 +335,8 @@ static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
+>  		if (rc)
+>  			break;
+>  
+> -		rc = aspeed_lpc_enable_snoop(lpc_snoop, dev, idx, port);
+> +		rc = aspeed_lpc_enable_snoop(dev, lpc_snoop, &lpc_snoop->chan[idx],
+> +					     &channel_cfgs[idx], port);
+>  		if (rc)
+>  			goto cleanup_channels;
+>  	}
+> 
+
+
+-- 
+Jean Delvare
+SUSE L3 Support
 
