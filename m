@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03EABC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E8EC8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nt7xUyaSY2bwlKzrDx5dkOnSZrDMwc3BRrdM7IQmPSg=; b=qgb+suWz12cdLXbMUgYKpIbauW
-	txOmrJ021JY066npEvjfi+Vvsd/qQJzg0Mu2mcjMldGx51ZTXQEXFmzO+mFIcqSXOJAqxSadwwpQt
-	zac3breGyFsLEmsdGP1fcFOx0xi4kNwXxbPBhIv6pVWaxQACB4XtLWmA7l9mvHJSKenhi3ABXjZCe
-	lPfp+OxWcfgxe4751BVUCA4vWR+qXz0VnlEnahZxNz1y90FlzQQA3PDO/qrgSdrMgRfVYuavZLTES
-	6w18D0RlT3Q5CqxldvpuLdMP+M9YCpz1rbfyjCdCOJJxg//Fdz2MggZKGuRA8+fvOhGvZhT8pnSmz
-	bdY1+29A==;
+	bh=xf17P1YALsimhDT+/HwyPfAob6T0qJHwLHeouZenqkI=; b=s3raNOpiV8cZ+mEM5k/UVR2uRN
+	kx38/kZcAXL8p5mG0JFBGCRAJyu1cVVpVM6buMHMi3u27+Ibe58N5Gvb09TOoJIR4yOfs/bHkOEjc
+	cCgQZEkFyhKInGnxsDgnIE6gxhOPIlZ7R6SFC8AwB71zn0h6yPxlqbSEQVs8qR9GRHYkvlUiJjpJw
+	c0FGRmHFhq7qZN+2HrVrRNJDf3Ro8sIEWS5KyAd7ZMzQaT6lECiQUJBEAEve7djdWKzmYTGY7Kksi
+	tZ+H4mJ7hyDl1fDWJ1l84Y52Lx/c7RMTG3KQ+oV68B7a59PJAc77U/CPLam7g/RaPUqpiFae2nxKD
+	sdPYiW5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhMV-0000000EfWw-14bp;
-	Fri, 04 Jul 2025 14:25:59 +0000
+	id 1uXhOp-0000000Efj4-3xJb;
+	Fri, 04 Jul 2025 14:28:23 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXh6b-0000000EccJ-1vKe
+	id 1uXh7c-0000000EcsI-38GX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 14:09:34 +0000
+	Fri, 04 Jul 2025 14:10:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751638172;
+	s=mimecast20190719; t=1751638235;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=nt7xUyaSY2bwlKzrDx5dkOnSZrDMwc3BRrdM7IQmPSg=;
-	b=ARyHvwE5G5jkmUhq7NoiJgjNdYWz8tVOKtrRiLqu+O2gZqshRgztgAK0eFXNT7+7N1QxnS
-	Z6Q+lHEbI+QcVWjqp3DwoB0HsoP0i4fXXihLWjzLbAGtytXRmjuab5RzuLsoR0XF6k406x
-	sJ84h3mZvyt1+rUotzoXErfNtWu6ubI=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=xf17P1YALsimhDT+/HwyPfAob6T0qJHwLHeouZenqkI=;
+	b=VCXImboaWeLzwW0ZJv5IdytfajfM72IKMkQXSQxrgFm2N8sbxpoAZ+9Dr2C8yLh57JMi0R
+	DP4bTOdV6NXJ1cxOrYp5cwqgu0jTYVwWyR/tIGCvYuDS7ftW5uCd0dPYFh2tV91HTInif/
+	oQIUBrq2UD3Q7L3SRZgCOrTPkr0gWDg=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-619-GQ5aiXDzNUyq14kjDjOrKQ-1; Fri, 04 Jul 2025 10:09:31 -0400
-X-MC-Unique: GQ5aiXDzNUyq14kjDjOrKQ-1
-X-Mimecast-MFC-AGG-ID: GQ5aiXDzNUyq14kjDjOrKQ_1751638171
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3a4f6ba526eso663585f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Jul 2025 07:09:31 -0700 (PDT)
+ us-mta-391-O6yZE-auNJmkwFmuXQ3eNA-1; Fri, 04 Jul 2025 10:10:34 -0400
+X-MC-Unique: O6yZE-auNJmkwFmuXQ3eNA-1
+X-Mimecast-MFC-AGG-ID: O6yZE-auNJmkwFmuXQ3eNA_1751638234
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-451d5600a54so8052165e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Jul 2025 07:10:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751638170; x=1752242970;
+        d=1e100.net; s=20230601; t=1751638233; x=1752243033;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=nt7xUyaSY2bwlKzrDx5dkOnSZrDMwc3BRrdM7IQmPSg=;
-        b=PncWjd46Tz9P/GTIz2oeO76lZdqMzdeVBz4GJgImdCvdgI+vcm+HpxL0sJCB5ZbTUW
-         c40+axf9Tykhs2NZ7ELPJSkgcZF8BLm74viwM+TJNt3ahHsB5ge91jy/bsMK5yvgZkIv
-         moLQWv9R+ff4es9iQhFBRc6NjNZnLCIR2caPoau5w0E/9o7jalOrOpHsX1ZoH3skvIat
-         /tjkRDZHL4TQNO/9ZLHHS6wON30uHo8cPOmHdURJ+ABzl7x8SkvryE3tbvazcGPYZPek
-         zG2OzCKbKKXf7nzEQwH0bBCI7JZAM9QF7L/fYEk5p+XjxKyghXK1hs1I87cWEznIbcTK
-         WCXg==
-X-Forwarded-Encrypted: i=1; AJvYcCX0Wx3hZ9WskkZd32z08iYTResKL39zTmaw8k+d0lG7dchveWqJJ+/ym+wgyxBTgclWk2roq3iMd60pMr9KVeAU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAyxuj2SLPuVaZ4kRsPRt5U7kfRlLAGOaNF8QR6I35MDugBX3W
-	EvzghM9wUreokBOyDgvPwHQ+vkDIaJXrasy9P3tvyPbnnEzZaAFdUUxJXWurPsrLvYuMl0Hv5Jt
-	u/Pw6ugynRIMIt7b8X88msKD0mVjQyX0USDDcgxPuTtsJx9LwPhusxFRW+fsHeXdtYiSpRUqNJo
-	e7
-X-Gm-Gg: ASbGncs3Ekt/JZixEcCSSxG4CfQVdDzq2YbKTZtfUz4/XLJIWBgGESONaC3WyEp4zS6
-	ikRRDNqZuXSmn+iUa8yJ04rl1I3PBdG7wZrGPih0SzpoQ3ND8/dfPRIa5mUup2TyU5CCbkra2uo
-	V5E+evo9iPJ2H5fCjubQGAqQiwLoquR7AMRahnweOyvHNhR0ckrA8GDF07iQWJjnq8ejwDgHFHg
-	EqOdTkXyAC8/T5Z0V14K04xRcUvtqcZe9gP8kE1UZxyjlgy5283yf6zgB1qoQXdGkTnNiDc9Wg3
-	uUJXaSmb+daS0iYkdahIzcsF09LjauWeXzVC3fhNE21+4TGBDzi4xQDzhDW/gnNiEpAtV9YdvBC
-	Piy8ZMwr9lgpmnBhCR6JEDcatbVdjc03fALpfeaoG3ic9UfQ=
-X-Received: by 2002:a5d:584c:0:b0:3a4:e68e:d33c with SMTP id ffacd0b85a97d-3b49661da3fmr2465457f8f.47.1751638169904;
-        Fri, 04 Jul 2025 07:09:29 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHyZaHm3cvEEMqssF8essbFIJLOElulWn/9VcRsQbLa7wt2W+gUgffDY85V2Xx5K0zPawIpyw==
-X-Received: by 2002:a5d:584c:0:b0:3a4:e68e:d33c with SMTP id ffacd0b85a97d-3b49661da3fmr2465397f8f.47.1751638169344;
-        Fri, 04 Jul 2025 07:09:29 -0700 (PDT)
+        bh=xf17P1YALsimhDT+/HwyPfAob6T0qJHwLHeouZenqkI=;
+        b=LIKaO97Kjt6PB/9OOaHuRPjuNBKdHLQLLaMCzWSzT7YacXazVbiTEW1B2exZOon5Lt
+         fUD4MLKgm9vSEZLIQVbxTkxFM1NGDAKI9/IKrBSlgoq0BhADFq44lmuxSNTqbJRq7Vd+
+         K95rz88ETaJb1zD/DHICg0OLJ3byKyjQ5AloDNFgfMwsQuOz/B7+fLvpJKv9cHI5OeEE
+         E/JngIrGf9RzFY/xNk+cS9iy0+Dn4PZR/7NM2sZYgxm108g08fZfT59AXD568Ou5Fp7G
+         S1NCGOVMl/Vcd2fzJPnLIAw52q9/XKaXavSmDBj8DjHEZGUwz+EEtTZ4YMcDnS4ZEKfK
+         YrVg==
+X-Forwarded-Encrypted: i=1; AJvYcCVYXOfaaOATfN/OwMyoAkNuwIQwaJkLz6fhxJv79xxVOKgFHAj8hDFZZg+9sL9Lj0JkzVXHb+G7mUI8VfgFLI6D@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNRpnvBc5H9a9pYdQbS9hLON0BGX7O2gOZ6mDymnawZ02/RHfn
+	Goa1E0m/SDocRSdbcDjLCY9TlQKKmb5i6cSAJwFH70MAHxl44NRnVTKo4mbxOZF+0jAUgEqyE7k
+	o8K+qW67vIt772MzmXo6aD4lSVw473Po7WvynPrpA9q1c+zjzOJj+MKYp7gVB/bA65DujedSkml
+	YR
+X-Gm-Gg: ASbGnctq2qnHz/Eu7XDrtSi/L8Cp9ao8/H1KpzgmUO/fJB+90dpGfSuokvRt+4ADL5h
+	E2ss9ShH5aCJ06+8vx/fGf4Uzg4DPDeiCoPVj0oIRhMe/On0usD6vovY1YFXoAHYG1kQ4mpSXpN
+	lfMDlMWMRVQLpzWYpq3spK9BuYPirPRcsiQyEQr8ue4dnaj9xxOUI2un5fCKTnQnOEh8QL7n9F0
+	vSGZG4sNbA21ILONZLiT2lZZj1xQY6FuNyehl+fIofFp2Oo8VPKZg3laJal2S1TL9w/0BPptLn1
+	tqIzb4QCZayUSqq6aGo/5JXQOr38j2KUpWVrRqL6vVRRBmU1pekP//reL9TgJfE9+JH9wtiDsSM
+	7yV3b7WHvp9Emsu8A63PIqH8SPCOpAi5I8kb2bRiai7YyeyA=
+X-Received: by 2002:a05:600c:3ba5:b0:43d:4686:5cfb with SMTP id 5b1f17b1804b1-454b3b8a45emr27030685e9.27.1751638233335;
+        Fri, 04 Jul 2025 07:10:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHsqbZf4RF6qO+LIbhyPLm8ae++HUsMG9OIMJY26dMAgU/68GqU2/mlOykgqK3yE46NGChe4g==
+X-Received: by 2002:a05:600c:3ba5:b0:43d:4686:5cfb with SMTP id 5b1f17b1804b1-454b3b8a45emr27029925e9.27.1751638232755;
+        Fri, 04 Jul 2025 07:10:32 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f2c:5500:988:23f9:faa0:7232? (p200300d82f2c5500098823f9faa07232.dip0.t-ipconnect.de. [2003:d8:2f2c:5500:988:23f9:faa0:7232])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454b16865c2sm27363175e9.19.2025.07.04.07.09.27
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a997ae2esm56138585e9.9.2025.07.04.07.10.30
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 04 Jul 2025 07:09:28 -0700 (PDT)
-Message-ID: <9c45c671-9330-493f-9a8b-2c08062ea0f9@redhat.com>
-Date: Fri, 4 Jul 2025 16:09:26 +0200
+        Fri, 04 Jul 2025 07:10:32 -0700 (PDT)
+Message-ID: <7ccee3be-6438-462d-8dce-efa58238f28d@redhat.com>
+Date: Fri, 4 Jul 2025 16:10:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 3/6] KVM: arm64: Block cacheable PFNMAP mapping
+Subject: Re: [PATCH v9 4/6] KVM: arm64: New function to determine hardware
+ cache management support
 To: ankita@nvidia.com, jgg@nvidia.com, maz@kernel.org,
  oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
  yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
@@ -99,7 +100,7 @@ Cc: aniketa@nvidia.com, cjia@nvidia.com, kwankhede@nvidia.com,
  kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, maobibo@loongson.cn
 References: <20250621042111.3992-1-ankita@nvidia.com>
- <20250621042111.3992-4-ankita@nvidia.com>
+ <20250621042111.3992-5-ankita@nvidia.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -146,16 +147,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20250621042111.3992-4-ankita@nvidia.com>
+In-Reply-To: <20250621042111.3992-5-ankita@nvidia.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: GpCoTYoDkOw7dNVmuCaPu_NAq2f8EAjynUb5PfZhaQ0_1751638171
+X-Mimecast-MFC-PROC-ID: l1gD2fL-BqrNcb8WDeoWfvm7JEOfoWXKxf3m16oboHM_1751638234
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_070933_576207_64D14755 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250704_071036_864742_054BE468 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,24 +174,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 21.06.25 06:21, ankita@nvidia.com wrote:
 > From: Ankit Agrawal <ankita@nvidia.com>
 > 
-> Fixes a security bug due to mismatched attributes between S1 and
-> S2 mapping.
+> VM_PFNMAP VMA's are allowed to contain PTE's which point to physical
+> addresses that does not have a struct page and may not be in the kernel
+> direct map.
 > 
-> Currently, it is possible for a region to be cacheable in the userspace
-> VMA, but mapped non cached in S2. This creates a potential issue where
-> the VMM may sanitize cacheable memory across VMs using cacheable stores,
-> ensuring it is zeroed. However, if KVM subsequently assigns this memory
-> to a VM as uncached, the VM could end up accessing stale, non-zeroed data
-> from a previous VM, leading to unintended data exposure. This is a security
-> risk.
+> However ARM64 KVM relies on a simple conversion from physaddr to a
+> kernel virtual address when it does cache maintenance as the CMO
+> instructions work on virtual addresses. This simple approach does not
+> work for physical addresses from VM_PFNMAP since those addresses may
+> not have a kernel virtual address, or it may be difficult to find it.
 > 
-> Block such mismatch attributes case by returning EINVAL when userspace
-> try to map PFNMAP cacheable. Only allow NORMAL_NC and DEVICE_*.
+> Fortunately if the ARM64 CPU has two features, S2FWB and CACHE DIC,
+> then KVM no longer needs to do cache flushing and NOP's all the
+> CMOs. This has the effect of no longer requiring a KVA for addresses
+> mapped into the S2.
 > 
-> CC: Oliver Upton <oliver.upton@linux.dev>
-> CC: Catalin Marinas <catalin.marinas@arm.com>
-> CC: Sean Christopherson <seanjc@google.com>
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> Add a new function, kvm_arch_supports_cacheable_pfnmap(), to report
+> this capability. From a core prespective it means the arch can accept
+> a cachable VM_PFNMAP as a memslot. From an ARM64 perspective it means
+> that no KVA is required.
+> 
+> CC: Jason Gunthorpe <jgg@nvidia.com>
+> CC: David Hildenbrand <david@redhat.com>
+> CC: Donald Dutile <ddutile@redhat.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 > Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
 > ---
 
