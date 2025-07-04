@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFC6C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 18:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB7FC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 18:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h+6MaXkwZ4dUQclS84K/L9nPqy6QvIp545pOiMCxoJU=; b=1XJUkfrpy0jK3BKe4dK942eC/D
-	z3H06S5oFtWuUJblkUMyNg3YeDzpDuVi9QELbSk9fyCDuJ6YLj7ms84Pb/QTF+gH6bCfN0Yen/JUM
-	Tugb/ahX5D5UVqQK3ckUkb0JwAXWRFmy3ApB7u4isI8vylGk84bEPYR1vLUJRh7YTDV8MSxzQcaFY
-	LkQFEA+gh1Eu/hbe7Cf/bbLT5OPcIzrV7Bt5Qi9BOoTDVy7Z/+5oOZHoZrcyBzbEKnIWMmWWBS5yV
-	ylpZYN392l0xrC4hObI6wAy0Fm9tvGvSYzqfxCrqpImB1646ACiRp1BE43OfCwosehehkaeqIgVmD
-	ZY+NOLhg==;
+	bh=CjDYMkgZ6/C0908IWJ8wP/3rLr1dUg87rXMpKKYkU3w=; b=J0zBENRHt0i9egkIEXWL4Rd9ED
+	cgcavHJpJmtzg3q2/5/+RwEsSSnH0KQflEj3g2pjNBWP9Njrb8GrgAf5GEpVwUAB8qeIEBXJ/Rets
+	iBc2eXGLepTJ9n4g5G6FEb2iJodTSXnp0skgDKczNg7grQ4AW5IreNXFnwzIdVOy6m+Fm7BtlxC3F
+	nQR9TRvNEJgec6jn3CJ4fRMJkGJfQIQloDj1KGaqi+RRv6Krss1n3gLrj7rKZylbaNja+1AzByMPS
+	XW13pINCnaZa4/GAjSS0w3IbmAd+8+vBBq7ny3+yFr4b+NARrXrcuOvaXysSYgWtbcHrHbtFoP3IJ
+	Efs5b7CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXknQ-0000000FAfj-2K7g;
-	Fri, 04 Jul 2025 18:06:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uXkpk-0000000FAoX-1Apu;
+	Fri, 04 Jul 2025 18:08:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkSl-0000000F8Da-1ONF
+	id 1uXkSm-0000000F8E3-3ts7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 17:44:39 +0000
+	Fri, 04 Jul 2025 17:44:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C07BA6146B;
+	by sea.source.kernel.org (Postfix) with ESMTP id A9DF646A4C;
+	Fri,  4 Jul 2025 17:44:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 023E5C4CEEF;
 	Fri,  4 Jul 2025 17:44:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D6AC4CEE3;
-	Fri,  4 Jul 2025 17:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751651078;
-	bh=jaOjuh9ezxdhTwYcV1byDDNFMNy1vCBmMI29BMRsjzk=;
+	s=k20201202; t=1751651080;
+	bh=0Of2DAv59lR6dZHDz2GpwsJOOrpi64d81pjQPe/a6Qw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mBk53SbiQxkcXuLVklXYlmlOZ9J2mjwMLe2UbGAqFjJw6NSNwxgXzFQQTVkC+zitA
-	 1KEVw5Yb6E8newabjPuUj8op7FBBKs/lityI/KRl+mwLt4eLIRJ9uKumQVhcxdGa9h
-	 EZCoKDAzvzpoYLkJ/wMkkIIsO48nrMAWIfywE8mEjIoxaFvnF6Gv2oyu7Su0XP5XP9
-	 qWdfwat8g/1YA5nIEwCMYUp0IIick0j6GUPu5zat9Rq4W5N+nHzo/JJTNiNldXbvil
-	 oY4Hs2Lz1B7a2q8BbbKu2tE2rptkIS2u8LXYo235BEgOnADVc7YGBUee5eIjuXMTOX
-	 LHqWQdcnmteEQ==
+	b=dciBDgjupR1Gqcs3h9dxuBq0PJMSbW6ATGfmhtk+IyTcKojt1lZUzOP1OI8t1nZxD
+	 J+Rxp+Cb5Wq8cMH4/R8KnlGCfkM034c1cgD5ERhOB4y/GBz1Yqnspumz4ppTfLeM1s
+	 B1+kATCtwVP+0R4fzUyGazPDwQRLCz9eh2GrmP7DkQhyxvXQvpmbvFfN/NGrPo2NWE
+	 En4b79nWgCdMw8qChSteMreR17AuE86IrWtDuIVsqQ/EPgUpm9wlwznAqId4q5QLHt
+	 MvodnK8v/COgCARmcBKfIJzahIn6zOTV3Q3YTQHmB5YjzmyBfT7nVAp2jl7INlQnUw
+	 Np8znltyXdA2Q==
 From: Will Deacon <will@kernel.org>
-To: robin.murphy@arm.com,
-	mark.rutland@arm.com,
-	Zhiyuan Dai <daizhiyuan@phytium.com.cn>
+To: linux-arm-kernel@lists.infradead.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf/arm-cmn: Broaden module description for wider interconnect support
-Date: Fri,  4 Jul 2025 18:44:13 +0100
-Message-Id: <175164870782.4003146.18058724639917920993.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>
+Subject: Re: [PATCH 0/2] Improve POE handling for uaccess
+Date: Fri,  4 Jul 2025 18:44:14 +0100
+Message-Id: <175164363953.1189181.15632215061604413984.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250522032122.949373-1-daizhiyuan@phytium.com.cn>
-References: <20250522032122.949373-1-daizhiyuan@phytium.com.cn>
+In-Reply-To: <20250619160042.2499290-1-kevin.brodsky@arm.com>
+References: <20250619160042.2499290-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250704_104440_990773_3928839B 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,20 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 22 May 2025 11:21:22 +0800, Zhiyuan Dai wrote:
-> The current MODULE_DESCRIPTION only mentions CMN-600, but this driver
-> now supports several Arm mesh interconnects including CMN-650, CMN-700,
-> CI-700, and CMN-S3.
+On Thu, 19 Jun 2025 17:00:40 +0100, Kevin Brodsky wrote:
+> This short series attempts to approach POE (Overlay) faults consistently
+> w.r.t. uaccess. We currently assume that spurious Overlay faults are
+> handled by retrying the access [1], but this isn't the case.
 > 
-> Update the MODULE_DESCRIPTION to reflect the expanded scope.
-> 
+> Patch 1 ensures that spurious Overlay faults are indeed ignored. This
+> being done, it typically isn't worth using an ISB when writing to
+> POR_EL0. Patch 2 removes the remaining ISB in the signal handling code.
 > 
 > [...]
 
-Applied to will (for-next/perf), thanks!
+Applied first patch to arm64 (for-next/fixes), thanks!
 
-[1/1] perf/arm-cmn: Broaden module description for wider interconnect support
-      https://git.kernel.org/will/c/8b177e9a4ecd
+[1/2] arm64: poe: Handle spurious Overlay faults
+      https://git.kernel.org/arm64/c/22f3a4f60859
 
 Cheers,
 -- 
