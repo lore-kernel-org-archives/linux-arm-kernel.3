@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85D5C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 13:51:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E90C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 13:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kM65gUyDV8Nq6O0X5HePJHOOeCngpBNSIlUrnpmpZME=; b=rJq8ScRuw2AnzbvF+R3+eKi9tw
-	hMz34sL2BMNjbElAytjEdMTXG2fQmd3TB2ZPWyimDT1M17WfUHW0KKaQ8zkdHioiJBTGIg5omyTNB
-	c/5fd9XXrxZ5k8RVlWSldmYZ4kinKjkf3+30/xmzZtvhCDC+tNFWjxIsmDIpB4QZUzyW6KQI8S9HZ
-	Pdz7+Pv68AyaJrVwm73ZAQk61T8WoVUeLDvyK9zQFu6POWHCHLXX9E6C62AxHuZeeBObXQx07s655
-	sACjqiwoNhHekoCefvf5wPh25+md57O7yJyi4Z2hCsap6WgHkM8YuDGBDLvS166Me7NDR6mDGHsxi
-	ce9PPMoA==;
+	bh=pjUqkqCowpJ5lnZrv17ukt2R2oRrFdKBckxhi5ciuJg=; b=hTuz/NmLjGL6YNdcVX3J5zQ6HQ
+	XrEVHMQjibFd7jMQSILR3zzQfNmns2PfDbmru05eawpcnVctAFIquVwPK2X3h8gA8ZCnP05JueVxg
+	13UxUWVbHzllkVOM6N+mSTlBxzkH9JweAbokUBr9LxhkV9eYCK1AJjM5WKJ26JZClETx312kXTUQB
+	yUvO92aFNgW6OJdDAG8wSUrCHnGc3zk1Pu0aSKvmm68GA2A07D0fTqGjyDU6lpvT9s+ow7jcq2zhB
+	MY+rjZtdeh8AlE1F5GgKGlX5WDvmIV5HPp3+UbhIGCWM6W6AyQ8ZzlZzQ6dlRC0z7R2O4f6qc6iz9
+	peGjrIMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXgpA-0000000Ea56-3hLG;
-	Fri, 04 Jul 2025 13:51:32 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1uXgua-0000000EatG-1kRD;
+	Fri, 04 Jul 2025 13:57:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXfhk-0000000EPQI-1ezy;
-	Fri, 04 Jul 2025 12:39:50 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a4fd1ba177so648254f8f.0;
-        Fri, 04 Jul 2025 05:39:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751632786; x=1752237586; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=kM65gUyDV8Nq6O0X5HePJHOOeCngpBNSIlUrnpmpZME=;
-        b=mpFM41RmcdAKRFWkI4gb5g8MQ/bE3qI7+2SdbZr+Qic49ej2bspr0UxGvQ/eK6r0K2
-         S+TS+oNiEmL5Lb2HSa9Qab2L2WLQirsrXJ6byzYe3LFvLi23i4wrWVZjWMC9p69XveTz
-         pHpTBAtkukwCQEg0vULhTvB9AVpEAgMtPivglTqLbdLKDKmO3Fp3OrQmlhmRRkTXNUu7
-         H2PAgMt1aMy5Y6IjeIvdd+qe/2JKEP/U8W7ATbQFwWs+Y6FSDaFk0V19YalsDw6pxPOE
-         wtukSMyZj6Kc3f8EvK6L2fEY289ByrHGVNiwg2flLF/NCG3MSVB40ERBM+mR8f2BPPwA
-         sKXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751632786; x=1752237586;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kM65gUyDV8Nq6O0X5HePJHOOeCngpBNSIlUrnpmpZME=;
-        b=ItwHFLPJYNSAzN8vWou6h2I04gERG1vPfBWmjNtYM5aOE3WTuxikPF3KvwRc3xeSQS
-         /9SIKSo+gUkaIsZ09+/tMuRchKzW92AyNUCo7JqhipJaVekb/XgzDEA44XxBm4YCnTea
-         FGAEBp5LqkhIJWuUbz3dCgpo95YEMlyMPQ8dfi3Ro4iM9Vusi+HokTY1BPHqiNUkRhP0
-         8pKegookSlBUEbIgATNT4aiRsJIScIa5jpsMVc0ofw4HGir2sZLnkCYNxys1icJQWBVJ
-         3Em6wgD46AONKh7kA7Lx/vogIU5m81hT274sKDWBqHxtg1SSuGeLNrE+56/ySZb1BToa
-         yOXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU+Z1Si9AeJj8fqQYxlsO1KbVvMWbr+65Pso8m3qnBqdB2fWIzFrIARczGLQWXkcOHwchKxMyfyYs7rOT1GCAD3@lists.infradead.org, AJvYcCVYnfLbhh4wBeehMSMeZz0j0IjbHn7DRmJ+rA+rxLXpoTksjolTXUszFZIUv5buFsPestOlYRAW/qRpewP/3p0=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPgjM1wJ4gYGwuAb2CxyfZR5dH6VPCMKclfe49kp69FahS8LBA
-	s02oCNkhdk7tI5kCk6FvkJmE7sa71HgILvndzWvHclvv2Msbqlr/keGEIqlj6WFEKcI=
-X-Gm-Gg: ASbGnctW/lyH/W5YKQXWIAsdqd/gnnSn0gdeVPrkOWGPvZT6ziWB2egEiUsJc6TeaZD
-	rT3ec35g+oXevZT7QF2MbqQDajGLOPyCrwR3vYY11SxPJCUd5b0I3KueLDcfEvxeVJ9glwxAbnl
-	BA/pJi7XChYrcAyt40PGs7Hoh+oL+bWgY7r7RFhHAUAKNXXfrqwvYCNBe0P8wxs7RXzQxHhlf41
-	YOIN0/SsiWhfy5L+OXZiLooXaX/XCm8IQ5C4GRwf8HPevmy/IZjT4uV5yaD9fATK40st4Uzb32U
-	Eu/k+KBiwsZTa871J2m7cjzsxBccdseDh2SDGheX3v+6UDzeyOo/g/3yD0n5XxzNKaH55g==
-X-Google-Smtp-Source: AGHT+IGEZQqooZXYhGVoWPdBr2vTu84V+4w3rPWYqllSwEygO+t6NPXOBmMzmHVAtMjkZ8S2Ox0sXg==
-X-Received: by 2002:a05:6000:4911:b0:3a5:2915:ed68 with SMTP id ffacd0b85a97d-3b495ccbb9emr2195447f8f.28.1751632786152;
-        Fri, 04 Jul 2025 05:39:46 -0700 (PDT)
-Received: from [192.168.1.187] ([161.230.67.253])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b47030b4f6sm2467772f8f.10.2025.07.04.05.39.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Jul 2025 05:39:45 -0700 (PDT)
-Message-ID: <ab0a407412c705e409d9d26591543713a092c13f.camel@gmail.com>
-Subject: Re: [PATCH v2 0/6] iio: Add support for MT6363/6373 Auxiliary ADC
-From: Nuno =?ISO-8859-1?Q?S=E1?= <noname.nuno@gmail.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	jic23@kernel.org
-Cc: dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
- robh@kernel.org, 	krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, 	linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org,
- kernel@collabora.com
-Date: Fri, 04 Jul 2025 13:39:56 +0100
-In-Reply-To: <20250703141146.171431-1-angelogioacchino.delregno@collabora.com>
-References: <20250703141146.171431-1-angelogioacchino.delregno@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 
+	id 1uXgbo-0000000EXPG-0Csa
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Jul 2025 13:37:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3993A6145D
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 13:37:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E47FBC4CEF2
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 13:37:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751636262;
+	bh=HKYQfTfq82gpnvKOee0ZGNWnbiOHEHL+EOj2rgjNOy4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=OpZqH8sEMjFcs/Db+OSNHWewJXGZQhKN1+mxAeGFZyRv0FI9m85RpZmWKU/BKQlOn
+	 rW40FGefFdS5KAaavUps6QEgjXz/PY8803+bv59LL92D9f1lv2ygYHXVGsFEuOdxaS
+	 2i6JVlU0L0sjNaVYQp73Mg3EoDt2B1mVRI+QDOekolIWDKJJSTXS/LrDaTT6uxtOlT
+	 wUdF+LK1evI/TZJuODoeJBpESZ8MKcgC7Ywnt418Hm0u3xlzmwbwtNtfUFlljRE9y2
+	 SuvBwoZ7hADq9aeo7DXH+NCDPhWNrdOwSjZq/7FbIPFYP+plLXd/BjxZcbV/QtL4sO
+	 x6DtJ9Oj3miew==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5562d8c8970so1016807e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Jul 2025 06:37:42 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXMkIuorGF9UnTJJhYm7H3f5w8HyeSdWWXAet97dwHk/SoKIVvDrqg4M7HosQ2MECDdWw4TrZk530fmgn2vWm+C@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJqY0RYJePvrKXROFKOLkkGHZG0Z0m+XQ4HjwEnUSGOoOYYz0B
+	F+yrbougENWGt+m//e+YicYROneRUvjSmH5uvb3tN5eFZxCXKkcZz+18btlQAMQd/filk9qqVnL
+	0ajfwK1YxkA6qjD4+r5ZBdwY08ApM7Eg=
+X-Google-Smtp-Source: AGHT+IGhZi79Wa4TZUOknDyO3OQuq/IrL0An6lSKg98ZUJaFoX2kye6ZyCvKSzgo+2AwS+cWqhXZsfqu2IVPO0+7k20=
+X-Received: by 2002:a05:6512:1050:b0:553:252f:addf with SMTP id
+ 2adb3069b0e04-557a1235e66mr609612e87.10.1751636261192; Fri, 04 Jul 2025
+ 06:37:41 -0700 (PDT)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_053948_432184_E87F1DDA 
-X-CRM114-Status: GOOD (  10.55  )
+References: <20250624-arm_kasan-v1-1-21e80eab3d70@debian.org>
+ <aGaxZHLnDQc_kSur@arm.com> <CAMj1kXFadibWLnhFv3cOk-7Ah2MmPz8RqDuQjGr-3gmq+hEnMg@mail.gmail.com>
+ <aGfK2N6po39zyVIp@gmail.com> <aGfYL8eXjTA9puQr@willie-the-truck>
+In-Reply-To: <aGfYL8eXjTA9puQr@willie-the-truck>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 4 Jul 2025 15:37:29 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXFUjJmJjR3b2S8pZeEheKojJGCYjRWRQDS0EbDYhGEUVw@mail.gmail.com>
+X-Gm-Features: Ac12FXxDoYAyne6f9LFfkIyFnAPNWAnIdZPy1iEe6SjskHRpB5hKeukxa0EcUu8
+Message-ID: <CAMj1kXFUjJmJjR3b2S8pZeEheKojJGCYjRWRQDS0EbDYhGEUVw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: efi: Fix KASAN false positive for EFI runtime stack
+To: Will Deacon <will@kernel.org>
+Cc: Breno Leitao <leitao@debian.org>, Catalin Marinas <catalin.marinas@arm.com>, usamaarif642@gmail.com, 
+	rmikey@meta.com, andreyknvl@gmail.com, kasan-dev@googlegroups.com, 
+	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +83,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-07-03 at 16:11 +0200, AngeloGioacchino Del Regno wrote:
-> Changes in v2:
-> =C2=A0- Added error checks to all regmap r/w operations
-> =C2=A0- Moved adc_vref addition to different commit
-> =C2=A0- Various other fixes
->=20
-> This series adds support for the Auxiliary ADC IP found on the new
-> MediaTek MT6363 and MT6373 PMICs, found on board designs featuring
-> the MT8196 Chromebook SoC or the MT6991 Dimensity 9400 Smartphone SoC.
->=20
-> AngeloGioacchino Del Regno (6):
-> =C2=A0 dt-bindings: iio: adc: mt6359: Add MT6363 PMIC AuxADC
-> =C2=A0 dt-bindings: iio: adc: mt6359: Add MT6373 PMIC AuxADC
-> =C2=A0 iio: adc: mt6359: Add ready register index and mask to channel dat=
-a
-> =C2=A0 iio: adc: mt6359: Move reference voltage to platform data
-> =C2=A0 iio: adc: mt6359: Add support for MediaTek MT6363 PMIC AUXADC
-> =C2=A0 iio: adc: mt6359: Add support for MediaTek MT6373 PMIC AUXADC
->=20
-> =C2=A0.../iio/adc/mediatek,mt6359-auxadc.yaml=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0=C2=A0 2 +
-> =C2=A0drivers/iio/adc/mt6359-auxadc.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 440 +++++++++++++++---
-> =C2=A0.../iio/adc/mediatek,mt6363-auxadc.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 24 +
-> =C2=A0.../iio/adc/mediatek,mt6373-auxadc.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 19 +
-> =C2=A04 files changed, 416 insertions(+), 69 deletions(-)
-> =C2=A0create mode 100644 include/dt-bindings/iio/adc/mediatek,mt6363-auxa=
-dc.h
-> =C2=A0create mode 100644 include/dt-bindings/iio/adc/mediatek,mt6373-auxa=
-dc.h
+On Fri, 4 Jul 2025 at 15:33, Will Deacon <will@kernel.org> wrote:
+>
+> On Fri, Jul 04, 2025 at 01:36:40PM +0100, Breno Leitao wrote:
+> > On Fri, Jul 04, 2025 at 10:26:37AM +0200, Ard Biesheuvel wrote:
+> > > On Thu, 3 Jul 2025 at 18:35, Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > > > On Tue, Jun 24, 2025 at 05:55:53AM -0700, Breno Leitao wrote:
+> > ...
+> > > > >  arch/arm64/kernel/efi.c | 9 ++++++---
+> > ...
+> > > > >  static bool region_is_misaligned(const efi_memory_desc_t *md)
+> > > > >  {
+> > > > > @@ -214,9 +215,11 @@ static int __init arm64_efi_rt_init(void)
+> > > > >       if (!efi_enabled(EFI_RUNTIME_SERVICES))
+> > > > >               return 0;
+> > > > >
+> > > > > -     p = __vmalloc_node(THREAD_SIZE, THREAD_ALIGN, GFP_KERNEL,
+> > > > > -                        NUMA_NO_NODE, &&l);
+> > > > > -l:   if (!p) {
+> > > > > +     if (!IS_ENABLED(CONFIG_VMAP_STACK))
+> > > > > +             return -ENOMEM;
+> > > >
+> > > > Mark Rutland pointed out in a private chat that this should probably
+> > > > clear the EFI_RUNTIME_SERVICES flag as well.
+> > > >
+> > >
+> > > If VMAP_STACK is a hard requirement, should we make CONFIG_EFI depend
+> > > on it for arm64?
+> >
+> > What about if we make CONFIG_EFI select VMAP_STACK? I think it is more
+> > straight forward from a configuration perspective.
+> >
+> > I thought about the following. What do you think?
+> >
+> >       arm64: EFI selects VMAP_STACK
+> >
+> >       Modify the ARM64 Kconfig to make the CONFIG_EFI configuration option
+> >       automatically select CONFIG_VMAP_STACK.
+> >
+> >       The motivation is that arm64_efi_rt_init() will fail at runtime if
+> >       CONFIG_VMAP_STACK is not set, so the patch ensures that enabling EFI
+> >       will always enable VMAP_STACK as well, and avoid having EFI disabled in
+> >       case the user didn't set VMAP_STACK.
+> >
+> >       Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+> >       Signed-off-by: Breno Leitao <leitao@debian.org>
+> >
+> >       diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> >       index 55fc331af3371..cc2585143f511 100644
+> >       --- a/arch/arm64/Kconfig
+> >       +++ b/arch/arm64/Kconfig
+> >       @@ -2437,6 +2437,7 @@ config EFI
+> >               select EFI_RUNTIME_WRAPPERS
+> >               select EFI_STUB
+> >               select EFI_GENERIC_STUB
+> >       +       select VMAP_STACK
+> >               imply IMA_SECURE_AND_OR_TRUSTED_BOOT
+> >               default y
+> >               help
+>
+> I would actually like to select VMAP_STACK unconditionally for arm64.
+> Historically, we were held back waiting for all the various KASAN modes
+> to support vmalloc properly, but I _think_ that's fixed now...
+>
+> The VMAP_STACK dependency is:
+>
+>         depends on !KASAN || KASAN_HW_TAGS || KASAN_VMALLOC
+>
+> and in arm64 we have:
+>
+>         select KASAN_VMALLOC if KASAN
+>
+> so it should be fine to select it afaict.
+>
 
-
-LGTM,
-
-Reviewed-by: Nuno S=C3=A1 <nuno.sa@analog.com>
+I agree - we have plenty of vmalloc space, and the memory footprint is
+the same so we should just turn this on unconditionally.
 
