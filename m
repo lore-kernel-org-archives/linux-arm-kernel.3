@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E84C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED2FC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UujN1t33SyhwG/TKawVHVwktQEIgDP0r9/yAW0efrXs=; b=0NcPIZvAx6AlHyndiujJ5GpJ9d
-	egt6fj8/EXw4lG6y2dlQmvwlgsTH7dW4y78ckzXQWmkkwYOr9Neu1wECOP8ASonbrw2LLs4E5/ytY
-	gWsNTMcKr73TBVGp6vQHUxSI57jGOfcFDRPcC4xv216bM5sF33sVZjkDfHJoMD6GoFiMEKMJHx7Qc
-	tPHUotkecNBCo1BeTk4R4QdFYtnX3jtxqbswq0Hb6BneoeOLfEgmVgLRNmUzlW4fIGjjhRqsQyxgH
-	jI3a6UYPEQUVAWVQhlWSLEaLZZGEhgQfa6HmV/8CWj3TFs9EZtXyGyXjDJ/YM0P24ycM2ZFatifWo
-	r69SiZJQ==;
+	bh=c8sPcZjKUdUBDWpvEshAPyOhZ/0NuBS4zgSCgP9w7a4=; b=UESPL706O3pADQev7dfnUtKkAW
+	nPr+CJeB4JfG2McOcvZ6/q8xd1dj7mzlTAi4y88xPohSFBeQhFyGB5nSSdGXsczMkeUSZn8Lc4681
+	WISN6hIkhWBx+/bIQUcGGKqqFR5kdlNgH0mQROcYahbeBiKnQ8q736Gyecvcth4bau5ixeIvPGB/Y
+	5VjrgA7kC6K/lUseEw+bbiY5IbAJH0IcI1W/3yJRRnmWcKAEqGZElsxvVSzkS25YxT3FcOKpYqqV3
+	fQ248FIMi3+QEu/igpPInhe5nCenA12jznsJ6k4aiUCCVeeRqNOXu3Cuaa3tRM6VegajQ4Nx9/U7Q
+	3PQeLsQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXj8N-0000000EwEk-2MtN;
-	Fri, 04 Jul 2025 16:19:31 +0000
+	id 1uXjAi-0000000Ewdt-1Bwx;
+	Fri, 04 Jul 2025 16:21:56 +0000
 Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXip4-0000000EtdL-2aRE
+	id 1uXip7-0000000Etdy-0t4Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 15:59:35 +0000
+	Fri, 04 Jul 2025 15:59:38 +0000
 Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 831091F0007C
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 15:59:06 +0000 (UTC)
+	by leonov.paulk.fr (Postfix) with ESMTPS id 32C941F0007E
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 15:59:07 +0000 (UTC)
 Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 40293ACA6A7; Fri,  4 Jul 2025 15:50:58 +0000 (UTC)
+	id 4A964ACA6B8; Fri,  4 Jul 2025 15:52:15 +0000 (UTC)
 Received: from localhost.localdomain (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id 682FEACA658;
-	Fri,  4 Jul 2025 15:46:40 +0000 (UTC)
+	by laika.paulk.fr (Postfix) with ESMTP id AD114ACA65D;
+	Fri,  4 Jul 2025 15:46:45 +0000 (UTC)
 From: Paul Kocialkowski <paulk@sys-base.io>
 To: linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -55,17 +55,17 @@ Cc: Yong Deng <yong.deng@magewell.com>,
 	Stephen Boyd <sboyd@kernel.org>,
 	Maxime Ripard <mripard@kernel.org>,
 	Paul Kocialkowski <paul.kocialkowski@bootlin.com>
-Subject: [PATCH v8 6/9] ARM: dts: sun8i: v3s: Add support for the ISP
-Date: Fri,  4 Jul 2025 17:46:23 +0200
-Message-ID: <20250704154628.3468793-7-paulk@sys-base.io>
+Subject: [PATCH v8 8/9] ARM: dts: sun8i-a83t: Add BananaPi M3 OV5640 camera overlay
+Date: Fri,  4 Jul 2025 17:46:25 +0200
+Message-ID: <20250704154628.3468793-9-paulk@sys-base.io>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250704154628.3468793-1-paulk@sys-base.io>
 References: <20250704154628.3468793-1-paulk@sys-base.io>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_085934_802132_9DEA62B6 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20250704_085937_576449_49A8867D 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,78 +82,153 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
 
-The V3s (and related platforms) come with an instance of the A31 ISP.
-Even though it is very close to the A31 ISP, it is not exactly
-register-compatible and a dedicated compatible only is used as a
-result.
-
-Just like most other blocks of the camera pipeline, the ISP uses
-the common CSI bus, module and ram clock as well as reset.
-
-A port connection to the ISP is added to CSI0 for convenience since
-CSI0 serves for MIPI CSI-2 interface support, which is likely to
-receive raw data that will need to be processed by the ISP to produce
-a final image.
-
-The interconnects property is used to inherit the proper DMA offset.
+Add an overlay supporting the OV5640 from the BananaPi Camera v3
+peripheral board. The board has two sensors (OV5640 and OV8865)
+which cannot be supported in parallel as they share the same reset
+pin and the kernel currently has no support for this case.
 
 Signed-off-by: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
 ---
- arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi | 35 ++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+ arch/arm/boot/dts/allwinner/Makefile          |   1 +
+ .../sun8i-a83t-bananapi-m3-camera-ov5640.dtso | 117 ++++++++++++++++++
+ 2 files changed, 118 insertions(+)
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3-camera-ov5640.dtso
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-index bfe02295f45d..f63534a02706 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-+++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-@@ -695,6 +695,14 @@ csi0_in_mipi_csi2: endpoint {
- 						remote-endpoint = <&mipi_csi2_out_csi0>;
- 					};
- 				};
+diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
+index 7318ce6d7fa3..de13da013732 100644
+--- a/arch/arm/boot/dts/allwinner/Makefile
++++ b/arch/arm/boot/dts/allwinner/Makefile
+@@ -219,6 +219,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
+ 	sun8i-a33-vstar.dtb \
+ 	sun8i-a83t-allwinner-h8homlet-v2.dtb \
+ 	sun8i-a83t-bananapi-m3.dtb \
++	sun8i-a83t-bananapi-m3-camera-ov5640.dtbo \
+ 	sun8i-a83t-cubietruck-plus.dtb \
+ 	sun8i-a83t-tbs-a711.dtb \
+ 	sun8i-h2-plus-bananapi-m2-zero.dtb \
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3-camera-ov5640.dtso b/arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3-camera-ov5640.dtso
+new file mode 100644
+index 000000000000..469faf8cd2c4
+--- /dev/null
++++ b/arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3-camera-ov5640.dtso
+@@ -0,0 +1,117 @@
++// SPDX-License-Identifier: GPL-2.0 OR X11
++/*
++ * Copyright 2022 Bootlin
++ * Author: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
++ */
 +
-+				port@2 {
-+					reg = <2>;
++/dts-v1/;
++/plugin/;
 +
-+					csi0_out_isp: endpoint {
-+						remote-endpoint = <&isp_in_csi0>;
-+					};
-+				};
- 			};
- 		};
- 
-@@ -753,5 +761,32 @@ csi1: camera@1cb4000 {
- 			resets = <&ccu RST_BUS_CSI>;
- 			status = "disabled";
- 		};
++#include <dt-bindings/clock/sun8i-a83t-ccu.h>
++#include <dt-bindings/gpio/gpio.h>
 +
-+		isp: isp@1cb8000 {
-+			compatible = "allwinner,sun8i-v3s-isp";
-+			reg = <0x01cb8000 0x1000>;
-+			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_CSI>,
-+				 <&ccu CLK_CSI_SCLK>,
-+				 <&ccu CLK_DRAM_CSI>;
-+			clock-names = "bus", "mod", "ram";
-+			resets = <&ccu RST_BUS_CSI>;
-+			interconnects = <&mbus 5>;
-+			interconnect-names = "dma-mem";
-+			status = "disabled";
++&{/} {
++	compatible = "sinovoip,bpi-m3";
 +
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
++	/*
++	 * These regulators actually have DLDO4 tied to their EN pin, which is
++	 * described as input supply here for lack of a better representation.
++	 * Their actual supply is PS, which is always-on.
++	 */
 +
-+				port@0 {
-+					reg = <0>;
++	ov5640_avdd: ov5640-avdd {
++		compatible = "regulator-fixed";
++		regulator-name = "ov5640-avdd";
++		regulator-min-microvolt = <2800000>;
++		regulator-max-microvolt = <2800000>;
++		vin-supply = <&reg_dldo4>;
++	};
 +
-+					isp_in_csi0: endpoint {
-+						remote-endpoint = <&csi0_out_isp>;
-+					};
-+				};
++	ov5640_dovdd: ov5640-dovdd {
++		compatible = "regulator-fixed";
++		regulator-name = "ov5640-dovdd";
++		regulator-min-microvolt = <2800000>;
++		regulator-max-microvolt = <2800000>;
++		vin-supply = <&reg_dldo4>;
++	};
++
++	ov5640_dvdd: ov5640-dvdd {
++		compatible = "regulator-fixed";
++		regulator-name = "ov5640-dvdd";
++		regulator-min-microvolt = <1500000>;
++		regulator-max-microvolt = <1500000>;
++		vin-supply = <&reg_dldo4>;
++	};
++};
++
++&csi {
++	pinctrl-names = "default";
++	pinctrl-0 = <&csi_8bit_parallel_pins>;
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++
++			csi_in_ov5640: endpoint {
++				remote-endpoint = <&ov5640_out_csi>;
++				bus-width = <8>;
++				data-shift = <2>;
++				hsync-active = <1>;
++				vsync-active = <1>;
++				pclk-sample = <1>;
 +			};
 +		};
- 	};
- };
++	};
++};
++
++&i2c2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c2_pe_pins>;
++	status = "okay";
++
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	ov5640: camera@3c {
++		pinctrl-names = "default";
++		pinctrl-0 = <&csi_mclk_pin>;
++
++		compatible = "ovti,ov5640";
++		reg = <0x3c>;
++
++		clocks = <&ccu CLK_CSI_MCLK>;
++		clock-names = "xclk";
++		assigned-clocks = <&ccu CLK_CSI_MCLK>;
++		assigned-clock-parents = <&osc24M>;
++		assigned-clock-rates = <24000000>;
++
++		AVDD-supply = <&ov5640_avdd>;
++		DOVDD-supply = <&ov5640_dovdd>;
++		DVDD-supply = <&ov5640_dvdd>;
++
++		powerdown-gpios = <&pio 3 15 GPIO_ACTIVE_HIGH>; /* PD15 */
++		reset-gpios = <&pio 4 16 GPIO_ACTIVE_LOW>; /* PE16 */
++
++		rotation = <180>;
++
++		port {
++			ov5640_out_csi: endpoint {
++				remote-endpoint = <&csi_in_ov5640>;
++				bus-width = <8>;
++				data-shift = <2>;
++				hsync-active = <1>; 
++				vsync-active = <1>;
++				pclk-sample = <1>;
++			};
++		};
++	};
++};
++
++&reg_dldo4 {
++	regulator-min-microvolt = <2800000>;
++	regulator-max-microvolt = <2800000>;
++};
 -- 
 2.49.0
 
