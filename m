@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD40C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 18:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E808C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 18:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tM0WeH7WN2H+Pv/yMLg2H1OctdoS3quakXmfUxugYNs=; b=cg+3spEiYM7uzrMX0stbxfb8K2
-	dRXKieXmZHnTYgquTBp8Xm4fd7zcIjsQme9izQrpF4ty8juYP+OVXSiYRfZvpDxjpwLcoCi6hc7v/
-	f7xGZvGOS899Nke/7BZwGF94Ec5GzV3INEJC9JHbiHK1d0hg5IrQ18XWi9nOTu5GjQI5LVkPGNluT
-	VkrlpEcj50CmPcVqjpnmxtwTAfoPzSEOWy7GtQPSIOCG4JSiAVNu7gNNIOspf+O2vDkXsRFqbj3ie
-	qFBOjSbh4zArWylEGtDbHQPuYeS424PMRrJhMwpKz3qJbzggwx2TfrFbw7Bb3XtNdgm0Z0ccCXuT+
-	v/hLOMGQ==;
+	bh=BiIC8cU1jiUN3g9Ouh0f8Bnre4Cfbx6f1xX1pyULiAo=; b=NKvaAuiV5lgpsPDDINKqYE+5w7
+	fVHNb0ovPOF9Xl+aiw/enpmHWYOA4Ph1vWKeIs2f0UsYm0yH6iQLQjoTXn2HOXLC55agrxif/LICL
+	vJrguaREwmDRrAHmB9ng5dwEHKUUvxhaIz20+S2IDZt3dmRtohLLY+ehQIfQ5AZTO2hvB10CwlqtY
+	e/EGLbIKhVUiWowqO8aMXr3ckc7ULl+bjNO3sfS2JK2iRH3uAnn0hhsRl/pMY78lU7WKe7cnVds2d
+	34xOu/VsUxAqHBOLdfKkt4bOJ/NaJSIyBGE0T5BGBzq1qZaXqvDpCvXo2W/EuHu5awx22K/YVqazF
+	vWH73qGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkwj-0000000FBdM-21rZ;
-	Fri, 04 Jul 2025 18:15:37 +0000
+	id 1uXkz3-0000000FBpH-1Aaf;
+	Fri, 04 Jul 2025 18:18:01 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkSv-0000000F8H9-1Fr5
+	id 1uXkSx-0000000F8Hd-0yIG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 17:44:49 +0000
+	Fri, 04 Jul 2025 17:44:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA99261469;
+	by tor.source.kernel.org (Postfix) with ESMTP id A94D861468;
+	Fri,  4 Jul 2025 17:44:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED223C4CEEF;
 	Fri,  4 Jul 2025 17:44:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D658C4CEED;
-	Fri,  4 Jul 2025 17:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751651088;
-	bh=vlBQ29Znbri6/+ISyC5uRMdnOm8l/jH6wA+Yrqz9eo8=;
+	s=k20201202; t=1751651090;
+	bh=esn9s6EqpaSnRfbcaIGb2L569+x/GbsPLSuq7sW2VI0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XslOOkQTZVhEqv5uRhzJybA1lEz4/NwDjjhofrO/2jnL/IezHmrAGgPHbl39tayRL
-	 UFcK/fUuacr2YL9MrVKwN7m1D9vBcQ4xylQYchoNkku+Xeh2+6isELk0hfmQIDof/K
-	 uyEmZzkzDlW1yDF4vhG9z+Zs4jYGgzYD4gjKdlX54gLkL/VRJQ3gHAq7QjxiYz6tvX
-	 t1aCFw698Xtr3LhbNksUkOMskpEGihUjAQcv0BWXjrbcCTi8U812OCqXhoaxZoELkW
-	 +A5vI486Hn7pdrpgLASdFsDFoHT2Y184xXek1L+iLJC0ErcBOZ510KX54l6PBj17uR
-	 d8UxmHW7F8trg==
+	b=ZS/ElbMZ1mq02XaEzcr/NsY/cYdXVJTbh1B9XGFhXGfvp4xs1q9OPuYzOXOMfCJ0b
+	 PGQwRSAtd2W0wmVECLYe6vlvFU7DHeidbRpuz3H3HzIJIidyuvLsddRfk6+6lPCPCv
+	 jNVvFb4jYhH67llkIfTCaKlEcbfccczSCxhQ0y4rgT2D2OBxvTa5zto6FLQOjZB4zy
+	 ApYR1y9XU5hoQCNQPf72y6Fj9S+edg2/0TCAjjBb69ykBfULqxXfEFaYCsQcENvBNv
+	 8o4qUU1EsPepz8CJAVYLZSaDd6+929IZEFbjYbPxoDmA8Pn1jWtaeAWeceyHtG3cW+
+	 c0fRs59GcbXIg==
 From: Will Deacon <will@kernel.org>
 To: Robin Murphy <robin.murphy@arm.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org,
-	allen.wang@hj-micro.com,
-	peter.du@hj-micro.com,
-	andy.xu@hj-micro.com
-Subject: Re: [PATCH 0/3] perf/arm-ni: IRQ improvements
-Date: Fri,  4 Jul 2025 18:44:17 +0100
-Message-Id: <175164863700.4002753.2959016964413719180.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] perf/arm: Add missing .suppress_bind_attrs
+Date: Fri,  4 Jul 2025 18:44:18 +0100
+Message-Id: <175164884772.4004499.6828118473358601895.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1747149165.git.robin.murphy@arm.com>
-References: <cover.1747149165.git.robin.murphy@arm.com>
+In-Reply-To: <acd48c341b33b96804a3969ee00b355d40c546e2.1751465293.git.robin.murphy@arm.com>
+References: <acd48c341b33b96804a3969ee00b355d40c546e2.1751465293.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -76,22 +73,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 May 2025 16:38:57 +0100, Robin Murphy wrote:
-> While the previous attempt[1] was missing some important aspects, it's
-> a valid problem to solve, so I figured I'd take a look myself. This
-> ended up turning into a slightly wider cleanup, but I think the end
-> result is nice enough.
+On Wed, 02 Jul 2025 15:08:13 +0100, Robin Murphy wrote:
+> PMU drivers should set .suppress_bind_attrs so that userspace is denied
+> the opportunity to pull the driver out from underneath an in-use PMU
+> (with predictably unpleasant consequences). Somehow both the CMN and NI
+> drivers have managed to miss this; put that right.
 > 
-> As usual I don't have anything to test this on, so if there are any
-> silly mistakes left that the compiler couldn't catch please do let me
-> know.
 > 
-> [...]
 
-Applied first patch to will (for-next/perf), thanks!
+Applied to will (for-next/perf), thanks!
 
-[1/3] perf/arm-ni: Set initial IRQ affinity
-      https://git.kernel.org/will/c/c872d7c83738
+[1/1] perf/arm: Add missing .suppress_bind_attrs
+      https://git.kernel.org/will/c/860a831de138
 
 Cheers,
 -- 
