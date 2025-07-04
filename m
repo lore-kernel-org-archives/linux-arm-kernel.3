@@ -4,90 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E5B3C83F0C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D90F7C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jey/t9KNxF/lpR8e92xM6KcONtP/h0ZmelP81iO+cBg=; b=dQYAza+8+5vgi71N3O77PNg8A+
-	ecg9yoe3o44IniaP696QbSG5K6wYvVBX1MDhqsbgQZ7jBmcGNseEPFVRA8wKRdB1a+T+czW6t2zhO
-	senwpk4ZG4TPZXKhFZVo9dkPFjA2aAvWbzOzaJo1AuSw9ICNb/4TaoJNLXKe9zbyheJ+Zeh9OL4/T
-	9QEKuOBNYUQsm27pWK6FZiDv+RoOA+6uUYBorFeulU+DQmx94ICnnQ74D6i2HCq5qfLTFG2IS8hn2
-	7+4YJG3toH47PMTaRY3WPJyoh1ZVfTENbWH1s4x9coERpzsEcVKpFXoS4vyG0W6UPJDHkS8WhihYA
-	t6dt0feg==;
+	bh=oQLSCU6s7tadJXW3ijfkRaS6QjwulBRxirc1q6sY6so=; b=MuSm9cr6XFMj/F7FdUNWmW0WJW
+	SHVJxP6NiUK1D8U4g/ODzDUEMJ3+lxKxeXC6whxHc699v5wrUhhspg3PMsYt9dWVpW6vBsoOWYZIe
+	VQ95+/oXcw9OMhX9WQ7reKdSWdNl/ptFUvNwNDzpUE8LoEK6d/cJlvYAr4FbOHMUto3sezFbDgJUx
+	+CJhVHfK+PQukoLN47RqEvUXcfMNFObPeQNv1AxMl+KXK848QsvRbH9+dGvmNP9TkxHPUxCnr9h80
+	nrv87Z2RqPXRGUbAOPQ3I/PmTptkcqix+2XfC96LQTjPL8Sxe/yWG7gNIfQIkUy2WqmVjGBD3onqu
+	lRNib7Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXeyo-0000000EIjv-0CIT;
-	Fri, 04 Jul 2025 11:53:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uXeyp-0000000EImZ-1PMg;
+	Fri, 04 Jul 2025 11:53:23 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXebs-0000000EEkz-3brT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 04 Jul 2025 11:29:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=jey/t9KNxF/lpR8e92xM6KcONtP/h0ZmelP81iO+cBg=; b=Q2jd7ZRHSAd3NIxHb3XebnPANk
-	e7W2cDDJagQiiaRJ+KeHL6CBO7tKfCWKJAaKJpaE1zg69jjnWQNv63DnZC9MmcdJ3hnkFlvARb+CZ
-	XaZ8B/kxxID+yDaZis9POJCWWxxqBhGRD0eH2RAt5ADd0CciqjFHrQtX9g0iP0S6PmNkv/Q+/OOH8
-	GnjypJK5bm5Eu4HlfL9B9en/i+NY+/Ayc0y1FgSRlVw+QsaWt4oIAGEr2aOS/yQ4AQ9Y7c8yCt7GV
-	+cf5R33ypEHAyVSA4DyMTBZvvCIrPznW2iIPXxLqn3Hb1EsBO/8x4oGZghIFCj0PT3iYusgEaMARv
-	PNME1x4A==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXebp-00000007xBP-3RiR
+	id 1uXecK-0000000EEoh-170G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 11:29:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C8F6F439D1;
-	Fri,  4 Jul 2025 11:29:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D2FBC4CEE3;
-	Fri,  4 Jul 2025 11:29:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751628572;
-	bh=wkqeMXZEQ5ECj9G9B9l2X5NQZSXsSf67kPT7AmE3Mdg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GG3Q0ABXeBVqa4KyN1SY5TzCv0cljIyZx9Cr6vMgnym8azal9qBO8mpPM4Zeo+vXI
-	 qcnbPLah1DcXS04Axqit7c7GZVpWfWXBgy6b723ysMlgPnabbbPsFZxoT/64rZ002r
-	 +MBCiutIpv027HCkn3SnbEvEyweCIYO2GGRNp37ZBBUdYJCztXbejVIaHYtW+oNird
-	 8/oHxxZHiOXuDigOLm8fHqnDQONeIE5SqVJ2DFNzsFLswL9ohprhocMy6JkAxn+Zdl
-	 7je9ncz9DXlzCNxfszkOjRn3l6tnPkEbQzFeXlZcKfkWgw4vVA0+7WFUel8hSUgSLO
-	 jr5p/zbja9ZSw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uXebi-00CfVV-C1;
-	Fri, 04 Jul 2025 12:29:30 +0100
-Date: Fri, 04 Jul 2025 12:29:29 +0100
-Message-ID: <861pqwb3dy.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: adrianhoyin.ng@altera.com
-Cc: tglx@linutronix.de,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/1] irqchip/gic-v3: Add Altera Agilex5 address bus width limitation workaround
-In-Reply-To: <6a44509ca0edaabc17e59d2e27fef1c782183456.1751618484.git.adrianhoyin.ng@altera.com>
-References: <cover.1751618484.git.adrianhoyin.ng@altera.com>
-	<6a44509ca0edaabc17e59d2e27fef1c782183456.1751618484.git.adrianhoyin.ng@altera.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: adrianhoyin.ng@altera.com, tglx@linutronix.de, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 04 Jul 2025 11:30:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1751628608; x=1783164608;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=oQLSCU6s7tadJXW3ijfkRaS6QjwulBRxirc1q6sY6so=;
+  b=OIsG7Ij3AG2IZL3NvAndB4AIBWeWdo28Ty9QKZqB9sStL0AenSZr/cGx
+   CgqALvouK5PdeRlAarSOfrXRgYbbGCL4kwkFYXDlsKYSgcP7lkPLXr6Kt
+   17iUHwTGam1pN2gY+9U6IiJ913coctf/bK8nH86ZNFaMtXVMTwPd9osIY
+   qr6rzJ1oycjjRjIUYi5CbGi13yyIsWr4RnLpvQ6sALQr391oBViziSRGD
+   lj1DR6e7+FqZrVlILIyY4Fc7KKjobRse9P14U8K1kPCQk5hi9NFwFshEB
+   Sy8Eu5S0S288doXeThQJW1bsgs4XqNTCGc7k8eJnjrGOmGY45/x5+C1iZ
+   w==;
+X-CSE-ConnectionGUID: jSRuNTPpRsydYLYRPhbXQg==
+X-CSE-MsgGUID: R+RKeJOgQ+S5uDN6S6S9fA==
+X-IronPort-AV: E=Sophos;i="6.16,287,1744063200"; 
+   d="scan'208";a="45031135"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 04 Jul 2025 13:30:04 +0200
+X-CheckPoint: {6867BB3C-30-4FC15ADB-CD71293B}
+X-MAIL-CPID: 407389F97A04FFAD1E4F8CCE6D42EE93_0
+X-Control-Analysis: str=0001.0A006396.6867BB4C.0063,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AC794165607;
+	Fri,  4 Jul 2025 13:29:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1751628600;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oQLSCU6s7tadJXW3ijfkRaS6QjwulBRxirc1q6sY6so=;
+	b=W4gdiY2u+KnVU6AEdD0acwe3gCkG8t/uyJscqkMzNXOpRFSqpVNFfLN9jFk/1GB+71IMXE
+	kWwh6jGmZ+hBi4ZZ98dPY9+hZRc8zDTWF5S42ufc3p0vo0uB7aULUruYxiNzkCrNAT/dIp
+	Qpw3v6qWfXz7EwZcnEe677+Ytex/+2ODif3jwmve/nnfYpoL1eTfa7lWOOciCU3ukcS0hr
+	d0eYqEiAt1eRyuRZmrjbZV+VihawcFagHfXxm7z1ahKQ7+MsGLI4O48PqNOEl8w9aK2jpC
+	vr9n7V6SlBwd92LVSYrWcBgrTkMgNkpj7p61/UB0iymUekecOOfIsYbbIAq8Aw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>,
+ dri-devel@lists.freedesktop.org
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Liu Ying <victor.liu@nxp.com>
+Subject: Re: [PATCH 04/14] drm/imx: dc-fu: Fix dimensions
+Date: Fri, 04 Jul 2025 13:29:57 +0200
+Message-ID: <3702593.R56niFO833@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250704-imx8-dc-prefetch-v1-4-784c03fd645f@nxp.com>
+References: <20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com>
+ <20250704-imx8-dc-prefetch-v1-4-784c03fd645f@nxp.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_122938_235162_768E1FD8 
-X-CRM114-Status: GOOD (  30.57  )
+X-CRM114-CacheID: sfid-20250704_043008_794392_A9117192 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,137 +105,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Jul 2025 09:49:50 +0100,
-adrianhoyin.ng@altera.com wrote:
-> 
-> From: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
-> 
-> Agilex5 address bus width for the ACE-lite interface is only 32 bits.
-> Hence the GIC600 SoC integration for Agilex5 can only access the first
-> 32bit of the physical address space.
-> 
-> Add quirk to configure the gfp flag to allocate memory within 32bit
-> addressable range. As the 0x0201743b GIC600 ID is not specific to
-> Altera, of_machine_is_compatible() is added.
->
-> Signed-off-by: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
+Hi,
+
+thanks for the patch.
+
+Am Freitag, 4. Juli 2025, 11:03:51 CEST schrieb Liu Ying:
+> Fix off-by-one issue in LINEWIDTH, LINECOUNT, FRAMEWIDTH and FRAMEHEIGHT
+> macro definitions.  The first two macros are used to set a fetchunit's
+> source buffer dimension and the other two are used to set a fetchunit's
+> frame dimension.  It appears that display controller itself works ok
+> without this fix, however, it enters panic mode when prefetch engine(DPRC
+> and PRGs) attaches to it without this fix.
+>=20
+> Fixes: 0e177d5ce01c ("drm/imx: Add i.MX8qxp Display Controller pixel engi=
+ne")
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+
 > ---
->  arch/arm64/Kconfig               | 10 ++++++++++
->  drivers/irqchip/irq-gic-v3-its.c | 18 ++++++++++++++++++
->  2 files changed, 28 insertions(+)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 55fc331af337..2286b4d378e2 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1348,6 +1348,16 @@ config SOCIONEXT_SYNQUACER_PREITS
->  
->  	  If unsure, say Y.
->  
-> +config ALTERA_AGILEX5_ADDR_BUS_WIDTH_LIMITATION
-> +	bool "Altera Agilex: GIC600 can not access physical addresses higher than 4GB"
-> +	default y
-> +	help
-> +	  Agilex5 address bus width for the ACE-lite interface is only 32 bits. Hence
-> +	  the GIC600 SoC integration for Agilex5 can only access the first 32bit of the
-> +	  physical address space.
+>  drivers/gpu/drm/imx/dc/dc-fu.c | 4 ++--
+>  drivers/gpu/drm/imx/dc/dc-fu.h | 4 ++--
+>  2 files changed, 4 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/imx/dc/dc-fu.c b/drivers/gpu/drm/imx/dc/dc-f=
+u.c
+> index f94c591c815891468a5c2a940076963eeaa4d51c..b36d3034b8d5962eaab212b6b=
+65ebbb5c29f978c 100644
+> --- a/drivers/gpu/drm/imx/dc/dc-fu.c
+> +++ b/drivers/gpu/drm/imx/dc/dc-fu.c
+> @@ -31,8 +31,8 @@
+>  #define STRIDE(x)			FIELD_PREP(STRIDE_MASK, (x) - 1)
+> =20
+>  /* SOURCEBUFFERDIMENSION */
+> -#define LINEWIDTH(x)			FIELD_PREP(GENMASK(13, 0), (x))
+> -#define LINECOUNT(x)			FIELD_PREP(GENMASK(29, 16), (x))
+> +#define LINEWIDTH(x)			FIELD_PREP(GENMASK(13, 0), (x) - 1)
+> +#define LINECOUNT(x)			FIELD_PREP(GENMASK(29, 16), (x) - 1)
+> =20
+>  /* LAYEROFFSET */
+>  #define LAYERXOFFSET(x)			FIELD_PREP(GENMASK(14, 0), (x))
+> diff --git a/drivers/gpu/drm/imx/dc/dc-fu.h b/drivers/gpu/drm/imx/dc/dc-f=
+u.h
+> index e016e1ea5b4e0471cf6627782603e72d0475c4e8..518d1af49f5ae9d4f67da5e6c=
+2e80abd7e962120 100644
+> --- a/drivers/gpu/drm/imx/dc/dc-fu.h
+> +++ b/drivers/gpu/drm/imx/dc/dc-fu.h
+> @@ -38,8 +38,8 @@
+>  #define SOURCEBUFFERENABLE		BIT(31)
+> =20
+>  /* FRAMEDIMENSIONS */
+> -#define FRAMEWIDTH(x)			FIELD_PREP(GENMASK(13, 0), (x))
+> -#define FRAMEHEIGHT(x)			FIELD_PREP(GENMASK(29, 16), (x))
+> +#define FRAMEWIDTH(x)			FIELD_PREP(GENMASK(13, 0), (x) - 1)
+> +#define FRAMEHEIGHT(x)			FIELD_PREP(GENMASK(29, 16), (x) - 1)
+> =20
+>  /* CONTROL */
+>  #define INPUTSELECT_MASK		GENMASK(4, 3)
+>=20
+>=20
 
-You're describing it as a feature. But really, it's a bug, and it
-deserves an erratum number.
 
-> +
-> +	  If unsure, say Y.
-> +
->  endmenu # "ARM errata workarounds via the alternatives framework"
->  
->  choice
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index d54fa0638dc4..a2cf401568e7 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -4901,6 +4901,16 @@ static bool __maybe_unused its_enable_rk3568002(void *data)
->  	return true;
->  }
->  
-> +static bool __maybe_unused its_enable_agilex5(void *data)
-> +{
-> +	if (!of_machine_is_compatible("intel,socfpga-agilex5"))
-> +		return false;
-> +
-> +	gfp_flags_quirk |= GFP_DMA32;
-> +
-> +	return true;
-> +}
-> +
->  static const struct gic_quirk its_quirks[] = {
->  #ifdef CONFIG_CAVIUM_ERRATUM_22375
->  	{
-> @@ -4975,6 +4985,14 @@ static const struct gic_quirk its_quirks[] = {
->  		.mask   = 0xffffffff,
->  		.init   = its_enable_rk3568002,
->  	},
-> +#endif
-> +#ifdef ALTERA_AGILEX5_ADDR_BUS_WIDTH_LIMITATION
-> +	{
-> +		.desc   = "ITS: Altera Agilex5 address bus width limitation",
-> +		.iidr   = 0x0201743b,
-> +		.mask   = 0xffffffff,
-> +		.init   = its_enable_agilex5,
-> +	},
->  #endif
->  	{
->  	}
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-Again, why do you need to reinvent the wheel? There is already *just
-above* an existing workaround that implements exactly the same thing.
 
-The whole thing could look like the hack below.
-
-	M.
-
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index d54fa0638dc44..7047408de3e37 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -4890,10 +4890,17 @@ static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
- 	return true;
- }
- 
--static bool __maybe_unused its_enable_rk3568002(void *data)
-+static bool its_enable_32bit_disaster(void *data)
- {
--	if (!of_machine_is_compatible("rockchip,rk3566") &&
--	    !of_machine_is_compatible("rockchip,rk3568"))
-+	static const char *broken[] = {
-+#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
-+		"rockchip,rk3566", "rockchip,rk3568",
-+#endif
-+		"intel,socfpga-agilex5",
-+		NULL,
-+	};
-+
-+	if (!of_machine_compatible_match(broken))
- 		return false;
- 
- 	gfp_flags_quirk |= GFP_DMA32;
-@@ -4968,14 +4975,12 @@ static const struct gic_quirk its_quirks[] = {
- 		.property = "dma-noncoherent",
- 		.init   = its_set_non_coherent,
- 	},
--#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
- 	{
--		.desc   = "ITS: Rockchip erratum RK3568002",
-+		.desc   = "ITS: Broken GIC600 integration limited to 32bit",
- 		.iidr   = 0x0201743b,
- 		.mask   = 0xffffffff,
--		.init   = its_enable_rk3568002,
-+		.init   = its_enable_32bit_disaster,
- 	},
--#endif
- 	{
- 	}
- };
-
--- 
-Without deviation from the norm, progress is not possible.
 
