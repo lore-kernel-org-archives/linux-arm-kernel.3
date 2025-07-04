@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12993C83F0C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D55C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UIh1pmSY2iCvVHFdiL9mgPjsREaH7LtF8UqDDd2a/yU=; b=UV/gp67YHA4Vrvz2s9mUytP15v
-	DUOFJKeDZwa1NaQ7d3DzMUmb6DzM84f4GGJZrVBO4z1H7Kx7rX0Y30GYEm/7gPZh+XwL+WkSzBfHv
-	sRR3NwJbD6RyViNfO2FctJUyIX8u1EEVElnOfNGRthxeBXXbi8ZdkqZ4pX1oKBq6eDbUOhYnw56rm
-	wnnpKeJUwVgGebZyYrDVJTXGeYuhv5GEZTL7kpmlnwDjwewcQMadAGlLhgl4J0JrxOnUOZo5jizs/
-	cF4WV5IM6aUIE5CbIKrd4XA1Re2e/9/wODr6ao/gI2yBO0psM3aJrxbN2eRLtPj/XKq07roSshk5A
-	UAAiXk3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eU9A6sCtyHHWEDzOjJOjdCcUJnuYvsgXrCt0sIZbDwE=; b=O0O/l9ue2mil/weI8tCNrseyc+
+	OLMTJsIYORTcoVlZO4NOjXhsPmH6rYQrkToZ8VcjSxadFmvvt+5cnjSkm4VIZJdwbMaB37XiR8bYt
+	ydpBjjnS6JqoZ6/f+KBbUppUjcKyNmbHv3NQBDfwdPBilNuy0/tNT0UcB50G8mQNGAVV2ZOHsFJTY
+	Cq4uYQgRX/C00+BLz5DAWf467xDzTAJDWdSvNxB7gYtJkVvqwLxXefej0js4qdxp/kafZplRN4eiO
+	zp8/X7WfLx7cXUWH9gVetEdIsWP9yvwMVuVVIL9scaDJn7YLlAjv9fgQUZTb1SPgmfhb+pyh6ZGce
+	Y5OAJHsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhIE-0000000Eefu-39uM;
-	Fri, 04 Jul 2025 14:21:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXg9b-0000000ETJt-2hcy;
-	Fri, 04 Jul 2025 13:08:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2BD0C5C57C5;
-	Fri,  4 Jul 2025 13:08:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E829C4CEE3;
-	Fri,  4 Jul 2025 13:08:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751634514;
-	bh=13s+yUJkFfS3KoiwPRRfaKBkp+syuO1jDT4DF9d14Tc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=utiiFBeC12pPXuC2G8rvmRsKlTB4bE8w5JKGI3ccQ8SCSpovT3aox5ZW16Zi6bPd3
-	 DZ5di+LFJokeBXGySSgvwQU0dsHctEZU8tEMTOW5pZ5JKG5xFUyfMLGlHiMlcKkElm
-	 gzVK7ga40TznMkN+4OFh2/2MlOmppja0xKxi/oZFZIpYGOQJlD0f9odZPkGSejTqw8
-	 hLsNUfKCu8o59GnK5iShUocwuO9lrQASq9g/GCbH6lZMhI7MeBTM12S2n3MVEFJ/ud
-	 OxDZSNezNHLIe2Rd59H1WT+rrxFC02tM9RnusghgC6BPv87o1OmNHFiSA8cvoPEoIR
-	 MJlgDTaKKbqVw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 04 Jul 2025 15:08:08 +0200
-Subject: [PATCH mt76 4/9] wifi: mt76: mt7996: Do not set wcid.sta to 1 in
- mt7996_mac_sta_event()
+	id 1uXhK7-0000000EeyT-3G2R;
+	Fri, 04 Jul 2025 14:23:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXh1z-0000000Ebk6-0njT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Jul 2025 14:04:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DC0B61515;
+	Fri,  4 Jul 2025 07:04:31 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EF303F63F;
+	Fri,  4 Jul 2025 07:04:45 -0700 (PDT)
+Date: Fri, 4 Jul 2025 15:04:43 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexandru Elisei <Alexandru.Elisei@arm.com>,
+	Anshuman Khandual <Anshuman.Khandual@arm.com>,
+	Rob Herring <Rob.Herring@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	Robin Murphy <Robin.Murphy@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] perf: arm_spe: Add barrier before enabling profiling
+ buffer
+Message-ID: <20250704140443.GH1039028@e132581.arm.com>
+References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
+ <20250701-james-spe-vm-interface-v1-1-52a2cd223d00@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250704-mt7996-mlo-fixes-v1-4-356456c73f43@kernel.org>
-References: <20250704-mt7996-mlo-fixes-v1-0-356456c73f43@kernel.org>
-In-Reply-To: <20250704-mt7996-mlo-fixes-v1-0-356456c73f43@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Bo Jiao <Bo.Jiao@mediatek.com>, Peter Chiu <chui-hao.chiu@mediatek.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250701-james-spe-vm-interface-v1-1-52a2cd223d00@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_060835_732411_212149BF 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250704_070447_275234_F125F99D 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,28 +71,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-msta_link->wcid.sta is already set to 1 in mt7996_mac_sta_init_link
-routine.
+On Tue, Jul 01, 2025 at 04:31:57PM +0100, James Clark wrote:
+> DEN0154 states that PMBPTR_EL1 must not be modified while the profiling
+> buffer is enabled. Ensure that enabling the buffer comes after setting
+> PMBPTR_EL1 by inserting an isb().
+> 
+> This only applies to guests for now, but in future versions of the
+> architecture the PE will be allowed to behave in the same way.
+> 
+> Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  drivers/perf/arm_spe_pmu.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+> index 3efed8839a4e..6235ca7ecd48 100644
+> --- a/drivers/perf/arm_spe_pmu.c
+> +++ b/drivers/perf/arm_spe_pmu.c
+> @@ -537,6 +537,7 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
+>  	limit += (u64)buf->base;
+>  	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
+>  	write_sysreg_s(base, SYS_PMBPTR_EL1);
+> +	isb();
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt7996/main.c | 1 -
- 1 file changed, 1 deletion(-)
+I know that you and Alexandru have discussed whether the isb() should
+be placed here or after the out_write_limit label. I should have engaged
+in the discussion earlier. Sorry for raising the question now.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 5283aee619a9811f2e75fa4434ceced9185991f0..d1f90dea512bade652743611b7d062863a63ccfe 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -1119,7 +1119,6 @@ mt7996_mac_sta_event(struct mt7996_dev *dev, struct ieee80211_vif *vif,
- 				return err;
- 
- 			msta_link->wcid.tx_info |= MT_WCID_TX_INFO_SET;
--			msta_link->wcid.sta = 1;
- 			break;
- 		case MT76_STA_EVENT_AUTHORIZE:
- 			err = mt7996_mcu_add_sta(dev, link_conf, link_sta,
+My understanding is that isb() is not only for synchronizing the write
+to PMBPTR_EL1. It also serves as a context synchronization event
+between any other SPE register writes and the write to
+SYS_PMBLIMITR_EL1.
 
--- 
-2.50.0
+Let me give an example (perhaps a rare one): if we use perf snapshot
+mode or the AUX pause/resume mode, it's possible that the flow does
+not trigger an interrupt via overflow. Instead, the sequence might
+look like this:
 
+  arm_spe_pmu_stop()
+    `> arm_spe_pmu_start()
+         `> arm_spe_perf_aux_output_begin()
+
+In this case, to ensure that all SPE system registers are properly
+written to the hardware, the safest approach is to always execute isb()
+just before writing to SYS_PMBLIMITR_EL1. (In other words, after the
+label out_write_limit).
+
+Thanks,
+Leo
+
+>  out_write_limit:
+>  	write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
+> 
+> -- 
+> 2.34.1
+> 
+> 
 
