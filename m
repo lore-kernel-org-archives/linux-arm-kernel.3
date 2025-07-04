@@ -4,150 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198B7C83F03
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D0EC83F0B
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=crT64RcOFvlHG5ije/LzJxpTVT80F7QWqyR2ChhoFTc=; b=C33K1anbK0KJ71ucYZk1HlpJjV
-	fZaAHDWP9W7jtjLqD1MK5tCcOj1A3tcejidPCLBZLHcgu5H5B71ftQPbANMexdDKu9vdPrj/rX8I8
-	TY1XoaokahTnUlOjwFsxe0e601kJ9BiT7doi0gEANWwAWVk3NySFv99Llu2kM8vKmL/xWSRTB1eCc
-	UKyZMhF8fjFEGWj78d9Ay4CFvB4XNqfkQajxLuzHCpPM+FxyUonNJqqwj1pZ6N8TyTBdpgnmxQJeK
-	nLB27wAXdRq4HcNllsOvcdKS2MHpEcJEYMHIXbRVrAR3ogSVSLp4OTKJpM7XyPN2kdm/YDiyj4D3+
-	77InOUcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jj5JylNmFwfLTubOnUVLQb6eBqH+M0WGeYNzsak8L/Y=; b=DLXe4yix397SFMSUWNMWzuYL9Y
+	+XD+gGaY3vlJvkhqj5MH3NpkNzW+hPlqWq0YHEP9IBDd7SlOdOUrYhF2FFg3gKjR0aghBWH4AFMF3
+	9EhBF4XpLYm5a5Ff4LvRa7oMaYIxAJUo31CLe1rTh4OtKklqFueUuI+yJvTihQgl0lmPWnWkVSLSt
+	0najqGiDEJhqa8fn67D+DQ7zqgAWw41XZdLElLLguIPueEF0uksOlQNwSGTP8PbsuUN0qUoSIQOI7
+	Rh0EJAwBMyQM1sVr3Di6LKc01vljFfOpag2SkjgUIbgOw/hJSSpYB6S1YoDJIsTVorGyuLtnOdQvm
+	GGrWGOOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXeUT-0000000ECVu-07jU;
+	id 1uXeUT-0000000ECXc-3k9Z;
 	Fri, 04 Jul 2025 11:22:01 +0000
-Received: from mail-co1nam11on2061e.outbound.protection.outlook.com ([2a01:111:f403:2416::61e] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXc8N-0000000Dnz8-1Fs8
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 08:51:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ct282gzQzt2onJRs6733W/phupH3bspJQQcNpCcAJhvlweqwIDvV3Qzk3pPizSLs+oyzPyOLNIM/uXBguK3a4n8+fieaI4HExSrVmS42RNdzvK3yDCdw3xQU0C8DqOZxSJ1wz7OQTfuOqcfeOu+iz4d59S9Upy5RnQ6zY4wAEK50sGhkSmVhhZ+vK3wg19lvf4N2trVfkF2A7guYx5M9gerNpjM9subPX/uexcJy3eov+bey4qH99EVV4XAxDORbgt97/frrLlybAIa3nGcrZyR2c/eUm6PBvQDTTW2ot6p4aJ/7kaYSW+P36VeRfJY01AuSBmLJkZXoWYMykf1ihA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=crT64RcOFvlHG5ije/LzJxpTVT80F7QWqyR2ChhoFTc=;
- b=mqBQ5qCoHrGeFFcQUA+Hebo3dpBJsVYzMXDJWJSDg57ZMljIk+98Pory15I207q1rnsC06HkmESe5wVA1oLaHuseZoY0drqQ1tWB1UKSrhv5cgekXDMY+mKKW56lKQhQxEQDHv0VcJSUdE8TZV0sHBHDY7jBjQzWsiFM9fUH1VREW/tr6EAfwN8QWq3g7mKLspfR/lGxg09Bk2bzwoFAcB1B0qENeR6sW33n/BDEsT5d5je1frfblA+txYyOEBmLFziVOeGnMusD3Lk+L/SQtiKO8URgO/+9nWo0bCVnFJdgCmyLBFsFSX5qOXKBK9cuaWD76lWOiLAWGqfhVUWGpg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=crT64RcOFvlHG5ije/LzJxpTVT80F7QWqyR2ChhoFTc=;
- b=mte2OBntrnTW6uod/q98v0MHY1MM325bcbUQdw9T5w9M3piyzIjaU9VpMafm44dEggEhler+DqSpRAg3yWaCcSP2HGZzjDN9NE/+azVlKgHRdq9zoXX/7Owr/UIdWiuXFC/aV1drJ6mR6pSpWl46qYEbBgBrBA8X/9ZBkb4izHet/ytE71G69IWU1dx3mpV0IzYTo29ZMyb2ebBNwV/m1jFc1aRcWpA8K+2aZ6f6d+DpgPQ8wQRxS3WkooSPYm6YnHm0oLdHTpYJzsjvthciliyUb/FMWvTHZI5tKimtQHOKxfiN1z1CKseIPDsv5h4/5pAvxVfYUCN0GpJhLNxK/Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from DM8PR03MB6230.namprd03.prod.outlook.com (2603:10b6:8:3c::13) by
- SA1PR03MB7099.namprd03.prod.outlook.com (2603:10b6:806:330::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.23; Fri, 4 Jul
- 2025 08:50:58 +0000
-Received: from DM8PR03MB6230.namprd03.prod.outlook.com
- ([fe80::c297:4c45:23cb:7f71]) by DM8PR03MB6230.namprd03.prod.outlook.com
- ([fe80::c297:4c45:23cb:7f71%4]) with mapi id 15.20.8901.018; Fri, 4 Jul 2025
- 08:50:58 +0000
-From: adrianhoyin.ng@altera.com
-To: maz@kernel.org,
-	tglx@linutronix.de,
-	catalin.marinas@arm.com,
-	will@kernel.org,
+	id 1uXcDk-0000000DpLk-1N8P;
+	Fri, 04 Jul 2025 08:56:37 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id E1409667;
+	Fri,  4 Jul 2025 10:56:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1751619369;
+	bh=y1j/5Cpk8bPb641kRnAZ7hwtcYIwzQznPTALWGJ9fVk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C/+JdCFcyFuFUjl0QTjLej9Xh05699NjSblVGkEA7NTpLykJbK7wfxC4CUjBACvZU
+	 vcOGW37478l7BW/3U6xRbSAt7++pBYugym6uc+1NYHApNY6oCyads4kSY9QdMAFwUi
+	 D2owJvVj3WhBx3sQowso2QN7Oy4LeQlR1UdwX6KY=
+Date: Fri, 4 Jul 2025 11:56:04 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Tommaso Merciai <tomm.merciai@gmail.com>,
+	Martin Hecht <mhecht73@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Umang Jain <umang.jain@ideasonboard.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Mikhail Rudenko <mike.rudenko@gmail.com>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Nicholas Roth <nicholas@rothemail.net>,
+	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+	Sylvain Petinot <sylvain.petinot@foss.st.com>,
+	Paul Elder <paul.elder@ideasonboard.com>,
+	Matt Ranostay <matt@ranostay.sg>,
+	Nas Chung <nas.chung@chipsnmedia.com>,
+	Jackson Lee <jackson.lee@chipsnmedia.com>,
+	Dmitry Osipenko <digetx@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Vikash Garodia <quic_vgarodia@quicinc.com>,
+	Dikshita Agarwal <quic_dikshita@quicinc.com>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Sean Young <sean@mess.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Matthias Fend <matthias.fend@emfend.at>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Ricardo Ribalda <ribalda@chromium.org>, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: adrianhoyin.ng@altera.com
-Subject: [PATCH v2 1/1] irqchip/gic-v3: Add Altera Agilex5 address bus width limitation workaround
-Date: Fri,  4 Jul 2025 16:49:50 +0800
-Message-ID: <6a44509ca0edaabc17e59d2e27fef1c782183456.1751618484.git.adrianhoyin.ng@altera.com>
-X-Mailer: git-send-email 2.49.GIT
-In-Reply-To: <cover.1751618484.git.adrianhoyin.ng@altera.com>
-References: <cover.1751618484.git.adrianhoyin.ng@altera.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2P153CA0044.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::13)
- To DM8PR03MB6230.namprd03.prod.outlook.com (2603:10b6:8:3c::13)
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 41/80] media: Remove redundant
+ pm_runtime_mark_last_busy() calls
+Message-ID: <20250704085604.GC14736@pendragon.ideasonboard.com>
+References: <20250704075225.3212486-1-sakari.ailus@linux.intel.com>
+ <20250704075431.3220262-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM8PR03MB6230:EE_|SA1PR03MB7099:EE_
-X-MS-Office365-Filtering-Correlation-Id: 529b8021-a5ee-4001-7fb7-08ddbad7e514
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3pHtRErd/rkZFHjrq/deXTeDgqC0DClWbK7DuUsrQOXzHZ74byLCfAVlhP+J?=
- =?us-ascii?Q?s91uo9ev/aZ6g+Cr6wCmm9T9u+HJcMx6aKGNJcYDt2JNSFo4GU6LZH7MmFMA?=
- =?us-ascii?Q?9xpVEUK4oYDHMOzAecnj427xXJRoef7RzQMCCPODFuLGGwXZi8irMqmzqJpW?=
- =?us-ascii?Q?T2PX6BdcfjOxS5nV7x7iS6P+0mzXdQ8AMCiqFlymk3r5XcraitYF28BrZ4Nx?=
- =?us-ascii?Q?ST3iDU5UxuO2/1MECEqR7b9S+crs2j57Kx5uNhqqnurQqZIrcyDfcg/kLxLM?=
- =?us-ascii?Q?bObCBxWdEKRmamNouTNa0UY/IPGhiOoRZcbTilrgTRtbQ2YL6RpOwrLJMgCh?=
- =?us-ascii?Q?6lELvBpNsvslod98AHrmdRjbetSR2f8NDIR9m2Kq0/QuONVtC4AA18j17dsK?=
- =?us-ascii?Q?jVYnHKFUpsVut68H0hmYFnrqkUwH3mL7tCFn7Z9nDxfly8Gtx1nkdV3zkNyj?=
- =?us-ascii?Q?0fjG9JH7L2buWDNC2hgY1+2G5GLSjnmEYjtyZJIipInvtDj4gQW+kppgYFM5?=
- =?us-ascii?Q?Ui1jcCcXvvzZ1106/LlxECKTrGHmIy0HxOFKOM1MsXfHDT5VYfr70KHCEwQv?=
- =?us-ascii?Q?xMMujH7x+rrYJ+pwP594eB4pSp2xy2bqBl2geWc+3q/HYbnRPTvR2n2OI67b?=
- =?us-ascii?Q?0fhiiESUje99veNoBxf0BBJnYIOZptr318GqE0M5oai+VfBS0IczagGST0hx?=
- =?us-ascii?Q?Ic/zZ2LvmHlgglGDaScH09jwB78TE9GHzNvxuEQm8XrD1MJmLo3DtG52F/B2?=
- =?us-ascii?Q?yo2TO24CcYfQCPtyaoxgLPqDjw/fhvGUuCF4MPlbnUQeTFqJ/4w7yuHFKQmp?=
- =?us-ascii?Q?hZ7xOzIxjxCxTw6MinPxJXmu1wxxyyzyBazpYbpjuqVsVN5z3/skysTeogAP?=
- =?us-ascii?Q?clCmkYlKhEBE95ifDWrcI93W8V0s0zKxcJ8f9sNALbRkQsNdQQBJpWDCAUK9?=
- =?us-ascii?Q?Tm5L3kplI2oMhwLbWVLkoLmsUY6BS52vqtvqwBVWGAOKgO5BylA2e3Ej54Ex?=
- =?us-ascii?Q?oKry7MD3aiFii5FYHkAfnfvhV8MGDF/BCG+nKovueZGgIWaOtSZAkoDZjDIY?=
- =?us-ascii?Q?FqZd5f37aPGvrC6NFteT60RkiHcBYsSgrdtM+qOx//f9/rDEv8TJP9qmuWcF?=
- =?us-ascii?Q?snqRsdwYxwyFl7CRfeud6FTD3/lJc4LOrGZDFvGiBWiLULTJjnKzdKiBjJL0?=
- =?us-ascii?Q?mKn8o0DDFRvRNkGl62rHBckzfw2W6N68MtW2n++lZT5EONFpwh7CW2+fOAEt?=
- =?us-ascii?Q?0s4P4EagfdJTuF+rBFPooHk6X3l1vw7JSGdw41HReLskyPGf1UGJ7PM1xPkc?=
- =?us-ascii?Q?UcyZNKSdLNdCDZ84baIUOgwpOTgyKN30WYtPF7CW9Q6BowO2ciloPyuOIbGE?=
- =?us-ascii?Q?FLYiuikm99dsKClfa7mACLaoU3sASBVGHchza2202DCieNNtV++Z5OFmJofp?=
- =?us-ascii?Q?+KAlXzpU3qw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR03MB6230.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8VlHjMR22bpPupI/pFwlKw4tFWqVLCs+yG/8nLENJDgCf7TFgv1BJdktm9ur?=
- =?us-ascii?Q?45eRhprF1Mf0PDrIxn53nHVm+RsWXpWkJRrzHaNS62nuEMY3dgoTlaMZUq4n?=
- =?us-ascii?Q?kjKOaT2UFOZYE/cZSN4zx32CK+O3CPS0YQgE/Ih1BOc1WSFjrHjlcQBmFU9g?=
- =?us-ascii?Q?WXC2VORRG66LzRW79f3q9BmGps0TU/ajxfuKpWudtoxqtTTpzOIGq6buPy8e?=
- =?us-ascii?Q?FAnHaEcuxmqnUioN1wAG3Fxg4vBzMfqTOK0FrX5jIbDDKYb9JZmRGasoWpKL?=
- =?us-ascii?Q?HVT+6mGGPp7n6nx1RKOgUqkV9p3gatVZymoll91S1Nx5nXZv6Pm80h8VOoj0?=
- =?us-ascii?Q?w3fK8m4PZdfWMvzNZetB4M/1A9nuplrcT9c+goglYm4HG4zu/YL7ePw52PL6?=
- =?us-ascii?Q?+oRqag1zUltgrdpeu7Nf3VM6lYOdWlXvAglBTaUWNBEys7t6Mj05YpduuafS?=
- =?us-ascii?Q?zR3aS+Q8kpu4xbnlKfSEidEjM8bEHKT2HBP8a+s6KRHJgG3uJtY3nZY530Bo?=
- =?us-ascii?Q?xA8Kt2m9Rcc5OU2g3j2nUXht/+0VDCiMPno+nBH21VXcsrpaJ9AOn1cJY42b?=
- =?us-ascii?Q?KDFWQrRnjUqwyZHnTik+X5ez2B8pPCkXAhl8uaZiwg+3mIDnajXZBGQHrdnJ?=
- =?us-ascii?Q?SEDvVFj0Dbmhu/9xp8w6Hl0HQM5zqkwgxSyabgkqM3nZtxEXgIAHegZHQQsq?=
- =?us-ascii?Q?HXgK+STQLl5ITt1else/JxRi5+TaZh0K7OGSGyr5e+S5ifwKZqRCbI0ybrB4?=
- =?us-ascii?Q?b4KalqmUmQqW2D6iyKFrNl3BxV8afcQY0LoKB3D9Q8KMA+A/8FtcuT6qcxya?=
- =?us-ascii?Q?BsmsxL3UJ6VlJ8l5X3wqgl7ckUGeYkQZmcYPq7b1H+OA/IbpRtbBdDHwlRTM?=
- =?us-ascii?Q?aiHhzv9Fsgq9Sf/qWDb8UULJvS3XByZgttV6HgO13AcLY6DC8HzqYiGZl4+Q?=
- =?us-ascii?Q?0YasNekJ7yWAobxZGfHpzvloETsgOnpxf20L+0DFn9AwvIdVkp9Z2LQZOjz7?=
- =?us-ascii?Q?N7ZRB8ZkegSjf0ZAVF4ZCKcM5clvKEigJCV2/DtPPZptcRoS5BoXX4amMSLS?=
- =?us-ascii?Q?xMcgzohayTKkOiQrqFrg19u0ZcC1F9Ng7n5TDBbxEWRa8OeVHJML68Hz6ArY?=
- =?us-ascii?Q?2o5+may5xvvipnkMWgcMK5uVr/UZKPrNufOHAXl83SvFY/moIwWvO6wSocQj?=
- =?us-ascii?Q?tEkPZRRxmb+OfG/BiViYNhd6OkOyY+YMHZDNBDHaktTjJM1TMAiPKkZg5/52?=
- =?us-ascii?Q?REVlWvI2k3Uhvh1ihxSi7bH1ImMLVTJW/zrWeFDHnQ+8M5Xts4q1RMf6Z8T2?=
- =?us-ascii?Q?Gq5TLXZUiqaIv2vWpUqplWtSFeYI0mn5u1J9hmZNOlOJj2Y/lj6Qvvqaw73L?=
- =?us-ascii?Q?mzpIHd8JMnv++Zd1N3dyD8ag9XprLIk4QE2evJEoP0XrxIPb8pz+8hDQ3YYS?=
- =?us-ascii?Q?U4tBFFnpbyYh6+94A26GqpIaCNywtCoTWRC7EuIcJmkYWH9G9GUbmzt1lZyX?=
- =?us-ascii?Q?NKuYj6gvIX8L4EqffTwqh7OyteuhVe7uEM3a0lz86DSDxRxs5HkNnfc8QUuF?=
- =?us-ascii?Q?AmswdK64drhwalnDFsZ2RW6CokjTACQz1rn27WRJ6LuSKGqLO9gwEsj7GmGW?=
- =?us-ascii?Q?iQ=3D=3D?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 529b8021-a5ee-4001-7fb7-08ddbad7e514
-X-MS-Exchange-CrossTenant-AuthSource: DM8PR03MB6230.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 08:50:58.1364
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vexXsy3Vl3JJiWaaoZ9rFCWcnPpkWvKyXrLTBZ7487XnrqdVY+r/mRCxnzlm5V2c3rdbTE5gr/Z3wGaRuYYsxl6gSwlXH9TJlMEHbKskrbs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR03MB7099
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250704075431.3220262-1-sakari.ailus@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_015103_343071_84804FAB 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20250704_015636_524133_C0B540B8 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,80 +107,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
+Hi Sakari,
 
-Agilex5 address bus width for the ACE-lite interface is only 32 bits.
-Hence the GIC600 SoC integration for Agilex5 can only access the first
-32bit of the physical address space.
+On Fri, Jul 04, 2025 at 10:54:31AM +0300, Sakari Ailus wrote:
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
+> 
+> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+> ---
+> The cover letter of the set can be found here
+> <URL:https://lore.kernel.org/linux-pm/20250704075225.3212486-1-sakari.ailus@linux.intel.com>.
+> 
+> In brief, this patch depends on PM runtime patches adding marking the last
+> busy timestamp in autosuspend related functions. The patches are here, on
+> rc2:
+> 
+>         git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
+>                 pm-runtime-6.17-rc1
+> 
+>  drivers/media/i2c/alvium-csi2.c                          | 1 -
+>  drivers/media/i2c/ccs/ccs-core.c                         | 4 ----
+>  drivers/media/i2c/dw9768.c                               | 1 -
+>  drivers/media/i2c/gc0308.c                               | 3 ---
+>  drivers/media/i2c/gc2145.c                               | 3 ---
+>  drivers/media/i2c/imx219.c                               | 2 --
+>  drivers/media/i2c/imx283.c                               | 3 ---
+>  drivers/media/i2c/imx290.c                               | 3 ---
+>  drivers/media/i2c/imx296.c                               | 1 -
+>  drivers/media/i2c/imx415.c                               | 1 -
+>  drivers/media/i2c/mt9m114.c                              | 6 ------
+>  drivers/media/i2c/ov4689.c                               | 3 ---
+>  drivers/media/i2c/ov5640.c                               | 4 ----
+>  drivers/media/i2c/ov5645.c                               | 3 ---
+>  drivers/media/i2c/ov64a40.c                              | 4 ----
+>  drivers/media/i2c/ov8858.c                               | 2 --
+>  drivers/media/i2c/st-mipid02.c                           | 2 --
+>  drivers/media/i2c/tc358746.c                             | 5 -----
+>  drivers/media/i2c/thp7312.c                              | 4 ----
+>  drivers/media/i2c/vd55g1.c                               | 4 ----
+>  drivers/media/i2c/vd56g3.c                               | 4 ----
+>  drivers/media/i2c/video-i2c.c                            | 4 ----
+>  drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c | 4 ----
+>  drivers/media/platform/chips-media/wave5/wave5-vpu-enc.c | 5 -----
+>  drivers/media/platform/nvidia/tegra-vde/h264.c           | 2 --
+>  drivers/media/platform/qcom/iris/iris_hfi_queue.c        | 1 -
+>  drivers/media/platform/raspberrypi/pisp_be/pisp_be.c     | 2 --
+>  drivers/media/platform/verisilicon/hantro_drv.c          | 1 -
+>  drivers/media/rc/gpio-ir-recv.c                          | 1 -
+>  29 files changed, 83 deletions(-)
 
-Add quirk to configure the gfp flag to allocate memory within 32bit
-addressable range. As the 0x0201743b GIC600 ID is not specific to
-Altera, of_machine_is_compatible() is added.
+[snip]
 
-Signed-off-by: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
----
- arch/arm64/Kconfig               | 10 ++++++++++
- drivers/irqchip/irq-gic-v3-its.c | 18 ++++++++++++++++++
- 2 files changed, 28 insertions(+)
+> diff --git a/drivers/media/i2c/ccs/ccs-core.c b/drivers/media/i2c/ccs/ccs-core.c
+> index 487bcabb4a19..3316639b695e 100644
+> --- a/drivers/media/i2c/ccs/ccs-core.c
+> +++ b/drivers/media/i2c/ccs/ccs-core.c
+> @@ -788,7 +788,6 @@ static int ccs_set_ctrl(struct v4l2_ctrl *ctrl)
+>  	}
+>  
+>  	if (pm_status > 0) {
+> -		pm_runtime_mark_last_busy(&client->dev);
+>  		pm_runtime_put_autosuspend(&client->dev);
+>  	}
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 55fc331af337..2286b4d378e2 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1348,6 +1348,16 @@ config SOCIONEXT_SYNQUACER_PREITS
- 
- 	  If unsure, say Y.
- 
-+config ALTERA_AGILEX5_ADDR_BUS_WIDTH_LIMITATION
-+	bool "Altera Agilex: GIC600 can not access physical addresses higher than 4GB"
-+	default y
-+	help
-+	  Agilex5 address bus width for the ACE-lite interface is only 32 bits. Hence
-+	  the GIC600 SoC integration for Agilex5 can only access the first 32bit of the
-+	  physical address space.
-+
-+	  If unsure, say Y.
-+
- endmenu # "ARM errata workarounds via the alternatives framework"
- 
- choice
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index d54fa0638dc4..a2cf401568e7 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -4901,6 +4901,16 @@ static bool __maybe_unused its_enable_rk3568002(void *data)
- 	return true;
- }
- 
-+static bool __maybe_unused its_enable_agilex5(void *data)
-+{
-+	if (!of_machine_is_compatible("intel,socfpga-agilex5"))
-+		return false;
-+
-+	gfp_flags_quirk |= GFP_DMA32;
-+
-+	return true;
-+}
-+
- static const struct gic_quirk its_quirks[] = {
- #ifdef CONFIG_CAVIUM_ERRATUM_22375
- 	{
-@@ -4975,6 +4985,14 @@ static const struct gic_quirk its_quirks[] = {
- 		.mask   = 0xffffffff,
- 		.init   = its_enable_rk3568002,
- 	},
-+#endif
-+#ifdef ALTERA_AGILEX5_ADDR_BUS_WIDTH_LIMITATION
-+	{
-+		.desc   = "ITS: Altera Agilex5 address bus width limitation",
-+		.iidr   = 0x0201743b,
-+		.mask   = 0xffffffff,
-+		.init   = its_enable_agilex5,
-+	},
- #endif
- 	{
- 	}
+You can now drop the curly braces.
+
+>  
+
+[snip]
+
+> diff --git a/drivers/media/i2c/ov64a40.c b/drivers/media/i2c/ov64a40.c
+> index a5da4fe47e0b..15912ecb8d26 100644
+> --- a/drivers/media/i2c/ov64a40.c
+> +++ b/drivers/media/i2c/ov64a40.c
+
+[snip]
+
+> @@ -3330,7 +3328,6 @@ static int ov64a40_set_ctrl(struct v4l2_ctrl *ctrl)
+>  	}
+>  
+>  	if (pm_status > 0) {
+> -		pm_runtime_mark_last_busy(ov64a40->dev);
+>  		pm_runtime_put_autosuspend(ov64a40->dev);
+>  	}
+
+Same here.
+
+>  
+
+[snip]
+
+> diff --git a/drivers/media/rc/gpio-ir-recv.c b/drivers/media/rc/gpio-ir-recv.c
+> index bf6d8fa983bf..161f8919022c 100644
+> --- a/drivers/media/rc/gpio-ir-recv.c
+> +++ b/drivers/media/rc/gpio-ir-recv.c
+> @@ -49,7 +49,6 @@ static irqreturn_t gpio_ir_recv_irq(int irq, void *dev_id)
+>  		ir_raw_event_store_edge(gpio_dev->rcdev, val == 1);
+>  
+>  	if (pmdev) {
+> -		pm_runtime_mark_last_busy(pmdev);
+>  		pm_runtime_put_autosuspend(pmdev);
+>  	}
+
+And here too.
+
+With that,
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+>  
+
 -- 
-2.49.GIT
+Regards,
 
+Laurent Pinchart
 
