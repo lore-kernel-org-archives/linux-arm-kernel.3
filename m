@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C7EC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 04:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FF4C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 04:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xILUeuNzrr/Yo7TFwfYEmVtweggfhUGpHihnp3c3FuI=; b=of626nlk8OsAn83cjAh6cV07Bu
-	5JwGKZv7x0XVCKIHAslt4lqksxaY7kU+dhi8okJxY9Dx5NzeU4Q7VnWu7d865t9+99yzNOmhpvuFj
-	lfhlu3pPeLATP7n0h8kMBVwx9TOOWGq1p1xCIWtcLKLDd0MkE5M8MUu9iKeJenJeW1Pnl4q9y6xyD
-	V9KUd9Q+mlieqQV0RCxuCBLy/gZNxH/HoIzKp9+B2eN5zt5edJWdnXgcSgyQHyFCnK7r8Yz6omSYf
-	p0GtBpvig8+6RS4j0PqwrQdzZ8uyoL0taP0T3wACw7mGsgbS7nX6uUsw/eMOeSV5I+hhZpZkf57kJ
-	bFcL6s+Q==;
+	bh=bECOS5NYSuwI1Z2rPJn8KCgSIK08uaS2HV9/TPfF7qU=; b=WXq+7zINSciz9FFsup1VueOhTf
+	WCvVqqQ9MKTsIih3SSUWViXzzEA3lKDGZnes/fK3RxMfqBKWu5M+Qg+NrAB+kJUVXqVfT8tRemFY4
+	22WLWd7Rnuqe1Z/A4Uba7hFGKTMP3cR9diWMMZKBazGNrCgOBMeE+2P2Jq+Pj02wQZGKIciq+sNVt
+	MLAybWwAIQ5e3tjyuNleIJOjdwcUHG0c8sxyCF/Z2uV0JQxmRlYD9ne0JJACXdNYpw3TZl2FYJZN8
+	PoYIL+OGBGCE9SKcswI2Hzl/9tIAnjV4jC0tG6wv7v3Axg+D7aKaUwAdeHcwgKBCaSeO8aqf7HRRE
+	EUEU37Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXYO4-0000000DGjy-2wer;
-	Fri, 04 Jul 2025 04:51:00 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uXYQY-0000000DGvL-2KUm;
+	Fri, 04 Jul 2025 04:53:34 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXYJl-0000000DGQs-0dqA
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 04:46:34 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2352400344aso6080535ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 21:46:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751604392; x=1752209192; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xILUeuNzrr/Yo7TFwfYEmVtweggfhUGpHihnp3c3FuI=;
-        b=CWJvWLPyjM2QiyVGBFAyLEJDQmpJqG5Sp8uoeQ82IeW83t5asb14dX+mfq09xJijIP
-         sGN/CawBvRUJegowqgI8CNr0CE5k/WV3SlZ1o3LsntlKtiqUk81wXHdbmAKsc4/PTfS6
-         vvNj1Er2DH8eup9a+OWwMlKjP0YMiWevwuk/RH0m6pf1vcXYBme38NEf5pDcC5zVZgzn
-         2MpVLHR/Xv3USXwRfGQOSTaUYnQX25XqwHA5ntykJ9ax3cVbYi/+gx48qQfKFM1iNkEA
-         lREJWIgfbFWL1GemrKnfxYtiJWEvP3+Gv+eAV7qcy/GGgiQfdGrE4jTJbBhpk7K4Bw+0
-         9Txw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751604392; x=1752209192;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xILUeuNzrr/Yo7TFwfYEmVtweggfhUGpHihnp3c3FuI=;
-        b=FanN6Iq4m0b2XqrFveIXzmN/7mgUYZq65lNJ+s+6jH8ziHytEfpBWyAz4dMR10+MPs
-         HtSo/MHMszM/2Jp0EI8IiHJRE6NmQmKq7NQRXtHSmatzrqe/MHks1joEhrqW2tjEcEyj
-         yUL6KGhL5KbusuEKbtzq5VUsJ/5iv+c8ymUbBBM/Ggyd4RhsCCaPx67FXBrJpbV6uNtq
-         mJAq8mmdYzT/2mZ0AHY0Lp+8eWTTZGyoTzNt7NyBcrS5iWsqa9IfAvWUI6Ni4PLQkAsQ
-         7jcv5WcQ38c6kimwEgk1Vj3wQyf1YMOYq380Edw5Hhg1aXokn7PkKyhubuC8m5IkX2jO
-         v/XQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVln5DqdrQPdzktAFiKrxAiDJbBLzh5iI+GNx+OSj7IxFQcLS9utCKCmUgRTPcsjjWBWUrPVMKipJUsH1xQZba8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdNTmOw0+uIzbdOfnnh5z2z129vbIA9axtHX4ooo+/w92U1/5/
-	zRWqcYqZncKTYu4+Et3DyZROlED57m8kfV3Hkr9TJwBe18YpVlaxi0WE
-X-Gm-Gg: ASbGncv+CEwhvygnfbp8TmrNrbuKcWUxoy03S8nkxsp3UOpuNX4RiUrc/qo9ebXwBR8
-	mSCd2Ryzz5IvLKd9a00u47QTs6PK/0I8tYeFZioHkscYpM/6r3mnBPhvHKMJkAzBDwDTSddlidF
-	/IThF5Wzg8r266Eu1YQUVTYIUC0woXajBdXXnfJjJXQU9XE1DlpOH947N7rpK4XVP+evybe5uXe
-	UKOX+WuVbWSW/n8LoOHlXLD3JRX8bTWkGT6zFlvCCDgHFCLerHfNNFHi3Uh6u8FRASt07PSYAzT
-	neOsW600cGCKn1xwNtL6XMai6H5fmvSg84HC9y24tbgcv9L8hIk/QEsll/8wyiUZCCekEv0aW4b
-	+j4FkX+WZpAMvLxEfRCXEzh+x9bj1BmPgBLBQIXU=
-X-Google-Smtp-Source: AGHT+IEgR/rCAd1Y5FPgmuwSiO8qntbXNx6FG654nLbacD0JKhCOt3sZTQYV6V2u/abFqRuVhjf1Tw==
-X-Received: by 2002:a17:902:c412:b0:234:1163:ff99 with SMTP id d9443c01a7336-23c862a8090mr23121635ad.43.1751604392392;
-        Thu, 03 Jul 2025 21:46:32 -0700 (PDT)
-Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c8455cc1asm9413045ad.123.2025.07.03.21.46.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jul 2025 21:46:31 -0700 (PDT)
-Date: Thu, 3 Jul 2025 21:46:29 -0700
-From: Tao Ren <rentao.bupt@gmail.com>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Tao Ren <taoren@meta.com>
-Subject: Re: [PATCH 2/5] ARM: dts: aspeed: Remove eMMC from
- ast2600-facebook-netbmc-common.dtsi
-Message-ID: <aGdcpfYM94Itr6ME@localhost.localdomain>
-References: <20250702050421.13729-1-rentao.bupt@gmail.com>
- <20250702050421.13729-3-rentao.bupt@gmail.com>
- <94e0c5bfe1239e7590cef427cbba405077d56d01.camel@codeconstruct.com.au>
+	id 1uXYLJ-0000000DGXz-2PlZ;
+	Fri, 04 Jul 2025 04:48:11 +0000
+Date: Fri, 4 Jul 2025 06:48:06 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751604488;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bECOS5NYSuwI1Z2rPJn8KCgSIK08uaS2HV9/TPfF7qU=;
+	b=H7TOs+Ges3ST3JaaZizNd5ma6LU2f7OHMOzRFZkRcC/EoJtnkp0/6c4g/TtJqqbKbJ/4KS
+	QjVWOYJVlHQMm/eovn6G3n+y4dZ4vBwvZl2vuY3wAsGy2paB0Fjb1/29yEgsmrRG5cfIEG
+	P+gMIFhZpLtX5JgrJZMEF4e5SjTnpjZtd7N+O47OyaRvwyaHxXwDA30rjX0ICURXquy+BE
+	RDDcVO+gbUstA6UmN+VtxMcsnFGYDX0v/OKHEwpi/JF0/R3WnO/fH3wAsqS50sCwiIIguR
+	KgKJjcZ+mF3nJBkc2ARbAUq9BLcoQuEqh9/6a2oGNdBS0DpteqfKIVSM0tGXZg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751604488;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bECOS5NYSuwI1Z2rPJn8KCgSIK08uaS2HV9/TPfF7qU=;
+	b=erhRV6HukjrjeIx13k7VZwaaZcw+1YyWnPDZ+meuz0LMU8UgdnBEBWg1ifGsa4ZseUMMfD
+	tnsVa8uPhZ61rqDQ==
+From: Nam Cao <namcao@linutronix.de>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+	"K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Joyce Ooi <joyce.ooi@intel.com>, Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Marek Vasut <marek.vasut+renesas@gmail.com>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Nirmal Patel <nirmal.patel@linux.intel.com>,
+	Jonathan Derrick <jonathan.derrick@linux.dev>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 00/16] PCI: MSI parent domain conversion
+Message-ID: <20250704044806.7wtcOlGB@linutronix.de>
+References: <cover.1750858083.git.namcao@linutronix.de>
+ <20250703172801.GA1934994@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <94e0c5bfe1239e7590cef427cbba405077d56d01.camel@codeconstruct.com.au>
+In-Reply-To: <20250703172801.GA1934994@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_214633_193071_4876F78E 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20250703_214809_768125_68B65F94 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,23 +105,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 09:38:39AM +0930, Andrew Jeffery wrote:
-> On Tue, 2025-07-01 at 22:04 -0700, rentao.bupt@gmail.com wrote:
-> > From: Tao Ren <rentao.bupt@gmail.com>
+On Thu, Jul 03, 2025 at 12:28:01PM -0500, Bjorn Helgaas wrote:
+> On Thu, Jun 26, 2025 at 04:47:50PM +0200, Nam Cao wrote:
+> > The initial implementation of PCI/MSI interrupt domains in the hierarchical
+> > interrupt domain model used a shortcut by providing a global PCI/MSI
+> > domain.
 > > 
-> > Remove eMMC device entries from ast2600-facebook-netbmc-common.dtsi
-> > because eMMC will be removed from future Meta/Facebook AST2600 network
-> > OpenBMC platforms.
+> > This works because the PCI/MSI[X] hardware is standardized and uniform, but
+> > it violates the basic design principle of hierarchical interrupt domains:
+> > Each hardware block involved in the interrupt delivery chain should have a
+> > separate interrupt domain.
+> > 
+> > For PCI/MSI[X], the interrupt controller is per PCI device and not a global
+> > made-up entity.
+> > 
+> > Unsurprisingly, the shortcut turned out to have downsides as it does not
+> > allow dynamic allocation of interrupt vectors after initialization and it
+> > prevents supporting IMS on PCI. For further details, see:
+> > 
+> > https://lore.kernel.org/lkml/20221111120501.026511281@linutronix.de/
+> > 
+> > The solution is implementing per device MSI domains, this means the
+> > entities which provide global PCI/MSI domain so far have to implement MSI
+> > parent domain functionality instead.
+> > 
+> > This series converts the PCI controller drivers to implement MSI parent
+> > domain.
+> > 
+> >  drivers/pci/Kconfig                           |   1 +
+> >  drivers/pci/controller/Kconfig                |  11 +
+> >  drivers/pci/controller/dwc/Kconfig            |   1 +
+> >  .../pci/controller/dwc/pcie-designware-host.c |  68 ++----
+> >  drivers/pci/controller/dwc/pcie-designware.h  |   1 -
+> >  drivers/pci/controller/mobiveil/Kconfig       |   1 +
+> >  .../controller/mobiveil/pcie-mobiveil-host.c  |  42 ++--
+> >  .../pci/controller/mobiveil/pcie-mobiveil.h   |   1 -
+> >  drivers/pci/controller/pci-aardvark.c         |  59 ++---
+> >  drivers/pci/controller/pci-hyperv.c           |  98 ++++++--
+> >  drivers/pci/controller/pcie-altera-msi.c      |  44 ++--
+> >  drivers/pci/controller/pcie-brcmstb.c         |  44 ++--
+> >  drivers/pci/controller/pcie-iproc-msi.c       |  45 ++--
+> >  drivers/pci/controller/pcie-mediatek-gen3.c   |  67 ++---
+> >  drivers/pci/controller/pcie-mediatek.c        |  46 ++--
+> >  drivers/pci/controller/pcie-rcar-host.c       |  69 ++----
+> >  drivers/pci/controller/pcie-xilinx-dma-pl.c   |  48 ++--
+> >  drivers/pci/controller/pcie-xilinx-nwl.c      |  45 ++--
+> >  drivers/pci/controller/pcie-xilinx.c          |  55 +++--
+> >  drivers/pci/controller/plda/Kconfig           |   1 +
+> >  drivers/pci/controller/plda/pcie-plda-host.c  |  44 ++--
+> >  drivers/pci/controller/plda/pcie-plda.h       |   1 -
+> >  drivers/pci/controller/vmd.c                  | 229 +++++++++---------
+> >  23 files changed, 504 insertions(+), 517 deletions(-)
 > 
-> Please squash this patch with the subsequent two patches so you don't
-> break Fuji and Elbert across a bisect.
+> Looks good to me, thanks!  I think Mani will probably pick this up.
 > 
-> Andrew
+> I might have included the specific "legacy MSI domain" thing you're
+> replacing.  It looks like you're replacing pci_msi_create_irq_domain()
+> with msi_create_parent_irq_domain()?
 
-Got it. I will take care of it in v2.
+Yes, pci_msi_create_irq_domain() is legacy. We will delete it once
+everything is converted.
 
+> Minor merge conflict in pcie-mediatek-gen3.c with dcbea1c7e94e ("PCI:
+> mediatek-gen3: Use dev_fwnode() for irq_domain_create_linear()").  No
+> problem, we can easily fix that up.
 
-Thanks,
+Thanks!
 
-Tao
+> The "++i" in vmd.c stuck out to me since "i++" is so much more common.
+
+I always do "++i", maybe I'm the weird one..
+
+Best regards,
+Nam
 
