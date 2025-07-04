@@ -4,128 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56CDC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3298C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 14:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9frsXWKqJUycEBgjpx/MaijERGDr4YZunJ3meZeytu8=; b=drrUtJ5JdgRibwN/wFfDDdXkLM
-	QLOoZV+QyQBo/wrR7GJGxardRqkw1BDcfB9lz6U6zxoc0a8T3CstyzW5nWabAQnNp3yYbOSOiYPXH
-	kbQA49iNuG5dMGs4EHNNYvpRBa+CAjxrJbS/CUGzewCveWWLONR7uhfMb7ZJseqpKn0SurfR9TjZ3
-	s7IQS/vZGLZ2GXB2TFlTx/uGUG9LK5YbvMeqnT73ag/3sx1zIJG6cg/E14ZaTPlLR8MswsMtK+1T4
-	JLuXdYJkE0jg56RXDXLliALqrZo/I197NUYs8DKPOAP8nDrXSsxnKnXGIbh14LFM+NDZig/QBIbI6
-	ltHwo2EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LpqvI8aigKp1KLyHhO2hfOZECoifhbc86pqy6YCw2lQ=; b=m8Ihu8GVlnc/Vj/yzEX7uMOlU5
+	tuvROyea8Xhzx+WF/msdhj+KO9JyZoKE36kBBtKoEW8XU4I97JQmJqm97Jd5/8iV6MBAXlItHACnN
+	VP5wPvtnVHkFZG2X4JbaS0oh0Inhi4Rf3l8iUtmtEUc1NbVd/LAkT4pfxzZV+4/zKmXDL7CYQpV3l
+	JmLI6trcLrmyStDEuhT5KwCHRFOwrHEdUwfT72+SV6aFIpps4A8rtlYHctrecVGydu0obIeLrHCIK
+	zwvs3x9nEaWD9UPeaJ7NjA+jenY2n2PVpZ7TV13v7ssJ/qAeDGPOpnYYx0isq6xVU76hdQjrW7N9D
+	PoBBm0pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhmd-0000000EjFo-1gC1;
-	Fri, 04 Jul 2025 14:52:59 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1uXhox-0000000EjXZ-0eV0;
+	Fri, 04 Jul 2025 14:55:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXhgZ-0000000Ei0D-0Rs0
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 14:46:44 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 80AE21F74A;
-	Fri,  4 Jul 2025 14:46:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1751640401; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9frsXWKqJUycEBgjpx/MaijERGDr4YZunJ3meZeytu8=;
-	b=MwoDi5jfNMsodAI3nT0YzR6nvL1Y9cRkMEjofNm9HKPW3caZHqykzpmA/5NA/ftgFRk6YN
-	+wNSZ09IVl3Yicw1X9TgFliZ/76h4hAwSbjyk1A55R2koTDhHzoWf+D9fpY9LKtdWoUPgK
-	yFrnvLKkh8nlLUHwTBblirGrs2elv7U=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1751640401;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9frsXWKqJUycEBgjpx/MaijERGDr4YZunJ3meZeytu8=;
-	b=PbRxcG5H+BrclZAkVhcDcgKdloJq30AiW6NzL1KHqfXhkHjKadsmymhPSFfO2sllLg14Xm
-	GGO1uZGHLgm053Dg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1751640401; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9frsXWKqJUycEBgjpx/MaijERGDr4YZunJ3meZeytu8=;
-	b=MwoDi5jfNMsodAI3nT0YzR6nvL1Y9cRkMEjofNm9HKPW3caZHqykzpmA/5NA/ftgFRk6YN
-	+wNSZ09IVl3Yicw1X9TgFliZ/76h4hAwSbjyk1A55R2koTDhHzoWf+D9fpY9LKtdWoUPgK
-	yFrnvLKkh8nlLUHwTBblirGrs2elv7U=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1751640401;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9frsXWKqJUycEBgjpx/MaijERGDr4YZunJ3meZeytu8=;
-	b=PbRxcG5H+BrclZAkVhcDcgKdloJq30AiW6NzL1KHqfXhkHjKadsmymhPSFfO2sllLg14Xm
-	GGO1uZGHLgm053Dg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1330513A71;
-	Fri,  4 Jul 2025 14:46:41 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id SWC5AlHpZ2hgfQAAD6G6ig
-	(envelope-from <jdelvare@suse.de>); Fri, 04 Jul 2025 14:46:41 +0000
-Date: Fri, 4 Jul 2025 16:46:37 +0200
-From: Jean Delvare <jdelvare@suse.de>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: linux-aspeed@lists.ozlabs.org, Joel Stanley <joel@jms.id.au>, Henry
- Martin <bsdhenrymartin@gmail.com>, Patrick Rudolph
- <patrick.rudolph@9elements.com>, Andrew Geissler <geissonator@yahoo.com>,
- Ninad Palsule <ninad@linux.ibm.com>, Patrick Venture <venture@google.com>,
- Robert Lippert <roblip@gmail.com>, linux-arm-kernel@lists.infradead.org,
+	id 1uXhYf-0000000Egxk-2d5R;
+	Fri, 04 Jul 2025 14:38:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=LpqvI8aigKp1KLyHhO2hfOZECoifhbc86pqy6YCw2lQ=; b=2lfwxlto3SF5a3d7vDXVd1azEr
+	+93Z5oQ4/69wdHjHFNUj1jBQrzMaWIdTVOx4TS1MT1G2z/iAviRg0XeaT56eDc+ap85tpgn98obyG
+	reR+utLFCUeDMht4w7WyoSqLnZ0Ug9ZzDSHplMF/WwedHZMVWhDJk+ct3NRkFBv8VIowlze1/H588
+	ZS65o9feEqQ1hzjqI/1NHCtQ2sg5iwcapWHMb+Rnf4pSf8PGD3n7MPFe3M98zvR69mIZ+dj0IZs/M
+	wLvbRzeTwvt0bA42B+rUM3SXJtNloppdwgw+1in2J5IOwzgi4CSTQupuuVXVK9uRIBArsCM16udSu
+	8MBqpjQw==;
+Received: from i53875b79.versanet.de ([83.135.91.121] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uXhY2-0006HW-Qj; Fri, 04 Jul 2025 16:37:54 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 08/10] soc: aspeed: lpc-snoop: Use dev_err_probe()
- where possible
-Message-ID: <20250704164637.3552933a@endymion>
-In-Reply-To: <20250616-aspeed-lpc-snoop-fixes-v2-8-3cdd59c934d3@codeconstruct.com.au>
-References: <20250616-aspeed-lpc-snoop-fixes-v2-0-3cdd59c934d3@codeconstruct.com.au>
-	<20250616-aspeed-lpc-snoop-fixes-v2-8-3cdd59c934d3@codeconstruct.com.au>
-Organization: SUSE Linux
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.43; x86_64-suse-linux-gnu)
+Subject: Re: [PATCH 1/5] drm/rockchip: dw_hdmi_qp: Provide CEC IRQ in
+ dw_hdmi_qp_plat_data
+Date: Fri, 04 Jul 2025 16:37:53 +0200
+Message-ID: <13504186.5MRjnR8RnV@diego>
+In-Reply-To: <20250704-rk3588-hdmi-cec-v1-1-2bd8de8700cd@collabora.com>
+References: <20250704-rk3588-hdmi-cec-v1-0-2bd8de8700cd@collabora.com>
+ <20250704-rk3588-hdmi-cec-v1-1-2bd8de8700cd@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-3.80 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_TLS_ALL(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	HAS_ORG_HEADER(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[11];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,yahoo.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[lists.ozlabs.org,jms.id.au,gmail.com,9elements.com,yahoo.com,linux.ibm.com,google.com,lists.infradead.org,vger.kernel.org];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,codeconstruct.com.au:email,suse.de:email]
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_074643_298924_35E90102 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250704_073833_689920_7C73043F 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,21 +82,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Jun 2025 22:43:45 +0930, Andrew Jeffery wrote:
-> Exploit that it returns the provided error to eliminate some lines, and
-> return the actual error involved rather than -ENODEV.
-> 
-> Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+Hi Cristian,
+
+Am Freitag, 4. Juli 2025, 16:23:22 Mitteleurop=C3=A4ische Sommerzeit schrie=
+b Cristian Ciocaltea:
+> In preparation to support the CEC interface of the DesignWare HDMI QP IP
+> block, extend the platform data to provide the required IRQ number.
+>=20
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
->  drivers/soc/aspeed/aspeed-lpc-snoop.c | 15 +++++----------
->  1 file changed, 5 insertions(+), 10 deletions(-)
-> (...)
+>  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 4 ++++
+>  include/drm/bridge/dw_hdmi_qp.h                | 1 +
+>  2 files changed, 5 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu=
+/drm/rockchip/dw_hdmi_qp-rockchip.c
+> index 7d531b6f4c098c6c548788dad487ce4613a2f32b..126e556025961e8645f3567b4=
+d7a1c73cc2f2e7f 100644
+> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> @@ -539,6 +539,10 @@ static int dw_hdmi_qp_rockchip_bind(struct device *d=
+ev, struct device *master,
+>  	if (plat_data.main_irq < 0)
+>  		return plat_data.main_irq;
+> =20
+> +	plat_data.cec_irq =3D platform_get_irq_byname(pdev, "cec");
+> +	if (plat_data.cec_irq < 0)
+> +		return plat_data.cec_irq;
+> +
+>  	irq =3D platform_get_irq_byname(pdev, "hpd");
+>  	if (irq < 0)
+>  		return irq;
+> diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi=
+_qp.h
+> index e9be6d507ad9cdc55f5c7d6d3ef37eba41f1ce74..b4a9b739734ec7b67013b683f=
+e6017551aa19172 100644
+> --- a/include/drm/bridge/dw_hdmi_qp.h
+> +++ b/include/drm/bridge/dw_hdmi_qp.h
+> @@ -23,6 +23,7 @@ struct dw_hdmi_qp_plat_data {
+>  	const struct dw_hdmi_qp_phy_ops *phy_ops;
+>  	void *phy_data;
+>  	int main_irq;
+> +	int cec_irq;
+>  };
 
-LGTM.
+from a structure point-of-view, I'd expect the series to be something like:
 
-Acked-by: Jean Delvare <jdelvare@suse.de>
+(1) drm/bridge: dw-hdmi-qp: Add CEC support
+    -> including adding the cec_irq to dw_hdmi_qp_plat_data
+(2) drm/bridge: dw-hdmi-qp: Fixup timer base setup
+    -> including adding the ref_clk_rate to dw_hdmi_qp_plat_data
+(3) drm/rockchip: dw_hdmi_qp: Provide CEC IRQ in dw_hdmi_qp_plat_data
+(4) drm/rockchip: dw_hdmi_qp: Provide ref clock rate in dw_hdmi_qp_plat_data
+(5) arm64: defconfig: Enable DW HDMI QP CEC support
 
--- 
-Jean Delvare
-SUSE L3 Support
+The patches adding the generic functionality to the bridge should also
+include the needed elements and not depend on platform-specific patches.
+
+
+Heiko
+
+
 
