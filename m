@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E808C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 18:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4658C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 18:20:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BiIC8cU1jiUN3g9Ouh0f8Bnre4Cfbx6f1xX1pyULiAo=; b=NKvaAuiV5lgpsPDDINKqYE+5w7
-	fVHNb0ovPOF9Xl+aiw/enpmHWYOA4Ph1vWKeIs2f0UsYm0yH6iQLQjoTXn2HOXLC55agrxif/LICL
-	vJrguaREwmDRrAHmB9ng5dwEHKUUvxhaIz20+S2IDZt3dmRtohLLY+ehQIfQ5AZTO2hvB10CwlqtY
-	e/EGLbIKhVUiWowqO8aMXr3ckc7ULl+bjNO3sfS2JK2iRH3uAnn0hhsRl/pMY78lU7WKe7cnVds2d
-	34xOu/VsUxAqHBOLdfKkt4bOJ/NaJSIyBGE0T5BGBzq1qZaXqvDpCvXo2W/EuHu5awx22K/YVqazF
-	vWH73qGQ==;
+	bh=tNwdoezLd9lXu+fVMv66mCLJtIP+zxcXceVB+awIDFs=; b=RvMwXApKpC+WBwFVfrSbq0qifx
+	xZF7PWX9FpqobMRHuF6LxMGElloh7mThe3BIzBYvdWCALrU4v2VkIM+B6eRFtPAIYD8+rmYuamQyy
+	HfOQNhMVVEiMgcvwC92sMeAErVonOIzHKtQ5g+AdgaKgFuYQ/Esf7p7HAjY1RVLguiKsFD7ClFjpN
+	d4gKluksTEg288UTQEWHBYTJN9QzwnUNYa4zXNtSABJTFgkNxfHLIIQQD9puCb9+89UegkLYsMid4
+	AGJiIywmyeZIjk24EXl1TogaH2lUZMuSuTTmlb6m9KRYpA4Ph6u04mRdYNaCCOwUpmA+uQWwi+Y+Y
+	+TkcTg5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkz3-0000000FBpH-1Aaf;
-	Fri, 04 Jul 2025 18:18:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uXl1N-0000000FCPW-4AD4;
+	Fri, 04 Jul 2025 18:20:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkSx-0000000F8Hd-0yIG
+	id 1uXkSz-0000000F8Ht-1nzH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 17:44:51 +0000
+	Fri, 04 Jul 2025 17:44:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A94D861468;
+	by dfw.source.kernel.org (Postfix) with ESMTP id EEA115C6A5E;
+	Fri,  4 Jul 2025 17:44:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2AFBC4CEE3;
 	Fri,  4 Jul 2025 17:44:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED223C4CEEF;
-	Fri,  4 Jul 2025 17:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751651090;
-	bh=esn9s6EqpaSnRfbcaIGb2L569+x/GbsPLSuq7sW2VI0=;
+	s=k20201202; t=1751651092;
+	bh=RCqv3apiRAvADrsUAeAhC/3SwamOTFDAyQI+WX1ky1k=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZS/ElbMZ1mq02XaEzcr/NsY/cYdXVJTbh1B9XGFhXGfvp4xs1q9OPuYzOXOMfCJ0b
-	 PGQwRSAtd2W0wmVECLYe6vlvFU7DHeidbRpuz3H3HzIJIidyuvLsddRfk6+6lPCPCv
-	 jNVvFb4jYhH67llkIfTCaKlEcbfccczSCxhQ0y4rgT2D2OBxvTa5zto6FLQOjZB4zy
-	 ApYR1y9XU5hoQCNQPf72y6Fj9S+edg2/0TCAjjBb69ykBfULqxXfEFaYCsQcENvBNv
-	 8o4qUU1EsPepz8CJAVYLZSaDd6+929IZEFbjYbPxoDmA8Pn1jWtaeAWeceyHtG3cW+
-	 c0fRs59GcbXIg==
+	b=BXQampagQ81AV6XCk+tbU0dYcvaI4k/MH0kZqgbomKxodofh3H+eCxJOGexWHMIvm
+	 CPl1bbb+qMNZa1+jYKcvJ79soojk3Q6sySUxt1s+kgeygQZCL5LllTeWA8Dy30sM+M
+	 WnsMtG05bz6G5xVJde/SanPyKaKyxXHJcGCVgyNXeKvvN8QO2L1XxTKahH6WHCFND9
+	 b//KgZ9Uajndlx5wXgFslexbwrjRaMuxKx/rn/MyD4S2Y7NxNld7U8J0+AfYWs50j8
+	 yD2IpE+1n0vOe4mauFzHLYEuaGGWCG43G+NEBP2ZlJtzQlI+HVthXKyODQ0zLyB6Jl
+	 oz0ofdwMqvteg==
 From: Will Deacon <will@kernel.org>
 To: Robin Murphy <robin.murphy@arm.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	mark.rutland@arm.com,
+	ilkka@os.amperecomputing.com,
+	linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] perf/arm: Add missing .suppress_bind_attrs
-Date: Fri,  4 Jul 2025 18:44:18 +0100
-Message-Id: <175164884772.4004499.6828118473358601895.b4-ty@kernel.org>
+	Arnd Bergmann <arnd@kernel.org>
+Subject: Re: [PATCH] perf/arm-cmn: Reduce stack usage during discovery
+Date: Fri,  4 Jul 2025 18:44:19 +0100
+Message-Id: <175164881621.4004183.13139163312474667678.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <acd48c341b33b96804a3969ee00b355d40c546e2.1751465293.git.robin.murphy@arm.com>
-References: <acd48c341b33b96804a3969ee00b355d40c546e2.1751465293.git.robin.murphy@arm.com>
+In-Reply-To: <e7dd41bf0f1b098e2e4b01ef91318a4b272abff8.1751046159.git.robin.murphy@arm.com>
+References: <e7dd41bf0f1b098e2e4b01ef91318a4b272abff8.1751046159.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250704_104453_509961_7F93DE03 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 02 Jul 2025 15:08:13 +0100, Robin Murphy wrote:
-> PMU drivers should set .suppress_bind_attrs so that userspace is denied
-> the opportunity to pull the driver out from underneath an in-use PMU
-> (with predictably unpleasant consequences). Somehow both the CMN and NI
-> drivers have managed to miss this; put that right.
+On Fri, 27 Jun 2025 18:42:39 +0100, Robin Murphy wrote:
+> Arnd reports that Clang's aggressive inlining of arm_cmn_discover() can
+> lead to stack frame size warnings, and while we could simply prevent
+> such inlining to hide the issue, it seems more productive to actually
+> heed the warning and do something about the overall stack footprint.
+> The xp_region array is already rather large, and CMN_MAX_XPS might only
+> grow larger in future, however it only serves as a convenience to save
+> repeating the first level's worth of register reads in the second pass
+> of discovery. There's no performance concern here, and it only takes a
+> small tweak to the flow to re-extract the offsets instead of stashing
+> them, so let's just do that and save several hundred bytes of stack.
 > 
-> 
+> [...]
 
 Applied to will (for-next/perf), thanks!
 
-[1/1] perf/arm: Add missing .suppress_bind_attrs
-      https://git.kernel.org/will/c/860a831de138
+[1/1] perf/arm-cmn: Reduce stack usage during discovery
+      https://git.kernel.org/will/c/a7bfae21457c
 
 Cheers,
 -- 
