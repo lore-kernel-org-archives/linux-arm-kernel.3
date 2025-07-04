@@ -4,93 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C683C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 08:18:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D3EC83030
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 08:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qlVKoMlW5skUFdPg1+G6eEcVrecAIeUMd4PF7++IZjo=; b=rk1vRXIk4mWvqlaPt/6nwKNIGP
-	i/2mGaCoFcwqif1gPQX1ozbVhb5V7qYL27I8Cg1s2pocXrlQVxpKcQflcs9Jku4kRfvJu3sxlpi4U
-	TKpW6tHa/74cNIPGof6hnD3njS+h8lc+7/TMr3KJ9dWIviTrhSJii0JmOKoTMHf+rOplsKiux9cZ2
-	xPYlS0O0Zpq6XgNrfqp6A8ZwKN9fehBkIEgyPwCVp6d+oydLbI2QwQopKHx3vquCx1673FpE1UCUS
-	8cmJUFnaNUli6MmxcFHKqkX7HewSWbmu+aclvdhp+sfiLf0Oz3FNF7bAlOtQuo9KlNRvIvAH7ovbM
-	6AVThobg==;
+	bh=FwgvG2OF//PuC7kNCfh3X4X1OODYMNI8I+SeAjJyLy0=; b=Q/JYnNswLC2uGR4bOeVRR9z5/m
+	HlyrN1Fq9FlHWSi62G/AD7HY/6H5T0F5arRUXtx/UfuY4up60SfedTzyzome9dgcOxWSg3uoHXF/F
+	VVQhyjrYwPlmd3qjpv17AD6aGniZSJPh/hbPQgLi1CIpwY6bRjgcI+BAHZUdGqRAH86okqqc+EvK0
+	oiY1/6JlFmjLgyNzG7J1Vg4KOI4/jQUuEmPZWZGTrwhj8j8d+C3fM55kauV3ZjPHfO9oSJFUQFd/Z
+	SJ101hstjzHLAect1ovkxa2bV7EOgcHaOul31zu485UT4twfuSsTKH4Xj024EyhdyHdVNEy0Y97IO
+	ioMF/KPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXbcO-0000000DhRE-2sxO;
-	Fri, 04 Jul 2025 08:18:00 +0000
+	id 1uXbei-0000000Di4F-1Meg;
+	Fri, 04 Jul 2025 08:20:24 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXbFX-0000000Dd3F-0HM1
+	id 1uXbFi-0000000Dd6g-27u3
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 04 Jul 2025 07:54:23 +0000
+	Fri, 04 Jul 2025 07:54:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=qlVKoMlW5skUFdPg1+G6eEcVrecAIeUMd4PF7++IZjo=; b=F+i6QZn9lrwSHnXRmM0u2GoACx
-	BJltY4LxCUAPkYXMMYegPcMxg1JrOduLCW3jiIHSPpmo1TbqgZZafXmmIFQ1EclDyD/3XwMZUMtBF
-	CeQP2LiYp/9xiT0WXs6L9gAIhH7oL/aHTi6GKqtSatRrQfYm2kUY40k8gzGfkaDkDcBQ2cdkqZxur
-	VVGHuAE++Nf6L1TovPBDIH9CbtlJxckeI+aSVSGhAYY6jK14lRi4LlI2F3bJM2bmCawRRMxCTVzZi
-	fQvjTv+GFTt2qHnO2XszSH9srVza4CinPvfNdFM0/TtryUnRmP2giPgthWfV6wWpN8ypjLFFXuQtw
-	O2P570ig==;
+	bh=FwgvG2OF//PuC7kNCfh3X4X1OODYMNI8I+SeAjJyLy0=; b=BUZox0VoFjehEwG9aTtklKhYWR
+	+gA5oIh7AiuaP9OqUkIXZciHNy8ZLXojwAS1PQbxCfnvY3zNWI2Q2BS7sBxOC8XXw4VNHqnUu2vID
+	4qcugvlPEnF94R360QeH/1Fe9wU9CVq8WHbhbZsza6Uwc1HjP7xhgbv5G70T0b0pkngi8EU8v258Y
+	JpR4r1EG+aFyqZAiWBlAWRI1ZB69MBkrbsskgWztB/801f1CFfzYjx99+rJsn1SYfttW3TTHDLW5J
+	U6wJsgLw+9IA4DpeGYgv49X5cYOLnDbXx1yjWa7msewjn8TD6GRWq2QtcEmV1focQfN8JFdK6P0qz
+	nhxrBUSQ==;
 Received: from mgamail.intel.com ([198.175.65.9])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXbFT-00000007pdW-1bWW
+	id 1uXbFe-00000007piV-054k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 07:54:21 +0000
+	Fri, 04 Jul 2025 07:54:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751615659; x=1783151659;
+  t=1751615670; x=1783151670;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=5Hx4Vms6Gxu/8rFa2Up0txUhrMnFHymKtoeJok1L+Oo=;
-  b=dt7Fj1GidQGGJ8r332Z7E1B52G5FO2kIZZLqWKG4EMNAyspWwSILJUo5
-   BlPDWGufaD8UfEtJgkyE5eiNqkLSXloopUvcrR24PNGij992zOg5ct4mT
-   /Q2GPMhWFx17GkhTjpCt9YYd+LeJ80V4HG6JrdQkgkEWc5WEusyqumT7I
-   9TNBz2lEZy3sX7rc2eCCiVQh49VJktFMmRUE1HyGHm7e45wLNqVdjVi9c
-   HbdpODsmxQ+TLfX07iuM94H4/tbpFxiOUhdX5FTmFZVDNGjBO/AxNo2To
-   5B7E+c1MKq7TuYhz0wgXR5ZFD0nzC0JtAaGxVqZ+vfh8+YKAmkvcnbO0a
-   A==;
-X-CSE-ConnectionGUID: ksjXG3xUTKy8YoRjRZPtJA==
-X-CSE-MsgGUID: rWiZMZrRTX2jcZrQV/bQsw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11483"; a="76494576"
+  bh=iWBWM0U4T919tQGPGfn9BScin0AJyspS/yqsVimSI2Q=;
+  b=AfRJ1A5Kp9diCush0N2Iz6z7qOFvR5pdOMwodlhAqeOKtMJra0fykt+I
+   gH+0NrKF1BDFbQB3GYdBYL8XhENggSuUQLSHCd7dhkrFgX5y+8KYwOua0
+   ol8t4Zf8uvzofj10Xq6UFBaUUCWuu1Sz0KM/U7g1xlAAkVXbf0J9vw8oY
+   2v/gJ2ILTc43zyoGUfCcuQ/PspzmvQCfVwLgr4w6dWwEub9hfwnfXIuI6
+   2AX83aAMIMwPjXdngPwwvraY9nP6CA1nrNioSdQLV5XCjahD2+GAdNFQX
+   IU/bjdcHyw1WCkHNuxMfwCnyKAjr1K/g/jxWGbicGFc42gxt8TSAx8IXO
+   g==;
+X-CSE-ConnectionGUID: sgrCu3umQaOwIdfzbTxRYg==
+X-CSE-MsgGUID: 90tCYccmS1abzXopriv2GQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11483"; a="76494645"
 X-IronPort-AV: E=Sophos;i="6.16,286,1744095600"; 
-   d="scan'208";a="76494576"
+   d="scan'208";a="76494645"
 Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2025 00:54:18 -0700
-X-CSE-ConnectionGUID: 2mqtTLXUTq+bpmvXXnf6rQ==
-X-CSE-MsgGUID: FVacNX9iRDuVwQJgPpJ6DQ==
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2025 00:54:27 -0700
+X-CSE-ConnectionGUID: 1PPAJs0KT4yeS0NQgpsEJA==
+X-CSE-MsgGUID: PargF/5ZSQyGI5qazvbrfg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.16,286,1744095600"; 
-   d="scan'208";a="158924242"
+   d="scan'208";a="158924271"
 Received: from jkrzyszt-mobl2.ger.corp.intel.com (HELO svinhufvud.fi.intel.com) ([10.245.244.244])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2025 00:54:16 -0700
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2025 00:54:24 -0700
 Received: from svinhufvud.lan (localhost [IPv6:::1])
-	by svinhufvud.fi.intel.com (Postfix) with ESMTP id B059A4445A;
-	Fri,  4 Jul 2025 10:54:14 +0300 (EEST)
+	by svinhufvud.fi.intel.com (Postfix) with ESMTP id 4FF4244A4B;
+	Fri,  4 Jul 2025 10:54:22 +0300 (EEST)
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
 From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+To: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: linux-iio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 22/80] stm class: Remove redundant pm_runtime_mark_last_busy() calls
-Date: Fri,  4 Jul 2025 10:54:14 +0300
-Message-Id: <20250704075414.3218411-1-sakari.ailus@linux.intel.com>
+Subject: [PATCH 31/80] iio: dac: Remove redundant pm_runtime_mark_last_busy() calls
+Date: Fri,  4 Jul 2025 10:54:22 +0300
+Message-Id: <20250704075422.3219331-1-sakari.ailus@linux.intel.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250704075225.3212486-1-sakari.ailus@linux.intel.com>
 References: <20250704075225.3212486-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_085419_973696_FEFF286E 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20250704_085431_733265_8B39F1A2 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,37 +128,37 @@ rc2:
         git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
                 pm-runtime-6.17-rc1
 
- drivers/hwtracing/stm/core.c | 3 ---
+ drivers/iio/dac/stm32-dac.c | 3 ---
  1 file changed, 3 deletions(-)
 
-diff --git a/drivers/hwtracing/stm/core.c b/drivers/hwtracing/stm/core.c
-index cdba4e875b28..f75d06e3787a 100644
---- a/drivers/hwtracing/stm/core.c
-+++ b/drivers/hwtracing/stm/core.c
-@@ -659,7 +659,6 @@ static ssize_t stm_char_write(struct file *file, const char __user *buf,
+diff --git a/drivers/iio/dac/stm32-dac.c b/drivers/iio/dac/stm32-dac.c
+index 344388338d9b..7d47c7dddbf8 100644
+--- a/drivers/iio/dac/stm32-dac.c
++++ b/drivers/iio/dac/stm32-dac.c
+@@ -96,7 +96,6 @@ static int stm32_dac_set_enable_state(struct iio_dev *indio_dev, int ch,
+ 		udelay(1);
  
- 	count = stm_write(stm, &stmf->output, 0, kbuf, count, NULL);
+ 	if (!enable) {
+-		pm_runtime_mark_last_busy(dev);
+ 		pm_runtime_put_autosuspend(dev);
+ 	}
  
--	pm_runtime_mark_last_busy(&stm->dev);
- 	pm_runtime_put_autosuspend(&stm->dev);
- 	kfree(kbuf);
+@@ -104,7 +103,6 @@ static int stm32_dac_set_enable_state(struct iio_dev *indio_dev, int ch,
  
-@@ -679,7 +678,6 @@ static void stm_mmap_close(struct vm_area_struct *vma)
- 	struct stm_file *stmf = vma->vm_file->private_data;
- 	struct stm_device *stm = stmf->stm;
+ err_put_pm:
+ 	if (enable) {
+-		pm_runtime_mark_last_busy(dev);
+ 		pm_runtime_put_autosuspend(dev);
+ 	}
  
--	pm_runtime_mark_last_busy(&stm->dev);
- 	pm_runtime_put_autosuspend(&stm->dev);
- }
+@@ -349,7 +347,6 @@ static int stm32_dac_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_pm_put;
  
-@@ -1082,7 +1080,6 @@ static int __stm_source_link_drop(struct stm_source_device *src,
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
  
- 	stm_output_free(link, &src->output);
- 	list_del_init(&src->link_entry);
--	pm_runtime_mark_last_busy(&link->dev);
- 	pm_runtime_put_autosuspend(&link->dev);
- 	/* matches stm_find_device() from stm_source_link_store() */
- 	stm_put_device(link);
+ 	return 0;
 -- 
 2.39.5
 
