@@ -4,66 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCEBC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 06:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD478C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 07:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fCUK/t7X+pIOse8Uf1Inai7L3EMmExK5q+I9AWRkSeQ=; b=JudowDSVvbNV7SJfHC6d1SkC+A
-	h97+OxW+EQuO30WxnkLLO1L6C9FMSJve+YpHrj95IcUMzlK004S7bhJQbwymvV+OAPxeeH2r8IH6u
-	dW+6QDxJbN8cZaxDLpMp+FcHeErIWxAMNHu5GoYzvEbSc9pX+J/noJ32stYjmuhOPSBuhWBWr08Pl
-	H1nOXJfZviyXSuuscaFcVwwt1PelYO8Rf+hARoQFT3oSGHftxwOoDkU3/043BWzzJXcjJh/OkkB1S
-	W7eHacNMci/7KzLlrQuDBstDkOTShb9z/O1jdl4xAL+fQc9NvxUh9/k/2q48c/DVfPleQPrN5eTOi
-	gqIdOvqA==;
+	bh=zMl6D7z2ksW3ZR3FBvSjn4AoKWkT68rRWmgU8ZX2Ou4=; b=nzMygdbHjgU+hzImZ/s46ziNuh
+	PaxHnIZ/RRRLpzzslKV9bebOm8qngDSvBkxzghCVdBgeru+k+Nr5vYI6GjQngdae0BhbsrLmcz+YL
+	DGh7wq65lx9G3WaqX9WOuOeNX3KLs3c9pNULpaeGeYR5KyQYRPf+dX0VW9f87n8ysWnjZmw4S0zuE
+	8VPjWif/jpOMRzwvA015TKGpzw+lqnkyTwwa9QyqrEqu/4A+ain4vquiAL+nHRF20ruRZVdrWifKh
+	wF8N4LlLR2NKwP23/34q3zH+78sRjPCs37mE2Z7aBaWYI8bCpfA8jr2yo7N77eAB6Nk2FgEVDKKpQ
+	sBmvs7cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXaCe-0000000DSh7-0vQ3;
-	Fri, 04 Jul 2025 06:47:20 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1uXaTZ-0000000DUHg-1EW1;
+	Fri, 04 Jul 2025 07:04:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXaAH-0000000DSFw-0FfC
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 06:44:55 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bYPG45GX2z2BdVd;
-	Fri,  4 Jul 2025 14:42:52 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id F24791A016C;
-	Fri,  4 Jul 2025 14:44:40 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 4 Jul 2025 14:44:39 +0800
-Subject: Re: [PATCH 1/2] KVM: arm64: Fix enforcement of upper bound on
- MDCR_EL2.HPMN
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
-	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<yury.norov@gmail.com>, <linux@rasmusvillemoes.dk>,
-	<linux-kernel@vger.kernel.org>, <james.morse@arm.com>,
-	<stable@vger.kernel.org>
-References: <20250703135729.1807517-1-ben.horgan@arm.com>
- <20250703135729.1807517-2-ben.horgan@arm.com>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <ca3054b2-b053-3859-a992-09499809d4d4@huawei.com>
-Date: Fri, 4 Jul 2025 14:44:38 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	id 1uXaRE-0000000DU1K-2pRU;
+	Fri, 04 Jul 2025 07:02:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D26D0435AA;
+	Fri,  4 Jul 2025 07:02:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 621C7C4CEE3;
+	Fri,  4 Jul 2025 07:02:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751612542;
+	bh=jr9AGxZaoLH141StMmIlo99XBnkohTJbr+5ZlwGj9dA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qUAlVfzHgfyFoB8PVvqTpAgLx6sTUU0ZH07cQC9eUnwi3WV4nxe41FUxoLH8lWvSC
+	 YFdNaLVuNHO1wR4kbWJwaTPje+kin7Sz8f0w0JRSueQ3DTAYeiw3p0Wa1h3uSfv00d
+	 a3diaR3WXLGSKlQOnVN1ebAGfnIz5wtfXKVj0c6FtDJfwYRQrLcJmSdSmAXmExCT+e
+	 JARZstyIsuEV308BHKJcxzOkkmaL2QihP4v54OfZc5DwSt0K0CCLpzE4hneFD026Hk
+	 ZNKYSOmGFketj1YxW6cIczAZ8RASEzeeafLQxt51uWkzFn5Dw3XQ6KwaxwUeRScaoK
+	 gj4k2piXiXuIw==
+Message-ID: <9ca025e9-c6ad-4ecb-803b-73d2aded86d4@kernel.org>
+Date: Fri, 4 Jul 2025 09:02:15 +0200
 MIME-Version: 1.0
-In-Reply-To: <20250703135729.1807517-2-ben.horgan@arm.com>
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 05/10] dt-bindings: serial: cdns: add Axiado AX3000
+ UART controller
+To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jan Kotas <jank@cadence.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, =?UTF-8?Q?Przemys=C5=82aw_Gaj?=
+ <pgaj@cadence.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Frank Li <Frank.Li@nxp.com>, Boris Brezillon <bbrezillon@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ soc@lists.linux.dev, linux-serial@vger.kernel.org,
+ linux-i3c@lists.infradead.org
+References: <20250703-axiado-ax3000-soc-and-evaluation-board-support-v6-0-cebd810e7e26@axiado.com>
+ <20250703-axiado-ax3000-soc-and-evaluation-board-support-v6-5-cebd810e7e26@axiado.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250703-axiado-ax3000-soc-and-evaluation-board-support-v6-5-cebd810e7e26@axiado.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_234453_296593_FF9DB528 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20250704_000224_758752_449D0947 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +129,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/7/3 21:57, Ben Horgan wrote:
-> Previously, u64_replace_bits() was used to no effect as the return value
-> was ignored. Convert to u64p_replace_bits() so the value is updated in
-> place.
+On 03/07/2025 20:20, Harshit Shah wrote:
+> Add binding for AX3000 UART controller. So far, no changes known,
+> so it can fallback to default compatible.
 > 
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> Fixes: efff9dd2fee7 ("KVM: arm64: Handle out-of-bound write to MDCR_EL2.HPMN")
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: stable@vger.kernel.org
+> Signed-off-by: Harshit Shah <hshah@axiado.com>
 > ---
->  arch/arm64/kvm/sys_regs.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 76c2f0da821f..c20bd6f21e60 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2624,7 +2624,7 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
->  	 */
->  	if (hpmn > vcpu->kvm->arch.nr_pmu_counters) {
->  		hpmn = vcpu->kvm->arch.nr_pmu_counters;
-> -		u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
-> +		u64p_replace_bits(&val, hpmn, MDCR_EL2_HPMN);
->  	}
->  
->  	__vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
 
-Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Thanks!
+Best regards,
+Krzysztof
 
