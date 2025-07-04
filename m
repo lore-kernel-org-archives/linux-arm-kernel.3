@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E95C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 01:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D01C6C83F04
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 01:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5zByC6Bd1xD5NQdxKZlsMbHMCFrJLh3d5i7fkNR6uL0=; b=SRDXe8wiblJmAQDpq6RuhwYd8E
-	KWoy4HC31FhS5lKzdrcSjQ8RABktsKurHrHmGedgFPSyAsJ672Ba2r/ldLIZjAs0jUXTm1gJt6whV
-	jdDC5F1DbOq81+5Xhws9hxN0CiFwKnKQdUbpOV7N7ik7lFnWolvuJESQKHFefb7IelYkyFAC1N4VZ
-	tAkg0Qp3EVtC1xL7uRLYNtt/+eSy/b2tWq+Ly3y6HlFBzKHZi1rKO0bl2idmq1wWksTmkPw0UYj+C
-	DHqtyp6XoH77Aq+45XHOlCdFUyh8JQwDCmOJvXpLxkspvQhc24cYYfByMDC7ZI1Y3Y//aJw49Ichv
-	WKiLbJIw==;
+	bh=Z7CrtMSRtoJpcPfB9qnSXOsewkw4Z1pqaBofqmAf1qY=; b=iZqzHb+FjHw/Fq5WJfuxQlGAG4
+	fXof3Ex0hLwJnERcrJaOce2a+UQZoxfglW6Il3zVGZiyPafQqOgeix6gI+BDUK0f+BvVgb3rzd38c
+	cgfzDEF8AyCi4BtpM32Jo2kQH3plBAxOeAdUG61apF7K4WRKOWC/bJ/L9k6OxyODlECfdaM9gpeL1
+	OsTXXFWpLzJIGn0yqqIMNVcaV1Yc92hzkCqhVn/+GAF1lnTrv3/JvTdn7fa7ATafPcT6H3h+tXl7k
+	S4K0qN4ekGDIZHx81ER8ApZkeDcR54xgho/7gU6I/7LMUvmh47NqdASjPf0BA1w8n9gbcqV19Klwk
+	9g9yRiVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXVDA-0000000CzVT-0871;
-	Fri, 04 Jul 2025 01:27:32 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1uXVFT-0000000CzjF-3OSF;
+	Fri, 04 Jul 2025 01:29:55 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXV6Y-0000000Cyup-1s69
+	id 1uXV6c-0000000Cyvi-3vaa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 01:20:43 +0000
-Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-735ae68cc78so360932a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 18:20:42 -0700 (PDT)
+	Fri, 04 Jul 2025 01:20:48 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7382ffcb373so355561a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Jul 2025 18:20:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751592041; x=1752196841; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1751592046; x=1752196846; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5zByC6Bd1xD5NQdxKZlsMbHMCFrJLh3d5i7fkNR6uL0=;
-        b=cUSSp9ZHfxCmDNXNNEf2X76OG4zmvj34h5GjcB75QId2BZ6CIc7nEyUT12pYIiomtb
-         6PXKELtJ5/Wb9+tolsBo2PDA70VWwSsHTERNAlWwDuw+xtbIetK1MQxjyCtaKq9KSkmE
-         Qc8aBFvOvlPcJiLMImXF1BzGW0KuIXqUXaOBuqcTzKQehGAwDmLUXRRLhYkkiBm1+nVm
-         JWCf5+HLFlN0fTqdgbt5VLM4e6CDINbW8+yKLAyuOWdFHEdsSdWfiXz6Eaf/MDcogXxG
-         CbNvXF735kwDqqRDYabrQp5MHBk79L8ahV6epGle2E7OIindiUjTCeTFOMni/1OwTQiy
-         i7Sg==
+        bh=Z7CrtMSRtoJpcPfB9qnSXOsewkw4Z1pqaBofqmAf1qY=;
+        b=Wp+3s5+dy63ILp/AcIuwSkBszt8YfJci3banMCQZToUT7jw7ypaQGwWlQBLWt3T4r1
+         /5w0OEOtoSRAyTRCwkKDFKx/tYT1ypnRyUZr27lv+/xs/Cojm4J5Wn73+FMm3qBNovB7
+         XEeyizMbprkZLIWywUNMZhO014iH2SU+3JP6+M6f370Zvg2DpxjMC2Vwn8cPZGpCW6cU
+         9KSDsIXzXX/R1HvvcA7byKDQWer1i5JVD5VvPYy5eCs5/dLZa4+b8rPO5EEV/6hQEvCm
+         c/KcUyKIOd7ZnC7WzqVYFOydDHRCw1wZ89S0GgynW6DF4zLaF2fMTustV1j3k+TXN6u4
+         iAMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751592041; x=1752196841;
+        d=1e100.net; s=20230601; t=1751592046; x=1752196846;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5zByC6Bd1xD5NQdxKZlsMbHMCFrJLh3d5i7fkNR6uL0=;
-        b=FGOhTRRm8CmGdRVWYqZBIvRV8o6qIKzP75AEvAaKe2RgjQVVyPKABzFCDEqS17uXIE
-         QE1kflujG5pmIfc/ZwZ+Nmly5rbfqhXVfrYQOEt3Kzg+tkalu/UsXiiZv/qw0Y+FSwsH
-         8OO03cCEk8UGzFOpnCS74Qf+i2j1m0E10k1jsWPFesVSKiJidZNNTVo5SFxDR88f1pkD
-         wwyHilNFlSvZvjvtmlyIqyfBzFeFiBazAldiX1N7dyVy3uQCe1mIxxamiJF+UYQASTut
-         y5hAUAsOXhljDWateU/Lsht7G2i7ynoz5sFhbCXmNhq12YF9VWSUTthC2SbtAoNU3U2J
-         vFRg==
-X-Forwarded-Encrypted: i=1; AJvYcCXcYUdk6ZjAD86gvjpee1q4UWCgTocrmTZN7NcaF7YEWcwmkJDr2oFPkXMbAXcasWoPmxWI3UMO25ETUfCfzPEq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJgPD8aXC/qqCHyT+doAYTnS1fudexrXw5jnCWDM5SX2h/IkUp
-	9I116Z/IHJB3797AdKDfGKGms2VR+LTlvOcP+neAaNwr0VbyP0hw4If109mOzVy8BmD0GdtGBH4
-	AqEitjL8=
-X-Gm-Gg: ASbGncsxE6/GcEnHBN9cDNOv5hHi4Jclw5r9l++t1Xl6Am0RG5IuKq2kEL2G14oSe5G
-	lff+LnSRUfBiEJG108lTcZJbliI1UDg5Sx+aCRUVYhQfaJApDEkgDX14jmWPMHQhy0jfWb/sRVK
-	/tcGSjcfVadYyEnRHydu0M/megnsLwjjFFLF0wTufw8RPJ+E4Rr1kNdqhtGncs4UU2VVo1Xnm6z
-	34NPRwiSRpggXjaPNA5CAUAvPFUEVN1u20b5eCo5etrFqBc3TLMhiwTpF7zA2zlYUxuoEcj7Y5f
-	83CtfK2tE35j+NXCLzd1xSve+miI5TMeIN1Z1aLWHihyvXAp1vmFsTgBDImsAxU6AyVyAw==
-X-Google-Smtp-Source: AGHT+IHh+how27xFPi3jlyY66JrJHeNp1IVUr1F4gL3pyWo/92sd3tMtxnIq687N17nvaqy2j2xmcA==
-X-Received: by 2002:a05:6830:2b14:b0:727:24ab:3e4 with SMTP id 46e09a7af769-73ca48e3741mr340463a34.9.1751592041579;
-        Thu, 03 Jul 2025 18:20:41 -0700 (PDT)
+        bh=Z7CrtMSRtoJpcPfB9qnSXOsewkw4Z1pqaBofqmAf1qY=;
+        b=i5BtXIIzqKkD4Ks0E9lG/9jjEX/IOeQCToAk3tmP23xwbvJEn2FZy2uFqktEVEx2eB
+         STmnfTcrKwBrWebx3KVjPOwGuB6Rr4akJNthmbHqhS2o1Jm4oJsYTY335rY4/Q6jcKtR
+         Qm1Gan1G0c0QQ5jwF2ziK2FPZANNMO6Z3J20bm5QYW1LfpeBUSHmJfM9Ro1hclCkqdNa
+         nkspapp/dMjnWHfWs8uJJuxInuB9gXXmxCRkS8luC5Ue4rqL2sUIuBTdxeDlr0fHQqiR
+         hWh9AFQpgGFThyRyGM1wWllq7qWiOwegvSAUrKh/vuOiqQh2Ut5JOZ8V6/6TN6jG+fsR
+         /EQA==
+X-Forwarded-Encrypted: i=1; AJvYcCUt9I+sb1DW8EqcHk82fk5zFdqmRfdhMJFwBNRCAxCNAdgjM6pECTxtVSV2CdSqGZ/jXGkZbLa3IAMZzYtea1AQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjVmj2uZTDnru0mu8JkwZRGGZyoFxMXM1TuIrq/1hhr4FGUZAm
+	m2DvxcrEFaEef03+R2GmEQLLiaRzabWQHAgF/LSdiPIqXw3IZKjNa+SB6CPrS4A4M+w=
+X-Gm-Gg: ASbGncstK7JfkJeXv9CasHQPEVqpxByOH9x4e5VOxW/lmbw3q3Md/uJBPBnS/GcH6yB
+	3ZJZgbAG3zhVVLmOe17eKdK8+l2gjBtIuyz5a6tF0RUBnmsla4o2XAP276WjpOFMTjxMeZOFi0T
+	hfaNVEB/ATcHLzOtF3EYVYdPDxrxPE5GYEZ8F1MQQZsR1kwplzZrR1fFKebW36y+CoyHd5Vi4zW
+	H8RhGJh6X7+P13rS8nfdxCMhqUkenxRaXZFf5JNpcrhOxYh1Mt9zS1VXLI0pmMVWt7Fnd9dmk6M
+	qfRAzbssu12wiV6gx+XYIv6jVNquFVis7SAocJqMZ+h0vuVHpUxIDtTEp1FZptWytAzz+A==
+X-Google-Smtp-Source: AGHT+IH4YcJJL/QSinLf0papR/EWjmhqn+rfvAaSq4Pn0BhKlOqBtDpJZuz+HI7qT2qYaiQUGHT87A==
+X-Received: by 2002:a05:6830:8204:b0:73a:6d48:dec6 with SMTP id 46e09a7af769-73ca489e0d3mr227940a34.5.1751592046061;
+        Thu, 03 Jul 2025 18:20:46 -0700 (PDT)
 Received: from localhost ([2603:8080:b800:f700:1ed4:f8f7:2a8d:77d5])
-        by smtp.gmail.com with UTF8SMTPSA id 46e09a7af769-73c9f9628d8sm203282a34.60.2025.07.03.18.20.40
+        by smtp.gmail.com with UTF8SMTPSA id 46e09a7af769-73c9f9621f0sm204964a34.61.2025.07.03.18.20.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jul 2025 18:20:40 -0700 (PDT)
-Date: Thu, 3 Jul 2025 20:20:39 -0500
+        Thu, 03 Jul 2025 18:20:45 -0700 (PDT)
+Date: Thu, 3 Jul 2025 20:20:44 -0500
 From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Peter Chen <peter.chen@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
+To: Chester Lin <chester62515@gmail.com>
+Cc: Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-usb@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, s32@nxp.com, linaro-s32@linaro.org,
-	Larisa Grigore <larisa.grigore@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linaro-s32@linaro.org, Larisa Grigore <larisa.grigore@nxp.com>,
 	Ionut Vicovan <Ionut.Vicovan@nxp.com>,
 	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-Subject: [PATCH v3 3/4] usb: chipidea: s32g: Add usb support for s32g3
-Message-ID: <1733ae21-7257-4fdd-8249-7eaebbf769a2@sabinyo.mountain>
+Subject: [PATCH v3 4/4] arm64: dts: s32g: Add USB device tree information for
+ s32g2/s32g3
+Message-ID: <e3e5041e-254d-44c3-b645-532d4d7a8f9e@sabinyo.mountain>
 References: <cover.1751591078.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1751591078.git.dan.carpenter@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250703_182042_484033_3A93975F 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20250703_182046_983561_090231FA 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,58 +108,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+This adds the USB support for the s32g2 and s32g3 SoCs.
 
-Enable USB driver for the s32g3 USB device.
-
-Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
-v3: No change
+v3: New patch
 
- drivers/usb/chipidea/usbmisc_imx.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ arch/arm64/boot/dts/freescale/s32g2.dtsi | 23 +++++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/s32g3.dtsi | 23 +++++++++++++++++++++++
+ 2 files changed, 46 insertions(+)
 
-diff --git a/drivers/usb/chipidea/usbmisc_imx.c b/drivers/usb/chipidea/usbmisc_imx.c
-index 27a3127db4f6..9a1c97ea5463 100644
---- a/drivers/usb/chipidea/usbmisc_imx.c
-+++ b/drivers/usb/chipidea/usbmisc_imx.c
-@@ -673,6 +673,11 @@ static int usbmisc_s32g2_init(struct imx_usbmisc_data *data)
- 	return usbmisc_s32g_init(data, S32G_UCMALLBE);
- }
+diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+index ea1456d361a3..4be6534ed01d 100644
+--- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+@@ -376,6 +376,29 @@ uart1: serial@401cc000 {
+ 			status = "disabled";
+ 		};
  
-+static int usbmisc_s32g3_init(struct imx_usbmisc_data *data)
-+{
-+	return usbmisc_s32g_init(data, 0);
-+}
++		usbmisc: usbmisc@44064200 {
++			#index-cells = <1>;
++			compatible = "nxp,s32g2-usbmisc";
++			reg = <0x44064200 0x200>;
++		};
 +
- static int usbmisc_imx7d_set_wakeup
- 	(struct imx_usbmisc_data *data, bool enabled)
- {
-@@ -1200,6 +1205,12 @@ static const struct usbmisc_ops s32g2_usbmisc_ops = {
- 	.power_lost_check = usbmisc_s32g_power_lost_check,
- };
++		usbotg: usb@44064000 {
++			compatible = "nxp,s32g2-usb";
++			reg = <0x44064000 0x200>;
++			interrupt-parent = <&gic>;
++			interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>, /* OTG Core */
++					 <GIC_SPI 212 IRQ_TYPE_LEVEL_HIGH>; /* OTG Wakeup */
++			clocks = <&clks 94>, <&clks 95>;
++			fsl,usbmisc = <&usbmisc 0>;
++			ahb-burst-config = <0x3>;
++			tx-burst-size-dword = <0x10>;
++			rx-burst-size-dword = <0x10>;
++			phy_type = "ulpi";
++			dr_mode = "host";
++			maximum-speed = "high-speed";
++			status = "disabled";
++		};
++
+ 		i2c0: i2c@401e4000 {
+ 			compatible = "nxp,s32g2-i2c";
+ 			reg = <0x401e4000 0x1000>;
+diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+index 991dbfbfa203..191d2dab4254 100644
+--- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+@@ -435,6 +435,29 @@ uart1: serial@401cc000 {
+ 			status = "disabled";
+ 		};
  
-+static const struct usbmisc_ops s32g3_usbmisc_ops = {
-+	.init = usbmisc_s32g3_init,
-+	.set_wakeup = usbmisc_s32g_set_wakeup,
-+	.power_lost_check = usbmisc_s32g_power_lost_check,
-+};
++		usbmisc: usbmisc@44064200 {
++			#index-cells = <1>;
++			compatible = "nxp,s32g3-usbmisc";
++			reg = <0x44064200 0x200>;
++		};
 +
- static inline bool is_imx53_usbmisc(struct imx_usbmisc_data *data)
- {
- 	struct imx_usbmisc *usbmisc = dev_get_drvdata(data->dev);
-@@ -1429,6 +1440,10 @@ static const struct of_device_id usbmisc_imx_dt_ids[] = {
- 		.compatible = "nxp,s32g2-usbmisc",
- 		.data = &s32g2_usbmisc_ops,
- 	},
-+	{
-+		.compatible = "nxp,s32g3-usbmisc",
-+		.data = &s32g3_usbmisc_ops,
-+	},
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, usbmisc_imx_dt_ids);
++                usbotg: usb@44064000 {
++                        compatible = "nxp,s32g3-usb", "nxp,s32g2-usb";
++                        reg = <0x44064000 0x200>;
++                        interrupt-parent = <&gic>;
++                        interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>, /* OTG Core */
++                                     <GIC_SPI 212 IRQ_TYPE_LEVEL_HIGH>; /* OTG Wakeup */
++                        clocks = <&clks 94>, <&clks 95>;
++                        fsl,usbmisc = <&usbmisc 0>;
++                        ahb-burst-config = <0x3>;
++                        tx-burst-size-dword = <0x10>;
++                        rx-burst-size-dword = <0x10>;
++                        phy_type = "ulpi";
++                        dr_mode = "host";
++                        maximum-speed = "high-speed";
++                        status = "disabled";
++                };
++
+ 		i2c0: i2c@401e4000 {
+ 			compatible = "nxp,s32g3-i2c",
+ 				     "nxp,s32g2-i2c";
 -- 
 2.47.2
 
