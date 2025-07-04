@@ -4,105 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B906C83F0D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B7DC83F0E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=++zNcAuQjSfP2r32Gx1cR/BAyQr1xlq10G8FVqyJN/A=; b=CvSogMjvNb4OXv7lBlX8AzUnkD
-	4W4GHB9i/JDRiMwaY+piqN91/F80Pacx2ByMhuadUHj/B99e8eUgt+hQuEo8u487mP4DY7QOHESH6
-	tsEuB6XpgZI2MgtYDjFpc5AdECmi3iZBJ02wQtN0ivGkNRAYbQV5aiAYKSleXBkb8VnhCXRWr/Pp/
-	rKxlpPSiv5rhU7fReHISeXLp8kHWibzRJnLPLFX86l5C9lmifHbQx/8m6+ptDo5pBV48lZBb3v8V3
-	JDVzfE2YdGArbQhVMA0+lmIM0GcLVVwo6edE4tUNrBJUhHk/4O7Cfv6J3sDBjyE4zsme1X16lS49j
-	EsCsE2jw==;
+	bh=j08NgyGjmrnbNPUCkwPQ3u7ge+EV+at/S04p3C28HuU=; b=St7JkxdyP8ovytRmV4qf8Ru5BU
+	/3pcE029JUc0J7qvFUFdXr8hP5+zCjtGjbJhmSLzkTAVC2/l0KQHSweZJX7nQmJAeRmk2gz85ZJzx
+	fGhgfq+vxesC7reUZYLyyg99/oSF/zPWLPcEqPlBxrHax1WgiGeud/U6vVbQU370CjQhdszDJTHaE
+	xK7gGZzU3rU5ige/8jtBSJoI8RrmXisz1SlqdVbgcCphETxn89suUozRNi9QVkhcuhUl2F26mth/m
+	/hyVMfeqMvJ8c1FCb02g5qxjCy8Pyhai1OLNTBvDeuN+w1iY8ZWGuPUlXQ2jNMbW4cG72tHETiXjm
+	5CVYiMmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXeU4-0000000EBrP-1vTY;
-	Fri, 04 Jul 2025 11:21:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXbFz-0000000DdCV-3X11
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 04 Jul 2025 07:54:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=++zNcAuQjSfP2r32Gx1cR/BAyQr1xlq10G8FVqyJN/A=; b=jGZ5PO2NSHSQowmfRWQjAOBNdZ
-	dVksRpO8ke+pN/poL17EoQmK0mbZ1ffLS0Gt8hEOLpe0YAmIlk4DwEQrHLlaVU9RkdeSnfPMPOIz8
-	kRCtMXVvV6u+lNcswd+uc3Tjijk+wgrGlmZ1PnKb4RyHR51sBlbyR2TsAAnrKAQ2+bHsy0IwogOiH
-	SIbUNsRQ7E0+7psGKyEUSu4C66pP4KMeiQDHG08c29ID9xflBrV+ng9JmD1UNyHQ1aRvGiByT/+Xd
-	d5NbYfcMBZG0+wkClsujTnML5va0Ei58nrDan1HmQxnaPL7Rwqd1born0ydnKD667LaedS1udWt4G
-	s98BPNDg==;
+	id 1uXeU5-0000000EBsy-2eBe;
+	Fri, 04 Jul 2025 11:21:37 +0000
 Received: from mgamail.intel.com ([198.175.65.11])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXbFw-00000007pmV-007z
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 07:54:50 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXbGK-0000000DdGu-1Nm5;
+	Fri, 04 Jul 2025 07:55:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751615688; x=1783151688;
+  t=1751615713; x=1783151713;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=HrouddiiiZ8tRNEOT5O2n4uTgzGX88z0KiQIrcIFHkY=;
-  b=LtZtBuko+rGXHMzzuWFcejfo/6Qx8k+AtlcvMqE4GlYzhMEOGn73z3Qt
-   twXDlSylbySSPUXSs4lSWRdQ1IXKR0lUum7Lo/mN5AcGP/3X104ePmHAh
-   kQvHhQVWmshODo6jGcJ0uGJCHxYewsyfPXq0iwrqcHGdK9YCfPokO/d+u
-   ViB/9zsTIktPR9qZTCYEwiBX8LPRl3plQECgJbuD3qkBFeop99ut9qyAn
-   D60VoUOcYUuGLTjkc7YCdYOhMtoZ8oehvmqLNIboo/+v+osIT8sQNwmFn
-   T/fsceK7u0zyIG14qae8RZlDTFdUnNhlPi6sCXKKJjqM+gjoEVW3ty8zF
-   g==;
-X-CSE-ConnectionGUID: y3xJiVnCRheQ3br1PRQ1SA==
-X-CSE-MsgGUID: jo8WAuP8RKqzUPNTi+zT6w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11483"; a="64194168"
+  bh=VtrMMS/EYac2mYN0thS6RYOHnRUoRDdcw8Uw9hEQxe0=;
+  b=icQ3+5/WAaILEIZFaldD8dAXwhlDEkePUJd+iJr+qxs2uvpVs8e45yyB
+   /mn5memNp0T95qXSZ/jSxozFniNaTua2domLZEkPvjFj1LiYWtc/XZbkO
+   n4VCxGp/V6A8/J+VE2kaDxTO1aUhSjzYeRE5kfe12RksKo2OUJVaPvdyq
+   ZW7bvIuGZ7SrQZ1oDkFWzI0QNfxu1B6YUvQ7zDOHTMlEeP1357ZIomToh
+   rzVh4xQuXyVY1FEYFBoakEqZEIMFwD9+QEpy+kiAQwGH8MpGogZ9t+Qr4
+   ij1jsjuiyOuG0d9CFV8NNIk5l/mMxzP/0L9DdgATeu+AMZBhjADqLUM5w
+   w==;
+X-CSE-ConnectionGUID: uy711cjJRmW7L1G0szsoxg==
+X-CSE-MsgGUID: 1NDZLJLFSNK0lEkaR+K8WQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11483"; a="64194327"
 X-IronPort-AV: E=Sophos;i="6.16,286,1744095600"; 
-   d="scan'208";a="64194168"
+   d="scan'208";a="64194327"
 Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2025 00:54:45 -0700
-X-CSE-ConnectionGUID: griQfTS3QnybE8I9hXZrpg==
-X-CSE-MsgGUID: P1HaKl35TyiydesJN2FrSg==
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2025 00:55:03 -0700
+X-CSE-ConnectionGUID: jIXe8cbqS1yvqeVuXvR2hw==
+X-CSE-MsgGUID: 1doSRlVvQPm86EldGdrOEA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.16,286,1744095600"; 
-   d="scan'208";a="158616611"
+   d="scan'208";a="158616706"
 Received: from jkrzyszt-mobl2.ger.corp.intel.com (HELO svinhufvud.fi.intel.com) ([10.245.244.244])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2025 00:54:40 -0700
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2025 00:54:55 -0700
 Received: from svinhufvud.lan (localhost [IPv6:::1])
-	by svinhufvud.fi.intel.com (Postfix) with ESMTP id 2479C44433;
-	Fri,  4 Jul 2025 10:54:38 +0300 (EEST)
+	by svinhufvud.fi.intel.com (Postfix) with ESMTP id CB15944843;
+	Fri,  4 Jul 2025 10:54:53 +0300 (EEST)
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
 From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	Johannes Berg <johannes.berg@intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@kernel.org>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Roopni Devanathan <quic_rdevanat@quicinc.com>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	Kalle Valo <kvalo@kernel.org>,
+To: Peter Chen <peter.chen@kernel.org>,
+	Pawel Laszczak <pawell@cadence.com>,
+	Roger Quadros <rogerq@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	Jeff Johnson <jeff.johnson@oss.qualcomm.com>
-Cc: linux-wireless@vger.kernel.org,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Mathias Nyman <mathias.nyman@intel.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Bastien Nocera <hadess@hadess.net>,
+	Bin Liu <b-liu@ti.com>
+Cc: linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 48/80] net: wireless: Remove redundant pm_runtime_mark_last_busy() calls
-Date: Fri,  4 Jul 2025 10:54:37 +0300
-Message-Id: <20250704075437.3220878-1-sakari.ailus@linux.intel.com>
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: [PATCH 67/80] usb: Remove redundant pm_runtime_mark_last_busy() calls
+Date: Fri,  4 Jul 2025 10:54:53 +0300
+Message-Id: <20250704075453.3222311-1-sakari.ailus@linux.intel.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250704075225.3212486-1-sakari.ailus@linux.intel.com>
 References: <20250704075225.3212486-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_085448_873648_74C12368 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20250704_005512_462404_4F183EC5 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,537 +125,351 @@ rc2:
         git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
                 pm-runtime-6.17-rc1
 
- drivers/net/wireless/ath/wil6210/pm.c       |  1 -
- drivers/net/wireless/ti/wl18xx/debugfs.c    |  3 --
- drivers/net/wireless/ti/wlcore/cmd.c        |  1 -
- drivers/net/wireless/ti/wlcore/debugfs.c    | 11 -------
- drivers/net/wireless/ti/wlcore/main.c       | 36 ---------------------
- drivers/net/wireless/ti/wlcore/scan.c       |  1 -
- drivers/net/wireless/ti/wlcore/sysfs.c      |  1 -
- drivers/net/wireless/ti/wlcore/testmode.c   |  2 --
- drivers/net/wireless/ti/wlcore/tx.c         |  1 -
- drivers/net/wireless/ti/wlcore/vendor_cmd.c |  3 --
- 10 files changed, 60 deletions(-)
+ drivers/usb/cdns3/cdns3-gadget.c            | 1 -
+ drivers/usb/cdns3/cdnsp-gadget.c            | 1 -
+ drivers/usb/chipidea/core.c                 | 1 -
+ drivers/usb/chipidea/otg_fsm.c              | 1 -
+ drivers/usb/dwc3/core.c                     | 2 --
+ drivers/usb/dwc3/dwc3-am62.c                | 1 -
+ drivers/usb/dwc3/dwc3-imx8mp.c              | 1 -
+ drivers/usb/dwc3/dwc3-pci.c                 | 1 -
+ drivers/usb/dwc3/dwc3-xilinx.c              | 1 -
+ drivers/usb/gadget/udc/cdns2/cdns2-gadget.c | 1 -
+ drivers/usb/host/xhci-mtk.c                 | 1 -
+ drivers/usb/host/xhci-tegra.c               | 1 -
+ drivers/usb/misc/apple-mfi-fastcharge.c     | 1 -
+ drivers/usb/mtu3/mtu3_plat.c                | 1 -
+ drivers/usb/musb/musb_core.c                | 5 -----
+ drivers/usb/musb/musb_debugfs.c             | 5 -----
+ drivers/usb/musb/musb_dsps.c                | 1 -
+ drivers/usb/musb/musb_gadget.c              | 4 ----
+ drivers/usb/musb/omap2430.c                 | 1 -
+ 19 files changed, 31 deletions(-)
 
-diff --git a/drivers/net/wireless/ath/wil6210/pm.c b/drivers/net/wireless/ath/wil6210/pm.c
-index f521af575e9b..c866cfd144c7 100644
---- a/drivers/net/wireless/ath/wil6210/pm.c
-+++ b/drivers/net/wireless/ath/wil6210/pm.c
-@@ -458,6 +458,5 @@ void wil_pm_runtime_put(struct wil6210_priv *wil)
- {
- 	struct device *dev = wil_to_dev(wil);
+diff --git a/drivers/usb/cdns3/cdns3-gadget.c b/drivers/usb/cdns3/cdns3-gadget.c
+index d9d8dc05b235..168707213ed9 100644
+--- a/drivers/usb/cdns3/cdns3-gadget.c
++++ b/drivers/usb/cdns3/cdns3-gadget.c
+@@ -3251,7 +3251,6 @@ static void cdns3_gadget_exit(struct cdns *cdns)
+ 	priv_dev = cdns->gadget_dev;
+ 
+ 
+-	pm_runtime_mark_last_busy(cdns->dev);
+ 	pm_runtime_put_autosuspend(cdns->dev);
+ 
+ 	usb_del_gadget(&priv_dev->gadget);
+diff --git a/drivers/usb/cdns3/cdnsp-gadget.c b/drivers/usb/cdns3/cdnsp-gadget.c
+index 55f95f41b3b4..2ffe24a6e477 100644
+--- a/drivers/usb/cdns3/cdnsp-gadget.c
++++ b/drivers/usb/cdns3/cdnsp-gadget.c
+@@ -1996,7 +1996,6 @@ static void cdnsp_gadget_exit(struct cdns *cdns)
+ 	struct cdnsp_device *pdev = cdns->gadget_dev;
+ 
+ 	devm_free_irq(pdev->dev, cdns->dev_irq, pdev);
+-	pm_runtime_mark_last_busy(cdns->dev);
+ 	pm_runtime_put_autosuspend(cdns->dev);
+ 	usb_del_gadget_udc(&pdev->gadget);
+ 	cdnsp_gadget_free_endpoints(pdev);
+diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
+index 694b4a8e4e1d..a6ce73dcc871 100644
+--- a/drivers/usb/chipidea/core.c
++++ b/drivers/usb/chipidea/core.c
+@@ -1372,7 +1372,6 @@ static int ci_controller_resume(struct device *dev)
+ 	ci->in_lpm = false;
+ 	if (ci->wakeup_int) {
+ 		ci->wakeup_int = false;
+-		pm_runtime_mark_last_busy(ci->dev);
+ 		pm_runtime_put_autosuspend(ci->dev);
+ 		enable_irq(ci->irq);
+ 		if (ci_otg_is_fsm_mode(ci))
+diff --git a/drivers/usb/chipidea/otg_fsm.c b/drivers/usb/chipidea/otg_fsm.c
+index a093544482d5..929536dc96ec 100644
+--- a/drivers/usb/chipidea/otg_fsm.c
++++ b/drivers/usb/chipidea/otg_fsm.c
+@@ -629,7 +629,6 @@ int ci_otg_fsm_work(struct ci_hdrc *ci)
+ 				ci_otg_queue_work(ci);
+ 			}
+ 		} else if (ci->fsm.otg->state == OTG_STATE_A_HOST) {
+-			pm_runtime_mark_last_busy(ci->dev);
+ 			pm_runtime_put_autosuspend(ci->dev);
+ 			return 0;
+ 		}
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index 8002c23a5a02..77b309ebd704 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -279,7 +279,6 @@ static void __dwc3_set_mode(struct work_struct *work)
+ 	}
+ 
+ out:
+-	pm_runtime_mark_last_busy(dwc->dev);
+ 	pm_runtime_put_autosuspend(dwc->dev);
+ 	mutex_unlock(&dwc->mutex);
+ }
+@@ -2642,7 +2641,6 @@ int dwc3_runtime_idle(struct dwc3 *dwc)
+ 		break;
+ 	}
  
 -	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_autosuspend(dev);
+ 
+ 	return 0;
+diff --git a/drivers/usb/dwc3/dwc3-am62.c b/drivers/usb/dwc3/dwc3-am62.c
+index 9db8f3ca493d..e11d7643f966 100644
+--- a/drivers/usb/dwc3/dwc3-am62.c
++++ b/drivers/usb/dwc3/dwc3-am62.c
+@@ -292,7 +292,6 @@ static int dwc3_ti_probe(struct platform_device *pdev)
+ 	/* Setting up autosuspend */
+ 	pm_runtime_set_autosuspend_delay(dev, DWC3_AM62_AUTOSUSPEND_DELAY);
+ 	pm_runtime_use_autosuspend(dev);
+-	pm_runtime_mark_last_busy(dev);
  	pm_runtime_put_autosuspend(dev);
+ 	return 0;
+ 
+diff --git a/drivers/usb/dwc3/dwc3-imx8mp.c b/drivers/usb/dwc3/dwc3-imx8mp.c
+index 3edc5aca76f9..37700d95bc09 100644
+--- a/drivers/usb/dwc3/dwc3-imx8mp.c
++++ b/drivers/usb/dwc3/dwc3-imx8mp.c
+@@ -307,7 +307,6 @@ static int dwc3_imx8mp_resume(struct dwc3_imx8mp *dwc3_imx, pm_message_t msg)
+ 	if (dwc3_imx->wakeup_pending) {
+ 		dwc3_imx->wakeup_pending = false;
+ 		if (dwc->current_dr_role == DWC3_GCTL_PRTCAP_DEVICE) {
+-			pm_runtime_mark_last_busy(dwc->dev);
+ 			pm_runtime_put_autosuspend(dwc->dev);
+ 		} else {
+ 			/*
+diff --git a/drivers/usb/dwc3/dwc3-pci.c b/drivers/usb/dwc3/dwc3-pci.c
+index 54a4ee2b90b7..07dfa0b5d184 100644
+--- a/drivers/usb/dwc3/dwc3-pci.c
++++ b/drivers/usb/dwc3/dwc3-pci.c
+@@ -321,7 +321,6 @@ static void dwc3_pci_resume_work(struct work_struct *work)
+ 		return;
+ 	}
+ 
+-	pm_runtime_mark_last_busy(&dwc3->dev);
+ 	pm_runtime_put_sync_autosuspend(&dwc3->dev);
  }
-diff --git a/drivers/net/wireless/ti/wl18xx/debugfs.c b/drivers/net/wireless/ti/wl18xx/debugfs.c
-index 80fbf740fe6d..ac756318e8ea 100644
---- a/drivers/net/wireless/ti/wl18xx/debugfs.c
-+++ b/drivers/net/wireless/ti/wl18xx/debugfs.c
-@@ -272,7 +272,6 @@ static ssize_t radar_detection_write(struct file *file,
- 	if (ret < 0)
- 		count = ret;
+ #endif
+diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
+index 1e28d6f50ed0..0a8c47876ff9 100644
+--- a/drivers/usb/dwc3/dwc3-xilinx.c
++++ b/drivers/usb/dwc3/dwc3-xilinx.c
+@@ -383,7 +383,6 @@ static int __maybe_unused dwc3_xlnx_runtime_resume(struct device *dev)
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -312,7 +311,6 @@ static ssize_t dynamic_fw_traces_write(struct file *file,
- 	if (ret < 0)
- 		count = ret;
+ static int __maybe_unused dwc3_xlnx_runtime_idle(struct device *dev)
+ {
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_autosuspend(dev);
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -374,7 +372,6 @@ static ssize_t radar_debug_mode_write(struct file *file,
- 				       wl->radar_debug_mode, 0);
+ 	return 0;
+diff --git a/drivers/usb/gadget/udc/cdns2/cdns2-gadget.c b/drivers/usb/gadget/udc/cdns2/cdns2-gadget.c
+index 7e69944ef18a..9b53daf76583 100644
+--- a/drivers/usb/gadget/udc/cdns2/cdns2-gadget.c
++++ b/drivers/usb/gadget/udc/cdns2/cdns2-gadget.c
+@@ -2415,7 +2415,6 @@ int cdns2_gadget_resume(struct cdns2_device *pdev, bool hibernated)
+ 
+ void cdns2_gadget_remove(struct cdns2_device *pdev)
+ {
+-	pm_runtime_mark_last_busy(pdev->dev);
+ 	pm_runtime_put_autosuspend(pdev->dev);
+ 
+ 	usb_del_gadget(&pdev->gadget);
+diff --git a/drivers/usb/host/xhci-mtk.c b/drivers/usb/host/xhci-mtk.c
+index 208558cf822d..06043c7c3100 100644
+--- a/drivers/usb/host/xhci-mtk.c
++++ b/drivers/usb/host/xhci-mtk.c
+@@ -670,7 +670,6 @@ static int xhci_mtk_probe(struct platform_device *pdev)
  	}
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-diff --git a/drivers/net/wireless/ti/wlcore/cmd.c b/drivers/net/wireless/ti/wlcore/cmd.c
-index fa3a3f71dd15..9d73ba933a16 100644
---- a/drivers/net/wireless/ti/wlcore/cmd.c
-+++ b/drivers/net/wireless/ti/wlcore/cmd.c
-@@ -213,7 +213,6 @@ int wlcore_cmd_wait_for_event_or_timeout(struct wl1271 *wl,
- 	} while (!event);
+ 	device_enable_async_suspend(dev);
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 	pm_runtime_forbid(dev);
  
- out:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- free_vector:
- 	kfree(events_vector);
-diff --git a/drivers/net/wireless/ti/wlcore/debugfs.c b/drivers/net/wireless/ti/wlcore/debugfs.c
-index eb3d3f0e0b4d..bbfd2725215b 100644
---- a/drivers/net/wireless/ti/wlcore/debugfs.c
-+++ b/drivers/net/wireless/ti/wlcore/debugfs.c
-@@ -63,7 +63,6 @@ void wl1271_debugfs_update_stats(struct wl1271 *wl)
- 		wl->stats.fw_stats_update = jiffies;
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -113,7 +112,6 @@ static void chip_op_handler(struct wl1271 *wl, unsigned long value,
- 	chip_op = arg;
- 	chip_op(wl);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- }
- 
-@@ -287,7 +285,6 @@ static ssize_t dynamic_ps_timeout_write(struct file *file,
- 			wl1271_ps_set_mode(wl, wlvif, STATION_AUTO_PS_MODE);
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -357,7 +354,6 @@ static ssize_t forced_ps_write(struct file *file,
- 			wl1271_ps_set_mode(wl, wlvif, ps_mode);
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -830,7 +826,6 @@ static ssize_t rx_streaming_interval_write(struct file *file,
- 		wl1271_recalc_rx_streaming(wl, wlvif);
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -886,7 +881,6 @@ static ssize_t rx_streaming_always_write(struct file *file,
- 		wl1271_recalc_rx_streaming(wl, wlvif);
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -934,7 +928,6 @@ static ssize_t beacon_filtering_write(struct file *file,
- 		ret = wl1271_acx_beacon_filter_opt(wl, wlvif, !!value);
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -1015,7 +1008,6 @@ static ssize_t sleep_auth_write(struct file *file,
- 		goto out_sleep;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -1090,7 +1082,6 @@ static ssize_t dev_mem_read(struct file *file,
- 		goto part_err;
- 
- part_err:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- skip_read:
-@@ -1172,7 +1163,6 @@ static ssize_t dev_mem_write(struct file *file, const char __user *user_buf,
- 		goto part_err;
- 
- part_err:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- skip_write:
-@@ -1247,7 +1237,6 @@ static ssize_t fw_logger_write(struct file *file,
- 
- 	ret = wl12xx_cmd_config_fwlog(wl);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-diff --git a/drivers/net/wireless/ti/wlcore/main.c b/drivers/net/wireless/ti/wlcore/main.c
-index 6116a8522d96..12f0167d7380 100644
---- a/drivers/net/wireless/ti/wlcore/main.c
-+++ b/drivers/net/wireless/ti/wlcore/main.c
-@@ -154,7 +154,6 @@ static void wl1271_rx_streaming_enable_work(struct work_struct *work)
- 		  jiffies + msecs_to_jiffies(wl->conf.rx_streaming.duration));
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -181,7 +180,6 @@ static void wl1271_rx_streaming_disable_work(struct work_struct *work)
- 		goto out_sleep;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -234,7 +232,6 @@ static void wlcore_rc_update_work(struct work_struct *work)
- 	}
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -711,7 +708,6 @@ static int wlcore_irq_locked(struct wl1271 *wl)
- 	}
- 
- err_ret:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -1047,7 +1043,6 @@ static void wl1271_recovery_work(struct work_struct *work)
- 	}
- 
- 	wlcore_op_stop_locked(wl);
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- 	ieee80211_restart_hw(wl->hw);
-@@ -1943,7 +1938,6 @@ static int __maybe_unused wl1271_op_resume(struct ieee80211_hw *hw)
- 		goto out_sleep;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -2131,7 +2125,6 @@ static void wlcore_channel_switch_work(struct work_struct *work)
- 
- 	wl12xx_cmd_stop_channel_switch(wl, wlvif);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -2201,7 +2194,6 @@ static void wlcore_pending_auth_complete_work(struct work_struct *work)
- 	/* cancel the ROC if active */
- 	wlcore_update_inconn_sta(wl, wlvif, NULL, false);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -2694,7 +2686,6 @@ static int wl1271_op_add_interface(struct ieee80211_hw *hw,
- 	else
- 		wl->sta_count++;
- out:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out_unlock:
- 	mutex_unlock(&wl->mutex);
-@@ -2774,7 +2765,6 @@ static void __wl1271_op_remove_interface(struct wl1271 *wl,
- 			}
+diff --git a/drivers/usb/host/xhci-tegra.c b/drivers/usb/host/xhci-tegra.c
+index 0c7af44d4dae..554b03e3ae92 100644
+--- a/drivers/usb/host/xhci-tegra.c
++++ b/drivers/usb/host/xhci-tegra.c
+@@ -1394,7 +1394,6 @@ static void tegra_xhci_id_work(struct work_struct *work)
  		}
  
--		pm_runtime_mark_last_busy(wl->dev);
- 		pm_runtime_put_autosuspend(wl->dev);
- 	}
- deinit:
-@@ -3200,7 +3190,6 @@ static int wl1271_op_config(struct ieee80211_hw *hw, int radio_idx, u32 changed)
- 	}
+ 		tegra_xhci_set_port_power(tegra, true, true);
+-		pm_runtime_mark_last_busy(tegra->dev);
  
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -3315,7 +3304,6 @@ static void wl1271_op_configure_filter(struct ieee80211_hw *hw,
- 	 */
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -3531,7 +3519,6 @@ static int wlcore_op_set_key(struct ieee80211_hw *hw, enum set_key_cmd cmd,
- 
- 	ret = wlcore_hw_set_key(wl, cmd, vif, sta, key_conf);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out_wake_queues:
-@@ -3695,7 +3682,6 @@ static void wl1271_op_set_default_key_idx(struct ieee80211_hw *hw,
- 	}
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out_unlock:
-@@ -3724,7 +3710,6 @@ void wlcore_regdomain_config(struct wl1271 *wl)
- 		goto out;
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -3772,7 +3757,6 @@ static int wl1271_op_hw_scan(struct ieee80211_hw *hw,
- 
- 	ret = wlcore_scan(hw->priv, vif, ssid, len, req);
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -3823,7 +3807,6 @@ static void wl1271_op_cancel_hw_scan(struct ieee80211_hw *hw,
- 	ieee80211_scan_completed(wl->hw, &info);
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -3860,7 +3843,6 @@ static int wl1271_op_sched_scan_start(struct ieee80211_hw *hw,
- 	wl->sched_vif = wlvif;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -3887,7 +3869,6 @@ static int wl1271_op_sched_scan_stop(struct ieee80211_hw *hw,
- 
- 	wl->ops->sched_scan_stop(wl, wlvif);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -3916,7 +3897,6 @@ static int wl1271_op_set_frag_threshold(struct ieee80211_hw *hw,
- 	if (ret < 0)
- 		wl1271_warning("wl1271_op_set_frag_threshold failed: %d", ret);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -3948,7 +3928,6 @@ static int wl1271_op_set_rts_threshold(struct ieee80211_hw *hw, int radio_idx,
- 		if (ret < 0)
- 			wl1271_warning("set rts threshold failed: %d", ret);
- 	}
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -4714,7 +4693,6 @@ static void wl1271_op_bss_info_changed(struct ieee80211_hw *hw,
- 	else
- 		wl1271_bss_info_changed_sta(wl, vif, bss_conf, changed);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -4779,7 +4757,6 @@ static void wlcore_op_change_chanctx(struct ieee80211_hw *hw,
- 		}
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -4828,7 +4805,6 @@ static int wlcore_op_assign_vif_chanctx(struct ieee80211_hw *hw,
- 		wlvif->radar_enabled = true;
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -4871,7 +4847,6 @@ static void wlcore_op_unassign_vif_chanctx(struct ieee80211_hw *hw,
- 		wlvif->radar_enabled = false;
- 	}
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -4941,7 +4916,6 @@ wlcore_op_switch_vif_chanctx(struct ieee80211_hw *hw,
- 			goto out_sleep;
- 	}
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -4995,7 +4969,6 @@ static int wl1271_op_conf_tx(struct ieee80211_hw *hw,
- 				 0, 0);
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -5029,7 +5002,6 @@ static u64 wl1271_op_get_tsf(struct ieee80211_hw *hw,
- 		goto out_sleep;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-@@ -5342,7 +5314,6 @@ static int wl12xx_op_sta_state(struct ieee80211_hw *hw,
- 
- 	ret = wl12xx_update_sta_state(wl, wlvif, sta, old_state, new_state);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -5467,7 +5438,6 @@ static int wl1271_op_ampdu_action(struct ieee80211_hw *hw,
+ 	} else {
+ 		if (tegra->otg_usb3_port >= 0)
+diff --git a/drivers/usb/misc/apple-mfi-fastcharge.c b/drivers/usb/misc/apple-mfi-fastcharge.c
+index 8e852f4b8262..47b38dcc2992 100644
+--- a/drivers/usb/misc/apple-mfi-fastcharge.c
++++ b/drivers/usb/misc/apple-mfi-fastcharge.c
+@@ -134,7 +134,6 @@ static int apple_mfi_fc_set_property(struct power_supply *psy,
  		ret = -EINVAL;
  	}
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
+-	pm_runtime_mark_last_busy(&mfi->udev->dev);
+ 	pm_runtime_put_autosuspend(&mfi->udev->dev);
  
- out:
-@@ -5511,7 +5481,6 @@ static int wl12xx_set_bitrate_mask(struct ieee80211_hw *hw,
- 			wl1271_tx_min_rate_get(wl, wlvif->basic_rate_set);
- 		ret = wl1271_acx_sta_rate_policies(wl, wlvif);
- 
--		pm_runtime_mark_last_busy(wl->dev);
- 		pm_runtime_put_autosuspend(wl->dev);
- 	}
- out:
-@@ -5566,7 +5535,6 @@ static void wl12xx_op_channel_switch(struct ieee80211_hw *hw,
+ 	return ret;
+diff --git a/drivers/usb/mtu3/mtu3_plat.c b/drivers/usb/mtu3/mtu3_plat.c
+index 7b5a431acb56..cc8a864dbd63 100644
+--- a/drivers/usb/mtu3/mtu3_plat.c
++++ b/drivers/usb/mtu3/mtu3_plat.c
+@@ -431,7 +431,6 @@ static int mtu3_probe(struct platform_device *pdev)
  	}
  
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
+ 	device_enable_async_suspend(dev);
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 	pm_runtime_forbid(dev);
  
- out:
-@@ -5645,7 +5613,6 @@ static void wlcore_op_channel_switch_beacon(struct ieee80211_hw *hw,
- 	set_bit(WLVIF_FLAG_CS_PROGRESS, &wlvif->flags);
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -5699,7 +5666,6 @@ static int wlcore_op_remain_on_channel(struct ieee80211_hw *hw,
- 	ieee80211_queue_delayed_work(hw, &wl->roc_complete_work,
- 				     msecs_to_jiffies(duration));
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -5748,7 +5714,6 @@ static int wlcore_roc_completed(struct wl1271 *wl)
- 
- 	ret = __wlcore_roc_completed(wl);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -5839,7 +5804,6 @@ static void wlcore_op_sta_statistics(struct ieee80211_hw *hw,
- 	sinfo->signal = rssi_dbm;
- 
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- out:
-diff --git a/drivers/net/wireless/ti/wlcore/scan.c b/drivers/net/wireless/ti/wlcore/scan.c
-index b414305acc32..f6dc54c1dbad 100644
---- a/drivers/net/wireless/ti/wlcore/scan.c
-+++ b/drivers/net/wireless/ti/wlcore/scan.c
-@@ -69,7 +69,6 @@ void wl1271_scan_complete_work(struct work_struct *work)
- 
- 	wlcore_cmd_regdomain_config_locked(wl);
- 
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
- 	ieee80211_scan_completed(wl->hw, &info);
-diff --git a/drivers/net/wireless/ti/wlcore/sysfs.c b/drivers/net/wireless/ti/wlcore/sysfs.c
-index 65ca5dc569a0..5ab6c1683675 100644
---- a/drivers/net/wireless/ti/wlcore/sysfs.c
-+++ b/drivers/net/wireless/ti/wlcore/sysfs.c
-@@ -58,7 +58,6 @@ static ssize_t bt_coex_state_store(struct device *dev,
- 		goto out;
- 
- 	wl1271_acx_sg_enable(wl, wl->sg_enabled);
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- 
-  out:
-diff --git a/drivers/net/wireless/ti/wlcore/testmode.c b/drivers/net/wireless/ti/wlcore/testmode.c
-index fc8ea58bc165..7c0cb1b7fef0 100644
---- a/drivers/net/wireless/ti/wlcore/testmode.c
-+++ b/drivers/net/wireless/ti/wlcore/testmode.c
-@@ -127,7 +127,6 @@ static int wl1271_tm_cmd_test(struct wl1271 *wl, struct nlattr *tb[])
+diff --git a/drivers/usb/musb/musb_core.c b/drivers/usb/musb/musb_core.c
+index c7234b236971..0acc62569ae5 100644
+--- a/drivers/usb/musb/musb_core.c
++++ b/drivers/usb/musb/musb_core.c
+@@ -2031,7 +2031,6 @@ static void musb_pm_runtime_check_session(struct musb *musb)
+ 		if (!musb->session)
+ 			break;
+ 		trace_musb_state(musb, devctl, "Allow PM on possible host mode disconnect");
+-		pm_runtime_mark_last_busy(musb->controller);
+ 		pm_runtime_put_autosuspend(musb->controller);
+ 		musb->session = false;
+ 		return;
+@@ -2063,7 +2062,6 @@ static void musb_pm_runtime_check_session(struct musb *musb)
+ 					      msecs_to_jiffies(3000));
+ 	} else {
+ 		trace_musb_state(musb, devctl, "Allow PM with no session");
+-		pm_runtime_mark_last_busy(musb->controller);
+ 		pm_runtime_put_autosuspend(musb->controller);
  	}
  
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -192,7 +191,6 @@ static int wl1271_tm_cmd_interrogate(struct wl1271 *wl, struct nlattr *tb[])
- out_free:
- 	kfree(cmd);
- out_sleep:
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-diff --git a/drivers/net/wireless/ti/wlcore/tx.c b/drivers/net/wireless/ti/wlcore/tx.c
-index 464587d16ab2..f76087be2f75 100644
---- a/drivers/net/wireless/ti/wlcore/tx.c
-+++ b/drivers/net/wireless/ti/wlcore/tx.c
-@@ -863,7 +863,6 @@ void wl1271_tx_work(struct work_struct *work)
- 		goto out;
+@@ -2090,7 +2088,6 @@ static void musb_irq_work(struct work_struct *data)
+ 		sysfs_notify(&musb->controller->kobj, NULL, "mode");
  	}
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-diff --git a/drivers/net/wireless/ti/wlcore/vendor_cmd.c b/drivers/net/wireless/ti/wlcore/vendor_cmd.c
-index e4269e2b0098..5bb9eb300f97 100644
---- a/drivers/net/wireless/ti/wlcore/vendor_cmd.c
-+++ b/drivers/net/wireless/ti/wlcore/vendor_cmd.c
-@@ -60,7 +60,6 @@ wlcore_vendor_cmd_smart_config_start(struct wiphy *wiphy,
- 	ret = wlcore_smart_config_start(wl,
- 			nla_get_u32(tb[WLCORE_VENDOR_ATTR_GROUP_ID]));
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ }
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -92,7 +91,6 @@ wlcore_vendor_cmd_smart_config_stop(struct wiphy *wiphy,
+@@ -2564,7 +2561,6 @@ musb_init_controller(struct device *dev, int nIrq, void __iomem *ctrl)
+ 	musb_init_debugfs(musb);
  
- 	ret = wlcore_smart_config_stop(wl);
+ 	musb->is_initialized = 1;
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
-@@ -140,7 +138,6 @@ wlcore_vendor_cmd_smart_config_set_group_key(struct wiphy *wiphy,
- 			nla_len(tb[WLCORE_VENDOR_ATTR_GROUP_KEY]),
- 			nla_data(tb[WLCORE_VENDOR_ATTR_GROUP_KEY]));
+ 	return 0;
+@@ -2887,7 +2883,6 @@ static int musb_resume(struct device *dev)
+ 			error);
+ 	spin_unlock_irqrestore(&musb->lock, flags);
  
--	pm_runtime_mark_last_busy(wl->dev);
- 	pm_runtime_put_autosuspend(wl->dev);
- out:
- 	mutex_unlock(&wl->mutex);
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 
+ 	return 0;
+diff --git a/drivers/usb/musb/musb_debugfs.c b/drivers/usb/musb/musb_debugfs.c
+index 2d623284edf6..5092d62c2062 100644
+--- a/drivers/usb/musb/musb_debugfs.c
++++ b/drivers/usb/musb/musb_debugfs.c
+@@ -106,7 +106,6 @@ static int musb_regdump_show(struct seq_file *s, void *unused)
+ 		}
+ 	}
+ 
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ 	return 0;
+ }
+@@ -119,7 +118,6 @@ static int musb_test_mode_show(struct seq_file *s, void *unused)
+ 
+ 	pm_runtime_get_sync(musb->controller);
+ 	test = musb_readb(musb->mregs, MUSB_TESTMODE);
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ 
+ 	if (test == (MUSB_TEST_FORCE_HOST | MUSB_TEST_FORCE_FS))
+@@ -216,7 +214,6 @@ static ssize_t musb_test_mode_write(struct file *file,
+ 	musb_writeb(musb->mregs, MUSB_TESTMODE, test);
+ 
+ ret:
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ 	return count;
+ }
+@@ -243,7 +240,6 @@ static int musb_softconnect_show(struct seq_file *s, void *unused)
+ 		reg = musb_readb(musb->mregs, MUSB_DEVCTL);
+ 		connect = reg & MUSB_DEVCTL_SESSION ? 1 : 0;
+ 
+-		pm_runtime_mark_last_busy(musb->controller);
+ 		pm_runtime_put_autosuspend(musb->controller);
+ 		break;
+ 	default:
+@@ -304,7 +300,6 @@ static ssize_t musb_softconnect_write(struct file *file,
+ 		}
+ 	}
+ 
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ 	return count;
+ }
+diff --git a/drivers/usb/musb/musb_dsps.c b/drivers/usb/musb/musb_dsps.c
+index 12f587ab8511..9f93ed59a7e6 100644
+--- a/drivers/usb/musb/musb_dsps.c
++++ b/drivers/usb/musb/musb_dsps.c
+@@ -296,7 +296,6 @@ static void otg_timer(struct timer_list *t)
+ 	if (err < 0)
+ 		dev_err(dev, "%s resume work: %i\n", __func__, err);
+ 	spin_unlock_irqrestore(&musb->lock, flags);
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ }
+ 
+diff --git a/drivers/usb/musb/musb_gadget.c b/drivers/usb/musb/musb_gadget.c
+index 6869c58367f2..f6ea91df80e4 100644
+--- a/drivers/usb/musb/musb_gadget.c
++++ b/drivers/usb/musb/musb_gadget.c
+@@ -1258,7 +1258,6 @@ static int musb_gadget_queue(struct usb_ep *ep, struct usb_request *req,
+ 
+ unlock:
+ 	spin_unlock_irqrestore(&musb->lock, lockflags);
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ 
+ 	return status;
+@@ -1642,7 +1641,6 @@ static void musb_gadget_work(struct work_struct *work)
+ 	spin_lock_irqsave(&musb->lock, flags);
+ 	musb_pullup(musb, musb->softconnect);
+ 	spin_unlock_irqrestore(&musb->lock, flags);
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ }
+ 
+@@ -1862,7 +1860,6 @@ static int musb_gadget_start(struct usb_gadget *g,
+ 	if (musb->xceiv && musb->xceiv->last_event == USB_EVENT_ID)
+ 		musb_platform_set_vbus(musb, 1);
+ 
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ 
+ 	return 0;
+@@ -1915,7 +1912,6 @@ static int musb_gadget_stop(struct usb_gadget *g)
+ 	 */
+ 
+ 	/* Force check of devctl register for PM runtime */
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ 
+ 	return 0;
+diff --git a/drivers/usb/musb/omap2430.c b/drivers/usb/musb/omap2430.c
+index 2970967a4fd2..191901317d7f 100644
+--- a/drivers/usb/musb/omap2430.c
++++ b/drivers/usb/musb/omap2430.c
+@@ -151,7 +151,6 @@ static void omap_musb_set_mailbox(struct omap2430_glue *glue)
+ 	default:
+ 		dev_dbg(musb->controller, "ID float\n");
+ 	}
+-	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ 	atomic_notifier_call_chain(&musb->xceiv->notifier,
+ 			musb->xceiv->last_event, NULL);
 -- 
 2.39.5
 
