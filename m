@@ -4,84 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D42C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 17:34:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63246C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 17:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=E1sqWYxp1if3sBWB2IvCTO0f0/D/OhTWktW9YBAiC54=; b=v7u3aunyOWCMbggpaShVuylvrx
-	QksP6gSUY1h0xyKL8DIfV0n3+iqg4Ee61dWKHJK3iwWiNBWO9MAospy+ErtAIP2z0DvGl0IjYc9aX
-	2NiQL4pImrtlbUWIlJ8E6cOd/08m6MV9g4YvX03gdiyWZDJj6Qy36HdvagG9AM8+mSCX3c3UPKf+8
-	SCSbJqY72FXFG36q1/wvcODf43j/nJahzqToLjdaTmxnYGpkArtlOYOBOCl0kbDdkdca7ekzEOurb
-	xXzHmYn1lxeEWanIysy2672l5Ey4CJTLWUrWaBREQryMH7oUqxDsKLgg12I3pAU481e4xEEtoEgCs
-	GH8Fgynw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DvmELVktiZKJg/UoPQ57gHdkE8Q9E4BMByjOTbq2OBE=; b=U/Y/yusdHly85L4g5fdWUG6nGu
+	uOvesJJhUUgwScIUOuc3KKE1GbZqQNcwaHIP2Otb4ZebXL/kBQSCqdft5GqUILclIdsdAyDXG5ky8
+	HeE/HEZI2AjYxAw6caJM5vufbHoI5PMkxooF2WZFqDrb1X1xF4ghN84NFaMbqMdcIITIq5/Gt/mEI
+	KsHf1/qqm1R9ihMDJRG47Du0D0sXI8P9RixQvkumCqWkOiY7kL7bfnI0YpLfdyXxjpXTuJCmKV6uN
+	l9uGGgySwSTFkMkFyUJvbiomXMMj5M8h1m1QwDwm2b5S41tbpieLFm6QlEh+XXZ4MZX/DbqbNr8Il
+	OtJzxujA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkJ5-0000000F6J6-1ZMH;
-	Fri, 04 Jul 2025 17:34:39 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uXkLQ-0000000F6ff-1pOv;
+	Fri, 04 Jul 2025 17:37:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkGi-0000000F61e-2K5H;
-	Fri, 04 Jul 2025 17:32:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751650330;
-	bh=3HlCyLBTGav/NM6Og4Z9SyTGsQu3ubUJXpozkmfc/48=;
-	h=From:Date:Subject:To:Cc:From;
-	b=PEO/zFVrWAoxzRBs6psKovdtDRzsj0OarIT4c5FtOegZtrxhLJX5dT0lMTMdhdzyG
-	 3zSZVzniSjvxjWtEHiRiXyaWABfc/3nADclJ0TYGrMNaL+/JafKc/RquBmXKB1jncF
-	 x2u6PgS+DrycaGzwn4F61LBT53pftytOVFIdpzeO7XMpkU3OZCz1ZQ7ax8UsLn8h53
-	 xZ7WLnfX5WKb5Tw2Wgk5FL0a28DOzg1OIw6f1ohuzdg5E6Zg4B2f9S4ph3BGMmGOB6
-	 0Egf8bQKNNiWexkZmcnRO7B/IOIJ9TYGaNzbIeDQDiVUhHsLcPp46JnqHyRfc2/qmP
-	 eTWZ9ErkeAkAA==
-Received: from jupiter.universe (dyndsl-091-248-191-229.ewe-ip-backbone.de [91.248.191.229])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8938E17E0497;
-	Fri,  4 Jul 2025 19:32:10 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 1F988480039; Fri, 04 Jul 2025 19:32:10 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 04 Jul 2025 19:31:59 +0200
-Subject: [PATCH] arm64: dts: rockchip: fix PHY handling for ROCK 4D
+	id 1uXkGu-0000000F63s-2yLr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Jul 2025 17:32:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E39A5A53453;
+	Fri,  4 Jul 2025 17:32:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BB29C4CEE3;
+	Fri,  4 Jul 2025 17:32:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751650343;
+	bh=1FgyJasJiyLfKwV7l0vJE+kfU93zGpsHg5tbHPITJ70=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QUamiKbEGVjUlqWhAB4Z0hKHhbO4jM0YuHAGpmuGHpNxjp/SI4dPOR+kl4u4b+rqb
+	 TRFwGQYUsXpOKzuD3Y0WiN/qpjjo/Uo1GAVSMpbjm8eGNyAZWBWtWRsV7FdTWSBYe+
+	 kdSwCqUc0XPEXqRF2azW9K8xB9fbZuBBtFzCncmEkQLTjeeWRZOWPg9hDKx0ocwUoD
+	 zuCTOrul+ONEFjbR25KrnCXRz0gUvtZMYt+0X9mmQq+Dj5vTfndfGBKOhfM+r5qqaO
+	 814QZ9jK9osijrgivorAoHiBVMLytebaYpBKm097BRkrtrEnAefI7qjjE6r073rozf
+	 WCEQ3IcueKRqQ==
+Date: Fri, 4 Jul 2025 18:32:19 +0100
+From: Will Deacon <will@kernel.org>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Luis Claudio R . Goncalves" <lgoncalv@redhat.com>
+Subject: Re: [PATCH v5 10/13] arm64: debug: split hardware watchpoint
+ exception entry
+Message-ID: <aGgQI4c7MFmQ48tI@willie-the-truck>
+References: <20250627172038.633423-1-ada.coupriediaz@arm.com>
+ <20250627172038.633423-11-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250704-rk3576-rock4d-phy-handling-fixes-v1-1-1d64130c4139@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAA4QaGgC/x2M0QqDMAwAf0XyvECm7Sr7lbEHaaMGpUoK4ij+u
- 2GPxx1XobAKF3g3FZQPKbJlg+ejgTgPeWKUZAwttZ4COdSl8+GFusXFJdznH1qWVskTjnJyQfJ
- uiGFMfXQEttmV/8Iun+913UFlhJ9yAAAA
-X-Change-ID: 20250704-rk3576-rock4d-phy-handling-fixes-054ac7fd8c40
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2387; i=sre@kernel.org;
- h=from:subject:message-id; bh=3HlCyLBTGav/NM6Og4Z9SyTGsQu3ubUJXpozkmfc/48=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGhoEBoTtZ9ECP5S4iU9jzszYGAsDJTKx5UY/
- gpOQl0cD67gjIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJoaBAaAAoJENju1/PI
- O/qahLAP/RK1HzGMX9QG9jBQOmeS4LVWCxoMBCCNqX4keR9zSW28xkuujCndnypBIqe8ROJ1vLH
- /IA07FMKqQGsBevdMvltvxBkN37SzdfKo1r5apIvCvoZoyFr2RRm1yghAlXp13DqoLwGQG3KTec
- lRIiXmildR10R7fyDWWgXumasD756UekyM68V5jlgOOnL0vu3bmN+jYWNLrUIcq2RRF6anyITrP
- HTjtqP18pgslFmd6ZAddzH51YRUksK8kAIWhEbVGFgcGE0K97oPLyVZdF72nNVQ4nDPixtw2eDS
- on/kqXYdB8ZByto7LUb1J241dc44SriGL63PTlqAI+STNRzOB2pl6EjDhyGQ3nRyL+vPz0lQS4p
- Gpy4uIhSMTmaHn6oYzvYbqhbnXz+o5afkdXN3bTLfhGL2Gyxdn2WHChKzlBFxGhRCaaCEXSQ2+Z
- bE0c+F9wCu7ZccYCnbSHz+t/xuObCOumn9M4crnhqTHxx9VXpGTu2UIRGscX1CS4Lj33Pv//W3A
- 2JS1j5VMKp1qkSunPWz1zuUNXPW33nQDMx2hQrqyliDKPA1Bz8vD5hqO3Pl8qxE0QMp2FaqIx6s
- SmkkBawGqw5vr1NmTPFiCe0OfMxjUdhzP5R/kLpU0Zgbp4iDxVecOUKuwctFoOFpBqbhrBhFqcM
- 2pxLQQtpxCJ4M/NpLCjsjVw==
-X-Developer-Key: i=sre@kernel.org; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250627172038.633423-11-ada.coupriediaz@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_103212_783311_5AEE329B 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20250704_103224_888128_F3B601C9 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,65 +77,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Old revisions of the ROCK 4D board have a dedicated crystal to
-supply the RTL8211F PHY's 25MHz clock input. At least some newer
-revisions instead use REFCLKO25M_GMAC0_OUT. The DT already has
-this half-prepared, but there are some issues:
+On Fri, Jun 27, 2025 at 06:20:35PM +0100, Ada Couprie Diaz wrote:
+> Currently all debug exceptions share common entry code and are routed
+> to `do_debug_exception()`, which calls dynamically-registered
+> handlers for each specific debug exception. This is unfortunate as
+> different debug exceptions have different entry handling requirements,
+> and it would be better to handle these distinct requirements earlier.
+> 
+> Hardware watchpoints are the only debug exceptions that will write
+> FAR_EL1, so we need to preserve it and pass it down.
+> However, they cannot be used to maliciously train branch predictors, so
+> we can omit calling `arm64_bp_hardening()`, nor do they need to handle
+> the Cortex-A76 erratum #1463225, as it only applies to single stepping
+> exceptions.
+> 
+> As the hardware watchpoint handler only returns 0 and never triggers
+> the call to `arm64_notify_die()`, we can call it directly from
+> `entry-common.c`.
+> Split the hardware watchpoint exception entry and adjust the behaviour
+> to match the lack of needed mitigations.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+> Reviewed-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/exception.h |  4 ++++
+>  arch/arm64/kernel/entry-common.c   | 31 +++++++++++++++++++++++++++++-
+>  arch/arm64/kernel/hw_breakpoint.c  | 17 +++++-----------
+>  3 files changed, 39 insertions(+), 13 deletions(-)
 
-1. The DT relies on auto-selecting the right PHY driver, which
-   requires that it works good enough to read the ID registers.
-   This does not work without the clock, which is handled by
-   the PHY driver. By updating the compatible to contain the
-   RTL8211F IDs, so that the operating system can choose the
-   right PHY driver without relying on a pre-powered PHY.
+Not a huge deal, but I just noticed that this patch doesn't build on its
+own and so this series isn't bisectable.
 
-2. Despite the name REFCLKO25M_GMAC0_OUT could also provide a
-   different frequency, so ensure it is explicitly set to 25
-   MHz as expected by the PHY.
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index 7265bef96672..c2ea1653dbb8 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -553,10 +553,20 @@ static void noinstr el1_softstp(struct pt_regs *regs, unsigned long esr)
+>  	arm64_exit_el1_dbg(regs);
+>  }
+>  
+> -static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
+> +static void noinstr el1_watchpt(struct pt_regs *regs, unsigned long esr)
+>  {
+> +	/* Watchpoints are the only debug exception to write FAR_EL1 */
+>  	unsigned long far = read_sysreg(far_el1);
+>  
+> +	arm64_enter_el1_dbg(regs);
+> +	debug_exception_enter(regs);
+> +	do_watchpoint(far, esr, regs);
+> +	debug_exception_exit(regs);
+> +	arm64_exit_el1_dbg(regs);
+> +}
+> +
+> +static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
+> +{
+>  	arm64_enter_el1_dbg(regs);
+>  	if (!cortex_a76_erratum_1463225_debug_handler(regs))
+>  		do_debug_exception(far, esr, regs);
 
-3. While at it switch from deprecated "enable-gpio" to standard
-   "enable-gpios".
+This leads to:
 
-Fixes: a0fb7eca9c09 ("arm64: dts: rockchip: Add Radxa ROCK 4D device tree")
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
-Note, that there is one additional problem, that the PHY driver
-needs to assert the reset line after enabling the clock. I will
-send out a separate patch for this problem.
----
- arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Failed to build patch #10: 0d0a8f024a19 arm64: debug: split hardware watchpoint exception entry
+arch/arm64/kernel/entry-common.c: In function ‘el1_dbg’:
+arch/arm64/kernel/entry-common.c:572:36: error: ‘far’ undeclared (first use in this function)
+  572 |                 do_debug_exception(far, esr, regs);
+      |                                    ^~~
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-index 0388d72076bf79ee4f20ac1d3bc04fe1859f857b..02839bb489ec67536678bb6464b04f1658dda53f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-@@ -645,14 +645,16 @@ hym8563: rtc@51 {
- 
- &mdio0 {
- 	rgmii_phy0: ethernet-phy@1 {
--		compatible = "ethernet-phy-ieee802.3-c22";
-+		compatible = "ethernet-phy-id001c.c916";
- 		reg = <0x1>;
- 		clocks = <&cru REFCLKO25M_GMAC0_OUT>;
-+		assigned-clocks = <&cru REFCLKO25M_GMAC0_OUT>;
-+		assigned-clock-rates = <25000000>;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&rtl8211f_rst>;
- 		reset-assert-us = <20000>;
- 		reset-deassert-us = <100000>;
--		reset-gpio = <&gpio2 RK_PB5 GPIO_ACTIVE_LOW>;
-+		reset-gpios = <&gpio2 RK_PB5 GPIO_ACTIVE_LOW>;
- 	};
- };
- 
 
----
-base-commit: e05818ef75bee755fc56811cb54febf4174d7cf2
-change-id: 20250704-rk3576-rock4d-phy-handling-fixes-054ac7fd8c40
+Catalin -- do you reckon we should fix this? It's only this series
+sitting on for-next/debug-entry, nobody has pulled it afaik and we still
+have plenty of time before the merge window so a rebase probably won't
+hurt anybody.
 
-Best regards,
--- 
-Sebastian Reichel <sre@kernel.org>
-
+Will
 
