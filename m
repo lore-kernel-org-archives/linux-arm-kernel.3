@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A13C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 18:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93315C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 18:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+daXMO4VCbo30eEljKxj3YH7pZC6AWqXVtH6a784brA=; b=AvAhbjxoR5VKYcTw/a6OjV0dOY
-	kswRpghrI0EgHRwBAtWvwsztv/C2/jPcI3NRy3rhHKYOOTvVSlFTRDwtSNY7zMbBP+XZaOn077DFP
-	dPPfIiblFwu0bnFjyh2w62xmHDtyfYthQx5R+1CNFqNGy+ItwKr6y+wPb7B2EdyqpSDhmwGtQtPt5
-	ER3+fD7yzf6dQxkX5wHpGrh1s5EVesZzNJKj7zBxD6X5wWL2nv/2XlyzQOD2yrSMqZGCGqniDtSo0
-	U9jZD9dK3Ef77YnrHV0eVc793Skicm13vYjTCC83eiC2Wbarzl/LbsYtaUC9ff0gahOEEb2dx3uj9
-	T0n2v/uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ppeiUXIUvPwKWt7P0yeqM9C2eTT2UmZ9z0ttCh8ztk0=; b=3Aof3R2RkJvr12jDZ63oPsHUf1
+	xmruZFLR3Yo0v4zHUbEfFg0kvX9naSyt1vlRTkrXpmDe7y5Zg3Li8bPtA/eFNGnIRWSwEsWVOoGNF
+	fDfUE7TazQ2i7VYsG42hm2xYaRSR6MGpTh2cz27TOiQ4a0o2j2bRN8SUMgtIut+6OAS9NG/Ehxb5I
+	syujPBU8YD6xHkH684pBg9wm/E24UtQA6VMX2hJDXRnBqVYAJuSsbLKySlgSXwB04SqdLrpIOwCDq
+	Q0dlAKNjcT4UsyNL2SsgRqOoFkEB0VTpk2U1+mrCWyFaL7avUvqczNRso1s9yii0OXyM1OTQjffy3
+	ND9N+d/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXl3i-0000000FCjL-30E3;
-	Fri, 04 Jul 2025 18:22:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uXl65-0000000FDWU-08q4;
+	Fri, 04 Jul 2025 18:25:17 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkT2-0000000F8Ik-1KgU
+	id 1uXkVw-0000000F8te-1TUS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 17:44:57 +0000
+	Fri, 04 Jul 2025 17:47:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 06997435C0;
-	Fri,  4 Jul 2025 17:44:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34092C4CEED;
-	Fri,  4 Jul 2025 17:44:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CA0755C6A7B;
+	Fri,  4 Jul 2025 17:47:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24CB4C4CEE3;
+	Fri,  4 Jul 2025 17:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751651095;
-	bh=2elf3c9/H8yzzfmeQk7h00AS6esaabulQD2MYTXF5QU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=S6QSP9q/k3jphQdYKIvlbX813rtmBZZmMqndyx8E6ux/zy/L3ALhvsv7rfKFqczXC
-	 p/rJrvPtscSIyss2mOYnrY3NYlvjQoxbXeAIBzOXGkIlo5Zy3Q8Y6C0IfGd7CdsXBB
-	 sIDuXjpxsUSJKSEFB71ykcbLSugPwqRfW9j12Ul+KuDnm4+O9OARPNajNOPfwR8cQ2
-	 Wf+2LvBc4kqx0K0scAXvRvfetUiyimo9AWTt9a/bk2tS85e764jAvRDuOHG8CUrBl+
-	 XKecXX4SwQ2QF43Js1eXkMLh6eEbwM8bxD7glLh/dURK389p5CDTrvxCujqs8oJtf+
-	 dj7Dd2KWivJQw==
+	s=k20201202; t=1751651275;
+	bh=YAUeYpwbxF/7wR9pYBDXep/g0jHNYKvIfO0SedYh2vo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ha/v49Zv1/DefS1tQAJqt1oZ2cgZ4HTenqTpWJBaHAc4nH2lE24Oa82gJScZ9SaVP
+	 znWJeDPdxfuBPhLxaWh3PN8cy5JsJRlzGkgUBz6kmum7D3AK9cAqicscL4hw3uqgVI
+	 B/TjDsC+jHLIQIWRx+z1vP73SEfNE85TkcRk6wM4twDJwd4KlS+usgC/+4qriitb/H
+	 pDDcfdfisxb3mJGlQIhx3a0UP7WXF7j+EUUXr6MAbNOLm/T/XcAJg/yC7ZneQUKHEN
+	 zEr1DDLrCHaDtXbIxd8E2BBKUxSeQFeA76asneubv5jHMlU3QXLn3d1IuoFXgUmNFc
+	 Mbk7oDFlfQFeg==
+Date: Fri, 4 Jul 2025 18:47:50 +0100
 From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
-	akpm@linux-foundation.org,
-	dianders@chromium.org,
-	kernelfans@gmail.com,
-	tglx@linutronix.de,
-	song@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Yicong Yang <yangyicong@huawei.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	jonathan.cameron@huawei.com,
-	zhanjie9@hisilicon.com,
-	prime.zeng@hisilicon.com,
-	yangyicong@hisilicon.com,
-	linuxarm@huawei.com
-Subject: Re: [PATCH v3 0/2] Update the watchdog period according to real CPU frequency
-Date: Fri,  4 Jul 2025 18:44:20 +0100
-Message-Id: <175163145128.4115671.15722319061876419012.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250701110214.27242-1-yangyicong@huawei.com>
-References: <20250701110214.27242-1-yangyicong@huawei.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, allen.wang@hj-micro.com,
+	peter.du@hj-micro.com, andy.xu@hj-micro.com
+Subject: Re: [PATCH 3/3] perf/arm-ni: Support sharing IRQs within an NI
+ instance
+Message-ID: <aGgTxjcl9HA4S2Bg@willie-the-truck>
+References: <cover.1747149165.git.robin.murphy@arm.com>
+ <c7ac53d0f608d92d96e4e2827e253a9cb2a337bb.1747149165.git.robin.murphy@arm.com>
+ <20250519122956.GA16848@willie-the-truck>
+ <91c20c05-9607-4f98-ba00-a70b85862e60@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <91c20c05-9607-4f98-ba00-a70b85862e60@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_104456_374570_CAC893F8 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250704_104756_474760_0C253D57 
+X-CRM114-Status: GOOD (  28.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Jul 2025 19:02:12 +0800, Yicong Yang wrote:
-> watchdog perf needs architecture to provide method for converting the watchdog
-> thresh to counter period. For arm64 we're using the max CPU frequency for
-> doing the conversion which is from cpufreq driver. But some cpufreq driver
-> are registered lately, for example cppc_cpufreq will be registered at late
-> initcall which is after the initialization of watchdog perf (initialized in
-> armv8_pmuv3 of device initcall). In such case the period of watchdog will not
-> be accurate enough. Fix this by registering a cpufreq notifier and update the
-> watchdog period once the cpufreq driver is initialized.
+On Mon, May 19, 2025 at 03:57:31PM +0100, Robin Murphy wrote:
+> On 19/05/2025 1:29 pm, Will Deacon wrote:
+> > On Tue, May 13, 2025 at 04:39:00PM +0100, Robin Murphy wrote:
+> > > From: Shouping Wang <allen.wang@hj-micro.com>
+> > > 
+> > > NI-700 has a distinct PMU interrupt output for each Clock Domain,
+> > > however some integrations may still combine these together externally.
+> > > The initial driver didn't attempt to support this, in anticipation of a
+> > > more general solution for IRQ sharing between system PMU instances, but
+> > > that's still a way off, so let's make this intermediate step for now to
+> > > at least allow sharing IRQs within an individual NI instance.
+> > > 
+> > > Now that CPU affinity and migration are cleaned up, it's fairly
+> > > straightforward to adopt similar logic to arm-cmn, to identify CDs with
+> > > a common interrupt and loop over them directly in the handler.
+> > > 
+> > > Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
+> > > [ rm: Rework for affinity handling, cosmetics, new commit message ]
+> > > Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> > > ---
+> > >   drivers/perf/arm-ni.c | 78 ++++++++++++++++++++++++++++---------------
+> > >   1 file changed, 51 insertions(+), 27 deletions(-)
+
+[...]
+
+> > > @@ -593,6 +589,30 @@ static void arm_ni_probe_domain(void __iomem *base, struct arm_ni_node *node)
+> > >   	node->num_components = readl_relaxed(base + NI_CHILD_NODE_INFO);
+> > >   }
+> > > +static int arm_ni_init_irqs(struct arm_ni *ni)
+> > > +{
+> > > +	int err;
+> > > +
+> > > +	ni_for_each_cd(ni, cd) {
+> > > +		for (struct arm_ni_cd *prev = cd; prev-- > ni->cds; ) {
+> > > +			if (prev->irq == cd->irq) {
+> > > +				prev->irq_friend = cd - prev;
+> > 
+> > Can't this race with the read of `irq_friend` in the interrupt handler?
 > 
-> [...]
+> Not in any way that matters. Any IRQ at this point would be a spurious one
+> left latched at the interrupt controller after we've already reset all the
+> PMUs. The handler can hardly observe a torn partial store of 1 byte, so
+> either it'll see a valid irq_friend or none. Either way we'll eventually
+> return IRQ_NONE, EOI the phantom IRQ and be done.
+> 
+> I'm not entertaining the idea of somehow being preempted here for long
+> enough for userspace to notice the already-registered PMUs (even though the
+> module load hasn't yet finished...), open an event and have it count enough
+> to genuinely overflow, because that would be in the order of at least tens
+> of seconds if not minutes.
 
-Applied to will (for-next/perf), thanks!
+Can't we save ourselves from having to think about that by just having
+two loops? That is, set up the friend relationships and enable IRQ
+generation in the first pass, then go through and actually request the
+interrupts in the second one?
 
-[1/2] watchdog/perf: Provide function for adjusting the event period
-      https://git.kernel.org/will/c/60bc47b5a0b1
-[2/2] arm64/watchdog_hld: Add a cpufreq notifier for update watchdog thresh
-      https://git.kernel.org/will/c/7a884442aeb6
-
-Cheers,
--- 
 Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
 
