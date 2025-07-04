@@ -4,88 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39F4C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 08:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52AA9C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 08:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46Q1fd2UmAUeRYeGhPM7wSGhz2EFf4uCAOpm7Lsa8zU=; b=PFHdKj+p7w2lviLXCevafjurkL
-	6PdhO6mCf7ylzOlZvj5wF/sr4OAAMDSUfpKDshz/m67qyc6ee55Ln25gb8glAjiV7FbgPQh1MKMkU
-	v10XaMljjJIbG4eiimQx5PCJxT615mf5EXJR3tAVXtkuOHjRki35ujTmN/UX8nvq2+7HNMXdx+1N5
-	NFCY7myEdnkwxWmxh1ptAusNxgc4OpRWRerVXPEdaKn0/m1jG8E0JcOUrktsUulNzXkKJ33MFUWVY
-	ouVzcnufRCwrp6qFT5lS9Qpm9GNPQuQ/eBnzoREDXBpAuX92tv169sqgmydAhpkmwHarA03btYfqK
-	3Vay19vQ==;
+	bh=IHePxi9vUgRc/04Q5+R0OQJFUO8sltPI8rxPgNFqrDU=; b=t7NL87jd7svypIxjrNJG2Pb5Id
+	Sq+TL5ArxOra9yCLghOtSx8l0OIMsylb4u79PesllA9S3xAhAlFXCUeVEG7mrjIth7VgA1+KW51Mz
+	gl1AZYMYlEqPeLe18J1JqShD7BkSpfuf3MGz7GTtoFMyjk8hcQmAQ5WxxeLhvu5Ows6H5CquG6wUj
+	cFxFUfOSRxLrGmYkNtfvPhSKxRtSU1utUNYmjVIJJX4aDj1GptLqnohQ88ZdqywDitxBWm8xP7pZ8
+	qqtm6ll4k9eQfF/2/iWKwGLLZ/mKEWdCY4TlgJg3qIptVQcNOg5jW1kFgd5tTUjYF3LDVr94VHwxv
+	CpS9obCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXc8q-0000000Do7d-0qaP;
-	Fri, 04 Jul 2025 08:51:32 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1uXcB9-0000000DoiQ-42Xq;
+	Fri, 04 Jul 2025 08:53:55 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXbNg-0000000Dedl-1Swq
+	id 1uXbSc-0000000DfRj-2It3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 08:02:49 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-553d52cb80dso631476e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Jul 2025 01:02:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751616167; x=1752220967; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=46Q1fd2UmAUeRYeGhPM7wSGhz2EFf4uCAOpm7Lsa8zU=;
-        b=q+yjdLOmKLBppFUi9+7Ko1WwN1XCQ+SlgUxnCRCS0ZJz8xhofBb1HF/5w9mtNL5JXe
-         YeNLi3WSleNTENaf9WuRTWJ8Ho0QA4hfiMLSEGJQZnUgdm7rc3mRRA0cJfWhVlJyyMnz
-         OUdymx82bUrs/GBjO80Dp1wuQeEP2DkZNv3YFyBtqBqxhFseQx9n+p2XgvZdIG56cYXJ
-         HEQsKBRGd5YCh9j8WzqHFYw5FupUoFdC7sRDdb7TLc9ejfsSJ4TMET7cJ6HPrc0WKMA2
-         ILsim6Owk+6oMNfDr8ab4dErX0JOkKRXfMAegr4fdSG+U72ZbbcdUQ3lx4mGcLeaYkUa
-         kbQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751616167; x=1752220967;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=46Q1fd2UmAUeRYeGhPM7wSGhz2EFf4uCAOpm7Lsa8zU=;
-        b=iaW0x0C+rhZi3yfdKCexXYQpT8Kou7LcjtGHjbZvlQrIwQUo6DAx+fIQvsLMayGlvP
-         5SgTqBKwyoPJGC/gEs5p2z+hjAaW4XHDSjUFyQMxPbmcJrXJj8ByzLno9T5GJNyTXAYs
-         eM3Ztuv3Wb1W3ZiBjMCYeoD0zWIJ518f/7idIwnl2FHJhV/qSLPnxUEEsoiQ+gWVTyVX
-         iMA1dhc2iCXjKYlE7zcK5K2wWI/ON1FLxyUFoL9CqR2H7pxJ5tGlFfAM4vIoihST14na
-         GYZns8E+QQbQrgFaihv8o3Xdp6quDSfbV9hdcjMafhl4NPTNj0M2r82KpNBpqpeN9weS
-         CcuA==
-X-Forwarded-Encrypted: i=1; AJvYcCX0zLwl8QLoFy4/45jZYMg27H0kqmGrH9Ivuc/yt4oPJoJByLArDvimUVyiQAmEGSujCizZn+DaboJMIwaDqZ0/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvqUJjNtNMjkL62P+cDw62fUaFsOzBKZh415ICjyylS6jI+oo1
-	nCoXFDyvJS56Xbwnsh2qtAMFtAgmHTfHwnBQlnSyvSh1sIy09AqD69e+/SsFklFSWURUHlusnIn
-	xLd5a20XMgAfMxgInQ6TFfug0zjF6chxlyXu06wpinA==
-X-Gm-Gg: ASbGncsBAxH+ni4ZgA8ul3oI/0rOF9HeorBzcD1JRwN0NQDwvve4c5L5mzCt+m9smv6
-	JJTxfCo5AyZiQJRnkwCG8yZKBz+3VXKoE6dShqw+9b/V3SRkB21VqgQSnrpF/VvYUAsYyAR6lFl
-	zzDRzYEMTwfAUVYd5V2bRJPwtodtEKPuAAj6YDUTXjGv4=
-X-Google-Smtp-Source: AGHT+IEViFXCMcn+u4hb5R0d0ojGEnFpfDhNI4g0r3Lc44CnC/koM/mbdYAwzUnF/KlRRn9NNEY5bmwt+E5RollIb+w=
-X-Received: by 2002:a05:6512:1102:b0:550:e692:611b with SMTP id
- 2adb3069b0e04-5565baa727cmr564962e87.16.1751616165679; Fri, 04 Jul 2025
- 01:02:45 -0700 (PDT)
+	Fri, 04 Jul 2025 08:07:55 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5644MbAV001970;
+	Fri, 4 Jul 2025 08:07:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	IHePxi9vUgRc/04Q5+R0OQJFUO8sltPI8rxPgNFqrDU=; b=fnKlNPOhc4B2a/qz
+	13ujXnCZ+qpIVJcGZbvDCnrR5O0FoWaxxiMwxYTYOh2d314dGkZTcxT91Zd0W3tU
+	0moQTEOzvuiEglP0nXR/A++OPuHWVdydwZT1c3R2QHrLNHAty5OOoFH4VVFxc9M9
+	a1b05h6FzcxOEHr7F+D9SPbJ6aAgGScJ6OtWLHhIKFyIqYgv7UvwlwMRF4XeK1gx
+	axQW9X0ZKeEED2Ycq9hCt6w0blY42g6iZPKngGATCHxCrVz9h9Jaw2m1BJ34P+do
+	NzjN6n7Pp6nWahdeyf311jsCyZ5DJaOzuLfcvFzOGTwCTa6ZwONT+O+vzKgHq2FF
+	dAFWPg==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47p7ut0juu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 04 Jul 2025 08:07:48 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56487lfx005607
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 4 Jul 2025 08:07:47 GMT
+Received: from [10.133.33.146] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 4 Jul
+ 2025 01:07:43 -0700
+Message-ID: <2e8366b3-c060-4bb8-9704-0a8f41901706@quicinc.com>
+Date: Fri, 4 Jul 2025 16:07:41 +0800
 MIME-Version: 1.0
-References: <20250626080923.632789-1-paulk@sys-base.io> <20250626080923.632789-2-paulk@sys-base.io>
-In-Reply-To: <20250626080923.632789-2-paulk@sys-base.io>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 4 Jul 2025 10:02:34 +0200
-X-Gm-Features: Ac12FXzEoK3lIRrRhHYuQcLxyMKzE37BJ8MYgC7nOBJcQ6FysNDrbqPOTwFxTFY
-Message-ID: <CACRpkdZ+kw0=X5L90Wuno9GjEi3pEnAV_bdJX=ELUxCbk5spRA@mail.gmail.com>
-Subject: Re: [PATCH 1/5] pinctrl: sunxi: Fix a100 emac pin function name
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] Enable CTCU device for QCS8300
+To: Krzysztof Kozlowski <krzk@kernel.org>, Jie Gan <jie.gan@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20250624095905.7609-1-jie.gan@oss.qualcomm.com>
+ <338a9ee1-10aa-4bd2-9b0a-5006ed571bb9@quicinc.com>
+ <3551dba1-0c5f-4000-8b95-6a04cd81a027@kernel.org>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <3551dba1-0c5f-4000-8b95-6a04cd81a027@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzA0MDA2MiBTYWx0ZWRfX/BF+3Yf5B6Ky
+ t6lIJezPNv2BfcK2HcK7ulHzV9dNaDhoMfmPXtIT8wXQdJfrFlewvak7mK5wihDXMYUvsdmqaWO
+ BU2r8yRZT+T3O0gZIXMsbpCbX4uWnrqC6MEqZB0/As626zhb+CccTyXH5XybzStMT/PaSK33HA1
+ DC7Yq7Ys83hALPAYINmFJ3rtDcdMtP26MocVwKYwDkA3ai2pirewJXvGc7303s3zmpzWNHb/aXE
+ T309NTHkU1gmmV8zhEv9NUm8g48ZdbAt3OeOZzNJ8R92VOyiV6CbxqGSBapR1A+HGL/IzeO5uyr
+ 712PF6foY2rH4AIXpciUg6pWSKVcA7fQxwKfU5oY1iVUfQM3abP77phvO9h8DyPa91DNtZdH9t9
+ iMg/DmnEwrbU911fii5GSxZqRnlz+PFHWrexkyGMbZbTRdWWR5rlivpln6bWpHZc+lHucPGL
+X-Proofpoint-GUID: DypzU7L9t0IRLgODT16pVnzWX4HHEO0_
+X-Authority-Analysis: v=2.4 cv=Ncfm13D4 c=1 sm=1 tr=0 ts=68678bd4 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10
+ a=6PWQcI-LByP-Dk_4TF8A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: DypzU7L9t0IRLgODT16pVnzWX4HHEO0_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-04_03,2025-07-02_04,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 bulkscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0
+ suspectscore=0 priorityscore=1501 mlxlogscore=999 spamscore=0 malwarescore=0
+ adultscore=0 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507040062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_010248_389788_E70A1005 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20250704_010754_594773_9C7D4E1D 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,19 +124,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 10:11=E2=80=AFAM Paul Kocialkowski <paulk@sys-base.=
-io> wrote:
 
-> The Allwinner A100/A133 only has a single emac instance, which is
-> referred to as "emac" everywhere. Fix the pin names to drop the
-> trailing "0" that has no reason to be.
->
-> Fixes: 473436e7647d ("pinctrl: sunxi: add support for the Allwinner A100 =
-pin controller")
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
 
-This patch 1/5 applied to the pin control tree.
+On 7/4/2025 3:54 PM, Krzysztof Kozlowski wrote:
+> On 25/06/2025 02:59, Jie Gan wrote:
+>>
+>>
+>> On 6/24/2025 5:59 PM, Jie Gan wrote:
+>>> Enable CTCU device for QCS8300 platform. Add a fallback mechnasim in binding to utilize
+>>> the compitable of the SA8775p platform becuase the CTCU for QCS8300 shares same
+>>> configurations as SA8775p platform.
+>>
+>> Hi dear maintainers,
+>>
+>> I just realized it would be more efficient to introduce a common
+>> compatible string for SoCs that include two TMC ETR devices.
+>>
+>> Most of these SoCs share the same CTCU data configuration, such as the
+> 
+> "Most" basically disqualifies your idea.
 
-Yours,
-Linus Walleij
+Okay, it's not a proper expression.
+SoCs included two ETR devices shared same configuration. So I think use 
+a common compatible for these SoCs is make sense for me and dont need to 
+update the dt-binding again and again...
+
+I will send a new patch to address this idea if it's acceptable.
+
+> 
+>> offsets for the ATID and IRQ registers, because they integrate the same
+>> version of the CTCU hardware.
+>>
+>> So I propose introducing a common compatible string,
+>> "coresight-ctcu-v2", to simplify the device tree configuration for these
+>> platforms.
+> 
+> This is explained in writing bindings.
+
+Yeah, explained in the code lines..
+
+Thanks,
+Jie
+
+> 
+> Best regards,
+> Krzysztof
+
 
