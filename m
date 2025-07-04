@@ -4,61 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A06C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 10:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC82C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 10:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oaP9jJ8bUoK7K/hCe5o1ZGQwhKDgjiWI+XkzJQC4Oeo=; b=Xc5q4XbZm9JIE3lQNJXYc7AjTy
-	5M//j8WMiPfJk5h8sxNEFgmQDIpHilv9B4QCKsOW5eyjgJb35ehtGfLFlGzMFYY3icDbxoet0hbhU
-	SZ9kqAyl5UniSHjuqLRVxZgRac0OQp+8E1bZ/+PFpqS9KmDdZt9ZK9tUfAkY/arNMHbhjV780Qi11
-	Fx4dBGjqAukRWTyRoU/N1bPX7sE7TkgM/nzlZTtSFTv2MGgf6ZQCadwJQKb3+miTPUjRakhy2+tjS
-	iyjwqgVdafwkd4vb9k320kUfOeKPUlcPKgwAoM/Gw/s5iv37mPdIwTap2LvTS7WTBryADy1CYYKTW
-	ER54i0CA==;
+	bh=TBwooJtkHSShWxNckpV9rVknAz5eRsDiw+gIPGypDNI=; b=HkpCRuFzk3l+fnPGIRy67BhTfF
+	Dzetf35hDQzMMI7/Ibp7u0STzKn5pcL8MCAyVfYRvyZcfnb0jUvCZFqSVc30sQlTgFXWR9l7Z0HXp
+	h0ILri1YgogOcXDbtqUkZYcgkQczZZU6iD7JcIBD2EiSoy/jKUI4ZQqWs8N71JCGfI+gDr2hmZosT
+	CD3urCgPCRntHtV+aMMqu+F5hsU9nvtByKgxKEhcyJRBQm4ztaP0QFT4cdf8s+KYeZismE0iCu86l
+	SRmSpWpCzfgI3Wwhusd6zZkCEjs+WKTGlQNwaywl/XZKQSG843a20A+IItSP0+NS/BtSqfIi6a0L7
+	CA1VKbsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXdil-0000000E4fg-3VdS;
-	Fri, 04 Jul 2025 10:32:43 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uXdl5-0000000E5JM-2hpy;
+	Fri, 04 Jul 2025 10:35:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXcYT-0000000DuLt-0P87
+	id 1uXcYg-0000000DuNq-2h2p
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 04 Jul 2025 09:18:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=TBwooJtkHSShWxNckpV9rVknAz5eRsDiw+gIPGypDNI=; b=Hv350x2Ocae14kUmJhY2I2kNrY
+	0zjJz6oIDTufbB/QdS0UvrlbjKKjhF0zjoqHg/zzjjVuhVJQW/midgX2m5xcffMy5ZQHeucgaOe4B
+	pA28k14aSTjuTuL/7b/d5HAAlItvmrsmuClA+KVaCQwIaLw8tLjWdPWBI0ICRHWYREO4vDnjRtdz3
+	9p2orXVR7cHUPUSYWfeFmqb2jpUTJ1aTSvJZw0/OwyXBvYCxt/BDhUnrJsp4osSbyh6lVUfQ8jaiU
+	XMsOKICwHarW4HlSQonVmGen2GubIWT4r/i4jhCUS6A/zmRIhmDsQ3ppPrl8doTZ5LY6zX3q8/OmC
+	q3Wh4Xsw==;
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXcYd-00000007ts4-2fU5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 09:18:02 +0000
+	Fri, 04 Jul 2025 09:18:13 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Muewu0fdI+u9416aO7hywOk6oMd6S910Hw4Nb6XymSbzr/Y37bCrmPsCVGG18OrizV+K0/+iYDkoJ4SXA2RPFiTzO9Hhtz0nN2LGsq0/pF81THWztShnm/+wtItg6yoFxbbgIN758PQszsjkMTvpfDqqeH/JWm60kkj6OYbLaXDg5TRvRwb5NpuLt3UaAr71JS6qNcSvtx8VKXtvPbxJiZFCyn/WPyOp8DAA78vDU/esEIYGbZTP9FQP/6uIQXmQ1pIIYy+0l8QMkvN2GgfUWldxxt7d/1I3CgDAHBadNIKO/JG3d4vKy4sqMdNJQBzF1lIjop8a/QKqvhke16hf7A==
+ b=X0Qt0yUtMtvpoBRmLnjuqX+MIuoSMeEmRgXz/Mm5fgcGg98uMPBlzdOzFYO1uyCRnSdYlLXSdN2thg1S58OEteS3kyG41ddbtTi6wNl8Cz5+jRZS5Jq6ccdnxEU9ZvkIWH6CPDlf1dz6nRu8PaiD6koSMSClciRXFFxIryPyls9fUIcxEybb1FQGgvUdqZVquWCX4EjnM1u49MLQePsTk51nFVBhwgIodJ2lTxo0KIUH4oYFRwY6+mdiuAPHAGcPSMmua/zsZj2heXfK2iRmdqiy09jmz5BVs+ddpPtttU1PU7k4I3UKjUPwEpvGxu6s3E28AWva5+hKO49ZY0d9og==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oaP9jJ8bUoK7K/hCe5o1ZGQwhKDgjiWI+XkzJQC4Oeo=;
- b=v2EEC+tVhNckSLlXCNC3DPU41lqBOGsZ1DqHcX+xyOihNKB45kBqOmKgGuOOyis5snCs+XgCxvxJvsRkm2rHN0bUuSaXjk/9aJ2d3+AZEMeeO1v6zDQbIrMg5RuSTYNcTANY3J0Yre9Zqhmcx/z4rcRkMIzQjJuhuDg61KJn/WrGIT6AloeX8RH87UP/eSaw0aDGCZJpQYFY90GQqPEynzChJzY1UB4wZLjHSkbzzPK+MYIG9pxgd9xttrD4P6W/lOg9drzQGwM8X88KFs9nrVGW/ICse+eyW7Apvo7P2pZhZCdgHrehX35z01v+KCPhLPIYBbr5WkIqJZ5q8dBl4w==
+ bh=TBwooJtkHSShWxNckpV9rVknAz5eRsDiw+gIPGypDNI=;
+ b=MCYGeH+rTLH8cYqy3yxQZUaZzKP1NGn7Ulpbib8VElOpgZrK/budtgHcsJNquaxVPOYi1k0qBnpSue5QQaEyRvkEY4Pyk13aMPZ1L/cWUcEhV+hRTYhQhElM1r19fEgG2ig9NH9dlG5ZvONGL2MJGvtMJp3XZyTQclejs1RZ+PO+KssfjzaIlWX7x3xN0sAYNM1mlMPe7yg/MwiL615HaxBirTjpVbRbqfF6Znwrefl72qb6zmPCz81+yudDMQwQa2w5NwSRpLBIVPVgOtHHmDBLgymV2AGombif0oRUUwJHeqakXLE7H4o/Pi6C7vhl+IKE+lisV68de2/8iQcmgQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oaP9jJ8bUoK7K/hCe5o1ZGQwhKDgjiWI+XkzJQC4Oeo=;
- b=VTRSIXh6aOFGGU5f6IJ5IVRjQXNeLZvgGCr89hwgT63d4rrT8fD3W6OpRzODuwaz0CgxqWqm2qX/CmLMSkITwYEd8aoJU1mXElZbt8qju8jo+QFgICF6F3haka9QK3lvaQni5wUbjKd83e71dVvHotKzV8pXLeONbwJmr3+diDNcyUNKbThL71HEcNet8FwLUJA8mKD1AB4ipJVzTNtrc0Pm2fmMB5zTmAQNQo5qAxuuf1wbno0+0I8UJykI7Vr+luxR31Da9NxPNakWQmAn+vcTEfWAS++DUlc4evKld+9T4Z1enUTiPg6584EEVNExEAmkqpJtHFe0Jc7pgJvUYA==
+ bh=TBwooJtkHSShWxNckpV9rVknAz5eRsDiw+gIPGypDNI=;
+ b=VhkMkVVtpWv7e+9auD0YDHAhWX8IxvyeSw0nmVeo9ZtGJAP0bECe0wD5RAH6KhzFYosHuX6UWFarxRY5iuCWE0oR1znTpqcwxIFtTTvj+gtSLA1QOMapJxKpK/gPZVPs+CDQXnHKtyqPnPHK5pk+VzqRbUdXM2gv2CKGCg9Yi0K5BMLBHXNDMXkUSrOI2ZIC/lAtFE8MWdi8rMNN45mLN4POSQ3svDSfoCJ67DNXIRtmWxUqpfjStv9unLofYROpUPlvX0g5u4k1/twt7mELBg1Ie2LwYlaB2tnUHChYS/D9k/1qKVeW02WEazpyOShaHYDr351FatQt3Uw7GmjE9A==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by AS4PR04MB9289.eurprd04.prod.outlook.com (2603:10a6:20b:4e4::5) with
+ by PA1PR04MB11011.eurprd04.prod.outlook.com (2603:10a6:102:480::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.21; Fri, 4 Jul
- 2025 09:03:50 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.20; Fri, 4 Jul
+ 2025 09:03:27 +0000
 Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
  ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
  ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8901.021; Fri, 4 Jul 2025
- 09:03:50 +0000
+ 09:03:27 +0000
 From: Liu Ying <victor.liu@nxp.com>
-Date: Fri, 04 Jul 2025 17:03:57 +0800
-Subject: [PATCH 10/14] drm/imx: dc-lb: Support getting secondary input
- selection
+Date: Fri, 04 Jul 2025 17:03:53 +0800
+Subject: [PATCH 06/14] drm/imx: dc: Add PRG support
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250704-imx8-dc-prefetch-v1-10-784c03fd645f@nxp.com>
+Message-Id: <20250704-imx8-dc-prefetch-v1-6-784c03fd645f@nxp.com>
 References: <20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com>
 In-Reply-To: <20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>, 
@@ -79,97 +93,97 @@ X-ClientProxiedBy: MA0PR01CA0003.INDPRD01.PROD.OUTLOOK.COM
  (2603:10a6:20b:113::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS4PR04MB9289:EE_
-X-MS-Office365-Filtering-Correlation-Id: 673e6525-90a3-4f41-478b-08ddbad9b138
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PA1PR04MB11011:EE_
+X-MS-Office365-Filtering-Correlation-Id: c8094e1d-3d5e-4c63-aab6-08ddbad9a378
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|52116014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QWl5TVBMNjYwMmV1Vk0zRG9SVGxLc012ZXdtTi9SaEcxNGI2RHB6ekxxdGJW?=
- =?utf-8?B?dXhROHQwczFzd0tENjhTNWozbG5oakFqYkN2aXZNb3FHSTQxQ2FxYis0eFBx?=
- =?utf-8?B?NXdKcEJKVXhicTJsVzFhL2U1Nlp1Vnl0N0RTVEkzbGZIQUVqczM5cTZBOU1O?=
- =?utf-8?B?ZVlPd2N3QkVmYlBFRzVPVkJvQk1aYlJYWUZvVytwSWtFZVA4WFRPanU4Ry8x?=
- =?utf-8?B?K2RHUXJhODdvSjBJQjZTTWVzN1JOaEwvY0V0TWordEhTLy83Vjdsa0lCaysv?=
- =?utf-8?B?UlFMUnM1TnU1NHNYVW5DOTUxREJEV3E2S016T1dFQml1WHMvZTE4TlUxVk9z?=
- =?utf-8?B?ejBaOWI1bitHdFd6d3NXQjN2NVRJY1N3dEg1SFZIU09YVjU4aURZVTNoRUFm?=
- =?utf-8?B?ajQ3c3JjWlV6UkxZRHkzdHlvaVpVWG5YVkI5RkFtbVlMd2NYSFJJTzJxNE5X?=
- =?utf-8?B?U1l1cG5SMEhqRnRkeVFNa3psUzZSWWFQWUEzOGhoQlkwQ2lWWklJNnhISTc2?=
- =?utf-8?B?dStQKzNJY2xpcE12M3V1QmFGZ3lFYnNUUmR4QlNPOXIyeHFEd0ZuTmo2WDdX?=
- =?utf-8?B?SnBCU0luWWlMOGU0RmRaeTIwZExhR0JqVStuZHU2NDBLSjY1N25HSFZidFRr?=
- =?utf-8?B?RGx4MnN1eXl1dkFWdmFoaGtqblY4UVNPUng4OE1nNVZOaDQ3NDR5VXVkb2pK?=
- =?utf-8?B?WkVuUW1ObnkyVzZneFAySUNNakM2WFF4WTR1M1hrdzhDbUs4eEI2T0thVkpn?=
- =?utf-8?B?ZEFCVjZaT1JnZEJaUi9xWjFNV0l4N0JxR0pZRjZVcFkvU0l2dVFXNXNMMFdv?=
- =?utf-8?B?MmFGVWxxWDJlc252L2Yrd3kwWXhDRmRJMVQzWnE5UXk3NTIyb2xITHJnV3VE?=
- =?utf-8?B?WU9hMWJIT0xJbm5nQU1HQWZTaHU0Y3ltNGQ2QVNGL1hYNG1sSDRsV1crdjd3?=
- =?utf-8?B?S3llNllNUTB6Yy9xM2ZtcHpGK2dNclBaM0xOOTdYTXluNDVsNGdWeHBwVGNL?=
- =?utf-8?B?TWUxY1FGSGxrYU8rOXFpaFk2RXhLZW1xWHBtaUtXOWtRNDA3eUxRL1lBNXpw?=
- =?utf-8?B?STdIMWt0VjU4SVNaZk1EdTdodkNRTDV3WEdPdjNCbDlrUDVwTTFDRWhrQWFz?=
- =?utf-8?B?alZSQVRVSmdxbVBXT2N3R3RuRTdZdVdqYkNLUmRnZXlXbXJKRmR4bXRtUEZy?=
- =?utf-8?B?VGM3QitDc25IOVY5UmtFSWRmVlp5U0h2NEIwYXN3cmJFd3RqSzc3WUowVmp3?=
- =?utf-8?B?WC9XdUNrQ21nQ0RQd1MzcjFrNDEvTlBjWWY1SHROc1RjZFVUQmdBMktXdE0r?=
- =?utf-8?B?NFJ2Ym5FUUg0b1FacnNNK3YzOXJLNldZUlVkZkxqZGEyWE9pdE5iVTE5dUg4?=
- =?utf-8?B?MFZ2U0FramxkK1RSaUFkOWJFZDBhQUxCRXk2Mzc3YU11QUNvMmhBeWNLSEpE?=
- =?utf-8?B?eEhuSGRPRnNFY2U0MkRzcGozeDNjMkJtRDA1Ri9kOG44OEFBWnJBYWpzejhv?=
- =?utf-8?B?bUtpeUx1dGhOM0FodWhacVZHRWU2QUcvUHYxcjY2Zzk3WkowVUdWZkpMVnow?=
- =?utf-8?B?MGRSbkVkazh6MFlyWXZMc3MrNXhjQklKdGxYQ28vTkNqYW5FSXVmdUhvY1A4?=
- =?utf-8?B?ZDBrNHVLNW12M2FPdVU3RHdFSlQxR01qc3RDUnVZUDFRSVhuYUhid0kwMGpa?=
- =?utf-8?B?b00xaDdnb0V0YlJ0b01FODM0dXIwZVBhdFdoUGlTYVBGbEhKaUhXSm9XOXFs?=
- =?utf-8?B?aDFRVzlEaElJR1d1QlpmNGN2ZmxWY2czbURzb0NiVkM5aEdGZ0luWjdPbno0?=
- =?utf-8?B?Ri9ORllaQUJVS2djSHVIVTk4MGxZRjRlbTIyQy9kT3JxazJBNFdlWVcxVVVB?=
- =?utf-8?B?S25uQzA2SHZRWTU1VTFKYnNTUDNXUGsyVUJjZWpXRUNxQXU4a3RQYnhjWFJH?=
- =?utf-8?B?cmltUTNzMnVJKzF5NHI0M3VwY2JUYmZOU0o5VndwT1JxQ084RVdtc1EwU2da?=
- =?utf-8?Q?hmt1dcC553Tf8upzW0WT4+9JlsOlm4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|19092799006|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UkFpRkxtSVd6dlU0TCtPdVdOdGdIMnhIU01mc0oyNXRtYTAzMkRhN0hDQWNu?=
+ =?utf-8?B?aWNtZEVyZUY2bmlTZnByQjd2a3N3NXlESW4rRWJQMUpwSklyaTVlUVFHRGor?=
+ =?utf-8?B?TVdRWWNWTHdyNi9hbFhwMWpzVmFUaDJDM2k5cDR3QVdEd3haYityU0VwMHZ1?=
+ =?utf-8?B?SE9iNE4vM2RBaXJJU0R5ODlQUEdqMTdlTG9HdE9EV1NaclhINUl5b3NtaEFC?=
+ =?utf-8?B?bFNXQlZBb2pLZ0pBWVNaUkNOTlJ5OFdJVWFGeDBFREZIUXkzWnBFOW40dXhK?=
+ =?utf-8?B?U3dHdjhxcllOTEh2Rm9yRTF1VGtwTjlnc0N3WEVXNGR6R0svbXNPQUhNSzQv?=
+ =?utf-8?B?ZEtNcWhWbkpOeXhhTGU3MUZTRURwNUc2dzVwS3dpbEtMVFNIWEhZaVFyRG10?=
+ =?utf-8?B?WGFkN0ZaT0NMR0x3eEh1WjZQcG9oTzRyaHJVTGRhTGFFQXgwcUZhNWpUeFAr?=
+ =?utf-8?B?U0QrTjNoaGQrRlJCYlhJN1FwemRhWkNMTWtWc2NzOWpMNmRYdlZrZWY3cmNv?=
+ =?utf-8?B?UldpRzRRQUZmQVpCOGJtNmw1ZXRVQmZtaDYwTVJyYjZCajhjLzdWUHZRWkEr?=
+ =?utf-8?B?cjFGOUUwOG1ReG5hUjVKUU9YeGUrK1Y2dVB6d1RQNklOWmlWeVFDZEVUVVJH?=
+ =?utf-8?B?aUMrTTd3Zm1Kdnp1UzBPVFk0a1hobUlnd1JJQ09WVm03OERyYjdyY2ZBcWVT?=
+ =?utf-8?B?K1d1ekJpVXROZno1aENPak50aERqNFpwRUVSdkRJVnFvUXJPVVp0RTdWWkt6?=
+ =?utf-8?B?bTRlU0ZaTFBrcUZ4ck42aEtKdnVpK240ZEx6VTRQeDB5a3RxTmpiTlhqdUJ0?=
+ =?utf-8?B?a0NXWm5ncitScjlYNjMvRWNUekliUW9FbUd6dFg2czFtN0g3N1R5MGdWVkxV?=
+ =?utf-8?B?SW5Jcm1IdVhHYlFKem1Cbll0eTQ4Q3UrTHhNRkYwNkpaU2lWUGhYbEhxRnYz?=
+ =?utf-8?B?NXNsQWhrVEVUcjI4VHB0SWMyajRqWlkzcGlrOU1hZ0V2UjVHMjMySXRaRm91?=
+ =?utf-8?B?V3B4Tjl3TThZOU5QZ2I5YkVWR3dXY1NGY1BTYzVka2N3YlQ5bG9TVDNidEND?=
+ =?utf-8?B?OWdTbS8wWDI2VlovM1ZxdXJhYUZ5NFV1NW1wZEExcitSVGNzc2tjdFNsOGpp?=
+ =?utf-8?B?ekUzdGRBYWlvN1VZaDd3bU9qM3c2VUJoSnFxTHZpSVpucVd3bUlxSnhvSGk0?=
+ =?utf-8?B?elhkOHErSmtqL0dVYWQ2bCtPcENwMWcwWkQzUXJnZFpxdjNKTjZEQzNUL21K?=
+ =?utf-8?B?WERRbTRkMFI2U3VxdlM3QkN0VElJUW51bHdPcURvWjl1bENFOU1yRDlwQmly?=
+ =?utf-8?B?OTRMbHU0Y3k4SlhGUmVhMkNmVE1JdWhPZndaME5kTUg2NmFna01PM2xNRnQw?=
+ =?utf-8?B?dm9YbDdtb1RwNU9iSmN2Y3plN2VONENTNWt1SnlzNHEvcDJYWCtZYkhDL1hB?=
+ =?utf-8?B?OWlubE1ZMzJscWpvQ2w3RUVWYy9pb1BXNWRrZXNHNGIzU05GQTUyNi9KcGtW?=
+ =?utf-8?B?UDFhamIvTThMTVhqWFlqSnN3SmRQRjBzM0R5T1RuM3ozdUJVaHJXMjc5T3pw?=
+ =?utf-8?B?U2hqVVBwUDA0NG1zY245b3kxaHNKaGEycm1tY3VvWDBsSnFyUzNVVU5kc21L?=
+ =?utf-8?B?VEtNUFVPWmtaOC90NnUrZmg4MWlDSTdISzg3UG9heEx1V1BjL0FGSW85OCtF?=
+ =?utf-8?B?cEpVekJvZ2xMY3YwWCt2SDRsdm5RN3BaWEtxTWhUbTJ6UUFDSjFhekRXNDUy?=
+ =?utf-8?B?T0g3K2Z3d2Z3enQyT3JOSkFyYXlVdmdHNE1NZnJsWENJVGViMlZmZjY2VHda?=
+ =?utf-8?B?K0FGSTRpSGhEN2pFZFI3NEgrbEJHVkMxNUdOOTNMOUE0U3E4MGJhQjRLUzhC?=
+ =?utf-8?B?Q3dlN1prVC9JTUJTcVFOT0t4NVJCaHcxRGZKRG4wTm5IYkEzTzZXUmxJanhC?=
+ =?utf-8?B?QWFmUW1iRHhGSGZjb3crUklnb0pBcFJEZWhhc1gzNEJkMzdYTjIvRmFibngx?=
+ =?utf-8?Q?HJ8RKiJhigECYKx3ATNfKvJ1sKv/BU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MUtqTFhqTUkwYXJuZElEdTRic3lpK3NweGdnZFRsbm9IT216WUY0eWhmc3No?=
- =?utf-8?B?cnNZQjJWWGZJMU93OWRvbU1RdmJvT3htZWJRdGhoUmJOSHRFK01aQXhybDlj?=
- =?utf-8?B?dU5FN2NrMkl3NFlDOGdCT3podmFuY1c5QlU0TlRJMlV3R1JudHhoTk5hVXRG?=
- =?utf-8?B?WXpOZVhYTWUzd0hOV0d6cXhKKyttYzdWMi80SFZ2bEo2V1JNYlFyRjc3aEJt?=
- =?utf-8?B?S1dCclNYNWxPYm12Z3hLZ0RyZUVnaEQvTTBsb1J4aTVvUU5ZdHlMYysrUldT?=
- =?utf-8?B?d285K0plaWxZbW5KRGRsdUhsR1hVSFhYaThReDJBNlNBQXZvT2RCc0Mvdmls?=
- =?utf-8?B?eEFTQk1nRDUyYUl1b28rd0Jzc3RiWlhFMU40Y3hkald6UExDdmlUZTVHK1pZ?=
- =?utf-8?B?WnJLZnJIcmJwN3R3T2R4VzZkOW1oMXIrcE13VEpvVWsrdmRadzAzWEpzWVB4?=
- =?utf-8?B?Z1FvV00rdE5ER3NBQlQraVFJQmQxREJGMTJQV1FZUHNmNEhuTytDL0REZW1j?=
- =?utf-8?B?R1ZDNFVJZVFLSmRtbFFZSUx2UlZxRnNwMFJGdUc5Tmx4VzJ1Y2crYzFZeG9Z?=
- =?utf-8?B?YWxJMWlzdFVPOVVFUjdvQ25hZ2dqVTZCUlVxbkF5R0lzNHUzWnNzOVdIaEdC?=
- =?utf-8?B?b3J1NHoyaTRDL2h4alBmZTlGRjU1QzFMY0dyWmdJTmV2a3ptTzdIVkJRRGtV?=
- =?utf-8?B?azJ1S3hXUkJnazdHTjQzZVF4M1J6aERGalBGRUxGeHNZYTF2Vmc0SDlMN0g3?=
- =?utf-8?B?QUpRMGJwa2JWYmd6ZUNDdWU2c3B2ZFFjM3pvTGNaaWx2bWxiODBxaXQyaW5Q?=
- =?utf-8?B?dGxyWS9ENWNRWE04elY3YXpLTDlXenNkc0VPZmkvVUgvT3JnRkQ0ZG9kc2pQ?=
- =?utf-8?B?VTNtYXJ5MER0ZVE0NjRmMm5YWHJlNjJaMjNDRG5xUDhXY0lJa0srMk8zcWty?=
- =?utf-8?B?ZWxFZElXV0QxWGJTQ2JxMlZ1TVlYK1dLNGp0c2liZVVxbG84ZWNnMkdkT2pP?=
- =?utf-8?B?VlNQOXBCSTRMS3JCWnR3YzhNN1hjRURVMWRab3FrSlJXL09GTWE3ay9sUCtZ?=
- =?utf-8?B?S25SZW9idS8xYWdRZStuekVJVmhKQUNJbFlXWnh3TlgyKzN3R2VMR1RXSm9Q?=
- =?utf-8?B?UVh2MDRyOWZ4bjZNSDBwOEYySlRIeS9hL2NiYmxmMHluR3lUejRjblNwTmk5?=
- =?utf-8?B?ai84aExMZ2lzWSthNDZwWFJZTDFYVEt3K05iSjFYU3dTQVNjR3ZybUVDZWRG?=
- =?utf-8?B?bVZ1OE1rcnovUGNMMG9yNFFFVmN3UkZxNjhxd0JlaFVnOFFPTG4rOU1HZnJU?=
- =?utf-8?B?aE9ITmQyNm13V0xFZWIzLzEyclZkUWpzNHkvQUxhZG4ycWp4V3JBeC9JM3RX?=
- =?utf-8?B?Qk16UVd3Q25MaXJDSHliSlNUcEJ6ZkttbXN6VHBQZGp6R2VNOFB5WitsVS9h?=
- =?utf-8?B?QXZLUFI1R2xiRENDam9Ubnh0WkhMc00yS0VEZnVvVm1WamRqQWxLQ3VPdVhh?=
- =?utf-8?B?MmJTdGxPdGR0SklXZ2ptTlhENXNEbzVWbG80RGlFaWpIRmlqN2ZFaEFBSUtO?=
- =?utf-8?B?MzJsNUxNZURmZnJHZlNrWjg0V0JHTExQVUI1WHhVbkc1VTVoemdFRElibGR3?=
- =?utf-8?B?N0oxcWsxdCtEb1FxVXE2OW8wM1lnOVhUK1NhZnJkWVdmVCt1d1JGY1BPSUlB?=
- =?utf-8?B?MWwranFQSlRtUjZDQ0FncXdjMGtQWXd2ZE1VVGZUdXE4VmZGRUl0QlBKdTVt?=
- =?utf-8?B?MEVuYklGbUVxZFFLWXN5SHdkenVOSmp3bnJaanBKeGtlUkhiSmZvL3RRZ25o?=
- =?utf-8?B?T2wrMVVoMjdmaUs3TnlVd04rc2luTmpiTnNaYW1sdjhwL3UyUnZUV2R5ajlj?=
- =?utf-8?B?UUFiRldpekJOYzNyWEVnRjBENXhWOGdaWHdpeFZ0QThwdlFKMDltUlBpa2VR?=
- =?utf-8?B?UW1aQjlDZDJoV1EyUGo3Q3MxaUROUjJGTWRBMVhXTU1QSjhKb1dDNGdqUkF0?=
- =?utf-8?B?ZSttS3U0TkUrOGZsUWFtdUlVTkZzaVp1Qjd1QXhaMnlmQklRNkhiV2xwNnFG?=
- =?utf-8?B?RW02OVhHODJldW9ibzVPczZ5ZEd5OE8yaVhua2xLMXN1REJoUHRRL3ptaTll?=
- =?utf-8?Q?ewvXW8rUFd6W3dZyOmMCK6zM6?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aVEyVVNOdzh5RXk0ZmE4aW1lL0V5NnhQR3RKM0xNOTF3d21oZml5VE9kRTM3?=
+ =?utf-8?B?MEw3Z2dyVnFrL2xObWVRMTBXU0drNXdPVzB4Vm9KRXdrUDlXQU42T1V5VXF3?=
+ =?utf-8?B?dGEwR2pVOXNXZmRUTk9XQ0VQK01TakVxVFR1b3lVeXpVTXpoYWtVQXp2ZU5U?=
+ =?utf-8?B?bWlMZXJ1RDFFSWVxUkd4UitacUVzZnFqL0RlQmtoZXFKeklSUW9rakp0a0VJ?=
+ =?utf-8?B?Ly9DOEYvN2MwRHpIeXRUSEJ2YjVaMkI3TXBadjFIUkhvK2I4YmJ6bUdlbTZa?=
+ =?utf-8?B?RytwSitNSlhlOWFNTFR5dEV1bHpteFQzWno4K3RaaWpjaE1vckE1MjcxM2M3?=
+ =?utf-8?B?TXA2VlFtdzlEZWx4OW1QMFRTUWxDaDNOL0hpeFJaNkJ4V2lESHJMOWk4Z05i?=
+ =?utf-8?B?dWx5UkZKUFVnZVB3ZCtyd0hpNFBIWTBYQkFmRUF0bGVzeE1uUUNBcUlIMWdT?=
+ =?utf-8?B?b1NUaUw0enIrWDZqcm5xaG1FNmhIZ0haeFJxY0piTEtmRlhyTkpjL2pPcEpB?=
+ =?utf-8?B?bnF1TUVpRGhLS2pyRkFXZDR0OGVnbGZPbHFTREVMdnhJdk5LbG9tTWxkdHZR?=
+ =?utf-8?B?V2lGV29xSmRnejFFbDhuNkhOT1o1bHFldXRKVTRpb2FISTdheWZuNTFnUjZh?=
+ =?utf-8?B?MHBDZnc5QUhBdVIxVWM5aFJxQ1dsdHc4OSt0N2FwRUdkejF6Qks2NTNGK3R3?=
+ =?utf-8?B?bUVYSDZTNWlrQVhZRjc1VENQOUoxN2RsdnFyMlpQQmJzV1JCOEMvVWZFcGhR?=
+ =?utf-8?B?b1g4ZTE5K3NETkJ1a1pVYkdncXlZaWdTZkhTQkgyd0MvZER0Z1pSaVRPcVFH?=
+ =?utf-8?B?a2lRT0xpOG9zQ3l2L3JOQ1Q2czk5VXc3MGNJOEI2aVF3dDdVVzlXaVhQRElY?=
+ =?utf-8?B?UzBQRzZ2eVljSE5xUnI0UDVldVY2L1h3Yk5QVGlQaG9iVEM4YjBFUkJCVURJ?=
+ =?utf-8?B?b2o2dWdRbUJPZlpaKzZGQzArYkw4WlRDUDc3dzNzQm5ob0tTeW55MkpGbHg1?=
+ =?utf-8?B?cmRNcnQxWTBCaE9jM1BHZW5FdXg3UzBQV052NHN6WlE1bXo4QkZTdE9SQkdr?=
+ =?utf-8?B?czV1ZXZwMHZOeWRkZFdZaUhlOVlyRVRFY29WVUdtdUx4eEY2bzNtckxDMksz?=
+ =?utf-8?B?WGtRcm1QRFdpRHpqUldrSW0xL0VPM1N6K1N5SW1QWmhNZ2pIdnFvUGRtbkVp?=
+ =?utf-8?B?YndkbHNJZUhRa3NsY0pxenpuY09aQmt3MC84SzF4UEg3MkE2bUlsT29LOEhT?=
+ =?utf-8?B?TzZlV0pTRFJuSUpWREtVRGttZ0R4QlZtaTg5SENQVW15a2d1TTJ2dy85YWl6?=
+ =?utf-8?B?QzdvRnVSR3orU2Z0QVV4OFVKRUcxMlNPV0hONElHRExGYXVGejJuYXVJd2gz?=
+ =?utf-8?B?SklJaTlBUTNDRmw2OXQ3M3cvMFd1R29CTk1QVFlyVHlhRjZmSk9SVWVSNmdn?=
+ =?utf-8?B?bWlpdGRGYXNEUjN6UHJFeCthVTRwTE1JTGdlck5GZHQrWHFBV3FTd1ZNQk44?=
+ =?utf-8?B?cHhGMm1rSXJwT1hMa3BzTzI3elVHWUw3NG0zd2NUYXZ6THpHT3Y4YnBVU3RK?=
+ =?utf-8?B?TnpoQkJUaEQrV29SVmlFZzdpdlpVbWM3VkhjVnlsYUsvQzdXem1kd2hVcFU0?=
+ =?utf-8?B?bmFSZlg3TDYrY3RFTmRLQ3kyMkwySUNTT0xUejZLanFiNU9hTUZxVjVXRjBM?=
+ =?utf-8?B?RzVHRExkV1BiOUxnMkxMQ2NuTzNCU1B2eWk0Ui91dkU0VWtTZDE4M01aUjZ4?=
+ =?utf-8?B?WU9tN1ZJZ1puZHNjYXRCNU9hZ2pvZ0c0R1p3QzYwUUszTDNrT3hpdWxuUXZD?=
+ =?utf-8?B?aXZORlpZeEozcEtCUnhIVzJqakpYVnFaaVBrZlB3YTRsajdQTzYwV3Q2OE1J?=
+ =?utf-8?B?TU45ZUhWVzBpZDhHZjU3a0l4OFdSZEFFaWtFZS9BZjh2eGxjaU1KckZIaDFV?=
+ =?utf-8?B?bERkOXBvandGWWllbmJ1RHdHWE1qeEpITFBwVmsxcTNmTDU2SnFwUXEyd1BT?=
+ =?utf-8?B?TlRwVnJmVGFUbFoxcUNYWVdvR0M0a1NIQ3hIUlY3eGJsNmw3ek1raVhRU2Jw?=
+ =?utf-8?B?ZU91UzhhSXd4cjEzN0NjZmlSZnBSMEdFZEJxSEd3ZGF6eDFOU25jK2todHNJ?=
+ =?utf-8?Q?1tOcjTqLpny3CC9u7UhO2jIgW?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 673e6525-90a3-4f41-478b-08ddbad9b138
+X-MS-Exchange-CrossTenant-Network-Message-Id: c8094e1d-3d5e-4c63-aab6-08ddbad9a378
 X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 09:03:50.2055
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 09:03:27.2037
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6OD1hELwKXZqkEr74ht2wBtgXJR4IRfOmyBrn2jQsBGFiUavJ7Ysyv5cPVskHRyU0NRekWbc8wHIfGa3pfutTw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9289
+X-MS-Exchange-CrossTenant-UserPrincipalName: p7aAtMYnYXu4JjlGoWkGRFhggZgJ1JR4vnbR2FM0PJLdruuk3uSV9Yp23KMq59qtx8tnpRepKGz9kUqM0flT9w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11011
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_021801_130691_5898D842 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20250704_101811_784059_ADD12051 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,67 +198,427 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a helper to get LayerBlend secondary input selection.  This is
-needed by disabling CRTC at boot in an upcoming commit which tries
-to get the selection.
+Display Prefetch Resolve Gasket(PRG) is a part of a FetchUnit's
+prefetch engine.  It sits between a Display Prefetch Resolve
+Channel(DPRC) and a FetchUnit.  Add a platform driver to support
+the PRG.
 
 Signed-off-by: Liu Ying <victor.liu@nxp.com>
 ---
- drivers/gpu/drm/imx/dc/dc-lb.c | 21 +++++++++++++++++++++
- drivers/gpu/drm/imx/dc/dc-pe.h |  1 +
- 2 files changed, 22 insertions(+)
+ drivers/gpu/drm/imx/dc/Makefile |   2 +-
+ drivers/gpu/drm/imx/dc/dc-drv.c |   1 +
+ drivers/gpu/drm/imx/dc/dc-drv.h |   1 +
+ drivers/gpu/drm/imx/dc/dc-prg.c | 323 ++++++++++++++++++++++++++++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-prg.h |  35 +++++
+ 5 files changed, 361 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-lb.c b/drivers/gpu/drm/imx/dc/dc-lb.c
-index 38f966625d382487e45c2e0c202e15c1417f6e65..b0f3fb818799b58597e8ae41d868338c3fd40800 100644
---- a/drivers/gpu/drm/imx/dc/dc-lb.c
-+++ b/drivers/gpu/drm/imx/dc/dc-lb.c
-@@ -23,6 +23,8 @@
- #define  PIXENGCFG_DYNAMIC_SEC_SEL_MASK		GENMASK(13, 8)
- #define  PIXENGCFG_DYNAMIC_SEC_SEL(x)		\
- 		FIELD_PREP(PIXENGCFG_DYNAMIC_SEC_SEL_MASK, (x))
-+#define  PIXENGCFG_DYNAMIC_SEC_SEL_GET(x)	\
-+		FIELD_GET(PIXENGCFG_DYNAMIC_SEC_SEL_MASK, (x))
+diff --git a/drivers/gpu/drm/imx/dc/Makefile b/drivers/gpu/drm/imx/dc/Makefile
+index b9d33c074984a7ee5a6f0876d09bfeee5096264c..e3a06ee3ce1a5117d0a9a00fdf7655ee31be3caf 100644
+--- a/drivers/gpu/drm/imx/dc/Makefile
++++ b/drivers/gpu/drm/imx/dc/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
  
- #define STATICCONTROL				0x8
- #define  SHDTOKSEL_MASK				GENMASK(4, 3)
-@@ -182,6 +184,25 @@ void dc_lb_pec_dynamic_sec_sel(struct dc_lb *lb, enum dc_link_id sec)
- 	dev_warn(lb->dev, "invalid secondary input selection:%d\n", sec);
- }
+ imx8-dc-drm-objs := dc-cf.o dc-crtc.o dc-de.o dc-drv.o dc-ed.o dc-fg.o dc-fl.o \
+-		    dc-fu.o dc-fw.o dc-ic.o dc-kms.o dc-lb.o dc-pe.o \
++		    dc-fu.o dc-fw.o dc-ic.o dc-kms.o dc-lb.o dc-pe.o dc-prg.o  \
+ 		    dc-plane.o dc-tc.o
  
-+int dc_lb_pec_dynamic_sec_sel_get(struct dc_lb *lb, enum dc_link_id *sec)
+ obj-$(CONFIG_DRM_IMX8_DC) += imx8-dc-drm.o
+diff --git a/drivers/gpu/drm/imx/dc/dc-drv.c b/drivers/gpu/drm/imx/dc/dc-drv.c
+index f93766b6bfbfae8510db05278d104820ca0719c4..9bdcfc5aee976ef77bea6b3f6f3ac5f11249798f 100644
+--- a/drivers/gpu/drm/imx/dc/dc-drv.c
++++ b/drivers/gpu/drm/imx/dc/dc-drv.c
+@@ -276,6 +276,7 @@ static struct platform_driver * const dc_drivers[] = {
+ 	&dc_ic_driver,
+ 	&dc_lb_driver,
+ 	&dc_pe_driver,
++	&dc_prg_driver,
+ 	&dc_tc_driver,
+ 	&dc_driver,
+ };
+diff --git a/drivers/gpu/drm/imx/dc/dc-drv.h b/drivers/gpu/drm/imx/dc/dc-drv.h
+index 68e99ba7cedbca1b8bdc0d8ced7a610a1056bfc7..557e7d90e4ea8ca2af59027b3152163cf7f9a618 100644
+--- a/drivers/gpu/drm/imx/dc/dc-drv.h
++++ b/drivers/gpu/drm/imx/dc/dc-drv.h
+@@ -81,6 +81,7 @@ extern struct platform_driver dc_fw_driver;
+ extern struct platform_driver dc_ic_driver;
+ extern struct platform_driver dc_lb_driver;
+ extern struct platform_driver dc_pe_driver;
++extern struct platform_driver dc_prg_driver;
+ extern struct platform_driver dc_tc_driver;
+ 
+ static inline int dc_subdev_get_id(const struct dc_subdev_info *info,
+diff --git a/drivers/gpu/drm/imx/dc/dc-prg.c b/drivers/gpu/drm/imx/dc/dc-prg.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a1a312c0aeebf47bcf50ffa77971aa3bb431a12
+--- /dev/null
++++ b/drivers/gpu/drm/imx/dc/dc-prg.c
+@@ -0,0 +1,323 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright 2025 NXP
++ */
++
++#include <linux/bitfield.h>
++#include <linux/bitops.h>
++#include <linux/bits.h>
++#include <linux/cleanup.h>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/device.h>
++#include <linux/list.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/of.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/regmap.h>
++
++#include "dc-prg.h"
++
++#define SET			0x4
++#define CLR			0x8
++#define TOG			0xc
++
++#define PRG_CTRL		0x00
++#define  BYPASS			BIT(0)
++#define  SC_DATA_TYPE_8BIT	0
++#define  HANDSHAKE_MODE_4LINES	0
++#define  SHADOW_LOAD_MODE	BIT(5)
++#define  DES_DATA_TYPE_MASK	GENMASK(17, 16)
++#define  DES_DATA_TYPE_32BPP	FIELD_PREP(DES_DATA_TYPE_MASK, 0)
++#define  DES_DATA_TYPE_24BPP	FIELD_PREP(DES_DATA_TYPE_MASK, 1)
++#define  DES_DATA_TYPE_16BPP	FIELD_PREP(DES_DATA_TYPE_MASK, 2)
++#define  DES_DATA_TYPE_8BPP	FIELD_PREP(DES_DATA_TYPE_MASK, 3)
++#define  SOFTRST		BIT(30)
++#define  SHADOW_EN		BIT(31)
++
++#define PRG_STATUS		0x10
++
++#define PRG_REG_UPDATE		0x20
++#define  REG_UPDATE		BIT(0)
++
++#define PRG_STRIDE		0x30
++#define  STRIDE(n)		FIELD_PREP(GENMASK(15, 0), (n) - 1)
++
++#define PRG_HEIGHT		0x40
++#define  HEIGHT(n)		FIELD_PREP(GENMASK(15, 0), (n) - 1)
++
++#define PRG_BADDR		0x50
++#define PRG_OFFSET		0x60
++
++#define PRG_WIDTH		0x70
++#define  WIDTH(n)		FIELD_PREP(GENMASK(15, 0), (n) - 1)
++
++#define DPU_PRG_MAX_STRIDE	0x10000
++
++struct dc_prg {
++	struct device *dev;
++	struct regmap *reg;
++	struct list_head list;
++	struct clk *clk_apb;
++	struct clk *clk_rtram;
++};
++
++static DEFINE_MUTEX(dc_prg_list_mutex);
++static LIST_HEAD(dc_prg_list);
++
++static const struct regmap_config dc_prg_regmap_config = {
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++	.fast_io = true,
++	.max_register = PRG_WIDTH + TOG,
++};
++
++static void dc_prg_reset(struct dc_prg *prg)
 +{
-+	u32 val;
-+
-+	regmap_read(lb->reg_pec, PIXENGCFG_DYNAMIC, &val);
-+	val = PIXENGCFG_DYNAMIC_SEC_SEL_GET(val);
-+
-+	switch (val) {
-+	case LINK_ID_NONE:
-+	case LINK_ID_FETCHWARP2:
-+	case LINK_ID_FETCHLAYER0:
-+		*sec = val;
-+		dev_dbg(lb->dev, "get secondary input selection: 0x%02x\n", val);
-+		return 0;
-+	default:
-+		return -EINVAL;
-+	}
++	regmap_write(prg->reg, PRG_CTRL + SET, SOFTRST);
++	fsleep(10);
++	regmap_write(prg->reg, PRG_CTRL + CLR, SOFTRST);
++	fsleep(10);
 +}
 +
- void dc_lb_pec_clken(struct dc_lb *lb, enum dc_pec_clken clken)
- {
- 	regmap_write_bits(lb->reg_pec, PIXENGCFG_DYNAMIC, CLKEN_MASK,
-diff --git a/drivers/gpu/drm/imx/dc/dc-pe.h b/drivers/gpu/drm/imx/dc/dc-pe.h
-index 0b81dc6b251c452e7ca72f1cd12af065bafaa198..4e38aead69bce6e9ad4cf2a7cd1fedbaeda60650 100644
---- a/drivers/gpu/drm/imx/dc/dc-pe.h
-+++ b/drivers/gpu/drm/imx/dc/dc-pe.h
-@@ -93,6 +93,7 @@ void dc_ed_init(struct dc_ed *ed);
- enum dc_link_id dc_lb_get_link_id(struct dc_lb *lb);
- void dc_lb_pec_dynamic_prim_sel(struct dc_lb *lb, enum dc_link_id prim);
- void dc_lb_pec_dynamic_sec_sel(struct dc_lb *lb, enum dc_link_id sec);
-+int dc_lb_pec_dynamic_sec_sel_get(struct dc_lb *lb, enum dc_link_id *sec);
- void dc_lb_pec_clken(struct dc_lb *lb, enum dc_pec_clken clken);
- void dc_lb_mode(struct dc_lb *lb, enum dc_lb_mode mode);
- void dc_lb_position(struct dc_lb *lb, int x, int y);
++void dc_prg_enable(struct dc_prg *prg)
++{
++	regmap_write(prg->reg, PRG_CTRL + CLR, BYPASS);
++}
++
++void dc_prg_disable(struct dc_prg *prg)
++{
++	regmap_write(prg->reg, PRG_CTRL, BYPASS);
++
++	pm_runtime_put(prg->dev);
++}
++
++void dc_prg_disable_at_boot(struct dc_prg *prg)
++{
++	regmap_write(prg->reg, PRG_CTRL, BYPASS);
++
++	clk_disable_unprepare(prg->clk_rtram);
++	clk_disable_unprepare(prg->clk_apb);
++}
++
++static unsigned int dc_prg_burst_size_fixup(dma_addr_t baddr)
++{
++	unsigned int burst_size;
++
++	burst_size = 1 << __ffs(baddr);
++	burst_size = round_up(burst_size, 8);
++	burst_size = min(burst_size, 128U);
++
++	return burst_size;
++}
++
++static unsigned int
++dc_prg_stride_fixup(unsigned int stride, unsigned int burst_size)
++{
++	return round_up(stride, burst_size);
++}
++
++void dc_prg_configure(struct dc_prg *prg,
++		      unsigned int width, unsigned int height,
++		      unsigned int stride, unsigned int bits_per_pixel,
++		      dma_addr_t baddr, bool start)
++{
++	struct device *dev = prg->dev;
++	unsigned int burst_size;
++	u32 val;
++	int ret;
++
++	if (start) {
++		ret = pm_runtime_resume_and_get(dev);
++		if (ret < 0) {
++			dev_err(dev, "failed to get RPM: %d\n", ret);
++			return;
++		}
++	}
++
++	burst_size = dc_prg_burst_size_fixup(baddr);
++
++	stride = dc_prg_stride_fixup(stride, burst_size);
++
++	regmap_write(prg->reg, PRG_STRIDE, STRIDE(stride));
++	regmap_write(prg->reg, PRG_WIDTH, WIDTH(width));
++	regmap_write(prg->reg, PRG_HEIGHT, HEIGHT(height));
++	regmap_write(prg->reg, PRG_OFFSET, 0);
++	regmap_write(prg->reg, PRG_BADDR, baddr);
++
++	val = SHADOW_LOAD_MODE | SC_DATA_TYPE_8BIT | BYPASS |
++	      HANDSHAKE_MODE_4LINES;
++
++	switch (bits_per_pixel) {
++	case 32:
++		val |= DES_DATA_TYPE_32BPP;
++		break;
++	case 24:
++		val |= DES_DATA_TYPE_24BPP;
++		break;
++	case 16:
++		val |= DES_DATA_TYPE_16BPP;
++		break;
++	case 8:
++		val |= DES_DATA_TYPE_8BPP;
++		break;
++	}
++
++	/* no shadow for the first frame */
++	if (!start)
++		val |= SHADOW_EN;
++	regmap_write(prg->reg, PRG_CTRL, val);
++}
++
++void dc_prg_reg_update(struct dc_prg *prg)
++{
++	regmap_write(prg->reg, PRG_REG_UPDATE, REG_UPDATE);
++}
++
++void dc_prg_shadow_enable(struct dc_prg *prg)
++{
++	regmap_write(prg->reg, PRG_CTRL + SET, SHADOW_EN);
++}
++
++bool dc_prg_stride_supported(struct dc_prg *prg,
++			     unsigned int stride, dma_addr_t baddr)
++{
++	unsigned int burst_size;
++
++	burst_size = dc_prg_burst_size_fixup(baddr);
++
++	stride = dc_prg_stride_fixup(stride, burst_size);
++
++	if (stride > DPU_PRG_MAX_STRIDE)
++		return false;
++
++	return true;
++}
++
++struct dc_prg *
++dc_prg_lookup_by_phandle(struct device *dev, const char *name, int index)
++{
++	struct device_node *prg_node __free(device_node);
++	struct dc_prg *prg;
++
++	prg_node = of_parse_phandle(dev->of_node, name, index);
++	if (!prg_node)
++		return NULL;
++
++	guard(mutex)(&dc_prg_list_mutex);
++	list_for_each_entry(prg, &dc_prg_list, list) {
++		if (prg_node == prg->dev->of_node)
++			return prg;
++	}
++
++	return NULL;
++}
++
++static int dc_prg_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct resource *res;
++	void __iomem *base;
++	struct dc_prg *prg;
++	int ret;
++
++	prg = devm_kzalloc(dev, sizeof(*prg), GFP_KERNEL);
++	if (!prg)
++		return -ENOMEM;
++
++	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	prg->reg = devm_regmap_init_mmio(dev, base, &dc_prg_regmap_config);
++	if (IS_ERR(prg->reg))
++		return PTR_ERR(prg->reg);
++
++	prg->clk_apb = devm_clk_get(dev, "apb");
++	if (IS_ERR(prg->clk_apb))
++		return dev_err_probe(dev, PTR_ERR(prg->clk_apb),
++				     "failed to get APB clock\n");
++
++	prg->clk_rtram = devm_clk_get(dev, "rtram");
++	if (IS_ERR(prg->clk_rtram))
++		return dev_err_probe(dev, PTR_ERR(prg->clk_rtram),
++				     "failed to get RTRAM clock\n");
++
++	dev_set_drvdata(dev, prg);
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to enable PM runtime\n");
++
++	prg->dev = dev;
++
++	guard(mutex)(&dc_prg_list_mutex);
++	list_add(&prg->list, &dc_prg_list);
++
++	return 0;
++}
++
++static void dc_prg_remove(struct platform_device *pdev)
++{
++	struct dc_prg *prg = dev_get_drvdata(&pdev->dev);
++
++	guard(mutex)(&dc_prg_list_mutex);
++	list_del(&prg->list);
++}
++
++static int dc_prg_runtime_suspend(struct device *dev)
++{
++	struct dc_prg *prg = dev_get_drvdata(dev);
++
++	clk_disable_unprepare(prg->clk_rtram);
++	clk_disable_unprepare(prg->clk_apb);
++
++	return 0;
++}
++
++static int dc_prg_runtime_resume(struct device *dev)
++{
++	struct dc_prg *prg = dev_get_drvdata(dev);
++	int ret;
++
++	ret = clk_prepare_enable(prg->clk_apb);
++	if (ret) {
++		dev_err(dev, "failed to enable APB clock: %d\n", ret);
++		return ret;
++	}
++
++	ret = clk_prepare_enable(prg->clk_rtram);
++	if (ret) {
++		dev_err(dev, "failed to enable RTRAM clock: %d\n", ret);
++		clk_disable_unprepare(prg->clk_apb);
++		return ret;
++	}
++
++	dc_prg_reset(prg);
++
++	return 0;
++}
++
++static const struct dev_pm_ops dc_prg_pm_ops = {
++	RUNTIME_PM_OPS(dc_prg_runtime_suspend, dc_prg_runtime_resume, NULL)
++};
++
++static const struct of_device_id dc_prg_dt_ids[] = {
++	{ .compatible = "fsl,imx8qxp-prg", },
++	{ /* sentinel */ }
++};
++
++struct platform_driver dc_prg_driver = {
++	.probe = dc_prg_probe,
++	.remove = dc_prg_remove,
++	.driver = {
++		.name = "imx8-dc-prg",
++		.suppress_bind_attrs = true,
++		.of_match_table = dc_prg_dt_ids,
++		.pm = pm_ptr(&dc_prg_pm_ops),
++	},
++};
+diff --git a/drivers/gpu/drm/imx/dc/dc-prg.h b/drivers/gpu/drm/imx/dc/dc-prg.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..6fd9b050bfa12334720f83ff9ceaf337e3048a54
+--- /dev/null
++++ b/drivers/gpu/drm/imx/dc/dc-prg.h
+@@ -0,0 +1,35 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
++/*
++ * Copyright 2025 NXP
++ */
++
++#ifndef __DC_PRG_H__
++#define __DC_PRG_H__
++
++#include <linux/device.h>
++#include <linux/types.h>
++
++struct dc_prg;
++
++void dc_prg_enable(struct dc_prg *prg);
++
++void dc_prg_disable(struct dc_prg *prg);
++
++void dc_prg_disable_at_boot(struct dc_prg *prg);
++
++void dc_prg_configure(struct dc_prg *prg,
++		      unsigned int width, unsigned int height,
++		      unsigned int stride, unsigned int bits_per_pixel,
++		      dma_addr_t baddr, bool start);
++
++void dc_prg_reg_update(struct dc_prg *prg);
++
++void dc_prg_shadow_enable(struct dc_prg *prg);
++
++bool dc_prg_stride_supported(struct dc_prg *prg,
++			     unsigned int stride, dma_addr_t baddr);
++
++struct dc_prg *
++dc_prg_lookup_by_phandle(struct device *dev, const char *name, int index);
++
++#endif
 
 -- 
 2.34.1
