@@ -4,156 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E95C83F03
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F66C8303D
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 11:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdN/vmAo60zUMab+0+kt98UJlAxkcRsKJ+QfAWLMSmg=; b=kpCPDrpK+uKfo7U8indv7Sdk6S
-	kZof3KEwMEl3i1m5718WDVRBg9vcjdyQX8CcQMTdp4VCI8h5+YXJ7iXiwB9JE6y9jU6jzxddWYqLv
-	0TVadfUNsJKTQtHTp+UK1dd5Z8Y3PuQf/bhMviVg5X7oQmzm5JkBfCWpEJSzr9S/2UK9g86uEC+l1
-	zwmo4pIMTJQYYEP6smA9qjXgHUcsHKgFspmrk4R2CvadQMbJkYvRAGusPYY9V9ujGLPhh9cyJjaTd
-	2xSm6OfSgQ9AkJS3nkTMB1/fz68fpHj39az02FcuLtRwpxM5JIh0pynX4Cy2KJ2U3exmQaYQVDPdZ
-	CIE1oSSA==;
+	bh=4BxPSNuI1K+0U+zGcMRGFuPmBq+1SIMVgn3s+fjE3jI=; b=e76N/+EdojzyedZWrP+hZ2FuZs
+	hwxJF4NVVcr91w002yemZD6xl4ttBhWclE0koKJD98jNsfpNEsN+OyknE+exZM2RF9E1loXExRmOh
+	J/6isfdKhK4yLGj2OCI/mQfU/HUVGk6oM5e24WjHZdHCizY4EkCr6McWM5pezi9JjGOOeogd5FGLE
+	16Hj5f+7rCAv01LuOQ7MAPxL46N3Q56vG3hZLNUqT5SIdlTHZu+gvDVmOe3X38v5DLgx2dvXETDK8
+	BfkM8T+WQAbuky6+inAo0xaXe9un/cLLSiahj06FhKxkdgME0oRCEzrzJf6m0SBAxLH5CnNnQwrq2
+	4Z8+EdDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXey9-0000000EHlh-1Pfv;
-	Fri, 04 Jul 2025 11:52:41 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uXeyA-0000000EHnp-1abw;
+	Fri, 04 Jul 2025 11:52:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXcR0-0000000Dt5Q-27e1
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 09:10:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XWmg81hSLNzqoB35xyyUaWXISfRhjnplni07uW7yvtvU60dkA2C2yM0i2eTMl9XSVSAvDPTUhxYz9p4kEn+wHvE+eOI5XtNOYOT54TWUJ4lG8JdrjpTuOQfHL5SvgD5dAlYet3TCVSFOHW3ywNT76n4ojPp9qM/F7P/55FhjnKCXufHfTXlhpqk69LtOErqhwoPELh+7StFkNp5Va9K5S1PZUyRSB/eO1NjEShQpigW+zJDMacNuJsQFf14q5Rk61lOE2YkmYi0SnbhT1MPcpV9KcCq8jaiKbi0Np4w67z3LdGzuvEa1GEVwr9Bi5iTItMwb+1+0jv4iyzTY9tknzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BdN/vmAo60zUMab+0+kt98UJlAxkcRsKJ+QfAWLMSmg=;
- b=d/n0hVZPWNcj5XQJbX25PFQ1YoN0uVZh4uO5ztH/mpE9R4jvc1c43EhgUD2QrWfuMfSt3ndS8sdUQX9kfpo7yUbC0r24KfTI4DW5QaAiLMPzzv9Q9E2erdiWDtqd8H50L+voY0SHRUtE1TTV1Ie+4yowvgzHLFiqEU8Qv4RqkhtjV4GD7mVeA2HzjYEE1AW7olb7UKG/gErRT8B0xA1J7x2u9J8HENxOZDhGBYd99W1+4Jxf8bneQiGQz3RNM/uNoPhKXmzVHBh5MoXNAvehAwS0pcXEGSKS8HkGI4oTL+hX9g8q/kj6UauJbsLPt0MVYPLp78kszrPiFAf1NvPlBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BdN/vmAo60zUMab+0+kt98UJlAxkcRsKJ+QfAWLMSmg=;
- b=CB0YhMQNmxs/1kQ8jFusAMzBvUsgbGn2B/wZHiTGl5ZDEutdceSBLiGr4qo9JPUeQN6flaq4z8M/9wsu/27patxITsF+pREwjKBIaffG9eHAAiMQcSh6/T76r+fkuWoo41jLm2PMOGcBqMpNKgn840PZ8xBcN/Z7zdxAM9GGqrLqYbjRzf8hGD1pdyhh6wlRJiIwKOK+tsxDdh2z9QpvRalMeNWWIavRqs8H1vPiHTJTFlM2A/l0vZrzP6b3Yn6f4YaIY8K07VvyTlpbxecPkTFhGxEuY9RDGFvlgjM+LCVjS6UBmigHj0ICtKC3xOwjNhoUDgBEta8i0Loy7ACj9g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
- by GVXPR04MB11041.eurprd04.prod.outlook.com (2603:10a6:150:218::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.20; Fri, 4 Jul
- 2025 09:10:13 +0000
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197%3]) with mapi id 15.20.8901.021; Fri, 4 Jul 2025
- 09:10:13 +0000
-Date: Fri, 4 Jul 2025 18:20:57 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Peng Fan <peng.fan@nxp.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/7] firmware: arm_scmi: imx: Support getting silicon
- info of MISC protocol
-Message-ID: <20250704102057.GD4525@nxa18884-linux>
-References: <20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com>
- <20250627-sm-misc-api-v1-v1-4-2b99481fe825@nxp.com>
- <20250702-sceptical-caracal-of-drama-3cbc63@sudeepholla>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250702-sceptical-caracal-of-drama-3cbc63@sudeepholla>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: MA0PR01CA0031.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:b8::18) To DB9PR04MB8461.eurprd04.prod.outlook.com
- (2603:10a6:10:2cf::20)
+	id 1uXcSE-0000000DtKZ-0f1t;
+	Fri, 04 Jul 2025 09:11:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=4BxPSNuI1K+0U+zGcMRGFuPmBq+1SIMVgn3s+fjE3jI=; b=BFrc+/Xa70soRxiHabgixAFKaP
+	8lphfuA+NH0gBBx+ZWo7scOwa6TlzBhkkmLoJeqGlZeG+uiQD+0fRbCONT6/g1oxaSsagAUbGGEs/
+	kr5Na4dfucnF/7CRTUh+7HdcbVdSy48e6HCmLuBTuOauyUMWWXdxrfJ6+d7NDTlAt2ry6Tb6gGhdD
+	dXx0qKJCcDFtl9NV3nmrv+y96TXBJyNz0xyi7bgHWfgv877pEO9MRIW9LT7bSfXGElNy/l8Betm74
+	KLwYGEBzgTOX5mYCd2dkG5cNpWklm3bqyIGFbD2DJV/xMTg5kiPtPwg2j78dUunuJTx9YYKg4yvnB
+	Y2cFQTxg==;
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uXcSB-00000007tHl-1NRD;
+	Fri, 04 Jul 2025 09:11:33 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-453398e90e9so4263315e9.1;
+        Fri, 04 Jul 2025 02:11:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751620289; x=1752225089; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4BxPSNuI1K+0U+zGcMRGFuPmBq+1SIMVgn3s+fjE3jI=;
+        b=c2LkHCilyESzRtjTWfCYJfc1ncNNyUqS4kxliF1PXE/bh04ql/H9lQUtWm3prVhbsf
+         5kTbpx3MaZaeXLNAy/aP10j2+kNWEW5luut6eYLGaFY9rqTxONCmA34XElOdB4UATlVJ
+         odQIma5XhWJZo/K4MPwfAmRjZsEFZUXjDiOAO5xuhGGit3CciQ0p0f48t6maj5tQC09k
+         gHgDVmMWTATeAldWZkxandT3wa/GVOmUFvc0N77tpUbkXen3VdYGp5VroQScM4AG3KH8
+         /RlDt7WRdWxqW9koSb4ZGgt8bX4zRDmsa1HdZtZ6wYUEP1ecK9rSHldvMXBHwM2EQBbx
+         yeHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751620289; x=1752225089;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4BxPSNuI1K+0U+zGcMRGFuPmBq+1SIMVgn3s+fjE3jI=;
+        b=iubKQ5oJhfbDWE9pGL6MyzTrXHDHo4yUDF45sg545hnUOM++ebGdKp7MEhCE0fl4c+
+         Y0R4YSIdEjOcQCyJDrpDtxE8kyO7rjq23vQpENtwgj5Aj0BSlTPU+e2/xcIb+zsf/Vtd
+         XQKrfb0M0b6dl2it3SOsFW0FBAZ4yQBOC874Cxp1V6AZB1S7Ca6K4KT7wjWiVPEYKyUE
+         5tpJeP78ScKWppOdP5mOHuSLVQimKsZTlZ5OCQtXiSOorMhcYU+d2f9kygd2xnjHHz3C
+         xs446Od4pmQjo49UK6GhCderlua2m6ptqxyK2bMYUjAi830qGxL247n18G4mV34M/Tbe
+         Mjhg==
+X-Forwarded-Encrypted: i=1; AJvYcCUVKx/UPXPq4XXANe08Bcllgri24LrwpLIDXuc/9FJXYfhCqlS/Cxd1uUnuS4U0BBCa0AXtttmlRp8pGoBmXGA=@lists.infradead.org, AJvYcCX1FWHTs2WCmbJUAkjxPKaKWZbM9Hi5n20ifxQ4vrVyBMtZM/I/O0qmPtrvRAoOfA/505E5+W7vo3tgDokHn799@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwTT7gRKsgEb5npME4w8fLcph2ywGhyOdLjPM1LhTo5f9yZDXh
+	4Auoq3QUAFrGe+mYIel9t99Ci5mIh06rq+Ma3igCPfBfkqihaqyDWiqY
+X-Gm-Gg: ASbGncuFB+rZFEsY+RgsNv9hO00f+9beC2ZjKNw1CDjmI0umCvVFoluKjYjUlJNf9zI
+	lowsTLc/8AwE87q93RQ9PW3ebcsSfmkSdHH0gKYFtq6QUeNLKHurw/wRqRuS8djEZVV/odiSdEz
+	t49vQnR+wP/nNZe07YZ8riaX0q1gytiPwOJnC3gIn0PRFxO75J1bRTmoP4jZNHOlIabuiY9zxjB
+	4tCBt9FYkClSwWGeaZTIXB1IEzin61P55aPYrU9RiGV5rfcXq2X9/w0oXmgYcKSQuqYDzi73g98
+	YbkzB5b1rY953Cmz/kGSzSNXe0UaYxM72HPNuFCi3NcwYwE5D3VHcowLQ4iSnGK4UAK44VsU3++
+	UJ1SjQObPKtAA4Td+/sEQn8qNlVy7aXVOOgvFql2F6t9eOO/z
+X-Google-Smtp-Source: AGHT+IEifZ9+Qoefw6C59P68ghxiOjv/mmB7vnLxOoNgNMQhGBq65x9dlLFXIorvyQQpoQF/016xrw==
+X-Received: by 2002:a05:6000:2f83:b0:3a5:8934:493a with SMTP id ffacd0b85a97d-3b4964e56c8mr1521328f8f.44.1751620288471;
+        Fri, 04 Jul 2025 02:11:28 -0700 (PDT)
+Received: from orome (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a9bcececsm49889865e9.23.2025.07.04.02.11.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Jul 2025 02:11:27 -0700 (PDT)
+Date: Fri, 4 Jul 2025 11:11:25 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Peter Chen <peter.chen@kernel.org>, 
+	Pawel Laszczak <pawell@cadence.com>, Roger Quadros <rogerq@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Michal Simek <michal.simek@amd.com>, Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+	Mathias Nyman <mathias.nyman@intel.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Bastien Nocera <hadess@hadess.net>, Bin Liu <b-liu@ti.com>, linux-usb@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, linux-omap@vger.kernel.org
+Subject: Re: [PATCH 67/80] usb: Remove redundant pm_runtime_mark_last_busy()
+ calls
+Message-ID: <ycajp5zwm65aauacebivz5773qhe2tmhcn7wqhorjybarfs5qq@su6kxog6t66k>
+References: <20250704075225.3212486-1-sakari.ailus@linux.intel.com>
+ <20250704075453.3222311-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|GVXPR04MB11041:EE_
-X-MS-Office365-Filtering-Correlation-Id: 579e170f-35b9-4028-0a62-08ddbada9564
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dJKldE7qpWM+0bi7S3KZbnZA2ImZlnkuSyc3+f2+p9WtT2MthglesipysQbj?=
- =?us-ascii?Q?2xkwtMXsn3LWYp8oEEdsU0rGfiUs2Mv9ZJIYG0tDEK9VTNIqDYdQGn+MFaWL?=
- =?us-ascii?Q?B7xGNX83ZS+Ezc668jobGTuXJXPaAvDNNG183tR5NadKGKuL4tR1S7c1B1b+?=
- =?us-ascii?Q?QDNGh35+C7dhMNkzuikkT4t+uUYkGKbvGzh0O1CXUuuDtai8c+3pfBC8r6LT?=
- =?us-ascii?Q?M0NZYoBBAVsb7C0e70pS8zq300KMVDWpy0aezGfqohdOtoEIRd7nm+0p2yA6?=
- =?us-ascii?Q?LOrAVrDSFLUEijvLMRV9t4qiHVnZz+l0I2zl/aWOOReurchrQ7rxTo37H29g?=
- =?us-ascii?Q?+JeCrOAw4y/Q2BQJPVZiOHUUAoWk3Tnv78CMheYeWV9WVzlIcNj4iSSLh8FY?=
- =?us-ascii?Q?UwH3xISRPLImbCeY6pwNYQFffM6ZQmr7fjZOos0OehzKbKLaZXi++D7FMD1O?=
- =?us-ascii?Q?RKvhwjF+iMp3/pYZepOTV4HzYu6epmj3wGv1/8rTnbkl5Z2aY6u1JRJ6lBEd?=
- =?us-ascii?Q?8qys3QHJff4Sr2i9awVcmGInJL29kgCDPa8bWtKzPXH2rym8QlzTwSe4+59Y?=
- =?us-ascii?Q?bELW8K7vG1ybve+3VrTzfUAod9L3CGss989fSdLosSFRssy8sJD63ZVzyJwS?=
- =?us-ascii?Q?SSN6X14Yrg90au3YE/V3lJrNEEgSsZtPRv2CKCQ5WgPr4jFIaODABs1VBHyF?=
- =?us-ascii?Q?zPu+AYiIhbzSaD362oAVi41wm6eg4oEtzlCCrXk0puRIIZZjndIZTbbY7y+j?=
- =?us-ascii?Q?e+eCsWZw3sVwhdYRcGBTWbvUpBFvSA+FM0bi0nmpfWfMzTEmfMf1eWCNzpeE?=
- =?us-ascii?Q?8FECj82Dyw+nUYIq42PMrTtk2yraui6MNjI3pIO5C8SwAoHTC2qlkdcAbg/7?=
- =?us-ascii?Q?LKl2JOt4r3ZusnEQ/a4dp8KU0/9UVNjPS4ilOEnzht6ZVMDWcg+dg1t966OX?=
- =?us-ascii?Q?DbCK178Ui3tlziJcnIliCFo2/0GaLgTGMODZGXXiGg7v3ZWhcY53mnFZeqQ/?=
- =?us-ascii?Q?+Q+y35GFdc0Tm7l1imsQtfl0PngdkzRNbyI+i2mwotwAu1fMH0iq8LTziRUG?=
- =?us-ascii?Q?Cq+5OxNJ6smX1OaHwfuJ1Gl/l5e6k2/eXvUC4kTXce8ZTEPqyzKFZ4KN3qf+?=
- =?us-ascii?Q?3TTzedjtSa62O2MLc/axScs8BepuH81IxrUBrAySPoNqg5JMiW3I4NU96ZTM?=
- =?us-ascii?Q?vtJqxSJzMf9j6824wjQyBAQfLe/XKhpkUSMHEWNW+8tTOfwKorlL7JAurFjF?=
- =?us-ascii?Q?sdX+SOeTi9DlYP/b3yA92/pNzMvyk0Fb2pHbuPyWtVevLpG2kBf3DyG4hkBY?=
- =?us-ascii?Q?6kDpQUGRe+ZIhgN6h8lwDxJWo5ge0cFET92s+3rWLaQWXWs1os38M3Uzuq4k?=
- =?us-ascii?Q?ueSUBigaI4yxz8pnFfSa3eSnTLF4Pn8ysEJ+kLMccREEqram2y+zf3/tTkoM?=
- =?us-ascii?Q?VAntu/CL0krALHJmQasw6oloHAizGcehmap7fLAl4pAm7tG0cA0uQg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LjjXXmXAy8CDHtd4OGs+lWmPBNvM97BZV3mj1EevO7dtVnHhrRjEKxUDhw87?=
- =?us-ascii?Q?XygUZOy3Go+8a7zVplKvpdhcO/mzXgWisLYncHNXHunFbZCXD41x9UuNpBen?=
- =?us-ascii?Q?bG0Jlxcjd4JQRJMPR9pF40Q6lO9w8gw8PYoV2DqPYXjxI1BMstfUtzCT0dEI?=
- =?us-ascii?Q?5ZW80hhfMoSXBXF+JP/CyyPhdNkF3AuT1n7eKXG+vS57KW1R1h2+zTd0ZW+G?=
- =?us-ascii?Q?oeklC1g7miDAIkxDOc6nMZemanEX053r9PEF5sWpovMLwDRiSyGeBgo0owJ+?=
- =?us-ascii?Q?YSaTZk4OTgOW7EFdja9jwEWgSisYYBi1Abpi4jxf8T9FD/wMwex0taxMsOUA?=
- =?us-ascii?Q?6aG6/LRiRREx9XN8s062tK1sRfdd5jDfmM01cLxzRcAvHD/Z+hTNWzfqhLOO?=
- =?us-ascii?Q?sBu58aKDz/lbQVKPBO0j7SYCJHJmqxS+dtwWB4PUE6jxQ0KzyvfFx77iBfBF?=
- =?us-ascii?Q?sdhQU2n7p/vyQvISMDrGXB/sM3l967rmKLr/AXisOG4EB3mmMPqAGMTVdcWG?=
- =?us-ascii?Q?zdDqvy5vA1xFh46irrgwh5lPBjPBk+U8JPusDys4lSkTMK8wC9/6dXZGRG7F?=
- =?us-ascii?Q?bwZonyUt3NXapWZiWSB2O5ypCW+xGd+7wy6kcOepqvwBJ0t0dlwzcHSfiAuI?=
- =?us-ascii?Q?8ye6JWsk8791PlUFab3kJycbPTbN//ef3y5dVt9sSdgZdsMM6Xsn1t+gv+zW?=
- =?us-ascii?Q?IwUeGV99+aFR0rCsi7e7H/deHiAb4luDZ9Higd/CHg9ARqpJgDyA1e7WqQAy?=
- =?us-ascii?Q?b43fIEOqiQOFH1WyW5NNyLEEwarO9R8fJPSX98mEcbipQv7JwkN4ESy/qghf?=
- =?us-ascii?Q?JgDypAH3a2bjJ9273tsKq2Vr17MltuacpL8tjK8RbmYX532ErPk9+vz84C46?=
- =?us-ascii?Q?qhgehYrYFc0DuWqd8YXuLv6gqNxK7bHbBJwoAKlpK6GnNdoUJxBlZoidMnZU?=
- =?us-ascii?Q?GtYG5s2XP/SeIi+J+WWUbgaWnMgh+kQz4lAzt868vgy7HM23tBuqqJS33ar3?=
- =?us-ascii?Q?6mCIExzhptfNYofAdjiJa/r3eS72SP6wTlFQSzV1OIhxFYo0SKKYyymLPn9K?=
- =?us-ascii?Q?CBOMTLdV8AkZN7NGuzFzq8K7KvGRNFiyKTIEl41MnX61BSBDRxGA0AsZ6FEe?=
- =?us-ascii?Q?zl0ZNrEnhBvDmqR+4BdkgD3QWxjjcHFAbzdlGhLkO89L3do2hRuPydtRPEFL?=
- =?us-ascii?Q?ccHiSbEFojg0aF+5aWZxirQ5C16iW2Zla19JHsNygXufbnQpRPv3MxgQzY4u?=
- =?us-ascii?Q?Mn/qn/6VQ7XCcuh2Gm2Mc+NISHW36EzgHgbKXYw8YzUSt3wkqGz3YvkA+sB4?=
- =?us-ascii?Q?n2mnkAuy/F/rorsQQkKtG/+pHpY4+LzA1CVX+rcJYm0/FMOlfAp5Ollp84Lp?=
- =?us-ascii?Q?79R1b9TE37bUVrWPVUiv7gF1IgH1wnDpWD56xFUP8AwzrLl2ycmZNNWNTU+2?=
- =?us-ascii?Q?XFoHiCYvb1qUlbgv9s9J5coUmm55USdWWJoCpneCJQ2RYVk2bXWPf4wVaXk1?=
- =?us-ascii?Q?gjR5EC7y+L6AzuMmdeeElaycrFq+fRknfu8r2leDcR5VUQ14jJHm/2tuuvX5?=
- =?us-ascii?Q?A3Le3yXoPhTqNC+qjWW9JuiIDhQpoj6r2vSGeF8s?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 579e170f-35b9-4028-0a62-08ddbada9564
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2025 09:10:12.9942
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xhzZsOwMGYWypt75qv2axom/AKPuD9MbGKXOqHaimrb2mL62yO+fGHT3ni4gsAiIYbkm6OO0bzbnITsXSjjWOA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11041
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dd3rsrobpe5enhed"
+Content-Disposition: inline
+In-Reply-To: <20250704075453.3222311-1-sakari.ailus@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_021018_549270_CDCB2790 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20250704_101131_429011_1D04442E 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,60 +122,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 02, 2025 at 04:22:11PM +0100, Sudeep Holla wrote:
->On Fri, Jun 27, 2025 at 02:03:47PM +0800, Peng Fan wrote:
->> MISC protocol supports getting the silicon information including revision
->> number, part number and etc. Add the API for user to retrieve the
->> information from SM.
->> 
->> Signed-off-by: Peng Fan <peng.fan@nxp.com>
->> ---
->>  .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 34 ++++++++++++++++++++++
->>  include/linux/scmi_imx_protocol.h                  |  8 +++++
->>  2 files changed, 42 insertions(+)
->> 
->> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
->> index 8ce4bf92e6535af2f30d72a34717678613b35049..d5b24bc4d4ca6c19f4cddfaea6e9d9b32a4c92f7 100644
->> --- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
->> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
->> @@ -26,6 +26,7 @@ enum scmi_imx_misc_protocol_cmd {
->>  	SCMI_IMX_MISC_CTRL_SET	= 0x3,
->>  	SCMI_IMX_MISC_CTRL_GET	= 0x4,
->>  	SCMI_IMX_MISC_DISCOVER_BUILDINFO = 0x6,
->> +	SCMI_IMX_MISC_SI_INFO = 0xB,
->
->Again, this seem to have slipped through in my initial review. How is this
->different from SMCCC SOC_ID interface. I am OK to have it as part of your
->vendor extensions and be here in the kernel documentation. But I won't
->accept any users of this within the kernel. Please provide justification
->as why you can't use the standard SMCCC SOC_ID.
->
->So, clear NACK for adding this support in the kernel for now.
 
-What I do here is just wanna to let
-linux could print similar information as what SM shows in its console:
+--dd3rsrobpe5enhed
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 67/80] usb: Remove redundant pm_runtime_mark_last_busy()
+ calls
+MIME-Version: 1.0
 
->$ info
-SM Version    = Build 677, Commit 49a36aaf
-SM Config     = mx95evk, mSel=0
-Board         = i.MX95 EVK, attr=0x00000000
-Silicon       = i.MX95 B0
-Boot mode     = normal
-Boot device   = SD2
-Boot stage    = primary
-Boot set      = 1
-ECID          = 0x7BADEECC000001D40001300963E636F1
-PMIC 0 (0x08) = 0x20, 0x09, 0x20, 0x00, 0x01
-PMIC 1 (0x2A) = 0x54, 0x22, 0x00, 0x0B
-PMIC 2 (0x29) = 0x55, 0x22, 0x00, 0x0A
-Compiler      = gcc 14.2.1 20241119
+On Fri, Jul 04, 2025 at 10:54:53AM +0300, Sakari Ailus wrote:
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
+>=20
+> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+[...]
+> diff --git a/drivers/usb/host/xhci-tegra.c b/drivers/usb/host/xhci-tegra.c
+> index 0c7af44d4dae..554b03e3ae92 100644
+> --- a/drivers/usb/host/xhci-tegra.c
+> +++ b/drivers/usb/host/xhci-tegra.c
+> @@ -1394,7 +1394,6 @@ static void tegra_xhci_id_work(struct work_struct *=
+work)
+>  		}
+> =20
+>  		tegra_xhci_set_port_power(tegra, true, true);
+> -		pm_runtime_mark_last_busy(tegra->dev);
+> =20
+>  	} else {
+>  		if (tegra->otg_usb3_port >=3D 0)
 
-With soc_device_register, dumping the silicon information needs use the
-other sysfs interface. Here with this patchset, reading one sysfs file could
-dump all the information.
+pm_runtime_mark_last_busy() was previously called conditionally only for
+host mode, but not for peripheral mode. That said, since that call was
+now moved into the pm_runtime_put_autosuspend(), any issues would
+already have been introduced by the series that this depends on, so
+we'll see if there's any fallout.
 
-But anyway, ok to drop this patch.
- 
-Thanks,
-Peng
+Acked-by: Thierry Reding <treding@nvidia.com>
+
+--dd3rsrobpe5enhed
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmhnmr0ACgkQ3SOs138+
+s6FhWRAAmqKDqeofJQ11k5izwUxvfuUGMikCMaAXOhGyv2+Tokqg6xbVpQ/LTy3A
+jW7wNUyH5ZjWFprk7RPURsZpkc8ruTDl3bmWdSdp+DlV5VNfEYs1fqreyNsOF1k/
+a++KWAlrXA7VRbSlFdMj6W6SjudMMjWby6Pm2K7I8pDuJQdOwSuBf0bWgN95JEiu
+MEf7+WORXLjgJToa1eiPE9aPSMqS+vOMhkrhJLfrsCmwqoG5CUnIJXf6wnaN5hqq
+QGKPnHXbDocqwAaMFkzX1/nSahQOIl4A882n8JB885SajqJ81BnjWVaUFnS2RDfS
+aPDiHDlZ+xs/Ix8ISxgpY6MPoMalnKlf3pkQ3FWrgS/NyTNryLm9bBT/SbhJVddC
+kAShqX2e8jXSn1MbNhLryWBJYdQ7jWagl5HwL2/R1w6BzY69iwUKHK/1Pi3SHFY9
+ryW8wlQGR2/ukqPqFPZVfXMmcX00Zuu+JIaiSscFM/Q5I3n47JIYmsFSWsertbI6
+DTkF9fKh5n1npEGFeUCilrG9b1bsYM+BJIrwqZ+7qfpgKb1uxC6yjdIlDLwkOLjy
+gc0ZORc30ulN3X2p+KUzVnte27Q3llclgZoISLYfv0+wkWvQcNYuBCBSvpajeqMe
+dC9Twi/Dm657HYa4TfqcD3EMTgt//GUiOVxKCHqOlQhXpEvQMuM=
+=lUG1
+-----END PGP SIGNATURE-----
+
+--dd3rsrobpe5enhed--
 
