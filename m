@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3E4C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 21:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE141C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 21:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gT/kE2FbqcydtbANQy4bEzpXBOWokCdE192f4lpw46w=; b=3Jxo9VCHXDRnRWFgdyMhcJfZ5T
-	sHwEJeJvWe8Hhi9NaaLzP/rt2iMNJAKtX52CA1U4jFoAZCdtJNccg1f0JoGYYZrCBJ4QejYDryj/s
-	oE5Z6KTYoooU6qEoOZKblVZyMU+9aC3oNAf424C9ZxjrNA7o8OmQFQVlZgj/shuY7Vbr2KPsMz86L
-	b77UGOSAqK63ESr6flMO8xkkp1d6YZTEIv0ZX1s2CcIoXNH/rZr3aLALYusBAIHu7QMqHxSrE72XZ
-	2eqHFqVFnytecCKiiMRNZc1Zsau4VRbl/KZw6U5eU2N47reAlZpfH1J/0Hb8BEB/u+WRv919O0qw5
-	u1OY1NKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VrjuHA60c6ELKBkWWJ+H3s42aztwFWTOgZaSeL6GuBY=; b=TTNUaSOfqGht55wdv7EDGFdaSr
+	B/EubYkcm0GHPk5sJN1yy8Z+sVmOQrjGqQMRsWlyyVXeTAq8R2CjcNHSbo1BV0opbbwTbu4Nef2za
+	wR0OdnHl8XPXiB2v/eUJjBpVAWYf0eJIo+PRVoa5kpz6gd3Rs7SCFQUg+3fPxWisszd3iFrd5XW9I
+	goY9DSNK/hOVoaEl0/FdeDZbf3CmslBJgZhBt/SHDpgoZDdNYb0v+YbMQTkBesvEmXm2tzpVEu/c7
+	h7cW6Hrgms0sO5dC0dkiE9tpKs+YmF+ZDCvbGux0HUpXr9V2DC2Yr4iWEAQw4J5+CqUWrhYtV7XFo
+	lt74fnrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXoJO-0000000FYZI-1uzr;
-	Fri, 04 Jul 2025 21:51:14 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1uXoMz-0000000FZ1h-2PIZ;
+	Fri, 04 Jul 2025 21:54:57 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXoH1-0000000FYNa-1OpO
+	id 1uXoKc-0000000FYl4-2WjU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 21:48:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751665727; x=1783201727;
-  h=date:from:to:cc:subject:message-id;
-  bh=1ApMdvcuHi/U4jmw42xfLo6nf+LkGA2NDX/+ISjjiSc=;
-  b=Y2sbVKy+99eAUrEpOStl3Kide6USS2jsTkPT4iZIIUVEDGJ0Nq5uJUD6
-   tKu8gEPoA095QNT0tehsB0mIz4OXcTzgZrdY1gBGA9gbaM4cymMCzhD9P
-   Uez0KPjduNR3S3AS/iFVM+E6lnkQoRk9ZawNPQHPGAKRZTpRP2LCAheOf
-   6AibdAHCzBFJ0wMLnTHxtu6rgcmyTILlC/G+29Rqho8Tik/tmqYYKpi7H
-   cBHVLPRjTX/5buOmcuv1isDy5l5xtNFlHqCoQG3qPPmT05NbJgLEsb5kB
-   2Vq9iL8RVP93SLDr1N2FrViKlTHIIpkIRuYL80sSbN9TmVff+aipdIbwa
-   g==;
-X-CSE-ConnectionGUID: 9VVbByl8RX6hEywDnO5ENA==
-X-CSE-MsgGUID: 0DpDPvbRSTW0Sa58K+9fYw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11484"; a="56617640"
-X-IronPort-AV: E=Sophos;i="6.16,288,1744095600"; 
-   d="scan'208";a="56617640"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2025 14:48:45 -0700
-X-CSE-ConnectionGUID: xJQ7q6rjSDSPnzFDiSk5mg==
-X-CSE-MsgGUID: CZVqH4nFSZGCEXjnQmHcTQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,288,1744095600"; 
-   d="scan'208";a="155291214"
-Received: from lkp-server01.sh.intel.com (HELO 0b2900756c14) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 04 Jul 2025 14:48:44 -0700
-Received: from kbuild by 0b2900756c14 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uXoGw-00046h-0L;
-	Fri, 04 Jul 2025 21:48:42 +0000
-Date: Sat, 05 Jul 2025 05:48:07 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/defconfig] BUILD SUCCESS
- 241a3be4775651703bfd25531a618825458fcf54
-Message-ID: <202507050554.CApIfUGo-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Fri, 04 Jul 2025 21:52:32 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 336181F0004F
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 21:52:26 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id EA739ACA77D; Fri,  4 Jul 2025 21:52:24 +0000 (UTC)
+Received: from collins (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 52886ACA76F;
+	Fri,  4 Jul 2025 21:52:23 +0000 (UTC)
+Date: Fri, 4 Jul 2025 23:52:21 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Icenowy Zheng <icenowy@aosc.xyz>,
+	Maxime Ripard <mripard@kernel.org>
+Subject: Re: [PATCH 1/2] clk: sunxi-ng: v3s: Fix de clock definition
+Message-ID: <aGhNFe3wGLX8aUC6@collins>
+References: <20250704154008.3463257-1-paulk@sys-base.io>
+ <4cd84b9e2227c9225d977107eb05b9c3813b8846.camel@icenowy.me>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RaiVzssz9gQuLCYX"
+Content-Disposition: inline
+In-Reply-To: <4cd84b9e2227c9225d977107eb05b9c3813b8846.camel@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_144847_387010_AE587ABC 
-X-CRM114-Status: UNSURE (   5.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250704_145230_958632_9979FA85 
+X-CRM114-Status: GOOD (  26.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,150 +72,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/defconfig
-branch HEAD: 241a3be4775651703bfd25531a618825458fcf54  Merge tag 'arm-soc/for-6.17/defconfig-arm64' of https://github.com/Broadcom/stblinux into soc/defconfig
 
-elapsed time: 735m
+--RaiVzssz9gQuLCYX
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-configs tested: 130
-configs skipped: 110
+Hi,
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Le Fri 04 Jul 25, 23:54, Icenowy Zheng a =C3=A9crit :
+> =E5=9C=A8 2025-07-04=E6=98=9F=E6=9C=9F=E4=BA=94=E7=9A=84 17:40 +0200=EF=
+=BC=8CPaul Kocialkowski=E5=86=99=E9=81=93=EF=BC=9A
+> > The de clock is marked with CLK_SET_RATE_PARENT, which is really not
+> > necessary (as confirmed from experimentation) and significantly
+> > restricts flexibility for other clocks using the same parent.
+>=20
+> With it not setting parent, is arbitary pixel clocks still possible?
 
-tested configs:
-alpha                             allnoconfig    clang-21
-arc                               allnoconfig    clang-21
-arc                   randconfig-001-20250705    clang-21
-arc                   randconfig-002-20250705    clang-21
-arm                              allmodconfig    gcc-15.1.0
-arm                               allnoconfig    clang-21
-arm                              allyesconfig    gcc-15.1.0
-arm                          gemini_defconfig    gcc-15.1.0
-arm                          pxa168_defconfig    gcc-15.1.0
-arm                   randconfig-001-20250704    gcc-8.5.0
-arm                   randconfig-001-20250705    clang-21
-arm                   randconfig-002-20250704    clang-21
-arm                   randconfig-002-20250705    clang-21
-arm                   randconfig-003-20250704    gcc-8.5.0
-arm                   randconfig-003-20250705    clang-21
-arm                   randconfig-004-20250704    gcc-13.4.0
-arm                   randconfig-004-20250705    clang-21
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    clang-21
-arm64                             allnoconfig    gcc-15.1.0
-arm64                 randconfig-001-20250704    gcc-14.3.0
-arm64                 randconfig-001-20250705    clang-21
-arm64                 randconfig-002-20250704    clang-21
-arm64                 randconfig-002-20250705    clang-21
-arm64                 randconfig-003-20250704    clang-16
-arm64                 randconfig-003-20250705    clang-21
-arm64                 randconfig-004-20250704    gcc-10.5.0
-arm64                 randconfig-004-20250705    clang-21
-csky                              allnoconfig    clang-21
-csky                  randconfig-001-20250705    gcc-9.3.0
-csky                  randconfig-002-20250705    gcc-9.3.0
-hexagon                           allnoconfig    clang-21
-hexagon               randconfig-001-20250705    gcc-9.3.0
-hexagon               randconfig-002-20250705    gcc-9.3.0
-i386        buildonly-randconfig-001-20250705    gcc-12
-i386        buildonly-randconfig-002-20250705    gcc-12
-i386        buildonly-randconfig-003-20250705    gcc-12
-i386        buildonly-randconfig-004-20250705    gcc-12
-i386        buildonly-randconfig-005-20250705    gcc-12
-i386        buildonly-randconfig-006-20250705    gcc-12
-i386                  randconfig-001-20250705    gcc-12
-i386                  randconfig-002-20250705    gcc-12
-i386                  randconfig-003-20250705    gcc-12
-i386                  randconfig-004-20250705    gcc-12
-i386                  randconfig-005-20250705    gcc-12
-i386                  randconfig-006-20250705    gcc-12
-i386                  randconfig-007-20250705    gcc-12
-loongarch                         allnoconfig    clang-21
-loongarch             randconfig-001-20250705    gcc-9.3.0
-loongarch             randconfig-002-20250705    gcc-9.3.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                            mac_defconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                          defconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-mips                         rt305x_defconfig    gcc-15.1.0
-nios2                             allnoconfig    gcc-15.1.0
-nios2                               defconfig    gcc-15.1.0
-nios2                 randconfig-001-20250705    gcc-9.3.0
-nios2                 randconfig-002-20250705    gcc-9.3.0
-openrisc                          allnoconfig    clang-21
-openrisc                            defconfig    gcc-12
-parisc                            allnoconfig    clang-21
-parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20250705    gcc-9.3.0
-parisc                randconfig-002-20250705    gcc-9.3.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                           allnoconfig    clang-21
-powerpc                       ebony_defconfig    gcc-15.1.0
-powerpc                     ep8248e_defconfig    gcc-15.1.0
-powerpc               randconfig-001-20250705    gcc-9.3.0
-powerpc               randconfig-002-20250705    gcc-9.3.0
-powerpc               randconfig-003-20250705    gcc-9.3.0
-powerpc64             randconfig-001-20250705    gcc-9.3.0
-powerpc64             randconfig-002-20250705    gcc-9.3.0
-powerpc64             randconfig-003-20250705    gcc-9.3.0
-riscv                             allnoconfig    clang-21
-riscv                               defconfig    gcc-12
-riscv                 randconfig-001-20250705    gcc-12
-riscv                 randconfig-002-20250705    gcc-12
-s390                              allnoconfig    clang-21
-s390                                defconfig    gcc-12
-s390                  randconfig-001-20250705    gcc-12
-s390                  randconfig-002-20250705    gcc-12
-sh                                allnoconfig    gcc-15.1.0
-sh                                  defconfig    gcc-12
-sh                ecovec24-romimage_defconfig    gcc-15.1.0
-sh                          r7785rp_defconfig    gcc-15.1.0
-sh                    randconfig-001-20250705    gcc-12
-sh                    randconfig-002-20250705    gcc-12
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20250705    gcc-12
-sparc                 randconfig-002-20250705    gcc-12
-sparc64                             defconfig    gcc-12
-sparc64               randconfig-001-20250705    gcc-12
-sparc64               randconfig-002-20250705    gcc-12
-um                                allnoconfig    clang-21
-um                                  defconfig    gcc-12
-um                             i386_defconfig    gcc-12
-um                    randconfig-001-20250705    gcc-12
-um                    randconfig-002-20250705    gcc-12
-um                           x86_64_defconfig    gcc-12
-x86_64      buildonly-randconfig-001-20250705    gcc-12
-x86_64      buildonly-randconfig-002-20250705    gcc-12
-x86_64      buildonly-randconfig-003-20250705    gcc-12
-x86_64      buildonly-randconfig-004-20250705    gcc-12
-x86_64      buildonly-randconfig-005-20250705    gcc-12
-x86_64      buildonly-randconfig-006-20250705    gcc-12
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20250705    clang-20
-x86_64                randconfig-002-20250705    clang-20
-x86_64                randconfig-003-20250705    clang-20
-x86_64                randconfig-004-20250705    clang-20
-x86_64                randconfig-005-20250705    clang-20
-x86_64                randconfig-006-20250705    clang-20
-x86_64                randconfig-007-20250705    clang-20
-x86_64                randconfig-008-20250705    clang-20
-x86_64                randconfig-071-20250705    clang-20
-x86_64                randconfig-072-20250705    clang-20
-x86_64                randconfig-073-20250705    clang-20
-x86_64                randconfig-074-20250705    clang-20
-x86_64                randconfig-075-20250705    clang-20
-x86_64                randconfig-076-20250705    clang-20
-x86_64                randconfig-077-20250705    clang-20
-x86_64                randconfig-078-20250705    clang-20
-x86_64                               rhel-9.4    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20250705    gcc-12
-xtensa                randconfig-002-20250705    gcc-12
+Absolutely and the clock tree is very much improved, I think the flag was t=
+he
+reason that was preventing it from naturally keeping the tcon and de clocks
+under the video pll in my case.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Now it can provide both the 33 Mhz for the pixel clock and runs the mixer at
+nearly 150 MHz. The video pll now runs at 297 MHz which is a perfect fit for
+csi-sclk camera main clock, so the algorithm is doing its job at its best!
+
+So this means that I no longer have to change the mixer clock to 297 MHz to
+keep it under the video pll. It pretty much solves all my problems at once.
+
+Here is the relevant clk_summary extract:
+    pll-video                        2       2        2        297000000   =
+50000      0     50000      Y      deviceless                      no_conne=
+ction_id        =20
+       csi-sclk                      0       0        3        297000000   =
+50000      0     50000      N         1cb8000.isp                     mod  =
+                   =20
+                                                                           =
+                                      1cb0000.camera                  mod  =
+                   =20
+                                                                           =
+                                      1cb1000.csi                     mod  =
+                   =20
+       tcon                          2       2        1        33000000    =
+50000      0     50000      Y         1c0c000.lcd-controller          tcon-=
+ch0                =20
+          tcon-data-clock            1       1        1        33000000    =
+50000      0     50000      Y            deviceless                      no=
+_connection_id        =20
+       de                            2       2        0        297000000   =
+50000      0     50000      Y         1000000.clock                   mod  =
+                   =20
+          wb-div                     0       0        0        297000000   =
+50000      0     50000      Y            deviceless                      no=
+_connection_id        =20
+             wb                      0       0        0        297000000   =
+50000      0     50000      N               deviceless                     =
+ no_connection_id        =20
+          mixer0-div                 1       1        0        148500000   =
+50000      0     50000      Y            deviceless                      no=
+_connection_id        =20
+             mixer0                  1       1        0        148500000   =
+50000      0     50000      Y               1100000.mixer                  =
+ mod                     =20
+
+Cheers,
+
+Paul
+
+> >=20
+> > In addition the source selection (parent) field is marked as using
+> > 2 bits, when it the documentation reports that it uses 3.
+> >=20
+> > Fix both issues in the de clock definition.
+> >=20
+> > Fixes: d0f11d14b0bc ("clk: sunxi-ng: add support for V3s CCU")
+> > Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+> > ---
+> > =C2=A0drivers/clk/sunxi-ng/ccu-sun8i-v3s.c | 3 +--
+> > =C2=A01 file changed, 1 insertion(+), 2 deletions(-)
+> >=20
+> > diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
+> > b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
+> > index 52e4369664c5..df345a620d8d 100644
+> > --- a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
+> > +++ b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
+> > @@ -347,8 +347,7 @@ static
+> > SUNXI_CCU_GATE(dram_ohci_clk,=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0"dram-ohci",=C2=A0=C2=A0=C2=A0=C2=A0"dram",
+> > =C2=A0
+> > =C2=A0static const char * const de_parents[] =3D { "pll-video", "pll-
+> > periph0" };
+> > =C2=A0static SUNXI_CCU_M_WITH_MUX_GATE(de_clk, "de", de_parents,
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x104, 0, 4, 24, 2, BIT(31),
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CLK_SET_RATE_PARENT);
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x104, 0, 4, 24, 3, BIT(31), 0);
+> > =C2=A0
+> > =C2=A0static const char * const tcon_parents[] =3D { "pll-video", "pll-
+> > periph0" };
+> > =C2=A0static SUNXI_CCU_M_WITH_MUX_GATE(tcon_clk, "tcon", tcon_parents,
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--RaiVzssz9gQuLCYX
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhoTRUACgkQhP3B6o/u
+lQxbYA//RHcmC2v5VG/WOF5k4Jxlw3iw+cDIPEFZifNzFxgSMjXLP3+LgrG4Z3Yv
+WusHzye4XCRui2HzEB0exnbhb2H/UgOqmbQin9q0c87H4ZBqWF1rNAbtOrKCGBqN
+2c8k/e6W+5KzJ2gFwonc54jw+X4yKjgckE8vd3afHjIjs1OoPHN465ulYmsu56n/
+3fRBIYonPB6LGPOQlGdpN40/emIpOmMNlKtM+R2UEUh8D17OKr7Mae3mtOZi7Tc/
+T2YtEa+gzyn+bobKPAJ4HbvBfYy66Wh0JDc6J8EGMyLl13NX6+EU4N5Nu4tABY4K
+75HDwyc27t6zKRHBePvmS+VvcUw5JOdpg80qgwWnVKc/XQ5WV5LDhOMwbrA3SnmP
+h4pWBGcdlnd/ngHsZDAmb7xO94UJBnzc9X5PSrq9dRWBUnbok11aIKAH5TUR7Hyd
+68wQtAzMT08oJb3XA8d5fj5fTsKRHBcqYCpyzuMFlZmumIR/yelfmyZNuWOphdqm
+L0ZQd5d1FRYBUrNE6td439wbXoXL15e22nfNlkbL/CLXSuchodaWW+kPrSnf+/Bp
+V7P9OwNtmaI8LA6ANIFrRXqoaYJ3T+8OjHgpsO5zXH8f4ltEDWaqNl8Jg5NdNC5U
+inqvGtvmlsaUZ6wRQWreBp1trzhM5cmxJrYaKFZtyAtMgFiLrZM=
+=/bFC
+-----END PGP SIGNATURE-----
+
+--RaiVzssz9gQuLCYX--
 
