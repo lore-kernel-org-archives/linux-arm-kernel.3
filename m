@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47DE6C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F25F7C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0ziiz4pCfyN0DdAlyFXIQvbXyuBI37LhL4/YnTHKwj0=; b=nFEMdA/AiBYyWYmbLt221uq9RY
-	B5vos71+vaMJGg8jJFGWbo9JgGq6Oc/yuDYgBAIfpFT7QkK3FVHsMLtoReI0/LL5YNBxKJAzU8MNs
-	XvnZZZqNV7Gw8s/AX9ThrpOi6GWlPR3su4CyLOZkfB8ftI4sAkEfEjvjlEX7gEqmzTJo/72W3Seim
-	cBLmPOKsC+cTDafuy93/IjG+/1A5N7N+a9syxqgQ6rVJXPxwU1Cjr3d3/Mr88ZPOwVloHDLi0zHhK
-	XQM18A+cFJFk0I6KGB6DYZTwmBmvioMHbr8OokoSQxligk8zAAwJD8grJ0pkQIm1OW/IJo9jST0rU
-	VTzgFEMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y9shy4WABjMXApP03CgNPKXgv/nf2wQ3YGULRdAM/EE=; b=jNuyt06o01QDFPOlVFIWTuvwmS
+	n3lKg1aUC18gxa7vjqx3f2rng9leUdcCaNT9lIcMjGOtct8b0ofsRD5x4m4cFD55iTCG6YuQveDTh
+	ZW3QAHpI6+kXcnZy+slRYLeGbcas523E0iMf+21vU3heY+0AEjfTHkRdoNyGYbW8HBVXwUHqP6c7o
+	8YV7xRdHoeh5a2bFwiK+HFc2cbJEut08BWWD3958iEX8+JrTOo1iaVKeyUwVMgNaK7EH5khtGsilp
+	q84AnEJYwz8cZPAtvLCKdQVZ5GOnhDCP03leCsV8ulHRWda/k8m37nweGdv4crAAJ8mNOZxL1iZyh
+	iozPNDVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXis6-0000000Eu2e-15Dy;
-	Fri, 04 Jul 2025 16:02:42 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uXiuQ-0000000EuEF-0HMq;
+	Fri, 04 Jul 2025 16:05:06 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXijq-0000000Estx-07fj
+	id 1uXiki-0000000Et3V-2z5g
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 15:54:11 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 977091F00060
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 15:53:56 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 67B33ACA65F; Fri,  4 Jul 2025 15:46:56 +0000 (UTC)
-Received: from localhost.localdomain (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id 630A6ACA64C;
-	Fri,  4 Jul 2025 15:46:33 +0000 (UTC)
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Cc: Yong Deng <yong.deng@magewell.com>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>
-Subject: [PATCH v8 0/9] Allwinner A31/A83T MIPI CSI-2 and A31 ISP / Platform Support
-Date: Fri,  4 Jul 2025 17:46:17 +0200
-Message-ID: <20250704154628.3468793-1-paulk@sys-base.io>
-X-Mailer: git-send-email 2.49.0
+	Fri, 04 Jul 2025 15:55:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1751644499; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=cdeygm4lRsrhT0J7mAzrQZsYAWPAovjxuALljDuK/7lWBABchyzXX/2qx+MkA8iPWWxRbq3TjLKiKCZQGGAVN4iwOgtjtYDF++UbporfluQbBytBqFp1L3L2QazuqoxB8LoPZsADrtynUIsyqaCsSaoRctloMrJiPptzlRLOLWY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1751644499; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=y9shy4WABjMXApP03CgNPKXgv/nf2wQ3YGULRdAM/EE=; 
+	b=F3i2rZPeDCiu+XbCS6U9D16xSAA/y4R8tEzJESWRI5+htDWmZJWjEpbGcjHuvA+ZlBCiJVuldRJ0gcnXCHN2oe28eibZcwGqOBm9rlgWQe9d4z9dERKa96p30+yQJkzUwTq6oiKgvta6mXd3vbWBiR/4SQZOetCdyl6aRkOXrGE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751644499;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=y9shy4WABjMXApP03CgNPKXgv/nf2wQ3YGULRdAM/EE=;
+	b=Zt5tu1Djn9hVKTEtlodlT6YUFACQSNWam8KJRf2/fWGO/g5Rvzy0w6pRSuML46No
+	PNiGQatgAoLulpnxC96K4qPQm0aKgCFKbBWyUZMdXl+nz/rmGY0UDqMePXl24IDUtn+
+	mBXNIB2FcAVPzgmjXUjz0XbZUTPjutwvaD9Kk73l77P6iseCbEpS85/Uvp7qhWq8+Sq
+	x31HsLmnZ6Muj6VGiX1NkOivfAYEiEOE2cx27Gyg64MocBs7o9R00zjnIy7Mf0+y3/t
+	OwaFzGKk++T9s/rszaoaRfJ3LddGQZE9dZw8e1mNBE3aNdolCFLf+z/gDe/WYSYcmmT
+	sfkIZu4ATg==
+Received: by mx.zohomail.com with SMTPS id 1751644497723754.7368487298465;
+	Fri, 4 Jul 2025 08:54:57 -0700 (PDT)
+Message-ID: <4cd84b9e2227c9225d977107eb05b9c3813b8846.camel@icenowy.me>
+Subject: Re: [PATCH 1/2] clk: sunxi-ng: v3s: Fix de clock definition
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Paul Kocialkowski <paulk@sys-base.io>, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>,  Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Icenowy
+ Zheng <icenowy@aosc.xyz>, Maxime Ripard <mripard@kernel.org>
+Date: Fri, 04 Jul 2025 23:54:50 +0800
+In-Reply-To: <20250704154008.3463257-1-paulk@sys-base.io>
+References: <20250704154008.3463257-1-paulk@sys-base.io>
+Organization: Anthon Open-Source Community
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_085410_240351_0C431F15 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20250704_085504_819236_CCCD54D8 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,73 +86,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds platform support for the V3s/V3/S3 MIPI CSI-2 and ISP units
-as well the as A83T MIPI CSI-2 unit in the respective device-trees.
-Overlays for the BananaPi M3 cameras are also provided as actual users of the
-camera pipeline on A83T.
+=E5=9C=A8 2025-07-04=E6=98=9F=E6=9C=9F=E4=BA=94=E7=9A=84 17:40 +0200=EF=BC=
+=8CPaul Kocialkowski=E5=86=99=E9=81=93=EF=BC=9A
+> The de clock is marked with CLK_SET_RATE_PARENT, which is really not
+> necessary (as confirmed from experimentation) and significantly
+> restricts flexibility for other clocks using the same parent.
 
-The corresponding drivers and dt bindings were merged a long time ago but this
-series was never actually picked up. It seems more than ready to be merged!
+With it not setting parent, is arbitary pixel clocks still possible?
 
-Changes since v7:
-- Added collected review tags;
-- Added interconnect properties to bindings;
-- Added compatible for device-tree overlays;
-- Moved mclk pin to sensor node in bpi-m3 overlays;
-- Removed duplicated assigned-clocks in bpi-m3 overlays.
-
-Changes since v6:
-- Rebased on top of the latest media tree, renamed dts to dtso for overlays.
-
-Changes since v5:
-- Added BananaPi M3 camera sensor support as device-tree overlays;
-- Cleaned-up OV8865 regulator definitions;
-- Always declared the internal links between CSI and MIPI CSI-2 on A83T
-  in device-tree.
-
-Changes since v4:
-- Removed mbus bindings patch: an equivalent change was merged;
-- Added collected tags;
-- Rebased on latest media tree.
-
-Changes since v3:
-- Reordered v3s mbus compatible in binding;
-- Added collected tag;
-- Removed rejected interconnects fix.
-
-Changes since all-in-one v2:
-- Corrected mbus index used for the interconnects;
-- Used extended mbus binding and exported the DRAM clock for that;
-- Reworked the description of the core openfirmware change to give
-  more insight about the situation.
-
-Paul Kocialkowski (9):
-  dt-bindings: media: sun6i-a31-csi: Add optional interconnect
-    properties
-  dt-bindings: media: sun6i-a31-isp: Add optional interconnect
-    properties
-  clk: sunxi-ng: v3s: Export MBUS and DRAM clocks to the public header
-  ARM: dts: sun8i: v3s: Add mbus node to represent the interconnect
-  ARM: dts: sun8i: v3s: Add nodes for MIPI CSI-2 support
-  ARM: dts: sun8i: v3s: Add support for the ISP
-  ARM: dts: sun8i: a83t: Add MIPI CSI-2 controller node
-  ARM: dts: sun8i-a83t: Add BananaPi M3 OV5640 camera overlay
-  ARM: dts: sun8i-a83t: Add BananaPi M3 OV8865 camera overlay
-
- .../media/allwinner,sun6i-a31-csi.yaml        |   6 +
- .../media/allwinner,sun6i-a31-isp.yaml        |   6 +
- arch/arm/boot/dts/allwinner/Makefile          |   2 +
- .../sun8i-a83t-bananapi-m3-camera-ov5640.dtso | 117 +++++++++++++++++
- .../sun8i-a83t-bananapi-m3-camera-ov8865.dtso | 103 +++++++++++++++
- arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi   |  43 +++++++
- arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi    | 121 ++++++++++++++++++
- drivers/clk/sunxi-ng/ccu-sun8i-v3s.h          |   4 -
- include/dt-bindings/clock/sun8i-v3s-ccu.h     |   4 +-
- 9 files changed, 400 insertions(+), 6 deletions(-)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3-camera-ov5640.dtso
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3-camera-ov8865.dtso
-
--- 
-2.49.0
+>=20
+> In addition the source selection (parent) field is marked as using
+> 2 bits, when it the documentation reports that it uses 3.
+>=20
+> Fix both issues in the de clock definition.
+>=20
+> Fixes: d0f11d14b0bc ("clk: sunxi-ng: add support for V3s CCU")
+> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+> ---
+> =C2=A0drivers/clk/sunxi-ng/ccu-sun8i-v3s.c | 3 +--
+> =C2=A01 file changed, 1 insertion(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
+> b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
+> index 52e4369664c5..df345a620d8d 100644
+> --- a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
+> +++ b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
+> @@ -347,8 +347,7 @@ static
+> SUNXI_CCU_GATE(dram_ohci_clk,=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0"dram-ohci",=C2=A0=C2=A0=C2=A0=C2=A0"dram",
+> =C2=A0
+> =C2=A0static const char * const de_parents[] =3D { "pll-video", "pll-
+> periph0" };
+> =C2=A0static SUNXI_CCU_M_WITH_MUX_GATE(de_clk, "de", de_parents,
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x104, 0, 4, 24, 2, BIT(31),
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CLK_SET_RATE_PARENT);
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x104, 0, 4, 24, 3, BIT(31), 0);
+> =C2=A0
+> =C2=A0static const char * const tcon_parents[] =3D { "pll-video", "pll-
+> periph0" };
+> =C2=A0static SUNXI_CCU_M_WITH_MUX_GATE(tcon_clk, "tcon", tcon_parents,
 
 
