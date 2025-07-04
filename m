@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC57C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6981C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MJ0TBQhwy2ZBsZ0vvoGeWKT79rD7j6K246cFDI2MSXY=; b=4TYDWonbZzB3ThsAOhLkQusl9C
-	GxxUEQbdWRVtulXRnr4YZe8Sdzk5iACP4P/Duyw1PVxjPSWt3kkDAPyFDjWccDji125QoN8FC56vz
-	EtEPgWGHlH6RUyrIB5nIud9QTqYOgIL1ltOHtY2WlpEZcLSwzFLUNy9l8zd39Bi2Quc3+/JMvnyOm
-	fRyDqc9bHllhdZycbSXWxSS8uHi89cMHn5Mg5FK/pJmP1hRHu8vt3ANLbpB54PzwAgeAN833Gadhx
-	Ipgiz9PBCmZppEniEoVbCVAQ1YK1gqNej5AVPvKeAMlNflhWyciFTDqpWEcvrM+8UZs1nhj4/6hbd
-	eglsheBw==;
+	bh=zffa5Qtw9RFP+2ei8/RprjRzj4t6K8bbXPhsfCnUT60=; b=WA52dP0TBScQ95V2OsjDZOzUNf
+	MQ9nIgE+/JdiOPqCmUJJdpSpxdWxHtVHnfWS6amtGc95IpmrpsY/RkeDw4VOiIj5j/argLTnY9eiS
+	Qlc/E8G1+WkZNdflYS7GnoKjphWGogUQCjeUKM9vdA9wXUH/WV9oPjf+viqfo98//kGz8Y2cpE06y
+	+MUKY6K6RYSIk8A0OJdt8PD+pG0ol8Aeq7DYM3rVX9Ed5TsOr6/wEJYdR1AwXyfFzFmTHh796qqne
+	UeGoxrs5sCYjqWrwpDXEeF5elDcihvMYh6VGFfm4/9KpNDw5NnTWpIpFaCEGEfSQBeEf7qOXuTybF
+	qAnVIG9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXj1P-0000000Ev3G-1H7g;
-	Fri, 04 Jul 2025 16:12:19 +0000
+	id 1uXj3i-0000000EvDX-0AHu;
+	Fri, 04 Jul 2025 16:14:42 +0000
 Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXiok-0000000EtYJ-3jfj
+	id 1uXion-0000000EtZT-2ovn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 15:59:16 +0000
+	Fri, 04 Jul 2025 15:59:18 +0000
 Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 2B2011F0004F
+	by leonov.paulk.fr (Postfix) with ESMTPS id DBD761F0006A
 	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 15:59:00 +0000 (UTC)
 Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id AEF4EACA699; Fri,  4 Jul 2025 15:50:14 +0000 (UTC)
+	id 69F9BACA684; Fri,  4 Jul 2025 15:48:57 +0000 (UTC)
 Received: from localhost.localdomain (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id E94BAACA657;
-	Fri,  4 Jul 2025 15:46:35 +0000 (UTC)
+	by laika.paulk.fr (Postfix) with ESMTP id F11FBACA655;
+	Fri,  4 Jul 2025 15:46:34 +0000 (UTC)
 From: Paul Kocialkowski <paulk@sys-base.io>
 To: linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -55,17 +55,17 @@ Cc: Yong Deng <yong.deng@magewell.com>,
 	Stephen Boyd <sboyd@kernel.org>,
 	Maxime Ripard <mripard@kernel.org>,
 	Paul Kocialkowski <paul.kocialkowski@bootlin.com>
-Subject: [PATCH v8 5/9] ARM: dts: sun8i: v3s: Add nodes for MIPI CSI-2 support
-Date: Fri,  4 Jul 2025 17:46:22 +0200
-Message-ID: <20250704154628.3468793-6-paulk@sys-base.io>
+Subject: [PATCH v8 3/9] clk: sunxi-ng: v3s: Export MBUS and DRAM clocks to the public header
+Date: Fri,  4 Jul 2025 17:46:20 +0200
+Message-ID: <20250704154628.3468793-4-paulk@sys-base.io>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250704154628.3468793-1-paulk@sys-base.io>
 References: <20250704154628.3468793-1-paulk@sys-base.io>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_085915_228683_B8DC606A 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20250704_085917_865629_542FFA52 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,110 +82,58 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
 
-MIPI CSI-2 is supported on the V3s with an A31-based MIPI CSI-2 bridge
-controller. The controller uses a separate D-PHY, which is the same
-that is otherwise used for MIPI DSI, but used in Rx mode.
-
-On the V3s, the CSI0 controller is dedicated to MIPI CSI-2 as it does
-not have access to any parallel interface pins.
-
-Add all the necessary nodes (CSI0, MIPI CSI-2 bridge and D-PHY) to
-support the MIPI CSI-2 interface.
-
-Note that a fwnode graph link is created between CSI0 and MIPI CSI-2
-even when no sensor is connected. This will result in a probe failure
-for the controller as long as no sensor is connected but this is fine
-since no other interface is available.
-
-The interconnects property is used to inherit the proper DMA offset.
+In order to declare a mbus node for the v3s, expose its associated
+clocks to the public header.
 
 Signed-off-by: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Reviewed-by: Samuel Holland <samuel@sholland.org>
+Acked-by: Rob Herring <robh@kernel.org>
 ---
- arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi | 71 ++++++++++++++++++++++
- 1 file changed, 71 insertions(+)
+ drivers/clk/sunxi-ng/ccu-sun8i-v3s.h      | 4 ----
+ include/dt-bindings/clock/sun8i-v3s-ccu.h | 4 ++--
+ 2 files changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-index 02d6c62b3874..bfe02295f45d 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-+++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-@@ -671,6 +671,77 @@ gic: interrupt-controller@1c81000 {
- 			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
- 		};
+diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.h b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.h
+index 345cdbbab362..c933ef016570 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.h
++++ b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.h
+@@ -39,14 +39,10 @@
  
-+		csi0: camera@1cb0000 {
-+			compatible = "allwinner,sun8i-v3s-csi";
-+			reg = <0x01cb0000 0x1000>;
-+			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_CSI>,
-+				 <&ccu CLK_CSI_SCLK>,
-+				 <&ccu CLK_DRAM_CSI>;
-+			clock-names = "bus", "mod", "ram";
-+			resets = <&ccu RST_BUS_CSI>;
-+			interconnects = <&mbus 5>;
-+			interconnect-names = "dma-mem";
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					csi0_in_mipi_csi2: endpoint {
-+						remote-endpoint = <&mipi_csi2_out_csi0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		mipi_csi2: csi@1cb1000 {
-+			compatible = "allwinner,sun8i-v3s-mipi-csi2",
-+				     "allwinner,sun6i-a31-mipi-csi2";
-+			reg = <0x01cb1000 0x1000>;
-+			interrupts = <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_CSI>,
-+				 <&ccu CLK_CSI_SCLK>;
-+			clock-names = "bus", "mod";
-+			resets = <&ccu RST_BUS_CSI>;
-+			status = "disabled";
-+
-+			phys = <&dphy>;
-+			phy-names = "dphy";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				mipi_csi2_in: port@0 {
-+					reg = <0>;
-+				};
-+
-+				mipi_csi2_out: port@1 {
-+					reg = <1>;
-+
-+					mipi_csi2_out_csi0: endpoint {
-+						remote-endpoint = <&csi0_in_mipi_csi2>;
-+					};
-+				};
-+			};
-+		};
-+
-+		dphy: d-phy@1cb2000 {
-+			compatible = "allwinner,sun6i-a31-mipi-dphy";
-+			reg = <0x01cb2000 0x1000>;
-+			clocks = <&ccu CLK_BUS_CSI>,
-+				 <&ccu CLK_MIPI_CSI>;
-+			clock-names = "bus", "mod";
-+			resets = <&ccu RST_BUS_CSI>;
-+			allwinner,direction = "rx";
-+			status = "disabled";
-+			#phy-cells = <0>;
-+		};
-+
- 		csi1: camera@1cb4000 {
- 			compatible = "allwinner,sun8i-v3s-csi";
- 			reg = <0x01cb4000 0x3000>;
+ /* The first bunch of module clocks are exported */
+ 
+-#define CLK_DRAM		58
+-
+ /* All the DRAM gates are exported */
+ 
+ /* Some more module clocks are exported */
+ 
+-#define CLK_MBUS		72
+-
+ /* And the GPU module clock is exported */
+ 
+ #define CLK_PLL_DDR1		74
+diff --git a/include/dt-bindings/clock/sun8i-v3s-ccu.h b/include/dt-bindings/clock/sun8i-v3s-ccu.h
+index c4055629c9f9..d635bffd6914 100644
+--- a/include/dt-bindings/clock/sun8i-v3s-ccu.h
++++ b/include/dt-bindings/clock/sun8i-v3s-ccu.h
+@@ -87,7 +87,7 @@
+ #define CLK_SPI0		55
+ #define CLK_USB_PHY0		56
+ #define CLK_USB_OHCI0		57
+-
++#define CLK_DRAM		58
+ #define CLK_DRAM_VE		59
+ #define CLK_DRAM_CSI		60
+ #define CLK_DRAM_EHCI		61
+@@ -101,7 +101,7 @@
+ #define CLK_VE			69
+ #define CLK_AC_DIG		70
+ #define CLK_AVS			71
+-
++#define CLK_MBUS		72
+ #define CLK_MIPI_CSI		73
+ 
+ /* Clocks not available on V3s */
 -- 
 2.49.0
 
