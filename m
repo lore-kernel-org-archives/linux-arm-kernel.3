@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03220C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CD0C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 16:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZRw8bJBUl7TCVNH8Klw5RQtx3+bFYmtsMNcnAX9UJTI=; b=FqvtrpfDBZ4sVJjks0yP+chsDS
-	7kIPtMm1SdgLi0G7X6/AR7WOcQnps3tj4nxeMfVB1qVQrZiW17jul1gR1+zNkf2N+h51DDF0AR40g
-	kMIPoDtn2cHNQNAI0G5FUBl2/4S3bon1HiL+X33tdfefUJY0dMP05+WG/tZ5N9s85RKgrVlT3sHhg
-	JCagJ9ljEwvhbHuiAhst5j0kLNQ2c7Rdd1AWc2YNQkP887/ZbyAfvvv4zsQhbG/L7Y3gouhOFOXfN
-	D+Gvm7lfGTVqsIVS/tRQP7xFHP3vBU5+lYV+7l5rmMkdbGv9hqRFsWkPUaCgNYRIiAkojgwCk3a7E
-	44IvJMJg==;
+	bh=xoEX/dn4HyN+62SnRnsbKwPUXGvzzqi3u5k3tvnUotg=; b=ahtP10GtV1uEjW/I8fbhmr1MJn
+	IM3oTL/DaGu5o0hyejDv1n5RlFhHuOAGarfqPWwiwMV3Dm7dHy3rpAnw60TtpSVTxiAIxGx652VvJ
+	9u/Ym9xYpbdorikGGEoL/szoiJJz2gBw6jiE/dykZ3ctz5Agva8CdriwE3sx+R4XlWJi7tMiyTW3d
+	67sJSJku9gZmtvnTkHhn2iKy+FQfQepx5AJJoCHPkc9Jj5JB+t1bM/zEmYwTuhldBKEp0t5EiXmmh
+	CXqOH4HFiayQx/12rgJLRakrvSJ081Iy6nrVmKNqqMFR3hiHHb2smgdDX8vJItwyUU0MgvSuZgOQ7
+	muyvYeBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXiwk-0000000EuWH-12kD;
-	Fri, 04 Jul 2025 16:07:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uXiz4-0000000Euos-2GGq;
+	Fri, 04 Jul 2025 16:09:54 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXimt-0000000EtJT-09qx;
-	Fri, 04 Jul 2025 15:57:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 67E965C6294;
-	Fri,  4 Jul 2025 15:57:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2C95C4CEE3;
-	Fri,  4 Jul 2025 15:57:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751644638;
-	bh=8AiV8GZ8dXSm8Gr4E1ix6z5OY/73wpxxP/YoaU2wWsg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=vCYB0L4ef5CtdNA76NK99aEBeqswiQI3Fr8kzqCEAdZLZOggQCVZGyBB3vmBB34NW
-	 4qx1EkPEHv6V7bWrQfJ+aqgwHsY/fnSnxF8nKrGisZxTP4gRiX8qqnaZsk8FUxdXQN
-	 KQ3vjX7XtRXJNKbsN9f1rwng5MYzR/4x7emG6fhHMjULEPUNnXSbo0lERflm5YZnx9
-	 CAiaBXdUJVF8u9cShVm7CLKV+lfl8o2EHovC3hToDsycP1AFRFGwI/CmDzFNUIcaF/
-	 VjEztecmEpBU7W27v7ueEfwcRUxjjdkA52FJljwFQHHl0GDnzC1aGn00SOBd+/6dN0
-	 Yk5M9sG81tcbg==
-From: Mark Brown <broonie@kernel.org>
-To: Cheng-Yi Chiang <cychiang@chromium.org>, 
- Tzung-Bi Shih <tzungbi@kernel.org>, Guenter Roeck <groeck@chromium.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Benson Leung <bleung@chromium.org>, 
- Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
- Bard Liao <yung-chuan.liao@linux.intel.com>, 
- Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
- Daniel Baluta <daniel.baluta@nxp.com>, 
- Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
- Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- "Rob Herring (Arm)" <robh@kernel.org>
-Cc: chrome-platform@lists.linux.dev, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, sound-open-firmware@alsa-project.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20250703183523.2075276-1-robh@kernel.org>
-References: <20250703183523.2075276-1-robh@kernel.org>
-Subject: Re: [PATCH] ASoC: Use of_reserved_mem_region_to_resource() for
- "memory-region"
-Message-Id: <175164463151.103413.17242498440518772923.b4-ty@kernel.org>
-Date: Fri, 04 Jul 2025 16:57:11 +0100
+	id 1uXioR-0000000EtUv-2MKC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Jul 2025 15:58:56 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id A23581F00036
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Jul 2025 15:58:53 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 55B45ACA6B3; Fri,  4 Jul 2025 15:51:41 +0000 (UTC)
+Received: from localhost.localdomain (unknown [192.168.1.64])
+	by laika.paulk.fr (Postfix) with ESMTP id C5661ACA659;
+	Fri,  4 Jul 2025 15:46:40 +0000 (UTC)
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Cc: Yong Deng <yong.deng@magewell.com>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Subject: [PATCH v8 7/9] ARM: dts: sun8i: a83t: Add MIPI CSI-2 controller node
+Date: Fri,  4 Jul 2025 17:46:24 +0200
+Message-ID: <20250704154628.3468793-8-paulk@sys-base.io>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250704154628.3468793-1-paulk@sys-base.io>
+References: <20250704154628.3468793-1-paulk@sys-base.io>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-cff91
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_085719_122796_AE42F4AB 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250704_085855_765985_DDE50197 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +80,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 03 Jul 2025 13:35:21 -0500, Rob Herring (Arm) wrote:
-> Use the newly added of_reserved_mem_region_to_resource() function to
-> handle "memory-region" properties.
-> 
-> 
+From: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
 
-Applied to
+MIPI CSI-2 is supported on the A83T with a dedicated controller that
+covers both the protocol and D-PHY. It is connected to the only CSI
+receiver with a fwnode graph link. Note that the CSI receiver supports
+both this MIPI CSI-2 source and a parallel source.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+An empty port with a label for the MIPI CSI-2 sensor input is also
+defined for convenience.
 
-Thanks!
+Signed-off-by: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+---
+ arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi | 43 +++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
-[1/1] ASoC: Use of_reserved_mem_region_to_resource() for "memory-region"
-      commit: bc163baef57002c08b3afe64cdd2f55f55a765eb
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi b/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi
+index 6f88d8764e6a..cc107c6030de 100644
+--- a/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi
++++ b/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi
+@@ -1062,6 +1062,49 @@ csi: camera@1cb0000 {
+ 			clock-names = "bus", "mod", "ram";
+ 			resets = <&ccu RST_BUS_CSI>;
+ 			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@1 {
++					reg = <1>;
++
++					csi_in_mipi_csi2: endpoint {
++						remote-endpoint = <&mipi_csi2_out_csi>;
++					};
++				};
++			};
++		};
++
++		mipi_csi2: csi@1cb1000 {
++			compatible = "allwinner,sun8i-a83t-mipi-csi2";
++			reg = <0x01cb1000 0x1000>;
++			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_CSI>,
++				 <&ccu CLK_CSI_SCLK>,
++				 <&ccu CLK_MIPI_CSI>,
++				 <&ccu CLK_CSI_MISC>;
++			clock-names = "bus", "mod", "mipi", "misc";
++			resets = <&ccu RST_BUS_CSI>;
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				mipi_csi2_in: port@0 {
++					reg = <0>;
++				};
++
++				mipi_csi2_out: port@1 {
++					reg = <1>;
++
++					mipi_csi2_out_csi: endpoint {
++						remote-endpoint = <&csi_in_mipi_csi2>;
++					};
++				};
++			};
+ 		};
+ 
+ 		hdmi: hdmi@1ee0000 {
+-- 
+2.49.0
 
 
