@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 685F6C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 18:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFC6C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Jul 2025 18:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N67EZfp2e+e+HllfTzxdaGv4bPaFmFho6lPpUSIO1DI=; b=3ERbRZ5mnrj5cOUeHFHTQ8uKlv
-	6aq9CvmGfZcxKA38fXR8i950E1Z87A8pcdiZ1rb0/PjvK10aqjKwa9m3yqmAYoAWxCRpABu1EDy/N
-	0/a8kdnwI1VChNZSpXzz5vhr54+eDQu0dwl9H17FwY9Vb9en/3ZsG+LRswjIfr+mZPskEBW7NFKff
-	Fzl6Rp23iEV4zN7NRF2NddOmfE6LCkGk6pgH2EKPfxto5Q2hPz/UYGBWTm3dImuf3VizvQ4hD+XI/
-	Xw9fbG8XmEfCVFHif4q4HFsRSjjYP/4oq9Hwoi7Kc0AeHxEF5WER5uBzyVxetTCC5r1hpaby7LR3p
-	48r2mXfw==;
+	bh=h+6MaXkwZ4dUQclS84K/L9nPqy6QvIp545pOiMCxoJU=; b=1XJUkfrpy0jK3BKe4dK942eC/D
+	z3H06S5oFtWuUJblkUMyNg3YeDzpDuVi9QELbSk9fyCDuJ6YLj7ms84Pb/QTF+gH6bCfN0Yen/JUM
+	Tugb/ahX5D5UVqQK3ckUkb0JwAXWRFmy3ApB7u4isI8vylGk84bEPYR1vLUJRh7YTDV8MSxzQcaFY
+	LkQFEA+gh1Eu/hbe7Cf/bbLT5OPcIzrV7Bt5Qi9BOoTDVy7Z/+5oOZHoZrcyBzbEKnIWMmWWBS5yV
+	ylpZYN392l0xrC4hObI6wAy0Fm9tvGvSYzqfxCrqpImB1646ACiRp1BE43OfCwosehehkaeqIgVmD
+	ZY+NOLhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkl5-0000000FAR6-3gXo;
-	Fri, 04 Jul 2025 18:03:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uXknQ-0000000FAfj-2K7g;
+	Fri, 04 Jul 2025 18:06:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXkSj-0000000F8C2-02A3
+	id 1uXkSl-0000000F8Da-1ONF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Jul 2025 17:44:38 +0000
+	Fri, 04 Jul 2025 17:44:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BE5646159;
+	by tor.source.kernel.org (Postfix) with ESMTP id C07BA6146B;
+	Fri,  4 Jul 2025 17:44:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D6AC4CEE3;
 	Fri,  4 Jul 2025 17:44:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACA0EC4CEED;
-	Fri,  4 Jul 2025 17:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751651076;
-	bh=v4HqrO/Loccpnm9IAZIiomMoOx53gCodU0/+eM3L62c=;
+	s=k20201202; t=1751651078;
+	bh=jaOjuh9ezxdhTwYcV1byDDNFMNy1vCBmMI29BMRsjzk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IEi8pj/kCMl95J2lMztV2IxkDV8mgs4XOj5do6SyB7RcJ2kfsBK4xKMnFKuHFMxwC
-	 7ZvMJy9KuGqDeHL0ZihnSDnxIEZvVlIRgTtK06oW9mB5aWdW/YPoVUF9bzYQgp/ibE
-	 7lsO6jb0mEzBe5/S286MAekCB5dooB3Av9pNnlUCDjDiBy7qLcwgyMSAz1M+lU7HEo
-	 zTk6cWB8Dgo2nmUD1kCJ+j6vMQzEfF9JExGzusMbiL20MHHlcjQPwKzYGegn6igtfU
-	 00JTL5PmJeoLZrojg/I0nqwt4jtwodMdWDZsFBpiyw7qlAmLalCww8CN9fYC8BWMmY
-	 wn/u5S88Z2dpw==
+	b=mBk53SbiQxkcXuLVklXYlmlOZ9J2mjwMLe2UbGAqFjJw6NSNwxgXzFQQTVkC+zitA
+	 1KEVw5Yb6E8newabjPuUj8op7FBBKs/lityI/KRl+mwLt4eLIRJ9uKumQVhcxdGa9h
+	 EZCoKDAzvzpoYLkJ/wMkkIIsO48nrMAWIfywE8mEjIoxaFvnF6Gv2oyu7Su0XP5XP9
+	 qWdfwat8g/1YA5nIEwCMYUp0IIick0j6GUPu5zat9Rq4W5N+nHzo/JJTNiNldXbvil
+	 oY4Hs2Lz1B7a2q8BbbKu2tE2rptkIS2u8LXYo235BEgOnADVc7YGBUee5eIjuXMTOX
+	 LHqWQdcnmteEQ==
 From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	imx@lists.linux.dev,
-	Colin Ian King <colin.i.king@gmail.com>
+To: robin.murphy@arm.com,
+	mark.rutland@arm.com,
+	Zhiyuan Dai <daizhiyuan@phytium.com.cn>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	kernel-janitors@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH][next] perf: imx9_perf: make the read-only array mask static const
-Date: Fri,  4 Jul 2025 18:44:12 +0100
-Message-Id: <175164874778.4003522.7716174042065513096.b4-ty@kernel.org>
+Subject: Re: [PATCH] perf/arm-cmn: Broaden module description for wider interconnect support
+Date: Fri,  4 Jul 2025 18:44:13 +0100
+Message-Id: <175164870782.4003146.18058724639917920993.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250611133917.170888-1-colin.i.king@gmail.com>
-References: <20250611133917.170888-1-colin.i.king@gmail.com>
+In-Reply-To: <20250522032122.949373-1-daizhiyuan@phytium.com.cn>
+References: <20250522032122.949373-1-daizhiyuan@phytium.com.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_104437_066852_25D9200E 
-X-CRM114-Status: UNSURE (   7.23  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,16 +75,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Jun 2025 14:39:17 +0100, Colin Ian King wrote:
-> Don't populate the read-only array mask on the stack at run time,
-> instead make it static const.
+On Thu, 22 May 2025 11:21:22 +0800, Zhiyuan Dai wrote:
+> The current MODULE_DESCRIPTION only mentions CMN-600, but this driver
+> now supports several Arm mesh interconnects including CMN-650, CMN-700,
+> CI-700, and CMN-S3.
+> 
+> Update the MODULE_DESCRIPTION to reflect the expanded scope.
 > 
 > 
+> [...]
 
 Applied to will (for-next/perf), thanks!
 
-[1/1] perf: imx9_perf: make the read-only array mask static const
-      https://git.kernel.org/will/c/b6e37b27bf68
+[1/1] perf/arm-cmn: Broaden module description for wider interconnect support
+      https://git.kernel.org/will/c/8b177e9a4ecd
 
 Cheers,
 -- 
