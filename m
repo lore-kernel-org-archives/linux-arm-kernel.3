@@ -4,155 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E6BEC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 13:28:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FB4C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 14:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFfAOdZHZIE6KKa8ytmfDci8WXBkWo7UVd5faQGltnM=; b=Kml5dcULV0mWY0Ct5Ve7KTvlDd
-	0oZl8jIhTXXYgxquRsSBZsST9FzslXq14b83oWiJsngVsaJve8EGKjluYkt/3VigHc0o12SgtsGng
-	pfeQ5DkfVj7M3vdcASr48pmX4JztzUNsxTumemo8h/jRg1XK6HZgs3JLbva8DAHrRCv4sabjFfGfk
-	Uxyrkf6Y7fYdf88SLtyqtfZFXrfPKRrIfiqdo00qZlN8jSDEgIAsPGoQaT1Kjxf5zG1ERXbaOJ0XM
-	5szkZK7XpaOXqhV6Pkf+xXT1GLVuOYdVvRBmanRVxNr2PKqlfqizoh/hpZ4PjY76B780LrIklNuTk
-	A5iCHtzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GxrMRQg3ClHbYVYGNow/NsJAM3b7dz8NkMi6RpKX/2A=; b=hYJQcgZljfMX+47yOuiDZT9DyJ
+	axFs4yLHGxMMdjSKgE04fA101TR3c1IOzgt9br3QsoiCK1XngYJuGFQF0M9B2czFHtZT5rahD5aoG
+	YY2uIzPp7/ZHumFTJLb2cBQqtMw4+zFwI+51f4LJPVeoX1ryePnxWr5Y8jaTXMtdp2fpMZNDDpncE
+	ooP5SEAx43UMcX5Jr+G+TUBVz4r/WkbycY7vY7WEe0tpMTnvwxyCIicXqurTsoZ5BZHMA/EvV+h55
+	V/evxj7Q/Iq+ILaWxvJuToS6NE+LCqrIik/97DlaEjLgtiUYu98VxhiT4ltI3O5q8NQEvWfVxpNV0
+	dJEg+f1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY2wT-0000000GYaP-2y8u;
-	Sat, 05 Jul 2025 13:28:33 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uY3aB-0000000GbZU-0F8C;
+	Sat, 05 Jul 2025 14:09:35 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY2u4-0000000GYKx-1csm
+	id 1uY3Xr-0000000GbON-2ODy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Jul 2025 13:26:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lE6Oar0HVpNzqCvkvoGhVwyI1kwOiATHG5B/tt3N4GcNdH+9h31RwNvGwn/qWR8oLNBWc19YdMXTcAjauDAfgsUWAmSnybw6EoH75ayQiqrhOCKP4KgRiRpOKlfBMkyrW8mZ4yuBczrcKh5EAYbij0/QJMskQdkQ9Sxdia72x0anW8Gcb+0RYDiRaQGv1KQ+dKcHUifppGxFI2Zsd8FOlN9Mi9IOaes7B8eplsIjEQW0YVF74tI3uVvz3fllcT3qki08BOYNwcDWCnhJ7pVSY9+4dqHpDer1fqUCR5jnt3wb0LZWCA7i9VtIdgltUUldOOjAIPpl33CQyQ9S0lp/NQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mFfAOdZHZIE6KKa8ytmfDci8WXBkWo7UVd5faQGltnM=;
- b=KbHwatyN4UOH6Th2wVnYleZYUIXGqWSMzhdpGImtU50YTHFMiJr/B2PSdpYe1OA1yFAScPzLnRwi0s2CjIPAMFdjrFZmeo/1/EX9wMpbtgXtyZbTE7qO6IBcBLPEyYWO7+w0wtnooElbb+WhO4j1yuZp8qIqdu9+ofDPXo0vZUJ2AfwSdjxJ8bTOjqywSdORDkcfxzzpGL7HwuK4SNpgT11qJeyObbqpPn5EdaImy5WHHddsAh2zER70DmkyzJpOXxbqHZjhzPYXXxXpiShUrLUFFAP0MVLua9h2q7kqQNDsTJ5CS/4Q/luJ4a/E+QFOaW99uFVnup4DdfcQ9+hn5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mFfAOdZHZIE6KKa8ytmfDci8WXBkWo7UVd5faQGltnM=;
- b=XOMDDLp6BqT1CcLHO6ny8bR+357op1Qu8+D4DQbuTmYQBqs9uiLb+9tdpBxuEysqLJ0GaauK1xUUUD2NGTdYFJe4O8mDioOMKhtODNGkgWcD1nCMY5oiDMd4jQlbULzKXWnfP/34/momvGXrmje38vNzSCcLdoyvWIOFbcYohQ7KBXrQH6yC8aVyELD1ICIUE++hO2inXckJmIg0LBIdeIYWS1M6hxMRdziCzFKxB7pWmwoXxeMzs3DVXLOy+nBtLz/pI6XwiAWaVA3Cq91sHwMtOafhT5jmH/9HY5SGSwdqj8qCGRnzcfZXS2MO92eE0QnJCTEoTjkIAH58WTDnBw==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DB9PR04MB9916.eurprd04.prod.outlook.com (2603:10a6:10:4ee::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.22; Sat, 5 Jul
- 2025 13:25:57 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8901.021; Sat, 5 Jul 2025
- 13:25:57 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Hiago De Franco <hiagofranco@gmail.com>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>
-CC: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Iuliana Prodan
-	<iuliana.prodan@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Hiago De Franco <hiago.franco@toradex.com>,
-	Ritesh Kumar <ritesh.kumar@toradex.com>
-Subject: RE: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM regions
-Thread-Topic: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM regions
-Thread-Index: AQHb7BujvN1bZ5fQwkydSJSq+tG6XLQiKD+AgAAthwCAATDxYA==
-Date: Sat, 5 Jul 2025 13:25:57 +0000
-Message-ID: <PAXPR04MB845955D08AA34D90389F50F6884DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250703130831.18830-1-hiagofranco@gmail.com>
- <aGgAbwToGhsc5VV9@p14s> <20250704190816.kth7bdf34ufc2ht6@hiagonb>
-In-Reply-To: <20250704190816.kth7bdf34ufc2ht6@hiagonb>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DB9PR04MB9916:EE_
-x-ms-office365-filtering-correlation-id: 9076548f-b8c6-4a54-c4c8-08ddbbc77a01
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|19092799006|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?thmiIBSE7hsA49fmSuuMu2RXgwLdbhd2kP8DNFznZRHxU3b0BK8s0euoFxwd?=
- =?us-ascii?Q?S9S4q7HvDq3qXnfVmgYuqyplslEvO7F6K4yS5mQOtuaomUBiQE3maw156qTZ?=
- =?us-ascii?Q?XNkKayDmGUNbjkzwJjqEBPo+W1CuavqnqTWysRIhlqycLmOZDqW1f/89fOIg?=
- =?us-ascii?Q?jFCa4aN7n7xoKqnWvW62FGP/65wmqstu9gWPMEqX+/frpWuM4kjaHMNFk4FS?=
- =?us-ascii?Q?nYhwSPVykJuYyx2H+2SuL9u/0TAeUV/O+M2wmveZfDI/3RSFXwzx3PQfGnYY?=
- =?us-ascii?Q?LifosWvJV826VrGZpIZnuaYxsa0h4/JN8AFPWNdivpwVTRRxNSgWAsHkC1Pj?=
- =?us-ascii?Q?VbEdb60Tk/IOxIzI7Y5wi5B3c4xqM6yhAIm66xOxBx/u+f29+fwOUXc6Hyhc?=
- =?us-ascii?Q?oYTnOBgdkSPtyXYOtcZC0hQVdrZZucTGZIxtPMIU9yvTynvZEuP5z3UxKnsq?=
- =?us-ascii?Q?0gNcX73h1ct6o0xI3gigHuMS9q0NFaF2rd2x9wPFVbyOpwDfSXY+uwcPxLVw?=
- =?us-ascii?Q?i1fiMnMcSSo7Jrvv/Xv3LQ3hcg7eNK9iDSW2QXmoVzKlokWMRyidvvJoz3zn?=
- =?us-ascii?Q?cJrJ4COQHO5sVnk3g12Ox8Lt1wv3t6+Na508pKJWmiU/Jn+Wv1DN/pKiXlv3?=
- =?us-ascii?Q?ODL8mhl6m5ndcEv+Y8umc7LQvKWYXY0JSh8ZlrvsdMpRq0pG60bF2avMv7bR?=
- =?us-ascii?Q?S4UqmSTwJN5/3xzOXSXLpEgavO16NbgGKrV/xd+yhlgnWg0dhAYl4Dg3xoE2?=
- =?us-ascii?Q?snpa1D46cXqKYy3TymLXUiq12ecZLAjpa8oEGcA6MsAdN59Ipe+aeV0jfX2U?=
- =?us-ascii?Q?ViLrNnB4b4EXGf3i8vQyfgyIxCDej4i2T36fLd9aC+MRK9amNOTuF3j9rhmI?=
- =?us-ascii?Q?EFWswK9AdoJMMZfXIJDuatqKH3wdsowgqbQgGM4nbHC5AGqZuGzxT4t81jH5?=
- =?us-ascii?Q?hbx2Jfg/R7q3HcJlEqjQGmA0XmRJO66F0vYnvz5MmU9LH0D1R/nt7tzRAQlV?=
- =?us-ascii?Q?Ix1ZhzamNflJbLMAN9SC0/A0zR96habQs7GxmoSgIBY3b2YRN7RPk8YbtnDF?=
- =?us-ascii?Q?xt137RSXDLOpJ0/HrlnuuK2hE3BCJ/H4cNuMBgf2EFidvpYevTAYq+4UTpa7?=
- =?us-ascii?Q?m2y4u1lDRlKPqBwEapc6e9SzMNbJ7txJfbloeYxLGAnwiUWUYmnAF5C8VZli?=
- =?us-ascii?Q?CeZusbuoei1lJd4p3/KeGGxet7dKvIeZkk5bAGVC0RhcFtnwnBIiKd2h7qjV?=
- =?us-ascii?Q?doc+ngwzsy3wHfY3WXveMlkNfVP856emBKlDrwSSlt/2NGexxpeiCAAPH02X?=
- =?us-ascii?Q?QynWYSck0V26x1eTpQUxKCywKo8tr8ld1J01/wil5liAqNJKINJD+GeHuH9+?=
- =?us-ascii?Q?w5EpBNp10zTYUi1KcgJZWnQixgLUyRDyRlDddPReIPRtTghEFATmO93GT8gQ?=
- =?us-ascii?Q?2eJqbYtcr07LULWfkjO/I6BVXOd+wt8+dXrD254qveDJyaXKE6PJBA=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(19092799006)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?HTVKhWVSb3tjosq2n4Xijvsk+8M/pVSsyMOvmfNDNx+R7o04fxTla4E2o2a6?=
- =?us-ascii?Q?qcd+MgCQKiW6Zg8vVQWpZ5eriT9MYpJVnxLO2c8P0mSgIu6iq9m6v4A96d8g?=
- =?us-ascii?Q?bMSqkdDdNvu8JwGh3rGdlkzYY6SFDBnGRlUsuyuxPAbc59jpEQ4SH+AaLZSJ?=
- =?us-ascii?Q?ycgr2jMAgI8dyqdBOMXFYxO1D6+ADq+nQAV2JFt6BFy1mub4siGHte5RGjqk?=
- =?us-ascii?Q?HLy8f/bIXokNkLJqVuCw1s2td3Jgu73pyjT1FVB5tERxpmW7hNIHCNgwwmWi?=
- =?us-ascii?Q?igxaF/ZPqnt5i+4B7DA0y092wAbdjaDCX4F1+n0q6ARGnpUmn13NhgPn8+vn?=
- =?us-ascii?Q?1jbP5S81xtsg1PD7A02eq8pA5tDxsxU1rkJVMsIbhfHn4AkfXJNegPiPrHls?=
- =?us-ascii?Q?cI+sC2bmL5y3DScDFg9T93/IISpxoKHGNsCeqb1yNSVLESuZBJe6kmRFtSXv?=
- =?us-ascii?Q?ophL5fHf/IX6+RMtFUolHetd3AaxBsyznOFVGR7J+rvSiQ3UJeQYi2REIGxA?=
- =?us-ascii?Q?o+HtSipGGGbbn46nJxjEs2I4UOu6rM7+Wr3n+pBp8mY83ZHxohFAVzh4PEyi?=
- =?us-ascii?Q?OcVLPVguD/0HYdTssGSyX0V2SlawiGMrIZIwktjbRChZZeTR+lpZgI2XR8/M?=
- =?us-ascii?Q?/hxj60H/04BJ++/ZZU/t4VGd85qCT8GIjj8Pf+F3H3AK3DXkqXKkEFm3/SFV?=
- =?us-ascii?Q?qkNYi01yH0dzpaxWxmwjLqst2pVG/Yei9Ld3WEJRiCUaf1nMPqLH/hn8sye9?=
- =?us-ascii?Q?9xR/v1UuMrnQ2+Z757R2hIpgr+1PfyAtBEQpQVH7Dj5ihAVFPGw9GKgWHwMB?=
- =?us-ascii?Q?h0WgHjfLHkzFm4oYmXTT/2lfLg4+lPD0RPzpCg6/Ar0CiR34AEEjMXXGv5F3?=
- =?us-ascii?Q?nzd7FVSTFDvKYgp6GjuLEk4KMR4V0IjMEWtdWOm7fSccdwFNljG4nIWOIz9a?=
- =?us-ascii?Q?oFZ+9Eb+c9SKQtHS6YwrTcAJ9D/cSKLP6gp15WeAxFuBHqhuBi+X6E8O7//a?=
- =?us-ascii?Q?90+kdSSDjPlwCtCJ5vvLg1MA4bscYkLNJtJ19ECS0z20ktPA3z2w77yECc1n?=
- =?us-ascii?Q?9oIMMvDQvFr+/crUVvYZxRHK8QpAwjMUdtKdV70Jy63I7UPB0WaFAF8iYjF1?=
- =?us-ascii?Q?qEJ7OHeEgukCZdrFoV9wWJ7Qe4fhrnLD+xWVtslpFPQg/qIPDn+mmcDbXxZy?=
- =?us-ascii?Q?DZvYk7/xQjna8dlHrfazSKmq5QkBmM8DW51cMR29c1grduWz32GmjNWRK8NZ?=
- =?us-ascii?Q?cl33Wd4TVcvWhQDBCtRGM/Leni/Fa1gQFVDflKw7ujUL8CRYfFUCBmYoXpI3?=
- =?us-ascii?Q?5KwK2ha/1xttMvK/E5KbeZR0a3bhuE6c1dDGMQZCuVHETVzzTsajX+RW5b3h?=
- =?us-ascii?Q?ZbIG9gYYSCyiI6gUfgwraZBsnSAN52k6034dC3DLiwSV/j1CwaMzNCqBw8v1?=
- =?us-ascii?Q?SZiEC4A24Nlqz7G22pD92tMFhUOZkb6W4HiT3ruzf4usK5XvFum8O/AQBZ5Y?=
- =?us-ascii?Q?RQy1znMpngdAUucmF1+n8uAuQMy9/bt2phMjDvzwTJ1NPaD2z5kFHPMDtgY3?=
- =?us-ascii?Q?+gLJJnt5Y0jVnTvILd4=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Sat, 05 Jul 2025 14:07:12 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4a4bb155edeso22154801cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 07:07:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751724430; x=1752329230; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=GxrMRQg3ClHbYVYGNow/NsJAM3b7dz8NkMi6RpKX/2A=;
+        b=U8NgyXYNMFS2R9Qx4pj4EjMUGbYCnMRoRq23i9mbDH0lagiTp5yDlUt3JmXzWFqhLL
+         stRj/SrHqKyLJS3qBKv4ehDk5oPukWDr8FvlDB93D8AqwkEYEuHM9BgphQ2xeC8WwjI0
+         akLWTVokypFKUG6eDu93++JF7j+IxoyztUl4QorK8h2n9AUG4Z86fCUtGv2+dktSVhmK
+         KKseFvR871BAHiKUZgpFulQoVXuZY1Yc6i8hOnKVXFYMWMzBzqDVosyTMJMaEiSxkgBP
+         0FRrJ1Xc+fK60o4SerSU3659GxTIa2c5jz5Ri6qjGraAVufggXo2/quSobc3xgJROsru
+         NmyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751724430; x=1752329230;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GxrMRQg3ClHbYVYGNow/NsJAM3b7dz8NkMi6RpKX/2A=;
+        b=qoYkrqTFUn6XC+P1rzfDylf4jMCBvwozYkJW+mWRnlAqTICYX48w8FYKzZ247pmUAP
+         zx+99+/T6aoNDd353JJfi+KqjhvmqEsDv4pSaqtn33k0k2/fVddX8K4zvdCKxxVOZo/p
+         ASR26HxPxYnmF/1XTJ2sjfCp9JlWoIom3zyg229fCoGuhPAIPrVMbFIKs87IskoAlyBD
+         ENW/RiFCpdIWrQkiL8L8VbL5c5d6dPRXwCFa4k6uppFddscetF7rlr/i8no6ZgT8WPHY
+         6nmo+ySoliG9HWUAeQfAJvKADE6tJmAM+aFHT4QlBvRzzr0wYwFznXoo75Enbe4PeynM
+         Ytbg==
+X-Gm-Message-State: AOJu0YyWakVJei/tUt1IWSAmC+5GLdmWQ1N9pBkYQmnbx5VwG9/ht6mU
+	NxY1/tX8Xp2wo7t2RqF0cz1kkwOmm0JrJc16seUCt/6P4TyJMJEw4uWB5ggqOhYU4Hps/cdIsVr
+	gt57CLHj2PNJcBKWqVdfynQOR1tTKofo=
+X-Gm-Gg: ASbGncuL0YCMJnZgtFeqohGGtCt0TPiDA1SfohfLQrZPsC4EIOS/cpV8miEw9NNcK56
+	84stOAbQ28SXqzJ+iBZnxgduf4fbQZYEo3eFJGg+VR8WCps2ZPxjgAhBQZH21wKThAPSmo0/UY/
+	otpR9RyzE2qLAQQjlbGV7jkiEk62q3cuyZWtoTC+43vkCte32o56YWdo3ZLVp6QT6NQW3BiunBE
+	p9VMQ==
+X-Google-Smtp-Source: AGHT+IGsDdoQUx+rSGSzzxXCkVQDODMY7OH1HVs+DAsqxKXPp3PdFxseodwOcARcUr09rHXKr9lxP26x5Z/74k075ZY=
+X-Received: by 2002:a05:622a:8c0b:b0:494:acc8:b4ce with SMTP id
+ d75a77b69052e-4a9afc199bemr12740321cf.11.1751724429590; Sat, 05 Jul 2025
+ 07:07:09 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9076548f-b8c6-4a54-c4c8-08ddbbc77a01
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jul 2025 13:25:57.6102
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: j5EH0T8B918JD/nFujF8erVr5OxZ7vnC95v3F/2g8ObgC/Nfs8OxfzCV6YzHeGKWMsLmFNwnPW7KEeys+Tm1tw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9916
+From: Sui <sui999924@gmail.com>
+Date: Sat, 5 Jul 2025 22:06:59 +0800
+X-Gm-Features: Ac12FXwxhjoOA5doABq9pXsHKKNI0Lm9-AgrhCbufh34BRyNbE1ih_yh2bJvRwM
+Message-ID: <CAObhpgi5uBNYOygBi3E-8H=XrnyrAqgkS5RwjCTjOUh+aq-zww@mail.gmail.com>
+Subject: =?UTF-8?B?W1BBVENIXSBhcm06IGxhbnlhbmc6IGZpeCB0d28g4oCcbGFibGXigJ3ihpLigJxsYWJlbA==?=
+	=?UTF-8?B?4oCdIHR5cG9zIGluIERUUw==?=
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_062604_461958_05F298C9 
-X-CRM114-Status: GOOD (  32.03  )
+X-CRM114-CacheID: sfid-20250705_070711_636775_D5C3E371 
+X-CRM114-Status: UNSURE (   4.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,126 +92,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM
-> regions
->=20
-> Hi Mathieu,
->=20
-> On Fri, Jul 04, 2025 at 10:25:19AM -0600, Mathieu Poirier wrote:
-> > Good morning,
-> >
-> > On Thu, Jul 03, 2025 at 10:08:31AM -0300, Hiago De Franco wrote:
-> > > From: Hiago De Franco <hiago.franco@toradex.com>
-> > >
-> > > Merge the contiguous ITCM and DTCM regions into a single region
-> to
-> > > prevent failures when loading ELF files with large sections:
-> > >
-> > > remoteproc remoteproc0: powering up imx-rproc remoteproc
-> > > remoteproc0: Booting fw image rproc-imx-rproc-fw, size 151824
-> > > imx-rproc imx8mp-cm7: Translation failed: da =3D 0x1f48 len =3D
-> 0x1fcb0
-> > > remoteproc remoteproc0: bad phdr da 0x1f48 mem 0x1fcb0
-> remoteproc
-> > > remoteproc0: Failed to load program segments: -22 remoteproc
-> > > remoteproc0: Boot failed: -22
-> > >
-> > > This approach is the same as commit 8749919defb8 ("remoteproc:
-> > > imx_rproc: Merge TCML/U").
-> > >
-> > > Suggested-by: Ritesh Kumar <ritesh.kumar@toradex.com>
-> > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> > > ---
-> > > Hi,
-> > >
-> > > The ELF I tested had the following data section:
-> > >
-> > > Memory region         Used Size  Region Size  %age Used
-> > >     m_interrupts:         680 B         1 KB     66.41%
-> > >           m_text:        6984 B       127 KB      5.37%
-> > >           m_data:      130224 B       128 KB     99.35%
-> > >          m_data2:          0 GB        16 MB      0.00%
-> > > [100%] Built target hello_world_cm7.elf
-> > >
-> > > Which triggered the error. After this patch, remoteproc was able to
-> > > boot and work fine. Thanks!
-> > > ---
-> > >  drivers/remoteproc/imx_rproc.c | 6 ++----
-> > >  1 file changed, 2 insertions(+), 4 deletions(-)
-> > >
-> > > diff --git a/drivers/remoteproc/imx_rproc.c
-> > > b/drivers/remoteproc/imx_rproc.c index
-> 74299af1d7f1..bbf089ef48ee
-> > > 100644
-> > > --- a/drivers/remoteproc/imx_rproc.c
-> > > +++ b/drivers/remoteproc/imx_rproc.c
-> > > @@ -166,8 +166,8 @@ static const struct imx_rproc_att
-> > > imx_rproc_att_imx8qxp[] =3D {
-> > >
-> > >  static const struct imx_rproc_att imx_rproc_att_imx8mn[] =3D {
-> > >  	/* dev addr , sys addr  , size	    , flags */
-> > > -	/* ITCM   */
-> > > -	{ 0x00000000, 0x007E0000, 0x00020000, ATT_OWN |
-> ATT_IOMEM },
-> > > +	/* D/ITCM */
-> > > +	{ 0x00000000, 0x007E0000, 0x00040000, ATT_OWN |
-> ATT_IOMEM },
-> > >  	/* OCRAM_S */
-> > >  	{ 0x00180000, 0x00180000, 0x00009000, 0 },
-> > >  	/* OCRAM */
-> > > @@ -180,8 +180,6 @@ static const struct imx_rproc_att
-> imx_rproc_att_imx8mn[] =3D {
-> > >  	{ 0x08000000, 0x08000000, 0x08000000, 0 },
-> > >  	/* DDR (Code) - alias */
-> > >  	{ 0x10000000, 0x40000000, 0x0FFE0000, 0 },
-> > > -	/* DTCM */
-> > > -	{ 0x20000000, 0x00800000, 0x00020000, ATT_OWN |
-> ATT_IOMEM },
-> >
-> > In commit 8749919defb8 "dev addr" and "sys addr" were both
-> contiguous,
-> > but in this patch "dev addr" is not.  How will this work with new
-> > kernel that use old FW images?  Am I missing something?
->=20
-> No, you are correct, I think the use case I tested was not good enough.
->=20
-> If I understand correctly, this will break older firmware expecting .data
-> at 0x20000000 because dev_addr is no longer mapped for DTCM entry.
->=20
+In arch/arm/boot/dts/aspeed-bmc-opp-lanyang.dts the properties =E2=80=9Clab=
+le=E2=80=9D are
+misspelled. Correct them to =E2=80=9Clabel=E2=80=9D so tooling and bindings=
+ pick up the
+node names properly.
 
-The ITCM in M7 starts from 0, DTCM in M7 starts from 0x20000000.
-The ITCM/DTCM is continuous from A53 perspective.
+Reported-by: Jens Schleusener <Jens.Schleusener@fossies.org>
+Link: https://bugzilla.kernel.org/show_bug.cgi?id=3D205891
+Signed-off-by: Jake <jakecontactxyz@gmail.com>
 
-You let linux to load continuous text/data, but if the dev addr
-start from ITCM_START+128KB is not reserved from Reference manual.
-
-How could M7 still work proper if M7 accessing [0x20000, x] dev_addr?
-
-You need update your linker script to separate text into different
-sections.
-
-Regards,
-Peng.
-
-> Do you think it is possible (or reccomend) another approach to fix this
-> issue? In this case to keep using the TCM,=20
-
-
-
-instead of going to OCRAM
-> or DDR.
->=20
-> Thanks,
-> Hiago.
->=20
-> >
-> > Thanks,
-> > Mathieu
-> >
-> > >  	/* OCRAM_S - alias */
-> > >  	{ 0x20180000, 0x00180000, 0x00008000, ATT_OWN },
-> > >  	/* OCRAM */
-> > > --
-> > > 2.39.5
-> > >
+--- a/arch/arm/boot/dts/aspeed-bmc-opp-lanyang.dts
++++ b/arch/arm/boot/dts/aspeed-bmc-opp-lanyang.dts
+@@ -52,12 +52,14 @@ hdd_fault {
+         gpios =3D <&gpio ASPEED_GPIO(B, 3) GPIO_ACTIVE_HIGH>;
+     };
+     bmc_err {
+- lable =3D "BMC_fault";
++ /* typo fixed: lable =E2=86=92 label */
++ label =3D "BMC_fault";
+         gpios =3D <&gpio ASPEED_GPIO(H, 6) GPIO_ACTIVE_HIGH>;
+     };
+     sys_err {
+- lable =3D "Sys_fault";
++ /* typo fixed: lable =E2=86=92 label */
++ label =3D "Sys_fault";
+         gpios =3D <&gpio ASPEED_GPIO(H, 7) GPIO_ACTIVE_HIGH>;
+     };
+ };
 
