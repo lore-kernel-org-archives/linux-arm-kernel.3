@@ -4,64 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93987C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 21:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E044C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 22:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bb2RFEmK0V0h0HFQUJw7WupWz35V24tDU23mVzcVDn0=; b=b8d4/B5srab/z8j+AD+5RwJdEd
-	PqrF55IKK62ELCSk/4vsaCSMRu8ODlCnBCiGgq74jzLr0O8dQ1+tn3DtGAH0tkWErTulCzXA4FCF6
-	dsWwUTMB+MwDTlqMZNNGYLJeI3HHEVGICYkM5t5XUfZ40MXJg3ZrxIDMFC3I18A2Rti0uTjrYvkgy
-	9ANrFYgXUBebAyauUVgd9fbGBIoMOD4ArDkB2oNxkzpRq2lAzEePPA777hzSsRtyaWn1SHT9J9tci
-	+OjK+R8kH95dp3N8pOE8Zrs/rQhgAgElsYd/yMBrv1+Q+kxfh1oAsjhzwMTxOSZsqTDmGsBi4Ui1f
-	fbCLaw6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2CPwrA+Cvu0eAt6yiPyXftoK553rhXOG4UsRz8rl9H8=; b=GEaKVSBN9CSup7biP/bYJf2btq
+	ggtn8ektcKtrnwgiR8rMhGnDYNv80YtLH27Yo3tvAITTH3wV32aVoGmRSUD2enXS8sFwMZfqdqkou
+	xh+bzl/aC/zwQVwVJirL35NnE24Y2M3ZtNaWSWqkALoHvnrJmZ3WaSWVa7o8HOA93Y75lv5GnF9tz
+	0dLJjg1N5wphuw/kzU9c+o+9c8KV8YAI+K3roKgkGsdw2zycoZDB+LEufRU09bzvWQKl/EbYK7VQ9
+	O6k7zKxsvub3jnCp7msR6w4zTZRaEaS7h6c7abmrV4jjDKk5nPZuf05G9uC/gMD+8y+TfStlh6Tfk
+	GQlBOdoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYAuK-0000000H4mO-3nHV;
-	Sat, 05 Jul 2025 21:58:52 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1uYBZz-0000000H6sL-4Ayq;
+	Sat, 05 Jul 2025 22:41:56 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYAcL-0000000H2oL-04AU;
-	Sat, 05 Jul 2025 21:40:18 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=Bb2RFEmK0V0h0HFQUJw7WupWz35V24tDU23mVzcVDn0=;
-	b=DRHjYx6VOU/ea+rs7o0C7VXmrD1UP5yZXZRWRYq7nxzA/glkc2wRdM0AydCZt+a3lGBhTpsholqlFXVVCNzX+OCONoN1wQbV+BFoB/3+0ZweX55Cq+lb3hLKZlOkp84dcIOEwQW/SJGbULH2rzAIngax0Fz9t/+7/MXn6TTIHAc=
-Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPA
-	; Sat, 5 Jul 2025 23:39:55 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 5/7] ARM: dts: sunxi: add support for NetCube Systems Nagami SoM
-Date: Sat,  5 Jul 2025 23:38:56 +0200
-Message-Id: <20250705213900.3614963-6-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250705213900.3614963-1-lukas.schmid@netcube.li>
-References: <20250705213900.3614963-1-lukas.schmid@netcube.li>
+	id 1uYBXg-0000000H6hV-3XKX
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 05 Jul 2025 22:39:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QvJqx1jKkf7UzOFBgG1/toYLbe7733B/99RwavsC9BjZDXSH4JLC6hDgN7gCGebT+vN5yHa72Z5WE9doMH6v8xEC699eJF1nvmikRfmUdl/SPZtYpzbqCcoCNS2x9SzrkXML37HeqmHyyJDdDr5JvhhAuJ8KDYdayFVEk8XI9yAy1S0JLxcCW/pVl5zfaLbfuSo6jjjbDKXY0epVZhJWX/9xWapZYKcJ0w+E6HDocWWXXSWyopca3MAmPkGox0z5sBQWiDg1ylnpHMKG4J8q3B2uTWjMcxEHhUb/0LSowNsLmQyEh11oDr+XG1ZVSx32Gf7dWtsey5vYjblXGIWF7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2CPwrA+Cvu0eAt6yiPyXftoK553rhXOG4UsRz8rl9H8=;
+ b=E92s9RMuBsxpzrkzuauQF2frKK5ddGkLE80JIOLBYcdVa2BSXh8hfEExxu3fOg6GDr9olv21lfBdCDEEPlW2bIGgf64W1BDZnZzUzNiBYglQW0WpDeEd6kD1zJhTBQlA/1v69Kzxu7sWoKTe00aukKN/++2247lEjP5tggFprew8wcxZp/LP/sp6D/TU4BiJtna4T5HLA2BCxS/2/rjI0BdeFHyObvsuSxywqHArbTOqQ0MKv8+tcY/Bx3xNRb4j3i60vIYTETPpVUQ7H2TlNqofLp/rG33jr3Ijv4wt9TyZBa7LSe5iv+6fW9KfTAgipKwSaxz4nwK50Qxe3CnDcg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2CPwrA+Cvu0eAt6yiPyXftoK553rhXOG4UsRz8rl9H8=;
+ b=HCna32xYHRUGPRNILv070d2jIxZEM4h0oYS36h3acLNiI/gkM4WyLeva+QRX0Qqpjcb5bJZ1OafvZT7CW0HIdJG3i7szkltKTUiziwoIYJJHIkwBaWTtfNiV5TTNMGRoVvvSRTppPVmS2EZ7zIobtA3HZJ9FXLmvLWhCt4KHOb9xJdaK7Xwxju1TT/DYorMVPS1//6JYtNchWc90EyW9oseGIE0I6Ed/4hoBVPUHap4ok9Vrz4IwyhRFBw2ej5YJUr7AfqjIFOX1FQFLjHuBf8CpPVw5n/B4r9gzBPnsGavmKdHczX4dGFqM37q2bNwmbh90DxeBPmNjD4WGUL9KGg==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI2PR04MB11002.eurprd04.prod.outlook.com (2603:10a6:800:280::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.21; Sat, 5 Jul
+ 2025 22:39:07 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8901.021; Sat, 5 Jul 2025
+ 22:39:06 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>, Hiago De Franco <hiagofranco@gmail.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>
+CC: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Iuliana Prodan
+	<iuliana.prodan@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Hiago De Franco <hiago.franco@toradex.com>,
+	Ritesh Kumar <ritesh.kumar@toradex.com>
+Subject: RE: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM regions
+Thread-Topic: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM regions
+Thread-Index: AQHb7BujvN1bZ5fQwkydSJSq+tG6XLQiKD+AgAAthwCAATDxYIAAnCbQ
+Date: Sat, 5 Jul 2025 22:39:06 +0000
+Message-ID: <PAXPR04MB84594935DA490963108CE80D884DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250703130831.18830-1-hiagofranco@gmail.com>
+ <aGgAbwToGhsc5VV9@p14s> <20250704190816.kth7bdf34ufc2ht6@hiagonb>
+ <PAXPR04MB845955D08AA34D90389F50F6884DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+In-Reply-To: <PAXPR04MB845955D08AA34D90389F50F6884DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|VI2PR04MB11002:EE_
+x-ms-office365-filtering-correlation-id: 94e7578d-a47b-46bd-c390-08ddbc14c046
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|19092799006|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?ZSNhlF73UiOIzqDr7BfwOM2i7a8iCQ5Uuz9irMWYBxWaJjgc/MrkBSpJImXi?=
+ =?us-ascii?Q?dBuP+aCGXtgySCXufFeVZ3iclJrOQRTPy2biUqHRj4PSCP8bQ+UREbcASE4s?=
+ =?us-ascii?Q?whqZvs/Grx//MSZdEo5EoVKFWRsnVM+Rarc8HH1+Vv9pRzpXI5OtXnp+Efed?=
+ =?us-ascii?Q?fmU1IsJnkP9LjHFJQkIMHBoUGGLvEVkYoqJ6oIReInc4rkBqiqHeeb3VkBRS?=
+ =?us-ascii?Q?yCUvGzhdlK4W3THgl1tWeJ6XAPKhgfktWVU7K+iGTIMacqZIBdr3mkor9/wP?=
+ =?us-ascii?Q?rEdTLGOXrbvcQJKX6aigUC0Yx7ReC4PFwddqVZPbm2jyvTJSIdIPea5KE9E/?=
+ =?us-ascii?Q?XFCwHKEN/i+iTp+/58b//dyczkLeKk/WifTAAdKr+bjCSk9FMwrY5QTPs+jk?=
+ =?us-ascii?Q?ZyExATd98ZI/l5+LFDNEFYMxxwXNu11JX8BWp1t4Nd6bJSZrqG6B+qXkwn2e?=
+ =?us-ascii?Q?BAadLENphNNEnJRK9nBdwUrKs9sO+Klh+evg5BXHN7jJ8ZT0aWo5OJwN5Ex1?=
+ =?us-ascii?Q?qcdHMZmKzs/uZ6qavdGFVQnTYrFnHo1OHrTfKdvadVsoyjBEFjLqX8txS9p3?=
+ =?us-ascii?Q?hkbvZsgscglX8X6hfAZbjUUsKhDZLBTlHyo01LnJ/0owpPSyJ2/t+lrHCljl?=
+ =?us-ascii?Q?pn54FzH6ns7NxWH+BGbSYBoFq898Qsni0KR4o47SI7v4L4WxDyQRYIQwfrkT?=
+ =?us-ascii?Q?YsN2Sa/jALInM5vKP5uxkCLfav3QEVUY5GzO9qxvHZyJwjkWNQzrYgZZMzPi?=
+ =?us-ascii?Q?+Ycx4gaY8SFhO5IlG3wLlwRk6bGhhuM6XCf13OtQQQ5dLQcHSMaqKQsArIQa?=
+ =?us-ascii?Q?tSlPA07dMJR0pwG5mBUUAQ0euCO0M3i8+OW6C/IEYiZo5uZI4i95QVdbjPiU?=
+ =?us-ascii?Q?ZqCv15KGGVVnu6y2jQI1mcIN72YD8NofdSECWtTQPHeAyS3PoMzChGiqTtiJ?=
+ =?us-ascii?Q?pcXe5M7QFZciKFvoqLT5OdcpbO0qP/ld6jXY5q10ULH7iAA7YdYa9wDawLYJ?=
+ =?us-ascii?Q?KFFPZmFr4WsPZdIv2AwLSKZiQoeCQ7qiW8xS/JGVEX7+YjkUSXv5JFN4dlZe?=
+ =?us-ascii?Q?X63YjDx7uvv+EwVeXoKS5JFjETmPdxz8oVWqqsmBJrPka4O0CWRq8ZNzHmGP?=
+ =?us-ascii?Q?IJptpuiKjTcF/ivVteA9/ZiRtpx5U/futkTcwMrkGi/MIwTO1KSWgjSztF2Q?=
+ =?us-ascii?Q?EN9mF1tdtyzLG/zUsrPo/CsypqZPkax76Lx5dP6f+vEwPhNNbKEPX7TkLiYH?=
+ =?us-ascii?Q?zaQqzewfMgkbUiSOTHRJmABsfS1CkvxrZGz2lJEDS6+duG2lRQwLQPEEc+jm?=
+ =?us-ascii?Q?wEx6wQb1epUNMZZjcGhKEhpGG4IBYoKGnk+JJ261k5o3S1hNfdkEYMwSbU1Z?=
+ =?us-ascii?Q?GU6lHe6kidODyYcMPYI8aXLIK1takI9zBwtAdgV7ZDkLfUrtE5gP4+o/p1/r?=
+ =?us-ascii?Q?kgL4iVEvTmJtGfVtF0siwUw4cI4kc+OC4kGZhXwQiqXTK6QuWs4uYQ=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(19092799006)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?qkKHH8iSL7lpd3M3q7tiWO/gYJE8rU3kyMQnmivUvE1/URjJMq+OvERsvqq+?=
+ =?us-ascii?Q?1JqHzXTm+CoNR8VVVfQt/ZJJRtoHRO4RpZ15NUZZUwE7kyrzs40Cm5kQcwBe?=
+ =?us-ascii?Q?sJY/utTpICJoASPTHvQGfpQwNWU0a7+VDrtTkHA2YJxcsbFJEmNeqd4HOUnO?=
+ =?us-ascii?Q?2xzIyxlkpdDy31L4/oliJ/sTMbz8OxVg2DijQjNE0q85ZxS9szWe+Q4GGROG?=
+ =?us-ascii?Q?YFlD54RL5MaE3EEfnxNXWoCJ5SRE7C0bxM0pjrQjR25C0to5azlcvT1/P+CU?=
+ =?us-ascii?Q?NsvITF1KvSLSjZ6MR5Sd1z2kyq7EaOS0sqz2AxfFchSBx4JO/fPkpy3teRD5?=
+ =?us-ascii?Q?kotw0SPIfU0k6Ees94SwD8mplJu8eJE2LjtbezmdhLc8lyrH6mdNG4FW5UG+?=
+ =?us-ascii?Q?x1tanyrT38o/TiRkCSkej7tXhgVM52kNB8UTxhUoQD1XIz02xnmZhyHFSYcK?=
+ =?us-ascii?Q?JJi2iN9DqHsSERUpxd5FKOwiEY7TDDPe0FhfVHsPUOxM4YnrN8BOP/7HHkwE?=
+ =?us-ascii?Q?69c5xv24eINE4GJ6WFg2Vlu5T7g+Duj0zE9TVNeFrEkNEwQs4CxEUkzsUBiI?=
+ =?us-ascii?Q?0UcF9q0PYcS58SX+6d5QRgWN9Xq+ftrtt3iKtAt/Z8BtQ82XS4N8LWITEdA1?=
+ =?us-ascii?Q?oW0aQvsjauppwIGksbwZxbWnUV75kfYPB2YJsVpl1tbvVV1FPEi4tf1yU8lG?=
+ =?us-ascii?Q?Alkzagqb8zH6hjvkb21P9KRpOOP4mKKuQ4t8F4UHBT5ubbAVTwTs0eBdnZJG?=
+ =?us-ascii?Q?aieM/vHie+Y7K5MGjiol2oMDGGgwpNk5IMON1iCcsXPQQyEm9bIfehpBcw2V?=
+ =?us-ascii?Q?bkCFReUFJGTLMvtE1nme0h4VPp72vGve6FaP+QWysRm4zclwEfENjUrvWe52?=
+ =?us-ascii?Q?m4VCP0bT2GcT6aqZkewTbyNrluSGqu2HZb67NbGmqPMfa2A78UpKNUHs+1Xr?=
+ =?us-ascii?Q?kyXmq9JQaQbAaAz6rS0cQ85/tKOLnk5NJ5P4hvLQw0JcR5aI/3rGGw+t+0Ki?=
+ =?us-ascii?Q?b2cpxGkON3HqusimlvO+IkRQAWnDjR5URaz28FJ4jkrnd9F3sCp3jKzFkf8o?=
+ =?us-ascii?Q?079lfUPFm9zxnd7PZ8UwgmNj75cmkqzXYPGRGoxkd/29JNcuZcDc40limwrr?=
+ =?us-ascii?Q?Vp+jp2GBnt0rSdFxAyWJZZKbFKSBHAetcIpRW9/f/rkV/Ah9yYnu3/OvJkjK?=
+ =?us-ascii?Q?kTnrZCYxclu2nKNxjj2+q9ds69tQaA9GlBtIBKLp6A3TzXWCg2hwoyErBCCy?=
+ =?us-ascii?Q?xS2KIJ+BM9QsBYj9gUPgvJZNBXbbr2210s8menmkrujCLoH8+LvZtVULQUB1?=
+ =?us-ascii?Q?Ctx3E3JEobWGvjs+TWk/EYiSKDHFezeuSP7xKnOSVo2LlYGnl6t5zXfUy5ZA?=
+ =?us-ascii?Q?z1JVdKnUMOPcqezTKPQ7aOCtkbzHZcQ+NdNsqkmq+2/VahJ7Q2lDPQMhHnfw?=
+ =?us-ascii?Q?bz8KRDB/Y6v0y0tOygjlZ5paR/gU9WsxZjF33pa1NF3G5WfbuLNjEhv6ukvf?=
+ =?us-ascii?Q?P0gXqx3cloRggE76JPuUZ4xr6nPqN84h9fCViCl3Qh1qQCm7jE9L6qQWGPrt?=
+ =?us-ascii?Q?iwIUARpzblh6qjgKKI0=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94e7578d-a47b-46bd-c390-08ddbc14c046
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jul 2025 22:39:06.7222
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3KKVs97gfU9OvewEE62vx6k3A2inKOEvU60zVI41zLHTC69n1pNiPy9WYd0TU6vopn5UFKwzlYRdtX1vmojVMg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11002
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_144017_342682_3DAB54A7 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20250705_153932_901078_FE13762E 
+X-CRM114-Status: GOOD (  36.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,263 +168,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NetCube Systems Nagami SoM is a module based around the Allwinner T113s
-SoC. It includes the following features and interfaces:
+> Subject: RE: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM
+> regions
+>=20
+> > Subject: Re: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM
+> > regions
+> >
+> > Hi Mathieu,
+> >
+> > On Fri, Jul 04, 2025 at 10:25:19AM -0600, Mathieu Poirier wrote:
+> > > Good morning,
+> > >
+> > > On Thu, Jul 03, 2025 at 10:08:31AM -0300, Hiago De Franco wrote:
+> > > > From: Hiago De Franco <hiago.franco@toradex.com>
+> > > >
+> > > > Merge the contiguous ITCM and DTCM regions into a single region
+> > to
+> > > > prevent failures when loading ELF files with large sections:
+> > > >
+> > > > remoteproc remoteproc0: powering up imx-rproc remoteproc
+> > > > remoteproc0: Booting fw image rproc-imx-rproc-fw, size 151824
+> > > > imx-rproc imx8mp-cm7: Translation failed: da =3D 0x1f48 len =3D
+> > 0x1fcb0
+> > > > remoteproc remoteproc0: bad phdr da 0x1f48 mem 0x1fcb0
+> > remoteproc
+> > > > remoteproc0: Failed to load program segments: -22 remoteproc
+> > > > remoteproc0: Boot failed: -22
+> > > >
+> > > > This approach is the same as commit 8749919defb8 ("remoteproc:
+> > > > imx_rproc: Merge TCML/U").
+> > > >
+> > > > Suggested-by: Ritesh Kumar <ritesh.kumar@toradex.com>
+> > > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+> > > > ---
+> > > > Hi,
+> > > >
+> > > > The ELF I tested had the following data section:
+> > > >
+> > > > Memory region         Used Size  Region Size  %age Used
+> > > >     m_interrupts:         680 B         1 KB     66.41%
+> > > >           m_text:        6984 B       127 KB      5.37%
+> > > >           m_data:      130224 B       128 KB     99.35%
+> > > >          m_data2:          0 GB        16 MB      0.00%
+> > > > [100%] Built target hello_world_cm7.elf
+> > > >
+> > > > Which triggered the error. After this patch, remoteproc was able
+> > > > to boot and work fine. Thanks!
+> > > > ---
+> > > >  drivers/remoteproc/imx_rproc.c | 6 ++----
+> > > >  1 file changed, 2 insertions(+), 4 deletions(-)
+> > > >
+> > > > diff --git a/drivers/remoteproc/imx_rproc.c
+> > > > b/drivers/remoteproc/imx_rproc.c index
+> > 74299af1d7f1..bbf089ef48ee
+> > > > 100644
+> > > > --- a/drivers/remoteproc/imx_rproc.c
+> > > > +++ b/drivers/remoteproc/imx_rproc.c
+> > > > @@ -166,8 +166,8 @@ static const struct imx_rproc_att
+> > > > imx_rproc_att_imx8qxp[] =3D {
+> > > >
+> > > >  static const struct imx_rproc_att imx_rproc_att_imx8mn[] =3D {
+> > > >  	/* dev addr , sys addr  , size	    , flags */
+> > > > -	/* ITCM   */
+> > > > -	{ 0x00000000, 0x007E0000, 0x00020000, ATT_OWN |
+> > ATT_IOMEM },
+> > > > +	/* D/ITCM */
+> > > > +	{ 0x00000000, 0x007E0000, 0x00040000, ATT_OWN |
+> > ATT_IOMEM },
+> > > >  	/* OCRAM_S */
+> > > >  	{ 0x00180000, 0x00180000, 0x00009000, 0 },
+> > > >  	/* OCRAM */
+> > > > @@ -180,8 +180,6 @@ static const struct imx_rproc_att
+> > imx_rproc_att_imx8mn[] =3D {
+> > > >  	{ 0x08000000, 0x08000000, 0x08000000, 0 },
+> > > >  	/* DDR (Code) - alias */
+> > > >  	{ 0x10000000, 0x40000000, 0x0FFE0000, 0 },
+> > > > -	/* DTCM */
+> > > > -	{ 0x20000000, 0x00800000, 0x00020000, ATT_OWN |
+> > ATT_IOMEM },
+> > >
+> > > In commit 8749919defb8 "dev addr" and "sys addr" were both
+> > contiguous,
+> > > but in this patch "dev addr" is not.  How will this work with new
+> > > kernel that use old FW images?  Am I missing something?
+> >
+> > No, you are correct, I think the use case I tested was not good enough.
+> >
+> > If I understand correctly, this will break older firmware expecting
+> > .data at 0x20000000 because dev_addr is no longer mapped for
+> DTCM entry.
+> >
+>=20
+> The ITCM in M7 starts from 0, DTCM in M7 starts from 0x20000000.
+> The ITCM/DTCM is continuous from A53 perspective.
+>=20
+> You let linux to load continuous text/data, but if the dev addr start
+> from ITCM_START+128KB is not reserved from Reference manual.
 
-- 128MB DDR3 included in SoC
-- 10/100 Mbps Ethernet using LAN8720A phy
-- One USB-OTG interface
-- One USB-Host interface
-- One I2S interface with in and output support
-- Two CAN interfaces
-- ESP32 over SDIO
-- One SPI interface
-- I2C EEPROM for MAC address
-- One QWIIC I2C Interface with dedicated interrupt pin shared with EEPROM
-- One external I2C interface
-- SD interface for external SD-Card
+Typo: ITCM_START + 128KB is reserved.
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 227 ++++++++++++++++++
- 1 file changed, 227 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-new file mode 100644
-index 000000000..c5fdc4192
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-@@ -0,0 +1,227 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-t113s.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	model = "NetCube Systems Nagami SoM";
-+	compatible = "netcube,nagami", "allwinner,sun8i-t113s";
-+
-+	aliases {
-+		serial1 = &uart1; // ESP32 Bootloader UART
-+		serial3 = &uart3; // Console UART on Card Edge
-+		ethernet0 = &emac;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial3:115200n8";
-+	};
-+
-+	/* module wide 3.3V supply directly from the card edge */
-+	reg_vcc3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+
-+	/* SY8008 DC/DC regulator on the board, also supplying VDD-SYS */
-+	reg_vcc_core: regulator-core {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-core";
-+		regulator-min-microvolt = <880000>;
-+		regulator-max-microvolt = <880000>;
-+		vin-supply = <&reg_vcc3v3>;
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&reg_vcc_core>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&reg_vcc_core>;
-+};
-+
-+&emac {
-+	nvmem-cells = <&eth0_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+	phy-handle = <&lan8720a>;
-+	phy-mode = "rmii";
-+	pinctrl-0 = <&rmii_pe_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Exposed as I2C on the card edge */
-+&i2c2 {
-+	pinctrl-0 = <&i2c2_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+/* Exposed as the QWIIC connector and used by the internal EEPROM */
-+&i2c3 {
-+	pinctrl-0 = <&i2c3_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	eeprom0: eeprom@50 {
-+		compatible = "atmel,24c02";		/* actually it's a 24AA02E48 */
-+		reg = <0x50>;
-+		pagesize = <16>;
-+		read-only;
-+		vcc-supply = <&reg_vcc3v3>;
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		eth0_macaddress: macaddress@fa {
-+			reg = <0xfa 0x06>;
-+		};
-+	};
-+};
-+
-+/* Exposed as I2S on the card edge */
-+&i2s1 {
-+	pinctrl-0 = <&i2s1_pins>, <&i2s1_din_pins>, <&i2s1_dout_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+&mdio {
-+	lan8720a: ethernet-phy@1 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <1>;
-+	};
-+};
-+
-+/* Exposed as SD on the card edge */
-+&mmc0 {
-+	pinctrl-0 = <&mmc0_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc3v3>;
-+	broken-cd;
-+	disable-wp;
-+	bus-width = <4>;
-+};
-+
-+/* Connected to the on-board ESP32 */
-+&mmc1 {
-+	pinctrl-0 = <&mmc1_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+/* Connected to the on-board eMMC */
-+&mmc2 {
-+	pinctrl-0 = <&mmc2_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc3v3>;
-+	vqmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_vcc3v3>;
-+	vcc-pd-supply = <&reg_vcc3v3>;
-+	vcc-pe-supply = <&reg_vcc3v3>;
-+	vcc-pf-supply = <&reg_vcc3v3>;
-+	vcc-pg-supply = <&reg_vcc3v3>;
-+
-+	gpio-line-names = "", "", "", "", // PA
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "CAN0_TX", "CAN0_RX", // PB
-+					  "CAN1_TX", "CAN1_RX", "UART3_TX", "UART3_RX",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "eMMC_CLK", "eMMC_CMD", // PC
-+					  "eMMC_D2", "eMMC_D1", "eMMC_D0", "eMMC_D3",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "", // PD
-+					  "", "", "", "",
-+					  "", "", "SPI1_CS", "SPI1_CLK",
-+					  "SPI1_MOSI", "SPI1_MISO", "SPI1_HOLD", "SPI1_WP",
-+					  "PD16", "", "", "",
-+					  "I2C2_SCL", "I2C2_SDA", "PD22", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "ETH_CRSDV", "ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
-+					  "ETH_TXD0", "ETH_TXD1", "ETH_TXEN", "",
-+					  "ETH_MDC", "ETH_MDIO", "QWIIC_nINT", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "SD_D1", "SD_D0", "SD_CLK", "SD_CLK", // PF
-+					  "SD_D3", "SD_D2", "PF6", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-+					  "ESP_D2", "ESP_D3", "UART1_TXD", "UART1_RXD",
-+					  "ESP_nBOOT", "ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-+					  "I2S1_WS", "I2S1_CLK", "I2S1_DIN0", "I2S1_DOUT0",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "";
-+};
-+
-+/* Remove the unused CK pin from the pinctl as it is unconnected */
-+&rmii_pe_pins {
-+	pins = "PE0", "PE1", "PE2", "PE3", "PE4",
-+		   "PE5", "PE6", "PE8", "PE9";
-+};
-+
-+/* Exposed as SPI on the card-edge */
-+&spi1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&spi1_pins>;
-+	pinctrl-names = "default";
-+	cs-gpios = <0>;
-+};
-+
-+/* Connected to the Bootloader/Console of the ESP32 */
-+&uart1 {
-+	pinctrl-0 = <&uart1_pg6_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Exposed as the Console/Debug UART on the card-edge */
-+&uart3 {
-+	pinctrl-0 = <&uart3_pb_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
--- 
-2.39.5
-
+>=20
+> How could M7 still work proper if M7 accessing [0x20000, x] dev_addr?
+>=20
+> You need update your linker script to separate text into different
+> sections.
+>=20
+> Regards,
+> Peng.
+>=20
+> > Do you think it is possible (or reccomend) another approach to fix
+> > this issue? In this case to keep using the TCM,
+>=20
+>=20
+>=20
+> instead of going to OCRAM
+> > or DDR.
+> >
+> > Thanks,
+> > Hiago.
+> >
+> > >
+> > > Thanks,
+> > > Mathieu
+> > >
+> > > >  	/* OCRAM_S - alias */
+> > > >  	{ 0x20180000, 0x00180000, 0x00008000, ATT_OWN },
+> > > >  	/* OCRAM */
+> > > > --
+> > > > 2.39.5
+> > > >
 
 
