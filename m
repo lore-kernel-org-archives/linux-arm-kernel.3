@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A69BDC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 05:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB5F1C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 06:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LzacpixmqbydeatlNzplqEUseZ3yzbrAk9uoY1gpux0=; b=dmBhzzbyKDnjFuONLFguMyWgs0
-	1DTEUss5Aeimb0+3F9ubFtgp6uj/BTBRv7aSsepmPmz1g2Ujn1485oNbTb1N3bmVSFRPEFmra34cl
-	FMrBaOhIA2dNMOshPS2M6n3knfWchGXnCIoytXjCvDZcWt7P1j3Y3jz3JyZjQBoQ3IMyNqLj4Yqay
-	rG+Co1E35B5z/wD1pLomu7sSycUNQXtonu2Btuw5fWKDSvr5Cg1IPEEicEF2ZCnqyXOfR/XUOfyRB
-	+0Q3FzrrwmdYRo5qbI4WCtToIRF6E+8E7sWNdl6CQkU93DFu2JlhrNZLwzy2ZvXA6HCZEk5dj+Gpa
-	gSPbwMsA==;
+	bh=CH2qPrLkcS6/rRyNy716wJ2uYE0goUZR33taod3gHJ8=; b=u4j+oLJdjyl2okg/wnIFlkQiz0
+	TtqOA03t6w7XokkEc0oz5ZiAYat/JIhNAPsv34F+cDRa7xDmo8JTdmryJVgZjTUrairpiwei4JuRK
+	RwGDgQAN6uFhdrdgcRwFMbdqdNI5X6HN3PvMk9zEoe5gVf7eBAQ2tdE5KKVl0cM2yea5drTkFTf73
+	eEWpQsbOLU+MYhQ4LqCgwygYhin130pPxCas6AczVLyCnBVGmDJYqDRmJuTwFm/DqsicJidEwGVur
+	nDe0KMd1NMaCqv+lKCloQvutnfF02YsFBmdv0KedUqrwFX1szPRD0fvGl1uf2MDMr+3cbXPn8u8bZ
+	cESr8/iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXvAv-0000000G4QA-3oeD;
-	Sat, 05 Jul 2025 05:10:57 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1uXwaA-0000000G9Vq-0dCC;
+	Sat, 05 Jul 2025 06:41:06 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXv8X-0000000G3md-3qQY
+	id 1uXwXp-0000000G9J3-0SOo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Jul 2025 05:08:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1751692110; x=1783228110;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=y4YbVKjIpJUvJyG6P+uiV9yZeiRLnh3BlJE9dI35KLo=;
-  b=YFis92xSfTTkINOuuSgQNeLieIsA20819UhNutGDnH/A6RBAfFwLs8A5
-   RK+Oe4O+gpfQSe9fheZ+VNRnncNtmkFK95QbinFn3hM3DoWljIhySBr0S
-   436Cq218LwnGpfrJmZbwrBBaqXvqjFwm2GvpTbRVm31JZ5IwiyetCe4Rq
-   1NNRfiDIkmf0+hZo7Zi2sFgI8qdaWY2sDswNA/gRtxptPlfN/MY9csLK6
-   wZm4lvdjHA3YZFD7TysRVSFXp+ukzxNbLH3MvPyLftsvKv2V8OqixSeWr
-   vHkk2Nntb/NyHTCR6WoSgIVbeNs6If0nIAbd7DV2Gcca9b8J/HAn9Qq5o
-   g==;
-X-CSE-ConnectionGUID: EOhC0GgOTx64LZsrZXXsrg==
-X-CSE-MsgGUID: D8GfRAPDQeuw7epqwXDulA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11484"; a="79443466"
-X-IronPort-AV: E=Sophos;i="6.16,289,1744095600"; 
-   d="scan'208";a="79443466"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2025 22:08:24 -0700
-X-CSE-ConnectionGUID: I8XUcSjlT9S3JX+2sWvfGw==
-X-CSE-MsgGUID: R0W+LATIQlKLp+hRX+hGKQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,289,1744095600"; 
-   d="scan'208";a="160440705"
-Received: from lkp-server01.sh.intel.com (HELO 0b2900756c14) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 04 Jul 2025 22:08:22 -0700
-Received: from kbuild by 0b2900756c14 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uXv8M-0004Ih-2g;
-	Sat, 05 Jul 2025 05:08:18 +0000
-Date: Sat, 5 Jul 2025 13:07:20 +0800
-From: kernel test robot <lkp@intel.com>
-To: Peter Griffin <peter.griffin@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Linus Walleij <linus.walleij@linaro.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Peter Griffin <peter.griffin@linaro.org>
-Subject: Re: [PATCH] pinctrl: samsung: Fix gs101 irq chip
-Message-ID: <202507051248.6qkGauvn-lkp@intel.com>
-References: <20250702-fix-gs101-irqchip-v1-1-ccc84b44ad72@linaro.org>
+	Sat, 05 Jul 2025 06:38:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1751697511; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Ba1CjQ1O4J2LXAAhI1/BNai/cHTI02dav9Jykh0VNqWZ5tA6b/QQgXx8EOT7YgBn00BbK9pgSnaVMCnF5k+PLvoEdlza2MsjEc/pFzu5Vs6qyJIcZ59T98Q7q1CjUfiG5zB0Ifo5VMkNyYQ5oSRpGIDBgGaK+XgJ6NpoXx5cnKY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1751697511; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=CH2qPrLkcS6/rRyNy716wJ2uYE0goUZR33taod3gHJ8=; 
+	b=nSbqVkANhxPobO1ASZoTe1LiObQPaJZIrL+ufO6252zfixnJW/xwc2qk5DhLKUljS6x9Uv1gLjQVkCQQH/k/jpdUsMx6S4YmuQgkjrCinrrp4rr0KzR3R/H1MjOp8MFdc4DZCwH6LqHhp2g1iPIB52dQucp09jhN0s32UnVJoVU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751697510;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=CH2qPrLkcS6/rRyNy716wJ2uYE0goUZR33taod3gHJ8=;
+	b=HOxNFUvQWcAkedWJD8ypcC20qQMuuLPYIHnIXjNHIStLdIdNv7WEL/lvLgSJF6Uy
+	ZVJd5Dkg3pczKxngx/sCx64+jf4jW/AgUKQHESQMvlhYp3DNLuj7zvTfd8PlDIX0WvZ
+	A17g2P9nQ4QQcvUKXRknX1YSr0q5MmoueoIxN4RMHZxLniiB4c5Y6jaFLwTMY+dWzC4
+	Rxf2+7DaCFOKHufMGMhveZpt+ydSIYvNjFCHPFje/AtRn7ftDRN3sakGu2vJ4fM0sjg
+	ez/OrV0hQsnsL8DYyg6up8newPcH6pAt4csrU1wXUei9zR3krmt8fo6hhcFg4Bsl86J
+	OBFtziKWjg==
+Received: by mx.zohomail.com with SMTPS id 1751697508445426.7706701494434;
+	Fri, 4 Jul 2025 23:38:28 -0700 (PDT)
+Message-ID: <1d51b75f7b85ddb588bbb24366b36df63a60712e.camel@icenowy.me>
+Subject: Re: [PATCH 1/2] clk: sunxi-ng: v3s: Fix de clock definition
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Icenowy Zheng <icenowy@aosc.xyz>,
+ Maxime Ripard <mripard@kernel.org>
+Date: Sat, 05 Jul 2025 14:38:21 +0800
+In-Reply-To: <aGhNFe3wGLX8aUC6@collins>
+References: <20250704154008.3463257-1-paulk@sys-base.io>
+	 <4cd84b9e2227c9225d977107eb05b9c3813b8846.camel@icenowy.me>
+	 <aGhNFe3wGLX8aUC6@collins>
+Organization: Anthon Open-Source Community
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250702-fix-gs101-irqchip-v1-1-ccc84b44ad72@linaro.org>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_220829_986698_0CD15ADA 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20250704_233841_218371_7AF661BB 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,276 +88,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
+5ZyoIDIwMjUtMDctMDTmmJ/mnJ/kupTnmoQgMjM6NTIgKzAyMDDvvIxQYXVsIEtvY2lhbGtvd3Nr
+aeWGmemBk++8mgo+IEhpLAo+IAo+IExlIEZyaSAwNCBKdWwgMjUsIDIzOjU0LCBJY2Vub3d5IFpo
+ZW5nIGEgw6ljcml0IDoKPiA+IOWcqCAyMDI1LTA3LTA05pif5pyf5LqU55qEIDE3OjQwICswMjAw
+77yMUGF1bCBLb2NpYWxrb3dza2nlhpnpgZPvvJoKPiA+ID4gVGhlIGRlIGNsb2NrIGlzIG1hcmtl
+ZCB3aXRoIENMS19TRVRfUkFURV9QQVJFTlQsIHdoaWNoIGlzIHJlYWxseQo+ID4gPiBub3QKPiA+
+ID4gbmVjZXNzYXJ5IChhcyBjb25maXJtZWQgZnJvbSBleHBlcmltZW50YXRpb24pIGFuZCBzaWdu
+aWZpY2FudGx5Cj4gPiA+IHJlc3RyaWN0cyBmbGV4aWJpbGl0eSBmb3Igb3RoZXIgY2xvY2tzIHVz
+aW5nIHRoZSBzYW1lIHBhcmVudC4KPiA+IAo+ID4gV2l0aCBpdCBub3Qgc2V0dGluZyBwYXJlbnQs
+IGlzIGFyYml0YXJ5IHBpeGVsIGNsb2NrcyBzdGlsbAo+ID4gcG9zc2libGU/Cj4gCj4gQWJzb2x1
+dGVseSBhbmQgdGhlIGNsb2NrIHRyZWUgaXMgdmVyeSBtdWNoIGltcHJvdmVkLCBJIHRoaW5rIHRo
+ZSBmbGFnCj4gd2FzIHRoZQo+IHJlYXNvbiB0aGF0IHdhcyBwcmV2ZW50aW5nIGl0IGZyb20gbmF0
+dXJhbGx5IGtlZXBpbmcgdGhlIHRjb24gYW5kIGRlCj4gY2xvY2tzCj4gdW5kZXIgdGhlIHZpZGVv
+IHBsbCBpbiBteSBjYXNlLgo+IAo+IE5vdyBpdCBjYW4gcHJvdmlkZSBib3RoIHRoZSAzMyBNaHog
+Zm9yIHRoZSBwaXhlbCBjbG9jayBhbmQgcnVucyB0aGUKPiBtaXhlciBhdAo+IG5lYXJseSAxNTAg
+TUh6LiBUaGUgdmlkZW8gcGxsIG5vdyBydW5zIGF0IDI5NyBNSHogd2hpY2ggaXMgYSBwZXJmZWN0
+CgpEaWQgeW91IHRlc3Qgb3RoZXIgcGl4ZWwgY2xvY2tzPwoKSSBzdWdnZXN0IHlvdSB0byB0cnkg
+YSBSR0ItdG8tVkdBIGJyaWRnZSBhbmQgdGVzdCBwb3NzaWJsZSBwaXhlbCBjbG9ja3MKb24gdGhl
+IFZHQSBwb3J0LgoKPiBmaXQgZm9yCj4gY3NpLXNjbGsgY2FtZXJhIG1haW4gY2xvY2ssIHNvIHRo
+ZSBhbGdvcml0aG0gaXMgZG9pbmcgaXRzIGpvYiBhdCBpdHMKPiBiZXN0IQo+IAo+IFNvIHRoaXMg
+bWVhbnMgdGhhdCBJIG5vIGxvbmdlciBoYXZlIHRvIGNoYW5nZSB0aGUgbWl4ZXIgY2xvY2sgdG8g
+Mjk3Cj4gTUh6IHRvCj4ga2VlcCBpdCB1bmRlciB0aGUgdmlkZW8gcGxsLiBJdCBwcmV0dHkgbXVj
+aCBzb2x2ZXMgYWxsIG15IHByb2JsZW1zIGF0Cj4gb25jZS4KPiAKPiBIZXJlIGlzIHRoZSByZWxl
+dmFudCBjbGtfc3VtbWFyeSBleHRyYWN0Ogo+IMKgwqDCoCBwbGwtdmlkZW/CoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDLCoMKgwqDCoMKgwqAgMsKgwqDCoMKg
+wqDCoMKgIDLCoMKgwqDCoMKgwqDCoAo+IDI5NzAwMDAwMMKgwqAgNTAwMDDCoMKgwqDCoMKgIDDC
+oMKgwqDCoCA1MDAwMMKgwqDCoMKgwqAgWcKgwqDCoMKgwqAKPiBkZXZpY2VsZXNzwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG5vX2Nvbm5lY3Rpb25faWTCoMKgwqDC
+oMKgwqDCoMKgIAo+IMKgwqDCoMKgwqDCoCBjc2ktc2Nsa8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCAwwqDCoMKgwqDCoMKgIDDCoMKgwqDCoMKgwqDCoCAzwqDCoMKg
+wqDCoMKgwqAKPiAyOTcwMDAwMDDCoMKgIDUwMDAwwqDCoMKgwqDCoCAwwqDCoMKgwqAgNTAwMDDC
+oMKgwqDCoMKgIE7CoMKgwqDCoMKgwqDCoMKgCj4gMWNiODAwMC5pc3DCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG1vZMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoCAKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoAo+IDFjYjAwMDAuY2FtZXJhwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCBtb2TCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAKPiAxY2IxMDAwLmNzacKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+bW9kwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIAo+IMKgwqDCoMKg
+wqDCoCB0Y29uwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgMsKgwqDCoMKgwqDCoCAywqDCoMKgwqDCoMKgwqAgMcKgwqDCoMKgwqDCoMKgCj4gMzMwMDAw
+MDDCoMKgwqAgNTAwMDDCoMKgwqDCoMKgIDDCoMKgwqDCoCA1MDAwMMKgwqDCoMKgwqAgWcKgwqDC
+oMKgwqDCoMKgwqAgMWMwYzAwMC5sY2QtCj4gY29udHJvbGxlcsKgwqDCoMKgwqDCoMKgwqDCoCB0
+Y29uLWNoMMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIAo+IMKgwqDCoMKgwqDCoMKg
+wqDCoCB0Y29uLWRhdGEtY2xvY2vCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDHCoMKgwqDCoMKgwqAg
+McKgwqDCoMKgwqDCoMKgIDHCoMKgwqDCoMKgwqDCoAo+IDMzMDAwMDAwwqDCoMKgIDUwMDAwwqDC
+oMKgwqDCoCAwwqDCoMKgwqAgNTAwMDDCoMKgwqDCoMKgIFnCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+Cj4gZGV2aWNlbGVzc8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBu
+b19jb25uZWN0aW9uX2lkwqDCoMKgwqDCoMKgwqDCoCAKPiDCoMKgwqDCoMKgwqAgZGXCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMsKgwqDCoMKg
+wqDCoCAywqDCoMKgwqDCoMKgwqAgMMKgwqDCoMKgwqDCoMKgCj4gMjk3MDAwMDAwwqDCoCA1MDAw
+MMKgwqDCoMKgwqAgMMKgwqDCoMKgIDUwMDAwwqDCoMKgwqDCoCBZwqDCoMKgwqDCoMKgwqDCoAo+
+IDEwMDAwMDAuY2xvY2vCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgbW9kwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIAo+IMKgwqDCoMKgwqDCoMKg
+wqDCoCB3Yi1kaXbCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDDCoMKg
+wqDCoMKgwqAgMMKgwqDCoMKgwqDCoMKgIDDCoMKgwqDCoMKgwqDCoAo+IDI5NzAwMDAwMMKgwqAg
+NTAwMDDCoMKgwqDCoMKgIDDCoMKgwqDCoCA1MDAwMMKgwqDCoMKgwqAgWcKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAKPiBkZXZpY2VsZXNzwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIG5vX2Nvbm5lY3Rpb25faWTCoMKgwqDCoMKgwqDCoMKgIAo+IMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCB3YsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAw
+wqDCoMKgwqDCoMKgIDDCoMKgwqDCoMKgwqDCoCAwwqDCoMKgwqDCoMKgwqAKPiAyOTcwMDAwMDDC
+oMKgIDUwMDAwwqDCoMKgwqDCoCAwwqDCoMKgwqAgNTAwMDDCoMKgwqDCoMKgIE7CoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgCj4gZGV2aWNlbGVzc8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCBub19jb25uZWN0aW9uX2lkwqDCoMKgwqDCoMKgwqDCoCAKPiDCoMKg
+wqDCoMKgwqDCoMKgwqAgbWl4ZXIwLWRpdsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IDHCoMKgwqDCoMKgwqAgMcKgwqDCoMKgwqDCoMKgIDDCoMKgwqDCoMKgwqDCoAo+IDE0ODUwMDAw
+MMKgwqAgNTAwMDDCoMKgwqDCoMKgIDDCoMKgwqDCoCA1MDAwMMKgwqDCoMKgwqAgWcKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAKPiBkZXZpY2VsZXNzwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIG5vX2Nvbm5lY3Rpb25faWTCoMKgwqDCoMKgwqDCoMKgIAo+IMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCBtaXhlcjDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IDHCoMKgwqDCoMKgwqAgMcKgwqDCoMKgwqDCoMKgIDDCoMKgwqDCoMKgwqDCoAo+IDE0ODUwMDAw
+MMKgwqAgNTAwMDDCoMKgwqDCoMKgIDDCoMKgwqDCoCA1MDAwMMKgwqDCoMKgwqAgWcKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAKPiAxMTAwMDAwLm1peGVywqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIG1vZMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCAKPiAKPiBDaGVlcnMsCj4gCj4gUGF1bAo+IAo+ID4gPiAKPiA+ID4gSW4gYWRkaXRpb24g
+dGhlIHNvdXJjZSBzZWxlY3Rpb24gKHBhcmVudCkgZmllbGQgaXMgbWFya2VkIGFzCj4gPiA+IHVz
+aW5nCj4gPiA+IDIgYml0cywgd2hlbiBpdCB0aGUgZG9jdW1lbnRhdGlvbiByZXBvcnRzIHRoYXQg
+aXQgdXNlcyAzLgo+ID4gPiAKPiA+ID4gRml4IGJvdGggaXNzdWVzIGluIHRoZSBkZSBjbG9jayBk
+ZWZpbml0aW9uLgo+ID4gPiAKPiA+ID4gRml4ZXM6IGQwZjExZDE0YjBiYyAoImNsazogc3VueGkt
+bmc6IGFkZCBzdXBwb3J0IGZvciBWM3MgQ0NVIikKPiA+ID4gU2lnbmVkLW9mZi1ieTogUGF1bCBL
+b2NpYWxrb3dza2kgPHBhdWxrQHN5cy1iYXNlLmlvPgo+ID4gPiAtLS0KPiA+ID4gwqBkcml2ZXJz
+L2Nsay9zdW54aS1uZy9jY3Utc3VuOGktdjNzLmMgfCAzICstLQo+ID4gPiDCoDEgZmlsZSBjaGFu
+Z2VkLCAxIGluc2VydGlvbigrKSwgMiBkZWxldGlvbnMoLSkKPiA+ID4gCj4gPiA+IGRpZmYgLS1n
+aXQgYS9kcml2ZXJzL2Nsay9zdW54aS1uZy9jY3Utc3VuOGktdjNzLmMKPiA+ID4gYi9kcml2ZXJz
+L2Nsay9zdW54aS1uZy9jY3Utc3VuOGktdjNzLmMKPiA+ID4gaW5kZXggNTJlNDM2OTY2NGM1Li5k
+ZjM0NWE2MjBkOGQgMTAwNjQ0Cj4gPiA+IC0tLSBhL2RyaXZlcnMvY2xrL3N1bnhpLW5nL2NjdS1z
+dW44aS12M3MuYwo+ID4gPiArKysgYi9kcml2ZXJzL2Nsay9zdW54aS1uZy9jY3Utc3VuOGktdjNz
+LmMKPiA+ID4gQEAgLTM0Nyw4ICszNDcsNyBAQCBzdGF0aWMKPiA+ID4gU1VOWElfQ0NVX0dBVEUo
+ZHJhbV9vaGNpX2NsayzCoMKgwqDCoMKgwqDCoMKgImRyYW0tb2hjaSIswqDCoMKgwqAiZHJhbSIs
+Cj4gPiA+IMKgCj4gPiA+IMKgc3RhdGljIGNvbnN0IGNoYXIgKiBjb25zdCBkZV9wYXJlbnRzW10g
+PSB7ICJwbGwtdmlkZW8iLCAicGxsLQo+ID4gPiBwZXJpcGgwIiB9Owo+ID4gPiDCoHN0YXRpYyBT
+VU5YSV9DQ1VfTV9XSVRIX01VWF9HQVRFKGRlX2NsaywgImRlIiwgZGVfcGFyZW50cywKPiA+ID4g
+LcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIDB4MTA0LCAwLCA0LCAyNCwgMiwgQklUKDMxKSwKPiA+ID4gLcKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIENMS19TRVRf
+UkFURV9QQVJFTlQpOwo+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxMDQsIDAsIDQsIDI0LCAzLCBCSVQoMzEpLCAw
+KTsKPiA+ID4gwqAKPiA+ID4gwqBzdGF0aWMgY29uc3QgY2hhciAqIGNvbnN0IHRjb25fcGFyZW50
+c1tdID0geyAicGxsLXZpZGVvIiwgInBsbC0KPiA+ID4gcGVyaXBoMCIgfTsKPiA+ID4gwqBzdGF0
+aWMgU1VOWElfQ0NVX01fV0lUSF9NVVhfR0FURSh0Y29uX2NsaywgInRjb24iLCB0Y29uX3BhcmVu
+dHMsCj4gPiAKPiAKCg==
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 2aeda9592360c200085898a258c4754bfe879921]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Peter-Griffin/pinctrl-samsung-Fix-gs101-irq-chip/20250702-201914
-base:   2aeda9592360c200085898a258c4754bfe879921
-patch link:    https://lore.kernel.org/r/20250702-fix-gs101-irqchip-v1-1-ccc84b44ad72%40linaro.org
-patch subject: [PATCH] pinctrl: samsung: Fix gs101 irq chip
-config: loongarch-allmodconfig (https://download.01.org/0day-ci/archive/20250705/202507051248.6qkGauvn-lkp@intel.com/config)
-compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250705/202507051248.6qkGauvn-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507051248.6qkGauvn-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   include/linux/lockdep.h:279:7: note: expanded from macro 'lockdep_assert'
-     279 |         do { WARN_ON(debug_locks && !(cond)); } while (0)
-         |              ^
-   include/asm-generic/bug.h:132:3: note: expanded from macro 'WARN_ON'
-     132 |                 __WARN();                                               \
-         |                 ^
-   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/stringify.h:10:27: note: expanded from macro '__stringify'
-      10 | #define __stringify(x...)       __stringify_1(x)
-         |                                 ^
-   include/linux/stringify.h:9:29: note: expanded from macro '__stringify_1'
-       9 | #define __stringify_1(x...)     #x
-         |                                 ^
-   <scratch space>:15:1: note: expanded from here
-      15 | ".pushsection __bug_table, \"aw\"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, \"aMS\", @progbits, 1; 10002: .string \"\" \"drivers/net/wireless/realtek/rtw88/hci.h\"; .popsection; .long 10002b - .; .short 197; .short (1 << 0)|(((9) << 8)); .popsection; 10001: break 1;"
-         | ^
-   <inline asm>:1:134: note: instantiated into assembly here
-       1 |         .pushsection __bug_table, "aw"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, "aMS", @progbits, 1; 10002: .string "" "drivers/net/wireless/realtek/rtw88/hci.h"; .popsection; .long 10002b - .; .short 197; .short (1 << 0)|(((9) << 8)); .popsection; 10001: break 1;
-         |                                                                                                                                             ^
-   In file included from drivers/net/wireless/realtek/rtw88/rtw8822c.c:6:
-   In file included from drivers/net/wireless/realtek/rtw88/main.h:2136:
-   drivers/net/wireless/realtek/rtw88/hci.h:197:2: error: unexpected token
-     197 |         lockdep_assert_held(&rtwdev->mutex);
-         |         ^
-   include/linux/lockdep.h:285:2: note: expanded from macro 'lockdep_assert_held'
-     285 |         lockdep_assert(lockdep_is_held(l) != LOCK_STATE_NOT_HELD)
-         |         ^
-   include/linux/lockdep.h:279:7: note: expanded from macro 'lockdep_assert'
-     279 |         do { WARN_ON(debug_locks && !(cond)); } while (0)
-         |              ^
-   include/asm-generic/bug.h:132:3: note: expanded from macro 'WARN_ON'
-     132 |                 __WARN();                                               \
-         |                 ^
-   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/stringify.h:10:27: note: expanded from macro '__stringify'
-      10 | #define __stringify(x...)       __stringify_1(x)
-         |                                 ^
-   include/linux/stringify.h:9:29: note: expanded from macro '__stringify_1'
-       9 | #define __stringify_1(x...)     #x
-         |                                 ^
-   <scratch space>:15:1: note: expanded from here
-      15 | ".pushsection __bug_table, \"aw\"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, \"aMS\", @progbits, 1; 10002: .string \"\" \"drivers/net/wireless/realtek/rtw88/hci.h\"; .popsection; .long 10002b - .; .short 197; .short (1 << 0)|(((9) << 8)); .popsection; 10001: break 1;"
-         | ^
-   <inline asm>:1:134: note: instantiated into assembly here
-       1 |         .pushsection __bug_table, "aw"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, "aMS", @progbits, 1; 10002: .string "" "drivers/net/wireless/realtek/rtw88/hci.h"; .popsection; .long 10002b - .; .short 197; .short (1 << 0)|(((9) << 8)); .popsection; 10001: break 1;
-         |                                                                                                                                             ^
-   In file included from drivers/net/wireless/realtek/rtw88/rtw8822c.c:6:
-   In file included from drivers/net/wireless/realtek/rtw88/main.h:2136:
-   drivers/net/wireless/realtek/rtw88/hci.h:186:2: error: unexpected token
-     186 |         lockdep_assert_held(&rtwdev->mutex);
-         |         ^
-   include/linux/lockdep.h:285:2: note: expanded from macro 'lockdep_assert_held'
-     285 |         lockdep_assert(lockdep_is_held(l) != LOCK_STATE_NOT_HELD)
-         |         ^
-   include/linux/lockdep.h:279:7: note: expanded from macro 'lockdep_assert'
-     279 |         do { WARN_ON(debug_locks && !(cond)); } while (0)
-         |              ^
-   include/asm-generic/bug.h:132:3: note: expanded from macro 'WARN_ON'
-     132 |                 __WARN();                                               \
-         |                 ^
-   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/stringify.h:10:27: note: expanded from macro '__stringify'
-      10 | #define __stringify(x...)       __stringify_1(x)
-         |                                 ^
-   include/linux/stringify.h:9:29: note: expanded from macro '__stringify_1'
-       9 | #define __stringify_1(x...)     #x
-         |                                 ^
-   <scratch space>:12:1: note: expanded from here
-      12 | ".pushsection __bug_table, \"aw\"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, \"aMS\", @progbits, 1; 10002: .string \"\" \"drivers/net/wireless/realtek/rtw88/hci.h\"; .popsection; .long 10002b - .; .short 186; .short (1 << 0)|(((9) << 8)); .popsection; 10001: break 1;"
-         | ^
-   <inline asm>:1:134: note: instantiated into assembly here
-       1 |         .pushsection __bug_table, "aw"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, "aMS", @progbits, 1; 10002: .string "" "drivers/net/wireless/realtek/rtw88/hci.h"; .popsection; .long 10002b - .; .short 186; .short (1 << 0)|(((9) << 8)); .popsection; 10001: break 1;
-         |                                                                                                                                             ^
-   In file included from drivers/net/wireless/realtek/rtw88/rtw8822c.c:6:
-   In file included from drivers/net/wireless/realtek/rtw88/main.h:2136:
-   drivers/net/wireless/realtek/rtw88/hci.h:186:2: error: unexpected token
-     186 |         lockdep_assert_held(&rtwdev->mutex);
-         |         ^
-   include/linux/lockdep.h:285:2: note: expanded from macro 'lockdep_assert_held'
-     285 |         lockdep_assert(lockdep_is_held(l) != LOCK_STATE_NOT_HELD)
-         |         ^
-   include/linux/lockdep.h:279:7: note: expanded from macro 'lockdep_assert'
-     279 |         do { WARN_ON(debug_locks && !(cond)); } while (0)
-         |              ^
-   include/asm-generic/bug.h:132:3: note: expanded from macro 'WARN_ON'
-     132 |                 __WARN();                                               \
-         |                 ^
-   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/stringify.h:10:27: note: expanded from macro '__stringify'
-      10 | #define __stringify(x...)       __stringify_1(x)
-         |                                 ^
-   include/linux/stringify.h:9:29: note: expanded from macro '__stringify_1'
-       9 | #define __stringify_1(x...)     #x
-         |                                 ^
-   <scratch space>:12:1: note: expanded from here
-      12 | ".pushsection __bug_table, \"aw\"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, \"aMS\", @progbits, 1; 10002: .string \"\" \"drivers/net/wireless/realtek/rtw88/hci.h\"; .popsection; .long 10002b - .; .short 186; .short (1 << 0)|(((9) << 8)); .popsection; 10001: break 1;"
-         | ^
-   <inline asm>:1:134: note: instantiated into assembly here
-       1 |         .pushsection __bug_table, "aw"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, "aMS", @progbits, 1; 10002: .string "" "drivers/net/wireless/realtek/rtw88/hci.h"; .popsection; .long 10002b - .; .short 186; .short (1 << 0)|(((9) << 8)); .popsection; 10001: break 1;
-         |                                                                                                                                             ^
->> drivers/net/wireless/realtek/rtw88/rtw8822c.c:4364:6: error: unexpected token
-    4364 |         if (WARN_ON(bw > RTW_CHANNEL_WIDTH_40 || nrx >= RTW_RF_PATH_MAX))
-         |             ^
-   include/asm-generic/bug.h:132:3: note: expanded from macro 'WARN_ON'
-     132 |                 __WARN();                                               \
-         |                 ^
-   include/asm-generic/bug.h:109:19: note: expanded from macro '__WARN'
-     109 | #define __WARN()                __WARN_FLAGS("", BUGFLAG_TAINT(TAINT_WARN))
-         |                                 ^
-   arch/loongarch/include/asm/bug.h:47:2: note: expanded from macro '__WARN_FLAGS'
-      47 |         __BUG_FLAGS(cond_str, BUGFLAG_WARNING|(flags), ANNOTATE_REACHABLE(10001b));\
-         |         ^
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/stringify.h:10:27: note: expanded from macro '__stringify'
-      10 | #define __stringify(x...)       __stringify_1(x)
-         |                                 ^
-   include/linux/stringify.h:9:29: note: expanded from macro '__stringify_1'
-       9 | #define __stringify_1(x...)     #x
-         |                                 ^
-   <scratch space>:42:1: note: expanded from here
-      42 | ".pushsection __bug_table, \"aw\"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, \"aMS\", @progbits, 1; 10002: .string \"\" \"drivers/net/wireless/realtek/rtw88/rtw8822c.c\"; .popsection; .long 10002b - .; .short 4364; .short (1 << 0)|(((9) << 8)); .popsection; 10001: break 1;"
-         | ^
-   <inline asm>:1:134: note: instantiated into assembly here
-       1 |         .pushsection __bug_table, "aw"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, "aMS", @progbits, 1; 10002: .string "" "drivers/net/wireless/realtek/rtw88/rtw8822c.c"; .popsection; .long 10002b - .; .short 4364; .short (1 << 0)|(((9) << 8)); .popsection; 10001: break 1;
-         |                                                                                                                                             ^
-   In file included from drivers/net/wireless/realtek/rtw88/rtw8822c.c:6:
-   In file included from drivers/net/wireless/realtek/rtw88/main.h:2136:
-   drivers/net/wireless/realtek/rtw88/hci.h:248:2: error: unexpected token
-     248 |         WARN(addr & 0x3, "should be 4-byte aligned, addr = 0x%08x\n", addr);
-         |         ^
-   include/asm-generic/bug.h:141:3: note: expanded from macro 'WARN'
-     141 |                 __WARN_printf(TAINT_WARN, format);                      \
-         |                 ^
-   include/asm-generic/bug.h:113:3: note: expanded from macro '__WARN_printf'
-     113 |                 __WARN_FLAGS("", BUGFLAG_NO_CUT_HERE | BUGFLAG_TAINT(taint));\
-         |                 ^
-   arch/loongarch/include/asm/bug.h:47:2: note: expanded from macro '__WARN_FLAGS'
-      47 |         __BUG_FLAGS(cond_str, BUGFLAG_WARNING|(flags), ANNOTATE_REACHABLE(10001b));\
-         |         ^
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/stringify.h:10:27: note: expanded from macro '__stringify'
-      10 | #define __stringify(x...)       __stringify_1(x)
-         |                                 ^
-   include/linux/stringify.h:9:29: note: expanded from macro '__stringify_1'
-       9 | #define __stringify_1(x...)     #x
-         |                                 ^
-   <scratch space>:18:1: note: expanded from here
-      18 | ".pushsection __bug_table, \"aw\"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, \"aMS\", @progbits, 1; 10002: .string \"\" \"drivers/net/wireless/realtek/rtw88/hci.h\"; .popsection; .long 10002b - .; .short 248; .short (1 << 0)|((1 << 3) | ((9) << 8)); .popsection; 10001: break 1;"
-         | ^
-   <inline asm>:1:134: note: instantiated into assembly here
-       1 |         .pushsection __bug_table, "aw"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, "aMS", @progbits, 1; 10002: .string "" "drivers/net/wireless/realtek/rtw88/hci.h"; .popsection; .long 10002b - .; .short 248; .short (1 << 0)|((1 << 3) | ((9) << 8)); .popsection; 10001: break 1;
-         |                                                                                                                                             ^
-   In file included from drivers/net/wireless/realtek/rtw88/rtw8822c.c:6:
-   In file included from drivers/net/wireless/realtek/rtw88/main.h:2136:
-   drivers/net/wireless/realtek/rtw88/hci.h:248:2: error: unexpected token
-     248 |         WARN(addr & 0x3, "should be 4-byte aligned, addr = 0x%08x\n", addr);
-         |         ^
-   include/asm-generic/bug.h:141:3: note: expanded from macro 'WARN'
-     141 |                 __WARN_printf(TAINT_WARN, format);                      \
-         |                 ^
-   include/asm-generic/bug.h:113:3: note: expanded from macro '__WARN_printf'
-     113 |                 __WARN_FLAGS("", BUGFLAG_NO_CUT_HERE | BUGFLAG_TAINT(taint));\
-         |                 ^
-   arch/loongarch/include/asm/bug.h:47:2: note: expanded from macro '__WARN_FLAGS'
-      47 |         __BUG_FLAGS(cond_str, BUGFLAG_WARNING|(flags), ANNOTATE_REACHABLE(10001b));\
-         |         ^
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/stringify.h:10:27: note: expanded from macro '__stringify'
-      10 | #define __stringify(x...)       __stringify_1(x)
-         |                                 ^
-   include/linux/stringify.h:9:29: note: expanded from macro '__stringify_1'
-       9 | #define __stringify_1(x...)     #x
-         |                                 ^
-   <scratch space>:18:1: note: expanded from here
-      18 | ".pushsection __bug_table, \"aw\"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, \"aMS\", @progbits, 1; 10002: .string \"\" \"drivers/net/wireless/realtek/rtw88/hci.h\"; .popsection; .long 10002b - .; .short 248; .short (1 << 0)|((1 << 3) | ((9) << 8)); .popsection; 10001: break 1;"
-         | ^
-   <inline asm>:1:134: note: instantiated into assembly here
-       1 |         .pushsection __bug_table, "aw"; .align 2; 10000: .long 10001f - .; .pushsection .rodata.str, "aMS", @progbits, 1; 10002: .string "" "drivers/net/wireless/realtek/rtw88/hci.h"; .popsection; .long 10002b - .; .short 248; .short (1 << 0)|((1 << 3) | ((9) << 8)); .popsection; 10001: break 1;
-         |                                                                                                                                             ^
-   In file included from drivers/net/wireless/realtek/rtw88/rtw8822c.c:6:
-   In file included from drivers/net/wireless/realtek/rtw88/main.h:2136:
-   drivers/net/wireless/realtek/rtw88/hci.h:197:2: error: unexpected token
-     197 |         lockdep_assert_held(&rtwdev->mutex);
-         |         ^
-   include/linux/lockdep.h:285:2: note: expanded from macro 'lockdep_assert_held'
-     285 |         lockdep_assert(lockdep_is_held(l) != LOCK_STATE_NOT_HELD)
-         |         ^
-   include/linux/lockdep.h:279:7: note: expanded from macro 'lockdep_assert'
-     279 |         do { WARN_ON(debug_locks && !(cond)); } while (0)
-         |              ^
-   include/asm-generic/bug.h:132:3: note: expanded from macro 'WARN_ON'
-     132 |                 __WARN();                                               \
-         |                 ^
-   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/stringify.h:10:27: note: expanded from macro '__stringify'
-      10 | #define __stringify(x...)       __stringify_1(x)
-         |                                 ^
-   include/linux/stringify.h:9:29: note: expanded from macro '__stringify_1'
-       9 | #define __stringify_1(x...)     #x
-         |                                 ^
-   <scratch space>:15:1: note: expanded from here
-
-
-vim +4364 drivers/net/wireless/realtek/rtw88/rtw8822c.c
-
-479c4ee931a677c Tzu-En Huang 2019-09-09  4353  
-479c4ee931a677c Tzu-En Huang 2019-09-09  4354  #define RTW_CCK_PD_MAX 255
-479c4ee931a677c Tzu-En Huang 2019-09-09  4355  #define RTW_CCK_CS_MAX 31
-479c4ee931a677c Tzu-En Huang 2019-09-09  4356  #define RTW_CCK_CS_ERR1 27
-479c4ee931a677c Tzu-En Huang 2019-09-09  4357  #define RTW_CCK_CS_ERR2 29
-479c4ee931a677c Tzu-En Huang 2019-09-09  4358  static void
-479c4ee931a677c Tzu-En Huang 2019-09-09  4359  rtw8822c_phy_cck_pd_set_reg(struct rtw_dev *rtwdev,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4360  			    s8 pd_diff, s8 cs_diff, u8 bw, u8 nrx)
-479c4ee931a677c Tzu-En Huang 2019-09-09  4361  {
-479c4ee931a677c Tzu-En Huang 2019-09-09  4362  	u32 pd, cs;
-479c4ee931a677c Tzu-En Huang 2019-09-09  4363  
-479c4ee931a677c Tzu-En Huang 2019-09-09 @4364  	if (WARN_ON(bw > RTW_CHANNEL_WIDTH_40 || nrx >= RTW_RF_PATH_MAX))
-479c4ee931a677c Tzu-En Huang 2019-09-09  4365  		return;
-479c4ee931a677c Tzu-En Huang 2019-09-09  4366  
-479c4ee931a677c Tzu-En Huang 2019-09-09  4367  	pd = rtw_read32_mask(rtwdev,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4368  			     rtw8822c_cck_pd_reg[bw][nrx].reg_pd,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4369  			     rtw8822c_cck_pd_reg[bw][nrx].mask_pd);
-479c4ee931a677c Tzu-En Huang 2019-09-09  4370  	cs = rtw_read32_mask(rtwdev,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4371  			     rtw8822c_cck_pd_reg[bw][nrx].reg_cs,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4372  			     rtw8822c_cck_pd_reg[bw][nrx].mask_cs);
-479c4ee931a677c Tzu-En Huang 2019-09-09  4373  	pd += pd_diff;
-479c4ee931a677c Tzu-En Huang 2019-09-09  4374  	cs += cs_diff;
-479c4ee931a677c Tzu-En Huang 2019-09-09  4375  	if (pd > RTW_CCK_PD_MAX)
-479c4ee931a677c Tzu-En Huang 2019-09-09  4376  		pd = RTW_CCK_PD_MAX;
-479c4ee931a677c Tzu-En Huang 2019-09-09  4377  	if (cs == RTW_CCK_CS_ERR1 || cs == RTW_CCK_CS_ERR2)
-479c4ee931a677c Tzu-En Huang 2019-09-09  4378  		cs++;
-479c4ee931a677c Tzu-En Huang 2019-09-09  4379  	else if (cs > RTW_CCK_CS_MAX)
-479c4ee931a677c Tzu-En Huang 2019-09-09  4380  		cs = RTW_CCK_CS_MAX;
-479c4ee931a677c Tzu-En Huang 2019-09-09  4381  	rtw_write32_mask(rtwdev,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4382  			 rtw8822c_cck_pd_reg[bw][nrx].reg_pd,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4383  			 rtw8822c_cck_pd_reg[bw][nrx].mask_pd,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4384  			 pd);
-479c4ee931a677c Tzu-En Huang 2019-09-09  4385  	rtw_write32_mask(rtwdev,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4386  			 rtw8822c_cck_pd_reg[bw][nrx].reg_cs,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4387  			 rtw8822c_cck_pd_reg[bw][nrx].mask_cs,
-479c4ee931a677c Tzu-En Huang 2019-09-09  4388  			 cs);
-760bb2abfef252a Ping-Ke Shih 2020-11-09  4389  
-760bb2abfef252a Ping-Ke Shih 2020-11-09  4390  	rtw_dbg(rtwdev, RTW_DBG_PHY,
-760bb2abfef252a Ping-Ke Shih 2020-11-09  4391  		"is_linked=%d, bw=%d, nrx=%d, cs_ratio=0x%x, pd_th=0x%x\n",
-760bb2abfef252a Ping-Ke Shih 2020-11-09  4392  		rtw_is_assoc(rtwdev), bw, nrx, cs, pd);
-479c4ee931a677c Tzu-En Huang 2019-09-09  4393  }
-479c4ee931a677c Tzu-En Huang 2019-09-09  4394  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
