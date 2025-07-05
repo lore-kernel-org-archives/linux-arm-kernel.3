@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC58C83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 21:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B3ACC83030
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 21:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K4dhUf5EUx1y51YwBgAVDy5aAK6OAX9vCrrn8rQSuDo=; b=rkc6iT4wzEETLidkcJhW1JK6Wo
-	2LOYTgYULLVkbCH07cLlL6o9HiQAGhx+UrUWNF45dUkla0y29I+mAaxX91YuUVgUG/yZdeuOL82rJ
-	QN5aX6Rd4GQpgzfIEQUiacA9gTciRATNukD67XLCCxoR6P0IgOF6LwIKjrrdb6PMDe3kkC04276Du
-	dOe/TAgMzaiZQ/6DfrlryDqOidTq148GketwAPxnyWKsmgH0Z8mSwjWlhNQLnb4chhQezNK4tqhH8
-	WFG52Ck+h2IgonZE0tV6/QLTjfPIRokH/X6WJ7INGv0r9UsZLOLmOcaZik3XOKqG/iXFW1fmLvZkU
-	j6vcKTwg==;
+	bh=COLdE9Qe9niSYcTfJryg+Zp638/GiYsA4tgZ96AwDNU=; b=SYg/MebuM5qb7b6p8Q340hef7d
+	T+gkuFxGJOD+0pH+GRdVpARLXysZv4uDYrKergRoUR5XeZNynSVAFKySGn3IL6oIhdwCRkxByrSC1
+	rOIEjxU97Of0aHwXZCo+oysjGb3v4wMnt1PfshT0ojyU605+l+zNDalo6NrKriPPWVzznzjQdI39k
+	vyII5Zn8KlQjEyB0BhKLVUUuauZg6leva15UmkXGpaCtq3dAsXW4n2Cf2+5qwvN60l4iTvmPdB3uV
+	ET5WqB2bw8pCP7sV1zABQIoz9FgbvL1lyBixOJGjGqiNSSn3fywN+lZdMjK/6AhNrDhpV9RZQqk48
+	CsHayK+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYAgZ-0000000H3Rk-015V;
-	Sat, 05 Jul 2025 21:44:39 +0000
+	id 1uYAis-0000000H3gu-1GK3;
+	Sat, 05 Jul 2025 21:47:02 +0000
 Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYAbz-0000000H2j0-13oh;
-	Sat, 05 Jul 2025 21:39:56 +0000
+	id 1uYAc3-0000000H2jW-4B9e;
+	Sat, 05 Jul 2025 21:40:01 +0000
 dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
 	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=K4dhUf5EUx1y51YwBgAVDy5aAK6OAX9vCrrn8rQSuDo=;
-	b=C0LHqQXlTzjYulBR0K9YD/2vM26EjlZOj/SX3dvD9/x2XWHfyBmbGaW7fFqFrgN9FfVswoTVPvYFDdy5M0VLy3oAvWYvgPdWBzD47UPTKnIwal041wNGpjWDlsFeYCwVVrfRVDUyJXlsKFgN0O2B1PgA3JahaHAz+Ilx7N/pQgY=
+	bh=COLdE9Qe9niSYcTfJryg+Zp638/GiYsA4tgZ96AwDNU=;
+	b=NpUDES0e32YprLDGVhlwX1FF1It2fo2KnInhncG3dp0HXut2EBBmI4LNhLM/AQrNTrIsCv/yug2UXBEvmljOwfaoppJhUujHEXVraUtGr5HPNwe24EInVAwalpYa9D2KdvlD5UnKNM7mUVOidFAmb5fG1XLfskD3TlehhoDmzjY=
 Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
 	by mail.netcube.li with ESMTPA
-	; Sat, 5 Jul 2025 23:39:45 +0200
+	; Sat, 5 Jul 2025 23:39:58 +0200
 From: Lukas Schmid <lukas.schmid@netcube.li>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -51,18 +51,17 @@ Cc: Lukas Schmid <lukas.schmid@netcube.li>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 2/7] dt-bindings: arm: sunxi: Add NetCube Systems Nagami Basic Carrier Board
-Date: Sat,  5 Jul 2025 23:38:53 +0200
-Message-Id: <20250705213900.3614963-3-lukas.schmid@netcube.li>
+Subject: [PATCH v1 6/7] ARM: dts: sunxi: add support for NetCube Systems Nagami Basic Carrier
+Date: Sat,  5 Jul 2025 23:38:57 +0200
+Message-Id: <20250705213900.3614963-7-lukas.schmid@netcube.li>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250705213900.3614963-1-lukas.schmid@netcube.li>
 References: <20250705213900.3614963-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_143955_626877_81DB8903 
-X-CRM114-Status: UNSURE (   7.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250705_144000_344472_05D605B6 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +76,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NetCube Systems Nagami Basic Carrier Board is a simple carrier for the
-Nagami SoM. It is intended to serve as a simple reference design for a
-custom implementation or just evaluating the module with other peripherals
+The NetCube Systems Nagami Basic Carrier is a Carrier for the Nagami SoM
+It provides an ethernet port for the phy on the SoM and some USB-Ports.
+All other interfaces and gpios are available on pinheader, except for the
+SD-Interface which is available on a micro-sd slot.
 
 Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 ---
- Documentation/devicetree/bindings/arm/sunxi.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm/boot/dts/allwinner/Makefile          |  2 +
+ ...n8i-t113s-netcube-nagami-basic-carrier.dts | 63 +++++++++++++++++++
+ 2 files changed, 65 insertions(+)
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
 
-diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
-index 3c4353884..7919b5bf5 100644
---- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-+++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-@@ -604,6 +604,12 @@ properties:
-           - const: netcube,nagami
-           - const: allwinner,sun8i-t113s
- 
-+      - description: NetCube Systems Nagami Basic Carrier Board
-+        items:
-+          - const: netcube,nagami-basic-carrier
-+          - const: netcube,nagami
-+          - const: allwinner,sun8i-t113s
+diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
+index d799ad153..af287bb32 100644
+--- a/arch/arm/boot/dts/allwinner/Makefile
++++ b/arch/arm/boot/dts/allwinner/Makefile
+@@ -199,6 +199,7 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 := -@
+ DTC_FLAGS_sun8i-h3-orangepi-pc := -@
+ DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 := -@
+ DTC_FLAGS_sun8i-h3-orangepi-pc-plus := -@
++DTC_FLAGS_sun8i-t113s-netcube-nagami-basic-carrier := -@
+ DTC_FLAGS_sun8i-v3s-netcube-kumquat := -@
+ dtb-$(CONFIG_MACH_SUN8I) += \
+ 	sun8i-a23-evb.dtb \
+@@ -257,6 +258,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
+ 	sun8i-s3-lichee-zero-plus.dtb \
+ 	sun8i-s3-pinecube.dtb \
+ 	sun8i-t113s-mangopi-mq-r-t113.dtb \
++	sun8i-t113s-netcube-nagami-basic-carrier.dtb \
+ 	sun8i-t3-cqa3t-bv3.dtb \
+ 	sun8i-v3-sl631-imx179.dtb \
+ 	sun8i-v3s-anbernic-rg-nano.dtb \
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
+new file mode 100644
+index 000000000..1c4e691cd
+--- /dev/null
++++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
+@@ -0,0 +1,63 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
++ */
 +
-       - description: NextThing Co. CHIP
-         items:
-           - const: nextthing,chip
++/dts-v1/;
++#include "sun8i-t113s-netcube-nagami.dtsi"
++
++/ {
++	model = "NetCube Systems Nagami Basic Carrier Board";
++	compatible = "netcube,nagami-basic-carrier", "netcube,nagami",
++				 "allwinner,sun8i-t113s";
++};
++
++&can0 {
++	status = "okay";
++};
++
++&can1 {
++	status = "okay";
++};
++
++&ehci0 {
++	status = "okay";
++};
++
++&ehci1 {
++	status = "okay";
++};
++
++&i2c2 {
++	status = "okay";
++};
++
++&i2s1 {
++	status = "okay";
++};
++
++&mmc0 {
++	status = "okay";
++};
++
++&ohci0 {
++	status = "okay";
++};
++
++&ohci1 {
++	status = "okay";
++};
++
++&spi1 {
++	status = "okay";
++};
++
++&usb_otg {
++	dr_mode = "otg";
++	status = "okay";
++};
++
++&usbphy {
++	usb0_id_det-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
++	status = "okay";
++};
 -- 
 2.39.5
 
