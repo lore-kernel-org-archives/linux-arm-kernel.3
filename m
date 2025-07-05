@@ -4,77 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B36C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 19:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEEF7C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 19:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ORbq48ws88BzoCg+3C3lrqxEVQITGSfVV6sDqkLObc=; b=fGPfU9bkYvZVhsZCrrQzeJbEAV
-	KndkN9xqHdpBVclbfi2TYvr4bYbtrwBHbZ5hNFDIw4utiDHZ1YL7kYVer11MiSmrtBJ/cKw5V7W0C
-	YDjSu7JQeTf2qfrqwLbEHY6ggKjVFwz2js0Zfql3RULiJTtAo4ZRZ52z1UyOkMOlM2sYmIhCUQ9ef
-	KPyJq6T9OTYjkbQkgQFu4GV0KCQQGt3j0lRyXO7/KsoHP6cdNdBYBI/c4DBhtxaHgRyKLi3s9U7dJ
-	5BmAlQcsBq4AEEbdF6IoHsYDWH+IQ33QH+ZKKkd3saGsLQBUqwJQSzUTDvUR8YRDTAMn11u7jpr4H
-	QKvyClfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oMtAvX6qZfeuJIf0ta5kkKNYBlAGah2HCzc1WvVT/Fw=; b=njKv6R6W9oSP9ztjTkRfJOaFMX
+	A2dbL5mWkfD9pBAwjBj/CXUAY4TJakAVWXvnhMQVjeexXVaG9sAVYE+esgoPFLFTeC0QvsQLm5DMX
+	XA+YQ2HYp9x0GOI07OTY8lont4UxBrU2pa50faz9iLZ7HMJs57z2MkqkAKS9C3lVUwHzHE7cpECOx
+	mE9MsRjqDsyoM4YpsqeIovkTnfX7L6XINMopTSPg6yW1d72OQ3c/GOxBaV0dHpQeT+poQZITEWQMI
+	DBXVXQii/bOi1IwNjQecxWkLampEK3TAJOb5R0gtWL10UHy98ymhkgSG8G5HpcQJaKbOdOeXaOjDJ
+	oo0woHog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY8dx-0000000Gv2E-0Ikd;
-	Sat, 05 Jul 2025 19:33:49 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uY8zc-0000000GwHX-0jGp;
+	Sat, 05 Jul 2025 19:56:12 +0000
+Received: from bird.elm.relay.mailchannels.net ([23.83.212.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY8bd-0000000Gusm-0tO3
+	id 1uY8xI-0000000GwA6-3wnu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Jul 2025 19:31:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=6ORbq48ws88BzoCg+3C3lrqxEVQITGSfVV6sDqkLObc=; b=HlF6kCHm7Z1146GdO7SLnj71+9
-	/C+tGhuejjoazPhpxK8Ve0ym29eARPV84ad6YdaQtI40RgwcZklR/avhIMFzXMlXa3ON+jwdIq1sf
-	nQBaxTHR3rUktGW/TbF+I88NmIQKyZvgSISYK4QeBFEDHtbyj+Kxri2K50SkpUKe4peSCdmgVJpLb
-	Nh+PKQrDTWdz0G81MuxYnENLP5wDTaGegMl7BDsvWff/ph9OZav9mh0oo3tWDrcl1LeYZe3a13kLj
-	uhfEnB7I0ObqceH8Vzo5gw0VexoLR8a6yuUZo7tZDiBlZXxDdKEhSFlYwVVm51Ekg3xy0Ju/82JvI
-	EbIUvTrQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50760)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uY8bP-0003UC-2L;
-	Sat, 05 Jul 2025 20:31:11 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uY8bL-0007Ki-1z;
-	Sat, 05 Jul 2025 20:31:07 +0100
-Date: Sat, 5 Jul 2025 20:31:07 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Biju Das <biju.das.jz@bp.renesas.com>
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Biju Das <biju.das.au@gmail.com>
-Subject: Re: [PATCH net-next] net: stmmac: dwmac-renesas-gbeth: Add PM
- suspend/resume callbacks
-Message-ID: <aGl9e9Exvq1fVI0s@shell.armlinux.org.uk>
-References: <20250705170326.106073-1-biju.das.jz@bp.renesas.com>
+	Sat, 05 Jul 2025 19:53:50 +0000
+X-Sender-Id: dreamhost|x-authsender|rob@landley.net
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 39ABE2C38A0;
+	Sat,  5 Jul 2025 19:53:47 +0000 (UTC)
+Received: from pdx1-sub0-mail-a224.dreamhost.com (100-105-113-44.trex-nlb.outbound.svc.cluster.local [100.105.113.44])
+	(Authenticated sender: dreamhost)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 8FC322C3ACC;
+	Sat,  5 Jul 2025 19:53:46 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1751745226; a=rsa-sha256;
+	cv=none;
+	b=CUrVssEbvGxQTw01XaRawegwJZAVYmFA/E6Ykq9GEMbbHIcjdn1w+2UiZEzjuOqybv07pf
+	ULg8BlX+eDS+IpGUegDKMQ6Z+zLL2TKQozpSMMvhmKnfpGJOiEHbHN44RQr1XZSkDcC0JC
+	cst1HLQD36S63slVwrU2BZZx27LhugmIX/KCcBevbTvApc+wemqadn4KcPwQqKk1FfavJ6
+	5cfNdJT5IRaOqZrtM6bO4jeLq1aX81R/y4/k2HT+izRHmHOKXdu8ywbjXd3hGuUPzOEwo7
+	VeDmaIH48ldvtjUkTgJrBIB04cTU0Rw1pfMBJ+Gd/soPtagrKm5KqYNs8oJXMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1751745226;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=d9pzm0+gedOKbLSiTGmDk35IBF6AfAzRAWtaiIn6jrQ=;
+	b=a5HU1Etka1Te2YIbqZY0ZHhzCGZgsyI5ZvZFv7dD/ZS5q7exisNi53jGGGjCE0n6Sa76VP
+	1OHjSrZfpAHgNzBlQKqBm6a97QTmfehjW97S7uToPf+FLg4dCuTUU++vpRwkvS5RsXqwD+
+	azs5ndSdszGPReTLCsWeL/GB+yfg33VODKNJTm07E+h8hj83Pz3hzIFLEBa5x18CGD//0+
+	wyGXkH6ZgfZhvR/tYu1yXceaXe4PqY54XdsFb7UmheyYAV/uwkpfR50h3a5Ylo7XTZME1G
+	Yc6ePYd0eHzZBXIxcUVJws5ynOmzIc/FyzXEq+4YEXrTYJXDa/fHLsqFbfkWAw==
+ARC-Authentication-Results: i=1;
+	rspamd-5c976dc8b-gbfx2;
+	auth=pass smtp.auth=dreamhost smtp.mailfrom=rob@landley.net
+X-Sender-Id: dreamhost|x-authsender|rob@landley.net
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: dreamhost|x-authsender|rob@landley.net
+X-MailChannels-Auth-Id: dreamhost
+X-Trail-Fumbling: 0edc048661153d11_1751745227089_152603409
+X-MC-Loop-Signature: 1751745227089:1320448536
+X-MC-Ingress-Time: 1751745227089
+Received: from pdx1-sub0-mail-a224.dreamhost.com (pop.dreamhost.com
+ [64.90.62.162])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.105.113.44 (trex/7.1.3);
+	Sat, 05 Jul 2025 19:53:47 +0000
+Received: from [192.168.43.71] (M111108020212.v4.enabler.ne.jp [111.108.20.212])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: rob@landley.net)
+	by pdx1-sub0-mail-a224.dreamhost.com (Postfix) with ESMTPSA id 4bZLm91M7LzB0;
+	Sat,  5 Jul 2025 12:53:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=landley.net;
+	s=dreamhost; t=1751745226;
+	bh=oMtAvX6qZfeuJIf0ta5kkKNYBlAGah2HCzc1WvVT/Fw=;
+	h=Date:Subject:To:Cc:From:Content-Type:Content-Transfer-Encoding;
+	b=fW7jINTJHi5oRDv1NNGtkUycVaclQhMYZPb8AG7b5YNiCYOoWC++dYAhFJ0eY0KaV
+	 tPIKTgvos7rmWrqtDC3ENcguoWWMM64g0YXcvv166i4F9X9TrEnb3WSBp6KF2zmoqU
+	 jYraDxiBayw1c+uKWl3U10raWwjkq7zL5aUV6//gyqYSTqIH+Bnxy7m/lFV0C0Tdef
+	 YjrxLbsPr+cHJV2oI6w+d+Imv4FluzVi9VBI8gTNWZqS/k73KFWQQnYdBdtLPFw31Q
+	 Q6kcVp+9pvM/pCyqVMU+DFbk3oaUvglmsyetKasCYgz2vdrjNPO/cOtKlYfg5nsjy6
+	 YWF/+IM5V/enA==
+Message-ID: <c662505b-9c19-49f7-9823-80ccde72009f@landley.net>
+Date: Sat, 5 Jul 2025 14:53:43 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250705170326.106073-1-biju.das.jz@bp.renesas.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] ARM: Require linker to support KEEP within OVERLAY
+ for DCE
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Russell King <linux@armlinux.org.uk>, Christian Eggers <ceggers@arri.de>,
+ Arnd Bergmann <arnd@arndb.de>, Yuntao Liu <liuyuntao12@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Rich Felker <dalias@libc.org>
+References: <20250311-arm-fix-vectors-with-linker-dce-v1-0-ec4c382e3bfd@kernel.org>
+ <20250311-arm-fix-vectors-with-linker-dce-v1-1-ec4c382e3bfd@kernel.org>
+ <CACRpkdY-yxaiG89Co+C2=vyd0i6sh9pP0UGWZh1yUg4jd9jmuQ@mail.gmail.com>
+ <6739da7d-e555-407a-b5cb-e5681da71056@landley.net>
+ <20250705002402.GA1968690@ax162>
+Content-Language: en-US
+From: Rob Landley <rob@landley.net>
+In-Reply-To: <20250705002402.GA1968690@ax162>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_123125_255603_F6E7F2BE 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250705_125349_115408_7B432D3C 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,77 +126,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 05, 2025 at 06:03:24PM +0100, Biju Das wrote:
-> Add PM suspend/resume callbacks for RZ/G3E SMARC EVK.
+On 7/4/25 19:24, Nathan Chancellor wrote:
+> Hmm, I do see a bug in that change, as it allows DCE to be turned on
+> with binutils older than 2.36, which should be avoided with something
+> like
 > 
-> The PM deep entry is executed by pressing the SLEEP button and exit from
-> entry is by pressing the power button.
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index 3072731fe09c..962451e54fdd 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -121,7 +121,7 @@ config ARM
+>   	select HAVE_KERNEL_XZ
+>   	select HAVE_KPROBES if !XIP_KERNEL && !CPU_ENDIAN_BE32 && !CPU_V7M
+>   	select HAVE_KRETPROBES if HAVE_KPROBES
+> -	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if (LD_VERSION >= 23600 || LD_CAN_USE_KEEP_IN_OVERLAY)
+> +	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if (LD_VERSION >= 23600 || LD_IS_LLD) && LD_CAN_USE_KEEP_IN_OVERLAY
+>   	select HAVE_MOD_ARCH_SPECIFIC
+>   	select HAVE_NMI
+>   	select HAVE_OPTPROBES if !THUMB2_KERNEL
 > 
-> Logs:
-> root@smarc-rzg3e:~# PM: suspend entry (deep)
-> Filesystems sync: 0.115 seconds
-> Freezing user space processes
-> Freezing user space processes completed (elapsed 0.002 seconds)
-> OOM killer disabled.
-> Freezing remaining freezable tasks
-> Freezing remaining freezable tasks completed (elapsed 0.001 seconds)
-> printk: Suspending console(s) (use no_console_suspend to debug)
-> NOTICE:  BL2: v2.10.5(release):2.10.5/rz_soc_dev-162-g7148ba838
-> NOTICE:  BL2: Built : 14:23:58, Jul  5 2025
-> NOTICE:  BL2: SYS_LSI_MODE: 0x13e06
-> NOTICE:  BL2: SYS_LSI_DEVID: 0x8679447
-> NOTICE:  BL2: SYS_LSI_PRR: 0x0
-> NOTICE:  BL2: Booting BL31
-> renesas-gbeth 15c30000.ethernet end0: Link is Down
-> Disabling non-boot CPUs ...
-> psci: CPU3 killed (polled 0 ms)
-> psci: CPU2 killed (polled 0 ms)
-> psci: CPU1 killed (polled 0 ms)
-> Enabling non-boot CPUs ...
-> Detected VIPT I-cache on CPU1
-> GICv3: CPU1: found redistributor 100 region 0:0x0000000014960000
-> CPU1: Booted secondary processor 0x0000000100 [0x412fd050]
-> CPU1 is up
-> Detected VIPT I-cache on CPU2
-> GICv3: CPU2: found redistributor 200 region 0:0x0000000014980000
-> CPU2: Booted secondary processor 0x0000000200 [0x412fd050]
-> CPU2 is up
-> Detected VIPT I-cache on CPU3
-> GICv3: CPU3: found redistributor 300 region 0:0x00000000149a0000
-> CPU3: Booted secondary processor 0x0000000300 [0x412fd050]
-> CPU3 is up
-> dwmac4: Master AXI performs fixed burst length
-> 15c30000.ethernet end0: No Safety Features support found
-> 15c30000.ethernet end0: IEEE 1588-2008 Advanced Timestamp supported
-> 15c30000.ethernet end0: configuring for phy/rgmii-id link mode
-> dwmac4: Master AXI performs fixed burst length
-> 15c40000.ethernet end1: No Safety Features support found
-> 15c40000.ethernet end1: IEEE 1588-2008 Advanced Timestamp supported
-> 15c40000.ethernet end1: configuring for phy/rgmii-id link mode
-> OOM killer enabled.
-> Restarting tasks: Starting
-> Restarting tasks: Done
-> random: crng reseeded on system resumption
-> PM: suspend exit
-> 
-> 15c30000.ethernet end0: Link is Up - 1Gbps/Full - flow control rx/tx
-> root@smarc-rzg3e:~# ifconfig end0 192.168.10.7 up
-> root@smarc-rzg3e:~# ping 192.168.10.1
-> PING 192.168.10.1 (192.168.10.1) 56(84) bytes of data.
-> 64 bytes from 192.168.10.1: icmp_seq=1 ttl=64 time=2.05 ms
-> 64 bytes from 192.168.10.1: icmp_seq=2 ttl=64 time=0.928 ms
+> but it does not seem like your test configuration enables
+> CONFIG_LD_DEAD_CODE_DATA_ELIMINATION so I would expect this change to be
+> a no-op in that case? Does the above change work for you? I won't be
+> free to validate this until after the weekend.
 
-You should also test with the interface configured before suspend/resume
-and confirm that it continues working afterwards without being
-reconfigured.
+That fixed it, thanks.
 
-> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
+   AS      arch/arm/boot/compressed/piggy.o
+   LD      arch/arm/boot/compressed/vmlinux
+   OBJCOPY arch/arm/boot/zImage
+   Kernel: arch/arm/boot/zImage is ready
+$ qemu-system-arm -M virt -nographic -no-reboot -kernel $(find . -name 
+zImage) -append console=ttyAMA0
+Booting Linux on physical CPU 0x0
+Linux version 6.15.0-dirty (landley@driftwood) 
+(armv7l-linux-musleabihf-gcc (GCC) 11.4.0, GNU ld (GNU Binutils) 2.33.1) 
+#1 Sat Jul  5 14:40:16 CDT 2025
+CPU: ARMv7 Processor [414fc0f0] revision 0 (ARMv7), cr=30c53c7d
+CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+OF: fdt: Machine model: linux,dummy-virt
+...
 
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+I note it was a host tool segfaulting. It seems unlikely the host was 
+running an arm binary, maybe something went off into la-la land trying 
+to parse unexpected ELF tables?
 
-Thanks!
+Appropriately-tagged-by: Rob Landley <rob@landley.net>
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> Cheers,
+> Nathan
+
+Thanks,
+
+Rob
 
