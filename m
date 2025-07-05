@@ -4,92 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E834BC8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 07:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4831FC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 07:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+BzfNtLpFJK/1rL9CXjpJI51Ye7+7b3LCibh0EaiIaI=; b=16MHY+Tdhh05LFQTuLddjKYZck
-	nLQ5ZErQqfBu/fVMRIZ+mp+vCbaGhUhuGCs629LlcSKULddEZk96f0YuwXhAeTizUUGSQTDFxgvSv
-	ig99XKtDqnO7gDSuD9tnjGvxbUOUYfOmQBiI4+hkLegrk2K38odHAE0cBKQKYMILW6MTnanu4e20C
-	MasQVKLlrG2TZJ1opi3siZqpw5bvMsmBuNRuEt0VbDe0uJmKwnrdwaCqnKGT0yFbyNbE3n/oMgk/q
-	ZB6iwSCId8/zd21XuQpXa5rB3yiu24x4haFDmH7Ees8DkFc79nrFbZZO3ZngSkXl/euXg7ILNPugx
-	9sDKKAbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ipNd1HQQ2Ma2pisa7/gO96wA/WYXb5+4l3FrYAWC8qA=; b=EEPE8hDijQlAzBuE9AgO/Xoiz1
+	pBzWeoXMF/tvtkx55g4J5dmxGdovtdIaMTPLXswu+anY8pIlHthhZObmZhARmSvxXSd2uIHTboff6
+	8nRubkzlF/CXGlJKtmAlcOk6GpkRC+IJM7Fp6b0HGr/oowOBxDmeHiHd9VS5kk7rBp5zvGr2nSJ+b
+	t0wTcWYFCGPVkBm5tYPltj3l0P0vu+LuytXyJP11KFCWCcyuYdqdfoizr8C49+nkhN5IP+En+BuqP
+	/r0GgrqqLRrNzG7Rf1WW/Fgc/NquKRkrh0otY9anqE2t/cTCBZ4GdKazG5agur6Q+pPthLkcFHVtg
+	xvUcMWxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXxbB-0000000GF6x-1EiJ;
-	Sat, 05 Jul 2025 07:46:13 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1uXxdU-0000000GFJJ-2bmw;
+	Sat, 05 Jul 2025 07:48:36 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXxOb-0000000GDt0-2DBb
+	id 1uXxQd-0000000GE9I-2TLv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Jul 2025 07:33:14 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-60bf5a08729so2751966a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 00:33:13 -0700 (PDT)
+	Sat, 05 Jul 2025 07:35:21 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-60c9d8a16e5so2778346a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 00:35:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1751700792; x=1752305592; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+BzfNtLpFJK/1rL9CXjpJI51Ye7+7b3LCibh0EaiIaI=;
-        b=qX/WxpWB6mpioFYIlhAnWaVBg+oJox/HD9yJXdrWd09rSj8WRaHIv1hkQZpbMp+6Jl
-         CPtHOU0P6L+qYXgNl3sDAIuPZIsHiRSy6VjyCIEsTs87VeWD/2sclDfsXtu3UmCegqJF
-         Ahck+ieov33PWZtp3IIWqzMg1dTkB055Fq+/R2ENBBZFZMrCZt2DtkBqwP26dGr12fXF
-         iLM3nQ4w0p9Gn+KhPmLsZ8t5otdAbbza2mF7ckqPonFsjv1tfXrq9B7PFxcIk1oTxpIe
-         ADniK/QU3TTb/Zp9uQf9JWd8wvvqfRjW4q/OJShT+ZUTLAZud0lzlpv85LDW0CZ4AYAA
-         6jFw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751700918; x=1752305718; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ipNd1HQQ2Ma2pisa7/gO96wA/WYXb5+4l3FrYAWC8qA=;
+        b=XkFtvnIGj5e2HUxUOe0nA9l94DWj+tzK60cvrrjegt1PqBfMH4opJeL98/XF6x8kuW
+         OKSOxpB7X5ZKtxtX51SYUFk5kW7m+yLF4s1/3UlpMSnJTAA/yvjyzfKiFzbwZqhu0esv
+         +28JK+l3wEOWOC6oK3LcV++Undm8Q2d8T9kERwpCcB/LneSMVyntmS/+eTnQLG4Rv1f5
+         7IVwOAP3YXXg7BT+sH506OLJmIXYfP6H+QbfseANwA7YENyLLihkKs8/y9BkWL/D/Z/W
+         Y7c1sl65gj1nooriNsyALm/HuNnElokGA7wCQR2LgAdK/vVNN1O/d17WBxVLoHYiFARV
+         tArw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751700792; x=1752305592;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+BzfNtLpFJK/1rL9CXjpJI51Ye7+7b3LCibh0EaiIaI=;
-        b=duMzqgi8TgOPfp/IhnFnLkF6lI4l9ZQxhvEsLudY7KkE06TUHDdNVxn4iF29tPNb5e
-         ScDgCeu447jKLEbu8icD07QRz0HXPXiUsdgf9aUaPFTR0pbPBrk1PBF6kmf7Spt/jFvV
-         SzqLHBgWXrEjZQscI8IsUiWp1GMXxjaiLEcfcGaHNIhgJqgToEhg+ogL+95UPh9uR3IF
-         ntsUQIdqw11O9EZ0xp31tvWHqJiNfZ4f7iF0jcz79M4AIVIo0dxD03mzvytxJhflrKu4
-         Hxivyo4tSKQuOIkfraiLJElHSbo9bRXS+hvauV2rZn4yO0GwOfqVUcXFS9YUinxUQ6M2
-         /Png==
-X-Forwarded-Encrypted: i=1; AJvYcCVpyMHLnwlVJPtZMCy2Irru/XwzVVLbhJ10eWgZJQfJEwJ0sBjysJJztFCSWoFwI319gEMJuc/mORNYaUZA0AHx@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC0dJycp+koHFk9aB12vqWOmVgr8lSC7cPOLqMJzZsCG2qNogr
-	kyKeFdOiNLq5TTFowOvVdgcF+U9Cut7hkadK/j/TCGNyYj3Ao3uG9Z5wl7vUoQU6LM4=
-X-Gm-Gg: ASbGncvlhZRBg03ncUJAfXoxtIWCqqqoLJW+uIn4nE4r2MU6ROG/USkYCnAcA01fad5
-	PnAYP1OzeCvbiVkETxusmvW/TbasFJm4s/B2+pvp3JsdWElbFu0O5UBL7QeuDgpA6LE/kc+Ws60
-	jrCa/mywom17nsmg72sbzufIipBqS4LNjKUYWhEdbJ/nTkMomYzma/5D9fr2I0/w2rcDQds/hy5
-	FdSELE72xl00UeTrR8TIFzNcsEA0xYWL1Vh5NJ3IUjv1/W4yxOL1Aa/CfGkhk+lt5bz2N1EpYLN
-	OhK1XXdOOfakwEO4MFkB+mCq2SiwB46UGU3eBlUEiiqpIucKDfBkC/AwV84lYCj0bqWvEw==
-X-Google-Smtp-Source: AGHT+IEyjZg5XLjSr836IBwSt2gYJioyHjqnWyfO3B2HFhMs77WWIN1RLtUFlIyuT+MplatiWpCWmw==
-X-Received: by 2002:a17:907:7ea4:b0:ade:44f8:569 with SMTP id a640c23a62f3a-ae3fe73f353mr500816666b.42.1751700791818;
-        Sat, 05 Jul 2025 00:33:11 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.83])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f6b5e7d5sm301895766b.151.2025.07.05.00.33.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 05 Jul 2025 00:33:11 -0700 (PDT)
-Message-ID: <0f6dac77-14d4-4bf9-a622-1f075568051c@tuxon.dev>
-Date: Sat, 5 Jul 2025 10:33:10 +0300
+        d=1e100.net; s=20230601; t=1751700918; x=1752305718;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ipNd1HQQ2Ma2pisa7/gO96wA/WYXb5+4l3FrYAWC8qA=;
+        b=RfIJ6J2x8C16C9C6KYlscYn2I4O4a+Syaxnjyls43eEh68WpJpSKGw9t/4KWmwZcf4
+         A/7iZO6VnyBgX2fyUCYDGJ/Lu0w1hOBtFToT/8dBPQ8qwJop+MHyg3/76bs095V4n24G
+         uw0Mgb3FpENFmX37gdW4d3cTTgmUmhp3uT0uQArGdXa2deAIwFeLuxtN7qskMS8MS5Z0
+         fVYq+IGmvW0IAtItn7VpXLG6yMV3FOlJYOmhwNAH6yBUqhig4EnVaRNs6BtZqxCEy8RI
+         e3wvP51hvacVoq5VIBUW56atHmBsKDF8f7IBfWhF3Rg6VFs2aQ4WfZmGeIZPv3CqhkRW
+         A49Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXM0HtlgWw87QwsVVDEdXIIVMooxzu8yVT+gav2wOnWVlvfNP6bWE2KSVJTnl/FZRRV1k71tdFGQQUJSrmjYfEk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3F8kUYVSnqGPRhds4WcFhVlBn+dKaxWer4pPI+l2N38z7soh+
+	p2XilF9yoTdmOdeCpj/LuBN/xf0ciDcOew3vBM9yWFn5o1EYhCtUZpID+ZuGi6l5JWdRzYV1rO7
+	Anv2+
+X-Gm-Gg: ASbGncsuWBTNBX9gwi1zYHLfWLsYDi1lQaa0wFv8JhEXOgSiMuH0/BqRzvlFWVRCYd5
+	A3+qt9BShi5Xsj5AdMQN7PAc0B01hvb9p6G5+NZG7dkaUkLrf1/y9UnOhemaz/P2FMqU2v2Qu2K
+	PFz65MUNDkcDBcI+7QM/7ACeE+r7prscQw/p5IQ7Qb+iQmUTNmz2fQmr75wenBeLXPENvG+iQ/g
+	vC26h/MHh2OxVfkeehhcw/oZav8SLDdpKMO8dLzkqo+XeT9QIrp7FasC3Hn3netoc8HRhXtKsLz
+	FfcAKg9kZpChdefmDbtK5gvvk7eHG3l6iT6le4l9i2aqSCWtudjNA+aOt5uAZajyhF/cmjtM34O
+	OCQ==
+X-Google-Smtp-Source: AGHT+IFxMK52Ys26C4f3voCZTaLQ1Z4j/f7jjualB3g4BAkzo8LsAb43BYWlC0Jml4RwTMj13AKgTQ==
+X-Received: by 2002:a05:6402:1611:b0:602:bfc6:f99d with SMTP id 4fb4d7f45d1cf-60ff3e20afdmr948476a12.24.1751700917862;
+        Sat, 05 Jul 2025 00:35:17 -0700 (PDT)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-60feab9b483sm758267a12.22.2025.07.05.00.35.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 05 Jul 2025 00:35:17 -0700 (PDT)
+Date: Sat, 5 Jul 2025 09:35:15 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] pwm: mediatek: Ensure to disable clocks in error path
+Message-ID: <5v5u4nzvlryu5vqaihufqpkzd2v4xqhbdsgqgrxbj4r75oeu5c@sjtdsmjd7tqf>
+References: <20250704172728.626815-2-u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] ARM: dts: microchip: sama5d2_icp: rename
- spi-cs-setup-ns property to spi-cs-setup-delay-ns
-To: Manikandan Muralidharan <manikandan.m@microchip.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, tudor.ambarus@linaro.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250521054309.361894-1-manikandan.m@microchip.com>
- <20250521054309.361894-4-manikandan.m@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <20250521054309.361894-4-manikandan.m@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5hbbon3em7477z23"
+Content-Disposition: inline
+In-Reply-To: <20250704172728.626815-2-u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_003313_570039_7DBA7A9A 
-X-CRM114-Status: UNSURE (   6.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250705_003519_814156_1428B783 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,14 +101,49 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--5hbbon3em7477z23
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pwm: mediatek: Ensure to disable clocks in error path
+MIME-Version: 1.0
 
-On 21.05.2025 08:43, Manikandan Muralidharan wrote:
-> The naming scheme for delay properties includes "delay" in the name,
-> so renaming spi-cs-setup-ns property to spi-cs-setup-delay-ns.
-> 
-> Fixes: 46a8a137d8f6 ("ARM: dts: at91: sama5d2_icp: Set sst26vf064b SPI NOR flash at its maximum frequency")
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+Hello,
 
+On Fri, Jul 04, 2025 at 07:27:27PM +0200, Uwe Kleine-K=F6nig wrote:
+> After enabling the clocks each error path must disable the clocks again.
+> One of them failed to do so. Unify the error paths to use goto to make it
+> harder for future changes to add a similar bug.
+>=20
+> Fixes: 7ca59947b5fc ("pwm: mediatek: Prevent divide-by-zero in pwm_mediat=
+ek_config()")
+> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
 
-Applied to at91-dt, thanks!
+I applied this patch already to my next branch and will send it together
+with
+https://lore.kernel.org/r/20250704172416.626433-2-u.kleine-koenig@baylibre.=
+com
+to Linus next week.
+
+I'm still accepting acks and reviews anyhow.
+
+Best regards
+Uwe
+
+--5hbbon3em7477z23
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmho1a4ACgkQj4D7WH0S
+/k786wf/WU3raOHbDhvJS1ZL3utHhPXKLF/aFzrojFTP+stDBRrBRc3kKsyxUrfE
+On/ZlJYNchwG1kTUh0i3kzgInRxvJTZADwkmsVuBjp9TTbMWVDywhJeQXDkF+r3Z
+VbVDNnInWH2DytpwCoTPzppMtLzEk+UaKaboxHfL7t5izNKeuat4UXqHKX+C5i1s
+45wZVhPeMFnzN6s8bqeLNGIbkl299gAqU/IgpgUYz/RhlrSKkfl+Wa3OXsuO+riK
+O4xK6BXGwS4H5DOHpJXB8/5iagEoEJyWrk2mfDKw0yTxoLjSJfNbzINnHY+mNs3D
+qJDLigEtxsN3ZNv+QkD90zYP+E5tHA==
+=VHIx
+-----END PGP SIGNATURE-----
+
+--5hbbon3em7477z23--
 
