@@ -4,114 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEEF7C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 19:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B201C83030
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 20:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oMtAvX6qZfeuJIf0ta5kkKNYBlAGah2HCzc1WvVT/Fw=; b=njKv6R6W9oSP9ztjTkRfJOaFMX
-	A2dbL5mWkfD9pBAwjBj/CXUAY4TJakAVWXvnhMQVjeexXVaG9sAVYE+esgoPFLFTeC0QvsQLm5DMX
-	XA+YQ2HYp9x0GOI07OTY8lont4UxBrU2pa50faz9iLZ7HMJs57z2MkqkAKS9C3lVUwHzHE7cpECOx
-	mE9MsRjqDsyoM4YpsqeIovkTnfX7L6XINMopTSPg6yW1d72OQ3c/GOxBaV0dHpQeT+poQZITEWQMI
-	DBXVXQii/bOi1IwNjQecxWkLampEK3TAJOb5R0gtWL10UHy98ymhkgSG8G5HpcQJaKbOdOeXaOjDJ
-	oo0woHog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9z08aVLb91ru0Ot02TohgmJftasWTWVr+dxaYwP4DqM=; b=zcBRXyfcpNDxh/2SBS9JOnWWOF
+	18yLsRohRGsRErBhaIV2z+ygLG5yOxwX4ULhOvU6WRlHv4haZ08qGZpKsAqwv9FK3uvng2dIMK8+y
+	kic6/rLi+ZAeZyDKsn4ubOzpKp/EsGj4MvrPABaSKJ2PlUt0LM56GvaL+b+yAfae+1xtZ4MgRS6tx
+	qlnVclZf9NhctfJl+aSL0nBlNDRxmKwO29Y+iEYibt3JOW+cxw3Vti95ZAyQISVpz+Qu6NOWpXBE2
+	QR2hf+uL+cT3vkwasbL7+2JsmAruls7aEWSmYJbAFKhcFQ7H4/VYIm/hilMHR5Qamdm+QuqXZSZWz
+	ZB0SlFKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY8zc-0000000GwHX-0jGp;
-	Sat, 05 Jul 2025 19:56:12 +0000
-Received: from bird.elm.relay.mailchannels.net ([23.83.212.17])
+	id 1uY9Ha-0000000Gx9a-36KB;
+	Sat, 05 Jul 2025 20:14:46 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY8xI-0000000GwA6-3wnu
+	id 1uY9FH-0000000Gx24-10aO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Jul 2025 19:53:50 +0000
-X-Sender-Id: dreamhost|x-authsender|rob@landley.net
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 39ABE2C38A0;
-	Sat,  5 Jul 2025 19:53:47 +0000 (UTC)
-Received: from pdx1-sub0-mail-a224.dreamhost.com (100-105-113-44.trex-nlb.outbound.svc.cluster.local [100.105.113.44])
-	(Authenticated sender: dreamhost)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 8FC322C3ACC;
-	Sat,  5 Jul 2025 19:53:46 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1751745226; a=rsa-sha256;
-	cv=none;
-	b=CUrVssEbvGxQTw01XaRawegwJZAVYmFA/E6Ykq9GEMbbHIcjdn1w+2UiZEzjuOqybv07pf
-	ULg8BlX+eDS+IpGUegDKMQ6Z+zLL2TKQozpSMMvhmKnfpGJOiEHbHN44RQr1XZSkDcC0JC
-	cst1HLQD36S63slVwrU2BZZx27LhugmIX/KCcBevbTvApc+wemqadn4KcPwQqKk1FfavJ6
-	5cfNdJT5IRaOqZrtM6bO4jeLq1aX81R/y4/k2HT+izRHmHOKXdu8ywbjXd3hGuUPzOEwo7
-	VeDmaIH48ldvtjUkTgJrBIB04cTU0Rw1pfMBJ+Gd/soPtagrKm5KqYNs8oJXMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1751745226;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=d9pzm0+gedOKbLSiTGmDk35IBF6AfAzRAWtaiIn6jrQ=;
-	b=a5HU1Etka1Te2YIbqZY0ZHhzCGZgsyI5ZvZFv7dD/ZS5q7exisNi53jGGGjCE0n6Sa76VP
-	1OHjSrZfpAHgNzBlQKqBm6a97QTmfehjW97S7uToPf+FLg4dCuTUU++vpRwkvS5RsXqwD+
-	azs5ndSdszGPReTLCsWeL/GB+yfg33VODKNJTm07E+h8hj83Pz3hzIFLEBa5x18CGD//0+
-	wyGXkH6ZgfZhvR/tYu1yXceaXe4PqY54XdsFb7UmheyYAV/uwkpfR50h3a5Ylo7XTZME1G
-	Yc6ePYd0eHzZBXIxcUVJws5ynOmzIc/FyzXEq+4YEXrTYJXDa/fHLsqFbfkWAw==
-ARC-Authentication-Results: i=1;
-	rspamd-5c976dc8b-gbfx2;
-	auth=pass smtp.auth=dreamhost smtp.mailfrom=rob@landley.net
-X-Sender-Id: dreamhost|x-authsender|rob@landley.net
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: dreamhost|x-authsender|rob@landley.net
-X-MailChannels-Auth-Id: dreamhost
-X-Trail-Fumbling: 0edc048661153d11_1751745227089_152603409
-X-MC-Loop-Signature: 1751745227089:1320448536
-X-MC-Ingress-Time: 1751745227089
-Received: from pdx1-sub0-mail-a224.dreamhost.com (pop.dreamhost.com
- [64.90.62.162])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.105.113.44 (trex/7.1.3);
-	Sat, 05 Jul 2025 19:53:47 +0000
-Received: from [192.168.43.71] (M111108020212.v4.enabler.ne.jp [111.108.20.212])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: rob@landley.net)
-	by pdx1-sub0-mail-a224.dreamhost.com (Postfix) with ESMTPSA id 4bZLm91M7LzB0;
-	Sat,  5 Jul 2025 12:53:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=landley.net;
-	s=dreamhost; t=1751745226;
-	bh=oMtAvX6qZfeuJIf0ta5kkKNYBlAGah2HCzc1WvVT/Fw=;
-	h=Date:Subject:To:Cc:From:Content-Type:Content-Transfer-Encoding;
-	b=fW7jINTJHi5oRDv1NNGtkUycVaclQhMYZPb8AG7b5YNiCYOoWC++dYAhFJ0eY0KaV
-	 tPIKTgvos7rmWrqtDC3ENcguoWWMM64g0YXcvv166i4F9X9TrEnb3WSBp6KF2zmoqU
-	 jYraDxiBayw1c+uKWl3U10raWwjkq7zL5aUV6//gyqYSTqIH+Bnxy7m/lFV0C0Tdef
-	 YjrxLbsPr+cHJV2oI6w+d+Imv4FluzVi9VBI8gTNWZqS/k73KFWQQnYdBdtLPFw31Q
-	 Q6kcVp+9pvM/pCyqVMU+DFbk3oaUvglmsyetKasCYgz2vdrjNPO/cOtKlYfg5nsjy6
-	 YWF/+IM5V/enA==
-Message-ID: <c662505b-9c19-49f7-9823-80ccde72009f@landley.net>
-Date: Sat, 5 Jul 2025 14:53:43 -0500
+	Sat, 05 Jul 2025 20:12:24 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6098ef283f0so31093a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 13:12:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1751746341; x=1752351141; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=9z08aVLb91ru0Ot02TohgmJftasWTWVr+dxaYwP4DqM=;
+        b=oqPWyYswjguatysnRoxJ1Sge7dLfi1EJh7BMag8JmqrosOhQQkSWe+Vbh1kv0sNSjI
+         kQVMOHx628m7x/T4TLh9ppVOycHhV6VRwL7tOc5KFlC3btb1E2thLmP4z3hHYlLmqV4S
+         uVnyJeU0dqPvoAnuqR6TFR2Xv8w9CkHFLX3JReVd5+/wR9VhwdKFipN5SCWHCZNjWJvQ
+         QRGFlxchcDNoUa9xjez5bRwl2cmUXQmP0wNBGa5or6hqlA6PeFfhU3cNjAZnmLfS6LhP
+         J4crKUA3Bc6xZI7PwaYr9eHhbMNIIu6Bw9ltfwip+vy4FSTykek1iV3LOg81pnCsFzLt
+         0y1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751746341; x=1752351141;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9z08aVLb91ru0Ot02TohgmJftasWTWVr+dxaYwP4DqM=;
+        b=EW0HW/FyztLuL8dVraIDp4YBFfFYkmPJk0qf/H26f4PSMhARCln/dwrijebx+e3wxY
+         5Zr8P37rxx5xHmXDs1o7qxxRzDgUCvS13y/ItzfGXHuziy2tyMIw5shtFlEfClt0DrFx
+         yuo5NOkTKB24MEj/cPTDr16rDVvnF1rq+mwLkgNhxLDDt5280+DdiA3ThbHv2Wd4M1t8
+         c2nJS+izvzbYcYq332eShwwmZn/EysITaLpvCJ6DEHZCnMlgfN9Umgx5wqGdZMV0Krzv
+         bdEd+qCntVjQ2LiPM+DAG700p38PYy1mv/HulXU9Q+AFEvWLSE2+hlYTe7o74ZV/DsdY
+         u6pQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVbpm1q+raamI+kYpjKHjoKJmiHi/4Ozx7ShGeUpI6bIKhxbUuq+00vVA9PIAcJ2YL1gQuPTEy5SaWYSkOZgD8O@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRuP31ZyGlpIUM9i29/wJpQmUfWZT1mR9QhGyBadX+ydAgiPUg
+	Qwf3qOCz2f36VQn00s4WVG9NsNLwU/hvSjcTiz0/wHqqWB/bWJSelUXEbSnRihXLkscVjuPq4eK
+	KNWojAm4oWJn18hQz+d8f6Aj1KmYINoa5Ye4YM16p
+X-Gm-Gg: ASbGncuZLITDoErsMMZ4ZyW1FZrtLmBg7ylPeECu31LR85Ku35yh7Az1VoQBxjPczu9
+	n9D8xR+WlbFFrg9pl+fEb1vHuzlP6OQuvpSrchVmQbBK3IALpvVrFq0s6xQOyEPLP0D1+38+z9d
+	+Kx6JY/+Jz1wyaCbzqRRZBroCXFZkxDR6HccTeFFux
+X-Google-Smtp-Source: AGHT+IGJer1bSae1hTy+VdVDgBmIxrnrLy6/1vEbuh3ihuiTHeYj5NRruSmZ30W23oHspApAquJQsquajOdAT1S7J30=
+X-Received: by 2002:a05:6402:5107:b0:60c:bf83:65fd with SMTP id
+ 4fb4d7f45d1cf-60e73d1b918mr259571a12.7.1751746340448; Sat, 05 Jul 2025
+ 13:12:20 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] ARM: Require linker to support KEEP within OVERLAY
- for DCE
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Russell King <linux@armlinux.org.uk>, Christian Eggers <ceggers@arri.de>,
- Arnd Bergmann <arnd@arndb.de>, Yuntao Liu <liuyuntao12@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Rich Felker <dalias@libc.org>
-References: <20250311-arm-fix-vectors-with-linker-dce-v1-0-ec4c382e3bfd@kernel.org>
- <20250311-arm-fix-vectors-with-linker-dce-v1-1-ec4c382e3bfd@kernel.org>
- <CACRpkdY-yxaiG89Co+C2=vyd0i6sh9pP0UGWZh1yUg4jd9jmuQ@mail.gmail.com>
- <6739da7d-e555-407a-b5cb-e5681da71056@landley.net>
- <20250705002402.GA1968690@ax162>
-Content-Language: en-US
-From: Rob Landley <rob@landley.net>
-In-Reply-To: <20250705002402.GA1968690@ax162>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <0-v1-8c5f369ec2e5+75-arm_no_split_jgg@nvidia.com>
+ <20241101134005.GA109739@nvidia.com> <20241104113237.GA11481@willie-the-truck>
+In-Reply-To: <20241104113237.GA11481@willie-the-truck>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Sat, 5 Jul 2025 13:12:09 -0700
+X-Gm-Features: Ac12FXzjkeaKni9wvVsiCi9BzDFbIznXFt9RbbGeY2UoHjBPMAYPOLioSuEBQ6M
+Message-ID: <CAE2F3rDcq-BQYM1yYq6RNSYSOovdoyRcbYw8Jy+BXCHLkrWN3g@mail.gmail.com>
+Subject: Re: [PATCH] iommu/io-pgtable-arm: Remove split on unmap behavior
+To: Will Deacon <will@kernel.org>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>, 
+	linux-arm-kernel@lists.infradead.org, Robin Murphy <robin.murphy@arm.com>, 
+	Boris Brezillon <boris.brezillon@collabora.com>, dri-devel@lists.freedesktop.org, 
+	Liviu Dudau <liviu.dudau@arm.com>, patches@lists.linux.dev, 
+	Steven Price <steven.price@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_125349_115408_7B432D3C 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20250705_131223_302304_62579E02 
+X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,57 +97,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/4/25 19:24, Nathan Chancellor wrote:
-> Hmm, I do see a bug in that change, as it allows DCE to be turned on
-> with binutils older than 2.36, which should be avoided with something
-> like
-> 
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index 3072731fe09c..962451e54fdd 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -121,7 +121,7 @@ config ARM
->   	select HAVE_KERNEL_XZ
->   	select HAVE_KPROBES if !XIP_KERNEL && !CPU_ENDIAN_BE32 && !CPU_V7M
->   	select HAVE_KRETPROBES if HAVE_KPROBES
-> -	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if (LD_VERSION >= 23600 || LD_CAN_USE_KEEP_IN_OVERLAY)
-> +	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if (LD_VERSION >= 23600 || LD_IS_LLD) && LD_CAN_USE_KEEP_IN_OVERLAY
->   	select HAVE_MOD_ARCH_SPECIFIC
->   	select HAVE_NMI
->   	select HAVE_OPTPROBES if !THUMB2_KERNEL
-> 
-> but it does not seem like your test configuration enables
-> CONFIG_LD_DEAD_CODE_DATA_ELIMINATION so I would expect this change to be
-> a no-op in that case? Does the above change work for you? I won't be
-> free to validate this until after the weekend.
+With the removal of arm_lpae_split_blk_unmap, I believe the following
+macros are now unused. Is there any interest in removing those as
+well? If so, I can draft a patch.
 
-That fixed it, thanks.
-
-   AS      arch/arm/boot/compressed/piggy.o
-   LD      arch/arm/boot/compressed/vmlinux
-   OBJCOPY arch/arm/boot/zImage
-   Kernel: arch/arm/boot/zImage is ready
-$ qemu-system-arm -M virt -nographic -no-reboot -kernel $(find . -name 
-zImage) -append console=ttyAMA0
-Booting Linux on physical CPU 0x0
-Linux version 6.15.0-dirty (landley@driftwood) 
-(armv7l-linux-musleabihf-gcc (GCC) 11.4.0, GNU ld (GNU Binutils) 2.33.1) 
-#1 Sat Jul  5 14:40:16 CDT 2025
-CPU: ARMv7 Processor [414fc0f0] revision 0 (ARMv7), cr=30c53c7d
-CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
-OF: fdt: Machine model: linux,dummy-virt
-...
-
-I note it was a host tool segfaulting. It seems unlikely the host was 
-running an arm binary, maybe something went off into la-la land trying 
-to parse unexpected ELF tables?
-
-Appropriately-tagged-by: Rob Landley <rob@landley.net>
-
-> Cheers,
-> Nathan
-
-Thanks,
-
-Rob
+#define ARM_LPAE_PTE_ATTR_LO_MASK (((arm_lpae_iopte)0x3ff) << 2)
+/* Ignore the contiguous bit for block splitting */
+#define ARM_LPAE_PTE_ATTR_HI_MASK (ARM_LPAE_PTE_XN | ARM_LPAE_PTE_DBM)
+#define ARM_LPAE_PTE_ATTR_MASK (ARM_LPAE_PTE_ATTR_LO_MASK | \
+ARM_LPAE_PTE_ATTR_HI_MASK)
+#define iopte_prot(pte) ((pte) & ARM_LPAE_PTE_ATTR_MASK)
 
