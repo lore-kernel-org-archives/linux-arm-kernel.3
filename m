@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB5F1C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 06:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C7FC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 06:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CH2qPrLkcS6/rRyNy716wJ2uYE0goUZR33taod3gHJ8=; b=u4j+oLJdjyl2okg/wnIFlkQiz0
-	TtqOA03t6w7XokkEc0oz5ZiAYat/JIhNAPsv34F+cDRa7xDmo8JTdmryJVgZjTUrairpiwei4JuRK
-	RwGDgQAN6uFhdrdgcRwFMbdqdNI5X6HN3PvMk9zEoe5gVf7eBAQ2tdE5KKVl0cM2yea5drTkFTf73
-	eEWpQsbOLU+MYhQ4LqCgwygYhin130pPxCas6AczVLyCnBVGmDJYqDRmJuTwFm/DqsicJidEwGVur
-	nDe0KMd1NMaCqv+lKCloQvutnfF02YsFBmdv0KedUqrwFX1szPRD0fvGl1uf2MDMr+3cbXPn8u8bZ
-	cESr8/iQ==;
+	bh=uqWFS4wWx0xOZ6RvV/aWV7u1huZXU21cmNlTtOrWHP0=; b=F6YWsvEkMWfnr5idlUA/jlz2Nn
+	rT6c1QJbEvbY0sxKB5c9Y/10/tSAbNP9DHZDychsfE9tzGS7TMMO4OPhEouZDFlI3liKnk+/GOs8m
+	I3wA4/14oERQG2j7RtKwgHU2PK5KdodaO49o74FXAI5HnK9ebpIW/ThssVOnPBQASgEG/TOSMLPhw
+	X1mqFDZd6HyIEtEGfhjUTN38TT3Y/WI8yuPCf19gwWquhCQOYuXPiSpWYOSv9UWgnqg8GlHWGt/7V
+	PpMbAwfxCe9Th3zaR0phNWXSzes2HjQuy21NVnW6U7TbYZ3R8nHyKZiaY4hzT53BzShb/PrseLf4z
+	07RwX88w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXwaA-0000000G9Vq-0dCC;
-	Sat, 05 Jul 2025 06:41:06 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1uXwcR-0000000G9ko-3TAb;
+	Sat, 05 Jul 2025 06:43:27 +0000
+Received: from mail-m16.yeah.net ([220.197.32.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXwXp-0000000G9J3-0SOo
+	id 1uXwZc-0000000G9Ts-0Uap
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Jul 2025 06:38:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751697511; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Ba1CjQ1O4J2LXAAhI1/BNai/cHTI02dav9Jykh0VNqWZ5tA6b/QQgXx8EOT7YgBn00BbK9pgSnaVMCnF5k+PLvoEdlza2MsjEc/pFzu5Vs6qyJIcZ59T98Q7q1CjUfiG5zB0Ifo5VMkNyYQ5oSRpGIDBgGaK+XgJ6NpoXx5cnKY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751697511; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=CH2qPrLkcS6/rRyNy716wJ2uYE0goUZR33taod3gHJ8=; 
-	b=nSbqVkANhxPobO1ASZoTe1LiObQPaJZIrL+ufO6252zfixnJW/xwc2qk5DhLKUljS6x9Uv1gLjQVkCQQH/k/jpdUsMx6S4YmuQgkjrCinrrp4rr0KzR3R/H1MjOp8MFdc4DZCwH6LqHhp2g1iPIB52dQucp09jhN0s32UnVJoVU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751697510;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=CH2qPrLkcS6/rRyNy716wJ2uYE0goUZR33taod3gHJ8=;
-	b=HOxNFUvQWcAkedWJD8ypcC20qQMuuLPYIHnIXjNHIStLdIdNv7WEL/lvLgSJF6Uy
-	ZVJd5Dkg3pczKxngx/sCx64+jf4jW/AgUKQHESQMvlhYp3DNLuj7zvTfd8PlDIX0WvZ
-	A17g2P9nQ4QQcvUKXRknX1YSr0q5MmoueoIxN4RMHZxLniiB4c5Y6jaFLwTMY+dWzC4
-	Rxf2+7DaCFOKHufMGMhveZpt+ydSIYvNjFCHPFje/AtRn7ftDRN3sakGu2vJ4fM0sjg
-	ez/OrV0hQsnsL8DYyg6up8newPcH6pAt4csrU1wXUei9zR3krmt8fo6hhcFg4Bsl86J
-	OBFtziKWjg==
-Received: by mx.zohomail.com with SMTPS id 1751697508445426.7706701494434;
-	Fri, 4 Jul 2025 23:38:28 -0700 (PDT)
-Message-ID: <1d51b75f7b85ddb588bbb24366b36df63a60712e.camel@icenowy.me>
-Subject: Re: [PATCH 1/2] clk: sunxi-ng: v3s: Fix de clock definition
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Icenowy Zheng <icenowy@aosc.xyz>,
- Maxime Ripard <mripard@kernel.org>
-Date: Sat, 05 Jul 2025 14:38:21 +0800
-In-Reply-To: <aGhNFe3wGLX8aUC6@collins>
-References: <20250704154008.3463257-1-paulk@sys-base.io>
-	 <4cd84b9e2227c9225d977107eb05b9c3813b8846.camel@icenowy.me>
-	 <aGhNFe3wGLX8aUC6@collins>
-Organization: Anthon Open-Source Community
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.44.4 
+	Sat, 05 Jul 2025 06:40:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=uqWFS4wWx0xOZ6RvV/aWV7u1huZXU21cmNlTtOrWHP0=;
+	b=pU1pk8pBi41IM8nCvJQpqVrJcFY4UPdUmgU+ORQURGYm6ZYMMjuguI+jFXYBa5
+	U1tEDw/0fZ2Zf61Jprl/+4dJMWDJmAU4r72PUmiYPgc+wuazoUts6kut3y82SC2I
+	krwGtU+8TjVWBR7uoN8siP4FHq7npkwy2vMXEs2fa70+w=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgDHH3vFyGhokBEaAA--.30185S3;
+	Sat, 05 Jul 2025 14:40:07 +0800 (CST)
+Date: Sat, 5 Jul 2025 14:40:05 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] arm64: dts: imx8qm(qxp)-mek: support the wm8962 codec
+Message-ID: <aGjIxUmnVUpKoNas@dragon>
+References: <20250617145220.1131165-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250617145220.1131165-1-laurentiumihalcea111@gmail.com>
+X-CM-TRANSID: M88vCgDHH3vFyGhokBEaAA--.30185S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUOmhFUUUUU
+X-Originating-IP: [114.216.146.217]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCR6BZWhot24mNgAAs6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250704_233841_218371_7AF661BB 
-X-CRM114-Status: GOOD (  27.54  )
+X-CRM114-CacheID: sfid-20250704_234032_521380_1D38C64B 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,111 +76,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjUtMDctMDTmmJ/mnJ/kupTnmoQgMjM6NTIgKzAyMDDvvIxQYXVsIEtvY2lhbGtvd3Nr
-aeWGmemBk++8mgo+IEhpLAo+IAo+IExlIEZyaSAwNCBKdWwgMjUsIDIzOjU0LCBJY2Vub3d5IFpo
-ZW5nIGEgw6ljcml0IDoKPiA+IOWcqCAyMDI1LTA3LTA05pif5pyf5LqU55qEIDE3OjQwICswMjAw
-77yMUGF1bCBLb2NpYWxrb3dza2nlhpnpgZPvvJoKPiA+ID4gVGhlIGRlIGNsb2NrIGlzIG1hcmtl
-ZCB3aXRoIENMS19TRVRfUkFURV9QQVJFTlQsIHdoaWNoIGlzIHJlYWxseQo+ID4gPiBub3QKPiA+
-ID4gbmVjZXNzYXJ5IChhcyBjb25maXJtZWQgZnJvbSBleHBlcmltZW50YXRpb24pIGFuZCBzaWdu
-aWZpY2FudGx5Cj4gPiA+IHJlc3RyaWN0cyBmbGV4aWJpbGl0eSBmb3Igb3RoZXIgY2xvY2tzIHVz
-aW5nIHRoZSBzYW1lIHBhcmVudC4KPiA+IAo+ID4gV2l0aCBpdCBub3Qgc2V0dGluZyBwYXJlbnQs
-IGlzIGFyYml0YXJ5IHBpeGVsIGNsb2NrcyBzdGlsbAo+ID4gcG9zc2libGU/Cj4gCj4gQWJzb2x1
-dGVseSBhbmQgdGhlIGNsb2NrIHRyZWUgaXMgdmVyeSBtdWNoIGltcHJvdmVkLCBJIHRoaW5rIHRo
-ZSBmbGFnCj4gd2FzIHRoZQo+IHJlYXNvbiB0aGF0IHdhcyBwcmV2ZW50aW5nIGl0IGZyb20gbmF0
-dXJhbGx5IGtlZXBpbmcgdGhlIHRjb24gYW5kIGRlCj4gY2xvY2tzCj4gdW5kZXIgdGhlIHZpZGVv
-IHBsbCBpbiBteSBjYXNlLgo+IAo+IE5vdyBpdCBjYW4gcHJvdmlkZSBib3RoIHRoZSAzMyBNaHog
-Zm9yIHRoZSBwaXhlbCBjbG9jayBhbmQgcnVucyB0aGUKPiBtaXhlciBhdAo+IG5lYXJseSAxNTAg
-TUh6LiBUaGUgdmlkZW8gcGxsIG5vdyBydW5zIGF0IDI5NyBNSHogd2hpY2ggaXMgYSBwZXJmZWN0
-CgpEaWQgeW91IHRlc3Qgb3RoZXIgcGl4ZWwgY2xvY2tzPwoKSSBzdWdnZXN0IHlvdSB0byB0cnkg
-YSBSR0ItdG8tVkdBIGJyaWRnZSBhbmQgdGVzdCBwb3NzaWJsZSBwaXhlbCBjbG9ja3MKb24gdGhl
-IFZHQSBwb3J0LgoKPiBmaXQgZm9yCj4gY3NpLXNjbGsgY2FtZXJhIG1haW4gY2xvY2ssIHNvIHRo
-ZSBhbGdvcml0aG0gaXMgZG9pbmcgaXRzIGpvYiBhdCBpdHMKPiBiZXN0IQo+IAo+IFNvIHRoaXMg
-bWVhbnMgdGhhdCBJIG5vIGxvbmdlciBoYXZlIHRvIGNoYW5nZSB0aGUgbWl4ZXIgY2xvY2sgdG8g
-Mjk3Cj4gTUh6IHRvCj4ga2VlcCBpdCB1bmRlciB0aGUgdmlkZW8gcGxsLiBJdCBwcmV0dHkgbXVj
-aCBzb2x2ZXMgYWxsIG15IHByb2JsZW1zIGF0Cj4gb25jZS4KPiAKPiBIZXJlIGlzIHRoZSByZWxl
-dmFudCBjbGtfc3VtbWFyeSBleHRyYWN0Ogo+IMKgwqDCoCBwbGwtdmlkZW/CoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDLCoMKgwqDCoMKgwqAgMsKgwqDCoMKg
-wqDCoMKgIDLCoMKgwqDCoMKgwqDCoAo+IDI5NzAwMDAwMMKgwqAgNTAwMDDCoMKgwqDCoMKgIDDC
-oMKgwqDCoCA1MDAwMMKgwqDCoMKgwqAgWcKgwqDCoMKgwqAKPiBkZXZpY2VsZXNzwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG5vX2Nvbm5lY3Rpb25faWTCoMKgwqDC
-oMKgwqDCoMKgIAo+IMKgwqDCoMKgwqDCoCBjc2ktc2Nsa8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoCAwwqDCoMKgwqDCoMKgIDDCoMKgwqDCoMKgwqDCoCAzwqDCoMKg
-wqDCoMKgwqAKPiAyOTcwMDAwMDDCoMKgIDUwMDAwwqDCoMKgwqDCoCAwwqDCoMKgwqAgNTAwMDDC
-oMKgwqDCoMKgIE7CoMKgwqDCoMKgwqDCoMKgCj4gMWNiODAwMC5pc3DCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG1vZMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCAKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoAo+IDFjYjAwMDAuY2FtZXJhwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCBtb2TCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAKPiAxY2IxMDAwLmNzacKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-bW9kwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIAo+IMKgwqDCoMKg
-wqDCoCB0Y29uwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgMsKgwqDCoMKgwqDCoCAywqDCoMKgwqDCoMKgwqAgMcKgwqDCoMKgwqDCoMKgCj4gMzMwMDAw
-MDDCoMKgwqAgNTAwMDDCoMKgwqDCoMKgIDDCoMKgwqDCoCA1MDAwMMKgwqDCoMKgwqAgWcKgwqDC
-oMKgwqDCoMKgwqAgMWMwYzAwMC5sY2QtCj4gY29udHJvbGxlcsKgwqDCoMKgwqDCoMKgwqDCoCB0
-Y29uLWNoMMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIAo+IMKgwqDCoMKgwqDCoMKg
-wqDCoCB0Y29uLWRhdGEtY2xvY2vCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDHCoMKgwqDCoMKgwqAg
-McKgwqDCoMKgwqDCoMKgIDHCoMKgwqDCoMKgwqDCoAo+IDMzMDAwMDAwwqDCoMKgIDUwMDAwwqDC
-oMKgwqDCoCAwwqDCoMKgwqAgNTAwMDDCoMKgwqDCoMKgIFnCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-Cj4gZGV2aWNlbGVzc8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBu
-b19jb25uZWN0aW9uX2lkwqDCoMKgwqDCoMKgwqDCoCAKPiDCoMKgwqDCoMKgwqAgZGXCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMsKgwqDCoMKg
-wqDCoCAywqDCoMKgwqDCoMKgwqAgMMKgwqDCoMKgwqDCoMKgCj4gMjk3MDAwMDAwwqDCoCA1MDAw
-MMKgwqDCoMKgwqAgMMKgwqDCoMKgIDUwMDAwwqDCoMKgwqDCoCBZwqDCoMKgwqDCoMKgwqDCoAo+
-IDEwMDAwMDAuY2xvY2vCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgbW9kwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIAo+IMKgwqDCoMKgwqDCoMKg
-wqDCoCB3Yi1kaXbCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDDCoMKg
-wqDCoMKgwqAgMMKgwqDCoMKgwqDCoMKgIDDCoMKgwqDCoMKgwqDCoAo+IDI5NzAwMDAwMMKgwqAg
-NTAwMDDCoMKgwqDCoMKgIDDCoMKgwqDCoCA1MDAwMMKgwqDCoMKgwqAgWcKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAKPiBkZXZpY2VsZXNzwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgIG5vX2Nvbm5lY3Rpb25faWTCoMKgwqDCoMKgwqDCoMKgIAo+IMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCB3YsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAw
-wqDCoMKgwqDCoMKgIDDCoMKgwqDCoMKgwqDCoCAwwqDCoMKgwqDCoMKgwqAKPiAyOTcwMDAwMDDC
-oMKgIDUwMDAwwqDCoMKgwqDCoCAwwqDCoMKgwqAgNTAwMDDCoMKgwqDCoMKgIE7CoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgCj4gZGV2aWNlbGVzc8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCBub19jb25uZWN0aW9uX2lkwqDCoMKgwqDCoMKgwqDCoCAKPiDCoMKg
-wqDCoMKgwqDCoMKgwqAgbWl4ZXIwLWRpdsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IDHCoMKgwqDCoMKgwqAgMcKgwqDCoMKgwqDCoMKgIDDCoMKgwqDCoMKgwqDCoAo+IDE0ODUwMDAw
-MMKgwqAgNTAwMDDCoMKgwqDCoMKgIDDCoMKgwqDCoCA1MDAwMMKgwqDCoMKgwqAgWcKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAKPiBkZXZpY2VsZXNzwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIG5vX2Nvbm5lY3Rpb25faWTCoMKgwqDCoMKgwqDCoMKgIAo+IMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCBtaXhlcjDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IDHCoMKgwqDCoMKgwqAgMcKgwqDCoMKgwqDCoMKgIDDCoMKgwqDCoMKgwqDCoAo+IDE0ODUwMDAw
-MMKgwqAgNTAwMDDCoMKgwqDCoMKgIDDCoMKgwqDCoCA1MDAwMMKgwqDCoMKgwqAgWcKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAKPiAxMTAwMDAwLm1peGVywqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgIG1vZMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCAKPiAKPiBDaGVlcnMsCj4gCj4gUGF1bAo+IAo+ID4gPiAKPiA+ID4gSW4gYWRkaXRpb24g
-dGhlIHNvdXJjZSBzZWxlY3Rpb24gKHBhcmVudCkgZmllbGQgaXMgbWFya2VkIGFzCj4gPiA+IHVz
-aW5nCj4gPiA+IDIgYml0cywgd2hlbiBpdCB0aGUgZG9jdW1lbnRhdGlvbiByZXBvcnRzIHRoYXQg
-aXQgdXNlcyAzLgo+ID4gPiAKPiA+ID4gRml4IGJvdGggaXNzdWVzIGluIHRoZSBkZSBjbG9jayBk
-ZWZpbml0aW9uLgo+ID4gPiAKPiA+ID4gRml4ZXM6IGQwZjExZDE0YjBiYyAoImNsazogc3VueGkt
-bmc6IGFkZCBzdXBwb3J0IGZvciBWM3MgQ0NVIikKPiA+ID4gU2lnbmVkLW9mZi1ieTogUGF1bCBL
-b2NpYWxrb3dza2kgPHBhdWxrQHN5cy1iYXNlLmlvPgo+ID4gPiAtLS0KPiA+ID4gwqBkcml2ZXJz
-L2Nsay9zdW54aS1uZy9jY3Utc3VuOGktdjNzLmMgfCAzICstLQo+ID4gPiDCoDEgZmlsZSBjaGFu
-Z2VkLCAxIGluc2VydGlvbigrKSwgMiBkZWxldGlvbnMoLSkKPiA+ID4gCj4gPiA+IGRpZmYgLS1n
-aXQgYS9kcml2ZXJzL2Nsay9zdW54aS1uZy9jY3Utc3VuOGktdjNzLmMKPiA+ID4gYi9kcml2ZXJz
-L2Nsay9zdW54aS1uZy9jY3Utc3VuOGktdjNzLmMKPiA+ID4gaW5kZXggNTJlNDM2OTY2NGM1Li5k
-ZjM0NWE2MjBkOGQgMTAwNjQ0Cj4gPiA+IC0tLSBhL2RyaXZlcnMvY2xrL3N1bnhpLW5nL2NjdS1z
-dW44aS12M3MuYwo+ID4gPiArKysgYi9kcml2ZXJzL2Nsay9zdW54aS1uZy9jY3Utc3VuOGktdjNz
-LmMKPiA+ID4gQEAgLTM0Nyw4ICszNDcsNyBAQCBzdGF0aWMKPiA+ID4gU1VOWElfQ0NVX0dBVEUo
-ZHJhbV9vaGNpX2NsayzCoMKgwqDCoMKgwqDCoMKgImRyYW0tb2hjaSIswqDCoMKgwqAiZHJhbSIs
-Cj4gPiA+IMKgCj4gPiA+IMKgc3RhdGljIGNvbnN0IGNoYXIgKiBjb25zdCBkZV9wYXJlbnRzW10g
-PSB7ICJwbGwtdmlkZW8iLCAicGxsLQo+ID4gPiBwZXJpcGgwIiB9Owo+ID4gPiDCoHN0YXRpYyBT
-VU5YSV9DQ1VfTV9XSVRIX01VWF9HQVRFKGRlX2NsaywgImRlIiwgZGVfcGFyZW50cywKPiA+ID4g
-LcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgIDB4MTA0LCAwLCA0LCAyNCwgMiwgQklUKDMxKSwKPiA+ID4gLcKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIENMS19TRVRf
-UkFURV9QQVJFTlQpOwo+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxMDQsIDAsIDQsIDI0LCAzLCBCSVQoMzEpLCAw
-KTsKPiA+ID4gwqAKPiA+ID4gwqBzdGF0aWMgY29uc3QgY2hhciAqIGNvbnN0IHRjb25fcGFyZW50
-c1tdID0geyAicGxsLXZpZGVvIiwgInBsbC0KPiA+ID4gcGVyaXBoMCIgfTsKPiA+ID4gwqBzdGF0
-aWMgU1VOWElfQ0NVX01fV0lUSF9NVVhfR0FURSh0Y29uX2NsaywgInRjb24iLCB0Y29uX3BhcmVu
-dHMsCj4gPiAKPiAKCg==
+On Tue, Jun 17, 2025 at 10:52:18AM -0400, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> 
+> This series adds DT support for the WM8962 codec found on the i.MX8QM MEK
+> RevD and i.MX8QXP WCPU MEK boards. The WM8962 codec comes as a replacement
+> for the WM8960 codec found on the i.MX8QM MEK and i.MX8QXP MEK boards.
+> 
+> Laurentiu Mihalcea (2):
+>   arm64: dts: imx8qxp-mek: support wcpu board's wm8962 codec
+>   arm64: dts: imx8qm-mek: support revd board's wm8962 codec
+
+Applied both, thanks!
 
 
