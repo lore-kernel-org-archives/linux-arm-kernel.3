@@ -4,156 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E044C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 22:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 613CFC83030
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 23:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2CPwrA+Cvu0eAt6yiPyXftoK553rhXOG4UsRz8rl9H8=; b=GEaKVSBN9CSup7biP/bYJf2btq
-	ggtn8ektcKtrnwgiR8rMhGnDYNv80YtLH27Yo3tvAITTH3wV32aVoGmRSUD2enXS8sFwMZfqdqkou
-	xh+bzl/aC/zwQVwVJirL35NnE24Y2M3ZtNaWSWqkALoHvnrJmZ3WaSWVa7o8HOA93Y75lv5GnF9tz
-	0dLJjg1N5wphuw/kzU9c+o+9c8KV8YAI+K3roKgkGsdw2zycoZDB+LEufRU09bzvWQKl/EbYK7VQ9
-	O6k7zKxsvub3jnCp7msR6w4zTZRaEaS7h6c7abmrV4jjDKk5nPZuf05G9uC/gMD+8y+TfStlh6Tfk
-	GQlBOdoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6qBbmY1BbyE3mC/epWHpsMAj7UgiubCHR2WMsu2myOI=; b=a1NvdC9dQumDehll6KNE/ezf0e
+	oSGWAr99T/mNZRYBkifT+Pq2xycVzTa62FGuqyf7wIdxqTuD6PboNkrPMCYd8yTxA2N1BYftVbY+9
+	5o8JpOCviN/ufHAlbs3unr8syIHj+9guUejN4Mz1gFB5UNxwiMG30Ch347c8YYyjUAnGNXwA4ATh0
+	NbihZxayEDkOfmPg9KYPshv1IUfANX3Atrwig3puu9qIn/3NrwyRM4CfWVQPtC+AAS98zY8YkwTgz
+	dj7U2zxwImljDaMPsrBjIs/58qLj7HO5Cm5opS+FvBJ5tVaLyO8ox/RALrs7lpoFVjDZXtgFzXiDQ
+	WUwYplEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYBZz-0000000H6sL-4Ayq;
-	Sat, 05 Jul 2025 22:41:56 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYBXg-0000000H6hV-3XKX
+	id 1uYCH1-0000000H9NH-2Ura;
+	Sat, 05 Jul 2025 23:26:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYCEh-0000000H97N-0Jd5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Jul 2025 22:39:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QvJqx1jKkf7UzOFBgG1/toYLbe7733B/99RwavsC9BjZDXSH4JLC6hDgN7gCGebT+vN5yHa72Z5WE9doMH6v8xEC699eJF1nvmikRfmUdl/SPZtYpzbqCcoCNS2x9SzrkXML37HeqmHyyJDdDr5JvhhAuJ8KDYdayFVEk8XI9yAy1S0JLxcCW/pVl5zfaLbfuSo6jjjbDKXY0epVZhJWX/9xWapZYKcJ0w+E6HDocWWXXSWyopca3MAmPkGox0z5sBQWiDg1ylnpHMKG4J8q3B2uTWjMcxEHhUb/0LSowNsLmQyEh11oDr+XG1ZVSx32Gf7dWtsey5vYjblXGIWF7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2CPwrA+Cvu0eAt6yiPyXftoK553rhXOG4UsRz8rl9H8=;
- b=E92s9RMuBsxpzrkzuauQF2frKK5ddGkLE80JIOLBYcdVa2BSXh8hfEExxu3fOg6GDr9olv21lfBdCDEEPlW2bIGgf64W1BDZnZzUzNiBYglQW0WpDeEd6kD1zJhTBQlA/1v69Kzxu7sWoKTe00aukKN/++2247lEjP5tggFprew8wcxZp/LP/sp6D/TU4BiJtna4T5HLA2BCxS/2/rjI0BdeFHyObvsuSxywqHArbTOqQ0MKv8+tcY/Bx3xNRb4j3i60vIYTETPpVUQ7H2TlNqofLp/rG33jr3Ijv4wt9TyZBa7LSe5iv+6fW9KfTAgipKwSaxz4nwK50Qxe3CnDcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2CPwrA+Cvu0eAt6yiPyXftoK553rhXOG4UsRz8rl9H8=;
- b=HCna32xYHRUGPRNILv070d2jIxZEM4h0oYS36h3acLNiI/gkM4WyLeva+QRX0Qqpjcb5bJZ1OafvZT7CW0HIdJG3i7szkltKTUiziwoIYJJHIkwBaWTtfNiV5TTNMGRoVvvSRTppPVmS2EZ7zIobtA3HZJ9FXLmvLWhCt4KHOb9xJdaK7Xwxju1TT/DYorMVPS1//6JYtNchWc90EyW9oseGIE0I6Ed/4hoBVPUHap4ok9Vrz4IwyhRFBw2ej5YJUr7AfqjIFOX1FQFLjHuBf8CpPVw5n/B4r9gzBPnsGavmKdHczX4dGFqM37q2bNwmbh90DxeBPmNjD4WGUL9KGg==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI2PR04MB11002.eurprd04.prod.outlook.com (2603:10a6:800:280::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.21; Sat, 5 Jul
- 2025 22:39:07 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8901.021; Sat, 5 Jul 2025
- 22:39:06 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Peng Fan <peng.fan@nxp.com>, Hiago De Franco <hiagofranco@gmail.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>
-CC: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Iuliana Prodan
-	<iuliana.prodan@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Hiago De Franco <hiago.franco@toradex.com>,
-	Ritesh Kumar <ritesh.kumar@toradex.com>
-Subject: RE: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM regions
-Thread-Topic: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM regions
-Thread-Index: AQHb7BujvN1bZ5fQwkydSJSq+tG6XLQiKD+AgAAthwCAATDxYIAAnCbQ
-Date: Sat, 5 Jul 2025 22:39:06 +0000
-Message-ID: <PAXPR04MB84594935DA490963108CE80D884DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250703130831.18830-1-hiagofranco@gmail.com>
- <aGgAbwToGhsc5VV9@p14s> <20250704190816.kth7bdf34ufc2ht6@hiagonb>
- <PAXPR04MB845955D08AA34D90389F50F6884DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-In-Reply-To: <PAXPR04MB845955D08AA34D90389F50F6884DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|VI2PR04MB11002:EE_
-x-ms-office365-filtering-correlation-id: 94e7578d-a47b-46bd-c390-08ddbc14c046
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|19092799006|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?ZSNhlF73UiOIzqDr7BfwOM2i7a8iCQ5Uuz9irMWYBxWaJjgc/MrkBSpJImXi?=
- =?us-ascii?Q?dBuP+aCGXtgySCXufFeVZ3iclJrOQRTPy2biUqHRj4PSCP8bQ+UREbcASE4s?=
- =?us-ascii?Q?whqZvs/Grx//MSZdEo5EoVKFWRsnVM+Rarc8HH1+Vv9pRzpXI5OtXnp+Efed?=
- =?us-ascii?Q?fmU1IsJnkP9LjHFJQkIMHBoUGGLvEVkYoqJ6oIReInc4rkBqiqHeeb3VkBRS?=
- =?us-ascii?Q?yCUvGzhdlK4W3THgl1tWeJ6XAPKhgfktWVU7K+iGTIMacqZIBdr3mkor9/wP?=
- =?us-ascii?Q?rEdTLGOXrbvcQJKX6aigUC0Yx7ReC4PFwddqVZPbm2jyvTJSIdIPea5KE9E/?=
- =?us-ascii?Q?XFCwHKEN/i+iTp+/58b//dyczkLeKk/WifTAAdKr+bjCSk9FMwrY5QTPs+jk?=
- =?us-ascii?Q?ZyExATd98ZI/l5+LFDNEFYMxxwXNu11JX8BWp1t4Nd6bJSZrqG6B+qXkwn2e?=
- =?us-ascii?Q?BAadLENphNNEnJRK9nBdwUrKs9sO+Klh+evg5BXHN7jJ8ZT0aWo5OJwN5Ex1?=
- =?us-ascii?Q?qcdHMZmKzs/uZ6qavdGFVQnTYrFnHo1OHrTfKdvadVsoyjBEFjLqX8txS9p3?=
- =?us-ascii?Q?hkbvZsgscglX8X6hfAZbjUUsKhDZLBTlHyo01LnJ/0owpPSyJ2/t+lrHCljl?=
- =?us-ascii?Q?pn54FzH6ns7NxWH+BGbSYBoFq898Qsni0KR4o47SI7v4L4WxDyQRYIQwfrkT?=
- =?us-ascii?Q?YsN2Sa/jALInM5vKP5uxkCLfav3QEVUY5GzO9qxvHZyJwjkWNQzrYgZZMzPi?=
- =?us-ascii?Q?+Ycx4gaY8SFhO5IlG3wLlwRk6bGhhuM6XCf13OtQQQ5dLQcHSMaqKQsArIQa?=
- =?us-ascii?Q?tSlPA07dMJR0pwG5mBUUAQ0euCO0M3i8+OW6C/IEYiZo5uZI4i95QVdbjPiU?=
- =?us-ascii?Q?ZqCv15KGGVVnu6y2jQI1mcIN72YD8NofdSECWtTQPHeAyS3PoMzChGiqTtiJ?=
- =?us-ascii?Q?pcXe5M7QFZciKFvoqLT5OdcpbO0qP/ld6jXY5q10ULH7iAA7YdYa9wDawLYJ?=
- =?us-ascii?Q?KFFPZmFr4WsPZdIv2AwLSKZiQoeCQ7qiW8xS/JGVEX7+YjkUSXv5JFN4dlZe?=
- =?us-ascii?Q?X63YjDx7uvv+EwVeXoKS5JFjETmPdxz8oVWqqsmBJrPka4O0CWRq8ZNzHmGP?=
- =?us-ascii?Q?IJptpuiKjTcF/ivVteA9/ZiRtpx5U/futkTcwMrkGi/MIwTO1KSWgjSztF2Q?=
- =?us-ascii?Q?EN9mF1tdtyzLG/zUsrPo/CsypqZPkax76Lx5dP6f+vEwPhNNbKEPX7TkLiYH?=
- =?us-ascii?Q?zaQqzewfMgkbUiSOTHRJmABsfS1CkvxrZGz2lJEDS6+duG2lRQwLQPEEc+jm?=
- =?us-ascii?Q?wEx6wQb1epUNMZZjcGhKEhpGG4IBYoKGnk+JJ261k5o3S1hNfdkEYMwSbU1Z?=
- =?us-ascii?Q?GU6lHe6kidODyYcMPYI8aXLIK1takI9zBwtAdgV7ZDkLfUrtE5gP4+o/p1/r?=
- =?us-ascii?Q?kgL4iVEvTmJtGfVtF0siwUw4cI4kc+OC4kGZhXwQiqXTK6QuWs4uYQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(19092799006)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?qkKHH8iSL7lpd3M3q7tiWO/gYJE8rU3kyMQnmivUvE1/URjJMq+OvERsvqq+?=
- =?us-ascii?Q?1JqHzXTm+CoNR8VVVfQt/ZJJRtoHRO4RpZ15NUZZUwE7kyrzs40Cm5kQcwBe?=
- =?us-ascii?Q?sJY/utTpICJoASPTHvQGfpQwNWU0a7+VDrtTkHA2YJxcsbFJEmNeqd4HOUnO?=
- =?us-ascii?Q?2xzIyxlkpdDy31L4/oliJ/sTMbz8OxVg2DijQjNE0q85ZxS9szWe+Q4GGROG?=
- =?us-ascii?Q?YFlD54RL5MaE3EEfnxNXWoCJ5SRE7C0bxM0pjrQjR25C0to5azlcvT1/P+CU?=
- =?us-ascii?Q?NsvITF1KvSLSjZ6MR5Sd1z2kyq7EaOS0sqz2AxfFchSBx4JO/fPkpy3teRD5?=
- =?us-ascii?Q?kotw0SPIfU0k6Ees94SwD8mplJu8eJE2LjtbezmdhLc8lyrH6mdNG4FW5UG+?=
- =?us-ascii?Q?x1tanyrT38o/TiRkCSkej7tXhgVM52kNB8UTxhUoQD1XIz02xnmZhyHFSYcK?=
- =?us-ascii?Q?JJi2iN9DqHsSERUpxd5FKOwiEY7TDDPe0FhfVHsPUOxM4YnrN8BOP/7HHkwE?=
- =?us-ascii?Q?69c5xv24eINE4GJ6WFg2Vlu5T7g+Duj0zE9TVNeFrEkNEwQs4CxEUkzsUBiI?=
- =?us-ascii?Q?0UcF9q0PYcS58SX+6d5QRgWN9Xq+ftrtt3iKtAt/Z8BtQ82XS4N8LWITEdA1?=
- =?us-ascii?Q?oW0aQvsjauppwIGksbwZxbWnUV75kfYPB2YJsVpl1tbvVV1FPEi4tf1yU8lG?=
- =?us-ascii?Q?Alkzagqb8zH6hjvkb21P9KRpOOP4mKKuQ4t8F4UHBT5ubbAVTwTs0eBdnZJG?=
- =?us-ascii?Q?aieM/vHie+Y7K5MGjiol2oMDGGgwpNk5IMON1iCcsXPQQyEm9bIfehpBcw2V?=
- =?us-ascii?Q?bkCFReUFJGTLMvtE1nme0h4VPp72vGve6FaP+QWysRm4zclwEfENjUrvWe52?=
- =?us-ascii?Q?m4VCP0bT2GcT6aqZkewTbyNrluSGqu2HZb67NbGmqPMfa2A78UpKNUHs+1Xr?=
- =?us-ascii?Q?kyXmq9JQaQbAaAz6rS0cQ85/tKOLnk5NJ5P4hvLQw0JcR5aI/3rGGw+t+0Ki?=
- =?us-ascii?Q?b2cpxGkON3HqusimlvO+IkRQAWnDjR5URaz28FJ4jkrnd9F3sCp3jKzFkf8o?=
- =?us-ascii?Q?079lfUPFm9zxnd7PZ8UwgmNj75cmkqzXYPGRGoxkd/29JNcuZcDc40limwrr?=
- =?us-ascii?Q?Vp+jp2GBnt0rSdFxAyWJZZKbFKSBHAetcIpRW9/f/rkV/Ah9yYnu3/OvJkjK?=
- =?us-ascii?Q?kTnrZCYxclu2nKNxjj2+q9ds69tQaA9GlBtIBKLp6A3TzXWCg2hwoyErBCCy?=
- =?us-ascii?Q?xS2KIJ+BM9QsBYj9gUPgvJZNBXbbr2210s8menmkrujCLoH8+LvZtVULQUB1?=
- =?us-ascii?Q?Ctx3E3JEobWGvjs+TWk/EYiSKDHFezeuSP7xKnOSVo2LlYGnl6t5zXfUy5ZA?=
- =?us-ascii?Q?z1JVdKnUMOPcqezTKPQ7aOCtkbzHZcQ+NdNsqkmq+2/VahJ7Q2lDPQMhHnfw?=
- =?us-ascii?Q?bz8KRDB/Y6v0y0tOygjlZ5paR/gU9WsxZjF33pa1NF3G5WfbuLNjEhv6ukvf?=
- =?us-ascii?Q?P0gXqx3cloRggE76JPuUZ4xr6nPqN84h9fCViCl3Qh1qQCm7jE9L6qQWGPrt?=
- =?us-ascii?Q?iwIUARpzblh6qjgKKI0=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Sat, 05 Jul 2025 23:24:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3520D152B;
+	Sat,  5 Jul 2025 16:23:42 -0700 (PDT)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68AF03F66E;
+	Sat,  5 Jul 2025 16:23:53 -0700 (PDT)
+Date: Sun, 6 Jul 2025 00:22:23 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Chen-Yu Tsai <wens@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec
+ <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH net 0/2] allwinner: a523: Rename emac0 to gmac0
+Message-ID: <20250706002223.128ff760@minigeek.lan>
+In-Reply-To: <e9c5949d-9ac5-4b33-810d-b716ccce5fe9@lunn.ch>
+References: <20250628054438.2864220-1-wens@kernel.org>
+	<20250705083600.2916bf0c@minigeek.lan>
+	<CAGb2v64My=A_Jw+CBCsqno3SsSSTtBFKXOrgLv+Nyq_z5oeYBg@mail.gmail.com>
+	<e9c5949d-9ac5-4b33-810d-b716ccce5fe9@lunn.ch>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94e7578d-a47b-46bd-c390-08ddbc14c046
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jul 2025 22:39:06.7222
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 3KKVs97gfU9OvewEE62vx6k3A2inKOEvU60zVI41zLHTC69n1pNiPy9WYd0TU6vopn5UFKwzlYRdtX1vmojVMg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11002
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_153932_901078_FE13762E 
-X-CRM114-Status: GOOD (  36.71  )
+X-CRM114-CacheID: sfid-20250705_162359_167591_E1CF8D07 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,134 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: RE: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM
-> regions
->=20
-> > Subject: Re: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM
-> > regions
-> >
-> > Hi Mathieu,
-> >
-> > On Fri, Jul 04, 2025 at 10:25:19AM -0600, Mathieu Poirier wrote:
-> > > Good morning,
-> > >
-> > > On Thu, Jul 03, 2025 at 10:08:31AM -0300, Hiago De Franco wrote:
-> > > > From: Hiago De Franco <hiago.franco@toradex.com>
-> > > >
-> > > > Merge the contiguous ITCM and DTCM regions into a single region
-> > to
-> > > > prevent failures when loading ELF files with large sections:
-> > > >
-> > > > remoteproc remoteproc0: powering up imx-rproc remoteproc
-> > > > remoteproc0: Booting fw image rproc-imx-rproc-fw, size 151824
-> > > > imx-rproc imx8mp-cm7: Translation failed: da =3D 0x1f48 len =3D
-> > 0x1fcb0
-> > > > remoteproc remoteproc0: bad phdr da 0x1f48 mem 0x1fcb0
-> > remoteproc
-> > > > remoteproc0: Failed to load program segments: -22 remoteproc
-> > > > remoteproc0: Boot failed: -22
-> > > >
-> > > > This approach is the same as commit 8749919defb8 ("remoteproc:
-> > > > imx_rproc: Merge TCML/U").
-> > > >
-> > > > Suggested-by: Ritesh Kumar <ritesh.kumar@toradex.com>
-> > > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> > > > ---
-> > > > Hi,
-> > > >
-> > > > The ELF I tested had the following data section:
-> > > >
-> > > > Memory region         Used Size  Region Size  %age Used
-> > > >     m_interrupts:         680 B         1 KB     66.41%
-> > > >           m_text:        6984 B       127 KB      5.37%
-> > > >           m_data:      130224 B       128 KB     99.35%
-> > > >          m_data2:          0 GB        16 MB      0.00%
-> > > > [100%] Built target hello_world_cm7.elf
-> > > >
-> > > > Which triggered the error. After this patch, remoteproc was able
-> > > > to boot and work fine. Thanks!
-> > > > ---
-> > > >  drivers/remoteproc/imx_rproc.c | 6 ++----
-> > > >  1 file changed, 2 insertions(+), 4 deletions(-)
-> > > >
-> > > > diff --git a/drivers/remoteproc/imx_rproc.c
-> > > > b/drivers/remoteproc/imx_rproc.c index
-> > 74299af1d7f1..bbf089ef48ee
-> > > > 100644
-> > > > --- a/drivers/remoteproc/imx_rproc.c
-> > > > +++ b/drivers/remoteproc/imx_rproc.c
-> > > > @@ -166,8 +166,8 @@ static const struct imx_rproc_att
-> > > > imx_rproc_att_imx8qxp[] =3D {
-> > > >
-> > > >  static const struct imx_rproc_att imx_rproc_att_imx8mn[] =3D {
-> > > >  	/* dev addr , sys addr  , size	    , flags */
-> > > > -	/* ITCM   */
-> > > > -	{ 0x00000000, 0x007E0000, 0x00020000, ATT_OWN |
-> > ATT_IOMEM },
-> > > > +	/* D/ITCM */
-> > > > +	{ 0x00000000, 0x007E0000, 0x00040000, ATT_OWN |
-> > ATT_IOMEM },
-> > > >  	/* OCRAM_S */
-> > > >  	{ 0x00180000, 0x00180000, 0x00009000, 0 },
-> > > >  	/* OCRAM */
-> > > > @@ -180,8 +180,6 @@ static const struct imx_rproc_att
-> > imx_rproc_att_imx8mn[] =3D {
-> > > >  	{ 0x08000000, 0x08000000, 0x08000000, 0 },
-> > > >  	/* DDR (Code) - alias */
-> > > >  	{ 0x10000000, 0x40000000, 0x0FFE0000, 0 },
-> > > > -	/* DTCM */
-> > > > -	{ 0x20000000, 0x00800000, 0x00020000, ATT_OWN |
-> > ATT_IOMEM },
-> > >
-> > > In commit 8749919defb8 "dev addr" and "sys addr" were both
-> > contiguous,
-> > > but in this patch "dev addr" is not.  How will this work with new
-> > > kernel that use old FW images?  Am I missing something?
-> >
-> > No, you are correct, I think the use case I tested was not good enough.
-> >
-> > If I understand correctly, this will break older firmware expecting
-> > .data at 0x20000000 because dev_addr is no longer mapped for
-> DTCM entry.
-> >
->=20
-> The ITCM in M7 starts from 0, DTCM in M7 starts from 0x20000000.
-> The ITCM/DTCM is continuous from A53 perspective.
->=20
-> You let linux to load continuous text/data, but if the dev addr start
-> from ITCM_START+128KB is not reserved from Reference manual.
+On Sat, 5 Jul 2025 17:53:17 +0200
+Andrew Lunn <andrew@lunn.ch> wrote:
 
-Typo: ITCM_START + 128KB is reserved.
+Hi Andrew,
 
->=20
-> How could M7 still work proper if M7 accessing [0x20000, x] dev_addr?
->=20
-> You need update your linker script to separate text into different
-> sections.
->=20
-> Regards,
-> Peng.
->=20
-> > Do you think it is possible (or reccomend) another approach to fix
-> > this issue? In this case to keep using the TCM,
->=20
->=20
->=20
-> instead of going to OCRAM
-> > or DDR.
-> >
-> > Thanks,
-> > Hiago.
-> >
-> > >
-> > > Thanks,
-> > > Mathieu
-> > >
-> > > >  	/* OCRAM_S - alias */
-> > > >  	{ 0x20180000, 0x00180000, 0x00008000, ATT_OWN },
-> > > >  	/* OCRAM */
-> > > > --
-> > > > 2.39.5
-> > > >
+> > So it's really whatever Allwinner wants to call it. I would rather have
+> > the names follow the datasheet than us making some scheme up.  
+> 
+> Are the datasheets publicly available?
 
+We collect them in the sunxi wiki (see the links below), but just to
+make sure:
+I am not disputing that GMAC is the name mentioned in the A523 manual,
+and would have probably been the right name to use originally - even
+though it's not very consistent, as the same IP is called EMAC in the
+older SoCs' manuals. I am also not against renaming identifiers or even
+(internal) DT labels. But the problem here is that the renaming affects
+the DT compatible string and the pinctrl function name, both of which
+are used as an interface between the devicetree and its users, which is
+not only the Linux kernel, but also U-Boot and other OSes like the BSDs.
+
+In this particular case we would probably get away with it, because
+it's indeed very early in the development cycle for this SoC, but for
+instance the "emac0" function name is already used in some U-Boot
+patch series on the list:
+https://lore.kernel.org/linux-sunxi/20250323113544.7933-18-andre.przywara@arm.com/
+
+If we REALLY need to rename this, it wouldn't be the end of the world,
+but would create some churn on the U-Boot side.
+
+I just wanted to point out that any changes to the DT bindings have
+some impact to other projects, even if they are proposed as a coherent
+series on the Linux side. Hence my question if this is really necessary.
+
+Cheers,
+Andre
+
+https://linux-sunxi.org/A64#Documentation
+https://linux-sunxi.org/H616#Documentation
+https://linux-sunxi.org/A523#Documentation
 
