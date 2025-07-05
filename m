@@ -4,133 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A47C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 16:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80678C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 17:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VQQYkVndGStCPetb0u9KBpkX6kw9yPI24YEYcxWZEdI=; b=dvsfP9fPy+z16d29drKqbyX+OG
-	PXxx3ylsdUoasCIhfy4ZXceu/trI5WzooNzvIDDlbhRtVCZR9A2BsSxa9D9ZQP2hYQGSwQVsBTGkR
-	hg535aILZ3dlbfZomyJg3Vq3K7cKNyI5kg1xfEZdchGWOljik8FhLq2DWKaSSB6mtTC1mYWRPY7Et
-	cRLTW30lWUiYD+HMH/8EBs5JWkslThSCEHy5wYWwN5hUWbjJVSnX2nhEE2TUzzPCp70182zQX8lUC
-	dscTVVS2MwFzAzee8kFwEPZKEhAwOnJC7H2tPXZAf0ppDMhd5eaZU/qdJIdYqUWmJULeIFMCJ8xwl
-	qE4ZFG6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iBKNF4JxOGh/wXnSPWOXI6ritVW5PzDqZKlBugIaW70=; b=yokBPaiWtWJcUUEGiGXyVCxzue
+	fzYl2f5GB6qVnIWYwG490LkCIXBgZL82oKZx7GDq6+M/Tdgk0Y9RTterfNSOT7mRhX0L63wCSC7Ht
+	IzmKBaYNCjtCTRRJCWaHy/hi95RckMd0g1/leoR2SWVBOZQdp18uaeClRqyj+YSw1rKLPSYx6/50Y
+	/a8NVaT27CN/mU4G+42crlYQiKG7rt1VWih86qLXWwVh4zwi6Cio2yB0hPNf3vTpk3VJ0NcFmdJWJ
+	66Ct8BWYK+akEBG9MayMJxslId/VXfAVtK1qYs2O4pq831jZEYgwuJo+BIca5PfKmFWPVlt3MmzsW
+	XrJAExgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY5Tl-0000000Gl0W-2E50;
-	Sat, 05 Jul 2025 16:11:05 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY5RQ-0000000GkvP-34ix
+	id 1uY6Kx-0000000Gn3e-42y3;
+	Sat, 05 Jul 2025 17:06:03 +0000
+Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uY6Id-0000000Gmvz-14re
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Jul 2025 16:08:42 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 565ClOCc018958
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 5 Jul 2025 16:08:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=VQQYkVndGStCPetb0u9KBp
-	kX6kw9yPI24YEYcxWZEdI=; b=Qti5XGev3wB1tQ9SAzU+dV5xT98VKholViCmqq
-	yIB2Tu+/ihCmC9cabslWbqFrQPI6J9bR28P4m9n0nrfvBkbkuVEt0CpHrK3ouUgV
-	dBIz1M22Y3DrsA3m7fTCd+jkHxlrbjgzswnb7kCu9rraGE+1xUW+g7LfffMTeQAZ
-	bjl5N2zlYCQ6GL4NTtf4cjjOWtSSrfUaS7PmVZDBTkdrUIXNLFDPwwP2N7juCpxz
-	ctDHXqIHXJsgQz1D80O7js6ddYQ6j0GMwhmGcbAUD9FcGYfqQnnP0qHx5WFa1BuB
-	DLKYJ4HhKebjwPjnK/Ab9Vw2SpPHk1n38t6Jnq5TZb5De2Yw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47pu2ahhsr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 16:08:39 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7d44d773e23so461714085a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 09:08:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751731718; x=1752336518;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VQQYkVndGStCPetb0u9KBpkX6kw9yPI24YEYcxWZEdI=;
-        b=XX1horeBqfy7spYCofK0t3iIv8SVRuN1Z4mV/LVB21DInolyDIPEek9jbq5Ee/y9MA
-         E6mwTpnFKqkKxZRIyhfLtE0AXP5HMAU5CgX3tJtUH07peM4nQLpF5/BWy14OFXG1q4KQ
-         tyS8EoUHqtyo1RF9Zdk5SWWbpq3zQ1tQmNvTFUhRVpdl5d03DzPdqE8A01oos6HMYcb7
-         M7Acu046xk/ODChfcCwC7yqI4UDzkIT8mn4Stse//LOlKs6Jtx3BLxDSOLSb0HGF+JPB
-         ubnYOMoRDqMRQcyT08IN4D8U9UJ9Ll8AjnbiazRCwl+wV9lRSvVTSS+CMtdiN/OsAjhS
-         uyrw==
-X-Forwarded-Encrypted: i=1; AJvYcCW+5KwKI3hFLOZ5/BsBAM+JMrVrBpLmuI2IoygemAkE81jQAxmdSLQdvDlGJneNKK2u5FEEaFGuJEv2a6AolKvC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4PD1A44LRwNO6eOKAExn0UMBJPdKhopwcGZuxmTNgKut2CEvD
-	5VPiEhHCKY1rVF/92TRXW9dBQJIUs2pQkoad++tvh3kSaevu0KC0cWNQCvnS/K8Xuji2MdxjGIa
-	UieRSw3xUPJNIwUArUH17sgublqMjIaLAFxXChG+Kb6JMoeohaK4iMP0qoV06wU7+vU4mJjm3S1
-	tU0Q==
-X-Gm-Gg: ASbGncu9Ee3uUhHf21p/o2oOYHPvfrpQTVFXUVKOyk8sfKzL1H4DVftyEwbiXwMcLuF
-	SSdQ1tnmPblhm6eAD3LZY4ibU4nQY5uQ7URHvt0JvbBRRUHvSV5MzHLaWIDLvbF4IcCfGfo/euh
-	I80yraCxnoAnlsFMFPVYDpxXgYGQ56ZouTew7yp1X4Tx2vLHkfoTm6bgzdfBcRbr8IeRJveNNCQ
-	6ho4JO2G5bUmtGDWkLfn9BpPJmvr2DWL9DROt1LDl8KhwV2q3aEmuvB1XI8Op1LSMtudMkg77bF
-	8/VVhisfCOeHbdsXOZd3YeLxCgrz5QouU1z8G0S4SLB653ItWHdqbdO/TC5x/5I9IIy9Tr7eXip
-	lfRiSZecSw25kmTf6CFkeYZ+zBf+xU/GSzU8=
-X-Received: by 2002:a05:620a:2b89:b0:7d4:4b92:85e4 with SMTP id af79cd13be357-7d5dcc5e457mr896830585a.14.1751731718503;
-        Sat, 05 Jul 2025 09:08:38 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH4B2sgfTjCGK/I65unoqaLkmK0M7K7ayKlHuPECNRLfJUUTIjG5F1QyzFuSBOHTi3v6JDljA==
-X-Received: by 2002:a05:620a:2b89:b0:7d4:4b92:85e4 with SMTP id af79cd13be357-7d5dcc5e457mr896825685a.14.1751731717791;
-        Sat, 05 Jul 2025 09:08:37 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55638494f6dsm622779e87.123.2025.07.05.09.08.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Jul 2025 09:08:36 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Sat, 05 Jul 2025 19:08:33 +0300
-Subject: [PATCH v2] iommu/arm-smmu: disable PRR on SM8250
+	Sat, 05 Jul 2025 17:03:41 +0000
+X-CSE-ConnectionGUID: UIRvHSRsSVmKRx59j0yRyQ==
+X-CSE-MsgGUID: cnHpFD2WTtap0SSiNRFArw==
+Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
+  by relmlie5.idc.renesas.com with ESMTP; 06 Jul 2025 02:03:33 +0900
+Received: from localhost.localdomain (unknown [10.226.92.32])
+	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 1D9304010E1B;
+	Sun,  6 Jul 2025 02:03:28 +0900 (JST)
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Biju Das <biju.das.jz@bp.renesas.com>,
+	netdev@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Biju Das <biju.das.au@gmail.com>
+Subject: [PATCH net-next] net: stmmac: dwmac-renesas-gbeth: Add PM suspend/resume callbacks
+Date: Sat,  5 Jul 2025 18:03:24 +0100
+Message-ID: <20250705170326.106073-1-biju.das.jz@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250705-iommu-fix-prr-v2-1-406fecc37cf8@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAABOaWgC/3WMyw6CQAxFf4V0bck8GEhc+R+GBQ6DNBEGO0I0Z
- P7dyt5Nk9N779khBaaQ4FzswGGjRHEWMKcC/NjN94DUC4NRxqlGOaQ4TSsO9MaFGWulKqdvure
- qAtksHCQ6fNdWeKT0ivw59Jv+ff+ZNo0aw9BIaG3ttL/ElMrn2j289Eo50OacvyaKeWCxAAAA
-X-Change-ID: 20250705-iommu-fix-prr-600451b1d304
-To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-        Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1682;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=1nHVCwgtw92YQiqaocxAdN057/gIPobtpT6EJm/ltEE=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBoaU4EPzKa9ZLkC7fTqOEgSArVBZofNCTdp/Sb5
- 6FwPKWtOt+JATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaGlOBAAKCRCLPIo+Aiko
- 1V4XB/9PrB6vncaBwBi4dhAA54NytUNQgDHc1uBL88Sca8J1uPGNjP3dU83pKyS3dPTzWNbWHJi
- P3qCHpO7IpOhZcTOxn6JKQbKHGPbS72HwPfbRcvMyQxau8bTHH56A7zy4XMfbStA460Rv9yXwa3
- q2xwWoZmQwz2UDBAa5VcAHulN4szj+eIHAgAqZRxiD5E9qc519YrQ2WtRGuDtv0Kq9mmVL6Q5wg
- I0OpVpxZsTTEsN6KLKTdEwYISyDMKfyrp0WZrSNmBGxmabvnTGaal/jJ4wZlWFDvxJC4LHBmhn+
- XUC1KVZ6mIhKg1QxzophRU7GtdVBmUqpFs3d9UZlhP9w97dj
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzA1MDEwNiBTYWx0ZWRfXxqdfL0sBda2a
- 8PzxIGIjlo/vByq+1fWAQGvOCfdpHqvaWILIzR9daiDJwINYjl901M2rIeqjaame7wETKinsuUR
- X99XTIGOrhqkiItsTLI60SsN9qW2D3TF9JjTiQN4OAIspeOsKEUyKp5UIZugcol9pjuPxgRc3tf
- oRADqYW+MiyTk6zyuiDhOdjQ2N5xpVzAjLTxqiCNpPBLits/QuDw/aIvXyxYqEeFMaIm47kw+WM
- YqpcrOVUK5tlhRS7wnSopHTRmluBrHyQfIYMN0S54ennw4L0mS6iPDWEb2u3X5pa5yNCUvCfEQu
- HGkcpkJ0xVyB9Fn9AsU2MOfJmMs2bFzwRFnnCniM1m4WwYZi9aTk0JvDvLAyZz6tSx+Aa1z+EMG
- lzuZ53E5xiQ0KAgRwb7IPWfqe+jSiIpaf164E76gkkoIIYre23b6nz21lmDe83o/MlQs7RUE
-X-Proofpoint-ORIG-GUID: 8GKTbuZNS35mZFYyZECOnFiykS9NrSzt
-X-Proofpoint-GUID: 8GKTbuZNS35mZFYyZECOnFiykS9NrSzt
-X-Authority-Analysis: v=2.4 cv=erTfzppX c=1 sm=1 tr=0 ts=68694e07 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=RJW-fAkOStluX_mlE74A:9
- a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-04_07,2025-07-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 clxscore=1015 impostorscore=0 spamscore=0 priorityscore=1501
- mlxlogscore=999 bulkscore=0 adultscore=0 malwarescore=0 phishscore=0
- lowpriorityscore=0 suspectscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507050106
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_090840_899026_22506388 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20250705_100339_411779_F0CCC705 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,45 +74,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On SM8250 / QRB5165-RB5 using PRR bits resets the device, most likely
-because of the hyp limitations. Disable PRR support on that platform.
+Add PM suspend/resume callbacks for RZ/G3E SMARC EVK.
 
-Fixes: 7f2ef1bfc758 ("iommu/arm-smmu: Add support for PRR bit setup")
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
----
-I currently don't have access to other devices from these generations.
-It might be necessary to apply the same workaround to other platforms.
----
-Changes in v2:
-- Simplify the workaround as the issue seems to be limited to SM8250
-  only (Rob)
-- Link to v1: https://lore.kernel.org/r/20250705-iommu-fix-prr-v1-1-ef725033651c@oss.qualcomm.com
----
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+The PM deep entry is executed by pressing the SLEEP button and exit from
+entry is by pressing the power button.
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index 62874b18f6459ad9a8b0542ab81c24e3e745c53d..53d88646476e9f193a6275d9c3ee3d084c215362 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -355,7 +355,8 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
- 	priv->set_prr_addr = NULL;
- 
- 	if (of_device_is_compatible(np, "qcom,smmu-500") &&
--			of_device_is_compatible(np, "qcom,adreno-smmu")) {
-+	    !of_device_is_compatible(np, "qcom,sm8250-smmu-500") &&
-+	    of_device_is_compatible(np, "qcom,adreno-smmu")) {
- 		priv->set_prr_bit = qcom_adreno_smmu_set_prr_bit;
- 		priv->set_prr_addr = qcom_adreno_smmu_set_prr_addr;
- 	}
+Logs:
+root@smarc-rzg3e:~# PM: suspend entry (deep)
+Filesystems sync: 0.115 seconds
+Freezing user space processes
+Freezing user space processes completed (elapsed 0.002 seconds)
+OOM killer disabled.
+Freezing remaining freezable tasks
+Freezing remaining freezable tasks completed (elapsed 0.001 seconds)
+printk: Suspending console(s) (use no_console_suspend to debug)
+NOTICE:  BL2: v2.10.5(release):2.10.5/rz_soc_dev-162-g7148ba838
+NOTICE:  BL2: Built : 14:23:58, Jul  5 2025
+NOTICE:  BL2: SYS_LSI_MODE: 0x13e06
+NOTICE:  BL2: SYS_LSI_DEVID: 0x8679447
+NOTICE:  BL2: SYS_LSI_PRR: 0x0
+NOTICE:  BL2: Booting BL31
+renesas-gbeth 15c30000.ethernet end0: Link is Down
+Disabling non-boot CPUs ...
+psci: CPU3 killed (polled 0 ms)
+psci: CPU2 killed (polled 0 ms)
+psci: CPU1 killed (polled 0 ms)
+Enabling non-boot CPUs ...
+Detected VIPT I-cache on CPU1
+GICv3: CPU1: found redistributor 100 region 0:0x0000000014960000
+CPU1: Booted secondary processor 0x0000000100 [0x412fd050]
+CPU1 is up
+Detected VIPT I-cache on CPU2
+GICv3: CPU2: found redistributor 200 region 0:0x0000000014980000
+CPU2: Booted secondary processor 0x0000000200 [0x412fd050]
+CPU2 is up
+Detected VIPT I-cache on CPU3
+GICv3: CPU3: found redistributor 300 region 0:0x00000000149a0000
+CPU3: Booted secondary processor 0x0000000300 [0x412fd050]
+CPU3 is up
+dwmac4: Master AXI performs fixed burst length
+15c30000.ethernet end0: No Safety Features support found
+15c30000.ethernet end0: IEEE 1588-2008 Advanced Timestamp supported
+15c30000.ethernet end0: configuring for phy/rgmii-id link mode
+dwmac4: Master AXI performs fixed burst length
+15c40000.ethernet end1: No Safety Features support found
+15c40000.ethernet end1: IEEE 1588-2008 Advanced Timestamp supported
+15c40000.ethernet end1: configuring for phy/rgmii-id link mode
+OOM killer enabled.
+Restarting tasks: Starting
+Restarting tasks: Done
+random: crng reseeded on system resumption
+PM: suspend exit
 
+15c30000.ethernet end0: Link is Up - 1Gbps/Full - flow control rx/tx
+root@smarc-rzg3e:~# ifconfig end0 192.168.10.7 up
+root@smarc-rzg3e:~# ping 192.168.10.1
+PING 192.168.10.1 (192.168.10.1) 56(84) bytes of data.
+64 bytes from 192.168.10.1: icmp_seq=1 ttl=64 time=2.05 ms
+64 bytes from 192.168.10.1: icmp_seq=2 ttl=64 time=0.928 ms
+
+Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
 ---
-base-commit: 7244e36657076b597ac21d118be9c0b0f15fc622
-change-id: 20250705-iommu-fix-prr-600451b1d304
+This patch is tested with out-of tree patch for save/restore
+ethernet OEN registers in the pinctrl block.
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Best regards,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+index 9a774046455b..df4ca897a60c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+@@ -136,6 +136,7 @@ static struct platform_driver renesas_gbeth_driver = {
+ 	.probe  = renesas_gbeth_probe,
+ 	.driver = {
+ 		.name		= "renesas-gbeth",
++		.pm		= &stmmac_pltfr_pm_ops,
+ 		.of_match_table	= renesas_gbeth_match,
+ 	},
+ };
 -- 
-With best wishes
-Dmitry
+2.43.0
 
 
