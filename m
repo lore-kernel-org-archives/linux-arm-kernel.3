@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A5CC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 08:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8287DC8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 08:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MIc2e1gJuTQrZEoQGBh/ZjGwcoWSCc2ZYuU7ApNwKmU=; b=Ghhf22QmL7TPCOmXWPUgBbe7xa
-	5d1GtZjvz19dmfXiJZAlsK3dPCsssJ2+CIKgfvpUL15oLajPVvEOsy6K1zIyr0VrT8Yluo99BO4MQ
-	nGdHjX53Z+83H/HIm+6OszuP39OKCq4JiJGcpEvAT+BtIXWOh83Se/kePU4Xr431XaZKwUJuhRPrB
-	GuTM6SZfRFUwBskfPkTk2Jmmj6FpMR+yVGXXbdSt7oTDuOfx3AiET2jwLz65Eci7YFCq2q714L++J
-	HXxam0sbaUA7clQCrF10fWraSKscUVOyKRQbmr8svTgcXwJGw6QwcBpKbrwfWC6/190t6t7bggrfm
-	q4qiiT8Q==;
+	bh=2vWcb12LUeJ5TfO3TZX3nCMIRZ8f2vaeQ78pRRCXp9M=; b=ayg07JLlEGGGHxou0ZcPF8+Vh2
+	SOGxuK+4sAA++pGIclsPpfgTZmFJCUmXXRlhDlucyrWHTOM4bkOVZuYklF7zfBaBXeuBmzVRxtvkw
+	bel4Aw0TG47cZssKZ3rbUEKUQHtz9CXBS7ouFJOnZL++FMUW3PbaAbaK4T6uyawFYz+7A6evzGGiE
+	GASjZQ/CQjThYLIvTVbMGesCbjot8iQ0CkAICC6g+rsBMoYxuM2yWZfRpjaR2uDF8UxWrdMnfY6h3
+	LiFGoy7wLcYOE9v3z2qKhJvQg9J+b37AmcvS/LpB4A4xx1Cq0dU4JqQyQBQn4AmCM7IDr07R0ocRV
+	Tm3Y989g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXyAt-0000000GHmD-26Wb;
-	Sat, 05 Jul 2025 08:23:07 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uXyGN-0000000GI5f-383o;
+	Sat, 05 Jul 2025 08:28:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXy8X-0000000GHf3-3tfL
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Jul 2025 08:20:43 +0000
+	id 1uXyE2-0000000GI0h-0XmB;
+	Sat, 05 Jul 2025 08:26:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E91C8A53896;
-	Sat,  5 Jul 2025 08:20:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84892C4CEE7;
-	Sat,  5 Jul 2025 08:20:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3963E5C4A0F;
+	Sat,  5 Jul 2025 08:26:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D03C4CEE7;
+	Sat,  5 Jul 2025 08:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751703640;
-	bh=9I85kkzttzt8W0D61CGAt5BTcsDYsuzD5spP/3r4tYs=;
+	s=k20201202; t=1751703980;
+	bh=2vWcb12LUeJ5TfO3TZX3nCMIRZ8f2vaeQ78pRRCXp9M=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QSVweVJS68HR8H6mXNh752tIIU2k2XiL+57f5HTpCTnjoG7LPFH42KmIpDBgN9wKd
-	 s/UTQxlhKQkD2Me0o1/6mQtu5KSD7789l99eLo6X/oCBG80dtI9m+opgmvw+KfV55n
-	 g27ptmRcsDvRZ9Jj40bnjiFoxcSpqtH/6fYoAoTqeW45kWhgfGZ5GB5ctC5AEIa9dT
-	 Y5dAfMAMTIqG1gldZY9Ir+PMTnQBozVzBTq4t9g51KvAaeJMe8B6IsTrrJxaa6BS6d
-	 jxg6LU6GXTNp2FhmDbU591sLKXVQ4w2aAReQT4iOjsdapfpziVIcTk6gHXiupVM7CR
-	 Jt7B//9g2iZ1Q==
-Message-ID: <507129db-a84e-489e-aed7-f1f86e6d188b@kernel.org>
-Date: Sat, 5 Jul 2025 10:20:34 +0200
+	b=eITODc6SCZ78tC55ViK2fVrf/YVVg0ep23VuzHQeo7NFw2JfHhD/c2ppMBR/oK6x7
+	 mEAW++Ol4ZXewwqYJTeER27toMOxSr1z29HT2ROebB1UUzPXm5mmscjuspXBO3U87f
+	 wg2b7jTdX6eTZrQTFotjYYkGTkE+smGgj+ChsFMFhFeDFf+uz3kyCVJgExKF25US/y
+	 xI8xofYeoyv2I0ZwJbi6wqPHiveig5iqZuzpUe5hzx4MNmDjWMe/xjFikG/ral+MV7
+	 imvcECnz9ApJlBd/gXwfjRTo0098MAh15NT061XuvBo/6BmsoE6gQSXx4SxM51Oj9n
+	 BqYr+M9o4ZM3Q==
+Message-ID: <8ea1e2a2-96d2-47b6-8f8d-74fd2971db9e@kernel.org>
+Date: Sat, 5 Jul 2025 10:26:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 8/9] arm64: dts: cix: Add sky1 base dts initial support
-To: Peter Chen <peter.chen@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
- arnd@arndb.de, jassisinghbrar@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- maz@kernel.org, sudeep.holla@arm.com, kajetan.puchalski@arm.com,
- eballetb@redhat.com, Guomin Chen <Guomin.Chen@cixtech.com>,
- Gary Yang <gary.yang@cixtech.com>
-References: <20250609031627.1605851-1-peter.chen@cixtech.com>
- <20250609031627.1605851-9-peter.chen@cixtech.com>
+Subject: Re: [PATCH 1/2] phy: exynos-mipi-video: correct cam0 sysreg
+ compatible for exynos7870
+To: Kaustabh Chakraborty <kauschluss@disroot.org>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250627-exynos7870-mipi-phy-fix-v1-0-2eefab8b50df@disroot.org>
+ <20250627-exynos7870-mipi-phy-fix-v1-1-2eefab8b50df@disroot.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,12 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250609031627.1605851-9-peter.chen@cixtech.com>
+In-Reply-To: <20250627-exynos7870-mipi-phy-fix-v1-1-2eefab8b50df@disroot.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_012042_135667_0FB2BC2B 
-X-CRM114-Status: UNSURE (   6.84  )
+X-CRM114-CacheID: sfid-20250705_012622_260434_C0D2B21E 
+X-CRM114-Status: UNSURE (   4.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,87 +121,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/06/2025 05:16, Peter Chen wrote:
-> +
-> +	firmware {
-> +		ap_to_pm_scmi: scmi {
-> +			compatible = "arm,scmi";
-> +			mbox-names = "tx", "rx";
-> +			mboxes = <&mbox_ap2pm 8>, <&mbox_pm2ap 8>;
-> +			shmem = <&ap2pm_scmi_mem &pm2ap_scmi_mem>;
+On 26/06/2025 22:01, Kaustabh Chakraborty wrote:
+> Fix the cam0 sysreg compatible (samsung,cam0-sysreg), which has been
+> erroneously declared as samsung,cam-sysreg. This follows the same
+> compatible name used in Exynos5433 PHY.
 
-These are two entries, so two <>.
-
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			scmi_clk: protocol@14 {
-> +				reg = <0x14>;
-> +				#clock-cells = <1>;
-> +			};
-> +
-
-Drop blank line
-
-> +		};
-> +	};
-> +
-> +	pmu-a520 {
-> +		compatible = "arm,cortex-a520-pmu";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition0>;
-> +	};
-> +
-> +	pmu-a720 {
-> +		compatible = "arm,cortex-a720-pmu";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition1>;
-> +	};
-> +
+That's not a compatible, but property name from the binding. With fixing
+commit msg:
 
 
-...
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> +
-> +		mbox_ap2se: mailbox@5060000 {
-> +			compatible = "cix,sky1-mbox";
-> +			reg = <0x0 0x05060000 0x0 0x10000>;
-> +			interrupts = <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH 0>;
-> +			#mbox-cells = <1>;
-> +			cix,mbox-dir = "tx";
-> +		};
-> +
-> +		mbox_se2ap: mailbox@5070000 {
-> +			compatible = "cix,sky1-mbox";
-> +			reg = <0x0 0x05070000 0x0 0x10000>;
-> +			interrupts = <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH 0>;
-> +			#mbox-cells = <1>;
-> +			cix,mbox-dir = "rx";
-> +		};
-> +
-> +		ap2pm_scmi_mem: ap2pm-shmem@6590000 {
 
-This should be just shmem@
-
-> +			compatible = "arm,scmi-shmem";
-> +			reg = <0x0 0x06590000 0x0 0x80>;
-> +			reg-io-width = <4>;
-> +		};
-> +
-> +		mbox_ap2pm: mailbox@6590080 {
-> +			compatible = "cix,sky1-mbox";
-> +			reg = <0x0 0x06590080 0x0 0xff80>;
-> +			interrupts = <GIC_SPI 363 IRQ_TYPE_LEVEL_HIGH 0>;
-> +			#mbox-cells = <1>;
-> +			cix,mbox-dir = "tx";
-> +		};
-> +
-> +		pm2ap_scmi_mem: pm2ap-shmem@65a0000 {
-
-Same here
-
-> +			compatible = "arm,scmi-shmem";
-> +			reg = <0x0 0x065a0000 0x0 0x80>;
-> +			reg-io-width = <4>;
-> +		};
 Best regards,
 Krzysztof
 
