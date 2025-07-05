@@ -4,109 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8287DC8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 08:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 532F3C8303D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 08:37:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2vWcb12LUeJ5TfO3TZX3nCMIRZ8f2vaeQ78pRRCXp9M=; b=ayg07JLlEGGGHxou0ZcPF8+Vh2
-	SOGxuK+4sAA++pGIclsPpfgTZmFJCUmXXRlhDlucyrWHTOM4bkOVZuYklF7zfBaBXeuBmzVRxtvkw
-	bel4Aw0TG47cZssKZ3rbUEKUQHtz9CXBS7ouFJOnZL++FMUW3PbaAbaK4T6uyawFYz+7A6evzGGiE
-	GASjZQ/CQjThYLIvTVbMGesCbjot8iQ0CkAICC6g+rsBMoYxuM2yWZfRpjaR2uDF8UxWrdMnfY6h3
-	LiFGoy7wLcYOE9v3z2qKhJvQg9J+b37AmcvS/LpB4A4xx1Cq0dU4JqQyQBQn4AmCM7IDr07R0ocRV
-	Tm3Y989g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bZ2e0OGLx3B1xnxgJsmUQMNOM9BBR0+6G+mi7LokNx8=; b=OadBRljdpVbB2rgp+SsrKgxuJP
+	anwBOXq5ufN3SzLfAIw3hbI6qtdg+24FpRebLyTTHUutG+fmJXvLTI1sVUKxSNzgf/qjWoOK+GgE0
+	XwvdvJcx0p/1aSWSPNRMIo+fk4bCX3XR6+1K4YTT/e1Mq2jDBxjBtz/hp9ezlmdgvt3tKOiNZygMU
+	lsi1FIJb0xhcwVrARx/lpKEOcorQoe2+0OQfZ1zCpGGxba2RIRRbZDOmy7LYLF4ZAhdybHU5aPHWI
+	zs5nNhAys4Ke2tJ01SyzB5WVGatXsbgirQpJauTJIzrVHr7sEbjc1skSkDWrCBgPmZZugfmIKNNhv
+	bu7cOK2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXyGN-0000000GI5f-383o;
-	Sat, 05 Jul 2025 08:28:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uXyOh-0000000GIbJ-31hC;
+	Sat, 05 Jul 2025 08:37:23 +0000
+Received: from smtp-74.smtpout.orange.fr ([80.12.242.74] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXyE2-0000000GI0h-0XmB;
-	Sat, 05 Jul 2025 08:26:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3963E5C4A0F;
-	Sat,  5 Jul 2025 08:26:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D03C4CEE7;
-	Sat,  5 Jul 2025 08:26:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751703980;
-	bh=2vWcb12LUeJ5TfO3TZX3nCMIRZ8f2vaeQ78pRRCXp9M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eITODc6SCZ78tC55ViK2fVrf/YVVg0ep23VuzHQeo7NFw2JfHhD/c2ppMBR/oK6x7
-	 mEAW++Ol4ZXewwqYJTeER27toMOxSr1z29HT2ROebB1UUzPXm5mmscjuspXBO3U87f
-	 wg2b7jTdX6eTZrQTFotjYYkGTkE+smGgj+ChsFMFhFeDFf+uz3kyCVJgExKF25US/y
-	 xI8xofYeoyv2I0ZwJbi6wqPHiveig5iqZuzpUe5hzx4MNmDjWMe/xjFikG/ral+MV7
-	 imvcECnz9ApJlBd/gXwfjRTo0098MAh15NT061XuvBo/6BmsoE6gQSXx4SxM51Oj9n
-	 BqYr+M9o4ZM3Q==
-Message-ID: <8ea1e2a2-96d2-47b6-8f8d-74fd2971db9e@kernel.org>
-Date: Sat, 5 Jul 2025 10:26:16 +0200
+	id 1uXyMK-0000000GIMW-10ov;
+	Sat, 05 Jul 2025 08:34:59 +0000
+Received: from fedora.home ([IPv6:2a01:cb10:785:b00:8347:f260:7456:7662])
+	by smtp.orange.fr with ESMTPA
+	id XyMCunIdc3HAMXyMCux85J; Sat, 05 Jul 2025 10:34:50 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1751704491;
+	bh=bZ2e0OGLx3B1xnxgJsmUQMNOM9BBR0+6G+mi7LokNx8=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=cF0ow0Mk+vKo0i7MXgUtpEOsNiSg/EqNpyVO5xtB2DGhRDbSJb+yPRjQoa3h+IbIo
+	 Q5f7G2PnB/Uqq8/s1VsxYbEcVImyFXJmcSEivXu/6IvwWRfh8613zFQOtWm87ZDplo
+	 sUzYPZMf5TXsaatv+ywMe26H0XR+DSrXCdGaEFvfmmJedqFosv3F5CeQQxAKAgVa6q
+	 7HN3dvmIIjrFEHqqMWjgVYBOHGYY/e28mf3Hs31hPhZtKM6FXIegxEQNkoEf7eWm5C
+	 yLGQ3RQyLknnkAxvmNLP/s7pJosT1WsjYaHlSz8GxbpNrqbpHGFj8pt980/R6/V5PE
+	 j0d4uq3fe1J2w==
+X-ME-Helo: fedora.home
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Sat, 05 Jul 2025 10:34:51 +0200
+X-ME-IP: 2a01:cb10:785:b00:8347:f260:7456:7662
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	Simon Horman <horms@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org
+Subject: [PATCH v4 net] net: airoha: Fix an error handling path in airoha_probe()
+Date: Sat,  5 Jul 2025 10:34:32 +0200
+Message-ID: <1c940851b4fa3c3ed2a142910c821493a136f121.1746715755.git.christophe.jaillet@wanadoo.fr>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] phy: exynos-mipi-video: correct cam0 sysreg
- compatible for exynos7870
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Neil Armstrong <neil.armstrong@linaro.org>
-Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250627-exynos7870-mipi-phy-fix-v1-0-2eefab8b50df@disroot.org>
- <20250627-exynos7870-mipi-phy-fix-v1-1-2eefab8b50df@disroot.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250627-exynos7870-mipi-phy-fix-v1-1-2eefab8b50df@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_012622_260434_C0D2B21E 
-X-CRM114-Status: UNSURE (   4.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250705_013456_415082_EC9239D6 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,18 +80,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/06/2025 22:01, Kaustabh Chakraborty wrote:
-> Fix the cam0 sysreg compatible (samsung,cam0-sysreg), which has been
-> erroneously declared as samsung,cam-sysreg. This follows the same
-> compatible name used in Exynos5433 PHY.
+If an error occurs after a successful airoha_hw_init() call,
+airoha_ppe_deinit() needs to be called as already done in the remove
+function.
 
-That's not a compatible, but property name from the binding. With fixing
-commit msg:
+Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
+Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Reviewed-by: Simon Horman <horms@kernel.org>
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Changes in v4:
+  - Add A-b and R-b tags
+  - Rebase against latest -next (because v3 now gets "Hunk #1 succeeded
+    at 2979 (offset -12 lines)")
 
+Changes in v3:
+  - call airoha_ppe_deinit() and not airoha_ppe_init()   [Lorenzo Bianconi]
+v3: https://lore.kernel.org/all/1b94b91345017429ed653e2f05d25620dc2823f9.1746715755.git.christophe.jaillet@wanadoo.fr/
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Changes in v2:
+  - Call airoha_ppe_init() at the right place in the error handling path
+    of the probe   [Lorenzo Bianconi]
+v2: https://lore.kernel.org/all/3791c95da3fa3c3bd2a942210e821d9301362128.1746715755.git.christophe.jaillet@wanadoo.fr/
 
+v1: https://lore.kernel.org/all/f4a420f3a8b4a6fe72798f9774ec9aff2291522d.1744977434.git.christophe.jaillet@wanadoo.fr/
 
-Best regards,
-Krzysztof
+Compile tested only.
+
+In the previous iteration, this patch was part of a serie (was 2/4).
+But it should be related to 'net', while the rest of the serie was for
+'net-next'. So it is resent as a stand-alone patch, as a v4.
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index af8c4015938c..d435179875df 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -2979,6 +2979,7 @@ static int airoha_probe(struct platform_device *pdev)
+ error_napi_stop:
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_qdma_stop_napi(&eth->qdma[i]);
++	airoha_ppe_deinit(eth);
+ error_hw_cleanup:
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_hw_cleanup(&eth->qdma[i]);
+-- 
+2.49.0
+
 
