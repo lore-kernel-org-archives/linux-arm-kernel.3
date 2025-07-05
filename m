@@ -4,135 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C31A9C8303D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 13:26:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E6BEC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 13:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6gQMTAhe570YE3iP8EB5vKYrzv7CsKlrKa8/6xKU6bc=; b=0pHacZN2IkQJd0y3WbbA48S+Zo
-	KAGE8JQyZLmwmdiOiKPTuyUj/p/XIPEni8vjtPAbrZXGqLfLX7mYw+W1Ub4uZiCwxNT0zPVfBHnK2
-	AoDrFDl8TQaGI5/zw7iNvQNP14lvO6H+SVqhYDRRG3xXm5ZfT6M7m4CyEHIbM7RSCxH9K5h6mzV5U
-	D2eMO6mC5RaEVPQ1NfBAy2YizMSYZLFl/7d4u9tgUo6xg0Gk8SQ1JbQ2s8sXgJhcfH/IvUTwjbzed
-	bw+j+h5T6zDQGMP+UiM9BekCUnBYpAjjEVHHOlWXG3gxzj0cZF5BSjbmHtuYFJpWa1M83xbo3IxZX
-	6KwlRsNg==;
+	bh=mFfAOdZHZIE6KKa8ytmfDci8WXBkWo7UVd5faQGltnM=; b=Kml5dcULV0mWY0Ct5Ve7KTvlDd
+	0oZl8jIhTXXYgxquRsSBZsST9FzslXq14b83oWiJsngVsaJve8EGKjluYkt/3VigHc0o12SgtsGng
+	pfeQ5DkfVj7M3vdcASr48pmX4JztzUNsxTumemo8h/jRg1XK6HZgs3JLbva8DAHrRCv4sabjFfGfk
+	Uxyrkf6Y7fYdf88SLtyqtfZFXrfPKRrIfiqdo00qZlN8jSDEgIAsPGoQaT1Kjxf5zG1ERXbaOJ0XM
+	5szkZK7XpaOXqhV6Pkf+xXT1GLVuOYdVvRBmanRVxNr2PKqlfqizoh/hpZ4PjY76B780LrIklNuTk
+	A5iCHtzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY2uB-0000000GYLr-2a3j;
-	Sat, 05 Jul 2025 13:26:11 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uY2wT-0000000GYaP-2y8u;
+	Sat, 05 Jul 2025 13:28:33 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uY2rs-0000000GYDM-2cFu
+	id 1uY2u4-0000000GYKx-1csm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Jul 2025 13:23:49 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 565Ca668020816
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 5 Jul 2025 13:23:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=6gQMTAhe570YE3iP8EB5vKYr
-	zv7CsKlrKa8/6xKU6bc=; b=jGwZBNsY7lfBhGGTTJVDaY9eFTydbEkTCwD1Hlhm
-	Ix1Gky9BvXFb5OosVwbFQ4uv3nGR9tGfs00cxghq+hDrGLmjMwLuMedkqKKfOdB9
-	KYXD6UHMkfHeooPO8AhFsMp4r7VmU/A4UoVYVwy74oJrhv7l0EN57Ky34lftYnnH
-	7Xcgqk7KYNSKEpab6ZdZoOJhHHHGnATSoXUOlq4Ut1P+62k8xOfNVuhI96rmSE6W
-	qynR5cXcs/jHqRQd4yWqoXy36nyn5f/k6uF58LGvaG4rRT7AdEUUBgqi+jI825QI
-	5cki/napIsViskMvYegppWip/CsErU45B8CUvxVFOKuZUQ==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47pw7q0y5g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 13:23:47 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7d460764849so467968085a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 06:23:47 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751721826; x=1752326626;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6gQMTAhe570YE3iP8EB5vKYrzv7CsKlrKa8/6xKU6bc=;
-        b=KN3LmFiMlfVGPjBFzEV1EwmGLs1g+yNruRl7Lp6p9jpXj3VOcvEBgiQ+T+a/SxDGfw
-         vCWWIf6QBDPnHf186YFSPeEFYRfmtV8PY+s6/OPx3Vdtp1O9bRufvsJkTEZamqzNWtjg
-         ss4d9AwvJ9cSPUp+qqYPNPXyAUHdClXk8PLr0cp7/Q0I3/mO/u8GVzpkyiq9uEvRv7tF
-         T47OtqUiLErAvJwBcey1j9w1O16pK849EmUK+mHgg8WevLU9E+qMfInZZ4Xhag5sQ+55
-         V9gomCSmTsel3Siw5hto68QkwAX65ujEmHx7/qj1Iv4ioVuSkYKzojt5AMv4esEPV7xw
-         SQgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXXAJTYotY2cYZTut2KFw4GTs/FW6CeMTOlLM71VwxxGV+g6+YvVcMRmuq/07Ib+4Oqie4YW0cJvMPmizhwST8k@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoYg7FAOlvq1gA6/F+GgeYAIH6JI+w2meOEbCxB+58hQGK2u54
-	Hqike5icllMAhGXUXQjLt1tPLb4EeEzAGbKyNw6AR5iQZWdV3GBFCtHrg9WYcJUu0q2je/aq6WO
-	BEtXJqPquQJBK2IUwifxgOWag2lmL9HP6SEP8Dy3dKyBir1Pqxv3v1w8Qp2CQYB3lrFo+srsBAT
-	cUYg==
-X-Gm-Gg: ASbGnctUFVpVuvRsN2wY5xMo0NlTIwZaPurZ6WYKczz6ML7XEedZUbF7+zbNI821zjK
-	xyKlkRBaDeHEpsDmVQBIYob/Mwh7YncQxClAYXJrFvhIGV0b/05wSe7qdeT/exQzxfQR+hm11Z5
-	LhWj2f5l3JJif6B5icuNPuAmQ9mEWPZYmlSMdjWbsVt6yENdQ2R3V5C9T2fyTRaQCXiVL9Toipn
-	7CBBfZBAgFb4hGz2dpCMlhaAMnZ5z2ZhfkpGMOkbRbjMFy2gBLQ9UNIUgyqUpyJR6K9yygPXwzE
-	/eZIILsxjTY/WfMFcXc+ZMCMIgMd3dkdpE3ReUfdV9OeRR/Q4kCaOyfNIt8xZ+e1DSkWxnDBVIr
-	XV1R1fjHOxbLbAq80pFIndl2AKYbTIym7LC4=
-X-Received: by 2002:a05:620a:1727:b0:7c7:c1f8:34eb with SMTP id af79cd13be357-7d5dc6d1daamr909522685a.23.1751721826507;
-        Sat, 05 Jul 2025 06:23:46 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHanLfpu80wvQenehta9woxKfrNX6xaaUmW++9VxpAOncuk4XTvJSIeGS9ggcbqk0Z1zosQRw==
-X-Received: by 2002:a05:620a:1727:b0:7c7:c1f8:34eb with SMTP id af79cd13be357-7d5dc6d1daamr909517685a.23.1751721826031;
-        Sat, 05 Jul 2025 06:23:46 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-556384ce344sm585559e87.244.2025.07.05.06.23.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Jul 2025 06:23:45 -0700 (PDT)
-Date: Sat, 5 Jul 2025 16:23:43 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>,
-        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, kernel@collabora.com,
-        dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Algea Cao <algea.cao@rock-chips.com>,
-        Derek Foreman <derek.foreman@collabora.com>
-Subject: Re: [PATCH 2/5] drm/bridge: dw-hdmi-qp: Add CEC support
-Message-ID: <ahnm4oor4qiac55zyggwe3ndxn346cx2bpzghb5j5wwmfjmdyx@gt6e5fjyq3rs>
-References: <20250704-rk3588-hdmi-cec-v1-0-2bd8de8700cd@collabora.com>
- <20250704-rk3588-hdmi-cec-v1-2-2bd8de8700cd@collabora.com>
+	Sat, 05 Jul 2025 13:26:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lE6Oar0HVpNzqCvkvoGhVwyI1kwOiATHG5B/tt3N4GcNdH+9h31RwNvGwn/qWR8oLNBWc19YdMXTcAjauDAfgsUWAmSnybw6EoH75ayQiqrhOCKP4KgRiRpOKlfBMkyrW8mZ4yuBczrcKh5EAYbij0/QJMskQdkQ9Sxdia72x0anW8Gcb+0RYDiRaQGv1KQ+dKcHUifppGxFI2Zsd8FOlN9Mi9IOaes7B8eplsIjEQW0YVF74tI3uVvz3fllcT3qki08BOYNwcDWCnhJ7pVSY9+4dqHpDer1fqUCR5jnt3wb0LZWCA7i9VtIdgltUUldOOjAIPpl33CQyQ9S0lp/NQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mFfAOdZHZIE6KKa8ytmfDci8WXBkWo7UVd5faQGltnM=;
+ b=KbHwatyN4UOH6Th2wVnYleZYUIXGqWSMzhdpGImtU50YTHFMiJr/B2PSdpYe1OA1yFAScPzLnRwi0s2CjIPAMFdjrFZmeo/1/EX9wMpbtgXtyZbTE7qO6IBcBLPEyYWO7+w0wtnooElbb+WhO4j1yuZp8qIqdu9+ofDPXo0vZUJ2AfwSdjxJ8bTOjqywSdORDkcfxzzpGL7HwuK4SNpgT11qJeyObbqpPn5EdaImy5WHHddsAh2zER70DmkyzJpOXxbqHZjhzPYXXxXpiShUrLUFFAP0MVLua9h2q7kqQNDsTJ5CS/4Q/luJ4a/E+QFOaW99uFVnup4DdfcQ9+hn5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mFfAOdZHZIE6KKa8ytmfDci8WXBkWo7UVd5faQGltnM=;
+ b=XOMDDLp6BqT1CcLHO6ny8bR+357op1Qu8+D4DQbuTmYQBqs9uiLb+9tdpBxuEysqLJ0GaauK1xUUUD2NGTdYFJe4O8mDioOMKhtODNGkgWcD1nCMY5oiDMd4jQlbULzKXWnfP/34/momvGXrmje38vNzSCcLdoyvWIOFbcYohQ7KBXrQH6yC8aVyELD1ICIUE++hO2inXckJmIg0LBIdeIYWS1M6hxMRdziCzFKxB7pWmwoXxeMzs3DVXLOy+nBtLz/pI6XwiAWaVA3Cq91sHwMtOafhT5jmH/9HY5SGSwdqj8qCGRnzcfZXS2MO92eE0QnJCTEoTjkIAH58WTDnBw==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB9PR04MB9916.eurprd04.prod.outlook.com (2603:10a6:10:4ee::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.22; Sat, 5 Jul
+ 2025 13:25:57 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8901.021; Sat, 5 Jul 2025
+ 13:25:57 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Hiago De Franco <hiagofranco@gmail.com>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>
+CC: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Iuliana Prodan
+	<iuliana.prodan@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Hiago De Franco <hiago.franco@toradex.com>,
+	Ritesh Kumar <ritesh.kumar@toradex.com>
+Subject: RE: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM regions
+Thread-Topic: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM regions
+Thread-Index: AQHb7BujvN1bZ5fQwkydSJSq+tG6XLQiKD+AgAAthwCAATDxYA==
+Date: Sat, 5 Jul 2025 13:25:57 +0000
+Message-ID: <PAXPR04MB845955D08AA34D90389F50F6884DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250703130831.18830-1-hiagofranco@gmail.com>
+ <aGgAbwToGhsc5VV9@p14s> <20250704190816.kth7bdf34ufc2ht6@hiagonb>
+In-Reply-To: <20250704190816.kth7bdf34ufc2ht6@hiagonb>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DB9PR04MB9916:EE_
+x-ms-office365-filtering-correlation-id: 9076548f-b8c6-4a54-c4c8-08ddbbc77a01
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|19092799006|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?thmiIBSE7hsA49fmSuuMu2RXgwLdbhd2kP8DNFznZRHxU3b0BK8s0euoFxwd?=
+ =?us-ascii?Q?S9S4q7HvDq3qXnfVmgYuqyplslEvO7F6K4yS5mQOtuaomUBiQE3maw156qTZ?=
+ =?us-ascii?Q?XNkKayDmGUNbjkzwJjqEBPo+W1CuavqnqTWysRIhlqycLmOZDqW1f/89fOIg?=
+ =?us-ascii?Q?jFCa4aN7n7xoKqnWvW62FGP/65wmqstu9gWPMEqX+/frpWuM4kjaHMNFk4FS?=
+ =?us-ascii?Q?nYhwSPVykJuYyx2H+2SuL9u/0TAeUV/O+M2wmveZfDI/3RSFXwzx3PQfGnYY?=
+ =?us-ascii?Q?LifosWvJV826VrGZpIZnuaYxsa0h4/JN8AFPWNdivpwVTRRxNSgWAsHkC1Pj?=
+ =?us-ascii?Q?VbEdb60Tk/IOxIzI7Y5wi5B3c4xqM6yhAIm66xOxBx/u+f29+fwOUXc6Hyhc?=
+ =?us-ascii?Q?oYTnOBgdkSPtyXYOtcZC0hQVdrZZucTGZIxtPMIU9yvTynvZEuP5z3UxKnsq?=
+ =?us-ascii?Q?0gNcX73h1ct6o0xI3gigHuMS9q0NFaF2rd2x9wPFVbyOpwDfSXY+uwcPxLVw?=
+ =?us-ascii?Q?i1fiMnMcSSo7Jrvv/Xv3LQ3hcg7eNK9iDSW2QXmoVzKlokWMRyidvvJoz3zn?=
+ =?us-ascii?Q?cJrJ4COQHO5sVnk3g12Ox8Lt1wv3t6+Na508pKJWmiU/Jn+Wv1DN/pKiXlv3?=
+ =?us-ascii?Q?ODL8mhl6m5ndcEv+Y8umc7LQvKWYXY0JSh8ZlrvsdMpRq0pG60bF2avMv7bR?=
+ =?us-ascii?Q?S4UqmSTwJN5/3xzOXSXLpEgavO16NbgGKrV/xd+yhlgnWg0dhAYl4Dg3xoE2?=
+ =?us-ascii?Q?snpa1D46cXqKYy3TymLXUiq12ecZLAjpa8oEGcA6MsAdN59Ipe+aeV0jfX2U?=
+ =?us-ascii?Q?ViLrNnB4b4EXGf3i8vQyfgyIxCDej4i2T36fLd9aC+MRK9amNOTuF3j9rhmI?=
+ =?us-ascii?Q?EFWswK9AdoJMMZfXIJDuatqKH3wdsowgqbQgGM4nbHC5AGqZuGzxT4t81jH5?=
+ =?us-ascii?Q?hbx2Jfg/R7q3HcJlEqjQGmA0XmRJO66F0vYnvz5MmU9LH0D1R/nt7tzRAQlV?=
+ =?us-ascii?Q?Ix1ZhzamNflJbLMAN9SC0/A0zR96habQs7GxmoSgIBY3b2YRN7RPk8YbtnDF?=
+ =?us-ascii?Q?xt137RSXDLOpJ0/HrlnuuK2hE3BCJ/H4cNuMBgf2EFidvpYevTAYq+4UTpa7?=
+ =?us-ascii?Q?m2y4u1lDRlKPqBwEapc6e9SzMNbJ7txJfbloeYxLGAnwiUWUYmnAF5C8VZli?=
+ =?us-ascii?Q?CeZusbuoei1lJd4p3/KeGGxet7dKvIeZkk5bAGVC0RhcFtnwnBIiKd2h7qjV?=
+ =?us-ascii?Q?doc+ngwzsy3wHfY3WXveMlkNfVP856emBKlDrwSSlt/2NGexxpeiCAAPH02X?=
+ =?us-ascii?Q?QynWYSck0V26x1eTpQUxKCywKo8tr8ld1J01/wil5liAqNJKINJD+GeHuH9+?=
+ =?us-ascii?Q?w5EpBNp10zTYUi1KcgJZWnQixgLUyRDyRlDddPReIPRtTghEFATmO93GT8gQ?=
+ =?us-ascii?Q?2eJqbYtcr07LULWfkjO/I6BVXOd+wt8+dXrD254qveDJyaXKE6PJBA=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(19092799006)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?HTVKhWVSb3tjosq2n4Xijvsk+8M/pVSsyMOvmfNDNx+R7o04fxTla4E2o2a6?=
+ =?us-ascii?Q?qcd+MgCQKiW6Zg8vVQWpZ5eriT9MYpJVnxLO2c8P0mSgIu6iq9m6v4A96d8g?=
+ =?us-ascii?Q?bMSqkdDdNvu8JwGh3rGdlkzYY6SFDBnGRlUsuyuxPAbc59jpEQ4SH+AaLZSJ?=
+ =?us-ascii?Q?ycgr2jMAgI8dyqdBOMXFYxO1D6+ADq+nQAV2JFt6BFy1mub4siGHte5RGjqk?=
+ =?us-ascii?Q?HLy8f/bIXokNkLJqVuCw1s2td3Jgu73pyjT1FVB5tERxpmW7hNIHCNgwwmWi?=
+ =?us-ascii?Q?igxaF/ZPqnt5i+4B7DA0y092wAbdjaDCX4F1+n0q6ARGnpUmn13NhgPn8+vn?=
+ =?us-ascii?Q?1jbP5S81xtsg1PD7A02eq8pA5tDxsxU1rkJVMsIbhfHn4AkfXJNegPiPrHls?=
+ =?us-ascii?Q?cI+sC2bmL5y3DScDFg9T93/IISpxoKHGNsCeqb1yNSVLESuZBJe6kmRFtSXv?=
+ =?us-ascii?Q?ophL5fHf/IX6+RMtFUolHetd3AaxBsyznOFVGR7J+rvSiQ3UJeQYi2REIGxA?=
+ =?us-ascii?Q?o+HtSipGGGbbn46nJxjEs2I4UOu6rM7+Wr3n+pBp8mY83ZHxohFAVzh4PEyi?=
+ =?us-ascii?Q?OcVLPVguD/0HYdTssGSyX0V2SlawiGMrIZIwktjbRChZZeTR+lpZgI2XR8/M?=
+ =?us-ascii?Q?/hxj60H/04BJ++/ZZU/t4VGd85qCT8GIjj8Pf+F3H3AK3DXkqXKkEFm3/SFV?=
+ =?us-ascii?Q?qkNYi01yH0dzpaxWxmwjLqst2pVG/Yei9Ld3WEJRiCUaf1nMPqLH/hn8sye9?=
+ =?us-ascii?Q?9xR/v1UuMrnQ2+Z757R2hIpgr+1PfyAtBEQpQVH7Dj5ihAVFPGw9GKgWHwMB?=
+ =?us-ascii?Q?h0WgHjfLHkzFm4oYmXTT/2lfLg4+lPD0RPzpCg6/Ar0CiR34AEEjMXXGv5F3?=
+ =?us-ascii?Q?nzd7FVSTFDvKYgp6GjuLEk4KMR4V0IjMEWtdWOm7fSccdwFNljG4nIWOIz9a?=
+ =?us-ascii?Q?oFZ+9Eb+c9SKQtHS6YwrTcAJ9D/cSKLP6gp15WeAxFuBHqhuBi+X6E8O7//a?=
+ =?us-ascii?Q?90+kdSSDjPlwCtCJ5vvLg1MA4bscYkLNJtJ19ECS0z20ktPA3z2w77yECc1n?=
+ =?us-ascii?Q?9oIMMvDQvFr+/crUVvYZxRHK8QpAwjMUdtKdV70Jy63I7UPB0WaFAF8iYjF1?=
+ =?us-ascii?Q?qEJ7OHeEgukCZdrFoV9wWJ7Qe4fhrnLD+xWVtslpFPQg/qIPDn+mmcDbXxZy?=
+ =?us-ascii?Q?DZvYk7/xQjna8dlHrfazSKmq5QkBmM8DW51cMR29c1grduWz32GmjNWRK8NZ?=
+ =?us-ascii?Q?cl33Wd4TVcvWhQDBCtRGM/Leni/Fa1gQFVDflKw7ujUL8CRYfFUCBmYoXpI3?=
+ =?us-ascii?Q?5KwK2ha/1xttMvK/E5KbeZR0a3bhuE6c1dDGMQZCuVHETVzzTsajX+RW5b3h?=
+ =?us-ascii?Q?ZbIG9gYYSCyiI6gUfgwraZBsnSAN52k6034dC3DLiwSV/j1CwaMzNCqBw8v1?=
+ =?us-ascii?Q?SZiEC4A24Nlqz7G22pD92tMFhUOZkb6W4HiT3ruzf4usK5XvFum8O/AQBZ5Y?=
+ =?us-ascii?Q?RQy1znMpngdAUucmF1+n8uAuQMy9/bt2phMjDvzwTJ1NPaD2z5kFHPMDtgY3?=
+ =?us-ascii?Q?+gLJJnt5Y0jVnTvILd4=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250704-rk3588-hdmi-cec-v1-2-2bd8de8700cd@collabora.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzA1MDA4NyBTYWx0ZWRfX8Ue1HIBQYU4w
- nWxTnyUbAK17JiB4zg0r1J/N+5QK25FIioQs4MAexSAdrnA/nmAcGT3TdUABB7QYv+SHJ5LwuNY
- 0TI/FkTNDTZ+/DLVoTmcYtIHpoSTw+/srk0yt1xbq3plTffSeC6aXkglJK8pR1zKL0ObK+GRIqu
- ANfgKEYNphibbe7l14IPssvQRTEFJZGxQCog3HOo3zcRSRD8iEgLg9UUE8JS30l7O0XhY+E0axh
- BJNAGA6vmN8CF85nAUb/QDGu8RVXGZ3urMD6a/ikfWyyqIX4uOELwl8RHLO2p/yqIi+XV4KmIvd
- qE8Sl3++aVQtpTGevtGbtPLGVb1V6oWZoh1P/3cSXeAV0Rup0A5tGvVj3xmqUQEwo+6z6pfrgm/
- c5XwCAHgHKSFTWOurJAV7ccQqxM4s3g0y5jfxRDEOiRT3k3fb8aMTyomEHpX6YG6cNbeVQHo
-X-Proofpoint-GUID: Tab4bbSvAZapb20kfCJRC1dCWUYV-ktU
-X-Proofpoint-ORIG-GUID: Tab4bbSvAZapb20kfCJRC1dCWUYV-ktU
-X-Authority-Analysis: v=2.4 cv=SOBCVPvH c=1 sm=1 tr=0 ts=68692763 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=s8YR1HE3AAAA:8 a=QX4gbG5DAAAA:8 a=EUspDBNiAAAA:8
- a=V37JziMzuUeit7xzw6UA:9 a=CjuIK1q_8ugA:10 a=PEH46H7Ffwr30OY-TuGO:22
- a=jGH_LyMDp9YhSvY-UuyI:22 a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-04_07,2025-07-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 lowpriorityscore=0 bulkscore=0
- impostorscore=0 mlxlogscore=999 mlxscore=0 phishscore=0 malwarescore=0
- adultscore=0 suspectscore=0 spamscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507050087
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9076548f-b8c6-4a54-c4c8-08ddbbc77a01
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jul 2025 13:25:57.6102
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: j5EH0T8B918JD/nFujF8erVr5OxZ7vnC95v3F/2g8ObgC/Nfs8OxfzCV6YzHeGKWMsLmFNwnPW7KEeys+Tm1tw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9916
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_062348_671590_6F548289 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250705_062604_461958_05F298C9 
+X-CRM114-Status: GOOD (  32.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,29 +167,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 05:23:23PM +0300, Cristian Ciocaltea wrote:
-> Add support for the CEC interface of the Synopsys DesignWare HDMI QP TX
-> controller.
-> 
-> This is based on the downstream implementation, but rewritten on top of
-> the CEC helpers added recently to the DRM HDMI connector framework.
-> 
-> Co-developed-by: Algea Cao <algea.cao@rock-chips.com>
-> Signed-off-by: Algea Cao <algea.cao@rock-chips.com>
-> Co-developed-by: Derek Foreman <derek.foreman@collabora.com>
-> Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  drivers/gpu/drm/bridge/synopsys/Kconfig      |   8 +
->  drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 220 +++++++++++++++++++++++++++
->  drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h |  14 ++
->  3 files changed, 242 insertions(+)
+> Subject: Re: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM
+> regions
+>=20
+> Hi Mathieu,
+>=20
+> On Fri, Jul 04, 2025 at 10:25:19AM -0600, Mathieu Poirier wrote:
+> > Good morning,
+> >
+> > On Thu, Jul 03, 2025 at 10:08:31AM -0300, Hiago De Franco wrote:
+> > > From: Hiago De Franco <hiago.franco@toradex.com>
+> > >
+> > > Merge the contiguous ITCM and DTCM regions into a single region
+> to
+> > > prevent failures when loading ELF files with large sections:
+> > >
+> > > remoteproc remoteproc0: powering up imx-rproc remoteproc
+> > > remoteproc0: Booting fw image rproc-imx-rproc-fw, size 151824
+> > > imx-rproc imx8mp-cm7: Translation failed: da =3D 0x1f48 len =3D
+> 0x1fcb0
+> > > remoteproc remoteproc0: bad phdr da 0x1f48 mem 0x1fcb0
+> remoteproc
+> > > remoteproc0: Failed to load program segments: -22 remoteproc
+> > > remoteproc0: Boot failed: -22
+> > >
+> > > This approach is the same as commit 8749919defb8 ("remoteproc:
+> > > imx_rproc: Merge TCML/U").
+> > >
+> > > Suggested-by: Ritesh Kumar <ritesh.kumar@toradex.com>
+> > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+> > > ---
+> > > Hi,
+> > >
+> > > The ELF I tested had the following data section:
+> > >
+> > > Memory region         Used Size  Region Size  %age Used
+> > >     m_interrupts:         680 B         1 KB     66.41%
+> > >           m_text:        6984 B       127 KB      5.37%
+> > >           m_data:      130224 B       128 KB     99.35%
+> > >          m_data2:          0 GB        16 MB      0.00%
+> > > [100%] Built target hello_world_cm7.elf
+> > >
+> > > Which triggered the error. After this patch, remoteproc was able to
+> > > boot and work fine. Thanks!
+> > > ---
+> > >  drivers/remoteproc/imx_rproc.c | 6 ++----
+> > >  1 file changed, 2 insertions(+), 4 deletions(-)
+> > >
+> > > diff --git a/drivers/remoteproc/imx_rproc.c
+> > > b/drivers/remoteproc/imx_rproc.c index
+> 74299af1d7f1..bbf089ef48ee
+> > > 100644
+> > > --- a/drivers/remoteproc/imx_rproc.c
+> > > +++ b/drivers/remoteproc/imx_rproc.c
+> > > @@ -166,8 +166,8 @@ static const struct imx_rproc_att
+> > > imx_rproc_att_imx8qxp[] =3D {
+> > >
+> > >  static const struct imx_rproc_att imx_rproc_att_imx8mn[] =3D {
+> > >  	/* dev addr , sys addr  , size	    , flags */
+> > > -	/* ITCM   */
+> > > -	{ 0x00000000, 0x007E0000, 0x00020000, ATT_OWN |
+> ATT_IOMEM },
+> > > +	/* D/ITCM */
+> > > +	{ 0x00000000, 0x007E0000, 0x00040000, ATT_OWN |
+> ATT_IOMEM },
+> > >  	/* OCRAM_S */
+> > >  	{ 0x00180000, 0x00180000, 0x00009000, 0 },
+> > >  	/* OCRAM */
+> > > @@ -180,8 +180,6 @@ static const struct imx_rproc_att
+> imx_rproc_att_imx8mn[] =3D {
+> > >  	{ 0x08000000, 0x08000000, 0x08000000, 0 },
+> > >  	/* DDR (Code) - alias */
+> > >  	{ 0x10000000, 0x40000000, 0x0FFE0000, 0 },
+> > > -	/* DTCM */
+> > > -	{ 0x20000000, 0x00800000, 0x00020000, ATT_OWN |
+> ATT_IOMEM },
+> >
+> > In commit 8749919defb8 "dev addr" and "sys addr" were both
+> contiguous,
+> > but in this patch "dev addr" is not.  How will this work with new
+> > kernel that use old FW images?  Am I missing something?
+>=20
+> No, you are correct, I think the use case I tested was not good enough.
+>=20
+> If I understand correctly, this will break older firmware expecting .data
+> at 0x20000000 because dev_addr is no longer mapped for DTCM entry.
+>=20
 
-For the DRM CEC parts only:
+The ITCM in M7 starts from 0, DTCM in M7 starts from 0x20000000.
+The ITCM/DTCM is continuous from A53 perspective.
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+You let linux to load continuous text/data, but if the dev addr
+start from ITCM_START+128KB is not reserved from Reference manual.
 
--- 
-With best wishes
-Dmitry
+How could M7 still work proper if M7 accessing [0x20000, x] dev_addr?
+
+You need update your linker script to separate text into different
+sections.
+
+Regards,
+Peng.
+
+> Do you think it is possible (or reccomend) another approach to fix this
+> issue? In this case to keep using the TCM,=20
+
+
+
+instead of going to OCRAM
+> or DDR.
+>=20
+> Thanks,
+> Hiago.
+>=20
+> >
+> > Thanks,
+> > Mathieu
+> >
+> > >  	/* OCRAM_S - alias */
+> > >  	{ 0x20180000, 0x00180000, 0x00008000, ATT_OWN },
+> > >  	/* OCRAM */
+> > > --
+> > > 2.39.5
+> > >
 
