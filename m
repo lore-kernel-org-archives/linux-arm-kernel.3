@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D40EC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 07:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A5CC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Jul 2025 08:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NwTgxsetbQLx8mGik5h6zvG5Rj0zLYrebySaei9Z1GU=; b=4bRmKpJqsXm9HsCPsDlySy9CGv
-	taPvklgKVapi/+VMzfwq5fFRQwSB0ZoUbKKSu2yJPIy8esweD4fHBGy9om1uu4W8QJPAjtPi9tEze
-	9RkRvrrPAw38ViFEpoDVQ/iTBm60gWOqwX6hTwD1Ol+g78nr82AQXDttXnmLXVx9wiza5bkiINP6A
-	OAIUSk+SaJnzUanw2DWUvQe7BUbxFPBNC6QpO7Jp8jXhza5/UBxjbH0vIKlJm+8gAg6XYTzZECDiP
-	p0xXKDkO8K5PB5rlP6i+vUFTp120z7KFeidqfKBtB1QjyZ22yEC1cKy4mHXuj01sPJpa/wONyjDJj
-	cSqSt8Sg==;
+	bh=MIc2e1gJuTQrZEoQGBh/ZjGwcoWSCc2ZYuU7ApNwKmU=; b=Ghhf22QmL7TPCOmXWPUgBbe7xa
+	5d1GtZjvz19dmfXiJZAlsK3dPCsssJ2+CIKgfvpUL15oLajPVvEOsy6K1zIyr0VrT8Yluo99BO4MQ
+	nGdHjX53Z+83H/HIm+6OszuP39OKCq4JiJGcpEvAT+BtIXWOh83Se/kePU4Xr431XaZKwUJuhRPrB
+	GuTM6SZfRFUwBskfPkTk2Jmmj6FpMR+yVGXXbdSt7oTDuOfx3AiET2jwLz65Eci7YFCq2q714L++J
+	HXxam0sbaUA7clQCrF10fWraSKscUVOyKRQbmr8svTgcXwJGw6QwcBpKbrwfWC6/190t6t7bggrfm
+	q4qiiT8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXxkP-0000000GG8T-2Xnl;
-	Sat, 05 Jul 2025 07:55:45 +0000
+	id 1uXyAt-0000000GHmD-26Wb;
+	Sat, 05 Jul 2025 08:23:07 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uXxd3-0000000GFFO-0gmA;
-	Sat, 05 Jul 2025 07:48:10 +0000
+	id 1uXy8X-0000000GHf3-3tfL
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 05 Jul 2025 08:20:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DF29AA537BE;
-	Sat,  5 Jul 2025 07:48:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80AC9C4CEE7;
-	Sat,  5 Jul 2025 07:48:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E91C8A53896;
+	Sat,  5 Jul 2025 08:20:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84892C4CEE7;
+	Sat,  5 Jul 2025 08:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751701687;
-	bh=++KifqUfbYRvRlxKq94CtWj3DurfyheFMkPt0HzHSS8=;
+	s=k20201202; t=1751703640;
+	bh=9I85kkzttzt8W0D61CGAt5BTcsDYsuzD5spP/3r4tYs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XwOrt+IgliAniBEBc4gFPxJ578ZUpSpB0ZK/DsLMONEgCpv6ktjGBkBZBmEj2x8IG
-	 AKhdBRCnM4pizAErq8zdelPXLzqWdu3K3PS4dSSyoINnJiqmqY8tgTv0HKzBXHAvpZ
-	 PvFxLeJU8Lm9ZuEj6/TQUH8qrdIQd1/YCp5FQcUl0SwSttZU6cIgdUFQ09wF4h5wk6
-	 P5HkSlj0crED3ZIEPnM7MKda1jkCA7JWfBBZOCyXFEMpzZjQNXVyNwFRCpGIShnxob
-	 y/5xDnpgaEydh1QfZ2aeEb3Z6HXpA5jC5U/+WdGeOIfZyzCnk7d4hvB8jeIZsKxVeg
-	 y8sfU5BREOUBg==
-Message-ID: <a2fec2cf-46e2-4436-adc2-8f555a558929@kernel.org>
-Date: Sat, 5 Jul 2025 09:47:56 +0200
+	b=QSVweVJS68HR8H6mXNh752tIIU2k2XiL+57f5HTpCTnjoG7LPFH42KmIpDBgN9wKd
+	 s/UTQxlhKQkD2Me0o1/6mQtu5KSD7789l99eLo6X/oCBG80dtI9m+opgmvw+KfV55n
+	 g27ptmRcsDvRZ9Jj40bnjiFoxcSpqtH/6fYoAoTqeW45kWhgfGZ5GB5ctC5AEIa9dT
+	 Y5dAfMAMTIqG1gldZY9Ir+PMTnQBozVzBTq4t9g51KvAaeJMe8B6IsTrrJxaa6BS6d
+	 jxg6LU6GXTNp2FhmDbU591sLKXVQ4w2aAReQT4iOjsdapfpziVIcTk6gHXiupVM7CR
+	 Jt7B//9g2iZ1Q==
+Message-ID: <507129db-a84e-489e-aed7-f1f86e6d188b@kernel.org>
+Date: Sat, 5 Jul 2025 10:20:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/10] dt-bindings: phy: Add PHY bindings support for
- FSD SoC
-To: Pankaj Dubey <pankaj.dubey@samsung.com>,
- 'Shradha Todi' <shradha.t@samsung.com>, 'Rob Herring' <robh@kernel.org>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-fsd@tesla.com, mani@kernel.org, lpieralisi@kernel.org, kw@linux.com,
- bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org,
- conor+dt@kernel.org, alim.akhtar@samsung.com, vkoul@kernel.org,
- kishon@kernel.org, arnd@arndb.de, m.szyprowski@samsung.com,
- jh80.chung@samsung.com
-References: <20250625165229.3458-1-shradha.t@samsung.com>
- <CGME20250625165319epcas5p3721c19f6e6b482438c62dd1ef784de03@epcas5p3.samsung.com>
- <20250625165229.3458-8-shradha.t@samsung.com>
- <20250627211721.GA153863-robh@kernel.org>
- <02af01dbea78$24f01310$6ed03930$@samsung.com>
- <f877b3d7-d770-4424-9813-da748775f456@kernel.org>
- <02bf01dbea8c$fc835cb0$f58a1610$@samsung.com>
- <5ea33054-8a08-4bb3-81e7-d832c53979dc@kernel.org>
- <000101dbece4$d8694d80$893be880$@samsung.com>
+Subject: Re: [PATCH v9 8/9] arm64: dts: cix: Add sky1 base dts initial support
+To: Peter Chen <peter.chen@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ arnd@arndb.de, jassisinghbrar@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ maz@kernel.org, sudeep.holla@arm.com, kajetan.puchalski@arm.com,
+ eballetb@redhat.com, Guomin Chen <Guomin.Chen@cixtech.com>,
+ Gary Yang <gary.yang@cixtech.com>
+References: <20250609031627.1605851-1-peter.chen@cixtech.com>
+ <20250609031627.1605851-9-peter.chen@cixtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,12 +102,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <000101dbece4$d8694d80$893be880$@samsung.com>
+In-Reply-To: <20250609031627.1605851-9-peter.chen@cixtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_004809_365290_A3CEF70C 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20250705_012042_135667_0FB2BC2B 
+X-CRM114-Status: UNSURE (   6.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,94 +123,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/07/2025 15:09, Pankaj Dubey wrote:
-> 
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: Thursday, July 3, 2025 1:48 AM
->> To: Shradha Todi <shradha.t@samsung.com>; 'Rob Herring'
->> <robh@kernel.org>
->> Cc: linux-pci@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-
->> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org; linux-
->> kernel@vger.kernel.org; linux-phy@lists.infradead.org; linux-fsd@tesla.com;
->> mani@kernel.org; lpieralisi@kernel.org; kw@linux.com;
->> bhelgaas@google.com; jingoohan1@gmail.com; krzk+dt@kernel.org;
->> conor+dt@kernel.org; alim.akhtar@samsung.com; vkoul@kernel.org;
->> kishon@kernel.org; arnd@arndb.de; m.szyprowski@samsung.com;
->> jh80.chung@samsung.com; pankaj.dubey@samsung.com
->> Subject: Re: [PATCH v2 07/10] dt-bindings: phy: Add PHY bindings support for
->> FSD SoC
->>
->> On 01/07/2025 15:35, Shradha Todi wrote:
->>>>> does not support auto adaptation so we need to tune the PHYs
->>>>> according to the use case (considering channel loss, etc). This is
->>>>> why we
->>>>
->>>> So not same? Decide. Either it is same or not, cannot be both.
->>>>
->>>> If you mean that some wiring is different on the board, then how does
->>>> it differ in soc thus how it is per-soc property? If these are
->>>> use-cases, then how is even suitable for DT?
->>>>
->>>> I use your Tesla FSD differently and then I exchange DTSI and compatibles?
->>>>
->>>> You are no describing real problem and both binding and your
->>>> explanations are vague and imprecise. Binding tells nothing about it,
->>>> so it is example of skipping important decisions.
->>>>
->>>>> have 2 different SW PHY initialization sequence depending on the
->>>>> instance number. Do you think having different compatible (something
->>>>> like
->>>>> tesla,fsd-pcie-phy0 and tesla,fsd-pcie-phy1) and having phy ID as
->>>>> platform data is okay in this case? I actually took reference from files like:
->>>>
->>>> And in different use case on same soc you are going to reverse
->>>> compatibles or instance IDs?
->>>>
->>>
->>> Even though both the PHYs are exactly identical in terms of hardware,
->>> they need to be programmed/initialized/configured differently.
->>>
->>> Sorry for my misuse of the word "use-case". To clarify, these
->>> configurations will always remain the same for FSD SoC even if you use it
->> differently.
->>>
->>> I will use different compatibles for them as I understand that it is
->>> the best option.
->>
->> I still do not see the difference in hardware explained.
->>
-> 
-> Hi Krzysztof 
-> 
-> Let me add more details and see if that makes sense to understand the intention
-> behind the current design of the PHY driver.
-> 
-> In FSD SoC, the two PHY instances, although having identical hardware design and
-> register maps, are placed in different locations (Placement and routing) inside the
-> SoC and have distinct PHY-to-Controller topologies. 
-> 
-> One instance is connected to two PCIe controllers, while the other is connected to
-> only one. As a result, they experience different analog environments, including
-> varying channel losses and noise profiles.
-> 
-> Since these PHYs lack internal adaptation mechanisms and f/w based tuning,
-> manual register programming is required for analog tuning, such as equalization,
-> de-emphasis, and gain. To ensure optimal signal integrity, it is essential to use different
-> register values for each PHY instance, despite their identical hardware design.
-> This is because the same register values may not be suitable for both instances due to
-> their differing environments and topologies.
-> 
-> Do let us know if this explains the intention behind separate programming sequence
-> for both instance of the PHY?
-Thanks, it explains and it should be in binding description if you go
-with different compatible, but you should first check if existing
-properties do not describe these differences enough, e.g. num-lanes,
-max-link-speed.
+On 09/06/2025 05:16, Peter Chen wrote:
+> +
+> +	firmware {
+> +		ap_to_pm_scmi: scmi {
+> +			compatible = "arm,scmi";
+> +			mbox-names = "tx", "rx";
+> +			mboxes = <&mbox_ap2pm 8>, <&mbox_pm2ap 8>;
+> +			shmem = <&ap2pm_scmi_mem &pm2ap_scmi_mem>;
 
-equalization has its own properties for example.
+These are two entries, so two <>.
 
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			scmi_clk: protocol@14 {
+> +				reg = <0x14>;
+> +				#clock-cells = <1>;
+> +			};
+> +
+
+Drop blank line
+
+> +		};
+> +	};
+> +
+> +	pmu-a520 {
+> +		compatible = "arm,cortex-a520-pmu";
+> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition0>;
+> +	};
+> +
+> +	pmu-a720 {
+> +		compatible = "arm,cortex-a720-pmu";
+> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition1>;
+> +	};
+> +
+
+
+...
+
+> +
+> +		mbox_ap2se: mailbox@5060000 {
+> +			compatible = "cix,sky1-mbox";
+> +			reg = <0x0 0x05060000 0x0 0x10000>;
+> +			interrupts = <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			#mbox-cells = <1>;
+> +			cix,mbox-dir = "tx";
+> +		};
+> +
+> +		mbox_se2ap: mailbox@5070000 {
+> +			compatible = "cix,sky1-mbox";
+> +			reg = <0x0 0x05070000 0x0 0x10000>;
+> +			interrupts = <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			#mbox-cells = <1>;
+> +			cix,mbox-dir = "rx";
+> +		};
+> +
+> +		ap2pm_scmi_mem: ap2pm-shmem@6590000 {
+
+This should be just shmem@
+
+> +			compatible = "arm,scmi-shmem";
+> +			reg = <0x0 0x06590000 0x0 0x80>;
+> +			reg-io-width = <4>;
+> +		};
+> +
+> +		mbox_ap2pm: mailbox@6590080 {
+> +			compatible = "cix,sky1-mbox";
+> +			reg = <0x0 0x06590080 0x0 0xff80>;
+> +			interrupts = <GIC_SPI 363 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			#mbox-cells = <1>;
+> +			cix,mbox-dir = "tx";
+> +		};
+> +
+> +		pm2ap_scmi_mem: pm2ap-shmem@65a0000 {
+
+Same here
+
+> +			compatible = "arm,scmi-shmem";
+> +			reg = <0x0 0x065a0000 0x0 0x80>;
+> +			reg-io-width = <4>;
+> +		};
 Best regards,
 Krzysztof
 
