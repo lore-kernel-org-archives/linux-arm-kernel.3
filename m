@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB80C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 20:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE68C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 20:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mlKlCit7KddioLELQTykxFkx0pZeKNfZqCUvvxa16zA=; b=MOsukBfqd6Xab51JhiqqoC1DlM
-	jmYouhq4YE8kGuloJIJiYc/P1i/Zm9SGKoxqWCktHyEvLYHJIfroOlBlG6NnoTt+NJg8CK6Fch7d5
-	GT9GRlTPd2LEjucbWhI1GXoDq0/RSFzpZHu3Dtzwdn5T7VpxTv+QVoe14b/wxfECqQd5YKKc4eacn
-	xI2+OM6saNhU+fTQf642afac9S1O4XPyTJr3nfU++54JjC5xVKnSWEGSK+MKiiTqd7FTt/ETa+iDU
-	lQU/t6zEEZvftdhX7yHZ8TvxH22KxFXwWSIWoWyLZ4ktquDGakXi39ZhExn3UCEoGuJR7GeGcbFd7
-	hZw7Ry2g==;
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e1Im/IBNO0y7hI7V+On66xP1EYDvFOgnxomSyh9iREE=; b=AZMOutpzmeabUFt7lRnqlzfzSK
+	Zrkkp+cBV6UwUhDSoBm81d7/jjOYk/nbWlaT35d0e3pF08giVOSerJQQUix7THneVLJ+jApmu7/gj
+	v/4AlCLs4obMlcbJ6sN79+oCRnLSqlPOtNg+FCrQVfInkdqxfU81WL6x/jft0Pka8r/shfNpI1Ze4
+	0+qqvRLLlm4Gd4WirKCEwxLf4ft4RXcqiuwdET4FDbhzLfUUFnygG2p973c6hYayBE8kQRNu96Afe
+	Wk0/nwz5zHbLEJCVHKQXCRmK/k/W5GYUDT8ArDYmMQtbjQbR/cM1R0XCZqD9DIEefGiI/eUW4pKaW
+	PxhonmUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYVlK-00000000mPC-1mRP;
-	Sun, 06 Jul 2025 20:14:58 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1uYVyt-00000000n8B-42i1;
+	Sun, 06 Jul 2025 20:28:59 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYViz-00000000mHR-3Lpg
+	id 1uYVwZ-00000000n1N-1s1o
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 20:12:35 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 566K1rqt030512;
-	Sun, 6 Jul 2025 20:12:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=corp-2025-04-25; bh=mlKlCit7KddioLELQTykxFkx0pZeK
-	NfZqCUvvxa16zA=; b=lrTMXZH97aqnuRvrRFispPlgUFsLAtK/+PQY9BBQoqLmH
-	lb+SHvUZoA2OZPi35RLNkStmcZhzIm0CcdocxwTPd7rEJUr8x1B8OU9zKtD47JyZ
-	rAZZ34TXJGiqyz65aKsZlC5cRG70aPNI7UkU1Y6+jo2GB6AiBjGUx9vvpLNPBVWX
-	Ng/4TBgqBAmiItj2nWV3pENNxg4LR8ACHqYSUOouCTpIP7CGE1vAiaNRNorH8eIM
-	eso48Zei34vVNNgBHnJ8HoQIzzSuBs2WO+fF5sjxhIP78UbYpbQ/m371RmK+6myX
-	+i75DHnAS7kP/8SHWGBTY5/fPe3EFADwKlgIRWJog==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 47ptu7hggv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 06 Jul 2025 20:12:30 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 566G5uv3014045;
-	Sun, 6 Jul 2025 20:12:29 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 47ptg88s19-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 06 Jul 2025 20:12:29 +0000
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 566KCTTJ023146;
-	Sun, 6 Jul 2025 20:12:29 GMT
-Received: from ca-dev110.us.oracle.com (ca-dev110.us.oracle.com [10.129.136.45])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 47ptg88s14-1;
-	Sun, 06 Jul 2025 20:12:29 +0000
-From: Alok Tiwari <alok.a.tiwari@oracle.com>
-To: sboyd@kernel.org, vz@mleia.com, linux-clk@vger.kernel.org
-Cc: alok.a.tiwari@oracle.com, darren.kenny@oracle.com,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] clk: nxp: Fix pll0 rate check condition in LPC18xx CGU driver
-Date: Sun,  6 Jul 2025 13:11:55 -0700
-Message-ID: <20250706201158.1371209-1-alok.a.tiwari@oracle.com>
-X-Mailer: git-send-email 2.46.0
+	Sun, 06 Jul 2025 20:26:36 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751833592;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e1Im/IBNO0y7hI7V+On66xP1EYDvFOgnxomSyh9iREE=;
+	b=coIZzHniJqa9x3uqEcYBcBh6IFco8ufa3Rl6nK5J9/1KHfeE7wh567Qg69/3tQHX56t8MT
+	rpQlAQS1vES6w2KZEBsJF5cZ6RVFJ3WXR4Y00ANrrHS8vQ3aDNsb74eNTEaWUpqM1iHBLr
+	f5NtH/m+mC8gc6TeplIESxle85pjHdN0RVin/bzNQJIyZ4e1zFh4YUSvxM6H7siJbcGCk8
+	S8DGx3qKzLCdQUsKnDlX8VOqwSEMnTeVaEmRl2jngSPDbK+54tF6MLYI8SdbwzPIoI0Dro
+	NDLTjxROwWEyKK0OSr0/HEjuIYjuLmFu0ioF9PpUB25x5dFbJFZDsjcr37Ev8w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751833592;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e1Im/IBNO0y7hI7V+On66xP1EYDvFOgnxomSyh9iREE=;
+	b=nqs0sa/Ls300GE1wwnRZMFCNZwbj0GF4RFOMIXnc+Z+pDrx+DuU63uVOI7JLmO9jQsVnGS
+	wXipWqz9uLDpyRCw==
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ Andy Lutomirski
+ <luto@kernel.org>, Vincenzo Frascino <vincenzo.frascino@arm.com>, Shuah
+ Khan <shuah@kernel.org>, Anna-Maria Behnsen <anna-maria@linutronix.de>,
+ Frederic Weisbecker <frederic@kernel.org>, John Stultz
+ <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann
+ <arnd@arndb.de>
+Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, Richard
+ Cochran <richardcochran@gmail.com>, Christopher Hall
+ <christopher.s.hall@intel.com>, Frederic Weisbecker <frederic@kernel.org>,
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, Miroslav Lichvar
+ <mlichvar@redhat.com>, Werner Abt <werner.abt@meinberg-usa.com>, David
+ Woodhouse <dwmw2@infradead.org>, Stephen Boyd <sboyd@kernel.org>, Kurt
+ Kanzenbach <kurt@linutronix.de>, Nam Cao <namcao@linutronix.de>, Antoine
+ Tenart <atenart@kernel.org>, Thomas =?utf-8?Q?Wei=C3=9Fschuh?=
+ <thomas.weissschuh@linutronix.de>
+Subject: Re: [PATCH 14/14] selftests/timers/auxclock: Test vDSO functionality
+In-Reply-To: <20250701-vdso-auxclock-v1-14-df7d9f87b9b8@linutronix.de>
+References: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
+ <20250701-vdso-auxclock-v1-14-df7d9f87b9b8@linutronix.de>
+Date: Sun, 06 Jul 2025 22:26:31 +0200
+Message-ID: <87cyadrrpk.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-04_07,2025-07-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 malwarescore=0 mlxscore=0
- phishscore=0 bulkscore=0 mlxlogscore=999 spamscore=0 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
- definitions=main-2507060129
-X-Proofpoint-ORIG-GUID: EO0OIwZfgGTKy9nO_qsIV_01g9htPlqV
-X-Proofpoint-GUID: EO0OIwZfgGTKy9nO_qsIV_01g9htPlqV
-X-Authority-Analysis: v=2.4 cv=IMQCChvG c=1 sm=1 tr=0 ts=686ad8ae b=1 cx=c_pps a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17 a=Wb1JkmetP80A:10 a=yPCof4ZbAAAA:8 a=iP8tuSmc3zprJ4ZHs3IA:9 cc=ntf awl=host:13565
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzA2MDEyOSBTYWx0ZWRfX2CL2OBE764C6 qIJGE8gMay+tFcHVlGbIjtpX/bCpMx8rigmATsDcITiRQnR+LlLYFQxPAQjENc0jcNYRSeYIuBK cROygX5PctzF1jTS9BG0G/NJlcuG81EVrHtAr9+eGwY1deWo8os2s/M68lRExpvthcUqHCPH0td
- yDA9TZ21DDx63nXv9XkvGc9yxhxFlT7YDlVKm9DdH9iD7lizUsEfsYdEFH7gGZW0XweRWcncI2d seFxKU+IqDyx3zOWoIDoIf8vi6Kc0q3togvOf9DvIAwwOUkDUpBKLviRBQPEAx6Hg1JfS5MWMfw k1SV1TrBXaMef5QzY4LBDalb20Q0+YD2lbMvMmJfTX1V+OHDbZZD7n7pXBoe8omGfuo+F0RQXf6
- XaqugMuJGLSvD0OBLArTAUPl667rGUqvGwGJXD7YSZsZqoZ/q9P1W09XejzlaAwxk48NjNfp
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_131233_957842_9A713B5A 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20250706_132635_628923_02DC451D 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +94,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The conditional check for the PLL0 multiplier 'm' used a logical AND
-instead of OR, making the range check ineffective. This patch replaces
-&& with || to correctly reject invalid values of 'm' that are either
-less than or equal to 0 or greater than LPC18XX_PLL0_MSEL_MAX.
+On Tue, Jul 01 2025 at 10:58, Thomas Wei=C3=9Fschuh wrote:
 
-This ensures proper bounds checking during clk rate setting and rounding.
+> Extend the auxclock test to also cover the vDSO.
 
-Fixes: b04e0b8fd544 ("clk: add lpc18xx cgu clk driver")
-Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
----
- drivers/clk/nxp/clk-lpc18xx-cgu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+I'm not really convinved, that this is the right thing to do. Why can't
+this just extend selftests/vDSO instead of creating these
 
-diff --git a/drivers/clk/nxp/clk-lpc18xx-cgu.c b/drivers/clk/nxp/clk-lpc18xx-cgu.c
-index 81efa885069b2..7d8b2ed31abdf 100644
---- a/drivers/clk/nxp/clk-lpc18xx-cgu.c
-+++ b/drivers/clk/nxp/clk-lpc18xx-cgu.c
-@@ -381,7 +381,7 @@ static long lpc18xx_pll0_round_rate(struct clk_hw *hw, unsigned long rate,
- 	}
- 
- 	m = DIV_ROUND_UP_ULL(*prate, rate * 2);
--	if (m <= 0 && m > LPC18XX_PLL0_MSEL_MAX) {
-+	if (m <= 0 || m > LPC18XX_PLL0_MSEL_MAX) {
- 		pr_warn("%s: unable to support rate %lu\n", __func__, rate);
- 		return -EINVAL;
- 	}
-@@ -402,7 +402,7 @@ static int lpc18xx_pll0_set_rate(struct clk_hw *hw, unsigned long rate,
- 	}
- 
- 	m = DIV_ROUND_UP_ULL(parent_rate, rate * 2);
--	if (m <= 0 && m > LPC18XX_PLL0_MSEL_MAX) {
-+	if (m <= 0 || m > LPC18XX_PLL0_MSEL_MAX) {
- 		pr_warn("%s: unable to support rate %lu\n", __func__, rate);
- 		return -EINVAL;
- 	}
--- 
-2.46.0
+> +#include "../vDSO/parse_vdso.c"
+> +#include "../vDSO/vdso_config.h"
+> +#include "../vDSO/vdso_call.h"
 
+cross directory oddities? Confused.
+
+Thanks,
+
+        tglx
 
