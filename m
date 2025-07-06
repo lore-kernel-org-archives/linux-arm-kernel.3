@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9831C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 19:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5756C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 19:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XqRwK6eVJuv/TSeqdmJd8lswDvxhO2GpnXoxuOM04qc=; b=3OG6hcBI7Cj2hlTquprB/svlpP
-	/0duilem1hC6pjJMmGzxP83vFoEJBUrvpimlWjOTpOXk0BbW6QYjc9wFJy02oPu/g+C+8EJ1EaHN1
-	De+xUp7tyjHtRrOon4WZHLPivbxm2CEO5UMovsiNf5hfIjq3qqqVPePWg4MspbEB8ZTKMPTyCH9Xm
-	ACrgvUxGNq6JwDwJF6BrcfWUiQ6qmWgwH9rmlGA+28kHTJq6P/kbKjMc7tOEApzjO9l90EYLtu+qJ
-	0anjOlwKNnAL7yUCnAmxL0zLIbmxE8eTbMWQiTS1yuXUOjIKGy60wDqdUMsXL4+o2yK1gmuLgeSus
-	2WJZhg+g==;
+	bh=pJ6hf/45mzyAk0YVzIPl8IF9m5amuh4Pzg7xGOZElsI=; b=IlsNaNIU0QGSHaIfWnlhm6OnXA
+	v4PupFOJZ0PvLNpYtcoFhulcaE+lYxoQOFCsBIOpfyGjFIL20/G3QfgBmhy8e8j2Ad6Nr5KvCK74V
+	xwS07pQTmyJY0rzsGe+iS5HWzOvplt7Jg2SUMejbLm/Bn6cC9dNUPCOksiYZZ5OqBzvN5GyPcd6s/
+	WrvL1f2Ic91d5LH9EGBYQTjeNODYQwBuScKU2mFZpS6yXwGYXL8BK5WYoJMg3CgzMGm8Drjv9Lq75
+	iKX7BNCMly3mOYiZEKP4af3e7G7zc4FcajEBPCf38di63IQq8SZphJS0D5h/smYOJp7ALyHtzwvwu
+	RwAWWPaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYVDa-00000000jyX-2rpe;
-	Sun, 06 Jul 2025 19:40:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uYVFt-00000000k5y-1bIo;
+	Sun, 06 Jul 2025 19:42:29 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYUOO-00000000fGM-0s4B
+	id 1uYUON-00000000fFt-32xv
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 06 Jul 2025 18:47:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0CA4B5C57BA;
-	Sun,  6 Jul 2025 18:47:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3D1B8C19424;
+	by nyc.source.kernel.org (Postfix) with ESMTP id BE6F7A53D95;
 	Sun,  6 Jul 2025 18:47:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id F1D6CC4CEF5;
+	Sun,  6 Jul 2025 18:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1751827630;
-	bh=LN8cjqpOaDyXpoTx+s5nUNQjpmBh4i1aA8aGRGhdhXI=;
+	bh=L7bpd1ZTMa/RO66jEZFS9u+3RkkUMvyZlh52Z6kGVtk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=sl8F1XFtbV8pFkHo74C59Qcmll87xLeRbijKhVGuzfTXwSHTT4zT4G/rfYzR5sO5z
-	 2nk6RN/zvMnKyt9Yo94q+dnHQEZoQwaNaphOeCCXVoNcHPizwnkMoReZW02Axxme2i
-	 6GugLwdVfxFupMHcYN8vH5p7K6iE5JTL910bMguPKHFiL2IkhS5Va++Z2R6bxHh/LJ
-	 73wPhG0f/gtIy06sPVC+8und3UZ9sS6iOvosfjK8Tjwqn9xdwhOrdHizz55mnCvygl
-	 Ve5J2CBZrAehSyRn2L1Rv4Mwx1FRZ1rzqHL4/jeqhaLy5weZApovAdWPidZXYiz2vV
-	 fZ11Pvm0h9e3A==
+	b=dvlYc9uNoTXQWqk/8z7aijiK3mOHrrsIz1KmOGdw31mZ9by1RjNzXn1jZFcQYHvO9
+	 O9yqPbmEpiouP0ttPpY05zOGikyis/WXatC5UZ0ldq01CCMSK+PNntspIWpYgeqULV
+	 ii8eVeZUYWLDz56b2SDU3PJ+QIgFNy+WSu7NI6dwhUj1OEfq8PpJTYBOglhK8oorN1
+	 YDxmGuD5t672YMyZuEZNyKW4UpUp+RjXwBqapHX7nVMNLKxTVkSY3DSkeK8/gDBcJI
+	 4iAuHrnuxa5bkTFA3X5qJnad8GFvf4RBIGlRGpqoUQp7pY1DzrUJaMCGvv/y2dmV0l
+	 4WuuArBeVxCUA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 35B6BC83F0C;
-	Sun,  6 Jul 2025 18:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D5705C83F0E;
+	Sun,  6 Jul 2025 18:47:09 +0000 (UTC)
 From: Frank Li via B4 Relay <devnull+Frank.Li.nxp.com@kernel.org>
-Date: Sun, 06 Jul 2025 14:47:06 -0400
-Subject: [PATCH 10/11] ARM: dts: lpc18xx: add #address-cell and #szie-cell
- for spi flash controller
+Date: Sun, 06 Jul 2025 14:46:59 -0400
+Subject: [PATCH 03/11] ARM: dts: lpc4350-hitex-eval: change node name flash
+ to flash@0
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250706-lpc18xxx_dts-v1-10-7ae8cdfe8d7d@nxp.com>
+Message-Id: <20250706-lpc18xxx_dts-v1-3-7ae8cdfe8d7d@nxp.com>
 References: <20250706-lpc18xxx_dts-v1-0-7ae8cdfe8d7d@nxp.com>
 In-Reply-To: <20250706-lpc18xxx_dts-v1-0-7ae8cdfe8d7d@nxp.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,20 +61,19 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, imx@lists.linux.dev, vz@mleia.com, 
  Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751827628; l=1223;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751827628; l=2299;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=WCpBHug6OhCx+F6FwrsLIok14DKpKGEdTCJ2N0cYh2o=;
- b=OJ8NeXc+Sqhu96qL4Qg1+6+w1CRKspkU6ekemGGOFTsHZJWrnMsc2VVMLiLLFD9RhIBJO5ANF
- uSNdZPA0Gv6DTsKnqjNyxLoTmXMYnhG7xuWJ9r0IOSAaXekfJ+jDZLR
+ bh=kvKeu0uSL6H9Hui96OrSfKpctNLAKlofzyW2bVVv/us=;
+ b=DmxS+F+3f/HV99/JI5dVWvAPzHZmvs9RZBdcB6bZxK7BpzRNWq/oaa6MaGA5njXoJkS+Jmurj
+ kKzC2N09XRbDa5xHksZKRuzpSVj3WqhMGYIlpHDpX2G4Wbg0MCfv7Mn
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-Endpoint-Received: by B4 Relay for Frank.Li@nxp.com/20240130 with
  auth_id=121
 X-Original-From: Frank Li <Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_114712_336275_7CBD35E8 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250706_114711_914947_7D388388 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,31 +91,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Li <Frank.Li@nxp.com>
 
-Add #address-cells and #szie-cells for spi flash controller to fix below
-CHECK_DTB warning:
-arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi:103.23-112.5: Warning (spi_bus_bridge): /soc/spi@40003000: incorrect #address-cells for SPI bus
-  also defined at arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts:452.8-479.3
-arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi:103.23-112.5: Warning (spi_bus_bridge): /soc/spi@40003000: incorrect #size-cells for SPI bus
-  also defined at arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts:452.8-479.3
+Change node name 'flash' to 'flash@0' to fix below CHECK_DTB warnings.
+arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dtb: flash-controller@40003000 (nxp,lpc1773-spifi): Unevaluated properties are not allowed ('flash' was unexpected)
+        from schema $id: http://devicetree.org/schemas/mtd/nxp,lpc1773-spifi.yaml#
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts    | 3 ++-
+ arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts | 3 ++-
+ arch/arm/boot/dts/nxp/lpc/lpc4357-myd-lpc4357.dts   | 3 ++-
+ 3 files changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi
-index 0be2486f07173c47bdc9d298a11ac9347f81cf02..d212ca252b06dc97a0cdbe5ecff42780b51a02dd 100644
---- a/arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi
-+++ b/arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi
-@@ -107,6 +107,8 @@ spifi: spi@40003000 {
- 			interrupts = <30>;
- 			clocks = <&ccu1 CLK_SPIFI>, <&ccu1 CLK_CPU_SPIFI>;
- 			clock-names = "spifi", "reg";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			resets = <&rgu 53>;
- 			status = "disabled";
- 		};
+diff --git a/arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts b/arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts
+index 93d0c2e99e7ced638adbfc8bfccd47d17bbb89e8..8fc89fb6eef1e839ad256ae33942e607fed862c6 100644
+--- a/arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts
++++ b/arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts
+@@ -451,8 +451,9 @@ &spifi {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&spifi_pins>;
+ 
+-	flash {
++	flash@0 {
+ 		compatible = "jedec,spi-nor";
++		reg = <0>;
+ 		spi-rx-bus-width = <4>;
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+diff --git a/arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts b/arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts
+index 4aefbc01dfc0fe7abbf87a8cdd0d8da179aae3d5..60bcfa5e0518e55eb3e642f146d1c96f2ebd5267 100644
+--- a/arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts
++++ b/arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts
+@@ -582,8 +582,9 @@ &spifi {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&spifi_pins>;
+ 
+-	flash {
++	flash@0 {
+ 		compatible = "jedec,spi-nor";
++		reg = <0>;
+ 		spi-cpol;
+ 		spi-cpha;
+ 		spi-rx-bus-width = <4>;
+diff --git a/arch/arm/boot/dts/nxp/lpc/lpc4357-myd-lpc4357.dts b/arch/arm/boot/dts/nxp/lpc/lpc4357-myd-lpc4357.dts
+index 846afb8ccbf1de08cccaf445106beeeddee93454..22f7dd671c90d56cc4295151583fd4135c8b707b 100644
+--- a/arch/arm/boot/dts/nxp/lpc/lpc4357-myd-lpc4357.dts
++++ b/arch/arm/boot/dts/nxp/lpc/lpc4357-myd-lpc4357.dts
+@@ -569,8 +569,9 @@ &spifi {
+ 	pinctrl-0 = <&spifi_pins>;
+ 
+ 	/* Atmel AT25DF321A */
+-	flash {
++	flash@0 {
+ 		compatible = "jedec,spi-nor";
++		reg = <0>;
+ 		spi-max-frequency = <51000000>;
+ 		spi-cpol;
+ 		spi-cpha;
 
 -- 
 2.34.1
