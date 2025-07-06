@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B980BC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 00:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B67C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 02:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZAB548LQDZBrJBh5YWoRXDTriGUozRf+t4s+9DCamyc=; b=cMDDaANXddUvP7ov1ag4TZ0pwX
-	i6thg6X8XKJ9pn9JMvwGlLjMs4DivDZ5lQ2othEl4h3jA5lryg/qWPyFr9MgPBe5efqJpgfKFSnVX
-	Zrz/SSis3Y2oE8BCPk8Bp8PTFHkKuwbqe6NBMbn3T5K7Qfcr14N94XyoRmLuOTKBtpAZ8h3S8L1hF
-	X4frMz6VTEUvaH1LpMaQYksP3DN4TGhIvi6gpenpUE/p0eZo8gaw0F1ihltQXvNH9kN+K4XFStbdw
-	XWqQMRcRXWb7yguHNHxzCMGU3nI5KTyTj0PyriwrpL2IoQP6M0XdaUL3oPeecAZJJiMRy/pxEISQi
-	vP8/CKqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rn7t5Vn8pMvyg/GganPpfVWGq9uNzUBvg+YEuGMms78=; b=KRMGIymwqaPpLaPtEgenNkoLID
+	+8nUCLCl/l51U15Y0T8m+2gubeNv1+L8ZMnIphlz4ui9/oBMDGokZEkG/FYbb1LafkPLw8xhx261B
+	TVcA0h8AltPh6rkYe7I8l5xJp1kKDMUHcyZSboTnkhAN+9ZibM3iTb7UWQq/+nBfGP2rvH+e8SAcR
+	DQzUFCzkSuN4EiqioZ9MZ5oyZYisyAwIVnnUFb4CbQbL+4gXTmuvINujZ92y4dscJG5iPIbgt97mf
+	hvIOzFGn/Pz0jAW85PgPySyVD/fbREY5sTle8lKXzC9vS9uhH3Dd/JwP9ph3JmEiz46wS/gvAQS6g
+	1z5N06ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYCwj-0000000HBgn-0yeB;
-	Sun, 06 Jul 2025 00:09:29 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uYFbM-0000000HILl-08Fk;
+	Sun, 06 Jul 2025 02:59:36 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYCuN-0000000HBT1-2gIf
+	id 1uYFZ3-0000000HI6b-0H6i
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 00:07:05 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 96E031F00050
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  6 Jul 2025 00:06:59 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 69F59ACA8A4; Sun,  6 Jul 2025 00:06:57 +0000 (UTC)
-Received: from collins (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id 71A79ACA89B;
-	Sun,  6 Jul 2025 00:06:55 +0000 (UTC)
-Date: Sun, 6 Jul 2025 02:06:53 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Sun, 06 Jul 2025 02:57:14 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54d98aa5981so2767598e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 19:57:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751770631; x=1752375431; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Rn7t5Vn8pMvyg/GganPpfVWGq9uNzUBvg+YEuGMms78=;
+        b=jJBjDUnV46cqCHPfVttzA8aWnB6MJvkBnD4ZGVqwbZNWJtAByZ+YfVs8O8NtdJvqud
+         vfXjrH35qMZau8ob2U5Bl9uT2WrGJLcUofkUOi97fhBFLpDxJy5o0eJ8CauBfy66nCjo
+         gixUsr6ec7vVDHManncXpsFFh11utcndmrybIRDQHiSNBoROeQQviztKKy1llfJwvz9j
+         VvKn6jP1rgbKzkRNibdnoBRZ/k3HylFIS6xoHBFrx+6FSBKgbL4W31RgOeMmIUVHtjZc
+         YhIYA/47DcX7VgAfHBywWrf6K3zXZikCk+HRprxSfep5oG9/QedxNKLV/bW7PHmVZivA
+         /Dbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751770631; x=1752375431;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Rn7t5Vn8pMvyg/GganPpfVWGq9uNzUBvg+YEuGMms78=;
+        b=JYcOOATgcHGtvfQEb3rgBXmF2PilIzgnrSeIhSlvi/Gf+KUQ3/zvUTmvEF4VYeiVyS
+         J7vGrsOvrTA8MlzxfX2nd09AeriLCmh89fvadJdA8yaDqDU/8gsjcOA+iDy62XwFY0NY
+         lMAWmjRgOSHSq18kVc+IEf9lrwALQU/MowlHz9P0ghV5yRWWR13m6R+la/091xuGF33I
+         HxFU00dcRwUF+NFI1wUpbepZ9SvlY1tgZ9naM0lFuZLrKDLZHErXkr6MGGpa6NmMZ7zl
+         J7X661f2hD4akXjBBxCfBd/gmNx/i0p/aD6naZiBt3B1Erpv7gyIh0O1pWIHHgmHskME
+         5kcw==
+X-Forwarded-Encrypted: i=1; AJvYcCUwEWIR1iBMEd0PYsdV4TYz3vUzhnc9AuRJz48mipYd6ea0fuseSISZsnvQ+292zGAGqkepa1quzbOqh5JY9zDn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCQOmULp+pme70iisnjYkPSvWIQrztRO2tk0x0RqNnqEN51+BY
+	az6m5ntN3b2dFkbIRgIRu43dqHlpEU7VnHy0zcvXoI8Qv1XaQwQSycbx
+X-Gm-Gg: ASbGncvb3jYrrdaSl6WZIrEO5OSjN47sUxGsONRaOKTcIkuCKgTM4L8sXQ+rfMpK4wW
+	Yvo/lZA5MUB9I3UVMGwUrCGyqgr8tUzcCpHEOuYh5YVg/Gnnu6HJVz2I+T6Cof2Zpf8BLzWaBXr
+	r9vPNeQvr2Ph+RLRaOHN/SAPjeImRyDSmxBC4MLCotpcwAkPw/im3xO4Q0iOqrtMeQg6s0Dki2c
+	d9j916ptBmfSog7lIM1Lb//vnAajySHOKZ1QWdMtypIV3qwEsEpTjiVE9fsAb0q/vh+7QicckfB
+	WwuOuQIUc+l/odDTAPImGMQ3fnG/beitG6+wYKN6xQ57Fr1qZLTAaGk7jF/ZlbiNoFl9pTc=
+X-Google-Smtp-Source: AGHT+IG7c6DkgUdK6MlS+lGxlxrwGbt7Tzq4+q56B2tWzJqubkeFQQPt3FbCuONr9HeiGCNfS1d13g==
+X-Received: by 2002:a05:6512:ea5:b0:553:a32a:6c2 with SMTP id 2adb3069b0e04-557a1235e5bmr2012238e87.6.1751770630659;
+        Sat, 05 Jul 2025 19:57:10 -0700 (PDT)
+Received: from localhost.localdomain ([212.192.12.80])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-556384b7b4fsm788573e87.198.2025.07.05.19.57.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 05 Jul 2025 19:57:10 -0700 (PDT)
+From: iuncuim <iuncuim@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Andre Przywara <andre.przywara@arm.com>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Icenowy Zheng <icenowy@aosc.xyz>,
-	Maxime Ripard <mripard@kernel.org>
-Subject: Re: [PATCH 1/2] clk: sunxi-ng: v3s: Fix de clock definition
-Message-ID: <aGm-HRnhxAQmj8d9@collins>
-References: <20250704154008.3463257-1-paulk@sys-base.io>
- <4cd84b9e2227c9225d977107eb05b9c3813b8846.camel@icenowy.me>
- <aGhNFe3wGLX8aUC6@collins>
- <1d51b75f7b85ddb588bbb24366b36df63a60712e.camel@icenowy.me>
+	Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] arm64: sunxi: a523: Enable Mali GPU
+Date: Sun,  6 Jul 2025 10:56:21 +0800
+Message-ID: <20250706025625.2707073-1-iuncuim@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RtSzGXCSjNLtl0Rj"
-Content-Disposition: inline
-In-Reply-To: <1d51b75f7b85ddb588bbb24366b36df63a60712e.camel@icenowy.me>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_170704_006069_80E7F3BE 
-X-CRM114-Status: GOOD (  37.62  )
+X-CRM114-CacheID: sfid-20250705_195713_110632_50A1E182 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,270 +103,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Mikhail Kalashnikov <iuncuim@gmail.com>
 
---RtSzGXCSjNLtl0Rj
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This patch adds gpu support on devices with a523 processor. Since there is
+no support for image output yet, the gpu is disabled after boot up.
 
-Hi,
+$ dmesg | grep panfrost
+[    3.826968] panfrost 1800000.gpu: clock rate = 432000000
+[    3.832305] panfrost 1800000.gpu: bus_clock rate = 200000000
+[    3.838353] panfrost 1800000.gpu: mali-g57 id 0x9091 major 0x0 minor 0x1
+               status 0x0
+[    3.846050] panfrost 1800000.gpu: features: 00000000,000019f7, issues:
+               00000001,80000400
+[    3.854134] panfrost 1800000.gpu: Features: L2:0x07110206 Shader:0x00000000
+               Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
+[    3.866011] panfrost 1800000.gpu: shader_present=0x1 l2_present=0x1
+[    3.874108] [drm] Initialized panfrost 1.3.0 for 1800000.gpu on minor 0
 
-Le Sat 05 Jul 25, 14:38, Icenowy Zheng a =C3=A9crit :
-> =E5=9C=A8 2025-07-04=E6=98=9F=E6=9C=9F=E4=BA=94=E7=9A=84 23:52 +0200=EF=
-=BC=8CPaul Kocialkowski=E5=86=99=E9=81=93=EF=BC=9A
-> > Hi,
-> >=20
-> > Le Fri 04 Jul 25, 23:54, Icenowy Zheng a =C3=A9crit :
-> > > =E5=9C=A8 2025-07-04=E6=98=9F=E6=9C=9F=E4=BA=94=E7=9A=84 17:40 +0200=
-=EF=BC=8CPaul Kocialkowski=E5=86=99=E9=81=93=EF=BC=9A
-> > > > The de clock is marked with CLK_SET_RATE_PARENT, which is really
-> > > > not
-> > > > necessary (as confirmed from experimentation) and significantly
-> > > > restricts flexibility for other clocks using the same parent.
-> > >=20
-> > > With it not setting parent, is arbitary pixel clocks still
-> > > possible?
-> >=20
-> > Absolutely and the clock tree is very much improved, I think the flag
-> > was the
-> > reason that was preventing it from naturally keeping the tcon and de
-> > clocks
-> > under the video pll in my case.
-> >=20
-> > Now it can provide both the 33 Mhz for the pixel clock and runs the
-> > mixer at
-> > nearly 150 MHz. The video pll now runs at 297 MHz which is a perfect
->=20
-> Did you test other pixel clocks?
->=20
-> I suggest you to try a RGB-to-VGA bridge and test possible pixel clocks
-> on the VGA port.
+Tested on x96qproplus and walnutpi 2b devices.
 
-I don't have any such bridge and the V3/V3s boards I have would not easily
-allow connecting such a display. But I would be glad if someone wants to te=
-st
-the patch with such a setup.
-
-Cheers,
-
-Paul
+Based on v6.16-rc4 with patches:
+https://lore.kernel.org/all/20250628054438.2864220-1-wens@kernel.org
+https://lore.kernel.org/linux-sunxi/20250628161608.3072968-1-wens@kernel.org
+https://lore.kernel.org/linux-sunxi/20250627152918.2606728-1-wens@kernel.org/
 
 
-> > fit for
-> > csi-sclk camera main clock, so the algorithm is doing its job at its
-> > best!
-> >=20
-> > So this means that I no longer have to change the mixer clock to 297
-> > MHz to
-> > keep it under the video pll. It pretty much solves all my problems at
-> > once.
-> >=20
-> > Here is the relevant clk_summary extract:
-> > =C2=A0=C2=A0=C2=A0 pll-video=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 2=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > 297000000=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=
-=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Y=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0
-> > deviceless=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 no_conne=
-ction_id=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 csi-sclk=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 3=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0
-> > 297000000=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=
-=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 N=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0
-> > 1cb8000.isp=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mod=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > 1cb0000.camera=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mod=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > 1cb1000.csi=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mod=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 tcon=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 2=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0
-> > 33000000=C2=A0=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=
-=C2=A0=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Y=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1c0c000.lcd-
-> > controller=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 tcon-c=
-h0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 tcon-data-clock=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > 33000000=C2=A0=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=
-=C2=A0=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Y=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > deviceless=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 no_conne=
-ction_id=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 de=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 2=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > 297000000=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=
-=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Y=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0
-> > 1000000.clock=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mod=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wb-div=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0
-> > 297000000=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=
-=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Y=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > deviceless=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 no_conne=
-ction_id=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 wb=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > 297000000=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=
-=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 N=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > deviceless=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 no_conne=
-ction_id=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mixer0-div=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > 148500000=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=
-=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Y=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > deviceless=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 no_conne=
-ction_id=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 mixer0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0
-> > 148500000=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=C2=A0=C2=A0=
-=C2=A0=C2=A0 50000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Y=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > 1100000.mixer=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mod=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
-> >=20
-> > Cheers,
-> >=20
-> > Paul
-> >=20
-> > > >=20
-> > > > In addition the source selection (parent) field is marked as
-> > > > using
-> > > > 2 bits, when it the documentation reports that it uses 3.
-> > > >=20
-> > > > Fix both issues in the de clock definition.
-> > > >=20
-> > > > Fixes: d0f11d14b0bc ("clk: sunxi-ng: add support for V3s CCU")
-> > > > Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> > > > ---
-> > > > =C2=A0drivers/clk/sunxi-ng/ccu-sun8i-v3s.c | 3 +--
-> > > > =C2=A01 file changed, 1 insertion(+), 2 deletions(-)
-> > > >=20
-> > > > diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-> > > > b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-> > > > index 52e4369664c5..df345a620d8d 100644
-> > > > --- a/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-> > > > +++ b/drivers/clk/sunxi-ng/ccu-sun8i-v3s.c
-> > > > @@ -347,8 +347,7 @@ static
-> > > > SUNXI_CCU_GATE(dram_ohci_clk,=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0"dram-ohci",=C2=A0=C2=A0=C2=A0=C2=A0"dram",
-> > > > =C2=A0
-> > > > =C2=A0static const char * const de_parents[] =3D { "pll-video", "pl=
-l-
-> > > > periph0" };
-> > > > =C2=A0static SUNXI_CCU_M_WITH_MUX_GATE(de_clk, "de", de_parents,
-> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x104, 0, 4, 24, 2, BIT(31),
-> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CLK_SET_RATE_PARENT);
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x104, 0, 4, 24, 3, BIT(31), =
-0);
-> > > > =C2=A0
-> > > > =C2=A0static const char * const tcon_parents[] =3D { "pll-video", "=
-pll-
-> > > > periph0" };
-> > > > =C2=A0static SUNXI_CCU_M_WITH_MUX_GATE(tcon_clk, "tcon", tcon_paren=
-ts,
-> > >=20
-> >=20
->=20
+iuncuim (2):
+  arm64: dts: allwinner: a523: add Mali GPU node
+  arm64: dts: allwinner: a523: enable Mali GPU for all boards
 
---=20
-Paul Kocialkowski,
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi    | 15 +++++++++++++++
+ .../boot/dts/allwinner/sun55i-a527-cubie-a5e.dts  |  5 +++++
+ .../boot/dts/allwinner/sun55i-h728-x96qpro+.dts   |  5 +++++
+ .../boot/dts/allwinner/sun55i-t527-avaota-a1.dts  |  5 +++++
+ .../dts/allwinner/sun55i-t527-orangepi-4a.dts     |  5 +++++
+ 5 files changed, 35 insertions(+)
 
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
+-- 
+2.50.0
 
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---RtSzGXCSjNLtl0Rj
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhpvh0ACgkQhP3B6o/u
-lQzw3BAAlZqZNsqv5fI1/5xfOK0MrnTVr2yeWJVICGYxyzcojdETTioT9fGpIvZd
-+RTggHTRC5yXn6nHtfcsSZeJooEBQc327qTLBlZEilcr6eWaTwqvGzQujuO59oTK
-ULLJk5dpMlTOYopK0zgIu7Yiv7bU0i1E3LG7A5a60JWT51qrWXKV8kvvRSFZYfRj
-E+ckIIcJhcU4z8MkWuX2aVbORAVJCNa2P8pMbj03VxkaSFOG2fkblnX62Ke9UmZN
-gJsPcvW3MLhYfUDQRJEs10EtvGrvOQ8b5/6sB8nyik3GJcTnQYoyCgNUlMd//qCL
-mtkCJeWhxnKtFfrubCBut3zh79PE8eZj5Zqjk5XY8XgzEQsaXk6gU+UQExUrRYm0
-+QBwLNwqlAkQkTP2Jo2W3DwptF1nh/npAMTYhxenA0MmAzm3iyu5MJRwSmOhSuw8
-TiMGlysGjbZSHzYmXKoHQUlQ37gkIrOMDNpQZsbqfx9rmED1kVdwzN19fz7rojD4
-+gBvLSc+56oJyPm267oXgfPort5tHncJlJtD6C2n66Z9wVWKWeUwWzq1PvTvn4IW
-ePThwkZ3jLr9PO4l8rIADpl7MU0GpH6KyYtMdWG0jQ8EdY667T5ah+6teFmVZdA0
-qmqpvetS96j0PTDhrzhBX7d47rOey3M9XO71qZ36QLbeNJxmO6o=
-=LLPO
------END PGP SIGNATURE-----
-
---RtSzGXCSjNLtl0Rj--
 
