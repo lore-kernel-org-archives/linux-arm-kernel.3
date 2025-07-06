@@ -4,62 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF40C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 09:11:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7210C83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 09:39:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ho2vJrnmP0hAKFMj4ugRd5xpUyaSxVYHzOv8nai9HE4=; b=CWR/TEY8AOG1WIn2t+Uwf39U3S
-	/IiWl+Oqg/sDItunb9PgtSMwKoFZJ3dGiq6D3vojfk7PUhhO0B9gY20OCkCHn+Wt+h812n2lE+vbH
-	ci63r3Y8Vgngsw9uYwwK4joGVwFHiZ38t6NUYLQhqIHOuSh5QgM06WBdUK6P9JuNuIJWRho5an8yO
-	Ovg7p+Zzy7CuzOQ9gKyHKYLg+VqR1D5FGx9mJVHmtdwB8AQcK9MWbUcSTFnnY6bUezNbNawVRTt8P
-	Yk589Rj3FUM1Smo7LRywYVqGm0zK+KF1UIqEbmNVP2bj8u2/3xAwnCcfrmL2PUxPylAcDSjXYE2XS
-	FPs1kKgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7PDjhOfO1JIp79rddijTnm9Yvkmem/WhhZY1N4kvh0w=; b=22VAi9fZtmPAEOod+wP+YcKq2v
+	u6Qr9G+9Abr8F3cI47uXjNwcDnILmDpRSiH2mZMc2sLKC1lHGXl69q2rnduI0UTNESEg8kjeXsTae
+	uBvtcZCD/2z3CRQhCHT28bcKe8e4Ov503qd6dZ5ScS/vaokH52BqfMyxJBrpAYPTa87VX6SEGoMYf
+	ISO/VVqshsEoERTYOJNTKfbInkR5FSQEuQdtt9JQX4l/tZClNtT3g6y40l/IYW6Z9SpnIetzPeOoz
+	hWpe0Q+FRS7wLmAwLmbU94vPhxjezLhKim8KXQkjYmx1dayx+z22wwx9W6RHJNtEYFyyVMossI7/M
+	rrEZRcDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYLPD-0000000029R-2G3Z;
-	Sun, 06 Jul 2025 09:11:27 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1uYLpy-000000003ph-0Vtm;
+	Sun, 06 Jul 2025 09:39:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYLLn-000000001iv-0lpA;
-	Sun, 06 Jul 2025 09:07:56 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Type:In-Reply-To:References;
-	bh=Ho2vJrnmP0hAKFMj4ugRd5xpUyaSxVYHzOv8nai9HE4=;
-	b=kGT+P99nbmbmlDK5wRcoQe7iTi0tj4rgq8Ja1NThF/Ut/eVDDS6zSOy/cBNeWCpC2WaWEjsDTE9nALznc4eUbYmsFDflpU7Wy67/u3PIg+8N8YG8NlKJU/04n5ytvbG8QSj/DyZPcvrVBo4AODJMy3a1l8NyWoAb1HZ6/bnTz/o=
-Received: from lukas-hpz440workstation.localnet (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPSA
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
-	; Sun, 6 Jul 2025 11:07:39 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	id 1uYLnf-000000003j3-2uYY;
+	Sun, 06 Jul 2025 09:36:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C13D860010;
+	Sun,  6 Jul 2025 09:36:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79254C4CEED;
+	Sun,  6 Jul 2025 09:36:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751794601;
+	bh=JVO2AXLZ1sENHIWt9KWjCGymWD2Pvoqab2RVOYMEouQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ADYckjD4UZp41gvZf1G3l83WuAvnItKau8b8uM1IAlsdwVsw229c+bZtg8Lb4f277
+	 J9I9f81ayHELI88xQV0RIjJjB+ScgeekmZD+Nwsmc1lZG+aRqWacRVM/z//lQaOghT
+	 LfrPhDgElDsZA870Rj/CG/rRArEL7Po0FkC2bxRVULegCDytpgsUS3tCud0GTO3p2v
+	 MkEhpFRYhjJ2HJ7Z+sO60W5lrjgIDauiry3pVzHzdEi2JmfvTHwqK7l/Nh9dEqi4BZ
+	 GfTTuVQNDArBnVaHNM+clDoHSHOqMTmUF1v3uw8OiteJl/zVKKsMO/q4QM1YXRuQtk
+	 nGuXK5/3oR0gg==
+Message-ID: <6f257dd2-b88c-4dc2-a2ee-f92de4e0412b@kernel.org>
+Date: Sun, 6 Jul 2025 11:36:34 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 3/7] dt-bindings: arm: sunxi: Add NetCube Systems
+ Nagami Keypad Carrier Board
+To: Lukas Schmid <lukas.schmid@netcube.li>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
  Jernej Skrabec <jernej.skrabec@gmail.com>,
  Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 3/7] dt-bindings: arm: sunxi: Add NetCube Systems Nagami Keypad
- Carrier Board
-Date: Sun, 06 Jul 2025 11:07:38 +0200
-Message-ID: <4994705.GXAFRqVoOG@lukas-hpz440workstation>
-In-Reply-To: <21e0785e-b2f6-4b31-8887-0c22bd686dc8@kernel.org>
 References: <20250705213900.3614963-1-lukas.schmid@netcube.li>
  <20250705213900.3614963-4-lukas.schmid@netcube.li>
  <21e0785e-b2f6-4b31-8887-0c22bd686dc8@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart1926776.tdWV9SEqCh";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_020755_535957_925A9B2B 
-X-CRM114-Status: GOOD (  16.61  )
+ <4994705.GXAFRqVoOG@lukas-hpz440workstation>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <4994705.GXAFRqVoOG@lukas-hpz440workstation>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,72 +124,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart1926776.tdWV9SEqCh
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"; protected-headers="v1"
-From: Lukas Schmid <lukas.schmid@netcube.li>
-Date: Sun, 06 Jul 2025 11:07:38 +0200
-Message-ID: <4994705.GXAFRqVoOG@lukas-hpz440workstation>
-In-Reply-To: <21e0785e-b2f6-4b31-8887-0c22bd686dc8@kernel.org>
-MIME-Version: 1.0
-
-On Sonntag, 6. Juli 2025 09:49:58 CEST Krzysztof Kozlowski wrote:
-> On 05/07/2025 23:38, Lukas Schmid wrote:
-> > The NetCube Systems Nagami Keypad Carrier is a custom board intended to
-> > fit a standard Ritto Intercom enclosure and provides a Keypad, NFC-Reader
-> > and Status-LED all controllable over Ethernet with PoE support.
-> > 
-> > Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-> > ---
-> > 
-> >  Documentation/devicetree/bindings/arm/sunxi.yaml | 6 ++++++
-> >  1 file changed, 6 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> > b/Documentation/devicetree/bindings/arm/sunxi.yaml index
-> > 7919b5bf5..a2f16d064 100644
-> > --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> > +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> > 
-> > @@ -610,6 +610,12 @@ properties:
-> >            - const: netcube,nagami
-> >            - const: allwinner,sun8i-t113s
-> > 
-> > +      - description: NetCube Systems Nagami Keypad Carrier Board
-> > +        items:
-> > +          - const: netcube,nagami-keypad-carrier
+On 06/07/2025 11:07, Lukas Schmid wrote:
+> On Sonntag, 6. Juli 2025 09:49:58 CEST Krzysztof Kozlowski wrote:
+>> On 05/07/2025 23:38, Lukas Schmid wrote:
+>>> The NetCube Systems Nagami Keypad Carrier is a custom board intended to
+>>> fit a standard Ritto Intercom enclosure and provides a Keypad, NFC-Reader
+>>> and Status-LED all controllable over Ethernet with PoE support.
+>>>
+>>> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+>>> ---
+>>>
+>>>  Documentation/devicetree/bindings/arm/sunxi.yaml | 6 ++++++
+>>>  1 file changed, 6 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml
+>>> b/Documentation/devicetree/bindings/arm/sunxi.yaml index
+>>> 7919b5bf5..a2f16d064 100644
+>>> --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+>>>
+>>> @@ -610,6 +610,12 @@ properties:
+>>>            - const: netcube,nagami
+>>>            - const: allwinner,sun8i-t113s
+>>>
+>>> +      - description: NetCube Systems Nagami Keypad Carrier Board
+>>> +        items:
+>>> +          - const: netcube,nagami-keypad-carrier
+>>
+>> That's just enum with previous entry. Don't make it over-complicated.
+>>
+>> Best regards,
+>> Krzysztof
 > 
-> That's just enum with previous entry. Don't make it over-complicated.
-> 
-> Best regards,
-> Krzysztof
-
-Just making sure here. The actual bindings are fine, but I should merge them 
-into one patch, correct?
+> Just making sure here. The actual bindings are fine, but I should merge them 
+> into one patch, correct?
+No, you got two comments what should be changed in the binding.
 
 Best regards,
-Lukas
-
---nextPart1926776.tdWV9SEqCh
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEPv6dcBmn59ssZMkSJnN+drMVRtgFAmhqPNoACgkQJnN+drMV
-Rths8gf/e6eLq4uNu0vJSGM9LYg+wGaYJJBiydq7iEk18FH2Vf60tOp7PGIYhSjW
-hX9iL6iA5xvsycCO01AkcgT3+qV0r9sNoIiRyBPKVIdDltG4WRYzGnzGtGD6maff
-mN8PR9rZ6k9qhlAFvdqCPTagJJ2GOHFu7NMv+uWxtuDedBNR3bMm5Q/EixQ2iqF8
-tYMkXbl+DEGoMMbceDoBAitKJC6cZcWUsqaSFtLn84F9yl2EOM16r/9NTUAusT0T
-nOkfvSD05VWc9iDoukZbIHPlH+63S/+LksJVMKYtJXI+0OUTH+YZwi0qzrK3NVgI
-s9BZgcYcWUtfy5TXpq3lhvVxus+DDQ==
-=jjD0
------END PGP SIGNATURE-----
-
---nextPart1926776.tdWV9SEqCh--
-
-
-
-
+Krzysztof
 
