@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3EBC83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 22:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDD2C83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 23:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pPMhJpC0bXoNzxd7n1kUTivOhfnz4qEe6QVW5T825SY=; b=tdwzlKcVlR1TGsysKa+ND0KlcI
-	LQ4sCdYEhsfMsqEPaEBilDloPfQ4YKZsXPaQPtpwfOEBixW3hW6XXh3hlg9Y8T86KlKFXLdpFww8T
-	lP0jsnXuMt15vzZu5DnOsMICSj4eZdqNgC29jXvGuTutVHE0NeW8cI5M6PNR7C785ECdY/q1Po5jD
-	dMP1LwCQigHAP4WdvTDbLyUgmclLozZc6BaV0ufHkJvQGKDNSkXVZxg/50I+YYvc1eTrW4Z0GZhce
-	bseDwA4b2m/1DR/pTg/SVz12AniUJITTlxMr3yNGzy+91eZ+J1Yf6jD3mV1y27//Ne6G50ejgPN3Y
-	XNeSebfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n91CihjOw5NQbnrzg6KvkpLWqDSB4Ugvpo6eFKwXwIg=; b=opaxi5mgEqxEnZ5ZzaLVPEPUfF
+	ifkRh0doApEfuERthLS8JvQ4OPX9BkQ9t9JdzSCO25HR5UUI6vD9UMJvOdYnSiOuekt33wB03mGmI
+	xPUGy/qaollObWB1IE/pUgdPG7BmChEzBCVIyzS/CnrFOgiWelZzn+HGjEftfyG4OtSyRNW+weG8J
+	aLigYOwaNSNEuEXB3DkM2l1hTnbsOvZwpf8i9AMc7B1FTIfyKkjjttpOpbywLTRNRf5vy9b9bfz75
+	VDKHAnFKBgIjZ3/h+YMOah286iugiozJvpNa1jhzsh+KY6OPEqS4XOHpWLgBuGhvk1V+V/H8B+EKo
+	m2up6lSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYXuC-00000000tkm-0Mg6;
-	Sun, 06 Jul 2025 22:32:16 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uYYYi-00000000wDR-17EK;
+	Sun, 06 Jul 2025 23:14:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYXrr-00000000tYo-2FlT;
-	Sun, 06 Jul 2025 22:29:52 +0000
+	id 1uYYWN-00000000vmC-3nXn
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 06 Jul 2025 23:11:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 692D3A4019B;
-	Sun,  6 Jul 2025 22:29:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AD28C4CEED;
-	Sun,  6 Jul 2025 22:29:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CFE7F61460;
+	Sun,  6 Jul 2025 23:11:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD73BC4CEED;
+	Sun,  6 Jul 2025 23:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751840988;
-	bh=+FqcxieyCSl/BmyJUx6uOpbHQwdGTCBbRvnIJVsyPnQ=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=UaIqaj+bE2PNvlzxHFsU8bKx/TvQ3nxBydLq7fyxyT/z8TiiGRP9154ikYh0K54sb
-	 Z4EZ6WP+xlLWwTRPFvI279+Mu0sNBBWRDyf93thd0x4XgRbRAi9/899cayp1axI3Qq
-	 EX4yMhpZd/Sy8d7UosGDsR4TuLoxLRVpwwKSuDeFL1+akM2+E1ByWZ4LcnDzOzltDM
-	 hTeuVRd+gUQpuOtJ8lda/i58I8WztFNzGk0pcu9nmY2i4NZ116tt+L4mOTB4wA4T13
-	 B1BO2f0YH9Xirjm5Vwyc9JwduiRJwc5yaCwXeqfw6fTuID9y6HlDM1XEm5tFvl3eg0
-	 U+xUMsY5ribCA==
-Date: Sun, 06 Jul 2025 17:29:47 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1751843502;
+	bh=b9yTjrbNlpjbYFfN/2AHdX2leYa4WC4arSWKY1vadb0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OcgXL7h3194Y0aIv2wQH6apRZAwSf0HabeYzKqhbhihK0xoL0941lDRb7Xe+jGttT
+	 O/6lnzi8nfPVP2Loj7p7VmRPkips9NbcR0gZPfo0CA2BFqAVqr7TIc1oK8IXAIbsmQ
+	 21VsPhleA6+028Qpb74BJUyUpWI872u39X5pOKYysujb7DRHhf0OML7q7e8j7JnMjE
+	 rDqDs9hv1EybN+ia1p8fco/GX2BiC5VY8eej8Pj7fU3pEa0rwLIuBhdZ79aXwueVgn
+	 EU2K2O7l1FgAvS4AufDsNoJY+wxXJRoleedNRRDlkXcE/3CzgZb9j3MfVaLHmLF5/+
+	 dh5v2Zm3FhIHQ==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH 0/5] lib/crypto: Poly1305 fixes
+Date: Sun,  6 Jul 2025 16:10:55 -0700
+Message-ID: <20250706231100.176113-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-mips@vger.kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, ansuelsmth@gmail.com, 
- Conor Dooley <conor+dt@kernel.org>, Stanislaw Gruszka <stf_xl@wp.pl>, 
- linux-mediatek@lists.infradead.org, 
- Johannes Berg <johannes@sipsolutions.net>, linux-wireless@vger.kernel.org, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, yangshiji66@qq.com
-To: Rosen Penev <rosenp@gmail.com>
-In-Reply-To: <20250706214111.45687-6-rosenp@gmail.com>
-References: <20250706214111.45687-1-rosenp@gmail.com>
- <20250706214111.45687-6-rosenp@gmail.com>
-Message-Id: <175184098772.672740.2328928098872646704.robh@kernel.org>
-Subject: Re: [PATCH 5/6] dt-bindings: net: wireless: rt2800: add
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_152951_727879_FA0DCAA2 
-X-CRM114-Status: GOOD (  11.33  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,53 +70,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series is also available at:                                                                        
+                                                                        
+    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git poly1305-fixes
 
-On Sun, 06 Jul 2025 14:41:10 -0700, Rosen Penev wrote:
-> Add device-tree bindings for the RT2800 SOC wifi device found in older
-> Ralink/Mediatek devices.
-> 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  .../bindings/net/wireless/ralink,rt2800.yaml  | 49 +++++++++++++++++++
->  1 file changed, 49 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
-> 
+This series fixes the arm, arm64, and x86 Poly1305 functions to not
+corrupt random tasks' registers when called in the "wrong" context.  It
+also fixes a performance regression on x86 with short messages.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+This series is needed for my upcoming poly1305_kunit test to pass.
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml:43:5: [warning] wrong indentation: expected 2 but found 4 (indentation)
+Eric Biggers (5):
+  lib/crypto: arm/poly1305: Remove unneeded empty weak function
+  lib/crypto: arm/poly1305: Fix register corruption in no-SIMD contexts
+  lib/crypto: arm64/poly1305: Fix register corruption in no-SIMD
+    contexts
+  lib/crypto: x86/poly1305: Fix register corruption in no-SIMD contexts
+  lib/crypto: x86/poly1305: Fix performance regression on short messages
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml: ignoring, error in schema: examples
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml: examples: 'wifi@110180000 { compatible = "ralink,rt2880-wifi"; reg = <0x10180000 0x40000>; clocks = <&sysc 16>; interrupt-parent = <&cpuintc>; interrupts = <6>; };' is not of type 'array'
-	from schema $id: http://json-schema.org/draft-07/schema#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml: examples: 'wifi@110180000 { compatible = "ralink,rt2880-wifi"; reg = <0x10180000 0x40000>; clocks = <&sysc 16>; interrupt-parent = <&cpuintc>; interrupts = <6>; };' is not of type 'array'
-	from schema $id: http://devicetree.org/meta-schemas/base.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml: properties:interrupt-parent: False schema does not allow {'maxItems': 1}
-	from schema $id: http://devicetree.org/meta-schemas/interrupts.yaml#
-Error: Documentation/devicetree/bindings/net/wireless/ralink,rt2800.example.dts:19.5-6 syntax error
-FATAL ERROR: Unable to parse input tree
-make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/net/wireless/ralink,rt2800.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1525: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+ lib/crypto/arm/poly1305-glue.c   |  8 ++----
+ lib/crypto/arm64/poly1305-glue.c |  3 +-
+ lib/crypto/x86/poly1305_glue.c   | 48 +++++++++++++++++++++++++++++++-
+ 3 files changed, 51 insertions(+), 8 deletions(-)
 
-doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250706214111.45687-6-rosenp@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+base-commit: f1da28dfadd26ef95bbd0b1ddf066e7ffe1505ff
+-- 
+2.50.0
 
 
