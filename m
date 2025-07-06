@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC9B5C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 10:09:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21FDC83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 10:11:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IWfeIfuL/kwNF8nAD5QuTvp840QjR9/bbiTVVW0dfhk=; b=dVBJkzTS3s8SKf2KPp9YbnjJTT
-	DNMiIy621N65EroUEtCKGWa23kBPsq9Uw08w2t+sGNPlFZnZB0SQPxPXgx3xHrpYEihs+W7S1bc4o
-	7b1IcsY7EsU2r3Ld9nTtXEJgoQ1cILgvRhBopGbTnOp6ZgXaNpdS3PZ0SeyqJgf/zkkK6ehnBxl1Y
-	H9k/7upR4SB3+TQ0OIzDzWwp8vpb6Abh7t8/H7SdrYoQo5a8QOcfDuu6nX5XnKi5vKv2E/YA6ts38
-	jzHWbZ0s+QkBwBhvKmJ1D9p1+jZ7HeCUOgUoyjX9OdRUW9JRUZNoZ8VcrZp+b+idmy87NYQyw8PjT
-	ICPcPOww==;
+	bh=DNC8u3mnnYqkifuAxCAn9WLN0+7etet2UpFGM0Q0muA=; b=W3urqndIuuhgTbAo/fZ6cPOE/G
+	a6saI/pvgKsSR0irS3elf4DUbY0ce5n24clpQrIiRAsh50bAnRXkVetw74uXKdUWYlidH6cO/8Vbc
+	4b/WDl4xa9zlO+LTKtjX7ycXijoXwe6GcME2+Zjlg+g9BVvlbA2jpqRq0O3HBoY4yntdGTNsc8n0j
+	APWepkF/0i5mvRLQdzQpWMM4FEerQ5LSihz6+2bLLvtd3Dunu2dR5V752rPw0Z2io9Qf9yQvVz14L
+	Os6O7wDMqlfWi/1YzqesDLS+DGSB9RTOLn5ingB6WySqUSoRQz6+mB/m68Osmb4uH+vylKtZee1G7
+	z2cX/3LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYMJ1-000000006l4-2Xk4;
-	Sun, 06 Jul 2025 10:09:07 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uYMLJ-0000000072U-2hP4;
+	Sun, 06 Jul 2025 10:11:29 +0000
+Received: from out-180.mta0.migadu.com ([91.218.175.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYMGh-000000006Y9-3m2S
+	id 1uYMHi-000000006bm-2UY9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 10:06:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=IWfeIfuL/kwNF8nAD5QuTvp840QjR9/bbiTVVW0dfhk=; b=iU5ZzXcNVcNXf4OCCNIVweOmSz
-	hiHERGwNfjqeYzsY1DNxe+aGznYucGnwzjIDO1pnnaDrV70QF49/IGm+Qf9gzrCSwsrC5QxyIkSK9
-	WIAezClT4H61s8UjuL9hOpXEUu4TfEWLY3PyQWm+GqneNTlpm/QrkD+3DfYDouJA5Wi1nahWcvgMD
-	uLNwbwyT98O/RlkjerGR5DK6Jw9YY3FunMqfpKvzRIajDfqE75N2a7q0LmOq9Aahft7hZjzl2Pxd5
-	0wNWmFmQvEZS9C1+pFFsDYWouTGOaIOu3p9EmrJg2TxGb4GMs8WxCfSJ8SAZXKJW7TPBTHBDc9hp2
-	hupzmhwg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47384)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uYMGR-0003xa-2A;
-	Sun, 06 Jul 2025 11:06:27 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uYMGL-0007ya-32;
-	Sun, 06 Jul 2025 11:06:21 +0100
-Date: Sun, 6 Jul 2025 11:06:21 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Biju Das <biju.das.jz@bp.renesas.com>
-Cc: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	"biju.das.au" <biju.das.au@gmail.com>
-Subject: Re: [PATCH net-next] net: stmmac: dwmac-renesas-gbeth: Add PM
- suspend/resume callbacks
-Message-ID: <aGpKncEeZTifSlA2@shell.armlinux.org.uk>
-References: <20250705170326.106073-1-biju.das.jz@bp.renesas.com>
- <aGl9e9Exvq1fVI0s@shell.armlinux.org.uk>
- <TYCPR01MB11332BCE03B3533784711A5BF864DA@TYCPR01MB11332.jpnprd01.prod.outlook.com>
- <TY3PR01MB113460004F6A57B3AAD77E86E864CA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <TY3PR01MB113460004F6A57B3AAD77E86E864CA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+	Sun, 06 Jul 2025 10:07:47 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1751796454;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DNC8u3mnnYqkifuAxCAn9WLN0+7etet2UpFGM0Q0muA=;
+	b=GLYYiPlfLk8FgxcvvzkCj3TNUdIGzKuuEbKMbFy2Ahm0huPXJHwEuSK9UTdDWvg2iC7mfq
+	JIIhB3gwxUucP/FNLKkVjJC8X95Dyz/CbwVHRLy9U+YQQZWhiKZ2NdonPLjbepZlesK41C
+	+sge7unmeb2LNPUlAqAkDuC6TqHDsUvMy/8kAMHmbaw6QlYgjxpZ2son+T1yW1CUg08mfS
+	KE0wUtBiYWBTrL5pm3v3gSV640HoS0L7YGUaza3ZscIy7RWolxEuBhZPR0UtwX0/GFTkb9
+	Z8bIsbjr85FyfC1Occv96E8Qys7mC1E8uwYsRp9ztR3Z3wGTuWMEcuwdH8c3RQ==
+Content-Type: multipart/signed;
+ boundary=48696b13996c954d2523b795f4ed39a48c4c5615ae4bc44190dfce43a0dc;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Sun, 06 Jul 2025 12:07:24 +0200
+Message-Id: <DB4W0GOQZ8MZ.MA7QXHJWCTK2@cknow.org>
+Cc: <hjc@rock-chips.com>, <heiko@sntech.de>, <andy.yan@rock-chips.com>,
+ <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+ <tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+ <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] rockchip/drm: vop2: make vp registers nonvolatile
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Piotr Zalewski" <pZ010001011111@proton.me>
+References: <20250706083629.140332-2-pZ010001011111@proton.me>
+In-Reply-To: <20250706083629.140332-2-pZ010001011111@proton.me>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_030643_938203_0A3103F3 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20250706_030746_769167_8018F8EF 
+X-CRM114-Status: GOOD (  26.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,28 +73,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 06, 2025 at 08:45:14AM +0000, Biju Das wrote:
-> Hi Russell King,
-> 
-> FYI, The above testing is done with rootFS mounted on SD card.
-> 
-> But when I mount rootFS on NFS, after wakeup, I am not able to contact the NFS server.
-> 
-> The below patch makes it to work[1].
-> Not sure, why the original code is failing if the rootFS is mounted on NFS?
+--48696b13996c954d2523b795f4ed39a48c4c5615ae4bc44190dfce43a0dc
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-It would be good to understand exactly what is going on there.
+Hi Piotr,
 
-As stmmac sets mac_managed_pm to true, which is propagated to phylib,
-this means the mdiobus suspend/resume will be no-ops, as the MAC driver
-needs to do everything necessar to resume the PHY.
+On Sun Jul 6, 2025 at 10:36 AM CEST, Piotr Zalewski wrote:
+> Make video port registers nonvolatile. As DSP_CTRL register is written
+> to twice due to gamma LUT enable bit which is set outside of the main
+> DSP_CTRL initialization within atomic_enable (for rk356x case it is also
+> necesarry to always disable gamma LUT before writing a new LUT) there is
+> a chance that DSP_CTRL value read-out in gamma LUT init/update code is
+> not the one which was written by the preceding DSP_CTRL initialization
+> code within atomic_enable. This might result in misconfigured DSP_CTRL
+> which leads to no visual output[1]. Since DSP_CTRL write takes effect
+> after VSYNC[1] the issue is not always present. When tested on Pinetab2
+> with kernel 6.14 it happenes only when DRM is compiled as a module[1].
+> In order to confirm that it is a timing issue I inserted 18ms udelay
+> before vop2_crtc_atomic_try_set_gamma in atomic enable and compiled DRM
+> as module - this has also fixed the issue.
+>
+> [1] https://lore.kernel.org/linux-rockchip/562b38e5.a496.1975f09f983.Core=
+mail.andyshrk@163.com/
+>
+> Reported-by: Diederik de Haas <didi.debian@cknow.org>
+> Closes: https://lore.kernel.org/linux-rockchip/DAEVDSTMWI1E.J454VZN0R9MA@=
+cknow.org/
+> Suggested-by: Andy Yan <andy.yan@rock-chips.com>
+> Signed-off-by: Piotr Zalewski <pZ010001011111@proton.me>
 
-Is your PHY losing power over suspend/resume?
+With a new version of a patch, you're supposed to add the tags you
+received for previous versions, like my Tested-by tag [1].
 
-Maybe phylink_prepare_resume() needs to call phy_init_hw() as well,
-like mdio_bus_phy_resume() does?
+(unless the new version has changed so much you feel they should not be
+carried over; you then need to explicitly describe that and why you
+dropped them)
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Cheers,
+  Diederik
+
+[1] https://lore.kernel.org/linux-rockchip/DAZ4BALHEJ9M.10FO1U9IYP4WA@cknow=
+.org/
+
+> ---
+>
+> Notes:
+>     Changes in v2:
+>         - add spaces before and after '+'
+>    =20
+>     Link to v1: https://lore.kernel.org/linux-rockchip/20250628180914.117=
+7177-2-pZ010001011111@proton.me/
+>
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/d=
+rm/rockchip/rockchip_drm_vop2.c
+> index d0f5fea15e21..0931cb636493 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> @@ -2589,12 +2589,13 @@ static int vop2_win_init(struct vop2 *vop2)
+>  }
+> =20
+>  /*
+> - * The window registers are only updated when config done is written.
+> - * Until that they read back the old value. As we read-modify-write
+> - * these registers mark them as non-volatile. This makes sure we read
+> - * the new values from the regmap register cache.
+> + * The window and video port registers are only updated when config
+> + * done is written. Until that they read back the old value. As we
+> + * read-modify-write these registers mark them as non-volatile. This
+> + * makes sure we read the new values from the regmap register cache.
+>   */
+>  static const struct regmap_range vop2_nonvolatile_range[] =3D {
+> +	regmap_reg_range(RK3568_VP0_CTRL_BASE, RK3588_VP3_CTRL_BASE + 255),
+>  	regmap_reg_range(0x1000, 0x23ff),
+>  };
+> =20
+
+
+--48696b13996c954d2523b795f4ed39a48c4c5615ae4bc44190dfce43a0dc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaGpK3wAKCRDXblvOeH7b
+bsgGAQDKhtYMoJQQ6FyMfHefj094BK4k7kSFaqb99MqJAY/8fwD/adNayRiFMkDa
+f4C/qQzbsts/+9/ZEZYYu/MNmFatvQU=
+=/7Mh
+-----END PGP SIGNATURE-----
+
+--48696b13996c954d2523b795f4ed39a48c4c5615ae4bc44190dfce43a0dc--
 
