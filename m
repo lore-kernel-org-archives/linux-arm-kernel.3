@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E60C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 19:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C398C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 19:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A+rNZKyzd+TJoDd+vorp/tU828hMvkaBKKfTQBm4oOI=; b=UmC4MNBMWrS3Hp3/8WhknFl4eT
-	gu2dMppPr72eBJFrbDE+rxFi9i2sxyPwvt4WTdSQPo8T+NU6bIJkbU9HdgRBucfEZmm0iDoSUSVu0
-	QXKQ7TKC56RjX0CddxEBUX4yBJ5k+18A3mgcm2BIJxVRIRZS+FSs1MVOEAnajlLj6+49h+mBFZCXJ
-	K2qgc+L8G8DRDisPtLnfvObAmzMmb/0QfxIMXkwqygqiTq/Ki3RPfMRnFnA3iKhywWoqg29FhEQC8
-	Da2K3DIba/8rZv7VG7Idh9mhNwZ5cdrwB4/b1DrbYCRGYfS99y3aYjGbeJb53blzx12H9FRK8uRPB
-	ny57OFAA==;
+	bh=Ca8v0Hcf89DJp+Ovpoe0dX5f0Bo3oNOY/YMRd3qHJyA=; b=earjd51tnPG81d0gr0wO4Ch22R
+	ciJtciAygwDOf2ChFhLpEHktuf0ZZ9IJXpn0ARP+03Fz4ku3qEV50JSKB4FA3SF2jw/SpgxF5yDzi
+	gbuMTf4mcn2OAux7whUnclXfh94p2NOjFfU3TCEscT8MIsCWBzw5jNpnwp5dSeLZmPN5mLrIAxpoK
+	jcXtyGh3b8ZZENe/qmoY+x87NpXxHrJEO9UNd+kkWlVDSqmn9ZAaHgEyxOhevGmrGj1J33MbGGDco
+	0J1BzXCP0jplc6IDQ8bSqshu9J5SRRjwa0+GmZzhiW26qA4RtYXVTz/nGM8LecLvLC94iSfd8VxLD
+	feZaWdlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYV8z-00000000jhb-0slT;
-	Sun, 06 Jul 2025 19:35:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uYVBH-00000000jqi-3fNr;
+	Sun, 06 Jul 2025 19:37:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYUON-00000000fFr-1beb
+	id 1uYUON-00000000fFu-33CD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 18:47:13 +0000
+	Sun, 06 Jul 2025 18:47:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF8FD45E91;
+	by nyc.source.kernel.org (Postfix) with ESMTP id B6C20A53D90;
 	Sun,  6 Jul 2025 18:47:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 28DC9C4AF11;
-	Sun,  6 Jul 2025 18:47:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EE454C4CEF4;
+	Sun,  6 Jul 2025 18:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1751827630;
-	bh=r8OPi+V5RSDBOd4VSGf3X7RVxzB62bXpNusFQZ+zrDM=;
+	bh=GxyZ76W6YsSH+nEuKRIDiaUia7mvng8ubzru+ZlvBhM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=eE2l42chQKFkR6nzaI8333RpO7Utts6Ldi7Of3JbRr8kl+pybS/o5+S7VtiGx2T3t
-	 qnJRjwPuq6CXDaLmeO2zJWNQ541Kh3/vdhwIEKFoqyqTZpGRyE8VNPM5K5xoKJxQsk
-	 mq3sAHvRLB5MI1NCCx132eemGjtmcsEODzDJuv56QhFelA7XaUvYqfVv+Gk56z5+oy
-	 7tGRVbQTBNjShsP/glbjov+LZI0t0TC+8AGzr1pObWvsJepONYLh+cBvkZyQC5dLK3
-	 fgADjEu/jHuZft7UB072pFZ51bgDfvKnBV5craMrwq8prK+zLud1kaNdr25g+mPYuK
-	 Tvd+mvVRqaTzg==
+	b=ObYzMobiVGq4GzSc6MzgkZiGl4N+eRaW5XMAxGmYQAAH+elZr7/+hwVjg8+63/1F/
+	 h8RtIldsBhmHTcQvtuF4qA38mvppC7REBjXMFY8JHizkGPiZM7AVS8e3zSc921BFn1
+	 TpZVEImXo9k4h7WqVMz3z7lDvDZ8CWNuA8AJIuP22YzQcTuKc24vnBABGc60Cqxidd
+	 pfTSD8BshCj3WlDJ28V0WVteCGLJs+m7jdkiEaOV2Q4tFefOeEfaE8oZde6xLDfOfY
+	 KW6EZq9XTOZkJAOW5PBQ3p1kvD2laEKKBJZVMlnynp9dOjLkwPDxU/5D56rJT5LlhB
+	 nhmNRK5BAIGLw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1FF28C83F10;
-	Sun,  6 Jul 2025 18:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E2816C83F0F;
+	Sun,  6 Jul 2025 18:47:09 +0000 (UTC)
 From: Frank Li via B4 Relay <devnull+Frank.Li.nxp.com@kernel.org>
-Date: Sun, 06 Jul 2025 14:47:04 -0400
-Subject: [PATCH 08/11] ARM: dts: lpc: change node name 'button[0-9]' to
- button-[0-9]'
+Date: Sun, 06 Jul 2025 14:47:00 -0400
+Subject: [PATCH 04/11] ARM: dts: lpc18xx: swap clock-names bic and cui
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250706-lpc18xxx_dts-v1-8-7ae8cdfe8d7d@nxp.com>
+Message-Id: <20250706-lpc18xxx_dts-v1-4-7ae8cdfe8d7d@nxp.com>
 References: <20250706-lpc18xxx_dts-v1-0-7ae8cdfe8d7d@nxp.com>
 In-Reply-To: <20250706-lpc18xxx_dts-v1-0-7ae8cdfe8d7d@nxp.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,20 +60,19 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, imx@lists.linux.dev, vz@mleia.com, 
  Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751827628; l=3156;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751827628; l=1266;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=O0CmtFMiA/5+GFcpd4plsq9QzGUKBGisD91DfDl49E8=;
- b=MpIN6S64nW8nXpZdaC2MRTHAIxiu0ClgbIRwnjCtlNHbaKWtdyPPIQZtmPeGxj/aG/u5F0Etg
- vn4Iu0iyIxvDZly3zAZsrvgAshrigE6bOxrghsweoUiAe8/IFO+vxWH
+ bh=UCsVuTJJb65oR4iDCkRHol36phtuS4BFYwUlRuaLl5E=;
+ b=8tTDLVmaoeE+iXXsG2lnWevRaVivwYKePo3fWG6ADYnm7xCFTZ/mI/z+/WPC0lF9Qwv64tDDu
+ 3B2UYDsW8G6CMaArGFZdDqIT9Kmjv41kJrt6LOo2ZrJAF8GqPhoRR0g
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-Endpoint-Received: by B4 Relay for Frank.Li@nxp.com/20240130 with
  auth_id=121
 X-Original-From: Frank Li <Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_114711_487563_4ACCB01B 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250706_114711_845542_D96FD35D 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,120 +90,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Li <Frank.Li@nxp.com>
 
-Change node name 'button[0-9]' to button-[0-9]' to fix below CHECK_DTB
-warning:
- arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dtb: pca_buttons (gpio-keys-polled): 'button0', ... do not match any of the regexes: '^(button|...', 'pinctrl-[0-9]+'
+Swap clock-names bic and cui to fix below CHECK_DTB warnings:
+
+/home/lizhi/source/linux-upstream-pci/arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dtb: mmc@40004000 (snps,dw-mshc): clock-names:0: 'biu' was expected
+	from schema $id: http://devicetree.org/schemas/mmc/synopsys-dw-mshc.yaml#
+/home/lizhi/source/linux-upstream-pci/arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dtb: mmc@40004000 (snps,dw-mshc): clock-names:1: 'ciu' was expected
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts    | 16 ++++++++--------
- arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts | 10 +++++-----
- 2 files changed, 13 insertions(+), 13 deletions(-)
+ arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts b/arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts
-index 9d36283efe0f6ea26efedae9f7246c04f00cbdb7..18f757c569057f6e1bac6ab9d78bf936c7cad0c3 100644
---- a/arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts
-+++ b/arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts
-@@ -43,50 +43,50 @@ pca_buttons {
- 		poll-interval = <100>;
- 		autorepeat;
- 
--		button0 {
-+		button-0 {
- 			label = "joy:right";
- 			linux,code = <KEY_RIGHT>;
- 			gpios = <&pca_gpio 8 GPIO_ACTIVE_LOW>;
+diff --git a/arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi
+index 80da477bae3d9dc45f0dcdedc275ac2ff09032bf..0be2486f07173c47bdc9d298a11ac9347f81cf02 100644
+--- a/arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi
++++ b/arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi
+@@ -115,8 +115,8 @@ mmcsd: mmc@40004000 {
+ 			compatible = "snps,dw-mshc";
+ 			reg = <0x40004000 0x1000>;
+ 			interrupts = <6>;
+-			clocks = <&ccu2 CLK_SDIO>, <&ccu1 CLK_CPU_SDIO>;
+-			clock-names = "ciu", "biu";
++			clocks = <&ccu1 CLK_CPU_SDIO>, <&ccu2 CLK_SDIO>;
++			clock-names = "biu", "ciu";
+ 			resets = <&rgu 20>;
+ 			status = "disabled";
  		};
- 
--		button1 {
-+		button-1 {
- 			label = "joy:up";
- 			linux,code = <KEY_UP>;
- 			gpios = <&pca_gpio 9 GPIO_ACTIVE_LOW>;
- 		};
- 
- 
--		button2 {
-+		button-2 {
- 			label = "joy:enter";
- 			linux,code = <KEY_ENTER>;
- 			gpios = <&pca_gpio 10 GPIO_ACTIVE_LOW>;
- 		};
- 
--		button3 {
-+		button-3 {
- 			label = "joy:left";
- 			linux,code = <KEY_LEFT>;
- 			gpios = <&pca_gpio 11 GPIO_ACTIVE_LOW>;
- 		};
- 
--		button4 {
-+		button-4 {
- 			label = "joy:down";
- 			linux,code = <KEY_DOWN>;
- 			gpios = <&pca_gpio 12 GPIO_ACTIVE_LOW>;
- 		};
- 
--		button5 {
-+		button-5 {
- 			label = "user:sw3";
- 			linux,code = <KEY_F1>;
- 			gpios = <&pca_gpio 13 GPIO_ACTIVE_LOW>;
- 		};
- 
--		button6 {
-+		button-6 {
- 			label = "user:sw4";
- 			linux,code = <KEY_F2>;
- 			gpios = <&pca_gpio 14 GPIO_ACTIVE_LOW>;
- 		};
- 
--		button7 {
-+		button-7 {
- 			label = "user:sw5";
- 			linux,code = <KEY_F3>;
- 			gpios = <&pca_gpio 15 GPIO_ACTIVE_LOW>;
-diff --git a/arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts b/arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts
-index 9dc8c3cc2211001f30a5a15c3a04a240e4acd86b..7ccb4c2ca57102ac2d31c21c72a45bd3d72f2d86 100644
---- a/arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts
-+++ b/arch/arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts
-@@ -60,31 +60,31 @@ gpio_joystick {
- 		poll-interval = <100>;
- 		autorepeat;
- 
--		button0 {
-+		button-0 {
- 			label = "joy_enter";
- 			linux,code = <KEY_ENTER>;
- 			gpios = <&gpio LPC_GPIO(4,8) GPIO_ACTIVE_LOW>;
- 		};
- 
--		button1 {
-+		button-1 {
- 			label = "joy_left";
- 			linux,code = <KEY_LEFT>;
- 			gpios = <&gpio LPC_GPIO(4,9) GPIO_ACTIVE_LOW>;
- 		};
- 
--		button2 {
-+		button-2 {
- 			label = "joy_up";
- 			linux,code = <KEY_UP>;
- 			gpios = <&gpio LPC_GPIO(4,10) GPIO_ACTIVE_LOW>;
- 		};
- 
--		button3 {
-+		button-3 {
- 			label = "joy_right";
- 			linux,code = <KEY_RIGHT>;
- 			gpios = <&gpio LPC_GPIO(4,12) GPIO_ACTIVE_LOW>;
- 		};
- 
--		button4 {
-+		button-4 {
- 			label = "joy_down";
- 			linux,code = <KEY_DOWN>;
- 			gpios = <&gpio LPC_GPIO(4,13) GPIO_ACTIVE_LOW>;
 
 -- 
 2.34.1
