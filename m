@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF17CC83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 23:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B76C83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 23:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OkhH9IbTR9ruQ0dR5dB94E4BV7dQSG/wEWPibMZafbA=; b=oboU+lGpqn1eO5ynsLDDSjdg1Y
-	1Mg5Mxp/gbsiR8OUv/OxCvon5L3iX8LBs2b53CnHBn6kcpKrPD4z71CV+NJKcRLVobIqNJtANH43X
-	/Pge+/a2I03Li7rrfCxL4Q7UkoRG9kS9r51pY0AVwouEsJNlE7iXpPBQZB4Xiezwopc+XLYtgeik8
-	wgnoxB0eCq3vZ9Nw6VrXqRVeyiPk5yHIA2K1rOPPI1XQh1p0I4Wl0mhby+FVWTaA2o9o3eED8CO/z
-	oBjPvhPIr1Z1rjrBKacLF2CNFnPoN2+uj22OuXTcm9tuqqtlFq+8CXecaIhyXDbXvh1h4JTCh7Pqm
-	rs/EYEPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x+m7B0diOiXhfs636fv/zQA7WEVjYquVXLLYKJKTbjE=; b=eRK9580gYQ0r+U1gs3BhBzYOdV
+	aZl0YMYaawpcOwAKJvHdYVXf+htAvNYca3nKbxkXRN/9BRyjOx91eyhpo5oaKuFPprKRv/y0iW48s
+	tRPs1lyyJu5G9YrpaHRrXpiL05OVbxzyonymUTvaTRJU7jojHr5XUbSNt9fE8dzIjaXgHiSFWpp1S
+	I55c7luyBO+q3DoSFtFYW/sb+sVOIOMdqdBGigvLAU9WAyICDxjriwULm2Rg0mXq4pjQ27f3VlF6F
+	inwZQQZ3M1ciQA+BYjB4+PvVbdPdPl23L6Bm+l+QUK3WTC82re0s2xkDn5enGmOdfoXVqmyRnGhtB
+	srm1BgoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYZ5H-00000000yZl-3Nh0;
-	Sun, 06 Jul 2025 23:47:47 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uYZBk-00000000z9b-0WIr;
+	Sun, 06 Jul 2025 23:54:28 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYYyD-00000000y3B-1XIW
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 23:40:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751845223; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fe4Wq1KSc3C9rtv0WoUmiWpsTCwvWig8dHjgLavQ2lB58K3Jk/pGTpd3b4x1Wdg2MGB2tYGQD9lHgvYLNcQKHPEkdiaBz7IqrBvbeyCMJOJnz3TlQJX+M4uh6DhjxR3mHQ583IjWMEqX68Ii9TRpxDfMOJBGiJpwy39LCnafvXA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751845223; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=OkhH9IbTR9ruQ0dR5dB94E4BV7dQSG/wEWPibMZafbA=; 
-	b=U4TOnkhCu3os+mMAxmmjAEeK6lJQC7+ZvnvuihSKwPB71oFzLcLdeQuZ2wdNvgJdY9hVTPBPnseRZjVfE24h0Zi7daoRFmoNvLAFoPBwIo3GJEdPdkxQ67on+lwpfikYBUhk3COGtZaR9+VU6gOx53kNMBcdHlVFdJ8Fvo3vp0c=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751845223;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=OkhH9IbTR9ruQ0dR5dB94E4BV7dQSG/wEWPibMZafbA=;
-	b=PHP6uUKU7p+zdqQcQCUB7B3GzsHJfLj3AA0qA9RAG76Jtn0j7m8wN5uSEMumn+KM
-	TaLnYdeNZRJlKnRcqKdg+3L/1z6U3Qb425zKwq1wX8EnHSuFP+YJaAXScr3Q9nValRm
-	KKe191Xbi5imrkWtAZMjMv3/QyFTOJis7OM5pFUs=
-Received: by mx.zohomail.com with SMTPS id 175184522081850.59797125193427;
-	Sun, 6 Jul 2025 16:40:20 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 00041180F14; Mon, 07 Jul 2025 01:40:15 +0200 (CEST)
-Date: Mon, 7 Jul 2025 01:40:15 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Pavel Machek <pavel@ucw.cz>
-Cc: t.antoine@uclouvain.be, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Dimitri Fedrau <dima.fedrau@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v4 2/5] power: supply: add support for max77759 fuel gauge
-Message-ID: <zc7kbscxpwjkqypichbroxpthnrajjn55gttapmugscloccqdz@y336iasbb3w5>
-References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
- <20250523-b4-gs101_max77759_fg-v4-2-b49904e35a34@uclouvain.be>
- <4cahu6dog7ly4ww6xyjmjigjfxs4m55mrnym2bjmzskscfvk34@guazy6wxbzfh>
- <aGbkLIFkMlihbJUt@duo.ucw.cz>
+	id 1uYZ9Q-00000000yuy-0GQS;
+	Sun, 06 Jul 2025 23:52:05 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e733e25bfc7so2091172276.3;
+        Sun, 06 Jul 2025 16:52:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751845923; x=1752450723; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=x+m7B0diOiXhfs636fv/zQA7WEVjYquVXLLYKJKTbjE=;
+        b=eerg0Jz2qj5qGEdhwR09DMfBprltYK1k2RQikhDQ0b3DzXvtMNx/n/depJwYIe7xee
+         KQIrhhILjSX0wrwsW87hFFJOMUF8E05l1rvKz8VzYC0Kr7WiRjKJJ2DKbRbH06KAzmCX
+         B9Jsg/9JO5w0AkpPQwfmBb1RfTbJ6Bb/Hj8RHRx2s/gaXso3/XEkA7tcjrNMHUPRCjmd
+         h9TS2NT6VpIkmuVX85SZRBHKvsvb9QvFVXyNFgrkT5/HBWHifhd1D40rlDLy+bDzvEV+
+         0jontKDo4Nd4QMCBYdDuX7/vmIWy0lezpYxypHreK0YfYZGQGnjFxzXDeiaEbUtncpGz
+         1HHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751845923; x=1752450723;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=x+m7B0diOiXhfs636fv/zQA7WEVjYquVXLLYKJKTbjE=;
+        b=wMvTH9rfwD9rxXTT05iziLyjcIrH1QJaV5odYTm6AzBO8OKL4nP+0gYn5DIOfoz/+Q
+         9OppniaXarpj7plWhcrG8Iyt5hh5SPoxv3IeX2iGwZ5CB4KORuG1LKhXjTtVdHvdEPAX
+         GY4AgwiP5paEAbV7wElF/IFzKaRBuhHnoarczX4u0aZky/Bzhjg1wnIlAp6M6saXc3h5
+         ynguf45Zy03PSG4ZEAsZ0zTIXQaud4VrcRoeMO+h2VSacPaH6GxD9wP21OcjDP0jfcXk
+         os4ebqtX/qDUV9Q/aaXTl7+QZ/kFszBs9lQZCO4CYFNSC2IPipZQ8OtHaWy5SC/0Oycr
+         MjeA==
+X-Forwarded-Encrypted: i=1; AJvYcCUTGSknsUiN/bFUWnwq3SXCOUtVsBP0qQxmfR4YL2gO7IS6ccBfdNqCcVh19xSKzvKBViWWIimoZVZQQIK0Vu4=@lists.infradead.org, AJvYcCXdFsn9MPOi0ZNecdXUkcRarxZWnbgW6Vkf2KdNwwMao9sD68jh2a7nY5qzufQpc+O29gPOJWx0AjLLTHJ6GnhJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLULPfIg9q2i9PlYFBXFP3r6WE4wr6HUU6/ZGZtSgPvlcCsg1X
+	S6uS7tuuf2g2m0n5iiqVQdHq9hs0kFQhl4/MdAt6nkI6BgURc7ExrDRPA4ar1DIWPROslVhORMU
+	jCIYlQU57dxabK0GFMJM0s70NCqIj6vU=
+X-Gm-Gg: ASbGncvzzR+Q8UxcKx+MMTcD+RKcqnkQDF2j7rynEoU09WjP21veDYza+xUjyb7jGL0
+	j9Zp/ygFCOtfQsZ7fqnPNE/nEvh/R+cOCO9x0d1Odbo6vmlJBSsbxshTEjrPzbqImhMDr3/AL7c
+	E7pp+FTc8N3p7oFOa6poj12ASHUsD25DIKayejD7HCZfaYjfTkBcGs8iXE
+X-Google-Smtp-Source: AGHT+IGu33ZcXT4Q2qak/JrpD+2hFPhuRT5IYYS4i7palcZ3fTaJxZJQdYShxp5sOWjY0V7f4eKKvGCM6HpyE/MpNsc=
+X-Received: by 2002:a05:690c:61c6:b0:70e:6333:64ac with SMTP id
+ 00721157ae682-71668d1e097mr151850977b3.10.1751845922931; Sun, 06 Jul 2025
+ 16:52:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="c4dm6iyzznajhm27"
-Content-Disposition: inline
-In-Reply-To: <aGbkLIFkMlihbJUt@duo.ucw.cz>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/251.827.75
-X-ZohoMailClient: External
+References: <20250706214111.45687-1-rosenp@gmail.com> <20250706214111.45687-6-rosenp@gmail.com>
+ <175184098772.672740.2328928098872646704.robh@kernel.org>
+In-Reply-To: <175184098772.672740.2328928098872646704.robh@kernel.org>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Sun, 6 Jul 2025 16:51:52 -0700
+X-Gm-Features: Ac12FXyEdEOs68iBa0GWZ6aV7SXltB6qi7ZK7vbmauFADvR3IvntzZnjx5C06UQ
+Message-ID: <CAKxU2N-912DUV6_zSxVOeegR03U39WzHo37oN1EO0rH++a_QEg@mail.gmail.com>
+Subject: Re: [PATCH 5/6] dt-bindings: net: wireless: rt2800: add
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-mips@vger.kernel.org, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	ansuelsmth@gmail.com, Conor Dooley <conor+dt@kernel.org>, 
+	Stanislaw Gruszka <stf_xl@wp.pl>, linux-mediatek@lists.infradead.org, 
+	Johannes Berg <johannes@sipsolutions.net>, linux-wireless@vger.kernel.org, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, yangshiji66@qq.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_164029_472432_1BE14F46 
-X-CRM114-Status: GOOD (  30.17  )
+X-CRM114-CacheID: sfid-20250706_165204_107214_82B1F7EF 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,99 +100,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---c4dm6iyzznajhm27
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 2/5] power: supply: add support for max77759 fuel gauge
-MIME-Version: 1.0
-
-Hi,
-
-On Thu, Jul 03, 2025 at 10:12:28PM +0200, Pavel Machek wrote:
-> > > Other differences include the lack of V_BATT register to read the bat=
-tery
-> > > level. The voltage must instead be read from V_CELL, the lowest volta=
-ge of
-> > > all cells. The mask to identify the chip is different. The computatio=
-n of
-> > > the charge must also be changed to take into account TASKPERIOD, which
-> > > can add a factor 2 to the result.
-> > >=20
-> > > Add support for the MAX77759 by taking into account all of those
-> > > differences based on chip type.
-> > >=20
-> > > Do not advertise temp probes using the non-volatile memory as those a=
-re
-> > > not available.
-> > >=20
-> > > The regmap was proposed by Andr=E9 Draszik in
-> > >=20
-> > > Link: https://lore.kernel.org/all/d1bade77b5281c1de6b2ddcb4dbbd033e45=
-5a116.camel@linaro.org/
-> > >=20
-> > > Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
-> > > ---
-> > >  drivers/power/supply/max1720x_battery.c | 265 ++++++++++++++++++++++=
-++++++----
-> > >  1 file changed, 238 insertions(+), 27 deletions(-)
-> > >=20
-> > > diff --git a/drivers/power/supply/max1720x_battery.c b/drivers/power/=
-supply/max1720x_battery.c
-> > > index 68b5314ecf3a234f906ec8fe400e586855b69cd9..c9ad452ada9d0a2a51f37=
-d04fd8c3260be522405 100644
-> > > --- a/drivers/power/supply/max1720x_battery.c
-> > > +++ b/drivers/power/supply/max1720x_battery.c
-> > > @@ -37,6 +37,7 @@
-> > >  #define MAX172XX_REPCAP			0x05	/* Average capacity */
-> > >  #define MAX172XX_REPSOC			0x06	/* Percentage of charge */
-> > >  #define MAX172XX_TEMP			0x08	/* Temperature */
-> > > +#define MAX172XX_VCELL			0x09	/* Lowest cell voltage */
-> > [...]
-> > >  	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
-> > [...]
-> > > +			ret =3D regmap_read(info->regmap, MAX172XX_VCELL, &reg_val);
-> > > +			val->intval =3D max172xx_cell_voltage_to_ps(reg_val);
-> >=20
-> > I haven't reviewed this fully due to all the feedback you already
-> > got from Peter Griffin and the DT binding being broken, but something
-> > that catched my eye:
-> >=20
-> > POWER_SUPPLY_PROP_VOLTAGE_NOW provides the voltage of the whole
-> > battery and not of a single cell. E.g. a typical Li-Ion battery
-> > with two serial cells has a nominal voltage of roughly 7.4V while
-> > each cell has just 3.7V.
->=20
-> Phones normally only have one cell...
-
-=2E.. and chips often support more and are used in all kind of devices.
-
-(Btw. some new high-end phones start to have 1S2P configuration)
-
-Greetings,
-
--- Sebastian
-
---c4dm6iyzznajhm27
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmhrCV8ACgkQ2O7X88g7
-+ppJvRAAg7PAPwbCzrNitsQskPCm2wR7E5zX11wF6cw97Vs4cjsW1RVbWRpf+Chy
-QCEESLFfi2EVnFxE9I+Zrk0xhJ1MWiK84gHCpDMjXgiAM3xh49fzBS/l3GQd86G+
-Ss0kwxK3li/15hwltW2fqwMLtB43HEz+nfxy2E5QzxRodKm2PZFzWAI97/0h0Ygc
-ldoEPNJ2N2CKjPTF6Wx9Qt2CWHpF0QynX3uHiT4woBEH3a08jh3KX6JDFMeJ8jsN
-YX8dAT/IvoQ787Lwp6NBKgin+miTEk1eaxNI/0XLcTL/mjuuYY3mBWiv/9rW/NrN
-mFzQABShn0ZPV55EwwOyhwWkpqowoyzhEFe8vvBUAcYjPDAKWd4d0bFEBNJnyQWh
-gAukMdZkH3rCgoonf5q6qpsq50dXirTF1Pn5dxaleW6tnW0WHveH/sTlcsO9jNg7
-zqD3+hS8XrjTR1inZZeNk/Zpfdb8coDbUupU2UGlaAuoXPG8qV/f4+z5QgZUrGr9
-A7OjyPCvqvyRuQrRaQ++pIaHfoiMv0qInRkUO/4la7ypqG2fzROzTFmkwcqLPdLJ
-rM5AgkEY7hUsX52BhIUlxJYoCksa/Wm19Jy+K+vJg75kLvzyC74ANEZXfKz0/Oqi
-r7LhPJC+v8SsKRfgapLbq9Q/XrS9tsJa3JM1PqobO86gfgXbDIo=
-=e+oy
------END PGP SIGNATURE-----
-
---c4dm6iyzznajhm27--
+On Sun, Jul 6, 2025 at 3:29=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org> =
+wrote:
+>
+>
+> On Sun, 06 Jul 2025 14:41:10 -0700, Rosen Penev wrote:
+> > Add device-tree bindings for the RT2800 SOC wifi device found in older
+> > Ralink/Mediatek devices.
+> >
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > ---
+> >  .../bindings/net/wireless/ralink,rt2800.yaml  | 49 +++++++++++++++++++
+> >  1 file changed, 49 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/net/wireless/rali=
+nk,rt2800.yaml
+> >
+>
+> My bot found errors running 'make dt_binding_check' on your patch:
+>
+> yamllint warnings/errors:
+> ./Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml:43:5:=
+ [warning] wrong indentation: expected 2 but found 4 (indentation)
+>
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/n=
+et/wireless/ralink,rt2800.yaml: ignoring, error in schema: examples
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/n=
+et/wireless/ralink,rt2800.yaml: examples: 'wifi@110180000 { compatible =3D =
+"ralink,rt2880-wifi"; reg =3D <0x10180000 0x40000>; clocks =3D <&sysc 16>; =
+interrupt-parent =3D <&cpuintc>; interrupts =3D <6>; };' is not of type 'ar=
+ray'
+>         from schema $id: http://json-schema.org/draft-07/schema#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/n=
+et/wireless/ralink,rt2800.yaml: examples: 'wifi@110180000 { compatible =3D =
+"ralink,rt2880-wifi"; reg =3D <0x10180000 0x40000>; clocks =3D <&sysc 16>; =
+interrupt-parent =3D <&cpuintc>; interrupts =3D <6>; };' is not of type 'ar=
+ray'
+>         from schema $id: http://devicetree.org/meta-schemas/base.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/n=
+et/wireless/ralink,rt2800.yaml: properties:interrupt-parent: False schema d=
+oes not allow {'maxItems': 1}
+>         from schema $id: http://devicetree.org/meta-schemas/interrupts.ya=
+ml#
+> Error: Documentation/devicetree/bindings/net/wireless/ralink,rt2800.examp=
+le.dts:19.5-6 syntax error
+> FATAL ERROR: Unable to parse input tree
+> make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/binding=
+s/net/wireless/ralink,rt2800.example.dtb] Error 1
+> make[2]: *** Waiting for unfinished jobs....
+> make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1525: dt_bin=
+ding_check] Error 2
+> make: *** [Makefile:248: __sub-make] Error 2
+forgot to run dt_binding_check. Will fix in v2.
+>
+> doc reference errors (make refcheckdocs):
+>
+> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/202507=
+06214111.45687-6-rosenp@gmail.com
+>
+> The base for the series is generally the latest rc1. A different dependen=
+cy
+> should be noted in *this* patch.
+>
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+>
+> pip3 install dtschema --upgrade
+>
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your sch=
+ema.
+>
 
