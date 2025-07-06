@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04281C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 10:40:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A1AC83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 10:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PnW12e1DZsxOkvydzK2HotnR5pZwii2x2f3jZwicm8A=; b=OZAEekRP6pfWHLdqg9Tynie9Yk
-	48P1vb2IBMuxPEhIi24XhngReL9tfBxBRhHyz5rWsTjMEUCtR8YSjyXVO5XLwm/9RWRouL1w6rnHk
-	fLdB/3EAmMSLzCR75p4AEdKRctAuXPMPatXkmoqcv8P4HQqe33YXjmEcx6kSF3pk+2WLlqUDnOGe7
-	AVd1ELyaF0iEpypFRwok41H4fUYytgukI1tm4nx24J/9sW+DhXhzO3jZEAOZ/XLnCMCz7dy1qACwO
-	O8X1viqqKNmEdmoUR+SLsL6xF0p3q6YHyGt/tNyshFRnfy44ZBf9xFLfI538pZ4fhFlOxDSwswsj8
-	ebSGGveg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9oWZzpuBiMoMhIqwMikeRHFqBVSF2gRgoQP9QiFP2Kc=; b=NvHVuatrL9xvhOVLumS0qtqW7V
+	M/DJZKzEow2LHIH71jE++OMpEpZ2LPVtnPNWJTgwMwNYJOWeYjmHWnhGfaJpSTajP1vyNZnUv2syI
+	Mpxm8NyPmVcODfsKKLoBHwJMW1koSxU0QYvT4mJ7c3ckpJnMshbJrO0N0MqTIPcr//ADN2ut/t0ro
+	n9LXWoIBD6fjIkwziFDARJvEgfLeO5N0olZKEwDXf4nPMUsh0c2wFt04aHzdHz0MTmu2d/fqqm6D/
+	iWgcPIY8QS9k9RAe8ybclpShxUXfwvHHcQYrgWubOnjFaSSP611e04ULOw4yk3QQXIbRvlS+E72xp
+	U63aQ67g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYMnO-000000008rP-2EI2;
-	Sun, 06 Jul 2025 10:40:30 +0000
-Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
+	id 1uYMu7-000000009DO-2Tp1;
+	Sun, 06 Jul 2025 10:47:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYMl4-000000008ib-2ytn
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 10:38:07 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1751798274;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PnW12e1DZsxOkvydzK2HotnR5pZwii2x2f3jZwicm8A=;
-	b=Vt8GoLraIM5ywXcd7lswFjjkdTl92SP2XM4E6PxZMkUlHGLM6t1FT4FOkuMuoh0kx6Cpjq
-	IOKS4t7aid/kF7tRlc1rhEfKJA+RmyQTquc6oDfnpmwnEZbrovIQtLyCBiBZ0OKbMzpj4J
-	4C29m+1CZYiMhrSGscHQX4ZTCqiTnW/5WVoD0GziwaeULxO8at3Hhe3bV4yJq+ktJkfGgs
-	hMDF8/YL6f1P2mseJshq8AszjutKxCJ0KfX0JUhsc1tu9v4IGmqHIZpT0Qgq1qtCm9DiAM
-	KXkg8Z0Tku/37sJIDh34vkQKOEhsQ5o8vFUki7JmQtB2/yyvanUucpTodjrAzw==
-Content-Type: multipart/signed;
- boundary=aa40d9dc28db920960fba5ac249def83a08213f8b1a374e4a5946d696ea9;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Sun, 06 Jul 2025 12:37:40 +0200
-Message-Id: <DB4WNMVBIWYS.273Z54K6O7DTM@cknow.org>
-To: "Piotr Zalewski" <pZ010001011111@proton.me>
-Cc: <hjc@rock-chips.com>, <heiko@sntech.de>, <andy.yan@rock-chips.com>,
- <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
- <tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
- <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] rockchip/drm: vop2: make vp registers nonvolatile
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-References: <20250706083629.140332-2-pZ010001011111@proton.me>
- <DB4W0GOQZ8MZ.MA7QXHJWCTK2@cknow.org>
- <OWFHI491RHadO01jlQPA34GX28LC7SseKfNRwqQy4etkkJyP1YeF_0EDdAgpSXx5RW7go62EAOkedW5nbyn_hlz_K-NUrnNJeDFWv0OOSO8=@proton.me>
-In-Reply-To: <OWFHI491RHadO01jlQPA34GX28LC7SseKfNRwqQy4etkkJyP1YeF_0EDdAgpSXx5RW7go62EAOkedW5nbyn_hlz_K-NUrnNJeDFWv0OOSO8=@proton.me>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_033806_883396_04835985 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+	id 1uYMrp-00000000949-2H2R;
+	Sun, 06 Jul 2025 10:45:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B8B9960007;
+	Sun,  6 Jul 2025 10:45:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1983CC4CEED;
+	Sun,  6 Jul 2025 10:44:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751798703;
+	bh=relSNinZmZOhsw3SUrIKIcecYWDMki2gp5tmi3W3ukw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ZD6sbyevNQWtttBPqjhEmI+oJWV/FQ7TsYfcJppRl85pe0PAb7wpjQkzoBBol/Zvl
+	 3msv5fbaGw+TraDwcmPtAhuDsv/lL++0tL2w8laWmOwCYQHAxm9RQ1QEqK581SECz7
+	 Vh+1rGdqqbtO/f/WPMc7vfZHzXjVeEXP1JACBt7HGNrxQJow15n/63pj9w4QbxPkyI
+	 Np06V1hjKl7MPqukKPMIczLAv5NcCu8ZCUHt/1ChaEGo/fQN008wV5tJsz807jaeQG
+	 xN46KtMLN0WBFd70DLbE72QW0bYk/uuOArm6U7LzrDrbOagPT37HemtrIrUKiv5VL+
+	 3V1G5ZnZT4gRQ==
+Date: Sun, 6 Jul 2025 11:44:55 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Nuno =?UTF-8?B?U8Oh?= <noname.nuno@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+Subject: Re: [PATCH v2 0/6] iio: Add support for MT6363/6373 Auxiliary ADC
+Message-ID: <20250706114455.26748e20@jic23-huawei>
+In-Reply-To: <ab0a407412c705e409d9d26591543713a092c13f.camel@gmail.com>
+References: <20250703141146.171431-1-angelogioacchino.delregno@collabora.com>
+	<ab0a407412c705e409d9d26591543713a092c13f.camel@gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,38 +74,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---aa40d9dc28db920960fba5ac249def83a08213f8b1a374e4a5946d696ea9
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Fri, 04 Jul 2025 13:39:56 +0100
+Nuno S=C3=A1 <noname.nuno@gmail.com> wrote:
 
-Hi Piotr,
+> On Thu, 2025-07-03 at 16:11 +0200, AngeloGioacchino Del Regno wrote:
+> > Changes in v2:
+> > =C2=A0- Added error checks to all regmap r/w operations
+> > =C2=A0- Moved adc_vref addition to different commit
+> > =C2=A0- Various other fixes
+> >=20
+> > This series adds support for the Auxiliary ADC IP found on the new
+> > MediaTek MT6363 and MT6373 PMICs, found on board designs featuring
+> > the MT8196 Chromebook SoC or the MT6991 Dimensity 9400 Smartphone SoC.
+> >=20
+> > AngeloGioacchino Del Regno (6):
+> > =C2=A0 dt-bindings: iio: adc: mt6359: Add MT6363 PMIC AuxADC
+> > =C2=A0 dt-bindings: iio: adc: mt6359: Add MT6373 PMIC AuxADC
+> > =C2=A0 iio: adc: mt6359: Add ready register index and mask to channel d=
+ata
+> > =C2=A0 iio: adc: mt6359: Move reference voltage to platform data
+> > =C2=A0 iio: adc: mt6359: Add support for MediaTek MT6363 PMIC AUXADC
+> > =C2=A0 iio: adc: mt6359: Add support for MediaTek MT6373 PMIC AUXADC
+> >=20
+> > =C2=A0.../iio/adc/mediatek,mt6359-auxadc.yaml=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> > =C2=A0drivers/iio/adc/mt6359-auxadc.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 440 +++++++++++++++---
+> > =C2=A0.../iio/adc/mediatek,mt6363-auxadc.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 24 +
+> > =C2=A0.../iio/adc/mediatek,mt6373-auxadc.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 19 +
+> > =C2=A04 files changed, 416 insertions(+), 69 deletions(-)
+> > =C2=A0create mode 100644 include/dt-bindings/iio/adc/mediatek,mt6363-au=
+xadc.h
+> > =C2=A0create mode 100644 include/dt-bindings/iio/adc/mediatek,mt6373-au=
+xadc.h =20
+>=20
+>=20
+> LGTM,
+>=20
+> Reviewed-by: Nuno S=C3=A1 <nuno.sa@analog.com>
+>=20
+Applied to the togreg branch of iio.git.  Initially pushed out as testing
+for 0-day to take a first look and see if we missed anything.
+Jonathan
 
-On Sun Jul 6, 2025 at 12:20 PM CEST, Piotr Zalewski wrote:
->> With a new version of a patch, you're supposed to add the tags you
->> received for previous versions, like my Tested-by tag [1].
->>=20
->> (unless the new version has changed so much you feel they should not be
->> carried over; you then need to explicitly describe that and why you
->> dropped them)
-> =20
-> Forgot... Should i send it as PATCH v2 RESEND?
-
-I don't think that's needed; the maintainer will let you know if that's
-desirable or that they will add it (back) when committing.
-
-Cheers,
-  Diederik
-
---aa40d9dc28db920960fba5ac249def83a08213f8b1a374e4a5946d696ea9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaGpR+wAKCRDXblvOeH7b
-boTTAQDVgBuxetL0DzvGcPFtwx7T7bTDcAoRnoFed53ZDkf+HQD/brK8092SqQNi
-RV1KGSdH+z83fO99mi6WCkgzDwRGFAQ=
-=8I9F
------END PGP SIGNATURE-----
-
---aa40d9dc28db920960fba5ac249def83a08213f8b1a374e4a5946d696ea9--
 
