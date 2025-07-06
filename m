@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61247C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 23:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BCCC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 23:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IUIMpGigTAI1vMyh99AH2i134TMAXLSa34RGQJwetRM=; b=TuDFy7UeCfEcHIOvhenJltGqeP
-	S/4k2LHOmptfW30h4bm8R2S6PUfwCyIzYKjyOBglvt+a8xALGTAJUUjykHWr7WdTQpCtHMvJy3zFF
-	XZUV6RRRtGYQiGmEN0KWakl9CZjdpmj1CY0RRbHtz0x7cK0ZQCy084OxaMQxSE1+P9nTxkI3tCONl
-	dJyyY3oPP/WUN81C3ihLyZx56bRGC99HG1jR/PsAqfxrgYUMiHwHOZVUp16u4FWB4ca+7FfbbzK/g
-	OnU3Px7YC5KB0seEa5J4TjO6518Wv58MYbJ/lai0lFwV8xo2soMlgi7OiMIchcJWezGnNcB7eIxkk
-	VbFhM4kQ==;
+	bh=F8mXtsnzWr44dCBY/VD2LX7Tq4Hq+eA4Rif8Z8xYcMI=; b=iQ4SWWj+9E9p9F3FdugFkvV442
+	/F6gIAd7b6kDoZPAnGD2ejBgfiDlGkbZXyCQ/m0v0NcDHv5D7+9K48tN550fCP8SZE/cMxHBfq8ag
+	tqpqzMizw7gHg6iSMkUJ1+o0gsSK3Jhv50Y2fI3Zfd07ADJ01w8B9bJDCDNN2awfY0PqUwlgjrpNt
+	V5fwZirWxmmL+05wG6p93HD48lRIQkIBM9D1hXVgoYxK7EkNCckLLsLbruwmrjSmiU3TlrgEAaMuj
+	7x92LAkCxe6iUXnBRCAiYisQ3ozac5Gc8uwGTyux8ARR7ncVsqS2PdavvwDzIknXBG0k+tVxfc+ns
+	EMt12KOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYYk9-00000000wxc-0kxK;
-	Sun, 06 Jul 2025 23:25:57 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYYWR-00000000vnb-04jZ
+	id 1uYYyQ-00000000y3e-1hrJ;
+	Sun, 06 Jul 2025 23:40:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYYw5-00000000xoJ-2lur
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 23:11:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 424EDA50E1C;
-	Sun,  6 Jul 2025 23:11:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 684A0C4CEF3;
-	Sun,  6 Jul 2025 23:11:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751843506;
-	bh=bKAMxj63gaupN/jPkfJEbmvoMQTv+UmI9WM2d0qO3mE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hzVCEDK5NF34GmUsnPaUCZvX2iUQTpQOn313UltFqgaO2/uvwdrNURrbDQOejBenw
-	 NQ32GzxatZ9iOSvjGKBCRDp1TLey1lsIfGY5lKzKqJgT3S7kVlkXVZQPMQmOHvjJl3
-	 I6AoDiKgHxSVwb1UOXqNFi0JvVUjbvM9SdC+l3h84glZKhKD+f7F4CE8QX0JaJUMBY
-	 K8XHCTU/9F/lzXZ7zrzaawXsmFWrt9mn9UQ5EiESrSOwY8erVhCQKkD+wXmYxOgxNZ
-	 FXZDepSXX+MOy1aaEtASkDz/hjoqWd8x6aRVT8RzlH9UP99hCuNei9cp5+53WrXyxL
-	 D+NwPULFu5UAg==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	Eric Biggers <ebiggers@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH 4/5] lib/crypto: x86/poly1305: Fix register corruption in no-SIMD contexts
-Date: Sun,  6 Jul 2025 16:10:59 -0700
-Message-ID: <20250706231100.176113-5-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250706231100.176113-1-ebiggers@kernel.org>
-References: <20250706231100.176113-1-ebiggers@kernel.org>
+	Sun, 06 Jul 2025 23:38:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A98CB1E8D;
+	Sun,  6 Jul 2025 16:38:00 -0700 (PDT)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB5DB3F694;
+	Sun,  6 Jul 2025 16:38:11 -0700 (PDT)
+Date: Mon, 7 Jul 2025 00:36:40 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej@kernel.org>, Samuel
+ Holland <samuel@sholland.org>, Ulf Hansson <ulf.hansson@linaro.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, linux-sunxi@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: power: Add A523 PPU and PCK600 power
+ controllers
+Message-ID: <20250707003640.73e08911@minigeek.lan>
+In-Reply-To: <20250627152918.2606728-2-wens@kernel.org>
+References: <20250627152918.2606728-1-wens@kernel.org>
+	<20250627152918.2606728-2-wens@kernel.org>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_161147_186734_63D81115 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20250706_163817_798437_07CEDC90 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,93 +70,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Restore the SIMD usability check and base conversion that were removed
-by commit 318c53ae02f2 ("crypto: x86/poly1305 - Add block-only
-interface").
+On Fri, 27 Jun 2025 23:29:15 +0800
+Chen-Yu Tsai <wens@kernel.org> wrote:
 
-This safety check is cheap and is well worth eliminating a footgun.
-While the Poly1305 functions *should* be called only where SIMD
-registers are usable, if they are anyway, they should just do the right
-thing instead of corrupting random tasks' registers and/or computing
-incorrect MACs.  Fixing this is also needed for poly1305_kunit to pass.
+> From: Chen-Yu Tsai <wens@csie.org>
+> 
+> The A523 PPU is likely the same kind of hardware seen on previous SoCs.
+> 
+> The A523 PCK600, as the name suggests, is likely a customized version
+> of ARM's PCK-600 power controller. Comparing the BSP driver against
+> ARM's PPU datasheet shows that the basic registers line up, but
+> Allwinner's hardware has some additional delay controls in the reserved
+> register range. As such it is likely not fully compatible with the
+> standard ARM version.
+> 
+> Document A523 PPU and PCK600 compatibles.
+> 
+> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 
-Just use irq_fpu_usable() instead of the original crypto_simd_usable(),
-since poly1305_kunit won't rely on crypto_simd_disabled_for_test.
+Both PPUs are merely mentioned in the user manual, but do not have a
+register description. But the BSP source code confirms the mapping of
+the power domains used below, so:
 
-Fixes: 318c53ae02f2 ("crypto: x86/poly1305 - Add block-only interface")
-Cc: stable@vger.kernel.org
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- lib/crypto/x86/poly1305_glue.c | 40 +++++++++++++++++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 
-diff --git a/lib/crypto/x86/poly1305_glue.c b/lib/crypto/x86/poly1305_glue.c
-index b7e78a583e07..968d84677631 100644
---- a/lib/crypto/x86/poly1305_glue.c
-+++ b/lib/crypto/x86/poly1305_glue.c
-@@ -23,10 +23,46 @@ struct poly1305_arch_internal {
- 	u64 r[2];
- 	u64 pad;
- 	struct { u32 r2, r1, r4, r3; } rn[9];
- };
- 
-+/*
-+ * The AVX code uses base 2^26, while the scalar code uses base 2^64. If we hit
-+ * the unfortunate situation of using AVX and then having to go back to scalar
-+ * -- because the user is silly and has called the update function from two
-+ * separate contexts -- then we need to convert back to the original base before
-+ * proceeding. It is possible to reason that the initial reduction below is
-+ * sufficient given the implementation invariants. However, for an avoidance of
-+ * doubt and because this is not performance critical, we do the full reduction
-+ * anyway. Z3 proof of below function: https://xn--4db.cc/ltPtHCKN/py
-+ */
-+static void convert_to_base2_64(void *ctx)
-+{
-+	struct poly1305_arch_internal *state = ctx;
-+	u32 cy;
-+
-+	if (!state->is_base2_26)
-+		return;
-+
-+	cy = state->h[0] >> 26; state->h[0] &= 0x3ffffff; state->h[1] += cy;
-+	cy = state->h[1] >> 26; state->h[1] &= 0x3ffffff; state->h[2] += cy;
-+	cy = state->h[2] >> 26; state->h[2] &= 0x3ffffff; state->h[3] += cy;
-+	cy = state->h[3] >> 26; state->h[3] &= 0x3ffffff; state->h[4] += cy;
-+	state->hs[0] = ((u64)state->h[2] << 52) | ((u64)state->h[1] << 26) | state->h[0];
-+	state->hs[1] = ((u64)state->h[4] << 40) | ((u64)state->h[3] << 14) | (state->h[2] >> 12);
-+	state->hs[2] = state->h[4] >> 24;
-+	/* Unsigned Less Than: branchlessly produces 1 if a < b, else 0. */
-+#define ULT(a, b) ((a ^ ((a ^ b) | ((a - b) ^ b))) >> (sizeof(a) * 8 - 1))
-+	cy = (state->hs[2] >> 2) + (state->hs[2] & ~3ULL);
-+	state->hs[2] &= 3;
-+	state->hs[0] += cy;
-+	state->hs[1] += (cy = ULT(state->hs[0], cy));
-+	state->hs[2] += ULT(state->hs[1], cy);
-+#undef ULT
-+	state->is_base2_26 = 0;
-+}
-+
- asmlinkage void poly1305_block_init_arch(
- 	struct poly1305_block_state *state,
- 	const u8 raw_key[POLY1305_BLOCK_SIZE]);
- EXPORT_SYMBOL_GPL(poly1305_block_init_arch);
- asmlinkage void poly1305_blocks_x86_64(struct poly1305_arch_internal *ctx,
-@@ -60,11 +96,13 @@ void poly1305_blocks_arch(struct poly1305_block_state *state, const u8 *inp,
- 
- 	/* SIMD disables preemption, so relax after processing each page. */
- 	BUILD_BUG_ON(SZ_4K < POLY1305_BLOCK_SIZE ||
- 		     SZ_4K % POLY1305_BLOCK_SIZE);
- 
--	if (!static_branch_likely(&poly1305_use_avx)) {
-+	if (!static_branch_likely(&poly1305_use_avx) ||
-+	    unlikely(!irq_fpu_usable())) {
-+		convert_to_base2_64(ctx);
- 		poly1305_blocks_x86_64(ctx, inp, len, padbit);
- 		return;
- 	}
- 
- 	do {
--- 
-2.50.0
+Cheers,
+Andre
+
+> ---
+>  .../bindings/power/allwinner,sun20i-d1-ppu.yaml   |  2 ++
+>  .../power/allwinner,sun55i-a523-pck600.h          | 15 +++++++++++++++
+>  .../dt-bindings/power/allwinner,sun55i-a523-ppu.h | 12 ++++++++++++
+>  3 files changed, 29 insertions(+)
+>  create mode 100644 include/dt-bindings/power/allwinner,sun55i-a523-pck600.h
+>  create mode 100644 include/dt-bindings/power/allwinner,sun55i-a523-ppu.h
+> 
+> diff --git a/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml b/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
+> index f578be6a3bc8..b9f550994512 100644
+> --- a/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
+> +++ b/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
+> @@ -18,6 +18,8 @@ properties:
+>      enum:
+>        - allwinner,sun20i-d1-ppu
+>        - allwinner,sun8i-v853-ppu
+> +      - allwinner,sun55i-a523-ppu
+> +      - allwinner,sun55i-a523-pck-600
+>  
+>    reg:
+>      maxItems: 1
+> diff --git a/include/dt-bindings/power/allwinner,sun55i-a523-pck600.h b/include/dt-bindings/power/allwinner,sun55i-a523-pck600.h
+> new file mode 100644
+> index 000000000000..6b3d8ea7bb69
+> --- /dev/null
+> +++ b/include/dt-bindings/power/allwinner,sun55i-a523-pck600.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +
+> +#ifndef _DT_BINDINGS_POWER_SUN55I_A523_PCK600_H_
+> +#define _DT_BINDINGS_POWER_SUN55I_A523_PCK600_H_
+> +
+> +#define PD_VE			0
+> +#define PD_GPU			1
+> +#define PD_VI			2
+> +#define PD_VO0			3
+> +#define PD_VO1			4
+> +#define PD_DE			5
+> +#define PD_NAND			6
+> +#define PD_PCIE			7
+> +
+> +#endif /* _DT_BINDINGS_POWER_SUN55I_A523_PCK600_H_ */
+> diff --git a/include/dt-bindings/power/allwinner,sun55i-a523-ppu.h b/include/dt-bindings/power/allwinner,sun55i-a523-ppu.h
+> new file mode 100644
+> index 000000000000..bc9aba73c19a
+> --- /dev/null
+> +++ b/include/dt-bindings/power/allwinner,sun55i-a523-ppu.h
+> @@ -0,0 +1,12 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +
+> +#ifndef _DT_BINDINGS_POWER_SUN55I_A523_PPU_H_
+> +#define _DT_BINDINGS_POWER_SUN55I_A523_PPU_H_
+> +
+> +#define PD_DSP			0
+> +#define PD_NPU			1
+> +#define PD_AUDIO		2
+> +#define PD_SRAM			3
+> +#define PD_RISCV		4
+> +
+> +#endif /* _DT_BINDINGS_POWER_SUN55I_A523_PPU_H_ */
 
 
