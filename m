@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46821C83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 23:16:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA0E2C83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 23:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czGuSTyHwNzLJ6v8X0XVwNakgTSawlJS73MLps3QLYs=; b=vvDplsRN6ieZ/sAklrkidiDGEI
-	DAwWaybG4hz7Q84JjowRr8kG88xnT60PLEZJO1LXuAseoA5E/X/uNrR9yiBSRrPzDzIuQKb7tjAMx
-	YGHojXEx9W3B482LY0g9Qx4Z8fVf0TX5eTY8tHaxmRLLWYKtLI6eg4qd4yerY0gWdsOe7VbwGy9BZ
-	U05jMUrSH0/6blllkARZPS6sAOxubQUapP9SES8UAe79QONu+hNkzKzfrnkLFG7uvIjJUV7SjYlM0
-	sDt1oUY6nItm1BmvBzj72rsrmkhFekEX7A9pc63egTsqbx0q1Qeu1bN15aNDE1L9FLhNnnJH+adJ7
-	9CifXetw==;
+	bh=DjdnC8s6cNxQLR+WiYN5C+/TrAPQClXeRhOilPsX4eU=; b=ZFfJ7MBVVjZVOH92m+2zJ+cjEJ
+	ahG0q2r6+hTws6QR8yvetaljL79wCBghp/4CYX3RKEwkSGpRRaDSLh2XPfzv5mJwfva91R0FoI/ny
+	2ATVex4QHjKI0MkdXNyadKINLmr/8m9PoMtB5RwgyMyxkPpy/zQA/CLhM7YreDZ5n49NahbHFVcqH
+	UmOh6Z8u0X/mSCwJ4cKxa5/1QQDri9vwxifW2vIeTdvWKOHrdZnmGuQpd8D+Wod+P/ApIP7dHjcIV
+	KkgogUgGxUh8nEw9CMr2l9bHFr7ywS6KVa43o+AhnhZhCR3LjYhY872KZWu16zfuCqKV00dqpYB92
+	wFtmPecQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYYb0-00000000wOK-05yN;
-	Sun, 06 Jul 2025 23:16:30 +0000
+	id 1uYYdH-00000000wWH-37r3;
+	Sun, 06 Jul 2025 23:18:51 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYYWO-00000000vmH-2fyi
+	id 1uYYWQ-00000000vme-0DZh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 23:11:44 +0000
+	Sun, 06 Jul 2025 23:11:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C492961461;
-	Sun,  6 Jul 2025 23:11:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C51AFC4CEF3;
-	Sun,  6 Jul 2025 23:11:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 600BB61473;
+	Sun,  6 Jul 2025 23:11:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88026C4CEF1;
+	Sun,  6 Jul 2025 23:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751843503;
-	bh=teoV448S0gcMOu8C5WoirpthEs9NO+TdMk4xuLOATJo=;
+	s=k20201202; t=1751843505;
+	bh=eNLm4Gv8Ke0apz7fKKHlDcDiwap6peJnw5T7wbtI+Fk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=f3a7W0of7/Jn47K34fx9xqgeSmDmpq/O5gMCPuremhPnhrR8nwudK87rOYh6nUYqd
-	 OLWLwRYYw2X37+u+56dtHC/AQTkEIjrXb+ZSc7XGDYjHMLfn8D9FSa0Ia+B0+F1S0f
-	 nVJKmv8qJw0qtGzW50Lw+T1S5O1aKhKjvXSvGkGyg+ntLDKkmeiPvRLoF4NhTTitdP
-	 OJ1n/3J0FSbQEL9n1uI1Xb27QBA9uF8IbpUdbePaW6x7BpBlVDWqGkBUHo1NCtSEdG
-	 quNoqEUTbkT2B68MKYjFZGb8+AczHW119pYGvbGi0SgC0eMj9I5feNFdJ7fnEk6ObS
-	 0aqVgphHrc6NA==
+	b=KEl716Q/rK2VskCIQXoLJ37scDB2Fm19apyuGqS/cPSPUMWjpMuGpH/CQk/nCvxwb
+	 0MOsJ+LZR5sAEBNawyFs1A2IcutUGYMhilgG4Ih6IqfQ8BpjMY2o02fcqr9jU+Jl/b
+	 Z6l54XfQegzQi4jRdpmV+zohLeDQV5EHEV+VY4hyXDxchkcv7lhdl0v90Tpa/f3OkR
+	 abOc6SXVC0dtEWnbp6fgSs2+TAdnF4bOVLhfh/p6Hnm7SFGUUxIbWCt0cWRdQHedNu
+	 ARrsqagae5ClEE5uLmBvMtLYXcrMWFInU4JuU4LAwq8PDUCxnKXm3ijXOM0XWDgD17
+	 pIZeqhJR8EasA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -49,10 +49,11 @@ Cc: linux-kernel@vger.kernel.org,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	linux-arm-kernel@lists.infradead.org,
 	x86@kernel.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 1/5] lib/crypto: arm/poly1305: Remove unneeded empty weak function
-Date: Sun,  6 Jul 2025 16:10:56 -0700
-Message-ID: <20250706231100.176113-2-ebiggers@kernel.org>
+	Eric Biggers <ebiggers@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH 3/5] lib/crypto: arm64/poly1305: Fix register corruption in no-SIMD contexts
+Date: Sun,  6 Jul 2025 16:10:58 -0700
+Message-ID: <20250706231100.176113-4-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250706231100.176113-1-ebiggers@kernel.org>
 References: <20250706231100.176113-1-ebiggers@kernel.org>
@@ -72,39 +73,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The __weak and empty definition of poly1305_blocks_neon() was a
-workaround to prevent link errors when CONFIG_KERNEL_MODE_NEON=n, as
-compilers didn't always optimize out the call.
+Restore the SIMD usability check that was removed by commit a59e5468a921
+("crypto: arm64/poly1305 - Add block-only interface").
 
-This call is now guarded by IS_ENABLED(CONFIG_KERNEL_MODE_NEON).  That
-guarantees the call is removed at compile time when NEON support is
-disabled.  Therefore, the workaround is no longer needed.
+This safety check is cheap and is well worth eliminating a footgun.
+While the Poly1305 functions *should* be called only where SIMD
+registers are usable, if they are anyway, they should just do the right
+thing instead of corrupting random tasks' registers and/or computing
+incorrect MACs.  Fixing this is also needed for poly1305_kunit to pass.
 
+Just use may_use_simd() instead of the original crypto_simd_usable(),
+since poly1305_kunit won't rely on crypto_simd_disabled_for_test.
+
+Fixes: a59e5468a921 ("crypto: arm64/poly1305 - Add block-only interface")
+Cc: stable@vger.kernel.org
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/arm/poly1305-glue.c | 5 -----
- 1 file changed, 5 deletions(-)
+ lib/crypto/arm64/poly1305-glue.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/lib/crypto/arm/poly1305-glue.c b/lib/crypto/arm/poly1305-glue.c
-index 2603b0771f2c..5b65b840c166 100644
---- a/lib/crypto/arm/poly1305-glue.c
-+++ b/lib/crypto/arm/poly1305-glue.c
-@@ -25,15 +25,10 @@ asmlinkage void poly1305_blocks_neon(struct poly1305_block_state *state,
- asmlinkage void poly1305_emit_arch(const struct poly1305_state *state,
- 				   u8 digest[POLY1305_DIGEST_SIZE],
- 				   const u32 nonce[4]);
- EXPORT_SYMBOL_GPL(poly1305_emit_arch);
+diff --git a/lib/crypto/arm64/poly1305-glue.c b/lib/crypto/arm64/poly1305-glue.c
+index c9a74766785b..31aea21ce42f 100644
+--- a/lib/crypto/arm64/poly1305-glue.c
++++ b/lib/crypto/arm64/poly1305-glue.c
+@@ -5,10 +5,11 @@
+  * Copyright (C) 2019 Linaro Ltd. <ard.biesheuvel@linaro.org>
+  */
  
--void __weak poly1305_blocks_neon(struct poly1305_block_state *state,
--				 const u8 *src, u32 len, u32 hibit)
--{
--}
--
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
+ #include <asm/hwcap.h>
+ #include <asm/neon.h>
++#include <asm/simd.h>
+ #include <crypto/internal/poly1305.h>
+ #include <linux/cpufeature.h>
+ #include <linux/jump_label.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+@@ -31,11 +32,11 @@ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
  
  void poly1305_blocks_arch(struct poly1305_block_state *state, const u8 *src,
  			  unsigned int len, u32 padbit)
  {
+ 	len = round_down(len, POLY1305_BLOCK_SIZE);
+-	if (static_branch_likely(&have_neon)) {
++	if (static_branch_likely(&have_neon) && likely(may_use_simd())) {
+ 		do {
+ 			unsigned int todo = min_t(unsigned int, len, SZ_4K);
+ 
+ 			kernel_neon_begin();
+ 			poly1305_blocks_neon(state, src, todo, padbit);
 -- 
 2.50.0
 
