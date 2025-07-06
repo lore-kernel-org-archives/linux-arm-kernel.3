@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7617C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 17:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1601C83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 17:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=f4cvIWSOqdkpRAx+1GB6UUjB2urEmzkRFC1hEkTh8JI=; b=kJKIV2iH02UtBv
-	x2MX5ODewKD0UeToainwwVhY8SeHf0H0FLcZ5f3T/CrO40EZcMpqj5mIlEcAmfYmlEDEdW2lnuwEV
-	qZ8w2/v+4/b7NI7CFv/MlKixeESoZIU4nGSR5f1inYfBU6e7T+FM09xT5I5I96gZL2aZRAobjBkzz
-	5y85P2NvI5WYBdC6NqdADn2VGo6kwYYnGsW9JOGQvt4Ybxx2jcFM2awx1+T3EDwfjl9LsvCviTsOR
-	N4g5fOm7VVmqBSmTgj90RU8/x1wku/eCnKk0EA5Py/99kq8+flvOBFgsCliaxUhenJ4ixWOd7Iuvf
-	3Lizzb4OHCAvHV3EeY0A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O+vT8Ul1qnTCROYuTa6lzNNJDXY2MHOSxjkUrVjWu/o=; b=X572AFYmLNzNtP4aaedq8qJLoQ
+	IZKTMSzAamh1Q0oZ7qHrOeaCXgQSfzoLydeWL/RidSOl00V7ftOdK221XqcVhdpIKIkMUU2PB5vvV
+	ljD6tRBgXCWp9ao/elsbP3/cPvltSBr9Ub1bf8gSJB0sb2kbu2TyokiOozsq7JwGTj2I4WN9dzXe2
+	Mpel+2iXU5hslP+DFV5+LNZa/KHANS53Wby3raRYW+wrCxw84LsWXzaKkGj09yWrDlguCGh+/mCjc
+	Mxujn4g16li04/HqmW0yhtJoJOxtoNhL20/jY4vagypUvajoKG3DDNqSybEjfLjCN73HyaFzQYQTJ
+	EkG1TxaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYTE6-00000000aFh-0Vry;
-	Sun, 06 Jul 2025 17:32:30 +0000
+	id 1uYTGO-00000000aTR-3P8F;
+	Sun, 06 Jul 2025 17:34:52 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYTBk-00000000a1a-22dE
+	id 1uYTBr-00000000a2P-0wf1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 17:30:06 +0000
+	Sun, 06 Jul 2025 17:30:12 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id A90C225CC7;
-	Sun,  6 Jul 2025 19:30:01 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 0B68525D7F;
+	Sun,  6 Jul 2025 19:30:10 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id G03BX57gX3CC; Sun,  6 Jul 2025 19:30:00 +0200 (CEST)
+ id 7gwBGOvTxX10; Sun,  6 Jul 2025 19:30:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1751823000; bh=4QixqbGy0XLMGNdgyiJE46+isoTboBCUR/vHxQlDSuw=;
-	h=From:Subject:Date:To:Cc;
-	b=hNFbB9ucboIruz1f9JcTIwVizc0IImZWxPrJPY5e7p3VRNiQ6KwEoFlGVlW3CZAMo
-	 pHQM/Ql2kuU+nBqkl/Y0ODugYT6fY+gu474Ybl2Aa/8Mf2ONOFrE/Y5sRUC9ZbXaxR
-	 DG4rdyn6q6XpxC0TSQoaH2T63zfgeVIPcV2QLZKWmCbZCmA+/KU47Exv8qFnkaPQeE
-	 2PMVdK6oaFja4fgjKeprdWoHPPoNIBaVrnuzo0gAOHxvECyzc/1iUvHxgknSVWqu/t
-	 8S+4X4QwwZdKWh6rhK12VCZC8hLitokiiCCjnXLl1EFUnZcSq+XY0TAUZJ8Tasi7ec
-	 LCLYbgP5TnZug==
+	t=1751823009; bh=oChcwplCN0suk6lHWq6XWl/N6zCbWSAQbXpXzN4LkkE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=PD5G3p64ULwvpSu66WVHHVAgI81CdxKe8wQbB0nrScjLZ8AzFAMltgZbiad/7HVdV
+	 c+iZnzeiLxG5XiPK68q0zur+edJ3P+mADB/d56iVtHbqIryK827N9m7vpCIYKhahuQ
+	 2am4ExOUsE77rOe6hqgE+Vggg5oQzh7+fEoFeS50XLQ/UofQGueJQIFad5R/Cx+yAO
+	 UxB/wCQDBpMqD9b/wf1tNcatpMNfer8IjuEBawuaNeS0asaakJdPGPtITjiua4rPUU
+	 HckcMdpkk9ap5//cc9Zkdf2fToEGAstgM+1RUqGkdRunzsuvbGzgn2APsTAXo+N0W9
+	 gFEU0k/acWhIg==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Subject: [PATCH v4 0/2] Samsung Exynos 7870 DECON driver support
-Date: Sun, 06 Jul 2025 22:59:44 +0530
-Message-Id: <20250706-exynosdrm-decon-v4-0-735fd215f4b3@disroot.org>
+Date: Sun, 06 Jul 2025 22:59:45 +0530
+Subject: [PATCH v4 1/2] dt-bindings: display: samsung,exynos7-decon:
+ document iommus, memory-region, and ports
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIiyamgC/2XPQQ6DIBAF0Ks0rEsDIyB21Xs0XeiAyqLSgCEa4
- 92LJiZtXP5J5v2ZhUQbnI3kfllIsMlF54ccxPVCsK+HzlJncibAQLCKl9RO8+CjCW9qLPqBCgT
- QxnADTUvy1ifY1k27+Hzl3Ls4+jDvBYlv08OqTlbilFGFUiuOHBsmHsbF4P1486Ejm5bgECRTH
- M4CZMEozOdw1EyWZ6H4EeD8TyqyIBshVas1trb+F9Z1/QLJohzdNAEAAA==
-X-Change-ID: 20240917-exynosdrm-decon-4c228dd1d2bf
+Message-Id: <20250706-exynosdrm-decon-v4-1-735fd215f4b3@disroot.org>
+References: <20250706-exynosdrm-decon-v4-0-735fd215f4b3@disroot.org>
+In-Reply-To: <20250706-exynosdrm-decon-v4-0-735fd215f4b3@disroot.org>
 To: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
  Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>, 
  Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -67,19 +65,17 @@ To: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
  Conor Dooley <conor+dt@kernel.org>
 Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>, 
- stable@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751822991; l=1775;
+ devicetree@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751822991; l=1983;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=4QixqbGy0XLMGNdgyiJE46+isoTboBCUR/vHxQlDSuw=;
- b=AHwu7q2UAAhZXbmj/8AYRvdQoa71glMdtoigvUtfOTaJ5nuJl/G+qwdu7tXKHV6miyJeLd8cX
- 1gsE+Zl8ld+AChxIZ4FzfrY556CKa5EjtE4jwIg/V+nZOPDbKjiwQ6Q
+ bh=oChcwplCN0suk6lHWq6XWl/N6zCbWSAQbXpXzN4LkkE=;
+ b=QTmWHnA11sNP8XEsfDTBxLU0bIaujjqcVMgDPt2eNUJ6zRtTgzfMTVb5/FKagmo4PY9yuIt0Z
+ h7w03bs+hqbBKkqI0tIDmiVOvAcEzChrFPzdFQvcDhY9DoxhEedLUXp
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_103004_948183_29AF2743 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250706_103011_400363_CA0B9FE9 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,48 +90,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series aims at adding support for Exynos7870's DECON in the
-Exynos7 DECON driver. It introduces a driver data struct so that support
-for DECON on other SoCs can be added to it in the future.
+Similar to FIMD and Exynos5433's DECON, the Exynos7 DECON hardware:
+- May optionally require an IOMMU to initialize a display region.
+- Outputs image data to another block, say an MIC or a DSI master.
 
-It also fixes a few bugs in the driver, such as functions receiving bad
-pointers.
+If an IOMMU is present, it may also require to access the reserved
+framebuffer region.
 
-Tested on Samsung Galaxy J7 Prime (samsung-on7xelte), Samsung Galaxy A2
-Core (samsung-a2corelte), and Samsung Galaxy J6 (samsung-j6lte).
+Document these bindings in the devicetree schema.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
-Changes in v4:
-- Drop applied patch [v2 3/3].
-- Correct documentation of port dt property.
-- Add documentation of memory-region.
-- Remove redundant ctx->suspended completely.
-- Link to v3: https://lore.kernel.org/r/20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org
+ .../display/samsung/samsung,exynos7-decon.yaml      | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-Changes in v3:
-- Add a new commit documenting iommus and ports dt properties.
-- Link to v2: https://lore.kernel.org/r/20250612-exynosdrm-decon-v2-0-d6c1d21c8057@disroot.org
+diff --git a/Documentation/devicetree/bindings/display/samsung/samsung,exynos7-decon.yaml b/Documentation/devicetree/bindings/display/samsung/samsung,exynos7-decon.yaml
+index 53916e4c95d8c0369138941a556c23f5d42fbd39..14b954718008e06aa1627fcd116a61927ce29e99 100644
+--- a/Documentation/devicetree/bindings/display/samsung/samsung,exynos7-decon.yaml
++++ b/Documentation/devicetree/bindings/display/samsung/samsung,exynos7-decon.yaml
+@@ -80,6 +80,21 @@ properties:
+       - const: vsync
+       - const: lcd_sys
+ 
++  iommus:
++    maxItems: 1
++
++  memory-region:
++    maxItems: 1
++    description:
++      A phandle to a node describing a reserved framebuffer memory region.
++      For example, the splash memory region set up by the bootloader.
++
++  port:
++    $ref: /schemas/graph.yaml#/properties/port
++    description:
++      Output port which is connected to either a Mobile Image Compressor
++      (MIC) or a DSI Master device.
++
+   power-domains:
+     maxItems: 1
+ 
+@@ -92,6 +107,7 @@ required:
+   - clock-names
+   - interrupts
+   - interrupt-names
++  - port
+   - reg
+ 
+ additionalProperties: false
+@@ -118,4 +134,9 @@ examples:
+                       "decon0_vclk";
+         pinctrl-0 = <&lcd_clk &pwm1_out>;
+         pinctrl-names = "default";
++        port {
++            decon_to_dsi: endpoint {
++                remote-endpoint = <&dsi_to_decon>;
++            };
++        };
+     };
 
-Changes in v2:
-- Add a new commit to prevent an occasional panic under circumstances.
-- Rewrite and redo [v1 2/6] to be a more sensible commit.
-- Link to v1: https://lore.kernel.org/r/20240919-exynosdrm-decon-v1-0-6c5861c1cb04@disroot.org
-
----
-Kaustabh Chakraborty (2):
-      dt-bindings: display: samsung,exynos7-decon: document iommus, memory-region, and ports
-      drm/exynos: exynos7_drm_decon: remove ctx->suspended
-
- .../display/samsung/samsung,exynos7-decon.yaml     | 21 +++++++++++++
- drivers/gpu/drm/exynos/exynos7_drm_decon.c         | 36 ----------------------
- 2 files changed, 21 insertions(+), 36 deletions(-)
----
-base-commit: 26ffb3d6f02cd0935fb9fa3db897767beee1cb2a
-change-id: 20240917-exynosdrm-decon-4c228dd1d2bf
-
-Best regards,
 -- 
-Kaustabh Chakraborty <kauschluss@disroot.org>
+2.49.0
 
 
