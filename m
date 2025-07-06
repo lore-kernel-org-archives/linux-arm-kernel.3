@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EAB6C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 03:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF3E8C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 04:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85nfx4ldL54wSVT5XtoQ/mvHVV77q6rK3dhp/Wa5E+U=; b=sMK+WIv7qin2/5LSRCjIcoScAF
-	2LQOcY4bvzNLsVL2hweqqv2If0TR8tevEcxDad8DDs84X33pOM5j4DOLdumXMpUNid1dfdfV/kuON
-	mpkbnSUz6b+tvkTG0JvF1YQ/DV7jEafwlSj87F3zpd26mx6ALHs+cX5VFN/QXV1B0XqGW2y9HG4sj
-	t2PoJaFzapnK7/NkxOKhsHN2YyBCFgowgRs96XweHS/gJx3q1ghEWaHNO9rH2qou21m+4fnppgwq/
-	EFQiyJKUG9g3pLbn4YJ4id/8CLQMIojUlQOsfdhFapGeunmNAQOB51ZRIDhQzR0oS8JLOgvtRYg4f
-	BQ6/GCqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hVmb8+ym3rIBDL7U+LhviQ6wlTsutcclIyc87Szy4qU=; b=c4YRfQZIUWEuNKpkU5wco9YEOP
+	M8O7kIIjWB4JvKGBAqJCh2Po6gkTyoh8twjUPRYKApTH8ZRl/dkAmIomu1/Q9HhkMQUvwBkTTcf3V
+	ylpw6SIQFKTOW+WaBHJfMqMHnYMLbkshnV7gqa/iqjkUNxfGnO/6vHVKqPaZTCX0VmIf+bBOBSHWR
+	ahzaRMvZaeWwDU5/kxkFT0+3/YJl/khqPV4+wyvykC88viYKv/DZMW0lhmnq0dTXx1PO5ipiVKx94
+	KzYp//OnKqk0kpBuedK/ticz74CtZ/OK6EAaMIclRQkZZw+o1YWCBAObuzCR+I5rmqKHiCTI8y0jV
+	LQmMKp2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYFg1-0000000HIgq-1wZ5;
-	Sun, 06 Jul 2025 03:04:25 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1uYGlv-0000000HLJy-1yWO;
+	Sun, 06 Jul 2025 04:14:35 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYFZN-0000000HI9b-2VCb
+	id 1uYGjZ-0000000HLE4-2FgT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 02:57:34 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-553d2eb03a0so3525005e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 19:57:33 -0700 (PDT)
+	Sun, 06 Jul 2025 04:12:10 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b2fd091f826so1530836a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Jul 2025 21:12:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751770652; x=1752375452; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=85nfx4ldL54wSVT5XtoQ/mvHVV77q6rK3dhp/Wa5E+U=;
-        b=QpjiF5qCBq75Qj1sqGrEyJh/nWZAz/NT75VBxOmltCd23Rh4/55+wL6SkBu3X0YZg/
-         fOkBmIaEkZnKZgBSxtbf3CvMr2/82JElwlfjB1VrGh9A7qn2TTnbVRe/NFJvUZpSKUBR
-         N8mLMuC9dPr5VT15/OyjHnJ/pCRljQHDcYV8Lrf9iUkXsd+mXqnRWnpm4ET2Fd2Yk/MP
-         oQE/DjAugdBil1pz7dZcq/3uaYFRBfTchszNY5CGU03QBdEIKZHGjcOEoXSLShq/JEHD
-         Y5snwzq3AtURWyD+v1OSKj7ZzWOB9uLPm2lur6b2Er5QaItzkmr681y683I8GxzG3e6a
-         T/NQ==
+        d=gmail.com; s=20230601; t=1751775128; x=1752379928; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hVmb8+ym3rIBDL7U+LhviQ6wlTsutcclIyc87Szy4qU=;
+        b=W1ssffkQRTra/0xlSTyDjGKyqmXmtHwSdjD5UE2rA0vVpoTd9P2qkcJsyyP4ROcksW
+         DzKGDxw0pTAkh0pRw2hmgfTzOW7KAMj4fZ3Wpcg8eYn5PR4XzqeFaPosQnpNHrO4iehx
+         Ev8jE4fFf2t2R5aZ0/RNhDFg1urCJigjQgpnyWov47pgRambd3LkukukgHeK4hQTkp3L
+         mVlFYVkAyYa7nnaNH2L9u9dOLIWhZARlXJvI+ebiTaHXjJRqL7Bvx1w7hEczCIcpeA0H
+         DxFQQ2kgTL9TlW06ePGpFIXrbOuk1G6Vda4fBj4bEfOXeujMmGnHCme82UKmZXO+OrLp
+         NfrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751770652; x=1752375452;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=85nfx4ldL54wSVT5XtoQ/mvHVV77q6rK3dhp/Wa5E+U=;
-        b=CaGNy1uUK9fp5mVIp7nvz2Fqypy2dHbE4c3QHis68iLg7g/XeFT2XV49TSP36oBI+B
-         fzsEiKUqUdfpdmwPpt+VmPFqc+hZ2l7o2HfxHwR+9/4yizEZID7Ausu+4uQzpuYu/SUG
-         jmd7RTOMm9PTSJHAIRzu0EsuAJZQHMR3ovv9sOCLmyWxEeuJiRvfSdx3HB/fxJpW6kif
-         yqnxo+F5rHMZpPCrHAO+O5JqnNRkZVQ1CqYthVsCozOzWF7q2QRtX0IeRVavkxpw8KwA
-         cbFsYWq1iRkpCIDrnCtmKvZSRrkfT2LUQXgwboe0jtEaRDzUPnTccDL6pUILoSeRNwj7
-         hZOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUqYkdaqa0EVtpkythlots23aMPcMR8pN1R9Q9V3YJX1dzG/q7tTU5XU4DBUDLHiEiDoP5yMEUnCZcDAYIxT74K@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUHDRdEZsdT9bFKvGytTeWciclJMtt4NxI/q8RuJrtBD3EwHVY
-	1TYfmM+mD/kiBe2LEMPxlDir6FUHEbA6jzijN2SwEaNiC0NoxbI9Vuho
-X-Gm-Gg: ASbGncuQP9BNXg89O87JV/fNBK/jZKtF9AwODV8jA83C7doHwZ72ycHoacP7EZFnerd
-	V3Q98n1gNSlUe3/IdTKwIshsqDuNsyEGPsNcF9Rd7QhIaJhjyUzfjgugTrX0b6GN9GXtgKMGXCR
-	5RDvloo+TvQs7k4cAwxfs+gj1QxLu5OCSC5ez1xGJFETpbcRxDs2Rau7B4J7scs/YngOcns1YmM
-	NhapI88v0JI0+Rc0+HORZ0i8kZHmOe4OUtfV5hLJf8u9zKs0xd1XXFSqlJ+Mlm6Md4qNRahg4NX
-	mlaEThmktMmIB76yorx3lbLpPGDpimR8L+q0Iw+tx5ZuHpSWB6TbLsUjFwExzItoTYqa4Z4=
-X-Google-Smtp-Source: AGHT+IGN0Pll4L+siyWkYqepxKdXBDqJA09V3lw+p6WVOCV2OpsJJsEpsce/Z0TPbGFyafElS4Xm8g==
-X-Received: by 2002:a05:6512:145b:10b0:553:2bdf:8b87 with SMTP id 2adb3069b0e04-55641a4f68amr1665035e87.10.1751770651927;
-        Sat, 05 Jul 2025 19:57:31 -0700 (PDT)
-Received: from localhost.localdomain ([212.192.12.80])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-556384b7b4fsm788573e87.198.2025.07.05.19.57.22
+        d=1e100.net; s=20230601; t=1751775128; x=1752379928;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hVmb8+ym3rIBDL7U+LhviQ6wlTsutcclIyc87Szy4qU=;
+        b=gtznvxL73vIJ8H5/9kubZgW1OglXMWTrmrjp4i1TwWkz+HzyBVeEX55lV3x3IG13rf
+         ewjw38/VmwZ7AwvI4jGyazSJRoLHXgKOvcxXZadqXuOPPipBGyK+VKggrnTg3s7tMbjc
+         9vtuaFPE4etnZyK0u/jpP4fvUlW2dheM6GXORZAJtSJDHTWvYBAowfqdjTwF4OqQoTfa
+         p4hk4nYkFY6SbtiSLIX8oPiD5D0buEuZ2NPt/8MROpax/8tM3b6yd9ZCak/kLRdCSouZ
+         YzKIGzUdJCcXzw17hMtaKV787rzPx30M7LaRmqOsNzQqH2xEZeH07Mx0slDtlf4oG6SW
+         VkAw==
+X-Forwarded-Encrypted: i=1; AJvYcCW+TYFKD4pmVJGlUNMt636TLI/xLbKb+FwWFYHuDegwefebJuhIqEz9uL9qeo7/MggHw+WbkyThRM472RcsHicW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaoINaFVQX/oiOyd6vcaKBC+PrefwipuuiNmcy20S9pgAyXyRt
+	ppH0RAyNmv483vP4gd3qBWyBt6b/HUK488gkLz7WjWtJeQ3Y08eyuj+8
+X-Gm-Gg: ASbGnctsnrHk020+zYsF3u6HIvuBdTE8VVjDxddVzxBKkdHHlEqDrnwwprMkgAzBNMi
+	hNdPiadWDTTCoK6i+7GPMas1EVw+M3S1yMyubqRLOCEHG1+gxV8ml3WaD2alTEXEoTYqbKw/G8E
+	jZ+x7CytfqGwPw9MXZjSYFG/g2TTZmICax5d1ziPkBjK6oOi5w2IlqDm5mPv8I+RxadAMzn5bva
+	TV9zpEuRI7cjC73mzB3Qt8kGJzHR1+6Z0ek1HrZpAlCnvlv9RMLWRhgTvCtvJ+07M5+yIpKxURU
+	KGIRGHFxQM4tL3MWKHrhT3uKMZwGSaQ7IGDQ0ehJ68n4p0pEbArc0y7aB7H4nghybBAGqvvmXkH
+	9HStd1vXEkBFHEVD4Qwte2x2yta1yHm4fbU8Yklk=
+X-Google-Smtp-Source: AGHT+IHvXW5jZXVYlEka38PzKTBwvT3r/GnGzZfU2rZK6jmJT69dhrpF0lmwPqysm1iag9gx8vKZWw==
+X-Received: by 2002:a17:90b:48cb:b0:311:a5ab:3d47 with SMTP id 98e67ed59e1d1-31aab83725dmr12052060a91.1.1751775128288;
+        Sat, 05 Jul 2025 21:12:08 -0700 (PDT)
+Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c8457f34bsm53310255ad.156.2025.07.05.21.12.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Jul 2025 19:57:31 -0700 (PDT)
-From: iuncuim <iuncuim@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] arm64: dts: allwinner: a523: enable Mali GPU for all boards
-Date: Sun,  6 Jul 2025 10:56:23 +0800
-Message-ID: <20250706025625.2707073-3-iuncuim@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250706025625.2707073-1-iuncuim@gmail.com>
-References: <20250706025625.2707073-1-iuncuim@gmail.com>
+        Sat, 05 Jul 2025 21:12:07 -0700 (PDT)
+Date: Sat, 5 Jul 2025 21:12:04 -0700
+From: Tao Ren <rentao.bupt@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Tao Ren <taoren@meta.com>
+Subject: Re: [PATCH 5/5] ARM: dts: aspeed: Add Facebook Darwin (AST2600) BMC
+Message-ID: <aGn3lNXQ8cid6jbf@localhost.localdomain>
+References: <20250702050421.13729-1-rentao.bupt@gmail.com>
+ <20250702050421.13729-6-rentao.bupt@gmail.com>
+ <a6f6966b-50ee-4b4f-9422-96c6ac9391a2@lunn.ch>
+ <aGW8Nm8ZWMwRYVOo@localhost.localdomain>
+ <220ac6c2-8373-4742-86fa-f322d6ada624@lunn.ch>
+ <aGcBEHMEyQJuzmjj@localhost.localdomain>
+ <95ff4056-d1cc-4564-8c44-0535196e7428@lunn.ch>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <95ff4056-d1cc-4564-8c44-0535196e7428@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250705_195733_636271_2F748F10 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250705_211209_578929_B5CB1E72 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,87 +107,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mikhail Kalashnikov <iuncuim@gmail.com>
+On Fri, Jul 04, 2025 at 09:37:20AM +0200, Andrew Lunn wrote:
+> > Hi Andrew,
+> > 
+> > Got it, and thanks for sharing the context.
+> > 
+> > I will reach out to ASPEED offline to see if they are actively working
+> > on the MAC fix, or if I have enough knowledge to work out the patch.
+> 
+> There was some discussion about what needs to be done a couple of
+> months ago. Look for emails from aspeed and IBM.
+> 
+> 	Andrew
 
-All devices based on the A523/A527/H728/T527 processors contain a G57 MC1 GPU.
+Hi Andrew,
 
-Enable the DT nodes for this GPU and specify a regulator that supplies power
-to the SoC's VDD_GPU pins. The other parameters are set in the SoC dtsi,
-so are board independent.
+I guess you are referring to the discussions in patch "ARM: dts: aspeed:
+system1: Add RGMII support", and I can find more of your suggestions in
+the thread.
 
-Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
----
- arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts   | 5 +++++
- arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts    | 5 +++++
- arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts   | 5 +++++
- arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts | 5 +++++
- 4 files changed, 20 insertions(+)
+I will remove mac controller from my v2 for now, and will add it back
+when the delay support is added to the MAC driver. Thanks again.
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-index 8bc0f2c72..553ad774e 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-@@ -66,6 +66,11 @@ &gmac0 {
- 	status = "okay";
- };
- 
-+&gpu {
-+	mali-supply = <&reg_dcdc2>;
-+	status = "okay";
-+};
-+
- &mdio0 {
- 	ext_rgmii_phy: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-index 59db10354..a96927fbd 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-@@ -54,6 +54,11 @@ &ehci1 {
- 	status = "okay";
- };
- 
-+&gpu {
-+	mali-supply = <&reg_dcdc2>;
-+	status = "okay";
-+};
-+
- &mmc0 {
- 	vmmc-supply = <&reg_vcc3v3>;
- 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-index 142177c1f..b9eeb6753 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-@@ -76,6 +76,11 @@ &gmac0 {
- 	status = "okay";
- };
- 
-+&gpu {
-+	mali-supply = <&reg_dcdc2>;
-+	status = "okay";
-+};
-+
- &mdio0 {
- 	ext_rgmii_phy: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-index 5f97505ec..d07bb9193 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-@@ -95,6 +95,11 @@ &ehci1 {
- 	status = "okay";
- };
- 
-+&gpu {
-+	mali-supply = <&reg_dcdc2>;
-+	status = "okay";
-+};
-+
- &mmc0 {
- 	vmmc-supply = <&reg_cldo3>;
- 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
--- 
-2.50.0
 
+- Tao
 
