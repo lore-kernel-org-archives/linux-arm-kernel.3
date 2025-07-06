@@ -4,113 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F59C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 07:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3C8C83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 07:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVKD2IfL8Cpz4uiJh8vbqXFnfyPq4BNfuF+MzCsMpcY=; b=JO5f7zPKZOSaFxprRv6QxPPIWl
-	8AhclxxMzSncMyCYh56orGcZvSBDQqGbIikJ7vUub22b2YqdL1nfCaPECodPD/NO5JlHrSe+BWsP6
-	qTb0krcGNxTiubNtnrneUedLEFV2usksS8T+7p5PczamP0iRgPQOC2k6xGMSq7CtqzgWgvVR4yk6r
-	K5ivTYcQMNuRWEiVhdpsBJVhcRCk3E1pLEhTCgso6S3rqvTBHbOs/4AZ+IIXt6ApXVbyd18Vk3omM
-	eXwu9S5mzEicqFvUYmE5zu/qK5VB2lzoMsUTdMXiW4FRG++DVlToCfngAAobyztOp+2oebPRL9RKW
-	2EYMYK7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tlI66Bz/sqx9wmUZBx5cdl25FDyXH6zR6tjKJVPWCsg=; b=tmQOTaGd/R9TrudE5OePlxOUzv
+	/yxIAKEWTKPm7iHN5S2AJsxhIwKfo2ZfCMebBkY8QotfPg9CFcPszRjUb/P3c0hqbNLB4apPWdHVY
+	DUWAaV6itBOhQGH/uc5ekGCwhrssvm1JbWGFZaYZfPbxxg04Vtq2Jd9CjMsAU6MxilG1paXLUsBfp
+	vys7svXF+SKxgEDNpzbLKh5BBXndoI5e/SaJdKD03UZoVK1sr6lXIyv23bxqg8C5cWzogo9vUeDDP
+	EvPWKxJ8wyf1FY5+CpnkLevGkniz/kdj9TzuemJezrYOI+0fFigIsqwQge1AwWwhUCMxAm7Sb/9jS
+	Cf6EANgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYKC9-0000000HWwz-3fTX;
-	Sun, 06 Jul 2025 07:53:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uYKER-0000000HXT6-0v4c;
+	Sun, 06 Jul 2025 07:56:15 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYK8U-0000000HWWX-3Owd;
-	Sun, 06 Jul 2025 07:50:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38AEF45698;
-	Sun,  6 Jul 2025 07:50:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87735C4CEED;
-	Sun,  6 Jul 2025 07:50:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751788206;
-	bh=QcELM78RwX+zB8kvhnjQOG8WKbuPJwRJrloYcgXk5Ec=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VonSMRClmGAbKAV/HhsQl9+7wjvRBfsaCHZWdW9AuzvFayd7HkGBKCEMAdSTEB15z
-	 GnZwDNsnZa+H76FFEjW8ymHO/zl3yqnnWlY9Tk3sq5DzHFiENWgG4P/8otaNi3wgqa
-	 l6k8XAoYbqrzcPImiOkeUqOIIGyG/6F1e9SxVSKpzuSglb1qaBjkVv2M/06Tu/QCE7
-	 9wpL+R/yuclPNpPdbdxuqmnHbL8XRvsdZaqO/Ms0c56LP/3rlz2uL9Ch7DqyfsrrKv
-	 HXp1A2eF9ciYj7/dXMtPZsE/7xhBJBN7FFdMXd+Z/dc3OZxSosizB5ZWfV0Xxd4yJs
-	 XUeXpM9MKoI5A==
-Message-ID: <21e0785e-b2f6-4b31-8887-0c22bd686dc8@kernel.org>
-Date: Sun, 6 Jul 2025 09:49:58 +0200
+	id 1uYK97-0000000HWbW-2Ra8
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 06 Jul 2025 07:50:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=tlI66Bz/sqx9wmUZBx5cdl25FDyXH6zR6tjKJVPWCsg=; b=wFFIirNLE5SoKa0/iKXE1484DW
+	r7+gZbf52dzCnHuQfy755y8Q0LISLB/oxnAoxuJ/l6I4++mdjB529Cub/3iLygRFWryyGMtLt0rIr
+	sTemlafQ52D04EZIUumCJSSwLUaLw6XexkFuUUbvKJsJXiXTzzMbItrGwT48zkdQOmyU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uYK8s-000X3d-K1; Sun, 06 Jul 2025 09:50:30 +0200
+Date: Sun, 6 Jul 2025 09:50:30 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Chen-Yu Tsai <wens@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH net 0/2] allwinner: a523: Rename emac0 to gmac0
+Message-ID: <0f0ca5ce-8ed2-4e07-a1c3-105d602e8cd1@lunn.ch>
+References: <20250628054438.2864220-1-wens@kernel.org>
+ <20250705083600.2916bf0c@minigeek.lan>
+ <CAGb2v64My=A_Jw+CBCsqno3SsSSTtBFKXOrgLv+Nyq_z5oeYBg@mail.gmail.com>
+ <e9c5949d-9ac5-4b33-810d-b716ccce5fe9@lunn.ch>
+ <20250706002223.128ff760@minigeek.lan>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/7] dt-bindings: arm: sunxi: Add NetCube Systems
- Nagami Keypad Carrier Board
-To: Lukas Schmid <lukas.schmid@netcube.li>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20250705213900.3614963-1-lukas.schmid@netcube.li>
- <20250705213900.3614963-4-lukas.schmid@netcube.li>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250705213900.3614963-4-lukas.schmid@netcube.li>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250706002223.128ff760@minigeek.lan>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_005006_897408_D8EFB0BC 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250706_005045_619492_16DDFB97 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,31 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/07/2025 23:38, Lukas Schmid wrote:
-> The NetCube Systems Nagami Keypad Carrier is a custom board intended to
-> fit a standard Ritto Intercom enclosure and provides a Keypad, NFC-Reader
-> and Status-LED all controllable over Ethernet with PoE support.
+On Sun, Jul 06, 2025 at 12:22:23AM +0100, Andre Przywara wrote:
+> On Sat, 5 Jul 2025 17:53:17 +0200
+> Andrew Lunn <andrew@lunn.ch> wrote:
 > 
-> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-> ---
->  Documentation/devicetree/bindings/arm/sunxi.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
+> Hi Andrew,
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> index 7919b5bf5..a2f16d064 100644
-> --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> @@ -610,6 +610,12 @@ properties:
->            - const: netcube,nagami
->            - const: allwinner,sun8i-t113s
->  
-> +      - description: NetCube Systems Nagami Keypad Carrier Board
-> +        items:
-> +          - const: netcube,nagami-keypad-carrier
+> > > So it's really whatever Allwinner wants to call it. I would rather have
+> > > the names follow the datasheet than us making some scheme up.  
+> > 
+> > Are the datasheets publicly available?
+> 
+> We collect them in the sunxi wiki (see the links below), but just to
+> make sure:
 
+O.K. The point i was trying to make is that some vendors datasheets
+are not public, or very restricted, and so names don't matter, since
+nobody has the datasheets. But if they are open, names are more
+relevant.
 
-That's just enum with previous entry. Don't make it over-complicated.
+I do agree that stuff can be changed when it is in an -rcX
+kernel. However, it needs to be well justified, ABI related, or very
+broken.
 
-Best regards,
-Krzysztof
+Since this is ABI, it could be changed. But i don't want to make the
+decision of if it should be changed.
+
+	Andrew
 
