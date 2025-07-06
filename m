@@ -4,168 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A45B9C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 14:09:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9744C83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 14:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D9iPYPYAXHoH3+86H3Xyi28+Nj+QQ9YSyhIdqoDn4eM=; b=W5DlluISnydL63nLy7QxXhOBqG
-	n3lSCi+Ntz8PzsQSXXxjNdMxK6eLda+Rr1jGXjKOe7RQFHGUEuXrn9bVeBampgoz+sdThL329TAvJ
-	MxtZOamKY/4zvyvPOh1XHsAnxAUco1uDcZEyjUYFaLNMMGAb+VFj7ANzmD6UjaVfTOJTGxq3yU6Nl
-	DcN53Fo8hcZ1Thd0QGnx5JDk3wHThkB8lJg0ktyAljRVgl07tbFV13U9gmmi0iw5gSUt+abwKRROq
-	wSfrYJB3VW92Jw6xcReCQDZ8AJlRM/v/QyX4BS3mWiFNGbQHqco9rEy6GmbnujLsQB1pazKzLE264
-	vTT1qPVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+LR59wvaFC1B+jtg9kXlIKRe6vvfPELWKIv1ziuV/xg=; b=31lwKglZYA/oYLNGxTXHHmmVFB
+	zPLkZ3MiStr6K1IsBGxLcaR2GAY62zDrPFQ2sOdL1V7UQTwPgLatNGzeDl4JqriZsmoQPJ1WCkU37
+	TAgU16naBiQKm1hDOr3PJJRBBRIeexnbzuX9EsGsvbI20wdOjfImlVzsdMM3apZJnlJHuNR3gDEgc
+	UHgROydxP0cMZpbPG9FT4+SY+TzOPEdc79GW7duq3lSBLirmje9nidnKHEvgXmg6veaRJG5vDiNM+
+	2b+2DG3cF/h7flugjExzGdKnNYDIQTx2WqXoaymG6yX14CfvS9jnJFfu73Wc+j3Z+JzUOarhf/fcv
+	JzoatZhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYQ3n-00000000McZ-0kE2;
-	Sun, 06 Jul 2025 14:09:39 +0000
-Received: from mail-japaneastazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c405::1] helo=TY3P286CU002.outbound.protection.outlook.com)
+	id 1uYQI8-00000000Ncl-3CjH;
+	Sun, 06 Jul 2025 14:24:28 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYQ1R-00000000MSu-0mhX
+	id 1uYQFn-00000000NSy-0LYM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 14:07:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MDE8rnulnjKttjPbv8MBMnkj1SbNVlfnDoT5jG0w6L6++8kvSwE4F/jY7PfmPY/MX3iiZmN32VtCv4dybYcTqyh931z8olj13BwZOLZw9HCmAAxm7ZjUawLZLP4fFgyTq9c8S9kTwiLWu3UqVlpROSY8RTdc1jbW7YRDn0Vb6qaC40T7lLioXA/PSs7my3rBP0YWk4OdlcW1OpwUmGCnKaROtjj58qA7zOWIs48xq1SvGNh00n6MfLMYZ6c8nkTbrWKtGcC+bkn0+I6NmZZ9i+7/b7fdCWaHT9p0RcaGDUpzzQZNIrxd6n6oP/u+Hyby5SOrJmbWE6Fb5YUGm2NQiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D9iPYPYAXHoH3+86H3Xyi28+Nj+QQ9YSyhIdqoDn4eM=;
- b=cYjEjf1QgIi0D9bznfQ+bEbvElcNNKXe6Jbl3rN2jeUYdsc0gJn85jdaXR6aJZ0NzEo4ZtuZNZxRGHhiLC/aBvPj4GawZRwsM77ogN/oHtYQpowUd0CVmvVcOUP/OQ11L1jWtu6XgwtIa/P9Tk82FVffGsxD96PFQ2ge+6/oFlgUf5Xmk/bCDI1o67WkhM5HG+dx3xZ8UyNwEPSV0lyjjHoH5L+dkZM2EdkGIOLWzH2gnokTmB9pslczhKiMJks7eKHpLI7NTeNs9FWD71tQ+VRcr6UGkBlOagZ83LfHXeEiiqQw3XXEh0tGWZZhYMKuV78Va1qDOiuK28mWCVnVXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D9iPYPYAXHoH3+86H3Xyi28+Nj+QQ9YSyhIdqoDn4eM=;
- b=Vdm5JybbiTvqOZXvHHtr7gbiL5DrOQkv8i3km1hKtzPXcML+LoUxVgFssZFPkImQ3e+xsttSpCVIoEueKTngpsqEMNTlCpjyI+HIfrXRT2TrJLOdkr2Xrb1A8LAxmqDtHnatsxEurkhdD0gjFU8OSlIcWRDc9XCc0Km7DCjmYmw=
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
- by OS9PR01MB16197.jpnprd01.prod.outlook.com (2603:1096:604:3de::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.24; Sun, 6 Jul
- 2025 14:06:43 +0000
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1%3]) with mapi id 15.20.8901.024; Sun, 6 Jul 2025
- 14:06:42 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Russell King <linux@armlinux.org.uk>
-CC: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-renesas-soc@vger.kernel.org"
-	<linux-renesas-soc@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	biju.das.au <biju.das.au@gmail.com>
-Subject: RE: [PATCH net-next] net: stmmac: dwmac-renesas-gbeth: Add PM
- suspend/resume callbacks
-Thread-Topic: [PATCH net-next] net: stmmac: dwmac-renesas-gbeth: Add PM
- suspend/resume callbacks
-Thread-Index: AQHb7c6+F2cIzXpCE0eHQabSLpoq6LQj6xeAgAALbTCAANFSwIAAEXhAgAAHjACAAD+qsA==
-Date: Sun, 6 Jul 2025 14:06:42 +0000
-Message-ID: <TY3PR01MB1134675512A8812B5CA7BB7F9864CA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-References: <20250705170326.106073-1-biju.das.jz@bp.renesas.com>
- <aGl9e9Exvq1fVI0s@shell.armlinux.org.uk>
- <TYCPR01MB11332BCE03B3533784711A5BF864DA@TYCPR01MB11332.jpnprd01.prod.outlook.com>
- <TY3PR01MB113460004F6A57B3AAD77E86E864CA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <TY3PR01MB113467D8E13143E412B119270864CA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <aGpLpLDPdcPByC7j@shell.armlinux.org.uk>
-In-Reply-To: <aGpLpLDPdcPByC7j@shell.armlinux.org.uk>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|OS9PR01MB16197:EE_
-x-ms-office365-filtering-correlation-id: bac42693-9282-4914-079a-08ddbc9655ae
-x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?8p2Gfo8vWHrNMcQIDOUA6t7oY5lS10zGrGDC98ndPQ62gJnEk5tuMst16EiE?=
- =?us-ascii?Q?U2FTFhUPcUbuoXY4GONpo9IvLnbGH7+8l061Xqejv+DalFFtqSZmfYQ4E8mZ?=
- =?us-ascii?Q?lLQVHWTqbXj/7TbeN0DW0MRCQwJMZXVtlhU94Dl6E6xuhl8SqPzaWoblSG0R?=
- =?us-ascii?Q?eBuhccJN90Nl14REv/mAOerjKU4lzpHMyXMOsHTzI8o4YeBKdFP2n1hvkw2C?=
- =?us-ascii?Q?o/q/iY+EC6LqAj0M8d1anXKif2KpP0578ZQ7kQl0/l/FBVIxGj6VLMcglXB9?=
- =?us-ascii?Q?lItXGnyKtzhMW63iKpV5l94WenuOR1ov0OcG3pf56veIM+1WRwo3ExAjXnLC?=
- =?us-ascii?Q?ylj/mPenoo1VZ4NHkZvWl9MRdZOfQja6P1AAW9zCWBcyJbcNqtd7zJh2rKf+?=
- =?us-ascii?Q?qxhaQ5MGtmnaK/leptpt8OUg5FQpzT0/HhNxqPtwQvvqFzgFupo0hXzPmkw8?=
- =?us-ascii?Q?MlF97nqRtBmWwTktO/UW7n5nYdmpaaQVDxcEr3OqV0hE2op3vCRXf7wTTzyv?=
- =?us-ascii?Q?mt9KhMkujjzhqXvxRHQiTpbjFsOn2/NxdhriIHTlik+1Ms+3qoFtHlIRMANm?=
- =?us-ascii?Q?7Fky5grz0gTm2TXVPMC+KFFS3lKqMXLXbZxo4JTV9CmgobJVCBHkKIL6d04O?=
- =?us-ascii?Q?OaoeFFvknCrb5wnLPzQ57DbxTb7vy35krO5oIh/QTWJCVs6E4MYTNk1s9qmD?=
- =?us-ascii?Q?R7byn9dzFJW0zcCFIRUWBs3rKXBCUli2raFSB1wEk19hcDH9x0omTdRLIZGA?=
- =?us-ascii?Q?jU9ZzME2pyZLZuOr28u/1O4rwmvL82LoxWkUGysgyL+yXaA12OLUdQ5hEyxW?=
- =?us-ascii?Q?9GXbKe/s/rlyAkA+KpYmyRAcrwMeuZQm2DUHZABeUdFPG9jioCDo6EDB236u?=
- =?us-ascii?Q?bgyK71nGKDTMpng5u0sF0yPn8qVyNp36yfajmkWPH8whFOkntsdAnFVOEnbK?=
- =?us-ascii?Q?dTnmAc/U2KIjRmoLCqOsKowkWcoiNH7fR9zFNnENTSASx5AZypiCUmMwAt4Z?=
- =?us-ascii?Q?8jyzrFbCrhG9F3Ey0KCYnki7h2GoUe9i/zZgQlWXRKDRLuhrx1A4aDJdgxbf?=
- =?us-ascii?Q?0oWUqXZTAMLvbKcoFLKAwCl3OGZlPl4Igq1jLdmRo8G9fHWyuYyIm2WlKyz+?=
- =?us-ascii?Q?TYEqWDojDuOOf8keWuoMWUUm1AjRaC7k31G10REeSL0hE/4Bi8C90oRoFDNo?=
- =?us-ascii?Q?ZacOywkI2FPzV9OR4q7ZuYCDfYej1pnXZGIGMG9F2JaWj6Th2P4oTkk3M7xZ?=
- =?us-ascii?Q?1mfjTv6XoYK40Cub12h5AdEJyBTc5B/K9Xd4JNGf7Z9oUXj8esi57EH6k7A7?=
- =?us-ascii?Q?DGfMYXPW0d5WpL+RAO+qshcRSOXl4XFUfgOSHUzwyX6inKKv44p9RHR3flSA?=
- =?us-ascii?Q?88bMTZVug2dsgDskMR3vcWXKTPPaEMADTzY/hL/3ofsbhZluTxtxAsrtzHKm?=
- =?us-ascii?Q?ygMzfPRcx9CYnK4d2LzZQnTUF36DLPx3mfkbp5PfiIFXMdptTVvIlMVNUXcP?=
- =?us-ascii?Q?Pw2gmc81tvGBbdE=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?s5ANKwDVMUWKcwOC6LMOB7uXn3lOAqChQK7ZyB8cNirgweOzejnfSIVT27lz?=
- =?us-ascii?Q?5dgRfoNEeTEcBaoP1FqrUGm5nAhyoRz8QxXYk2NAbQlJIOedRqGfAfyzjuMS?=
- =?us-ascii?Q?1baUYHQYtBagnVw6RS/DV/Q/1SrpXEduo6AVLaNO/9SRq7PVBHZXQoTVd4G/?=
- =?us-ascii?Q?aTwNN0X3usOsYp+GdXipA6h81mB452PwHxebyWhwZ783gscxXkMr/8HBlsoZ?=
- =?us-ascii?Q?GXAzbjRRze5oiTCp3sv6QgE/7CiptqFBODUdkH0q0LH9WrtfMtglZv0RD6g6?=
- =?us-ascii?Q?btr8HxW/Q9siFObnTvGSEMMhR1RIM746LbmsP8I17lqeEWI8wQmseklwWmUT?=
- =?us-ascii?Q?TJbvcgYdw00LDBTpUuXVgxGvbKieNp2FIfqEbNKoncP74QfhI9zpWGOqbFWw?=
- =?us-ascii?Q?RTzqmuoJ4/oB/qiZYiWZG/Iq9MENbtssPI5R+AhRGuNx6murvgn9UEwRGUlp?=
- =?us-ascii?Q?aeo8Kky5PSsfl7iuwm+6UGJ2uTYi3xc/GCXXGZEeueNqV94wU1l7UpvVdQbz?=
- =?us-ascii?Q?OIEtF4FOm1lIyWaF0KcJC/2fkpwfuZg6CwSzuqWocWNOMkd6QhCZenKfQXPl?=
- =?us-ascii?Q?I9rZ8jL2BcbiLgUPDwRmWLM7vnDBd4Di/NHHQHMYxyXDd11NJ5teg8GB6JO6?=
- =?us-ascii?Q?YQ+xd0eVVahlIIzHX8HaSZ1cp973WnwYLFzchG8dc+CXTZKfa1SADC7huFAw?=
- =?us-ascii?Q?cvfwNSirf9q0to8oeBa4p8btDZfxesH83fPw/F38eDRRDRfozjXU82cIfiMO?=
- =?us-ascii?Q?JU3ulhzQKOZV0ThI9CWmZ7rJNbsn68w3jOZ6N800C0u403iraaNPBzqwmo7B?=
- =?us-ascii?Q?Ml0LadHdoMi9xUlxJiVy2dIIDc1GqIzp17kxdC7zyLApVwpBDCYxtwhywtsr?=
- =?us-ascii?Q?Et9OCYkJFDpOEVUPv7Ug0eZCO9ybr52WvGSOvF8BVU/UpHpIMg9O9uqQqQKj?=
- =?us-ascii?Q?kIPzEhVF/+MNdvbVzPeuKamvQzQ7ovI8smtTSLf1PNlw5GjrhkOMXRflvuFH?=
- =?us-ascii?Q?R/nRF+BNczPFt2WPhK3ehhgYZu6fovdOq04cUYFfNag1YJrmJYoc2CF2G2/v?=
- =?us-ascii?Q?xognqz/CctdcoJpsrZXNeyqO3x+Y0vEcZLBrP/jW+hr6QUcPXR7um3kecgnq?=
- =?us-ascii?Q?oL31zFa4W4yjr2QeWxcKr2EHdgS/Rq9vXM2aBEb8EnquV2YlekiPIR6yQetn?=
- =?us-ascii?Q?jxDRl7GXKRYCUK3L8V2fMFnkAlcP1+n9LmOCXEW95WPOPA9X8kwoJIF3uOP+?=
- =?us-ascii?Q?UQ5Q7fqySSu/Mi+ZG+WlXqgSuO7OjTp6yHz21i+x49PdvJcOC8fmz+s46k16?=
- =?us-ascii?Q?C9/Y5fkSnYTPp5f4wSu87REPYJSaHsACfAb2lGW0NmRlmYa/uU6YQSuZX3Ou?=
- =?us-ascii?Q?+U1CUVSxot2SZfoZGzi6jo1SMu9ejEt+4Lp02maUdlCc6abw+x+DoOmRyvxM?=
- =?us-ascii?Q?P28pv7F3ZmA5EA01qZTkf7AQmc+dhsH//7LKI9BEqnm05pJMDea8pXtwstnI?=
- =?us-ascii?Q?geOBm442ZtqYVDXDUigPjIOla0wMw+ozgLRiuJymictdpHLbThnqygb298sY?=
- =?us-ascii?Q?1NhJabPCx3E7nBDc/ZVu93Iz+RSvphmUNTznJ37f0c59GLlCNqmxFrP9bO8m?=
- =?us-ascii?Q?zw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Sun, 06 Jul 2025 14:22:04 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 566BK2fF006848
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 6 Jul 2025 14:22:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	+LR59wvaFC1B+jtg9kXlIKRe6vvfPELWKIv1ziuV/xg=; b=DZG1zwTRrWIo8NW0
+	SH7dNDOOY81dG4Haah1W7G5s6GBOxUmt/s7GxQNYDfhqYyGqftftKCN5PYZVkBd5
+	eW/2QXQhinMuQhSGlqvitrcR7+3/wr/H8NceFMJlQhSZsHGMs4T58P8Khl8cZ5YR
+	JRRTaDYfv7Xjl9T9OUVMyHNoHS6Y38lRdZf9HatRxhAIzegnGiIbL5t/hb6IAmO+
+	nt33oMNdKtP3rnCcGBG/q0YMWWlDmr01jTleGo5CDH+NkX9vdCAwiXhAg7BXJVDg
+	ewsraXQEi7s6klzhN5KkVsiYrjtsvVjTAou7UNMP2VfxwHItNevWpjm/pwtIClth
+	rVj0ww==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47pw7q4ebn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Jul 2025 14:22:00 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-b38d8ee46a5so1677435a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Jul 2025 07:22:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751811720; x=1752416520;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+LR59wvaFC1B+jtg9kXlIKRe6vvfPELWKIv1ziuV/xg=;
+        b=UtQztlLbEoG7k265m8iqvM+TP8I16UGOvdR78bxTdod9fdw91KwkV2sHFjB2lc/zZD
+         +f39DP2Xx14Pseask/lrANenu/lvfw7BiW8lllMDUaRhx2PNJXWbWL6gDhTOQ5FZc/bQ
+         74ziNbmCzc5iwGmtmpty0kQNddoAeNtJNE41cNFoIHXMMP4TLGJ/lrvETSf+igJa3bJl
+         UoPvtwxBIMsD4ax/V6gdThI+To/SCdFSn24QnIgwqbYdGcHBKwxPA72HeN4U0OeVe+wD
+         Hf3BxlY03UnOrnqjjuPdNl5oxDUidXa8jxJLDR9uRZv2B0klqY2Z7P9sJPUVKOSTc3CL
+         VPyA==
+X-Forwarded-Encrypted: i=1; AJvYcCVhu/+SyRaxwmQL1syljntm4VmCQpeqreXwWHXKecmdp0AZPlMrp1VhS770LlDPC6muggmMXW9pu6PLX/28JiKb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzM3Af7LpjMsOrTCQEjSXEGCdHWgye4BCC1VbrDuouFs9JZf62e
+	LcMSuf5+MmXDQ6gLSGzV+4UamVG43g4eBYN73y7aGsfyNpFc2fUIM616M43m6mDdTUFK5mYtLU0
+	5sQnGq3dY5PIDfyp3aG7a48/zEZPuGYCdx4BmU9IQBzGPOOJlO1o07bbf6izXzwU885Dnr3/Nnu
+	vqGQ==
+X-Gm-Gg: ASbGncv+yJGHnGCvrXlVfUbZfV7ViXPpR5oJuUpON1FYUJRdlKfI6w2G0z34ZN/z+j2
+	E08pucv8gNa8CgQH9rpGiq1zaOhPULeWX0TbAg4o7qdyWngTZm930lHHKDxnRQ9yYaDzzVVjQpm
+	nPCNeT+ioXpXdK/RPAYLEzmpxx6Ei/f4/H3CX3WC2Uos31B265QgcRU60tFBuOHKJCUd+mkWt5y
+	07DFxaqhvLLMN8drRxGcSy7EtefwYjs3SGEn9m1SHBFspWt7f4ta4tHMenbLUOLbK4qh3Jvn6/I
+	oPNyu6TiJ2M6sq9VooDyoUzg5BF3HQSqjVpoJNW+hQ==
+X-Received: by 2002:a17:902:c943:b0:221:751f:cfbe with SMTP id d9443c01a7336-23c8595204cmr167337125ad.19.1751811720115;
+        Sun, 06 Jul 2025 07:22:00 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFO93oCbUuKR455AbSvqBvRYCReXzTUnYblW52a/kTh3+cnV2a1b0uxIXTMZ96Ppo2+XoCvjw==
+X-Received: by 2002:a17:902:c943:b0:221:751f:cfbe with SMTP id d9443c01a7336-23c8595204cmr167336735ad.19.1751811719650;
+        Sun, 06 Jul 2025 07:21:59 -0700 (PDT)
+Received: from [192.168.1.5] ([106.222.234.15])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23c8431a4c6sm63428015ad.46.2025.07.06.07.21.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 06 Jul 2025 07:21:59 -0700 (PDT)
+Message-ID: <c20a9713-6f8d-4c20-a031-dc448404d073@oss.qualcomm.com>
+Date: Sun, 6 Jul 2025 19:51:55 +0530
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bac42693-9282-4914-079a-08ddbc9655ae
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Jul 2025 14:06:42.4698
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: EI5onKvUkxQLZwc3RGGcj8ygZOCKhoWJYhHtzgUB8VBOrU7LH3J71eb/4AjVKZ0HGijkmPcrPRQtPE4ccWDJkkoonYm+A5VDGsFa2WiFkbE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9PR01MB16197
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] iommu/arm-smmu: disable PRR on SM8250
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>,
+        Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Akhil P Oommen <akhilpo@oss.qualcomm.com>
+References: <20250705-iommu-fix-prr-v2-1-406fecc37cf8@oss.qualcomm.com>
+From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <20250705-iommu-fix-prr-v2-1-406fecc37cf8@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzA2MDA5MSBTYWx0ZWRfXwbuKC/eO0+jJ
+ VVulyTBy478sKgP2WyOFaLe5hz990P9wu0W46vkScEeg1RWsmdXda1g0S18TbvXaE2B19nkEB7S
+ FfbYNKHv/bwvM7NNFEzPXJkhM9GMvXqbH+UMCgztt7Gq+X+hkm4HQxM5vFsHhE8sG2dxyDAsyT5
+ Noj190rd2wkWcFzdMvVc0SyFdxMjTkckFeSdxPjtR6P2+eyfMmZEOcs2gfnPLv64zZNLyOBnwUi
+ oekgJxICJan+yyixeoENPKph3ILAmawbLBntJe2G/180Y0P5juJnlpZm7ZCRuInaivbTf2r4K1N
+ k8gCyD8/y5sVD2vw3aW6N2eSkDbFzOv7F+O0GelqZi15UoHIENKkkaW3QvzI499BiC78ERdasgS
+ vKUBD3fT3E8I8mKgriWJ+g1L2sl8pkdK7I1O5p+v5QjfJxNEvhHI5FXw2wCu8u/wilGyoCSZ
+X-Proofpoint-GUID: MpAvOYgGj7a_5hsLeusHLIg4b7OANBnC
+X-Proofpoint-ORIG-GUID: MpAvOYgGj7a_5hsLeusHLIg4b7OANBnC
+X-Authority-Analysis: v=2.4 cv=SOBCVPvH c=1 sm=1 tr=0 ts=686a8689 cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=D9rl3thw99EfY5kE3N+1UQ==:17
+ a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=idnX5w4AHIxaUxQtNqEA:9 a=QEXdDO2ut3YA:10 a=x9snwWr2DeNwDh03kgHS:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-04_07,2025-07-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 lowpriorityscore=0 bulkscore=0
+ impostorscore=0 mlxlogscore=999 mlxscore=0 phishscore=0 malwarescore=0
+ adultscore=0 suspectscore=0 spamscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2507060091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_070713_246206_F55A601C 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20250706_072203_149321_FE0F99D6 
+X-CRM114-Status: GOOD (  22.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,69 +135,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 7/5/2025 9:38 PM, Dmitry Baryshkov wrote:
+> On SM8250 / QRB5165-RB5 using PRR bits resets the device, most likely
+> because of the hyp limitations. Disable PRR support on that platform.
+> 
+> Fixes: 7f2ef1bfc758 ("iommu/arm-smmu: Add support for PRR bit setup")
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
+Reviewed-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 
-> -----Original Message-----
-> From: Russell King <linux@armlinux.org.uk>
-> Sent: 06 July 2025 11:11
-> To: Biju Das <biju.das.jz@bp.renesas.com>
-> Cc: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>; Andr=
-ew Lunn
-> <andrew+netdev@lunn.ch>; David S. Miller <davem@davemloft.net>; Eric Duma=
-zet <edumazet@google.com>;
-> Jakub Kicinski <kuba@kernel.org>; Paolo Abeni <pabeni@redhat.com>; Maxime=
- Coquelin
-> <mcoquelin.stm32@gmail.com>; Alexandre Torgue <alexandre.torgue@foss.st.c=
-om>; netdev@vger.kernel.org;
-> linux-renesas-soc@vger.kernel.org; linux-stm32@st-md-mailman.stormreply.c=
-om; linux-arm-
-> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Geert Uytterhoe=
-ven
-> <geert+renesas@glider.be>; biju.das.au <biju.das.au@gmail.com>
-> Subject: Re: [PATCH net-next] net: stmmac: dwmac-renesas-gbeth: Add PM su=
-spend/resume callbacks
->=20
-> On Sun, Jul 06, 2025 at 09:55:28AM +0000, Biju Das wrote:
-> > Just adding some logs:
-> > Currently PHY resume is called twice
-> > [   35.754933]  kszphy_resume+0x3c/0xf0
-> > [   35.754940]  phy_resume+0x3c/0x74
-> > [   35.754949]  phylink_prepare_resume+0x58/0xa0
-> > [   35.754957]  stmmac_resume+0x90/0x2a0
-> > [   35.771296]  stmmac_pltfr_resume+0x3c/0x4c
-> >
-> > and
-> >
-> > [   35.771258]  kszphy_resume+0x3c/0xf0
-> > [   35.771263]  __phy_resume+0x28/0x54
-> > [   35.771270]  phy_start+0x7c/0xb4
-> > [   35.771275]  phylink_start+0xb8/0x210
-> > [   35.771282]  phylink_resume+0x7c/0xc4
-> > [   35.771288]  stmmac_resume+0x1ec/0x2a0
-> > [   35.771296]  stmmac_pltfr_resume+0x3c/0x4c
->=20
-> This shouldn't be a problem. Phylib will do this, and PHY drivers are exp=
-ected to cope.
->=20
-> For example, on non-MAC managed PM PHYs, mdio_bus_phy_resume() will call =
-phy_init_hw() followed by
-> phy_resume(). If a MAC subsequently is brought up, phy_start() will be ca=
-lled, which will also call
-> __phy_resume().
->=20
-> If this is upsetting the KSZ PHY, then the KSZ PHY driver needs fixing.
+Unfortunately, there is no way to detect firmware support for PRR safely
+from KMD.
 
-By reconfiguring rgmii_delay during resume also fixes the issue.
-Not sure, PHY device is expected to configure the delay during every resume=
-?
+-Akhil.
 
+> ---
+> I currently don't have access to other devices from these generations.
+> It might be necessary to apply the same workaround to other platforms.
+> ---
+> Changes in v2:
+> - Simplify the workaround as the issue seems to be limited to SM8250
+>   only (Rob)
+> - Link to v1: https://lore.kernel.org/r/20250705-iommu-fix-prr-v1-1-ef725033651c@oss.qualcomm.com
+> ---
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> index 62874b18f6459ad9a8b0542ab81c24e3e745c53d..53d88646476e9f193a6275d9c3ee3d084c215362 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -355,7 +355,8 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
+>  	priv->set_prr_addr = NULL;
+>  
+>  	if (of_device_is_compatible(np, "qcom,smmu-500") &&
+> -			of_device_is_compatible(np, "qcom,adreno-smmu")) {
+> +	    !of_device_is_compatible(np, "qcom,sm8250-smmu-500") &&
+> +	    of_device_is_compatible(np, "qcom,adreno-smmu")) {
+>  		priv->set_prr_bit = qcom_adreno_smmu_set_prr_bit;
+>  		priv->set_prr_addr = qcom_adreno_smmu_set_prr_addr;
+>  	}
+> 
+> ---
+> base-commit: 7244e36657076b597ac21d118be9c0b0f15fc622
+> change-id: 20250705-iommu-fix-prr-600451b1d304
+> 
+> Best regards,
 
-	if (phy_interface_is_rgmii(phydev)) {
-		ret =3D ksz9131_config_rgmii_delay(phydev);
-		if (ret < 0)
-			return ret;
-	}
-
-Cheers,
-Biju
 
