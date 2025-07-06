@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4525DC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 07:51:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F59C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 07:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oG0uTSHPndKQgEo9PAWbDYxGYmGs9/lsra5cFNglXWw=; b=bisohy70EqT74yQNO9bxGRjRfb
-	GaGYK64bOWvgb1tIMhUiWn+CWCHZCNRGgnEmxo7P2VVJ3hTf+M1FwIDhDhXBGNHLdBZFLrazWCtSH
-	sge7KLv0ekb5SzNazC9RMRtSvcOTJDRH/SCdKYFXvf7eenjhcaKNig/giQreDidpG+LDnQLijaMw9
-	OdVuqZIy70S7fRlcrtE/wqOM5HJeGDEGs7jg7ymdM0P+zA4ZnAVzEspZ990eBPNzF/OPgZw4sNosy
-	ObA8oLa9dhGZGmXKOOc4eBw0q0Mm4i1dvrmR71+aSCbIKAZpsE/NIwbU5sRfQqhEpBJKtZxerut6b
-	xf2LLnbw==;
+	bh=QVKD2IfL8Cpz4uiJh8vbqXFnfyPq4BNfuF+MzCsMpcY=; b=JO5f7zPKZOSaFxprRv6QxPPIWl
+	8AhclxxMzSncMyCYh56orGcZvSBDQqGbIikJ7vUub22b2YqdL1nfCaPECodPD/NO5JlHrSe+BWsP6
+	qTb0krcGNxTiubNtnrneUedLEFV2usksS8T+7p5PczamP0iRgPQOC2k6xGMSq7CtqzgWgvVR4yk6r
+	K5ivTYcQMNuRWEiVhdpsBJVhcRCk3E1pLEhTCgso6S3rqvTBHbOs/4AZ+IIXt6ApXVbyd18Vk3omM
+	eXwu9S5mzEicqFvUYmE5zu/qK5VB2lzoMsUTdMXiW4FRG++DVlToCfngAAobyztOp+2oebPRL9RKW
+	2EYMYK7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYK9r-0000000HWhD-2eYt;
-	Sun, 06 Jul 2025 07:51:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uYKC9-0000000HWwz-3fTX;
+	Sun, 06 Jul 2025 07:53:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYK7Y-0000000HWRi-03BW;
-	Sun, 06 Jul 2025 07:49:09 +0000
+	id 1uYK8U-0000000HWWX-3Owd;
+	Sun, 06 Jul 2025 07:50:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2453C5C0581;
-	Sun,  6 Jul 2025 07:49:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB8BC4CEED;
-	Sun,  6 Jul 2025 07:49:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 38AEF45698;
+	Sun,  6 Jul 2025 07:50:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87735C4CEED;
+	Sun,  6 Jul 2025 07:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751788145;
-	bh=AeZgX8cv+dxBuYiCzTTJneqt3O+c34B/6XcL8I/f+GY=;
+	s=k20201202; t=1751788206;
+	bh=QcELM78RwX+zB8kvhnjQOG8WKbuPJwRJrloYcgXk5Ec=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Aa9IEyYLHCmmDZ42NL0UQcqfIUhmB4fpD3to6sNKiqN+7P2SxaO2Rx833ery3M8rL
-	 X2mEbZ/eyVXh33XOPjN3iubU6JSl7DImN8Ym+0sz7pZBWJYDtX8XaKq81HYOtfhXds
-	 O+KHl41hTX7kNG5HSTJvKJqNpKj/ny5w+j3SENhccRTaE3Sq4FSwsIOPlUoG3cFiqv
-	 ZUvOwrO4lcFzs/alLHFD7jNF2rvzwSobYJkZ9bKiKG2SN8qrDdE9pQPDxUaiBGQ+1D
-	 8/0UIsJihqhilniZkkNaWUFA3krEmD54fIdIu+CzMnZHtLxjNFC41DZgu2wGGhchwJ
-	 CBuFwzNpd+bHQ==
-Message-ID: <f0c53c19-74bd-4ac4-98e6-35fe962cf05e@kernel.org>
-Date: Sun, 6 Jul 2025 09:48:58 +0200
+	b=VonSMRClmGAbKAV/HhsQl9+7wjvRBfsaCHZWdW9AuzvFayd7HkGBKCEMAdSTEB15z
+	 GnZwDNsnZa+H76FFEjW8ymHO/zl3yqnnWlY9Tk3sq5DzHFiENWgG4P/8otaNi3wgqa
+	 l6k8XAoYbqrzcPImiOkeUqOIIGyG/6F1e9SxVSKpzuSglb1qaBjkVv2M/06Tu/QCE7
+	 9wpL+R/yuclPNpPdbdxuqmnHbL8XRvsdZaqO/Ms0c56LP/3rlz2uL9Ch7DqyfsrrKv
+	 HXp1A2eF9ciYj7/dXMtPZsE/7xhBJBN7FFdMXd+Z/dc3OZxSosizB5ZWfV0Xxd4yJs
+	 XUeXpM9MKoI5A==
+Message-ID: <21e0785e-b2f6-4b31-8887-0c22bd686dc8@kernel.org>
+Date: Sun, 6 Jul 2025 09:49:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/7] dt-bindings: arm: sunxi: Add NetCube Systems
- Nagami SoM
+Subject: Re: [PATCH v1 3/7] dt-bindings: arm: sunxi: Add NetCube Systems
+ Nagami Keypad Carrier Board
 To: Lukas Schmid <lukas.schmid@netcube.li>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
@@ -59,7 +59,7 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
 References: <20250705213900.3614963-1-lukas.schmid@netcube.li>
- <20250705213900.3614963-2-lukas.schmid@netcube.li>
+ <20250705213900.3614963-4-lukas.schmid@netcube.li>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250705213900.3614963-2-lukas.schmid@netcube.li>
+In-Reply-To: <20250705213900.3614963-4-lukas.schmid@netcube.li>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_004908_131060_D6651B7D 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20250706_005006_897408_D8EFB0BC 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,30 +126,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 05/07/2025 23:38, Lukas Schmid wrote:
-> The NetCube Systems Nagami is an System on Module base on the Allwinner
-> T113s SoC. It is intended to be used in low cost devices which require
-> simple layouts and low BOM cost.
+> The NetCube Systems Nagami Keypad Carrier is a custom board intended to
+> fit a standard Ritto Intercom enclosure and provides a Keypad, NFC-Reader
+> and Status-LED all controllable over Ethernet with PoE support.
 > 
 > Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 > ---
->  Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
+>  Documentation/devicetree/bindings/arm/sunxi.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
 > diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> index 7807ea613..3c4353884 100644
+> index 7919b5bf5..a2f16d064 100644
 > --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
 > +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> @@ -599,6 +599,11 @@ properties:
->            - const: netcube,kumquat
->            - const: allwinner,sun8i-v3s
+> @@ -610,6 +610,12 @@ properties:
+>            - const: netcube,nagami
+>            - const: allwinner,sun8i-t113s
 >  
-> +      - description: NetCube Systems Nagami SoM
+> +      - description: NetCube Systems Nagami Keypad Carrier Board
 > +        items:
-> +          - const: netcube,nagami
-As pointed out by next patch, SoM cannot be used alone and this entry
-make little sense.
+> +          - const: netcube,nagami-keypad-carrier
 
-BTW, squash all bindings patches into one, so we see complete picture.
+
+That's just enum with previous entry. Don't make it over-complicated.
 
 Best regards,
 Krzysztof
