@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D61C83F05
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 11:13:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CCF1C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 11:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7IFUgnPQyuVFa8Jj8ChajhgVnk7mfJFWlHVz17ozesI=; b=jwks7zjIqXC6Ws2gzp00Ey4u3X
-	oICYUpY5yYrc+kZVcaAcjR/KfSWM2u2ZUXp6KaXn0n4ag2+shQo8Wn6a0DvD2GVxf4ciGBj5DKwH1
-	UPUqogIxL7UmkrMQ9ibYc21/THsm/R/KUrs6T51URQsUzbKp+oKdp1v+VEOAbjGTk17qLmt4PhjTh
-	dkpXO0JXx/Y1br1iG509nXiIuMXepMi3XkjUn8r5lcNsRL2dtFK42e6/ihe0/6CJwvIe0YmmYN8to
-	7baZRu2jRaZNTkZdnvnDuqH2qxWN+jzkw2fTshPjI6S5xYydIQMhJBug/z8e/j53bUT0MWFSeh7b6
-	Rk2SHU1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CiN8aT9Et5jhNJ0SP8OnU+4yqCjb+pcPmRVpPHf+LEg=; b=JI1j2oHh075stYcURuwgE9qC9y
+	xZaU4wMioYNRO9OX6FWHynJHONlAqkbJZw/H02OD5Bu+2CL99AQRZTBH55a0nKvBQPWkzMeOml5gl
+	mcrP+d74s3/K0uHoYbABDGZ6h5YPbx3bdYaBCcfcycbhFHhn6aSLEvHiKBhypMXLya6SPXpIUZYkX
+	EPmPgt1jS+hUopMkhn+D+Mvy7nAkXzGHhJRsUIyHDzTa4kNyOJKACsmwQ8dmOZrxyfTO3aBGB1xCO
+	5wOG2cn+zB2Aps9QH9qjss4iNNaxj6JAixFpCVxMrrvJoblE1K3ZNB5/E+yWApuVc+v+jJMf+Wjkd
+	JwGLSCnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYNJP-00000000Amv-0cGf;
-	Sun, 06 Jul 2025 11:13:35 +0000
-Received: from mail.netcube.li ([173.249.15.149])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYM8e-000000005fp-34kO;
-	Sun, 06 Jul 2025 09:58:26 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Type:In-Reply-To:References;
-	bh=7IFUgnPQyuVFa8Jj8ChajhgVnk7mfJFWlHVz17ozesI=;
-	b=ZCYWZFzg4P9WrTsU5d6CCna4Qga4Q/aWUCSIGZfBh+srCwNdj3w3iLVSFj478A/b5BDM7qoD+wsnt06xKUKPe1UqykDHEIDUpUno2Z7hXPAO5oX2zjP1t9FJuObAGEIEFZ52iLRYxY7WTkag5WRFMS+RXWRNl3Cztg/zmMffkuI=
-Received: from lukas-hpz440workstation.localnet (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPSA
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
-	; Sun, 6 Jul 2025 11:58:17 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 3/7] dt-bindings: arm: sunxi: Add NetCube Systems Nagami Keypad
- Carrier Board
-Date: Sun, 06 Jul 2025 11:58:16 +0200
-Message-ID: <8549188.T7Z3S40VBb@lukas-hpz440workstation>
-In-Reply-To: <4648f0bf-2957-45bf-a6c1-01787e5d3e88@kernel.org>
-References: <20250705213900.3614963-1-lukas.schmid@netcube.li>
- <2998364.e9J7NaK4W3@lukas-hpz440workstation>
- <4648f0bf-2957-45bf-a6c1-01787e5d3e88@kernel.org>
+	id 1uYNkU-00000000C78-1RRp;
+	Sun, 06 Jul 2025 11:41:34 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYNiA-00000000Bzi-05fw;
+	Sun, 06 Jul 2025 11:39:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Ci
+	N8aT9Et5jhNJ0SP8OnU+4yqCjb+pcPmRVpPHf+LEg=; b=NO3dJ6nSfWxw/LePkm
+	4FSukGXk5iZQtQKsIqKtbCb8H6tDHm23Wg7JAQ0fLSPRcFFeDRwPD8fuJPUu2F81
+	5TbgU9RTPZtMTGbIF30g2MifhW4A2Kt/HfUlJCmyIvXtKFLg+rpOw+gkuuJP8l3N
+	YpovnIq96OV0rM3oOWi82K234=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wB37yQ4YGpo5RCCCw--.60201S2;
+	Sun, 06 Jul 2025 19:38:36 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: conor+dt@kernel.org,
+	didi.debian@cknow.org,
+	krzk+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH] arm64: dts: rockchip: Enable mipi dsi on rk3568-evb1-v10
+Date: Sun,  6 Jul 2025 19:38:24 +0800
+Message-ID: <20250706113831.330799-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart10685525.nUPlyArG6x";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wB37yQ4YGpo5RCCCw--.60201S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAr4rCr43tr1fKr48XF1kKrg_yoW5Xr17pr
+	nrCw4Sgw4xurW2qw15tr1kJrn5Gan5AFWxGF17uFyIyrsFqa4vg34IqF98tFyUtF18Z3yY
+	qrnxAFy29anFgaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j8txfUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBEgmCXmhqWtxqyAAAsh
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_025825_071943_0ABA8BD1 
-X-CRM114-Status: GOOD (  22.41  )
+X-CRM114-CacheID: sfid-20250706_043910_438529_93D33A15 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,111 +76,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart10685525.nUPlyArG6x
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"; protected-headers="v1"
-From: Lukas Schmid <lukas.schmid@netcube.li>
-Date: Sun, 06 Jul 2025 11:58:16 +0200
-Message-ID: <8549188.T7Z3S40VBb@lukas-hpz440workstation>
-In-Reply-To: <4648f0bf-2957-45bf-a6c1-01787e5d3e88@kernel.org>
-MIME-Version: 1.0
+From: Andy Yan <andy.yan@rock-chips.com>
 
-On Sonntag, 6. Juli 2025 11:46:46 CEST Krzysztof Kozlowski wrote:
-> On 06/07/2025 11:41, Lukas Schmid wrote:
-> > On Sonntag, 6. Juli 2025 11:36:34 CEST Krzysztof Kozlowski wrote:
-> >> On 06/07/2025 11:07, Lukas Schmid wrote:
-> >>> On Sonntag, 6. Juli 2025 09:49:58 CEST Krzysztof Kozlowski wrote:
-> >>>> On 05/07/2025 23:38, Lukas Schmid wrote:
-> >>>>> The NetCube Systems Nagami Keypad Carrier is a custom board intended
-> >>>>> to
-> >>>>> fit a standard Ritto Intercom enclosure and provides a Keypad,
-> >>>>> NFC-Reader
-> >>>>> and Status-LED all controllable over Ethernet with PoE support.
-> >>>>> 
-> >>>>> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-> >>>>> ---
-> >>>>> 
-> >>>>>  Documentation/devicetree/bindings/arm/sunxi.yaml | 6 ++++++
-> >>>>>  1 file changed, 6 insertions(+)
-> >>>>> 
-> >>>>> diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> >>>>> b/Documentation/devicetree/bindings/arm/sunxi.yaml index
-> >>>>> 7919b5bf5..a2f16d064 100644
-> >>>>> --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> >>>>> +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> >>>>> 
-> >>>>> @@ -610,6 +610,12 @@ properties:
-> >>>>>            - const: netcube,nagami
-> >>>>>            - const: allwinner,sun8i-t113s
-> >>>>> 
-> >>>>> +      - description: NetCube Systems Nagami Keypad Carrier Board
-> >>>>> +        items:
-> >>>>> +          - const: netcube,nagami-keypad-carrier
-> >>>> 
-> >>>> That's just enum with previous entry. Don't make it over-complicated.
-> >>>> 
-> >>>> Best regards,
-> >>>> Krzysztof
-> >>> 
-> >>> Just making sure here. The actual bindings are fine, but I should merge
-> >>> them into one patch, correct?
-> >> 
-> >> No, you got two comments what should be changed in the binding.
-> >> 
-> >> Best regards,
-> >> Krzysztof
-> > 
-> > So if I understand correctly you want me to remove the
-> > "allwinner,sun8i-t113s" from the carrier boards and keep it for the SoM?
-> 
-> No, I spoke nothing about that compatible. My comment is EXACTLY under
-> the line being incorrect. That entry should have been made enum with
-> previous board compatible. Look at other vendors, because this file
-> repeats that pattern for some reason, eh...
-> 
-> Best regards,
-> Krzysztof
+Enable the w552793baa 1080x1920 dsi panel on rk3568 evb1.
 
-Ah sorry. I think i understand now. You want the carrier boards in a single 
-entry with the different compatibles as the enum like:
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+---
 
-      - description: NetCube Systems Nagami SoM
-        items:
-          - const: netcube,nagami
-          - const: allwinner,sun8i-t113s
+ .../boot/dts/rockchip/rk3568-evb1-v10.dts     | 66 ++++++++++++++++++-
+ 1 file changed, 64 insertions(+), 2 deletions(-)
 
-      - description: NetCube Systems Nagami SoM based boards
-        items:
-          - enum:
-              - netcube,nagami-basic-carrier
-              - netcube,nagami-keypad-carrier
-          - const: netcube,nagami
-          - const: allwinner,sun8i-t113s
-
-Best regards,
-Lukas
-
-
---nextPart10685525.nUPlyArG6x
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEPv6dcBmn59ssZMkSJnN+drMVRtgFAmhqSLgACgkQJnN+drMV
-RtiERQgAhtJfnRb+0MWY3I9NrlK10nZqNnvJr1RrRAl3ac/hg00rMlrCjI1GWna3
-WnNjQY8ztNvMI83gXaTLDv1raTVU+6sIMcwiZcSGn8wdWSO/Cx4Rl3ziY/z3mAtc
-axXLv907yLGC62k4U/wpBJ3+wTEe49M4JaBTs868YCa1Q/vjpqZsnIun+1nWlTFR
-hH06vVJhgoV32fDePHQsGyAdn6sQoxt8bLqryu3u2aZaJLDDH/K/bcxpbSCYlSyj
-c84tM50/VIdh8/MyMXUUbas/odCS/+7Tvm6fNdlJG/BdIeWL454EJNaVlUdj+Cvp
-/4qEOroTN+xTqZNKizC7wI6uMqBkjA==
-=g2nF
------END PGP SIGNATURE-----
-
---nextPart10685525.nUPlyArG6x--
-
-
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dts
+index b073a4d03e4fb..a28bb90b85bed 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dts
+@@ -22,6 +22,15 @@ aliases {
+ 		mmc1 = &sdhci;
+ 	};
+ 
++	backlight: backlight {
++		compatible = "pwm-backlight";
++		pwms = <&pwm4 0 25000 0>;
++		brightness-levels = <20 220>;
++		num-interpolated-steps = <200>;
++		default-brightness-level = <100>;
++		power-supply = <&vcc3v3_sys>;
++	};
++
+ 	chosen: chosen {
+ 		stdout-path = "serial2:1500000n8";
+ 	};
+@@ -184,6 +193,47 @@ &cpu3 {
+ 	cpu-supply = <&vdd_cpu>;
+ };
+ 
++&dsi0 {
++	status = "okay";
++	clock-master;
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	panel@0 {
++		compatible = "wanchanglong,w552793baa", "raydium,rm67200";
++		reg = <0>;
++		backlight = <&backlight>;
++		vdd-supply = <&vcc3v3_lcd0_n>;
++		iovcc-supply = <&vcc3v3_lcd0_n>;
++		vsp-supply = <&vcc5v0_sys>;
++		vsn-supply = <&vcc5v0_sys>;
++		reset-gpios = <&gpio3 RK_PB5 GPIO_ACTIVE_LOW>;
++
++		port {
++			panel_in_dsi: endpoint {
++				remote-endpoint = <&dsi0_out_panel>;
++			};
++		};
++	};
++
++};
++
++&dsi0_in {
++	dsi0_in_vp1: endpoint {
++		remote-endpoint = <&vp1_out_dsi0>;
++	};
++};
++
++&dsi0_out {
++	dsi0_out_panel: endpoint {
++		remote-endpoint = <&panel_in_dsi>;
++	};
++};
++
++&dsi_dphy0 {
++	status = "okay";
++};
++
+ &gmac0 {
+ 	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
+ 	assigned-clock-parents = <&cru SCLK_GMAC0_RGMII_SPEED>;
+@@ -581,6 +631,10 @@ &pmu_io_domains {
+ 	status = "okay";
+ };
+ 
++&pwm4 {
++	status = "okay";
++};
++
+ &saradc {
+ 	vref-supply = <&vcca_1v8>;
+ 	status = "okay";
+@@ -672,8 +726,9 @@ &usb2phy1_otg {
+ };
+ 
+ &vop {
+-	assigned-clocks = <&cru DCLK_VOP0>, <&cru DCLK_VOP1>;
+-	assigned-clock-parents = <&pmucru PLL_HPLL>, <&cru PLL_VPLL>;
++	assigned-clocks = <&cru DCLK_VOP0>, <&cru PLL_VPLL>, <&cru DCLK_VOP1>;
++	assigned-clock-parents = <&pmucru PLL_HPLL>, <&xin24m>, <&cru PLL_VPLL>;
++	assigned-clock-rates = <0>, <132000000>, <132000000>;
+ 	status = "okay";
+ };
+ 
+@@ -687,3 +742,10 @@ vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ 		remote-endpoint = <&hdmi_in_vp0>;
+ 	};
+ };
++
++&vp1 {
++	vp1_out_dsi0: endpoint@ROCKCHIP_VOP2_EP_MIPI0 {
++		reg = <ROCKCHIP_VOP2_EP_MIPI0>;
++		remote-endpoint = <&dsi0_in_vp1>;
++	};
++};
+-- 
+2.43.0
 
 
