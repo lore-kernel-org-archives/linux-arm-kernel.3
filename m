@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7982AC83F05
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 07:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93856C83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Jul 2025 07:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CMojNCTXSCuZuFnyUaenwQwEPL03mTPCCiOoGiH2670=; b=ZMqHr7WHTsFnZSr2XnqmHv0gSP
-	Z9J3dMEMF7DfK/aX3btzCfOIf+UHg392td6djOGddM+tbGrRDHNLNffKTfhr7MqFOwV3uZ9/c/BiB
-	Wr5BVcgbOn3gMQLvRtXwvR/rFvuCQbUs2hr+tdSgYTI1vdCzIJdUsEfkti7Mvvb9u7jB6Tw9rUV+2
-	yGPoAdvZo2cU02ssa1YcSqs1yXaSxvSXes0eHKCxl9WFiHvgydIw8cSmLxHVJo56Krk2xkCDey2tS
-	7i3IIZU2Mz0IEnAUmEb+573bGen9uDydb6qWpMTA50n3NM9AmSHpL+1kYzSlmGUvkJhqjcxJoV6+h
-	5W6Qh7/Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yAT9qdIBZ/m+BNq1ut+SHUQ6P4rw0lgqWSduhQGC2aM=; b=2EmxJZc2j5LF9arbjU3hW0Obux
+	3mu2OdYcquo9Gk0gYC907VFgL9vy7mBuXyzMxqgH+j8x6gljIgE0X0UQAPqikbRPnejYVzqmYx3fc
+	YXqqDLP5iZqmT52mDvLhsol0fJ9w3erHFPHXbR4Vg661+SYraUWdT24ryI+zEZHd1R7deM6/xEhPj
+	LB3Ap6MiQfbRr4dgxCkPJuYqp1/W+ZW27CbxJP6UZGcjLggnMEAURq4Lnhy7t77AtCVYkL8psYBK2
+	6D4IPt97BDFBETPUa0x6A9UhxsSx23L59QhNVU4zOFEfd7YIU2nLkFptAOIbxEuHxmAykuHggxHEQ
+	Qtq49ZYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYJlk-0000000HUz0-1mj1;
-	Sun, 06 Jul 2025 07:26:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uYJvA-0000000HVUY-2mpJ;
+	Sun, 06 Jul 2025 07:36:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYJjR-0000000HUpV-1NsC
+	id 1uYJsq-0000000HVL2-3gSu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 07:24:13 +0000
+	Sun, 06 Jul 2025 07:33:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 554F860010;
-	Sun,  6 Jul 2025 07:24:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E53B8C4CEED;
-	Sun,  6 Jul 2025 07:24:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 46CC044460;
+	Sun,  6 Jul 2025 07:33:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B43ECC4CEED;
+	Sun,  6 Jul 2025 07:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751786650;
-	bh=GXloaSvCws91FWcTEY826uJkkXeu9ViMmss5Tzk2+zA=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=tC+J2TaE3G34vQ2iuThIuT6V4t04I0qj4jfqGEawToE2u+U5oDLkMygdaTJXSXDt4
-	 qmn5zrEQoXRMyoE41Yy2zFmEMtiG4Fox6x8Rw4n38AFP+uPFoR76gS1fqz/LBiRP5H
-	 8caft/vh+BCaVfamn9Lcm/H7aGNmSO3Cvz9IT5GCsm4uZ5DKaQS+ccl2liPbon9WNP
-	 mL3RG6lbJQnfXLdCqzJEmSrlrDJat3Z0cc7IPyt7p1hJkzgJJ1Su6mlQ8y7lcyfduf
-	 6s535wD17A4V1H5Lk5tzk1xbv/yDEy5mOqQEN8raKHYCKTOmVg6XQYikkfhsDeRbr5
-	 9lHWusOwORA2w==
-Message-ID: <a303bf21-a4d7-46ca-ba4e-2f70f39e6b10@kernel.org>
-Date: Sun, 6 Jul 2025 09:24:04 +0200
+	s=k20201202; t=1751787234;
+	bh=AQGKFQrPIXjApzBYitjGcjHwt9fB7afx0P3X1IhaFJc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gYkoc8Sb57ltNTva6csvTVe/KpCxgYPs9mGb8s1snU/XnZ1BRY1TYyd5m9v69yVrh
+	 mpfVv9LgiLQMTffn3G3yLdMbkgN1xHsX4MbaXp9ZGL3B0BBh4um/7acqx5H77bozY3
+	 oWz1l6lp9zQbPa/FbLg7lN9b2idVfTz+NPcu4zqEO7TieW31P+Exps173x4pKvlGJF
+	 2LYcOTDVLK0A/2VndZ0DQNNNx1b2OU9kv0CVYeTJ8TN/UkqbDe5HZrrT8Gn15s6msh
+	 Byh+OHDkruRWW1k6gZMSeOiNMLtQd4TnThQsj+TIjC/kDWYlMpGsgLTo0bk/5B216F
+	 2INHa+2eNMbBA==
+Message-ID: <32924ee3-2dcd-43bf-8dec-51f85675bee0@kernel.org>
+Date: Sun, 6 Jul 2025 09:33:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 8/9] dt-bindings: arm: aspeed: add Facebook Darwin
- board
-To: rentao.bupt@gmail.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
- Tao Ren <taoren@meta.com>
-References: <20250706042404.138128-1-rentao.bupt@gmail.com>
- <20250706042404.138128-9-rentao.bupt@gmail.com>
+Subject: Re: [PATCH v3 1/3] dt-bindings: display: samsung,exynos7-decon: add
+ properties for iommus and ports
+To: Kaustabh Chakraborty <kauschluss@disroot.org>,
+ Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Ajay Kumar <ajaykumar.rs@samsung.com>, Akshu Agrawal <akshua@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org>
+ <20250627-exynosdrm-decon-v3-1-5b456f88cfea@disroot.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,9 +107,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250706042404.138128-9-rentao.bupt@gmail.com>
+In-Reply-To: <20250627-exynosdrm-decon-v3-1-5b456f88cfea@disroot.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250706_003356_962046_6558ED21 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,36 +128,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/07/2025 06:23, rentao.bupt@gmail.com wrote:
-> From: Tao Ren <rentao.bupt@gmail.com>
-> 
-> Document the new compatibles used on Meta/Facebook Darwin board.
-> 
-> Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
-> ---
+On 26/06/2025 21:20, Kaustabh Chakraborty wrote:
+> @@ -80,6 +80,14 @@ properties:
+>        - const: vsync
+>        - const: lcd_sys
+>  
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  ports:
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+This was supposed to be port, no?
 
-
----
-
-<form letter>
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, you can skip it (please do
-not feel offended by me posting it here - no bad intentions intended).
-If you do not know the process, here is a short explanation:
-
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-of patchset, under or above your Signed-off-by tag, unless patch changed
-significantly (e.g. new properties added to the DT bindings). Tag is
-"received", when provided in a message replied to you on the mailing
-list. Tools like b4 can help here. However, there's no need to repost
-patches *only* to add the tags. The upstream maintainer will do that for
-tags received on the version they apply.
-
-Full context and explanation:
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-</form letter>
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +    description:
+> +      Contains a port which is connected to mic or dsim node.
+If you are using ports, then you need to list the ports.
 
 Best regards,
 Krzysztof
