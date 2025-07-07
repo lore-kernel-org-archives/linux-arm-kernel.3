@@ -4,57 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB37C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 11:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CCA1C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 11:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vxlz6bBzVTaWnO3QplHmCQm26TZ4e2rYetIwSGXcCK8=; b=rrV/Hfd3fPIi3ajwN69v+UmS7r
-	XQklB9oD2Uj2+MHAIGUex9/aDai52fl8gCkGw0rftHD0EDqEPxnOmieVRZF3s2EHcARvH5Ff1phgc
-	t3KDwV+OFEjx/WYZxkPWAaigEm9fCkBLquRDCdG8XSE5JnaaBMlVZcelt6DiQpQsMdFWlaNWaTuGf
-	D31HBE45s0GxJ6FD3f9nqcQKUpMJpeYqqwIFhwO+tR+VGz0+dOWsaCNXf+dmeckOl0rZ5nLeKVrMq
-	Ye1XPkShJO/EViWOrVbsUNjbeX2RLdNXOF6bWT3lGAoq9YcQgwTeKusteY+6GgES3MKrGUUFiqtsE
-	o0DJmIRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vkspmsqGRL0kbNhRVlmd69ZLVVxDznKqEBDAyLfVzGk=; b=rOxgRvaREk4gIBnhw+L7T3IrlN
+	5mToBiy6uv9wBc0ZgKhq707gflnkvgz0i8Axn3Rd98J/4Llwf+glRPm+GmC2cVlbscMDsazRdwa+Y
+	YE+CRSwL2wwk49jvpKz+LC9v0lpD/E3deUL3A64QtMvOl2TA+7MTGxVRSHtwZy8CEHnac9KbXnHzi
+	lSBuUD6//KoguHbVWTsiOFb1E/R8u9rYS64+Y+Jl7jcQPz8946fjNmZYHS+t7bpF6RTOKUPKkE8yy
+	O7RIukf7Bt8ZBYj0NE8tqFxhCN2DLiH+mHM5qQ6MIYAxjfCoyFtG9/DS3PV0NlN51SsUpSB2046Oy
+	193HmT1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjcI-00000002EB7-3w9q;
-	Mon, 07 Jul 2025 11:02:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYj45-000000029IY-0psS
+	id 1uYjea-00000002EQt-2fhc;
+	Mon, 07 Jul 2025 11:04:56 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYjDK-00000002AwE-3cuB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 10:27:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3CF201595;
-	Mon,  7 Jul 2025 03:26:57 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 447733F6A8;
-	Mon,  7 Jul 2025 03:27:08 -0700 (PDT)
-Message-ID: <9495df36-053e-49a3-8046-1e6aed63b4af@arm.com>
-Date: Mon, 7 Jul 2025 11:27:06 +0100
+	Mon, 07 Jul 2025 10:36:48 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uYjD3-00057V-F6; Mon, 07 Jul 2025 12:36:29 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uYjD2-007EWv-1J;
+	Mon, 07 Jul 2025 12:36:28 +0200
+Received: from pengutronix.de (p5b1645f7.dip0.t-ipconnect.de [91.22.69.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id BB00443955D;
+	Mon, 07 Jul 2025 10:36:27 +0000 (UTC)
+Date: Mon, 7 Jul 2025 12:36:25 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Carlos Song <carlos.song@nxp.com>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, "rafael@kernel.org" <rafael@kernel.org>, 
+	"mturquette@baylibre.com" <mturquette@baylibre.com>, Frank Li <frank.li@nxp.com>, 
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, "dakr@kernel.org" <dakr@kernel.org>, 
+	"festevam@gmail.com" <festevam@gmail.com>, "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, 
+	"pavel@kernel.org" <pavel@kernel.org>, Bough Chen <haibo.chen@nxp.com>, 
+	"len.brown@intel.com" <len.brown@intel.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Aisheng Dong <aisheng.dong@nxp.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
+	Jun Li <jun.li@nxp.com>
+Subject: Re: Dead lock with clock global prepare_lock mutex and device's
+ power.runtime_status
+Message-ID: <20250707-careful-pragmatic-quail-e1a2d8-mkl@pengutronix.de>
+References: <VI2PR04MB11147CCEFE4204B852807AAF2E841A@VI2PR04MB11147.eurprd04.prod.outlook.com>
+ <20250707105816.GF11488@nxa18884-linux>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] cacheinfo: Set cache 'id' based on DT data
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, sudeep.holla@arm.com,
- Rob Herring <robh@kernel.org>, Jonathan Cameron
- <jonathan.cameron@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
- WillDeaconwill@kernel.org
-References: <20250704173826.13025-1-james.morse@arm.com>
- <20250704173826.13025-2-james.morse@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20250704173826.13025-2-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="cndeefjy6bsasobx"
+Content-Disposition: inline
+In-Reply-To: <20250707105816.GF11488@nxa18884-linux>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_032713_346670_D250F6B8 
-X-CRM114-Status: GOOD (  30.46  )
+X-CRM114-CacheID: sfid-20250707_033646_909330_E8C99784 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,120 +92,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
 
-On 7/4/25 18:38, James Morse wrote:
-> From: Rob Herring <robh@kernel.org>
-> 
-> Use the minimum CPU h/w id of the CPUs associated with the cache for the
-> cache 'id'. This will provide a stable id value for a given system. As
-> we need to check all possible CPUs, we can't use the shared_cpu_map
-> which is just online CPUs. As there's not a cache to CPUs mapping in DT,
-> we have to walk all CPU nodes and then walk cache levels.
-> 
-> The cache_id exposed to user-space has historically been 32 bits, and
-> is too late to change. This value is parsed into a u32 by user-space
-> libraries such as libvirt:
-> https://github.com/libvirt/libvirt/blob/master/src/util/virresctrl.c#L1588
-> 
-> Give up on assigning cache-id's if a CPU h/w id greater than 32 bits
-> is found.
-> 
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> [ ben: converted to use the __free cleanup idiom ]
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> [ morse: Add checks to give up if a value larger than 32 bits is seen. ]
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Use as a 32bit value has also been seen in DPDK patches here:
-> http://inbox.dpdk.org/dev/20241021015246.304431-2-wathsala.vithanage@arm.com/
-> 
-> Changes since v1:
->   * Remove the second loop in favour of a helper.
->   
-> An open question from v1 is whether it would be preferable to use an
-> index into the DT of the CPU nodes instead of the hardware id. This would
-> save an arch specific swizzle - but the numbers would change if the DT
-> were changed. This scheme isn't sensitive to the order of DT nodes.
-> 
-> ---
->   drivers/base/cacheinfo.c | 38 ++++++++++++++++++++++++++++++++++++++
->   1 file changed, 38 insertions(+)
-> 
-> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-> index cf0d455209d7..df593da0d5f7 100644
-> --- a/drivers/base/cacheinfo.c
-> +++ b/drivers/base/cacheinfo.c
-> @@ -8,6 +8,7 @@
->   #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
->   
->   #include <linux/acpi.h>
-> +#include <linux/bitfield.h>
->   #include <linux/bitops.h>
->   #include <linux/cacheinfo.h>
->   #include <linux/compiler.h>
-> @@ -183,6 +184,42 @@ static bool cache_node_is_unified(struct cacheinfo *this_leaf,
->   	return of_property_read_bool(np, "cache-unified");
->   }
->   
-> +static bool match_cache_node(struct device_node *cpu,
-> +			     const struct device_node *cache_node)
-> +{
-> +	for (struct device_node *cache __free(device_node) = of_find_next_cache_node(cpu);
-Looks like the creation of this helper function has upset the 
-device_node reference counting. This first __free(device_node) will only 
-cause of_node_put() to be called in the case of the early return from 
-the loop. You've dropped the second __free(device_node) which accounts 
-for 'cache' changing on each iteration.
-> +	     cache != NULL; cache = of_find_next_cache_node(cache)) {
-> +		if (cache == cache_node)
-> +			return true;
-> +	}
-> +
-> +	return false;
-> +}
-> +
-> +static void cache_of_set_id(struct cacheinfo *this_leaf,
-> +			    struct device_node *cache_node)
-> +{
-> +	struct device_node *cpu;
-> +	u32 min_id = ~0;
-> +
-> +	for_each_of_cpu_node(cpu) {
-> +		u64 id = of_get_cpu_hwid(cpu, 0);
-> +
-> +		if (FIELD_GET(GENMASK_ULL(63, 32), id)) {
-> +			of_node_put(cpu);
-> +			return;
-> +		}
-> +
-> +		if (match_cache_node(cpu, cache_node))
-> +			min_id = min(min_id, id);
-> +	}
-> +
-> +	if (min_id != ~0) {
-> +		this_leaf->id = min_id;
-> +		this_leaf->attributes |= CACHE_ID;
-> +	}
-> +}
-> +
->   static void cache_of_set_props(struct cacheinfo *this_leaf,
->   			       struct device_node *np)
->   {
-> @@ -198,6 +235,7 @@ static void cache_of_set_props(struct cacheinfo *this_leaf,
->   	cache_get_line_size(this_leaf, np);
->   	cache_nr_sets(this_leaf, np);
->   	cache_associativity(this_leaf);
-> +	cache_of_set_id(this_leaf, np);
->   }
->   
->   static int cache_setup_of_node(unsigned int cpu)
+--cndeefjy6bsasobx
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: Dead lock with clock global prepare_lock mutex and device's
+ power.runtime_status
+MIME-Version: 1.0
 
+On 07.07.2025 18:58:16, Peng Fan wrote:
+> On Tue, Jul 01, 2025 at 03:16:08AM +0000, Carlos Song wrote:
+> >Hi, All:
+> >
+> >We met the dead lock issue recently and think it should be common issue =
+and not sure how to fix it.
+> >
+> >We use gpio-gate-clock clock provider (drivers/clk/clk-gpio.c), gpio is =
+one of i2c gpio expander (drivers/gpio/gpio-pcf857x.c). Our i2c driver enab=
+le run time pm (drivers/i2c/busses/i2c-imx-lpi2c.c [1]). System random bloc=
+ked when at reboot.
+> >
+> >The dead lock happen as below call stacks
+> >
+> >Task 117                                                Task 120
+> >
+> >schedule()
+> >clk_prepare_lock()--> wait prepare_lock(mutex_lock)     schedule() wait =
+for power.runtime_status exit RPM_SUSPENDING
+> >                           ^^^^ A                       ^^^^ B
+> >clk_bulk_unprepare()                                    rpm_resume()
+> >lpi2c_runtime_suspend()                                 pm_runtime_resum=
+e_and_get()
+> >...                                                     lpi2c_imx_xfer()
+> >                                                        ...
+> >rpm_suspend() set RPM_SUSPENDING                        pcf857x_set();
+> >                           ^^^^ B                       ...
+> >                                                        clk_prepare_lock=
+() --> hold prepare_lock
+> >                                                        ^^^^ A
+> >                                                        ...
+> >
+>=20
+> This is a common issue that clk use a big prepare lock which is easy
+> to trigger dead lock with runtime pm. I recalled that pengutronix raised
+> this, but could not find the information.
 
-Thanks,
+Alexander Stein stumbled over this issue some time ago:
 
-Ben
+| https://lore.kernel.org/all/20230421-kinfolk-glancing-e185fd9c47b4-mkl@pe=
+ngutronix.de/
 
+I encountered it too, while trying to add a clock provider driver for a
+SPI attached CAN controller which uses runtime pm.
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--cndeefjy6bsasobx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmhroyYACgkQDHRl3/mQ
+kZyo1gf/bNfDioyKAk+LhbS/S8WU2c64fWY5vQcbThj413S7TcSnfnR9IlY7RDK3
+yyXLR72WESLDt0+ezCYs/G5H8yWdc5vRjEjorcY/LiIyCkCmqeBDZ+LTRHKcCQTj
+c1ueWZ8BN9n6tDpBqNG/BZxRn+NnTEB4/f66ioH0poon8ldWYEXBes3WoCPcwU6o
+hKSg5Z0ch/66R1veUV42bRYEf1C2WG1lCkhuG0QBugpR6jH74bYwMyjhmjlwE/nG
+8r4DabWOZ1peVEUh0BkRnUDp1qwGmviztuN5gOodGiCCoPn5AvarUIraNcS+x43J
+EXQzX+sCwlzPYWX1leAA0t0Albln6Q==
+=MHn4
+-----END PGP SIGNATURE-----
+
+--cndeefjy6bsasobx--
 
