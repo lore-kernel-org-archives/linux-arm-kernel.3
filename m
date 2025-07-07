@@ -4,63 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A85C71130
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4123C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSCK7w44JmsX0Wyn5E85NYbQ0N5E71LQIaQGd0NzzGM=; b=L+/XEHUu+M6RADxIkBCk6zFYkS
-	5pEyqZUAwWj7BPlX0KUhinSu2D37tcRsC8yykWRcbCHvS1tKAgIRBBoZwgI/kMlmFHzMiYphkOHTR
-	qMANAEpPpZA5PbvwWolSKDP0EH+nLmkHOak3oo2+BGnzvzhsyYTROhoRj2tyjHrqgcs9kJ45MRa3m
-	GvoVpLA8CK1URr5PIvXQ0aD6V9TmuQca5YlCwdd6J31AdxzsGErP/S9ryrrOM41RWoZ6ySOCt5ty8
-	jsK2GVCGuBx5JZ9+TVL3PRgvjuX6xhhV8cGRXd+ToNzjZxlZXWUYfk/xjhqaiXvA9ujoQtsYKJwFp
-	w6J4YQUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OKJ+SePL8ad905xXZJicXIbTXk637WzjFgDNc9XGFyI=; b=sgmCIGaO7Vtd6Cg2jMAHY0HEaQ
+	lrjhJIPrIvBv8601OwJ675wS4dztnXcWiRXl2deoLs5TKP/XPQEpfxNuaLjoz1jdowLQHSKhSVSnD
+	tnefx8BNw8iWpRJs9/yPMu/1JBNvbVbkDMUlFrYu2nY2aYY1s+i1wZ1DmSKazkRcH35At6iIn180c
+	ZRVhyvo7l+9tNYUWh4q9peWpvbrHDd2M/KcRT0Y7JBDxt+WCsfzIZ7SRRSYmAtio6DXJbweV0jJC9
+	H3Gedvmai/wN89qNaHnWUTLy5yJ8hKY+KCAKkcvwbhn/jZitTb5pfiQGBx4AU/VUS5faVTyxDo3lH
+	EeFoOIHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYqLn-00000003GYO-3Qd1;
-	Mon, 07 Jul 2025 18:13:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYpR1-000000038u9-3XCF
+	id 1uYqO5-00000003GpL-2Wx3;
+	Mon, 07 Jul 2025 18:16:21 +0000
+Received: from mail-mw2nam12on2060f.outbound.protection.outlook.com ([2a01:111:f403:200a::60f] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYosz-000000032mv-1Hrm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 17:15:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 259CC168F;
-	Mon,  7 Jul 2025 10:15:06 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E195F3F66E;
-	Mon,  7 Jul 2025 10:15:15 -0700 (PDT)
-Date: Mon, 7 Jul 2025 18:15:13 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec
- <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH net 0/2] allwinner: a523: Rename emac0 to gmac0
-Message-ID: <20250707181513.6efc6558@donnerap.manchester.arm.com>
-In-Reply-To: <CAGb2v64vxtAVi3QK3a=mvDz2u+gKQ6XPMN-JB46eEuwfusMG2w@mail.gmail.com>
-References: <20250628054438.2864220-1-wens@kernel.org>
-	<20250705083600.2916bf0c@minigeek.lan>
-	<CAGb2v64My=A_Jw+CBCsqno3SsSSTtBFKXOrgLv+Nyq_z5oeYBg@mail.gmail.com>
-	<e9c5949d-9ac5-4b33-810d-b716ccce5fe9@lunn.ch>
-	<20250706002223.128ff760@minigeek.lan>
-	<CAGb2v64vxtAVi3QK3a=mvDz2u+gKQ6XPMN-JB46eEuwfusMG2w@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	Mon, 07 Jul 2025 16:40:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cCisJUybt6fje82swAywLvi2KHnCUjtDMWX1OcQifkm+8cozrSEVH70jx1XomfwQwEP7LC//7BA2WMB/+UASRPHgMvZ2yLB878NJAVR3uMq0C1tJtjDK4y+2vkqgIwoBgCj4UfiO+nhNXHLvpOPSk/IR9PKlBRnfFcifJZfS5pKwtHC+8d2iAsRZuHtiMfWjRrQrbHDCl0kWcDD5A5EN6kIyBS8G3dFbNY88Q03t5gmnx7/jzx8+VE1LpaioecZTwnOtsFzgFnvuZBfU0obq6OY/aRxjbOwRaOxI9WoadtJS9teE7xC0bmMfo9DPgrw4C4J98Xa+rQxxN2g9w1iWJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OKJ+SePL8ad905xXZJicXIbTXk637WzjFgDNc9XGFyI=;
+ b=IM2v06Tu6mo+WtT0DZ5JMVOlI+vnLsvqUFZ6HB0qwlGLiNNQ1HerDRBRmm8XsM/WBhyh7X4YHV+hR9NkLSq1btQ5Z78ZjzY5PAyRZR7dG3SM59D60DKQUqI2U41tSprVjvonVLbMQrM0ffHo8EE3pf4xqhL+av5BQcEIiHJnGbs78dnkZyhkLdo93sU+TVIqEdsQWY2e0WOOFkJ1L+9hgzOCIiROSsuxrzf12CRfPkOLl38GYCqc8xpni7hHDnXFPAFoOHEhapH8C4tJwnynaXZ57eYAmFFGvYQ87PINfxrfDpoZxhnozL3gGedfUKnVd6HDek0kMwMQNzcgccMP3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OKJ+SePL8ad905xXZJicXIbTXk637WzjFgDNc9XGFyI=;
+ b=jIFfTR9ABwbUZuLzIO10Jyu4CI0VC+wM9Mokn9dQV9TM+vP9JVxlWBjMbsQv1x1TFlOA8DbMOqJMrC5+/kje18F4h7aHRzBR+yf+o/eKpzcr9on6JDacDdmu1ilqv2Ux/OiOhmxn1TTJ/Ey/Z8QyeBuiFCAYN2NlUbS+1FXTN4B0p1cxQUJrU4lFcy3/8jaa6P4d20MK+pKx0+MtjF0YXCtI/k5LC4QG002gFBnUSJ7PuGyjgT5XYTM1P7L/wHAzk31usfyth1KrhxvWHsmqFEVqLCbzmFo/GQppiMTGOWUjV50gV2LPhY+VUnSxIxU8WYVlLU8IIkW/lh0yTM/zlA==
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
+ by MW4PR12MB6754.namprd12.prod.outlook.com (2603:10b6:303:1eb::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.25; Mon, 7 Jul
+ 2025 16:39:56 +0000
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2%3]) with mapi id 15.20.8901.018; Mon, 7 Jul 2025
+ 16:39:56 +0000
+From: Ankit Agrawal <ankita@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "joey.gouly@arm.com"
+	<joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>, "shahuang@redhat.com"
+	<shahuang@redhat.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>, "ddutile@redhat.com"
+	<ddutile@redhat.com>, "seanjc@google.com" <seanjc@google.com>
+CC: Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, Kirti
+ Wankhede <kwankhede@nvidia.com>, Krishnakant Jaju <kjaju@nvidia.com>, "Tarun
+ Gupta (SW-GPU)" <targupta@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, Andy
+ Currid <acurrid@nvidia.com>, Alistair Popple <apopple@nvidia.com>, John
+ Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>, Zhi Wang
+	<zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Uday Dhoke
+	<udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com"
+	<coltonlewis@google.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
+	<ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org"
+	<linux-mm@kvack.org>, "tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "maobibo@loongson.cn"
+	<maobibo@loongson.cn>
+Subject: Re: [PATCH v10 0/6] KVM: arm64: Map GPU device memory as cacheable
+Thread-Topic: [PATCH v10 0/6] KVM: arm64: Map GPU device memory as cacheable
+Thread-Index: AQHb7Xzh2Hcw1h6RA06LwUDPmEcqgLQmzm7Z
+Date: Mon, 7 Jul 2025 16:39:55 +0000
+Message-ID: <SA1PR12MB71990F54565B56BD2E422CF5B04FA@SA1PR12MB7199.namprd12.prod.outlook.com>
+References: <20250705071717.5062-1-ankita@nvidia.com>
+In-Reply-To: <20250705071717.5062-1-ankita@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|MW4PR12MB6754:EE_
+x-ms-office365-filtering-correlation-id: 4a707742-45d9-4c14-4332-08ddbd74e7cc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|38070700018|921020;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?joEvQ+Kegx75AkDB9gnlQYbSabYnRDa/ehfPYkhd06WI1udCUoHF26SIOo?=
+ =?iso-8859-1?Q?gljlj33k6xROr5xAayvVVIoAiF5SkFrJhbffG7noZkA8pjyH705j90X0Si?=
+ =?iso-8859-1?Q?alH+uYOk4aQItaMNSMV9MSkbwbP2OBcT1cObLykutcDVMsTQdY7h2vNuMJ?=
+ =?iso-8859-1?Q?tn6l4F9ArXY+cSComGdJPcx+IPh+oHJxuNCGEUyw7OgbcqeJpeFMe4QjZ9?=
+ =?iso-8859-1?Q?5Pbr3HdsJJoG7iWjh+30/GoxL4LraU9qDg1cIDjmYBipByFG+Lq4twYkpZ?=
+ =?iso-8859-1?Q?ZpWvya0Bx+PmVbeZMPqO8cF0b/P1dep7klLZRu58xzOHka3WKXbzlGObue?=
+ =?iso-8859-1?Q?9L7wMduJoYZ6vz1YG5Z8SZSgYcCd35Frmp/CimUSzKcmHoyFCF6bNnPE6x?=
+ =?iso-8859-1?Q?KVXAV5A+IxKGsnjjjYUAFEdxmy57fQ6HaRd3kbbguhbTozeNEiEXKbs45k?=
+ =?iso-8859-1?Q?Dlv1TLYM2TblCVtrOZSbMlzUnZifYYfGTItdfFFGlMi+dbAV7BXIDCXHm5?=
+ =?iso-8859-1?Q?Ubc0OCwduwhW4lqEk7Gg6IkgMm/35PLT6PzGET5gSw3Ad8plTr8ZlXxdJf?=
+ =?iso-8859-1?Q?Tw04xg1B8NN3C7fdTMQNOxNWkDFyFklyUwiRf/ujQ4fsjm8/ki0hUDvA1V?=
+ =?iso-8859-1?Q?bvOradGB5zrY0FBKGqYFnbIHwklx3bkSCxBlZwch4TGNU2IkNDdHm/N5qL?=
+ =?iso-8859-1?Q?h6fm1nqTjNgd21QcpyHSuX20pjIagOEpN6G4jNLPteQRCK3BW/NKJMeqRP?=
+ =?iso-8859-1?Q?JYIkmbA91bmUw5GAMo30u7vurAIt+5gNA+basy83Yu6EQAQLyir+xX3cxs?=
+ =?iso-8859-1?Q?uv0B/Gi6zXBunAmvtpKupYMqo/SAFQZ0Q4nTsnVfWzaLfWhqa8zNpvMPYm?=
+ =?iso-8859-1?Q?WWCFF1CZzFSEWuKEHdqNhzZrTVXJE5UDE+BFjda3+lkRiZbmZh7HWhM80H?=
+ =?iso-8859-1?Q?vvZK5lXI3k13OHRMnSjSkKw9Raa4f4ap7Ju1Im/wKYmaEGqkvSH1e1aaHm?=
+ =?iso-8859-1?Q?MUEN4r3qx8S5U7VH1P2qKW4dqU5viDFLrmyScAAj/9gJtp7EylzkWcABCw?=
+ =?iso-8859-1?Q?TToEDiKXuSV6tveHteKsZtEolzWZA+7rdbdyEsuREbSSVLZsAljST+Vly9?=
+ =?iso-8859-1?Q?tYD1sCueKjzhitbdJivYlH0iZjYPViFoQgPMTWKz3FNQbUltNf5fKNEy9P?=
+ =?iso-8859-1?Q?yilYD3zEAMDSFQGTwIiuDpSB85Q0wn+wpkXyhtV02s3xnlHoRer8Tvl39O?=
+ =?iso-8859-1?Q?7QksAYKEjHl/7jtYAy0t4JsXQi0ae9/HVYvVsrC+KKE8STEO8WSIfkRF3W?=
+ =?iso-8859-1?Q?n/UXpmKpQLOY2PhMivc9MucM7wB1M3Rul2WECkrNi4gOgz1VrN0L5Apl50?=
+ =?iso-8859-1?Q?8z/sYA5Qv2uQhlnc17YbOkAXZqA+/byS83nk/7R1TDSJzKwvsjUDVtsukr?=
+ =?iso-8859-1?Q?KyKlvS17c0xYaL133UZEwEom7W61cOcEv0/OOMZ+6vsgS23KO8i0RlDpXp?=
+ =?iso-8859-1?Q?uId7ou5HbFxgbAjg3pKBFfOr23ezjE8kmAxcVIyDAfDnouPNQnCSj6jc25?=
+ =?iso-8859-1?Q?IhcL6RM=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?sp1JMxV7ELKuikSGWoNN0JlcBUyMu8T/MxzNtbz1edBN1Taxx57TJ3BF8A?=
+ =?iso-8859-1?Q?Zxkf7YFT3mh1qca1T1pDnjc98NATtkPcdmLR9R4HiT5CnPtrz3zi2Qz1J9?=
+ =?iso-8859-1?Q?luXkL9johlLpFte0bI8bdmowyhM9hWm3y0IG0vG6f8PdR/ElWRK3kg6nRn?=
+ =?iso-8859-1?Q?+c8N+bUBcf9+vHRih4Gxw14b6ipIDwL4yYjQWfXFq9c6qeGoVtqKUPHcO0?=
+ =?iso-8859-1?Q?rEXkAK1DGumIQD7vAPdTMYTzcQg14j2e0fHw90rySqkuXFWvNEfKY5AUfa?=
+ =?iso-8859-1?Q?+cbDEskTxRheuDS+p6cW6yNrtBK8bfEkzuXyQoEma4GJxicGH/c7hB+PqV?=
+ =?iso-8859-1?Q?+QNQe7TKCeekAkEE7I85hZ2EXbcuIkQryYu8dzUoaRT7SEwh9at+tem1Yk?=
+ =?iso-8859-1?Q?YW3RQ/iXzO1O8PYtbfjWhBQmtwEcPlLDTFufhl0VIG8E1GknaZwV/pdCNU?=
+ =?iso-8859-1?Q?UXWRVKt/Co23DQOUa1wKOxeOCIWJvbGB1PMy2xOY38esQZTtam4ZjlMceg?=
+ =?iso-8859-1?Q?+0cukAnhR2DrIZ1GpHemj0mSvKXPJb6PQKuYm63iYloGPFQtdMGhdELp2z?=
+ =?iso-8859-1?Q?QsYAnBCfvuZYT0gFIL7dpRFkDC3k0Ow3UwcJ6hDbMHu2NunJQA1OI4TK4i?=
+ =?iso-8859-1?Q?axc5Kt9WzPz/oDSmp0pW/s1IL7KJyS5GVg/ZlbkIXBzJQhc9C2Cdh034vr?=
+ =?iso-8859-1?Q?1+YlFu3U6BkPbNfXuZ5IZF615vOt+gfyDAUxVRQHjMFI2Ii6Egz/feHeFi?=
+ =?iso-8859-1?Q?Dt/aigfjI5XeHo2M0ClPRjhowVD3B7sIeWClSINSnA1JPuw5B1FGkePu7J?=
+ =?iso-8859-1?Q?IqTUPRT0muoxljlBneMouYdurATduuXla/F9S95Pm+bjpRBAg5l3Beoi6a?=
+ =?iso-8859-1?Q?7s7sAxHWc2swq72IgXztV8rZzLQxosLLPDxxiaZLtJOEe/RAEkmUSQq4//?=
+ =?iso-8859-1?Q?KSjpPvvqivakub02JJ3Goy97umnvrZEbcQeCwYcqOfxR9hfhUVnWAAXFlZ?=
+ =?iso-8859-1?Q?J8DAXsT2PQb0u2xP4CZRU1GebmL1Y5cSU+XvDcDYO8wWgp/m4EnprD4kTi?=
+ =?iso-8859-1?Q?N+CpPWynvtjYDVPP83POiY8Z/CKCs5uJhyKppCKISDVKT47kffjqIRLzWR?=
+ =?iso-8859-1?Q?cdpgfOV/cOTtzONVgFV5zyEZk16Ouhd1yOFPwGkJ5uH5Wx1+RrE8dQdDWQ?=
+ =?iso-8859-1?Q?aPDTcvIrGXwiYEvBwf3NF7iJBOD9jRtchAsOKcLjxnA38cfwPEECajHP2A?=
+ =?iso-8859-1?Q?hZFIojbeYqEkHc4ql9saDHxPqJWwuY1wOSHlFKt2vZKpIxXFXYwVpr/mK5?=
+ =?iso-8859-1?Q?ccZVECOfrcLNpgRpeeDNRcILagRNmmcwLBKejv7g74vZhy1wBHCQLOjUgX?=
+ =?iso-8859-1?Q?KIw6x2K5wPQTXrdkI8hWXW/fbkHKEmYidqFSzwCKOwOrCPUeRIUtqR6etO?=
+ =?iso-8859-1?Q?4EvEoAOjyYlZv7ULxvYanGGmMPC701Sp1xxVjGDws/0FInzGauvt1Q4tSb?=
+ =?iso-8859-1?Q?97Js/XbZegnco2EDXrZb4iN40xtBDC4j/s68JFFZEpeZ6mHVJ7mzFoP+zO?=
+ =?iso-8859-1?Q?SgessH/wqAPknTjtjM56GGlkOEjLvNwrxpJdjif52yaQ0ah9MP0nprTeVS?=
+ =?iso-8859-1?Q?vS3QfpixeyV7I=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a707742-45d9-4c14-4332-08ddbd74e7cc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Jul 2025 16:39:55.8630
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: B3m++Tbb3kF7PiG0dMs4c2rOExeuCvzKGCsuqmpTxXcHQRNV5hdBodROEDy5CmXQarEarfQdznkHVzK6Xrs2Ng==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6754
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_101519_964887_B2DBC587 
-X-CRM114-Status: GOOD (  44.36  )
+X-CRM114-CacheID: sfid-20250707_094009_343581_56490E08 
+X-CRM114-Status: UNSURE (   6.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,86 +189,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 6 Jul 2025 21:14:09 +0800
-Chen-Yu Tsai <wens@kernel.org> wrote:
-
-Hi,
-
-> On Sun, Jul 6, 2025 at 7:23=E2=80=AFAM Andre Przywara <andre.przywara@arm=
-.com> wrote:
-> >
-> > On Sat, 5 Jul 2025 17:53:17 +0200
-> > Andrew Lunn <andrew@lunn.ch> wrote:
-> >
-> > Hi Andrew,
-> > =20
-> > > > So it's really whatever Allwinner wants to call it. I would rather =
-have
-> > > > the names follow the datasheet than us making some scheme up. =20
-> > >
-> > > Are the datasheets publicly available? =20
-> >
-> > We collect them in the sunxi wiki (see the links below), but just to
-> > make sure:
-> > I am not disputing that GMAC is the name mentioned in the A523 manual,
-> > and would have probably been the right name to use originally - even
-> > though it's not very consistent, as the same IP is called EMAC in the
-> > older SoCs' manuals. I am also not against renaming identifiers or even
-> > (internal) DT labels. But the problem here is that the renaming affects
-> > the DT compatible string and the pinctrl function name, both of which
-> > are used as an interface between the devicetree and its users, which is
-> > not only the Linux kernel, but also U-Boot and other OSes like the BSDs=
-. =20
->=20
-> I reiterate my position: they are not stable until they actually hit a
-> release. This provides some time to fix mistakes before they are set in
-> stone.
->=20
-> > In this particular case we would probably get away with it, because
-> > it's indeed very early in the development cycle for this SoC, but for
-> > instance the "emac0" function name is already used in some U-Boot
-> > patch series on the list:
-> > https://lore.kernel.org/linux-sunxi/20250323113544.7933-18-andre.przywa=
-ra@arm.com/
-> >
-> > If we REALLY need to rename this, it wouldn't be the end of the world,
-> > but would create some churn on the U-Boot side.
-> >
-> > I just wanted to point out that any changes to the DT bindings have
-> > some impact to other projects, even if they are proposed as a coherent
-> > series on the Linux side. Hence my question if this is really necessary=
-. =20
->=20
-> For the compatible string, I can live with having a comment in the binding
-> stating the name used in the datasheet for reference.
-
-For the compatible string going with a fallback name, I can live with
-renaming it ;-)
-
-> For the pinctrl stuff, which is the contentious bit here, I thought the
-> whole idea of the newer pinctrl bindings is that the driver uses
-> "allwinner,pinmux" instead of "function". I think having both being valid
-> is confusing, and likely to cause conflicts later on. If we're going to
-> use the hardware register values in the device tree, I'd really like them
-> to be the only source of truth. The commit message for the binding also
-> sort of suggests that "allwinner,pinmux" is the part that matters.
-
-Yes, it should be, but it turns out to be convenient for U-Boot to
-continue using the old method - until someone writes a driver for the new
-schema. And a function name is still mandatory, it's just mostly for
-reference now (so would indeed be fine to rename).
-
-So if you really insist on this: please go ahead and merge it, so that
-the 6.16 release contains the new name.
-
-But please note my silent protest about those cosmetic name changes in the
-DT realm, which establishes an interface reaching beyond just the Linux
-kernel. When it comes to new boards, the U-Boot DT sync process is rather
-slow, so I really am eager to cherry-pick -rc1 DTs already, instead of
-waiting another 7 weeks - which bites me in this case. It's not merged
-yet, so is fine in this case, but I would really like to avoid similar
-hiccups in the future.
-
-Cheers,
-Andre.
+Thank you so much Jason, Catalin and David for reviewing the patch series=
+=0A=
+and providing your Reviewed-by.=0A=
+=0A=
+Oliver, would you be able to apply the series if everything looks fine?=0A=
+=0A=
+Thanks=0A=
+Ankit Agrawal=
 
