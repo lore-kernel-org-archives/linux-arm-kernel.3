@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 459FBC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 06:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01FD9C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 06:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Mo12jIp7JGdEvtjsw2OulO3/3LfrKIJdrPsh7bBfbU=; b=An8j4qKn3NIP1Qt5c5ZUIQybPI
-	0H7n0M0iIPIrwEycCnWzILELndesFWZYPza9g97pByj5xOXLEUg9KGlU9f81tDTtJ2anVX87NeiBG
-	86pKsaYq4XSwc7cfUf/2vXTKwxYkd2jtyyLSI+2o8ew5HP98/1zvcrHgdylK/ZcH7w8kmOMGJF73z
-	PsE10dHkU7G/5PCGJlzz4Y8c8NDPDfUQFnd/mlpe2uOWR6lxGZeeHB9Dra+mepieUBtP9WwGruMOC
-	wg1dpHboSjAWIIszLuVEkgIaEHQ0783HXNcsMe2Y0GK6qOzFhyqsSyh4hCWEjc0fONGhOKV88HCwl
-	HMBIufaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EVlyVjP/FgF8kg/SqpOHeyUb9UWF41IVECghJXxLQqU=; b=jvYoOCUGzw+lFO6dCOwpa6wE7k
+	muxym1Cf/MWjYq54sLASlh6zr2a4TbUebg060GaGcIebEBKIrKqN5RkxJfrIrLz5m3R3cjBAwTPfc
+	QTVNfU5ptkd52GFrPcS/FvrPoXbNw7RPbXFObQjBftzpZjvZWVGmBaB7+a8SLUFtPEDUC+FIqq1fY
+	4LY2A+9VRoYzTexyUwfp1dDkCocN3QFbWWEMO6ksoZmSdvDAxzmbALbN5gts3BYZa4abgLcRwbFLt
+	8vTJFEoNVtvA7W744zY5YHUafIqbb5ZpYoVmSmrJVHWGKQV5teoVlrpvVvp+M+g78bXVdPffDv//X
+	U5L9FALA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYewh-00000001VRt-1ju4;
-	Mon, 07 Jul 2025 06:03:19 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uYf6X-00000001WFJ-2w4K;
+	Mon, 07 Jul 2025 06:13:29 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYetO-00000001V9M-0lHa
+	id 1uYf4D-00000001Vsd-1hdW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 05:59:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=1Mo12jIp7JGdEvtjsw2OulO3/3LfrKIJdrPsh7bBfbU=; b=Pc
-	+Prd8uRRGn3vPyj24SLIx2z/vxR16IRch5EJPI/NXNW9bNOWeLFTm1l68YI/NTY7xFLTYdSxDgrc3
-	yynyqF3Kmtjcjw/TqyhrRhsnj9lF7L2jHEMEECKcQq3MEhxtiFE6grgkwXhaXM0l/61W8tKwDH4uK
-	QEF71+OpQGxs4LM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uYetE-000gGj-GK; Mon, 07 Jul 2025 07:59:44 +0200
-Date: Mon, 7 Jul 2025 07:59:44 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Mon, 07 Jul 2025 06:11:07 +0000
+Received: from [89.212.21.243] (port=56226 helo=localhost.localdomain)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1uYf4B-00DKr8-0U;
+	Mon, 07 Jul 2025 08:11:02 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH RFT net-next 02/10] net: stmmac: Add support for
- Allwinner A523 GMAC200
-Message-ID: <e04e30fe-6f7c-4e48-90bb-24bf3f2081ad@lunn.ch>
-References: <20250701165756.258356-1-wens@kernel.org>
- <20250701165756.258356-3-wens@kernel.org>
- <c464d56b-dfd2-4e8c-a77a-4a0d05588768@lunn.ch>
- <CAGb2v65rDZ+V6EuZQ5NDrV7n0C-4CpHLXP_M9M2hA-oR4cMJUQ@mail.gmail.com>
+	Conor Dooley <conor+dt@kernel.org>
+Cc: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH v2 1/4] arm64: dts: imx93-phycore-som: Add RPMsg overlay
+Date: Mon,  7 Jul 2025 08:10:58 +0200
+Message-Id: <20250707061101.1194618-2-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250707061101.1194618-1-primoz.fiser@norik.com>
+References: <20250707061101.1194618-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGb2v65rDZ+V6EuZQ5NDrV7n0C-4CpHLXP_M9M2hA-oR4cMJUQ@mail.gmail.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_225954_218082_4D94BCC7 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250706_231105_600783_306E099D 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,21 +82,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 07, 2025 at 11:06:55AM +0800, Chen-Yu Tsai wrote:
-> On Thu, Jul 3, 2025 at 4:19 PM Andrew Lunn <andrew@lunn.ch> wrote:
-> >
-> > > +     if (!of_property_read_u32(node, "allwinner,tx-delay-ps", &val)) {
-> >
-> > Please use the standard properties rx-internal-delay-ps and
-> > tx-internal-delay-ps.
-> 
-> Since they share the same binding, I guess I either need to split the
-> binding so that the new compatible uses the standard properties, or
-> introduce them to the existing dwmac-sun8i driver as well?
+Add an overlay used for remote processor inter-core communication
+between A55 and M33 cores on the phyCORE-i.MX93 SoM based boards.
 
-You should get them for free from ethernet-controller.yaml. But you
-might need to add a constraint that allwinner,tx-delay-ps etc is not
-valid for this device.
+Overlay adds the required reserved memory regions and enables the
+mailbox unit and the M33 core for RPMsg (Remote Processor Messaging
+Framework).
 
-	Andrew
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+Changes in v2:
+- reorder reserved memory nodes by address
+
+ arch/arm64/boot/dts/freescale/Makefile        |  4 ++
+ .../dts/freescale/imx93-phycore-rpmsg.dtso    | 60 +++++++++++++++++++
+ 2 files changed, 64 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-phycore-rpmsg.dtso
+
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 0b473a23d120..08a1de299538 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -324,6 +324,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
++
++imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
++
+ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba91xxca.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-rpmsg.dtso b/arch/arm64/boot/dts/freescale/imx93-phycore-rpmsg.dtso
+new file mode 100644
+index 000000000000..c6cb5c580455
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx93-phycore-rpmsg.dtso
+@@ -0,0 +1,60 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
++ * Author: Primoz Fiser <primoz.fiser@norik.com>
++ */
++
++/dts-v1/;
++/plugin/;
++
++&{/} {
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++
++		rsc_table: rsc-table@2021e000 {
++			reg = <0 0x2021e000 0 0x1000>;
++			no-map;
++		};
++
++		vdev0vring0: vdev0vring0@a4000000 {
++			reg = <0 0xa4000000 0 0x8000>;
++			no-map;
++		};
++
++		vdev0vring1: vdev0vring1@a4008000 {
++			reg = <0 0xa4008000 0 0x8000>;
++			no-map;
++		};
++
++		vdev1vring0: vdev1vring0@a4010000 {
++			reg = <0 0xa4010000 0 0x8000>;
++			no-map;
++		};
++
++		vdev1vring1: vdev1vring1@a4018000 {
++			reg = <0 0xa4018000 0 0x8000>;
++			no-map;
++		};
++
++		vdevbuffer: vdevbuffer@a4020000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0xa4020000 0 0x100000>;
++			no-map;
++		};
++	};
++};
++
++&cm33 {
++	mbox-names = "tx", "rx", "rxdb";
++	mboxes = <&mu1 0 1>,
++		 <&mu1 1 1>,
++		 <&mu1 3 1>;
++	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
++		 <&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
++	status = "okay";
++};
++
++&mu1 {
++	status = "okay";
++};
+-- 
+2.34.1
+
 
