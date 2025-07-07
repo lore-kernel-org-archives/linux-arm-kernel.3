@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CEA4C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 01:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B032AC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 01:05:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9QUVNe7L9edGqcKaeMqOMgtNSGUzYbwGQwHgagEyTzg=; b=b1sHFMQmPOzrFfSCoc94tTFOeD
-	OUN3BZQFhjrPbdLA1kYyL5gGdDILwXxDc48WcvcEkynYgwp6vPY+HxJoyPlZJtP0sgPxzPCri31aC
-	xayQae+fRcpHlnv6BeLLT/Wpa8VPxR7uAcf7Dr2bMABweSrTReyPNfaDmDhVoCIk0I2zhsRzmGkD6
-	MstNkBe6acT0z77VFxvxNwthLkXAaLMrLUqNnIBprIrmKwTldyf76yPMT6O1blJ/A0B7/YHv+9pjW
-	YKnISQhaIi+j3FflYiTKisBHFJcByccYgvRIJW38KbV78jpT1LwC1sIL5TFTPfY3+OdLnGYiz1lbG
-	JitxBh/w==;
+	bh=tJmrm4T+ctlZCAdZsH2mv/hAR5WhP0dAMHbEJfvJRlM=; b=PRg1tBFF7Q5HfI4GZoy08unLzn
+	XuwpONy1dEN74VpcVdx8O9CyH9Z45Ty0DsW4UhuLnP3o9ZUTDZhdOdqgA1o6n9Q+YD6bTNj7t2K1t
+	cXY1GwES6deMYZjrlGqlBHYfpqCbITGajOhCAiTUcZtbjoqi+OLc2GOcComSLvkG1flLwYckrAeva
+	lM1qcn8rvGfbABwkpUgj4pGfgYvZiLcExtmmeuIdmZpIuOmYA00DDsaSW0Ox13MHIcrB1enL72etf
+	YniQVPavvKWb4XqNEdUHQlU6uDHa70rFt8Lkz5UmkgkKnjJpqVRctTq9hVURutel53WehwR8qpsg/
+	+z2mb23g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYaGV-000000014EB-2qnY;
-	Mon, 07 Jul 2025 01:03:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uYaIl-000000014Wg-1RxB;
+	Mon, 07 Jul 2025 01:05:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYaED-000000013zx-23i6
+	id 1uYaGI-000000014BT-48tG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 01:01:05 +0000
+	Mon, 07 Jul 2025 01:03:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9846E6112A;
-	Mon,  7 Jul 2025 01:01:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5C44C4CEED;
-	Mon,  7 Jul 2025 01:00:28 +0000 (UTC)
-Date: Sun, 6 Jul 2025 20:00:27 -0500
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1B38DA4AD97;
+	Mon,  7 Jul 2025 01:03:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7DCEC4CEED;
+	Mon,  7 Jul 2025 01:02:36 +0000 (UTC)
+Date: Sun, 6 Jul 2025 20:02:35 -0500
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: ankita@nvidia.com
 Cc: jgg@nvidia.com, maz@kernel.org, oliver.upton@linux.dev,
@@ -50,15 +50,18 @@ Cc: jgg@nvidia.com, maz@kernel.org, oliver.upton@linux.dev,
 	linux-mm@kvack.org, tabba@google.com, qperret@google.com,
 	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, maobibo@loongson.cn
-Subject: Re: [PATCH v10 5/6] KVM: arm64: Allow cacheable stage 2 mapping
- using VMA flags
-Message-ID: <aGsbnH4O7sy2WwfV@arm.com>
+Subject: Re: [PATCH v10 6/6] KVM: arm64: Expose new KVM cap for cacheable
+ PFNMAP
+Message-ID: <aGscq_R69UpMXpGX@arm.com>
 References: <20250705071717.5062-1-ankita@nvidia.com>
- <20250705071717.5062-6-ankita@nvidia.com>
+ <20250705071717.5062-7-ankita@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250705071717.5062-6-ankita@nvidia.com>
+In-Reply-To: <20250705071717.5062-7-ankita@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250706_180315_218125_60598EF7 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +76,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 05, 2025 at 07:17:16AM +0000, ankita@nvidia.com wrote:
+On Sat, Jul 05, 2025 at 07:17:17AM +0000, ankita@nvidia.com wrote:
 > From: Ankit Agrawal <ankita@nvidia.com>
 > 
-> Today KVM forces the memory to either NORMAL or DEVICE_nGnRE
-> based on pfn_is_map_memory (which tracks whether the device memory
-> is in the kernel map) and ignores the per-VMA flags that indicates the
-> memory attributes. The KVM code is thus restrictive and allows only for
-> the memory that is added to the kernel to be marked as cacheable.
+> Introduce a new KVM capability to expose to the userspace whether
+> cacheable mapping of PFNMAP is supported.
 > 
-> The device memory such as on the Grace Hopper/Blackwell systems
-> is interchangeable with DDR memory and retains properties such as
-> cacheability, unaligned accesses, atomics and handling of executable
-> faults. This requires the device memory to be mapped as NORMAL in
-> stage-2.
+> The ability to safely do the cacheable mapping of PFNMAP is contingent
+> on S2FWB and ARM64_HAS_CACHE_DIC. S2FWB allows KVM to avoid flushing
+> the D cache, ARM64_HAS_CACHE_DIC allows KVM to avoid flushing the icache
+> and turns icache_inval_pou() into a NOP. The cap would be false if
+> those requirements are missing and is checked by making use of
+> kvm_arch_supports_cacheable_pfnmap.
 > 
-> Given that the GPU device memory is not added to the kernel (but is rather
-> VMA mapped through remap_pfn_range() in nvgrace-gpu module which sets
-> VM_PFNMAP), pfn_is_map_memory() is false and thus KVM prevents such memory
-> to be mapped Normal cacheable. The patch aims to solve this use case.
+> This capability would allow userspace to discover the support.
+> It could for instance be used by userspace to prevent live-migration
+> across FWB and non-FWB hosts.
 > 
-> Note when FWB is not enabled, the kernel expects to trivially do
-> cache management by flushing the memory by linearly converting a
-> kvm_pte to phys_addr to a KVA, see kvm_flush_dcache_to_poc(). The
-> cache management thus relies on memory being mapped. Moreover
-> ARM64_HAS_CACHE_DIC CPU cap allows KVM to avoid flushing the icache
-> and turns icache_inval_pou() into a NOP. These two capabilities
-> are thus a requirement of the cacheable PFNMAP feature. Make use of
-> kvm_arch_supports_cacheable_pfnmap() to check them.
-> 
-> A cachebility check is made by consulting the VMA pgprot value.
-> If the pgprot mapping type is cacheable, it is safe to be mapped S2
-> cacheable as the KVM S2 will have the same Normal memory type as the
-> VMA has in the S1 and KVM has no additional responsibility for safety.
-> Checking pgprot as NORMAL is thus a KVM sanity check.
-> 
-> No additional checks for MTE are needed as kvm_arch_prepare_memory_region()
-> already tests it at an early stage during memslot creation. There would
-> not even be a fault if the memslot is not created.
-> 
+> CC: Catalin Marinas <catalin.marinas@arm.com>
+> CC: Jason Gunthorpe <jgg@nvidia.com>
 > CC: Oliver Upton <oliver.upton@linux.dev>
-> CC: Sean Christopherson <seanjc@google.com>
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-> Suggested-by: David Hildenbrand <david@redhat.com>
+> CC: David Hildenbrand <david@redhat.com>
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 > Tested-by: Donald Dutile <ddutile@redhat.com>
 > Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
 
