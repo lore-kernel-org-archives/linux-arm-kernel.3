@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E87CC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 14:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD5DC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 14:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mg0PWWd3xdg1tOjXkV/nEMgiyFSFOwRqlygF+AR0C8M=; b=K1CNIINqjL9q7VgiSHyqI41R8C
-	0ApsJfxXu17nbBugGMHJSnhzZIjLUlj+aofKzponzu842+wy/oDqvhy9FN7LTJ/X+Md2Om4xhEqM2
-	czrksqcC/DDxWW+YuUIwjJwWv8nDVYFm/kqa26PIZ2/HKAlMikjvJdOjapdcf8hMKfzRqGzyVUbHf
-	vv6wb0HP+k+B5dvhWmqqHGKRlW274+dNAkjdXyZScyn1kbKXOztlFsl+BbmguxQs7vjD0es0ZPf5l
-	7JzaTNjss+XuixW8Ebl4ADLynfPEw/IIvB/Vi0jCkR/FlXnlzRRwS49Fkq4EjS/EQKIyKYxvMZVBu
-	uAspyw4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FNpVb/nMDP7hj3MLmxppsJZtO2Gs5x5oBsiSaJBuIB4=; b=MZQ7nOO5ya7L1RNBdPDXv9c/1N
+	ETdcLPDn3CPwPfiIHivOsq/Aa79avWgfT7cmdt6W4IB0rLJGqSUkrv2854lRjRDBO3wXOVZt9an0s
+	Ctc4Xk9kGayQGu6cD1qedspyFfm0zToGDt2Y2pGlB95+BFWTvi3FMz2vf262vyN87bpiqaJw/nIVN
+	263YtCFSgLHCUe/ZPyEfobMZTgwXnbOA6QoACsbtXhXqB1tZ13drEZ2oguDl95hSqUBiKUeT4aaFS
+	39+f/k8QTnVD46p+x+Ea5eGTjQALC/ylkqXg6kBGyCDoPup+Z/jdiWF5OWsZjPsy2zlXM5EgpDr+Y
+	AqGS+Vbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYmd2-00000002fHy-0htf;
-	Mon, 07 Jul 2025 14:15:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYm52-00000002a0P-0VsC
+	id 1uYmfK-00000002faO-3JIs;
+	Mon, 07 Jul 2025 14:17:54 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYm5h-00000002a4n-2vH1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 13:40:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 159731BF7;
-	Mon,  7 Jul 2025 06:40:11 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 867273F58B;
-	Mon,  7 Jul 2025 06:40:21 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 07 Jul 2025 14:39:36 +0100
-Subject: [PATCH v3 14/14] perf arm_spe: Allow parsing both data source and
- events
+	Mon, 07 Jul 2025 13:41:10 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-60c4521ae2cso5469622a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 06:41:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751895664; x=1752500464; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=FNpVb/nMDP7hj3MLmxppsJZtO2Gs5x5oBsiSaJBuIB4=;
+        b=k429sYAjRbQY6I7dIgNLWttgYeyFxck6KWd4wJ0lIDewz7HtU0m6xj9DUKpTRQdvjO
+         izqfrbhUoVydLgTrumJqWnSyrYuxbWNBeR5Gtib44MaIoOR212Sml3hATZohsfxw2+4+
+         0Lfnvx+IsllZVu2ext2SaeVi0sjSJaCQrDD6gvdmBy63k/xkeKXqwVIxZ4sK7Voe5Evx
+         fmjAEPp0qIz7ObAWigawWhWFGU9oQJS5R8FvxtjzDar3mOhUaTaMZy0ZjV/Hm97k1/Lj
+         Xkh+KMgt0UPvMiN1RnrxyULtkRY91nDL2clEEaDoU1K3JfPi83HrsJ3/bu8fDKzJuIke
+         VIFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751895664; x=1752500464;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FNpVb/nMDP7hj3MLmxppsJZtO2Gs5x5oBsiSaJBuIB4=;
+        b=Yf4YghcmgQA8SMXYh99fZv2ZJp9lbl1vs4id2Xr9+jzWDu99HMGEXnHWsNZq6eql6r
+         /hAvuJ/Aka7hUlOVbYL42BaeV0kApBWOWnlaW7W/OW+p9RAaMJ3TBPYB4e6Nh3YcQ1k/
+         w8ywgKlL5XpzrOAB+JRo3cHlTw8/erPmKwkcMi1mnkffbVoZRkD/VWwIrbgb32jpj7Md
+         h8CJ9CoCRwTjp/h5h4oqzynYtq6YZGpi9cHvPS9X6DJKze1pDnMAzt7L9kCAxhOqW9CR
+         zXNzI03iSxycmDXpPxhXkHsFa/wNCd1hgggpzb3OaW5EM1TepL2BEiS0JqdHqmWSxJ1s
+         V8kg==
+X-Forwarded-Encrypted: i=1; AJvYcCX7Z0VOuP4MsTKvVGfkF5i9OkrPh+T2Nb0jKGoMwWKCuDL3+2P/Zxhh2+Gc+gVPyWTDQPMLr6w13ojOU6OWxnV/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDz8n2FwcOR3wKMsc5iXOnEVp8kaURXXOwHxfrVaNrIQMeq+/G
+	ldcOTCmJMUUlXJ1vaLWeU2kyMhl/uu5BwKza+6HlmvWiuolXUCRs0oKT9Ifhps4qZHw=
+X-Gm-Gg: ASbGncvHncs9j+ohS47fC0ZvTrNTdIrRNZvDCdaEoMXluuUj2BrgnLSh1CSZtFdgpGN
+	UuUAGUjF1JDl3NQOEl1t/Sb9n0HmHlSXvHyo7ZjeP+w8zTgZJmh1ld2rApre3dhDb/v1rTYMDGp
+	QwWeWWjPuebIIQwGTyhRg37yXJl+CWBnFR0RV4A+cl7o8ynCHogS4OviE63DmJCVuIeQ5ouzj6T
+	MUz/ffTmUN60WJtM3JPPdRqMEgImdcj67pFNy6of2Xhl9CSOYWqLYBxtUP0MzM9BVbl+GzFDJ6T
+	eeBYnFwwkU9hlObv9PTnBzmc5u8eBYnBGovA++WF2XdZrQNCGtuVCq3Hr+wiFgix6+6NLBkJwS5
+	mSw==
+X-Google-Smtp-Source: AGHT+IEVEQQKSyWO8J/KHI1EhymIFStABHRr6vUfPIXgyPnnTgZXYb+sbCsOm6oQazMQbqKjsU4K6Q==
+X-Received: by 2002:a17:907:1b23:b0:ae3:635c:53c1 with SMTP id a640c23a62f3a-ae410a62cdbmr922365066b.54.1751895663516;
+        Mon, 07 Jul 2025 06:41:03 -0700 (PDT)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ae411a54227sm471065266b.74.2025.07.07.06.41.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Jul 2025 06:41:02 -0700 (PDT)
+Date: Mon, 7 Jul 2025 15:41:00 +0200
+From: "u.kleine-koenig@baylibre.com" <u.kleine-koenig@baylibre.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Yong Wu =?utf-8?B?KOWQtOWLhyk=?= <Yong.Wu@mediatek.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+	"krzk@kernel.org" <krzk@kernel.org>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>
+Subject: Re: NULL pointer exception in drivers/memory/mtk-smi.c
+Message-ID: <c2fhyerjrb5qgtgyo7jojcyolsryvdp6injgbbzdkbzoaubdnk@37aw7p2f6rbj>
+References: <allge3h2abtjfj77idsnwccurxi2jnbcv6qcxar5f5m3jjmpvs@a4mmfghdhtv4>
+ <lri2gdwioe3on3unzrnmezv4pnxke6lmixrsvargeupdcywweo@j6xoz36xjdoh>
+ <1dbebbf290413eae9af13312028c2d19d3441a09.camel@mediatek.com>
+ <d818cad4-9eff-4fd6-b46c-d1fc24f7130b@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250707-arm_spe_support_hitm_overhead_v1_public-v3-14-33ea82da3280@arm.com>
-References: <20250707-arm_spe_support_hitm_overhead_v1_public-v3-0-33ea82da3280@arm.com>
-In-Reply-To: <20250707-arm_spe_support_hitm_overhead_v1_public-v3-0-33ea82da3280@arm.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- James Clark <james.clark@linaro.org>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- German Gomez <german.gomez@arm.com>, Ali Saidi <alisaidi@amazon.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751895589; l=4722;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=/8MUCvbYanGE07XSMApIvF7a54ZtUUY4LSXTOPytycc=;
- b=vBY/ltWj+c2gvy56CBq4U1MxHRz+Zb5j+N/72o5KK9cDNBps1qc1oiTQqN7MLvU9e8lIlTqzB
- k96ZCYYLmviDDQcErrC5Uge/pQCbPj4FBs0m8DEElKWUAcMeDH0lnKw
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="o3dz544qscs7qsyr"
+Content-Disposition: inline
+In-Reply-To: <d818cad4-9eff-4fd6-b46c-d1fc24f7130b@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_064024_256547_E0DBDD6A 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20250707_064105_974330_10C36509 
+X-CRM114-Status: GOOD (  45.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,144 +103,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current code skips to parse events after generating data source. The
-reason is the data source packets have cache and snooping related info,
-the afterwards event packets might contain duplicate info.
 
-This commit changes to continue parsing the events after data source
-analysis. If data source does not give out memory level and snooping
-types, then the event info is used to synthesize the related fields.
+--o3dz544qscs7qsyr
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: NULL pointer exception in drivers/memory/mtk-smi.c
+MIME-Version: 1.0
 
-As a result, both the peer snoop option ('-d peer') and hitm options
-('-d tot/lcl/rmt') are supported by Arm SPE in the perf c2c.
+On Mon, Jul 07, 2025 at 10:47:53AM +0200, AngeloGioacchino Del Regno wrote:
+> Il 07/07/25 09:24, Yong Wu (=E5=90=B4=E5=8B=87) ha scritto:
+> > On Thu, 2025-07-03 at 18:41 +0200, Uwe Kleine-K=C3=B6nig wrote:
+> > > Hello,
+> > >=20
+> > > [expanding the audience a bit according to the drivers that are
+> > > involved
+> > > now that the problem is better understood]
+> > >=20
+> > > On Tue, Jun 17, 2025 at 05:18:30PM +0200, Uwe Kleine-K=C3=B6nig wrote:
+> > > > on a 6.16-rc2 kernel running on an mt8365-evk I occasionally hit
+> > > > the
+> > > > following during boot:
+> > >=20
+> > > I invested some time now to understand the issue. So here comes what
+> > > I
+> > > understood, maybe that helps someone to spot the fix to the described
+> > > problem.
+> > >=20
+> > > With a configuration that has all drivers built-in but
+> > >=20
+> > > 	CONFIG_DRM_MEDIATEK=3Dm
+> > > 	CONFIG_MTK_IOMMU=3Dm
+> > >=20
+> > > and
+> > >=20
+> > > diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
+> > > index cb95fecf6016..d4320db7cd2d 100644
+> > > --- a/drivers/iommu/mtk_iommu.c
+> > > +++ b/drivers/iommu/mtk_iommu.c
+> > > @@ -1387,14 +1387,15 @@ static int mtk_iommu_probe(struct
+> > > platform_device *pdev)
+> > >   		goto out_list_del;
+> > >   	ret =3D iommu_device_register(&data->iommu, &mtk_iommu_ops, dev);
+> > >   	if (ret)
+> > >   		goto out_sysfs_remove;
+> > >   	if (MTK_IOMMU_IS_TYPE(data->plat_data, MTK_IOMMU_TYPE_MM)) {
+> > > +		msleep(10000);
+> > >   		ret =3D component_master_add_with_match(dev,
+> > > &mtk_iommu_com_ops, match);
+> > >   		if (ret)
+> > >   			goto out_device_unregister;
+> > >   	}
+> > >   	return ret;
+> > >   out_device_unregister:
+> > >=20
+> > > I can reliably trigger the race.
+> > >=20
+> > > With that sleep in place iommu_device_register() completes quickly
+> > > which
+> > > enables probing of the devices with drivers contained in the
+> > > drm_mediatek module (because the modules are loaded in parallel on
+> > > a different CPU).
+> > >=20
+> > > Then generic driver code calls resume on all suppliers for devices to
+> > > bind, among them the four larb devices. However due to
+> > > component_master_add_with_match() not being called yet, the larb
+> > > devices
+> > > are not yet bound to the iommu device and so larb->mmu is still NULL.
+> > > The latter is a problem in mtk_smi_larb_config_port_gen2_general()
+> > > which
+> > > is called from mtk_smi_larb_resume().
+> >=20
+> > Hi Uwe,
+> >=20
+> > Thanks for your help. In this case, it looks like the disp probe occurs
+> > before the smi_larb_bind operation, we need to let disp wait for the
+> > bind to complete.
+> >=20
+> > --- a/drivers/memory/mtk-smi.c
+> > +++ b/drivers/memory/mtk-smi.c
+> > @@ -666,6 +666,10 @@ static int __maybe_unused
+> > mtk_smi_larb_resume(struct device *dev)
+> >          if (MTK_SMI_CAPS(larb->larb_gen->flags_general,
+> > MTK_SMI_FLAG_SLEEP_CTL))
+> >                  mtk_smi_larb_sleep_ctrl_disable(larb);
+> >=20
+> > +     /* The larb_bind operation may be later than the master probe. */
+> > +       if (!larb->mmu)
+> > +               return -EPROBE_DEFER;
+> > +
 
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- tools/perf/util/arm-spe.c | 75 ++++++++++++++++++++++++++++-------------------
- 1 file changed, 45 insertions(+), 30 deletions(-)
+A .resume callback isn't supposed to return -EPROBE_DEFER.
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 082a1c69b42047b6fdf263ab2c74cc5fa9accd13..e2d9035fcd28a4c2dd7a996658a5504c856bfca6 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -921,40 +921,56 @@ static void arm_spe__synth_memory_level(struct arm_spe_queue *speq,
- {
- 	struct arm_spe *spe = speq->spe;
- 
--	if (data_src->mem_op == PERF_MEM_OP_LOAD)
--		arm_spe__synth_ld_memory_level(record, data_src);
--	if (data_src->mem_op == PERF_MEM_OP_STORE)
--		arm_spe__synth_st_memory_level(record, data_src);
-+	/*
-+	 * The data source packet contains more info for cache levels for
-+	 * peer snooping. So respect the memory level if has been set by
-+	 * data source parsing.
-+	 */
-+	if (!data_src->mem_lvl) {
-+		if (data_src->mem_op == PERF_MEM_OP_LOAD)
-+			arm_spe__synth_ld_memory_level(record, data_src);
-+		if (data_src->mem_op == PERF_MEM_OP_STORE)
-+			arm_spe__synth_st_memory_level(record, data_src);
-+	}
- 
- 	if (!data_src->mem_lvl) {
- 		data_src->mem_lvl = PERF_MEM_LVL_NA;
- 		data_src->mem_lvl_num = PERF_MEM_LVLNUM_NA;
- 	}
- 
--	if (record->type & ARM_SPE_DATA_SNOOPED) {
--		if (record->type & ARM_SPE_HITM)
--			data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
--		else
--			data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
--	} else {
--		u64 *metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
--
--		/*
--		 * Set NA ("Not available") mode if no meta data or the
--		 * SNOOPED event is not supported.
--		 */
--		if (!metadata ||
--		    !(metadata[ARM_SPE_CAP_EVENT_FILTER] & ARM_SPE_DATA_SNOOPED))
--			data_src->mem_snoop = PERF_MEM_SNOOP_NA;
--		else
--			data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+	/*
-+	 * If 'mem_snoop' has been set by data source packet, skip to set
-+	 * it at here.
-+	 */
-+	if (!data_src->mem_snoop) {
-+		if (record->type & ARM_SPE_DATA_SNOOPED) {
-+			if (record->type & ARM_SPE_HITM)
-+				data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+			else
-+				data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
-+		} else {
-+			u64 *metadata =
-+				arm_spe__get_metadata_by_cpu(spe, speq->cpu);
-+
-+			/*
-+			 * Set NA ("Not available") mode if no meta data or the
-+			 * SNOOPED event is not supported.
-+			 */
-+			if (!metadata ||
-+			    !(metadata[ARM_SPE_CAP_EVENT_FILTER] & ARM_SPE_DATA_SNOOPED))
-+				data_src->mem_snoop = PERF_MEM_SNOOP_NA;
-+			else
-+				data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		}
- 	}
- 
--	if (record->type & ARM_SPE_REMOTE_ACCESS)
--		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
-+	if (!data_src->mem_remote) {
-+		if (record->type & ARM_SPE_REMOTE_ACCESS)
-+			data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
-+	}
- }
- 
--static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
-+static void arm_spe__synth_ds(struct arm_spe_queue *speq,
- 			      const struct arm_spe_record *record,
- 			      union perf_mem_data_src *data_src)
- {
-@@ -973,19 +989,18 @@ static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
- 	} else {
- 		metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
- 		if (!metadata)
--			return false;
-+			return;
- 
- 		midr = metadata[ARM_SPE_CPU_MIDR];
- 	}
- 
- 	for (i = 0; i < ARRAY_SIZE(data_source_handles); i++) {
- 		if (is_midr_in_range_list(midr, data_source_handles[i].midr_ranges)) {
--			data_source_handles[i].ds_synth(record, data_src);
--			return true;
-+			return data_source_handles[i].ds_synth(record, data_src);
- 		}
- 	}
- 
--	return false;
-+	return;
- }
- 
- static union perf_mem_data_src
-@@ -1005,8 +1020,8 @@ arm_spe__synth_data_source(struct arm_spe_queue *speq,
- 	else
- 		return data_src;
- 
--	if (!arm_spe__synth_ds(speq, record, &data_src))
--		arm_spe__synth_memory_level(speq, record, &data_src);
-+	arm_spe__synth_ds(speq, record, &data_src);
-+	arm_spe__synth_memory_level(speq, record, &data_src);
- 
- 	if (record->type & (ARM_SPE_TLB_ACCESS | ARM_SPE_TLB_MISS)) {
- 		data_src.mem_dtlb = PERF_MEM_TLB_WK;
+> >          /* Configure the basic setting for this larb */
+> >=20
+> >=20
+> > Hi Angelo,
+> >   Do you have any suggestion?
+> >=20
+>=20
+> I don't have the necessary bandwidth to really broadly research about thi=
+s, but
+> there's two ideas:
+>=20
+> 1. What if we disable PM OPS until MMU is bound? That would avoid calls to
+>    larb_resume().....
 
--- 
-2.34.1
+I think the key question here is: Is the iommu functional without the
+larbs bound? If not I'd claim that iommu_device_register() should only
+happen if all larbs are present and ready.
 
+> 2. Instead of component, we could register a device - which carries its o=
+wn suspend
+>    and resume ops; the device would be registered only after all local ar=
+biters
+>    are bound, so there would be no suspend/resume ops until everything is=
+ in place.
+>    That's more or less how it's done in drivers/usb/core/port.c
+>=20
+> Probably N.1 would work best - we could...
+>=20
+> probe:
+> pm_runtime_set_active(larb->smi.dev);
+> pm_runtime_forbid(larb->smi.dev);
+>=20
+> bind:
+> larb->mmu =3D ...
+> larb->bank =3D ...
+>=20
+> pm_runtime_set_suspended(larb->smi.dev);
+> pm_runtime_allow(larb->smi.dev);
+>=20
+>=20
+> ...the next usage/wakeup should then call resume() but at that point we'r=
+e sure
+> that larb->mmu is actually initialized, because we allowed PM resume only=
+ after
+> binding.
+
+Not knowing the details of the hardware that feels wrong. IMHO a device
+that is operational should be able to do PM ops.
+
+Best regards
+Uwe
+
+--o3dz544qscs7qsyr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhrzmkACgkQj4D7WH0S
+/k4UPAf9FwUgM0aTRuE8AAy349MmsZSjSNcSHXZ+3SALeNHgKMZmzXZ9h4traUjW
+/786sSywNT+YsF6M/FtH66NcqGodQkwZzjC+ftAnYhmvydMfaAxOkLWpiqIXW8Zk
+92oO27jqoKq+4AiIij4GAM4iPNza20nzsZvxsxv6NAI5rluVWWk9+klgloLqFj/T
++iDnQ4VMVrMEaCyfQqGastonqdZlj0VJkigQpd6RWOY7kXS9NxOzaw/V1KaYIkAf
+tmHutlkfA+8EQQXfr5g+ciIlA90wVI5VM1EZVLybfT96FZ3kTvlksBIbdDo69URq
+NgTabIBVTmeKlrzY0uaZLRC/5pQq/w==
+=BFbu
+-----END PGP SIGNATURE-----
+
+--o3dz544qscs7qsyr--
 
