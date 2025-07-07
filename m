@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78BCEC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 09:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB78C83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 09:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1az4yu7iqOsk7/laCMEVbA5WLFs2TsRctSfdyzrGEf0=; b=bzA1md9cfHKrGevZKi35uQepRr
-	BTIrb9q3Pfl5NJQicdguD2O1eRFLJHxgJiQ/mwMv+RhxfYM5apxAWOIlg5G/ksm+cN9m4sU/3SMa0
-	RdLvMGg5fFVI7ViWka2Xdhl8CyEAAnSxSCMc+Ehtdk/Lso13TogZZsot89bHOGvMNXio7Tkz/T+TH
-	UeqNYH35YAhMhk7SFhpYfA5gDYdgAKqF6VyQ7PsmrBcGALlR9gK7yQoXV6VstUH6sDedZ128WE6EE
-	DeonxdUph+RDoccwdPWvdpFN21jvmePF0wufk+rw2geEKReaWAmmbEJ2U4cO/4dzvNB8/084e9cwl
-	einG7txw==;
+	bh=sHBLCi+DIw3uUiQhPef0s/I0wx23cXQdEUx2HNS8QpA=; b=okwOHusEaLKbtViidn7+Vfs1Op
+	sLSOUfhp8z4mtfRB4F5vUmCd9KJUFX51ug6Oup3g+ve48frfP6vQebaypxIqGwaMVEVTEHLkJdVpd
+	1tc/tSVLY/nJ8nJ6P83LTYCDu7QcSuLQD9v/Lcoq+IZv2m0uyzcO/3WHJRKhHdruam0nxA73x+1xY
+	L7qTB1PrUIsab7LZ3TlF/QN+xB7XjcRYY+j5Fm2jNB62uG86MR6pM9JMNNT9t++Gy7HlxPPKq8IN2
+	TaoAgH58Agbrsv32hv/Jud8dZX1vPmRR/oqpfxDZRxkwVF3OmjCCYo8otE4irwUU3iZhIl1TOGvdJ
+	moBbTPYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYiJx-000000020lX-0jd4;
-	Mon, 07 Jul 2025 09:39:33 +0000
-Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
+	id 1uYiMF-000000021CW-34Hh;
+	Mon, 07 Jul 2025 09:41:55 +0000
+Received: from mail-m16.yeah.net ([220.197.32.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYhjL-00000001uyi-1Kga;
-	Mon, 07 Jul 2025 09:01:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=1az4yu7iqOsk7/laCMEVbA5WLFs2TsRctSfdyzrGEf0=;
-	t=1751878896; x=1753088496; b=AbefW8JIkx+Wu6k1bN0BZGEz+CLKCnESDIpeLyrdHN4H/zG
-	w2dLCEw4hdiOCBRePvvMgxi4NMhPsYyBseFiWJWoJlzahql97B7+WPWd0YNM3PCBgfnsJxORxLKYU
-	TCaxEgzD7uy616rgoFjDhKdukFCC9dQcc8BDCU/DmNpf2MUgS8NzfKRXqKdlKB6r7q7+P/O3rHH3M
-	t1Q+O5BroNTKCVXS3e04nWEH+6oKk0gLApvIhkzQHrIkswsUBG4ccJxF9emISLGtotai3MAMzdu+A
-	p9mc0eMpgS5PMxzk/x98yM+wIuj0wJ63wcdZLHtiYqIvMiuWO6Fz3BmhUadlkHMA==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.98.2)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1uYhiy-0000000AUYl-2sdF;
-	Mon, 07 Jul 2025 11:01:20 +0200
-Message-ID: <8c6f18ca47bf0dd78b6675d8b94000679b6c75cd.camel@sipsolutions.net>
-Subject: Re: [PATCH 0/6] wifi: rt2x00: add OF bindings + cleanup
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Rosen Penev <rosenp@gmail.com>, linux-wireless@vger.kernel.org
-Cc: yangshiji66@qq.com, ansuelsmth@gmail.com, Rob Herring <robh@kernel.org>,
-  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Thomas Bogendoerfer	 <tsbogend@alpha.franken.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Stanislaw Gruszka
- <stf_xl@wp.pl>, "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE
- BINDINGS"	 <devicetree@vger.kernel.org>, open list
- <linux-kernel@vger.kernel.org>,  "open list:MIPS"
- <linux-mips@vger.kernel.org>, "moderated list:ARM/Mediatek SoC support"	
- <linux-arm-kernel@lists.infradead.org>, "moderated list:ARM/Mediatek SoC
- support" <linux-mediatek@lists.infradead.org>
-Date: Mon, 07 Jul 2025 11:01:18 +0200
-In-Reply-To: <20250706214111.45687-1-rosenp@gmail.com> (sfid-20250706_234116_623750_4C5D292D)
-References: <20250706214111.45687-1-rosenp@gmail.com>
-	 (sfid-20250706_234116_623750_4C5D292D)
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+	id 1uYhk1-00000001vAl-3WHg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Jul 2025 09:02:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=sHBLCi+DIw3uUiQhPef0s/I0wx23cXQdEUx2HNS8QpA=;
+	b=Eljto0eDL4gDa1GyStcrRd56ugcUeW2ozC1EmSo2NJY9WiDhyzsu8P8mLlV6UW
+	RUvhfRh7JKgAqWqKk0r/TBbbrdLNVjHOvB13UKjnDVAq5B5lFy5l6HZmE4jqLiJx
+	nd1OcXpYQRiUvFqVZQ6nYjxpfw8vK+4/IpKWg4X9JB9gE=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgD37wgRjWtoZQp6AA--.22272S3;
+	Mon, 07 Jul 2025 17:02:11 +0800 (CST)
+Date: Mon, 7 Jul 2025 17:02:09 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Sherry Sun <sherry.sun@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
+	Frank.Li@nxp.com, ping.bai@nxp.com, haibo.chen@nxp.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de
+Subject: Re: [PATCH V2] arm64: dts: imx94: add missing clock related
+ properties to flexcan1
+Message-ID: <aGuNES0DTTcm-eCm@dragon>
+References: <20250702062724.2459200-1-sherry.sun@nxp.com>
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250702062724.2459200-1-sherry.sun@nxp.com>
+X-CM-TRANSID: Ms8vCgD37wgRjWtoZQp6AA--.22272S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU7jg4UUUUU
+X-Originating-IP: [114.216.146.217]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIhNcwWhrjRNGAAAA33
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_020143_380254_FF94EC10 
-X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-CacheID: sfid-20250707_020226_183307_C3E778D1 
+X-CRM114-Status: UNSURE (   7.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,21 +76,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2025-07-06 at 14:41 -0700, Rosen Penev wrote:
-> It doesn't even compile. Added OF bindings, documentation, and other
-> stuff to hopefully this doesn't happen again.
->=20
-> Rosen Penev (6):
->   wifi: rt2x00: fix compilation
->=20
+On Wed, Jul 02, 2025 at 02:27:24PM +0800, Sherry Sun wrote:
+> Add missing clocks and clock-names properties for flexcan1 in
+> imx94.dtsi to align with other FlexCAN instances.
+> 
+> Fixes: b0d011d4841b ("arm64: dts: freescale: Add basic dtsi for imx943")
+> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
 
-That was half covered by Felix already, and really shouldn't do two
-things at the same time anyway.
+Applied, thanks!
 
-Also please add [PATCH wireless] or [PATCH wireless-next] prefix when
-you submit patches, to make it clear where the series is targeted. In
-this case, you probably should've split it up, but Felix already covered
-the immediate bug.
-
-johannes
 
