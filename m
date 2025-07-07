@@ -4,42 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE69C83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 14:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB2D2C83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 14:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbFn19kKOaMBvs2KIA6iY2LFipwOtawqNTUX6/+a1Mk=; b=1zveCLFwm5du0B15k4yORWvXbY
-	+4MNXbaFTs0k2YfCSub0Ob929Qbh0CXyFJAmAezxYmIpEa/ssQ6nwvE/2UhiFeppW/7S3NZC+scBA
-	Ha5iJZwoG2n5QHUDPAOqFxJj3z5q+Ow9Xv9Wx7NqVA/P2hUADx1HKlvFeZRKF10xzO6o4f6mULnmH
-	s7/5U2vTKL/chfNdeRWf8BFxFec6IHDrJwN5i09PhgF5Zo0rUoV8O7PHwYGSBrBhtsaTFUvMAXGeO
-	bJ1DyC7KqZE2TNX20iWHwHJLDbYBjpQGzqeeiN1ua9gU/fI93Ec0Onu6pUzg19DVYbKIseAUZ3ndd
-	JIdw7Mjw==;
+	bh=1QvqUYaOWtv84kyHDHk9MYLxx/PLbbneyc9Z5WOL0no=; b=p5OG6cZHy4J99ue9YJD6k9ierP
+	7dCeTwsEJa3VcKbc5EAVnN8y/hqoK/EcHbSSa1N5AzlyrWLfDcIN6xKur5MHonPbLw8suQTUm2uhr
+	ta64q76fNAApX5jrfwC9fb6Bfus0ORjoFyhtLEg+fqkR6yuTTGiNyuuidg9UmyDxoMS1ncIYqHFbm
+	5yPQTRiOP0VeENZ6hcKYV0MNtpOCPQtPjA4IoyI8bnzOYmOrRa+iiuDtjRIeWV6ECUdSACzd+CbuI
+	OwidoD4aVGhKXxhni+TU94lhFMjh6l234ZTrwXz40/KGCvIo6ITGNjtKvLA1V4GEAKQ55QuCj9Cem
+	vO/svGMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYmTt-00000002e1C-0wVp;
-	Mon, 07 Jul 2025 14:06:05 +0000
+	id 1uYmWA-00000002eIm-3kFY;
+	Mon, 07 Jul 2025 14:08:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYm4s-00000002Zye-3IcX
+	id 1uYm4v-00000002Zz4-08HE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 13:40:15 +0000
+	Mon, 07 Jul 2025 13:40:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6771168F;
-	Mon,  7 Jul 2025 06:40:01 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3657E1762;
+	Mon,  7 Jul 2025 06:40:04 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 642873F6A8;
-	Mon,  7 Jul 2025 06:40:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A96553F6A8;
+	Mon,  7 Jul 2025 06:40:14 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 07 Jul 2025 14:39:32 +0100
-Subject: [PATCH v3 10/14] perf arm_spe: Fill memory levels for FEAT_SPEv1p4
+Date: Mon, 07 Jul 2025 14:39:33 +0100
+Subject: [PATCH v3 11/14] perf arm_spe: Improve CPU number retrieving in
+ per-thread mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250707-arm_spe_support_hitm_overhead_v1_public-v3-10-33ea82da3280@arm.com>
+Message-Id: <20250707-arm_spe_support_hitm_overhead_v1_public-v3-11-33ea82da3280@arm.com>
 References: <20250707-arm_spe_support_hitm_overhead_v1_public-v3-0-33ea82da3280@arm.com>
 In-Reply-To: <20250707-arm_spe_support_hitm_overhead_v1_public-v3-0-33ea82da3280@arm.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -54,16 +55,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751895589; l=3747;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1751895589; l=1871;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=/rBTPEEjSMTKfZXh44B/N7IEPmeqGhWCK9qoF52zWCI=;
- b=lagJGbothySTZbD5b03wnwXhp+p9lxb7cu7KQR5fGI4+PAwTK5ekm669NifWCpKAtY5LfxydG
- ApcGQVvK2pFAl7Nk7IJ6tGnaqfDLm4q5LQeQ+8HOFtnGirv5YCIP+Zf
+ bh=JELPVNJQdMN4pshVg8Lh6+5FSy/t5eOgbVNiv3zHhJU=;
+ b=bDagjGpwf7X92MBx7L4DUjcsg3P4D2N3ZcX93mz11GfneEXk60GSA4y6CL44/9FmSZgoPXy06
+ 0BmY4+EH1CIAzF4edJQdzqNyE+9ohSWONcu62Vm+gkCQ11k9E/I/dqM
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_064014_914638_6CE212DA 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20250707_064017_117003_43DDE78B 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,75 +79,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Starting with FEAT_SPEv1p4, Arm SPE provides information on Level 2 data
-cache and recently fetched events. This patch fills in the memory levels
-for these new events.
+In per-thread mode on a homogeneous system, the current code simply
+picks the first metadata entry for data source parsing.
 
-The recently fetched events are matched to line-fill buffer (LFB). In
-general, the latency for accessing LFB is higher than accessing L1 cache
-but lower than accessing L2 cache. Thus, it locates in the memory
-hierarchy information between L1 cache and L2 cache.
+This change improves that by using the PMU type to find the matching PMU
+event. From there, it reads the CPU map and uses the first CPU ID to
+fetch the metadata.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+Although this makes no difference when there's only one Arm SPE PMU, it
+helps for future support of multiple SPE events.
+
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.h |  3 +++
- tools/perf/util/arm-spe.c                         | 14 ++++++++++++++
- 2 files changed, 17 insertions(+)
+ tools/perf/util/arm-spe.c | 19 +++++++++++++++----
+ 1 file changed, 15 insertions(+), 4 deletions(-)
 
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-index 03da55453da8fd2e7b9e2dcba3ddcf5243599e1c..3afa8703b21db9d231eef93fe981e0c20d562e83 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-@@ -25,6 +25,9 @@
- #define ARM_SPE_SVE_PARTIAL_PRED	BIT(EV_PARTIAL_PREDICATE)
- #define ARM_SPE_SVE_EMPTY_PRED		BIT(EV_EMPTY_PREDICATE)
- #define ARM_SPE_IN_TXN			BIT(EV_TRANSACTIONAL)
-+#define ARM_SPE_L2D_ACCESS		BIT(EV_L2D_ACCESS)
-+#define ARM_SPE_L2D_MISS		BIT(EV_L2D_MISS)
-+#define ARM_SPE_RECENTLY_FETCHED	BIT(EV_RECENTLY_FETCHED)
- 
- enum arm_spe_op_type {
- 	/* First level operation type */
 diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 688f6cd0f739e2b5f23a7776a7f2ebc97c12a2dd..3715afbe1e4713b5eebb00afbcb3eaa56ff1c49c 100644
+index 3715afbe1e4713b5eebb00afbcb3eaa56ff1c49c..87cbba941d6f3066697ff430d6ce8e085b173032 100644
 --- a/tools/perf/util/arm-spe.c
 +++ b/tools/perf/util/arm-spe.c
-@@ -844,6 +844,12 @@ static void arm_spe__synth_ld_memory_level(const struct arm_spe_record *record,
- 	if (arm_spe_is_cache_hit(record->type, L1D)) {
- 		data_src->mem_lvl = PERF_MEM_LVL_L1 | PERF_MEM_LVL_HIT;
- 		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L1;
-+	} else if (record->type & ARM_SPE_RECENTLY_FETCHED) {
-+		data_src->mem_lvl = PERF_MEM_LVL_LFB | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_LFB;
-+	} else if (arm_spe_is_cache_hit(record->type, L2D)) {
-+		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
- 	} else if (arm_spe_is_cache_hit(record->type, LLC)) {
- 		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
- 		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-@@ -855,6 +861,9 @@ static void arm_spe__synth_ld_memory_level(const struct arm_spe_record *record,
- 	} else if (arm_spe_is_cache_miss(record->type, LLC)) {
- 		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_MISS;
- 		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+	} else if (arm_spe_is_cache_miss(record->type, L2D)) {
-+		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_MISS;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
- 	} else if (arm_spe_is_cache_miss(record->type, L1D)) {
- 		data_src->mem_lvl = PERF_MEM_LVL_L1 | PERF_MEM_LVL_MISS;
- 		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L1;
-@@ -870,6 +879,11 @@ static void arm_spe__synth_st_memory_level(const struct arm_spe_record *record,
- 		data_src->mem_lvl |= arm_spe_is_cache_miss(record->type, LLC) ?
- 				     PERF_MEM_LVL_MISS : PERF_MEM_LVL_HIT;
- 		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+	} else if (arm_spe_is_cache_level(record->type, L2D)) {
-+		data_src->mem_lvl = PERF_MEM_LVL_L2;
-+		data_src->mem_lvl |= arm_spe_is_cache_miss(record->type, L2D) ?
-+				     PERF_MEM_LVL_MISS : PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
- 	} else if (arm_spe_is_cache_level(record->type, L1D)) {
- 		data_src->mem_lvl = PERF_MEM_LVL_L1;
- 		data_src->mem_lvl |= arm_spe_is_cache_miss(record->type, L1D) ?
+@@ -914,6 +914,9 @@ static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
+ 			      union perf_mem_data_src *data_src)
+ {
+ 	struct arm_spe *spe = speq->spe;
++	struct perf_cpu_map *cpus;
++	struct perf_cpu perf_cpu;
++	int16_t cpu_nr;
+ 	u64 *metadata = NULL;
+ 	u64 midr;
+ 	unsigned int i;
+@@ -935,13 +938,21 @@ static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
+ 			if (!spe->is_homogeneous)
+ 				return false;
+ 
+-			/* In homogeneous system, simply use CPU0's metadata */
+-			if (spe->metadata)
+-				metadata = spe->metadata[0];
++			cpus = perf_pmus__find_by_type(spe->pmu_type)->cpus;
++			if (!cpus)
++				return false;
++
++			/* In a homogeneous system, fetch the first CPU in the map. */
++			perf_cpu = perf_cpu_map__cpu(cpus, 0);
++			if (perf_cpu.cpu == -1)
++				return false;
++
++			cpu_nr = perf_cpu.cpu;
+ 		} else {
+-			metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
++			cpu_nr = speq->cpu;
+ 		}
+ 
++		metadata = arm_spe__get_metadata_by_cpu(spe, cpu_nr);
+ 		if (!metadata)
+ 			return false;
+ 
 
 -- 
 2.34.1
