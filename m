@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 951AEC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268FEC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JjcFyRrahTR3lql/P+Aw5X6u9lYKjBOawoYq6NWUrgo=; b=vvHL/UbuFt3DKN5bhCnHqInSXF
-	qZz9XVhynQAe9SECMT7h/FoRgWWr0rTeSQAeDlsnaoF1zbPVoxwZxXE4IBE0chWq29jCKAu7Ke7ZF
-	TP5Hxur3ej4QWDg6YdkTT1DLCvIvz4QXZtql4QgY28669JBglwVyJyXcdAZuL5OxOPOLobl/OHmBp
-	GoQGQVdZ/CzR8fvFp6ZLie1d+YpBqmXnWhekSzEeuB1qd+Ast96hqzCJIBx89nB7ZuxW70HTkhKeR
-	bEx9BCtjKVAsfpU3DlFKiYV6RAnXjlgoWzXkPuR/EphHFoxbZKaPHucNs77MB0ydvWLRWMDJp4+/P
-	VmwrdYtw==;
+	bh=7d3fROQsxfR6t49vpgfkS/CzgZu3gPFWJ1CEYt+M9dI=; b=gZPR/yAc0QNgd0utqUk2A+XHHb
+	GIj6I/oZ5n6rLZGR8e7g5ANDHpqmo1oSh+9wIIbhuRqSZl3er13dyZpCVb3pL5iHKrGSRuCTk/yrG
+	S3iKOL9qdMnGoAOA/n98sHMs4RE2WvVa40yZJ3iDBHQbMQ2KWgiWchx+egMgmlJXapTmMnrgxjUit
+	hmo+C4DKbCfaYZPvXm9JsRyuniKXTfhF9NmCB3rPToUxWBp3GAiDLfifP8AlWnFYpxkH7ytAn15A2
+	usD24hEvxOCcdsPMdNB8CT1PQR2mvBtLfgOaoh5ta8lgFlc8I1lwRBY88WFIieea25Kka+beIp8Gp
+	jv6LleXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYqne-00000003L52-2N6t;
-	Mon, 07 Jul 2025 18:42:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uYqpw-00000003LTc-1fbz;
+	Mon, 07 Jul 2025 18:45:08 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYpqz-00000003CLN-04A1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 17:42:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2BE615C5B70
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Jul 2025 17:42:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2261C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Jul 2025 17:42:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751910127;
-	bh=JjcFyRrahTR3lql/P+Aw5X6u9lYKjBOawoYq6NWUrgo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=KLmxcgljqZJJuWHIQdNWYp32nG1VdWTucoUweH91V/3vZ8ibazhQjvbh3hPwzM9HS
-	 wgWdaOd1x0PPUpbxdOgvqeNz9ZF3wuJ0WU4Kh5OU+e5uzNO5LtIRURfLqInHpO5JAy
-	 uV1hcUcTRY+L4N2WcoEOQ3Jz+zBfIsLSY1ZuSjKBEgGsyVnzzYq48/Ev7E3ghqdfcr
-	 P8Eai1maaSwnei4/fKdyeGDm3Zg+sbII7WHHogV/G5bRmrkTsEBrYy+mV9GF0hpfpN
-	 /Iksiv3rdwxF8US0urxy7dlIGDx4nRTGp+Ar4btEphEtEnSOL5sJlVranTWVXRrYPa
-	 z2lUayafJ4r5Q==
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-ae3703c2a8bso686884066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 10:42:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXlMTPe1VJOBT/V3qzZ3u3hNnkRIs/prbJR3gLCesUC9GeBAVPN4Yra0sB8KhOZy3SdOjhc+xMrl5xgjNdjuBJF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9lzc6LI4Y1CgacCvaAzQLtvU2lPCDhdcWx9rgEeH08w6cmYzX
-	VSX98WZUuxM3DLd1fKaE7rLbSGqS4S/b7A84bPrG6sCNYGmBHuz6/kqyCHA9njQvHzwF3Pwh9bq
-	TpeA/JCqZqP+JpOZ4wUQGN2wCXsxCtQ==
-X-Google-Smtp-Source: AGHT+IHTcM0JnByHeq4MedyhnFwe4AFxPnH7yKd9fTihgH8Pzvw2kSQALvXe0x4/H1xWzMllpvEn2C30/rLvA9N9Py4=
-X-Received: by 2002:a17:907:d7cc:b0:ad5:4806:4f07 with SMTP id
- a640c23a62f3a-ae6b0049633mr12678366b.2.1751910126238; Mon, 07 Jul 2025
- 10:42:06 -0700 (PDT)
+	id 1uYqQv-00000003HHx-1sAM;
+	Mon, 07 Jul 2025 18:19:19 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 2AF6F2594D;
+	Mon,  7 Jul 2025 20:19:13 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id QOWxhEcrvivp; Mon,  7 Jul 2025 20:19:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1751912352; bh=p/dxjs15L0a5Sz3tQHqcixRBIuA7PAMaCm/nWUbvrek=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=T00pbbO+jCdvdkvIOoT6jI7hss0OLTm99ZQjqyKP0L63hGzaxERsjIaztPSoaoORF
+	 1bJYYaStDXrDm/zv9bRXZce5ftZbkx23l4AEXDtrOymMtJhsbUjhm38jaX7O5wrPM2
+	 /UpYZ1axzfYs7RRBc2kG7fJ6FkyUHqIVB+8dCpzrkEKBmrWH5psxF0s206xVOUjuKE
+	 fKwMdeNUIththWg4Ux0gZLKiAL0HNGC3sy8lJPqFR1K2EtfxHzfAz4r3Tq2vG/tb9c
+	 qQiwDnl2UnKi8Px8Hgcz9jWGx/gAP771HIfkKehg+zgY26YirynXh2y9IOan+DWhKH
+	 vES+3MNw0y1yQ==
 MIME-Version: 1.0
-References: <20250613130356.8080-1-james.morse@arm.com> <20250613130356.8080-3-james.morse@arm.com>
- <CAL_Jsq+rsBq1Dsw4+hfkMhopN9Pdwyp9JJbqeT6yB+d++s4v7g@mail.gmail.com>
- <ee08ba7e-2669-447f-ae04-5a6b00a16e77@arm.com> <CAL_Jsq+mXkQTM-zbozPGkCQ40CusOUudWgtaxx_ufqL+0t96mQ@mail.gmail.com>
- <642f2fa8-cd61-47ed-9d63-a15de263d36d@arm.com>
-In-Reply-To: <642f2fa8-cd61-47ed-9d63-a15de263d36d@arm.com>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 7 Jul 2025 12:41:54 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJXPCZ+2SpFHemGw_AbOVRncN=jxp9ewCDm=XeJeTWegw@mail.gmail.com>
-X-Gm-Features: Ac12FXzxO3KqSyYuZVqJZt4aWPXxn7EfT1o9rzq3q7UL-u1Cceph7Eobu-DlXQw
-Message-ID: <CAL_JsqJXPCZ+2SpFHemGw_AbOVRncN=jxp9ewCDm=XeJeTWegw@mail.gmail.com>
-Subject: Re: [PATCH 2/5] cacheinfo: Add arch hook to compress CPU h/w id into
- 32 bits for cache-id
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J . Wysocki" <rafael@kernel.org>, sudeep.holla@arm.com, 
-	Ben Horgan <ben.horgan@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Date: Mon, 07 Jul 2025 18:19:12 +0000
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] phy: exynos-mipi-video: allow skipping absent PHYs
+In-Reply-To: <ff887aaf-966a-41ff-a905-f791820136fd@kernel.org>
+References: <20250627-exynos7870-mipi-phy-fix-v1-0-2eefab8b50df@disroot.org>
+ <20250627-exynos7870-mipi-phy-fix-v1-2-2eefab8b50df@disroot.org>
+ <ff887aaf-966a-41ff-a905-f791820136fd@kernel.org>
+Message-ID: <2153e31b0b15d2b5b630aa4c387dc4b3@disroot.org>
+X-Sender: kauschluss@disroot.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_104209_134859_ED26C001 
-X-CRM114-Status: GOOD (  47.83  )
+X-CRM114-CacheID: sfid-20250707_111917_901282_123078A2 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,143 +78,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 4, 2025 at 12:39=E2=80=AFPM James Morse <james.morse@arm.com> w=
-rote:
->
-> Hi Rob,
->
-> On 30/06/2025 20:43, Rob Herring wrote:
-> > On Fri, Jun 27, 2025 at 11:38=E2=80=AFAM James Morse <james.morse@arm.c=
-om> wrote:
-> >> On 23/06/2025 15:48, Rob Herring wrote:
-> >>> On Fri, Jun 13, 2025 at 8:04=E2=80=AFAM James Morse <james.morse@arm.=
-com> wrote:
-> >>>> Filesystems like resctrl use the cache-id exposed via sysfs to ident=
-ify
-> >>>> groups of CPUs. The value is also used for PCIe cache steering tags.=
- On
-> >>>> DT platforms cache-id is not something that is described in the
-> >>>> device-tree, but instead generated from the smallest CPU h/w id of t=
-he
-> >>>> CPUs associated with that cache.
-> >>>>
-> >>>> CPU h/w ids may be larger than 32 bits.
-> >>>>
-> >>>> Add a hook to allow architectures to compress the value from the dev=
-icetree
-> >>>> into 32 bits. Returning the same value is always safe as cache_of_se=
-t_id()
-> >>>> will stop if a value larger than 32 bits is seen.
-> >>>>
-> >>>> For example, on arm64 the value is the MPIDR affinity register, whic=
-h only
-> >>>> has 32 bits of affinity data, but spread across the 64 bit field. An
-> >>>> arch-specific bit swizzle gives a 32 bit value.
-> >>
-> >>> What's missing here is why do we need the cache id to be only 32-bits=
-?
-> >>> I suppose it is because the sysfs 'id' file has been implicitly that?
-> >>
-> >> Yup, and its too late to change.
-> >>
-> >>
-> >>> Why can't we just allow 64-bit values there? Obviously, you can't hav=
-e
-> >>> a 64-bit value on x86 because that might break existing userspace.
-> >>
-> >> It's the same user-space. Users of resctrl should be portable between =
-architectures.
-> >> Resctrl isn't the only user, of the cache-id field.
-> >>
-> >>
-> >>> But for Arm, there is no existing userspace to break.
-> >>
-> >> libvirt: https://github.com/libvirt/libvirt/blob/master/src/util/virre=
-sctrl.c#L1588
-> >
-> > Looks to me like AMD wasn't even supported til v10.8.0 (2024-10-01)[1].
->
-> 'when mounted with [a particular option]'
->
-> AMDs bandwidth controls count in 1/8ths of 1GB/s - and you have to know y=
-ou're running on
-> an AMD machine. I'm aiming for the arm64 support to be portable between I=
-ntel and RISC-V.
->
->
-> >> DPDK: http://inbox.dpdk.org/dev/20241021015246.304431-2-wathsala.vitha=
-nage@arm.com/
-> >
-> > Is that even applied yet?
->
-> No idea, but its equally likely that I haven't found all the places this =
-gets parsed by
-> user-space. I don't think we have a way of telling people using stable-ke=
-rnels that we
-> might change the size of that field. It's pretty clear people don't antic=
-ipate it changing!
->
-> This is just the downside of exposing anything to user-space!
->
-> [...]
->
-> >>> It is obviously nice
-> >>> if we can avoid modifying userspace, but I don't think that's a
-> >>> requirement and I'd be surprised if there's not other things that nee=
-d
-> >>> to be adapted for MPAM support.
-> >>
-> >> The whole multi-year effort has been to make existing user-space work =
-without any ABI
-> >> changes. The effect is some platforms have features that can't be used=
- because resctrl
-> >> expects things to be Xeon shaped.
-> >> But if your platform looks a bit like a Xeon (cache portion controls o=
-n the L3, memory
-> >> bandwidth controls somewhere that is believably the L3), then resctrl =
-works as it does on
-> >> Intel. The only thing that has come a little unstuck is the 'num_rmid'=
- property where MPAM
-> >> doesn't have an equivalent, so '1' is exposed as a safe value.
-> >
-> > Fair enough, but I'd be rather surprised if there doesn't end up being
-> > changes to support Arm platforms.
-> >
-> >>> Also, what if an architecture can't swizzle their value into 32-bits?
-> >>> They would be stuck with requiring userspace to deal with 64-bit
-> >>> values.
-> >>
-> >> Remap them in a more complicated way. Chances are there aren't 2^32 CP=
-Us.
->
-> > What about using the logical CPU number instead? That's stable for a
-> > given machine and firmware.
->
-> Hmmm, if you offline CPU-0 then kexec, then CPU-1 becomes the new CPU-0 a=
-nd the numbers
-> get doled out differently.
+On 2025-07-05 08:35, Krzysztof Kozlowski wrote:
+> On 26/06/2025 22:01, Kaustabh Chakraborty wrote:
+>> 
+>>  struct mipi_phy_device_desc {
+>> -	int num_phys;
+>>  	int num_regmaps;
+>>  	const char *regmap_names[EXYNOS_MIPI_REGMAPS_NUM];
+>>  	struct exynos_mipi_phy_desc {
+>> +		bool present;
+>>  		enum exynos_mipi_phy_id	coupled_phy_id;
+>>  		u32 enable_val;
+>>  		unsigned int enable_reg;
+>> @@ -54,10 +54,9 @@ struct mipi_phy_device_desc {
+>>  static const struct mipi_phy_device_desc s5pv210_mipi_phy = {
+>>  	.num_regmaps = 1,
+>>  	.regmap_names = {"syscon"},
+>> -	.num_phys = 4,
+>>  	.phys = {
+>> -		{
+>> -			/* EXYNOS_MIPI_PHY_ID_CSIS0 */
+>> +		[EXYNOS_MIPI_PHY_ID_CSIS0] = {
+> 
+> 
+> This should be a separate change... but overall I don't like existing
+> idea and I think your change is a reason to fix actual code style 
+> issue:
+> 
+> It is expected that each variant will define static const array and 
+> then
+> you assign in:
+> 
+> static const struct mipi_phy_device_desc exynos5420_mipi_phy = {
+> 	.phys = exynos5420_mipi_phys_data
+> }
+> 
+> which means:
+> 1. You don't waste space for unused entries (now you always allocate 5
+> entries, even if you have one phy)
+> 2. You can count them easily - ARRAY_SIZE
+> 3. Index in the array won't the the phy ID, so you need a separate ID
+> member for that
+> 4. You do not need this odd 'present' field, because really code which
+> is not initalized should mean 'not present' and it should be never
+> needed to initialize additionally to indicate 'yes, I do exist' beyond
+> basic initializations.
 
-Ah, I thought they were more stable than that, but indeed there's a
-special case for the boot CPU.
+Weird, I don't know why had I even developed this patch. The 'issue' it
+fixes isn't even an issue. Oversight, I'll drop it I guess...
 
-
-> > And then instead of having 3 sets of
-> > numbers (MPIDR, compressed MPIDR, and logical CPU), we'd still only
-> > have 2. And logical CPU is what sysfs already exposes to userspace.
->
-> I don't think the linux allocated CPU number is robust enough.
->
-> We could use the CPU number as seen when walking through the DT to make i=
-t stable, but
-> that would still be a third type of number. It would save the arch hook t=
-o swizzle the
-> bits, but changing the DT would change the numbers which doesn't happen w=
-ith this scheme.
->
-> Let me know if that is what you prefer.
-> (I'll summarise this on the cover-letter/patch-1 of the incoming series)
-
-Let's leave it with what you have...
-
-Rob
+> 
+> Best regards,
+> Krzysztof
 
