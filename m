@@ -4,63 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EA8C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 12:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193A8C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 12:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ltqvRmbJ7JFgb3nc9CHHNyBVWgpOhBdTeOKHcSC+EcU=; b=eq4O6jsW7xpOhc
-	CuEpGvsuHFsqSt/uL9i+T6vgDc4/NF/6SirY3IsAQIisUy2UxPqhwEvYMbC0xmiYnSxb8EgYmPgsM
-	+Hw/We325vVivmWilj1vE//ET4MQII+RiQhcQAQxDcLgGeetIWL+QvCRwPtX0wxhWgj3oNywAuV2T
-	qmsvODpdnXHnkiRVUnxz+wXF08ylaJ3RxLetvk6iUfIGRQxWx93zUuz5hZl6vIXzf1CjFlk/8DvPb
-	+VGJ1TzB1mpqxleQ5efoiDhDkiqPB6Z/BQTM8/S79KNtGSO9TPyRR6X1omFCYujMcuS6g39Zmhj8n
-	jyHo3AUFHfyY2veQ1P4Q==;
+	List-Owner; bh=siStwAWYKo6n77k71GRZdgIZ15JPl5J741/byKkZ9eQ=; b=06PhpzZTBsmSsf
+	e4np17iy3nQB3BkD7mwKg954Nx/JVSQ39VnyhVnyI2oI3k7GTdSM8/OEPi0lSZDLkxseoOnr5gSBE
+	brnRy2OYTvZc7Y9WZ/5Zka3ilQ0lLVI4hl6zDO9A/5bKYILmovLcZ9gPfDY4sFLqaBQJYcGcuEZ8R
+	mS+8jX1JlrYee0gx0N4aQCV/hZNwPgDID6/BDNTPSBy+J+NeMEnmjdY4d3FxAt1wHKuSfTUrSh8W1
+	ynVcw61UDJW650RdP/qfPUB/JnM0MIsGnX+ko+kp7Glo6qVDQbnO5f5L3UlbOZ7C1DefmqbHEz+T4
+	nSNTHeT4UPXO2L09oO7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkwx-00000002Q3L-00S8;
-	Mon, 07 Jul 2025 12:27:59 +0000
+	id 1uYkxe-00000002QD8-2sPh;
+	Mon, 07 Jul 2025 12:28:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkEH-00000002JAS-3jpM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Jul 2025 11:41:50 +0000
+	id 1uYjKF-00000002Biy-1owM;
+	Mon, 07 Jul 2025 10:43:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=ltqvRmbJ7JFgb3nc9CHHNyBVWgpOhBdTeOKHcSC+EcU=; b=mPabfjdMcfKDqtuDgSb1cPwkIE
-	x17TBdHvmkFF69Ec6CgG4OWtmu2Uk4+zY2V+va/fBlazBqs7VLqI1c44ovKDSqU2ITZ4+JKk8gXwz
-	keDcpy2RbkssDxp5SMnAdl66GKhdSMZov56oKTbwkg84SApTyuPWkhknRLftLC56UCUfz4fSqgjIQ
-	1DzokKp1E8B2g5dTh2xfMAwvKqQEDqTGFS133OrApxFAsEl+8UhmsoUFqTMRD/k1mSH0rlJeoi0CY
-	LLOO3y9DPPDhMkVIkq74C5rPwrWZ63suJ+stb2XqCT0CV3kbgfhnRbPiJ+EYr3hVo1odwWT0U+C/z
-	xQej2n/Q==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkEE-00000008TuI-2ds8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 11:41:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C82C1762;
-	Mon,  7 Jul 2025 04:41:33 -0700 (PDT)
-Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.31.174])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 814973F694;
-	Mon,  7 Jul 2025 04:41:44 -0700 (PDT)
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v6 08/13] arm64: debug: refactor reinstall_suspended_bps()
-Date: Mon,  7 Jul 2025 12:41:04 +0100
-Message-ID: <20250707114109.35672-9-ada.coupriediaz@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250707114109.35672-1-ada.coupriediaz@arm.com>
-References: <20250707114109.35672-1-ada.coupriediaz@arm.com>
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:References:In-Reply-To:Reply-to:Subject:CC:To:From:
+	Date:Sender:Content-ID:Content-Description;
+	bh=siStwAWYKo6n77k71GRZdgIZ15JPl5J741/byKkZ9eQ=; b=GZZJ1awG0m4TPJxNTD6U0Vi2wO
+	1IYr7qAtxESkzG6LHwtgfB6Ed9go0XkiS4gHv/M19svg8cUftuwsuOXZgH9hNTXOO3JcrkEWl/Ocj
+	WE1Hb/aAfx4l+1+vxc8KwADReMv0dMV+XQ+8EsDCQYuZVd08IRSCbQdJXPM/UxJLUjr3tpX46evSI
+	cn71m1qf4Xp1YYeHheObJyqXm/L4fm8P7AsZ8QVhz4iYjRMeJw2hlVkXeansPeeUaVcrEgSgj8N3m
+	8GiVxXp/wrcBw6tYScX9/D6cCMErx7cDMPZcOjLzf2u8Yi3IM9dzDCDpitn/Gx1J5hhQmDyXPRPZy
+	geOmRk8w==;
+Received: from mout.gmx.net ([212.227.15.19])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYjKC-00000008SVw-13Mj;
+	Mon, 07 Jul 2025 10:43:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1751885003; x=1752489803; i=frank-w@public-files.de;
+	bh=siStwAWYKo6n77k71GRZdgIZ15JPl5J741/byKkZ9eQ=;
+	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=E37ud7G+9g2YlM9xpGfUF179tz6T8rWvjTuWCcwKDVo2X3fdYe+tcOm4oAXdX9vh
+	 tHiL6PUWzBtAg9kjm8WumPYioZ2hziSPebOqacz6CdmIkvpQpQWTeF+wwqwHEYLTk
+	 jVnUrIpzilHurw+T6F5SOKaZXO9W+H7Zw3zB/Vjr2lGXXwW5irEg4J66r1J84gbiG
+	 9Dbo3OlkKG9TDEK1mSbQ1B2RVv7a542XYqdCYRN9OyF0FkRXW1DhdD+j4L+s65/i+
+	 TEbTBC2CVP5QaCrthqUbYg48qe4PMDbUa+9Jk/HBSC6Iy47l7R2l0HQOlZjOQ1Kzu
+	 Qlu09EVPT68xt5MuUw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [IPv6:::1] ([80.187.119.38]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MiacH-1vCTr21Vbj-00h8za; Mon, 07
+ Jul 2025 12:43:23 +0200
+Date: Mon, 07 Jul 2025 12:43:10 +0200
+From: Frank Wunderlich <frank-w@public-files.de>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Frank Wunderlich <linux@fw-web.de>, Krzysztof Kozlowski <krzk@kernel.org>
+CC: MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Johnson Wang <johnson.wang@mediatek.com>,
+ =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+ Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v8_02/16=5D_dt-bindings=3A_n?=
+ =?US-ASCII?Q?et=3A_mediatek=2Cnet=3A_allow_up_to_8_IRQs?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <90a3191f-882d-4302-afd5-e73e751b5b95@collabora.com>
+References: <20250706132213.20412-1-linux@fw-web.de> <20250706132213.20412-3-linux@fw-web.de> <20250707-modest-awesome-baboon-aec601@krzk-bin> <B875B8FF-FEDB-4BBD-8843-9BA6E4E89A45@fw-web.de> <90a3191f-882d-4302-afd5-e73e751b5b95@collabora.com>
+Message-ID: <9696BB13-9D1E-48D3-B323-03AD23110CF5@public-files.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:eEibhPpTc+nC0XwVozeDH6Yqv088RssljOwOdpNQnoC32fPtW0g
+ Sr7vV3t9w1E+Np5DiYmAwyVE8y5aFxvvDHff0VIzxOArLdeSfBoCXCKnWrG+uiSMBxA47MM
+ wLzCwrUEP0hVXQgBJ95DKrfxc8QEh+87c5QiRiDk9jpO/YFYZIJu3lNRiYCYGMv8B3iZt+2
+ UX8ZEuKRiU3pzy7mdja5w==
+UI-OutboundReport: notjunk:1;M01:P0:YbRdyvRp4tc=;YgJxQ77T+oektOhqNJA0CRFV95z
+ buYk/ZeWNWYh4rnI7JzcSLtR2ThFGCSf/zE04L4BmCwXFG9CL9nj5peQ+w88SLkXCXxEts4NQ
+ eZ9ARo6Pfqb6+FmZ9aRrw5Lln1IlrZJjqw3xYx/1aBXLYPQVLskQTPCPasRgC6rD3zMd5dUiv
+ GbjNBRftF+PD06zO+iF6ReY0gGvcMUkjwKI0VF55zYAXK+3KA2mJvHPR1EdeQY6q+hocdJ8sE
+ rXK76glzulPQcljIANTAvBHjqNu66DlvFvfBaO5bpfU6bxjcIO9oshCg/6qF0yhAiHPLiWdiO
+ wAEd8SQjxkdl/MPETL7OdqFtjdTFtvu4LV+odDK5iGhDsbCfDZaZsrKS1VxQx6D7RdrvSTvmq
+ lfObgZS24bXmBj1761EO00ts1QwU48su7Q+6X/CDCZTEH3YaLs5M0KTnhgWSCfWqEZXfg9tEp
+ CdgHpr1BLdWiDTZ0J40coqdp+xKchKEylELO/EsWTrScTIMdEoJ6h3WWIvvmh3rpj+ZLSVfsy
+ /V5yWdIwk89FphlcxQtJ/LowMlhNppxEfUN8mZ13nCbrbNEx0vnXhGNvjU6l7BWMIBai4Esjl
+ JQ+gAIaIFVbtrB9ZMNRpRfjWW4r22itjDJ+8J1U+UxZCgBOLLe2YgsbrknFlT8vD4fFl5qCyo
+ ih75TNBsDYsGI7wezdbwWSsYeg+iYJEcrdMAcjDFEl/Qly1LrAMii/Ll5941knH8NVOO+1qwN
+ W0g/2KmrwU7YSuH9u8AU+vs9e9pqO67E2bKOxFxkmiIK+/NYSAXfaxzLpT6HVGgBWF3fMg5tG
+ wLoc7FzgsXU9b00CbdDevO/q+RtmbxyOnNiX1oawEWA6jJofZt2tduR5dfNST0FsS/aV5GvhT
+ FSIPfGwP9fDm9yzejsvJLBueGsSKTAjVC+mTvvBjeF4uQewMB0hYEClcCM49/qmZUlxI+QnWu
+ XbdaeCwJhvfgVK4BPvA0faAXPZhRDAn24VSf/7Wt8BIT3E3bhZvPlFfG7Fkf6RsFoN6UvAA5X
+ B8NweUJ/d/jO5OXuHu5mTLWpPzbNEe24R5iybzqXnvm/CBXWq3BcLP/fzjrw9h48Z7x91B1UT
+ dRns9hVrduNrsdKdXkDJ2+d2Yy0/RbUW5j8K6Pl72yKJP5WpDTKoC6giYXRAMaAH9lGdSWcPe
+ 7TluOmuSnRfj2NTlKkEC85t35LYEt/zkyk4P6eyd2uud/AYenm8OaZRsa1BEbLFhkbngA5qZm
+ OXLDqpnlGEavjIvmxo8ZuOEqzozy+hzGXkFN8sSi1xlhStsYZmGPMBhizuPZTl4BzsCL/AjTL
+ k3OedjAy+LP/USqKpJpSo4RcsEdY76WqcJsIkHOzZ0oTG2ozsTBCond9R9cAQmhU+nlCbx+xY
+ Z/EMdpN6RPNaLB3bp9BXCm0paMmJTQoER3W3jPvrPg7+pDk9vODLO1fVuhcsLldaCMXkNbYSW
+ SBokcOKKhsBZcpemWvvBRTPSR6kNL15mDCQD4Q8umSvff3SPsOs0VKslvuiW+QC1jYhfoqJeo
+ o3tQY4uv5KdClOaVt55PPQXqJwYwefpOcMXfYf+bJsBISDcR1QLjqEh4VCaN66vt+Obsam0uc
+ U7i8tyrv7UzAAJJnuICN6/CxZYrxCQel3ht+04AYzM5Z1uWvaEV2WZxF2ewA/1UQX7unukQhv
+ wteDQLaLH7aXT0mO2Jx4z8JFjrEuKliJTFqX/nTj14XbuRoLsTFnPThamPd9pQpy6ru3J6w55
+ LA5VhUcc5yYGHIma7qAG/Q6mg+s+lpKG1xHbqsovW0K0zEd+yPGN7tdvMTOdlRpzSF6yKQHch
+ yT3mmGDwp4HLeomk5nJ1+amlbMMpHIFnJWzKIEtkX7IFPLMRTZH8gYRS4b1SCjnbHzqPMR8Ph
+ k9BEIyBEvwOdgbWtwS2mFaWS2W51CJwFDbhPO3YDaUy+0dvrYjTNHkz349kM4EPQCikQWZQvS
+ WA1300/xuRUDEX+szRcqCT+wRfLfLdoTDYA62DS3A0PX2XoFtvpxg6LyQdsngUXqPqEvaOuFx
+ vIbKUKRVWk9PvQYZe7EDOCLKwPYzTR5E9ES0+6RiD2ozWDqE+kFYX/yNja9wIhCNJSSrcRVSu
+ x7mVix5mUnJtoM08GCDFw6AaDE6wkMRMs+hvtEmNvzUtW4ANLL5RlUu8GvH3RkyZkof+UM4W6
+ do5vJcQaHhEWqLPXPSHzRb/zHTl08M7pwU/YZTyP4a+kQv3UAQ8wdrz8oHlBm9VKxE21KG2th
+ ZvI/SlrRzkNpTXH8uJjN3jkUSs45lEk2vO3buQuC5vJcsEupdp6on6R6pELBy/S3R/f7CD7eZ
+ WpfsNQji9DZHDBRlhysu+Nfg4AkXEWUAIQ5V1sFLMu34I63C6sprzZD5ZrykhuSiwhPdr9OmL
+ XJakqUyyQF0nWDXjqaBW0SVW/bx71YMRapZ1DAEUjhU55YllMpXOG8l4i7BpQaIEyxyThIj6y
+ xcbQ0WQTTf71PQniCFRSnIKKGkUqDqFfB5i+R+ZB1sjBR3EJh+bK1g3vhjhC+J41vyWQx+nO/
+ 2Jpywtm23JVO+dNBNgnf+QWtu3CBoRBW3zTm4uuvzMcg9XWpErfvVs3d5UaNp8s0ZMTqmJCbG
+ /tidgCTf2RvHap3KfcCVVrzfAQupYrTn/lfmuKjz29bQYQ2YIwtPV6O7FuKDQ53iSd+by7ZJ0
+ Skao0c6f3gvDWk/I/wujEpx9fn0QF5T3X8yOyNR0Qy8/aGdtNsy+yOn2pIAF5VYaOrvgoiYFp
+ qtrAMquIPvK/N0xDujb9wg+xabSMN9iQGLjmgTxkQTZMbRqF2jcLTRoS4sYl+DEGdqDogP1gZ
+ f6/qgzYfivfAmwk3vYEMpZHX1Gaj0fN+z175EDvcBnTkyqh8JiFn6cRQXpYdCpp5Mg78AZUCC
+ 5b2WVRPskC0AdeQmcXzVmZE0R2XVOyjCUVxH+wkx4EHWCvwfSA476lGyj+7xLBhD6Jj2dPxJ8
+ 5tQzIoaZX0uNOgi0z5/BWWoxOrX/HkRYOehG5LOHc9KOPuth5yNphFEiaveflIFirsXfSoZcb
+ 7f897caGS8Fv9oIZX9UcxFGXGOuwnnuGB6Dlapun+ixY80EJBAAKNeDW3KGkHi1BqEuJ8/Az+
+ zvBEa4LeGLGxlNndrqOPAxr+3vFJLoSlZsXA5K3tIKtJzrd7oeKFyihn7ubzzDGEg01muAj38
+ 4V8LnF0+rpfpAOJrn9Mgn6a+zfUN7Lsl74cZl5/pOTd/7ZqHNOdZaP8JZsZghv71AYqNk1OQo
+ p+YCdhcvMne/8Eah3gK/X/V9CmNb7wwPKpQBFKDSMtxLgvZzzvTlbLVUJeYlqoHaE3TKS6op8
+ WSRLWPKuwINFgFtDmlJWlzt3LllAE00b4yCUd+sXNLayrR5CNPYEMNyz68014oWDk1vuRB+2/
+ gmvI387ouHh8KWoaA9IplnsZqIyrO37S+2fsabiu6DluOIz4z58erut4qyIUisOPYXKKiCjYk
+ LWz385600IgUDDSoEbKRLNlUAF2AU+UAqwnWkrqL2tRWCaw9qGEGsfBCDeTw4xmDSL5EACcNc
+ P7bnOr0H3wJu7oqSs10drVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_124147_239430_29125FA1 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20250707_114352_569365_64B22C65 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,139 +157,107 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, "Luis Claudio R . Goncalves" <lgoncalv@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-`reinstall_suspended_bps()` plays a key part in the stepping process
-when we have hardware breakpoints and watchpoints enabled.
-It checks if we need to step one, will re-enable it if it has
-been handled and will return whether or not we need to proceed with
-a single-step.
+Hi Angelo,
 
-However, the current naming and return values make it harder to understand
-the logic and goal of the function.
+Am 7=2E Juli 2025 12:06:02 MESZ schrieb AngeloGioacchino Del Regno <angelo=
+gioacchino=2Edelregno@collabora=2Ecom>:
+>Il 07/07/25 09:30, Frank Wunderlich ha scritto:
+>> Am 7=2E Juli 2025 08:31:11 MESZ schrieb Krzysztof Kozlowski <krzk@kerne=
+l=2Eorg>:
+>>> On Sun, Jul 06, 2025 at 03:21:57PM +0200, Frank Wunderlich wrote:
+>>>> From: Frank Wunderlich <frank-w@public-files=2Ede>
+>>>>=20
+>>>> Increase the maximum IRQ count to 8 (4 FE + 4 RSS/LRO)=2E
+>>>=20
+>>> Because? Hardware was updated? It was missing before?
+>>=20
+>> There is no RSS support in driver yet,so IRQs were not added to existin=
+g DTS yet=2E
+>>=20
+>
+>That's the problem=2E It's the hardware that you should've described, not=
+ the driver=2E
+>
+>In short, you should've allowed the interrupts from the get-go, and you w=
+ouldn't
+>be in this situation now :-)
 
-Rename it `try_step_suspended_breakpoints()` and change the return value
-to a boolean, aligning it with similar functions used in
-`do_el0_undef()` like `try_emulate_mrs()`, and making its behaviour
-more obvious.
+I have not upstreamed MT7981 or MT7986=2E I also do not want to say anybod=
+y else did this wrong=2E
+I'm happy that MT7986 is working in mainline=2E It was basicly not taken i=
+nto account that these IRQs may be needed in future=2E
 
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Reviewed-by: Will Deacon <will@kernel.org>
-Acked-by: Mark Rutland <mark.rutland@arm.com>
----
- arch/arm64/include/asm/debug-monitors.h |  6 +++---
- arch/arm64/kernel/debug-monitors.c      |  2 +-
- arch/arm64/kernel/hw_breakpoint.c       | 25 ++++++++++++-------------
- 3 files changed, 16 insertions(+), 17 deletions(-)
+The technical documents are often not complete and we get some information=
+ step-by-step while testing=2E
+Or it was not seen when documents are too large :) many reasons why it was=
+ "forgotten to add"=2E
+We use what we get from sdk and docs and try to make it compatible with ma=
+inline=2E=2E=2E=2Eno optimal process,but it is like it is=2E
 
-diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
-index caee1d923f9c..586290e95d87 100644
---- a/arch/arm64/include/asm/debug-monitors.h
-+++ b/arch/arm64/include/asm/debug-monitors.h
-@@ -84,11 +84,11 @@ void kernel_rewind_single_step(struct pt_regs *regs);
- void kernel_fastforward_single_step(struct pt_regs *regs);
- 
- #ifdef CONFIG_HAVE_HW_BREAKPOINT
--int reinstall_suspended_bps(struct pt_regs *regs);
-+bool try_step_suspended_breakpoints(struct pt_regs *regs);
- #else
--static inline int reinstall_suspended_bps(struct pt_regs *regs)
-+static inline bool try_step_suspended_breakpoints(struct pt_regs *regs)
- {
--	return -ENODEV;
-+	return false;
- }
- #endif
- 
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 46fb9359a554..89264d1a9d65 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -195,7 +195,7 @@ static int single_step_handler(unsigned long unused, unsigned long esr,
- 	 * If we are stepping a pending breakpoint, call the hw_breakpoint
- 	 * handler first.
- 	 */
--	if (!reinstall_suspended_bps(regs))
-+	if (try_step_suspended_breakpoints(regs))
- 		return 0;
- 
- 	if (call_step_hook(regs, esr) == DBG_HOOK_HANDLED)
-diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-index d7eede5d869c..309ae24d4548 100644
---- a/arch/arm64/kernel/hw_breakpoint.c
-+++ b/arch/arm64/kernel/hw_breakpoint.c
-@@ -847,36 +847,35 @@ NOKPROBE_SYMBOL(watchpoint_handler);
- /*
-  * Handle single-step exception.
-  */
--int reinstall_suspended_bps(struct pt_regs *regs)
-+bool try_step_suspended_breakpoints(struct pt_regs *regs)
- {
- 	struct debug_info *debug_info = &current->thread.debug;
--	int handled_exception = 0, *kernel_step;
--
--	kernel_step = this_cpu_ptr(&stepping_kernel_bp);
-+	int *kernel_step = this_cpu_ptr(&stepping_kernel_bp);
-+	bool handled_exception = false;
- 
- 	/*
- 	 * Called from single-step exception handler.
--	 * Return 0 if execution can resume, 1 if a SIGTRAP should be
--	 * reported.
-+	 * Return true if we stepped a breakpoint and can resume execution,
-+	 * false if we need to handle a single-step.
- 	 */
- 	if (user_mode(regs)) {
- 		if (debug_info->bps_disabled) {
- 			debug_info->bps_disabled = 0;
- 			toggle_bp_registers(AARCH64_DBG_REG_BCR, DBG_ACTIVE_EL0, 1);
--			handled_exception = 1;
-+			handled_exception = true;
- 		}
- 
- 		if (debug_info->wps_disabled) {
- 			debug_info->wps_disabled = 0;
- 			toggle_bp_registers(AARCH64_DBG_REG_WCR, DBG_ACTIVE_EL0, 1);
--			handled_exception = 1;
-+			handled_exception = true;
- 		}
- 
- 		if (handled_exception) {
- 			if (debug_info->suspended_step) {
- 				debug_info->suspended_step = 0;
- 				/* Allow exception handling to fall-through. */
--				handled_exception = 0;
-+				handled_exception = false;
- 			} else {
- 				user_disable_single_step(current);
- 			}
-@@ -890,17 +889,17 @@ int reinstall_suspended_bps(struct pt_regs *regs)
- 
- 		if (*kernel_step != ARM_KERNEL_STEP_SUSPEND) {
- 			kernel_disable_single_step();
--			handled_exception = 1;
-+			handled_exception = true;
- 		} else {
--			handled_exception = 0;
-+			handled_exception = false;
- 		}
- 
- 		*kernel_step = ARM_KERNEL_STEP_NONE;
- 	}
- 
--	return !handled_exception;
-+	return handled_exception;
- }
--NOKPROBE_SYMBOL(reinstall_suspended_bps);
-+NOKPROBE_SYMBOL(try_step_suspended_breakpoints);
- 
- /*
-  * Context-switcher for restoring suspended breakpoints.
--- 
-2.43.0
+We are all humans :)
 
+>Again, it's not the driver but the hardware that you're describing=2E
+
+Frame engine works with 4,but we wanted to do better than mt798[16] and ad=
+d all known IRQs
+for MT7988 and update the older SoCs in next step=2E
+
+>As long as you are fixing the description of the hardware, even for all t=
+hree,
+>I am personally even fine with breaking the ABI, because the hardware des=
+cription
+>has been wrong for all that time=2E
+
+As some patches now are applied i can add the missing IRQs for MT798[16] i=
+n next round and=20
+maybe the sram too to not having the binding errors long time=2E
+
+>Just don't send those as Fixes commits, but next time you upstream someth=
+ing you
+>must keep in mind that in bindings/dts you're describing hardware - the d=
+river is
+>something that should not drive any decision in what you write in binding=
+s=2E
+>
+>We're humans, so stuff like this happens - I'm not saying that you shall =
+not make
+>mistakes - but again please, for the next time, please please please keep=
+ in mind
+>what I just said :-)
+>
+>Now the options are two:
+> - Break the ABI; or
+> - Allow 4 or 8 interrupts (not 5, not 6, not 7)
+>
+>and that - not just on MT7988 but also on 81 and 86 in one go=2E
+
+I would add dts patches for MT798[16] in next version adding the RSS/LRO I=
+RQs,
+interrupt-names and the sram node and set the interrupt minItems to 8 for =
+these=2E
+
+>Not sure if the second one is feasible, and I'm considering the first opt=
+ion only
+>because of that; if the second option can be done, act like I never ever =
+considered
+>the first=2E
+
+Maybe the cleanest way is like i described above? Afaik second is not poss=
+ible=2E
+
+My intention is that RSS/LRO is ONLY working with interrupt-names so drive=
+r can handle also=20
+old dtb (skip function if irqs are not found via name)=2E
+
+I hope this is a good way to go=2E=2E=2E
+
+>Cheers,
+>Angelo
+
+
+regards Frank
 
