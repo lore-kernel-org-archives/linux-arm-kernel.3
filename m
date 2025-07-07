@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA0DC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81AC4C71130
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EvwzZjahsqw8FsxwE+bu4+lDyomFMNmplS19AoYeYAk=; b=DDjkj3+Ro2lmLALfoNX0wMutSB
-	kozd4S53RJWa8ETyfL9+Ljl+jE9L3q9DqrJr6UnH2rwCn3Cc02RwBxkdeHSiL6JqN9F/HNSlDyeWp
-	wFX+FhJ8/iEOYCYyz2n/2fKwHocB8IRartJgTHNku/7VrIR5t+PrMs5ve4TTRdXFJ16bb/F3Xv2bT
-	PPvwGobCSJ4gjktJiDUieCYe7pViJBXSr3B+2tV/e861jHq/R3fd/s49kYekgVk28iqs+pkpkjA04
-	a9WGMy8VxtCyJ1Ktc+BKa/oKfehHBhIvNNzg0p+CZ7/BNngZc9k3KTKc/rhsIeZLGutPGczrqbR2K
-	w7HvXSVw==;
+	bh=ZiclCy2Pvqs887MUeI2RLeXZ7Xgu1N2DKJojilcqc7A=; b=lzHoAagwtc6V265xyvNXvGfXwd
+	uENo0twsNc6HptKzYYTaDHiFf/gKJBJ3UoSdn1J5eJrmWnZxE5/11vIIqwQhxQJfSb+zqLX6h/oeQ
+	Q9fOr/X+5nBAtRXn/D/OMxL1tjaYeLJ0hi7sidchU/w+QR6ZcQhzeneS9OBFjqLd0luYMFBuNLID1
+	7wah0CoehieFfHH9njQOKDfGhClsbgxVglNgpGo7zPTsxoV/GVbxBO9XXJpPlyzTNxJ5zoOvdv5pI
+	6yOKiFK/dfKD77UPZdKvlwuvP3Frqd3lnh24Vny0pr8fhDjKoMiMKPSsC0NSEGyWu6U2W2OU/w78q
+	x0iufWVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYqj2-00000003K9d-29Eg;
-	Mon, 07 Jul 2025 18:38:00 +0000
+	id 1uYqlL-00000003Kcn-17xz;
+	Mon, 07 Jul 2025 18:40:23 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYq3r-00000003DzD-3zLP
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 17:55:28 +0000
+	id 1uYq3t-00000003DzL-0PSL;
+	Mon, 07 Jul 2025 17:55:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5860E61129;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6BF2261464;
+	Mon,  7 Jul 2025 17:55:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0731EC4CEF1;
 	Mon,  7 Jul 2025 17:55:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB013C4CEE3;
-	Mon,  7 Jul 2025 17:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751910927;
-	bh=vgYK0V6XyKINQM1isjd7q12NdmEW5pYbAiz0Dqu3Dk8=;
+	s=k20201202; t=1751910928;
+	bh=4i3GwwYmMwd8rgyfXHO3jnhHMlDIeHEAOL0OdWiCZs0=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=AmiC+WMohJRXU0l8khOeO3+F5TR/E/8QuGW8Je6JpiRubRYuCBU9vQQbM6z5iGWwr
-	 OGldsKA2N92yvxMrrFXtCQVyKMZj8zDFNFakwsHqpOJLCFhq6U/oCoqZXPBKWFBxMl
-	 Auns+PFM+0CrArxxSSX920lGgu+7q93s71CVBHauT0igX1TwtaYNKPHb4v2Ld0O25l
-	 TX3cmAlpB8v5K+oEswKb48DRm4JIl3RpJrLZcjLXDp24aZJ5MNz4WV5tEkbzEXJ12Y
-	 ShEed/WQspQ1JeU+3WixQ44M97a2ekcTo3J+9qsrVCqgJCnrNbY8t4kXQOIUNcT+8A
-	 cluIL++2h4zZg==
-Date: Mon, 07 Jul 2025 12:55:26 -0500
+	b=ZK9sXsM8/2KLy4877qvvhXzU663uegkJK0fCwXksNxOOSx49qQic8lwOQ1jCddztZ
+	 xkXUryp9zl0ZVQUAd5SWytFQCGbNBaAOpe+z9MMasq2x06hI2Cl+5Z37wj1fbAoZrh
+	 55aHAfof3fOKnGn8LBjX1TWs7ZRHvZlgKUi2qh6vZdAJ/izndrVP68pvXxH21o85X5
+	 /HaOtlzbWOQcTDCDvxPbCHh0PdRw9xJFDOQgcDqRwCygmjk+baWyPZms4NiUew8cHb
+	 KdqSxP50knRFjCxQZIueoMEP8J/0vE12M3npqwyue4LEHAvIshFXbwEWIrToOEjJ/U
+	 VQJpIfWB/ePdw==
+Date: Mon, 07 Jul 2025 12:55:27 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Tao Ren <taoren@meta.com>, linux-aspeed@lists.ozlabs.org, 
- Andrew Lunn <andrew@lunn.ch>, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, Joel Stanley <joel@jms.id.au>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-To: rentao.bupt@gmail.com
-In-Reply-To: <20250706042404.138128-1-rentao.bupt@gmail.com>
-References: <20250706042404.138128-1-rentao.bupt@gmail.com>
-Message-Id: <175191074290.3364643.3141046769008476356.robh@kernel.org>
-Subject: Re: [PATCH v2 0/9] ARM: dts: aspeed: Add Meta Darwin dts
+Cc: linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ devicetree@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-sunxi@lists.linux.dev, 
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org
+To: Lukas Schmid <lukas.schmid@netcube.li>
+In-Reply-To: <20250706183601.157523-1-lukas.schmid@netcube.li>
+References: <20250706183601.157523-1-lukas.schmid@netcube.li>
+Message-Id: <175191074348.3364659.3018850166698272326.robh@kernel.org>
+Subject: Re: [PATCH v2 0/5] Add support for NetCube Systems Nagami SoM and
+ its carrier boards
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +75,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 05 Jul 2025 21:23:50 -0700, rentao.bupt@gmail.com wrote:
-> From: Tao Ren <rentao.bupt@gmail.com>
+On Sun, 06 Jul 2025 20:35:53 +0200, Lukas Schmid wrote:
+> This series adds support for the NetCube Systems Nagami SoM and its
+> associated carrier boards, the Nagami Basic Carrier and the Nagami Keypad
+> Carrier.
 > 
-> The patch series introduces the initial device tree for Meta/Facebook
-> Darwin AST2600 BMC.
+> Changes in v2:
+>  - Squash the binding patches into one patch
+>  - Fix formatting of the phy node in the SoM dtsi
+>  - Add description on where the phy is located in the SoM dtsi
+>  - Fix the phy address in the SoM dtsi
+>  - Move the carrier bindings into the same description as enums
 > 
-> Patches #1, #2 and #3 fixes the DTB warnings in wedge400/fuji dts and
-> ast2600-facebook-netbmc-common.dtsi.
+> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+> ---
+> Lukas Schmid (5):
+>   dt-bindings: arm: sunxi: Add NetCube Systems Nagami SoM and carrier
+>     board bindings
+>   riscv: dts: allwinner: d1s-t113: Add pinctrl's required by NetCube
+>     Systems Nagami SoM
+>   ARM: dts: sunxi: add support for NetCube Systems Nagami SoM
+>   ARM: dts: sunxi: add support for NetCube Systems Nagami Basic Carrier
+>   ARM: dts: sunxi: add support for NetCube Systems Nagami Keypad Carrier
 > 
-> Patches #4, #5 and #6 introduces a new BMC flash layout to be used by
-> wedge400 and fuji (and later more Meta Network BMC platforms).
-> 
-> Patch #7 moves eMMC entries from ast2600-facebook-netbmc-common.dtsi to
-> each BMC platform because eMMC was removed from future Meta Network BMC
-> platforms.
-> 
-> Patches #8 and #9 adds Meta Darwin BMC and updates devicetree bindings.
-> 
-> Tao Ren (9):
->   ARM: dts: aspeed: wedge400: Fix DTB warnings
->   ARM: dts: aspeed: fuji: Fix DTB warnings
->   ARM: dts: aspeed: Fix DTB warnings in
->     ast2600-facebook-netbmc-common.dtsi
->   ARM: dts: aspeed: Add facebook-bmc-flash-layout-128-data64.dtsi
->   ARM: dts: aspeed: wedge400: Extend data0 partition to 64MB
->   ARM: dts: aspeed: Move flash layout out of Facebook netbmc-common.dtsi
->   ARM: dts: aspeed: Move eMMC out of ast2600-facebook-netbmc-common.dtsi
->   dt-bindings: arm: aspeed: add Facebook Darwin board
->   ARM: dts: aspeed: Add Facebook Darwin (AST2600) BMC
-> 
->  .../bindings/arm/aspeed/aspeed.yaml           |  1 +
->  arch/arm/boot/dts/aspeed/Makefile             |  1 +
->  .../dts/aspeed/aspeed-bmc-facebook-darwin.dts | 78 +++++++++++++++++++
->  .../dts/aspeed/aspeed-bmc-facebook-elbert.dts | 18 +++++
->  .../dts/aspeed/aspeed-bmc-facebook-fuji.dts   | 24 ++++--
->  .../aspeed/aspeed-bmc-facebook-wedge400.dts   |  8 +-
->  .../ast2600-facebook-netbmc-common.dtsi       | 24 ++----
->  .../facebook-bmc-flash-layout-128-data64.dtsi | 60 ++++++++++++++
->  8 files changed, 187 insertions(+), 27 deletions(-)
->  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
->  create mode 100644 arch/arm/boot/dts/aspeed/facebook-bmc-flash-layout-128-data64.dtsi
+>  .../devicetree/bindings/arm/sunxi.yaml        |  17 ++
+>  arch/arm/boot/dts/allwinner/Makefile          |   3 +
+>  ...n8i-t113s-netcube-nagami-basic-carrier.dts |  63 +++++
+>  ...8i-t113s-netcube-nagami-keypad-carrier.dts | 165 +++++++++++++
+>  .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 227 ++++++++++++++++++
+>  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  36 +++
+>  6 files changed, 511 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
 > 
 > --
-> 2.47.1
+> 2.39.5
+> 
 > 
 > 
 > 
@@ -138,56 +133,25 @@ make sure dt-schema is up to date:
 
 This patch series was applied (using b4) to base:
  Base: attempting to guess base-commit...
- Base: tags/next-20250704 (best guess, 4/6 blobs matched)
+ Base: tags/next-20250704 (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250706042404.138128-1-rentao.bupt@gmail.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/allwinner/' for 20250706183601.157523-1-lukas.schmid@netcube.li:
 
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dtb: dcxo-clk (fixed-clock): 'clock-frequency' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/fixed-clock.yaml#
+arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dtb: gpio@20 (microchip,mcp23008): Unevaluated properties are not allowed ('interrupt-names' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pinctrl/microchip,mcp23s08.yaml#
+arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dtb: usb@4100000 (allwinner,sun20i-d1-musb): dr_mode:0: 'device' is not one of ['host', 'otg', 'peripheral']
+	from schema $id: http://devicetree.org/schemas/usb/allwinner,sun4i-a10-musb.yaml#
+arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dtb: status-led (leds-group-multicolor): $nodename:0: 'status-led' does not match '^multi-led(@[0-9a-f])?$'
+	from schema $id: http://devicetree.org/schemas/leds/leds-group-multicolor.yaml#
+arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dtb: status-led (leds-group-multicolor): Unevaluated properties are not allowed ('color', 'function' were unexpected)
+	from schema $id: http://devicetree.org/schemas/leds/leds-group-multicolor.yaml#
+arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dtb: dcxo-clk (fixed-clock): 'clock-frequency' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/fixed-clock.yaml#
 
 
 
