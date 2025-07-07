@@ -4,188 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB56C71130
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 17:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0034EC71130
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 17:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7VlnYGO+m2VMVsDiJuo2NyXJWz1uRLD1pmS7NZRGfU4=; b=nOtGociZ+4Yj7Vl/aznIHLAKLP
-	HZEuWyypMrNEtqUnLy0zHsiaQHd+SvpNMeb2/s6Qk0BPyh3WGwOr/Cgz5pxOe00sf4f9Y22BYilb+
-	PQdETn4HwYcn2zdYApYw1wDJ24tSoKu/f37WqXsy30I5YRz8LJqQw2Q8X9XbeJLU2s+ukBTwOCYl0
-	djRy0ZWmLuLdutlAdukUS4Qd2ycj6qkaaUCeD+DmSV/pl472q6+CEXCFN2XUYpTb/MuBBfKEx5M8R
-	ny/iIgfM6LuL63Uu6HjN6R1q8oBjrsohAnPbf2kTaUu+x1+FwX/CoTXlohb58K1EIbgSIdDfwPJZf
-	p7fR7pCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T65upEdCDY7gEQSF7YmZBvbMiIUrTEJa2opQbxpVZOA=; b=mTYCJpXfnVu9fhGuDyHY6IJYOg
+	C4JBcVWsvlh7yjQqTOANXq010MtC2Y1fTFxKRTNcDgFEfmrqesEFw6T9v48HYOffNMuTvI49Ate5p
+	X9Umb+RFSS4V0WOmLka0fWTLKOJxtymeNdgRLuM+8jeZ0I9eBPP3+IX3tXyHjCYcqRmh8JGaW92PA
+	RTy1edwmyQSYhOmNRKfwJn7pln6fI6eLQFFLxbw35WuNsUkMJMOMHN3+nrbkE9p5wO3/vCxSylWEa
+	WKf5glfqdoE3bmMglpvSpmoty7wQMRO7XTfOklnkuo/0/gjPY+nHkEsXw5khNcJKidSSgSRhQHeVy
+	b3d3O4Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYpN0-000000038W9-0plV;
-	Mon, 07 Jul 2025 17:11:10 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uYpPI-000000038lC-482m;
+	Mon, 07 Jul 2025 17:13:32 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYojh-000000031Ug-0Vst
+	id 1uYokY-000000031fU-1nmC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 16:30:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qjjdKSn13jpx34pU9CPTsCmfqQznzv21rYidJah7dlXOj/ljU6g6F+5NVUII2rW99g9DuA4aO+qp98SY7VhO1XjUTgi8Gh0rh8wLx10MbxmwKgpk7rpWaDCmSIryYZjNje/7LQSMu6BIcBT89LjFx0l3zsjbxzOUlYBDGvUYjCyo9ak0DEwW1ejAKLEQcnC6qPy2C3r3IXjsnlsbWmzujy4VukQkfgtU/AU7QF8wsclnn9XAGrBrARvm64o+6JiHV/I9nUKvTUYvuAd9Y61tQEYKFULijFF1t3YV4zrpY3OM0bf5ktdEj16Yg6ol5avVgUiBn/NMCUyY4oxz/pfgfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7VlnYGO+m2VMVsDiJuo2NyXJWz1uRLD1pmS7NZRGfU4=;
- b=rbQ+ZAMwsKscKxNT3KNmEcFlBhjQpaAYCOP2oPU1e4MzPnICnRZrkRPWR9PmvC9O18d1PIw9VXAdxRMSeXv687uovnh8DWH5j+13z+cxBSl/j1T9vKb6AJY7UM5woSJJ2S+qJnEWEw9+xTG+5ADlD5hRgRyEnUpYfFvHnFW7SBVVMcwnqlHvP5+BMlbRTCxYZ+Fl4wG6j+uct7lRyHscBEr58abm23Q4iWzhIyI5GVN3RzLbDk08MpzfLXBBOqDedDGpUCoP27nusdlYduniACwv18iUl770WYN3VBAyPZqy/E5+3I4va4DZhqnKfj/I57l/MIGnCaeYaO6b7fs93Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7VlnYGO+m2VMVsDiJuo2NyXJWz1uRLD1pmS7NZRGfU4=;
- b=CpDakYP5g51WBZ70O06wJisxTdtuRpLuv3keJtcJXHXP0wORmiIjoNy5Uy85x3n+7YjzQ2uDvO3si0ySTVjJo9y7PxDrnaG3Vt0+hZUR5+ciET03ic9cXUKWA5eLhi0L0d74MhwX4H7MvbYyajhJRoSwMh5/2qE2lXKuW4uPnMo03nlBSeHKdDPqbLQtvOzkLVEDIrS0kwJ3vZ6kI7eD9m7jAvBl1OlxhWXI3DoCpHjBWDZZuSREy3UZmxPjKbQHT52Q741z+o7TO78MhXFFG0proWBLSV799VRsfr9rCffBph/6et02aZQ1xLuBNXfb6i331M5UTPDb////MbTH+A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.25; Mon, 7 Jul
- 2025 16:30:29 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8901.023; Mon, 7 Jul 2025
- 16:30:28 +0000
-Date: Mon, 7 Jul 2025 12:30:21 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>,
-	Shuah Khan <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org,
-	jdmason@kudzu.us, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v19 01/10] PCI: endpoint: Set ID and of_node for function
- driver
-Message-ID: <aGv2HWBAsZm6Fi+X@lizhi-Precision-Tower-5810>
-References: <20250609-ep-msi-v19-0-77362eaa48fa@nxp.com>
- <20250609-ep-msi-v19-1-77362eaa48fa@nxp.com>
- <ne5yrjtdevmndqds4uwo2ppq6gay2wuwjouyf33lqr5g3nfkwr@lkwqlwqjqbmx>
- <aGVE6veZm3bL0mVJ@lizhi-Precision-Tower-5810>
- <75opnvi46fbmsnmykjwn3gmir7r3uqhzp7tfoua42cado6aopu@dmos2v2qd3jn>
- <aGVN/5yoLumfmlDv@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aGVN/5yoLumfmlDv@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: AM0PR04CA0069.eurprd04.prod.outlook.com
- (2603:10a6:208:1::46) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 07 Jul 2025 16:31:27 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b0b2d0b2843so2275751a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 09:31:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751905885; x=1752510685; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=T65upEdCDY7gEQSF7YmZBvbMiIUrTEJa2opQbxpVZOA=;
+        b=Tw39JfkQwAOPu0F8P39+lWP8pMZkZzHb7AlDcvcM5lxTFKNLR5sbkWbp1W+1JxOJUb
+         3lojYeIk4ScL/7gum9jWo1y+iOeIpwSk5vxpm+IRrn362+BKxENM+S1APyD6JH+YRv0B
+         qfK/hlcHkFMfGNIkJpIX6iuG/bF4Ts8/v/qls2rcO0bTBPEyFP+aNOfxO+y1wj3TlWVH
+         6eAkNxE9AAK9n+D5W14Qjrcr7PB5ZoaK+A+EMRYQTnyNjbqXwVVnhe4AcP9RqX+vQbOV
+         uGSrMUMX2JHK7DnoO+jl/uDCMvxTnXCgapeo56MAfOOFiIDPmmDw2OUPCgsOOLg8x141
+         lp9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751905885; x=1752510685;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T65upEdCDY7gEQSF7YmZBvbMiIUrTEJa2opQbxpVZOA=;
+        b=gqttUbbJJJfDFXK1SZKPuEJzOQ/bQViExz/QfT9QTRSpJyVgPCD6EepxwByoveGVn/
+         gGn1qZQe39o41q1NqGD3Kk32xOrtlWcSvo3v3GaMoNMKprh5VYhotJWq/Zm6MN9xu/rl
+         kNv1HFSNe7Ajb2RgUNj6S92/zS8vbBpLRW8u5hZ3xDEPX3AUdvbJKN4weRoDMh0N8x+E
+         a24Vm9zplnt7io0RK2C7BImXAtzGFSihX8OnVXw/ENpMMsH/YNSMcoJjHfvvcJS+NYGa
+         NkKEtKb5LC94FUY7SN2TnYp1y1qwwN9sK7WUb3hYi0dPNxZU+MKFUs1mSwtboAxAhReg
+         R7fA==
+X-Forwarded-Encrypted: i=1; AJvYcCVK3U2rAkAcAyupUDyqA6e+6SBsjaDBMUOoZiAG3HMtpxgJvCo1Pusnn33HFR81/e0rp5lB+MS01+taASJe3hEb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZ6W3XxTbcrd5JDkWj4fguKxaHvGjd/ZnScq/op3cbftkVX4/5
+	GJ2ib68uaBv9Xg4vCo4MQSoRP6tyGe7ZvaMAxSdBaJH6O9v99Q6didmJ
+X-Gm-Gg: ASbGncuuH3kgXXFJazvCxwpD4Avho1UMnF2RAR5r/4Ipvc/0fZdgyoSCNxZqYyIY7uO
+	NJINaUJPdQ7YjeFgfmHTY6RB0uTGYdyR7CigQOKsIrxDcII4c068JrHOHi6rruky7P+WYG9aESR
+	KkMRT5XEVe7THfNcBpAzINpSjXO4Pd3vcEhHb0ojnKWERciKLLkRYH4A7uHYT10HdKvNU9G939W
+	RrhU8RGrn+nQeAZIWmUwPZkpTulf5iwQkPoEDvT1Hg6OQ1bAFCxMl6/oiSWkpHHGZz+g5vbQ34h
+	DB5oo7lwc42B2gKiO1nOH6QyeR2iYn6AqDmvRZ//eisBuQ6wPi0Hu2vOiagUDQ==
+X-Google-Smtp-Source: AGHT+IE9LUw0GOAkRdv3EbKLvPJ2vN2Wm1zWt6kB2645lDr4uxnf9kEor2mDWupUMMQ9E1c4bRBisg==
+X-Received: by 2002:a05:6a00:2409:b0:749:112:c172 with SMTP id d2e1a72fcca58-74cf6fd8194mr11055113b3a.16.1751905885276;
+        Mon, 07 Jul 2025 09:31:25 -0700 (PDT)
+Received: from localhost ([216.228.127.130])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74ce417f765sm9231493b3a.75.2025.07.07.09.31.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Jul 2025 09:31:24 -0700 (PDT)
+Date: Mon, 7 Jul 2025 12:31:22 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux@rasmusvillemoes.dk,
+	linux-kernel@vger.kernel.org, james.morse@arm.com
+Subject: Re: [PATCH 2/2] bitfield: Ensure the return value of
+ type##_replace_bits() is checked
+Message-ID: <aGv2WoAtxnEgqV4y@yury>
+References: <20250703135729.1807517-1-ben.horgan@arm.com>
+ <20250703135729.1807517-3-ben.horgan@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU0PR04MB9496:EE_
-X-MS-Office365-Filtering-Correlation-Id: 77005f4d-b8ff-42e3-67a9-08ddbd7395b8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aXBDdkQwdUJLa0phZ2grbjZsYnBuaGl0UkFqWmNxYmNWcGZnOHdKT3cycUh4?=
- =?utf-8?B?dE9KSklVRmwwMjZFWHEyMXh6UE44aW5YZFVvVG9aZkRNeVdkNEVrV3BkV0JB?=
- =?utf-8?B?TFVscXJXZzh5K0sremUwbXNmbnUxcy9lRlVIdUlyS2ozVUxqSnlaOXdpeVNo?=
- =?utf-8?B?cmlwd2VRYVpoNmF1MmlWQUpNQkVmOWkzclI0OFdzQ2xpWTUzRG1xWG9maEpi?=
- =?utf-8?B?aWtmcVpzeUVsY3M4MEh5K3JLS1BaL1VVZDJmcG5QUys3a2RXZy9pcUVVYnRU?=
- =?utf-8?B?aEhwQzgyL0lLUVBYSURVdC9GeHFOMGVxaW5lMHhhVlpNcE9sRTlDWlhrenhP?=
- =?utf-8?B?WEl3VWs2cXJMTHI3WkFBbk9uVU56VW5rUHlpMUlxTkRtaUFYWTBDaE1DSkZX?=
- =?utf-8?B?bytnNDJQR0IzR1A4bXpLejhBSzRESUozaXZpNXhTeGM0OXdONTlBZzR0OVUv?=
- =?utf-8?B?dlJ5MWZHc0J6VktORngzUERqRXVXbnJkcEZOT0pEVTgvcEVsZDVQdiszcTNa?=
- =?utf-8?B?TFc4TDdIQktGeU1aNUJQd3p0bENnS0dGK1R1dWxFcGZJWlIwMUdteGRaR2Zr?=
- =?utf-8?B?OEwybDgwZ3R3bHFScjVxKzRzV3BMdHJvckx2aytpMEFra1dVYkcwQWhjalU4?=
- =?utf-8?B?ejU5NjQzNnNmVEIxWlBKNjNLNHFsdzM0RWlOUjZHWWVxblltN2IzUTEvUFpP?=
- =?utf-8?B?bkN1aVN4MlBSY0krWW5SS094aFViTzlNRzlrSzluaHNNWVdoU2ZwQUV4Uito?=
- =?utf-8?B?aURVU0N2K2txcy9oaXBTcmNqMHdNTFI2a1ViUmNlelpHZnN3bko0VFU4MzZB?=
- =?utf-8?B?TFJDM09nSVJvVXpaU2pXbE8zRTBtdy9aaHJLMmtTaTVvVmNQRTY1a1JVYS9y?=
- =?utf-8?B?Q2RVRzBueDNHTUpmSDdHRVNzazBTbFNRS2RsSjZJamlpK01rY0NTQTJlODRQ?=
- =?utf-8?B?UTNGVVlnOHE0djRRNGV5eVRFWjlnZFcycVo0Y0xoRkgyc05LTmJDQ2trTkh3?=
- =?utf-8?B?MGtVVmdqRG5YR0FhSm11amtra3FXcElmM2p0UEU2YTYxUlBDZ2JBNkFpc0RU?=
- =?utf-8?B?cys1dmxjQytYQ2U1MFBwa2NFaEVmb0hhRTgzVmx3L3Bla3pyZmNSZHBHQ2o1?=
- =?utf-8?B?SGxzSStEelQrR3o5QmtzemlrcENoc09qOUg3SnZ2emJXNDNna0RQaU41MkRR?=
- =?utf-8?B?MHVEL25IZmxxQjNhSVdoMVM4RWpwTnBYY0hpSWVQY0paOTFHNUlRMTZ6bHQx?=
- =?utf-8?B?Umkvc1NacVIxbGVTb1hYa2ZJWGF0QllIY2Z5bGloRnZlOHRRYWxraDdMNTRY?=
- =?utf-8?B?bHMxM0lUVVFkeHNWOVZPdkdqZWFqZXIzWWtVUDg4VnNSWWFjUWlmd3hZRjA5?=
- =?utf-8?B?aWEyN1pBNDFIUXBnNlA4SWpieEZJOGd5SnQ3Y2djRGw4R0xZQmdqdTgwSjdP?=
- =?utf-8?B?MWMvN3pTMWVOdHowcUZmdlpORDI1aS9zczFHY3Q2QXl0Qzk4NHFxYUhsZFpF?=
- =?utf-8?B?SlJhTGJlSjV3elVUNERlalhkVHROV0ZudU9KazdENjRCWlVhOEYveGhpTmZ6?=
- =?utf-8?B?SG5VaFg5aGxGUnREY1BHYlE1a0lRRi9UYjc3VlBBR0xDOWZMbGZKM2lTNVhr?=
- =?utf-8?B?eVlkUnhML1Q1RkhhU3dGRWQ2UTdGNWJmMkpZbFdrOUpwM3A1QUttVEVmcW84?=
- =?utf-8?B?S0xRUDA0NWk1QkxkeHB2TG1PTGJCSG5PNXVvMng4c0t2am1MOG0xa0VwZndn?=
- =?utf-8?B?b2ZTOGxiblRkZDNYUEpEZThZU01EUTZrY0t1d0R6dUJUSEdScWVnc1VpZHEv?=
- =?utf-8?B?V3g5WDhLYkoxY0laV0JXRTM4cENFT3BjT1l5ZldBbEZCbWxUeDVTSmF0NXU1?=
- =?utf-8?B?dUI2K0NVWVhYTUVlVjJVaWw1OU9DOUo5UURwaFFsK3VEVFZERklHN2lWdFNR?=
- =?utf-8?B?eWRXWituUVVSY3F1NlFlRUlyaklxczRQSlVIb2pCYXU4WHFPUXFSTUowVWR1?=
- =?utf-8?B?THFwbXNPMVZRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aEpSazZMbHUxRzdiN3BGWFpRWU9Bb0dTYXUzOUpDc2RWYk9xVmRjVEVRRVBI?=
- =?utf-8?B?eHF1NlZvV1IrMmhrYVJwN0NpQWdZaE43Y2ErVFJydDVrTnoyQ0RNa1RITTlT?=
- =?utf-8?B?Nk1GWE1ZWlZwRFZ1VTFUYUdBdlRQU2Q3U0x6REdLL3IwMVVhV3ViV2R3TkJ3?=
- =?utf-8?B?VlNXS3FxckNwck5yZnFuUFk5ci9ZaUhzL1JIRUlvWGllQTU5azZubHhXY2pW?=
- =?utf-8?B?SUxDZkJXdXJjd0E3VjE3ZDVHa25FdSt1ZXFRT2luejNuNkJYVk43dzdacmRt?=
- =?utf-8?B?SkVLMnRQT1JCOGVwcWt4Szl4YjhxRGpHMjd6dGJJQUJob25CLzNZZ2I5bVFZ?=
- =?utf-8?B?cjdPZnRsb2pQNFBEUk5CNmV5ZnRtaDFidDZYTGczWVQrZHV5aWZqODBvR2V2?=
- =?utf-8?B?NjkvTSs5TWd4S3JleGttRXlFV2xWVjVweDk5TzNsTDlTc3IrMmJZbS9PRmtD?=
- =?utf-8?B?VWFmUXljSzQ5YkRTMm40S1RkQ3duMWVQT3l6cWNpSzFFVzhkMUNWOHBUVjg1?=
- =?utf-8?B?OVFQUitBSldiYXRQUGoxVzFpU3hPY0cvYWxFc3pjcERWUWNTS2FuQVVoaGVs?=
- =?utf-8?B?dlJLcVdaKzM4b0pTZU12eHZUMHo4WXo2T0lDUzNvVnpBMWVabk9TeXRjVkZ1?=
- =?utf-8?B?d2xBZWlXUTFWaWhaQWJyVysyOWJhdUZ2K0djUnV6ejNuQUtua2RaWFEycU5Z?=
- =?utf-8?B?eGwrZ2Vua2NpWW85SG1tUStMVDh2aktEMVROVWtjZlZXSHRQMS9jaFptTjcz?=
- =?utf-8?B?K0lKR2NFYytmYlhCY09sZ05BbGN1dUszM0VoZ1V6Ny80eFhVK0JzRTRjYXh4?=
- =?utf-8?B?RGdETGdXR1RocWROSjBlTEo3c3pPYUVIclRIK21iMG4rcDlKcjhYOW9vRk5l?=
- =?utf-8?B?aTZheDI3NkdIc0RPcXB2dzRBZ20vMzB3WXQ1amwrRGg0L0xYNDJGK2UwRFAv?=
- =?utf-8?B?N0lFSSthdWhXWnp1emx0U3BubXJJMEJHajRpUDNvQnJSVnNsVE5pU0NMV3do?=
- =?utf-8?B?YkRzN0tVdW9mc2JLaFVMemlXK3NqLzBJM2ZhU2Q1cUJnR0lqNFJrak9CeXBq?=
- =?utf-8?B?Z2RTSXFETmdVQ0VNd0RZejFOcmxJWnhRWFlRalVKcVEvK2JWNnBlS09ZdTNO?=
- =?utf-8?B?cS96ZWpac0NsYTR5ejRTQUYvWHFUaWd2UmRpaHlnbVdFQXhEVVlHc1FycmtH?=
- =?utf-8?B?YXV4cE5McmxKTFpyWldwN21VaXdJUmtyYXhHTlBUbFdOUkhNbG9udXRuSUJH?=
- =?utf-8?B?UTQ3eTFnTkxEWkFRV0h0cEU0UFFuWW42MExQc01OQXJXVEhkcnp2M2VIYTR2?=
- =?utf-8?B?bEJmWHE5a1R0RjlQTEpjeUhucEJHOSt0dVo1bjVLVnBuY3lZWXJLMXI0bjc5?=
- =?utf-8?B?M3RxSXcvekJHaWFjWGlRdlcxSmdQd1QwdlMvblEzVXplQUxBYUhTZ2pnOStX?=
- =?utf-8?B?dnpmVzhDS1dTbm1IUXprdWFQM0d2bzVRSDFZbFJYanB2MFJYRldnNmwzVXF3?=
- =?utf-8?B?MWVPcFVDejFwM3dPL1c1QjZWYW02bTNDSXNNdTBBaTVvKzRKTUZncEQzTTJY?=
- =?utf-8?B?Y1hkbmI1aEVSMjR0VXNHTGlkaXM5MlltMFJyZTZnOVBwSXBoQThCMHNGdFdV?=
- =?utf-8?B?bFl0UlBRNmNXTjRSVktIZGs2MXBPTmpyOE5pQnNBaGttdFVqMmorQXBVRi9H?=
- =?utf-8?B?bVhzVmRaY3ErVFB2Q0VzSFdFbFBaT2JrbTNCZUlNUFRBQmNzTzJXUVNhaXNo?=
- =?utf-8?B?SytRR25qVU5jMnJuSFMwNGVzamMza2FLRlA1REZXUHZYWm16YVJ4dDNqSUVl?=
- =?utf-8?B?bGFVSnl2dU5kME5WK0dMNjdIM2ZsbGVmTGk1QS9UYU5KT0IzZEs3TkVENDBD?=
- =?utf-8?B?NURJZVQxUU1FSDJ2ZDVCbHhBZldtaW1BUHZiNGlsK2dTWjZwcVp2MWxhWmll?=
- =?utf-8?B?dGFUeDZCTEVDbkFEajFsZ25td2ZibENNNTBuV3Z2V1pXNll2akJhS1JsdXcy?=
- =?utf-8?B?ZVMyUTF3eDVjMGlwck5IaTFGL2xLcHVjRG1IOEVkR1J5N1JMbGwzV1NFMU5s?=
- =?utf-8?B?anI1cFVsRWxYU2tyVjNMN2didzcybEE0RUFTdzRpWFNDQ3VFMUVQZGNESDh2?=
- =?utf-8?Q?8O5Iuk6OR80dvmVOtUK3Lu+pc?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 77005f4d-b8ff-42e3-67a9-08ddbd7395b8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2025 16:30:28.9313
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: c2wwEKmDTWtRzNH/MfXtjvBK5XNqXuv9qIL9Mkx4fDv+WtawcNZMkodSiRV36kA/0Pmre1wDR98+eYevIVyeiQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9496
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250703135729.1807517-3-ben.horgan@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_093033_167260_D373F660 
-X-CRM114-Status: GOOD (  32.34  )
+X-CRM114-CacheID: sfid-20250707_093126_467198_975FB7AC 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,82 +101,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 02, 2025 at 11:19:36AM -0400, Frank Li wrote:
-> On Wed, Jul 02, 2025 at 08:25:17PM +0530, Manivannan Sadhasivam wrote:
-> > On Wed, Jul 02, 2025 at 10:40:53AM GMT, Frank Li wrote:
-> > > On Wed, Jul 02, 2025 at 04:30:48PM +0530, Manivannan Sadhasivam wrote:
-> > > > On Mon, Jun 09, 2025 at 12:34:13PM GMT, Frank Li wrote:
-> > > > > Set device ID as 'vfunc_no << 3 | func_no' and use
-> > > > > 'device_set_of_node_from_dev()' to set 'of_node' the same as the EPC parent
-> > > > > device.
-> > > > >
-> > > > > Currently, EPF 'of_node' is NULL, but many functions depend on 'of_node'
-> > > > > settings, such as DMA, IOMMU, and MSI. At present, all DMA allocation
-> > > > > functions use the EPC's device node, but they should use the EPF one.
-> > > > > For multiple function drivers, IOMMU/MSI should be different for each
-> > > > > function driver.
-> > > > >
-> > > >
-> > > > We don't define OF node for any function, so device_set_of_node_from_dev() also
-> > > > ends up reusing the EPC node. So how can you make use of it in multi EPF setup?
-> > >
-> > > In mfd devices, children devices reuse parent's of_node
-> > > drivers/gpio/gpio-adp5585.c
-> > > drivers/input/keyboard/adp5589-keys.c
-> > > drivers/pwm/pwm-adp5585.c
-> > >
-> > > multi EPF should be similar to create multi children devices of mfd.
-> > >
-> >
-> > No, they are not similar. MFD are real physical devices, but EPFs are (so far)
-> > software based entities.
-> >
-> > > > I don't understand.
-> > >
-> > > >
-> > > > > If multiple function devices share the same EPC device, there will be
-> > > > > no isolation between them. Setting the ID and 'of_node' prepares for
-> > > > > proper support.
-> > >
-> > > Only share the same of_node.
-> > >
-> > > Actually pci host bridge have similar situation, all pci ep devices reuse
-> > > bridge's of node. framework use rid to distringuish it. EPF can use device::id
-> > > to do similar things.
-> > >
-> > > Actually iommu face the similar problem. So far, there are not EP device enable
-> > > iommu yet, because it needs special mapping.
-> > >
-> > > Prevously, I consider create dymatic of_node for each EPF and copy iommu/msi
-> > > information to each children. But when I see adp5585 case, I think direct
-> > > use parent's of_node should be simple and good enough.
-> > >
-> > > In future, I suggest add children dt binding for it. For example: EPF provide
-> > > a mailbox interface. how other dts node to refer to this mailbox's phandle?
-> > >
-> >
-> > As I said above, EPFs are not real devices. There is currently only one
-> > exception, MHI, which is backed by a hardware entity. So we cannot add
-> > devicetree nodes for EPF, unless each EPF is a hardware entity.
->
-> But how resolve this problem, if a DT device need phandle to a EPF? anyway
-> this is off topic. let go back this doorbell.
->
-> It needs an of_node for EPF device, I tried many method before.
->
-> Create dymatic of_node for it? MSI framework still go through to parent
-> of_node to get such information. not big differnece as my view.
+Hi Ben,
 
-Hi, any idea?  how to move forward? we can dynmatic create of_node for it.
+On Thu, Jul 03, 2025 at 02:57:29PM +0100, Ben Horgan wrote:
+> As type##_replace_bits() has no side effects it is only useful if its
+> return value is checked. Add __must_check to enforce this usage. To have
+> the bits replaced in-place typep##_replace_bits() can be used instead.
+> 
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+>  include/linux/bitfield.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
+> index 6d9a53db54b6..39333b80d22b 100644
+> --- a/include/linux/bitfield.h
+> +++ b/include/linux/bitfield.h
+> @@ -195,8 +195,8 @@ static __always_inline __##type type##_encode_bits(base v, base field)	\
+>  		__field_overflow();					\
+>  	return to((v & field_mask(field)) * field_multiplier(field));	\
+>  }									\
+> -static __always_inline __##type type##_replace_bits(__##type old,	\
+> -					base val, base field)		\
+> +static __always_inline __##type __must_check type##_replace_bits(__##type old,	\
+> +							base val, base field)	\
+>  {									\
+>  	return (old & ~to(field)) | type##_encode_bits(val, field);	\
+>  }									\
 
-Frank
+So, would it make sense to mark _encode_bits() and _get_bits() as
+__must_check as well? At least from the point of unification, it
+would.
 
->
-> Frank
->
-> >
-> > - Mani
-> >
-> > --
-> > மணிவண்ணன் சதாசிவம்
+How would we move this - with my bitmap-for next or with arm branch?
+
+Thanks,
+Yury
 
