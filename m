@@ -4,92 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CA5C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 05:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B403BC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 05:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MS9l5V7rnppikpjmqzYLq+jQty7Y2WLmP6gMpwdm78Y=; b=CVIY5h2kVbv8jEs0j/IOq6kACN
-	TJobwBiEfbRcLNgCcT5L9DNbDgJFeuBvxfdyCS+Anrv1lzyGePh7WhxUnrVQNgQJ3W6FeWj+MtnR6
-	4+iFVvn6FXpPo+IEJ6bSyOMGyAGR3AQc/ZG6AcQN8Hdg9e+4LwpwLtf2WwcPTQJvajkPrcnk5pXpe
-	An1YU2eUbwJXCEnsimm/Pi5CsVtVi0Da8DodO0oLBKwdfpF/ex1UXTedg7xoI5lESz3SpEylvC72x
-	9nG9Fs93vtzYzTRlUe7A0z2Lmc6WgfqUuUslRigGwu6+gMvvyQdNT1OxBX4mfsf6taCMpkx9Jd8oH
-	TipbJoaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0UwbmoNbeotneZ7hoFqaoL5JzAUmHS1Ed19VNcJxpCA=; b=pxaZ4gkB97NRpeWU98E4v5ozhm
+	0bKAeItfyRrw2/YO+iBV6sQFhejNju5mWDxRUp/aRpewbIvdL7naW9zAJ7CnyNIyjFQiX6pnF5L4y
+	EuOWbdtjn/e6N41ZPSaR/yvJOMWPTzOh2aGTckz5RYjAFpOG6MlN322rQxHREcMI/dZ/K0tPd0e5d
+	5EUwWCZ85s4Q0IrL2i63d/3Kj5sCH6z3zY6J/8pMPGtZ77kcqx0SLdo4OideReDQy/GKhP1jZd9mS
+	xiA0zrkyPT6+15V8li7q2fW8YVA6BP9hOB7/6W8FgVRiWtbRNh+B4EgKgCIMVNko2Y2yK5nSUB2jZ
+	NB7bkg2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYeBA-00000001QNq-0GXM;
-	Mon, 07 Jul 2025 05:14:12 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uYeTE-00000001RsR-3jeu;
+	Mon, 07 Jul 2025 05:32:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYe8q-00000001QCX-29ro
+	id 1uYeQu-00000001RLj-3zp5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 05:11:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1751865108; x=1783401108;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=MS9l5V7rnppikpjmqzYLq+jQty7Y2WLmP6gMpwdm78Y=;
-  b=NZhUia8V/foMnCSa01x4MfQz9NstxxB9jErGgOXHVJ6jCgxCYQRxUqtl
-   +qV1UUktFTBHsid+FNx9qzkqgf5LrkSxBHxk3MhRI7pTRtcz2VyS1N584
-   7AI1nLOzMvd4t25lXFAFdCAnkmf4licsWe6NnXeojRB7gwSexAvLrnhM5
-   62wl0r5relPC8eD/sNxRwXWnXMSPbpDtvo4zU6/wsrBZvvXeLNohJ4BFd
-   9hNMTTdbSTqQ3MgrRZRaYYgywQWzUTv2uc9rPqoSN/rniP5HTepEAweUW
-   a+jhnf7DiuDQ+nY7HAbRtwoJcEZAstCu3q+P0HKLIkbo0frF81OUMZHQR
-   A==;
-X-CSE-ConnectionGUID: cdaaUOoYQXi065uLnbbgdw==
-X-CSE-MsgGUID: 0JndVCJeRv+mZnXHP+VpkA==
-X-IronPort-AV: E=Sophos;i="6.16,293,1744063200"; 
-   d="scan'208";a="45049649"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 07 Jul 2025 07:11:41 +0200
-X-CheckPoint: {686B570C-37-4FC15ADB-CD71293B}
-X-MAIL-CPID: CDEB1C0A765BD2ADCEED811366CB8CCC_0
-X-Control-Analysis: str=0001.0A00639C.686B573B.0052,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8D13916397D;
-	Mon,  7 Jul 2025 07:11:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1751865096;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MS9l5V7rnppikpjmqzYLq+jQty7Y2WLmP6gMpwdm78Y=;
-	b=Sv/Tj0oC82xoMR1uXwWA8qfioW3rO7wpmNR/uZgCiQmeZzZrSn2E63+UVAUlk9V0l4qJuy
-	AJRxZV7EIx62zzv4zAzBSENpA1wsUn9oDEEZsXaiKPg7Io9D+oq60Smn8aUreMEuTeGxE8
-	rji8rJ0gCULqQlmk2/jXlw0m7MYYPpcYXVv2/oVUm4izNYU/H6W84teDFCSAZb4BHQLJrS
-	4+ZPa9rFp0rBvky/PyI9jO6eMErzxoh7QPF8/OZ/EySD/SSDhuLeDGQPDU2ouLGblBG49k
-	v3AkMrqkRNWlloyKomXI2+jSQ0GnDJPMwH2CbW13e8UA9FIBK7F7l/T3ViLtlQ==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Mark Brown <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang <shengjiu.wang@nxp.com>,
- Frank Li <Frank.Li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>,
- Marc Kleine-Budde <mkl@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Subject: Re: [PATCH v7 4/6] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-Date: Mon, 07 Jul 2025 07:11:33 +0200
-Message-ID: <5029548.31r3eYUQgx@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <c3deef24-fed7-4405-9953-804bff118c11@gmail.com>
-References: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com>
- <ac1daf6b-ee06-4076-b86f-b436ca0acd6d@sirena.org.uk>
- <c3deef24-fed7-4405-9953-804bff118c11@gmail.com>
+	Mon, 07 Jul 2025 05:30:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3B3DDA52ABB;
+	Mon,  7 Jul 2025 05:30:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A76FC4CEE3;
+	Mon,  7 Jul 2025 05:30:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751866227;
+	bh=FVk4HDX5E/vQWjMpzsI9JjkEpE2rEEjjL9x/JLyZahg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tNsXk+rmVBPvSCqX0SDq9Iq2fvEnNK8dX27YLVArO3/YPDCpo1I3ygzW2nNxad1Ok
+	 Ofz7O/MUtdHgp3xwLaz38sKbaHT2qOPTFzJ7qPFtrYKxRxJ9Qx+cP9GpDRbIA8omDg
+	 owBtuH4cAQWcSmjx1SPaPB3c8IqQYjRSXVDj/xQbvgZecNsB7ZHS3eW8nXfh7jyu4l
+	 jvMfpaKPqQaMMg0cJsC6xD9zO4uapeoMpIiEjNEHDj2LxDbwkOIWQvntq81zkEthUP
+	 vRklHNJT+o8csljdrh5VVQm7vMxkqD1i2ZFcivTuFh1uNrcLOzCH3kSxABBEY1ixkK
+	 OhAzhJAQLsCTQ==
+Message-ID: <3301f51e-11ca-4de3-87a5-a6a9edf71f54@kernel.org>
+Date: Mon, 7 Jul 2025 07:30:21 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: display: samsung,exynos7-decon: add
+ properties for iommus and ports
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Ajay Kumar <ajaykumar.rs@samsung.com>, Akshu Agrawal <akshua@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org>
+ <20250627-exynosdrm-decon-v3-1-5b456f88cfea@disroot.org>
+ <32924ee3-2dcd-43bf-8dec-51f85675bee0@kernel.org>
+ <4e5d50807f1ae86aaf0e3c351b230b1b@disroot.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <4e5d50807f1ae86aaf0e3c351b230b1b@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_221149_037710_F0B1A7A5 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20250706_223029_140970_8CA3AEE7 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,69 +130,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 06/07/2025 18:00, Kaustabh Chakraborty wrote:
+> On 2025-07-06 07:33, Krzysztof Kozlowski wrote:
+>> On 26/06/2025 21:20, Kaustabh Chakraborty wrote:
+>>> @@ -80,6 +80,14 @@ properties:
+>>>        - const: vsync
+>>>        - const: lcd_sys
+>>>
+>>> +  iommus:
+>>> +    maxItems: 1
+>>> +
+>>> +  ports:
+>>
+>> This was supposed to be port, no?
+> 
+> Yes. You have reviewed this patch though, I didn't send a new rev
+> yet.
+> 
+> Either way, yes this should be port (since it has a single output
+> port).
 
-Am Mittwoch, 2. Juli 2025, 21:54:09 CEST schrieb Laurentiu Mihalcea:
-> On 7/2/2025 9:49 PM, Mark Brown wrote:
-> > On Tue, Jun 10, 2025 at 12:01:50PM -0400, Laurentiu Mihalcea wrote:
-> >> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >>
-> >> AIPS5 is actually AIPSTZ5 as it offers some security-related
-> >> configurations. Since these configurations need to be applied before
-> >> accessing any of the peripherals on the bus, it's better to make AIPST=
-Z5
-> >> be their parent instead of keeping AIPS5 and adding a child node for
-> >> AIPSTZ5. Also, because of the security configurations, the address spa=
-ce
-> >> of the bus has to be changed to that of the configuration registers.
-> >>
-> >> Finally, since AIPSTZ5 belongs to the AUDIOMIX power domain, add the
-> >> missing 'power-domains' property. The domain needs to be powered on be=
-fore
-> >> attempting to configure the security-related registers.
-> > I'm seeing failures to probe the audio devices on the i.MX8MP Verdin
-> > system in -next which seem to bisect down to this commit,  I'm seeing
-> > separate boot failures on the EVK so haven't been able to confirm the
-> > status there.  There's no obvious logging, the dt selftest shows:
-> >
-> > # not ok 141 /sound
-> > # not ok 142 /sound-hdmi
-> >
-> > Full log at:
-> >
-> >   https://lava.sirena.org.uk/scheduler/job/1530197#L5119
->=20
-> Hi Mark,
->=20
-> Thanks for catching this!
->=20
-> After browsing through the provided logs it would seem like no device und=
-er the
-> AIPSTZ bus gets probed. Right now, my guess is that the AIPSTZ driver is =
-not being
-> compiled since CONFIG_IMX_AIPSTZ might be set to 'n'.
->=20
-> Which defconfig is the CI using? Is it arch/arm64/configs/defconfig?
-
-I'm also seeing audio problems starting with this commit. In my case I get
-the following error:
-fsl-asoc-card sound: failed to find CPU DAI device
-fsl-asoc-card sound: probe with driver fsl-asoc-card failed with error -22
-
-DAI device is sai5 aka /soc@0/bus@30df0000/spba-bus@30c00000/sai@30c50000.
-It turns out that the module snd_soc_fsl_sai is not even autoloaded. Loading
-manually doesn't have any effect. So I assume starting from this commit
-the subnodes (at least sai5) are not even populated.
-Reverting this commit fixes my setup.
-I've set CONFIG_IMX_AIPSTZ to both  'y' or 'm' and doesn't change anything.
+Ah, indeed, this popped up in my inbox and I totally missed that I
+already responded.
 
 Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+Krzysztof
 
