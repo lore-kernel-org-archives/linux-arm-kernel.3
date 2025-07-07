@@ -4,61 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF9FC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 07:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8120DC83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 07:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=avKUAohrDA/+wA3qSmnXdrsmCJ0Gc5OKyqucbbfoVig=; b=LiPyCAgxzP8hKM9qlzGtqQ/ZRw
-	h/FGpwyDtvMJzsUGjjAK9N4wQue7If6FHE5o1dCALwvIkba1jojRswqqc8rNhdhQd3CQZAp4Q1glf
-	Jv10AZHL5SZwroYezeQisWa5jQNSuGgJ87Cb1cRN4PyCj2qEkiWKQLRm3omp4coSIkf0//QCMNXde
-	Bi3OvE3XyuiAGz5VWMs4A6Zvrrlz4JzeJL8nAoXkWCJP605wL8TqV7Fo7yBzXK8XEtW4hPuOYyQZw
-	jJ5hvLmu388AHEVbXR08wfvc5pAMf/GA5vUJjxExSdDvMMBJthWoNV5fvx1RAloJBAzt3Tyknpi71
-	6q9qSM5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E/+6XlkgOJfxcd3UMd31vvs5UWZa5byswuou5bXWz4U=; b=c82Nk47wpgKx0ITWWlXtAQ9VC4
+	bJX0EXIWAdAPLih/u1C/4S0zrjkpzuIsDoBISqL8tjeS1qCffiVtZ5Wf+2bSdL1o3zV4IqU8LkI9q
+	sq7aQmmnQvWO3T1nyqvptKGE/AqhFx/1g23LQcLzdTe/Fmc8kV6uf+86DLdcAkHChS4ZyOkt2qcWz
+	sJV0fRFNPmP8yMOFeLDoFQZIaLfOJ0+/QlvYSk+ZzCqjRexlngt6IdRD0Yx0sGDFftKHwBZiiL8ti
+	/XA6Wn2/B/lYulbt0dliLa4Ksj6B82rzYWpAt+V5ZsobWH1m5jD9XDbiHKNNkLVfMyf8p6bD3p5hZ
+	5DqUDyEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYfyG-00000001dVm-3BJX;
-	Mon, 07 Jul 2025 07:09:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uYg0Z-00000001dtG-0S7Y;
+	Mon, 07 Jul 2025 07:11:23 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYfun-00000001d6z-1EP6;
-	Mon, 07 Jul 2025 07:05:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B0A906112D;
-	Mon,  7 Jul 2025 07:05:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB729C4CEE3;
-	Mon,  7 Jul 2025 07:05:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751871924;
-	bh=PGd9A/5X3od+Z3ffVuEq/O0FzpECV5LP8wKFT6Fvjms=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AvVog57eSaJ7QWXH8nmeb4XuVlKZryiU7ZDpRGgHKMWBPpORbIA4VvVU4UjYEO6NZ
-	 QVCRtXiPnoW61uFvKUy5XyExVtoUlttp9QbU+jBFqCgUZMVLP+TTZHPX3XUNzynoXL
-	 UnIyEH9ch4evzaTB/JVTGpSjYIVDc/VneTCzKuOdTPqMlxW0Et6/Dobd7VM50eyRU0
-	 wtEFQ0mR7Sc13PlbzNAsFHa2k2eYrkcXrPaecBEPZve2zpln3yCSGHj2E7G8HXw5rj
-	 VBftwCkKF0AltFaSzuyVnXTOwIJ5zMCmVmKecigiDHo2sRuL0U2bmQZsBbtGqUEpVL
-	 7b70fNU/wqDVA==
-Date: Mon, 7 Jul 2025 09:05:21 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v2 1/7] dt-bindings: net: airoha: npu: Add
- memory regions used for wlan offload
-Message-ID: <20250707-topaz-pillbug-of-fame-859822@krzk-bin>
-References: <20250705-airoha-en7581-wlan-offlaod-v2-0-3cf32785e381@kernel.org>
- <20250705-airoha-en7581-wlan-offlaod-v2-1-3cf32785e381@kernel.org>
+	id 1uYfxR-00000001dOR-3HHR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Jul 2025 07:08:11 +0000
+Received: from [89.212.21.243] (port=54560 helo=[192.168.69.116])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1uYfxQ-00DTvl-0X;
+	Mon, 07 Jul 2025 09:08:07 +0200
+Message-ID: <1b20cb44-847f-4f64-a367-c3340468713a@norik.com>
+Date: Mon, 7 Jul 2025 09:08:06 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250705-airoha-en7581-wlan-offlaod-v2-1-3cf32785e381@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] Initial PHYTEC i.MX93 overlays
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+References: <20250707061101.1194618-1-primoz.fiser@norik.com>
+ <20250707080457.GB11488@nxa18884-linux>
+Content-Language: en-US
+From: Primoz Fiser <primoz.fiser@norik.com>
+Autocrypt: addr=primoz.fiser@norik.com; keydata=
+ xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
+ JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
+ ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
+ gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
+ jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
+ 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
+ TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
+ AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
+Organization: Norik systems d.o.o.
+In-Reply-To: <20250707080457.GB11488@nxa18884-linux>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250707_000809_979978_D62CA85A 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,52 +90,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 05, 2025 at 11:09:45PM +0200, Lorenzo Bianconi wrote:
-> Document memory regions used by Airoha EN7581 NPU for wlan traffic
-> offloading.
+Hi Peng,
+
+On 7. 07. 25 10:04, Peng Fan wrote:
+> On Mon, Jul 07, 2025 at 08:10:57AM +0200, Primoz Fiser wrote:
+>> Add initial overlays for the PHYTEC phyCORE-i.MX93 SoM based boards,
+>> that is the phyBOARD-Segin-i.MX93 and phyBOARD-Nash-i.MX93.
+>>
+>> Overlay #1:
+>> - imx93-phycore-rpmsg.dtbo
+>> - add support for M33 core RPMsg on phyCORE-i.MX93 based boards
+>> - applicable to both phyBOARD-Nash and phyBOARD-Segin boards
+>>
+>> Overlay #2:
+>> - imx93-phyboard-segin-peb-eval-01.dtbo
+>> - add support for PHYTEC PEB-EVAL-01 evaluation adapter
+>> - applicable to phyBOARD-Segin board
+>>
+>> Overlay #3:
+>> - imx93-phyboard-segin-peb-wlbt-05.dtbo
+>> - add support for PHYTEC PEB-WLBT-05 WLAN/BT adapter
+>> - applicable to phyBOARD-Segin board
+>>
+>> Overlay #4: 
+>> - imx93-phyboard-nash-peb-wlbt-07.dtbo
+>> - add support for PHYTEC PEB-WLBT-07 WLAN/BT adapter
+>> - applicable to phyBOARD-Nash board
+>>
+>>
+>> Changes in v2:
+>> - reorder reserved memory nodes by address
+>>
+>> Link to v1: https://lore.kernel.org/all/20250619063954.1730231-1-primoz.fiser@norik.com/
+>>
+>> Primoz Fiser (4):
+>>  arm64: dts: imx93-phycore-som: Add RPMsg overlay
+>>  arm64: dts: imx93-phyboard-segin: Add PEB-EVAL-01 overlay
+>>  arm64: dts: imx93-phyboard-segin: Add PEB-WLBT-05 overlay
+>>  arm64: dts: imx93-phyboard-nash: Add PEB-WLBT-07 overlay
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  .../devicetree/bindings/net/airoha,en7581-npu.yaml   | 20 ++++++++++++++++----
->  1 file changed, 16 insertions(+), 4 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> index 76dd97c3fb4004674dc30a54c039c1cc19afedb3..db9269d1801bafa9be3b6c199a9e30cd23f4aea9 100644
-> --- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> +++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> @@ -41,15 +41,25 @@ properties:
->        - description: wlan irq line5
->  
->    memory-region:
-> -    maxItems: 1
-> -    description:
-> -      Memory used to store NPU firmware binary.
-> +    items:
-> +      - description: NPU firmware binary region
-> +      - description: NPU wlan offload RX buffers region
-> +      - description: NPU wlan offload TX buffers region
-> +      - description: NPU wlan offload TX packet identifiers region
-> +
-> +  memory-region-names:
-> +    items:
-> +      - const: binary
+> I think it would be better to update License to
+> SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> 
+> But up to you, I am not sure whether dtso(GPL-2.0) could
+> work with dts(GPL-2.0 or MIT).
 
-Rather: firmware
+Good catch!
 
-> +      - const: pkt
-> +      - const: tx-pkt
-> +      - const: tx-bufid
->  
->  required:
->    - compatible
->    - reg
->    - interrupts
->    - memory-region
-> +  - memory-region-names
+Yes, this indeed needs fixing. Will send v3 updating to (GPL-2.0+ OR
+MIT) as the base dts.
 
-That's ABI break.
+> 
+> 
+> For the patchset
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>>
 
-Best regards,
-Krzysztof
+Thanks for review.
 
+BR,
+Primoz
+
+
+> Regards,
+> Peng
+
+-- 
+Primoz Fiser
+phone: +386-41-390-545
+email: primoz.fiser@norik.com
+--
+Norik systems d.o.o.
+Your embedded software partner
+Slovenia, EU
+phone: +386-41-540-545
+email: info@norik.com
 
