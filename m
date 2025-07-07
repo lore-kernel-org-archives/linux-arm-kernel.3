@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AF9C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 08:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE10C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 08:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tEtmO9fJ+uBB8S0davk+ZIXu0Xo38Vmwmt1Jp6drvMw=; b=XczNL77ue5mWsxPW0w2M5dUHxs
-	14azr8jhRXHxDWOKfyOa3yicIfoWngNadA4O3OuT/FZfuhSDbi02x2AkWyyBkOtQ5u2a3Ct1Rke7F
-	S8ZaGUKqeGQonZMdnQ3EwVDph5AelUjZ3csCNpJU95svbZTj1Zc937LyVpF5wtEaIAkX9ork5L77P
-	O9DdUSLQ53e2e2wyTjrQejZGcRMzbU8xL37ilnAGwuMftjMxAf94lUzjFDppjP69G64BEIjLbeDmG
-	prCsZ4TRUqPvbio7V64/2pF5kAJmyoyPTR7Sno6dcEA/n5zJ2x5VazAeLTTuocW3pnHVH8QQyu5GB
-	hidEXU+w==;
+	bh=qnquyqvd+FVIVtLd1Ux9gRwnVLnxC1Ivy7WluAJ5AJU=; b=g823vnldGCjJ5GWgHOc35KIFN5
+	YEIB2HTC7CvR4Gg28QO7OzgnHXEEjo5Q4ctUFlai1e9Ti2AQwJU/vp9GH5NIncuzMO6EMFa9l1nys
+	UKaoUtsQ+E9fvz8edtZBT6mMIhgJY7TWyCi79irF2rZD+riM9rG4+uzGH4FvfnUVIiCqwof6oBvYA
+	dNZoVn4/toA4BIwXc3TRME9tFOZoQnvyWoJx2ndNAFB2cNfVMw/TStgi2UoKDWe123m9gQ2Ai/dle
+	u2s62pC0864zYzq+Pzv1ya/V54lxK7yWyc6CphLp14lSj2ONNLB4UBy3neEp97XuUcSmrQpxyOhrw
+	9HZeoZ1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYhQu-00000001scf-2yb8;
-	Mon, 07 Jul 2025 08:42:40 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1uYhTC-00000001srY-1o7A;
+	Mon, 07 Jul 2025 08:45:02 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYgcP-00000001kJs-2Gro
+	id 1uYgcQ-00000001kKD-2aoe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 07:50:30 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-451d7b50815so21840615e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 00:50:29 -0700 (PDT)
+	Mon, 07 Jul 2025 07:50:31 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a54690d369so2769856f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 00:50:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1751874628; x=1752479428; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1751874629; x=1752479429; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=tEtmO9fJ+uBB8S0davk+ZIXu0Xo38Vmwmt1Jp6drvMw=;
-        b=MiGrDFbDbz0JcvpL0uER3gjFW5tnqr7tfyO36gaC8soREbF/H55RynUIOGVHW0bk2X
-         n8lTCwEPKfdXIz3m5z1ziYlOwjcVs4702IHJXdk7X3KiRCTKCOPq6qFvJ/dFlnlL5LuZ
-         a7cg30agMe7iuHLQQlIdOOL900ckN79s2Ols4Jki4dVBh9u8yU4ODiA1Au8279v1G1YQ
-         YNNqr9AnRG0TfIz3F8naLIJBIiKGSmyCK2kD7CtIxpMdzZqfdO8/Cm4UIgBFhjLPI2lq
-         iejy4wLpgd9ZLq5yrIqut6nneBOKgZF5Lj+nvtTc/ygHkW4piOZEMVuNPDhpkX6bXOag
-         cgkg==
+        bh=qnquyqvd+FVIVtLd1Ux9gRwnVLnxC1Ivy7WluAJ5AJU=;
+        b=E2lNlG5xXYQmdE0t8yZ5xfpIojuhZEmLXUCHEAQLPiE4/kECuCYwWacBGf1cSUC+eC
+         AMMMA9FWzsqthF0PSBB2oX34+7zPPCZVtUe4kUU0QeBxrQkc1e6E905+vc8szg4mq8oM
+         v/dgnP/ll0YYv7H1YBnIUpbfoWSVZ+CJSVuTgp1nBS5NZhmXcMQo+qxT9T1sqkcaGZ6r
+         JbQAEC8G2ZM4IV2OfxULDbrgs09TUnhsw1uI1Ds5zU4RzPATF9oFXSeVotrNLCh05/vg
+         vNR+d+wR4X6sa8P1PhRjjR8Vn6rjvih3n7K7y5hKG2zgPM+i2Jz/4IreiEyYC6g5GQ9L
+         V0eg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751874628; x=1752479428;
+        d=1e100.net; s=20230601; t=1751874629; x=1752479429;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tEtmO9fJ+uBB8S0davk+ZIXu0Xo38Vmwmt1Jp6drvMw=;
-        b=SxSpSd9rXXed9wtzownyhpR0Ti9VHYNWxqfyIj26Dz1gZ93rvb3pp38svVIrctW6S3
-         wK+PFtVQtp29dEmhrPArA3YAJcbSsqY9f6Bf6roZ8idCNZONRgK41wv3bM1Rh6D4zZrU
-         owUC3Nl3RjufJrjx1xPBort5Y7L/EuegeJYdfChXCIMIrgqV4jujr0FJjcnHR1D5HdaL
-         OisFksMfjIBjvUUNiYzFfXiGLZz6Lr+n4OjGDbGY03pKdejzw5inlDUlg6DSrfb6GzCw
-         DMBNd/gxJNziZUDWOv0ZKW0q9wCK22+itxx0qsIzWb37GomZXZz4rtep4FXCsK50zt8e
-         CaaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXjB+xJpAStb5vLvCHJMqzRWdPgKtsHmNY8D3I4laaIeROvwH66ACpPTtdzStGo9ceWB5y2CIv1iGQgylPpmwfC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyauKG+oPn0V7xJzKinjZBNUas6fXwpVki9D7X+hIdj5jgM7tWS
-	5PBQSJOj5M0dZlSIgviOZs4r0XRzJoaFjZGyiCdBWzAoP3i9HsTHxEITDy2if2lCoGk=
-X-Gm-Gg: ASbGnctWqOUJaXLhRvLZQoEpqk7kwnGw0cweQH71ido1ZGXKoxLH5biYR9FOgSpi3RM
-	zEeWewhDJw5Vej8tyi6HosRN6IFXept8Jjev22y6qr7eGRcs/ZKYy/xHhPVeLVwch/A+M6vrMU0
-	V4TPv0Fy6C6LqL4MzCMuVBp/SuOzMijokPR8qDTxijCjcHxyR3nHi2dFnWLslv7t7ZTPKod5fXG
-	r7M142M+ttujC7XE1UuVtKdv9TQjhYz4R4++4GuiqzkcUnaLqyAujt4K0yvGJvlltjse0poc8dU
-	4bgJwCdVo5NmMv7BMM0+D++bq5OCRAaKP3cEUZaKiUirDR5H2l8jQST1
-X-Google-Smtp-Source: AGHT+IGlE+pJSFOw6vH9Aqv3avNwNGn5mFUP5UKn0Q9HP54n73BXvlRB3Kq5i+TgrQRQO3lRBaB9xw==
-X-Received: by 2002:a5d:5f55:0:b0:3a4:f52d:8b05 with SMTP id ffacd0b85a97d-3b4964df03fmr10640130f8f.35.1751874628016;
-        Mon, 07 Jul 2025 00:50:28 -0700 (PDT)
+        bh=qnquyqvd+FVIVtLd1Ux9gRwnVLnxC1Ivy7WluAJ5AJU=;
+        b=ZLG/WT7RHnaBJboa9P/28sWeJ/9agxSFirNaf771c4rZOyc3dRNxOsnKwrUYPBWT+0
+         ZsrA+D1t1zI4jtHKCvx+iX75r3Azp9IVANe2hNfWN7AHlJTF4A+T4vwOhxr15jSu4BDj
+         fwTtYVUMmTRi0d7+cOEKQvVV8cs75Y15hgeriThyVqMlIonimG3hLO7XE3TGMoGL6/7P
+         8l9pdTHtQGypdahPgPHmqtQ4iPnHGabOlxNOal7PN1jMJw7Adi3Wc+BwE/OSzjGK3Y/Z
+         3i/vOQ1lwJf5T73lKe9ByGkq8xZ2EX6VnXhCcotbWjmJBuXgnJjd8/Y26/Q2AZOXXhXz
+         FyCg==
+X-Forwarded-Encrypted: i=1; AJvYcCUIapT4S31PlHR+BRGZnbQQsBJH9AWgubY5nCtRZ3qv19vUBFFfCJJGtlK+KCkU4yePvdFykAWi/Bv0TAYXxrol@lists.infradead.org
+X-Gm-Message-State: AOJu0Yytc0ieSL8dtCSUtbEQfIMTFYJegzFBEV9STVfwABOFa3oGcKW8
+	Mi4ZNwa2V+vwUJG8TtD4DKFOYicHXoDwDiop0RR8AWjxylS6ce3lYcnhCsTM1W2Lkws=
+X-Gm-Gg: ASbGncs5zah9Jjw8LzbgolHii9KBB3PPir0f+fth9ymLmk0uLutke9DB2Qkw8M02ceE
+	fVq4Z4BMu00+D/as6h+IGFmN6v0Pxr5uGoWjNUtFoK1nGZA+ReGEHo42L1dN55WjaBpTHphD5ta
+	YpQMEhUwo4asnYeNmsbKxndWbpsdoPBrMm3puQbHhi2/XxHOJxRmTXgwym9xyaWM+88/pqtte2j
+	Nufj3pBxzRcKfT29EqOicpdn80GOLxIFd4T0APib8lB+JJ9a5LgtV9AIbM9Wt1b5XDMcy1GLzob
+	kzvnGd8ntREDnxawmchL3fBVS+wvWQTaZbf70eHlcH0hVQAIX244HiGF
+X-Google-Smtp-Source: AGHT+IHgxOKlD/HCW2fuVG89O4d1zyNRJfWgVpguHMzHEibk0vk9GJEv0seQmb613A3MAdd1OnnO6g==
+X-Received: by 2002:a05:6000:18a9:b0:3a5:2cb5:63f8 with SMTP id ffacd0b85a97d-3b497029583mr8019614f8f.29.1751874629034;
+        Mon, 07 Jul 2025 00:50:29 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:3cf3:a61f:85ed:69db])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454b1893479sm104215455e9.39.2025.07.07.00.50.25
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454b1893479sm104215455e9.39.2025.07.07.00.50.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Jul 2025 00:50:27 -0700 (PDT)
+        Mon, 07 Jul 2025 00:50:28 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Mon, 07 Jul 2025 09:50:18 +0200
-Subject: [PATCH 05/12] gpio: tqmx86: use new GPIO line value setter
+Date: Mon, 07 Jul 2025 09:50:19 +0200
+Subject: [PATCH 06/12] gpio: ts4900: use new GPIO line value setter
  callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250707-gpiochip-set-rv-gpio-round4-v1-5-35668aaaf6d2@linaro.org>
+Message-Id: <20250707-gpiochip-set-rv-gpio-round4-v1-6-35668aaaf6d2@linaro.org>
 References: <20250707-gpiochip-set-rv-gpio-round4-v1-0-35668aaaf6d2@linaro.org>
 In-Reply-To: <20250707-gpiochip-set-rv-gpio-round4-v1-0-35668aaaf6d2@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -87,26 +87,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  virtualization@lists.linux.dev, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1554;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1694;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=NgRXFxECTIGOfluzrXyJwaqY8NOQtfYF0rMAtRS6Rhg=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoa3w6ErAw3SowptdZuCyqLCjwppWgEQANfdpre
- IzHnSXPb+6JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaGt8OgAKCRARpy6gFHHX
- chTnD/42+6CRgyNGdp2thzTybYnTiJryeQNSK/Lx2NfE2jcS4iboKz75sI8BXNYY1dR2bcGRQay
- CPk1u4V3Ya6I8jTXAZUe8S2T6ELuz1oNMQ4yvREaony2TzhBuBG8ffMuDZF0z7Bu/og3xtySKkx
- oIz3vRU/p6GtI49O5J9DpHQE8SBUg9Wd2K7rmcUklTTcmnOuIA0WY4Rj4reZHNLUeQ2nqBtIsL4
- 6C24ncTwFj/e2YNxci+6lYlsrG87UZOJemMomVa28JW/JR9pxgVgLCwxQYJgggEIHsFvDPl1dDn
- V4VczZaTaTRb/CqRNawgRzseqnuZg9sNOhpWEpZtqseGjjXqVDzJt5mf0IZMPIQjGp1FpzTfDm/
- xoWSQ9rffO5MdrZBkRQ/XrfL8M2e2TfMcDDrijL4XEi3Ia8xHwhF0YKj7QP9YOoD058yxCg57Uh
- on8oGG1tn6KJgGp5RWKiW+Kml3l/NFyiNbl+yxLKMo8u9usCBkVOo94NoeTeLpphdQInkVbAO2b
- xJ5tj+q8rStmfUmkNaL553TMOEdsYEp+4HnnXLmbznSZMuVg1VuJYRXEhGHBfN9iiPdbHPdnT2T
- MJO5yz11R8Ck8meOOQSEKqfECz0WdrCyazIpGS0a2CScrg/HGmvsjElOlBmKwWqJBTuz7lGtNz+
- AzbrtTSPCMbmASw==
+ bh=Hxwco5xikujaT/ZxkZ/bggRaPqpzZXsQM3Uycdv2rNE=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoa3w6jCJ38rKBLEmVT/K9IQDFTn/kWS7yzy5e+
+ 8+YcbST3eSJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaGt8OgAKCRARpy6gFHHX
+ cmJaEACRTemPq7dQtszLFYGQQhrB8GbuvRBdwmylDUTUzHrV0C6NHTU/ixPtpoV82APcyrZBhoA
+ IaeLMDdzRNCMbbppt5EVyfM3nMcxuXYbynZ5TqSETkVvGWRD0PKDVcB0uguMi3/9AGgztW+93S2
+ 1ULcFIewGcEFwSAMT9jPQynovXVkg61ZXo+ag8i/ZHKM6ARelvwNFXZC8itqc6duqYu0RrCZa4x
+ h8GYZsy3uDIPyqlBkdo1sMQTHr0/mtzzpfoI7ej1PZS9bdh/wrA7J+QsyMHSDWA3vtVlxF0OryA
+ nbXpATzt5JDkV5XP0cih30xwTD/AdEfsbCCPH/7bPVxHLnGC7N8q43eYBjEsQYLUZ4l4j5p/rkW
+ duJ/fTvLljmG6LgPNWmchFPUUmum/gk6JSQm8YGGOAEeRFjBsLuLMVGOCUbcw6BeCJBgC6ZPoW9
+ rkLqRLCW8Ut0txVrIjT9GM6vGuuhNkjSq9sq9S629v/BchbbBqH3PLaVoVEIyL3RUtVTuFFoFjf
+ 8hFON6qCC2J+k1O7URKJ23Z5spVoUEJLuLlwY1pyfiVW4bHpplLH1y9RgylYZ8RJTMiPQfHCTI3
+ WnZ4OsWJihB8iUPMtsW8teAk7g66+Xd3TPqUF3grAcJgLyc8qrsJCfNsINEmwC10yYtCL82Yfnl
+ UisioaJnKelhkhA==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_005029_584479_D6327C12 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20250707_005030_670664_730DCD84 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,41 +129,45 @@ them.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/gpio/gpio-tqmx86.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ drivers/gpio/gpio-ts4900.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/gpio/gpio-tqmx86.c b/drivers/gpio/gpio-tqmx86.c
-index 18f523a15b3c03e083b363a026e751f7367fb080..056799ecce6a256f3438d9fd81ee4677cdd20125 100644
---- a/drivers/gpio/gpio-tqmx86.c
-+++ b/drivers/gpio/gpio-tqmx86.c
-@@ -93,14 +93,16 @@ static void _tqmx86_gpio_set(struct tqmx86_gpio_data *gpio, unsigned int offset,
- 	tqmx86_gpio_write(gpio, bitmap_get_value8(gpio->output, 0), TQMX86_GPIOD);
+diff --git a/drivers/gpio/gpio-ts4900.c b/drivers/gpio/gpio-ts4900.c
+index 5c806140fdf0d6e60f2225824aa18d393f61b607..35dd2d09b4d441256f01d9ac762dd3a2f0a47352 100644
+--- a/drivers/gpio/gpio-ts4900.c
++++ b/drivers/gpio/gpio-ts4900.c
+@@ -95,16 +95,16 @@ static int ts4900_gpio_get(struct gpio_chip *chip, unsigned int offset)
+ 	return !!(reg & priv->input_bit);
  }
  
--static void tqmx86_gpio_set(struct gpio_chip *chip, unsigned int offset,
+-static void ts4900_gpio_set(struct gpio_chip *chip, unsigned int offset,
 -			    int value)
-+static int tqmx86_gpio_set(struct gpio_chip *chip, unsigned int offset,
++static int ts4900_gpio_set(struct gpio_chip *chip, unsigned int offset,
 +			   int value)
  {
- 	struct tqmx86_gpio_data *gpio = gpiochip_get_data(chip);
+ 	struct ts4900_gpio_priv *priv = gpiochip_get_data(chip);
  
- 	guard(raw_spinlock_irqsave)(&gpio->spinlock);
- 
- 	_tqmx86_gpio_set(gpio, offset, value);
+ 	if (value)
+-		regmap_update_bits(priv->regmap, offset, TS4900_GPIO_OUT,
+-				   TS4900_GPIO_OUT);
+-	else
+-		regmap_update_bits(priv->regmap, offset, TS4900_GPIO_OUT, 0);
++		return regmap_update_bits(priv->regmap, offset,
++					  TS4900_GPIO_OUT, TS4900_GPIO_OUT);
 +
-+	return 0;
++	return regmap_update_bits(priv->regmap, offset, TS4900_GPIO_OUT, 0);
  }
  
- static int tqmx86_gpio_direction_input(struct gpio_chip *chip,
-@@ -368,7 +370,7 @@ static int tqmx86_gpio_probe(struct platform_device *pdev)
- 	chip->direction_output = tqmx86_gpio_direction_output;
- 	chip->get_direction = tqmx86_gpio_get_direction;
- 	chip->get = tqmx86_gpio_get;
--	chip->set = tqmx86_gpio_set;
-+	chip->set_rv = tqmx86_gpio_set;
- 	chip->ngpio = TQMX86_NGPIO;
- 	chip->parent = pdev->dev.parent;
- 
+ static const struct regmap_config ts4900_regmap_config = {
+@@ -119,7 +119,7 @@ static const struct gpio_chip template_chip = {
+ 	.direction_input	= ts4900_gpio_direction_input,
+ 	.direction_output	= ts4900_gpio_direction_output,
+ 	.get			= ts4900_gpio_get,
+-	.set			= ts4900_gpio_set,
++	.set_rv			= ts4900_gpio_set,
+ 	.base			= -1,
+ 	.can_sleep		= true,
+ };
 
 -- 
 2.48.1
