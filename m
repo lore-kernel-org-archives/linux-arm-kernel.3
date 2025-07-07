@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB5EC83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 06:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9581C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 06:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=anF/Wj8fsyKklmHAUgWk6y5jxnKF7Qle5xkYzQ/yAiI=; b=MEPNJNmDCV/kpr2AdvLRARcmUb
-	IM1ldkNOmr6Iwk1S47xINpmnM5LTzGZSzN1WUiqKU3z5ACWZ923sBzG6etIsbzCUhqWV0xmBK6bHL
-	T6rmS8GTXoP43xgYcwfChTPO75xW9TYw1XZFIcMqJ0MPl7jD8vC5XkffP7GpRuoXeXkAw256aZaGa
-	YV9vcgFNul4vjo3KXTstPCSVuCrJjdVtXeSu+7J++VyRdcBs0+rE7vRR6B/RqvarXR9Mo/XxurIem
-	SA/zKa1xhrNEJ/rxbNmXDHCBuv4R0/er+X1PIt1LLlZvQ9O2BJeElsu9RjZO8s/Bufqd8mSpOzBRG
-	jPgItWeg==;
+	bh=M6Nq2wlWcj6YING0FPFLwQLo2jrC6/nA6s1unWICjVI=; b=3y7yP2uyXCdgruW75f4dHgj9BN
+	xJEnqvlHr6GGJz6Ok/VEeZp42tHTFrnqpfKXbhDVmjboy9DXFxCf3W+Q7fUHVn86EgcwT9XWjFUC4
+	rloZfmaQ0dSMoUNKDyNqOhUw4ZfGQ+LdS21iXLVtho8qyfLWg6B0oKPNCfZ7HEXXhQBUGTii8OvEs
+	mrXYKwuEeus5LueSCRauarmsdaeDsKSr/2UsBWXHJAWE4NtWLp5uInLkoNnCdlLwuzKljPzlGe6/6
+	M15CoQMk0yi+5QAiFVIulyP5SMEzFRr/TmHBAnPw21pTBNKArAbRi+ad9189Bps3wEr0U6Sl08CHy
+	Yu3vGVhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYfKF-00000001YGV-3nLV;
-	Mon, 07 Jul 2025 06:27:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uYfMY-00000001YQr-1OQO;
+	Mon, 07 Jul 2025 06:30:02 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYfDY-00000001XFW-2oRy;
-	Mon, 07 Jul 2025 06:20:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C7AEBA52A97;
-	Mon,  7 Jul 2025 06:20:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47EACC4CEE3;
-	Mon,  7 Jul 2025 06:20:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751869243;
-	bh=IJAq2PfQObnW6djmQ2Dn7nC/QiKTJAuTfPAiQ+HmqUY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V+QSi6mVE3+RjRIFYSr3Hg8Nz4FOiR65HQCzs89hgfLQp5zI5mS5pqQ+LBmW/lPaB
-	 wlFGeFGAjxEzQt47UFAYMGyh/x1rEHYE9mxhxtod5uKBJ7Sdm3deCFEAFcBBUGk/Ti
-	 kVl2yFB6eVRNxouJnOtBXZwB8E64GEMx96or66Os2jTNeMMZqVYQldoX2b2JqCKRtf
-	 x2ntWAzxFhSPFundBgQWzekNuyzjlNlr9nFIx1cZZug/vvJ6yAlSTyvZ3kwwlduI60
-	 IV3BlW6x4Zv1m5d+GZZjJR42JOmzSHlGu4X2wCEIstFcpNtOHlnncPDkDAfkEgLXR9
-	 bs8y6hmZ97f+g==
-Date: Mon, 7 Jul 2025 11:50:26 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Nam Cao <namcao@linutronix.de>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, 
-	"K . Y . Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
-	Joyce Ooi <joyce.ooi@intel.com>, Jim Quinlan <jim2101024@gmail.com>, 
-	Nicolas Saenz Julienne <nsaenz@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Jianjun Wang <jianjun.wang@mediatek.com>, Marek Vasut <marek.vasut+renesas@gmail.com>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, Michal Simek <michal.simek@amd.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, Nirmal Patel <nirmal.patel@linux.intel.com>, 
-	Jonathan Derrick <jonathan.derrick@linux.dev>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-hyperv@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 00/16] PCI: MSI parent domain conversion
-Message-ID: <etrzv5627z5k4i2fbhkoqsmegukm7f6zbxunazipkokyctlfpd@epewaygdyxkq>
-References: <cover.1750858083.git.namcao@linutronix.de>
- <20250703172801.GA1934994@bhelgaas>
- <20250704044806.7wtcOlGB@linutronix.de>
+	id 1uYfEN-00000001XLc-2fpr
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Jul 2025 06:21:36 +0000
+Date: Mon, 7 Jul 2025 08:21:30 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1751869291;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M6Nq2wlWcj6YING0FPFLwQLo2jrC6/nA6s1unWICjVI=;
+	b=n0McAEBd5y6R5Cug4tP83Sunp+0n7kgn9ODazGWXwJDQ4Eia00Xdv/cbvLKzTEAHIS9Uwb
+	eetOfHmufKgk/yIuksvOWumln3GMK4AgOq9lM+pQbLG9+3Kpcm9wUNz0iHUV00kutT+dYU
+	WCmsPV21qfUw/EpeQfbU06iDpoMQam7H/CTqYHy24UqCPSlrhxJzpNROkl+JuWUgE0kCyw
+	IVuSUsd1zho+aSgjHaB/oDBb6EeJXvV5gCSFJnAuD2QXk3hySPhANJpi7C+gDLwfrDVEHg
+	98Nfjfo06Pqxyu+WK8zS6cSXNvtYHSAgyJHo08BcRynqiWo0UEI5IGKDaJ87DA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1751869291;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M6Nq2wlWcj6YING0FPFLwQLo2jrC6/nA6s1unWICjVI=;
+	b=zV1dM3ArUP8VnI016Gn0Nf3+0JBjys1+YLcxyso463WRHrb0IsQb1/LEaCOwNkwftjTqds
+	dSAm4pfANP55wKCw==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Andy Lutomirski <luto@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Shuah Khan <shuah@kernel.org>, 
+	Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, 
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
+	Richard Cochran <richardcochran@gmail.com>, Christopher Hall <christopher.s.hall@intel.com>, 
+	Miroslav Lichvar <mlichvar@redhat.com>, Werner Abt <werner.abt@meinberg-usa.com>, 
+	David Woodhouse <dwmw2@infradead.org>, Kurt Kanzenbach <kurt@linutronix.de>, 
+	Nam Cao <namcao@linutronix.de>, Antoine Tenart <atenart@kernel.org>
+Subject: Re: [PATCH 13/14] Revert "selftests: vDSO: parse_vdso: Use UAPI
+ headers instead of libc headers"
+Message-ID: <20250707081018-cdef0e77-5149-4a3b-a73b-bd8e38853f2a@linutronix.de>
+References: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
+ <20250701-vdso-auxclock-v1-13-df7d9f87b9b8@linutronix.de>
+ <87a55hrqws.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250704044806.7wtcOlGB@linutronix.de>
+In-Reply-To: <87a55hrqws.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_232044_831405_CE8ABBF5 
-X-CRM114-Status: GOOD (  27.61  )
+X-CRM114-CacheID: sfid-20250706_232135_834832_A5106013 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,89 +90,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 06:48:06AM GMT, Nam Cao wrote:
-> On Thu, Jul 03, 2025 at 12:28:01PM -0500, Bjorn Helgaas wrote:
-> > On Thu, Jun 26, 2025 at 04:47:50PM +0200, Nam Cao wrote:
-> > > The initial implementation of PCI/MSI interrupt domains in the hierarchical
-> > > interrupt domain model used a shortcut by providing a global PCI/MSI
-> > > domain.
-> > > 
-> > > This works because the PCI/MSI[X] hardware is standardized and uniform, but
-> > > it violates the basic design principle of hierarchical interrupt domains:
-> > > Each hardware block involved in the interrupt delivery chain should have a
-> > > separate interrupt domain.
-> > > 
-> > > For PCI/MSI[X], the interrupt controller is per PCI device and not a global
-> > > made-up entity.
-> > > 
-> > > Unsurprisingly, the shortcut turned out to have downsides as it does not
-> > > allow dynamic allocation of interrupt vectors after initialization and it
-> > > prevents supporting IMS on PCI. For further details, see:
-> > > 
-> > > https://lore.kernel.org/lkml/20221111120501.026511281@linutronix.de/
-> > > 
-> > > The solution is implementing per device MSI domains, this means the
-> > > entities which provide global PCI/MSI domain so far have to implement MSI
-> > > parent domain functionality instead.
-> > > 
-> > > This series converts the PCI controller drivers to implement MSI parent
-> > > domain.
-> > > 
-> > >  drivers/pci/Kconfig                           |   1 +
-> > >  drivers/pci/controller/Kconfig                |  11 +
-> > >  drivers/pci/controller/dwc/Kconfig            |   1 +
-> > >  .../pci/controller/dwc/pcie-designware-host.c |  68 ++----
-> > >  drivers/pci/controller/dwc/pcie-designware.h  |   1 -
-> > >  drivers/pci/controller/mobiveil/Kconfig       |   1 +
-> > >  .../controller/mobiveil/pcie-mobiveil-host.c  |  42 ++--
-> > >  .../pci/controller/mobiveil/pcie-mobiveil.h   |   1 -
-> > >  drivers/pci/controller/pci-aardvark.c         |  59 ++---
-> > >  drivers/pci/controller/pci-hyperv.c           |  98 ++++++--
-> > >  drivers/pci/controller/pcie-altera-msi.c      |  44 ++--
-> > >  drivers/pci/controller/pcie-brcmstb.c         |  44 ++--
-> > >  drivers/pci/controller/pcie-iproc-msi.c       |  45 ++--
-> > >  drivers/pci/controller/pcie-mediatek-gen3.c   |  67 ++---
-> > >  drivers/pci/controller/pcie-mediatek.c        |  46 ++--
-> > >  drivers/pci/controller/pcie-rcar-host.c       |  69 ++----
-> > >  drivers/pci/controller/pcie-xilinx-dma-pl.c   |  48 ++--
-> > >  drivers/pci/controller/pcie-xilinx-nwl.c      |  45 ++--
-> > >  drivers/pci/controller/pcie-xilinx.c          |  55 +++--
-> > >  drivers/pci/controller/plda/Kconfig           |   1 +
-> > >  drivers/pci/controller/plda/pcie-plda-host.c  |  44 ++--
-> > >  drivers/pci/controller/plda/pcie-plda.h       |   1 -
-> > >  drivers/pci/controller/vmd.c                  | 229 +++++++++---------
-> > >  23 files changed, 504 insertions(+), 517 deletions(-)
-> > 
-> > Looks good to me, thanks!  I think Mani will probably pick this up.
-> > 
-> > I might have included the specific "legacy MSI domain" thing you're
-> > replacing.  It looks like you're replacing pci_msi_create_irq_domain()
-> > with msi_create_parent_irq_domain()?
+On Sun, Jul 06, 2025 at 10:43:47PM +0200, Thomas Gleixner wrote:
+> On Tue, Jul 01 2025 at 10:58, Thomas Wei�schuh wrote:
+> > This reverts commit c9fbaa879508 ("selftests: vDSO: parse_vdso: Use UAPI headers instead of libc headers")
+> >
+> > The kernel headers were used to make parse_vdso.c compatible with nolibc.
+> > Unfortunately linux/elf.h is incompatible with glibc's sys/auxv.h.
+> > When using glibc it is therefore not possible build parse_vdso.c as part of the
+> > same compilation unit as its caller as sys/auxv.h is needed for getauxval().
+> >
+> > In the meantime nolibc gained its own elf.h, providing compatibility with the
+> > documented libc interfaces.
 > 
-> Yes, pci_msi_create_irq_domain() is legacy. We will delete it once
-> everything is converted.
-> 
+> I'm kinda surprised to find this here in this series. Isn't that commit
+> c9fbaa879508 obsolete since nolibc got it's own elf.h?
 
-I'll amend the commit message to include pci_msi_create_irq_domain().
+Correct.
 
-> > Minor merge conflict in pcie-mediatek-gen3.c with dcbea1c7e94e ("PCI:
-> > mediatek-gen3: Use dev_fwnode() for irq_domain_create_linear()").  No
-> > problem, we can easily fix that up.
-> 
-> Thanks!
-> 
-> > The "++i" in vmd.c stuck out to me since "i++" is so much more common.
-> 
-> I always do "++i", maybe I'm the weird one..
-> 
+> So this should just go straight to Linus, no?
 
-Just for the sake of uniformity, I'll do 's/++i/i++' while applying.
+It could. But the next patch of this series depends on it for now.
+So to avoid ordering issues I kept both patches together.
 
-And based on the discussion on patch 14/16, I'll drop it to be applied through
-netdev and apply the rest of the series through PCI tree.
 
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Thomas
 
