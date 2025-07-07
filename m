@@ -4,87 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0674BC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA0DC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=42jtsUDXPCPmNytXrx59THHUxajHEyTomBc5xpmWMc0=; b=FbAOP6UzBkkvC2RuJUjOIkIb3x
-	TIAKdIMLdIAHDzGD/F3sRH3U0NlKfEYhucB1Q6kpXlt3x9OnGP/ihFVsbiwpBt4QbZl2sCDTSWCGi
-	n8DnGbWbklUAVqaXH9rqMj0YR6Z0C1g9d5x2ECSL5zJVTk+ZfX9KFiprHcpeCsjc5FvXI156Mp6Ky
-	0fW/Ki33662+tFVHSmSZJD79VbyRTtbToZ706ccg1MrLsjcJLt+9F9n7QiRBBFzstPwW5r+RrUoqc
-	+a7nfnClnTjl8SBcTJ/e3VNo/SA2VUqpGDDqasqTOz8VegGAeuM6oFuTDgJi5/dnWw0ZiP7KQd7TA
-	nbQOuOGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EvwzZjahsqw8FsxwE+bu4+lDyomFMNmplS19AoYeYAk=; b=DDjkj3+Ro2lmLALfoNX0wMutSB
+	kozd4S53RJWa8ETyfL9+Ljl+jE9L3q9DqrJr6UnH2rwCn3Cc02RwBxkdeHSiL6JqN9F/HNSlDyeWp
+	wFX+FhJ8/iEOYCYyz2n/2fKwHocB8IRartJgTHNku/7VrIR5t+PrMs5ve4TTRdXFJ16bb/F3Xv2bT
+	PPvwGobCSJ4gjktJiDUieCYe7pViJBXSr3B+2tV/e861jHq/R3fd/s49kYekgVk28iqs+pkpkjA04
+	a9WGMy8VxtCyJ1Ktc+BKa/oKfehHBhIvNNzg0p+CZ7/BNngZc9k3KTKc/rhsIeZLGutPGczrqbR2K
+	w7HvXSVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYqgk-00000003JbC-3Ywl;
-	Mon, 07 Jul 2025 18:35:38 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1uYqj2-00000003K9d-29Eg;
+	Mon, 07 Jul 2025 18:38:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYpqz-00000003CLc-3PAX;
-	Mon, 07 Jul 2025 17:42:10 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-70e75f30452so22311137b3.2;
-        Mon, 07 Jul 2025 10:42:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751910129; x=1752514929; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=42jtsUDXPCPmNytXrx59THHUxajHEyTomBc5xpmWMc0=;
-        b=Hue/P1H4tOOz3H5xaVHzkOszy1NOasNJB3irKSmH7gM8Hh+W5+hPHQrwYertHOOAR6
-         NGE7Vod8KphnnOCWvlnDwwZzaYu/H2eyND0NiWeQsglMK9z3cY3uliMMdfSRs5yhBZRs
-         cAFAIs0FkRwtHJPxrNNPDS34/zn7Xf4B4+BGV5Opd5EqMhJd8QMyirAj+ICz6jQtzZBV
-         WhjDGWhm2sb+op8il0aKNTWlHAXhjmvznxf7N5bk2K1ZF4qa1BVLizKTsbyIp8UubQ2R
-         VUw4npj0qgrppdsw/uoFMbLMUs0VCM/BZM3qKYw8uDBoJIqCQfXfLj9y8knh2gv7ZLFb
-         9jyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751910129; x=1752514929;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=42jtsUDXPCPmNytXrx59THHUxajHEyTomBc5xpmWMc0=;
-        b=YsC3OZtpWvqusyxr/v0zaLeRq2MqHPN5TSnCt6f80mkkC5QKRbn72BA4ggkcHsMEyZ
-         JPbPwkmoJ4NiRd6LmxEne6zzhrbP4BWyyKKvZoMF1USLJQA7Tzl6/nhxn1uJgTMwcp35
-         ZzWTzUrFjulhgeKntL0DT9IVoxc5jHFma3aLDKRdykeMEv3ohwfYnGJGIdpmY6mlSwxG
-         +UE6H0flXWKg+ic9HerThIVEEf2KiW8VHBw5hjBNF32oovxWGnDeZ7e4LnclJSiOW0eN
-         0UEkV/9xfW46iU0TLyEo5P9kr5j4WTcPknTYRbMWf1GkW60GqyHDeBWQNIXYc9lkKm5v
-         Yfrg==
-X-Forwarded-Encrypted: i=1; AJvYcCVKM2NCVvGc9/ZboN9LrbGLB3WHq116KOBqyJDEyMruj/xtCogiR42bTiiXoMLmcE2dqWdVDWDlJMNdftABN+HE@lists.infradead.org, AJvYcCX/xy1PFN76nd98RWFnY8+ZjEggzar7zzTRFfxxk6H3WV8RX/wl7mOszfqLC4p0Z7ykZ1ViHY9xI87KDE/4/wU=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6qhlU4XQkWTbwQF6o3QG3I/42W+D5MCgXP3/No3//yTTYKs2q
-	Ml3YFXAKFWn0dqnOpkE5o324ey+pwtkxS5iKOVWiEaFo0Lvt4nf6DaoormFxKI6aUEK2Gw5sOtr
-	bJwnKqAcAy4CJ0+0jNKwVKmK0FX2zcTNfQaRHcJc=
-X-Gm-Gg: ASbGnculVkOAiW9Glwv9Zoa4ynsB1hGTt1jdmWv2LY+e2SVd4hqL4eRb6oVy3eMVWsF
-	J9TQXndJolLWwI9vqDom/roIvuBnFb8n05hEbBGBbfjLrKM70GmLeUMxbyfxdtjaPXuFzUwKEcB
-	K0kZg/Qzil260ZnTC/WROrfikICFae41ZQy5j+7sNG4cTMvnhmdn7hVe05
-X-Google-Smtp-Source: AGHT+IGdu+lUB6aYqtWH4AiO6Py1SgyDO+jxiLBNa4PCqXrusbUeunWL1E2NWxsWS+1ctn1q5K5//624lv0vLW+ua3Q=
-X-Received: by 2002:a05:690c:f8e:b0:70c:c013:f2f with SMTP id
- 00721157ae682-7179e44d3e9mr7404627b3.35.1751910128762; Mon, 07 Jul 2025
- 10:42:08 -0700 (PDT)
+	id 1uYq3r-00000003DzD-3zLP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Jul 2025 17:55:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5860E61129;
+	Mon,  7 Jul 2025 17:55:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB013C4CEE3;
+	Mon,  7 Jul 2025 17:55:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751910927;
+	bh=vgYK0V6XyKINQM1isjd7q12NdmEW5pYbAiz0Dqu3Dk8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=AmiC+WMohJRXU0l8khOeO3+F5TR/E/8QuGW8Je6JpiRubRYuCBU9vQQbM6z5iGWwr
+	 OGldsKA2N92yvxMrrFXtCQVyKMZj8zDFNFakwsHqpOJLCFhq6U/oCoqZXPBKWFBxMl
+	 Auns+PFM+0CrArxxSSX920lGgu+7q93s71CVBHauT0igX1TwtaYNKPHb4v2Ld0O25l
+	 TX3cmAlpB8v5K+oEswKb48DRm4JIl3RpJrLZcjLXDp24aZJ5MNz4WV5tEkbzEXJ12Y
+	 ShEed/WQspQ1JeU+3WixQ44M97a2ekcTo3J+9qsrVCqgJCnrNbY8t4kXQOIUNcT+8A
+	 cluIL++2h4zZg==
+Date: Mon, 07 Jul 2025 12:55:26 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20250706214111.45687-1-rosenp@gmail.com> <8c6f18ca47bf0dd78b6675d8b94000679b6c75cd.camel@sipsolutions.net>
-In-Reply-To: <8c6f18ca47bf0dd78b6675d8b94000679b6c75cd.camel@sipsolutions.net>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Mon, 7 Jul 2025 10:41:58 -0700
-X-Gm-Features: Ac12FXwpmQW7d4a2Au2Yz5auZhjQPGBnlW83MkM8UJ0V9bkuM1yY9_y20XPBBjc
-Message-ID: <CAKxU2N9vs5o4tj-9KxCHKevWU+J9wv+ZCOeD8o602y1GY8FzNw@mail.gmail.com>
-Subject: Re: [PATCH 0/6] wifi: rt2x00: add OF bindings + cleanup
-To: Johannes Berg <johannes@sipsolutions.net>
-Cc: linux-wireless@vger.kernel.org, yangshiji66@qq.com, ansuelsmth@gmail.com, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Stanislaw Gruszka <stf_xl@wp.pl>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:MIPS" <linux-mips@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_104209_848873_12646701 
-X-CRM114-Status: GOOD (  12.32  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Tao Ren <taoren@meta.com>, linux-aspeed@lists.ozlabs.org, 
+ Andrew Lunn <andrew@lunn.ch>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, Joel Stanley <joel@jms.id.au>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+To: rentao.bupt@gmail.com
+In-Reply-To: <20250706042404.138128-1-rentao.bupt@gmail.com>
+References: <20250706042404.138128-1-rentao.bupt@gmail.com>
+Message-Id: <175191074290.3364643.3141046769008476356.robh@kernel.org>
+Subject: Re: [PATCH v2 0/9] ARM: dts: aspeed: Add Meta Darwin dts
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +72,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 7, 2025 at 2:01=E2=80=AFAM Johannes Berg <johannes@sipsolutions=
-.net> wrote:
->
-> On Sun, 2025-07-06 at 14:41 -0700, Rosen Penev wrote:
-> > It doesn't even compile. Added OF bindings, documentation, and other
-> > stuff to hopefully this doesn't happen again.
-> >
-> > Rosen Penev (6):
-> >   wifi: rt2x00: fix compilation
-> >
->
-> That was half covered by Felix already, and really shouldn't do two
-> things at the same time anyway.
-Just saw what you're talking about. That's gonna be annoying though.
-The COMPILE_TEST commit will cause compilation to fail and the bot to
-complain before Felix' patch gets merged.
->
-> Also please add [PATCH wireless] or [PATCH wireless-next] prefix when
-> you submit patches, to make it clear where the series is targeted. In
-> this case, you probably should've split it up, but Felix already covered
-> the immediate bug.
-Will do.
->
-> johannes
+
+On Sat, 05 Jul 2025 21:23:50 -0700, rentao.bupt@gmail.com wrote:
+> From: Tao Ren <rentao.bupt@gmail.com>
+> 
+> The patch series introduces the initial device tree for Meta/Facebook
+> Darwin AST2600 BMC.
+> 
+> Patches #1, #2 and #3 fixes the DTB warnings in wedge400/fuji dts and
+> ast2600-facebook-netbmc-common.dtsi.
+> 
+> Patches #4, #5 and #6 introduces a new BMC flash layout to be used by
+> wedge400 and fuji (and later more Meta Network BMC platforms).
+> 
+> Patch #7 moves eMMC entries from ast2600-facebook-netbmc-common.dtsi to
+> each BMC platform because eMMC was removed from future Meta Network BMC
+> platforms.
+> 
+> Patches #8 and #9 adds Meta Darwin BMC and updates devicetree bindings.
+> 
+> Tao Ren (9):
+>   ARM: dts: aspeed: wedge400: Fix DTB warnings
+>   ARM: dts: aspeed: fuji: Fix DTB warnings
+>   ARM: dts: aspeed: Fix DTB warnings in
+>     ast2600-facebook-netbmc-common.dtsi
+>   ARM: dts: aspeed: Add facebook-bmc-flash-layout-128-data64.dtsi
+>   ARM: dts: aspeed: wedge400: Extend data0 partition to 64MB
+>   ARM: dts: aspeed: Move flash layout out of Facebook netbmc-common.dtsi
+>   ARM: dts: aspeed: Move eMMC out of ast2600-facebook-netbmc-common.dtsi
+>   dt-bindings: arm: aspeed: add Facebook Darwin board
+>   ARM: dts: aspeed: Add Facebook Darwin (AST2600) BMC
+> 
+>  .../bindings/arm/aspeed/aspeed.yaml           |  1 +
+>  arch/arm/boot/dts/aspeed/Makefile             |  1 +
+>  .../dts/aspeed/aspeed-bmc-facebook-darwin.dts | 78 +++++++++++++++++++
+>  .../dts/aspeed/aspeed-bmc-facebook-elbert.dts | 18 +++++
+>  .../dts/aspeed/aspeed-bmc-facebook-fuji.dts   | 24 ++++--
+>  .../aspeed/aspeed-bmc-facebook-wedge400.dts   |  8 +-
+>  .../ast2600-facebook-netbmc-common.dtsi       | 24 ++----
+>  .../facebook-bmc-flash-layout-128-data64.dtsi | 60 ++++++++++++++
+>  8 files changed, 187 insertions(+), 27 deletions(-)
+>  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
+>  create mode 100644 arch/arm/boot/dts/aspeed/facebook-bmc-flash-layout-128-data64.dtsi
+> 
+> --
+> 2.47.1
+> 
+> 
+> 
+
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250704 (best guess, 4/6 blobs matched)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250706042404.138128-1-rentao.bupt@gmail.com:
+
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
+	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+
+
+
+
+
 
