@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD75AC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 17:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97034C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 17:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2vnaEoVdfg5PhnfRsCRZUpo3SszFTgC7Ni2Y8+ec18=; b=vnPDOb5qLADk5bu7d2IDQ0vDgQ
-	VpW1O1q/xEM/EI8iCA7TIEDoLj6xkKr42qrdxROPjrtZ32IIN7U6b/M0uYQbh/0uTX5iO0fsm1TX4
-	tuGedk+wIsb9ofJvbtlEMxHoQU/MO8rK+udEC5av61yK5MdXGXnA64tDnRvitllaTH1ZzAQdtq/26
-	u870SLp3AGcYoW3pT/KvmdmPV91OZ85tfDLRDVs25R+NwGi6fXGGAMbIU77ijf57xc8nBISSv498E
-	si87wD4CH6E3W2epsO5Ea3x2HRXDkUiQlM3xl5y71MgnUEimJMYFOwxOCx24emKidbCa8ipTdMeJq
-	a213vS3A==;
+	bh=p8ly7oF3wY3svi7kAE9pak8dnHj/ipa3jtx+B3eJ+EE=; b=jM294RzXxQA8QWh25rl1ID9jZa
+	kyI2fifdvzjPS1m1OH8PS7RS9WXsKBARhAJb0CUFvT2UVTsERRzgDVEg3SoW0f5LA1nCDCCL0FMtZ
+	fngiKFzkuBqzwKK+bQYhJiAL3a+SWdme0HhWgREHlQMK79PCsbnD3puTK33BKLHyPIJoPXC0OHHIu
+	JbsN7xslSDJGb0z6CcHeMOqIEYVOs8SPsAnOUrCnLn7tH74ZEY1l5vTNzdLgxDTcpssBJV1ktwz7x
+	zEylLKlMD7ixl2Cu3rtGvwxwbu/mdr6JrLo31oCuZqQy10f5PgFEGPNSvDik9YP4MIZczuuovcmqX
+	IZ6CAF9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYq37-00000003Drm-321o;
-	Mon, 07 Jul 2025 17:54:41 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uYq5Q-00000003EBP-1dqX;
+	Mon, 07 Jul 2025 17:57:04 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYp7S-000000035QA-2Pso
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 16:55:07 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 1E0881F00047
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Jul 2025 16:55:05 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 9D583ACAEFA; Mon,  7 Jul 2025 16:55:04 +0000 (UTC)
-Received: from localhost.localdomain (unknown [192.168.1.65])
-	by laika.paulk.fr (Postfix) with ESMTP id C1D24ACAEE5;
-	Mon,  7 Jul 2025 16:52:09 +0000 (UTC)
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+	id 1uYp7s-000000035X6-38Ep;
+	Mon, 07 Jul 2025 16:55:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
+	bh=p8ly7oF3wY3svi7kAE9pak8dnHj/ipa3jtx+B3eJ+EE=; b=qbVfqFY5KmjT4Bmb0hMOj8w8lU
+	+BqxWITtoDMD0j0fU0ZFuoNevU7Y/wRFaLorWfYs9JfBrY/qesPLbjNi2OgcfsyaPjx1VK2s6Z7ij
+	9VErhST7UFzKmHooHc/tO/n1MJDVt8K0nQFxeYpqGPVS3VL6Ysix2qm11IgP3VWiCoYjz6NF3Dir9
+	XR3P4yBMPLKxWK6rAmK/tM8GqRHzAWtDJuYWLje3A7nz+x3Kd5ckEQkBfoO6D3M3qn35gXvDyQiLF
+	gJh0XcpIXIr4xd6eWDgOkmmBW/EcDLESbzYvV7eh5Q+e/5zpVDA22NdEVu8AkPRAZFYokyzvLVf8e
+	nlQFRIPg==;
+Received: from i53875bf5.versanet.de ([83.135.91.245] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uYp1w-0004yl-RI; Mon, 07 Jul 2025 18:49:24 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: neil.armstrong@linaro.org,
+	quic_jesszhan@quicinc.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	hjc@rock-chips.com,
+	andy.yan@rock-chips.com,
+	andyshrk@163.com,
+	nicolas.frattaroli@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v2 4/4] arm64: dts: allwinner: a133-liontron-h-a133l: Add Ethernet support
-Date: Mon,  7 Jul 2025 18:51:55 +0200
-Message-ID: <20250707165155.581579-5-paulk@sys-base.io>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250707165155.581579-1-paulk@sys-base.io>
-References: <20250707165155.581579-1-paulk@sys-base.io>
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH 11/13] arm64: dts: rockchip: add the dsi controller to rk3576
+Date: Mon,  7 Jul 2025 18:49:04 +0200
+Message-ID: <20250707164906.1445288-12-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250707164906.1445288-1-heiko@sntech.de>
+References: <20250707164906.1445288-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_095506_768800_402BD082 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20250707_095532_780092_7975155E 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Liontron H-A133L board features an Ethernet controller with a
-JLSemi JL1101 PHY. Its reset pin is tied to the PH12 GPIO.
+The RK3576 comes with one DSI2 controllers based on the same newer
+Synopsis IP as the ones on the RK3588.
 
-Note that the reset pin must be handled as a bus-wide reset GPIO in
-order to let the MDIO core properly reset it before trying to read
-its identification registers. There's no other device on the MDIO bus.
+Add the necessary node for it.
 
-The datasheet of the PHY mentions that the reset signal must be held
-for 1 ms to take effect. Make it 2 ms (and the same for post-delay) to
-be on the safe side without wasting too much time during boot.
-
-Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- .../sun50i-a133-liontron-h-a133l.dts          | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 28 ++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-index fe77178d3e33..90a50910f07b 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-@@ -65,6 +65,25 @@ &ehci1 {
- 	status = "okay";
- };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 87d518422a60..5e9c3dce5823 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1271,6 +1271,34 @@ sai6: sai@27d50000 {
+ 			status = "disabled";
+ 		};
  
-+&emac0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rmii0_pins>;
-+	phy-handle = <&rmii_phy>;
-+	phy-mode = "rmii";
-+	status = "okay";
-+};
++		dsi: dsi@27d80000 {
++			compatible = "rockchip,rk3576-mipi-dsi2";
++			reg = <0x0 0x27d80000 0x0 0x10000>;
++			interrupts = <GIC_SPI 345 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru PCLK_DSIHOST0>, <&cru CLK_DSIHOST0>;
++			clock-names = "pclk", "sys";
++			power-domains = <&power RK3576_PD_VO0>;
++			resets = <&cru SRST_P_DSIHOST0>;
++			reset-names = "apb";
++			phys = <&mipidcphy PHY_TYPE_DPHY>;
++			phy-names = "dcphy";
++			rockchip,grf = <&vo0_grf>;
++			status = "disabled";
 +
-+&mdio0 {
-+	reset-gpios = <&pio 7 12 GPIO_ACTIVE_LOW>; /* PH12 */
-+	reset-delay-us = <2000>;
-+	reset-post-delay-us = <2000>;
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
-+	rmii_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <1>;
-+	};
-+};
++				dsi_in: port@0 {
++					reg = <0>;
++				};
 +
- &mmc0 {
- 	vmmc-supply = <&reg_dcdc1>;
- 	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>; /* PF6 */
++				dsi_out: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
+ 		hdmi: hdmi@27da0000 {
+ 			compatible = "rockchip,rk3576-dw-hdmi-qp";
+ 			reg = <0x0 0x27da0000 0x0 0x20000>;
 -- 
-2.49.0
+2.47.2
 
 
