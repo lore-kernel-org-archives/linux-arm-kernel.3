@@ -4,59 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A6EC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 20:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6ADC71130
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 20:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TFQ/HvxiVXT1CT3lbGGALgPihfnybl1xrMPpVfOtyks=; b=Oq/OzEAx4NjMuf4yQcZucmB1CI
-	cu9ab8fN5a0Y+fxNKgulCw8EIvm0LZpU9l9z6PWENZwO7xOPQ2ZnxAAxrUwQkd7uJhICtEus6O5T0
-	/g15AnaGIJfztz9K2M/AaSuS/1SMtXUCTO9vgMX1xpHqoVXQGyGT7PAVt/W/OdHVb/VA9Gz4FDQgg
-	hF0C/rwb11jlGVVR60UOsFn+S22BaxszR4HJ/Re4uesrtOMyU7s9kIfHNGs+sH7qnPiruILZ5+psE
-	2TQV9HGRmoOQYNKrC9RSJnPZ9CJpsHeBQPlc24VdCXtgO81QhTWzjm+ien/xjSr8+9dpU8xBD1Mnn
-	BLds539g==;
+	bh=MH6AW7DZ/+6oxcmK2lbp/E4s2yvinxh6tDS7lCW48ZU=; b=ZvV/FQxVeSHLShPU666UnEqjjK
+	n3322MieBXQuRqEoYmTBQ8TzqXPGQfCY7JTpLZxsfkF2td9ktV1TdE3ZgxFV7ThbTOggMCfN/Xjnl
+	/NCXRpwmlM/sWUt2Wx7qwszJditLFRsONOJv87mvFH1+mmF/y9or/M0kWDctL3xyQVj5Yo7lQRcsh
+	x2KJiKm/2CGHjLjwhGnRYK2VRM3oqnzF0BNBWg5aLrR8lqapVjT2JRGDhHjCGsarr2Mo0LcJcIQuu
+	UbpwAXGe5GLbGJkJrcOFA8qKpAr0st52WUnypSzA2SzWYNkLRu8mnU3FlOU4zoPhO/H4/06xkuMPn
+	2r2NzNSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYsX4-00000003Xir-0cTf;
-	Mon, 07 Jul 2025 20:33:46 +0000
-Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
+	id 1uYsZL-00000003XyH-3Ywt;
+	Mon, 07 Jul 2025 20:36:07 +0000
+Received: from 004.mia.mailroute.net ([199.89.3.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYsH3-00000003VoS-2dtq
+	id 1uYsIO-00000003VyT-3Gdk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 20:17:15 +0000
-Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
-	by finn.localdomain with esmtp (Exim 4.95)
-	(envelope-from <tharvey@gateworks.com>)
-	id 1uYsH0-008ZxD-QA;
-	Mon, 07 Jul 2025 20:17:10 +0000
-From: Tim Harvey <tharvey@gateworks.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Tim Harvey <tharvey@gateworks.com>
-Subject: [PATCH 7/7] arm64: dts: imx8mm-venice-gw7904: Increase HS400 USDHC clock speed
-Date: Mon,  7 Jul 2025 13:17:02 -0700
-Message-Id: <20250707201702.2930066-7-tharvey@gateworks.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250707201702.2930066-1-tharvey@gateworks.com>
-References: <20250707201702.2930066-1-tharvey@gateworks.com>
+	Mon, 07 Jul 2025 20:18:37 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 004.mia.mailroute.net (Postfix) with ESMTP id 4bbbCv3q9Hzm0yt2;
+	Mon,  7 Jul 2025 20:18:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1751919513; x=1754511514; bh=MH6AW7DZ/+6oxcmK2lbp/E4s
+	2yvinxh6tDS7lCW48ZU=; b=jSR1FrsCl2VS0dFJCuOShZLpG0WDsBAU0/hDbzeA
+	l39wESHmTAQftBnRGuphZAqsS/E2PJ1fbQ9oLv378acS3Ffph5wYOsCY0Smes2rY
+	BA1hahqSW6U0U1AIBSXluY6UQzf/ROej8ZP9GQux8jacZ2jGAVN/KsNrrsgQlq5Y
+	+vYkUfutjXKJ8DS/81QIcoOKKkatBJgIyVuL6COuUZSGaD52LPP+Vs20eN8Foihv
+	cvBJZhpBm2+hKEvpIFIsgmGYzOffRQRjpDTWQEh7ingXuV+1yDOUGGj+BBfNup7s
+	4g0jFstuvU87VKPYT15PWWxdgsgurgH20P58Iga1mtwwbQ==
+X-Virus-Scanned: by MailRoute
+Received: from 004.mia.mailroute.net ([127.0.0.1])
+ by localhost (004.mia [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id RmX8vjQgZHsO; Mon,  7 Jul 2025 20:18:33 +0000 (UTC)
+Received: from [100.66.154.22] (unknown [104.135.204.82])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 004.mia.mailroute.net (Postfix) with ESMTPSA id 4bbbCl74C8zm0yVD;
+	Mon,  7 Jul 2025 20:18:27 +0000 (UTC)
+Message-ID: <bac5f533-0513-4d59-98b8-de44a08daef3@acm.org>
+Date: Mon, 7 Jul 2025 13:18:26 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] scsi: ufs: exynos: call phy_notify_pmstate() from hibern8
+ callbacks
+To: Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-scsi@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250703-ufs-exynos-phy_notify_pmstate-v1-1-49446d7852d1@linaro.org>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20250703-ufs-exynos-phy_notify_pmstate-v1-1-49446d7852d1@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_131714_187566_20527577 
-X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-CacheID: sfid-20250707_131836_900326_61AA70A7 
+X-CRM114-Status: UNSURE (   7.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,34 +89,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The IMX8M reference manuals indicate in the USDHC Clock generator
-section
-that the clock rate for DDR is 1/2 the input clock therefore HS400 rates
-clocked at 200Mhz require a 400Mhz SDHC clock.
-
-This showed about a 1.5x improvement in read performance for the eMMC's
-used on the various imx8m{m,n,p}-venice boards.
-
-Fixes: b999bdaf0597 ("arm64: dts: imx: Add i.mx8mm Gateworks gw7904 dts support")
-Signed-off-by: Tim Harvey <tharvey@gateworks.com>
----
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts
-index 86a610de84fe..99572961d9e1 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts
-@@ -682,6 +682,8 @@ &usdhc3 {
- 	pinctrl-0 = <&pinctrl_usdhc3>;
- 	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
- 	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
-+	assigned-clocks = <&clk IMX8MM_CLK_USDHC3>;
-+	assigned-clock-rates = <400000000>;
- 	bus-width = <8>;
- 	non-removable;
- 	status = "okay";
--- 
-2.25.1
-
+On 7/3/25 7:07 AM, Peter Griffin wrote:
+> Notify the ufs phy of the hibern8 link state so that it can program the
+> appropriate values.
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
 
