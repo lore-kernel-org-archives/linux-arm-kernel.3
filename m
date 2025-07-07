@@ -4,168 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4FF3C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 10:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7083FC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 10:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jz1tFEmQTlgWcqXRk6QSWhot2KTbrIlLeS1bLLDSCqs=; b=3vHsQ+mDhNTk7k+5dO3Ln++RFO
-	eMUU1+ixXuEOhkJDGs5hPjJxa263X8dfY0aN/tupDXaLYzETgpuaSIYVaLXHsrj7kwavZDUz7agHv
-	AiY92csXWrqz4UhrK0OAFX87PntgByvqlQagn1oVuZXzdq3xEwn95FtO6sOaHROPEaoU+qZwZf9/d
-	8TZ/6fm5IZgD4kWyyg8mSUNQKNWvkVNqZVx8HGcg2n5L6WxEo4P4XFQFtpBHfAkkiZh2+7PrZm8Ez
-	PqC4AFX4lwSq/H7px16hA+uojzW1bzOKUed62AMYtx4BjK4AC+8J4Ia/H/uhpTX7xisDtljIcmQIt
-	oAzPY07Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7+G9RXNsu4/lHuRGJgb9rsOZh1/O90NgzHuMfw5EvSM=; b=gim0gnXR7+bh7+
+	H+bUYzZfjP5qMSvqSybndIiDvAD7TtY6sdpFQyQsRXPSf+EdS5hxyipLxnSJaxhG0Cz+UW3ehgHHR
+	KfYpYh7rrimeu9RZQJxAt8einRnCXQFL5la+crZAZdZ9+XKBR6c/z11wRHWlN9V3+k+XT/1ukv1gE
+	OhqltOW+DeQanPUXPs1gKnQO3LQ65Q2UOroUVoNAx8sdT58D51ySp0wIpcCw/7y8aHJ894+CuHq2z
+	bpzA/Fs+k1hwZTOsjyOrGLuRq1BuYcueRYww0DkgOi+6hVgJjBN7X9578eocITlizSoYVOtDXnveH
+	LIqZZQNrioQP7ihvE8Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYj3s-0000000297e-0B0C;
-	Mon, 07 Jul 2025 10:27:00 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1uYj6B-00000002A88-1G3F;
+	Mon, 07 Jul 2025 10:29:23 +0000
+Received: from mail-lf1-f52.google.com ([209.85.167.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYiST-000000022Hb-0yhH
+	id 1uYiWS-000000023KX-29Pe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 09:48:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QQezIr/DfjUhCgXjATEg8pX0z4mCeTYGRiEqTZJFkGqaKYAKcmd9f8I9/0LpxTcc4Kw8WINsRbDajwbJ5B+wx79dK1owq0LZQwvM1NqUbSPTtuDSPbj3KcgzhEhPR8XfevLRZn0/D2nSL1Hsm6NptvZaDF12FKlmvaL2L8lJtL1WoLp6zZf5a7fQsOo7cz82OjoCYv8Tk6BspFIyadId0AOvtLIfpUWg0UDzlZx00XNO5PSAhxIY1XllPO7FrJpjIBmQpNCYsgElijhCZgjw8/wVBCq8L+CwhwFgztqrqEqpCVRJ6ZBu2fdlQtT3UTD/HZDKb8q9UGTmqG73fY63GA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jz1tFEmQTlgWcqXRk6QSWhot2KTbrIlLeS1bLLDSCqs=;
- b=pXmcFo6qeaqR04gnb/FCZcm3JdWJmG2J+DYuY/09SkIqCci5cPaU+n5HSfGUQ8xdZWifLgXWUzYSMrQ0R/0jx9PieoeuEtWe5VPrOBwu4DhOkrceviRwZzIsIgTOZJ8/u1d0+uofZEn0VPXHKIeC+iXBDPEHGnvHdA7DzuP1SvZxY/BhbfiM3JIDboMfYH/CdQN0WoyRTylxVDHOVO52DC/ydvB03YgFneP/TLlEcxFMssdpFFRVPCjuAKuohcmYyiIYoIc3XcniN6XRBoJj7nkBKhaZj++/AX07pMgHvHbwHpXB7PjakiCYNi09SADtm1/gkJ3lrpz7Xlhx/bkgtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jz1tFEmQTlgWcqXRk6QSWhot2KTbrIlLeS1bLLDSCqs=;
- b=a/Q7vZTS7f5sKImaeMA0C/ElFUif/KpKvtKk1eE7WhbOWK9joU4rMOA/jiT4A9odikYQrVhbzZ41w5yV8jnrNqRGDgT0ewn0SrX5rfTPvETORyzICbMFTU7rQVV9XkFpAwCZY9gjavepJUoHf+wPt1HrtitSCBc7zVeYdPs+Oh/An3M5dDe2nhCeep6OMr0IqJseLfXzMnBUE50b3UxSzyc3YEz+5nIVZXPtl0f9Adm7bafDLqRb4h64Zk9Bk91/a/W7otxX81iX8FdpOFiPgKzpSrgpLwROr2IRknR7smuQ3Jp4NzFIXcqj3B3UlJYzu9RnLkcTtZ0bTiO909Ibaw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI2PR04MB10859.eurprd04.prod.outlook.com (2603:10a6:800:278::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.24; Mon, 7 Jul
- 2025 09:48:07 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8901.024; Mon, 7 Jul 2025
- 09:48:07 +0000
-Date: Mon, 7 Jul 2025 18:58:16 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Carlos Song <carlos.song@nxp.com>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: "mturquette@baylibre.com" <mturquette@baylibre.com>,
-	"sboyd@kernel.org" <sboyd@kernel.org>,
-	"rafael@kernel.org" <rafael@kernel.org>,
-	"pavel@kernel.org" <pavel@kernel.org>,
-	"len.brown@intel.com" <len.brown@intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"dakr@kernel.org" <dakr@kernel.org>,
-	Aisheng Dong <aisheng.dong@nxp.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	Frank Li <frank.li@nxp.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Bough Chen <haibo.chen@nxp.com>, Jun Li <jun.li@nxp.com>
-Subject: Re: Dead lock with clock global prepare_lock mutex and device's
- power.runtime_status
-Message-ID: <20250707105816.GF11488@nxa18884-linux>
-References: <VI2PR04MB11147CCEFE4204B852807AAF2E841A@VI2PR04MB11147.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <VI2PR04MB11147CCEFE4204B852807AAF2E841A@VI2PR04MB11147.eurprd04.prod.outlook.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: MA0PR01CA0008.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:80::15) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Mon, 07 Jul 2025 09:52:29 +0000
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-556373661aaso2622950e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 02:52:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751881942; x=1752486742;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7+G9RXNsu4/lHuRGJgb9rsOZh1/O90NgzHuMfw5EvSM=;
+        b=q4/956bDj13RkiFEtthpXhavmhdo7XmiWTx138ITHRfCMX0XEm3InNsc13hRLZkZt9
+         3RGmCd9zy3/VqbRxlWnGcae5beeGQ/bjjNK+Mk+QTLh5ln8Nh9XTF7IWul+QjFW/y8Yt
+         9og/IC6qBNRTr91AtQOJ1Dx15uIxtw8SSKsTWKcExfaO+aS6KpJklKw4LVEMseORUVvj
+         qxqmNt3OjV2kYpmWwLUdnba7gJsHBJ29OHADqW8lacb5p5An+RrMo9Q8vVxI30jdUs2R
+         Mi//RNGueNy4PnT1km6AdX8eyDP+onVvD26mj7MU9rotGnvWj9EmmnQRkKmeIME5/Rec
+         38nQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUXhQgF4oJNPT4/b54RBBSmRA14CP5f53RBsF32rIyHuQefENqZxsFLuV8U4F7qV3ocyP/lYke44ZXBexgX3E8i@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywjpa/ySDLfVabXJreoJK3OsoCOE9j10PpdeGovt7IhynAheL6F
+	WDc8Oq9V/jd3+LBv+5ZHzZTMZQ0HmkjUgXmEl9BDAn/VXFSaIz2HDaqtFRqpYdkl
+X-Gm-Gg: ASbGnctEmg5xtaYQUINGJqhKzcCG0Kp6z8YnOo0Rq8hx7k38rrgWgVDsMSUu3LB52yJ
+	9KScTCPvhRLxZE332f0YngudCDjmuu15pI3rCV6xCBZgZIOth9ZfuJJeJxYRR1+8A2wJLiHUddJ
+	+t4tIxcXuoOKa0be2l1drFsaV9pSPiS8r5W1EF8/Ui2OCiMiTgFrYYUv4CJEJeaxtj9jRAA+azp
+	M5K6Dk0wp7N9q74hcgfEVLkpWrO4zbBPRt0mPhmWELGvssvTfV2WETMHEwZHC6q8+oHsRcc6lhu
+	yJNnsQo1YTy6+q/nOMHmhrUO3rocUl4rfB7lmmpdwk01IS93BekA42B049OjT2tvCqaD5zjp5eJ
+	XTGZvxuSgSrxv6DN4ikQ=
+X-Google-Smtp-Source: AGHT+IGwnQLfEppEV8MaNMSC81/Nj/93QZYJdzZzP3EMSPD4d3Cepc2PebrliNy90YQ5wNaDOHLGWA==
+X-Received: by 2002:a05:6512:61a1:b0:555:61e:ca7e with SMTP id 2adb3069b0e04-557e5528b06mr1832907e87.10.1751881941220;
+        Mon, 07 Jul 2025 02:52:21 -0700 (PDT)
+Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com. [209.85.208.169])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55638494f6dsm1288136e87.123.2025.07.07.02.52.20
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Jul 2025 02:52:20 -0700 (PDT)
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-32b3b250621so26921341fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 02:52:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUDDFs3yiVTdSQJmhzYX7jCfF61RSF+jT+67Ou9tKzvIMB4C/UR++vbqcX7qOBHdvgDGP4M0Bm0uhzvwzZfG/KU@lists.infradead.org
+X-Received: by 2002:a2e:bc1c:0:b0:32c:a006:2a1d with SMTP id
+ 38308e7fff4ca-32f199879cbmr17915751fa.4.1751881939832; Mon, 07 Jul 2025
+ 02:52:19 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI2PR04MB10859:EE_
-X-MS-Office365-Filtering-Correlation-Id: 81e3e726-173c-42c6-c73d-08ddbd3b6028
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|52116014|1800799024|366016|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XhRqdILfc4kMxhJl/KZPyQL0TdLtAcneVODYoZftb9DsrhyVQEJMs/bfH2U9?=
- =?us-ascii?Q?KmU2w5YJFFrMqEvLZGZZQi9VUlbNhjnpuB+LZ/wUir7267LmhV3A2I2dGCWx?=
- =?us-ascii?Q?dPphJh0hWNnyR8+4oqfCd/l+emnhXPpi/6SZwarszID+L+jiXNmUVDBc/xO5?=
- =?us-ascii?Q?GZ+D2T+bfrKPkgQ7wHTh4zbNQkZfSgM4kjbqomuFNxYWC4S6FTDs2ftffDFh?=
- =?us-ascii?Q?QdMgKVYVmx6UZggBTmBAnlmus+5SNP2fgtGQpd5GRt3GEwVz8vVrl2f2EGjq?=
- =?us-ascii?Q?+1rnWrugVe6v1Pt6UUcGXIJiSxPpA3nGdLFR74WWeq+kpriYiLzVQEzEGbph?=
- =?us-ascii?Q?1mzU8kC1Pemw/FfNwEnP6IMTFCyfYVR5NzGbt7PebUlUOA1I9T/vpY2ajTfz?=
- =?us-ascii?Q?6xBk2ghDM3JRnxU7gt501WqzTJNyniV6xTYAD0Gtq/ZhIhJPuWn6GM0mIe/t?=
- =?us-ascii?Q?TOaeYNrh+HLlpKIdZTm8KX6bVfyABHJ7g6Ft/KwWDDOvrD6vJXAtysStGcbL?=
- =?us-ascii?Q?Z8PU5ah70ZWNwzGV/t/dm7kFQU85yqIsYjA+c/f6LinaGR2o/TDjmwlxqNc0?=
- =?us-ascii?Q?Gegk25kwL62tzCzfkaicghGdUJ8cZ6mGgWhW9nMGvIfBpJeNEBMn3oyxTCEk?=
- =?us-ascii?Q?bnqjMZUGRfY0ZYe1F/8N7kRrfhA8qWUI27uwumFM2vheidAhEmWMXfuOj0Cv?=
- =?us-ascii?Q?ssp/tgqTWM3/c9sswxr1sZlfRT038UjEh65SrCfZy8UlKDsWYG1Pyfw/bR6k?=
- =?us-ascii?Q?YCwX1oxUfmHWZuMWgZPPZAkGVufCAFGPOLNaugxCVaYQWvo0BAHVPmryYQtY?=
- =?us-ascii?Q?KsUbi2+Ak6WLELShjLcSLKGQDklLj5PKgqKny3mHyjGjOyiArE5NeZx81iP1?=
- =?us-ascii?Q?OEn0GOviZe/bEpG7sPo5tX79a4gPSS7eN5Gq9p/FZatikz4im7HNaNf7plOx?=
- =?us-ascii?Q?d8B13wt7cJ3Px4qszqY/Sp5EqpiqbZCPsUBiJnZnG6q0sQl9n7ReV4GY9cbM?=
- =?us-ascii?Q?PFYoSXWkelPov91t1Hy23IDMGWWNhMr7aLmkr5LXhjgdm1ckyGBygwv+1JDA?=
- =?us-ascii?Q?EpKCgYKzNap3pXqsld+Yz4L8JvJLKVOCsUoxlcNGBU97mjApmORZw2N7LXiu?=
- =?us-ascii?Q?rHK7mebVvlCGDhX0jCvzBDaE2w8WUxPWWmehVaXf9D2wnJKPdFwSUV9BatBS?=
- =?us-ascii?Q?ibwknWrMeQOps/np02phxAwm4UktDxih5FBIPj8GNh6uucR9R2EjVuvBROfU?=
- =?us-ascii?Q?trI+hY+2oaQcRxaUK1VO2yGVqQG8od6IF11pHcxQicZzUiwMcVwaR8wZwBS7?=
- =?us-ascii?Q?5XnyV08tDSyMq0KXbe7Dw1Cs72pFH6yAeFsWJ0/A2XzEgmxZlOw+teHS2zRH?=
- =?us-ascii?Q?/vC83d6DcuAPu75j1Huz3oFDtTgOCkyOxgg7HmmCDfZrHajP3F4I7ZVoiQ+b?=
- =?us-ascii?Q?rA1MLoTyVBmr6w6ohfESGzQBkBlvGOcwETE7tV1fcYmLDjBoT2ff7g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(52116014)(1800799024)(366016)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?o1enUBysKn6fmjLVgNDCwPiQds4RBpltv/Q3+EHHz+Y2trP4HwsMCOLTRRTr?=
- =?us-ascii?Q?DgbASaMl4KSozWKceSaUROK4NKbUhi0yiHJ+MsTB3pdCoZ0Ho5IXq6sWH/8f?=
- =?us-ascii?Q?RzC3IxyVn7aVou65MoCjheKEveFHy1WRZLGF/uHSTctEHjDEJPolJ8ZeCEAQ?=
- =?us-ascii?Q?NMeSUWsP06DgB6RDuNqOgMi0kXywPs62EAAjLjFzNZSwkIqRaOgfO4BwM+dQ?=
- =?us-ascii?Q?r24tTQRL9v9Tz/vzNH7rl8ScCM8bQ11K1+wHaSr3RaRVQCZGWMdriAnclcSP?=
- =?us-ascii?Q?M+FeKW4DEe+stO59wu2G+Kwja4dxJyN2Ilkanyw0rLZa5Ne0UwxirGF2zyFo?=
- =?us-ascii?Q?pWIp6zBnpLa9aa7pra4X77oW3XlqdmToCfbHTIJPHAaQQpkw45p9D+QL9z50?=
- =?us-ascii?Q?k+YkoZ12BUyyjXNs5ocB7pv81iiGzMgegLN5ndR6p/i41Wim7DAuYbA/Uloo?=
- =?us-ascii?Q?rjUrLGOYkjloA5YW6tT6mX7SDkG+M8B2WAmcO2luB48qP+kUz03WWVfIHf04?=
- =?us-ascii?Q?ydX4XHDG2IjuTJoJKOiLd+GRDcm7c4MKH9IB/tP3URRLsS31vJ3oN1s1g+Hb?=
- =?us-ascii?Q?EsY5nQiYi9Fpc405+WKcD4PhLuIc/3cLOMhbNsEi/KYGISnVhDPbecl5AfNJ?=
- =?us-ascii?Q?/mi+rw/6bbNffvXP6D5zHmZZB8u4G/QDd7nxNoh0VjgIGJKoaIYnbTyv4qdw?=
- =?us-ascii?Q?gdrtykoG7DIejBpz6Qwa6YMoR2sUuTLMFPJdtR+Cq+d+PIpgCCiZaEsyVT9s?=
- =?us-ascii?Q?V4O3/BeyDJQIbHv+/NttFr8YYPKtx71RhfycLxe07ooczu1e+tat2muP3gTb?=
- =?us-ascii?Q?LhNxHMqCzXyHSD0xCvojqNROscBxZhb7VGvRwMsXgBJrJCnD9GIxgv2+eeZm?=
- =?us-ascii?Q?wBCSM5lk/Xc+B/giSOcI5baTP4KjjmmqwhiQIlRErg/PEhtXdXtZl3b/w1QH?=
- =?us-ascii?Q?d36lycHVm7zriQe8P3SvZYldltK9+e7c8OeJMI2Cxj05RrTVq579myRsTOrZ?=
- =?us-ascii?Q?pBhjpMUOf1QhvCRDu+IgaEjVXJNgWqU6km5pHqsnbaaiRTsL1fUraEBpOS+g?=
- =?us-ascii?Q?Vo/N1HtOlgOHCsy+ypDgOi2tm6hmH9qUTYxCgJakWRhL3gOOnm/We7BmQuQP?=
- =?us-ascii?Q?JZioARLM4gbDNnP9SRCj5xXJzBsDQj8BxUpYd1E5fYhm0T8k89uWhU0+BVDm?=
- =?us-ascii?Q?bTqy8pALrEBymZYTA1dbVTsSMbkwNhgoEXCOK3YFzXc2+YKnBgvXrQto5UXG?=
- =?us-ascii?Q?gvjbhTIGnc3k5KKdYFh5FCAb7pbDTA0GoA+4X3I6DejvVJ9PBZegBrhro7sQ?=
- =?us-ascii?Q?5IaCfUhB1g/O2Q44CF7YjUQW/sdTDOB513uKcDWguJj2a27i2eHbMtKDcjOQ?=
- =?us-ascii?Q?dqLzhEOUucHBQ/72/E/ae4iJ9BdAdvrGBjv5hEzHAEvPhnlqpoGw5JMEQImw?=
- =?us-ascii?Q?CInIpeftUJQ5JjpsIOk4ALaKueVTD1L9hmWwxiMueXYbO14NEdMJT/83UaRK?=
- =?us-ascii?Q?NJuI7v4ITlQ2e1OeP4gNbMxfPZ+yk21iza37ZwpmBXkqDfEqqqNC9VYqwlt7?=
- =?us-ascii?Q?Mz4itBTntBgVeHMS9yaV5ksKhNGDhBjzn2aRWeQu?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81e3e726-173c-42c6-c73d-08ddbd3b6028
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2025 09:48:07.7170
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XxmGqulY+o/Su4RLHHAvAxvKe3sDpwiUPcHC/AXADGl38rkTgd4kvXdqIbY5jv+bMHHsyPEW95i1CenL+paf7Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10859
+References: <20250626080923.632789-1-paulk@sys-base.io> <20250626080923.632789-2-paulk@sys-base.io>
+ <20250704233535.4b026641@minigeek.lan> <20250705153825.2be2b333@minigeek.lan>
+ <aGm8n_wJPiGk85E4@collins> <CAGb2v66s-nWA2dFRpgX6DbDET3dWOm1jPKWm1k9SmGSqhTWoWA@mail.gmail.com>
+ <aGuV3gcKSRIyey53@collins>
+In-Reply-To: <aGuV3gcKSRIyey53@collins>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Mon, 7 Jul 2025 17:52:07 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66U94RxVTC4O-Z9Pn2RyJK5Xz=pNZCvkFN-5Ax0wG6Cug@mail.gmail.com>
+X-Gm-Features: Ac12FXxL47gWjXZzuSKcW-0cl9NbdUx83T52e-2ARQaXs9NhvEcm9RfhLdsxmoU
+Message-ID: <CAGb2v66U94RxVTC4O-Z9Pn2RyJK5Xz=pNZCvkFN-5Ax0wG6Cug@mail.gmail.com>
+Subject: Re: [PATCH 1/5] pinctrl: sunxi: Fix a100 emac pin function name
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: Andre Przywara <andre.przywara@arm.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Linus Walleij <linus.walleij@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_024821_274376_4B84B5D8 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250707_025228_557089_196C33C7 
+X-CRM114-Status: GOOD (  48.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,47 +102,305 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Ulf
+On Mon, Jul 7, 2025 at 5:39=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.io=
+> wrote:
+>
+> Hi Chen-Yu,
+>
+> Le Sun 06 Jul 25, 23:04, Chen-Yu Tsai a =C3=A9crit :
+> > On Sun, Jul 6, 2025 at 8:00=E2=80=AFAM Paul Kocialkowski <paulk@sys-bas=
+e.io> wrote:
+> > >
+> > > Hi Andre,
+> > >
+> > > Le Sat 05 Jul 25, 15:38, Andre Przywara a =C3=A9crit :
+> > > > On Fri, 4 Jul 2025 23:35:35 +0100
+> > > > Andre Przywara <andre.przywara@arm.com> wrote:
+> > > >
+> > > > Hi,
+> > > >
+> > > > > On Thu, 26 Jun 2025 10:09:19 +0200
+> > > > > Paul Kocialkowski <paulk@sys-base.io> wrote:
+> > > > >
+> > > > > Hi Paul,
+> > > > >
+> > > > > > The Allwinner A100/A133 only has a single emac instance, which =
+is
+> > > > > > referred to as "emac" everywhere. Fix the pin names to drop the
+> > > > > > trailing "0" that has no reason to be.
+> > > > >
+> > > > > Sorry, but this is wrong. There *is* a second EMAC on the A133 di=
+e: it's
+> > > > > indeed not mentioned in the manual, but you can probe its MMIO
+> > > > > registers (@0x5030000), and there is a second syscon register
+> > > > > (@0x03000034). It's mentioned in several BSP code places ([1]).
+> > > > > It seem like no suitable pins are connected on the A133
+> > > > > package, but that should not affect the A100 .dtsi (we use a simi=
+lar
+> > > > > approach for the H616 and A523).
+> > > > >
+> > > > > So I think we should keep the emac0 name.
+> > > >
+> > > > just thinking that it's even worse: this changes the DT visible pin=
+ctrl
+> > > > function name, so it's a DT ABI change. With the "emac0" function n=
+ame,
+> > > > Ethernet would work with stable kernels already (as everything is
+> > > > compatible, it's just about DT changes). But with this change, pinc=
+trl
+> > > > drivers in older kernels would not match.
+> > >
+> > > Given that the port is still very early and experimental and has very=
+ few users
+> > > and no field deployment so I don't really think it would have annoyed=
+ anybody in
+> > > practice. But yes in principle you are right, while the header rename=
+s keep the
+> > > same value, the string names are used to match the device-tree defini=
+tions and
+> > > this constitues ABI that needs to remain stable.
+> > >
+> > > > So I would very much like to see this patch moved out. Is it just i=
+n
+> > > > LinusW's tree so far? I don't see it in -next yet.
+> > >
+> > > I don't think the patches were accepted for over a week so we can pro=
+bably
+> > > still act. I will send reverts, unless maintainers want to manually r=
+emove
+> > > these commits?
+> >
+> > I can drop the dts patches from the sunxi tree. Linus might be able to
+> > drop the pinctrl patch.
+> >
+> > You definitely need to send a revert for the DT binding patch that is
+> > already in net-next.
+>
+> Should this really affect the bindings though?
+>
+> From what Andre reported, both EMAC0 and EMAC1 should be the same block s=
+o it
+> doesn't seem particularly necessary to have a different compatible.
+>
+> Looking at Allwiner's BSP code for the A133[0], I don't see any differenc=
+e
+> between the two. While there's device_type property in Allwinner's dt, it=
+'s
+> apparently not used by the driver[1].
+>
+> So I think we're still fine with a single compatible (without the control=
+ler
+> index in it).
 
-On Tue, Jul 01, 2025 at 03:16:08AM +0000, Carlos Song wrote:
->Hi, All:
->
->We met the dead lock issue recently and think it should be common issue and not sure how to fix it.
->
->We use gpio-gate-clock clock provider (drivers/clk/clk-gpio.c), gpio is one of i2c gpio expander (drivers/gpio/gpio-pcf857x.c). Our i2c driver enable run time pm (drivers/i2c/busses/i2c-imx-lpi2c.c [1]). System random blocked when at reboot.
->
->The dead lock happen as below call stacks
->
->Task 117                                                Task 120
->
->schedule()
->clk_prepare_lock()--> wait prepare_lock(mutex_lock)     schedule() wait for power.runtime_status exit RPM_SUSPENDING
->                           ^^^^ A                       ^^^^ B
->clk_bulk_unprepare()                                    rpm_resume()
->lpi2c_runtime_suspend()                                 pm_runtime_resume_and_get()
->...                                                     lpi2c_imx_xfer()
->                                                        ...
->rpm_suspend() set RPM_SUSPENDING                        pcf857x_set();
->                           ^^^^ B                       ...
->                                                        clk_prepare_lock() --> hold prepare_lock
->                                                        ^^^^ A
->                                                        ...
->
+The block is the same, but the integration is slightly different, as
+the register for the RGMII clock delays and other stuff is at a different
+offset in the system controller. The BSP handles this by directly
+including the register in the "reg" property.
 
-This is a common issue that clk use a big prepare lock which is easy
-to trigger dead lock with runtime pm. I recalled that pengutronix raised
-this, but could not find the information.
+So yes, you do need a separate compatible string, if only to deal with
+the slight difference in the integration layer.
 
-In this case, there are two clock providers that are independent.
-So I think using one global prepare lock does not make sense here.
+ChenYu
 
-Stephen, 
- I propose using a per provider prepare lock if the providers are
- totally independent. How do you think?
-
-Thanks,
-Peng
+> [0]: https://github.com/engSinteck/A133_Image/blob/main/longan/kernel/lin=
+ux-4.9/arch/arm64/boot/dts/sunxi/sun50iw10p1.dtsi#L2016
+> [1]: https://github.com/engSinteck/A133_Image/blob/main/longan/kernel/lin=
+ux-4.9/drivers/net/ethernet/allwinner/sunxi-gmac.c
+>
+> All the best,
+>
+> Paul
+>
+> >
+> > ChenYu
+> >
+> >
+> > > Cheers,
+> > >
+> > > Paul
+> > >
+> > > > Cheers,
+> > > > Andre.
+> > > >
+> > > > > [1]
+> > > > > https://github.com/qiaoweibiao/T507_Kernel/blob/main/arch/arm64/b=
+oot/dts/sunxi/sun50iw10p1.dtsi
+> > > > >
+> > > > >
+> > > > > >
+> > > > > > Fixes: 473436e7647d ("pinctrl: sunxi: add support for the Allwi=
+nner A100 pin controller")
+> > > > > > Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+> > > > > > ---
+> > > > > >  drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c | 32 ++++++++++---=
+--------
+> > > > > >  1 file changed, 16 insertions(+), 16 deletions(-)
+> > > > > >
+> > > > > > diff --git a/drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c b/driv=
+ers/pinctrl/sunxi/pinctrl-sun50i-a100.c
+> > > > > > index b97de80ae2f3..95b764ee1c0d 100644
+> > > > > > --- a/drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c
+> > > > > > +++ b/drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c
+> > > > > > @@ -546,33 +546,33 @@ static const struct sunxi_desc_pin a100_p=
+ins[] =3D {
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x2, "i2c0"),          /* SCK */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* RXD1 */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* RXD1 */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 0)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 1),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x2, "i2c0"),          /* SDA */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* RXD0 */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* RXD0 */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 1)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 2),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x2, "i2c1"),          /* SCK */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* RXCTL */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* RXCTL */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 2)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 3),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x2, "i2c1"),          /* SDA */
+> > > > > >             SUNXI_FUNCTION(0x3, "cir0"),          /* OUT */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* CLKIN */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* CLKIN */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 3)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 4),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x2, "uart3"),         /* TX */
+> > > > > >             SUNXI_FUNCTION(0x3, "spi1"),          /* CS */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* TXD1 */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* TXD1 */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 4)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 5),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > > @@ -580,14 +580,14 @@ static const struct sunxi_desc_pin a100_p=
+ins[] =3D {
+> > > > > >             SUNXI_FUNCTION(0x2, "uart3"),         /* RX */
+> > > > > >             SUNXI_FUNCTION(0x3, "spi1"),          /* CLK */
+> > > > > >             SUNXI_FUNCTION(0x4, "ledc"),
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* TXD0 */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* TXD0 */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 5)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 6),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x2, "uart3"),         /* RTS */
+> > > > > >             SUNXI_FUNCTION(0x3, "spi1"),          /* MOSI */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* TXCK */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* TXCK */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 6)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 7),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > > @@ -595,7 +595,7 @@ static const struct sunxi_desc_pin a100_pin=
+s[] =3D {
+> > > > > >             SUNXI_FUNCTION(0x2, "uart3"),         /* CTS */
+> > > > > >             SUNXI_FUNCTION(0x3, "spi1"),          /* MISO */
+> > > > > >             SUNXI_FUNCTION(0x4, "spdif"),         /* OUT */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* TXCTL */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* TXCTL */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 7)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 8),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > > @@ -611,7 +611,7 @@ static const struct sunxi_desc_pin a100_pin=
+s[] =3D {
+> > > > > >             SUNXI_FUNCTION(0x2, "dmic"),          /* DATA0 */
+> > > > > >             SUNXI_FUNCTION(0x3, "spi2"),          /* CLK */
+> > > > > >             SUNXI_FUNCTION(0x4, "i2s2"),          /* BCLK */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* MDC */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* MDC */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 9)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 10),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > > @@ -619,7 +619,7 @@ static const struct sunxi_desc_pin a100_pin=
+s[] =3D {
+> > > > > >             SUNXI_FUNCTION(0x2, "dmic"),          /* DATA1 */
+> > > > > >             SUNXI_FUNCTION(0x3, "spi2"),          /* MOSI */
+> > > > > >             SUNXI_FUNCTION(0x4, "i2s2"),          /* LRCK */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* MDIO */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* MDIO */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 10)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 11),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > > @@ -642,33 +642,33 @@ static const struct sunxi_desc_pin a100_p=
+ins[] =3D {
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x3, "i2c3"),          /* SCK */
+> > > > > >             SUNXI_FUNCTION(0x4, "i2s3"),          /* MCLK */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* EPHY */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* EPHY */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 13)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 14),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x4, "i2s3"),          /* BCLK */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* RXD3 */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* RXD3 */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 14)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 15),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x4, "i2s3"),          /* LRCK */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* RXD2 */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* RXD2 */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 15)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 16),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x3, "i2s3_dout0"),    /* DOUT0 */
+> > > > > >             SUNXI_FUNCTION(0x4, "i2s3_din1"),     /* DIN1 */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* RXCK */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* RXCK */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 16)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 17),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > >             SUNXI_FUNCTION(0x1, "gpio_out"),
+> > > > > >             SUNXI_FUNCTION(0x3, "i2s3_dout1"),    /* DOUT1 */
+> > > > > >             SUNXI_FUNCTION(0x4, "i2s3_din0"),     /* DIN0 */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* TXD3 */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* TXD3 */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 17)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 18),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > > > @@ -676,7 +676,7 @@ static const struct sunxi_desc_pin a100_pin=
+s[] =3D {
+> > > > > >             SUNXI_FUNCTION(0x2, "cir0"),          /* OUT */
+> > > > > >             SUNXI_FUNCTION(0x3, "i2s3_dout2"),    /* DOUT2 */
+> > > > > >             SUNXI_FUNCTION(0x4, "i2s3_din2"),     /* DIN2 */
+> > > > > > -           SUNXI_FUNCTION(0x5, "emac0"),         /* TXD2 */
+> > > > > > +           SUNXI_FUNCTION(0x5, "emac"),          /* TXD2 */
+> > > > > >             SUNXI_FUNCTION_IRQ_BANK(0x6, 6, 18)),
+> > > > > >   SUNXI_PIN(SUNXI_PINCTRL_PIN(H, 19),
+> > > > > >             SUNXI_FUNCTION(0x0, "gpio_in"),
+> > > > >
+> > > > >
+> > > >
+> > >
+> > > --
+> > > Paul Kocialkowski,
+> > >
+> > > Independent contractor - sys-base - https://www.sys-base.io/
+> > > Free software developer - https://www.paulk.fr/
+> > >
+> > > Expert in multimedia, graphics and embedded hardware support with Lin=
+ux.
+>
+> --
+> Paul Kocialkowski,
+>
+> Independent contractor - sys-base - https://www.sys-base.io/
+> Free software developer - https://www.paulk.fr/
+>
+> Expert in multimedia, graphics and embedded hardware support with Linux.
 
