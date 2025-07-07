@@ -4,52 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCA7C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 16:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8000EC71130
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 16:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYojeL3mbQC0fNOnjLJmawG6l6y2Zkl6LRlnTb/8+oc=; b=Tbs7Vsx9Hc+KShuI8kiCh3x2rk
-	wKjV0xl4HMAsfs8wM3U+XD4cyPNka0ZsqmF80nYpYhRDKvXWHDRfRS2Fx2nKYrtlkGroQzdS25fHd
-	nPG6AyEtdgdV1CMYgq0alZKoU+uz+GgLB1Opda2+f3YIbH+IyAR5nRrNv10Q6u4E8lzh8ickWwMBU
-	p+nt7PaNU3CM2M0AmUFHVl+zeqZfsAqPi9f8hwCVGu0SPICqonguDbuOLvQ6Gf1/FrfRWYV6cSaW1
-	561WZ7Cm/z89u5cUHJRImHgTh5l+6nnyVSM8KzUPiWdHvjwPa0oyHv3mlSWl8liisCcprJzBBL8MX
-	tTtofoMA==;
+	bh=xNY9N2xjAM0I2J1cBOARO7TLTJUcM0GmmOgOMrea1Bo=; b=q8M9nAFZl9/57cmvF0w3yll6FE
+	Eu8Q4sh2fZ5L1PFlEeNEJ/BnRGZ98uHsz32lKEpNWqOgzWBTOpWGaAm2OkXaZpKPwjGfrick2/khu
+	3esGCqYd+as4G0UuSQ4BgKNq7AWEnuPoJ0juZ0SAELwQl5iwEhiqP21xLWUMYLolWtldCE8cyzvbT
+	bmAmkW7mp8MF/+hoeTknwgTkYCyJd9we2egxRAFQfsL2PapFn8sTmHTAfygTqS8BAKhYcgaEECJ4o
+	gVjUY4drpP2avX0EH0kw2+tYQpqy5aSJea1qdoo/D8CmaAZnRolR5oyzN84MD6pWCmVo34JPu1afg
+	wPGvGQ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYoKW-00000002xsB-1adj;
-	Mon, 07 Jul 2025 16:04:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYoDs-00000002wao-0O7u
+	id 1uYoMo-00000002yR9-1eo1;
+	Mon, 07 Jul 2025 16:06:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYoEj-00000002wlZ-1BWE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 15:57:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89912168F;
-	Mon,  7 Jul 2025 08:57:26 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 915293F694;
-	Mon,  7 Jul 2025 08:57:38 -0700 (PDT)
-Date: Mon, 7 Jul 2025 16:57:36 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH v3] perf: arm_spe: Relax period restriction
-Message-ID: <20250707155736.GC2182465@e132581.arm.com>
-References: <20250627163028.3503122-1-leo.yan@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250627163028.3503122-1-leo.yan@arm.com>
+	Mon, 07 Jul 2025 15:58:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A36B44405;
+	Mon,  7 Jul 2025 15:58:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42707C4CEE3;
+	Mon,  7 Jul 2025 15:58:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751903912;
+	bh=P4irvB71K+2W4L3UZ4XfcIYhsGHoRRAgpPJO3up2rls=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Rp+rdsGq/vMHLR9KSjygQYEnG6ZRxsoK+IGpmqfu42uwLxUD+Jvhbub/p4S9wwsXD
+	 GqDOc3Xp7OejMwTqYQAWHTTtrF8DcmUrDgeT7ZJRw0Z1DQdT3Hd3cWaPx8hEZLFIra
+	 5bITNkQs3UybNuLapWcVRJAlLQOG4J506gIkKrLHWY8VixVeZeBDWVQ7RgtkpL+kRD
+	 iS+/+14qF+Efwo9fDql6v3y+yo6MWi2pQnW6IV7va2/Rr9nzfQE2o6AKmkZqOpRN/T
+	 NyAhOy39hs+n4Y6R5+fdAcHonIr00GfFcomCotVWmBiiOIi4UIqAERM1xmJeW2/p9Q
+	 mo55NETWfR/jw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uYoEg-00DSeu-3k;
+	Mon, 07 Jul 2025 16:58:30 +0100
+Date: Mon, 07 Jul 2025 16:58:29 +0100
+Message-ID: <86v7o49emy.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-pci@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,	Toan Le <toan@os.amperecomputing.com>,
+	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,	Manivannan
+ Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,	Bjorn Helgaas
+ <bhelgaas@google.com>,	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH 12/12] PCI: xgene-msi: Restructure handler setup/teardown
+In-Reply-To: <aGusAeAYqneyp9t3@lpieralisi>
+References: <20250628173005.445013-1-maz@kernel.org>
+	<20250628173005.445013-13-maz@kernel.org>
+	<aGusAeAYqneyp9t3@lpieralisi>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, toan@os.amperecomputing.com, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, tglx@linutronix.de
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_085740_174397_BF3B1CA2 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20250707_085833_376769_E35EBC32 
+X-CRM114-Status: GOOD (  26.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,19 +88,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 05:30:28PM +0100, Leo Yan wrote:
-> The minimum interval specified the PMSIDR_EL1.Interval field is a
-> hardware recommendation. However, this value is set by hardware designer
-> before the production. It is not actual hardware limitation but tools
-> currently have no way to test shorter periods.
+On Mon, 07 Jul 2025 12:14:09 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
-> This change relaxes the limitation by allowing any non-zero periods,
-> with simplifying code with clamp_t().
+> On Sat, Jun 28, 2025 at 06:30:05PM +0100, Marc Zyngier wrote:
+> > Another utterly pointless aspect of the xgene-msi driver is that
+> > it is built around CPU hotplug. Which is quite amusing since this
+> > is one of the few arm64 platforms that, by construction, cannot
+> > do CPU hotplug in a supported way (no EL3, no PSCI, no luck).
+> > 
+> > Drop the CPU hotplug nonsense and just setup the IRQs and handlers
+> > in a less overdesigned way, grouping things more logically in the
+> > process.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  drivers/pci/controller/pci-xgene-msi.c | 109 +++++++++----------------
+> >  1 file changed, 37 insertions(+), 72 deletions(-)
+> > 
+> > diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
+> > index a22a6df7808c7..9f05c2a12da94 100644
+> > --- a/drivers/pci/controller/pci-xgene-msi.c
+> > +++ b/drivers/pci/controller/pci-xgene-msi.c
+> > @@ -216,12 +216,6 @@ static int xgene_allocate_domains(struct device_node *node,
+> >  	return msi->inner_domain ? 0 : -ENOMEM;
+> >  }
+> >  
+> > -static void xgene_free_domains(struct xgene_msi *msi)
+> > -{
+> > -	if (msi->inner_domain)
+> > -		irq_domain_remove(msi->inner_domain);
+> > -}
+> > -
+> >  static int xgene_msi_init_allocator(struct device *dev)
+> >  {
+> >  	xgene_msi_ctrl->bitmap = devm_bitmap_zalloc(dev, NR_MSI_VEC, GFP_KERNEL);
+> > @@ -271,26 +265,48 @@ static void xgene_msi_isr(struct irq_desc *desc)
+> >  	chained_irq_exit(chip, desc);
+> >  }
+> >  
+> > -static enum cpuhp_state pci_xgene_online;
+> > -
+> >  static void xgene_msi_remove(struct platform_device *pdev)
+> >  {
+> > -	struct xgene_msi *msi = platform_get_drvdata(pdev);
+> > -
+> > -	if (pci_xgene_online)
+> > -		cpuhp_remove_state(pci_xgene_online);
+> > -	cpuhp_remove_state(CPUHP_PCI_XGENE_DEAD);
+> 
+> No question on the patch - just noticed we could remove
+> CPUHP_PCI_XGENE_DEAD from cpuhp_state since it would become
+> unused AFAICS.
 
-Hi Will,
-
-Would you mind checking if this small patch is okay to pick up?
+Good point. I'll add that to the queue.
 
 Thanks,
-Leo
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
