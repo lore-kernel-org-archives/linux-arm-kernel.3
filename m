@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929DDC83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 07:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEB4AC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 07:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zVp3mU9tpJoLyKShOFZbvOMZjx+sbDfvqdrK5RIOkbg=; b=KWbWQpArk9n92k4Wbr6dm0VTHM
-	IMb6dXIknIbPynKefWTJzDnNDbhZgsU00mOaZPtvB7+DVgnl2Q/vuPRia3fAbk2M9FaCMzizPclOh
-	jkkPvjyblgW/yivAiq0vob3HkPYN32DPs+4/zQUUm/0sS4DM+uPtJrf7/yLTFWT1Y08G//1kxrf3n
-	uJFeO7Y4EM0nP2pUZSGTtxrbWyY1N6+den/mXg0II1A/ulZncsYgQFAfDxb4mYVMsfHjYQkOlz8Se
-	C1HgBywxzcrVlk7me8iENEI+KhAyxB8fhTuzPugjdlN4gThLFGuaVRdtW+aljqXlqZDhhjz3gCG2H
-	x1M5mkfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=H5nvVJ4pYfQsdjtADMDbxbhVuW9y7AaSthNEtw3Ke9M=; b=Fenow+sjwJnWa8
+	5niiDshw9/0k27GTC20q2yetkigilBKhh4Bu1et0NXYxSq1m3qX1tm+Gr+O3OKu6SBPIRZoL5bot/
+	MI+BMvK3MKuLVQeEkMgcZ75QXButaPzOexKT/nHyiGpdO09NwBZiLpcqkEEn/FLib1v2LqbibVOwz
+	11PD9uBHozYUOjKLdU30k1Lg/ChMyrHa+ea4oJBgBJfOYaY5dFlVE3B/falgBm+G1IaGnYvxoUGGG
+	ARDXtrGtpBZaXwKdq34ZE6OQ0nJUOHU59bdABuN4aHVwTx03kI6KSaRjMRYCb9JCcRgimOdNns8cR
+	3ZHsTKI3I4yf6S8lTE6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYgSf-00000001idz-2KnR;
-	Mon, 07 Jul 2025 07:40:25 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1uYgUx-00000001j7E-1DFX;
+	Mon, 07 Jul 2025 07:42:47 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYgJ9-00000001goe-1nrT;
-	Mon, 07 Jul 2025 07:30:36 +0000
-Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
-	by mxout2.routing.net (Postfix) with ESMTP id B0FE35FAAF;
-	Mon,  7 Jul 2025 07:30:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1751873433;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zVp3mU9tpJoLyKShOFZbvOMZjx+sbDfvqdrK5RIOkbg=;
-	b=tcPHlMoWChlrn8xTPaCqBQ/0kL86NAfoif4bczhRr5EPFM2mHMEWkuotkm7Qcm8BgxNhKd
-	cfd7uYKu7+c3NyNy1MFOYQHSkksnV/+Gw9qqAyCXu09nxFsZXLYurxI+bXh6AVtUosXhwp
-	CTur5EUurSQKKFv4T1RiC3Lo7PaHHeg=
-Received: from [IPv6:::1] (unknown [IPv6:2a01:599:808:65f4:756a:9686:4114:2d58])
-	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id 3BB8D100758;
-	Mon,  7 Jul 2025 07:30:31 +0000 (UTC)
-Date: Mon, 07 Jul 2025 09:30:32 +0200
-From: Frank Wunderlich <linux@fw-web.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Johnson Wang <johnson.wang@mediatek.com>,
- =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
- Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- Frank Wunderlich <frank-w@public-files.de>, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v8_02/16=5D_dt-bindings=3A_n?=
- =?US-ASCII?Q?et=3A_mediatek=2Cnet=3A_allow_up_to_8_IRQs?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20250707-modest-awesome-baboon-aec601@krzk-bin>
-References: <20250706132213.20412-1-linux@fw-web.de> <20250706132213.20412-3-linux@fw-web.de> <20250707-modest-awesome-baboon-aec601@krzk-bin>
-Message-ID: <B875B8FF-FEDB-4BBD-8843-9BA6E4E89A45@fw-web.de>
+	id 1uYgKU-00000001h3o-0pRk;
+	Mon, 07 Jul 2025 07:31:59 +0000
+X-UUID: 736e5fcc5b0411f09f706fa2197c6ceb-20250707
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From; bh=H5nvVJ4pYfQsdjtADMDbxbhVuW9y7AaSthNEtw3Ke9M=;
+	b=NadMTJ1u6/mXkDYrD6am0tpQIsVtym/q9eo4334ZLSTcrtZXbJirY8wDR2SPcc2Aa9ymZwvVClH/+L/4QKfz+nHWMldBd2aLl+BN3kP71Z8NvwYYhGQm9CXxZWw9SLgUjXi3Z/Kr94odb5rX8CUt7OcdForA1hdsSgmu1DX3Y0k=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:51e7939b-7e49-4fba-b988-37556742b246,IP:0,UR
+	L:0,TC:0,Content:0,EDM:-30,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-30
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:c4110660-2aa0-4c76-8faa-804d844c7164,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:2,IP:nil
+	,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:
+	1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 736e5fcc5b0411f09f706fa2197c6ceb-20250707
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1889016352; Mon, 07 Jul 2025 00:31:52 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 7 Jul 2025 15:31:49 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 7 Jul 2025 15:31:48 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH v7 00/12] Enable jpeg enc & dec multi-hardwares for MT8196
+Date: Mon, 7 Jul 2025 15:31:33 +0800
+Message-ID: <20250707073146.3581-1-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Mail-ID: 03c03832-acef-4e85-9034-7323a57b8c25
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_003035_630296_B1361978 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20250707_003158_246914_3320D274 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,64 +88,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 7=2E Juli 2025 08:31:11 MESZ schrieb Krzysztof Kozlowski <krzk@kernel=2E=
-org>:
->On Sun, Jul 06, 2025 at 03:21:57PM +0200, Frank Wunderlich wrote:
->> From: Frank Wunderlich <frank-w@public-files=2Ede>
->>=20
->> Increase the maximum IRQ count to 8 (4 FE + 4 RSS/LRO)=2E
->
->Because? Hardware was updated? It was missing before?
+This series have the follow changing:
+Firstly fix some bugs, including resolution change handleing, stop
+streaming sw flow, fix buffer layout and clock setting to support multi-hw
+jpeg working and others.
+Secondly add mt8196 jpegdec and jpegenc compatible to support MT8196
+kernel driver.
+Lastly, Add smmu setting to support smmu and iommu at the same time.
 
-There is no RSS support in driver yet,so IRQs were not added to existing D=
-TS yet=2E
+This series has been tested with MT8196 tast test.
+Encoding and decoding worked for this chip.
 
->>=20
->> Frame-engine-IRQs (max 4):
->> MT7621, MT7628: 1 IRQ
->> MT7622, MT7623: 3 IRQs (only two used by the driver for now)
->> MT7981, MT7986, MT7988: 4 IRQs (only two used by the driver for now)
->
->You updated commit msg - looks fine - but same problem as before in your
->code=2E Now MT7981 has 4-8 interrupts, even though you say here it has on=
-ly
->4=2E
+Patches 1 fix jpeg hw count setting to support different chips.
+Patches 2 fix jpeg buffer payload setting to handle buffer
+size bug while resolution changed.
+Patches 3 fix jpeg dst buffer layout.
+Patches 4 fix multi-core stop streaming flow
+Patches 5 fix multi-core clk suspend/resume setting
+Patches 6 fix decoding buffer number setting timing issue
+Patches 7 fix decoding resolution change operation
+Patches 8 fix remove buffer operation
+Patches 9-11 Adds jpeg encoder and decoder compatible.
+Patches 12 add jpeg smmu sid setting.
 
-Ethernet works with 4,but can be 8 for MT798x=2E
-I cannot increase the MinItems here as it will
-throw error because currently only 4 are defined in DTS=2Esame for MT7986=
-=2E
->>=20
->> Mediatek Filogic SoCs (mt798x) have 4 additional IRQs for RSS and/or
->> LRO=2E
->
->Although I don't know how to treat this=2E Just say how many interrupts
->are there (MT7981, MT7986, MT7988: 4 FE and 4 RSS), not 4 but later
->actually 4+4=2E
+---
+Changes compared with v6:
+--Rebased on top of the latest media tree
 
-First block is for Frame Engine IRQs and second for RSS/LRO=2E Only mentio=
-n total count=20
-across all SoCs is imho more confusing=2E
+Changes compared with v5:
+--reorder the patches set.
+--fix commit message of patch 1-8.
 
->I also do not understand why 7 interrupts is now valid=2E=2E=2E Are these=
- not
->connected physically?
+Changes compared with v4:
+--fix kernel robot build errors for patch 4.
+--add reviewer for patch 1 and patch 2.
 
-7 does not make sense but i know no way to allow 8 with min 4 without betw=
-een (5-7)=2E
+Changes compared with v3:
+--change patch subject of jpeg encoder and decoder compatible.
 
->Best regards,
->Krzysztof
+Changes compared with v2:
+--refactor smmu sid setting function interface
+--Some modifications for patch v2's review comments.
 
-Hi
+Changes compared with v1:
+--refine jpeg dt-bindings for MT8196
+--optimize software code to manage jpeg HW count
+--refactor smmu sid setting function interface
+--Some modifications for patch v1's review comments.
 
-Thanks for taking time for review again=2E
+Kyrie Wu (12):
+  media: mediatek: jpeg: fix jpeg hw count setting
+  media: mediatek: jpeg: fix jpeg buffer payload setting
+  media: mediatek: jpeg: fix jpeg buffer layout
+  media: mediatek: jpeg: fix stop streaming flow for multi-core
+  media: mediatek: jpeg: fix multi-core clk suspend and resume setting
+  media: mediatek: jpeg: fix decoding buffer number setting timing issue
+  media: mediatek: jpeg: fix decoding resolution change operation
+  media: mediatek: jpeg: fix remove buffer operation for multi-core
+  media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgdec
+    compatible
+  media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgenc
+    compatible
+  media: mediatek: jpeg: add jpeg compatible
+  media: mediatek: jpeg: add jpeg smmu sid setting
 
-First block are the frame engine IRQs which are max 4 and on all SoCs=2E
-The RSS IRQs are only valid on Filogic (MT798x),so there a total of 8, but=
- on
-MT7981 and MT7986 not yet added as i prepare the RSS/LRO driver in backgro=
-und=2E
-We just want to add the IRQs for MT7988 now=2E
-regards Frank
+ .../media/mediatek,mt8195-jpegdec.yaml        |   8 +-
+ .../media/mediatek,mt8195-jpegenc.yaml        |   8 +-
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 170 +++++++++++++-----
+ .../platform/mediatek/jpeg/mtk_jpeg_core.h    |  21 ++-
+ .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  | 112 +++++++++++-
+ .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  | 112 +++++++++++-
+ 6 files changed, 376 insertions(+), 55 deletions(-)
+
+-- 
+2.46.0
+
 
