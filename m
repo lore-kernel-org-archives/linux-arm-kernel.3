@@ -4,49 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A588C83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 10:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE937C83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 10:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jb4y8lZ/B27999//+jP+UBvYkfjYbUtLvRMfki+Dy0w=; b=mjhnGju0XHBvXNunZCf0gaeZ9G
-	j9y8Jv17NIlxW3vSBBRSGUC49qCrLW50f7aj0l2liZGI6HBybd5bG++03OXi5LAqIzHATd7XbuAMk
-	270FLCqP47MwtaA6ixLu+qoCOb/qn+38cQ1ePJ8XB3PQaSdUkxdGoDKSWb8Ha/eY7/9jLA57YKtn9
-	hujPOcSDPxZAkxq1pVKv8eF6d6dSuiDkWOaC2/UNt7haTEAsuOI5LjXjUS86dWj7cRcSKjbAWghNL
-	h5dhNj2OIwwQJcEKMzGPK1A86hDXUStRJlF7/YE1C8ZxeSj7L42+/jvdbuDQcPg+IGWgy28HeOs8l
-	iIgZRvfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XFK9CGANpFb6qlTeThT0DwZIyre/1tnyiYdjSQY76dQ=; b=gAryKGwMvIZ85CFkizmSw6MjjE
+	v4SLDK4hQtAYDyoODM2WMgLvOUKYHn+5CDeSGFmksVdNrer4zv1owGatfo5EEfXfyyII8oShwU+4C
+	SfNJfWCRWzTGWeIn7Q7opgk1WGlUzq6hIAtCXaxbE233tzMEps7usjT5H/LVKVkxTheKC35kMSYsP
+	W69pNeKboui4JnqPkLygX601SaxMl0+BnauamlExhQpbsn7DemTp370JmpcRhiyYrUmjRLE3BgaDc
+	KEEpQY6RqGiGWbVvkr67FENyYX+oRO3ftjI3xxdfBElmA1iyNyWCV3L1cBb1dKtMOWLWsbRKo32QB
+	BGy3Aueg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjAm-00000002Ady-0TAd;
-	Mon, 07 Jul 2025 10:34:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYiYi-000000023vF-2fUj
+	id 1uYjD3-00000002AtW-3Rdz;
+	Mon, 07 Jul 2025 10:36:29 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYiZr-0000000244X-2EK4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 09:54:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DBBC8168F;
-	Mon,  7 Jul 2025 02:54:32 -0700 (PDT)
-Received: from e134433.budapest.arm.com (e134433.arm.com [10.45.25.24])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C33E63F6A8;
-	Mon,  7 Jul 2025 02:54:44 -0700 (PDT)
-From: Tamas Kaman <tamas.kaman@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Tamas Kaman <tamas.kaman@arm.com>
-Subject: [boot-wrapper-aarch64 PATCH] Enable GCS if it is present in the HW
-Date: Mon,  7 Jul 2025 11:54:30 +0200
-Message-Id: <20250707095430.3821373-1-tamas.kaman@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 07 Jul 2025 09:56:00 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-451dbe494d6so32497485e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 02:55:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1751882158; x=1752486958; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XFK9CGANpFb6qlTeThT0DwZIyre/1tnyiYdjSQY76dQ=;
+        b=hNYYBRByraejp0mz+WGXyJ5HMQNDsaKBats6PahuMVypG/CTPrG5lbGr+GpAlVr03k
+         6Y27dQDFde0vxGQSmNoELbTN+vBznP2NaxvE5jSngCDuGQEER/+0TD69L7JaUjnto9m9
+         s8aPrHCfTs9p80493uTLAOAzUJy/83DTB6YXpco8m6xseW/peUPXTtOogM74JAf0JBlz
+         rv46ocds2Vzx5CqFUQezr3jIua5U1EMSJfCBnbc2kqycc5A5baRoljGPaaUjvhHmf2gk
+         +nKMt0HAj97OWXlriKSq0KQfb790ZgaZjeELkzWod7M+0r/xGCXuaUSwXYbKSll+Mr8e
+         f1Ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751882158; x=1752486958;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XFK9CGANpFb6qlTeThT0DwZIyre/1tnyiYdjSQY76dQ=;
+        b=iKtfVCdMBtiEHyOHdJYH9DVBrTS/9CI9ML+083hIz4mlO9U7QPLsMEyC4Hmv50K125
+         VgW/scABQephvF4FZ8gkzu/+ig5CTiXVbJXMGYHVHrClQ7hIYzXEPoCe9U5Hk08czTzB
+         jUuZYAZZC6+kWbty9Vc29d5/zaPVjIsjiC66msdlRECMjJN2ry2UrsXGteIq0H7BteIR
+         YXoU4DNPzDplyNAW3sewdyw2GM/Ux6XBtFtit/teroy20oOy2ygfxr2AKoKSj66KBDtC
+         JoqPrCaV3yxMqlxKHr8IEYkh3996VLt51p6Vo8Q8YLf1Q7SlgWN1xTqGtmd4qwQFbDdu
+         +vAw==
+X-Forwarded-Encrypted: i=1; AJvYcCW4b8lVjBt+FKlzmmWmw2idjOM+xEp+3t56nbyOGBO0JXMZHxesHIizVChRc/H0H40rSS2s1UaohCTnR74oYN4r@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZhGQvxvYE8WLhr6tlwppqmeKRBg6VL0rGiNC4VjRkBEpIKXHC
+	hvMe0BoDzOylMNiWp1RFZjE2yBsayW2x/PxSZ4gDy0HqsN14HCDqTsq9xXS2bmK3mmQ=
+X-Gm-Gg: ASbGnctSBik89zMo2g1csDQqz9/YCwQjyn6sOnevTY7lseLEd/8FaQ/RgeE55V1kywR
+	HKLsCuNmmcmA0DpkZM0RvsXci6un9sreH369N+LC+1upbbNw80WlY49wk/hnlIaaNSeOxE8Vv8P
+	a8t3sGWwUDFdC8wOSxJmhimlRm/YNT06E0J/5zscZUrBqGaQNSa9Id0NCS9BN6/3N1z23XBzqIQ
+	XPSlcb43FZlrFbjxUbXraBlJlndzXnsvqGtmCG4eDpNG95N2h/9TOTAy0JzfJT9DtTuuZeih1k2
+	Hs9fn5UOTiC+Hyov7YWl9yXB9poeIPt1HlKq7czlBJOIvoql4T+Y0u7Kr6aSQNVAENPW1Vg=
+X-Google-Smtp-Source: AGHT+IHrp6i6CjW0J0hqro//S7APuf2A8nxf/qPiQQ/JN5ARtQAbdWL7Q7Mj0NHZUV2exYC6za6wrQ==
+X-Received: by 2002:a05:600c:3b95:b0:454:ad94:4b3d with SMTP id 5b1f17b1804b1-454cb768c35mr1610785e9.1.1751882157640;
+        Mon, 07 Jul 2025 02:55:57 -0700 (PDT)
+Received: from ho-tower-lan.lan ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a9beb22asm136617625e9.36.2025.07.07.02.55.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Jul 2025 02:55:57 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Date: Mon, 07 Jul 2025 10:55:27 +0100
+Subject: [PATCH] coresight: Fix missing include for FIELD_GET
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250707-james-coresight-bitfield-include-v1-1-aa0f4220ecfd@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAI6Za2gC/x3NywqDMBBG4VeRWXcgxhv1VUoXmvzRERslY0tBf
+ PeGLr/NOScpkkCpL05K+IjKFjPKW0FuHuIEFp9N1tjGdKbjZXhB2W0JKtN88ChHEKyeJbr17cG
+ m8mUdmqq9B0s5sycE+f4Xj+d1/QAcuFN9cgAAAA==
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, Leo Yan <leo.yan@arm.com>, 
+ Naresh Kamboju <naresh.kamboju@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Linux Kernel Functional Testing <lkft@linaro.org>, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_025448_714183_5F88F824 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250707_025559_577100_2B9C58DA 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,61 +105,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Tamas Kaman <tamas.kaman@arm.com>
----
- arch/aarch64/include/asm/cpu.h | 5 +++++
- arch/aarch64/init.c            | 7 +++++++
- 2 files changed, 12 insertions(+)
+Include the header for FIELD_GET which is only sometimes transitively
+included on some configs and kernel releases.
 
-diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
-index ac50474..9d6f0fc 100644
---- a/arch/aarch64/include/asm/cpu.h
-+++ b/arch/aarch64/include/asm/cpu.h
-@@ -70,6 +70,7 @@
- #define SCR_EL3_ECVEN			BIT(28)
- #define SCR_EL3_TME			BIT(34)
- #define SCR_EL3_HXEn			BIT(38)
-+#define SCR_EL3_GCSEn			BIT(39)
- #define SCR_EL3_EnTP2			BIT(41)
- #define SCR_EL3_RCWMASKEn		BIT(42)
- #define SCR_EL3_TCR2EN			BIT(43)
-@@ -125,6 +126,7 @@
- #define ID_AA64PFR1_EL1_MTE		BITS(11, 8)
- #define ID_AA64PFR1_EL1_SME		BITS(27, 24)
- #define ID_AA64PFR1_EL1_CSV2_frac	BITS(35, 32)
-+#define ID_AA64PFR1_EL1_GCS		BITS(47, 44)
- #define ID_AA64PFR1_EL1_THE		BITS(51, 48)
- 
- #define ID_AA64PFR2_EL1			s3_0_c0_c4_2
-@@ -133,6 +135,9 @@
- #define ID_AA64SMFR0_EL1		s3_0_c0_c4_5
- #define ID_AA64SMFR0_EL1_FA64		BIT(63)
- 
-+#define HCRX_EL2			s3_4_c1_c2_2
-+#define HCRX_EL2_GCSEn			BIT(22)
-+
- /*
-  * Initial register values required for the boot-wrapper to run out-of-reset.
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+Closes: https://lists.linaro.org/archives/list/lkft-triage@lists.linaro.org/thread/6GKMK52PPRJVEYMEUHJP6BXF4CJAXOFL/
+Fixes: a4e65842e114 ("coresight: Only check bottom two claim bits")
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ drivers/hwtracing/coresight/coresight-core.c        | 1 +
+ drivers/hwtracing/coresight/coresight-etm4x-core.c  | 1 +
+ drivers/hwtracing/coresight/coresight-etm4x-sysfs.c | 1 +
+ drivers/hwtracing/coresight/ultrasoc-smb.h          | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index fa758cc21827..c2db94f2ab23 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -3,6 +3,7 @@
+  * Copyright (c) 2012, The Linux Foundation. All rights reserved.
   */
-diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
-index cb24f4e..f815e6a 100644
---- a/arch/aarch64/init.c
-+++ b/arch/aarch64/init.c
-@@ -118,6 +118,13 @@ static void cpu_init_el3(void)
- 	if (mrs_field(ID_AA64PFR1_EL1, MTE) >= 2)
- 		scr |= SCR_EL3_ATA;
  
-+	if (mrs_field(ID_AA64PFR1_EL1, GCS)) {
-+		scr |= SCR_EL3_GCSEn;
-+		unsigned long hcrx_el2 = mrs(HCRX_EL2);
-+		hcrx_el2 |= HCRX_EL2_GCSEn;
-+		msr(HCRX_EL2, hcrx_el2);
-+	}
-+
- 	if (!kernel_is_32bit())
- 		scr |= SCR_EL3_RW;
++#include <linux/bitfield.h>
+ #include <linux/build_bug.h>
+ #include <linux/kernel.h>
+ #include <linux/init.h>
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 42e5d37403ad..cbea200489c8 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -4,6 +4,7 @@
+  */
  
+ #include <linux/acpi.h>
++#include <linux/bitfield.h>
+ #include <linux/bitops.h>
+ #include <linux/kernel.h>
+ #include <linux/kvm_host.h>
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+index ab251865b893..e9eeea6240d5 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+@@ -4,6 +4,7 @@
+  * Author: Mathieu Poirier <mathieu.poirier@linaro.org>
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/coresight.h>
+ #include <linux/pid_namespace.h>
+ #include <linux/pm_runtime.h>
+diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.h b/drivers/hwtracing/coresight/ultrasoc-smb.h
+index c4c111275627..323f0ccb6878 100644
+--- a/drivers/hwtracing/coresight/ultrasoc-smb.h
++++ b/drivers/hwtracing/coresight/ultrasoc-smb.h
+@@ -7,6 +7,7 @@
+ #ifndef _ULTRASOC_SMB_H
+ #define _ULTRASOC_SMB_H
+ 
++#include <linux/bitfield.h>
+ #include <linux/miscdevice.h>
+ #include <linux/spinlock.h>
+ 
+
+---
+base-commit: 408c97c4a5e0b634dcd15bf8b8808b382e888164
+change-id: 20250707-james-coresight-bitfield-include-03d14f5369f2
+
+Best regards,
 -- 
-2.34.1
+James Clark <james.clark@linaro.org>
 
 
