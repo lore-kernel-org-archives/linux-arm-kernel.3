@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623A6C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 05:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA64C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 05:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TjDPXrs+zzYZW1yqvvmbPXKx/SyU09v9UIvfMCfLWik=; b=j41WQmCK29FQJB+yo868BjKwOu
-	gUazTp2QL4KxzpWzZwdBvMNcj4IrJVGQly+iQHAhxjdrPD4KCw9lyh5sswX05L2ml+TB1DKFII4iZ
-	UL6b9ENRWkTNND5MBG6F8zthfoYVFPeIEEf9gaB9p6gIGEk7jXh5yNZW0YOVx/oXYtfX545yEiaS/
-	pryw93bp7Prd+mgOVaEEQWjUQQmdwMQecIuykT2OsJcGL9YTAbSWb5ySKijpj6BuAVpA0+/sM/ghS
-	jRyrCmt4RXsvQScY6u8usdlrqwvVYQR0ZsilwGiSOfhoOLWMl8ihfOxiIU/yEK7McM7VSCLGOqEwB
-	fm5QhqBg==;
+	bh=3/j7NyuV/AK3q9Ia/DlforBWsL0uDc+k7QjS5jpN6BA=; b=L9vj0Q8qIAB59+1z1R9O9+WUIW
+	MpRNdki+PTwfvypyUYwItnY3p5CsFkaIROt8VHV3+KuSNQ+/MJW8XkVd8x7ZGip7p2j/02hnSMlnR
+	jAvKTzmnCIYknpghfH2j1WWWQckFCrw86aVKH23xIxfC2RyEoD2HUr7VARAAYTycW7gKrwVVXiEIu
+	SrQnBHpIYpzxeoDOzXVWaXEtbNwKJb4sGpIU0zzOYAZgpvyilSOq3X8+bHk1iBX8G2fBFlCdOVIUD
+	k4HvoOOc4EYM7aYzLXJEqJbiqoMXpFLyPcvhuo1QyHOhzJcjk6fLOGzuLzpJXeCK+Ri9EhKt5fLNq
+	o5CWlGdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYefn-00000001TKX-1OqM;
-	Mon, 07 Jul 2025 05:45:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uYei4-00000001TYz-1O5q;
+	Mon, 07 Jul 2025 05:48:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYech-00000001Ssl-0PhF;
-	Mon, 07 Jul 2025 05:42:40 +0000
+	id 1uYeen-00000001TCw-39C1;
+	Mon, 07 Jul 2025 05:44:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8675C46179;
-	Mon,  7 Jul 2025 05:42:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDA5EC4CEF4;
-	Mon,  7 Jul 2025 05:42:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CAFB36112D;
+	Mon,  7 Jul 2025 05:44:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDC0AC4CEF4;
+	Mon,  7 Jul 2025 05:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751866958;
-	bh=DYxEwke6KQfAip5v2Jtz2Vpn6CF/js+HUrRQ9qzGcvA=;
+	s=k20201202; t=1751867088;
+	bh=eu+GHjOCvCqVRqoV63kexKMOhEID9n+g92CJ/14sRIg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UYcuETOeDFCBCzio5Luj3iLUeQLKqO/4YJ1FYL51lb8F6z4FScS+B5tMnBlkGb9yP
-	 5Mpfej0WC0NLKucQ356U0gDdjukScfT9PYSkMWfSwx4gZncxmpOCjHoNJg61j0NWsO
-	 aAGd4L5BUsSj57XbmIzaW/1O9ZArSNS6czEXW6URDSIi/cJ44ylnOBp1EYe5Lv7Rh8
-	 lp1v2kAYD6dsgyz3FvizlRcsBl/I0FJLiKvJjMVl+/v1vJqRYIzJZUrqI9NVHVezBL
-	 9PSM4lSFImsSeG/Yd3d7I6xw2wUTLhPwWxagCH/XScIHGIJI/WZ76JEhntsIZ9Y2W8
-	 UnJ/ARQ9SWzRA==
-Date: Mon, 7 Jul 2025 07:42:35 +0200
+	b=qVvdJli/K1bLN5V7IZXJn+i7qVsLuHc04/BVVu7V5YFQuxNYCzJnanl9TJV2s4u4O
+	 ZrYzzUNlEbYPm0iGu0leOc9FRhDw1RzZ2Y6QTKnld3ga1v9KY2GDAaTyTYJSTkHeMJ
+	 9/5sMnr7/NfIVCuOUImcIEz2yItPERe5vrvxp6l+UPoNO6hbUu3po9+7pQSM5/H8jn
+	 4jqrYKWakPv7gzCU0XmEon3BoGMGnE8P7Ek6epBomcO3UUGVX8Nw0TSz3Yowxp32xi
+	 Wz9AIqm0PqpNKmKRUHwkmq7CDwGSve7eYuOwikbIAg+ux1ePKm0yvT7jTY6YnLAHyA
+	 y1GFlrPylvORg==
+Date: Mon, 7 Jul 2025 07:44:45 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: shangyao lin <shangyao.lin@mediatek.com>
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -51,18 +51,15 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-mediatek@lists.infradead.org, dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
 	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH v2 01/13] dt-bindings: media: mediatek: add camisp binding
-Message-ID: <20250707-amazing-catfish-of-reward-f4c5ba@krzk-bin>
+Subject: Re: [PATCH v2 02/13] dt-bindings: media: mediatek: add seninf-core
+ binding
+Message-ID: <20250707-merciful-electric-jerboa-bb5bae@krzk-bin>
 References: <20250707013154.4055874-1-shangyao.lin@mediatek.com>
- <20250707013154.4055874-2-shangyao.lin@mediatek.com>
+ <20250707013154.4055874-3-shangyao.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250707013154.4055874-2-shangyao.lin@mediatek.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_224239_154242_A947BC74 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250707013154.4055874-3-shangyao.lin@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,29 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 07, 2025 at 09:31:42AM +0800, shangyao lin wrote:
+On Mon, Jul 07, 2025 at 09:31:43AM +0800, shangyao lin wrote:
 > From: "shangyao.lin" <shangyao.lin@mediatek.com>
 > 
-> Add camera isp7x module device document.
-
-Missing SoB, missing checkpatch.
-
+> 1. Add camera isp7x module device document
 > 
-> ---
+
+Still no SoB, still not tested, still no checkpatch...
+
+and also:
+
+...
+
+> +
+> +...
+> \ No newline at end of file
+
+Look, you have patch warnings. Review your patches before you post them.
+You should reach internally to mediatek colleagues to explain you how
+this process works. I really do not understand why mediatek has so poor
+quality of work and cannot improve over last 1-2 years!
+
+> -- 
+> 2.18.0
 > 
-> Changes in v2:
->   - Rename binding file to mediatek,mt8188-camisp.yaml
->   - Split bindings into four separate patches (one per YAML file)
->   - Various fixes per review comments
->   - Update maintainers list
-> 
-> Signed-off-by: shangyao.lin <shangyao.lin@mediatek.com>
-
-Apply this patch and see by yourself.
-
-This wasn't tested either, so I will skip review.
-
-Best regards,
-Krzysztof
-
 
