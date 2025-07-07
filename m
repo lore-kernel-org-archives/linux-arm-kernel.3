@@ -4,79 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 513EDC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0674BC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O2JN6S7yUjtZ5614ufaGRXdRQ2/PylgFkAVfo9SYR1g=; b=dq60D9XReV2anI
-	n45GMF0404f94fd8vfG6UvxnxxrnRNiGC+gMNhGobTlIb2rR9hbH78xObg5L9EaA3a5htxPBzeHgw
-	mePG8KKtmlAGCBih+lTYjArUMoAHf37nZ4BTs+MR9++r5JBrrjDf8wKnrm2esvRi9555ZjrTcgpEA
-	CnJNn3fMGVMh+aWxcfDN0RoAUzK11Z0P5CjWwdjRNicZoOQGcF3jQZFsAXrDPt93oMc+Hsn/Sfa7H
-	zFh0GW5Ep3y07TRJiPie/08OIC24U8yRfBjlDyJGsSpwRN/bIg/JLN6fqJ9DwMj63xe+oegXuZpaL
-	b2NkAAel50M0fyysjWcQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=42jtsUDXPCPmNytXrx59THHUxajHEyTomBc5xpmWMc0=; b=FbAOP6UzBkkvC2RuJUjOIkIb3x
+	TIAKdIMLdIAHDzGD/F3sRH3U0NlKfEYhucB1Q6kpXlt3x9OnGP/ihFVsbiwpBt4QbZl2sCDTSWCGi
+	n8DnGbWbklUAVqaXH9rqMj0YR6Z0C1g9d5x2ECSL5zJVTk+ZfX9KFiprHcpeCsjc5FvXI156Mp6Ky
+	0fW/Ki33662+tFVHSmSZJD79VbyRTtbToZ706ccg1MrLsjcJLt+9F9n7QiRBBFzstPwW5r+RrUoqc
+	+a7nfnClnTjl8SBcTJ/e3VNo/SA2VUqpGDDqasqTOz8VegGAeuM6oFuTDgJi5/dnWw0ZiP7KQd7TA
+	nbQOuOGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYqe7-00000003IvK-3VmQ;
-	Mon, 07 Jul 2025 18:32:55 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uYqgk-00000003JbC-3Ywl;
+	Mon, 07 Jul 2025 18:35:38 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYpk7-00000003BRy-3TN1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 17:35:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2137AA53F73
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Jul 2025 17:35:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4543C4CEF4
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Jul 2025 17:35:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751909702;
-	bh=O2JN6S7yUjtZ5614ufaGRXdRQ2/PylgFkAVfo9SYR1g=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=F+RNW+BzPadulCJB0CA09JWF7YO/MhLLMmXvUZgJvf/x1srOti75U+WFxwcIFoACB
-	 2PaB/91o05oay79AMwei4NgUYYiMVwsXviilybgrz/6HDnwiwNt7UDkvQ5wTgQ315M
-	 RKQX0Ns/E0L2FeNlMQhVjQ+dKWk410GKFICJga/AusDSc344LRemaLm/VhNLFpg2Z7
-	 gRk2jb/QuqFbRsRKuyuS88xSfee6GclfhqdB6vVTSfibH2MrgLsYJqcTiTg7of1QfE
-	 RdsP+ZZAvPZXl3KuvKw06S+cqWc/Ajnavcs549+pdXgY8VTw3lq4VVLgVAjPhq8Xtd
-	 J83SnFi4nGrGw==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-553dceb345eso4042073e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 10:35:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUa0TIz01glI5wX3cTfxnJqUapIcY6WyZwxwyOISHLuYavC07jYbLZnAaNNCVZ11d2LAqaBv/NQFe4inTzuS/Bf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYhw5HFmhXH0cihIqgjBWfDGnFqWM0PkZZPjJB+0xmxg19mNzR
-	ZCZaTg/7GlFJlki5cO+8ju5OHNO6OyhhablrHYO09h5Y+TwZH5HNsXHhNlidRRsAg7YMw/fBq2g
-	xmFoO+o+YWsr1jS1EDTXiBrYJTyCT1hY=
-X-Google-Smtp-Source: AGHT+IGOttXp/lkLoXck4zz9g7NH+hpLyXdxDc6Zd3dXWLU0JpEMOgZlssrJ930cSWYiNmZYPR2XYxUcHWoDaQuCREs=
-X-Received: by 2002:a05:6512:3c84:b0:553:297b:3d4e with SMTP id
- 2adb3069b0e04-556de363d36mr3692791e87.52.1751909701165; Mon, 07 Jul 2025
- 10:35:01 -0700 (PDT)
+	id 1uYpqz-00000003CLc-3PAX;
+	Mon, 07 Jul 2025 17:42:10 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-70e75f30452so22311137b3.2;
+        Mon, 07 Jul 2025 10:42:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751910129; x=1752514929; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=42jtsUDXPCPmNytXrx59THHUxajHEyTomBc5xpmWMc0=;
+        b=Hue/P1H4tOOz3H5xaVHzkOszy1NOasNJB3irKSmH7gM8Hh+W5+hPHQrwYertHOOAR6
+         NGE7Vod8KphnnOCWvlnDwwZzaYu/H2eyND0NiWeQsglMK9z3cY3uliMMdfSRs5yhBZRs
+         cAFAIs0FkRwtHJPxrNNPDS34/zn7Xf4B4+BGV5Opd5EqMhJd8QMyirAj+ICz6jQtzZBV
+         WhjDGWhm2sb+op8il0aKNTWlHAXhjmvznxf7N5bk2K1ZF4qa1BVLizKTsbyIp8UubQ2R
+         VUw4npj0qgrppdsw/uoFMbLMUs0VCM/BZM3qKYw8uDBoJIqCQfXfLj9y8knh2gv7ZLFb
+         9jyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751910129; x=1752514929;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=42jtsUDXPCPmNytXrx59THHUxajHEyTomBc5xpmWMc0=;
+        b=YsC3OZtpWvqusyxr/v0zaLeRq2MqHPN5TSnCt6f80mkkC5QKRbn72BA4ggkcHsMEyZ
+         JPbPwkmoJ4NiRd6LmxEne6zzhrbP4BWyyKKvZoMF1USLJQA7Tzl6/nhxn1uJgTMwcp35
+         ZzWTzUrFjulhgeKntL0DT9IVoxc5jHFma3aLDKRdykeMEv3ohwfYnGJGIdpmY6mlSwxG
+         +UE6H0flXWKg+ic9HerThIVEEf2KiW8VHBw5hjBNF32oovxWGnDeZ7e4LnclJSiOW0eN
+         0UEkV/9xfW46iU0TLyEo5P9kr5j4WTcPknTYRbMWf1GkW60GqyHDeBWQNIXYc9lkKm5v
+         Yfrg==
+X-Forwarded-Encrypted: i=1; AJvYcCVKM2NCVvGc9/ZboN9LrbGLB3WHq116KOBqyJDEyMruj/xtCogiR42bTiiXoMLmcE2dqWdVDWDlJMNdftABN+HE@lists.infradead.org, AJvYcCX/xy1PFN76nd98RWFnY8+ZjEggzar7zzTRFfxxk6H3WV8RX/wl7mOszfqLC4p0Z7ykZ1ViHY9xI87KDE/4/wU=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6qhlU4XQkWTbwQF6o3QG3I/42W+D5MCgXP3/No3//yTTYKs2q
+	Ml3YFXAKFWn0dqnOpkE5o324ey+pwtkxS5iKOVWiEaFo0Lvt4nf6DaoormFxKI6aUEK2Gw5sOtr
+	bJwnKqAcAy4CJ0+0jNKwVKmK0FX2zcTNfQaRHcJc=
+X-Gm-Gg: ASbGnculVkOAiW9Glwv9Zoa4ynsB1hGTt1jdmWv2LY+e2SVd4hqL4eRb6oVy3eMVWsF
+	J9TQXndJolLWwI9vqDom/roIvuBnFb8n05hEbBGBbfjLrKM70GmLeUMxbyfxdtjaPXuFzUwKEcB
+	K0kZg/Qzil260ZnTC/WROrfikICFae41ZQy5j+7sNG4cTMvnhmdn7hVe05
+X-Google-Smtp-Source: AGHT+IGdu+lUB6aYqtWH4AiO6Py1SgyDO+jxiLBNa4PCqXrusbUeunWL1E2NWxsWS+1ctn1q5K5//624lv0vLW+ua3Q=
+X-Received: by 2002:a05:690c:f8e:b0:70c:c013:f2f with SMTP id
+ 00721157ae682-7179e44d3e9mr7404627b3.35.1751910128762; Mon, 07 Jul 2025
+ 10:42:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250628054438.2864220-1-wens@kernel.org> <20250705083600.2916bf0c@minigeek.lan>
- <CAGb2v64My=A_Jw+CBCsqno3SsSSTtBFKXOrgLv+Nyq_z5oeYBg@mail.gmail.com>
- <e9c5949d-9ac5-4b33-810d-b716ccce5fe9@lunn.ch> <20250706002223.128ff760@minigeek.lan>
- <CAGb2v64vxtAVi3QK3a=mvDz2u+gKQ6XPMN-JB46eEuwfusMG2w@mail.gmail.com> <20250707181513.6efc6558@donnerap.manchester.arm.com>
-In-Reply-To: <20250707181513.6efc6558@donnerap.manchester.arm.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 8 Jul 2025 01:34:46 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64UTr1YSm7VXtzk5jmD_J_20ddPcWww_NPzx-e5HvaOpQ@mail.gmail.com>
-X-Gm-Features: Ac12FXyqsURdwW8NxdfSatuYRJXxqkCB1KgR0rqYcDDm60yVTu4owZ1DToV_pqQ
-Message-ID: <CAGb2v64UTr1YSm7VXtzk5jmD_J_20ddPcWww_NPzx-e5HvaOpQ@mail.gmail.com>
-Subject: Re: [PATCH net 0/2] allwinner: a523: Rename emac0 to gmac0
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev
+References: <20250706214111.45687-1-rosenp@gmail.com> <8c6f18ca47bf0dd78b6675d8b94000679b6c75cd.camel@sipsolutions.net>
+In-Reply-To: <8c6f18ca47bf0dd78b6675d8b94000679b6c75cd.camel@sipsolutions.net>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Mon, 7 Jul 2025 10:41:58 -0700
+X-Gm-Features: Ac12FXwpmQW7d4a2Au2Yz5auZhjQPGBnlW83MkM8UJ0V9bkuM1yY9_y20XPBBjc
+Message-ID: <CAKxU2N9vs5o4tj-9KxCHKevWU+J9wv+ZCOeD8o602y1GY8FzNw@mail.gmail.com>
+Subject: Re: [PATCH 0/6] wifi: rt2x00: add OF bindings + cleanup
+To: Johannes Berg <johannes@sipsolutions.net>
+Cc: linux-wireless@vger.kernel.org, yangshiji66@qq.com, ansuelsmth@gmail.com, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Stanislaw Gruszka <stf_xl@wp.pl>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	"open list:MIPS" <linux-mips@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_103504_008285_3A01EE12 
-X-CRM114-Status: GOOD (  52.18  )
+X-CRM114-CacheID: sfid-20250707_104209_848873_12646701 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,114 +96,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 8, 2025 at 1:15=E2=80=AFAM Andre Przywara <andre.przywara@arm.c=
-om> wrote:
+On Mon, Jul 7, 2025 at 2:01=E2=80=AFAM Johannes Berg <johannes@sipsolutions=
+.net> wrote:
 >
-> On Sun, 6 Jul 2025 21:14:09 +0800
-> Chen-Yu Tsai <wens@kernel.org> wrote:
->
-> Hi,
->
-> > On Sun, Jul 6, 2025 at 7:23=E2=80=AFAM Andre Przywara <andre.przywara@a=
-rm.com> wrote:
-> > >
-> > > On Sat, 5 Jul 2025 17:53:17 +0200
-> > > Andrew Lunn <andrew@lunn.ch> wrote:
-> > >
-> > > Hi Andrew,
-> > >
-> > > > > So it's really whatever Allwinner wants to call it. I would rathe=
-r have
-> > > > > the names follow the datasheet than us making some scheme up.
-> > > >
-> > > > Are the datasheets publicly available?
-> > >
-> > > We collect them in the sunxi wiki (see the links below), but just to
-> > > make sure:
-> > > I am not disputing that GMAC is the name mentioned in the A523 manual=
-,
-> > > and would have probably been the right name to use originally - even
-> > > though it's not very consistent, as the same IP is called EMAC in the
-> > > older SoCs' manuals. I am also not against renaming identifiers or ev=
-en
-> > > (internal) DT labels. But the problem here is that the renaming affec=
-ts
-> > > the DT compatible string and the pinctrl function name, both of which
-> > > are used as an interface between the devicetree and its users, which =
-is
-> > > not only the Linux kernel, but also U-Boot and other OSes like the BS=
-Ds.
+> On Sun, 2025-07-06 at 14:41 -0700, Rosen Penev wrote:
+> > It doesn't even compile. Added OF bindings, documentation, and other
+> > stuff to hopefully this doesn't happen again.
 > >
-> > I reiterate my position: they are not stable until they actually hit a
-> > release. This provides some time to fix mistakes before they are set in
-> > stone.
+> > Rosen Penev (6):
+> >   wifi: rt2x00: fix compilation
 > >
-> > > In this particular case we would probably get away with it, because
-> > > it's indeed very early in the development cycle for this SoC, but for
-> > > instance the "emac0" function name is already used in some U-Boot
-> > > patch series on the list:
-> > > https://lore.kernel.org/linux-sunxi/20250323113544.7933-18-andre.przy=
-wara@arm.com/
-> > >
-> > > If we REALLY need to rename this, it wouldn't be the end of the world=
-,
-> > > but would create some churn on the U-Boot side.
-> > >
-> > > I just wanted to point out that any changes to the DT bindings have
-> > > some impact to other projects, even if they are proposed as a coheren=
-t
-> > > series on the Linux side. Hence my question if this is really necessa=
-ry.
-> >
-> > For the compatible string, I can live with having a comment in the bind=
-ing
-> > stating the name used in the datasheet for reference.
 >
-> For the compatible string going with a fallback name, I can live with
-> renaming it ;-)
+> That was half covered by Felix already, and really shouldn't do two
+> things at the same time anyway.
+Just saw what you're talking about. That's gonna be annoying though.
+The COMPILE_TEST commit will cause compilation to fail and the bot to
+complain before Felix' patch gets merged.
 >
-> > For the pinctrl stuff, which is the contentious bit here, I thought the
-> > whole idea of the newer pinctrl bindings is that the driver uses
-> > "allwinner,pinmux" instead of "function". I think having both being val=
-id
-> > is confusing, and likely to cause conflicts later on. If we're going to
-> > use the hardware register values in the device tree, I'd really like th=
-em
-> > to be the only source of truth. The commit message for the binding also
-> > sort of suggests that "allwinner,pinmux" is the part that matters.
+> Also please add [PATCH wireless] or [PATCH wireless-next] prefix when
+> you submit patches, to make it clear where the series is targeted. In
+> this case, you probably should've split it up, but Felix already covered
+> the immediate bug.
+Will do.
 >
-> Yes, it should be, but it turns out to be convenient for U-Boot to
-> continue using the old method - until someone writes a driver for the new
-> schema. And a function name is still mandatory, it's just mostly for
-> reference now (so would indeed be fine to rename).
-
-Hmm. Could we somehow make it clear in the binding that the function name
-is for reference only?
-
-> So if you really insist on this: please go ahead and merge it, so that
-> the 6.16 release contains the new name.
-
-I'm afraid I insist.
-
-I think we still need an ack from the DT maintainers though, and then
-the binding change would go through the net tree?
-
-> But please note my silent protest about those cosmetic name changes in th=
-e
-> DT realm, which establishes an interface reaching beyond just the Linux
-> kernel. When it comes to new boards, the U-Boot DT sync process is rather
-> slow, so I really am eager to cherry-pick -rc1 DTs already, instead of
-> waiting another 7 weeks - which bites me in this case. It's not merged
-> yet, so is fine in this case, but I would really like to avoid similar
-> hiccups in the future.
-
-Noted. I will try to be more vigilant during the review process.
-
-
-Thanks
-ChenYu
+> johannes
 
