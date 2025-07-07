@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A6B9C83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 15:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B08CC83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 15:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tbMPXxhvpgl9gB5jqtJ3zLdGn3BnaX0ozabRRokp71E=; b=t+E87AgBWEFnLfygLpG/l4EIj7
-	4mpFn8hGkfXuNn5H2DZzj786/XwegivlG3ZcK8yfvaUUJzwOd8gwTP2eX7iUyVrd1nTNtxyqHrgGB
-	dx2zyRIZF72JVu0yozwQQyjleBoi7HtYo7eQ/1Hr6zoJfUjntQrux49MebgDGb1nI2a00A40QAmWo
-	GoZFhmkgxi0inJk43MG2FJRpY1M50/lkRxKwzgoTVqMT9a+b5cSCBF2wGMdJZ/ploxa5OceIac1rt
-	jvOAkW2e8yAyzqln5PH7da+qFRCBh59PGVj0grRNcbJqnGjmwA7atECAjYXE5S+OXiZSywSM7RZ/9
-	NjOtBXNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TNYYBmyXTjR4+ggCtJ9e7HAdw2ayxdhkgyeanyGi+WI=; b=E9f+AY2A+8BEvB2fSzUl3v3dVK
+	yQw9FInge18ku8q/+SvFrm065HDwKJucSorv71WUydpQqm2cZbbf4twJr1r+RLOigzZbLz0UnKSwL
+	PuJKRONi8KTIOVBdiqkVqRtxz3/vteNzuVTzUNxqRHCCW7ahtXUXuXcJ384eC13aonfBs7SW8GXpU
+	UnHG1YbpOEeYDvxUtdf+I/M342JWvonZfa5DvO+pioW0EQSXXBBDZfomjHU7oDQDi7KJOlFrQde+a
+	vWhX/b6wEZeqz44bW9vlRj/nJNr4JQwy7t6WoQJJK0uPoV+RWzzhg0AMzU/qe5EayIG6YpZERGhJO
+	EjpxO2Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYnnl-00000002rr1-0mUJ;
-	Mon, 07 Jul 2025 15:30:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uYnq3-00000002sET-0nru;
+	Mon, 07 Jul 2025 15:33:03 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYnhd-00000002qZH-0CVo;
-	Mon, 07 Jul 2025 15:24:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D222161466;
-	Mon,  7 Jul 2025 15:24:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16595C4CEE3;
-	Mon,  7 Jul 2025 15:24:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751901859;
-	bh=oes/+xn1RurzvrkWTc5SPMVdbj1/SKqgEqmxACEehrM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vCuz4onVvZwugFdTpv7P/0j4lrHYxUcEusn5UZ6Sc3j7ztX/K+Gpa453lYKJ13EmY
-	 z73CmYgE5BggoGsBNG5/6zY9fi98PeDM+w1CSjMwqWyqgM7Ul78pQk0mEtzaY9GIGc
-	 QJsjHURQIfWsqtV6KZwGq/Z0xRsrUpk9RdMopt9wi8VtTduJvP6Ss1E0ZQrqPfgoZ7
-	 XJQHZMgFVGIS2XWGtbkQKAZK+NZntMD0y28Zwk1/CGDBtGBj5ZwM/muNm8GFJVRRTq
-	 8qPt404gevgFXZzBS/3g6qkNxDEKs8rvNdwx/TRROq9pFCHoW8EDcbbV4pHIRSTUCO
-	 UQO2KdE3eXKtg==
-Date: Mon, 7 Jul 2025 17:24:16 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, Simon Horman <horms@kernel.org>,
-	Felix Fietkau <nbd@nbd.name>
-Subject: Re: [PATCH net-next v2 2/7] net: airoha: npu: Add NPU wlan memory
- initialization commands
-Message-ID: <aGvmoJ83EtYOIa0K@lore-desk>
-References: <20250705-airoha-en7581-wlan-offlaod-v2-0-3cf32785e381@kernel.org>
- <20250705-airoha-en7581-wlan-offlaod-v2-2-3cf32785e381@kernel.org>
- <20250707-agile-aardwolf-of-politeness-29fead@krzk-bin>
- <aGt2L1e3xbWVoqOO@lore-desk>
- <679e6fd2-967f-4057-9ccd-92a37ecc4819@kernel.org>
+	id 1uYnie-00000002qpO-3pqV
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Jul 2025 15:25:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1751901924; x=1783437924;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=juWOZsgNPV5fS9ldL5u2tLkhsDJJKTTWAxca9hm39Ys=;
+  b=c8G4aDKiUS+eQGVpELOtSPpniZpVp32LoWohJd4PNAWKApry44+bnWv2
+   MmtDBBndTPqncgDS4Pn2aFAujIJnQnxxcralV8FzhMKSxvEnAqSheOx48
+   GiR2sgKGCy84EQUU8NtECOGMajgDkGCJvF5Dz21CF0zajuZXA9K1naA5U
+   yUoB9aUbqro18ievvvZ4VcG0LYsIRzVhRrodCT+o8DAbnT9Kn6fkU6r3A
+   xfxPRdKo1lrvU7OpsBbk+EeVKq+ZTyMFeLzdDlghGKveCkARSa77jBsOQ
+   bYr7dPojPNplOEaOk9I+04kP7jnljg7HHO1mrUX1RtgWHNcdwMHl0QNPa
+   A==;
+X-CSE-ConnectionGUID: ter5V2FMQaSxLNPqQc2Evw==
+X-CSE-MsgGUID: 4UssQHcNQUKVKnb/MD2MbQ==
+X-IronPort-AV: E=Sophos;i="6.16,294,1744095600"; 
+   d="scan'208";a="44281645"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 07 Jul 2025 08:25:22 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 7 Jul 2025 08:25:00 -0700
+Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Mon, 7 Jul 2025 08:25:00 -0700
+Message-ID: <784f30a8-e524-41fb-8b14-99483116e657@microchip.com>
+Date: Mon, 7 Jul 2025 08:24:59 -0700
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OT/S5wyakOFftJE4"
-Content-Disposition: inline
-In-Reply-To: <679e6fd2-967f-4057-9ccd-92a37ecc4819@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 03/32] clk: at91: clk-sam9x60-pll: use clk_parent_data
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, <mturquette@baylibre.com>,
+	<sboyd@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>
+CC: <robh@kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<varshini.rajendran@microchip.com>
+References: <cover.1750182562.git.Ryan.Wanner@microchip.com>
+ <cc085ca99d75fe59c13acd74782d8437bbc1d65d.1750182562.git.Ryan.Wanner@microchip.com>
+ <486d447b-9984-4044-a620-1d73ffd54111@tuxon.dev>
+From: Ryan Wanner <ryan.wanner@microchip.com>
+Content-Language: en-US
+In-Reply-To: <486d447b-9984-4044-a620-1d73ffd54111@tuxon.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250707_082525_233516_A5948412 
+X-CRM114-Status: GOOD (  23.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,87 +90,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 7/7/25 06:21, Claudiu Beznea wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> Hi, Ryan,
+> 
+> On 24.06.2025 18:08, Ryan.Wanner@microchip.com wrote:
+>> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+>>
+>> Use struct clk_parent_data instead of struct parent_hw as this leads
+>> to less usage of __clk_get_hw() in SoC specific clock drivers and simpler
+>> conversion of existing SoC specific clock drivers from parent_names to
+>> modern clk_parent_data structures. As clk-sam9x60-pll need to know
+>> parent's rate at initialization we pass it now from SoC specific drivers.
+>> This will lead in the end at removing __clk_get_hw() in SoC specific
+>> drivers (that will be solved by subsequent commits).
+>>
+>> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+>> [ryan.wanner@microchip.com: Remove SoC specific driver changes, those
+>> will be added in subsequent commits.]
+> 
+> With this, series is not bisectable.
+> 
+> Also, building this patch throws:
+> 
+> ../drivers/clk/at91/sama7g5.c: In function ‘sama7g5_pmc_setup’:
+> ../drivers/clk/at91/sama7g5.c:1054:12: warning: passing argument 5 of
+> ‘sam9x60_clk_register_frac_pll’ makes integer from pointer without a cast
+> [-Wint-conversion]
+>  1054 |      NULL, parent_hw, i,
+>       |            ^~~~~~~~~
+>       |            |
+>       |            struct clk_hw *
+> In file included from ../drivers/clk/at91/sama7g5.c:17:
+> ../drivers/clk/at91/pmc.h:260:24: note: expected ‘long unsigned int’ but
+> argument is of type ‘struct clk_hw *’
+>   260 |          unsigned long parent_rate, u8 id,
+>       |          ~~~~~~~~~~~~~~^~~~~~~~~~~
+> ../drivers/clk/at91/sama7d65.c: In function ‘sama7d65_pmc_setup’:
+> ../drivers/clk/at91/sama7d65.c:1175:12: warning: passing argument 5 of
+> ‘sam9x60_clk_register_frac_pll’ makes integer from pointer without a cast
+> [-Wint-conversion]
+>  1175 |      NULL, parent_hw, i,
+>       |            ^~~~~~~~~
+>       |            |
+>       |            struct clk_hw *
+> In file included from ../drivers/clk/at91/sama7d65.c:16:
+> ../drivers/clk/at91/pmc.h:260:24: note: expected ‘long unsigned int’ but
+> argument is of type ‘struct clk_hw *’
+>   260 |          unsigned long parent_rate, u8 id,
+>       |          ~~~~~~~~~~~~~~^~~~~~~~~~~
+>   AR      drivers/clk/at91/built-in.a
+> 
+> 
+> Same for the rest of patches in this series following the "Remove SoC
+> specific driver changes" approach.
 
---OT/S5wyakOFftJE4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Would the best approach be to make every patch atomic and change every
+SoC to match each clock function change or put back in the sama7g54
+clock driver changes that where combined?
 
-> On 07/07/2025 09:24, Lorenzo Bianconi wrote:
-> >> On Sat, Jul 05, 2025 at 11:09:46PM +0200, Lorenzo Bianconi wrote:
-> >>> +
-> >>>  struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *st=
-ats_addr)
-> >>>  {
-> >>>  	struct platform_device *pdev;
-> >>> @@ -493,6 +573,7 @@ static int airoha_npu_probe(struct platform_devic=
-e *pdev)
-> >>>  	npu->ops.ppe_deinit =3D airoha_npu_ppe_deinit;
-> >>>  	npu->ops.ppe_flush_sram_entries =3D airoha_npu_ppe_flush_sram_entri=
-es;
-> >>>  	npu->ops.ppe_foe_commit_entry =3D airoha_npu_foe_commit_entry;
-> >>> +	npu->ops.wlan_init_reserved_memory =3D airoha_npu_wlan_init_memory;
-> >>
-> >> I cannot find in your code single place calling this (later you add a
-> >> wrapper... which is not called either).
-> >>
-> >> All this looks like dead code...
-> >=20
-> > As pointed out in the commit log, these callbacks will be used by MT76 =
-driver
-> > to initialize the NPU reserved memory and registers during driver probe=
- in
-> > order to initialize the WiFi offloading. Since MT76 patches are going v=
-ia
-> > the wireless tree, I needed to add these callbacks first.
->=20
-> Cover letter does not link to your NPU patchset. You cannot add dead
-> code to the kernel and now it is pure dead code. Post your user - in
-> this or separate patchset.
+> 
+>> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+>> ---
+>>  drivers/clk/at91/clk-sam9x60-pll.c | 14 +++++---------
+>>  drivers/clk/at91/pmc.h             |  5 +++--
+>>  2 files changed, 8 insertions(+), 11 deletions(-)
+>>
+>> diff --git a/drivers/clk/at91/clk-sam9x60-pll.c b/drivers/clk/at91/clk-sam9x60-pll.c
+>> index cefd9948e103..03a7d00dcc6d 100644
+>> --- a/drivers/clk/at91/clk-sam9x60-pll.c
+>> +++ b/drivers/clk/at91/clk-sam9x60-pll.c
+>> @@ -630,19 +630,19 @@ static const struct clk_ops sam9x60_fixed_div_pll_ops = {
+>>
+>>  struct clk_hw * __init
+>>  sam9x60_clk_register_frac_pll(struct regmap *regmap, spinlock_t *lock,
+>> -                           const char *name, const char *parent_name,
+>> -                           struct clk_hw *parent_hw, u8 id,
+>> +                           const char *name, const struct clk_parent_data *parent_data,
+>> +                           unsigned long parent_rate, u8 id,
+>>                             const struct clk_pll_characteristics *characteristics,
+>>                             const struct clk_pll_layout *layout, u32 flags)
+>>  {
+>>       struct sam9x60_frac *frac;
+>>       struct clk_hw *hw;
+>>       struct clk_init_data init = {};
+>> -     unsigned long parent_rate, irqflags;
+>> +     unsigned long irqflags;
+>>       unsigned int val;
+>>       int ret;
+>>
+>> -     if (id > PLL_MAX_ID || !lock || !parent_hw)
+>> +     if (id > PLL_MAX_ID || !lock || !parent_data)
+>>               return ERR_PTR(-EINVAL);
+>>
+>>       frac = kzalloc(sizeof(*frac), GFP_KERNEL);
+>> @@ -650,10 +650,7 @@ sam9x60_clk_register_frac_pll(struct regmap *regmap, spinlock_t *lock,
+>>               return ERR_PTR(-ENOMEM);
+>>
+>>       init.name = name;
+>> -     if (parent_name)
+>> -             init.parent_names = &parent_name;
+>> -     else
+>> -             init.parent_hws = (const struct clk_hw **)&parent_hw;
+>> +     init.parent_data = (const struct clk_parent_data *)parent_data;
+>>       init.num_parents = 1;
+>>       if (flags & CLK_SET_RATE_GATE)
+>>               init.ops = &sam9x60_frac_pll_ops;
+>> @@ -684,7 +681,6 @@ sam9x60_clk_register_frac_pll(struct regmap *regmap, spinlock_t *lock,
+>>                * its rate leading to enabling this PLL with unsupported
+>>                * rate. This will lead to PLL not being locked at all.
+>>                */
+>> -             parent_rate = clk_hw_get_rate(parent_hw);
+>>               if (!parent_rate) {
+>>                       hw = ERR_PTR(-EINVAL);
+>>                       goto free;
+>> diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
+>> index 63d4c425bed5..b43f6652417f 100644
+>> --- a/drivers/clk/at91/pmc.h
+>> +++ b/drivers/clk/at91/pmc.h
+>> @@ -255,8 +255,9 @@ sam9x60_clk_register_div_pll(struct regmap *regmap, spinlock_t *lock,
+>>
+>>  struct clk_hw * __init
+>>  sam9x60_clk_register_frac_pll(struct regmap *regmap, spinlock_t *lock,
+>> -                           const char *name, const char *parent_name,
+>> -                           struct clk_hw *parent_hw, u8 id,
+>> +                           const char *name,
+>> +                           const struct clk_parent_data *parent_data,
+>> +                           unsigned long parent_rate, u8 id,
+>>                             const struct clk_pll_characteristics *characteristics,
+>>                             const struct clk_pll_layout *layout, u32 flags);
+>>
+> 
 
-I guess you mean the related MT76 patches are not linked in the cover-lette=
-r,
-right? I have not posted them yet.
-
->=20
-> Your explanation of dependency is also confusing. If these are added to
-> wireless tree (considering last experience how they rebase and cannot
-> easily handle cross tree merges), how does it solve your problem? You
-> will have it in one tree but not in the other, so still nothing...
-> That's anyway separate problem, because main issue is you add code which
-> we cannot even verify how it is being used.
-
-My main point here is wireless tree can't acutally merge the MT76 patches
-since, without the net-next ones (this series), it will not compile (so I
-posted net-next patches as preliminary ones for MT76 changes).
-Moreover, this is the same approach we used when we added WED support to
-mtk_eth_soc driver and the related MT76 support.
-However, I am fine to post the MT76 changes as RFC and just refer to it in
-this series cover-letter. Agree?=20
-
->=20
-> So far I see ABI break, but without user cannot judge. And that's the
-> hard reason this cannot be accepted.
-
-if you mean the dts changes, I will fix them in v3.
-
-Regards,
-Lorenzo
-
->=20
-> Best regards,
-> Krzysztof
-
---OT/S5wyakOFftJE4
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaGvmoAAKCRA6cBh0uS2t
-rDczAPsFgaNtjWprKaC6Z+VfmUNzguMJ9HSaKYKBDoZw5TyM1gD8CclHT+w5VNy/
-s041k48snp6/uVkoTA4CjRMJt0+DKQM=
-=aXb3
------END PGP SIGNATURE-----
-
---OT/S5wyakOFftJE4--
 
