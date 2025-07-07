@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15259C83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 06:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9076EC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 06:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hC+oHwBxw5rT4Q2/WgH7GowIF82tJbKjvrWC1OKenAo=; b=I+zNeVsbHLZC12/3GSbLUhD6vf
-	zoO1jlXiZRVhrOauwwXFSzBIcentFFBSOBzq4ZG220XvJZe+mzile8sfWjFpVf97ruCbS28S7qrIw
-	oVZHsPFcTjNgPKoG66Fc+EAHDZdUo9qwLDb2xx+3ZcM8WzCnlgQKts6vUkYgpP/irSTvepWKMwnaa
-	/EbT/pJkHbk3IXdAaQe/R73L4XvJLSF1U6LQ1h2IZ60GxaKB1fIDZI7ZFu9iB0e8Lm+qf4n+m+czW
-	27sJYCY1V1RRjKMuQo8bieFkzu+yIyQ10TEw0mgQjS82VOS8QZOebuxmewDynr4o61V53RTcseZ2l
-	qDQr5leQ==;
+	bh=iWvS3GcAM9krp39wZYU5xrmk2Ufzd/VMZPQlUoI+54Y=; b=ld0Pqtrfl/6J/udOdu2E8K3pgW
+	/6oB0Vxp/UsIoZMVRQ5/JVqXAa9X8jVe29anwo7MrRpPE5x9jwt3XoeWTOgPE95vQhhrZjfEcfr2S
+	KVOdzzktPc8vEFC1Z2osF9thQyrmOvj53oH480/VVXbyg0LKJmz52b0SUIDgf5v1dVUmIOjM8Suu7
+	YvJG6vZYT9TWYSXgNPWPrYaTnt+uabNFfpzie7wu68tPgUf1UObj6Jiku79LqEtPkmmgcRvVekVtI
+	GWKvza9fjqjXPkVq9IV26bVinqRZl+DA3g7z6MV0M4gcDsHGN1RPw1TYnNfLqM8bOoUlZ0lqJy4mg
+	t6hHLqdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYfDO-00000001XD3-3UZM;
-	Mon, 07 Jul 2025 06:20:34 +0000
+	id 1uYfFg-00000001Xb4-2DLf;
+	Mon, 07 Jul 2025 06:22:56 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYf4D-00000001Vsf-1hq9
+	id 1uYf4H-00000001Vu0-0ZnL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 06:11:08 +0000
+	Mon, 07 Jul 2025 06:11:10 +0000
 Received: from [89.212.21.243] (port=56226 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1uYf4B-00DKr8-18;
+	id 1uYf4B-00DKr8-1U;
 	Mon, 07 Jul 2025 08:11:02 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Shawn Guo <shawnguo@kernel.org>,
@@ -46,9 +46,9 @@ Cc: imx@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v2 3/4] arm64: dts: imx93-phyboard-segin: Add PEB-WLBT-05 overlay
-Date: Mon,  7 Jul 2025 08:11:00 +0200
-Message-Id: <20250707061101.1194618-4-primoz.fiser@norik.com>
+Subject: [PATCH v2 4/4] arm64: dts: imx93-phyboard-nash: Add PEB-WLBT-07 overlay
+Date: Mon,  7 Jul 2025 08:11:01 +0200
+Message-Id: <20250707061101.1194618-5-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250707061101.1194618-1-primoz.fiser@norik.com>
 References: <20250707061101.1194618-1-primoz.fiser@norik.com>
@@ -65,8 +65,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_231105_599955_BF4BF468 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20250706_231109_328412_3E9388B3 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,9 +81,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for PEB-WLBT-05 WLAN/BT adapter on phyBOARD-Segin-i.MX93.
-The PEB-WLBT-05 is equipped with a Sterling-LWB radio module, which is
-capable of Wi-Fi 802.11 b/g/n and Bluetooth 4.2.
+Add overlay to support PHYTEC PEB-WLBT-07 WiFi/Bluetooth evaluation
+adapter on phyBOARD-Nash-i.MX93 board. Adapter uses the u-blox MAYA-W2
+module (IW612 chipset) which is capable of Wi-Fi 6 and Bluetooth 5.4 LE.
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
@@ -91,35 +91,36 @@ Changes in v2:
 - no changes 
 
  arch/arm64/boot/dts/freescale/Makefile        |  2 +
- .../imx93-phyboard-segin-peb-wlbt-05.dtso     | 93 +++++++++++++++++++
- 2 files changed, 95 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-wlbt-05.dtso
+ .../imx93-phyboard-nash-peb-wlbt-07.dtso      | 88 +++++++++++++++++++
+ 2 files changed, 90 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso
 
 diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 011b2d58e4f7..3166684ab558 100644
+index 3166684ab558..699c3b1d80b2 100644
 --- a/arch/arm64/boot/dts/freescale/Makefile
 +++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -326,8 +326,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+@@ -325,9 +325,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
  
++imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
  imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
-+imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
+ imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
  imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba91xxca.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-wlbt-05.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-wlbt-05.dtso
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso
 new file mode 100644
-index 000000000000..fba1362ced72
+index 000000000000..c7553e39e763
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-wlbt-05.dtso
-@@ -0,0 +1,93 @@
++++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso
+@@ -0,0 +1,88 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ * Author: Andrej Picej <andrej.picej@norik.com>
++ * Author: Primoz Fiser <primoz.fiser@norik.com>
 + */
 +
 +/dts-v1/;
@@ -131,9 +132,7 @@ index 000000000000..fba1362ced72
 +&{/} {
 +	usdhc3_pwrseq: usdhc3-pwrseq {
 +		compatible = "mmc-pwrseq-simple";
-+		post-power-on-delay-ms = <100>;
-+		power-off-delay-us = <60>;
-+		reset-gpios = <&gpio4 7 GPIO_ACTIVE_LOW>;
++		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
 +	};
 +};
 +
@@ -143,29 +142,26 @@ index 000000000000..fba1362ced72
 +	status = "okay";
 +
 +	bluetooth {
-+		compatible = "brcm,bcm43438-bt";
-+		shutdown-gpios = <&gpio4 13 GPIO_ACTIVE_HIGH>;
-+		host-wakeup-gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
-+		max-speed = <2000000>;
++		compatible = "nxp,88w8987-bt";
 +	};
 +};
 +
++/*
++ * NOTE: When uSDHC3 port is multiplexed on GPIO_IO[27:22] pads, it only
++ * supports 50 MHz mode, due to introduction of potential variations in
++ * trace impedance, drive strength, and timing skew. Refer to i.MX 93
++ * Application Processors Data Sheet, Rev. 3, page 60 for more details.
++ */
 +&usdhc3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
 +	pinctrl-names = "default", "sleep";
 +	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_wlbt>;
 +	pinctrl-1 = <&pinctrl_usdhc3_sleep>, <&pinctrl_wlbt>;
 +	mmc-pwrseq = <&usdhc3_pwrseq>;
 +	bus-width = <4>;
++	keep-power-in-suspend;
 +	non-removable;
-+	no-1-8-v;
++	wakeup-source;
 +	status = "okay";
-+
-+	brmcf: wifi@1 {
-+		compatible = "brcm,bcm4329-fmac";
-+		reg = <1>;
-+	};
 +};
 +
 +&iomuxc {
@@ -182,30 +178,30 @@ index 000000000000..fba1362ced72
 +	pinctrl_usdhc3: usdhc3grp {
 +		fsl,pins = <
 +			MX93_PAD_GPIO_IO22__USDHC3_CLK		0x179e
-+			MX93_PAD_GPIO_IO23__USDHC3_CMD		0x4000139e
-+			MX93_PAD_GPIO_IO24__USDHC3_DATA0	0x4000139e
-+			MX93_PAD_GPIO_IO25__USDHC3_DATA1	0x4000139e
-+			MX93_PAD_GPIO_IO26__USDHC3_DATA2	0x4000139e
-+			MX93_PAD_GPIO_IO27__USDHC3_DATA3	0x4000139e
++			MX93_PAD_SD3_CMD__USDHC3_CMD 		0x4000178e
++			MX93_PAD_SD3_DATA0__USDHC3_DATA0	0x4000138e
++			MX93_PAD_SD3_DATA1__USDHC3_DATA1	0x4000138e
++			MX93_PAD_SD3_DATA2__USDHC3_DATA2	0x4000138e
++			MX93_PAD_SD3_DATA3__USDHC3_DATA3	0x4000138e
 +		>;
 +	};
 +
 +	pinctrl_usdhc3_sleep: usdhc3sleepgrp {
 +		fsl,pins = <
 +			MX93_PAD_GPIO_IO22__USDHC3_CLK		0x31e
-+			MX93_PAD_GPIO_IO23__USDHC3_CMD		0x31e
-+			MX93_PAD_GPIO_IO24__USDHC3_DATA0	0x31e
-+			MX93_PAD_GPIO_IO25__USDHC3_DATA1	0x31e
-+			MX93_PAD_GPIO_IO26__USDHC3_DATA2	0x31e
-+			MX93_PAD_GPIO_IO27__USDHC3_DATA3	0x31e
++			MX93_PAD_SD3_CMD__USDHC3_CMD 		0x31e
++			MX93_PAD_SD3_DATA0__USDHC3_DATA0	0x31e
++			MX93_PAD_SD3_DATA1__USDHC3_DATA1	0x31e
++			MX93_PAD_SD3_DATA2__USDHC3_DATA2	0x31e
++			MX93_PAD_SD3_DATA3__USDHC3_DATA3	0x31e
 +		>;
 +	};
 +
 +	pinctrl_wlbt: wlbtgrp {
 +		fsl,pins = <
-+			MX93_PAD_ENET1_RD3__GPIO4_IO13		0x31e	/* BT ENABLE */
-+			MX93_PAD_ENET1_TXC__GPIO4_IO07		0x31e	/* WLAN ENABLE */
-+			MX93_PAD_I2C1_SCL__GPIO1_IO00		0x31e	/* HOST WAKEUP */
++			MX93_PAD_CCM_CLKO2__GPIO3_IO27		0x31e	/* WAKE_DEV */
++			MX93_PAD_CCM_CLKO3__GPIO4_IO28		0x31e	/* WAKE_HOST */
++			MX93_PAD_CCM_CLKO4__GPIO4_IO29		0x31e	/* PDn */
 +		>;
 +	};
 +};
