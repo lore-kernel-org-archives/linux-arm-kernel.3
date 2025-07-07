@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1044C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 19:21:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E37C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 19:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7adI8oLB0BAnpxxs1jA0XuZRc/jv21LnPErqeKfN2DM=; b=x57BPS8u4vhPj1afQdvKiwSwCb
-	sX2+iX733Rk00Ej/a2nSpEUAbzssV0xg5HIsPOFO28+ib1i5lCSAAhx/9glAdnfcI9Bo3X0NctkBP
-	m8+FAWKfxI0lyGN81+EDKIud3imlcbw/oK17faEA44Hva1eEYlLM9QLsxZ3Y2Ainx3CCMT/wcguz3
-	EO06KYj43K63qIOQs3IgIHZPxlHjKjlEZcmA28CydC6JzOzFG06sU48IPmeXiCDi1IwTUHWMIa7Cj
-	UEpJFhhDh69Gw9uXqMJwANkLCMCJe6F1IsMi6GLBhklQrX8QZ4n8iRsXg4undpcPKNkQy41+c1cOv
-	3c7qJ70g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6gX05dgJCD27mH6llDY33IsMXzdisHFKzePgC8oqWYI=; b=SBnepBB0TI1zgRk9D6/DVkdKZs
+	yyWdGHBQfFYS1aDXEn+cOZAU0T3Le1k+S8cGi4LhF7lD47hRitKi4Gt9B0tqFm4q+hkxySU5OcYUD
+	+mLfmMdFw5k1WdctX0EHf6WJmSaz1RDuunRN2ttiPm02a2KwvW0Cqh8wYvO7+cP408YbmpNBOfan6
+	SGDY84XtMqNO9C7oHvqBRtLanAED0MsFDagYpeD33rfXIiqDD6YGx8cq/1YTe9BC0cAwHqpuBqs0t
+	/iY6/hVWvoMr08QcYsabVeE8HxB4R52dizWUqEoO43NKFFj+pf3LJwVfRhV3ouwsSdRjwqutVJ8cN
+	YEOnuaCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYrOj-00000003Qmm-0xFE;
-	Mon, 07 Jul 2025 19:21:05 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uYrR0-00000003Qx7-3xT1;
+	Mon, 07 Jul 2025 19:23:26 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYrGo-00000003PyJ-0jQr
+	id 1uYrKc-00000003QKM-0DoD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 19:12:55 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 567JCpAn298267;
-	Mon, 7 Jul 2025 14:12:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1751915571;
-	bh=7adI8oLB0BAnpxxs1jA0XuZRc/jv21LnPErqeKfN2DM=;
-	h=From:To:CC:Subject:Date;
-	b=IhRBkAHj2RuICYLsXCliyqj/+a+np/jaUyvRykqvzob1ifFgVbwLk1oPZiE8fp/cR
-	 MSFroq7OCSDTKWNQ7HoXMhIAxvOIKQSgzSKLJR15xoyeWnsk2CHRs1LMF+xBkx2sSl
-	 ZIZ7rOdHe0vRCKDlxHIxDVp1K4gEJVWhAP8K3RE8=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 567JCp3u288048
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 7 Jul 2025 14:12:51 -0500
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 7
- Jul 2025 14:12:50 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 7 Jul 2025 14:12:50 -0500
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 567JCok1735887;
-	Mon, 7 Jul 2025 14:12:50 -0500
-From: Judith Mendez <jm@ti.com>
-To: Judith Mendez <jm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2] arm64: dts: ti: k3-am62-main: Remove eMMC High Speed DDR support
-Date: Mon, 7 Jul 2025 14:12:50 -0500
-Message-ID: <20250707191250.3953990-1-jm@ti.com>
-X-Mailer: git-send-email 2.49.0
+	Mon, 07 Jul 2025 19:16:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 351D7A5433B;
+	Mon,  7 Jul 2025 19:16:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCEAEC4CEE3;
+	Mon,  7 Jul 2025 19:16:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751915808;
+	bh=NarcBfymvbhJkXFt0N1R9Pad6pw+hlSq8V8tsPduM5Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uOmVkdSJJx+g32aZ7Cd3tzvKPvjuJupHAF9Xlqd5qdTN6o69DozdHyLuG8odDbjML
+	 kCfjy3uH0/RNHx1umv8xPXj1ZX6DahZuMwRSQsE4Tv1n0OZFJ0qceiDDpKXM2dAfaq
+	 uEjeMfxRQXFoqWFz815ZqG+1xgCauJUcBDjzjthrotM4ifHaMFRbeX1fMaX3HPsW70
+	 tZYSLtKk8qjqRj9fOlO4vWjUEWvEbATTJK32/eAvM4VIt7NzEcdVeRwY1JePXvmqfJ
+	 ylVuIu8QEv6FgJ2tTWKHnYCzjcwHIEp1gQVCW4pgLA/dgoSJclaSTYIavJdbLcrLxE
+	 pXMNxA87v2LPA==
+Date: Mon, 7 Jul 2025 20:16:44 +0100
+From: Simon Horman <horms@kernel.org>
+To: Alok Tiwari <alok.a.tiwari@oracle.com>
+Cc: sgoutham@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	darren.kenny@oracle.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: thunderx: Fix format-truncation warning in
+ bgx_acpi_match_id()
+Message-ID: <20250707191644.GC452973@horms.kernel.org>
+References: <20250706195145.1369958-1-alok.a.tiwari@oracle.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250706195145.1369958-1-alok.a.tiwari@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_121254_257691_7A7678EB 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250707_121650_166937_F93FD2E6 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For eMMC, High Speed DDR mode is not supported [0], so remove
-mmc-ddr-1_8v flag which adds the capability.
+On Sun, Jul 06, 2025 at 12:51:42PM -0700, Alok Tiwari wrote:
+> The buffer bgx_sel used in snprintf() was too small to safely hold
+> the formatted string "BGX%d" for all valid bgx_id values. This caused
+> a -Wformat-truncation warning with Werror enabled during build.
+> 
+> Increase the buffer size from 5 to 8 and use sizeof(bgx_sel) in
+> snprintf() to ensure safety and suppress the warning.
+> 
+> Build warning:
+>   CC      drivers/net/ethernet/cavium/thunder/thunder_bgx.o
+>   drivers/net/ethernet/cavium/thunder/thunder_bgx.c: In function
+> ‘bgx_acpi_match_id’:
+>   drivers/net/ethernet/cavium/thunder/thunder_bgx.c:1434:27: error: ‘%d’
+> directive output may be truncated writing between 1 and 3 bytes into a
+> region of size 2 [-Werror=format-truncation=]
+>     snprintf(bgx_sel, 5, "BGX%d", bgx->bgx_id);
+>                              ^~
+>   drivers/net/ethernet/cavium/thunder/thunder_bgx.c:1434:23: note:
+> directive argument in the range [0, 255]
+>     snprintf(bgx_sel, 5, "BGX%d", bgx->bgx_id);
+>                          ^~~~~~~
+>   drivers/net/ethernet/cavium/thunder/thunder_bgx.c:1434:2: note:
+> ‘snprintf’ output between 5 and 7 bytes into a destination of size 5
+>     snprintf(bgx_sel, 5, "BGX%d", bgx->bgx_id);
+> 
+> compiler warning due to insufficient snprintf buffer size.
+> 
+> Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
 
-[0] https://www.ti.com/lit/gpn/am625
-Fixes: c37c58fdeb8a ("arm64: dts: ti: k3-am62: Add more peripheral nodes")
-Cc: stable@vger.kernel.org
-Signed-off-by: Judith Mendez <jm@ti.com>
----
-Changes since v1:
-- patch was split from series [0]
+Thanks Alok,
 
-v1[0]: https://lore.kernel.org/linux-mmc/20250624221230.1952291-1-jm@ti.com/
----
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 1 -
- 1 file changed, 1 deletion(-)
+I agree this is a good change.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-index 9e0b6eee9ac7..120ba8f9dd0e 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-@@ -553,7 +553,6 @@ sdhci0: mmc@fa10000 {
- 		clocks = <&k3_clks 57 5>, <&k3_clks 57 6>;
- 		clock-names = "clk_ahb", "clk_xin";
- 		bus-width = <8>;
--		mmc-ddr-1_8v;
- 		mmc-hs200-1_8v;
- 		ti,clkbuf-sel = <0x7>;
- 		ti,otap-del-sel-legacy = <0x0>;
+However, by my reading the range of values of bgx->bgx_id is 0 - 8
+because of the application of BGX_ID_MASK which restricts the
+value to 3 bits.
+
+If so, I don't think this is a bug and it should be targeted at net-next.
+With a description of why it is not a bug.
+
+Conversely, you think it is a bug, then I think an explanation as to why
+would be nice to add to the commit description.  And A fixes tag is needed.
+
 -- 
-2.49.0
+pw-bot: changes-requested
 
 
