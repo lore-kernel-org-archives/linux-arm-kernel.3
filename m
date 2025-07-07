@@ -4,96 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F32C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 10:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45CEAC83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 10:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M+uhJcJDTeJCAUeixIicqUqHNPuuMmXwRPR3UP1fAmM=; b=FKM41ra9AtP4JfeYWd4CCpNhu3
-	UQUBaUkxX6tXZH0BcEVZ3Fk9MR4uRgIPWpKqDBFnPL8GUabynyatYWPdoLt62iR5RzQeryQWaLAAG
-	S3SMedOuU9qVAlOxPTA69+mVXXllqxZI5t9tm34dPuj4HlrM1+n3O2DnSsLZVFuy3iRnZsQJNCx+a
-	LCHql45GGY/3b3m1sjCWnVAJvlMgTrAS6h2wbyG+xRSAF5sJ0YTD/tH/RXrYdiAELGa37GcFM1rgn
-	jhg+VKVMzHR1mgVDcD8ro5zpBLIRBOb7A/Wz5LjoyigRAntYirFB9EDnOV22m4KvwTtAlgfYOji/S
-	na7JOSuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kHUwvTfnjSEmpcztlWS+Zdhw3cEDVg/IjXMugjFFPWs=; b=eFABmGeqycDpMjweNYgCr3nl4Z
+	7bppVp/Lz1Z2oRFQ/9AacqA2Yi7Wh14Nk5/ijvsdie8M5ne6X8kB2kz4H1DmmDYCZPQYnCnvIgXaX
+	Fk0umLhN/+lCeUYZqYEddO/gbc+FXGFQze/C4zWq66zJ9HqRHZ0GPlFCRL+Tu6pOFYqzbstUby8qv
+	SHqwrSqDUhVMgjxsNH1NNYc0D7p4/vAJyz7+JiHE21x6jIzRZo7HD93ZUdD0ddrN/vDf04W+6R+Mq
+	OEXL0W6Yo0WAOUN6t/SQ21hcGUxCyjmIvO4ZHzFaaNVAl7D32dsPS0IQJF8wmQDJNecS5S5DrbQp8
+	J8KsddVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjT7-00000002Crs-0joh;
-	Mon, 07 Jul 2025 10:53:05 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uYjVP-00000002D52-3aWF;
+	Mon, 07 Jul 2025 10:55:27 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYisE-000000027DK-0LoV
+	id 1uYixM-000000027rQ-0uju
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 10:14:59 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5676FZb1022788;
-	Mon, 7 Jul 2025 12:14:36 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	M+uhJcJDTeJCAUeixIicqUqHNPuuMmXwRPR3UP1fAmM=; b=qa/jqMjNzLnoNdla
-	J8gS5RL+QKKO2XkLCjN1Dd1OFZalOvLdthzFGzbzKNCrkE5b+Ck8ShWM9wT3Hcgk
-	fyKnJggAL2QWHo/tQpb4DWqE+1O6KxhnJZJPllEqH/KtQ54t6G7qdb3HinT2xvYK
-	7cm/3L2Dhe84flz9gvspRWEVXDcz5AJLAVa4it5nqaU1zsjuk9FoC+WN47Pzt8H/
-	q76kIXGyHHPxiBYBSbCQvnl2aXetkDNUnMcp/K6iqGshBxLlfgAMIZxxEP1fWexI
-	rTOlSIEGxIUVt1DhjqJLUUbVPbjejAuyPa+egSUHsCKJVyHQGleIjiG5qTqBXGr9
-	4dKz0g==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47psfm84re-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 07 Jul 2025 12:14:36 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E636440056;
-	Mon,  7 Jul 2025 12:13:11 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6C7BEAC4AF2;
-	Mon,  7 Jul 2025 12:12:18 +0200 (CEST)
-Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 7 Jul
- 2025 12:12:17 +0200
-Date: Mon, 7 Jul 2025 12:12:11 +0200
-From: Alain Volmat <alain.volmat@foss.st.com>
-To: =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
-CC: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
-        Andi Shyti
-	<andi.shyti@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Sumit Semwal
-	<sumit.semwal@linaro.org>,
-        Christian =?iso-8859-1?Q?K=F6nig?=
-	<christian.koenig@amd.com>,
-        M'boumba Cedric Madianga
-	<cedric.madianga@gmail.com>,
-        Wolfram Sang <wsa@kernel.org>,
-        "Pierre-Yves
- MORDRET" <pierre-yves.mordret@st.com>,
-        <linux-i2c@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <linaro-mm-sig@lists.linaro.org>
-Subject: Re: [PATCH v4 0/3] Fix STM32 I2C dma operations
-Message-ID: <20250707101211.GA984919@gnbcxd0016.gnb.st.com>
-References: <20250704-i2c-upstream-v4-0-84a095a2c728@foss.st.com>
+	Mon, 07 Jul 2025 10:20:17 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-451d7b50815so23266175e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 03:20:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751883614; x=1752488414; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kHUwvTfnjSEmpcztlWS+Zdhw3cEDVg/IjXMugjFFPWs=;
+        b=FpyxlckrNpb527mHTJZd5+RZpx2dsllfIrnUKCuM0J2F9/s/V1Uqn0KcTmNuiWGHx7
+         CJGXbMEwGFaVVIj3XpselxQrEXHLbZcmUO+QW6KisJnW/RCtvh3SfWfnugY6TzqsB2RF
+         YeVuJNgsehvCkP1js9tl+SFrC6PeWp+gZsSJXJIw0kG5AWCIcwmmr7KX2ZcQsASYI2Br
+         X3nWpawz7sw7gqvuPgVfMYnEpuQopSxrvvZC5Ao4m/I8uAVuLhGUnzl6Cn+MK0tsRYwt
+         IvrpuGGCpPQc3paJN+KqzNz1hfE48R6UmzI40hzuVbKsbRX0M5fN1wVtUywt6bpteHAa
+         J6Kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751883614; x=1752488414;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kHUwvTfnjSEmpcztlWS+Zdhw3cEDVg/IjXMugjFFPWs=;
+        b=bIb/Tw5PdbDeLLx4YWBmOA09GLuAkPZY3oRgYUHyIDrk9tl4H9gmCjqoEqyh9lzrbO
+         BqMXIK6E9IwY4ks88WAUr72Cc4Zmf7cx8efk5pHDs1olS+wPKwO2iO24kT3K/37GUv6c
+         wx5a8bNFUN0PMmfzB42SWlbP/QQGPOubYAOfqeqvEnSxVbaahHPrsxgdUldgWvjesM/1
+         rkkaBHr8fyHh83OcbZ3fqnwTSHPqDcJyVqSU/7lhVSPvIrE1zHXTIuzqYGVNdBohqCno
+         SVIdK+vjnNbbRqVX8099+sMIpjPZeWqrfbrRQY+CCm/z9/NpNzFF7KNqGivOSgtCUbm/
+         WDvA==
+X-Forwarded-Encrypted: i=1; AJvYcCWUAih0MP7rylSx0vNYSA2GCdmqINLefVMFnoTTX8rCZYDBalB8xKatL1491JV3+3fzOmHhiqZMsvPO57N1AKTe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1QetXDYSWX9oghWmXFkChbxEz9vKUOdv4Sm3pD0Ar34ckfEQg
+	P7w4Jfh3P4xmaNZIio6kTGC0bwyXu4uU7qxmFMaqdlC2MqY+Hxpf+4ql
+X-Gm-Gg: ASbGncvJq0ttOahoNn/yap7PajlkcPFRUTOUz3wcFuLlYPFI1IjE36VnjCD+T9xXGFy
+	XLomR+p8TI1oPyUe+jAkMcSDrkvp+XO2/sp3TNPxVZkDCe//OWbUvqVZKno6ernEQCT6Kd78VsZ
+	Q6kBhFMUCQqrzbKWWVdol+tsoWhLT8cN7pGBsF8t4ukuBukxzjS8STf376n+QxmhepDuZ+LQUtr
+	JFAhkV5wzSbAxmEODtFMZFoZWHWSNX8O/mK0GhDOY5GKd+VVJcNQQQXxkLI3zBvN7kZTwxxs8+s
+	SBz0ffZURBxcYPMVSPydQbiwfmH4GGS7PUjqco6FVOsvjh+dQfPFzGTpmPNTno3/WLodKrd6xND
+	hamI2qPrYYz9gEAJGoLxaKANSgGPqOfvYm+W2kjt/h8x4Vc3YT84eqQ==
+X-Google-Smtp-Source: AGHT+IEBzgDT7wIm3e1zpg37ZK8wP8jTto3HqLMBUK5O7zlQTGqg1rZHhi5m/jFgqFJzbmmfcIWWAA==
+X-Received: by 2002:a05:600c:8b72:b0:453:a95:f086 with SMTP id 5b1f17b1804b1-454b311637amr99037235e9.12.1751883614008;
+        Mon, 07 Jul 2025 03:20:14 -0700 (PDT)
+Received: from localhost (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b47030c2e8sm9583420f8f.3.2025.07.07.03.20.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Jul 2025 03:20:12 -0700 (PDT)
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Jon Hunter <jonathanh@nvidia.com>,
+	linux-tegra@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 01/11] dt-bindings: tegra: pmc: Add Tegra264 compatible
+Date: Mon,  7 Jul 2025 12:20:04 +0200
+Message-ID: <175188357609.1321171.837662238630621185.b4-ty@nvidia.com>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250506133118.1011777-2-thierry.reding@gmail.com>
+References: <20250506133118.1011777-1-thierry.reding@gmail.com> <20250506133118.1011777-2-thierry.reding@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250704-i2c-upstream-v4-0-84a095a2c728@foss.st.com>
-X-Disclaimer: ce message est personnel / this message is private
-X-Originating-IP: [10.130.77.119]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-07_02,2025-07-07_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_031458_410898_297B60E9 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20250707_032016_259865_422CCDC8 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,57 +101,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Clément,
+From: Thierry Reding <treding@nvidia.com>
 
-On Fri, Jul 04, 2025 at 10:39:13AM +0200, Clément Le Goffic wrote:
-> This patch series aims to fix some issues inside the driver's DMA
-> handling.
-> It also uses newer I2C DMA API.
-> 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> ---
-> Changes in v4:
-> - Patch[1]: Remove all `chan_dev` variable occurrencies
-> - Patch[2]:
->     - Refine commit message
->     - Use the dma_callback to factorize the code
-> - Patch[3]: Refine commit message
-> - Link to v3: https://lore.kernel.org/r/20250630-i2c-upstream-v3-0-7a23ab26683a@foss.st.com
-> 
-> Changes in v3:
-> - Add Alain Volmat's "Acked-by" on patch 1 and 2
-> - Link to v2: https://lore.kernel.org/r/20250627-i2c-upstream-v2-0-8c14523481dc@foss.st.com
-> 
-> Changes in v2:
-> - Fix the dev used in dma_unmap also in the error path of
->   `stm32_i2c_prep_dma_xfer`
-> - Add a dma_unmap_single also in the ITs error handler
-> - Add Alain Volmat's "Acked-by" on patch 3
-> - Link to v1: https://lore.kernel.org/r/20250616-i2c-upstream-v1-0-42d3d5374e65@foss.st.com
-> 
-> ---
-> Clément Le Goffic (3):
->       i2c: stm32: fix the device used for the DMA map
->       i2c: stm32f7: unmap DMA mapped buffer
->       i2c: stm32f7: support i2c_*_dma_safe_msg_buf APIs
-> 
->  drivers/i2c/busses/i2c-stm32.c   |  8 +++---
->  drivers/i2c/busses/i2c-stm32f7.c | 56 +++++++++++++++++++++-------------------
->  2 files changed, 33 insertions(+), 31 deletions(-)
-> ---
 
-Thanks for this new version of the serie.
-This all looks good to me. My Acked-by are already set since v3 so
-nothing more from me.
-
-Regards,
-Alain
-
-> base-commit: d0b3b7b22dfa1f4b515fd3a295b3fd958f9e81af
-> change-id: 20250527-i2c-upstream-e5b69501359a
+On Tue, 06 May 2025 15:31:08 +0200, Thierry Reding wrote:
+> The PMC found on Tegra264 is similar to the version in earlier chips but
+> some of the register offsets and bitfields differ, so add a specific
+> compatible string for this new generation.
 > 
-> Best regards,
-> --  
-> Clément Le Goffic <clement.legoffic@foss.st.com>
 > 
+
+Applied, thanks!
+
+[01/11] dt-bindings: tegra: pmc: Add Tegra264 compatible
+        commit: 5b820eb176846dad95b0a45dcfe788931f5e7527
+
+Best regards,
+-- 
+Thierry Reding <treding@nvidia.com>
 
