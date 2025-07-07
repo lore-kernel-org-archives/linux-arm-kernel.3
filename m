@@ -4,178 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59CFFC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 02:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA97C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 02:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lHEP7UHyJYEJHgEo2CeL4az7jNChOqxReo4u4UwLIc8=; b=dMcE6PG716dP/ezqMuf8rO/TQT
-	B6rntZtm9WVg8KEplvI24Vjq2tVrd7SwAdrXklRuY6SylpzdGI5P2ucEyJPEt9idk7HvmR8J4WCac
-	lVThC94Pw103MFYcO43eWWGYQt3IWKhgCVEIamrkJkM0ZUtdo8taTkI+zyPNzyVT2bF/5Q6u4uYf2
-	ZpROSk2eSR2fjYv0hvG9lhD01kV0CwxQaLlnBenI7Y9/8FMI3S8yh1i2P+z9mlOFDXEWkSooimlgq
-	iVTp8+eSq3t/wyY7MZgznSZrfeefhWfiEEzoj8h4vdGy0MYtJXv9aFFzsx8RJqLZEUAa2yjB1cDbO
-	CDuGCFww==;
+	bh=ljXn6ItCadp2P7dya9MTcIS1xf+rffUdVy9hsNqCj7s=; b=XsnBV1T3Mx/gjaxi3A0+eFigMy
+	KyZpJTb0Ul9dG34Ge1iyQZmkCFuOynS9FjQF8Js7n8DSJfsc9Pe9XCkfJRarWzbHCYLrv0Ky5cR4K
+	4hto1yyrTwD7+aBk149Yd+PREZdFS7SMPLlSRxYpRCkDsbbwCqtn0ejSddLDgPzLB8+GomwH++39a
+	pb+a7X7gHWnu/gZbS00vISwRac+Ewnijo1tmG2r3VhoSiZVsoAZhicVEgO8idn/D5MpEDzksICmKi
+	48F40XHAhy4pB/myPgUwZyOoDJvRAr7pLoxUMDmuldMpuK3ra9QTRwAlx6k2yP7YGNXs9LPAWxaks
+	nyuijH7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYbpG-00000001Ddi-36z3;
-	Mon, 07 Jul 2025 02:43:26 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uYbuF-00000001EMP-45Tt;
+	Mon, 07 Jul 2025 02:48:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYbZa-00000001C2c-2qYm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 02:27:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hEAt5C0QLqwf4wuC0Ffcl4qkjxE+UdFVnGjaZl/xnUPbSdrjMLki/gpObOh2fy2gSUFbxBpujGXBji8+JM0rrat/ZmjHeASH+E977eLTD3s6WzL5PFCpN81grppcB3ObZM7HM4nljCDP3LnUUUisLcWGBpr5xh7/+P3NVtQzK0lSRIphuk1i0Eq7KxqsHLoAjJ4JoU7WRrx9zjO+RMy5SEAyp3RuUdle72oXrN9AQGmY3yFiHFHpzX0z4jS4++RDoG1eTqzqKBJCGSYhQzwCWvR7FRkdl9Ec1DwWYQDV55pYtKa0WSyywE9+0evn5cbjGCYVDQCUDp8bNxfUGRx9EA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lHEP7UHyJYEJHgEo2CeL4az7jNChOqxReo4u4UwLIc8=;
- b=w7xDgqAI+v9rd5ZrCXrHhQhGFI59fBY5GlJEpQ938kqGJddFz9GzVdR7i0p+NWuP3q7tLSdBc6sqGxFV7ZP4hw8cmZDbOMBVsSbI0PrmeQCid2/naOfNIj/xkCFVocC5IpGh/8uyzhDMxNJKVNdoIbCf8G0PFOe14y51tDjN4VLL2+mkyBqHA5j3qtZ2JwFpT9bXAaok1mz5fg+q4szIPiqJwaGxYE1JqUmXhwGe5cbaa7k0B91CMgWph9kidzPRBVcyHwutWKNNoD+pvDLz7STOC0sd6N7ejbJxkm61hqvnxdYI3+lLWvGoXIy2myRKdRGi6vL4faVw4hpCHwIIWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lHEP7UHyJYEJHgEo2CeL4az7jNChOqxReo4u4UwLIc8=;
- b=inhvi51sLcbw0Z/5LYZrdgiZXFkZ8uElHXhw20KDNFkDfjDUBp48MW1p36ZFq1Aa6IpjXstmkQxF4vfcybdmRWyhGB9HYDh4GQLkSYZ9LiwC9YO7JILDczObwxxm5tjin0vJo2A+6ZDzgNujsfpI2c67sdqhafcFzVgqbzPBFf71XpQugKQf/FjKoyv5FhF9ZSFvCJTx6t7eH+uQ9eWXrAivE0qfB4D51wjHAzfivU7MDmOgEnhaWUxyiVgNglCaoypzX9yOfU7jUv25MyQdY6q75zQUw+Hv7Ijgfycs6SzyVjjB+PSsnF8XgQkRxTJgMC+N5VLJ6fN2yeulkRZjiA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by GV1PR04MB9150.eurprd04.prod.outlook.com (2603:10a6:150:25::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.25; Mon, 7 Jul
- 2025 02:27:11 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8901.021; Mon, 7 Jul 2025
- 02:27:11 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Mon, 07 Jul 2025 10:24:42 +0800
-Subject: [PATCH v3 6/6] arm64: dts: imx943: Add LVDS/DISPLAY CSR nodes
+	id 1uYbrv-00000001DuO-41P4;
+	Mon, 07 Jul 2025 02:46:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0424461135;
+	Mon,  7 Jul 2025 02:46:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EAEAC4CEED;
+	Mon,  7 Jul 2025 02:46:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751856370;
+	bh=BDcACAG4vVGyDuB5npFSBSRiHkqSSsookWWex2LHE2A=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Q0DjfHExc/B7bM9ppDa5/0RnzNhvTOwtlWlBXAV0LD6IWntVDakn5kabYAa0PHg7H
+	 uoHuos4erh9kmPQIh82f49AN/8gAeekk9ZjnNHFNCw9RqFxndyjqzMBpVrwSbfjP1D
+	 rU5Ko8IzkB2bsX55UAskFc6V7YLrJsCikJbQ6HQAFao48s2rqrpnns/CTDndlwW0UY
+	 buvM+pg8/4/+LG/cvZsM8OwGV2+deCgXGH6jGolIWnBm1/z8H7eAiF20SNIWgAKNcT
+	 gu0jZ4OP+ToKmCKjwz/vOUskeRidumrk8R164R083Voakg8z+moXTHOOLXTzyusJ9Z
+	 hbcOXDA0zcc1w==
+Date: Sun, 06 Jul 2025 21:46:09 -0500
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250707-imx95-blk-ctl-7-1-v3-6-c1b676ec13be@nxp.com>
-References: <20250707-imx95-blk-ctl-7-1-v3-0-c1b676ec13be@nxp.com>
-In-Reply-To: <20250707-imx95-blk-ctl-7-1-v3-0-c1b676ec13be@nxp.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>, 
- Frank Li <frank.li@nxp.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Abel Vesa <abel.vesa@linaro.org>, 
- Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1751855088; l=1916;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=ryRqDYpu4mzXMunKCwROW2kN1ImrjbReJwhvcGLzPLA=;
- b=JHl1uuP04x9XWyPecRmA3jyPJHQrP5GKGZIxkZTAwRisCCayJ+0K8kPYmtFQsdyhJPEayJJzM
- 1rnVd+kddL/CsHbGjXRYmo0d5ZLQmNYoo8jYCKvO/ZrphOJhlthkMcE
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: MAXPR01CA0102.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:5d::20) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GV1PR04MB9150:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6477d534-6f71-47ce-a97a-08ddbcfdc71c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|19092799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WWFGNld1TUdtd05KRUxxNUU5Um1SdlY5Mm9pcVRpU2FHb0diY1l1VFh4QkxI?=
- =?utf-8?B?dy8xODJxVmQ0dVhjV0ZYbHJSWW9RQVpyY2FxSGdZOU1SYVBudm8zMTZuUUQ3?=
- =?utf-8?B?TWlPUU9wL21YODlTRC9vbDJZMHJoaEFBUUl5bDhjc0toS0ZKaHR6Y09xOXNQ?=
- =?utf-8?B?ckp1RVE2bkIwbzFaR2J5KzgveWFtM3dWZ1l1NDNtdjY2NXRjcnZYTDI2T2k0?=
- =?utf-8?B?eTFheG5laEVRd1R1NXJ0Mi9nOTJIOStKclN0eUdLMndwc1NUZlR4MDkxVzk5?=
- =?utf-8?B?NHVCZTc2cG8vSnV6OW1LeUpFZ3gwMmQxVXF1eFNWbHFwQ3QrazV4cXNqOVl6?=
- =?utf-8?B?WE9keG1zalRQM1ozTmxtWGxSSms1VjIwZVVHemhDcWhRRUYyTnlPS1E3cXBm?=
- =?utf-8?B?b0FVK1ZDRUhZcy82N2hoWWVqNDU0WW5mNTIzbEV5cHo0ZEJSVmc4akJaMmlk?=
- =?utf-8?B?OXZheks2TWRrVCs0bXRaZmk4RGVxY0svYlpiWUZCTGg3NTNrUVdtSW0rUVZ1?=
- =?utf-8?B?bWtmTzlCRnI1clNnS1lyYnIwMUp6WmVsODdISXRUdDJGcDVZK2R3aGR0K0Z3?=
- =?utf-8?B?dDU4aktQb3Q5dzhacG41L3MxT05mVjFFZXhhL2c4eHRydWFaRE1JbHlxK2tQ?=
- =?utf-8?B?Z0V2UFR6RkttSXE2WEQ4anhIK0pmRFJVMzJtZVpXOS9aSk5ZNVdoTFVscWtN?=
- =?utf-8?B?UjJvemFScG4xeUNZTGNCKzB1NjRlTGt2QUo1MTNIazRRMmI1Y21tY2FiWDM2?=
- =?utf-8?B?N0tobnJDbEdtQWFlb3RyRTJ5UVA0N0FGdzBheWZrZVFpZHRscFVpejVTWUJY?=
- =?utf-8?B?T3lMODFaQ1haSUsrdEQ0cUNxZ2Y5VG9lMjZaTlpqblpPaDdRR3lPTW9Lay8z?=
- =?utf-8?B?MTJ6TWRYSk9XMFE0SmsxT0ZGSEkvZkNDTmlwTmg4SlhCV25kTWpuV1dHSS9K?=
- =?utf-8?B?VTBwNXk1ODJWTDR6SWVtUnJXSmhaMlJXcS9ydGJsYUZzb2IwUHNUeVNjMTRO?=
- =?utf-8?B?M1VWbmQzdXpEVWdIM0Rjd1F5M0xISnRHTVBaUWtkSDhCOTVMUll4WW1ndHVH?=
- =?utf-8?B?U0hDWnpOZnlaenVuaEcweUg1dkVPNENGWnRTNEI0KzVIU1NCdi9oMVVIVW1o?=
- =?utf-8?B?dHhHSTBrbVdzK2lsbUVCZU0xRUQwY2ZDSXpVZGpuTEJYSnd4eFFROG52MzhG?=
- =?utf-8?B?T1JhWHQwSkNzY0JvSzNGV09nWUNhRHJBRFQrYkdUd1lwdTM5QWFoWE9BZkNP?=
- =?utf-8?B?bjN1NFc1Q1hYOC9uVzJjZngvcklBbzhiV2RWakJvWmphQVRkQTdJdzExRGR4?=
- =?utf-8?B?aDc3eFZHb0NsUmZ3eTV2SVhzUkU1d2dEekcwbWkrK1JlZWNQNXFXaG9UOWkr?=
- =?utf-8?B?K3hPWWdKZDN4ekxldXBWZUYvNysrODBTNHJ4RVBab1ZoNlRPTmZEcUE3cUlk?=
- =?utf-8?B?TjA3RDNuOWNTaFRsNW5YcGc3LzRtNHBHMEpKT3pzdnY4NnRINTB1cnM0V2Nr?=
- =?utf-8?B?b0lObkJpV2ZJNGlsSFNuaVkrdzZkQVNBZ1ZJdWx4YXVaNm9xZXAwQjAwQ0JV?=
- =?utf-8?B?eHBRMm1YN3FsUzNzQzRFaWxRdncva1AvaTFaZGphVmlHU21ybUlsUUc5VFdy?=
- =?utf-8?B?WUFGeGIyVkxwKzY2V3dxNmdxdFo4TUlRc1Nvdy9KZExPYm5yaGN6ZTkyTUVZ?=
- =?utf-8?B?ekIwUlVWRDRoU1ArMGYxbE5HOExWWDF3Q3VYOE9IK2dNTG0yWTRic1prSFhZ?=
- =?utf-8?B?UTdKYXBkTnl1WTVTYXA3Z3p2RDMyR1o4V2lGejVhbWdLVDQ0b0FRSlZyejda?=
- =?utf-8?B?WTA2bjM1NFF2dzhpWU5kSGlFNlVOeVlwVWEwcWpwMjc4RXdrd3dJbU1iTmFP?=
- =?utf-8?B?U0R5cmFua21kcXJianFUVHA2TEdrRmNHQm9obEtCMVZWdlhmU0k1ZFJNNnBl?=
- =?utf-8?B?eTU2V3dxeWh6MXg2RU9wWi9jMUNRT1V0OVA4VjJ0dUI0QkdoZVFCVE9KS1lF?=
- =?utf-8?Q?CUcS9bwbkJltYK1J05dYDwqdteuF2Q=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bDhaaXMyZkViYzJ2NWFrbXNLRzVOT05Ma2p4ZitZVFE5bkFWQ2JPSmJ0R0Ur?=
- =?utf-8?B?LzRtRU12RkVTZXdxNGVnbHRiYTFsNFVVV1FnSW42anBYRFVXWFZ0SkYwYjRq?=
- =?utf-8?B?bFhnYXQ4cjNCRGRmSzMxeDMxcWN6WnJHTWt4K1B5UmI0cDQxbEp4ditwdmpP?=
- =?utf-8?B?d2VBd1diRW9LNDRYMnFvaDU3RFBSeUNHU01RSTV4cXF1ZW5TWjVjSHdKam9U?=
- =?utf-8?B?SmRVUVB5SDhGM0pvZTNIODRSS21VRTA3dWxxeTlUcklLcGNJSmxHZDJZSGFw?=
- =?utf-8?B?Y1VBTkh0bkVPU0JCb1VFT0FDWmNxSHVkalBuZlVmRHcvWEtQK0VxS3dBbElt?=
- =?utf-8?B?VHVTTkNnTndneUppSnFQMVAvaHFJV2k4ZGhpaTRzNEpzeVJLbmxGTDVGelJI?=
- =?utf-8?B?NytpZTZwMWdINWsvL1IrRnlJcjNWRmt6WUt1ZDFNL053YTh1MTNBbURObkN1?=
- =?utf-8?B?cGd1RTRCMnBqeEJPV3hlUVNzOEJZVXVHQ3pxTjdMSDdub2pRT0V1SU5mWVR2?=
- =?utf-8?B?UWJPNGZnM2IvNlFvVkNIdy9RSUNxaWJDbEZqQTIxYS8xWXNZQzJJRFEwKzBw?=
- =?utf-8?B?OVBmb1ZUMnhRS2I1Zkt5ZUNlMkVQM2p4Mm14QVpQRkhjVlVzUWlTODdmMXUx?=
- =?utf-8?B?STFiSTVXdUtQMzlwNE1IWllYakpkeVd6RGRCYVl0RTByd2w5T2dnSlhxWnhi?=
- =?utf-8?B?VGFwTEhURGtzVGZTUllUa00rSTk1RnBSS0dYUXNhSTBlcEU4VmlUd2pVNUUr?=
- =?utf-8?B?RXdJMkNZck9uNHZXWWhqemJiVnlHbmtVTVdlMUxXb1l4a3NFZDVtU2l2RVlL?=
- =?utf-8?B?TjkvOUx5b0lQV0NTNC8wMFJPVzk1Q1pFd2VFNkg4SXV4M016QVhKL2hsOG45?=
- =?utf-8?B?SFJZVFNxRmZqODBZVU5wL0VBUEVHZU5sOHhRdUp6b1BXQlZ5ZkRoSjR4S0lp?=
- =?utf-8?B?SVNzOUpuL2hndDk3QjJmTVZSMURyNURTRGxvMnFRbnduTmhRVWJZeUZsV3Jq?=
- =?utf-8?B?cE9Oc0Q3YWhmUm1aN2E1Z2szalRlNTJpRjJuSGgvcmpSck5LWWJHazU2Zk1P?=
- =?utf-8?B?bXBvV251eUtuV2E0cTBwMlpnQ1h6RmN5K1l5UlhEZzk2bm5DQ0hjYVBJQ0R0?=
- =?utf-8?B?VzVrWlFneFRDbEU3eVVKUENLZVprakNVeW16Tnd1cEZjdWlDaGE4Y0hrb2Uz?=
- =?utf-8?B?UzVLc2kvY1Z5QkZXVGU3RG5ucXJVcU9hSW1IWElCbGJ4UDF5UkErRG1MVXQv?=
- =?utf-8?B?N2pQVkp4TzJBbnBqQnVodmxuRmQwa2syNHFUZTJZelg1SzhlbUZrQzlhTHpC?=
- =?utf-8?B?MUtUZ0tFU1d5b0EyTS96dzVSc3BzZ1ZHWjdXYjdMYXJoR1ZVdFdxQ0d5Y3ZX?=
- =?utf-8?B?M2J2OGtFUnFVcE0yOVNwd3Y4TStaVFI3eXVCK25aR09hM21LSHhNMS9zYmtu?=
- =?utf-8?B?YzgxTlJBTEs0eU5raVFWNVVGdWFjN2NqYWJ6M0xXeFN2UzdnWlF1OUpJN2ox?=
- =?utf-8?B?UzNPUWx0K2wzZ1R3QU5zQXJsNzh1cUF2ZXVRUlRRVk16Tk5SbDFhbGl1OEgr?=
- =?utf-8?B?OW9MN2ZNdktuTFFVbTFpZkZWMnJzdHV0K3lzRzBRdGJ6Tk05d3A3bXFPSzRo?=
- =?utf-8?B?eTBzYTVPV1h3RTJsRzNtSlN4by9TTEQrK1krWlNYTEJGcW1aeFpmL2hvVHRi?=
- =?utf-8?B?RWZCU0J3azZ5eHNLZWE0bnJmT1J6ZUVqcUdQVDJ1b05rMUdyQUVWeVdvS0Mr?=
- =?utf-8?B?MTlkeXhKVmNBZ3JGbTl6eUt0UE5Ga1VHdzR1bXhvRjhJQzRNdmg5eE9FaFNS?=
- =?utf-8?B?bC9QVWUyRnExUFR3emExQnd1SmFiOVVhY3VaUmtzaGdsV2hZSm5Rb0NaSWh4?=
- =?utf-8?B?R2pJYjBKTGt6VDlUa2U0RFBsOS9tUTAzWHNQbXVhSC8zYXlyNDFMcnk5MzdY?=
- =?utf-8?B?b2tKdWw1NnZqRkZ3Qk42UjhRMFNhVlBzSHdHbmx3cW8vdWROK3BCV0QwMGwx?=
- =?utf-8?B?L0w5N3VjWUhXZDUxbXdCbGFpZEh4aXpKbHZDc2k2RDQ3Q2UwVEdRMm1EUFVi?=
- =?utf-8?B?ZWV4UEpBZ0FyelF6STRMbUdiZFhZR3NNNml5OHhHSERZa3haNmxkbURMdDAr?=
- =?utf-8?Q?Lla6X5dl98+kK4cUEa7ApA3OQ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6477d534-6f71-47ce-a97a-08ddbcfdc71c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2025 02:27:11.0735
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jjTxDtMNnpOnPyLzNdEdMqqiW2IUIG4mkbmd461xd+zbFBRZQNWmBEMLH8Ia8CAZ8VMDODT8cNaL15a5hm6CeQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9150
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_192714_729531_C877BC1E 
-X-CRM114-Status: GOOD (  11.03  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com, 
+ linaro-mm-sig@lists.linaro.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-mediatek@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>
+To: shangyao lin <shangyao.lin@mediatek.com>
+In-Reply-To: <20250707013154.4055874-2-shangyao.lin@mediatek.com>
+References: <20250707013154.4055874-1-shangyao.lin@mediatek.com>
+ <20250707013154.4055874-2-shangyao.lin@mediatek.com>
+Message-Id: <175185636460.997381.4340336306163290716.robh@kernel.org>
+Subject: Re: [PATCH v2 01/13] dt-bindings: media: mediatek: add camisp
+ binding
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,69 +77,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add nodes for LVDS/DISPLAY CSR.
 
-Add clock-ldb-pll-div7 node which is used for clock source of DISPLAY CSR.
+On Mon, 07 Jul 2025 09:31:42 +0800, shangyao lin wrote:
+> From: "shangyao.lin" <shangyao.lin@mediatek.com>
+> 
+> Add camera isp7x module device document.
+> 
+> ---
+> 
+> Changes in v2:
+>   - Rename binding file to mediatek,mt8188-camisp.yaml
+>   - Split bindings into four separate patches (one per YAML file)
+>   - Various fixes per review comments
+>   - Update maintainers list
+> 
+> Signed-off-by: shangyao.lin <shangyao.lin@mediatek.com>
+> ---
+>  .../mediatek/mediatek,mt8188-camisp.yaml      | 68 +++++++++++++++++++
+>  1 file changed, 68 insertions(+)
+>  create mode 100755 Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.yaml
+> 
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx943.dtsi | 34 +++++++++++++++++++++++++++++++
- 1 file changed, 34 insertions(+)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/arch/arm64/boot/dts/freescale/imx943.dtsi b/arch/arm64/boot/dts/freescale/imx943.dtsi
-index 45b8da758e87771c0775eb799ce2da3aac37c060..657c81b6016f21270a1b13d636af72c14ab4f8ef 100644
---- a/arch/arm64/boot/dts/freescale/imx943.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx943.dtsi
-@@ -3,6 +3,8 @@
-  * Copyright 2025 NXP
-  */
- 
-+#include <dt-bindings/clock/nxp,imx94-clock.h>
-+
- #include "imx94.dtsi"
- 
- / {
-@@ -145,4 +147,36 @@ l3_cache: l3-cache {
- 			cache-unified;
- 		};
- 	};
-+
-+	clock-ldb-pll-div7 {
-+		compatible = "fixed-factor-clock";
-+		#clock-cells = <0>;
-+		clocks = <&scmi_clk IMX94_CLK_LDBPLL>;
-+		clock-div = <7>;
-+		clock-mult = <1>;
-+		clock-output-names = "ldb_pll_div7";
-+	};
-+
-+	soc {
-+		dispmix_csr: syscon@4b010000 {
-+			compatible = "nxp,imx94-display-csr", "syscon";
-+			reg = <0x0 0x4b010000 0x0 0x10000>;
-+			clocks = <&scmi_clk IMX94_CLK_DISPAPB>;
-+			#clock-cells = <1>;
-+			power-domains = <&scmi_devpd IMX94_PD_DISPLAY>;
-+			assigned-clocks = <&scmi_clk IMX94_CLK_DISPAXI>,
-+					  <&scmi_clk IMX94_CLK_DISPAPB>;
-+			assigned-clock-parents = <&scmi_clk IMX94_CLK_SYSPLL1_PFD1>,
-+						 <&scmi_clk IMX94_CLK_SYSPLL1_PFD1_DIV2>;
-+			assigned-clock-rates = <400000000>,  <133333333>;
-+		};
-+
-+		lvds_csr: syscon@4b0c0000 {
-+			compatible = "nxp,imx94-lvds-csr", "syscon";
-+			reg = <0x0 0x4b0c0000 0x0 0x10000>;
-+			clocks = <&scmi_clk IMX94_CLK_DISPAPB>;
-+			#clock-cells = <1>;
-+			power-domains = <&scmi_devpd IMX94_PD_DISPLAY>;
-+		};
-+	};
- };
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.yaml:68:4: [error] no new line character at the end of file (new-line-at-end-of-file)
 
--- 
-2.37.1
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.yaml: properties:reg-names: {'items': [{'const': 'base'}], 'minItems': 1, 'maxItems': 1, 'description': 'Name for the register region. Must be "base".'} should not be valid under {'required': ['maxItems']}
+	hint: "maxItems" is not needed with an "items" list
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.yaml: properties:reg-names: 'oneOf' conditional failed, one must be fixed:
+	[{'const': 'base'}] is too short
+	False schema does not allow 1
+	hint: "minItems" is only needed if less than the "items" list length
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.yaml: properties:reg: 'anyOf' conditional failed, one must be fixed:
+	'minItems' is not one of ['maxItems', 'description', 'deprecated']
+		hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+	'minItems' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	'maxItems' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	1 is less than the minimum of 2
+		hint: Arrays must be described with a combination of minItems/maxItems/items
+	hint: cell array properties must define how many entries and what the entries are when there is more than one entry.
+	from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.yaml: properties:power-domains: 'anyOf' conditional failed, one must be fixed:
+	'minItems' is not one of ['maxItems', 'description', 'deprecated']
+		hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+	'minItems' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	'maxItems' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	1 is less than the minimum of 2
+		hint: Arrays must be described with a combination of minItems/maxItems/items
+	hint: cell array properties must define how many entries and what the entries are when there is more than one entry.
+	from schema $id: http://devicetree.org/meta-schemas/power-domain.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
+ 	 $id: http://devicetree.org/schemas/media/mediatek/mediatek,camisp.yaml
+ 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.yaml
+Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.example.dts:23.13-43: Warning (reg_format): /example-0/soc/isp@16000000:reg: property has invalid length (16 bytes) (#address-cells == 2, #size-cells == 1)
+Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.example.dtb: Warning (pci_device_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.example.dtb: Warning (pci_device_bus_num): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.example.dtb: Warning (simple_bus_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.example.dtb: Warning (i2c_bus_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.example.dtb: Warning (spi_bus_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.example.dts:21.24-27.13: Warning (avoid_default_addr_size): /example-0/soc/isp@16000000: Relying on default #address-cells value
+Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.example.dts:21.24-27.13: Warning (avoid_default_addr_size): /example-0/soc/isp@16000000: Relying on default #size-cells value
+Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.example.dtb: Warning (unique_unit_address_if_enabled): Failed prerequisite 'avoid_default_addr_size'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek/mediatek,mt8188-camisp.example.dtb: isp@16000000 (mediatek,mt8188-camisp): reg: [[0, 369098752], [0, 4096]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek/mediatek,camisp.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250707013154.4055874-2-shangyao.lin@mediatek.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
