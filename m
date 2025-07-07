@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0034EC71130
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 17:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5291BC71130
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 17:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T65upEdCDY7gEQSF7YmZBvbMiIUrTEJa2opQbxpVZOA=; b=mTYCJpXfnVu9fhGuDyHY6IJYOg
-	C4JBcVWsvlh7yjQqTOANXq010MtC2Y1fTFxKRTNcDgFEfmrqesEFw6T9v48HYOffNMuTvI49Ate5p
-	X9Umb+RFSS4V0WOmLka0fWTLKOJxtymeNdgRLuM+8jeZ0I9eBPP3+IX3tXyHjCYcqRmh8JGaW92PA
-	RTy1edwmyQSYhOmNRKfwJn7pln6fI6eLQFFLxbw35WuNsUkMJMOMHN3+nrbkE9p5wO3/vCxSylWEa
-	WKf5glfqdoE3bmMglpvSpmoty7wQMRO7XTfOklnkuo/0/gjPY+nHkEsXw5khNcJKidSSgSRhQHeVy
-	b3d3O4Yg==;
+	bh=adOl+0ZROT08R4gkFgtW0IB/T2wkeUgUvkFVxuu+NYc=; b=iYpkSDzD5kl2rVgorU4VjSio3h
+	q6mZ8QwHcLeFlKpeEGMWVRxW2uxjXX+0r8cT+xynCs7j5V8iPfhvL33n+CeAJ4EQakThIvNOTUafX
+	HIzqQKCLW3R735DgECW9OgdHTZKTIeVAw1YMH63ZdWMSRQkyseUrUr2TbptUFcTvfQr6wHvQQCIg+
+	I3k5yxTTtVT7+qvTDrbM0cmZBdOHX/bi9ff5g4df2gLBlO5SkAd8dYcD9pUpDNWxtQV1xQYk/N6NX
+	vlRsZ4u1BIvoo+regRCPeMScTagDiUveBo1HaMKSXWxiob4p9t73Wax8DLtDdHKk9ch4zXqBYKt9h
+	4sRA+sgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYpPI-000000038lC-482m;
-	Mon, 07 Jul 2025 17:13:32 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1uYpRb-000000038x4-36qm;
+	Mon, 07 Jul 2025 17:15:55 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYokY-000000031fU-1nmC
+	id 1uYooI-0000000329q-48uv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 16:31:27 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b0b2d0b2843so2275751a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 09:31:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751905885; x=1752510685; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=T65upEdCDY7gEQSF7YmZBvbMiIUrTEJa2opQbxpVZOA=;
-        b=Tw39JfkQwAOPu0F8P39+lWP8pMZkZzHb7AlDcvcM5lxTFKNLR5sbkWbp1W+1JxOJUb
-         3lojYeIk4ScL/7gum9jWo1y+iOeIpwSk5vxpm+IRrn362+BKxENM+S1APyD6JH+YRv0B
-         qfK/hlcHkFMfGNIkJpIX6iuG/bF4Ts8/v/qls2rcO0bTBPEyFP+aNOfxO+y1wj3TlWVH
-         6eAkNxE9AAK9n+D5W14Qjrcr7PB5ZoaK+A+EMRYQTnyNjbqXwVVnhe4AcP9RqX+vQbOV
-         uGSrMUMX2JHK7DnoO+jl/uDCMvxTnXCgapeo56MAfOOFiIDPmmDw2OUPCgsOOLg8x141
-         lp9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751905885; x=1752510685;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T65upEdCDY7gEQSF7YmZBvbMiIUrTEJa2opQbxpVZOA=;
-        b=gqttUbbJJJfDFXK1SZKPuEJzOQ/bQViExz/QfT9QTRSpJyVgPCD6EepxwByoveGVn/
-         gGn1qZQe39o41q1NqGD3Kk32xOrtlWcSvo3v3GaMoNMKprh5VYhotJWq/Zm6MN9xu/rl
-         kNv1HFSNe7Ajb2RgUNj6S92/zS8vbBpLRW8u5hZ3xDEPX3AUdvbJKN4weRoDMh0N8x+E
-         a24Vm9zplnt7io0RK2C7BImXAtzGFSihX8OnVXw/ENpMMsH/YNSMcoJjHfvvcJS+NYGa
-         NkKEtKb5LC94FUY7SN2TnYp1y1qwwN9sK7WUb3hYi0dPNxZU+MKFUs1mSwtboAxAhReg
-         R7fA==
-X-Forwarded-Encrypted: i=1; AJvYcCVK3U2rAkAcAyupUDyqA6e+6SBsjaDBMUOoZiAG3HMtpxgJvCo1Pusnn33HFR81/e0rp5lB+MS01+taASJe3hEb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZ6W3XxTbcrd5JDkWj4fguKxaHvGjd/ZnScq/op3cbftkVX4/5
-	GJ2ib68uaBv9Xg4vCo4MQSoRP6tyGe7ZvaMAxSdBaJH6O9v99Q6didmJ
-X-Gm-Gg: ASbGncuuH3kgXXFJazvCxwpD4Avho1UMnF2RAR5r/4Ipvc/0fZdgyoSCNxZqYyIY7uO
-	NJINaUJPdQ7YjeFgfmHTY6RB0uTGYdyR7CigQOKsIrxDcII4c068JrHOHi6rruky7P+WYG9aESR
-	KkMRT5XEVe7THfNcBpAzINpSjXO4Pd3vcEhHb0ojnKWERciKLLkRYH4A7uHYT10HdKvNU9G939W
-	RrhU8RGrn+nQeAZIWmUwPZkpTulf5iwQkPoEDvT1Hg6OQ1bAFCxMl6/oiSWkpHHGZz+g5vbQ34h
-	DB5oo7lwc42B2gKiO1nOH6QyeR2iYn6AqDmvRZ//eisBuQ6wPi0Hu2vOiagUDQ==
-X-Google-Smtp-Source: AGHT+IE9LUw0GOAkRdv3EbKLvPJ2vN2Wm1zWt6kB2645lDr4uxnf9kEor2mDWupUMMQ9E1c4bRBisg==
-X-Received: by 2002:a05:6a00:2409:b0:749:112:c172 with SMTP id d2e1a72fcca58-74cf6fd8194mr11055113b3a.16.1751905885276;
-        Mon, 07 Jul 2025 09:31:25 -0700 (PDT)
-Received: from localhost ([216.228.127.130])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74ce417f765sm9231493b3a.75.2025.07.07.09.31.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Jul 2025 09:31:24 -0700 (PDT)
-Date: Mon, 7 Jul 2025 12:31:22 -0400
-From: Yury Norov <yury.norov@gmail.com>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux@rasmusvillemoes.dk,
-	linux-kernel@vger.kernel.org, james.morse@arm.com
-Subject: Re: [PATCH 2/2] bitfield: Ensure the return value of
- type##_replace_bits() is checked
-Message-ID: <aGv2WoAtxnEgqV4y@yury>
-References: <20250703135729.1807517-1-ben.horgan@arm.com>
- <20250703135729.1807517-3-ben.horgan@arm.com>
+	Mon, 07 Jul 2025 16:35:20 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 567GZECo272112;
+	Mon, 7 Jul 2025 11:35:14 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1751906114;
+	bh=adOl+0ZROT08R4gkFgtW0IB/T2wkeUgUvkFVxuu+NYc=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=Jb+md87f0hCU48J8NYDmrYFm9cW/xbIkCvhKNm5VZUGAPSfZa/5fdiLg84Hf5XYjR
+	 uKUxKsBqRjqZSlCI11hbbFf/8xkhRkHf18G9/pVkYj2TZPNC6OqG3/Oh4qhOvvR3Ub
+	 iHXwD9OkB6ylEHOAmYM0DCbGss3yJu2dCs179nJw=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 567GZE0w2389392
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 7 Jul 2025 11:35:14 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 7
+ Jul 2025 11:35:13 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 7 Jul 2025 11:35:13 -0500
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 567GZDaW223977;
+	Mon, 7 Jul 2025 11:35:13 -0500
+Date: Mon, 7 Jul 2025 11:35:13 -0500
+From: Bryan Brattlof <bb@ti.com>
+To: Paresh Bhagat <p-bhagat@ti.com>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
+        <afd@ti.com>, <devarsht@ti.com>, <s-vadapalli@ti.com>,
+        <andrew@lunn.ch>
+Subject: Re: [PATCH v6 1/4] arm64: dts: ti: Add bootph property to nodes at
+ source for am62a
+Message-ID: <20250707163513.g5mzvuf4o26dq7cg@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20250704100954.2231853-1-p-bhagat@ti.com>
+ <20250704100954.2231853-2-p-bhagat@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-In-Reply-To: <20250703135729.1807517-3-ben.horgan@arm.com>
+In-Reply-To: <20250704100954.2231853-2-p-bhagat@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_093126_467198_975FB7AC 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20250707_093519_073637_CC65870A 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,40 +89,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
-
-On Thu, Jul 03, 2025 at 02:57:29PM +0100, Ben Horgan wrote:
-> As type##_replace_bits() has no side effects it is only useful if its
-> return value is checked. Add __must_check to enforce this usage. To have
-> the bits replaced in-place typep##_replace_bits() can be used instead.
+On July  4, 2025 thus sayeth Paresh Bhagat:
+> Add bootph property directly into the original definitions of relevant
+> nodes (e.g., power domains, USB controllers, and other peripherals)
+> within their respective DTSI files (ex. main, mcu, and wakeup) for
+> am62a.
 > 
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> By defining bootph in the nodes source definitions instead of appending
+> it later in final DTS files, this change ensures that the property is
+> inherently present wherever the nodes are reused across derived device
+> trees.
+> 
+> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
 > ---
->  include/linux/bitfield.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  arch/arm64/boot/dts/ti/k3-am62a-main.dtsi   | 13 +++++++++++++
+>  arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi |  2 ++
+>  2 files changed, 15 insertions(+)
 > 
-> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
-> index 6d9a53db54b6..39333b80d22b 100644
-> --- a/include/linux/bitfield.h
-> +++ b/include/linux/bitfield.h
-> @@ -195,8 +195,8 @@ static __always_inline __##type type##_encode_bits(base v, base field)	\
->  		__field_overflow();					\
->  	return to((v & field_mask(field)) * field_multiplier(field));	\
->  }									\
-> -static __always_inline __##type type##_replace_bits(__##type old,	\
-> -					base val, base field)		\
-> +static __always_inline __##type __must_check type##_replace_bits(__##type old,	\
-> +							base val, base field)	\
->  {									\
->  	return (old & ~to(field)) | type##_encode_bits(val, field);	\
->  }									\
 
-So, would it make sense to mark _encode_bits() and _get_bits() as
-__must_check as well? At least from the point of unification, it
-would.
+Reviewed-by: Bryan Brattlof <bb@ti.com>
 
-How would we move this - with my bitmap-for next or with arm branch?
-
-Thanks,
-Yury
+~Bryan
 
