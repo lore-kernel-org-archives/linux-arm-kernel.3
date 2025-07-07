@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2078FC71130
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 16:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BAAC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 16:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NUXQYJBwA1uXvCLtyUP2xQTMFYJ+RrG3hsh4utkJxmY=; b=w6IpvSN+nkcrPhC5wi48GdjCaD
-	YEvYwnJlA1Cf5VKwxdpSuzZWwPHAr6VaBF7hVxARomo2LcRRQf2wQlqL8EwWrm786xOTaWqQwKpwM
-	BUTuizOCOuqjqacQv0zvYU3Nptt//rlmrqBxrXBw7zDLBOyN1uUJMlm8RGGsTnQ7bnThCnbOi+skB
-	kEURPpdFXg9/uYh4MO0SirXenU5lKL4WJM+eFMKdqNUECCeq3mRmKR0UoU3ILxrT2l5uc801NLCAy
-	3Gl07sAwG1lmOa4K/Z7at4c+s+4QH/fGybGJDhI6ZkxkxdXtxUFYGOqBVoAUaOdJeNt0gfWrWETrc
-	U5tdmOdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=E/v+423Ay88FAJqzpJZ1o7xpfcXM7VPMAGm6qtSn4F4=; b=1SJFZGMiSkyTbP
+	Rq9a5fJGo8a6ktVysfrBdOX6O4w1Sfx76m3ShMnSBXdv+ZOAVJ8kroBjFk5js5s1AevCocYPjSuUE
+	6AgAmUYdPRqpZ2aEOcWR/h54Zr6pMUlRxU0Y16LjP2PG4nqu2djMwyjzha2lFCMVoJKOBrqyZdqBg
+	wReGVxJJG3yb71VAbshVAVxTmphXbvGa8TJ5956qrCLlZ82wdUq32Z1aR3wWxQql++46eqN8xvRQV
+	Y0G/pirMgMaaOGSX1daM5C3VlT4kV+q8vBss78WRirTU1t4nIXfqqj4LRRuiqnUjc09Z3cm/aqKR+
+	90cOIno62uKTQpTwQCJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYohV-000000031HL-1kfU;
-	Mon, 07 Jul 2025 16:28:17 +0000
-Received: from mail-qk1-f178.google.com ([209.85.222.178])
+	id 1uYojo-000000031VZ-0nXW;
+	Mon, 07 Jul 2025 16:30:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYoHR-00000002xB7-0fYZ
+	id 1uYoKx-00000002xz7-2cf5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 16:01:22 +0000
-Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-7d7f2600c17so203366185a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 09:01:21 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751904080; x=1752508880;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NUXQYJBwA1uXvCLtyUP2xQTMFYJ+RrG3hsh4utkJxmY=;
-        b=f6ll3NIjpi7awYUI8ARMpr6XxGeGUERiKYrGR60fwFSgidGPoEscQ/3iMmZjGSPCNB
-         aR6iMP0wA34GO1/MhYeYufBTo9iSOkR+a4Kv13T3Mj2kMHQbwsG9M3hRdqPVkmar46P5
-         aFLX9z6KMiwEKsuiBmVnzjx2vUZz3yjTjUw/k+2BhYXOpL9nyyzO9Dp7Ewru3Lb5lWi3
-         a0S1HW8uG+e0dHPE2QJzhBsd3YUvsbzvdanE4TVNykmzdzs3qlkwcMz5LUqSFGVFoxTC
-         Uq7QQ6/msuEyJGaiXxXPUzWWpS2o49Rvn2RIZp4DrX8WI6pVWvlwQqd97o9LDYQfdBsF
-         gF8Q==
-X-Gm-Message-State: AOJu0YzkGloqZ49/7OjIe/dDMNGJGuOsAaLKITIUf8ZYHx2LAnU9Q7vh
-	hJ5j9Bw8G1NnHio+hVSubA1xARlL12bEr/vMO5/Rnep7S5JcZPeIaj1V
-X-Gm-Gg: ASbGncv90+Aig97pAZQ/DUQDAMUdYZCkzCFWqSQJ/z+jaMaBz8H8kkf7JmNYUleFFSZ
-	9KJChwFkqH99AQHY+jXvtqfABvRsAxbgWYVz55BHkGMU+pMrnPFcOaaFMcJ3mvdF5xHR3Um2YcI
-	2cTshS6LbbldMobQWGT3ICwQDdycXUUkFot15gOGwZnj/hOo1uklYd8C8JR1328J3dWOmldZVoP
-	U8FfppQAPqp8/93WKm+dvbYqD/ICLtr57gSDFy0QCTI5SLGjhpkedjSuSMZ/Mg0mfYIF45CB+ba
-	R39zrGj6q1b2GQJc6eSHNEMyaNlAye9bC+mVFq68ywSkjYb3NzZpng==
-X-Google-Smtp-Source: AGHT+IEYTHvTkTF6zJvYOnCbSBqGLN3AcGqauqLf5dj2dNagR9TYhmsTSLG+AMquAUaI9gWUZKIT4g==
-X-Received: by 2002:a05:620a:40d3:b0:7d5:e3e9:72ef with SMTP id af79cd13be357-7d5ef4e251dmr1463325585a.2.1751904075735;
-        Mon, 07 Jul 2025 09:01:15 -0700 (PDT)
-Received: from localhost ([2a03:2880:20ff:71::])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d5dbd93f73sm631776185a.4.2025.07.07.09.01.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Jul 2025 09:01:15 -0700 (PDT)
-From: Breno Leitao <leitao@debian.org>
-Date: Mon, 07 Jul 2025 09:01:07 -0700
-Subject: [PATCH 7/8] arm64: remove CONFIG_VMAP_STACK checks from SDEI stack
- handling
+	Mon, 07 Jul 2025 16:05:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A150FA53D3A;
+	Mon,  7 Jul 2025 16:04:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D29BC4CEE3;
+	Mon,  7 Jul 2025 16:04:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751904298;
+	bh=PZguKu1gWtvJhhVgX3umyBR/niONdHTl+p+DO/QP/Sw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=OxwnLMu8FrXZcRkLG0kH45/ZQD56qNSbv9rildxJXMX0TpWG6e6VXaBatZcRSEWMq
+	 twtzFouCMYadDU3K3e+6Up6OIxPQxjWlW843LkTFPek5fAbs3nhO/TIbdkT75pH0fW
+	 BE5Gu5ZG+5hkEKOSuH690HTUXEmHTp6+cj6yjjBHcjNfLxJmQ4pDnvCBqop4tNFn7G
+	 ZATDDDEDCVqWpZNeVUoYFi1wDO6CG6/aV+g8FpRg/BnPizfz7Len7pzlN4EJOaaJFS
+	 L+nXq0rYBAWXykXtfNYXHLil55+buG5n0UX9w7IuCsGJc/W/xhR0gDJYtDF3fpRWAn
+	 wS2MzeC5KzP5A==
+Date: Mon, 7 Jul 2025 11:04:56 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	mhklinux@outlook.com, tglx@linutronix.de, bhelgaas@google.com,
+	romank@linux.microsoft.com, kys@microsoft.com,
+	haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+	catalin.marinas@arm.com, will@kernel.org, mingo@redhat.com,
+	bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+	lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
+	jinankjain@linux.microsoft.com, skinsburskii@linux.microsoft.com,
+	mrathor@linux.microsoft.com, x86@kernel.org
+Subject: Re: [PATCH v2 1/6] PCI: hv: Don't load the driver for baremetal root
+ partition
+Message-ID: <20250707160456.GA2086564@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250707-arm64_vmap-v1-7-8de98ca0f91c@debian.org>
-References: <20250707-arm64_vmap-v1-0-8de98ca0f91c@debian.org>
-In-Reply-To: <20250707-arm64_vmap-v1-0-8de98ca0f91c@debian.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-efi@vger.kernel.org, Breno Leitao <leitao@debian.org>, 
- leo.yan@arm.com, kernel-team@meta.com, mark.rutland@arm.com
-X-Mailer: b4 0.15-dev-42535
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1801; i=leitao@debian.org;
- h=from:subject:message-id; bh=XwtnCAizPM4mNONRdmM+LWN86wthex6fymK/baD6ebY=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBoa+9Dn4x8YaJSTfJb7G6Cqhkv+jOC8ONk9zFsQ
- iJ/WqLC2JeJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaGvvQwAKCRA1o5Of/Hh3
- bdBaD/0WnjGPnhJAL5zph1bBb1N+rPYW83xmPGrHb/uE8ea/eHdf9sjhMixTh4XIS2rWn+BoJIJ
- yrzVYU9b1GCCy7EKVnZR57WdC2QjLYLIy+06DrLmMFP9w/HgXYBNyZlqkgrLySg/0iLeSe5YITF
- ZtoyaK89w3z4ZWgZHxssNnOU+CtqEpWGAdr7ABlGRK+tMTWtX+OWgkXsJ7YlgLusVoCF+Q3BQnM
- 0/kceN+nBMjFrTcHcFdR51pHofMZWp52FXcLcME03j8CQPL9v4T29LSXMix2fthIGSt9k7xnQBM
- pRsh5Yl61agtI3jd9uyaIX39pp/T/+XP1pncmXsIISPjH7b0NJ/zK4grwB4pn/EwNHCsNAPCVDx
- OBMC/JXUq37wv3Kh+g33WR5IVJAD0dVIW4gqayr/eZsYfmaN0ZLcJlwfyCz94gbA+FlhSQ3AyMr
- epM20hCAWFByqbyBUdbtztTy1GvCqfkds1S3zU2KRNO9Y2gsLfaoj+6JM1tMxc/xau43Bn9CB2D
- D+pRSiXs4WoXkXdpxN/khuJeTxOAmFRvwSqtLX9uN91LTS3FPLjhubLBMogjtKnxBhCI+P8st2A
- ZnTYEoi0LeqOBkd2WB5VHzThRHEg4nsWc03pJbFqs5oqrHMAUIuRjaKe8ll+6fsTvBztX/qR2YY
- oSuXfvD7AMaGXmQ==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1751582677-30930-2-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_090121_200918_514BD057 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250707_090459_725645_942C1BB3 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,57 +79,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With VMAP_STACK now always enabled on arm64, remove all
-CONFIG_VMAP_STACK conditionals from SDEI stack allocation and
-initialization in arch/arm64/kernel/sdei.c.
+On Thu, Jul 03, 2025 at 03:44:32PM -0700, Nuno Das Neves wrote:
+> From: Mukesh Rathor <mrathor@linux.microsoft.com>
+> 
+> The root partition only uses VMBus when running nested.
+> 
+> When running on baremetal the Hyper-V PCI driver is not needed,
+> so do not initialize it.
+> 
+> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
 
-This change unconditionally defines the SDEI stack pointers and replaces
-runtime checks with BUILD_BUG_ON() assertions, ensuring that the code is
-only built when VMAP_STACK is enabled. This simplifies the logic and
-reflects the mandatory use of VMAP_STACK for all arm64 kernel builds.
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
- arch/arm64/kernel/sdei.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+I assume this series will be merged elsewhere.
 
-diff --git a/arch/arm64/kernel/sdei.c b/arch/arm64/kernel/sdei.c
-index 255d12f881c2..6f24a0251e18 100644
---- a/arch/arm64/kernel/sdei.c
-+++ b/arch/arm64/kernel/sdei.c
-@@ -34,10 +34,8 @@ unsigned long sdei_exit_mode;
- DECLARE_PER_CPU(unsigned long *, sdei_stack_normal_ptr);
- DECLARE_PER_CPU(unsigned long *, sdei_stack_critical_ptr);
- 
--#ifdef CONFIG_VMAP_STACK
- DEFINE_PER_CPU(unsigned long *, sdei_stack_normal_ptr);
- DEFINE_PER_CPU(unsigned long *, sdei_stack_critical_ptr);
--#endif
- 
- DECLARE_PER_CPU(unsigned long *, sdei_shadow_call_stack_normal_ptr);
- DECLARE_PER_CPU(unsigned long *, sdei_shadow_call_stack_critical_ptr);
-@@ -65,8 +63,7 @@ static void free_sdei_stacks(void)
- {
- 	int cpu;
- 
--	if (!IS_ENABLED(CONFIG_VMAP_STACK))
--		return;
-+	BUILD_BUG_ON(!IS_ENABLED(CONFIG_VMAP_STACK));
- 
- 	for_each_possible_cpu(cpu) {
- 		_free_sdei_stack(&sdei_stack_normal_ptr, cpu);
-@@ -91,8 +88,7 @@ static int init_sdei_stacks(void)
- 	int cpu;
- 	int err = 0;
- 
--	if (!IS_ENABLED(CONFIG_VMAP_STACK))
--		return 0;
-+	BUILD_BUG_ON(!IS_ENABLED(CONFIG_VMAP_STACK));
- 
- 	for_each_possible_cpu(cpu) {
- 		err = _init_sdei_stack(&sdei_stack_normal_ptr, cpu);
-
--- 
-2.47.1
-
+> ---
+>  drivers/pci/controller/pci-hyperv.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
+> index b4f29ee75848..4d25754dfe2f 100644
+> --- a/drivers/pci/controller/pci-hyperv.c
+> +++ b/drivers/pci/controller/pci-hyperv.c
+> @@ -4150,6 +4150,9 @@ static int __init init_hv_pci_drv(void)
+>  	if (!hv_is_hyperv_initialized())
+>  		return -ENODEV;
+>  
+> +	if (hv_root_partition() && !hv_nested)
+> +		return -ENODEV;
+> +
+>  	ret = hv_pci_irqchip_init();
+>  	if (ret)
+>  		return ret;
+> -- 
+> 2.34.1
+> 
 
