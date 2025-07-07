@@ -4,53 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E32EC71130
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB2C0C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 18:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p0izjaE/Fz8LhwJeE7Xt1VSDACgT6yDseiK9TRCIVcE=; b=fSZzvCn2LlV4WTsq0Dkg2zjJYV
-	w0Y5g79FpE2zAbcKIgKN0HOVlwWYOleYkM2DjzpokoUzsBK/HYKf4zCW69tkdDkHtDpb8+VXXyZaF
-	1wgZNLHJZ7PAv3V6P/7USp3BJctUYjzlFVsNccIKcAwWGGHrfwNMtpnSPUS/+dRILRwOngoOp7TDE
-	cN9hErckm3AWaxFFW3xA+2c36oDboWw3d2gTq/D9sGeIB7CeNlVqPtQw4f5cSWz9xpsmvHxxkWZAP
-	fRZXx1vloJ/HsObw18NKc18FFzn/sQduTdodByEVo8PiazZlv04WZ1cmzaljQwUJbP5+BTV0kqV/L
-	LRgtxXWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=69KTYEFmtifFl6F+XwfdQSISiwSApdb5o2AdPYlIDQM=; b=ILD/B9DVk/wpJXrPi2q+5w/EoA
+	jE7emRRqDPLv9mwY4zH9SPNkxD4FnsBIT0S1tBtzLoaPTJUA37u6PD0g6vCmJ0Apre77XCSX9htRS
+	K7NNFN615lgP8BZIjAiKow7fSyVE1jKAiJ/iVtpOUBAlpcwTUAWLWqR3IF5G3zHfnc4FlIpdui6bL
+	wS3tz6tZmBvVWaBOCnCHiDTzCrpWUqIMp1fC0V5hqRa5Xqa/tiQqyaUEEqBgZkN7djKZ1e1Nslc2A
+	0DsDGESugK9vvIZZKWUq2lsV/apdDbJKiuz2MMP9gpE2PDjDwOCydkGT0d8/9rCE6AjDuDxM/uJaR
+	cOu48Zog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYqUx-00000003HtN-3cuj;
-	Mon, 07 Jul 2025 18:23:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYpYh-000000039lQ-1qFp
+	id 1uYqXF-00000003I9C-2jT0;
+	Mon, 07 Jul 2025 18:25:49 +0000
+Received: from 004.mia.mailroute.net ([199.89.3.7])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYpZp-00000003A3J-28u6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 17:23:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14F9A168F;
-	Mon,  7 Jul 2025 10:23:02 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 950673F66E;
-	Mon,  7 Jul 2025 10:23:12 -0700 (PDT)
-Date: Mon, 7 Jul 2025 18:23:09 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org, leo.yan@arm.com, kernel-team@meta.com
-Subject: Re: [PATCH 1/8] arm64: Enable VMAP_STACK support
-Message-ID: <aGwCfRkYqcYBvxZK@J2N7QTR9R3>
-References: <20250707-arm64_vmap-v1-0-8de98ca0f91c@debian.org>
- <20250707-arm64_vmap-v1-1-8de98ca0f91c@debian.org>
+	Mon, 07 Jul 2025 17:24:26 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 004.mia.mailroute.net (Postfix) with ESMTP id 4bbWLw2f9Xzm0ySS;
+	Mon,  7 Jul 2025 17:24:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1751909061; x=1754501062; bh=69KTYEFmtifFl6F+XwfdQSIS
+	iwSApdb5o2AdPYlIDQM=; b=B0le2teessx03Mvotp6H2wWDVBfklJXHzPY2eRtu
+	2Kt6d89ZTST2ezD6vD14RsTtINUAq0oSWMMDI3XtQB4V0iUWUj1KTwSYrHUtpwkD
+	NJj89Hq3l8epZx91bp8ToczxTUi7k4EWGcC5WXjQVM2YxPM56nFSWSQeOjU/A6b6
+	ohV2h3a9MBLu0x9LYFV+cLXhdBjfLXIPpzb+fyEpibUTlWyW+CezVff+2u+nYSM4
+	z2Ec+QP8UoOoGWkRbAOyG0bHv2ay6JjwjR2UpBsXkODD1t7PoaEV4JxdBDCk7Vyy
+	HwKsIDXKBbezJ4wzpP/TwVFkHpBEjQUmEYfTzrPtMb2Thw==
+X-Virus-Scanned: by MailRoute
+Received: from 004.mia.mailroute.net ([127.0.0.1])
+ by localhost (004.mia [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id vZUE9ek8VnuB; Mon,  7 Jul 2025 17:24:21 +0000 (UTC)
+Received: from [100.66.154.22] (unknown [104.135.204.82])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 004.mia.mailroute.net (Postfix) with ESMTPSA id 4bbWLc6BJ0zm0yTF;
+	Mon,  7 Jul 2025 17:24:08 +0000 (UTC)
+Message-ID: <970182d5-6b67-4b02-aa05-0485d0f801d6@acm.org>
+Date: Mon, 7 Jul 2025 10:24:06 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250707-arm64_vmap-v1-1-8de98ca0f91c@debian.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] scsi: ufs: exynos: fix programming of HCI_UTRL_NEXUS_TYPE
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Seungwon Jeon <essuuj@gmail.com>,
+ Avri Altman <avri.altman@wdc.com>, Kiwoong Kim <kwmad.kim@samsung.com>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-scsi@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20250707-ufs-exynos-shift-v1-1-1418e161ae40@linaro.org>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20250707-ufs-exynos-shift-v1-1-1418e161ae40@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_102315_519849_ACC602A7 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20250707_102425_628126_35D265F6 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,60 +92,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Breno,
-
-On Mon, Jul 07, 2025 at 09:01:01AM -0700, Breno Leitao wrote:
-> Enable virtually mapped kernel stacks for ARM64. This provides better
-> stack overflow detection and improved security by mapping kernel stacks
-> in vmalloc space rather than using direct mapping.
-> 
-> VMAP_STACK helps catch stack overflows early by placing guard pages
-> around kernel stacks, and also provides better isolation between
-> kernel stacks and other kernel data structures.
-> 
-> All dependencies are satisfied for arm64: HAVE_ARCH_VMAP_STACK is
-> already selected above, and KASAN_VMALLOC is selected when KASAN is
-> enabled, meeting the KASAN dependency requirements.
-
-I reckon it might be better to say something like:
-
-| arm64: Mandate VMAP_STACK
-|
-| On arm64, VMAP_STACK has been enabled by default for a while now, and
-| the only reason to disable it was a historical lack of support for
-| KASAN_VMALLOC. Today there's no good reason to disable VMAP_STACK.
-|
-| Mandate VMAP_STACK, which will allow code to be simplified in
-| subsequent patches.
-
-... to make it clear that we're not changing the default, and we are
-removing the ability to deselect VMAP_STACK.
-
-Either way, the patch itself looks good to me.
-
-Mark.
-
-> 
-> Suggested-by: Will Deacon <will@kernel.org>
-> Signed-off-by: Breno Leitao <leitao@debian.org>
+On 7/7/25 10:05 AM, Andr=C3=A9 Draszik wrote:
+> On Google gs101, the number of UTP transfer request slots (nutrs) is
+> 32, and in this case the driver ends up programming the UTRL_NEXUS_TYPE
+> incorrectly as 0.
+>=20
+> This is because the left hand side of the shift is 1, which is of type
+> int, i.e. 31 bits wide. Shifting by more than that width results in
+> undefined behaviour.
+>=20
+> Fix this by switching to the BIT() macro, which applies correct type
+> casting as required. This ensures the correct value is written to
+> UTRL_NEXUS_TYPE (0xffffffff on gs101), and it also fixes a UBSAN shift
+> warning:
+>      UBSAN: shift-out-of-bounds in drivers/ufs/host/ufs-exynos.c:1113:2=
+1
+>      shift exponent 32 is too large for 32-bit type 'int'
+>=20
+> For consistency, apply the same change to the nutmrs / UTMRL_NEXUS_TYPE
+> write.
+>=20
+> Fixes: 55f4b1f73631 ("scsi: ufs: ufs-exynos: Add UFS host support for E=
+xynos SoCs")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 > ---
->  arch/arm64/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 393d71124f5d..179b302f43c2 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -280,6 +280,7 @@ config ARM64
->  	select HAVE_SOFTIRQ_ON_OWN_STACK
->  	select USER_STACKTRACE_SUPPORT
->  	select VDSO_GETRANDOM
-> +	select VMAP_STACK
->  	help
->  	  ARM 64-bit (AArch64) Linux support.
->  
-> 
-> -- 
-> 2.47.1
-> 
+>   drivers/ufs/host/ufs-exynos.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exyno=
+s.c
+> index 3e545af536e53e06b66c624ed0dc6dc7de13549f..f0adcd9dd553d2e630c75e8=
+c3220e21bc5f7c8d8 100644
+> --- a/drivers/ufs/host/ufs-exynos.c
+> +++ b/drivers/ufs/host/ufs-exynos.c
+> @@ -1110,8 +1110,8 @@ static int exynos_ufs_post_link(struct ufs_hba *h=
+ba)
+>   	hci_writel(ufs, val, HCI_TXPRDT_ENTRY_SIZE);
+>  =20
+>   	hci_writel(ufs, ilog2(DATA_UNIT_SIZE), HCI_RXPRDT_ENTRY_SIZE);
+> -	hci_writel(ufs, (1 << hba->nutrs) - 1, HCI_UTRL_NEXUS_TYPE);
+> -	hci_writel(ufs, (1 << hba->nutmrs) - 1, HCI_UTMRL_NEXUS_TYPE);
+> +	hci_writel(ufs, BIT(hba->nutrs) - 1, HCI_UTRL_NEXUS_TYPE);
+> +	hci_writel(ufs, BIT(hba->nutmrs) - 1, HCI_UTMRL_NEXUS_TYPE);
+>   	hci_writel(ufs, 0xf, HCI_AXIDMA_RWDATA_BURST_LEN);
+>  =20
+>   	if (ufs->opts & EXYNOS_UFS_OPT_SKIP_CONNECTION_ESTAB)
+
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
 
