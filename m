@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9451C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 06:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF5AC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 06:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CWbMK9QfrRA7cmLniY35I1CU+hmcyS8uuTu60MCcl10=; b=cw/JCirLoV5sHx/cG2t3BGL+MN
-	nTdoX4dkmPiF4/DhvQ/fgB8SEGcY6cFtOHwHRkaD3xKeA3Ss26QIFSzGmPIHr2fAHjPbfqHNEgwMQ
-	toXaGy298pJHgf6wL5I5BAw7fkWD7gFeAQm85NvjhptZjJ/UTU6BydDI3EaD5Trlv1ux8fgqiiZgz
-	aByXWxE2xu09tUIGAFL3fvpx88QJcHQVsvd+QGPL1ylHIoHZdFrmOdag5RIGfzjSN8CpDpqb+hmQg
-	qLrIzXMKpR7W/egA41zoOhw8Dyzfr6VZG1ZJMO/aGcK9NSsimH0dyC9JJibSvqekIeak0WurhfuYM
-	yl3r82UA==;
+	bh=6VTO6rXgMXpQcXMtrII6MgsaSA+NUUPQyrm9yjemNkQ=; b=ZVnG4rnVzvCiXjgBHxSXqdyZjy
+	qMQ/CJtOGqKFPDy+FKP/NFlCMUk8IxDx9Jbvly1jXum6dTmffQ/VgEnL7WgqhTH/+Ug+VzXj/XihH
+	AwqFV4yvD321uQOyhJnU+3DRKbjx4sVeYsXD4uHLhFg42OVTWeWpK3kVnoKjKtHUISOJOoz0W9tSd
+	yKhG0JLHaQrblfDQRKXUgGNnouL5wEZ1TO97EcSYOaggdiFEYjP2m5vWn83SdWlqO2J/HiUWv4bfZ
+	HT9ZBe3qclsUd3jK890LWQe2GD3NyZJ14QPYElVxksNUSg8sB9w/LlO/Oz8wwF34Qx54JsSNyvXxx
+	yD76FOSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYfOq-00000001YgN-0M5x;
-	Mon, 07 Jul 2025 06:32:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uYfR7-00000001Yqf-1cg1;
+	Mon, 07 Jul 2025 06:34:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYfJj-00000001YCk-0qfX;
-	Mon, 07 Jul 2025 06:27:07 +0000
+	id 1uYfNi-00000001YWs-4BsC;
+	Mon, 07 Jul 2025 06:31:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF6696112D;
-	Mon,  7 Jul 2025 06:27:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C59C4CEE3;
-	Mon,  7 Jul 2025 06:27:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5354943809;
+	Mon,  7 Jul 2025 06:31:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 935BFC4CEE3;
+	Mon,  7 Jul 2025 06:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751869625;
-	bh=qgpJwWOs4lGsGZIewidOYHNqx+AL239trjUa1lpTRUk=;
+	s=k20201202; t=1751869874;
+	bh=Dp4PB4uQ9UlsKQjhR6+p8KTy4sduZM+pc6pwopcw86s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aNAkyeJ7zXavwPMmFD8w9pyoJksQvP184yx/9M8iF3lhATTlCVeVNGRgOXsU8Sdbv
-	 N6Zkgs2M9CTXrfNUeyxkINK/wUCY3KhVt3KobDInRDK8HYhGv44rXWe/P0Wp9h0bir
-	 By0mGMzoVHtgFb90wU687PTZ6Ymg63cmc/jE73eSX/yufY8VFliVb0IKolI9pyVugc
-	 vc3wu66xQZyrjF7mnoAPg6ejYFc0XnVzvni6Alfp3PHe+CuAIuNoAn9AD4RMtCH1ku
-	 tJ9OHv+0r9IKtp3kRtpEGIkl0gdaM2/vTfBJTbFSQrrvp04+MS0K2cPp/ug0Eyfy7N
-	 50QStbyls68bw==
-Date: Mon, 7 Jul 2025 08:27:03 +0200
+	b=PVqZknEwQSsVOljR/z6LzhmwxegK6GNwiBbGAEIzG7igrT9cSHrxzGfMN2dr2OkjW
+	 /MvE9fKZPCkwj8a8gmgm+J0C2/PX0C3tmE1vqIFI05Pe5TfOWpnvU8T7eB6/k4sP+a
+	 sbncJaX8mYRz6x2IHd+89sSvNQqOv0rq9crRbFDjMmmWpIsBXmINIQYSSAF8d5QIzw
+	 0moFrfrFrmvRdI/lgT3Tzo0zcAgB5u9KHySi/7jb7WpFXc23zldnP5GeSkDco6w9WW
+	 snp+yrJNENBQiywM+iIS/OtE0q96OpNQ/tqmRYtJQVtAQYRWTorYmtkuW4ky4ORO9t
+	 bbunM7VxZQilg==
+Date: Mon, 7 Jul 2025 08:31:11 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Frank Wunderlich <linux@fw-web.de>
 Cc: MyungJoo Ham <myungjoo.ham@samsung.com>, 
@@ -59,15 +59,18 @@ Cc: MyungJoo Ham <myungjoo.ham@samsung.com>,
 	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v8 01/16] dt-bindings: net: mediatek,net: update mac
- subnode pattern for mt7988
-Message-ID: <20250707-pastel-psychedelic-piculet-b5af11@krzk-bin>
+Subject: Re: [PATCH v8 02/16] dt-bindings: net: mediatek,net: allow up to 8
+ IRQs
+Message-ID: <20250707-modest-awesome-baboon-aec601@krzk-bin>
 References: <20250706132213.20412-1-linux@fw-web.de>
- <20250706132213.20412-2-linux@fw-web.de>
+ <20250706132213.20412-3-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250706132213.20412-2-linux@fw-web.de>
+In-Reply-To: <20250706132213.20412-3-linux@fw-web.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250706_233115_056511_86FAC087 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,19 +85,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 06, 2025 at 03:21:56PM +0200, Frank Wunderlich wrote:
+On Sun, Jul 06, 2025 at 03:21:57PM +0200, Frank Wunderlich wrote:
 > From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> MT7888 have 3 Macs and so its nodes have names from mac0 - mac2. Update
-> pattern to fix this.
-> 
-> Fixes: c94a9aabec36 ("dt-bindings: net: mediatek,net: add mt7988-eth binding")
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> ---
->  Documentation/devicetree/bindings/net/mediatek,net.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Increase the maximum IRQ count to 8 (4 FE + 4 RSS/LRO).
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Because? Hardware was updated? It was missing before?
+
+> 
+> Frame-engine-IRQs (max 4):
+> MT7621, MT7628: 1 IRQ
+> MT7622, MT7623: 3 IRQs (only two used by the driver for now)
+> MT7981, MT7986, MT7988: 4 IRQs (only two used by the driver for now)
+
+You updated commit msg - looks fine - but same problem as before in your
+code. Now MT7981 has 4-8 interrupts, even though you say here it has only
+4.
+
+> 
+> Mediatek Filogic SoCs (mt798x) have 4 additional IRQs for RSS and/or
+> LRO.
+
+Although I don't know how to treat this. Just say how many interrupts
+are there (MT7981, MT7986, MT7988: 4 FE and 4 RSS), not 4 but later
+actually 4+4.
+
+I also do not understand why 7 interrupts is now valid... Are these not
+connected physically?
 
 Best regards,
 Krzysztof
