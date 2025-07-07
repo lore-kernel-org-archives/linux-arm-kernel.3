@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE937C83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 10:36:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A4FC83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 10:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XFK9CGANpFb6qlTeThT0DwZIyre/1tnyiYdjSQY76dQ=; b=gAryKGwMvIZ85CFkizmSw6MjjE
-	v4SLDK4hQtAYDyoODM2WMgLvOUKYHn+5CDeSGFmksVdNrer4zv1owGatfo5EEfXfyyII8oShwU+4C
-	SfNJfWCRWzTGWeIn7Q7opgk1WGlUzq6hIAtCXaxbE233tzMEps7usjT5H/LVKVkxTheKC35kMSYsP
-	W69pNeKboui4JnqPkLygX601SaxMl0+BnauamlExhQpbsn7DemTp370JmpcRhiyYrUmjRLE3BgaDc
-	KEEpQY6RqGiGWbVvkr67FENyYX+oRO3ftjI3xxdfBElmA1iyNyWCV3L1cBb1dKtMOWLWsbRKo32QB
-	BGy3Aueg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9gFXTtBGwP+WW8mfW0YfSedT8ICQ4K2D4zUIbNAJw50=; b=HO80RjpPKdZM2gz3IiF/IGB4WW
+	feMCTJ6fbq46u/Lr+3R31nzzJ4Rppw5dB1VjrdI+dKVI4Waby8YS/24Aqbc07fQrQP3EfjTpt0y/t
+	qbBRN5yWmZg+pU8tyAmaNGXFevNRt/eiah9nCJjgAo70VR3AN9KU2qpwo8xxSThrAX1tETgXOXXoX
+	OZ2u4DTwIIbUAMyqrUYp4wQDlHBKyjgEblS4mwS2Flafs6Nf+6XM+G+mkslYiIkFuLFYqNb38pwyh
+	rntneZIV8RG2z249FY0CAtRcTYoBmgC32qtAn8fhDRAyue6T8nmnNQtJOZKU+0gdKi4gGoBOkWfYb
+	GLD8cDRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjD3-00000002AtW-3Rdz;
-	Mon, 07 Jul 2025 10:36:29 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1uYjHe-00000002BNZ-11t4;
+	Mon, 07 Jul 2025 10:41:14 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYiZr-0000000244X-2EK4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 09:56:00 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-451dbe494d6so32497485e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 02:55:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751882158; x=1752486958; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XFK9CGANpFb6qlTeThT0DwZIyre/1tnyiYdjSQY76dQ=;
-        b=hNYYBRByraejp0mz+WGXyJ5HMQNDsaKBats6PahuMVypG/CTPrG5lbGr+GpAlVr03k
-         6Y27dQDFde0vxGQSmNoELbTN+vBznP2NaxvE5jSngCDuGQEER/+0TD69L7JaUjnto9m9
-         s8aPrHCfTs9p80493uTLAOAzUJy/83DTB6YXpco8m6xseW/peUPXTtOogM74JAf0JBlz
-         rv46ocds2Vzx5CqFUQezr3jIua5U1EMSJfCBnbc2kqycc5A5baRoljGPaaUjvhHmf2gk
-         +nKMt0HAj97OWXlriKSq0KQfb790ZgaZjeELkzWod7M+0r/xGCXuaUSwXYbKSll+Mr8e
-         f1Ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751882158; x=1752486958;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XFK9CGANpFb6qlTeThT0DwZIyre/1tnyiYdjSQY76dQ=;
-        b=iKtfVCdMBtiEHyOHdJYH9DVBrTS/9CI9ML+083hIz4mlO9U7QPLsMEyC4Hmv50K125
-         VgW/scABQephvF4FZ8gkzu/+ig5CTiXVbJXMGYHVHrClQ7hIYzXEPoCe9U5Hk08czTzB
-         jUuZYAZZC6+kWbty9Vc29d5/zaPVjIsjiC66msdlRECMjJN2ry2UrsXGteIq0H7BteIR
-         YXoU4DNPzDplyNAW3sewdyw2GM/Ux6XBtFtit/teroy20oOy2ygfxr2AKoKSj66KBDtC
-         JoqPrCaV3yxMqlxKHr8IEYkh3996VLt51p6Vo8Q8YLf1Q7SlgWN1xTqGtmd4qwQFbDdu
-         +vAw==
-X-Forwarded-Encrypted: i=1; AJvYcCW4b8lVjBt+FKlzmmWmw2idjOM+xEp+3t56nbyOGBO0JXMZHxesHIizVChRc/H0H40rSS2s1UaohCTnR74oYN4r@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZhGQvxvYE8WLhr6tlwppqmeKRBg6VL0rGiNC4VjRkBEpIKXHC
-	hvMe0BoDzOylMNiWp1RFZjE2yBsayW2x/PxSZ4gDy0HqsN14HCDqTsq9xXS2bmK3mmQ=
-X-Gm-Gg: ASbGnctSBik89zMo2g1csDQqz9/YCwQjyn6sOnevTY7lseLEd/8FaQ/RgeE55V1kywR
-	HKLsCuNmmcmA0DpkZM0RvsXci6un9sreH369N+LC+1upbbNw80WlY49wk/hnlIaaNSeOxE8Vv8P
-	a8t3sGWwUDFdC8wOSxJmhimlRm/YNT06E0J/5zscZUrBqGaQNSa9Id0NCS9BN6/3N1z23XBzqIQ
-	XPSlcb43FZlrFbjxUbXraBlJlndzXnsvqGtmCG4eDpNG95N2h/9TOTAy0JzfJT9DtTuuZeih1k2
-	Hs9fn5UOTiC+Hyov7YWl9yXB9poeIPt1HlKq7czlBJOIvoql4T+Y0u7Kr6aSQNVAENPW1Vg=
-X-Google-Smtp-Source: AGHT+IHrp6i6CjW0J0hqro//S7APuf2A8nxf/qPiQQ/JN5ARtQAbdWL7Q7Mj0NHZUV2exYC6za6wrQ==
-X-Received: by 2002:a05:600c:3b95:b0:454:ad94:4b3d with SMTP id 5b1f17b1804b1-454cb768c35mr1610785e9.1.1751882157640;
-        Mon, 07 Jul 2025 02:55:57 -0700 (PDT)
-Received: from ho-tower-lan.lan ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454a9beb22asm136617625e9.36.2025.07.07.02.55.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Jul 2025 02:55:57 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Mon, 07 Jul 2025 10:55:27 +0100
-Subject: [PATCH] coresight: Fix missing include for FIELD_GET
+	id 1uYije-000000025kD-1Suq;
+	Mon, 07 Jul 2025 10:06:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751882764;
+	bh=T8iIMPb9brgtZdi72SAWfhA8roPO7vUHjVTHHnOQNVI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Nyz3P/mVFjxZfpeCi+JHgh8VJSn0xoox1dJhCSYXuFxwdM0sNvNwafLR/zAZnTyb5
+	 G312aUFagNYKNK6E1I1kbqOBbGEQkEaPk40y50SsokLo9okJt1SW3p3dOjBTz8bjv2
+	 Wky154Wu8MeJEVP0vKR5wGEm2/jwK6+2GqTN0ztwuL7vAUWf4ynz1JywSUZ+P8mrze
+	 6w8T8cHr3PtE+/HkwOM7xpiDiZ/Mj812jWdPqEYXBopHPpm4vjZUl1FlU/tTZY1Euk
+	 7RxWXNpMj991IsirfIg5/V1rgvS+ANZm9yFs7dZ88Ag05O5oT3IDfGNEQODCHAOFaZ
+	 EgqL5tUpvw0nQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BAA017E07C9;
+	Mon,  7 Jul 2025 12:06:03 +0200 (CEST)
+Message-ID: <90a3191f-882d-4302-afd5-e73e751b5b95@collabora.com>
+Date: Mon, 7 Jul 2025 12:06:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 02/16] dt-bindings: net: mediatek,net: allow up to 8
+ IRQs
+To: Frank Wunderlich <linux@fw-web.de>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Johnson Wang <johnson.wang@mediatek.com>, =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?=
+ <arinc.unal@arinc9.com>, Landen Chao <Landen.Chao@mediatek.com>,
+ DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>,
+ Daniel Golle <daniel@makrotopia.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Felix Fietkau <nbd@nbd.name>, Frank Wunderlich <frank-w@public-files.de>,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250706132213.20412-1-linux@fw-web.de>
+ <20250706132213.20412-3-linux@fw-web.de>
+ <20250707-modest-awesome-baboon-aec601@krzk-bin>
+ <B875B8FF-FEDB-4BBD-8843-9BA6E4E89A45@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <B875B8FF-FEDB-4BBD-8843-9BA6E4E89A45@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250707-james-coresight-bitfield-include-v1-1-aa0f4220ecfd@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAI6Za2gC/x3NywqDMBBG4VeRWXcgxhv1VUoXmvzRERslY0tBf
- PeGLr/NOScpkkCpL05K+IjKFjPKW0FuHuIEFp9N1tjGdKbjZXhB2W0JKtN88ChHEKyeJbr17cG
- m8mUdmqq9B0s5sycE+f4Xj+d1/QAcuFN9cgAAAA==
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, Leo Yan <leo.yan@arm.com>, 
- Naresh Kamboju <naresh.kamboju@linaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Linux Kernel Functional Testing <lkft@linaro.org>, 
- James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_025559_577100_2B9C58DA 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20250707_030606_542992_5BF494D6 
+X-CRM114-Status: GOOD (  24.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,75 +93,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Include the header for FIELD_GET which is only sometimes transitively
-included on some configs and kernel releases.
+Il 07/07/25 09:30, Frank Wunderlich ha scritto:
+> Am 7. Juli 2025 08:31:11 MESZ schrieb Krzysztof Kozlowski <krzk@kernel.org>:
+>> On Sun, Jul 06, 2025 at 03:21:57PM +0200, Frank Wunderlich wrote:
+>>> From: Frank Wunderlich <frank-w@public-files.de>
+>>>
+>>> Increase the maximum IRQ count to 8 (4 FE + 4 RSS/LRO).
+>>
+>> Because? Hardware was updated? It was missing before?
+> 
+> There is no RSS support in driver yet,so IRQs were not added to existing DTS yet.
+> 
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Closes: https://lists.linaro.org/archives/list/lkft-triage@lists.linaro.org/thread/6GKMK52PPRJVEYMEUHJP6BXF4CJAXOFL/
-Fixes: a4e65842e114 ("coresight: Only check bottom two claim bits")
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- drivers/hwtracing/coresight/coresight-core.c        | 1 +
- drivers/hwtracing/coresight/coresight-etm4x-core.c  | 1 +
- drivers/hwtracing/coresight/coresight-etm4x-sysfs.c | 1 +
- drivers/hwtracing/coresight/ultrasoc-smb.h          | 1 +
- 4 files changed, 4 insertions(+)
+That's the problem. It's the hardware that you should've described, not the driver.
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index fa758cc21827..c2db94f2ab23 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -3,6 +3,7 @@
-  * Copyright (c) 2012, The Linux Foundation. All rights reserved.
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/build_bug.h>
- #include <linux/kernel.h>
- #include <linux/init.h>
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 42e5d37403ad..cbea200489c8 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -4,6 +4,7 @@
-  */
- 
- #include <linux/acpi.h>
-+#include <linux/bitfield.h>
- #include <linux/bitops.h>
- #include <linux/kernel.h>
- #include <linux/kvm_host.h>
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-index ab251865b893..e9eeea6240d5 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-@@ -4,6 +4,7 @@
-  * Author: Mathieu Poirier <mathieu.poirier@linaro.org>
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/coresight.h>
- #include <linux/pid_namespace.h>
- #include <linux/pm_runtime.h>
-diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.h b/drivers/hwtracing/coresight/ultrasoc-smb.h
-index c4c111275627..323f0ccb6878 100644
---- a/drivers/hwtracing/coresight/ultrasoc-smb.h
-+++ b/drivers/hwtracing/coresight/ultrasoc-smb.h
-@@ -7,6 +7,7 @@
- #ifndef _ULTRASOC_SMB_H
- #define _ULTRASOC_SMB_H
- 
-+#include <linux/bitfield.h>
- #include <linux/miscdevice.h>
- #include <linux/spinlock.h>
- 
+In short, you should've allowed the interrupts from the get-go, and you wouldn't
+be in this situation now :-)
 
----
-base-commit: 408c97c4a5e0b634dcd15bf8b8808b382e888164
-change-id: 20250707-james-coresight-bitfield-include-03d14f5369f2
+>>>
+>>> Frame-engine-IRQs (max 4):
+>>> MT7621, MT7628: 1 IRQ
+>>> MT7622, MT7623: 3 IRQs (only two used by the driver for now)
+>>> MT7981, MT7986, MT7988: 4 IRQs (only two used by the driver for now)
+>>
+>> You updated commit msg - looks fine - but same problem as before in your
+>> code. Now MT7981 has 4-8 interrupts, even though you say here it has only
+>> 4.
+> 
+> Ethernet works with 4,but can be 8 for MT798x.
+> I cannot increase the MinItems here as it will
+> throw error because currently only 4 are defined in DTS.same for MT7986.
+>>>
+>>> Mediatek Filogic SoCs (mt798x) have 4 additional IRQs for RSS and/or
+>>> LRO.
+>>
+>> Although I don't know how to treat this. Just say how many interrupts
+>> are there (MT7981, MT7986, MT7988: 4 FE and 4 RSS), not 4 but later
+>> actually 4+4.
+> 
+> First block is for Frame Engine IRQs and second for RSS/LRO. Only mention total count
+> across all SoCs is imho more confusing.
+> 
+>> I also do not understand why 7 interrupts is now valid... Are these not
+>> connected physically?
+> 
+> 7 does not make sense but i know no way to allow 8 with min 4 without between (5-7).
+> 
+>> Best regards,
+>> Krzysztof
+> 
+> Hi
+> 
+> Thanks for taking time for review again.
+> 
+> First block are the frame engine IRQs which are max 4 and on all SoCs.
+> The RSS IRQs are only valid on Filogic (MT798x),so there a total of 8, but on
+> MT7981 and MT7986 not yet added as i prepare the RSS/LRO driver in background.
+> We just want to add the IRQs for MT7988 now.
+> regards Frank
 
-Best regards,
--- 
-James Clark <james.clark@linaro.org>
+Again, it's not the driver but the hardware that you're describing.
 
+As long as you are fixing the description of the hardware, even for all three,
+I am personally even fine with breaking the ABI, because the hardware description
+has been wrong for all that time.
+
+Just don't send those as Fixes commits, but next time you upstream something you
+must keep in mind that in bindings/dts you're describing hardware - the driver is
+something that should not drive any decision in what you write in bindings.
+
+We're humans, so stuff like this happens - I'm not saying that you shall not make
+mistakes - but again please, for the next time, please please please keep in mind
+what I just said :-)
+
+Now the options are two:
+  - Break the ABI; or
+  - Allow 4 or 8 interrupts (not 5, not 6, not 7)
+
+and that - not just on MT7988 but also on 81 and 86 in one go.
+
+Not sure if the second one is feasible, and I'm considering the first option only
+because of that; if the second option can be done, act like I never ever considered
+the first.
+
+Cheers,
+Angelo
 
