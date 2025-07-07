@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66931C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 19:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A736C71130
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 20:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=YIldWJFesOVsGt87pEY3SAylzj10S1WiWJKoIwdOeoc=; b=1LK9QREoj0HIsl
-	BKsR84GdXzcEMwZITIPGolaHD5QWgSEf2qXoZ8hRKzrQWukSllcW4whdtoBiXAQWzoyzMn7lk/PO0
-	lxg0Ntu6iNzrIWRO/GiWdsNGf5kzCMzkPZrKB3UwjUoQE1oLncdk1+NfNRappVIoilY+zpp19xdUK
-	mmzFz3MG4LjL50YNF+1a5QRc4ZNgLEEA33a7ppB6RBJvq9+GGLGD84XA1v1N0S6JpcZNXi1JvHMES
-	AYfZ/C5yaUpeGB4FqqtKQDBntKr9ZO7pGFRoIMQENJaYMZNUdyoaycIleVU2KJoBmtNhKSWZb4e/R
-	yF7ZXqN2obq2l7KEr4og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Zc7qt6XVzIW2PBCC2IKqJmqGr54b3X/QkZJyBvZeB6o=; b=ndkCu5tgIenYaJqt+nMdvyAWSI
+	ED3j9YEkSyT02IOw8V37ZLp99MzXfCilgclgypmUsRrjCCXjzxRdwOKmw8JmpKmDOLHybHT5SG2Ol
+	USTN4TpAebq0sQcwcJuQri4gBqugGaDeenTV9VjApnrAXqAeaAfOfrXPUfruIuzTpK5RguefpWkGf
+	ZeuKZfoNAGa0lo136MdBXgaOwTXlX9VzhseTt72BXY0PBXw09ckacSW+oPRBU4Olg/dvgyEE5fUab
+	egSv164mEMESL58kgdcgrFdsx/MFf9pd7m7+k/YBv/lzC1Di7ip0weJCWJ2cVYkNtCxC49VMFWV//
+	dEwny6oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYrdr-00000003S2O-0Jyc;
-	Mon, 07 Jul 2025 19:36:43 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uYsJJ-00000003W9d-3MO3;
+	Mon, 07 Jul 2025 20:19:33 +0000
+Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYrbW-00000003RpB-2vEs
+	id 1uYsGz-00000003Vmt-0yyZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 19:34:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E6BA3A53FF5;
-	Mon,  7 Jul 2025 19:34:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CF8EC4CEE3;
-	Mon,  7 Jul 2025 19:34:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751916857;
-	bh=q4Un9UMyAO/m5V5UCHaW8IYs1wCaLRO9F9XqUTWH3xE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=olvyWCrKA61vFemOq86pVptJUU70apmXkO1jxlJM/MIPixuIzFTpCaEOnxAvPAIN+
-	 XPZ+T0AMf1zFyP5Ax8dCgixUzT+l4ErYyinB5XaNIvo2oUvj3bj3OHQV0Hu8v4Aacd
-	 rki8Y/zvnAsFt9rAzExc2W8ZCKotFSsp4ETOJGnaffLAN8NtX/c6AIgv9mTT4xnU1i
-	 fbWMeRaoNbYy2H5JcYaIngnm7EwkZGqU9HoRjwOPsXehuh4GHnfb2t7srYQkNzxpn7
-	 sTneFKW+7gU2MCU33a6o5cMT3X8OQezYF97b0Mtf0xYjRDj2PwGuR/oHxuopGppRxw
-	 /Tbcb0SDmJ7dw==
-Date: Mon, 7 Jul 2025 14:34:15 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: imx6: Correct the epc_features of i.MX8M chips
-Message-ID: <20250707193415.GA2095765@bhelgaas>
+	Mon, 07 Jul 2025 20:17:10 +0000
+Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
+	by finn.localdomain with esmtp (Exim 4.95)
+	(envelope-from <tharvey@gateworks.com>)
+	id 1uYsGv-008ZxD-0R;
+	Mon, 07 Jul 2025 20:17:05 +0000
+From: Tim Harvey <tharvey@gateworks.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Tim Harvey <tharvey@gateworks.com>
+Subject: [PATCH 1/7] arm64: dts: imx8mm-venice-gw700x: Increase HS400 USDHC clock speed
+Date: Mon,  7 Jul 2025 13:16:56 -0700
+Message-Id: <20250707201702.2930066-1-tharvey@gateworks.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250617073441.3228400-1-hongxing.zhu@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_123418_804903_5F715E02 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20250707_131709_265189_220C4A8E 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,58 +70,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 03:34:41PM +0800, Richard Zhu wrote:
-> i.MX8MQ PCIes have three 64-bit BAR0/2/4 capable and programmable BARs.
-> But i.MX8MM and i.MX8MP PCIes only have BAR0/BAR2 64bit programmable
-> BARs, and one 256 bytes size fixed BAR4.
-> 
-> Correct the epc_features for i.MX8MM and i.MX8MP PCIes here. i.MX8MQ is
-> the same as i.MX8QXP, so set i.MX8MQ's epc_features to
-> imx8q_pcie_epc_features.
-> 
-> Fixes: 75c2f26da03f ("PCI: imx6: Add i.MX PCIe EP mode support")
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+The IMX8M reference manuals indicate in the USDHC Clock generator section
+that the clock rate for DDR is 1/2 the input clock therefore HS400 rates
+clocked at 200Mhz require a 400Mhz SDHC clock.
 
-"Correct the epc_features" doesn't include any specific information,
-and it's hard to extract the changes for a device from the commit log.
+This showed about a 1.5x improvement in read performance for the eMMC's
+used on the various imx8m{m,n,p}-venice boards.
 
-This is really two fixes that should be separated so the commit logs
-can be specific:
+Fixes: 6f30b27c5ef5 ("arm64: dts: imx8mm: Add Gateworks i.MX 8M Mini Development Kits")
+Signed-off-by: Tim Harvey <tharvey@gateworks.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-  - For IMX8MQ_EP, use imx8q_pcie_epc_features (64-bit BARs 0, 2, 4)
-    instead of imx8m_pcie_epc_features (64-bit BARs 0, 2).
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi
+index 5a3b1142ddf4..37db4f0dd505 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi
+@@ -418,6 +418,8 @@ &usdhc3 {
+ 	pinctrl-0 = <&pinctrl_usdhc3>;
+ 	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
+ 	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
++	assigned-clocks = <&clk IMX8MM_CLK_USDHC3>;
++	assigned-clock-rates = <400000000>;
+ 	bus-width = <8>;
+ 	non-removable;
+ 	status = "okay";
+-- 
+2.25.1
 
-  - For IMX8MM_EP and IMX8MP_EP, add fixed 256-byte BAR 4 in
-    imx8m_pcie_epc_features.
-
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 5a38cfaf989b..9754cc6e09b9 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -1385,6 +1385,8 @@ static const struct pci_epc_features imx8m_pcie_epc_features = {
->  	.msix_capable = false,
->  	.bar[BAR_1] = { .type = BAR_RESERVED, },
->  	.bar[BAR_3] = { .type = BAR_RESERVED, },
-> +	.bar[BAR_4] = { .type = BAR_FIXED, .fixed_size = SZ_256, },
-> +	.bar[BAR_5] = { .type = BAR_RESERVED, },
->  	.align = SZ_64K,
->  };
->  
-> @@ -1912,7 +1914,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
->  		.mode_off[1] = IOMUXC_GPR12,
->  		.mode_mask[1] = IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE,
-> -		.epc_features = &imx8m_pcie_epc_features,
-> +		.epc_features = &imx8q_pcie_epc_features,
->  		.init_phy = imx8mq_pcie_init_phy,
->  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
->  	},
-> -- 
-> 2.37.1
-> 
 
