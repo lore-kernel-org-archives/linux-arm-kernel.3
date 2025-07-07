@@ -4,171 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD715C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 08:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D3DC83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 08:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EkT0OowraBkO1wmq1sbXMDsRXG2ErhIPD65aQzAOLUk=; b=vCYQZVc0OxfgulvPx9JFixX71r
-	GdVY3OQVz0F6jGswf8lfyUL56dBTniIUArUJ/TZ82cLb2gKRl1Wl62VcLSMgBwDW/Cq8QGWuAhLMN
-	3kb2AMiQ3JMboa7NHH4BASN6CZYblLknFcS1hUDpBmJPm0369iRjwJB+bV8Jh2aCX/ELITFZEQX05
-	x9kyIpA87sfcn8bIQn50zs40ZMEL3f3AN5nCrV/4Ao+qJ80wfYNmXHmxqWPsG9+yKX7N6N9OwM3ni
-	UOK/mGc7Izj0R10fQTIjgnyiCZsuVPW2KIdcr/O9UWpUn6faSdoKZ4KtDN7ErtgZvjspcSNdi3Qqr
-	C0DDhPig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bDb2QDDbYI7e1da4zOCjqVkWLKFqFwWgy3CDKFih7gw=; b=tJ0fKIZ4rtPS8e8VABS3IRi3RF
+	H/NKAO1Pkv/7+eimh1+5eOXAxDMtaecUIqVqUN+Nxfyh9nsSHKCUKq6y/nYmHY462tsDVkbyrkNGe
+	VThWTKhcuyDk1NH06rWUAIuOQJW1HiAtNj5Qtf0Q0MNbuQzqNOOVtsMGbCJFQCkJGnTZGfnPRESiv
+	ewawXf1kzv3xucWhG9bxf1acvBnPzNb6WIX2Kp4LEWP8r3IR36I5og3Ds4EUFXcYl3RHug85KHuIY
+	+tWhbKwy7P2edCkVn/AnRzWVrtwHP/mmhgTokCpj07jGeH6U5eEz9D/iTuysTAdnLLsckmkNKCdyM
+	/HG3vIAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYh5n-00000001qHj-1kp9;
-	Mon, 07 Jul 2025 08:20:51 +0000
-Received: from mail-bn8nam11on2060e.outbound.protection.outlook.com ([2a01:111:f403:2414::60e] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uYh85-00000001qWI-0TYt;
+	Mon, 07 Jul 2025 08:23:13 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYgU7-00000001iwb-1bJr
+	id 1uYgUH-00000001iyp-1Jox
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 07:41:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y8JHWjTbpxcY8BbMwmKkHZ5Ry25FVB3dLd5MBHh4o2uhyI1qxV/mbHhUftfBmrUr3ZI0eJW29urvSlv9PIhudauJHcrnzz4o7KOILwkYjsgXS3wLwd4sXYAOfSzIUjoJHFO3PYYzJKm7s6FXmE2zhSs0kK7y6m1JOc62HJS/nrFkDysCaKvMj457BOQVN2vcfxPzyVimCwPS3ViXCttXIgmnPGUmmHthrwdGqYZmmZVtXQRdOvCDyGh/1OAD/fN6dDQzC9fBDsMqf8OqjD57u+MYd/13nA2G49fLbyT/ap6hvUEASvVxLtoDdRdGU37fiTkfu3XYYje/Ml8CsXyxEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EkT0OowraBkO1wmq1sbXMDsRXG2ErhIPD65aQzAOLUk=;
- b=sHJCLAMBza4RyVxOsUV/3dYwxK9Zolpatgld7+1/Y7gGwu7DRb8xifbSuHRnMuLZTq8kq2gFanelHyM7bZ9HZo53oA4GkWb7efMgY+dFwAahwAqfqtx7PyZkkXRn+zIf9nXB/dbqf4DAnopaxCAgYIR6x564wMROGu48iAdfLm8gel+0heS7A+61o7c9pVVeTHCjGtsE+k6noL4rEmv7ksB09nyb8dv0KoFIKnd26apz3QIiLBpzalQgrk7UyTaxrOgNauc4UXf0jRSPmdzTq3DQ19QxdHwQe//zOFjpwmdvRsft8dSM+JhPsuzl3b8pRZJXVkNptO3kTXmgyx0V+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EkT0OowraBkO1wmq1sbXMDsRXG2ErhIPD65aQzAOLUk=;
- b=la0mTpdDRM86YDG0ThtIkZv99EJxGVcpMWAPQPVS1Hi20sNl3LlapXPaigdlRObzvcPoBpXvPXyObxghqz4ccMprmi+XJDk/n1FOeTbEPiuKrSI3j7axo08HeIzCoWaxWIJegmpnK2KqeCrFmaCRjyFNUTHCFhMHjLlOA83bdUY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) by
- DM6PR12MB4337.namprd12.prod.outlook.com (2603:10b6:5:2a9::12) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8901.24; Mon, 7 Jul 2025 07:41:50 +0000
-Received: from DS7PR12MB6048.namprd12.prod.outlook.com
- ([fe80::6318:26e5:357a:74a5]) by DS7PR12MB6048.namprd12.prod.outlook.com
- ([fe80::6318:26e5:357a:74a5%5]) with mapi id 15.20.8901.018; Mon, 7 Jul 2025
- 07:41:50 +0000
-Message-ID: <d35a1546-e175-4894-94c1-970b5d82487b@amd.com>
-Date: Mon, 7 Jul 2025 13:11:38 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 12/29] iommufd/viommu: Add driver-defined vDEVICE
- support
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com,
- corbet@lwn.net, will@kernel.org
-Cc: bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
- thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
- shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
- peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
- praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
- linux-kselftest@vger.kernel.org, patches@lists.linux.dev, mochs@nvidia.com,
- alok.a.tiwari@oracle.com, dwmw2@infradead.org, baolu.lu@linux.intel.com
-References: <cover.1751677708.git.nicolinc@nvidia.com>
- <d6fa98ad18a44d3df2ad9c9320f364affa9c03f5.1751677708.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Vasant Hegde <vasant.hegde@amd.com>
-In-Reply-To: <d6fa98ad18a44d3df2ad9c9320f364affa9c03f5.1751677708.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN4PR01CA0099.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:2ac::9) To DS7PR12MB6048.namprd12.prod.outlook.com
- (2603:10b6:8:9f::5)
+	Mon, 07 Jul 2025 07:42:06 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-453398e90e9so17592185e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 00:42:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1751874124; x=1752478924; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bDb2QDDbYI7e1da4zOCjqVkWLKFqFwWgy3CDKFih7gw=;
+        b=YFYjsOjwf7UKX6l+DSEfJu5fGJbvYIXks91+2yK9C7bUYhybQee73GiMOiHtF9l+Sb
+         sJMB7ttTAl4ZASmexu/UxzkCtZUPtrwHd5VsZP+oNg1zMox0lZkg9nUyDkYq+PyyL/og
+         eC0BX3pgZ1QkcCVdPk5DRrjdHA8YA4m/3X9Gt4zjWEfcdtisbl4oxEPioz6bRQu91WVy
+         9UgeefaxQbI1cq2Zc+rGdK4PCe5xWEIofBpy3U2YtQDx4gQGyg2PtlZywyemHmnYc0rj
+         w8/0i2/KBBXueasLngy47YlIe7e5f841SbsemZu+HKHXpnU3DDFvbVfZ/cT8+mv65SUX
+         30DQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751874124; x=1752478924;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bDb2QDDbYI7e1da4zOCjqVkWLKFqFwWgy3CDKFih7gw=;
+        b=HHaGixyl5NOQ+dCL4o3YpPv+sJquNTqlQFrCEZ5AU3U2lioLVkzAeD812eTkda1sNP
+         IXyav6y9gkCl3ew84rTFyNFSgAZvHwsRexRJepDOHURzLhZ5NCMFyiU/2gVF0Kna1wBj
+         vmgFYhktRR9JZki/wjQ7okL3MYKWa72nJQjsnq3CeYt78IipGmJh5ol34kMxaxHZz84E
+         ajJjhNet7QgKWCG37cuQT/roGW0rhhhueA3dJ/3jZ9P71tMKeTt+TmuxU6ucFzvjU4qm
+         2tQCVoDxZzjZaeNZP7SMUHbq8pwpr55POgBPVP8FuHdoe6FIil042ehLOgnE1RT4zrbC
+         ARHA==
+X-Forwarded-Encrypted: i=1; AJvYcCXM3MqEOivnK17MeeBvb9KNhrWQJ96zs7jbtk26/j47eBwQvsfNU9fnJzrfn2o7HM8OgMC6pOw0mA1PGQb9BJDG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxApzyvgoiBqBE5UipRkMT7wmiYFi1B9zxs+R1e/UJivNnEWCRZ
+	3Qnn930gXZZ7W0Oq7ANIdBQ9eOcAxA7VT+H0zL8uelXpAQ/oNz+AbUCERISPm6LjLpU=
+X-Gm-Gg: ASbGncvXpHoyOkFk1d/FqV/6s6k3ISNIiiLWlfdbBEZXKfU5u2++OfgMCYVC7UVyvD6
+	PBLdSPc8Qbh0bXv0xmDP0K0J+SRRaWNitUFRA3lbQbmOQaBdRjaqKO7j0er7P5oQPQql5nQTMO/
+	KeQmUcrUwMhp6rJVcyFbzmg/KqpjJ95CVikt0FG0anp3GKYriOTkaB5mKB5yAOHJjX3/bp2DBM0
+	3MKNznpZ3L1E0EynhA3/i9pGTv7wfJyyDdG4da/avbOtITVy15SrNOhuupmZF5j53Otq2qOTLzB
+	b2/j6/pPUuR6rS6eiq9N4yas4a/R4D56aHwhGm2qCuOMKaXIJwNZrXGVdQBliHk=
+X-Google-Smtp-Source: AGHT+IEWekPleecTkqzHnxj/5d4ocJg6iJ2GS+S28dD/Gu1BHihs4HNC2F49+o22Hs0t3Y/zfvGdYQ==
+X-Received: by 2002:a05:600c:4755:b0:453:6ca:16a6 with SMTP id 5b1f17b1804b1-454b3116236mr125103245e9.10.1751874123696;
+        Mon, 07 Jul 2025 00:42:03 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:3cf3:a61f:85ed:69db])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454b10b8c89sm107026185e9.38.2025.07.07.00.42.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Jul 2025 00:42:03 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Lee Jones <lee@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	patches@opensource.cirrus.com,
+	linux-samsung-soc@vger.kernel.org,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: [GIT PULL] Immutable branch between GPIO, MFD and ARM-SoC for v6.17-rc1
+Date: Mon,  7 Jul 2025 09:41:49 +0200
+Message-ID: <20250707074149.11000-1-brgl@bgdev.pl>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB6048:EE_|DM6PR12MB4337:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2a2d7b07-be52-4d44-bf42-08ddbd29bc36
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?K1FadHgzeWliK0orR3FLWEo1RXNGR0NyaG0xQlkyVTg2VVRZVUdITW5wcWRh?=
- =?utf-8?B?K2FobUxmOGFXMERYdWg3KzV1MnIrY0NMbGlFeG16OWRJbXhqa1RjUTNoUGhy?=
- =?utf-8?B?WkpxVkk2ekJPRWk3blZQV3g3V1Q4UFNydnVpL1FWM2xwUnV0aXZtYlhlTSti?=
- =?utf-8?B?UkZUb09SY0J3VkFwQU1LRmQ4aldNek9MM0t6aDJCRkcvRFNwdXJRemt3Y3lo?=
- =?utf-8?B?RWk1SG5ZS2lmVjczcUxQMThJUzRzeTRyRFJkUUpqQVd4SVc1TFpiNmtOc1F1?=
- =?utf-8?B?RkcwTWhTci9ZaTJxcktCbGxMUTE5UnhwOFJ2M3h2UEV5NGxzdWRUOFMzc2hH?=
- =?utf-8?B?WDVQYmRVTzd0Wmp6c0VOZHhJR2NFUEt4S2NzNnpjZVNLMWFJdnRTeW04RG0w?=
- =?utf-8?B?djdFMVh3Rk5yL0szVHBUcXFSYVA2elFxalhTTmk5SVlmbEh2c1VETUtjWDc1?=
- =?utf-8?B?cWhiM0Fqem9BeW5QZHg0Q3lpVFRMd1NOKzdTS2FhYkxkWSttbi9sbmJWblUy?=
- =?utf-8?B?OHJGTGhCK2dhc1F6VFpkZGh4aUZKSmliTEJ4VEEvNG41TXEwRSt1djQvb2VB?=
- =?utf-8?B?UWtPMnYvTVkraUpSZTdGdytqbnhQc0RZZC9QYVBtOUh1KzUvZ0plUHB1enJK?=
- =?utf-8?B?RENyL0Z0S1k2NktiS3BvdG9YNVltR2JqOUxwWnNYbC82d2J4UVFzdWJDdFlN?=
- =?utf-8?B?cnNNbWp0SzhlbXdYc3FkZzNEaWpqRHpwY2RMU0xQNGRTcS9ERjh3SGtML0Zj?=
- =?utf-8?B?aEdaZmdaUCtkbXgyTzYxYVBMZ0tXdDJGMU8rYzRDd3Npc0VqUEhLVHBhS2NZ?=
- =?utf-8?B?akR1bHRTbldpWHNKSmRIUnN5RGxZWmZlbGVwekd4QVFKRnBpejNGamd5U2ph?=
- =?utf-8?B?L0F4aEl5eEI5ZHVZZ3dHY0w4NFRRQjZ6YnU3OHcwdENOUGtyQjZMRUxCUURv?=
- =?utf-8?B?YmRneXZpUXhBdzlEdHAxaExsS05jRlFwZUgzNWczNmlETWFYTTIyRlB6TExU?=
- =?utf-8?B?YWI4OWN4TEtaV1BvTlNTd1lIT3pHL0gwaEpPQzNlWFltSkk0OVJvQUdjUzlQ?=
- =?utf-8?B?QUpZbjVwRHlKRXJZdzdZY0g5MHNtdGQvSEFMdlNwdi9LL09uRUpGWGRMYXNw?=
- =?utf-8?B?Qm9sQjNicVhsL2hUS1FHR0NFczVvcllHVFhIekxNY2JGcEVHVFdMYWcyQTAy?=
- =?utf-8?B?MEs5aVNVbjRzSndGdHpSYmptZExmcW9TTG94djhwYkg0a09aZWtKcTg1WC9D?=
- =?utf-8?B?R3RPRzlxcStOMkxGQkNTdWV6aGhkNTcyMlFsM010OHBiaVdKVmgzRERBUGFp?=
- =?utf-8?B?NUZRdndGTEZ2Z3ZQUG5vcXJsVmw1K1pPSlBIOTBuWDhReDlWQXZrTVEwSkth?=
- =?utf-8?B?UWREVlR2akVvaVF1NHY1MDJiaW1seE04OGt6ZG5wb2pVZnlENzhtMnVNUXV3?=
- =?utf-8?B?MmNSZXQvSEtueGlJaEl3bmpYSmFIWWtDaW1KdHM0SlE0TnVxZFgrN2N3dWdh?=
- =?utf-8?B?aGZCSWRhSkpPZ2N3dmF2dVRKUGtvcEpBSjFHTWxaSzZGNW96UTQxRzZQNVVI?=
- =?utf-8?B?bVZFOUVqY24zcjd1ZEVlYkdyT0FqZWJGbUw1dnAyUVg3L2Q0OVpZU3lENGs0?=
- =?utf-8?B?SkRjQlIrbkVidW1mb2NFSnJvNnVBT1FneVJwUDl1VC9SRXdidXJiWUk5VFRN?=
- =?utf-8?B?NG0wSG9mMGZpVm9Qam9sY2NnMlBCU1BqZ3hwaGlQTlptM2RxL09PN3R5VnJl?=
- =?utf-8?B?ZTA5d3hyZC9PL1cvaWRDeVBueGlDSXNUbWVxOWw3Q29vUEFjVUxYaER0aEJG?=
- =?utf-8?B?ZEpWTXdMbTRTQ0NMamZJOEpHOWVSMnJtQzQzdU5QY0t3cXNDOUEyYWtiZTM5?=
- =?utf-8?B?eFN6RWVyTU9JamhmdFFZUktHTTB5cHliSmlva3JoVjkybWszQXpqU3VEMS9X?=
- =?utf-8?Q?WCi/CQ7UF28=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6048.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aWVzeWg1bDVFdndiSGl5WUVadTliVURndFBTeGJWYVB2UG1MK3M3ZUgvcG9D?=
- =?utf-8?B?VEJOQXpWTWVad3kvci8rZU5mVTNIR1ZEaTFIbzErOGVDNUo4d29qY1dLaFFv?=
- =?utf-8?B?ZmNubE14ZHJkcUUvamU1NzBXaytLNmNMWEw3bjY1djlVamRNTjBwWkVkcDZO?=
- =?utf-8?B?aDlnNnIxY3g3QWpOZHVRUjNvUGRjeTFQNjE4czhELzgraFBGa1NuQjJNeGVI?=
- =?utf-8?B?SjJicEUzd0swR0FlZFlGSnJaTzJYYS9IaERweUp1QS9mcDF1eDVqckFBaGRy?=
- =?utf-8?B?ZmFlT0NucEZtZUhnYUx0MEY5WFN6OEl1eDRORDNXbjQrL1JsMnMvOGlUeHJT?=
- =?utf-8?B?ZE9wcUIyYjdwV3NUNFViSmwrVTg4bHdnREdWUDZpL2JiWmZwK1pSanIzUXQx?=
- =?utf-8?B?YkR5SkU1R0k0L2FTeS9CTmNIenIvczErRE5ObVVxb2IvSkE5WXJaN3JCbHdr?=
- =?utf-8?B?L0MxTDhLUU5JV1ArUW54amVjSXg1NDdkVWF6SDU3OStRZ3RaRXUwNkJjdmFz?=
- =?utf-8?B?VDNzR1FwSkxXcWZCaURRTWI4YU54VGFFeXBRdWJrZ2R4aEh6WXNWS0ZJeWRz?=
- =?utf-8?B?VkVBbG8xd0t2Qkt3ODM3UzlVWmZjd1RXaDRRK2VRL2k3bnlTZkU0RTdRMUNn?=
- =?utf-8?B?Nlg2aDcySFg0RU1RdjM3L1hodEpnc3Zva0FLSldodThvT0FnLzgzZG1pZE5O?=
- =?utf-8?B?STcwcmplMDJoL1A1TFVQdlF6ZWc5MHRtV0M4TUVqWmN0M1VYS0NpM01oczBB?=
- =?utf-8?B?MGV6eW05MW1POVlZcS9uT2lVVXdtYlhDZG9ZdnAzTVV1KzBLTkp4V3FEUmJV?=
- =?utf-8?B?ZmVFb3h2a01QRlNTd3YrZzRoZXJFdVpOVVQ1SXMvMVlheXhrcGhjYVBscW1S?=
- =?utf-8?B?SFRrZG9XN2RadUZicXlDcUpGR2tja3JoYzZhVXpxK2pWWW9tTUYzWnl3Rkcr?=
- =?utf-8?B?NjR4NXlOVHZMTCtHcm5iMGhMeU9xc0V6RFpGSzRMcnR3eDZQckVVMHJudVVi?=
- =?utf-8?B?QWs2VS8vY3pZZUx1bWVwd2szODRodGZPQjlxM2Z3VjM0anV5OHpJaHppRzlN?=
- =?utf-8?B?bjl3U3UwcUhPQjVMYmZsMlNCZVpwbG5hMGVXVWtuSEcyUVZHdkh6WU5OQjdJ?=
- =?utf-8?B?eGxTclo1Rng2Y0xndEd1WHorT1o3NjNRRWxyZGNKdzg1ZGE2c2E0RDZvNDNr?=
- =?utf-8?B?bkZBVkc5VUhYaEw4bHN5d1o1U0pJTDFIYlBSMEVSYnRPTFZEVmNiWW0vRlNi?=
- =?utf-8?B?c3BFTlp3K3pucFVmbWZNdU85YzZCQ01GZCtxSVhjUW5Vak9vL2dpeTNjcjhx?=
- =?utf-8?B?dHlDdXhmQUdIR0ZVbGI4SVRKVzFlQ2RiQldGWFpJQW4zcFo3MmM5UktmQWpn?=
- =?utf-8?B?UDdIN1Ezditmd0NzMU5KRThlNEdYN3graWFERnRaSkRmMnA2a1NqbDdRcFJ3?=
- =?utf-8?B?c2o4QkpHamxja0pNV2hUREpPejRxd0FQUDQzWlRtb0g0dSs5VDlOSmFmWkxw?=
- =?utf-8?B?b0dDTDRJaVd1ajAzSVFSS0FpTE52TmtCb3pmUkRMdG1tMHRWdEQxOVRWeEw1?=
- =?utf-8?B?OFNVMVVBMWZxNUNHeXVKd0xrM3h4ckNUb2FiNERsbXp2M1RsQTFKMStMbSs1?=
- =?utf-8?B?a0NaeXFvYkdRWlNFd29xQlJQYkNjNVpuaG83S3l0Nk1rUzVNcVkvdzhsTEdH?=
- =?utf-8?B?a1NvWjFFLzl0S2lqY1B0VGZQR0JNM2xaUS9kUm5TM3FxR2prZWx5bG5HVXhv?=
- =?utf-8?B?OEhPTXVLSS9CVmdlREcydnhqME9CT1RsRnA5SEsxdEMwY1VFTXc0TUc3K1k5?=
- =?utf-8?B?Y0tjeVIyeXJoUzc4TzZ1SmtwOTNOdE5UQ0JxSTlCQjd5SDRibHpZNzJDNDI4?=
- =?utf-8?B?RXljcWhYQVFFZXVobWVnbXAzYWhva3dnY2pKN3pQNEl1NTM2NE1qRzVoRnNw?=
- =?utf-8?B?Ujc0TUF3VlNUNXc0NzFMUFV5enAyT0xWckMzQWtuOTVicU9oSG9DWEtvR1VL?=
- =?utf-8?B?ejdlRWtGSUVnZEcweXgySldrb2JJeHN4eDJPbU00NHNMZkVEeEc4M2ZkRmIy?=
- =?utf-8?B?Q3VPWkk5dmRvMFBsWm9mem9Na2ZlcDNaSU1nemdFc2JaczR5SUxSZ0FocVVz?=
- =?utf-8?Q?ek5xsA2ejzAPEjb6vEsMKo0at?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2a2d7b07-be52-4d44-bf42-08ddbd29bc36
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6048.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2025 07:41:50.6960
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SXrYbCc6b0hTZekp1sTU5VewIV2T+YnDkWNEHABXTSggabWxjuLJsPXcO8VOuj9xTJiiPrWdFtRC5iHRg02rZA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4337
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_004155_420498_71ECCED9 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20250707_004205_353024_9AA7F45C 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,37 +112,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
+Hi!
 
-On 7/5/2025 6:43 AM, Nicolin Chen wrote:
-> NVIDIA VCMDQ driver will have a driver-defined vDEVICE structure and do
-> some HW configurations with that.
-> 
-> To allow IOMMU drivers to define their own vDEVICE structures, move the
-> struct iommufd_vdevice to the public header and provide a pair of viommu
-> ops, similar to get_viommu_size and viommu_init.
-> 
-> Doing this, however, creates a new window between the vDEVICE allocation
-> and its driver-level initialization, during which an abort could happen
-> but it can't invoke a driver destroy function from the struct viommu_ops
-> since the driver structure isn't initialized yet. vIOMMU object doesn't
-> have this problem, since its destroy op is set via the viommu_ops by the
-> driver viommu_init function. Thus, vDEVICE should do something similar:
-> add a destroy function pointer inside the struct iommufd_vdevice instead
-> of the struct iommufd_viommu_ops.
-> 
-> Note that there is unlikely a use case for a type dependent vDEVICE, so
-> a static vdevice_size is probably enough for the near term instead of a
-> get_vdevice_size function op.
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Reviewed-by: Pranjal Shrivastava <praan@google.com>
-> Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Please pull the following cross-tree changes for the next merge window.
 
-Reviewed-by: Vasant Hegde <vasant.hegde@amd.com>
+Thanks,
+Bartosz
 
--Vasant
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git tags/gpio-mmio-remove-bgpio-pdata-for-v6.17-rc1
+
+for you to fetch changes up to 9bad4bec5daddbb296481af759f9d56c849ba96f:
+
+  gpio: mmio: remove struct bgpio_pdata (2025-07-07 09:31:08 +0200)
+
+----------------------------------------------------------------
+Immutable branch between GPIO, MFD and ARM-SoC for v6.17-rc1
+
+Remove struct bgpio_pdata after converting its users to generic device
+properties.
+
+----------------------------------------------------------------
+Bartosz Golaszewski (6):
+      gpio: mmio: drop the big-endian platform device variant
+      gpio: mmio: get chip label and GPIO base from device properties
+      mfd: vexpress-sysreg: set-up software nodes for gpio-mmio
+      ARM: omap1: ams-delta: use generic device properties for gpio-mmio
+      ARM: s3c: crag6410: use generic device properties for gpio-mmio
+      gpio: mmio: remove struct bgpio_pdata
+
+ arch/arm/mach-omap1/board-ams-delta.c | 42 ++++++++++++------------
+ arch/arm/mach-s3c/mach-crag6410.c     | 17 ++++++----
+ drivers/gpio/gpio-mmio.c              | 61 +++++++++++------------------------
+ drivers/mfd/vexpress-sysreg.c         | 46 +++++++++++++++-----------
+ include/linux/gpio/driver.h           |  6 ----
+ 5 files changed, 77 insertions(+), 95 deletions(-)
 
