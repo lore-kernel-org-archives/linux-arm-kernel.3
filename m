@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BE6C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 17:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 844BCC71130
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 17:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yo8GlPlpcPOwxthw7SGsFbB7w1B5S5gcIxQJjPbMTCY=; b=uD2scA1qF72YY0xgtl9H5MwTFq
-	xkHdfutIBESw7wgFpyueISuRvSe34omp/juaEyzkjnjLB9rVO9lLuM44A0N5ObApWBfY5YrqN/Gqc
-	Vvf1vgc+9GvDDIbdNDFmVDoxWQRj/PyvFBRJbCwuMrUUOuUeP4qUIb0QM6OOcmq79o3XL55u0h1Xy
-	EsrlwXcUnwmHJjrbLd6mJn0073H7x9mfHPyN868010Dm1sazpbXogvkwznCDbzve6POc/peFD4Inn
-	eU4oVC9TKKixi0uXii+gyttYAb6jxoiefHNBQDCZkeOMbcyXwyD1ky6qJ+kAyq7hEBDb1TcRTbZu6
-	TwWLcU+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sab3PBZsYV+Qg8JG/2ark+p+RM4PexQTwQc3BCtUEOQ=; b=zdvapHcd7Oh4szEiEX4Q1TMfTQ
+	fLiDxgUZ6Z5syy7WNFb4kmHyz6x6+EI/OeH1DLsu8uMpTc8YGKeGqogOroIRLqTpPcV9jbu/i3tAY
+	AOiHt3pMm4XKqyCJkRLTGbbSG1yglpCgafJbnv1klVJPymKXf8MWZYFd1JQ4YP4fwiZvoWtnjilVz
+	oavLZagotzCDkLu+j61ulgLEIfMU0sH6JkpmnWV8B+hhXbrvluXDTMu+5bCDptlFR7CNieuDz8ZWC
+	M6FQm6lPL3FJhO6kxotNnM/F/TY2qfXIUHvpqjU5WK50/+JKZfbOI4JCW+YRKpEffZsA2Ap6RvRmb
+	oQXBeVVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYpTu-000000039EC-2BXo;
-	Mon, 07 Jul 2025 17:18:18 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uYpX0-000000039Yy-40zv;
+	Mon, 07 Jul 2025 17:21:30 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYoqw-000000032Q7-1fvC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 16:38:03 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 567GbqF1926314;
-	Mon, 7 Jul 2025 11:37:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1751906272;
-	bh=Yo8GlPlpcPOwxthw7SGsFbB7w1B5S5gcIxQJjPbMTCY=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=E35Ov+YVY96K9q1OgYyC5puitBIa20zxW6pNatRkP71q82KD26a3/rQLdmVHnPP9R
-	 EFAe4r3VkujWq3FmdCWpJOGxvlpVK8qPzkmfkIYREG0NoHv4+tohADiOIBtHxvvVXc
-	 ElspPq7yY03g2TNGPEfNrMww5ug42ofCRg9xF4rM=
-Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 567Gbq3U603028
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 7 Jul 2025 11:37:52 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 7
- Jul 2025 11:37:51 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 7 Jul 2025 11:37:51 -0500
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 567GbpWb522914;
-	Mon, 7 Jul 2025 11:37:51 -0500
-Date: Mon, 7 Jul 2025 11:37:51 -0500
-From: Bryan Brattlof <bb@ti.com>
-To: Paresh Bhagat <p-bhagat@ti.com>
-CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
-        <afd@ti.com>, <devarsht@ti.com>, <s-vadapalli@ti.com>,
-        <andrew@lunn.ch>
-Subject: Re: [PATCH v6 4/4] arm64: dts: ti: Add support for AM62D2-EVM
-Message-ID: <20250707163751.5tr4shordeqwwnqd@bryanbrattlof.com>
-X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
-References: <20250704100954.2231853-1-p-bhagat@ti.com>
- <20250704100954.2231853-5-p-bhagat@ti.com>
+	id 1uYp2I-000000033tM-1J9Y;
+	Mon, 07 Jul 2025 16:49:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
+	bh=Sab3PBZsYV+Qg8JG/2ark+p+RM4PexQTwQc3BCtUEOQ=; b=rblIXFToZUEfu3MV05/8H8SEQF
+	bYqLZZeXf7U1nmiPSumzkIidH3TEM89H9qDFc5mRLV8/3T0VJn3UPBBk8qmmR0CSZt5lyqQSTpfzY
+	EKAshbgRKHRsEIfnvv1DJX9zOoYcXLFVb0F26SuTIcqPJCRSVcQBjsLglVVkI/6wY2ATTGswflbBD
+	97lRqb3sCXs2RUXOVeeYKAZ4Ihrw4ESCnJyVLpJC7Cw9kNIKzDHJUBaITGHPJRLqfj/jiGvfaTih4
+	sI/AFWak2UsTXo/s7Z3lGt7LYHdH4Su8vcUaBwYclo/GZJqrmn4bRWw4ortlYD9CkWTz1oE4loYy7
+	eaqaf+5w==;
+Received: from i53875bf5.versanet.de ([83.135.91.245] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uYp1p-0004yl-JE; Mon, 07 Jul 2025 18:49:17 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: neil.armstrong@linaro.org,
+	quic_jesszhan@quicinc.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	hjc@rock-chips.com,
+	andy.yan@rock-chips.com,
+	andyshrk@163.com,
+	nicolas.frattaroli@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH 01/13] drm/panel: ilitek-ili9881c: turn off power-supply when init fails
+Date: Mon,  7 Jul 2025 18:48:54 +0200
+Message-ID: <20250707164906.1445288-2-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250707164906.1445288-1-heiko@sntech.de>
+References: <20250707164906.1445288-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-In-Reply-To: <20250704100954.2231853-5-p-bhagat@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_093802_522361_D9B78817 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20250707_094946_350266_9F53F478 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +84,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On July  4, 2025 thus sayeth Paresh Bhagat:
-> AM62D-EVM evaluation module (EVM) is a low-cost expandable platform board
-> designed for AM62D2 SoC from TI. It supports the following interfaces:
-> 
-> * 4 GB LPDDR4 RAM
-> * x2 Gigabit Ethernet expansion connectors
-> * x4 3.5mm TRS Audio Jack Line In
-> * x4 3.5mm TRS Audio Jack Line Out
-> * x2 Audio expansion connectors
-> * x1 Type-A USB 2.0, x1 Type-C dual-role device (DRD) USB 2.0
-> * x1 UHS-1 capable micro SD card slot
-> * 32 GB eMMC Flash
-> * 512 Mb OSPI NOR flash
-> * x4 UARTs via USB 2.0-B
-> * XDS110 for onboard JTAG debug using USB
-> * Temperature sensors, user push buttons and LEDs
-> 
-> Although AM62D2 and AM62A7 differ in peripheral capabilities example
-> multimedia, VPAC, and display subsystems, the core architecture remains
-> same. To reduce duplication, AM62D support reuses the AM62A dtsi and the
-> necessary overrides will be handled in SOC specific dtsi file and a
-> board specific dts.
-> 
-> Add basic support for AM62D2-EVM.
-> 
-> Schematics Link - https://www.ti.com/lit/zip/sprcal5
-> 
-> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/Makefile          |   3 +
->  arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 617 +++++++++++++++++++++++
->  arch/arm64/boot/dts/ti/k3-am62d2.dtsi    |  20 +
->  3 files changed, 640 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2.dtsi
->
+The prepare function turns on the power-supply regulator first, when
+preparing the display. But in an error case, just returns the error
+code, but does not power off the regulator again, fix that.
 
-Reviewed-by: Bryan Brattlof <bb@ti.com>
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ drivers/gpu/drm/panel/panel-ilitek-ili9881c.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-~Bryan
+diff --git a/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c b/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c
+index 28cd7560e5db..d7a17dca2a9c 100644
+--- a/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c
++++ b/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c
+@@ -1292,7 +1292,7 @@ static int ili9881c_prepare(struct drm_panel *panel)
+ 						      instr->arg.cmd.data);
+ 
+ 		if (ret)
+-			return ret;
++			goto disable_power;
+ 	}
+ 
+ 	ret = ili9881c_switch_page(ctx, 0);
+@@ -1304,18 +1304,22 @@ static int ili9881c_prepare(struct drm_panel *panel)
+ 					 &ctx->address_mode,
+ 					 sizeof(ctx->address_mode));
+ 		if (ret < 0)
+-			return ret;
++			goto disable_power;
+ 	}
+ 
+ 	ret = mipi_dsi_dcs_set_tear_on(ctx->dsi, MIPI_DSI_DCS_TEAR_MODE_VBLANK);
+ 	if (ret)
+-		return ret;
++		goto disable_power;
+ 
+ 	ret = mipi_dsi_dcs_exit_sleep_mode(ctx->dsi);
+ 	if (ret)
+-		return ret;
++		goto disable_power;
+ 
+ 	return 0;
++
++disable_power:
++	regulator_disable(ctx->power);
++	return ret;
+ }
+ 
+ static int ili9881c_enable(struct drm_panel *panel)
+-- 
+2.47.2
+
 
