@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79FCC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 17:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44937C71130
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 17:40:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=58erMwoxBaQAKtl014X0pCQs9xXgy2ZbGkCMSXmUpbI=; b=jSfvufSSWRE3dNL05VtpgEkPVs
-	6gpBF0B5pLbqjgRaKHXIdQAmyGto3PlW9ZicO56RpJ5nMNmc+Quj2JDxsmEblLOatpzhNYXWw08cn
-	Nnlpe6JcdDsToj24YDy8QD5gUUsyHUwj5pv6rnKpNB4gSkTey93aJx6akD1Tt13YhrIkdW3Na9YTN
-	c/O/rDBH7R/LbNSVesk32oYkb9IKjiaAsAMKs/6DqJ9z06EAw107B663cfd0rMip1DUMSzGuZlYVR
-	y8ARVVRZMMdv9Sq3HRjusy/TN9Jzgj9EW7GjNCazq8Ew3YYS6556R5+r1Z6p/FkCxvhNY/yiD9xQ2
-	r9JQTXew==;
+	bh=mKluaDJd+46jb4+9m6pp57pzlsEm486O32TbldwJjns=; b=VTC5acE0Rx1+DYEjzIuaGpKGcu
+	igD7w62YzFbHvz7xwNPP0tgD0J4wJe6HqGazIK2tHd4y0h/sm/4KMTa73+vG9JWHLvorIyfv1V+kZ
+	BOlHAlDlYvfKa8BIyjRRnswLF3+W26dm2XiJ5QVJciznOgQfHVCd+Y4J6xp1UHou7o1kw0hhB+Dww
+	37GPu9cXIWM72eqWhOwOQ3Ytq4tKh61N7HDoBTb3wz8QeCkKo/Q5HFa4dlcIgsoDoPdX8sfO93IOE
+	Mry0N9AsuErLP9ci3/cfhchx+ajBdqTXu5OoYwKoG1jCILvAFgKRZMsADpi1pYnTbCiHIIlnyrepQ
+	6LvmBGog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYpn5-00000003BpX-1N1o;
-	Mon, 07 Jul 2025 17:38:07 +0000
+	id 1uYppN-00000003C8a-1g2n;
+	Mon, 07 Jul 2025 17:40:29 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYp2N-000000033zj-0fdz;
+	id 1uYp2N-000000033zg-0MsU;
 	Mon, 07 Jul 2025 16:49:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=58erMwoxBaQAKtl014X0pCQs9xXgy2ZbGkCMSXmUpbI=; b=rNXX5d1ukA1xbpvXU3rwD2i/6k
-	R9uWibvpvUbZ/AglO1KOIH02VeJWvrWsUfa7di7XPVJOn5WyolKx17r3Ssb6Hb++Ik476zksJeS91
-	PQmqBlDVRq//zRNVcltwajqqlxGCKMRiYV4/TFui7b/a+Wt7ywycIey0VGW1cSOlZx2yihLxzAeih
-	SC0HI79+QmgiXfb+vx/tBAS/JW4BqAOv6U2MDhhmSOZC/2funCEIADqlbH3ZfXn/TOtQlL63lQ1LD
-	8opC/6wBye9qFSa1ByrkTiz5yzbLuqNiSfXJllq0upwjk8Aqh5MGloiSbSpxzbErtekkUU8GqoNTN
-	h3OiLYQg==;
+	bh=mKluaDJd+46jb4+9m6pp57pzlsEm486O32TbldwJjns=; b=xFE7ieg15stL2Ic38IK9roETXO
+	GwgASLdwpgFTXckUhYRuw9ufnTPtZ7/tWfd1j7ncxukdXdaTA20VZAtGBLmOqc0SCcxeCQzomI0bB
+	jW2nl6jm+qUWw1wtLx0WS8glwErm6RaRaI2tudhuW+Qfoy6IfV3gHhSuCf/F+h631QSG4O7swzHgw
+	4mMRv9GYNYuq089+qDFm2j4943EEMCPHyBW/ki1V4s1rHL3Ji86WwStzzejf+0xjU+p/Vn3aiL6ps
+	zTztLIZBPcQ4rJHsQipktHzAnaED4Eg5OstpP81o3aSyipXJjBggMEDrOKtASxG11UpxRSHE66lgy
+	2DD449iA==;
 Received: from i53875bf5.versanet.de ([83.135.91.245] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uYp1v-0004yl-Fu; Mon, 07 Jul 2025 18:49:23 +0200
+	id 1uYp1t-0004yl-Tr; Mon, 07 Jul 2025 18:49:21 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: heiko@sntech.de
 Cc: neil.armstrong@linaro.org,
@@ -58,19 +58,18 @@ Cc: neil.armstrong@linaro.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Guochun Huang <hero.huang@rock-chips.com>
-Subject: [PATCH 09/13] drm/rockchip: dsi2: add support rk3576
-Date: Mon,  7 Jul 2025 18:49:02 +0200
-Message-ID: <20250707164906.1445288-10-heiko@sntech.de>
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH 07/13] dt-bindings: soc: rockchip: add rk3576 mipi dcphy syscon
+Date: Mon,  7 Jul 2025 18:49:00 +0200
+Message-ID: <20250707164906.1445288-8-heiko@sntech.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250707164906.1445288-1-heiko@sntech.de>
 References: <20250707164906.1445288-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_094951_208196_96088F09 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20250707_094951_158591_F342D35D 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,64 +84,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Guochun Huang <hero.huang@rock-chips.com>
+RK3576 CSI and DSI support requires the GRF for its DC-PHY.
+The "general register files" provide additional setting-bits
+outside the regular ip-block reg-space.
 
-Add the necessary specific bits to support the rk3576-variant of the
-DW-DSI2 controller.
-
-Signed-off-by: Guochun Huang <hero.huang@rock-chips.com>
-[adapted from the vendor-kernel for mainline]
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- .../gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c  | 21 +++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
-index cdd490778756..0aea764e29b2 100644
---- a/drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
-@@ -437,6 +437,15 @@ static void dw_mipi_dsi2_rockchip_remove(struct platform_device *pdev)
- 	dw_mipi_dsi2_remove(dsi2->dmd);
- }
- 
-+static const struct dsigrf_reg rk3576_dsi_grf_reg_fields[MAX_FIELDS] = {
-+	[TXREQCLKHS_EN]		= { 0x0028, 1,  1 },
-+	[GATING_EN]		= { 0x0028, 0,  0 },
-+	[IPI_SHUTDN]		= { 0x0028, 3,  3 },
-+	[IPI_COLORM]		= { 0x0028, 2,  2 },
-+	[IPI_COLOR_DEPTH]	= { 0x0028, 8, 11 },
-+	[IPI_FORMAT]		= { 0x0028, 4,  7 },
-+};
-+
- static const struct dsigrf_reg rk3588_dsi0_grf_reg_fields[MAX_FIELDS] = {
- 	[TXREQCLKHS_EN]		= { 0x0000, 11, 11 },
- 	[GATING_EN]		= { 0x0000, 10, 10 },
-@@ -455,6 +464,15 @@ static const struct dsigrf_reg rk3588_dsi1_grf_reg_fields[MAX_FIELDS] = {
- 	[IPI_FORMAT]		= { 0x0004,  0,  3 },
- };
- 
-+static const struct rockchip_dw_dsi2_chip_data rk3576_chip_data[] = {
-+	{
-+		.reg = 0x27d80000,
-+		.grf_regs = rk3576_dsi_grf_reg_fields,
-+		.max_bit_rate_per_lane = 2500000ULL,
-+	},
-+	{ /* sentinel */ }
-+};
-+
- static const struct rockchip_dw_dsi2_chip_data rk3588_chip_data[] = {
- 	{
- 		.reg = 0xfde20000,
-@@ -470,6 +488,9 @@ static const struct rockchip_dw_dsi2_chip_data rk3588_chip_data[] = {
- 
- static const struct of_device_id dw_mipi_dsi2_rockchip_dt_ids[] = {
- 	{
-+		.compatible = "rockchip,rk3576-mipi-dsi2",
-+		.data = &rk3576_chip_data,
-+	}, {
- 		.compatible = "rockchip,rk3588-mipi-dsi2",
- 		.data = &rk3588_chip_data,
- 	},
+diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+index ccdcc889ba8e..d4fda4ee33e4 100644
+--- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
++++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+@@ -31,6 +31,7 @@ properties:
+               - rockchip,rk3568-usb2phy-grf
+               - rockchip,rk3576-bigcore-grf
+               - rockchip,rk3576-cci-grf
++              - rockchip,rk3576-dcphy-grf
+               - rockchip,rk3576-gpu-grf
+               - rockchip,rk3576-hdptxphy-grf
+               - rockchip,rk3576-litcore-grf
 -- 
 2.47.2
 
