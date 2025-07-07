@@ -4,72 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD680C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 12:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D474CC83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 12:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RCIHWgkQqmUL63XQqiNyO8uPfuqf2Y86fI+gXEWVRtA=; b=c3ma+nUhcfitR4g/4E/wRco5sO
-	328xiTpNoo61094UsBNwjD3AeBp1HrD6FHd8wawA9PCszIGUpJrlD6pczTv1WIunnMJ8/GKUNuXnn
-	Tf3Ew9gREuWkGr+eCZzdx8KaKaAyoeFiUOKX69D6Ig2yy7BFKPWjWR/rvZ3mRWu80aZvB7Tp/TYZ2
-	bq/gB+NemjGE4/Vqg7scqwDGgmBqcnNjb0eas4sn3I6gnqJ02F4AFLiaBT2H+TjlPG3UP5EVJmuDv
-	eQzahJ50di+Z6aV8SB+2K023oOZPalCnGJ7Van/tolzZGHa/tRed7EFIUwTlDFXpQ5xarO4+/54z4
-	U9g+ofgA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=S+l9YOATaI2WVK6nULp3opGxaKZ7q3/GHL6ti8dKYiM=; b=4Ha6qEuOw9wuNm
+	JzYZntoDFkiY1M7+3KnYGxQz4CM1bHo57EA1jN8MGYTBrIT7YavPqkA0I9FZFpmQGKRjCj44GzUbZ
+	okwGHgk7dhrh9BX3FoPq0tFhiPIaPv7IOibd83LN2i1wVlby8ByB8quTe162LOAAFauGBdWerCcM0
+	R8N5diu4qzuRl+Mb6fEt9y4VhAjr/36ASL9ZgrcKVXqWA91+U6MF62SUSVsFqFQ9KZ6kNPt2kzwZg
+	crD1BtUnW7hcagDpWWXONn/FgYddLytEsFqD4h0l9IGw/4RXtS++f7T4LDfgEz/uMsn98JSP2U7Ie
+	zf1Qi7bdklawi3gc5a/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkj8-00000002OMV-38IE;
-	Mon, 07 Jul 2025 12:13:42 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjH0-00000002BHN-15Kl;
-	Mon, 07 Jul 2025 10:40:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751884832;
-	bh=ftsLVap/wQlouELe/Vz9orQAIVOxIgjrr2GNre4BLO8=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=B7DLECwTBwHQR2zWawtF42o2tFXjdd3QqG1B6XFHT3n2tS6NqaqBelm94sj/z/ytD
-	 smZL80SW7UQffIp0texTk5dsel7xOuE9tEPq0i9yQWo+imdQYCJ5glfi6tWxbt17Y2
-	 Nepl6s9NimyCchbFWfzaWbaZT6ZjSAYl/Lr4e7hJe5EomOEJkz6nd/b/+4m6WzFrVy
-	 VqOjQgCuBEMqpqcPEd3kemCJ1AMomnonNTzIR+vLOpfv+FIgp5SSXmjHxzses7xp79
-	 0E82tbR61xpa+e6Kp9caOj0mhIkHPFjMk40kQQMrTF3xwyormY45spheEc/NSbAHQT
-	 t35jkJvRzXmYA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6C89B17E0630;
-	Mon,  7 Jul 2025 12:40:31 +0200 (CEST)
-Message-ID: <9560d4d2-5346-4d0a-a96f-c96ebe335f3c@collabora.com>
-Date: Mon, 7 Jul 2025 12:40:30 +0200
+	id 1uYkjB-00000002ONZ-2RlA;
+	Mon, 07 Jul 2025 12:13:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYkE5-00000002J7i-0led
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Jul 2025 11:41:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B645168F;
+	Mon,  7 Jul 2025 04:41:24 -0700 (PDT)
+Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.31.174])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 532C03F694;
+	Mon,  7 Jul 2025 04:41:35 -0700 (PDT)
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v6 03/13] arm64: debug: call software breakpoint handlers statically
+Date: Mon,  7 Jul 2025 12:40:59 +0100
+Message-ID: <20250707114109.35672-4-ada.coupriediaz@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250707114109.35672-1-ada.coupriediaz@arm.com>
+References: <20250707114109.35672-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 2/3] dt-bindings: firmware: Document the MediaTek
- Hardware Voter (HWV)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, robh@kernel.org,
- conor+dt@kernel.org
-Cc: matthias.bgg@gmail.com, ulf.hansson@linaro.org, arnd@arndb.de,
- m.wilczynski@samsung.com, nm@ti.com, khilman@baylibre.com, kabel@kernel.org,
- quic_hyiwei@quicinc.com, pjp@fedoraproject.org, tudor.ambarus@linaro.org,
- drew@pdp7.com, u.kleine-koenig@baylibre.com, gregkh@linuxfoundation.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- laura.nao@collabora.com, kernel@collabora.com
-References: <20250701151149.136365-1-angelogioacchino.delregno@collabora.com>
- <20250701151149.136365-3-angelogioacchino.delregno@collabora.com>
- <20250702-debonair-lynx-of-serenity-ee7138@krzk-bin>
- <d41a6c60-5368-4bcd-b028-2477e42e29bb@collabora.com>
-Content-Language: en-US
-In-Reply-To: <d41a6c60-5368-4bcd-b028-2477e42e29bb@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_034034_615256_C80F9CE1 
-X-CRM114-Status: GOOD (  37.54  )
+X-CRM114-CacheID: sfid-20250707_044137_309482_AA858A94 
+X-CRM114-Status: GOOD (  26.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,236 +57,507 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, "Luis Claudio R . Goncalves" <lgoncalv@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 03/07/25 10:56, AngeloGioacchino Del Regno ha scritto:
-> Il 02/07/25 08:50, Krzysztof Kozlowski ha scritto:
->> On Tue, Jul 01, 2025 at 05:11:48PM +0200, AngeloGioacchino Del Regno wrote:
->>> Add documentation for the new MediaTek Hardware Voter, found in
->>> MediaTek SoCs like the MT8196 Kompanio Ultra for Chromebooks and
->>> the MT6991 Dimensity 9400 for Smartphones.
->>>
->>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>> ---
->>>   .../mediatek,mt6991-hardware-voter.yaml       | 70 +++++++++++++++++++
->>>   1 file changed, 70 insertions(+)
->>>   create mode 100644 Documentation/devicetree/bindings/firmware/mediatek,mt6991- 
->>> hardware-voter.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/firmware/mediatek,mt6991- 
->>> hardware-voter.yaml b/Documentation/devicetree/bindings/firmware/ 
->>> mediatek,mt6991-hardware-voter.yaml
->>> new file mode 100644
->>> index 000000000000..173b74c23a91
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware- 
->>> voter.yaml
->>> @@ -0,0 +1,70 @@
->>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>> +# Copyright 2025 Collabora Ltd
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/firmware/mediatek,mt6991-hardware-voter.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: MediaTek Hardware Voter (HWV)
->>> +
->>> +maintainers:
->>> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>> +
->>> +description:
->>> +  The MediaTek Hardware Voter (HWV) is a SoC-internal fixed-function MCU
->>> +  used to collect votes from both the Application Processor and from the
->>> +  various other remote processors present in the SoC, and transparently
->>> +  turn on or off various hardware resources (for example, power domains
->>> +  or system clocks) based on aggregation of votes done in the HWV MCU's
->>> +  internal state machine, therefore guaranteeing synchronization of the
->>> +  hardware resource requests between all components of the SoC and hence
->>> +  avoiding, for example, unclocked or unpowered access to the hardware.
->>> +
->>> +properties:
->>> +  $nodename:
->>> +    pattern: "^system-controller@[0-9a-f]+$"
->>> +
->>> +  compatible:
->>> +    const: mediatek,mt6991-hardware-voter
->>> +
->>> +  reg:
->>> +    items:
->>> +      - description: Address and size of the Hardware Voter MMIO
->>> +
->>
->> No resources here, so this should go to power controller
->>
->>> +  power-controller:
->>> +    $ref: /schemas/power/mediatek,power-controller.yaml
->>> +
->>> +required:
->>> +  - compatible
->>> +  - reg
->>> +
->>> +additionalProperties: true
->>> +
->>> +examples:
->>> + - |
->>> +   scp_hwv: system-controller@14500000 {
->>> +     compatible = "mediatek,mt6991-hardware-voter";
->>> +     reg = <0 0x14500000 0 0x3000>;
->>> +
->>> +     power-controller {
->>> +       compatible = "mediatek,mt8196-hwv-scp-power-controller";
->>
->> mt8196 in mt6991 is very confusing.
->>
-> 
-> Yeah that wasn't intentional; fyi, it's almost the same soc, that's why I mixed
-> them up... :-)
-> 
->> Anyway, this does not address my comment at all. You again create some
->> sort of syscon for voting, so no. You are supposed to use generic API
->> for voting: clocks, power domains, interconnects - whatever is there
->> applicable or necessary.
->>
-> 
-> Making that loud and clear: Interconnect is not applicable.
-> 
-> The only way to do what you're proposing would be to add a bunch of `reg`
-> to each devicetree node for each clock controller and each power controller;
-> I can do that, but looks a bit dirty - and still yet another syscon-like
-> alternative, but without having a real syscon declared in there.
-> 
-> Mind you - both clock and power controllers are writing both to their own
-> register space (and enabling external regulators, etc, for power domains)
-> and to the hardware voter MMIO (which means that the HWV, in hardware, is
-> fundamentally broken).
-> 
-> After this reply, the only option that is left to me is the following:
-> 
->          topckgen: clock-controller@10000000 {
->              compatible = "mediatek,mt8196-topckgen", "syscon";
->              reg = <0 0x10000000 0 0x800>, <0 0x14500010 0 0x48>,
->                    <0 0x14502c08 0 0x24>;
->              reg-names = "base", "hwvoter-base", "hwvoter-status";
->              #clock-cells = <1>;
->          };
-> 
->          imp_iic_wrap_north: clock-controller@13c30000 {
->              compatible = "mediatek,mt8196-imp-iic-wrap-n", "syscon";
->              reg = <0 0x13c30000 0 0x1000>, <0 0x14500000 0 0xc>,
->                    <0 0x14502c00 0 0xc>;
->              reg-names = "base", "hwvoter-base", "hwvoter-status";
->              #clock-cells = <1>;
->          };
-> 
->          /* Power Manager with Hardware Voter */
->          spm_hwv: power-controller@14500218 {
->              compatible = "mediatek,mt8196-hwv-scp-power-controller";
->              reg = <0 0x14500218 0 0x20>, <0 0x14501410 0 0x20>,
->                    <0 0x14505514 0 0xc>;
->              reg-names = "hwvoter-base", "hwvoter-status", "hwvoter-ack";
->              #address-cells = <1>;
->              #size-cells = <0>;
->              #power-domain-cells = <1>;
-> 
->              /* SCPSYS hardware voter power domains */
->              mm_proc_dormant: power-domain@MT8196_POWER_DOMAIN_MM_PROC_DORMANT {
->                  ..... etc, all power domains
-> 
-> At this point, I'm really not sure that this would be better than just passing
-> the mediatek,hardware-voter syscon to the clock controllers - as what I've done
-> previously was effectively representing the hardware in the devicetree as it is,
-> matching the real HW layout 1:1 (because again, each of the whole HWV MCU(s) are
-> embedded into each of the two power controllers, one for System power, and one
-> for Multimedia power).
-> 
-> (btw, hardware speaking, the power controller is child of a system controller:
-> there are two system controllers - "scpsystem" is for "compute part", and the
-> "hfrpsystem" is for the "multimedia part" of the soc).
-> 
->   _______________________________________
-> |                                       |
-> | SYSTEM CONTROLLER (SCPSYS or HFRPSYS) |
-> |   _____________________               |
-> |  |                     |              | <===> Clock Controllers (more than one)
-> |  | Power Controller    |     SOME     |       (provide subsystem clocks for iso
-> |  |                     |    OTHER     |        during power domain enablement
-> |  |     ______________  |   BLOCKS     |        even if a PD is voted)
-> |  |    |              | |              |       non-subsystem clocks are voted,
-> |  |    | HW Voter MCU | |              |       but subsystem ones are not voted
-> |  |    |______________| |              |
-> |  |_____________________|              | ===> Rest of the SoC
-> |_______________________________________|
-> 
-> 
-> Hence I'm asking you - does your idea still stand?
-> 
-> Because after this, sorry for that - this doesn't want to be an attack - but
-> I'm starting to have doubts about an approach that doesn't involve syscons.
-> 
-> Cheers,
-> Angelo
+Software breakpoints pass an immediate value in ESR ("comment") that can
+be used to call a specialized handler (KGDB, KASAN...).
+We do so in two different ways :
+ - During early boot, `early_brk64` statically checks against known
+   immediates and calls the corresponding handler,
+ - During init, handlers are dynamically registered into a list. When
+   called, the generic software breakpoint handler will iterate over
+   the list to find the appropriate handler.
 
-Sorry for the double reply, wanted to add some more words :-)
+The dynamic registration does not provide any benefit here as it is not
+exported and all its uses are within the arm64 tree. It also depends on an
+RCU list, whose safe access currently relies on the non-preemptible state
+of `do_debug_exception`.
 
-As a note, I also thought about doing the following:
+Replace the list iteration logic in `call_break_hooks` to call
+the breakpoint handlers statically if they are enabled, like in
+`early_brk64`.
+Expose the handlers in their respective headers to be reachable from
+`arch/arm64/kernel/debug-monitors.c` at link time.
 
-	/* Secondary SCPSYS block with HWV capabilities */
-	scp1_hwv: system-controller@14500000 {
-		compatible = "mediatek,mt8196-scpsys", "syscon", "simple-mfd";
-		reg = <0 0x14500000 0 0x3000>;
+Unify the naming of the software breakpoint handlers to XXX_brk_handler(),
+making it clear they are related and to differentiate from the
+hardware breakpoints.
 
-		/* SCP Power Manager with Hardware Voter */
-		spm_hwv: power-controller {
-			compatible = "mediatek,mt8196-hwv-scp-power-controller";
-			#address-cells = <1>;
-			#size-cells = <0>;
-			#power-domain-cells = <1>;
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+Reviewed-by: Will Deacon <will@kernel.org>
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+---
+ arch/arm64/include/asm/kgdb.h                 |  3 +
+ arch/arm64/include/asm/kprobes.h              |  8 +++
+ arch/arm64/include/asm/traps.h                |  6 ++
+ arch/arm64/include/asm/uprobes.h              |  2 +
+ arch/arm64/kernel/debug-monitors.c            | 54 +++++++++++++----
+ arch/arm64/kernel/kgdb.c                      | 22 ++-----
+ arch/arm64/kernel/probes/kprobes.c            | 31 ++--------
+ arch/arm64/kernel/probes/kprobes_trampoline.S |  2 +-
+ arch/arm64/kernel/probes/uprobes.c            |  9 +--
+ arch/arm64/kernel/traps.c                     | 59 ++++---------------
+ 10 files changed, 83 insertions(+), 113 deletions(-)
 
-			/* SCPSYS hardware voter power domains */
-			mm_proc_dormant: power-domain@MT8196_POWER_DOMAIN_MM_PROC_DORMANT {
-			..... etc etc
-			};
-		};
-
-		imp_iic_wrap_north: clock-controller@13c30000 {
-			compatible = "mediatek,mt8196-imp-iic-wrap-n", "syscon";
-			reg = <0 0x13c30000 0 0x1000>;
-			#clock-cells = <1>;
-		};
-	};
-
-...but that's also not applicable, because the clock controllers are physically
-*not* inside of the scpsys1 block, so that would *also* misrepresent the hardware
-in the devicetree (besides still using a syscon in a way or another).
-
-So... I really don't see any way out of that, which really leaves me with the two
-options that I described in the previous reply.
-
-Summarizing, either:
-  - Adding hwv MMIOs (a bunch of, and each very small) to each clock controller (but
-    still all of them are poking at the same HWV controller, and I foresee that this
-    will backfire in some future iteration of the HWV hardware)
-  - Reverting back to using the "mediatek,hardware-voter" syscon, like done in
-    https://lore.kernel.org/20250624143220.244549-10-laura.nao@collabora.com
-
-I tried really hard and thought about this for weeks (actually, started even before
-your feedback on Laura's series), but now I'm out of practical options that are
-both correctly representing the hardware and not making the implementation fragile
-(or actually more fragile than the actually broken HW implementation's fragility,
-anyway).
-
-And besides - re-reading what I wrote after a bunch of days, the first option of
-adding a bunch of hwv mmios to all of the clock controllers is, in my opinion, a
-(dirty) hack - because those mmios don't belong to the clock controllers, and would
-again misrepresent the hardware in DT - especially keeping in mind the fact that
-the clock controllers can be controlled with *and* (not or) without the HWV (and in
-some instances, even if using HWV, we must still write to the clock controllers'
-mmio for extra programming, as explained before).
-
-Every second I think about this I get more and more convinced that my way of
-passing the SCPSYS-HWV system controller handle as a syscon is right.
-
-Angelo
+diff --git a/arch/arm64/include/asm/kgdb.h b/arch/arm64/include/asm/kgdb.h
+index 21fc85e9d2be..82a76b2102fb 100644
+--- a/arch/arm64/include/asm/kgdb.h
++++ b/arch/arm64/include/asm/kgdb.h
+@@ -24,6 +24,9 @@ static inline void arch_kgdb_breakpoint(void)
+ extern void kgdb_handle_bus_error(void);
+ extern int kgdb_fault_expected;
+ 
++int kgdb_brk_handler(struct pt_regs *regs, unsigned long esr);
++int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr);
++
+ #endif /* !__ASSEMBLY__ */
+ 
+ /*
+diff --git a/arch/arm64/include/asm/kprobes.h b/arch/arm64/include/asm/kprobes.h
+index be7a3680dadf..f2782560647b 100644
+--- a/arch/arm64/include/asm/kprobes.h
++++ b/arch/arm64/include/asm/kprobes.h
+@@ -41,4 +41,12 @@ void __kretprobe_trampoline(void);
+ void __kprobes *trampoline_probe_handler(struct pt_regs *regs);
+ 
+ #endif /* CONFIG_KPROBES */
++
++int __kprobes kprobe_brk_handler(struct pt_regs *regs,
++				 unsigned long esr);
++int __kprobes kprobe_ss_brk_handler(struct pt_regs *regs,
++				 unsigned long esr);
++int __kprobes kretprobe_brk_handler(struct pt_regs *regs,
++				 unsigned long esr);
++
+ #endif /* _ARM_KPROBES_H */
+diff --git a/arch/arm64/include/asm/traps.h b/arch/arm64/include/asm/traps.h
+index 82cf1f879c61..e3e8944a71c3 100644
+--- a/arch/arm64/include/asm/traps.h
++++ b/arch/arm64/include/asm/traps.h
+@@ -29,6 +29,12 @@ void arm64_force_sig_fault_pkey(unsigned long far, const char *str, int pkey);
+ void arm64_force_sig_mceerr(int code, unsigned long far, short lsb, const char *str);
+ void arm64_force_sig_ptrace_errno_trap(int errno, unsigned long far, const char *str);
+ 
++int bug_brk_handler(struct pt_regs *regs, unsigned long esr);
++int cfi_brk_handler(struct pt_regs *regs, unsigned long esr);
++int reserved_fault_brk_handler(struct pt_regs *regs, unsigned long esr);
++int kasan_brk_handler(struct pt_regs *regs, unsigned long esr);
++int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr);
++
+ int early_brk64(unsigned long addr, unsigned long esr, struct pt_regs *regs);
+ 
+ /*
+diff --git a/arch/arm64/include/asm/uprobes.h b/arch/arm64/include/asm/uprobes.h
+index 014b02897f8e..3659a79a9f32 100644
+--- a/arch/arm64/include/asm/uprobes.h
++++ b/arch/arm64/include/asm/uprobes.h
+@@ -28,4 +28,6 @@ struct arch_uprobe {
+ 	bool simulate;
+ };
+ 
++int uprobe_brk_handler(struct pt_regs *regs, unsigned long esr);
++
+ #endif
+diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+index 9e69f2e915e8..15d7158a7548 100644
+--- a/arch/arm64/kernel/debug-monitors.c
++++ b/arch/arm64/kernel/debug-monitors.c
+@@ -21,8 +21,11 @@
+ #include <asm/cputype.h>
+ #include <asm/daifflags.h>
+ #include <asm/debug-monitors.h>
++#include <asm/kgdb.h>
++#include <asm/kprobes.h>
+ #include <asm/system_misc.h>
+ #include <asm/traps.h>
++#include <asm/uprobes.h>
+ 
+ /* Determine debug architecture. */
+ u8 debug_monitors_arch(void)
+@@ -299,20 +302,47 @@ void unregister_kernel_break_hook(struct break_hook *hook)
+ 
+ static int call_break_hook(struct pt_regs *regs, unsigned long esr)
+ {
+-	struct break_hook *hook;
+-	struct list_head *list;
+-
+-	list = user_mode(regs) ? &user_break_hook : &kernel_break_hook;
+-
+-	/*
+-	 * Since brk exception disables interrupt, this function is
+-	 * entirely not preemptible, and we can use rcu list safely here.
+-	 */
+-	list_for_each_entry_rcu(hook, list, node) {
+-		if ((esr_brk_comment(esr) & ~hook->mask) == hook->imm)
+-			return hook->fn(regs, esr);
++	if (user_mode(regs)) {
++		if (IS_ENABLED(CONFIG_UPROBES) &&
++			esr_brk_comment(esr) == UPROBES_BRK_IMM)
++			return uprobe_brk_handler(regs, esr);
++		return DBG_HOOK_ERROR;
+ 	}
+ 
++	if (esr_brk_comment(esr) == BUG_BRK_IMM)
++		return bug_brk_handler(regs, esr);
++
++	if (IS_ENABLED(CONFIG_CFI_CLANG) && esr_is_cfi_brk(esr))
++		return cfi_brk_handler(regs, esr);
++
++	if (esr_brk_comment(esr) == FAULT_BRK_IMM)
++		return reserved_fault_brk_handler(regs, esr);
++
++	if (IS_ENABLED(CONFIG_KASAN_SW_TAGS) &&
++		(esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
++		return kasan_brk_handler(regs, esr);
++
++	if (IS_ENABLED(CONFIG_UBSAN_TRAP) && esr_is_ubsan_brk(esr))
++		return ubsan_brk_handler(regs, esr);
++
++	if (IS_ENABLED(CONFIG_KGDB)) {
++		if (esr_brk_comment(esr) == KGDB_DYN_DBG_BRK_IMM)
++			return kgdb_brk_handler(regs, esr);
++		if (esr_brk_comment(esr) == KGDB_COMPILED_DBG_BRK_IMM)
++			return kgdb_compiled_brk_handler(regs, esr);
++	}
++
++	if (IS_ENABLED(CONFIG_KPROBES)) {
++		if (esr_brk_comment(esr) == KPROBES_BRK_IMM)
++			return kprobe_brk_handler(regs, esr);
++		if (esr_brk_comment(esr) == KPROBES_BRK_SS_IMM)
++			return kprobe_ss_brk_handler(regs, esr);
++	}
++
++	if (IS_ENABLED(CONFIG_KRETPROBES) &&
++		esr_brk_comment(esr) == KRETPROBES_BRK_IMM)
++		return kretprobe_brk_handler(regs, esr);
++
+ 	return DBG_HOOK_ERROR;
+ }
+ NOKPROBE_SYMBOL(call_break_hook);
+diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
+index f3c4d3a8a20f..b5a3b9c85a65 100644
+--- a/arch/arm64/kernel/kgdb.c
++++ b/arch/arm64/kernel/kgdb.c
+@@ -234,21 +234,21 @@ int kgdb_arch_handle_exception(int exception_vector, int signo,
+ 	return err;
+ }
+ 
+-static int kgdb_brk_fn(struct pt_regs *regs, unsigned long esr)
++int kgdb_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	kgdb_handle_exception(1, SIGTRAP, 0, regs);
+ 	return DBG_HOOK_HANDLED;
+ }
+-NOKPROBE_SYMBOL(kgdb_brk_fn)
++NOKPROBE_SYMBOL(kgdb_brk_handler)
+ 
+-static int kgdb_compiled_brk_fn(struct pt_regs *regs, unsigned long esr)
++int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	compiled_break = 1;
+ 	kgdb_handle_exception(1, SIGTRAP, 0, regs);
+ 
+ 	return DBG_HOOK_HANDLED;
+ }
+-NOKPROBE_SYMBOL(kgdb_compiled_brk_fn);
++NOKPROBE_SYMBOL(kgdb_compiled_brk_handler);
+ 
+ static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
+ {
+@@ -260,16 +260,6 @@ static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
+ }
+ NOKPROBE_SYMBOL(kgdb_step_brk_fn);
+ 
+-static struct break_hook kgdb_brkpt_hook = {
+-	.fn		= kgdb_brk_fn,
+-	.imm		= KGDB_DYN_DBG_BRK_IMM,
+-};
+-
+-static struct break_hook kgdb_compiled_brkpt_hook = {
+-	.fn		= kgdb_compiled_brk_fn,
+-	.imm		= KGDB_COMPILED_DBG_BRK_IMM,
+-};
+-
+ static struct step_hook kgdb_step_hook = {
+ 	.fn		= kgdb_step_brk_fn
+ };
+@@ -316,8 +306,6 @@ int kgdb_arch_init(void)
+ 	if (ret != 0)
+ 		return ret;
+ 
+-	register_kernel_break_hook(&kgdb_brkpt_hook);
+-	register_kernel_break_hook(&kgdb_compiled_brkpt_hook);
+ 	register_kernel_step_hook(&kgdb_step_hook);
+ 	return 0;
+ }
+@@ -329,8 +317,6 @@ int kgdb_arch_init(void)
+  */
+ void kgdb_arch_exit(void)
+ {
+-	unregister_kernel_break_hook(&kgdb_brkpt_hook);
+-	unregister_kernel_break_hook(&kgdb_compiled_brkpt_hook);
+ 	unregister_kernel_step_hook(&kgdb_step_hook);
+ 	unregister_die_notifier(&kgdb_notifier);
+ }
+diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
+index d9e462eafb95..0c5d408afd95 100644
+--- a/arch/arm64/kernel/probes/kprobes.c
++++ b/arch/arm64/kernel/probes/kprobes.c
+@@ -292,8 +292,8 @@ int __kprobes kprobe_fault_handler(struct pt_regs *regs, unsigned int fsr)
+ 	return 0;
+ }
+ 
+-static int __kprobes
+-kprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
++int __kprobes
++kprobe_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	struct kprobe *p, *cur_kprobe;
+ 	struct kprobe_ctlblk *kcb;
+@@ -336,13 +336,8 @@ kprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_HANDLED;
+ }
+ 
+-static struct break_hook kprobes_break_hook = {
+-	.imm = KPROBES_BRK_IMM,
+-	.fn = kprobe_breakpoint_handler,
+-};
+-
+-static int __kprobes
+-kprobe_breakpoint_ss_handler(struct pt_regs *regs, unsigned long esr)
++int __kprobes
++kprobe_ss_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	struct kprobe_ctlblk *kcb = get_kprobe_ctlblk();
+ 	unsigned long addr = instruction_pointer(regs);
+@@ -360,13 +355,8 @@ kprobe_breakpoint_ss_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_ERROR;
+ }
+ 
+-static struct break_hook kprobes_break_ss_hook = {
+-	.imm = KPROBES_BRK_SS_IMM,
+-	.fn = kprobe_breakpoint_ss_handler,
+-};
+-
+-static int __kprobes
+-kretprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
++int __kprobes
++kretprobe_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	if (regs->pc != (unsigned long)__kretprobe_trampoline)
+ 		return DBG_HOOK_ERROR;
+@@ -375,11 +365,6 @@ kretprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_HANDLED;
+ }
+ 
+-static struct break_hook kretprobes_break_hook = {
+-	.imm = KRETPROBES_BRK_IMM,
+-	.fn = kretprobe_breakpoint_handler,
+-};
+-
+ /*
+  * Provide a blacklist of symbols identifying ranges which cannot be kprobed.
+  * This blacklist is exposed to userspace via debugfs (kprobes/blacklist).
+@@ -422,9 +407,5 @@ int __kprobes arch_trampoline_kprobe(struct kprobe *p)
+ 
+ int __init arch_init_kprobes(void)
+ {
+-	register_kernel_break_hook(&kprobes_break_hook);
+-	register_kernel_break_hook(&kprobes_break_ss_hook);
+-	register_kernel_break_hook(&kretprobes_break_hook);
+-
+ 	return 0;
+ }
+diff --git a/arch/arm64/kernel/probes/kprobes_trampoline.S b/arch/arm64/kernel/probes/kprobes_trampoline.S
+index a362f3dbb3d1..b60739d3983f 100644
+--- a/arch/arm64/kernel/probes/kprobes_trampoline.S
++++ b/arch/arm64/kernel/probes/kprobes_trampoline.S
+@@ -12,7 +12,7 @@
+ SYM_CODE_START(__kretprobe_trampoline)
+ 	/*
+ 	 * Trigger a breakpoint exception. The PC will be adjusted by
+-	 * kretprobe_breakpoint_handler(), and no subsequent instructions will
++	 * kretprobe_brk_handler(), and no subsequent instructions will
+ 	 * be executed from the trampoline.
+ 	 */
+ 	brk #KRETPROBES_BRK_IMM
+diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
+index cb3d05af36e3..ad68b4a5974d 100644
+--- a/arch/arm64/kernel/probes/uprobes.c
++++ b/arch/arm64/kernel/probes/uprobes.c
+@@ -173,7 +173,7 @@ int arch_uprobe_exception_notify(struct notifier_block *self,
+ 	return NOTIFY_DONE;
+ }
+ 
+-static int uprobe_breakpoint_handler(struct pt_regs *regs,
++int uprobe_brk_handler(struct pt_regs *regs,
+ 				     unsigned long esr)
+ {
+ 	if (uprobe_pre_sstep_notifier(regs))
+@@ -194,12 +194,6 @@ static int uprobe_single_step_handler(struct pt_regs *regs,
+ 	return DBG_HOOK_ERROR;
+ }
+ 
+-/* uprobe breakpoint handler hook */
+-static struct break_hook uprobes_break_hook = {
+-	.imm = UPROBES_BRK_IMM,
+-	.fn = uprobe_breakpoint_handler,
+-};
+-
+ /* uprobe single step handler hook */
+ static struct step_hook uprobes_step_hook = {
+ 	.fn = uprobe_single_step_handler,
+@@ -207,7 +201,6 @@ static struct step_hook uprobes_step_hook = {
+ 
+ static int __init arch_init_uprobes(void)
+ {
+-	register_user_break_hook(&uprobes_break_hook);
+ 	register_user_step_hook(&uprobes_step_hook);
+ 
+ 	return 0;
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 685c11b2c553..654c8ea46ec6 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -987,7 +987,7 @@ void do_serror(struct pt_regs *regs, unsigned long esr)
+ int is_valid_bugaddr(unsigned long addr)
+ {
+ 	/*
+-	 * bug_handler() only called for BRK #BUG_BRK_IMM.
++	 * bug_brk_handler() only called for BRK #BUG_BRK_IMM.
+ 	 * So the answer is trivial -- any spurious instances with no
+ 	 * bug table entry will be rejected by report_bug() and passed
+ 	 * back to the debug-monitors code and handled as a fatal
+@@ -997,7 +997,7 @@ int is_valid_bugaddr(unsigned long addr)
+ }
+ #endif
+ 
+-static int bug_handler(struct pt_regs *regs, unsigned long esr)
++int bug_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	switch (report_bug(regs->pc, regs)) {
+ 	case BUG_TRAP_TYPE_BUG:
+@@ -1017,13 +1017,8 @@ static int bug_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_HANDLED;
+ }
+ 
+-static struct break_hook bug_break_hook = {
+-	.fn = bug_handler,
+-	.imm = BUG_BRK_IMM,
+-};
+-
+ #ifdef CONFIG_CFI_CLANG
+-static int cfi_handler(struct pt_regs *regs, unsigned long esr)
++int cfi_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	unsigned long target;
+ 	u32 type;
+@@ -1046,15 +1041,9 @@ static int cfi_handler(struct pt_regs *regs, unsigned long esr)
+ 	arm64_skip_faulting_instruction(regs, AARCH64_INSN_SIZE);
+ 	return DBG_HOOK_HANDLED;
+ }
+-
+-static struct break_hook cfi_break_hook = {
+-	.fn = cfi_handler,
+-	.imm = CFI_BRK_IMM_BASE,
+-	.mask = CFI_BRK_IMM_MASK,
+-};
+ #endif /* CONFIG_CFI_CLANG */
+ 
+-static int reserved_fault_handler(struct pt_regs *regs, unsigned long esr)
++int reserved_fault_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	pr_err("%s generated an invalid instruction at %pS!\n",
+ 		"Kernel text patching",
+@@ -1064,11 +1053,6 @@ static int reserved_fault_handler(struct pt_regs *regs, unsigned long esr)
+ 	return DBG_HOOK_ERROR;
+ }
+ 
+-static struct break_hook fault_break_hook = {
+-	.fn = reserved_fault_handler,
+-	.imm = FAULT_BRK_IMM,
+-};
+-
+ #ifdef CONFIG_KASAN_SW_TAGS
+ 
+ #define KASAN_ESR_RECOVER	0x20
+@@ -1076,7 +1060,7 @@ static struct break_hook fault_break_hook = {
+ #define KASAN_ESR_SIZE_MASK	0x0f
+ #define KASAN_ESR_SIZE(esr)	(1 << ((esr) & KASAN_ESR_SIZE_MASK))
+ 
+-static int kasan_handler(struct pt_regs *regs, unsigned long esr)
++int kasan_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	bool recover = esr & KASAN_ESR_RECOVER;
+ 	bool write = esr & KASAN_ESR_WRITE;
+@@ -1107,26 +1091,14 @@ static int kasan_handler(struct pt_regs *regs, unsigned long esr)
+ 	arm64_skip_faulting_instruction(regs, AARCH64_INSN_SIZE);
+ 	return DBG_HOOK_HANDLED;
+ }
+-
+-static struct break_hook kasan_break_hook = {
+-	.fn	= kasan_handler,
+-	.imm	= KASAN_BRK_IMM,
+-	.mask	= KASAN_BRK_MASK,
+-};
+ #endif
+ 
+ #ifdef CONFIG_UBSAN_TRAP
+-static int ubsan_handler(struct pt_regs *regs, unsigned long esr)
++int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	die(report_ubsan_failure(esr & UBSAN_BRK_MASK), regs, esr);
+ 	return DBG_HOOK_HANDLED;
+ }
+-
+-static struct break_hook ubsan_break_hook = {
+-	.fn	= ubsan_handler,
+-	.imm	= UBSAN_BRK_IMM,
+-	.mask	= UBSAN_BRK_MASK,
+-};
+ #endif
+ 
+ /*
+@@ -1138,31 +1110,20 @@ int __init early_brk64(unsigned long addr, unsigned long esr,
+ {
+ #ifdef CONFIG_CFI_CLANG
+ 	if (esr_is_cfi_brk(esr))
+-		return cfi_handler(regs, esr) != DBG_HOOK_HANDLED;
++		return cfi_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+ #endif
+ #ifdef CONFIG_KASAN_SW_TAGS
+ 	if ((esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
+-		return kasan_handler(regs, esr) != DBG_HOOK_HANDLED;
++		return kasan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+ #endif
+ #ifdef CONFIG_UBSAN_TRAP
+ 	if (esr_is_ubsan_brk(esr))
+-		return ubsan_handler(regs, esr) != DBG_HOOK_HANDLED;
++		return ubsan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+ #endif
+-	return bug_handler(regs, esr) != DBG_HOOK_HANDLED;
++	return bug_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+ }
+ 
+ void __init trap_init(void)
+ {
+-	register_kernel_break_hook(&bug_break_hook);
+-#ifdef CONFIG_CFI_CLANG
+-	register_kernel_break_hook(&cfi_break_hook);
+-#endif
+-	register_kernel_break_hook(&fault_break_hook);
+-#ifdef CONFIG_KASAN_SW_TAGS
+-	register_kernel_break_hook(&kasan_break_hook);
+-#endif
+-#ifdef CONFIG_UBSAN_TRAP
+-	register_kernel_break_hook(&ubsan_break_hook);
+-#endif
+ 	debug_traps_init();
+ }
+-- 
+2.43.0
 
 
