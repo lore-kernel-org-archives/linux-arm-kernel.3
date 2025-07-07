@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F17C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 13:00:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF35AC83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 13:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:Cc:To:
-	From:Mime-Version:Message-ID:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u4kumPAdK6BF2yfUGo+tOlBjI2ZdSCyqP7Sl7SBvwmY=; b=n6JMu8UanC7zKMkOfqqPaLyR2R
-	x62F3p2esMDc8beGN9EDwJ1wPekl3u+1m1vXqVwYTjw4FAG3Gd2vDCrbGfuFl14emFSzl/wCU7Q20
-	GjlWBv11HGBdLlgxHjqqmArZWYU0BJEN5vtBojmnRFHADXzfE93O5sZQnYaI/rrwOwkdjOPcJbdtk
-	D1NQ6Gp+xosW7spWPqRtvfuce0VE/zbAUwkDt1wxXqpIebQh9BtIqeXmvrhQSzdRcQP0X59aK9zD6
-	szurTB+NOczkZi7W8n240jWGondH3gisQ4XO6El5qYXnFHphr6tZbeMyA4DVxdFuKL+838HjI7FYp
-	O2HY0LoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3EFoMtLUWx6MbDX6P0aC3dbBN3HKxOB4zApNaP2oCeA=; b=tLF0V0U2HmxOw3iZiqKnCRC2Ns
+	3ea2DOkaBQfCmdWXvApJ+B71nBT8aB6QulztjbR/yUEynVWL7BjWGbYYm4pPjdYNsieS1UkDbcM7h
+	+JJWGaJspCezmn4l/tseQuz77KPYh/vX5sRtwzFkcKZnoh9LDzyftWVh+QMrC96/FL2R0v7MSqZ8Z
+	HiPDphen3LHPgiDimxB22nxqfK32YzpQr3Bc5Lj+QsGa04/SBTkQQGGe1DqYRhtV/tlvxFPI/gKuH
+	fyOiwTxZw5r/NU/JDGnBcaizVG8v2gjFypNhPV7KFAUSgXPkYJdJspxunmyR6NusRwYxZdp5up34m
+	4N6vqdOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYlRp-00000002TKN-3oHz;
-	Mon, 07 Jul 2025 12:59:53 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1uYlRu-00000002TQg-0G8R;
+	Mon, 07 Jul 2025 12:59:58 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkn0-00000002OkK-1g6v;
-	Mon, 07 Jul 2025 12:17:44 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4bbNXj4wqdz4x5pp;
-	Mon,  7 Jul 2025 20:17:25 +0800 (CST)
-Received: from xaxapp04.zte.com.cn ([10.99.98.157])
-	by mse-fl1.zte.com.cn with SMTP id 567CHOTs040120;
-	Mon, 7 Jul 2025 20:17:24 +0800 (+08)
-	(envelope-from shao.mingyin@zte.com.cn)
-Received: from mapi (xaxapp02[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Mon, 7 Jul 2025 20:17:27 +0800 (CST)
-Date: Mon, 7 Jul 2025 20:17:27 +0800 (CST)
-X-Zmail-TransId: 2afa686bbad7fffffffffe8-248e9
-X-Mailer: Zmail v1.0
-Message-ID: <20250707201727549ObAZpoScxRwGsruRnQQCP@zte.com.cn>
-Mime-Version: 1.0
-From: <shao.mingyin@zte.com.cn>
-To: <geert+renesas@glider.be>
-Cc: <changhuang.liang@starfivetech.com>, <geert+renesas@glider.be>,
-        <magnus.damm@gmail.com>, <heiko@sntech.de>, <alim.akhtar@samsung.com>,
-        <walker.chen@starfivetech.com>, <sebastian.reichel@collabora.com>,
-        <detlev.casanova@collabora.com>, <finley.xiao@rock-chips.com>,
-        <shawn.lin@rock-chips.com>, <pgwipeout@gmail.com>,
-        <shao.mingyin@zte.com.cn>, <linux-pm@vger.kernel.org>,
-        <linux-renesas-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-rockchip@lists.infradead.org>,
-        <linux-samsung-soc@vger.kernel.org>, <yang.yang29@zte.com.cn>,
-        <xu.xin16@zte.com.cn>, <yang.tao172@zte.com.cn>,
-        <ye.xingchen@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIIHY0XSBwbWRvbWFpbjogVXNlIHN0cl9lbmFibGVfZGlzYWJsZSgpIGFuZCBzdHJfb25fb2ZmKCkgaGVscGVycw==?=
-Content-Type: text/plain;
-	charset="UTF-8"
-X-MAIL: mse-fl1.zte.com.cn 567CHOTs040120
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 686BBAD5.000/4bbNXj4wqdz4x5pp
+	id 1uYl1o-00000002Qiz-03pa
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Jul 2025 12:33:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1751891580; x=1783427580;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=3EFoMtLUWx6MbDX6P0aC3dbBN3HKxOB4zApNaP2oCeA=;
+  b=Bu9OuasEqeeOQ0JJSdDLilyoNsi3CVRa18PqvfRUAtk6c4QL+slJPAgT
+   cOkZ2LERVTlCMsUSWe2Q8J8k6Un7RUo+4eoZrD6eg0rx4ceoubmJwxMT4
+   W1QtyguYN1SBvq0cEOtQqLa+ocJjwB+5tA7uqk3QadgcMkkAmlDtkwcgN
+   0wyHhqFLoKWS9E9hTC7+Xx+QwvhhlsjiFHBPMcgJ2UVhnBIZBt6utAkvf
+   xTIV7uwE7XOmWQd/t4nYP+qUI/duBsny2Nc6jrceaRAUpfmkR9yzmTSFL
+   WYi8d1ckThIPiwEICAwNRePvPfCUulbaiJeab2OK8Agye1iNWP3C1ZLFW
+   g==;
+X-CSE-ConnectionGUID: dwPCq672SsOplsYjP+AsxA==
+X-CSE-MsgGUID: ayOzl+24QC2/dpqRYojkJA==
+X-IronPort-AV: E=Sophos;i="6.16,294,1744063200"; 
+   d="scan'208";a="45062521"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 07 Jul 2025 14:32:55 +0200
+X-CheckPoint: {686BBE77-11-4C91DA42-F9D38293}
+X-MAIL-CPID: ECC4F355EFDBBE1EB90FE1E99CCFC922_5
+X-Control-Analysis: str=0001.0A006397.686BBE89.0055,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A300164D01;
+	Mon,  7 Jul 2025 14:32:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1751891571;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3EFoMtLUWx6MbDX6P0aC3dbBN3HKxOB4zApNaP2oCeA=;
+	b=a4QFFm5GESvBpUD4d2yaaa+l+TsYTB46OOtPgJPHFCHRMDRwCRlHRJUtJph6HveriV4d8+
+	47P2d1fiec1o2zISgVTJj5dFnFHmsLuRN2qvmdg5/Do9VDOzmOraA4zSCI3XpigixMTVys
+	xcVwWkfRu7qmDXw3gA8itDCsqFvM/egOYYEoZd9H7mh82YyDTdhdKxaCgck4I1i9lfkq61
+	eF/L6/WnJ3oxeBTQvyTBjW+lV+AuRfV+/8YpHjYPmCIy7pbA0nNFdInIHxxWM5Xi3pp5TV
+	N6GkhxoaG+IPSArJUJPcy+Z6BJJzF5obbNnA+jv5AaueT2wjSPLliQQFCdrUiQ==
+Message-ID: <bf08cf4f890060d2d32d365abfb49d1c708a7fad.camel@ew.tq-group.com>
+Subject: Re: [PATCH 05/12] gpio: tqmx86: use new GPIO line value setter
+ callbacks
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux@ew.tq-group.com, linux-arm-kernel@lists.infradead.org, 
+ virtualization@lists.linux.dev, Bartosz Golaszewski
+ <bartosz.golaszewski@linaro.org>, Linus Walleij <linus.walleij@linaro.org>,
+  Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Viresh Kumar <vireshk@kernel.org>
+Date: Mon, 07 Jul 2025 14:32:48 +0200
+In-Reply-To: <20250707-gpiochip-set-rv-gpio-round4-v1-5-35668aaaf6d2@linaro.org>
+References: <20250707-gpiochip-set-rv-gpio-round4-v1-0-35668aaaf6d2@linaro.org>
+	 <20250707-gpiochip-set-rv-gpio-round4-v1-5-35668aaaf6d2@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
+MIME-Version: 1.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_051742_761346_9424A62E 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20250707_053300_539177_E63BF777 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,149 +100,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shao Mingyin <shao.mingyin@zte.com.cn>
+On Mon, 2025-07-07 at 09:50 +0200, Bartosz Golaszewski wrote:
+>=20
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>=20
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+>=20
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Use str_enable_disable() and str_on_off() helper instead of open
-coding the same.
+Acked-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
 
-Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
-Reviewed-by: Changhuang Liang <changhuang.liang@starfivetech.com>
----
-v4:
-insert new includes alphabetically
- drivers/pmdomain/renesas/rcar-gen4-sysc.c    | 3 ++-
- drivers/pmdomain/renesas/rcar-sysc.c         | 3 ++-
- drivers/pmdomain/rockchip/pm-domains.c       | 3 ++-
- drivers/pmdomain/samsung/exynos-pm-domains.c | 6 +++---
- drivers/pmdomain/starfive/jh71xx-pmu.c       | 7 ++++---
- 5 files changed, 13 insertions(+), 9 deletions(-)
+> ---
+>  drivers/gpio/gpio-tqmx86.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/gpio/gpio-tqmx86.c b/drivers/gpio/gpio-tqmx86.c
+> index 18f523a15b3c03e083b363a026e751f7367fb080..056799ecce6a256f3438d9fd8=
+1ee4677cdd20125 100644
+> --- a/drivers/gpio/gpio-tqmx86.c
+> +++ b/drivers/gpio/gpio-tqmx86.c
+> @@ -93,14 +93,16 @@ static void _tqmx86_gpio_set(struct tqmx86_gpio_data =
+*gpio, unsigned int offset,
+>  	tqmx86_gpio_write(gpio, bitmap_get_value8(gpio->output, 0), TQMX86_GPIO=
+D);
+>  }
+> =20
+> -static void tqmx86_gpio_set(struct gpio_chip *chip, unsigned int offset,
+> -			    int value)
+> +static int tqmx86_gpio_set(struct gpio_chip *chip, unsigned int offset,
+> +			   int value)
+>  {
+>  	struct tqmx86_gpio_data *gpio =3D gpiochip_get_data(chip);
+> =20
+>  	guard(raw_spinlock_irqsave)(&gpio->spinlock);
+> =20
+>  	_tqmx86_gpio_set(gpio, offset, value);
+> +
+> +	return 0;
+>  }
+> =20
+>  static int tqmx86_gpio_direction_input(struct gpio_chip *chip,
+> @@ -368,7 +370,7 @@ static int tqmx86_gpio_probe(struct platform_device *=
+pdev)
+>  	chip->direction_output =3D tqmx86_gpio_direction_output;
+>  	chip->get_direction =3D tqmx86_gpio_get_direction;
+>  	chip->get =3D tqmx86_gpio_get;
+> -	chip->set =3D tqmx86_gpio_set;
+> +	chip->set_rv =3D tqmx86_gpio_set;
+>  	chip->ngpio =3D TQMX86_NGPIO;
+>  	chip->parent =3D pdev->dev.parent;
+> =20
+>=20
 
-diff --git a/drivers/pmdomain/renesas/rcar-gen4-sysc.c b/drivers/pmdomain/renesas/rcar-gen4-sysc.c
-index e001b5c25bed..d93caae5bed5 100644
---- a/drivers/pmdomain/renesas/rcar-gen4-sysc.c
-+++ b/drivers/pmdomain/renesas/rcar-gen4-sysc.c
-@@ -17,6 +17,7 @@
- #include <linux/pm_domain.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
-+#include <linux/string_choices.h>
- #include <linux/types.h>
-
- #include "rcar-gen4-sysc.h"
-@@ -171,7 +172,7 @@ static int rcar_gen4_sysc_power(u8 pdr, bool on)
-  out:
- 	spin_unlock_irqrestore(&rcar_gen4_sysc_lock, flags);
-
--	pr_debug("sysc power %s domain %d: %08x -> %d\n", on ? "on" : "off",
-+	pr_debug("sysc power %s domain %d: %08x -> %d\n", str_on_off(on),
- 		 pdr, ioread32(rcar_gen4_sysc_base + SYSCISCR(reg_idx)), ret);
- 	return ret;
- }
-diff --git a/drivers/pmdomain/renesas/rcar-sysc.c b/drivers/pmdomain/renesas/rcar-sysc.c
-index 047495f54e8a..38406414035a 100644
---- a/drivers/pmdomain/renesas/rcar-sysc.c
-+++ b/drivers/pmdomain/renesas/rcar-sysc.c
-@@ -14,6 +14,7 @@
- #include <linux/pm_domain.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
-+#include <linux/string_choices.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
- #include <linux/soc/renesas/rcar-sysc.h>
-@@ -162,7 +163,7 @@ static int rcar_sysc_power(const struct rcar_sysc_pd *pd, bool on)
-
- 	spin_unlock_irqrestore(&rcar_sysc_lock, flags);
-
--	pr_debug("sysc power %s domain %d: %08x -> %d\n", on ? "on" : "off",
-+	pr_debug("sysc power %s domain %d: %08x -> %d\n", str_on_off(on),
- 		 pd->isr_bit, ioread32(rcar_sysc_base + SYSCISR), ret);
- 	return ret;
- }
-diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
-index 242570c505fb..a7abbb67ae70 100644
---- a/drivers/pmdomain/rockchip/pm-domains.c
-+++ b/drivers/pmdomain/rockchip/pm-domains.c
-@@ -21,6 +21,7 @@
- #include <linux/regmap.h>
- #include <linux/regulator/consumer.h>
- #include <linux/mfd/syscon.h>
-+#include <linux/string_choices.h>
- #include <soc/rockchip/pm_domains.h>
- #include <soc/rockchip/rockchip_sip.h>
- #include <dt-bindings/power/px30-power.h>
-@@ -599,7 +600,7 @@ static int rockchip_do_pmu_set_power_domain(struct rockchip_pm_domain *pd,
- 					is_on == on, 0, 10000);
- 	if (ret) {
- 		dev_err(pmu->dev, "failed to set domain '%s' %s, val=%d\n",
--			genpd->name, on ? "on" : "off", is_on);
-+			genpd->name, str_on_off(on), is_on);
- 		return ret;
- 	}
-
-diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
-index 9b502e8751d1..1a892c611dad 100644
---- a/drivers/pmdomain/samsung/exynos-pm-domains.c
-+++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
-@@ -13,6 +13,7 @@
- #include <linux/err.h>
- #include <linux/platform_device.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
- #include <linux/pm_domain.h>
- #include <linux/delay.h>
- #include <linux/of.h>
-@@ -38,7 +39,6 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
- 	struct exynos_pm_domain *pd;
- 	void __iomem *base;
- 	u32 timeout, pwr;
--	char *op;
-
- 	pd = container_of(domain, struct exynos_pm_domain, pd);
- 	base = pd->base;
-@@ -51,8 +51,8 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
-
- 	while ((readl_relaxed(base + 0x4) & pd->local_pwr_cfg) != pwr) {
- 		if (!timeout) {
--			op = (power_on) ? "enable" : "disable";
--			pr_err("Power domain %s %s failed\n", domain->name, op);
-+			pr_err("Power domain %s %s failed\n", domain->name,
-+			       str_enable_disable(power_on));
- 			return -ETIMEDOUT;
- 		}
- 		timeout--;
-diff --git a/drivers/pmdomain/starfive/jh71xx-pmu.c b/drivers/pmdomain/starfive/jh71xx-pmu.c
-index 74720c09a6e3..dc3e109e273a 100644
---- a/drivers/pmdomain/starfive/jh71xx-pmu.c
-+++ b/drivers/pmdomain/starfive/jh71xx-pmu.c
-@@ -12,6 +12,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/pm_domain.h>
-+#include <linux/string_choices.h>
- #include <dt-bindings/power/starfive,jh7110-pmu.h>
-
- /* register offset */
-@@ -155,7 +156,7 @@ static int jh7110_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
-
- 	if (ret) {
- 		dev_err(pmu->dev, "%s: failed to power %s\n",
--			pmd->genpd.name, on ? "on" : "off");
-+			pmd->genpd.name, str_on_off(on));
- 		return -ETIMEDOUT;
- 	}
-
-@@ -197,8 +198,8 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
- 	}
-
- 	if (is_on == on) {
--		dev_dbg(pmu->dev, "pm domain [%s] is already %sable status.\n",
--			pmd->genpd.name, on ? "en" : "dis");
-+		dev_dbg(pmu->dev, "pm domain [%s] is already %s status.\n",
-+			pmd->genpd.name, str_enable_disable(on));
- 		return 0;
- 	}
-
--- 
-2.25.1
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
