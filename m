@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB0DC83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 12:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D94CC83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 12:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e95bf7oOR+ED4k8+7lZWCy2NP0f754IpCvyw/3GJAtg=; b=tRAHksrWqudXqkcspFTNCus4PW
-	7oipXeKbOE0T5K6UpygUaa+0Fbv/i3TcSavFuf84qy3h9cCnGzE1AmdvBIngLlsihLDqqChvfddcD
-	zvfHQHKT0bzEjK0ioAPfsS4koEcyVkgyZiyw2DZyqd7Wv1sGmEIup3J+de+Z4AjvzmajnfpoE7P1e
-	9XHKqX+vx139uEcDUED93UY2Mr1jjLumt70ItRYh2sB8PTO+cFrkOotwmmTBn/FIM076iSth/SjnF
-	REv/7uc5A0xK7BBz1ZmhR8OELMwx9FtWvpRhbO8v3nKrEEm2x9FqVwTq1Kl1zKrg7fKYk5HbEO5vX
-	zRWXieyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W7yOYKGXLzQIsGpksMUFS+iJ90GvnirvruDv8nNna64=; b=xAyFEdqxSQSxATkJTfe3yB4J69
+	Y3p7Lw/BYTh3oxNJjsF7cuF3060uVUJ+GByUUKjyCCi3va2gq6JIhTQMIh6HboK/bt2EqsKe8pA/k
+	smO8dL8pmj0tgxy0KR4/OXQtmEgkKTfOc+fyadopzMlgjWLKGPnoXMSo0JmJnet0KDglXdicf7y0a
+	tJ5GUigZaG7+vvBTr6h+dvlo+1tZnIVby/p5sMMpPbpNA4Lia0PSwcwPH+536F01eTE82zO3p2GmL
+	2NHGjToAuzPsfnAm6wwUDsAZz8Jqrohu+0Oc/ukZgAxYHCSknnZ4I9KIfP1e7SmGxcjGXBjFIshe+
+	Z/luvUVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYlRk-00000002TDM-1xDj;
-	Mon, 07 Jul 2025 12:59:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uYlRi-00000002TBO-1mXy;
+	Mon, 07 Jul 2025 12:59:46 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjnc-00000002FbN-03n2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 11:14:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 287F55C54B8;
-	Mon,  7 Jul 2025 11:14:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C78FC4CEE3;
-	Mon,  7 Jul 2025 11:14:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751886854;
-	bh=4P+JwJErfYuQ5fEKcfeUj7iZinodj4+jfPTq8yZkb3c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MT/UeOPX0fZZqUIKrHROx9YtvsXfraiKpkJg/dAv1Kbz6HIJBJl8ah43FPm0UK2ax
-	 ozmRiGQKuSRDoG94vgh9ZBavYlzXsCvAZ6/4+tD00et/fgBAyUPgn5g1/zTY4Lz3pX
-	 Ld/HStopyqlbbJj50Ix3dch/vpkqFmKd4KYglFmPT5I73WYbjp5zdMSi0mKLbTlHau
-	 o7vU9MW1BhnuPBEun+CjoCvjCN0tytta73syHtPFeEsdAeusGD+NxsE4nPZKxr+qDQ
-	 997Pt6ALtmRorte/EK3wKN1+tgCogtBWrg9MR9YxyYPmmwmdSiOC3wnkCNI0nGP0Pr
-	 gteuG7YYY1ctQ==
-Date: Mon, 7 Jul 2025 13:14:09 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Toan Le <toan@os.amperecomputing.com>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>
-Subject: Re: [PATCH 12/12] PCI: xgene-msi: Restructure handler setup/teardown
-Message-ID: <aGusAeAYqneyp9t3@lpieralisi>
-References: <20250628173005.445013-1-maz@kernel.org>
- <20250628173005.445013-13-maz@kernel.org>
+	id 1uYjWM-00000002DEf-2tqh;
+	Mon, 07 Jul 2025 10:56:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751885785;
+	bh=5y06/XlzJ5VBPy4ECaMag5vxMElWvOWR9o/ilb4yPeE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=M0UQOlggPmkkSt2lOoCV7BaINTUC4MPtcVfXwyzZZpRIyHe3L+UZQxyj+DhjzrhCJ
+	 cUnZJ8rJvRLgh1AbgeFZ5oXv8ILcehfLY9niRpdf9KCP0e5sFTLxwwEbpNPxKUlj6M
+	 MBPTtQMJPcYmU02YpbkhUk7x9hTOdTWDkvvFUD8xqIEAR4IKCFZSN+DyDijrLzhzhP
+	 VZLFEo4zmI59ECJWUOs/QTQvxXAk2F2Y4DykscDYxszJB9PYXJz1tCUbo5sgsKlTyp
+	 eUtrP6ICf/bmUJqUqppGCLUFP+y2e9C7q2Se0+6ge8UPzWeqv+fYhg1Ri58a07S6NA
+	 oKwBfaYO5ydaQ==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 673EA17E053B;
+	Mon,  7 Jul 2025 12:56:24 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	ulf.hansson@linaro.org,
+	y.oudjana@protonmail.com,
+	fshao@chromium.org,
+	wenst@chromium.org,
+	lihongbo22@huawei.com,
+	mandyjh.liu@mediatek.com,
+	mbrugger@suse.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	kernel@collabora.com,
+	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>
+Subject: [PATCH v2 09/10] pmdomain: mediatek: Convert all SoCs to new style regmap retrieval
+Date: Mon,  7 Jul 2025 12:56:04 +0200
+Message-ID: <20250707105605.98248-10-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250707105605.98248-1-angelogioacchino.delregno@collabora.com>
+References: <20250707105605.98248-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250628173005.445013-13-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_041416_151326_29354F9A 
-X-CRM114-Status: GOOD (  32.23  )
+X-CRM114-CacheID: sfid-20250707_035626_874906_A2832EB2 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,205 +89,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 28, 2025 at 06:30:05PM +0100, Marc Zyngier wrote:
-> Another utterly pointless aspect of the xgene-msi driver is that
-> it is built around CPU hotplug. Which is quite amusing since this
-> is one of the few arm64 platforms that, by construction, cannot
-> do CPU hotplug in a supported way (no EL3, no PSCI, no luck).
-> 
-> Drop the CPU hotplug nonsense and just setup the IRQs and handlers
-> in a less overdesigned way, grouping things more logically in the
-> process.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/pci/controller/pci-xgene-msi.c | 109 +++++++++----------------
->  1 file changed, 37 insertions(+), 72 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
-> index a22a6df7808c7..9f05c2a12da94 100644
-> --- a/drivers/pci/controller/pci-xgene-msi.c
-> +++ b/drivers/pci/controller/pci-xgene-msi.c
-> @@ -216,12 +216,6 @@ static int xgene_allocate_domains(struct device_node *node,
->  	return msi->inner_domain ? 0 : -ENOMEM;
->  }
->  
-> -static void xgene_free_domains(struct xgene_msi *msi)
-> -{
-> -	if (msi->inner_domain)
-> -		irq_domain_remove(msi->inner_domain);
-> -}
-> -
->  static int xgene_msi_init_allocator(struct device *dev)
->  {
->  	xgene_msi_ctrl->bitmap = devm_bitmap_zalloc(dev, NR_MSI_VEC, GFP_KERNEL);
-> @@ -271,26 +265,48 @@ static void xgene_msi_isr(struct irq_desc *desc)
->  	chained_irq_exit(chip, desc);
->  }
->  
-> -static enum cpuhp_state pci_xgene_online;
-> -
->  static void xgene_msi_remove(struct platform_device *pdev)
->  {
-> -	struct xgene_msi *msi = platform_get_drvdata(pdev);
-> -
-> -	if (pci_xgene_online)
-> -		cpuhp_remove_state(pci_xgene_online);
-> -	cpuhp_remove_state(CPUHP_PCI_XGENE_DEAD);
+Add the bus_prot_blocks handle and declare num_bus_prot_blocks to
+allow all of the currently supported AArch64 MediaTek SoCs to use
+the new style regmap retrieval in the driver when a new style
+devicetree declaring the mediatek,bus-protection phandle(s) in
+the main power controller node is found.
 
-No question on the patch - just noticed we could remove
-CPUHP_PCI_XGENE_DEAD from cpuhp_state since it would become
-unused AFAICS.
+Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/pmdomain/mediatek/mt6795-pm-domains.h | 5 +++++
+ drivers/pmdomain/mediatek/mt8167-pm-domains.h | 5 +++++
+ drivers/pmdomain/mediatek/mt8173-pm-domains.h | 5 +++++
+ drivers/pmdomain/mediatek/mt8183-pm-domains.h | 5 +++++
+ drivers/pmdomain/mediatek/mt8186-pm-domains.h | 5 +++++
+ drivers/pmdomain/mediatek/mt8188-pm-domains.h | 6 ++++++
+ drivers/pmdomain/mediatek/mt8192-pm-domains.h | 5 +++++
+ drivers/pmdomain/mediatek/mt8195-pm-domains.h | 5 +++++
+ drivers/pmdomain/mediatek/mt8365-pm-domains.h | 6 ++++++
+ 9 files changed, 47 insertions(+)
 
-Thanks,
-Lorenzo
+diff --git a/drivers/pmdomain/mediatek/mt6795-pm-domains.h b/drivers/pmdomain/mediatek/mt6795-pm-domains.h
+index a3f7785b04bd..dc8e9f8877ad 100644
+--- a/drivers/pmdomain/mediatek/mt6795-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt6795-pm-domains.h
+@@ -9,6 +9,9 @@
+ /*
+  * MT6795 power domain support
+  */
++static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt6795[] = {
++	BUS_PROT_BLOCK_INFRA
++};
+ 
+ static const struct scpsys_domain_data scpsys_domain_data_mt6795[] = {
+ 	[MT6795_POWER_DOMAIN_VDEC] = {
+@@ -107,6 +110,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt6795[] = {
+ static const struct scpsys_soc_data mt6795_scpsys_data = {
+ 	.domains_data = scpsys_domain_data_mt6795,
+ 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt6795),
++	.bus_prot_blocks = scpsys_bus_prot_blocks_mt6795,
++	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt6795),
+ };
+ 
+ #endif /* __SOC_MEDIATEK_MT6795_PM_DOMAINS_H */
+diff --git a/drivers/pmdomain/mediatek/mt8167-pm-domains.h b/drivers/pmdomain/mediatek/mt8167-pm-domains.h
+index 8a0e898b79ab..f6ee48a711a1 100644
+--- a/drivers/pmdomain/mediatek/mt8167-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt8167-pm-domains.h
+@@ -12,6 +12,9 @@
+ /*
+  * MT8167 power domain support
+  */
++static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8167[] = {
++	BUS_PROT_BLOCK_INFRA
++};
+ 
+ static const struct scpsys_domain_data scpsys_domain_data_mt8167[] = {
+ 	[MT8167_POWER_DOMAIN_MM] = {
+@@ -99,6 +102,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8167[] = {
+ static const struct scpsys_soc_data mt8167_scpsys_data = {
+ 	.domains_data = scpsys_domain_data_mt8167,
+ 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8167),
++	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8167,
++	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8167),
+ };
+ 
+ #endif /* __SOC_MEDIATEK_MT8167_PM_DOMAINS_H */
+diff --git a/drivers/pmdomain/mediatek/mt8173-pm-domains.h b/drivers/pmdomain/mediatek/mt8173-pm-domains.h
+index 7be0f47f5214..561a644b5d1c 100644
+--- a/drivers/pmdomain/mediatek/mt8173-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt8173-pm-domains.h
+@@ -9,6 +9,9 @@
+ /*
+  * MT8173 power domain support
+  */
++static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8173[] = {
++	BUS_PROT_BLOCK_INFRA
++};
+ 
+ static const struct scpsys_domain_data scpsys_domain_data_mt8173[] = {
+ 	[MT8173_POWER_DOMAIN_VDEC] = {
+@@ -118,6 +121,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8173[] = {
+ static const struct scpsys_soc_data mt8173_scpsys_data = {
+ 	.domains_data = scpsys_domain_data_mt8173,
+ 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8173),
++	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8173,
++	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8173),
+ };
+ 
+ #endif /* __SOC_MEDIATEK_MT8173_PM_DOMAINS_H */
+diff --git a/drivers/pmdomain/mediatek/mt8183-pm-domains.h b/drivers/pmdomain/mediatek/mt8183-pm-domains.h
+index c4c1b63d85b1..3742782a2702 100644
+--- a/drivers/pmdomain/mediatek/mt8183-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt8183-pm-domains.h
+@@ -9,6 +9,9 @@
+ /*
+  * MT8183 power domain support
+  */
++static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8183[] = {
++	BUS_PROT_BLOCK_INFRA, BUS_PROT_BLOCK_SMI
++};
+ 
+ static const struct scpsys_domain_data scpsys_domain_data_mt8183[] = {
+ 	[MT8183_POWER_DOMAIN_AUDIO] = {
+@@ -290,6 +293,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8183[] = {
+ static const struct scpsys_soc_data mt8183_scpsys_data = {
+ 	.domains_data = scpsys_domain_data_mt8183,
+ 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8183),
++	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8183,
++	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8183),
+ };
+ 
+ #endif /* __SOC_MEDIATEK_MT8183_PM_DOMAINS_H */
+diff --git a/drivers/pmdomain/mediatek/mt8186-pm-domains.h b/drivers/pmdomain/mediatek/mt8186-pm-domains.h
+index cbac715c38fa..00b9861af7c9 100644
+--- a/drivers/pmdomain/mediatek/mt8186-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt8186-pm-domains.h
+@@ -13,6 +13,9 @@
+ /*
+  * MT8186 power domain support
+  */
++static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8186[] = {
++	BUS_PROT_BLOCK_INFRA
++};
+ 
+ static const struct scpsys_domain_data scpsys_domain_data_mt8186[] = {
+ 	[MT8186_POWER_DOMAIN_MFG0] = {
+@@ -361,6 +364,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8186[] = {
+ static const struct scpsys_soc_data mt8186_scpsys_data = {
+ 	.domains_data = scpsys_domain_data_mt8186,
+ 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8186),
++	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8186,
++	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8186),
+ };
+ 
+ #endif /* __SOC_MEDIATEK_MT8186_PM_DOMAINS_H */
+diff --git a/drivers/pmdomain/mediatek/mt8188-pm-domains.h b/drivers/pmdomain/mediatek/mt8188-pm-domains.h
+index 007235be9efe..3a989e83e9b7 100644
+--- a/drivers/pmdomain/mediatek/mt8188-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt8188-pm-domains.h
+@@ -14,6 +14,10 @@
+  * MT8188 power domain support
+  */
+ 
++static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8188[] = {
++	BUS_PROT_BLOCK_INFRA
++};
++
+ static const struct scpsys_domain_data scpsys_domain_data_mt8188[] = {
+ 	[MT8188_POWER_DOMAIN_MFG0] = {
+ 		.name = "mfg0",
+@@ -685,6 +689,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8188[] = {
+ static const struct scpsys_soc_data mt8188_scpsys_data = {
+ 	.domains_data = scpsys_domain_data_mt8188,
+ 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8188),
++	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8188,
++	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8188),
+ };
+ 
+ #endif /* __SOC_MEDIATEK_MT8188_PM_DOMAINS_H */
+diff --git a/drivers/pmdomain/mediatek/mt8192-pm-domains.h b/drivers/pmdomain/mediatek/mt8192-pm-domains.h
+index 6f139eed3769..5d62fac5f682 100644
+--- a/drivers/pmdomain/mediatek/mt8192-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt8192-pm-domains.h
+@@ -9,6 +9,9 @@
+ /*
+  * MT8192 power domain support
+  */
++static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8192[] = {
++	BUS_PROT_BLOCK_INFRA
++};
+ 
+ static const struct scpsys_domain_data scpsys_domain_data_mt8192[] = {
+ 	[MT8192_POWER_DOMAIN_AUDIO] = {
+@@ -380,6 +383,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8192[] = {
+ static const struct scpsys_soc_data mt8192_scpsys_data = {
+ 	.domains_data = scpsys_domain_data_mt8192,
+ 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8192),
++	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8192,
++	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8192),
+ };
+ 
+ #endif /* __SOC_MEDIATEK_MT8192_PM_DOMAINS_H */
+diff --git a/drivers/pmdomain/mediatek/mt8195-pm-domains.h b/drivers/pmdomain/mediatek/mt8195-pm-domains.h
+index 59aa031ae632..9405e8f62eaf 100644
+--- a/drivers/pmdomain/mediatek/mt8195-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt8195-pm-domains.h
+@@ -13,6 +13,9 @@
+ /*
+  * MT8195 power domain support
+  */
++static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8195[] = {
++	BUS_PROT_BLOCK_INFRA
++};
+ 
+ static const struct scpsys_domain_data scpsys_domain_data_mt8195[] = {
+ 	[MT8195_POWER_DOMAIN_PCIE_MAC_P0] = {
+@@ -661,6 +664,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8195[] = {
+ static const struct scpsys_soc_data mt8195_scpsys_data = {
+ 	.domains_data = scpsys_domain_data_mt8195,
+ 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8195),
++	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8195,
++	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8195),
+ };
+ 
+ #endif /* __SOC_MEDIATEK_MT8195_PM_DOMAINS_H */
+diff --git a/drivers/pmdomain/mediatek/mt8365-pm-domains.h b/drivers/pmdomain/mediatek/mt8365-pm-domains.h
+index 6fbd5ef8d672..33265ab8ce76 100644
+--- a/drivers/pmdomain/mediatek/mt8365-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mt8365-pm-domains.h
+@@ -33,6 +33,10 @@
+ 			      _sta_mask, _sta,				\
+ 			      BUS_PROT_INVERTED | BUS_PROT_REG_UPDATE)
+ 
++static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt8365[] = {
++	BUS_PROT_BLOCK_INFRA, BUS_PROT_BLOCK_INFRA_NAO, BUS_PROT_BLOCK_SMI
++};
++
+ static const struct scpsys_domain_data scpsys_domain_data_mt8365[] = {
+ 	[MT8365_POWER_DOMAIN_MM] = {
+ 		.name = "mm",
+@@ -190,6 +194,8 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8365[] = {
+ static const struct scpsys_soc_data mt8365_scpsys_data = {
+ 	.domains_data = scpsys_domain_data_mt8365,
+ 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8365),
++	.bus_prot_blocks = scpsys_bus_prot_blocks_mt8365,
++	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt8365),
+ };
+ 
+ #endif /* __SOC_MEDIATEK_MT8365_PM_DOMAINS_H */
+-- 
+2.49.0
 
-> +	for (int i = 0; i < NR_HW_IRQS; i++) {
-> +		unsigned int irq = xgene_msi_ctrl->gic_irq[i];
-> +		if (!irq)
-> +			continue;
-> +		irq_set_chained_handler_and_data(irq, NULL, NULL);
-> +	}
->  
-> -	xgene_free_domains(msi);
-> +	if (xgene_msi_ctrl->inner_domain)
-> +		irq_domain_remove(xgene_msi_ctrl->inner_domain);
->  }
->  
-> -static int xgene_msi_hwirq_alloc(unsigned int cpu)
-> +static int xgene_msi_handler_setup(struct platform_device *pdev)
->  {
-> +	struct xgene_msi *xgene_msi = xgene_msi_ctrl;
->  	int i;
-> -	int err;
->  
-> -	for (i = cpu; i < NR_HW_IRQS; i += num_possible_cpus()) {
-> -		unsigned int irq = xgene_msi_ctrl->gic_irq[i];
-> +	for (i = 0; i < NR_HW_IRQS; i++) {
-> +		u32 msi_val;
-> +		int irq, err;
-> +
-> +		/*
-> +		 * MSInIRx registers are read-to-clear; before registering
-> +		 * interrupt handlers, read all of them to clear spurious
-> +		 * interrupts that may occur before the driver is probed.
-> +		 */
-> +		for (int msi_idx = 0; msi_idx < IDX_PER_GROUP; msi_idx++)
-> +			xgene_msi_ir_read(xgene_msi, i, msi_idx);
-> +
-> +		/* Read MSIINTn to confirm */
-> +		msi_val = xgene_msi_int_read(xgene_msi, i);
-> +		if (msi_val) {
-> +			dev_err(&pdev->dev, "Failed to clear spurious IRQ\n");
-> +			return EINVAL;
-> +		}
-> +
-> +		irq = platform_get_irq(pdev, i);
-> +		if (irq < 0)
-> +			return irq;
-> +
-> +		xgene_msi->gic_irq[i] = irq;
->  
->  		/*
->  		 * Statically allocate MSI GIC IRQs to each CPU core.
-> @@ -298,7 +314,7 @@ static int xgene_msi_hwirq_alloc(unsigned int cpu)
->  		 * to each core.
->  		 */
->  		irq_set_status_flags(irq, IRQ_NO_BALANCING);
-> -		err = irq_set_affinity(irq, cpumask_of(cpu));
-> +		err = irq_set_affinity(irq, cpumask_of(i % num_possible_cpus()));
->  		if (err) {
->  			pr_err("failed to set affinity for GIC IRQ");
->  			return err;
-> @@ -311,19 +327,6 @@ static int xgene_msi_hwirq_alloc(unsigned int cpu)
->  	return 0;
->  }
->  
-> -static int xgene_msi_hwirq_free(unsigned int cpu)
-> -{
-> -	struct xgene_msi *msi = xgene_msi_ctrl;
-> -	int i;
-> -
-> -	for (i = cpu; i < NR_HW_IRQS; i += num_possible_cpus()) {
-> -		if (!msi->gic_irq[i])
-> -			continue;
-> -		irq_set_chained_handler_and_data(msi->gic_irq[i], NULL, NULL);
-> -	}
-> -	return 0;
-> -}
-> -
->  static const struct of_device_id xgene_msi_match_table[] = {
->  	{.compatible = "apm,xgene1-msi"},
->  	{},
-> @@ -333,7 +336,6 @@ static int xgene_msi_probe(struct platform_device *pdev)
->  {
->  	struct resource *res;
->  	struct xgene_msi *xgene_msi;
-> -	u32 msi_val, msi_idx;
->  	int rc;
->  
->  	xgene_msi_ctrl = devm_kzalloc(&pdev->dev, sizeof(*xgene_msi_ctrl),
-> @@ -343,8 +345,6 @@ static int xgene_msi_probe(struct platform_device *pdev)
->  
->  	xgene_msi = xgene_msi_ctrl;
->  
-> -	platform_set_drvdata(pdev, xgene_msi);
-> -
->  	xgene_msi->msi_regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
->  	if (IS_ERR(xgene_msi->msi_regs)) {
->  		rc = PTR_ERR(xgene_msi->msi_regs);
-> @@ -364,48 +364,13 @@ static int xgene_msi_probe(struct platform_device *pdev)
->  		goto error;
->  	}
->  
-> -	for (int irq_index = 0; irq_index < NR_HW_IRQS; irq_index++) {
-> -		rc = platform_get_irq(pdev, irq_index);
-> -		if (rc < 0)
-> -			goto error;
-> -
-> -		xgene_msi->gic_irq[irq_index] = rc;
-> -	}
-> -
-> -	/*
-> -	 * MSInIRx registers are read-to-clear; before registering
-> -	 * interrupt handlers, read all of them to clear spurious
-> -	 * interrupts that may occur before the driver is probed.
-> -	 */
-> -	for (int irq_index = 0; irq_index < NR_HW_IRQS; irq_index++) {
-> -		for (msi_idx = 0; msi_idx < IDX_PER_GROUP; msi_idx++)
-> -			xgene_msi_ir_read(xgene_msi, irq_index, msi_idx);
-> -
-> -		/* Read MSIINTn to confirm */
-> -		msi_val = xgene_msi_int_read(xgene_msi, irq_index);
-> -		if (msi_val) {
-> -			dev_err(&pdev->dev, "Failed to clear spurious IRQ\n");
-> -			rc = -EINVAL;
-> -			goto error;
-> -		}
-> -	}
-> -
-> -	rc = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "pci/xgene:online",
-> -			       xgene_msi_hwirq_alloc, NULL);
-> -	if (rc < 0)
-> -		goto err_cpuhp;
-> -	pci_xgene_online = rc;
-> -	rc = cpuhp_setup_state(CPUHP_PCI_XGENE_DEAD, "pci/xgene:dead", NULL,
-> -			       xgene_msi_hwirq_free);
-> +	rc = xgene_msi_handler_setup(pdev);
->  	if (rc)
-> -		goto err_cpuhp;
-> +		goto error;
->  
->  	dev_info(&pdev->dev, "APM X-Gene PCIe MSI driver loaded\n");
->  
->  	return 0;
-> -
-> -err_cpuhp:
-> -	dev_err(&pdev->dev, "failed to add CPU MSI notifier\n");
->  error:
->  	xgene_msi_remove(pdev);
->  	return rc;
-> -- 
-> 2.39.2
-> 
 
