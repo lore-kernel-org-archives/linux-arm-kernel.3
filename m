@@ -4,113 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8867CC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 15:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E877C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 15:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YBi0ZJa76CIxiRvtQUi4zkaM1ZbB550FR6e0LoM3mHU=; b=Q6kBul/b1dBYqD8SyAjTYpsNuC
-	57z24neW8kfqOFjQvTVu/fRXElWKco9fUBKGcbOTygNaDhsr5iO8ZltTtSBAN27oPxas1d4CZbyzc
-	5nfRGTe84Ashk2kCTUuoM8LXSTqgS861he251DlyaEShuMGA3BKvkKp5uy3EVQS0kfYPKqGn2tzNH
-	AHtAXCLKd348nz0NpMy5rpDmRoWHTN7Txp7YzlOkTv6bSekBwTWq0TWrmiHhzPiDmHgBGo+TW2ZZv
-	+NztJP+oRayhcQafYQjIUzlCukoibSlIbSDQmZ57Qr1HYPjZ7CiJQwis62/OyMPHmFaGglXVABK4G
-	MJOCu/fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WrBAVN7TPogM6Ez3Z6qwzVYgIKsMP0dcus0ugWTNikE=; b=ywj4uffSiXv1qLa+StOKtMm4zV
+	KFV7UT/aO3upgYNJzGl3jw4FikeUVTgcchkV1D8X2mU1MtvcxWM54CxJtAn2PL+qXK5wPsRq4TtzN
+	i1X6JgE6umtzsWQt0yk+f3Tr47Z3VHmYKV8p8Eb6Kih3P9F8tMVJq98ujI3EmwC7Glo+HMba4LCvA
+	YDO8At28jzL0e917v2J2PnECDlJmNGqWJkaob0SGutU5RWL/pzGiEqnWK9zJD2gJmzE2xf2qR+gJo
+	+ZsG5jmjKfOSNmdIfo//Uq5TDfC6caU+jbVFWs2tkh+WUobQHoduk/60JjvZ8VSh416DH4w63nbqv
+	2MGw3MUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYnT5-00000002oeG-0P6U;
-	Mon, 07 Jul 2025 15:09:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uYnVN-00000002or6-1gVz;
+	Mon, 07 Jul 2025 15:11:41 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYnOi-00000002nsg-0mAU;
-	Mon, 07 Jul 2025 15:04:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 575C95C5A22;
-	Mon,  7 Jul 2025 15:04:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C94A4C4CEF1;
-	Mon,  7 Jul 2025 15:04:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751900687;
-	bh=RhkJAKLlY4Yx5V4ar6nowx9DR12JvZ+qhTjq8dUu1S8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hn188aKx/v6jVmCYoDu49FSfZzv8h1+ZBs0lktN1enyIT4JftJI3UknxmE6cVI57E
-	 7IYglXZuK0rUQFSgXzde7MpueugfJNmodR/rH1iAhxY/QqEVJaWCRhF+JeoNXXR2He
-	 S4AJqXrOZmt/IKXmLJHLgkLJIWFggVuSMavdu33fc/cBTsNMlMBEp01rgOMjDl02Y0
-	 auUfrhxr7sjnDNVa0cpSjlEHFnPPnkpPLnijbr4U9c+duGCe+rTUsN58oD6EgGRH9e
-	 Zee82vrDwb06dVOCZWZv0SwVqNrthmMr3AJI8hyN9CU7xkpHeodQ2CjK5GUb2v17MQ
-	 jpZcbt69m327Q==
-Message-ID: <679e6fd2-967f-4057-9ccd-92a37ecc4819@kernel.org>
-Date: Mon, 7 Jul 2025 17:04:41 +0200
+	id 1uYnOv-00000002nub-2igM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Jul 2025 15:05:03 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bbSBG4Nw9z6L5PX;
+	Mon,  7 Jul 2025 23:01:42 +0800 (CST)
+Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9A5AC1402EE;
+	Mon,  7 Jul 2025 23:04:49 +0800 (CST)
+Received: from a2303103017.china.huawei.com (10.45.147.207) by
+ frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Mon, 7 Jul 2025 17:04:48 +0200
+From: Alireza Sanaee <alireza.sanaee@huawei.com>
+To: <mark.rutland@arm.com>, <robh@kernel.org>
+CC: <coresight@lists.linaro.org>, <devicetree@vger.kernel.org>,
+	<dianders@chromium.org>, <james.clark@linaro.org>,
+	<jonathan.cameron@huawei.com>, <krzk@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <linuxarm@huawei.com>,
+	<mike.leach@linaro.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <suzuki.poulose@arm.com>
+Subject: [PATCH 1/5] of: add infra for finding CPU id from phandle
+Date: Mon, 7 Jul 2025 16:04:10 +0100
+Message-ID: <20250707150414.620-2-alireza.sanaee@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250707150414.620-1-alireza.sanaee@huawei.com>
+References: <20250707150414.620-1-alireza.sanaee@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 2/7] net: airoha: npu: Add NPU wlan memory
- initialization commands
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, Simon Horman <horms@kernel.org>,
- Felix Fietkau <nbd@nbd.name>
-References: <20250705-airoha-en7581-wlan-offlaod-v2-0-3cf32785e381@kernel.org>
- <20250705-airoha-en7581-wlan-offlaod-v2-2-3cf32785e381@kernel.org>
- <20250707-agile-aardwolf-of-politeness-29fead@krzk-bin>
- <aGt2L1e3xbWVoqOO@lore-desk>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aGt2L1e3xbWVoqOO@lore-desk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.45.147.207]
+X-ClientProxiedBy: lhrpeml100004.china.huawei.com (7.191.162.219) To
+ frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_080448_307763_2ABAD07F 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20250707_080501_970870_EB0E653B 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,42 +75,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/07/2025 09:24, Lorenzo Bianconi wrote:
->> On Sat, Jul 05, 2025 at 11:09:46PM +0200, Lorenzo Bianconi wrote:
->>> +
->>>  struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *stats_addr)
->>>  {
->>>  	struct platform_device *pdev;
->>> @@ -493,6 +573,7 @@ static int airoha_npu_probe(struct platform_device *pdev)
->>>  	npu->ops.ppe_deinit = airoha_npu_ppe_deinit;
->>>  	npu->ops.ppe_flush_sram_entries = airoha_npu_ppe_flush_sram_entries;
->>>  	npu->ops.ppe_foe_commit_entry = airoha_npu_foe_commit_entry;
->>> +	npu->ops.wlan_init_reserved_memory = airoha_npu_wlan_init_memory;
->>
->> I cannot find in your code single place calling this (later you add a
->> wrapper... which is not called either).
->>
->> All this looks like dead code...
-> 
-> As pointed out in the commit log, these callbacks will be used by MT76 driver
-> to initialize the NPU reserved memory and registers during driver probe in
-> order to initialize the WiFi offloading. Since MT76 patches are going via
-> the wireless tree, I needed to add these callbacks first.
+Get CPU id from phandle. Many drivers get do this by getting hold of CPU
+node first through a phandle and then find the CPU ID using the relevant
+function. This commit encapsulates cpu node finding and improves
+readability.
 
-Cover letter does not link to your NPU patchset. You cannot add dead
-code to the kernel and now it is pure dead code. Post your user - in
-this or separate patchset.
+The API interface requires two parameters, 1) node, 2) pointer to CPU
+node. API sets the pointer to the CPU node and allows the driver to play
+with the CPU itself, for logging purposes for instance.
 
-Your explanation of dependency is also confusing. If these are added to
-wireless tree (considering last experience how they rebase and cannot
-easily handle cross tree merges), how does it solve your problem? You
-will have it in one tree but not in the other, so still nothing...
-That's anyway separate problem, because main issue is you add code which
-we cannot even verify how it is being used.
+Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+---
+ drivers/of/cpu.c   | 29 +++++++++++++++++++++++++++++
+ include/linux/of.h |  9 +++++++++
+ 2 files changed, 38 insertions(+)
 
-So far I see ABI break, but without user cannot judge. And that's the
-hard reason this cannot be accepted.
+diff --git a/drivers/of/cpu.c b/drivers/of/cpu.c
+index 5214dc3d05ae..fba17994fc20 100644
+--- a/drivers/of/cpu.c
++++ b/drivers/of/cpu.c
+@@ -173,6 +173,35 @@ int of_cpu_node_to_id(struct device_node *cpu_node)
+ }
+ EXPORT_SYMBOL(of_cpu_node_to_id);
+ 
++/**
++ * of_cpu_phandle_to_id: Get the logical CPU number for a given device_node
++ *
++ * @node: Pointer to the device_node containing CPU phandle.
++ * @cpu_np: Pointer to the device_node for CPU.
++ * @cpu_idx: The index of the CPU in the list of CPUs.
++ *
++ * Return: The logical CPU number of the given CPU device_node or -ENODEV if
++ * the CPU is not found, or if the node is NULL, it returns -1. On success,
++ * cpu_np will always point to the retrieved CPU device_node with refcount
++ * incremented, use of_node_put() on it when done.
++ */
++int of_cpu_phandle_to_id(const struct device_node *node,
++			 struct device_node **cpu_np,
++			 uint8_t cpu_idx)
++{
++	if (!node)
++		return -1;
++
++	*cpu_np = of_parse_phandle(node, "cpu", 0);
++	if (!*cpu_np)
++		*cpu_np = of_parse_phandle(node, "cpus", cpu_idx);
++			if (!*cpu_np)
++				return -ENODEV;
++
++	return of_cpu_node_to_id(*cpu_np);
++}
++EXPORT_SYMBOL(of_cpu_phandle_to_id);
++
+ /**
+  * of_get_cpu_state_node - Get CPU's idle state node at the given index
+  *
+diff --git a/include/linux/of.h b/include/linux/of.h
+index eaf0e2a2b75c..194f1cb0f6c6 100644
+--- a/include/linux/of.h
++++ b/include/linux/of.h
+@@ -360,6 +360,8 @@ extern const void *of_get_property(const struct device_node *node,
+ extern struct device_node *of_get_cpu_node(int cpu, unsigned int *thread);
+ extern struct device_node *of_cpu_device_node_get(int cpu);
+ extern int of_cpu_node_to_id(struct device_node *np);
++extern int of_cpu_phandle_to_id(const struct device_node *np,
++				struct device_node **cpu_np, uint8_t cpu_idx);
+ extern struct device_node *of_get_next_cpu_node(struct device_node *prev);
+ extern struct device_node *of_get_cpu_state_node(const struct device_node *cpu_node,
+ 						 int index);
+@@ -662,6 +664,13 @@ static inline int of_cpu_node_to_id(struct device_node *np)
+ 	return -ENODEV;
+ }
+ 
++static inline int of_cpu_phandle_to_id(const struct device_node *np,
++				       struct device_node **cpu_np,
++				       uint8_t cpu_idx)
++{
++	return -ENODEV;
++}
++
+ static inline struct device_node *of_get_next_cpu_node(struct device_node *prev)
+ {
+ 	return NULL;
+-- 
+2.43.0
 
-Best regards,
-Krzysztof
 
