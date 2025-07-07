@@ -4,51 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E3DC83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 14:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED201C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 14:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K3DZEILN6UwAlfYCmimh+PWQTuxnNAowQBsjHmX55O8=; b=JY0Grp2SyBy308+ZqhGzKmJ/JL
-	xuvzxvgyTMuA1DnMo4z0Kzg1bsWIYBUFiLC6mmkefkfXgpva0pEjWB2XFhLk0leSXnSS5TXxeUeuY
-	S0WYzsEIfrVPbWlsby6QMBSLoXGsWhn4fOV1e38sgUmaGj5O8WFui09YgzgE9+ikvWCsheJiySFBb
-	AYOefG0zNVIkvKryE7an8E9tE/y1H8EiJo26hZdTyDmHiU537HmAgQlJRSQOptbjbiXQkct5k0nXw
-	Nk0wyJA6aFOKB6zwzkx/yK5TWfSXybUQ2wt2Ud77gGv6uhrPKwPFSa5OVwAyY8X2AW4G6k9+9KmVU
-	vqXDo3TQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P3PTCA5tweY5gERODPselAAddDTSw2gWVcoLEANdv3w=; b=UJbHGu/M5MmtgL3H6nfPmaRaCd
+	aiUQ3S9k+UJ0ZrU7CrCMzkySkHBGLKl/p9kHd9AAWONsrgBOGfq0eB5R6wdc/xl10f3m9HmrhSFAN
+	yVqze1tHfkhyXFKIX0ZPLnf62P90Fcs6Xm8T/TU9+1dEQbMHHMxYd21MINMNvK8HPhTMB2yYkS47B
+	dnp8ttBdBG4WLFfwPEF5hzmAHHLw5BT6LfhHlE55V51QciJcNwvOXlowqgHwqH4vqBYIpUZTpdNDg
+	O9Q5yatvIH1bsSyN8vrLBH7UQG+75CeaxNhAI//+ptilcQBI8LYLc5r/wCJ8YvoEEuvn1pkkhkHmB
+	BmeVjlGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYn97-00000002l4i-2gfL;
-	Mon, 07 Jul 2025 14:48:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYn3F-00000002kJ9-3d2v
+	id 1uYnBP-00000002lW2-1f3c;
+	Mon, 07 Jul 2025 14:51:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYn4I-00000002kRz-2Fq3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 14:42:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90A95168F;
-	Mon,  7 Jul 2025 07:42:22 -0700 (PDT)
-Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A7083F694;
-	Mon,  7 Jul 2025 07:42:33 -0700 (PDT)
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	peng.fan@oss.nxp.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH] firmware: arm_scmi: Optimize notifiers registration
-Date: Mon,  7 Jul 2025 15:42:20 +0100
-Message-ID: <20250707144220.485365-1-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.47.0
+	Mon, 07 Jul 2025 14:43:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E545345600
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Jul 2025 14:43:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4231C4CEF5
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Jul 2025 14:43:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751899421;
+	bh=pygmB6Y0A8GnIvfkKxpvuMj1/8T5+x16Brq+Mu3flTM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=hW7AEn/kJoZ8G/Ci6vwPyUhco7+VT+w71XTx1ckOOlEvFJ/XKwDhl5sE5b9n0vETn
+	 EoBQn8bKGxm2xp53PmFWiarQqh3pag3ilMqvwhTHb3byIy+pYBNJSt52ADXNa/MOFS
+	 +St49nQkrtc6KQHchPzRFYKXHZIdwRyz1ELm99WFwf2g00rsR9i0S6bgj0rpxYxHuL
+	 5PigZFIt0Es2ZgJV0o8sqXtLuX+r7gcko2jCPn8vGe4Lng1QsjwOuSMZLDyMrFf0Wc
+	 IFOnWDqHkuLn04u1NoOC2CQOYtSHxEo9oBSMWBRjdi6oZ3bQwILTM5qDqUhwWEOJ8M
+	 QHRiEECr41zTQ==
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-adfb562266cso506178866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 07:43:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWaFfmXZI0IPg/VPUSWKxiU1yjL23MAAmgkSfP+0vKUK89nhJfY/5cSenlorrA47ZRw/PkWM2I710cyfCBfSyHt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzUGdXm8jLov4/zGX3A9mVIlNU25j4IVFNMnalDl463T70WaKA
+	DjgetLQLbNmVxp+a/OjSks/PINrqQkmNAI1oEjHm/BpaTNi2Ts5TOiHs5Ogr0uSFlLaY4p0SPPQ
+	g8fawJPLsK0pA2+QFfSaPGvqvBQwOyQ==
+X-Google-Smtp-Source: AGHT+IH+f8zvdudHp1LuRKAAn7cL9u6+1JqOnozuxrIIQH8whQPjPMtiGupPBrID+yAocJ3AfWvuowkyHK1U/F/njY4=
+X-Received: by 2002:a17:907:96ac:b0:ae6:abe9:8cbc with SMTP id
+ a640c23a62f3a-ae6abe98e66mr63239166b.12.1751899420274; Mon, 07 Jul 2025
+ 07:43:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250703183537.2075746-1-robh@kernel.org> <1e33e6b6-845a-44bf-a398-4a9fb895a125@sirena.org.uk>
+In-Reply-To: <1e33e6b6-845a-44bf-a398-4a9fb895a125@sirena.org.uk>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 7 Jul 2025 09:43:27 -0500
+X-Gmail-Original-Message-ID: <CAL_Jsq+8ObyEM-f88QSq1QfptVPrk5s5mVM-irq4ZTGNW9NKTw@mail.gmail.com>
+X-Gm-Features: Ac12FXwY1NqOYzEWnEAy2ESIy7UgECjX4aJqnXTz286AyGb5Rk-mUEzeguxMrTU
+Message-ID: <CAL_Jsq+8ObyEM-f88QSq1QfptVPrk5s5mVM-irq4ZTGNW9NKTw@mail.gmail.com>
+Subject: Re: [PATCH] spi: stm32-ospi: Use of_reserved_mem_region_to_resource()
+ for "memory-region"
+To: Mark Brown <broonie@kernel.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-spi@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_074237_993438_3648CB40 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20250707_074342_597070_119C9B32 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,125 +87,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some platforms could be configured not to support notification events from
-specific sources and such a case is already handled properly by avoiding
-even to attempt to send a notification enable request since it would be
-doomed to fail anyway.
+On Fri, Jul 4, 2025 at 8:50=E2=80=AFAM Mark Brown <broonie@kernel.org> wrot=
+e:
+>
+> On Thu, Jul 03, 2025 at 01:35:37PM -0500, Rob Herring (Arm) wrote:
+> > Use the newly added of_reserved_mem_region_to_resource() function to
+> > handle "memory-region" properties.
+>
+> This breaks an allmodconfig build:
+>
+> /build/stage/linux/drivers/spi/spi-stm32-ospi.c:775:23: error: unused var=
+iable 'rmem' [-Werror,-Wunused-variable]
+>   775 |         struct reserved_mem *rmem =3D NULL;
+>       |                              ^~~~
+> /build/stage/linux/drivers/spi/spi-stm32-ospi.c:776:22: error: unused var=
+iable 'node' [-Werror,-Wunused-variable]
+>   776 |         struct device_node *node;
+>       |                             ^~~~
 
-In an extreme scenario, though, a platform could support not even one
-single source on a specific event: in such a case would be meaningless to
-even allow to register a notifier and we can bail-out immediately, saving
-a lot of needless computation.
+Sigh. I swear I had fixed that...
 
-Flag such condition, when detected at protocol initialization time, and
-reject upfront any attempt to register a notifier for such completely
-unsupported events with -ENOTSUPP.
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
- drivers/firmware/arm_scmi/notify.c | 39 +++++++++++++++++++++++-------
- 1 file changed, 30 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
-index e160ecb22948..dee9f238f6fd 100644
---- a/drivers/firmware/arm_scmi/notify.c
-+++ b/drivers/firmware/arm_scmi/notify.c
-@@ -318,6 +318,9 @@ struct scmi_registered_events_desc {
-  *	    customized event report
-  * @num_sources: The number of possible sources for this event as stated at
-  *		 events' registration time
-+ * @not_supported_by_platform: A flag to indicate that not even one source was
-+ *			       found to be supported by the platform for this
-+ *			       event
-  * @sources: A reference to a dynamically allocated array used to refcount the
-  *	     events' enable requests for all the existing sources
-  * @sources_mtx: A mutex to serialize the access to @sources
-@@ -334,6 +337,7 @@ struct scmi_registered_event {
- 	const struct scmi_event	*evt;
- 	void		*report;
- 	u32		num_sources;
-+	bool		not_supported_by_platform;
- 	refcount_t	*sources;
- 	/* locking to serialize the access to sources */
- 	struct mutex	sources_mtx;
-@@ -811,10 +815,19 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 		if (!r_evt->report)
- 			return -ENOMEM;
- 
--		for (id = 0; id < r_evt->num_sources; id++)
--			if (ee->ops->is_notify_supported &&
--			    !ee->ops->is_notify_supported(ph, r_evt->evt->id, id))
--				refcount_set(&r_evt->sources[id], NOTIF_UNSUPP);
-+		if (ee->ops->is_notify_supported) {
-+			int supported = 0;
-+
-+			for (id = 0; id < r_evt->num_sources; id++) {
-+				if (!ee->ops->is_notify_supported(ph, r_evt->evt->id, id))
-+					refcount_set(&r_evt->sources[id], NOTIF_UNSUPP);
-+				else
-+					supported++;
-+			}
-+
-+			/* Not even one source has been found to be supported */
-+			r_evt->not_supported_by_platform = !supported;
-+		}
- 
- 		pd->registered_events[i] = r_evt;
- 		/* Ensure events are updated */
-@@ -936,6 +949,11 @@ static inline int scmi_bind_event_handler(struct scmi_notify_instance *ni,
- 	 * of protocol instance.
- 	 */
- 	hash_del(&hndl->hash);
-+
-+	/* Bailout if event is not supported at all */
-+	if (r_evt->not_supported_by_platform)
-+		return -EOPNOTSUPP;
-+
- 	/*
- 	 * Acquire protocols only for NON pending handlers, so as NOT to trigger
- 	 * protocol initialization when a notifier is registered against a still
-@@ -1060,6 +1078,9 @@ __scmi_event_handler_get_ops(struct scmi_notify_instance *ni,
- 	r_evt = SCMI_GET_REVT(ni, KEY_XTRACT_PROTO_ID(evt_key),
- 			      KEY_XTRACT_EVT_ID(evt_key));
- 
-+	if (r_evt && r_evt->not_supported_by_platform)
-+		return ERR_PTR(-EOPNOTSUPP);
-+
- 	mutex_lock(&ni->pending_mtx);
- 	/* Search registered events at first ... if possible at all */
- 	if (r_evt) {
-@@ -1087,7 +1108,7 @@ __scmi_event_handler_get_ops(struct scmi_notify_instance *ni,
- 				hndl->key);
- 			/* this hndl can be only a pending one */
- 			scmi_put_handler_unlocked(ni, hndl);
--			hndl = NULL;
-+			hndl = ERR_PTR(-EINVAL);
- 		}
- 	}
- 	mutex_unlock(&ni->pending_mtx);
-@@ -1370,8 +1391,8 @@ static int scmi_notifier_register(const struct scmi_handle *handle,
- 	evt_key = MAKE_HASH_KEY(proto_id, evt_id,
- 				src_id ? *src_id : SRC_ID_MASK);
- 	hndl = scmi_get_or_create_handler(ni, evt_key);
--	if (!hndl)
--		return -EINVAL;
-+	if (IS_ERR(hndl))
-+		return PTR_ERR(hndl);
- 
- 	blocking_notifier_chain_register(&hndl->chain, nb);
- 
-@@ -1416,8 +1437,8 @@ static int scmi_notifier_unregister(const struct scmi_handle *handle,
- 	evt_key = MAKE_HASH_KEY(proto_id, evt_id,
- 				src_id ? *src_id : SRC_ID_MASK);
- 	hndl = scmi_get_handler(ni, evt_key);
--	if (!hndl)
--		return -EINVAL;
-+	if (IS_ERR(hndl))
-+		return PTR_ERR(hndl);
- 
- 	/*
- 	 * Note that this chain unregistration call is safe on its own
--- 
-2.47.0
-
+Rob
 
