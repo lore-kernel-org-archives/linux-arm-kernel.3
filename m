@@ -4,95 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E4BC83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 11:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3130CC83F0C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 11:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rjMtWlZcH9KDWdY+uSujQcWsrGYDBsGSKcWmFVedP5g=; b=Jvf90yLAmG7L8SXDf5aWXm80Oj
-	AeY9Uc1bGxn5fmEGtunw0nZiiN5yUEfr5G5qN3QQaCkXDjZUNfyllY9yRed08DPP5ictF1NQMOdFI
-	SqCwALt9UVd7Hsc8prENsLlWSx6DxFp5u/hM6t8n8EpcTvKM0xN42fBqF+xWlFa4FNmdw3Abk4a9t
-	mtRWyGvqxWflMzh/RINe2GGkfnjPQS18cyrGc09ZuysuLepaHVkuV21XFn/mwmWoaLt6F0B9Li5Ub
-	18cjJVCjtx3QSN2qWrpbsJB5yxrc5DPFdux0YMkIqIV4dr98F3+sZlTpZ2K1OidwoiQkj2TVbL5sV
-	3RWE5pUQ==;
+	bh=xsA4FlLd/89YyhlOj0t4KA7YQY1/UsRkFKuHC8cJcgE=; b=RD80d1AByJ0OP3fnH4WtK0f75y
+	IhqDxhshMjzrTjCKgNnnb812oVFKdGGl25vimrLE9c6M9lnGIOe/rZFFMz1x+1qu+NKm9K35g2k6g
+	M2hAxwCcokpvx4VTPlKnT4xaZut2Kwqs4OVOayUC3FNuysptDQrepaPwvuuZXws5pViBhfWHaLH7Z
+	1G0p/1vM8GxcrxGFXBD5/VSlpl8Qk2onsjfj41Eqcd1RXCgUyjH2/Cl8jj4vl5Zz/MkCMpFByDEKI
+	HRLS/edpzOWVeQWj015w+MDvldY+62ANJIkCx58ub0js2Sd0qnh5VkkP5iC8c7Z2rVJyQ70iWTbyU
+	DpUWp5RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkQn-00000002LRI-2xYY;
-	Mon, 07 Jul 2025 11:54:45 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1uYkUc-00000002MRB-1jZ9;
+	Mon, 07 Jul 2025 11:58:42 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjvd-00000002GcA-1UM2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 11:22:34 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4530921461aso20027885e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 04:22:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751887352; x=1752492152; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rjMtWlZcH9KDWdY+uSujQcWsrGYDBsGSKcWmFVedP5g=;
-        b=xgSycJH3GLj7iUjbdZBA1MOdiQ47otgatOFHJgdFYBrH5XSndY+UKBhKyT9hG6X3P1
-         OE8shoAeVgkryML5NVMHTCUHqvWPcx0ipZS5gvYhkkIMROtKvTRSFWWz8Eu1bh1OBi+Q
-         LWAefR+R5KI4AwGqXV5d6Q52uSN9d7pvn9f1UyMb9FJUhxKeRM7Uc2N8KcTKGyeLZt4K
-         oxPoLDkBkaE5Mpc7GQTRq+tKvI0+tp6vpiujuOsDEcdPDzXa1KAHxeEKuBiVY915KJy6
-         duyavcNry4wlViPqQdlowXSrOhSwjc4u7fWPgpUZfuCG0G6fTxJ4SyyznvLHiqKI497p
-         AHdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751887352; x=1752492152;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rjMtWlZcH9KDWdY+uSujQcWsrGYDBsGSKcWmFVedP5g=;
-        b=YKcolVQuR8T9+juuuS7nV9v7zKWnKYo5xXaHJzb9UbJHszs5mS2ao6M7+FNgjoIOM0
-         nIYCVX6zKF0kOTGJ1RUJlm7yX7b8jLyqEMCUbHLYRrYCaQluW+GN1OFfncAYsWPRigiR
-         shCnhR1XkVWf852P41iEptgfWDye0StGrAPC+O2nMlsCZ+yRFVqRqHcqAclrYxpyynkO
-         4UlAPBxW4M3jmpoJuHYbUqsa5n217wqadweNlLrYuCYhNATqT2Dk52DlCCLIGkags46/
-         YW1xQPTMiS+333prqaNx5D9j5KHmnEB8vZJ32nZ511G+B0MRPU4Cf6DlJHF0XIDREjcm
-         JpfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXmvBJuP75KjsOKah/cBsr8Wwk6O7vJVSoVn5zXV86DOd5qWWv63piBvSyEy2XnRgy0KE6pab0BX+iG8M3W0/HO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvCJCtK5mmwP1Qxe48n6YQCiI4Yod64g0vH9bw9tVc7srCwBeI
-	naCuIaJJ9kuALOky1IqB8xUb501JH3wJmXANLBuImX8XzRhYc9naTSPe8pp7JosHHQY=
-X-Gm-Gg: ASbGncukvfbjwcFfKZUVrevoaeZ/CWalgFqcq/yGtrt+mwOGPJs1yHulL/dFwaK9L+o
-	8aq1HuppF84eSrOIGfoaUmvqANTAUiAW3A5g4ZIxP8jgOgmFq4Q6usIlWcJK9C68Y42icex6Ncu
-	ZsqeqXxgxdjhlaZgxhqZj8r3O1Spr8Df+yNkkcFOhSJPDKt5SRs6V3NzVh/p0fvsU0d0coffyZm
-	c8scEZ7M58gQmboZrf575nhlYeWzaQZtHObCkVvU1WRLnlGdbNlPzNnch2Msk6DyJhOTRHcJ8O5
-	wTqRnAthTGdlSf6eQjvdiZktHLZNVBTtGYVzHjh/H95By/XY/QgkdnBvHEHNryq2WVE=
-X-Google-Smtp-Source: AGHT+IHP+NzOEoebO2F65iIhUokYTdg25eXvRyuw2XM8rhBPvr8L/1ygaNVNU239JiCScgrpFEZPwA==
-X-Received: by 2002:a05:600c:c3db:b0:43c:ec4c:25b4 with SMTP id 5b1f17b1804b1-454bc4c1e94mr47310605e9.10.1751887351597;
-        Mon, 07 Jul 2025 04:22:31 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454b16990aasm109152915e9.32.2025.07.07.04.22.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Jul 2025 04:22:31 -0700 (PDT)
-Message-ID: <6f55d9ba-02c5-4075-a751-018b1521ddd4@linaro.org>
-Date: Mon, 7 Jul 2025 12:22:30 +0100
+	id 1uYipW-000000026jb-3W9s;
+	Mon, 07 Jul 2025 10:12:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751883129;
+	bh=MMB6K1mW7gUPZXcwKZJCapVE2TYR11szvBkVxUwZw/8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J+tt0HshewHKye4oVFeYX65dnXG5fwzFdXq9CY8y7Rzmkj8CKkoDGs+4IWFMEzX/u
+	 ujj927Kl/dS80B2JQc1LCgY3EdaOInZH9X8UYcO25a0pKdW4BrzNIx4gXHn7PpWRM/
+	 2zL9m7cT9kuwFveuHiWXoTl4Fj/lRcoSiZqePxKMVR3JH43xB4jPXCZfxeynZIscr5
+	 RP9r1CDj7lNuP6PjE6/pdKgoIJoa3BPDx3qhIFqh7YdXLUjK+H+yB2BWJHbu2PHSqy
+	 zolNGX5aktB8qQlAyvnBE0PIIvpyL2bjzy4cN9PxtLbmcxV13hPHF/yF6gfYdaWBdL
+	 7/AjVEOGiO6EQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BFA0217E0523;
+	Mon,  7 Jul 2025 12:12:07 +0200 (CEST)
+Message-ID: <e6ab043d-3777-4a44-8f25-89da1d6f61c4@collabora.com>
+Date: Mon, 7 Jul 2025 12:12:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] perf: arm_spe: Add barrier before enabling profiling
- buffer
-To: Leo Yan <leo.yan@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Alexandru Elisei <Alexandru.Elisei@arm.com>,
- Anshuman Khandual <Anshuman.Khandual@arm.com>,
- Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
- Robin Murphy <Robin.Murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <20250701-james-spe-vm-interface-v1-1-52a2cd223d00@linaro.org>
- <20250704140443.GH1039028@e132581.arm.com>
+Subject: Re: [PATCH v8 03/16] dt-bindings: net: mediatek,net: allow irq names
+To: Frank Wunderlich <linux@fw-web.de>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Johnson Wang <johnson.wang@mediatek.com>, =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?=
+ <arinc.unal@arinc9.com>, Landen Chao <Landen.Chao@mediatek.com>,
+ DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>,
+ Daniel Golle <daniel@makrotopia.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Felix Fietkau <nbd@nbd.name>
+Cc: Frank Wunderlich <frank-w@public-files.de>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250706132213.20412-1-linux@fw-web.de>
+ <20250706132213.20412-4-linux@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250704140443.GH1039028@e132581.arm.com>
+In-Reply-To: <20250706132213.20412-4-linux@fw-web.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_042233_403879_D8946470 
-X-CRM114-Status: GOOD (  29.79  )
+X-CRM114-CacheID: sfid-20250707_031211_056381_02BF32C3 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,81 +91,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 06/07/25 15:21, Frank Wunderlich ha scritto:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> In preparation for MT7988 and RSS/LRO allow the interrupt-names
+> property.
+> In this way driver can request the interrupts by name which is much
+> more readable in the driver code and SoC's dtsi than relying on a
+> specific order.
+> 
+> Frame-engine-IRQs (fe0..3):
+> MT7621, MT7628: 1 IRQ
+> MT7622, MT7623: 3 IRQs (only two used by the driver for now)
+> MT7981, MT7986: 4 IRQs (only two used by the driver for now)
+> 
+> RSS/LRO IRQs (pdma0..3) only on Filogic (MT798x) with count of 4.
+> 
+> Set boundaries for all compatibles same as irq count.
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 
+I'm fine with that, as long as you don't break the driver's ability to keep
+getting the interrupts without any interrupt-names, at least for the currently
+supported interrupts.
 
-On 04/07/2025 3:04 pm, Leo Yan wrote:
-> On Tue, Jul 01, 2025 at 04:31:57PM +0100, James Clark wrote:
->> DEN0154 states that PMBPTR_EL1 must not be modified while the profiling
->> buffer is enabled. Ensure that enabling the buffer comes after setting
->> PMBPTR_EL1 by inserting an isb().
->>
->> This only applies to guests for now, but in future versions of the
->> architecture the PE will be allowed to behave in the same way.
->>
->> Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   drivers/perf/arm_spe_pmu.c | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
->> index 3efed8839a4e..6235ca7ecd48 100644
->> --- a/drivers/perf/arm_spe_pmu.c
->> +++ b/drivers/perf/arm_spe_pmu.c
->> @@ -537,6 +537,7 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
->>   	limit += (u64)buf->base;
->>   	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
->>   	write_sysreg_s(base, SYS_PMBPTR_EL1);
->> +	isb();
-> 
-> I know that you and Alexandru have discussed whether the isb() should
-> be placed here or after the out_write_limit label. I should have engaged
-> in the discussion earlier. Sorry for raising the question now.
-> 
-> My understanding is that isb() is not only for synchronizing the write
-> to PMBPTR_EL1. It also serves as a context synchronization event
-> between any other SPE register writes and the write to
-> SYS_PMBLIMITR_EL1.
-> 
-> Let me give an example (perhaps a rare one): if we use perf snapshot
-> mode or the AUX pause/resume mode, it's possible that the flow does
-> not trigger an interrupt via overflow. Instead, the sequence might
-> look like this:
-> 
->    arm_spe_pmu_stop()
->      `> arm_spe_pmu_start()
->           `> arm_spe_perf_aux_output_begin()
-> 
-> In this case, to ensure that all SPE system registers are properly
-> written to the hardware, the safest approach is to always execute isb()
-> just before writing to SYS_PMBLIMITR_EL1. (In other words, after the
-> label out_write_limit).
-> 
-> Thanks,
-> Leo
-> 
+This commit ain't touching any driver, anyway, and the change is valid IMO, so:
 
-I think the point is that any write that enables the buffer must come 
-last, but not necessarily all writes. And not all paths in 
-arm_spe_perf_aux_output_begin() enable it so the isb() was only added on 
-the path that does.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-I couldn't see an issue with your example, are you saying 
-arm_spe_pmu_stop() could call arm_spe_pmu_start()? It doesn't call it 
-directly. Or do you mean the aux pause/resume thing can cause a 
-arm_spe_pmu_start() from any point in time? If that was true then it 
-doesn't matter where the isb() is because you can never be sure it will 
-be before the write.
-
-James
-
->>   out_write_limit:
->>   	write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
->>
->> -- 
->> 2.34.1
->>
->>
+> ---
+> v8:
+>    - fixed typo in mt7621 section "interrupt-namess"
+>    - separated interrupt count from interrupt-names
+>    - rephrased description a bit to explain the "why"
+> v7: fixed wrong rebase
+> v6: new patch splitted from the mt7988 changes
+> ---
+>   .../devicetree/bindings/net/mediatek,net.yaml | 36 +++++++++++++++++++
+>   1 file changed, 36 insertions(+)
 > 
+> diff --git a/Documentation/devicetree/bindings/net/mediatek,net.yaml b/Documentation/devicetree/bindings/net/mediatek,net.yaml
+> index 766224e4ed86..da7bda20786a 100644
+> --- a/Documentation/devicetree/bindings/net/mediatek,net.yaml
+> +++ b/Documentation/devicetree/bindings/net/mediatek,net.yaml
+> @@ -42,6 +42,18 @@ properties:
+>       minItems: 1
+>       maxItems: 8
+>   
+> +  interrupt-names:
+> +    minItems: 1
+> +    items:
+> +      - const: fe0
+> +      - const: fe1
+> +      - const: fe2
+> +      - const: fe3
+> +      - const: pdma0
+> +      - const: pdma1
+> +      - const: pdma2
+> +      - const: pdma3
+> +
+>     power-domains:
+>       maxItems: 1
+>   
+> @@ -135,6 +147,10 @@ allOf:
+>             minItems: 3
+>             maxItems: 3
+>   
+> +        interrupt-names:
+> +          minItems: 3
+> +          maxItems: 3
+> +
+>           clocks:
+>             minItems: 4
+>             maxItems: 4
+> @@ -166,6 +182,9 @@ allOf:
+>           interrupts:
+>             maxItems: 1
+>   
+> +        interrupt-names:
+> +          maxItems: 1
+> +
+>           clocks:
+>             minItems: 2
+>             maxItems: 2
+> @@ -192,6 +211,10 @@ allOf:
+>             minItems: 3
+>             maxItems: 3
+>   
+> +        interrupt-names:
+> +          minItems: 3
+> +          maxItems: 3
+> +
+>           clocks:
+>             minItems: 11
+>             maxItems: 11
+> @@ -232,6 +255,10 @@ allOf:
+>             minItems: 3
+>             maxItems: 3
+>   
+> +        interrupt-names:
+> +          minItems: 3
+> +          maxItems: 3
+> +
+>           clocks:
+>             minItems: 17
+>             maxItems: 17
+> @@ -274,6 +301,9 @@ allOf:
+>           interrupts:
+>             minItems: 4
+>   
+> +        interrupt-names:
+> +          minItems: 4
+> +
+>           clocks:
+>             minItems: 15
+>             maxItems: 15
+> @@ -312,6 +342,9 @@ allOf:
+>           interrupts:
+>             minItems: 4
+>   
+> +        interrupt-names:
+> +          minItems: 4
+> +
+>           clocks:
+>             minItems: 15
+>             maxItems: 15
+> @@ -350,6 +383,9 @@ allOf:
+>           interrupts:
+>             minItems: 4
+>   
+> +        interrupt-names:
+> +          minItems: 4
+> +
+>           clocks:
+>             minItems: 24
+>             maxItems: 24
+
 
 
