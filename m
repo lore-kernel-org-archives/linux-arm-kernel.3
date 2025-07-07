@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA100C83F0C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 15:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A6B9C83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 15:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/yVMDeswpCew5QesrqHnaMuoSHYfTGwGJgqKG1zKDPA=; b=XThzmDFQEHb9EBsKRLpZgBeMFh
-	VciCleSwgq4PJjGLrLNyKxXgRq5miR3CZPL6tpYKa6v51fOJvH4cMveIvx17VUsX/3AfeCo+UxgQ8
-	Ph0higvtwig9SUsGToNnNuQoO7+PWjFSg2Vrjniagy6Ytf8N8Di/BgbggcXU5Il6w9bq1JWr4JDcz
-	w5cVVjIxEuvZmhmOt4gPT97dCyVLltQiN8V4bQZZmHG/SS8yd8e8b5a9sxgvRZWbgdhhgsmMyZvxZ
-	lZh/3BQZOA5LzA3e60HxRH1wy4Rp5frfYt0FidE4i8rD18r028snGUK0Pq2ysoYbZZOXzQ5Vc6eET
-	g7wqgdIw==;
+	bh=tbMPXxhvpgl9gB5jqtJ3zLdGn3BnaX0ozabRRokp71E=; b=t+E87AgBWEFnLfygLpG/l4EIj7
+	4mpFn8hGkfXuNn5H2DZzj786/XwegivlG3ZcK8yfvaUUJzwOd8gwTP2eX7iUyVrd1nTNtxyqHrgGB
+	dx2zyRIZF72JVu0yozwQQyjleBoi7HtYo7eQ/1Hr6zoJfUjntQrux49MebgDGb1nI2a00A40QAmWo
+	GoZFhmkgxi0inJk43MG2FJRpY1M50/lkRxKwzgoTVqMT9a+b5cSCBF2wGMdJZ/ploxa5OceIac1rt
+	jvOAkW2e8yAyzqln5PH7da+qFRCBh59PGVj0grRNcbJqnGjmwA7atECAjYXE5S+OXiZSywSM7RZ/9
+	NjOtBXNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYnlS-00000002rWr-1p2y;
-	Mon, 07 Jul 2025 15:28:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uYnnl-00000002rr1-0mUJ;
+	Mon, 07 Jul 2025 15:30:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYngB-00000002qFP-3fpf
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 15:22:53 +0000
+	id 1uYnhd-00000002qZH-0CVo;
+	Mon, 07 Jul 2025 15:24:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 38B2F5C162F;
-	Mon,  7 Jul 2025 15:22:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E59FC4CEE3;
-	Mon,  7 Jul 2025 15:22:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D222161466;
+	Mon,  7 Jul 2025 15:24:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16595C4CEE3;
+	Mon,  7 Jul 2025 15:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751901770;
-	bh=bF9Cnd3Mk8tDrG07Arguno79t51AF/xFLBMyBLuaJGA=;
+	s=k20201202; t=1751901859;
+	bh=oes/+xn1RurzvrkWTc5SPMVdbj1/SKqgEqmxACEehrM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e8IvYfkCRwo5yMKdPg6eD6myowFXc9eC4dXKePHqDJ+9NklmBW7k6xEqYC3FUC8hs
-	 vuzgYKoA4OJz3CcoqIDSLH66LS/qMvYC7z2SFKSp3fZtYr4kX0JsZqQ0SMsBe9RZ9L
-	 mvb4KrSap5UQhO2+1/op3FTcOXydr1yf6JLeWRwL3p8qrblabFSpc07nVm+wsMH6tp
-	 2sYET44ehOPw4qF+W/+QEGsTW12AW6t2Z+TxydOZmWePxo20k84Yj2Ratzm6Skmngt
-	 Z43KwuyHvar82tPkjQiMejMYD3COb67mJGsSBJZIqess/aCLWXU5xX8vQlbcDOECic
-	 bMTPxIbbM5bog==
-Date: Mon, 7 Jul 2025 17:22:43 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Toan Le <toan@os.amperecomputing.com>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>
-Subject: Re: [PATCH 08/12] PCI: xgene-msi: Get rid of intermediate tracking
- structure
-Message-ID: <aGvmQ0fjM6HWq6Qv@lpieralisi>
-References: <20250628173005.445013-1-maz@kernel.org>
- <20250628173005.445013-9-maz@kernel.org>
+	b=vCuz4onVvZwugFdTpv7P/0j4lrHYxUcEusn5UZ6Sc3j7ztX/K+Gpa453lYKJ13EmY
+	 z73CmYgE5BggoGsBNG5/6zY9fi98PeDM+w1CSjMwqWyqgM7Ul78pQk0mEtzaY9GIGc
+	 QJsjHURQIfWsqtV6KZwGq/Z0xRsrUpk9RdMopt9wi8VtTduJvP6Ss1E0ZQrqPfgoZ7
+	 XJQHZMgFVGIS2XWGtbkQKAZK+NZntMD0y28Zwk1/CGDBtGBj5ZwM/muNm8GFJVRRTq
+	 8qPt404gevgFXZzBS/3g6qkNxDEKs8rvNdwx/TRROq9pFCHoW8EDcbbV4pHIRSTUCO
+	 UQO2KdE3eXKtg==
+Date: Mon, 7 Jul 2025 17:24:16 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, Simon Horman <horms@kernel.org>,
+	Felix Fietkau <nbd@nbd.name>
+Subject: Re: [PATCH net-next v2 2/7] net: airoha: npu: Add NPU wlan memory
+ initialization commands
+Message-ID: <aGvmoJ83EtYOIa0K@lore-desk>
+References: <20250705-airoha-en7581-wlan-offlaod-v2-0-3cf32785e381@kernel.org>
+ <20250705-airoha-en7581-wlan-offlaod-v2-2-3cf32785e381@kernel.org>
+ <20250707-agile-aardwolf-of-politeness-29fead@krzk-bin>
+ <aGt2L1e3xbWVoqOO@lore-desk>
+ <679e6fd2-967f-4057-9ccd-92a37ecc4819@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="OT/S5wyakOFftJE4"
 Content-Disposition: inline
-In-Reply-To: <20250628173005.445013-9-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_082251_998002_C0DD1512 
-X-CRM114-Status: GOOD (  33.50  )
+In-Reply-To: <679e6fd2-967f-4057-9ccd-92a37ecc4819@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,192 +82,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 28, 2025 at 06:30:01PM +0100, Marc Zyngier wrote:
-> The xgene-msi driver uses an odd construct in the form of an
-> intermediate tracking structure, evidently designed to deal with
-> multiple instances of the MSI widget. However, the existing HW
-> only has one set, and it is obvious that there won't be new HW
-> coming down that particular line.
-> 
-> Simplify the driver by using a bit of pointer arithmetic instead,
-> directly tracking the interrupt and avoiding extra memory allocation.
 
-A couple of nits, nothing else.
+--OT/S5wyakOFftJE4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/pci/controller/pci-xgene-msi.c | 58 ++++++++------------------
->  1 file changed, 17 insertions(+), 41 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
-> index b3ac0125b3b40..4be79b9ff80df 100644
-> --- a/drivers/pci/controller/pci-xgene-msi.c
-> +++ b/drivers/pci/controller/pci-xgene-msi.c
-> @@ -24,19 +24,13 @@
->  #define NR_HW_IRQS		16
->  #define NR_MSI_VEC		(IDX_PER_GROUP * IRQS_PER_IDX * NR_HW_IRQS)
->  
-> -struct xgene_msi_group {
-> -	struct xgene_msi	*msi;
-> -	int			gic_irq;
-> -	u32			msi_grp;
-> -};
-> -
->  struct xgene_msi {
->  	struct irq_domain	*inner_domain;
->  	u64			msi_addr;
->  	void __iomem		*msi_regs;
->  	unsigned long		*bitmap;
->  	struct mutex		bitmap_lock;
-> -	struct xgene_msi_group	*msi_groups;
-> +	unsigned int		gic_irq[NR_HW_IRQS];
->  };
->  
->  /* Global data */
-> @@ -261,27 +255,20 @@ static int xgene_msi_init_allocator(struct device *dev)
->  
->  	mutex_init(&xgene_msi_ctrl->bitmap_lock);
->  
-> -	xgene_msi_ctrl->msi_groups = devm_kcalloc(dev, NR_HW_IRQS,
-> -						  sizeof(struct xgene_msi_group),
-> -						  GFP_KERNEL);
-> -	if (!xgene_msi_ctrl->msi_groups)
-> -		return -ENOMEM;
-> -
->  	return 0;
->  }
->  
->  static void xgene_msi_isr(struct irq_desc *desc)
->  {
-> +	unsigned int *irqp = irq_desc_get_handler_data(desc);
->  	struct irq_chip *chip = irq_desc_get_chip(desc);
->  	struct xgene_msi *xgene_msi = xgene_msi_ctrl;
-> -	struct xgene_msi_group *msi_groups;
->  	int msir_index, msir_val, hw_irq, ret;
->  	u32 intr_index, grp_select, msi_grp;
->  
->  	chained_irq_enter(chip, desc);
->  
-> -	msi_groups = irq_desc_get_handler_data(desc);
-> -	msi_grp = msi_groups->msi_grp;
-> +	msi_grp = irqp - xgene_msi->gic_irq;
->  
->  	/*
->  	 * MSIINTn (n is 0..F) indicates if there is a pending MSI interrupt
-> @@ -341,35 +328,31 @@ static void xgene_msi_remove(struct platform_device *pdev)
->  		cpuhp_remove_state(pci_xgene_online);
->  	cpuhp_remove_state(CPUHP_PCI_XGENE_DEAD);
->  
-> -	kfree(msi->msi_groups);
-> -
->  	xgene_free_domains(msi);
->  }
->  
->  static int xgene_msi_hwirq_alloc(unsigned int cpu)
->  {
-> -	struct xgene_msi *msi = xgene_msi_ctrl;
-> -	struct xgene_msi_group *msi_group;
->  	int i;
->  	int err;
->  
->  	for (i = cpu; i < NR_HW_IRQS; i += num_possible_cpus()) {
-> -		msi_group = &msi->msi_groups[i];
-> +		unsigned int irq = xgene_msi_ctrl->gic_irq[i];
->  
->  		/*
->  		 * Statically allocate MSI GIC IRQs to each CPU core.
->  		 * With 8-core X-Gene v1, 2 MSI GIC IRQs are allocated
->  		 * to each core.
->  		 */
-> -		irq_set_status_flags(msi_group->gic_irq, IRQ_NO_BALANCING);
-> -		err = irq_set_affinity(msi_group->gic_irq, cpumask_of(cpu));
-> +		irq_set_status_flags(irq, IRQ_NO_BALANCING);
-> +		err = irq_set_affinity(irq, cpumask_of(cpu));
->  		if (err) {
->  			pr_err("failed to set affinity for GIC IRQ");
->  			return err;
->  		}
->  
-> -		irq_set_chained_handler_and_data(msi_group->gic_irq,
-> -			xgene_msi_isr, msi_group);
-> +		irq_set_chained_handler_and_data(irq, xgene_msi_isr,
-> +						 &xgene_msi_ctrl->gic_irq[i]);
->  	}
->  
->  	return 0;
-> @@ -378,15 +361,12 @@ static int xgene_msi_hwirq_alloc(unsigned int cpu)
->  static int xgene_msi_hwirq_free(unsigned int cpu)
->  {
->  	struct xgene_msi *msi = xgene_msi_ctrl;
-> -	struct xgene_msi_group *msi_group;
->  	int i;
->  
->  	for (i = cpu; i < NR_HW_IRQS; i += num_possible_cpus()) {
-> -		msi_group = &msi->msi_groups[i];
-> -		if (!msi_group->gic_irq)
-> +		if (!msi->gic_irq[i])
+> On 07/07/2025 09:24, Lorenzo Bianconi wrote:
+> >> On Sat, Jul 05, 2025 at 11:09:46PM +0200, Lorenzo Bianconi wrote:
+> >>> +
+> >>>  struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *st=
+ats_addr)
+> >>>  {
+> >>>  	struct platform_device *pdev;
+> >>> @@ -493,6 +573,7 @@ static int airoha_npu_probe(struct platform_devic=
+e *pdev)
+> >>>  	npu->ops.ppe_deinit =3D airoha_npu_ppe_deinit;
+> >>>  	npu->ops.ppe_flush_sram_entries =3D airoha_npu_ppe_flush_sram_entri=
+es;
+> >>>  	npu->ops.ppe_foe_commit_entry =3D airoha_npu_foe_commit_entry;
+> >>> +	npu->ops.wlan_init_reserved_memory =3D airoha_npu_wlan_init_memory;
+> >>
+> >> I cannot find in your code single place calling this (later you add a
+> >> wrapper... which is not called either).
+> >>
+> >> All this looks like dead code...
+> >=20
+> > As pointed out in the commit log, these callbacks will be used by MT76 =
+driver
+> > to initialize the NPU reserved memory and registers during driver probe=
+ in
+> > order to initialize the WiFi offloading. Since MT76 patches are going v=
+ia
+> > the wireless tree, I needed to add these callbacks first.
+>=20
+> Cover letter does not link to your NPU patchset. You cannot add dead
+> code to the kernel and now it is pure dead code. Post your user - in
+> this or separate patchset.
 
-In patch 5 we removed this check in xgene_msi_hwirq_alloc(), if it
-superfluous there it should be here too.
+I guess you mean the related MT76 patches are not linked in the cover-lette=
+r,
+right? I have not posted them yet.
 
->  			continue;
-> -		irq_set_chained_handler_and_data(msi_group->gic_irq, NULL,
-> -						 NULL);
-> +		irq_set_chained_handler_and_data(msi->gic_irq[i], NULL, NULL);
->  	}
->  	return 0;
->  }
-> @@ -399,10 +379,9 @@ static const struct of_device_id xgene_msi_match_table[] = {
->  static int xgene_msi_probe(struct platform_device *pdev)
->  {
->  	struct resource *res;
-> -	int rc, irq_index;
+>=20
+> Your explanation of dependency is also confusing. If these are added to
+> wireless tree (considering last experience how they rebase and cannot
+> easily handle cross tree merges), how does it solve your problem? You
+> will have it in one tree but not in the other, so still nothing...
+> That's anyway separate problem, because main issue is you add code which
+> we cannot even verify how it is being used.
 
-Just noticed, insignificant nit: don't see why moving irq_index to a
-local loop variable is required in this patch - fine to leave the
-code in the patch as-is - reporting it to make sure I have not
-missed anything.
+My main point here is wireless tree can't acutally merge the MT76 patches
+since, without the net-next ones (this series), it will not compile (so I
+posted net-next patches as preliminary ones for MT76 changes).
+Moreover, this is the same approach we used when we added WED support to
+mtk_eth_soc driver and the related MT76 support.
+However, I am fine to post the MT76 changes as RFC and just refer to it in
+this series cover-letter. Agree?=20
 
+>=20
+> So far I see ABI break, but without user cannot judge. And that's the
+> hard reason this cannot be accepted.
+
+if you mean the dts changes, I will fix them in v3.
+
+Regards,
 Lorenzo
 
->  	struct xgene_msi *xgene_msi;
-> -	int virt_msir;
->  	u32 msi_val, msi_idx;
-> +	int rc;
->  
->  	xgene_msi_ctrl = devm_kzalloc(&pdev->dev, sizeof(*xgene_msi_ctrl),
->  				      GFP_KERNEL);
-> @@ -432,15 +411,12 @@ static int xgene_msi_probe(struct platform_device *pdev)
->  		goto error;
->  	}
->  
-> -	for (irq_index = 0; irq_index < NR_HW_IRQS; irq_index++) {
-> -		virt_msir = platform_get_irq(pdev, irq_index);
-> -		if (virt_msir < 0) {
-> -			rc = virt_msir;
-> +	for (int irq_index = 0; irq_index < NR_HW_IRQS; irq_index++) {
-> +		rc = platform_get_irq(pdev, irq_index);
-> +		if (rc < 0)
->  			goto error;
-> -		}
-> -		xgene_msi->msi_groups[irq_index].gic_irq = virt_msir;
-> -		xgene_msi->msi_groups[irq_index].msi_grp = irq_index;
-> -		xgene_msi->msi_groups[irq_index].msi = xgene_msi;
-> +
-> +		xgene_msi->gic_irq[irq_index] = rc;
->  	}
->  
->  	/*
-> @@ -448,7 +424,7 @@ static int xgene_msi_probe(struct platform_device *pdev)
->  	 * interrupt handlers, read all of them to clear spurious
->  	 * interrupts that may occur before the driver is probed.
->  	 */
-> -	for (irq_index = 0; irq_index < NR_HW_IRQS; irq_index++) {
-> +	for (int irq_index = 0; irq_index < NR_HW_IRQS; irq_index++) {
->  		for (msi_idx = 0; msi_idx < IDX_PER_GROUP; msi_idx++)
->  			xgene_msi_ir_read(xgene_msi, irq_index, msi_idx);
->  
-> -- 
-> 2.39.2
-> 
+>=20
+> Best regards,
+> Krzysztof
+
+--OT/S5wyakOFftJE4
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaGvmoAAKCRA6cBh0uS2t
+rDczAPsFgaNtjWprKaC6Z+VfmUNzguMJ9HSaKYKBDoZw5TyM1gD8CclHT+w5VNy/
+s041k48snp6/uVkoTA4CjRMJt0+DKQM=
+=aXb3
+-----END PGP SIGNATURE-----
+
+--OT/S5wyakOFftJE4--
 
