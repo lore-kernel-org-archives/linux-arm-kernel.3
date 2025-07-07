@@ -4,90 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A32C5C83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 15:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 836D0C83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 15:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IH9KVtMgBsrkYXH8nnFecmz5YKaJj3+GxgiEXc+y1YA=; b=4PhDaZc1n/ELmtm/M2Xuwhd3qg
-	ihh8SiLOtnIsmfy0jV13KpxIFCXXTBeiZ23ONymHF34OqmVK7MJaaaOljBbL4QRW9OaVKH6AXmrVF
-	mpPw44bW8w1zBnLP1MFoKVk14Rb8/3CxWDTQs1tb6QRZwoxBBla7EHTGjAt7qVs+T1Tw7ldu2+CDL
-	6z8zX4WDE476CNFB3xCR0PdBHcGh/n1hIqTHxI3XbksfVBAG9+veJDSYe8ZeFuUsw1lahd/RVoWHA
-	TqexUSLr8dG8Fb//G/8zpgKFpLa1P9aLwLHW5zqTIGFBTOLf7dX2pHxISyjPOdJSgHMEBzSCogYir
-	YgjlYRSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7VB8W1UWCquHbDtRJg67zHonPeEbda4hdRiFxa0ocBM=; b=GTJgCLQZ3geIU7a9vx0iEgel+I
+	A9YW5DU7ccisb4j6DVxdSfwl4VUjAzZgd206Oquc8JLNoLRFPViqEvJ14kwq2YbWKMPnE0p74+g0w
+	cmUqsjV2Ox0BPoTM9oeN1Y4e+SOewyZ5fZpbOjc9CjK2YLMKurip9sKpTwVnS0XyVtYMr5GI4u1Zu
+	j5CWFhOUwQNSAO03dz8ACELOOO4x1oLhmJIZqiwBKrzh6OpBPUIDoR6KrW0/udH37ZIE4oBLZ4ybL
+	u+15OwqKr1+FrADvSAvr+zWat/5i18/2GrrZB9C7K1t76ERHW4J6y+UARj0W/wKiDjA5/RjGI8DFG
+	Z381jT6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYo1Z-00000002uan-0mMj;
-	Mon, 07 Jul 2025 15:44:57 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYnsw-00000002snu-1FOi
+	id 1uYo3r-00000002uvu-3em3;
+	Mon, 07 Jul 2025 15:47:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYnu5-00000002t4i-0H1P
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 15:36:03 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-453608ed113so36433375e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 08:36:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751902561; x=1752507361; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IH9KVtMgBsrkYXH8nnFecmz5YKaJj3+GxgiEXc+y1YA=;
-        b=iJt95TWYm802B6eDe71paElVla0tVis7sFOBL/UYJN6GAODmETag1DwtpnC/fnfAbI
-         9Dqcrz11wxKEOmBQ0HPrOiJy/8Px9SvwbLOvEmizWEotuUxx2SDEusiBLlJS7KR6U3dx
-         rJNxa1nuwbcPcyK6r+Ks7V0ixgro/w8rZFf/8eOSTRCqk68JSlaAgc1MFPZbpI2Avhze
-         pQEKmnGH5/QWrzbx0SJaLDU4MgoKA6EVbeTPpHsI4nkMSucbTareKa5H8KNMCfaVzBWD
-         00ZfVgD/dQMT+nriGiuTWW9NNYLLk7NYHVVxROarKSIoKCnj/oWYC9z0RCsxOlV/sZRB
-         zOiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751902561; x=1752507361;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IH9KVtMgBsrkYXH8nnFecmz5YKaJj3+GxgiEXc+y1YA=;
-        b=wLIsjde980rQ+ELA6kA+2mq6rPv+e/gwNikZNusBmk3LSnNaGShqIDd1QtzpKWgyKB
-         rv1r2PeVyHwOGnNmkubZ7Izo/Q8miU6WaIixMNKOiPBFTwM9YLFdEwn3ZK0/g9Hrme6s
-         hVebgHRLlP9xs6t2DqYd9JOLl/Gv/vGV6ipxeGJM2fqEVB0KbCLoqyRlIy5UbnB3wx5Z
-         2eFaTa9i2S7OdNO9h6OK26/yLi/iCjivPodxqM+V57ffCw7kQzZ5/W7Bz50rM46fA0C6
-         e/KvRM4pCVleErEaCbhvLjklwQ/qgHqj+KTat52yWofjuBR8HBPX0SCwmxPNqOZ+vRMD
-         fokA==
-X-Forwarded-Encrypted: i=1; AJvYcCVdM710vC7hNlpFgCeYmD8HeyOQQIGR8lSV+9P5NrLMwbO/JiOO1d8CcjDHPRmIYACwgWAS9OghWIPshYhKUIVs@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIqZ/PJFbsO87T+3dZocelsO3BgW7Y61hReY4SnWLr3avRBEn0
-	wXsGB8MIg2pF0NI0prNUb17RZ22gX1c5bobjku8xYzATvJm0Gdfnhjee3RywdyGdshQ=
-X-Gm-Gg: ASbGncvvERoCPLNIgBg4Cy/8xub48kZuic/M7O2WHMW7IJeniaTk+JcXvuzJ0hDFgAO
-	zM06M4jwa1JKdN0OZc+tLL9lHZEyl1XTb1uKa/0kxV9jYXZnnzV/e7zEchGtDppta9gIIERIvSu
-	QTj1q0EPqsBYU+fVKI4ANNpP7mxclwQSrB9ydx4s5eVq5yuyU0b83fPLm2rqFrToHiUXbtsVAJn
-	t8ZDMQm+A/s4Pu/zaXag+d9heex4n6flN6SBh1JBNl88NbnC0+73+V2r/A1eJ3OQR/KpcpXApKw
-	giTZ4aFhbM8bkluNhDODoIetoRYaGW/+A+RfVhcV05E47tKy9ZEO4wSORso74yPGwpbNokte86H
-	r
-X-Google-Smtp-Source: AGHT+IGes0ufFH5VmLZsiJtyyublkopHtpaYl2Uv7IhC3VQUUkrA40ug/nbGGBQCxtDhT7AejuRV5Q==
-X-Received: by 2002:a05:600c:8416:b0:450:d4a6:799d with SMTP id 5b1f17b1804b1-454b306b0c9mr109664975e9.7.1751902560647;
-        Mon, 07 Jul 2025 08:36:00 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:e0a:e50:3860:43f7:96cc:da3f:e6bb])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b47030bd4dsm10409968f8f.7.2025.07.07.08.36.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Jul 2025 08:36:00 -0700 (PDT)
-From: Guillaume La Roque <glaroque@baylibre.com>
-Date: Mon, 07 Jul 2025 17:35:58 +0200
-Subject: [PATCH 2/2] soc: ti: ti_sci_inta_msi: Enable module compilation
- support
+	Mon, 07 Jul 2025 15:37:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA592168F;
+	Mon,  7 Jul 2025 08:36:59 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E1F443F77D;
+	Mon,  7 Jul 2025 08:37:11 -0700 (PDT)
+Date: Mon, 7 Jul 2025 16:37:10 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexandru Elisei <Alexandru.Elisei@arm.com>,
+	Anshuman Khandual <Anshuman.Khandual@arm.com>,
+	Rob Herring <Rob.Herring@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	Robin Murphy <Robin.Murphy@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
+ PMBPTR_EL1 or PMBSR_EL1
+Message-ID: <20250707153710.GB2182465@e132581.arm.com>
+References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
+ <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
+ <20250704155016.GI1039028@e132581.arm.com>
+ <b77f12e7-ea3f-4c57-9706-ff8e32721cc8@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250707-timsi-v1-2-80ae43b2c550@baylibre.com>
-References: <20250707-timsi-v1-0-80ae43b2c550@baylibre.com>
-In-Reply-To: <20250707-timsi-v1-0-80ae43b2c550@baylibre.com>
-To: Thomas Gleixner <tglx@linutronix.de>, vigneshr@ti.com, 
- Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
- Tero Kristo <kristo@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Guillaume La Roque <glaroque@baylibre.com>
-X-Mailer: b4 0.14.1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b77f12e7-ea3f-4c57-9706-ff8e32721cc8@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_083602_343027_686DD441 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20250707_083713_194781_2D6D8D4E 
+X-CRM114-Status: GOOD (  37.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,58 +73,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add module support to the TI SCI INTA MSI driver:
-- Change Kconfig from bool to tristate to allow module compilation
-- Add linux/module.h include for module functionality
-- Add MODULE_LICENSE, MODULE_DESCRIPTION, and MODULE_AUTHOR macros
+On Mon, Jul 07, 2025 at 12:39:57PM +0100, James Clark wrote:
 
-This allows the driver to be compiled as a loadable kernel module
-named ti_sci_inta_msi.
+[...]
 
-Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
----
- drivers/soc/ti/Kconfig           | 5 ++++-
- drivers/soc/ti/ti_sci_inta_msi.c | 5 +++++
- 2 files changed, 9 insertions(+), 1 deletion(-)
+> > > @@ -661,16 +666,24 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+> > >   	 */
+> > >   	irq_work_run();
+> > > +	/*
+> > > +	 * arm_spe_pmu_buf_get_fault_act() already drained, and PMBSR_EL1.S == 1
+> > > +	 * means that StatisticalProfilingEnabled() == false. So now we can
+> > > +	 * safely disable the buffer.
+> > > +	 */
+> > > +	write_sysreg_s(0, SYS_PMBLIMITR_EL1);
+> > > +	isb();
+> > > +
+> > > +	/* Status can be cleared now that PMBLIMITR_EL1.E == 0 */
+> > > +	write_sysreg_s(0, SYS_PMBSR_EL1);
+> > > +
+> > 
+> > An important thing is about sequence:
+> > As described in arm_spe_pmu_disable_and_drain_local(), should we always
+> > clear ELs bits in PMSCR_EL1 before clear PMBLIMITR_EL1.E bit? As a
+> > reference, we could see TRBE always clear ELx bits before disable trace
+> > buffer.
+> > 
+> > And a trivial flaw:
+> > 
+> > If the TRUNCATED flag has been set, the irq_work_run() above runs the
+> > IRQ work to invoke the arm_spe_pmu_stop() to disable trace buffer, which
+> > clear SYS_PMBLIMITR_EL1.E bit. This is why the current code does not
+> > explictly clear SYS_PMBLIMITR_EL1.E bit.
+> > 
+> > With this patch, the interrupt handler will clear SYS_PMBLIMITR_EL1.E
+> > bit twice for a trunacated case.
+> 
+> I suppose that's a rarer case that we don't necessarily have to optimize
+> for. I don't think it will do any harm, but is it even possible to avoid?
+> 
+> There are already some other duplications in the driver, for example in
+> arm_spe_pmu_stop() we call arm_spe_pmu_disable_and_drain_local() which
+> drains, and then arm_spe_pmu_buf_get_fault_act() which also drains again.
 
-diff --git a/drivers/soc/ti/Kconfig b/drivers/soc/ti/Kconfig
-index 1a93001c9e36..0a9eb5ac264b 100644
---- a/drivers/soc/ti/Kconfig
-+++ b/drivers/soc/ti/Kconfig
-@@ -85,7 +85,10 @@ config TI_PRUSS
- endif # SOC_TI
- 
- config TI_SCI_INTA_MSI_DOMAIN
--	bool
-+	tristate "TI SCI INTA MSI Domain driver"
- 	select GENERIC_MSI_IRQ
- 	help
- 	  Driver to enable Interrupt Aggregator specific MSI Domain.
-+
-+	  Say Y here to compile it into the kernel or M to compile it as a
-+	  module. The module will be called ti_sci_inta_msi.
-diff --git a/drivers/soc/ti/ti_sci_inta_msi.c b/drivers/soc/ti/ti_sci_inta_msi.c
-index 193266f5e3f9..d92cab319d57 100644
---- a/drivers/soc/ti/ti_sci_inta_msi.c
-+++ b/drivers/soc/ti/ti_sci_inta_msi.c
-@@ -8,6 +8,7 @@
- 
- #include <linux/irq.h>
- #include <linux/irqdomain.h>
-+#include <linux/module.h>
- #include <linux/msi.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -115,3 +116,7 @@ int ti_sci_inta_msi_domain_alloc_irqs(struct device *dev,
- 	return ret;
- }
- EXPORT_SYMBOL_GPL(ti_sci_inta_msi_domain_alloc_irqs);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("Texas Instruments K3 Interrupt Aggregator MSI bus");
-+MODULE_AUTHOR("Lokesh Vutla <lokeshvutla@ti.com>");
+If we don't need to worry about duplicated operations in the truncated
+case, then for easier maintenance and better readability, I'm wondering
+if we could simplify the interrupt handler as follows:
 
--- 
-2.34.1
+    arm_spe_pmu_irq_handler()
+    {
+        ...
 
+        act = arm_spe_pmu_buf_get_fault_act(handle);
+        if (act == SPE_PMU_BUF_FAULT_ACT_SPURIOUS)
+                return IRQ_NONE;
+
+        arm_spe_pmu_disable_and_drain_local();
+
+        /* Status can be cleared now that PMBLIMITR_EL1.E == 0 */
+        write_sysreg_s(0, SYS_PMBSR_EL1);
+        isb();
+
+        switch (act) {
+            ...
+        }
+    }
+
+This approach complies with DEN0154 - we must clear PMBLIMITR_EL1.E
+before writing to other SPE system registers (e.g., PMBSR).
+
+The reason for using arm_spe_pmu_disable_and_drain_local() is that we
+first need to disable profiling instructions by clearing PMSCR_EL1/EL2,
+and then is it safe to disable the profiling buffer.
+
+[...]
+
+> > >   	case SPE_PMU_BUF_FAULT_ACT_OK:
+> > >   		/*
+> > > @@ -679,18 +692,14 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+> > >   		 * PMBPTR might be misaligned, but we'll burn that bridge
+> > >   		 * when we get to it.
+> > >   		 */
+> > > -		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)) {
+> > > +		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED))
+> > >   			arm_spe_perf_aux_output_begin(handle, event);
+> > > -			isb();
+> > 
+> > I am a bit suspecious we can remove this isb().
+> > 
+> > As a reference to the software usage PKLXF in Arm ARM (DDI 0487 L.a),
+> > after enable TRBE trace unit, an ISB is mandatory. Maybe check a bit
+> > for this?
+>
+> Wasn't this isb() to separate the programming of the registers with the
+> status register clear at the end of this function to enable profiling?
+
+Enabling profiling buffer followed an isb() is not only for separating
+other register programming.
+
+As described in section D17.9, Synchronization and Statistical Profiling
+in Arm ARM:
+
+  "A Context Synchronization event guarantees that a direct write to a
+  System register made by the PE in program order before the Context
+  synchronization event are observable by indirect reads and indirect
+  writes of the same System register made by a profiling operation
+  relating to a sampled operation in program order after the Context
+  synchronization event."
+
+My understanding is: after the ARM SPE profiling is enabled, the
+followed ISB is a Synchronization to make sure the system register
+values are observed by SPE. And we cannot rely on ERET, especially if
+we are tracing the kernel mode.
+
+Thanks,
+Leo
+
+> But now we enable profiling with the write to PMBLIMITR_EL1 in
+> arm_spe_perf_aux_output_begin() and the last thing here is the ERET. That's
+> specifically mentioned as enough synchronization in PKLXF:
+> 
+>   In the common case, this is an ERET instruction that returns to a
+>   different Exception level where tracing is allowed.
+> 
+> > > -		}
+> > >   		break;
+> > >   	case SPE_PMU_BUF_FAULT_ACT_SPURIOUS:
+> > >   		/* We've seen you before, but GCC has the memory of a sieve. */
+> > >   		break;
+> > >   	}
+> > > -	/* The buffer pointers are now sane, so resume profiling. */
+> > > -	write_sysreg_s(0, SYS_PMBSR_EL1);
+> > >   	return IRQ_HANDLED;
+> > >   }
+> > > 
+> > > -- 
+> > > 2.34.1
+> > > 
+> > > 
+> 
 
