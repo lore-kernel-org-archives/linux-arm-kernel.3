@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EFF1C71130
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 19:14:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7823AC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 19:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2jGaD8c3ubRcJrs9E7PPKpi1NHgV8be7gu6+Mc5pNTw=; b=p0xjNYS86Bv+npB96ODmWdA6bL
-	+7lZxmuTL2KdRfiKQcMWgd2j1y2c0AekvhSpuvPNEpY8rh33420+Yiy+kFcRC6CpmgwpCmxC8q2lA
-	zsjo0bYYCaYYVQ9tfLPXRED+GWCT+CTZgxBS34GUOeahQRt59ASNrPmWRf8LY40UT9GVx4YPh3p3x
-	I9hsdGYFv95kzW/3GpI4bMcW90KLYN9cxs1LVdNzKr+n5Vt6Ppk8RfB+jY1PMtc+RyEX87KIwxYpm
-	jrsldqLra9/AGCCL8//Ao7j0kLnWL/s9lmlmUYZm37ZWRpacyxP/H3dTYM2DPS+qHfpiou1TMgH8V
-	l4HJqLWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=md0BwfJmA9gIM32S1QSqVz0A4WkieDc/rC2kd1592Is=; b=vq2TFWzVK0aMLNrd4Sx4Tol5OR
+	e16HANURkCEdDvu7NpTAM4ISFcJbHbaKx7NCtPNWe4BhX/ut4BlEFw856kD4kJMFKQxn2VyrTmMPV
+	maxnDKlXdcz4/ybIhu2Z4z3JUeVHb3YkBMSyzpl7xG7JIOAepPrOo8P2vfIQWjv5EAz1Llle0gmi1
+	7eC6pir0NQXtYD52fs9AlMRIGjPjVbDhIOsYcSiW0y+mFdm7vWlGGHWSkeFYFkHHdjy6gR9/8vir8
+	+3rtMDqaK1QMBJRlA+sx7/ZakJJbyeU0gHYuHIzF/nCoON3dMwLZKlU2zzgP9Ez4t7GOGAIc/0vsS
+	mcKxo1lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYrHp-00000003Q4y-0L8Q;
-	Mon, 07 Jul 2025 19:13:57 +0000
-Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
+	id 1uYrK7-00000003QHR-3JqN;
+	Mon, 07 Jul 2025 19:16:19 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYrBT-00000003Ov4-00rE
+	id 1uYrCd-00000003P6a-3Xfq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 19:07:24 +0000
-Date: Mon, 7 Jul 2025 12:07:04 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1751915238;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2jGaD8c3ubRcJrs9E7PPKpi1NHgV8be7gu6+Mc5pNTw=;
-	b=aobMN78gUyxXzBZrku/l0hi14PBGY/TRhvSw5ZW677kY73Urv0Jo6skIl8SFHlE1+v7WLh
-	HWODbBjgI3VI0Sd7XDIPDmZpD9eRkDhHBjm19CQeBICmRcbomFiKQW7gQFBIXMIZFDW2Ir
-	oJoOWO0Vob31Jguq+jObCoOe5w83Kb0=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Shuah Khan <shuah@kernel.org>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v3 06/22] perf: arm_pmuv3: Introduce method to partition
- the PMU
-Message-ID: <aGwa2DGJq3FyxyEK@linux.dev>
-References: <20250626200459.1153955-1-coltonlewis@google.com>
- <20250626200459.1153955-7-coltonlewis@google.com>
- <aGv8arq8NgaRCu7h@J2N7QTR9R3>
+	Mon, 07 Jul 2025 19:08:37 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 567J8VYl297638;
+	Mon, 7 Jul 2025 14:08:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1751915311;
+	bh=md0BwfJmA9gIM32S1QSqVz0A4WkieDc/rC2kd1592Is=;
+	h=From:To:CC:Subject:Date;
+	b=Kz2KgJzVbLbG9C2Y4p063ZMVoZvqVLJOruBaIZtB9NBEVmEITNMOxk2SvnePFH+RP
+	 hz6XRx/J10/X0nOjiXnZsqIF6ynuu8CQSe7UFFOLoqen3y1af1sP+u4yVyZTP7RbCv
+	 nUpHZJnrLNMsK6d8Dypc9xtxk0X7udKFS+oKyT78=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 567J8VUg2503220
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 7 Jul 2025 14:08:31 -0500
+Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 7
+ Jul 2025 14:08:30 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 7 Jul 2025 14:08:30 -0500
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 567J8Ubv436914;
+	Mon, 7 Jul 2025 14:08:30 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2] arm64: dts: ti: k3-am62*: Move eMMC pinmux to top level board file
+Date: Mon, 7 Jul 2025 14:08:30 -0500
+Message-ID: <20250707190830.3951619-1-jm@ti.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aGv8arq8NgaRCu7h@J2N7QTR9R3>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_120723_470727_E8A6EC2F 
-X-CRM114-Status: GOOD (  31.34  )
+X-CRM114-CacheID: sfid-20250707_120835_970750_CB99E8CE 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,68 +85,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 07, 2025 at 05:57:14PM +0100, Mark Rutland wrote:
-> On Thu, Jun 26, 2025 at 08:04:42PM +0000, Colton Lewis wrote:
-> > For PMUv3, the register field MDCR_EL2.HPMN partitiones the PMU
-> > counters into two ranges where counters 0..HPMN-1 are accessible by
-> > EL1 and, if allowed, EL0 while counters HPMN..N are only accessible by
-> > EL2.
-> > 
-> > Create module parameter reserved_host_counters to reserve a number of
-> > counters for the host. This number is set at boot because the perf
-> > subsystem assumes the number of counters will not change after the PMU
-> > is probed.
-> > 
-> > Introduce the function armv8pmu_partition() to modify the PMU driver's
-> > cntr_mask of available counters to exclude the counters being reserved
-> > for the guest and record reserved_guest_counters as the maximum
-> > allowable value for HPMN.
-> > 
-> > Due to the difficulty this feature would create for the driver running
-> > at EL1 on the host, partitioning is only allowed in VHE mode. Working
-> > on nVHE mode would require a hypercall for every counter access in the
-> > driver because the counters reserved for the host by HPMN are only
-> > accessible to EL2.
-> 
-> It would be good if we could elaborate on this last point. When exactly
-> do we intend to configure HPMN (e.g. is that static, dynamic at
-> load/put, or dynamic at finer granularity)?
-> 
-> I ask becuase it's not immediately clear to me how this would break nVHE
-> without also breaking direct userspace access on VHE, unless we flip
-> HPMN dynamically at load/put, and this is only broken in some transient
-> windows on nVHE.
+This moves pinmux child nodes for sdhci0 node from k3-am62x-sk-common
+to each top level board file. This is needed since we require internal
+pullups for AM62x SK and not for AM62 LP SK since it has external
+pullups on DATA 1-7.
 
-Agree that KVM's HPMN can only take effect between vcpu_load() /
-vcpu_put().
+Internal pulls are required for AM62 SK as per JESD84 spec
+recommendation to prevent unconnected lines floating.
 
-The changelog isn't correct regarding the complications of nVHE, though.
-In order to support a 'partitioned' PMU on nVHE we'd need to explicitly
-disable guest counters on every exit and reset HPMN to place all
-counters in the 'first range'. Unless someone has a use case for this
-stuff on nVHE I'm not too bothered by the VHE-only limitation.
+Fixes: d19a66ae488a ("arm64: dts: ti: k3-am625-sk: Enable on board peripherals")
+Cc: stable@vger.kernel.org
+Signed-off-by: Judith Mendez <jm@ti.com>
+---
+Changes since v1:
+- patch was split from series [0]
+- merge conflict fix with disable-wp
 
-> > 
-> > Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> > ---
-> >  arch/arm/include/asm/arm_pmuv3.h   | 14 ++++++
-> >  arch/arm64/include/asm/arm_pmuv3.h |  5 ++
-> >  arch/arm64/include/asm/kvm_pmu.h   |  6 +++
-> >  arch/arm64/kvm/Makefile            |  2 +-
-> >  arch/arm64/kvm/pmu-part.c          | 23 ++++++++++
-> 
-> Maybe I'll contradict Oliver and Marc here (and whatever they say
-> rules), but IMO it'd be nice to spell out "partition" rather than "part"
-> here for clarity.
+v1[0]: https://lore.kernel.org/linux-mmc/20250624221230.1952291-1-jm@ti.com/
+---
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts      | 24 +++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am625-sk.dts        | 24 +++++++++++++++++++
+ .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 24 -------------------
+ 3 files changed, 48 insertions(+), 24 deletions(-)
 
-I'm not too big of a fan of the naming here either. I'd prefer something
-like "pmu-direct". Partitioning is just a side effect of how we're
-allocating counters currently and most of this implementation could be
-reused if we pass the entire PMU to the guest in the future.
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+index aafdb90c0eb7..4609f366006e 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+@@ -74,6 +74,22 @@ vddshv_sdio: regulator-4 {
+ };
+ 
+ &main_pmx0 {
++	main_mmc0_pins_default: main-mmc0-default-pins {
++		bootph-all;
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x220, PIN_INPUT, 0) /* (V3) MMC0_CMD */
++			AM62X_IOPAD(0x218, PIN_INPUT, 0) /* (Y1) MMC0_CLK */
++			AM62X_IOPAD(0x214, PIN_INPUT, 0) /* (V2) MMC0_DAT0 */
++			AM62X_IOPAD(0x210, PIN_INPUT, 0) /* (V1) MMC0_DAT1 */
++			AM62X_IOPAD(0x20c, PIN_INPUT, 0) /* (W2) MMC0_DAT2 */
++			AM62X_IOPAD(0x208, PIN_INPUT, 0) /* (W1) MMC0_DAT3 */
++			AM62X_IOPAD(0x204, PIN_INPUT, 0) /* (Y2) MMC0_DAT4 */
++			AM62X_IOPAD(0x200, PIN_INPUT, 0) /* (W3) MMC0_DAT5 */
++			AM62X_IOPAD(0x1fc, PIN_INPUT, 0) /* (W4) MMC0_DAT6 */
++			AM62X_IOPAD(0x1f8, PIN_INPUT, 0) /* (V4) MMC0_DAT7 */
++		>;
++	};
++
+ 	vddshv_sdio_pins_default: vddshv-sdio-default-pins {
+ 		pinctrl-single,pins = <
+ 			AM62X_IOPAD(0x07c, PIN_OUTPUT, 7) /* (M19) GPMC0_CLK.GPIO0_31 */
+@@ -144,6 +160,14 @@ exp2: gpio@23 {
+ 	};
+ };
+ 
++&sdhci0 {
++	bootph-all;
++	non-removable;
++	pinctrl-names = "default";
++	pinctrl-0 = <&main_mmc0_pins_default>;
++	status = "okay";
++};
++
+ &sdhci1 {
+ 	vmmc-supply = <&vdd_mmc1>;
+ 	vqmmc-supply = <&vddshv_sdio>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-sk.dts b/arch/arm64/boot/dts/ti/k3-am625-sk.dts
+index 2fbfa3719345..d240165bda9c 100644
+--- a/arch/arm64/boot/dts/ti/k3-am625-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am625-sk.dts
+@@ -106,6 +106,22 @@ vcc_1v8: regulator-5 {
+ };
+ 
+ &main_pmx0 {
++	main_mmc0_pins_default: main-mmc0-default-pins {
++		bootph-all;
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x220, PIN_INPUT, 0) /* (Y3) MMC0_CMD */
++			AM62X_IOPAD(0x218, PIN_INPUT, 0) /* (AB1) MMC0_CLK */
++			AM62X_IOPAD(0x214, PIN_INPUT, 0) /* (AA2) MMC0_DAT0 */
++			AM62X_IOPAD(0x210, PIN_INPUT_PULLUP, 0) /* (AA1) MMC0_DAT1 */
++			AM62X_IOPAD(0x20c, PIN_INPUT_PULLUP, 0) /* (AA3) MMC0_DAT2 */
++			AM62X_IOPAD(0x208, PIN_INPUT_PULLUP, 0) /* (Y4) MMC0_DAT3 */
++			AM62X_IOPAD(0x204, PIN_INPUT_PULLUP, 0) /* (AB2) MMC0_DAT4 */
++			AM62X_IOPAD(0x200, PIN_INPUT_PULLUP, 0) /* (AC1) MMC0_DAT5 */
++			AM62X_IOPAD(0x1fc, PIN_INPUT_PULLUP, 0) /* (AD2) MMC0_DAT6 */
++			AM62X_IOPAD(0x1f8, PIN_INPUT_PULLUP, 0) /* (AC2) MMC0_DAT7 */
++		>;
++	};
++
+ 	main_rgmii2_pins_default: main-rgmii2-default-pins {
+ 		bootph-all;
+ 		pinctrl-single,pins = <
+@@ -195,6 +211,14 @@ exp1: gpio@22 {
+ 	};
+ };
+ 
++&sdhci0 {
++	bootph-all;
++	non-removable;
++	pinctrl-names = "default";
++	pinctrl-0 = <&main_mmc0_pins_default>;
++	status = "okay";
++};
++
+ &sdhci1 {
+ 	vmmc-supply = <&vdd_mmc1>;
+ 	vqmmc-supply = <&vdd_sd_dv>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+index ee8337bfbbfd..13e1d36123d5 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+@@ -203,22 +203,6 @@ AM62X_IOPAD(0x0b4, PIN_INPUT_PULLUP, 1) /* (K24/H19) GPMC0_CSn3.I2C2_SDA */
+ 		>;
+ 	};
+ 
+-	main_mmc0_pins_default: main-mmc0-default-pins {
+-		bootph-all;
+-		pinctrl-single,pins = <
+-			AM62X_IOPAD(0x220, PIN_INPUT, 0) /* (Y3/V3) MMC0_CMD */
+-			AM62X_IOPAD(0x218, PIN_INPUT, 0) /* (AB1/Y1) MMC0_CLK */
+-			AM62X_IOPAD(0x214, PIN_INPUT, 0) /* (AA2/V2) MMC0_DAT0 */
+-			AM62X_IOPAD(0x210, PIN_INPUT, 0) /* (AA1/V1) MMC0_DAT1 */
+-			AM62X_IOPAD(0x20c, PIN_INPUT, 0) /* (AA3/W2) MMC0_DAT2 */
+-			AM62X_IOPAD(0x208, PIN_INPUT, 0) /* (Y4/W1) MMC0_DAT3 */
+-			AM62X_IOPAD(0x204, PIN_INPUT, 0) /* (AB2/Y2) MMC0_DAT4 */
+-			AM62X_IOPAD(0x200, PIN_INPUT, 0) /* (AC1/W3) MMC0_DAT5 */
+-			AM62X_IOPAD(0x1fc, PIN_INPUT, 0) /* (AD2/W4) MMC0_DAT6 */
+-			AM62X_IOPAD(0x1f8, PIN_INPUT, 0) /* (AC2/V4) MMC0_DAT7 */
+-		>;
+-	};
+-
+ 	main_mmc1_pins_default: main-mmc1-default-pins {
+ 		bootph-all;
+ 		pinctrl-single,pins = <
+@@ -457,14 +441,6 @@ &main_i2c2 {
+ 	clock-frequency = <400000>;
+ };
+ 
+-&sdhci0 {
+-	bootph-all;
+-	status = "okay";
+-	non-removable;
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&main_mmc0_pins_default>;
+-};
+-
+ &sdhci1 {
+ 	/* SD/MMC */
+ 	bootph-all;
+-- 
+2.49.0
 
-With that being said -- Colton I'd focus on getting these patches in
-shape while we figure out what color we want it ;-)
-
-Thanks,
-Oliver
 
