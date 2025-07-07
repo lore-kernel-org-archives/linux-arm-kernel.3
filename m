@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D762C83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 11:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E59C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 11:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CyiFSzXt+wwMwb6ZVnfCoX5gQO5MmW6evOyRdWlnlCc=; b=MpAykcc9oglQD6AaDRMj6qS9jo
-	rv4WxAiwjzuEKg9amG1RVb+7BSv9sZRQTFmZBYQjyF0g4hEwjBhtIDt8DRwa5P8748md7F83qv2DM
-	LK2Lf8br4jVqqejJvtoniYINjDoJ9TjyGpSfbUh8aCERr5H4tvLHUdWfGafR5e1MSYru1LwmFFSkw
-	FP3kBkfOZxMhAfkc0S/xQK2eu31HgeUdph93UUp3JqIwvYpGqfY0Njrm+6ujMhH/ngaFUK+wyNREL
-	P1XIg52dyGpe3t61OYCSZ22YxchhkrI1S7AWTsZQcWlzpCYkQHlzFzuLTQpGJ9KxmGfWJ+LenetF9
-	Z2HX9N9A==;
+	bh=FFNzLBHx/hVqFCxlWCzbnBBJdudLVSxLz2XR1o/7mHM=; b=0rzM2ZyiMRmS/PxoQv8mEUDjk5
+	YSY0QM0erSC/G15WjRBENKKvmUpDl90n+n3RXvKp2gyAwWahKKgxN7d831Qvfpz9HxVqWh4QGG+6m
+	Tu4VzaZt6coPWpEQSY0lWL5vscecPpzJzSdQgSycBCQU2qFI6NJXiu3vWI1HUM9p64BftWzrG2itu
+	+b88J/96hPI4mYr7GdSmhgBN1kQppPIPvS0k7SUKUUe7ZYLwNrFGG0VCSSRtxDujhjlur8sGe7MTu
+	lqGhj1aMS1p9xtk4y2vR6wlaRZ5ekGYwAhNg28aJRklgsbsQ9tFG5TpDg9hgs91Roymbq8jZPPG7f
+	LHLpIYUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjzE-00000002H3q-2wwR;
-	Mon, 07 Jul 2025 11:26:16 +0000
+	id 1uYk1W-00000002HHG-49cU;
+	Mon, 07 Jul 2025 11:28:38 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjWD-00000002DAB-45Ev;
-	Mon, 07 Jul 2025 10:56:19 +0000
+	id 1uYjWF-00000002DAp-3DNc;
+	Mon, 07 Jul 2025 10:56:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751885776;
-	bh=KHr4A5nG0FU7osUHbAlxCjMzJS9aprXshutzewcPyjI=;
+	s=mail; t=1751885778;
+	bh=BGp/by0qy5om0sHBtMnQDXf+Z4hF738kIkEKJDLYgVI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gUXl0ElYdw1eO6ewpMWumjDgKHXeIxg9jAQu97kgZ8/B3VOxoMaVj3Hn4yVipnFlz
-	 rqw8e+0tevEqCCGenOvbXymjP5dAmA/1ca6MgJI6wQ2Xzi7rN900EaDSt+jfS0w7Nh
-	 TyYEWFK07bJ21IFfLqxjqyhd0AJXRnQ3bSRa+y9f4EUQ+A0T2oikH3t1uwXZgS5uTy
-	 SWrS73PA8A7O6BGZbCNC5/twH/dWwSealJ0RTM7pd0cokSne+lEUGE99AT0Hhr09oH
-	 +nS+IKq6ZQTivkTnRHu6liMVpNfa8Tf5/S+wM/+H3bFrQVbRwixW4JRvwP6kRHwmu1
-	 eS1oBIJuAjusQ==
+	b=j4yvMqnmQbWWbz/fHOpX9o4cDrOSeZfW+k7klJhncmmbXh8GtdbjRfI1Y23etjweO
+	 b5VM4bQoSOC1XuhBOhvYchZBnSAY1rlMnD4zxS/Cwp+4Y2W9jfZ2pd0UEePEB2xFf/
+	 k+43/GZItqsamlYfT0/cqa1P2kEMRcsAgNKIL0NmW3HQatmQ+Z7gcNgEEWVeonFAks
+	 euYageJJIk7TeTm/BVc2mQhQiwu8SUTAARCJZn6PFHFu5UIaiJHi8SfVSeYPTEsXIo
+	 9OE5trqVkN1Ls4PrbDaL2nH1aNKACFE2fb1tFYkwyxe4TsWjEhod8rQY6cimdsY52V
+	 apoK9pOqbe7HQ==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2437F17E053B;
-	Mon,  7 Jul 2025 12:56:15 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7353817E1110;
+	Mon,  7 Jul 2025 12:56:17 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: robh@kernel.org,
@@ -63,9 +63,9 @@ Cc: robh@kernel.org,
 	linux-pm@vger.kernel.org,
 	kernel@collabora.com,
 	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>
-Subject: [PATCH v2 01/10] dt-bindings: memory: mtk-smi: Document #access-controller-cells
-Date: Mon,  7 Jul 2025 12:55:56 +0200
-Message-ID: <20250707105605.98248-2-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v2 03/10] dt-bindings: power: mediatek: Document access-controllers property
+Date: Mon,  7 Jul 2025 12:55:58 +0200
+Message-ID: <20250707105605.98248-4-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250707105605.98248-1-angelogioacchino.delregno@collabora.com>
 References: <20250707105605.98248-1-angelogioacchino.delregno@collabora.com>
@@ -73,9 +73,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_035618_156558_D7A21423 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250707_035619_948403_5367C9BF 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,48 +89,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some of the SMI Common HW provides access control to at least
-the power controller: document the #access-controller-cells
-property and allow specifying it only for MT8183 and MT8365
-as those are the only known SoCs with an SMI acting as access
-controller.
+Allow specifying access-controllers in the main power controller
+node and deprecate the old mediatek,infracfg, mediatek,infracfg-nao
+and mediatek,smi properties located in the children.
+
+This is done in order to both simplify the power controller
+nodes and in preparation for adding support for new generation
+SoCs like MT8196/MT6991 and other variants, which will need
+to set protection on new busses.
 
 Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../memory-controllers/mediatek,smi-common.yaml  | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ .../power/mediatek,power-controller.yaml      | 39 +++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-index 0762e0ff66ef..74b355a08493 100644
---- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-+++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-@@ -74,6 +74,9 @@ properties:
-     minItems: 2
-     maxItems: 4
+diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+index 9c7cc632abee..82bfd3899b22 100644
+--- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+@@ -44,6 +44,17 @@ properties:
+   '#size-cells':
+     const: 0
  
-+  '#access-controller-cells':
-+    const: 0
++  access-controllers:
++    description:
++      A number of phandles to external blocks to set and clear the required
++      bits to enable or disable bus protection, necessary to avoid any bus
++      faults while enabling or disabling a power domain.
++      For example, this may hold phandles to INFRACFG and SMI.
++    minItems: 1
++    maxItems: 3
++    items:
++      maxItems: 1
 +
-   mediatek,smi:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description: a phandle to the smi-common node above. Only for sub-common.
-@@ -168,6 +171,19 @@ allOf:
-             - const: apb
-             - const: smi
+ patternProperties:
+   "^power-domain@[0-9a-f]+$":
+     $ref: "#/$defs/power-domain-node"
+@@ -123,14 +134,17 @@ $defs:
+       mediatek,infracfg:
+         $ref: /schemas/types.yaml#/definitions/phandle
+         description: phandle to the device containing the INFRACFG register range.
++        deprecated: true
  
-+  - if:  # for SMI providing access control
+       mediatek,infracfg-nao:
+         $ref: /schemas/types.yaml#/definitions/phandle
+         description: phandle to the device containing the INFRACFG-NAO register range.
++        deprecated: true
+ 
+       mediatek,smi:
+         $ref: /schemas/types.yaml#/definitions/phandle
+         description: phandle to the device containing the SMI register range.
++        deprecated: true
+ 
+     required:
+       - reg
+@@ -138,6 +152,31 @@ $defs:
+ required:
+   - compatible
+ 
++allOf:
++  - if:
 +      properties:
 +        compatible:
-+          enum:
-+            - mediatek,mt8183-smi-common
-+            - mediatek,mt8365-smi-common
++          contains:
++            enum:
++              - mediatek,mt8183-power-controller
 +    then:
 +      properties:
-+        '#access-controller-cells': true
-+    else:
++        access-controllers:
++          minItems: 2
++          maxItems: 2
++
++  - if:
 +      properties:
-+        '#access-controller-cells': false
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt8365-power-controller
++    then:
++      properties:
++        access-controllers:
++          minItems: 3
++          maxItems: 3
 +
  additionalProperties: false
  
