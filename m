@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185ABC83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 11:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BFAC83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 11:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mv9MGNdagdS3wBGTXJa0g4MWWemM5cjEOv9c5OwVJMM=; b=LsKazdoYi5m1x60P0gseJCXi5z
-	2Paj8DC02yrEU9a8McJplNA0lS7l4wj6q8obINIGBw/YluoNxenzrVurPvEiX/NGW5Aig6fOMRn9j
-	EXZmYhkQXlEwFP1g8CKuPOIl2nIFaiz83fnSDwwgxx574LKOMf8lKu6i1ffPZzoLaxpArtZK7PWBZ
-	fKrYskYkZ7+GLfZ9wWhmorPDG6SlmV4RRIufg/ouAXLmpNJlPjvkDNtZfuLuri34YxTRtEhefq1F+
-	xtS9wjQ3TiVQeFqSMxENpYBtG1C5D037dnkVX/J3WhaDXjMeN0JbTUt7UukbhQjQT+yUhTGi4Nvvg
-	q+htArUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r7ioxFjPYamTp+v97ZzFeTkpWjwkFPACIBTW5WvPUm0=; b=GKMQ0Q2syraK+9Os7pHQD+tbkF
+	QFVj5nnXFABfoIG0612LTk/0W7Mx8404i+e7E24xDDO2XW/bUKN1optjZVm6FQzxvHIDt9yy2+xQ6
+	OdrD5MFRsZh9WQuNiu6+DkUsiw/k4QOpMOkXy2CflvCveMFe5/FMztv6eV7YQfToZS22SAdTt6knX
+	KBsSziUrakilESDYyCKS5689/Vh6jlLQRmZYuE1TGYKCYk4JydZwC+ovIyyt829SZ4wxou9PdjGsr
+	wt4ncL1MUKUiid4m4rUbDVY5ql2HFigrRLK+z3B55b7Mus1xSMekOfIKX5q2yYehVvQAx3HNcyzVe
+	XfwRQQaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjue-00000002GXW-3upB;
-	Mon, 07 Jul 2025 11:21:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uYjww-00000002Gof-31WG;
+	Mon, 07 Jul 2025 11:23:54 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYjRX-00000002ClX-2m36
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 10:51:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 747CA44F13;
-	Mon,  7 Jul 2025 10:51:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAE75C4CEE3;
-	Mon,  7 Jul 2025 10:51:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751885486;
-	bh=slOPMNTVA3FLhW65MdVR4aR/1OsxKkcOkNICbnYATJA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=U2gp0c+Kgl9cK3ut2JrE9CJJHpRfc/LdGEG/KOkwFoNM2tzjS6Gpgtdl0j73+sA3l
-	 LZwsIIdjoZpSq9M+0BVFvIwGKR1JqPaoR7U9MHGaE/emID7fM7KE/PBaFsrAorSWeY
-	 JN4P/OYiUOkcrxwVcCKv5sxcle9qFoAB20AsVcPG7kFGveEiY3GOpd//CRrMONQQV0
-	 uqHvM6G2urwFfMYi6kzPuvAZG0PHBfjO5h9Y9skbuZNTVec/17yQeJIujj30IJ2ubj
-	 XcnvVsZaaVaAjIN3T4DxdS1Tds+5rN/lI7K9YHC19wsPJuzl7GRUxNhWK/YwleTjFf
-	 /vtjzlcW+4Rjw==
-Date: Mon, 7 Jul 2025 11:51:20 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <Frank.Li@nxp.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 4/6] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-Message-ID: <a5c902f4-6f10-4a1f-8d57-b232583e4556@sirena.org.uk>
-References: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com>
- <20250610160152.1113930-5-laurentiumihalcea111@gmail.com>
- <ac1daf6b-ee06-4076-b86f-b436ca0acd6d@sirena.org.uk>
- <c3deef24-fed7-4405-9953-804bff118c11@gmail.com>
- <8ef60a13-015f-4228-b834-799592342ae6@sirena.org.uk>
- <225eb39b-958c-4e40-96be-272a8dc9ce12@gmail.com>
+	id 1uYjWC-00000002DA6-34PY;
+	Mon, 07 Jul 2025 10:56:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751885774;
+	bh=xd1NPzQyI4l/zhqCduXiK96CFBfx57q3wZDMrjNy4XI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=dHvlU7MCUhdZFBPAECd5hCDFreClGZaf6lnp2A69ZoHs3DQIIMkraeKr3ZjAmtRTy
+	 SXD5lPk6uQflpxqOZ1P8mJdF+mwcfxEisEHhgEiTut35mAnhHpKXAfJd/zhAWjYtAt
+	 mxQxh2bCbRVXPjBXpJRdN06x+lUUCm+iiGWskXWj93Zf9f88UJNyxcBiXrLo6gTdTs
+	 u8+irKaImbqh93CmSpChQpvcCUN5Uopfs9KElx0byfFvce/bJpf18t3KkFrM15tOS/
+	 fC8Ve+sfZxiVoeBD0mOmS6Hhi21ROQn0eNpsMoUIwbOmo/SiRjDYrG882fvTiEm3LO
+	 Mn3n3P3GvhqpA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 03E8A17E04EE;
+	Mon,  7 Jul 2025 12:56:13 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	ulf.hansson@linaro.org,
+	y.oudjana@protonmail.com,
+	fshao@chromium.org,
+	wenst@chromium.org,
+	lihongbo22@huawei.com,
+	mandyjh.liu@mediatek.com,
+	mbrugger@suse.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	kernel@collabora.com
+Subject: [PATCH v2 00/10] pmdomain: Partial refactor, support modem and RTFF
+Date: Mon,  7 Jul 2025 12:55:55 +0200
+Message-ID: <20250707105605.98248-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6IZozApVFuUcVoyp"
-Content-Disposition: inline
-In-Reply-To: <225eb39b-958c-4e40-96be-272a8dc9ce12@gmail.com>
-X-Cookie: We are what we are.
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_035127_747115_45542751 
-X-CRM114-Status: GOOD (  23.54  )
+X-CRM114-CacheID: sfid-20250707_035616_924521_21B0D1E2 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +85,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Changes in v2:
+ - Added #access-controller-cells allowance for MT8188/95 infracfg_ao
 
---6IZozApVFuUcVoyp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+This series is a subset of [1], leaving out the Hardware Voter specific
+bits for MT8196 until the discussion around it reaches a conclusion.
 
-On Sat, Jul 05, 2025 at 05:41:17PM +0300, Laurentiu Mihalcea wrote:
-> On 7/3/2025 6:25 PM, Mark Brown wrote:
+Even though the proposed code was born as a preparation to support the
+MT8196/MT6991 SoCs power domain controllers, it is a necessary cleanup
+for all power domain controllers of all of the currently supported SoCs
+from MediaTek.
 
-> > This also appears to be the source of the boot issues I mentioned on the
-> > EVK, affecting ramdisk only boots:
+You may also notice the addition of support for modem power sequences:
+this was brought up 6 months ago (or more) by community contributors
+(mainly Yassine Oudjana) that were trying to upstream the MediaTek
+MT6735 Smartphone SoC and needed support to provide power to the MD
+subsystem - so, even though in this specific series the code for the
+modem power sequence is not yet triggered by any SoC, please please
+please, let it in.
+Besides, "a bunch" of upstream supported SoCs do have the MD power
+domain even though it wasn't added to their drivers (because if there
+was no support in the driver, it would just crash the system); the
+addition is something that I plan to do at some point, but definitely
+not now as I have no bandwidth for that (bar MT8196, which will have
+this domain).
 
-> >    https://lava.sirena.org.uk/scheduler/job/1533032
+Compared to v1 in [1]:
+ - Changed mediatek,bus-protection to access-controllers
+   as suggested by Rob (thanks!)
+ - Added commits to document #access-controller-cells on all of
+   the access control providers
 
-> > as well as NFS.  The board seems to get to userspace but then not
-> > respond to serial input, it looks like it's hit something while loading
-> > modules and locked up but ICBW.
+In the meanwhile.... relevant excerpt from the old series:
 
-> OK, this is very odd. I've tried the ramdisk boot using the files from the CI job: Image,
-> modules, CPIO and my own flash.bin (u-boot and ATF hashes match those shown in
-> the CI job) on an EVK board and so far no hang.
+This series refactors the bus protection regmaps retrieval to avoid
+searching in all power domain devicetree subnodes for vendor properties
+to get syscons for different busses, and adds a new property which is
+located in the power controller root node containing handles to the same.
 
-It may not actually be hung, it may just be hitting long timeouts in
-userspace (I notice that all the boots with a NFS root are doing module
-autoloading, and the ramdisk ones have tried to bring up the network).
+Retrocompatibility is retained and was tested on multiple SoCs in the
+Collabora lab - specifically, on Genio 350/510/700/1200, and manually
+on MT6795 Helio (Xperia M5 Smartphone), MT8186, MT8192 and MT8195
+Chromebooks.
 
-> What I've noticed though is that the bridge does indeed not get probed. So, for now,
-> I think I'm going to submit a patch to enable the driver config in the defconfig so
-> we can get the Verdin failures out of the way.
+This was tested *three times*:
+ - Before the per-SoC conversion in drivers/pmdomain/mediatek
+ - With per-SoC conversion code but with *legacy* devicetree
+ - With per-SoC conversion code and with *new* devicetree conversion
 
-If the driver is now required then it does need to be enabled.
+All of those tests were successful on all of the aforementioned SoCs.
 
---6IZozApVFuUcVoyp
-Content-Type: application/pgp-signature; name="signature.asc"
+This also adds support for:
+ - Modem power domain for both old and new MediaTek SoCs, useful for
+   bringing up the GSM/3G/4G/5G modem for both laptop and smartphone use
+ - RTFF MCU HW, as found in MT8196 Chromebooks and MT6991 Dimensity 9400
 
------BEGIN PGP SIGNATURE-----
+...and prepares the pmdomain code to accomodate only the directly
+controlled power domains for MT8196 (HW Voter support was left out).
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhrpqcACgkQJNaLcl1U
-h9Dwlgf+KcOwF5vR7PuxEJNsgZjoa9GnoGnVh+0CPAuGUe3yEo9/PeR8jVAdVjyO
-gdI8ymNYVm+xOaeRJiIgxFxA/CocttzXKGcw23uB5cM9hwaVkAmOaoqLVE+ef9xn
-hNu96YXWRPNskp5mB5d5WQcT/rfid/iaAzpCWktqFMLvZmzjaTdnSDDdJ1eqbUqL
-kgpSxE12xPns8/o8SPVU9rB7ShPuc16AdOJ5phCrMNnfnu0IAVTTpQJpr8LZhV9M
-MavTiyLgRI7EMXGXfQrxgRl8mbCIAe08ESsIjjNf+UB4nwXFZIAg00h9xqHt2LXp
-6sqF82kfizbNMybb9BmMbzXehQoUCA==
-=xYTV
------END PGP SIGNATURE-----
+[1] https://lore.kernel.org/all/20250623120154.109429-1-angelogioacchino.delregno@collabora.com
 
---6IZozApVFuUcVoyp--
+AngeloGioacchino Del Regno (10):
+  dt-bindings: memory: mtk-smi: Document #access-controller-cells
+  dt-bindings: clock: mediatek: Document #access-controller-cells
+  dt-bindings: power: mediatek: Document access-controllers property
+  pmdomain: mediatek: Refactor bus protection regmaps retrieval
+  pmdomain: mediatek: Handle SoCs with inverted SRAM power-down bits
+  pmdomain: mediatek: Move ctl sequences out of power_on/off functions
+  pmdomain: mediatek: Add support for modem power sequences
+  pmdomain: mediatek: Add support for RTFF Hardware in MT8196/MT6991
+  pmdomain: mediatek: Convert all SoCs to new style regmap retrieval
+  arm64: dts: mediatek: Convert all SoCs to use access-controllers
+
+ .../bindings/clock/mediatek,infracfg.yaml     |   3 +
+ .../clock/mediatek,mt8186-sys-clock.yaml      |  15 +
+ .../clock/mediatek,mt8188-sys-clock.yaml      |  15 +
+ .../clock/mediatek,mt8192-sys-clock.yaml      |  15 +
+ .../clock/mediatek,mt8195-sys-clock.yaml      |  15 +
+ .../clock/mediatek,mt8365-sys-clock.yaml      |  15 +
+ .../mediatek,smi-common.yaml                  |  16 +
+ .../power/mediatek,power-controller.yaml      |  39 ++
+ arch/arm64/boot/dts/mediatek/mt6795.dtsi      |   5 +-
+ arch/arm64/boot/dts/mediatek/mt8167.dtsi      |   6 +-
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi      |   4 +-
+ arch/arm64/boot/dts/mediatek/mt8183.dtsi      |  17 +-
+ arch/arm64/boot/dts/mediatek/mt8186.dtsi      |  12 +-
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi      |  23 +-
+ arch/arm64/boot/dts/mediatek/mt8192.dtsi      |  13 +-
+ arch/arm64/boot/dts/mediatek/mt8195.dtsi      |  20 +-
+ arch/arm64/boot/dts/mediatek/mt8365.dtsi      |  16 +-
+ drivers/pmdomain/mediatek/mt6795-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8167-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8173-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8183-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8186-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8188-pm-domains.h |   6 +
+ drivers/pmdomain/mediatek/mt8192-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8195-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8365-pm-domains.h |  14 +-
+ drivers/pmdomain/mediatek/mtk-pm-domains.c    | 399 +++++++++++++++---
+ drivers/pmdomain/mediatek/mtk-pm-domains.h    |  74 +++-
+ 28 files changed, 596 insertions(+), 181 deletions(-)
+
+-- 
+2.49.0
+
 
