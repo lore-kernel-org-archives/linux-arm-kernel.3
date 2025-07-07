@@ -4,63 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E954C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 12:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89EB2C83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 12:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3LCtVAv2vOx/YvsNgt5zYs5E1UgrHDQrowM69y48qDQ=; b=e43PAabl2Ke77Y
-	YtTvEYz2s3G4kD9J2HuDASa4fg552B1uC/du+C9YDFr04BXGUsIq3LcoSvTE02it2sVW8/wWRCGaT
-	24DGmizyYeZyPXezG+9hCJ0LuHp0sPUdKMPxrtx+vbDD/2G2gtaJH9v4OfaGlFI6aIiNr35Kqkp3l
-	W0xKVma7LDocHa2F55gqGTSp3D1XB1mJvqPwbmcDkwJa32W1poiE3KXa4NNsy66u/8tCDWgoXwqJY
-	vCsR0+8LH5mzytT1SkBNkrO1zqIp4LfZ3op8yYLXYSa9f02FsWd/X2pDMh+dhZ0w83ZAQQnhAABuK
-	VWKdfsux1K9u/DYtO9Cw==;
+	List-Owner; bh=3foAWUE2R5c0rOsHlx7hzI9dSnHI45/3pgPlgYWQb+M=; b=kcmVAD+tBQxjmi
+	p9wtmwr1P2WyJmzT2Mw0dEE33huWGMobmLlQzUTiWV2Aiam5clkp1l2umzT+KKC5hFy8++tq8rbz0
+	bpPPYuNGdsvwPGj4i84dlOIPBCI3c1Esva7u39gAtg0H/lqvllPptP9Jjjxm/0fieiseaQdsLu6LO
+	hft2vvg37MKXBVJSxc67+0da8PQARERa6hiXvi8pc2xmA6u/Dm9jmtV2U1A3tNNn6Jg+ULNPG7FOe
+	1DM0bOC8QQbrOn2srqYX3dVE1hYoLiediP+AjriNK4eywqRe6IRuq3cqVxKwroclJt+VIY8JyqCCh
+	cn2RuWvFlVERfGv4212g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkq4-00000002P9O-3UV6;
-	Mon, 07 Jul 2025 12:20:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkEC-00000002J9F-0KD9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Jul 2025 11:41:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=3LCtVAv2vOx/YvsNgt5zYs5E1UgrHDQrowM69y48qDQ=; b=fWH/WkQKgszuzjfJI5ypWkhVJc
-	GgHz6Z1tRuZo+bjSLZzruAqomjjQSaH8VkCgpLRVujV/N6P10bN3UpRgxotzl+yClnzOl95ZNwedX
-	Gt/kTnqiW1dBD8qCstPfgSql67QnymZDq2WEcXw2unvHXDMD7HzzDGp4mUGtWRT4DtWwzhwD2jS+q
-	HAgMqhXPGyks+75Zpzz7uRTmme0w4ejLF09Wjpk6pH0jM1qzGPNMpP0sgAZrdBCRZnZePtnHZYsqZ
-	Q8syNk24ZNbJJeXtyEO1JWACfoSXkooWyJx+UnAknYzBFXgrWKVVEPQt6t1cc1ZvFQBD5zaZ0Csj4
-	IvKgNMAg==;
+	id 1uYksM-00000002PL1-2NYX;
+	Mon, 07 Jul 2025 12:23:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkE8-00000008Ttv-3lJH
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYkEC-00000002J9W-2rnf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 11:41:42 +0000
+	Mon, 07 Jul 2025 11:41:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA04C168F;
-	Mon,  7 Jul 2025 04:41:27 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8CCAB168F;
+	Mon,  7 Jul 2025 04:41:31 -0700 (PDT)
 Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.31.174])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2005A3F694;
-	Mon,  7 Jul 2025 04:41:39 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8ED943F694;
+	Mon,  7 Jul 2025 04:41:42 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v6 05/13] arm64: debug: remove break/step handler registration infrastructure
-Date: Mon,  7 Jul 2025 12:41:01 +0100
-Message-ID: <20250707114109.35672-6-ada.coupriediaz@arm.com>
+Subject: [PATCH v6 07/13] arm64: debug: split hardware breakpoint exception entry
+Date: Mon,  7 Jul 2025 12:41:03 +0100
+Message-ID: <20250707114109.35672-8-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250707114109.35672-1-ada.coupriediaz@arm.com>
 References: <20250707114109.35672-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_124141_429952_9A989642 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250707_044144_809067_D6D39FE4 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,135 +61,198 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@ar
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove all infrastructure for the dynamic registration previously used by
-software breakpoints and stepping handlers.
+Currently all debug exceptions share common entry code and are routed
+to `do_debug_exception()`, which calls dynamically-registered
+handlers for each specific debug exception. This is unfortunate as
+different debug exceptions have different entry handling requirements,
+and it would be better to handle these distinct requirements earlier.
+
+Hardware breakpoints exceptions are generated by the hardware after user
+configuration. As such, they can be exploited when training branch
+predictors outside of the userspace VA range: they still need to call
+`arm64_apply_bp_hardening()` if needed to mitigate against this attack.
+
+However, they do not need to handle the Cortex-A76 erratum #1463225 as
+it only applies to single stepping exceptions.
+It does not set an address in FAR_EL1 either, only the hardware
+watchpoint does.
+
+As the hardware breakpoint handler only returns 0 and never triggers
+the call to `arm64_notify_die()`, we can call it directly from
+`entry-common.c`.
+Split the hardware breakpoint exception entry, adjust
+the function signature, and handling of the Cortex-A76 erratum to fit
+the behaviour of the exception.
+
+Move the call to `arm64_apply_bp_hardening()` to `entry-common.c` so that
+we can do it as early as possible, and only for the exceptions coming
+from EL0, where it is needed.
+This is safe to do as it is `noinstr`, as are all the functions it
+may call. `el0_ia()` and `el0_pc()` already call it this way.
 
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 Reviewed-by: Will Deacon <will@kernel.org>
 Acked-by: Mark Rutland <mark.rutland@arm.com>
 ---
- arch/arm64/include/asm/debug-monitors.h | 24 ----------
- arch/arm64/kernel/debug-monitors.c      | 63 -------------------------
- 2 files changed, 87 deletions(-)
+ arch/arm64/include/asm/exception.h |  5 +++++
+ arch/arm64/kernel/entry-common.c   | 28 ++++++++++++++++++++++++++++
+ arch/arm64/kernel/hw_breakpoint.c  | 16 ++++++----------
+ 3 files changed, 39 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
-index e1caf6a8380c..caee1d923f9c 100644
---- a/arch/arm64/include/asm/debug-monitors.h
-+++ b/arch/arm64/include/asm/debug-monitors.h
-@@ -62,30 +62,6 @@ struct task_struct;
- #define DBG_HOOK_HANDLED	0
- #define DBG_HOOK_ERROR		1
- 
--struct step_hook {
--	struct list_head node;
--	int (*fn)(struct pt_regs *regs, unsigned long esr);
--};
--
--void register_user_step_hook(struct step_hook *hook);
--void unregister_user_step_hook(struct step_hook *hook);
--
--void register_kernel_step_hook(struct step_hook *hook);
--void unregister_kernel_step_hook(struct step_hook *hook);
--
--struct break_hook {
--	struct list_head node;
--	int (*fn)(struct pt_regs *regs, unsigned long esr);
--	u16 imm;
--	u16 mask; /* These bits are ignored when comparing with imm */
--};
--
--void register_user_break_hook(struct break_hook *hook);
--void unregister_user_break_hook(struct break_hook *hook);
--
--void register_kernel_break_hook(struct break_hook *hook);
--void unregister_kernel_break_hook(struct break_hook *hook);
--
- u8 debug_monitors_arch(void);
- 
- enum dbg_active_el {
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 26c71b7edc26..46fb9359a554 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -159,46 +159,6 @@ NOKPROBE_SYMBOL(clear_user_regs_spsr_ss);
- #define set_regs_spsr_ss(r)	set_user_regs_spsr_ss(&(r)->user_regs)
- #define clear_regs_spsr_ss(r)	clear_user_regs_spsr_ss(&(r)->user_regs)
- 
--static DEFINE_SPINLOCK(debug_hook_lock);
--static LIST_HEAD(user_step_hook);
--static LIST_HEAD(kernel_step_hook);
--
--static void register_debug_hook(struct list_head *node, struct list_head *list)
--{
--	spin_lock(&debug_hook_lock);
--	list_add_rcu(node, list);
--	spin_unlock(&debug_hook_lock);
--
--}
--
--static void unregister_debug_hook(struct list_head *node)
--{
--	spin_lock(&debug_hook_lock);
--	list_del_rcu(node);
--	spin_unlock(&debug_hook_lock);
--	synchronize_rcu();
--}
--
--void register_user_step_hook(struct step_hook *hook)
--{
--	register_debug_hook(&hook->node, &user_step_hook);
--}
--
--void unregister_user_step_hook(struct step_hook *hook)
--{
--	unregister_debug_hook(&hook->node);
--}
--
--void register_kernel_step_hook(struct step_hook *hook)
--{
--	register_debug_hook(&hook->node, &kernel_step_hook);
--}
--
--void unregister_kernel_step_hook(struct step_hook *hook)
--{
--	unregister_debug_hook(&hook->node);
--}
--
- /*
-  * Call single step handlers
-  * There is no Syndrome info to check for determining the handler.
-@@ -264,29 +224,6 @@ static int single_step_handler(unsigned long unused, unsigned long esr,
+diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
+index e54b5466fd2c..8ec4e0ff49b7 100644
+--- a/arch/arm64/include/asm/exception.h
++++ b/arch/arm64/include/asm/exception.h
+@@ -61,6 +61,11 @@ void do_el0_gcs(struct pt_regs *regs, unsigned long esr);
+ void do_el1_gcs(struct pt_regs *regs, unsigned long esr);
+ void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+ 			struct pt_regs *regs);
++#ifdef CONFIG_HAVE_HW_BREAKPOINT
++void do_breakpoint(unsigned long esr, struct pt_regs *regs);
++#else
++static inline void do_breakpoint(unsigned long esr, struct pt_regs *regs) {}
++#endif /* CONFIG_HAVE_HW_BREAKPOINT */
+ void do_fpsimd_acc(unsigned long esr, struct pt_regs *regs);
+ void do_sve_acc(unsigned long esr, struct pt_regs *regs);
+ void do_sme_acc(unsigned long esr, struct pt_regs *regs);
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index 3bdfa5abaf7a..be2add6b4ae3 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -526,6 +526,15 @@ static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
+ 	exit_to_kernel_mode(regs);
  }
- NOKPROBE_SYMBOL(single_step_handler);
  
--static LIST_HEAD(user_break_hook);
--static LIST_HEAD(kernel_break_hook);
--
--void register_user_break_hook(struct break_hook *hook)
--{
--	register_debug_hook(&hook->node, &user_break_hook);
--}
--
--void unregister_user_break_hook(struct break_hook *hook)
--{
--	unregister_debug_hook(&hook->node);
--}
--
--void register_kernel_break_hook(struct break_hook *hook)
--{
--	register_debug_hook(&hook->node, &kernel_break_hook);
--}
--
--void unregister_kernel_break_hook(struct break_hook *hook)
--{
--	unregister_debug_hook(&hook->node);
--}
--
- static int call_break_hook(struct pt_regs *regs, unsigned long esr)
++static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
++{
++	arm64_enter_el1_dbg(regs);
++	debug_exception_enter(regs);
++	do_breakpoint(esr, regs);
++	debug_exception_exit(regs);
++	arm64_exit_el1_dbg(regs);
++}
++
+ static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
  {
+ 	unsigned long far = read_sysreg(far_el1);
+@@ -575,6 +584,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
+ 		el1_mops(regs, esr);
+ 		break;
+ 	case ESR_ELx_EC_BREAKPT_CUR:
++		el1_breakpt(regs, esr);
++		break;
+ 	case ESR_ELx_EC_SOFTSTP_CUR:
+ 	case ESR_ELx_EC_WATCHPT_CUR:
+ 	case ESR_ELx_EC_BRK64:
+@@ -769,6 +780,19 @@ static void noinstr el0_inv(struct pt_regs *regs, unsigned long esr)
+ 	exit_to_user_mode(regs);
+ }
+ 
++static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
++{
++	if (!is_ttbr0_addr(regs->pc))
++		arm64_apply_bp_hardening();
++
++	enter_from_user_mode(regs);
++	debug_exception_enter(regs);
++	do_breakpoint(esr, regs);
++	debug_exception_exit(regs);
++	local_daif_restore(DAIF_PROCCTX);
++	exit_to_user_mode(regs);
++}
++
+ static void noinstr el0_dbg(struct pt_regs *regs, unsigned long esr)
+ {
+ 	/* Only watchpoints write FAR_EL1, otherwise its UNKNOWN */
+@@ -848,6 +872,8 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
+ 		el0_gcs(regs, esr);
+ 		break;
+ 	case ESR_ELx_EC_BREAKPT_LOW:
++		el0_breakpt(regs, esr);
++		break;
+ 	case ESR_ELx_EC_SOFTSTP_LOW:
+ 	case ESR_ELx_EC_WATCHPT_LOW:
+ 	case ESR_ELx_EC_BRK64:
+@@ -968,6 +994,8 @@ asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
+ 		el0_cp15(regs, esr);
+ 		break;
+ 	case ESR_ELx_EC_BREAKPT_LOW:
++		el0_breakpt(regs, esr);
++		break;
+ 	case ESR_ELx_EC_SOFTSTP_LOW:
+ 	case ESR_ELx_EC_WATCHPT_LOW:
+ 	case ESR_ELx_EC_BKPT32:
+diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
+index 722ac45f9f7b..d7eede5d869c 100644
+--- a/arch/arm64/kernel/hw_breakpoint.c
++++ b/arch/arm64/kernel/hw_breakpoint.c
+@@ -22,6 +22,7 @@
+ #include <asm/current.h>
+ #include <asm/debug-monitors.h>
+ #include <asm/esr.h>
++#include <asm/exception.h>
+ #include <asm/hw_breakpoint.h>
+ #include <asm/traps.h>
+ #include <asm/cputype.h>
+@@ -618,8 +619,7 @@ NOKPROBE_SYMBOL(toggle_bp_registers);
+ /*
+  * Debug exception handlers.
+  */
+-static int breakpoint_handler(unsigned long unused, unsigned long esr,
+-			      struct pt_regs *regs)
++void do_breakpoint(unsigned long esr, struct pt_regs *regs)
+ {
+ 	int i, step = 0, *kernel_step;
+ 	u32 ctrl_reg;
+@@ -662,7 +662,7 @@ static int breakpoint_handler(unsigned long unused, unsigned long esr,
+ 	}
+ 
+ 	if (!step)
+-		return 0;
++		return;
+ 
  	if (user_mode(regs)) {
+ 		debug_info->bps_disabled = 1;
+@@ -670,7 +670,7 @@ static int breakpoint_handler(unsigned long unused, unsigned long esr,
+ 
+ 		/* If we're already stepping a watchpoint, just return. */
+ 		if (debug_info->wps_disabled)
+-			return 0;
++			return;
+ 
+ 		if (test_thread_flag(TIF_SINGLESTEP))
+ 			debug_info->suspended_step = 1;
+@@ -681,7 +681,7 @@ static int breakpoint_handler(unsigned long unused, unsigned long esr,
+ 		kernel_step = this_cpu_ptr(&stepping_kernel_bp);
+ 
+ 		if (*kernel_step != ARM_KERNEL_STEP_NONE)
+-			return 0;
++			return;
+ 
+ 		if (kernel_active_single_step()) {
+ 			*kernel_step = ARM_KERNEL_STEP_SUSPEND;
+@@ -690,10 +690,8 @@ static int breakpoint_handler(unsigned long unused, unsigned long esr,
+ 			kernel_enable_single_step(regs);
+ 		}
+ 	}
+-
+-	return 0;
+ }
+-NOKPROBE_SYMBOL(breakpoint_handler);
++NOKPROBE_SYMBOL(do_breakpoint);
+ 
+ /*
+  * Arm64 hardware does not always report a watchpoint hit address that matches
+@@ -988,8 +986,6 @@ static int __init arch_hw_breakpoint_init(void)
+ 		core_num_brps, core_num_wrps);
+ 
+ 	/* Register debug fault handlers. */
+-	hook_debug_fault_code(DBG_ESR_EVT_HWBP, breakpoint_handler, SIGTRAP,
+-			      TRAP_HWBKPT, "hw-breakpoint handler");
+ 	hook_debug_fault_code(DBG_ESR_EVT_HWWP, watchpoint_handler, SIGTRAP,
+ 			      TRAP_HWBKPT, "hw-watchpoint handler");
+ 
 -- 
 2.43.0
 
