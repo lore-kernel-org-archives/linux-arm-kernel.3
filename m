@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCFBC83F07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 12:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42DBC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 12:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tuqC9beYeXQDyom1+KuHCuf6wqm7fyMn+vwlhFtjQHU=; b=N2Bz+r5Kv4gg+CDsmPrjDzau4x
-	bxW3lZM2/e1/HaOxIjgHWqab8OLNYVsrGc75FLSIPSpxC++h5A/ebEgIzmpxQa1b6B46u58f9B7AD
-	RDvogeVtKKWReJRAq9OP2IeeoBd21cAGn5wla0sE/W/PHxHa1FmElQex/ZOXwhPL7rKDl1uXvFDFB
-	RB0FO7jCVBrimgBW8khxYDQFV7uYJ3pEjktruokTYEPKqkhzNgTRg2zzbAR+CKKLY5x7yA+P89xTb
-	cqzp0gHCaE/WduodXu34VixtyBoErAVcv3zA23tUG4mgqnW0Ygcoe5ST1yfcHnMtJeKNEwNCwzsEF
-	mhB71Y0A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iTS3E4N6FBbU3D/7A/CTIHl65SuO759udNRmlWcfvGU=; b=K+cuG92shkvWlZ
+	BNb7fu/y1nDmWkPKNQFuVXLTui4A15CqbwR0DzQLzP+PT2IVrBoHfbYYq8zIC4pjl9YdE0850vcr3
+	hmVqmf6tuClWyQbOkt+Z7QB91ahp2Ymf7+RoRUKfwWgPteuVKyUmpjqqVVmttS5JuQsozhbq+aF3i
+	GMyA4OOGuPJCMrUleYGpLuzq70Be4nOb+nHHxW8czgcLF1MAYZ/gvUB3Ib+TRGXA3LfgfN+2v5YvL
+	ErkyjfkXhbK/RqvXJ5JKZgNKVG1TyGmg1IyrYSIYDIfUlIEqbPUlOc6VemaGIgbNJ2TBQsLox2U0Z
+	uEdiYl+/NqCtrVHaEVlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYka1-00000002NLZ-3gWo;
-	Mon, 07 Jul 2025 12:04:17 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1uYkcK-00000002Ncb-2THR;
+	Mon, 07 Jul 2025 12:06:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYkCW-00000002Ind-02jP
+	id 1uYkE4-00000002J7U-3IWx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 07 Jul 2025 11:41:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=iTS3E4N6FBbU3D/7A/CTIHl65SuO759udNRmlWcfvGU=; b=MVcNPeIXPD26a+KRfYOVeemlFD
+	7vYFXudRI5AJHkgR67H3ouSkZEYXwJ0n0ome85zvFM6hJE38sW39BcZgry454LjtGkgPxhMwSBQKO
+	q/9y/ny6QXRmPDIxGFfYgd/uWyiJ3EShJzUwEJNyDbLFd2aA4UnON7rnfDzdBwvT+a2X+Pg0n76Jv
+	7gSTGyNkAaKWr/eDR2jbs/hQ+38qAmYWdenAKgrxyJWlGJrpsRLNH6BmBzAdj5TiVm2wbJzVIxj89
+	ZMzVVftkL9thJPyh3GZXgn+fB9PO3xsHvNoTZXNJnnLgwJKLKgx2GEHeRUKZDJSUzI2DwNRm6GU7Q
+	DDGmrk/g==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYkE1-00000008Ttc-0mbD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 11:40:01 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3a588da60dfso1931173f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 04:39:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751888398; x=1752493198; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tuqC9beYeXQDyom1+KuHCuf6wqm7fyMn+vwlhFtjQHU=;
-        b=ogUGfGN9ZfsFh3FCQzJmXwdUKZTrHsQhEjoxAco6AYAx4D+j9XWRuiW4aWo7dyYl2k
-         i47K1DBN/wlPOZlHhvghkdGS8HSN2gPnJnHJNrpGJGhpP45OLR7WYnQWyzrXBWnX7cHR
-         X6GF4A6HxgLdFokXeDpAB+QlKrLIqrypDUy1NQreEpdvQYHLg7fVl3cgmoZED0U3VEUY
-         px3Naiw28kctoSWzVtVZnfYpW7uXX9Ciy6/EjBV/c0cpF81R4r0HyL+LBb66f3C3tsVo
-         DnWefjOjV8KULoC6NjZPZSiapBF+CujnNY7yDV7l3M0k9WJqKFbETchUg5jqn8u8HQEn
-         RSuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751888398; x=1752493198;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tuqC9beYeXQDyom1+KuHCuf6wqm7fyMn+vwlhFtjQHU=;
-        b=c8lhf3/KnrTO0VKCYSmnJ2WNq1NFxV0aACGYoeOM9HmaZirwTg5fYh6/z0HH8gDVeW
-         syOwO9K1UKY+nrBeFr2UfLVBdWYaUYo0Zcj2zQoVBdgH+6F98FpTScAGJDWBACPQA+Ee
-         ES8kGuLtzRKFRZaTwbMSJTagKuynkV2xnKXKfQ7K0Aq99ooYemdDKgVeEEfjUxxzhOmr
-         eEAaLcEox/U5Og9B51MGNFmsu63CUrFvJKtphhOZtVmxTzAtyVN65h29UvjEuHXMvYiC
-         UlyK+/y70xYd6EZkWPlwD0DbFukQmNUuvk44y94RZDFSViij1qk5rQCM0yW8Bpll2GpO
-         AZYg==
-X-Forwarded-Encrypted: i=1; AJvYcCWTnAgD2fSlSbsZBYDL2aQl/Ffel0e1a2FJzrSXTOyEtpjENiQrKQRz6A8EFMU9gs4w0a1rSHlVaOn8+VeCc2oN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx55PcJKfzdGsKOqDD3ZRlDYtnELYdpr1gTGx3eRaJbkg1l6eFC
-	ESm66qDzzhCpGBFDyuDnG/EOaY7OUNn8sV5nEz1rFKHWl4WPBV01Lc15Bstp3SVbB24=
-X-Gm-Gg: ASbGncvDb/1GR8Uzylc8M4Ch2lH9NUwguMdiI3kjy3S9qrt9vxJHg1ZpSsy0eZtjLtP
-	fFOw38FiGvMZPQ9t3X3KBOhDH0wj6mGE3MrNQTUE0Ob5eAyNtS+nHflkwLN+8V9bQ1PmHFfC0sn
-	Ex8jbDmDRNFwTtiZWx/dtMSNPYuIPGy3cza9YR0PdI+gnKjZmTaLAttNKOARuEWAL57WIdnEL+3
-	W0LwU1xta1HLVRlvMbrEhSMOnwksWBvi4RrT80honcVS6hgHEOfqw36qIrsJj5FRIvj7/T52ssV
-	DdUcux7ZfrUvE66t8xRtoq662H/U2FGU4rWr4heMGc8b+DDxeFQa23acU7dHcGSfqUQ=
-X-Google-Smtp-Source: AGHT+IGDItNt/gQIylGSzRr2n2QM8HyI4XMr7tCVaXbrsZo7Z/t7OtW5bunomLUqBKEeZpRqJk5pSA==
-X-Received: by 2002:a05:6000:208a:b0:3a5:2698:f65d with SMTP id ffacd0b85a97d-3b4964dedf7mr8422836f8f.27.1751888398358;
-        Mon, 07 Jul 2025 04:39:58 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454b16865c2sm108604675e9.19.2025.07.07.04.39.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Jul 2025 04:39:57 -0700 (PDT)
-Message-ID: <b77f12e7-ea3f-4c57-9706-ff8e32721cc8@linaro.org>
-Date: Mon, 7 Jul 2025 12:39:57 +0100
+	Mon, 07 Jul 2025 11:41:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72E07168F;
+	Mon,  7 Jul 2025 04:41:18 -0700 (PDT)
+Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.31.174])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5B7C13F694;
+	Mon,  7 Jul 2025 04:41:29 -0700 (PDT)
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v6 00/13] arm64: debug: remove hook registration, split exception entry
+Date: Mon,  7 Jul 2025 12:40:56 +0100
+Message-ID: <20250707114109.35672-1-ada.coupriediaz@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
- PMBPTR_EL1 or PMBSR_EL1
-To: Leo Yan <leo.yan@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Alexandru Elisei <Alexandru.Elisei@arm.com>,
- Anshuman Khandual <Anshuman.Khandual@arm.com>,
- Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
- Robin Murphy <Robin.Murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
- <20250704155016.GI1039028@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250704155016.GI1039028@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_044000_062088_7A363031 
-X-CRM114-Status: GOOD (  30.68  )
+X-CRM114-CacheID: sfid-20250707_124133_675325_60668BCC 
+X-CRM114-Status: GOOD (  38.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,118 +70,313 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, "Luis Claudio R . Goncalves" <lgoncalv@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
+
+Another small re-spin (okay'd by Catalin[-1]) to fix build issues :
+ - Patch 10 would fail to build, fix by correcting `el1_dbg()` being`
+   modified when it shouldn't have. This creates a small change
+   in Patch 11 as well : removing the line that was mistakenly removed
+   in Patch 10. 
+ - Patch 11 would fail to build without `CONFIG_COMPAT`, fix by marking
+   `el0_dbg()` `__maybe_unused`. It gets removed in the next patch anyway.
+
+The final tree is identical to v5, but all patches now individually build
+properly with defconfig, allnoconfig, and a fair amount of additional
+config options that I used for testing.
+
+My apologies for the build issues with this series.
+Ada
+
+[-1]: https://lore.kernel.org/linux-arm-kernel/aGsY6c4syByZQ8cr@arm.com/
+
+Original cover below.
+
+---
+
+This series simplifies the debug exception entry path by removing handler
+registration mechanisms for the debug exception handlers, a holdover from
+the arm kernel, as well as the break and stepping handlers.
+This moves much of the code related to debug exceptions outside of
+`mm/fault.c` where it didn't make much sense.
+This allows us to split the debug exception entries: going from one common
+path per EL for all debug exceptions to a unique one per exception and EL.
+
+The result is a much simpler and fully static exception entry path, which
+we tailor to the different exceptions and their constraints.
+
+The series is structured as such :
+1 : related clean-up in the signle step handler
+2 : related refactor of `aarch32_break_handler()`
+3-5 : software breakpoints and single step handlers registration removal
+6: preparatory function move that is made internal in patch 13
+8: preparatory refactor of `reinstall_suspended_bps()`
+7, 9-13 : debug exception splitting and handler registration removal
+
+* Patch 3 copies and extends the `early_brk64` break handling for the
+normal path, byassing the dynamic registration.
+* Patch 4 does something similar for the single stepping handlers.
+* Patches 7, and 9 through 13 split each individual debug exception from
+the unified path by creating specific handlers, adapting them to
+their constraints and calling into them, bypassing the dynamically
+registered handlers used before.
+* Patch 8 refactors `reinstall_suspended_bps()` in preparation for the
+single-step exception entry split, as it is moved out of the handler.
+This could be squashed in patch 9 (the single-step exception split), but
+I opted to separate it for clarity (and because the commit message
+for patch 9 is already 45 lines long !).
+* Patches 5 and 13 are clean-ups removing the code that has been replaced
+and made redundant by the preceding patches.
+
+PREEMPT_RT
+===
+
+Of note, this allows us to make the single exception handling mostly
+preemptible coming from EL0 in patch 9, fixing an issue with PREEMPT_RT[0].
+The commit message details the reasoning on why this should be safe.
+It is *definitely* not preemptible at EL1 in the current state, given
+that the EL1 software step exception is handled by KGDB.
+
+We can do the same for the software break exception coming from EL0,
+which works in a very similar way.
+
+However, the hardware breakpoint and watchpoint exceptions also have
+a sleeping while non-preemptible issue with PREEMPT_RT, but this is
+much trickier to fix, so this won't be fixed in this series.
+A bit more details in [1].
+
+Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+(I don't really know what is the best thing to do if a tag is added
+on the cover, so I added it here as well as for the whole series.)
+
+As the EL0 and EL1 code paths are now split for the BRK64 and single-step
+handlers, I added a comment to the EL0 paths to highlight that they
+are preemptible with interrupts unmasked, and to be wary when changing them.
+Happy for it to be dropped if it is not considered relevant or useful !
+
+Testing
+===
+
+Testing EL1 debug exceptions can only be properly done with perf.
+A simple test of hardware breakpoints, watchpoints, and software stepping
+can be achieved by using `perf stat sleep 0.01` and adding hardware events
+for `jiffies` and `hrtimer_nanosleep`, which guarantees a
+hardware watchpoint and breakpoint.
+Inserting a `WARN()` at a convenient place will allow testing both early
+and late software breakpoints at EL1, or using KGDB to test without
+changing code.
+
+For EL0 debug exceptions, the easiest is to setup a basic program and use
+GDB with a list of pre-programmed commands setting hardware and software
+breakpoints as well as watchpoints. Setpping will occur naturally when
+encountering breakpoints.
+
+All tests maintained behaviour after the patches.
+
+I also tested with KASAN on, with no apparent impact.
+
+See below for some testing examples.
+
+Regarding [0], I tested a PREEMPT_RT kernel with the patches, running
+`ssdd` on loop as well as some spammy GDB stepping, and some
+hardware watchpoints on a tight loop without any issues.
+
+Note: `ssdd`[2], the test that highlighted the original bug, forks pairs
+of tracer/tracee children. The tracer has a timeout waiting
+for confirmation that its tracee process has been single stepped.
+Given that the single step is now mostly preemptible, the step can be
+delayed : possibly much more than what was usual previously.
+Under heavy system load and by requesting the test to fork much more
+children than its default, the test will start to fail unpredictably.
+On a 4-core AMD Seattle board, I was able to see some inconsistent
+failures with 32 (default 10) forks, becoming much more consistent
+when the system load was above 16 (one or two failures per run).
+Raising the timeout made the failures completely disappear, even with
+a system load above 40, confirming that it is indeed a timeout issue.
+Given that running `ssdd` with its default values does not seem to fail,
+even with a system load of 21, so I do not feel like something
+needs to be done to address this.
 
 
-On 04/07/2025 4:50 pm, Leo Yan wrote:
-> On Tue, Jul 01, 2025 at 04:31:58PM +0100, James Clark wrote:
-> 
-> [...]
-> 
->> @@ -661,16 +666,24 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
->>   	 */
->>   	irq_work_run();
->>   
->> +	/*
->> +	 * arm_spe_pmu_buf_get_fault_act() already drained, and PMBSR_EL1.S == 1
->> +	 * means that StatisticalProfilingEnabled() == false. So now we can
->> +	 * safely disable the buffer.
->> +	 */
->> +	write_sysreg_s(0, SYS_PMBLIMITR_EL1);
->> +	isb();
->> +
->> +	/* Status can be cleared now that PMBLIMITR_EL1.E == 0 */
->> +	write_sysreg_s(0, SYS_PMBSR_EL1);
->> +
-> 
-> An important thing is about sequence:
-> As described in arm_spe_pmu_disable_and_drain_local(), should we always
-> clear ELs bits in PMSCR_EL1 before clear PMBLIMITR_EL1.E bit? As a
-> reference, we could see TRBE always clear ELx bits before disable trace
-> buffer.
-> 
-> And a trivial flaw:
-> 
-> If the TRUNCATED flag has been set, the irq_work_run() above runs the
-> IRQ work to invoke the arm_spe_pmu_stop() to disable trace buffer, which
-> clear SYS_PMBLIMITR_EL1.E bit. This is why the current code does not
-> explictly clear SYS_PMBLIMITR_EL1.E bit.
-> 
-> With this patch, the interrupt handler will clear SYS_PMBLIMITR_EL1.E
-> bit twice for a trunacated case.
-> 
-> 
+Based on v6.16-rc1.
+Thanks,
+Ada
 
-I suppose that's a rarer case that we don't necessarily have to optimize 
-for. I don't think it will do any harm, but is it even possible to avoid?
+v6 :
+- Fix build failure in patch 10 : `el1_dbg()` should not have changed. (Will)
+- Fix build failure with `allnoconfig` in patch 11 by marking `el0_dbg()`
+  `__maybe_unused`, as it is only used by `CONFIG_COMPAT` in this patch.
+- Add Mark's ACK tag.
+- Rebase on v6.16-rc1 (as pulled by Catalin initially)
+v5 : https://lore.kernel.org/linux-arm-kernel/20250627172038.633423-1-ada.coupriediaz@arm.com
+- Add a static inline stub for the hardware breakpoint and watchpoint
+  handlers if `HAVE_HW_BREAKPOINT` is not set (Will).
+- Remove `trap_init()`, use the weak definition in `init/main.c` (Will).
+- Rebase on v6.16-rc3
+- Add Will's Reviewed-by.
+v4 : https://lore.kernel.org/linux-arm-kernel/20250620211207.773980-1-ada.coupriediaz@arm.com
+- Split `do_{softstep,brk}()` by EL : `do_el0_XX()` and `do_el1_XX()` (Mark)
+- Remove now unused arch_init_uprobes (Anshuman)
+- Reword patch 3 summary (Anshuman)
+- Rename `XX_singlestep_handler()` handlers to `XX_single_step_handler()`
+  (Anshuman, Mark)
+- Drop `NOKRPOBE_SYMBOL()` for EL0 paths where relevant (Mark)
+- Call `die()` directly in `do_el1_brk64()` instead of `pr_warn()`
+  and `arm64_notify_die()`. (Mark)
+- Add comments to `do_el0_{softstep,brk}()` handlers highlighting
+  that they are called with unmasked interrupts and preemption enabled,
+  in cases changes need to be made in the future.
+- Added tags from v3.
+- Rebased on v6.16-rc2
+v3 : https://lore.kernel.org/linux-arm-kernel/20250609173413.132168-1-ada.coupriediaz@arm.com
+- Refactor `aarch32_break_handler()` to be consistent with other
+  `el0_undef()` tentative handlers and the refactored
+  `reinstall_suspended_bps()` later in the series.
+- Drop the intermediate handlers for hardware breakpoint and watchpoint
+  exceptions, as they both only return 0 and never end up calling
+  `arm64_notify_die()`. Make the real handlers return void, rename them
+  `do_{break,watch}point()` so that they can be called directly from
+  `entry-common.c`. This is similar to what was done for the single-step
+  handler. 
+- Add static inline stand-ins for disabled stepping handlers. (Will)
+- Don't duplicate `debug_exception_enter()` and `debug_exception_exit()`
+  in patch 06 (Will)
+  - Move them to `kernel/entry-common.c` and make them externally visible
+    while `do_debug_exception()` in `mm/fault.c` needs them
+  - Make them static again when cleaning up in patch 11.
+- Refactor `reinstall_suspended_bps()` to make the logic cleaner and easier
+  to understand (Will, Mark).
+- Be more explicit in the commit messages about the goal and safety of
+  moving `arm64_apply_bp_hardening()` to `kernel/entry-common.c` and
+  calling it before `enter_from_user_mode` in patches 07 and 09 (Will)
+- Enable preemption and unmask interrupts early for the brk64 handler,
+  fixing a PREEMPT_RT sleeping while non-preemptible issue (Luis)
+- Mention in patch 13 commit message that `bug_brk_handler()` is
+  not called as a fall-through anymore in early boot, but that it doesn't
+  change the actual behaviour (Will)
+- Scope FAR_EL1 comment (Will)
+- Fix typos (Will)
+- Rebase on v6.16-rc1
+  - Update the UBSAN BRK ESR check to `esr_is_ubsan_brk(esr)`.
+v2 : https://lore.kernel.org/linux-arm-kernel/20250512174326.133905-1-ada.coupriediaz@arm.com
+- Move the BP hardening call outside of the handlers to `entry-common`,
+  as they are not needed coming from EL1.
+- Make the EL0 software stepping exception mostly preemptible
+  - Move `reinstall_hw_bps()` call to `entry-common`
+  - Don't disable preemption in `el0_softstp()`
+  - Unmask DAIF before `do_softstep()` in `el0_softstp()`
+  - Update comments to make sense with the changes
+- Simplify the single step handler, as it always returns 0 and could not
+  trigger the `arm64_notify_die()` call.
+- Fix some commit messages
+v1 : https://lore.kernel.org/linux-arm-kernel/20250425153647.438508-1-ada.coupriediaz@arm.com
 
-There are already some other duplications in the driver, for example in 
-arm_spe_pmu_stop() we call arm_spe_pmu_disable_and_drain_local() which 
-drains, and then arm_spe_pmu_buf_get_fault_act() which also drains again.
+[0]: https://lore.kernel.org/linux-arm-kernel/Z6YW_Kx4S2tmj2BP@uudg.org/
+[1]: https://lore.kernel.org/linux-arm-kernel/e86c5c3a-6666-46a7-b7ec-e803212a81a1@arm.com/
+[2]: https://man.archlinux.org/man/ssdd.8.en
 
->>   	switch (act) {
->>   	case SPE_PMU_BUF_FAULT_ACT_FATAL:
->>   		/*
->> -		 * If a fatal exception occurred then leaving the profiling
->> -		 * buffer enabled is a recipe waiting to happen. Since
->> -		 * fatal faults don't always imply truncation, make sure
->> -		 * that the profiling buffer is disabled explicitly before
->> -		 * clearing the syndrome register.
->> +		 * To complete the full disable sequence, also disable profiling
->> +		 * at EL0 and EL1, we don't want to continue at all anymore.
->>   		 */
->> -		arm_spe_pmu_disable_and_drain_local();
->> +		write_sysreg_s(0, SYS_PMSCR_EL1);
->>   		break;
->>   	case SPE_PMU_BUF_FAULT_ACT_OK:
->>   		/*
->> @@ -679,18 +692,14 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
->>   		 * PMBPTR might be misaligned, but we'll burn that bridge
->>   		 * when we get to it.
->>   		 */
->> -		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)) {
->> +		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED))
->>   			arm_spe_perf_aux_output_begin(handle, event);
->> -			isb();
-> 
-> I am a bit suspecious we can remove this isb().
-> 
-> As a reference to the software usage PKLXF in Arm ARM (DDI 0487 L.a),
-> after enable TRBE trace unit, an ISB is mandatory. Maybe check a bit
-> for this?
-> 
-> Thanks,
-> Leo
-> 
+Testing examples
+===
 
-Wasn't this isb() to separate the programming of the registers with the 
-status register clear at the end of this function to enable profiling?
+Perf (for EL1):
+~~~
+Assuming that `perf` is on your $PATH and building with `kallsyms`
 
-But now we enable profiling with the write to PMBLIMITR_EL1 in 
-arm_spe_perf_aux_output_begin() and the last thing here is the ERET. 
-That's specifically mentioned as enough synchronization in PKLXF:
+  #!/bin/bash
+  
+  watch_addr=$(sudo cat /proc/kallsyms | grep "D jiffies$" | cut -f1 -d\  )
+  break_addr=$(sudo cat /proc/kallsyms | grep "clock_nanosleep$" | cut -f1 -d\  )
+  
+  cmd="sleep 0.01"
+  
+  sudo perf stat -a -e mem:0x${watch_addr}/8:w -e mem:0x${break_addr}:x ${cmd}
 
-   In the common case, this is an ERET instruction that returns to a
-   different Exception level where tracing is allowed.
+NB: This does /not/ test EL1 BRKs.
 
->> -		}
->>   		break;
->>   	case SPE_PMU_BUF_FAULT_ACT_SPURIOUS:
->>   		/* We've seen you before, but GCC has the memory of a sieve. */
->>   		break;
->>   	}
->>   
->> -	/* The buffer pointers are now sane, so resume profiling. */
->> -	write_sysreg_s(0, SYS_PMBSR_EL1);
->>   	return IRQ_HANDLED;
->>   }
->>   
->>
->> -- 
->> 2.34.1
->>
->>
+
+GDB commands (for EL0):
+~~~
+The following C example, compiled with `-g -O0`
+
+  int main() {
+          int add = 0xAA;
+          int target = 0;
+
+          target += add;
+
+  #ifdef COMPAT
+      __asm__("BKPT");
+  #else
+      __asm__("BRK 1");
+  #endif
+  
+          return target;
+  }
+
+Combined with the following GDB command-list
+
+  start
+  hbreak 3
+  watch target
+  commands 2
+  continue
+  end
+  commands 3
+  continue
+  end
+  continue
+  jump 11
+  continue
+  quit
+
+Executed as such : `gdb -x ${COMMAND_LIST_FILE} ./a.out`
+should go through the whole program, return 0252/170/0xAA, and
+exercise all EL0 debug exception entries.
+By using a cross-compiler and passing and additional `-DCOMPAT` argument
+during compilation, the `BKPT32` path can also be tested.
+NOTE: `BKPT` *will* make GDB loop infinitely, that is expected. Sending
+SIGINT to GDB will break the loop and the execution should complete.
+
+
+Ada Couprie Diaz (13):
+  arm64: debug: clean up single_step_handler logic
+  arm64: refactor aarch32_break_handler()
+  arm64: debug: call software breakpoint handlers statically
+  arm64: debug: call step handlers statically
+  arm64: debug: remove break/step handler registration infrastructure
+  arm64: entry: Add entry and exit functions for debug exceptions
+  arm64: debug: split hardware breakpoint exception entry
+  arm64: debug: refactor reinstall_suspended_bps()
+  arm64: debug: split single stepping exception entry
+  arm64: debug: split hardware watchpoint exception entry
+  arm64: debug: split brk64 exception entry
+  arm64: debug: split bkpt32 exception entry
+  arm64: debug: remove debug exception registration infrastructure
+
+ arch/arm64/include/asm/debug-monitors.h       |  34 +--
+ arch/arm64/include/asm/exception.h            |  14 +-
+ arch/arm64/include/asm/kgdb.h                 |  12 +
+ arch/arm64/include/asm/kprobes.h              |   8 +
+ arch/arm64/include/asm/system_misc.h          |   4 -
+ arch/arm64/include/asm/traps.h                |   6 +
+ arch/arm64/include/asm/uprobes.h              |  11 +
+ arch/arm64/kernel/debug-monitors.c            | 255 +++++++-----------
+ arch/arm64/kernel/entry-common.c              | 146 +++++++++-
+ arch/arm64/kernel/hw_breakpoint.c             |  60 ++---
+ arch/arm64/kernel/kgdb.c                      |  39 +--
+ arch/arm64/kernel/probes/kprobes.c            |  31 +--
+ arch/arm64/kernel/probes/kprobes_trampoline.S |   2 +-
+ arch/arm64/kernel/probes/uprobes.c            |  24 +-
+ arch/arm64/kernel/traps.c                     |  80 +-----
+ arch/arm64/mm/fault.c                         |  75 ------
+ 16 files changed, 332 insertions(+), 469 deletions(-)
+
+
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+-- 
+2.43.0
 
 
