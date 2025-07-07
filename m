@@ -4,83 +4,233 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE356C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 16:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE34C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 16:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ukbvHzZfhwx6533qERNgaNRmfc+1+i0ljL79gEDoL88=; b=a8h5MC9HxlPEfwRhjMb91KI5qJ
-	XtONlaABHYXnqo5Dh6ljDAlxCw+5re5Wo7irLWGgwFbSYrp5i2SgriJsLbj1uj8KMhH6726lVUQ8y
-	M720DQDYAXzboZ9zvRhQXCFuIyTr4ij34S8goyH348GpW7MO+F07jmvD9vaTqYLLKX0TwN259W4uF
-	HoubS24RR70eJq2M9pmTQLDDSLnlN7bjsNlH88G4avVIDGXXz+j65HTXuvZadGqRnQ5m1EHQG5Y8H
-	1gbZ7q3INCO6Zl1epCLkTCL0Bqiwemy9LTdz/+rnUzrjQ0tNsn911xnf0cL1jIFoYAhjuStNyudIC
-	MJl0i0PA==;
+	bh=9yIaivYnD+GSJFmmKMTlDSUfYKX4SodWn2qFqv1vHck=; b=GQdQEFEE2SKsGGER91WnswF09t
+	LMfqmJCjPVY7UznY37bLwWAmMzYEl4J44DS22HMYsjJnl4N43PhIx4W+e7G1vmNysyesG+eNoNR0I
+	OC2C8NpbGIEgMR38zbCqMecAxkynEvJ7yaSyiM4xvYGePhQGXt7K+6D8SjYrINl6O57X6kSpfJZmk
+	D06rGA2qnwDcVNJhH0bEYrntabob/KjD6fzKjwIYXQN69rwqn1SdCn3GRcE9Kj8bNvvZQhbK1ts+6
+	mRpmM1m201A20nmHWdRfbQmyCRXxlMkZoO13EymzpEpxuUddJIJ9f+9P2/9VnNt1tIps7M1Ot/1HQ
+	MBHsdb7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYozu-000000033XW-4BbR;
-	Mon, 07 Jul 2025 16:47:19 +0000
-Received: from mail-ej1-f43.google.com ([209.85.218.43])
+	id 1uYp2D-000000033sX-2sMa;
+	Mon, 07 Jul 2025 16:49:41 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYoOo-00000002ypa-0K4U
+	id 1uYoSF-00000002zKg-1Hll
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 16:08:59 +0000
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-ae3a604b43bso511563366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 09:08:57 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751904536; x=1752509336;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ukbvHzZfhwx6533qERNgaNRmfc+1+i0ljL79gEDoL88=;
-        b=TyBM/UMhEBf1R26fdk7Y89rTFJ598EMKmOvyjqtZVliq/TfiM/GdN8Pg7XwWrdFccD
-         8nZk0jMMiLODonCfModbpCwyd0LTAzWdSh2XGJo8Tswm33wN9imsiItqMGcz4XKA4c1+
-         4sB7Y7mLd010z5BVEB8zg1lKtXT/rcGqHiGwctBrtoa00ij9003jwX+djCMFvVTrQXnd
-         fjGgMgafPQc8xpcSICGyJnimX0JOZpX6a3OzUVGgWzc4uovKcx+qvHrZDMkimdXDO5m1
-         jOkNCpOYyt07uhqTp5cIF9ivFMb4GzXbKuw4CpSjXVpUjo19NF7YhTVHSfDMysu5uXPD
-         zKMw==
-X-Forwarded-Encrypted: i=1; AJvYcCUu4AuWdr5kzbIgFCRuKbJ4S9cyzR36XaVOEqWLl3gvG2CRnYcPB/Oi/AlraKOsocojSHxnwqxAlr98MhsyHDWi@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGoJAznWfWzBA9T/4y69xcUYcTgsAoCSlmM2Py0F3NNsY72z9r
-	g6UPPIgXoohr1kJzIx3meXT+7UbJGtbJqKyLPCde87G8MJ4GhOybZu/O
-X-Gm-Gg: ASbGncsWD8O5bAocC4IzG8m6fh0Qarb+gmAzx7BusN2R8UvSTmdGZEq4bxzl7CjWLnX
-	vOQR7zFzs16fLrhyassBeD5yM41fn7AQD5a3iHI+97hWbEkgWnJGvt/3MEnxKRE0oqIKqpGg9mE
-	3yOPLLWFuerMYhR4WiS2dt8qiqt2NbLaCocK8VUNSR8iWwNtf0i+Oxm0Dw8o+cG9e+FmtE6yGvq
-	1p9d2ypscCX9oqe19iOygU+nKKhQps6gP1V6VbVDVu904lN7xdo/aF+iOie/0kfSZ607GGsCPLN
-	rZvijdsHKE03uwQ6OwQgay/m71jP8otnliVUBgzxbMOunUgOrwTUgg==
-X-Google-Smtp-Source: AGHT+IFRCwe+M2LN1raXwbrfTy1qnj/eKSyDlwd2ZulMHGxXV5lbkUCyxCU9OUDf418Cp2+/qD3ZbQ==
-X-Received: by 2002:a17:906:2412:b0:ae0:bdc2:9957 with SMTP id a640c23a62f3a-ae3fbdea236mr1001311166b.61.1751904536006;
-        Mon, 07 Jul 2025 09:08:56 -0700 (PDT)
-Received: from gmail.com ([2a03:2880:30ff:70::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f6abfadbsm729371066b.80.2025.07.07.09.08.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Jul 2025 09:08:55 -0700 (PDT)
-Date: Mon, 7 Jul 2025 09:08:49 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>, usamaarif642@gmail.com,
-	rmikey@meta.com, andreyknvl@gmail.com, kasan-dev@googlegroups.com,
-	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH] arm64: efi: Fix KASAN false positive for EFI runtime
- stack
-Message-ID: <aGvxEYDP8pVlalaz@gmail.com>
-References: <20250624-arm_kasan-v1-1-21e80eab3d70@debian.org>
- <aGaxZHLnDQc_kSur@arm.com>
- <CAMj1kXFadibWLnhFv3cOk-7Ah2MmPz8RqDuQjGr-3gmq+hEnMg@mail.gmail.com>
- <aGfK2N6po39zyVIp@gmail.com>
- <aGfYL8eXjTA9puQr@willie-the-truck>
- <aGfZwTCNO_10Ceng@J2N7QTR9R3>
- <aGsYkFnHEkn0dBsW@arm.com>
+	Mon, 07 Jul 2025 16:12:32 +0000
+ARC-Seal: i=3; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=PRz+mbKenBRuL+eCVqIm7V7GfEbvjazgManjLkLeWCSCFvvpJMFUeXXeO+iqox7Ti9jaDoqdUbsyUShOIBypOyyG7wcPaHf4u54+aHfXYKKfoz5UiMw0sPN1+59JczEmz+xKbqmAu3+lZ0RfZpaiwM2/ZjuoJ1SxEXiHcuOorRilH4agTBBRA92s5oX0fQfcUNFbjnsKtDLHxcsVMV4W9ZBeL10bLqXeVl4vD+57NwA9499PuTuoMZUEhOIoModbeRYPLlVHVz2uUifUG51BuiSjK3sbJ9NuReo9tx7ucQX4cICs5AZB8hy0lAhc9CaNPAukRZMLQ32IN+VjCBIxxA==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9yIaivYnD+GSJFmmKMTlDSUfYKX4SodWn2qFqv1vHck=;
+ b=sYEAWhOP9t0lMJni5GIx/KeYR2ihtFLiDMWBfOcgioNniSwvg8SP6WqDbn0ESr7fGIS2uylU7fWCCMfq5C8HbrOv6x1kj+Ce9C2829/MwD/s1DMJTTjCA00QK8qhyJ980iputIAtESLEn8fgmncBgi0N0dxKJR9C45D/alNKe6ztLOkzCNI5cD0pL5D4kcuC0WJIkQzz/y5Dkd+cLJ7Y4jBwcw5cBIgRGVM7eWYqXSuyxW55jYNoZpCHpT0Ht/vHwVhwuTbMKGG4FdxROkf1bNl83nyA/RpbhO9Cfa/V2HvBFMXxPY/NF/U1YK7q4pN2gGLM9W5tdCjqcpO2pNkziw==
+ARC-Authentication-Results: i=3; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.17.62.50) smtp.rcpttodomain=gmail.com smtp.mailfrom=solid-run.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=solid-run.com;
+ dkim=pass (signature was verified) header.d=solidrn.onmicrosoft.com; arc=pass
+ (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=solid-run.com]
+ dkim=[1,1,header.d=solid-run.com] dmarc=[1,1,header.from=solid-run.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9yIaivYnD+GSJFmmKMTlDSUfYKX4SodWn2qFqv1vHck=;
+ b=bMtrw/YYo2VwPKznLFvPHKdr0Pk0WkvfZs5y09TqaV5x46Zh/Qhl05YQ9vZX9DpmNwoYVLnJnxCLtFavUDsmHMnZ6NqQHglf/J5B3EheFSKSOG4HtNsHA8adCY2osRhpwrRalNJ8EoXYE+nkf6O6lPWnXxa+IUwW0J+/YvV8510=
+Received: from DU2PR04CA0173.eurprd04.prod.outlook.com (2603:10a6:10:2b0::28)
+ by AM8PR04MB8017.eurprd04.prod.outlook.com (2603:10a6:20b:249::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.26; Mon, 7 Jul
+ 2025 16:12:23 +0000
+Received: from DU2PEPF00028D0A.eurprd03.prod.outlook.com
+ (2603:10a6:10:2b0:cafe::88) by DU2PR04CA0173.outlook.office365.com
+ (2603:10a6:10:2b0::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.26 via Frontend Transport; Mon,
+ 7 Jul 2025 16:12:23 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
+ smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
+ header.d=solidrn.onmicrosoft.com;dmarc=fail action=none
+ header.from=solid-run.com;
+Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
+ designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
+Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
+ DU2PEPF00028D0A.mail.protection.outlook.com (10.167.242.170) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.15
+ via Frontend Transport; Mon, 7 Jul 2025 16:12:22 +0000
+Received: from emails-7501188-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-5-201.eu-west-1.compute.internal [10.20.5.201])
+	by mta-outgoing-dlp-862-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id C769980195;
+	Mon,  7 Jul 2025 16:12:22 +0000 (UTC)
+ARC-Authentication-Results: i=2; mx.checkpointcloudsec.com; arc=pass;
+  dkim=none header.d=none
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
+ d=checkpointcloudsec.com; s=arcselector01; t=1751904742; h=from : to :
+ subject : date : message-id : content-type : mime-version;
+ bh=9yIaivYnD+GSJFmmKMTlDSUfYKX4SodWn2qFqv1vHck=;
+ b=J0hsuziQ3uIy+ASunev8ZpEQzmNcdWy+5b3gpEp3obAHhZVVFGzMRaQffUL+dxe5elCCD
+ mcJMqWYpesqsZqvm8mKwX2wrK4EK/0stZDKF5Wdja86PzhewWiJJMA21mRZDyWG5BR7DdIr
+ 0mDkXNpla2ymYzb+iAq06tGtWjXqYg4=
+ARC-Seal: i=2; cv=pass; a=rsa-sha256; d=checkpointcloudsec.com;
+ s=arcselector01; t=1751904742;
+ b=EzHSPKTzVAHZPrlgBSvFCHzA4ldI9jvhsoNqAXP7v243fi/pVclgp1s8v1wpEno3SBvKq
+ mDdAc3w/fck7Qo7jZhSqjMiW7gJMETZmlgJs2MspRa1GESeNNj2TuOJB2yrayKrv9p2svbV
+ R4q/hls0a8oysDRk+y/acMnEHDYA1g8=
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nkL3sPAEn3mQeL/pxc4YD9Hd9tVSi6u8WY1g1RMC+CwyXiYSPGDvq2gF/9oaB/atm0XmYtBFX8JHGCuDEwD8G/F26O04UebUFtV/Lr5oIGLj5uLzEfylYwhVwzu7pfn2h6OpUuCPFbWAfHuNQcwwFGUclUY2Um1blTUAaBrB+nzVobZXT9Q4EMHbpx4Wi/fS5GfVK7B0X0YlTfafdRMZ0qbaII6105WWiUUsxn7CAuGhHSWbU9cizuiJLEWOAYjDU20QN5mlKQrnbcQdItPU2ElS9Ne0LZPdXmLStSx9MhDRhYdaTqMEi45a65laJYT1cUhOvtV4QO9gft4f4GKIog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9yIaivYnD+GSJFmmKMTlDSUfYKX4SodWn2qFqv1vHck=;
+ b=ZV4h9OPdDWt6LRfEfI7q4rXcB0JYpebdFECk5vCyfctrhNXZXwQgSaXOBLDX8mvZfWozWm7Icig7L17bRuzL6VzoUvDC7po8JPb2t35/rgQzwIPzib94b7YQrYTB59fK50Y0CLRQiey5a5Fnh3AFvQYuvuQNvCub9+7A1HOQtfphiZ/KryVz7y+6BgS2HubLnVlGh9XUg8Pe+/ROugDg+SFPno1kMQikzJ5c5eky9c+tciNxpODQ7sjNr3uAF+6Dg8OmCzQF4tvj1SFlzpyBZw+GTL+FQCdDxu12+EYi1LUgz/JSBKi2AQCaBt0zhPdAXdJMLWzZ3d+ADuVRDs8z7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9yIaivYnD+GSJFmmKMTlDSUfYKX4SodWn2qFqv1vHck=;
+ b=bMtrw/YYo2VwPKznLFvPHKdr0Pk0WkvfZs5y09TqaV5x46Zh/Qhl05YQ9vZX9DpmNwoYVLnJnxCLtFavUDsmHMnZ6NqQHglf/J5B3EheFSKSOG4HtNsHA8adCY2osRhpwrRalNJ8EoXYE+nkf6O6lPWnXxa+IUwW0J+/YvV8510=
+Received: from AM6PR04MB4567.eurprd04.prod.outlook.com (2603:10a6:20b:19::11)
+ by PR3PR04MB7354.eurprd04.prod.outlook.com (2603:10a6:102:8e::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.26; Mon, 7 Jul
+ 2025 16:12:11 +0000
+Received: from AM6PR04MB4567.eurprd04.prod.outlook.com
+ ([fe80::6d60:a27a:fde:6c1f]) by AM6PR04MB4567.eurprd04.prod.outlook.com
+ ([fe80::6d60:a27a:fde:6c1f%4]) with mapi id 15.20.8880.021; Mon, 7 Jul 2025
+ 16:12:10 +0000
+From: Josua Mayer <josua@solid-run.com>
+Date: Mon, 07 Jul 2025 19:11:56 +0300
+Subject: [PATCH v2 1/3] dt-bindings: arm: fsl: Add bindings for SolidRun
+ i.MX8MP SoM and boards
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250707-imx8mp-sr-som-v2-1-785814ef09a9@solid-run.com>
+References: <20250707-imx8mp-sr-som-v2-0-785814ef09a9@solid-run.com>
+In-Reply-To: <20250707-imx8mp-sr-som-v2-0-785814ef09a9@solid-run.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Yazan Shhady <yazan.shhady@solid-run.com>, 
+ Mikhail Anikin <mikhail.anikin@solid-run.com>, 
+ Jon Nettleton <jon@solid-run.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Josua Mayer <josua@solid-run.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: TLZP290CA0002.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:9::8)
+ To AM6PR04MB4567.eurprd04.prod.outlook.com (2603:10a6:20b:19::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aGsYkFnHEkn0dBsW@arm.com>
+X-MS-TrafficTypeDiagnostic: AM6PR04MB4567:EE_|PR3PR04MB7354:EE_|DU2PEPF00028D0A:EE_|AM8PR04MB8017:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75111787-04a7-499c-918b-08ddbd710e97
+X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?Qm4yd0loK1I3ekhFbDRITU1GOG9Wb1Y3NDBOekpPMnhDQktLSnFzNVo0Qk5u?=
+ =?utf-8?B?K05KY04wTnpsSDNrQU54NU53UTNQaGpyQW5qYnZuNHJxQTdTQ3JzSmswVTVs?=
+ =?utf-8?B?b0tWbUZhc2s3OEx4ODdUVEN5aHNQcDBRZW9pb1l1MjZCR0lHZ2xkekFkVkIr?=
+ =?utf-8?B?eVNwRm9hOFJSNitiaGZ2VTdIU3BZN3VEYXdCSERXZTlCb0xMQS81L2VpTDJ0?=
+ =?utf-8?B?WUtmUzB3bUZaSkgxaVhkN3g2cGFnTlpuMlRBRDdpaXZZRExHQmVDakFrMzJv?=
+ =?utf-8?B?dHZpN20rajdUbUszbWNGbnVrNlY2NWJtSUlFeHRGOVJ6ZnVhVUtIaW1MMlRo?=
+ =?utf-8?B?RnIvZnJMbG5sYnEwUm5jTTdwTTdCdXZCUlVEY0owcUdhK0hGK1lobVN3cWFw?=
+ =?utf-8?B?MFVDK0g1S1hpQUpXK0EzNnZLbS9ULzJiVXBHcDdrOWlWL3dhSmFNZ0lMMWE1?=
+ =?utf-8?B?QUp5ZWltUGFsVXppWEhCZkxpSjg2UU81N2NLRHZ3MVMzNmdTL0FQL1pxdG9O?=
+ =?utf-8?B?VzI1T3Zoa2xIa2hjQ1dDcGNWVEwrcWtRNVFGdlorL3E1b0c4K00wVHA1c1N3?=
+ =?utf-8?B?UWthYkJkcWpaSjdYUGRaM2JLSTBnWTFIZXNRbnVNU3R3eDVVRVBvU1E1T2cy?=
+ =?utf-8?B?TG9iU3V4RjM1WE1FS3IwLzlIempoWEI2aE9vMzZwNWw4T0JZc3RGb2xVZHNE?=
+ =?utf-8?B?c1ZRVWVodllkRUh4NHMzR2srdnA4YlB4Rk5xS1NhdG5hZ3l3UWljQytPczg0?=
+ =?utf-8?B?MlVLNEY2OXlBdC90S2VkZURMQXNjZVFpaGgwcEJKTWxlN0dHWE84akoyWXZ0?=
+ =?utf-8?B?dzY3UnQwb3JBb2ZQeVo0cWlxMWhtS1ZMTmhZeW9Db0pVTFcxY0RHbU9WWmJk?=
+ =?utf-8?B?SFVoeVE4Z3daVnZMMzB2alo0Mm1TV3J6VmRaNFRVbDhMZ3NaeVdwbW9VRVNH?=
+ =?utf-8?B?TjhZaytzOVBZL2grTHRlVlZINlZGYktvRVdYRTB2UkpzWmdqR011NXAxNytR?=
+ =?utf-8?B?Nkc3N3FQL29yaEd0dGtxR1k2NWNmYnpia1RBbkxNRnd6WlRsWkVVK0dLMGxJ?=
+ =?utf-8?B?RHdQcFgveC84MEloWW40NW5hajhJeHN0L0psZ1AxMmJ3WG00c1QzYzZKbmdT?=
+ =?utf-8?B?MGdRMlhoMzEzYlljWWZKMFRxNGEzY3hVL1UxckRweDdvdVRrN2dqclpaS3Rl?=
+ =?utf-8?B?eHhERUt3dWZidkNlWFhtYW5zbHluaGFWSjBKVk5BaTdjOUVPTllvc1RkcENJ?=
+ =?utf-8?B?MHU2RjIwdmc1SHVkK3c4Rk04MVZmMmhoZnBJR2dKYW1ISFd3VW1rNWVIczNG?=
+ =?utf-8?B?V2hCNXdrQ0tXU3h3cjFpMjBzdS81SzNtZy9BTWdGSHBuSGhwVzJjcThBYk16?=
+ =?utf-8?B?akFyb25OVFhrL0M5dW5XNW52WUdzcnVvN2NwRTR4VzJCTTlmUXRRbndMa3h1?=
+ =?utf-8?B?ZFVGMWp0NmN5ZWpuaXVrM25xWGN4WHZDZ3hhTk9KeGU1ZlBQaXI4M2M1dUZY?=
+ =?utf-8?B?S043TUFId1djM083OE1VM0w3ZGJ2WkdVdlpVVW1mSVhBWWFWRU9vVGQ5VW05?=
+ =?utf-8?B?bmt5dlRPM25ZTldQQkFDbUh5djRuMnVSRk1BTjBucFZEaWdsSW9kRC9TMmdH?=
+ =?utf-8?B?UmQvMERBR2o1eU56ek9uR1JYTC9ZYjdMbGkzOTB2SjFaZ01HdnN3SUEzZHNq?=
+ =?utf-8?B?K0lSZzhtblpFZjEwSTJkK3NpcXU5VTh3ZnNVUlpTaWxZbkhUNTFYUUNjZlF6?=
+ =?utf-8?B?T0tGQUJlSnFYNWp1UVBKQ0NMTFEvdFd6NWJWVDdWM3NrcDZGUW1abERwc1lk?=
+ =?utf-8?B?K2xIUjQwZTRJT0hOd3RtdkQzcmVmeVVVaGZRN0JNd3MySjhUaHl3OVA5MGta?=
+ =?utf-8?B?d3dITDFBYmNTWFdIRllaemMzNWNLTjBkY2pZVjhFVXVXbjFjSmNJMEpYNWU3?=
+ =?utf-8?B?em0yQnpyK0pXUFY0R1Q3SDVubDVHR2VIdldndU1kTVVuYlNFcDNDL3ZIcUxu?=
+ =?utf-8?B?QXNjVFh2K1BRPT0=?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB4567.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(7416014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7354
+X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
+X-CLOUD-SEC-AV-UUID: 7e67b0b77db846129e0729816cca35f3:solidrun,office365_emails,sent,inline:9dc78d7a0aea7e94852b4c8673104263
+Authentication-Results-Original: mx.checkpointcloudsec.com; arc=pass;
+ dkim=none header.d=none
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D0A.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 94b06322-31c9-4e0b-0b76-08ddbd710733
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|82310400026|36860700013|35042699022|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OUovLzNMRktieHBvWFpreFBmREtzSVpKNG9IcmszaVhwM1Q3UE5VSlowV2ky?=
+ =?utf-8?B?bDZ3TGNia0ViVkRLZDFTZGlyejJGYUlLVmlleW1uSkVZaEdveDh4WWIwQXNu?=
+ =?utf-8?B?U2gvSFJ3M1NIMmgxZ1lhVUJGbU9oNEpBRVN4dDA3Ly96QUpCMk01enF3bVRs?=
+ =?utf-8?B?SERaZlk0V3FFcUUxTSs1ZFQwNld3TGxVT3ZYL3JXNERxTFNtUHlseGhVMGxX?=
+ =?utf-8?B?SUo5ek5iNjJ5U2VqWnFjTTljNmNobjA1OHZXNWhLeWNqV3FxUGY3a1NtdDhn?=
+ =?utf-8?B?S3NXYmdZcFowZEpqajQyVDJGRFhpYmVTd096WEozMFpjZEJhaFpPNlRsamtk?=
+ =?utf-8?B?SjFuaW9kM0N4YVB2VkwvUVVxWW93V1cwc05HcVpsaWhlWXRibWllQnFoRGUr?=
+ =?utf-8?B?d1JOSW1EN3hKY2xpT3BMNkpRTEV6Kzd1ZHNZeFFoT3E4aDhZQWROcUwzUVBF?=
+ =?utf-8?B?UEtJamFYWDVZUDhwVVVoeWdHcEtLVFY4Z1FRUFRZTEJYVU41V3NHczA2LzFT?=
+ =?utf-8?B?R0t6dGhzeXhDNGJHemxzOXlIT0NqSjc4a0JIalVqZ0NBcmxsUDFEMUR0bm9h?=
+ =?utf-8?B?ZkxWWnJpN2NPYklBcUhOcTk5U0pianBFcmpqVWJGNU85ME1ZNzZKR2JxbVlv?=
+ =?utf-8?B?cUwzUERPWDFTbXBwbjlUSktOV1piSnNrLzBNWnp3V1hOTm1sdVNieXBKdE13?=
+ =?utf-8?B?TGlubXJvUkUvSFpIUnNOSmNhZGd1eGlHRjc2L29kZDhVQzRiNWhyNG1RVUd2?=
+ =?utf-8?B?RGhLMlR0VFFnblhDcCs4cjVUK1RKelFBS3dkeWF0TWV2OHBvbWxYNjF6NHg3?=
+ =?utf-8?B?Qlg0UktPblZDdFRLQjg1Q1pKYnFnME14WEl6VC9Sd2JUZWx3b0VOQ1B4NFdt?=
+ =?utf-8?B?bDNyNFo4OWRyUkZDWVRNWTRMR1FjUFdlcUpYSDNCbHBPUVhKWDVZZlQwelNy?=
+ =?utf-8?B?dXR5ZUsvdmVUOFFKUmtUb3laZTdhNDljSTdDcjBmZ3pXTXpGVGh5SG53NWgr?=
+ =?utf-8?B?c1luYyszUHVwd1pudUVOM29vZHpBcEZzRmx3MWZHYysyNlpuaGFPZGRYV0tr?=
+ =?utf-8?B?bDZBT0EzYk44MXlSTU5DRFd5ZDVHWGwwNHVMOGZ6N2VxMFdqWmFOcTB5N2w5?=
+ =?utf-8?B?TXZZK1c4S0tCWXZkZ2huQnlCZnVielU5UjdRc0diZEpPRmpTUU5wVGg4Zm1C?=
+ =?utf-8?B?b2swUE82Yi9PNi96MUNKbWNxZW1yZEM1Qk8vdzV5ZmVzWUp1R1dGaUZ4N0E4?=
+ =?utf-8?B?eXJFUTRPSDVkTHc2WWcyK3pENFp0WUp4dERPckFKVHBxMURaK05QdEx3azVY?=
+ =?utf-8?B?S0pRak9TZDdsaEx2WWhLQmh0VExFWE1mWnJid1pxSzQ3aEQ3bWRBQWpuWUZi?=
+ =?utf-8?B?U2pyQ2pSaDVIejVhbmgyMk9nVUI2MEE5U2ExSFg0QVZtQmJEUFlZaSsvcjlw?=
+ =?utf-8?B?T1ZRQk1IcGRvNWFrbGJqdENFbkRhQkwxSFJONHJpemFZYjVoRDdkOGdHQ2hv?=
+ =?utf-8?B?QWt0bTlSUDVBWXNscnpxQ285NHM3R0dubkZTSUg4Q092RUFrSVlGbkVGWlFv?=
+ =?utf-8?B?QkwwTWNnNThESFhLUnFKaWl6S21EZ2FYckE2QlBobHlDSWQwSzZLeGJtckZN?=
+ =?utf-8?B?VEg1VDlsaytOYklqTTQwamMwREw5Wmh5STY3WjhOcVRsK2ViR1V5YjRQVzFZ?=
+ =?utf-8?B?Qzl5MHVxUi85TWcyMVlYdTRMa1lGN2pUc2VKcndqOTkxb1BEWmVVZFRFNXVY?=
+ =?utf-8?B?Ym55VWRMNjdwN2hhN2xFVHMwYXBsaHJWdzFsaDBjdnpBQmdHd2VPVllnWDNn?=
+ =?utf-8?B?OWhFUy8zODFWdGtsMTZCVmh2Vm05NTNmWVltVVRzTWM3Z1d6dVFZZDV3aHkv?=
+ =?utf-8?B?dGpIWExXc245TmE2OGNnMkNEdldUb3lqdkNhOEMvWXZQWGdwY1pSbU9DZExz?=
+ =?utf-8?B?bytUVjJIRTRVaS9oTU1XazJsVnk4L1ljVDZZaGNJK05xSjl2SE9UblZXdWw4?=
+ =?utf-8?B?OVh2MUk4aVBiQzZJQWxmRmViVEFpUjlmdmRIK1dPOXo1cUtueEYxMjhJUW02?=
+ =?utf-8?Q?Z+HnX8?=
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(14060799003)(82310400026)(36860700013)(35042699022)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2025 16:12:22.9828
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75111787-04a7-499c-918b-08ddbd710e97
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0A.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB8017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_090858_113591_EC6F381B 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20250707_091231_501800_11F84FE6 
+X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,34 +245,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add bindings for SolidRun i.MX8M Plus System on Module based boards:
 
-On Sun, Jul 06, 2025 at 07:45:04PM -0500, Catalin Marinas wrote:
-> On Fri, Jul 04, 2025 at 02:40:17PM +0100, Mark Rutland wrote:
-> > On Fri, Jul 04, 2025 at 02:33:35PM +0100, Will Deacon wrote:
-> > > I would actually like to select VMAP_STACK unconditionally for arm64.
-> > > Historically, we were held back waiting for all the various KASAN modes
-> > > to support vmalloc properly, but I _think_ that's fixed now...
-> > > 
-> > > The VMAP_STACK dependency is:
-> > > 
-> > > 	depends on !KASAN || KASAN_HW_TAGS || KASAN_VMALLOC
-> > > 
-> > > and in arm64 we have:
-> > > 
-> > > 	select KASAN_VMALLOC if KASAN
-> > > 
-> > > so it should be fine to select it afaict.
-> > > 
-> > > Any reason not to do that?
-> > 
-> > Not that I am aware of.
-> > 
-> > I'm also in favour of unconditionally selecting VMAP_STACK.
-> 
-> So am I.
+- CuBox-M is a complete produc with enclosure including the SoM
+- HummingBoard Mate/Pro/Pulse/Ripple are evaluation boards with common
+  design but different available interfaces.
 
-Thanks. I've played a bit with it, and did some mechanical work, and
-send a v1.
+Signed-off-by: Josua Mayer <josua@solid-run.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-https://lore.kernel.org/all/20250707-arm64_vmap-v1-0-8de98ca0f91c@debian.org/
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index d3b5e6923e4166e35760c17c772aa0195137de93..1462023f35b7be47a5cb855fa64025d07361d550 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1189,6 +1189,17 @@ properties:
+           - const: polyhex,imx8mp-debix-som-a       # Polyhex Debix SOM A
+           - const: fsl,imx8mp
+ 
++      - description: SolidRun i.MX8MP SoM based boards
++        items:
++          - enum:
++              - solidrun,imx8mp-cubox-m             # SolidRun i.MX8MP SoM on CuBox-M
++              - solidrun,imx8mp-hummingboard-mate   # SolidRun i.MX8MP SoM on HummingBoard Mate
++              - solidrun,imx8mp-hummingboard-pro    # SolidRun i.MX8MP SoM on HummingBoard Pro
++              - solidrun,imx8mp-hummingboard-pulse  # SolidRun i.MX8MP SoM on HummingBoard Pulse
++              - solidrun,imx8mp-hummingboard-ripple # SolidRun i.MX8MP SoM on HummingBoard Ripple
++          - const: solidrun,imx8mp-sr-som
++          - const: fsl,imx8mp
++
+       - description: Toradex Boards with SMARC iMX8M Plus Modules
+         items:
+           - const: toradex,smarc-imx8mp-dev # Toradex SMARC iMX8M Plus on Toradex SMARC Development Board
+
+-- 
+2.43.0
+
 
