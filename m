@@ -4,80 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897EBC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 00:01:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95019C83F07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Jul 2025 00:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4YASFBwX97G7t8uWuk6GOjhJx3b5rCBSNe6Sfs+DpWs=; b=SWmOa3FUk/2/7tKNqXwfEVm15G
-	7+Re7Ih5DkYZwQIsns1vN5gQjkrCegwno59WpJha8qdgAAFAHJjMNK8HebIsZDxb/VDZWin+ktO0s
-	Vg5a6ndWyMhRFUhWqhsaksQJps/JMecYV/fgEifKO4Gwq0L0zSr3PhMejWg37iJcvqeDIxeRdSHeo
-	q4gOOxNO40GFBTpMQxipwBjo9IZyM+/FAhlX94E6KTCNYF2Mc1iUpq2qGmlb0JF2EE3USNGfxqgOS
-	NASJ/QrXopnLT+lWJdjmztu5YvyloiidTzC21pSE8EVhu6LJ/XnuUqqvY6Po4EFUCJ6f5GialVXru
-	o7BANDRQ==;
+	bh=FFUVXzwlU9/Ndl4WZUiDxPXF594aEmGbVfz+CvRfdkw=; b=ecpKvCxz6ING3VXR3Pv3XMzn3t
+	dTvGc0eYTujCHubJxyPdLUihLfW1B31+vpIRAOEk6smHYpEZ/QkoXjdPF67rNj95H2F2mmQWneolD
+	eb9Z3O2Fr6hyKthB/fN/k/UmzaNvCU3mpNG0l9pM2sQ3t9hexuMcsHIogSOn3u1wMtO64SF3eG5Zr
+	ijMykw/CIofoiWq/ryNCfjst4YH3o6y7Sh3ErZCQ7jzpJKMSSK84ZWI1YwbOM/gmFtGzlzZTbmRI6
+	L7yYctKO8L1+mDQzJaREMZpdqglIi3QupfvRwuqO/3urLZuzxioYCr01tU7aKw3xRI3OP72P7VApm
+	h6PyeFfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYZIb-00000000zdf-23Uz;
-	Mon, 07 Jul 2025 00:01:33 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uYa0d-000000012hr-37JR;
+	Mon, 07 Jul 2025 00:47:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYZGH-00000000zSO-26hF
+	id 1uYZyJ-000000012SW-0135
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Jul 2025 23:59:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1751846345; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=iZvaqcHYYkkWJOoppH7Mhh0AovxMxPTU70vRdmiv/dQafEq274MLjqun5UBcpTzCRneUyu66xuRxr/rOaJX/rDzMogwERiCONXa79OI/tBQzC58nZgq0HH3gP79q36EdPBUK/RBoluzN64emgfQFGrQRIb8nvZsDQaUIvL363rw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1751846345; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4YASFBwX97G7t8uWuk6GOjhJx3b5rCBSNe6Sfs+DpWs=; 
-	b=YyRzIjBCrybNrlXnavLDi+yAIEtDDCKY6qpJaw8SSSs67rnLke56mxO+m5JJB0DCQQv6p+nHE+TzqHm/7axxhfk5rMbgufzkBk9ENGpKQwKxu7Udh5UBstP6U6t4xuQJVSDwqGnrWyqUsC4Eoz/e3cynwwd6/kQ2pH7P4GgcZfU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1751846345;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=4YASFBwX97G7t8uWuk6GOjhJx3b5rCBSNe6Sfs+DpWs=;
-	b=eGcSIRgbzjQxAg+nwQqZFkt6qAYLEFDkSR4V03bo+1gNTbdYv0KMyapLYS9DIJfv
-	wTaZwy9uSa4PJPPZhYB0MGYR+exSSuS0dyYAk6DVP/Yjdd2IS4m9h8CSNTAS2ZV0i4l
-	coco5iR2apAUJgsLtsdAzNNr524wIM934CGhwa84=
-Received: by mx.zohomail.com with SMTPS id 1751846342840223.73657093435042;
-	Sun, 6 Jul 2025 16:59:02 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 8B6FF180F14; Mon, 07 Jul 2025 01:58:57 +0200 (CEST)
-Date: Mon, 7 Jul 2025 01:58:57 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Thomas Antoine <t.antoine@uclouvain.be>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Dimitri Fedrau <dima.fedrau@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v4 2/5] power: supply: add support for max77759 fuel gauge
-Message-ID: <5n5nkgbviv2dyuqiji3n5ehp5bo5d4azqrlbcz45m2wpmnl525@4vgwghcaytc6>
-References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
- <20250523-b4-gs101_max77759_fg-v4-2-b49904e35a34@uclouvain.be>
- <4cahu6dog7ly4ww6xyjmjigjfxs4m55mrnym2bjmzskscfvk34@guazy6wxbzfh>
- <793c02e4-fa7a-4c13-bfc3-bb058e211b5f@uclouvain.be>
+	Mon, 07 Jul 2025 00:44:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B40FB5C5530;
+	Mon,  7 Jul 2025 00:44:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6E1DC4CEED;
+	Mon,  7 Jul 2025 00:44:25 +0000 (UTC)
+Date: Sun, 6 Jul 2025 19:44:23 -0500
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: will@kernel.org, anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
+	ryan.roberts@arm.com, kevin.brodsky@arm.com,
+	yangyicong@hisilicon.com, joey.gouly@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	david@redhat.com
+Subject: Re: [PATCH v4] arm64: Enable vmalloc-huge with ptdump
+Message-ID: <aGsYZ7W0yunbeqQV@arm.com>
+References: <20250626052524.332-1-dev.jain@arm.com>
+ <aGe5XjWKhgjzcw7L@arm.com>
+ <bc201f93-7743-4d9d-a62e-3c8ea22e2cfd@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nclyy4wjoce7arde"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <793c02e4-fa7a-4c13-bfc3-bb058e211b5f@uclouvain.be>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/251.827.75
-X-ZohoMailClient: External
+In-Reply-To: <bc201f93-7743-4d9d-a62e-3c8ea22e2cfd@arm.com>
+X-TUID: Ld5c6jqIQp3G
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250706_165909_608911_07C2CF4A 
-X-CRM114-Status: GOOD (  47.30  )
+X-CRM114-CacheID: sfid-20250706_174439_127960_6FB1314B 
+X-CRM114-Status: GOOD (  41.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,144 +67,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jul 04, 2025 at 05:12:13PM +0530, Dev Jain wrote:
+> On 04/07/25 4:52 pm, Catalin Marinas wrote:
+> > On Thu, Jun 26, 2025 at 10:55:24AM +0530, Dev Jain wrote:
+> > > @@ -1301,16 +1314,39 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+> > >   	}
+> > >   	table = pmd_offset(pudp, addr);
+> > > +	/*
+> > > +	 * Isolate the PMD table; in case of race with ptdump, this helps
+> > > +	 * us to avoid taking the lock in __pmd_free_pte_page().
+> > > +	 *
+> > > +	 * Static key logic:
+> > > +	 *
+> > > +	 * Case 1: If ptdump does static_branch_enable(), and after that we
+> > > +	 * execute the if block, then this patches in the read lock, ptdump has
+> > > +	 * the write lock patched in, therefore ptdump will never read from
+> > > +	 * a potentially freed PMD table.
+> > > +	 *
+> > > +	 * Case 2: If the if block starts executing before ptdump's
+> > > +	 * static_branch_enable(), then no locking synchronization
+> > > +	 * will be done. However, pud_clear() + the dsb() in
+> > > +	 * __flush_tlb_kernel_pgtable will ensure that ptdump observes an
+[...]
+> > I don't get case 2. You want to ensure pud_clear() is observed by the
+> > ptdump code before the pmd_free(). The DSB in the TLB flushing code
+> > ensures some ordering between the pud_clear() and presumably something
+> > that the ptdump code can observe as well. Would that be the mmap
+> > semaphore? However, the read_lock would only be attempted if this code
+> > is seeing the static branch update, which is not guaranteed. I don't
+> > think it even matters since the lock may be released anyway before the
+> > write_lock in ptdump.
+> > 
+> > For example, you do a pud_clear() above, skip the whole static branch.
+> > The ptdump comes along on another CPU but does not observe the
+> > pud_clear() since there's no synchronisation. It goes ahead and
+> > dereferences it while this CPU does a pmd_free().
+> 
+> The objective is: ptdump must not dereference a freed pagetable.
+> So for your example, if the static branch is not observed by
+> pud_free_pmd_page, this means that ptdump will take the write lock
+> after the execution of flush_tlb_kernel_pagetable completes (for if ptdump takes
+> the write lock before execution of flush_tlb_kernel_pagetable completes, we have
+> executed static_branch_enable(), contradiction).
 
---nclyy4wjoce7arde
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 2/5] power: supply: add support for max77759 fuel gauge
-MIME-Version: 1.0
+I don't see why the write lock matters since pud_free_pmd_page() doesn't
+take the read lock in the second scenario. What we need is acquire
+semantics after the static branch update on the ptdump path but we get
+it before we even attempt the write lock.
 
-Hi,
+For simplicity, ignoring the observability of instruction writes and
+considering the static branch a variable, if pud_free_pmd_page() did not
+observe the static branch update, is the ptdump guaranteed to see the
+cleared pud subsequently?
 
-On Wed, Jun 25, 2025 at 02:12:21PM +0200, Thomas Antoine wrote:
-> > On Fri, May 23, 2025 at 02:51:45PM +0200, Thomas Antoine via B4 Relay w=
-rote:
-> >> From: Thomas Antoine <t.antoine@uclouvain.be>
-> >>
-> >> The interface of the Maxim MAX77759 fuel gauge has a lot of common wit=
-h the
-> >> Maxim MAX1720x. A major difference is the lack of non-volatile memory
-> >> slave address. No slave is available at address 0xb of the i2c bus, wh=
-ich
-> >> is coherent with the following driver from google: line 5836 disables
-> >> non-volatile memory for m5 gauge.
-> >>
-> >> Link: https://android.googlesource.com/kernel/google-modules/bms/+/1a6=
-8c36bef474573cc8629cc1d121eb6a81ab68c/max1720x_battery.c
-> >>
-> >> Other differences include the lack of V_BATT register to read the batt=
-ery
-> >> level. The voltage must instead be read from V_CELL, the lowest voltag=
-e of
-> >> all cells. The mask to identify the chip is different. The computation=
- of
-> >> the charge must also be changed to take into account TASKPERIOD, which
-> >> can add a factor 2 to the result.
-> >>
-> >> Add support for the MAX77759 by taking into account all of those
-> >> differences based on chip type.
-> >>
-> >> Do not advertise temp probes using the non-volatile memory as those are
-> >> not available.
-> >>
-> >> The regmap was proposed by Andr=E9 Draszik in
-> >>
-> >> Link: https://lore.kernel.org/all/d1bade77b5281c1de6b2ddcb4dbbd033e455=
-a116.camel@linaro.org/
-> >>
-> >> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
-> >> ---
-> >>  drivers/power/supply/max1720x_battery.c | 265 +++++++++++++++++++++++=
-+++++----
-> >>  1 file changed, 238 insertions(+), 27 deletions(-)
-> >>
-> >> diff --git a/drivers/power/supply/max1720x_battery.c b/drivers/power/s=
-upply/max1720x_battery.c
-> >> index 68b5314ecf3a234f906ec8fe400e586855b69cd9..c9ad452ada9d0a2a51f37d=
-04fd8c3260be522405 100644
-> >> --- a/drivers/power/supply/max1720x_battery.c
-> >> +++ b/drivers/power/supply/max1720x_battery.c
-> >> @@ -37,6 +37,7 @@
-> >>  #define MAX172XX_REPCAP			0x05	/* Average capacity */
-> >>  #define MAX172XX_REPSOC			0x06	/* Percentage of charge */
-> >>  #define MAX172XX_TEMP			0x08	/* Temperature */
-> >> +#define MAX172XX_VCELL			0x09	/* Lowest cell voltage */
-> > [...]
-> >>  	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
-> > [...]
-> >> +			ret =3D regmap_read(info->regmap, MAX172XX_VCELL, &reg_val);
-> >> +			val->intval =3D max172xx_cell_voltage_to_ps(reg_val);
-> >=20
-> > I haven't reviewed this fully due to all the feedback you already
-> > got from Peter Griffin and the DT binding being broken, but something
-> > that catched my eye:
-> >=20
-> > POWER_SUPPLY_PROP_VOLTAGE_NOW provides the voltage of the whole
-> > battery and not of a single cell. E.g. a typical Li-Ion battery
-> > with two serial cells has a nominal voltage of roughly 7.4V while
-> > each cell has just 3.7V.
-> >=20
-> > Greetings,
-> >=20
-> > -- Sebastian
->=20
-> Downstream just reports this value which is usually a bit over 4V when I
-> record it.
->=20
-> Also from what I saw online, it seems that the battery does output
-> voltages around 3.86V as it is written on the battery:
-> https://cdn.shopify.com/s/files/1/0092/8133/9443/files/QeqxTLOL6eAp6OpZ.j=
-pg?v=3D1728588266&width=3D2048
->=20
-> So I guess that there could only be a single cell in the battery? Which
-> would explain why they only report the lowest one.
->=20
-> It thus should be ok if we consider only the Google Pixel 6 (Pro). If we
-> need to take into account the possibility that the chip would be
-> used with other batteries, we could take from the devicetree the number
-> of cells and only provide the voltage if the number of cells is 1. Would
-> this be a good solution?
+With initial state pud=1 (non-zero), stb=0 (static branch):
 
-That's fine with me. But getting the DT binding prepared will take
-some time (the DT property should definetly go via
-Documentation/devicetree/bindings/power/supply/battery.yaml), we
-had some prior discussions around this IIRC. It might be sensible
-to move adding VOLTAGE_NOW support to an extra series.
+P0 (pud_free_pmd_page)		P1 (ptdump)
 
-> There is also a VSYS register (0xb1) but I couldn't find anything
-> about it. Taking a LSB of 156uV (twice the one of VCell), I see a
-> clear correlation with VCell, except for it being very slightly
-> lower. As it is mostly guesswork, I don't think it would be a good
-> idea to use this without any confirmation it is correct.
+    W_pud=0			   W_stb=1
+    DSB				   barrier/acq
+    R_stb=0			   R_pud=?
 
-I see the datasheet does not have the register listed for < 0x10.
-Have you tried contacting the original Google driver author to shed
-some light to this?
+The write to the static branch on P1 will be ordered after the read of
+the branch on P0, so the pud will be seen as 0. It's not even worth
+mentioning the semaphore here as the static branch update has enough
+barriers for cache flushing and kick_all_cpus_sync().
 
-Greetings,
 
--- Sebastian
+The other scenario is P0 (pud_free_pmd_page) observing the write to the
+static branch (that's case 1 in your comment). This doesn't say anything
+about whether P1 (ptdump) sees a clear or valid pud. What we do know is
+that P0 will try to acquire (and release) the lock. If P1 already
+acquired the write lock, P0 will wait and the state of the pud is
+irrelevant (no freeing). Similarly if P1 already completed by the time
+P0 takes the lock.
 
---nclyy4wjoce7arde
-Content-Type: application/pgp-signature; name="signature.asc"
+If P0 takes the lock first, the lock release guarantees that the
+pud_clear() is seen by the ptdump code _after_ it acquired the lock.
 
------BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmhrDb0ACgkQ2O7X88g7
-+poIhRAAi6S6FcK4GYRPjYWN/URGf5qBd1DRGWJF9nlVoYfXUWFJiuXTvnPjPMQ3
-y6b9zWXHRaIn5fa0pDcyKrO6oAz7EBsflk0aijPqnbPGxlIBthmk1QaynzQ/8Ldr
-WFTkKE3sorCC/Ki43Q2+QFzBMDgknGfeQNVhOfIHrDmNpnXg9TR2V+jnYZzyP2Xj
-Iz/vYtIpqSMOWMdfkGxi25nhMOjn6t99GRjhT5ajhqVfv5qNuR8Eihqz8Czttr0/
-jFTz8Ct01b6f7N+9HoPpWS2TLqiH3atq1+Z69EAdAssTaT7SFd7ZqYGSIs9KY+bZ
-aBLr4avVNNDe7qrrxFh8jjEwEy4qYyq64ZM9uSuMG7WKF8ronqPiTKn4mU6Ec8t/
-OZzLBVgwUQG5DXL1USMu37sfmo/kfqS0XTUu+XK/UGfPkj3kwKdXMjo+6yyZ3mNF
-bOeLTWfv/fIpJ4AJivZSbbTRbhqjD1xW9Z6dbMqJ+x88Xern9lB8JdVzkActXzt3
-gdk9tQ/U7YH+kn+oVWuJ8lNkrujSO0t6rvCVGmealRDdLUoFuzl8UaGoYJ4i1Clo
-CaK0gQ51wv430u3SB+O2MTF2Q+LWvuYa6ao12KhE5FTPxBZ4WicvV73yXAhgJgnd
-o2JD8WjWl4LRIRzVUef9O5AxKRZxkbnAUNgJ2yQ5VD9PzkLP0hs=
-=Lwm3
------END PGP SIGNATURE-----
+W.r.t. the visibility of the branch update vs pud access, the
+combinations of DSB+ISB (part of the TLB flushing) on P0 and cache
+maintenance to PoU together with kick_all_cpus_sync() on P1 should
+suffice.
 
---nclyy4wjoce7arde--
+I think the logic works (though I'm heavily jetlagged and writing from a
+plane) but the comments need to be improved. As described above, case 1
+has two sub-cases depending on when P0 runs in relation to the write
+lock (before or during/after). And the write lock doesn't matter for
+case 2.
+
+> > And I can't get my head around memory ordering, it doesn't look sound.
+> > static_branch_enable() I don't think has acquire semantics, at least not
+> > in relation to the actual branch update. The static_branch_unlikely()
+> > test, again, not sure what guarantees it has (I don't think it has any
+> > in relation to memory loads). Maybe you have worked it all out and is
+> > fine but it needs a better explanation and ideally some simple formal
+> > model. Show it's correct with a global variable first and then we can
+> > optimise with static branches.
+> 
+> What do you suggest? As in what do you mean by showing its correct with
+> a global variable first...and, for the formal model thingy, do you
+> want mathematical rigor similar to what you explain in [1] :P, because unfortunately
+> (and quite embarrassingly) I didn't have formal methods in college : )
+
+Neither did I ;) (mostly analogue electronics). I was thinking something
+like our cat/herd tools where you can write some simple assembly. It's a
+good investment if you want to give it a try.
+
+-- 
+Catalin
 
