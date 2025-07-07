@@ -4,59 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 866D2C71130
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 00:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AFEC83030
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 00:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ayvzLJimJw2GS2ytoxMMKMPHbUuvvA1QndYscemqdIs=; b=3FGDKOB07EVPfawsh9LktNOJ5L
-	Ow5Kx1uQWPeESAAaFcS9CPSY4RY0+so+V59FUTA8sDK25KJs4/gTLE9cJFWwnxKCnQlha59wJ5Cj0
-	K7KuI3y3haV/s6DATC5scPar5oTxWM1FajjIZB+nJYZf+xw8qvKlzyGjN6lt1I+wq3PvG1fgEMLK8
-	umKD1uYB1n+9kkAcNeqW3K0iBHdv+2vHwv5Kz4qk8NY9YU4+wc2Xw50CBD+uteqZRTshKNYk9c4Zi
-	FJhq7AiNc4MuxZ+JpPxoY3SdcROPzK92oub4XknS2jGeNcuNa6XyqzLq771+SRhdaBD71qSAOLNJw
-	r0z+xxAQ==;
+	bh=ID9d9BcvZSRiBAL43tNvk/za2oURSldztZwoYSZZSRw=; b=LnPVvl8Tso6AUBtjX8qT+xnhSd
+	zjmZ3yuB9jZMMVIs/nBHdldPGhUCPGGGHoXuyIJfMrKiqcecTRw3ja3eynVYFf97jJHtaterFvKXA
+	r7sXd77RiIgzPjXFM2V55Z8DuFea3XRjaMh0pGJq3CcoKly3f6JZmBlMD+TxVaSy+KXBzJXlR7EXT
+	ydJIQWiOx9vQwT2sNno5uJAdEwQ95/8h9An0Siu1RhjgiuxTYrcrU7sUoHs2t6mJpXjv60KkXB4F1
+	egBTnmsdgIlVpkzy6VQjXToDeSozAWLdHLCGT75pGKYC7KK7iqvj1PWvmR8Ocf4yf6F8VMNGC+xyD
+	DbAtEytg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYvlT-00000003p9T-1uMH;
-	Tue, 08 Jul 2025 00:00:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYvat-00000003o8z-3CwU
+	id 1uYvnn-00000003pR2-1by1;
+	Tue, 08 Jul 2025 00:03:15 +0000
+Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uYviZ-00000003oiW-1xZT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Jul 2025 23:49:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E22E1515;
-	Mon,  7 Jul 2025 16:49:43 -0700 (PDT)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6EFC13F66E;
-	Mon,  7 Jul 2025 16:49:53 -0700 (PDT)
-Date: Tue, 8 Jul 2025 00:48:09 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
- Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v2 4/4] arm64: dts: allwinner: a133-liontron-h-a133l:
- Add Ethernet support
-Message-ID: <20250708004731.37fa5129@minigeek.lan>
-In-Reply-To: <20250708003348.58fe509f@minigeek.lan>
-References: <20250707165155.581579-1-paulk@sys-base.io>
-	<20250707165155.581579-5-paulk@sys-base.io>
-	<20250708003348.58fe509f@minigeek.lan>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	Mon, 07 Jul 2025 23:57:53 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1751932668;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ID9d9BcvZSRiBAL43tNvk/za2oURSldztZwoYSZZSRw=;
+	b=iCB7Z7v+qgC1UWXo11wDeTQYTDq197Mo2PfW2D13YQg3yqRj6c3A6ST4556ikTQqdozS3O
+	j4raBn9VW285hppCFSam1N59OXM37/ATWcv3SJciEGO9YoW9HTTNmSOSp8xIhlV5mFouXV
+	6VErk7tOb4bvc4aPcMwXIMUx/2NXg+k=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: maz@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	ryan.roberts@arm.com,
+	shahuang@redhat.com,
+	lpieralisi@kernel.org,
+	david@redhat.com,
+	ddutile@redhat.com,
+	seanjc@google.com,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	ankita@nvidia.com
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	aniketa@nvidia.com,
+	cjia@nvidia.com,
+	kwankhede@nvidia.com,
+	kjaju@nvidia.com,
+	targupta@nvidia.com,
+	vsethi@nvidia.com,
+	acurrid@nvidia.com,
+	apopple@nvidia.com,
+	jhubbard@nvidia.com,
+	danw@nvidia.com,
+	zhiw@nvidia.com,
+	mochs@nvidia.com,
+	udhoke@nvidia.com,
+	dnigam@nvidia.com,
+	alex.williamson@redhat.com,
+	sebastianene@google.com,
+	coltonlewis@google.com,
+	kevin.tian@intel.com,
+	yi.l.liu@intel.com,
+	ardb@kernel.org,
+	akpm@linux-foundation.org,
+	gshan@redhat.com,
+	linux-mm@kvack.org,
+	tabba@google.com,
+	qperret@google.com,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	maobibo@loongson.cn
+Subject: Re: [PATCH v10 0/6] KVM: arm64: Map GPU device memory as cacheable
+Date: Mon,  7 Jul 2025 16:57:30 -0700
+Message-Id: <175193253138.1687959.6241606194423745301.b4-ty@linux.dev>
+In-Reply-To: <20250705071717.5062-1-ankita@nvidia.com>
+References: <20250705071717.5062-1-ankita@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_164955_895576_E9390364 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20250707_165752_157368_6011A9DC 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,84 +110,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 8 Jul 2025 00:34:25 +0100
-Andre Przywara <andre.przywara@arm.com> wrote:
+On Sat, 05 Jul 2025 07:17:11 +0000, ankita@nvidia.com wrote:
+> From: Ankit Agrawal <ankita@nvidia.com>
+> 
+> Grace based platforms such as Grace Hopper/Blackwell Superchips have
+> CPU accessible cache coherent GPU memory. The GPU device memory is
+> essentially a DDR memory and retains properties such as cacheability,
+> unaligned accesses, atomics and handling of executable faults. This
+> requires the device memory to be mapped as NORMAL in stage-2.
+> 
+> [...]
 
-Hi Paul,
+I've gone through one additional round of bikeshedding on the series,
+primarily fixing some typos and refining changelogs/comments. Note that
+I squashed the kvm_arch_supports_cacheable_pfnmap() into the patch that
+adds its caller and unwired it from arch-neutral code entirely.
 
-forgot to mention: can you please add an ethernet0 alias, to make
-U-Boot generate a MAC address, from the SID?
+Please do shout if there's an issue with any of this and thanks for
+keeping up with the several rounds of review.
 
-Cheers,
-Andre
+Applied to next, thanks!
 
-> On Mon,  7 Jul 2025 18:51:55 +0200
-> Paul Kocialkowski <paulk@sys-base.io> wrote:
-> 
-> Hi Paul,
-> 
-> > The Liontron H-A133L board features an Ethernet controller with a
-> > JLSemi JL1101 PHY. Its reset pin is tied to the PH12 GPIO.
-> > 
-> > Note that the reset pin must be handled as a bus-wide reset GPIO in
-> > order to let the MDIO core properly reset it before trying to read
-> > its identification registers. There's no other device on the MDIO bus.  
-> 
-> putting the PHY reset GPIO into the MDIO node is a clever solution, I
-> was struggling with putting it either in the MAC or PHY node, though
-> conceptually it would still belong in the latter, I think. But this
-> might be a more generic problem: for most other devices we activate
-> reset and clock gates *before* trying to access them, though this might
-> be historically different for Ethernet PHYs.
->  
-> > The datasheet of the PHY mentions that the reset signal must be held
-> > for 1 ms to take effect. Make it 2 ms (and the same for post-delay) to
-> > be on the safe side without wasting too much time during boot.
-> > 
-> > Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>  
-> 
-> Despite the above, this looks fine, and works for me:
-> 
-> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-> Tested-by: Andre Przywara <andre.przywara@arm.com>
-> 
-> Cheers,
-> Andre
-> 
-> > ---
-> >  .../sun50i-a133-liontron-h-a133l.dts          | 19 +++++++++++++++++++
-> >  1 file changed, 19 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-> > index fe77178d3e33..90a50910f07b 100644
-> > --- a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-> > @@ -65,6 +65,25 @@ &ehci1 {
-> >  	status = "okay";
-> >  };
-> >  
-> > +&emac0 {
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&rmii0_pins>;
-> > +	phy-handle = <&rmii_phy>;
-> > +	phy-mode = "rmii";
-> > +	status = "okay";
-> > +};
-> > +
-> > +&mdio0 {
-> > +	reset-gpios = <&pio 7 12 GPIO_ACTIVE_LOW>; /* PH12 */
-> > +	reset-delay-us = <2000>;
-> > +	reset-post-delay-us = <2000>;
-> > +
-> > +	rmii_phy: ethernet-phy@1 {
-> > +		compatible = "ethernet-phy-ieee802.3-c22";
-> > +		reg = <1>;
-> > +	};
-> > +};
-> > +
-> >  &mmc0 {
-> >  	vmmc-supply = <&reg_dcdc1>;
-> >  	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>; /* PF6 */  
-> 
+[1/6] KVM: arm64: Rename the device variable to s2_force_noncacheable
+      https://git.kernel.org/kvmarm/kvmarm/c/8cc9dc1ae4fb
+[2/6] KVM: arm64: Update the check to detect device memory
+      https://git.kernel.org/kvmarm/kvmarm/c/216887f79d98
+[3/6] KVM: arm64: Block cacheable PFNMAP mapping
+      https://git.kernel.org/kvmarm/kvmarm/c/2a8dfab26677
+[5/6] KVM: arm64: Allow cacheable stage 2 mapping using VMA flags
+      https://git.kernel.org/kvmarm/kvmarm/c/0c67288e0c8b
+[6/6] KVM: arm64: Expose new KVM cap for cacheable PFNMAP
+      https://git.kernel.org/kvmarm/kvmarm/c/f55ce5a6cd33
 
+--
+Best,
+Oliver
 
