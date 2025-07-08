@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB79C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 07:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C7BC71130
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 07:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WEv+ejLgluG2KK+a80vQYjLIFkKXgegHsi+Qlx0dVhQ=; b=Z5z8YB4VdtrwiPGLoPxWnUt6iL
-	mKYmqs6fUVovLoTir7rKJV9ia4y2JKzNvugkSEP2pcP7/8NiSVzr1Fe1Lh1IwqoGgsfdiUhJ/AFwS
-	gqjr++AcRlc1kPBxQenbfSrSs2OU7tQq3qeLfrUpq8RoJuOiGJiH7dpZJjv0ek9k5ofdd8dwFXqSD
-	JhY3FztyM9P6ivpVUeP2Z+cPh9ZCtIviKXCH5giNQCVrydt6yj0opO5BrBHJriKUdlMc3YAx09jyB
-	KlI1BhBo4Qc63jCr7pJFbQfGsU3iIHJ6dPMWSXYU3ZQYHCHMOnJogl6snwjiiHExSlo00NdLOVD/+
-	/lSsfqbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CncBn72Po4xfVSHEBJOvuxgfjvMFR73s62uElzwlrsY=; b=MfUfooihZWnpZj
+	HLAYvt7gF5x5pfWm8BnNbFtjRijt1J66p5zLYCyZju5RkcCwiuzH2eu9SyI0LqUAlHDOpU0DpIKkt
+	lfDgvKD1qqMYF68v+iMWc1cGdB7/w93deYmevqHxjfzaq1oOE4pqodzkFFk/Ul2vLlCr+9RSHRxHD
+	8HTpgd5FE981RCzkYi8Dgo7Be4HfLrawSF6ki8SBe6quByk0Wj7nprYGsicSxDgBJr/gFghxNb9e1
+	/azV0E2ozYSatfTsq5wH+oIbFXi47INwsaPG8IaRKnNIJUnxFISmmdS1SL+FdrwnKsX6GFnMrU1r0
+	IUXTl/t/3EefnU4PEj+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ2SX-00000004XXw-32uE;
-	Tue, 08 Jul 2025 07:09:45 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1uZ2XU-00000004YR1-3AvW;
+	Tue, 08 Jul 2025 07:14:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ2FB-00000004Vng-3hK3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 06:56:00 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 8 Jul
- 2025 14:55:44 +0800
-Received: from mail.aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 8 Jul 2025 14:55:44 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
-	<andrew@codeconstruct.com.au>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
-	<p.zabel@pengutronix.de>, <horms@kernel.org>, <jacob.e.keller@intel.com>,
-	<u.kleine-koenig@baylibre.com>, <hkallweit1@gmail.com>
-CC: <BMC-SW@aspeedtech.com>
-Subject: [net-next v3 4/4] net: ftgmac100: Add optional reset control for RMII mode on Aspeed SoCs
-Date: Tue, 8 Jul 2025 14:55:44 +0800
-Message-ID: <20250708065544.201896-5-jacky_chou@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250708065544.201896-1-jacky_chou@aspeedtech.com>
-References: <20250708065544.201896-1-jacky_chou@aspeedtech.com>
+	id 1uZ2V9-00000004YDh-3eX6;
+	Tue, 08 Jul 2025 07:12:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4541661463;
+	Tue,  8 Jul 2025 07:12:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B3CBC4CEED;
+	Tue,  8 Jul 2025 07:12:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751958747;
+	bh=gjo96x9e45Yxy/9KO1uojpXNo9dbAQFOswgfQn3glyk=;
+	h=From:Subject:Date:To:Cc:From;
+	b=McnzOBb7/RzDNvcdlzM1uSubEdBkiig7ZRA5PyG+8wyb0LBeN+lV/uZNuOuEbTjQk
+	 MQfoxQg/Xk3SwjfTZCJiNtFq4h5wqmWi9zTCZYq8sYSVWu4bHMWkKEUb4sQrSWvmxo
+	 FdIkGuBQ6iISqJH9gpQdCUMO6wbcaYhhvaS+gtML4Ony8fITM6mKhqwQHnLYN7hL+e
+	 Lhdyy+ZJx54sweX/XtZIUzlWfdL7ydaYwgmVBhbBVSC5zogXwMV0d5Pbr10+fzHtm1
+	 25j8nRvbnchGllJLG34a4DvTm62xRANOEtVYuyyDns1en2l6i7fi71yWcdxsASwRYf
+	 l9UfsK9lJXCWg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH mt76 0/2] Fix MT7996 driver performance in the mixed
+ MLO/non-MLO scenario
+Date: Tue, 08 Jul 2025 09:12:03 +0200
+Message-Id: <20250708-mt7996-mlo-fixes-v2-v1-0-f2682818a8a3@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_235557_934879_69A45BAA 
-X-CRM114-Status: GOOD (  16.33  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMPEbGgC/x3LQQqAIBBA0avErBtQodSuEi2ixhpICw0JwrsnL
+ R+f/0KiyJRgaF6IlDnxGSpk28Cyz2Ej5LUalFCd0MKgv7W1PfrjRMcPJcwK1866nqSSxjqo5xX
+ pb3Ucp1I+14tdCGUAAAA=
+X-Change-ID: 20250708-mt7996-mlo-fixes-v2-d59f6e12189f
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Peter Chiu <chui-hao.chiu@mediatek.com>, 
+ Money Wang <Money.Wang@mediatek.com>, 
+ Evelyn Tsai <evelyn.tsai@mediatek.com>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ MeiChia Chiu <meichia.chiu@mediatek.com>, 
+ Howard Hsu <howard-yh.hsu@mediatek.com>, Bo Jiao <Bo.Jiao@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,77 +80,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Aspeed SoCs, the internal MAC reset is insufficient to fully reset the
-RMII interface; only the SoC-level reset line can properly reset the RMII
-logic. This patch adds support for an optional "resets" property in the
-device tree, allowing the driver to assert and deassert the SoC reset line
-when operating in RMII mode. This ensures the MAC and RMII interface are
-correctly reset and initialized.
+Two more fixes to improve MT7996 driver performances in the mixed
+MLO/non-MLO scenario
 
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 ---
- drivers/net/ethernet/faraday/ftgmac100.c | 26 ++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+Lorenzo Bianconi (2):
+      wifi: mt76: mt7996: Overwrite unspecified link_id in mt7996_tx()
+      wifi: mt76: mt7996: Fix mt7996_mcu_sta_ba wcid configuration
 
-diff --git a/drivers/net/ethernet/faraday/ftgmac100.c b/drivers/net/ethernet/faraday/ftgmac100.c
-index a98d5af3f9e3..05b8e3743a79 100644
---- a/drivers/net/ethernet/faraday/ftgmac100.c
-+++ b/drivers/net/ethernet/faraday/ftgmac100.c
-@@ -9,6 +9,7 @@
- #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
- 
- #include <linux/clk.h>
-+#include <linux/reset.h>
- #include <linux/dma-mapping.h>
- #include <linux/etherdevice.h>
- #include <linux/ethtool.h>
-@@ -101,6 +102,8 @@ struct ftgmac100 {
- 
- 	/* AST2500/AST2600 RMII ref clock gate */
- 	struct clk *rclk;
-+	/* Aspeed reset control */
-+	struct reset_control *rst;
- 
- 	/* Link management */
- 	int cur_speed;
-@@ -148,6 +151,23 @@ static int ftgmac100_reset_and_config_mac(struct ftgmac100 *priv)
- {
- 	u32 maccr = 0;
- 
-+	/* Aspeed RMII needs SCU reset to clear status */
-+	if (priv->is_aspeed && priv->netdev->phydev->interface == PHY_INTERFACE_MODE_RMII) {
-+		int err;
-+
-+		err = reset_control_assert(priv->rst);
-+		if (err) {
-+			dev_err(priv->dev, "Failed to reset mac (%d)\n", err);
-+			return err;
-+		}
-+		usleep_range(10000, 20000);
-+		err = reset_control_deassert(priv->rst);
-+		if (err) {
-+			dev_err(priv->dev, "Failed to deassert mac reset (%d)\n", err);
-+			return err;
-+		}
-+	}
-+
- 	switch (priv->cur_speed) {
- 	case SPEED_10:
- 	case 0: /* no link */
-@@ -1968,6 +1988,12 @@ static int ftgmac100_probe(struct platform_device *pdev)
- 
- 	}
- 
-+	priv->rst = devm_reset_control_get_optional_exclusive(priv->dev, NULL);
-+	if (IS_ERR(priv->rst)) {
-+		err = PTR_ERR(priv->rst);
-+		goto err_phy_connect;
-+	}
-+
- 	if (priv->is_aspeed) {
- 		err = ftgmac100_setup_clk(priv);
- 		if (err)
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 32 ++++++++++++++--------
+ drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    | 12 ++++----
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  3 +-
+ 3 files changed, 30 insertions(+), 17 deletions(-)
+---
+base-commit: e553ac0d7616d6bcd06ed0c5f6126ce83097b31a
+change-id: 20250708-mt7996-mlo-fixes-v2-d59f6e12189f
+
+Best regards,
 -- 
-2.34.1
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
