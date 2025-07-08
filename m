@@ -4,85 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7903BC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 19:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5986CC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 19:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lv4o5LYOTE5Lwjbg8sVn+z8U/sEpPu4UyIig14M8VpI=; b=CX/3zGWCJzYIdeeYDNwnkehzOE
-	q1I+z6xXFIWzbP43E6PgBc4bDWhGJ6eIYEzMevxyx4jr6Lrc8LcXxr1dAqruCidhB6JzL/1II3Eua
-	SmixRp7r7wG9St4rkdnKnNopEC/HfVK+BMGZ0JoCHbMwQWPwW4uvHG7QW9Lmce4CpTa5GapxuwruZ
-	Yd8tyrNXScreF4DNLSQmoAmaKgS0fFN8ZzilmqeAdThEhHYPd4F7KGoBT881bJRVC73CIQEYUPymt
-	ZoTyC2YBrPmsL1WraviEyc0U5wnvJHBgOBAL8rDtz0/tPRuFcmh83a95/9FJVys83MaJn0flMywlX
-	5J6vmrSQ==;
+	bh=jDhOomFDs/ZZD4vuslnbojv48ZyhcN8z335ldHPO6ds=; b=ZNuwJIUO5Y1e+0I/ncZvOBoTa1
+	kbhC9h93LnUw8xX794ZGOXXjICSoUdXho5vbTFnQ+W1ZE0MhtQ+5rX0VgOJ1g9tcBTt++EYV36A2d
+	+1gjlvt+77TQA8gnvxyq3au5sDJv9AT1s5wUoq4Mm6Esl9MD/tTtUfCshL7myavAYtvaZFmv5JebE
+	a5b8kOawiW744BrGf5Lbot3aMXM6vxqFNR6anUT3gGC+qV675sEqX+q4QnV6BhshM/BaqN2HK1L7x
+	RcmF0ArAYrM8uYzY/zFLtyWe4OJcpdxdvlsQ/YK6izKVnkTAngZtycsvTxtlk55RdHlARm+ObzJh0
+	+Mt4OBwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZECU-00000006PFf-1isM;
-	Tue, 08 Jul 2025 19:41:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uZEEp-00000006Pc8-0TgN;
+	Tue, 08 Jul 2025 19:44:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZCtO-00000006E6S-3IWW
+	id 1uZDB5-00000006GCZ-1WNt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 18:18:10 +0000
+	Tue, 08 Jul 2025 18:36:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 019E761442;
-	Tue,  8 Jul 2025 18:18:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E936C4CEED;
-	Tue,  8 Jul 2025 18:18:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EED1AA4B8B7;
+	Tue,  8 Jul 2025 18:36:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 596DAC4CEED;
+	Tue,  8 Jul 2025 18:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751998689;
-	bh=PKu6/ThVozLLn7QVgY0cNBC72u37vzczW0XG6NNicpg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ZgBt4z/GsgkccT31iLNkliSi4hbeCcwskRE2LCNvIscD0JNwyrcnPqREmog8m8eoZ
-	 9H/qk0MrBkhHBfgc86BKsWc9qzFeoHG0Apx1vExK2mJlewaBFFvh1zexoB+kVRL/bd
-	 cBQzlpKNXa/ao9V+3iWi7CT0uPVf657ze14JhIr0DYg8pJDeVMTpoVSn8SX6KCb8Et
-	 a5HuvvD2iWSBYVjA1UMWo8jB4oRhv7u5graujTyoR+kZXwtuciBUykYw9737QJpXcO
-	 jsQa93xKez07Z73M8PFvAkI2tP6tc1h6BBcHd3xOYKk+u+hPc609EtLd0UllqPbFBg
-	 zp67BrGbMkOnw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uZCtK-00DrVr-N7;
-	Tue, 08 Jul 2025 19:18:07 +0100
-Date: Tue, 08 Jul 2025 19:18:06 +0100
-Message-ID: <86ms9ea6n5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org
-Subject: Re: [PATCH v7 00/31] Arm GICv5: Host driver implementation
-In-Reply-To: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
-References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, Jonathan.Cameron@huawei.com, timothy.hayes@arm.com, bhelgaas@google.com, Liam.Howlett@oracle.com, peter.maydell@linaro.org, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1751999785;
+	bh=+wDb55masaQIrXES/8KNFPSYi1OWO4Ce1wHyf8x2E3A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Xqmk7XTCw1qNIQ2m/Hqs9+1DvdsIJ4F/i75HixRU7hFnqttwm4nuZQsAeEhygK6cV
+	 XP+fCojM3Hs024mlSotVfbp5cbSZVTg+WYQ99s+F3Mi0eSQHHBPmUc60I088hGissc
+	 DvzjpoZl8QA99MtF3sUrdD/uhhGPNC2xomBd7JlJon9V20bqc65dy48bd/lDlroEBL
+	 HOTwtkBEyOAtOHxeL8PsU9m1FfUxMr5ztBs/qI8EHMZ+NBsjjLq5ruzTEpwDbEUVAG
+	 hFv/sU65r4BfXuJKFDnWkrFYe7DCHSj+Gjcx3KOdpRwncCbSCdzeTOxTQ8hS2I5nNW
+	 ynxBQTkFTeKlQ==
+Date: Tue, 8 Jul 2025 19:36:20 +0100
+From: Simon Horman <horms@kernel.org>
+To: Himanshu Mittal <h-mittal1@ti.com>
+Cc: pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
+	davem@davemloft.net, andrew+netdev@lunn.ch,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com,
+	m-malladi@ti.com, pratheesh@ti.com, prajith@ti.com
+Subject: Re: [PATCH net] net: ti: icssg-prueth: Fix buffer allocation for
+ ICSSG
+Message-ID: <20250708183620.GV452973@horms.kernel.org>
+References: <20250708103516.1268876-1-h-mittal1@ti.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250708103516.1268876-1-h-mittal1@ti.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250708_113627_532345_2B953D45 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,47 +77,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 03 Jul 2025 11:24:50 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+On Tue, Jul 08, 2025 at 04:05:16PM +0530, Himanshu Mittal wrote:
+> Fixes overlapping buffer allocation for ICSSG peripheral
+> used for storing packets to be received/transmitted.
+> There are 3 buffers:
+> 1. Buffer for Locally Injected Packets
+> 2. Buffer for Forwarding Packets
+> 3. Buffer for Host Egress Packets
 > 
-> Implement the irqchip kernel driver for the Arm GICv5 architecture,
-> as described in the GICv5 beta0 specification, available at:
-> 
-> https://developer.arm.com/documentation/aes0070
-> 
-> The GICv5 architecture is composed of multiple components:
-> 
-> - one or more IRS (Interrupt Routing Service)
-> - zero or more ITS (Interrupt Translation Service)
-> - zero or more IWB (Interrupt Wire Bridge)
-> 
-> The GICv5 host kernel driver is organized into units corresponding
-> to GICv5 components.
-> 
-> The GICv5 architecture defines the following interrupt types:
-> 
-> - PPI (PE-Private Peripheral Interrupt)
-> - SPI (Shared Peripheral Interrupt)
-> - LPI (Logical Peripheral Interrupt)
-> 
-> This series adds sysreg entries required to automatically generate
-> GICv5 registers handling code, one patch per-register.
-> 
-> This patch series is split into patches matching *logical* entities,
-> to make the review easier.
+> In existing allocation buffers for 2. and 3. are overlapping
+> causing packet corruption.
 
-[...]
+Hi Himanshu,
 
-Oliver, I've pushed out a branch with these patches at [1]. Could you
-please stash it in kvmarm/next and add the KVM bits to it so that it
-can all simmer in -next for a bit?
+I think it would be useful to describe the old layoyt, or otherwise
+how the overlap occurs. And contrast that with the new layout.
 
-Thanks,
+There was a minimal ASCII diagram of in prueth_emac_buffer_setup().
+Perhaps expanding (on) that would be useful.
 
-	M.
+> 
+> Packet corruption observations:
+> During tcp iperf testing, due to overlapping buffers the received ack packet
+> overwrites the packet to be transmitted. So, we see packets on wire with the
+> ack packet content inside the content of next TCP packet from sender device.
+> 
+> Fixes: abd5576b9c57 ("net: ti: icssg-prueth: Add support for ICSSG switch firmware")
+> Signed-off-by: Himanshu Mittal <h-mittal1@ti.com>
 
-[1] git://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git gic-v5-host
+...
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
+
+...
+
+> @@ -297,43 +301,60 @@ static int prueth_fw_offload_buffer_setup(struct prueth_emac *emac)
+
+...
+
+> +	/* Configure buffer pools for Local Injection buffers
+> +	 *  - used by firmware to store packets received from host core
+> +	 *  - 16 total pools per slice
+> +	 */
+> +	for (i = 0; i < PRUETH_NUM_LI_BUF_POOLS_PER_SLICE; i++) {
+> +		/* The driver only uses first 4 queues per PRU so only initialize buffer for them */
+
+> +		if ((i % PRUETH_NUM_LI_BUF_POOLS_PER_PORT_PER_SLICE)
+> +			 < PRUETH_SW_USED_LI_BUF_POOLS_PER_PORT_PER_SLICE) {
+> +			writel(addr, &bpool_cfg[i + PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE].addr);
+> +			writel(PRUETH_SW_LI_BUF_POOL_SIZE,
+> +			       &bpool_cfg[i + PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE].len);
+> +			addr += PRUETH_SW_LI_BUF_POOL_SIZE;
+>  		} else {
+> -			writel(0, &bpool_cfg[i].addr);
+> -			writel(0, &bpool_cfg[i].len);
+> +			writel(0, &bpool_cfg[i + PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE].addr);
+> +			writel(0, &bpool_cfg[i + PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE].len);
+>  		}
+>  	}
+
+It is still preferred for Networking code to be 80 columns wide of less
+unless it affects readability. checkpatch.pl has an option to tell you
+about this. And I think that it would be good to apply that guideline
+throughout this patch.
+
+E.g. for the for loop above, something like this (completely untested):
+
+	for (i = 0; i < PRUETH_NUM_LI_BUF_POOLS_PER_SLICE; i++) {
+		int cfg_idx = i + PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE;
+
+		/* The driver only uses first 4 queues per PRU so only
+		 * initialize buffer for them */
+		if ((i % PRUETH_NUM_LI_BUF_POOLS_PER_PORT_PER_SLICE)
+			 < PRUETH_SW_USED_LI_BUF_POOLS_PER_PORT_PER_SLICE) {
+			writel(addr, &bpool_cfg[cfg_idx].addr);
+			writel(PRUETH_SW_LI_BUF_POOL_SIZE,
+			       &bpool_cfg[cfg_idx].len);
+			addr += PRUETH_SW_LI_BUF_POOL_SIZE;
+		} else {
+			writel(0, &bpool_cfg[cfg_idx].addr);
+			writel(0, &bpool_cfg[cfg_idx].len);
+		}
+	}
+
+...
+
+> @@ -347,13 +368,13 @@ static int prueth_emac_buffer_setup(struct prueth_emac *emac)
+
+It's probably out of scope for this patch, being a bug fix.
+But it seems to me that there is significant commonality
+between prueth_fw_offload_buffer_setup() and prueth_emac_buffer_setup().
+It would be nice to consolidate the implementation somehow,
+say in a follow-up for net-next.
+
+...
 
 -- 
-Without deviation from the norm, progress is not possible.
+pw-bot: changes-requested
 
