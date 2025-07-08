@@ -4,81 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2046C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 19:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7903BC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 19:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qo3FgcfKBtODpiiTovM+lBXPlgfxx3a8S0MPTbAk2H4=; b=048OTvndC2hclMAHoUzjMVH1hi
-	uZ04xUy/6S1zszB/9we/0zGstJNlUWBls06lt8TPks8TL88B4qz5dX91k+QBH03oGP3npk9+88pkz
-	fF5MTW9gj0RVcKqwMH0sws+cBlGRTXKpbf/5w4Ocv5rCkxt0ViRdEJwa46BdOWpa1E/RD7nVTospp
-	x32qO+O2ahCzlyLjkFCG8oa+k271xIE1ZtfMhME5XBUNswwie+T22OHIjZ/E1n7riHmV8qZbsCHfY
-	xV4t/ZfA0HTsjEsN/Zf45gZGycC0zor8gUqoiXJUSl572lkgeuowj/2BLjSSC5AoRmWlRirh99wnw
-	naQC9Uhg==;
+	bh=Lv4o5LYOTE5Lwjbg8sVn+z8U/sEpPu4UyIig14M8VpI=; b=CX/3zGWCJzYIdeeYDNwnkehzOE
+	q1I+z6xXFIWzbP43E6PgBc4bDWhGJ6eIYEzMevxyx4jr6Lrc8LcXxr1dAqruCidhB6JzL/1II3Eua
+	SmixRp7r7wG9St4rkdnKnNopEC/HfVK+BMGZ0JoCHbMwQWPwW4uvHG7QW9Lmce4CpTa5GapxuwruZ
+	Yd8tyrNXScreF4DNLSQmoAmaKgS0fFN8ZzilmqeAdThEhHYPd4F7KGoBT881bJRVC73CIQEYUPymt
+	ZoTyC2YBrPmsL1WraviEyc0U5wnvJHBgOBAL8rDtz0/tPRuFcmh83a95/9FJVys83MaJn0flMywlX
+	5J6vmrSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZEAj-00000006NjS-06Tc;
-	Tue, 08 Jul 2025 19:40:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uZECU-00000006PFf-1isM;
+	Tue, 08 Jul 2025 19:41:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZCi3-00000006CTm-25Ot
+	id 1uZCtO-00000006E6S-3IWW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 18:06:28 +0000
+	Tue, 08 Jul 2025 18:18:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BDF8DA531E2;
-	Tue,  8 Jul 2025 18:06:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 647F3C4CEED;
-	Tue,  8 Jul 2025 18:06:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 019E761442;
+	Tue,  8 Jul 2025 18:18:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E936C4CEED;
+	Tue,  8 Jul 2025 18:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751997986;
-	bh=hWwlChXBEb11tKO8NRb0DWd/PBG5TyHbgMeKqhdK9Eo=;
+	s=k20201202; t=1751998689;
+	bh=PKu6/ThVozLLn7QVgY0cNBC72u37vzczW0XG6NNicpg=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=F86652zLNQGa8qmrpOHaD7sstesU6ejLOcta17FuUHNOctuotgvr/k9FJIEeEJ091
-	 dhLDqnofBs7BRxv59gDfn8uJjGDRw3xTVEJ5kDFM3dcNDNLMzS+8Pd2tURJHZV2yg+
-	 dJsiT7A8TjvEDlRnon4j6zCQclgbs9+MVietSLKxxb+GbPyo6FoDnDrGmxYFc9XO7y
-	 n1f27F7oMUekoH27nRmrAKgVxtNbYqj7c1k8VrUWY1xTTD+oX6nUQT3yqUl70eEvUR
-	 Io9yaA39GBZvj9yw7YoKYqiEJGmag+k4qgaREp2z0isV0P+XxOuqsnporrCvYVfW/n
-	 Wd6E6sfakCK5g==
+	b=ZgBt4z/GsgkccT31iLNkliSi4hbeCcwskRE2LCNvIscD0JNwyrcnPqREmog8m8eoZ
+	 9H/qk0MrBkhHBfgc86BKsWc9qzFeoHG0Apx1vExK2mJlewaBFFvh1zexoB+kVRL/bd
+	 cBQzlpKNXa/ao9V+3iWi7CT0uPVf657ze14JhIr0DYg8pJDeVMTpoVSn8SX6KCb8Et
+	 a5HuvvD2iWSBYVjA1UMWo8jB4oRhv7u5graujTyoR+kZXwtuciBUykYw9737QJpXcO
+	 jsQa93xKez07Z73M8PFvAkI2tP6tc1h6BBcHd3xOYKk+u+hPc609EtLd0UllqPbFBg
+	 zp67BrGbMkOnw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uZCi0-00DrJu-5d;
-	Tue, 08 Jul 2025 19:06:24 +0100
-Date: Tue, 08 Jul 2025 19:06:23 +0100
-Message-ID: <86o6tua76o.wl-maz@kernel.org>
+	id 1uZCtK-00DrVr-N7;
+	Tue, 08 Jul 2025 19:18:07 +0100
+Date: Tue, 08 Jul 2025 19:18:06 +0100
+Message-ID: <86ms9ea6n5.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Mostafa Saleh <smostafa@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+To: Oliver Upton <oliver.upton@linux.dev>, Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org
-Subject: Re: [GIT PULL] KVM/arm64 fixes for 6.16, take #4
-In-Reply-To: <CABgObfZ3RepTFAMVSB4v1cmuOg+JB7LAcqx04EZui6qF3q5QtA@mail.gmail.com>
-References: <20250626152023.192347-1-maz@kernel.org>
-	<CABgObfZ3RepTFAMVSB4v1cmuOg+JB7LAcqx04EZui6qF3q5QtA@mail.gmail.com>
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org
+Subject: Re: [PATCH v7 00/31] Arm GICv5: Host driver implementation
+In-Reply-To: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
+References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, smostafa@google.com, qperret@google.com, r09922117@csie.ntu.edu.tw, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, Jonathan.Cameron@huawei.com, timothy.hayes@arm.com, bhelgaas@google.com, Liam.Howlett@oracle.com, peter.maydell@linaro.org, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-pci@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_110627_678451_9A575915 
-X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,56 +97,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Jul 2025 15:48:01 +0100,
-Paolo Bonzini <pbonzini@redhat.com> wrote:
->=20
-> On Thu, Jun 26, 2025 at 5:20=E2=80=AFPM Marc Zyngier <maz@kernel.org> wro=
-te:
-> >
-> > Paolo,
-> >
-> > Another week, another set of fixes. Nothing major this time: allow
-> > pKVM to fail to initialise without taking the host down, make sure we
-> > are not mapping too much in the host S2 (another pKVM special), and a
-> > brown-paper-bag quality bug fix on the nested GICv3 emulation.
-> >
-> > Please pull,
-> >
-> >         M.
-> >
-> > The following changes since commit 04c5355b2a94ff3191ce63ab035fb7f04d03=
-6869:
-> >
-> >   KVM: arm64: VHE: Centralize ISBs when returning to host (2025-06-19 1=
-3:34:59 +0100)
-> >
-> > are available in the Git repository at:
-> >
-> >   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/=
-kvmarm-fixes-6.16-4
->=20
-> Done now, thanks!  Note that in the meanwhile git:// is not working
-> anymore, so you probably want https:// in there.
+On Thu, 03 Jul 2025 11:24:50 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> Implement the irqchip kernel driver for the Arm GICv5 architecture,
+> as described in the GICv5 beta0 specification, available at:
+> 
+> https://developer.arm.com/documentation/aes0070
+> 
+> The GICv5 architecture is composed of multiple components:
+> 
+> - one or more IRS (Interrupt Routing Service)
+> - zero or more ITS (Interrupt Translation Service)
+> - zero or more IWB (Interrupt Wire Bridge)
+> 
+> The GICv5 host kernel driver is organized into units corresponding
+> to GICv5 components.
+> 
+> The GICv5 architecture defines the following interrupt types:
+> 
+> - PPI (PE-Private Peripheral Interrupt)
+> - SPI (Shared Peripheral Interrupt)
+> - LPI (Logical Peripheral Interrupt)
+> 
+> This series adds sysreg entries required to automatically generate
+> GICv5 registers handling code, one patch per-register.
+> 
+> This patch series is split into patches matching *logical* entities,
+> to make the review easier.
 
-Really? That's... odd. Was this announced one way or another? I can
-definitely use git:// from where I seat:
-
-maz@valley-girl:~/hot-poop/tmp$ git clone git://git.kernel.org/pub/scm/linu=
-x/kernel/git/kvmarm/kvmarm.git
-Cloning into 'kvmarm'...
-remote: Enumerating objects: 11127073, done.
-remote: Counting objects: 100% (142/142), done.
-remote: Compressing objects: 100% (77/77), done.
-remote: Total 11127073 (delta 92), reused 77 (delta 65), pack-reused 111269=
-31
-Receiving objects: 100% (11127073/11127073), 3.13 GiB | 21.11 MiB/s, done.
-Resolving deltas:   4% (448909/9127084)
 [...]
 
-What's occurring on your side?
+Oliver, I've pushed out a branch with these patches at [1]. Could you
+please stash it in kvmarm/next and add the KVM bits to it so that it
+can all simmer in -next for a bit?
+
+Thanks,
 
 	M.
 
---=20
+[1] git://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git gic-v5-host
+
+-- 
 Without deviation from the norm, progress is not possible.
 
