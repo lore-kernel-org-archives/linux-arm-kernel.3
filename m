@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F22E4C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 16:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F10C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 16:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VKdkdDPyvZ62ZrXaZVj0Vvds1rdLEKKjzjPorufxHRk=; b=PPv4vezVAccItLg/9numjrcC1q
-	QoPeXFDQZkVwJWtAjbmvpeb21dilWhXA+5YxAkgYvvaGle+G15/tzjri6/2FImuwfbpPR+7ybvUcA
-	i4lu842TxYFMlfbBMG+Ur0ACFjufuSPMH/QaxbrYg6HzM0IBNvvJzCIJ3GPzlUTLulxekY7H2zs8h
-	rfrGaTMStGNYkhtOOFMOEDt1sd8GiGpzD+tvWlOgxuhBeMcaJ3UuElYx/iTntNHBuQyAyDJiNhWXi
-	Z1WvC1mcWQdr5dT15u+4Um5qjMntasu0XM2px16iZfQRAVZeVF2+espbZz5Pts6pfQOuFGxNpQZ/O
-	9iwNffmg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=EytIa57dGphkpoLpmiPzevg2ZuEnpiren4W4NqbNY1s=; b=vPI5KLunMCs6vs
+	ycLNW8AAB/tofrMNV3woQftr/hndW8OWl5ZjrTzZAXvdg8WbA2qg5J38HOm5PzTdZtnAwomyQxxkr
+	8ElCUjjtoVMDNbUZfw3TeB04lgNAJsGl3R3kPAjF9KUP9Vbu0UCf2ZOedthIWeTssHtRiO49hjegT
+	xyF9isWoD8ik4qjlMpmbnBOKJyuEwOeGJZy9LSaQ9EAldz+AmgwkKShI7TYk/VK3/ro0nD/XKqwSl
+	qy5L5oMi3bWnOv072xxJa6EWbxihgn6xhogbVlg+GMmHcmiQcos4UkPhIbps2KmNXT6OA4U+n0pkZ
+	nJTXMB5BGtkoxFAI7EIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZB3Z-00000005x9Z-2ZnR;
-	Tue, 08 Jul 2025 16:20:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uZB5t-00000005xSl-2owB;
+	Tue, 08 Jul 2025 16:22:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZAXa-00000005rlB-3t98;
-	Tue, 08 Jul 2025 15:47:32 +0000
+	id 1uZAYH-00000005rt4-045J
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Jul 2025 15:48:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 36B225C5A07;
-	Tue,  8 Jul 2025 15:47:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B1F2C4CEF6;
-	Tue,  8 Jul 2025 15:47:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 25FD561426;
+	Tue,  8 Jul 2025 15:48:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5E8CC4CEEF;
+	Tue,  8 Jul 2025 15:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751989649;
-	bh=9FILRncBVkMcWlg7bphOJ6WLT1i1sMQ9/aj0fvNpAZE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OpHqpEe4OJt3bSjV0GUV+OV+vE84DzupQmimawIBkC7W8Q3987d9H0T+FmyqDObRl
-	 qaJk7QZyhb7Qrh10gnyUhjRCAnJ5asunOFgJdKK0ypjqL7oi65ly6g4FYaRRWFIpBS
-	 NuPGe4Kc0IAJzpoIRoIkmAHTxZJ3BcTJMQz2mqNhr7BjtaNGWICFOghXQA3Togbjj0
-	 1IsYpFiaeTjTiLA3LXY3hRwJCzXt7BIK8YyRG8/ja13u7CJWQYCxgzzG+DCDUxurFL
-	 2kKot4Hd5hJRA1+p745XmCkLo4s7X4KvupJiK6AZz9ZMD9aNP+Y/X5t0p83WdFfYIG
-	 NWS+0uhXE9iog==
-Date: Tue, 8 Jul 2025 10:47:28 -0500
-From: Rob Herring <robh@kernel.org>
-To: Diederik de Haas <didi.debian@cknow.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Dragan Simic <dsimic@manjaro.org>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Johan Jonker <jbx6244@gmail.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 03/10] dt-bindings: display: rockchip,dw-mipi-dsi:
- Drop address/size cells
-Message-ID: <20250708154728.GA401802-robh@kernel.org>
-References: <20250629123840.34948-1-didi.debian@cknow.org>
- <20250629123840.34948-4-didi.debian@cknow.org>
+	s=k20201202; t=1751989692;
+	bh=tWWxXLhF9k7Gu3NnvmZwkqT4bKHY1QLga2J8AkBZ/3w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=tqXXvbp0KH/w5rcpoNORi5g5+PyEHhFyUHHZP8tDIPYN1h9/SGeJ8I5Yaom8l/T2A
+	 y05ApmDsitoAxyNH4XqRnH2Bs/teWZbQBYhm4rCX2GJZhcvR0ZtRuC3N8dVsFH6COw
+	 vlpD9IvbSlg6YBD8FOcYEhBSEJtwknVxKDPoafk0Qj3OXy/8G87lTO3eofRHdtMKZH
+	 akMURjHkH0Nsiy4hzJ8pC93lHDT0HgI6IH/+vvGUL4d0GHTjYqP6JHANdsUXb9s2ly
+	 WVo0jLOC9Z9fRYLoh18Me/oKsQxk1Q7k5N7Q20as7CDTYas48NrGzB2Xos1ZkdzWyF
+	 +gIUGMSE1qMUA==
+Date: Tue, 8 Jul 2025 10:48:10 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: "mani@kernel.org" <mani@kernel.org>, Frank Li <frank.li@nxp.com>,
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] PCI: imx6: Correct the epc_features of i.MX8M chips
+Message-ID: <20250708154810.GA2146917@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250629123840.34948-4-didi.debian@cknow.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_084731_048293_1880D203 
-X-CRM114-Status: GOOD (  22.29  )
+In-Reply-To: <AS8PR04MB8676B8D14A5C54E8C32025BD8C4EA@AS8PR04MB8676.eurprd04.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,65 +79,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 29, 2025 at 02:34:44PM +0200, Diederik de Haas wrote:
-> When the dw-mipi-dsi binding was initially added in commit
-> a20d86e7f964 ("Documentation: dt-bindings: Add bindings for rk3288 DW MIPI DSI driver")
-> the #address-cells and #size-cells were added as required properties.
-> 
-> When the binding was converted to yaml format in commit
-> 0dac2102cf6b ("dt-bindings: display: rockchip: convert dw_mipi_dsi_rockchip.txt to yaml")
-> those properties were demoted to optional and removed from the binding
-> example.
-> 
-> As for the compatibles:
-> - rockchip,px30-mipi-dsi      removed in this patch set
-> - rockchip,rk3128-mipi-dsi    never used
-> - rockchip,rk3288-mipi-dsi    added (invalid); later removed [1]
-> - rockchip,rk3399-mipi-dsi    removed in this patch set
-> - rockchip,rk3568-mipi-dsi    never used
-> - rockchip,rv1126-mipi-dsi    proposed (invalid); never accepted [2]
-> 
-> [1] 282e2e078ba5 ("ARM: dts: rockchip: Remove #address/#size-cells from rk3288 mipi_dsi")
-> [2] https://lore.kernel.org/all/20230731110012.2913742-12-jagan@edgeble.ai/
-> 
-> The #address-cells and #size-cells are useful (and required) in the
-> ports node and for panel(s), but those properties are declared in their
-> schemas already. Now that there are no remaining users, remove these
-> properties from the Rockchip specific extensions of the Synopsys
-> DesignWare MIPI DSI host controller.
+On Tue, Jul 08, 2025 at 07:34:57AM +0000, Hongxing Zhu wrote:
+> > -----Original Message-----
+> > From: Bjorn Helgaas <helgaas@kernel.org>
+> ...
+> > On Tue, Jun 17, 2025 at 03:34:41PM +0800, Richard Zhu wrote:
+> > > i.MX8MQ PCIes have three 64-bit BAR0/2/4 capable and
+> > > programmable BARs.  But i.MX8MM and i.MX8MP PCIes only have
+> > > BAR0/BAR2 64bit programmable BARs, and one 256 bytes size fixed
+> > > BAR4.
+> > >
+> > > Correct the epc_features for i.MX8MM and i.MX8MP PCIes here.
+> > > i.MX8MQ is the same as i.MX8QXP, so set i.MX8MQ's epc_features
+> > > to imx8q_pcie_epc_features.
+> > >
+> > > Fixes: 75c2f26da03f ("PCI: imx6: Add i.MX PCIe EP mode support")
+> > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > 
+> > "Correct the epc_features" doesn't include any specific
+> > information, and it's hard to extract the changes for a device
+> > from the commit log.
+> > 
+> > This is really two fixes that should be separated so the commit
+> > logs can be specific:
+>
+> Yes, it's right.
+> Since it's just one line change for i.MX8MQ. So, I combine the changes into
+> this commit for i.MX8M chips.
 
-The change is fine, but your reasoning is flawed. These properties are 
-used if you define DSI devices on the "DSI bus" where the address of the 
-child devices are the DSI virtual channel. Often though that's just 0 
-and not really used, so you don't need it. 
+I want to split them to make it easy for users to understand which
+changes are relevant to them.  E.g., I have an i.MX8MQ system; do I
+need this change and what does it mean for me?  Is it going to fix a
+problem I've been seeing?
 
-The change is fine because these properties are defined in 
-dsi-controller.yaml, so specifying them here is redundant.
-
-> 
-> Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
-> ---
->  .../bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml     | 6 ------
->  1 file changed, 6 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml
-> index ccd71c5324af..0881e82deb11 100644
-> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml
-> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml
-> @@ -58,12 +58,6 @@ properties:
->    power-domains:
->      maxItems: 1
->  
-> -  "#address-cells":
-> -    const: 1
-> -
-> -  "#size-cells":
-> -    const: 0
-> -
->  required:
->    - compatible
->    - clocks
-> -- 
-> 2.50.0
-> 
+> >   - For IMX8MQ_EP, use imx8q_pcie_epc_features (64-bit BARs 0, 2, 4)
+> >     instead of imx8m_pcie_epc_features (64-bit BARs 0, 2).
+> > 
+> >   - For IMX8MM_EP and IMX8MP_EP, add fixed 256-byte BAR 4 in
+> >     imx8m_pcie_epc_features.
 
