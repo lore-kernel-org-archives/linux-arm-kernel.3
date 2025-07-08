@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2272DC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 09:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33DCC83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 09:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MjDSkCSM3qYfz2nGxn/oaPiPuB4TEUHr7hVjYbL9OVQ=; b=xUSrjzMxcdVLKdjrjinNTwAZS+
-	MBnV+dG/U1YjYjCnUtRyb5NvHJoO+hFqwPEtAdI5LIaHSy3CDAPdCkAEvIT0Crn2KjHpNQCI92Mb6
-	WiojDCV/5QEYKpvcHKz6LX6dLEWESOKHL20DWBpOaz9n+H26IOCW35qDSTuyZQHSob4tvlfT2wHUX
-	xPLA6PPvYGKvtHYZ67T/hLOJtyy45OIn8dX2s0yEwRrBStMW6d9ovk7hB5C/cdFRjzFxyPM3oRuK4
-	XazgocRb4hvhqXSy8BbPuFGFJgrh4/rGlKb3dZ1CfF8GI9SQUL6DQK/1FJ0GhC/dntzFxhLBSfMkh
-	ER4YUNUg==;
+	bh=wG0VMVtyV5h1mlrkOa/d2VEkTJAENQTpUdtWi9v750U=; b=fKpbmHJX/4TcW1RLL1ScxEspLR
+	XMVYj9gAC6eO/mwwVK8qd9yRUUpWHDJiZvLI4OtA+7HUG+YxXc7PtSeoT1PiUSEuYxkZgL+qtU321
+	m1dGMEFJBgYIH+aNvCGfY2tysq/PMBx0qeePrCTzHpw7lhPODOCM0vgStXX4Ec9qvdRAZYUWn4dDz
+	EQoNhazzdfL7Gn+c4BzgwJ2N4YcHRo/MNwupZckRjPZ9LM6OKXtEFzoYBM8A1aAEAnwWjUo6dV5f0
+	l2B4+BWujNefyYBG+LFaAtFpFZZeG7cfMADe0VxB7TdMHuf/3p2jj3+0i2S9Qzuh+aZzcBk1LHDYu
+	kmlJRmWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ4Vn-00000004sdu-0MJR;
-	Tue, 08 Jul 2025 09:21:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uZ4Y5-00000004suw-0ePu;
+	Tue, 08 Jul 2025 09:23:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3vX-00000004mf0-3Dqk;
-	Tue, 08 Jul 2025 08:43:48 +0000
+	id 1uZ3w2-00000004mmq-00qo;
+	Tue, 08 Jul 2025 08:44:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6DE0345CC1;
-	Tue,  8 Jul 2025 08:43:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCE8EC4CEED;
-	Tue,  8 Jul 2025 08:43:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4F73161472;
+	Tue,  8 Jul 2025 08:44:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75519C4CEF1;
+	Tue,  8 Jul 2025 08:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751964225;
-	bh=XnfttrWEHe9q4N1bxzzh3vjDPTGsPFpGOyNYE/K49pw=;
+	s=k20201202; t=1751964257;
+	bh=7qiNC+yf9eJ5O6aMil6afPWYh5EWFpuGHBB+T4HRaHc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YPmTO5aFIFLjqOh7tg97OaCnmDMoqxPqty7JR7vY+QIPi1heUnuB1cYzrZb9OFGJ8
-	 Z890jZfXhnB23DRu56LputxbzbKStacAZEM2nqgm+/wNWBNltcDlQP7mfvRcA1Kadn
-	 m4MGQP+fqCft+qa1fdVLqiROEofKJvWjEgGXWET3/+99RTEO0exRyRC92kmSp/PLmC
-	 sKF5FvgnaGk8L+pP67xf3G2gF1LH1VkfnacNvNq7eMc5g4W9BNkstPNY1aMfqHMRn/
-	 ybEevmxx/fFwhbC9demd4yDstaF7ivr8ajkLGe+LSVpaPIbag20TUugcw/8jUJGygi
-	 9XLmn3X7Q9aPQ==
-Date: Tue, 8 Jul 2025 10:43:42 +0200
+	b=Kojm2K8sadJqZwidW0D255pG4egrPRco+NwIZwN2JQUuQmmZxqqurYiGaC6Tq0U3D
+	 uEYguXM5hD5YlAIRH+P3vN7Soh3TH7YqSfMuhBGISKIpiIk9CbXs+K7UpEvuMhNV1V
+	 7KeWZEakTIgt5GSKQ7ATYRDoGYQWUwmp2ZCFWzgc3VE5CHpyxHGCQfGD4kygE3ypbN
+	 LCjQScINAi4Dmr5TV4sgDYG1ZTqnjMOgO0mPJN0wqZ3HlEX9rIM+LjP4CvENXSXpGa
+	 VIhM0k4oY0ZM64mx682efn1r77iyV5dPx2zb2O1dczyYIvKXDPlZjYF/u0nQ78j/Al
+	 oIQ0yzw+T/5Pg==
+Date: Tue, 8 Jul 2025 10:44:14 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Zexin Wang <ot_zexin.wang@mediatek.com>
 Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, 
@@ -50,18 +50,14 @@ Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>, Project_Global_Chrome_Upstream_Group@mediatek.com, 
 	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 2/2] dt-bindings: watchdog: mediatek: Add support for
- MT8189
-Message-ID: <20250708-aspiring-evasive-orangutan-fa7b74@krzk-bin>
+Subject: Re: [PATCH 1/2] watchdog: mediatek: Add compatible for MT8189
+Message-ID: <20250708-devious-pug-of-kindness-4f8dfb@krzk-bin>
 References: <20250627094431.11772-1-ot_zexin.wang@mediatek.com>
- <20250627094431.11772-3-ot_zexin.wang@mediatek.com>
+ <20250627094431.11772-2-ot_zexin.wang@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250627094431.11772-3-ot_zexin.wang@mediatek.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_014347_924247_00AB6FAD 
-X-CRM114-Status: GOOD (  14.83  )
+In-Reply-To: <20250627094431.11772-2-ot_zexin.wang@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,28 +72,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 27, 2025 at 05:44:20PM +0800, Zexin Wang wrote:
-> Add compatible string for watchdog on MT8189 SoC.
+On Fri, Jun 27, 2025 at 05:44:19PM +0800, Zexin Wang wrote:
+> Add compatible string for watchdog driver on MT8189 SoC.
 > 
 > Signed-off-by: Zexin Wang <ot_zexin.wang@mediatek.com>
 > ---
->  Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml | 1 +
+>  drivers/watchdog/mtk_wdt.c | 1 +
 >  1 file changed, 1 insertion(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml b/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-> index 8d2520241e37..ad69bd28ac9e 100644
-> --- a/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-> +++ b/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-> @@ -29,6 +29,7 @@ properties:
->            - mediatek,mt8183-wdt
->            - mediatek,mt8186-wdt
->            - mediatek,mt8188-wdt
-> +          - mediatek,mt8189-wdt
+> diff --git a/drivers/watchdog/mtk_wdt.c b/drivers/watchdog/mtk_wdt.c
+> index 91d110646e16..ae61e7654e8f 100644
+> --- a/drivers/watchdog/mtk_wdt.c
+> +++ b/drivers/watchdog/mtk_wdt.c
+> @@ -501,6 +501,7 @@ static const struct of_device_id mtk_wdt_dt_ids[] = {
+>  	{ .compatible = "mediatek,mt8183-wdt", .data = &mt8183_data },
+>  	{ .compatible = "mediatek,mt8186-wdt", .data = &mt8186_data },
+>  	{ .compatible = "mediatek,mt8188-wdt", .data = &mt8188_data },
+> +	{ .compatible = "mediatek,mt8189-wdt" },
 
-So it is compatible with previous variant. Express it and drop driver
-patch. Your commit msg should already say that - describe the hardware.
-Now your commit msg basically duplicates patch and subject so it is 100%
-redundant.
+Redundant commit, really, a least with that hardware description as in
+commit msg.
 
 Best regards,
 Krzysztof
