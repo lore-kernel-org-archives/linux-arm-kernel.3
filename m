@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D70C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 12:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA213C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 12:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lHQ0tvNoqJ2yord/lFVua7QgHw4bt6G06+wkrQtEyBg=; b=SCO1dRc1Fr+MqRVGNgpj3sgyfL
-	3U7QphFwYHeTl1VdHNTqdjcFdagSu6LTFOtnyfQpecIdjO/8gQVa9Yfy1IzaLZuZpx0RQMlWmYB+A
-	5b6hAgAnDLnkSmW3ORCtWVN8xNQeiY+6IP5/ztZHnz1pBGuXBJuJypPasuskQNDZ5A839VJiOBeNE
-	52RSvFt30XKBBxjU8RhHmfdgIEEKnPcaAjv0vPeqItl+PDsHdkYaX/FHKhERtBP02PfUuPavOL3q5
-	ZZaMJmSNDMPvBbGI2wrgwdoKIYO7INp+i/vnLN3+5L6g3EwX6glIzImWWj4hTug+Z7F0srxbnEOLp
-	CqjDU3AQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QOkmIwHJCMOdMHkqmCAxSlSEGdRNL6hmWc+Z5Lv9rjE=; b=hkg0uHu95U9ThQQTeql07ErvR8
+	UU+X+z3JLD88SiEeNL9MakkMFwVdQl/KeNPkKRjaiqZ4s+mYZW+wZ08rpYA+FAE/iSXDLJlUZncn3
+	IBAJjWh56lYi8l7f0379XMEhCWB7RekmSpYaCXcq6G0i3qLpau1heXzsb8nIpoae70e2ZcNLp9T+7
+	AhYasN3d8yxdUrkGmEDVGbgdTN4OdXYpiXoiL9TT61l0YJgAeE0G15+Xm326wT+7yVORBH8LuwjqT
+	TH3a1KYcYS26mmZHOMF5SF8h+W3BmrFslDMa8CUMUD5LpEkOrL8m00UneYgjTkyMIgfHR2Hpiu8kT
+	sFVA8QAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ73a-00000005Foe-0Z5Q;
-	Tue, 08 Jul 2025 12:04:18 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uZ77J-00000005GIG-056A;
+	Tue, 08 Jul 2025 12:08:09 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ6wc-00000005F0v-3zIH;
-	Tue, 08 Jul 2025 11:57:08 +0000
-X-UUID: a66352ae5bf211f09eb0dd999d3936bf-20250708
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:Subject:Message-ID; bh=lHQ0tvNoqJ2yord/lFVua7QgHw4bt6G06+wkrQtEyBg=;
-	b=PlWXGtciKBwCtq6tLTILEx8s1pdXfCY+cB8GMT1V6HaIzP7gOt3d6v3m7AwnEDIu5ggyzLtol/z4TH2CVI95o6u4PH1Ix6qwQ2TwVfqrUHVm4dhidnuUCtRo/0RhoEKSlXPdhMgKJVsS/4TPVUJiTILYoP9U9UNtMxS8JuN6C90=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:b08f2ffb-b22d-44b5-b885-ec649444519e,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:3eaefbd7-b768-4ffb-8a44-cd8427608ba6,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: a66352ae5bf211f09eb0dd999d3936bf-20250708
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <mason-cw.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1149947007; Tue, 08 Jul 2025 04:56:58 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+	id 1uZ74x-00000005G21-0Q0i
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Jul 2025 12:05:45 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bc0BP0xBZz2FbNl;
+	Tue,  8 Jul 2025 20:03:41 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id CCFE3140275;
+	Tue,  8 Jul 2025 20:05:34 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 8 Jul 2025 19:56:54 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs13n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.1258.39 via Frontend
- Transport; Tue, 8 Jul 2025 19:56:54 +0800
-Message-ID: <b014c34a560854e6dd6a6dd483b9443f42252b51.camel@mediatek.com>
-Subject: Re: Aw: [PATCH 0/3] thermal/drivers/mediatek/lvts_thermal: add
- mt7988 lvts commands
-From: Mason Chang <mason-cw.chang@mediatek.com>
-To: "rafael@kernel.org" <rafael@kernel.org>, "daniel.lezcano@linaro.org"
-	<daniel.lezcano@linaro.org>, "rui.zhang@intel.com" <rui.zhang@intel.com>,
-	"lukasz.luba@arm.com" <lukasz.luba@arm.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Nicolas Prado
-	<nfraprado@collabora.com>, "jpanis@baylibre.com" <jpanis@baylibre.com>,
-	"npitre@baylibre.com" <npitre@baylibre.com>, "colin.i.king@gmail.com"
-	<colin.i.king@gmail.com>, "u.kleine-koenig@baylibre.com"
-	<u.kleine-koenig@baylibre.com>, "wenst@chromium.org" <wenst@chromium.org>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "daniel@makrotopia.org"
-	<daniel@makrotopia.org>, Frank Wunderlich <frank-w@public-files.de>, Steven
- Liu =?UTF-8?Q?=28=E5=8A=89=E4=BA=BA=E8=B1=AA=29?= <steven.liu@mediatek.com>,
-	Sam Shih =?UTF-8?Q?=28=E5=8F=B2=E7=A2=A9=E4=B8=89=29?=
-	<Sam.Shih@mediatek.com>
-Date: Tue, 8 Jul 2025 19:56:54 +0800
-In-Reply-To: <trinity-e9eaf8fd-42f1-46d5-b1df-3bfefe02b2fe-1750057280436@trinity-msg-rest-gmx-gmx-live-b647dc579-tr2th>
-References: <20250526102659.30225-1-mason-cw.chang@mediatek.com>
-	 <trinity-e9eaf8fd-42f1-46d5-b1df-3bfefe02b2fe-1750057280436@trinity-msg-rest-gmx-gmx-live-b647dc579-tr2th>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1 
+ 15.2.1544.11; Tue, 8 Jul 2025 20:05:34 +0800
+Received: from [10.67.121.115] (10.67.121.115) by
+ kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 8 Jul 2025 20:05:34 +0800
+Message-ID: <73ee91b8-ba15-2534-ab76-f64e59261b1e@hisilicon.com>
+Date: Tue, 8 Jul 2025 20:05:24 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH] ARM64: errata: Add workaround for HIP10/HIP10C erratum
+ 162200803
+Content-Language: en-US
+To: Marc Zyngier <maz@kernel.org>
+CC: Oliver Upton <oliver.upton@linux.dev>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<tangnianyao@huawei.com>, <wangwudi@hisilicon.com>
+References: <20250626124142.2035110-1-wangzhou1@hisilicon.com>
+ <86wm8ybpk5.wl-maz@kernel.org>
+ <0b54db94-8a6f-cea0-a6f7-dbe8650d66dd@hisilicon.com>
+ <86h5zwba5i.wl-maz@kernel.org>
+ <ffd3fccc-af4a-6667-3cf6-a55e866f3057@hisilicon.com>
+ <864ivtbll0.wl-maz@kernel.org>
+From: Zhou Wang <wangzhou1@hisilicon.com>
+In-Reply-To: <864ivtbll0.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.115]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_045706_996441_6BE77741 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20250708_050543_562958_0DAF6729 
+X-CRM114-Status: GOOD (  36.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +84,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-06-16 at 07:01 +0000, Frank Wunderlich wrote:
->=20
-> External email : Please do not click links or open attachments until
-> you have verified the sender or the content.
->=20
->=20
-> > Gesendet: Montag, 26. Mai 2025 um 12:26
-> > Von: "Mason Chang" <mason-cw.chang@mediatek.com>
-> > Betreff: [PATCH 0/3] thermal/drivers/mediatek/lvts_thermal: add
-> > mt7988 lvts commands
-> >=20
-> > Add the LVTS commands for Mediatek Filogic 880/MT7988.
-> >=20
-> > This series fixes severely abnormal and inaccurate LVTS temperature
-> > readings when using the default commands.
-> >=20
-> > Signed-off-by: Mason Chang <mason-cw.chang@mediatek.com>
->=20
-> Hi
->=20
-> just a friedly reminder for maintainers, is the patch series ok or
-> does it need any changes?
->=20
-> regards Frank
+On 2025/7/3 18:44, Marc Zyngier wrote:
+> On Wed, 02 Jul 2025 10:57:13 +0100,
+> Zhou Wang <wangzhou1@hisilicon.com> wrote:
+>>
+>> On 2025/7/1 16:14, Marc Zyngier wrote:
+>>> On Fri, 27 Jun 2025 07:36:31 +0100,
+>>> Zhou Wang <wangzhou1@hisilicon.com> wrote:
+>>>>
+>>>> On 2025/6/26 21:27, Marc Zyngier wrote:
+>>>>> On Thu, 26 Jun 2025 13:41:42 +0100,
+>>>>> Zhou Wang <wangzhou1@hisilicon.com> wrote:
+>>>>>>
+>>>>>> For GICv4.0 of Hip10 and Hip10C, it has a SoC bug with vPE schedule:
+>>>>>> when multiple vPEs are sending vpe schedule/deschedule commands
+>>>>>> concurrently and repeatedly, some vPE schedule command may not be
+>>>>>> scheduled, and it will cause the command timeout.
+>>>>>>
+>>>>>> The hardware implementation is that there is one GIC hardware in one CPU die,
+>>>>>> which handles all vPE schedule operations one by one in all CPUs of this die.
+>>>>>> The bug is that if the number of queued vPE schedule operations is more
+>>>>>> than a certain value, the last vPE schedule operation will be lost.
+>>>>>>
+>>>>>> One possible way to solve this problem is to limit the number of vLPIs, so
+>>>>>> the hardware could spend less time to scan virtual pending table when it
+>>>>>> handles the vPE schedule operations, so the queued vPE schedule operations
+>>>>>> will never be more than above certain value.
+>>>>>>
+>>>>>> Given the number of CPUs of die, and imagine there is 100 vPE schedule
+>>>>>> operations per second one CPU, it can be calculated that we can limit
+>>>>>> the number of vLPI to 4096 for virtual machine to avoid the issue.
+>>>>>>
+>>>>>> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+>>>>>> ---
+>>>>>>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>>>>>>  arch/arm64/Kconfig                          | 12 ++++++++++++
+>>>>>>  arch/arm64/include/asm/cputype.h            |  4 ++++
+>>>>>>  arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
+>>>>>>  arch/arm64/kvm/vgic/vgic-mmio-v3.c          |  5 +++++
+>>>>>>  arch/arm64/tools/cpucaps                    |  1 +
+>>>>>>  include/linux/irqchip/arm-gic-v3.h          |  1 +
+>>>>>>  7 files changed, 40 insertions(+)
+>>>>>>
+>>>>>
+>>>>> [...]
+>>>>>
+>>>>>> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+>>>>>> index ae4c0593d114..495a56e9dc4b 100644
+>>>>>> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+>>>>>> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+>>>>>> @@ -81,6 +81,11 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+>>>>>>  		if (vgic_has_its(vcpu->kvm)) {
+>>>>>>  			value |= (INTERRUPT_ID_BITS_ITS - 1) << 19;
+>>>>>>  			value |= GICD_TYPER_LPIS;
+>>>>>> +			/* Limit the number of vlpis to 4096 */
+>>>>>> +			if (cpus_have_final_cap(ARM64_WORKAROUND_HISI_162200803) &&
+>>>>>> +			    kvm_vgic_global_state.has_gicv4 &&
+>>>>>> +			    !kvm_vgic_global_state.has_gicv4_1)
+>>>>>> +				value |= 11 << GICD_TYPER_NUM_LPIS_SHIFT;
+>>>>>
+>>>>> This really doesn't solve your problem. Yes, the guest *may* honor
+>>>>> this limit. But KVM doesn't care and will happily allocate 2^16 vLPIs
+>>>>> if the guest asks -- there is no code enforcing this limit.
+>>>>
+>>>> Hi Marc,
+>>>>
+>>>> I am not sure if there is any other place guest can ask vLPI over
+>>>> the limitation except for MAPTI/MAPT below?
+>>>>
+>>>>> And even if we did. What would we do on a MAPTI command that tries to
+>>>>> map a vLPI outside of the allowed range? Do we need to tell the guest
+>>>>> it has screwed up?
+>>>>
+>>>> Thanks for pointing this. Yes, we miss the lpi_nr checking in vgic_its_cmd_handle_mapi.
+>>>> In fact, the fix of this errata introduces the usage of GICD.num_LPI,
+>>>> so we need make related logic right as well.
+>>>
+>>> Exactly.
+>>>
+>>>>
+>>>> I am not sure that if we could add related checking for lpi_nr in MAPTI/MAPI
+>>>> as part of this errata fix, or we should add the basic support for
+>>>> GICD.num_LPI before adding this errata?
+>>>
+>>> You definitely need to handle that before allowing such limit to be
+>>> enforced. Which also means allowing the limit to be saved/restored
+>>> from userspace in order to support migration.
+>>
+>> Seems that in KVM we do not consider GICD_TYPER in migration.
+> 
+> What do you mean by that?
+> 
+> Today, we don't support anything being written to GICD_TYPER, just
+> like on a HW implementation. If you want it to be writable from
+> userspace (and I think you do), then it needs to be added.
 
-Hi all,
+Many thanks, I got your idea.
 
-I submitted the patch a while ago, but haven't received any response
-from the maintainer yet. I would really appreciate it if any maintainer
-could take a look or provide some comments.
+> 
+>> How about making GICD_TYPER.num_LPIs as a default configuration,
+>> when KVM version is same between source and destination during
+>> migration, the logic is still right.
+> 
+> The default configuration should be that GICD_TYPERR.num_LPIs is 0,
+> indicating that the hypervisor doesn't limit anything at all.
+> 
+>>
+>> Something like:
+>>
+>> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+>> index eb1205654ac8..2071b1445b22 100644
+>> --- a/arch/arm64/kvm/vgic/vgic-init.c
+>> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+>> @@ -385,6 +385,7 @@ int vgic_init(struct kvm *kvm)
+>>  	/* freeze the number of spis */
+>>  	if (!dist->nr_spis)
+>>  		dist->nr_spis = VGIC_NR_IRQS_LEGACY - VGIC_NR_PRIVATE_IRQS;
+>> +	dist->nr_lpis = 2 ^ (INTERRUPT_NUM_LPIS + 1);
+> 
+> No, this really should default to 0, and 0 being treated as "no limit
+> other than the architectural one", as per the architecture spec.
+> 
+>>
+>>  	ret = kvm_vgic_dist_init(kvm, dist->nr_spis);
+>>  	if (ret)
+>> @@ -433,6 +434,7 @@ static void kvm_vgic_dist_destroy(struct kvm *kvm)
+>>  	kfree(dist->spis);
+>>  	dist->spis = NULL;
+>>  	dist->nr_spis = 0;
+>> +	dist->nr_lpis = 0;
+>>  	dist->vgic_dist_base = VGIC_ADDR_UNDEF;
+>>
+>>  	if (dist->vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
+>> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+>> index 534049c7c94b..c770eadc5188 100644
+>> --- a/arch/arm64/kvm/vgic/vgic-its.c
+>> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+>> @@ -1047,7 +1047,8 @@ static int vgic_its_cmd_handle_mapi(struct kvm *kvm, struct vgic_its *its,
+>>  	else
+>>  		lpi_nr = event_id;
+>>  	if (lpi_nr < GIC_LPI_OFFSET ||
+>> -	    lpi_nr >= max_lpis_propbaser(kvm->arch.vgic.propbaser))
+>> +	    lpi_nr >= max_lpis_propbaser(kvm->arch.vgic.propbaser) ||
+>> +	    lpi_nr >= GIC_LPI_OFFSET + kvm->arch.vgic.nr_lpis)
+>>  		return E_ITS_MAPTI_PHYSICALID_OOR;
+>>
+>>  	/* If there is an existing mapping, behavior is UNPREDICTABLE. */
+>> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+>> index ae4c0593d114..224d0d88c823 100644
+>> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+>> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+>> @@ -81,6 +81,7 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+>>  		if (vgic_has_its(vcpu->kvm)) {
+>>  			value |= (INTERRUPT_ID_BITS_ITS - 1) << 19;
+>>  			value |= GICD_TYPER_LPIS;
+>> +			value |= (ilog2(vgic->nr_lpis) - 1) << 11;
+>>  		} else {
+>>  			value |= (INTERRUPT_ID_BITS_SPIS - 1) << 19;
+>>  		}
+>> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+>> index 4349084cb9a6..e11792dafcdf 100644
+>> --- a/arch/arm64/kvm/vgic/vgic.h
+>> +++ b/arch/arm64/kvm/vgic/vgic.h
+>> @@ -16,6 +16,7 @@
+>>
+>>  #define INTERRUPT_ID_BITS_SPIS	10
+>>  #define INTERRUPT_ID_BITS_ITS	16
+>> +#define INTERRUPT_NUM_LPIS	14
+>>  #define VGIC_LPI_MAX_INTID	((1 << INTERRUPT_ID_BITS_ITS) - 1)
+>>  #define VGIC_PRI_BITS		5
+>>
+>> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+>> index 4a34f7f0a864..b637dc9460d9 100644
+>> --- a/include/kvm/arm_vgic.h
+>> +++ b/include/kvm/arm_vgic.h
+>> @@ -296,6 +296,7 @@ struct vgic_dist {
+>>  	 * else.
+>>  	 */
+>>  	struct its_vm		its_vm;
+>> +	int			nr_lpis;
+>>  };
+>>
+>> However，migration between different KVMs will be broken :(
+>> I am not sure that should we consider this case as well?
+> 
+> This isn't optional. You cannot break migration on existing systems,
+> and the only case that *must* break is to restore a VM that hasn't
+> seen this limitation on a HW that enforces it.
 
-If there is a more appropriate maintainer or reviewer for this patch,
-please kindly let me know or help forward it.
+So the whole story is that we should let GICD_TYPE.num_LPIs as a
+writable field, and set this field from VMM(e.g. QEMU). And it will
+be failed if doing migration between VMs with different num_LPI
+configurations. After above done, this errata could be added.
 
-Thank you very much for your time and help!
+Not sure my thought above is right? I will try to prepare a num_LPIs
+writable patch if the direction is right.
 
-Sincerely,
-Mason
+Thanks,
+Zhou
 
+> 
+> Thanks,
+> 
+> 	M.
+> 
 
