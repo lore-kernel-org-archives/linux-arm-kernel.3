@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76353C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 07:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE22C83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 07:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dj/STn3U+nGjCStQovmQQoY7YADKp+WIWCTtQvUhkFk=; b=1DOUyb1IR+MxuA8vx0SI4sLhK2
-	2iIdlf48Bea7HB4xKI8/aKOZf4lY95aE7bTLNxQNyDtor+MMQ3Mdh0DDtPlamZcqr7uRHFRi467kQ
-	ULKqxoAJYWqffIK6fDI5YsOCgosIcr+nIiBW8h28HGXLu2Tq16Ro44b0AH/Pp6ayqOmaM6AFOKzmS
-	Y6bdU1SgRlFNj+dJuLs8p536sBTEeVXjxkzlRnYL5awJ5VZzoZumy6AMHKoaHqGrRSvasxDm+XDat
-	awi+gaHwkQAexHjfWIpdH/rcSHBRrqNBhA+ZFiqmtdEGaxpNp3mFf9dzszlmA6l6+78lJYAZLcKNQ
-	vq6wV5SA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kq+SB51IWx4bYSOte+h2bEHJqLVRzmFO3MooWcUuZaE=; b=ZIEBgr9a3tOoM39Vr2n8edJ94u
+	P4h6OMh4QTezSf8oXHj1NBDG236MX5l9AbKzNoHfKPJSAzvb3B5JNc0jaTQc0I+ug7fuJ1fuHg2d4
+	1B6R90/D2QAwEm0zr6WSz5cP95YxZXp+tP3iavn62rtgyZxkDMdDuCXgAmH6G/z9DL9EXmD+5M3l4
+	IYg7aoaJOhUhsOEoXxGqrRCtfKkJje7ti1x1mE8ZlLN1i/CVHlhuMey+nsX/DCpdoU4kwaB6xU3k8
+	6WIp3iu40CTs1up43lH4LgZk4w41tcZ1PEgKfmxjUfKWr4495OvvDAwD3rkXQt4r1T57lkgcbZb+r
+	uQHS4Pzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ39w-00000004eI3-1Xky;
-	Tue, 08 Jul 2025 07:54:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uZ3CE-00000004eoh-2i50;
+	Tue, 08 Jul 2025 07:56:58 +0000
+Received: from mail-m16.yeah.net ([1.95.21.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ33b-00000004d3F-3ymO
+	id 1uZ355-00000004dE0-443S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 07:48:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 63C4644F51;
-	Tue,  8 Jul 2025 07:48:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF64FC4CEED;
-	Tue,  8 Jul 2025 07:47:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751960883;
-	bh=9Q5CXN9O5qwDOk34kVlNTKgsb2m3mLtmtiu6Wi3LFeU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mSb46+oPCqcoSm83lDKYIiFXtSEU5ju6qkNzXxvK0zNaFIV3c3yK6gHdmp/goOiyB
-	 UdhV32c8l3Zbf3fIlRqKhPBVlLCjFfPd6NQ6IVAhC8BE0+aR00NsNuVC2E8kpro/YD
-	 0rFM96z9LxDLKKubisu4JMuwNZXcCRET+BaMpo3t7gqhk0yoWtskBOZuCuhCJWVjow
-	 tEWs0iUp25u9cD2oxo28HpSxeJdqty7BFS0XDBCGU/bm5/fJPtI8JZZY0yUt+WRNX7
-	 W4hXStNtBIWd5yj0LGeQuWXBLbChJhGTnRRrU4LUAiJU3kfi+dqa8iKD0GKwG/5XMd
-	 eIvryi7xptaag==
-Date: Tue, 8 Jul 2025 13:17:53 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] PCI: imx6: Align EP link start behavior with
- documentation
-Message-ID: <klduv5ytcsxzs6nugiorajwxq4mwqfpmhkifl5wtjy6jiq4mha@mf4732u2xrtw>
-References: <20250616085742.2684742-1-hongxing.zhu@nxp.com>
- <20250616085742.2684742-3-hongxing.zhu@nxp.com>
+	Tue, 08 Jul 2025 07:49:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=kq+SB51IWx4bYSOte+h2bEHJqLVRzmFO3MooWcUuZaE=;
+	b=CNaM7Y/SdBHvNuv3PZy9ah15cz/PUXZqtNyfTl0xaF4B/9JOQekha/EI2PV0ml
+	0wEN1Cuk1ymEQdK6Fw/7TNdGEkoSOeWpkHVXVJYoDPmzoOjjJzp8t5HMmy4D20le
+	LMkCJLdyLsU3FFSZNJggmS7jPVmJtyCyecsvkAIKAHTbo=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgDHpsR5zWxowR9NAA--.48928S3;
+	Tue, 08 Jul 2025 15:49:15 +0800 (CST)
+Date: Tue, 8 Jul 2025 15:49:13 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: soc@kernel.org, arm@kernel.org
+Cc: Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	kernel@pengutronix.de, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] i.MX fixes for 6.16
+Message-ID: <aGzNeZ7KtsRsUkZT@dragon>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250616085742.2684742-3-hongxing.zhu@nxp.com>
+X-CM-TRANSID: Mc8vCgDHpsR5zWxowR9NAA--.48928S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Zr1fGFyfKw18Gw4kAF47urg_yoW8tw1UpF
+	43CrZFgr15Jrs5GrnxXrs7t3s8tw4rJF45Ar17Cry8KrW5ur9xXr15GryrWrZFvrWxuw4Y
+	yF1kXryqg345XaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jc0eLUUUUU=
+X-Originating-IP: [114.216.146.217]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIRvGLGhszXt6qwAA3z
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_004804_064165_34CCB92F 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20250708_004936_575974_83B47973 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,42 +72,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 16, 2025 at 04:57:42PM GMT, Richard Zhu wrote:
-> According to PCI/endpoint/pci-endpoint-cfs.rst, the endpoint (EP) should
-> only link up after `echo 1 > start` is executed.
-> 
-> To match the documented behavior, do not start the link automatically
-> when adding the EP controller.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 
-Fixes tag?
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
 
-- Mani
+are available in the Git repository at:
 
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 3 ---
->  1 file changed, 3 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index f5f2ac638f4b..fda03512944d 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -1468,9 +1468,6 @@ static int imx_add_pcie_ep(struct imx_pcie *imx_pcie,
->  
->  	pci_epc_init_notify(ep->epc);
->  
-> -	/* Start LTSSM. */
-> -	imx_pcie_ltssm_enable(dev);
-> -
->  	return 0;
->  }
->  
-> -- 
-> 2.37.1
-> 
+  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-fixes-6.16
 
--- 
-மணிவண்ணன் சதாசிவம்
+for you to fetch changes up to fbe94be09fa81343d623a86ec64a742759b669b3:
+
+  arm64: dts: freescale: imx8mm-verdin: Keep LDO5 always on (2025-07-07 15:36:41 +0800)
+
+----------------------------------------------------------------
+i.MX fixes for 6.16:
+
+- Keep LDO5 always on for imx8mm-verdin to fix broken Ethernet support
+- Add big-endian property back for LS1046A watchdog, as the removal was
+  an accident
+- Fix DMA interrupter number of i.MX95 pcie0_ep device
+- A set of changes from Tim Harvey to fix TPM SPI frequency on
+  imx8mp-venice devices
+- A couple of changes from Wei Fang to fix NETC overshoot issue on
+  i.MX95 EVK boards
+
+----------------------------------------------------------------
+Francesco Dolcini (1):
+      arm64: dts: freescale: imx8mm-verdin: Keep LDO5 always on
+
+Meng Li (1):
+      arm64: dts: add big-endian property back into watchdog node
+
+Richard Zhu (1):
+      arm64: dts: imx95: Correct the DMA interrupter number of pcie0_ep
+
+Tim Harvey (4):
+      arm64: dts: imx8mp-venice-gw71xx: fix TPM SPI frequency
+      arm64: dts: imx8mp-venice-gw72xx: fix TPM SPI frequency
+      arm64: dts: imx8mp-venice-gw73xx: fix TPM SPI frequency
+      arm64: dts: imx8mp-venice-gw74xx: fix TPM SPI frequency
+
+Wei Fang (2):
+      arm64: dts: imx95-19x19-evk: fix the overshoot issue of NETC
+      arm64: dts: imx95-15x15-evk: fix the overshoot issue of NETC
+
+ arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi       |  3 ++-
+ arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi     |  1 +
+ .../boot/dts/freescale/imx8mp-venice-gw71xx.dtsi     |  2 +-
+ .../boot/dts/freescale/imx8mp-venice-gw72xx.dtsi     |  2 +-
+ .../boot/dts/freescale/imx8mp-venice-gw73xx.dtsi     |  2 +-
+ .../boot/dts/freescale/imx8mp-venice-gw74xx.dts      |  2 +-
+ arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts    | 20 ++++++++++----------
+ arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts    | 12 ++++++------
+ arch/arm64/boot/dts/freescale/imx95.dtsi             |  2 +-
+ 9 files changed, 24 insertions(+), 22 deletions(-)
+
 
