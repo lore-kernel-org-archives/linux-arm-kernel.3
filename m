@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F04A7C83F0F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C13FDC83F10
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 19:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TYx9OacBVBa54WJ0T9dZVtR9yyPRztsQPBVP88TZZyg=; b=lVaGKbBGpDOvhlCH4MFryn17D8
-	72CtwjK3i4IHfAB4T2JH0FOBzMmLoSzewaPf3bisVkghV7K33xozFEW8tMV+yJigpbp5Ow8Y9OE4A
-	FZIqUlozRWDkhEEHYRh8MCx/8rNEXDQlAIlkBcy3WLk3odllGxnXhqCXHtL3I6MuVH+7OhCo8CdTn
-	fqm9eul7A4hBZmMI+Q3gkVxdis6pQeAe/Y+VFZqJ/NwN+eNG94lq9sWlZXZ36BeCc2VLhxA0STlzG
-	6lULYDPbUf+yi88uOWpGunx26guJlEooqCHX+vSYUUeyLYYy3LoqmK1WGkPwndVuov55MqaEaCv3H
-	3K8N/HpA==;
+	bh=t2WSxz+JMtsXBJVo1fTfILuMem/98S1AIbIxNay4E1s=; b=i57u8+BEAzXzjbjitJwdnvkoqa
+	JICU5a7OTDk+HJjT4SY4kWKWWVeECU8+pQBqqwOpknCYdsseM/9e1JYT3b2vW4qI+Zj5vFbOWUjzZ
+	8zBJA6l8PyQslAmYtqryKnv9XaEQLdcCXupAgYH3PBIQ0lC2+x/JqIXSZKV025+vWkttF0++tmi/F
+	M9Q6iS8p4s6E+BKm7WblGBssaDUipEisUfZugyq3y4GlgdaUJr7fpM/uIDQmeTcIHlzkM9aIvJHQX
+	mCwhU4g/Hj1sEmAHEDA6NIFqKLl1aZKdHCyC67406G22MF0DBLYWgDRFHg4bzLmMTW/h8M3WoUJa6
+	jqOzX4vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZEA5-00000006MeF-1bPP;
-	Tue, 08 Jul 2025 19:39:29 +0000
+	id 1uZEA4-00000006Md0-1BRZ;
+	Tue, 08 Jul 2025 19:39:28 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZCCs-000000067p8-20At
+	id 1uZCCq-000000067mj-1oGj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 17:34:16 +0000
+	Tue, 08 Jul 2025 17:34:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25C1D4690A;
-	Tue,  8 Jul 2025 17:34:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07334C4CEF9;
-	Tue,  8 Jul 2025 17:34:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3DC8A46784;
+	Tue,  8 Jul 2025 17:34:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 150EBC4CEFD;
+	Tue,  8 Jul 2025 17:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751996053;
-	bh=k98cYHJAeNwc/m55APAuSnpJZEiaO0Z2w/xQyAaUaQw=;
+	s=k20201202; t=1751996051;
+	bh=9TTQFkyY0M8aTj6Iv8cpYI5ilm3sw2M2ZI3G1K0Exkc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IV4bEwXAd6QJ9CTtBJgb/ii1pxuW6HZTrwYYMCijBt7Ysj8qoqFDRF7YUlNqZdeqb
-	 S392K0a3iUUf0fjSdZ4eZJQxRgbHt86LJLl8rKCBDKRXkD5osgbROfDZRT+BCjBC6M
-	 iBlOzcV9lZ8WwcRZyAfmagRmaN1Z/VkIt02dIHdEvZSREfD5tCIvCokY1nOtbD5gVI
-	 jFGuFL6NRzHtu8wXDlAPfowCBGj7TB1ph5mq0DYeMeQtVVHvg4CZmD5bxK5pInLC7h
-	 U3v0uIC0JfRoQReLHaoUA4ktriybfCEv3ZXOYYfQ9jsfVZzzt4lurEizyt26Aeotz9
-	 QzxyLMZxNLSdw==
+	b=iqsZbG6u6KjiRwauw+wclsVudQEywuNtzdpxpn9C7bV2B/q34vHG1nRvzKPrOf7CO
+	 tOPDOmb0riqbgd1/sb0Qcuko+/844q1IXjDGb5xKRW25oqg1XpLTNXM7M3SAXv/0lD
+	 ZbMwN64WXLItvlpolw3jhC+rPTi+LFJWdqns9ftjFrCWk1scsd81YbWVvAxPvhw6J9
+	 c/VSdHAukMex41O+ZBO545kPBfkxNddAQJdIGrMQMZrZ7Y73+CfLOCoZFy+UvJHyYn
+	 EdvpxrE85zkkyb3TAXTXTYwcmSdjX4KlITmtZJ7vG1H7YU+ZGG4GMI1sjQ71Dx7qmO
+	 PsGhljKqrlMrg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uZCCp-00Dqhw-6n;
-	Tue, 08 Jul 2025 18:34:11 +0100
+	id 1uZCCn-00Dqhw-0H;
+	Tue, 08 Jul 2025 18:34:09 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Toan Le <toan@os.amperecomputing.com>,
 	Rob Herring <robh@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH v2 13/13] cpu/hotplug: Remove unused cpuhp_state CPUHP_PCI_XGENE_DEAD
-Date: Tue,  8 Jul 2025 18:34:04 +0100
-Message-Id: <20250708173404.1278635-14-maz@kernel.org>
+Subject: [PATCH v2 02/13] PCI: xgene: Defer probing if the MSI widget driver hasn't probed yet
+Date: Tue,  8 Jul 2025 18:33:53 +0100
+Message-Id: <20250708173404.1278635-3-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250708173404.1278635-1-maz@kernel.org>
 References: <20250708173404.1278635-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.o
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_103414_541057_522986AC 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20250708_103412_514449_A0F3967D 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,28 +88,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the XGene MSI driver has been mostly rewritten and doesn't
-use the CPU hotplug infrastructure, CPUHP_PCI_XGENE_DEAD is unused.
-
-Remove it to reduce the size of cpuhp_hp_states[].
+As a preparatory work to make the XGene MSI driver probe less of
+a sorry hack, make the PCI driver check for the availability of
+the MSI parent domain, and defer the probing otherwise.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- include/linux/cpuhotplug.h | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/pci/controller/pci-xgene.c | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index df366ee15456b..eaca70eb6136b 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -90,7 +90,6 @@ enum cpuhp_state {
- 	CPUHP_RADIX_DEAD,
- 	CPUHP_PAGE_ALLOC,
- 	CPUHP_NET_DEV_DEAD,
--	CPUHP_PCI_XGENE_DEAD,
- 	CPUHP_IOMMU_IOVA_DEAD,
- 	CPUHP_AP_ARM_CACHE_B15_RAC_DEAD,
- 	CPUHP_PADATA_DEAD,
+diff --git a/drivers/pci/controller/pci-xgene.c b/drivers/pci/controller/pci-xgene.c
+index 1e2ebbfa36d19..f26cb58f814ec 100644
+--- a/drivers/pci/controller/pci-xgene.c
++++ b/drivers/pci/controller/pci-xgene.c
+@@ -12,6 +12,7 @@
+ #include <linux/jiffies.h>
+ #include <linux/memblock.h>
+ #include <linux/init.h>
++#include <linux/irqdomain.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+ #include <linux/of_pci.h>
+@@ -594,6 +595,24 @@ static struct pci_ops xgene_pcie_ops = {
+ 	.write = pci_generic_config_write32,
+ };
+ 
++static bool xgene_check_pcie_msi_ready(void)
++{
++	struct device_node *np;
++	struct irq_domain *d;
++
++	if (!IS_ENABLED(CONFIG_PCI_XGENE_MSI))
++		return true;
++
++	np = of_find_compatible_node(NULL, NULL, "apm,xgene1-msi");
++	if (!np)
++		return true;
++
++	d = irq_find_matching_host(np, DOMAIN_BUS_PCI_MSI);
++	of_node_put(np);
++
++	return d && irq_domain_is_msi_parent(d);
++}
++
+ static int xgene_pcie_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -602,6 +621,10 @@ static int xgene_pcie_probe(struct platform_device *pdev)
+ 	struct pci_host_bridge *bridge;
+ 	int ret;
+ 
++	if (!xgene_check_pcie_msi_ready())
++		return dev_err_probe(&pdev->dev, -EPROBE_DEFER,
++				     "MSI driver not ready\n");
++
+ 	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*port));
+ 	if (!bridge)
+ 		return -ENOMEM;
 -- 
 2.39.2
 
