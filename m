@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB53C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 18:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15C1C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 18:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N1frkWFr2J40XR/9vE9VGNeGQ92bKeQnuoGbwfEnbrA=; b=xkjUQhco9Y7cAWvBTqipkoXVEm
-	n95L7wwqQuYisWCab//NIoVlw7sMw4EaiFH5eq/Ly7mMwOEqFz8dKgHz5ULKkE0XL9W26HW0P1TWP
-	+98iG0j8/9WlkztdKKv4sCTFj8Z5AxgCH1eSLGCizDMpOrI+t+XcgXwv0R9p+OnT58deqj55VJmQf
-	lllQPM+43NnIYhBLil4cgJErBpoRRMDsEHnnfF0jY0VQZ/929SD9PtA0efdb8B+Q1EU7t4TfsB+m7
-	5K4zOtiHqOOMqaug1oOZES1HZRQukLNmzDUdrlQuOTP/F3d8eNbGtGKa97JDKk6MJRjxK0707R4TP
-	B9UAF2Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MLyqT+xILuclBbcabGc7fi9R39np5F7oBhDxlkOWYXQ=; b=L3kRhuCDztwMJj6Vsy/0lyerz7
+	qteQSnilClrVSwIv2B4PdWBgDImeSyh+4llE/eSlk42HtKK1Hf+q9t2OiL2LfGbdZImbQeL5xjw8W
+	CocnnMQsqdGGKKfm5OAstp8ZySnpIFhA1YtGWo17A9gdWi0gcZFKL3uFBN0olESoQRDHD35V9eWus
+	79hAIQMq3rqP9K1Kozz2DQSs7/aJLTwwP9InWCosx3c3E4+nbULT5yk1uU61dzAAEnLaQ8LdHIBdF
+	6zssdXB57eDgHPHanQSZPcT0bJHxQyQJlBep11jXGhZhBMCZqAXZRVLodziP/J1r4HWMbdt0SSay6
+	zYipO9Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZCqq-00000006DoP-0pwN;
-	Tue, 08 Jul 2025 18:15:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uZCt8-00000006E1c-3kPq;
+	Tue, 08 Jul 2025 18:17:54 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZBvX-000000065Sv-3YBp
+	id 1uZByB-0000000663m-2v6H
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 17:16:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 09FC161441;
-	Tue,  8 Jul 2025 17:16:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78FB9C4CEED;
-	Tue,  8 Jul 2025 17:16:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751994978;
-	bh=9BnTd3kqHiI+RLRuW2SIH7nDiSe8klvUWwh1RoroQaY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BOBPe097FZ5t6a0C9qYnF21fHnNu5epcIpuRDUjCKell5EMf45OF6TYRCrf/PtuGo
-	 7bbp7XyPxJwGxS/N4dlApJAbEoqBYTXs8IShXKgysMPjJkBVWlhGfhOb6W3olv0p4H
-	 5hGVRwyRdnlcsxBYNWh+76bNB+/R+HDW15Ss03oAzfrhlwUA0d+RvRRBHuQEinpAqW
-	 RXiUVbFFnw80AtaEQrb4uP/ezbEvygBln7JecSNcjr9zLOz/GD5AsWOt9gPFz9kUgI
-	 HBZBtxxE3+ZsI9wCDqZ9410ou+7CJY9C8p18JAXYkrkAhx5NsfzoH7AZkOo4RZ+MJg
-	 waCzbupzZPt6Q==
-Date: Tue, 8 Jul 2025 12:16:17 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Yong Deng <yong.deng@magewell.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-media@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v8 2/9] dt-bindings: media: sun6i-a31-isp: Add optional
- interconnect properties
-Message-ID: <175199497651.649032.8001124742935274339.robh@kernel.org>
-References: <20250704154628.3468793-1-paulk@sys-base.io>
- <20250704154628.3468793-3-paulk@sys-base.io>
+	Tue, 08 Jul 2025 17:19:06 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-60700a745e5so9162354a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 10:19:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751995142; x=1752599942; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MLyqT+xILuclBbcabGc7fi9R39np5F7oBhDxlkOWYXQ=;
+        b=BXlMWVLyPscRFNqHoGTT0L3+At6pfL/Nbd4la+7ZJ6ZrEayG9npj95qYcCHnWJlQxS
+         wKaBNnfjOCvekmv+N5LRQDsbu6DbQBf7wDbyKUFmkFoyddfXT+hVh8SjTGD37bqTVby9
+         Ikf8+gkpskrPkq0ie96eUDZRLG0l5/vEOPAS/W+Lv5bMfJRVUbvnxnC40PraNe0Ih9vh
+         Bd4Pi8Bm9IRL0hrnpspoID4MF5B6LVZxK4XWdY3UNdRyj4C80dHBTDC/VN3aOGBTJBEq
+         hz2L3TF1pH5PxdEmijgoiT1y12QGDsE7X8WpWWxInR+MHpjAxEZaLUAiHP06JVA6ddZM
+         Uyvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751995142; x=1752599942;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MLyqT+xILuclBbcabGc7fi9R39np5F7oBhDxlkOWYXQ=;
+        b=kJC/p95vtmPM20W1Ph2IA8pcMM6PsYdqZpefRzhS7afz+cYeiruia9y/jWCyEHk18Y
+         GfKB6TK5rGLMfb/TucMb4bxaoPrTlW/a6TotJAo8oDuN4zNDXqBz5AJ7cUATZKmVexM5
+         kb7SYjd/Mbzipa+ts8Gw+E1HapA0znl50BYt3ai1BLfTHdJBcdYDZjnYjIBT7IMzmH+G
+         iF8GOfgdOJCrwDB0ySFcrq1A85ywph46pNknTeC8mPoDmGouPpg5THzObDPLf+GpLNxv
+         Az3ziSv8qb01FAM+LvUwgMjHMdUNRlkuqF54Khrau0Jh9SCK81XZY1D9o7aNNZJHbcdZ
+         LYlA==
+X-Forwarded-Encrypted: i=1; AJvYcCWPKmzS7VdAfwMHP7VGQ58RTlfVKY9NbTh1W3ksXx6SGqsVf1hIyV65L2ezyjl/w8O4WjLzQdSNiXQrfhS0z0FF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+ZeATwVC4eJspVSHXWEHHx+ndA7iGWzRobps1Qnq+0eqf83cb
+	Y1Ck9FClVwSBzVDGzAnoiX7uHIFakyNEE7n3txuY3Nj/xicuQeAdLyIFNF8d9eh5X4+M388/jvT
+	DTpGd
+X-Gm-Gg: ASbGncvcDVVCmGTcTHRR7DG1nLDuvplzfoiJROJOi6htH8HMWxOuwsRYtzSqGkE1BwG
+	bm90is2Zfol+06q33ILnUsRXuF9gw5+YDPrkpBKCo9ZfpK5Iaq817L9HWJnTKcNLXlQl/NJaJWZ
+	pEntmLNQXij8EL1DB/Uz/IFeIAL87cmOu4LV5o4itWcc0z8utry7n4rghRzyfptVpUi9dh2r58W
+	IQad2X7PXKFeFkNw8ljviC3JuV8rPN1OY3/As0u1sOhOw9VNJzvJaVAQ0zyS5s3KRhmZZ2XlhvH
+	F6202wDShGEAH6fmHubZImcbhMwb9KjWhF18FLHSZMs5elKr1Vci7dRSII3huNZuREUhKj7n03I
+	rDGB5zF/6RWGWWbq6cshPCVQmEbxC
+X-Google-Smtp-Source: AGHT+IGX/NwWOkwFLXujzCHW7XovaOBzMDe2z1U1HjJW1JNezxlOayLu/X2MMKSGGW5j6xiogVApeg==
+X-Received: by 2002:a05:6402:32b:b0:5ff:f524:90e0 with SMTP id 4fb4d7f45d1cf-60fd6525ea2mr13940909a12.11.1751995141685;
+        Tue, 08 Jul 2025 10:19:01 -0700 (PDT)
+Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-60fca66410bsm7426227a12.1.2025.07.08.10.19.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Jul 2025 10:19:01 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-pwm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH 0/8] pwm: mediatek: Convert to waveform API
+Date: Tue,  8 Jul 2025 19:18:30 +0200
+Message-ID: <cover.1751994509.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250704154628.3468793-3-paulk@sys-base.io>
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1572; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=JOXG8LBbhkmPcwt0LlDsJ6pBd6Fa8cmBh4Mg0M2MoAI=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBobVLnNn1ldDvMQsM8b+Zo1DdJTZXm+JuvH52QQ UWuaJKoYtCJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaG1S5wAKCRCPgPtYfRL+ TrivCACBxEQA0w7JemLEzIvOyLsYqx/bUAPrN7KlveEFbxvo+zaOiDaDtO2zmn5sz7Jhr+6+Txn fPMK8tRJnqqBzXT+oe0SNgIN1Yejp0UBPIviz4Sh8KsIe1MWep+j6SeJU/G30RE35/AySduHGzj wXSOvjV+VB9TzRLnatbmjXMRJ/JoWspLY0Bw1unzDZ1x62U7nbun25s06EKd0wcI2ssQ9EGejNW n9S5FBR1ZHsoUksjGLlZywzdYcce9orXFlrHwm4HIq3BJpAbqzg4je5bc2fyMMjr1UJBpytqe6E kAc6vb1dchMn0Zavtv2NuHZV5HnVpMXitAclkxA0vcA25qWt
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250708_101903_849887_96C3F118 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,17 +101,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
-On Fri, 04 Jul 2025 17:46:19 +0200, Paul Kocialkowski wrote:
-> An interconnect can be attached to the sun6i-a31-csi device, which is
-> useful to attach the dma memory offset. Add related properties.
-> 
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> ---
->  .../devicetree/bindings/media/allwinner,sun6i-a31-isp.yaml  | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
+after a few cleanups and preparing changes .get_state() is implemented
+and .apply() is aligned to the usual PWM rounding policy. The last
+patch then converts the driver to implement the new waveform callbacks.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+While this last commit removes functions that were created and adapted
+earlier in the series I still consider these earlier changes sensible.
+They provide a good intermediate step for both testing and bisection.
+
+I don't have access to hardware documentation (yet), so please double
+check that the names I introduce are sensible. Also one issue that I see
+is that after poweron the LED that is connected to pwm0 on my mt8365
+board is enabled, but the hardware is in a state that is detected as
+disabled. So I'm open for feedback, otherwise I will address these
+points when Mediatek will have given me access to their manuals.
+
+Best regards
+Uwe
+
+Uwe Kleine-König (8):
+  pwm: mediatek: Simplify representation of channel offsets
+  pwm: mediatek: Introduce and use a few more register defines
+  pwm: mediatek: Rework parameters for clk helper function
+  pwm: mediatek: Initialize clks when the hardware is enabled at probe
+    time
+  pwm: mediatek: Implement .get_state() callback
+  pwm: mediatek: Fix various issues in the .apply() callback
+  pwm: mediatek: Lock and cache clock rate
+  pwm: mediatek: Convert to waveform API
+
+ drivers/pwm/pwm-mediatek.c | 498 +++++++++++++++++++++++++------------
+ 1 file changed, 344 insertions(+), 154 deletions(-)
+
+base-commit: edd3bcb1801e1bb98f4f81485140e18c86406ced
+-- 
+2.49.0
 
 
