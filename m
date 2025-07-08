@@ -4,81 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FD2C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 04:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48A89C71130
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 05:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TethFMbUHgsgVKgaCK7+OTC1UjdHwcUm63F7FiACyH4=; b=3NWCYG854Wvh1GhCB/FMYdpkrE
-	pk2ynVojG7FLopFGJIhPsbjiqK/dBK/ve0kJb4yWYv/lZymQYpPnPmd/T0i2HAB4FCmmKvCmtmUd8
-	3E7fvhs8hVZ+x1wAmqXp2U7X1Zp7kxlVCjHhSbAdBJLAy/eDiMxFyqdwMB+tKTuVqLUcwIgJHfoJj
-	gSfc++OIop/3ol9hW9pGHj+CZC8FijtHZIAjV9cuYLFlpw0Yzf4pK+vo+WhuyqUu2Q1ccdvOk72bm
-	HOUt9wsL7p+M1h7c9EDcyb4h3Ew9erm4Khf+qcmS8+C739pFWMJ4D+fEECfxs9mTealJ2VBx7ilaN
-	rUkY9UOA==;
+	bh=Vr5j3HktXmdBuql9hRLpcA8htD63sRgEruV9zFxQJSk=; b=vVffY2Co3kjM0Cfr36ZFWXBz9T
+	+23UdOR4yR80lIx2seIQo8f7WdYJ/3fh8BVGpFEQ9cc7WNKXGIMGXl7hZ2Oa4GgPhQ6jo5YvOAmhf
+	koXFyE+rDDQgkb3dJiwoQuC0x9nO4k1A8K8H0pKh/qv+gYGnBTWhmR5QsiDDLVHXCMgZmDVd6A3Ja
+	Ydks9S6wVPUeUfcd+NobDHeH0nkfKQB+1qL/3uJATRvqP4GlEMVbfilHO6uIEyjjmzGYxX6I5VUkr
+	VvI7wNdrPjC1c5Fv+ar1CHbgB1xxc2FVj+yB5lPzlBaJ1ENi/lFRJbRyDRZ7AyVUQbgDCumIZ22jS
+	N+7nkk3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ02V-00000004G8K-3fpB;
-	Tue, 08 Jul 2025 04:34:43 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1uZ0RJ-00000004HwO-0bwq;
+	Tue, 08 Jul 2025 05:00:21 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYzqP-00000004EzH-4BLd
+	id 1uZ0Ow-00000004Hhc-2PxA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 04:22:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=TethFMbUHgsgVKgaCK7+OTC1UjdHwcUm63F7FiACyH4=; b=N3dsEHbkPG/fFzLgOrnZTEzAOh
-	NoGliEKeMzxwiVXoTM5i7umz4HxknR/N/gkoQ+MGpGHb43lg2KYQ4ANl+W5faFVkYOy5c8aEiB8dr
-	sf5yh72YfpPNTJRlpgelh6U9gND4rNKDTIqhcXe1wR34J4aXcOPIF99AS5gGMSx7IjGdwJJKKEiK7
-	oS5IWAWH2p9394mB2nDyeyfh05WJOwQsNbUNoHPPtodoizZi8IhCjrAmg2KoZUToeDVJdqWzPWLSi
-	1BWcpAlcp83/y6iAu9RKvuhRFppA31Nx2DhAicqwjByO/Do4iibfOMp8wStOu0dncH2MkttRdXqFy
-	L2OcG/7w==;
-Received: from [89.212.21.243] (port=45388 helo=localhost.localdomain)
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1uYzqK-00GO9H-1z;
-	Tue, 08 Jul 2025 06:22:07 +0200
-From: Primoz Fiser <primoz.fiser@norik.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	upstream@lists.phytec.de
-Subject: [PATCH v3 4/4] arm64: dts: imx93-phyboard-nash: Add PEB-WLBT-07 overlay
-Date: Tue,  8 Jul 2025 06:22:06 +0200
-Message-Id: <20250708042206.329208-5-primoz.fiser@norik.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250708042206.329208-1-primoz.fiser@norik.com>
-References: <20250708042206.329208-1-primoz.fiser@norik.com>
+	Tue, 08 Jul 2025 04:57:56 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5561ab55c4dso4137851e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 21:57:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1751950673; x=1752555473; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Vr5j3HktXmdBuql9hRLpcA8htD63sRgEruV9zFxQJSk=;
+        b=bct2CJWwEY/YrxttZ2PY21XwLPzbvKi0DyrCMGpyaWNyTjXW3wJbeW7ATiuj9264pX
+         yGiEDoOP7wypDlCAsMYDJwvG1VEKw2ybsa6xbDvtXkJuOnKQ72P0lVMQvdRXOfWIMsKU
+         +e0247//+oR/a/1bphIb/O5oKNND91Dkpt5zQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751950673; x=1752555473;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Vr5j3HktXmdBuql9hRLpcA8htD63sRgEruV9zFxQJSk=;
+        b=R344wikI2NKqxyKYH5JtqMd4sHafhgsGIi1t0EcYveMWOUVRTXc4rEmorE3/wWmZYz
+         Ja3sulWXBsDtGY+DxF9Ky7gMj4byE7BJBbofZnv4PwW1bwLez1g9RyblhB/Q2NHMGDWz
+         Zi+ozAujLDq/xgFbDOq8ZoBSsAmbLb0DVzDl3D1ohqyzuViuJfTr9IrkZlgOlbF6y32Q
+         Ixc30dq7EPIhDg+tN1+HebGLhRxM/iJU53WJhb/pzIi70VWvCDQI0Xi+/HOWk8bzlYuI
+         SHSR/QwqEOyX7x90WAjQKzAJKRE2o7RHvbA5EbqSTs1YsetiIKvAG5ZEnyJUnGzl3ox+
+         //5w==
+X-Forwarded-Encrypted: i=1; AJvYcCXRoIQ6kv4DKVi/tvcKGWMTmF3zn+qv08PJxoJh7MWGHlfvoSxQDuI15POMwyxdqNwzkMk3rpXOix2hliKadER8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaEuv6vBary9f2HKqXnxEfUCfWrlBkRQf8sevSKD5Lkfb2Lh12
+	1tvoi3fQpVtFDzsaNnHWpsLuZEleuceVfQfLkaNPsZaSkgHZhvb9ZJPzsae0fmdnZRA7DyIeUAE
+	CWVQmNgI96BDxbYa9ws9dQeQMnOatCWs6M7sNcvhI
+X-Gm-Gg: ASbGncvXohd+zAZa76/wkW4FDiRjUYwtdJoC9uydUeo+pc7R5/YlnirzseaE33mUQF7
+	G1riLXzjUuLVGHV53EvSepZ7vMzFVVScHuYBYLlZ4p11bKALKWpQ2h2Os7VpaJFo1TCEHluHf60
+	QvzLhZTuG+9MXx9NdP4Xk2R1zXNROQfoR2eZoxO1LjyCBAy4oz6p6mH1QG7VSx0B/cnUzGqSM=
+X-Google-Smtp-Source: AGHT+IGiKmRVVctKEN/87vc8xFNDgCG4gqbvI6NjBIPAZYuz9GsA3JMVpKP+W+7I3VmAlOaA1Oceumi0sItLoIdM0rg=
+X-Received: by 2002:a05:6512:ad2:b0:553:a456:a0d4 with SMTP id
+ 2adb3069b0e04-557f830d866mr441986e87.15.1751950672522; Mon, 07 Jul 2025
+ 21:57:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+References: <20250707134451.154346-1-angelogioacchino.delregno@collabora.com> <20250707134451.154346-5-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250707134451.154346-5-angelogioacchino.delregno@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 8 Jul 2025 12:57:41 +0800
+X-Gm-Features: Ac12FXxoiikXF1-TFEleSvh2qQAz2WaU9ADuyjClvcWDyJXjaLPqVQRaBRPRGBU
+Message-ID: <CAGXv+5GbcyEEBaEhB1QY5uZ-CnKpvRgOYhqv==d72KXkVSSB3g@mail.gmail.com>
+Subject: Re: [PATCH v2 4/8] regulator: Add support for MediaTek MT6363 SPMI
+ PMIC Regulators
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, lee@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	lgirdwood@gmail.com, broonie@kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_212214_202138_1DEB1C1E 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250707_215754_934588_03273CD1 
+X-CRM114-Status: GOOD (  33.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,133 +95,314 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add overlay to support PHYTEC PEB-WLBT-07 WiFi/Bluetooth evaluation
-adapter on phyBOARD-Nash-i.MX93 board. Adapter uses the u-blox MAYA-W2
-module (IW612 chipset) which is capable of Wi-Fi 6 and Bluetooth 5.4 LE.
+Hi,
 
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
----
-Changes in v3:
-- fix license to match base dts
-- add Reviewed-by tag
+On Mon, Jul 7, 2025 at 10:29=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> Add a driver for the regulators found on the MT6363 PMIC, fully
+> controlled by SPMI interface.
+> This PMIC regulates voltage with an input range of 2.6-5.0V, and
+> features 10 buck converters and 26 LDOs.
+>
+> Link: https://lore.kernel.org/r/20250624073548.29732-5-angelogioacchino.d=
+elregno@collabora.com
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> ---
+>  drivers/regulator/Kconfig                  |    9 +
+>  drivers/regulator/Makefile                 |    1 +
+>  drivers/regulator/mt6363-regulator.c       | 1076 ++++++++++++++++++++
+>  include/linux/regulator/mt6363-regulator.h |  326 ++++++
+>  4 files changed, 1412 insertions(+)
+>  create mode 100644 drivers/regulator/mt6363-regulator.c
+>  create mode 100644 include/linux/regulator/mt6363-regulator.h
+>
+> diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
+> index 81f2acd0f960..d770e51f7ad1 100644
+> --- a/drivers/regulator/Kconfig
+> +++ b/drivers/regulator/Kconfig
+> @@ -936,6 +936,15 @@ config REGULATOR_MT6360
+>           2-channel buck with Thermal Shutdown and Overload Protection
+>           6-channel High PSRR and Low Dropout LDO.
+>
+> +config REGULATOR_MT6363
+> +       tristate "MT6363 SPMI PMIC regulator driver"
+> +       depends on SPMI || COMPILE_TEST
+> +       help
+> +          Say Y here to enable support for regulators found in the Media=
+Tek
+> +          MT6363 SPMI PMIC.
+> +         This driver supports the control of different power rails of de=
+vice
+> +         through regulator interface.
+> +
+>  config REGULATOR_MT6370
+>         tristate "MT6370 SubPMIC Regulator"
+>         depends on MFD_MT6370
+> diff --git a/drivers/regulator/Makefile b/drivers/regulator/Makefile
+> index 46c0e75f6107..41eaeac5547d 100644
+> --- a/drivers/regulator/Makefile
+> +++ b/drivers/regulator/Makefile
+> @@ -111,6 +111,7 @@ obj-$(CONFIG_REGULATOR_MT6357)      +=3D mt6357-regul=
+ator.o
+>  obj-$(CONFIG_REGULATOR_MT6358) +=3D mt6358-regulator.o
+>  obj-$(CONFIG_REGULATOR_MT6359) +=3D mt6359-regulator.o
+>  obj-$(CONFIG_REGULATOR_MT6360) +=3D mt6360-regulator.o
+> +obj-$(CONFIG_REGULATOR_MT6363) +=3D mt6363-regulator.o
+>  obj-$(CONFIG_REGULATOR_MT6370) +=3D mt6370-regulator.o
+>  obj-$(CONFIG_REGULATOR_MT6380) +=3D mt6380-regulator.o
+>  obj-$(CONFIG_REGULATOR_MT6397) +=3D mt6397-regulator.o
+> diff --git a/drivers/regulator/mt6363-regulator.c b/drivers/regulator/mt6=
+363-regulator.c
+> new file mode 100644
+> index 000000000000..ea7d4e4f38cb
+> --- /dev/null
+> +++ b/drivers/regulator/mt6363-regulator.c
+> @@ -0,0 +1,1076 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +//
+> +// Copyright (c) 2024 MediaTek Inc.
+> +// Copyright (c) 2025 Collabora Ltd
+> +//                    AngeloGioacchino Del Regno <angelogioacchino.delre=
+gno@collabora.com>
+> +
+> +#include <linux/delay.h>
+> +#include <linux/devm-helpers.h>
+> +#include <linux/err.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +
+> +#include <linux/regulator/driver.h>
+> +#include <linux/regulator/machine.h>
+> +#include <linux/regulator/mt6363-regulator.h>
+> +#include <linux/regulator/of_regulator.h>
+> +
+> +#define MT6363_REGULATOR_MODE_NORMAL   0
+> +#define MT6363_REGULATOR_MODE_FCCM     1
+> +#define MT6363_REGULATOR_MODE_LP       2
+> +#define MT6363_REGULATOR_MODE_ULP      3
+> +
+> +#define EN_SET_OFFSET  0x1
+> +#define EN_CLR_OFFSET  0x2
+> +#define OP_CFG_OFFSET  0x5
+> +
+> +#define NORMAL_OP_CFG  0x10
+> +#define NORMAL_OP_EN   0x800000
+> +
+> +#define OC_IRQ_ENABLE_DELAY_MS         10
+> +
+> +/* Unlock keys for TMA and BUCK_TOP */
+> +#define MT6363_TMA_UNLOCK_VALUE                0x9c9c
+> +#define MT6363_BUCK_TOP_UNLOCK_VALUE   0x5543
+> +
+> +#define MT6363_RG_BUCK_EFUSE_RSV1      0x1447
+> +#define MT6363_RG_BUCK_EFUSE_RSV1_MASK GENMASK(7, 4)
+> +
+> +enum {
+> +       MT6363_ID_VS2,
+> +       MT6363_ID_VBUCK1,
+> +       MT6363_ID_VBUCK2,
+> +       MT6363_ID_VBUCK3,
+> +       MT6363_ID_VBUCK4,
+> +       MT6363_ID_VBUCK5,
+> +       MT6363_ID_VBUCK6,
+> +       MT6363_ID_VBUCK7,
+> +       MT6363_ID_VS1,
+> +       MT6363_ID_VS3,
 
- arch/arm64/boot/dts/freescale/Makefile        |  2 +
- .../imx93-phyboard-nash-peb-wlbt-07.dtso      | 88 +++++++++++++++++++
- 2 files changed, 90 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso
+This ordering is a bit weird. Is there any particular reason for this?
+Order of the registers perhaps?
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 3166684ab558..699c3b1d80b2 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -325,9 +325,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
- 
-+imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
- imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
- imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
- imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso
-new file mode 100644
-index 000000000000..7381b87444e8
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-peb-wlbt-07.dtso
-@@ -0,0 +1,88 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ * Author: Primoz Fiser <primoz.fiser@norik.com>
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include "imx93-pinfunc.h"
-+
-+&{/} {
-+	usdhc3_pwrseq: usdhc3-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&lpuart5 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart5>;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "nxp,88w8987-bt";
-+	};
-+};
-+
-+/*
-+ * NOTE: When uSDHC3 port is multiplexed on GPIO_IO[27:22] pads, it only
-+ * supports 50 MHz mode, due to introduction of potential variations in
-+ * trace impedance, drive strength, and timing skew. Refer to i.MX 93
-+ * Application Processors Data Sheet, Rev. 3, page 60 for more details.
-+ */
-+&usdhc3 {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_wlbt>;
-+	pinctrl-1 = <&pinctrl_usdhc3_sleep>, <&pinctrl_wlbt>;
-+	mmc-pwrseq = <&usdhc3_pwrseq>;
-+	bus-width = <4>;
-+	keep-power-in-suspend;
-+	non-removable;
-+	wakeup-source;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_uart5: uart5grp {
-+		fsl,pins = <
-+			MX93_PAD_DAP_TDO_TRACESWO__LPUART5_TX	0x31e
-+			MX93_PAD_DAP_TDI__LPUART5_RX		0x31e
-+			MX93_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B	0x31e
-+			MX93_PAD_DAP_TMS_SWDIO__LPUART5_RTS_B	0x31e
-+		>;
-+	};
-+
-+	/* need to config the SION for data and cmd pad, refer to ERR052021 */
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			MX93_PAD_GPIO_IO22__USDHC3_CLK		0x179e
-+			MX93_PAD_SD3_CMD__USDHC3_CMD 		0x4000178e
-+			MX93_PAD_SD3_DATA0__USDHC3_DATA0	0x4000138e
-+			MX93_PAD_SD3_DATA1__USDHC3_DATA1	0x4000138e
-+			MX93_PAD_SD3_DATA2__USDHC3_DATA2	0x4000138e
-+			MX93_PAD_SD3_DATA3__USDHC3_DATA3	0x4000138e
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_sleep: usdhc3sleepgrp {
-+		fsl,pins = <
-+			MX93_PAD_GPIO_IO22__USDHC3_CLK		0x31e
-+			MX93_PAD_SD3_CMD__USDHC3_CMD 		0x31e
-+			MX93_PAD_SD3_DATA0__USDHC3_DATA0	0x31e
-+			MX93_PAD_SD3_DATA1__USDHC3_DATA1	0x31e
-+			MX93_PAD_SD3_DATA2__USDHC3_DATA2	0x31e
-+			MX93_PAD_SD3_DATA3__USDHC3_DATA3	0x31e
-+		>;
-+	};
-+
-+	pinctrl_wlbt: wlbtgrp {
-+		fsl,pins = <
-+			MX93_PAD_CCM_CLKO2__GPIO3_IO27		0x31e	/* WAKE_DEV */
-+			MX93_PAD_CCM_CLKO3__GPIO4_IO28		0x31e	/* WAKE_HOST */
-+			MX93_PAD_CCM_CLKO4__GPIO4_IO29		0x31e	/* PDn */
-+		>;
-+	};
-+};
--- 
-2.34.1
+> +       MT6363_ID_VBUCK1_SSHUB,
+> +       MT6363_ID_VBUCK2_SSHUB,
+> +       MT6363_ID_VBUCK4_SSHUB,
+> +       MT6363_ID_VSRAM_DIGRF,
+> +       MT6363_ID_VSRAM_MDFE,
+> +       MT6363_ID_VSRAM_MODEM,
+> +       MT6363_ID_VSRAM_CPUB,
+> +       MT6363_ID_VSRAM_CPUM,
+> +       MT6363_ID_VSRAM_CPUL,
+> +       MT6363_ID_VSRAM_APU,
+> +       MT6363_ID_VEMC,
+> +       MT6363_ID_VCN13,
+> +       MT6363_ID_VTREF18,
+> +       MT6363_ID_VAUX18,
+> +       MT6363_ID_VCN15,
+> +       MT6363_ID_VUFS18,
+> +       MT6363_ID_VIO18,
+> +       MT6363_ID_VM18,
+> +       MT6363_ID_VA15,
+> +       MT6363_ID_VRF18,
+> +       MT6363_ID_VRFIO18,
+> +       MT6363_ID_VIO075,
+> +       MT6363_ID_VUFS12,
+> +       MT6363_ID_VA12_1,
+> +       MT6363_ID_VA12_2,
+> +       MT6363_ID_VRF12,
+> +       MT6363_ID_VRF13,
+> +       MT6363_ID_VRF09,
+> +       MT6363_ID_ISINK_LOAD
+> +};
+> +
 
+[...]
+
+> +#define MT6363_LDO_LINEAR_OPS(match, vreg, vops, min, max, step,       \
+> +                             en_reg, en_bit, vs_reg, vs_mask,          \
+> +                             lp_reg, lp_bit)                           \
+> +[MT6363_ID_##vreg] =3D {                                                =
+ \
+> +       .desc =3D {                                                      =
+ \
+> +               .name =3D match,                                         =
+ \
+> +               .of_match =3D of_match_ptr(match),                       =
+ \
+> +               .ops =3D &vops,                                          =
+ \
+> +               .type =3D REGULATOR_VOLTAGE,                             =
+ \
+> +               .id =3D MT6363_ID_##vreg,                                =
+ \
+> +               .owner =3D THIS_MODULE,                                  =
+ \
+> +               .n_voltages =3D (max - min) / step + 1,                  =
+ \
+> +               .min_uV =3D min,                                         =
+ \
+> +               .uV_step =3D step,                                       =
+ \
+> +               .enable_reg =3D en_reg,                                  =
+ \
+> +               .enable_mask =3D BIT(en_bit),                            =
+ \
+> +               .vsel_reg =3D vs_reg,                                    =
+ \
+> +               .vsel_mask =3D vs_mask,                                  =
+ \
+> +               .of_map_mode =3D mt6363_map_mode,                        =
+ \
+> +       },                                                              \
+> +       .lp_mode_reg =3D lp_reg,                                         =
+ \
+> +       .lp_mode_mask =3D BIT(lp_bit),                                   =
+ \
+> +       .hw_lp_mode_reg =3D MT6363_LDO_##vreg##_HW_LP_MODE,              =
+ \
+> +       .hw_lp_mode_mask =3D 0x4,                                        =
+ \
+> +}
+
+Some of the LDOs have an extra "calibration" setting that can tweak
+the output in 0.01V intervals. Could we support that. At least for
+VRF12, VRF13, VRF18, the default is an extra 0.04V. It would be
+misleading for the DT to specify 1.8V while the regulator is actually
+outputting 1.84V.
+
+You could look at the MT6358 driver to see how I implemented it.
+
+[...]
+
+> +static irqreturn_t mt6363_oc_isr(int irq, void *data)
+> +{
+> +       struct regulator_dev *rdev =3D (struct regulator_dev *)data;
+> +       struct mt6363_regulator_info *info =3D rdev_get_drvdata(rdev);
+> +
+> +       disable_irq_nosync(info->irq);
+> +
+> +       if (regulator_is_enabled_regmap(rdev))
+> +               regulator_notifier_call_chain(rdev, REGULATOR_EVENT_OVER_=
+CURRENT, NULL);
+> +
+> +       schedule_delayed_work(&info->oc_work, msecs_to_jiffies(OC_IRQ_ENA=
+BLE_DELAY_MS));
+
+Is this needed for debouncing?
+
+> +
+> +       return IRQ_HANDLED;
+> +}
+> +
+> +static int mt6363_set_ocp(struct regulator_dev *rdev, int lim, int sever=
+ity, bool enable)
+> +{
+> +       struct mt6363_regulator_info *info =3D rdev_get_drvdata(rdev);
+> +
+> +       /* MT6363 supports only enabling protection and does not support =
+limits */
+> +       if (lim || severity !=3D REGULATOR_SEVERITY_PROT || !enable)
+> +               return -EINVAL;
+> +
+> +       /* If there is no OCP interrupt, there's nothing to set */
+> +       if (info->irq <=3D 0)
+> +               return -EINVAL;
+
+-EOPNOTSUPP instead? One gives an error while the other gives a warning.
+
+> +
+> +       return devm_request_threaded_irq(&rdev->dev, info->irq, NULL,
+> +                                        mt6363_oc_isr, IRQF_ONESHOT,
+> +                                        info->desc.name, rdev);
+> +}
+> +
+
+[...]
+
+> +/* The array is indexed by id(MT6363_ID_XXX) */
+> +static struct mt6363_regulator_info mt6363_regulators[] =3D {
+> +       MT6363_BUCK("buck-vs2", VS2, 0, 1600000, 12500,
+> +                   MT6363_RG_BUCK0_EN_ADDR,
+> +                   MT6363_RG_BUCK_VS2_EN_BIT,
+> +                   MT6363_RG_BUCK_VS2_VOSEL_ADDR,
+> +                   MT6363_RG_BUCK_VS2_VOSEL_MASK,
+> +                   MT6363_RG_BUCK0_LP_ADDR,
+> +                   MT6363_RG_BUCK_VS2_LP_BIT,
+> +                   MT6363_RG_BUCK0_FCCM_ADDR,
+> +                   MT6363_RG_VS2_FCCM_BIT),
+
+All this doesn't need to be spelled out. Perhaps you could use some
+preprocessor magic to assemble all the register names so that the
+entry could be simplified to just
+
+        MT6363_BUCK("buck-vs2", VS2, 0, 1600000, 12500,
+MT6363_RG_BUCK0_FCCM_ADDR),
+
+[...]
+
+> +       MT6363_SSHUB("buck-sshub1", VBUCK1_SSHUB, 0, 1193750, 6250,
+> +                    MT6363_RG_BUCK_VBUCK1_SSHUB_EN_ADDR,
+> +                    MT6363_RG_BUCK_VBUCK1_SSHUB_VOSEL_ADDR,
+> +                    MT6363_RG_BUCK_VBUCK1_SSHUB_VOSEL_MASK),
+> +       MT6363_SSHUB("buck-sshub2", VBUCK2_SSHUB, 0, 1193750, 6250,
+> +                    MT6363_RG_BUCK_VBUCK2_SSHUB_EN_ADDR,
+> +                    MT6363_RG_BUCK_VBUCK2_SSHUB_VOSEL_ADDR,
+> +                    MT6363_RG_BUCK_VBUCK2_SSHUB_VOSEL_MASK),
+> +       MT6363_SSHUB("buck-sshub4", VBUCK4_SSHUB, 0, 1193750, 6250,
+> +                    MT6363_RG_BUCK_VBUCK4_SSHUB_EN_ADDR,
+> +                    MT6363_RG_BUCK_VBUCK4_SSHUB_VOSEL_ADDR,
+> +                    MT6363_RG_BUCK_VBUCK4_SSHUB_VOSEL_MASK),
+
+As mentioned in my reply to the binding patch, these aren't real regulators=
+.
+
+> +       MT6363_LDO_L_SC("ldo-vsram-digrf", VSRAM_DIGRF, 400000, 1193750, =
+6250,
+> +                       MT6363_RG_BUCK1_EN_ADDR,
+> +                       MT6363_RG_LDO_VSRAM_DIGRF_EN_BIT,
+> +                       MT6363_RG_LDO_VSRAM_DIGRF_VOSEL_ADDR,
+> +                       MT6363_RG_LDO_VSRAM_DIGRF_VOSEL_MASK,
+> +                       MT6363_RG_BUCK1_LP_ADDR,
+> +                       MT6363_RG_LDO_VSRAM_DIGRF_LP_BIT),
+
+Same here, these could be compressed smaller with some preprocessor magic.
+
+[...]
+
+ChenYu
 
