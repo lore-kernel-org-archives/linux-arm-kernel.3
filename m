@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9239C83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 09:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C9EC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 09:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IdlZrpJAXqTv/a5tgAV1/rrf7Z1Z++vGcoXb6bAkIjE=; b=Z0E4fPW3m67YjHoIOHdGQdolSG
-	3xksCj3/4CHOw6yoXlTxMnRWFZcsPsFX70h8y2Cx+u2HXE4zvqGBnPbWA0zxTzt86nSJnEzjdMWCG
-	jHcWiE+gokTYYANnY7wzhYgWvqt37zirfcOay1iQLI4BQsKM5NH2ToLG/rQgkAJWWUBebj0rCsUjc
-	utPdYFkKcS7/svC+BzJ59ON90U1X91Uf9MqB6zV5ufutxuQhuhcVuydHG7i+L6iej86mgo2UZZYWY
-	YYBfbckZ0GN9fC+N7DHSxmCOnLp/7e6kBjwpaSY4mOmn8do8EkITS3cCrQIuSq8CKp32d71lLkxFo
-	t4vIi1KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZtuXvXAYaLoIlesBBs7sH9sPUnylvYq104PGqKFHcU4=; b=iUGPVAi7CfISZJx3IMNwSUhJX8
+	uNjg5kRRvirVLZ6i+TYAcw3icjUcGeby/7llV2cV6I8AfJPfVjfr1W9gwHxJt2By3gg4qsV65B32W
+	DXMB8BNoaQwDTY4KMMf9szDl7FmJWnKtX1JO0FTIHKBEQll4R2fCDGDrjCPAL7dHNKyT34WEN0TXG
+	wBe0NDHTMOoKIuXmWCroC41YT307IDVWaHxhX96Gq5gg02aCTSzDjQxlEym6N9rE+LEKaPxZ0ffxL
+	Wqp4ZxZR/3M1ift+3i6ZWjyUQatJmE4wzPUC7i2MIHAhc5hD2nH6ymrOH/DJJZNPP8RDoXuUVR/MR
+	uQShZksg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ4DR-00000004pnM-1Vdl;
-	Tue, 08 Jul 2025 09:02:17 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uZ4Fk-00000004qOF-12yp;
+	Tue, 08 Jul 2025 09:04:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3qt-00000004lxg-2Pxl
+	id 1uZ3rN-00000004m2g-0ptL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 08:39:00 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bbvdF258Cz6GCZG;
-	Tue,  8 Jul 2025 16:38:09 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1A7FF140144;
-	Tue,  8 Jul 2025 16:38:54 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 8 Jul
- 2025 10:38:53 +0200
-Date: Tue, 8 Jul 2025 09:38:51 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Alireza Sanaee <alireza.sanaee@huawei.com>
-CC: <mark.rutland@arm.com>, <robh@kernel.org>, <coresight@lists.linaro.org>,
-	<devicetree@vger.kernel.org>, <dianders@chromium.org>,
-	<james.clark@linaro.org>, <krzk@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <linuxarm@huawei.com>,
-	<mike.leach@linaro.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <suzuki.poulose@arm.com>
-Subject: Re: [PATCH 5/5] perf/arm-dsu: refactor cpu id retrieval via new API
- of_cpu_phandle_to_id
-Message-ID: <20250708093851.000030e3@huawei.com>
-In-Reply-To: <20250707150414.620-6-alireza.sanaee@huawei.com>
-References: <20250707150414.620-1-alireza.sanaee@huawei.com>
-	<20250707150414.620-6-alireza.sanaee@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 08 Jul 2025 08:39:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9F8225C62E0;
+	Tue,  8 Jul 2025 08:39:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CADF6C4CEED;
+	Tue,  8 Jul 2025 08:39:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751963968;
+	bh=AgF/cWa8tyl4lX11C1ELXJPj6/yeF0Nvjn6w56HxM2I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X1elsLSuTAVqQrj4csDgKcoib/rCgA+uxml22fkkRBDTABgwtDHHkCGH087jr0DMB
+	 CON6nvJ/lBgoCgdpXcz8MBqAfSOPEKm9HgkDb8BNyJkboISFMTgQG54ZWCWM1/nIeo
+	 qXc/FocCcUTyWjhMMP56VDYnY1azjS+LVwcy/0KM0WjXD4R+hGtQXcjfTYsnlZM3IH
+	 dm1cUvymqd++wfoTLvyfs9rQvNqTrGG4lrUuHMF696FG4IBAWDMKgSC0n5Rdt+ihyH
+	 82mYO8brI+We01pcfyRzLJywrk2oU7lwdx7KKMofCRbOXwuaWFy+b+U6si7PogTJWH
+	 cnhEpuEavWN7A==
+Date: Tue, 8 Jul 2025 10:39:25 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Stuart Burtner <sburtner@d3embedded.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Spencer Hill <shill@d3engineering.com>, Sebastian LaVine <slavine@d3engineering.com>
+Subject: Re: [PATCH 1/2] media: dt-bindings: Add Sony IMX728
+Message-ID: <20250708-kiwi-of-delightful-wholeness-cc90ea@krzk-bin>
+References: <20250625-imx728-on-6-12-v4-v1-0-cfc6e18c3e23@d3embedded.com>
+ <20250625-imx728-on-6-12-v4-v1-1-cfc6e18c3e23@d3embedded.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250625-imx728-on-6-12-v4-v1-1-cfc6e18c3e23@d3embedded.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_013859_773898_C1B407E9 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250708_013929_269277_C9F0025F 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,39 +79,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 7 Jul 2025 16:04:14 +0100
-Alireza Sanaee <alireza.sanaee@huawei.com> wrote:
-
-> Update arm-dsu to use the new API, where both "cpus" and "cpu"
-> properties are supported.
+On Wed, Jun 25, 2025 at 02:20:03PM -0400, Stuart Burtner wrote:
+> Add bindings for the Sony IMX728.
 > 
-> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+> Co-developed-by: Spencer Hill <shill@d3engineering.com>
+> Signed-off-by: Spencer Hill <shill@d3engineering.com>
+> Co-developed-by: Sebastian LaVine <slavine@d3engineering.com>
+> Signed-off-by: Sebastian LaVine <slavine@d3engineering.com>
+> Signed-off-by: Stuart Burtner <sburtner@d3embedded.com>
 > ---
->  drivers/perf/arm_dsu_pmu.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/perf/arm_dsu_pmu.c b/drivers/perf/arm_dsu_pmu.c
-> index cb4fb59fe04b..7ef204d39173 100644
-> --- a/drivers/perf/arm_dsu_pmu.c
-> +++ b/drivers/perf/arm_dsu_pmu.c
-> @@ -596,11 +596,9 @@ static int dsu_pmu_dt_get_cpus(struct device *dev, cpumask_t *mask)
->  	n = of_count_phandle_with_args(dev->of_node, "cpus", NULL);
->  	if (n <= 0)
->  		return -ENODEV;
-> +
->  	for (; i < n; i++) {
-> -		cpu_node = of_parse_phandle(dev->of_node, "cpus", i);
-> -		if (!cpu_node)
-> -			break;
-> -		cpu = of_cpu_node_to_id(cpu_node);
-> +		cpu = of_cpu_phandle_to_id(dev->of_node, &cpu_node, i);
-Same again. 
-Does any code actually use the cpu_node?
+>  .../devicetree/bindings/media/i2c/sony,imx728.yaml | 95 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  6 ++
+>  2 files changed, 101 insertions(+)
 
-If not you need a strong justification for ever letting it out of the new
-helper.
->  		of_node_put(cpu_node);
->  		/*
->  		 * We have to ignore the failures here and continue scanning
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+<form letter>
+This is an automated instruction, just in case, because many review
+tags are being ignored. If you know the process, just skip it entirely
+(please do not feel offended by me posting it here - no bad intentions
+intended, no patronizing, I just want to avoid wasted efforts). If you
+do not know the process, here is a short explanation:
+
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+versions of patchset, under or above your Signed-off-by tag, unless
+patch changed significantly (e.g. new properties added to the DT
+bindings). Tag is "received", when provided in a message replied to you
+on the mailing list. Tools like b4 can help here ('b4 trailers -u ...').
+However, there's no need to repost patches *only* to add the tags. The
+upstream maintainer will do that for tags received on the version they
+apply.
+
+https://elixir.bootlin.com/linux/v6.15/source/Documentation/process/submitting-patches.rst#L591
+</form letter>
+
+Best regards,
+Krzysztof
 
 
