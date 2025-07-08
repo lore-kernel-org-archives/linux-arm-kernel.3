@@ -4,44 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEBF1C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 02:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4865AC83030
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 02:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nghdqr1TNgA7GTnWXSxnqQpSMH1Jj0RJB/prk1nIUIw=; b=IrfHCwhI5Eae0S2+1Y19GwRNLz
-	8kTUnNm61X0HhlS0CAxlY/bAyKUKXoX0QykSKluiL2cWOkaKVUrgugTR0gy49JGoWrpQ8URRqvVEI
-	w+UwKcBUqEyvxQiibH8kqEPfDRaODmCwK6RMV1AUG+jBQxcjrUiuKLdsgev513JrRA8+auKa/jeEC
-	A0bp3zNVGIjgKq97LCsIyzAG0GQ+fPy2y1E13qf1K/V05iqxKOuv1eCOoArfmdS44UG5e5URr8r6v
-	c9RSsDz1Jkfi6XdI7JHwiA92P1yA+3zUkzQ7+Boj7lZjDRNPMUbxUqRagixt1pBN4I/31D0mLfngO
-	50Vcn4xA==;
+	bh=22aHBNm2PspGv0EtsJjFnQgJ+VWdLmQz4v9JsyG/8T0=; b=uNhS4dXFDkOYMcZECdMUEqOiD2
+	HESisCxqmhH+EY+1s0kHyxPNiVY0e1AhH9Rwevl9yUEazrXoYjYgYarO6B1tbFAhwpZrRivX9VPUD
+	lJQlWqtrfr5ROMOqi7hOBM/mnlpA/W9rxH4eIX6jrxTP4CYTh2NcpYxP4jn2v6lpXRrVlv76r9hCS
+	xEFxrwRnJkDwmVm3bvh/9SaLL5+vHAJFG04lsmal8tYSVgVTjRX7/oTuTfslb1U6sSauMrsEsKYyE
+	uPgUyL1cZ5kQFupxZ7G6EyQriX50WrFv43Gi+5XCFpW3rr2AMeY0CXTUcbcH6Jzk/wax67e26Q1aY
+	4s0ICF6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYxq4-000000043e6-1p91;
-	Tue, 08 Jul 2025 02:13:44 +0000
+	id 1uYxsN-0000000442a-0nbk;
+	Tue, 08 Jul 2025 02:16:07 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYxjP-000000042KE-1Vuz
+	id 1uYxja-000000042Mc-13Tz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 02:06:52 +0000
+	Tue, 08 Jul 2025 02:07:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1751940409;
-	bh=nghdqr1TNgA7GTnWXSxnqQpSMH1Jj0RJB/prk1nIUIw=;
+	d=codeconstruct.com.au; s=2022a; t=1751940420;
+	bh=22aHBNm2PspGv0EtsJjFnQgJ+VWdLmQz4v9JsyG/8T0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=efnZSxRjJWL650CnneLc0hEdvRZaLwoT/UZWjOeiMpODmJ9Qh7k66Ejf1RFGcD+Si
-	 RNbW+BHbe8Wbnxg9j5DjAZiT7uANwG9Kl+ZiHYTslCR8NaxSaCDFvl/BPD6lx70ygU
-	 gc6kXs/SoeLzq23e6EOWOCW+SEZlnFRaPsCHJsFy9X65evzc+eKBNfCeXPueyyNrWB
-	 g678EnZT064/eewjQKeW6naXKWK1grI0oNvOM+1stcQoXJDMJaevtV/6nzBkPw9bBP
-	 ZstormeTgESK2Wz847+nLuUXSEAsBD+pYRWcEcJtLBAIpwPLIkb2a8vuNX3xaa3u23
-	 7C+Vhb6Sb3ppA==
+	b=HrxfvQZMQqxlV3pXxRhc8vFKhJqUddUqywz7ltue+x0o9avwg4/C/7Tyu2+x8F4+Y
+	 uLSwX3Soo59Ol+gx+Sl2/YWPD0VqA1iXFh89OzNL3I1wZd2G6Iyza4EkoQDnZNhw71
+	 CPF4OhNGGJJno0BrvTmasL+ExIxwNKGS1rNFAV459k2bOlMBvkBQZbUEV/Em19/nnr
+	 2IBpFcdfreG7UHRahfoXaFWMAYJ8NcTW97QpghRjVsMZuaC3X54FL6q70XNGsMZJuc
+	 ksk8J/tDPelZVLBHwgMdHzanvSFHN7eikJMJP5P3DqigxlvntjJbs0Q3YgJGoCDOuL
+	 RGiqDY0xEqS3A==
 Received: from [192.168.68.112] (unknown [180.150.112.153])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 26C476AE34;
-	Tue,  8 Jul 2025 10:06:49 +0800 (AWST)
-Message-ID: <7e4738d944c611cfb0e4eba4ce2926ed55a0096a.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v2 06/10] soc: aspeed: lpc-snoop: Rearrange channel paths
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 08D9A6ADE6;
+	Tue,  8 Jul 2025 10:06:59 +0800 (AWST)
+Message-ID: <6ae95d064de0c1b6333c234e461eae3e8da80168.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v2 09/10] soc: aspeed: lpc-snoop: Consolidate channel
+ initialisation
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
 To: Jean Delvare <jdelvare@suse.de>
 Cc: linux-aspeed@lists.ozlabs.org, Joel Stanley <joel@jms.id.au>, Henry
@@ -50,18 +51,18 @@ Cc: linux-aspeed@lists.ozlabs.org, Joel Stanley <joel@jms.id.au>, Henry
  Ninad Palsule <ninad@linux.ibm.com>, Patrick Venture <venture@google.com>, 
  Robert Lippert <roblip@gmail.com>, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Date: Tue, 08 Jul 2025 11:36:48 +0930
-In-Reply-To: <20250704173443.3436f535@endymion>
+Date: Tue, 08 Jul 2025 11:36:59 +0930
+In-Reply-To: <20250704171315.30300f59@endymion>
 References: <20250616-aspeed-lpc-snoop-fixes-v2-0-3cdd59c934d3@codeconstruct.com.au>
-	 <20250616-aspeed-lpc-snoop-fixes-v2-6-3cdd59c934d3@codeconstruct.com.au>
-	 <20250704173443.3436f535@endymion>
+	 <20250616-aspeed-lpc-snoop-fixes-v2-9-3cdd59c934d3@codeconstruct.com.au>
+	 <20250704171315.30300f59@endymion>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_190651_585284_A2BA1E45 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20250707_190702_478834_FBF4611D 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +79,56 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Jean,
 
-On Fri, 2025-07-04 at 17:34 +0200, Jean Delvare wrote:
-> On Mon, 16 Jun 2025 22:43:43 +0930, Andrew Jeffery wrote:
-> > Order assignments such that tests for conditions not involving resource
-> > acquisition are ordered before those testing acquired resources, and
-> > order managed resource acquisition before unmanaged where possible. Thi=
-s
-> > way we minimise the amount of manual cleanup required.
-> >=20
-> > In the process, improve readability of the code by introducing a channe=
-l
-> > pointer that takes the place of the repeated object lookups.
-> >=20
-> > Acked-by: Jean Delvare <jdelvare@suse.de>
+On Fri, 2025-07-04 at 17:13 +0200, Jean Delvare wrote:
+
+>=20
 > > Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 > > ---
-> > =C2=A0drivers/soc/aspeed/aspeed-lpc-snoop.c | 51 ++++++++++++++++++++--=
+> > =C2=A0drivers/soc/aspeed/aspeed-lpc-snoop.c | 51 +++++++++++++++++-----=
 -------------
-> > =C2=A01 file changed, 29 insertions(+), 22 deletions(-)
-> > (...)
-> > @@ -238,6 +240,7 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lp=
-c_snoop *lpc_snoop,
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0goto err_misc_deregister;
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}
+> > =C2=A01 file changed, 24 insertions(+), 27 deletions(-)
+> >=20
+> > diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed=
+/aspeed-lpc-snoop.c
+> > index 8dbc9d4158b89f23bda340f060d205a29bbb43c3..9f88c5471b1b6d85f6d9e19=
+70240f3d1904d166c 100644
+> > --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> > +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> > @@ -294,12 +294,21 @@ static void aspeed_lpc_disable_snoop(struct aspee=
+d_lpc_snoop *lpc_snoop,
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0kfifo_free(&channel->fi=
+fo);
+> > =C2=A0}
 > > =C2=A0
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* Enable LPC snoop channel =
-at requested port */
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0regmap_update_bits(lpc_=
-snoop->regmap, HICR5, hicr5_en, hicr5_en);
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0regmap_update_bits(lpc_=
-snoop->regmap, SNPWADR, snpwadr_mask,
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 lpc_port << snpwadr_shift);
+> > +static void aspeed_lpc_snoop_remove(struct platform_device *pdev)
+> > +{
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0struct aspeed_lpc_snoop *lpc=
+_snoop =3D dev_get_drvdata(&pdev->dev);
+> > +
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* Disable both snoop channe=
+ls */
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0aspeed_lpc_disable_snoop(lpc=
+_snoop, ASPEED_LPC_SNOOP_INDEX_0);
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0aspeed_lpc_disable_snoop(lpc=
+_snoop, ASPEED_LPC_SNOOP_INDEX_1);
 >=20
-> This duplicates a comment which is already present in the driver a few
-> lines before.
+> For consistency with the probe function, I think it would make sense to
+> use a for loop here as well, instead of hard-coding the channel number
+> to 2. That way, no change will be needed if a future device supports
+> more than 2 channels.
+
+You're right, but for now I'm not bothered by it. I'm going to leave it
+as is, as the motivation for the loop in the probe() path was to
+consolidate the logic required for both channels. This one is an easy
+thing to fix down the track.
+
 >=20
-> This duplicated comment gets cleaned up later in patch 10/10 (soc:
-> aspeed: lpc-snoop: Lift channel config to const structs).
+> None if this is blocking though, so:
+>=20
+> Acked-by: Jean Delvare <jdelvare@suse.de>
 >=20
 
-Thanks, I've dropped the duplicate in the process of applying the
-patches.
+Thanks.
 
 Andrew
-
 
