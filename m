@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24567C83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 08:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEBABC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 08:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kw7jYMPeu1JcgtQn3KTicUAd7itFZgmljraU1S3nD1U=; b=DTk2Qb4c9c/aWdHEPQ3HIZFsEu
-	2K346FXbWv/0HGyLRnZ6MmlMm1wv/YcuXfwLxNUnGXVIyYsINaiKrWMZ0ifCPfw+vwypEg6tLfkEL
-	79zPFGEhmt+8fBu8t3x5DJ+Sm2JOXQG3sMJMN4hj5+WqZhy17X/rdCSujNClq2+9CXD/4W9RUkN53
-	3s9gMKEI1agUxWaGU0yMbKD5MuGSiLqs3Jth2IIPzSotSqUyYZLjF2C1wpvRrQ/0e1KjlyTjH3x12
-	l7RRNjAcV/XRt3/l1ue+zsRZoLx+1jNrQ4suiSUNMwl218hX7Wi892WxbQYcs8yNZfXpN4eMWZjwf
-	zu/W7JQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QQvqBPw3McC9h/lzq7+wr98DNQmeALi71dtMM2h+vvA=; b=sRSfVtR0EYAMztDgGKUAF5dFxc
+	6PQn4mWnL0D5M7LWiIGF8tXrIzU3qzzsObPDzuGjiOVZF8KnXvclYhBdssZBs7+K2jwl/acWT5kFu
+	pZ/+SYDeuwUQAmVHUGo2Br3XjatqlhjE/t00qLDsY/Ps3jOf9koIW6UD/n0qL47YhiY0S56unWlgH
+	8vQlLO77SR7LH6JeKW7DA5rXGa+6Zym4mJ0D6teiQr46NHVmJI5a/WVYh+SxyRMdDxfGRUBUYbS55
+	nkXPf3/9DNdl+IAKJpbC4cd/XO5CEAinziCzzeGGSgTXHwAIbUy7/NSjDGrJJGjLSTSxUPYLVNJdv
+	lhwL7Ijw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3zf-00000004nKY-3YwA;
-	Tue, 08 Jul 2025 08:48:03 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uZ41x-00000004nXi-2yo1;
+	Tue, 08 Jul 2025 08:50:25 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3n1-00000004lMb-2I9R
+	id 1uZ3nN-00000004lRn-3V6B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 08:35:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8B05AA5365E;
-	Tue,  8 Jul 2025 08:34:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABCD4C4CEED;
-	Tue,  8 Jul 2025 08:34:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751963698;
-	bh=2Jz1qIaKUbxfjh+EnpAbS6pNmd5Pwbb3QUeKA2lWqes=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TNZazJ7SNy74UDkThqwB6ngXolMFPE4YQIak1LVtjrjLOQqhZb2lyIL1zDfvKyss5
-	 8zZaVhRWqqvYx6+BZRknWfKOrFiHmj4bG/6KptMbcaVq9xYFQdYnBKHaNmi6ZGqq8T
-	 hNuoO5w5SgW+IA3hmVWLxWWIcAJ9DUGHwE7K0omaO5srh0oo2XRu97/L6QAtTR3O2k
-	 se5093I87pD3BnlIR+HKXRXOGs+/QOvjwyrtT5BEdokep7OAgEfxgIWtCgDhWnozKK
-	 6Zv97ge9pV/StWeXK6qM3J0Y8B5x1c4SSaXHCiqcmli1VOmcen9XVrKtgzKpSYTcqr
-	 AVghupSINM7Zw==
-Date: Tue, 8 Jul 2025 10:34:55 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Taishi Shimizu <s.taishi14142@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Hauke Mehrtens <hauke@hauke-m.de>, Rafal Milecki <zajec5@gmail.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: Re: [PATCH 2/2] ARM: dts: BCM5301X: Add support for Buffalo
- WXR-1750DHP
-Message-ID: <20250708-elite-indigo-wombat-faa74f@krzk-bin>
-References: <20250625154315.114139-1-s.taishi14142@gmail.com>
- <20250625154315.114139-2-s.taishi14142@gmail.com>
+	Tue, 08 Jul 2025 08:35:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=QQvqBPw3McC9h/lzq7+wr98DNQmeALi71dtMM2h+vvA=; b=Uoqz69KkweX+xolNw0fj5ALFgs
+	7zrkprM5ZpFOzRU+Vfu9WO3o2ScIRGOHtTXPjD2P7uJLEv9QHETYbAMAP3jeglq8JMpJlXO28fvxj
+	7Z+YNnvyxWSfelsJINuJSnGOSpZxc0xJdWSyLxiPSVMriVc4ETkvAz1htxqoZGPMKtIQYfCDJfFd/
+	j/swsNLxnpRgfp8WnjkMvbwUhaZkpBKvQzWOkJVb7K1nixQDeAkuvQa0xKKHcZVVEcvvm/3L5Qv5M
+	nYluUtHkU1L5Pw79zTJLOzhFY/YcKiXD8oPrWGJOGW3XgZfRYtKuREUeoiphUEuCFPQ3bigB/SxAS
+	NKsTQAaA==;
+Received: from [89.212.21.243] (port=49512 helo=[192.168.69.116])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1uZ3nJ-00GzWU-2v;
+	Tue, 08 Jul 2025 10:35:17 +0200
+Message-ID: <626bca58-e481-4d6f-9bb7-252c040f4b3b@norik.com>
+Date: Tue, 8 Jul 2025 10:35:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250625154315.114139-2-s.taishi14142@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Upstream] Re: [PATCH v3] arm64: dts: freescale:
+ imx93-phycore-som: Delay the phy reset by a gpio
+To: Andrew Lunn <andrew@lunn.ch>, Christoph Stoidner <C.Stoidner@phytec.de>
+Cc: Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "upstream@lists.phytec.de" <upstream@lists.phytec.de>
+References: <b2ea6b7f-3623-4486-82a0-cab97053a53e@gmx.net>
+ <34a4441d4b4ed8db7cac585ce93ec2357738cc11.camel@phytec.de>
+ <7f6d7199-0a20-4370-a8b0-1d05326af052@gmx.net>
+ <bf0eb48fc72f4b0abbf62077c2f1fe4438579746.camel@phytec.de>
+ <967484d9-4165-4b75-bbb7-a203c36e8beb@gmx.net>
+ <517be266ebc3b55da53372a76a139245f8945cd8.camel@phytec.de>
+ <5afa6d62-4a3f-4c28-8165-363075ac36d8@lunn.ch>
+ <a948b903766a82897e5fc17a840ab40e29f5eda4.camel@phytec.de>
+ <8e448625-b4ad-4bf1-8930-6fecdedb1d8d@lunn.ch>
+ <78ec24d09d129d52d3442f6319cf1ef5b6ce7f3d.camel@phytec.de>
+ <739f93d0-4cb4-4f1a-8792-84502d4beefe@lunn.ch>
+Content-Language: en-US
+From: Primoz Fiser <primoz.fiser@norik.com>
+Autocrypt: addr=primoz.fiser@norik.com; keydata=
+ xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
+ JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
+ ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
+ gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
+ jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
+ 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
+ TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
+ AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
+Organization: Norik systems d.o.o.
+In-Reply-To: <739f93d0-4cb4-4f1a-8792-84502d4beefe@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_013459_654710_D1BC2B92 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20250708_013522_356100_E85E6D4F 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,82 +117,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 12:43:15AM +0900, Taishi Shimizu wrote:
-> +
-> +#include "bcm4708.dtsi"
-> +#include "bcm5301x-nand-cs0-bch8.dtsi"
-> +
-> +/ {
-> +	compatible = "buffalo,wxr-1750dhp", "brcm,bcm4708";
-> +	model = "Buffalo WXR-1750DHP";
-> +
-> +	chosen {
-> +		bootargs = "console=ttyS0,115200";
+Hi all,
 
-Please use stdout path property.
+is there something holding up this patch?
 
-> +	};
-> +
-> +	memory@0 {
-> +		reg = <0x00000000 0x08000000>,
-> +		      <0x88000000 0x08000000>;
-> +		device_type = "memory";
-> +	};
-> +
-> +	gpio-keys {
-> +		compatible = "gpio-keys";
-> +
-> +		button-aoss {
-> +			label = "AOSS";
-> +			linux,code = <KEY_WPS_BUTTON>;
-> +			gpios = <&chipcommon 2 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		/* GPIO 8 and 9 are a tri-state switch button with
-> +		 * ROUTER / AP / WB.
-> +		 */
-> +		button-bridge {
-> +			label = "WB";
-> +			linux,code = <BTN_2>;
-> +			linux,input-type = <EV_SW>;
-> +			gpios = <&chipcommon 8 GPIO_ACTIVE_HIGH>;
-> +		};
-> +
-> +		/* GPIO 3 is a switch button with AUTO / MANUAL. */
-> +		button-manual {
-> +			label = "MANUAL";
-> +			linux,code = <BTN_0>;
-> +			linux,input-type = <EV_SW>;
-> +			gpios = <&chipcommon 3 GPIO_ACTIVE_HIGH>;
-> +		};
-> +
-> +		button-restart {
-> +			label = "Reset";
-> +			linux,code = <KEY_RESTART>;
-> +			gpios = <&chipcommon 11 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		button-router {
-> +			label = "ROUTER";
-> +			linux,code = <BTN_1>;
-> +			linux,input-type = <EV_SW>;
-> +			gpios = <&chipcommon 9 GPIO_ACTIVE_HIGH>;
-> +		};
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +
-> +		led-power0 {
-> +			label = "bcm53xx:white:power";
+BR,
+Primoz
 
-You should use rather color and function properties.
+On 2. 06. 25 14:26, Andrew Lunn wrote:
+>>> I agree it is long enough, but i'm also surprised how slow the kernel
+>>> was. Are you using a fixed IP address, or dhcp?
+>>
+>> I use a fixed IP address.
+>>
+>> But isn't the bringup of ethernet+phy interface one of the last things
+>> that happens during the kernel boot-up?
+> 
+> Mounting the rootfs is somewhat towards the end of the core
+> kernel. But if you have an initramfs, there can be modules loaded both
+> before and afterwards, and once the rootfs has been mounted, yet more
+> modules can be loaded.
+> 
+>> However, what timing would you expect?
+> 
+> I've seen interfaces configured up from deep within
+> register_netdev(). I don't remember the exact configuration, but i
+> thought it was NFS root. It might be in combination with initramfs. If
+> you have the Ethernet driver as a module in the initramfs, and are
+> using the "rootwait" option, it could be that you are already past the
+> point it would first mount the rootfs, and with every new device
+> popping into existence it is trying to see if the just created device
+> allows it to do the mount. At that point, register_netdev() is going
+> to trigger actions.
+> 
+> 	Andrew
+> _______________________________________________
+> upstream mailing list -- upstream@lists.phytec.de
+> To unsubscribe send an email to upstream-leave@lists.phytec.de
 
-> +			linux,default-trigger = "default-on";
-> +			gpios = <&chipcommon 5 GPIO_ACTIVE_HIGH>;
-> +		};
-
-Best regards,
-Krzysztof
-
+-- 
+Primoz Fiser
+phone: +386-41-390-545
+email: primoz.fiser@norik.com
+--
+Norik systems d.o.o.
+Your embedded software partner
+Slovenia, EU
+phone: +386-41-540-545
+email: info@norik.com
 
