@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8000CC83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 20:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328EBC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 20:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+UCTXSBd5DpomrNGhIejZUsaJTenygRs5Wre8DvM3x0=; b=EzFXyIQBl9N4R9iUFtgWMZ19wy
-	B9znMOoXIMRzdctOILfANFmaxoF5u6dDfx1BJu9Nk8V8m44H8pyn/FFIbn9y22ZKFaUBDPbEFbr1f
-	9N6mOhndbJvOckny3oCailtbMOS4LD4pGf/Wx8Tb9WKEryAo8999tM36nWN6QkoY2hN5CVbeN7wzp
-	kybgpJ6e0v7CqSUQ3BwEFbQ0x6KglvSc8nIDEQC2bbUr05sZtwNRQpngHUwy2w64GeWDETgkRMV3n
-	S5gdPCiqFghKIQdHj28A9X8SM1UCIqX21W9/z3UdvfkuM+8jsmk0D7i+PAG7Ly2F4Rtby5cAgpGrz
-	20P2yuMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cTTrNTGhub8A8V0WSX4PYi6yLCXMR+wXKB4MowDi9Gg=; b=cjsUtJCTKZNXwVxRu2mfwujXf3
+	SEwWgJ+EhHSzF4lqbrwuoJoCYcror+YTsFwtcOsnhrkBg8uscDett4VhDN8xOxsnhOBob8UGDfibC
+	7JAF79JP+rGpiw42H8noFGAObFDg/ziP3ib/+RV2VnQOfYKi2VuPxGFNSs3xBFuz81UqH1TTlC/cz
+	CT4bDp4HRADZ8uVEXj9hhE4MhSnGvvC/JWxkl7u/OCzPm6LBEXQFnku2CqAwnoEvK0ruiA4YY8cv7
+	Kr8H4DQvy+exCke+Uo6EGCEU6wuIEWWIjrmfNEBImmR1+cwMGaRpeJy/keSEkHmpIgnnUaULahxxV
+	t+kGXTDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZF40-00000006XIp-2bov;
-	Tue, 08 Jul 2025 20:37:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uZF6K-00000006XZu-2vPq;
+	Tue, 08 Jul 2025 20:39:40 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZEdh-00000006TCi-24to;
-	Tue, 08 Jul 2025 20:10:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B7E786112E;
-	Tue,  8 Jul 2025 20:10:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36164C4CEED;
-	Tue,  8 Jul 2025 20:10:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752005404;
-	bh=ku8L98emvYfIz4KPutlqA+m9OYjVsmlwLx2UjJrAYKk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IfgBvxJrGxsZR5xYwilNvEoJfRN3Bh0FtmvTXJ3vipPzA7HmlrqkVHD8Wdyf8pyer
-	 YqLQlLGQwahwyhNPrFb2a7ku9wh+7fvUUjSEwlyq5rlZdDoaqFJW8LAsf7nzEsY8GO
-	 4uKVJqrc9MM16llgqXaNZy3Iz6hpTMma8ykcHTIMnshnweFeoQyW5cB9tFrMhNLXd9
-	 NYs4j8xWouuv5h0+weX7gwkS9hU1poagWDZB631nCit1Hpyk6PACUPoh6Qtvb2FRSJ
-	 53cNnOotNo/Q8dUqEuTBhZ8yeqe5orammUyInVm6dt5363qKvFh8cN2hEz4VOk84NR
-	 ZyhB9kzoKR2LQ==
-Date: Tue, 8 Jul 2025 15:10:02 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: tzimmermann@suse.de, nicolas.frattaroli@collabora.com,
-	hjc@rock-chips.com, maarten.lankhorst@linux.intel.com,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, andyshrk@163.com,
-	quic_jesszhan@quicinc.com, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, neil.armstrong@linaro.org,
-	andy.yan@rock-chips.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	mripard@kernel.org
-Subject: Re: [PATCH 08/13] dt-bindings: display: rockchip: Add rk3576 to
- RK3588 DW DSI2 controller schema
-Message-ID: <175200540168.891369.12402940753218880108.robh@kernel.org>
-References: <20250707164906.1445288-1-heiko@sntech.de>
- <20250707164906.1445288-9-heiko@sntech.de>
+	id 1uZElA-00000006U45-1VJI;
+	Tue, 08 Jul 2025 20:17:49 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-7425bd5a83aso4199724b3a.0;
+        Tue, 08 Jul 2025 13:17:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752005867; x=1752610667; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cTTrNTGhub8A8V0WSX4PYi6yLCXMR+wXKB4MowDi9Gg=;
+        b=CbIRtXLZa9dnSjd/aes+mVCD4C6DTlmc5TUKpZgEzQhFrFgLXe+vDKc/EuMJfHqDOn
+         1/wUVUvLvMI73iTe0dLog8MNcc7wcTDXZCPWEzakpQH1x0/8W4XEzUFotC6yta3q4WKt
+         fxslELPfsZy16S0KaEnx+D3DF6yBHbVMpEwqKK1k9AOoT82sA8ubmdPh3h2v+Os+yDht
+         jDg6KzjnzEiTJFSONG1iiAQwSds/bvbVHXBIlIO4E3RTB6HuC27lLPSyBm/766U9rmNK
+         67RuREaGaJVzWDluRXIk0n2jsOPYXcItqXEcwuRF5FptTvhWBQeeiHISR1oNgGOdHb/m
+         CL9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752005867; x=1752610667;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cTTrNTGhub8A8V0WSX4PYi6yLCXMR+wXKB4MowDi9Gg=;
+        b=wZZ9uLFCusn35HE+YD/JigiJyIIJwFJ9Hl/unoVAhUVP7Hw5mxxOWtAVfak5IjP/j3
+         vQmEFGfkFisLEXT7/MVgT9fKdmfdBbMW5xCOYxnke8Mw5IeoxT/3nirXwOcYsb1kGDFo
+         UMKehPp/AdORhuM+kOF8r62xKs6CxRoCs82azxxnkeJo05lLBP1fWsDJOhc6UJKQ6MG0
+         M2IK8DHrF1uIOobaDXO5WQDPxOJQzjabHBKm6yNSUhFYqS80LDHnkl1BoSOavCYzh06N
+         Z5zZDs4Y8njOKdMpGlRpHNo25chDt1PPJHGpGTYqLjDcQLCSXk/aDPzu10+38O7T+mR6
+         sKMg==
+X-Forwarded-Encrypted: i=1; AJvYcCUxp45jjInr1NbiBug7BxJGi0vZ1/6ZciGt8GE3Z1KB6aQCFPPVP7E21jC6jmj7fXol5WVuyP15+p0KktTSykYw@lists.infradead.org, AJvYcCVonDQpcq70oRqrqoE2NUcFCqg/T3kEcplZqO0LRk0Vu8si4t3IQS+ylrFE2PofdN5Nvj5fl/4KEHdARC/BX8M=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWc33h6wF0GEwIO5VA8HnC3KacX8n/pSdB2cS/4S4gkZgXJdsX
+	abXecXvGV7M8BBS/IPiVMlGevEfPoNj49lkWVOZUn8tkZWszZGgdrxkk
+X-Gm-Gg: ASbGncu6pcXb2MlIbgUT5YaHm9SuqvL8X+6OoNp+n5So1x8R0JpNMpD63TM17qsAZiW
+	WcYnrB9soknCI3EJYtiqHEmq4IsWVVPqVqYT/wi0CXiigv7xZaalHbkzS71i/Zl8pC00Kexoe7L
+	9zOvuXGcrQuzoFG0Hirvb/p68dN8fMQQRc7j2KgJuYSwTEoQn54FfKDPCgJ2gULV+Vje+cjuexh
+	3tM4aZgpRDv+eK6ae5nWpwXHbKh5VMHXKihkvUKBlYX9NgDf33eenewqWA+iPbcJlvTIOaxNFwm
+	R8zyrs2bDVr7tWqLVfRmypQF+ltAdkTgoOx9JpGG+T8=
+X-Google-Smtp-Source: AGHT+IGIcRTQ/IVzI2tJOroz5Lqm+kvT8pKeiBj/N2Gf7unUpL73LQu99cUIoFH4FDd+4jyRsbL5bw==
+X-Received: by 2002:a05:6a20:a10a:b0:220:2da8:325c with SMTP id adf61e73a8af0-22606387110mr30289384637.0.1752005867470;
+        Tue, 08 Jul 2025 13:17:47 -0700 (PDT)
+Received: from archlinux.lan ([2601:644:8200:dab8::1f6])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b38ee5f5d8csm12289625a12.39.2025.07.08.13.17.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Jul 2025 13:17:47 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-wireless@vger.kernel.org
+Cc: Johannes Berg <johannes@sipsolutions.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Stanislaw Gruszka <stf_xl@wp.pl>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-mips@vger.kernel.org (open list:MIPS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
+Subject: [PATCHv2 wireless-next 0/7] wifi: rt2x00: add OF bindings + cleanup
+Date: Tue,  8 Jul 2025 13:17:38 -0700
+Message-ID: <20250708201745.5900-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250707164906.1445288-9-heiko@sntech.de>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250708_131748_396358_E88494A4 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,20 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+It doesn't even compile. Added OF bindings, documentation, and other
+stuff to hopefully this doesn't happen again.
 
-On Mon, 07 Jul 2025 18:49:01 +0200, Heiko Stuebner wrote:
-> The rk3576 controller is based on the same newer Synopsis IP as the one
-> found in the rk3588.
-> 
-> Its external setting bits in the GRF are different though, so it needs
-> its own distinct compatible.
-> 
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> ---
->  .../bindings/display/rockchip/rockchip,rk3588-mipi-dsi2.yaml     | 1 +
->  1 file changed, 1 insertion(+)
-> 
+v2: move all of 2x00soc to 2800soc. I didn't realize only two functions
+remained for no good reason.
+Fixed typos.
+Slightly changed probe for clarity.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Rosen Penev (7):
+  wifi: rt2x00: add COMPILE_TEST
+  wifi: rt2x00: remove mod_name from platform_driver
+  wifi: rt2800soc: allow loading from OF
+  wifi: rt2800: move 2x00soc to 2800soc
+  wifi: rt2x00: soc: modernize probe
+  MIPS: dts: ralink: mt7620a: add wifi
+  dt-bindings: net: wireless: rt2800: add
+
+ .../bindings/net/wireless/ralink,rt2800.yaml  |  47 ++++++
+ arch/mips/boot/dts/ralink/mt7620a.dtsi        |  10 ++
+ drivers/net/wireless/ralink/rt2x00/Kconfig    |   7 +-
+ drivers/net/wireless/ralink/rt2x00/Makefile   |   1 -
+ .../net/wireless/ralink/rt2x00/rt2800soc.c    | 102 +++++++++++-
+ .../net/wireless/ralink/rt2x00/rt2x00soc.c    | 151 ------------------
+ .../net/wireless/ralink/rt2x00/rt2x00soc.h    |  29 ----
+ 7 files changed, 156 insertions(+), 191 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
+ delete mode 100644 drivers/net/wireless/ralink/rt2x00/rt2x00soc.c
+ delete mode 100644 drivers/net/wireless/ralink/rt2x00/rt2x00soc.h
+
+-- 
+2.50.0
 
 
