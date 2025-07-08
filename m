@@ -4,107 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E53DBC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 17:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3060DC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 17:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vy4Q5haFsYAqjA0+y4VjNlU3TUnjPrupOzMl88Fq3mg=; b=kIGwBl+w5UF+AQePA0K3rzhC6Z
-	sVIOcS8UnytJCfZz7M5ysY1CzMGgTm4lcZuZKzNxgFGzZiFrFmhIamg/GmGY7nXdtebYt56hjOnvb
-	nYuApW3DUmxXDhuEsuYU9y6lRRGMekvkf1n+m4ChSys/sBnJqCScTt1ZWHhvj8RA1cHesyOBFIVCY
-	NiRW0m/xZtMDYyV7scQHBa+cf4mbsOEsSqMrKGUEehNjiA+7ocRqvd4dbkpnWh3Lz/OVYiK+B3UH1
-	nSidA7Qgz00AG5o55Zku11zKsvbgUXBKjoGKW7gpxSFyv6ENCGocAhHINWxVIMOtwgLf4YkgIezOo
-	HPsjqYNw==;
+	bh=kyQqt57LiPgGKUyigPTPbuiKWyK4tZoJkkT3lKOKtPY=; b=4A31L20YoyZajgl6zrvG7LCkhq
+	WvtRzqFo7D3hb7SGgfUt9qq7rflPbYiy65iWFiUFgtb89EtBJrMCYtoCoJEgL2Y6Y3i3Pqfuw0PtC
+	fXU88DQOYrI7hrx5E3e2PRHKWBKKtiKcZi+Ya285F7RX3qZ9zdGw+fiCJiib8ZdWtJ+XKXgt7/uc+
+	cgLkd1PyXI33QqCiRqLKj8NQ/XezdGPfHRo9v84QhKs0khHL1cI0ZQyo+k4pICrgatXO1lR3R5IfW
+	DnO8ycMCXn/fWHAsT6lQfdaCJLiorIZpromgZzllPITDktaIx2koex3xF/6ZiTbmSHeOiG9ZqDzCn
+	FiwJrmZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZCVo-00000006App-484T;
-	Tue, 08 Jul 2025 17:53:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uZCYA-00000006BAo-0cBW;
+	Tue, 08 Jul 2025 17:56:14 +0000
+Received: from [37.205.8.231] (helo=mx.olsak.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZByR-000000066AT-2bOS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Jul 2025 17:19:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=vy4Q5haFsYAqjA0+y4VjNlU3TUnjPrupOzMl88Fq3mg=; b=XS4cU8Zy2/E+Zngwbnpe2wm1iJ
-	95o4e4jIbA7I4yNNAzTdOon2zH2U/zRUgpozkhA0wiJRuhi+N3sL1j/Fmp1csBZm3ihcSz60e0mEw
-	/hZ6p05BEldBH1vABspQRrohgR0c+kqNpqnKmmoqEGZZuRU2w+AIAN/vaQotD5YRRgTY8jeuAQYe1
-	cT+hc+o+X8JVj+NBToAHuIHZk24FrfSOtmenCjwzQso1jFFQSrictoQDF2d9JL1k5jxQ8aoXLvM+s
-	+I/cpL1T7uCEw3vX2OxYFxQhEuZ+bnF/U+KolNPVBV0HvqFMLHYRKtfXndSShgyoMD8xQwDhxTgdL
-	VPYLsX4g==;
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZByO-00000008lHv-0pky
+	id 1uZC5n-0000000677V-3n4d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 17:19:18 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-60700a745e5so9162718a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 10:19:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1751995154; x=1752599954; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vy4Q5haFsYAqjA0+y4VjNlU3TUnjPrupOzMl88Fq3mg=;
-        b=uXlwV5PoqQy9+BEAA8ohCuo4g7ApkQOsKQ1AnqJq7EOcB3+rYAKvpoanKwwoadTPgY
-         0/CFHytCSH5AicJWgdMJAIpdv7vOe7SuedBzNck2fF++ucdztoZMo+twWmVTRslW8EXt
-         C69iKOD9+2zHpywxYDkhheTGpnhmQ7jBqCpiaDn3NlPRxVY988D4isNMRdSZHYCZSKHd
-         cyqxyMnRWgyZdVgN2Vg1zE56rsIbxpfUEUuXdqNbTsatgLig0B9kdlBy3Q6W9NvB+bvf
-         CwJumKR0rfCOhNcFHAPhMdBDtaaZoiGr/+cPlt/hbQc+pPlJeIRGnBDjJWgb0WHQbu2F
-         v6ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751995154; x=1752599954;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vy4Q5haFsYAqjA0+y4VjNlU3TUnjPrupOzMl88Fq3mg=;
-        b=H1eODcZIALxq4Yxj5YfDuh6C4qEIxpt2DLdzd2HSOuRhxo6+1yd+w/fyCZkr5YAPgj
-         9SU6k67EZGtSP1KnXItG5SWtOLraZ31rCshkApY/Yu2865xc9QLneFprkpkT7Nuw9H/c
-         z4gNnbf389luIUrQLP3OhMRJtyWgDkL4czFWTqkcVfUJuTlcqYFKhZpAZjAxyCHC65nz
-         2rnMwFN+ijepiCeCQ4jbvyKXmWsix/K+KUA1EhRKV1BqDtQq5aYmA96eLr64eyJ2bF4r
-         5it/2O/yIkOdWNuP9fAC7Ws969OMVbJ8nHsF0hXazTsefqT8lxohX0+lftDaEvupZfOc
-         Gl2g==
-X-Forwarded-Encrypted: i=1; AJvYcCWNJw69/Wr+Ou3yGlUe6T9frQmFfF719DeG+vwyoq42aLHsSDshWhgeqaK2BJRUd02k6yG4ByUI5bHRtyPwv+Gt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQhxpX8iOR6slcazwg3FvCck9QcFyk7+ZiMf1e2ZBmXvhPDBx9
-	2OiVBxnxDIe4JfQ5dcxlqVeTGGGWtHDH+xYSu2Unt58O2rY4CXtAlXCkjBrHlxUN8cLYpnO4HTy
-	yoEeG
-X-Gm-Gg: ASbGncsZfsj8bYnkwRS5YuNs8nAZ5AYxwR2eU4nzAu1X20zWuh5wmMMtGHzvRoiHnsE
-	8IZYrTrEdAKncoVJBVJxIfukHDQiZqa5OPyuxfInuX5FxseGZXiswKJJ1DqkMfzJ2Bplziz9Fg6
-	mUmANakSCK20NNQrPLcFDAA5Agl/O7oayuHC7xVt1bsvZWQ/wpZuYCO9eDergXHDASNZGw9Q/9A
-	crXWH1CuCOyLu8HrLVIb3MvhLgBtzSCfiGIVn6xWM5NIU5vqFzE1RQAtNPfT6aWqcZ6xs5WwHU7
-	6Glm5pab4OXKwljCS+s5adsOBhyPQj2tW3KiU6NK3C05g0Trjxn33tTr/shBZkPxTebqpNd2qSC
-	yozXK8PhjDLSjEZ2dv2+SKU2T+SSJHfHKPzbF/UI=
-X-Google-Smtp-Source: AGHT+IGZXNtMTO7EOjafG1ARt6E30CW0hAiH+W0FNZW7yFLiedXmHnmVViRT+pX+e838RCwyysqZvw==
-X-Received: by 2002:a17:907:9407:b0:ae0:c441:d54b with SMTP id a640c23a62f3a-ae3fe5964f3mr1545247766b.9.1751995154448;
-        Tue, 08 Jul 2025 10:19:14 -0700 (PDT)
-Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-60fcb0c790dsm7507963a12.37.2025.07.08.10.19.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Jul 2025 10:19:14 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pwm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH 8/8] pwm: mediatek: Convert to waveform API
-Date: Tue,  8 Jul 2025 19:18:38 +0200
-Message-ID: <a638f074ef24c46035fa1563ab6b4350ebc89580.1751994509.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1751994509.git.u.kleine-koenig@baylibre.com>
-References: <cover.1751994509.git.u.kleine-koenig@baylibre.com>
+	Tue, 08 Jul 2025 17:26:57 +0000
+DKIM-Signature: a=rsa-sha256; bh=kyQqt57LiPgGKUyigPTPbuiKWyK4tZoJkkT3lKOKtPY=;
+ c=relaxed/relaxed; d=dujemihanovic.xyz;
+ h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
+ i=@dujemihanovic.xyz; s=default; t=1751994603; v=1; x=1752426603;
+ b=gqsHGpL7eW9Qh/4vI5J41cqgCjjYhIWrxKIQ0H3U3POh55nAExjy59oaSIlvDKJVedzSVuOV
+ liL+1palf5uSWyrnF+g24PvBa9X5mmITsiNIe5Y8CWO8pdMJDt5U7ciCJefVbNponwIaH10iZFV
+ gXabB7j0i76GmJMZR+KGBsCiQSAUlJ23tIpiMQikcWygKWS/y/1w75oTFK9rW9hvzfLjYPlWOY2
+ HegrEXpt7jX2RJDQTDh8WIrbFCHd1A+9Y8xeLBA1UaRCswtPg1aLb8mhWP7BSHJ6CWtBBoRYspT
+ +RhFJi876G4IM7S4i8STZ0ysKoIBw77CKEP8BCem0HW3Q==
+Received: by mx.olsak.net (envelope-sender <duje@dujemihanovic.xyz>) with
+ ESMTPS id faa5f825; Tue, 08 Jul 2025 19:10:03 +0200
+From: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+Date: Tue, 08 Jul 2025 19:09:49 +0200
+Subject: [PATCH v16 4/5] arm64: dts: Add DTS for Marvell PXA1908 and
+ samsung,coreprimevelte
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11131; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=gInSbyerMY5QiR6IcP2Kx8q4XKMVjYKeQFViDJERSPA=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBobVL+zi6STXwyZMQQHRlNRIa4pn43y9axH37Oq Ktbk4RBY4KJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaG1S/gAKCRCPgPtYfRL+ TswMB/4hOFFOJaOXkphUMe5VuixTXt+9AYNmqEhHcvf7aCX13rKL9kIigKXvUFkcJyvHSnsom27 Ygq/Rs/RA36WCoTIz/T3jNGBanIz6JHNFQaJ23tTTXb4WaogyB5kgqP1FllpUAr/TVup3qTjD0f PY+7w5NnJfG1aJClM4uUlwRZSu4hR/c+kVZYMkKGMX7pa9A7sxmfKD7OjCkKusnnjboErPJ/q1q mE1B+K7a9TClBrmE3sjxHk5tdLgRoOouaCtN7qiijtnNvTEwaczMtts1Lg2hBlsYxiXHKuq2qNa 9oGi31eByVFONn9lIIEoyWzGxbbDpWBBnbsK8EYUeBNDV14r
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20250708-pxa1908-lkml-v16-4-b4392c484180@dujemihanovic.xyz>
+References: <20250708-pxa1908-lkml-v16-0-b4392c484180@dujemihanovic.xyz>
+In-Reply-To: <20250708-pxa1908-lkml-v16-0-b4392c484180@dujemihanovic.xyz>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+Cc: David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org, 
+ phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
+ soc@lists.linux.dev, linux-mmc@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=17559;
+ i=duje@dujemihanovic.xyz; s=20240706; h=from:subject:message-id;
+ bh=qP4Y1hS1t+mBkQk5zo2CmOWXAFJLNgwu0V+Ogopg6Lc=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDBm5AY8fiNyerbXyusj/hkueh9cuUFvP+lMxqEt49S4/W
+ 2eXQ7dtOkpZGMS4GGTFFFly/zte4/0ssnV79jIDmDmsTCBDGLg4BWAiZYsY/tccv8pc4mgQO7uB
+ XffRx11q2sZ7b6wWfGIjILex/NAKuQsMf+Xn/hbhPfbfbLZr0F3f8JhYiccG4W4nEl4IV7C0FUp
+ 8ZwYA
+X-Developer-Key: i=duje@dujemihanovic.xyz; a=openpgp;
+ fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_181916_430032_FAD8CFD7 
-X-CRM114-Status: GOOD (  27.20  )
+X-CRM114-CacheID: sfid-20250708_102656_153061_C4B2FE96 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,368 +89,684 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the new waveform callbacks which makes the usage of this
-hardware more flexible and allows to use it via the pwm character
-device.
+Add DTS for Marvell PXA1908 SoC and Samsung Galaxy Core Prime Value
+Edition LTE, a smartphone based on said SoC.
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+Signed-off-by: Duje Mihanović <duje@dujemihanovic.xyz>
 ---
- drivers/pwm/pwm-mediatek.c | 287 ++++++++++++++++++++++---------------
- 1 file changed, 173 insertions(+), 114 deletions(-)
+Changes in v16:
+- memory -> memory@0 (fixes DT warning)
+- Drop linux,initrd-{start,end} (not needed since U-Boot was ported)
+---
+ arch/arm64/boot/dts/marvell/Makefile               |   2 +
+ arch/arm64/boot/dts/marvell/mmp/Makefile           |   2 +
+ .../marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 331 +++++++++++++++++++++
+ arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi       | 300 +++++++++++++++++++
+ 4 files changed, 635 insertions(+)
 
-diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
-index c48d46124059..43bdd1fe3de0 100644
---- a/drivers/pwm/pwm-mediatek.c
-+++ b/drivers/pwm/pwm-mediatek.c
-@@ -135,29 +135,51 @@ static inline u32 pwm_mediatek_readl(struct pwm_mediatek_chip *chip,
- 		     num * chip->soc->chanreg_width + offset);
- }
- 
--static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
--			       u64 duty_ns, u64 period_ns)
-+struct pwm_mediatek_waveform {
-+	u32 con;
-+	u32 width;
-+	u32 thres;
+diff --git a/arch/arm64/boot/dts/marvell/Makefile b/arch/arm64/boot/dts/marvell/Makefile
+index ce751b5028e2628834340b5c50f8992092226eba..40e5ac6cd4683e1213224b54dc7879a0c698f7c8 100644
+--- a/arch/arm64/boot/dts/marvell/Makefile
++++ b/arch/arm64/boot/dts/marvell/Makefile
+@@ -32,3 +32,5 @@ dtb-$(CONFIG_ARCH_MVEBU) += cn9130-cf-base.dtb
+ dtb-$(CONFIG_ARCH_MVEBU) += cn9130-cf-pro.dtb
+ dtb-$(CONFIG_ARCH_MVEBU) += cn9131-cf-solidwan.dtb
+ dtb-$(CONFIG_ARCH_MVEBU) += cn9132-clearfog.dtb
++
++subdir-y	+= mmp
+diff --git a/arch/arm64/boot/dts/marvell/mmp/Makefile b/arch/arm64/boot/dts/marvell/mmp/Makefile
+new file mode 100644
+index 0000000000000000000000000000000000000000..103175ed63b00aca59cf603163998cde9ec851e2
+--- /dev/null
++++ b/arch/arm64/boot/dts/marvell/mmp/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_ARCH_MMP) += pxa1908-samsung-coreprimevelte.dtb
+diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..47a4f01a7077bfafe2cc50d0e59c37685ec9c2e9
+--- /dev/null
++++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
+@@ -0,0 +1,331 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include "pxa1908.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/linux-event-codes.h>
++
++/ {
++	model = "Samsung Galaxy Core Prime VE LTE";
++	compatible = "samsung,coreprimevelte", "marvell,pxa1908";
++
++	aliases {
++		mmc0 = &sdh2; /* eMMC */
++		mmc1 = &sdh0; /* SD card */
++		serial0 = &uart0;
++	};
++
++	chosen {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		stdout-path = "serial0:115200n8";
++
++		fb0: framebuffer@17177000 {
++			compatible = "simple-framebuffer";
++			reg = <0 0x17177000 0 (480 * 800 * 4)>;
++			width = <480>;
++			height = <800>;
++			stride = <(480 * 4)>;
++			format = "a8r8g8b8";
++		};
++	};
++
++	/* Bootloader fills this in */
++	memory@0 {
++		device_type = "memory";
++		reg = <0 0 0 0>;
++	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		framebuffer@17000000 {
++			reg = <0 0x17000000 0 0x1800000>;
++			no-map;
++		};
++
++		gpu@9000000 {
++			reg = <0 0x9000000 0 0x1000000>;
++		};
++
++		/* Communications processor, aka modem */
++		cp@5000000 {
++			reg = <0 0x5000000 0 0x3000000>;
++		};
++
++		cm3@a000000 {
++			reg = <0 0xa000000 0 0x80000>;
++		};
++
++		seclog@8000000 {
++			reg = <0 0x8000000 0 0x100000>;
++		};
++
++		ramoops@8100000 {
++			compatible = "ramoops";
++			reg = <0 0x8100000 0 0x40000>;
++			record-size = <0x8000>;
++			console-size = <0x20000>;
++			max-reason = <5>;
++		};
++	};
++
++	i2c-muic {
++		compatible = "i2c-gpio";
++		sda-gpios = <&gpio 30 (GPIO_ACTIVE_HIGH|GPIO_OPEN_DRAIN)>;
++		scl-gpios = <&gpio 29 (GPIO_ACTIVE_HIGH|GPIO_OPEN_DRAIN)>;
++		i2c-gpio,delay-us = <3>;
++		i2c-gpio,timeout-ms = <100>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&i2c_muic_pins>;
++
++		muic: extcon@14 {
++			compatible = "siliconmitus,sm5504-muic";
++			reg = <0x14>;
++			interrupt-parent = <&gpio>;
++			interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
++		};
++	};
++
++	gpio-keys {
++		compatible = "gpio-keys";
++		pinctrl-names = "default";
++		pinctrl-0 = <&gpio_keys_pins>;
++		autorepeat;
++
++		key-home {
++			label = "Home";
++			linux,code = <KEY_HOME>;
++			gpios = <&gpio 50 GPIO_ACTIVE_LOW>;
++		};
++
++		key-volup {
++			label = "Volume Up";
++			linux,code = <KEY_VOLUMEUP>;
++			gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
++		};
++
++		key-voldown {
++			label = "Volume Down";
++			linux,code = <KEY_VOLUMEDOWN>;
++			gpios = <&gpio 17 GPIO_ACTIVE_LOW>;
++		};
++	};
 +};
 +
-+static int pwm_mediatek_round_waveform_tohw(struct pwm_chip *chip, struct pwm_device *pwm,
-+					    const struct pwm_waveform *wf, void *_wfhw)
- {
-+	struct pwm_mediatek_waveform *wfhw = _wfhw;
- 	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
- 	u32 clkdiv;
--	u32 reg_width = PWMDWIDTH, reg_thres = PWMTHRES;
- 	u64 cnt_period, cnt_duty;
- 	unsigned long clk_rate;
- 	int ret;
- 
--	ret = pwm_mediatek_clk_enable(pc, pwm->hwpwm);
--	if (ret < 0)
--		return ret;
-+	if (wf->period_length_ns == 0) {
-+		*wfhw = (typeof(*wfhw)){
-+			.con = 0,
-+		};
++&smmu {
++	status = "okay";
++};
 +
-+		return 0;
-+	}
++&pmx {
++	pinctrl-single,gpio-range = <&range 55 55 0>,
++				    <&range 110 32 0>,
++				    <&range 52 1 0>;
 +
-+	if (!pc->clk_pwms[pwm->hwpwm].rate) {
-+		struct clk *clk = pc->clk_pwms[pwm->hwpwm].clk;
++	pinctrl-names = "default";
++	pinctrl-0 = <&board_pins_0 &board_pins_1 &board_pins_2>;
 +
-+		ret = clk_prepare_enable(clk);
-+		if (ret)
-+			return ret;
-+
-+		pc->clk_pwms[pwm->hwpwm].rate = clk_get_rate(clk);
-+
-+		clk_disable_unprepare(clk);
-+
-+		if (pc->clk_pwms[pwm->hwpwm].rate == 0 ||
-+		    pc->clk_pwms[pwm->hwpwm].rate > 1000000000)
-+			return -EINVAL;
-+	}
- 
- 	clk_rate = pc->clk_pwms[pwm->hwpwm].rate;
- 
--	/* Make sure we use the bus clock and not the 26MHz clock */
--	if (pc->soc->pwm_ck_26m_sel_reg)
--		writel(0, pc->regs + pc->soc->pwm_ck_26m_sel_reg);
--
--	cnt_period = mul_u64_u64_div_u64(period_ns, clk_rate, NSEC_PER_SEC);
-+	cnt_period = mul_u64_u64_div_u64(wf->period_length_ns, clk_rate, NSEC_PER_SEC);
- 	if (cnt_period == 0)
--		return -ERANGE;
-+		cnt_period = 1;
- 
- 	if (cnt_period > FIELD_MAX(PWMDWIDTH_PERIOD)) {
- 		if (cnt_period >= (FIELD_MAX(PWMDWIDTH_PERIOD) << FIELD_MAX(PWMCON_CLKDIV))) {
-@@ -171,102 +193,76 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
- 		clkdiv = 0;
- 	}
- 
--	cnt_duty = mul_u64_u64_div_u64(duty_ns, clk_rate, NSEC_PER_SEC) >> clkdiv;
-+	cnt_duty = mul_u64_u64_div_u64(wf->duty_length_ns, clk_rate, NSEC_PER_SEC) >> clkdiv;
- 	if (cnt_duty > cnt_period)
- 		cnt_duty = cnt_period;
- 
- 	dev_dbg(&chip->dev, "pwm#%u: %lld/%lld @%lu -> CLKDIV: %x, PERIOD: %llx, DUTY: %llx\n",
--		pwm->hwpwm, duty_ns, period_ns, clk_rate, clkdiv, cnt_period, cnt_duty);
-+		pwm->hwpwm, wf->duty_length_ns, wf->period_length_ns, clk_rate,
-+		clkdiv, cnt_period, cnt_duty);
- 
--	if (pc->soc->pwm45_fixup && pwm->hwpwm > 2) {
--		/*
--		 * PWM[4,5] has distinct offset for PWMDWIDTH and PWMTHRES
--		 * from the other PWMs on MT7623.
--		 */
--		reg_width = PWM45DWIDTH_FIXUP;
--		reg_thres = PWM45THRES_FIXUP;
--	}
--
--	pwm_mediatek_writel(pc, pwm->hwpwm, PWMCON, BIT(15) | clkdiv);
--	pwm_mediatek_writel(pc, pwm->hwpwm, reg_width, cnt_period);
--	pwm_mediatek_writel(pc, pwm->hwpwm, reg_thres, cnt_duty);
--
--	pwm_mediatek_clk_disable(pc, pwm->hwpwm);
--
--	return ret;
--}
--
--static int pwm_mediatek_enable(struct pwm_chip *chip, struct pwm_device *pwm)
--{
--	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
--	u32 value;
--	int ret;
--
--	ret = pwm_mediatek_clk_enable(pc, pwm->hwpwm);
--	if (ret < 0)
--		return ret;
--
--	value = readl(pc->regs);
--	value |= BIT(pwm->hwpwm);
--	writel(value, pc->regs);
-+	*wfhw = (typeof(*wfhw)){
-+		.con = BIT(15) | clkdiv,
-+		.width = cnt_period,
-+		.thres = cnt_duty,
++	board_pins_0: board-pins-0 {
++		pinctrl-single,pins = <
++			0x160 0
++			0x164 0
++			0x168 0
++			0x16c 0
++		>;
++		pinctrl-single,drive-strength = <0x1000 0x1800>;
++		pinctrl-single,bias-pullup = <0x8000 0x8000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0x8000 0x8000 0 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0x288 0x388>;
 +	};
- 
- 	return 0;
- }
- 
--static void pwm_mediatek_disable(struct pwm_chip *chip, struct pwm_device *pwm)
-+static int pwm_mediatek_round_waveform_fromhw(struct pwm_chip *chip, struct pwm_device *pwm,
-+					      const void *_wfhw, struct pwm_waveform *wf)
- {
-+	const struct pwm_mediatek_waveform *wfhw = _wfhw;
- 	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
--	u32 value;
-+	int ret = 0;
- 
--	value = readl(pc->regs);
--	value &= ~BIT(pwm->hwpwm);
--	writel(value, pc->regs);
-+	if (wfhw->con & BIT(15)) {
-+		u32 clkdiv, cnt_period, cnt_duty;
-+		unsigned long clk_rate;
- 
--	pwm_mediatek_clk_disable(pc, pwm->hwpwm);
--}
--
--static int pwm_mediatek_apply(struct pwm_chip *chip, struct pwm_device *pwm,
--			      const struct pwm_state *state)
--{
--	int err;
--
--	if (state->polarity != PWM_POLARITY_NORMAL)
--		return -EINVAL;
--
--	if (!state->enabled) {
--		if (pwm->state.enabled)
--			pwm_mediatek_disable(chip, pwm);
--
--		return 0;
--	}
--
--	err = pwm_mediatek_config(chip, pwm, state->duty_cycle, state->period);
--	if (err)
--		return err;
--
--	if (!pwm->state.enabled)
--		err = pwm_mediatek_enable(chip, pwm);
--
--	return err;
--}
--
--static int pwm_mediatek_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
--				  struct pwm_state *state)
--{
--	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
--	int ret;
--	u32 enable;
--	u32 reg_width = PWMDWIDTH, reg_thres = PWMTHRES;
--
--	if (pc->soc->pwm45_fixup && pwm->hwpwm > 2) {
- 		/*
--		 * PWM[4,5] has distinct offset for PWMDWIDTH and PWMTHRES
--		 * from the other PWMs on MT7623.
-+		 * When _wfhw was populated, the clock was on, so .rate is
-+		 * already set appropriately.
- 		 */
--		reg_width = PWM45DWIDTH_FIXUP;
--		reg_thres = PWM45THRES_FIXUP;
-+		clk_rate = pc->clk_pwms[pwm->hwpwm].rate;
 +
-+		clkdiv = FIELD_GET(PWMCON_CLKDIV, wfhw->con);
-+		cnt_period = FIELD_GET(PWMDWIDTH_PERIOD, wfhw->width);
-+		cnt_duty = FIELD_GET(PWMTHRES_DUTY, wfhw->thres);
++	board_pins_1: board-pins-1 {
++		pinctrl-single,pins = <
++			0x44 1
++			0x48 1
++			0x20 1
++			0x18 1
++			0x14 1
++			0x10 1
++			0xc 1
++			0x8 1
++			0x68 1
++			0x58 0
++			0x54 0
++			0x7c 0
++			0x6c 0
++			0x70 0
++			0x4c 1
++			0x50 1
++			0xac 0
++			0x90 0
++			0x8c 0
++			0x88 0
++			0x84 0
++			0xc8 0
++			0x128 0
++			0x190 0
++			0x194 0
++			0x1a0 0
++			0x114 0
++			0x118 0
++			0x1d8 0
++			0x1e4 0
++			0xe8 0
++			0x100 0
++			0x204 0
++			0x210 0
++			0x218 0
++		>;
++		pinctrl-single,bias-pullup = <0xc000 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0x8000 0xa000 0x8000 0xc000>;
++		pinctrl-single,low-power-mode = <0x288 0x388>;
++	};
 +
-+		/*
-+		 * cnt_period is a 13 bit value, NSEC_PER_SEC is 30 bits wide
-+		 * and clkdiv is less than 8, so the multiplication doesn't
-+		 * overflow an u64.
-+		 */
-+		*wf = (typeof(*wf)){
-+			.period_length_ns =
-+				DIV_ROUND_UP_ULL((u64)cnt_period * NSEC_PER_SEC << clkdiv, clk_rate),
-+			.duty_length_ns =
-+				DIV_ROUND_UP_ULL((u64)cnt_duty * NSEC_PER_SEC << clkdiv, clk_rate),
-+			.duty_offset_ns = 0,
++	board_pins_2: board-pins-2 {
++		pinctrl-single,pins = <
++			0x260 0
++			0x264 0
++			0x268 0
++			0x26c 0
++			0x270 0
++			0x274 0
++			0x78 0
++			0x74 0
++			0xb0 1
++		>;
++		pinctrl-single,drive-strength = <0x1000 0x1800>;
++		pinctrl-single,bias-pullup = <0 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0 0xa000 0 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0 0x388>;
++	};
++
++	uart0_pins: uart0-pins {
++		pinctrl-single,pins = <
++			0x198 6
++			0x19c 6
++		>;
++		pinctrl-single,drive-strength = <0x1000 0x1800>;
++		pinctrl-single,bias-pullup = <0 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0 0xa000 0 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0 0x388>;
++	};
++
++	gpio_keys_pins: gpio-keys-pins {
++		pinctrl-single,pins = <
++			0x11c 0
++			0x120 0
++			0x1a4 0
++		>;
++		pinctrl-single,drive-strength = <0x1000 0x1800>;
++		pinctrl-single,bias-pullup = <0xc000 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0x8000 0xa0000 0x8000 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0 0x388>;
++	};
++
++	i2c_muic_pins: i2c-muic-pins {
++		pinctrl-single,pins = <
++			0x154 0
++			0x150 0
++		>;
++		pinctrl-single,drive-strength = <0x1000 0x1800>;
++		pinctrl-single,bias-pullup = <0 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0 0xa000 0 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0x288 0x388>;
++	};
++
++	sdh0_pins_0: sdh0-pins-0 {
++		pinctrl-single,pins = <
++			0x108 0
++		>;
++		pinctrl-single,drive-strength = <0x1000 0x1800>;
++		pinctrl-single,bias-pullup = <0xc000 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0x8000 0xa000 0x8000 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0 0x388>;
++	};
++
++	sdh0_pins_1: sdh0-pins-1 {
++		pinctrl-single,pins = <
++			0x94 0
++			0x98 0
++			0x9c 0
++			0xa0 0
++			0xa4 0
++		>;
++		pinctrl-single,drive-strength = <0x800 0x1800>;
++		pinctrl-single,bias-pullup = <0xc000 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0x8000 0xa000 0x8000 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0 0x388>;
++	};
++
++	sdh0_pins_2: sdh0-pins-2 {
++		pinctrl-single,pins = <
++			0xa8 0
++		>;
++		pinctrl-single,drive-strength = <0x1000 0x1800>;
++		pinctrl-single,bias-pullup = <0 0xc000 0 0xc000>;
++		pinctrl-single,bias-pulldown = <0 0xa000 0 0xa000>;
++		pinctrl-single,input-schmitt = <0 0x30>;
++		pinctrl-single,input-schmitt-enable = <0x40 0 0x40 0x40>;
++		pinctrl-single,low-power-mode = <0x208 0x388>;
++	};
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_pins>;
++};
++
++&twsi0 {
++	status = "okay";
++};
++
++&twsi1 {
++	status = "okay";
++};
++
++&twsi2 {
++	status = "okay";
++};
++
++&twsi3 {
++	status = "okay";
++};
++
++&usb {
++	extcon = <&muic>, <&muic>;
++};
++
++&sdh2 {
++	/* Disabled for now because initialization fails with -ETIMEDOUT. */
++	status = "disabled";
++	bus-width = <8>;
++	non-removable;
++	mmc-ddr-1_8v;
++};
++
++&sdh0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&sdh0_pins_0 &sdh0_pins_1 &sdh0_pins_2>;
++	cd-gpios = <&gpio 11 0>;
++	cd-inverted;
++	bus-width = <4>;
++	wp-inverted;
++};
+diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi b/arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..cf2b9109688ce560eec8a1397251ead68d78a239
+--- /dev/null
++++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi
+@@ -0,0 +1,300 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/dts-v1/;
++
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/clock/marvell,pxa1908.h>
++
++/ {
++	model = "Marvell Armada PXA1908";
++	compatible = "marvell,pxa1908";
++	#address-cells = <2>;
++	#size-cells = <2>;
++	interrupt-parent = <&gic>;
++
++	cpus {
++		#address-cells = <2>;
++		#size-cells = <0>;
++
++		cpu0: cpu@0 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a53";
++			reg = <0 0>;
++			enable-method = "psci";
 +		};
-+		dev_dbg(&chip->dev, "pwm#%u: CLKDIV: %x, PERIOD: %x, DUTY: %x @%lu -> %lld/%lld\n",
-+			pwm->hwpwm, clkdiv, cnt_period, cnt_duty, clk_rate,
-+			wf->duty_length_ns, wf->period_length_ns);
-+	} else {
-+		*wf = (typeof(*wf)){
-+			.period_length_ns = 0,
++
++		cpu1: cpu@1 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a53";
++			reg = <0 1>;
++			enable-method = "psci";
 +		};
- 	}
- 
-+	return ret;
-+}
 +
-+static int pwm_mediatek_read_waveform(struct pwm_chip *chip,
-+				      struct pwm_device *pwm, void *_wfhw)
-+{
-+	struct pwm_mediatek_waveform *wfhw = _wfhw;
-+	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
-+	u32 enable;
-+	int ret;
-+
- 	ret = pwm_mediatek_clk_enable(pc, pwm->hwpwm);
- 	if (ret < 0)
- 		return ret;
-@@ -274,31 +270,30 @@ static int pwm_mediatek_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 	enable = readl(pc->regs);
- 	if (enable & BIT(pwm->hwpwm)) {
- 		u32 clkdiv, cnt_period, cnt_duty;
--		unsigned long clk_rate;
-+		u32 reg_width = PWMDWIDTH, reg_thres = PWMTHRES;
- 
--		clk_rate = pc->clk_pwms[pwm->hwpwm].rate;
-+		if (pc->soc->pwm45_fixup && pwm->hwpwm > 2) {
-+			/*
-+			 * PWM[4,5] has distinct offset for PWMDWIDTH and PWMTHRES
-+			 * from the other PWMs on MT7623.
-+			 */
-+			reg_width = PWM45DWIDTH_FIXUP;
-+			reg_thres = PWM45THRES_FIXUP;
-+		}
- 
--		state->enabled = true;
--		state->polarity = PWM_POLARITY_NORMAL;
-+		clkdiv = FIELD_GET(PWMCON_CLKDIV, pwm_mediatek_readl(pc, pwm->hwpwm, PWMCON));
-+		cnt_period = FIELD_GET(PWMDWIDTH_PERIOD, pwm_mediatek_readl(pc, pwm->hwpwm, reg_width));
-+		cnt_duty = FIELD_GET(PWMTHRES_DUTY, pwm_mediatek_readl(pc, pwm->hwpwm, reg_thres));
- 
--		clkdiv = FIELD_GET(PWMCON_CLKDIV,
--				   pwm_mediatek_readl(pc, pwm->hwpwm, PWMCON));
--		cnt_period = FIELD_GET(PWMDWIDTH_PERIOD,
--				       pwm_mediatek_readl(pc, pwm->hwpwm, reg_width));
--		cnt_duty = FIELD_GET(PWMTHRES_DUTY,
--				     pwm_mediatek_readl(pc, pwm->hwpwm, reg_thres));
--
--		/*
--		 * cnt_period is a 13 bit value, NSEC_PER_SEC is 30 bits wide
--		 * and clkdiv is less than 8, so the multiplication doesn't
--		 * overflow an u64.
--		 */
--		state->period =
--			DIV_ROUND_UP_ULL((u64)cnt_period * NSEC_PER_SEC << clkdiv, clk_rate);
--		state->duty_cycle =
--			DIV_ROUND_UP_ULL((u64)cnt_duty * NSEC_PER_SEC << clkdiv, clk_rate);
-+		*wfhw = (typeof(*wfhw)){
-+			.con = BIT(15) | clkdiv,
-+			.width = cnt_period,
-+			.thres = cnt_duty,
++		cpu2: cpu@2 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a53";
++			reg = <0 2>;
++			enable-method = "psci";
 +		};
- 	} else {
--		state->enabled = false;
-+		*wfhw = (typeof(*wfhw)){
-+			.con = 0,
++
++		cpu3: cpu@3 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a53";
++			reg = <0 3>;
++			enable-method = "psci";
 +		};
- 	}
- 
- 	pwm_mediatek_clk_disable(pc, pwm->hwpwm);
-@@ -306,9 +301,73 @@ static int pwm_mediatek_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 	return ret;
- }
- 
-+static int pwm_mediatek_write_waveform(struct pwm_chip *chip,
-+				       struct pwm_device *pwm, const void *_wfhw)
-+{
-+	const struct pwm_mediatek_waveform *wfhw = _wfhw;
-+	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
-+	u32 ctrl;
-+	int ret;
++	};
 +
-+	ret = pwm_mediatek_clk_enable(pc, pwm->hwpwm);
-+	if (ret < 0)
-+		return ret;
++	pmu {
++		compatible = "arm,cortex-a53-pmu";
++		interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>,
++			<GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>,
++			<GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>,
++			<GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-affinity = <&cpu0>, <&cpu1>, <&cpu2>, <&cpu3>;
++	};
 +
-+	ctrl = readl(pc->regs);
++	psci {
++		compatible = "arm,psci-0.2";
++		method = "smc";
++	};
 +
-+	if (wfhw->con & BIT(15)) {
-+		u32 reg_width = PWMDWIDTH, reg_thres = PWMTHRES;
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			<GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			<GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			<GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++	};
 +
-+		if (pc->soc->pwm45_fixup && pwm->hwpwm > 2) {
-+			/*
-+			 * PWM[4,5] has distinct offset for PWMDWIDTH and PWMTHRES
-+			 * from the other PWMs on MT7623.
-+			 */
-+			reg_width = PWM45DWIDTH_FIXUP;
-+			reg_thres = PWM45THRES_FIXUP;
-+		}
++	soc {
++		compatible = "simple-bus";
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
 +
-+		if (!(ctrl & BIT(pwm->hwpwm))) {
-+			ctrl |= BIT(pwm->hwpwm);
-+			writel(ctrl, pc->regs);
++		smmu: iommu@c0010000 {
++			compatible = "arm,mmu-400";
++			reg = <0 0xc0010000 0 0x10000>;
++			#global-interrupts = <1>;
++			#iommu-cells = <1>;
++			interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>,
++				<GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
++			status = "disabled";
++		};
 +
-+			/*
-+			 * The clks are already on, just increasing the usage
-+			 * counter doesn't fail.
-+			 */
-+			ret = pwm_mediatek_clk_enable(pc, pwm->hwpwm);
-+			if (unlikely(ret < 0))
-+				goto out;
-+		}
++		gic: interrupt-controller@d1df9000 {
++			compatible = "arm,gic-400";
++			reg = <0 0xd1df9000 0 0x1000>,
++				<0 0xd1dfa000 0 0x2000>,
++				/* The subsequent registers are guesses. */
++				<0 0xd1dfc000 0 0x2000>,
++				<0 0xd1dfe000 0 0x2000>;
++			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++			interrupt-controller;
++			#interrupt-cells = <3>;
++		};
 +
-+		/* Make sure we use the bus clock and not the 26MHz clock */
-+		if (pc->soc->pwm_ck_26m_sel_reg)
-+			writel(0, pc->regs + pc->soc->pwm_ck_26m_sel_reg);
++		apb@d4000000 {
++			compatible = "simple-bus";
++			reg = <0 0xd4000000 0 0x200000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0 0 0xd4000000 0x200000>;
 +
-+		pwm_mediatek_writel(pc, pwm->hwpwm, PWMCON, wfhw->con);
-+		pwm_mediatek_writel(pc, pwm->hwpwm, reg_width, wfhw->width);
-+		pwm_mediatek_writel(pc, pwm->hwpwm, reg_thres, wfhw->thres);
-+	} else {
-+		if (ctrl & BIT(pwm->hwpwm)) {
-+			ctrl &= ~BIT(pwm->hwpwm);
-+			writel(ctrl, pc->regs);
++			pdma: dma-controller@0 {
++				compatible = "marvell,pdma-1.0";
++				reg = <0 0x10000>;
++				interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
++				dma-channels = <30>;
++				#dma-cells = <2>;
++			};
 +
-+			pwm_mediatek_clk_disable(pc, pwm->hwpwm);
-+		}
-+	}
++			twsi1: i2c@10800 {
++				compatible = "mrvl,mmp-twsi";
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <0x10800 0x64>;
++				interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apbc PXA1908_CLK_TWSI1>;
++				mrvl,i2c-fast-mode;
++				status = "disabled";
++			};
 +
-+out:
-+	pwm_mediatek_clk_disable(pc, pwm->hwpwm);
++			twsi0: i2c@11000 {
++				compatible = "mrvl,mmp-twsi";
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <0x11000 0x64>;
++				interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apbc PXA1908_CLK_TWSI0>;
++				mrvl,i2c-fast-mode;
++				status = "disabled";
++			};
 +
-+	return ret;
-+}
++			twsi3: i2c@13800 {
++				compatible = "mrvl,mmp-twsi";
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <0x13800 0x64>;
++				interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apbc PXA1908_CLK_TWSI3>;
++				mrvl,i2c-fast-mode;
++				status = "disabled";
++			};
 +
- static const struct pwm_ops pwm_mediatek_ops = {
--	.apply = pwm_mediatek_apply,
--	.get_state = pwm_mediatek_get_state,
-+	.sizeof_wfhw = sizeof(struct pwm_mediatek_waveform),
-+	.round_waveform_tohw = pwm_mediatek_round_waveform_tohw,
-+	.round_waveform_fromhw = pwm_mediatek_round_waveform_fromhw,
-+	.read_waveform = pwm_mediatek_read_waveform,
-+	.write_waveform = pwm_mediatek_write_waveform,
- };
- 
- static int pwm_mediatek_init_used_clks(struct pwm_mediatek_chip *pc)
++			apbc: clock-controller@15000 {
++				compatible = "marvell,pxa1908-apbc";
++				reg = <0x15000 0x1000>;
++				#clock-cells = <1>;
++			};
++
++			uart0: serial@17000 {
++				compatible = "mrvl,mmp-uart", "intel,xscale-uart";
++				reg = <0x17000 0x1000>;
++				interrupts = <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apbc PXA1908_CLK_UART0>;
++				reg-shift = <2>;
++			};
++
++			uart1: serial@18000 {
++				compatible = "mrvl,mmp-uart", "intel,xscale-uart";
++				reg = <0x18000 0x1000>;
++				interrupts = <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apbc PXA1908_CLK_UART1>;
++				reg-shift = <2>;
++			};
++
++			gpio: gpio@19000 {
++				compatible = "marvell,mmp-gpio";
++				reg = <0x19000 0x800>;
++				#address-cells = <1>;
++				#size-cells = <1>;
++				gpio-controller;
++				#gpio-cells = <2>;
++				clocks = <&apbc PXA1908_CLK_GPIO>;
++				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
++				interrupt-names = "gpio_mux";
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				ranges = <0 0x19000 0x800>;
++
++				gpio@0 {
++					reg = <0x0 0x4>;
++				};
++
++				gpio@4 {
++					reg = <0x4 0x4>;
++				};
++
++				gpio@8 {
++					reg = <0x8 0x4>;
++				};
++
++				gpio@100 {
++					reg = <0x100 0x4>;
++				};
++			};
++
++			pmx: pinmux@1e000 {
++				compatible = "marvell,pxa1908-padconf", "pinconf-single";
++				reg = <0x1e000 0x330>;
++
++				#pinctrl-cells = <1>;
++				pinctrl-single,register-width = <32>;
++				pinctrl-single,function-mask = <7>;
++
++				range: gpio-range {
++					#pinctrl-single,gpio-range-cells = <3>;
++				};
++			};
++
++			uart2: serial@36000 {
++				compatible = "mrvl,mmp-uart", "intel,xscale-uart";
++				reg = <0x36000 0x1000>;
++				interrupts = <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apbcp PXA1908_CLK_UART2>;
++				reg-shift = <2>;
++			};
++
++			twsi2: i2c@37000 {
++				compatible = "mrvl,mmp-twsi";
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <0x37000 0x64>;
++				interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apbcp PXA1908_CLK_TWSI2>;
++				mrvl,i2c-fast-mode;
++				status = "disabled";
++			};
++
++			apbcp: clock-controller@3b000 {
++				compatible = "marvell,pxa1908-apbcp";
++				reg = <0x3b000 0x1000>;
++				#clock-cells = <1>;
++			};
++
++			mpmu: clock-controller@50000 {
++				compatible = "marvell,pxa1908-mpmu";
++				reg = <0x50000 0x1000>;
++				#clock-cells = <1>;
++			};
++		};
++
++		axi@d4200000 {
++			compatible = "simple-bus";
++			reg = <0 0xd4200000 0 0x200000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0 0 0xd4200000 0x200000>;
++
++			usbphy: phy@7000 {
++				compatible = "marvell,pxa1928-usb-phy";
++				reg = <0x7000 0x200>;
++				clocks = <&apmu PXA1908_CLK_USB>;
++				#phy-cells = <0>;
++			};
++
++			usb: usb@8000 {
++				compatible = "chipidea,usb2";
++				reg = <0x8000 0x200>;
++				interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apmu PXA1908_CLK_USB>;
++				phys = <&usbphy>;
++				phy-names = "usb-phy";
++			};
++
++			sdh0: mmc@80000 {
++				compatible = "mrvl,pxav3-mmc";
++				reg = <0x80000 0x120>;
++				interrupts = <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apmu PXA1908_CLK_SDH0>;
++				clock-names = "io";
++				mrvl,clk-delay-cycles = <31>;
++			};
++
++			sdh1: mmc@80800 {
++				compatible = "mrvl,pxav3-mmc";
++				reg = <0x80800 0x120>;
++				interrupts = <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apmu PXA1908_CLK_SDH1>;
++				clock-names = "io";
++				mrvl,clk-delay-cycles = <31>;
++			};
++
++			sdh2: mmc@81000 {
++				compatible = "mrvl,pxav3-mmc";
++				reg = <0x81000 0x120>;
++				interrupts = <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&apmu PXA1908_CLK_SDH2>;
++				clock-names = "io";
++				mrvl,clk-delay-cycles = <31>;
++			};
++
++			apmu: clock-controller@82800 {
++				compatible = "marvell,pxa1908-apmu";
++				reg = <0x82800 0x400>;
++				#clock-cells = <1>;
++			};
++		};
++	};
++};
+
 -- 
-2.49.0
+2.50.0
 
 
