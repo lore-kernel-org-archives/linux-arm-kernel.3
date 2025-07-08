@@ -4,95 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9F6C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 14:03:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA0B7C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 14:06:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PrxF6nK+mYO5VydcxGnIEhVOlrvvr7ZKNJscXE8JZuo=; b=oCxcsvn30btjC3jz/FKSMSwxYz
-	/6h2VufLv9vlE5//DlgtPGkXYPOAsFB95fs0Kn9rHyVCRYSEhQccDUvVsBiVPwnxdRrjsTr2MF42d
-	8vPZC3FtpQX7aolYi5lB1SfPph2AUkNFwbjajdffTFtQL8IxEO6yURFAywdYlS3hZyfhpXWtMZA6N
-	Pl1iPDiUs+JMx4J1vzbxC7b5aFwvzKt3qwogpkpBURhxzT6Qp16TEtA/h0/2+vMUNXV8iOgoKr53D
-	um7a1jujKQtkrpaYBhAfBIKkXrO4NDmKRDXDdT3cAFCOyfL2/rfgrpUx+OTxwVk2n8lHjQhr2s/yG
-	tkmP471A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7YURTXCptCSZEmhbUYCBqxZVrD3kYao1LSH9kzVWrsc=; b=x4oXnOUVTxXDL3TyFACZKknYsy
+	9nwVmx260uHvi9ebta3EtBEdxJ1B/E/jOqnLzG8AqLKpsA91A4z0Hrislwy0+4UTusmrJWTernH35
+	DyS3BhjL6wo2j24JVv5f5pJPs73n8a0git8qUDbGQu5xRjZGb4d0ki/VOasO6CHkz3RdoRvx2VgoY
+	MZ+zdhc0BI+21uyfNnyWWZ33jQ/v3SFkHCNmw8aHbWzIuDuo5whRnKEiqQtfCoK5wtHacR81VQOuT
+	j27HKLq5NiVBAZZHlQh6mF0wTUteBtsQK9Bb0te1vSW7tzc1G8yapu9tFJC9+jxx0+h4c6sGlPBGP
+	wbXFHRkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ8vH-00000005Wnc-0JkB;
-	Tue, 08 Jul 2025 14:03:51 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1uZ8xa-00000005X9J-08oF;
+	Tue, 08 Jul 2025 14:06:14 +0000
+Received: from mail-ed1-f46.google.com ([209.85.208.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ8mR-00000005VOe-2ack
+	id 1uZ8sM-00000005WJH-2i9W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 13:54:44 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-60789b450ceso8561204a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 06:54:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751982882; x=1752587682; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PrxF6nK+mYO5VydcxGnIEhVOlrvvr7ZKNJscXE8JZuo=;
-        b=ibNF1D63kLywHE1oZj2bGlI9bTb+lLPGOune+ycWCLkKFNsibabaNxJoeX1gWsMANn
-         MMqJdZlVxmlzWOdu6nxYFcuYxv1peTQ0cLaR3ZiDXZcLQmYHnXzHex/gxsICoQvdHCwk
-         wPcLe+0UHNM6yJwqBWWP88TBdMpwmzT7u9sO0Z9iUkjGYlxdFvQ/7HU+UX/VbB6NFWrN
-         C7weXVbtu/fgrNAHT00z9BVDIeKMmPOQNn+g9Mjx2mZrnUHVhiHRqN4rSoZy/KLKoUkR
-         Dw9i9F7IEHivEPipp1PXHhd7w5nHEB/laa7HJTaFQ/9EH3a+N31X8Ykwja9NfZ/odmUP
-         m1Tg==
+	Tue, 08 Jul 2025 14:00:52 +0000
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-60780d74c8cso6799690a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 07:00:50 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751982882; x=1752587682;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PrxF6nK+mYO5VydcxGnIEhVOlrvvr7ZKNJscXE8JZuo=;
-        b=f5hRmoGbTsR3jxqjX84TRufkEmK/W13Z0yz75082ck5FJ88R0O9Gx5ymTtyA4zDykr
-         +/VQHaXMSgM2csjF+JBbW+6llRibsNNPhrPbdnJzkUiHPe3DZI2ru2Jjdo/RY3SHqQ05
-         IULAZLBVbu3jXYKh0KxGKcP9/l0xMkIkyq6bzizPi3dUaOREEc/anrtGsJQdGSI+MrFE
-         QfZxkjeNl36sg62kjW9xB0z8H9BxV6pXXIqdyaYPFRVCUz5yT/KpidFHLsaGp9ZnX3Cv
-         6PsyiTSx5ARnlgAT4Cw0sFuFXkJ62Lj4o1HvA8TxVp4mGZd4NIcC0ZaTZZJDMBA/hQLP
-         lZaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXOgNzVHkgMMTCocqAoaM6dRl509zcgNlNyzOtHLRpr+8q+u3kAjQWvvEHvzjWq8tVmAgPphxJTZOlwsihjO2fW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhbrzwTeruapK4GmQ1XvhCTPSHXs334MoGvCcYR45QuoNTkmOn
-	6rU2lu/s7YyzjO3Bx6QEvIWhGCiVtPWorEfmwm3ss2nHdCYpflENheo9
-X-Gm-Gg: ASbGncvwcTmiEr+L5OhTiGxF+eHIajbM2ARuEiYu93dXB0lu+J/fsk7h12meK/Mpgpv
-	xX9M5NDuAzzaGXOJTqnBE9HEFjHgkrbn4MKrP7yFPPTg8wZwRIDDQq8DI77dCgfyNqdAH7oc3ih
-	Ufl+bcoesC6stvPT/K+Vr6egPRIaIYCMEEFHd95LGiFLSLuOMx5BynWTURFS+cLbdxThnInK00h
-	E9hKCq9dXNMrt50HvxcbmsS4jeq4GS7Xbuwm9cheOiX3AtYmI7OT8M2PNprzEpBaXYCm7FVePnH
-	zWlCREnP0FmuSaF1KGVYo9wheYaopMatJdA1w5CZfTyTJcXxL3znJNM1jFm1SjNJtId9OBabbm8
-	6cotiThldXldzHnhq8sTYY+XDwCqE8KpFTmdgi7pmOFWDbhprRi3pF3B+PLnktJeM
-X-Google-Smtp-Source: AGHT+IE/M5dxRM2q5OIUramUmzAa8UWPZ+qACUHBsAkQqnqxLmZ2oTxm7Fg0gydn9CIl664bZfqKDw==
-X-Received: by 2002:a17:906:c10f:b0:ae0:b239:7fd3 with SMTP id a640c23a62f3a-ae3fbea03bemr2120751666b.57.1751982881901;
-        Tue, 08 Jul 2025 06:54:41 -0700 (PDT)
-Received: from toolbox.int.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f6ac6641sm910431066b.99.2025.07.08.06.54.41
+        d=1e100.net; s=20230601; t=1751983249; x=1752588049;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7YURTXCptCSZEmhbUYCBqxZVrD3kYao1LSH9kzVWrsc=;
+        b=hgyctBsPrb3YwhgHW93LiclhhkDRETtc4GWc2yKBdtPmaHZ0nNzCjG57wbYYOunfEE
+         lnrEyOcR6lH8dz8ugjlSGgxiA5r8TBMi8D2DwYPVPyyHwuW6dtB2/gsP7CO2DvZbHbKJ
+         /d8IXzNi9EKbFER0RXOQ73SnzHnxYNHXxeThob1vYs1OokxuHOtB5sw3UUKqRe9nJXzd
+         rAb8NzbWoYanj0dOz1NZED4PjlX0NmAa1trUzRoMdL4rQdSVKvXowWslSDmxYju+bicf
+         Uv5yJBM7uiA/ud4IBHKN/g8Nz/5mDlNvcEXrrnacX0rjxTaa83Q4bilMab5srEXLz0j9
+         0zHA==
+X-Forwarded-Encrypted: i=1; AJvYcCUNj4X8ASQ4nAqID9fDC2GUU3AvZGKe49AaqD7eOx+vmZ3ZS1unIMh3p9uAw/WxKTQ7mnXrc6ihB5Jnsvb+/YeI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsnSBln7vO2Yzpso6l+ojjmvZgrsndX4MH5F/5wAz9QY4MwVlb
+	4qSEJVagYlLGoS3wUWxT0/SO+lO5/lcHNS5KZwsDOE6FAaxrx8lOLlLT
+X-Gm-Gg: ASbGncuzpcskCJuPDDXDFV3gZgk5cQawrUYV+Y1vU+K38ctqX6Oz76AXpS4vS8nHu1u
+	LqgZXWmJ0PsKJ4yAgqm7XTXMWZIvHhqZIzfEvEdgU+T7OPsg1kfYaeKmjwKjxNIVN+W6r3sFmi/
+	ekGhr9yiHzRbR5sYnNsT8oHlL1+mbLs1/jZ0wejfO90c8nLBzSRyZkqD84q/49VCNdDAd3BxmkZ
+	0nNXFObNWLiZk7sbQ0UOo0UgQWmTzupIbn/+ddmVPNJSlMgmVmx254dgaXl52lcZB8w30WXM2M4
+	FVM4MTgEmjjZRcLTJoC/1sHx1KlgZjKFO8ri5vs5obmcLMoUhlmoZlaoT6Exvec=
+X-Google-Smtp-Source: AGHT+IGXOKNS8CCiY5x6OJiBuZ2ATOTUIIt4Qq9+KAF8vaEWWbhlFc9sESTRoxEkjQhwxHSfc/uYLg==
+X-Received: by 2002:a17:907:d86:b0:ade:484d:1518 with SMTP id a640c23a62f3a-ae3fe6be48bmr1664163466b.26.1751983248358;
+        Tue, 08 Jul 2025 07:00:48 -0700 (PDT)
+Received: from gmail.com ([2a03:2880:30ff:9::])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f6ac5f80sm911998166b.97.2025.07.08.07.00.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Jul 2025 06:54:41 -0700 (PDT)
-From: max.oss.09@gmail.com
-To: Max Krummenacher <max.krummenacher@toradex.com>
-Cc: Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/2] arm64: dts: freescale: imx8mp-toradex-smarc: remove gpio hog
-Date: Tue,  8 Jul 2025 15:51:42 +0200
-Message-ID: <20250708135300.2855155-3-max.oss.09@gmail.com>
-X-Mailer: git-send-email 2.42.0
-In-Reply-To: <20250708135300.2855155-1-max.oss.09@gmail.com>
-References: <20250708135300.2855155-1-max.oss.09@gmail.com>
+        Tue, 08 Jul 2025 07:00:47 -0700 (PDT)
+Date: Tue, 8 Jul 2025 07:00:45 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Mark Rutland <mark.rutland@arm.com>, ankita@nvidia.com,
+	bwicaksono@nvidia.com
+Cc: rmk+kernel@armlinux.org.uk, catalin.marinas@arm.com,
+	linux-serial@vger.kernel.org, rmikey@meta.com,
+	linux-arm-kernel@lists.infradead.org, usamaarif642@gmail.com,
+	leo.yan@arm.com, linux-kernel@vger.kernel.org, paulmck@kernel.org,
+	Ankit Agrawal <ankita@nvidia.com>,
+	Besar Wicaksono <bwicaksono@nvidia.com>
+Subject: Re: arm64: csdlock at early boot due to slow serial (?)
+Message-ID: <aG0kYjl/sphGqd4r@gmail.com>
+References: <aGVn/SnOvwWewkOW@gmail.com>
+ <aGZbYmV26kUKJwu_@J2N7QTR9R3>
+ <aGaQBghdAl8VGWmV@gmail.com>
+ <aGawTd8N2i8MDCmL@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aGawTd8N2i8MDCmL@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_065443_659734_051E7CE2 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20250708_070050_684649_B7923CBF 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +93,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Max Krummenacher <max.krummenacher@toradex.com>
+On Thu, Jul 03, 2025 at 05:31:09PM +0100, Mark Rutland wrote:
 
-Remove the gpio hog node which forces using DSI signals rather than
-the second LVDS channels signals.
-The dsi signals are not used in any of the current device trees.
-Leave that decision to the actual device tree which will also define
-the consumer of the signals.
+> > How do I find the SoC exactly?
+> 
+> >From what you've told me above, the SoC is Nvidia Grace; what they call
+> the CPU is the whole SoC.
+> 
+> > > Likewise that might imply more folk to add to Cc.
+> 
+> I've added Ankit and Besar, since they've both worked on some system
+> level bits on Grace, and might have an idea.
+> 
+> Ankit, Besar, are you aware of any UART issues on Grace (as described in
+> Breno's messages below), or do you know of anyone who might have an
+> idea?
 
-Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
+Here is more information I got about this problem. TL;DR: While the
+machine is booting, it is throttled by the UART speed, while having IRQ
+disabled.
 
----
+Here is my line of investigation:
 
- arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dtsi | 8 --------
- 1 file changed, 8 deletions(-)
+1) when the kernel start to flush the messages, there are ~700 messages
+   in the buffer that will be flushed using
+   pl011_console_write_atomic()
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dtsi
-index 11fd5360ab90..bebe19eb360f 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dtsi
-@@ -351,14 +351,6 @@ &gpio3 {
- 			  "",
- 			  "",
- 			  "SMARC_I2C_PM_CK";
--
--	lvds_dsi_mux_hog: lvds-dsi-mux-hog {
--		gpio-hog;
--		gpios = <7 GPIO_ACTIVE_HIGH>;
--		line-name = "LVDS_DSI_SEL";
--		/* LVDS_DSI_SEL as DSI */
--		output-low;
--	};
- };
- 
- &gpio4 {
--- 
-2.42.0
+	[    0.653673] printk: console [ttyAMA0] enabled
+	[    9.239225] ACPI: PCI Root Bridge [PCI2] (domain 0002 [bus 00-ff])
+
+ a) pl011_console_write_atomic() is called  ~700 times. Each message
+ have around 50 chars.
+
+ b) For each char, it needs to wait for it to be sent before proceeding.
+
+3) pl011_console_write_atomic() have two big while()/cpu_relax() blocks.
+   One per character and one per message.
+
+    a) the first one is in pl011_console_putchar(), where it checks if the
+    FIFO is full before writing a single character. This is done one per
+    character.
+
+          while (pl011_read(uap, REG_FR) & UART01x_FR_TXFF)
+                  cpu_relax();
+	 
+    b) After the line is written, then it hits the second one, in
+    pl011_console_write_atomic(), where it waits until the controller is
+    not busy anymore:
+
+              while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
+                  cpu_relax();
+	
+
+4) The controller has FIFO enabled, but, it doesn't help much, because
+   the CPU is waiting for the 700 * 50 chars to be transmitted.
+
+5) At this time we just have one single CPU online (?)
+
+6) This is done with IRQ disabled, which causes a CSD lock to trigger,
+   given that the CPU has IRQ disabled
+
+
+   a) Following Paul's suggestion, I added
+   a `lockdep_assert_irqs_enabled()` at the entrance of
+   pl011_console_write_atomic(), and that is what I see.
+
+	hardirqs last  enabled at (256267): [<ffff800080364980>] vprintk_store+0x6f8/0x820
+	hardirqs last disabled at (256268): [<ffff80008036e1c4>] __nbcon_atomic_flush_pending+0x2c4/0x3e8
+	softirqs last  enabled at (255640): [<ffff8000801bb020>] handle_softirqs+0x910/0xe78
+	softirqs last disabled at (255635): [<ffff800080010938>] __do_softirq+0x18/0x20
+
+  b) This is the full stack in how we are calling cpu_relax() with irq
+  disabled million times:
+
+	WARNING: CPU: 0 PID: 1 at drivers/tty/serial/amba-pl011.c:2545 pl011_console_write_atomic (drivers/tty/serial/amba-pl011.c:2545)
+	Modules linked in:
+	pstate: 234003c9 (nzCv DAIF +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
+	pc : pl011_console_write_atomic (drivers/tty/serial/amba-pl011.c:2545)
+	lr : pl011_console_write_atomic (drivers/tty/serial/amba-pl011.c:2545)
+	sp : ffff80008980dca0
+	pmr: 000000f0
+	x29: ffff80008980dca0 x28: ffff0000aebcc080 x27: dfff800000000000
+	x26: 1fffe00015d7985a x25: 0000000000000000 x24: 0000000000000000
+	x23: ffff0000a1800000 x22: ffff800087e6d7f8 x21: 1fffe00015d7985b
+	x20: ffff80008980dee0 x19: 0000000000000003 x18: 00000000ffffffff
+	x17: 30313478305b2030 x16: 3030303230303030 x15: 3078302055504320
+	x14: 6c61636973796870 x13: 0a2a2a2065676173 x12: ffff700011301b8b
+	x11: 1ffff00011301b8a x10: ffff700011301b8a x9 : ffff800081eafdb4
+	x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000000
+	x5 : 1ffff00011301be2 x4 : 0000000000000018 x3 : 0000000000000000
+	x2 : 1ffff00010fcdb57 x1 : 0000000000000000 x0 : 0000000000000001
+	Call trace:
+	pl011_console_write_atomic (drivers/tty/serial/amba-pl011.c:2545) (P)
+	nbcon_emit_next_record (kernel/printk/nbcon.c:1026)
+	__nbcon_atomic_flush_pending_con (kernel/printk/nbcon.c:1498)
+	__nbcon_atomic_flush_pending (kernel/printk/nbcon.c:1541 kernel/printk/nbcon.c:1593)
+	nbcon_atomic_flush_pending (kernel/printk/nbcon.c:1610)
+	vprintk_emit (kernel/printk/printk.c:2429)
+	vprintk_default (kernel/printk/printk.c:2466)
+	vprintk (kernel/printk/printk_safe.c:83)
+	_printk (kernel/printk/printk.c:2470)
+	__warn (kernel/panic.c:768)
+	report_bug (lib/bug.c:197 lib/bug.c:215)
+	bug_handler (arch/arm64/kernel/traps.c:1002)
+	call_break_hook (arch/arm64/kernel/debug-monitors.c:319)
+	brk_handler (arch/arm64/kernel/debug-monitors.c:325)
+	do_debug_exception (arch/arm64/mm/fault.c:1002)
+	el1_dbg (arch/arm64/kernel/entry-common.c:514)
+	el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:567)
+	el1h_64_sync (arch/arm64/kernel/entry.S:595)
+	pl011_console_write_atomic (drivers/tty/serial/amba-pl011.c:2524) (P)
+	nbcon_emit_next_record (kernel/printk/nbcon.c:1026)
+	__nbcon_atomic_flush_pending_con (kernel/printk/nbcon.c:1498)
+	__nbcon_atomic_flush_pending (kernel/printk/nbcon.c:1541 kernel/printk/nbcon.c:1593)
+	nbcon_atomic_flush_pending (kernel/printk/nbcon.c:1610)
+	vprintk_emit (kernel/printk/printk.c:2429)
+	vprintk_default (kernel/printk/printk.c:2466)
+	vprintk (kernel/printk/printk_safe.c:83)
+	_printk (kernel/printk/printk.c:2470)
+	register_console (kernel/printk/printk.c:4126 (discriminator 9))
+	serial_core_register_port (drivers/tty/serial/serial_core.c:2637 drivers/tty/serial/serial_core.c:3157 drivers/tty/serial/serial_core.c:3388)
+	serial_ctrl_register_port (drivers/tty/serial/serial_ctrl.c:42)
+	uart_add_one_port (drivers/tty/serial/serial_port.c:144)
+	pl011_register_port (drivers/tty/serial/amba-pl011.c:2867)
+	sbsa_uart_probe (drivers/tty/serial/amba-pl011.c:3041)
+	platform_probe (drivers/base/platform.c:1405)
+	really_probe (drivers/base/dd.c:579 drivers/base/dd.c:657)
+	__driver_probe_device (drivers/base/dd.c:799)
+	driver_probe_device (drivers/base/dd.c:829)
+	__device_attach_driver (drivers/base/dd.c:958)
+	bus_for_each_drv (drivers/base/bus.c:462)
+	__device_attach (drivers/base/dd.c:1031)
+	device_initial_probe (drivers/base/dd.c:1079)
+	bus_probe_device (drivers/base/bus.c:537)
+	device_add (drivers/base/core.c:3699)
+	platform_device_add (drivers/base/platform.c:716)
+	platform_device_register_full (drivers/base/platform.c:845)
+	acpi_create_platform_device (./include/linux/err.h:70 drivers/acpi/acpi_platform.c:178)
+	acpi_bus_attach (./include/linux/acpi.h:738 drivers/acpi/scan.c:2206 drivers/acpi/scan.c:2198 drivers/acpi/scan.c:2316)
+	acpi_dev_for_one_check (drivers/acpi/bus.c:1146)
+	device_for_each_child (drivers/base/core.c:4021)
+	acpi_dev_for_each_child (drivers/acpi/bus.c:1151)
+	acpi_bus_attach (drivers/acpi/scan.c:2323)
+	acpi_dev_for_one_check (drivers/acpi/bus.c:1146)
+	device_for_each_child (drivers/base/core.c:4021)
+	acpi_dev_for_each_child (drivers/acpi/bus.c:1151)
+	acpi_bus_attach (drivers/acpi/scan.c:2323)
+	acpi_bus_scan (drivers/acpi/scan.c:2533 drivers/acpi/scan.c:2606)
+	acpi_scan_init (drivers/acpi/scan.c:2739)
+	acpi_init (drivers/acpi/bus.c:1470)
+	do_one_initcall (init/main.c:1274)
+	kernel_init_freeable (init/main.c:1335 init/main.c:1352 init/main.c:1371 init/main.c:1584)
+	kernel_init (init/main.c:1476)
+	ret_from_fork (arch/arm64/kernel/entry.S:863)
+	irq event stamp: 256268
+	hardirqs last enabled at (256267): vprintk_store (kernel/printk/printk.c:2356 (discriminator 1))
+	hardirqs last disabled at (256268): __nbcon_atomic_flush_pending (kernel/printk/nbcon.c:1539 kernel/printk/nbcon.c:1593)
+	softirqs last enabled at (255640): handle_softirqs (./arch/arm64/include/asm/current.h:19 ./arch/arm64/include/asm/preempt.h:13 kernel/softirq.c:426 kernel/softirq.c:607)
+	softirqs last disabled at (255635): __do_softirq (kernel/softirq.c:614)
+	---[ end trace 0000000000000000 ]---
 
 
