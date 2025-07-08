@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEB1C71130
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 01:39:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86405C71130
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 01:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EdPVyMeaiZRcAvUnLtrLn4eKjhsWSi1DSHgzYkr8RpU=; b=LeXrGv7NfsfLn0gnTsb1c/tXIz
-	6r2kn6ReR7j/pSAnGF47ND4+SFx9Cu8rmwrG1c7GQ24KmrvsmggH/lpZ7jzulJKIUu1/HO6m9lI8o
-	ZRgERyBi+RpNxBFdesvyhZdYCck7qxe++HbiDvocMwhypLpIDLdMbUMHxBQ/Qn/nZTCH2rdZwbjVp
-	U6Y+xahQefY0pnKr7QKlNXYyL4x4t5W4jCFy3oDDJSgVObu+BhrjEIJaBmi8U9+qIVbBZbT3EUxqP
-	ZkGnOx2k8ltH8AZDYFepW3iviM7edwRKK+CDiQmecBtNRzI2L9/3gwbC23gmVAXsO1t2mGIh/aZQp
-	LMlWGTJg==;
+	bh=ZgzMhn9PXUw8XaAQ7bqis9LsIzAHvccPSnO/9V1QKUU=; b=OgH3UCykkB7+Y7IeWMzfN4hbGM
+	BQl5MuF8f/OQIO//UZNEAgvnykMbyoQymegbpGWHBufHzst2pcVi4onQ1AenRE4dUvjEDOd6VZF+5
+	sfijv1JdZXeqKwmdAZ/SSEh/g10310gKc9/a+5BFGFD6/jjyyd1wfTT+/kpcsTPX6wynqqeCCy40V
+	HeuOj6l5FoxoSF6RUqhwxhJ/kGDhDC/OdeflrPkGekNhONcU3egF2VMC62p3kaQ5bh2gmsD1FNB2R
+	nMkID2y0zBEjDAruRrALeLc3JncV3jWQZ+92whaMW+RjGh4g9RWa6lSsFpXfP7WLm/cau1z3t1exU
+	B3qt84QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYxIy-00000003zTq-1gUs;
-	Tue, 08 Jul 2025 01:39:32 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1uYxLn-00000003znY-29Cq;
+	Tue, 08 Jul 2025 01:42:27 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYxGO-00000003zDW-0WIv;
-	Tue, 08 Jul 2025 01:36:57 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-70f94fe1e40so51296117b3.1;
-        Mon, 07 Jul 2025 18:36:51 -0700 (PDT)
+	id 1uYxJT-00000003zYL-07At
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Jul 2025 01:40:04 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-553b9eb2299so3900764e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 18:40:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751938611; x=1752543411; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1751938801; x=1752543601; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EdPVyMeaiZRcAvUnLtrLn4eKjhsWSi1DSHgzYkr8RpU=;
-        b=O98Qe65Sfg2KbC6MZoK0UD7QNI6psbRjtHPhiOQ0DHlNZqucugIKnrT3Ga09VOF5UB
-         k/b8xeKjVxlyiAyKlJCCJ698PWxeGsFCVk8hNM/b+Zo8GJvkxOBFXs7q3wD4AklLmiok
-         3OoMKeSGQ1MUbHPmm8iVPSQ7KByScQnsqb042J2Tn8z16UfwxP7vx6pe35PUjgtBFBuO
-         b9KPeDeGfmXqJMPCLW0c4DBlBUqzdSw158MqA0RCBJw+uPDWEV6IrKUUpA+md8fq7Veh
-         76gqt0bjF8N++WcpNT0Cc3I/vajzK9C2Da3Nl1IGLkZVwVEBkr9sFXwJbU4xBVcfIuxW
-         qm/A==
+        bh=ZgzMhn9PXUw8XaAQ7bqis9LsIzAHvccPSnO/9V1QKUU=;
+        b=cBEOZqtjUPndbWxmLq2iZEl9e2Z0bxxeBDhurqQM/bPDVenG8WtVOSAF28rcvzNUfT
+         I59TNXnIm1mtX7fxWsoJf584+4lim4EmNVVMMWCC3PMzDR6VnxPDIgWi8YfTHBVbNoM7
+         aQpUbR6IR6AkvfdLN2kpxlgQ8YhK2TNYBKO0vqYafQWBZk5XE9ZZaWWOx/10igbcWav3
+         aoaZsqXS9eXDJalMvinHkwxAcbNOay6AEe4S/UHfajyS7G7Z0FU4QB2JTNNNQ/L6GulS
+         R3dGYzZ+9GUiWs2qGFhL+UFkSuoin55IDWOlUwHXbFY/q87njNa1jaxtTLbsVRfbm5W/
+         KAFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751938611; x=1752543411;
+        d=1e100.net; s=20230601; t=1751938801; x=1752543601;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EdPVyMeaiZRcAvUnLtrLn4eKjhsWSi1DSHgzYkr8RpU=;
-        b=NqZUp8vA/kNY1/35oTSIL4HDoDieaSdgE70CyhMoA+aqmjTiAjLtlAjd+RpgF0h53a
-         artQ9pfyPPViLTYyBPP8f3Ig+ntOoQKdgX4kOW8YLSxkl/3XcmCYUlKBA+q9S13UBrl7
-         vIAMj8CF8k23nmvc9uOzl8cWPgwSutQTKxhA99VsORbagwVNkcVrJXO7N37PqcxVjj6O
-         /hTTQVVI9Ulj040/Fvh9YiYrHH5/TCfkhsomVjFm60/0iGXQs3UUuEO9NDKiFVUmmllj
-         9DmrTIgicIfON9XDrfkaBNwsy3PzI9ZvKqzD+G4tqhLYNdX7zY14lKdS/9Xn+c/uikmR
-         n4mw==
-X-Forwarded-Encrypted: i=1; AJvYcCUZ73JRNqjiwiQl6uoOKDMrOZHTa37djtv/btQ1jvEBRmPXQbfq7N42uCPQjo9okbSTdhZfNxsWWC2MG7aHz20=@lists.infradead.org, AJvYcCVqgRCkvCz29t2651HyxvtYZv1hT4EqE57AY7OuQsLbvuEkRkuWd9ALL+0FucTxvLk/vQ3i6V2L9V26CRT8XIQE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8H9+JWQaqmU5tac4g6bXSLdwbaJA0FBdmEOonwWziWoQ2mZjl
-	6AMz+682SD9wIa5QZiqEPekraWto3KBZLSpUd36ulo13DVrBZmP8CdfDPj+NdOWyBsB65nLt/iA
-	qpEqu7KAqXV7k+YKCE/J3UsbwQY5Xa4w=
-X-Gm-Gg: ASbGncv7edxCqbA8diZguSFG7fYseg93csPh/aa9HzY0QxAMK+bV+rtSnkiIFERf0kU
-	mGt46yzOVDMhhGr5dBTUH20qxT2B74X+QWzgwmGIvmSghPix6Klu4C86yWhAZkS6uBeSvGoYb7D
-	B25nmX4SCQUkqoLL9ilIgU69jo+WRM3bX5L2rlI0EposBDDu6EGocAWUdo
-X-Google-Smtp-Source: AGHT+IFO1Gnx5DoyCjQ11hDnHQ411dqNvWC7iyWPTVkw3YPYOqNHtqbngJRaccnYpOD1O+rv6jI0VYqZFUnmW4/GDEk=
-X-Received: by 2002:a05:690c:6281:b0:70e:4d8:5cab with SMTP id
- 00721157ae682-717a06d14f8mr12559327b3.2.1751938610962; Mon, 07 Jul 2025
- 18:36:50 -0700 (PDT)
+        bh=ZgzMhn9PXUw8XaAQ7bqis9LsIzAHvccPSnO/9V1QKUU=;
+        b=gRoZhLB9+3WKaPBoraPoS8EVxyfn8Cxit/5CbDMZnFgvS46+vXjt71cim9bWhhcXE8
+         iMi78y8Xum8iW49Vlu5suds633t6Qjnx/BLkoaQRLDyxAPdY6KO42ym1hMynEfNiqDnU
+         6XPq8QrXXtrmIeH07bKAsD7TYWyeu5nliG646tkZ4+F5swzMfULmREk0+fy8R2ScsCQ6
+         wAyQbLoBhRSxiJo+YyY4B/0cLi9TESyJ7xzPC8YwnXsHqFK8k/Q4/Q+ysu2QLk9dzJil
+         4lGZU/6eCoHIidSOdDixg2Vu8YEZ/cW/YQ0/FAjooVRfxbWv8B0xfA4epITj8d+PIvx4
+         MtoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXrlb8S1HmjDu9fFgPXv6AIo9TntmEIouWP2xb5fmP4AiVQlYXNIrelxRbaUPtVsQ4nKCN31i11LpWXuvTgk7me@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbH+Y0rBr4gTegt2UQS2c0/N/3miDQCSAL5fNDF7OyAWxgm9Xo
+	U7E9pRmbENFI/D/m1crMac0oDKaUN1aaxiXd5SlFXUihTpQIM6Y89FD0clSDWhjj7erzqm0pJcF
+	flMC7UJ7RKFcCwprrRSZnd9CrVUWHlQE=
+X-Gm-Gg: ASbGnctnOFAF6A9XWjnuzZLg8HSs8TADY3xOnQYdEPP5k5UjLh0pjrC9C3rGOsO7yId
+	9hyWgf4hmMbSvQ4xK1Dt6hgW0sr5bZ34u6xRLlgmBgZFJIQFFYBGiYN6Fw2kD6NbzUSJ+2H7A5X
+	fo4nVD5guhDdv1pkySG4UpcfXDFu5KSuYq8Af16L02f53t40F+A9KCUV2hfqSMbAwyfqyxHS0S2
+	00=
+X-Google-Smtp-Source: AGHT+IHygg0TywmldncFMonK90kHL8Dr5llLxOm3DhG+XHvJuPfci4yTlbVuoguyFC6BCZkSLwEJ56H4J2PHxXgxdT0=
+X-Received: by 2002:a05:6512:340d:b0:553:2969:1d54 with SMTP id
+ 2adb3069b0e04-557f89b1acbmr264901e87.8.1751938800572; Mon, 07 Jul 2025
+ 18:40:00 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250706214111.45687-1-rosenp@gmail.com> <20250706214111.45687-7-rosenp@gmail.com>
- <aGxyD3mtzdNZPPnx@makrotopia.org>
-In-Reply-To: <aGxyD3mtzdNZPPnx@makrotopia.org>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Mon, 7 Jul 2025 18:36:40 -0700
-X-Gm-Features: Ac12FXx7wdzhMSpG9qsFW5oZq8dvKPM90aqNfnrzqCYvgI2qkd94oIBt5lbPXeQ
-Message-ID: <CAKxU2N8cLYm5if7TJ_YMnQ0V9n3E6GSk_F-tYkqOpNfeDA5a-w@mail.gmail.com>
-Subject: Re: [PATCH 6/6] MIPS: dts: ralink: mt7628a: add wifi binding
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: linux-wireless@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, 
-	yangshiji66@qq.com, ansuelsmth@gmail.com, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Stanislaw Gruszka <stf_xl@wp.pl>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:MIPS" <linux-mips@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+References: <20250707234628.164151-1-laurentiumihalcea111@gmail.com> <20250707234628.164151-3-laurentiumihalcea111@gmail.com>
+In-Reply-To: <20250707234628.164151-3-laurentiumihalcea111@gmail.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Mon, 7 Jul 2025 22:39:49 -0300
+X-Gm-Features: Ac12FXyFWnyJ-B08lFE9ya2aqIPGseDa9aDMsZwjLGBKAWhJik9-kphabCMJ-sQ
+Message-ID: <CAOMZO5DfuRKYHkC8e4mNzetY204UdPDBHzUVy4M9pyjKpx401w@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: defconfig: enable i.MX AIPSTZ driver
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Alexander Stein <alexander.stein@ew.tq-group.com>, Mark Brown <broonie@kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_183653_929919_F7C2F0DC 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20250707_184003_065638_6C98E256 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +99,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 7, 2025 at 6:19=E2=80=AFPM Daniel Golle <daniel@makrotopia.org>=
- wrote:
+On Mon, Jul 7, 2025 at 8:46=E2=80=AFPM Laurentiu Mihalcea
+<laurentiumihalcea111@gmail.com> wrote:
 >
-> On Sun, Jul 06, 2025 at 02:41:11PM -0700, Rosen Penev wrote:
-> > MT7620A devices all contain a wifi device as part of the SOC. Add it
-> > here to get it working.
-> >
-> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > ---
-> >  arch/mips/boot/dts/ralink/mt7620a.dtsi | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 >
-> The commit title
->
-> MIPS: dts: ralink: mt7628a: add wifi binding
-That is embarrassing. I'm blaming my new Linux setup.
->
-> seems wrong as the commit (correctly) touches mt7620a.dtsi and not
-> mt7628a.dtsi (which would be wrong as the WiFi part of MT7628A is
-> already supported by the mt76 driver and part of the device tree).
-> Also the word 'binding' seems wrong in this context, you are adding
-> a node to the device tree, not to the device tree bindings.
->
-> I'd hence suggest to change the commit title to
->
-> MIPS: dts: ralink: mt7620a: add wifi
-Will do
+> Enable the config (CONFIG_IMX_AIPSTZ) for the i.MX AIPSTZ driver, which
+> is required for platforms using the AIPSTZ bridge (e.g. i.MX8MP).
+
+Shouldn't this be enabled via a select in Kconfig instead?
 
