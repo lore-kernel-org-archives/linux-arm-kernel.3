@@ -4,67 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1485C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 16:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D85C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 16:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/U+PhTkv/b0GzZRgOJ559Np4ePOfbnXi4rrTLKwR58=; b=XrgehfiiEvtLTIQDlUPWGcuXuK
-	3We6vjH9qO3KS/cZEmixW1u6jvG6TQELn2bH8LW+exZetWYJy50EVVybsnkyQQJHMSvnrqIo6HqB2
-	/dU42OFZPAVjRrDBid14KFS74CYpVWsnMRn+ByRKvnvzEhviKI7TxJHC34FxCV12nDp9SdMj0yjY+
-	RgiqfZlqZgwels+wML1r5d1vOj49/56whhTuqqhlCfR7NgrDLvxPmlDOJLGyaLJ/j3BHl0KVdLzOm
-	OOPM8Bf9bJFRZM4lC4K/RjvIsWBt6c9L1x+SbgDwDmDgZgOEHXgeZMNR7O4nc3JlQ7eVKO89E/KJl
-	F3TJVvNg==;
+	bh=OIlOuZD2sFILwDfe377Xj9XrVUCfYenFT7MvEeo+JmQ=; b=TAERAkyMqB6kb4DSfhtvqMTRkK
+	2Bxc98WOZJAwaDboINIib/LEd+cWkWy4dhuSls6MjSym0ECnrRuZa+SK/Ay0tub9FbepHej36a9kn
+	2aW2Ky/fcaXSMUFJeVosxkWCpJx9Xu2Eab5PWOKBUZh2vFkgPQ7BosaF1VB7mQ3exX2i00Y//iirI
+	Ky3NdXmQsmR3q3pTF15Vm6XojnYG0zoDuYHNY1/NGZB5f7+8TyfP4mW6TgbWnavT3zKynfSkboTv9
+	8mtBXya6Pn+WY76I3j2TuiFXeruFPxJ1wT+SQXZm4A9KhMYrUSX+lI9rBAEjf97bMn1W4rceEk80G
+	zg9hZaFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZArv-00000005vAo-2oEm;
-	Tue, 08 Jul 2025 16:08:31 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZA70-00000005leC-3Sw5;
-	Tue, 08 Jul 2025 15:20:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751988000;
-	bh=IYkfgzyTm1r3u/AVPZFB0sE58bGEguRbyPcffVUmwi8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=njgFWMNbXIyfqcettUYApYXbBkRRw91GNoGXSFInPopzwZjwqy5YVQZRWxBt7fsBR
-	 PAA1d6BXwttumnnRDOYoA62RBgUQHatIwY5Z5VCc/eu7ceiYXioecZg2kK/fQUDfQ6
-	 cxo1ScXpURaIND+5Y7CjVGhCw6v1twi/+1/xEB00g7JkFJ1Jm8Q7U8OUq3My0VLzGJ
-	 Yw6ISvrhp1sIjMR3vQcuoNiO2sVwN7eb4dhef6fdIeYxuLn3wpeoQ3nqjN6YqY47Gl
-	 f6aMTs5aFY0mTzFwj83YuNauBEpQBhoWMH/j8tgfpX1jKnACIvVWBq1aSxsyfdD/hK
-	 0mYMgXH0X+75w==
-Received: from trenzalore.hitronhub.home (unknown [23.233.251.139])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EC5DF17E1045;
-	Tue,  8 Jul 2025 17:19:58 +0200 (CEST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org
-Cc: Detlev Casanova <detlev.casanova@collabora.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
+	id 1uZAuF-00000005vcq-1oyh;
+	Tue, 08 Jul 2025 16:10:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZAH6-00000005op0-2ifX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Jul 2025 15:30:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B751A153B;
+	Tue,  8 Jul 2025 08:30:15 -0700 (PDT)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 686463F738;
+	Tue,  8 Jul 2025 08:30:26 -0700 (PDT)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Subject: [PATCH 03/12] media: rkvdec: Use structs to represent the HW RPS
-Date: Tue,  8 Jul 2025 11:19:36 -0400
-Message-ID: <20250708151946.374349-4-detlev.casanova@collabora.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250708151946.374349-1-detlev.casanova@collabora.com>
-References: <20250708151946.374349-1-detlev.casanova@collabora.com>
+	arm-scmi@vger.kernel.org,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	peng.fan@oss.nxp.com
+Subject: Re: [PATCH] firmware: arm_scmi: Optimize notifiers registration
+Date: Tue,  8 Jul 2025 16:30:24 +0100
+Message-Id: <175198844540.786463.17262807646940735306.b4-ty@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250707144220.485365-1-cristian.marussi@arm.com>
+References: <20250707144220.485365-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_082003_039881_1C8B4511 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20250708_083028_729280_ABF32018 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,169 +67,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is in preparation to add support for other variants of the decoder.
+On Mon, 07 Jul 2025 15:42:20 +0100, Cristian Marussi wrote:
+> Some platforms could be configured not to support notification events from
+> specific sources and such a case is already handled properly by avoiding
+> even to attempt to send a notification enable request since it would be
+> doomed to fail anyway.
+> 
+> In an extreme scenario, though, a platform could support not even one
+> single source on a specific event: in such a case would be meaningless to
+> even allow to register a notifier and we can bail-out immediately, saving
+> a lot of needless computation.
+> 
+> [...]
 
-Moving to struct representation is mainly to prepare for multicore
-support that is present in e.g. rk3588.
+Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+(with some commit message changes)
 
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
- .../platform/rockchip/rkvdec/rkvdec-h264.c    | 97 ++++++++++++++++---
- 1 file changed, 86 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-index cfe849cc93cb3..355d63aef7ea4 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-@@ -19,7 +19,6 @@ extern const s8 rkvdec_h264_cabac_table[4][464][2];
- 
- /* Size with u32 units. */
- #define RKV_CABAC_INIT_BUFFER_SIZE	(3680 + 128)
--#define RKV_RPS_SIZE			((128 + 128) / 4)
- #define RKV_ERROR_INFO_SIZE		(256 * 144 * 4)
- 
- #define RKVDEC_NUM_REFLIST		3
-@@ -34,6 +33,40 @@ struct rkvdec_sps_pps_packet {
- 	u32 info[8];
- };
- 
-+struct rkvdec_rps_entry {
-+	u32 dpb_info0:          5;
-+	u32 bottom_flag0:       1;
-+	u32 view_index_off0:    1;
-+	u32 dpb_info1:          5;
-+	u32 bottom_flag1:       1;
-+	u32 view_index_off1:    1;
-+	u32 dpb_info2:          5;
-+	u32 bottom_flag2:       1;
-+	u32 view_index_off2:    1;
-+	u32 dpb_info3:          5;
-+	u32 bottom_flag3:       1;
-+	u32 view_index_off3:    1;
-+	u32 dpb_info4:          5;
-+	u32 bottom_flag4:       1;
-+	u32 view_index_off4:    1;
-+	u32 dpb_info5:          5;
-+	u32 bottom_flag5:       1;
-+	u32 view_index_off5:    1;
-+	u32 dpb_info6:          5;
-+	u32 bottom_flag6:       1;
-+	u32 view_index_off6:    1;
-+	u32 dpb_info7:          5;
-+	u32 bottom_flag7:       1;
-+	u32 view_index_off7:    1;
-+} __packed;
-+
-+struct rkvdec_rps {
-+	u16 frame_num[16];
-+	u32 reserved0;
-+	struct rkvdec_rps_entry entries[12];
-+	u32 reserved1[66];
-+} __packed;
-+
- struct rkvdec_ps_field {
- 	u16 offset;
- 	u8 len;
-@@ -94,7 +127,7 @@ struct rkvdec_ps_field {
- struct rkvdec_h264_priv_tbl {
- 	s8 cabac_table[4][464][2];
- 	struct rkvdec_h264_scaling_list scaling_list;
--	u32 rps[RKV_RPS_SIZE];
-+	struct rkvdec_rps rps;
- 	struct rkvdec_sps_pps_packet param_set[256];
- 	u8 err_info[RKV_ERROR_INFO_SIZE];
- };
-@@ -260,20 +293,64 @@ static void lookup_ref_buf_idx(struct rkvdec_ctx *ctx,
- 	}
- }
- 
-+static void set_dpb_info(struct rkvdec_rps_entry *entries,
-+			 u8 reflist,
-+			 u8 refnum,
-+			 u8 info,
-+			 bool bottom)
-+{
-+	struct rkvdec_rps_entry *entry = &entries[(reflist * 4) + refnum / 8];
-+	u8 idx = refnum % 8;
-+
-+	switch (idx) {
-+	case 0:
-+		entry->dpb_info0 = info;
-+		entry->bottom_flag0 = bottom;
-+		break;
-+	case 1:
-+		entry->dpb_info1 = info;
-+		entry->bottom_flag1 = bottom;
-+		break;
-+	case 2:
-+		entry->dpb_info2 = info;
-+		entry->bottom_flag2 = bottom;
-+		break;
-+	case 3:
-+		entry->dpb_info3 = info;
-+		entry->bottom_flag3 = bottom;
-+		break;
-+	case 4:
-+		entry->dpb_info4 = info;
-+		entry->bottom_flag4 = bottom;
-+		break;
-+	case 5:
-+		entry->dpb_info5 = info;
-+		entry->bottom_flag5 = bottom;
-+		break;
-+	case 6:
-+		entry->dpb_info6 = info;
-+		entry->bottom_flag6 = bottom;
-+		break;
-+	case 7:
-+		entry->dpb_info7 = info;
-+		entry->bottom_flag7 = bottom;
-+		break;
-+	}
-+}
-+
- static void assemble_hw_rps(struct rkvdec_ctx *ctx,
--			    struct v4l2_h264_reflist_builder *builder,
--			    struct rkvdec_h264_run *run)
-+		     struct v4l2_h264_reflist_builder *builder,
-+		     struct rkvdec_h264_run *run)
- {
- 	const struct v4l2_ctrl_h264_decode_params *dec_params = run->decode_params;
- 	const struct v4l2_h264_dpb_entry *dpb = dec_params->dpb;
- 	struct rkvdec_h264_ctx *h264_ctx = ctx->priv;
- 	struct rkvdec_h264_priv_tbl *priv_tbl = h264_ctx->priv_tbl.cpu;
- 
--	u32 *hw_rps = priv_tbl->rps;
-+	struct rkvdec_rps *hw_rps = &priv_tbl->rps;
- 	u32 i, j;
--	u16 *p = (u16 *)hw_rps;
- 
--	memset(hw_rps, 0, sizeof(priv_tbl->rps));
-+	memset(hw_rps, 0, sizeof(*hw_rps));
- 
- 	/*
- 	 * Assign an invalid pic_num if DPB entry at that position is inactive.
-@@ -285,7 +362,7 @@ static void assemble_hw_rps(struct rkvdec_ctx *ctx,
- 		if (!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE))
- 			continue;
- 
--		p[i] = builder->refs[i].frame_num;
-+		hw_rps->frame_num[i] = builder->refs[i].frame_num;
- 	}
- 
- 	for (j = 0; j < RKVDEC_NUM_REFLIST; j++) {
-@@ -312,9 +389,7 @@ static void assemble_hw_rps(struct rkvdec_ctx *ctx,
- 			dpb_valid = run->ref_buf[ref->index] != NULL;
- 			bottom = ref->fields == V4L2_H264_BOTTOM_FIELD_REF;
- 
--			set_ps_field(hw_rps, DPB_INFO(i, j),
--				     ref->index | dpb_valid << 4);
--			set_ps_field(hw_rps, BOTTOM_FLAG(i, j), bottom);
-+			set_dpb_info(hw_rps->entries, j, i, ref->index | (dpb_valid << 4), bottom);
- 		}
- 	}
- }
--- 
-2.50.0
+[1/1] firmware: arm_scmi: Optimize notifiers registration
+      https://git.kernel.org/sudeep.holla/c/b5daf93b809d
+--
+Regards,
+Sudeep
 
 
