@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF64C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 22:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C77AC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 22:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0gHIIODrhhdGVls2rVmx9Uyz58la+lWfKW4V8WRh8gI=; b=v9tnIX8OyZUP4NIFIoFDneuxAj
-	KF6FA3NZ3AHR/5JSSJwe4aIziIYzdESubjPnugWrh4MYpUN4M0egFeMKjKIK4puMdk/vh6wp80YC2
-	bBOZUPb85x+xdjJ0TaTiqdMaxQpYNqWpKLrxAsGxJne3pM+8hR6kMy62Nw68yI8HWYCLwYQO/T+RJ
-	fhXUITHiFzqkuZzIDw+Rm/LI/6CEmbt+InGzeLQxTBZOk7FTdgyexbo5Hr51i0z+fc9vqjQ5PzeZK
-	7oWGsSt4j9Ul2gXH5ILt52XKrmj5AMTp/sQzP+Q70c7a7/elF1Zo7aS6VX1Aq4iKOupMOoqV24aC9
-	dMgphK4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=j/9FFTs3Hz/7yNjDy98C2EAojjbwb0TEz5q962JZJd0=; b=Ha5xSX9qICM/KH
+	30qPaYk61gQGFrR9Yfb49zjwx4M5hsLePjFgfvoP2fJZbyOD1B/90u2jtc2fTUoYiRQ8tqumNHVAQ
+	ksyV2PIzJSv7PldjYR4qbuyJRtSGeyXhI24WgYsgGEQq2TiA+nm1lF3DnZuCLcEMuWcLsplDrcYw4
+	6smpIUGPIW1IU+uVI6JuMSqwa9lwjjEhrgO2NUNrKFb0x+Leec2k9fY1bE8OcUUPDLPQT0Ee/wuV8
+	xuX1sC/9s4ugYPNcC0lFgsBOOz62klHnnoKkDXT/FRKD3zFvXDy/2yEHfj7x6jJ68Erg0R91N/qO7
+	I6GfCQPD8o+P4Dl4cMpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZGmY-00000006njI-0AY7;
-	Tue, 08 Jul 2025 22:27:22 +0000
-Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
+	id 1uZGvx-00000006oOt-2uOx;
+	Tue, 08 Jul 2025 22:37:05 +0000
+Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZGkA-00000006nEL-2iFe
+	id 1uZGtb-00000006oB8-06rX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 22:24:56 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1752013489;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0gHIIODrhhdGVls2rVmx9Uyz58la+lWfKW4V8WRh8gI=;
-	b=ObErs2xwKsqnb0SvubU2oaDqfFoLy9/r7regRmN+aeuOP0dEicWqzO8kBD+NoJw/5Pax+t
-	GSuifAGT1pEeHmnDpPUnYR76R8ZHopXgM/d2EST9N+JVHjP91gAXpLer/RgeRV+HVO7K5P
-	UMP10J9uQjXq/GbJH3MUl2Ewn4DUrvc=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	nd <nd@arm.com>,
-	maz@kernel.org,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	yuzenghui@huawei.com,
-	will@kernel.org,
-	tglx@linutronix.de,
-	lpieralisi@kernel.org,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v2 0/5] KVM: arm64: Enable GICv3 guests on GICv5 hosts using FEAT_GCIE_LEGACY
-Date: Tue,  8 Jul 2025 15:24:38 -0700
-Message-Id: <175201339872.1946470.9170349330766710670.b4-ty@linux.dev>
-In-Reply-To: <20250627100847.1022515-1-sascha.bischoff@arm.com>
-References: <20250627100847.1022515-1-sascha.bischoff@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+	Tue, 08 Jul 2025 22:34:40 +0000
+Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3ddbec809acso54958855ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 15:34:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1752014077; x=1752618877; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=j/9FFTs3Hz/7yNjDy98C2EAojjbwb0TEz5q962JZJd0=;
+        b=ymRQANTR6jY0Riu7jOhCuXTZQb94dxVcJcorRA+agZ3Ca1Ad0C8xw1sficl0cXmbvr
+         DhEjj+sWHm2x9904JKu4hwN7E70YfbiXnaAgmAl9M6lfH4ZsjB+djOtI0wDJ1m8ygdYz
+         4OgBYLNnrLgriD/GBCd99m7qsFqevBl362L8Oy4DInqRwpAhl0A3h1e1nVd8S50berZh
+         Mox1MebosppOR9pAg+k4FIekMZBIC2fZjKAaVG5WmSqn/4akoeNUO916lewQiBHZGvL1
+         JvyZtb8mXC6wYaWoxyldOkjIXnXw0+IDxU7TOont+oECDt8pTDaepLepBCCsYCtOY0DO
+         qmcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752014077; x=1752618877;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=j/9FFTs3Hz/7yNjDy98C2EAojjbwb0TEz5q962JZJd0=;
+        b=jnigUvj868zbw0Zj1ZIg4GNx6iWEpayYwQB3ystt5x5xlzQsy/O/CaitqjPecwZw0A
+         Jlu4p0fNKcZisiKRfuPLxDRA+/cefEap2JqFXvpkYZcKPxpTOzTxS2lFJRKATVedAuqu
+         PPdDYPaPM4lyq+M5FQ5ka1YIAWK8Vmw0rWv2eWOTr1VHnpTuuNCBcwseHOA/03xKQmil
+         dP4LKxygYoAd7VbQjvubS6lmVyq0NNvbfKpnN2CxxQqI/132Gctw8c3IfE+xoDDtcOm4
+         +7qkDwpZ6qjU9m2SOIipQ6aUedi7+fl7LbAluPXBr/ffIzr8W65Z+3wBgls2CQq4c/P6
+         3QRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXi6mnETJUhZ0IVTsSnDavEm7IGGiCVbOcIARL/rTU3IaNpTGk0wQkXDS6Siq4pAcbv0EMTGwRlF/3XBCjrWSvg@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMHZeE55Q+vM+NTkBw0ZBnoaIU8r+UkcIB3Oxrlb4kIh15zPg9
+	12meaBmrpF979odfTDMx6c+RODs2KtQxGDq4kziFuxUClJ0lZrch1Y+5kK9JbENmQYHx3MAICFW
+	owhaNuYmxxlD+ow9O/62UnuR40Q==
+X-Google-Smtp-Source: AGHT+IHW+RfduRT7VliGk050iQEqjU318xPGArkYZW5dZzAyyRBuwQAaT6oV8zuk0wkHYQ4WnuckwA/hmtfDS9hyaw==
+X-Received: from ilfg10.prod.google.com ([2002:a05:6e02:198a:b0:3df:30df:d2c4])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6e02:339f:b0:3e0:4564:4ef9 with SMTP id e9e14a558f8ab-3e166ffbeb5mr5390855ab.4.1752014077049;
+ Tue, 08 Jul 2025 15:34:37 -0700 (PDT)
+Date: Tue, 08 Jul 2025 22:34:35 +0000
+In-Reply-To: <aGvwLIAN8rhxtA_V@J2N7QTR9R3> (message from Mark Rutland on Mon,
+ 7 Jul 2025 17:05:00 +0100)
+Mime-Version: 1.0
+Message-ID: <gsnt34b61fd0.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [PATCH v3 01/22] arm64: cpufeature: Add cpucap for HPMN0
+From: Colton Lewis <coltonlewis@google.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	shuah@kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_152455_439113_2C71630C 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20250708_153439_067701_BA8F0859 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +93,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Jun 2025 10:09:01 +0000, Sascha Bischoff wrote:
-> This series introduces support for running GICv3 guests on GICv5 hosts
-> by leveraging the GICv5 legacy compatibility feature
-> (FEAT_GCIE_LEGACY). The main motivation is to enable existing GICv3
-> VMs on GICv5 system without VM or VMM modifications - things should
-> work out of the box.
-> 
-> The changes are focused on two main areas:
-> 
-> [...]
+Mark Rutland <mark.rutland@arm.com> writes:
 
-I've picked this up now that the GICv5 driver is baking in -next. No
-promises that these patches actually land in 6.17 (if the host side
-doesn't land) but I'm quite happy with the KVM bits.
+> On Thu, Jun 26, 2025 at 08:04:37PM +0000, Colton Lewis wrote:
+>> Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
+>> counters reserved for the guest.
 
-Applied to next, thanks!
+>> This required changing HPMN0 to an UnsignedEnum in tools/sysreg
+>> because otherwise not all the appropriate macros are generated to add
+>> it to arm64_cpu_capabilities_arm64_features.
 
-[1/5] irqchip/gic-v5: Skip deactivate for forwarded PPI interrupts
-      https://git.kernel.org/kvmarm/kvmarm/c/244e9a89ca76
-[2/5] irqchip/gic-v5: Populate struct gic_kvm_info
-      https://git.kernel.org/kvmarm/kvmarm/c/1ec38ce3d024
-[3/5] arm64/sysreg: Add ICH_VCTLR_EL2
-      https://git.kernel.org/kvmarm/kvmarm/c/b62f4b5dec91
-[4/5] KVM: arm64: gic-v5: Support GICv3 compat
-      https://git.kernel.org/kvmarm/kvmarm/c/c017e49ed138
-[5/5] KVM: arm64: gic-v5: Probe for GICv5
-      https://git.kernel.org/kvmarm/kvmarm/c/ff2aa6495d4b
+> I agree it's appropriate to mark ID_AA64DFR0_EL1.HPMN0 as an
+> UnsignedEnum. It follows the usual ID scheme per ARM DDI 0487 L.a
+> section D24.1.3, and zero means not present, so it must be unsigned.
 
---
-Best,
-Oliver
+> Likewise, the value renames (UNPREDICTABLE => NI and DEF => IMP) look
+> fine to me.
+
+>> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+
+> I have one minor nit below, but either way:
+
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
+
+Thank you Mark
+
+>> ---
+>>   arch/arm64/kernel/cpufeature.c | 8 ++++++++
+>>   arch/arm64/tools/cpucaps       | 1 +
+>>   arch/arm64/tools/sysreg        | 6 +++---
+>>   3 files changed, 12 insertions(+), 3 deletions(-)
+
+>> diff --git a/arch/arm64/kernel/cpufeature.c  
+>> b/arch/arm64/kernel/cpufeature.c
+>> index b34044e20128..73a7dac4b6f6 100644
+>> --- a/arch/arm64/kernel/cpufeature.c
+>> +++ b/arch/arm64/kernel/cpufeature.c
+>> @@ -548,6 +548,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
+>>   };
+
+>>   static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
+>> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE,  
+>> ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
+>>   	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE,  
+>> ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
+>>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE,  
+>> ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
+>>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE,  
+>> ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
+>> @@ -2896,6 +2897,13 @@ static const struct arm64_cpu_capabilities  
+>> arm64_features[] = {
+>>   		.matches = has_cpuid_feature,
+>>   		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
+>>   	},
+>> +	{
+>> +		.desc = "FEAT_HPMN0",
+
+> Minor nit, but we can drop the "FEAT_" prefix here, for consistency with
+> other features (e.g. E0PD, FPMR).
+
+> Mark.
+
+Will do.
+
+>> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+>> +		.capability = ARM64_HAS_HPMN0,
+>> +		.matches = has_cpuid_feature,
+>> +		ARM64_CPUID_FIELDS(ID_AA64DFR0_EL1, HPMN0, IMP)
+>> +	},
+>>   #ifdef CONFIG_ARM64_SME
+>>   	{
+>>   		.desc = "Scalable Matrix Extension",
+>> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+>> index 10effd4cff6b..5b196ba21629 100644
+>> --- a/arch/arm64/tools/cpucaps
+>> +++ b/arch/arm64/tools/cpucaps
+>> @@ -39,6 +39,7 @@ HAS_GIC_CPUIF_SYSREGS
+>>   HAS_GIC_PRIO_MASKING
+>>   HAS_GIC_PRIO_RELAXED_SYNC
+>>   HAS_HCR_NV1
+>> +HAS_HPMN0
+>>   HAS_HCX
+>>   HAS_LDAPR
+>>   HAS_LPA2
+>> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+>> index 8a8cf6874298..d29742481754 100644
+>> --- a/arch/arm64/tools/sysreg
+>> +++ b/arch/arm64/tools/sysreg
+>> @@ -1531,9 +1531,9 @@ EndEnum
+>>   EndSysreg
+
+>>   Sysreg	ID_AA64DFR0_EL1	3	0	0	5	0
+>> -Enum	63:60	HPMN0
+>> -	0b0000	UNPREDICTABLE
+>> -	0b0001	DEF
+>> +UnsignedEnum	63:60	HPMN0
+>> +	0b0000	NI
+>> +	0b0001	IMP
+>>   EndEnum
+>>   UnsignedEnum	59:56	ExtTrcBuff
+>>   	0b0000	NI
+>> --
+>> 2.50.0.727.gbf7dc18ff4-goog
+
 
