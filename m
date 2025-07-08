@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AC14C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 11:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62F1C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 11:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GVVtgIDgRyS0EiQiov6cjVyodIJmEgZVKCuRpntH8+E=; b=g4nAe36LHvLMcg+kdQkT1hVqDs
-	UyttBCClfpxCcFslMlU7t0t0xZAEt4oWe5AhIjVnQUT9IMdjt5ZUP40rE6iUgi1r5IKbLTdqN9ILr
-	3lyS7zrR6g7EES6tPn0C194HMra04zVRjct++eGIrNtisGSYvkQPADYwnu1xIlg40xbz7hPYq6fZa
-	5lGlKb77i3nmny8hA2JFFBmfbqlkAENiY/f0eYGx3pEfXyn2e+HLi/bnJbHOmalma9O+3fSs3APbm
-	g65wn88k6jEm5Ya9U8ExZAQZFEfSIM3zhoJcJqzx9EBip8PX7fA0Ecea6ynSHrmxRbnlpf0cjivNh
-	+MRMb64Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XKaEAhAmqSWZKj7IY6xitMYV4V7DR8WsAnd1SNwy43Y=; b=rP70LLvavKzBG5vv7a71e2TgSO
+	Gse5uf6trZZVUAV3Fmk5pxpJRWdSPJlBcvHX42qPTtmxQr7tIjGdh5NG0j1vOYKlsiaFZGfdY+G9z
+	InO6N50nIusZziDxZc7rC3Zskwc4DrAYITJXfYazWuvEOzwH1/oWeFYeADGnYI1g4z6gM2+4HpCHt
+	rCuXTkrW2jEmXMLMNIP7iyNdzsyNgoeknrDNPCWSNF0DM7YsOFnuKOaHGsY8mFOCQZp312j/za1Ed
+	7dZqmk3RABHKDn3ARooQzpaMXinX7qP7OMfEr0UCPUsl/EIj0SqthUB08aO+R52gO3pYWs9SOs1mz
+	soUDQrOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ6Xs-00000005CKO-0zMu;
-	Tue, 08 Jul 2025 11:31:32 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uZ6aA-00000005Cjv-0kbm;
+	Tue, 08 Jul 2025 11:33:54 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ6L9-00000005AaL-3dll;
-	Tue, 08 Jul 2025 11:18:24 +0000
-X-UUID: 3e25eec25bed11f09eb0dd999d3936bf-20250708
+	id 1uZ6LA-00000005AaQ-2VEU;
+	Tue, 08 Jul 2025 11:18:25 +0000
+X-UUID: 3fccb79c5bed11f09f706fa2197c6ceb-20250708
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=GVVtgIDgRyS0EiQiov6cjVyodIJmEgZVKCuRpntH8+E=;
-	b=HC09y5dNk4ilwDq8ovFvyOm2BEQAYwcXdtb3mCDVU8HYkrrLKHBRpp05i4A679AzEH7Rb5EX0WJlPnuE9zjHMVARvYfrvRrngP3/MesKPur6L+T8rkBqackLiDR7cxu+LfsftznKJU8XpXkQRKIjPbRJ1bJ1Cz5az3ZfggOO7hQ=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=XKaEAhAmqSWZKj7IY6xitMYV4V7DR8WsAnd1SNwy43Y=;
+	b=IQ1Ft0CGSJxe6NOQ8hUGqz2Q7F9Tp0X+xLVzYDAQvi4vz6W0cJ9OGtAIA/4bMdoxMZf/Kfeqt9OCaxpxjlWgThOUzFIXt8xp2t4EYVM5RXDwC6jC53/P0BjDhyctCBAtMTGp3jTJyojxY0wfM2mznS22hpH3S41m+6QccQDanvM=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:643bcfc3-f8b7-458e-8166-fa323144c507,IP:0,UR
+X-CID-O-INFO: VERSION:1.3.2,REQID:46f77c3e-ce1e-4f08-b60a-5b2ce29788b2,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:1274fbd7-b768-4ffb-8a44-cd8427608ba6,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|102,TC:nil,Content:0|50,EDM:-3,IP
-	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:2574fbd7-b768-4ffb-8a44-cd8427608ba6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 3e25eec25bed11f09eb0dd999d3936bf-20250708
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
+X-UUID: 3fccb79c5bed11f09f706fa2197c6ceb-20250708
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
 	(envelope-from <darren.ye@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 422053101; Tue, 08 Jul 2025 04:18:15 -0700
+	with ESMTP id 779154934; Tue, 08 Jul 2025 04:18:18 -0700
 Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 8 Jul 2025 19:18:11 +0800
+ 15.2.1258.39; Tue, 8 Jul 2025 19:18:14 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 8 Jul 2025 19:18:11 +0800
+ 15.2.1258.39 via Frontend Transport; Tue, 8 Jul 2025 19:18:13 +0800
 From: Darren.Ye <darren.ye@mediatek.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
  Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
@@ -64,18 +64,21 @@ To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
 CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
-	<darren.ye@mediatek.com>
-Subject: [PATCH v6 00/10] ASoC: mediatek: Add support for MT8196 SoC
-Date: Tue, 8 Jul 2025 19:15:52 +0800
-Message-ID: <20250708111806.3992-1-darren.ye@mediatek.com>
+	<darren.ye@mediatek.com>, Louis-Alexis Eyraud
+	<louisalexis.eyraud@collabora.com>
+Subject: [PATCH v6 01/10] ASoC: mediatek: common: modify mtk afe platform driver for mt8196
+Date: Tue, 8 Jul 2025 19:15:53 +0800
+Message-ID: <20250708111806.3992-2-darren.ye@mediatek.com>
 X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250708111806.3992-1-darren.ye@mediatek.com>
+References: <20250708111806.3992-1-darren.ye@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_041823_922104_9DB0CEF4 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20250708_041824_638755_8F219774 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,107 +95,94 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Darren Ye <darren.ye@mediatek.com>
 
-This series of patches adds support for Mediatek AFE of MT8196 SoC.
-Patches are based on broonie tree "for-next" branch.
+Mofify the pcm pointer interface to support 64-bit address access.
 
-Changes since v5:
- - restore the commit message for mediatek,mt8196-afe.yaml and only remove the string document.
- - add reviewed owner for mediatek,mt8196-nau8825.yaml.
- - use SND_JACK_AVOUT as jack status.
- - use GENMASK_ULL to support 64-bit address masks.
- - modify the afe platform and i2s dai driver code based on reviewer's suggestions.
+Signed-off-by: Darren Ye <darren.ye@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Tested-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ .../mediatek/common/mtk-afe-platform-driver.c | 47 ++++++++++++-------
+ .../mediatek/common/mtk-afe-platform-driver.h |  2 +
+ 2 files changed, 33 insertions(+), 16 deletions(-)
 
-Changes since v4:
- - modify the mediatek,mt8196-afe.yaml commit message and add reviewed owner.
- - modify the mediatek,mt8196-nau8825.yaml commit message.
- - modify the audio common code based on reviewer's suggestions.
- - add reviewed and tested owners in the audio common code submission message.
- - fix cm update cnt calculation issue.
-
-Changes since v3:
- - the AFE TOP CG index is added to the common header.
- - remove the audsys clk register and directly read and write to the regmap of afe cg clk.
- - modify the clk logic according to the suggestions.
- - remove the macro definition of MTKAIF4
- - remove the tdm cg event and directly read and write the tdm cg reg form the widget.
- - remove the i2s and cm cg event and directly read and write cg reg.
- - afe hopping and f26m clk cg are placed in remap_register_patch and enable.
- - the yaml file is modified according to the suggestions.
- - replace SND_SOC_DAIFMT_CBS_CFS with SND_SOC_DAIFMT_CBC_CFC.
-
-Changes since v2:
-  - remove the mtk_memif_set_channel interface modify.
-  - remove duplicate definitions from the header file.
-  - move the afe gate clk to the audio driver for management and registration
-    and manage the afe clk gate in each dai driver.
-  - delete the useless clk source.
-  - the i2s driver adds i2s clk gate management, removes the additional dts
-    configuration of i2s4.
-  - the afe and i2s dai driver,memif and irq data structs are encapsulated using
-    macros to reduce the amount of code.
-  - the volatile reg is modified as suggested.
-  - mt6681 codec is not supported, the mt6681 keyword is removed.
-  - the name of the machine driver is changed from mt8196-mt6681.c to mt8196-nau8825.c
-  - remove the i2s4 configuration from mt8196-afe.yaml and make the modifications as suggested.
-  - change the mt8196-mt6681.yaml to mt8196-nau8825.yaml and make the modifications as suggested.
-
-Changes since v1:
-  - modify mtk_memif_set_channel and mtk_afe_pcm_pointer interfaces
-    are improved to support mt8196.
-  - remove duplicate definitions in the mt8196 common header file.
-  - cm logic is merge into the afe platform driver.
-  - modify afe clk to return judgment logic and remove useless clk sources.
-  - refactor the mt8196 adda dai driver.
-  - remove the gpio module and use SND_SOC_DAPM_PINCTRL to manage it.
-  - removes CONNSYS_I2S related functions that are not supported in i2s dai driver.
-  - fixed mt8196-afe.yaml and mt8196-mt6681.yaml syntax issues.
-  - modify log printing in all modules.
-  - optimize the header file included for machine driver.
-
-Darren Ye (10):
-  ASoC: mediatek: common: modify mtk afe platform driver for mt8196
-  ASoC: mediatek: mt8196: add common header
-  ASoC: mediatek: mt8196: support audio clock control
-  ASoC: mediatek: mt8196: support ADDA in platform driver
-  ASoC: mediatek: mt8196: support I2S in platform driver
-  ASoC: mediatek: mt8196: support TDM in platform driver
-  ASoC: mediatek: mt8196: add platform driver
-  ASoC: dt-bindings: mediatek,mt8196-afe: add audio AFE
-  ASoC: mediatek: mt8196: add machine driver with nau8825
-  ASoC: dt-bindings: mediatek,mt8196-nau8825: Add audio sound card
-
- .../bindings/sound/mediatek,mt8196-afe.yaml   |   157 +
- .../sound/mediatek,mt8196-nau8825.yaml        |   102 +
- sound/soc/mediatek/Kconfig                    |    30 +
- sound/soc/mediatek/Makefile                   |     1 +
- .../mediatek/common/mtk-afe-platform-driver.c |    47 +-
- .../mediatek/common/mtk-afe-platform-driver.h |     2 +
- sound/soc/mediatek/mt8196/Makefile            |    17 +
- sound/soc/mediatek/mt8196/mt8196-afe-clk.c    |   728 +
- sound/soc/mediatek/mt8196/mt8196-afe-clk.h    |    80 +
- sound/soc/mediatek/mt8196/mt8196-afe-common.h |   213 +
- sound/soc/mediatek/mt8196/mt8196-afe-pcm.c    |  2632 ++++
- sound/soc/mediatek/mt8196/mt8196-dai-adda.c   |   888 ++
- sound/soc/mediatek/mt8196/mt8196-dai-i2s.c    |  3944 +++++
- sound/soc/mediatek/mt8196/mt8196-dai-tdm.c    |   836 ++
- .../mediatek/mt8196/mt8196-interconnection.h  |   121 +
- sound/soc/mediatek/mt8196/mt8196-nau8825.c    |   869 ++
- sound/soc/mediatek/mt8196/mt8196-reg.h        | 12068 ++++++++++++++++
- 17 files changed, 22719 insertions(+), 16 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-afe.yaml
- create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-nau8825.yaml
- create mode 100644 sound/soc/mediatek/mt8196/Makefile
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.c
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.h
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-common.h
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-adda.c
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-i2s.c
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-tdm.c
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-interconnection.h
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-nau8825.c
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-reg.h
-
+diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+index 70fd05d5ff48..cab4ef035199 100644
+--- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
++++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+@@ -86,29 +86,44 @@ snd_pcm_uframes_t mtk_afe_pcm_pointer(struct snd_soc_component *component,
+ 	const struct mtk_base_memif_data *memif_data = memif->data;
+ 	struct regmap *regmap = afe->regmap;
+ 	struct device *dev = afe->dev;
+-	int reg_ofs_base = memif_data->reg_ofs_base;
+-	int reg_ofs_cur = memif_data->reg_ofs_cur;
+-	unsigned int hw_ptr = 0, hw_base = 0;
+-	int ret, pcm_ptr_bytes;
+-
+-	ret = regmap_read(regmap, reg_ofs_cur, &hw_ptr);
+-	if (ret || hw_ptr == 0) {
+-		dev_err(dev, "%s hw_ptr err\n", __func__);
+-		pcm_ptr_bytes = 0;
++	unsigned int hw_ptr_lower32 = 0, hw_ptr_upper32 = 0;
++	unsigned int hw_base_lower32 = 0, hw_base_upper32 = 0;
++	unsigned long long hw_ptr = 0, hw_base = 0;
++	int ret;
++	unsigned long long pcm_ptr_bytes = 0;
++
++	ret = regmap_read(regmap, memif_data->reg_ofs_cur, &hw_ptr_lower32);
++	if (ret || hw_ptr_lower32 == 0) {
++		dev_err(dev, "%s hw_ptr_lower32 err\n", __func__);
+ 		goto POINTER_RETURN_FRAMES;
+ 	}
+ 
+-	ret = regmap_read(regmap, reg_ofs_base, &hw_base);
+-	if (ret || hw_base == 0) {
+-		dev_err(dev, "%s hw_ptr err\n", __func__);
+-		pcm_ptr_bytes = 0;
+-		goto POINTER_RETURN_FRAMES;
++	if (memif_data->reg_ofs_cur_msb) {
++		ret = regmap_read(regmap, memif_data->reg_ofs_cur_msb, &hw_ptr_upper32);
++		if (ret) {
++			dev_err(dev, "%s hw_ptr_upper32 err\n", __func__);
++			goto POINTER_RETURN_FRAMES;
++		}
+ 	}
+ 
+-	pcm_ptr_bytes = hw_ptr - hw_base;
++	ret = regmap_read(regmap, memif_data->reg_ofs_base, &hw_base_lower32);
++	if (ret || hw_base_lower32 == 0) {
++		dev_err(dev, "%s hw_base_lower32 err\n", __func__);
++		goto POINTER_RETURN_FRAMES;
++	}
++	if (memif_data->reg_ofs_base_msb) {
++		ret = regmap_read(regmap, memif_data->reg_ofs_base_msb, &hw_base_upper32);
++		if (ret) {
++			dev_err(dev, "%s hw_base_upper32 err\n", __func__);
++			goto POINTER_RETURN_FRAMES;
++		}
++	}
++	hw_ptr = ((unsigned long long)hw_ptr_upper32 << 32) + hw_ptr_lower32;
++	hw_base = ((unsigned long long)hw_base_upper32 << 32) + hw_base_lower32;
+ 
+ POINTER_RETURN_FRAMES:
+-	return bytes_to_frames(substream->runtime, pcm_ptr_bytes);
++	pcm_ptr_bytes = MTK_ALIGN_16BYTES(hw_ptr - hw_base);
++	return bytes_to_frames(substream->runtime, (ssize_t)pcm_ptr_bytes);
+ }
+ EXPORT_SYMBOL_GPL(mtk_afe_pcm_pointer);
+ 
+diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.h b/sound/soc/mediatek/common/mtk-afe-platform-driver.h
+index fcc923b88f12..71070b26f8f8 100644
+--- a/sound/soc/mediatek/common/mtk-afe-platform-driver.h
++++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.h
+@@ -12,6 +12,8 @@
+ #define AFE_PCM_NAME "mtk-afe-pcm"
+ extern const struct snd_soc_component_driver mtk_afe_pcm_platform;
+ 
++#define MTK_ALIGN_16BYTES(x) ((x) & GENMASK_ULL(39, 4))
++
+ struct mtk_base_afe;
+ struct snd_pcm;
+ struct snd_soc_component;
 -- 
 2.45.2
 
