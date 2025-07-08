@@ -4,77 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9655C83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 10:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827E6C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 10:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zDGRwzwOvCrWWFQfPfpra9qYK3fJVDbD/wSIIQxXnMM=; b=eWvduYe11tNolTBhM2HDKNuAf6
-	cO6Vp35h841X1OHf3TbLAHrFz7WMQsQfI1lXHTg5L+UhU5vyRWjf3w+zZdriVr0FQqG6tnYEPFq3l
-	z4/L3AFaGxRJO1SJpOjRPw1zQ0yvznjLGQCrnM5FqQsdgOvzGoDFw6qAsnIp/pcu57+xADBAkMExI
-	mUVjpPCp0WIhtg22ScK//PWNNgdlMJq63dQTXbxFChfJvS6zT5ZrvIGcpYyMNFzC3ZvRyM4PW894a
-	ZDn0iOJFpk+jAk4L5h2c/Esml/k6cLLZwJt6kWQsIUV54qo1tkfVOuKenauiGoDRZ9X6ZhVjgMche
-	OnCtjVtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gYsOmVCrkNRoREOOjbb2rRRmP/C/3L8xBNtyBGbEt5M=; b=PV22HDcB1kneJsiaIvBAoqsZWh
+	GBtFFQEYw75mGR/6Uuvrl13tDJe7uuJMc06Z6dKw2pIq3suSqcJfrUNzC5RMEIp01L3YJhHLG/CNA
+	0hbQNCK0dKRcM8F/ochDI9Sf8OwsFWguVQN03rXlxBRi1C/UTJ+6Awa4XEuu0QNmcHy32rPJOV0PX
+	zwV2aP7I9ETjygTyOB2wPAYxhO7sB6CwZlg2gUJLtricNzaTCjP8sBGJKDe77asHqI17eUtaon/cj
+	hmGodiIDIQSPNrkICKNC7NcS0YgTTVxIeSr2tZWlE6eKOBn8YDnpUXFvmEubZ6QHTHh6jEhjlq2DF
+	hibJ1QEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ5B4-000000050Gb-1uLE;
-	Tue, 08 Jul 2025 10:03:54 +0000
-Received: from mail-ed1-f43.google.com ([209.85.208.43])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ4nx-00000004ujt-2xuj
+	id 1uZ5DN-000000050mm-1uSU;
+	Tue, 08 Jul 2025 10:06:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZ4q2-00000004v4i-2Srm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 09:40:02 +0000
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-60702d77c60so8181417a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 02:40:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751967600; x=1752572400;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zDGRwzwOvCrWWFQfPfpra9qYK3fJVDbD/wSIIQxXnMM=;
-        b=TWvCj/tzlpCGC8BZLG6zzGXsi4o3rr+YTTsfJL4JaymmtYS0OT3FJ2UHl0hTqFTRtq
-         JOzM1d35XlAGKndGmZb6rfxrp05qKjyJLp2O/VaeO39j8KPTMnbckT5WY3lTU77x6ji6
-         Kk8Ujj1O44boMru9jdQ16e0i8UcjamUkCDFK8fftynGmcv+W/QZlXLQibYMo8RTB1odB
-         lUtNOEcdI/SShdjuPQyCCFiziXD5U+/TKd7RbLf3EIpSJdsHS7/XvPuu93Qrjpzh4VBz
-         O876JsukAg/ly0Kqu6kz7t0t+A9gyeEW93fVBsgPF1djoXCzE/JlDSPcfpN5SG6/5Glh
-         ccwA==
-X-Forwarded-Encrypted: i=1; AJvYcCVc7pniWFTd9LY9DvJujls/Ii9Ip0OWcEDDjqMLr8sVkNEEl+H/Fw2Fn/g8ytbRXmYLHFUtvSnYG4HXswhH8iHO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTdaQ6P8Qcyn6Lj0rHSECNiV+8Z4wmRmbMT96lTcFfAH5lAOVx
-	XdcJQ2Mr7bwCKMLIlVm7wRKWN6U5mMm+hyhXV2S3YrriKfNWYwsKNqbYpsbx3FwG
-X-Gm-Gg: ASbGncvkAK6/CZ8S/Fi9UW/I6D+d99sDe/jMxKasSfFsq7UCcaoVy6pODdImLsAl/Fc
-	caQg6ru9/OozVwvlf1SQH7I9jLNrzr3mVMhE41AFPW2jeG81I16x2V/yo2ZVaLyr6C8aGegG02c
-	5C1IRazm/vtTQE2qlLptiaKisASRVOkMSyYwXyFqEiKx34RD+XqXpSNlAYDj15Ze+Zb12ZRO9J3
-	l+8RRFzwVz81V+iX8mQlshMOTNmN/WnvdQE2nbJBSHkq7ovcld1kXWL5Shd9F7WDWiiahvX8ENp
-	J0X/O++UFHSyXzFdoGd57G1gIXD2hrpG35b1E4WzIwF0TPAVYt0P
-X-Google-Smtp-Source: AGHT+IEKuh5P5XxfGU6tISC7d/SWRHDTdhtCdRwTY574SCwgIN9VltFkhI6/5VSmmx/mAhn8r/NsaQ==
-X-Received: by 2002:a17:907:97d0:b0:ae3:7022:b210 with SMTP id a640c23a62f3a-ae6b0b1ec6amr238872866b.12.1751967599680;
-        Tue, 08 Jul 2025 02:39:59 -0700 (PDT)
-Received: from gmail.com ([2a03:2880:30ff:9::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f66e6f30sm864599066b.33.2025.07.08.02.39.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Jul 2025 02:39:58 -0700 (PDT)
-Date: Tue, 8 Jul 2025 02:39:56 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org, leo.yan@arm.com, kernel-team@meta.com
-Subject: Re: [PATCH 1/8] arm64: Enable VMAP_STACK support
-Message-ID: <aGznbObwbaZlnD17@gmail.com>
-References: <20250707-arm64_vmap-v1-0-8de98ca0f91c@debian.org>
- <20250707-arm64_vmap-v1-1-8de98ca0f91c@debian.org>
- <aGwCfRkYqcYBvxZK@J2N7QTR9R3>
+	Tue, 08 Jul 2025 09:42:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59DDF153B;
+	Tue,  8 Jul 2025 02:41:57 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB3413F77D;
+	Tue,  8 Jul 2025 02:42:07 -0700 (PDT)
+Message-ID: <03a76e9a-86ac-4791-9f0a-494b28c07fcc@arm.com>
+Date: Tue, 8 Jul 2025 10:42:06 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aGwCfRkYqcYBvxZK@J2N7QTR9R3>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] bitfield: Ensure the return value of
+ type##_replace_bits() is checked
+To: Yury Norov <yury.norov@gmail.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+ oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+ yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux@rasmusvillemoes.dk,
+ linux-kernel@vger.kernel.org, james.morse@arm.com
+References: <20250703135729.1807517-1-ben.horgan@arm.com>
+ <20250703135729.1807517-3-ben.horgan@arm.com> <aGv2WoAtxnEgqV4y@yury>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <aGv2WoAtxnEgqV4y@yury>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_024001_743347_7D4C626E 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20250708_024210_672365_127423DE 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,40 +69,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mark,
+Hi Yury,
 
-On Mon, Jul 07, 2025 at 06:23:09PM +0100, Mark Rutland wrote:
-> On Mon, Jul 07, 2025 at 09:01:01AM -0700, Breno Leitao wrote:
-> > Enable virtually mapped kernel stacks for ARM64. This provides better
-> > stack overflow detection and improved security by mapping kernel stacks
-> > in vmalloc space rather than using direct mapping.
-> > 
-> > VMAP_STACK helps catch stack overflows early by placing guard pages
-> > around kernel stacks, and also provides better isolation between
-> > kernel stacks and other kernel data structures.
-> > 
-> > All dependencies are satisfied for arm64: HAVE_ARCH_VMAP_STACK is
-> > already selected above, and KASAN_VMALLOC is selected when KASAN is
-> > enabled, meeting the KASAN dependency requirements.
+On 7/7/25 17:31, Yury Norov wrote:
+> Hi Ben,
 > 
-> I reckon it might be better to say something like:
+> On Thu, Jul 03, 2025 at 02:57:29PM +0100, Ben Horgan wrote:
+>> As type##_replace_bits() has no side effects it is only useful if its
+>> return value is checked. Add __must_check to enforce this usage. To have
+>> the bits replaced in-place typep##_replace_bits() can be used instead.
+>>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>>   include/linux/bitfield.h | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
+>> index 6d9a53db54b6..39333b80d22b 100644
+>> --- a/include/linux/bitfield.h
+>> +++ b/include/linux/bitfield.h
+>> @@ -195,8 +195,8 @@ static __always_inline __##type type##_encode_bits(base v, base field)	\
+>>   		__field_overflow();					\
+>>   	return to((v & field_mask(field)) * field_multiplier(field));	\
+>>   }									\
+>> -static __always_inline __##type type##_replace_bits(__##type old,	\
+>> -					base val, base field)		\
+>> +static __always_inline __##type __must_check type##_replace_bits(__##type old,	\
+>> +							base val, base field)	\
+>>   {									\
+>>   	return (old & ~to(field)) | type##_encode_bits(val, field);	\
+>>   }									\
 > 
-> | arm64: Mandate VMAP_STACK
-> |
-> | On arm64, VMAP_STACK has been enabled by default for a while now, and
-> | the only reason to disable it was a historical lack of support for
-> | KASAN_VMALLOC. Today there's no good reason to disable VMAP_STACK.
-> |
-> | Mandate VMAP_STACK, which will allow code to be simplified in
-> | subsequent patches.
+> So, would it make sense to mark _encode_bits() and _get_bits() as
+> __must_check as well? At least from the point of unification, it
+> would.
+Could do. It seems less important as there are no obvious foot-guns that 
+these would guards against. Would you like me to add this in a v2?
 > 
-> ... to make it clear that we're not changing the default, and we are
-> removing the ability to deselect VMAP_STACK.
-> 
-> Either way, the patch itself looks good to me.
+> How would we move this - with my bitmap-for next or with arm branch?
 
-Thanks for the suggestion. I will update and respin.
+I'm not familiar with the branch machinery so can't comment on this.
+> 
+> Thanks,
+> Yury
+> 
 
-Thanks for the review,
---breno
+Thanks,
+
+Ben
+
 
