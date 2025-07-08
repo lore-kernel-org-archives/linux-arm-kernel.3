@@ -4,77 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D010C71130
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 06:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1E7C71130
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 06:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZbAka/U3D1wL/sHcerz+f1lkf1M24R4zAKeBuABFixI=; b=1iavr6P+ipv5kTYY+OX9JTI0Dm
-	HnvfraUXhkwwZXK27Kje1p/nSCeHK+LVUVjA+TsA67fVleKDEjKGPia+0qiMeqVzfUMKU5NVWUQRS
-	v0T19emCXq3FGsTKGFSzxcKTpsNFZhHDx+XmU1AXFIDBGXFa41oTlheurG8k37LYtGkn0RaRGBZpv
-	Ez3aiuFW/lRqSVUWHZvy2BbjTmwNG0RvMnVpMp+3CLBo8BQmQOMgaV1WD+kpAj+bBJz4Bze1/RLXD
-	mCKgFNnT/K8mXP4iQvwY3PBOHMRdzmJZtDlpVjI6GdW0vIWrsf/AP0LC4Oz/Kj3jzpTzjuYT+7PRn
-	vQ+jCmQQ==;
+	bh=0aAi44OU3ApiiBIhAOmK6hni3/6S3MUtFIi1RwlE2Jo=; b=Q3eh4d6HRMyRMFiVRc4h+IIZCd
+	sOInumMRO3gSBYY2xnsaqxtDK5akht1lyhrV9xeW6lZCIlHLEY5vEHeO1OHIDhTwfrqC4X/mrmQK9
+	RJFqEEP1BI2kbTKDk+RJFINAGxhJkJE/3sL17E61xl2Cgq1YAlXqUv3O1m7O/57I6sQusfm5dWedk
+	V/hyeAob51o/sfLbwlPIufjaVi+YFOkDOPKPCmJcH32aMEs0Jz4mru/pdF4djOcPS+C3K2OlAWHek
+	kJC6VQ0XSJb8Hp0YfZ/+s57RF3wCj9H6dtyaz5bOwJZlvkMtkPo51dKNE1OHW5h305EJ/o9PkSMRw
+	K6nx4kUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ1rz-00000004RSr-0TMO;
-	Tue, 08 Jul 2025 06:31:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uZ1uI-00000004Req-0EQl;
+	Tue, 08 Jul 2025 06:34:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ1o8-00000004Qrf-414C
+	id 1uZ1pu-00000004R7h-1gwt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 06:28:01 +0000
+	Tue, 08 Jul 2025 06:29:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2BB0061461;
-	Tue,  8 Jul 2025 06:28:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A190DC4CEED;
-	Tue,  8 Jul 2025 06:27:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A73615C6072;
+	Tue,  8 Jul 2025 06:29:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCEDAC4CEED;
+	Tue,  8 Jul 2025 06:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751956079;
-	bh=qi7j6qGBz5fO3sHdD7LICPSFNL5jFr91cIZy5C8dRzA=;
+	s=k20201202; t=1751956188;
+	bh=uKTkvJSA9nLgJvOvbZemN0gAx29fBJKx8c8K3PY+oRQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=l8BZlyM6QZ27m2RsOLpJOu+YVVx8AE7306cWuauSZDjyZVCnivcLpugyyt1hA5Q+H
-	 67M1c4nPFxyYMUfmSJuU6QoBRc/uvEP8KnSIVmUB+WhC4D1GJoZL8hMkUyse2VG1C4
-	 wl/uOnHWYx8GCyT5g0/5hxLgrNv3seRfAj4j/JuLlpbcwtLP07Nx0k83tb06E4jl38
-	 NaH7cXxfbIdX14jPz1ACghVdHc/N3YLwZrKFdhVbmPkYXB46+XHTS5Nan5xJoQt5oi
-	 wslzXyjaw+DXaiRtq5EUfGq05FEnJ1lKsXqhfrsPMEkaoGAlPj/413E2z+UKC/XaAe
-	 6PRLS1DxgeJ/Q==
-Message-ID: <4f2f2f95-d0f4-4d2f-8873-b1026340a8c9@kernel.org>
-Date: Tue, 8 Jul 2025 08:27:50 +0200
+	b=ZtX8exYPth6U9FtYc7voXQJZ9QlOhrgl7v2Q0oFDtbUS/n3OIPS1RJFetfSxL8OA2
+	 r3KQmGrxO/U/fYX+Gdr2hiNDb9E+sVa0BegJmfsLoA5I/0WMXHYGomsp+/V8W1qNnr
+	 q5EwL7Uy9ti/4xx5IY/EhawRghj23/OkA8jPsXS8+AyEyW96gImigYJKqsjP5y8vjm
+	 3nIfdvpLKX/Y81GjqVob38Y8TCB2U8YIxONElYLfCaL3/lSDhusJ49ZYjCOBRHItm4
+	 7921aIlzJzOCQ1aQFVmQimHkYCi51yI1S2u4OXeOvt1tT8RxnTfP4LVqJ2JVK57qFn
+	 CN0xofZcdNQpw==
+Message-ID: <ca58608c-c147-45a7-910f-41a7c312fd5a@kernel.org>
+Date: Tue, 8 Jul 2025 08:29:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] arm64: dts: freescale: Add Mettler-Toledo
- Snowflake V2 support
-To: Shawn Guo <shawnguo2@yeah.net>, Wojciech Dubowik <Wojciech.Dubowik@mt.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Kees Cook <kees@kernel.org>,
- Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
- <gpiccoli@igalia.com>, Alexander Stein <alexander.stein@ew.tq-group.com>,
- Marek Vasut <marex@denx.de>, Frank Li <Frank.Li@nxp.com>,
- Markus Niebel <Markus.Niebel@tq-group.com>,
- =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>,
- Frieder Schrempf <frieder.schrempf@kontron.de>,
- Michael Walle <mwalle@kernel.org>, Heiko Schocher <hs@denx.de>,
- Francesco Dolcini <francesco.dolcini@toradex.com>,
- Max Merchel <Max.Merchel@ew.tq-group.com>,
- Primoz Fiser <primoz.fiser@norik.com>, Tim Harvey <tharvey@gateworks.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Heiko Stuebner <heiko@sntech.de>, Caleb James DeLisle <cjd@cjdns.fr>,
- Junhao Xie <bigfoot@classfun.cn>, Andre Przywara <andre.przywara@arm.com>,
- =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
- Kever Yang <kever.yang@rock-chips.com>,
- Manivannan Sadhasivam <mani@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-hardening@vger.kernel.org, Tobias Graemer <Tobias.Graemer@mt.com>
-References: <20250624110408.128283-1-Wojciech.Dubowik@mt.com>
- <20250624110408.128283-4-Wojciech.Dubowik@mt.com> <aGy4qy1kN3RZ6nas@dragon>
+Subject: Re: [PATCH 2/5] arch_topology: update CPU map to use the new API
+To: Alireza Sanaee <alireza.sanaee@huawei.com>, mark.rutland@arm.com,
+ robh@kernel.org
+Cc: coresight@lists.linaro.org, devicetree@vger.kernel.org,
+ dianders@chromium.org, james.clark@linaro.org, jonathan.cameron@huawei.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linuxarm@huawei.com,
+ mike.leach@linaro.org, ruanjinjie@huawei.com, saravanak@google.com,
+ shameerali.kolothum.thodi@huawei.com, suzuki.poulose@arm.com
+References: <20250707150414.620-1-alireza.sanaee@huawei.com>
+ <20250707150414.620-3-alireza.sanaee@huawei.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -120,9 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aGy4qy1kN3RZ6nas@dragon>
+In-Reply-To: <20250707150414.620-3-alireza.sanaee@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250707_232950_522354_A51182D4 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,23 +122,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/07/2025 08:20, Shawn Guo wrote:
->> +
->> +	backlight: backlight {
->> +		compatible = "pwm-backlight";
->> +		pwms = <&pwm1 0 500000 0>;
->> +		power-supply = <&reg_5v>;
->> +		brightness-levels = <0 100>;
->> +		num-interpolated-steps = <100>;
->> +		default-brightness-level = <100>;
->> +		status = "okay";
+On 07/07/2025 17:04, Alireza Sanaee wrote:
+> Cleans up the cpu-map generation using the created API.
 > 
-> We usually use "okay" status to enable "disabled" devices.  It doesn't
-> seem to be needed here.
+> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+> ---
+>  drivers/base/arch_topology.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index 3ebe77566788..88970f13f684 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -518,23 +518,23 @@ core_initcall(free_raw_capacity);
+>   */
+>  static int __init get_cpu_for_node(struct device_node *node)
+>  {
+> +	struct device_node *cpu_node __free(device_node) = NULL;
 
-I already asked for this in v2. Changelog claims it was done, but I
-believe nothing here improved and they just sent the same patchset
-wasting review effort.
+
+That's not a correct style anymore. What's more it is not really
+explained anywhere. Follow standard cleanup.h rules (constructor).
+
 
 Best regards,
 Krzysztof
