@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7828FC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 15:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCB8C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 15:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=afhGlP9kxKK76fiY2hByWG8eeaEelXaAT3HrblqtyZo=; b=YrSDRZqXZDZTA6c+gPsj7P0nJ9
-	B3DDYPevHsdRT6DWYYMQ2/3Z5KAH14ofIqYDICGt6l93mfyry/oFWPlgkynKWCmhvsuiF+iKoCdCl
-	m/8QL2q8zwCvyz9KT+dNzlzhSDOAwcS7CVJGbu80Ik0LFB2RdHkeDH0Jp7jp/tSuQ0QGBcSGlqNSo
-	e6LmurKyU9z5G4EKFAJvyqE2kuNriTYPbyVLe2w9Aw2WjpkTxW+b2EwotaPMg1KboBEL6EBfaw+u1
-	+gNOb8uhx/LUvV1EskdxUP19cEyExZhwxnjcGeTGzu9sKCEY6Pd66Ya9vj+hPedxe7dZCvPop8Pqm
-	FZ/wkhbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f+AdjSpLYE0shtXAMJo1oGPvn8m5n7Wk9nMZZIV11e8=; b=rv8vuw/e3SVS0X6sNvYCTmSxk2
+	pRiBNXsDPmWZtjlhcJ6rcDpRFRDFk3aH29r94uJa/OhidSHxCoHgZ3E1CApiQC978M/mNkWtf1f3c
+	5ef+OkmGG+O1BGPpbPoQ4KyAXbeYGOuh0y5QHa7zW87Was626cYjRY89mR5iG2S/+pPA2a7CJyM0R
+	SjEeCqfGcL8HJsLIvof63oL5N2gUWHQevdzVNY7Jm9rWeBzBlvjY47t7GjvQOAnXPU5plAUuZFTQF
+	3LFPjExsPoR076o/UQZdSFq595J62lemdUx1/NxuivtlaEZ8D4obhcwZuXcSzzepZU7VwY9NbTDTq
+	FwymYp9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZAUe-00000005rSM-0tao;
-	Tue, 08 Jul 2025 15:44:28 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uZAWy-00000005rhQ-1N8R;
+	Tue, 08 Jul 2025 15:46:52 +0000
+Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZA73-00000005lfv-0xb8;
-	Tue, 08 Jul 2025 15:20:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1751988003;
-	bh=ze7OLjPjKlCigqfxtOMOBTAvSdypPLUcg8IPJNuCXok=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OdhIK7Pz/UHZ80L44/N/Ybx16oF2OBCdV7sphvazjxz3V/q4qQZFhc2n/P2l2nU6E
-	 +/TWt/8/TbgUwct/ABArVnrGHhSerIYHuiBOGK/gcTbMx/1txXf/JMD5UgM87Kviuc
-	 wgDrMOS6Kn5aVLxcotNqQIg+HOwTkmUN5+/WmhJDKzv+mdlot3YnywNHyaUx2wAHfg
-	 nK/e0Nat5OK/NH7GlzaCqQDq3eNVddMwolY7MKSEWbXKKaiFoL/L7daK3UQg1tbw3Z
-	 UyKBAps98hYhbtzyBJXAhKp0Tx5TyxMzJfXZ8ZkLtH+82mk5EwX3Ryc3r1rhQly6Dy
-	 pH00PwY+qrctw==
-Received: from trenzalore.hitronhub.home (unknown [23.233.251.139])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7034A17E11ED;
-	Tue,  8 Jul 2025 17:20:02 +0200 (CEST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org
-Cc: Detlev Casanova <detlev.casanova@collabora.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Subject: [PATCH 05/12] media: rkvdec: Add per variant configuration
-Date: Tue,  8 Jul 2025 11:19:38 -0400
-Message-ID: <20250708151946.374349-6-detlev.casanova@collabora.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250708151946.374349-1-detlev.casanova@collabora.com>
-References: <20250708151946.374349-1-detlev.casanova@collabora.com>
+	id 1uZA74-00000005lgA-2Dms;
+	Tue, 08 Jul 2025 15:20:08 +0000
+dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Type:In-Reply-To:References;
+	bh=f+AdjSpLYE0shtXAMJo1oGPvn8m5n7Wk9nMZZIV11e8=;
+	b=RgAEQUMNdPw7KMvhVYIPCsFqW062MaR+phV4UfYbXms9+KdXuV1btLi0q3k9FmAaknANDHQomYmZsL1FHgk/R/1W1mQ6U7gZXQNF0HiH4xQTg4uA4KgE5/7ivZ0f8ML+ALe+U8UTuaI6jo3oRqG5khaOz76FR1hqGaB/vj51PNM=
+Received: from lukas-hpz440workstation.localnet (cm70-231.liwest.at [212.241.70.231])
+	by mail.netcube.li with ESMTPSA
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
+	; Tue, 8 Jul 2025 17:19:33 +0200
+From: Lukas Schmid <lukas.schmid@netcube.li>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 3/5] ARM: dts: sunxi: add support for NetCube Systems Nagami
+ SoM
+Date: Tue, 08 Jul 2025 17:19:31 +0200
+Message-ID: <3700020.R56niFO833@lukas-hpz440workstation>
+In-Reply-To: <20250708002205.70ec9097@minigeek.lan>
+References: <20250707184420.275991-1-lukas.schmid@netcube.li>
+ <20250707184420.275991-4-lukas.schmid@netcube.li>
+ <20250708002205.70ec9097@minigeek.lan>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="nextPart3829144.MHq7AAxBmi";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_082005_412100_E2063D4C 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20250708_082006_863291_9DB3588D 
+X-CRM114-Status: GOOD (  41.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,179 +74,382 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is to prepare for adding different variants of the decoder and
-support specific formats and ops.
+--nextPart3829144.MHq7AAxBmi
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"; protected-headers="v1"
+From: Lukas Schmid <lukas.schmid@netcube.li>
+To: Andre Przywara <andre.przywara@arm.com>
+Date: Tue, 08 Jul 2025 17:19:31 +0200
+Message-ID: <3700020.R56niFO833@lukas-hpz440workstation>
+In-Reply-To: <20250708002205.70ec9097@minigeek.lan>
+MIME-Version: 1.0
 
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
- .../media/platform/rockchip/rkvdec/rkvdec.c   | 50 ++++++++++++-------
- .../media/platform/rockchip/rkvdec/rkvdec.h   |  6 +++
- 2 files changed, 39 insertions(+), 17 deletions(-)
+On Dienstag, 8. Juli 2025 01:22:05 CEST Andre Przywara wrote:
+> On Mon,  7 Jul 2025 20:44:15 +0200
+> Lukas Schmid <lukas.schmid@netcube.li> wrote:
+> 
+Hi Andre,
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index c3f35a02d7fdb..3496216d99c18 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -286,13 +286,14 @@ static const struct rkvdec_coded_fmt_desc rkvdec_coded_fmts[] = {
- };
- 
- static const struct rkvdec_coded_fmt_desc *
--rkvdec_find_coded_fmt_desc(u32 fourcc)
-+rkvdec_find_coded_fmt_desc(struct rkvdec_ctx *ctx, u32 fourcc)
- {
-+	struct rkvdec_config *cfg = ctx->dev->config;
- 	unsigned int i;
- 
--	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
--		if (rkvdec_coded_fmts[i].fourcc == fourcc)
--			return &rkvdec_coded_fmts[i];
-+	for (i = 0; i < cfg->coded_fmts_num; i++) {
-+		if (cfg->coded_fmts[i].fourcc == fourcc)
-+			return &cfg->coded_fmts[i];
- 	}
- 
- 	return NULL;
-@@ -300,9 +301,10 @@ rkvdec_find_coded_fmt_desc(u32 fourcc)
- 
- static void rkvdec_reset_coded_fmt(struct rkvdec_ctx *ctx)
- {
-+	struct rkvdec_config *cfg = ctx->dev->config;
- 	struct v4l2_format *f = &ctx->coded_fmt;
- 
--	ctx->coded_fmt_desc = &rkvdec_coded_fmts[0];
-+	ctx->coded_fmt_desc = &cfg->coded_fmts[0];
- 	rkvdec_reset_fmt(ctx, f, ctx->coded_fmt_desc->fourcc);
- 
- 	f->type = V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE;
-@@ -316,12 +318,13 @@ static void rkvdec_reset_coded_fmt(struct rkvdec_ctx *ctx)
- static int rkvdec_enum_framesizes(struct file *file, void *priv,
- 				  struct v4l2_frmsizeenum *fsize)
- {
-+	struct rkvdec_ctx *ctx = fh_to_rkvdec_ctx(priv);
- 	const struct rkvdec_coded_fmt_desc *fmt;
- 
- 	if (fsize->index != 0)
- 		return -EINVAL;
- 
--	fmt = rkvdec_find_coded_fmt_desc(fsize->pixel_format);
-+	fmt = rkvdec_find_coded_fmt_desc(ctx, fsize->pixel_format);
- 	if (!fmt)
- 		return -EINVAL;
- 
-@@ -388,12 +391,13 @@ static int rkvdec_try_output_fmt(struct file *file, void *priv,
- {
- 	struct v4l2_pix_format_mplane *pix_mp = &f->fmt.pix_mp;
- 	struct rkvdec_ctx *ctx = fh_to_rkvdec_ctx(priv);
-+	struct rkvdec_config *cfg = ctx->dev->config;
- 	const struct rkvdec_coded_fmt_desc *desc;
- 
--	desc = rkvdec_find_coded_fmt_desc(pix_mp->pixelformat);
-+	desc = rkvdec_find_coded_fmt_desc(ctx, pix_mp->pixelformat);
- 	if (!desc) {
--		pix_mp->pixelformat = rkvdec_coded_fmts[0].fourcc;
--		desc = &rkvdec_coded_fmts[0];
-+		pix_mp->pixelformat = cfg->coded_fmts[0].fourcc;
-+		desc = &cfg->coded_fmts[0];
- 	}
- 
- 	v4l2_apply_frmsize_constraints(&pix_mp->width,
-@@ -470,7 +474,7 @@ static int rkvdec_s_output_fmt(struct file *file, void *priv,
- 	if (ret)
- 		return ret;
- 
--	desc = rkvdec_find_coded_fmt_desc(f->fmt.pix_mp.pixelformat);
-+	desc = rkvdec_find_coded_fmt_desc(ctx, f->fmt.pix_mp.pixelformat);
- 	if (!desc)
- 		return -EINVAL;
- 	ctx->coded_fmt_desc = desc;
-@@ -522,10 +526,13 @@ static int rkvdec_g_capture_fmt(struct file *file, void *priv,
- static int rkvdec_enum_output_fmt(struct file *file, void *priv,
- 				  struct v4l2_fmtdesc *f)
- {
--	if (f->index >= ARRAY_SIZE(rkvdec_coded_fmts))
-+	struct rkvdec_ctx *ctx = fh_to_rkvdec_ctx(priv);
-+	struct rkvdec_config *cfg = ctx->dev->config;
-+
-+	if (f->index >= cfg->coded_fmts_num)
- 		return -EINVAL;
- 
--	f->pixelformat = rkvdec_coded_fmts[f->index].fourcc;
-+	f->pixelformat = cfg->coded_fmts[f->index].fourcc;
- 	return 0;
- }
- 
-@@ -895,16 +902,17 @@ static int rkvdec_add_ctrls(struct rkvdec_ctx *ctx,
- 
- static int rkvdec_init_ctrls(struct rkvdec_ctx *ctx)
- {
-+	struct rkvdec_config *cfg = ctx->dev->config;
- 	unsigned int i, nctrls = 0;
- 	int ret;
- 
--	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++)
--		nctrls += rkvdec_coded_fmts[i].ctrls->num_ctrls;
-+	for (i = 0; i < cfg->coded_fmts_num; i++)
-+		nctrls += cfg->coded_fmts[i].ctrls->num_ctrls;
- 
- 	v4l2_ctrl_handler_init(&ctx->ctrl_hdl, nctrls);
- 
--	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
--		ret = rkvdec_add_ctrls(ctx, rkvdec_coded_fmts[i].ctrls);
-+	for (i = 0; i < cfg->coded_fmts_num; i++) {
-+		ret = rkvdec_add_ctrls(ctx, cfg->coded_fmts[i].ctrls);
- 		if (ret)
- 			goto err_free_handler;
- 	}
-@@ -1119,8 +1127,13 @@ static void rkvdec_watchdog_func(struct work_struct *work)
- 	}
- }
- 
-+const struct rkvdec_config config_rkvdec = {
-+	.coded_fmts = (struct rkvdec_coded_fmt_desc *)rkvdec_coded_fmts,
-+	.coded_fmts_num = ARRAY_SIZE(rkvdec_coded_fmts),
-+};
-+
- static const struct of_device_id of_rkvdec_match[] = {
--	{ .compatible = "rockchip,rk3399-vdec" },
-+	{ .compatible = "rockchip,rk3399-vdec", .data = &config_rkvdec },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, of_rkvdec_match);
-@@ -1144,6 +1157,9 @@ static int rkvdec_probe(struct platform_device *pdev)
- 	mutex_init(&rkvdec->vdev_lock);
- 	INIT_DELAYED_WORK(&rkvdec->watchdog_work, rkvdec_watchdog_func);
- 
-+	rkvdec->config =
-+		(struct rkvdec_config *)of_device_get_match_data(rkvdec->dev);
-+
- 	rkvdec->clocks = devm_kcalloc(&pdev->dev, ARRAY_SIZE(rkvdec_clk_names),
- 				      sizeof(*rkvdec->clocks), GFP_KERNEL);
- 	if (!rkvdec->clocks)
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index 3451c4bf7cb75..14717c646c665 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-@@ -100,6 +100,11 @@ struct rkvdec_coded_fmt_desc {
- 	u32 subsystem_flags;
- };
- 
-+struct rkvdec_config {
-+	struct rkvdec_coded_fmt_desc *coded_fmts;
-+	size_t coded_fmts_num;
-+};
-+
- struct rkvdec_dev {
- 	struct v4l2_device v4l2_dev;
- 	struct media_device mdev;
-@@ -111,6 +116,7 @@ struct rkvdec_dev {
- 	struct mutex vdev_lock; /* serializes ioctls */
- 	struct delayed_work watchdog_work;
- 	struct iommu_domain *empty_domain;
-+	struct rkvdec_config *config;
- };
- 
- struct rkvdec_ctx {
--- 
-2.50.0
+> Hi Lukas,
+> 
+> please try to refrain from sending subsequent patches too quickly, that
+> might just put off and confuse reviewers. To acknowledge a change
+> request, it is probably sufficient to just reply to the mail with a
+> confirmation.
+
+Sorry about that. I'm still trying to get the hang of this whole "submitting 
+patches" thing. What is a good time/reason to send the next revision/version 
+of a patchset?
+
+> 
+> > NetCube Systems Nagami SoM is a module based around the Allwinner T113s
+> > SoC. It includes the following features and interfaces:
+> > 
+> > - 128MB DDR3 included in SoC
+> > - 10/100 Mbps Ethernet using LAN8720A phy
+> > - One USB-OTG interface
+> > - One USB-Host interface
+> > - One I2S interface with in and output support
+> > - Two CAN interfaces
+> > - ESP32 over SDIO
+> > - One SPI interface
+> > - I2C EEPROM for MAC address
+> > - One QWIIC I2C Interface with dedicated interrupt pin shared with EEPROM
+> > - One external I2C interface
+> > - SD interface for external SD-Card
+> > 
+> > Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+> > ---
+> > 
+> >  .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 233 ++++++++++++++++++
+> >  1 file changed, 233 insertions(+)
+> >  create mode 100644
+> >  arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi> 
+> > diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
+> > b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi new file
+> > mode 100644
+> > index 000000000..0db867b47
+> > --- /dev/null
+> > +++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
+> > @@ -0,0 +1,233 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +/*
+> > + * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
+> > + */
+> > +
+> > +/dts-v1/;
+> > +#include "sun8i-t113s.dtsi"
+> > +
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +#include <dt-bindings/interrupt-controller/irq.h>
+> > +
+> > +/ {
+> > +	model = "NetCube Systems Nagami SoM";
+> > +	compatible = "netcube,nagami", "allwinner,sun8i-t113s";
+> > +
+> > +	aliases {
+> > +		serial1 = &uart1; // ESP32 Bootloader UART
+> > +		serial3 = &uart3; // Console UART on Card Edge
+> > +		ethernet0 = &emac;
+> > +	};
+> > +
+> > +	chosen {
+> > +		stdout-path = "serial3:115200n8";
+> > +	};
+> > +
+> > +	/* module wide 3.3V supply directly from the card edge */
+> > +	reg_vcc3v3: regulator-3v3 {
+> > +		compatible = "regulator-fixed";
+> > +		regulator-name = "vcc-3v3";
+> > +		regulator-min-microvolt = <3300000>;
+> > +		regulator-max-microvolt = <3300000>;
+> > +		regulator-always-on;
+> > +	};
+> > +
+> > +	/* SY8008 DC/DC regulator on the board, also supplying VDD-SYS */
+> > +	reg_vcc_core: regulator-core {
+> > +		compatible = "regulator-fixed";
+> > +		regulator-name = "vcc-core";
+> > +		regulator-min-microvolt = <880000>;
+> > +		regulator-max-microvolt = <880000>;
+> > +		vin-supply = <&reg_vcc3v3>;
+> > +	};
+> > +};
+> > +
+> > +&cpu0 {
+> > +	cpu-supply = <&reg_vcc_core>;
+> > +};
+> > +
+> > +&cpu1 {
+> > +	cpu-supply = <&reg_vcc_core>;
+> > +};
+> > +
+> > +&dcxo {
+> > +	clock-frequency = <24000000>;
+> > +};
+> > +
+> > +&emac {
+> > +	nvmem-cells = <&eth0_macaddress>;
+> > +	nvmem-cell-names = "mac-address";
+> > +	phy-handle = <&lan8720a>;
+> > +	phy-mode = "rmii";
+> > +	pinctrl-0 = <&rmii_pe_pins>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +};
+> > +
+> > +/* Exposed as I2C on the card edge */
+> > +&i2c2 {
+> > +	pinctrl-0 = <&i2c2_pins>;
+> > +	pinctrl-names = "default";
+> 
+> I wonder if this belongs here. In general we don't describe
+> pins/devices that are on generic connectors (like pin headers), because
+> the connection is determined by the user, not by the board.
+> In this case PD20 and PD21 could be used as generic GPIOs or as PWMs.
+> IIUC, even for the basic carrier those pins end up on headers, so even
+> there I wouldn't describe it. On the keypad carrier it's of course a
+> different story, since the MCP23008 is apparently soldered there.
+
+I get that part. However the module's description (as of yet unreleased) 
+specifies those pins for this exact function as they are meant to be available 
+on our modules using the same connector but other CPU/SoC. The Module's state 
+that this is the default option but other function's can be reconfigured or 
+they can be used as IO. 
+
+If it's an issue I can remove those here, but I would still add them into the 
+basic carrier as, even though they are only pin header, they are marked with 
+the dedicated function of said pin. For example the headers there are 
+specifically for "SPI", "I2S", "I2C" and the SD-Card slot.
+
+> 
+> > +};
+> > +
+> > +/* Exposed as the QWIIC connector and used by the internal EEPROM */
+> > +&i2c3 {
+> > +	pinctrl-0 = <&i2c3_pins>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +
+> > +	eeprom0: eeprom@50 {
+> > +		compatible = "atmel,24c02";		/* 
+actually it's a 24AA02E48 */
+> > +		reg = <0x50>;
+> > +		pagesize = <16>;
+> > +		read-only;
+> > +		vcc-supply = <&reg_vcc3v3>;
+> > +
+> > +		#address-cells = <1>;
+> > +		#size-cells = <1>;
+> > +
+> > +		eth0_macaddress: macaddress@fa {
+> > +			reg = <0xfa 0x06>;
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +/* Exposed as I2S on the card edge */
+> > +&i2s1 {
+> > +	pinctrl-0 = <&i2s1_pins>, <&i2s1_din_pins>, <&i2s1_dout_pins>;
+> > +	pinctrl-names = "default";
+> 
+> Same story here, what prevents a user from using those edge pins as
+> GPIO or PWM?
+> 
+> > +};
+> > +
+> > +/* Phy is on SoM. MDI signals pre-magentics are on the card edge */
+> > +&mdio {
+> > +	lan8720a: ethernet-phy@0 {
+> > +		compatible = "ethernet-phy-ieee802.3-c22";
+> > +		reg = <0>;
+> > +	};
+> > +};
+> > +
+> > +/* Exposed as SD on the card edge */
+> > +&mmc0 {
+> > +	pinctrl-0 = <&mmc0_pins>;
+> > +	pinctrl-names = "default";
+> > +	vmmc-supply = <&reg_vcc3v3>;
+> > +	broken-cd;
+> > +	disable-wp;
+> > +	bus-width = <4>;
+> > +};
+> 
+> I think this node doesn't belong into the SoM .dtsi, as many details
+> are not set here, but on the carrier board: card detect, write protect,
+> Vmmc supply, and even bus width (could be 1 as well). So please move
+> this node to where the SD card connector sits. You might want to keep
+> the pinctrl nodes in here.
+
+Totally agree here, I will move this definition to the basic carrier, as it's 
+currently the only one with the SD-Interface connected. However my question 
+from above about the default function still applies here.
+> 
+> > +
+> > +/* Connected to the on-board ESP32 */
+> > +&mmc1 {
+> > +	pinctrl-0 = <&mmc1_pins>;
+> > +	pinctrl-names = "default";
+> > +	vmmc-supply = <&reg_vcc3v3>;
+> > +	bus-width = <4>;
+> > +	non-removable;
+> > +	status = "okay";
+> > +};
+> > +
+> > +/* Connected to the on-board eMMC */
+> > +&mmc2 {
+> > +	pinctrl-0 = <&mmc2_pins>;
+> > +	pinctrl-names = "default";
+> > +	vmmc-supply = <&reg_vcc3v3>;
+> > +	vqmmc-supply = <&reg_vcc3v3>;
+> > +	bus-width = <4>;
+> > +	non-removable;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&pio {
+> > +	vcc-pb-supply = <&reg_vcc3v3>;
+> > +	vcc-pc-supply = <&reg_vcc3v3>;
+> > +	vcc-pd-supply = <&reg_vcc3v3>;
+> > +	vcc-pe-supply = <&reg_vcc3v3>;
+> > +	vcc-pf-supply = <&reg_vcc3v3>;
+> > +	vcc-pg-supply = <&reg_vcc3v3>;
+> > +
+> > +	gpio-line-names = "", "", "", "", // PA
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "CAN0_TX", 
+"CAN0_RX", // PB
+> > +					  "CAN1_TX", 
+"CAN1_RX", "UART3_TX", "UART3_RX",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "eMMC_CLK", 
+"eMMC_CMD", // PC
+> > +					  "eMMC_D2", 
+"eMMC_D1", "eMMC_D0", "eMMC_D3",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "", // 
+PD
+> > +					  "", "", "", "",
+> > +					  "", "", "SPI1_CS", 
+"SPI1_CLK",
+> > +					  "SPI1_MOSI", 
+"SPI1_MISO", "SPI1_HOLD", "SPI1_WP",
+> > +					  "PD16", "", "", "",
+> > +					  "I2C2_SCL", 
+"I2C2_SDA", "PD22", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "ETH_CRSDV", 
+"ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
+> > +					  "ETH_TXD0", 
+"ETH_TXD1", "ETH_TXEN", "",
+> > +					  "ETH_MDC", 
+"ETH_MDIO", "QWIIC_nINT", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "SD_D1", "SD_D0", 
+"SD_CLK", "SD_CLK", // PF
+> > +					  "SD_D3", "SD_D2", 
+"PF6", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "ESP_CLK", 
+"ESP_CMD", "ESP_D0", "ESP_D1", // PG
+> > +					  "ESP_D2", "ESP_D3", 
+"UART1_TXD", "UART1_RXD",
+> > +					  "ESP_nBOOT", 
+"ESP_nRST", "I2C3_SCL", "I2C3_SDA",
+> > +					  "I2S1_WS", 
+"I2S1_CLK", "I2S1_DIN0", "I2S1_DOUT0",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "",
+> > +					  "", "", "", "";
+> > +};
+> > +
+> > +/* Remove the unused CK pin from the pinctl as it is unconnected */
+> > +&rmii_pe_pins {
+> > +	pins = "PE0", "PE1", "PE2", "PE3", "PE4",
+> > +		   "PE5", "PE6", "PE8", "PE9";
+> > +};
+> > +
+> > +/* Exposed as SPI on the card-edge */
+> > +&spi1 {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +	pinctrl-0 = <&spi1_pins>;
+> > +	pinctrl-names = "default";
+> > +	cs-gpios = <0>;
+> > +};
+> 
+> I wonder if this belongs here as well, since it's again just generic
+> edge pins.
+
+Same here too
+> 
+> Cheers,
+> Andre
+> 
+> > +
+> > +/* Connected to the Bootloader/Console of the ESP32 */
+> > +&uart1 {
+> > +	pinctrl-0 = <&uart1_pg6_pins>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +};
+> > +
+> > +/* Exposed as the Console/Debug UART on the card-edge */
+> > +&uart3 {
+> > +	pinctrl-0 = <&uart3_pb_pins>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +};
+
+
+--nextPart3829144.MHq7AAxBmi
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEPv6dcBmn59ssZMkSJnN+drMVRtgFAmhtNwMACgkQJnN+drMV
+Rtg3VQf9En80GmrC7Ph0W7mn6Jn1BLaNfAO917+LAH71HdBz+iT66X/JOziYZtcD
+PtHAyAVYdGgyrsC63wI3kzo0kikZc12Y7DRhwDm1RYvvEwE/EoT+4AzXHTsC5jbs
+FvAmGV8a8As7iQQXn714pq7SsoYR98bGCK2NenbKzYrnOvgjVWiAX+xn0s4ysNzQ
+ktnRDDJnQRHeguZvXlE+1IuqaMmEJk32PHo+Uuq/ZJ6u3y4gUTEbGxGYC0YzI/um
+4LeKJEWDGQwz4T1PhKqhYt08Gomutx40lsHfDGZ6vvBpmOTjNYHy081kFrKZl5GP
+LHiARQT12DxweW0YZsNfadfEElTV6g==
+=LcEn
+-----END PGP SIGNATURE-----
+
+--nextPart3829144.MHq7AAxBmi--
+
+
+
 
 
