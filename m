@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C243C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 15:12:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D675C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 15:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=86syfWYGbh9cr/xQuO05aTOOJWG7jgdg+icTQqrYGeQ=; b=0t6ATSiwHMBjw5r/gqEJRDhP7o
-	kz+w9Hkpr1vtlBpaZbKdFYF/2aWRLynrv1IAcho5NtKX1b53JkkCWp9biaGAJZ/yClG9F0J/i1cjI
-	7hyfI66IhrKjT/Z827AtHEwci7lJVEUU3vk0tT6aTYmjcNlx3KiUG7VjggHjCLZNCBD2MjgP/B4ZT
-	r53CXFGEBt+GPqrX9COla6eD1NP6Ac3lUiofJEWr1AN7KAW1qQSV4HsGi995m6H6CFXv8JU8RTsld
-	DFcUtqMc+bOe0JqsfiS5fSfUqdGSMcJA+OMrAHkzxTMDzzdjpe2lOibziWylUkdxWIa9M0Ct+s7jm
-	L2i1G0Pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lpTX83oPfU/Si2YEH0djWh4MhIIsAtcI3Xd9B2IS2MM=; b=GoMDvPVyun+gs1iAsQefyHtKCE
+	58VeTkiGT7G0jeg8d06/wKPD54FFbRzCgvcTpsLGt3VdveP8j285PnaKqR5q5bItSFIi2ANOphSyj
+	RCGcYzv6lxPQ1onPTzeNnD53WL9rFgjdY6Cf/t5EpEhFKTueLVp40uTNIF5Mg3Dcln6OxGzj6JDMe
+	drMYKkncU7hafyL2dmLbGrch+z7VjuUeIjr56g4o3RGp2wxueCaddNS8PmIo2wVCYeIoqYdGvY34X
+	kUouVetm3YwXISNWWEcCiGbBbjMH9fwh+StdgB7RP+AVH3dmePSbIyFQ42D/no3KIqQjOxvGVXTGk
+	7nA1NhEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ9zV-00000005jiw-1l5H;
-	Tue, 08 Jul 2025 15:12:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uZA4m-00000005l2O-0IS7;
+	Tue, 08 Jul 2025 15:17:44 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ9x8-00000005j8X-3TwF
+	id 1uZA2O-00000005kKb-0THh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 15:09:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B53374689A;
-	Tue,  8 Jul 2025 15:09:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95C27C4CEED;
-	Tue,  8 Jul 2025 15:09:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751987389;
-	bh=Obbbwl3W/HPhrDX90tjKTuctvfC+PqY+HxmknvNnqrw=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=BdYNNuvpVKXd+jDJfxVt2lgxXXn7O+szpMyFGVvGowV1/fR31lF/VeCFCRvhxrxAg
-	 0o8UEXGoNMRhoIO0SrxerDtvnpuZecQn4HbGnHban2BqeJFElyXP8tEVnvXikgbN3h
-	 DEI/SuB+iph1eKriiRB70HPx1+ViIVU0WOHC6m/OlKgyizdyLtkSYVKs4HC+8sijsl
-	 gplc9KvjZZ2S91WYeZYh0n5uCFmf7zf0j82YDhVXtAxv0b886hYBmMwRKEQSSD/Vgu
-	 Xacvl1npLLwiRqDND8D6Pi60lUOFMAzNFhn9i+evgm62CDE4TEuBFgtSeOrvzXVRxU
-	 lcDQIe2DkfKLQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE908380DBEE;
-	Tue,  8 Jul 2025 15:10:13 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Tue, 08 Jul 2025 15:15:18 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bc4Mb0qw1z6D8hV;
+	Tue,  8 Jul 2025 23:11:55 +0800 (CST)
+Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
+	by mail.maildlp.com (Postfix) with ESMTPS id ED09714025A;
+	Tue,  8 Jul 2025 23:15:04 +0800 (CST)
+Received: from a2303103017.china.huawei.com (10.203.177.99) by
+ frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Tue, 8 Jul 2025 17:15:04 +0200
+From: Alireza Sanaee <alireza.sanaee@huawei.com>
+To: <krzk@kernel.org>, <robh@kernel.org>
+CC: <coresight@lists.linaro.org>, <devicetree@vger.kernel.org>,
+	<dianders@chromium.org>, <james.clark@linaro.org>,
+	<jonathan.cameron@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
+	<ruanjinjie@huawei.com>, <saravanak@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>
+Subject: [PATCH v2 0/5] Refactoring finding CPU phandles in DT
+Date: Tue, 8 Jul 2025 16:14:57 +0100
+Message-ID: <20250708151502.561-1-alireza.sanaee@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net 0/2] allwinner: a523: Rename emac0 to gmac0
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175198741250.4099273.971241156715124516.git-patchwork-notify@kernel.org>
-Date: Tue, 08 Jul 2025 15:10:12 +0000
-References: <20250628054438.2864220-1-wens@kernel.org>
-In-Reply-To: <20250628054438.2864220-1-wens@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andre.przywara@arm.com, wens@csie.org,
- jernej@kernel.org, samuel@sholland.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
+Content-Type: text/plain
+X-Originating-IP: [10.203.177.99]
+X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
+ frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_080950_918031_4F977DF0 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20250708_081516_295080_F80274EF 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +74,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+This series refactors the way CPU IDs are retrieved from the device
+tree.
 
-This series was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Usually, there is a for loop that goes over every single CPU that can be
+avoided. This also reduces the amount of NULL pointer checks in drivers.
+I have abstracted away that loop and introduced a new function
+(of_cpu_node_to_id) for this.
 
-On Sat, 28 Jun 2025 13:44:36 +0800 you wrote:
-> From: Chen-Yu Tsai <wens@csie.org>
-> 
-> Hi folks,
-> 
-> This small series aims to align the name of the first ethernet
-> controller found on the Allwinner A523 SoC family with the name
-> found in the datasheets. It renames the compatible string and
-> any other references from "emac0" to "gmac0".
-> 
-> [...]
+This patchset is a subset of [1], where I removed content and patches
+relevant to hyper-threaded cores for DT. Based on the discussion, the
+code refactor is still useful, hence this patchset.
 
-Here is the summary with links:
-  - [net,1/2] dt-bindings: net: sun8i-emac: Rename A523 EMAC0 to GMAC0
-    https://git.kernel.org/netdev/net/c/b3603c0466a8
-  - [net,2/2] arm64: dts: allwinner: a523: Rename emac0 to gmac0
-    (no matching commit)
+Changes since v1 [2]:
+    - Rebased on top of the latest mainline.
+    - Addressed Krzysztof Kozlowski's comments -- Hopefully :-)
+    - Addressed Jonathan Cameron's comments.
 
-You are awesome, thank you!
+[1] https://lore.kernel.org/all/20250512080715.82-1-alireza.sanaee@huawei.com/
+[2] https://lore.kernel.org/all/20250707150414.620-1-alireza.sanaee@huawei.com/
+
+Alireza Sanaee (5):
+  of: add infra for finding CPU id from phandle
+  arch_topology: update CPU map to use the new API
+  coresight: cti: Use of_cpu_phandle_to_id for grabbing CPU id
+  coresight: Use of_cpu_phandle_to_id for grabbing CPU id
+  perf/arm-dsu: refactor cpu id retrieval via new API
+    of_cpu_phandle_to_id
+
+ drivers/base/arch_topology.c                  | 16 ++++----
+ .../coresight/coresight-cti-platform.c        | 14 +------
+ .../hwtracing/coresight/coresight-platform.c  | 15 +------
+ drivers/of/cpu.c                              | 40 +++++++++++++++++++
+ drivers/perf/arm_dsu_pmu.c                    |  8 +---
+ include/linux/of.h                            |  9 +++++
+ 6 files changed, 61 insertions(+), 41 deletions(-)
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
 
