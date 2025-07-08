@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7410C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 22:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC10C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 22:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/Ziyoc6OWfBD4Ber22ISCAG5cMVClEJJdMXo55uffz4=; b=hJAIFowtlzJM3962wZMrZ4Q7vV
-	eTLfmMiPgyaqkcdKkRh+MMk5G/nLqBXT3tqRhfcovD2VIMWTWxp/Z35b5zmVqTBem2Y3Z0yM/z+JT
-	Ws3Tf6x3rynpII3SKuRp3ZX5nEJbu2jtYKaLg/OfgX2qyu5MhE8zlfat9JQvkHhVmeOsUopZablvZ
-	HmAE+NIIXFO2633FWi7IVDLwtPIB8KMKW7QzZpBjC8j6wVSqw340YYBYACcecrsOu6zgHe3x3EdjY
-	66W6PkrZlljGQVFp4rWNhzelJwUYIpULZsNNdLCZw2ike7BahuSrQ6UI3boFnupVFWiT7FiWanE08
-	RhSdHWyw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EGN6DJCTkVUIAy2RF65sa0W+Q97U2Qgd30M42gFEzGQ=; b=cqbOssTppbZATHn3Fxu5FLmUmo
+	ShZ54Umn6o07UoGV/iK5euvlPO0z9SVlZ9hAqvQnR1JHfP6jSOvGbcYb1j83fyboDBvkDbZUJ56P2
+	eHMyJ6rCtGFsr8sQdZ9MQJLvSqqxyi9/QrKuCYsIohWPHvAuZjRYzKPqPEweheiNRxXaFaBC1940W
+	98a+wWYxqjNElPGqd8VN74A8KlL0/IGjRN7fPorAPI+gptKauQsV1r/2trKtvtQBrFerixT5PIHns
+	FZMcK4TCZbq11UqBUAAVGj02fhlxy7MA4rEd8WqXgR6IGee+Va2wwqkYVG9OVpBJu7Y1xUK2oOxPD
+	zcwMnD9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZGSX-00000006j2x-0omk;
-	Tue, 08 Jul 2025 22:06:41 +0000
-Received: from mx3.wp.pl ([212.77.101.10])
+	id 1uZGUr-00000006jjr-3iKf;
+	Tue, 08 Jul 2025 22:09:05 +0000
+Received: from mx4.wp.pl ([212.77.101.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZGQA-00000006if0-1Tpy
+	id 1uZGQA-00000006if2-1R0i
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 08 Jul 2025 22:04:16 +0000
-Received: (wp-smtpd smtp.wp.pl 7799 invoked from network); 9 Jul 2025 00:04:07 +0200
+Received: (wp-smtpd smtp.wp.pl 8392 invoked from network); 9 Jul 2025 00:04:09 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1752012247; bh=/Ziyoc6OWfBD4Ber22ISCAG5cMVClEJJdMXo55uffz4=;
+          t=1752012249; bh=EGN6DJCTkVUIAy2RF65sa0W+Q97U2Qgd30M42gFEzGQ=;
           h=From:To:Subject;
-          b=BVOu1HOEHwN9oqxm64pZbA/fwotlzky4SavZdUIVoyfbQxxctjjt/jr0GtMv+SVF/
-           boVnLuBQZrSMerk9rWxDUGpSKAjdmOq7qQzaMkJuxciNge9NPquP/EHVjXmouKxYWi
-           UrHfy4PQKUh5ddrzWLWu2wPcruMxhOIegmH4YZDSsaDx+q4NMNGn17priedPlQ0MU1
-           DisTBZg5JkjLWrFWzCEc1SCqz5HjZGZrPcP21qNJFsbNeGCdxGOJCSyqaKlOsTIiMS
-           4gNdF6UgctLlGlAoTKCdFOojPGjp9OcgyThg2WTctA7DC1w7OLldbKQp/fVZAK6ldH
-           uZo1aTmAiuofA==
+          b=pJH5xRvb2jZHL44s2wXktgXk+Klty8X/N7+60VeilV7PqgQmpOpFoBDIRskisQYy/
+           kpGbeqdfjUUeDb0vm/SFn1TUqKBKe78Yc6hj8N72gvXIC52Pv7P+hEX9zU3WBBvU1H
+           bpnuXapHq5ybtCzRmcYY9dVtnvicflsvILIwpfX+cJzCv4Q/NycEgMDVrupWvIMSqa
+           AfU1xdHmaWMVoYNR0vO46nz/C+tVFvH7OilCwJXfsWFUgNvJhlElouq85JE2fk4+vi
+           H5rPuL/fmJVW2+rkM0pTL0gEzCq4DKQa4efNi1uL43Bg0dUcWPi2NnOyF7UIq1ycB8
+           Am5DYDgg77DBA==
 Received: from 83.24.138.239.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.24.138.239])
           (envelope-sender <olek2@wp.pl>)
           by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
-          for <rafael@kernel.org>; 9 Jul 2025 00:04:07 +0200
+          for <rafael@kernel.org>; 9 Jul 2025 00:04:09 +0200
 From: Aleksander Jan Bajkowski <olek2@wp.pl>
 To: rafael@kernel.org,
 	daniel.lezcano@linaro.org,
@@ -64,19 +64,20 @@ To: rafael@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v3 0/3] Add thermal sensors support for MT7981
-Date: Wed,  9 Jul 2025 00:04:02 +0200
-Message-Id: <20250708220405.1072393-1-olek2@wp.pl>
+Subject: [PATCH v3 1/3] dt-bindings: iio: adc: Add support for MT7981
+Date: Wed,  9 Jul 2025 00:04:03 +0200
+Message-Id: <20250708220405.1072393-2-olek2@wp.pl>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250708220405.1072393-1-olek2@wp.pl>
+References: <20250708220405.1072393-1-olek2@wp.pl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-WP-MailID: c47a9be9f1745f53a3fc4eba447605ae
+X-WP-MailID: 5152ad29fb8f55b57847c266456bbc96
 X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 000000A [ocM0]                               
+X-WP-SPAM: NO 0000000 [8SPB]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_150414_854817_20228463 
-X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-CacheID: sfid-20250708_150414_851689_8217B42A 
+X-CRM114-Status: UNSURE (   8.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,27 +93,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds support for the temperature sensor in the MT7981 SoC.
-This sensor is exactly the same as the one in the MT7986.
+The temperature sensor in the MT7981 is same as in the MT7986.
+Add compatible string for mt7981.
 
-CHanges in v3:
- - added fallback in bindings
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+---
+ .../devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml   | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Changes in v2:
- - added fallback to an existing compatible string
- - removed second patch as obsolete
-
-Aleksander Jan Bajkowski (3):
-  dt-bindings: iio: adc: Add support for MT7981
-  dt-bindings: thermal: mediatek: add falback compatible string for
-    MT7981 and MT8516
-  arm64: dts: mediatek: add thermal sensor support on mt7981
-
- .../iio/adc/mediatek,mt2701-auxadc.yaml       |  4 +++
- .../bindings/thermal/mediatek,thermal.yaml    | 27 ++++++++++------
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi     | 31 ++++++++++++++++++-
- 3 files changed, 51 insertions(+), 11 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml b/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml
+index b489c984c1bb..14363389f30a 100644
+--- a/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml
++++ b/Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml
+@@ -32,6 +32,10 @@ properties:
+           - enum:
+               - mediatek,mt7623-auxadc
+           - const: mediatek,mt2701-auxadc
++      - items:
++          - enum:
++              - mediatek,mt7981-auxadc
++          - const: mediatek,mt7986-auxadc
+       - items:
+           - enum:
+               - mediatek,mt6893-auxadc
 -- 
 2.39.5
 
