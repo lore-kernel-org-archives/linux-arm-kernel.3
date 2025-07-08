@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E44FC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 17:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1D1C83F0A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 17:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sb3Ia46GvHWQG/m6KFesc++Cm7iF3bdWTLNCqcNKb+I=; b=HuIjYBMrhfM0cyk0xtWGoUZIBF
-	BqLMr90jyki2nccGqi2gi5eekbbOwEzoJSHLDMe7f1ROs8Raj1JgPto4cks20htGt7wzuQpbnUvAd
-	yYMwgPy1RWeGe0VVNBbLt8zsqnK1oTaUi2jc0xxM2cnBVEWwGk1q1sC2JPXQa/vmzBgU3VFjYGfbC
-	IE5gfGDvw38dpdfUTu6Cb/t7hnQ72UckjmeN+GDXCsZ6jm4b9oDr9gLZo5aBDg1x7B0i53uyz5fxy
-	iZkIpC/Mk5cLchx8S3wFekFpAYOtqdRsti+g6US5d60GI99oc1H9TFCKXS1wMJw6rCcUnkj9b34Bn
-	kb+bmERA==;
+	bh=dWz3CQl3Hyfv4Ozhor8+07wg6X7dBTPFYEAyJfxYObQ=; b=q1ao8D8pNVpXom8iXJijw6zZPB
+	M+ZMHlZ0LbXuXf2B3vkmIwF3rbPB9Wag1P+S5kDpb4E7HTeQKRoYF/UV5D3QZcr1egU74a1gBXs/i
+	3agEXYVPfaSdCpELwkcVwia66erRvuOA+ROYZRu/WutBAoOSK60s9JOpP35xvWSxRsOMxQnU4WB3a
+	+u0qK58VjB8cnoI0SvbI7JpFumNN7ARiPL5Z1BO4Pkgno8oEjnrqlNmO9CzmAkzFtFFpmkKBVTofK
+	0JRMNo1yNRFmy/HDlf9f3vszGdv5RhEj1NbEM/tIA2MFGFLBweYgJBGdI9RlOxZGK//k/e85TIc8E
+	dcyc3yOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZBrU-000000064SZ-0m0M;
-	Tue, 08 Jul 2025 17:12:08 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1uZBtp-000000064wb-29Mw;
+	Tue, 08 Jul 2025 17:14:33 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZBMY-00000005zpB-1weI;
-	Tue, 08 Jul 2025 16:40:11 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Type:In-Reply-To:References;
-	bh=sb3Ia46GvHWQG/m6KFesc++Cm7iF3bdWTLNCqcNKb+I=;
-	b=dksLHObk0QrRNQZmlmL/+dJtNO+pEIS0BjbKjBO4wVwFEL6YF6UOFbfSgNLv6odRG2HoVD+Jku4BAu8HuNmCKlHAzOVEgohL/X3aCL8tDlxlev9/Xup8ohr/rClTZd4PmNHOGyTeD+Zdb46ZsObIcMw/dKHhpRuFS6shPbW4MzQ=
-Received: from lukas-hpz440workstation.localnet (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPSA
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
-	; Tue, 8 Jul 2025 18:39:49 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: wens@csie.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 2/5] riscv: dts: allwinner: d1s-t113: Add pinctrl's required by
- NetCube Systems Nagami SoM
-Date: Tue, 08 Jul 2025 18:39:48 +0200
-Message-ID: <2513861.jE0xQCEvom@lukas-hpz440workstation>
-In-Reply-To: <CAGb2v663GHk9jWXMBg36T6Qf8mwbnQcQ80=F+-tpbZ0Bau+79Q@mail.gmail.com>
+	id 1uZBMZ-00000005zp3-0sF9;
+	Tue, 08 Jul 2025 16:40:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=dWz3CQl3Hyfv4Ozhor8+07wg6X7dBTPFYEAyJfxYObQ=; b=W5tDj252G837QmC8BdmftZjzei
+	j2OFy2XAgMpSVYiMTPnWSatB5hUYTehmfiGGEpsCcr0WOrKzkSfIw9/+JS4X7ltAaDxvMSnos0+vl
+	Mhm1vNbSwFDbffuN/sYNjoUnDFSxjeP0tQuFf+/lh3CaVHB+B0IxkP1g8eGkOdhQaOe4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uZBMA-000qSM-HV; Tue, 08 Jul 2025 18:39:46 +0200
+Date: Tue, 8 Jul 2025 18:39:46 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lukas Schmid <lukas.schmid@netcube.li>
+Cc: Andre Przywara <andre.przywara@arm.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 3/5] ARM: dts: sunxi: add support for NetCube Systems
+ Nagami SoM
+Message-ID: <b3c18067-f06e-4818-bf0b-e33fdf27b174@lunn.ch>
 References: <20250707184420.275991-1-lukas.schmid@netcube.li>
- <20250707184420.275991-3-lukas.schmid@netcube.li>
- <CAGb2v663GHk9jWXMBg36T6Qf8mwbnQcQ80=F+-tpbZ0Bau+79Q@mail.gmail.com>
+ <20250707184420.275991-4-lukas.schmid@netcube.li>
+ <20250708002205.70ec9097@minigeek.lan>
+ <3700020.R56niFO833@lukas-hpz440workstation>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart2440550.NG923GbCHz";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3700020.R56niFO833@lukas-hpz440workstation>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_094010_808986_150EFC99 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20250708_094011_245695_CCCF43F9 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,132 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart2440550.NG923GbCHz
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"; protected-headers="v1"
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: wens@csie.org
-Date: Tue, 08 Jul 2025 18:39:48 +0200
-Message-ID: <2513861.jE0xQCEvom@lukas-hpz440workstation>
-MIME-Version: 1.0
+On Tue, Jul 08, 2025 at 05:19:31PM +0200, Lukas Schmid wrote:
+> On Dienstag, 8. Juli 2025 01:22:05 CEST Andre Przywara wrote:
+> > On Mon,  7 Jul 2025 20:44:15 +0200
+> > Lukas Schmid <lukas.schmid@netcube.li> wrote:
+> > 
+> Hi Andre,
+> 
+> > Hi Lukas,
+> > 
+> > please try to refrain from sending subsequent patches too quickly, that
+> > might just put off and confuse reviewers. To acknowledge a change
+> > request, it is probably sufficient to just reply to the mail with a
+> > confirmation.
+> 
+> Sorry about that. I'm still trying to get the hang of this whole "submitting 
+> patches" thing. What is a good time/reason to send the next revision/version 
+> of a patchset?
 
-On Dienstag, 8. Juli 2025 18:36:03 CEST Chen-Yu Tsai wrote:
-> On Tue, Jul 8, 2025 at 8:35=E2=80=AFAM Lukas Schmid <lukas.schmid@netcube=
-=2Eli> wrote:
-> > Added the following pinctrl's used by the NetCube Systems Nagami SoM
-> >=20
-> >   * i2c2_pins
-> >   * i2c3_pins
-> >   * i2s1_pins, i2s1_din_pins, i2s1_dout_pins
-> >   * spi1_pins
-> >=20
-> > Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-> > ---
-> >=20
-> >  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 36 +++++++++++++++++++
-> >  1 file changed, 36 insertions(+)
-> >=20
-> > diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> > b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi index
-> > e4175adb0..8dc3deccb 100644
-> > --- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> > +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-> > @@ -78,6 +78,36 @@ dsi_4lane_pins: dsi-4lane-pins {
-> >=20
-> >                                 function =3D "dsi";
-> >                        =20
-> >                         };
-> >=20
-> > +                       /omit-if-no-ref/
-> > +                       i2c2_pins: i2c2-pins {
-> > +                               pins =3D "PD20", "PD21";
-> > +                               function =3D "i2c2";
-> > +                       };
-> > +
-> > +                       /omit-if-no-ref/
-> > +                       i2c3_pins: i2c3-pins {
-> > +                               pins =3D "PG10", "PG11";
-> > +                               function =3D "i2c3";
-> > +                       };
-> > +
-> > +                       /omit-if-no-ref/
-> > +                       i2s1_pins: i2s1-pins {
-> > +                               pins =3D "PG12", "PG13";
-> > +                               function =3D "i2s1";
-> > +                       };
-> > +
-> > +                       /omit-if-no-ref/
-> > +                       i2s1_din_pins: i2s1-din-pins {
-> > +                               pins =3D "PG14";
-> > +                               function =3D "i2s1_din";
-> > +                       };
-> > +
-> > +                       /omit-if-no-ref/
-> > +                       i2s1_dout_pins: i2s1-dout-pins {
-> > +                               pins =3D "PG15";
-> > +                               function =3D "i2s1_dout";
-> > +                       };
-> > +
-> >=20
-> >                         /omit-if-no-ref/
-> >                         lcd_rgb666_pins: lcd-rgb666-pins {
-> >                        =20
-> >                                 pins =3D "PD0", "PD1", "PD2", "PD3", "P=
-D4",
-> >                                 "PD5",
-> >=20
-> > @@ -126,6 +156,12 @@ spi0_pins: spi0-pins {
-> >=20
-> >                                 function =3D "spi0";
-> >                        =20
-> >                         };
-> >=20
-> > +                       /omit-if-no-ref/
-> > +                       spi1_pins: spi1-pins {
-> > +                               pins =3D "PD10", "PD11", "PD12", "PD13",
-> > "PD14", "PD15";
-> Could you split out the WP and HOLD pins as separate nodes. They aren't
-> strictly needed for SPI, and folks might have designs that use the two
-> pins for other purposes.
->=20
-Sure. Do you want them as seperate ones, or is "spi1_hold_wp_pins" fine?
->=20
-> Thanks
-> ChenYu
->=20
-> > +                               function =3D "spi1";
-> > +                       };
-> > +
-> >=20
-> >                         /omit-if-no-ref/
-> >                         uart1_pg6_pins: uart1-pg6-pins {
-> >                        =20
-> >                                 pins =3D "PG6", "PG7";
-> >=20
-> > --
-> > 2.39.5
+It varies per subsystem. For netdev there is a clear rule to wait 24
+hours. For other subsystems, it might not be documented. GregKH used
+to say he would always respond within 2 weeks for USB patches. To some
+extent, you just need to see how fast each Maintainer works, and
+resubmit based on that.
 
+Also, if there is a discussion going on, you need to wait for that
+discussion to come to some sort of conclusion before reposting a new
+version.
 
---nextPart2440550.NG923GbCHz
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEPv6dcBmn59ssZMkSJnN+drMVRtgFAmhtSdQACgkQJnN+drMV
-Rtg4KAf9EVLKK7Fj2AIGp+nnuZ4ruR8JzYCN3oLuyUWUifIWvCkBMjPZpW/H0A88
-cxYL5e2fNcxc8qNDCEZWuqMLXDMqlfmwnUluIbSNCERK8lhdHu8X+5WE9/3S+FVi
-pnfm/gzL6aL07i1NdY/qTbJRa8zp5rFUmKUD+yWYAJBG+rHbnX0znNSvmy7Cwkqh
-1cEXCgee3dOHgznWHSNecnGBd1ICGzIo/IlBFQimeBaCwPJN1BJfUoAnU39RQDd1
-6PeaoU00Sx8LfCkXeGExjkJmjxNs+cdTVnV8YnR4Gi6rLyVx0QshZMC+Bsd3i/1f
-OVNr7M98Z7d1krM+RFY5oqry49Gsrg==
-=XHV/
------END PGP SIGNATURE-----
-
---nextPart2440550.NG923GbCHz--
-
-
-
-
+	Andrew
 
