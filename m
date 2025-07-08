@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80AAC83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 12:30:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAE6C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 12:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rp56DHgQi9XN3i0LEDzYAoCZSiBnN1Rn4E3S+pjit7M=; b=huWQul+6xNBLyaCWob5EgjhbVi
-	K3SA8TvmwckwzTc1lx5EhxgEtHs9eyaRyX4lucNcpXckz5SPpcsz8yIdGtK0aGZVcHMKGuUQSdM6s
-	D3ggD0w6f89OBMiy9uWQHyfuWGQTJ+IdYLZJjgy85vKFm+NZaHRxaTp1//7hiMap+GeFL8BiBO+H7
-	jOdmjBcwPWM47DanvWeGYaScfIxPJJtSvdiSKBb32oaUvzJyZbTLDt4B/BMc0dam/LBLahS0DIgLy
-	UG9U2ZE4H/1X5PqLWj5iF5eIXwN0L8Pc+XSEfuGUEEQJd2n1cA5mpNkbEQ5Yne5rBkODj+r6JowCt
-	t3rN3sYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hZcur9LFX7t+/N/sA1BFuyxXZXMoxqY/UWKGMT3WEt8=; b=sQp80z43iPRQhBtkJ/l8eQZUCj
+	1VAM+V5vAMnEDr2zOBrPX5E5OEs57X6+XJzqfAbROTS36widdoz6FIVR9JhZ3NqRFd4J98TEPuZJ0
+	gGSUrgZmnxucSxsu3Ug/qRm06pQ4i+oKu51nRl8BvI7cIsCD/AEuU9q6Y2vl9wyXAeJa1R91yoOFG
+	U8b0j46IHVN1A1yWEImCdoZcivE1bbHIkgrnGmwT8VH6pEx5wsJPWJQAIznUSpffzSlN6guTCmrLN
+	OmOoBcbSme8dzEkGw4oeBGy/LlahBqqvfwX//Bby4RuC1nduqdkZdLQ0P0AJoEThtb1Q+fywyQ24N
+	nYIwwqPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ7Sb-00000005INT-3oTP;
-	Tue, 08 Jul 2025 12:30:09 +0000
-Received: from mail.fris.de ([116.203.77.234])
+	id 1uZ7dI-00000005JXW-1Cb3;
+	Tue, 08 Jul 2025 12:41:12 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ7PU-00000005Hwr-46tr
+	id 1uZ7aw-00000005J90-3n8e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 12:26:58 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 975D2C74C1;
-	Tue,  8 Jul 2025 14:26:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
-	t=1751977608; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=Rp56DHgQi9XN3i0LEDzYAoCZSiBnN1Rn4E3S+pjit7M=;
-	b=TNRJk09U9t0QZ+9wGXAay+FMGk2pHDadpBKz+mFUBbZ96kue5imLy3YG9iEstvxPpOgAgR
-	mnJLm2VlWrhPPpQm2qbk7Ny+j+guPm5op7yoqsSkauRMg+UYxd5VyNtwTZpIqILcFtGsOd
-	82NHEfCOi9c9QSxd/07vNsreHn4ylPJtQljwyAOot0rTTtVkA5Z+/lGBz4KZQjuS5MWoe2
-	q9QkYUVJSjgnDyYejT7blpVEabjWONQuMfvhAanN0FuU7TAaOlpm/jq+HaRX7GJvbWZAkw
-	UY0Pnzl0NRv9xQsrhbxEFD+OcxnKRMUeA0K8QHotUkDeExATzpZll8jfnb6lPw==
-From: Frieder Schrempf <frieder@fris.de>
-To: linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Fabio Estevam <festevam@gmail.com>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	imx@lists.linux.dev,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Annette Kobou <annette.kobou@kontron.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH] ARM: dts: imx6ul-kontron-bl-common: Fix RTS polarity for RS485 interface
-Date: Tue,  8 Jul 2025 14:24:41 +0200
-Message-ID: <20250708122442.53829-1-frieder@fris.de>
-X-Mailer: git-send-email 2.50.0
+	Tue, 08 Jul 2025 12:38:48 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 568CcZhM1161031;
+	Tue, 8 Jul 2025 07:38:35 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1751978315;
+	bh=hZcur9LFX7t+/N/sA1BFuyxXZXMoxqY/UWKGMT3WEt8=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=R4BY5/bB1MYOCfb7nzslXKSv8ODwHpq33QV0VoFn8g9oYyskPhervTJfunEZt8bug
+	 D92lj8zPjNv0sAItoB3NmTLbNHaw1UgbFA9XuIwdTfyv5Xx5lnKRKKWx3eioEzDCgd
+	 DBDzJydxizX64l6/1vc/iBn+npstKWJULi98yo5o=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 568CcZ2Q1450820
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 8 Jul 2025 07:38:35 -0500
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 8
+ Jul 2025 07:38:35 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 8 Jul 2025 07:38:35 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 568CcZnR1776084;
+	Tue, 8 Jul 2025 07:38:35 -0500
+Date: Tue, 8 Jul 2025 07:38:35 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+CC: Neha Malcom Francis <n-francis@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+Subject: Re: [PATCH v4 0/2] Add support for K3 BIST
+Message-ID: <20250708123835.x6sedlift3xljzvh@scabbed>
+References: <20250605063506.2005637-1-n-francis@ti.com>
+ <2e397dbf-ac5c-49d3-8176-2022450bf0e2@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <2e397dbf-ac5c-49d3-8176-2022450bf0e2@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_052657_442651_882CEE20 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250708_053847_030298_C881199A 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +85,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Annette Kobou <annette.kobou@kontron.de>
+On 09:40-20250626, Vignesh Raghavendra wrote:
+> 
+> 
+> On 05/06/25 12:05, Neha Malcom Francis wrote:
+> > BIST (Built-In Self Test) is an IP responsible for triggering hardware
+> > circuitry tests on both logic as well as memory blocks. This driver is
+> > currently being upstreamed in U-Boot [1] (on hold till the dt-binding
+> > is approved here) and triggers these tests on cores. This patch series
+> > adds the dt-binding as well as a node for BIST on J784S4 and J742S2.
+> > 
+> > Changes since v3:
+> > https://lore.kernel.org/all/20250514072056.639346-1-n-francis@ti.com/
+> > - Udit
+> > 	- add support for J742S2
+> > 
+> > Changes since v2:
+> > https://lore.kernel.org/all/20250328111439.374748-1-n-francis@ti.com/
+> > - Krzysztof
+> > 	- use existing common definition (ti,sci-dev-id) for grabbing
+> > 	  the device ID instead of redefining properties
+> > 
+> > Changes since v1:
+> > https://lore.kernel.org/all/20241128140825.263216-1-n-francis@ti.com/
+> > - Krzysztof
+> > 	- move from misc/ to soc/ti/
+> > 	- minor property changes
+> > 	- drop ti,bist-instance and instead opt for ti,bist-under-test
+> > 	- correct example dt
+> > 
+> > [1] https://lore.kernel.org/all/20250204123147.939917-1-n-francis@ti.com/
+> > 
+> > Neha Malcom Francis (2):
+> >   dt-bindings: soc: ti: bist: Add BIST for K3 devices
+> >   arm64: dts: ti: k3-j784s4-j742s2-main-common: Add PBIST_14 node
+> > 
+> >  .../bindings/soc/ti/ti,j784s4-bist.yaml       | 63 +++++++++++++++++++
+> >  .../dts/ti/k3-j784s4-j742s2-main-common.dtsi  | 11 ++++
+> >  2 files changed, 74 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/soc/ti/ti,j784s4-bist.yaml
+> > 
+> 
+> 
+> Nishanth,
+> 
+> Ok to take the dt-bindings via ti-k3-dts-next branch? Or would you
+> prefer to queue bindings and DT changes separately?
 
-The polarity of the DE signal of the transceiver is active-high for
-sending. Therefore rs485-rts-active-low is wrong and needs to be
-removed to make RS485 transmissions work.
+The ti-k3-dts-next should be fine here. I dont seem to have anything to
+queue on the soc driver this time around..
 
-Signed-off-by: Annette Kobou <annette.kobou@kontron.de>
-Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
-Fixes: 1ea4b76cdfde ("ARM: dts: imx6ul-kontron-n6310: Add Kontron i.MX6UL N6310 SoM and boards")
----
- arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
-index 29d2f86d5e34a..f4c45e964daf8 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-bl-common.dtsi
-@@ -168,7 +168,6 @@ &uart2 {
- 	pinctrl-0 = <&pinctrl_uart2>;
- 	linux,rs485-enabled-at-boot-time;
- 	rs485-rx-during-tx;
--	rs485-rts-active-low;
- 	uart-has-rtscts;
- 	status = "okay";
- };
 -- 
-2.50.0
-
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
