@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C9EC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 09:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A33CC83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 09:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZtuXvXAYaLoIlesBBs7sH9sPUnylvYq104PGqKFHcU4=; b=iUGPVAi7CfISZJx3IMNwSUhJX8
-	uNjg5kRRvirVLZ6i+TYAcw3icjUcGeby/7llV2cV6I8AfJPfVjfr1W9gwHxJt2By3gg4qsV65B32W
-	DXMB8BNoaQwDTY4KMMf9szDl7FmJWnKtX1JO0FTIHKBEQll4R2fCDGDrjCPAL7dHNKyT34WEN0TXG
-	wBe0NDHTMOoKIuXmWCroC41YT307IDVWaHxhX96Gq5gg02aCTSzDjQxlEym6N9rE+LEKaPxZ0ffxL
-	Wqp4ZxZR/3M1ift+3i6ZWjyUQatJmE4wzPUC7i2MIHAhc5hD2nH6ymrOH/DJJZNPP8RDoXuUVR/MR
-	uQShZksg==;
+	bh=FHoskmb3DJi/U+ZNZVaudRs269s2afu05qdvCXbp/98=; b=Wtiay5rZuD589FMyBrfnBO+UA9
+	v7ma+qLqsD0ncQ8q0G/nNMQABTajJo98tczmhWso02nLroAbJx7VLZvZy45f/iau+W84laQQqMWM9
+	kj1kJcX2Rr+BPfqx6SFmWs/4uDVCfe/14xK/VXqGymL+BbJYky3xGfXDKU76a3p09MELoxYMWOoFG
+	Blgy0mdapH7PZnTCY78WFBbbDg64wp+FImI7mfO19MFjATc+XhKwATQJQweC61aqSeMbWra4xAgLy
+	w62ZE2v+u4UPOgD9PwHTFjScFNc6sL88WNY1es+3g6fGbbUpP5/IF6X2l/KaQMIrLjkUDsYnTYMW7
+	J2BFdsPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ4Fk-00000004qOF-12yp;
-	Tue, 08 Jul 2025 09:04:40 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uZ4I3-00000004qvo-2G0v;
+	Tue, 08 Jul 2025 09:07:03 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3rN-00000004m2g-0ptL
+	id 1uZ3uy-00000004mWY-02LN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 08:39:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9F8225C62E0;
-	Tue,  8 Jul 2025 08:39:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CADF6C4CEED;
-	Tue,  8 Jul 2025 08:39:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751963968;
-	bh=AgF/cWa8tyl4lX11C1ELXJPj6/yeF0Nvjn6w56HxM2I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X1elsLSuTAVqQrj4csDgKcoib/rCgA+uxml22fkkRBDTABgwtDHHkCGH087jr0DMB
-	 CON6nvJ/lBgoCgdpXcz8MBqAfSOPEKm9HgkDb8BNyJkboISFMTgQG54ZWCWM1/nIeo
-	 qXc/FocCcUTyWjhMMP56VDYnY1azjS+LVwcy/0KM0WjXD4R+hGtQXcjfTYsnlZM3IH
-	 dm1cUvymqd++wfoTLvyfs9rQvNqTrGG4lrUuHMF696FG4IBAWDMKgSC0n5Rdt+ihyH
-	 82mYO8brI+We01pcfyRzLJywrk2oU7lwdx7KKMofCRbOXwuaWFy+b+U6si7PogTJWH
-	 cnhEpuEavWN7A==
-Date: Tue, 8 Jul 2025 10:39:25 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Stuart Burtner <sburtner@d3embedded.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Spencer Hill <shill@d3engineering.com>, Sebastian LaVine <slavine@d3engineering.com>
-Subject: Re: [PATCH 1/2] media: dt-bindings: Add Sony IMX728
-Message-ID: <20250708-kiwi-of-delightful-wholeness-cc90ea@krzk-bin>
-References: <20250625-imx728-on-6-12-v4-v1-0-cfc6e18c3e23@d3embedded.com>
- <20250625-imx728-on-6-12-v4-v1-1-cfc6e18c3e23@d3embedded.com>
+	Tue, 08 Jul 2025 08:43:13 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5688h8tI1106667;
+	Tue, 8 Jul 2025 03:43:08 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1751964188;
+	bh=FHoskmb3DJi/U+ZNZVaudRs269s2afu05qdvCXbp/98=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=r1h2RNfAF3W+Ma8ZSvs0rYCduqebd6AnNa+OCgQAadtdGwteQ+/JcCsPIQEphdTYf
+	 dQxnFmkQlCH/dRlEUxZXvxrOsbz+A2/KP3ZckbkYIWfDrNdQ4Y0rE+q2dUQnbQlAuS
+	 dGzZfBOttSZ6t2ekL/i5tDQLl6A1JtRM2d4B+pfc=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5688h87g1287333
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 8 Jul 2025 03:43:08 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 8
+ Jul 2025 03:43:07 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 8 Jul 2025 03:43:07 -0500
+Received: from localhost (chintan-thinkstation-p360-tower.dhcp.ti.com [172.24.227.220])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5688h7T01768216;
+	Tue, 8 Jul 2025 03:43:07 -0500
+From: Chintan Vankar <c-vankar@ti.com>
+To: Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, Tero Kristo
+	<kristo@kernel.org>,
+        Vignesh Raghavendra <vigneshr@ti.com>, Nishanth Menon
+	<nm@ti.com>,
+        <c-vankar@ti.com>
+CC: <s-vadapalli@ti.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Roger
+ Quadros <rogerq@kernel.org>
+Subject: [PATCH v5 2/4] arm64: dts: ti: k3-am62p5-sk: Add bootph-all property to enable Ethernet boot
+Date: Tue, 8 Jul 2025 14:12:50 +0530
+Message-ID: <20250708084252.1028191-3-c-vankar@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250708084252.1028191-1-c-vankar@ti.com>
+References: <20250708084252.1028191-1-c-vankar@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250625-imx728-on-6-12-v4-v1-1-cfc6e18c3e23@d3embedded.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_013929_269277_C9F0025F 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20250708_014312_220548_ADDA17D9 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +92,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 25, 2025 at 02:20:03PM -0400, Stuart Burtner wrote:
-> Add bindings for the Sony IMX728.
-> 
-> Co-developed-by: Spencer Hill <shill@d3engineering.com>
-> Signed-off-by: Spencer Hill <shill@d3engineering.com>
-> Co-developed-by: Sebastian LaVine <slavine@d3engineering.com>
-> Signed-off-by: Sebastian LaVine <slavine@d3engineering.com>
-> Signed-off-by: Stuart Burtner <sburtner@d3embedded.com>
-> ---
->  .../devicetree/bindings/media/i2c/sony,imx728.yaml | 95 ++++++++++++++++++++++
->  MAINTAINERS                                        |  6 ++
->  2 files changed, 101 insertions(+)
+Ethernet boot requires CPSW nodes to be present starting from R5 SPL
+stage. Add bootph-all property to required nodes to enable Ethernet boot
+for AM62P5-SK.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Roger Quadros <rogerq@kernel.org>
+Signed-off-by: Chintan Vankar <c-vankar@ti.com>
+---
 
-<form letter>
-This is an automated instruction, just in case, because many review
-tags are being ignored. If you know the process, just skip it entirely
-(please do not feel offended by me posting it here - no bad intentions
-intended, no patronizing, I just want to avoid wasted efforts). If you
-do not know the process, here is a short explanation:
+Changes from v4 to v5:
+- Split [PATCH v4 2/2] to [PATCH v5 2/4] and [PATCH v5 3/4].
+- Added properties to board specific files.
 
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions of patchset, under or above your Signed-off-by tag, unless
-patch changed significantly (e.g. new properties added to the DT
-bindings). Tag is "received", when provided in a message replied to you
-on the mailing list. Tools like b4 can help here ('b4 trailers -u ...').
-However, there's no need to repost patches *only* to add the tags. The
-upstream maintainer will do that for tags received on the version they
-apply.
+Link to v4:
+https://lore.kernel.org/r/20250429072644.2400295-3-c-vankar@ti.com/
 
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/process/submitting-patches.rst#L591
-</form letter>
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+index 83c37de7d338..58be0f5d8702 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+@@ -214,6 +214,10 @@ sound_master: simple-audio-card,codec {
+ 	};
+ };
+ 
++&phy_gmii_sel {
++	bootph-all;
++};
++
+ &main_gpio0 {
+ 	bootph-all;
+ };
+@@ -267,6 +271,7 @@ main_mdio1_pins_default: main-mdio1-default-pins {
+ 			AM62PX_IOPAD(0x0160, PIN_OUTPUT, 0) /* (F17) MDIO0_MDC */
+ 			AM62PX_IOPAD(0x015c, PIN_INPUT, 0) /* (F16) MDIO0_MDIO */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	main_mmc1_pins_default: main-mmc1-default-pins {
+@@ -547,6 +552,7 @@ &cpsw_port1 {
+ 	phy-mode = "rgmii-rxid";
+ 	phy-handle = <&cpsw3g_phy0>;
+ 	status = "okay";
++	bootph-all;
+ };
+ 
+ &cpsw_port2 {
+@@ -562,6 +568,7 @@ &cpsw3g_mdio {
+ 
+ 	cpsw3g_phy0: ethernet-phy@0 {
+ 		reg = <0>;
++		bootph-all;
+ 		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+ 		ti,min-output-impedance;
+-- 
+2.34.1
 
 
