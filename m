@@ -4,57 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827E6C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 10:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA46C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 10:08:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gYsOmVCrkNRoREOOjbb2rRRmP/C/3L8xBNtyBGbEt5M=; b=PV22HDcB1kneJsiaIvBAoqsZWh
-	GBtFFQEYw75mGR/6Uuvrl13tDJe7uuJMc06Z6dKw2pIq3suSqcJfrUNzC5RMEIp01L3YJhHLG/CNA
-	0hbQNCK0dKRcM8F/ochDI9Sf8OwsFWguVQN03rXlxBRi1C/UTJ+6Awa4XEuu0QNmcHy32rPJOV0PX
-	zwV2aP7I9ETjygTyOB2wPAYxhO7sB6CwZlg2gUJLtricNzaTCjP8sBGJKDe77asHqI17eUtaon/cj
-	hmGodiIDIQSPNrkICKNC7NcS0YgTTVxIeSr2tZWlE6eKOBn8YDnpUXFvmEubZ6QHTHh6jEhjlq2DF
-	hibJ1QEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KgLEZtKjfCZPU/vuFOaJdsQTvPNtzfU3TQzb28fbE9U=; b=uWCgISvVxtn77fCeNqBkII4LvR
+	pWArsQN3pXeTTzkgk/CUSdX0c7N2E8HYvPkOoI5w5IKDkm/eH+myOq1mPI9G+teC0R4uN9g8QNhdW
+	bOg2NdKz7iuWvBpnitrHLM+rgzGiC33fEHZhEyAlAfeRZeJqf5vREAaD2JDPWCle7gTbD9YsdKwSr
+	Rc8pnHSVkqFOwEv5JdhjuCcJoj+LXSD5EONQDDSZcOAQ9sMe4rBmSmPwlPdESAfUbrMV5VGVPwbbL
+	yQChrcQYJZUkADHuQcxBesmh75gbd6hXaTpOapdHaE7gZ118TxhArQiNgv2xvgEij4/H/U4NaWsyZ
+	UkczeIOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ5DN-000000050mm-1uSU;
-	Tue, 08 Jul 2025 10:06:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ4q2-00000004v4i-2Srm
+	id 1uZ5Fg-000000051Lr-1ba7;
+	Tue, 08 Jul 2025 10:08:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZ4te-00000004vQj-2bP8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 09:42:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59DDF153B;
-	Tue,  8 Jul 2025 02:41:57 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB3413F77D;
-	Tue,  8 Jul 2025 02:42:07 -0700 (PDT)
-Message-ID: <03a76e9a-86ac-4791-9f0a-494b28c07fcc@arm.com>
-Date: Tue, 8 Jul 2025 10:42:06 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] bitfield: Ensure the return value of
- type##_replace_bits() is checked
-To: Yury Norov <yury.norov@gmail.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
- oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
- yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux@rasmusvillemoes.dk,
- linux-kernel@vger.kernel.org, james.morse@arm.com
+	Tue, 08 Jul 2025 09:45:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 14CD45C4668;
+	Tue,  8 Jul 2025 09:45:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B543BC4CEED;
+	Tue,  8 Jul 2025 09:45:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751967953;
+	bh=AZAx/SltGk9pKwFXcrvSdtkd/H9XzQsZMgsKKBr+qU8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DToQVbtfXKIHDKSnMySm5mj5DSPOv20/rvy9ocynafpbCBVOSW8wTh1Q+/9uXB45k
+	 3nhxcpaZ/O0inn06UmnecYO8WSW2mQM9ktiwCDOwIdRLXjCW9vM/w8H5m0KXPy9jPH
+	 zCRZQSfNMqE2xlMoXjncy9M0ruUukipp8ofy2RpdzZekcmFHm41BqRvdYPx/kTB47A
+	 3E1V8j3f6WL15nfmGsX4IMNeP5lP7P+0/wKcJehoKST6lxczACq9KKdbgxY+VatMNQ
+	 Nr0TkTidFMY/q33YVGPU1rzA9FUca83CSAx/67LuKrE9z9iygYLWi1UenAfBTKMGGi
+	 cjeEHiZw4oaqw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uZ4tb-00DhrB-0W;
+	Tue, 08 Jul 2025 10:45:51 +0100
+Date: Tue, 08 Jul 2025 10:45:50 +0100
+Message-ID: <86tt3n9fsh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: Yury Norov <yury.norov@gmail.com>,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux@rasmusvillemoes.dk,
+	linux-kernel@vger.kernel.org,
+	james.morse@arm.com
+Subject: Re: [PATCH 2/2] bitfield: Ensure the return value of type##_replace_bits() is checked
+In-Reply-To: <03a76e9a-86ac-4791-9f0a-494b28c07fcc@arm.com>
 References: <20250703135729.1807517-1-ben.horgan@arm.com>
- <20250703135729.1807517-3-ben.horgan@arm.com> <aGv2WoAtxnEgqV4y@yury>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <aGv2WoAtxnEgqV4y@yury>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	<20250703135729.1807517-3-ben.horgan@arm.com>
+	<aGv2WoAtxnEgqV4y@yury>
+	<03a76e9a-86ac-4791-9f0a-494b28c07fcc@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, yury.norov@gmail.com, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux@rasmusvillemoes.dk, linux-kernel@vger.kernel.org, james.morse@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_024210_672365_127423DE 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20250708_024554_733762_8141794C 
+X-CRM114-Status: GOOD (  29.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,53 +96,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yury,
+On Tue, 08 Jul 2025 10:42:06 +0100,
+Ben Horgan <ben.horgan@arm.com> wrote:
+> 
+> Hi Yury,
+> 
+> On 7/7/25 17:31, Yury Norov wrote:
+> > Hi Ben,
+> > 
+> > On Thu, Jul 03, 2025 at 02:57:29PM +0100, Ben Horgan wrote:
+> >> As type##_replace_bits() has no side effects it is only useful if its
+> >> return value is checked. Add __must_check to enforce this usage. To have
+> >> the bits replaced in-place typep##_replace_bits() can be used instead.
+> >> 
+> >> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> >> ---
+> >>   include/linux/bitfield.h | 4 ++--
+> >>   1 file changed, 2 insertions(+), 2 deletions(-)
+> >> 
+> >> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
+> >> index 6d9a53db54b6..39333b80d22b 100644
+> >> --- a/include/linux/bitfield.h
+> >> +++ b/include/linux/bitfield.h
+> >> @@ -195,8 +195,8 @@ static __always_inline __##type type##_encode_bits(base v, base field)	\
+> >>   		__field_overflow();					\
+> >>   	return to((v & field_mask(field)) * field_multiplier(field));	\
+> >>   }									\
+> >> -static __always_inline __##type type##_replace_bits(__##type old,	\
+> >> -					base val, base field)		\
+> >> +static __always_inline __##type __must_check type##_replace_bits(__##type old,	\
+> >> +							base val, base field)	\
+> >>   {									\
+> >>   	return (old & ~to(field)) | type##_encode_bits(val, field);	\
+> >>   }									\
+> > 
+> > So, would it make sense to mark _encode_bits() and _get_bits() as
+> > __must_check as well? At least from the point of unification, it
+> > would.
+> Could do. It seems less important as there are no obvious foot-guns
+> that these would guards against. Would you like me to add this in a
+> v2?
+> > 
+> > How would we move this - with my bitmap-for next or with arm branch?
+> 
+> I'm not familiar with the branch machinery so can't comment on this.
 
-On 7/7/25 17:31, Yury Norov wrote:
-> Hi Ben,
-> 
-> On Thu, Jul 03, 2025 at 02:57:29PM +0100, Ben Horgan wrote:
->> As type##_replace_bits() has no side effects it is only useful if its
->> return value is checked. Add __must_check to enforce this usage. To have
->> the bits replaced in-place typep##_replace_bits() can be used instead.
->>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->>   include/linux/bitfield.h | 4 ++--
->>   1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
->> index 6d9a53db54b6..39333b80d22b 100644
->> --- a/include/linux/bitfield.h
->> +++ b/include/linux/bitfield.h
->> @@ -195,8 +195,8 @@ static __always_inline __##type type##_encode_bits(base v, base field)	\
->>   		__field_overflow();					\
->>   	return to((v & field_mask(field)) * field_multiplier(field));	\
->>   }									\
->> -static __always_inline __##type type##_replace_bits(__##type old,	\
->> -					base val, base field)		\
->> +static __always_inline __##type __must_check type##_replace_bits(__##type old,	\
->> +							base val, base field)	\
->>   {									\
->>   	return (old & ~to(field)) | type##_encode_bits(val, field);	\
->>   }									\
-> 
-> So, would it make sense to mark _encode_bits() and _get_bits() as
-> __must_check as well? At least from the point of unification, it
-> would.
-Could do. It seems less important as there are no obvious foot-guns that 
-these would guards against. Would you like me to add this in a v2?
-> 
-> How would we move this - with my bitmap-for next or with arm branch?
-
-I'm not familiar with the branch machinery so can't comment on this.
-> 
-> Thanks,
-> Yury
-> 
+The first patch will definitely go in via the KVM/arm64 tree, probably
+as a fix for 6.16.
 
 Thanks,
 
-Ben
+	M.
 
+-- 
+Without deviation from the norm, progress is not possible.
 
