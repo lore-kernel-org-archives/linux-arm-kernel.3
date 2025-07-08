@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8449C83F15
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 19:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661C8C83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 19:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UsrAewYdxCOw7meyNu9Dxfatxc14gQYGLBU0rmsxSXI=; b=Sx5YdW2KBCq7JmHsHkcyJBel7h
-	C/3om/JsnhjQRI3gaM4fbFDQ7fSa2hMBAjxnkFtSYBwJYZvISjii/ElatYK1Dk0TNzDWqW/us8uD6
-	7EtQIDKUHyhf81Dz6jbGY0NP2tuNnyqmhodPGZ7F0NyW3glsX2nRxXHeHiHJHaOz7bVAhi86s/58l
-	0Hp0PL7hc/4XfF/BT53Eqd+MfDa7cjZdWF+/ZG8tFaM9GQlvC5y6efpVQOlS6ZLYX6fDiQKeslk6D
-	gmXtpPkssqaU1+/dAbWPOjjREpUtm/GxUvCxHlBKxJLssvZ1XhzoyjfVea7NspQikLES/7d4n/vIk
-	K49SajNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rzBPjq7zJ/E4WWNdaVu+VzaEbNExyKV4C2BkFHWH5JM=; b=4OJc7SWItcWGD3XmX7vMaC7pg3
+	c9ICewRbtCKwt2AD6YXZ4kA5RKZtztwkX1RnsLkchzNBEWsBFhs29LxFeRQgRccTly4UMHmsoCZXR
+	PnSw67Dg+WBT38v7Xz0lxNYyaSBU04DzBlypmiWBJDm7CSCUhqWZMNWoqYHUZtkhC6GNMOVcN/4xu
+	pNjbZKLZTd3YIk0Pn1KLleeuykazi6zEXhRP7kLdESgOYPFw5grvLig0ANwRFg4v2fOPPCAiAl0Tc
+	GHCJumXA+5mLQdX7WTpLsmhn8B43TVqRMaQ73/2a3DFnRcqe6YjkupQDZAfylHtaGCFOHGn5v0CBa
+	4/bFii7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZEAM-00000006Mzi-0ju5;
-	Tue, 08 Jul 2025 19:39:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uZEAP-00000006N8Z-3PnH;
+	Tue, 08 Jul 2025 19:39:49 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZCER-000000068FZ-43uK;
-	Tue, 08 Jul 2025 17:35:51 +0000
+	id 1uZCIz-0000000696G-2OXS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Jul 2025 17:40:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UsrAewYdxCOw7meyNu9Dxfatxc14gQYGLBU0rmsxSXI=; b=Lynv3Frf3rBtms2npWzUUIn9vw
-	LhSsoTH9A+tcJHmikDww3CC/Bhf9a4M4Xi2oUW6VqQC4l9NW6hJMke3e3ZpEiRCmU7+S6iI+8vsd3
-	w1keFK0/i5YgGCC/XbHwBkMOJije0KBENdY48BmCKM4/iL/xZFNBy+SeZSMom/mXJPDXPqacT51uK
-	olVFgNLpwusp6PuRPqTw8gIs4kOpVcVL8ciszBPdXipVSbLnmxdCi7CXMbZrJ+84kOwROPgpgzvWg
-	iIokxtFxKlNct/rPUUt+QSEhA6VfSp/wIa9Vspc+rgYO8etZObd1GybLLykrKCEcqLz0ry4SRV0+I
-	p3V44KlA==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZCEP-00000008lhB-00bF;
-	Tue, 08 Jul 2025 17:35:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=UsrAewYdxCOw7meyNu9Dxfatxc14gQYGLBU0rmsxSXI=; b=wvUWkg3FkW0jkJVolAjco2fGUu
-	e2sbQ0rIKJLerF6maTBPwGeip1j6T7f2pvNpS90enolEnhNMCBIHkMjFGj1ZLGKPG67FOBOFGRfOS
-	VHnjeAtbkAH0u1KKj//tyRfM+vb2aEov6XExzXwOfeqeEbOJ3v77ajzGvhPCLtoKKi39mxK5+0MPJ
-	ayP8CGHSIslNeZUtFZ+q1I01UXdxx34uWs3ETy738UirGof9X323x8y6VcnB1jpDcd89j/9DHoMc+
-	sLXRU6N4rO0TtHjL1ve2JLWn0AmxqKMJ0MLZyP0B/RuB9KZz2qx2sB0nz/soxYk0zjhIS3iSbojIy
-	RfWQC2Kg==;
-Received: from i53875a8d.versanet.de ([83.135.90.141] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uZCE7-0005cC-6g; Tue, 08 Jul 2025 19:35:31 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Chaoyi Chen <kernel@airkyi.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: Re: [PATCH v4] drm/rockchip: cdn-dp: Convert to drm bridge
-Date: Tue,  8 Jul 2025 19:35:16 +0200
-Message-ID: <175199006057.1731917.377817003707865970.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250529071334.441-1-kernel@airkyi.com>
-References: <20250529071334.441-1-kernel@airkyi.com>
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rzBPjq7zJ/E4WWNdaVu+VzaEbNExyKV4C2BkFHWH5JM=; b=vgUKd8v++Eqkxpg6mZRw6MBhUs
+	L6B0/4PxzDGgU3aatVWOahA8IabF7XTcbn54qC5w0KfxKVHMEx6UT45rPfIXoM68b5HIzawTXC3Wn
+	IY+4vJFuwmsqlGuSP8twmV2XkJH8rnJg1vrr0W4AfqULD9obkLggL0RfSexdLwHHLyJg8vro3/A34
+	rSDwrKVBx4FMZ9Es4iFaZtg9q6qEU4jk7yPGm4tLCEDcZnNWTS4TWEI5tUDmJW2wTYc+xXXg29AKY
+	8t9zgN2X4OVHXC5W4zeYXzKxwdp9BNVktd58g0dHu0E4YA5/SgPAgoBvH6HCRIlyzN5DuQeZYcJ+x
+	YvrFdBRw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35708)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uZCIf-0006vc-11;
+	Tue, 08 Jul 2025 18:40:13 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uZCIY-0001nm-3D;
+	Tue, 08 Jul 2025 18:40:07 +0100
+Date: Tue, 8 Jul 2025 18:40:06 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Lizhe <sensor1010@163.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, vladimir.oltean@nxp.com,
+	maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] net: stmmac: Support gpio high-level reset for devices
+ requiring it
+Message-ID: <aG1X9pPYDGO8kfM9@shell.armlinux.org.uk>
+References: <20250708165044.3923-1-sensor1010@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250708165044.3923-1-sensor1010@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_183549_259721_AE637447 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20250708_104033_611716_FD9C16F8 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,28 +83,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 29 May 2025 15:13:34 +0800, Chaoyi Chen wrote:
-> Convert it to drm bridge driver, it will be convenient for us to
-> migrate the connector part to the display driver later.
-> Considering that some code depend on the connector, the following
-> changes have been made:
-> - Only process edid in &drm_bridge_funcs.edid_read(), so no need to
-> store additional edid info.
-> - Now cdn_dp_get_sink_capability() only focused on reading DPCD_REV.
-> - Update bpc info in cdn_dp_bridge_atomic_enable() instead of
-> cdn_dp_encoder_mode_set(). Actually, the bpc data will be used in
-> cdn_dp_bridge_atomic_enable().
-> - Switch to use DRM_BRIDGE_OP_DP_AUDIO helpers.
+On Tue, Jul 08, 2025 at 09:50:44AM -0700, Lizhe wrote:
+> some devices only reset when the GPIO is at a high level, but the
+> current function lacks support for such devices. add high-level
+> reset functionality to the function to support devices that require
+> high-level triggering for reset
 > 
-> [...]
+> Signed-off-by: Lizhe <sensor1010@163.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> index 836f2848dfeb..cb989e6d7eac 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> @@ -458,6 +458,7 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>  
+>  #ifdef CONFIG_OF
+>  	if (priv->device->of_node) {
+> +		int active_low = 0;
+>  		struct gpio_desc *reset_gpio;
+>  		u32 delays[3] = { 0, 0, 0 };
+>  
+> @@ -467,6 +468,9 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>  		if (IS_ERR(reset_gpio))
+>  			return PTR_ERR(reset_gpio);
+>  
+> +		if (reset_gpio)
+> +			active_low = gpiod_is_active_low(reset_gpio);
+> +
+>  		device_property_read_u32_array(priv->device,
+>  					       "snps,reset-delays-us",
+>  					       delays, ARRAY_SIZE(delays));
+> @@ -474,11 +478,11 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>  		if (delays[0])
+>  			msleep(DIV_ROUND_UP(delays[0], 1000));
+>  
+> -		gpiod_set_value_cansleep(reset_gpio, 1);
+> +		gpiod_set_value_cansleep(reset_gpio, active_low ? 1 : 0);
+>  		if (delays[1])
+>  			msleep(DIV_ROUND_UP(delays[1], 1000));
+>  
+> -		gpiod_set_value_cansleep(reset_gpio, 0);
+> +		gpiod_set_value_cansleep(reset_gpio, active_low ? 0 : 1);
+>  		if (delays[2])
+>  			msleep(DIV_ROUND_UP(delays[2], 1000));
+>  	}
 
-Applied, thanks!
+NAK. Not required. The GPIO layer can cope with active-high and
+active-low signals declared in firmware without needing driver
+modification. Use the right data in the firmware and you don't
+need to patch.
 
-[1/1] drm/rockchip: cdn-dp: Convert to drm bridge
-      commit: afbbca25d06e2d361016da43dbb90f3a6034913b
+/* Bit 0 express polarity */
+#define GPIO_ACTIVE_HIGH 0
+#define GPIO_ACTIVE_LOW 1
 
-Best regards,
 -- 
-Heiko Stuebner <heiko@sntech.de>
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
