@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4865AC83030
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 02:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B05C71130
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 02:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=22aHBNm2PspGv0EtsJjFnQgJ+VWdLmQz4v9JsyG/8T0=; b=uNhS4dXFDkOYMcZECdMUEqOiD2
-	HESisCxqmhH+EY+1s0kHyxPNiVY0e1AhH9Rwevl9yUEazrXoYjYgYarO6B1tbFAhwpZrRivX9VPUD
-	lJQlWqtrfr5ROMOqi7hOBM/mnlpA/W9rxH4eIX6jrxTP4CYTh2NcpYxP4jn2v6lpXRrVlv76r9hCS
-	xEFxrwRnJkDwmVm3bvh/9SaLL5+vHAJFG04lsmal8tYSVgVTjRX7/oTuTfslb1U6sSauMrsEsKYyE
-	uPgUyL1cZ5kQFupxZ7G6EyQriX50WrFv43Gi+5XCFpW3rr2AMeY0CXTUcbcH6Jzk/wax67e26Q1aY
-	4s0ICF6g==;
+	bh=kN2rGg2gNBfzoLzarmFrc1jj2Kw72Baij/wc1vu6ems=; b=ML0xWSvMw+RyRJwC3zXcFuAzCl
+	fT0bfe2N29m2Vy8okHDsNNZUIOP5UHD9AIfXlJUpgqR0+V0q6Ae84s4I7tvr31e2j8zdn9FpRW386
+	lamYCDB5LIp9GJkM++5pyQMPMxWMPFYTbvTW6iZ+5jZ3QPRaXBPgeSsQX7ONaDBNNYU52mQEH4n45
+	zheT/Ew0yfKy04grX66HLmomKB9GNugN/3osVxd4GtIKZHEsCieMoDf4MXW6/yy+VkuZUob+wND0c
+	M1WP0Vg/gGUnIbofb3pEX8uFpN5rvWBd73Vk+IqL+r1j+jsjZlGBYCTumnhOyRIIA6M5ZADuhQuvB
+	QUjPr59g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYxsN-0000000442a-0nbk;
-	Tue, 08 Jul 2025 02:16:07 +0000
+	id 1uYxue-000000044IR-3uRk;
+	Tue, 08 Jul 2025 02:18:28 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYxja-000000042Mc-13Tz
+	id 1uYxk8-000000042UU-1GZH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 02:07:03 +0000
+	Tue, 08 Jul 2025 02:07:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1751940420;
-	bh=22aHBNm2PspGv0EtsJjFnQgJ+VWdLmQz4v9JsyG/8T0=;
+	d=codeconstruct.com.au; s=2022a; t=1751940454;
+	bh=kN2rGg2gNBfzoLzarmFrc1jj2Kw72Baij/wc1vu6ems=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=HrxfvQZMQqxlV3pXxRhc8vFKhJqUddUqywz7ltue+x0o9avwg4/C/7Tyu2+x8F4+Y
-	 uLSwX3Soo59Ol+gx+Sl2/YWPD0VqA1iXFh89OzNL3I1wZd2G6Iyza4EkoQDnZNhw71
-	 CPF4OhNGGJJno0BrvTmasL+ExIxwNKGS1rNFAV459k2bOlMBvkBQZbUEV/Em19/nnr
-	 2IBpFcdfreG7UHRahfoXaFWMAYJ8NcTW97QpghRjVsMZuaC3X54FL6q70XNGsMZJuc
-	 ksk8J/tDPelZVLBHwgMdHzanvSFHN7eikJMJP5P3DqigxlvntjJbs0Q3YgJGoCDOuL
-	 RGiqDY0xEqS3A==
+	b=ha7WJgDe74gsOm+qeUSIHRg1ZoYq42zJfJfEFAdPLWCIehOh1LgUHY3Lu7ki+g3VL
+	 ooAPifuT5592xzW4KaZw5xgMa4XxL+qNaTjlis5u+x1SQvCv4DDgpqdWMbB8KtLLGK
+	 jnio7lHVl0gMqGHN9PhT+nK3TN9DTvVaTuzhQLh/TZCHrD66aSYjhqQ0vG5fLY0Q8E
+	 YvldycIztxQPZQU5Ai8h/1FqPz4xXhaL8KMHFLLk7NMQdUPh82hUvV1Ggv3/9CauXB
+	 05e+Rd10x9SxSsqfmnvkBTmJ111HvMq9x3VTctmTsiKdLUqq6+fjTFHyVQMqwl79va
+	 luKLA74fgVsnQ==
 Received: from [192.168.68.112] (unknown [180.150.112.153])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 08D9A6ADE6;
-	Tue,  8 Jul 2025 10:06:59 +0800 (AWST)
-Message-ID: <6ae95d064de0c1b6333c234e461eae3e8da80168.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v2 09/10] soc: aspeed: lpc-snoop: Consolidate channel
- initialisation
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 148376ADE6;
+	Tue,  8 Jul 2025 10:07:34 +0800 (AWST)
+Message-ID: <24c957d3e63bf6dcd58b0807df79350d4b111926.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v2 10/10] soc: aspeed: lpc-snoop: Lift channel config to
+ const structs
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
 To: Jean Delvare <jdelvare@suse.de>
 Cc: linux-aspeed@lists.ozlabs.org, Joel Stanley <joel@jms.id.au>, Henry
@@ -51,18 +51,18 @@ Cc: linux-aspeed@lists.ozlabs.org, Joel Stanley <joel@jms.id.au>, Henry
  Ninad Palsule <ninad@linux.ibm.com>, Patrick Venture <venture@google.com>, 
  Robert Lippert <roblip@gmail.com>, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Date: Tue, 08 Jul 2025 11:36:59 +0930
-In-Reply-To: <20250704171315.30300f59@endymion>
+Date: Tue, 08 Jul 2025 11:37:33 +0930
+In-Reply-To: <20250704182348.53808e0f@endymion>
 References: <20250616-aspeed-lpc-snoop-fixes-v2-0-3cdd59c934d3@codeconstruct.com.au>
-	 <20250616-aspeed-lpc-snoop-fixes-v2-9-3cdd59c934d3@codeconstruct.com.au>
-	 <20250704171315.30300f59@endymion>
+	 <20250616-aspeed-lpc-snoop-fixes-v2-10-3cdd59c934d3@codeconstruct.com.au>
+	 <20250704182348.53808e0f@endymion>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_190702_478834_FBF4611D 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20250707_190736_546130_16A8D7E9 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +79,120 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Jean,
 
-On Fri, 2025-07-04 at 17:13 +0200, Jean Delvare wrote:
-
+On Fri, 2025-07-04 at 18:23 +0200, Jean Delvare wrote:
 >=20
-> > Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
-> > ---
-> > =C2=A0drivers/soc/aspeed/aspeed-lpc-snoop.c | 51 +++++++++++++++++-----=
--------------
-> > =C2=A01 file changed, 24 insertions(+), 27 deletions(-)
-> >=20
-> > diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed=
-/aspeed-lpc-snoop.c
-> > index 8dbc9d4158b89f23bda340f060d205a29bbb43c3..9f88c5471b1b6d85f6d9e19=
-70240f3d1904d166c 100644
-> > --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> > +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> > @@ -294,12 +294,21 @@ static void aspeed_lpc_disable_snoop(struct aspee=
-d_lpc_snoop *lpc_snoop,
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0kfifo_free(&channel->fi=
-fo);
+> > @@ -189,28 +215,27 @@ static int aspeed_lpc_snoop_config_irq(struct asp=
+eed_lpc_snoop *lpc_snoop,
 > > =C2=A0}
 > > =C2=A0
-> > +static void aspeed_lpc_snoop_remove(struct platform_device *pdev)
-> > +{
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0struct aspeed_lpc_snoop *lpc=
-_snoop =3D dev_get_drvdata(&pdev->dev);
-> > +
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* Disable both snoop channe=
-ls */
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0aspeed_lpc_disable_snoop(lpc=
-_snoop, ASPEED_LPC_SNOOP_INDEX_0);
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0aspeed_lpc_disable_snoop(lpc=
-_snoop, ASPEED_LPC_SNOOP_INDEX_1);
+> > =C2=A0__attribute__((nonnull))
+> > -static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct device *dev,
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enum aspeed_lpc_snoo=
+p_index index, u16 lpc_port)
+> > +static int aspeed_lpc_enable_snoop(struct device *dev,
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct aspeed_=
+lpc_snoop *lpc_snoop,
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct aspeed_=
+lpc_snoop_channel *channel,
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const struct a=
+speed_lpc_snoop_channel_cfg *cfg,
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u16 lpc_port)
+> > =C2=A0{
 >=20
-> For consistency with the probe function, I think it would make sense to
-> use a for loop here as well, instead of hard-coding the channel number
-> to 2. That way, no change will be needed if a future device supports
-> more than 2 channels.
+> I'm confused by this new calling convention. With lpc_snoop and index,
+> you could already retrieve the aspeed_lpc_snoop_channel struct and the
+> aspeed_lpc_snoop_channel_cfg struct. I can't see the benefit of the
+> change.=C2=A0
+>=20
 
-You're right, but for now I'm not bothered by it. I'm going to leave it
-as is, as the motivation for the loop in the probe() path was to
-consolidate the logic required for both channels. This one is an easy
-thing to fix down the track.
+My motivation for this choice was to isolate the association between
+indexes into the arrays to the call-site of aspeed_lpc_enable_snoop(),
+rather than have that information spread through the implementation.
+
+I considered the approaches you outline next before posting v2, so
+while they have their merits as well, I'm going to chalk this one up to
+personal preference on my part.
+
+> It even forces you to add an index field to struct
+> aspeed_lpc_snoop_channel_cfg, which would otherwise not be needed.
+>=20
+> If you prefer to pass cfg instead of index as a parameter, that does
+> not imply passing channel too. You can get the index from the cfg (if
+> you decide to keep it in that struct), and then the channel from index.
+>=20
+> Or you could even pass only the channel (to be consistent with
+> aspeed_lpc_disable_snoop), if you set channel->cfg before calling this
+> function. Again this implies keeping index in struct
+> aspeed_lpc_snoop_channel_cfg.
+
+*snip*
 
 >=20
-> None if this is blocking though, so:
+> > -
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* Enable LPC snoop channel =
+at requested port */
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0regmap_update_bits(lpc_snoop=
+->regmap, HICR5, hicr5_en, hicr5_en);
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0regmap_update_bits(lpc_snoop=
+->regmap, SNPWADR, snpwadr_mask,
+> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 lpc_port << snpwadr_shift);
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0regmap_set_bits(lpc_snoop->r=
+egmap, HICR5, cfg->hicr5_en);
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0regmap_update_bits(lpc_snoop=
+->regmap, SNPWADR, cfg->snpwadr_mask,
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0lpc_port << cfg->snpwadr_shift);
 >=20
-> Acked-by: Jean Delvare <jdelvare@suse.de>
->=20
+> It is a good practice to align the second line on the opening
+> parenthesis of the first line (as was done originally).
 
-Thanks.
+Thanks, I've fixed this up.
+
+*snip*
+
+> > =C2=A0
+> > =C2=A0static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
+> > @@ -339,6 +326,8 @@ static int aspeed_lpc_snoop_probe(struct platform_d=
+evice *pdev)
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (rc)
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0return rc;
+> > =C2=A0
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0static_assert(ARRAY_SIZE(cha=
+nnel_cfgs) =3D=3D ARRAY_SIZE(lpc_snoop->chan),
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0"Broken implementation assumption regarding cfg count"=
+);
+>=20
+> Both also need to be equal to ASPEED_LPC_SNOOP_INDEX_MAX + 1, right?
+> Otherwise the loop below would break. But it turns out that both arrays
+> are now declared that way, so it just has to be true. This makes me
+> believe that this static assert is no longer needed.
+
+My intent was to convey that we require the arrays to be the same
+length, as opposed to being declared such that they happen to have the
+same length. It's a property of the design rather than the
+implementation. All static_assert()s should be obviously true; IMO
+their purpose is to communicate requirements and constrain change.
+
+With the view to getting these patches applied I intend to keep it.
+
+Thanks,
 
 Andrew
 
