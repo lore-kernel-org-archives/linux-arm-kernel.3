@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A4EC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 12:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F8FC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 12:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1XiKzsTfHGw+ABZHRMl7i+j/ZMKzut8Dk2uJa3NzGdY=; b=2VTZMBmW1+xz55hC5jnLuKiGSK
-	Iw0CtST87cn4z5/9/gudy6QyTK3+56VyJXH+wbOc1YIMf9CtVgcTJc7+WSlcOtiWXFstuJViemRNK
-	fdBLwHWgPCLR+eYKcmBNh/zhd3aImg5sVF7rQrbVK6RxZUXBvOECVfSO+W82wX4xB8Phwmqk4auHG
-	sPCXwyFsZRGAEFMSSIVzS0FaYh792Dg8xiv4xnv4j/OY7E9g7BOWDMDVIlFKKWIGy6WbWPWcjDJIx
-	jVTuavXTo6jqKE0HrcgXttnLcY+/yG8mBrWWvUP3xnaallG8iF4M13mTbdsQMG6LHiAA037+fCSPE
-	XJrJ/k0g==;
+	bh=LCnoup2TZQt4fJk0GJnAkPItdzQ9WDG1PH2VUvHNiJs=; b=0BNIWXBHw4cutl3x2ZXhQPheK2
+	K04FHdjCNrUcXZH/FZBSn0O0RRy81khkrcqPQeiY46OfHJhh3U+0uptcmKlVZulbGyySUIyj0cFAV
+	D9fzU5W8p015g/Un4Us7b1ZCFYBzKWtVE69wjp8aUhzJjz3alXw1YI0Ry1Un6zg/gDE83cxhbnUtz
+	UZzZ00t1/WJVoHGrutZZ1prwNDeXFR8hXp9oei4Jo4jDoN0f+gTXllO7NR7v4/xqtNLLEAhXK3Gmi
+	gUGeWv47kOOtr18ALa2NvtcPMWhXhjB/NcXauNFh/jbCQLj0Q5X8CNiblaXD4Z1VMVJcyzOWM2H9W
+	1+I+DGqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ7oN-00000005L0S-1EeF;
-	Tue, 08 Jul 2025 12:52:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uZ7qg-00000005LJV-04g5;
+	Tue, 08 Jul 2025 12:55:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ7jl-00000005KL4-2TW3
+	id 1uZ7kZ-00000005KTl-42a4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 12:47:54 +0000
+	Tue, 08 Jul 2025 12:48:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 073035C621C;
-	Tue,  8 Jul 2025 12:47:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A74EAC4CEF6;
-	Tue,  8 Jul 2025 12:47:52 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 44EF2A53CE6;
+	Tue,  8 Jul 2025 12:48:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE67AC4CEED;
+	Tue,  8 Jul 2025 12:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751978872;
-	bh=+wvoob8grI10NwfBtRPmsZFoGIB2FSIYS3UA5QZQBaQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=IZBKe9yGbPI51lmlJS++hmFbJmAWwkWsEVz1TBMfewPRDKrYdYYQnQP/miJTWuxOG
-	 V+0eYUNYYnSYp+m7DKwrGMFQN4lOigu6iXyVZi9IIS280lcjgKIebp5ab+7Y/sY86D
-	 mVM7A2iazCWytAxyFA6iV6reBBh/kYdSQhCeNeMKw69RbEFXqXyvl2TFIK7WkFf7Ad
-	 VEN/y9C466iGbFzBk7hK0oDbSBGZr78Xeu9C2e9KJDmxTHGP5TV3f9eSk56XVYnEBn
-	 4uasFO1iB+1PGlDkGK7QFJMdiY7LITb6GxPu+/IZQLRa3ZBNN+E703N3Pw10I6iXwR
-	 ZjdBjdb5dfsjA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uZ7jh-00DkqN-SY;
-	Tue, 08 Jul 2025 13:47:50 +0100
-Date: Tue, 08 Jul 2025 13:47:47 +0100
-Message-ID: <86sej6alxo.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Zhou Wang <wangzhou1@hisilicon.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>,
-	<tangnianyao@huawei.com>,
-	<wangwudi@hisilicon.com>
-Subject: Re: [PATCH] ARM64: errata: Add workaround for HIP10/HIP10C erratum 162200803
-In-Reply-To: <73ee91b8-ba15-2534-ab76-f64e59261b1e@hisilicon.com>
-References: <20250626124142.2035110-1-wangzhou1@hisilicon.com>
-	<86wm8ybpk5.wl-maz@kernel.org>
-	<0b54db94-8a6f-cea0-a6f7-dbe8650d66dd@hisilicon.com>
-	<86h5zwba5i.wl-maz@kernel.org>
-	<ffd3fccc-af4a-6667-3cf6-a55e866f3057@hisilicon.com>
-	<864ivtbll0.wl-maz@kernel.org>
-	<73ee91b8-ba15-2534-ab76-f64e59261b1e@hisilicon.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, oliver.upton@linux.dev, will@kernel.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, tangnianyao@huawei.com, wangwudi@hisilicon.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1751978922;
+	bh=g28q4NZzgjbR8MHAVRF184NIvjRYYLJKJLr/vf5Xqa0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DvfZfLAN6D+0IltIX1CfxRC4LV3nqjMMYob8x+k/tq5lZH2vSghsXQkcSbA6EkQ9s
+	 s53PpjKI1lcBbHdI2NcG7YgWNJD/umeQ7hSWowRigX5AajnQC6NZjd9SQJ85h8FmSo
+	 wobXcIJYzu0qP0EQhLQ8udcdZ/mYPIfpbFoHyvSqPtGkaOA2HwGwFKncmjgrsafVHG
+	 mqInBklOngKJlfwPJWyWKU7XKPTRszd4I+D9E00vA3NnpyjzWjFWxkEYd7yJWJNFJO
+	 F+2MumPHbe9KOXGyWz3qSk6k3QXW78S74nC4IwI+IJFiwEFM/w6t5DGsrBXr42/RLm
+	 4I+YmUWHiFGTg==
+Date: Tue, 8 Jul 2025 07:48:41 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: netdev@vger.kernel.org, Jernej Skrabec <jernej@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>, Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Jakub Kicinski <kuba@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	linux-sunxi@lists.linux.dev, Andrew Lunn <andrew+netdev@lunn.ch>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Eric Dumazet <edumazet@google.com>
+Subject: Re: [PATCH net 1/2] dt-bindings: net: sun8i-emac: Rename A523 EMAC0
+ to GMAC0
+Message-ID: <175197892100.398224.11294321138188145975.robh@kernel.org>
+References: <20250628054438.2864220-1-wens@kernel.org>
+ <20250628054438.2864220-2-wens@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250628054438.2864220-2-wens@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_054753_709505_699D5741 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20250708_054844_067657_13E9D319 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +82,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Jul 2025 13:05:24 +0100,
-Zhou Wang <wangzhou1@hisilicon.com> wrote:
->=20
-> On 2025/7/3 18:44, Marc Zyngier wrote:
-> > On Wed, 02 Jul 2025 10:57:13 +0100,
-> > Zhou Wang <wangzhou1@hisilicon.com> wrote:
-> >>
-> >> However=EF=BC=8Cmigration between different KVMs will be broken :(
-> >> I am not sure that should we consider this case as well?
-> >=20
-> > This isn't optional. You cannot break migration on existing systems,
-> > and the only case that *must* break is to restore a VM that hasn't
-> > seen this limitation on a HW that enforces it.
->=20
-> So the whole story is that we should let GICD_TYPE.num_LPIs as a
-> writable field, and set this field from VMM(e.g. QEMU). And it will
-> be failed if doing migration between VMs with different num_LPI
-> configurations.
 
-Note that on a non-broken system, setting num_LPIs to any value should
-always work.
+On Sat, 28 Jun 2025 13:44:37 +0800, Chen-Yu Tsai wrote:
+> From: Chen-Yu Tsai <wens@csie.org>
+> 
+> The datasheets refer to the first Ethernet controller as GMAC0, not
+> EMAC0.
+> 
+> Rename the compatible string to align with the datasheets. A fix for
+> the device trees will be sent separately.
+> 
+> Fixes: 0454b9057e98 ("dt-bindings: net: sun8i-emac: Add A523 EMAC0 compatible")
+> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+> ---
+>  .../devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml      | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
 
-> After above done, this errata could be added.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-Which would be the only case where num_LPIs wouldn't be writable, and
-set to a fixed value.
-
-Note that an alternative would be to not have a kernel erratum, but to
-force num_LPIs from userspace when running on your platform. But that
-implies that: you have your own, non-upstream VMM, and that there is
-no opportunity for userspace to adversely impact the system as a whole.
-
-> Not sure my thought above is right? I will try to prepare a num_LPIs
-> writable patch if the direction is right.
-
-I think you got the gist of it.
-
-Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
 
