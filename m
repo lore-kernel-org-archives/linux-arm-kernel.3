@@ -4,164 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B63C83030
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 02:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE242C71130
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 02:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0TpB9KMA3mIckR/pzH0ARNQ+YwHar9YOqgkEGnJblG8=; b=UV/gxoqIPb41i+encIwLha7SpD
-	nzzZ4C9sKRrmUXeM2pfkF9lXZ4Fc96EMgxuLZaCfDpjHrBQGqcgMl/Ssx9E9aZogXj5dzR1Px6gQe
-	zQLc2A3Vw4eQcvk+xgks6ftln1535W2TtLwel2YD0W224XNkvivtZ4FGMUYrYkCLQKGEUXaxe8Mnn
-	W7mhdI9D12UtZShwOxF9z34l41bSBMU8jK9NHTC84QQtC6NNtFMWkwHnbHGtwu3ZKayITxUjjsoBu
-	kka1K45BHXJNQfo39ikscnTqJfeNVa7lLYYzxI3Yoq/S1P77BDAUqYgiHi1Aqnk24lbh17wN72TLr
-	dQsOcx2g==;
+	bh=J55cKjqJdB/s54ySt3a9A6aU/rgkpjBjIATa2spYydU=; b=wclMJ3MrVYJ04xQjtzSKY3IFLC
+	iYnumSJumrLSMOIBw8U4jzJXsaZJqyLYk5IFR+K17RL5IgOu2/omhNm43dzSZ56l58pnCkyww8bKB
+	OzAIoUzFA9sjRuGJ5qPxUm+4VMYpBeuWiI+0B81Vm5Z5thLnWBElmogs89UcgglptqzmJu34ePL2M
+	jKz20CXcB9Qvo0gZREVbX/LGLuqf+e/BQmnbiiV7C/NFSTMwjIUuW0PvLLZiea3BCSMxMjIYS9h6K
+	P+CCyyeapRXGxKNxa6bM5399KMm7nis/hy3GPcnQMWck1+fh9Sv+ialcp27nfO9IqXbbZQ89hPWKB
+	p+PP0WMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYxlT-000000042dh-01az;
-	Tue, 08 Jul 2025 02:08:59 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1uYxnk-0000000433j-2rNp;
+	Tue, 08 Jul 2025 02:11:20 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYxj8-000000042FR-22Q2
+	id 1uYxjO-000000042JD-1Zze
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 02:06:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WHMrGpLo25I78W2j9S+Eoc178PaY1lNQ5J6wuxGBMVfUKB2tvlrrc4Sssw3gmj2obmXLkg1P/wjiGlP9FfmVKQ+lw7kcgDMIuMzmv1DcZmOVj8LKzBgpVOCHBuXBWjjoCfxxye/ap1ZFfAwwsC2awrfDc0R4Ci/I5mXfFgdQBLc5puHmDvAeKFx0HyN4rsSiGJZVUgWk1IFmFFkX7mlVqMMTdz+vvx7DywWxbELlm42vnTpuENBvViVVg4drje3GEffpPlQq8U4P2K6fvjOQ3pyaunWBHo4cF6K2rLlIwJ+X0+TWvHrr1rNUoA1aFzKiytHZL+S3AOWt2A5zDeRflw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0TpB9KMA3mIckR/pzH0ARNQ+YwHar9YOqgkEGnJblG8=;
- b=IHpTfk280OFqHlPrNlrFJMLhmrDXPGbFJB3+lQa4ZLuKdQpbajYrxyN4HFaobaocNLFhUh2vnQtXVJ6JIC80uCspOg9G6PlnDQZVovNZCYupX2xgpmYilTOs/DcVIi2P6UCa3VhUmmF48OVkBT0211vsJILaay+uxublwvRLBUlhGXpzUBuAkgLd9hKSmLqIsnjfKZX9Xk6e2tNEIVx0q+8x+IcsZT+nNfgs3n2265yniU9HBc73r0675J0HzUn1XHsXN2i5DNHrCCPnbySsbeFHAF8HcBJT+x7OdMNDbfJKcdKt8YpnTGcAL2J6CpPodmFnfkb3ZQSJbkmLc0No8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0TpB9KMA3mIckR/pzH0ARNQ+YwHar9YOqgkEGnJblG8=;
- b=P6tlRrSMVlFPW5wme5/H7iRFJM3zMWWtBUTgXRfqafL5tsHYuhKnmhcdE05SXXe9KGJ296U6nz1ixkra87Zq5IZjr7SVT74f5/o3odboNFD5sJ6FrwQLTG+tFAoY7nPHSSbEl73C6209oqUqZXYrc1AaNZZsieZWlNMS6ODTz8BpxXuot9hnbEJi3wLBY/HDQTiUDIwVWsq2LXnt8jX1WemjMxgW0MZ5AqdwCnR6W2t7NXBEOzYOZGe523G9wLVuiInqqzHLUUk90Nk6ddMpmo8U8uc+PxysdvNu0BExrY9EKYQVxJ9BhxBuyw1ciXPRzG2O0KVJyHPrzJusDDE4zA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SI2PR06MB5140.apcprd06.prod.outlook.com (2603:1096:4:1af::9) by
- TY2PPF70F768FD5.apcprd06.prod.outlook.com (2603:1096:408::795) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8901.24; Tue, 8 Jul 2025 02:06:07 +0000
-Received: from SI2PR06MB5140.apcprd06.prod.outlook.com
- ([fe80::468a:88be:bec:666]) by SI2PR06MB5140.apcprd06.prod.outlook.com
- ([fe80::468a:88be:bec:666%4]) with mapi id 15.20.8880.024; Tue, 8 Jul 2025
- 02:06:06 +0000
-Message-ID: <e6814ec7-b9fb-4185-9929-1e463ef518f6@vivo.com>
-Date: Tue, 8 Jul 2025 10:05:58 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] i2c: busses: Use min() to improve code
-Content-Language: en-US
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: Patrice Chotard <patrice.chotard@foss.st.com>,
- Andi Shyti <andi.shyti@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
- opensource.kernel@vivo.com
-References: <20250705114436.579070-1-rongqianfeng@vivo.com>
- <20250707104041.00006171@huawei.com>
-From: Qianfeng Rong <rongqianfeng@vivo.com>
-In-Reply-To: <20250707104041.00006171@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2PR02CA0009.apcprd02.prod.outlook.com
- (2603:1096:3:17::21) To SI2PR06MB5140.apcprd06.prod.outlook.com
- (2603:1096:4:1af::9)
+	Tue, 08 Jul 2025 02:06:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1751940402;
+	bh=J55cKjqJdB/s54ySt3a9A6aU/rgkpjBjIATa2spYydU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=IJYoMmteYdZnYL0OquHwmK0NgiaYNAHFy7ZXSITie3Aff57LFZ10+VjFGYJo5pgh6
+	 +2wZlmQU026XtnxYbNM7ivS4pQN6FE6/BEw12mwgCSeyAtxs8F+w2dEQCp85J1J+Gs
+	 Kzfn64K3crWXikXXqxFvqxbS1gjLzh+W5ujytZ4weU3fiuJQQE0EXxWVkNK7qfqxj0
+	 ijvNj5Vw1L2hDpWPRT7kPn/lt258fmy8dHx/YfWrn7KHZLGg2njfsM9G4S6e0kfMoO
+	 DvEu1YrP2ovT4C+zLLvrR+2vEjQwJRzC9WNMNQfPbBmQqd5Nez6vEvaYXMRHJoNOoe
+	 zph9f7ARVn9OQ==
+Received: from [192.168.68.112] (unknown [180.150.112.153])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 25621640B5;
+	Tue,  8 Jul 2025 10:06:40 +0800 (AWST)
+Message-ID: <f66b8b80d057a095dad3b41f224fb633565313ce.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v2 04/10] soc: aspeed: lpc-snoop: Constrain parameters
+ in channel paths
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Jean Delvare <jdelvare@suse.de>
+Cc: linux-aspeed@lists.ozlabs.org, Joel Stanley <joel@jms.id.au>, Henry
+ Martin <bsdhenrymartin@gmail.com>, Patrick Rudolph
+ <patrick.rudolph@9elements.com>,  Andrew Geissler <geissonator@yahoo.com>,
+ Ninad Palsule <ninad@linux.ibm.com>, Patrick Venture <venture@google.com>, 
+ Robert Lippert <roblip@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 08 Jul 2025 11:36:39 +0930
+In-Reply-To: <20250704184408.32227305@endymion>
+References: <20250616-aspeed-lpc-snoop-fixes-v2-0-3cdd59c934d3@codeconstruct.com.au>
+	 <20250616-aspeed-lpc-snoop-fixes-v2-4-3cdd59c934d3@codeconstruct.com.au>
+	 <20250704184408.32227305@endymion>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SI2PR06MB5140:EE_|TY2PPF70F768FD5:EE_
-X-MS-Office365-Filtering-Correlation-Id: 06cc72af-e536-44f3-4b18-08ddbdc3ff93
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?N1JONk9oZVZKN1Q3ZE9lZDkrUmJNZ240MFJKVTRkQWtKUFBCNFZ3MTFXVy9v?=
- =?utf-8?B?MHhOUlNHbTh1SzNFZlN4Y2ZiUEZpNCtMeHlNcmRZSGFxV25GQXlLMUE0ZHh2?=
- =?utf-8?B?dzhlQTVPdCtKN2hKa1FZR0o0YVlzdjl3aS9UTFV2Tm4xaHN3cDc0WjJmQ2wv?=
- =?utf-8?B?NW02OXZPdndhZ1JkcUNYd2laRktPQ3kwTlB5ei9sQUFTWmUzVHNGUjhIdWY1?=
- =?utf-8?B?YklZS1JHQnBFVkt5Nk5zdDM0VFlqMXZjK0hwTU9TOS9TcTRPYit0dUF5S3pq?=
- =?utf-8?B?b1l1N2FRYkE1OU5kYzJZU09Gb01ZZzZsV20vR0JoRUZLdHpKR3QvNTc0OGdB?=
- =?utf-8?B?K2pXck84cE9YMnVkcERnaWM0cGdvSFkzS1ZyZTAyL2xrd3dBd3RpZkdJN0V4?=
- =?utf-8?B?ODBYV1NLNGlob1JiZFlIS1d0Ym1sRnZvMWoyZTVDaVhubEhCMXdyREJ6TDl2?=
- =?utf-8?B?bExZZ2ZZWmNJeFZuQ3ROekhIWXBnQUEzNlNMMjFrNXFEUHJEcFplQ2ZIYmNq?=
- =?utf-8?B?UEZOM3RZSXJzcnhGSGVnZHlZaXpiTEVSdDF4emFPMStiVlp5aTRtMW1DTkwv?=
- =?utf-8?B?Y3FZZkxjeVgrTzVUaGNuc3BMYjQ0VzBGY1dnZnhmcHAwOTBnYXhXZ1BZeE1m?=
- =?utf-8?B?TVp0d1ZDQ1Y2cmpDcjVRbUxYRXZlQmFrQzdGNzRzWTg5Kzg3MDh1QkM1Mmhm?=
- =?utf-8?B?VFgrU2s0K2FYTkl0TlhBL2phSGpqQlN5ZElXZDJrNnBVNGJtQXdjdStoT040?=
- =?utf-8?B?UE9lYWJZUE8yQWNTYkxkTFMxSUloNGtIZjJaR1V1MS9PWDUxVVpzVHN5WEUv?=
- =?utf-8?B?TzVweWVyVFY1K3o2QTdCZ2p3SVBlS0lQdjhXaHF1aGVtZ0x0YWFWVUxURFJo?=
- =?utf-8?B?eUQ3c3l5VmZNeTlLSTUyV2RlU0FNMkNsaGNKeVZrS3MraTdJS1Ixc1ZEL0xy?=
- =?utf-8?B?M0hrK2tvM3g5WFB2cWdHZGtTdTVRbk5TbTQrUmY3d2c2aVFDSW4vMDVBQ01n?=
- =?utf-8?B?UlR5SDdSVzEvNTI2OFNlUHNRK2hoU3RrT0liTlVwbGRRaEJqS3pLSGhtUVdv?=
- =?utf-8?B?T2sxdXBhV1VVblRoVmVBWUpYQW00dlorOGVGN0hLTDJkSFdoNGluL09lazRs?=
- =?utf-8?B?MjZvVzFvZFc3WjFvNzVrRkJMN0lIYzhLcGtFaGFEdm9NSExiZk5pQUliUkVB?=
- =?utf-8?B?QnprME91Ykg4c2pCb1VtdzFnbldMS3NwUlVXUVJqOVUzdUUyamxRMFd1Skh4?=
- =?utf-8?B?VVNtWU1mU0pSSGxlWUlUS0ZvOWl6eVh5N3FZcWp5TlpTbzRjWk4wdnkzek53?=
- =?utf-8?B?TjZKcWpGOW5qaHA1UjE3U2RNL0YrMDlQSEU1MFh2MzE2Z29wZlUyUGhkWStN?=
- =?utf-8?B?NXAwdkswYkZ5WTdDbHVINkRUTFZPdzNJdmFacmlTamhHOFJ3NG02aUFyQmtn?=
- =?utf-8?B?emR0QjU1TEZzaC9pN3p0V3M4REJCSFFjVU1WMzBCMjNUZksxMXE4NGhuTzE4?=
- =?utf-8?B?Slg4UGdmTSs2L0VTNG1uUmpYK3pOTGlvL25XK0dBYUN5eHNTbXlPc0tOMTY2?=
- =?utf-8?B?dVVWM293cWNyWkNabkhSVDcxWXBMcjBONXZSS1d4YkN3VDY0Vkg0V0dWN2V4?=
- =?utf-8?B?ajlJWjQvZ0JTRVhmTHRoZ281NDR4NG9aT0hueUlTcVE5TkhDRGZEejhNYndO?=
- =?utf-8?B?dm9lRmpwN0E4OEpoZnlsT0NJK3RzM28zTW1EVnBLb1pRVW5uOU1YVGd6Mmcz?=
- =?utf-8?B?SXo3cnVnU1pDVUN6d1RqM093amFXcmZTMm02bjRNSW5tOEtPQXA2RzlUTnRl?=
- =?utf-8?B?ajBqQUkwOXM1MkQ5SGF5UXNrOFBSYnFMQ3R4ckg4MTlXVCtqNVE0MWR6d0ov?=
- =?utf-8?B?QWZ4YkF6NENlKyt6UHVOVS9nU1ZXQmtobFA2d25ZWUNua2tvYWlWb1IzMGx1?=
- =?utf-8?Q?eMfrYDj8kSw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR06MB5140.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d25YQVR2SXZWYzBrbnk1ZDd6Z3krWTdpY2pXWjlvT1FoZ25ZR0xMT0tJczRq?=
- =?utf-8?B?YUlRY2JWM2VNZXMxTU1uaUZvSzhVZXllTUFYSlFMZndXZFdxZGZDU3FQN2Rt?=
- =?utf-8?B?NHJPTHdaTGMrMklCbEYxb3YvOWFrMG1WRHN2bkMraVZpUnBEK2Rta1phbTlV?=
- =?utf-8?B?YWdUaTlidUhodXR2RjhaU252Um8vRis2VUUzbE43Ykl1bjhPMGV1UFM1UHZD?=
- =?utf-8?B?SXR5TGtGYlUxMERJRU9uYnU0Y3ZXclBGY2NUWnpYeHZvVUFFNjNZbGJINTZJ?=
- =?utf-8?B?K2NnY2gwK2F0Rk5hYkM5dVRsQlM3eEdVWlQvUXkxU0RMSGY2cDZ6bWlybm1p?=
- =?utf-8?B?WURCbGtiT3QvL1pFV1RhRlpRdkltYTIxS2lrUXFUdUdOTFdzYUxCVDJtYVVB?=
- =?utf-8?B?ajRaakdmVXVlOHUzK3lhNXM0b3lMUGU2MzlNai9hdnJEd1EvRmZJZ1VKZkpw?=
- =?utf-8?B?WTZsY0JlajkzTHNSRDVCNlRnYUxHT1hzZjNuTUNyYytNUnA2ajdXd0tuaTl3?=
- =?utf-8?B?cUdCaWRPeE1xL0hmR2ZPQW1SWmVhcEY1RFc1ejVkdnpGS0dlV1hDTnpOckRD?=
- =?utf-8?B?ZlQ5OUJuTTdlSm1KZG9HdDFCWmdqVWRZNnZNamJ1alVGLzZMOGIzdDBVSzZT?=
- =?utf-8?B?N2xFdkRhRFB4S2pBVGZBamRMdVFWaVgzTVhuRlo1Q2t3TE5acmNqMjNOMmhT?=
- =?utf-8?B?OFN4ZGJaUzd6MWlUNUlTcnFkWUlwNWlMSnJyaXE1d3pxOFdLTkFUWDNibnZV?=
- =?utf-8?B?RmFtSFRGRlVrUGdia3Y1OUo2RWpFRVFuaHltd09ia2kxbS8zcjliRlNLU1RO?=
- =?utf-8?B?aWFlczY3c1JLSWxOWGpYb0p1RTRYYmdZRnM3UmRIeGUxb1hGa0FtYlVNY0JG?=
- =?utf-8?B?MTJ3MGwxWjJKN1hmU2Q4alNzeUljNXg1bWV1R25laXVCaEh2R1RrcSswT05x?=
- =?utf-8?B?ODFIaFJPZVV4bVNPMmRGRjRwcnRsZVVYRWRycVZ6M0tBeG9vaXVCQlpEelhH?=
- =?utf-8?B?NmoyS2owcDg4T0svUDh6K3hhVDU3ZVJaWGhqZ0JSN1RZSDh6dzNUbmZhWU9l?=
- =?utf-8?B?SkRleDhnMnZHVXNheGVObXlQRWtWbDR6bkF1ZThxWnhZZ2NMOG51R0lXb0VR?=
- =?utf-8?B?eDVzZXNLcFFSNzZmSUpLVThzWlRnYjUzZVE3YnZabS9FQUhqQ2RSQWx6MURj?=
- =?utf-8?B?a0VsU21zRTFFSXRBdjZUUFdoWlBsL0V1Z0ZmVmIzaVREcVJ3cHVGN0QxVnNE?=
- =?utf-8?B?dytLd0hIYVFyZ0Z1TzR0SHFEUkdzK3gwdGtRWFZmZnRzbUhnMWIvVXBIY3dX?=
- =?utf-8?B?MTJyZmtvUG9hL0NCcndqcTk2TlhmNGt5YWh1WHlmQVc1OE9IUm53ODgvdHIy?=
- =?utf-8?B?K0xpRkh2Vy9vMzZLWHRIWXJ0ZlhyakFNWW91R3R1WUthV01OYVNkTkpHUWR5?=
- =?utf-8?B?elVta3VEYnc2K0pSVTllVkdPS3F3MTZtRG9nUUFVMGxDWmtzNytpUlBZOEFJ?=
- =?utf-8?B?czhtclY3U1lxTUw4YVJrWnc3S21PcmhzTkNoeFhwc3RaNFhLb0lqeWt0SzlM?=
- =?utf-8?B?VGViR1l2emJEMlZGRlVqWUJmVG9XWS9qRTBnNXlaRGVNbUM5TWlhbUZaQzMv?=
- =?utf-8?B?ZzZibndEOW1Lam9UcmE4T1NUd01GemRtUWxLdE9wcnp1L3NPTXlpVTNPc1k0?=
- =?utf-8?B?SU0wT3BZRTZ1SHlRMXdnZkFEcXhxSDQ4SnYvV0Y0a0w0VjVyNmtuNTh2WUE4?=
- =?utf-8?B?WUNncUk0NnJLQmtTUmJkblc3dVFrQUI1ZEQ2bEc0eFd0UStCem9ENEQwc3k2?=
- =?utf-8?B?a2JsZHVvWDRxMVBLRUMvVzh5VWRMekFzeXQ2YVdmc3NCSmM1OVEwd2dFUmNW?=
- =?utf-8?B?M3FCS2hmZVBpOFBtMWczUkVCRDNqYmhUbWNIRy9ibmJpVitQUDVxOGJaR1RQ?=
- =?utf-8?B?SDNsU2FDWTNVOHkwMW4wOEtnRFR4NEljVzU4Z3JZK1pOSWFzNHVyalZha3U5?=
- =?utf-8?B?ZHQ4RWlFQmp3VXI0ZHZMWWo1ZjNEUGVDQ1lMd3ZzK2Jyb1l6dGw5anZoejVk?=
- =?utf-8?B?OHBnL3Zac3NJNmtoWXlsaE5GQm1GK2FNbTlleEdwNG13bDNtWUlYdFc4MVJU?=
- =?utf-8?Q?UGTGX3Xa0u2d+brG5pxR4O7d+?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06cc72af-e536-44f3-4b18-08ddbdc3ff93
-X-MS-Exchange-CrossTenant-AuthSource: SI2PR06MB5140.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2025 02:06:06.3716
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RZfduShJQE8Wv6wkjAd/dU973PcXgicu/k8bifKEjMo4+Nd52/yAz8/9nPXeo8ZDmIPRQD3E0WHJAYqNceQazA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPF70F768FD5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_190634_519181_298AE11D 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250707_190650_605465_921AE204 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,45 +77,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jean,
 
-在 2025/7/7 17:40, Jonathan Cameron 写道:
->> Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
->> Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> Drive by review...
->
-> I'd add Wolfram as +CC at least.  May well pick it off the list
-> of course.
-Thanks for your reminder.
->> ---
->>   drivers/i2c/busses/i2c-st.c | 12 +++---------
->>   1 file changed, 3 insertions(+), 9 deletions(-)
->>
->> diff --git a/drivers/i2c/busses/i2c-st.c b/drivers/i2c/busses/i2c-st.c
->> index 750fff3d2389..285d8a05ab36 100644
->> --- a/drivers/i2c/busses/i2c-st.c
->> +++ b/drivers/i2c/busses/i2c-st.c
->> @@ -422,10 +422,7 @@ static void st_i2c_wr_fill_tx_fifo(struct st_i2c_dev *i2c_dev)
->>        tx_fstat = readl_relaxed(i2c_dev->base + SSC_TX_FSTAT);
->>        tx_fstat &= SSC_TX_FSTAT_STATUS;
->>
->> -     if (c->count < (SSC_TXFIFO_SIZE - tx_fstat))
->> -             i = c->count;
->> -     else
->> -             i = SSC_TXFIFO_SIZE - tx_fstat;
->> +     i = min(c->count, SSC_TXFIFO_SIZE - tx_fstat);
-> Add
-> #include <linux/minmax.h>
->
->
-> Given it is now one statement perhaps cleaner toput it
-> as the loop initializer
->
->          for (i = min(c->count, SSC_TXFIFO_SIZE - tx_fstat);
->               i > 0; i--, c->count--, c->buf++)
->
-Got it. Will do in the next version.
+On Fri, 2025-07-04 at 18:44 +0200, Jean Delvare wrote:
+> On Mon, 16 Jun 2025 22:43:41 +0930, Andrew Jeffery wrote:
+> > Ensure pointers and the channel index are valid before use.
+> >=20
+> > Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+> > ---
+> > =C2=A0drivers/soc/aspeed/aspeed-lpc-snoop.c | 25 ++++++++++++++++------=
+---
+> > =C2=A01 file changed, 16 insertions(+), 9 deletions(-)
+> >=20
+> > diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed=
+/aspeed-lpc-snoop.c
+> > index ca7536213e0986f737606a52996ffea620df2a7a..804c6ed9c4c671da73a6c66=
+c1de41c59922c82dc 100644
+> > --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> > +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> > @@ -25,7 +25,6 @@
+> > =C2=A0
+> > =C2=A0#define DEVICE_NAME=C2=A0=C2=A0=C2=A0=C2=A0"aspeed-lpc-snoop"
+> > =C2=A0
+> > -#define NUM_SNOOP_CHANNELS 2
+> > =C2=A0#define SNOOP_FIFO_SIZE 2048
+> > =C2=A0
+> > =C2=A0#define HICR5=C2=A0=C2=A00x80
+> > @@ -57,6 +56,12 @@ struct aspeed_lpc_snoop_model_data {
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0unsigned int has_hicrb_=
+ensnp;
+> > =C2=A0};
+> > =C2=A0
+> > +enum aspeed_lpc_snoop_index {
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ASPEED_LPC_SNOOP_INDEX_0 =3D=
+ 0,
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ASPEED_LPC_SNOOP_INDEX_1 =3D=
+ 1,
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ASPEED_LPC_SNOOP_INDEX_MAX =
+=3D ASPEED_LPC_SNOOP_INDEX_1,
+> > +};
+>=20
+> I don't have a strong opinion on this (again, I'm neither the driver
+> maintainer nor the subsystem maintainer so my opinion has little
+> value), but IMHO the main value of introducing an enum here was to make
+> it possible to get rid of the default statement in the switch
+> constructs. With switch constructs being gone in patch 10/10 (soc:
+> aspeed: lpc-snoop: Lift channel config to const structs), the value of
+> this enum seems pretty low now. You could use NUM_SNOOP_CHANNELS
+> instead of ASPEED_LPC_SNOOP_INDEX_MAX + 1 and 0 and 1 instead of
+> ASPEED_LPC_SNOOP_INDEX_0 and ASPEED_LPC_SNOOP_INDEX_1, respectively,
+> and the code would work just the same, while being more simple, with no
+> downside that I can see.
+>=20
 
-Best regards,
-Qianfeng
+Yeah, I agonised over it a bit before posting. However, I'm on leave,
+and I'd like to draw a line under this series. This patch is in the
+middle of it, and I'd rather not disrupt it too much and go around
+again with a v3. I'm going to keep the enum for now, but if I need to
+tidy up the driver down again the track I'll reconsider its worth.
+
+Andrew
 
 
