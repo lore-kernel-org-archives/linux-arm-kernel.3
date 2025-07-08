@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4640CC83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 08:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D00DC83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 08:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9kUAcGsdRUecIBBUdBWsk12JgFxfSk+w/xOLNeSxYqU=; b=wczH4Vo/bftjyZZWkBmkwopjnB
-	5TjSBdU2mnKWXyn5R4MLrcvGLnUT5MdAZWjFSrP4MRe6tJttDNKQWV8rNWxpYfJwV3P4Y5CdZ13Pq
-	2eF7hwng+LqM9zfwxbljlC5h4ynRCPFKHDw3GlVKnfaDQNAXxMR6xxinK53Nh146mnNUlv/+RAgeD
-	MJ9EwOHdecrOxiByQOgUCdpGNy8bBkeAis9E4a12fPT93yCly8i9o0Mwag2/EItQQadXcwqqsKoVg
-	/pAm97OTlZVKQIC/Qgf0z9jaK8rGy3r7ua3D3Vj4x+DIk/Qt7+VMi/hX7hF+/oSNT7Ueg1M5/0hsj
-	45y/19KQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3cHIo81+4jXwVEo2TrM755naFSx7NjMdD+f4qpNkHU8=; b=dUIW+n9+RdTWQ+046yKIsIM8+V
+	v+obqE6EYzJ+3LeWTYWrJyFgiijdmjcYtgnww9PVEdhBBqbTLJHSuputmDM3MFSRLDkLOknuDAfyL
+	+MIkA5TWhyxZNd4IkpumRuDzLp+s7TMzszVGGwqPuBO+/ER9XM7+pT9WZgetVIBXVGJndEmBpojXK
+	HoalGBz1kA8JA6l6//vc5Y0ekYoNzSy9ziWnlDuXsILkF35/Akre/AVl+Rpuu4Ibam+z3puaRaRg+
+	RVsNRQQIKd9wVEktg44aePyQwblge3Sjlii8XIQZhSK7JV69Is1evtIR77cO5v6wiruFDhmTj38o+
+	zXgDgLqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ44F-00000004o1Y-1eng;
-	Tue, 08 Jul 2025 08:52:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uZ46Y-00000004oTC-0Vvr;
+	Tue, 08 Jul 2025 08:55:10 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3nV-00000004lSX-2Dwd
+	id 1uZ3oV-00000004ldR-3Cit
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 08:35:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB9E261473;
-	Tue,  8 Jul 2025 08:35:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24C8EC4CEF0;
-	Tue,  8 Jul 2025 08:35:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751963728;
-	bh=zaiKQlWEdrcffQVeIreYh3y190tWcHJleeTNcRNgNAg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RccMEPDRS7gbem7CDc3prPbkm1sAP+E+zjNzqp+9hWDqxnu3P/4/TeFD9DuTyprbr
-	 skhoMNVUzPx18ofPCZZDuxOSzam6iFFm7aQsg7uhE5ixrOJxvlz/zCO3474lHXp+vG
-	 Qd/ndwCqbNcuztl5CwnMdxozs+GfC44WYQlx3Ui7EEYhylX6Ro8RlzURtoiLGdQTSa
-	 r6inRgKx5iYt7peQnYrMM+p/cIR9rBBF1moNSUfEW4sDyEsNo0I+Oqit4iz1+mTDrl
-	 PLw6X+fihSY+W3W0gsJn6ToxjS9TO/RhJ90zmI4/mu00m3UKRQrVNYIfqfPpmp2mOt
-	 ffa1m12pj+prA==
-Date: Tue, 8 Jul 2025 10:35:26 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Taishi Shimizu <s.taishi14142@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Hauke Mehrtens <hauke@hauke-m.de>, Rafal Milecki <zajec5@gmail.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: Re: [PATCH 1/2] dt-bindings: arm: bcm: Add support for Buffalo
- WXR-1750DHP
-Message-ID: <20250708-tall-roadrunner-of-tact-e6fb11@krzk-bin>
-References: <20250625154315.114139-1-s.taishi14142@gmail.com>
+	Tue, 08 Jul 2025 08:36:33 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bbvWc5xZwz6GDJX;
+	Tue,  8 Jul 2025 16:33:16 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id DEF74140144;
+	Tue,  8 Jul 2025 16:36:25 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 8 Jul
+ 2025 10:36:25 +0200
+Date: Tue, 8 Jul 2025 09:36:23 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Alireza Sanaee <alireza.sanaee@huawei.com>
+CC: <mark.rutland@arm.com>, <robh@kernel.org>, <coresight@lists.linaro.org>,
+	<devicetree@vger.kernel.org>, <dianders@chromium.org>,
+	<james.clark@linaro.org>, <krzk@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <linuxarm@huawei.com>,
+	<mike.leach@linaro.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <suzuki.poulose@arm.com>
+Subject: Re: [PATCH 3/5] coresight: cti: Use of_cpu_phandle_to_id for
+ grabbing CPU id
+Message-ID: <20250708093623.0000363e@huawei.com>
+In-Reply-To: <20250707150414.620-4-alireza.sanaee@huawei.com>
+References: <20250707150414.620-1-alireza.sanaee@huawei.com>
+	<20250707150414.620-4-alireza.sanaee@huawei.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250625154315.114139-1-s.taishi14142@gmail.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500003.china.huawei.com (7.191.162.67) To
+ frapeml500008.china.huawei.com (7.182.85.71)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250708_013631_945382_79A11F57 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +77,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 12:43:14AM +0900, Taishi Shimizu wrote:
-> Add Buffalo WXR-1750DHP under BCM4708 based boards.
+On Mon, 7 Jul 2025 16:04:12 +0100
+Alireza Sanaee <alireza.sanaee@huawei.com> wrote:
+
+> Use the newly created API to grab CPU id.
 > 
-> Signed-off-by: Taishi Shimizu <s.taishi14142@gmail.com>
+> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+Here is the justification for allowing the node parameter to be null.
+
 > ---
->  Documentation/devicetree/bindings/arm/bcm/brcm,bcm4708.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  .../hwtracing/coresight/coresight-cti-platform.c  | 15 +++------------
+>  1 file changed, 3 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-cti-platform.c b/drivers/hwtracing/coresight/coresight-cti-platform.c
+> index d0ae10bf6128..cd821e926792 100644
+> --- a/drivers/hwtracing/coresight/coresight-cti-platform.c
+> +++ b/drivers/hwtracing/coresight/coresight-cti-platform.c
+> @@ -41,21 +41,12 @@
+>   */
+>  static int of_cti_get_cpu_at_node(const struct device_node *node)
+>  {
+> +	struct device_node *dn = NULL;
+>  	int cpu;
+> -	struct device_node *dn;
+>  
+> -	if (node == NULL)
+> -		return -1;
+> -
+> -	dn = of_parse_phandle(node, "cpu", 0);
+> -	/* CTI affinity defaults to no cpu */
+> -	if (!dn)
+> -		return -1;
+> -	cpu = of_cpu_node_to_id(dn);
+> +	cpu = of_cpu_phandle_to_id(node, &dn, 0);
+>  	of_node_put(dn);
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+With change suggested on patch 1 this becomes
 
-<form letter>
-This is an automated instruction, just in case, because many review
-tags are being ignored. If you know the process, just skip it entirely
-(please do not feel offended by me posting it here - no bad intentions
-intended, no patronizing, I just want to avoid wasted efforts). If you
-do not know the process, here is a short explanation:
+static int of_cti_get_cpu_at_node(const struct device_node *node)
+{
+	int cpu = of_cpu_phandle_to_id(node, NULL, 0);
 
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions of patchset, under or above your Signed-off-by tag, unless
-patch changed significantly (e.g. new properties added to the DT
-bindings). Tag is "received", when provided in a message replied to you
-on the mailing list. Tools like b4 can help here ('b4 trailers -u ...').
-However, there's no need to repost patches *only* to add the tags. The
-upstream maintainer will do that for tags received on the version they
-apply.
+	return (cpu < 0) ? -1 : cpu;
+}
 
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/process/submitting-patches.rst#L591
-</form letter>
+> -
+> -	/* No Affinity  if no cpu nodes are found */
+> -	return (cpu < 0) ? -1 : cpu;
+> +	return cpu;
 
-Best regards,
-Krzysztof
+This an result in -ENODEV hence juggle above.  No idea
+why the caller will care but I guess it does or this code
+would not be here!
+
+>  }
+>  
+>  #else
 
 
