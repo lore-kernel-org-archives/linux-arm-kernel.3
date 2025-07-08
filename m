@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCB8C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 15:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F29C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 15:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f+AdjSpLYE0shtXAMJo1oGPvn8m5n7Wk9nMZZIV11e8=; b=rv8vuw/e3SVS0X6sNvYCTmSxk2
-	pRiBNXsDPmWZtjlhcJ6rcDpRFRDFk3aH29r94uJa/OhidSHxCoHgZ3E1CApiQC978M/mNkWtf1f3c
-	5ef+OkmGG+O1BGPpbPoQ4KyAXbeYGOuh0y5QHa7zW87Was626cYjRY89mR5iG2S/+pPA2a7CJyM0R
-	SjEeCqfGcL8HJsLIvof63oL5N2gUWHQevdzVNY7Jm9rWeBzBlvjY47t7GjvQOAnXPU5plAUuZFTQF
-	3LFPjExsPoR076o/UQZdSFq595J62lemdUx1/NxuivtlaEZ8D4obhcwZuXcSzzepZU7VwY9NbTDTq
-	FwymYp9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a5TXDOJuWFlxMekgxa2unMunNc5qydULzGjeS/MzELY=; b=djWo8vyu8VKkzzV2x9cUxdCFOW
+	nwYqiuOv5FWcUpp3QvmqhxD9m7ZCtP+ay0OgR5YgG18ClsvlPsuvhuIhqAV0PtbKLOLsJTBx8vNXm
+	9KBC3JkLshGlHWkG/7ydVqCfNdW12iiu9dik709fhOslXTi6Wd6pBQ38wqdZWGdnZLCgZMcmm0lkf
+	yRXPvzE5VGFMA8zfUiCJZjggA+Ed54oZ06Lql5OBOBq61OHeqFkT9JAvNzRft4oO4QyZ/tuPQJ4EC
+	IGjrlExmcGtQhpnggSoWg5b7iz650ny4nEWH5GH9UmjxS99uszE2fxaMuIRQ/tBaknxyyRHFcvHLz
+	EpGUs0NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZAWy-00000005rhQ-1N8R;
-	Tue, 08 Jul 2025 15:46:52 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1uZAZI-00000005s9I-0KS6;
+	Tue, 08 Jul 2025 15:49:16 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZA74-00000005lgA-2Dms;
+	id 1uZA75-00000005lge-02NK;
 	Tue, 08 Jul 2025 15:20:08 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Type:In-Reply-To:References;
-	bh=f+AdjSpLYE0shtXAMJo1oGPvn8m5n7Wk9nMZZIV11e8=;
-	b=RgAEQUMNdPw7KMvhVYIPCsFqW062MaR+phV4UfYbXms9+KdXuV1btLi0q3k9FmAaknANDHQomYmZsL1FHgk/R/1W1mQ6U7gZXQNF0HiH4xQTg4uA4KgE5/7ivZ0f8ML+ALe+U8UTuaI6jo3oRqG5khaOz76FR1hqGaB/vj51PNM=
-Received: from lukas-hpz440workstation.localnet (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPSA
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
-	; Tue, 8 Jul 2025 17:19:33 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 3/5] ARM: dts: sunxi: add support for NetCube Systems Nagami
- SoM
-Date: Tue, 08 Jul 2025 17:19:31 +0200
-Message-ID: <3700020.R56niFO833@lukas-hpz440workstation>
-In-Reply-To: <20250708002205.70ec9097@minigeek.lan>
-References: <20250707184420.275991-1-lukas.schmid@netcube.li>
- <20250707184420.275991-4-lukas.schmid@netcube.li>
- <20250708002205.70ec9097@minigeek.lan>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1751988005;
+	bh=H8iH07teHTk1FMHrh1JRfe/HukXduiuHUVSw/9/aLmo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=cHaXIDJvbaRLN4Xf27Eb+N7C74KwuSwxtU/8XngY/9I201Nndg+rHH4d/vVYKF/Bx
+	 0Y+B7Gqs9fG47kis63nZuORRGZ5+6hJzsaR/dK8v8ODCIDM2h2S/XEDDsHnpzCNV48
+	 fUc5Thrzxl5XKA0CqDG/ZQx62QHeQuK+YRIAmSyIUXBHpGTKkA7S3C94lYt/aPkOog
+	 gUpjXzR9Rti6+Im9LhHlmT7gPo89lKMoGu5iYAko8vohOTdpIqGKgzOE70UWprKBNH
+	 M7W8p1ECm+38olFhZp9RhbyaW6MEKI+hZNwDsxkvXNTN9de9TBM9Tw2pXs2P19nSBO
+	 cctbzaaQlEWIA==
+Received: from trenzalore.hitronhub.home (unknown [23.233.251.139])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 31DCC17E11EE;
+	Tue,  8 Jul 2025 17:20:04 +0200 (CEST)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: linux-kernel@vger.kernel.org
+Cc: Detlev Casanova <detlev.casanova@collabora.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: [PATCH 06/12] media: rkvdec: Add RCB and SRAM support
+Date: Tue,  8 Jul 2025 11:19:39 -0400
+Message-ID: <20250708151946.374349-7-detlev.casanova@collabora.com>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250708151946.374349-1-detlev.casanova@collabora.com>
+References: <20250708151946.374349-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart3829144.MHq7AAxBmi";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_082006_863291_9DB3588D 
-X-CRM114-Status: GOOD (  41.46  )
+X-CRM114-CacheID: sfid-20250708_082007_192647_97FC01B8 
+X-CRM114-Status: GOOD (  28.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,382 +79,423 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart3829144.MHq7AAxBmi
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"; protected-headers="v1"
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Andre Przywara <andre.przywara@arm.com>
-Date: Tue, 08 Jul 2025 17:19:31 +0200
-Message-ID: <3700020.R56niFO833@lukas-hpz440workstation>
-In-Reply-To: <20250708002205.70ec9097@minigeek.lan>
-MIME-Version: 1.0
+The RCB (Rows and Cols Buffers) are a set of buffers used by other
+variations of the decoder to store temporary data.
 
-On Dienstag, 8. Juli 2025 01:22:05 CEST Andre Przywara wrote:
-> On Mon,  7 Jul 2025 20:44:15 +0200
-> Lukas Schmid <lukas.schmid@netcube.li> wrote:
-> 
-Hi Andre,
+Those variation come with a dedicated SRAM area used to store those
+buffers for better performances.
 
-> Hi Lukas,
-> 
-> please try to refrain from sending subsequent patches too quickly, that
-> might just put off and confuse reviewers. To acknowledge a change
-> request, it is probably sufficient to just reply to the mail with a
-> confirmation.
+The buffer sizes are either the width or height of the frame being
+decoded multiplied by a documented factor and can be stored either
+in SRAM or RAM.
+A fallback to RAM is provided if the SRAM is full (e.g.: multiple
+streams are being decoded at the same time).
 
-Sorry about that. I'm still trying to get the hang of this whole "submitting 
-patches" thing. What is a good time/reason to send the next revision/version 
-of a patchset?
+To manage the different kind of allocation, an enum is added to the
+rkvdec_aux_buf struct to specify how the buffer was allocated, and
+so, how to free it.
 
-> 
-> > NetCube Systems Nagami SoM is a module based around the Allwinner T113s
-> > SoC. It includes the following features and interfaces:
-> > 
-> > - 128MB DDR3 included in SoC
-> > - 10/100 Mbps Ethernet using LAN8720A phy
-> > - One USB-OTG interface
-> > - One USB-Host interface
-> > - One I2S interface with in and output support
-> > - Two CAN interfaces
-> > - ESP32 over SDIO
-> > - One SPI interface
-> > - I2C EEPROM for MAC address
-> > - One QWIIC I2C Interface with dedicated interrupt pin shared with EEPROM
-> > - One external I2C interface
-> > - SD interface for external SD-Card
-> > 
-> > Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-> > ---
-> > 
-> >  .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 233 ++++++++++++++++++
-> >  1 file changed, 233 insertions(+)
-> >  create mode 100644
-> >  arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi> 
-> > diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-> > b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi new file
-> > mode 100644
-> > index 000000000..0db867b47
-> > --- /dev/null
-> > +++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-> > @@ -0,0 +1,233 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +/*
-> > + * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-> > + */
-> > +
-> > +/dts-v1/;
-> > +#include "sun8i-t113s.dtsi"
-> > +
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +#include <dt-bindings/interrupt-controller/irq.h>
-> > +
-> > +/ {
-> > +	model = "NetCube Systems Nagami SoM";
-> > +	compatible = "netcube,nagami", "allwinner,sun8i-t113s";
-> > +
-> > +	aliases {
-> > +		serial1 = &uart1; // ESP32 Bootloader UART
-> > +		serial3 = &uart3; // Console UART on Card Edge
-> > +		ethernet0 = &emac;
-> > +	};
-> > +
-> > +	chosen {
-> > +		stdout-path = "serial3:115200n8";
-> > +	};
-> > +
-> > +	/* module wide 3.3V supply directly from the card edge */
-> > +	reg_vcc3v3: regulator-3v3 {
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "vcc-3v3";
-> > +		regulator-min-microvolt = <3300000>;
-> > +		regulator-max-microvolt = <3300000>;
-> > +		regulator-always-on;
-> > +	};
-> > +
-> > +	/* SY8008 DC/DC regulator on the board, also supplying VDD-SYS */
-> > +	reg_vcc_core: regulator-core {
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "vcc-core";
-> > +		regulator-min-microvolt = <880000>;
-> > +		regulator-max-microvolt = <880000>;
-> > +		vin-supply = <&reg_vcc3v3>;
-> > +	};
-> > +};
-> > +
-> > +&cpu0 {
-> > +	cpu-supply = <&reg_vcc_core>;
-> > +};
-> > +
-> > +&cpu1 {
-> > +	cpu-supply = <&reg_vcc_core>;
-> > +};
-> > +
-> > +&dcxo {
-> > +	clock-frequency = <24000000>;
-> > +};
-> > +
-> > +&emac {
-> > +	nvmem-cells = <&eth0_macaddress>;
-> > +	nvmem-cell-names = "mac-address";
-> > +	phy-handle = <&lan8720a>;
-> > +	phy-mode = "rmii";
-> > +	pinctrl-0 = <&rmii_pe_pins>;
-> > +	pinctrl-names = "default";
-> > +	status = "okay";
-> > +};
-> > +
-> > +/* Exposed as I2C on the card edge */
-> > +&i2c2 {
-> > +	pinctrl-0 = <&i2c2_pins>;
-> > +	pinctrl-names = "default";
-> 
-> I wonder if this belongs here. In general we don't describe
-> pins/devices that are on generic connectors (like pin headers), because
-> the connection is determined by the user, not by the board.
-> In this case PD20 and PD21 could be used as generic GPIOs or as PWMs.
-> IIUC, even for the basic carrier those pins end up on headers, so even
-> there I wouldn't describe it. On the keypad carrier it's of course a
-> different story, since the MCP23008 is apparently soldered there.
+This commit is in preparation of other variants support.
 
-I get that part. However the module's description (as of yet unreleased) 
-specifies those pins for this exact function as they are meant to be available 
-on our modules using the same connector but other CPU/SoC. The Module's state 
-that this is the default option but other function's can be reconfigured or 
-they can be used as IO. 
+Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+---
+ .../media/platform/rockchip/rkvdec/Makefile   |   1 +
+ .../platform/rockchip/rkvdec/rkvdec-rcb.c     | 175 ++++++++++++++++++
+ .../platform/rockchip/rkvdec/rkvdec-rcb.h     |  29 +++
+ .../media/platform/rockchip/rkvdec/rkvdec.c   |  29 ++-
+ .../media/platform/rockchip/rkvdec/rkvdec.h   |  13 ++
+ 5 files changed, 243 insertions(+), 4 deletions(-)
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
 
-If it's an issue I can remove those here, but I would still add them into the 
-basic carrier as, even though they are only pin header, they are marked with 
-the dedicated function of said pin. For example the headers there are 
-specifically for "SPI", "I2S", "I2C" and the SD-Card slot.
-
-> 
-> > +};
-> > +
-> > +/* Exposed as the QWIIC connector and used by the internal EEPROM */
-> > +&i2c3 {
-> > +	pinctrl-0 = <&i2c3_pins>;
-> > +	pinctrl-names = "default";
-> > +	status = "okay";
-> > +
-> > +	eeprom0: eeprom@50 {
-> > +		compatible = "atmel,24c02";		/* 
-actually it's a 24AA02E48 */
-> > +		reg = <0x50>;
-> > +		pagesize = <16>;
-> > +		read-only;
-> > +		vcc-supply = <&reg_vcc3v3>;
-> > +
-> > +		#address-cells = <1>;
-> > +		#size-cells = <1>;
-> > +
-> > +		eth0_macaddress: macaddress@fa {
-> > +			reg = <0xfa 0x06>;
-> > +		};
-> > +	};
-> > +};
-> > +
-> > +/* Exposed as I2S on the card edge */
-> > +&i2s1 {
-> > +	pinctrl-0 = <&i2s1_pins>, <&i2s1_din_pins>, <&i2s1_dout_pins>;
-> > +	pinctrl-names = "default";
-> 
-> Same story here, what prevents a user from using those edge pins as
-> GPIO or PWM?
-> 
-> > +};
-> > +
-> > +/* Phy is on SoM. MDI signals pre-magentics are on the card edge */
-> > +&mdio {
-> > +	lan8720a: ethernet-phy@0 {
-> > +		compatible = "ethernet-phy-ieee802.3-c22";
-> > +		reg = <0>;
-> > +	};
-> > +};
-> > +
-> > +/* Exposed as SD on the card edge */
-> > +&mmc0 {
-> > +	pinctrl-0 = <&mmc0_pins>;
-> > +	pinctrl-names = "default";
-> > +	vmmc-supply = <&reg_vcc3v3>;
-> > +	broken-cd;
-> > +	disable-wp;
-> > +	bus-width = <4>;
-> > +};
-> 
-> I think this node doesn't belong into the SoM .dtsi, as many details
-> are not set here, but on the carrier board: card detect, write protect,
-> Vmmc supply, and even bus width (could be 1 as well). So please move
-> this node to where the SD card connector sits. You might want to keep
-> the pinctrl nodes in here.
-
-Totally agree here, I will move this definition to the basic carrier, as it's 
-currently the only one with the SD-Interface connected. However my question 
-from above about the default function still applies here.
-> 
-> > +
-> > +/* Connected to the on-board ESP32 */
-> > +&mmc1 {
-> > +	pinctrl-0 = <&mmc1_pins>;
-> > +	pinctrl-names = "default";
-> > +	vmmc-supply = <&reg_vcc3v3>;
-> > +	bus-width = <4>;
-> > +	non-removable;
-> > +	status = "okay";
-> > +};
-> > +
-> > +/* Connected to the on-board eMMC */
-> > +&mmc2 {
-> > +	pinctrl-0 = <&mmc2_pins>;
-> > +	pinctrl-names = "default";
-> > +	vmmc-supply = <&reg_vcc3v3>;
-> > +	vqmmc-supply = <&reg_vcc3v3>;
-> > +	bus-width = <4>;
-> > +	non-removable;
-> > +	status = "okay";
-> > +};
-> > +
-> > +&pio {
-> > +	vcc-pb-supply = <&reg_vcc3v3>;
-> > +	vcc-pc-supply = <&reg_vcc3v3>;
-> > +	vcc-pd-supply = <&reg_vcc3v3>;
-> > +	vcc-pe-supply = <&reg_vcc3v3>;
-> > +	vcc-pf-supply = <&reg_vcc3v3>;
-> > +	vcc-pg-supply = <&reg_vcc3v3>;
-> > +
-> > +	gpio-line-names = "", "", "", "", // PA
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "CAN0_TX", 
-"CAN0_RX", // PB
-> > +					  "CAN1_TX", 
-"CAN1_RX", "UART3_TX", "UART3_RX",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "eMMC_CLK", 
-"eMMC_CMD", // PC
-> > +					  "eMMC_D2", 
-"eMMC_D1", "eMMC_D0", "eMMC_D3",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "", // 
-PD
-> > +					  "", "", "", "",
-> > +					  "", "", "SPI1_CS", 
-"SPI1_CLK",
-> > +					  "SPI1_MOSI", 
-"SPI1_MISO", "SPI1_HOLD", "SPI1_WP",
-> > +					  "PD16", "", "", "",
-> > +					  "I2C2_SCL", 
-"I2C2_SDA", "PD22", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "ETH_CRSDV", 
-"ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
-> > +					  "ETH_TXD0", 
-"ETH_TXD1", "ETH_TXEN", "",
-> > +					  "ETH_MDC", 
-"ETH_MDIO", "QWIIC_nINT", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "SD_D1", "SD_D0", 
-"SD_CLK", "SD_CLK", // PF
-> > +					  "SD_D3", "SD_D2", 
-"PF6", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "ESP_CLK", 
-"ESP_CMD", "ESP_D0", "ESP_D1", // PG
-> > +					  "ESP_D2", "ESP_D3", 
-"UART1_TXD", "UART1_RXD",
-> > +					  "ESP_nBOOT", 
-"ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-> > +					  "I2S1_WS", 
-"I2S1_CLK", "I2S1_DIN0", "I2S1_DOUT0",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "",
-> > +					  "", "", "", "";
-> > +};
-> > +
-> > +/* Remove the unused CK pin from the pinctl as it is unconnected */
-> > +&rmii_pe_pins {
-> > +	pins = "PE0", "PE1", "PE2", "PE3", "PE4",
-> > +		   "PE5", "PE6", "PE8", "PE9";
-> > +};
-> > +
-> > +/* Exposed as SPI on the card-edge */
-> > +&spi1 {
-> > +	#address-cells = <1>;
-> > +	#size-cells = <0>;
-> > +	pinctrl-0 = <&spi1_pins>;
-> > +	pinctrl-names = "default";
-> > +	cs-gpios = <0>;
-> > +};
-> 
-> I wonder if this belongs here as well, since it's again just generic
-> edge pins.
-
-Same here too
-> 
-> Cheers,
-> Andre
-> 
-> > +
-> > +/* Connected to the Bootloader/Console of the ESP32 */
-> > +&uart1 {
-> > +	pinctrl-0 = <&uart1_pg6_pins>;
-> > +	pinctrl-names = "default";
-> > +	status = "okay";
-> > +};
-> > +
-> > +/* Exposed as the Console/Debug UART on the card-edge */
-> > +&uart3 {
-> > +	pinctrl-0 = <&uart3_pb_pins>;
-> > +	pinctrl-names = "default";
-> > +	status = "okay";
-> > +};
-
-
---nextPart3829144.MHq7AAxBmi
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEPv6dcBmn59ssZMkSJnN+drMVRtgFAmhtNwMACgkQJnN+drMV
-Rtg3VQf9En80GmrC7Ph0W7mn6Jn1BLaNfAO917+LAH71HdBz+iT66X/JOziYZtcD
-PtHAyAVYdGgyrsC63wI3kzo0kikZc12Y7DRhwDm1RYvvEwE/EoT+4AzXHTsC5jbs
-FvAmGV8a8As7iQQXn714pq7SsoYR98bGCK2NenbKzYrnOvgjVWiAX+xn0s4ysNzQ
-ktnRDDJnQRHeguZvXlE+1IuqaMmEJk32PHo+Uuq/ZJ6u3y4gUTEbGxGYC0YzI/um
-4LeKJEWDGQwz4T1PhKqhYt08Gomutx40lsHfDGZ6vvBpmOTjNYHy081kFrKZl5GP
-LHiARQT12DxweW0YZsNfadfEElTV6g==
-=LcEn
------END PGP SIGNATURE-----
-
---nextPart3829144.MHq7AAxBmi--
-
-
-
+diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
+index 94c067084acd1..2b7ba9f7de286 100644
+--- a/drivers/media/platform/rockchip/rkvdec/Makefile
++++ b/drivers/media/platform/rockchip/rkvdec/Makefile
+@@ -5,4 +5,5 @@ rockchip-vdec-y += \
+ 		   rkvdec-cabac.o \
+ 		   rkvdec-h264.o \
+ 		   rkvdec-h264-common.o \
++		   rkvdec-rcb.o \
+ 		   rkvdec-vp9.o
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+new file mode 100644
+index 0000000000000..7585c253493b3
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+@@ -0,0 +1,175 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Rockchip video decoder Rows and Cols Buffers manager
++ *
++ * Copyright (C) 2025 Collabora, Ltd.
++ *  Detlev Casanova <detlev.casanova@collabora.com>
++ */
++
++#include "rkvdec.h"
++#include "rkvdec-rcb.h"
++
++#include <linux/types.h>
++#include <linux/iommu.h>
++#include <linux/genalloc.h>
++
++struct rkvdec_rcb_config {
++	struct rkvdec_aux_buf *rcb_bufs;
++	size_t rcb_count;
++};
++
++static size_t rkvdec_rcb_size(const struct rcb_size_info *size_info,
++			      unsigned int width, unsigned int height)
++{
++	return size_info->multiplier * (size_info->axis == PIC_HEIGHT ? height : width);
++}
++
++dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id)
++{
++	return ctx->rcb_config->rcb_bufs[id].dma;
++}
++
++size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id)
++{
++	return ctx->rcb_config->rcb_bufs[id].size;
++}
++
++int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx)
++{
++	return ctx->rcb_config->rcb_count;
++}
++
++void rkvdec_free_rcb(struct rkvdec_ctx *ctx)
++{
++	struct rkvdec_dev *dev = ctx->dev;
++	struct rkvdec_rcb_config *cfg = ctx->rcb_config;
++	unsigned long virt_addr;
++	int i;
++
++	if (!cfg)
++		return;
++
++	for (i = 0; i < cfg->rcb_count; i++) {
++		size_t rcb_size = cfg->rcb_bufs[i].size;
++
++		if (!cfg->rcb_bufs[i].cpu)
++			continue;
++
++		switch (cfg->rcb_bufs[i].type) {
++		case RKVDEC2_ALLOC_SRAM:
++			virt_addr = (unsigned long)cfg->rcb_bufs[i].cpu;
++
++			if (dev->iommu_domain)
++				iommu_unmap(dev->iommu_domain, virt_addr, rcb_size);
++			gen_pool_free(dev->sram_pool, virt_addr, rcb_size);
++			break;
++		case RKVDEC2_ALLOC_DMA:
++			dma_free_coherent(dev->dev,
++					  rcb_size,
++					  cfg->rcb_bufs[i].cpu,
++					  cfg->rcb_bufs[i].dma);
++			break;
++		}
++	}
++
++	if (cfg->rcb_bufs)
++		devm_kfree(dev->dev, cfg->rcb_bufs);
++
++	devm_kfree(dev->dev, cfg);
++}
++
++int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
++			const struct rcb_size_info *size_info,
++			size_t rcb_count)
++{
++	int ret, i;
++	u32 width, height;
++	struct rkvdec_dev *rkvdec = ctx->dev;
++	struct rkvdec_rcb_config *cfg;
++
++	ctx->rcb_config = devm_kzalloc(rkvdec->dev, sizeof(*ctx->rcb_config), GFP_KERNEL);
++	if (!ctx->rcb_config)
++		return -ENOMEM;
++
++	cfg = ctx->rcb_config;
++
++	cfg->rcb_bufs = devm_kzalloc(rkvdec->dev, sizeof(*cfg->rcb_bufs) * rcb_count, GFP_KERNEL);
++	if (!cfg->rcb_bufs) {
++		ret = -ENOMEM;
++		goto err_alloc;
++	}
++
++	width = ctx->decoded_fmt.fmt.pix_mp.width;
++	height = ctx->decoded_fmt.fmt.pix_mp.height;
++
++	for (i = 0; i < rcb_count; i++) {
++		void *cpu = NULL;
++		dma_addr_t dma;
++		size_t rcb_size = rkvdec_rcb_size(&size_info[i], width, height);
++		enum rkvdec_alloc_type alloc_type = RKVDEC2_ALLOC_SRAM;
++
++		/* Try allocating an SRAM buffer */
++		if (ctx->dev->sram_pool) {
++			if (rkvdec->iommu_domain)
++				rcb_size = ALIGN(rcb_size, 0x1000);
++
++			cpu = gen_pool_dma_zalloc_align(ctx->dev->sram_pool,
++						rcb_size,
++						&dma,
++						0x1000);
++		}
++
++		/* If an IOMMU is used, map the SRAM address through it */
++		if (cpu && rkvdec->iommu_domain) {
++			unsigned long virt_addr = (unsigned long)cpu;
++			phys_addr_t phys_addr = dma;
++
++			ret = iommu_map(rkvdec->iommu_domain, virt_addr, phys_addr,
++					rcb_size, IOMMU_READ | IOMMU_WRITE, 0);
++			if (ret) {
++				gen_pool_free(ctx->dev->sram_pool,
++				      (unsigned long)cpu,
++				      rcb_size);
++				cpu = NULL;
++				goto ram_fallback;
++			}
++
++			/*
++			 * The registers will be configured with the virtual
++			 * address so that it goes through the IOMMU
++			 */
++			dma = virt_addr;
++		}
++
++ram_fallback:
++		/* Fallback to RAM */
++		if (!cpu) {
++			cpu = dma_alloc_coherent(ctx->dev->dev,
++						 rcb_size,
++						 &dma,
++						 GFP_KERNEL);
++			alloc_type = RKVDEC2_ALLOC_DMA;
++		}
++
++		if (!cpu) {
++			ret = -ENOMEM;
++			goto err_alloc;
++		}
++
++		cfg->rcb_bufs[i].cpu = cpu;
++		cfg->rcb_bufs[i].dma = dma;
++		cfg->rcb_bufs[i].size = rcb_size;
++		cfg->rcb_bufs[i].type = alloc_type;
++
++		cfg->rcb_count += 1;
++	}
++
++	return 0;
++
++err_alloc:
++	rkvdec_free_rcb(ctx);
++
++	return ret;
++}
++
++
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
+new file mode 100644
+index 0000000000000..30e8002555c8a
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
+@@ -0,0 +1,29 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Rockchip video decoder Rows and Cols Buffers manager
++ *
++ * Copyright (C) 2025 Collabora, Ltd.
++ *  Detlev Casanova <detlev.casanova@collabora.com>
++ */
++
++#include <linux/types.h>
++
++struct rkvdec_ctx;
++
++enum rcb_axis {
++	PIC_WIDTH = 0,
++	PIC_HEIGHT = 1
++};
++
++struct rcb_size_info {
++	u8 multiplier;
++	enum rcb_axis axis;
++};
++
++int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
++			const struct rcb_size_info *size_info,
++			size_t rcb_count);
++dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id);
++size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id);
++int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx);
++void rkvdec_free_rcb(struct rkvdec_ctx *ctx);
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 3496216d99c18..3285dd910c327 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -10,6 +10,7 @@
+  */
+ 
+ #include <linux/clk.h>
++#include <linux/genalloc.h>
+ #include <linux/interrupt.h>
+ #include <linux/iommu.h>
+ #include <linux/module.h>
+@@ -27,6 +28,7 @@
+ 
+ #include "rkvdec.h"
+ #include "rkvdec-regs.h"
++#include "rkvdec-rcb.h"
+ 
+ static bool rkvdec_image_fmt_match(enum rkvdec_image_fmt fmt1,
+ 				   enum rkvdec_image_fmt fmt2)
+@@ -668,6 +670,7 @@ static int rkvdec_start_streaming(struct vb2_queue *q, unsigned int count)
+ {
+ 	struct rkvdec_ctx *ctx = vb2_get_drv_priv(q);
+ 	const struct rkvdec_coded_fmt_desc *desc;
++	struct rkvdec_config *cfg = ctx->dev->config;
+ 	int ret;
+ 
+ 	if (V4L2_TYPE_IS_CAPTURE(q->type))
+@@ -677,13 +680,22 @@ static int rkvdec_start_streaming(struct vb2_queue *q, unsigned int count)
+ 	if (WARN_ON(!desc))
+ 		return -EINVAL;
+ 
++	ret = rkvdec_allocate_rcb(ctx, cfg->rcb_size_info, cfg->rcb_num);
++	if (ret)
++		return ret;
++
+ 	if (desc->ops->start) {
+ 		ret = desc->ops->start(ctx);
+ 		if (ret)
+-			return ret;
++			goto err_ops_start;
+ 	}
+ 
+ 	return 0;
++
++err_ops_start:
++	rkvdec_free_rcb(ctx);
++
++	return ret;
+ }
+ 
+ static void rkvdec_queue_cleanup(struct vb2_queue *vq, u32 state)
+@@ -719,6 +731,8 @@ static void rkvdec_stop_streaming(struct vb2_queue *q)
+ 
+ 		if (desc->ops->stop)
+ 			desc->ops->stop(ctx);
++
++		rkvdec_free_rcb(ctx);
+ 	}
+ 
+ 	rkvdec_queue_cleanup(q, VB2_BUF_STATE_ERROR);
+@@ -1183,15 +1197,14 @@ static int rkvdec_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	if (iommu_get_domain_for_dev(&pdev->dev)) {
++	rkvdec->iommu_domain = iommu_get_domain_for_dev(&pdev->dev);
++	if (rkvdec->iommu_domain) {
+ 		rkvdec->empty_domain = iommu_paging_domain_alloc(rkvdec->dev);
+ 
+ 		if (!rkvdec->empty_domain)
+ 			dev_warn(rkvdec->dev, "cannot alloc new empty domain\n");
+ 	}
+ 
+-	vb2_dma_contig_set_max_seg_size(&pdev->dev, DMA_BIT_MASK(32));
+-
+ 	irq = platform_get_irq(pdev, 0);
+ 	if (irq <= 0)
+ 		return -ENXIO;
+@@ -1204,6 +1217,10 @@ static int rkvdec_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
++	rkvdec->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
++	if (!rkvdec->sram_pool && rkvdec->config->rcb_num > 0)
++		dev_info(&pdev->dev, "No sram node, RCB will be stored in RAM\n");
++
+ 	pm_runtime_set_autosuspend_delay(&pdev->dev, 100);
+ 	pm_runtime_use_autosuspend(&pdev->dev);
+ 	pm_runtime_enable(&pdev->dev);
+@@ -1217,6 +1234,10 @@ static int rkvdec_probe(struct platform_device *pdev)
+ err_disable_runtime_pm:
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
++
++	if (rkvdec->sram_pool)
++		gen_pool_destroy(rkvdec->sram_pool);
++
+ 	return ret;
+ }
+ 
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+index 14717c646c665..3a073883d21eb 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+@@ -19,10 +19,12 @@
+ #include <media/v4l2-ctrls.h>
+ #include <media/v4l2-device.h>
+ #include <media/v4l2-ioctl.h>
++#include <media/v4l2-mem2mem.h>
+ #include <media/videobuf2-core.h>
+ #include <media/videobuf2-dma-contig.h>
+ 
+ struct rkvdec_ctx;
++struct rkvdec_rcb_config;
+ 
+ struct rkvdec_ctrl_desc {
+ 	struct v4l2_ctrl_config cfg;
+@@ -103,6 +105,8 @@ struct rkvdec_coded_fmt_desc {
+ struct rkvdec_config {
+ 	struct rkvdec_coded_fmt_desc *coded_fmts;
+ 	size_t coded_fmts_num;
++	struct rcb_size_info *rcb_size_info;
++	size_t rcb_num;
+ };
+ 
+ struct rkvdec_dev {
+@@ -115,6 +119,8 @@ struct rkvdec_dev {
+ 	void __iomem *regs;
+ 	struct mutex vdev_lock; /* serializes ioctls */
+ 	struct delayed_work watchdog_work;
++	struct gen_pool *sram_pool;
++	struct iommu_domain *iommu_domain;
+ 	struct iommu_domain *empty_domain;
+ 	struct rkvdec_config *config;
+ };
+@@ -127,6 +133,7 @@ struct rkvdec_ctx {
+ 	struct v4l2_ctrl_handler ctrl_hdl;
+ 	struct rkvdec_dev *dev;
+ 	enum rkvdec_image_fmt image_fmt;
++	struct rkvdec_rcb_config *rcb_config;
+ 	void *priv;
+ };
+ 
+@@ -135,10 +142,16 @@ static inline struct rkvdec_ctx *fh_to_rkvdec_ctx(struct v4l2_fh *fh)
+ 	return container_of(fh, struct rkvdec_ctx, fh);
+ }
+ 
++enum rkvdec_alloc_type {
++	RKVDEC2_ALLOC_DMA  = 0,
++	RKVDEC2_ALLOC_SRAM = 1,
++};
++
+ struct rkvdec_aux_buf {
+ 	void *cpu;
+ 	dma_addr_t dma;
+ 	size_t size;
++	enum rkvdec_alloc_type type;
+ };
+ 
+ void rkvdec_run_preamble(struct rkvdec_ctx *ctx, struct rkvdec_run *run);
+-- 
+2.50.0
 
 
