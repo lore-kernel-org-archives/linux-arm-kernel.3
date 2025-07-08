@@ -4,58 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67787C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 08:26:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A62C83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 08:28:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JwKYzZwBzARYFTnLsux7Eiv5inSyE2lM5w71jLeeHjM=; b=hEuFR25w1dhoZ0
-	lALgIkmxHsaUwHqwI8yCtHC/ExDl3eRdB9aO5VWABBcpPHWIpEu8i42rRRe+p1s5pgoq54TL5dfKT
-	Ho0/gzetECOdACRNlglWceV90Ngpw5mKRTt/NZ/kelpl8R4BpkcZvLNIABzGiO0i+NVEQcErXXC//
-	EzEoK8eLN5nFFuLwr9KBTjI+BNLaV/1cHsrb+PJ+b2MHCzvstc3jc6KJEGdqCQT+62Q2huTa030z6
-	++qvD59ADbHQUoyKiP6aWymvvLDs3DmIgMZZ42A9rxcQTt2fkggTVYRpjVd2kPlc4V1j56FmFtAaH
-	TekWxh005Uuj41E0Bl6w==;
+	List-Owner; bh=bptx/BAIftNK/QdaYee5ZAEaL3M8sgvp0kftxYQ6z0U=; b=Y0ZbOmZa2/Fica
+	aCBNjhgr2uaVkseWy4CcgxO2xMb9Sczb1OklDxbLld+zojF2Vq9zpxUaybnpLNsgNlKLXaAykK984
+	eW3SHpauRmFwmlxxVZaffeS/WNOGPTM+Djlp97RMLTb2+Rc5O/ZneI6sVfaPne/WutDzV7vWVp9y+
+	z9rs6k5GfS0xWg2mXRPS0gAMZj6p1Op9HeNbOg5jMkVdYob1JoFDgdyV2sl/AaDUHH0QI6ZacD5z9
+	rEQGJq3Jb4TV0OPCN49D2K4kOpoL2g4S8+2xr8BoioW/iUAvzmAjoLwQl/NJh49dN0+6Fj41CnEFB
+	XngL9RWTYNM63sNtZ+jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3eQ-00000004k0c-2o0X;
-	Tue, 08 Jul 2025 08:26:06 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uZ3h6-00000004kUB-0gbB;
+	Tue, 08 Jul 2025 08:28:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3bA-00000004jJw-0qIf
+	id 1uZ3el-00000004k6e-3bJ4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 08:22:45 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bbvGR4w7yz6GCk0;
-	Tue,  8 Jul 2025 16:21:51 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 762A41404C5;
-	Tue,  8 Jul 2025 16:22:36 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 8 Jul
- 2025 10:22:35 +0200
-Date: Tue, 8 Jul 2025 09:22:34 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH 2/5] arch_topology: update CPU map to use the new API
-Message-ID: <20250708092234.00006fd5@huawei.com>
-In-Reply-To: <ca58608c-c147-45a7-910f-41a7c312fd5a@kernel.org>
-References: <20250707150414.620-1-alireza.sanaee@huawei.com>
-	<20250707150414.620-3-alireza.sanaee@huawei.com>
-	<ca58608c-c147-45a7-910f-41a7c312fd5a@kernel.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 08 Jul 2025 08:26:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4ACE45C61BD;
+	Tue,  8 Jul 2025 08:26:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71C8AC4CEED;
+	Tue,  8 Jul 2025 08:26:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751963187;
+	bh=htW14gLVO7v0prCw2sGxhSyIff550XLo+JPB97mfhNg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YxSvDuESwCBePADSppKaYBCJZNGd5Id92f0u6YheGyw2UgUMOrbOM8e1FinAq3Evj
+	 DrwM0Z3F26WRn4/oJrB+4fRS1dse94gyLacj9oGUWdtkWfTMv2kWOUE+uWo2GR8/0W
+	 zaFhwRW6AhGItwNvm4kKxfdU4OzyIOAhaVulvaVcK0LpFnAwctvgwKbAmcqjsX9gtn
+	 ooX13fRyX0s7w3uLIzrKN+mLkJyPPXwYdizu2eZTjFmoqOS9ia12OQMmoQo1A0lFpF
+	 Nh1k0Q/q/jnKqAXhsNsXBv/DBkfkNGkkePB8ctF+d5JJvkcD+V155Y/0W5lIRZTev7
+	 c5rJhdrWwZCfw==
+Message-ID: <33531ab7-1cf2-448d-ab04-1f0aaf5d8889@kernel.org>
+Date: Tue, 8 Jul 2025 10:26:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] arch_topology: update CPU map to use the new API
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+References: <20250707150414.620-1-alireza.sanaee@huawei.com>
+ <20250707150414.620-3-alireza.sanaee@huawei.com>
+ <ca58608c-c147-45a7-910f-41a7c312fd5a@kernel.org>
+ <20250708092234.00006fd5@huawei.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250708092234.00006fd5@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500003.china.huawei.com (7.191.162.67) To
- frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_012244_382847_70E3061F 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20250708_012627_981569_BCA859F4 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,40 +118,51 @@ Cc: mark.rutland@arm.com, robh@kernel.org, saravanak@google.com, devicetree@vger
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 8 Jul 2025 08:29:43 +0200
-Krzysztof Kozlowski <krzk@kernel.org> wrote:
-
-> On 07/07/2025 17:04, Alireza Sanaee wrote:
-> > Cleans up the cpu-map generation using the created API.
-> > 
-> > Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
-> > ---
-> >  drivers/base/arch_topology.c | 12 ++++++------
-> >  1 file changed, 6 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> > index 3ebe77566788..88970f13f684 100644
-> > --- a/drivers/base/arch_topology.c
-> > +++ b/drivers/base/arch_topology.c
-> > @@ -518,23 +518,23 @@ core_initcall(free_raw_capacity);
-> >   */
-> >  static int __init get_cpu_for_node(struct device_node *node)
-> >  {
-> > +	struct device_node *cpu_node __free(device_node) = NULL;  
+On 08/07/2025 10:22, Jonathan Cameron wrote:
+> On Tue, 8 Jul 2025 08:29:43 +0200
+> Krzysztof Kozlowski <krzk@kernel.org> wrote:
 > 
+>> On 07/07/2025 17:04, Alireza Sanaee wrote:
+>>> Cleans up the cpu-map generation using the created API.
+>>>
+>>> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+>>> ---
+>>>  drivers/base/arch_topology.c | 12 ++++++------
+>>>  1 file changed, 6 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+>>> index 3ebe77566788..88970f13f684 100644
+>>> --- a/drivers/base/arch_topology.c
+>>> +++ b/drivers/base/arch_topology.c
+>>> @@ -518,23 +518,23 @@ core_initcall(free_raw_capacity);
+>>>   */
+>>>  static int __init get_cpu_for_node(struct device_node *node)
+>>>  {
+>>> +	struct device_node *cpu_node __free(device_node) = NULL;  
+>>
+>>
+>> That's not a correct style anymore. What's more it is not really
+>> explained anywhere. Follow standard cleanup.h rules (constructor).
 > 
-> That's not a correct style anymore. What's more it is not really
-> explained anywhere. Follow standard cleanup.h rules (constructor).
+> There isn't a good solution in this case as the constructor is via
+> a pointer passed as an argument. I'd just fall back to not using
 
-There isn't a good solution in this case as the constructor is via
-a pointer passed as an argument. I'd just fall back to not using
-__free here and instead doing a manual put of the node in the
-paths where it is set.   That might just be the final successful
-return path - I've not checked closely.
 
-> 
-> 
-> Best regards,
-> Krzysztof
+That's even more confusing! There is a destructor here but no
+constructor. This is clearly the pattern we people wanted to avoid with
+cleanup.h.
 
+> __free here and instead doing a manual put of the node in the
+> paths where it is set.   That might just be the final successful
+
+Yes.
+
+> return path - I've not checked closely.
+
+Just noticed now:
+
+Patch btw has some more unrelated white space changes... :/
+
+Best regards,
+Krzysztof
 
