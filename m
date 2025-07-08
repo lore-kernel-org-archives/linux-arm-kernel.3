@@ -4,58 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342F4C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 14:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79227C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 14:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+wbnEjzJXQXVA/vf7SiUsb6uKq6onYprcXLKK/yVOY=; b=m1cjSwzeQk+HAhbk6yCbLsdDQh
-	Cg8Q5iLEWP6jgmhiu4aZ9+sNegCpya+Q/1SjEhOjaXEGQSsuJozoDQLoXWf3CioR7kEJpgjr+Jgo8
-	eKUzaJyMBedaVBsgfwCKJ12yEJ73k3h2JS2A/NlDtUpPyiqo6k4N8w23Hcqn3rrCua1TDZbhl9U+k
-	tZcuWEA3tVyPZ64xlgYdDV11ka/ceuCSWHARFE04WAq5aPUmEIlz4g1PcO9kGsfLYT6cQ4l1qGatg
-	Wbmknunuz7Nl2oZ1BK/3P5anOcHjNu8xm+bGGLqFnSL1Y/86xOal/SQHRvUExi2qiN9gTO8yDQu+1
-	N4JH9Uzw==;
+	bh=4mx3IHteRwUNhYCrAfGMzhRUVTp6CPPr3df3PDyxl2k=; b=w7Fox52aYGzVRyyd8lYpIE7pPo
+	B3p186UMqI0KIaZWmWmkgrGTMNb68aZmruPymvIA/3lCDdapMjXRLPR+Ih336tSQOHyiJAD8jkKNC
+	8HaOGG2PdTZ/L6TNNLSB7gSF/lV+SIa0YJkKrcXj4RfqBTROMV5a7jh3tojb+XhUdwsnR1tmK8AMa
+	2I0aDdb7YgpkRHgVCa5AbrZuHhoeCmSJ3NTBoeoN8ePgeNxAdzUbjmL7dsEF2m6dgoCEPcllea18g
+	reMhRfj62cmthYFnQ7kGEZCCeCL8x9SjZmbJWBuWfG52ahQab48qSIYJ3j5Ax2VWve33eCa8B1LES
+	O6b1yCVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ9Ww-00000005dhj-2NJV;
-	Tue, 08 Jul 2025 14:42:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ9Ua-00000005dHA-0wZY
+	id 1uZ9ZH-00000005eBy-13kG;
+	Tue, 08 Jul 2025 14:45:11 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZ9VJ-00000005dOq-2np3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 14:40:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 85F2B153B;
-	Tue,  8 Jul 2025 07:40:04 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D20E23F694;
-	Tue,  8 Jul 2025 07:40:14 -0700 (PDT)
-Date: Tue, 8 Jul 2025 15:40:04 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <Anshuman.Khandual@arm.com>,
-	Rob Herring <Rob.Herring@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	Robin Murphy <Robin.Murphy@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] perf: arm_spe: Add barrier before enabling profiling
- buffer
-Message-ID: <aG0tsz1EPbrDFTia@raptor>
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <20250701-james-spe-vm-interface-v1-1-52a2cd223d00@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250701-james-spe-vm-interface-v1-1-52a2cd223d00@linaro.org>
+	Tue, 08 Jul 2025 14:41:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C5C48A53EC3;
+	Tue,  8 Jul 2025 14:41:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F1B7C4CEED;
+	Tue,  8 Jul 2025 14:41:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751985664;
+	bh=o+9yZP3hCqGsyFTdJeQZPiXoMBkX1jh2XVuQmFEjmBI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HA6JFNMOMFSvn2pwCigUy0Hy8cnFK32vInmMDrgIIzlhCd4zadfHcN6+Jcm7X/kvw
+	 8S+sBSDS8BV3X1rOegvUktfHECu8ZK1skJMC/+4rblRv1M1pABfs/uPAnF2h5RtcT5
+	 j/79hXxWJjvioOtJkwD2voNruTz9xO94Ta15VpxCylYQZsLwyWBwSrUrNoqVh01u5H
+	 2FWo51N4iUt08dHwHSLkR/p0T1YVaHL1VrpfGtGjprJYphd/6nnZ0mrfRKYBK/NX5c
+	 JRq2PUOPuhZqplXmik4V372bk5ioHztN3OuQxOomD/ku3/HBX0nSu4UWznA9p+i5qN
+	 E7+lTqimx1UyA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uZ9VG-00DnGo-3G;
+	Tue, 08 Jul 2025 15:41:02 +0100
+Date: Tue, 08 Jul 2025 15:41:01 +0100
+Message-ID: <86qzyqagoy.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-pci@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,	Toan Le <toan@os.amperecomputing.com>,
+	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,	Manivannan
+ Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,	Bjorn Helgaas
+ <bhelgaas@google.com>,	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH 09/12] PCI: xgene-msi: Sanitise MSI allocation and affinity setting
+In-Reply-To: <aGvga+1Q6SOsTScK@lpieralisi>
+References: <20250628173005.445013-1-maz@kernel.org>
+	<20250628173005.445013-10-maz@kernel.org>
+	<aGvga+1Q6SOsTScK@lpieralisi>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, toan@os.amperecomputing.com, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, tglx@linutronix.de
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_074020_306696_18F6D6C0 
-X-CRM114-Status: GOOD (  22.32  )
+X-CRM114-CacheID: sfid-20250708_074105_775091_7B27186F 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,61 +88,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On Tue, Jul 01, 2025 at 04:31:57PM +0100, James Clark wrote:
-> DEN0154 states that PMBPTR_EL1 must not be modified while the profiling
-> buffer is enabled. Ensure that enabling the buffer comes after setting
-> PMBPTR_EL1 by inserting an isb().
+On Mon, 07 Jul 2025 15:57:47 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
-> This only applies to guests for now, but in future versions of the
-> architecture the PE will be allowed to behave in the same way.
+> On Sat, Jun 28, 2025 at 06:30:02PM +0100, Marc Zyngier wrote:
+
+[...]
+
+> > + * Effectively, this amounts to:
+> > + * - hwirq[7]::cpu[2:0] is the target frame number
+> > + * - hwirq[6:4] is the register index in any given frame
+> > + * - hwirq[3:0] is the MSI data
 > 
-> Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
+> I think that adding macros to define these subfields shifts would simplify
+> reading and reviewing the code - while reviewing xgene_msi_isr() I
+> realized it is hard to understand where the shifts to pack/unpack hwirq come
+> from. I'd understand you don't want to use FIELD_PREP/GET on hwirq, it
+> is not a HW field but rather a SW encoding you created but at least defining
+> the shifts and using them throughout would help.
 
-A note on why I think this is a fix.
-
-The write to PMBLIMITR_EL1 serves two purposes: to enable the buffer and to set
-the limit for the new buffer. The statistical profiling unit (I'm calling it
-SPU) performs indirect reads of the registers. Without the ISB between the
-buffer pointer write and the write that enables + sets limit for the buffer, I
-think it's possible for the SPU to observe the PMBLIMITR_EL1 write before the
-PMBPTR_EL1 write. During this time, from the point of view of the SPU, the
-buffer is incorrectly programmed, and potentially the old PMBPTR_EL1.PTR > new
-PMBLIMITR_EL1.Limit.
-
-arm_spe_perf_aux_output_begin() can be called after sampling has been enabled
-(PMSCR_EL1.E1SPE = 1).
-
-Putting it all together, this means that we have all the conditions to break the
-restrictions on the current write pointer and the behaviour is UNPREDICTABLE, as
-per section D17.7.1, ARM DDI 0487L. I think it's worth pointing out that the SPU
-can do any of the folling in this situation: writing to any writable virtual
-address in the current owning translation regime (!), generate a profiling
-management event, discard all data or don't enable profiling.
+I have no problem using FIELD_*() for that. I've now reworked this to
+make it clearer as well as added a bit more documentation on the
+behaviour of the MSInRx registers (they are quite funky).
 
 Thanks,
-Alex
 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  drivers/perf/arm_spe_pmu.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-> index 3efed8839a4e..6235ca7ecd48 100644
-> --- a/drivers/perf/arm_spe_pmu.c
-> +++ b/drivers/perf/arm_spe_pmu.c
-> @@ -537,6 +537,7 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
->  	limit += (u64)buf->base;
->  	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
->  	write_sysreg_s(base, SYS_PMBPTR_EL1);
-> +	isb();
->  
->  out_write_limit:
->  	write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
-> 
-> -- 
-> 2.34.1
-> 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
