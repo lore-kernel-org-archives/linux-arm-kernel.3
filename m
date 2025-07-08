@@ -4,87 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50382C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 16:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA61C83F0A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 16:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gRbXwJ4vnB/zDj0rM1xWnMPZ+mVdznTRW5M3IQISchU=; b=lcX2/foCHSJy9SeAgagopoyp0Q
-	txYRVJ5B2g1TRGagKPVU+fuKZvbtWQxqKcu/rSi6hzc9ve+dOib+fOjjEfzIvsop1fuF8pkQgx70U
-	r20eYfWXQRgNkZ7jop+kuPvVn7t1uHgXsveKJ38EtSqXiyj6hTT08sLJ0UUiZCVxGP1uJbtXPKPiS
-	+IKFyol3/Jj39cTgTPLv/cvpeJRjBJ4ny8rBT6GkZyODNYfVJX1G9h64+CDSWkPTwdZ7oji9jPTb4
-	URJU03sx47JXE2rRf6EhWGSRh0v7WJzFRIewVgtyb07ztrTvnlW0qDTfCHO5ixgWqpCRV9dJaBULa
-	iRml8+2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=snlky0rzf5HvYtCIGoPprXYgpLt63cCjRVxbkAdO6Uo=; b=L0YJoT3ZGo8ECRqCw4coc0RfsM
+	UEyqGuN2x0LCXrV7kXY3dV+gtRW4+zO+5QI7JwCiC+Ggo56Z8vX4HJYOyK6R1nHlAVlQ5eVXfFgOQ
+	rskZaK4wna4yNWavznH2fwdgU27ZsO+CFADPC46pKR7wOceHd/2GQeWvCLGlAUdXKO1y19VPuIW3b
+	xuuYaZLCd3QM0kC9g6qp9trxWb4YHR+w4eI7YMMgDw59fFRsapdAl0Um1zydUGX+sbmY4AmHEVFmf
+	P/4hkbS0lmvnFKg5PdW/9UF33/m3bfv/NHB5K1BI0K2jILtvYXdqaWLU6geJ4qhb6Fh7R7Ih4oghc
+	KsAX/Nhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZBTA-000000060gn-3ilB;
-	Tue, 08 Jul 2025 16:47:00 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
+	id 1uZBVU-000000060yp-2f7i;
+	Tue, 08 Jul 2025 16:49:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZAbt-00000005siy-3R0g
+	id 1uZAhM-00000005tLO-0Dc3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 15:51:59 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-2e9a38d2a3aso4425749fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 08:51:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751989917; x=1752594717; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gRbXwJ4vnB/zDj0rM1xWnMPZ+mVdznTRW5M3IQISchU=;
-        b=qUQko08Mbyey2yol6Rbmc5Lhps9JG9EeDDGrZz7ssJybk1vwvxVdw7tJ9MzSFx41sv
-         oDoQTg8fa/IM0eZNUBFrGnaRwy9rp3GzA2zv6ruAQAHLrmb4LyUIlDJozWSVEyCPJ0SB
-         O9NNi5nJut8F3NG2I06kJN4T/oN5Lj0lcYi0zmGk8+geEL3dqZcFu7z/LPOmymFIjdbh
-         F2Yf1ad0doInlpObxWl2BgODNdaHFlA5fgQ6OtVMHrp9NrUMoi6rRqKJLikcS+pLWWTZ
-         BdY5dioB8/X2WiCXqShrkAly5vtMwQMhaNQL8KvBiskhnS9wvZ6bhMm4ZwcJdVxtEBI3
-         DN7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751989917; x=1752594717;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gRbXwJ4vnB/zDj0rM1xWnMPZ+mVdznTRW5M3IQISchU=;
-        b=DaRhlq58rtCD0jXoFip9bKHnDxurjx+uD+xbstX30n6H9TyAAG4cOO+Z9cHC/MxoY4
-         x1XQS+M/aqa1y27W1YwYgPmCqqw+XRjeK4YPp/zIght/w0FhjzEpvXAlspH4KGzq9uHu
-         kI8cHbXD7oq3/n1GfaZbJdKNk5/KZL7sJbMB2M1/68SodABgT+OZYwL9yYnHAUzwkOQO
-         Mdz9TOrg+yBQuqOI5BpMqR14gBknSxh/Ud+/vfD7fNu4bJh9bEJ0vDGAx5aYZnWuuiNO
-         RzlnB89GvWsoA/ZBsCwezy05cLkFGiH4/4U0L95PyVa9bdLFQtjdgIymjoAmNST+SWie
-         oTpw==
-X-Forwarded-Encrypted: i=1; AJvYcCXQpHDSDdsipcVlrd6uRCiWqwjAvWP2JVlc6PyXmWrefPLZO1MQdtqmJ7BapH5igOflv8Aj9EEWMobhIjC7H7YW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEmyKUyal2J41sM3HXHEfhUD+pgs88FjT7OPDwlCynbMjFj5n2
-	iGv2tIGzYDbAzemLIIZduL7rRAyCNTY8/12XxDSAaL2EMnWDKihZh3f/MC5GOO0bt3PWWzs7fpK
-	WC4ncFUF/TiaivXJg0erNPraxmwzrl3BGlxzvBm6Iqw==
-X-Gm-Gg: ASbGnctKn8Go/MQ1o/eLpaSRuUOuDaebmYtsoH7n1wYWnr8PRBxkPHijqZ+2cEajWtc
-	S3DgI1T4AHE1lDll9/QyP02DdUVxmJzky5o2d6YLyBibUTujQuL5voJNoAtYmb+jwy/lqU17syU
-	fnPUmsgnvImNUjaCIgMidP06w/oVIYFvEaz3FU5EO9gR/w
-X-Google-Smtp-Source: AGHT+IGayKsL09US/aG4BWXfDqvwdj7IbiR5yylTrdq3b4SPkY53vMlQ75BaToWu3g2R7Y7GTXTocA55aVVbeeWQnIw=
-X-Received: by 2002:a05:6870:85cd:b0:2ea:7101:7dc1 with SMTP id
- 586e51a60fabf-2f796d387ddmr13310705fac.33.1751989916214; Tue, 08 Jul 2025
- 08:51:56 -0700 (PDT)
+	Tue, 08 Jul 2025 15:57:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5100044AE2;
+	Tue,  8 Jul 2025 15:57:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6F95C4CEED;
+	Tue,  8 Jul 2025 15:57:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751990255;
+	bh=L2yUgoap+0fIAC1x2Nd6QW3SBW0rBu5+7f0Tcjm9Ywc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J1jepkKCv2aJV5MgoCfhIinofXQ9i5ADG62GKPZyENWSaZ46dAiG/HxVlJgr94pAz
+	 xfRhdveay8Eidb8cO4D+UyHmAQa8v0b9AoqF3U3S1YBD4E2mFXVukQyZxs+Qy3O9tJ
+	 yy16ab348jwfbbLmIoAMWRUxFvaq99BScncWZbiIlN1u990ERXUtwAKU9H4czUrKiG
+	 BqqUspmFPms+Cnep6drugVPK6oYZsWupxJDVah0QcAH480jBiXfNyaetaxBASmAw+V
+	 kbUkzq1wi0Bjw+/00BA6CA/CiNpHC3CquXYI5DsJsu3ptmVlLN8CSnlD7usZvblvZg
+	 ryFPdYYH3yvxQ==
+Date: Tue, 8 Jul 2025 10:57:33 -0500
+From: Rob Herring <robh@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v7 01/15] dt-bindings: net: Introduce the
+ ethernet-connector description
+Message-ID: <20250708155733.GA481837-robh@kernel.org>
+References: <20250630143315.250879-1-maxime.chevallier@bootlin.com>
+ <20250630143315.250879-2-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-References: <20250627-gs101-cpuidle-v3-1-0200452dfe60@linaro.org>
- <91a9d4dbe5504c493856ef81b30d98e7da925ac0.camel@linaro.org> <232267bf-d226-43df-bd4f-5977706176a2@kernel.org>
-In-Reply-To: <232267bf-d226-43df-bd4f-5977706176a2@kernel.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 8 Jul 2025 16:51:43 +0100
-X-Gm-Features: Ac12FXyQtnEeVlAK_PBT_PKHrE4fR7brNoVWCLA4QssHna082hO6RsgDRrOaQo8
-Message-ID: <CADrjBPp5ndaEs=s-bZOyYnH21r=b2BoROC7+zV=dH_O2Pwxvmw@mail.gmail.com>
-Subject: Re: [PATCH v3] soc: samsung: exynos-pmu: Enable CPU Idle for gs101
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	William Mcvicker <willmcvicker@google.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250630143315.250879-2-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_085157_868343_2DA18C11 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20250708_085736_144018_ADC57900 
+X-CRM114-Status: GOOD (  29.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,90 +94,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Mon, Jun 30, 2025 at 04:33:00PM +0200, Maxime Chevallier wrote:
+> The ability to describe the physical ports of Ethernet devices is useful
+> to describe multi-port devices, as well as to remove any ambiguity with
+> regard to the nature of the port.
+> 
+> Moreover, describing ports allows for a better description of features
+> that are tied to connectors, such as PoE through the PSE-PD devices.
+> 
+> Introduce a binding to allow describing the ports, for now with 2
+> attributes :
+> 
+>  - The number of lanes, which is a quite generic property that allows
+>    differentating between multiple similar technologies such as BaseT1
+>    and "regular" BaseT (which usually means BaseT4).
+> 
+>  - The media that can be used on that port, such as BaseT for Twisted
+>    Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
+>    ethernet, etc. This allows defining the nature of the port, and
+>    therefore avoids the need for vendor-specific properties such as
+>    "micrel,fiber-mode" or "ti,fiber-mode".
+> 
+> The port description lives in its own file, as it is intended in the
+> future to allow describing the ports for phy-less devices.
+> 
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> ---
+>  .../bindings/net/ethernet-connector.yaml      | 47 +++++++++++++++++++
+>  .../devicetree/bindings/net/ethernet-phy.yaml | 18 +++++++
+>  MAINTAINERS                                   |  1 +
+>  3 files changed, 66 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/ethernet-connector.yaml b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
+> new file mode 100644
+> index 000000000000..2aa28e6c1523
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
+> @@ -0,0 +1,47 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/ethernet-connector.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Generic Ethernet Connector
+> +
+> +maintainers:
+> +  - Maxime Chevallier <maxime.chevallier@bootlin.com>
+> +
+> +description:
+> +  An Ethernet Connectr represents the output of a network component such as
 
-On Thu, 3 Jul 2025 at 11:19, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 03/07/2025 12:12, Andr=C3=A9 Draszik wrote:
-> > Thanks Pete for your patch!
-> >
-> > On Fri, 2025-06-27 at 14:08 +0100, Peter Griffin wrote:
-> >> Register cpu pm notifiers for gs101 which call the
-> >> gs101_cpu_pmu_online/offline callbacks which in turn program the ACPM
-> >> hint. This is required to actually enter the C2 idle state.
-> >>
-> >> A couple of corner cases are handled, namely when the system is reboot=
-ing
-> >> or suspending we ignore the request. Additionally the request is ignor=
-ed if
-> >> the CPU is in CPU hot plug. Some common code is refactored so that it =
-can
-> >> be called from both the CPU hot plug callback and CPU PM notifier taki=
-ng
-> >> into account that CPU PM notifiers are called with IRQs disabled where=
-as
-> >> CPU hotplug callbacks aren't.
-> >>
-> >> Note: this patch has a runtime dependency on adding 'local-timer-stop'=
- dt
-> >> property to the CPU nodes. This informs the time framework to switch t=
-o a
-> >> broadcast timer as the local timer will be shutdown. Without that DT
-> >> property specified the system hangs in early boot with this patch appl=
-ied.
-> >>
-> >> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> >
-> > With this applied, I see the following during boot:
-> >
-> > [    1.841304][    T0] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > [    1.841422][    T0] [ BUG: Invalid wait context ]
-> > [    1.841550][    T0] 6.16.0-rc4-next-20250702+ #54 Tainted: G     U  =
-        T
-> > [    1.841727][    T0] -----------------------------
-> > [    1.841844][    T0] swapper/0/0 is trying to lock:
-> > [    1.841965][    T0] ffff000800ee84b8 (&pmu_context->cpupm_lock){....=
-}-{3:3}
-> > [    1.842001][    T0] , at: gs101_cpu_pm_notify_callback+0x48/0x100
-> > [    1.842309][    T0] other info that might help us debug this:
-> > [    1.842613][    T0] context-{5:5}
-> > [    1.842987][    T0] 1 lock held by swapper/0/0:
-> > [    1.843442][    T0]  #0:
-> > [    1.843859][    T0] ffffafe9d8f1f100
-> > [    1.844282][    T0]  (
-> > [    1.844618][    T0] cpu_pm_notifier.lock
-> > [    1.844980][    T0] ){....}-{2:2}, at: cpu_pm_enter+0x30/0x88
-> > [    1.845340][    T0] stack backtrace:
-> > [    1.845855][    T0] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G =
-    U          T   6.16.0-rc4-next-20250702+ #54 PREEMPT
-> > [    1.845878][    T0] Tainted: [U]=3DUSER, [T]=3DRANDSTRUCT
-> > [    1.845884][    T0] Hardware name: Oriole (DT)
-> > [    1.845897][    T0] Call trace:
-> > [    1.845909][    T0]  show_stack+0x24/0x38 (C)
-> > [    1.845934][    T0]  dump_stack_lvl+0x40/0xc0
-> > [    1.845949][    T0]  dump_stack+0x18/0x24
-> > [    1.845956][    T0]  __lock_acquire+0xc68/0xd90
-> > [    1.845976][    T0]  lock_acquire+0x14c/0x2b8
-> > [    1.845985][    T0]  _raw_spin_lock+0x54/0x78
-> > [    1.846011][    T0]  gs101_cpu_pm_notify_callback+0x48/0x100
-> > [    1.846021][    T0]  notifier_call_chain+0xb0/0x198
-> > [    1.846046][    T0]  raw_notifier_call_chain_robust+0x50/0xb0
-> > [    1.846053][    T0]  cpu_pm_enter+0x4c/0x88
-> > [    1.846063][    T0]  psci_enter_idle_state+0x2c/0x70
-> > [    1.846078][    T0]  cpuidle_enter_state+0x14c/0x4c0
-> > [    1.846097][    T0]  cpuidle_enter+0x44/0x68
-> > [    1.846121][    T0]  do_idle+0x1f0/0x2a8
-> > [    1.846142][    T0]  cpu_startup_entry+0x40/0x50
-> > [    1.846152][    T0]  rest_init+0x1c4/0x1d0
-> > [    1.846161][    T0]  start_kernel+0x358/0x438
-> > [    1.846181][    T0]  __primary_switched+0x88/0x98
->
-> Thanks for the report. Probably such code should be always tested with
-> lock debugging options enabled, e.g.:
-> https://github.com/krzk/tools/blob/master/linux/build.sh#L845
+typo
 
-Thanks for the tip, I will do it for future versions.
+> +  a PHY, an Ethernet controller with no PHY, or an SFP module.
+> +
+> +properties:
+> +
+> +  lanes:
+> +    description:
+> +      Defines the number of lanes on the port, that is the number of physical
+> +      channels used to convey the data with the link partner.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
 
-Peter
+maximum?
+
+Or I'd guess this is power of 2 values?
+
+> +
+> +  media:
+> +    description:
+> +      The mediums, as defined in 802.3, that can be used on the port.
+> +    items:
+> +      enum:
+> +        - BaseT
+> +        - BaseK
+> +        - BaseS
+> +        - BaseC
+> +        - BaseL
+> +        - BaseD
+> +        - BaseE
+> +        - BaseF
+> +        - BaseV
+> +        - BaseMLD
+> +        - BaseX
+
+This can be multiple values? But then how does one know what is actually 
+attached?
+
+> +
+> +required:
+> +  - lanes
+> +  - media
+> +
+> +additionalProperties: true
+> +
+> +...
+> diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> index 71e2cd32580f..6bf670beb66f 100644
+> --- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> +++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> @@ -277,6 +277,17 @@ properties:
+>  
+>      additionalProperties: false
+>  
+> +  mdi:
+> +    type: object
+> +
+> +    patternProperties:
+> +      '^connector-[a-f0-9]+$':
+> +        $ref: /schemas/net/ethernet-connector.yaml#
+> +
+> +        unevaluatedProperties: false
+> +
+> +    additionalProperties: false
+> +
+>  required:
+>    - reg
+>  
+> @@ -313,5 +324,12 @@ examples:
+>                      default-state = "keep";
+>                  };
+>              };
+> +
+> +            mdi {
+> +              connector-0 {
+> +                lanes = <2>;
+> +                media = "BaseT";
+> +              };
+> +            };
+>          };
+>      };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index bb9df569a3ff..20806cfc1003 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -8946,6 +8946,7 @@ R:	Russell King <linux@armlinux.org.uk>
+>  L:	netdev@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/ABI/testing/sysfs-class-net-phydev
+> +F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
+>  F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
+>  F:	Documentation/devicetree/bindings/net/mdio*
+>  F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
+> -- 
+> 2.49.0
+> 
 
