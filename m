@@ -4,55 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8340CC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 21:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068AAC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 21:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uygCH21KbdcGkN1lZ0Sna3b75q2CK0gWLRBqeJYnhYo=; b=P7sRsbsBkqH3kJzuaBYQimkdw4
-	ZSf78LWdXO+KMfjOY/L+1OrgYG32wiwrqkGQwvc1aMXUxBhU1zxJAgrptssID9OmEBmaB75nk54ug
-	c/11vZp9vWEEv1KqA3+tm1tyqPiv3BiIjbkDJkdY6xWm2MtRoP1VK0cjWlqfN8roNQWJj594WwWIq
-	L8TBAUyJgo3H5U6D/+UyuZFpkRM0QcBylTDfKBYH+VbVXMapebXb5kKPZNxhZFm12PUW+HnTnI/um
-	jBf7b3qgm/G+PA0iPNMKhGNxC1JtOnpGnItUIdRLwNOG9zBZBwkIvlPJqlNF2QW2fxVPItwthk0QS
-	1u9Eip6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VsLW2VzgMCUj6tmxfjMOyabFOD0NjHpDqJA5TXtujnw=; b=eJC9x966GtR215RoX+goElEpiL
+	1fqW02jgtD9ueeVTJEO+o3COr4+bMnHvz6jQvWwsScpGw5nu+HzL3mzT1naQCL7owodpVTeezufwv
+	zSrxQZim2VDbhfBeUcAQG9lblcvJtylICtQW/PUTXOc6GkkzBVPGIT3s7zJxAIhniGyvzSy4XJ1xh
+	CuGNfhaGndS7TyTlnNJXM9vpzhKH1/a+MlTzb8r234bHz28y/CKmUn8wzPCFNgsOEkLAonKft7bVE
+	czZRCI7wFucWr4lkgnU5JROTatcTi6xFqQybENIoZYbuJiJmzRep5+Wqh12HK7bcUiKiEAh38cYyh
+	eXzWDnMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZFoU-00000006eip-23tK;
-	Tue, 08 Jul 2025 21:25:18 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uZFqn-00000006fG1-2WGl;
+	Tue, 08 Jul 2025 21:27:41 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZF7w-00000006Xs5-3Xih;
-	Tue, 08 Jul 2025 20:41:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
-	bh=uygCH21KbdcGkN1lZ0Sna3b75q2CK0gWLRBqeJYnhYo=; b=u+yrMRrgBJXNuN+2fBDeMtSzP1
-	zLsNSX3U50MzpnP+b4t1egPndg9OII9v9nXNjn5KDLv6SE+Tppp53b6/jonupNaSnCcpoUUyLrUEe
-	Cf6NCv2MfHzx+9iRIdhI0wpc+s24JmAirSueEczSwCHuaDG/zXoXgdTjAY0LVY2uqoJF8TuYboRGP
-	K+P6C3kT1CzO7kKju7bWyH8OVAbrrwmNIfOFdMOLzdwlGX7NK3XLsqnEKmglEghgYLWtIYEtUsmV1
-	X0Bp3UKqA8NzcHEQBydRjPdcCtaPIink7ShHOdyYXqDtuApImXcmH5DA5fRFhBpoo/dXAqD/2gbBx
-	wUxR8Yfw==;
-Received: from i53875a8d.versanet.de ([83.135.90.141] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uZF7u-0006dd-Lo; Tue, 08 Jul 2025 22:41:18 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts fixes for 6.16 #1
-Date: Tue, 08 Jul 2025 22:41:18 +0200
-Message-ID: <5108768.AiC22s8V5E@diego>
+	id 1uZFZR-00000006bp8-2uaV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Jul 2025 21:09:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=VsLW2VzgMCUj6tmxfjMOyabFOD0NjHpDqJA5TXtujnw=; b=0RJaJJTSuaDwdKA/7OJZdR//0b
+	OB0wFqPuioPxB+0w6tyz89RbTNZpvRu2MH2eUYWrvTRg2QZ4LQSEMg26drXN2OVHKteyupOoBFWAL
+	wn/rSJuOYDIxq/2gIV6KWrMTjbCEw53Yh21m4SaJ1kg86c70+9iKhedoO0uQHwQanWl0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uZFZD-000rte-K2; Tue, 08 Jul 2025 23:09:31 +0200
+Date: Tue, 8 Jul 2025 23:09:31 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 2/3] arm64: dts: ti: Add support for Variscite
+ VAR-SOM-AM62P
+Message-ID: <91131efd-e047-425a-9817-412fa1a6f857@lunn.ch>
+References: <20250708184841.72933-1-stefano.radaelli21@gmail.com>
+ <20250708184841.72933-3-stefano.radaelli21@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250708184841.72933-3-stefano.radaelli21@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_134120_907442_F80E0F24 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20250708_140945_729853_64AF3338 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,63 +74,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd, Kevin, Olof,
+> +&cpsw_port1 {
+> +	/*
+> +	 * The required RGMII TX and RX 2ns delays are implemented directly
+> +	 * in hardware via passive delay elements on the SOM PCB.
+> +	 * No delay configuration is needed in software via PHY driver.
+> +	 */
+> +	phy-mode = "rgmii";
+> +	phy-handle = <&cpsw3g_phy0>;
+> +	status = "okay";
+> +};
 
-please find a below some fixes for the current 6.16 release-cycle.
+Thanks for adding the comment. For this bit:
 
-Please pull
-
-Thanks
-Heiko
-
-
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
-
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.16-rockchip-dtsfixes1
-
-for you to fetch changes up to 9037532ab893635a46afe88542cd747a4a846497:
-
-  arm64: dts: rockchip: Add missing fan-supply to rk3566-quartz64-a (2025-06-30 11:08:36 +0200)
-
-----------------------------------------------------------------
-Switch to the gpio variant for spi-cs and mmc-detect for some boards
-as the in-controller functionality does not work as intended for them.
-HDMI drive strength adjustment for better ddc communication and some
-missing supplies.
-
-----------------------------------------------------------------
-Alexey Charkov (1):
-      arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
-
-Andy Yan (3):
-      arm64: dts: rockchip: Adjust the HDMI DDC IO driver strength for rk3588
-      arm64: dts: rockchip: Add cd-gpios for sdcard detect on Cool Pi CM5
-      arm64: dts: rockchip: Add cd-gpios for sdcard detect on Cool Pi 4B
-
-Diederik de Haas (1):
-      arm64: dts: rockchip: Add missing fan-supply to rk3566-quartz64-a
-
-Jakob Unterwurzacher (1):
-      arm64: dts: rockchip: use cs-gpios for spi1 on ringneck
-
-Shawn Lin (1):
-      arm64: dts: rockchip: fix rk3576 pcie1 linux,pci-domain
-
- arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi    | 23 ++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts |  1 +
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 28 +++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3576.dtsi           |  2 +-
- .../boot/dts/rockchip/rk3588-base-pinctrl.dtsi     | 20 ++++++-------
- .../arm64/boot/dts/rockchip/rk3588-coolpi-cm5.dtsi |  1 +
- .../boot/dts/rockchip/rk3588-extra-pinctrl.dtsi    |  5 ++--
- arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts |  1 +
- arch/arm64/boot/dts/rockchip/rockchip-pinconf.dtsi | 35 ++++++++++++++++++++++
- 9 files changed, 103 insertions(+), 13 deletions(-)
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
 
-
+    Andrew
 
