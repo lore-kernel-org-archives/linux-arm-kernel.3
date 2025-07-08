@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1600C83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 08:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24567C83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 08:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1LLhAPy7Ghblj+iKtj5iTpzCPso9B2g0bt1tZli2WU0=; b=ayO/n/27fwl+NiYxoSw0F9py9F
-	EMlQqCL2o4EUel0rwqas4aUZgnExBMJ5VHGO1/G5cxwWl+49szNhIn7kVdx7lQxfBS4/ismZ01lyv
-	3bdzHEcfotyJCmd3vPYet40I4DPHoSWN2ZhJHyejlMx6o6haRFs0Phzo25SRcxeMK5uDCvZFs0gOq
-	W8DmYawOblVNV3G8Cig9wYKindatGBlDH1+dlDlcoWeW6RhdJSephuTcOxlcBwvds5e3JMuZqxNU8
-	n3Rdr51RZOK1l/vpy1VnRc+6KaYwflEg6rPBp405rEX2E2lJTDBCSwfUTwLUFeMiy79oWilofDjZE
-	ZZXDSJLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kw7jYMPeu1JcgtQn3KTicUAd7itFZgmljraU1S3nD1U=; b=DTk2Qb4c9c/aWdHEPQ3HIZFsEu
+	2K346FXbWv/0HGyLRnZ6MmlMm1wv/YcuXfwLxNUnGXVIyYsINaiKrWMZ0ifCPfw+vwypEg6tLfkEL
+	79zPFGEhmt+8fBu8t3x5DJ+Sm2JOXQG3sMJMN4hj5+WqZhy17X/rdCSujNClq2+9CXD/4W9RUkN53
+	3s9gMKEI1agUxWaGU0yMbKD5MuGSiLqs3Jth2IIPzSotSqUyYZLjF2C1wpvRrQ/0e1KjlyTjH3x12
+	l7RRNjAcV/XRt3/l1ue+zsRZoLx+1jNrQ4suiSUNMwl218hX7Wi892WxbQYcs8yNZfXpN4eMWZjwf
+	zu/W7JQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3xB-00000004n0P-07Pc;
-	Tue, 08 Jul 2025 08:45:29 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uZ3zf-00000004nKY-3YwA;
+	Tue, 08 Jul 2025 08:48:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3gm-00000004kQD-341W
+	id 1uZ3n1-00000004lMb-2I9R
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 08:28:33 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4537edf2c3cso43258785e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 01:28:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751963311; x=1752568111; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1LLhAPy7Ghblj+iKtj5iTpzCPso9B2g0bt1tZli2WU0=;
-        b=Ap3eqQvestkvdCuZLR3KUO88fEkyZUsOJT7rkLCjEuWsjdOQn3ffYNPh770mQcSJmP
-         opYgsUBwgfy+4YkNqzoq1Tq8xne1Qouv3S4k2zKsGTyyxKgr2oOBdfApKTA4n7+ZKx5D
-         0Il4yah0BrQraZ2+pEnbw13hcMGVNS8LYQ4+7IRvSucnXh77SjXhXZgOtdwbCA+TMdiK
-         p3JyYgJoY4qJCTDZApJktrAXXQf7oRqVsLoik0qWmToEYu+WRqaqgrkURncqbaTm5q39
-         Bgh0Y+gIm6fRcFDr+adKn7BYQb5OuYYY0d/eHqj73bgRSwGf2AS2AEpA1oIZFnpidPPO
-         MLkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751963311; x=1752568111;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1LLhAPy7Ghblj+iKtj5iTpzCPso9B2g0bt1tZli2WU0=;
-        b=qu5EYFkClUHTq93GvBB0pZVPMN2bv6UBy9O+hUapZcjJmvfUnly8rbcUUVeDBuSqa6
-         zNVxvngYHKvorW/ExR9Rm+uQKo257hAYMOKVkWrb0neeIuXfGDd6LWpUsoaHuG4PL0O3
-         sgvAnDBBBdybZRLXH2XEXgdeUmfGeOlqq1FxQq2Mq72Z0CZlcKVnub3iGGLA4ac0yEld
-         96AM30xLgTto/6vzuVCzoIdU6P8FLKIIcI042+cgKSFx56+gx81RhJCT/k5G4z8wPMyc
-         5zhEPYMLVM+E0q8gWRYky5heikNgw0iGisw8EDHrX1660CKB77HA7+H1hz0vEIrmDuVT
-         gM/w==
-X-Forwarded-Encrypted: i=1; AJvYcCXI5HM+7KTX9OiS/AbS6Eh7EMwrnHTmxKZ2kZf+s8Qn+JgmXg7A4cEIzBfTW08C8SfWLsN+UWCJkohcAKTy0F0x@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzj/8YyIG/Xu+30relsrcJWT5S/Ihc4k7/rjU2mw/n4mWjPWWzs
-	VUFPIKoXbpQUQbbG+X2PzyRoUo5RnR9xUrFqL+zlF765iEUIEO2AAUIHGLCu4A==
-X-Gm-Gg: ASbGncvgRpNHMcJ/NCIf8jNushH58ktTqXiMoBhtPv3qMDh9OGwcInK0pxxE6ey9Bxx
-	lNQL1PlusGD3NQ5q1fMc4Ofana20aW/kmjgMUbVtNCVcehbGmJxeDfMk7zJAeCyEo6KqGzw/Vrn
-	hZtVx6dl23VFYGmE734yMEUZxNWaz0VX3ysX4jiJOERmi4fJKsI0BO32dDXldF30q4LmMy9Rzb9
-	nhetEQ3eWBKwDzI/zles07WPknO42vg1DI6E77VacKNKSx4O1ppr7gjziLQw+zGp4iHbCtBf5CY
-	Ya+fwEWCstKsN4pJTOi/1yOreNRZZ65Qg+KE7x6D5NPkUl2QhGd2ooWHJbp6/LBWba+SXDiIEgk
-	RDzIvnVPHPP0Qi4mHYhHkAL84as9PCuNQNyOSnlmBbLr3sp4M3jPURQ==
-X-Google-Smtp-Source: AGHT+IHsG5bw/pBz6eaAWGeZj02Dv5we6LevnW+89zASDG10jYaRM7fq8/KA3dUlltDsd0/UFjrNHw==
-X-Received: by 2002:a05:600c:c055:b0:43d:745a:5a50 with SMTP id 5b1f17b1804b1-454cdb340bcmr9487975e9.19.1751963310869;
-        Tue, 08 Jul 2025 01:28:30 -0700 (PDT)
-Received: from localhost (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b471b97339sm12478583f8f.64.2025.07.08.01.28.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Jul 2025 01:28:29 -0700 (PDT)
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 5/5] arm64: defconfig: Enable Tegra HSP and BPMP
-Date: Tue,  8 Jul 2025 10:28:14 +0200
-Message-ID: <20250708082814.1491230-6-thierry.reding@gmail.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250708082814.1491230-1-thierry.reding@gmail.com>
-References: <20250708082814.1491230-1-thierry.reding@gmail.com>
+	Tue, 08 Jul 2025 08:35:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8B05AA5365E;
+	Tue,  8 Jul 2025 08:34:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABCD4C4CEED;
+	Tue,  8 Jul 2025 08:34:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751963698;
+	bh=2Jz1qIaKUbxfjh+EnpAbS6pNmd5Pwbb3QUeKA2lWqes=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TNZazJ7SNy74UDkThqwB6ngXolMFPE4YQIak1LVtjrjLOQqhZb2lyIL1zDfvKyss5
+	 8zZaVhRWqqvYx6+BZRknWfKOrFiHmj4bG/6KptMbcaVq9xYFQdYnBKHaNmi6ZGqq8T
+	 hNuoO5w5SgW+IA3hmVWLxWWIcAJ9DUGHwE7K0omaO5srh0oo2XRu97/L6QAtTR3O2k
+	 se5093I87pD3BnlIR+HKXRXOGs+/QOvjwyrtT5BEdokep7OAgEfxgIWtCgDhWnozKK
+	 6Zv97ge9pV/StWeXK6qM3J0Y8B5x1c4SSaXHCiqcmli1VOmcen9XVrKtgzKpSYTcqr
+	 AVghupSINM7Zw==
+Date: Tue, 8 Jul 2025 10:34:55 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Taishi Shimizu <s.taishi14142@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Hauke Mehrtens <hauke@hauke-m.de>, Rafal Milecki <zajec5@gmail.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: Re: [PATCH 2/2] ARM: dts: BCM5301X: Add support for Buffalo
+ WXR-1750DHP
+Message-ID: <20250708-elite-indigo-wombat-faa74f@krzk-bin>
+References: <20250625154315.114139-1-s.taishi14142@gmail.com>
+ <20250625154315.114139-2-s.taishi14142@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250625154315.114139-2-s.taishi14142@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_012832_766879_E42FEEED 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20250708_013459_654710_D1BC2B92 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,73 +78,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <treding@nvidia.com>
+On Thu, Jun 26, 2025 at 12:43:15AM +0900, Taishi Shimizu wrote:
+> +
+> +#include "bcm4708.dtsi"
+> +#include "bcm5301x-nand-cs0-bch8.dtsi"
+> +
+> +/ {
+> +	compatible = "buffalo,wxr-1750dhp", "brcm,bcm4708";
+> +	model = "Buffalo WXR-1750DHP";
+> +
+> +	chosen {
+> +		bootargs = "console=ttyS0,115200";
 
-Selecting the IVC, HSP and BPMP drivers via Kconfig is problematic
-because it can create conflicting configurations. Instead, enable them
-in the default configuration.
+Please use stdout path property.
 
-Signed-off-by: Thierry Reding <treding@nvidia.com>
----
- arch/arm64/configs/defconfig | 2 ++
- drivers/soc/tegra/Kconfig    | 9 ---------
- 2 files changed, 2 insertions(+), 9 deletions(-)
+> +	};
+> +
+> +	memory@0 {
+> +		reg = <0x00000000 0x08000000>,
+> +		      <0x88000000 0x08000000>;
+> +		device_type = "memory";
+> +	};
+> +
+> +	gpio-keys {
+> +		compatible = "gpio-keys";
+> +
+> +		button-aoss {
+> +			label = "AOSS";
+> +			linux,code = <KEY_WPS_BUTTON>;
+> +			gpios = <&chipcommon 2 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		/* GPIO 8 and 9 are a tri-state switch button with
+> +		 * ROUTER / AP / WB.
+> +		 */
+> +		button-bridge {
+> +			label = "WB";
+> +			linux,code = <BTN_2>;
+> +			linux,input-type = <EV_SW>;
+> +			gpios = <&chipcommon 8 GPIO_ACTIVE_HIGH>;
+> +		};
+> +
+> +		/* GPIO 3 is a switch button with AUTO / MANUAL. */
+> +		button-manual {
+> +			label = "MANUAL";
+> +			linux,code = <BTN_0>;
+> +			linux,input-type = <EV_SW>;
+> +			gpios = <&chipcommon 3 GPIO_ACTIVE_HIGH>;
+> +		};
+> +
+> +		button-restart {
+> +			label = "Reset";
+> +			linux,code = <KEY_RESTART>;
+> +			gpios = <&chipcommon 11 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		button-router {
+> +			label = "ROUTER";
+> +			linux,code = <BTN_1>;
+> +			linux,input-type = <EV_SW>;
+> +			gpios = <&chipcommon 9 GPIO_ACTIVE_HIGH>;
+> +		};
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		led-power0 {
+> +			label = "bcm53xx:white:power";
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 739b19302865..2cf2886a1940 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -267,6 +267,7 @@ CONFIG_QCOM_TZMEM_MODE_SHMBRIDGE=y
- CONFIG_QCOM_QSEECOM=y
- CONFIG_QCOM_QSEECOM_UEFISECAPP=y
- CONFIG_EXYNOS_ACPM_PROTOCOL=m
-+CONFIG_TEGRA_BPMP=y
- CONFIG_GNSS=m
- CONFIG_GNSS_MTK_SERIAL=m
- CONFIG_MTD=y
-@@ -1456,6 +1457,7 @@ CONFIG_BCM2835_MBOX=y
- CONFIG_QCOM_APCS_IPC=y
- CONFIG_MTK_ADSP_MBOX=m
- CONFIG_QCOM_CPUCP_MBOX=m
-+CONFIG_TEGRA_HSP_MBOX=y
- CONFIG_QCOM_IPCC=y
- CONFIG_ROCKCHIP_IOMMU=y
- CONFIG_TEGRA_IOMMU_SMMU=y
-diff --git a/drivers/soc/tegra/Kconfig b/drivers/soc/tegra/Kconfig
-index bc532cbe32e7..9392c2c43cc8 100644
---- a/drivers/soc/tegra/Kconfig
-+++ b/drivers/soc/tegra/Kconfig
-@@ -97,9 +97,6 @@ config ARCH_TEGRA_186_SOC
- 	bool "NVIDIA Tegra186 SoC"
- 	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
--	select TEGRA_BPMP
--	select TEGRA_HSP_MBOX
--	select TEGRA_IVC
- 	select SOC_TEGRA_PMC
- 	help
- 	  Enable support for the NVIDIA Tegar186 SoC. The Tegra186 features a
-@@ -114,9 +111,6 @@ config ARCH_TEGRA_194_SOC
- 	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
- 	select PINCTRL_TEGRA194
--	select TEGRA_BPMP
--	select TEGRA_HSP_MBOX
--	select TEGRA_IVC
- 	select SOC_TEGRA_PMC
- 	help
- 	  Enable support for the NVIDIA Tegra194 SoC.
-@@ -126,9 +120,6 @@ config ARCH_TEGRA_234_SOC
- 	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
- 	select PINCTRL_TEGRA234
--	select TEGRA_BPMP
--	select TEGRA_HSP_MBOX
--	select TEGRA_IVC
- 	select SOC_TEGRA_PMC
- 	help
- 	  Enable support for the NVIDIA Tegra234 SoC.
--- 
-2.50.0
+You should use rather color and function properties.
+
+> +			linux,default-trigger = "default-on";
+> +			gpios = <&chipcommon 5 GPIO_ACTIVE_HIGH>;
+> +		};
+
+Best regards,
+Krzysztof
 
 
