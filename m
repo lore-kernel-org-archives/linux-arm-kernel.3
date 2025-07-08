@@ -4,91 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ABBDC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 13:07:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E5AC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 13:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3jJ8BMukDKm1ntMLDCU6/IXiTPsV5zOI4ZOEY7XVrU=; b=0RYUZBQk0+UlGWLEqW1pEqnp+g
-	QDdWMyXCSXF/8CdVUwlc9M57u1LcEvDK2eAAC5W6lnGf7KwK3f8pIPTZHFi+u4GD0mf1Czmq6P4dH
-	GENz4z0KgnTKsBa5iCivPV1NcOamOA0ZWxsJ1GhxnJ7JMvylqgB0G7Z+ttPTI9RDH+SU3uYiJw6eg
-	axFr0Dz2OgmORkQnuDjm2z1wtbhQq150/6dDGxjrfrnzHqFNnXLqg57u+Pkd63IWotjpsphnyxMUE
-	NC/tKSU+6P9RdHwKvMwngnGsVAUOtlzXHIFT0oMTKve3w9AbBS7mi3tbkqw1a0Jzthk+qrwiTzThb
-	WuWHoQ2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KmIrXBmloEveFtaKUykatLGYGI7N92PV13SbV/egCdQ=; b=YybK6QdW367TbE3AvP15hr/gct
+	Iltk7A3ku5pBAd/sLgyuoMrZMoISftAbSiLm8onPaYqHh8Hn/tGlxBR2/efTP7TID+JoJwRJUpTR0
+	UmeRoBvX1HLI+29wuFlC/fhWgZ4sYMSbxUaPwVU3MX+GYQds5XXIANSmiNxwpkE9RYEfI/RJ40wiY
+	1DtvG5ERwbJlDX5E55sC8VI6xm3eeUW1io1wo9kyfDN1H6uO042pyvadr5LjIaTM8+cVwkEUXlkxd
+	4TA2tjHViC/QWXuzraHbyZRm5oxKLdS9qdhIvnZh7jlkFC8gFIQlGJwptV7GHQhWyoOT8X6TkaDi5
+	3q0Rk3jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ829-00000005Mtl-25rX;
-	Tue, 08 Jul 2025 13:06:53 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1uZ86E-00000005NeR-1fhX;
+	Tue, 08 Jul 2025 13:11:06 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ7u9-00000005Lm2-2iIe
+	id 1uZ83u-00000005NDu-1ZJv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 12:58:38 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a4fd1ba177so2919209f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 05:58:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751979516; x=1752584316; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=S3jJ8BMukDKm1ntMLDCU6/IXiTPsV5zOI4ZOEY7XVrU=;
-        b=XfCgP3P+F2xpijDtUZiMD9ijFrY2bXUF4l0IjdKZH+Kcfw8Ws6zZka9WZxfUNStet+
-         sbQx8Es8BeZ63FrJVhPplWjR18I4paXzITj4LiJhZqVYIGYf0X+7z75nj8Vj3JzSqu3w
-         e8BRxiDX9M+JEodYKw1eE26YNd09Ae1T9hchk4Md2gZHjRWaLyKWzjIUARQoXZoHOqqU
-         6ivK32z4/gZP6ojdeosP71NWwbpGqv/uqrEx4s+ifpVSNVBCif5rF8ZFSlrPCV7rIeAX
-         ACYlERbFNYlezaF/yvM4fJrO54szkwmmGeqedEIJrggVMorvwTHqLkdfYAwHr58kDCa8
-         i8VQ==
+	Tue, 08 Jul 2025 13:08:43 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 568AASd2025427
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 8 Jul 2025 13:08:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	KmIrXBmloEveFtaKUykatLGYGI7N92PV13SbV/egCdQ=; b=UJkmmfuHN0Jr6kLA
+	ld5/JgheNu5sbMNgZkiwYUgO4GjvZ0BhglW00c59meaADsYhrZJWYQqmA1gc/OUc
+	DUrnK/NvCvH5C3ONM0GjvGKFSW0GsKNdezqCPza8ZE4tevjkJ9e1npZeNjJmh0a+
+	INZ4fgtIBBYO0j6f6etpT389hYl24vuIu2PlUOUPRwGL81B4dcop5sZWnBHRiFtS
+	shOo7dNQC/vBBtAFgTDT/48Rt3FZKyaSlMLbcUDvTnThA0dRBC3CHwWIE5u6O4Qv
+	lz8B4EKeQFe+0hY6nqY73fapqXHeHNzj+ARgwUPzAaWQ1qY+sXoEn7n7SuSC6Xxx
+	t7bbIQ==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47pu0wdcxq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 13:08:41 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7d0979c176eso42181385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 06:08:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751979516; x=1752584316;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20230601; t=1751980120; x=1752584920;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=S3jJ8BMukDKm1ntMLDCU6/IXiTPsV5zOI4ZOEY7XVrU=;
-        b=Gxf+SStj0wxgZQzGeaPbd7pmNVf7x+0QcPCyaLTC5yeUvGep18pe6OfSwWpjikMBfl
-         4Rv1v5Oxs9buvoaEMUGGEDg57j1L4rrx0l7lVen4MTC5XYDSgNF6LZ5UoRV+OHbttPzf
-         7syaJUB70LGrjooDO1sKlYwKFcJcYRzM+gmOWeKqke6i+hF5yhvZc3uKK1pok9SzGgEH
-         oj9fvEsf3BdYqMH83nmriiJf3KYupkWAejBSuybI3PvuPtLl3vSbZS92HkOanJH3oVCb
-         blWUgmgGETRbuCUIaMiSMje2PBqkZ4QPsniQOHLzL1k6iCemd2xqGB/fTDPQN/yDQQIV
-         Y7hA==
-X-Forwarded-Encrypted: i=1; AJvYcCWKJygpj5MPzzwxs7nAYd0YZ2u7/crVnI0SSuNMSf+JaGHSMGm/822yW+AWK7TmFF8AR3OtljnnJkIrqtz8E3/1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDNIpk7mxaQJUGIRVLNBF0CTjVBOphxGXcjYgP8rew79s3HFga
-	5aZZIsYoMxUa8y/cGpnEKRQeTKVIQSkSOBNeikRJIyltpPIQq7iC6ECf
-X-Gm-Gg: ASbGncs40HQ56T8QSFJxc5aZLKSaO4NFB/7z1EZI47d71DGN0JbGu1N9jqMCDwVd4dh
-	AUfnlzvQQA2r3UI2zOy8fTp3J5jhJixc657c/0X0ZDLoF/WfunvYc4bvztpC7IO3jJiubRbYTDa
-	TfvmUIS/oM3LZOsXGmsf4vcG27lPiumlu6l9bRe4/k6mc7WLSEfS8n/eCH7MXNnAWIMsMZohpib
-	6wJE/+5HtgmZSAlpvOb5NAmWKTMBtV/ive0DJPTrophxyzoHleXL5xuXFJAVCRjF0TDWfYsMATw
-	FQLEFOSx6lngFThKd21tnaRw3Ideewr8JS3CCkYcsAneXStaC4XWcMevJg2dd3GGLvgc7a4GIQ=
-	=
-X-Google-Smtp-Source: AGHT+IHN7LDQiiQu3mRLFgDwPBd6uS5/8IY+itp6iFFjd+pue4GlyC58MYxMurBFSzPsD4KJPUtVaQ==
-X-Received: by 2002:a5d:64e1:0:b0:3a3:70ab:b274 with SMTP id ffacd0b85a97d-3b5ddfcea37mr2397438f8f.12.1751979515491;
-        Tue, 08 Jul 2025 05:58:35 -0700 (PDT)
-Received: from Red ([2a01:cb1d:897:7800:4a02:2aff:fe07:1efc])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-454cd43f0dbsm21985665e9.5.2025.07.08.05.58.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Jul 2025 05:58:34 -0700 (PDT)
-Date: Tue, 8 Jul 2025 14:58:32 +0200
-From: Corentin Labbe <clabbe.montjoie@gmail.com>
-To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
-	linux-crypto@vger.kernel.org, wens@csie.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 01/10] crypto: sun8i-ce - remove channel timeout field
-Message-ID: <aG0V-P_Zvlzhi2i7@Red>
-References: <20250626095813.83963-1-ovidiu.panait.oss@gmail.com>
- <20250626095813.83963-2-ovidiu.panait.oss@gmail.com>
+        bh=KmIrXBmloEveFtaKUykatLGYGI7N92PV13SbV/egCdQ=;
+        b=H08p06lzhVM+aiCcDcYB28s+C1+WPbVZr1b4QvrL/BoYtoMxqjypeEuRueg69PY803
+         oNW7eA46NpExB6rriAEdWUP/pQ8jh5Ckgh7kvWNJvLGimmNi5CkkgIfmNr/1gdwuIiix
+         DIlTGEWJE4LURV51MpMxG2q+j3Ks50n4HNh9H0so33uF3aC2CnAA4qF/Zr2ZuE9G6ZjA
+         35PXZ99XH1NtBd7u835OfyeTWdobaQbusb2SEIjcAdgOb4gLuWYI3dQZSDeuUeigfEZP
+         hfmRmiOyrm+CA+LYr0/pEbhTDSpCyNs6/WXwBET8hPc7er4kZtMzy02d7AhFmuhQjKPV
+         /5Uw==
+X-Forwarded-Encrypted: i=1; AJvYcCWKRpoc4Vi6YoFbcGkwjNhChbOMqirlGwbj52zof1Vse/6CDfGLfQ5VbqFsXa8IHIls1qmgbIZG1rcG9BR6cZq8@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYqklV+vh5BdiFkc2l5s+np8MSeeLKJF9Y69AD/IfVqFFVWLnX
+	BuqQn/jgH0vgZCtEw8dw9cqGTFgh/aBOuXMBc3Oh4qCYBxOlX8TNSMCHARUFXQC0dtCqpK1H5At
+	Hkg+hUgoMdWzfbtvronMDSdaJGZeirkyeNWmsDDCavNht3Xj0OV5CLCzjLjPcuSSqyIFo+Sr9jS
+	WgUQ==
+X-Gm-Gg: ASbGncs3zcpAaAf2ovMcGaht3acFh1kM16dRJkB6aXSabXCoK3IdDFzd23CbA9GTXr4
+	R4q+lSRxaHOZPmi4JTWPwgUvjHMlW+D0d/YgLGmpjnYLGYjZ6rLyQBJfMcuNpWbf4iRv/DzQgIG
+	CcntzUVb/o3oXlg8jGXeYj5ZNFuQl9lnosHcSC1leI6nFPLtmXpoHPMsQ5RudWxAeInyGpUVODB
+	yCIkX5280RXvofFOUQX3yKqDgBputxhHb8cTeYwnFHJnr9gBq/4yoQVfbteuAXUgmzw+QV+Y0Vx
+	UXGKBHKvfRbS1P0wRN/E7OdEWO2K2kZ45LHddDSpQ89BbsMUz0n6R8D844KVHzokwU/SscJKtBp
+	n1+8=
+X-Received: by 2002:a05:620a:4148:b0:7d5:c1d9:939a with SMTP id af79cd13be357-7d5ddc689bfmr784814685a.9.1751980119807;
+        Tue, 08 Jul 2025 06:08:39 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGjMkzcx+Tq4TsX9kndjZh7wHfMuEQIojKWDO/yYN17QbawLmZlZmFuRE1iLw+w/7zUU6OuFw==
+X-Received: by 2002:a05:620a:4148:b0:7d5:c1d9:939a with SMTP id af79cd13be357-7d5ddc689bfmr784811485a.9.1751980119240;
+        Tue, 08 Jul 2025 06:08:39 -0700 (PDT)
+Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f6bb1edfsm883127366b.180.2025.07.08.06.08.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Jul 2025 06:08:38 -0700 (PDT)
+Message-ID: <fd367b55-fd20-4601-ab03-b398dcb326e7@oss.qualcomm.com>
+Date: Tue, 8 Jul 2025 15:08:34 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250626095813.83963-2-ovidiu.panait.oss@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/10] clk: qcom: rpm: convert from round_rate() to
+ determine_rate()
+To: Brian Masney <bmasney@redhat.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+        Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+        Bjorn Andersson <andersson@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Samuel Holland <samuel@sholland.org>,
+        Maxime Ripard <mripard@redhat.com>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-sunxi@lists.linux.dev
+References: <20250703-clk-cocci-drop-round-rate-v1-0-3a8da898367e@redhat.com>
+ <20250703-clk-cocci-drop-round-rate-v1-3-3a8da898367e@redhat.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250703-clk-cocci-drop-round-rate-v1-3-3a8da898367e@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: JKYXayckufAAjSyenoJp3z_uRDhq15UL
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzA4MDEwOCBTYWx0ZWRfX3aeI8tdf9AUe
+ WX/EnHsI/FFLyq+uoM5ZCH6x11JjFEzD2maCWhJLaBSpgRE9SitAUKKw+nX7XrfrAlm+VYSoP3H
+ Zl9CL+vmmA36QbmLK5jme2KIGWhi4O1H3XpvhoxsPOWXBEG7sg+p14uZh09xX20TgPN7NrwX3K1
+ 3JAPXrN0k5ciD0qTpl/ZRr7g9M4iNSN6HJIy7lyQdkIJLkAn6ldKv56SJ5sO0HbAzhbrlZaqqE6
+ HpS/B+xQZ4jCqc5OHKItXyLpOYBCs/UeiyYB1+cR1YQTnO7EM2+GOqYpONkDPGgi8/C7xAMuour
+ W6gIv8JRlpwi9cf6YSM5oUtqDDO/VWpHTCjh0GG4AOM22P+kX75igwKKrM75AtCnqJparfoWFAA
+ E3vXK9YApYPiFQ4dONUo53tDoRyvgbPY/8Duva+2/UYZMuYcBzGo6bwg8VNETVzTPFesdNCn
+X-Authority-Analysis: v=2.4 cv=Rd2QC0tv c=1 sm=1 tr=0 ts=686d1859 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=20KFwNOVAAAA:8 a=EUspDBNiAAAA:8
+ a=oBXrOfH6mq4iYN50PBoA:9 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-GUID: JKYXayckufAAjSyenoJp3z_uRDhq15UL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-08_03,2025-07-07_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 suspectscore=0 mlxscore=0 malwarescore=0 lowpriorityscore=0
+ mlxlogscore=849 impostorscore=0 spamscore=0 phishscore=0 priorityscore=1501
+ adultscore=0 clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507080108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_055837_681771_AF07322B 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20250708_060842_419573_B5F5344E 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,24 +145,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Thu, Jun 26, 2025 at 12:58:04PM +0300, Ovidiu Panait a écrit :
-> Using the number of bytes in the request as DMA timeout is really
-> inconsistent, as large requests could possibly set a timeout of
-> hundreds of seconds.
+On 7/4/25 1:22 AM, Brian Masney wrote:
+> The round_rate() clk ops is deprecated, so migrate this driver from
+> round_rate() to determine_rate() using the Coccinelle semantic patch
+> on the cover letter of this series.
 > 
-> Remove the per-channel timeout field and use a single, static DMA
-> timeout of 3 seconds for all requests.
-> 
-> Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
+> ---
 
-Yes, timeout was strangely handled, thanks for fixing this
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-This patch is:
-Tested-by: Corentin LABBE <clabbe.montjoie@gmail.com>
-Reviewed-by: Corentin LABBE <clabbe.montjoie@gmail.com>
-
-Thanks
-Regards
-
-PS: I started to review all patch one by one, sorry for being slow
+Konrad
 
