@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12605C83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 11:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF7C1C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 11:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ydUd6EvfbOOuGYewGN5dKSlOJh1/xBnpd5lbE1fuTE=; b=xbxrXmIXtdWxooxhuxWVYXoJ5x
-	tlZdYzI+PtMF+1J9TIIHg914MXir+/p6eeUnKhZzZ+ltCwN7OXJV4Qqb1xtSmiHJA9BPUFzgBQnco
-	ORhteVvIXbmCA1mDBNyWDOcS2GznojT73bpyc19eRMaf/8RkVKkNUtZNNujGuneNtC1dl9JhdAAgf
-	q95wUBQnh/v2A52mGi1h2mILNJpuJcqy1wRSKNIHgvwoXxsZgcbPbeCtznoj1rRrTZeLherfTQD0t
-	gOIBM6fMFAoMvxz/4edXUMcnKxvYxhf7KuoqSFjJke2dAFXTsSqSRyWFkF+R2xZJwwjrbIwsb+FV1
-	gLmXcJ0g==;
+	bh=4KM2fwC6QNeoILgFG4CCT92DWhdLWWLqZtXJGFH4SBU=; b=wT2dg24XX4dCaL1f71thFNQbvM
+	7ygZZhr5fKGtYuAzlv0RFrkqHrMTdPrmBTChBu3Uohc7Z5zzIf29To58abvHuGQm30ewgqOb4OcKM
+	Sq2BBo+enpNBvJ0Y4Twis5JsOiL5JfPX6bsgxqVeA7uqH6DCU42XDuyXBzD/NhAiICyF7de+uI1Rw
+	v3sYZ3CdL787W/zul0hkU7dPgn6g2ADW7t4VG6/ngaW5YLc1BuMjvziSFF5RbJsXfjDhFOBqObpcA
+	HcZgyiGu0O2wgS8g42vpZ2p9lOVsmMIH/IqHaR+Hlvy8/gjgzv1gXSxyqHyHJkpbIQXWJWKK+3PQ/
+	fErBW+EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ6Oh-00000005BBm-0jIG;
-	Tue, 08 Jul 2025 11:22:03 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uZ6Qz-00000005BaZ-1t6i;
+	Tue, 08 Jul 2025 11:24:25 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ5lE-000000055f4-3RQU;
-	Tue, 08 Jul 2025 10:41:18 +0000
-Received: from [192.168.0.172] (mob-5-90-136-241.net.vodafone.it [5.90.136.241])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AA1625514;
-	Tue,  8 Jul 2025 12:40:47 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1751971248;
-	bh=BFyCUyrT0Ujus6OGYnAmCl/GqNuIEDJQSk8MQCzrzmo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=d3XtUyRTSlBKWAyEZ9OacY8yb4d0nb/GR0r/dn4FJISgW805syFgLnohyEdJHgtXX
-	 jlUsiqut9xE15NX35R+Zf5Vz8SGJaVRCpgk/MhfDwt5i1HpdyoO7dQR9DUVffljJhc
-	 wHQ9Z6HI6oJzu3rZ9q3Ltlna7D8kJTFSoxtsHTEg=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Tue, 08 Jul 2025 12:40:55 +0200
-Subject: [PATCH 8/8] media: Documentation: kapi: Add v4l2 extensible
- parameters
+	id 1uZ6AH-000000059Im-0qZW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Jul 2025 11:07:11 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bbyw66s5Fz6GCR5;
+	Tue,  8 Jul 2025 19:06:14 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 19A2614025A;
+	Tue,  8 Jul 2025 19:07:00 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 8 Jul
+ 2025 13:06:59 +0200
+Date: Tue, 8 Jul 2025 12:06:58 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Qianfeng Rong <rongqianfeng@vivo.com>
+CC: <wsa+renesas@sang-engineering.com>, Patrice Chotard
+	<patrice.chotard@foss.st.com>, Andi Shyti <andi.shyti@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-i2c@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <opensource.kernel@vivo.com>
+Subject: Re: [PATCH v3] i2c: busses: Use min() to improve code
+Message-ID: <20250708120658.0000668a@huawei.com>
+In-Reply-To: <20250708031520.365110-1-rongqianfeng@vivo.com>
+References: <20250708031520.365110-1-rongqianfeng@vivo.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250708-extensible-parameters-validation-v1-8-9fc27c9c728c@ideasonboard.com>
-References: <20250708-extensible-parameters-validation-v1-0-9fc27c9c728c@ideasonboard.com>
-In-Reply-To: <20250708-extensible-parameters-validation-v1-0-9fc27c9c728c@ideasonboard.com>
-To: Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1789;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=BFyCUyrT0Ujus6OGYnAmCl/GqNuIEDJQSk8MQCzrzmo=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBobPXAuvdLqG+nFbVdQsYLUYtlT4MhvtXvbD/G1
- q23FH7dlnyJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaGz1wAAKCRByNAaPFqFW
- PNa1EACWDCbdXUMrjjZ3dwSewW2dqOeAYL+/NTASuFxXjqj3O/wzLkc137vzxllzAQOK5ULUVMM
- DO9MIafzKqFzZz/9JKFFw9ASfu+XFeJItR8JvwCED6TZKBBlIlqrespYcbB8b3I7GNuZnkkTot2
- aRqwBe/bOaWMTT4xSxeBNkFfJy+e8aeymuK44B3fEDmSdNz1BGsXo3Dtu9AGSCBJLestNjs8+P4
- apT06q3Yd3enoWtZxPnAWhR3KB2dWrA9qnaMswAK5mImZCB1fYZWMRqiOGkR3gkOsWf76r5c3Po
- EIGWv/fx9jYDkA5ke5K6Tr+SwDwbAm2pbA3YAAdYyJaXD7Z51p3Lm5SndFnuipA3b9pmNDnP7oO
- yOkz+yrbKIdXAMtDvpf4SgvJBcBSB/3V8NEzYwe/fC4hlaRd8GCov0rHoLd3FFlEv0vrni8aGVV
- On/NLU5egtXOJzaXdvK7zNCUb4FcZg4sLFKyUHAtyPTj4XmD2hR2GSlySmQ2nV/2fOxiwnIKSfE
- IzkD+GvQ9bWqgxZFU8laNBYixXaUl+7HrjGNj4CW8j4EaeRfn8/iY/6Z+cAL5mdAWC9IMXOSWbQ
- IKsfxABSHl62egk0pZ7BjsFmO5XLnbi0qyAijE3ZLRGobRb4GdEXZfJMwX3zii34SRNO0HZrVkd
- MMS0qSER9ycIf8Q==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100001.china.huawei.com (7.191.160.183) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_034117_002768_2773F71B 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250708_040709_527839_9637FA81 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,50 +72,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add to the driver-api documentation the v4l2-params.h types and
-helpers documentation.
+On Tue,  8 Jul 2025 11:15:20 +0800
+Qianfeng Rong <rongqianfeng@vivo.com> wrote:
 
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
----
- Documentation/driver-api/media/v4l2-core.rst   | 1 +
- Documentation/driver-api/media/v4l2-params.rst | 5 +++++
- MAINTAINERS                                    | 1 +
- 3 files changed, 7 insertions(+)
+> Use min() to reduce the code and improve its readability.
+> 
+> The type of the max parameter in the st_i2c_rd_fill_tx_fifo()
+> was changed from int to u32, because the max parameter passed
+> in is always greater than 0.
+> 
+> Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
+> Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> ---
+> v2-> v3:
+> - added the <linux/minmax.h> as suggested by Jonathan.
+> - used i = min(...) as the loop initializer according
+>   to Jonathan.
+> 
+> v1-> v2:
+> - Change the max parameter type in st_i2c_rd_fill_tx_fifo()
+>   from int to u32
+> ---
+>  drivers/i2c/busses/i2c-st.c | 19 ++++++-------------
+>  1 file changed, 6 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/i2c/busses/i2c-st.c b/drivers/i2c/busses/i2c-st.c
+> index 750fff3d2389..e4b2ed8a9264 100644
+> --- a/drivers/i2c/busses/i2c-st.c
+> +++ b/drivers/i2c/busses/i2c-st.c
+> @@ -19,6 +19,7 @@
+>  #include <linux/of.h>
+>  #include <linux/pinctrl/consumer.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/minmax.h>
+>  
+>  /* SSC registers */
+>  #define SSC_BRG				0x000
+> @@ -422,12 +423,8 @@ static void st_i2c_wr_fill_tx_fifo(struct st_i2c_dev *i2c_dev)
+>  	tx_fstat = readl_relaxed(i2c_dev->base + SSC_TX_FSTAT);
+>  	tx_fstat &= SSC_TX_FSTAT_STATUS;
+>  
+> -	if (c->count < (SSC_TXFIFO_SIZE - tx_fstat))
+> -		i = c->count;
+> -	else
+> -		i = SSC_TXFIFO_SIZE - tx_fstat;
+> -
+> -	for (; i > 0; i--, c->count--, c->buf++)
+> +	for (i = min(c->count, SSC_TXFIFO_SIZE - tx_fstat);
+> +		i > 0; i--, c->count--, c->buf++)
+	for (i = min(c->count, SSC_TXFIFO_SIZE - tx_fstat);
+	     i > 0; i--, c->count--, c->buf++)
+  		st_i2c_write_tx_fifo(i2c_dev, *c->buf);
 
-diff --git a/Documentation/driver-api/media/v4l2-core.rst b/Documentation/driver-api/media/v4l2-core.rst
-index ad987c34ad2a8460bb95e97adc4d850d624e0b81..2d7793298c6a2046bdd59b185a411e092b659d52 100644
---- a/Documentation/driver-api/media/v4l2-core.rst
-+++ b/Documentation/driver-api/media/v4l2-core.rst
-@@ -27,3 +27,4 @@ Video4Linux devices
-     v4l2-common
-     v4l2-tveeprom
-     v4l2-jpeg
-+    v4l2-params
-diff --git a/Documentation/driver-api/media/v4l2-params.rst b/Documentation/driver-api/media/v4l2-params.rst
-new file mode 100644
-index 0000000000000000000000000000000000000000..8d2a5f004d21dfc3a81255cabbc6b7cce588db71
---- /dev/null
-+++ b/Documentation/driver-api/media/v4l2-params.rst
-@@ -0,0 +1,5 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+V4L2 extensible parameters kAPI
-+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-+.. kernel-doc:: include/media/v4l2-params.h
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3d9a8e06c59eb08360d1e8eea85e450a15ee95af..f03c10092a891a06052484b691409f0c459de87d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -25972,6 +25972,7 @@ V4L2 EXTENSIBLE PARAMETERS FORMAT
- M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
- L:	linux-media@vger.kernel.org
- S:	Maintained
-+F:	Documentation/driver-api/media/v4l2-params.rst
- F:	Documentation/userspace-api/media/v4l/extensible-parameters.rst
- F:	drivers/media/v4l2-core/v4l2-params.c
- F:	include/media/v4l2-params.h
+So different alignment form what you have.
 
--- 
-2.49.0
+
+>  		st_i2c_write_tx_fifo(i2c_dev, *c->buf);
+>  }
+>  
+> @@ -439,7 +436,7 @@ static void st_i2c_wr_fill_tx_fifo(struct st_i2c_dev *i2c_dev)
+>   * This functions fills the Tx FIFO with fixed pattern when
+>   * in read mode to trigger clock.
+>   */
+> -static void st_i2c_rd_fill_tx_fifo(struct st_i2c_dev *i2c_dev, int max)
+> +static void st_i2c_rd_fill_tx_fifo(struct st_i2c_dev *i2c_dev, u32 max)
+>  {
+>  	struct st_i2c_client *c = &i2c_dev->client;
+>  	u32 tx_fstat, sta;
+> @@ -452,12 +449,8 @@ static void st_i2c_rd_fill_tx_fifo(struct st_i2c_dev *i2c_dev, int max)
+>  	tx_fstat = readl_relaxed(i2c_dev->base + SSC_TX_FSTAT);
+>  	tx_fstat &= SSC_TX_FSTAT_STATUS;
+>  
+> -	if (max < (SSC_TXFIFO_SIZE - tx_fstat))
+> -		i = max;
+> -	else
+> -		i = SSC_TXFIFO_SIZE - tx_fstat;
+> -
+> -	for (; i > 0; i--, c->xfered++)
+> +	for (i = min(max, SSC_TXFIFO_SIZE - tx_fstat);
+> +		i > 0; i--, c->xfered++)
+>  		st_i2c_write_tx_fifo(i2c_dev, 0xff);
+>  }
+>  
 
 
