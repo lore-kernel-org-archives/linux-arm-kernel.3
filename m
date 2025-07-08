@@ -4,66 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408DCC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 20:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D4AC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 20:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W6lO6EKplE7gGOmtlvUJoReiRpFLp192yQOCDFVFndU=; b=EcPDroWhWkGBBR8ToV9e1oEA7s
-	POaN2zkG4CJ110A+hjHUrr+wJB9B+CMz5T8y2rouSli1xdHiRkKnv+mIlVZpcS0zCx80tGSiFiiUg
-	Okz545YcvC++Pj/rYgXFEEbOwG7g6phM3JVX1fySjuHAJXILcawALpHjOGHYbqCZCS1+92ETGPkhw
-	xQoIm2lIIkzvtdATAZ9NM1svegn6QIgzkrkdhBEUT59te+0UkKjYwckgxQCNDHBpSaOTG51JOET8M
-	ZHLsfvxqD4eIzK3JWVe/BLPOtv5P826esLZOpAqPrrdBBzFAKvvKfpDWj493O5MgEfBlpk3bM0EbU
-	NfeFtFXw==;
+	bh=SJoKGMixdxbuoBQZf38SMFzcAORtomA8uvkcfR18me0=; b=eVNTNHzjHToaiS03TB5WvYUpPF
+	v++M3n00+hwpEnZ2Mp32kBY2xFx06Lhw4bqDwPk2A9UaplFUTTiXagQc+MQEtmoazrByV8ygSkmHN
+	aP8LTJkywxmsGJB+BFumzCN3bJhn4hiyhjpKti44H7S9X67rVwAd35BoqmVUH1QTxAuiMzWDU5L7q
+	WTRzQ5LgRJ5qZgjA34soz3vZQSZr1RVHGZ4b3tUbX/2vNRqBzPniZPW97xI0xRJJz0e7Pn2pNAPLv
+	Dmysxa1zC1d43dtJsNiAYVoyahTAbER1RSkxrGffrQyHkOwwtvp3mS8chrWwOhPqzwH2TX2f4CakL
+	5XRflWxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZEx0-00000006VyE-1aeH;
-	Tue, 08 Jul 2025 20:30:02 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uZF1f-00000006Woa-3ItT;
+	Tue, 08 Jul 2025 20:34:51 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZE8B-00000006MDS-0a4Q;
-	Tue, 08 Jul 2025 19:37:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752003449;
-	bh=aYtMeZ/tb8o0wUxSZjFLDIhmoJH3XuBQfxSOP4kOBk8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=adcs+IZTFmJJJspkMs2ZaVpSjhUltMWtTxNeVkEZsMHHBqSbI02QXgTHsuXruHK+v
-	 mn8xYvPTcaXmI8cEJH6MBuZl0tNDaG55Nw0k+ZUoTNW0iEWQuvOtf+qUbTA1E2zlks
-	 4eAXj31WSSTX9T+xKNGm7FnMrX4riXmrrvn7JUPGb1XW1MfL/JmzC0B+0F9/wpd0H1
-	 c7UUG4Z/Oj1UhBjMUmoT09u4umHPBCV2XBOxtDJE6vCnS6da7T3m61AwGYbs1A+jfb
-	 WFYOgaf7oVJlR+KMaHOrDvdQb/hmWc6QrTi9FCaY3mKQX8xWiIpQEaRvY97xPewLlY
-	 su20Or+qWqwmg==
-Received: from localhost (unknown [212.93.144.165])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 4D12317E088B;
-	Tue,  8 Jul 2025 21:37:29 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 08 Jul 2025 22:35:49 +0300
-Subject: [PATCH 08/12] phy: rockchip: samsung-hdptx: Cleanup *_cmn_init_seq
- lists
+	id 1uZEcg-00000006T3o-2kDn
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Jul 2025 20:09:03 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ae0e0271d82so977796866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 13:09:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752005341; x=1752610141; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=SJoKGMixdxbuoBQZf38SMFzcAORtomA8uvkcfR18me0=;
+        b=A/HLL9Gyfhy5mVtCjOXOFq9ez3WpwAV3Bzj5lPtFSYxcSGja5NX4qggaWVK3GCF+5P
+         sVdDchXXSRj1DaQSzm7v8l68wgu8mQ8KKsBwl0WtFQqrygs5w/iWKDOk173jstcttKgS
+         2Mj+MyZEFDzNcVKpMYQV3W6N8GN1r0PYb7ZUmuShy7hXfnEGu6HHInK+aflpcEbHi/a5
+         qlkLAUSPpIpRtJhQLzEqlZdLuxg/meLucRMZqqx3+klW3Gj628d/lXSbh3juNgRzbwJc
+         dWe3+fWEkOnT5alHjP3Q+o8nVIa5gB+tAopGHAGjG7TE7p8dITg9wFii+L8PQiEbjnF7
+         5mPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752005341; x=1752610141;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SJoKGMixdxbuoBQZf38SMFzcAORtomA8uvkcfR18me0=;
+        b=MeJZ1ozq78Y3KRRFzkq7HdGNIAwYFfjJSyO/O6PWpiBqXUW7n2uXZwTZfGSJSazO7W
+         ywri5pLG/4pLhVzycuuLsOvBS8NyHNZ6AdCodDCzFq/dqUDO1g5sZe7yLoq9GI0iN0no
+         7HZStrFcKEH3zWGWFwpWB36iga06I0l3IUbVw9Sahe3V9JyGeLQ9D7LSqo3HEigWmKZw
+         IOlNk6J+HGYEfGEhs29lpv/fzCM/4Dk4W+KRgWt2zzoO8QWpQ73pjvSKrlYhEQdXxYUD
+         lSzv/j7FelCRePe8JGLkeEHZp6HUg/Ii2TAIfTU6raVJMZYRDLWYueEO4vGXJANBWekG
+         SjNw==
+X-Forwarded-Encrypted: i=1; AJvYcCWiHFCXoyONKz2uGZq1nArX+ItzTzM2w6X5/MkxKuTLvqyYOZwwwwsM4hwLxQeJLSjh2nJfKg/HfG5CeZRz4MpG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy767B5SjUvl36+dk1mhRsomA0kBupOc1nUfYKrZaZF9OsaffFI
+	h73E/gTQ++EnOUMypXowmaKIXtlbbV8zkwtfaw+hQANUL7zXdjLSUsRx
+X-Gm-Gg: ASbGncu+jSsRnV3JVfev9eSNjRcxcwzJWxE1AZv/OEeYuKq0n8/ViNH4IU5B/mkDFjG
+	HyvEJZqs3DW6LmE7l/WDPa5aP5M+l6JriUNUVgZ+Kk1AOdAe17g0Iu50bMVp5romK+AJnyS7lbz
+	pNCWj21X7GxDmAhhV+gTsqXV+QNMxinHT63hA+BKoR4bfpbMtHgRYW54Jp8l9wrygnSnYdHGGwJ
+	jOzQATxrbo3Y3ump42LnvmY9jY+mc8u4KXIXITSUGYGCx1Qz3RJWq9c1lCamf4fkNBKQ4KgUnFN
+	t541FIrsamJER7yiZ2X2LNH+JhSweCFbdQBkQcqtjvK0b8sa8zruhIwY2oiK7uq7+N4A8qmkwij
+	iJett4vKzz31m0f2KAfAXK0hBOwkL3k6X+gd+Scvh5Te/Auleonzsxqw4Ug==
+X-Google-Smtp-Source: AGHT+IFMUIFhAFLtzXXbjGIvBhyVU4xR5NCQSkIi81NSZsJ4W1pu9KoFPlGV7XT3Rq6mPNLnbiIOLA==
+X-Received: by 2002:a17:907:7e9c:b0:ae0:a483:39bc with SMTP id a640c23a62f3a-ae6c6cdfdabmr52787066b.46.1752005340445;
+        Tue, 08 Jul 2025 13:09:00 -0700 (PDT)
+Received: from ?IPV6:2a02:2f07:6009:b200:8bc2:7901:5231:7913? ([2a02:2f07:6009:b200:8bc2:7901:5231:7913])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f66e7f68sm961243066b.13.2025.07.08.13.08.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Jul 2025 13:09:00 -0700 (PDT)
+Message-ID: <95f4ded3-f649-4bdc-a3ca-cade77aa2e92@gmail.com>
+Date: Tue, 8 Jul 2025 23:08:58 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250708-phy-hdptx-frl-v1-8-cfe096e224f4@collabora.com>
-References: <20250708-phy-hdptx-frl-v1-0-cfe096e224f4@collabora.com>
-In-Reply-To: <20250708-phy-hdptx-frl-v1-0-cfe096e224f4@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>
-Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 03/10] crypto: sun8i-ce - move bounce_iv and backup_iv
+ to request context
+To: Corentin Labbe <clabbe.montjoie@gmail.com>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
+ linux-crypto@vger.kernel.org, wens@csie.org, jernej.skrabec@gmail.com,
+ samuel@sholland.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250626095813.83963-1-ovidiu.panait.oss@gmail.com>
+ <20250626095813.83963-4-ovidiu.panait.oss@gmail.com> <aG1lN94feb4OJVsI@Red>
+Content-Language: en-US
+From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+In-Reply-To: <aG1lN94feb4OJVsI@Red>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_123731_355853_A21A3A3F 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250708_130902_695463_C5B51353 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,114 +104,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop redundant reg_sequence entries from rk_hdptx_common_cmn_init_seq[],
-i.e. those that are either duplicated or overridden in
-rk_hdptx_tmds_cmn_init_seq[].
 
-Additionally, a few items do not really belong to the former, hence move
-them to the latter.  That's mostly a preparatory step for adding FRL
-support.
 
-No functional changes intended at this point.
+On 7/8/25 9:36 PM, Corentin Labbe wrote:
+> Le Thu, Jun 26, 2025 at 12:58:06PM +0300, Ovidiu Panait a écrit :
+>> Currently, the iv buffers are allocated once per flow during driver probe.
+>> Having a single iv buffer for all requests works with the current setup
+>> where requests are processed one by one, but it wouldn't work if multiple
+>> requests are chained together and processed in one go.
+>>
+>> In preparation for introducing request batching, allocate iv buffers per
+>> request, rather than per flow.
+>>
+>> Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+>> ---
+>>  .../allwinner/sun8i-ce/sun8i-ce-cipher.c       | 18 +++++++++---------
+>>  .../crypto/allwinner/sun8i-ce/sun8i-ce-core.c  | 12 ------------
+>>  drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h   |  8 ++++----
+>>  3 files changed, 13 insertions(+), 25 deletions(-)
+>>
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 22 ++++------------------
- 1 file changed, 4 insertions(+), 18 deletions(-)
+[...]
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 595aa94eb2dd22acd44c653e51d85ac497a1cc44..71b076de7b75f2ba08eae679ded77caa2ba86590 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -465,13 +465,11 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
- 	REG_SEQ0(CMN_REG(000e), 0x0f),
- 	REG_SEQ0(CMN_REG(000f), 0x0f),
- 	REG_SEQ0(CMN_REG(0010), 0x04),
--	REG_SEQ0(CMN_REG(0011), 0x00),
- 	REG_SEQ0(CMN_REG(0012), 0x26),
- 	REG_SEQ0(CMN_REG(0013), 0x22),
- 	REG_SEQ0(CMN_REG(0014), 0x24),
- 	REG_SEQ0(CMN_REG(0015), 0x77),
- 	REG_SEQ0(CMN_REG(0016), 0x08),
--	REG_SEQ0(CMN_REG(0017), 0x00),
- 	REG_SEQ0(CMN_REG(0018), 0x04),
- 	REG_SEQ0(CMN_REG(0019), 0x48),
- 	REG_SEQ0(CMN_REG(001a), 0x01),
-@@ -479,13 +477,7 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
- 	REG_SEQ0(CMN_REG(001c), 0x01),
- 	REG_SEQ0(CMN_REG(001d), 0x64),
- 	REG_SEQ0(CMN_REG(001f), 0x00),
--	REG_SEQ0(CMN_REG(0026), 0x53),
- 	REG_SEQ0(CMN_REG(0029), 0x01),
--	REG_SEQ0(CMN_REG(0030), 0x00),
--	REG_SEQ0(CMN_REG(0031), 0x20),
--	REG_SEQ0(CMN_REG(0032), 0x30),
--	REG_SEQ0(CMN_REG(0033), 0x0b),
--	REG_SEQ0(CMN_REG(0034), 0x23),
- 	REG_SEQ0(CMN_REG(0035), 0x00),
- 	REG_SEQ0(CMN_REG(0038), 0x00),
- 	REG_SEQ0(CMN_REG(0039), 0x00),
-@@ -496,7 +488,6 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
- 	REG_SEQ0(CMN_REG(003f), 0x83),
- 	REG_SEQ0(CMN_REG(0040), 0x06),
- 	REG_SEQ0(CMN_REG(0041), 0x20),
--	REG_SEQ0(CMN_REG(0042), 0xb8),
- 	REG_SEQ0(CMN_REG(0043), 0x00),
- 	REG_SEQ0(CMN_REG(0044), 0x46),
- 	REG_SEQ0(CMN_REG(0045), 0x24),
-@@ -506,14 +497,9 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
- 	REG_SEQ0(CMN_REG(004b), 0x00),
- 	REG_SEQ0(CMN_REG(004c), 0x01),
- 	REG_SEQ0(CMN_REG(004d), 0x64),
--	REG_SEQ0(CMN_REG(004e), 0x14),
- 	REG_SEQ0(CMN_REG(004f), 0x00),
- 	REG_SEQ0(CMN_REG(0050), 0x00),
--	REG_SEQ0(CMN_REG(005d), 0x0c),
- 	REG_SEQ0(CMN_REG(005f), 0x01),
--	REG_SEQ0(CMN_REG(006b), 0x04),
--	REG_SEQ0(CMN_REG(0073), 0x30),
--	REG_SEQ0(CMN_REG(0074), 0x00),
- 	REG_SEQ0(CMN_REG(0075), 0x20),
- 	REG_SEQ0(CMN_REG(0076), 0x30),
- 	REG_SEQ0(CMN_REG(0077), 0x08),
-@@ -525,13 +511,10 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
- 	REG_SEQ0(CMN_REG(007e), 0x00),
- 	REG_SEQ0(CMN_REG(007f), 0x00),
- 	REG_SEQ0(CMN_REG(0080), 0x00),
--	REG_SEQ0(CMN_REG(0081), 0x09),
- 	REG_SEQ0(CMN_REG(0082), 0x04),
- 	REG_SEQ0(CMN_REG(0083), 0x24),
- 	REG_SEQ0(CMN_REG(0084), 0x20),
- 	REG_SEQ0(CMN_REG(0085), 0x03),
--	REG_SEQ0(CMN_REG(0086), 0x01),
--	REG_SEQ0(CMN_REG(0087), 0x0c),
- 	REG_SEQ0(CMN_REG(008a), 0x55),
- 	REG_SEQ0(CMN_REG(008b), 0x25),
- 	REG_SEQ0(CMN_REG(008c), 0x2c),
-@@ -543,7 +526,6 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
- 	REG_SEQ0(CMN_REG(0092), 0x00),
- 	REG_SEQ0(CMN_REG(0093), 0x00),
- 	REG_SEQ0(CMN_REG(009a), 0x11),
--	REG_SEQ0(CMN_REG(009b), 0x10),
- };
- 
- static const struct reg_sequence rk_hdptx_tmds_cmn_init_seq[] = {
-@@ -577,9 +559,13 @@ static const struct reg_sequence rk_hdptx_tmds_cmn_init_seq[] = {
- 	REG_SEQ0(CMN_REG(0048), 0x11),
- 	REG_SEQ0(CMN_REG(004e), 0x34),
- 	REG_SEQ0(CMN_REG(005c), 0x25),
-+	REG_SEQ0(CMN_REG(005d), 0x0c),
- 	REG_SEQ0(CMN_REG(005e), 0x4f),
-+	REG_SEQ0(CMN_REG(006b), 0x04),
-+	REG_SEQ0(CMN_REG(0073), 0x30),
- 	REG_SEQ0(CMN_REG(0074), 0x04),
- 	REG_SEQ0(CMN_REG(0081), 0x01),
-+	REG_SEQ0(CMN_REG(0086), 0x01),
- 	REG_SEQ0(CMN_REG(0087), 0x04),
- 	REG_SEQ0(CMN_REG(0089), 0x00),
- 	REG_SEQ0(CMN_REG(0095), 0x00),
+>> @@ -273,6 +271,8 @@ struct sun8i_cipher_req_ctx {
+>>  	int nr_sgd;
+>>  	dma_addr_t addr_iv;
+>>  	dma_addr_t addr_key;
+>> +	u8 bounce_iv[AES_BLOCK_SIZE] ____cacheline_aligned;
+>> +	u8 backup_iv[AES_BLOCK_SIZE] ____cacheline_aligned;
+>>  	struct skcipher_request fallback_req;   // keep at the end
+> 
+> Hello
+> 
+> Are you sure you could do DMA on sun8i_cipher_req_ctx ?
+> 
 
--- 
-2.50.0
+Yes, that is my understanding. Request ctx memory is allocated in
+skcipher_request_alloc() by calling kmalloc(), which returns memory that
+should be suitable for DMA.
+
+Also, there are multiple drivers doing this already. You can grep for
+____cacheline_aligned inside drivers/crypto to see other examples.
+
+Ovidiu
+
+> Regards
 
 
