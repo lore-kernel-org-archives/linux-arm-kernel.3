@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F795C8303C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76BCC83F10
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 19:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LdLmF5lIVGKSuO5vwz/AxMhY4p2NibhEDLPou6WvF6U=; b=ePoCQLXWWcFiL4bj7stuQG+xrK
-	WpyssfA2o0vUVXbHNiQvTfI7KGYKwpsaIGgRWcrT4I812XlHLBp+hcy6klAs/M2w8KDNEuOs4cSJa
-	cnbH+EXN7Vmztp4ufDD1hCB8M+XAmRSOXcpHWkp7cAqlXeNZwADoNh7Cymkzep6eazs4VjkYjl3Av
-	t14XE3mhg1UtALbOmgRREiLXrP3LQHBueWxYALETFkNo+IGyH+ruVq0D8Al7mq8OzZq873ak1o/NM
-	6mNj8nanaKFNoBt+LMh8XO+5Nwod7iTWesIRQAEBccOYPMzFqKL8/Q2l565Ye2mqaksILy4QaResm
-	m2OjO6Eg==;
+	bh=fAkBTT9KlrO7apx7qUbiEWJ4PRN5U2M1lzwF6AxFLek=; b=d7AavtgYYcq8xjshndZlPNLglH
+	OI3cXxuXMtgCZHuSIH6EkMmi2pEZDQKAR2PwTWFnfngyVNVP2mmmtBA4KreXKRCuxu5AmRjRFiuNa
+	goEYNkhVbAQElO+2xRQ6vuZUt+G3ZqZcU3/OUBfyfIY5bcX4JTBx+tn6SqK9AHC3aV4Gl0b6/023D
+	2GLZj4b4MTkoIU4e/EYapNihjP/JbU4ZY5NPzruPl6fceNYtZCgnKd4LhZYYC3b3FZxNOufsWRnd8
+	huwxJJbqJp+fmE/urqTveuT21cnAZTxypMASHTR7vTkh/0G+ZuaM/NC25WTXhPkjmIcf8s6Wjcj8D
+	SXRgK6PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZEAA-00000006MiZ-1Cq2;
-	Tue, 08 Jul 2025 19:39:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZCD0-000000067tH-0tmu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Jul 2025 17:34:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=LdLmF5lIVGKSuO5vwz/AxMhY4p2NibhEDLPou6WvF6U=; b=l2ragZSwepG5ZZh8I1wSHja1aF
-	SqrmfJVTUkhV292nOiA6l368LwzqH1YgkhM2dbGfJX/2G3sCJjE6ADiiWFZygv67zCdZPXc75yWUE
-	6dvviy26YCxMWZnKsUmxXZDcVmNdGMkxruTCFU7j5dEueUgAiJUvmfKdOkrOIYZGOwEviRxAFRONE
-	plsaLuiQ2ZWVb2xcyTn7ZjccnpKC7NYCpIY35XQFZ0jiGLLbXxYMsXX/33UuDIt/NbQPRtAXw0sEa
-	tzdg/sZJuFIvrld7kS53G13UcjF25vC/2/wWl7viVs2TU9r/S61pKKat5QOvTSruYud+SlQfdBgnh
-	C6J256Aw==;
+	id 1uZEA2-00000006McN-2lBE;
+	Tue, 08 Jul 2025 19:39:26 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZCCu-00000008lVC-40yH
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZCCp-000000067mb-3nom
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 17:34:21 +0000
+	Tue, 08 Jul 2025 17:34:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC7BB46956;
-	Tue,  8 Jul 2025 17:34:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDABEC4CEFA;
-	Tue,  8 Jul 2025 17:34:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D2DA340C1E;
+	Tue,  8 Jul 2025 17:34:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8B06C4CEED;
+	Tue,  8 Jul 2025 17:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751996052;
-	bh=6fDBnG3B0k3eKz3zYgAFbJfo6asA8fjCKgUn7vcapoE=;
+	s=k20201202; t=1751996050;
+	bh=eO//bdZjML2f/yBZKp3pfm6LXOZ7G6limhAcR80kGHA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KKbc7g5t1AmOB88oViPL9AWf3FUX951LqtBCuuGW9YwBwTVcFS5cNGFhNREE/Ah/c
-	 64pOfEuSgfR0/rRjCL2DG5Z8vDZ3jrvCvXkxJtJK4G7+Ek7KUlhtn3fmb5wyUaJu/2
-	 gMNJvjQZftiHHjYPqwva8+aBVyQN2gEfTze94VeUCHUL+6Dg9yuiai54U2C0yJH+bY
-	 LntshdHhG5QNqxwIP8g/FQ9AT8hN7IgZbb+RQ8y1K9UW1Eo/nle+4hMYIS4s5PVkH5
-	 h+5wNQGmvEmZ4tqVTa47U6aqs566Ngzf58FPt0QmsxVUmlymykKvs4aG3FF1rBChpG
-	 0s5xH8bfdpfMg==
+	b=q1uXX1a9l+I8CG9FADpHMOcZ3yd7vIohUDkbLuCoFJL29a5uBH6HmBitz7BcBI3Pi
+	 22oA/96TYkhn4RUhUWX/1AuGTw1UEdedkbTuR4ds/nZcEI8eqap3HSrUksWw+bXvxD
+	 Ci0oxoqFkzjbVGl7W79dh5RmobXurAXbrGOPIi7W6yS+sR8P557cfhMY1/kCqEdG7e
+	 ejVw4rq7LRZnzLHmLG4QXdw88ixV07LXBNqGqCXSqCvvRdPbISzyf9EGKtj6Bh9BLO
+	 N3GdHsSMbf3pI5s0Zjn2VJ2baD2cXY1tUYDOHRIqI0Ke6kIAxBkKVg/YwEQ8MiARpg
+	 rNZVXwjCv1HjA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uZCCo-00Dqhw-W4;
-	Tue, 08 Jul 2025 18:34:11 +0100
+	id 1uZCCm-00Dqhw-Pt;
+	Tue, 08 Jul 2025 18:34:08 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -74,9 +59,9 @@ Cc: Toan Le <toan@os.amperecomputing.com>,
 	Rob Herring <robh@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH v2 12/13] PCI: xgene-msi: Restructure handler setup/teardown
-Date: Tue,  8 Jul 2025 18:34:03 +0100
-Message-Id: <20250708173404.1278635-13-maz@kernel.org>
+Subject: [PATCH v2 01/13] genirq: Teach handle_simple_irq() to resend an in-progress interrupt
+Date: Tue,  8 Jul 2025 18:33:52 +0100
+Message-Id: <20250708173404.1278635-2-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250708173404.1278635-1-maz@kernel.org>
 References: <20250708173404.1278635-1-maz@kernel.org>
@@ -87,8 +72,8 @@ X-SA-Exim-Rcpt-To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.o
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_183417_357188_E177BC86 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20250708_103411_971161_9621B5CA 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,193 +88,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Another utterly pointless aspect of the xgene-msi driver is that
-it is built around CPU hotplug. Which is quite amusing since this
-is one of the few arm64 platforms that, by construction, cannot
-do CPU hotplug in a supported way (no EL3, no PSCI, no luck).
+It appears that the defect outlined in 9c15eeb5362c4 ("genirq: Allow
+fasteoi handler to resend interrupts on concurrent handling") also
+affects some other less stellar MSI controllers, this time using
+the handle_simple_irq() flow.
 
-Drop the CPU hotplug nonsense and just setup the IRQs and handlers
-in a less overdesigned way, grouping things more logically in the
-process.
+Teach this flow about irqd_needs_resend_when_in_progress(). Given
+the invasive nature of this workaround, only this flow is updated.
 
+Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/pci/controller/pci-xgene-msi.c | 107 +++++++++----------------
- 1 file changed, 37 insertions(+), 70 deletions(-)
+ kernel/irq/chip.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
-index 243c7721c8799..dd8b119ab90e0 100644
---- a/drivers/pci/controller/pci-xgene-msi.c
-+++ b/drivers/pci/controller/pci-xgene-msi.c
-@@ -231,12 +231,6 @@ static int xgene_allocate_domains(struct device_node *node,
- 	return msi->inner_domain ? 0 : -ENOMEM;
- }
- 
--static void xgene_free_domains(struct xgene_msi *msi)
--{
--	if (msi->inner_domain)
--		irq_domain_remove(msi->inner_domain);
--}
--
- static int xgene_msi_init_allocator(struct device *dev)
+diff --git a/kernel/irq/chip.c b/kernel/irq/chip.c
+index 2b274007e8bab..6e789035919f7 100644
+--- a/kernel/irq/chip.c
++++ b/kernel/irq/chip.c
+@@ -559,7 +559,13 @@ void handle_simple_irq(struct irq_desc *desc)
  {
- 	xgene_msi_ctrl->bitmap = devm_bitmap_zalloc(dev, NR_MSI_VEC, GFP_KERNEL);
-@@ -283,26 +277,48 @@ static void xgene_msi_isr(struct irq_desc *desc)
- 	chained_irq_exit(chip, desc);
- }
+ 	guard(raw_spinlock)(&desc->lock);
  
--static enum cpuhp_state pci_xgene_online;
--
- static void xgene_msi_remove(struct platform_device *pdev)
- {
--	struct xgene_msi *msi = platform_get_drvdata(pdev);
--
--	if (pci_xgene_online)
--		cpuhp_remove_state(pci_xgene_online);
--	cpuhp_remove_state(CPUHP_PCI_XGENE_DEAD);
-+	for (int i = 0; i < NR_HW_IRQS; i++) {
-+		unsigned int irq = xgene_msi_ctrl->gic_irq[i];
-+		if (!irq)
-+			continue;
-+		irq_set_chained_handler_and_data(irq, NULL, NULL);
+-	if (!irq_can_handle(desc))
++	if (!irq_can_handle_pm(desc)) {
++		if (irqd_needs_resend_when_in_progress(&desc->irq_data))
++			desc->istate |= IRQS_PENDING;
++		return;
 +	}
- 
--	xgene_free_domains(msi);
-+	if (xgene_msi_ctrl->inner_domain)
-+		irq_domain_remove(xgene_msi_ctrl->inner_domain);
- }
- 
--static int xgene_msi_hwirq_alloc(unsigned int cpu)
-+static int xgene_msi_handler_setup(struct platform_device *pdev)
- {
-+	struct xgene_msi *xgene_msi = xgene_msi_ctrl;
- 	int i;
--	int err;
- 
--	for (i = cpu; i < NR_HW_IRQS; i += num_possible_cpus()) {
--		unsigned int irq = xgene_msi_ctrl->gic_irq[i];
-+	for (i = 0; i < NR_HW_IRQS; i++) {
-+		u32 msi_val;
-+		int irq, err;
 +
-+		/*
-+		 * MSInIRx registers are read-to-clear; before registering
-+		 * interrupt handlers, read all of them to clear spurious
-+		 * interrupts that may occur before the driver is probed.
-+		 */
-+		for (int msi_idx = 0; msi_idx < IDX_PER_GROUP; msi_idx++)
-+			xgene_msi_ir_read(xgene_msi, i, msi_idx);
-+
-+		/* Read MSIINTn to confirm */
-+		msi_val = xgene_msi_int_read(xgene_msi, i);
-+		if (msi_val) {
-+			dev_err(&pdev->dev, "Failed to clear spurious IRQ\n");
-+			return EINVAL;
-+		}
-+
-+		irq = platform_get_irq(pdev, i);
-+		if (irq < 0)
-+			return irq;
-+
-+		xgene_msi->gic_irq[i] = irq;
++	if (!irq_can_handle_actions(desc))
+ 		return;
  
- 		/*
- 		 * Statically allocate MSI GIC IRQs to each CPU core.
-@@ -310,7 +326,7 @@ static int xgene_msi_hwirq_alloc(unsigned int cpu)
- 		 * to each core.
- 		 */
- 		irq_set_status_flags(irq, IRQ_NO_BALANCING);
--		err = irq_set_affinity(irq, cpumask_of(cpu));
-+		err = irq_set_affinity(irq, cpumask_of(i % num_possible_cpus()));
- 		if (err) {
- 			pr_err("failed to set affinity for GIC IRQ");
- 			return err;
-@@ -323,17 +339,6 @@ static int xgene_msi_hwirq_alloc(unsigned int cpu)
- 	return 0;
- }
- 
--static int xgene_msi_hwirq_free(unsigned int cpu)
--{
--	struct xgene_msi *msi = xgene_msi_ctrl;
--	int i;
--
--	for (i = cpu; i < NR_HW_IRQS; i += num_possible_cpus())
--		irq_set_chained_handler_and_data(msi->gic_irq[i], NULL, NULL);
--
--	return 0;
--}
--
- static const struct of_device_id xgene_msi_match_table[] = {
- 	{.compatible = "apm,xgene1-msi"},
- 	{},
-@@ -343,7 +348,6 @@ static int xgene_msi_probe(struct platform_device *pdev)
- {
- 	struct resource *res;
- 	struct xgene_msi *xgene_msi;
--	u32 msi_val, msi_idx;
- 	int rc;
- 
- 	xgene_msi_ctrl = devm_kzalloc(&pdev->dev, sizeof(*xgene_msi_ctrl),
-@@ -353,8 +357,6 @@ static int xgene_msi_probe(struct platform_device *pdev)
- 
- 	xgene_msi = xgene_msi_ctrl;
- 
--	platform_set_drvdata(pdev, xgene_msi);
--
- 	xgene_msi->msi_regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(xgene_msi->msi_regs)) {
- 		rc = PTR_ERR(xgene_msi->msi_regs);
-@@ -374,48 +376,13 @@ static int xgene_msi_probe(struct platform_device *pdev)
- 		goto error;
- 	}
- 
--	for (int irq_index = 0; irq_index < NR_HW_IRQS; irq_index++) {
--		rc = platform_get_irq(pdev, irq_index);
--		if (rc < 0)
--			goto error;
--
--		xgene_msi->gic_irq[irq_index] = rc;
--	}
--
--	/*
--	 * MSInIRx registers are read-to-clear; before registering
--	 * interrupt handlers, read all of them to clear spurious
--	 * interrupts that may occur before the driver is probed.
--	 */
--	for (int irq_index = 0; irq_index < NR_HW_IRQS; irq_index++) {
--		for (msi_idx = 0; msi_idx < IDX_PER_GROUP; msi_idx++)
--			xgene_msi_ir_read(xgene_msi, irq_index, msi_idx);
--
--		/* Read MSIINTn to confirm */
--		msi_val = xgene_msi_int_read(xgene_msi, irq_index);
--		if (msi_val) {
--			dev_err(&pdev->dev, "Failed to clear spurious IRQ\n");
--			rc = -EINVAL;
--			goto error;
--		}
--	}
--
--	rc = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "pci/xgene:online",
--			       xgene_msi_hwirq_alloc, NULL);
--	if (rc < 0)
--		goto err_cpuhp;
--	pci_xgene_online = rc;
--	rc = cpuhp_setup_state(CPUHP_PCI_XGENE_DEAD, "pci/xgene:dead", NULL,
--			       xgene_msi_hwirq_free);
-+	rc = xgene_msi_handler_setup(pdev);
- 	if (rc)
--		goto err_cpuhp;
-+		goto error;
- 
- 	dev_info(&pdev->dev, "APM X-Gene PCIe MSI driver loaded\n");
- 
- 	return 0;
--
--err_cpuhp:
--	dev_err(&pdev->dev, "failed to add CPU MSI notifier\n");
- error:
- 	xgene_msi_remove(pdev);
- 	return rc;
+ 	kstat_incr_irqs_this_cpu(desc);
 -- 
 2.39.2
 
