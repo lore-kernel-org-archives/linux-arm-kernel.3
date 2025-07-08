@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9BBC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 20:58:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 670A6C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 21:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DkY3t8giFU1e1/x1YmttPq1d6FozC9lKfOF4nvZN1mg=; b=YwQyZvQenbHtXJ/4PODtccoj2O
-	8m9R2fvxGd1HM77BtZyUvbjy8UhmWvMbexV9/f7mNGF8J79qsXZI2qxj20L5O6EwmhU+sowQr6Gab
-	8GEaLivmtFtWKnp5acY80WdPI5/5Pj6B097+kT6EOeg/ApNchfaPeDz1AzgNvJvX6iNozGjr+5kZ/
-	ybTOyFVlWtWUvQGHEnACb1wl8xML9zS/Pra6lNOcLo1K9GIPSjO8091SxFUdRJKFp0PeySaht4qL5
-	TuPvM6XEFj5Q7d37mecFX0ZS5PpRDKmsp330lKwr5wmeQoRMyxaK4HU6fN8vC0Ltcp5oNnM66I2xB
-	ysL291SQ==;
+	bh=VpFx4EDwa3phzXuh74HAhkNvfcJPoIkI8DFY5/D8SBo=; b=S6aOuQLdcQD487sgKSZntQFPbw
+	T9c6iRGuR5bi4oWh++pLwbHTZBFaOww9a/8GQ72R8L8eOwBMXjwEPa+GhANpBU1rjLbE+8XGW3RFe
+	HXBtJtVTTitYNe4kT+2F+HDaQYmpB7NTcp1WWOHbVQifhSFFQ9BamIkC6SUFDqV9CukEnuwRja6EQ
+	FNtQV8HrZ4U7E2FqucB7kL2wAqXRnBI8dtU9XZj1TOD0crbTDc6B01jvynpENwtAyyW06aD0o7hwL
+	nGtp8zQGY/vVVQIacl9DwWf93FHguMgwFtzh86ew4dIz+/bnMDwfmrtrHGaU+id0puIm0BHUyfmHX
+	clax26Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZFOt-00000006aMz-40xc;
-	Tue, 08 Jul 2025 20:58:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uZFRE-00000006acF-2tG2;
+	Tue, 08 Jul 2025 21:01:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZEoL-00000006Uo3-2XZE
+	id 1uZEqF-00000006V7i-1FjL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 20:21:06 +0000
+	Tue, 08 Jul 2025 20:23:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 07B415C642C;
-	Tue,  8 Jul 2025 20:21:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68255C4CEF1;
-	Tue,  8 Jul 2025 20:21:04 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 74D5BA53508;
+	Tue,  8 Jul 2025 20:23:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A828CC4CEED;
+	Tue,  8 Jul 2025 20:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752006064;
-	bh=zqx/74K4jJO3iS9rVGq5D5oA2ZIFzpVGZMwbjqdUJ7w=;
+	s=k20201202; t=1752006182;
+	bh=I2VRzsXmZPYGTLrr+78RCRNRi3ChbnEGC8YNwbiCV1w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XhDrxV/r0/d4Qt/l6j2cg6nVvYTW6x4u7+WFjvoVRbsnKdk8pTk89x2OxovWcD7Pr
-	 VsLTLprp9+kXpOAlSvcFFy+CkcKSBYu/N9TFEBwG+Zj4ULvhLA6HqM4pvRR/ne2dSC
-	 Hz00yz+oSX2tFJNq6pQ9CP9vezQ2bUUfTeUQqrlRZjdeDrQiqnI0GkA9mk4ywXZ51P
-	 1cBQiGDGxlIyqqNGZZIsDwqIiuWFbuM8FOrAXwbvEFq1Pnp2thEBb1cnNNd62DVVXc
-	 7F/cgE83diZNvyoY9CVTNhPqF1XzoPBq4V+mfnA2P6GvxuskPJs1MsahbdcUC8T6FH
-	 6eKhGEGJETL2A==
-Date: Tue, 8 Jul 2025 15:21:03 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v2 2/5] dt-bindings: Add Tegra264 clock and reset
- definitions
-Message-ID: <175200606285.904555.15042694527619353999.robh@kernel.org>
-References: <20250708082814.1491230-1-thierry.reding@gmail.com>
- <20250708082814.1491230-3-thierry.reding@gmail.com>
+	b=phQhR2+rN3jJSw6/t3qvVnB+m8wEVCacr/x7z9MWz0eialAWhnwTTJRifg3FZTmg4
+	 s1EtyUdNX+IpxNr5AURU50vYdLsd3LOQDU8J0+FV1F+YHzsRFG2wP1mjvtP2p8IFYy
+	 JzusohcspLPahKDUSDkl8Y4vm/dpIjcvbPkpyaijgculqpKppRdcs8LJxRG9qNIj4z
+	 Kzgy8i5icVz3Wu7YhGmzZARtj002HNqiJ7A9qv/RsonbCjOzHnY4q5WpslnsHfQbSE
+	 FJCjklhwuqxOBO/KyhfsyAjuelxSUO5oZ4b3EgmiY3dQIPftyEPlP1d8Ss+TB9o6Wt
+	 rvJSl9qx/uYTA==
+Date: Tue, 8 Jul 2025 15:22:59 -0500
+From: Rob Herring <robh@kernel.org>
+To: Paresh Bhagat <p-bhagat@ti.com>
+Cc: nm@ti.com, vigneshr@ti.com, praneeth@ti.com, kristo@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, khasim@ti.com, v-singh1@ti.com,
+	afd@ti.com, bb@ti.com, devarsht@ti.com, s-vadapalli@ti.com,
+	andrew@lunn.ch
+Subject: Re: [PATCH v7 3/4] arm64: dts: ti: Add pinctrl entries for AM62D2
+ family of SoCs
+Message-ID: <20250708202259.GA904737-robh@kernel.org>
+References: <20250708085839.1498505-1-p-bhagat@ti.com>
+ <20250708085839.1498505-4-p-bhagat@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250708082814.1491230-3-thierry.reding@gmail.com>
+In-Reply-To: <20250708085839.1498505-4-p-bhagat@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_132105_681867_D64C5277 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250708_132303_406747_12FF974F 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,29 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 08 Jul 2025 10:28:11 +0200, Thierry Reding wrote:
-> From: Thierry Reding <treding@nvidia.com>
+On Tue, Jul 08, 2025 at 02:28:38PM +0530, Paresh Bhagat wrote:
+> Update k3-pinctrl file to include pin definitions for AM62D2 family of
+> SoCs.
 > 
-> The BPMP firmware on Tegra264 defines a set of IDs for clock and reset
-> resources. These are not enumerations but provided by hardware, and 0 is
-> a reserved value, hence the numbering starts at 1.
-> 
-> Signed-off-by: Thierry Reding <treding@nvidia.com>
+> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+> Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
 > ---
-> Changes in v2:
-> - drop -reset and -clock suffixes since they are redundant
-> - include all known clock and reset definitions
-> - drop U suffix for integer literals
-> - add vendor prefix to filename
+>  arch/arm64/boot/dts/ti/k3-pinctrl.h | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
->  include/dt-bindings/clock/nvidia,tegra264.h | 466 ++++++++++++++++++++
->  include/dt-bindings/reset/nvidia,tegra264.h |  92 ++++
->  2 files changed, 558 insertions(+)
->  create mode 100644 include/dt-bindings/clock/nvidia,tegra264.h
->  create mode 100644 include/dt-bindings/reset/nvidia,tegra264.h
-> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> index cac7cccc1112..0cf57179c974 100644
+> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> @@ -63,6 +63,9 @@
+>  #define AM62AX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
+>  #define AM62AX_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
+>  
+> +#define AM62DX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
+> +#define AM62DX_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
+> +
+>  #define AM62PX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
+>  #define AM62PX_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Why is the same expression just repeated over and over? Looks like this 
+needs some refactoring.
 
 
