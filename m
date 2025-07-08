@@ -4,101 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E98C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 03:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4998DC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 04:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t6qI+uivx+bnd0zwfJl1YVkWkeyiKKg4Fij4wbpWozY=; b=eRiccgxIOPZTu8
-	RrQU5n8LwbhpBH72Z5oE5up8Iy8YItlezeqFHFeLHUY9029GNY4NHhEcamDrPMWnsMJMXsW1foluY
-	gjADuYa03FYm1KFcgHIllzZsQBtiWYxRYp6Zi1SCwuK90X9g7LFNwNWuOUwrZMnUwD1CLf1Nb2e1S
-	D1ot2VWc6wVjaJmg+FsKvBbBTaNz+5tfSpnIFQCxBmm2hvfM4xzNMz9O6zRbas9BnY8797cqbX7Yh
-	JCE8aP2cqefwoVLFLvMVnJBRsKwe9F52ePhReeW7ehG+geAU2DiIv+fh8XN/fR0UfrppICIDw6U68
-	W8JWPWtHMLZur9hkssrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=97PA7tnoUToVlQXPk0nMmVPATh2HU3vK09piMMjV8Cw=; b=45OgpRWiKbAHqSXZwwSwPgCQfO
+	MfxFqDbRA9bzOVXgZ1kfCJa3MVJtpEZGZIlBHP4ZX/CWtP6CBlCQLd/r+Cc+bVxmDkEFaW/OjsjBh
+	lQP/2bVMMCYF4ojxn5Ad6PhYnE5r5sBFxZFnw+UajP6/kXod0N8tRcKcOcz2zsDPbx5rSPtRRH9G4
+	eqOabqpuAbQVmr/PL6L21Nwe+idophvivz7CqmvUttnFLBKgDGGTdJNlreqmL5ry3ZPKiVkJSZk6E
+	yWfrKbuiZKZz0f10bPnksgT9sYI0Hzzne8XJWkH4qo3cmYiDEYzL/S76lV6Y8Uyxtg1hE6nzO952p
+	Gac7tHJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYzHj-00000004CUi-0lA1;
-	Tue, 08 Jul 2025 03:46:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uYzgp-00000004EBr-1zrH;
+	Tue, 08 Jul 2025 04:12:19 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYzFN-00000004CHp-0jLw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Jul 2025 03:43:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:Reply-To:In-Reply-To:References:
-	MIME-Version:Sender:Content-ID:Content-Description;
-	bh=t6qI+uivx+bnd0zwfJl1YVkWkeyiKKg4Fij4wbpWozY=; b=PmhXueY+xU7Qt2zoQVHc03N8Hy
-	CWt2xRlqiP+LnI95GocnM0LPyXxHd/EhhGh2nRTilTQSK6j8HZ6LwCGh26eDeMyW3LOzgs1Ymgvrj
-	ZQY0U8nT/V/3Rc5wTwEt9dPeJzU6zHukP6LnYohUTDgkw+aQfAcfGace6wvX+b4Mn0LHqRwAg7BFw
-	XwedE5MZ7I+fPmKpDmP44f7AxffodsOEFmbE+870LZEZZrQmHcmLMZfR2Q7me/v8IfEXg1BE7PlEP
-	kBL41QtVWE7ny7WcHVInBKsKDNcPN7+sQK8ZEeK+BTHEx8oP77yu3RQ+dcJWb3NCayZOlKLSMZNqm
-	4px5iVqw==;
-Received: from mail-lf1-f52.google.com ([209.85.167.52])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYzFI-00000008aUQ-3QMQ
+	id 1uYzeT-00000004DxC-2GDC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 03:43:55 +0000
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-553b60de463so3920814e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 20:43:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751946229; x=1752551029;
+	Tue, 08 Jul 2025 04:09:55 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-553ba7f11cbso4359246e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 21:09:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1751947791; x=1752552591; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=t6qI+uivx+bnd0zwfJl1YVkWkeyiKKg4Fij4wbpWozY=;
-        b=R8cSYqkbrRQkTlnUp44f/XSHVhTMtU4oSgK2x//czCgf2lL4B7jZxxGZ5qjUm5OUWJ
-         2Kvdkqt6pTOgt4oVLUn+vsc4yaWrT8ARO9Lite6rVC0V/6urk7+86Mb6BxCuG2UvyF4A
-         5hzYhmV5Z3EBH6vpvG6ODANDR2CrRy8xJjtxPJv/iAauaEDLNVGbJ4YYX0kqr0coUdlV
-         1WAOdorqFVucf8WeB626ujkfcL7SwXGmudQJAcPmkW+SOQ2NLhvRISYMNSauUFdX8kSA
-         TZU5JFsYwaId6azs670LuZBNg10LPcZBpeNVU9fHjRQ7I7tKgZkkpxIAtqQqClmO82uG
-         kAHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX5rA/zmhSB1Wv7sxcK3fbKQqP7EOr+S2HZBFRj/E54gtw2yyw+SZvQDtxmvigT32sha95NzUJ4WJo7/Z0Sz7jZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq9gBF7lB4VFfR3nY9ILqPFjKtEH6EhXI5sGRn4d54BO4vHYn/
-	M7EDRp10AVU7K7KLSQD68B2iAd7BeFnS6fAvm9EC0/t3Hh6DF7YlHOSqYomMVItX
-X-Gm-Gg: ASbGncvbxZNkV7JM0INjCUW01XxvU9Hbnv+DN/XOX5tDH2SYwXnInshG3N9GZ09X8HR
-	ecYMfWrn0DcpcoEA2+S9PPwpB3ob1+TauJpbaoYhaiiO9yyfrLEiTyTL0YaMTzyTfnZjA/fShpi
-	rE1LN+V5jYuzOprbGrpDwLtRhRUilxBI8Fec6PTva73rXcxg9EGl4f1mQ97TJqnc+jyLUVOWTrj
-	ndqSk10rK7V79P037Qe6K06N8e0CnNRAg4qXwsqA0JTG94GzXTHX5DENrD/bJwgC/dN28YnH6bK
-	Z3Lim8Fx7cdLh5Ty70mprKP5MBluOTU0w0HimAXOOVxi3biCsNS+L8cvzFKdwt1xukXiSDVG5M6
-	bVsiPgXdqi9rvadBNPHE=
-X-Google-Smtp-Source: AGHT+IGxSgwlQHJ3Q+pTkNnu9VsOZsJzTAY/It47n5GSXcizuUXg7wxNJ3YITCmb2ChQZz8I2SyiSA==
-X-Received: by 2002:a05:6512:691:b0:553:659c:53fa with SMTP id 2adb3069b0e04-556e656a2b4mr3703847e87.5.1751946228680;
-        Mon, 07 Jul 2025 20:43:48 -0700 (PDT)
-Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com. [209.85.208.169])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-556383bb5b1sm1538058e87.48.2025.07.07.20.43.48
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Jul 2025 20:43:48 -0700 (PDT)
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-32e14cf205cso31361991fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 20:43:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXWSmTwkvMSLvs5lRSd5uFWvJDK95sWNdsdnT6Agifq2rw5qIsBOQxlolcMmr+n7WXbBeqye3EZE26o4RdMeH02@lists.infradead.org
-X-Received: by 2002:a2e:a7ca:0:b0:32c:102a:f02d with SMTP id
- 38308e7fff4ca-32e5f61e89emr40266751fa.30.1751946228111; Mon, 07 Jul 2025
- 20:43:48 -0700 (PDT)
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=97PA7tnoUToVlQXPk0nMmVPATh2HU3vK09piMMjV8Cw=;
+        b=HcuTcl76XG0G07pNcOgsqQVEVhAr6dtFEEbvR2fYAevPXClx1VvoYne5hQMJX1EqA3
+         DFJrEj3GkGR20tykskbJ/gnRX9JJ+Gxiu5mtn34QAsNn7KnyimFCjw8YkfqNQdIY8D/T
+         dpNCDhhJYlI419qkQdKfmEZTLjOLAGKs0fnK0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751947791; x=1752552591;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=97PA7tnoUToVlQXPk0nMmVPATh2HU3vK09piMMjV8Cw=;
+        b=D9qAZJ50PUj8u5XTbS9QYIvJ5c0pP6fiVRhJKDBggF2I09Ni6oCIjwDg5srlkp3b4j
+         IT3liAKLjXQBStQt3WDb+qDcBqjHCYtMVu8WdRcJgGhc1gObOoLC2WL6wP+hkIAWfj4O
+         4V93XBmI8AuwRhBlnBUmDzgScSFd4jrlWWuKOHnlZVvCmCYIAjy6omwBmow9W7/sWB0f
+         +B6M0k/JphEscQjOs3meTVczPduc3HpQW9VgAuwKXTuVrtNvi6PJm+4/rYKUIYc+gQ4o
+         IQrCcrlpBZrv4C2XND4zjR98m3q+ag/PZJpxn+ZzFaXgJhADySXnlydbwvNlGS7/4x5+
+         n3GA==
+X-Forwarded-Encrypted: i=1; AJvYcCVAT/iJvWl+HC6cIHeiWY38bUovSM81t5wHVEUGgeBrOOQv5TW7Z7THQRb5VIKEMnQb3sfgdNxQSUaqjTYNC0m0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxEn67Na5E4hv89oIiYcQ1gG704hsKYYzvZ1a1hUnNb95YLhrr
+	mtLw8/tiCY/ozp3EW5JEiQdQ9lkmM7yyq6QEH0A9hU24K3eP1gA+zcDAD8zH9CWPNM4GY0VnQh+
+	YorqaLuKTdg+5GeJ2LldzllCdkN1eVEftDONO8uWU
+X-Gm-Gg: ASbGncvKozlhB+kqsvvwR4Uk1wXc5uL/GuHadvB0jwQJVXHqVGcrl81Whi5q34qlgEW
+	VqSJgWnI/2yJ+jpAXKVOztj9X/WcsD2i14rZz/16GIcTI8QAdmc+QI4V5ypYFpONR7dLFuRhzO9
+	D3SuMiR6wXKcQGBzfBkWHldFvrvfu0vBVZEmPb3OTAtRMqbofihn+IrINdbWTBNBGeIhPX5uU=
+X-Google-Smtp-Source: AGHT+IEVujyv6lAcDWE1bZGAyeEobtReCu0A+jIigUo7aBzy2SXT5pvaXtmoXS+q6pOlLoU2IHQ9/lFEOLFDtdD+mLU=
+X-Received: by 2002:a05:6512:6c5:b0:553:ae47:6856 with SMTP id
+ 2adb3069b0e04-557f8310057mr327313e87.10.1751947790882; Mon, 07 Jul 2025
+ 21:09:50 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250706025625.2707073-1-iuncuim@gmail.com> <20250708004458.15a2feae@minigeek.lan>
-In-Reply-To: <20250708004458.15a2feae@minigeek.lan>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Tue, 8 Jul 2025 11:43:34 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67Pu7CTJx3K=3CVSbQ9mNB-4Vrq+iaA+hUWtxdwS2aD0Q@mail.gmail.com>
-X-Gm-Features: Ac12FXyZmm99FipGMPnPhGzlT7tlbKyfxwlUr8RD3z4V1vxu7PoX_X4yAfDEgUg
-Message-ID: <CAGb2v67Pu7CTJx3K=3CVSbQ9mNB-4Vrq+iaA+hUWtxdwS2aD0Q@mail.gmail.com>
-Subject: Re: [PATCH 0/2] arm64: sunxi: a523: Enable Mali GPU
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: iuncuim <iuncuim@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250707134451.154346-1-angelogioacchino.delregno@collabora.com> <20250707134451.154346-4-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250707134451.154346-4-angelogioacchino.delregno@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 8 Jul 2025 12:09:39 +0800
+X-Gm-Features: Ac12FXzG3Dao19qlz-A1KXKkJqrEyMGo4bcZkDP1swxYmwtOwf1D0Gwc3OVNmQY
+Message-ID: <CAGXv+5FHA-Y1xyW=_UjGUDsqarXNTciGP7KnzoB2Jyj2Ft5rdQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/8] dt-bindings: regulator: Document MediaTek MT6363
+ PMIC Regulators
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, lee@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	lgirdwood@gmail.com, broonie@kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kernel@collabora.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_044353_159424_6C89D4D9 
-X-CRM114-Status: GOOD (  22.12  )
+X-CRM114-CacheID: sfid-20250707_210953_719875_67EA1098 
+X-CRM114-Status: GOOD (  30.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,81 +92,260 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 8, 2025 at 7:46=E2=80=AFAM Andre Przywara <andre.przywara@arm.c=
-om> wrote:
+Hi,
+
+On Mon, Jul 7, 2025 at 10:27=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
 >
-> On Sun,  6 Jul 2025 10:56:21 +0800
-> iuncuim <iuncuim@gmail.com> wrote:
+> Add bindings for the regulators found in the MediaTek MT6363 PMIC,
+> usually found in board designs using the MT6991 Dimensity 9400 and
+> on MT8196 Kompanio SoC for Chromebooks, along with the MT6316 and
+> MT6373 PMICs.
 >
-> > From: Mikhail Kalashnikov <iuncuim@gmail.com>
-> >
-> > This patch adds gpu support on devices with a523 processor. Since there=
- is
-> > no support for image output yet, the gpu is disabled after boot up.
-> >
-> > $ dmesg | grep panfrost
-> > [    3.826968] panfrost 1800000.gpu: clock rate =3D 432000000
-> > [    3.832305] panfrost 1800000.gpu: bus_clock rate =3D 200000000
-> > [    3.838353] panfrost 1800000.gpu: mali-g57 id 0x9091 major 0x0 minor=
- 0x1
-> >                status 0x0
-> > [    3.846050] panfrost 1800000.gpu: features: 00000000,000019f7, issue=
-s:
-> >                00000001,80000400
-> > [    3.854134] panfrost 1800000.gpu: Features: L2:0x07110206 Shader:0x0=
-0000000
-> >                Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-> > [    3.866011] panfrost 1800000.gpu: shader_present=3D0x1 l2_present=3D=
-0x1
-> > [    3.874108] [drm] Initialized panfrost 1.3.0 for 1800000.gpu on mino=
-r 0
+> Link: https://lore.kernel.org/r/20250624073548.29732-4-angelogioacchino.d=
+elregno@collabora.com
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> ---
+>  .../regulator/mediatek,mt6363-regulator.yaml  | 175 ++++++++++++++++++
+>  1 file changed, 175 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,=
+mt6363-regulator.yaml
 >
-> So what confidence do we have that this really works, apart from these
-> successful initialisation messages? Has this been shown to work with
-> some (yet-out-of-tree) DRM patches, to produce 3D rendered output? I
-> wonder if we should wait with upstreaming until we can really test this
-> on some kind of screen.
+> diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6363-=
+regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt636=
+3-regulator.yaml
+> new file mode 100644
+> index 000000000000..9df57b803edb
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6363-regulat=
+or.yaml
+> @@ -0,0 +1,175 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/regulator/mediatek,mt6363-regulator.y=
+aml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek MT6363 PMIC Regulators
+> +
+> +maintainers:
+> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> +
+> +description:
+> +  The MT6363 SPMI PMIC provides 13 BUCK and 25 LDO (Low Dropout) regulat=
+ors
+> +  and can optionally provide overcurrent warnings with one ocp interrupt
+> +  for each voltage regulator.
+> +
+> +properties:
+> +  compatible:
+> +    const: mediatek,mt6363-regulator
+> +
+> +  interrupts:
+> +    description: Overcurrent warning interrupts
+> +    minItems: 1
+> +    maxItems: 38
+> +
+> +  interrupt-names:
+> +    description:
+> +      Names for the overcurrent interrupts are the same as the name
+> +      of a regulator (hence the same as each regulator's node name).
+> +      For example, the interrupt name for regulator ldo-vemc will
+> +      be "ldo-vemc".
+> +    minItems: 1
+> +    maxItems: 38
+> +    contains:
+> +      enum:
+> +        - buck-sshub1
+> +        - buck-sshub2
+> +        - buck-sshub4
+> +        - buck-vb1
+> +        - buck-vb2
+> +        - buck-vb3
+> +        - buck-vb4
+> +        - buck-vb5
+> +        - buck-vb6
+> +        - buck-vb7
+> +        - buck-vs1
+> +        - buck-vs2
+> +        - buck-vs3
+> +        - ldo-va12-1
+> +        - ldo-va12-2
+> +        - ldo-va15
+> +        - ldo-vaux18
+> +        - ldo-vcn13
+> +        - ldo-vcn15
+> +        - ldo-vemc
+> +        - ldo-vio0p75
+> +        - ldo-vio18
+> +        - ldo-vm18
+> +        - ldo-vrf0p9
+> +        - ldo-vrf12
+> +        - ldo-vrf13
+> +        - ldo-vrf18
+> +        - ldo-vrf-io18
+> +        - ldo-vsram-apu
+> +        - ldo-vsram-cpub
+> +        - ldo-vsram-cpum
+> +        - ldo-vsram-cpul
+> +        - ldo-vsram-digrf
+> +        - ldo-vsram-mdfe
+> +        - ldo-vsram-modem
+> +        - ldo-vtref18
+> +        - ldo-vufs12
+> +        - ldo-vufs18
 
-I ran glmark2-es2-drm using vkms, and it seemed to run correctly.
-The GPU job interrupt was triggering frequently, and the GPU mmu
-interrupt was triggered twice for each run. This was with Mesa
-25.0.2 from Debian bookworm backports.
+To summarize my replies to the previous iteration, I think this is
+not a good representation, since a) the interrupts are internal
+to the PMIC, and it does not need to be spelled out in the DT, and
+b) this gives another meaning to the representation, it being to
+enable overcurrent protection on the given regulators. Instead
+the common regulator binding has the "regulator-over-current-protection"
+property that can be set in each regulator. IMO this is much more
+explicit.
 
-So this is sort of
 
-Tested-by: Chen-Yu Tsai <wens@csie.org>
+> +  isink-load:
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
 
-If anyone has some idea about how to capture the output, I can give that
-a try.
+Do we know what this is for? There's no actual output with this name.
 
-> Cheers,
-> Andre
+> +  ldo-vemc:
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
+> +
+> +patternProperties:
+> +  "^buck-(sshub[124]|vb[1-7]|vs[1-3])$":
+
+According to the datasheets, vb[1-7] should be vbuck[1-7].
+
+There are no real outputs with the name sshub*. These seem to be some
+alternate setting / mode. I don't think they should be modeled as
+separate regulators.
+
+Also, could we drop the type from the names? There's no real need for them.
+I managed to get them removed in the MT6366 binding, and I hope we can
+continue that scheme.
+
+> +    description: Buck regulators
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    properties:
+> +      regulator-allowed-modes:
+> +        description: |
+> +          Allowed Buck regulator operating modes allowed. Valid values b=
+elow.
+> +            0 - Normal mode with automatic power saving, reducing the sw=
+itching
+> +                frequency when light load conditions are detected
+> +            1 - Forced Continuous Conduction mode (FCCM) for improved vo=
+ltage
+> +                regulation accuracy with constant switching frequency bu=
+t lower
+> +                regulator efficiency
+> +            2 - Forced Low Power mode for improved regulator efficiency,=
+ used
+> +                when no heavy load is expected, does not limit the maxim=
+um out
+> +                current but unless only a light load is applied, there w=
+ill be
+> +                regulation accuracy and efficiency losses.
+> +            3 - Forced Ultra Low Power mode for ultra low load, this gre=
+atly
+> +                reduces the maximum output power, makes the regulator to=
+ be
+> +                efficient only for ultra light load, and greatly reduces=
+ the
+> +                quiescent current (Iq) of the buck.
+> +        maxItems: 3
+> +        items:
+> +          enum: [ 0, 1, 2, 3 ]
+> +    unevaluatedProperties: false
+> +
+> +  "^ldo-va(12-1|12-2|15)$":
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
+> +
+> +  "^ldo-v(aux|m|rf-io|tref)18$":
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
+> +
+> +  "^ldo-vcn(13|15)$":
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
+> +
+> +  "^ldo-vio(0p75|18)$":
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
+> +
+> +  "^ldo-vrf(0p9|12|13|18)$":
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
+> +
+> +  "^ldo-vsram-(apu|cpub|cpum|cpul|digrf|mdfe|modem)$":
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
+> +
+> +  "^ldo-vufs(12|18)$":
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
+
+Could we also describe supplies? There should be:
+
+vsys-(buck[1-7]|vs[1-3]|ldo1)-supply
+
+
+ChenYu
+
+> +required:
+> +  - compatible
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    pmic {
+> +      interrupt-controller;
+> +      #interrupt-cells =3D <3>;
+> +
+> +      regulators {
+> +        compatible =3D "mediatek,mt6363-regulator";
+> +        interrupts =3D <4 16 IRQ_TYPE_LEVEL_HIGH>, <4 17 IRQ_TYPE_LEVEL_=
+HIGH>,
+> +                     <4 18 IRQ_TYPE_LEVEL_HIGH>, <4 19 IRQ_TYPE_LEVEL_HI=
+GH>;
+> +        interrupt-names =3D "ldo-vcn15", "ldo-vcn13", "ldo-vrf0p9", "ldo=
+-vrf12";
+> +
+> +        ldo-vio18 {
+> +          regulator-name =3D "pp1800-vio18-s3";
+> +          regulator-min-microvolt =3D <1800000>;
+> +          regulator-max-microvolt =3D <1800000>;
+> +          regulator-allowed-modes =3D <0 2>;
+> +          regulator-allow-set-load;
+> +        };
+> +      };
+> +    };
+> +...
+> --
+> 2.49.0
 >
-> >
-> > Tested on x96qproplus and walnutpi 2b devices.
-> >
-> > Based on v6.16-rc4 with patches:
-> > https://lore.kernel.org/all/20250628054438.2864220-1-wens@kernel.org
-> > https://lore.kernel.org/linux-sunxi/20250628161608.3072968-1-wens@kerne=
-l.org
-> > https://lore.kernel.org/linux-sunxi/20250627152918.2606728-1-wens@kerne=
-l.org/
-> >
-> >
-> > iuncuim (2):
-> >   arm64: dts: allwinner: a523: add Mali GPU node
-> >   arm64: dts: allwinner: a523: enable Mali GPU for all boards
-> >
-> >  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi    | 15 +++++++++++++++
-> >  .../boot/dts/allwinner/sun55i-a527-cubie-a5e.dts  |  5 +++++
-> >  .../boot/dts/allwinner/sun55i-h728-x96qpro+.dts   |  5 +++++
-> >  .../boot/dts/allwinner/sun55i-t527-avaota-a1.dts  |  5 +++++
-> >  .../dts/allwinner/sun55i-t527-orangepi-4a.dts     |  5 +++++
-> >  5 files changed, 35 insertions(+)
-> >
 >
 
