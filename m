@@ -4,62 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C809C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 14:54:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13DF7C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 14:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gaySX+dDAFpfo2mVMB1VXeR4nw4jJEMDM9BfBSCBD+w=; b=KSD/Dat4yaAT7tmhNaJ1bo2OO0
-	aUAtX9/H6knlRDNhOqx+askOZdp/urw6WMmLtR2exXKCXvLiOlkhrJLBvuSzJCiLYvOqMWaBISXRO
-	6ckWSsOdHwxxD6yzaAeUxAhDx0ZNMtb/Xty6OGbI9Q34652vRRR93QI4NF6P6GvjtrxMDxn1i+MyZ
-	jqZBLwYTOzveafjoz4KgQeDjZQTOm5Vz7sXwMM4aPGK0tzQiHV8PnJ71Bj/6/UymGj4Th1i7mDh3Z
-	48p5dud+U9oTfdYtYq3TlH+DRZf/+CfVs45HjsnQ4RG2fQ0scMnU1fyL8S15hn8MIar8uFFpCAFmY
-	IjQiJEUw==;
+	bh=0P5JXJKoQne0+91AzBGnZ+7c0bfri6L6epqykQQTaN0=; b=D0/lLDmRUxNGlNF852MWGHYIHV
+	YkS2hgCScvZa64OpS+bAXL2OBcmSgQelTc/TP1PrPe2WMMijShsWr+YwHWwrkg1FffpoPmUQ5QZtA
+	Smhz6w9I+Zz/Jcdme69XHsTeWMUZqKFkbUlsQ3lz0hj0UkSETyh35U/so/MzWCtVBdlC0QgSi5bSK
+	JoaqPFJmedo7elWNf7iHJXNIohz0LOl3zTFkPRPur6ktCE7KPCOfpHLl+Jn1zMp0jzISj2RDNRvR8
+	uhGTAMl84vxXn9oYDnBOIaXlKzyzfopHIDL9tbqotJbJ5W9oz/UgFl4d3mBaZxw37LFyAa1zC1h9H
+	my61uFsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ9ia-00000005g5y-15li;
-	Tue, 08 Jul 2025 14:54:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ9ZX-00000005eHH-2rbg
+	id 1uZ9ku-00000005gWX-0TpP;
+	Tue, 08 Jul 2025 14:57:12 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZ9af-00000005eXN-2xiP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 14:45:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E830153B;
-	Tue,  8 Jul 2025 07:45:15 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DBFA03F694;
-	Tue,  8 Jul 2025 07:45:24 -0700 (PDT)
-Date: Tue, 8 Jul 2025 15:45:22 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: James Clark <james.clark@linaro.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <Anshuman.Khandual@arm.com>,
-	Rob Herring <Rob.Herring@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	Robin Murphy <Robin.Murphy@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
- PMBPTR_EL1 or PMBSR_EL1
-Message-ID: <aG0u57dpLnK2WnIT@raptor>
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
- <20250704155016.GI1039028@e132581.arm.com>
- <b77f12e7-ea3f-4c57-9706-ff8e32721cc8@linaro.org>
- <20250707153710.GB2182465@e132581.arm.com>
+	Tue, 08 Jul 2025 14:46:39 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7fd35b301bdso4697014a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 07:46:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751985997; x=1752590797; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0P5JXJKoQne0+91AzBGnZ+7c0bfri6L6epqykQQTaN0=;
+        b=WPnRuDAp5PRrU5JVzR2TkWNBDx9twbNM0RD6rFqgzO84hFwZaWlJYwVFoft0vtaiRw
+         nCO+07UCCreY3gZm8qvb972uWDBGpVtdOjlyXlvARp4PQvbz8NZtan0yUIiNY4EVVW5l
+         MhwpH+4fseGLDKdSVREy33XYLKU2NqAoPksJ+QqBy9gneG3rEsQ1oOcKNMJ0UL7tbWxC
+         kBNrIjvkhlA4DgMsRLGkTBEBkOiq80p5h9yV5EdgeKWc2FwFfpHuC+fgC59rMFVYPIn9
+         Ab5Q0vSk9TxFFoobYOZM/nFtnt8Y56/iqx6PUC9NwOUJ3TwRcnhR3KkzEzRcaIrSm//U
+         6eqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751985997; x=1752590797;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0P5JXJKoQne0+91AzBGnZ+7c0bfri6L6epqykQQTaN0=;
+        b=iE8qD0HC+1NzkMVzhDivG9Vz+CaKtcnzu4fXZJlg1fZQJVBH4pRSNgp5iw1DLknJ6f
+         Rm+nxOfCbxYPBOZvX4SoWWBJDz//8jSPFCUy48b1zfC4TZN8TsCx6bpL7v7mZM40dYXb
+         31kUtsEAFmC7vUsGwIGs/eYZC2m+JESsTMHA4V8Q6xZGRh/imsUTtYLE+xFuEB5QR7HF
+         /dyvhPPlWAEgxiWldaOb/t55Nd5X2VVoS8awii3gUMBbExDhQzpSqccGNZQthuNVyEsf
+         dmYkpBLtRBqDaObF+3bhcVMdpSw8GwI+yC57EnRvVEShn0He9fxa7seRpE36adnH7vsj
+         gokg==
+X-Forwarded-Encrypted: i=1; AJvYcCWMdGPhPAcnIahvpSkvCABQArz7WKJ02lCzi+FSoLD9sbsgU3r+h8XLgQ2roOja+h7FxR9V1ecWG6fxtzf9gdgP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7juLXR2s5qdV5DIxRKMuR2raa8nCH09oiXpTjAlC71Cnmx5hj
+	DdVXXsOGEW3w9JpViKGr9E/aHLiY9e+P1YIAArKoBFo5BhWaX8FNnTiq
+X-Gm-Gg: ASbGncto6aaGX0AqmdYtvuJ9uVNHhYg54E6PC7W8GLuZjCej9odFMPLTiw/LGuCZoQy
+	XW7VefnDRk44ueWv8lftCvs/k3/EW1zOS8rYo1LPX3DkJNSkiBmI7mtaMgTycVdrbIveeyDKoDG
+	P+AXpqVBYqLRSXjHYAtmYeonUWQzwZWQCvMxdjuix4A4/fNfLFmGAzxUfpUANDuu0jG0ZaI0S7B
+	t1q+q0CkYaAfZf18BAwFjUczvwwv+b65VEfTv3r5LDWgOpmoaIKO3BmQLjzLupmXIb5sRotKvNv
+	ZsglH8H3VIdY4A5WgqfaqjZKWrpj6bTQMyNxHitLRy2V1RnLv+z4hWwLoYDpLA==
+X-Google-Smtp-Source: AGHT+IFiqdSlCbU4zD//x0lPXI7pA7rphxHL2l3rMZn1TfraBPWBfii1gmAYrhU1Zmp/y07HuF1+6g==
+X-Received: by 2002:a05:6a20:258e:b0:1f5:8a1d:3904 with SMTP id adf61e73a8af0-225b7f19802mr30657387637.7.1751985996536;
+        Tue, 08 Jul 2025 07:46:36 -0700 (PDT)
+Received: from localhost ([216.228.127.130])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b38ee476152sm11695895a12.24.2025.07.08.07.46.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Jul 2025 07:46:36 -0700 (PDT)
+Date: Tue, 8 Jul 2025 10:46:33 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Ben Horgan <ben.horgan@arm.com>, catalin.marinas@arm.com,
+	will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux@rasmusvillemoes.dk, linux-kernel@vger.kernel.org,
+	james.morse@arm.com
+Subject: Re: [PATCH 2/2] bitfield: Ensure the return value of
+ type##_replace_bits() is checked
+Message-ID: <aG0vScXkDROkdASW@yury>
+References: <20250703135729.1807517-1-ben.horgan@arm.com>
+ <20250703135729.1807517-3-ben.horgan@arm.com>
+ <aGv2WoAtxnEgqV4y@yury>
+ <03a76e9a-86ac-4791-9f0a-494b28c07fcc@arm.com>
+ <86tt3n9fsh.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250707153710.GB2182465@e132581.arm.com>
+In-Reply-To: <86tt3n9fsh.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_074527_826203_E9B01903 
-X-CRM114-Status: GOOD (  44.60  )
+X-CRM114-CacheID: sfid-20250708_074637_760157_3A31C506 
+X-CRM114-Status: GOOD (  30.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,166 +105,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
-
-On Mon, Jul 07, 2025 at 04:37:10PM +0100, Leo Yan wrote:
-> On Mon, Jul 07, 2025 at 12:39:57PM +0100, James Clark wrote:
-> 
-> [...]
-> 
-> > > > @@ -661,16 +666,24 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
-> > > >   	 */
-> > > >   	irq_work_run();
-> > > > +	/*
-> > > > +	 * arm_spe_pmu_buf_get_fault_act() already drained, and PMBSR_EL1.S == 1
-> > > > +	 * means that StatisticalProfilingEnabled() == false. So now we can
-> > > > +	 * safely disable the buffer.
-> > > > +	 */
-> > > > +	write_sysreg_s(0, SYS_PMBLIMITR_EL1);
-> > > > +	isb();
-> > > > +
-> > > > +	/* Status can be cleared now that PMBLIMITR_EL1.E == 0 */
-> > > > +	write_sysreg_s(0, SYS_PMBSR_EL1);
-> > > > +
-> > > 
-> > > An important thing is about sequence:
-> > > As described in arm_spe_pmu_disable_and_drain_local(), should we always
-> > > clear ELs bits in PMSCR_EL1 before clear PMBLIMITR_EL1.E bit? As a
-> > > reference, we could see TRBE always clear ELx bits before disable trace
-> > > buffer.
-> > > 
-> > > And a trivial flaw:
-> > > 
-> > > If the TRUNCATED flag has been set, the irq_work_run() above runs the
-> > > IRQ work to invoke the arm_spe_pmu_stop() to disable trace buffer, which
-> > > clear SYS_PMBLIMITR_EL1.E bit. This is why the current code does not
-> > > explictly clear SYS_PMBLIMITR_EL1.E bit.
-> > > 
-> > > With this patch, the interrupt handler will clear SYS_PMBLIMITR_EL1.E
-> > > bit twice for a trunacated case.
+On Tue, Jul 08, 2025 at 10:45:50AM +0100, Marc Zyngier wrote:
+> On Tue, 08 Jul 2025 10:42:06 +0100,
+> Ben Horgan <ben.horgan@arm.com> wrote:
 > > 
-> > I suppose that's a rarer case that we don't necessarily have to optimize
-> > for. I don't think it will do any harm, but is it even possible to avoid?
+> > Hi Yury,
 > > 
-> > There are already some other duplications in the driver, for example in
-> > arm_spe_pmu_stop() we call arm_spe_pmu_disable_and_drain_local() which
-> > drains, and then arm_spe_pmu_buf_get_fault_act() which also drains again.
-> 
-> If we don't need to worry about duplicated operations in the truncated
-> case, then for easier maintenance and better readability, I'm wondering
-> if we could simplify the interrupt handler as follows:
-> 
->     arm_spe_pmu_irq_handler()
->     {
->         ...
-> 
->         act = arm_spe_pmu_buf_get_fault_act(handle);
->         if (act == SPE_PMU_BUF_FAULT_ACT_SPURIOUS)
->                 return IRQ_NONE;
-> 
->         arm_spe_pmu_disable_and_drain_local();
-> 
->         /* Status can be cleared now that PMBLIMITR_EL1.E == 0 */
->         write_sysreg_s(0, SYS_PMBSR_EL1);
->         isb();
-> 
->         switch (act) {
->             ...
->         }
->     }
-> 
-> This approach complies with DEN0154 - we must clear PMBLIMITR_EL1.E
-> before writing to other SPE system registers (e.g., PMBSR).
-> 
-> The reason for using arm_spe_pmu_disable_and_drain_local() is that we
-> first need to disable profiling instructions by clearing PMSCR_EL1/EL2,
-> and then is it safe to disable the profiling buffer.
-
-Sampling is disabled when ProfilingBufferEnabled() = false (look at the
-pseudocode for SPEPreExecution() in the Arm ARM).  ProfilingBufferEnabled() =
-false if PMBLIMITR_EL1.E = 0 *or* PMBSR_EL1.S = 1.
-
-One way to think about it is: if PMBLIMITR_EL1.E = 0, then there's no point in
-sampling instructions and creating records because the profiling unit cannot
-write them to memory; and if PMBSR_EL1.S = 1, something went wrong with the
-buffer, or the buffer is full, and similarly there's no point in sampling
-instructions and creating records because, again, the profiling unit cannot
-write them to memory.
-
-> 
-> [...]
-> 
-> > > >   	case SPE_PMU_BUF_FAULT_ACT_OK:
-> > > >   		/*
-> > > > @@ -679,18 +692,14 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
-> > > >   		 * PMBPTR might be misaligned, but we'll burn that bridge
-> > > >   		 * when we get to it.
-> > > >   		 */
-> > > > -		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)) {
-> > > > +		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED))
-> > > >   			arm_spe_perf_aux_output_begin(handle, event);
-> > > > -			isb();
+> > On 7/7/25 17:31, Yury Norov wrote:
+> > > Hi Ben,
 > > > 
-> > > I am a bit suspecious we can remove this isb().
+> > > On Thu, Jul 03, 2025 at 02:57:29PM +0100, Ben Horgan wrote:
+> > >> As type##_replace_bits() has no side effects it is only useful if its
+> > >> return value is checked. Add __must_check to enforce this usage. To have
+> > >> the bits replaced in-place typep##_replace_bits() can be used instead.
+> > >> 
+> > >> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> > >> ---
+> > >>   include/linux/bitfield.h | 4 ++--
+> > >>   1 file changed, 2 insertions(+), 2 deletions(-)
+> > >> 
+> > >> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
+> > >> index 6d9a53db54b6..39333b80d22b 100644
+> > >> --- a/include/linux/bitfield.h
+> > >> +++ b/include/linux/bitfield.h
+> > >> @@ -195,8 +195,8 @@ static __always_inline __##type type##_encode_bits(base v, base field)	\
+> > >>   		__field_overflow();					\
+> > >>   	return to((v & field_mask(field)) * field_multiplier(field));	\
+> > >>   }									\
+> > >> -static __always_inline __##type type##_replace_bits(__##type old,	\
+> > >> -					base val, base field)		\
+> > >> +static __always_inline __##type __must_check type##_replace_bits(__##type old,	\
+> > >> +							base val, base field)	\
+> > >>   {									\
+> > >>   	return (old & ~to(field)) | type##_encode_bits(val, field);	\
+> > >>   }									\
 > > > 
-> > > As a reference to the software usage PKLXF in Arm ARM (DDI 0487 L.a),
-> > > after enable TRBE trace unit, an ISB is mandatory. Maybe check a bit
-> > > for this?
-> >
-> > Wasn't this isb() to separate the programming of the registers with the
-> > status register clear at the end of this function to enable profiling?
-> 
-> Enabling profiling buffer followed an isb() is not only for separating
-> other register programming.
-> 
-> As described in section D17.9, Synchronization and Statistical Profiling
-> in Arm ARM:
-> 
->   "A Context Synchronization event guarantees that a direct write to a
->   System register made by the PE in program order before the Context
->   synchronization event are observable by indirect reads and indirect
->   writes of the same System register made by a profiling operation
->   relating to a sampled operation in program order after the Context
->   synchronization event."
-> 
-> My understanding is: after the ARM SPE profiling is enabled, the
-> followed ISB is a Synchronization to make sure the system register
-> values are observed by SPE. And we cannot rely on ERET, especially if
-> we are tracing the kernel mode.
+> > > So, would it make sense to mark _encode_bits() and _get_bits() as
+> > > __must_check as well? At least from the point of unification, it
+> > > would.
+> > Could do. It seems less important as there are no obvious foot-guns
+> > that these would guards against. Would you like me to add this in a
+> > v2?
 
-DDI 0487L.a, rule R_BWCFK: If the Effective value of SCTLR_ELx.EOS is 1, the
-exception return is a Context synchronization event.
+Yes please.
+ 
+> > > How would we move this - with my bitmap-for next or with arm branch?
+> > 
+> > I'm not familiar with the branch machinery so can't comment on this.
+> 
+> The first patch will definitely go in via the KVM/arm64 tree, probably
+> as a fix for 6.16.
 
-Linux always sets EOS.
+OK. Then I'll take patch #2 v2 by myself.
 
 Thanks,
-Alex
-
-> 
-> Thanks,
-> Leo
-> 
-> > But now we enable profiling with the write to PMBLIMITR_EL1 in
-> > arm_spe_perf_aux_output_begin() and the last thing here is the ERET. That's
-> > specifically mentioned as enough synchronization in PKLXF:
-> > 
-> >   In the common case, this is an ERET instruction that returns to a
-> >   different Exception level where tracing is allowed.
-> > 
-> > > > -		}
-> > > >   		break;
-> > > >   	case SPE_PMU_BUF_FAULT_ACT_SPURIOUS:
-> > > >   		/* We've seen you before, but GCC has the memory of a sieve. */
-> > > >   		break;
-> > > >   	}
-> > > > -	/* The buffer pointers are now sane, so resume profiling. */
-> > > > -	write_sysreg_s(0, SYS_PMBSR_EL1);
-> > > >   	return IRQ_HANDLED;
-> > > >   }
-> > > > 
-> > > > -- 
-> > > > 2.34.1
-> > > > 
-> > > > 
-> > 
+Yury
 
