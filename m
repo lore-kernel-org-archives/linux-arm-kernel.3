@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C6DC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 09:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E509CC83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 09:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uEnf8eeIm+WChWJl5MHAtmjlkU1sdVlbIqPrOppFbIw=; b=oPIBXXi1Wo0WMNcH4xDeNnfT+Z
-	f5bQENt6UVnivw3m3zLvjPm3F+RLIDbiFEWVx5YvmB1Pdd9VOO84MaA7tig99SqQqaq3AiNWfJtwS
-	NkbhqePwkfY/zqyiZMbTIQ6AMZa1JFWDBNtFb3KHNmVH8jLFJ8mUoI1UCna+eBPCUSR3cXk+LWTzR
-	Tboc1fgxpkPWjfwwRPBIAtZomy/hWVhzDnDkaPXt5nixiucTDG/viTfGk3CFl4C6BMDnphQniIdsL
-	KucaRV17NJrWzKXTk1bznNzOeHP5ngaqlLPCy8kGo2P45PdSpVb4Zi1I2z1YsmOME5jmigLHJgeIY
-	fdEw7GOg==;
+	bh=7gCN8MKW4Vjja7SF1dc5owa6CI5jAKB1JIkjZa802RQ=; b=SQOFmEovZPwjAUxFhNpNFwh6Vw
+	fp6qTm25gaiSuX8CVjRvy/T5sMltfvY0EuCgmcEevAxuAX860zrxbILd02AzUfxlaVluqM+4Erd/S
+	35ItwKPLuKISomTKLHgb3qV/WGJm1+wCZ6+68JW9stFEeSDeyn0DfhYBnurppSaqbblb1uAnDsg45
+	4k+MxTcJEmujEyYEGic/Ym9GJkUNfNoCP9Ue2waIjrGgKFw8JCm+gBeBFtxhZO6byKZJbkD+pUndz
+	gwvuhOnbVcUq6vl/OPyfyCV7CILm/7bOIycpNNVEE4VE281PsYd0Gz0Lfhf3eN8AoPxM+Tk+OTcEC
+	W0nhX7sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ4qQ-00000004v7r-1exc;
-	Tue, 08 Jul 2025 09:42:34 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uZ4si-00000004vEo-0K12;
+	Tue, 08 Jul 2025 09:44:56 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ4AT-00000004pA8-0i4z
+	id 1uZ4AV-00000004pAg-1jwS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 08:59:14 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5688xARs835069;
-	Tue, 8 Jul 2025 03:59:10 -0500
+	Tue, 08 Jul 2025 08:59:16 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5688xCts465280;
+	Tue, 8 Jul 2025 03:59:12 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1751965150;
-	bh=uEnf8eeIm+WChWJl5MHAtmjlkU1sdVlbIqPrOppFbIw=;
+	s=ti-com-17Q1; t=1751965152;
+	bh=7gCN8MKW4Vjja7SF1dc5owa6CI5jAKB1JIkjZa802RQ=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ZglVkrYUkywPt2EBiSsrWDm8ffE6nat0hE91WyZ1xKPuaB06BcC/YK7beaH0cCU6q
-	 o/PiIuHV/mo4OzjHf6jbA967J21IuQioMLP3A/x7re1B5dsSLREmB5QhPgCOS2ofI4
-	 3PoXLcpjVXrv/FPwgJIj06mdsksnQX5iPlOtUKPc=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5688xA8v858599
+	b=GSXqnP3wAXh3OHQW9zaS4ZqMuYn0+wMisihQVK2R0WZh7uekbpeFMVqud1gZtmZLr
+	 aG7ah7ebCnQWjqu2ZRUasOVqxPcn9gIc461On8BJTX1NLuWnmdClZja1sALiAhFd6N
+	 tpdpsrFf46SdpI+jxkXRDFeVh9jSr0SLKk2MeSlo=
+Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5688xCFE2226064
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 8 Jul 2025 03:59:10 -0500
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+	Tue, 8 Jul 2025 03:59:12 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE101.ent.ti.com
+ (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 8
- Jul 2025 03:59:09 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ Jul 2025 03:59:11 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 8 Jul 2025 03:59:09 -0500
+ Frontend Transport; Tue, 8 Jul 2025 03:59:11 -0500
 Received: from localhost (ula0502350.dhcp.ti.com [172.24.227.38])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5688x9TF1496994;
-	Tue, 8 Jul 2025 03:59:09 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5688xBRi1787567;
+	Tue, 8 Jul 2025 03:59:11 -0500
 From: Paresh Bhagat <p-bhagat@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
 CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -59,9 +59,9 @@ CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>,
         <devarsht@ti.com>, <s-vadapalli@ti.com>, <andrew@lunn.ch>
-Subject: [PATCH v7 2/4] dt-bindings: arm: ti: Add AM62D2 SoC and Boards
-Date: Tue, 8 Jul 2025 14:28:37 +0530
-Message-ID: <20250708085839.1498505-3-p-bhagat@ti.com>
+Subject: [PATCH v7 3/4] arm64: dts: ti: Add pinctrl entries for AM62D2 family of SoCs
+Date: Tue, 8 Jul 2025 14:28:38 +0530
+Message-ID: <20250708085839.1498505-4-p-bhagat@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250708085839.1498505-1-p-bhagat@ti.com>
 References: <20250708085839.1498505-1-p-bhagat@ti.com>
@@ -70,8 +70,9 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_015913_299102_9EA65CB1 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20250708_015915_492913_7DCBE107 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,50 +87,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AM62D2 SoC, part of the K3 architecture, is built for high-performance
-DSP tasks in automotive audio, pro audio, radar, sonar, and medical
-imaging. It features up to four Cortex-A53 cores (1.4GHz), two Cortex-R5F
-cores, and a C7x DSP with 2 TOPS MMA. Key interfaces include multi-channel
-McASP audio, TSN-capable Gigabit Ethernet, and a range of peripherals
-(UART, SPI, I2C, CAN, USB, eMMC/SD, OSPI, CSI). It supports LPDDR4/DDR4,
-secure boot with hardware security, and low-power modes with
-CAN/GPIO/UART wakeup.
-
-This SoC is of part K3 AM62x family, which includes the AM62A and AM62P
-variants. A key distinction is that the AM62D does not include multimedia
-components such as the video encoder/decoder, MJPEG encoder, Vision
-Processing Accelerator (VPAC) for image signal processing, or the display
-subsystem. Additionally, the AM62D has a different pin configuration
-compared to the AM62A, which impacts embedded software development.
-
-This adds dt bindings for TI's AM62D2 family of devices.
-
-More details about the SoCs can be found in the Technical Reference Manual:
-https://www.ti.com/lit/pdf/sprujd4
+Update k3-pinctrl file to include pin definitions for AM62D2 family of
+SoCs.
 
 Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
 ---
- Documentation/devicetree/bindings/arm/ti/k3.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/boot/dts/ti/k3-pinctrl.h | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-index bf6003d8fb76..e80c653fa438 100644
---- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
-+++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-@@ -25,6 +25,12 @@ properties:
-               - ti,am62a7-sk
-           - const: ti,am62a7
+diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+index cac7cccc1112..0cf57179c974 100644
+--- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
++++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+@@ -63,6 +63,9 @@
+ #define AM62AX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
+ #define AM62AX_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
  
-+      - description: K3 AM62D2 SoC and Boards
-+        items:
-+          - enum:
-+              - ti,am62d2-evm
-+          - const: ti,am62d2
++#define AM62DX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
++#define AM62DX_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
 +
-       - description: K3 AM62A7 SoC PHYTEC phyBOARD-Lyra
-         items:
-           - const: phytec,am62a7-phyboard-lyra-rdk
+ #define AM62PX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
+ #define AM62PX_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
+ 
 -- 
 2.34.1
 
