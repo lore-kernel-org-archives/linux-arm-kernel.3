@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D3DCC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 15:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C243C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 15:12:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AbN9vJsY/mkHEsGghFEQy2rviLOqFLUvl0p6J+/2RvA=; b=dKuqJEIMpjbu68sRk4LFCBfD0X
-	1t5YvVqCULVxJgaDkw096+Firn8yP9zbIrs5+gWbspGFBFy5/gOZDl+jskciJkkCqA1C3tlTMS4MD
-	fTyPfKKdxykKigVxMQPxXM71eYXbx2NhWsm8bkE4vfM5CtAjw3BllSeCrFTEpD4/2lzBkvpFDVLPA
-	7vQ8/H+ZvSDRfdPPelWyjsjEZAkXHMrndyr1BGlb+u21V9LauE35XDr7ReO1XvUcNjAlII/Zu9zi8
-	N58UQJVqGQiTNFWqJW0Y2fz2t8G1wTi3f5nm3QF2WPhfeIG6GsR0b0HSQTsTSBRP71UscGE38vdmC
-	VciFIHBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=86syfWYGbh9cr/xQuO05aTOOJWG7jgdg+icTQqrYGeQ=; b=0t6ATSiwHMBjw5r/gqEJRDhP7o
+	kz+w9Hkpr1vtlBpaZbKdFYF/2aWRLynrv1IAcho5NtKX1b53JkkCWp9biaGAJZ/yClG9F0J/i1cjI
+	7hyfI66IhrKjT/Z827AtHEwci7lJVEUU3vk0tT6aTYmjcNlx3KiUG7VjggHjCLZNCBD2MjgP/B4ZT
+	r53CXFGEBt+GPqrX9COla6eD1NP6Ac3lUiofJEWr1AN7KAW1qQSV4HsGi995m6H6CFXv8JU8RTsld
+	DFcUtqMc+bOe0JqsfiS5fSfUqdGSMcJA+OMrAHkzxTMDzzdjpe2lOibziWylUkdxWIa9M0Ct+s7jm
+	L2i1G0Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ9wW-00000005iqx-3eJa;
-	Tue, 08 Jul 2025 15:09:12 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1uZ9zV-00000005jiw-1l5H;
+	Tue, 08 Jul 2025 15:12:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ9su-00000005i5a-1tSe
+	id 1uZ9x8-00000005j8X-3TwF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 15:05:29 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-70e5e6ab7b8so40405737b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 08:05:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1751987127; x=1752591927; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=AbN9vJsY/mkHEsGghFEQy2rviLOqFLUvl0p6J+/2RvA=;
-        b=t0qml0g2wJ6hlEhx195xTt5JypaSFnw5lYIVLtFmy1e6SQ477D9IieyCg7+wgVCH5/
-         zkXlZHLquIgHMDDG8yHSYjwvCtK4YY9HoTU0QmpfgA6WhVuoTDvEdiC7TJeHwVXpOaEH
-         onCw1nuOyDRQNFvJSiiHsrhmqZgzGtmgZDY4Z2ID1JVEKjootFSWviMx65US1MbSGzF2
-         Xw/VHjThdAJO0MsBBPFNK7x0AnXO+IToBb9wM9WKDbwZ87AanACrXqDpODG/rIlZ92DS
-         +KX4Xu0lGpnPx/tmwkfxEF3NarZygxx0LH7NZJGXFnfg8bcH8IuKZukFsOvdX8F33nrV
-         W/9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751987127; x=1752591927;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AbN9vJsY/mkHEsGghFEQy2rviLOqFLUvl0p6J+/2RvA=;
-        b=jLRp5OjsP9UpMHVwJxM5cpesNXEvkDGgCbRHIaChyOBQOKdgZIVf4QN8nGyOFVk2vw
-         ZO2IHlkJhQA3vRwzOTlENCoi1Xxtq9DvD2wHk5Jq+naNCQ/Bz51gqwKmJWoZE3PDJCf+
-         lIPCG4V9Q72ohAb/2BzsdOyr2HWMqu+ynfD86sG5MgTnt55w7LhHmd/v833zK2UD3rUy
-         k9zVULunNCkFE7XJ6rpkySo70qR5nqjM+UZPVLerhQudiAdZ981z/IT5smHkLHhB0rGO
-         +x2W5i5q0Ul+k03IiF+3lekTG/6pC5gJmcL9Yb+6Z49/oL69jxXjthuBSl3RdhtbpiV9
-         mcsw==
-X-Forwarded-Encrypted: i=1; AJvYcCWt/sI7qcFWyct8+gQfxP4ZCa1KrY6jHcb++SKJ+z1rk7cYSInMKpNXlFOEGyuTiumo9TjNi0VdBkCZdOTOH+bY@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQpvRw/RYY7LR2nJRGIacpFQDoHqiB+nKAcG6gzXKucsxy5ff1
-	XufXK30BAUqbmls5E/EzWJD/6G8Z8TP2antKacJVbuf1hE0lVMotw9JV4Gm+3wZXUc1hW+OpmfJ
-	DoTvUv9Q3HIX0x59HY7iWS5RD1ldSRe0U06BJK5GcmA==
-X-Gm-Gg: ASbGncvinxMsQH2L9Vp787rsXAyrjGHNMBy0+3CmAblRRDjmAmKJ8yN48Jqr13N1K0s
-	ybvfr+7jSZYkGrSrJRAFFs2MmtMjmcBmhHv8POlB+YujOYpEH1BBIqo8SgxudNyQUCdGxHKjaIO
-	UAueNO69uz0E8c5XYItyXtgbVktylPBxrOiZpX6hQXe6Aa
-X-Google-Smtp-Source: AGHT+IHBtCLoH5+e5H6LltUDB7e8LY/seAM2AxugJI15zrEUc8YzJfSv/mbx//NgSFS3ANi+4dqcSKaKRPubRavB9Bw=
-X-Received: by 2002:a05:690c:45c9:b0:708:16b0:59c3 with SMTP id
- 00721157ae682-717a046193fmr41621337b3.33.1751987126648; Tue, 08 Jul 2025
- 08:05:26 -0700 (PDT)
+	Tue, 08 Jul 2025 15:09:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B53374689A;
+	Tue,  8 Jul 2025 15:09:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95C27C4CEED;
+	Tue,  8 Jul 2025 15:09:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751987389;
+	bh=Obbbwl3W/HPhrDX90tjKTuctvfC+PqY+HxmknvNnqrw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=BdYNNuvpVKXd+jDJfxVt2lgxXXn7O+szpMyFGVvGowV1/fR31lF/VeCFCRvhxrxAg
+	 0o8UEXGoNMRhoIO0SrxerDtvnpuZecQn4HbGnHban2BqeJFElyXP8tEVnvXikgbN3h
+	 DEI/SuB+iph1eKriiRB70HPx1+ViIVU0WOHC6m/OlKgyizdyLtkSYVKs4HC+8sijsl
+	 gplc9KvjZZ2S91WYeZYh0n5uCFmf7zf0j82YDhVXtAxv0b886hYBmMwRKEQSSD/Vgu
+	 Xacvl1npLLwiRqDND8D6Pi60lUOFMAzNFhn9i+evgm62CDE4TEuBFgtSeOrvzXVRxU
+	 lcDQIe2DkfKLQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE908380DBEE;
+	Tue,  8 Jul 2025 15:10:13 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20250707105605.98248-1-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250707105605.98248-1-angelogioacchino.delregno@collabora.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 8 Jul 2025 17:04:50 +0200
-X-Gm-Features: Ac12FXwX-NP6E6P2Q56_QdBCypnbJ4xWnF08vZN6p09NHmwLlHzcTOT7bmz8Wbg
-Message-ID: <CAPDyKFrDytmrkd6SsJc6W=k7Ayijfadu5jTOyTGn9rJS1osQBg@mail.gmail.com>
-Subject: Re: [PATCH v2 00/10] pmdomain: Partial refactor, support modem and RTFF
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, matthias.bgg@gmail.com, y.oudjana@protonmail.com, 
-	fshao@chromium.org, wenst@chromium.org, lihongbo22@huawei.com, 
-	mandyjh.liu@mediatek.com, mbrugger@suse.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-pm@vger.kernel.org, kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 0/2] allwinner: a523: Rename emac0 to gmac0
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175198741250.4099273.971241156715124516.git-patchwork-notify@kernel.org>
+Date: Tue, 08 Jul 2025 15:10:12 +0000
+References: <20250628054438.2864220-1-wens@kernel.org>
+In-Reply-To: <20250628054438.2864220-1-wens@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andre.przywara@arm.com, wens@csie.org,
+ jernej@kernel.org, samuel@sholland.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_080528_501948_6BAA8449 
-X-CRM114-Status: GOOD (  34.04  )
+X-CRM114-CacheID: sfid-20250708_080950_918031_4F977DF0 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,121 +78,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 7 Jul 2025 at 12:56, AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> Changes in v2:
->  - Added #access-controller-cells allowance for MT8188/95 infracfg_ao
->
-> This series is a subset of [1], leaving out the Hardware Voter specific
-> bits for MT8196 until the discussion around it reaches a conclusion.
->
-> Even though the proposed code was born as a preparation to support the
-> MT8196/MT6991 SoCs power domain controllers, it is a necessary cleanup
-> for all power domain controllers of all of the currently supported SoCs
-> from MediaTek.
->
-> You may also notice the addition of support for modem power sequences:
-> this was brought up 6 months ago (or more) by community contributors
-> (mainly Yassine Oudjana) that were trying to upstream the MediaTek
-> MT6735 Smartphone SoC and needed support to provide power to the MD
-> subsystem - so, even though in this specific series the code for the
-> modem power sequence is not yet triggered by any SoC, please please
-> please, let it in.
-> Besides, "a bunch" of upstream supported SoCs do have the MD power
-> domain even though it wasn't added to their drivers (because if there
-> was no support in the driver, it would just crash the system); the
-> addition is something that I plan to do at some point, but definitely
-> not now as I have no bandwidth for that (bar MT8196, which will have
-> this domain).
->
-> Compared to v1 in [1]:
->  - Changed mediatek,bus-protection to access-controllers
->    as suggested by Rob (thanks!)
->  - Added commits to document #access-controller-cells on all of
->    the access control providers
+Hello:
 
-The series looks good to me! I can pick patch 1->9, but I am awaiting
-an ack from some of the DT maintainers for patch 1->3 first.
+This series was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Kind regards
-Uffe
+On Sat, 28 Jun 2025 13:44:36 +0800 you wrote:
+> From: Chen-Yu Tsai <wens@csie.org>
+> 
+> Hi folks,
+> 
+> This small series aims to align the name of the first ethernet
+> controller found on the Allwinner A523 SoC family with the name
+> found in the datasheets. It renames the compatible string and
+> any other references from "emac0" to "gmac0".
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,1/2] dt-bindings: net: sun8i-emac: Rename A523 EMAC0 to GMAC0
+    https://git.kernel.org/netdev/net/c/b3603c0466a8
+  - [net,2/2] arm64: dts: allwinner: a523: Rename emac0 to gmac0
+    (no matching commit)
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-
->
-> In the meanwhile.... relevant excerpt from the old series:
->
-> This series refactors the bus protection regmaps retrieval to avoid
-> searching in all power domain devicetree subnodes for vendor properties
-> to get syscons for different busses, and adds a new property which is
-> located in the power controller root node containing handles to the same.
->
-> Retrocompatibility is retained and was tested on multiple SoCs in the
-> Collabora lab - specifically, on Genio 350/510/700/1200, and manually
-> on MT6795 Helio (Xperia M5 Smartphone), MT8186, MT8192 and MT8195
-> Chromebooks.
->
-> This was tested *three times*:
->  - Before the per-SoC conversion in drivers/pmdomain/mediatek
->  - With per-SoC conversion code but with *legacy* devicetree
->  - With per-SoC conversion code and with *new* devicetree conversion
->
-> All of those tests were successful on all of the aforementioned SoCs.
->
-> This also adds support for:
->  - Modem power domain for both old and new MediaTek SoCs, useful for
->    bringing up the GSM/3G/4G/5G modem for both laptop and smartphone use
->  - RTFF MCU HW, as found in MT8196 Chromebooks and MT6991 Dimensity 9400
->
-> ...and prepares the pmdomain code to accomodate only the directly
-> controlled power domains for MT8196 (HW Voter support was left out).
->
-> [1] https://lore.kernel.org/all/20250623120154.109429-1-angelogioacchino.delregno@collabora.com
->
-> AngeloGioacchino Del Regno (10):
->   dt-bindings: memory: mtk-smi: Document #access-controller-cells
->   dt-bindings: clock: mediatek: Document #access-controller-cells
->   dt-bindings: power: mediatek: Document access-controllers property
->   pmdomain: mediatek: Refactor bus protection regmaps retrieval
->   pmdomain: mediatek: Handle SoCs with inverted SRAM power-down bits
->   pmdomain: mediatek: Move ctl sequences out of power_on/off functions
->   pmdomain: mediatek: Add support for modem power sequences
->   pmdomain: mediatek: Add support for RTFF Hardware in MT8196/MT6991
->   pmdomain: mediatek: Convert all SoCs to new style regmap retrieval
->   arm64: dts: mediatek: Convert all SoCs to use access-controllers
->
->  .../bindings/clock/mediatek,infracfg.yaml     |   3 +
->  .../clock/mediatek,mt8186-sys-clock.yaml      |  15 +
->  .../clock/mediatek,mt8188-sys-clock.yaml      |  15 +
->  .../clock/mediatek,mt8192-sys-clock.yaml      |  15 +
->  .../clock/mediatek,mt8195-sys-clock.yaml      |  15 +
->  .../clock/mediatek,mt8365-sys-clock.yaml      |  15 +
->  .../mediatek,smi-common.yaml                  |  16 +
->  .../power/mediatek,power-controller.yaml      |  39 ++
->  arch/arm64/boot/dts/mediatek/mt6795.dtsi      |   5 +-
->  arch/arm64/boot/dts/mediatek/mt8167.dtsi      |   6 +-
->  arch/arm64/boot/dts/mediatek/mt8173.dtsi      |   4 +-
->  arch/arm64/boot/dts/mediatek/mt8183.dtsi      |  17 +-
->  arch/arm64/boot/dts/mediatek/mt8186.dtsi      |  12 +-
->  arch/arm64/boot/dts/mediatek/mt8188.dtsi      |  23 +-
->  arch/arm64/boot/dts/mediatek/mt8192.dtsi      |  13 +-
->  arch/arm64/boot/dts/mediatek/mt8195.dtsi      |  20 +-
->  arch/arm64/boot/dts/mediatek/mt8365.dtsi      |  16 +-
->  drivers/pmdomain/mediatek/mt6795-pm-domains.h |   5 +
->  drivers/pmdomain/mediatek/mt8167-pm-domains.h |   5 +
->  drivers/pmdomain/mediatek/mt8173-pm-domains.h |   5 +
->  drivers/pmdomain/mediatek/mt8183-pm-domains.h |   5 +
->  drivers/pmdomain/mediatek/mt8186-pm-domains.h |   5 +
->  drivers/pmdomain/mediatek/mt8188-pm-domains.h |   6 +
->  drivers/pmdomain/mediatek/mt8192-pm-domains.h |   5 +
->  drivers/pmdomain/mediatek/mt8195-pm-domains.h |   5 +
->  drivers/pmdomain/mediatek/mt8365-pm-domains.h |  14 +-
->  drivers/pmdomain/mediatek/mtk-pm-domains.c    | 399 +++++++++++++++---
->  drivers/pmdomain/mediatek/mtk-pm-domains.h    |  74 +++-
->  28 files changed, 596 insertions(+), 181 deletions(-)
->
-> --
-> 2.49.0
->
 
