@@ -4,110 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D982C83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 10:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9655C83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 10:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WlFrHWCBZ0GRvhfqPcMu6mVAR9pzqmTshDoLe8nyLtA=; b=bsswt8D2/59XQw8rcOwE/dd4HW
-	TzTEHmmHMwcLHGV8tHfoA3+xG+X+U4UJVne2FlgcR2SBuMfAFIQpSDwA/fAaFj6Y1ygmf4miPytIR
-	rH9D974MgTFy9+BL1rZvIIqx9maEhpS7RRrHRQe9Z2w2K9cuA8imw5vwu3uM24AhTvThH0yzMMFov
-	vSS8tkfw+njq5MAOr6EJwYN6L5b2qoNoXtm2EBxWXmTkDI/LVtefUzhU8kVPLRH5HyJrVVpsD8M+j
-	b7Bp0GmuG2hMl+c0isbTPjWcEwuPMSygrCDx0sko2A3tkFqaQRiKSwNI5qA9tqB6D1JuzUNAk2TDY
-	JJVuRBrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zDGRwzwOvCrWWFQfPfpra9qYK3fJVDbD/wSIIQxXnMM=; b=eWvduYe11tNolTBhM2HDKNuAf6
+	cO6Vp35h841X1OHf3TbLAHrFz7WMQsQfI1lXHTg5L+UhU5vyRWjf3w+zZdriVr0FQqG6tnYEPFq3l
+	z4/L3AFaGxRJO1SJpOjRPw1zQ0yvznjLGQCrnM5FqQsdgOvzGoDFw6qAsnIp/pcu57+xADBAkMExI
+	mUVjpPCp0WIhtg22ScK//PWNNgdlMJq63dQTXbxFChfJvS6zT5ZrvIGcpYyMNFzC3ZvRyM4PW894a
+	ZDn0iOJFpk+jAk4L5h2c/Esml/k6cLLZwJt6kWQsIUV54qo1tkfVOuKenauiGoDRZ9X6ZhVjgMche
+	OnCtjVtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ58l-00000004zrd-3aLl;
-	Tue, 08 Jul 2025 10:01:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uZ5B4-000000050Gb-1uLE;
+	Tue, 08 Jul 2025 10:03:54 +0000
+Received: from mail-ed1-f43.google.com ([209.85.208.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ4VI-00000004sX8-3jgb
+	id 1uZ4nx-00000004ujt-2xuj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 09:20:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1751966442;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WlFrHWCBZ0GRvhfqPcMu6mVAR9pzqmTshDoLe8nyLtA=;
-	b=CgperA7C9IUvRXD5rN3JRI4rRW1Au1JZ3NQ9tRVy5a+NfYs+ODh3+kcd+ZZ7lJAflVpH3z
-	+VfmxpcOhZwz3Q6kdR1CQADi0kkhqzRvHallbRLxROHiuaBr/OAFWoiqn2/WdZXymxOqQx
-	xA3OZB6yg2OMIrULtrXfVGL01Ep17+Q=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-587-2rDPwo03NQ6BhrlJAUz4EA-1; Tue, 08 Jul 2025 05:20:41 -0400
-X-MC-Unique: 2rDPwo03NQ6BhrlJAUz4EA-1
-X-Mimecast-MFC-AGG-ID: 2rDPwo03NQ6BhrlJAUz4EA_1751966440
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3a5058f9ef4so1692279f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 02:20:41 -0700 (PDT)
+	Tue, 08 Jul 2025 09:40:02 +0000
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-60702d77c60so8181417a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 02:40:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751966440; x=1752571240;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WlFrHWCBZ0GRvhfqPcMu6mVAR9pzqmTshDoLe8nyLtA=;
-        b=WVqvHL+iHx4N2V+YhlqVOvjIbTc2YEOOKgWUrdLdDGjRmkM6ScrBv7DWrxS5UwNMup
-         T/72o3aJ3NTe5gGNA1P9X++tw+XRsdtyf11Q4oqZd990BzbOwnPK/Rgi7gmg6QaljZln
-         NCPpl25sA9Ip7u3FF1wRyCZSaG7IQ8sTjIp2w33vn8+lN55LjZgporPeHjVw60L4xdDX
-         SGVkDo3zOswyNIo0qncnm5cLpsTP3aX1i9PWUR6DZ+aRNaaql/nTiW4kBQztxJ1Z9GUA
-         oJWOhxQLM4ukFuIzlzFUj0KPFMnm90YePv7hVWwsiev/gHjjFMgGhXVj4ihRslW0ha0Q
-         2anQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWdNMXJxOZoPHlzGHAyyJGfN0VZeEpIdN+W4Rg36e+PzMUyUycRs/E0Dhllg3GaxYG0/JAXIT344E2YaSOuR3ha@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkjudWtS8mqKMJYps79oaXlWiXy/FEUFbso61GehFy1axzMygo
-	RvL2KwLKxLeGzqwjVPdKxGwZYE6xeEFi0MDpl6RVNvzROJdP6GRe3wcBI+70JYNbIHxwH2R6HxL
-	oZ2Nh9hIgNzk0KyJlpIyhqxl//bvyQ1wdaH3Rj6Q1RWtlDabLcMcTQ/WUKdOf7QLz+DHvKonqkp
-	Do
-X-Gm-Gg: ASbGncsEkmAj4nD91ubomaxAAtcFoaHWRGZJuC1UNltdpqaxF766U/VQ7ThAsM6P2uK
-	vEZQvI/kch4UDdaSekBITxBUNK7DlVepN2q3JzMmpZr95UAqXyRt/bFBObaiHJMQbHea5GsyXi5
-	Md6UGwA+IBOzOO76/B5u0Jr7XDEcui0TuNfBx38oanEvpgGyL3GrFaDu3fa21GNEwGbAT0XrkDe
-	d7lerd4KPloh5385DieFgcq8kRqnWEcgyjmr9A907Yf92hx8npnqp0/7AVmAOmkGxylY6Z0uUA6
-	0dW4gPUvSACSHUzimf7N8oeFdxDm46mdz9FPu6rN9l20xWFXSe+HqmOHKE12/Ldhe6nIqw==
-X-Received: by 2002:a05:6000:4a10:b0:3a3:67bb:8f3f with SMTP id ffacd0b85a97d-3b5ddea1c51mr2238703f8f.53.1751966440097;
-        Tue, 08 Jul 2025 02:20:40 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGh8nD1EiPG7m0mg6QXkWYeptqjWcfmnci5Vnj6Jp422MialDVXM6maHNA8ghrBApwgmMdE1Q==
-X-Received: by 2002:a05:6000:4a10:b0:3a3:67bb:8f3f with SMTP id ffacd0b85a97d-3b5ddea1c51mr2238665f8f.53.1751966439672;
-        Tue, 08 Jul 2025 02:20:39 -0700 (PDT)
-Received: from ?IPV6:2a0d:3344:2717:8910:b663:3b86:247e:dba2? ([2a0d:3344:2717:8910:b663:3b86:247e:dba2])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b47285d3c6sm12548795f8f.95.2025.07.08.02.20.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Jul 2025 02:20:39 -0700 (PDT)
-Message-ID: <b676eb1b-265a-4647-b340-be88559a3561@redhat.com>
-Date: Tue, 8 Jul 2025 11:20:17 +0200
+        d=1e100.net; s=20230601; t=1751967600; x=1752572400;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zDGRwzwOvCrWWFQfPfpra9qYK3fJVDbD/wSIIQxXnMM=;
+        b=TWvCj/tzlpCGC8BZLG6zzGXsi4o3rr+YTTsfJL4JaymmtYS0OT3FJ2UHl0hTqFTRtq
+         JOzM1d35XlAGKndGmZb6rfxrp05qKjyJLp2O/VaeO39j8KPTMnbckT5WY3lTU77x6ji6
+         Kk8Ujj1O44boMru9jdQ16e0i8UcjamUkCDFK8fftynGmcv+W/QZlXLQibYMo8RTB1odB
+         lUtNOEcdI/SShdjuPQyCCFiziXD5U+/TKd7RbLf3EIpSJdsHS7/XvPuu93Qrjpzh4VBz
+         O876JsukAg/ly0Kqu6kz7t0t+A9gyeEW93fVBsgPF1djoXCzE/JlDSPcfpN5SG6/5Glh
+         ccwA==
+X-Forwarded-Encrypted: i=1; AJvYcCVc7pniWFTd9LY9DvJujls/Ii9Ip0OWcEDDjqMLr8sVkNEEl+H/Fw2Fn/g8ytbRXmYLHFUtvSnYG4HXswhH8iHO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTdaQ6P8Qcyn6Lj0rHSECNiV+8Z4wmRmbMT96lTcFfAH5lAOVx
+	XdcJQ2Mr7bwCKMLIlVm7wRKWN6U5mMm+hyhXV2S3YrriKfNWYwsKNqbYpsbx3FwG
+X-Gm-Gg: ASbGncvkAK6/CZ8S/Fi9UW/I6D+d99sDe/jMxKasSfFsq7UCcaoVy6pODdImLsAl/Fc
+	caQg6ru9/OozVwvlf1SQH7I9jLNrzr3mVMhE41AFPW2jeG81I16x2V/yo2ZVaLyr6C8aGegG02c
+	5C1IRazm/vtTQE2qlLptiaKisASRVOkMSyYwXyFqEiKx34RD+XqXpSNlAYDj15Ze+Zb12ZRO9J3
+	l+8RRFzwVz81V+iX8mQlshMOTNmN/WnvdQE2nbJBSHkq7ovcld1kXWL5Shd9F7WDWiiahvX8ENp
+	J0X/O++UFHSyXzFdoGd57G1gIXD2hrpG35b1E4WzIwF0TPAVYt0P
+X-Google-Smtp-Source: AGHT+IEKuh5P5XxfGU6tISC7d/SWRHDTdhtCdRwTY574SCwgIN9VltFkhI6/5VSmmx/mAhn8r/NsaQ==
+X-Received: by 2002:a17:907:97d0:b0:ae3:7022:b210 with SMTP id a640c23a62f3a-ae6b0b1ec6amr238872866b.12.1751967599680;
+        Tue, 08 Jul 2025 02:39:59 -0700 (PDT)
+Received: from gmail.com ([2a03:2880:30ff:9::])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f66e6f30sm864599066b.33.2025.07.08.02.39.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Jul 2025 02:39:58 -0700 (PDT)
+Date: Tue, 8 Jul 2025 02:39:56 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-efi@vger.kernel.org, leo.yan@arm.com, kernel-team@meta.com
+Subject: Re: [PATCH 1/8] arm64: Enable VMAP_STACK support
+Message-ID: <aGznbObwbaZlnD17@gmail.com>
+References: <20250707-arm64_vmap-v1-0-8de98ca0f91c@debian.org>
+ <20250707-arm64_vmap-v1-1-8de98ca0f91c@debian.org>
+ <aGwCfRkYqcYBvxZK@J2N7QTR9R3>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 0/2] allwinner: a523: Rename emac0 to gmac0
-To: wens@kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
- Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, Andre Przywara <andre.przywara@arm.com>
-References: <20250628054438.2864220-1-wens@kernel.org>
- <20250705083600.2916bf0c@minigeek.lan>
- <CAGb2v64My=A_Jw+CBCsqno3SsSSTtBFKXOrgLv+Nyq_z5oeYBg@mail.gmail.com>
- <e9c5949d-9ac5-4b33-810d-b716ccce5fe9@lunn.ch>
- <20250706002223.128ff760@minigeek.lan>
- <CAGb2v64vxtAVi3QK3a=mvDz2u+gKQ6XPMN-JB46eEuwfusMG2w@mail.gmail.com>
- <20250707181513.6efc6558@donnerap.manchester.arm.com>
- <CAGb2v64UTr1YSm7VXtzk5jmD_J_20ddPcWww_NPzx-e5HvaOpQ@mail.gmail.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <CAGb2v64UTr1YSm7VXtzk5jmD_J_20ddPcWww_NPzx-e5HvaOpQ@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 7FOCjrSqWkRwPnZrbJJXPn6X0jlsCqa8cbM_eUAiYS4_1751966440
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aGwCfRkYqcYBvxZK@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_022045_003923_C26C1FC0 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20250708_024001_743347_7D4C626E 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,19 +89,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/7/25 7:34 PM, Chen-Yu Tsai wrote:
-> On Tue, Jul 8, 2025 at 1:15 AM Andre Przywara <andre.przywara@arm.com> wrote:
->> So if you really insist on this: please go ahead and merge it, so that
->> the 6.16 release contains the new name.
+Hello Mark,
+
+On Mon, Jul 07, 2025 at 06:23:09PM +0100, Mark Rutland wrote:
+> On Mon, Jul 07, 2025 at 09:01:01AM -0700, Breno Leitao wrote:
+> > Enable virtually mapped kernel stacks for ARM64. This provides better
+> > stack overflow detection and improved security by mapping kernel stacks
+> > in vmalloc space rather than using direct mapping.
+> > 
+> > VMAP_STACK helps catch stack overflows early by placing guard pages
+> > around kernel stacks, and also provides better isolation between
+> > kernel stacks and other kernel data structures.
+> > 
+> > All dependencies are satisfied for arm64: HAVE_ARCH_VMAP_STACK is
+> > already selected above, and KASAN_VMALLOC is selected when KASAN is
+> > enabled, meeting the KASAN dependency requirements.
 > 
-> I'm afraid I insist.
+> I reckon it might be better to say something like:
 > 
-> I think we still need an ack from the DT maintainers though, and then
-> the binding change would go through the net tree?
+> | arm64: Mandate VMAP_STACK
+> |
+> | On arm64, VMAP_STACK has been enabled by default for a while now, and
+> | the only reason to disable it was a historical lack of support for
+> | KASAN_VMALLOC. Today there's no good reason to disable VMAP_STACK.
+> |
+> | Mandate VMAP_STACK, which will allow code to be simplified in
+> | subsequent patches.
+> 
+> ... to make it clear that we're not changing the default, and we are
+> removing the ability to deselect VMAP_STACK.
+> 
+> Either way, the patch itself looks good to me.
 
-Note that such ack could require a bit of time more, as there are a few
-patches in the DT backlog.
+Thanks for the suggestion. I will update and respin.
 
-/P
-
+Thanks for the review,
+--breno
 
