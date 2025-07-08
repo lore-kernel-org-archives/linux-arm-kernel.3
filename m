@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B1AFC71130
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 01:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED537C71130
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 01:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AGEWNsQ5j/mjmaHh6MRpcJbmJ1LgLRm18UKvC2wuTys=; b=pQyDN1dbGnNlwlTG4QoCykOtPl
-	l5EJPhV3Xz6Mk6PJuNpho7xkcDbn/h6FYZp3/XTj/IC7pdfgIztmtY+ojQ12A1XEjsB17OGanYhnY
-	y0kxSgxWsNSanOCe+W34BVAryML3CAycp5UFQDIlS15/LDrAsTHct/pkfZybftOJvZjg3Kz+K/q8b
-	ZHV/+0GJPdwm8n+cOma6TM6dvSKNGXY7kihcNnWu4iOpnXdAYOFEbPQZEHihVWp6pCkMZGrUg3vtA
-	vyALxiIa7+0aGfS9pSyb5sYpwZ0k8pv9eTEePbSsTQS8wQA2qKDIRv9C6h8/Mz6WGVXTdY70Zjgjb
-	qXbjcNuA==;
+	bh=gT+He+/bLdBApblDPvfhVm4fYFViV3TDN7BKrw8dpSE=; b=EaZiwjKx9VYqDMXpNG6X/y1RsW
+	jG/4xrkmcInJA6yUxa1FYk9Go88KNqxeAUOgg8K02OnlgexIAP4l0qgkFkoRpyr5EDNSXyPD8Q2Ex
+	jyThP6H6TYvJebc8cyV4yfOwqb7X17DO72SpfHKrdU/a2Jzhsws3+PXPkhO/EsbxDSNJMoERJSA1l
+	MCGFD9+JRKj5VSyjUE4qEpevQuzhFLolBDclpXDmXAbJxf0vwghp7ugMWl9TYJARxNM7gfuotQbOr
+	kde3kuaM4dDhkbY3zSVmuUEI/FY4zrHbcszMWQ4sVlVLUwwZ1bGwTymcri+7Ga2i3Nz5VK5N5yOg6
+	VuOWCuLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYww6-00000003w4I-1FWR;
-	Tue, 08 Jul 2025 01:15:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uYx1y-00000003wrt-1FGA;
+	Tue, 08 Jul 2025 01:21:58 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uYwto-00000003vrF-0PF1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 01:13:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E76BB6000A
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Jul 2025 01:13:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CD20C4CEE3
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Jul 2025 01:13:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751937209;
-	bh=iPodmZohmSa31e+By01I1tCZZleFo6T1wFvi9no0O2g=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ucErcMOWnScg0VJtBHtMIuIwnc4gOBW3HGDeqvukg4nA1IZNaGGPFoo5j2IzLE5d7
-	 A5RCasoCOF1kpnM39cMYE1A112pn+BdrKaWSD9UQ5/zbOBy4UjpJcAoiP7ML8RHFUR
-	 SqN0Nc5Z0RbOXylJcPiGm22m4HcMeKvYewOMdNCvl4IooVRRZwT3xKUR5aQn6iZ0wk
-	 riZnsbHsyP3UH5z3ItHjfi1q9Sn9/HcwFKoljkJBCgiY3vpP8Yma1O//BuBbx366Yw
-	 GQbUB3otL04evcUdkGdGFDG/bALGNDUrYRFKFlepZCS1QjaXKVvnMbpaLTDucIdeD9
-	 YNitdUsp4gdQw==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-32ce1b2188dso36355491fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Jul 2025 18:13:29 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWOX1Gvi2vcXBq8cCKXr2CE1mPlRRIVuLuMwmdOoHNgVRS9wxWJl/I2sSTKPoXNCV3nXcRF4wWetZLp894dvPB/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyu8KqGcOfPc4lLI9CDwzmxPmMrjclMJ77QXRB0KyAEL02LyIzC
-	Xo2d7zP3tfHNrJvQQI7oLu/j4EjmRGo1eAJszf1w0yNecDyrkpKnbgFY6XhBBj9cwTSW9JItfKl
-	/3FecO4eR+p/ceQgEoY+hAbCamnWYu2Q=
-X-Google-Smtp-Source: AGHT+IHfCFdtnG1WPE1YHD1I9AO09IXZjLeoSWqh/sTSdfozG/IHbenZmNc+ALg/MxWLMeyzI2SRRpUrdsXlwPkt6P4=
-X-Received: by 2002:a05:651c:41c9:b0:32e:deb2:f75 with SMTP id
- 38308e7fff4ca-32f39ad0a8dmr1664961fa.23.1751937207992; Mon, 07 Jul 2025
- 18:13:27 -0700 (PDT)
+	id 1uYwzd-00000003wau-1QzN;
+	Tue, 08 Jul 2025 01:19:34 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1uYwzK-000000007oP-40A6;
+	Tue, 08 Jul 2025 01:19:15 +0000
+Date: Tue, 8 Jul 2025 02:19:11 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-wireless@vger.kernel.org,
+	Johannes Berg <johannes@sipsolutions.net>, yangshiji66@qq.com,
+	ansuelsmth@gmail.com, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Stanislaw Gruszka <stf_xl@wp.pl>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:MIPS" <linux-mips@vger.kernel.org>,
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>,
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH 6/6] MIPS: dts: ralink: mt7628a: add wifi binding
+Message-ID: <aGxyD3mtzdNZPPnx@makrotopia.org>
+References: <20250706214111.45687-1-rosenp@gmail.com>
+ <20250706214111.45687-7-rosenp@gmail.com>
 MIME-Version: 1.0
-References: <20250707-arm64_vmap-v1-0-8de98ca0f91c@debian.org>
-In-Reply-To: <20250707-arm64_vmap-v1-0-8de98ca0f91c@debian.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 8 Jul 2025 11:13:16 +1000
-X-Gmail-Original-Message-ID: <CAMj1kXEjgFarhn4FNOMfCfrh1_DR9L-MNZBiZq83pg2i=RE08A@mail.gmail.com>
-X-Gm-Features: Ac12FXy70wEa8uRpKo6gT5MueTy0Q2ZIgEQp_8wVncqO7RC_E0zDip1k6PBM92Q
-Message-ID: <CAMj1kXEjgFarhn4FNOMfCfrh1_DR9L-MNZBiZq83pg2i=RE08A@mail.gmail.com>
-Subject: Re: [PATCH 0/8] arm64: set VMAP_STACK by default
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-efi@vger.kernel.org, leo.yan@arm.com, kernel-team@meta.com, 
-	mark.rutland@arm.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250706214111.45687-7-rosenp@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250707_181933_401007_ED415195 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +74,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 8 Jul 2025 at 02:01, Breno Leitao <leitao@debian.org> wrote:
->
-> Hi all,
->
-> This patchset select VMAP_STACK on arm64 by default, and cleans up the
-> code by removing all associated CONFIG_VMAP_STACK conditionals.
->
-> This is a suggestion from Will Deacon from another discussion[1].
->
-> With VMAP_STACK now always enabled on arm64, the code can be
-> significantly simplified, reducing complexity and potential for
-> misconfiguration.
->
-> Overview of Changes
->
->     * Remove all #ifdef CONFIG_VMAP_STACK and related runtime checks
->       throughout the architecture codebase.
->     * Replace runtime checks with build-time assertions where
->       appropriate.
->
-> Link: https://lore.kernel.org/all/aGfYL8eXjTA9puQr@willie-the-truck/ [1]
->
-> Signed-off-by: Breno Leitao <leitao@debian.org>
+On Sun, Jul 06, 2025 at 02:41:11PM -0700, Rosen Penev wrote:
+> MT7620A devices all contain a wifi device as part of the SOC. Add it
+> here to get it working.
+> 
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
-> Breno Leitao (8):
->       arm64: Enable VMAP_STACK support
->       arm64: efi: Remove CONFIG_VMAP_STACK check
->       arm64: Remove CONFIG_VMAP_STACK conditionals from THREAD_SHIFT and THREAD_ALIGN
->       arm64: remove CONFIG_VMAP_STACK conditionals from irq stack setup
->       arm64: remove CONFIG_VMAP_STACK conditionals from traps overflow stack
->       arm64: remove CONFIG_VMAP_STACK checks from stacktrace overflow logic
->       arm64: remove CONFIG_VMAP_STACK checks from SDEI stack handling
->       arm64: remove CONFIG_VMAP_STACK checks from entry code
->
+>  arch/mips/boot/dts/ralink/mt7620a.dtsi | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 
-For the series,
+The commit title
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+MIPS: dts: ralink: mt7628a: add wifi binding 
+
+seems wrong as the commit (correctly) touches mt7620a.dtsi and not
+mt7628a.dtsi (which would be wrong as the WiFi part of MT7628A is
+already supported by the mt76 driver and part of the device tree).
+Also the word 'binding' seems wrong in this context, you are adding
+a node to the device tree, not to the device tree bindings.
+
+I'd hence suggest to change the commit title to
+
+MIPS: dts: ralink: mt7620a: add wifi
 
