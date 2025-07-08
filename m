@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6B3C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 06:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D73C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 06:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9jI+uPdwryJW+XQljv6CdVu/OV9fAc/Gb8Mr3SbhIgw=; b=QXUfgqTc7SfrwmQtoo09PAE4wy
-	Jrv2o+e1jY7IRvWOpU3DUqBxwKtCZJzJnfssYZbisAZTkxx0av15ktHT9Sc5Yr2X/2wEF2+9btFXR
-	imiaRT5yDAixQesLxTJ3cfnlZBsAZ/w9PWZQsaxCu7oMGA5dxo8lKr0WPPvMMNXI6vN/j1HB68WIT
-	xOrtOuKv6CGILIMkYWyqIqV9SPf6zoGl5+7ZXIxoW1eAAjTZrpBpQuqjozJre7NQDf5L9RA1WZtdg
-	P5Zf9aynVIC8Vb7fKChelBZPoU69yPLvDiFAvVX2xGjHqVKLNjZbfoq7wtTYG9+XXVlt2Kn3BnZqY
-	JdJriU/g==;
+	bh=SuUrIHHCBaxuE/1gHX8u5Re0YGZ58yo0r0TdUCAgwEI=; b=yscT88jahvhlgcRzxeOR7hXq2h
+	vnWXrhXK77pGu9/ox1l4ltdT3KpGzf5kcv3X59mzUYnt5FdX9YzJlPHALeHBZ7hNkrdeuNxGJOZk+
+	dmg5iFnge1gI09w6G4NyKwSTwa1MWw5yrrGuIq31amDU+v4cJoGu/V5LfOp67/KR0KclzBCXrpbAp
+	ETv0m1Z5WsFD/iswMuuK4Hlr0s9XzDJIzsMCmgz9R8p8khSr13E1A9I7RQ/jLNe4C/MNii4Ch96ll
+	YI5dlguueEdTnz4O2l9ncUFxUouoc/KUVn95/a6SYcn+GTwrgJ0exk6xMBrtnMwoIpubJPWJ6qNQM
+	01l7WV5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ1YW-00000004Ox1-1zRQ;
-	Tue, 08 Jul 2025 06:11:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uZ1ao-00000004PGI-459M;
+	Tue, 08 Jul 2025 06:14:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ1S0-00000004Nwt-0lly;
-	Tue, 08 Jul 2025 06:05:09 +0000
+	id 1uZ1UD-00000004OQy-3Oq4;
+	Tue, 08 Jul 2025 06:07:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2109F45C3C;
-	Tue,  8 Jul 2025 06:05:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69DDFC4CEED;
-	Tue,  8 Jul 2025 06:05:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DAAEA5C5D90;
+	Tue,  8 Jul 2025 06:07:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5D42C4CEED;
+	Tue,  8 Jul 2025 06:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751954707;
-	bh=HZE3c5KNAGvsUgce2rbDwUdbZz9nxP9lOub05YWI/J0=;
+	s=k20201202; t=1751954844;
+	bh=Ih+qKsUZVzftzC6WOKB+NxIhVYKtNpoAKnGyaqzTauQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sQMDv0XaLgCokD5yiKDnbqa1igsQmNut4fVpioFNBxMR1aOJh7KgTYSTleZaBQY/1
-	 uHwt77Rey81KZibv6bZLghPSl/8XDF8MTtPyWnv3DpJYkulJ91rzm2QArb3oegwkPm
-	 igPQd9fLIhktuLVmptXrrMcR+Zb5KWYHiv2uiypP7zGlFrifvGo8dydCzq2syH3+gQ
-	 eIJuNuLrEg62U0Prv1BwsRfux4tP7L/gNXbjogvrDYL+tEbgOMqDm5gPlVl1cFtsMh
-	 q7+w8jpyQBDSgE712KrSARMNmr/kAnx0GQaRbZJiI1KxmmvS2URpINaXJTwZh73PiS
-	 41s4DShz7PfHA==
-Message-ID: <cb03b137-c87c-446f-a6c6-45b6656af212@kernel.org>
-Date: Tue, 8 Jul 2025 08:05:00 +0200
+	b=hRCx2cncCIe4LMmd+LKDGjF7u9XZgI5YzXgm3yl8al7WaWHR95gFBIsMZj7wC/6PY
+	 2h+7Q1VmlN/ltARXYGzko89RozYB7vOVSzd10CUat5XytkqOjB14oAelwWJsH6kCxw
+	 Vs4vdpEaIXvXmeaSUbqrqx4urMCkyN14A717ZCccOoW8AfAlctHLUnpP54xZ7mhMaH
+	 gZMKvmgd9VHEk3jnT3MC6Hc4chnP1lFsMTfbLNSeusQrz/mvuOb9wUOgiLp5+zGc41
+	 Sz9cSQbylvpuuUlUkGKrkZ2l+OQdGND99+LNuG866VDgJfZUjPQ7dpedrTtlwCcQl5
+	 fBuKpjMEliFww==
+Message-ID: <5f3e7d3b-f720-43e3-9c75-7e0f5230be2a@kernel.org>
+Date: Tue, 8 Jul 2025 08:07:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6] dt-bindings: net: mediatek,mt7925-bluetooth.yaml
+Subject: Re: [PATCH v6 1/1] Bluetooth: mediatek: add gpio pin to reset bt
 To: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>,
  Marcel Holtmann <marcel@holtmann.org>,
  Matthias Brugger <matthias.bgg@gmail.com>,
@@ -62,7 +62,7 @@ Cc: Sean Wang <sean.wang@mediatek.com>, Jiande Lu <jiande.lu@mediatek.com>,
  linux-mediatek <linux-mediatek@lists.infradead.org>,
  devicetree <devicetree@vger.kernel.org>
 References: <20250708060150.27375-1-ot_zhangchao.zhang@mediatek.com>
- <20250708060150.27375-3-ot_zhangchao.zhang@mediatek.com>
+ <20250708060150.27375-2-ot_zhangchao.zhang@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250708060150.27375-3-ot_zhangchao.zhang@mediatek.com>
+In-Reply-To: <20250708060150.27375-2-ot_zhangchao.zhang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250707_230508_479188_9A0D3B6C 
-X-CRM114-Status: GOOD (  23.24  )
+X-CRM114-CacheID: sfid-20250707_230725_972039_6D4B26FE 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,80 +129,67 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 08/07/2025 08:01, Zhangchao Zhang wrote:
-> Reset BT via BT_KILL_1V2_L hardware pin.
+> Makes the platform Bluetooth to be reset by hardware pin,
+> it provides two methods to do it for mediatek controller,
+> and it has been tested locally many times and can reset normally.
 > 
-> On the M.2 standard hardware pin interface, the MTK chip
-> has a pin called BT_KILL_1V2_L or W_DISABLE#2, it uses
-> function-level device reset (FLDR) to reset Bluetooth.
-> When it is pulled low, it can external shut down the BT
-> function, it is defined as 5 on the MT7925 chip, and is
-> defined as 248 on the device tree pio controller.
+> When an exception occurs, resetting Bluetooth by hardware pin
+> is more stable than resetting Bluetooth by software.
+> If the corresponding pin is not found in dts,
+> bluetooth can also be reset successfully.
 > 
+> Co-developed: Hao Qin <hao.qin@mediatek.com>
+> Co-developed: Chris Lu <chris.lu@mediatek.com>
+> Co-developed: Jiande Lu <jiande.lu@mediatek.com>
 > Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
 > ---
->  .../bluetooth/mediatek,mt7925-bluetooth.yaml  | 55 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 56 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
+>  drivers/bluetooth/btmtk.c | 69 +++++++++++++++++++++++++++++++++++++++
+>  drivers/bluetooth/btmtk.h |  5 +++
+>  2 files changed, 74 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml b/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
-> new file mode 100644
-> index 000000000000..636b8b3d6a14
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/bluetooth/mediatek,mt7925-bluetooth.yaml
-> @@ -0,0 +1,55 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/bluetooth/mediatek,mt7925-bluetooth.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+> index 4390fd571dbd..cdb90143be61 100644
+> --- a/drivers/bluetooth/btmtk.c
+> +++ b/drivers/bluetooth/btmtk.c
+> @@ -6,6 +6,8 @@
+>  #include <linux/firmware.h>
+>  #include <linux/usb.h>
+>  #include <linux/iopoll.h>
+> +#include <linux/of.h>
+> +#include <linux/of_gpio.h>
+>  #include <linux/unaligned.h>
+>  
+>  #include <net/bluetooth/bluetooth.h>
+> @@ -109,6 +111,65 @@ static void btmtk_coredump_notify(struct hci_dev *hdev, int state)
+>  	}
+>  }
+>  
+> +static void btmtk_reset_by_gpio_work(struct work_struct *work)
+> +{
+> +	struct btmtk_reset_gpio *reset_gpio_data =
+> +			container_of(work, struct btmtk_reset_gpio, reset_work.work);
 > +
-> +title: Bluetooth mediatek use BT_KILL_1V2_L hardware pin to reset BT
+> +	gpio_direction_output(reset_gpio_data->gpio_number, 1);
+> +	kfree(reset_gpio_data);
+> +}
 > +
-> +maintainers:
-> +  - Sean Wang <sean.wang@mediatek.com>
+> +static int btmtk_reset_by_gpio(struct hci_dev *hdev)
+> +{
+> +	struct btmtk_data *data = hci_get_priv(hdev);
+> +	struct btmtk_reset_gpio *reset_gpio_data;
+> +	struct device_node *node;
+> +	int reset_gpio_number;
 > +
-> +description:
-> +  MT7925 chip uses the USB bus to communicate with the host.
-> +  Two methods are used to reset Bluetooth. It provide hardware
-> +  pin, when an exception occurs, resetting Bluetooth by hardware
-> +  pin is more stable than resetting Bluetooth by software. If the
-> +  corresponding pin is not found in dts, bluetooth can also be
-> +  reset successfully.
+> +	node = of_find_compatible_node(NULL, NULL, "mediatek,mt7925-bluetooth");
 
-Don't describe DTS, but the hardware.
+No. You don't take GPIOs from random node. You take them from your
+device with proper API, instead of:
 
-> +
-> +allOf:
-> +  - $ref: bluetooth-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt7925-bluetooth
-> +
-> +  "#gpio-cells":
-> +    const: 2
+> +	if (node) {
+> +		reset_gpio_number = of_get_named_gpio(node, "reset-gpios", 0);
 
-You did not say this is a GPIO controller.
-
-> +
-> +  reset-gpios:
-> +    maxItems: 1
-> +    description:
-> +      Default high level, this pin can external shut down the BT function
-
-How defaults matter?
-
-> +      when this pin is pull low, at the same time, USB interface will be also
-> +      disabled. When this function is not required, external pull high is not
-
-So active low?
-
-> +      required. After 200ms, it is pulled high to 3.3v and the next probe is
-> +      performed. On typical M.2 key E modules this is the W_DISABLE2# pin.
-
-So that's part of PCI slot? Sorry, but this does not fit here at all.
+legacy OF API. This only points that your driver model is broken or your
+hardware description is wrong.
 
 
 Best regards,
