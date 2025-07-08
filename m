@@ -4,89 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CDD4C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 10:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C06E0C83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 10:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9jWe3GpjiIlL1nZ3AwtNcM7ezIxInSVu38CWRYqmno4=; b=PXc4g4gWxg5/kJDjvs+hIi6ZIE
-	zbCzBTHnCx1tfgtTu9/7pf+nz9PAvH7eBKqrw1+MDPDaBcb8ZFhjdo2LxKPHYg0uYaAJR8lCbQu8A
-	HUVWwVH47GmPmywRFBxUhDtCZtLe9jYOTfmfb0sAvfnHVcj8+chOZkBoXAs4T0J+G7pi6EzQAkk7u
-	u7IxQ7cm5sF972xeAYQDoC39HDCsnzWbO3PjJ5gIIa4+X+AjQbSaK64cxN2Q6mRtIfOMGt/GDmg+W
-	PauAiWuTN3kY/ooYIrSAj4GF+czhl1CXHW2C0kWgnF5vqT/16dQ3Y+KL2eGIsJm1jDSAury2rvljy
-	9EfpG3eA==;
+	bh=wW9jD4nttc2FFz4tK+x1u/l3hcsbPGY6bGVXePrYDv4=; b=K+8X6ny5734dbUMkknLFr6h/DB
+	fPBbS+nzqJnu2TSkep/6m8t9AxX9jLzRzWhhHmLA5vnLM1aPy2rR8nlriS+1zHSs0wIOLEHlYUM4l
+	FUB5Zjx7i7oy8kN0TiNIoXI8NYtZxMmGmHj7NGXJKQFq2pRGmrEebFjZO4KYgU1AJOB4cikPrau2y
+	yHEvdVWy6QcUbM3uCbtmFsNUASsC6v9hzxINDIoLNy9TbH76ZWbaw7F8Lot72Kzl7s14owIyHu8hQ
+	NUfNO2BEhGDLw2OGD1vpgYMvE8BTowiNQmBwDUy7NYxYupMR/mwT8UqCmIKcXAojXVEhg/NEIjEL9
+	lQ5tTXjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ5aI-000000054T6-0kA1;
-	Tue, 08 Jul 2025 10:29:58 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1uZ5ca-000000054nE-1oWG;
+	Tue, 08 Jul 2025 10:32:20 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ5EV-0000000514r-2sGi;
-	Tue, 08 Jul 2025 10:07:28 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-31332cff2d5so3780812a91.1;
-        Tue, 08 Jul 2025 03:07:27 -0700 (PDT)
+	id 1uZ5Gy-000000051sL-05no
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Jul 2025 10:10:01 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ae3b336e936so773311166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 03:09:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751969247; x=1752574047; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9jWe3GpjiIlL1nZ3AwtNcM7ezIxInSVu38CWRYqmno4=;
-        b=bGXTyZutTss4dSP9adoPl6YWygQNOTGfIEgtLlssLOLdjcbQ5xpdcQ+sfvOM2H5WRR
-         dBAWPeaP3jSXyRLfKAaJdUxHfsP3uCJ1qYXD2Zk+b5L4RucIhv2D512nXaugHXfvqsja
-         cN7PJhBzoTbxXYZuMKr37ChHccdZ09sKFxvhejgkY6tLPZQu2t/8y6cUffulRY7IVKhy
-         dZb5/58PF5SP6vsL93gTuzwVsqcyQu07ADTl9lVZcdvDNBVE/RC7F++JtLmgjiVZQIF+
-         vOAwOeieqSS90AFTHa6lUefHXoDrsqvVYW7xfQj4zm0ExG6H0rZ8CuzyP+VXpXNuN1pY
-         5e0Q==
+        d=tuxon.dev; s=google; t=1751969398; x=1752574198; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wW9jD4nttc2FFz4tK+x1u/l3hcsbPGY6bGVXePrYDv4=;
+        b=hBjaDGayGOZwi5dImtjIhuJVPfjZOLisHNU9DuNRPDEo3bQODfk8lsRPt2Afp73mEE
+         YWabevXkdI92GhL7nv+ymm9DATGKBfZUnaAbRIdbE3GYme0dfVHnVb07HgVIJbwHX9Ee
+         yofRF+KFpi+uSPlPOU1WSkrzL4DKRp4bj0CJZk3FYw85p5wu0EsW2PAgBNgEwAUfhiiI
+         LBNwnWTmaNyXP51E0aRo++i6NJkW2Ecve+IHmdKNm5HWQkZU9i+C0jj9tZtJh8WrnOTa
+         5q7o7UQPZaBy2cRLWkZdvDRJ4T2bajYKaQj7hab3iFUBUBaIOMwUJYKRubhzmYVX3Wh9
+         Xncg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751969247; x=1752574047;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9jWe3GpjiIlL1nZ3AwtNcM7ezIxInSVu38CWRYqmno4=;
-        b=IgbokNXG6Z7GYZcnrXdfUsbYALsCT6sQStYSgC2WMJIFqblpRdrZ7DTuT01C97PN3G
-         WgRc0thHhkX1q/KZbhl/NyQPfsUvZdKd9blrWcIYXw4MRIxqsVrx3cfBbuSalQL2RSdf
-         /o+7zXLFiKR9wiJK2cltNcZJ+vfkOqZIgxnkSmzqhRxUt5OYM3xI4w19tZp4vxi3yBRJ
-         gb/ept2a/KMila89kp3InLDxE3bmS1FFJlFrphiG1hlNHZDKoWpSrTe7c8ZY2zc2WhEK
-         VsjEK+Ep6zTQwCL0nxlFWQIy8ufapJV8EBYEnKaksClwoqkBV5zfoRTxkEGhY1SOa8XW
-         WAyA==
-X-Forwarded-Encrypted: i=1; AJvYcCVBvkuHBa5x13GIHH23Tya0wjU9XfKIDyRG+87Rc/SqFZYXrNSK+KU+4elkdVybk6L620Psg0cRmcbTXEV3WwU=@lists.infradead.org, AJvYcCVx7c/hiockc8Nh6xLpRSW7mXOLpvERhVLat6+mNeNqIgTK4/my8cFQSJ8WtwBoAbRgC00B6TiWy29RQSS460e2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyg2AL2aNhNpGPS2lQ3pprI+SrxosL7r9GXAq2Tyh8rNXkvZ6Nx
-	RNt4nsmIjdQi1pDToWg0xr4NpeJf4oVnbTOzLBJVH+zgob6XMUranRjIb8B6KakXoZJ0keTz0Fh
-	bj49uhY/uia0TX4ERyGn2FkxVxAvi1YU=
-X-Gm-Gg: ASbGnctgHNsVk3yiQs3kR/EB/PAvKr4PFcBWOgrZuOoxUXBM/zWYZB3HApV25vMAG8e
-	8dIVDSaTIPrwkXyBX3vwp6k+0XNdwEn1lxsGOilU0WKu2r3vPzPdUzOmm3gKNGm2ywxabs1Ofou
-	oFklLX/0Yu3i9Yk7E7NddAakgUtZsP6U7G4WUPQEoG
-X-Google-Smtp-Source: AGHT+IH5HS9R8EC1RTg/jg9CUL8rPNysDY/yHGuHTdZ8sVLdLzbsBYnKiUpv0L2D/dSxXO5fZVs10JjXwdkV3ew9wGg=
-X-Received: by 2002:a17:90b:3804:b0:311:f99e:7f4e with SMTP id
- 98e67ed59e1d1-31c21db7b0fmr3713376a91.16.1751969246681; Tue, 08 Jul 2025
- 03:07:26 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1751969398; x=1752574198;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wW9jD4nttc2FFz4tK+x1u/l3hcsbPGY6bGVXePrYDv4=;
+        b=bk+e0+gSKavqfbhvw2FTwo3Apf191aU43zNdxY6/pHfYVKB+l8UE3eBM1YGxZWX/FA
+         DvM7RtBVEFZJV6chXakTMVV4orXiE7qbte5gJP7ujN54M1yk8vTee45SZpTkEh7q3qLr
+         sXxl/dMH52ONgv3RpARsJXCNlSIuB9Chw+PygRHgbW0xB/aEKcwU98dvbvJ5/phggQwi
+         1hYrWRv9cJ0MbE8vp8dvv10k8azE+TNObktGCn5aS95LCIx+TaCMvbMo20DLSd2rfrDw
+         Lrt7OtHhpV7W7lD55BYKKbyY0zaERzw+zipkI8YJ4wy9D7aZGbaRe++TMcBbvXCMJC3f
+         3GDA==
+X-Forwarded-Encrypted: i=1; AJvYcCUVr4ta0kV3Ul0NWn9YSdfemeE6LH5kxx73+jMZnmr/nn6ho6PPDCoKzrf8/ntjWG9gNzLhwxheVihhD4NjfumU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR2P2xf5fJy6ReRdOxxmL8u+LAtkWOdhccBon8UmC7lO40ne2y
+	sr+VV88qV8MqqqkznUIY8/LDh/pCI2wF1CIH+nIFI2BgW2j56Jy8Wk7821lWtItqaRg=
+X-Gm-Gg: ASbGncsq0yB6uMnKkAjyAWE3UU4zYybpJoLaczM4Qv3ImJGDFWbNlc1/BFoEBXxoY6z
+	xnuM5RZvJ5DpRK5wmnSPgUcRBPS+Ca0WzQ1u6k+7KMAdpYzqs89XJg4p/1CBKakEs467lqzMGDC
+	GIZtfdUdi0aVvXpIJaXdwk7LmmkoWdvGMQFLwFTwQ1YZ6OWjUzgTFWWj6YHEBH93REq6JgEPJfB
+	+JFsoW6RJlO5rnoDjvzIdy8tdz0gbm60euySjcpADOo04wjBEnq6ySTVPhO51RAAkui8Ph8kO6R
+	R/c8AGz39HGJN9cd4SbmZb6r9y9gnLNfflRf00DkjZIxs/rcQYHoMLsnTt/N8LZ0c/aUwQ==
+X-Google-Smtp-Source: AGHT+IFDhnpFLf+9SokY6ajJmYa0R4eHOoHCTd+GxI/yEq5DE0Ci4xD7oIth8WUim7upiSOwhgaH5Q==
+X-Received: by 2002:a17:907:1c26:b0:ad8:8719:f6f3 with SMTP id a640c23a62f3a-ae3fe5c28d7mr1545563166b.22.1751969397715;
+        Tue, 08 Jul 2025 03:09:57 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.30])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f66d931csm875767566b.10.2025.07.08.03.09.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Jul 2025 03:09:57 -0700 (PDT)
+Message-ID: <7c8c7a25-c373-452a-9fe8-8b2d92ddd885@tuxon.dev>
+Date: Tue, 8 Jul 2025 13:09:55 +0300
 MIME-Version: 1.0
-References: <20250706214111.45687-1-rosenp@gmail.com> <20250706214111.45687-5-rosenp@gmail.com>
-In-Reply-To: <20250706214111.45687-5-rosenp@gmail.com>
-From: Sergio Paracuellos <sergio.paracuellos@gmail.com>
-Date: Tue, 8 Jul 2025 12:07:15 +0200
-X-Gm-Features: Ac12FXw1xdIN9U8Q2cMOcX8lGU96JDJzneChS1fP6nA64__OBK_Dj4Vk5DpL6rc
-Message-ID: <CAMhs-H9oqY+noxUyVWdH03bZmyime0G+y=hUXV=1Q3MByf4HsQ@mail.gmail.com>
-Subject: Re: [PATCH 4/6] wifi: rt2x00: soc: move and modernize probe
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-wireless@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, 
-	yangshiji66@qq.com, ansuelsmth@gmail.com, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Stanislaw Gruszka <stf_xl@wp.pl>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:MIPS" <linux-mips@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 7/9] arm64: dts: renesas: rzg3s-smarc-som: Update
+ dma-ranges for PCIe
+To: Biju Das <biju.das.jz@bp.renesas.com>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+ "mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "geert+renesas@glider.be" <geert+renesas@glider.be>,
+ "magnus.damm@gmail.com" <magnus.damm@gmail.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>,
+ "mturquette@baylibre.com" <mturquette@baylibre.com>,
+ "sboyd@kernel.org" <sboyd@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "lizhi.hou@amd.com" <lizhi.hou@amd.com>
+Cc: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>
+References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250704161410.3931884-8-claudiu.beznea.uj@bp.renesas.com>
+ <TY3PR01MB113464920ECAC2C3CB89DE2D5864FA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <TY3PR01MB113464920ECAC2C3CB89DE2D5864FA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_030727_723021_9F41C065 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250708_031000_065632_31E1A1BE 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,21 +123,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 6, 2025 at 11:42=E2=80=AFPM Rosen Penev <rosenp@gmail.com> wrot=
-e:
->
-> By moving functions from rt2x00soc to rt2800soc, the driver benefits
-> with potentially smaller compiled size. It also becomes much easier to
-> remove a bunch of manual memory management and use devm.
->
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  .../net/wireless/ralink/rt2x00/rt2800soc.c    |  67 +++++++++++-
->  .../net/wireless/ralink/rt2x00/rt2x00soc.c    | 102 ------------------
->  2 files changed, 65 insertions(+), 104 deletions(-)
+Hi, Biju,
 
-Reviewed-by: Sergio Paracuellos <sergio.paracuellos@gmail.com>
+On 07.07.2025 11:18, Biju Das wrote:
+> Hi Claudiu,
+> 
+>> -----Original Message-----
+>> From: Claudiu <claudiu.beznea@tuxon.dev>
+>> Sent: 04 July 2025 17:14
+>> Subject: [PATCH v3 7/9] arm64: dts: renesas: rzg3s-smarc-som: Update dma-ranges for PCIe
+>>
+>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>
+>> The first 128MB of memory is reserved on this board for secure area.
+>> Update the PCIe dma-ranges property to reflect this.
+> 
+> I see R-Car PCIe dma-ranges[1] and [2] maps all possible DDR area supported by the SoC?
+> Do we need to make board specific as well there?
 
-Best regards,
-    Sergio Paracuellos
+I'm not familiar with R-Car, but if there are ranges reserved for other
+purposes, I think we should reflect it in board specific device trees.
+
+But that would have to be address though a different series as it has
+nothing to do with enabling the RZ/G3S PCIe support.
+
+Thank you,
+Claudiu
+
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/renesas/r8a774e1.dtsi?h=next-20250704#n2487
+> [2] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/renesas/salvator-common.dtsi?h=next-20250704
+> 
+> Cheers,
+> Biju
+> 
+>>
+>> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+>> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>> ---
+>>
+>> Changes in v3:
+>> - collected tags
+>>
+>> Changes in v2:
+>> - none, this patch is new
+>>
+>>  arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi | 5 +++++
+>>  1 file changed, 5 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg3s-
+>> smarc-som.dtsi
+>> index 39845faec894..1b03820a6f02 100644
+>> --- a/arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi
+>> +++ b/arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi
+>> @@ -214,6 +214,11 @@ &sdhi2 {
+>>  };
+>>  #endif
+>>
+>> +&pcie {
+>> +	/* First 128MB is reserved for secure area. */
+>> +	dma-ranges = <0x42000000 0 0x48000000 0 0x48000000 0x0 0x38000000>; };
+>> +
+>>  &pinctrl {
+>>  #if SW_CONFIG3 == SW_ON
+>>  	eth0-phy-irq-hog {
+>> --
+>> 2.43.0
+>>
+> 
+
 
