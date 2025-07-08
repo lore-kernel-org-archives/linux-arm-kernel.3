@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36BA6C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 06:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27588C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 06:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zi+zaZV9cwrYreYQvAJhZyAt2s4PUdDzGOQLq1IvoCQ=; b=apGf10+lxemzSRFx19z5aYOztC
-	IWg8TVpC+B5SVCzAZgOE+jDazDXKYrTQ/z22AIkgL7eDGRVgG4sy+y4M/KRxCpwFQxbaod08cnZA4
-	uxJ+eiwMSmiXllnanBgvAgFKpcGvG2d/Ia6KlyB2ithXj699GnUvW1WUciClt5LSWPUCYs1zmmsSK
-	LxXBadjd0f1hn+pbWJ/McU3dAsa1QhVATTAHKrx0H3r5baIL7prW4zhPGj2XvV4eRhwYb06OtQj4D
-	T7/xdAob0mZ0gb4ksbqmND6aHB6I2ws/0Y6EudMxgeA6Z/glKhdZFgtACOWEnc39DVBbURQsazLH8
-	phpl6IiA==;
+	bh=6wtrK2WpKpdyhxNgapFFvEF0gkvLzAdX2rfvDy2T+tA=; b=ef0JepEdPUkcVIfiVCK43l5M6n
+	kusmMVPQzdCVEj9ix3H4ujz8TkUhuuoTrak1GJ/4a8yqnmxr2wlM7ae6i+GcGUIEGsCCWL63sesfH
+	hxyeBu7wloWQ/CwCDqyRWlk6s4tFSzXyZaJxW75XYuzelnto2BrerGeKY/o7VsSmN47tWiCKku+XX
+	js7+wJemdopDI0J8hfmowkMNXaWHmtt6NqKth5xAnU4XdX7LqHsN+rXDliWqVcbg8LZIeruLTEJoA
+	ytfV2D+VGeAAF00IdbVaLOoO2BfJQB2etxSGfnWBSn3PM2KoFBMNug53HJ0R6Vjeyv8/c9PPH9nZW
+	Wt5ScLiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ1nN-00000004QiO-0jUv;
-	Tue, 08 Jul 2025 06:27:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uZ1pg-00000004R3o-2yaQ;
+	Tue, 08 Jul 2025 06:29:36 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ1l3-00000004QKI-1j4N
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 06:24:49 +0000
+	id 1uZ1mZ-00000004Qa8-0H3O;
+	Tue, 08 Jul 2025 06:26:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 866DE61463;
-	Tue,  8 Jul 2025 06:24:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBB07C4CEED;
-	Tue,  8 Jul 2025 06:24:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1EE44A4056D;
+	Tue,  8 Jul 2025 06:26:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E7C7C4CEED;
+	Tue,  8 Jul 2025 06:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1751955888;
-	bh=W7dr38TTbkBwVMkT/BjGuMxoRLbvyVvHHrx/scViG4g=;
+	s=k20201202; t=1751955981;
+	bh=L3HA/tyMA0TRaxoaUnpvv0ErFNnf684Z0UbbLl0ir8E=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=p+QgBC1+dL7DZ24gZ/o623L04leYDqNgP2j0o3nIEyRmm49BqJe3vaSMgPWNnRss1
-	 X3a91ndSeT6Xpbc1ZazDSyBJTVGBAeWMCvXeldqTX7vm+dWiuhSpCrS55Sd5hUAUfc
-	 TFoQ1CopVWsjsJAhB+xVXNuSkULZbP7ZzC20WAYxPEgO6VyhRS+48iNSL0q/+pDwak
-	 JHbgvKkSjS50vtyYpwr4uINkgrdL2lLXmu6dsx5qXhnaAT12+g60XkZh5hBwGVIJFQ
-	 XIRLhVRZtTiNYg35Uyfu0y/6bbzT3uTAPxjIfDunDHPOD5kgVtXfYmEns/a0bZsggm
-	 M+q1ftx+1LrLQ==
-Message-ID: <0c4316d8-7d4a-4a81-9694-30dd8f5f2f54@kernel.org>
-Date: Tue, 8 Jul 2025 08:24:42 +0200
+	b=WhHEtDvv4mnsqLLVj8sOF9egG/BAfoXGWWzhVZbc60cmJQvtGibRoqiziZgmR2SJk
+	 WlwyntQjoXvF80Aw4YWrQUE8Fzzlx20fC81IVSPTiwejaG75DXZhxruzfSceTJli5v
+	 Xeal4cXTCsxTKpRanOhPkdwT+Ks459V6pz4roXx4V/sJcsCYzFIeBMLDtPTI6RMW/m
+	 GX7eN5R1HfbwQwIZJp8kuFfYdW56muEBBFFmB7K+PPOqpqaC6CHDRuUDxadwdVDWfL
+	 gwPD7Mme0CFarUaKpsPSatO5B5j+YBN+R1WoUAWq5FiE0Jj4wQE0UJIogRI+xYHXzk
+	 5mwHVa0ZBXhVg==
+Message-ID: <904d1165-185e-43ac-9b52-a2f17f774e80@kernel.org>
+Date: Tue, 8 Jul 2025 08:26:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: media: add i.MX parallel csi support
-To: Frank Li <Frank.li@nxp.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rui Miguel Silva <rmfrfs@gmail.com>,
- Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>,
+Subject: Re: [PATCH net-next v2 2/7] net: airoha: npu: Add NPU wlan memory
+ initialization commands
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- linux-media@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, Alice Yuan <alice.yuan@nxp.com>
-References: <20250703-imx8qxp_pcam-v2-0-188be85f06f1@nxp.com>
- <20250703-imx8qxp_pcam-v2-1-188be85f06f1@nxp.com>
- <20250707-mustard-avocet-of-success-e68cbf@krzk-bin>
- <aGvx74Bw8gcugUpv@lizhi-Precision-Tower-5810>
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, Simon Horman <horms@kernel.org>,
+ Felix Fietkau <nbd@nbd.name>
+References: <20250705-airoha-en7581-wlan-offlaod-v2-0-3cf32785e381@kernel.org>
+ <20250705-airoha-en7581-wlan-offlaod-v2-2-3cf32785e381@kernel.org>
+ <20250707-agile-aardwolf-of-politeness-29fead@krzk-bin>
+ <aGt2L1e3xbWVoqOO@lore-desk>
+ <679e6fd2-967f-4057-9ccd-92a37ecc4819@kernel.org>
+ <aGvmoJ83EtYOIa0K@lore-desk>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,9 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aGvx74Bw8gcugUpv@lizhi-Precision-Tower-5810>
+In-Reply-To: <aGvmoJ83EtYOIa0K@lore-desk>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250707_232623_316875_08A533D8 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,20 +127,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/07/2025 18:12, Frank Li wrote:
->>> +examples:
->>> +  - |
->>> +    #include <dt-bindings/clock/imx93-clock.h>
->>> +    #include <dt-bindings/power/fsl,imx93-power.h>
->>> +
->>> +    pcif@4ac10070 {
+On 07/07/2025 17:24, Lorenzo Bianconi wrote:
+>> On 07/07/2025 09:24, Lorenzo Bianconi wrote:
+>>>> On Sat, Jul 05, 2025 at 11:09:46PM +0200, Lorenzo Bianconi wrote:
+>>>>> +
+>>>>>  struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *stats_addr)
+>>>>>  {
+>>>>>  	struct platform_device *pdev;
+>>>>> @@ -493,6 +573,7 @@ static int airoha_npu_probe(struct platform_device *pdev)
+>>>>>  	npu->ops.ppe_deinit = airoha_npu_ppe_deinit;
+>>>>>  	npu->ops.ppe_flush_sram_entries = airoha_npu_ppe_flush_sram_entries;
+>>>>>  	npu->ops.ppe_foe_commit_entry = airoha_npu_foe_commit_entry;
+>>>>> +	npu->ops.wlan_init_reserved_memory = airoha_npu_wlan_init_memory;
+>>>>
+>>>> I cannot find in your code single place calling this (later you add a
+>>>> wrapper... which is not called either).
+>>>>
+>>>> All this looks like dead code...
+>>>
+>>> As pointed out in the commit log, these callbacks will be used by MT76 driver
+>>> to initialize the NPU reserved memory and registers during driver probe in
+>>> order to initialize the WiFi offloading. Since MT76 patches are going via
+>>> the wireless tree, I needed to add these callbacks first.
 >>
->> That's a CPI bus from MIPI so cpi@, no?
+>> Cover letter does not link to your NPU patchset. You cannot add dead
+>> code to the kernel and now it is pure dead code. Post your user - in
+>> this or separate patchset.
 > 
-> It is not MIPI.  It is old camera interface, which use D0..7 and VSYNC ...
-> signal.
-Hm? I did not say it is MIPI. MIPI is a organization. I said this is
-CPI. pcif is the name of NXP block, not the name of the bus.
+> I guess you mean the related MT76 patches are not linked in the cover-letter,
+> right? I have not posted them yet.
+> 
+>>
+>> Your explanation of dependency is also confusing. If these are added to
+>> wireless tree (considering last experience how they rebase and cannot
+>> easily handle cross tree merges), how does it solve your problem? You
+>> will have it in one tree but not in the other, so still nothing...
+>> That's anyway separate problem, because main issue is you add code which
+>> we cannot even verify how it is being used.
+> 
+> My main point here is wireless tree can't acutally merge the MT76 patches
+> since, without the net-next ones (this series), it will not compile (so I
+
+This does not explain hiding the other part. Again - there is nothing
+weird in patchset dependencies. Weird is saying there is dependency, so
+I will not post code.
+
+> posted net-next patches as preliminary ones for MT76 changes).
+> Moreover, this is the same approach we used when we added WED support to
+> mtk_eth_soc driver and the related MT76 support.
+> However, I am fine to post the MT76 changes as RFC and just refer to it in
+> this series cover-letter. Agree? 
+> 
+>>
+>> So far I see ABI break, but without user cannot judge. And that's the
+>> hard reason this cannot be accepted.
+> 
+> if you mean the dts changes, I will fix them in v3.
+> 
+No, I mean driver.
 
 Best regards,
 Krzysztof
