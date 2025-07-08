@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C7DC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 13:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD914C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 13:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oheb/dER3KdeWjCUo6bv9klhmFV9w7DyJ3ar+Kf6irg=; b=4zNgA4CGxithv93JG4iKJ4y7+5
-	MUimZD6RNSTo344Us2e9OTfDJ9MuDTKgCMu4g/2mQInPR2ZsObzdCE9lEZoTIixtFiMtCcLSTN6NW
-	sY6I2Pji9RJpUnZW5ApyoXJK9zH8/YrMUfBG1bZ20rHqciyf4NfthVxMh7OAGCZi8kpMqwpze3/rh
-	70ZUhtxBUoDA5761UpuvGZw5NjDx0bGo2v4CJ9pFEFsZNTVAy/0kJ5CXLI7WvnPCfVSvSYLcRXVN0
-	WVZErPa6WVUr1AEX4jDFkVu4fXRF+UO/tz9V0/Hg/eersusc8aeShsWH+3fRr22eb5UmMz2mjjuKH
-	DdqA5j1A==;
+	bh=1KZ/1AATVn+1OJ/mH6wbIMuP2x8G1qlOXF7ulFzdb94=; b=opx88BNBmRA/Q7drY73gVBcAv7
+	DrIlbH++kKg5KdUQ5T11P7+ltzvrQvZqIqHC2CIk69KIsLKTtFt3I2GANRYAd3HwKRWEgVzho+EuR
+	B1kgqvWvDu5xPyrw9/Ig4PON7/hTqhxYD1NTpTQ+JY4JzcxccmHObHR7bXevNEjM7Hv9AJ8Slwy0+
+	i5GQ3HHDXkv0HpwII9+iJ7O5EhJiS742Ywz6rR10Qy6oQAOB/uPrIUuuts+ti/VWuonjlSKZXheLL
+	6cGJ/b6aOq9rHJ8GFO0ArSgymFXjErLPAo42TpYn7iMq3FFLmKl8wcdRTQNND1DcMsgTQjE/E5cNd
+	XpR+CWuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ8Ol-00000005RV9-3EQ5;
-	Tue, 08 Jul 2025 13:30:15 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1uZ8R4-00000005Rvx-2DDT;
+	Tue, 08 Jul 2025 13:32:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ8Hi-00000005PkY-1yRU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 13:23:00 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id C46161F00050
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Jul 2025 13:22:54 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 78DDFACB318; Tue,  8 Jul 2025 13:22:53 +0000 (UTC)
-Received: from collins (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id EF06CACB30D;
-	Tue,  8 Jul 2025 13:22:51 +0000 (UTC)
-Date: Tue, 8 Jul 2025 15:22:49 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v2 4/4] arm64: dts: allwinner: a133-liontron-h-a133l: Add
- Ethernet support
-Message-ID: <aG0bqasOYUwwgiQY@collins>
-References: <20250707165155.581579-1-paulk@sys-base.io>
- <20250707165155.581579-5-paulk@sys-base.io>
- <20250708003348.58fe509f@minigeek.lan>
- <CAGb2v650h05aNvsQeQOjg63Ljcarxy2zqXnvNnjJ5+5ooGOELQ@mail.gmail.com>
+	id 1uZ8IJ-00000005PtN-1QSV;
+	Tue, 08 Jul 2025 13:23:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A8F6943578;
+	Tue,  8 Jul 2025 13:23:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 441BEC4CEED;
+	Tue,  8 Jul 2025 13:23:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751981014;
+	bh=/1iFN9Ws/aEeuST/Nfzh/QqtvoeQni33+rb0JMvW6b0=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=cpIUSsJc926Rqyxocwd9lOms7TgwgZMOkrmp/AILO1nw8CLCpJJIOzZAEcvb8c1EI
+	 M/nzsm19kBajLlzM5aVK/JXJAXG0VBkVn751qqlmpvKoZ3XK1UwNlfXnMzMrAc094D
+	 NGBJL7zSwmQ9qrdoY0up1H/91xVmLzh1RAVE3Hc+KcefD++h2XWUj644Eav37D+zim
+	 PH1PaGJvikusjpB8YbKAZ/M6MgKN/FmsSMLuzfUkNz7de8y0k5VPb81MPexZSLEq3s
+	 Sa/UDPHar4p2YF2xV3f5yQmETgc2LWzQMiw7l4QaQb/TJn0Ert14Ba0AhlublyFTaF
+	 ugsCqQ5LZvkLw==
+Date: Tue, 08 Jul 2025 08:23:32 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="AKuaO1c0htNCAj0c"
-Content-Disposition: inline
-In-Reply-To: <CAGb2v650h05aNvsQeQOjg63Ljcarxy2zqXnvNnjJ5+5ooGOELQ@mail.gmail.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: mripard@kernel.org, andy.yan@rock-chips.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, andyshrk@163.com, hjc@rock-chips.com, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ tzimmermann@suse.de, conor+dt@kernel.org, dri-devel@lists.freedesktop.org, 
+ quic_jesszhan@quicinc.com, maarten.lankhorst@linux.intel.com, 
+ neil.armstrong@linaro.org, krzk+dt@kernel.org, 
+ nicolas.frattaroli@collabora.com
+To: Heiko Stuebner <heiko@sntech.de>
+In-Reply-To: <20250707164906.1445288-1-heiko@sntech.de>
+References: <20250707164906.1445288-1-heiko@sntech.de>
+Message-Id: <175198090646.436895.4175521744544423549.robh@kernel.org>
+Subject: Re: [PATCH 00/13] Support DSI output on rk3576 and roc-rk3576-pc
+ board
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_062258_819778_A0BC8290 
-X-CRM114-Status: GOOD (  35.51  )
+X-CRM114-CacheID: sfid-20250708_062335_443850_F056602F 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,137 +77,124 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---AKuaO1c0htNCAj0c
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Mon, 07 Jul 2025 18:48:53 +0200, Heiko Stuebner wrote:
+> This enables all the necesary bits and bindings to get display output
+> on the dm-m10r800-v3s addon module for the Firefly roc-rk3576-pc board.
+> 
+> A bit of cleanup of the ili9881c, because the driver was still trying
+> to send dcs commands when the underlying DSI driver might have already
+> switched to video-mode, which caused me quite a bit of headache until
+> I realized this being the culprit for my garbled display output :-) .
+> 
+> Only the last patch has a dependency on Nicolas' pwm series [0]
+> everything else, is directly usable.
+> 
+> 
+> [0] https://lore.kernel.org/lkml/20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com/
+> 
+> Guochun Huang (1):
+>   drm/rockchip: dsi2: add support rk3576
+> 
+> Heiko Stuebner (12):
+>   drm/panel: ilitek-ili9881c: turn off power-supply when init fails
+>   drm/panel: ilitek-ili9881c: move display_on/_off dcs calls to
+>     (un-)prepare
+>   drm/panel: ilitek-ili9881c: convert (un-)prepare to
+>     mipi_dsi_multi_context
+>   dt-bindings: vendor-prefixes: Add prefix for Shenzhen Bestar
+>     Electronic
+>   dt-bindings: display: ili9881c: Add Bestar BSD1218-A101KL68 LCD panel
+>   drm/panel: ilitek-ili9881c: Add Bestar BSD1218-A101KL68 support
+>   dt-bindings: soc: rockchip: add rk3576 mipi dcphy syscon
+>   dt-bindings: display: rockchip: Add rk3576 to RK3588 DW DSI2
+>     controller schema
+>   arm64: dts: rockchip: add mipi-dcphy to rk3576
+>   arm64: dts: rockchip: add the dsi controller to rk3576
+>   arm64: dts: rockchip: add vcc3v3-lcd-s0 regulator to roc-rk3576-pc
+>   arm64: dts: rockchip: add dm-m10r800-v3s overlay for roc-rk3576-pc
+> 
+>  .../display/panel/ilitek,ili9881c.yaml        |   1 +
+>  .../rockchip/rockchip,rk3588-mipi-dsi2.yaml   |   1 +
+>  .../devicetree/bindings/soc/rockchip/grf.yaml |   1 +
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  arch/arm64/boot/dts/rockchip/Makefile         |   5 +
+>  .../rk3576-roc-pc-dm-m10r800-v3s.dtso         | 134 ++++++++
+>  .../arm64/boot/dts/rockchip/rk3576-roc-pc.dts |  16 +
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi      |  50 +++
+>  drivers/gpu/drm/panel/panel-ilitek-ili9881c.c | 301 ++++++++++++++----
+>  .../gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c  |  21 ++
+>  10 files changed, 475 insertions(+), 57 deletions(-)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-roc-pc-dm-m10r800-v3s.dtso
+> 
+> --
+> 2.47.2
+> 
+> 
+> 
 
-Hi,
 
-Le Tue 08 Jul 25, 16:18, Chen-Yu Tsai a =C3=A9crit :
-> On Tue, Jul 8, 2025 at 7:36=E2=80=AFAM Andre Przywara <andre.przywara@arm=
-=2Ecom> wrote:
-> >
-> > On Mon,  7 Jul 2025 18:51:55 +0200
-> > Paul Kocialkowski <paulk@sys-base.io> wrote:
-> >
-> > Hi Paul,
-> >
-> > > The Liontron H-A133L board features an Ethernet controller with a
-> > > JLSemi JL1101 PHY. Its reset pin is tied to the PH12 GPIO.
-> > >
-> > > Note that the reset pin must be handled as a bus-wide reset GPIO in
-> > > order to let the MDIO core properly reset it before trying to read
-> > > its identification registers. There's no other device on the MDIO bus.
-> >
-> > putting the PHY reset GPIO into the MDIO node is a clever solution, I
-> > was struggling with putting it either in the MAC or PHY node, though
-> > conceptually it would still belong in the latter, I think. But this
-> > might be a more generic problem: for most other devices we activate
-> > reset and clock gates *before* trying to access them, though this might
-> > be historically different for Ethernet PHYs.
->=20
-> The phylib core has code to deal with reset GPIOs listed under the PHY no=
-de.
-> It might be worth checking why that doesn't work.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-While this code does exist, it's too early to be called when the mdio bus is
-trying to probe the phy. I was also surprised the existing reset gpio suppo=
-rt
-in the phylib core didn't take effect (that's how I tried to implement it f=
-irst)
-only to find that the code was never called. It's only called once the phy =
-was
-probed and registered.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-Cheers,
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-Paul
+  pip3 install dtschema --upgrade
 
-> OOTH, there's no code to deal with regulator supplies for PHYs.
->=20
-> ChenYu
->=20
-> > > The datasheet of the PHY mentions that the reset signal must be held
-> > > for 1 ms to take effect. Make it 2 ms (and the same for post-delay) to
-> > > be on the safe side without wasting too much time during boot.
-> > >
-> > > Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> >
-> > Despite the above, this looks fine, and works for me:
-> >
-> > Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-> > Tested-by: Andre Przywara <andre.przywara@arm.com>
-> >
-> > Cheers,
-> > Andre
-> >
-> > > ---
-> > >  .../sun50i-a133-liontron-h-a133l.dts          | 19 +++++++++++++++++=
-++
-> > >  1 file changed, 19 insertions(+)
-> > >
-> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a13=
-3l.dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-> > > index fe77178d3e33..90a50910f07b 100644
-> > > --- a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-> > > @@ -65,6 +65,25 @@ &ehci1 {
-> > >       status =3D "okay";
-> > >  };
-> > >
-> > > +&emac0 {
-> > > +     pinctrl-names =3D "default";
-> > > +     pinctrl-0 =3D <&rmii0_pins>;
-> > > +     phy-handle =3D <&rmii_phy>;
-> > > +     phy-mode =3D "rmii";
-> > > +     status =3D "okay";
-> > > +};
-> > > +
-> > > +&mdio0 {
-> > > +     reset-gpios =3D <&pio 7 12 GPIO_ACTIVE_LOW>; /* PH12 */
-> > > +     reset-delay-us =3D <2000>;
-> > > +     reset-post-delay-us =3D <2000>;
-> > > +
-> > > +     rmii_phy: ethernet-phy@1 {
-> > > +             compatible =3D "ethernet-phy-ieee802.3-c22";
-> > > +             reg =3D <1>;
-> > > +     };
-> > > +};
-> > > +
-> > >  &mmc0 {
-> > >       vmmc-supply =3D <&reg_dcdc1>;
-> > >       cd-gpios =3D <&pio 5 6 GPIO_ACTIVE_LOW>; /* PF6 */
-> >
-> >
 
---=20
-Paul Kocialkowski,
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/v6.16-rc1-17-g63289206e26f (best guess, 8/9 blobs matched)
 
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
 
-Expert in multimedia, graphics and embedded hardware support with Linux.
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250707164906.1445288-1-heiko@sntech.de:
 
---AKuaO1c0htNCAj0c
-Content-Type: application/pgp-signature; name=signature.asc
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm1:pwm1m1-ch5:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm0:pwm0m1-ch1:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): i3c1:i3c1m1-xfer:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): i3c1:i3c1m1-xfer:rockchip,pins:1:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): i3c1_sda:i3c1_sdam1-pu:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm2:pwm2m1-ch1:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm2:pwm2m0-ch4:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm2:pwm2m1-ch0:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm2:pwm2m0-ch2:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm2:pwm2m1-ch2:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm2:pwm2m1-ch5:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm2:pwm2m1-ch6:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm2:pwm2m0-ch3:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-pinctrl): pwm2:pwm2m1-ch3:rockchip,pins:0:2: 14 is greater than the maximum of 13
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: syscon@26034000 (rockchip,rk3576-dcphy-grf): clocks: False schema does not allow [[21, 492]]
+	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: syscon@26034000 (rockchip,rk3576-dcphy-grf): clocks: False schema does not allow [[20, 492]]
+	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: syscon@26034000 (rockchip,rk3576-dcphy-grf): clocks: False schema does not allow [[21, 492]]
+	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dtb: syscon@26034000 (rockchip,rk3576-dcphy-grf): clocks: False schema does not allow [[21, 492]]
+	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
 
------BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmhtG6kACgkQhP3B6o/u
-lQxyDQ//cjeBa5VAClnAeDGIbRC52Ala2SFJm9pL1Kkm6GPyKpaAbDPz4DkKtZqD
-Rwt9Ti1nxSCtuhIg7pkHcAw0TSroMTZNFtQu4Y15216kq9bGylwSHVCMnWBCmpbz
-SSps3qJzNVrIHJuPizt+Mc07Cl9ub18D1AoEgnIVmPRQwLI9UC9YPA7YpG2uO1fc
-L+SQHu60k24t+5wDAWCs6YsTJhmkrDynisOiWD69By1idydb5pWdQJmWnUIHN6ep
-y+B2E748yLeNcBVjnvW9oyIPUXk0sl/KuhnI5DVsHzvL2qIZc+qirsMMatC3soZC
-rCRW3ggnKt0Ug7trxK0fR8/oEexl3q19uQcsJNH0U4a5qqDNvGWw1sYxBObQGjX9
-Byyupz8Ob3q3ylq+KNTxXqXVmnGLqRf+RTaCuCs8ludvdc4aPsZvvLbZpbbYRBpM
-GNaEFZafjW7eza5M/fvKvirSi8V9MrZbLfYS9ouN8Ge5qIYWl+1uZOjt1zSSj0SQ
-LSmdHfKAVJ/0cNXp4x25AMb7GG0P/B/FdunNgLz+hPazZMKgAiyEcxDV5NeIQ48x
-WVRb21+ijbWDrDM6p2VN+7+FNbnovBrbCxErK3QyrE1v9Om7pOHIFXpsUEX1RZOg
-DR/j1w2Z8WoWAK45XWj6Ex9finr12EICE6OJUjw2zoI+smniwbs=
-=O4+y
------END PGP SIGNATURE-----
 
---AKuaO1c0htNCAj0c--
+
+
 
