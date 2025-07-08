@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13DF7C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 14:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8445DC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 14:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0P5JXJKoQne0+91AzBGnZ+7c0bfri6L6epqykQQTaN0=; b=D0/lLDmRUxNGlNF852MWGHYIHV
-	YkS2hgCScvZa64OpS+bAXL2OBcmSgQelTc/TP1PrPe2WMMijShsWr+YwHWwrkg1FffpoPmUQ5QZtA
-	Smhz6w9I+Zz/Jcdme69XHsTeWMUZqKFkbUlsQ3lz0hj0UkSETyh35U/so/MzWCtVBdlC0QgSi5bSK
-	JoaqPFJmedo7elWNf7iHJXNIohz0LOl3zTFkPRPur6ktCE7KPCOfpHLl+Jn1zMp0jzISj2RDNRvR8
-	uhGTAMl84vxXn9oYDnBOIaXlKzyzfopHIDL9tbqotJbJ5W9oz/UgFl4d3mBaZxw37LFyAa1zC1h9H
-	my61uFsQ==;
+	bh=Lu067gzfX8Y3GAfmHSnHoOdlmM/liVd5i64a52xtjiM=; b=K+c6Gh3IFXEmnlkA6VzfWx0p66
+	kasuLnnH+ELeOq5nc2SkD6rUtmaed//KfX1W0umXlOXvgOcEefINBrz5vtMyKqdBnHXjNLVG1CzX1
+	ZDArye/FA4cUFtVBGJXjxeul8VOxckq9r4MGfMIIZfOot2+vES/8AZV+YDDRDT1112+x/3kIHKXN+
+	AAv3PkSKeyFHe00WVdWh6+Bs18s75gVKPcjF+TShI2tXss1Tqzm/o8BisMM+8slf3JVlj0A54kYFZ
+	a0QhIfhlnB3vpGjmn4lil7Qz080KPIzcFMVP9VCIH7dLu6WM62hxMVTVPAXhytHJeph6n5GakM/Wz
+	/xIhjPxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ9ku-00000005gWX-0TpP;
-	Tue, 08 Jul 2025 14:57:12 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1uZ9nD-00000005gtn-3Vp7;
+	Tue, 08 Jul 2025 14:59:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ9af-00000005eXN-2xiP
+	id 1uZ9aw-00000005ebQ-1xsT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 14:46:39 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7fd35b301bdso4697014a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 07:46:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1751985997; x=1752590797; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0P5JXJKoQne0+91AzBGnZ+7c0bfri6L6epqykQQTaN0=;
-        b=WPnRuDAp5PRrU5JVzR2TkWNBDx9twbNM0RD6rFqgzO84hFwZaWlJYwVFoft0vtaiRw
-         nCO+07UCCreY3gZm8qvb972uWDBGpVtdOjlyXlvARp4PQvbz8NZtan0yUIiNY4EVVW5l
-         MhwpH+4fseGLDKdSVREy33XYLKU2NqAoPksJ+QqBy9gneG3rEsQ1oOcKNMJ0UL7tbWxC
-         kBNrIjvkhlA4DgMsRLGkTBEBkOiq80p5h9yV5EdgeKWc2FwFfpHuC+fgC59rMFVYPIn9
-         Ab5Q0vSk9TxFFoobYOZM/nFtnt8Y56/iqx6PUC9NwOUJ3TwRcnhR3KkzEzRcaIrSm//U
-         6eqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751985997; x=1752590797;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0P5JXJKoQne0+91AzBGnZ+7c0bfri6L6epqykQQTaN0=;
-        b=iE8qD0HC+1NzkMVzhDivG9Vz+CaKtcnzu4fXZJlg1fZQJVBH4pRSNgp5iw1DLknJ6f
-         Rm+nxOfCbxYPBOZvX4SoWWBJDz//8jSPFCUy48b1zfC4TZN8TsCx6bpL7v7mZM40dYXb
-         31kUtsEAFmC7vUsGwIGs/eYZC2m+JESsTMHA4V8Q6xZGRh/imsUTtYLE+xFuEB5QR7HF
-         /dyvhPPlWAEgxiWldaOb/t55Nd5X2VVoS8awii3gUMBbExDhQzpSqccGNZQthuNVyEsf
-         dmYkpBLtRBqDaObF+3bhcVMdpSw8GwI+yC57EnRvVEShn0He9fxa7seRpE36adnH7vsj
-         gokg==
-X-Forwarded-Encrypted: i=1; AJvYcCWMdGPhPAcnIahvpSkvCABQArz7WKJ02lCzi+FSoLD9sbsgU3r+h8XLgQ2roOja+h7FxR9V1ecWG6fxtzf9gdgP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7juLXR2s5qdV5DIxRKMuR2raa8nCH09oiXpTjAlC71Cnmx5hj
-	DdVXXsOGEW3w9JpViKGr9E/aHLiY9e+P1YIAArKoBFo5BhWaX8FNnTiq
-X-Gm-Gg: ASbGncto6aaGX0AqmdYtvuJ9uVNHhYg54E6PC7W8GLuZjCej9odFMPLTiw/LGuCZoQy
-	XW7VefnDRk44ueWv8lftCvs/k3/EW1zOS8rYo1LPX3DkJNSkiBmI7mtaMgTycVdrbIveeyDKoDG
-	P+AXpqVBYqLRSXjHYAtmYeonUWQzwZWQCvMxdjuix4A4/fNfLFmGAzxUfpUANDuu0jG0ZaI0S7B
-	t1q+q0CkYaAfZf18BAwFjUczvwwv+b65VEfTv3r5LDWgOpmoaIKO3BmQLjzLupmXIb5sRotKvNv
-	ZsglH8H3VIdY4A5WgqfaqjZKWrpj6bTQMyNxHitLRy2V1RnLv+z4hWwLoYDpLA==
-X-Google-Smtp-Source: AGHT+IFiqdSlCbU4zD//x0lPXI7pA7rphxHL2l3rMZn1TfraBPWBfii1gmAYrhU1Zmp/y07HuF1+6g==
-X-Received: by 2002:a05:6a20:258e:b0:1f5:8a1d:3904 with SMTP id adf61e73a8af0-225b7f19802mr30657387637.7.1751985996536;
-        Tue, 08 Jul 2025 07:46:36 -0700 (PDT)
-Received: from localhost ([216.228.127.130])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b38ee476152sm11695895a12.24.2025.07.08.07.46.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Jul 2025 07:46:36 -0700 (PDT)
-Date: Tue, 8 Jul 2025 10:46:33 -0400
-From: Yury Norov <yury.norov@gmail.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Ben Horgan <ben.horgan@arm.com>, catalin.marinas@arm.com,
-	will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux@rasmusvillemoes.dk, linux-kernel@vger.kernel.org,
-	james.morse@arm.com
-Subject: Re: [PATCH 2/2] bitfield: Ensure the return value of
- type##_replace_bits() is checked
-Message-ID: <aG0vScXkDROkdASW@yury>
-References: <20250703135729.1807517-1-ben.horgan@arm.com>
- <20250703135729.1807517-3-ben.horgan@arm.com>
- <aGv2WoAtxnEgqV4y@yury>
- <03a76e9a-86ac-4791-9f0a-494b28c07fcc@arm.com>
- <86tt3n9fsh.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86tt3n9fsh.wl-maz@kernel.org>
+	Tue, 08 Jul 2025 14:46:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C3AD4453E6;
+	Tue,  8 Jul 2025 14:46:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 998FCC4CEED;
+	Tue,  8 Jul 2025 14:46:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1751986013;
+	bh=8VDA1hhdNP0DvXhtKa1xQX/6//M/u2gJCpKHUwbE8rE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=eBexEpwpcZoo15tmiOa+fHLZtIIup6t7ZstZvno914Fm8b9WDRcTOHfgVLTOGNhaY
+	 Cd03QHHSu0iJ+WkK1uJee2fjYr03DqRjwsWIfSXe3uziHv0jZ/0B18ide3lfYj8pHQ
+	 rrTryzT15LP86d1TUMZh0TABx4DOIX5Z6EwfO2ASIyQEXHAG4ai4RsRU9AUNQBMHoI
+	 2NHcanp3vnarWx3HczXOS6YsLDBlcPPXfApYQ22yfcM7F2ROyyre91pVMbP0f1HigR
+	 Mz8/S8XBctflYVDxlkKvbLR95p3ijVopVHdiXt0Jo+UFh/cPfyoHillOgJON6/9vQm
+	 clHZl90jdsaQA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uZ9at-00DnQF-D8;
+	Tue, 08 Jul 2025 15:46:51 +0100
+Date: Tue, 08 Jul 2025 15:46:51 +0100
+Message-ID: <86pleaagf8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-pci@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,	Toan Le <toan@os.amperecomputing.com>,
+	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,	Manivannan
+ Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,	Bjorn Helgaas
+ <bhelgaas@google.com>,	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH 08/12] PCI: xgene-msi: Get rid of intermediate tracking structure
+In-Reply-To: <aGvmQ0fjM6HWq6Qv@lpieralisi>
+References: <20250628173005.445013-1-maz@kernel.org>
+	<20250628173005.445013-9-maz@kernel.org>
+	<aGvmQ0fjM6HWq6Qv@lpieralisi>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, toan@os.amperecomputing.com, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, tglx@linutronix.de
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_074637_760157_3A31C506 
-X-CRM114-Status: GOOD (  30.17  )
+X-CRM114-CacheID: sfid-20250708_074654_579578_97ECF403 
+X-CRM114-Status: GOOD (  38.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,59 +88,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 08, 2025 at 10:45:50AM +0100, Marc Zyngier wrote:
-> On Tue, 08 Jul 2025 10:42:06 +0100,
-> Ben Horgan <ben.horgan@arm.com> wrote:
-> > 
-> > Hi Yury,
-> > 
-> > On 7/7/25 17:31, Yury Norov wrote:
-> > > Hi Ben,
-> > > 
-> > > On Thu, Jul 03, 2025 at 02:57:29PM +0100, Ben Horgan wrote:
-> > >> As type##_replace_bits() has no side effects it is only useful if its
-> > >> return value is checked. Add __must_check to enforce this usage. To have
-> > >> the bits replaced in-place typep##_replace_bits() can be used instead.
-> > >> 
-> > >> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> > >> ---
-> > >>   include/linux/bitfield.h | 4 ++--
-> > >>   1 file changed, 2 insertions(+), 2 deletions(-)
-> > >> 
-> > >> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
-> > >> index 6d9a53db54b6..39333b80d22b 100644
-> > >> --- a/include/linux/bitfield.h
-> > >> +++ b/include/linux/bitfield.h
-> > >> @@ -195,8 +195,8 @@ static __always_inline __##type type##_encode_bits(base v, base field)	\
-> > >>   		__field_overflow();					\
-> > >>   	return to((v & field_mask(field)) * field_multiplier(field));	\
-> > >>   }									\
-> > >> -static __always_inline __##type type##_replace_bits(__##type old,	\
-> > >> -					base val, base field)		\
-> > >> +static __always_inline __##type __must_check type##_replace_bits(__##type old,	\
-> > >> +							base val, base field)	\
-> > >>   {									\
-> > >>   	return (old & ~to(field)) | type##_encode_bits(val, field);	\
-> > >>   }									\
-> > > 
-> > > So, would it make sense to mark _encode_bits() and _get_bits() as
-> > > __must_check as well? At least from the point of unification, it
-> > > would.
-> > Could do. It seems less important as there are no obvious foot-guns
-> > that these would guards against. Would you like me to add this in a
-> > v2?
-
-Yes please.
- 
-> > > How would we move this - with my bitmap-for next or with arm branch?
-> > 
-> > I'm not familiar with the branch machinery so can't comment on this.
+On Mon, 07 Jul 2025 16:22:43 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
-> The first patch will definitely go in via the KVM/arm64 tree, probably
-> as a fix for 6.16.
+> On Sat, Jun 28, 2025 at 06:30:01PM +0100, Marc Zyngier wrote:
+> > The xgene-msi driver uses an odd construct in the form of an
+> > intermediate tracking structure, evidently designed to deal with
+> > multiple instances of the MSI widget. However, the existing HW
+> > only has one set, and it is obvious that there won't be new HW
+> > coming down that particular line.
+> > 
+> > Simplify the driver by using a bit of pointer arithmetic instead,
+> > directly tracking the interrupt and avoiding extra memory allocation.
+> 
+> A couple of nits, nothing else.
+> 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  drivers/pci/controller/pci-xgene-msi.c | 58 ++++++++------------------
+> >  1 file changed, 17 insertions(+), 41 deletions(-)
+> > 
+> > diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
+> > index b3ac0125b3b40..4be79b9ff80df 100644
+> > --- a/drivers/pci/controller/pci-xgene-msi.c
+> > +++ b/drivers/pci/controller/pci-xgene-msi.c
+> > @@ -24,19 +24,13 @@
+> >  #define NR_HW_IRQS		16
+> >  #define NR_MSI_VEC		(IDX_PER_GROUP * IRQS_PER_IDX * NR_HW_IRQS)
+> >  
+> > -struct xgene_msi_group {
+> > -	struct xgene_msi	*msi;
+> > -	int			gic_irq;
+> > -	u32			msi_grp;
+> > -};
+> > -
+> >  struct xgene_msi {
+> >  	struct irq_domain	*inner_domain;
+> >  	u64			msi_addr;
+> >  	void __iomem		*msi_regs;
+> >  	unsigned long		*bitmap;
+> >  	struct mutex		bitmap_lock;
+> > -	struct xgene_msi_group	*msi_groups;
+> > +	unsigned int		gic_irq[NR_HW_IRQS];
+> >  };
+> >  
+> >  /* Global data */
+> > @@ -261,27 +255,20 @@ static int xgene_msi_init_allocator(struct device *dev)
+> >  
+> >  	mutex_init(&xgene_msi_ctrl->bitmap_lock);
+> >  
+> > -	xgene_msi_ctrl->msi_groups = devm_kcalloc(dev, NR_HW_IRQS,
+> > -						  sizeof(struct xgene_msi_group),
+> > -						  GFP_KERNEL);
+> > -	if (!xgene_msi_ctrl->msi_groups)
+> > -		return -ENOMEM;
+> > -
+> >  	return 0;
+> >  }
+> >  
+> >  static void xgene_msi_isr(struct irq_desc *desc)
+> >  {
+> > +	unsigned int *irqp = irq_desc_get_handler_data(desc);
+> >  	struct irq_chip *chip = irq_desc_get_chip(desc);
+> >  	struct xgene_msi *xgene_msi = xgene_msi_ctrl;
+> > -	struct xgene_msi_group *msi_groups;
+> >  	int msir_index, msir_val, hw_irq, ret;
+> >  	u32 intr_index, grp_select, msi_grp;
+> >  
+> >  	chained_irq_enter(chip, desc);
+> >  
+> > -	msi_groups = irq_desc_get_handler_data(desc);
+> > -	msi_grp = msi_groups->msi_grp;
+> > +	msi_grp = irqp - xgene_msi->gic_irq;
+> >  
+> >  	/*
+> >  	 * MSIINTn (n is 0..F) indicates if there is a pending MSI interrupt
+> > @@ -341,35 +328,31 @@ static void xgene_msi_remove(struct platform_device *pdev)
+> >  		cpuhp_remove_state(pci_xgene_online);
+> >  	cpuhp_remove_state(CPUHP_PCI_XGENE_DEAD);
+> >  
+> > -	kfree(msi->msi_groups);
+> > -
+> >  	xgene_free_domains(msi);
+> >  }
+> >  
+> >  static int xgene_msi_hwirq_alloc(unsigned int cpu)
+> >  {
+> > -	struct xgene_msi *msi = xgene_msi_ctrl;
+> > -	struct xgene_msi_group *msi_group;
+> >  	int i;
+> >  	int err;
+> >  
+> >  	for (i = cpu; i < NR_HW_IRQS; i += num_possible_cpus()) {
+> > -		msi_group = &msi->msi_groups[i];
+> > +		unsigned int irq = xgene_msi_ctrl->gic_irq[i];
+> >  
+> >  		/*
+> >  		 * Statically allocate MSI GIC IRQs to each CPU core.
+> >  		 * With 8-core X-Gene v1, 2 MSI GIC IRQs are allocated
+> >  		 * to each core.
+> >  		 */
+> > -		irq_set_status_flags(msi_group->gic_irq, IRQ_NO_BALANCING);
+> > -		err = irq_set_affinity(msi_group->gic_irq, cpumask_of(cpu));
+> > +		irq_set_status_flags(irq, IRQ_NO_BALANCING);
+> > +		err = irq_set_affinity(irq, cpumask_of(cpu));
+> >  		if (err) {
+> >  			pr_err("failed to set affinity for GIC IRQ");
+> >  			return err;
+> >  		}
+> >  
+> > -		irq_set_chained_handler_and_data(msi_group->gic_irq,
+> > -			xgene_msi_isr, msi_group);
+> > +		irq_set_chained_handler_and_data(irq, xgene_msi_isr,
+> > +						 &xgene_msi_ctrl->gic_irq[i]);
+> >  	}
+> >  
+> >  	return 0;
+> > @@ -378,15 +361,12 @@ static int xgene_msi_hwirq_alloc(unsigned int cpu)
+> >  static int xgene_msi_hwirq_free(unsigned int cpu)
+> >  {
+> >  	struct xgene_msi *msi = xgene_msi_ctrl;
+> > -	struct xgene_msi_group *msi_group;
+> >  	int i;
+> >  
+> >  	for (i = cpu; i < NR_HW_IRQS; i += num_possible_cpus()) {
+> > -		msi_group = &msi->msi_groups[i];
+> > -		if (!msi_group->gic_irq)
+> > +		if (!msi->gic_irq[i])
+> 
+> In patch 5 we removed this check in xgene_msi_hwirq_alloc(), if it
+> superfluous there it should be here too.
 
-OK. Then I'll take patch #2 v2 by myself.
+Hmmm, good point. I'll get rid of that one too.
+
+> 
+> >  			continue;
+> > -		irq_set_chained_handler_and_data(msi_group->gic_irq, NULL,
+> > -						 NULL);
+> > +		irq_set_chained_handler_and_data(msi->gic_irq[i], NULL, NULL);
+> >  	}
+> >  	return 0;
+> >  }
+> > @@ -399,10 +379,9 @@ static const struct of_device_id xgene_msi_match_table[] = {
+> >  static int xgene_msi_probe(struct platform_device *pdev)
+> >  {
+> >  	struct resource *res;
+> > -	int rc, irq_index;
+> 
+> Just noticed, insignificant nit: don't see why moving irq_index to a
+> local loop variable is required in this patch - fine to leave the
+> code in the patch as-is - reporting it to make sure I have not
+> missed anything.
+
+Not required, just my own obsession with scope reduction of local
+variables. I thought that given the magnitude of the changes, I might
+as well give myself some artistic license! ;-)
 
 Thanks,
-Yury
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
