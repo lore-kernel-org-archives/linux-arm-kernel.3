@@ -4,73 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C1E9C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 21:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7410C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 22:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=88Jy9nRaNbiJf/UJMSU1sxeSxDA4k9Az6CO4gOFGt+M=; b=pmZl5nDs0TZewJi8LdrTUs1o+f
-	VVQXMO38ylHI6/6PZm8iMmbKPYdqKlnfvSovM6/OF9YeX+7YGiJVdJBnzWaZ5p5VSAR3l4hAeFYkf
-	i0MkSTB3a4AMHZl/AyRu41KdaGCqEfE75MKFPhzxCCrFm4TLvr3qfgp7KR603HBoIABwzDXxNWOfg
-	ubKfoo5AwXSX9JgKn8MX9lgueIp1/XOcKKcKoIS0IPLSJRhKy6W7zZo65ukprldQfWEzx0XbMjUpd
-	rVL4gNN6RogxIH2UKirO2UbZgzYZqMtBiAh3VuPqBT50fMKgikEze/kKiQXBpZYRJe87OHUkzAyC0
-	q+06ZGKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/Ziyoc6OWfBD4Ber22ISCAG5cMVClEJJdMXo55uffz4=; b=hJAIFowtlzJM3962wZMrZ4Q7vV
+	eTLfmMiPgyaqkcdKkRh+MMk5G/nLqBXT3tqRhfcovD2VIMWTWxp/Z35b5zmVqTBem2Y3Z0yM/z+JT
+	Ws3Tf6x3rynpII3SKuRp3ZX5nEJbu2jtYKaLg/OfgX2qyu5MhE8zlfat9JQvkHhVmeOsUopZablvZ
+	HmAE+NIIXFO2633FWi7IVDLwtPIB8KMKW7QzZpBjC8j6wVSqw340YYBYACcecrsOu6zgHe3x3EdjY
+	66W6PkrZlljGQVFp4rWNhzelJwUYIpULZsNNdLCZw2ike7BahuSrQ6UI3boFnupVFWiT7FiWanE08
+	RhSdHWyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZG07-00000006gPx-16zo;
-	Tue, 08 Jul 2025 21:37:19 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uZGSX-00000006j2x-0omk;
+	Tue, 08 Jul 2025 22:06:41 +0000
+Received: from mx3.wp.pl ([212.77.101.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZFu7-00000006fhP-1Z4s
+	id 1uZGQA-00000006if0-1Tpy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 21:31:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 83F56A544AA;
-	Tue,  8 Jul 2025 21:31:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F3F5C4CEED;
-	Tue,  8 Jul 2025 21:31:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752010266;
-	bh=muHKFMk3+FAqjA0IzFbxIYjKJ0jfprPa6PDJaUth2bE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FGVcmEvmklitC/oRvIIlzZDODGrxGHGZMrPtrgRGSFM4SODotqhCuqlMpYIaMZTd8
-	 oAq0yve0BQTlIu+xdjj0pDceX0WMK/IAwinjabWbHUp9n0rqXL2XWbl2advUAWFdFQ
-	 KLRHLRDy7tn1GtMOMk+rkqnbwQ8R1DNJmNDOzpKnJi2FR5CK11s8qQod+3dUbRoOXn
-	 aAk6+sRmRRENypWzalxuvmE3SWwpfzj49366mHzVCtedI+CtjurXdkou89KYFBm934
-	 vad1SKWyOf3050iK9v3LZ9HU45NoX0coAkK+GgQhfbRpyiX5lcgBZ1gD01C3AsPL1r
-	 6wyjO1oLjv++g==
-Date: Tue, 8 Jul 2025 16:31:05 -0500
-From: Rob Herring <robh@kernel.org>
-To: iuncuim <iuncuim@gmail.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Vasily Khoruzhick <anarsoul@gmail.com>,
-	Yangtao Li <tiny.windzz@gmail.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 2/8] dt-bindings: thermal: sun8i: Add A523 THS0/1
- controllers
-Message-ID: <20250708213105.GA1082606-robh@kernel.org>
-References: <20250703151132.2642378-1-iuncuim@gmail.com>
- <20250703151132.2642378-3-iuncuim@gmail.com>
+	Tue, 08 Jul 2025 22:04:16 +0000
+Received: (wp-smtpd smtp.wp.pl 7799 invoked from network); 9 Jul 2025 00:04:07 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1752012247; bh=/Ziyoc6OWfBD4Ber22ISCAG5cMVClEJJdMXo55uffz4=;
+          h=From:To:Subject;
+          b=BVOu1HOEHwN9oqxm64pZbA/fwotlzky4SavZdUIVoyfbQxxctjjt/jr0GtMv+SVF/
+           boVnLuBQZrSMerk9rWxDUGpSKAjdmOq7qQzaMkJuxciNge9NPquP/EHVjXmouKxYWi
+           UrHfy4PQKUh5ddrzWLWu2wPcruMxhOIegmH4YZDSsaDx+q4NMNGn17priedPlQ0MU1
+           DisTBZg5JkjLWrFWzCEc1SCqz5HjZGZrPcP21qNJFsbNeGCdxGOJCSyqaKlOsTIiMS
+           4gNdF6UgctLlGlAoTKCdFOojPGjp9OcgyThg2WTctA7DC1w7OLldbKQp/fVZAK6ldH
+           uZo1aTmAiuofA==
+Received: from 83.24.138.239.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.24.138.239])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
+          for <rafael@kernel.org>; 9 Jul 2025 00:04:07 +0200
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+To: rafael@kernel.org,
+	daniel.lezcano@linaro.org,
+	rui.zhang@intel.com,
+	lukasz.luba@arm.com,
+	jic23@kernel.org,
+	dlechner@baylibre.com,
+	nuno.sa@analog.com,
+	andy@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	s.hauer@pengutronix.de,
+	olek2@wp.pl,
+	zhiyong.tao@mediatek.com,
+	linux-pm@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v3 0/3] Add thermal sensors support for MT7981
+Date: Wed,  9 Jul 2025 00:04:02 +0200
+Message-Id: <20250708220405.1072393-1-olek2@wp.pl>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250703151132.2642378-3-iuncuim@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-WP-MailID: c47a9be9f1745f53a3fc4eba447605ae
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 000000A [ocM0]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_143107_539567_0F43394D 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20250708_150414_854817_20228463 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,140 +92,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 03, 2025 at 11:11:26PM +0800, iuncuim wrote:
-> From: Mikhail Kalashnikov <iuncuim@gmail.com>
-> 
-> Add a binding for D1/T113s thermal sensor controller. Add dt-bindings
-> description of the thermal sensors in the A523 processor.
-> The controllers require activation of the additional frequency of the
-> associated gpadc controller, so a new clock property has been added.
-> 
-> The calibration data is split into two cells that are in different areas
-> of nvmem. Both controllers require access to both memory cell, so a new
-> property nvmem-cells has been added. To maintain backward compatibility,
-> the name of the old cell remains the same and the new nvmem-cell-names is
-> called calibration-second-part
-> 
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
-> ---
->  .../thermal/allwinner,sun8i-a83t-ths.yaml     | 49 +++++++++++++++++--
->  1 file changed, 46 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml b/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-> index 3e61689f6..80657435a 100644
-> --- a/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-> @@ -24,18 +24,22 @@ properties:
->        - allwinner,sun50i-h5-ths
->        - allwinner,sun50i-h6-ths
->        - allwinner,sun50i-h616-ths
-> +      - allwinner,sun55i-a523-ths0
-> +      - allwinner,sun55i-a523-ths1
->  
->    clocks:
->      minItems: 1
->      items:
->        - description: Bus Clock
->        - description: Module Clock
-> +      - description: GPADC Clock
+This patch adds support for the temperature sensor in the MT7981 SoC.
+This sensor is exactly the same as the one in the MT7986.
 
-You add a 3rd clock for everyone, but I don't see a conditional schema 
-keeping the existing users at 2 clocks (maxItems: 2).
+CHanges in v3:
+ - added fallback in bindings
 
->  
->    clock-names:
->      minItems: 1
->      items:
->        - const: bus
->        - const: mod
-> +      - const: gpadc
->  
->    reg:
->      maxItems: 1
-> @@ -47,11 +51,16 @@ properties:
->      maxItems: 1
->  
->    nvmem-cells:
-> -    maxItems: 1
-> -    description: Calibration data for thermal sensors
-> +    minItems: 1
-> +    items:
-> +      - description: Calibration data for thermal sensors
-> +      - description: Additional cell in case of separate calibration data
->  
->    nvmem-cell-names:
-> -    const: calibration
-> +    minItems: 1
-> +    items:
-> +      - const: calibration
-> +      - const: calibration-second-part
->  
->    allwinner,sram:
->      maxItems: 1
-> @@ -107,6 +116,7 @@ allOf:
->              enum:
->                - allwinner,sun8i-h3-ths
->                - allwinner,sun20i-d1-ths
-> +              - allwinner,sun55i-a523-ths0
->  
->      then:
->        properties:
-> @@ -132,6 +142,26 @@ allOf:
->          - clock-names
->          - resets
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - allwinner,sun55i-a523-ths0
-> +              - allwinner,sun55i-a523-ths1
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 2
-> +        clock-names:
-> +          items:
-> +            - const: bus
-> +            - const: gpadc
+Changes in v2:
+ - added fallback to an existing compatible string
+ - removed second patch as obsolete
 
-But if there's really still just 2 clocks, you need the last entry to be 
-'enum: [ mod, gpadc ]'
+Aleksander Jan Bajkowski (3):
+  dt-bindings: iio: adc: Add support for MT7981
+  dt-bindings: thermal: mediatek: add falback compatible string for
+    MT7981 and MT8516
+  arm64: dts: mediatek: add thermal sensor support on mt7981
 
-Though really, how can this h/w now not have a clock for itself? 
+ .../iio/adc/mediatek,mt2701-auxadc.yaml       |  4 +++
+ .../bindings/thermal/mediatek,thermal.yaml    | 27 ++++++++++------
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi     | 31 ++++++++++++++++++-
+ 3 files changed, 51 insertions(+), 11 deletions(-)
 
+-- 
+2.39.5
 
-> +        nvmem-cells:
-> +          minItems: 2
-> +        nvmem-cell-names:
-> +          minItems: 2
-
-Everyone else needs 'maxItems: 1'
-
-> +
->  required:
->    - compatible
->    - reg
-> @@ -176,4 +206,17 @@ examples:
->          #thermal-sensor-cells = <1>;
->      };
->  
-> +  - |
-> +    thermal-sensor@2009400 {
-> +      compatible = "allwinner,sun55i-a523-ths1";
-> +      reg = <0x02009400 0x400>;
-> +      interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
-> +      clocks = <&ccu CLK_BUS_THS>, <&ccu CLK_GPADC1>;
-> +      clock-names = "bus", "gpadc";
-> +      resets = <&ccu RST_BUS_THS>;
-> +      nvmem-cells = <&ths_calibration0>, <&ths_calibration1>;
-> +      nvmem-cell-names = "calibration",
-> +             "calibration-second-part";
-> +      #thermal-sensor-cells = <1>;
-> +    };
->  ...
-> -- 
-> 2.49.0
-> 
 
