@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A240DC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 20:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B6D6C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 20:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjpUGumsyFT3wsCtF9Dlg1G6YfAqzI8ZghV7o/ro8w4=; b=auiYnJFKa9CUOFEdGz5nGTEvEP
-	2i6fsQL39jEkej5IIYHAj42GfevM/92ncvaIWjqEoq47LI6DdW/PXBXgChMIrB2qUBlfKvTU1tlZe
-	OSdPryDhfyXSatitmWsXUgHjHokzhDxcE1iC8F6ODyb9o3BFaiwnkO4P4d1ZdvjM3HTKlehvaxXZt
-	WXbON1vvMm7MN3GaL42OXK8jlxp/IZgw0ACDhibGwKNTnrCNC19IQEFt3Rze8g7P99EU4VC2uICvD
-	J0MxIdT7YWlupOQoHIAPq+wwlh1nk81UlIXGtFgJtYfuIgZoqEbVe6wVqv91yolQKs2t7DP/2PXyy
-	JQkb8BIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2smh+MGEAduMykSYc/T8j0MbHgd1UjFFL6D4AORaZHU=; b=r2vLzXpmsmM3ld
+	jKc4UZuA4+6YY6Q/jopoxsYsQ0BSwlIBIETa9x28MBeSqVjYNLZ/eXJ/Yx3FxTRx0gV6iu8NNxoHK
+	Vzc6sF8VLRlxWfIjiSigYNMZICFj3NI+mHLeWIObromMSFQAu3Qa6iUDXJDE4g1HrgZ0S7f+6lxSr
+	/7fkwJZ4m/BMuP6e30aZSr5YSMmwpMei7+fYJYmg/eJTpWEV7splLff8xXzT1CVOcbFzT+lTcxXEM
+	B4pn11c5qgEaOWyTpu0sGNQxZJdCebRfet5sU+tmmm6QpqZ+PAkw2Tj+vIVqEeTzBxEue8ez1y8Gh
+	0mxoce1cyUohstR0d8/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZEc3-00000006Skn-1YbZ;
-	Tue, 08 Jul 2025 20:08:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uZEeO-00000006TJs-0n68;
+	Tue, 08 Jul 2025 20:10:48 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZE2C-00000006LpL-0b8x;
-	Tue, 08 Jul 2025 19:31:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 86FB95C516B;
-	Tue,  8 Jul 2025 19:31:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF178C4CEED;
-	Tue,  8 Jul 2025 19:31:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752003079;
-	bh=4HIbXqO4X/zdFKMfYlEoWG4p7UkHS98SkaZFdbZdFKo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CAqQP9MY6hAOf2CQAO7iVpo9cciRLieNSlVrPS7uTOEYeRSsdmr2ElnpEehToll8Q
-	 vHz9zzIQzp7ztQ8iQCbotghbpSBzrt4eHy9vraBL/Qmq1L51AXuMJY2Z9ReebWLQbE
-	 4SDvAIGoYAC0YEJ7zQaACrXyZI4KlKv3ZafZCfpS3oV6wMpGGqgowg1fy8pZh9cxlf
-	 2igN2LSWnHhUNBkOjqTvGxdsEOKJt6Fb6muVPKm/0tiQRveaLj/IBXksTKfqYC4tbf
-	 aZHBYSCTsqApeAMwjhtueGFVuA/r8VUxHmrhJ4Z/BsixGKQ/aNRynj6qBHhFfhxqRm
-	 DEBrYMxHLLBDg==
-Date: Tue, 8 Jul 2025 14:31:18 -0500
-From: Rob Herring <robh@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, lee@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, matthias.bgg@gmail.com, lgirdwood@gmail.com,
-	broonie@kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
-Subject: Re: [PATCH v2 7/8] dt-bindings: mfd: Add binding for MediaTek MT6363
- series SPMI PMIC
-Message-ID: <20250708193118.GB797072-robh@kernel.org>
-References: <20250707134451.154346-1-angelogioacchino.delregno@collabora.com>
- <20250707134451.154346-8-angelogioacchino.delregno@collabora.com>
+	id 1uZE7b-00000006M5P-246s;
+	Tue, 08 Jul 2025 19:36:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1752003412;
+	bh=WxZx8t1eh4Wa0/HuXw8eTnTZeEIt+tpqIk0E/1C2NB0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=AdRtsNSooZH3D7QtkCyl7sMbR1pJf2yfdhxJ2nWyzyXyscHNZIJJ5CFaW0ipHX1G5
+	 2emEQFFsrahH5ms/dRUXzPX/m4hYmeqPNHFAvC0MqXoeWRhCslg6M76+WUIwG1tOvV
+	 RHdERYXRwTVpTcdsIruoSITwnbfAf6AuMVz/qt1oPqJCXQ6SMkvXSsRJmeAFNJNv2q
+	 et5q+lEo/MQHEcX/I+jWIBsLbd5e/xlTMcamDim+39e5I9cnS1dNqvb7kw462dyMIx
+	 XegpoGCWfOUz85y40UTe8biEFvFmbWEPg3R3THyNSKvgZQiZ+gJnjH+8gSJotX7Oi3
+	 jOjR8lB7W+zlQ==
+Received: from localhost (unknown [212.93.144.165])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 834D817E0CF8;
+	Tue,  8 Jul 2025 21:36:52 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH 00/12] Add HDMI 2.1 FRL support to
+ phy-rockchip-samsung-hdptx
+Date: Tue, 08 Jul 2025 22:35:41 +0300
+Message-Id: <20250708-phy-hdptx-frl-v1-0-cfe096e224f4@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250707134451.154346-8-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAA1zbWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDcwML3YKMSt2MlIKSCt20ohzdtGRjY3PzlCTLNKNUJaCegqLUtMwKsHn
+ RsbW1AKDeYUFfAAAA
+X-Change-ID: 20250708-phy-hdptx-frl-fc3377db9f2e
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_123120_261051_624C04B3 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20250708_123655_735165_54515C1C 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,133 +80,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 07, 2025 at 03:44:50PM +0200, AngeloGioacchino Del Regno wrote:
-> Add a binding for the MediaTek MT6363/6373 (and similar) multi
-> function PMICs connected over SPMI.
-> 
-> These PMICs are found on board designs using newer MediaTek SoCs,
-> such as the Dimensity 9400 Smartphone chip, or the Chromebook
-> MT8196 chip.
-> 
-> Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> Link: https://lore.kernel.org/r/20250623120038.108891-2-angelogioacchino.delregno@collabora.com
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  .../bindings/mfd/mediatek,mt6363.yaml         | 115 ++++++++++++++++++
->  1 file changed, 115 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
-> new file mode 100644
-> index 000000000000..0d1078e92232
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
-> @@ -0,0 +1,115 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/mediatek,mt6363.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MT6363 series SPMI PMICs multi-function device
-> +
-> +maintainers:
-> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> +
-> +description: |
-> +  Some MediaTek Power Management ICs (PMICs) found in board designs with
-> +  the Helio, Dimensity and/or Kompanio series of SoCs are interfaced to
-> +  the chip via the System Power Management Interface (SPMI) bus.
-> +
-> +  These PMICs are multi-function devices with various sub modules.
-> +  For example, those may include one, or more of the following:
-> +  - Auxiliary ADC Controller
-> +  - Clock Controller
-> +  - eFuses
-> +  - GPIO Controller
-> +  - Interrupt Controller
-> +  - Keys
-> +  - LEDs Controller
-> +  - Regulators
-> +  - RTC
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt6363
-> +      - mediatek,mt6373
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  '#address-cells':
-> +    const: 0
+The Samsung HDMI/eDP Transmitter Combo PHY is capable of handling four
+HDMI 2.1 Fixed Rate Link (FRL) lanes, while each lane can operate at
+3Gbps, 6Gbps, 8Gbps, 10Gbps or 12Gbps.
 
-The only place 0 is valid is interrupt controllers for some ancient OF 
-reasons.
+This patchset extends the HDMI PHY configuration API to manage the FRL
+mode and provides all the required HDMI driver changes to enable FRL in
+addition to the already supported TMDS mode.
 
-> +
-> +  '#size-cells':
-> +    const: 0
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 3
-> +
-> +  adc:
-> +    type: object
-> +    $ref: /schemas/iio/adc/mediatek,mt6359-auxadc.yaml#
-> +    unevaluatedProperties: false
-> +
-> +  regulators:
-> +    type: object
-> +    additionalProperties: true
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - '#address-cells'
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: mediatek,mt6363-regulator
+The series also contains a few driver fixes/improvements that are not
+directly related, but are not deemed critical enough to warrant separate
+submission.
 
-This is never true because the schema is only applied if the top-level 
-compatibles matched.
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+Cristian Ciocaltea (12):
+      phy: hdmi: Add HDMI 2.1 FRL configuration options
+      phy: rockchip: samsung-hdptx: Reduce ROPLL loop bandwidth
+      phy: rockchip: samsung-hdptx: Prevent Inter-Pair Skew from exceeding the limits
+      phy: rockchip: samsung-hdptx: Use usleep_range() instead of udelay()
+      phy: rockchip: samsung-hdptx: Fix coding style alignment
+      phy: rockchip: samsung-hdptx: Consistently use [rk_]hdptx_[tmds_] prefixes
+      phy: rockchip: samsung-hdptx: Enable lane output in common helper
+      phy: rockchip: samsung-hdptx: Cleanup *_cmn_init_seq lists
+      phy: rockchip: samsung-hdptx: Compute clk rate from PLL config
+      phy: rockchip: samsung-hdptx: Switch to driver specific HDMI config
+      phy: rockchip: samsung-hdptx: Extend rk_hdptx_phy_verify_hdmi_config() helper
+      phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support
 
-Just do this and drop the if/then schemas:
-
-regulators:
-  properties:
-    contains:
-      enum:
-        - mediatek,mt6363-regulator
-        - mediatek,mt6373-regulator
-
-Then the appropriate child schema will be applied. This doesn't enforce 
-you didn't use mediatek,mt6363-regulator on mt6373 PMIC or vice-versa,
-but I don't that really matters.
-
-> +    then:
-> +      properties:
-> +        regulators:
-> +          $ref: /schemas/regulator/mediatek,mt6363-regulator.yaml#
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: mediatek,mt6373-regulator
-> +    then:
-> +      properties:
-> +        regulators:
-> +          $ref: /schemas/regulator/mediatek,mt6373-regulator.yaml#
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 652 ++++++++++++++++++----
+ include/linux/phy/phy-hdmi.h                      |  14 +-
+ include/linux/phy/phy.h                           |   3 +-
+ 3 files changed, 570 insertions(+), 99 deletions(-)
+---
+base-commit: 8d6c58332c7a8ba025fcfa76888b6c37dbce9633
+change-id: 20250708-phy-hdptx-frl-fc3377db9f2e
 
 
