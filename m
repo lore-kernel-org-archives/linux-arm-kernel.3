@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26088C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 08:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07280C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 08:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPcFzV28gTckKKGcU4nKVbu0/g6bq5ILbiLI4W2MNCQ=; b=tr5UqFosOjelS9yubE0HNyA9Xd
-	ROT8j78EfwqSuZsqUyFAFDhLdzpXD+OnEjThFfvLnhPPUL+0qsace9A8pBECGy3979AhN9tc2QL1C
-	H4kzxxmByMQkjhCR6fAclr/02GWPlUjguMH39V7TfvWcw8Iz60R/bzazoBWmn7anbye2hdfwPE9QU
-	Sdbuw+w7n5IWLuhSSMYbhLqPNJ8oMx+uqkGG7iCde0mTuNXtuYtqWP3dDprb6J5zRsefuWj2AgNqI
-	Ci1KKrTi1hOfUUGwdRxxmEKdXDTk6xVia8qmNiNG5XFqr4y3UQu5CAHpGyoEK2Ga1r3RQV2EnLdy7
-	eW6pwxMg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uuu8lpFeY80ClgGsq/Km2nu3i+uX/eGJHhg+l4rKngw=; b=SfLBCnrRFIw03lzS7H4C2Vxoup
+	/nVH+qVz/rdlxuy9eKbjKeMfJ9vTWXTok4DOxF6okh9c9lM05NbOyUHAvGQA0ipRg9gLxajse8bsQ
+	rU+s2MYtjuFopa9+By2fupBNq2BrBq8JhIUawbpJFTrqz2qj46VT43PjLhdtu5+Y4v+gMjNGDXM9o
+	RazOOsS53wSAOEIGQxN46mFph4a38oq+LR8CJpZOYJG6iOdPfOgyQQNT9W/NX2Klf+W6ZA3xufg2G
+	b1kCAo7XrLLRVHkdwltxXwGtb1ZTcBuINcufvUqjZGLAt6MwDhymplogNEVPu6h+fr3gRcEKCRPe3
+	UnunJFCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3jO-00000004ktV-3elE;
-	Tue, 08 Jul 2025 08:31:14 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uZ3lh-00000004lGv-1LFM;
+	Tue, 08 Jul 2025 08:33:37 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ3el-00000004k6Y-2rLS
+	id 1uZ3gc-00000004kNu-29Vf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 08:26:29 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bbvLQ4KxZz6DB82;
-	Tue,  8 Jul 2025 16:25:18 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4DA4B1404A9;
-	Tue,  8 Jul 2025 16:26:22 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 8 Jul
- 2025 10:26:19 +0200
-Date: Tue, 8 Jul 2025 09:26:18 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Alireza Sanaee <alireza.sanaee@huawei.com>
-CC: <mark.rutland@arm.com>, <robh@kernel.org>, <coresight@lists.linaro.org>,
-	<devicetree@vger.kernel.org>, <dianders@chromium.org>,
-	<james.clark@linaro.org>, <krzk@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <linuxarm@huawei.com>,
-	<mike.leach@linaro.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <suzuki.poulose@arm.com>
-Subject: Re: [PATCH 1/5] of: add infra for finding CPU id from phandle
-Message-ID: <20250708092618.000067d2@huawei.com>
-In-Reply-To: <20250707150414.620-2-alireza.sanaee@huawei.com>
-References: <20250707150414.620-1-alireza.sanaee@huawei.com>
-	<20250707150414.620-2-alireza.sanaee@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 08 Jul 2025 08:28:23 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a54700a46eso2115174f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 01:28:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1751963301; x=1752568101; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uuu8lpFeY80ClgGsq/Km2nu3i+uX/eGJHhg+l4rKngw=;
+        b=WYc5CE2+wsp7WraSwv2B8e/eokNneWljmKbdWtD0up0cH17JdJ77tND5DuMkjE+Kdc
+         vst9316fNkLivgCNz5bucw2TYrDj68veQpKrE+jN58Xzf/MIXYa8XIp7Rdu2Zk/7Z6UK
+         F3CQ6niTh2Ij7mzuxyWlHqvTtwvMOxezvg9IjBiIOKr3ZyoCF8XaomtjQ9YOTHtClQzL
+         tP3kjWmbS68kpZVCVC9tVrf4+fCdRHKFnZNVdprW7cLxem3wUyGcwcgHi3LQE9XKb8J3
+         VtGK6NR9U7DBWWHFydOxrcYhymRreUuacPyYMduHng/NiNmvaI0irYF7bvngYrP8wz/P
+         qEnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1751963301; x=1752568101;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uuu8lpFeY80ClgGsq/Km2nu3i+uX/eGJHhg+l4rKngw=;
+        b=WXGpZ3U23HabTjvaFpm+5y/kykGoeBMHoeC/PSa06Rni50onO+QnuscB5biOrlW1/5
+         aGxKhtbR5szRw+oVg6UJtc8GZjVQgLE5FSa/4a1lALDwJuPRwZKT7NqK965MbYSigYvO
+         UzIN2bXgpQv730z8cOcC6hIceiH6xCr4oQYY1ET4aiYTBzgNkOzDUBlp5AMftO5AZJQK
+         KXx+zDx060WPrBG5dCWVXTPE/DCyHbllZot/lMz0GCo9+z9MiX2BquvOaHiljMSXF+4w
+         W+U/pRviYpHTTxklMQ1C6F6trBORzKdPiqCmxlmrPPqkYn5g1bOTCeMV2KN/1smCyNV/
+         9s7A==
+X-Forwarded-Encrypted: i=1; AJvYcCVdOLLfcL51tUrvkOHZq2DS29IbVWxijsRI/3h8AncWAB3aE8G0AGRMENbZQatnsGEO5ydt1ngFeIy7ZHf6uqfh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7gfsN0BOIdiS+zsedqFkw4sG3nssIQKtrzBwtFTh7pghRMW7t
+	b3bGkwOXc2JdHUJXXw+xVcyIJ3RIjY/5O3NHWQr2ryzw6HjspX5EJ8Nuyb+exQ==
+X-Gm-Gg: ASbGncv0o0T6CNVhRcnOJ9aLSpakI2cTr2iE7skRNM6EAGridRayoecFo5klROFayCn
+	zO6CTB+O6JRG4cBIDemrQaTLyF4ka+tumzjqHgSS77OMLMWoZkWFc/RI3ndJrLRF13ouMASsyMg
+	lZQy9yWvsfwQe1US8XwQheahWGaKCW+3g/9C3DCDiopC04YDuV8Nbxrc5C9lULP+zWj/oaS+0jp
+	auyOkSx+yi2a9VKxKoqb6uQpjRL8aEfTclMHO7ZFT3gy1gfPgrJIgSB1nRPtwhScaOmeyHSXFsg
+	GDOq/WK3yTY8yk3EId9xrLzE8jWqv9gKlUm9RuZPBaCriuewKDLc942QosLxVrAJaIfyfA6sKOY
+	p2GIJrGGNi/qLsPqet5+MiPWsl7VuQAbr9EEwEOHeMRQHya0KteYJIA==
+X-Google-Smtp-Source: AGHT+IEMixIAPuGtPEDuQ4OfLFoWm2PdLTuS6TyGGJxnF1mVvyiT8xcKYff9ghRZA8Ouj+E6IW2n6A==
+X-Received: by 2002:a5d:5c11:0:b0:3a4:dd8e:e16b with SMTP id ffacd0b85a97d-3b5dde9588amr1635900f8f.20.1751963300788;
+        Tue, 08 Jul 2025 01:28:20 -0700 (PDT)
+Received: from localhost (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b47285c9f9sm12515888f8f.93.2025.07.08.01.28.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Jul 2025 01:28:19 -0700 (PDT)
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/5] firmware: tegra: bpmp: Add support for Tegra264
+Date: Tue,  8 Jul 2025 10:28:09 +0200
+Message-ID: <20250708082814.1491230-1-thierry.reding@gmail.com>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500003.china.huawei.com (7.191.162.67) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_012628_008783_3A289014 
-X-CRM114-Status: GOOD (  28.01  )
+X-CRM114-CacheID: sfid-20250708_012822_550217_A0586BD9 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,102 +99,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 7 Jul 2025 16:04:10 +0100
-Alireza Sanaee <alireza.sanaee@huawei.com> wrote:
+From: Thierry Reding <treding@nvidia.com>
 
-> Get CPU id from phandle. Many drivers get do this by getting hold of CPU
-> node first through a phandle and then find the CPU ID using the relevant
-> function. This commit encapsulates cpu node finding and improves
-> readability.
-> 
-> The API interface requires two parameters, 1) node, 2) pointer to CPU
-> node. API sets the pointer to the CPU node and allows the driver to play
-> with the CPU itself, for logging purposes for instance.
-> 
-> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
-> ---
->  drivers/of/cpu.c   | 29 +++++++++++++++++++++++++++++
->  include/linux/of.h |  9 +++++++++
->  2 files changed, 38 insertions(+)
-> 
-> diff --git a/drivers/of/cpu.c b/drivers/of/cpu.c
-> index 5214dc3d05ae..fba17994fc20 100644
-> --- a/drivers/of/cpu.c
-> +++ b/drivers/of/cpu.c
-> @@ -173,6 +173,35 @@ int of_cpu_node_to_id(struct device_node *cpu_node)
->  }
->  EXPORT_SYMBOL(of_cpu_node_to_id);
->  
-> +/**
-> + * of_cpu_phandle_to_id: Get the logical CPU number for a given device_node
-> + *
-> + * @node: Pointer to the device_node containing CPU phandle.
-> + * @cpu_np: Pointer to the device_node for CPU.
-> + * @cpu_idx: The index of the CPU in the list of CPUs.
-> + *
-> + * Return: The logical CPU number of the given CPU device_node or -ENODEV if
-> + * the CPU is not found, or if the node is NULL, it returns -1. On success,
-> + * cpu_np will always point to the retrieved CPU device_node with refcount
-> + * incremented, use of_node_put() on it when done.
-> + */
-> +int of_cpu_phandle_to_id(const struct device_node *node,
-> +			 struct device_node **cpu_np,
-> +			 uint8_t cpu_idx)
-> +{
-> +	if (!node)
-> +		return -1;
-> +
-> +	*cpu_np = of_parse_phandle(node, "cpu", 0);
+This extends support for the BPMP to the Tegra264 generation of chips.
+Most of the BPMP is similar to earlier generations, but new features are
+added and old ones deprecated, so a new DT compatible string is added.
 
-Gut feeling is that it would be useful to allow a NULL cpu_np
-for case where they don't want the cpu device_node, just the ID.
+Note that this series is a more logical regrouping of patches sent out
+earlier. Patch 1 was already reviewed, but I've included it here for the
+sake of completeness. Patch 2 addresses review comments from Krzysztof.
+Patches 3-5 contain some minor Kconfig issues as well as the Tegra264
+support in the driver.
 
-For that you'll need a local variable to hold the device_node
-then assign it or put it depending on whether cpu_np != NULL.
+Thierry
 
+Thierry Reding (5):
+  dt-bindings: firmware: Document Tegra264 BPMP
+  dt-bindings: Add Tegra264 clock and reset definitions
+  firmware: tegra: Fix IVC dependency problems
+  firmware: tegra: bpmp: Add support for Tegra264
+  arm64: defconfig: Enable Tegra HSP and BPMP
 
-Maybe there are no users for that pattern though.  If that's the case
-then check !node || !cpu_np for that first check. 
+ .../firmware/nvidia,tegra186-bpmp.yaml        |   1 +
+ arch/arm64/configs/defconfig                  |   2 +
+ drivers/firmware/tegra/Kconfig                |   5 +-
+ drivers/firmware/tegra/bpmp.c                 |   6 +-
+ drivers/soc/tegra/Kconfig                     |   9 -
+ include/dt-bindings/clock/nvidia,tegra264.h   | 466 ++++++++++++++++++
+ include/dt-bindings/reset/nvidia,tegra264.h   |  92 ++++
+ 7 files changed, 568 insertions(+), 13 deletions(-)
+ create mode 100644 include/dt-bindings/clock/nvidia,tegra264.h
+ create mode 100644 include/dt-bindings/reset/nvidia,tegra264.h
 
-
-> +	if (!*cpu_np)
-> +		*cpu_np = of_parse_phandle(node, "cpus", cpu_idx);
-> +			if (!*cpu_np)
-> +				return -ENODEV;
-> +
-> +	return of_cpu_node_to_id(*cpu_np);
-> +}
-> +EXPORT_SYMBOL(of_cpu_phandle_to_id);
-> +
->  /**
->   * of_get_cpu_state_node - Get CPU's idle state node at the given index
->   *
-> diff --git a/include/linux/of.h b/include/linux/of.h
-> index eaf0e2a2b75c..194f1cb0f6c6 100644
-> --- a/include/linux/of.h
-> +++ b/include/linux/of.h
-> @@ -360,6 +360,8 @@ extern const void *of_get_property(const struct device_node *node,
->  extern struct device_node *of_get_cpu_node(int cpu, unsigned int *thread);
->  extern struct device_node *of_cpu_device_node_get(int cpu);
->  extern int of_cpu_node_to_id(struct device_node *np);
-> +extern int of_cpu_phandle_to_id(const struct device_node *np,
-> +				struct device_node **cpu_np, uint8_t cpu_idx);
->  extern struct device_node *of_get_next_cpu_node(struct device_node *prev);
->  extern struct device_node *of_get_cpu_state_node(const struct device_node *cpu_node,
->  						 int index);
-> @@ -662,6 +664,13 @@ static inline int of_cpu_node_to_id(struct device_node *np)
->  	return -ENODEV;
->  }
->  
-> +static inline int of_cpu_phandle_to_id(const struct device_node *np,
-> +				       struct device_node **cpu_np,
-> +				       uint8_t cpu_idx)
-> +{
-> +	return -ENODEV;
-> +}
-> +
->  static inline struct device_node *of_get_next_cpu_node(struct device_node *prev)
->  {
->  	return NULL;
+-- 
+2.50.0
 
 
