@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB9EC83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 11:59:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D70C83F0A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 12:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mxl6kC3SyfXYPZI+86oINoVU7EXBLmnBKdgbQsXZOjA=; b=He88x6jrzLHZopM/xWWDDjW96r
-	ufN76w2KWd1WghIKbamtXiPOE6INWghI0a6+TWINug6xwP2eU/BjkpDOVUr6BYC6FoDRxNmhWKyeJ
-	8TxFyoyWr5jkQVeHoiby1dbsqjFpICUrXPmxw3bzpeqlpYjL2so6acrOY9WiDSkKLGrliWZj5BZIU
-	JHJBAILMWmW7dZBFjOnPSjIhVt53DBVfdRMLrM7pQ3C3Xp9mPy7bkcsR9c4h6GtDZ7PDK6lQZ/IDN
-	zM/150hzmoZ09MPa3k4Ym4mbMPC9p6TDPUCTTRblPb8+mfQlGcLZjqsMZ1XvfvwnOciuG0JZoN3Ru
-	84dC2WNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lHQ0tvNoqJ2yord/lFVua7QgHw4bt6G06+wkrQtEyBg=; b=SCO1dRc1Fr+MqRVGNgpj3sgyfL
+	3U7QphFwYHeTl1VdHNTqdjcFdagSu6LTFOtnyfQpecIdjO/8gQVa9Yfy1IzaLZuZpx0RQMlWmYB+A
+	5b6hAgAnDLnkSmW3ORCtWVN8xNQeiY+6IP5/ztZHnz1pBGuXBJuJypPasuskQNDZ5A839VJiOBeNE
+	52RSvFt30XKBBxjU8RhHmfdgIEEKnPcaAjv0vPeqItl+PDsHdkYaX/FHKhERtBP02PfUuPavOL3q5
+	ZZaMJmSNDMPvBbGI2wrgwdoKIYO7INp+i/vnLN3+5L6g3EwX6glIzImWWj4hTug+Z7F0srxbnEOLp
+	CqjDU3AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ6yx-00000005FIb-3IpN;
-	Tue, 08 Jul 2025 11:59:31 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uZ73a-00000005Foe-0Z5Q;
+	Tue, 08 Jul 2025 12:04:18 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ6fw-00000005DQ6-371M
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Jul 2025 11:39:54 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 568Bdl3m499007;
-	Tue, 8 Jul 2025 06:39:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1751974787;
-	bh=mxl6kC3SyfXYPZI+86oINoVU7EXBLmnBKdgbQsXZOjA=;
-	h=From:To:CC:Subject:Date;
-	b=BWou2GPZiXLNX6iFcYbiJ66NJeRYAT2o/7GJQcEGFjh5LF+a948tDU0EpgTuQOcZ7
-	 /JzM2QaHJoxKVQmKDnuCgM5MmwWVVqMlpSlSGqjj7odxSM6cz5RFb72tgXHP5ifWGH
-	 swdoKqvMT0HwKdnWMsj/SEfG9c+yJygkvUf8Zbmk=
-Received: from DLEE101.ent.ti.com (dlee101.ent.ti.com [157.170.170.31])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 568BdlZM3229883
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 8 Jul 2025 06:39:47 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 8
- Jul 2025 06:39:46 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 8 Jul 2025 06:39:46 -0500
-Received: from hp-z2-tower.dhcp.ti.com (hp-z2-tower.dhcp.ti.com [172.24.227.4])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 568Bdgqi1700412;
-	Tue, 8 Jul 2025 06:39:43 -0500
-From: Hrushikesh Salunke <h-salunke@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <s-vadapalli@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <h-salunke@ti.com>, <danishanwar@ti.com>
-Subject: [PATCH v2] arm64: dts: ti: k3-am69-sk: Add idle-states for remaining SERDES instances
-Date: Tue, 8 Jul 2025 17:09:42 +0530
-Message-ID: <20250708113942.4137917-1-h-salunke@ti.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uZ6wc-00000005F0v-3zIH;
+	Tue, 08 Jul 2025 11:57:08 +0000
+X-UUID: a66352ae5bf211f09eb0dd999d3936bf-20250708
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:Subject:Message-ID; bh=lHQ0tvNoqJ2yord/lFVua7QgHw4bt6G06+wkrQtEyBg=;
+	b=PlWXGtciKBwCtq6tLTILEx8s1pdXfCY+cB8GMT1V6HaIzP7gOt3d6v3m7AwnEDIu5ggyzLtol/z4TH2CVI95o6u4PH1Ix6qwQ2TwVfqrUHVm4dhidnuUCtRo/0RhoEKSlXPdhMgKJVsS/4TPVUJiTILYoP9U9UNtMxS8JuN6C90=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:b08f2ffb-b22d-44b5-b885-ec649444519e,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:3eaefbd7-b768-4ffb-8a44-cd8427608ba6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
+	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: a66352ae5bf211f09eb0dd999d3936bf-20250708
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <mason-cw.chang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1149947007; Tue, 08 Jul 2025 04:56:58 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Tue, 8 Jul 2025 19:56:54 +0800
+Received: from [10.233.130.16] (10.233.130.16) by mtkmbs13n2.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.1258.39 via Frontend
+ Transport; Tue, 8 Jul 2025 19:56:54 +0800
+Message-ID: <b014c34a560854e6dd6a6dd483b9443f42252b51.camel@mediatek.com>
+Subject: Re: Aw: [PATCH 0/3] thermal/drivers/mediatek/lvts_thermal: add
+ mt7988 lvts commands
+From: Mason Chang <mason-cw.chang@mediatek.com>
+To: "rafael@kernel.org" <rafael@kernel.org>, "daniel.lezcano@linaro.org"
+	<daniel.lezcano@linaro.org>, "rui.zhang@intel.com" <rui.zhang@intel.com>,
+	"lukasz.luba@arm.com" <lukasz.luba@arm.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Nicolas Prado
+	<nfraprado@collabora.com>, "jpanis@baylibre.com" <jpanis@baylibre.com>,
+	"npitre@baylibre.com" <npitre@baylibre.com>, "colin.i.king@gmail.com"
+	<colin.i.king@gmail.com>, "u.kleine-koenig@baylibre.com"
+	<u.kleine-koenig@baylibre.com>, "wenst@chromium.org" <wenst@chromium.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "daniel@makrotopia.org"
+	<daniel@makrotopia.org>, Frank Wunderlich <frank-w@public-files.de>, Steven
+ Liu =?UTF-8?Q?=28=E5=8A=89=E4=BA=BA=E8=B1=AA=29?= <steven.liu@mediatek.com>,
+	Sam Shih =?UTF-8?Q?=28=E5=8F=B2=E7=A2=A9=E4=B8=89=29?=
+	<Sam.Shih@mediatek.com>
+Date: Tue, 8 Jul 2025 19:56:54 +0800
+In-Reply-To: <trinity-e9eaf8fd-42f1-46d5-b1df-3bfefe02b2fe-1750057280436@trinity-msg-rest-gmx-gmx-live-b647dc579-tr2th>
+References: <20250526102659.30225-1-mason-cw.chang@mediatek.com>
+	 <trinity-e9eaf8fd-42f1-46d5-b1df-3bfefe02b2fe-1750057280436@trinity-msg-rest-gmx-gmx-live-b647dc579-tr2th>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_043952_909606_F95A361E 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20250708_045706_996441_6BE77741 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +100,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In AM69 SoC there are 4 instances of the 4 lane SERDES. So in
-"serdes_ln_ctrl" node there are total 16 entries in "mux-reg-mask"
-property. But "idle-states" is defined only for the lanes of first two
-SERDES instances. SERDES lane mapping is left at its reset state of
-"zero" for all four lanes of SERDES2 and SERDES4. The reset state of
-"zero" corresponds to the following configuration:
+On Mon, 2025-06-16 at 07:01 +0000, Frank Wunderlich wrote:
+>=20
+> External email : Please do not click links or open attachments until
+> you have verified the sender or the content.
+>=20
+>=20
+> > Gesendet: Montag, 26. Mai 2025 um 12:26
+> > Von: "Mason Chang" <mason-cw.chang@mediatek.com>
+> > Betreff: [PATCH 0/3] thermal/drivers/mediatek/lvts_thermal: add
+> > mt7988 lvts commands
+> >=20
+> > Add the LVTS commands for Mediatek Filogic 880/MT7988.
+> >=20
+> > This series fixes severely abnormal and inaccurate LVTS temperature
+> > readings when using the default commands.
+> >=20
+> > Signed-off-by: Mason Chang <mason-cw.chang@mediatek.com>
+>=20
+> Hi
+>=20
+> just a friedly reminder for maintainers, is the patch series ok or
+> does it need any changes?
+>=20
+> regards Frank
 
-Lanes 0 and 1 of SERDES2 are unused
-CPSW MAC Ports 1 and 2 mapped to lanes 2 and 3 of SERDES2
-EDP Lanes 0, 1, 2 and 3 mapped to lanes 0, 1, 2 and 3 of SERDES4
+Hi all,
 
-For completeness, define the "idle-states" for the lanes of remaining
-SERDES instances.
+I submitted the patch a while ago, but haven't received any response
+from the maintainer yet. I would really appreciate it if any maintainer
+could take a look or provide some comments.
 
-Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
----
-This patch is based on commit
-26ffb3d6f02c  Add linux-next specific files for 20250704
+If there is a more appropriate maintainer or reviewer for this patch,
+please kindly let me know or help forward it.
 
-Changes since v1
-As pointed by out by Siddharth, setting lanes of remaining SERDES
-to "unused" will cause regression on AM69-SK as these lanes are used
-by CPSW and Display. Updated patch to set the desired values for
-remaining serdes lanes.
+Thank you very much for your time and help!
 
-Rebased on current next.
-
-v1: https://lore.kernel.org/all/20250609115921.2380611-1-h-salunke@ti.com/
-
- arch/arm64/boot/dts/ti/k3-am69-sk.dts | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk.dts b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-index f28375629739..e803fa139b73 100644
---- a/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-@@ -1294,8 +1294,12 @@ partition@3fc0000 {
- &serdes_ln_ctrl {
- 	idle-states = <J784S4_SERDES0_LANE0_PCIE1_LANE0>, <J784S4_SERDES0_LANE1_PCIE1_LANE1>,
- 		      <J784S4_SERDES0_LANE2_PCIE3_LANE0>, <J784S4_SERDES0_LANE3_USB>,
--			<J784S4_SERDES1_LANE0_PCIE0_LANE0>, <J784S4_SERDES1_LANE1_PCIE0_LANE1>,
--			<J784S4_SERDES1_LANE2_PCIE0_LANE2>, <J784S4_SERDES1_LANE3_PCIE0_LANE3>;
-+		      <J784S4_SERDES1_LANE0_PCIE0_LANE0>, <J784S4_SERDES1_LANE1_PCIE0_LANE1>,
-+		      <J784S4_SERDES1_LANE2_PCIE0_LANE2>, <J784S4_SERDES1_LANE3_PCIE0_LANE3>,
-+		      <J784S4_SERDES2_LANE0_IP2_UNUSED>, <J784S4_SERDES2_LANE1_IP2_UNUSED>,
-+		      <J784S4_SERDES2_LANE2_QSGMII_LANE1>, <J784S4_SERDES2_LANE3_QSGMII_LANE2>,
-+		      <J784S4_SERDES4_LANE0_EDP_LANE0>, <J784S4_SERDES4_LANE1_EDP_LANE1>,
-+		      <J784S4_SERDES4_LANE2_EDP_LANE2>, <J784S4_SERDES4_LANE3_EDP_LANE3>;
- };
- 
- &serdes_wiz0 {
--- 
-2.34.1
+Sincerely,
+Mason
 
 
