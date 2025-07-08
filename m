@@ -4,63 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B7AC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 13:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 515CDC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Jul 2025 13:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e4FqGDUimOCscH/wLtPWPgK8iymMseRgYDBBFn49m3I=; b=1ADLLWO334/CqGW0ejwkA4VD9i
-	fKd7y/VsjdPCdqjpdXaLgEZG9dVDlcx8TjZuUBvhVwRQaY6OqRaQRbUiGzdPJUnpag/jSP6J9taxX
-	+EWgL7DKOEWRVtHRsYp+DSQW6xK2XbWGDWEDfh+uziPvBagC4uLKay66rmBrifIrcbIeYfwg5WCFk
-	K/4Aq61thgYYe3iYGIZS4N/BE/NN+9ie9mNFTtQix6fJwL3kWat2DGZ9H7PWhMIp10Ub/JbBHkdDb
-	It8kVXqZoz9obaMm7Vtch+KoHvisDngBzdUgA79E3h8gCMCfWzvv7S0ovkx7zz9kgc/2ba3HLWQuF
-	HkFXM+Jw==;
+	bh=ApQxQ2lppQWseneQc3DS7LDh6SkhL/C8vezEttdY7dQ=; b=b8632gJ12OV1yIx6BpCPQ0Lw+/
+	FudJeEHrLERBMFGMpMk+kd8Qzw1qgxVDWxlqt7AdxKw9mrwenmcpSF6kUVUOJC13Z99igsdCF3Qhm
+	/BHaHmYWOhkRZmWpnA8vgfOJrMjOapEtpgDllXNZ2VF54f4LnH+7l7SeSkbfX+wEE4lMH1+JPnu8A
+	wjeoiwRzyJEI4inobuD1fxn95AfWTtaF5WflP57fLuNQzra+u0Pcy3M1cj0rirAqMwwW4H1TcX5Ch
+	vYxeZJChn89thO/lnoGOlX+TWuaP0gVyBhbijvfRUVb14koqJC/UH9kEn0lu3HaZREF3rzuRQY3aN
+	JTp+4w+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ8Xy-00000005T25-1yVl;
-	Tue, 08 Jul 2025 13:39:46 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uZ8aH-00000005TJ5-0oOK;
+	Tue, 08 Jul 2025 13:42:09 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZ8KT-00000005QSf-0np1;
-	Tue, 08 Jul 2025 13:25:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=e4FqGDUimOCscH/wLtPWPgK8iymMseRgYDBBFn49m3I=; b=FbvK9d2cYqRTA6f+OB/PfGUYz0
-	hbNtRpmG82rIexs05ZhcQXbLTIbYBSjCqpCsqdXEhIlb5zaEGTRNuZBR7XMtiirgn7jigWMSfc20R
-	LrachD5VSFe0fsC+dYmSd5vspRuiQff0xlTf7efBSxZbbbWPVVQnv/OKFzv7zDu2kjabjI66nTh5s
-	D5QhdhPGFvIOzmwJr5Ati1dMJR044Af5Ecj3dsxHITFoIbyyW09fMHuK1QPFxV9exOwFAH+olh/BQ
-	YPgz6gm3caJXSmSqe85T5FPMvfsdUXQoWefEdsqXeeofbwM06BDh85MuOTSBUcxVM6g4Ym3e2DnxO
-	l7Azzg8w==;
-Received: from i53875a8d.versanet.de ([83.135.90.141] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uZ8KH-00046A-4E; Tue, 08 Jul 2025 15:25:37 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: mripard@kernel.org, andy.yan@rock-chips.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, andyshrk@163.com, hjc@rock-chips.com,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- tzimmermann@suse.de, conor+dt@kernel.org, dri-devel@lists.freedesktop.org,
- quic_jesszhan@quicinc.com, maarten.lankhorst@linux.intel.com,
- neil.armstrong@linaro.org, krzk+dt@kernel.org,
- nicolas.frattaroli@collabora.com
-Subject: Re: [PATCH 00/13] Support DSI output on rk3576 and roc-rk3576-pc board
-Date: Tue, 08 Jul 2025 15:25:36 +0200
-Message-ID: <4979799.uZKlY2gecq@diego>
-In-Reply-To: <175198090646.436895.4175521744544423549.robh@kernel.org>
-References: <20250707164906.1445288-1-heiko@sntech.de>
- <175198090646.436895.4175521744544423549.robh@kernel.org>
-MIME-Version: 1.0
+	id 1uZ8LI-00000005Qf4-0Yxw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Jul 2025 13:26:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cQCEbXf6QUIPMFj+LTEJZyPnBxpfbe4ue2DQuDsWZLDCTXAWrxiBH9eXSh5toggtOgtusXWS7Isi8fY/jNc8ChDxXm8eI41a2zV7sL1XEF0069u0mX7ifwPKegNoyLX1VLFUKp8evD5NrIOdQfsZaN3zOoQcejCI4w0/jZp5YoH7UECaC8Xtt0p7uzU4rlNUeYkbY6rM7PxiK4Gnp4LO/xGShjgRuIFxOFcjRQISBbzCGEGxiA5nMPar5ZkoB3s9ceeIoHboike5OemTolNfjkGo3RQMU1LQoOCFdWvw22QxfI58SYhSX8GBPxIqSlz3Yi4kn7Y514jRk00133WOQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ApQxQ2lppQWseneQc3DS7LDh6SkhL/C8vezEttdY7dQ=;
+ b=SrPDIoesDrlQZz0pxTnnX8c/yiPi2GGfUdFNNpZcV1aA4yHY1yK2FT4Xks7sq7z6GAejtE4n1e89gfu9WpwkSB7bIPAAMTqMCrlH+BGmBWI2tufBjg9b2BPgJZEgtxNNxbltAjqIqKFx0lR2UTcZZAtRICrcn2NO1b9yN9Ro+NKWG/rXjcP/sStq9XTkeTso4Q8A5tQAXZeH9KrSV1Ku7rqqRPowBjmnZe9Ctd63ZFAEN+HwtRjL7XmdbQb8fHCzhAxwNaKJd9l+9XVGpTmxz73vneiyZw59PkO9h1qGvTMNsHXF7Dz/dxxBl6IWvVudOt6ylJonsBQQsYauiV7hTg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ApQxQ2lppQWseneQc3DS7LDh6SkhL/C8vezEttdY7dQ=;
+ b=SbvSm5WATVXHt54HAR+sVSmHhigTHeXgdEXqwFiABle5oktgjDurtNDldTr4oOHixv6S8U7SiALiAHSmtENae20Jr5JO/NYnOCOb+wwOorKThg1RrsitG4uF4FV74ENyBth6q+cOoomtedAAHagzKjt2sPQI3G+J6ki6vGlc1zTMhg1e1VYbFMv0sOZidwRWbYDochnjydvNnciJW1j0zog9Mvwf/nmZWHaVOPETdeITQ6ZBA71DlAF/j87ua5bQnCAT3z7TNrDJ5sHge1CHYyPLJJwHBq7Q14KV7rUpUVpN3kP5snJF+3gRfWxhdTLbJHEx2FTbLasG+SAtmiALpQ==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI2PR04MB10787.eurprd04.prod.outlook.com (2603:10a6:800:26d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.25; Tue, 8 Jul
+ 2025 13:26:31 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8901.024; Tue, 8 Jul 2025
+ 13:26:31 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Abel Vesa <abel.vesa@linaro.org>
+CC: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Abel
+ Vesa <abelvesa@kernel.org>, Frank Li <frank.li@nxp.com>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "Laurentiu Palcu (OSS)"
+	<laurentiu.palcu@oss.nxp.com>, Sandor Yu <Sandor.yu@nxp.com>
+Subject: RE: [PATCH v3 0/6] clock: imx95: Add LVDS/DISPLAY CSR for i.MX94
+Thread-Topic: [PATCH v3 0/6] clock: imx95: Add LVDS/DISPLAY CSR for i.MX94
+Thread-Index: AQHb7uaPiYKsRO22VkG0qOvyod5AK7Qn9TmAgABDrvA=
+Date: Tue, 8 Jul 2025 13:26:30 +0000
+Message-ID: <PAXPR04MB845974EA50A29C478394CCB3884EA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250707-imx95-blk-ctl-7-1-v3-0-c1b676ec13be@nxp.com>
+ <aGzizyLX8HDWsWWm@linaro.org>
+In-Reply-To: <aGzizyLX8HDWsWWm@linaro.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|VI2PR04MB10787:EE_
+x-ms-office365-filtering-correlation-id: 8bc5a710-fd23-44db-94c5-08ddbe230d41
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?2S9K9EKuWZuVJaQTRveJckM3LOhUTRA5bt9+Gg0GT2dIpPR2RzgCMVYiY3vD?=
+ =?us-ascii?Q?uv+ZRWmEXgyAOtbPluWNOdYJIPqdKELI3VNUaKM/rpfKzxoBk59E5nuCsydL?=
+ =?us-ascii?Q?GJDILgoa7caZHLB5umDRVz8NHihCtFss60ds+ZRoPKjNo0JrS0YqVlXjuZb2?=
+ =?us-ascii?Q?WcH/Ak3vHQ6+owfr8aYbG/vZnI17TTxbrQb4Y9AXG+37rSMf21YrURCSOg44?=
+ =?us-ascii?Q?hMvXra8O5atKYNCckApyHiFYBSTZZ6qMOm9R6GwI2CsKmg2/RoetI1+73xwo?=
+ =?us-ascii?Q?WRStxC5fv6LUlLeiNGQHY1zPOTQ/OjBv7Gssf5A+yT/wYh369xWZu3DocDEb?=
+ =?us-ascii?Q?2ZOkhdKhZFrqZxuTPgrxMPdES6WyH9vTDf/a1BWCnw4Ni/AezJXRNuVkxXT8?=
+ =?us-ascii?Q?Q/ODVMgi4CpW6jx9eqZrIxDxYTWVOCBuqwpk8xJI8eSF4/ltR5bQSsFiCRQG?=
+ =?us-ascii?Q?4AKooDI3Ct3uvWz0T+SujndUsIynQEkRvT0NofnvTQss/NgpAP80Laly92Yt?=
+ =?us-ascii?Q?/QuVwMMTo6rsTUYHN02ElbF+PNY6Va2DFwUU0rtfBb0ArQvsYuQ7dUyh59Ao?=
+ =?us-ascii?Q?QzDBLUfKvgJLt8hqlC5P6869lh+fidKqcCiRIkqWEljyN7Wnm1ZUMesXErhN?=
+ =?us-ascii?Q?4UIV0wWzemY1k2oopmT9z+TOrg0cIgEqEcrjwEXTWsv8wMDnOeuwMHOrilRq?=
+ =?us-ascii?Q?zBD7yvDnZwMIRMYeYLmkytEqmKX27EWH7hvWRLSJb11IXRcnsRPv6fXS7wyE?=
+ =?us-ascii?Q?ibPea61uy3gYxpC+mpNwTVWRT6RI4KO62DjJWohtUyHu36LWgsE7HqVVw4pU?=
+ =?us-ascii?Q?2i/f2q0D2C0wySmxDwaanTMkiKlN5GKDOVeFT+D9xjG4EKvHVQITufKVibJS?=
+ =?us-ascii?Q?pnvvYnnI0TF/+8pWursmvIKITMtUjoFD7NtLNAqZZAqcPdckP8NYWTAwUfjV?=
+ =?us-ascii?Q?xr9qmcCra+f30wpKustKkKJnNHbQZo88e9CroG6YdDGCH0Ez9RzT1Ec6rEv3?=
+ =?us-ascii?Q?Td7hlXEdD0sq43RZd6i7SpcFy1+mPovvDABBrPkOaJxFhsPry8u/rBOO9u/D?=
+ =?us-ascii?Q?9z5+lDrf+j98syWQcgH62v0eLoORMZyQKvT9TO7kM+Y2Dwtnxvau1hGwy4aQ?=
+ =?us-ascii?Q?s7HHxMD/wffRSdIZBqnaqKIo+IDn1Ws+Npk56iuXwRA5NRtET0dgE091jlWc?=
+ =?us-ascii?Q?0bqdX4RT/hrTlf4fdgelZWeo77jxWJWHrU6RlcvE6PKHVfFAu0e1CLAZ7bZ+?=
+ =?us-ascii?Q?oJpsT9lE9CfxiI/Vk578sKcGJQqncF17P6aSlQQ6yXzrpwkVP1NeAODr3jS7?=
+ =?us-ascii?Q?CZREXXwIWOL2gYsXUtrBq1HyY7zN6h/25zcWC+ICqFFVkhuPLJAFPTOuepuc?=
+ =?us-ascii?Q?madM9CPwt4LFvrqPis6Emtex2GBYmcne5HX8b6hFABz+DXvcMx8TQkYMHJnY?=
+ =?us-ascii?Q?8L4oe66d7ri2ytJQxOb1c0igVE39Q4lNq6DpM9FvH/IZEa9asdAjJQ=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Ok64L3eJPXeuEsW0oD/bgQib5IVnhPr7uRAr4MTnpkSTfdw3XkYr703UKvC7?=
+ =?us-ascii?Q?EuqGdtbfyfFX4Qi+huZrNr8tGV8jaCzc6fdDWk2uH1/keIIvBUKsEZfWuio9?=
+ =?us-ascii?Q?WzcY0w9QuaAFO3hAwxzCoQBvXBIsTfzFoXMd6Yd6oJvbFtOzczjJsNX9q3GI?=
+ =?us-ascii?Q?GWSdc+neMmQBCX4yHYJq2dFy7gZmeGjJH6vnA03BCkI38cB6q/sB9n82yzHs?=
+ =?us-ascii?Q?Seq7OtTjoZDkbHIDm2oBWBf9K7orgGNMQbV3GlQPhxiaoJ5svWVoOfEAGMAH?=
+ =?us-ascii?Q?fBVxm2rAYZizGnn9wIAYSLOntEOnZj+W6D2Vx0NheVvo4htt+v6BoIEEesuB?=
+ =?us-ascii?Q?YgOt83bebR9A4D6ZLC0mUz+6wcN9BsJfYCrqiWOztn7znYPES4WGkiYMwZyd?=
+ =?us-ascii?Q?/3jqjm9R9klgbh+Oajd3GHDeijP5LDCGRG1fNTrgmPwai/Cqpi/IXWpCPmAZ?=
+ =?us-ascii?Q?S2KYV4aUDaXjVPeB8MaYQjQ+3ygYVyd4qDhqR4zb0SYMOUE4xUXzYxZBPi8C?=
+ =?us-ascii?Q?XBn3sHP7qi0otefhATKTZ760tFQrIdvr/cVqrytJttIDTeFpbXR9Hw9rBMhS?=
+ =?us-ascii?Q?1/gyaryfKLwNgMWkjK7UZi1xCnkb2IaqP5pjG2J7FGTpP7k+HTCDlmgBYxK1?=
+ =?us-ascii?Q?CRoJdVpMg7cLd8Y0RL4VFM3yDFP6n/u1BTwXqEGbPw4PkYT4mHt1CKHWHTwi?=
+ =?us-ascii?Q?fUMzNGGycWPqDOHyVB68vCU4O2GTo8reSrgzNp++Ja/bEoqLT4ZqzlUa0Z92?=
+ =?us-ascii?Q?hjY7C1vw0lOWJzaKH7eRO+Di0AaDQWmMhf42PKSwOIz8rXZYbSrWgzg2fck8?=
+ =?us-ascii?Q?MPj55wYyJGprfRzh2pejSlVX/pgAPXrDzQB1yFPX4DqlI4vZBFCyTVZya+pc?=
+ =?us-ascii?Q?Yt4XKC5dCcbsyTcO3HUDyzb4kuwLYpd7HnJwHRFT1PDLY8gridSdFTm4SH/j?=
+ =?us-ascii?Q?HujjsUa+Utf5Bb5v4G8G6AL/00HX8QV6lT2f911qgJoUMyzwgTicfCpA5Z+6?=
+ =?us-ascii?Q?xKDX0sF+Vu3C/7lz1M5YAwCIgFsGonO/paD34Q3Gg5q7fT34iwCBpi1TG19P?=
+ =?us-ascii?Q?8omWtbdmy7XHG//Oz4zFJIpg3H8RFwhv30eHuLs/OrYBaQpEpBWDFHbySyte?=
+ =?us-ascii?Q?3m0YfyWtTsez1b6yqsOXBY5pVPVTG77XaqqgZp/6DrwV8nU8DiBEXkhVEzbG?=
+ =?us-ascii?Q?tE1Ra9ovXqXjsM5mRDLoOOD7jm/b+Sd9kXHzbekhX1sZ5R6Ivk6fhxNhQvBi?=
+ =?us-ascii?Q?auHnQ7W2Y0wK7nkJ4aIeOokOW3NROHYSMw7JG75HNhR6QkBy7zoOMG4EDwyj?=
+ =?us-ascii?Q?S8L/2GqUW/1EXA67x+y3dLTPp9Uy+M+u5tVxXzCnu8HWod+xLc+/dWzSe8Dr?=
+ =?us-ascii?Q?22R2qeTjpV0T6XdseRLuGsBFmVpubtkQYVw5gAnBXkPd6cr1UDGDtH6xeB38?=
+ =?us-ascii?Q?3LyJhXCBl43F5xcwCMLa6YmiuQNGLmPXtKlGHzHPgRChC6pddU8x+2rkt7e9?=
+ =?us-ascii?Q?qSa0K7r5ilJv2xeZ9YkcmWdRFFxg7hEH6lDFHCSW6MGbO6KpQZBwPx9Fx1l6?=
+ =?us-ascii?Q?AzsrYwq0VLm1E6uXINE=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8bc5a710-fd23-44db-94c5-08ddbe230d41
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jul 2025 13:26:31.1460
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 0bP24oE5k3Sa0M9jd7Yn85jely5A+WEam7TovUls5hr+qXs0yWaZqo8N6Omtrs4MZiLplV7zLHkrFTvzz4SKNg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10787
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_062549_392956_C24B9692 
-X-CRM114-Status: GOOD (  29.34  )
+X-CRM114-CacheID: sfid-20250708_062640_188437_89E81674 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,179 +170,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 8. Juli 2025, 15:23:32 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Rob Herring (Arm):
->=20
-> On Mon, 07 Jul 2025 18:48:53 +0200, Heiko Stuebner wrote:
-> > This enables all the necesary bits and bindings to get display output
-> > on the dm-m10r800-v3s addon module for the Firefly roc-rk3576-pc board.
-> >=20
-> > A bit of cleanup of the ili9881c, because the driver was still trying
-> > to send dcs commands when the underlying DSI driver might have already
-> > switched to video-mode, which caused me quite a bit of headache until
-> > I realized this being the culprit for my garbled display output :-) .
-> >=20
-> > Only the last patch has a dependency on Nicolas' pwm series [0]
-> > everything else, is directly usable.
-> >=20
-> >=20
-> > [0] https://lore.kernel.org/lkml/20250602-rk3576-pwm-v2-0-a6434b0ce60c@=
-collabora.com/
-> >=20
-> > Guochun Huang (1):
-> >   drm/rockchip: dsi2: add support rk3576
-> >=20
-> > Heiko Stuebner (12):
-> >   drm/panel: ilitek-ili9881c: turn off power-supply when init fails
-> >   drm/panel: ilitek-ili9881c: move display_on/_off dcs calls to
-> >     (un-)prepare
-> >   drm/panel: ilitek-ili9881c: convert (un-)prepare to
-> >     mipi_dsi_multi_context
-> >   dt-bindings: vendor-prefixes: Add prefix for Shenzhen Bestar
-> >     Electronic
-> >   dt-bindings: display: ili9881c: Add Bestar BSD1218-A101KL68 LCD panel
-> >   drm/panel: ilitek-ili9881c: Add Bestar BSD1218-A101KL68 support
-> >   dt-bindings: soc: rockchip: add rk3576 mipi dcphy syscon
-> >   dt-bindings: display: rockchip: Add rk3576 to RK3588 DW DSI2
-> >     controller schema
-> >   arm64: dts: rockchip: add mipi-dcphy to rk3576
-> >   arm64: dts: rockchip: add the dsi controller to rk3576
-> >   arm64: dts: rockchip: add vcc3v3-lcd-s0 regulator to roc-rk3576-pc
-> >   arm64: dts: rockchip: add dm-m10r800-v3s overlay for roc-rk3576-pc
-> >=20
-> >  .../display/panel/ilitek,ili9881c.yaml        |   1 +
-> >  .../rockchip/rockchip,rk3588-mipi-dsi2.yaml   |   1 +
-> >  .../devicetree/bindings/soc/rockchip/grf.yaml |   1 +
-> >  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
-> >  arch/arm64/boot/dts/rockchip/Makefile         |   5 +
-> >  .../rk3576-roc-pc-dm-m10r800-v3s.dtso         | 134 ++++++++
-> >  .../arm64/boot/dts/rockchip/rk3576-roc-pc.dts |  16 +
-> >  arch/arm64/boot/dts/rockchip/rk3576.dtsi      |  50 +++
-> >  drivers/gpu/drm/panel/panel-ilitek-ili9881c.c | 301 ++++++++++++++----
-> >  .../gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c  |  21 ++
-> >  10 files changed, 475 insertions(+), 57 deletions(-)
-> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-roc-pc-dm-m10r8=
-00-v3s.dtso
-> >=20
-> > --
-> > 2.47.2
-> >=20
-> >=20
-> >=20
->=20
->=20
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->=20
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->=20
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->=20
->   pip3 install dtschema --upgrade
->=20
->=20
-> This patch series was applied (using b4) to base:
->  Base: attempting to guess base-commit...
->  Base: tags/v6.16-rc1-17-g63289206e26f (best guess, 8/9 blobs matched)
->=20
-> If this is not the correct base, please add 'base-commit' tag
-> (or use b4 which does this automatically)
->=20
-> New warnings running 'make CHECK_DTBS=3Dy for arch/arm64/boot/dts/rockchi=
-p/' for 20250707164906.1445288-1-heiko@sntech.de:
->=20
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm1:pwm1m1-ch5:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm0:pwm0m1-ch1:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): i3c1:i3c1m1-xfer:rockchip,pins:0:2: 14 is greater than the maximu=
-m of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): i3c1:i3c1m1-xfer:rockchip,pins:1:2: 14 is greater than the maximu=
-m of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): i3c1_sda:i3c1_sdam1-pu:rockchip,pins:0:2: 14 is greater than the =
-maximum of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm2:pwm2m1-ch1:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm2:pwm2m0-ch4:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm2:pwm2m1-ch0:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm2:pwm2m0-ch2:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm2:pwm2m1-ch2:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm2:pwm2m1-ch5:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm2:pwm2m1-ch6:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm2:pwm2m0-ch3:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: pinctrl (rockchip,rk3576-=
-pinctrl): pwm2:pwm2m1-ch3:rockchip,pins:0:2: 14 is greater than the maximum=
- of 13
-> 	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.=
-yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: syscon@26034000 (rockchip=
-,rk3576-dcphy-grf): clocks: False schema does not allow [[21, 492]]
-> 	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: syscon@26034000 (ro=
-ckchip,rk3576-dcphy-grf): clocks: False schema does not allow [[20, 492]]
-> 	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: syscon@26034000 (rockch=
-ip,rk3576-dcphy-grf): clocks: False schema does not allow [[21, 492]]
-> 	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
-> arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dtb: syscon@26034000 (rockchi=
-p,rk3576-dcphy-grf): clocks: False schema does not allow [[21, 492]]
-> 	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
+Hi Abel,
 
-that stems from the depdency on the pwm-series of only the last patch in
-this series - see cover-letter above.
+> Subject: Re: [PATCH v3 0/6] clock: imx95: Add LVDS/DISPLAY CSR for
+> i.MX94
+>=20
+> On 25-07-07 10:24:36, Peng Fan wrote:
+> > Similar to i.MX95, i.MX94 also has LVDS/DISPLAY CSR to provide
+> clock
+> > gate for LVDS and DISPLAY Controller. So following same approach to
+> > add the support, as what have been done for i.MX95.
+> >
+> > Patch 1 is to add the binding doc.
+> > Patch 2 is fixes when supporting i.MX94, but the issues are also
+> > exposed to i.MX95 even not triggered. No need to rush the two
+> patches
+> > for 6.16.
+> > Patch 3 and 4 is to add the clk driver. Patch 3 is almost picked from
+> > NXP downstream with a minor update. Patch 4 is modified from NXP
+> > downstream with a few minor patches merged and updated.
+> > Patch 5 is the dts part to give reviewer a whole view on how it is used=
+.
+> >
+> > Thanks for Frank Li helping do NXP internal review for the patchset.
+> >
+> > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>=20
+> For some reason, this doesn't apply cleanly.
+>=20
+> Can you rebase on 6.16-rc1 and resend?
 
+The patch was picked by Stephen as a fix.
+clk: imx: Fix an out-of-bounds access in dispmix_csr_clk_dev_data
+aacc875a448d363332b9df0621dde6d3a225ea9f
 
-Heiko
+Your tree does not have the upper patch, so
+there is conflict when applying the patchset.
 
+You may need to update your base.
+
+Please let me know if I still need to resend the patch
+without the upper fix included.
+
+Thanks,
+Peng.
+
+>=20
+> Thanks,
+> Abel
 
 
