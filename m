@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F67DC83F15
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7162EC83F14
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PA635fLGCS0NrvZmQVzTNvxrmq6F6hTV8hfUxbt5esA=; b=acMplI+7Ge2P+Zzanw7IcPV3qI
-	iS6cVd8RKN6lM/usE62X+bfu0iiNCb3roUqdjI8xBOTV2/08RzWaJJXmS0Yw/py9bBVVvSOfDD3V7
-	Jyy74Lv9a5cz80bumPcJC6CNfhds+bdMXgv/RfVBICedRr+F8+LSEC6q/OuwKN08gOv2DOkPNEHLQ
-	iJfvvRwxX9GISkCBYmaqB3IyYqnQ57AWOlKuwyC7sm3KxhI1aZxoJnFNgFCShJGt6HJcBIzp22FY+
-	2w3ZAHx1k1rJ/UkFzqTsjq0pJCjT4xMuMI9u/SU+uo2pjI4b33t2YTcNRU5pTP4MdETGJqu1PMFEq
-	oZ7Ci1+Q==;
+	bh=qCAP9oUJOsFvGWTLrKOXFPth+eKlOP4E6OXsGQLMlq4=; b=NNj8oPRRwJHpr7yUG5uHxCWc1L
+	dZjxfVVyVBUSwC03KRAUNK6G7AOOHoxnwg+9c5esJA6ekU2VjTqrj8P/FEjsK7PPsVu6wbh8ljvtb
+	NYGJMd2F61vcPpjpaEKNjRDKDikA5MHOUABqHvCiye9GP/Jr4dRjkJxN/YC4OKW3ckgPcPwjeEavV
+	Pq0XggEabOqdJhRCeKSTBll4V5H5nyAla3RKuKVa07niNrnjhS7cHqdYdtk6bWYDI7VURqcuyJ9Uz
+	iffGSTlh8ZTPpL6kyBRNf15UMrd80P5v3gGCWS2J7pdqlYniaXzBgiDw97ShzzJgcjO4R16gruZEw
+	sj7ZEl4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZaFE-00000009fUs-0X4a;
-	Wed, 09 Jul 2025 19:14:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZWjy-00000009Ain-1vvv
+	id 1uZaFG-00000009fXb-3m9e;
+	Wed, 09 Jul 2025 19:14:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZWs9-00000009Bkn-1ZQ0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 15:29:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1CE521424;
-	Wed,  9 Jul 2025 08:29:34 -0700 (PDT)
-Received: from [10.57.86.38] (unknown [10.57.86.38])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E72943F738;
-	Wed,  9 Jul 2025 08:29:41 -0700 (PDT)
-Message-ID: <8757342e-26e6-467c-a469-0ac1120bcdd9@arm.com>
-Date: Wed, 9 Jul 2025 16:29:39 +0100
+	Wed, 09 Jul 2025 15:38:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B715343EB8;
+	Wed,  9 Jul 2025 15:38:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1C79C4CEEF;
+	Wed,  9 Jul 2025 15:38:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752075492;
+	bh=Xl25DKWUzLXWpg5KhyYoRSsxahTDR5DpYlzJd9W9CaA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=uYdDGgmoD68kb2rNpNP/hz5SiwAXDsyvezTzMSDMKDb2YClMAF2yt/AxOjTPs7sNl
+	 ZTOE8jKrng1ejwdimLIcfCR+DZXhizhMc2qXzwb7YBRhhYhR+Xnf7h120quqvHtuXQ
+	 vwH5eiko3xNTUaDORSLeGHicywXRuFhftgO6XszyBy6kDg/HN0KkQYjiYK9KT3zzls
+	 T5Wx4zQYlggDBTLa0AXA3d8QhmsyQveEUAZY1P8m2i8gSq2eYriSLniXhAiyw5Yn+g
+	 o8IjE8LQibgIjGnYjnHpSjOCrrGvcXASgZXGde0dgcLjH93VVyf4X6KUiYxOt+Ess8
+	 Oo5M4FmCysnGA==
+Date: Wed, 9 Jul 2025 16:37:56 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Eugen Hristev <eugen.hristev@linaro.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
+ <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Cai Huoqing <cai.huoqing@linux.dev>, Haibo Chen <haibo.chen@nxp.com>, Shawn
+ Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+ <festevam@gmail.com>, Marek Vasut <marek.vasut@gmail.com>, Geert
+ Uytterhoeven <geert+renesas@glider.be>, Magnus Damm
+ <magnus.damm@gmail.com>, Lad Prabhakar
+ <prabhakar.mahadev-lad.rj@bp.renesas.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Francesco Dolcini <francesco@dolcini.it>, =?UTF-8?B?Sm/Do28=?= Paulo
+ =?UTF-8?B?R29uw6dhbHZlcw==?= <jpaulo.silvagoncalves@gmail.com>, "Jiri Slaby
+ (SUSE)" <jirislaby@kernel.org>, Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?=
+ <u.kleine-koenig@baylibre.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Fabrice Gasnier <fabrice.gasnier@foss.st.com>, "Rob Herring (Arm)"
+ <robh@kernel.org>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+ Julien Stephan <jstephan@baylibre.com>,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-renesas-soc@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 02/12] iio: adc: Remove redundant
+ pm_runtime_mark_last_busy() calls
+Message-ID: <20250709163756.32b0e1d1@jic23-huawei>
+In-Reply-To: <20250708231152.971398-1-sakari.ailus@linux.intel.com>
+References: <20250708231144.971170-1-sakari.ailus@linux.intel.com>
+	<20250708231152.971398-1-sakari.ailus@linux.intel.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 14/43] KVM: arm64: Support timers in realm RECs
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
- <20250611104844.245235-15-steven.price@arm.com>
- <20250709144939.GA2753450@e124191.cambridge.arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250709144939.GA2753450@e124191.cambridge.arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_082946_594673_6C3E30AD 
-X-CRM114-Status: GOOD (  29.76  )
+X-CRM114-CacheID: sfid-20250709_083813_458941_7D2F1498 
+X-CRM114-Status: GOOD (  24.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,197 +98,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joey,
+On Wed,  9 Jul 2025 02:11:52 +0300
+Sakari Ailus <sakari.ailus@linux.intel.com> wrote:
 
-On 09/07/2025 15:49, Joey Gouly wrote:
-> Hi Steven,
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
 > 
-> On Wed, Jun 11, 2025 at 11:48:11AM +0100, Steven Price wrote:
->> The RMM keeps track of the timer while the realm REC is running, but on
->> exit to the normal world KVM is responsible for handling the timers.
->>
->> The RMM doesn't provide a mechanism to set the counter offset, so don't
->> expose KVM_CAP_COUNTER_OFFSET for a realm VM.
->>
->> A later patch adds the support for propagating the timer values from the
->> exit data structure and calling kvm_realm_timers_update().
->>
->> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v7:
->>  * Hide KVM_CAP_COUNTER_OFFSET for realm guests.
->> ---
->>  arch/arm64/kvm/arch_timer.c  | 48 +++++++++++++++++++++++++++++++++---
->>  arch/arm64/kvm/arm.c         |  2 +-
->>  include/kvm/arm_arch_timer.h |  2 ++
->>  3 files changed, 47 insertions(+), 5 deletions(-)
->>
->> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
->> index fdbc8beec930..7f8705d6fdf5 100644
->> --- a/arch/arm64/kvm/arch_timer.c
->> +++ b/arch/arm64/kvm/arch_timer.c
->> @@ -148,6 +148,13 @@ static void timer_set_cval(struct arch_timer_context *ctxt, u64 cval)
->>  
->>  static void timer_set_offset(struct arch_timer_context *ctxt, u64 offset)
->>  {
->> +	struct kvm_vcpu *vcpu = ctxt->vcpu;
->> +
->> +	if (kvm_is_realm(vcpu->kvm)) {
->> +		WARN_ON(offset);
->> +		return;
->> +	}
->> +
->>  	if (!ctxt->offset.vm_offset) {
->>  		WARN(offset, "timer %ld\n", arch_timer_ctx_index(ctxt));
->>  		return;
->> @@ -462,6 +469,21 @@ static void kvm_timer_update_irq(struct kvm_vcpu *vcpu, bool new_level,
->>  			    timer_ctx);
->>  }
->>  
->> +void kvm_realm_timers_update(struct kvm_vcpu *vcpu)
->> +{
->> +	struct arch_timer_cpu *arch_timer = &vcpu->arch.timer_cpu;
->> +	int i;
->> +
->> +	for (i = 0; i < NR_KVM_EL0_TIMERS; i++) {
->> +		struct arch_timer_context *timer = &arch_timer->timers[i];
->> +		bool status = timer_get_ctl(timer) & ARCH_TIMER_CTRL_IT_STAT;
->> +		bool level = kvm_timer_irq_can_fire(timer) && status;
->> +
->> +		if (level != timer->irq.level)
->> +			kvm_timer_update_irq(vcpu, level, timer);
->> +	}
->> +}
->> +
->>  /* Only called for a fully emulated timer */
->>  static void timer_emulate(struct arch_timer_context *ctx)
->>  {
->> @@ -870,6 +892,8 @@ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu)
->>  	if (unlikely(!timer->enabled))
->>  		return;
->>  
->> +	kvm_timer_unblocking(vcpu);
->> +
->>  	get_timer_map(vcpu, &map);
->>  
->>  	if (static_branch_likely(&has_gic_active_state)) {
->> @@ -883,8 +907,6 @@ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu)
->>  		kvm_timer_vcpu_load_nogic(vcpu);
->>  	}
->>  
->> -	kvm_timer_unblocking(vcpu);
->> -
-> 
-> The change here to move kvm_timer_unblocking() looks unnecessary, as the change
-> to add an early return in kvm_timer_enable() causes timer->enable to never be
-> set to 1.  Since it is never set, kvm_timer_vcpu_load() will return early
-> before this call to kvm_timer_unblocking().
+> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-Good spot.
+Some comments for the future as more about what can be improved on the back
+of this than what you have here.
 
-Looking through the code it makes sense keeping the timer disabled
-because that also disables all the code for loading/unloading the timer
-state which we don't want for realms (because the RMM deals with that).
-So I think just reverting the above change to move
-kvm_timer_unblocking() is the correct approach.
+>
+> diff --git a/drivers/iio/adc/rcar-gyroadc.c b/drivers/iio/adc/rcar-gyroadc.c
+> index cc326f21d398..3a17b3898bf6 100644
+> --- a/drivers/iio/adc/rcar-gyroadc.c
+> +++ b/drivers/iio/adc/rcar-gyroadc.c
+> @@ -163,12 +163,10 @@ static int rcar_gyroadc_set_power(struct rcar_gyroadc *priv, bool on)
+>  {
+>  	struct device *dev = priv->dev;
+>  
+This is a very clear example of where the *_set_power() pattern is a bad idea.
+There are two calls of this function, one with it hard coded as on and one with it
+hard coded as off.  We can just push the pm_runtime_resume_and_get()
+to the on case etc.
 
-Thanks,
-Steve
+I don't mind that much if we do so as a follow up patch so this one can
+be the mechanical change and then we follow up with the enabled simplification.
 
-> Thanks,
-> Joey
-> 
->>  	timer_restore_state(map.direct_vtimer);
->>  	if (map.direct_ptimer)
->>  		timer_restore_state(map.direct_ptimer);
->> @@ -1065,7 +1087,9 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
->>  
->>  	ctxt->vcpu = vcpu;
->>  
->> -	if (timerid == TIMER_VTIMER)
->> +	if (kvm_is_realm(vcpu->kvm))
->> +		ctxt->offset.vm_offset = NULL;
->> +	else if (timerid == TIMER_VTIMER)
->>  		ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
->>  	else
->>  		ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
->> @@ -1087,13 +1111,19 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
->>  void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
->>  {
->>  	struct arch_timer_cpu *timer = vcpu_timer(vcpu);
->> +	u64 cntvoff;
->>  
->>  	for (int i = 0; i < NR_KVM_TIMERS; i++)
->>  		timer_context_init(vcpu, i);
->>  
->> +	if (kvm_is_realm(vcpu->kvm))
->> +		cntvoff = 0;
->> +	else
->> +		cntvoff = kvm_phys_timer_read();
->> +
->>  	/* Synchronize offsets across timers of a VM if not already provided */
->>  	if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
->> -		timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
->> +		timer_set_offset(vcpu_vtimer(vcpu), cntvoff);
->>  		timer_set_offset(vcpu_ptimer(vcpu), 0);
->>  	}
->>  
->> @@ -1633,6 +1663,13 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
->>  		return -EINVAL;
->>  	}
->>  
->> +	/*
->> +	 * We don't use mapped IRQs for Realms because the RMI doesn't allow
->> +	 * us setting the LR.HW bit in the VGIC.
->> +	 */
->> +	if (vcpu_is_rec(vcpu))
->> +		return 0;
->> +
->>  	get_timer_map(vcpu, &map);
->>  
->>  	ret = kvm_vgic_map_phys_irq(vcpu,
->> @@ -1764,6 +1801,9 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
->>  	if (offset->reserved)
->>  		return -EINVAL;
->>  
->> +	if (kvm_is_realm(kvm))
->> +		return -EINVAL;
->> +
->>  	mutex_lock(&kvm->lock);
->>  
->>  	if (!kvm_trylock_all_vcpus(kvm)) {
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 0cdcc2ca4a88..6a5c9be4af2d 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -350,10 +350,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->>  	case KVM_CAP_PTP_KVM:
->>  	case KVM_CAP_ARM_SYSTEM_SUSPEND:
->>  	case KVM_CAP_IRQFD_RESAMPLE:
->> -	case KVM_CAP_COUNTER_OFFSET:
->>  	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
->>  		r = 1;
->>  		break;
->> +	case KVM_CAP_COUNTER_OFFSET:
->>  	case KVM_CAP_SET_GUEST_DEBUG:
->>  		r = !kvm_is_realm(kvm);
->>  		break;
->> diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
->> index 681cf0c8b9df..f64e317c091b 100644
->> --- a/include/kvm/arm_arch_timer.h
->> +++ b/include/kvm/arm_arch_timer.h
->> @@ -113,6 +113,8 @@ int kvm_arm_timer_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->>  int kvm_arm_timer_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->>  int kvm_arm_timer_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->>  
->> +void kvm_realm_timers_update(struct kvm_vcpu *vcpu);
->> +
->>  u64 kvm_phys_timer_read(void);
->>  
->>  void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu);
->> -- 
->> 2.43.0
->>
+> -	if (on) {
+> +	if (on)
+>  		return pm_runtime_resume_and_get(dev);
+> -	} else {
+> -		pm_runtime_mark_last_busy(dev);
+> -		return pm_runtime_put_autosuspend(dev);
+> -	}
+> +
+> +	return pm_runtime_put_autosuspend(dev);
+>  }
+>  
+>  static int rcar_gyroadc_read_raw(struct iio_dev *indio_dev,
+>> diff --git a/drivers/iio/adc/ti-ads1015.c b/drivers/iio/adc/ti-ads1015.c
+> index 48549d617e5f..f2a93c63ca14 100644
+> --- a/drivers/iio/adc/ti-ads1015.c
+> +++ b/drivers/iio/adc/ti-ads1015.c
+> @@ -374,12 +374,10 @@ static int ads1015_set_power_state(struct ads1015_data *data, bool on)
+>  	int ret;
+>  	struct device *dev = regmap_get_device(data->regmap);
+>  
+> -	if (on) {
+> +	if (on)
+>  		ret = pm_runtime_resume_and_get(dev);
+> -	} else {
+> -		pm_runtime_mark_last_busy(dev);
+> +	else
+>  		ret = pm_runtime_put_autosuspend(dev);
+> -	}
+>  
+>  	return ret < 0 ? ret : 0;
+So this one has a stub version which only brings benefits because
+we have checks on the pm_runtime_put_autosuspend() path failing
+(which it does if we have !CONFIG_PM).
+
+I think the right option there is check the return value is < 0
+for the resume_and_get() and don't check the _put_autosuspend()
+return value at all.  Then we can just push this down to the
+call sites as all of them hard code the bool value.
+
+>  }
 
 
