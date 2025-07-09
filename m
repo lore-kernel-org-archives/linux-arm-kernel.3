@@ -4,66 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03024C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 17:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8767EC83F0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 17:13:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ASYzu7AZ5tpZiVHkgVVx8OPaDaIfvSUev9LIVSjV7G8=; b=yzASFCGF9OOcN3Wv1wLas1+UDC
-	Hhur2YmWjBUXLKnnBb4PE1aeTyf+T33yj/nNNWGF+acygnnjdpCt8ex4qJEQnEKpooV9G5hAmtMcv
-	MEUS3+cpxAIwX16eIo0ma7WWHiH2jE27uKZlS+KPTY+icHFBofGPF3WU2i+qbV7eRaUSWc6bZopFm
-	oHubb6WVM8zy/z6aQHy29LYY8aqFh77DSDtcIN4I+2yol0cGKfXfQZY+rIejhCWE4qqz9mEZZJXhl
-	MpnHyfAaZm7ha8utBYl3Yz25ARhMATGoxyBXgYDjBnJK1+80O6WIVgYG/S6aOpnRftfgAhV4KoAGE
-	UcPTasGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rYBWS+8dYRZolFFfJVTsJDzUHqNW8EbfvHKt/uobe2w=; b=NK8qGLvU5Q6UDO49i4QSGAmFMY
+	21yMO999IwtZ4hcdn17bZsjug87C03GpuukWcjHyO2Ql+ZwBXvX/Xnf0CxAoetsPjb409u77MQRF7
+	zy7dgBhlLWMRyaFpdWuWX7DWiLM5QXo4hB1jGVEhpRqVXw/eAlYTbDGfO8xx45IhD0rH/80sIQL36
+	8gyKZIi3VALuUkaUmrzCOxfu2Df1W17RLNts66xUu3PW7Nl2ItYcRt/MASQiHUkUD1K5Q7SdXvnTq
+	g8K7xmvWDUf+bMNuTRt1bzsDxJX7SEOpLr3GVDpmo5KIezvH8FN8XZcWPGl2E7FfjLAZ+UlTC6zbo
+	hWwA2tXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZYKC-00000009P4T-3rKF;
-	Wed, 09 Jul 2025 17:11:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZW7I-000000092lN-2P5W
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 14:49:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D191339;
-	Wed,  9 Jul 2025 07:49:36 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 62BBD3F694;
-	Wed,  9 Jul 2025 07:49:44 -0700 (PDT)
-Date: Wed, 9 Jul 2025 15:49:39 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>
-Subject: Re: [PATCH v9 14/43] KVM: arm64: Support timers in realm RECs
-Message-ID: <20250709144939.GA2753450@e124191.cambridge.arm.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
- <20250611104844.245235-15-steven.price@arm.com>
+	id 1uZYMV-00000009PMj-1wNF;
+	Wed, 09 Jul 2025 17:13:39 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZWD8-00000009498-02Ku;
+	Wed, 09 Jul 2025 14:55:51 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-23c8a505177so40261145ad.2;
+        Wed, 09 Jul 2025 07:55:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752072949; x=1752677749; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rYBWS+8dYRZolFFfJVTsJDzUHqNW8EbfvHKt/uobe2w=;
+        b=iQpIapIoYkP+BcCtP5kgyykrbWRi8JY9CHt1TVcaUR+eyTypYFQ49zrs6yIWAOHYPa
+         vXwtcQEStrXS4tVfA3j1/vTbrAaCcsHGuVmwU7mJ+7hmIWuJmxvUeicO6uRmPIvVUQIg
+         D2H5L+Q8JqZLY9y9Lnc4OhYubDf4KjdubnTXRXfSbsWCg/tDUPOD3H+xCmlHcasFaSl4
+         6fzQyTGUrBBELpeJga35mjAnsOxXnl18wgbDL2al/QVR3mZV2nFUIKBQY8L2j0vBV6NQ
+         XlIxVTZqjsgXPS51kGvRgBzgxRO6OsG5vf4NbYn3cOYI0RczVUFVF1UvXWwcjejm0WQX
+         gRKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752072949; x=1752677749;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rYBWS+8dYRZolFFfJVTsJDzUHqNW8EbfvHKt/uobe2w=;
+        b=bM3V5MvDxkkXGbpZdqwXwEbE9gio2YvK+x0ZhCUXHz33lmvnbtMJwo6li63qK4+aIo
+         Th/RI5gX0I5wEzYUEWjCG4E6yHE1hAaXlTWrtyEivKD3nfIrfGOUhxUxnQ/lMRTdD+qM
+         N86JLFRX5BT95Azqvfj1c7FKtrZnckJAUTB5xcT1n4CNXpriWuXi6sVyvGWPQTAIC+r6
+         oIbK+8U9qcNhhBRedGbgs3qPc1qiGQ0zxXKGPxf04xmgPtsiWZekTaC3EHL96I4ML6H3
+         pndMHAux7fNfVyw6zON3ezqaMm7LI96GDS3WBudDuLfLO1PMuhImgyx0GTHkeMntpmby
+         HTyg==
+X-Forwarded-Encrypted: i=1; AJvYcCWfFWlnAUhD1PUJmrBsuw1k2oR0H7WSaGHmLuWK04Ij6wIh0h20KQ1X5injZWGIdncHEoIhKvpvjyIlAF8Ue/k=@lists.infradead.org, AJvYcCX1sK5TlqNMLMSErsfHluPQh3T40f8/CxFoC7NfBHOR3s/XlFcRugONrbA+BoL6o2WdG80yhANDH8Zfhcdg9Dab@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEzTqdMPar3u0KULjdGpfUi9rnisGI86m9z2OluIXj+Z2hNpVw
+	y/QLTvtQaD0ezMFtz65I7mk5gzJKtcrw5Scqsk72WhZzsvf7fO1p84Ft
+X-Gm-Gg: ASbGncsTzbv609nCi8RnxlFbxQTRPUBfmDi3dpY8PxRU40oNadcar3nv5DeuJkyHzmD
+	1mHjaFea9/2jdgDgVh8X0RtunQHXvg3khfMhz0Vfz1iSUSnjeuYYokcrD0k3ZvM/ynXi19RwgIt
+	zpwi4sTclwJ1AMuHstm4LMTrl3/qDU2KxyEmbhNd/dKfjw5RJi/dX/LHHPdE7wz/13K6gmLAazP
+	ouoRG/e4hvVqTWF7w4es16hzev/gUux1ZgjUVfJwYlWCojpEc3XAF32c0pIaJvKBJSWA3oa2Wcu
+	QgYpATzI8+Thg0WWxqxmNg2//6yCPFRs5mbtCABa1Kvg1wMoGwDc5sQCYrGrvTl5m504Y99sLUy
+	ARA==
+X-Google-Smtp-Source: AGHT+IFPaUkBhW+7RcmFLLxMld4EFtuUsmWLGviLtfem1SfGzG5MQLw/zhlVTkW8+jGL3KbSDC8E6w==
+X-Received: by 2002:a17:903:17c6:b0:234:ef42:5d75 with SMTP id d9443c01a7336-23de245f590mr2955225ad.20.1752072948825;
+        Wed, 09 Jul 2025 07:55:48 -0700 (PDT)
+Received: from localhost.localdomain ([49.37.221.186])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-23c84593e0asm138530505ad.193.2025.07.09.07.55.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Jul 2025 07:55:48 -0700 (PDT)
+From: Abdun Nihaal <abdun.nihaal@gmail.com>
+To: nbd@nbd.name
+Cc: Abdun Nihaal <abdun.nihaal@gmail.com>,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	shayne.chen@mediatek.com,
+	sean.wang@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	kvalo@kernel.org,
+	toke@toke.dk,
+	jeff.johnson@oss.qualcomm.com,
+	jirislaby@kernel.org,
+	u.kleine-koenig@baylibre.com,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] wifi: mt76: fix potential memory leak in mt76_wmac_probe()
+Date: Wed,  9 Jul 2025 20:25:30 +0530
+Message-ID: <20250709145532.41246-1-abdun.nihaal@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250611104844.245235-15-steven.price@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_074948_705516_7AC6BBCF 
-X-CRM114-Status: GOOD (  30.96  )
+X-CRM114-CacheID: sfid-20250709_075550_043327_3D523534 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,182 +108,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steven,
+In mt76_wmac_probe(), when the mt76_alloc_device() call succeeds, memory
+is allocated for both struct ieee80211_hw and a workqueue. However, on
+the error path, the workqueue is not freed. Fix that by calling
+mt76_free_device() on the error path.
 
-On Wed, Jun 11, 2025 at 11:48:11AM +0100, Steven Price wrote:
-> The RMM keeps track of the timer while the realm REC is running, but on
-> exit to the normal world KVM is responsible for handling the timers.
-> 
-> The RMM doesn't provide a mechanism to set the counter offset, so don't
-> expose KVM_CAP_COUNTER_OFFSET for a realm VM.
-> 
-> A later patch adds the support for propagating the timer values from the
-> exit data structure and calling kvm_realm_timers_update().
-> 
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v7:
->  * Hide KVM_CAP_COUNTER_OFFSET for realm guests.
-> ---
->  arch/arm64/kvm/arch_timer.c  | 48 +++++++++++++++++++++++++++++++++---
->  arch/arm64/kvm/arm.c         |  2 +-
->  include/kvm/arm_arch_timer.h |  2 ++
->  3 files changed, 47 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index fdbc8beec930..7f8705d6fdf5 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -148,6 +148,13 @@ static void timer_set_cval(struct arch_timer_context *ctxt, u64 cval)
->  
->  static void timer_set_offset(struct arch_timer_context *ctxt, u64 offset)
->  {
-> +	struct kvm_vcpu *vcpu = ctxt->vcpu;
-> +
-> +	if (kvm_is_realm(vcpu->kvm)) {
-> +		WARN_ON(offset);
-> +		return;
-> +	}
-> +
->  	if (!ctxt->offset.vm_offset) {
->  		WARN(offset, "timer %ld\n", arch_timer_ctx_index(ctxt));
->  		return;
-> @@ -462,6 +469,21 @@ static void kvm_timer_update_irq(struct kvm_vcpu *vcpu, bool new_level,
->  			    timer_ctx);
->  }
->  
-> +void kvm_realm_timers_update(struct kvm_vcpu *vcpu)
-> +{
-> +	struct arch_timer_cpu *arch_timer = &vcpu->arch.timer_cpu;
-> +	int i;
-> +
-> +	for (i = 0; i < NR_KVM_EL0_TIMERS; i++) {
-> +		struct arch_timer_context *timer = &arch_timer->timers[i];
-> +		bool status = timer_get_ctl(timer) & ARCH_TIMER_CTRL_IT_STAT;
-> +		bool level = kvm_timer_irq_can_fire(timer) && status;
-> +
-> +		if (level != timer->irq.level)
-> +			kvm_timer_update_irq(vcpu, level, timer);
-> +	}
-> +}
-> +
->  /* Only called for a fully emulated timer */
->  static void timer_emulate(struct arch_timer_context *ctx)
->  {
-> @@ -870,6 +892,8 @@ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu)
->  	if (unlikely(!timer->enabled))
->  		return;
->  
-> +	kvm_timer_unblocking(vcpu);
-> +
->  	get_timer_map(vcpu, &map);
->  
->  	if (static_branch_likely(&has_gic_active_state)) {
-> @@ -883,8 +907,6 @@ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu)
->  		kvm_timer_vcpu_load_nogic(vcpu);
->  	}
->  
-> -	kvm_timer_unblocking(vcpu);
-> -
+Fixes: c8846e101502 ("mt76: add driver for MT7603E and MT7628/7688")
+Signed-off-by: Abdun Nihaal <abdun.nihaal@gmail.com>
+---
+This patch is compile tested only. Not tested on real hardware.
 
-The change here to move kvm_timer_unblocking() looks unnecessary, as the change
-to add an early return in kvm_timer_enable() causes timer->enable to never be
-set to 1.  Since it is never set, kvm_timer_vcpu_load() will return early
-before this call to kvm_timer_unblocking().
+ drivers/net/wireless/mediatek/mt76/mt7603/soc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Thanks,
-Joey
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/soc.c b/drivers/net/wireless/mediatek/mt76/mt7603/soc.c
+index 08590aa68356..1dd372372048 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/soc.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/soc.c
+@@ -48,7 +48,7 @@ mt76_wmac_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ error:
+-	ieee80211_free_hw(mt76_hw(dev));
++	mt76_free_device(mdev);
+ 	return ret;
+ }
+ 
+-- 
+2.43.0
 
->  	timer_restore_state(map.direct_vtimer);
->  	if (map.direct_ptimer)
->  		timer_restore_state(map.direct_ptimer);
-> @@ -1065,7 +1087,9 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
->  
->  	ctxt->vcpu = vcpu;
->  
-> -	if (timerid == TIMER_VTIMER)
-> +	if (kvm_is_realm(vcpu->kvm))
-> +		ctxt->offset.vm_offset = NULL;
-> +	else if (timerid == TIMER_VTIMER)
->  		ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
->  	else
->  		ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
-> @@ -1087,13 +1111,19 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
->  void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
->  {
->  	struct arch_timer_cpu *timer = vcpu_timer(vcpu);
-> +	u64 cntvoff;
->  
->  	for (int i = 0; i < NR_KVM_TIMERS; i++)
->  		timer_context_init(vcpu, i);
->  
-> +	if (kvm_is_realm(vcpu->kvm))
-> +		cntvoff = 0;
-> +	else
-> +		cntvoff = kvm_phys_timer_read();
-> +
->  	/* Synchronize offsets across timers of a VM if not already provided */
->  	if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
-> -		timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
-> +		timer_set_offset(vcpu_vtimer(vcpu), cntvoff);
->  		timer_set_offset(vcpu_ptimer(vcpu), 0);
->  	}
->  
-> @@ -1633,6 +1663,13 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
->  		return -EINVAL;
->  	}
->  
-> +	/*
-> +	 * We don't use mapped IRQs for Realms because the RMI doesn't allow
-> +	 * us setting the LR.HW bit in the VGIC.
-> +	 */
-> +	if (vcpu_is_rec(vcpu))
-> +		return 0;
-> +
->  	get_timer_map(vcpu, &map);
->  
->  	ret = kvm_vgic_map_phys_irq(vcpu,
-> @@ -1764,6 +1801,9 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
->  	if (offset->reserved)
->  		return -EINVAL;
->  
-> +	if (kvm_is_realm(kvm))
-> +		return -EINVAL;
-> +
->  	mutex_lock(&kvm->lock);
->  
->  	if (!kvm_trylock_all_vcpus(kvm)) {
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 0cdcc2ca4a88..6a5c9be4af2d 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -350,10 +350,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->  	case KVM_CAP_PTP_KVM:
->  	case KVM_CAP_ARM_SYSTEM_SUSPEND:
->  	case KVM_CAP_IRQFD_RESAMPLE:
-> -	case KVM_CAP_COUNTER_OFFSET:
->  	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
->  		r = 1;
->  		break;
-> +	case KVM_CAP_COUNTER_OFFSET:
->  	case KVM_CAP_SET_GUEST_DEBUG:
->  		r = !kvm_is_realm(kvm);
->  		break;
-> diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
-> index 681cf0c8b9df..f64e317c091b 100644
-> --- a/include/kvm/arm_arch_timer.h
-> +++ b/include/kvm/arm_arch_timer.h
-> @@ -113,6 +113,8 @@ int kvm_arm_timer_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->  int kvm_arm_timer_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->  int kvm_arm_timer_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->  
-> +void kvm_realm_timers_update(struct kvm_vcpu *vcpu);
-> +
->  u64 kvm_phys_timer_read(void);
->  
->  void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu);
-> -- 
-> 2.43.0
-> 
 
