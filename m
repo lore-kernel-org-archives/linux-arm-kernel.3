@@ -4,154 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B9FC83F14
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8C4C83F18
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jZk8eGKfHG0HChVyvqbRrRfcoMbhwUsxRnXD5DZKlQg=; b=uH1PVLde1Dea3FExHJCBWDE2Zd
-	qY3b2PADDzzHlyTRcGoecjbaNNHs3iRRXZ8DoxkI0XNeR4KKdLwZIGFw7DIMt4ZyFlp8WCEt3TDza
-	YuK2sEeKWmdAyJI5c1Du4tsmv5oSE5OQ0/DSFYqw9sdbvQloNykTh42ycTq7JEdm3V0JKD80f7IVN
-	DQkGp6+7B/uFoiHoezOup2tsmiUlp0/QDkb8IRNdtF0//luwizFmE/yHXeMVRUNMAnteh3qJdIwGE
-	QHr1sdS3PR2AGu0EJK7wSja53afvcK6YKOInZxU+AtPp2SllqM/pKoh0bOj7VeBTCRfUepEqmuaz5
-	ZsMj+epQ==;
+	bh=jOEjp0rI68+oAu3N7tGiFdzG9GzJlC8rN3jpoD8NMRI=; b=VfGCNSNKqVrRKCTSlYFc37xD1G
+	9UntWQxKTQsdAOgQKU7a4gXpy/ei/NJZSie8EJy6jennH8Qv0ZIzXgTkODnFcdk//D/HRqA9FqeVi
+	ikulOM8wgtUjxrzkLC66fvM47Cvp9jnm+svfh8FsU6CjwjtQ5c1/WBWlUUXnONh/qhG4W2JcZ5eIq
+	OR/EXL9KsPf/Sz8YT4qrj8oDnXNnYFX4AKU0smSCNjPdW1K9tT7WCojwHcuybRn1qziHL1cEiJDmn
+	SfS63cPAEtfxfW6t9M7/lC9uzooM0PX9g9PjJTTXtmQB9TE9CdWJQGvAhn/aBzPZeKg94+bxbWOji
+	cJ/vpzqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZcoJ-00000009xav-0HuN;
-	Wed, 09 Jul 2025 21:58:39 +0000
-Received: from mail-dm6nam10on2062a.outbound.protection.outlook.com ([2a01:111:f403:2413::62a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uZcoG-00000009xXs-2SHD;
+	Wed, 09 Jul 2025 21:58:36 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZYfg-00000009ROL-36Tb
+	id 1uZYPN-00000009Pby-1nrB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 17:33:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=peJVFHBs/2fX+H3FMbWXIX+yW9iweMBTV+mBhv83ERiypaLoFXTsnKfBLWPVk4YhXgfNeHDczF/6+ABsBLYsqmxkm/28es42yJu0GJO8YJCj9Q8q4mk1stLYRDDVvLUzu11bdwupcxQ/FfZ2oP+HP7f6yG4/o6YEjEyvGlL36FCIxna+z7wru67C8o1ar2ykxJQmcUf5BD0R4TBLgzR1dS8R77DwldK2ezCu8DeOjwEj6SWVJyBXhOZch2c76BFZqvBs3OsGGtN2cZzYTE6UoKjXiER7Uwr2AxTGidqPe0RAQcVd/9oyn7kf7DMoaWDEBIrPS7p1ZB8hNZFXCw+zXg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jZk8eGKfHG0HChVyvqbRrRfcoMbhwUsxRnXD5DZKlQg=;
- b=lfmAj8Vfp5t4/NYHE7xhO6oxU+muKC1UeXpVZpX6lsF8I87czmESkrcEc/U85+WNmnv6qUQlVEDv2fpXdO0b4FEqzKNc2v6snAtwS6jg1VU3zKk+MwSWJEVlu7PD6WqRxdtnMttN253meXMuxJ+DX5Q7Dzn1QxPGHjpRf/fhqg7YxcVh08gwBiYnbW7KUQoE5MqZ6UnW+HOoAUJ8aGsNK9iLjPb5/V2YEWtslHLRZAKuComHP9U9qZ4IJITPy71OqCDSwy6KYfOeP1kG0s6n1VPpfDUFwUQcLjPeiiyCaUdq8ETgavMpXCAS+HxuHcfP2afwuQsTCAV33528DwPspg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jZk8eGKfHG0HChVyvqbRrRfcoMbhwUsxRnXD5DZKlQg=;
- b=JLvco79b4basN7XVqO/5DZN9kiw/oLwK/dx0qIkuMMjrsmlDaTdynkdoYsHhZV50WmH5ObyDbsBJNwsVehWUw4wnIJNBJkwEcNaWqhffLkHPtsrWn/gm73RAMnm0ICgdqiWRlhhrWqND+egPu4+NxjBYShx/yFmpRIiA2HR35qAiJgzr7CGJxspjgmWLDefn+m9bxKa/Jby100adaEQD1OmWQPTvJrrb1APTAaLQi7HveRhMwQXKIEqZMJMv30N1uUi9eqaqdRK0BofttkGBV3W34oPIVb88TbrxUKBcSi559l1vAirVCrLDsCUvXa91CFZECiDO4UcXfboWXNDBgA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by PH7PR12MB7380.namprd12.prod.outlook.com (2603:10b6:510:20f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.29; Wed, 9 Jul
- 2025 17:33:20 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8901.024; Wed, 9 Jul 2025
- 17:33:20 +0000
-Date: Wed, 9 Jul 2025 14:33:18 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v8 00/29] iommufd: Add vIOMMU infrastructure (Part-4 HW
- QUEUE)
-Message-ID: <20250709173318.GI1599700@nvidia.com>
-References: <cover.1751677708.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1751677708.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BL1PR13CA0202.namprd13.prod.outlook.com
- (2603:10b6:208:2be::27) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Wed, 09 Jul 2025 17:16:38 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-711756ae8c9so1091597b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 10:16:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752081396; x=1752686196; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jOEjp0rI68+oAu3N7tGiFdzG9GzJlC8rN3jpoD8NMRI=;
+        b=Zh87LzmpoZix8Vpog8uhAh4IhAl16L3OApHY7ACh6hbV/Xcg4lniZXGwqzy0Bq6AM2
+         QYOodXwQ+eXzFZBO3tyVMHPAjZZ3fnZLVLXMFUvO2C6b5E/0vsdCKRxmXvA5liskEKxc
+         cebCqHc2HBoMyCheGVMz7tVrliFVcswMM6jH3jbxx3kYumAFvPrb5+YV3ff+UVxn7335
+         38fU1DywwCZRqzKtpQBoSgG5tAX98gw+NGnYj0cGAa/zegvVISCT0TGcKPImmFbcKQZx
+         HUQ7alP1xRBKYIfdswabwnLjtePT2k3pIex9XFejst1fxvB7zjIPrQM8j770xImcwxta
+         5jPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752081396; x=1752686196;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jOEjp0rI68+oAu3N7tGiFdzG9GzJlC8rN3jpoD8NMRI=;
+        b=joP9nWYAhl6ckWh/Kz08xP6r4gBupNUB5O5pERKEaowtkIh1qEXq5Aav89zH7zpf7O
+         Qlz7kcVUDAQrtL4FIsRngHQPAhzXuj2JmX+qQPldylDSulzrDa1jdutVDTbe/RY1CA7c
+         AdBopJkrJ4oFrAxEM/m53Snq7XZtUSNixOlcPQ1/qYTjVjrNljdxaZ6Y+ol8sTDO0NOc
+         g+BSb+/mNVbAYqnftzEAj8ynBVbJbCf6HhVs44sc8Wgvj4Ah0l1KxJaW+kzXTWyHAcV+
+         UGpPyt+7qVlZW4ew0BuznmeIOOb00KJAJnmisBmChaH5DbxfwQFY7uFMySmenLti4Sbg
+         qu2w==
+X-Forwarded-Encrypted: i=1; AJvYcCXqOq75/eqfNK2iqrVhCaBpDu1rH4ollmdtMkKS2PkOovMRFOtnVJVYS5afBU8JY1oKiGsOnBTCMthoPpar2lHL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw29WX1IKHSOOADWTqwDohfHCKxncUm2XFgFIBLg9hw0Bhzjk7N
+	siGQa3tI3opItus088LfsAP9ABq5MskYvUv9hTYTSKGekF7x4vpGy/GvOUeyX0FuGDB1Su0K3gf
+	Do33pp1ntN3nrUAEEMukr0PI0CP2XnGQ=
+X-Gm-Gg: ASbGncuSEEwm0/cQlXrkLJus5XLVpfFb89Bz36RGedGtUFOyIQkwLRxD/9gCBoNrcKe
+	krjRdK3DyDTcxGwHkfWLiWuI09bHqrixejDquYVAXS8L9pdRcQw6qOjPQk2IYJF/vFUxBtFT/U5
+	/XWRQJgr/hx5aZ7yKmcm7om5bOpMMGUcegtL7qcfAzbrK8dron5xLg
+X-Google-Smtp-Source: AGHT+IG+AR194uVOXn9cJKdMqorA7Nt38ozun9vVht7g1aQ/Y5/WltzQmb4TmFCfzfv+s2fG57LMCLN/GK/DBbGpONQ=
+X-Received: by 2002:a05:690c:d0d:b0:712:d70b:45eb with SMTP id
+ 00721157ae682-717b19cb385mr50098157b3.31.1752081396367; Wed, 09 Jul 2025
+ 10:16:36 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH7PR12MB7380:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1707478e-63d9-4b2d-d037-08ddbf0eb23c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vguLbaPAFiMnaKh6Y6NjVwdaArcAVVJwe7diGzp571PEpaPbRR1D6IZQ7Kt5?=
- =?us-ascii?Q?iLmAw80ngefVLIFaiHUDuM2x7cdN1EGbDeX15bP2ofR7e1I4iszXv24VohA0?=
- =?us-ascii?Q?LF5QTYX7h3qtpOWvKnc7KTwYkOra7OMiMl1LbfTTZ+EUwUSYeP/RU5Zm+HyG?=
- =?us-ascii?Q?21WqOoBUy+aubMMSQ81zLFQZIPEkN8L1v540ylyqYPbwrRoKiFcA/NHLjxT3?=
- =?us-ascii?Q?pjz+VkJXnOleXKpp8YI/B/P8z2/f0F7U/Vn6nx0lXMCUXzk9HPszEg5C0lMG?=
- =?us-ascii?Q?XN1wkiDjnM6Xh+aU442KNViXG0JX7j8r3OGDjCZ/t9XyMGn8fk0cvYcJQGqL?=
- =?us-ascii?Q?5BnbagizvrfdcMHm6yxIdTEHF3p/oL0ngRIAYYYTSHH9J/T1R9wRdLNU+VvV?=
- =?us-ascii?Q?SmQwQEuIIY8pZflndXHomIzWZCZJGVY4PJLYNLVG6J1lquQmjD5O8ShbUoyL?=
- =?us-ascii?Q?GGWItzNGl0KoU0yKKijLNNvQH1X5ZxA1I0WyqNhOQgHI7YT3jRqUCbvEJG5J?=
- =?us-ascii?Q?Xb7wW7SRF0b2xooT7Ld6cCDrh24zQJ5lexQPBvipqlPlt970zpes0ZupaIdv?=
- =?us-ascii?Q?GKah82DAjZ5aePtIPfiB7bOuN6HiEYTR/ZrusMlhZ48eMkA/kNJ++wvae8Gl?=
- =?us-ascii?Q?U8WhRSCeEJd/Z6sppfUynrXEKTpMV3HSMAVv5xnceXSjzChAr2Ht6lluYm96?=
- =?us-ascii?Q?ABmOSVuP8eLLMdCirvuToUA5ivb6Pq5PhtMY5G0FtrAPQxWShNONHqo3YXVp?=
- =?us-ascii?Q?b02mKkPTVI00OubBelYzOjI8wFsl2c9RYBVHBOoehe0HXe64/fKqOo1YE1N6?=
- =?us-ascii?Q?rFChhSxeV7U32I+d2MUa7hIEUPcaQYkiQDH9xMYoxop6oePARuZ3dCITvEfo?=
- =?us-ascii?Q?RQmsdka8eUBbVX1uOd5zHpRYMofRyvmJMJ+5wakCpZc5PNxiW0o4v3Y8z2SJ?=
- =?us-ascii?Q?XSfYyFKWklVCq90LViXwf6SbjGZbkH/iZmfDmkWcqpavihRhsQsb976MawT9?=
- =?us-ascii?Q?AM26Sjk0mtAAtYPlLmuJ+bIWPct4v7fZgp4LLXXXIetf98ep8I/BTgyE6Z6E?=
- =?us-ascii?Q?4vOvOaFCAFRRK70bMQ3z47KCFxBpi/NjJ/7Xk2KA3Xa6/drG2X/WGSELaSmC?=
- =?us-ascii?Q?6VcjxUFcdvzvr8GYU0ga0W3OvrQ8LRzNDawWVY676yWEozvnJgzcXIzp29Lu?=
- =?us-ascii?Q?raj/tKzB/xdpnMIaxgXeMR3j1CUd5amEbEed0R15opBoV1vBsj2Bf9oaPofp?=
- =?us-ascii?Q?X4KkLjm9eFQN26bjcb+8tlktiPukqBZF8m5IJjQQ/CQYuRMqxZRvsC/mLXVD?=
- =?us-ascii?Q?JRkLMzcqOgCdSlLzDXlfdRXuy/Qbj5tY2xgTYMvopvrtbUG5g1OAWbKtykzl?=
- =?us-ascii?Q?/KtWP0A/maV930rEwvWRbLNQZbU4gsGdPlaMjfm18y6f5I8uybTqxmSMLObF?=
- =?us-ascii?Q?C6OmJ00vBOY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8F0ht+y6ZtvUgp0b4L3OAX1cGVArSyMjz/OtKqkZDhDX7eM0ZvbzyA6VeAHh?=
- =?us-ascii?Q?nTWbknEKmLFq1+pc5WhZbxa8PnGGm46Uf+K2vMDlSjE5yhDarACYvi2snkPA?=
- =?us-ascii?Q?YgQstWoujLLkLBR4ipP28uASpt0n+sEpJKWXxkiFo5Ky4KhmX60VvgrHmVg4?=
- =?us-ascii?Q?2fZh0DJuUVX1RGX+ydfqLH3lXcccGjfLVxHvgGElagpa8jrBu+iPb85QrxGi?=
- =?us-ascii?Q?CqHkfU6CHyPO5CHrtJmFElGQRw3714uABjeNVTN5IwfV7IZ0CrrxbvxiB8/f?=
- =?us-ascii?Q?LHDYx+8KzKHSQGa6W3lTVIEzEoVMqZFTfsRPupH9OXqMVH+AiiDrwShQORqU?=
- =?us-ascii?Q?g8D6j0IEDLQveLvDNfhUfMVqBEjkGc8ZZggSJTs0txNalAwcoYAnVoVxWRKX?=
- =?us-ascii?Q?HfjyUoH07PVz5Ut6/QmOuXNmqWfqn93cR7i5Q+nLTKyCLZHwaxfAiyA4d2RH?=
- =?us-ascii?Q?HXGao9E786MKK8X1aM5do2iLwlaNGv8unUS8Wr241WtJ7uyWoCTu2yA4+9J3?=
- =?us-ascii?Q?9qod4gUIjwsd3ljkuUa8dC/irq4WCuNHAE0ol4fFopXX8WFngT5G51/jWMtH?=
- =?us-ascii?Q?isPz8qihdyG4iFYLMZw+EUDfW/1K70htBY4CYdOipOzziBXXB/REHEO/9HL/?=
- =?us-ascii?Q?2UuvzGB8Cly0mBP40WeNi/y0dPZ85SN49F7WGlFOHREfgTl60+U2WuWNhbVx?=
- =?us-ascii?Q?mesrMO6d2KVWcGriHlBLZztcWNnGCKBFSXenWLiiAuLcpxYxTp3W7IGaacos?=
- =?us-ascii?Q?y8VBdVr5Q9SRdRZ9NeJoTgpapEdTF3JVAaWhL9ri+MM27Shlm5Wh/he9WrhE?=
- =?us-ascii?Q?Qvd4vLBAnn1ir/7NCebeFWD0PcxdmZTNOQqpMfpzeqrPjVUjQOBRPCucJ47R?=
- =?us-ascii?Q?1KYCLVP222f6cKpHP74XD7I1MH8ZmmedJ3GaWL9S8MoTWHdlK5EPexK6PxO6?=
- =?us-ascii?Q?hSWXxFjj0zn90V5HHpntlLNreSFMLHJaMAfURPChlVLvtnZjJD7aQL0+1a3g?=
- =?us-ascii?Q?gpBhyjhQR1fjYCDVv8aTuFp6mlGe94lqZaqNdWXTJlcwI7JdQaaR9MsUXftv?=
- =?us-ascii?Q?1V/5WFBuSf6gJe8NRsVP6kMtr/HBcSO1h+A2VUtKGpDAk7gMIzUke1rFyEvr?=
- =?us-ascii?Q?/vBQU4SGmfXrDZpgdPc1BQpHkuu9qc66Hc2bmelc2gMA7Zt3vhepA7yRBscP?=
- =?us-ascii?Q?udaKp0yslv9BDg7iAqrv+VnaVgy1IK6XrmxqMnM36N5QKW3NoIXidvThGHpe?=
- =?us-ascii?Q?6fk/G794ng8Uk00DxOkL5m76Kxn00W3Mq6ckOxefWGq6TXJuboCZhdRNctHd?=
- =?us-ascii?Q?aNyLnI99a0qATJLqqbnOW3P87aM+bC3jqZSjwthuvAJS5E41G+jmzKp2TykU?=
- =?us-ascii?Q?GemCglXSPCXyAL1I+lo2skdX2s78lcux9MdY17TMAF7a66DBM3hKpZqiBHny?=
- =?us-ascii?Q?aitDy05PXv+LrYuoj53vmROWmzFVnXwOK0ayFtXUw6FgxDPFHzmA9QnSJZHK?=
- =?us-ascii?Q?qrBdqbcfxoyki3H9fEEZwZ/IoWHrEhF/YmCz0hUeG9u3PQwPvDemMMcMNYc7?=
- =?us-ascii?Q?5qLsTXQfz+dr0N3bDvHGMc8MOf3OIcYHscta/v07?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1707478e-63d9-4b2d-d037-08ddbf0eb23c
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2025 17:33:19.9654
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: t32kBUu/LoHe9UpddjsmPQSLg+8a0mIHTxb/VabrjDWZErClwxni6rD7qmJ3Zxs1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7380
+References: <20250708184841.72933-1-stefano.radaelli21@gmail.com>
+ <20250708184841.72933-3-stefano.radaelli21@gmail.com> <0454b830-b9bf-4d04-8e91-d5c514ac4aae@kernel.org>
+In-Reply-To: <0454b830-b9bf-4d04-8e91-d5c514ac4aae@kernel.org>
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Date: Wed, 9 Jul 2025 19:16:20 +0200
+X-Gm-Features: Ac12FXwi3-PTorWyZPZXK4OAkGLyFPpogeHMEzObU5YvDrGXWl8TmNln6b1jYBg
+Message-ID: <CAK+owoiL8613hEqDso7cCbqw9vT-TV0eRLvJPq81ZwVDHT7rHA@mail.gmail.com>
+Subject: Re: [PATCH v1 2/3] arm64: dts: ti: Add support for Variscite VAR-SOM-AM62P
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_103328_778620_47C34BE4 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250709_101637_473481_D234D8AE 
+X-CRM114-Status: GOOD (  29.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,44 +95,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 06:13:16PM -0700, Nicolin Chen wrote:
-> Nicolin Chen (29):
->   iommufd: Report unmapped bytes in the error path of
->     iopt_unmap_iova_range
->   iommufd: Correct virt_id kdoc at struct iommu_vdevice_alloc
->   iommufd/viommu: Explicitly define vdev->virt_id
->   iommu: Use enum iommu_hw_info_type for type in hw_info op
->   iommu: Add iommu_copy_struct_to_user helper
->   iommu: Pass in a driver-level user data structure to viommu_init op
->   iommufd/viommu: Allow driver-specific user data for a vIOMMU object
->   iommufd/selftest: Support user_data in mock_viommu_alloc
->   iommufd/selftest: Add coverage for viommu data
->   iommufd/access: Add internal APIs for HW queue to use
->   iommufd/access: Bypass access->ops->unmap for internal use
->   iommufd/viommu: Add driver-defined vDEVICE support
->   iommufd/viommu: Introduce IOMMUFD_OBJ_HW_QUEUE and its related struct
->   iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC ioctl
->   iommufd/driver: Add iommufd_hw_queue_depend/undepend() helpers
->   iommufd/selftest: Add coverage for IOMMUFD_CMD_HW_QUEUE_ALLOC
->   iommufd: Add mmap interface
->   iommufd/selftest: Add coverage for the new mmap interface
->   Documentation: userspace-api: iommufd: Update HW QUEUE
->   iommu: Allow an input type in hw_info op
->   iommufd: Allow an input data_type via iommu_hw_info
->   iommufd/selftest: Update hw_info coverage for an input data_type
->   iommu/arm-smmu-v3-iommufd: Add vsmmu_size/type and vsmmu_init impl ops
->   iommu/arm-smmu-v3-iommufd: Add hw_info to impl_ops
->   iommu/tegra241-cmdqv: Use request_threaded_irq
->   iommu/tegra241-cmdqv: Simplify deinit flow in
->     tegra241_cmdqv_remove_vintf()
->   iommu/tegra241-cmdqv: Do not statically map LVCMDQs
->   iommu/tegra241-cmdqv: Add user-space use support
->   iommu/tegra241-cmdqv: Add IOMMU_VEVENTQ_TYPE_TEGRA241_CMDQV support
+Hello Krzysztof,
 
-I've dropped this in linux-next with the little fix I mentioned.
+thank you for your corrections, I completely forgot to compile with
+the W=1 flag.
 
-If there are further remarks before the merge window please send a v9
+I'll take care of everything,
 
-Thanks,
-Jason
+Best Regards,
+
+Stefano
+
+Il giorno mer 9 lug 2025 alle ore 10:46 Krzysztof Kozlowski
+<krzk@kernel.org> ha scritto:
+>
+> On 08/07/2025 20:48, Stefano Radaelli wrote:
+> > Add device tree support for the Variscite VAR-SOM-AM62P system on module.
+> > This SOM is designed to be used with various carrier boards.
+> >
+> > The module includes:
+> > - AM62Px Sitara MPU processor
+> > - Up to 8GB of DDR4-3733 memory
+> > - eMMC storage memory
+> > - PS6522430 chip as a Power Management Integrated circuit (PMIC)
+> > - Integrated 10/100/1000 Mbps Ethernet Transceiver Analog Devices ADIN1300
+> > - Resistive touch panel interface controller TI TSC2046
+> > - I2C interfaces
+> >
+> > Only SOM-specific peripherals are enabled by default. Carrier board
+> > specific interfaces are left disabled to be enabled in the respective
+> > carrier board device trees.
+> >
+> > Link: https://www.variscite.it/product/system-on-module-som/cortex-a53-krait/var-som-am62p-ti-sitara-am62px/
+> >
+> > Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+> > ---
+> >  arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 379 ++++++++++++++++++
+> >  1 file changed, 379 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+> >
+> > diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+> > new file mode 100644
+> > index 000000000000..1d4ebc484d55
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+> > @@ -0,0 +1,379 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Common dtsi for Variscite VAR-SOM-AM62P
+> > + *
+> > + * Copyright (C) 2021-2022 Texas Instruments Incorporated - https://www.ti.com/
+> > + * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
+> > + *
+> > + */
+> > +
+> > +/dts-v1/;
+> > +
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +#include <dt-bindings/input/input.h>
+> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +#include <dt-bindings/leds/common.h>
+> > +#include <dt-bindings/pwm/pwm.h>
+> > +#include "k3-am62p5.dtsi"
+> > +
+> > +/ {
+> > +     compatible = "variscite,am62p-var-som", "ti,am62p5";
+> > +
+> > +     iw612_pwrseq: iw612_pwrseq {
+>
+> Follow DTS coding style. This applies to multiple places.
+>
+> Also:
+> Node names should be generic. See also an explanation and list of
+> examples (not exhaustive) in DT specification:
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+>
+>
+> > +             compatible = "mmc-pwrseq-simple";
+> > +             post-power-on-delay-ms = <100>;
+> > +             power-off-delay-us = <10000>;
+> > +             reset-gpios = <&main_gpio0 54 GPIO_ACTIVE_LOW>, /* WIFI_PWR_EN */
+> > +                           <&main_gpio0 59 GPIO_ACTIVE_LOW>; /* WIFI_EN */
+> > +             status = "okay";
+>
+> Why? Drop.
+>
+> > +     };
+> > +
+> > +     emmc_pwrseq: pwrseq@0 {
+>
+> It does not look like you tested the DTS against bindings. Please run
+> `make dtbs_check W=1` (see
+> Documentation/devicetree/bindings/writing-schema.rst or
+> https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+> for instructions).
+> Maybe you need to update your dtschema and yamllint. Don't rely on
+> distro packages for dtschema and be sure you are using the latest
+> released dtschema.
+>
+> > +             compatible = "mmc-pwrseq-emmc";
+> > +             pinctrl-names = "default";
+> > +             pinctrl-0 = <&emmc_pwrseq_pins>;
+> > +             reset-gpios = <&main_gpio0 49 GPIO_ACTIVE_LOW>;
+> > +     };
+> > +
+> > +     memory@80000000 {
+> > +             /* 8G RAM */
+> > +             reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
+> > +                   <0x00000008 0x80000000 0x00000001 0x80000000>;
+> > +             device_type = "memory";
+> > +             bootph-pre-ram;
+> > +     };
+> > +
+> > +     opp-table {
+> > +             /* Add 1.4GHz OPP for am62p5-sk board. Requires VDD_CORE at 0v85 */
+> > +             opp-1400000000 {
+> > +                     opp-hz = /bits/ 64 <1400000000>;
+> > +                     opp-supported-hw = <0x01 0x0004>;
+> > +                     clock-latency-ns = <6000000>;
+> > +             };
+> > +     };
+> > +
+> > +     reserved_memory: reserved-memory {
+> > +             #address-cells = <2>;
+> > +             #size-cells = <2>;
+> > +             ranges;
+> > +
+> > +             rtos_ipc_memory_region: rtos-ipc-memory@9b500000 {
+> > +                     compatible = "shared-dma-pool";
+> > +                     reg = <0x00 0x9b500000 0x00 0x00300000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
+> > +                     compatible = "shared-dma-pool";
+> > +                     reg = <0x00 0x9b800000 0x00 0x00100000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
+> > +                     compatible = "shared-dma-pool";
+> > +                     reg = <0x00 0x9b900000 0x00 0x00f00000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+> > +                     compatible = "shared-dma-pool";
+> > +                     reg = <0x00 0x9c800000 0x00 0x00100000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
+> > +                     compatible = "shared-dma-pool";
+> > +                     reg = <0x00 0x9c900000 0x00 0x01e00000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             secure_tfa_ddr: tfa@9e780000 {
+> > +                     reg = <0x00 0x9e780000 0x00 0x80000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             secure_ddr: optee@9e800000 {
+> > +                     reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
+> > +                     no-map;
+> > +             };
+> > +     };
+> > +
+> > +     vcc_3v3: vcc-3v3 {
+>
+> Please use name for all fixed regulators which matches current format
+> recommendation: 'regulator-[0-9]v[0-9]'
+>
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/regulator/fixed-regulator.yaml?h=v6.11-rc1#n46
+>
+>
+> Best regards,
+> Krzysztof
 
