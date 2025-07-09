@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE208C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437EAC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/HwjL2Tz8LLxdow6uaGWhdlj6JyWohlP37RdXv4wuY=; b=qGcQK7SpaQIhrHCcPJys87UfNg
-	ihnj5c591Mlblt0/6FqppLa1cNcSTdE797fNisvIiiu2rzsOPOs/QnPrKsjxpWjYwuk1PIxXkpggF
-	TmMAi17NQX4EzcW1CbaRT6bR2DPGzCRD43oG6Pk31eiGIsJ5H3XoemnppIWso8whrkSxd+sQ6RU7f
-	L9IJDgLNss0vhGLHm3kusJhbYHy+hmIV3TuKKOjzBF32Ywb0g1bgFj3wuMDPg5AiY5sUUkb9oPvhJ
-	r3RFIZE8JAG/yYzfcviCArx7xoyuQ51Re1SURLMgDfDzbHP7Lo/WqjyJHqCA7UasB54QrEggjwzjS
-	+b5ifDMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jswb2vgBrJFejY3wNbk8xQJcBc0nYqakiP0xn711J4I=; b=09TjEVUEBKlbSm6PW8wETWdb9G
+	iV5LREnpEVhNnADywxuI4yNmq/quqii+CehtRmZ4ir7357EWycK6NJQv3Jky8+Xbzuhqwg0MWsD2Z
+	nKn9Drc8r915QJJBW6aMqbVPjtfAp2O/G7hFD4b5YGFmLBMqwPIxq3ogfTOyaC1ryPB1wixfEDBtf
+	y/dlnDiM6Sfm+ysD6L+7MCQqO5lka76RXp8Y4tjDbP6XGobtk4s1sfjme22ohQAaab3r2DvBAcjNw
+	VoMRHawQj33S4feI8Ryk5oyIV1pb/0uvxLf92Pl7NXkbqzeIK2aQVUV9G98saJuevjLeh0kj/WFge
+	nxRFmHEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZa4n-00000009blV-2pRG;
-	Wed, 09 Jul 2025 19:03:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uZa5R-00000009cLG-0nQr;
+	Wed, 09 Jul 2025 19:04:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZUL4-00000008hKB-01Do;
-	Wed, 09 Jul 2025 12:55:55 +0000
+	id 1uZWPm-000000096fG-3FSB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Jul 2025 15:08:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A39CD44EE2;
-	Wed,  9 Jul 2025 12:55:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30BE7C4CEEF;
-	Wed,  9 Jul 2025 12:55:53 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9F4FDA547EB;
+	Wed,  9 Jul 2025 15:08:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CC08C4CEEF;
+	Wed,  9 Jul 2025 15:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752065753;
-	bh=qfvfN9HqncnRD9mLmFdxPNtB3Y1t4uk1+PKJGdZGCjs=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=h0vmTSF6R6KDUgBJ4nXYA/5Dekeg7WMqU0Cp3RD9bEWQy8RZSTkeqXHuMM6owHm8v
-	 GCPmi1hIwXA5M0OKWhBVBgKTKZjmtS9/K7w9HLAh/dcFl8EU/Z5PQTydpJYi5DpVpQ
-	 IOcjYmLuK3seTkkxqP5h8i6PuYvtlCTFYsxOL5ArY/0v9Ra9eWW2UiuuefSoLgNpCq
-	 dkL9TdOrMdc8k+1xKiiYMSTH3Vak2+lape7+eEeSNAjIAG87q9Bm6aO8Fo2N9eZja1
-	 0EQTAvOK95DAF8MZbzTpisGR0bfMJdzBid/giv/pmS1LN9xKhNK+FG1OHnHuVxhL9A
-	 k5g2xHWPmcFXQ==
-Message-ID: <65fc4a7a9a5dab16cf3c599f93404d04@kernel.org>
-Date: Wed, 09 Jul 2025 12:55:51 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Brian Masney" <bmasney@redhat.com>
-Subject: Re: [PATCH 07/10] clk: sunxi-ng: ccu_gate: convert from
- round_rate() to determine_rate()
-In-Reply-To: <20250703-clk-cocci-drop-round-rate-v1-7-3a8da898367e@redhat.com>
-References: <20250703-clk-cocci-drop-round-rate-v1-7-3a8da898367e@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, "Bjorn
- Andersson" <andersson@kernel.org>, "Broadcom internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>, "Chen-Yu
- Tsai" <wens@csie.org>, "Florian Fainelli" <florian.fainelli@broadcom.com>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Maxime Ripard" <mripard@kernel.org>, "Maxime
- Ripard" <mripard@redhat.com>, "Michael Turquette" <mturquette@baylibre.com>, "Ray
- Jui" <rjui@broadcom.com>, "Samuel Holland" <samuel@sholland.org>, "Scott
- Branden" <sbranden@broadcom.com>, "Stephen Boyd" <sboyd@kernel.org>
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1752073733;
+	bh=aOlbZkcI7oF3SOFwCQeZdFEAK3mOIpqRgWAeM2Pwt3w=;
+	h=Date:From:To:Cc:Subject:From;
+	b=h+EkCEXW/Wib9SN4ISibuhk+/zMJh+JOmyHCKL+Oiy7izNmKXIcIJra7EA8P1hVBL
+	 IeAOCgavQHrySGhQmnUIWNY7ghn+GXwzqyy4eB/yy0ZUnRXZl161quP/6scunZC0O7
+	 WHfvEC2Gwqd9oM/ffORMUB/aEoVw4N42Ox/FVETTtsIY2KKruLbn0r2t2SajfnsMF9
+	 okc/s9eTYBf8gzvFC2XY0J/+97Wu1K6SDkOAHHxdj5jhYMq+QejJYm1wW3JR/GLRPC
+	 CqNmqjN0+GX2aR1ItathXL8WJBq0k1zjbEAcrKPGs9gS49VNwhoQVqWQqDVJJmkHVc
+	 voI3zkp0gP7Sg==
+Date: Wed, 9 Jul 2025 16:08:48 +0100
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: [GIT PULL] arm64 fixes for -rc6
+Message-ID: <aG6GAKc8EV0cERsn@willie-the-truck>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_055554_064518_AD9C0FC4 
-X-CRM114-Status: UNSURE (   6.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250709_080854_886181_FEE29259 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +69,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 3 Jul 2025 19:22:31 -0400, Brian Masney wrote:
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
-> 
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-> 
-> [ ... ]
+Hi Linus,
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Please pull these arm64 fixes for -rc6. We've had a steady trickle of
+relatively minor fixes since -rc3 but they're all self-contained 6.16
+material and confined to the arch code.
 
-Thanks!
-Maxime
+There's the usual summary in the tag.
+
+Cheers,
+
+Will
+
+--->8
+
+The following changes since commit 39dfc971e42d886e7df01371cd1bef505076d84c:
+
+  arm64/ptrace: Fix stack-out-of-bounds read in regs_get_kernel_stack_nth() (2025-06-12 17:28:18 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+
+for you to fetch changes up to 9dd1757493416310a5e71146a08bc228869f8dae:
+
+  arm64/mm: Drop wrong writes into TCR2_EL1 (2025-07-04 16:46:04 +0100)
+
+----------------------------------------------------------------
+arm64 fixes for -rc6
+
+- Fix bogus KASAN splat on EFI runtime stack
+
+- Select JUMP_LABEL unconditionally to avoid boot failure with pKVM
+  and the legacy implementation of static keys
+
+- Avoid touching GCS registers when 'arm64.nogcs' has been passed on the
+  command-line
+
+- Move a 'cpumask_t' off the stack in smp_send_stop()
+
+- Don't advertise SME-related hwcaps to userspace when ID_AA64PFR1_EL1
+  indicates that SME is not implemented
+
+- Always check the VMA when handling an Overlay fault
+
+- Avoid corrupting TCR2_EL1 during boot
+
+----------------------------------------------------------------
+Anshuman Khandual (1):
+      arm64/mm: Drop wrong writes into TCR2_EL1
+
+Arnd Bergmann (1):
+      arm64: move smp_send_stop() cpu mask off stack
+
+Breno Leitao (1):
+      arm64: efi: Fix KASAN false positive for EFI runtime stack
+
+Kevin Brodsky (1):
+      arm64: poe: Handle spurious Overlay faults
+
+Marc Zyngier (1):
+      arm64: Unconditionally select CONFIG_JUMP_LABEL
+
+Mark Brown (2):
+      arm64/gcs: Don't try to access GCS registers if arm64.nogcs is enabled
+      arm64: Filter out SME hwcaps when FEAT_SME isn't implemented
+
+ arch/arm64/Kconfig                 |  1 +
+ arch/arm64/include/asm/el2_setup.h | 19 +++++--------
+ arch/arm64/kernel/Makefile         |  3 +-
+ arch/arm64/kernel/cpufeature.c     | 57 +++++++++++++++++++++-----------------
+ arch/arm64/kernel/efi.c            | 11 ++++++--
+ arch/arm64/kernel/process.c        |  5 ++++
+ arch/arm64/kernel/smp.c            |  2 +-
+ arch/arm64/mm/fault.c              | 30 ++++++++++++++------
+ arch/arm64/mm/proc.S               |  1 -
+ 9 files changed, 76 insertions(+), 53 deletions(-)
 
