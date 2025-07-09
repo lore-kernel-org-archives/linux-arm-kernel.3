@@ -4,112 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F4A9C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 17:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006B6C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 17:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U/0cHEX1WGiZE8mwyI/JPOFvvGfe/GVd0huttz7DYHs=; b=o0/Cjw2agDHG/bGC3W45Z1xmME
-	Ybxp3a9afpFoK72xi4NHVxu0nQ6lEZGWh1c5+fb9FMOLsSZsa00Zsf7GvzObmpA6w2+EQ+dzB5B/O
-	CwbjLnpy7sX/auvZbs8stI5qTq1Z9TlGRhhd9F2SYQFNT2EqygqCzYu3AMndDYiXhu6PmawW6sBiw
-	jMm0yXvBZ/bsuwkkQyUyGBYsqZfVNty5ebmObHVfsEVReDlerK7DRgLdbVBZwjmlYQZJhFn5KYeYG
-	oCIQMY+r78ffrhwX8+CfH/A9lDQM0sV+OrRKrNQvHjfD5J6YZ/UIbiGy6q+OdMf9L/cfbUANPniEb
-	hlU4S4Jw==;
+	bh=nbGbyNRvI6qxVv/ELPoffyMsraRCSrLgIadvEoVkNHg=; b=Z/S7gqMSjDmq2pDo6Mw32gP36/
+	JAnVh5KaK35UuCM7wB+8DT9A/W4mMainmNLMBBykKKrUQ6ndCNWgsVjEb4Zp6lh5ZUkYvev9hVgyZ
+	nSOL/DefiwHQABbt1f3bbQ7qAzosPxnkmeDYVscoFwVo63fAE1RoCz0x6Cfs3oe41pOfjkOt/1jYo
+	c9t9dZUNSivMZ49nwfhit4NiAx+3WnyCZPZ4pJVqZyWzQQD2gP8KHCMOF1cDJ94L6MKpEbeA/soJW
+	qgnAUu6YQ8zFJUo6fxkMs4FvcWgmGCDyVivCkbdo9FPGapHmNJpfMVL7RuBISNbFjggyZvcwcH+qu
+	aSKCUTyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZYDI-00000009Np7-1pfH;
-	Wed, 09 Jul 2025 17:04:08 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVx9-000000090iM-3CoF
+	id 1uZYFb-00000009OFE-1qdo;
+	Wed, 09 Jul 2025 17:06:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZW0o-000000091JU-11cv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 14:39:21 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-451d7b50815so47351625e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 07:39:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1752071958; x=1752676758; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=U/0cHEX1WGiZE8mwyI/JPOFvvGfe/GVd0huttz7DYHs=;
-        b=dxaxFHj/XmhZ0FtFEof6FzCYeUfukVvaglPxkEjVOED/XfjuZKiCUfH+qWod02exmp
-         Jx7UuqRnE7+ZljNqR8kJcdyiucqTe7HD4a4iYLrPiOlHHZi+87UW3S6jkzV805QpTq31
-         E7Saun5AbOjrc516G3w1nHQ564y0/+bjk/doxYSsQImH8U3I5bwTiwvmlybFHmBG0U6i
-         t254NV8U4Vp+Q48/jNp6/IFO39CoAB1nov6Ih3L6cwAA0xL7oE4fCYfrfL032zaWUgqF
-         4JXmHefD7mTUZfwFC5HQcspNAYtk7hn6cvXOYBImyEIrufQ1KxwKyoUAE83GeMDukrMw
-         vyOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752071958; x=1752676758;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=U/0cHEX1WGiZE8mwyI/JPOFvvGfe/GVd0huttz7DYHs=;
-        b=to+Zb0R5rGoMPz4XXizK5sdXCUn7J5574t8q3ItYaFV+tJzi7PvtWrC6X8yYbYMHec
-         wnp+bW9bGAinxI7tjNUfZUQrMOM/rPpMQ6LTemJbRqF2ZbqTs7XEfj/D6ID148pWea7d
-         /fnlwo19mU/dOauza5DnG/Q7MLaF/ieDjhh5DfqCi82GWu8KW0FToN500oFr3URCkEo/
-         iZEAwRmmpKxYxohC/M5NDLsRoussXvxPzWLH3KNGIsmsuoWG90xOGOYa8yjeA3h47ZTj
-         5XzTtbv3JJV+aKD762XKbh67+4lKSNTS3qe1JhFTnxXImRT2Q8kjGrv0U8woXx7U5kr4
-         2gtw==
-X-Forwarded-Encrypted: i=1; AJvYcCXUTD4j/8TMjLCP8d5v5eAbz48fG1vBMqYS0mNvoRuVSOndkGsdWYMyywbtMtOWA0dqaHyzQ1un2JeD3EzJ5LtH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwieS69/ATKfy9aBTJDCeyGXYOa9IQSd4kT1kd1DhHRhKLPfCgK
-	chj8vI0c4dgxB9p1K1cgtRfs3zssDHTo8CQu6s8mnJxlQta61tLpQzdjJ3NC7jwfZGQ=
-X-Gm-Gg: ASbGncsvjZiYeWC0EcrFBBHfM2hklBdsHDkTVHiNAnPKMnvvz7fzMSunKC1Ug+FmipP
-	cJDT8H796pg2pk+1makLrV070bIGYT+eXwh9Xo7hrKBjZujbf/BVsW/G5dBIbkXsMtDf9UPx7dD
-	IeyDR3AnSs9F39w1YoNhveq0nJ6aqM7fLdfhfwhTSK831rMvgVv0g4HbenUGXiv+I3NZLVMe6WR
-	3ago4E7p4arCEDxZEcMZEhCXVEOyjxd/of23QmMYvhpurKeaUz0yAiQCDE1dSTB7aXd7l3RtFlw
-	hGh2q19UmliOQPcXAH0daKxhTV1MMyjLXOgFT+4cp0jYMe+mPra5tsQ=
-X-Google-Smtp-Source: AGHT+IHJL3AtHw/EonyubylYUgvsAX3aEA1kWb+hfmhi4rwD64AqP18DXBVWa7fZWLEMijUB//O7/Q==
-X-Received: by 2002:a05:600d:19:b0:43d:4e9:27ff with SMTP id 5b1f17b1804b1-454d5c8ae6emr21757475e9.7.1752071958441;
-        Wed, 09 Jul 2025 07:39:18 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:b04e:cfc4:3bd9:6180])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b5dfbf56c9sm4480687f8f.79.2025.07.09.07.39.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Jul 2025 07:39:17 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 09 Jul 2025 16:39:08 +0200
-Subject: [PATCH v2 12/12] pinctrl: qcom: make the pinmuxing strict
+	Wed, 09 Jul 2025 14:43:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7963C152B;
+	Wed,  9 Jul 2025 07:42:51 -0700 (PDT)
+Received: from [10.57.86.38] (unknown [10.57.86.38])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7DAF63F694;
+	Wed,  9 Jul 2025 07:42:59 -0700 (PDT)
+Message-ID: <c7d5b038-70b3-4e55-a6bc-a74b77a04d3d@arm.com>
+Date: Wed, 9 Jul 2025 15:42:57 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250709-pinctrl-gpio-pinfuncs-v2-12-b6135149c0d9@linaro.org>
-References: <20250709-pinctrl-gpio-pinfuncs-v2-0-b6135149c0d9@linaro.org>
-In-Reply-To: <20250709-pinctrl-gpio-pinfuncs-v2-0-b6135149c0d9@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, 
- Alexey Klimov <alexey.klimov@linaro.org>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Paul Cercueil <paul@crapouillou.net>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1081;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=iQ18p+opwS51aj7kQgPPUv5KuYwgsHKMpCHQbdUzIuo=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBobn8Hh53vwVwSAhW66U/ZVT3BJ1K+Xx5actm8W
- SIfx8mfLfuJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaG5/BwAKCRARpy6gFHHX
- coG7EACGCen1sbTZOcLtihqfgfleRvxd76y5gasx5ejhY5jN73Ryz+vjJHtDwd0l8c5SrMksrB6
- t7OuK5xDmCoMqMKP5oOyeqLRRCAkG+Bmb5B2OQB1nzWC9+7adNNl5rNXdk1UlZJum3AJqNI2xaU
- HzQ2ZDMceCyhG/Rb6B4qmWtfdLKiwGQTSjKvy2FoyiKyP1Kkg9mta/0tJcbaoCJ4KIGpY35E1Bz
- vNq+LbVz1VduLsXlH77XQUw5YQApX2JOKQ6E31YI4F6oiDHonqOoshmaQi+J0BEZYUgZEJIgRGe
- U0vwdMdBK4dlY3yHw6HrK2Tnqh8kawBRgh7OeZYoldO7ICasE0MkR1/VRArAynV34jM/THvbj3H
- +plh1jmtOLBgb3t3xLuhkdAjsXU7lLuznLsCsL+cweuriClQTCPwJtO/CuPSxCxQ0O/D4BSRZu5
- cVnckT4XlctODT6EkMNWLvzHgb/PAfHS0ZpGItYuV+nSdQ0nI653/gECD1stS1bkCeVnT/tJ0nJ
- WcFn6s33bTLewA0UiRkRJa3fwOCoP8hZripGucl8phvCVzKI8bI+ueBfR9B0nZzOJjwDDtVTdjj
- Xun95s+UXln6QtpXMasLGtGzUdktTreMUdgPihMF9TwaoN0biXPnFeXfQt2JXn4vWrGO9/mcIM6
- vn/2GgtvVmDuNAw==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 13/43] arm64: RME: Support for the VGIC in realms
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
+ <20250611104844.245235-14-steven.price@arm.com>
+ <45ae476d-a557-40a5-81d2-99841fda4941@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <45ae476d-a557-40a5-81d2-99841fda4941@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_073919_830179_34C7A9F2 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250709_074306_371776_4487B371 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,33 +76,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 03/07/2025 14:22, Suzuki K Poulose wrote:
+> On 11/06/2025 11:48, Steven Price wrote:
+>> The RMM provides emulation of a VGIC to the realm guest but delegates
+>> much of the handling to the host. Implement support in KVM for
+>> saving/restoring state to/from the REC structure.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes from v8:
+>>   * Propagate gicv3_hcr to from the RMM.
+>> Changes from v5:
+>>   * Handle RMM providing fewer GIC LRs than the hardware supports.
+>> ---
+>>   arch/arm64/include/asm/kvm_rme.h |  1 +
+>>   arch/arm64/kvm/arm.c             | 16 +++++++++--
+>>   arch/arm64/kvm/rme.c             |  5 ++++
+>>   arch/arm64/kvm/vgic/vgic-init.c  |  2 +-
+>>   arch/arm64/kvm/vgic/vgic-v3.c    |  6 +++-
+>>   arch/arm64/kvm/vgic/vgic.c       | 49 ++++++++++++++++++++++++++++++--
+>>   6 files changed, 72 insertions(+), 7 deletions(-)
+>>
+> 
+> ...
+> 
+>> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/
+>> vgic-init.c
+>> index eb1205654ac8..77b4962ebfb6 100644
+>> --- a/arch/arm64/kvm/vgic/vgic-init.c
+>> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+>> @@ -81,7 +81,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+>>        * the proper checks already.
+>>        */
+>>       if (type == KVM_DEV_TYPE_ARM_VGIC_V2 &&
+>> -        !kvm_vgic_global_state.can_emulate_gicv2)
+>> +        (!kvm_vgic_global_state.can_emulate_gicv2 || kvm_is_realm(kvm)))
+>>           return -ENODEV;
+>>         /*
+>> diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-
+>> v3.c
+>> index b9ad7c42c5b0..c10ad817030d 100644
+>> --- a/arch/arm64/kvm/vgic/vgic-v3.c
+>> +++ b/arch/arm64/kvm/vgic/vgic-v3.c
+>> @@ -8,9 +8,11 @@
+>>   #include <linux/kvm_host.h>
+>>   #include <linux/string_choices.h>
+>>   #include <kvm/arm_vgic.h>
+>> +#include <asm/kvm_emulate.h>
+>>   #include <asm/kvm_hyp.h>
+>>   #include <asm/kvm_mmu.h>
+>>   #include <asm/kvm_asm.h>
+>> +#include <asm/rmi_smc.h>
+>>     #include "vgic.h"
+>>   @@ -758,7 +760,9 @@ void vgic_v3_put(struct kvm_vcpu *vcpu)
+>>           return;
+>>       }
+>>   -    if (likely(!is_protected_kvm_enabled()))
+>> +    if (vcpu_is_rec(vcpu))
+>> +        cpu_if->vgic_vmcr = vcpu->arch.rec.run->exit.gicv3_vmcr;
+>> +    else if (likely(!is_protected_kvm_enabled()))
+> 
+> This function is never reached for Realms, this should be folded in
+> vgic_rmm_save_state(). See below.
 
-The strict flag in struct pinmux_ops disallows the usage of the same pin
-as a GPIO and for another function. Without it, a rouge user-space
-process with enough privileges (or even a buggy driver) can request a
-used pin as GPIO and drive it, potentially confusing devices or even
-crashing the system. Set it globally for all pinctrl-msm users.
+Good catch - I can drop the changes in this file and handle VMCR in
+vgic_rmm_save_state().
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/pinctrl/qcom/pinctrl-msm.c | 1 +
- 1 file changed, 1 insertion(+)
+Thanks,
+Steve
 
-diff --git a/drivers/pinctrl/qcom/pinctrl-msm.c b/drivers/pinctrl/qcom/pinctrl-msm.c
-index 7010be8d1ace062fcf7743e539d2065d4aed856b..ad572c923e2ab8caed134207ec02c4107d4dc2bd 100644
---- a/drivers/pinctrl/qcom/pinctrl-msm.c
-+++ b/drivers/pinctrl/qcom/pinctrl-msm.c
-@@ -268,6 +268,7 @@ static const struct pinmux_ops msm_pinmux_ops = {
- 	.function_is_gpio	= pinmux_generic_function_is_gpio,
- 	.gpio_request_enable	= msm_pinmux_request_gpio,
- 	.set_mux		= msm_pinmux_set_mux,
-+	.strict			= true,
- };
- 
- static int msm_config_reg(struct msm_pinctrl *pctrl,
-
--- 
-2.48.1
+> 
+>>           kvm_call_hyp(__vgic_v3_save_vmcr_aprs, cpu_if);
+>>       WARN_ON(vgic_v4_put(vcpu));
+>>   diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+>> index c7aed48c5668..2908b4610c4e 100644
+>> --- a/arch/arm64/kvm/vgic/vgic.c
+>> +++ b/arch/arm64/kvm/vgic/vgic.c
+> 
+> ...
+> 
+>>   void kvm_vgic_put(struct kvm_vcpu *vcpu)
+>>   {
+>> -    if (unlikely(!irqchip_in_kernel(vcpu->kvm) || !
+>> vgic_initialized(vcpu->kvm))) {
+>> +    if (unlikely(vcpu_is_rec(vcpu)))
+>> +        return;
+> 
+> ^^^
+> 
+>> +    if (unlikely(!irqchip_in_kernel(vcpu->kvm) ||
+>> +             !vgic_initialized(vcpu->kvm))) {
+>>           if (has_vhe() &&
+>> static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
+>>               __vgic_v3_deactivate_traps(&vcpu->arch.vgic_cpu.vgic_v3);
+>>           return;
+> 
+> Suzuki
 
 
