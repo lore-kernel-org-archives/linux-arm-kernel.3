@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C31C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 11:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2FDCC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 11:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p+bfGFW4DtSQcr5Yecq9KqtEiX+ZRp1VJeXV6fP2IcE=; b=Y4Z5TxA6lj+smvVw1uZg8IzeKj
-	JntWgYYACVm4vKRwTSgqi96w7t4nVV9gdkxQrGTP/Ko0YsZFyxGrNo+UTqTim8ohXFx+CQe5sTGhs
-	5cG4Txe71y5STbmEKs+VN4nDmsLKbsblyM0qa483zO0noRKdzQAHFyFsaQdLdsd1OjMR6qqMqCYAJ
-	oXepZvhBR69jOFNypiCwsNAUFyb9OWDkU4uEKh+vx5RFAPvqxQBVKAp7jl+ELirWz9LA03hTmvY5D
-	uv94wzl5HJ3+OVcF5haj34Q+AmZCqmNCgCWqDC7zc1V2cfzQJogC0uzVytv9z6hT+QtSIQMOOhq49
-	e8K0tv4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FsxQbQPIJsaYTNOu6ABUMe0d1muypWFSA2FGjsr9hv4=; b=KNyVHdhDVX5lW691Ln/crx+l/W
+	MjPPF9Va7n5DV2IGkkB+TYYEYMigqEvEInGnq8gCDZ/FInVIUIP0kSaJzKGJprEvUiXSy7zzzVZT3
+	EXm+cwYV233mmHXl8sDb/XoKmggOpao8TCTTzgFt7TBltFK4X63hJF1XnX6qQD3zMoMTRyFqynJ9/
+	BkIMmeWJwrWVVr5B7TEiGcQoKeWYio17vdQ3rZ5CIAuzL0qPBk9DZH1iITL67ekG6q/0rs047C4cZ
+	gUHEI5nY0CMMBZZ+qJqY1KfNwRlMQSe0l/kthP3YoB/9GUYZ1woCmLPxh9vPtsvxdyfTSM3L/FZRj
+	ZmyI07Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZTMo-00000008YGD-0wcl;
-	Wed, 09 Jul 2025 11:53:38 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1uZTP7-00000008Ypm-3wdA;
+	Wed, 09 Jul 2025 11:56:01 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZRfP-00000008Eh1-3BKr
+	id 1uZRiy-00000008Fhp-1Wwg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 10:04:44 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-2f78ef10832so3326677fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 03:04:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752055483; x=1752660283; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p+bfGFW4DtSQcr5Yecq9KqtEiX+ZRp1VJeXV6fP2IcE=;
-        b=sg1rINfc4dEfO4YfL+1elqmKVqbQtCUEtnPFVdpyZbnRJkPqYDiyBmNV1jo2xv8zso
-         SgSw2shFxfl6VHcu4JW/CmatlRLV1Tz9LbKEAq8v4hmX32CWSn249c7vRH6yNEilbKop
-         jI+8i2pppVqE+CzhhkwdxqKRMaMcWdSZVTxjQVqRdHRENBvU+nDBPxlFfSMel0weacoN
-         nb+ZquzwJQtPWPhgfeiHhvfmuW5Gucp17bG2Pyfx5ywOPPqB/iWWOwnrAn9HT6jZxlvN
-         dQHlAt/fvHuw/MvXzTY0ag2t9q4H+Oa0B03dZGOtnbBJoen6Gow+/0j1XHKDp9tQMYDc
-         jYeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752055483; x=1752660283;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p+bfGFW4DtSQcr5Yecq9KqtEiX+ZRp1VJeXV6fP2IcE=;
-        b=M01P+sJC+9P4MCyJf5bzB1Z8sdwbgf8RMbzyUjVjcDYAoW7WLpAOLYzIuuTF0u+LpS
-         wjDumAdfSebQ3wVXT7dZVoTf9Mm5KkTbiqNalwIBTSPMkFDJMK796xXUOQGRlRbT+01t
-         2hM647JXSIPApg3mxgAoDDfqEyHhIQiVzKtzFFSGNy9mRJdedcBRdBjOSZHitOn8INR4
-         NN4jcx+c7TnmWasIhCT1lqJtoN5GKPz+LV8i0lzcE6ihgEWN9bgpxLCVApdE0rKFHMlq
-         usISUHCSufsE5EGmTiMiu56prtCXdzqHeBtGRAfluKUEPk45EFB61lWcssd0mtMIO64m
-         8NFg==
-X-Forwarded-Encrypted: i=1; AJvYcCUqWnd+bFbbMAfBufclTcb7FwyNor2YzBRtQJx7ISxtQ0P/8THqbBe9tgmjeyWmi3om0K6HG/6+QtaigBc8XuVO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyxBG0y4s3PnDQHy6YX4K1mnvr5qkux0KjrVx05Jt1Oi8X0Skt
-	HSKcIBkWieNeGILopWhbS0HUxZZM5LFEqedZsbVUNTPaEixeSep2emMf+X0n4hDU5eTo2ZjXWaD
-	Y5+9/EfcG09y4Dnf9ZnlcReHpb3snF/YKtEA0oQrlOw==
-X-Gm-Gg: ASbGnct0vp3rcfAVPihouqy8mGpnadtMhAJLg8QypZwDO/cGU0+eb4Hm2gbymgv9dXM
-	VbityMrjY6wTJvpu7I8AzcAs2MI1x5dLfEesDx17mFVA1OIN8SjzoFvpJbi30FBKe7847+SJ/NE
-	Uy4M5utxBqle6Dg7onJymyLPnPJtOxwkEPnwCTNdwz1r0=
-X-Google-Smtp-Source: AGHT+IGY95z19tqvWhEI5fgWA6R8T6/UqcM++P6QZAW4xt2CGrUQgdZq9RwXXFtbhIUTeJDCM/NWWKWEDhJ2ZJDsq3w=
-X-Received: by 2002:a05:6870:46a4:b0:2b7:f58d:6dcf with SMTP id
- 586e51a60fabf-2fef870ac82mr1083901fac.18.1752055482714; Wed, 09 Jul 2025
- 03:04:42 -0700 (PDT)
+	Wed, 09 Jul 2025 10:08:25 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 86578103972A7;
+	Wed,  9 Jul 2025 12:08:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1752055701; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=FsxQbQPIJsaYTNOu6ABUMe0d1muypWFSA2FGjsr9hv4=;
+	b=ZOFR5QYJmEImw0t8AqiKiZi5hRhUsSDtDlUVGIS/tUYksC4yoQ27YObM0jcDNKmO4vuUnH
+	pdj8Z7iZN+40EH8d9HeL2x7deLr2PBODbaRgerSiLocF5B6C8AnLAYlY6ZQXoFIXeNHmM4
+	PDk8LbWwrGlZmWNFtFU7x/BTVfF/ZHH/f8RuBrLOUkkoUbWZTP2Ew2nJki3o2zoRaQb86W
+	3YE44lWolkv7qhe8wPGRebTXD4bzsyYaTFmZsAx1vjvn46ZzK1g/vFBfoDSHbKiyd0cdLe
+	0EsKGZENUVrx6pJbJQ8lGmKaW6ruKtHDitD3pifYamAk7ljyesoF3NGy6pRD1w==
+Date: Wed, 9 Jul 2025 12:08:16 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
+Subject: Re: [net-next v14 06/12] net: mtip: Add net_device_ops functions to
+ the L2 switch driver
+Message-ID: <20250709120817.5b2f631a@wsk>
+In-Reply-To: <ea22a546-9381-48c3-8bb6-258fdd784ca3@redhat.com>
+References: <20250701114957.2492486-1-lukma@denx.de>
+	<20250701114957.2492486-7-lukma@denx.de>
+	<ea22a546-9381-48c3-8bb6-258fdd784ca3@redhat.com>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20250627-gs101-cpuidle-v3-1-0200452dfe60@linaro.org> <53a214b4039872ce7584a2ae6e688fcef0c86d7e.camel@linaro.org>
-In-Reply-To: <53a214b4039872ce7584a2ae6e688fcef0c86d7e.camel@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 9 Jul 2025 11:04:29 +0100
-X-Gm-Features: Ac12FXy1nHjPc0ZtUVknu5DhgpF7CNwmS2WMX0Qx_tI6AsiwGCLjhVVgixkJAf0
-Message-ID: <CADrjBPrPcYZPFuRqwm0OkFU+CQtinFUtNXHzt+MQpEy=Q-Xnww@mail.gmail.com>
-Subject: Re: [PATCH v3] soc: samsung: exynos-pmu: Enable CPU Idle for gs101
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, William Mcvicker <willmcvicker@google.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; boundary="Sig_/kSh+3R=zs/0/CbqzphcKx.b";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_030443_799693_ADD23863 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20250709_030824_553839_F61EB4BD 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,69 +80,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andr=C3=A9,
+--Sig_/kSh+3R=zs/0/CbqzphcKx.b
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Thanks for the review feedback!
+Hi Paolo,
 
-On Thu, 3 Jul 2025 at 12:01, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
-wrote:
->
-> More small comments. Sorry for the drip feed, just trying to understand
-> things...
->
-> On Fri, 2025-06-27 at 14:08 +0100, Peter Griffin wrote:
-> > [...]
-> >
-> > +static int gs101_cpu_pm_notify_callback(struct notifier_block *self,
-> > +                                     unsigned long action, void *v)
-> > +{
-> > +     switch (action) {
-> > +     case CPU_PM_ENTER:
-> > +             /*
-> > +              * Ignore CPU_PM_ENTER event in reboot or
-> > +              * suspend sequence.
-> > +              */
+> On 7/1/25 1:49 PM, Lukasz Majewski wrote:
+> > +static netdev_tx_t mtip_start_xmit_port(struct sk_buff *skb,
+> > +					struct net_device *dev,
+> > int port) +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	unsigned short status;
+> > +	struct cbd_t *bdp;
+> > +	void *bufaddr;
 > > +
-> > +             if (atomic_read(&pmu_context->sys_suspended) ||
-> > +                 atomic_read(&pmu_context->sys_rebooting))
-> > +                     return NOTIFY_OK;
-> > +
-> > +             return gs101_cpu_pmu_offline();
-> > +
-> > +             break;
->
-> break is not needed after return, and generally there should be an empty
-> line before the next case statement.
+> > +	spin_lock(&fep->hw_lock); =20
+>=20
+> mtip_start_xmit_port() runs with BH disabled. The above lock variant
+> is inconsistent with what you use in patch 4.
 
-Will fix
->
-> > +     case CPU_PM_EXIT:
->
-> Should this also handle CPU_PM_ENTER_FAILED in the same way to bring
-> the CPU back up in case of failures?
+I've looked into the fec_main.c driver. They use for TX path
+__netif_tx_lock(nq, cpu); which is a simple spin_lock(). I've followed
+the same approach (as _irqsave() seems to be an overkill).
 
-I choose not to do that, mainly because the downstream production
-drivers don't handle CPU_PM_ENTER_FAILED, and without access to the
-firmware code it is hard to reason about.
+This function (mtip_start_xmit_port()) is call as a callback from:
+.ndo_start_xmit (member of struct net_device_ops).
 
-Logically it seems like we would want to do the same code as
-CPU_PM_EXIT with a CPU_PM_ENTER_FAILED, but I've never seen
-CPU_PM_FAILED so far in my debugging.
+IIRC net core code provides locking on this call anyway.
 
->
-> > +
-> > +             if (atomic_read(&pmu_context->sys_rebooting))
-> > +                     return NOTIFY_OK;
-> > +
-> > +             return gs101_cpu_pmu_online();
-> > +
-> > +             break;
->
-> No break needed.
+> Please be sure to run
+> tests vs the next iteration with CONFIG_PROVE_LOCKING enabled.
 
-Will fix
+This is already enabled. Locking in this driver is a bit special, as
+one uDMA is used for both ports... (unlikely as in fec_main.c).
 
-Thanks.
+>=20
+> /P
+>=20
 
-Peter
+
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH, Managing Director: Johanna Denk,
+Tabea Lutz HRB 165235 Munich, Office: Kirchenstr.5, D-82194
+Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/kSh+3R=zs/0/CbqzphcKx.b
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmhuP5EACgkQAR8vZIA0
+zr2DCAgAxD7rrFXIyi+rHYv1bwydkkv0xAPwNNg4ilaG0hVeKYG1argzJUIBwp1E
+Oo/EvG2HUoBs/I83nrGq+Uk5SX6R4zqDIx/iYu+/V/9hll06UV6MmtdNW772+LRD
+slkfHgqjAAiVSfGvE1iUPZc8nkR7+0foXlv/dIeQWaYoROg2dQtK/p+X8SUMe914
+ojjlmPsxPPIbfIclJc+lIqQgrJbme2z4EYldIjK+aTfjiRtAFdnMdnCUjtqw5slO
+MpSrlAYs00wS4RS+KH+Zlp12ief5Zaw4h5H2vfX65p/2pV84RBAT9E6SL7ZC2rsh
+TYfU75uh2iv8ow1RM40r+MrWqaOCNg==
+=f3nq
+-----END PGP SIGNATURE-----
+
+--Sig_/kSh+3R=zs/0/CbqzphcKx.b--
 
