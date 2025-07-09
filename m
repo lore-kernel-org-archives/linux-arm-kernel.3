@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499FCC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 07:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD2EC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 07:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZDQijQIUHGtDzkYvoW+NWRCfJDMnffkwah430jUc+6c=; b=Yrh78CaaTG2bOb4dpDgDO3jGEP
-	4+uoI/TEZToUQ78tr2KY7sd5UNjz29esd1mlgRjLaR/yq80r2B6+7yyJ1TxhNIBJzLKtonZlgS46X
-	fAu75Isge/6nJVf8PJGLqAV9s/+nTVlN+OxOonzV8PqVOJTntks4zaFdcWBYe3zSxWCnCsksZGuRX
-	Y4SUcVH2BaJpgQWVLY9tSlESfai0WRZxrsqIsT39NEA0vSPBE53PNwK8Y+ekkPCABQG7Z1/RYngRl
-	Dg0DAo6mp5v7VwhEr99O/AdeiSN7vvnE3Cp22z8G89iNs2zdOs6WLxuiLj+z4h0A3f/Y+G4d/JfrH
-	N5Z1xROA==;
+	bh=K3AjXyLDTKwSi4JFt5qXXHU8GLdo56uvhZ7Y+buDpoM=; b=Vyw16qkZie2zqYPoPpfedDLmgM
+	l6rrEmG7z+eDxS8eRVuzsR5rp6AAWyXV7G/2NPSRtELRgAcJaRbYIWiQRTREwKKM+9djmdQVui5pu
+	34ip8kDKWPzs9ATUfSkvDmU0r1Xhk9y0tB8J3dvcxWi0fFRAujztepRaPpkTsebJTcabi2H+DGz4w
+	9mIrINB9/zHNY2fAgN/5G22ljLHTDuqeOpZwu7JrvCWxFqZVCbjaun66i5nec88ul959isR83OqwX
+	GYKj5ms2SWUhHyqqx6prEj1F6SpVBSUCX80zXi+Waj8psmS7Sk0Q6mJms0ReqAPKdzljmROHqfqGU
+	57Gt6QNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZPaW-00000007rDy-3Rbh;
-	Wed, 09 Jul 2025 07:51:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uZPcp-00000007rWh-3sJM;
+	Wed, 09 Jul 2025 07:53:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOkH-00000007jzp-1Ydd;
-	Wed, 09 Jul 2025 06:57:34 +0000
+	id 1uZOmK-00000007kBG-126n;
+	Wed, 09 Jul 2025 06:59:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ACD4643655;
-	Wed,  9 Jul 2025 06:57:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A08D7C4CEF0;
-	Wed,  9 Jul 2025 06:57:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 87AF55C6618;
+	Wed,  9 Jul 2025 06:59:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BB3EC4CEF0;
+	Wed,  9 Jul 2025 06:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752044252;
-	bh=rtYRw+LTgfTwBVULhsU7xwpSnhKJzHyXcNVWLIZtrmU=;
+	s=k20201202; t=1752044379;
+	bh=YlqJmXdkohNFHXYMBpBaX+PVFLgGz8jmw+qFDTmc/nM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pUR2g5AkzJwUSMAEYZF+t+qEIU17RWnTIFcNOnRVSaWdF4EaAsafrtQ36Vc2AV0bx
-	 TioOSo2xa/1NuJWIjoilvtYw4HDyIYr8F8CXrYVpMOQlgAWg6jMSA3UA/xL3pVwDK9
-	 VKGi882MfVzRCwVXWbqHFvqf2vWsMypk1nH3c7VqAk5uvN6SgckPu2DcRjzUl3RL1x
-	 FljHl9lz/RyWZcmP+XVbr4b6rc6PqzEf3cI5KkRQi3Yx8EZewsbXtRYtbz8ofv7OMD
-	 0CebwbpsFDSvx7zf+c4lSCcC71OxMgEmmTkP7UmDWtg/7U+lpb5AJHE3D0GtKTkJAS
-	 XZ6hf0x9SiJaA==
-Message-ID: <738c1951-afbc-4cda-a16e-54a5055ca7c8@kernel.org>
-Date: Wed, 9 Jul 2025 08:57:26 +0200
+	b=bpIWlexsjygi5fpwUefLkBJCyw8+pGqTQavsSu3PUnNkQ7DAAkww/DXagNBPRSvCX
+	 EmSylVEJpycqIGB34dJJGmpoU2deRhRAC/PmTVSgAt14BiZ0K88IfviaX0U0vOaEb3
+	 4hD9Fsuk7lTnZCjOgsmf4UgcZRRkZoDW5l7kO2Qyir1Afxjvp2Lb1D68hotDPW9181
+	 uFxlULKicrO+nlngPaQL1A8h0upF9Ndzwzbglv2zUzInxDfEOdX6Hrk/X6ZLieMrbl
+	 hPeSlF2Y0gU6l6jWySsmKr9Wq2/Dxh+8KpxwgZUhuX5HIb46bkdo0jJn4+W4IIT4P9
+	 SNQvHFzTB8Vjg==
+Message-ID: <fa1b8e02-deee-44e5-a6c6-52394fc071a4@kernel.org>
+Date: Wed, 9 Jul 2025 08:59:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/2] dt-bindings: dsp: mediatek: add mt8196 dsp
@@ -76,8 +76,7 @@ References: <20250703075632.20758-1-hailong.fan@mediatek.com>
  <20250703075632.20758-2-hailong.fan@mediatek.com>
  <defd70cb-4351-4b0b-b4d0-dd1ff831615c@kernel.org>
  <61784658-c71d-458b-8934-5f5db2330bc0@collabora.com>
- <8b8a58f0-9e18-47d6-8382-1d16d630ea15@kernel.org>
- <dff1a4d6d97d7d3d55c4bd409780d2857ae070ca.camel@mediatek.com>
+ <85ca4ceb29caec9acbe77a3d67e3bc57b0b0aeb5.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -123,12 +122,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <dff1a4d6d97d7d3d55c4bd409780d2857ae070ca.camel@mediatek.com>
+In-Reply-To: <85ca4ceb29caec9acbe77a3d67e3bc57b0b0aeb5.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_235733_453450_844D1962 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250708_235940_374603_D81A8554 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,50 +142,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/07/2025 08:05, Hailong Fan (范海龙) wrote:
->>
->> OK, this is a valid argument, however we still try to unify the
->> inputs
->> so bindings can share such pieces. It is discouraged to have similar
->> devices with different bindings in only one place: clk26m -> clk27m
->> or
->> whatever other number.
->>
->> Common is also to name the clock input based on the purpose (like
->> bus, ref).
+On 09/07/2025 08:34, Hailong Fan (范海龙) wrote:
+> On Thu, 2025-07-03 at 11:05 +0200, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
 >>
 >>
->> Best regards,
->> Krzysztof
-> 
-> On the MediaTek platform, the main SoC clock sources are typically 32K,
-> 13M, and 26M. This is why the terms clk32k, clk13m, and clk26m are
-> used.
-> Specifically, clk26m refers to the system’s 26 MHz clock source.
-> The clkxxx naming convention is intended to indicate that these are SoC
+>> Il 03/07/25 10:08, Krzysztof Kozlowski ha scritto:
+>>> On 03/07/2025 09:56, hailong.fan wrote:
+>>>> From: Hailong Fan <hailong.fan@mediatek.com>
+>>>>
+>>>> This patch adds mt8196 dsp document. The dsp is used for Sound
+>>>> Open
+>>>
+>>> Please do not use "This commit/patch/change", but imperative mood.
+>>> See
+>>> longer explanation here:
+>>>
+> https://urldefense.com/v3/__https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst*L95__;Iw!!CTRNKA9wMg0ARbw!g39q48fUCsDJ5PETUtQ0PK0Bkwf0Ce1F_ZzJiEiWMzuybWQ0dSPzblvLlJ-4saWTSoJWuS5imsXbpdgLBvUy4wxw9C5w7B4m$
+>>>
 
-But it should nnot.
+Fix your email client not to produce such junk like above ^.
 
-> clock sources, while also distinguishing between different clock
-> frequencies.
+>>>> Firmware driver node. It includes registers,  clocks, memory
+>>>> regions,
+>>>> and mailbox for dsp.
+>>>>
+>>>> Signed-off-by: Hailong Fan <hailong.fan@mediatek.com>
+>>>> ---
+>>>>   .../bindings/sound/mediatek,mt8196-dsp.yaml   | 95
+>>>> +++++++++++++++++++
+>>>>   1 file changed, 95 insertions(+)
+>>>>   create mode 100644
+>>>> Documentation/devicetree/bindings/sound/mediatek,mt8196-dsp.yaml
+>>>>
+>>>> diff --git
+>>>> a/Documentation/devicetree/bindings/sound/mediatek,mt8196-
+>>>> dsp.yaml
+>>>> b/Documentation/devicetree/bindings/sound/mediatek,mt8196-
+>>>> dsp.yaml
+>>>> new file mode 100644
+>>>> index 000000000000..68f594f476e8
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8196-
+>>>> dsp.yaml
+>>
+>> Wrong folder; this should go to dsp/mediatek,mt8196-dsp.yaml ....
+>>
+>> ...but then I don't get why MT8196 wasn't simply added to
+>> mediatek,mt8186-dsp.yaml.
+>>
+> Yes, the first version was written this way, but the maintainer
+> suggested the following, so I'm not sure which approach is more
+> appropriate. Could you please provide a final recommendation?
 >  
-> Therefore, using other terms could potentially cause confusion.
+> v1 link: 
+> https://lore.kernel.org/all/a72988212d0d95bfe76eb9c53bbdb8c57c989377.camel@mediatek.com/
 
-No, you don't understand. This device receives some main PLL or ref
-clock. That's the only important information in the name, not its
-frequency..
+You linked to your reply. What does it prove? You are the maintainer and
+you gave this recommendation for your own patch?
 
 >  
-> For example, the ADSP clock sources are ADSPPLL(800MHz) and
-> clk26m(26MHz).
-> On other platforms, the definition of clk26m in the Device Tree Source
-> (DTS) is as follows:
+> comment:
+>>
+>>> ---
+>>>  .../bindings/dsp/mediatek,mt8196-dsp.yaml     | 96
+>>> +++++++++++++++++++
+>>
+>> Don't grow dsp directory. Either this is remoteproc or some sound
+>> component, so place it accordingly.
+> This is a reference to the approach used in a previous MediaTek
+> project:
+>  
 > 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/mediatek/mt8188.dtsi#n328
-> The mt8196 platform uses the same design.
+> https://web.git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/devicetree/bindings/dsp
+> Do we need to move all the files under the DSP directory to the sound
+> directory?
 
-So you add poor code, because previously Mediatek added more poor code?
-What sort of argument is that?
+No.
 
 
 Best regards,
