@@ -4,71 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B63E4C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6035C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RMiENT7nzxfoafiX1IT5aN+t/mOi7FUDDhH/7DvLxK8=; b=IiMQSrW9qYqUkzuaBlZmxLBuJs
-	ilola4H0eOROzw3JlXzINl4M/SWKAQdTyT55b30zGBEHVARTzop6PL1S0VN8MILQq0X+xfl9H+R/n
-	egxZC72VekNRyPndbcnM+P+jnpPMvlm2bWXPh98s4l6td2lyMAHa8xekrnBwso08i0Hd7e4dv6lyf
-	q1r40rf5avQRY9dcmDYtUjM8BWEM1c8LtwDDRRbG38gIYKj2T5wwofQvgQY1qyWvy7cZ6YrPHqWej
-	x7knKda7cT8jDu/zx9Wtvj/dVX8rF08IfLxowWfbvKgO6t3dQO3XDE6ndIshC7XP57X4yBPN5Caxs
-	XF1DvXCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7qwX3m8lIZWA1wW1loDvH0kTUY1FBDJtAso9rRIWXR8=; b=ELzyueFV+56kh9DFkQpie1m8DK
+	whL0JiX3qQHrw6QmX0O5XqQEq89Iwn/So6GQJD0JpEK6kt6mbGcfy86to/nEvERfs8g6+1JP91Mad
+	0mSTKkUAeVF8AQ9P554UWFERStBs3yhiSo+KjzH1xiniiDT7kScwI2DkhfxHfETZqeod1xcxt8F6l
+	PdNd0shFWaOrKrsxamX2jKXmElRkM0jmvxhxKoJcsrL5j34VP+YAU9KkGTRusIx5bit6V4cG+Q+QO
+	oRPkuWu5Vk8B6XMC+BG5oM1+av3kE2AFxo5je+vawz2KzMZohOytz2FQZCoi/PsEOLbaeFbYCcCa5
+	5WP263pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZaJp-00000009hbN-48OK;
-	Wed, 09 Jul 2025 19:19:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZX7D-00000009Di2-31pi
+	id 1uZco6-00000009xL4-3Cv2;
+	Wed, 09 Jul 2025 21:58:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZXNN-00000009HSF-45jp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 15:53:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 14B6B45A62;
-	Wed,  9 Jul 2025 15:53:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76020C4CEF7;
-	Wed,  9 Jul 2025 15:53:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752076426;
-	bh=X99T3zLCk1wsD+6/htrl/rppok06x79Qi4swnOe3K4Y=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B7bStvu8t/kBb0l6jYfh1H4MhIj4m+VKvH59Cgt5NpcMySeqHuEHNUsjIDTQ/6/eO
-	 OBiy4OlUkXuppnsUJIrZ+CR5X4V0xpSRZoHAKbfymEf/QCuW9noULXNbEno6Lh6jFx
-	 tWImZVdEFIhSYrIiFfFhlmCfe1lco0zkq6jKnslV8YDumiRFtPTs3sFCaxY7BO4+oW
-	 Lzawg78qkX4bdxWPQ78xKptMeD9rFAo6poIpRI+7OmAJ/2gnFJdOIvGYWG7g383vLQ
-	 vYXMQJK2Ty2TbSR34g86HxuKp2tP21aepI7CyvgFhRe3fncoSfrkLQqC7AZMzUZ8xk
-	 yCfUwf89AnpHA==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 3E1A35FE8C; Wed,  9 Jul 2025 23:53:44 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-sunxi@lists.linux.dev,
-	devicetree@vger.kernel.org,
+	Wed, 09 Jul 2025 16:10:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CBE47152B;
+	Wed,  9 Jul 2025 09:10:16 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 37B6C3F694;
+	Wed,  9 Jul 2025 09:10:26 -0700 (PDT)
+Date: Wed, 9 Jul 2025 17:10:23 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	William Mcvicker <willmcvicker@google.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v2 2/4] pmdomain: sunxi: sun20i-ppu: add A523 support
-Date: Wed,  9 Jul 2025 23:53:41 +0800
-Message-Id: <20250709155343.3765227-3-wens@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250709155343.3765227-1-wens@kernel.org>
-References: <20250709155343.3765227-1-wens@kernel.org>
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v5] soc: samsung: exynos-pmu: Enable CPU Idle for gs101
+Message-ID: <20250709-chocolate-flamingo-of-nirvana-5de895@sudeepholla>
+References: <20250709-gs101-cpuidle-v5-1-b34d3210286d@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250709-gs101-cpuidle-v5-1-b34d3210286d@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_085347_778005_1B7C72E1 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250709_091030_055781_9365685C 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,54 +70,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+On Wed, Jul 09, 2025 at 02:26:27PM +0100, Peter Griffin wrote:
+> Register cpu pm notifiers for gs101 which call the
+> gs101_cpu_pmu_online/offline callbacks which in turn program the ACPM
+> C2 hint. This hint is required to actually enter the C2 idle state.
+> 
+> A couple of corner cases are handled, namely when the system is rebooting
+> or suspending we ignore the request. Additionally the request is ignored if
+> the CPU is in CPU hot plug. Some common code is refactored so that it can
+> be called from both the CPU hot plug callbacks and CPU PM notifier taking
+> into account that CPU PM notifiers are called with IRQs disabled whereas
+> CPU hotplug callbacks are not.
+> 
+> Additionally due to CPU PM notifiers using raw_spinlock the locking is
+> updated to use raw_spinlock variants, this includes updating the pmu_regs
+> regmap to use .use_raw_spinlock = true and additionally creating and
+> registering a custom  pmu-intr-gen regmap instead of using the regmap
+> provided by syscon.
+> 
+> Note: this patch has a runtime dependency on adding 'local-timer-stop' dt
+> property to the CPU nodes. This informs the time framework to switch to a
+> broadcast timer as the local timer will be shutdown. Without that DT
+> property specified the system hangs in early boot with this patch applied.
+> 
 
-A523 has a PPU like the one in the Allwinner D1 SoC.
+Assuming this is arm64 platform and using PSCI for all the power management,
+can you please briefly explain why all these dance is absolutely necessary
+when PSCI calls can be the clue for the EL3 firmware. I am basing my question
+on this information in the file:
 
-Add a compatible entry and a list of power domain names for it.
+/*
+ * CPU_INFORM register hint values which are used by
+ * EL3 firmware (el3mon).
+ */
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
----
- drivers/pmdomain/sunxi/sun20i-ppu.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+This clearly sounds like workaround for the firmware limitations. That
+needs to be clearly documented IMO.
 
-diff --git a/drivers/pmdomain/sunxi/sun20i-ppu.c b/drivers/pmdomain/sunxi/sun20i-ppu.c
-index 9f002748d224..b65876a68cc1 100644
---- a/drivers/pmdomain/sunxi/sun20i-ppu.c
-+++ b/drivers/pmdomain/sunxi/sun20i-ppu.c
-@@ -193,6 +193,19 @@ static const struct sun20i_ppu_desc sun8i_v853_ppu_desc = {
- 	.num_domains	= ARRAY_SIZE(sun8i_v853_ppu_pd_names),
- };
- 
-+static const char *const sun55i_a523_ppu_pd_names[] = {
-+	"DSP",
-+	"NPU",
-+	"AUDIO",
-+	"SRAM",
-+	"RISCV",
-+};
-+
-+static const struct sun20i_ppu_desc sun55i_a523_ppu_desc = {
-+	.names		= sun55i_a523_ppu_pd_names,
-+	.num_domains	= ARRAY_SIZE(sun55i_a523_ppu_pd_names),
-+};
-+
- static const struct of_device_id sun20i_ppu_of_match[] = {
- 	{
- 		.compatible	= "allwinner,sun20i-d1-ppu",
-@@ -202,6 +215,10 @@ static const struct of_device_id sun20i_ppu_of_match[] = {
- 		.compatible	= "allwinner,sun8i-v853-ppu",
- 		.data		= &sun8i_v853_ppu_desc,
- 	},
-+	{
-+		.compatible	= "allwinner,sun55i-a523-ppu",
-+		.data		= &sun55i_a523_ppu_desc,
-+	},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sun20i_ppu_of_match);
 -- 
-2.39.5
-
+Regards,
+Sudeep
 
