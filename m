@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AA5C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 07:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF33C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 07:42:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwtcRwHE+B0X7Qu6jLTzav3BNlwenfWAUGJMHG7IJ0k=; b=LRumEJsvdGlzDYiRM0EbpqYthi
-	iyw3+pqGIV1HGIGYq0qCTFgGlGELaYJzNATUCH99wjPbq8EUnW6jB5WaHjZm+nakv+OHnRTAbNYos
-	hZqJNCsBApEDSWHAoJ/tdEFxOnHf0vvSXud3r8KFUA9DcdtP7oYMNmaucpzIer8JWv7SOA7+nqS4s
-	mp9kfTOJVFFxUXrlXANdpKxLRXcwVrt8CkbvWxA8+w9SnOdSN9CO7QLP9fcH6+xCz+bYDV4QkxYHP
-	m399XR2GLTD5NukpkXZWThNrMnOEU2qP8HXA7ybJdZ9rvwmiB2+DUkgUCYQSBGi2QZ0Iyo0Kd7lg6
-	vDDKsRAA==;
+	bh=7NTug9mEkvHgyQiGPHQ6EEZYF0NCGzgWot71j9oc6ow=; b=3NIMZuFwNSLqUzOECNL/1Ly2Wg
+	qrh7nkOekWoVsvKXL48Kapq7qtUQB3aadpR580KltRQsKGttPpuaoJpq0hUt1bUuHShnVFO8WyBvr
+	bxFjhf281TYg/6hisikciObEMPq9HB8/hEy7B9X8KeFenxSmodP6idUo+Xik+WVHfYNBKTMSI/XaP
+	BweEdNgMechc3wZ7vcWRSuPqkpprZmQBeZZU2Bw00c5euO6q81BfwVIiIwpgIjz93Ek0jSHlabq7U
+	sxlX02S1aue/DvURYpeQtofHcmJYOwbO6/9YazqkHmkOtHjjjXfRnxdofhsiJv2bEVunAMHeqdP7X
+	d+o5UWLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZPOx-00000007q27-3MQg;
-	Wed, 09 Jul 2025 07:39:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uZPRI-00000007qHl-1Jxt;
+	Wed, 09 Jul 2025 07:42:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOXQ-00000007hbh-356f
+	id 1uZOaI-00000007iSL-2UOB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 06:44:16 +0000
+	Wed, 09 Jul 2025 06:47:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C9A976144A;
-	Wed,  9 Jul 2025 06:44:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AA9EC4CEF0;
-	Wed,  9 Jul 2025 06:44:13 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5437DA54643;
+	Wed,  9 Jul 2025 06:47:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 501C7C4CEF0;
+	Wed,  9 Jul 2025 06:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752043455;
-	bh=wdxGlzNC/61f9KkdCBvZ7+eq6PnXnZ+ZbeMf8yJwp9g=;
+	s=k20201202; t=1752043633;
+	bh=lusVhO9l/+FYE+cx8IBDFJefUHFaTUr8LKO82IvBdTE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=czRQdp+g5BYxJ1e8jmArYF8RZF6zgaMn/UeTflpCUq2nRqaixrwJNviCA/tr0Z7lF
-	 xfv9XKfOawvKBsWbhBL6t3+88xyCugqmTwG/38DppYfIGnCyBMC4zdUhRoKoT/PPXb
-	 YHehDBpZOO5lXx15hdiPwSdHpj5x+q3edY0Q3x+9/SlUs2rzOm84oMWWjHj8wHoTlZ
-	 jqrLOQFE9mEyDfuFtVe2UpQWVTH2HvuD9vE4ksFvX4QsGkRXSSRqAhfqk+EcgwLsOE
-	 Y6/Z1N0vYi/mKr/FgpF47LRC+th691UGNGVNfH63yxD9JrSC+wAHLDA5nVhp+KBDRJ
-	 Eu2rhCqJQKIEQ==
-Message-ID: <0dce5de0-cfe0-4305-80c8-4551c6ee3965@kernel.org>
-Date: Wed, 9 Jul 2025 08:44:11 +0200
+	b=C1+NLkB4D72le6nzM1v0hsrFaN/5MH7ENimThR2GareilKUrqmPgdPWS0ix83zOY0
+	 4R4mgXfOele+2fSWDwjW3KtJL4pH/CE8XKjm2X/9fXhUEJ9q9CsiuNIFqHYopxB9DG
+	 a0/T03V6CUronWNeZzKlW+3SUDBVA2MViq/lBc2oMbdWQsui0qQcAQsu9Aj+YSa9o0
+	 Ht05POCE7xfB/1d/hDynE7USk+oLX79Mw86/2RrnYJf3/kvRjlgYyEYiagIlXQG7+b
+	 gzALD7iCRFRvmR/YDEoA75vpZh5HJ0X3CnutsaH109jv0Yh7HTEauaXFSdscRhrWzR
+	 x2hLtL5Lv1WRg==
+Message-ID: <7f3863b5-eb7c-494e-951c-feb257bbaecf@kernel.org>
+Date: Wed, 9 Jul 2025 08:47:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: exynos: add abox generic for ExynosAutov920
-To: ew kim <ew.kim@samsung.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: alim.akhtar@samsung.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <CGME20250709002408epcas2p25248bf1a397fc308d91ffef3889c41d5@epcas2p2.samsung.com>
- <20250709001210.379418-1-ew.kim@samsung.com>
+Subject: Re: [PATCH v3 4/9] dt-bindings: PCI: renesas,r9a08g045s33-pcie: Add
+ documentation for the PCIe IP on Renesas RZ/G3S
+To: Bjorn Helgaas <helgaas@kernel.org>, Claudiu <claudiu.beznea@tuxon.dev>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ geert+renesas@glider.be, magnus.damm@gmail.com, catalin.marinas@arm.com,
+ will@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
+ p.zabel@pengutronix.de, lizhi.hou@amd.com, linux-pci@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, Claudiu Beznea
+ <claudiu.beznea.uj@bp.renesas.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>
+References: <20250708163407.GA2149616@bhelgaas>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,9 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250709001210.379418-1-ew.kim@samsung.com>
+In-Reply-To: <20250708163407.GA2149616@bhelgaas>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250708_234714_762416_47F238A9 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,47 +125,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/07/2025 02:12, ew kim wrote:
-> Add a node for Abox generic. This driver, exynosautov920, connects to
-> the SoC and allows you to configure a sound card.
-
-DTS is not for drivers. NAK.
-
+On 08/07/2025 18:34, Bjorn Helgaas wrote:
+> On Fri, Jul 04, 2025 at 07:14:04PM +0300, Claudiu wrote:
+>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>
+>> The PCIe IP available on the Renesas RZ/G3S complies with the PCI Express
+>> Base Specification 4.0. It is designed for root complex applications and
+>> features a single-lane (x1) implementation. Add documentation for it.
 > 
-> Signed-off-by: ew kim <ew.kim@samsung.com>
-> ---
->  .../boot/dts/exynos/exynosautov920-audio.dtsi | 20 +++++++++++++++++++
->  .../arm64/boot/dts/exynos/exynosautov920.dtsi |  1 +
->  2 files changed, 21 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-audio.dtsi
+>> +++ b/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
 > 
-> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-audio.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920-audio.dtsi
-> new file mode 100644
-> index 000000000000..4a1341ccdc2e
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/exynos/exynosautov920-audio.dtsi
-> @@ -0,0 +1,20 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2020 Samsung Electronics Co., Ltd.
+> The "r9a08g045s33" in the filename seems oddly specific.  Does it
+> leave room for descendants of the current chip that will inevitably be
+> added in the future?  Most bindings are named with a fairly generic
+> family name, e.g., "fsl,layerscape", "hisilicon,kirin", "intel,
+> keembay", "samsung,exynos", etc.
+> 
 
-You need to clean up old downstream code. Read DTS coding style.
+Bindings should be named by compatible, not in a generic way, so name is
+correct. It can always grow with new compatibles even if name matches
+old one, it's not a problem.
 
-> + *        http://www.samsung.com/
-> + *
-> + * EXYNOS - Audio Device Tree source
-> + */
-> +
-> +/ {
-> +	abox_generic: abox_generic@generic {
-> +		compatible = "samsung,abox_generic";
-> +		samsung,num-of-pcm_playback = <32>;
-> +		samsung,num-of-pcm_capture = <32>;
-> +		samsung,num-of-i2s-dummy-backend = <5>;
-> +		status = "disabled";
-
-You just add dead code. This is very poor submission. Reach internally
-(or to experienced R&D in Poland) to guide you how to submit proper patches.
 
 Best regards,
 Krzysztof
