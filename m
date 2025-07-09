@@ -4,109 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD36C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE2FBC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mL72UgO8uT+PXWtl/BilaupuvLieUCOiNlpoptknVTc=; b=oSDMCuctnUxnwDD4EGoo42LOcU
-	NHhzTdNfyQph3+DMDI6QF7a0BMvsCVqkAuUsuXyITUmRio1Esv37njQTMUqFvaNhh3fYiLgF+Yys8
-	Uor2yHwvIpNkqV31WsWOrO7S6zSli91gsWaWuyGHQtgaoNwA50m8dFOaWX6BgRyRWgCW9KJDF1Rms
-	UCbF+qJJ+oFqjzezbyBf4fc9d0HkNgZkmGBgTPf7SVDQ28AwM8RKwyOMrrYN99JY//oPe8FX0oAOP
-	g6ZUnx6y3KX1UxBBcaLHsWaeNijUis5n5xpbLdknR0xb2z0OtLXkBgIQQDviUglTDE0gL7lkyR/TY
-	teKQReZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+E5u62zac/bI/nhyHC/KCVEzYQjnoInD57ATOWi7/J4=; b=4QL4GuXZM0G0QpvVOAxEI66KhK
+	htt4bTeZY8vJA6mWyEV5/27Xj3cs7NG49HY67Mni1a5mumjY24u/1zfZGHGE2ctgSf2zIXQBaam92
+	Q+wrng/NvEZ3dXNrMggfi6LPI4WLP108Yb2VMwZ/2AKc/MH3wfEKlSko5efNNqRR9nfH5JUmSmrdE
+	9hf4vrSzH8HIoGIeM2Jn7t2FGT2kK0498iHMUhLt0RlRczg+0q5CxakE4P57oWJ/IvHNiLLQjRXrG
+	M1Q7fr8M/vLowE6Mc51jTMIcopIjmRRhH+t/+MxGr9y5WZmmVTUr6yds5WIpTxUjbZXo60b5USjPE
+	dwefMvGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZSGI-00000008LNd-1ww7;
-	Wed, 09 Jul 2025 10:42:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uZSKP-00000008MPw-1tky;
+	Wed, 09 Jul 2025 10:47:05 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZQOy-000000080TE-3uRr
+	id 1uZQwo-000000086NV-1zZ8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 08:43:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4ACB046311;
-	Wed,  9 Jul 2025 08:43:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A578CC4CEF0;
-	Wed,  9 Jul 2025 08:43:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752050620;
-	bh=LeSjouO1jlb2DKe/RcxgbmjYkeHiorrNAuQ7DJEa2rs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EdYhE74ilOg6KbH7QqSwKWoG8P2ORFjq3TTVZa/3AOhIhAysRt2fEPh5WYR8G0Nmp
-	 aETjnK3BFQN9OOxm/obNJKx1P6sHaC7CEI3g3uGYiPX1o2wXI2bFPxd/OhisHVBo66
-	 6Eiwd2n4WQuvFoKsJRGE3MJ+ey5NByxZOEXAHn4kPgxixTwYXXgoxPxG1a5ns8CRtl
-	 fG9zpX/39+IxuMb+FD6svf9SRb5w0X5I1Lmqg4yQcXqywab2kTtgmaJTxf/lrIXuHD
-	 cDSqlL3q39VpNulvwujdsqGJCd4JDmozg7b80QE9vsClkF6XwYm+JLT/5P3Ibci/tm
-	 dplCWipSjT8Wg==
-Message-ID: <6e5c20f3-fa31-433f-a50a-b00612bc1949@kernel.org>
-Date: Wed, 9 Jul 2025 10:43:36 +0200
+	Wed, 09 Jul 2025 09:18:39 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9511C103972A7;
+	Wed,  9 Jul 2025 11:18:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1752052711; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=+E5u62zac/bI/nhyHC/KCVEzYQjnoInD57ATOWi7/J4=;
+	b=h+rtFD+OgSNbW8K1Lo3j/OMDeHR/MG8B4sC0DR/IleX2yLP6KxcadR90YVkGzadxoT16Vr
+	86Fd3RHN4CM3jMeTDzUbP5on8PURBNDwbtYZYnF5apatwyfzlUw8A9Hm2ShVOJDYpBEkPO
+	n2lvoVMO7mNxD6Ehgj+9ZH3bEzILesAv/jZmvIg0waLpxvWa4zEcd45Cpbpkny/M3VNKfK
+	A+fD3h8csuAWHkxRZupJ6gydPnkaD0XryOV3P0jzPCMUs7JwFlJQQ7W2wpE7P9XKMYXhHo
+	c+qBLP6VBHFbgWZfo+ILUc9kt1+fjfJ/mHdQQG/ONrpJgzkuLtjF0REFQcEp9w==
+Date: Wed, 9 Jul 2025 11:18:22 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
+Subject: Re: [net-next v14 07/12] net: mtip: Add mtip_switch_{rx|tx}
+ functions to the L2 switch driver
+Message-ID: <20250709111822.3b204b27@wsk>
+In-Reply-To: <d51a84c7-d534-44cc-88bc-73db8721e50e@redhat.com>
+References: <20250701114957.2492486-1-lukma@denx.de>
+	<20250701114957.2492486-8-lukma@denx.de>
+	<d51a84c7-d534-44cc-88bc-73db8721e50e@redhat.com>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/3] dt-bindings: arm: ti: Add bindings for Variscite
- VAR-SOM-AM62P
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
-References: <20250708184841.72933-1-stefano.radaelli21@gmail.com>
- <20250708184841.72933-2-stefano.radaelli21@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250708184841.72933-2-stefano.radaelli21@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; boundary="Sig_/RL_uXyrG8zwSfr1tH8qUxU/";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_014341_029254_52980058 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250709_021838_812097_00724970 
+X-CRM114-Status: GOOD (  39.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,33 +80,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/07/2025 20:48, Stefano Radaelli wrote:
-> Add devicetree bindings for Variscite VAR-SOM-AM62P System on Module
-> and its carrier boards.
-> 
-> Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
-> ---
->  Documentation/devicetree/bindings/arm/ti/k3.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-> index bf6003d8fb76..07d2c2ab5150 100644
-> --- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
-> +++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-> @@ -100,6 +100,11 @@ properties:
->            - const: toradex,verdin-am62p          # Verdin AM62P Module
->            - const: ti,am62p5
->  
-> +      - description: K3 AM62P5 SoC Variscite SOM and Carrier Boards
-> +        items:
-> +          - const: variscite,am62p-var-som
+--Sig_/RL_uXyrG8zwSfr1tH8qUxU/
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
+Hi Paolo,
 
-SoMs cannot be used alone, at least usually. You miss boards in the list
-of compatibles. Look how other variscite boards are made.
+> On 7/1/25 1:49 PM, Lukasz Majewski wrote:
+> > diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c index
+> > 63afdf2beea6..b5a82748b39b 100644 ---
+> > a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c +++
+> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c @@ -228,6
+> > +228,39 @@ struct mtip_port_info *mtip_portinfofifo_read(struct
+> > switch_enet_private *fep) return info; }
+> > =20
+> > +static void mtip_atable_get_entry_port_number(struct
+> > switch_enet_private *fep,
+> > +					      unsigned char
+> > *mac_addr, u8 *port) +{
+> > +	int block_index, block_index_end, entry;
+> > +	u32 mac_addr_lo, mac_addr_hi;
+> > +	u32 read_lo, read_hi;
+> > +
+> > +	mac_addr_lo =3D (u32)((mac_addr[3] << 24) | (mac_addr[2] <<
+> > 16) |
+> > +			    (mac_addr[1] << 8) | mac_addr[0]);
+> > +	mac_addr_hi =3D (u32)((mac_addr[5] << 8) | (mac_addr[4]));
+> > +
+> > +	block_index =3D GET_BLOCK_PTR(crc8_calc(mac_addr));
+> > +	block_index_end =3D block_index + ATABLE_ENTRY_PER_SLOT;
+> > +
+> > +	/* now search all the entries in the selected block */
+> > +	for (entry =3D block_index; entry < block_index_end;
+> > entry++) {
+> > +		mtip_read_atable(fep, entry, &read_lo, &read_hi);
+> > +		*port =3D MTIP_PORT_FORWARDING_INIT;
+> > +
+> > +		if (read_lo =3D=3D mac_addr_lo &&
+> > +		    ((read_hi & 0x0000FFFF) =3D=3D
+> > +		     (mac_addr_hi & 0x0000FFFF))) {
+> > +			/* found the correct address */
+> > +			if ((read_hi & (1 << 16)) && (!(read_hi &
+> > (1 << 17))))
+> > +				*port =3D FIELD_GET(AT_PORT_MASK,
+> > read_hi);
+> > +			break;
+> > +		}
+> > +	}
+> > +
+> > +	dev_dbg(&fep->pdev->dev, "%s: MAC: %pM PORT: 0x%x\n",
+> > __func__,
+> > +		mac_addr, *port);
+> > +}
+> > +
+> >  /* Clear complete MAC Look Up Table */
+> >  void mtip_clear_atable(struct switch_enet_private *fep)
+> >  {
+> > @@ -825,11 +858,217 @@ static irqreturn_t mtip_interrupt(int irq,
+> > void *ptr_fep)=20
+> >  static void mtip_switch_tx(struct net_device *dev)
+> >  {
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	unsigned short status;
+> > +	struct sk_buff *skb;
+> > +	struct cbd_t *bdp;
+> > +
+> > +	spin_lock(&fep->hw_lock);
+> > +	bdp =3D fep->dirty_tx;
+> > +
+> > +	while (((status =3D bdp->cbd_sc) & BD_ENET_TX_READY) =3D=3D 0) {
+> > +		if (bdp =3D=3D fep->cur_tx && fep->tx_full =3D=3D 0)
+> > +			break;
+> > +
+> > +		dma_unmap_single(&fep->pdev->dev, bdp->cbd_bufaddr,
+> > +				 MTIP_SWITCH_TX_FRSIZE,
+> > DMA_TO_DEVICE);
+> > +		bdp->cbd_bufaddr =3D 0;
+> > +		skb =3D fep->tx_skbuff[fep->skb_dirty];
+> > +		/* Check for errors */
+> > +		if (status & (BD_ENET_TX_HB | BD_ENET_TX_LC |
+> > +				   BD_ENET_TX_RL | BD_ENET_TX_UN |
+> > +				   BD_ENET_TX_CSL)) {
+> > +			dev->stats.tx_errors++;
+> > +			if (status & BD_ENET_TX_HB)  /* No
+> > heartbeat */
+> > +				dev->stats.tx_heartbeat_errors++;
+> > +			if (status & BD_ENET_TX_LC)  /* Late
+> > collision */
+> > +				dev->stats.tx_window_errors++;
+> > +			if (status & BD_ENET_TX_RL)  /* Retrans
+> > limit */
+> > +				dev->stats.tx_aborted_errors++;
+> > +			if (status & BD_ENET_TX_UN)  /* Underrun */
+> > +				dev->stats.tx_fifo_errors++;
+> > +			if (status & BD_ENET_TX_CSL) /* Carrier
+> > lost */
+> > +				dev->stats.tx_carrier_errors++;
+> > +		} else {
+> > +			dev->stats.tx_packets++;
+> > +		}
+> > +
+> > +		if (status & BD_ENET_TX_READY)
+> > +			dev_err(&fep->pdev->dev,
+> > +				"Enet xmit interrupt and
+> > TX_READY.\n"); +
+> > +		/* Deferred means some collisions occurred during
+> > transmit,
+> > +		 * but we eventually sent the packet OK.
+> > +		 */
+> > +		if (status & BD_ENET_TX_DEF)
+> > +			dev->stats.collisions++;
+> > +
+> > +		/* Free the sk buffer associated with this last
+> > transmit */
+> > +		dev_consume_skb_irq(skb);
+> > +		fep->tx_skbuff[fep->skb_dirty] =3D NULL;
+> > +		fep->skb_dirty =3D (fep->skb_dirty + 1) &
+> > TX_RING_MOD_MASK; +
+> > +		/* Update pointer to next buffer descriptor to be
+> > transmitted */
+> > +		if (status & BD_ENET_TX_WRAP)
+> > +			bdp =3D fep->tx_bd_base;
+> > +		else
+> > +			bdp++;
+> > +
+> > +		/* Since we have freed up a buffer, the ring is no
+> > longer
+> > +		 * full.
+> > +		 */
+> > +		if (fep->tx_full) {
+> > +			fep->tx_full =3D 0;
+> > +			if (netif_queue_stopped(dev))
+> > +				netif_wake_queue(dev);
+> > +		}
+> > +	}
+> > +	fep->dirty_tx =3D bdp;
+> > +	spin_unlock(&fep->hw_lock);
+> >  }
+> > =20
+> > +/* During a receive, the cur_rx points to the current incoming
+> > buffer.
+> > + * When we update through the ring, if the next incoming buffer has
+> > + * not been given to the system, we just set the empty indicator,
+> > + * effectively tossing the packet.
+> > + */
+> >  static int mtip_switch_rx(struct net_device *dev, int budget, int
+> > *port) {
+> > -	return -ENOMEM;
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	u8 *data, rx_port =3D MTIP_PORT_FORWARDING_INIT;
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	unsigned short status, pkt_len;
+> > +	struct net_device *pndev;
+> > +	struct ethhdr *eth_hdr;
+> > +	int pkt_received =3D 0;
+> > +	struct sk_buff *skb;
+> > +	struct cbd_t *bdp;
+> > +	struct page *page;
+> > +
+> > +	/* First, grab all of the stats for the incoming packet.
+> > +	 * These get messed up if we get called due to a busy
+> > condition.
+> > +	 */
+> > +	bdp =3D fep->cur_rx;
+> > +
+> > +	while (!((status =3D bdp->cbd_sc) & BD_ENET_RX_EMPTY)) {
+> > +		if (pkt_received >=3D budget)
+> > +			break;
+> > +
+> > +		pkt_received++;
+> > +
+> > +		if (!fep->usage_count)
+> > +			goto rx_processing_done;
+> > +
+> > +		status ^=3D BD_ENET_RX_LAST;
+> > +		/* Check for errors. */
+> > +		if (status & (BD_ENET_RX_LG | BD_ENET_RX_SH |
+> > BD_ENET_RX_NO |
+> > +			      BD_ENET_RX_CR | BD_ENET_RX_OV |
+> > BD_ENET_RX_LAST |
+> > +			      BD_ENET_RX_CL)) {
+> > +			dev->stats.rx_errors++;
+> > +			if (status & BD_ENET_RX_OV) {
+> > +				/* FIFO overrun */
+> > +				dev->stats.rx_fifo_errors++;
+> > +				goto rx_processing_done;
+> > +			}
+> > +			if (status & (BD_ENET_RX_LG | BD_ENET_RX_SH
+> > +				      | BD_ENET_RX_LAST)) {
+> > +				/* Frame too long or too short. */
+> > +				dev->stats.rx_length_errors++;
+> > +				if (status & BD_ENET_RX_LAST)
+> > +					netdev_err(dev, "rcv is
+> > not +last\n");
+> > +			}
+> > +			if (status & BD_ENET_RX_CR)	/* CRC
+> > Error */
+> > +				dev->stats.rx_crc_errors++;
+> > +
+> > +			/* Report late collisions as a frame
+> > error. */
+> > +			if (status & (BD_ENET_RX_NO |
+> > BD_ENET_RX_CL))
+> > +				dev->stats.rx_frame_errors++;
+> > +			goto rx_processing_done;
+> > +		}
+> > +
+> > +		/* Get correct RX page */
+> > +		page =3D fep->page[bdp - fep->rx_bd_base];
+> > +		/* Process the incoming frame */
+> > +		pkt_len =3D bdp->cbd_datlen;
+> > +		data =3D (__u8 *)__va(bdp->cbd_bufaddr);
+> > +
+> > +		dma_sync_single_for_cpu(&fep->pdev->dev,
+> > bdp->cbd_bufaddr,
+> > +					pkt_len, DMA_FROM_DEVICE);
+> > +		net_prefetch(page_address(page)); =20
+>=20
+> Both `__va(bdp->cbd_bufaddr)` and `page_address(page)` should point to
+> the same same memory. Please use constantly one _or_ the other  -
+> likely page_address(page) is the best option.
+
+Yes, the __va() can be replaced with page_address(page) as those are
+the same addresses.
+
+>=20
+> > +
+> > +		if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
+> > +			swap_buffer(data, pkt_len);
+> > +
+> > +		if (data) { =20
+>=20
+> The above check is not needed. If data is null swap_buffer will still
+> unconditionally dereference it.
+
++1
+
+>=20
+> Also it looks like it can't be NULL.
+
+Yes, those buffers are allocated at the initialization phase - if the
+allocation fails, driver is not operational.
+
+>=20
+> /P
+>=20
+
 
 
 
 Best regards,
-Krzysztof
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH, Managing Director: Johanna Denk,
+Tabea Lutz HRB 165235 Munich, Office: Kirchenstr.5, D-82194
+Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/RL_uXyrG8zwSfr1tH8qUxU/
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmhuM94ACgkQAR8vZIA0
+zr1RaQgArKJdLlpGVCfmHoWrOlhwERb9npP855S4nWH/nIu4LGnsEf8IIiz6wYxw
+wpt8UCBcuoagdoUDvfXBEM4SgGw/zpYJz63sYg1yVnUz6scgmcL5fdGitYQbC9O3
+DEeKJBzyOP3DP29+61LMWSbnLUm1z4eEuotPlOhy3xwrxs9FEy3Dwm8o74axdPhO
+icGeBaCPYvk86if7I4pHMGpRFA+on3upbCnMjjBSZdkX8am3gdZE/TAdeR7WdQ9+
+xaxf8NklQBJQfXwtY8LEoB6VsFzxZ7n+qotp3GD9FUq53jgR2dZLw3km1bEo6RBa
+t+ihQGZ1wEKNf9eE91UTFCBi796fYA==
+=aA9e
+-----END PGP SIGNATURE-----
+
+--Sig_/RL_uXyrG8zwSfr1tH8qUxU/--
 
