@@ -4,63 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13CC2C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3AA1C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j7VFLRFHtBlCRBBgO408HcjRv3FMIlmldqwuImTQhXI=; b=Vpm+3AsY0/zObLsgS8cMdwqr3m
-	FqDWcOTiemZcUe8HEyLT1te568UzfTqBtZbVP4FGVAqndzszBuPLznP/ZZrlW8rIO2jNMPvpbM2EI
-	Xi32WRH4bCaUpUmhVizLcuJfDuwUJeJIZD9fZPR9n55gVTJc7SCm+eWKJBWGoB7tha9J1l6ZPFz8t
-	VfPvcHT+o4FibDawKHdtbEr0VEJ4xSunq6k8ZjyEUqAKa/CRRrNPBq9A2W93lUPEcDIyxNJHBVsND
-	1ObQevQU7Zed1VlFxdhkZDvRB/WqYTgxllf0Y2Z1Y/mi66NL9cYEe+QIPXoZ7bi0T5cIYLvkpj9px
-	qTk2Fadg==;
+	bh=i6/vwkW82qoQWrV89+srymJxcEx3e90cyJI9SDfLR74=; b=SqDLpD0J930TQbY6KU5/IiF2rS
+	/UyAn9QaQiN8+5UhSC9hUjl229kvey5ZXcJBzdMUDTycHOlAiY/2C0w/yVWeCnD+GpnBDFtQKengK
+	t42q8FUMtdfWjpHiGWQsoRSzBc+v+DxmAqInAHY/yOYMG68TuhYpwN/82VJIEM2qyDf6+4DfATyFG
+	83tT/mYZW84MAmmkqR3nxSEhbHC1hCe1H4yAgS4YU0oz4dQUtENEvTLS4CfaFDEULnMMOu0LtaGcr
+	45m5jTmmgyYSEwKenU9mSVv6Zsm05mYrwmEHV7StQ9P9qfDd5RBRDzp82MmkcfTn4ZQtjWtIoxOUD
+	l3ZJBLUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZa4t-00000009bom-3k3e;
+	id 1uZa4t-00000009boU-1Din;
 	Wed, 09 Jul 2025 19:03:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVLX-00000008svg-1ZUj
+	id 1uZVGw-00000008rpZ-2keO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 14:00:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9BA8743A33;
-	Wed,  9 Jul 2025 14:00:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D8A6C4CEEF;
-	Wed,  9 Jul 2025 14:00:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752069626;
-	bh=J5gFOJygzZbOqjQq3B0bcOtL5rvp4e6QlwCd4fMhZRA=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=l6TttmSthsVbAFS4ZMnLJxgMwQ5k+tvu1X346JYTBya/qber1UFbCrgVe0t8YkARn
-	 UGX/Azl/pePjEafUfbHiuwl2/mhdZYPAKc3l700E4hME664m2xgUurbPkxYmoB+G7G
-	 o2+H3AiYyu2mgBgQb2Nv2474x/CLsWZuqAaFhvd2m54YBlkXBnge6TOIcKXWwUNLob
-	 Xez7tDb1eok4lw1MpxyOFAgyV6r5efwfpJO0gYyZ/Ij26svJugrf3XGMUx2vCxrKKV
-	 dKxJof7qztNJCKxXlBcGPHJGnWEPrqzEkKnyBCG3xX+WkVB63RXfCsPNJXU7VS/X0x
-	 kdGbanfe0NiYw==
-Date: Wed, 09 Jul 2025 09:00:25 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 09 Jul 2025 13:55:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=r3+YdvLeQvBXotyLUmJH/+Jjd43Bbl3HgAHtL2hsywLldV7etfHd0qp47pWPGfOkpIqnqImY6Lz0AgMI8ID+9q4Nl4QBbsni2MeIwaZvgmsKpLsm6EMKh4fPuhLjL+JjMv4y1dfIITGwsD6SIpJH2YhEaedmmSt1UIdTh2uPOnzGRvplGWZxTFXIcZ2K1hNnbYeQ8NihZNQyfAmMjhcRHohtCG/zAXO8b5DO9AHaIN4nddexYnX6raMxIjgsLB6nJTH4jFd4EsjnV8mXP+37BsA88PgQpbpXUwKUJ//TpAHBVGbfuZseGqMPt2qdUPd8Wpxbp1bm/IhHCseZzB9fgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i6/vwkW82qoQWrV89+srymJxcEx3e90cyJI9SDfLR74=;
+ b=SVszb+LjpGUNkOuKO/kKNoo1G6k0o1957zzl1Zp/+McF5kYfN1LfuemdtAxo4vGNWE6CbKWA7G2A2UsH0R47tGnRvdo0sftnqTBoPAfCdpt9jYxScfFqZxYszMuYW086vwNjnjXSeCy+6aKS48hZXKpsUnykBJAzFMkYkliMeNPPuM+5ysmy0Nk+3LUTeM42AEMVYjDZ47yubX5EGkO34coXBQEoaXL9k97jV2BsSnI2OF62H3zCtuFBNXF4mdWHZ3sdn32uIgo3dMmAglXPNdm5nOG7B3/I0Ps2bVUfG+4IYlXQED4mre7PRbHqw2dS8tVprWseS7tr/RbdrcGGaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i6/vwkW82qoQWrV89+srymJxcEx3e90cyJI9SDfLR74=;
+ b=ASXljfkRoUKV0HpOD+LLQEre/s23e5oeFyBOLiwoXTD1EIeCPnxCG92v6BMC7qHwQ0KQA7z05/76703UOVFz0zK2L5Wem7Ny5mAhqgQME/ZXL/2f5fh8sL4nh0dbJP2iOYfg3ukSHICDAF+y5HqO/JZLbJ+zhKCq/ITvriK3axrTeJ65YLuzXG0AQl6ZBMu2ildWjGei6o5fohqq3inNF5cyKOMUsuGTPZiPjldXyV/6JgQ2ZWckaha8GUFfkleiq9YiAbj6CERhym0mgpz8J5uFga68afV+Vm4tQE1Z/FVPWgpZcFKHu0rwpAs6cZeU53I/DGv3EuhUXBOVT3saew==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
+ by DBAPR04MB7301.eurprd04.prod.outlook.com (2603:10a6:10:1a7::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.27; Wed, 9 Jul
+ 2025 13:55:28 +0000
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e%5]) with mapi id 15.20.8880.030; Wed, 9 Jul 2025
+ 13:55:28 +0000
+Date: Wed, 9 Jul 2025 16:55:24 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
+	Michael Walle <mwalle@kernel.org>, Lee Jones <lee@kernel.org>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 1/9] dt-bindings: gpio: add bindings for the QIXIS FPGA
+ based GPIO controller
+Message-ID: <lv55xheu2glgsgey2wdupqp3cvem27afhrs3ibhzqgglf4ql6a@tzy7uwule7z4>
+References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
+ <20250709112658.1987608-2-ioana.ciornei@nxp.com>
+ <9aff4894-a8aa-47d2-8800-62959e064254@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9aff4894-a8aa-47d2-8800-62959e064254@kernel.org>
+X-ClientProxiedBy: FR2P281CA0005.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a::15) To AS8PR04MB8868.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42f::6)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: krzk+dt@kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, conor+dt@kernel.org, 
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- alim.akhtar@samsung.com
-To: ew kim <ew.kim@samsung.com>
-In-Reply-To: <20250709001210.379418-1-ew.kim@samsung.com>
-References: <CGME20250709002408epcas2p25248bf1a397fc308d91ffef3889c41d5@epcas2p2.samsung.com>
- <20250709001210.379418-1-ew.kim@samsung.com>
-Message-Id: <175206957118.3267462.9769889827847502379.robh@kernel.org>
-Subject: Re: [PATCH] arm64: dts: exynos: add abox generic for
- ExynosAutov920
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|DBAPR04MB7301:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7889dbd6-2cac-4310-9ccc-08ddbef042b8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?o7xoMl8rNA8D7/m+ZxdS7vkdbYJD+5GOTlDOIBGJfhFEVy9qlrCTWJ6g5Kif?=
+ =?us-ascii?Q?n0oN6iZSnvqAzjQYnSzaEgnRFXczyBRiNliqk1hK0yfMJ9Y6wQ1AJTzsRrcs?=
+ =?us-ascii?Q?6VxLm7ilLSgfh9WYydv7bxq89XaxEBNZwyNLkm4tQqZYcomxgNJlbAa1gmwY?=
+ =?us-ascii?Q?trmrKDPHCR7aZTJfSs2wgu0aRDM/wULsOu5RBGTitDli9bVKB22Y0J3B9dit?=
+ =?us-ascii?Q?hJ1WZEbVx9AEDGpXCiXNPUOq9k7xRD+rjKLKyAI9BtWk9+IEfNRiYcPHmSAx?=
+ =?us-ascii?Q?hy3eDL+QWWCG7t5qMMv/ugDXFmOvXJNpB8V2nHRgu4TzGKyMG5Pyz385sHuv?=
+ =?us-ascii?Q?9tz4usL3jfGdd849nO8SArW4OfxRAE7/o9jvZIZQ7m12AjKNwHeHDxf3oJ/b?=
+ =?us-ascii?Q?uUhYP396rRoNJrc1ok5WvO4a2bH4CzCA0Wf5ivYtUIdJDE8mcEcO1HYwou7r?=
+ =?us-ascii?Q?b4WqTcc5J7e2sn8++kgw6bYH8n8ckSlnFaOPGEGW9DHef4hSlR9t7GCTzZrJ?=
+ =?us-ascii?Q?50hSgXLE7fE3U3OaH9GqT9fyVXZubM5NMtzYaaMLXqRhvNp/B/Xs174Jn7mk?=
+ =?us-ascii?Q?WQ57nFJ+JNDSe6mDgQoW3HC6EzkNJ5lqE3wJ/DvvTCloWu9yguNoUfAihxEQ?=
+ =?us-ascii?Q?kxpT8w13g5RLtbPNhuAQvrKdYjIWB1bE23ExgOWV78fAMSGI5brN2NtNobU5?=
+ =?us-ascii?Q?sAXtWbrGbdYvuOIW/UIgT9UixxBnjuNZscRd9rKgefcWg9c6vlL69+csGdCE?=
+ =?us-ascii?Q?3SadHEy8P5f5sp5fW6xPWxD8/i86zMVpP2rxlg8zVgWtzG9Da6aK6Q8O4DuB?=
+ =?us-ascii?Q?U3PX9RpHRcF67LuzcM2Q9gV1eZ/FOy0sBKgsvoTMoubQvFHA6D0itvS9UYRP?=
+ =?us-ascii?Q?1XBiBPnxxbHyyBEV66NW0G4Q4kgvyHxZjks1JgYozoZAgcPrsdkslgLexVxl?=
+ =?us-ascii?Q?3N4buvUv3uaXM3hiqTUymN0Nelq4MzjcyTfFAS571iuH9GlfoPXxc9z6AvLx?=
+ =?us-ascii?Q?BthCjJ/Jm0FlQovSh7oSIEkR+HeQLGNAykYDNX1R/lXI2azcwJ+Qb0Igkd1d?=
+ =?us-ascii?Q?C+RjZ5aar1LdeQDPlxYDLFovX3KW6sz30njQQJ9ENVqP4RF93XBPqfN0ZLE+?=
+ =?us-ascii?Q?hFeXg1x3/d40CoL8nZ7+jR95dDjYLjDbH1ja3UvqZFLZSM9pptuvmkuL6S42?=
+ =?us-ascii?Q?Gy6BrX/ZZ/FGimSAQ1e3corz8ckvA4tcv5EK5HcqqOmkfisnK+K68ljOHlVB?=
+ =?us-ascii?Q?7BxZ9PPQK2lDGfBqhw1slXqpmH7BvpkkJD0/oR4B/uXp+iRnbVlWgOaRTaAa?=
+ =?us-ascii?Q?+lwluFfQ9kHzXXTIuk3vtQW82by56kLHqlKMzka6ioC5R08cBsf9dSuL4ZcN?=
+ =?us-ascii?Q?3m12qbSqVF/wzGfAeOSko3bVlqn/?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bS3NP2RCQ7BdNT5z8Webk6pNBmnpGaWuuqf00xND06wtGskp9FzdqUk0WosI?=
+ =?us-ascii?Q?JIdtvlmLfpXLN6ULRmOLSpggeLYwptm0IEdlresXJ5VLOSjg2j3eAun9hJtx?=
+ =?us-ascii?Q?LYKvxWBGbN+jWSlWAPxWv7rBHJC189sBKR7SS9lTSdhwO8VfUiAcuzL6hF8D?=
+ =?us-ascii?Q?q9Zq97q5KPqOBEDSkx/CLvReyQk/b2Im5zke2eECoDrcUimAr/p+9x58eXRs?=
+ =?us-ascii?Q?0iUZCs+wKKYp5GJ22+Dngsr3xo203/wPzUCHdprgUo9HetTyfa4rPQA7IYzd?=
+ =?us-ascii?Q?WsoKrU9NTJBWhscrGeEkLRQXsomSz3ukh26xBVEhTYIgqHQms19YThP122ZV?=
+ =?us-ascii?Q?S13Q/jmCaStugLMgIlzT0NN/q4DlbaVoitLnW4nOnh3z9T+UiZSi4l7Jz/k4?=
+ =?us-ascii?Q?2y5IdkVt2DRGnscatKQ9GbJs51MHHX6F/SW/GpZwSj3sS1nrJ3f243JvzyGu?=
+ =?us-ascii?Q?Lb2/EJFQp46CST8rEw/TIrmdt9GbbRA6mK4OqeNDzU2DlkyvppH1W/lYJ6Nn?=
+ =?us-ascii?Q?6s2USdyQQ5mj6tbHv5O32GWbZ5tCwbpgp/NenazSSuDjkNhVuKwEzNgQPoK+?=
+ =?us-ascii?Q?pet7QD621VYHEHA+RpGxeaa+GAEEidRQOVvQn3Zoj1Gts32gujYOLIy7wisF?=
+ =?us-ascii?Q?qVKm2zFi2sIBpl9dZLM8TaKNCNuBqUZwvVCaM5Ooa1BB+thyhVY08O/CxoJK?=
+ =?us-ascii?Q?QNLIZhA31JmkLXsIINEBdHEwGwI0HrIlSuxJUgZZAN+M+3Ww55QSM7tMnFx1?=
+ =?us-ascii?Q?B/g6z1Zr5c5iOJvQy1DKP8coit71hrpeFc3eI8tuuIZO2P49U1AU/3tYiYEE?=
+ =?us-ascii?Q?HmVwhsMrHWxbIanwd/xOW0HixZlLAYt5OTE+iqTmPhHKbIoy2QdCJH9uzl6r?=
+ =?us-ascii?Q?kKRMtdsAkHG/7Jomr+X+MLWkM3oKxLzYlj1RNDZh7OK4AqbHTza8U5b4NGGR?=
+ =?us-ascii?Q?MqgBROkjBy8FehDUSzXik1XdBY69MFQEXvphUPQag8si+B9ToCq81C+tARKM?=
+ =?us-ascii?Q?JHzQ1ODze0qCfEUTlR5QUrxJlLXYG086GCXTPn+dixU+w6IZ8GpUY9hXN6dK?=
+ =?us-ascii?Q?h2SLf5qQUdg+ZR8aeg60z1Oem2GuhT0lKnlYJ8qL5GrbNCRnpSmFb8zIHlYP?=
+ =?us-ascii?Q?fWfcJ2nACk2bbCBwB+ys6KhLx2ZqvybwRPs12sXnfBhSZGAmFNU9MK0FYanl?=
+ =?us-ascii?Q?LRh9+u283NtW+0bGrtfIMt8CNGiEiSs2n/oDl9g/FlpF8LYKKa3p5N83ORSg?=
+ =?us-ascii?Q?eR81Gvbby8qinQU8FLwQfuqQbILoxwl75a5ccBwIkDBBA6MtdDrPejKtWZcM?=
+ =?us-ascii?Q?F5rxiKCTL/CCGmQ0Jz5dxKUuxAusB1oMG1+75bPK1xjDNwoePDuUP146SrGr?=
+ =?us-ascii?Q?d+1gxMVfx6TUYE/mJO99+On0Eg+G57UshX9j6QLsFH5DyY2xMZa6bg9ZcM2O?=
+ =?us-ascii?Q?JUNbwzXJ8MSqeTJRf839/kMgTnSl48Hs2fvKWHCuqVSreWtad6PGeyMRrSLQ?=
+ =?us-ascii?Q?ruOQfH/UJYMC6ZjcauaoE0IXlOc3saMMfFcd1/6NZMBAcI5w/D/t1i0+e2yV?=
+ =?us-ascii?Q?iTSzVxD/SFFvoOHSkefqejQ32LWy+RftgNW7C2h1?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7889dbd6-2cac-4310-9ccc-08ddbef042b8
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2025 13:55:28.0641
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZgP9WQTQrEFPOfGzGJ72oLQnQ8Z0qJ+8Lrnqr/HBa2fHJs09XQBDtVc75WEplvlPn6Ev/yUbJX8FZdGBzQhn6w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7301
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_070027_429509_1E136A2B 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20250709_065542_713243_10679D57 
+X-CRM114-Status: GOOD (  32.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +161,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 09 Jul 2025 09:12:10 +0900, ew kim wrote:
-> Add a node for Abox generic. This driver, exynosautov920, connects to
-> the SoC and allows you to configure a sound card.
+On Wed, Jul 09, 2025 at 02:14:47PM +0200, Krzysztof Kozlowski wrote:
+> On 09/07/2025 13:26, Ioana Ciornei wrote:
+> > Add a device tree binding for the QIXIS FPGA based GPIO controller.
+> > Depending on the board, the QIXIS FPGA exposes registers which act as a
+> > GPIO controller, each with 8 GPIO lines of fixed direction.
+> > 
+> > Since each QIXIS FPGA layout has its particularities, add a separate
+> > compatible string for each board/GPIO register combination supported.
+> > 
+> > Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
 > 
-> Signed-off-by: ew kim <ew.kim@samsung.com>
-> ---
->  .../boot/dts/exynos/exynosautov920-audio.dtsi | 20 +++++++++++++++++++
->  .../arm64/boot/dts/exynos/exynosautov920.dtsi |  1 +
->  2 files changed, 21 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-audio.dtsi
+> Your changelog explains patches, which is kind of redundant - we see
+> that - but does not explain the dependency you have here between patches.
 > 
 
+Do you mean the logical dependency between all the components like
+FPGAs, GPIOs etc? I can expand on that, sure. I will also update the
+cover letter with some of the information below.
+If this is not what you are looking for, please let me know.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Layerscape boards such as those that I update here have a QIXIS FPGA
+accessible through I2C. This FPGA exposes a set of registers which can
+be used to monitor the status of different components, configure muxing,
+act as GPIO controllers etc.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Since the register layout that this device exposes is different on a per
+board basis, each board has a different compatible string such as the
+one that patch 2/9 adds - fsl,lx2160ardb-fpga.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+Going deeper, some of these registers are acting as GPIO controllers
+exposing status/control of different SFP cages on the board. For these
+kind of registers the new gpio-regmap driver is added.
 
-  pip3 install dtschema --upgrade
+> A nit, subject: drop second/last, redundant "bindings". The
+> "dt-bindings" prefix is already stating that these are bindings.
+> See also:
+> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+> 
 
+Sure. Will fix.
 
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: failed to guess base
+> > ---
+> >  .../bindings/gpio/fsl,fpga-gpio.yaml          | 44 +++++++++++++++++++
+> >  1 file changed, 44 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml b/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
+> > new file mode 100644
+> > index 000000000000..dc7b6c0d9b40
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
+> > @@ -0,0 +1,44 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/gpio/fsl,fpga-gpio.yaml
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml
+> > +
+> > +title: GPIO controller embedded in the NXP QIXIS FPGA
+> > +
+> > +maintainers:
+> > +  - Ioana Ciornei <ioana.ciornei@nxp.com>
+> > +
+> > +description: |
+> > +  This module is part of the QIXIS FPGA found on some Layerscape boards such as
+> > +  LX2160ARDB and LS1046AQDS. For more details see
+> > +  ../board/fsl,fpga-qixis-i2c.yaml.
+> 
+> There are no "board" bindings, so this does not feel like correct path.
 
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
+As you have seen already in patch 2/9 there is already a dt-binding in
+the board/ folder.
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250709001210.379418-1-ew.kim@samsung.com:
+> 
+> > +
+> > +  Each controller supports a maximum of 8 GPIO lines and each line has a fixed
+> > +  direction which cannot be changed using a direction register.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - fsl,lx2160ardb-fpga-gpio-sfp2
+> > +      - fsl,lx2160ardb-fpga-gpio-sfp3
+> 
+> What is the difference between these?
 
-arch/arm64/boot/dts/exynos/exynosautov920-audio.dtsi:18.3-10: Warning (ranges_format): /abox_generic@generic:ranges: empty "ranges" property but its #size-cells (1) differs from / (2)
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: / (samsung,exynosautov920-sadk): 'abox_generic@generic' does not match any of the regexes: '.*-names$', '.*-supply$', '^#.*-cells$', '^#[a-zA-Z0-9,+\-._]{0,63}$', '^[a-zA-Z0-9][a-zA-Z0-9#,+\-._]{0,63}$', '^[a-zA-Z0-9][a-zA-Z0-9,+\-._]{0,63}@[0-9a-fA-F]+(,[0-9a-fA-F]+)*$', '^__.*__$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /abox_generic@generic: failed to match any schema with compatible: ['samsung,abox_generic']
+The layout of the registers backing these two GPIO controllers is the
+same but they each expose status/control of different SFP cages.
 
+> 
+> > +      - fsl,ls1046aqds-fpga-gpio-stat-pres2
+> 
+> Keep list sorted.
+> 
 
-
-
+Sure. Will fix.
 
 
