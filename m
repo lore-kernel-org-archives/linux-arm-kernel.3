@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07EEBC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 13:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA61C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 13:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mw75z6h4HeFha6AF7YI1R1VXg23z1dS7Y1C1o8vw7rQ=; b=Dd9wM4vfUv0vztDuy7N60iBpoz
-	CE0Tt+vSstXLsYAelTD2jMbtEEmQjL4yAowU1iyNFqz6HB1HmaKmA4CYmO4BJKqVqv2yX8WWTf3rG
-	lKluscVq+G6kDYxSrl3PA4v/80AI1Evnc6oVDB8Wc1UAh3aZtF8UjM2+Wth9y3WaDY3sZviVU7aTU
-	So5kkLSPanXYhMrO8kSP5oot24/6qluxEl3+tnzscTEC1xIMf3U+oQW1PX1oY9s1eC3YZ3gVVu8vq
-	LpryiHLXfoxFbuVAa3fy9tKO1urBNFN7yfrU4AJegVHaagNMHiYPwcI30Foi0U97KEae51J7QV1Lt
-	BG88UDTw==;
+	bh=7+G2ewwh12FRHs0BmRpZAB4ebqu3ayA7q35EEAvJ0xA=; b=vr3Grc2yNLZ+BZ1N8h5FTUM/Kx
+	Es3wsJV/qq+RUr1UWhwykU5/bVtSgjgsfEPiBJmzbZW430r41BEWKMANhPV9mDltoOZiysi0ywx1r
+	jgqiBPcNYcpXVLIHgYfRGISxodgIIEEjdGXGDqrfteZ5CnTrrzkjAXfSb1njwZ7+BG3m5SgvlECf8
+	/cGx8T8evT7Yo/y4vS3+UZ1d9pAWSlizqihpOL2P+4dmo+8VnJxRETG5cYLNfr3Koctg6QyFNS/w6
+	05w0NVwPweSq0jYSS9dXwTqpSGTs5LE2VcggHTEsN1C9/vUW6sEI24okdZFl/xGb9+ItZfI7A9D29
+	tA7UY72A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVIM-00000008s66-2jLH;
-	Wed, 09 Jul 2025 13:57:10 +0000
-Received: from mxout4.routing.net ([2a03:2900:1:a::9])
+	id 1uZVKf-00000008sdx-39AA;
+	Wed, 09 Jul 2025 13:59:33 +0000
+Received: from mxout1.routing.net ([2a03:2900:1:a::a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZSiZ-00000008SCe-3U35;
-	Wed, 09 Jul 2025 11:12:05 +0000
+	id 1uZSia-00000008SDN-3wBW;
+	Wed, 09 Jul 2025 11:12:06 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout4.routing.net (Postfix) with ESMTP id 63661100935;
-	Wed,  9 Jul 2025 11:12:01 +0000 (UTC)
+	by mxout1.routing.net (Postfix) with ESMTP id 40ADD407C9;
+	Wed,  9 Jul 2025 11:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1752059521;
+	s=20200217; t=1752059520;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Mw75z6h4HeFha6AF7YI1R1VXg23z1dS7Y1C1o8vw7rQ=;
-	b=MzVzvAE1gokUWwIKohEWFrqkPn4hiv/+0+mq6sOvaeCNU1/FTCDq2+GTySkfzPhl6ikOep
-	ZGnFWnZqezfYLi7yFydOCJnMZWb9U2wsDEfnlrdP8rXQMx4xpbleJjClGOoMSCfIUYeGOI
-	WiKHQTbWf/Q44EYQYxitbsg1xxXa0U8=
+	bh=7+G2ewwh12FRHs0BmRpZAB4ebqu3ayA7q35EEAvJ0xA=;
+	b=fLHoX1zqlaK1vwYtIYOEsvkDkwPcDvx8iZ+Wf5SoVJnkO3cLG/zaz9hF7RqXaj7iICQXaD
+	okI3RjyweohELDJsF9AGrpJ9VpdPQMOPOm6Hg0r1xxx7uYiNsMJtHodCd6Uqv92FFmO6Sw
+	PyFP+PD6vDUeTekJ+tuPkrZqG7QzqMY=
 Received: from frank-u24.. (fttx-pool-217.61.157.99.bambit.de [217.61.157.99])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 0C9701226CC;
-	Wed,  9 Jul 2025 11:12:01 +0000 (UTC)
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id DE05A1226D4;
+	Wed,  9 Jul 2025 11:11:59 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: MyungJoo Ham <myungjoo.ham@samsung.com>,
 	Kyungmin Park <kyungmin.park@samsung.com>,
@@ -73,17 +73,17 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v9 13/13] arm64: dts: mediatek: mt7988a-bpi-r4: configure switch phys and leds
-Date: Wed,  9 Jul 2025 13:09:49 +0200
-Message-ID: <20250709111147.11843-14-linux@fw-web.de>
+Subject: [PATCH v9 10/13] arm64: dts: mediatek: mt7988: add switch node
+Date: Wed,  9 Jul 2025 13:09:46 +0200
+Message-ID: <20250709111147.11843-11-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250709111147.11843-1-linux@fw-web.de>
 References: <20250709111147.11843-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_041204_089897_84AE3045 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20250709_041205_270497_34006920 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,99 +100,182 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Assign pinctrl to switch phys and leds.
+Add mt7988 builtin mt753x switch nodes.
 
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
 v4:
-- reorder switch phy(-led) properties
-v2:
-- add labels and led-function and include after dropping from soc dtsi
----
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 61 +++++++++++++++++++
- 1 file changed, 61 insertions(+)
+- drop phy-mode for gsw-phy
+- reorder phy-mode after phy-handle
+- drop interrupt parent from switch
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-index 4d709ee527df..7c9df606f60d 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-@@ -4,6 +4,7 @@
+v2:
+- drop labels and led-function too (have to be in board)
+---
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 148 ++++++++++++++++++++++
+ 1 file changed, 148 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+index 897b5a82b53e..366203a72d6d 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+@@ -742,6 +742,154 @@ ethsys: clock-controller@15000000 {
+ 			#reset-cells = <1>;
+ 		};
  
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/regulator/richtek,rt5190a-regulator.h>
-+#include <dt-bindings/leds/common.h>
- 
- #include "mt7988a.dtsi"
- 
-@@ -152,6 +153,66 @@ &gmac2 {
- 	sfp = <&sfp1>;
- };
- 
-+&gsw_phy0 {
-+	pinctrl-0 = <&gbe0_led0_pins>;
-+	pinctrl-names = "gbe-led";
-+};
++		switch: switch@15020000 {
++			compatible = "mediatek,mt7988-switch";
++			reg = <0 0x15020000 0 0x8000>;
++			interrupt-controller;
++			#interrupt-cells = <1>;
++			interrupts = <GIC_SPI 209 IRQ_TYPE_LEVEL_HIGH>;
++			resets = <&ethwarp MT7988_ETHWARP_RST_SWITCH>;
 +
-+&gsw_phy0_led0 {
-+	function = LED_FUNCTION_WAN;
-+	color = <LED_COLOR_ID_GREEN>;
-+	status = "okay";
-+};
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
-+&gsw_port0 {
-+	label = "wan";
-+};
++				gsw_port0: port@0 {
++					reg = <0>;
++					phy-handle = <&gsw_phy0>;
++					phy-mode = "internal";
++				};
 +
-+&gsw_phy1 {
-+	pinctrl-0 = <&gbe1_led0_pins>;
-+	pinctrl-names = "gbe-led";
-+};
++				gsw_port1: port@1 {
++					reg = <1>;
++					phy-handle = <&gsw_phy1>;
++					phy-mode = "internal";
++				};
 +
-+&gsw_phy1_led0 {
-+	function = LED_FUNCTION_LAN;
-+	color = <LED_COLOR_ID_GREEN>;
-+	status = "okay";
-+};
++				gsw_port2: port@2 {
++					reg = <2>;
++					phy-handle = <&gsw_phy2>;
++					phy-mode = "internal";
++				};
 +
-+&gsw_port1 {
-+	label = "lan1";
-+};
++				gsw_port3: port@3 {
++					reg = <3>;
++					phy-handle = <&gsw_phy3>;
++					phy-mode = "internal";
++				};
 +
-+&gsw_phy2 {
-+	pinctrl-0 = <&gbe2_led0_pins>;
-+	pinctrl-names = "gbe-led";
-+};
++				port@6 {
++					reg = <6>;
++					ethernet = <&gmac0>;
++					phy-mode = "internal";
 +
-+&gsw_phy2_led0 {
-+	function = LED_FUNCTION_LAN;
-+	color = <LED_COLOR_ID_GREEN>;
-+	status = "okay";
-+};
++					fixed-link {
++						speed = <10000>;
++						full-duplex;
++						pause;
++					};
++				};
++			};
 +
-+&gsw_port2 {
-+	label = "lan2";
-+};
++			mdio {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				mediatek,pio = <&pio>;
 +
-+&gsw_phy3 {
-+	pinctrl-0 = <&gbe3_led0_pins>;
-+	pinctrl-names = "gbe-led";
-+};
++				gsw_phy0: ethernet-phy@0 {
++					compatible = "ethernet-phy-ieee802.3-c22";
++					reg = <0>;
++					interrupts = <0>;
++					nvmem-cells = <&phy_calibration_p0>;
++					nvmem-cell-names = "phy-cal-data";
 +
-+&gsw_phy3_led0 {
-+	function = LED_FUNCTION_LAN;
-+	color = <LED_COLOR_ID_GREEN>;
-+	status = "okay";
-+};
++					leds {
++						#address-cells = <1>;
++						#size-cells = <0>;
 +
-+&gsw_port3 {
-+	label = "lan3";
-+};
++						gsw_phy0_led0: led@0 {
++							reg = <0>;
++							status = "disabled";
++						};
 +
- &i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c0_pins>;
++						gsw_phy0_led1: led@1 {
++							reg = <1>;
++							status = "disabled";
++						};
++					};
++				};
++
++				gsw_phy1: ethernet-phy@1 {
++					compatible = "ethernet-phy-ieee802.3-c22";
++					reg = <1>;
++					interrupts = <1>;
++					nvmem-cells = <&phy_calibration_p1>;
++					nvmem-cell-names = "phy-cal-data";
++
++					leds {
++						#address-cells = <1>;
++						#size-cells = <0>;
++
++						gsw_phy1_led0: led@0 {
++							reg = <0>;
++							status = "disabled";
++						};
++
++						gsw_phy1_led1: led@1 {
++							reg = <1>;
++							status = "disabled";
++						};
++					};
++				};
++
++				gsw_phy2: ethernet-phy@2 {
++					compatible = "ethernet-phy-ieee802.3-c22";
++					reg = <2>;
++					interrupts = <2>;
++					nvmem-cells = <&phy_calibration_p2>;
++					nvmem-cell-names = "phy-cal-data";
++
++					leds {
++						#address-cells = <1>;
++						#size-cells = <0>;
++
++						gsw_phy2_led0: led@0 {
++							reg = <0>;
++							status = "disabled";
++						};
++
++						gsw_phy2_led1: led@1 {
++							reg = <1>;
++							status = "disabled";
++						};
++					};
++				};
++
++				gsw_phy3: ethernet-phy@3 {
++					compatible = "ethernet-phy-ieee802.3-c22";
++					reg = <3>;
++					interrupts = <3>;
++					nvmem-cells = <&phy_calibration_p3>;
++					nvmem-cell-names = "phy-cal-data";
++
++					leds {
++						#address-cells = <1>;
++						#size-cells = <0>;
++
++						gsw_phy3_led0: led@0 {
++							reg = <0>;
++							status = "disabled";
++						};
++
++						gsw_phy3_led1: led@1 {
++							reg = <1>;
++							status = "disabled";
++						};
++					};
++				};
++			};
++		};
++
+ 		ethwarp: clock-controller@15031000 {
+ 			compatible = "mediatek,mt7988-ethwarp";
+ 			reg = <0 0x15031000 0 0x1000>;
 -- 
 2.43.0
 
