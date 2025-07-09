@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC6CAC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 08:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E10C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 08:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N7acXkIHi8O9TV18aIAj11BJUpuKJC2c+5Bs57k3SGc=; b=T2L5YKYz7dblxW4d/ENEWrw61i
-	u+oOAj4l9UyDSIk2oCGXeiJBCl+lW61ejhbHAqEfsQYATyCTHhU4S+DNJsGQUlGbGgMN7I5pANSqO
-	Xe2EQfSHEOd/1bDSXDUFy1gNy6IA28KC/cis7SeJhvb1Zwjmga2AMdIRkzaXLmrq1aDaeqVyLwgcq
-	oew+duXVBJb5U53g2js7wOUJCkxIg6R/Qxskmdy2Wn5i5UaJ6uDyyFlSM06j339M7/FRO21Efdq2p
-	wmK8cWYxu1rkcJ8PmnbT645H1msVsGsGTJ2qZ5FX9gn3jrBK4lscl/GUcIy/X0/7yI+P2dgC/REyM
-	491npKqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5/x0LQU6h5m+accG5yRCnevzY7hAOL4oLP0QEZKYMc4=; b=Zjh+NibvO4S7h37rP2traSHMhZ
+	6JnPRjbk7zLmRPIlY8xAV6Ez/jrKSAWoMx09I85/IWVd/OQiZ5R1caWuHpXa7uZKeAVVUf2Uqm5b9
+	E0ZACyYkzYvZqBOj4gREw7pJcIYWyFSM8PyADXrWCzZ3Q+pBaYiQ5Vw7DO5ynp8V1MUGg4QqkuNfs
+	bFAVohAfi7tCRjFoJ4AuEa+6o5ie/wEh8x9AKrtfi76NQsC7FAGhaVy1/7OgchtYnpJEj8+3P8qUQ
+	v3I4qIVDaGMPgn3Cb3EfCHouZfgoa/K6T1QYulZdeqZ9pIZlujhWmTezYM07QmK2GFa4OGtpl0iie
+	f9eOY07Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZQBJ-00000007yCy-0NSU;
-	Wed, 09 Jul 2025 08:29:33 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1uZQDc-00000007yYN-3fx2;
+	Wed, 09 Jul 2025 08:31:56 +0000
+Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZP2T-00000007mlp-1sF1
+	id 1uZP2f-00000007mob-0sk5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 07:16:24 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id BFFA1A00D7;
-	Wed,  9 Jul 2025 09:16:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=N7acXkIHi8O9TV18aIAj
-	11BJUpuKJC2c+5Bs57k3SGc=; b=iV4oGyyKx/kc0RK+j6v38YzP6JvYemqhJH2N
-	yxdyw1WgDKCDHCUinGExChxBd0lWDgc1zsoDtAaPHZ+3aoPAh1LoyQ1lGUVduVMa
-	CRywd8aWIw5WacJXmjodcDazq/kKNF0JH3fEbsznqFs2AJLOUU9I6US8A6FsBL5B
-	ydhdrKjjnDpjJUQIovkPrPBUyQArRC4P6AI6t/raGb/u5XJXjGHH/eCSlmvNKTkd
-	47KcYP+VbaplS6jlMUZw0KPwVjhkpp7C2ktyR6H2KriO5AgRfHwRbuvitqF8AKMh
-	q1MogEIFtx+XUjgsxpCVpubBIq+3gDTJ5X1rrBphfNMBV7NJlYqAT5ozGif2aOhj
-	vBOZxPlbZoES/PKVl6zL5BwEFvrGlPyAhHY/G/WM5eaxqynYBVCVScjDfgKVJ+X1
-	ufJvzxgNe4TWC7QOrMI0bKTXu/hG2LsO/L0oanBHhjhWgMZRd7uGknvZAxAE8miV
-	1VwkEc/eExR2cOU66LXdIACfoCpIo5Q+/KSW+1qhsV1dXo0xL1e+DKxWVb2FzXpN
-	gJ2ZTgfG1MRiNLMH0BR4qbLUMlkFOy646j78G0JqfQFCbeqo08IZ62SYGnaGlTDe
-	NovtPE5yTEKe9JUrOFFDvbsJMxwXsxuidd/4DZhMQD+g+M2Lb/XLMsyc/+NUlY6a
-	lX84Yk4=
-From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Date: Wed, 9 Jul 2025 09:16:07 +0200
-Subject: [PATCH v2 1/2] ARM: dts: imx6-tsx9x0: Replace license text comment
- with SPDX identifier
+	Wed, 09 Jul 2025 07:16:34 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 30DABC74C5;
+	Wed,  9 Jul 2025 09:16:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
+	t=1752045390; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=5/x0LQU6h5m+accG5yRCnevzY7hAOL4oLP0QEZKYMc4=;
+	b=FSOuUeBGXiKRmEDs3WIpeRPvwFjwwQJhK5SDrMKnAiEVTQta6jmM0uGuXtnGzWk7nR4C1B
+	rBBZLOPkI9IX2l93q3F0YAfOe4sSyfH9ppMMPKCRONh8BdhO4/tEqjmg6GUmOTOtPSUaIx
+	Ui4x8hcW7c+t9E0gmKCzctIjkmS/KvzGiXbkevLhLSBZgy9tXEqPU61xbYgGJ2DEo0m7HT
+	qFRv2gULnyo8eHr2+zr+A/WGmZ59xOKoddgg+UpTI+Dh44NDU6afZRvy2GiGMpHmN3Fel4
+	ezMPeHmF0D6FphL90pTFED4r57B2yKS4S8dTK8igsxppyISpj8uDAqRKOYTT1Q==
+From: Frieder Schrempf <frieder@fris.de>
+To: linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Eberhard Stoll <eberhard.stoll@kontron.de>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH v3 1/2] ARM: dts: imx6ul-kontron-sl-common: Add SPI NOR partitions
+Date: Wed,  9 Jul 2025 09:15:54 +0200
+Message-ID: <20250709071557.20602-1-frieder@fris.de>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250709-tsx9x0-dts-lic-v2-1-b9b7d056728b@prolan.hu>
-References: <20250709-tsx9x0-dts-lic-v2-0-b9b7d056728b@prolan.hu>
-In-Reply-To: <20250709-tsx9x0-dts-lic-v2-0-b9b7d056728b@prolan.hu>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Lucile Quirion
-	<lucile.quirion@savoirfairelinux.com>, Sebastien Bourdelin
-	<sebastien.bourdelin@savoirfairelinux.com>, <contact@savoirfairelinux.com>
-X-Mailer: b4 0.13.0
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1752045369;VERSION=7994;MC=3997003138;ID=156411;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155E657160
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_001621_943773_6B653D59 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250709_001633_390106_8505B86E 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,323 +76,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace verbatim license text with a `SPDX-License-Identifier`.
+From: Eberhard Stoll <eberhard.stoll@kontron.de>
 
-The comment header mis-attributes this license to be "X11", but the
-license text does not include the last line "Except as contained in this
-notice, the name of the X Consortium shall not be used in advertising or
-otherwise to promote the sale, use or other dealings in this Software
-without prior written authorization from the X Consortium.". Therefore,
-this license is actually equivalent to the SPDX "MIT" license (confirmed
-by text diffing).
+Describe the partitions for the bootloader and the environment
+on the SPI NOR. While at it also fix the order of the properties
+in the flash node itself.
 
-Cc: Lucile Quirion <lucile.quirion@savoirfairelinux.com>
-Cc: Sebastien Bourdelin <sebastien.bourdelin@savoirfairelinux.com>
-Cc: contact@savoirfairelinux.com
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+Signed-off-by: Eberhard Stoll <eberhard.stoll@kontron.de>
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- arch/arm/boot/dts/nxp/imx/imx6dl-ts4900.dts   | 38 +--------------------------
- arch/arm/boot/dts/nxp/imx/imx6dl-ts7970.dts   | 38 +--------------------------
- arch/arm/boot/dts/nxp/imx/imx6q-ts4900.dts    | 38 +--------------------------
- arch/arm/boot/dts/nxp/imx/imx6q-ts7970.dts    | 38 +--------------------------
- arch/arm/boot/dts/nxp/imx/imx6qdl-ts4900.dtsi | 38 +--------------------------
- arch/arm/boot/dts/nxp/imx/imx6qdl-ts7970.dtsi | 38 +--------------------------
- 6 files changed, 6 insertions(+), 222 deletions(-)
+Changes for v3:
+* Fix reg/label order
+* Fix reg order in flash node
+Changes for v2:
+* Fix name order in SoB
+---
+ .../dts/nxp/imx/imx6ul-kontron-sl-common.dtsi | 23 ++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-ts4900.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-ts4900.dts
-index 3d60cc725d9e..d7d6222d95c6 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-ts4900.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-ts4900.dts
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright 2015 Technologic Systems
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-sl-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-sl-common.dtsi
+index dcf88f6103466..779723b04575a 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-sl-common.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-kontron-sl-common.dtsi
+@@ -26,8 +26,29 @@ &ecspi2 {
  
- /dts-v1/;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-ts7970.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-ts7970.dts
-index 5da6feba2e66..3a4dce840683 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-ts7970.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-ts7970.dts
-@@ -1,43 +1,7 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright 2015 Technologic Systems
-  * Copyright 2017 Savoir-faire Linux
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
+ 	flash@0 {
+ 		compatible = "mxicy,mx25v8035f", "jedec,spi-nor";
+-		spi-max-frequency = <50000000>;
+ 		reg = <0>;
++		spi-max-frequency = <50000000>;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			partition@0 {
++				reg = <0x0 0xf0000>;
++				label = "u-boot";
++			};
++
++			partition@f0000 {
++				reg = <0xf0000 0x8000>;
++				label = "env";
++			};
++
++			partition@f8000 {
++				reg = <0xf8000 0x8000>;
++				label = "env_redundant";
++			};
++		};
+ 	};
+ };
  
- /dts-v1/;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-ts4900.dts b/arch/arm/boot/dts/nxp/imx/imx6q-ts4900.dts
-index dce1e8671ebe..6ecf11db1a9a 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-ts4900.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-ts4900.dts
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright 2015 Technologic Systems
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- /dts-v1/;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-ts7970.dts b/arch/arm/boot/dts/nxp/imx/imx6q-ts7970.dts
-index 570bd3c309a6..9e919de968b3 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-ts7970.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-ts7970.dts
-@@ -1,43 +1,7 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright 2015 Technologic Systems
-  * Copyright 2017 Savoir-faire Linux
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- /dts-v1/;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-ts4900.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-ts4900.dtsi
-index f88da757edda..ed602cda9ab4 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-ts4900.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-ts4900.dtsi
-@@ -1,42 +1,6 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright 2015 Technologic Systems
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- #include <dt-bindings/gpio/gpio.h>
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-ts7970.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-ts7970.dtsi
-index 11c70431feec..a48c35f80139 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-ts7970.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-ts7970.dtsi
-@@ -1,43 +1,7 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright 2015 Technologic Systems
-  * Copyright 2017 Savoir-Faire Linux
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- #include <dt-bindings/gpio/gpio.h>
-
 -- 
-2.43.0
-
+2.50.0
 
 
