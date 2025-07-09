@@ -4,49 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BF0C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E7CCC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BsBxDlYhjAofEPWom7d+T/lnP4Zt99xFdjIq9olRVNc=; b=YMTMj+pTAxYKxfs+hFtACHHY2S
-	rgQzqdsadteXcXbyu07Aut0ahZXgn263RTq773cOXqGgJykncUqHtiA4UZn/Hz/ekbNSmI54RnX3P
-	H+9QkG3hzgMplQkpaP+aEhsw0JYSHKYP8TxWbB5qMyHVxORzXsvISDAYJ8NJtrJYBp1B+6VU540HZ
-	0USvIe/2HqmjCwisDRk3wMBddK2HwDuj2UVD5BvmHEN1PQVG41FW024Q1rtaLTkfKDfTJUyhG/pFc
-	86EA8InwSgQ4z9oWMFAg4prektp9EwyIYhJlEicieHPsVNpv0Rq+uhCL1R1PdT1m++foy/Sz7+74j
-	oTNanPuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0TES8VgY1LAHrs+FsdrAP6+xVnRXAdi56gus1XKvp/A=; b=DsupcUbGwtCBuGl7FpIYSZS6ZC
+	RjSVfsugKt3fVCLbZQS4VQ9qX14z18L89xRIIyr/h9BrywS4b3lPYwIUarGwhZyZaeP4PqVjMAHQY
+	EICU1x7sO1MHngvpKGC1r/wskb6mzM1MMODXZ0LWg4kOS8B/VDKvt0C7ROYaIBPD/tuqh1SqoNKjK
+	cUsrgqtH4HTZIaiDgZA13nPnWQRQ+C5Ej2bktgpfrfNORdebt3idpF4lW06UrelZuThcB0rXsW/KQ
+	REun+z03yP7Q4x+p0UZqGipzF9U0bY6gGRXrAR92lu3Cvhuy/3yodPMRQy4/cG55G//iD6fa6qhf2
+	nQMzOMZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdiL-0000000A88z-06oM;
-	Wed, 09 Jul 2025 22:56:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uZdiN-0000000A8Dy-1m8b;
+	Wed, 09 Jul 2025 22:56:35 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZbBA-00000009mnl-1nz8
+	id 1uZboE-00000009pue-1y5M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 20:14:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA1B761152;
-	Wed,  9 Jul 2025 20:14:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36E8AC4CEF0;
-	Wed,  9 Jul 2025 20:14:06 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: soc@lists.linux.dev
-Cc: Magnus Damm <magnus.damm@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 3/3] Renesas DTS updates for v6.17 (take two)
-Date: Wed,  9 Jul 2025 22:13:27 +0200
-Message-ID: <cover.1752090401.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1752090396.git.geert+renesas@glider.be>
-References: <cover.1752090396.git.geert+renesas@glider.be>
+	Wed, 09 Jul 2025 20:54:32 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 569KsMw21311889;
+	Wed, 9 Jul 2025 15:54:22 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752094462;
+	bh=0TES8VgY1LAHrs+FsdrAP6+xVnRXAdi56gus1XKvp/A=;
+	h=From:To:CC:Subject:Date;
+	b=fF1E0H3OE8EY8Vp3vKXjJwU9iLHuo1q4f71DI9CE2ElQJiCx2y19lpNGSLQ5tuwjN
+	 RGR5Pvt0EW5hdPX4RfWR1VM5icPbYab/M6JgAYcAjg1OxqRA4aV3gl49sTMbmCU3uP
+	 ZDCzcIMAi/BBuSF+rn4yeyU4ZEPcY94UK2hUAJTA=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 569KsMRH3682949
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 9 Jul 2025 15:54:22 -0500
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 9
+ Jul 2025 15:54:21 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 9 Jul 2025 15:54:21 -0500
+Received: from uda0506412.dhcp.ti.com (uda0506412.dhcp.ti.com [128.247.81.19])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 569KsLCh402273;
+	Wed, 9 Jul 2025 15:54:21 -0500
+From: Kendall Willis <k-willis@ti.com>
+To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <ulf.hansson@linaro.org>, <d-gole@ti.com>, <vishalm@ti.com>,
+        <sebin.francis@ti.com>, <msp@baylibre.com>, <khilman@baylibre.com>,
+        <k-willis@ti.com>
+Subject: [PATCH v2] firmware: ti_sci: Enable abort handling of entry to LPM
+Date: Wed, 9 Jul 2025 15:53:32 -0500
+Message-ID: <20250709205332.2235072-1-k-willis@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250709_135430_636416_1ACEE6E2 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,79 +83,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 41ffbb1c42d30a173cc43e931bbaf7bf29e92d1f:
+The PM co-processor (device manager or DM) adds the ability to abort
+entry to a low power mode by clearing the mode selection in the
+latest version of its firmware (11.x). The following power management
+operation defined in the TISCI Low Power Mode API [1] is implemented to
+enable aborting entry to LPM:
 
-  arm64: dts: renesas: r9a09g047: Add GBETH nodes (2025-06-26 16:37:21 +0200)
+TISCI_MSG_LPM_ABORT
+Abort the current low power mode entry by clearing the current mode
+selection.
 
-are available in the Git repository at:
+Introduce LPM abort call that enables the ti_sci driver to support abort
+by clearing the low power mode selection of the DM. This fixes behavior
+from the DM where if system suspend failed, the next time system suspend
+is entered, it will fail because DM did not have the low power mode
+selection cleared. Instead of this behavior, the low power mode selection
+will be cleared after Linux resume which will allow subsequent system
+suspends to work correctly.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dts-for-v6.17-tag2
+When Linux suspends, the TI SCI ->suspend() call will send a prepare_sleep
+message to the DM. The DM will choose what low power mode to enter once
+Linux is suspended based on constraints given by devices in the TI SCI PM
+domain. After system suspend completes, regardless of if system suspend
+succeeds or fails, the ->complete() hook in TI SCI will be called. In the
+->complete() hook, a message will be sent to the DM to clear the current
+low power mode selection. This is necessary because if suspend fails, the
+low power mode selection in the DM is not cleared and the next system
+suspend will fail due to the low power mode not having been cleared from
+the previous failed system suspend.
 
-for you to fetch changes up to 145a2a9e27562926c592645a05d682fe8e1f82e9:
+Clearing the mode selection unconditionally acts as a cleanup from sending
+the prepare_sleep message in ->suspend(). The DM already clears the low
+power selection automatically when resuming from system suspend. If
+suspend/resume executed without failure, clearing the low power mode
+selection will not cause an error in the DM.
 
-  arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Enable serial NOR FLASH (2025-07-08 12:06:26 +0200)
+The flow for the abort sequence is the following:
+   1. User sends a command to enter sleep
+   2. Linux starts to suspend drivers
+   3. TI SCI suspends and sends prepare_sleep message to DM
+   4. A driver fails to suspend
+   5. Linux resumes the drivers that have already suspended
+   6. Linux sends DM to clear the current low power mode selection from
+      TI SCI ->complete() hook
+   7. DM aborts LPM entry by clearing the current mode selection
+   8. Linux works as normal
 
-----------------------------------------------------------------
-Renesas DTS updates for v6.17 (take two)
+[1] https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html
 
-  - Add support for the Renesas Gray Hawk Single board with R-Car
-    V4M-7 (R8A779H2),
-  - Add eMMC and microSD expansion board support for the RZ/V2H and
-    RZ/V2N EVK development boards,
-  - Add GPIO keys and Ethernet support for the RZ/G3E SoM and SMARC
-    Carrier-II EVK development board,
-  - Add QSPI FLASH support for the RZ/V2H and RZ/V2N SoCs and their EVK
-    development boards,
-  - Miscellaneous fixes and improvements.
+Signed-off-by: Kendall Willis <k-willis@ti.com>
+---
+Series has been tested on an SK-AM62B-P1 board. Normal suspend/resume
+has been verified. Abort was tested by adding an error into the TI SCI
+suspend hook.
+---
+ drivers/firmware/ti_sci.c | 61 +++++++++++++++++++++++++++++++++++++++
+ drivers/firmware/ti_sci.h |  3 +-
+ 2 files changed, 63 insertions(+), 1 deletion(-)
 
-----------------------------------------------------------------
-Biju Das (1):
-      arm64: dts: renesas: r9a09g047e57-smarc: Add gpio keys
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index ae5fd1936ad32..63c405f7037f0 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -2015,6 +2015,58 @@ static int ti_sci_cmd_set_latency_constraint(const struct ti_sci_handle *handle,
+ 	return ret;
+ }
+ 
++/**
++ * ti_sci_cmd_lpm_abort() - Abort entry to LPM by clearing selection of LPM to enter
++ * @handle:     pointer to TI SCI handle
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_cmd_lpm_abort(const struct ti_sci_handle *handle)
++{
++	struct ti_sci_info *info;
++	struct ti_sci_msg_hdr *req;
++	struct ti_sci_msg_hdr *resp;
++	struct ti_sci_xfer *xfer;
++	struct device *dev;
++	int ret = 0;
++
++	if (IS_ERR(handle))
++		return PTR_ERR(handle);
++	if (!handle)
++		return -EINVAL;
++
++	info = handle_to_ti_sci_info(handle);
++	dev = info->dev;
++
++	xfer = ti_sci_get_one_xfer(info, TI_SCI_MSG_LPM_ABORT,
++				   TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++				   sizeof(*req), sizeof(*resp));
++	if (IS_ERR(xfer)) {
++		ret = PTR_ERR(xfer);
++		dev_err(dev, "Message alloc failed(%d)\n", ret);
++		return ret;
++	}
++	req = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
++
++	ret = ti_sci_do_xfer(info, xfer);
++	if (ret) {
++		dev_err(dev, "Mbox send fail %d\n", ret);
++		goto fail;
++	}
++
++	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
++
++	if (!ti_sci_is_response_ack(resp))
++		ret = -ENODEV;
++	else
++		ret = 0;
++
++fail:
++	ti_sci_put_one_xfer(&info->minfo, xfer);
++
++	return ret;
++}
++
+ static int ti_sci_cmd_core_reboot(const struct ti_sci_handle *handle)
+ {
+ 	struct ti_sci_info *info;
+@@ -3739,11 +3791,20 @@ static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
+ 	return 0;
+ }
+ 
++static void __maybe_unused ti_sci_complete(struct device *dev)
++{
++	struct ti_sci_info *info = dev_get_drvdata(dev);
++
++	if (ti_sci_cmd_lpm_abort(&info->handle))
++		dev_err(dev, "LPM clear selection failed.\n");
++}
++
+ static const struct dev_pm_ops ti_sci_pm_ops = {
+ #ifdef CONFIG_PM_SLEEP
+ 	.suspend = ti_sci_suspend,
+ 	.suspend_noirq = ti_sci_suspend_noirq,
+ 	.resume_noirq = ti_sci_resume_noirq,
++	.complete = ti_sci_complete,
+ #endif
+ };
+ 
+diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
+index 053387d7baa06..51d77f90a32cc 100644
+--- a/drivers/firmware/ti_sci.h
++++ b/drivers/firmware/ti_sci.h
+@@ -6,7 +6,7 @@
+  * The system works in a message response protocol
+  * See: https://software-dl.ti.com/tisci/esd/latest/index.html for details
+  *
+- * Copyright (C)  2015-2024 Texas Instruments Incorporated - https://www.ti.com/
++ * Copyright (C)  2015-2025 Texas Instruments Incorporated - https://www.ti.com/
+  */
+ 
+ #ifndef __TI_SCI_H
+@@ -42,6 +42,7 @@
+ #define TI_SCI_MSG_SET_IO_ISOLATION	0x0307
+ #define TI_SCI_MSG_LPM_SET_DEVICE_CONSTRAINT	0x0309
+ #define TI_SCI_MSG_LPM_SET_LATENCY_CONSTRAINT	0x030A
++#define TI_SCI_MSG_LPM_ABORT	0x0311
+ 
+ /* Resource Management Requests */
+ #define TI_SCI_MSG_GET_RESOURCE_RANGE	0x1500
+-- 
+2.34.1
 
-Geert Uytterhoeven (3):
-      arm64: dts: renesas: Factor out Gray Hawk Single board support
-      arm64: dts: renesas: r8a779h2: Add Gray Hawk Single support
-      Merge tag 'renesas-r9a09g057-dt-binding-defs-tag4' into renesas-dts-for-v6.17
-
-John Madieu (1):
-      arm64: dts: renesas: rzg3e-smarc-som: Enable eth{0-1} (GBETH) interfaces
-
-Lad Prabhakar (8):
-      dt-bindings: clock: renesas,r9a09g056/57-cpg: Add XSPI core clock
-      arm64: dts: renesas: Add CN15 eMMC and SD overlays for RZ/V2H and RZ/V2N EVKs
-      arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Fix pinctrl node name for GBETH1
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Fix pinctrl node name for GBETH1
-      arm64: dts: renesas: r9a09g056: Add XSPI node
-      arm64: dts: renesas: r9a09g057: Add XSPI node
-      arm64: dts: renesas: r9a09g056n48-rzv2n-evk: Enable serial NOR FLASH
-      arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Enable serial NOR FLASH
-
-Niklas Söderlund (1):
-      arm64: dts: renesas: r8a779g3-sparrow-hawk-fan-pwm: Add missing install target
-
-Tam Nguyen (1):
-      arm64: dts: renesas: Add Renesas R8A779H2 SoC support
-
- arch/arm64/boot/dts/renesas/Makefile               |  15 +
- arch/arm64/boot/dts/renesas/gray-hawk-single.dtsi  | 866 +++++++++++++++++++++
- .../boot/dts/renesas/r8a779h0-gray-hawk-single.dts | 855 +-------------------
- .../boot/dts/renesas/r8a779h2-gray-hawk-single.dts |  17 +
- arch/arm64/boot/dts/renesas/r8a779h2.dtsi          |  12 +
- arch/arm64/boot/dts/renesas/r9a09g047e57-smarc.dts |  37 +
- arch/arm64/boot/dts/renesas/r9a09g056.dtsi         |  21 +
- .../boot/dts/renesas/r9a09g056n48-rzv2n-evk.dts    |  66 +-
- arch/arm64/boot/dts/renesas/r9a09g057.dtsi         |  21 +
- .../boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts    |  66 +-
- arch/arm64/boot/dts/renesas/renesas-smarc2.dtsi    |  31 +
- arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi   | 111 +++
- .../arm64/boot/dts/renesas/rzv2-evk-cn15-emmc.dtso |  50 ++
- arch/arm64/boot/dts/renesas/rzv2-evk-cn15-sd.dtso  |  69 ++
- include/dt-bindings/clock/renesas,r9a09g056-cpg.h  |   1 +
- include/dt-bindings/clock/renesas,r9a09g057-cpg.h  |   1 +
- 16 files changed, 1383 insertions(+), 856 deletions(-)
- create mode 100644 arch/arm64/boot/dts/renesas/gray-hawk-single.dtsi
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779h2-gray-hawk-single.dts
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779h2.dtsi
- create mode 100644 arch/arm64/boot/dts/renesas/rzv2-evk-cn15-emmc.dtso
- create mode 100644 arch/arm64/boot/dts/renesas/rzv2-evk-cn15-sd.dtso
 
