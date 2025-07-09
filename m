@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3230C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:04:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A64C0C83F14
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lpfOP6nVzFQd8td4sEBfBVUt3CSkiSnlTBSJ6IZIjG8=; b=aWXNZLSakqqLSeSZUGwqzLRQpn
-	CamMBDmRxOc9ipCdnEMXXFx76ClwETN7JJDZVXBU2ayCsKgLz+NJWuCP+YSideGF1pPN8e3ZMpbdM
-	xkenPzi7gmP07uxO19Z0SN1BTtidVOr38P5LT+c2BjXC9UY+/pa5AkCaRU3nBM7skTzFq5xniX+Xi
-	tipyRFMbIU24ZN/9IXas0GAZWQvGNnE1IKTlgF1gAQut9O/vTDHpukOtl2hrxUJaNX3pNQl41+z3q
-	iMwb7G0bG2g5zcsJ4o4GeQiSVgXAdsJTmiwyTdjgo8CYHmS2onQ68n6ZcMBaR5/rUibruvrh7H1mD
-	zaX8u6+w==;
+	bh=GlkBo13gAAMFxY69YUO/r2kEBTxBz8AgO2heyKDlsH0=; b=fGngFxS/7J512jT+t2xJsEI2qC
+	hnUGEHlZUUhdDZMklH7HeMgrHPrridsMeOc7C0p8fPl6tGEuiH7J2Q9VnvCDBgl60Hb3SbXnw92Sw
+	i3a3VeX5LQYokHPJM+LNLiyMzftVxsebRAka0K9xcvs0vVwSQKU+Gp9JVmLBkI/YUw+eS29Oa/qyY
+	Q9Yv7K/G2pu5bxgwWmb1jouymfl8Tva4lKeffIBV8NjA4Bj4+cYqDXNXZ3AT5NF8k3jW/koEdhzjy
+	yMd4M+Hm2VtGjIIaFLde3h0399nzh3ktKTE1n92+DsV70lX+++tfxSh0U59ENNL4dbh7ECUQdbV4H
+	Ikz4aIiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZa5c-00000009cfj-3qY0;
-	Wed, 09 Jul 2025 19:04:20 +0000
-Received: from mail-db8eur05on20730.outbound.protection.outlook.com ([2a01:111:f403:2614::730] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1uZa5e-00000009cjz-4But;
+	Wed, 09 Jul 2025 19:04:23 +0000
+Received: from mail-vi1eur05on20727.outbound.protection.outlook.com ([2a01:111:f403:2613::727] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZWRG-000000096xN-3HqX
+	id 1uZWRN-000000096zs-0s85
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 15:10:28 +0000
+	Wed, 09 Jul 2025 15:10:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bcNbfPVn8SMB7UjHG/qVk8wY0n1VUxn9wP/MA5RpLGxYjUxypW2SE1FFccbaVsgH8Ua3A8I1+IqjhbLpLm6HEVdAij/BQ+x0fSi4p9df88DIhs1+0C2ox2SqxHkMNAOajFNh1MXeCnNpqYfij4eztzz7fKxk4VYsTtO9HkQGUVUBMdcWnAX34TsaaHOiHHyQYnU/e/JlaRaplG97qNuZ0pP2y7m/bAX6BmVMiw1F1qQwva/LscQAyeG+2OOxGYSnxNqrWHWlds2owASqlrSgG1bXaWiIvBJLtiFlMpx9eE7xJY5niAGeuccJSAEGzsVqppNCGawFpmSipj+RYHWw5A==
+ b=pAeee3TD/CmiGhXwdsO+6iM+AhDnaPsZZUm0bsGwIriaOnXS8jfebjjhTy7t03kNkCwTXOo6fbJ805awH5CiVfsqsH6bHNqcLsEQ6JhuY9YZFKsJIZDD6TJcMplPdVwAR9W4TSHEbkwDh/2Vt88fRc0oo15VebcXJVqHfnAJ0jomTnmFxeRtqqZA5WBvOvgQ9FFJa7a+GWH9eJVlUWZV7WwLo88s59FUWbalH4GZiKejn+YzvVFwJslXBbn7X6vsJPOxefgkJ4YywlGhiC/NywhHE/WiGxXgWBL9n1H3fQegGYV0Kj2j6DSQx1fKzpSpTBc1Rrl/DKhdCFdhK0fP1w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lpfOP6nVzFQd8td4sEBfBVUt3CSkiSnlTBSJ6IZIjG8=;
- b=NcTrihkWZtQhYbmVGEp+l+fP2PTj4eX1hBW/wdWH2Etyssx1FrJTPzjscNFB6Cgp3yhZE7OhxC3Pywgh6UOWmOBX1jyCx1MmpdInGIpczlqgdcrIlYH47lRwVEEsGFhZ7S9vXHqnb2td0glO8igzj8KKxnQpZ3Ur5sO/yfpqtl6rgA4AIShavDc6X6LhpD5wjU1vv1OMdVLJtB9eP/SlgoWxayyA53J/yogtDxyXT86ma3Vju+8eGMcT9G0+OkYJkpAUJgzpl2eXk4n6MVnXGA1QYxvK/KHbIB2IfQ64k0oTd8a5xCtmZdRH3bCHqMHS6CsXdR5nm0ATjg7o7VXXNg==
+ bh=GlkBo13gAAMFxY69YUO/r2kEBTxBz8AgO2heyKDlsH0=;
+ b=amv3G1COANIHk3Ngg/9/wm87QkMRkSljui7wqaaPYj5UvjyxH86HqBQ3zAVN8OrQhpyVrTKJosPzrFNrv9sMg8Nr3nR9Lf4GekScdsLvYQ9qaRBWQ4gpi+0353UriiGnmJTdjAJ3pvWqxM6fjWH8Yafx4Kz5Ah9tJN3ddXrYuWcaKrJT6M1gIWLra2zTE80ljtaGL40zMaW9fBFvN3WQT3x5eZ9YR3At0NpNiCpGu3RM/hsv2AT3RZGkxhnsL1VrHjfK/VZMut5KUlj1quPe40H+Ej3pzUj1bjVd6YHOZRAnrzA0f/rtRv/KOFnNuIkDFRRysaIgbG3F+QEmBNnP3A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  91.26.50.189) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=phytec.fr;
  dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
@@ -42,18 +42,18 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=phytecmesstechnikgmbh.onmicrosoft.com;
  s=selector1-phytecmesstechnikgmbh-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lpfOP6nVzFQd8td4sEBfBVUt3CSkiSnlTBSJ6IZIjG8=;
- b=zWYZLf8qCdJN63Q6OEml2c8urOTX5mVChBiQEUya3cStBC/b7Tf7WDVnoZ+3PMa2sKU9HoETwSCMl9RqKwSFdh+djggiAjtIwo0ebtECrcLulEJuqhfxgO6v9HNFVZl5gUVGPYZMJBlxwuecQIeOVlCWTvJps0L/w78e2yOMHrc=
-Received: from DB7PR02CA0007.eurprd02.prod.outlook.com (2603:10a6:10:52::20)
- by DB8P195MB0535.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:158::16) with
+ bh=GlkBo13gAAMFxY69YUO/r2kEBTxBz8AgO2heyKDlsH0=;
+ b=VGod9EqvkGgdqZBwGGO8vs0VcXTkD+kQtt7EnfPmVEuv2XPd4OZJDNwUns5uiA43zy6w6loAwWJs2kG5+Ogr8TXXzBwtxsr0DAOhMEWikpdnukvCEfRPjZXhiYTIfy4S3bObRd9EbqMvQ6cS4I/m5LoPI7VYIQ4CdX/CYBX15+Y=
+Received: from DB7PR02CA0023.eurprd02.prod.outlook.com (2603:10a6:10:52::36)
+ by PA3P195MB2815.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:4d8::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.25; Wed, 9 Jul
- 2025 15:10:21 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.26; Wed, 9 Jul
+ 2025 15:10:20 +0000
 Received: from DB1PEPF000509ED.eurprd03.prod.outlook.com
- (2603:10a6:10:52:cafe::c8) by DB7PR02CA0007.outlook.office365.com
- (2603:10a6:10:52::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.21 via Frontend Transport; Wed,
- 9 Jul 2025 15:10:21 +0000
+ (2603:10a6:10:52:cafe::a9) by DB7PR02CA0023.outlook.office365.com
+ (2603:10a6:10:52::36) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.22 via Frontend Transport; Wed,
+ 9 Jul 2025 15:10:20 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 91.26.50.189)
  smtp.mailfrom=phytec.fr; dkim=none (message not signed)
  header.d=none;dmarc=fail action=quarantine header.from=phytec.fr;
@@ -63,18 +63,22 @@ Received-SPF: Fail (protection.outlook.com: domain of phytec.fr does not
 Received: from Diagnostix.phytec.de (91.26.50.189) by
  DB1PEPF000509ED.mail.protection.outlook.com (10.167.242.71) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8922.22 via Frontend Transport; Wed, 9 Jul 2025 15:10:21 +0000
-Received: from Diagnostix.phytec.de (172.25.0.14) by Diagnostix.phytec.de
+ 15.20.8922.22 via Frontend Transport; Wed, 9 Jul 2025 15:10:20 +0000
+Received: from Berlix.phytec.de (172.25.0.12) by Diagnostix.phytec.de
  (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 9 Jul
- 2025 17:10:16 +0200
+ 2025 17:10:15 +0200
+Received: from Diagnostix.phytec.de (172.25.0.14) by Berlix.phytec.de
+ (172.25.0.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 9 Jul
+ 2025 17:10:15 +0200
 Received: from idefix.phytec.de (172.25.0.20) by mailrelayint.phytec.de
  (172.25.0.14) with Microsoft SMTP Server id 15.1.2507.57 via Frontend
- Transport; Wed, 9 Jul 2025 17:10:16 +0200
+ Transport; Wed, 9 Jul 2025 17:10:15 +0200
 Received: from pc.home ([172.25.39.2])
           by idefix.phytec.de (IBM Domino Release 9.0.1FP7)
-          with ESMTP id 2025070917101623-216 ;
-          Wed, 9 Jul 2025 17:10:16 +0200 
+          with ESMTP id 2025070917101476-213 ;
+          Wed, 9 Jul 2025 17:10:14 +0200 
 From: Christophe Parant <c.parant@phytec.fr>
 To: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
@@ -82,67 +86,67 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
 	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	<upstream@lists.phytec.de>
-Subject: [PATCH v2 10/11] ARM: dts: stm32: phyboard-sargas and phycore: Fix coding style issues
-Date: Wed, 9 Jul 2025 17:10:10 +0200
-Message-ID: <20250709151011.366537-11-c.parant@phytec.fr>
+Subject: [PATCH v2 07/11] ARM: dts: stm32: phycore-stm32mp15: Add dummy memory-node
+Date: Wed, 9 Jul 2025 17:10:07 +0200
+Message-ID: <20250709151011.366537-8-c.parant@phytec.fr>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250709151011.366537-1-c.parant@phytec.fr>
 References: <20250709151011.366537-1-c.parant@phytec.fr>
 MIME-Version: 1.0
 X-MIMETrack: Itemize by SMTP Server on Idefix/Phytec(Release 9.0.1FP7|August  17, 2016) at
- 09.07.2025 17:10:16,
+ 09.07.2025 17:10:15,
 	Serialize by Router on Idefix/Phytec(Release 9.0.1FP7|August  17, 2016) at
- 09.07.2025 17:10:16
+ 09.07.2025 17:10:15
 X-TNEFEvaluated: 1
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509ED:EE_|DB8P195MB0535:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8e1e2e4d-d4f6-4e87-f1c0-08ddbefab944
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509ED:EE_|PA3P195MB2815:EE_
+X-MS-Office365-Filtering-Correlation-Id: 862a1b3c-dc57-4d42-1a88-08ddbefab89d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?R+7AoQGNHyBaoNMtoeMrjstZt6B5szFcS8n8IoC6x4IG8r1rodFCekcUfcxl?=
- =?us-ascii?Q?Yh/s3nm9Zo9cD3Qnh3l56RyQcrBn/4kgf6Zz3k1w9AhtqgtY2ZSRQL5TLra8?=
- =?us-ascii?Q?CDQRr88VBGr4vw5TxHYm+wiXuVXVk1sx/+nVTUZkFdnnODhnaGMmvkR00ctk?=
- =?us-ascii?Q?LZf6KI1j2nnMEM91M7WjOo/bNIgP1mKGX/zhdxxEelrtL4jO2mEZ5ptL8jCj?=
- =?us-ascii?Q?hPwtVi4wDAvTQuHKIFdFQhAwDL/dTf16R51o0J9/ezMkL0qv2mb/8Cc14bsU?=
- =?us-ascii?Q?SOE/6tuakckLo4F6H+6igTg6bg5PF/shVkExY5VISQg76erMKPmGtjARasXL?=
- =?us-ascii?Q?E5SIBa8yxTtWm1PgInvKurrO8sz+aItnjaUAOVfHtzVeUhAP461QdXLtWYy/?=
- =?us-ascii?Q?neAkjUJZkdpeU/r8tnd+PttEbRqtdkFQPVyrRn8W1eTLiWVGuESRGtVb/hWX?=
- =?us-ascii?Q?0c+xqfAbIQTzqWLSUtlIL0Kc3vHQjapSPp3PDuJuV1SL2Temi3pRS5neeE5d?=
- =?us-ascii?Q?OFYHEi4hDKf73MyCZ+lKHP+uNfO+2fyhT1ZXPUsJX/9wNBKTGJwpK6GssStU?=
- =?us-ascii?Q?G6OgjHpfN0h0EB0z4wZsuQ0FHLhQgqjsa8/ONnJuWXVVWuroR8wuK/rrYLOJ?=
- =?us-ascii?Q?MNRGQcR/N3cm71wsj5CTi8wlYRwlY9Qh7m6d6M3XdmGTZrMz6YGcEEMRTTCp?=
- =?us-ascii?Q?Wt+rbfhGPZ4luR/2SB4ypy3TBO3TWeEIyEYdsYvvzvRdG3TrPE1kMRsIV/7S?=
- =?us-ascii?Q?nC+rj7157MJOuzAOOre7/VyrtgSIy9jC1V4Of8m30rvYetojTXObHN0snVmk?=
- =?us-ascii?Q?e6fzJs0W4EozpsJ3Y2+I1AVLPZot4Dzj3cRmt+7eeCvY8J364VJodFYY7gYr?=
- =?us-ascii?Q?FlKtd/p6BBNdnnB/EeiZYW2cLowJDxo7S7CrDhhWrP4eF/SVX1Bw/X/yhAB8?=
- =?us-ascii?Q?/bTWwkQicHhsnh4baY3kxWIGMzTMMLewSG2//mWxS7wXpyerx9xyazMY4O48?=
- =?us-ascii?Q?2g22ufMv5e780Br6MWIxDzrIiM/D5dDDUI1WNwmcFQuISEuMNv4+I0VZ+0ys?=
- =?us-ascii?Q?uyWV1+0UsIQyIGSk/scBDI9x9TA5p5ptvPXuJpICitzRNVPof+6Mf5so10Be?=
- =?us-ascii?Q?wNHCdYL1pDiouUIj6yZ7rK9AH5GhORlCSpy2PX0CalswlKfnV42M63sq1HdQ?=
- =?us-ascii?Q?rtJUOBUZwkPxxyt2rzwEwfqdpXSl5XBbKsOOAv1fmtIniU0QbSUTnkg/E4ie?=
- =?us-ascii?Q?NBFkTUEBDgPKnd2jDGJJwSQ74FKeh/KrcLomjs++MXzYo7JQ83R+W4z8iRYI?=
- =?us-ascii?Q?OE5aBBS80yXYwyTbnz8gE+nK/r4eM5qUnHSfoPVIewmHWviIM23u9IhE294G?=
- =?us-ascii?Q?37mx0r9L4R83VNu6cCAeDEFEqKodI+3m/t+O0HdjYKSt6Lq6JIDHPKahDqA5?=
- =?us-ascii?Q?erH0Z/9TMIoAsRCvCXSERqt1QLd8FM6xjQGs1AJFLfYj2T5JsEth+YWYKUb9?=
- =?us-ascii?Q?736NEaEY7BiML07yJZMchqO80mBdm4BgxWcJ?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700013);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/PW7/bUIHs0EVuFds6jt4eNVjsJg4KGieNzPgEWbq40eB7JKx5UJJxWNI5xo?=
+ =?us-ascii?Q?B2shIIcMnnpDBt6OaYCAAw+EKLPQiudOO7UKnE11cGYqNZXmcVPvHl3429lI?=
+ =?us-ascii?Q?auNFDtrvXe/4da4Edck1RIpujAs/yo5GgWCmmGxEYJmQ02WsZhjKmfHohg8k?=
+ =?us-ascii?Q?caKW934p902QiBYIeGH/oKbk9zb1aGO+AFL+gaG1TfwK9R2SRYljqacAHp8W?=
+ =?us-ascii?Q?9c+pEV0NQliShlxu0nccLMid7vngUsoYlCE5sEZAEcu4B1Nzqno/VLIaP1t/?=
+ =?us-ascii?Q?IFpWnzryZkLsYP2QPzEw07aBSAA+v/AZezBLFDf7UolzX9A101gdpr0LhIIG?=
+ =?us-ascii?Q?El1tl+wi2KdFx5tON+QJ5qAnTfSRUrHHRAQUaQHIeEOQG2FZZXE21uPPutaD?=
+ =?us-ascii?Q?gZ/L7UEoJWJzZG3uTePcXC5MbAlObDddMfB3gf9ZLLICurRtGByaYHWwnyx6?=
+ =?us-ascii?Q?JhHVXpQFY9ERPzqHKS80Bc0sJ7WuEHZNu+DFa1S89L7imHrIgKtKqbtweLzy?=
+ =?us-ascii?Q?X6pPjugI99I7RWT3Kxxhmr55rmGGT5m26c/q5/qdOt9resVXBGtdeT3udFqw?=
+ =?us-ascii?Q?gT1PIklgzRHKvjROeHBcx8K0yviLyDR6o5Zzz/WRZrYteFUGumOKQhWnxswu?=
+ =?us-ascii?Q?2ZL2V+kIlDyRNc+i5BKCWljaeoAQi3cQf7SknzSDyH458zS+xP5P4jx5J89/?=
+ =?us-ascii?Q?3wlVGuN7ieANlUZpZnPb2be/RHDU5yXH5qwy0uYC0Qv86Do+GjMjgSvzs6e9?=
+ =?us-ascii?Q?QiuYzwMBdOGIViZtf61jgkSHCzAmWC2Uj51xZsZQqtkiUrQXQ8Wc1OXYS88x?=
+ =?us-ascii?Q?eISGGin844knXBWPWpIb5mB1yH4l5/ryD1pLJYl+8Qx0hC7iVTl5rZWHYovk?=
+ =?us-ascii?Q?MQ1BQ0rwYf3HQmkeAw7StBpzV+R56MTVhhvliSkndQ0FCCPH/QPUQcGAX0z2?=
+ =?us-ascii?Q?eriFDTHY+gfbxXRy82RxRcCkZCvbP4XqFSyatBbN7R2sPPW2XzFLMWsChvvk?=
+ =?us-ascii?Q?eIo1Eb+SM9QdyfOAO5waimfS6rPWMnso08S6xdCFhqgOd6p4AT5ffApEFFTh?=
+ =?us-ascii?Q?GMH1KQ888boSIA+1w3l/ewoOx4GwG3x0+sWP/cgKS9cro4Wpw2ao6vVLHobK?=
+ =?us-ascii?Q?jmKfNXDTmeSBOf+gHlP0xVyNNPSrDeFW4mf9jCDUJ6XXJ1pTYxjBqolLTO1P?=
+ =?us-ascii?Q?qrCcprMdtrktJbQF3PNCpC6LWSKOAu2PETyXinH0RrM020mi0TOYC3KIoBcj?=
+ =?us-ascii?Q?jorHWpPwI6NDmXE1wNOpmJGjHvxP3Rl+8L+JJTGsHreHIzU8cUQbwqSK3uz0?=
+ =?us-ascii?Q?VB1BOcnld5wYdNxMC5tACUAShbaz4z3T7LPdAK7IL9Mw+BfrH2eg22lFlqI4?=
+ =?us-ascii?Q?QqGKOzWdTzLFcaFszdIN56G2ge8sGvHk+WCpJz8LhaBzX3b6IJDfvu7RWk7W?=
+ =?us-ascii?Q?oITGl0LziVvq+GyKrrM3b7Gd5eYnqZbVRzWC8iTUtbPT2bHUVCZsASuUhCaL?=
+ =?us-ascii?Q?XczxFY9Zsb5C0tV9crX3OwtMO7zIGEzUrR63?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1102;
 X-OriginatorOrg: phytec.fr
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2025 15:10:21.5162
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2025 15:10:20.4160
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8e1e2e4d-d4f6-4e87-f1c0-08ddbefab944
+X-MS-Exchange-CrossTenant-Network-Message-Id: 862a1b3c-dc57-4d42-1a88-08ddbefab89d
 X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
 X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509ED.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8P195MB0535
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3P195MB2815
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_081026_965361_EAA9CB11 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250709_081033_245719_587BCF94 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,307 +161,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Remove "stm32-pinfunc.h" include as it is already include in
-"stm32mp15-pinctrl.dtsi" file.
-- reserved-memory: reorder the memory sections (lower to higher
-  addresses).
-- Move vendor properties (go last).
-- Remove useless compatible values:
-  - QSPI flash: remove the winbond compatible. jedec is enought as the
-    NOR flahses are detectable.
-  - EEPROM: "atmel,24c32" is enought.
-- Use uppercase for regulator-name properties.
-- In pmic node: use the names from the PHYTEC SoM schematics.
-- stmpe811 touch: fix dts schema to comply with st,stmpe.yaml.
-- Fix one "multiple blank lines" detected by checkpatch.
+"memory" node is not necessary as the bootloader is taking care of
+passing the correct DDR size.
+However keep a dummy memory node with the minimum DDR size (512MB) with
+comment explaining that.
 
 Signed-off-by: Christophe Parant <c.parant@phytec.fr>
 ---
- .../st/stm32mp157c-phyboard-sargas-rdk.dts    |  1 -
- .../dts/st/stm32mp15xx-phyboard-sargas.dtsi   | 13 ++--
- .../boot/dts/st/stm32mp15xx-phycore-som.dtsi  | 64 +++++++++----------
- 3 files changed, 36 insertions(+), 42 deletions(-)
+ arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts b/arc=
-h/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts
-index c90b12a479c9..c18a37266083 100644
---- a/arch/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts
-@@ -6,7 +6,6 @@
-=20
- /dts-v1/;
-=20
--#include <dt-bindings/pinctrl/stm32-pinfunc.h>
- #include "stm32mp157.dtsi"
- #include "stm32mp15xc.dtsi"
- #include "stm32mp15xx-phycore-som.dtsi"
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi b/arch/a=
-rm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
-index 9578e78bcc1d..20684b497c99 100644
---- a/arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
-@@ -5,7 +5,6 @@
-  * Author: Dom VOVARD <dom.vovard@linrt.com>.
-  */
-=20
--
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/leds/common.h>
-@@ -101,13 +100,13 @@ touch@44 {
- 		interrupt-parent =3D <&gpioi>;
- 		vio-supply =3D <&v3v3>;
- 		vcc-supply =3D <&v3v3>;
-+		st,sample-time =3D <4>;
-+		st,mod-12b =3D <1>;
-+		st,ref-sel =3D <0>;
-+		st,adc-freq =3D <1>;
-=20
- 		touchscreen {
- 			compatible =3D "st,stmpe-ts";
--			st,sample-time =3D <4>;
--			st,mod-12b =3D <1>;
--			st,ref-sel =3D <0>;
--			st,adc-freq =3D <1>;
- 			st,ave-ctrl =3D <1>;
- 			st,touch-det-delay =3D <2>;
- 			st,settling =3D <2>;
-@@ -159,10 +158,10 @@ &sai2 {
-=20
- &sai2a {
- 	dma-names =3D "rx";
--	st,sync =3D <&sai2b 2>;
- 	clocks =3D <&rcc SAI2=5FK>, <&sai2b>;
- 	clock-names =3D "sai=5Fck", "MCLK";
- 	#clock-cells =3D <0>;
-+	st,sync =3D <&sai2b 2>;
-=20
- 	sai2a=5Fport: port {
- 		sai2a=5Fendpoint: endpoint {
-@@ -195,9 +194,9 @@ &sdmmc1 {
- 	pinctrl-2 =3D <&sdmmc1=5Fb4=5Fsleep=5Fpins=5Fb>;
- 	cd-gpios =3D <&gpiof 3 GPIO=5FACTIVE=5FLOW>;
- 	disable-wp;
--	st,neg-edge;
- 	bus-width =3D <4>;
- 	vmmc-supply =3D <&v3v3>;
-+	st,neg-edge;
- 	status =3D "okay";
- };
-=20
 diff --git a/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi b/arch/arm/b=
 oot/dts/st/stm32mp15xx-phycore-som.dtsi
-index 3f60f184978c..0689967b8c56 100644
+index 72926c3de52c..ce859b94ae26 100644
 --- a/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi
 +++ b/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi
-@@ -36,18 +36,6 @@ reserved-memory {
- 		#size-cells =3D <1>;
- 		ranges;
+@@ -22,6 +22,15 @@ aliases {
+ 		rtc1 =3D &rtc;
+ 	};
 =20
--		retram: retram@38000000 {
--			compatible =3D "shared-dma-pool";
--			reg =3D <0x38000000 0x10000>;
--			no-map;
--		};
--
--		mcuram: mcuram@30000000 {
--			compatible =3D "shared-dma-pool";
--			reg =3D <0x30000000 0x40000>;
--			no-map;
--		};
--
- 		mcuram2: mcuram2@10000000 {
- 			compatible =3D "shared-dma-pool";
- 			reg =3D <0x10000000 0x40000>;
-@@ -71,11 +59,22 @@ vdev0buffer: vdev0buffer@10042000 {
- 			reg =3D <0x10042000 0x4000>;
- 			no-map;
- 		};
-+		mcuram: mcuram@30000000 {
-+			compatible =3D "shared-dma-pool";
-+			reg =3D <0x30000000 0x40000>;
-+			no-map;
-+		};
++	/*
++	 * Set the minimum memory size here and
++	 * let the bootloader set the real size.
++	 */
++	memory@c0000000 {
++		device=5Ftype =3D "memory";
++		reg =3D <0xc0000000 0x20000000>;
++	};
 +
-+		retram: retram@38000000 {
-+			compatible =3D "shared-dma-pool";
-+			reg =3D <0x38000000 0x10000>;
-+			no-map;
-+		};
- 	};
-=20
- 	regulator=5Fvin: regulator {
- 		compatible =3D "regulator-fixed";
--		regulator-name =3D "vin";
-+		regulator-name =3D "VIN";
- 		regulator-min-microvolt =3D <5000000>;
- 		regulator-max-microvolt =3D <5000000>;
- 		regulator-always-on;
-@@ -102,11 +101,11 @@ phy0: ethernet-phy@1 {
- 			reg =3D <1>;
- 			interrupt-parent =3D <&gpiog>;
- 			interrupts =3D <12 IRQ=5FTYPE=5FEDGE=5FFALLING>;
-+			enet-phy-lane-no-swap;
- 			ti,rx-internal-delay =3D <DP83867=5FRGMIIDCTL=5F2=5F00=5FNS>;
- 			ti,tx-internal-delay =3D <DP83867=5FRGMIIDCTL=5F2=5F00=5FNS>;
- 			ti,fifo-depth =3D <DP83867=5FPHYCR=5FFIFO=5FDEPTH=5F4=5FB=5FNIB>;
- 			ti,min-output-impedance;
--			enet-phy-lane-no-swap;
- 			ti,clk-output-sel =3D <DP83867=5FCLK=5FO=5FSEL=5FOFF>;
- 		};
- 	};
-@@ -144,7 +143,7 @@ regulators {
- 			pwr=5Fsw2-supply =3D <&bst=5Fout>;
-=20
- 			vddcore: buck1 {
--				regulator-name =3D "vddcore";
-+				regulator-name =3D "VDD=5FCORE";
- 				regulator-min-microvolt =3D <1200000>;
- 				regulator-max-microvolt =3D <1350000>;
- 				regulator-always-on;
-@@ -152,7 +151,7 @@ vddcore: buck1 {
- 			};
-=20
- 			vdd=5Fddr: buck2 {
--				regulator-name =3D "vdd=5Fddr";
-+				regulator-name =3D "VDD=5FDDR";
- 				regulator-min-microvolt =3D <1350000>;
- 				regulator-max-microvolt =3D <1350000>;
- 				regulator-always-on;
-@@ -160,7 +159,7 @@ vdd=5Fddr: buck2 {
- 			};
-=20
- 			vdd: buck3 {
--				regulator-name =3D "vdd";
-+				regulator-name =3D "VDD";
- 				regulator-min-microvolt =3D <3300000>;
- 				regulator-max-microvolt =3D <3300000>;
- 				regulator-always-on;
-@@ -169,7 +168,7 @@ vdd: buck3 {
- 			};
-=20
- 			v3v3: buck4 {
--				regulator-name =3D "v3v3";
-+				regulator-name =3D "VDD=5FBUCK4";
- 				regulator-min-microvolt =3D <3300000>;
- 				regulator-max-microvolt =3D <3300000>;
- 				regulator-always-on;
-@@ -177,7 +176,7 @@ v3v3: buck4 {
- 			};
-=20
- 			v1v8=5Faudio: ldo1 {
--				regulator-name =3D "v1v8=5Faudio";
-+				regulator-name =3D "VDD=5FLDO1";
- 				regulator-min-microvolt =3D <1800000>;
- 				regulator-max-microvolt =3D <1800000>;
- 				regulator-always-on;
-@@ -186,7 +185,7 @@ v1v8=5Faudio: ldo1 {
- 			};
-=20
- 			vdd=5Feth=5F2v5: ldo2 {
--				regulator-name =3D "dd=5Feth=5F2v5";
-+				regulator-name =3D "VDD=5FETH=5F2V5";
- 				regulator-min-microvolt =3D <2500000>;
- 				regulator-max-microvolt =3D <2500000>;
- 				regulator-always-on;
-@@ -195,7 +194,7 @@ vdd=5Feth=5F2v5: ldo2 {
- 			};
-=20
- 			vtt=5Fddr: ldo3 {
--				regulator-name =3D "vtt=5Fddr";
-+				regulator-name =3D "VTT=5FDDR";
- 				regulator-min-microvolt =3D <500000>;
- 				regulator-max-microvolt =3D <750000>;
- 				regulator-always-on;
-@@ -203,12 +202,12 @@ vtt=5Fddr: ldo3 {
- 			};
-=20
- 			vdd=5Fusb: ldo4 {
--				regulator-name =3D "vdd=5Fusb";
-+				regulator-name =3D "VDD=5FUSB";
- 				interrupts =3D <IT=5FCURLIM=5FLDO4 0>;
- 			};
-=20
- 			vdda: ldo5 {
--				regulator-name =3D "vdda";
-+				regulator-name =3D "VDDA";
- 				regulator-min-microvolt =3D <2900000>;
- 				regulator-max-microvolt =3D <2900000>;
- 				interrupts =3D <IT=5FCURLIM=5FLDO5 0>;
-@@ -216,7 +215,7 @@ vdda: ldo5 {
- 			};
-=20
- 			vdd=5Feth=5F1v0: ldo6 {
--				regulator-name =3D "vdd=5Feth=5F1v0";
-+				regulator-name =3D "VDD=5FETH=5F1V0";
- 				regulator-min-microvolt =3D <1000000>;
- 				regulator-max-microvolt =3D <1000000>;
- 				regulator-always-on;
-@@ -225,23 +224,23 @@ vdd=5Feth=5F1v0: ldo6 {
- 			};
-=20
- 			vref=5Fddr: vref=5Fddr {
--				regulator-name =3D "vref=5Fddr";
-+				regulator-name =3D "VDD=5FREFDDR";
- 				regulator-always-on;
- 			};
-=20
- 			bst=5Fout: boost {
--				regulator-name =3D "bst=5Fout";
-+				regulator-name =3D "BST=5FOUT";
- 				interrupts =3D <IT=5FOCP=5FBOOST 0>;
- 			};
-=20
- 			vbus=5Fotg: pwr=5Fsw1 {
--				regulator-name =3D "vbus=5Fotg";
-+				regulator-name =3D "VBUS=5FOTG";
- 				interrupts =3D <IT=5FOCP=5FOTG 0>;
- 				regulator-active-discharge =3D <1>;
- 			};
-=20
- 			vbus=5Fsw: pwr=5Fsw2 {
--				regulator-name =3D "vbus=5Fsw";
-+				regulator-name =3D "VBUS=5FSW";
- 				interrupts =3D <IT=5FOCP=5FSWOUT 0>;
- 				regulator-active-discharge =3D <1>;
- 			};
-@@ -262,8 +261,7 @@ watchdog {
- 	};
-=20
- 	i2c4=5Feeprom: eeprom@50 {
--		compatible =3D "microchip,24c32",
--			     "atmel,24c32";
-+		compatible =3D "atmel,24c32";
- 		reg =3D <0x50>;
- 		status =3D "disabled";
- 	};
-@@ -312,13 +310,11 @@ &qspi=5Fbk1=5Fsleep=5Fpins=5Fa
- 	status =3D "disabled";
-=20
- 	flash0: flash@0 {
--		compatible =3D "winbond,w25q128", "jedec,spi-nor";
-+		compatible =3D "jedec,spi-nor";
- 		reg =3D <0>;
- 		spi-rx-bus-width =3D <4>;
- 		spi-max-frequency =3D <50000000>;
- 		m25p,fast-read;
--		#address-cells =3D <1>;
--		#size-cells =3D <1>;
- 	};
- };
-=20
-@@ -342,10 +338,10 @@ &sdmmc2 {
- 	non-removable;
- 	no-sd;
- 	no-sdio;
--	st,neg-edge;
- 	bus-width =3D <8>;
- 	vmmc-supply =3D <&v3v3>;
- 	vqmmc-supply =3D <&v3v3>;
- 	mmc-ddr-3=5F3v;
-+	st,neg-edge;
- 	status =3D "disabled";
- };
+ 	reserved-memory {
+ 		#address-cells =3D <1>;
+ 		#size-cells =3D <1>;
 --=20
 2.34.1
 
