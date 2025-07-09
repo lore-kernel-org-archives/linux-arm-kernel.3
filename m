@@ -4,89 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC27C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD36C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDFgvpxeNH47zHq3fHRhSdiyobaPeh1TJdswOnDN/Yk=; b=nVgx0J4MyIEOlIw4h5PQl0046o
-	/Shb95l7PTrZWV4yWcbKzeNU1nosv2CUnNsUxI75qmsGhdFFRNfjBf59nwTd5qUuUXR6LKVYPlmG1
-	e+2QhVI0ISqCTmkHL356Kl+ptAnXgYpflNNEamAw0lk1bFWVEdTMPW+zpfMTU7kuPxUdMHSpyDSiV
-	HoHy4K0iuz7hi3fQcn3CyflTkQGoWmB5Wl1uQZFSDDBOpZAboSIpQJeDo9d14wx5ABvpicQIC3aiR
-	a863uwEowCZp68ed3oeTQkUVi6dDf6WfV4RNyQ0dQmnZyKiG4rRMtqytcP+3Wh0d0aZGpHB3XFCou
-	AWkxIMDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mL72UgO8uT+PXWtl/BilaupuvLieUCOiNlpoptknVTc=; b=oSDMCuctnUxnwDD4EGoo42LOcU
+	NHhzTdNfyQph3+DMDI6QF7a0BMvsCVqkAuUsuXyITUmRio1Esv37njQTMUqFvaNhh3fYiLgF+Yys8
+	Uor2yHwvIpNkqV31WsWOrO7S6zSli91gsWaWuyGHQtgaoNwA50m8dFOaWX6BgRyRWgCW9KJDF1Rms
+	UCbF+qJJ+oFqjzezbyBf4fc9d0HkNgZkmGBgTPf7SVDQ28AwM8RKwyOMrrYN99JY//oPe8FX0oAOP
+	g6ZUnx6y3KX1UxBBcaLHsWaeNijUis5n5xpbLdknR0xb2z0OtLXkBgIQQDviUglTDE0gL7lkyR/TY
+	teKQReZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZSDz-00000008Kp7-2lAL;
-	Wed, 09 Jul 2025 10:40:27 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1uZSGI-00000008LNd-1ww7;
+	Wed, 09 Jul 2025 10:42:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZQNV-000000080JN-1YoC
+	id 1uZQOy-000000080TE-3uRr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 08:42:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752050529; x=1783586529;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=3XPMV1lacpivhZnrO2POSB/TElhb4nz0PFA3nyPNTak=;
-  b=XipEfE1gk6P9LgirI1rY3IL2RAGkDkThVUC7LvnwgXZYkPtHecSgwqS7
-   k9EleXx5PcGNlBMSJwZof1IuQz2pMsb/5EQlXFyqSCzgZ9ghSfL94+L6F
-   8cHpvbbqdst6XJmuFTEIpScgUjknSzKHB0ywP0ZuqwDtQJQ7Ol02bB/uY
-   bUE0EDOdtY1dAjkAuDQUWOHMxf4aNAcq5Iv0qKiaG/tUDe9+ywMq1akU0
-   lqct2rIJif26SeSr/NuHx315h7VHQK3fo/4uyP+zNzwG+rjLg511BpWKs
-   Cxx2Ok8DLm5/wkLxe2GwRy64EwNHNXLlbzDvTU9lvKDN5jsuYCAIB7LC7
-   Q==;
-X-CSE-ConnectionGUID: +uAMy1ysT7ahH4va+XOOUQ==
-X-CSE-MsgGUID: 4Nu9TZNpSNaNfLVjAQr8oQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11487"; a="65365755"
-X-IronPort-AV: E=Sophos;i="6.16,298,1744095600"; 
-   d="scan'208";a="65365755"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 01:42:05 -0700
-X-CSE-ConnectionGUID: Y26OhDB7R8WrLKKzVJ3KEw==
-X-CSE-MsgGUID: Q5veKF8tRZCRNUSvKVy+HQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,298,1744095600"; 
-   d="scan'208";a="192906534"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 01:42:01 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1uZQNJ-0000000DoM8-2nVm;
-	Wed, 09 Jul 2025 11:41:57 +0300
-Date: Wed, 9 Jul 2025 11:41:57 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>, Nandor Han <nandor.han@ge.com>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com, linux-arm-kernel@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH 04/19] gpio: wcove: use new GPIO line value setter
- callbacks
-Message-ID: <aG4rVW5m6HSnSJnv@smile.fi.intel.com>
-References: <20250709-gpiochip-set-rv-gpio-remaining-v1-0-b8950f69618d@linaro.org>
- <20250709-gpiochip-set-rv-gpio-remaining-v1-4-b8950f69618d@linaro.org>
- <CAHp75VckSCyDiAtP+q8nGGiJBuMFi3Nke7Puh0SE9nBX4vUX+w@mail.gmail.com>
+	Wed, 09 Jul 2025 08:43:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4ACB046311;
+	Wed,  9 Jul 2025 08:43:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A578CC4CEF0;
+	Wed,  9 Jul 2025 08:43:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752050620;
+	bh=LeSjouO1jlb2DKe/RcxgbmjYkeHiorrNAuQ7DJEa2rs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EdYhE74ilOg6KbH7QqSwKWoG8P2ORFjq3TTVZa/3AOhIhAysRt2fEPh5WYR8G0Nmp
+	 aETjnK3BFQN9OOxm/obNJKx1P6sHaC7CEI3g3uGYiPX1o2wXI2bFPxd/OhisHVBo66
+	 6Eiwd2n4WQuvFoKsJRGE3MJ+ey5NByxZOEXAHn4kPgxixTwYXXgoxPxG1a5ns8CRtl
+	 fG9zpX/39+IxuMb+FD6svf9SRb5w0X5I1Lmqg4yQcXqywab2kTtgmaJTxf/lrIXuHD
+	 cDSqlL3q39VpNulvwujdsqGJCd4JDmozg7b80QE9vsClkF6XwYm+JLT/5P3Ibci/tm
+	 dplCWipSjT8Wg==
+Message-ID: <6e5c20f3-fa31-433f-a50a-b00612bc1949@kernel.org>
+Date: Wed, 9 Jul 2025 10:43:36 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHp75VckSCyDiAtP+q8nGGiJBuMFi3Nke7Puh0SE9nBX4vUX+w@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/3] dt-bindings: arm: ti: Add bindings for Variscite
+ VAR-SOM-AM62P
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+References: <20250708184841.72933-1-stefano.radaelli21@gmail.com>
+ <20250708184841.72933-2-stefano.radaelli21@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20250708184841.72933-2-stefano.radaelli21@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_014209_476710_F4FEC4B5 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20250709_014341_029254_52980058 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +121,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 11:32:40AM +0300, Andy Shevchenko wrote:
-> On Wed, Jul 9, 2025 at 9:42 AM Bartosz Golaszewski <brgl@bgdev.pl> wrote:
-
-...
-
-> >         if (value)
-> > -               regmap_set_bits(wg->regmap, reg, 1);
-> > -       else
-> > -               regmap_clear_bits(wg->regmap, reg, 1);
-> > +               return regmap_set_bits(wg->regmap, reg, 1);
-> > +
-> > +       return regmap_clear_bits(wg->regmap, reg, 1);
+On 08/07/2025 20:48, Stefano Radaelli wrote:
+> Add devicetree bindings for Variscite VAR-SOM-AM62P System on Module
+> and its carrier boards.
 > 
-> return regmap_assign_bits(...);
+> Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/arm/ti/k3.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> index bf6003d8fb76..07d2c2ab5150 100644
+> --- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> +++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> @@ -100,6 +100,11 @@ properties:
+>            - const: toradex,verdin-am62p          # Verdin AM62P Module
+>            - const: ti,am62p5
+>  
+> +      - description: K3 AM62P5 SoC Variscite SOM and Carrier Boards
+> +        items:
+> +          - const: variscite,am62p-var-som
 
-Btw, since you are doing sometimes two patches, it might worth to have
-a prerequisite that changes set/clear to assign and then your patch will
-be cleaner.
 
-> Otherwise LGTM,
-> Reviewed-by: Andy Shevchenko <andy@kernel.org>
-
--- 
-With Best Regards,
-Andy Shevchenko
+SoMs cannot be used alone, at least usually. You miss boards in the list
+of compatibles. Look how other variscite boards are made.
 
 
+
+Best regards,
+Krzysztof
 
