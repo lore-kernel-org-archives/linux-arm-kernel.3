@@ -4,113 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92F39C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C624C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p6P2FpOjFALNvjVde6pjbWrDDOLG7LCYmFYaycjlEqs=; b=tUw5U2s+34C+wM4KTnIq0jYp4m
-	yAuYPe3EPIncL4ht4uH9kj9FNxbZpF1496PMqKhFbbbtggQV7wHMedDNvm3sOIMdrv8LHhMy1GPsB
-	c792Rp+ZxFJMqXa7AhRn3JXyJP+CrBKkIhlZkDcQEq/Eqp9i4B0AFtEsxcEl+2YRGDBnUjHMEa0Bm
-	GX21WPbj6CRXbAP2X11kt+rjV6EWyJSQIGaIPEZVXUAtx39wL2PO+gSlnr1hjsU0NjNNoZYJh2rKY
-	3qN4IX+5d4/IO31sbC+gvABdr6G2titmsL53JyJDaw5jh/kTlBQJnbD147yzHkUKLgKdF3OEUTfOr
-	O8/rrYvA==;
+	bh=A2ietRUbMDbJ4mE4kCJF5gt9v+ZI/BJHpjh+AfLfssc=; b=nB4uzpltUZgW6+k4C3A50We/Hg
+	a/BN0QVRaVrqts0xnT7JLDZ1RrhQMda6IgGuXtK2VJI5862sj2pb5C23Ezh4B8PpfsN9YhUZ5Vvf9
+	Bom2vx0e7wdsSGAvuGVyTGYLsmtI7C/e5FdVBpdwLxWx9OAtGxHtBYrQxV1oS61MHMDAH1OUBT+On
+	6Y30NhsqmYQdAxpEHgk2AnZPeJWVQcJCDxg6WJ4TWOXFA+5zJ6ZxgXniTFZ3R4PjQ5l30zwTyOoEs
+	sqJxiQVg1NwWnDRtWOUoUjCzbs/5NfjIqw+Ea1QPkCAR27RKBc7+eFraC5c36IC26oAHufsHhPNKH
+	R8H2XLJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZcoZ-00000009y50-0eNh;
-	Wed, 09 Jul 2025 21:58:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uZcoX-00000009y2E-2tlj;
+	Wed, 09 Jul 2025 21:58:53 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZZVZ-00000009Ya2-3pYX
+	id 1uZZ9t-00000009VNg-3myY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 18:27:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 28E6F5C6AB1;
-	Wed,  9 Jul 2025 18:27:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D32A9C4CEEF;
-	Wed,  9 Jul 2025 18:27:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752085624;
-	bh=UB7QIkBRdueZ/ucMHH1IuDHFg0K94C/+SQoeb+QY6ho=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QWBeZQxwZASERzxDIwjW5W+0P6+iLI1k64l0zYRHwNnYQEyqvany0TzwBe5etHkK8
-	 EQfb67UbXa1cHhp0QpqVISRlJrkyKPY26krioFaIDKy8AguRRqVXwqV3ACZFW6OZNC
-	 bjKKlqE3SeC3Na6ph8iwGQRWQPqPV5OtJcR5uVoN2XTfWu7qne9QM9dLjzpmXRvnVZ
-	 hTbfA+B290u0dFvcDpa16udiwh5XG9PTW+IfFldFbNsCQcU6YopDMrhjWXvNR+H+8O
-	 EVyVsfXThD3DVnVnVTfUY0nYJBO7MbEnE43/9+eHPx7QcwVBqQQPOkXXajJJGjmays
-	 tddA4Cnc3wn4w==
-Message-ID: <e016efd6-891b-467e-8a4e-9ea53b7006a9@kernel.org>
-Date: Wed, 9 Jul 2025 20:27:00 +0200
+	Wed, 09 Jul 2025 18:04:43 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 569CopjK011520
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Jul 2025 18:04:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	A2ietRUbMDbJ4mE4kCJF5gt9v+ZI/BJHpjh+AfLfssc=; b=VkHrX/iB1owUSxld
+	0k+fbo6IcOvwtEYGSSRlKjHpAinC0RiWd73EPPUC6SOM4iBvvYejo9Hir/sSs1M+
+	BimAHnZ5h1Bm7K6EukFdGpofuYt4/4mVpL2Pvk1zuKqdOPMAEA0hUXCuPSLOmkJI
+	uxhP+dVMdAmPY42H33WwyFKvhLTjLI7hykoi46pR/kn5Hgzte68IRcBVaBSbbEgM
+	cHTfSuCq3FFJOsKCluYO73ZuMuweN68F4RZKBYnZjt9JHLQRIPG83VqGx6D6sB7x
+	NYtuDq+MO3CE2+WCNg0do2owYKfya9Fs8n2UT5JIvD2kgG7SZnFYVVqX1VOzqctq
+	+OrFUw==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47smafj1a2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 18:04:41 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7d097083cc3so2786985a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 11:04:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752084280; x=1752689080;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=A2ietRUbMDbJ4mE4kCJF5gt9v+ZI/BJHpjh+AfLfssc=;
+        b=o81LCdBdi8dG9idp5CQLDOX01VoHuDA4vr5fcnMJcbhmRiABM9NDSWHySIP0LPUVGQ
+         09uve/oK4tIv4rSBw/mmrC5qyNGAL5mcoOzs6Uamunv4fJzrhhs1SwyX0w6t9hoxAUMt
+         ttDt9ymLLClwzO69wdOcPwnJInI6QuJDQGO/aIj7h8ajOJQhQTMcKwLfZ7oYYJHug200
+         ta8CaMVPKO4Ea7uhvCp+xhYynzNOmQqwj7mIcYPxK2brjkODzyZAxZKpbKpKA+sXFj3f
+         bK8v5FMdlaEkSGp8aep4uIg0TQzdNW9Stm+LsDOnE+xoW3bqp2hyyGuhz7Caz+3UO/Ie
+         psQA==
+X-Forwarded-Encrypted: i=1; AJvYcCWTElrJHzMQI98tWSfcKG75DfbtuzoW8nMRNLs707uNcIioZEL9++A15wnxFIQKIxGo1WEwPkZhVfNUd4bSWqcj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzK33rdyZxuf3UtOv66PJe+/m4+CUmthLmmhMXSMr+mum6eUpz7
+	y4fXi/iWnHF8109KgBhPHrODyJBK3NOqgisoPE4W81SY9pd1gtF8VuulSFoUkjS4FthUQr01Ov3
+	CVLwJlCilqLlfXPVR6T8MUAQcx2mOL7YkpT7wTEXPlwqjWJL5L+EZL0dHbWQouP3Aoe89kstdx3
+	iJVA==
+X-Gm-Gg: ASbGncujBCDb/kv2SYSKwRd2DtUXFi6XsxzJhQiRrCdhHqDGzv2zRnzbt+N2D2jjTPe
+	VVLfTgLmdzIm8pl/nhmzfw+RVNOrDY598Myd1b7zsfQzvKNplHIsXs8ZMXS6o7e7euoZJInxsPo
+	BAVT9i17OUm5pKvu+B/PmOrW669iC7P1TnLtSYoVlZQSH7A8L+DqeYnL2RmFFHuzjxAX3s1SqvE
+	+12mFIJJVhKefKR8LPUuDKw4qYu+AkmgDWm8P6BHhV6Jr/Cvc99kEZCyq376N2Z7GUVXp+jEWJa
+	GqENi2cnmIEK/ZFKI4Ya46Xgm7ZbCDMJxyITUPNGvDYZ7NPrNiSKuvHEcWBhRXHTDxTvkNwm9m6
+	FXPQ=
+X-Received: by 2002:a05:620a:2681:b0:7db:3fbc:d71f with SMTP id af79cd13be357-7db8b3307c8mr183721485a.0.1752084279992;
+        Wed, 09 Jul 2025 11:04:39 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFRdyICFCZxRrKtqyaPtAi/LxAqDz5IEHfkpkf3qpn9haIG2NUFS9hpsW2SKi6yjsOjwAtEOw==
+X-Received: by 2002:a05:620a:2681:b0:7db:3fbc:d71f with SMTP id af79cd13be357-7db8b3307c8mr183718485a.0.1752084279403;
+        Wed, 09 Jul 2025 11:04:39 -0700 (PDT)
+Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f692f555sm1156700766b.60.2025.07.09.11.04.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 09 Jul 2025 11:04:38 -0700 (PDT)
+Message-ID: <256e01fc-fdba-4006-be8b-236fbbdf9f25@oss.qualcomm.com>
+Date: Wed, 9 Jul 2025 20:04:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 1/2] dt-bindings: memory: add jedec,ddr[3-4]-channel
- binding
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20250626-ddr-bindings-v1-0-cae30933c54c@foss.st.com>
- <20250626-ddr-bindings-v1-1-cae30933c54c@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 10/12] pinctrl: qcom: add infrastructure for marking
+ pin functions as GPIOs
+To: Bartosz Golaszewski <brgl@bgdev.pl>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexey Klimov <alexey.klimov@linaro.org>,
+        Lorenzo Bianconi <lorenzo@kernel.org>,
+        Sean Wang <sean.wang@kernel.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Paul Cercueil <paul@crapouillou.net>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250709-pinctrl-gpio-pinfuncs-v2-0-b6135149c0d9@linaro.org>
+ <20250709-pinctrl-gpio-pinfuncs-v2-10-b6135149c0d9@linaro.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250626-ddr-bindings-v1-1-cae30933c54c@foss.st.com>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250709-pinctrl-gpio-pinfuncs-v2-10-b6135149c0d9@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=ZJ/XmW7b c=1 sm=1 tr=0 ts=686eaf39 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
+ a=NA2ShB3TTlD8ZNnRZVMA:9 a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: oMYitYoWK7GteUzgeQCmIqh_3Heei2Fu
+X-Proofpoint-GUID: oMYitYoWK7GteUzgeQCmIqh_3Heei2Fu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzA5MDE2MyBTYWx0ZWRfXw/HUzYQFj7f5
+ OfFixDv6Xf/julzOb4u1tabXSSuaWbnhnxY0gPhw+WjcAkRD5i9QWzu97eb+yeHqSM1lIa6oMCT
+ zqcJ4UsGd+2zLntxmPCiNR1jXJuRNupt2B0+N3ZPk3+h0ck//04jkh3tKQCmKzHX07yVxaQl/At
+ 9DHnW5muTXydrSdlLWmm3FvdeNCD+nawlUUluwpupIycWYfhssYlcaMLZ1Uf/+zI0XlyB8e5DMr
+ BIVW3thVoBqJxF7jzof4m0wJv/cmJCp5e4DIzTl1V67Y6pY2ZVjs7aOsx4eRQ88U5Hz90lCV71N
+ dzHfQSqdapwqJOPIx8mUcWboRlC28U3mbxwSs+iqnT6kOe61Dw7pHj6hvdIPgPX09STBMnWOLhj
+ tbNzC7DvX1pHzlfRrcJNXhvWi6qvQto0Q9VHEK1542qK7wkpPD6AEBbgWdpDhX15dlGwmHeP
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-09_04,2025-07-09_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxlogscore=999 impostorscore=0 spamscore=0 adultscore=0 clxscore=1015
+ bulkscore=0 phishscore=0 priorityscore=1501 mlxscore=0 lowpriorityscore=0
+ suspectscore=0 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507090163
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_112706_027576_B3613007 
-X-CRM114-Status: UNSURE (   7.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250709_110442_062530_7C64A6F3 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +145,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/06/2025 21:48, Clément Le Goffic wrote:
-> Introduce as per jdec,lpddrX-channel binding, jdec,ddr[3-4]-channel
-
-s/jdec/jedec/
-
-> binding.
+On 7/9/25 4:39 PM, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> Add a helper macro that wraps PINCTRL_GPIO_PINFUNCTION() for pinctrl-msm
+> pin functions and assign the .function_is_gpio() callback in pinmux_ops.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > ---
 
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    ddr_channel: ddr3-channel@0 {
-> +        compatible = "jedec,ddr3-channel";
-> +        io-width = <16>;
-
-Missing reg... or not? What was your intention
-
-
-> +    };
-> 
-
-
-Best regards,
-Krzysztof
+Konrad
 
