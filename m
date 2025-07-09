@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390DCC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 12:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9409C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 12:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PGD2Ycnz1gCzYpxZFMkcC56M8qJIW6nFnG0K4tyD43E=; b=mbRCt5l3EqN48cNntbY6fY0+br
-	CieRwutpP4Qm8Wc+aA6g0wXMh1mvVS1YXQjzAFlbzMLZGWDZSoFSlLxCyDx3Jsx69a9qgQnlVDSV0
-	kiwGrgup0z/jAN3PExjp5Ir2nprakkt6iiTzDxca8O4iKWy4a15UZwXVzJZjp9drfUtqwhGlU8r+a
-	uPId5BjqIur6JdGFR/tIjU2TidqOZY9nMDw8o4BlH8xZGhSm1nZDu+elexOKT6xEsSZ7rxjxeUABn
-	scYcZMyo3GW5n2JCNxbAx6aCgzHtOa0NZvVQ1U6BxjbuyqGaLCHkncvAvrs9D1SXzdT1mh/aaS2C1
-	Ulm4tcRQ==;
+	bh=BoVQvyf6Ktrtcf13EFvfIMMEKjGOoXUNiMhTj+aYFes=; b=bxSgO7IECTjjc8kE2thb2wzUX7
+	/mcmf0UniAehjZFom8Qz55OcgBmJQCs+efYQ4v3pgGUs+cWWZOscrc6VxzkdHAGrfxKZMt6z4Qt/R
+	FIvWvwBtWxiJlp5gseJg8nozuqB/toYxF+OY1u6LMbde9jXacira8KvYcOHkxB4+nekd4GgyVYinv
+	GJwO7Dn0Aj3P2OL5QVdvYh2y9rLb2SE/R+sJGpK1t62TutKRBIq4AePhiNq8VKbi7SKJbrCc/QK6V
+	4l6+G5FSorvoeKkhTxU9vaXmyqCny2j/YqFxbY8OA5zbcN/OEyBytSlkP2fRmLgKPDXJMqxEVRf91
+	KzmKZjdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZTcv-00000008aq3-3Rtx;
-	Wed, 09 Jul 2025 12:10:17 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1uZTfD-00000008azQ-2Y6a;
+	Wed, 09 Jul 2025 12:12:39 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZRxN-00000008IG2-428p;
-	Wed, 09 Jul 2025 10:23:19 +0000
+	id 1uZRxZ-00000008IHz-0Jmc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Jul 2025 10:23:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752056598; x=1783592598;
+  t=1752056609; x=1783592609;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=saN/d4gfnEw13D+prR8b8IdE3mlm76MqGHQUgKWmIVM=;
-  b=Nicqy+R0TdipZB532ShK1EFZo84lQVBzNlTwzCGM2jTJJ7yx8f1TythC
-   9cD1nXSvYFloTkkGz4nwkJCEl+LsAdRag1io2J/GZxi65Nb8aaCACCXBE
-   XAzZPyiu7JEcaqtaUpiermnk0zc9yfyBtFXoye25HeK2jP1Uixxo+Sf0x
-   oon5ciUIsitZYlfUskxocOQdwb7gu7P88tnsH4koKTl+IMin7ftr1SGV8
-   Z6LXjylATW79MznIQcARhCA2+GNh2/uThBhx2ZO9yR1omWwclhuj7hQJu
-   fzPjQNW1OH3dVL22NJ0mzCGBUzzALKTs5vTx/lvJ4TFVBQG88N+v4jwey
-   w==;
-X-CSE-ConnectionGUID: LZOzDkG6Qka2Ua2wF2ICJA==
-X-CSE-MsgGUID: /BZkWSaQTfS/4SrfN3ZBCA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11487"; a="76860270"
+  bh=2+N4smsYfrl5HTf8MH0tIEMC4qA9EcZ/1I6Yj3gLik4=;
+  b=ML9NsAJ0VDQgJbosLA28TQ1NKp2wTlYJ8v7tvguQGMfympOykBTUj4Bs
+   Q0MIaCm3x/zboMNBrCxTN9BalaH6bgUeJilSH+WA0XnwQcjkH1JPCPgbO
+   VF7FBgiTITnjOYoH0kDaKoA2feiSULthuhW/T+C4hDdHSNTL0NkexZBZO
+   xlq73f8RENfIaIUneUrcOIC/6ho6fdDr+/iJLk49sMGflwHiKz0ulA4Xg
+   zXVJoOGbIpT2DsRNueRgAVL0ZsKHTdf5+vS2gzJOsZw3h0aDKT2MoL0gh
+   WsPuepi1tHpGFWlkMyfoOzDMXYcWDi8zkMFrENTZnINRD9D00hE1DBunj
+   Q==;
+X-CSE-ConnectionGUID: i9OsOHdmTWmG5uYlLTxi9g==
+X-CSE-MsgGUID: Hf32U9pKR8OVB3OC4hpBKg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11487"; a="79750720"
 X-IronPort-AV: E=Sophos;i="6.16,298,1744095600"; 
-   d="scan'208";a="76860270"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 03:23:16 -0700
-X-CSE-ConnectionGUID: 0H38jff9RYSTaPGDbHz5iw==
-X-CSE-MsgGUID: P5tlRiFCQPi8zz6fhqvRcQ==
+   d="scan'208";a="79750720"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 03:23:19 -0700
+X-CSE-ConnectionGUID: nA7HpcjlRkSUBS07mOfahw==
+X-CSE-MsgGUID: 2ZH4Zb0hTQCxpOErnia7Jg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.16,298,1744095600"; 
-   d="scan'208";a="156221519"
+   d="scan'208";a="160057178"
 Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 09 Jul 2025 03:23:13 -0700
+  by orviesa003.jf.intel.com with ESMTP; 09 Jul 2025 03:23:13 -0700
 Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1uZRxG-0003OR-0S;
+	id 1uZRxG-0003OT-0W;
 	Wed, 09 Jul 2025 10:23:10 +0000
-Date: Wed, 9 Jul 2025 18:22:37 +0800
+Date: Wed, 9 Jul 2025 18:22:30 +0800
 From: kernel test robot <lkp@intel.com>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Keke Li <keke.li@amlogic.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Subject: Re: [PATCH 2/8] media: uapi: Convert RkISP1 to V4L2 extensible params
-Message-ID: <202507091859.x8Yx8AZb-lkp@intel.com>
-References: <20250708-extensible-parameters-validation-v1-2-9fc27c9c728c@ideasonboard.com>
+To: Duje =?utf-8?Q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Paul Gazzillo <paul@pgazz.com>,
+	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+	oe-kbuild-all@lists.linux.dev, David Wronek <david@mainlining.org>,
+	Karel Balej <balejk@matfyz.cz>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-hardening@vger.kernel.org, phone-devel@vger.kernel.org,
+	~postmarketos/upstreaming@lists.sr.ht, soc@lists.linux.dev,
+	linux-mmc@vger.kernel.org
+Subject: Re: [PATCH v16 3/5] arm64: Kconfig.platforms: Add config for Marvell
+ PXA1908 platform
+Message-ID: <202507091803.RBsXE3aX-lkp@intel.com>
+References: <20250708-pxa1908-lkml-v16-3-b4392c484180@dujemihanovic.xyz>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250708-extensible-parameters-validation-v1-2-9fc27c9c728c@ideasonboard.com>
+In-Reply-To: <20250708-pxa1908-lkml-v16-3-b4392c484180@dujemihanovic.xyz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_032318_038494_616338FA 
-X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-CacheID: sfid-20250709_032329_127905_4046641B 
+X-CRM114-Status: UNSURE (   9.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,32 +105,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
+Hi Duje,
 
-kernel test robot noticed the following build errors:
+kernel test robot noticed the following build warnings:
 
-[auto build test ERROR on a8598c7de1bcd94461ca54c972efa9b4ea501fb9]
+[auto build test WARNING on d7b8f8e20813f0179d8ef519541a3527e7661d3a]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jacopo-Mondi/media-uapi-Introduce-V4L2-extensible-params/20250708-184651
-base:   a8598c7de1bcd94461ca54c972efa9b4ea501fb9
-patch link:    https://lore.kernel.org/r/20250708-extensible-parameters-validation-v1-2-9fc27c9c728c%40ideasonboard.com
-patch subject: [PATCH 2/8] media: uapi: Convert RkISP1 to V4L2 extensible params
-config: i386-buildonly-randconfig-003-20250709 (https://download.01.org/0day-ci/archive/20250709/202507091859.x8Yx8AZb-lkp@intel.com/config)
-compiler: clang version 20.1.7 (https://github.com/llvm/llvm-project 6146a88f60492b520a36f8f8f3231e15f3cc6082)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250709/202507091859.x8Yx8AZb-lkp@intel.com/reproduce)
+url:    https://github.com/intel-lab-lkp/linux/commits/Duje-Mihanovi/dt-bindings-mmc-sdhci-pxa-restrict-pinctrl-to-pxav1/20250709-011510
+base:   d7b8f8e20813f0179d8ef519541a3527e7661d3a
+patch link:    https://lore.kernel.org/r/20250708-pxa1908-lkml-v16-3-b4392c484180%40dujemihanovic.xyz
+patch subject: [PATCH v16 3/5] arm64: Kconfig.platforms: Add config for Marvell PXA1908 platform
+config: arm64-kismet-CONFIG_I2C_GPIO-CONFIG_VIDEO_MMP_CAMERA-0-0 (https://download.01.org/0day-ci/archive/20250709/202507091803.RBsXE3aX-lkp@intel.com/config)
+reproduce: (https://download.01.org/0day-ci/archive/20250709/202507091803.RBsXE3aX-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507091859.x8Yx8AZb-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507091803.RBsXE3aX-lkp@intel.com/
 
-All errors (new ones prefixed by >>):
-
-   In file included from <built-in>:1:
->> ./usr/include/linux/rkisp1-config.h:10:10: fatal error: 'linux/build_bug.h' file not found
-      10 | #include <linux/build_bug.h>
-         |          ^~~~~~~~~~~~~~~~~~~
-   1 error generated.
+kismet warnings: (new ones prefixed by >>)
+>> kismet: WARNING: unmet direct dependencies detected for I2C_GPIO when selected by VIDEO_MMP_CAMERA
+   WARNING: unmet direct dependencies detected for I2C_GPIO
+     Depends on [n]: I2C [=y] && HAS_IOMEM [=y] && (GPIOLIB [=n] || COMPILE_TEST [=n])
+     Selected by [y]:
+     - VIDEO_MMP_CAMERA [=y] && MEDIA_SUPPORT [=y] && MEDIA_PLATFORM_SUPPORT [=y] && MEDIA_PLATFORM_DRIVERS [=y] && V4L_PLATFORM_DRIVERS [=y] && I2C [=y] && VIDEO_DEV [=y] && (ARCH_MMP [=y] || COMPILE_TEST [=n]) && COMMON_CLK [=y]
 
 -- 
 0-DAY CI Kernel Test Service
