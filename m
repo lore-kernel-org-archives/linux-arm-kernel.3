@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8BBEC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 11:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0199C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 12:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YjCkMnWqantp9bBive7K745QUtuY2/IUAwBUIHQ/MQ0=; b=tVKLy/ofXqeKYEEqWIw2tpuiww
-	qnqnPY5G01X6z+SSrSVN1+P+bZeukFMMyqxTctV1fcE+37ymosz6BcAHIInH0euasI1x9JeBk4+QH
-	OjbBnblDSzjF1jBbhzudQTRfk9j7vCyKGD8LBca+sqaj3lYQzd7GSYT6w0r/oEwPtGwZpzZcEfMnm
-	OpH7HgB+te7+t2rU8LaCoymLK+alAgMD/3b9sQbJbqhgQmnfVlJk5OXZlGrcocao3ZYMwKzl6p1uX
-	KcdKaaqrtqQYZwB/JegU4uayQU7vpkgwRcgHeSiZWYY1n2ddpW6v9Tb2PbD0NKqeuvB01V/rExGcf
-	pn4t90wQ==;
+	bh=dwiCyC2lO5WEqro7WiPCs85r1Xu3wKSrunx6M8qjcBs=; b=MdJBAfcNiglkBobmO0fVn+Gss2
+	lS+zYw8TKao4JqfKeTPzZeqr0L3Qhy4Ko1HzmfQZSHlpbObefhTiRDBPDxIeeWGiMpHP5RGwiFnaL
+	f7JqMBZbbeWwgUw58lGNqabdj+KrZKtDsJqYc1PBHLFLI3vovx8AabpObYQyI8Yh++9gUZhIpP50d
+	SfziRKAK9PmOVP2NHsmKktbaMbtf1NmimQmXF2WrlsipqbuGzn3S67x+szJUq4BF9fySBmYKR+pXj
+	Om+xvVHBttnePimVfiaMUcCw/bbhWXrztBCVVPiYKizxyZmNtke4Fdxk9JoLS4fd1eXhLoynSQZ9e
+	E3Qgsa3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZTRP-00000008ZDu-32hd;
-	Wed, 09 Jul 2025 11:58:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZRj5-00000008Fiw-2HaT
+	id 1uZTTi-00000008ZYt-25EL;
+	Wed, 09 Jul 2025 12:00:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZRji-00000008FoH-275h
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 10:08:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DFB6B5C5E0F;
-	Wed,  9 Jul 2025 10:08:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78D38C4CEF5;
-	Wed,  9 Jul 2025 10:08:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752055710;
-	bh=7s0iUf/zVAXVdlRZKllsduSnRK48iQZQiABy4eBpO/M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jNCtfE1ZQF+nrMLJ47vu5+q2KzZDiM+HPAYnmlcTkf7bTWI8bAV23b9BWED9PiMGJ
-	 0/ujVRENMFPP0tEJ5YNwiK4Q7Qfx1MzX6Ub+px+EwN+NH2zhC56EJxRKmCSbQ9E68y
-	 Ux+0Ap5Kjk/gJBUT+YcdOecMPeHUQbqfcKRq5M0IRATpMeiPxV7EJlBWvt0q9C1e9v
-	 eVKM9q0ltWo7itHx2PWrEOSL7/fDs3CVIH4VBfMe0A+kVrAC7pmKqloiIalhYOJeCK
-	 u8KPuZaw4G6r6Q0V4PZhgtEnDks39Cyk+jSYg5m4VKUJU2KltVrhUf+Lh6W0feNpak
-	 sNNEfk2MNSGwg==
-Date: Wed, 9 Jul 2025 11:08:26 +0100
-From: Simon Horman <horms@kernel.org>
-To: Alok Tiwari <alok.a.tiwari@oracle.com>
-Cc: sgoutham@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	darren.kenny@oracle.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: thunderx: Fix format-truncation warning
- in bgx_acpi_match_id()
-Message-ID: <20250709100826.GT452973@horms.kernel.org>
-References: <20250708175250.2090112-1-alok.a.tiwari@oracle.com>
+	Wed, 09 Jul 2025 10:09:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43FAC153B;
+	Wed,  9 Jul 2025 03:08:58 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 142A33F694;
+	Wed,  9 Jul 2025 03:09:07 -0700 (PDT)
+Date: Wed, 9 Jul 2025 11:08:57 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: James Clark <james.clark@linaro.org>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Anshuman Khandual <Anshuman.Khandual@arm.com>,
+	Rob Herring <Rob.Herring@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	Robin Murphy <Robin.Murphy@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
+ PMBPTR_EL1 or PMBSR_EL1
+Message-ID: <aG4_uYJgpMXo3QHQ@raptor>
+References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
+ <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
+ <20250704155016.GI1039028@e132581.arm.com>
+ <b77f12e7-ea3f-4c57-9706-ff8e32721cc8@linaro.org>
+ <20250707153710.GB2182465@e132581.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250708175250.2090112-1-alok.a.tiwari@oracle.com>
+In-Reply-To: <20250707153710.GB2182465@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_030831_618042_50351F25 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250709_030910_628893_6338879E 
+X-CRM114-Status: GOOD (  41.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +74,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 08, 2025 at 10:52:43AM -0700, Alok Tiwari wrote:
-> The buffer bgx_sel used in snprintf() was too small to safely hold
-> the formatted string "BGX%d" for all valid bgx_id values. This caused
-> a -Wformat-truncation warning with Werror enabled during build.
-> 
-> Increase the buffer size from 5 to 8 and use sizeof(bgx_sel) in
-> snprintf() to ensure safety and suppress the warning.
-> 
-> Build warning:
->   CC      drivers/net/ethernet/cavium/thunder/thunder_bgx.o
->   drivers/net/ethernet/cavium/thunder/thunder_bgx.c: In function
-> ‘bgx_acpi_match_id’:
->   drivers/net/ethernet/cavium/thunder/thunder_bgx.c:1434:27: error: ‘%d’
-> directive output may be truncated writing between 1 and 3 bytes into a
-> region of size 2 [-Werror=format-truncation=]
->     snprintf(bgx_sel, 5, "BGX%d", bgx->bgx_id);
->                              ^~
->   drivers/net/ethernet/cavium/thunder/thunder_bgx.c:1434:23: note:
-> directive argument in the range [0, 255]
->     snprintf(bgx_sel, 5, "BGX%d", bgx->bgx_id);
->                          ^~~~~~~
->   drivers/net/ethernet/cavium/thunder/thunder_bgx.c:1434:2: note:
-> ‘snprintf’ output between 5 and 7 bytes into a destination of size 5
->     snprintf(bgx_sel, 5, "BGX%d", bgx->bgx_id);
-> 
-> compiler warning due to insufficient snprintf buffer size.
-> 
-> Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
-> ---
-> v1->v2
-> No changes. Targeting for net-next.
-> https://lore.kernel.org/all/20250708160957.GQ452973@horms.kernel.org/
+Hi Leo, James,
 
-Thanks for the update.
+On Mon, Jul 07, 2025 at 04:37:10PM +0100, Leo Yan wrote:
+> On Mon, Jul 07, 2025 at 12:39:57PM +0100, James Clark wrote:
+> 
+> [...]
+> 
+> > > > @@ -661,16 +666,24 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+> > > >   	 */
+> > > >   	irq_work_run();
+> > > > +	/*
+> > > > +	 * arm_spe_pmu_buf_get_fault_act() already drained, and PMBSR_EL1.S == 1
+> > > > +	 * means that StatisticalProfilingEnabled() == false. So now we can
+> > > > +	 * safely disable the buffer.
+> > > > +	 */
+> > > > +	write_sysreg_s(0, SYS_PMBLIMITR_EL1);
+> > > > +	isb();
+> > > > +
+> > > > +	/* Status can be cleared now that PMBLIMITR_EL1.E == 0 */
+> > > > +	write_sysreg_s(0, SYS_PMBSR_EL1);
+> > > > +
+> > > 
+> > > An important thing is about sequence:
+> > > As described in arm_spe_pmu_disable_and_drain_local(), should we always
+> > > clear ELs bits in PMSCR_EL1 before clear PMBLIMITR_EL1.E bit? As a
+> > > reference, we could see TRBE always clear ELx bits before disable trace
+> > > buffer.
+> > > 
+> > > And a trivial flaw:
+> > > 
+> > > If the TRUNCATED flag has been set, the irq_work_run() above runs the
+> > > IRQ work to invoke the arm_spe_pmu_stop() to disable trace buffer, which
+> > > clear SYS_PMBLIMITR_EL1.E bit. This is why the current code does not
+> > > explictly clear SYS_PMBLIMITR_EL1.E bit.
+> > > 
+> > > With this patch, the interrupt handler will clear SYS_PMBLIMITR_EL1.E
+> > > bit twice for a trunacated case.
+> > 
+> > I suppose that's a rarer case that we don't necessarily have to optimize
+> > for. I don't think it will do any harm, but is it even possible to avoid?
+> > 
+> > There are already some other duplications in the driver, for example in
+> > arm_spe_pmu_stop() we call arm_spe_pmu_disable_and_drain_local() which
+> > drains, and then arm_spe_pmu_buf_get_fault_act() which also drains again.
+> 
+> If we don't need to worry about duplicated operations in the truncated
+> case, then for easier maintenance and better readability, I'm wondering
+> if we could simplify the interrupt handler as follows:
+> 
+>     arm_spe_pmu_irq_handler()
+>     {
+>         ...
+> 
+>         act = arm_spe_pmu_buf_get_fault_act(handle);
+>         if (act == SPE_PMU_BUF_FAULT_ACT_SPURIOUS)
+>                 return IRQ_NONE;
+> 
+>         arm_spe_pmu_disable_and_drain_local();
+> 
+>         /* Status can be cleared now that PMBLIMITR_EL1.E == 0 */
+>         write_sysreg_s(0, SYS_PMBSR_EL1);
+>         isb();
+> 
+>         switch (act) {
+>             ...
+>         }
+>     }
+> 
+> This approach complies with DEN0154 - we must clear PMBLIMITR_EL1.E
+> before writing to other SPE system registers (e.g., PMBSR).
+> 
+> The reason for using arm_spe_pmu_disable_and_drain_local() is that we
+> first need to disable profiling instructions by clearing PMSCR_EL1/EL2,
+> and then is it safe to disable the profiling buffer.
+> 
+> [...]
+> 
+> > > >   	case SPE_PMU_BUF_FAULT_ACT_OK:
+> > > >   		/*
+> > > > @@ -679,18 +692,14 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+> > > >   		 * PMBPTR might be misaligned, but we'll burn that bridge
+> > > >   		 * when we get to it.
+> > > >   		 */
+> > > > -		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)) {
+> > > > +		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED))
+> > > >   			arm_spe_perf_aux_output_begin(handle, event);
+> > > > -			isb();
+> > > 
+> > > I am a bit suspecious we can remove this isb().
+> > > 
+> > > As a reference to the software usage PKLXF in Arm ARM (DDI 0487 L.a),
+> > > after enable TRBE trace unit, an ISB is mandatory. Maybe check a bit
+> > > for this?
+> >
+> > Wasn't this isb() to separate the programming of the registers with the
+> > status register clear at the end of this function to enable profiling?
+> 
+> Enabling profiling buffer followed an isb() is not only for separating
+> other register programming.
+> 
+> As described in section D17.9, Synchronization and Statistical Profiling
+> in Arm ARM:
+> 
+>   "A Context Synchronization event guarantees that a direct write to a
+>   System register made by the PE in program order before the Context
+>   synchronization event are observable by indirect reads and indirect
+>   writes of the same System register made by a profiling operation
+>   relating to a sampled operation in program order after the Context
+>   synchronization event."
+> 
+> My understanding is: after the ARM SPE profiling is enabled, the
+> followed ISB is a Synchronization to make sure the system register
+> values are observed by SPE. And we cannot rely on ERET, especially if
+> we are tracing the kernel mode.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Thought about this some more.
+
+Before:
+
+arm_spe_pmu_buf_get_fault_act:
+  <drain buffer>
+  ISB
+arm_spe_perf_aux_output_begin:
+  PMBLIMITR_EL1.E = 1
+ISB
+PMBSR_EL1.S = 0
+ERET
+
+Now:
+
+PMBLIMITR_EL1 = 0
+ISB
+
+PMBSR_EL1.S = 0
+arm_spe_perf_aux_output_begin:
+  ISB
+  PMBLIMITR_EL1.E = 1
+ERET
+
+I don't see much of a difference between the two sequences - the point after
+which we can be sure that profiling is enabled remains the ERET from the
+exception return.  The only difference is that, before this change, the ERET
+synchronized clearing the PMBSR_EL1.S bit, now it synchronizes setting the
+PMBLIMITR_EL1.E bit.
+
+Thoughts?
+
+Thanks,
+Alex
 
