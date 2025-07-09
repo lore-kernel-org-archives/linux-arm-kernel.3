@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11BD5C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 02:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB0DC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 02:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RCYfV/skPLARVSorP7PZJEmoYaVmrx4b6IPq4/bP+4I=; b=P/xXA0fdX4W9qMjGpQqud00oF7
-	eqPI7KnnWKogqezv4iXAaQEhhbgMiBXy0ZN6B7y+s50VZUVY6WPJzfGb2SZj65b0bD9Gu6Pggu/+S
-	bXwpiJwFCg33d7/Q1CtW24wVkGptsqgRorEwssQkXdcl50PGG9SrXrSu9qKeefnh/UrAIKgwDZBgK
-	mIKBxCQ9cXtqjUzEQcWKurCSjU/iOV+YaEDBUdIvDLBQ8TtoDdwxqQW+Iy/qd7fYNdrDmU8M8sJON
-	QPKkRUtX7ZbyeuOpct6zy8iKzxeqiw1xI8ZaCuCCy0RSM2VetXVTh6Hjuo75+suksojLRdyJcCsda
-	KKWbHJ9g==;
+	bh=l4b7YNwI2mId6wV052DaQYNqAr6otwP3QlgPB96X+TU=; b=V1dNWKZJEvLHDB2l+WPPzmySWp
+	CdlfLQVFJtcsrJKbL+uexOUVuzn501R/+udpA2BVchwPTfz5owkaNX6v5RQ89q7MeMxE30PfYKyAJ
+	qEPP4fXMzQSSSe9EOj3CDR1krH2MLo7WgQFCebp+8XZoz+cd2KZG0Ikiqp9WD2SwlU7HZ7O8tOWcb
+	CbNZbsfH0W7zDYAPA92jGhsLoePbJWU6zUI/mA7bu7mt6qAPVu3/+BPbGO6hMv+Sq/ahfsYfHhtVn
+	PlecSV46ACP4KkRXLt/RMp+BwGkG/nD9DygA2fV4G+GfiN0uKNRzvZeq5NlYPVd3/Qtp0W+7Ckv4d
+	Lf2odZjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZKOx-00000007AJO-3B53;
-	Wed, 09 Jul 2025 02:19:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uZKU8-00000007AwD-2XUg;
+	Wed, 09 Jul 2025 02:24:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZKMX-00000007ADj-20dk
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 02:16:46 +0000
+	id 1uZKRj-00000007AWd-3F09;
+	Wed, 09 Jul 2025 02:22:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DBF555C655E;
-	Wed,  9 Jul 2025 02:16:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73F00C4CEED;
-	Wed,  9 Jul 2025 02:16:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E33D661151;
+	Wed,  9 Jul 2025 02:22:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D5D9C4CEED;
+	Wed,  9 Jul 2025 02:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752027404;
-	bh=W34gJZJ0Sfv42p0qrt0l9Q2E2RvLRp6jugQiTNTywbQ=;
+	s=k20201202; t=1752027726;
+	bh=OfoDaqQ2V0qjoGLeO8rdU8Wgju6X0K8yq1beZOaKvpU=;
 	h=From:To:Cc:Subject:Date:From;
-	b=NYuBtwURYidvFrxE2AGzKqfUZEwQg0sXZHw9tBkUQqrEGAg5kj/AB3C8AlscQh32C
-	 Gg53ryOb/isxZK9bck+A3vH+ri0b6mZWiroR5GCMknrmp9Ejnge7Cq7iW1rOsaj8TM
-	 3vIvhYp6t0TEMpwfhq22KtJmK1xOA1Bo3VUFiQkCSUUBmjUlwBTRJEWtEX46peQHoe
-	 As7yzZWmW24q4FB5mE7Lm0QvRCGAce5DJwHDMyEm1pqXeUHEwsIZSdxShKj1RKfA1U
-	 3o7GLzCue1reKRq2PTYr1wl4zfIpZ53k1Y1kqOvFR6f0dvkgnlMlx6rsXoYxsJ+pag
-	 +GMqZeG2WrOyw==
+	b=udtmn9gfG8VrwPGMkQ3vvV019c4XopWDfkbFcrockuBii8oioggfvbRiKtg6iKHmg
+	 MsLFDqbSYgF5rfqkz4eMrp5zvbKzImvQggkOE1H9P9nJsUHes3p8b8Ea9Nadwg3u4+
+	 FyYc06+9kxdnwREUkigBlRmrl2ObHe1wI7ngAJ6LeRTqs863cmywXVBUTF9KOK0LMe
+	 3+9m9h5jVNurwtNDTe084zYXGW5lo/cAup1ovudlWRaBTZAqSfpwney/oJ7pc3XxCu
+	 lpgOa0u6TeuIiDLvYmH61qba8uDNYb8MhFv5/qmLF69J+NYWP9z0DJSGe8cBp2MSjL
+	 fyfzVKeWnDnfw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Mark Brown <broonie@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-spi@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] spi: stm32-ospi: Use of_reserved_mem_region_to_resource() for "memory-region"
-Date: Tue,  8 Jul 2025 21:16:37 -0500
-Message-ID: <20250709021638.2047365-1-robh@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2] wifi: mt76: Use of_reserved_mem_region_to_resource() for "memory-region"
+Date: Tue,  8 Jul 2025 21:22:01 -0500
+Message-ID: <20250709022201.2092329-1-robh@kernel.org>
 X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_191645_558978_61965314 
-X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +79,53 @@ handle "memory-region" properties.
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
 v2:
- - Fix unused variable warnings
+  - Split to separate patch
 ---
- drivers/spi/spi-stm32-ospi.c | 20 +++++++-------------
- 1 file changed, 7 insertions(+), 13 deletions(-)
+ .../net/wireless/mediatek/mt76/mt7915/soc.c   | 21 +++++++------------
+ 1 file changed, 8 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
-index 7c1fa55fbc47..4753e02a7d2f 100644
---- a/drivers/spi/spi-stm32-ospi.c
-+++ b/drivers/spi/spi-stm32-ospi.c
-@@ -771,9 +771,7 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/soc.c b/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
+index c823a7554a3a..5f19b506cc50 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
+@@ -284,20 +284,15 @@ static int mt798x_wmac_coninfra_check(struct mt7915_dev *dev)
+ static int mt798x_wmac_coninfra_setup(struct mt7915_dev *dev)
  {
- 	struct device *dev = &pdev->dev;
- 	struct stm32_ospi *ospi = platform_get_drvdata(pdev);
--	struct resource *res;
--	struct reserved_mem *rmem = NULL;
--	struct device_node *node;
-+	struct resource *res, _res;
- 	int ret;
+ 	struct device *pdev = dev->mt76.dev;
+-	struct reserved_mem *rmem;
+-	struct device_node *np;
++	struct resource res;
+ 	u32 val;
++	int ret;
  
- 	ospi->regs_base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-@@ -825,17 +823,13 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
- 			goto err_dma;
+-	np = of_parse_phandle(pdev->of_node, "memory-region", 0);
+-	if (!np)
+-		return -EINVAL;
+-
+-	rmem = of_reserved_mem_lookup(np);
+-	of_node_put(np);
+-	if (!rmem)
+-		return -EINVAL;
++	ret = of_reserved_mem_region_to_resource(pdev->of_node, 0, &res);
++	if (ret)
++		return ret;
+ 
+-	val = (rmem->base >> 16) & MT_TOP_MCU_EMI_BASE_MASK;
++	val = (res.start >> 16) & MT_TOP_MCU_EMI_BASE_MASK;
+ 
+ 	if (is_mt7986(&dev->mt76)) {
+ 		/* Set conninfra subsys PLL check */
+@@ -318,8 +313,8 @@ static int mt798x_wmac_coninfra_setup(struct mt7915_dev *dev)
+ 			       MT_TOP_EFUSE_BASE_MASK, 0x11f20000 >> 16);
  	}
  
--	node = of_parse_phandle(dev->of_node, "memory-region", 0);
--	if (node)
--		rmem = of_reserved_mem_lookup(node);
--	of_node_put(node);
--
--	if (rmem) {
--		ospi->mm_size = rmem->size;
--		ospi->mm_base = devm_ioremap(dev, rmem->base, rmem->size);
-+	res = &_res;
-+	ret = of_reserved_mem_region_to_resource(dev->of_node, 0, res);
-+	if (!ret) {
-+		ospi->mm_size = resource_size(res);
-+		ospi->mm_base = devm_ioremap_resource(dev, res);
- 		if (!ospi->mm_base) {
--			dev_err(dev, "unable to map memory region: %pa+%pa\n",
--				&rmem->base, &rmem->size);
-+			dev_err(dev, "unable to map memory region: %pR\n", res);
- 			ret = -ENOMEM;
- 			goto err_dma;
- 		}
+-	mt76_wr(dev, MT_INFRA_BUS_EMI_START, rmem->base);
+-	mt76_wr(dev, MT_INFRA_BUS_EMI_END, rmem->size);
++	mt76_wr(dev, MT_INFRA_BUS_EMI_START, res.start);
++	mt76_wr(dev, MT_INFRA_BUS_EMI_END, resource_size(&res));
+ 
+ 	mt76_rr(dev, MT_CONN_INFRA_EFUSE);
+ 
 -- 
 2.47.2
 
