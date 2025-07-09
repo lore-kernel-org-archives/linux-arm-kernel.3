@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DAFBC83F14
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14712C83F16
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:To:From:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ra0q1YRk8dc9wL0sB8bADJNs5V8YEwxRwJMrTAmQyqQ=; b=S3CXfFfpCwjJ+u5KDkUlw8cRuD
-	q1P/ReIELJXJ8q2HTmJC9Yt9w/rGWuKK4NEClpebdry0vqhuHWU66+gFNx+7JcF8YZZBZTVQtPLpu
-	/ECS0pQBJeL0LrwinbN4SckARuzQixX30cl2W0EuCDTIY74XVoJ2P0kKFbH9KRaS0mKCbAiTerntg
-	cSMBHymGOqdhP5qdD1zAhZegYYWrftTO3DdBQ24tsklYhWbPMSwMBhsXilc6z7oK4YTRqoCYM+KzM
-	I1ArpQNRk6pklUaL3hx/ELR8pu8xK87vbFVa4ITE3SWaEHytEppjFCwuNeQks3UfCSs5wpG6wUDAe
-	LK8koYcw==;
+	bh=uZBacsAQBX8UWzqVWjMPS9DMvOiMHF6pkbpAf6eXFvs=; b=CzHa7WWF15WcGkXxCo6ZsYyNxR
+	EXo/ZfFG3ZYeAdVVQloQY5mNRGe/EslYiTe05nf0NelBYQ9Cfy/0R8cvpUEveEUTVR9PnnV7/hpWV
+	Lv80ejMjYTjtgsiS7uxabxP8UsyTqWABEMSbC5xOWKddcPqaseIVFiyVc5kuRuGrzDof0ZILUDc7O
+	gsIJv4HcBm4bdRiC3b+HiC+EhPOGVsTTuzmQELvklCvCmo8oLIhRZxjSst8mMR9IJFRlTsddTcRYT
+	Wve9j5Z0am7ddJsYnD5fIiX5DdLrfYOFU8r3UI7wAgtvaOxnWw+S8DjVpCAENCzqtSmqr0p0DA6u4
+	QSmoCD1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZaFG-00000009fX4-1JC2;
-	Wed, 09 Jul 2025 19:14:18 +0000
-Received: from 0001.3ffe.de ([159.69.201.130] helo=mail.3ffe.de)
+	id 1uZaFF-00000009fWX-2vcu;
+	Wed, 09 Jul 2025 19:14:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZWqq-00000009Bcg-2b2f
+	id 1uZWq9-00000009BYj-1vq8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 15:36:53 +0000
-Received: from localhost (unknown [IPv6:2a02:810b:4320:1000:4685:ff:fe12:5967])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.3ffe.de (Postfix) with ESMTPSA id 4F76E299;
-	Wed,  9 Jul 2025 17:36:50 +0200 (CEST)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 09 Jul 2025 17:36:50 +0200
-Message-Id: <DB7MWBOS4YDK.2QIYX7WQ3X1KU@kernel.org>
-Cc: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Linus Walleij"
- <linus.walleij@linaro.org>, "Bartosz Golaszewski" <brgl@bgdev.pl>, "Shawn
- Guo" <shawnguo@kernel.org>, "Lee Jones" <lee@kernel.org>, "Frank Li"
- <Frank.Li@nxp.com>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Andrew Lunn" <andrew@lunn.ch>, "Ioana Ciornei" <ioana.ciornei@nxp.com>
-Subject: Re: [PATCH 4/9] gpio: regmap: add the .get_direction() callback
-X-Mailer: aerc 0.16.0
-References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
- <20250709112658.1987608-5-ioana.ciornei@nxp.com>
- <0d0e9cee-2aaa-402d-a811-8c4704aadd74@lunn.ch>
-In-Reply-To: <0d0e9cee-2aaa-402d-a811-8c4704aadd74@lunn.ch>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_083652_794515_31842B45 
-X-CRM114-Status: UNSURE (   4.90  )
-X-CRM114-Notice: Please train this message.
+	Wed, 09 Jul 2025 15:36:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B872661148;
+	Wed,  9 Jul 2025 15:36:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85F52C4CEEF;
+	Wed,  9 Jul 2025 15:36:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752075368;
+	bh=z5R0g5bRaFcE+byBEvAYFxwzxwtN+sL10BzKO0308UM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=kJaOkhdxWi9qV5vWcFnJ+JHTiQSlubZYl18mUsLG/pSBYdw+T1NKtWF5028TxIiFZ
+	 wZfpISsYz6qDXmz2TI9Vt2XUjIKX936nTToXVpxLwiDoaCgB6R4T9SzqBhHgJFfpBd
+	 DUjk1wdx3vSPwyZIM2EFvrhSQPqiWhpnXIU+dEh09EHx2ZObNI3mOIZsCcG9pdYe8q
+	 BC4Z5NY1XOLoQTFEXD6LRKGjWkLN/mitCQSJ4wZRDpY40o5N+wT3fnKdwgpqCDUsHx
+	 JG9DsmlWMhj+0erNX6r8khQZ4MuvF5NJtd+TeRO4St5FF7gaDqAbNdZh8u/V4dEqHi
+	 8bPTgLe8qW+Og==
+From: Mark Brown <broonie@kernel.org>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250709021638.2047365-1-robh@kernel.org>
+References: <20250709021638.2047365-1-robh@kernel.org>
+Subject: Re: [PATCH v2] spi: stm32-ospi: Use
+ of_reserved_mem_region_to_resource() for "memory-region"
+Message-Id: <175207536585.695960.5730567147905543825.b4-ty@kernel.org>
+Date: Wed, 09 Jul 2025 16:36:05 +0100
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-07fe9
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,10 +72,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> just provide the bitmap, and gpio-regmap.c can look at the bit in
-> the bitmap?
+On Tue, 08 Jul 2025 21:16:37 -0500, Rob Herring (Arm) wrote:
+> Use the newly added of_reserved_mem_region_to_resource() function to
+> handle "memory-region" properties.
+> 
+> 
 
-I like that idea.
+Applied to
 
--michael
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[1/1] spi: stm32-ospi: Use of_reserved_mem_region_to_resource() for "memory-region"
+      commit: defe01abfb7f5c5bd53c723b8577d4fcd64faa5a
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
