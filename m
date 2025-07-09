@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0ECBC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1327EC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JTuU9LM/4NMzYB2PC8JVWFJrciJYgqjykulKvor1H+Y=; b=mka3n6FxVlrqJD0tx5UGA+8ijL
-	bNMtKz4VwHnW15XbRxmCmv1G7lhk4IJAz0JpbYuX+w/3oDiz5EnBy/12YO7ZCqnxVEso6JtCSQUqE
-	h1AyiAxtLmHUNDcKeXKPU0J0lS5vEy1+IYenwN7B0rWqALErGijGhVFZi+szehowQFSBg3zGkoH4K
-	sHhJ2/bDVkSWye86HzevXOQRTVigg8Cpx3Z+hcU1ghWzkp4JbUYmWyApB5kJ/yuVWvRwTfRT68+uV
-	KVnbPRPxtgb1jpzE786+WyVTmvNbo1smMe95p3FkoztxNIKEShWgwV2tq7IhoF7npqq8L7sQWS0nM
-	jVy7cySg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yLPdjZGdoWUbTfAy2GwqZq8+x71kvvXbnWtl1wzXyRk=; b=JwvBnMykc9rt2gPOx8z/hWRMoT
+	NvBH/BlUHTBDwb3hIbY1K68D8llC0AUUBLHoGDI7E1G/u6u+VJm5a1h/yDm+rDpi0JqMUmNqOO9Sy
+	cri3dAEF2yVDBSEldq57gyGj+M2gXtZABOBHYOdJwF4ZXrvHTUDPfj99v1ZXRf3RRwmdC9X7p5vEN
+	hoIFsbI7dHPGEfRi3n9ziYGaPaC9WwTWLf7DflgF1ykM2SrAR/m/gS1EBt/AlBkzLPl/t7r7DBXXs
+	+IBY0KyHItgMha+J0PcotBuDd/+ldCsfuHe3Do1xcGmo4uI6TLUTjz3Zig7+E9Zozy4kf9er6+8fo
+	6i3vwsug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdix-0000000A9U6-2zKc;
-	Wed, 09 Jul 2025 22:57:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uZdiy-0000000A9X9-3u5m;
+	Wed, 09 Jul 2025 22:57:13 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZbwK-00000009rR5-0feB
+	id 1uZc1y-00000009scY-2QL2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 21:02:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 707D946D7F;
-	Wed,  9 Jul 2025 21:02:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B0043C4CEF5;
-	Wed,  9 Jul 2025 21:02:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752094970;
-	bh=qzQN1/FxrgD81U6ooAWpH7PxpXbtzfixiuy2FxBNv1o=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=e49MpGRTpBHoONoqo70e2/OTRYgwz8gxykhWS2f9YroKwaWYG9wrvgmhPDLe1UyWc
-	 9JhSNU/ufvp3dgiNKxN3b86UDTPIJUnozo7rEqq7455DKYEqdcP9gz32jbL+hXpXq0
-	 +KEwuCeGL/YW9C2NS9Tz75oEWDjWGGHFy1X7Mv4fGsWfrXALqraY8cGIHo47MvqW4S
-	 R9LcNATYlfqz/ikb+X1iBjfR+m7SDGy4e9lp9HCFiraRdDByEK3aRlixsBz14OcFYf
-	 Ue/tJM5dQlD2vaMH16sGrdxXQF3Xa76qbHejHtnl+/My0xS7/bUCrqRsu0s9wloyNL
-	 qsjK983IOuwRA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E6FFC83F14;
-	Wed,  9 Jul 2025 21:02:50 +0000 (UTC)
-From: Frank Li via B4 Relay <devnull+Frank.Li.nxp.com@kernel.org>
-Date: Wed, 09 Jul 2025 17:02:19 -0400
-Subject: [PATCH v20 7/9] misc: pci_endpoint_test: Add doorbell test case
+	Wed, 09 Jul 2025 21:08:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1752095321;
+ bh=yLPdjZGdoWUbTfAy2GwqZq8+x71kvvXbnWtl1wzXyRk=;
+ b=F1nQVyAE0MXjmaRM9CJomt9wiM5mgfw+uVBEc9jJuhZ1/vGctTd1Kd25tgDk6qYds8PF0IM8o
+ U5jaTPMi9pQ9LYsFoUM+4jfsW/a5tq5pN+j28pK7cN5Q0YuetKVQH8Tp5jOnUhA96bFl1UYcu9E
+ /Agoiv2VoYyg8Uhqp2dq3zRdqoAblBvCNYY8u5NXesBAiam74lYpuXSfibtCE7E5IE99Ev3V66D
+ QW29496d7KUC6DKTPrjuyNV9gDgNVaoUtrwU99JEFD8oN31EPWXPbBUr15HNKU4qQO+k3nAzGxj
+ 0/SrfwEKJAVJQNWa1yTrqHzlR2+J4mmpqWVAanrUKvGA==
+X-Forward-Email-ID: 686eda55c4bb2e061789d0d3
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.1.3
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Yao Zi <ziyao@disroot.org>,
+	linux-rockchip@lists.infradead.org,
+	Jonas Karlman <jonas@kwiboo.se>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: Fix UART DMA support for RK3528
+Date: Wed,  9 Jul 2025 21:08:28 +0000
+Message-ID: <20250709210831.3170458-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250709-ep-msi-v20-7-43d56f9bd54a@nxp.com>
-References: <20250709-ep-msi-v20-0-43d56f9bd54a@nxp.com>
-In-Reply-To: <20250709-ep-msi-v20-0-43d56f9bd54a@nxp.com>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Anup Patel <apatel@ventanamicro.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, 
- Shuah Khan <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>, 
- Lucas Stach <l.stach@pengutronix.de>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-Cc: Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- imx@lists.linux.dev, devicetree@vger.kernel.org, 
- Niklas Cassel <cassel@kernel.org>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752094968; l=6983;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=FoxgpA+/NWTzqQeIBBDO30/i05zAkjJdsIvFlu/mx1M=;
- b=Z1H0nfwTl3vAADoVOCUoURRFxKfRD02CD8+M/+vk7Mn0jsbPc1uWkJcrzxngnroefGUR8Mjfc
- m9MrEmTcvxNCNEUkliGUEuldIR+8uRbi3H3fJped5cgLodydp21dCkw
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-Endpoint-Received: by B4 Relay for Frank.Li@nxp.com/20240130 with
- auth_id=121
-X-Original-From: Frank Li <Frank.Li@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_140252_245337_0A903330 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20250709_140842_973023_02D8B2EC 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,233 +76,116 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Frank.Li@nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Trying to use UART2 DMA for Bluetooth on ArmSoM Sige1 result in tx
+timeout when using dma-names = "tx", "rx" as required by the dt-binding:
 
-Add three registers: PCIE_ENDPOINT_TEST_DB_BAR, PCIE_ENDPOINT_TEST_DB_ADDR,
-and PCIE_ENDPOINT_TEST_DB_DATA.
+  Bluetooth: hci0: command 0x0c03 tx timeout
+  Bluetooth: hci0: BCM: Reset failed (-110)
 
-Trigger the doorbell by writing data from PCI_ENDPOINT_TEST_DB_DATA to the
-address provided by PCI_ENDPOINT_TEST_DB_OFFSET and wait for endpoint
-feedback.
+Change the dmas order to fix UART DMA support on RK3528.
 
-Add two command to COMMAND_ENABLE_DOORBELL and COMMAND_DISABLE_DOORBELL
-to enable EP side's doorbell support and avoid compatible problem, which
-host side driver miss-match with endpoint side function driver. See below
-table:
+With this fixed Bluetooth can be loaded using DMA on ArmSoM Sige1:
 
-		Host side new driver	Host side old driver
-EP: new driver		S			F
-EP: old driver		F			F
+  Bluetooth: hci0: BCM: chip id 159
+  Bluetooth: hci0: BCM: features 0x0f
+  Bluetooth: hci0: BCM4362A2
+  Bluetooth: hci0: BCM4362A2 (000.017.017) build 0000
+  Bluetooth: hci0: BCM4362A2 'brcm/BCM4362A2.hcd' Patch
+  Bluetooth: hci0: BCM: features 0x0f
+  Bluetooth: hci0: BCM43752A2 UART 37.4MHz Ampak AP6398 sLNA iLNA CL1 [Version: 1091.1173]
+  Bluetooth: hci0: BCM4362A2 (000.017.017) build 1173
 
-S: If EP side support MSI, 'pci_endpoint_test -f pcie_ep_doorbell' return
-success.
-   If EP side doesn't support MSI, the same to 'F'.
-
-F: 'pci_endpoint_test -f pcie_ep_doorbell' return failure, other case as
-usual.
-
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Fixes: ab6fcb58aedf ("arm64: dts: rockchip: Add UART DMA support for RK3528")
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
-changes in v20
-- add return value check of wait_for_completion_timeout()
-- fix some error message
-- remove Tested-by: Niklas Cassel <cassel@kernel.org>
+This can be verified with an upcoming v2 of "arm64: dts: rockchip: Add
+ArmSoM Sige1" [1].
 
-change from v14 to v16
-- none
-
-Change from v13 to v14
-- update to use pci_endpoint_test -f pcie_ep_doorbell
-- change ioctrl id to fix conflict
-
-Change from v9 to v13
-- none
-
-Change from v8 to v9
-- change PCITEST_DOORBELL to 0xa
-
-Change form v6 to v8
-- none
-
-Change from v5 to v6
-- %s/PCI_ENDPOINT_TEST_DB_ADDR/PCI_ENDPOINT_TEST_DB_OFFSET/g
-
-Change from v4 to v5
-- remove unused varible
-- add irq_type at pci_endpoint_test_doorbell();
-
-change from v3 to v4
-- Add COMMAND_ENABLE_DOORBELL and COMMAND_DISABLE_DOORBELL.
-- Remove new DID requirement.
+[1] https://lore.kernel.org/r/20250708224921.2254116-5-jonas@kwiboo.se
 ---
- drivers/misc/pci_endpoint_test.c | 85 +++++++++++++++++++++++++++++++++++++++-
- include/uapi/linux/pcitest.h     |  1 +
- 2 files changed, 85 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/misc/pci_endpoint_test.c b/drivers/misc/pci_endpoint_test.c
-index c4e5e2c977be27adf1451b67ee10cc3ae6fb0cef..254b7f9cbe87b97b4d5d555ffbccc9055fc52330 100644
---- a/drivers/misc/pci_endpoint_test.c
-+++ b/drivers/misc/pci_endpoint_test.c
-@@ -37,6 +37,8 @@
- #define COMMAND_READ				BIT(3)
- #define COMMAND_WRITE				BIT(4)
- #define COMMAND_COPY				BIT(5)
-+#define COMMAND_ENABLE_DOORBELL			BIT(6)
-+#define COMMAND_DISABLE_DOORBELL		BIT(7)
- 
- #define PCI_ENDPOINT_TEST_STATUS		0x8
- #define STATUS_READ_SUCCESS			BIT(0)
-@@ -48,6 +50,11 @@
- #define STATUS_IRQ_RAISED			BIT(6)
- #define STATUS_SRC_ADDR_INVALID			BIT(7)
- #define STATUS_DST_ADDR_INVALID			BIT(8)
-+#define STATUS_DOORBELL_SUCCESS			BIT(9)
-+#define STATUS_DOORBELL_ENABLE_SUCCESS		BIT(10)
-+#define STATUS_DOORBELL_ENABLE_FAIL		BIT(11)
-+#define STATUS_DOORBELL_DISABLE_SUCCESS		BIT(12)
-+#define STATUS_DOORBELL_DISABLE_FAIL		BIT(13)
- 
- #define PCI_ENDPOINT_TEST_LOWER_SRC_ADDR	0x0c
- #define PCI_ENDPOINT_TEST_UPPER_SRC_ADDR	0x10
-@@ -62,6 +69,7 @@
- #define PCI_ENDPOINT_TEST_IRQ_NUMBER		0x28
- 
- #define PCI_ENDPOINT_TEST_FLAGS			0x2c
-+
- #define FLAG_USE_DMA				BIT(0)
- 
- #define PCI_ENDPOINT_TEST_CAPS			0x30
-@@ -70,6 +78,10 @@
- #define CAP_MSIX				BIT(2)
- #define CAP_INTX				BIT(3)
- 
-+#define PCI_ENDPOINT_TEST_DB_BAR		0x34
-+#define PCI_ENDPOINT_TEST_DB_OFFSET		0x38
-+#define PCI_ENDPOINT_TEST_DB_DATA		0x3c
-+
- #define PCI_DEVICE_ID_TI_AM654			0xb00c
- #define PCI_DEVICE_ID_TI_J7200			0xb00f
- #define PCI_DEVICE_ID_TI_AM64			0xb010
-@@ -100,6 +112,7 @@ enum pci_barno {
- 	BAR_3,
- 	BAR_4,
- 	BAR_5,
-+	NO_BAR = -1,
- };
- 
- struct pci_endpoint_test {
-@@ -505,7 +518,7 @@ static int pci_endpoint_test_copy(struct pci_endpoint_test *test,
- 
- 	if (irq_type < PCITEST_IRQ_TYPE_INTX ||
- 	    irq_type > PCITEST_IRQ_TYPE_MSIX) {
--		dev_err(dev, "Invalid IRQ type option\n");
-+		dev_err(dev, "Invalid IRQ type\n");
- 		return -EINVAL;
- 	}
- 
-@@ -841,6 +854,73 @@ static int pci_endpoint_test_set_irq(struct pci_endpoint_test *test,
- 	return 0;
- }
- 
-+static int pci_endpoint_test_doorbell(struct pci_endpoint_test *test)
-+{
-+	struct pci_dev *pdev = test->pdev;
-+	struct device *dev = &pdev->dev;
-+	int irq_type = test->irq_type;
-+	enum pci_barno bar;
-+	u32 data, status;
-+	u32 addr;
-+	int left;
-+
-+	if (irq_type < PCITEST_IRQ_TYPE_INTX ||
-+	    irq_type > PCITEST_IRQ_TYPE_MSIX) {
-+		dev_err(dev, "Invalid IRQ type option\n");
-+		return -EINVAL;
-+	}
-+
-+	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_IRQ_TYPE, irq_type);
-+	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_IRQ_NUMBER, 1);
-+	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_COMMAND,
-+				 COMMAND_ENABLE_DOORBELL);
-+
-+	left = wait_for_completion_timeout(&test->irq_raised, msecs_to_jiffies(1000));
-+
-+	status = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_STATUS);
-+	if (!left || (status & STATUS_DOORBELL_ENABLE_FAIL)) {
-+		dev_err(dev, "Failed to enable doorbell\n");
-+		return -EINVAL;
-+	}
-+
-+	data = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_DB_DATA);
-+	addr = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_DB_OFFSET);
-+	bar = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_DB_BAR);
-+
-+	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_IRQ_TYPE, irq_type);
-+	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_IRQ_NUMBER, 1);
-+
-+	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_STATUS, 0);
-+
-+	bar = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_DB_BAR);
-+
-+	writel(data, test->bar[bar] + addr);
-+
-+	left = wait_for_completion_timeout(&test->irq_raised, msecs_to_jiffies(1000));
-+
-+	status = pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_STATUS);
-+
-+	if (!left || !(status & STATUS_DOORBELL_SUCCESS))
-+		dev_err(dev, "Failed to trigger doorbell in endpoint\n");
-+
-+	pci_endpoint_test_writel(test, PCI_ENDPOINT_TEST_COMMAND,
-+				 COMMAND_DISABLE_DOORBELL);
-+
-+	wait_for_completion_timeout(&test->irq_raised, msecs_to_jiffies(1000));
-+
-+	status |= pci_endpoint_test_readl(test, PCI_ENDPOINT_TEST_STATUS);
-+
-+	if (status & STATUS_DOORBELL_DISABLE_FAIL) {
-+		dev_err(dev, "Failed to disable doorbell\n");
-+		return -EINVAL;
-+	}
-+
-+	if (!(status & STATUS_DOORBELL_SUCCESS))
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
- static long pci_endpoint_test_ioctl(struct file *file, unsigned int cmd,
- 				    unsigned long arg)
- {
-@@ -891,6 +971,9 @@ static long pci_endpoint_test_ioctl(struct file *file, unsigned int cmd,
- 	case PCITEST_CLEAR_IRQ:
- 		ret = pci_endpoint_test_clear_irq(test);
- 		break;
-+	case PCITEST_DOORBELL:
-+		ret = pci_endpoint_test_doorbell(test);
-+		break;
- 	}
- 
- ret:
-diff --git a/include/uapi/linux/pcitest.h b/include/uapi/linux/pcitest.h
-index d3aa8715a525ea47485db734a42d13d333399112..d6023a45a9d03416e220c98643c4e86d144898ae 100644
---- a/include/uapi/linux/pcitest.h
-+++ b/include/uapi/linux/pcitest.h
-@@ -21,6 +21,7 @@
- #define PCITEST_SET_IRQTYPE	_IOW('P', 0x8, int)
- #define PCITEST_GET_IRQTYPE	_IO('P', 0x9)
- #define PCITEST_BARS		_IO('P', 0xa)
-+#define PCITEST_DOORBELL	_IO('P', 0xb)
- #define PCITEST_CLEAR_IRQ	_IO('P', 0x10)
- 
- #define PCITEST_IRQ_TYPE_UNDEFINED	-1
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+index b215126efcc2..001a555c83b7 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+@@ -595,7 +595,7 @@ uart0: serial@ff9f0000 {
+ 			clocks = <&cru SCLK_UART0>, <&cru PCLK_UART0>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
+-			dmas = <&dmac 8>, <&dmac 9>;
++			dmas = <&dmac 9>, <&dmac 8>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -607,7 +607,7 @@ uart1: serial@ff9f8000 {
+ 			clocks = <&cru SCLK_UART1>, <&cru PCLK_UART1>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
+-			dmas = <&dmac 10>, <&dmac 11>;
++			dmas = <&dmac 11>, <&dmac 10>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -619,7 +619,7 @@ uart2: serial@ffa00000 {
+ 			clocks = <&cru SCLK_UART2>, <&cru PCLK_UART2>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
+-			dmas = <&dmac 12>, <&dmac 13>;
++			dmas = <&dmac 13>, <&dmac 12>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -631,7 +631,7 @@ uart3: serial@ffa08000 {
+ 			clocks = <&cru SCLK_UART3>, <&cru PCLK_UART3>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
+-			dmas = <&dmac 14>, <&dmac 15>;
++			dmas = <&dmac 15>, <&dmac 14>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -643,7 +643,7 @@ uart4: serial@ffa10000 {
+ 			clocks = <&cru SCLK_UART4>, <&cru PCLK_UART4>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+-			dmas = <&dmac 16>, <&dmac 17>;
++			dmas = <&dmac 17>, <&dmac 16>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -655,7 +655,7 @@ uart5: serial@ffa18000 {
+ 			clocks = <&cru SCLK_UART5>, <&cru PCLK_UART5>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
+-			dmas = <&dmac 18>, <&dmac 19>;
++			dmas = <&dmac 19>, <&dmac 18>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -667,7 +667,7 @@ uart6: serial@ffa20000 {
+ 			clocks = <&cru SCLK_UART6>, <&cru PCLK_UART6>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
+-			dmas = <&dmac 20>, <&dmac 21>;
++			dmas = <&dmac 21>, <&dmac 20>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -679,7 +679,7 @@ uart7: serial@ffa28000 {
+ 			clocks = <&cru SCLK_UART7>, <&cru PCLK_UART7>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
+-			dmas = <&dmac 22>, <&dmac 23>;
++			dmas = <&dmac 23>, <&dmac 22>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
 -- 
-2.34.1
-
+2.49.0
 
 
