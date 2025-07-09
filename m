@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D97C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 08:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CAB0C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 08:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rrk9GAN2URkaYwLpGd77Qq3lmojo+nmXH6DFkgvm9Eo=; b=3pJZ+HApTkco9XIPC0zd7EQzMo
-	L2WfoMB74TRkpCr5n1ep5GUvKHbP208V6TTV4l2RV3GS59oCRROvPapLhPH6L+6wbTD+28UO83oHC
-	oYn1iB/o4rbuLEs1IUIqDsYPBSfTyboXJy1pZxs1y2pEz7/wegPPSgHOZXiBdZIrLyStC2MUKMGLl
-	5t7CIY4ifZrt3anRdR5mCUSX4gpilPFmPEOA6XE0jqcQrRSVMWqZgvdZdbAVVsprAbMnN3gl7QGTH
-	hROmuGeD8iK+hisXDjdeUlDnztYruHjOl0r7IehC/jC3C+kyYKjnWuX4h8fJhN8af2sIH0Qu722hv
-	AT6WncaQ==;
+	bh=5AR4gXAZXb+yXxeBaXxlmxm5zufcseHNq6stVGKiC2Y=; b=zxt5ecs1ad/A3JqEL2eYdusw60
+	3pw0ZzLWVQjBM6qhfffqmnhVWXgKM1ho1URWMfCNvUW6ghQ6HkoW/b+Z7NQWzGB5VOx30duKxy5f9
+	8SuUCb9q1hPOEZJDPgTP3r60EFk8a7KYmMbrt/9CA7S8VYg2IQ4V23/kdaqUdmYhBLMmxE8MwIl0T
+	ty9Tv4+PirTzKiI51vG1NDxBjvs3eqyafTMjGTOffM7qxEB5+uH0vYVx+lxvlgK28lxhJpV6guWql
+	XQcRcEI3IAy4u8lwOpSWUDd2HqrASWRDTlxgbcJsnZZBRXuwuIhYX7O4YoVDvgKey1iTJ24tkm07Z
+	kqE5gNnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZPxU-00000007veB-354S;
-	Wed, 09 Jul 2025 08:15:16 +0000
+	id 1uZPzn-00000007wFy-2OrA;
+	Wed, 09 Jul 2025 08:17:39 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOuq-00000007loi-2e8v
+	id 1uZOut-00000007loi-0BqS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 07:08:30 +0000
+	Wed, 09 Jul 2025 07:08:32 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 9 Jul
@@ -44,10 +44,10 @@ To: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<andrew@codeconstruct.com.au>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
 	<p.zabel@pengutronix.de>, <horms@kernel.org>, <jacob.e.keller@intel.com>,
 	<u.kleine-koenig@baylibre.com>, <hkallweit1@gmail.com>
-CC: <BMC-SW@aspeedtech.com>
-Subject: [net-next v4 1/4] dt-bindings: net: ftgmac100: Add resets property
-Date: Wed, 9 Jul 2025 15:08:06 +0800
-Message-ID: <20250709070809.2560688-2-jacky_chou@aspeedtech.com>
+CC: <BMC-SW@aspeedtech.com>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [net-next v4 2/4] dt-bindings: clock: ast2600: Add reset definitions for MAC1 and MAC2
+Date: Wed, 9 Jul 2025 15:08:07 +0800
+Message-ID: <20250709070809.2560688-3-jacky_chou@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250709070809.2560688-1-jacky_chou@aspeedtech.com>
 References: <20250709070809.2560688-1-jacky_chou@aspeedtech.com>
@@ -55,8 +55,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_000828_683468_03D9FFA5 
-X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-CacheID: sfid-20250709_000831_078510_14131388 
+X-CRM114-Status: UNSURE (   7.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,62 +72,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In Aspeed AST2600 design, the MAC internal delay on MAC register cannot
-fully reset the RMII interfaces, it may cause the RMII incompletely.
-Therefore, we need to add resets property to do SoC-level reset line to
-reset the whole MAC function that includes ftgmac, RGMII and RMII.
+Add ASPEED_RESET_MAC1 and ASPEED_RESET_MAC2 reset definitions to
+the ast2600-clock binding header. These are required for proper
+reset control of the MAC1 and MAC2 ethernet controllers on the
+AST2600 SoC.
 
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Stephen Boyd <sboyd@kernel.org>
 ---
- .../bindings/net/faraday,ftgmac100.yaml       | 21 ++++++++++++++++---
- 1 file changed, 18 insertions(+), 3 deletions(-)
+ include/dt-bindings/clock/ast2600-clock.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
-index 55d6a8379025..d14410018bcf 100644
---- a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
-+++ b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
-@@ -6,9 +6,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Faraday Technology FTGMAC100 gigabit ethernet controller
- 
--allOf:
--  - $ref: ethernet-controller.yaml#
--
- maintainers:
-   - Po-Yu Chuang <ratbert@faraday-tech.com>
- 
-@@ -35,6 +32,9 @@ properties:
-       - description: MAC IP clock
-       - description: RMII RCLK gate for AST2500/2600
- 
-+  resets:
-+    maxItems: 1
-+
-   clock-names:
-     minItems: 1
-     items:
-@@ -74,6 +74,21 @@ required:
-   - reg
-   - interrupts
- 
-+allOf:
-+  - $ref: ethernet-controller.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - aspeed,ast2600-mac
-+    then:
-+      properties:
-+        resets: true
-+    else:
-+      properties:
-+        resets: false
-+
- unevaluatedProperties: false
- 
- examples:
+diff --git a/include/dt-bindings/clock/ast2600-clock.h b/include/dt-bindings/clock/ast2600-clock.h
+index 7ae96c7bd72f..f60fff261130 100644
+--- a/include/dt-bindings/clock/ast2600-clock.h
++++ b/include/dt-bindings/clock/ast2600-clock.h
+@@ -122,6 +122,8 @@
+ #define ASPEED_RESET_PCIE_DEV_OEN	20
+ #define ASPEED_RESET_PCIE_RC_O		19
+ #define ASPEED_RESET_PCIE_RC_OEN	18
++#define ASPEED_RESET_MAC2		12
++#define ASPEED_RESET_MAC1		11
+ #define ASPEED_RESET_PCI_DP		5
+ #define ASPEED_RESET_HACE		4
+ #define ASPEED_RESET_AHB		1
 -- 
 2.34.1
 
