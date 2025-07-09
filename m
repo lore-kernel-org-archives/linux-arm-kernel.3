@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C3DC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2206CC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c58atM53j6xJlfjeW4uz3/6gYrG19vaD/Ky2Z6w23+4=; b=4G41dMcxJPJ/NzaZwMJlfZYFxp
-	AF4orzaR2VcAkCG9lIaFCB7Y3lBFqE0bxSzietSRg78Vf4fdZ7sOeqViiOzOcsS05/wSs8ScyqBO9
-	72WI49qCDv86MiwW6pyiFspKl70BGBEUtEGC6YBJoGo/IPcw3+GtK0q0KT3ck5VG2MwRXpQAikt/k
-	fQtr2amiwVyZuxrMJ3sEcOSJ2oTZn5UILzAiu7B0zCE+jmuwp2Y0owzpUD9h+P9c4UPTuN8jt2d2w
-	MGKJ5zIgxeW9wMNNYqLmY3EleIRNNfO8o0/qAJ1VWcEMeWo/HP5MrapF507vudkmwNts6ma800W6i
-	6X38aTbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZlieK/cQd1tQM5wheLqNTa+x9MmB1DmBV4uYwDd6FPY=; b=J8URfcTwBldkKm+Y0CbWnSzFh9
+	ynlUbQRVp+j+S+SW98b8X+yIQgWcMSVOt4kwIdTUZKVXg8c0E0U4di/4iZhxoUGQBeGu5V+mZxCyq
+	arioTfv+0Nydg2VwdU4wfur89CmD31rDUoh5XulG3pV0CW/tR6arri6JuMFsxRn4xImosdXZgo6zw
+	P0wr/6QcECnfXUmF+qyLBiYXAPiN84A47HLixfqNIbDE7rdvfTAP4WD/KahJfBXtRc/V+liLAQux5
+	HT41JOPaxmzQI4XHTTeMDy87AgS5MrUHiq6uyZ7VfZtudQ08/FeOFN/OFwwLtLJsZzv/TBS344VJE
+	77hLIvmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVRb-00000008u9T-3uLV;
-	Wed, 09 Jul 2025 14:06:43 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1uZVTu-00000008ucA-1UhW;
+	Wed, 09 Jul 2025 14:09:06 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZSib-00000008SEQ-3AFI;
-	Wed, 09 Jul 2025 11:12:07 +0000
-Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout2.routing.net (Postfix) with ESMTP id 9DBF360415;
-	Wed,  9 Jul 2025 11:12:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1752059520;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c58atM53j6xJlfjeW4uz3/6gYrG19vaD/Ky2Z6w23+4=;
-	b=SQsLJ1XddLx1flDYfMiD06aaz+xu+cU00lgxQ3taCPskDgSMkgFi132EYmOdPemFqylPKe
-	n3r8uSV62h28uKwjHZGQsouRST6hYoxKJIUEvzjNULrtDPVbPyzUyzIwiVtUEMkYQqZjQN
-	j1QrcCIXTTec6aLcxt9pT4vYLStmmGo=
-Received: from frank-u24.. (fttx-pool-217.61.157.99.bambit.de [217.61.157.99])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 464E81226CC;
-	Wed,  9 Jul 2025 11:12:00 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Georgi Djakov <djakov@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Johnson Wang <johnson.wang@mediatek.com>,
-	=?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
-	Landen Chao <Landen.Chao@mediatek.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Felix Fietkau <nbd@nbd.name>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v9 11/13] arm64: dts: mediatek: mt7988a-bpi-r4: add aliases for ethernet
-Date: Wed,  9 Jul 2025 13:09:47 +0200
-Message-ID: <20250709111147.11843-12-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250709111147.11843-1-linux@fw-web.de>
-References: <20250709111147.11843-1-linux@fw-web.de>
+	id 1uZSnN-00000008TIE-0Vvg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Jul 2025 11:17:03 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4A026103972A7;
+	Wed,  9 Jul 2025 13:16:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1752059818; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=ZlieK/cQd1tQM5wheLqNTa+x9MmB1DmBV4uYwDd6FPY=;
+	b=EQPCISu9IUIpn41IpH56igNNxb+zl7xu3O7CJcvRfljgmmuBw+zQp1ve/8sHhWLw2tC9aP
+	qRLIyULgMRqX8uUG4Vzi5bpQpuab/7cM87KkCck2PnSYJynqDrJSeZgD4fH/+vxzObIYZ/
+	9IA+6yabN2KYvRhdZmQOSKm3xbHTBHLrjNejYPkmTAjp4/bcGXZ7rbBQZCRpR9quD/SOC/
+	TMl1zqcsgmXbxA6Zj4FLTJtkEk5nnEHbGqMWXRjWLkLz7/1aqAXMIYxfDSzD2aUuJTqsGm
+	Rm79++WpyhFB+Gkt5+RlxDjhK1vkTdMOB/5iFvWI0lOm7Og7w7KlUBpX0mDzUQ==
+Date: Wed, 9 Jul 2025 13:16:51 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
+ <andrew@lunn.ch>
+Subject: Re: [net-next v14 04/12] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250709131651.391e11c5@wsk>
+In-Reply-To: <617d064e-99e4-491c-8fe7-d74d8174d9fb@redhat.com>
+References: <20250701114957.2492486-1-lukma@denx.de>
+	<20250701114957.2492486-5-lukma@denx.de>
+	<617d064e-99e4-491c-8fe7-d74d8174d9fb@redhat.com>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="Sig_/mg/nfqRTFJ+kss8tYJWDWg=";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_041205_934612_C36012C5 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250709_041701_446066_D26BCB74 
+X-CRM114-Status: GOOD (  25.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +80,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+--Sig_/mg/nfqRTFJ+kss8tYJWDWg=
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Add aliases for gmacs to allow bootloader setting mac-adresses.
+Hi Paolo,
 
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+> On 7/1/25 1:49 PM, Lukasz Majewski wrote:
+> > Changes for v14:
+> > - Increase the maximal received frame size to 1536 (for VLAN)
+> > - Use spin_{un}lock_irq{save|restore} when altering dynamic table
+> > of the switch and mtip_adjust_link() as both cannot be done when
+> > switch IRQ is potentially enabled =20
+>=20
+> Why?
+>=20
+>  (the previous one alters entries in switching table
+> >   the latter one may reset the whole IP block) =20
+>=20
+> What really matters is the scope (process/atomic, bh, hardirq) of the
+> relevant callers (the functions that do acquire the given locks).
+>=20
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-index 21eb91c8609f..20073eb4d1bd 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-@@ -8,6 +8,12 @@
- #include "mt7988a.dtsi"
- 
- / {
-+	aliases {
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
-+		ethernet2 = &gmac2;
-+	};
-+
- 	chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
--- 
-2.43.0
+Maybe I will explain the problem here case (function) by case:
+- mtip_adjust_link()
+  This function is called when link change is detected (speed, duplex,
+  up/down link).
 
+  The problem here is that:
+	1. It is called for both MTIP ports (as both are managed by
+	this driver)
+
+	2. NXP's "legacy" driver advises reset of the whole IP block
+	when such change is detected.=20
+
+	Considering the above - interrupts shall be disabled as we may
+	end up in undefined state of the IP block - especially that
+	re-configuration of switch requires interrupts initialization.
+
+
+- mtip_atable_dynamicms_learn_migration() - update of the switching
+  table
+
+	Can be called from:
+	1. function triggered when timer fires (once per 100ms)
+
+	2. mtip_switch_rx() which is called from mtip_rx_napi() callback
+	  (which is protected by net core).
+
+	It looks like the _irqsave/_irqrestore is an overkill here.
+	Both above contexts seems to not require IRQs disabled. I can
+	confirm that use of plain spin_{un}lock() functions works.
+
+>=20
+> > +/* dynamicms MAC address table learn and migration */
+> > +static void
+> > +mtip_atable_dynamicms_learn_migration(struct switch_enet_private
+> > *fep,
+> > +				      int curr_time, unsigned char
+> > *mac,
+> > +				      u8 *rx_port)
+> > +{
+> > +	u8 port =3D MTIP_PORT_FORWARDING_INIT;
+> > +	struct mtip_port_info *port_info;
+> > +	u32 rx_mac_lo =3D 0, rx_mac_hi =3D 0;
+> > +	unsigned long flags;
+> > +	int index;
+> > +
+> > +	spin_lock_irqsave(&fep->learn_lock, flags); =20
+>=20
+> If the _irqsave() part is needed (and I don't see why??!) than all the
+> other `learn_lock` users should also use such variant, unless already
+> in hardirq scope.
+>=20
+> [...]
+> > +static void mtip_adjust_link(struct net_device *dev)
+> > +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	struct phy_device *phy_dev;
+> > +	int status_change =3D 0, idx;
+> > +	unsigned long flags;
+> > +
+> > +	spin_lock_irqsave(&fep->hw_lock, flags); =20
+>=20
+> Same here.
+
+Please see the explanation above.
+
+>=20
+> /P
+>=20
+
+
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH, Managing Director: Johanna Denk,
+Tabea Lutz HRB 165235 Munich, Office: Kirchenstr.5, D-82194
+Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/mg/nfqRTFJ+kss8tYJWDWg=
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmhuT6MACgkQAR8vZIA0
+zr2sMQgAmeWdQ83p6ZlFKroGNRoittaX6hv52A6/sPC741/r5Bs6bSXR0SiYIWIQ
+oLqi0K6s1yin/VW7PCgSlxjez6pG1ZLVU0VbdU32bBZPO7cZN/gwP/9SkitR8gkB
+2LViAZYDJpPSl98Z0CL+YEgPeZ6t7si0/xJTGs0sogpDqKnCZXhebCGmWAxfKPV2
+jtf5EtJwnPezHuv1g5vLxpmZQku3LDXR6seg7M2pIOcMXWjMjulvSySvhWEjFsRx
+KHZf5seGJqEj5KXSx3LAOrzf8kGqUpXzXLzPJnnsbnLVFbRJftYLKiBPfWztFr7a
+1NJjD6ATeHM08A+mASs69xXk4XxveA==
+=fJbi
+-----END PGP SIGNATURE-----
+
+--Sig_/mg/nfqRTFJ+kss8tYJWDWg=--
 
