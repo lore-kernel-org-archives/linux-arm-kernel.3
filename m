@@ -4,131 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1798FC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 00:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FA5C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 00:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9fHwIyv9G/G9d2ElUeHUuN1VT5S9rxCMbyr+I9u3NXE=; b=ijEUJs8h+HiYzHWSanjXBxWrEy
-	JB2PorbEmmLGeN8qeKQOR0pxy56W81lmFEUEcFRs150otcmZVLMPYeUQtaAaBRHrUmwHO6gJLiFqc
-	/kwrfMsjbWYAQMYolpIZfb+nN28cOTbPGf+oXqgo6qtQAKlukUEWYCf7KXe2fPJVHZl4eJF8W5tK5
-	mcR6PnEPm+GtaL3jVPFUWDfpvMatlpp1qvYCzNBm7m0rMIbwkCrQliCvOrasqBL/7x+TXN8zBzodw
-	IdrfJ0/tL1xV4nwKeBBWUpbEbEXlw3OXTBCJI0LGwFIeLHKHNk9EuEGeRG/ZLFiTcZZPUNtG9+IHP
-	VWbadPDQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DcwWePkZ+61+GRHS7T5VOVYWhMHoHSzeV/UXG3AzxcI=; b=mTGdvuvFpIuC+XkY2LIxfQCnmq
+	3YRJbVEOZZSvpuDxLif74+XOjSFGyoBeqV11/wN1+7SZ3AGHhiDFYOkKNFV9+dVVPGJmLOGNihQEC
+	Nb96RAnci5d/chO1JqgU9emus1Hnqt7IvMxg1hkdqh28KFdQWVyNOd2k4x1ordvHBDBDMPAfTD+uU
+	RrnU26fveqPsDBhQZeahblhY1r3zm4/GBWwTFyrv07n7I/JIzD+lQ6X4j/xy6C/EjFti+DPYGbvxc
+	65Dp1CZamRo9uWyzD7ryzzyZFemlD+D8F3BUzN3u2Y+1EALUPVByECEX50hNLl4EzbIeTe0sr2syH
+	2qmcTNLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZIMx-00000006wmI-48up;
-	Wed, 09 Jul 2025 00:09:03 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1uZIfI-00000006ziq-0I2F;
+	Wed, 09 Jul 2025 00:28:00 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZIKY-00000006wBh-1l5a
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 00:06:38 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-747fba9f962so383504b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 17:06:33 -0700 (PDT)
+	id 1uZIa9-00000006yb5-1jGW;
+	Wed, 09 Jul 2025 00:22:42 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7490acf57b9so3408789b3a.2;
+        Tue, 08 Jul 2025 17:22:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1752019593; x=1752624393; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=9fHwIyv9G/G9d2ElUeHUuN1VT5S9rxCMbyr+I9u3NXE=;
-        b=ZlSjrhoHjWDnpJ7fxyG270B+S3uhY/VRLFRfjt3l7ptYV+V7I9KU7iSArk3/+8/X9n
-         COfDuHGaRfcnVh0DquTUzIOOYKSEiMCOVWo45/wqIwJRC20PuRcF8Qpbe061YwjsSHVq
-         M+TEk5qORTMOFKMXAtjj7GBiBTePTmcYiAiCA=
+        d=gmail.com; s=20230601; t=1752020561; x=1752625361; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DcwWePkZ+61+GRHS7T5VOVYWhMHoHSzeV/UXG3AzxcI=;
+        b=fmuPwkFzMVipp8Wh/HD5m+OWkPwZMeInNrGk2sDRTpWG7ylKwoweyIiQtPoPD7eQ/p
+         FSgfdlzn/02qjcmWatRU+l1CvPHJ7GtgIYhvMEIlGN8EZSJIXx+W8Sn0UtniwH1pNZen
+         iv7V3xrWuX53AN6OoBcqbObP3NKLnb4GIaMFmoy6zN1GL0YHV9cNKilpC1pqXyGtD0yL
+         s7GIqNiTMcWL2kl3VUtQZKBcHBD4sUMYw9HxKrB+8U5ZcLO3Zn4P2k2LIqYpu+aRBaT7
+         GxzdoP1IdulEjmDLytSg75QClN31wPqFSgQo7CgTtACvK96VGOe9YwpxudyejEOPjkPk
+         o+rQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752019593; x=1752624393;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9fHwIyv9G/G9d2ElUeHUuN1VT5S9rxCMbyr+I9u3NXE=;
-        b=ADsurtXWoLkBUDdO7OcPB2D5xEjFUZKPpa1RdwrpuqPAPnUN1RHkNRUbOGy6ZTL9C3
-         q+kX1Sx2SokOVsDJUTxda9qDHtmC5ZlulGIaHkP12ezNSAk5N94IuuXWBqvaoMWIcjd2
-         angS3kdG4FCZFnoacZe9G9FnZ16AQs40rjbRsbnaHZdREJxpVDKzs2Nn8QwvgAZe4x23
-         UYYo98oeazc5Os00AwvkiuhSJhq0V8vE1l5kQjPEKivqAPlW+unO8KuCJA7qclwlNJBj
-         n5D8+s8/f+zejEHY6Jzdeck0+RcbdFMnsnQpbzc2lgGT/Bu6lNmMrnEHroY+uV2Qoien
-         60lg==
-X-Forwarded-Encrypted: i=1; AJvYcCXj2lGMgB5cEWJgXJlWVj3l7/p6nAyGATPuXteGaVf74FJ6SXQksDDBgrhShuCDa6kOGzu1yRdmMYwpe8M+7yeC@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywzqtcn21pGNkplM3EvMBNQNHMHta2M42qTkYKDhCosP8pXEenx
-	TZOC8aQn7rJaVYBOe71IXxnJRFNNDDFQaZ3akt2X2fgD9GHoPHkZDbr8tO7CCqL7yf/SLBrqNSt
-	3HWU0kA==
-X-Gm-Gg: ASbGncvf+6cMjEbgLAqgt7xHzy87LzIvE7e4l3rMNlE98R/jBTzeQy4G1fvev1JLNkj
-	C4mgVnBpBt9tL0LA//xthDRRSoEDZn9CRmPGZ7re2ljdwzt+l8AvdRMO+hggBBSLWnKpXO7jd0S
-	QfODYnPuYtEoGDT7lxZd+LDV8ZZJU+L8Na4GhWw2dBrxMRpj97GrwOfLh2y1WhU7fwTL6rbRK6l
-	Ye6V8aGhPAnbILo9pf4sv64Yo/9P/guHF+zS0PT970ymf/uOkUBpTvN45UJa6qYNNDAz/1AqwI2
-	x50xk9NR3p4DKKRz5RKE3CaGxIRpRuVo0opK3gxVnkI8Xe1zBHqXikCf1qWoYZ/K/J2YrgDtOH4
-	BgsaQ9thTiiJfMmDywc8=
-X-Google-Smtp-Source: AGHT+IF+YsDibkKRG4hNYPCm+z7B14XbwLmHtSCM1GJNJMtufORbxAG8E0Sby/ii3JnXO0r5SvlBRg==
-X-Received: by 2002:a05:6a20:4328:b0:218:159f:1e87 with SMTP id adf61e73a8af0-22b61c6954dmr7148001637.19.1752019592947;
-        Tue, 08 Jul 2025 17:06:32 -0700 (PDT)
-Received: from [10.230.70.142] ([192.19.161.250])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b38ee4510a6sm12674092a12.16.2025.07.08.17.06.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Jul 2025 17:06:32 -0700 (PDT)
-Message-ID: <e2c66c4a-93dd-40e2-9ba0-64c505287754@broadcom.com>
-Date: Tue, 8 Jul 2025 17:06:30 -0700
+        d=1e100.net; s=20230601; t=1752020561; x=1752625361;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DcwWePkZ+61+GRHS7T5VOVYWhMHoHSzeV/UXG3AzxcI=;
+        b=MqH0iyVn1NBJO3SmbbynHwoOfnScKoL/EqkO/IYpHCIJkR+lXDlFsCPK3HhGCxayxr
+         tqCJVanGs5RYI+sPo/qNTNvPsZT3WqK5KZ4aYj3OKD8m6RPZEM+EHuvTNTLjMNG4v+Ap
+         TQ9+bpAFdvVXZ61cFVclPDDNjWb3puSQAVcsaHWWMVik1IWeWRedBW0AJk3rvlQk6zQP
+         GBirFrR+ZNtoViZqi666lRAO4Yv88350bFhomIMYOv/fq/kDRjlh55AGpxJUWAITeV01
+         hM3T7Epy4LToP9PtGlxU1RWbJ5nbHCgc/D4BWIeH2BoY/WTe2yYb6E4bGNzeJuwOU4QC
+         3ZMA==
+X-Forwarded-Encrypted: i=1; AJvYcCUGT3m7OIi1Aq57nPJX9TnY8wcvpdhCx6kUOgum6TGUz7FVgE82EqSBwtr6xXrKlREHOZ5cxfR02uY58ZdU5lEb@lists.infradead.org, AJvYcCXLXWWxjgDkJKTLS9qrwgXV0/oC/0WTRVM/dTcuygqn5QzO+nvSQPivDfdiCprCX0egdKwhMVBqJ29rR/KkYoA=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJFCmZh0bXZ2wzFBxVh1jf9+00vQw8+c4xIcRa2ns6WBah9lHz
+	EpqhTr0HCoBv2vGrmubG0dpegFIt8WBESqZn4WCJqgTlIOdcoKbLQ1gw
+X-Gm-Gg: ASbGncsQJTv1UizWF7zK+pBnJOhCq/yNef84AUsh3u5TxnqkAiSyYiH/4y8fhFxUqpA
+	vBDkEOTis8DZaC/sNw2bex+I3rNstL4KIo8Iac92aB0AyDtGhsKaO1ZaRnbDz/kE0C0T9AWu7Q1
+	BJqcj+GhGWDjZgJDS2Sl2W7NCuFdyM4GcB0W5Y2PVyLbnZP5e5JZAboBd2sYV9o1+ILUuxjGxB5
+	4klkfLmbbx60iWc1yMJa/0WgUpKDFbOsCCKpA9xt5uuzzXZgnz53mMPSdmrXzTEZYKQ4eMJoHf8
+	pSJk/kGf+XIdeSsrydTp4EDWhURy7w3zDPBSZUYXXt0=
+X-Google-Smtp-Source: AGHT+IEoBA4HHBIBWKsPCT2mLl7+qyWKOlyAaO+l5jgMStBRBhSbtVujXmRrrApyjtT9L32hT9oqWQ==
+X-Received: by 2002:a05:6a20:734d:b0:220:33e9:15da with SMTP id adf61e73a8af0-22cd68be5f5mr777221637.2.1752020560598;
+        Tue, 08 Jul 2025 17:22:40 -0700 (PDT)
+Received: from archlinux.lan ([2601:644:8200:dab8::1f6])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b3924868c3dsm4910400a12.23.2025.07.08.17.22.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Jul 2025 17:22:40 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-wireless@vger.kernel.org
+Cc: Johannes Berg <johannes@sipsolutions.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	=?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+	Stanislaw Gruszka <stf_xl@wp.pl>,
+	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+	Rosen Penev <rosenp@gmail.com>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-mips@vger.kernel.org (open list:MIPS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
+Subject: [PATCH wireless-next] wifi: ath9k: ahb: add OF dependency
+Date: Tue,  8 Jul 2025 17:22:38 -0700
+Message-ID: <20250709002238.5988-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/10] clk: bcm: bcm2835: convert from round_rate() to
- determine_rate()
-To: Brian Masney <bmasney@redhat.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Bjorn Andersson <andersson@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@redhat.com>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, linux-sunxi@lists.linux.dev
-References: <20250703-clk-cocci-drop-round-rate-v1-0-3a8da898367e@redhat.com>
- <20250703-clk-cocci-drop-round-rate-v1-1-3a8da898367e@redhat.com>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250703-clk-cocci-drop-round-rate-v1-1-3a8da898367e@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_170634_501915_BF737BF9 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250708_172241_468720_B790F256 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,17 +107,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The conversion to OF missed adding a Kconfig dependency.
 
+Fixes: 2fa490c0d7 ("wifi: ath9k: ahb: replace id_table with of")
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ Since this is for something that hasn't hit master yet, I assume
+ wireless-next is the proper place for it.
+ drivers/net/wireless/ath/ath9k/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On 7/3/2025 4:22 PM, 'Brian Masney' via BCM-KERNEL-FEEDBACK-LIST,PDL wrote:
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
-> 
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+diff --git a/drivers/net/wireless/ath/ath9k/Kconfig b/drivers/net/wireless/ath/ath9k/Kconfig
+index 0c47be06c153..47d570a5ca6a 100644
+--- a/drivers/net/wireless/ath/ath9k/Kconfig
++++ b/drivers/net/wireless/ath/ath9k/Kconfig
+@@ -47,7 +47,7 @@ config ATH9K_PCI
+ 
+ config ATH9K_AHB
+ 	bool "Atheros ath9k AHB bus support"
+-	depends on ATH9K
++	depends on ATH9K && OF
+ 	default n
+ 	help
+ 	  This option enables the AHB bus support in ath9k.
 -- 
-Florian
+2.50.0
 
 
