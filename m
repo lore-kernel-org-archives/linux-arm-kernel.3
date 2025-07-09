@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 571ECC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 11:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F2DC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 11:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MMWv5xacfm3MGUvSWT0MxW0DxvOuVb5A21JgnyqTAQw=; b=MH8KQ1KjDz3bJRARMER3YWUkmb
-	pikrfhtrRH5kHO2y1v2jCO/z/syTXLoXLBlFgx9rD4jjQZNlvkEDbvCC2DbfwiU66eocX7hN1qW7b
-	JyQRJgAEIJXY0LZMs5uAdVyQb5H0nMv17EDcHIB/n3bQGytejrbr+0SB7ds2fTf3TArbx0pn0ykUx
-	bKUFP7KyALs0bfwCHIpImqirBdDprn8v7czPI1YYSfmYHmsEE6Gh+q80xV0ufTy03p2WAqE5/R/4u
-	CBNu83y3LP9VS1QlFT3mEQU3G9g/mT5vd4aSRWL4QCDakv+o0lPO1kQiUmL6wHn7oW7VnD/syDPkb
-	XGCnKM4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8YjDIVkSzZ1qBfDNEzt6aiWfmZ06SFpmvJBdwg8GbFU=; b=pxyc0Gs4nyj1ozSKsDJFO8nDSt
+	32T4wyc34AhKlbvLNacOTzNhumR5qKfwfC5IIwnHp53fA4X+ajNPXDbxFLL4AewCClpq5j7vjof3G
+	K2zw24KhuQ6nxCQch2RC1H/N9lmrk2naw0ljuQeioTJje53WRqopWHsd3tmtFuamGrxNEUjPdRjvR
+	dIDuAfKNqeEeSgZH9U9pF25G9zkuJJcG58yajUOzQQwJ9VQfazU2MdxxLCM0QtP8inOFhwcB1gGux
+	eIHlqef8hIgL00g4Hug+cTDG15WcYOwy7LzJqqySsBn0qlDf0gS1qHW3QOGo90eQsE527QdwB2jmt
+	hX6czuCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZT2B-00000008Vgj-18yd;
-	Wed, 09 Jul 2025 11:32:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZRVu-00000008BuV-2Ak6
+	id 1uZT4S-00000008Vzo-2sxQ;
+	Wed, 09 Jul 2025 11:34:41 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZRbZ-00000008DOK-0EMI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 09:54:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1CB3B153B;
-	Wed,  9 Jul 2025 02:54:40 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17D243F694;
-	Wed,  9 Jul 2025 02:54:47 -0700 (PDT)
-Date: Wed, 9 Jul 2025 10:53:57 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 05/10] KVM: arm64: Add trap configs for PMSDSFR_EL1
-Message-ID: <20250709095357.GA2715835@e124191.cambridge.arm.com>
-References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
- <20250605-james-perf-feat_spe_eft-v3-5-71b0c9f98093@linaro.org>
+	Wed, 09 Jul 2025 10:00:47 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250709100035epoutp0184672967c689ce0664ff23701ac8112d~QjPRJVwVH0169601696epoutp01d
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  9 Jul 2025 10:00:35 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250709100035epoutp0184672967c689ce0664ff23701ac8112d~QjPRJVwVH0169601696epoutp01d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1752055235;
+	bh=8YjDIVkSzZ1qBfDNEzt6aiWfmZ06SFpmvJBdwg8GbFU=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=crM7sDQ1Uz9NtR7Lf5itnb9Kxo52UH9FjSGOjp2JkszPtedhMD5yYtuYLOW3diez/
+	 JPkFeY49RxYNNxrnIaqgsbyUhQeN8lHbywF+MaOZmR+G2WbWzqcQ5AR4mnJDBjOoQ2
+	 uzRfhHRw+oNiDyxGt4ThAj8UYDSsUzBnjC+ZaEg0=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250709100035epcas5p11cefc566289685aa4dadd35429e93d22~QjPQiuHEG1114111141epcas5p1k;
+	Wed,  9 Jul 2025 10:00:35 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.180]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4bcYPr5Dhtz6B9mD; Wed,  9 Jul
+	2025 10:00:32 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250709085159epcas5p15cd74d4ab9d7944eef406ce118768a84~QiTXJ9MsA0055000550epcas5p1N;
+	Wed,  9 Jul 2025 08:51:59 +0000 (GMT)
+Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250709085156epsmtip13f8f84df1a677aaa0f8edc8247250f7a~QiTUNkrE12100421004epsmtip1O;
+	Wed,  9 Jul 2025 08:51:55 +0000 (GMT)
+From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
+Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
+	<neil.armstrong@linaro.org>, <kauschluss@disroot.org>,
+	<ivo.ivanov.ivanov1@gmail.com>, <m.szyprowski@samsung.com>,
+	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: <20250706-grouse-of-pastoral-bloom-7d79b0@krzk-bin>
+Subject: RE: [PATCH v4 3/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 combo HS phy
+Date: Wed, 9 Jul 2025 14:21:54 +0530
+Message-ID: <07d401dbf0ae$bb0256b0$31070410$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250605-james-perf-feat_spe_eft-v3-5-71b0c9f98093@linaro.org>
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJAgQZ9LFXBZrDskwNBYris6jFv1AJNRgOcAqL7pisBlv/N8LMsH/TA
+Content-Language: en-in
+X-CMS-MailID: 20250709085159epcas5p15cd74d4ab9d7944eef406ce118768a84
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250701120002epcas5p2c4d728d599a819057bcc40b724881276
+References: <20250701120706.2219355-1-pritam.sutar@samsung.com>
+	<CGME20250701120002epcas5p2c4d728d599a819057bcc40b724881276@epcas5p2.samsung.com>
+	<20250701120706.2219355-4-pritam.sutar@samsung.com>
+	<20250706-grouse-of-pastoral-bloom-7d79b0@krzk-bin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_025454_641606_4B3A1A66 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20250709_030045_403341_6E141D64 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,73 +104,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James!
+Hi Krzysztof,
 
-On Thu, Jun 05, 2025 at 11:49:03AM +0100, James Clark wrote:
-> SPE data source filtering (SPE_FEAT_FDS) adds a new register
-> PMSDSFR_EL1, add the trap configs for it. PMSNEVFR_EL1 was also missing
-> its VNCR offset so add it along with PMSDSFR_EL1.
-> 
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 06 July 2025 03:12 PM
+> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
+> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
+> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com;
+> andre.draszik=40linaro.org; peter.griffin=40linaro.org; neil.armstrong=40=
+linaro.org;
+> kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
+> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com; linux-
+> phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
+> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-s=
+amsung-
+> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.com;
+> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
+> selvarasu.g=40samsung.com
+> Subject: Re: =5BPATCH v4 3/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
+dd
+> ExynosAutov920 combo HS phy
+>=20
+> On Tue, Jul 01, 2025 at 05:37:03PM +0530, Pritam Manohar Sutar wrote:
+> > This phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
+>=20
+> What is =22this=22? You add here HS PHY, so HS is 3.1?
+>=20
 
-A (well behaving) guest won't try access this because:
-The presence of PMSDSFR_EL1 is checked by accessing PMSDSFR_EL1.FDS, which is
-currently `undef_access` and we hide SPE from the guest in
-read_sanitised_id_aa64dfr0_el1().
+=22this=22 means =22combo phy=22. Combo phy is combination of 2 types of th=
+e phys.=20
+1. one supports only USB3.1 SSP+ and denoted as =22samsung,exynosautov920-u=
+sb31drd-combo-ssphy=22 as in patch no 5 (combo SS phy)
+2. another supports only USB2.0 HS and termed as =22samsung,exynosautov920-=
+usbdrd-combo-hsphy=22 as in this patch (combo HS phy)
 
-So makes sense it is just undef!
+> If this is the same phy, why are you adding another compatible?
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+As explained earlier (even in cover letter), there are 3 types of the phys =
+in this SoC.
+1. one is simmilar with exynos850 and termed as =22samsung,exynosautov920-u=
+sbdrd-phy=22 as mentioned in patch no.1
+2. two phys are in combo phys as explained above (patch no 3 =5Bcombo HS ph=
+y=5D and 5=5Bcombo SS phy=5D)
+		=09
+NOTE: hs phy in combo phy in =22NOT=22 same as phy (patch no. 1 which is si=
+milar with exynos850).=20
+		=09
+These three phys (usbdrd-phy, combo-hsphy, combo-ssphy) are totally deferen=
+t =22NOT=22 same, hence added 3 three compatible for three phys.
 
-Thanks,
-Joey
+>=20
+> Best regards,
+> Krzysztof
 
-> Tested-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  arch/arm64/include/asm/vncr_mapping.h | 2 ++
->  arch/arm64/kvm/emulate-nested.c       | 1 +
->  arch/arm64/kvm/sys_regs.c             | 1 +
->  3 files changed, 4 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
-> index 6f556e993644..dba0e58a5fac 100644
-> --- a/arch/arm64/include/asm/vncr_mapping.h
-> +++ b/arch/arm64/include/asm/vncr_mapping.h
-> @@ -92,6 +92,8 @@
->  #define VNCR_PMSICR_EL1         0x838
->  #define VNCR_PMSIRR_EL1         0x840
->  #define VNCR_PMSLATFR_EL1       0x848
-> +#define VNCR_PMSNEVFR_EL1       0x850
-> +#define VNCR_PMSDSFR_EL1        0x858
->  #define VNCR_TRFCR_EL1          0x880
->  #define VNCR_MPAM1_EL1          0x900
->  #define VNCR_MPAMHCR_EL2        0x930
-> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> index 3a384e9660b8..60bd8b7f0e5b 100644
-> --- a/arch/arm64/kvm/emulate-nested.c
-> +++ b/arch/arm64/kvm/emulate-nested.c
-> @@ -1174,6 +1174,7 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
->  	SR_TRAP(SYS_PMSIRR_EL1,		CGT_MDCR_TPMS),
->  	SR_TRAP(SYS_PMSLATFR_EL1,	CGT_MDCR_TPMS),
->  	SR_TRAP(SYS_PMSNEVFR_EL1,	CGT_MDCR_TPMS),
-> +	SR_TRAP(SYS_PMSDSFR_EL1,	CGT_MDCR_TPMS),
->  	SR_TRAP(SYS_TRFCR_EL1,		CGT_MDCR_TTRF),
->  	SR_TRAP(SYS_TRBBASER_EL1,	CGT_MDCR_E2TB),
->  	SR_TRAP(SYS_TRBLIMITR_EL1,	CGT_MDCR_E2TB),
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index a6cf2888d150..4a88ba15c7df 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -3008,6 +3008,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  	{ SYS_DESC(SYS_PMBLIMITR_EL1), undef_access },
->  	{ SYS_DESC(SYS_PMBPTR_EL1), undef_access },
->  	{ SYS_DESC(SYS_PMBSR_EL1), undef_access },
-> +	{ SYS_DESC(SYS_PMSDSFR_EL1), undef_access },
->  	/* PMBIDR_EL1 is not trapped */
->  
->  	{ PMU_SYS_REG(PMINTENSET_EL1),
-> 
-> -- 
-> 2.34.1
-> 
+
 
