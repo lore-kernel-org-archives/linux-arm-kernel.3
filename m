@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D92C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 07:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD42C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 07:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tt1tyd2V2XXog5654TpX5Ey9biqwEwVKUDOprHna+xg=; b=MYMy1jY/M1VmwkRc8+s8fqNLWl
-	a3tEXszgLUmfDOSG8NjYtS0ez8DITjiuDKuIbdg1oubhqkQXSBbC8a2pDia6qyibxVRr/dtHyIPGQ
-	FnYNvgbTK0b+JFHst3kEjhceJP4Pjk59B5QmUWgwrpNAqLeFRjo0vT54rahg6qQHisP51O/mcCOiB
-	DVuELTghtdiOKhCg3N3K8yrjuovuJ7bjwurwHzuyChpsKlGYJVcmNqXWSJb4Lbe19SAtR0kmRUAQc
-	R1NjvIc6j0AMx5NBUyNrOh4A7UCMHHe+SSJ7fe2C6h6iqTQTbVl6j15nSoc0LZwyxxCJWYRgD2ZT7
-	Hkazxxhg==;
+	bh=dhsKsvAkmlFqPDEeR+UcQMmg9tdoZDeEXP7FO3A/Ni8=; b=GVpHsuq9KxO4m4D7Rs48Z5/uKG
+	+SLzK0ABU4Swb8KctUDJrPVs5+0tRmWIlvMMGJtzUnZNYHbXeHOmMNLo3JX79gHpexhcFwaJ7209A
+	TxJVYQXODG5wEpLXzvJJIsaVrh1GXj9lJ6RM2wpy6GCypgctGFxXtV1G2wv9oD/mdIWPD2X00fSr8
+	CN+/tfhN39Fjn1TgC3gqWqVSkVc88nRE1aN+UcPx/4j9C1kvK9c6/D6g84Kbe2q0j6dqrmIjHSRKZ
+	l5ZXn5Cw13qBpV3u3mX098xLow1GuDVPOsV3/vzG1PvwKLsqDWinjQgl663uh4yoUc2cKJzsRLEQV
+	fxdQs1YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZP1m-00000007mi2-21YW;
-	Wed, 09 Jul 2025 07:15:38 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uZP45-00000007n6r-1BYc;
+	Wed, 09 Jul 2025 07:18:01 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOVf-00000007hAF-3lTh
+	id 1uZOVh-00000007hBA-0vsI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 06:42:29 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-454ac069223so3144925e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 23:42:27 -0700 (PDT)
+	Wed, 09 Jul 2025 06:42:30 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a6d1369d4eso3080444f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 23:42:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1752043346; x=1752648146; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1752043348; x=1752648148; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=tt1tyd2V2XXog5654TpX5Ey9biqwEwVKUDOprHna+xg=;
-        b=dOR0loZljoG6sjlH/WqBXSmuyRCC/KCPXHDvbM2iYdM26kOYK1UMlzEc7nh66IoGHa
-         S6Oni4p7VKi6CFr6hS51VpdE+qWuuNtLbg2k7lmkLt/q5XTmrgo1hTpOG+Sw3cbWGOe3
-         ezfpIM2ytwKP7MhhkbQ/JYXkHKWqv3jU9JGs1bOPs/KaOxrj1sYRZg+4+gvCHZvPJxGa
-         FyJ3saOwWPTQMfQImFPnRsHpgBzq7PYr1/qimCf6RpHZOhfOlH9CQXtCxCqw0RK7GC7L
-         TjUV4Jk9zMFJdmQa7vLYTuCAis3/udva5kxRZYmQh84JePlwfg7lbh37wEWsZlqxowHU
-         ZuSQ==
+        bh=dhsKsvAkmlFqPDEeR+UcQMmg9tdoZDeEXP7FO3A/Ni8=;
+        b=wLfg0h3onnywuuW9o2pmPT5QRei8SiGVAwa5kiww4agfKE/IxROzIqkp8e2LVxm3Ms
+         8yJ7RNgZQybLtsIqa81KoUfP1Jtom+QAVi6Do6hHqexSg7JMLUCmXAiAUGAFZjPRcsbu
+         ZyE1dLxZjW4Hr6J1dZDcKTfKPT6hu1JqlgA0cwbO8cxlts8pnYlKUWxnRiEkstubdLWv
+         lkv2rMx6rUFVPlR4+wqqpyVWw8yH4bHnAPJ5dIQc6qiKMfQdeGEiTADKLF/CtZyTilEg
+         xWEO8kzMgjQ2rljR2cBEB+gHLQQl2QPeQMPSB1NfL5kNYGBV5vW8BH3KuusZNJOJ9Tnr
+         Qvzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752043346; x=1752648146;
+        d=1e100.net; s=20230601; t=1752043348; x=1752648148;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tt1tyd2V2XXog5654TpX5Ey9biqwEwVKUDOprHna+xg=;
-        b=dRo/6mUJuXdHxlcQ+pF1KfWv7I/EFFHuW/i4s6KmAaZshBoZ1phRu8l8zmhmi8Piwd
-         t6830HtJ+venm129iIYg0/AuT2tyamnXJxSODWKYFX3Ec8RZ0xcyZO9ySloQ5+j6e3/a
-         cNvb1CEKJ53LJ2G97ycIHWz7nWJON63ehWy8GJdIJnd6dbtI6ZriSoNDrmdel1YJzd1d
-         RXAzUtjepKu7JAfrE11uj+vi72Q7Yl+iUiR8CxnoxNTiJ9ykjcnb+LNVZApqAzeYSB7F
-         mXVhbeVMjABJquB6rNcd1yiDEnONrj3jZ1DdmJ/q1XyyLYyfDbNI+ifq6CeM0b6+N7CC
-         ymdA==
-X-Forwarded-Encrypted: i=1; AJvYcCXEzXB73APTu7YnWLUWCLFXbtj1+NSytokk61z2jdkFibXOxlZDD1k/cIiR8P3/+VPueiXuywfENJqBs+jKRe+4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOPi811T8UO4/7vh9qvTtYcSDmy94Eb+Szj2D6elSHYFGbYxZa
-	ft/D2Lm8eBprAdjPlcfsMCRKenCGTzNfLX3qaYX+oi1G1l/vHO8CocxtEX52e0mzP+I=
-X-Gm-Gg: ASbGncvL5QYrGGp/H8+Ap0DJuCPU6k8wnyg95wSGEQ+hc73FrmtucB5f0IRbYT2ei21
-	PiXy3m6S/5oDx8oCpHN1VZLr2yFjQGiZ1/vlUTWIhWO0fHh9yb/IYGZYSq3OdJI0l+1INgrw53y
-	H616V9cDhdoVCo6RiP73yxEvD0BIKs5aEjupK2fcnn0Szu6elYF8yXrBZ/ExvqM5M5/35xHP6wo
-	fs7UHnVIJNf8f3PdYS0T2P80p+JDmWAEzZhJx6d54vfv4fIV958kjcxv6rmliWmh+jMcASkUnty
-	sha+lQ1yYMCF8wQnAFWThursEPuHDYmMRxjRrKtngpsvIiwyJGgUZTdb
-X-Google-Smtp-Source: AGHT+IHva0WhsywPttvRU08VnkKxXmjFcSCyLgh8W6d6O8qcvJcHST/EmQCRDTaYU3n47c8S3YTiAA==
-X-Received: by 2002:a05:6000:4609:b0:3a3:6478:e08 with SMTP id ffacd0b85a97d-3b5e4494f5bmr774417f8f.23.1752043346514;
-        Tue, 08 Jul 2025 23:42:26 -0700 (PDT)
+        bh=dhsKsvAkmlFqPDEeR+UcQMmg9tdoZDeEXP7FO3A/Ni8=;
+        b=ne7BkOtcZo3dLbbJf9S9+FO55A4mDq+SI9xS8vmfWQivA/A14G3qsvWM5WyaSUKtvx
+         0cFFaiUMCT+pXLBQD2F2jL5CS00H4nmfThNxbgDyxnaJxN2U/eW2e/1YuYo5ZhA5DR1L
+         HUaYq5ClGGUMxb1RPgYyM/8NFHOHXkkNqIcCZeBZ6jh+6C/da3Mk6YX7GRUSzi50ZzI5
+         EO7BvvTLsB2OjZED2UxOa0ZahL2h4gzvje+/YP/rOobJaghKiA7upymuJAHT5GA/aOr2
+         c5Fk3IPzW1W2hgRqgQFcMajtiQYr9pKd+D63alW4sT9d+fV90ojMWyyRkBUdA2AfpLqY
+         USvw==
+X-Forwarded-Encrypted: i=1; AJvYcCXA0rzkWhXLIxzhkLp1VVvCS8CzRqisVI1D+zzaz7bWtgfPbLhJXNLK0cHxsGP3Iii0JjJDRMob9t/0lotCzQwb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuOBdp3UWqulZyYsbAd5YczBsVxkQbkBACbSdrhN/Rk68b1N8d
+	Vlm+9D8rdGRsp7evU16DX5yleKOa4U8w2ZoAtzqdPOhAORKkAkN9kDpLGMCNJ8cNJIk=
+X-Gm-Gg: ASbGncs5NhU3x2cJtyi9Ux1pT3DdSLLdlVlyLTMFKdn2Miga4QsRtJriy2+7DQlIEFQ
+	Hf6Pal7/b5D8XUYc473QW3XLmYl5iBRMOMQljKhQPwc/JsHYR30NpATfC5VVYEWePJBohIK9PmQ
+	s+8ABFMEAg6rZIouG0vUNt/0uVLvpWgPyJG2b13KhyOpznu3JaHTqE9fdYwxRaFFU9vwxuz/rs3
+	c84syotuZgZOoy402sRLiVjivoFLHIXrjycRvN6lw8C6EKcpsZ2Xc4bA6cJcCJ2ngB6BEfacdRy
+	4KBbGw5aE0d2CraArxtSwrfLMteFyH/IpUdyQYZDPHJdndpgHSD4J6I8
+X-Google-Smtp-Source: AGHT+IHvpRwL4gyNcss4buc5DbhMISzynWRKsNgohlceWdvTYfvFhoREEpevOPy7ECuUPWfEmr8Qgw==
+X-Received: by 2002:a05:6000:4387:b0:3a4:e4ee:4ca9 with SMTP id ffacd0b85a97d-3b5e44ea0d1mr816440f8f.23.1752043347689;
+        Tue, 08 Jul 2025 23:42:27 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:b04e:cfc4:3bd9:6180])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b47030c443sm15115341f8f.11.2025.07.08.23.42.25
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b47030c443sm15115341f8f.11.2025.07.08.23.42.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Jul 2025 23:42:25 -0700 (PDT)
+        Tue, 08 Jul 2025 23:42:27 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 09 Jul 2025 08:41:47 +0200
-Subject: [PATCH 10/19] gpio: xilinx: use new GPIO line value setter
- callbacks
+Date: Wed, 09 Jul 2025 08:41:48 +0200
+Subject: [PATCH 11/19] gpio: xlp: drop unneeded ngpio checks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250709-gpiochip-set-rv-gpio-remaining-v1-10-b8950f69618d@linaro.org>
+Message-Id: <20250709-gpiochip-set-rv-gpio-remaining-v1-11-b8950f69618d@linaro.org>
 References: <20250709-gpiochip-set-rv-gpio-remaining-v1-0-b8950f69618d@linaro.org>
 In-Reply-To: <20250709-gpiochip-set-rv-gpio-remaining-v1-0-b8950f69618d@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -89,26 +88,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  patches@opensource.cirrus.com, linux-arm-kernel@lists.infradead.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1599;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1526;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=4caU/UjNpZ2IdQFhAW2jpXfCzjS+1Tfp2bEeZ8+cvyg=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBobg9CVnKQXMjtdHRDVguAejNFTXbTNXD8l/Kmb
- 0yg+RrFm7GJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaG4PQgAKCRARpy6gFHHX
- cj5REACwOuns0WEq0gVfyFbzUJNtcYG3dTU1bFvtejpjQepJyTQ1QVwtA7TBbJfH+O+XnX66gtB
- 1OfiIS2FNuQ4AHfxV7LboTF5hI8KSovydzIXZg5qSF9IVe7OpRxSPxNGAUCqD7lTfF33Cd90Q+c
- n0qSysZ2b87Crn+IKtlo4DpvhLae7AJvMItX+RB2jkn+G83L+aT7js214EuUz+C1tpIdj6n1ekb
- UNuybnnWCYASJ4Ow7ISTsfNiGGUDC4Yei49l3VVhUOBKtzyE5zMv2GxaS9l8FwpCxL4rHX7HzbL
- 4t1ImuQA1UndA2UraMnoztrqLX0djej2yBwzwo3wTM53dwpWXsj7Y9JgOaBq8ylLmEVbtelV5pD
- riyAIpKwyvYawqYtwrQTOcNf0oRvRHMhCmMEW1QfqbAQcCEn7XXBF78kjj0nOKdYaijS8rXoAaY
- h2exh0E957oSjVG8N8BKMESWJI2IN7mdfWBf+8f0zr5kBc1xSVSpD8i4WevQZUI3E2/zfiOQ3f/
- I+cojRdDGefvTRIfXENlElRktzK9hA8a0pqrYUXXpGfZ84t5gVthoflduWApAuOF9Z+7RQtr3XJ
- Db3DQhlSzuuHlw5Y4uKbvj6NPvmJE2td0L4cqQTIVWrx2MUS0zuONDQ38BA2/GaLU8D/aOapH9E
- HkWM8Bc5jI66Ulw==
+ bh=kX7w+JHvWpXIE/MJI0TmNI75597pjwhk48BNek2A0I4=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBobg9DjfalZzeUGBfvdwiGcfrZ171d4K3z9JFGc
+ uxBWTNkcxKJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaG4PQwAKCRARpy6gFHHX
+ cotWEACQjbypuFIfdv3rxgS/QD1bm4WGA6KiqvpGj8xTu/C56/kieYtnc7vIzCpcbeScl1T8lE8
+ EAitfkS8VLZ6X2UR1nfUyg659eVi8I38KWSCHuxFytaTF9kecqmJ/+OXroJ352In/zKzEFTEfX3
+ Rz3WZocW6SdN2vBZaHNUHowmW6h+dRPwrOG9kDgJfduROKO8DTwrUFexaQ1oNahowRxAwiq4BF/
+ 3Ggo5BU45ewhQpE/xmtKlm1aDtXa2S/xRlfLPlx9aqLeapxAkB5DafjOpWPHkmvMYzjapLiJXQV
+ LUEcoCB5t54gENH5mC+sszT2zgyzqGUbWCZDkIRHGji0wyACb1EYl3y6KIVzQxvBySkDL3/B2V9
+ eaODg64UDmLTuxh2KnbJU7/opDLQcH+N3h6+2p6YJtwxaFajmW4YLmocqVWPdzllnZqEBy1Mycs
+ ao8riuFbfo0wZigCrF48i/d7I6Q2rI+dFFY5TDIlg/OUpz70d+Ruw8SZ2K5YioyWR6ALBTnFG0V
+ +z6JEUf9RhOwjc4YAra6bg/uJDbnNlRzvRwsadNg0w1tgtsyS8CAkQKJxi8Lw2jcjxxjAyNlhEQ
+ P83OszlX+c6c+eM2yrfpeHs9l970j8D0wETvrH0O6EvlBpH1noVcT1+Gd9Nq0nyz2PUOIrqdVSs
+ prGuwSQDyS2j30Q==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_234227_952677_A5FEB38A 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20250708_234229_323667_409BEE4C 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,46 +124,51 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. Convert the driver to using
-them.
+GPIO core already makes sure that offsets higher than the number of GPIOs
+are never passed to controller callbacks. We can remove the unnecessary
+check.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/gpio/gpio-xilinx.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/gpio/gpio-xlp.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/drivers/gpio/gpio-xilinx.c b/drivers/gpio/gpio-xilinx.c
-index c58a7e1349b4b226057c6d045f901c7fea5da449..aaaa741179805d54e1cd1425579eb52a3579d6e5 100644
---- a/drivers/gpio/gpio-xilinx.c
-+++ b/drivers/gpio/gpio-xilinx.c
-@@ -148,7 +148,7 @@ static int xgpio_get(struct gpio_chip *gc, unsigned int gpio)
-  * This function writes the specified value in to the specified signal of the
-  * GPIO device.
-  */
--static void xgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
-+static int xgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
+diff --git a/drivers/gpio/gpio-xlp.c b/drivers/gpio/gpio-xlp.c
+index b4b52213bcd955c3644b4410c2684d77951f03f2..35b376c73ce312df1312ab09b53246fb5905152a 100644
+--- a/drivers/gpio/gpio-xlp.c
++++ b/drivers/gpio/gpio-xlp.c
+@@ -206,7 +206,6 @@ static int xlp_gpio_dir_output(struct gpio_chip *gc, unsigned gpio, int state)
  {
- 	unsigned long flags;
- 	struct xgpio_instance *chip = gpiochip_get_data(gc);
-@@ -162,6 +162,8 @@ static void xgpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
- 	xgpio_write_ch(chip, XGPIO_DATA_OFFSET, bit, chip->state);
+ 	struct xlp_gpio_priv *priv = gpiochip_get_data(gc);
  
- 	raw_spin_unlock_irqrestore(&chip->gpio_lock, flags);
-+
-+	return 0;
+-	BUG_ON(gpio >= gc->ngpio);
+ 	xlp_gpio_set_reg(priv->gpio_out_en, gpio, 0x1);
+ 
+ 	return 0;
+@@ -216,7 +215,6 @@ static int xlp_gpio_dir_input(struct gpio_chip *gc, unsigned gpio)
+ {
+ 	struct xlp_gpio_priv *priv = gpiochip_get_data(gc);
+ 
+-	BUG_ON(gpio >= gc->ngpio);
+ 	xlp_gpio_set_reg(priv->gpio_out_en, gpio, 0x0);
+ 
+ 	return 0;
+@@ -226,7 +224,6 @@ static int xlp_gpio_get(struct gpio_chip *gc, unsigned gpio)
+ {
+ 	struct xlp_gpio_priv *priv = gpiochip_get_data(gc);
+ 
+-	BUG_ON(gpio >= gc->ngpio);
+ 	return xlp_gpio_get_reg(priv->gpio_paddrv, gpio);
  }
  
- /**
-@@ -600,7 +602,7 @@ static int xgpio_probe(struct platform_device *pdev)
- 	chip->gc.direction_input = xgpio_dir_in;
- 	chip->gc.direction_output = xgpio_dir_out;
- 	chip->gc.get = xgpio_get;
--	chip->gc.set = xgpio_set;
-+	chip->gc.set_rv = xgpio_set;
- 	chip->gc.request = xgpio_request;
- 	chip->gc.free = xgpio_free;
- 	chip->gc.set_multiple = xgpio_set_multiple;
+@@ -234,7 +231,6 @@ static void xlp_gpio_set(struct gpio_chip *gc, unsigned gpio, int state)
+ {
+ 	struct xlp_gpio_priv *priv = gpiochip_get_data(gc);
+ 
+-	BUG_ON(gpio >= gc->ngpio);
+ 	xlp_gpio_set_reg(priv->gpio_paddrv, gpio, state);
+ }
+ 
 
 -- 
 2.48.1
