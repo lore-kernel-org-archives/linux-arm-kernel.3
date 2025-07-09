@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0CFC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 23:59:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E20C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 23:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pMhOgHK3VK/Mhe1lRZB5vDBdIpMO8I/xfTijKQhjR58=; b=1x4JYqHcPiNygJelrhd+uA6q3I
-	PQUk/Of4hMPNF+bEXIo9y0fwYhSNRGJjlZ05C+DftExWb6BElCQoaZEhjp0OrTXyupiLPpxkmd9Rf
-	UtiVD8ZdJCw9W2TrPO3A5Es3UFpLnEc3CSZAyncERUWO25PhwgykPP3fX32xKncYbOOaURK1U9A75
-	3mlBKMviXcsot19/qa/f52RpEZN4lBCU2E7vMfomPZoz3mDFEfElduJYhd5Sv0JXmFVjSpUpxe1YL
-	9IUhmdYy8bsSOEROGiGIoaPdIhxLFvU2/sR4VUDI7vAgsFi1N/L7/SOEvzDusOKZvEziezy1z4Z9L
-	6f+etZFA==;
+	bh=XGxd8Lfcg/vGcP0YsZWXaz40ZWin7nmFut8jEeqhGSo=; b=U2le1DT043S71c3SLzUUet4u63
+	Nh9EwydLarvO/+wd0IghbmS6VuLc2vph3yVnG9H9e45xe6eFwlVdAWjh1yfmeuc9dqkp2lbZVFWl1
+	5Y8Cdvybih1U5cRqU4K47feyv+BL/5TbTX3hrgc6z/5e2hFtx9xlzIMSHdbzwThZOR6sfvNvGUlbQ
+	2doLasSViPl3rQTgunA0d6E0dh57vRGEd8RClX29exTzvH3C0Bb0QeBOmYziQ2g6RFarOZV4kIKuT
+	F7c2Bm8SoaGvtXBbXYjl54jIuyitTdXFfsaQOVgTdmWd9QAsq3Gydp23ELfm4EH3WbXrkGh6E6j4c
+	uTTWb1ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZegr-0000000AHSC-2JM4;
-	Wed, 09 Jul 2025 23:59:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uZegs-0000000AHSj-0dmM;
+	Wed, 09 Jul 2025 23:59:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdAl-0000000A4LR-0IY1
+	id 1uZdAl-0000000A4LP-0dOS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 22:21:51 +0000
+	Wed, 09 Jul 2025 22:21:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60C5161456;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1CF465C6B16;
 	Wed,  9 Jul 2025 22:21:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BA478C4CEF6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id AF0C5C4CEF5;
 	Wed,  9 Jul 2025 22:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752099709;
-	bh=vMk63BU6vPbeqFxykHtTw4kWX4uzQsf8eR4cINkk+II=;
+	bh=H7JcO74G2fYpropcusaVnBE6m8iTvLD1YxQmdY4upiQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=BQp156FaVaIuhLwdDKT/s4ziB7FJaKv9qdeDnwAj8of0sp5+9DlNSqzSWm4kUB6a1
-	 LB0wJd7jaijSGvTLWbFijHDySGHw9OpV04kAPd6EzzyvbqrHf5AWvVCl2wQiQ+0StO
-	 TDQFyukHn2jCiz7yXNeRxO4Xh1P93IEcgFj6AbLhPnpnaec6HwiNAGlJXTamv5Ndpr
-	 wBkTTv1a0XFx+OWDUA89ibH3hl87VObQFogiuJNGF9pW0q89X7+OrtoCeq9Uc4SdHQ
-	 nitePk+C/KMow9cAfTdO1JH1RFQlY4ZIKDtw7q/AUh1GWB/u2KPep62gDkjkE60Ruy
-	 y1ZG/AQnRzc1g==
+	b=YCQYz4yYuTzk9oodxsLteQK2xXOoU08anhN8hV9BvQ6vHUmqKEH6nly9qd7t4a0DX
+	 dLLXjxNYFmOxuU1kskyFLdj2G8drv34Lw/mHSu2/FQrPJWjw3qsRuqnDOrpcympPUE
+	 LcGLiPCWx75OLBT9nfQv6bT3TIEGIxXils9uD0m20NXfAnJ8TjGBIyJoT13SIBU21K
+	 f8RYb3aasB/MUnct99zXvktM+cCWoKjeclvNNWGKZq/7DHilZgi9NjP95/D1pncAuW
+	 amXj0g+UCaOmwRsAsNHLzvVjApKpL5XKmhMXL5GK9HqarCCo3DetS2VaW4ZYIg3Xdm
+	 mqko+xqxTM39w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AC5F2C83F18;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F62BC83F17;
 	Wed,  9 Jul 2025 22:21:49 +0000 (UTC)
 From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Thu, 10 Jul 2025 00:21:45 +0200
-Subject: [PATCH v3 2/2] arm64: dts: Add Apple SoC GPU
+Date: Thu, 10 Jul 2025 00:21:44 +0200
+Subject: [PATCH v3 1/2] dt-bindings: gpu: Add Apple SoC GPU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250710-sgx-dt-v3-2-299bb3a65109@gmail.com>
+Message-Id: <20250710-sgx-dt-v3-1-299bb3a65109@gmail.com>
 References: <20250710-sgx-dt-v3-0-299bb3a65109@gmail.com>
 In-Reply-To: <20250710-sgx-dt-v3-0-299bb3a65109@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -65,16 +65,19 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752099708; l=9228;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752099708; l=4053;
  i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=K6K14UmmEMDGmK5+9wuNs1Mi4fwHRoanhZcBO8g9SnA=;
- b=lGoxzSJqwgctVwWzlLIVAN1JTfGOcYn2TGjIbCwp8FjHilhP80NzOlPsQ1KiyqwZQ3qZd7y//
- XJUh3SYHIiLAlyuXqOC3zHsrWeQMRIDozJbiEB0a+qvI5Qb3vpa+T/V
+ bh=ueufFqm5JgZMrOUFrDIeyDT9kbQhcJKg9fq4FWQiRKE=;
+ b=+EwYGwIf1NLULyxb8K2xiug6EM5dpNzuQx4Jaj/shI8W4CfRAdYUWDxgWPFq7k1d9J1USpyN4
+ ts+svCeFOh2AiWYPs60IxGgg/m1AD6VFlD61HbJbdTdvtRh9QXg1ke3
 X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
  auth_id=283
 X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250709_152151_281659_971D73CA 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,320 +95,128 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-Add device tree entries for GPUs in M-series SoCs
+Add bindings for the GPU present in Apple SoCs
 
-Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: Sven Peter <sven@kernel.org>
 Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 ---
- arch/arm64/boot/dts/apple/t6000.dtsi        |  4 ++++
- arch/arm64/boot/dts/apple/t6001.dtsi        |  4 ++++
- arch/arm64/boot/dts/apple/t6002.dtsi        |  4 ++++
- arch/arm64/boot/dts/apple/t600x-common.dtsi | 34 ++++++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t600x-die0.dtsi   | 28 ++++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8103.dtsi        | 62 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8112.dtsi        | 62 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 7 files changed, 198 insertions(+)
+ Documentation/devicetree/bindings/gpu/apple,agx.yaml | 94 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ MAINTAINERS                                          |  1 +
+ 2 files changed, 95 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t6000.dtsi b/arch/arm64/boot/dts/apple/t6000.dtsi
-index 89c3b211b116e96ee0a5ea0c923c3ab824008307..0ad77c98073fe65ddde7736acaece9acd5f3111e 100644
---- a/arch/arm64/boot/dts/apple/t6000.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6000.dtsi
-@@ -16,3 +16,7 @@ / {
- };
- 
- /delete-node/ &pmgr_south;
+diff --git a/Documentation/devicetree/bindings/gpu/apple,agx.yaml b/Documentation/devicetree/bindings/gpu/apple,agx.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..51629b3833b0a8c296eaccdfd6d9eeef02a5bc63
+--- /dev/null
++++ b/Documentation/devicetree/bindings/gpu/apple,agx.yaml
+@@ -0,0 +1,94 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/gpu/apple,agx.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+&gpu {
-+	compatible = "apple,agx-g13s";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t6001.dtsi b/arch/arm64/boot/dts/apple/t6001.dtsi
-index d2cf81926f284ccf7627701cc82edff31d4d72d6..ffbe823b71bc8d9c0975524aa04efa9bf520a89e 100644
---- a/arch/arm64/boot/dts/apple/t6001.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6001.dtsi
-@@ -62,3 +62,7 @@ p-core-pmu-affinity {
- 		};
- 	};
- };
++title: Apple SoC GPU
 +
-+&gpu {
-+	compatible = "apple,agx-g13c", "apple,agx-g13s";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t6002.dtsi b/arch/arm64/boot/dts/apple/t6002.dtsi
-index e36f422d257d8fe3a62bfa6e0f0e0dc6c34608a4..8fb648836b538bbd9efdccd6cec5d08d868a0d39 100644
---- a/arch/arm64/boot/dts/apple/t6002.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6002.dtsi
-@@ -300,3 +300,7 @@ &ps_gfx {
- 	// On t6002, the die0 GPU power domain needs both AFR power domains
- 	power-domains = <&ps_afr>, <&ps_afr_die1>;
- };
++maintainers:
++  - Sasha Finkelstein <fnkl.kernel@gmail.com>
 +
-+&gpu {
-+	compatible = "apple,agx-g13d", "apple,agx-g13s";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t600x-common.dtsi b/arch/arm64/boot/dts/apple/t600x-common.dtsi
-index 87dfc13d74171f62bf3087401918d9d41eaac560..e20234ef213538f851d9da0dbd11b318831668b1 100644
---- a/arch/arm64/boot/dts/apple/t600x-common.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-common.dtsi
-@@ -11,6 +11,10 @@ / {
- 	#address-cells = <2>;
- 	#size-cells = <2>;
- 
-+	aliases {
-+		gpu = &gpu;
-+	};
++properties:
++  compatible:
++    oneOf:
++      - enum:
++          - apple,agx-g13g
++          - apple,agx-g13s
++          - apple,agx-g14g
++      - items:
++          - enum:
++              - apple,agx-g13c
++              - apple,agx-g13d
++          - const: apple,agx-g13s
 +
- 	cpus {
- 		#address-cells = <2>;
- 		#size-cells = <0>;
-@@ -378,4 +382,34 @@ nco_clkref: clock-ref-nco {
- 		#clock-cells = <0>;
- 		clock-output-names = "nco_ref";
- 	};
++  reg:
++    items:
++      - description: GPU coprocessor control registers
++      - description: GPU block MMIO registers
 +
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
++  reg-names:
++    items:
++      - const: asc
++      - const: sgx
 +
-+		gpu_globals: globals {
-+			status = "disabled";
-+		};
++  power-domains:
++    maxItems: 1
 +
-+		gpu_hw_cal_a: hw-cal-a {
-+			status = "disabled";
-+		};
++  mboxes:
++    maxItems: 1
 +
-+		gpu_hw_cal_b: hw-cal-b {
-+			status = "disabled";
-+		};
++  memory-region:
++    items:
++      - description: Region containing GPU MMU TTBs
++      - description: Region containing GPU MMU page tables
++      - description:
++          Region containing a shared handoff structure for VM
++          management coordination
++      - description: Calibration blob. Mostly power-related configuration
++      - description: Calibration blob. Mostly GPU-related configuration
++      - description: Shared global variables with GPU firmware
 +
-+		uat_handoff: uat-handoff {
-+			status = "disabled";
-+		};
++  memory-region-names:
++    items:
++      - const: ttbs
++      - const: pagetables
++      - const: handoff
++      - const: hw-cal-a
++      - const: hw-cal-b
++      - const: globals
 +
-+		uat_pagetables: uat-pagetables {
-+			status = "disabled";
-+		};
++  apple,firmware-abi:
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    minItems: 3
++    description:
++      macOS version the current firmware is paired with, used to pick
++      the version of firmware ABI to be used.
++      Bootloader will overwrite this
 +
-+		uat_ttbs: uat-ttbs {
-+			status = "disabled";
-+		};
-+	};
- };
-diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-index 110bc6719512e334e04b496fb157cb4368679957..341307330bfaa17b276d9c23a87931dbe71bd186 100644
---- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-@@ -302,6 +302,34 @@ mca: mca@39b600000 {
- 		#sound-dai-cells = <1>;
- 	};
- 
-+	gpu: gpu@406400000 {
-+		compatible = "apple,agx-g13s";
-+		reg = <0x4 0x6400000 0 0x40000>,
-+			<0x4 0x4000000 0 0x1000000>;
-+		reg-names = "asc", "sgx";
-+		mboxes = <&agx_mbox>;
-+		power-domains = <&ps_gfx>;
-+		memory-region = <&uat_ttbs>, <&uat_pagetables>, <&uat_handoff>,
-+				<&gpu_hw_cal_a>, <&gpu_hw_cal_b>, <&gpu_globals>;
-+		memory-region-names = "ttbs", "pagetables", "handoff",
-+				      "hw-cal-a", "hw-cal-b", "globals";
++required:
++  - compatible
++  - reg
++  - mboxes
++  - memory-region
++  - apple,firmware-abi
 +
-+		apple,firmware-abi = <0 0 0>;
-+	};
++additionalProperties: false
 +
-+	agx_mbox: mbox@406408000 {
-+		compatible = "apple,t6000-asc-mailbox", "apple,asc-mailbox-v4";
-+		reg = <0x4 0x6408000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 1059 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ 0 1060 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ 0 1061 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ 0 1062 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+			"recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+	};
++examples:
++  - |
++    gpu@6400000 {
++        compatible = "apple,agx-g13g";
++        reg = <0x6400000 0x40000>,
++              <0x4000000 0x1000000>;
++        reg-names = "asc", "sgx";
++        mboxes = <&agx_mbox>;
++        power-domains = <&ps_gfx>;
++        memory-region = <&uat_ttbs>, <&uat_pagetables>, <&uat_handoff>,
++                        <&gpu_hw_cal_a>, <&gpu_hw_cal_b>, <&gpu_globals>;
++        memory-region-names = "ttbs", "pagetables", "handoff",
++                              "hw-cal-a", "hw-cal-b", "globals";
 +
- 	pcie0_dart_0: iommu@581008000 {
- 		compatible = "apple,t6000-dart";
- 		reg = <0x5 0x81008000 0x0 0x4000>;
-diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-index 20faf0c0d80927b2e18dd966a61b5507b322c72f..531cfcd463ae6d8701dec67cde8c953b8865eef6 100644
---- a/arch/arm64/boot/dts/apple/t8103.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-@@ -19,6 +19,10 @@ / {
- 	#address-cells = <2>;
- 	#size-cells = <2>;
- 
-+	aliases {
-+		gpu = &gpu;
-+	};
-+
- 	cpus {
- 		#address-cells = <2>;
- 		#size-cells = <0>;
-@@ -351,6 +355,36 @@ nco_clkref: clock-ref-nco {
- 		clock-output-names = "nco_ref";
- 	};
- 
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		gpu_globals: globals {
-+			status = "disabled";
-+		};
-+
-+		gpu_hw_cal_a: hw-cal-a {
-+			status = "disabled";
-+		};
-+
-+		gpu_hw_cal_b: hw-cal-b {
-+			status = "disabled";
-+		};
-+
-+		uat_handoff: uat-handoff {
-+			status = "disabled";
-+		};
-+
-+		uat_pagetables: uat-pagetables {
-+			status = "disabled";
-+		};
-+
-+		uat_ttbs: uat-ttbs {
-+			status = "disabled";
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		#address-cells = <2>;
-@@ -359,6 +393,34 @@ soc {
- 		ranges;
- 		nonposted-mmio;
- 
-+		gpu: gpu@206400000 {
-+			compatible = "apple,agx-g13g";
-+			reg = <0x2 0x6400000 0 0x40000>,
-+				<0x2 0x4000000 0 0x1000000>;
-+			reg-names = "asc", "sgx";
-+			mboxes = <&agx_mbox>;
-+			power-domains = <&ps_gfx>;
-+			memory-region = <&uat_ttbs>, <&uat_pagetables>, <&uat_handoff>,
-+					<&gpu_hw_cal_a>, <&gpu_hw_cal_b>, <&gpu_globals>;
-+			memory-region-names = "ttbs", "pagetables", "handoff",
-+					      "hw-cal-a", "hw-cal-b", "globals";
-+
-+			apple,firmware-abi = <0 0 0>;
-+		};
-+
-+		agx_mbox: mbox@206408000 {
-+			compatible = "apple,t8103-asc-mailbox", "apple,asc-mailbox-v4";
-+			reg = <0x2 0x6408000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 575 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 576 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 577 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 578 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "send-empty", "send-not-empty",
-+				"recv-empty", "recv-not-empty";
-+			#mbox-cells = <0>;
-+		};
-+
- 		cpufreq_e: performance-controller@210e20000 {
- 			compatible = "apple,t8103-cluster-cpufreq", "apple,cluster-cpufreq";
- 			reg = <0x2 0x10e20000 0 0x1000>;
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index e95711d8337f6cea898e88a3d564caf2c4f94404..b41b9f8fa122b13b9bf20dcb7135049e11e1819f 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -19,6 +19,10 @@ / {
- 	#address-cells = <2>;
- 	#size-cells = <2>;
- 
-+	aliases {
-+		gpu = &gpu;
-+	};
-+
- 	cpus {
- 		#address-cells = <2>;
- 		#size-cells = <0>;
-@@ -366,6 +370,36 @@ nco_clkref: clock-ref-nco {
- 		clock-output-names = "nco_ref";
- 	};
- 
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		gpu_globals: globals {
-+			status = "disabled";
-+		};
-+
-+		gpu_hw_cal_a: hw-cal-a {
-+			status = "disabled";
-+		};
-+
-+		gpu_hw_cal_b: hw-cal-b {
-+			status = "disabled";
-+		};
-+
-+		uat_handoff: uat-handoff {
-+			status = "disabled";
-+		};
-+
-+		uat_pagetables: uat-pagetables {
-+			status = "disabled";
-+		};
-+
-+		uat_ttbs: uat-ttbs {
-+			status = "disabled";
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		#address-cells = <2>;
-@@ -374,6 +408,34 @@ soc {
- 		ranges;
- 		nonposted-mmio;
- 
-+		gpu: gpu@206400000 {
-+			compatible = "apple,agx-g14g";
-+			reg = <0x2 0x6400000 0 0x40000>,
-+				<0x2 0x4000000 0 0x1000000>;
-+			reg-names = "asc", "sgx";
-+			mboxes = <&agx_mbox>;
-+			power-domains = <&ps_gfx>;
-+			memory-region = <&uat_ttbs>, <&uat_pagetables>, <&uat_handoff>,
-+					<&gpu_hw_cal_a>, <&gpu_hw_cal_b>, <&gpu_globals>;
-+			memory-region-names = "ttbs", "pagetables", "handoff",
-+					      "hw-cal-a", "hw-cal-b", "globals";
-+
-+			apple,firmware-abi = <0 0 0>;
-+		};
-+
-+		agx_mbox: mbox@206408000 {
-+			compatible = "apple,t8103-asc-mailbox", "apple,asc-mailbox-v4";
-+			reg = <0x2 0x6408000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 709 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 710 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 711 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 712 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "send-empty", "send-not-empty",
-+				"recv-empty", "recv-not-empty";
-+			#mbox-cells = <0>;
-+		};
-+
- 		cpufreq_e: cpufreq@210e20000 {
- 			compatible = "apple,t8112-cluster-cpufreq", "apple,cluster-cpufreq";
- 			reg = <0x2 0x10e20000 0 0x1000>;
++        apple,firmware-abi = <0 0 0>;
++    };
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a92290fffa163f9fe8fe3f04bf66426f9a894409..2a32c9c4ee355a1109a3e2031ea3663c39cc8c68 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2331,6 +2331,7 @@ F:	Documentation/devicetree/bindings/arm/apple/*
+ F:	Documentation/devicetree/bindings/clock/apple,nco.yaml
+ F:	Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+ F:	Documentation/devicetree/bindings/dma/apple,admac.yaml
++F:	Documentation/devicetree/bindings/gpu/apple,agx.yaml
+ F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
+ F:	Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+ F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
 
 -- 
 2.50.1
