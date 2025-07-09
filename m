@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13774C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 15:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8013FC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 15:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQ9HxQ4CL5cwBPjvKDpDZamXchNvQ4T7qK3P3nj85G8=; b=SctCokEmQ/rBJLgyMlWbCCXcpt
-	7NPF1X0HNj0sdGVjWl8Ph0OcneJ0S1VvBzPhcni5d5WGJaplbUqCPpFk91FvQh+e/+BDJc9901Wt8
-	+Mitks/idjF/qgRAx7Yrhgg2qR0b3XK0iZYicSvnS19tY+KD5qbs5C4zBt8/GibMeHrLE5olcVZ1v
-	H71JCmSJT1TyC1fWkz9wmMemkGHMonKBX4BZm6RgU55cvECCMk1IZzh3H1lPCzOL5NXQ31+S4+jTC
-	WuOxyFUjwOpwTCqC/0TYVN9BnR1BbZ1K+h5kXs+tdP5qO1tD7F92gb4fXoWvz1vEYXPSKwQ2V7PWx
-	sGJ0jIfA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=gBDVt81+Z6+bypTYiB2xxBDHd4XxKl0bgApuFHkZzZo=; b=YzNktaEpGOKEjJ
+	x9o1DJnjdpX6IaZ+u/mS7eFZn4IqDqjx/aTk+hn5p6xASa39/c01rr2QVLM3/oc2Pl8jpmCvl43ld
+	9brr8JWf4LiBVOVIZ8aMwexoKQgZgMQys9B9MiTSU1SXZiNMz1VZI9L3cIUFs9rqkFslT51S5Bde8
+	X36NIGBBk0Mf5grZrKMG9q5ctF0zxnszxfvNd0ZaxwkTIlGtEQLcIBdWslr5Fsngafm19flsDC1A7
+	oAQkT8+NE7fXPyFzJ5lwYCOpF2PmPRiOoQXCZQGZy2NjEpN3BT13myYo+OGriG7A0gWEThu3ouaEE
+	f0JKI6g+dxxhS1ZvD1Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZX31-00000009D98-0vGl;
-	Wed, 09 Jul 2025 15:49:27 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uZX5J-00000009DRK-49eu;
+	Wed, 09 Jul 2025 15:51:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZUmO-00000008m2x-1mgp
+	id 1uZUn6-00000008mAU-2vRN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 13:24:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=hQ9HxQ4CL5cwBPjvKDpDZamXchNvQ4T7qK3P3nj85G8=; b=Fe0jgGsoitEJIzGGN64xp/8LbW
-	PSANpYST+y4jFNuWxPL1FSw9Flcaw2JOQJMywR6O1NmbtVZaaIcBQ3wgcPIKZTgcvt2Dn424ws8lh
-	9BeU8GQk5eVXBWpUMgiEqoUxiNo1BrJuW5CszAKN9N1V4/Fswlmq39ewio9vZF4N7ULg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uZUmG-000waz-04; Wed, 09 Jul 2025 15:24:00 +0200
-Date: Wed, 9 Jul 2025 15:23:59 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
-	andrew@codeconstruct.com.au, mturquette@baylibre.com,
-	sboyd@kernel.org, p.zabel@pengutronix.de, horms@kernel.org,
-	jacob.e.keller@intel.com, u.kleine-koenig@baylibre.com,
-	hkallweit1@gmail.com, BMC-SW@aspeedtech.com
-Subject: Re: [net-next v4 4/4] net: ftgmac100: Add optional reset control for
- RMII mode on Aspeed SoCs
-Message-ID: <3dee14d4-c8bd-4c27-b9b1-28b449510b84@lunn.ch>
-References: <20250709070809.2560688-1-jacky_chou@aspeedtech.com>
- <20250709070809.2560688-5-jacky_chou@aspeedtech.com>
+	Wed, 09 Jul 2025 13:24:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E11B161425;
+	Wed,  9 Jul 2025 13:24:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69982C4CEEF;
+	Wed,  9 Jul 2025 13:24:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752067491;
+	bh=WCdeg512n7u0cYs8soM74LBJQEoLwV928d5GHL9redY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=daa2njfv+WZNVqfEWPj7nNEdKg0R9rUe8W+gAG9pzoDGWAyQ3uD6ME3saw+esFTdf
+	 Rt3Gp7miu7zq71+O8mKdojUijnJ0fe82W+0Um9afNSvZulMKuqzwhmH+GyyS8S7ZFv
+	 9an8Fz5OzWMeSQQ9S84xPde5eK4HUNerE9GD43X1sbhl86eTzMq+eKInNJM3jekOi0
+	 WIk6f14cRbB/FhF8IwzwbTzMyy/7NYpYPNQglLTE80eYucCI+aiiePL9aQAN6a8VEU
+	 PHKJ1mfcwRO3TxqetXiP/6qg6YXIQu+8l63T24yi8N/NDIklzDPvhUiTRIA353VXwJ
+	 QQoip09fhKSwQ==
+Date: Wed, 9 Jul 2025 08:24:49 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Claudiu <claudiu.beznea@tuxon.dev>, bhelgaas@google.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	geert+renesas@glider.be, magnus.damm@gmail.com,
+	catalin.marinas@arm.com, will@kernel.org, mturquette@baylibre.com,
+	sboyd@kernel.org, p.zabel@pengutronix.de, lizhi.hou@amd.com,
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>
+Subject: Re: [PATCH v3 4/9] dt-bindings: PCI: renesas,r9a08g045s33-pcie: Add
+ documentation for the PCIe IP on Renesas RZ/G3S
+Message-ID: <20250709132449.GA2193594@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250709070809.2560688-5-jacky_chou@aspeedtech.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_062408_460239_80274E87 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <7f3863b5-eb7c-494e-951c-feb257bbaecf@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 03:08:09PM +0800, Jacky Chou wrote:
-> On Aspeed SoCs, the internal MAC reset is insufficient to fully reset the
-> RMII interface; only the SoC-level reset line can properly reset the RMII
-> logic. This patch adds support for an optional "resets" property in the
-> device tree, allowing the driver to assert and deassert the SoC reset line
-> when operating in RMII mode. This ensures the MAC and RMII interface are
-> correctly reset and initialized.
+On Wed, Jul 09, 2025 at 08:47:05AM +0200, Krzysztof Kozlowski wrote:
+> On 08/07/2025 18:34, Bjorn Helgaas wrote:
+> > On Fri, Jul 04, 2025 at 07:14:04PM +0300, Claudiu wrote:
+> >> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >>
+> >> The PCIe IP available on the Renesas RZ/G3S complies with the PCI Express
+> >> Base Specification 4.0. It is designed for root complex applications and
+> >> features a single-lane (x1) implementation. Add documentation for it.
+> > 
+> >> +++ b/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
+> > 
+> > The "r9a08g045s33" in the filename seems oddly specific.  Does it
+> > leave room for descendants of the current chip that will inevitably be
+> > added in the future?  Most bindings are named with a fairly generic
+> > family name, e.g., "fsl,layerscape", "hisilicon,kirin", "intel,
+> > keembay", "samsung,exynos", etc.
+> > 
 > 
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> Bindings should be named by compatible, not in a generic way, so name is
+> correct. It can always grow with new compatibles even if name matches
+> old one, it's not a problem.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Ok, thanks!
 
-    Andrew
+I guess that means I'm casting shade on the "r9a08g045s33" compatible.
+I suppose it means something to somebody.
+
+Bjorn
 
