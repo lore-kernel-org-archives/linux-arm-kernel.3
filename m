@@ -4,84 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C89DC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 06:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A0AC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 06:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vUc1rTTw2VyF7BAekd7omjo2Z8aYGYza6CVNbqcGY2U=; b=ZM+8COanAUhONFQGqNwvGiKag0
-	N0ZrOeAXUy9eJAYNt3zPf790AWfZe2GkdUpy8bGCrwwuoO6Ay6LKRrfCra5tQN19NTN8TZ2DwE2Yz
-	GYkKKC48YSCbU4v9+F7+haKpjC+lZ5fiL711sDDtCSJsU0Ap+ucuUQTv2+XIqF8xtCPDVpT72uTQL
-	XVklcSAaMQ1JGThS6jIY1myKuL5H169HYKzZ0HXgOUkbXYRb04V0cWBsHZXNx1IMttfoIrp+w36WS
-	s7zrr88cRQz9D8mzU+IaRW0TmMM+9v43UB+ptDdKQCYMxRzkXDlIpHVFMDzxgXpcWRGFobTg2snMs
-	aY+SmopA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zBUzUdqctRS3Kbs4jrLWahG8PDR6KJCN1AYI/hbRo98=; b=CMTjiXddoNall8rW2y7hJiyLts
+	JLOcdKE2H+wL3TqQh4QLhUzHr3m7FbBDK10Vss4ZcPBuYzYDxYORcrrURexl9RZFiMKTuDJzHWngS
+	/Q1WH6N8yORvGzMfA0FcVpw7Lvkw0myf1nwwfrXbIfC0UCzk220puZ5B+zOJ/ZIbQWXkqaHfBn2YZ
+	Xb6hFSs3wv/VJmE8HUUmNF+D41IMSibSKxy4bWNICjPR1LJ19D3WY1MZkV0cAF4Lzvq+Q7CD/fLIQ
+	QjWHEmwa5vaR9rSHY2vwNn0+FciM24MYbUGgC3NFxOi4INGCR6P85zp0pzfE5zimeqVmz+Y+UC3lO
+	zdCuJT+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOT0-00000007gZz-0rU3;
-	Wed, 09 Jul 2025 06:39:42 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1uZOVJ-00000007h1m-2Unh;
+	Wed, 09 Jul 2025 06:42:05 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOQ3-00000007gJw-2XYs
+	id 1uZOSs-00000007gZI-3ukD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 06:36:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 4CBC64435E;
-	Wed,  9 Jul 2025 06:36:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752042994;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vUc1rTTw2VyF7BAekd7omjo2Z8aYGYza6CVNbqcGY2U=;
-	b=KRn8V0Zu0jfIjR28YR78LyIj8tqF3rpxEbNoc3XNnxRi4aiiY/gECZ+tae/K/8LhdGI9tD
-	UpSGuZpA8HRAJL7Upe2d7+exLpLO1ditmmG2MwmYf5tuI+EkAz4JCWrWmOCEAZ280BveNy
-	uAuDKP/tG/i+8krVn1cYjqS451yYW3M0bubz7NN1UkBgB0urhghuq+jtdJRUly0mOHD9Zz
-	KdT1ByLn3BPKYv7vu0mnLVu602OfAhMjLmjQKxtJqU2cpqfy7XWDfbxSwJQGpPZUHjC9GB
-	anUGsx253/1Obtp2OXvDkdMhT9gzxIPqjGVf8B1xqWaBrS2uxNsHCck9FVzbOw==
-Date: Wed, 9 Jul 2025 08:36:29 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Rob Herring <robh@kernel.org>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>, Dimitri
- Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v7 01/15] dt-bindings: net: Introduce the
- ethernet-connector description
-Message-ID: <20250709083629.51c95507@fedora>
-In-Reply-To: <20250708155733.GA481837-robh@kernel.org>
-References: <20250630143315.250879-1-maxime.chevallier@bootlin.com>
-	<20250630143315.250879-2-maxime.chevallier@bootlin.com>
-	<20250708155733.GA481837-robh@kernel.org>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Wed, 09 Jul 2025 06:39:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1752043158; x=1752647958;
+	i=jan-david-voelkel@web.de;
+	bh=zBUzUdqctRS3Kbs4jrLWahG8PDR6KJCN1AYI/hbRo98=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Wc7nGcMOVhuS6lLNr05rBgXge57LMSiMueLr/MVuPZwk3gW28L3pf9NgTyQSiA3B
+	 wdhrNBOrKLIYXgzyl57/be7QHyz8yW8RKchekgE1m2LKg2G9+Rsi9Rp7lsjmq+yGj
+	 1i3FSwsXHCkvrnX9cGwelJ5tHLk26FHlQeVMkpSBPJa9/Pca8C9YDBDrdifRjZP9a
+	 ntg8Ft6MH9tc29/CjiQ/MDb/7IhgksBCf1CuItcqgSknQWOrgdhEAXo0EiMwEMpgD
+	 Pt0P/YP2vxkaxVjAtGQF2xQLTl8MOpJKoBzIXIDshCopM/Pz2MfjY8IXrmxhfwGDl
+	 ojrox60ufG2QtYT9cg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from MXODN22542.mvad.local ([95.112.233.210]) by smtp.web.de
+ (mrweb105 [213.165.67.124]) with ESMTPSA (Nemesis) id
+ 1N8Vsx-1un7tU42jZ-00xBwN; Wed, 09 Jul 2025 08:39:18 +0200
+From: Jan-David Voelkel <jan-david-voelkel@web.de>
+To: Oleksij Rempel <o.rempel@pengutronix.de>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Janitawa <jan-david-voelkel@web.de>
+Subject: [PATCH] i2c-imx: fix broken GPIO bus recovery due to missing recover_bus assignment
+Date: Wed,  9 Jul 2025 08:39:04 +0200
+Message-ID: <20250709063904.22055-1-jan-david-voelkel@web.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefieekiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedvudehfffgudefhfefgeeufeekkeekheeufeeiudehtdehuddtgedvvdfhueeuteenucffohhmrghinhepuggvvhhitggvthhrvggvrdhorhhgnecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeftddprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesv
- hhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:XMtQhkgR34XjXAIEt/rXiyq2mhaNPCH75KNk+Ughr00A9KFjees
+ Ce50fH9fo1DwIP1M6CCfq0B3+iQJUIzjhVP2il73nTIp7WMp2G7kRJQVox4xQApm6jFw4jP
+ mH9X7GVe/+t3AbNwkugL4h5JXugu3E1xGSY8kO2c6laqOlDw3P3b6P7PqEtjXwiUjglHNwf
+ k5GtLVTFuNBzA5cfiWiWg==
+UI-OutboundReport: notjunk:1;M01:P0:vX5Dk7135jo=;VO8B/uyMo6AfXgqMmeneJcI8Yll
+ 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
+ shiBiFfkOrRWIYnUKrbZj5g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_233640_171581_EA1182B0 
-X-CRM114-Status: GOOD (  31.26  )
+X-CRM114-CacheID: sfid-20250708_233935_421448_52F51EB6 
+X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,113 +136,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+From: Janitawa <jan-david-voelkel@web.de>
 
-On Tue, 8 Jul 2025 10:57:33 -0500
-Rob Herring <robh@kernel.org> wrote:
+The transition to generic GPIO recovery support removed the
+driver-specific bus recovery logic but failed to assign the
+required recover_bus callback. This prevented the core from enabling
+recovery, effectively disabling the feature.
 
-> On Mon, Jun 30, 2025 at 04:33:00PM +0200, Maxime Chevallier wrote:
-> > The ability to describe the physical ports of Ethernet devices is useful
-> > to describe multi-port devices, as well as to remove any ambiguity with
-> > regard to the nature of the port.
-> > 
-> > Moreover, describing ports allows for a better description of features
-> > that are tied to connectors, such as PoE through the PSE-PD devices.
-> > 
-> > Introduce a binding to allow describing the ports, for now with 2
-> > attributes :
-> > 
-> >  - The number of lanes, which is a quite generic property that allows
-> >    differentating between multiple similar technologies such as BaseT1
-> >    and "regular" BaseT (which usually means BaseT4).
-> > 
-> >  - The media that can be used on that port, such as BaseT for Twisted
-> >    Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
-> >    ethernet, etc. This allows defining the nature of the port, and
-> >    therefore avoids the need for vendor-specific properties such as
-> >    "micrel,fiber-mode" or "ti,fiber-mode".
-> > 
-> > The port description lives in its own file, as it is intended in the
-> > future to allow describing the ports for phy-less devices.
-> > 
-> > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> > ---
-> >  .../bindings/net/ethernet-connector.yaml      | 47 +++++++++++++++++++
-> >  .../devicetree/bindings/net/ethernet-phy.yaml | 18 +++++++
-> >  MAINTAINERS                                   |  1 +
-> >  3 files changed, 66 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/net/ethernet-connector.yaml b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
-> > new file mode 100644
-> > index 000000000000..2aa28e6c1523
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
-> > @@ -0,0 +1,47 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/net/ethernet-connector.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Generic Ethernet Connector
-> > +
-> > +maintainers:
-> > +  - Maxime Chevallier <maxime.chevallier@bootlin.com>
-> > +
-> > +description:
-> > +  An Ethernet Connectr represents the output of a network component such as  
-> 
-> typo
-> 
-> > +  a PHY, an Ethernet controller with no PHY, or an SFP module.
-> > +
-> > +properties:
-> > +
-> > +  lanes:
-> > +    description:
-> > +      Defines the number of lanes on the port, that is the number of physical
-> > +      channels used to convey the data with the link partner.
-> > +    $ref: /schemas/types.yaml#/definitions/uint32  
-> 
-> maximum?
-> 
-> Or I'd guess this is power of 2 values?
+This commit restores the assignment to ensure proper recovery
+initialization.
 
-All values that exist so far are indeed power of 2 values, but that's
-not a strict requirement, there may be other values one day. I'll add
-all possible values (1, 2 , 4 , 8) so far.
-> 
-> > +
-> > +  media:
-> > +    description:
-> > +      The mediums, as defined in 802.3, that can be used on the port.
-> > +    items:
-> > +      enum:
-> > +        - BaseT
-> > +        - BaseK
-> > +        - BaseS
-> > +        - BaseC
-> > +        - BaseL
-> > +        - BaseD
-> > +        - BaseE
-> > +        - BaseF
-> > +        - BaseV
-> > +        - BaseMLD
-> > +        - BaseX  
+Signed-off-by: Janitawa <jan-david-voelkel@web.de>
+=2D--
+ drivers/i2c/busses/i2c-imx.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Heh I need to remove BaseX
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index c5224d43eea4..421f6da61f00 100644
+=2D-- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -1375,6 +1375,8 @@ static int i2c_imx_init_recovery_info(struct imx_i2c=
+_struct *i2c_imx,
+ 	if (IS_ERR(bri->pinctrl))
+ 		return PTR_ERR(bri->pinctrl);
+=20
++	bri->recover_bus =3D i2c_generic_scl_recovery;
++
+ 	i2c_imx->adapter.bus_recovery_info =3D bri;
+=20
+ 	return 0;
+=2D-=20
+2.43.0
 
-> 
-> This can be multiple values? But then how does one know what is actually 
-> attached?
-
-I don't see a scenario where we would put multiple values actually. I
-need to update the code accordingly, but if we are in the case where we
-need to specify in DT which medium we use, then that means we can only
-use one.
-
-Thanks you for reviewing,
-
-Maxime
 
