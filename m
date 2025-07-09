@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85214C83F12
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202F0C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hSvqoLf0LP5lzWLW+28LdzLoZ3lXqAKVepinrDPL/NU=; b=rTYkb1Pnp8xIUyY8k3qj+jRX/b
-	82qZnaaR1AItijbZe/Lg1duFEA4+Fxq0bVrqhjR9tph/hR86gU92RbxUn8AUJnNb+doUNLYNT2yMp
-	xItfMV1W3VfI5Tpf0LUt+Q7X/D7Dn/k5bebBQUfg3FMc39fZm6A9Ul9wCN3z4lG3eLIFYIZWVTAJu
-	aO2+002qO15RXphvn98lnLo44oQvFZiutUakEgKxThX9I0KjNqq3ugkiOt3OWSHh7qslvBN6El4vu
-	jmq7nb6mv2FBrcvfnRXj0i28MeU6jVS5QKU72SLFlnvJjYSxreeuMhg6vHv3/oZFGpmqSDQKEm4tG
-	JJfcbkSg==;
+	bh=xOjCg4XbxOkhT8S8sZPEP73rpNtOVJZ5nJWx075Q+eE=; b=a9lpCvfLpI1xmXCrUXONP2x9Er
+	pi9JZtIEXHvOP9JzFVcyU7yvAeDLTzWSviyD89NJdpGpL9NOGYSF/fH0pKsXBdBwsO/aIYYV55fcC
+	odhtCatnvBX7IHmHzd1gVL5RACzPItfEfk1seRBL5GS5K6umNlJ1vNwn0QJ15Qn4090MVUvymoqWQ
+	XfBzQEU2UD7WK4Q8wal1Tgv0hQUUK1znuYUJpVZsjBcnusOKsw6ZZti1GAWQzG/mL/8O/0dGqBCHt
+	ATYepQQv8O0FLHxzVuQxH7WrjNwqBc2CWLMB8vg5gBF9bsWdZQDqppmCJ4jLB8ueki+DyNqFvrpR4
+	SWmz3xVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZa5t-00000009d7o-06oh;
-	Wed, 09 Jul 2025 19:04:37 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uZa63-00000009dRR-1rlv;
+	Wed, 09 Jul 2025 19:04:47 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZWSQ-000000097CZ-35Aw;
-	Wed, 09 Jul 2025 15:11:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=hSvqoLf0LP5lzWLW+28LdzLoZ3lXqAKVepinrDPL/NU=; b=ivXLvStVMsA2ZVrqLyZJY7hMse
-	yCNz2LW2NI8wqvB45/u+ezwSkR0PCxZnV3CgyQPEW43N924bNvJI5PoMRd4e3lDjj4acP7DhN1fJR
-	9q0PMiSldEnVbeshyHPuwsiOmlsldPQVR7SJXj4yCXDSE6sHAc5QCgnV+F3/VnghCDaUwS+9O3f7y
-	RaXWUspJQHBmZk3BgiNeFsp/Ygw9R5ay9gY747RFIaP8UswuF0yIoYFfsm+BEooABjXnojhZPmtNv
-	6IcwCgse+kV94xYkRz6VG9nU1Rh6aa6CBeAetFZSbP6JpSKhtd0mKj0BYw8f3kaoQ4CImlctKmOiW
-	H2cE3Kfg==;
-Received: from i53875a79.versanet.de ([83.135.90.121] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uZWSF-0004jl-6x; Wed, 09 Jul 2025 17:11:27 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Diederik de Haas <didi.debian@cknow.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Add reset button to NanoPi R5S
-Date: Wed, 09 Jul 2025 17:11:26 +0200
-Message-ID: <5360173.ktpJ11cQ8Q@diego>
-In-Reply-To: <ea6f2815-5882-4fab-8372-1c252a87e09a@kernel.org>
-References: <20250709105715.119771-1-didi.debian@cknow.org>
- <DB7HDOPFOQAE.3NG4SP67ES80J@cknow.org>
- <ea6f2815-5882-4fab-8372-1c252a87e09a@kernel.org>
+	id 1uZWXv-000000098QU-3Nae
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Jul 2025 15:17:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=xOjCg4XbxOkhT8S8sZPEP73rpNtOVJZ5nJWx075Q+eE=; b=y8wzZTnpsTg0FnFL3ruJPMnfCs
+	4SAUf9W1zsjwJ9bwsBAqpEkCDCK441+3WUMr+3M5HjRS4r68s07b7M1DCm5fZoyBxTp4uZ+ORdJlx
+	IrKAcri0wEJcSe6UuHU3ZWu9cftE4qz4TnB/+agXCAzn35OfwCx3AL9UFzvN2o1BmIBQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uZWXu-000xJZ-3C; Wed, 09 Jul 2025 17:17:18 +0200
+Date: Wed, 9 Jul 2025 17:17:18 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ioana Ciornei <ioana.ciornei@nxp.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Shawn Guo <shawnguo@kernel.org>, Michael Walle <mwalle@kernel.org>,
+	Lee Jones <lee@kernel.org>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 5/9] drivers: gpio: add QIXIS FPGA GPIO controller
+Message-ID: <898af9ea-9b90-4d1f-8e0d-a8e0686d72a7@lunn.ch>
+References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
+ <20250709112658.1987608-6-ioana.ciornei@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250709112658.1987608-6-ioana.ciornei@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_081138_793843_2E2AC57F 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20250709_081719_844988_437732F1 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,60 +75,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 9. Juli 2025, 16:18:17 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Krzysztof Kozlowski:
-> On 09/07/2025 13:17, Diederik de Haas wrote:
-> >>>  		compatible =3D "gpio-leds";
-> >>>  		pinctrl-names =3D "default";
-> >>> @@ -127,6 +140,12 @@ eth_phy0_reset_pin: eth-phy0-reset-pin {
-> >>>  		};
-> >>>  	};
-> >>> =20
-> >>> +	gpio-keys {
-> >>> +		gpio4_a0_k1: gpio4-a0-k1 {
-> >>
-> >> Are you sure that this passes checks?
-> >=20
-> > I did the following:
-> >=20
-> > ```sh
-> > export PATH=3D~/dev/kernel.org/dt-schema-venv/bin/:$PATH CROSS_COMPILE=
-=3Daarch64-linux-gnu- ARCH=3Darm64
-> > make distclean
-> > make debarm64_defconfig
-> > make CHECK_DTBS=3Dy W=3D1 rockchip/rk3568-nanopi-r5s.dtb
->=20
-> This looks fine.
->=20
-> > ```
-> >=20
-> > And it did not report any issues.
-> > Then booted up my NanoPi R5S and verified that with the updated dtb the
-> > reset button worked.
-> >=20
-> > If it's about the 'weird' name/label, it is what is used in the
-> > schematic document I have and I asked Heiko (on IRC) if using
-> > ``reset_button_pin: gpio4-a0-k1`` would not be better. That would make
-> > it more descriptive while also having the schematic traceability in it.
-> > The answer was no, use the form I used in this patch.
-> >=20
-> > Am I missing checks I should've done as well?
-> I meant that usually nodes, including pin controller mux/config nodes,
-> have specific prefixes or suffixes. Other cases have here as well. Your
-> does not.
+> A GPIO controller has a maximum of 8 lines (all found in the same
+> register). Even within the same controller, the GPIO lines' direction is
+> fixed, either output or input, without the possibility to change it.
 
-I guess this might have more to do with how deep people submitting DTs
-dive into the schematics.
+Since this is an FPGA, not silicon, is the selection of output or
+input a syntheses option?
 
-The "aim" has always been to just use the schematics/TRM names, which is
-true for the core soc pinctrl entries, and many if not most boards do this.
+> +static const struct of_device_id qixis_cpld_gpio_of_match[] = {
+> +	{
+> +		.compatible = "fsl,lx2160ardb-fpga-gpio-sfp2",
+> +		.data = &lx2160ardb_sfp2_cfg,
+> +	},
+> +	{
+> +		.compatible = "fsl,lx2160ardb-fpga-gpio-sfp3",
+> +		.data = &lx2160ardb_sfp3_cfg,
+> +	},
+> +	{
+> +		.compatible = "fsl,ls1046aqds-fpga-gpio-stat-pres2",
+> +		.data = &ls1046aqds_stat_pres2_cfg,
+> +	},
 
-I would assume the "lan1-led-pin" below the newly added one stems from
-a more "shallow dive" ;-) . I would assume that "lan1-led-pin" most
-likely has a different name in the schematics, and using that would've
-been better.
+Does the FPGA have an ID register you can read to confirm it is what
+you think it is?
 
+Or is the bitstream downloaded at boot by another driver? Can you ask
+that driver what bitstream it downloaded?
 
+Given how similar these devices are, it seems like a typ0 could give a
+mostly working device which passes testing, so doing some validation
+of the compatible against the actual FPGA would be nice.
 
-
+	Andrew
 
