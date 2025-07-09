@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4DDC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 08:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5223CC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 08:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BS97jhDzzUjHilWkR1sT96zjI2f6GoRHScLPeEPg0RU=; b=mO+1svOG21Q7mSmZ5BZNovxL+o
-	nvI0CoHr7jhXV2k+yoQnfvZu/VSDrDFYP8gFhPrTa3yLhcfICPqC8FU9vk76lLXoXHD5I4czo+Vbk
-	/Oz1HbHno3/vV4Ld6bSyjczmrV3AmYywpkwBWFKWfj0/J/OGqkVeJz46TrX6Ceyg+cWV+AzjARX48
-	V8ujYM7ZlOiMsZmCtrDRTgnj34GKIpGHg8pooCGK1fbvTLbgMq9f5ConAJGy6BNf3yW9KlzKADl/u
-	ELIURtx1dGDX7uoKx1lxECVwrGdjDv3XzSjo9R4G/yocJlhdVONVg7/1RhsaahnqwItaIr24+M6M8
-	faSq4V1Q==;
+	bh=TLzBkzMZx3nXjkG3sA+Jz4ZTdOlB3LKpk4gjEGSP4Qo=; b=Bu4XMkNMoDgEBroo2zGfUcSokQ
+	9r3NE4Px9+h5Udb1z8Ge4QaFMKQZKl0kqIjDyB2hSVwzpNQnbRlf2RUHJZHisGT79xRLIyZmp9XYZ
+	LQzl4oyJ6hTgcWnJZvMpxTw9U7x6XPVCRtYwlYORCFl8lWZ8AXbt+7Yg4Z2LfuSGmWVN1Z3dM5VAi
+	UfrTrSkFO3ssoqYEYfGPlUAlss4G4PCM/r3pXOvcQH6mQ2+qtNN6rbFENkUtPD4ku6SlIJUAjcuqb
+	WGIJWULzEssWYS071dbKXn/rCe9VEh3SOPbmmB6BboVKYEMezhMYvDeu1+LCr01VNp0ZHELIdz+H2
+	/cT+yUww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZQRT-000000080rI-1kHi;
-	Wed, 09 Jul 2025 08:46:15 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uZQTl-000000081FB-498X;
+	Wed, 09 Jul 2025 08:48:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZP95-00000007nr9-3F4J;
-	Wed, 09 Jul 2025 07:23:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=BS97jhDzzUjHilWkR1sT96zjI2f6GoRHScLPeEPg0RU=; b=orQ8efhAs5v/QafXjseL9pXPI/
-	CgaVQ97Na5+Upe7AffCWgKzKclIueLLeSr2poR4A3+cdqCc5Tkufd4htI5GsURYhYZW5mxkfhnpXr
-	5ezQccvInW7nwm1p1x2TFO8fAwLZvKI2sgNWQjAz0GoCsWvZNaJMra6m81ANjGODJ7PXvaQCYKESJ
-	0Gw3nLDwyfs/UPk9uulyn8UZn2BGbrLZNcX6UYjg6sP0Iz3tUvBvwWyV8RcrddWFU59MvqiHEHiIz
-	w5ZCETu3nbXgEWuguQe87tnyoP0eTCScwST/H1L3E3qYohjbgctjSV+rW8AT+0KMgP8cGSrTCqfSb
-	Eef0xYSQ==;
-Received: from i53875a79.versanet.de ([83.135.90.121] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uZP8t-0001Yu-5E; Wed, 09 Jul 2025 09:22:59 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
- William Breathitt Gray <wbg@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Kever Yang <kever.yang@rock-chips.com>, Yury Norov <yury.norov@gmail.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>,
- Leon Romanovsky <leon@kernel.org>, Lee Jones <lee@kernel.org>,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
- linux-iio@vger.kernel.org, kernel@collabora.com,
- Jonas Karlman <jonas@kwiboo.se>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH v2 4/7] soc: rockchip: add mfpwm driver
-Date: Wed, 09 Jul 2025 09:22:57 +0200
-Message-ID: <8203440.zQ0Gbyo6oJ@diego>
-In-Reply-To: <20250602-rk3576-pwm-v2-4-a6434b0ce60c@collabora.com>
-References: <20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com>
- <20250602-rk3576-pwm-v2-4-a6434b0ce60c@collabora.com>
+	id 1uZPCG-00000007oA5-0Hqn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Jul 2025 07:26:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 997C85C6684;
+	Wed,  9 Jul 2025 07:26:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE05EC4CEF0;
+	Wed,  9 Jul 2025 07:26:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752045986;
+	bh=XGJO1qF1W88jDv2eYg4J5OBrEhD7F5oGqMlB4fWt0hQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ArGgHdYCKZHsx/nbUhRZhct5u/CYQqQXkROnnVmQgUpnfnLwDBWZl2erF0xvtbu+z
+	 3IX8+1MzKkeL5/NrksE78L5M8ciRQzZjAWXcF6sdvSgtPPfKttGcUokP1Zbv/JfKP0
+	 RngaMY2AK3Votb88feOEXLXj5/xxYSKmePwl4/NUBpbEDBcTxZ9bKu0zAoOr5muHLg
+	 CCuVzmR7GIJIImbeN5Ki635W7gHy30bbZYEdevgkoZnsTI/o7vzM9GnXMGwk8t/+1A
+	 Eo+ymv0XAJ0u46oXlN7DPQtr2erqhFq967A9PSD12h7G6yo02PbfoT5ALlMuMkLTMR
+	 UcVXDNBgOOzGQ==
+Date: Wed, 9 Jul 2025 09:26:23 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org, Yong Deng <yong.deng@magewell.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
+Subject: Re: [PATCH v8 1/9] dt-bindings: media: sun6i-a31-csi: Add optional
+ interconnect properties
+Message-ID: <20250709-misty-coot-of-fantasy-cfadfa@houat>
+References: <20250704154628.3468793-1-paulk@sys-base.io>
+ <20250704154628.3468793-2-paulk@sys-base.io>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="3dp6stoy65fmjbt7"
+Content-Disposition: inline
+In-Reply-To: <20250704154628.3468793-2-paulk@sys-base.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_002311_837288_41E6879A 
-X-CRM114-Status: GOOD (  31.23  )
+X-CRM114-CacheID: sfid-20250709_002628_167003_78FB9134 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,113 +79,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
 
-Am Montag, 2. Juni 2025, 18:19:15 Mitteleurop=C3=A4ische Sommerzeit schrieb=
- Nicolas Frattaroli:
-> With the Rockchip RK3576, the PWM IP used by Rockchip has changed
-> substantially. Looking at both the downstream pwm-rockchip driver as
-> well as the mainline pwm-rockchip driver made it clear that with all its
-> additional features and its differences from previous IP revisions, it
-> is best supported in a new driver.
+--3dp6stoy65fmjbt7
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v8 1/9] dt-bindings: media: sun6i-a31-csi: Add optional
+ interconnect properties
+MIME-Version: 1.0
+
+Hi,
+
+On Fri, Jul 04, 2025 at 05:46:18PM +0200, Paul Kocialkowski wrote:
+> An interconnect can be attached to the sun6i-a31-csi device, which is
+> useful to attach the dma memory offset. Add related properties.
 >=20
-> This brings us to the question as to what such a new driver should be.
-> To me, it soon became clear that it should actually be several new
-> drivers, most prominently when Uwe Kleine-K=C3=B6nig let me know that I
-> should not implement the pwm subsystem's capture callback, but instead
-> write a counter driver for this functionality.
->=20
-> Combined with the other as-of-yet unimplemented functionality of this
-> new IP, it became apparent that it needs to be spread across several
-> subsystems.
->=20
-> For this reason, we add a new platform bus based driver, called mfpwm
-> (short for "Multi-function PWM"). This "parent" driver makes sure that
-> only one device function driver is using the device at a time, and is in
-> charge of registering the platform bus devices for the individual device
-> functions offered by the device.
->=20
-> An acquire/release pattern is used to guarantee that device function
-> drivers don't step on each other's toes.
->=20
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
 > ---
+>  .../devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml  | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-=
+csi.yaml b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.=
+yaml
+> index 1aa5775ba2bc..978ef2dc0ae7 100644
+> --- a/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml
+> +++ b/Documentation/devicetree/bindings/media/allwinner,sun6i-a31-csi.yaml
+> @@ -40,6 +40,12 @@ properties:
+>    resets:
+>      maxItems: 1
+> =20
+> +  interconnects:
+> +    maxItems: 1
+> +
+> +  interconnect-names:
+> +    const: dma-mem
+> +
 
-> +/**
-> + * mfpwm_register_subdev - register a single mfpwm_func
-> + * @mfpwm: pointer to the parent &struct rockchip_mfpwm
-> + * @target: pointer to where the &struct platform_device pointer should =
-be
-> + *          stored, usually a member of @mfpwm
-> + * @name: sub-device name string
-> + *
-> + * Allocate a single &struct mfpwm_func, fill its members with appropria=
-te data,
-> + * and register a new platform device, saving its pointer to @target. The
-> + * allocation is devres tracked, so will be automatically freed on mfpwm=
- remove.
-> + *
-> + * Returns: 0 on success, negative errno on error
-> + */
-> +static int mfpwm_register_subdev(struct rockchip_mfpwm *mfpwm,
-> +				 struct platform_device **target,
-> +				 const char *name)
-> +{
-> +	struct rockchip_mfpwm_func *func;
-> +	struct platform_device *child;
-> +
-> +	func =3D devm_kzalloc(&mfpwm->pdev->dev, sizeof(*func), GFP_KERNEL);
-> +	if (IS_ERR(func))
-> +		return PTR_ERR(func);
-> +	func->irq =3D mfpwm->irq;
-> +	func->parent =3D mfpwm;
-> +	func->id =3D atomic_inc_return(&subdev_id);
-> +	func->base =3D mfpwm->base;
-> +	func->core =3D mfpwm->chosen_clk;
-> +	child =3D platform_device_register_data(&mfpwm->pdev->dev, name, func->=
-id,
-> +					      func, sizeof(*func));
-> +
-> +	if (IS_ERR(child))
-> +		return PTR_ERR(child);
-> +
-> +	*target =3D child;
-> +
-> +	return 0;
-> +}
-> +
-> +static int mfpwm_register_subdevs(struct rockchip_mfpwm *mfpwm)
-> +{
-> +	int ret;
-> +
-> +	ret =3D mfpwm_register_subdev(mfpwm, &mfpwm->pwm_dev, "pwm-rockchip-v4"=
-);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret =3D mfpwm_register_subdev(mfpwm, &mfpwm->counter_dev,
-> +				    "rockchip-pwm-capture");
-> +	if (ret)
-> +		goto err_unreg_pwm_dev;
-> +
-> +	return 0;
-> +
-> +err_unreg_pwm_dev:
-> +	platform_device_unregister(mfpwm->pwm_dev);
-> +
-> +	return ret;
-> +}
+Is it really optional? My experience (despite being a bit outdated by
+now) was that it was required for some SoCs, and missing for others.
 
-I still had this lingering feeling that this _is_ a MFD just with added
-sprinkles, so asked Lee on IRC about it:
+Maxime
 
-	<lag> Looks like an MFD to me
-	<lag> Yes, you can use an MFD core driver to control state / manage single=
-=2Duse resources
+--3dp6stoy65fmjbt7
+Content-Type: application/pgp-signature; name="signature.asc"
 
-So, citing Jean Luc Picard, "Make it so" ... please :-)
+-----BEGIN PGP SIGNATURE-----
 
-Heiko
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaG4ZmwAKCRAnX84Zoj2+
+dpfVAX4m0wIWlJi7yTBavd5fvPfWar3XkMuz34mrDcOQKDkPGg6ob/DSG06XQSRv
+JJDzvQQBfiDmcqsRoWtB2xTB/bD41pJBDgPdtqT5a0O13DZ464l3NFGDW16/98ZH
+pKK5MMhi4w==
+=m340
+-----END PGP SIGNATURE-----
 
-
+--3dp6stoy65fmjbt7--
 
