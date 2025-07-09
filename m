@@ -4,80 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667ACC83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010A6C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xz3YgJnlUNW47E+9cHkUH8RMoEMBsNQYKP2VJAdtDRM=; b=BVUlrc8Yai9/c21z8b4CkzyQN+
-	Gsr5z9qyOKaupyIqFOrEupTpO0FDogTCwECMzHdfRtkqCFE/m6xLpK2SWin3EOQbzAQR0erqx654H
-	m+3eUi0yGREd7Ht7y+ItWw768Iccya7Mno0F7DDVC7He/JxdMXObY9MD3m9vskmn2Qz+oO8BzRASr
-	h9zXsIDSJ2YFHu3LzrcibXAb5XxS8FwPSnZDen2wOQkpLCWs2tccO8lyza8Fd8fJrp5haPgsAY4Ow
-	+hWtAkfWlS+5ZkapnQ5Ch0aWiaIbaZL7BKL8A61VxlJNGN9fRWIxs5jpbUFkup8FZUVfMPpVKxOLm
-	Lzf2guOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jtytgNItlJgFy4oYQcn83LUARt7I0zsU6TFkZ3Z41Jc=; b=tvUOPngr7q5MrcTLM9c32NtQNn
+	N/lXb2ZaEk3bPkS1Y4Ctu/kzm8bpfK0C02dp4WUVnZhPmfXGU5lHg4VezGeSq5cCp1e3oddn7Z05b
+	nc4ph3xQJnff37irb5R0yY6MaLg0ihB9HxKyFiAP5qKkM6Kiird9g26HF4gO2D2tfgD/Ote9Ee0GC
+	FcCJUETMhtG7PkKUAK+gd1hnjE7QzLVBS/4Vs8T2ZfqAwGwMavtrGW7iOsuDQqL+QXbGD/1JziWku
+	UQYrHDaeRozHl5n3H7GJmfydnSfq97t51lQKa9VFb+ZVzWQkSHw7+zSB5e7HqrMm3xUwcm+OMMWIJ
+	3XkVMu/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZXVY-00000009Iar-0ZSA;
-	Wed, 09 Jul 2025 16:18:56 +0000
-Received: from mail-ed1-f46.google.com ([209.85.208.46])
+	id 1uZXXq-00000009Ik7-3PtV;
+	Wed, 09 Jul 2025 16:21:18 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVi8-00000008xxs-4BEE
+	id 1uZVkk-00000008yX6-2AJz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 14:23:50 +0000
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-60c5b7cae8bso9136749a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 07:23:48 -0700 (PDT)
+	Wed, 09 Jul 2025 14:26:31 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45363645a8eso39742895e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 07:26:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752071188; x=1752675988; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jtytgNItlJgFy4oYQcn83LUARt7I0zsU6TFkZ3Z41Jc=;
+        b=Vu//bnywFAlkadukdUTOkGgctcqOsx9NUkM5x/i8t+DGLgKztbbbybkLhc7L0qu3pv
+         pKc6bqomZWtXCU+mwsvqYGy7YWklcxwPYeSRL7yt3qiV59hBkAOsZbzaEgJobqFvf+TT
+         kAx2+r00C2+V5+K+eLl3IhlPdNg1aOlcTZz373SyQbcEwuUAHJ2FlOMOOJg6W4BvEz9U
+         jHrxz3Kn2OBUmJOY7HBzApPVR7oqbJiYmGXihhDjuIwT4WXBkNvETSjGs72KPxPl96JF
+         aXITbjZDRWr9HeatI76OfTX4kJIF6LjfF5gwM1TYzz8v3D9bWQOpfXEMYn2emI+sYSyo
+         6iWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752071027; x=1752675827;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xz3YgJnlUNW47E+9cHkUH8RMoEMBsNQYKP2VJAdtDRM=;
-        b=eFDvkLuEEGtjPj5DLSAGzQVMS8hCwxYJU4pan9il1AlYY1hnkVivBKE6zbjLi74zHF
-         b8nnsmZbmevM4qoQ/UydPdSB8Q42C/BRF3WYW4MMaHw6sFMzP50MOPwA67stu0nfB33L
-         ulzk751SkZPO9ywpNlQcuNMkHQNqpfI9cWawi0M+lpM6Py8Dv3Z4I7eAmdB0fhhk5g1A
-         ZpS6QAaoPTL6X8h7Sh/VmcqP7v9mcJKNR7Q37RdmBxPVDbjk/2fQjmtGOIPoPuj4q1Eb
-         Ea5OiPycChWLv2wguX/lf0rVsbwd/9Qt6ncKf1vzivw+b9LlR0yFsJZyjBbbvPrGwKYY
-         HgxA==
-X-Forwarded-Encrypted: i=1; AJvYcCXxWtlX5rV/Ps6juL+KL+qo8sTlPiQDEa3H9IwiZElEbU/igTsg4ZTCmerTUwEafxwCVxro29i2mgm/+wQo8+5N@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGiGN3W+RwktBLrYAItF0fn5bKmY9fZmnIPhGodMjm/xuTt4fU
-	i3QE09kTzNWOpolhgJUWV6VouJ2j20qRvuJA72QcHe1mJO/rz8IXEEIs
-X-Gm-Gg: ASbGncup77EV8dKItre4SGrHx8qWKv2nCZdTRfsVyqmZaakxFXhQoWzZU/u3AxQWE9U
-	Bjiqopp5eNoHyXIvrhQ2o1krvSmxsDs0GhP+5WvVAt3vNTLsFd43NnjXyjIluINMY3I9KKl0n0V
-	aw6C5i2qFY8Yqk7tnktc52hjwYxWsytkpvWhyjpKDb/ESakszLzzAKUJIvgHrmVX5xwhfxgMLMr
-	82wLzXILEjd2nUaidP54mqNjuBSArVgkUZE2CJ+gLXzIxN9cU/mNohBZ4F4qTYcE2gArUhuDkmy
-	qQ3supuzmzQkKCHyMSUz1N7/TMlZ0N8UkZpycZIjz8opUJPbHJVmtQ==
-X-Google-Smtp-Source: AGHT+IG9fbAxEwBEkk9DE/KSa7JmRtTm35JlrUR/YJvs45MqHuy9kT5yu1OfyqhuvJJX+KtoT208mA==
-X-Received: by 2002:a17:907:268e:b0:ae3:53b3:b67d with SMTP id a640c23a62f3a-ae6cf5592c8mr297705066b.1.1752071027086;
-        Wed, 09 Jul 2025 07:23:47 -0700 (PDT)
-Received: from gmail.com ([2a03:2880:30ff:71::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae3f62e0e21sm1096020466b.0.2025.07.09.07.23.45
+        d=1e100.net; s=20230601; t=1752071188; x=1752675988;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jtytgNItlJgFy4oYQcn83LUARt7I0zsU6TFkZ3Z41Jc=;
+        b=kUzQJTdUOLIceP8IxpsZB3Fs7au2nYAp7uONI8GhhyFbVUbJA5nFMfnlckYu/5HyVI
+         DwnTfNHLCsoEepRnwcFlsd+SDlkX80mm17U3nxsrjGENNXjfrnMQ+kb6tyfZrLbCR+cK
+         TQFeLpoUbuhkEGtIsci7kmXdFwUstV6H+Fc/BF66pQKRlN4z1iicHAtU7gSlxJYsRtmi
+         FzN2GhAhGBW14Fo5jYfNt49JvCV0KCMNH91Fvp6Xr7Q0xq9F9//ry0ojuwguDyMRrjlR
+         LUkZ2KVAYu8Q+OEqSIJTWP10UBCaBOOz7uGChjw2+BTsaxOEZIudbYifxDm3Dsg8x0ps
+         mcIw==
+X-Forwarded-Encrypted: i=1; AJvYcCWzP61cdmV3Dkm2PP1r2Z4ss88F+NI0EEVZMsWVbevWV9M+IC+gcZXg1JlDylJBxFPz+qmltSCeC03LsGXt/Of6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW0g/y9pawb6R50UxnpZxNencjCjClTcuYPqaQEGSaM9i4lvoB
+	iWSHkoKIZgqIho1uCPtNZUAEhxP6bSDFqL5QUO9iZxTCQL8+KT43zRNEeFhw1Hx6oYHhXQ==
+X-Gm-Gg: ASbGncsG6hXVvOQ1BX2BfiS0gVlAcGE7iDq0wC4ET4TG6ZHYfA7zFmdS0lOIOGnFNVA
+	CLIQNmuPB1fP2lNtEscdUw4FAgPVR2g2bcLKJ36euXwQDhDIt+GcFkOJpmf2aCl9r19VupkOAzz
+	RDJuvWWeBPKymh9G3uHVQh/pWx33B5R5BnwjAXhxP15Z8KMqjfhxFV4BdRxFHBwQs9hQcAcgg9F
+	tt0VL8r/bO1gpCTs63xE+1cd4efQpsSpjRq9rUSvAbq1v7a9b6Abtmz0vnao9FFBTg5q8bAg00M
+	PjHDsHooEb0kuDRv8L3PpWXDivfqoAu1enyWsRBdtkq7mxPrttiwn5Cc2zKT
+X-Google-Smtp-Source: AGHT+IFKMjL8yZjoTHKhlMwGjBnA9oWE7US7cP8cCvq33CCZA8+5Z7xIu2VBWIJ+Dut2TX5qYxxQ5A==
+X-Received: by 2002:a05:600c:4f11:b0:43d:9d5:474d with SMTP id 5b1f17b1804b1-454d522d0d0mr29893125e9.0.1752071187906;
+        Wed, 09 Jul 2025 07:26:27 -0700 (PDT)
+Received: from localhost ([87.254.0.133])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-454cdb31d21sm46723505e9.1.2025.07.09.07.26.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Jul 2025 07:23:46 -0700 (PDT)
-Date: Wed, 9 Jul 2025 07:23:44 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Mark Rutland <mark.rutland@arm.com>, ankita@nvidia.com, 
-	bwicaksono@nvidia.com
-Cc: rmk+kernel@armlinux.org.uk, catalin.marinas@arm.com, 
-	linux-serial@vger.kernel.org, rmikey@meta.com, linux-arm-kernel@lists.infradead.org, 
-	usamaarif642@gmail.com, leo.yan@arm.com, linux-kernel@vger.kernel.org, 
-	paulmck@kernel.org
-Subject: Re: arm64: csdlock at early boot due to slow serial (?)
-Message-ID: <juiog3337iozva23zpf4apdydegj4z7jibqykfvcgnkabemw4w@z5g5hhwrqr2w>
-References: <aGVn/SnOvwWewkOW@gmail.com>
- <aGZbYmV26kUKJwu_@J2N7QTR9R3>
- <aGaQBghdAl8VGWmV@gmail.com>
- <aGawTd8N2i8MDCmL@J2N7QTR9R3>
- <aG0kYjl/sphGqd4r@gmail.com>
+        Wed, 09 Jul 2025 07:26:27 -0700 (PDT)
+From: Colin Ian King <colin.i.king@gmail.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org
+Cc: kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH][next] irqchip/gic-v5: Fix spelling mistake "ouside" -> "outside"
+Date: Wed,  9 Jul 2025 15:25:59 +0100
+Message-ID: <20250709142559.2154255-1-colin.i.king@gmail.com>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aG0kYjl/sphGqd4r@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_072349_036863_C943F7FC 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20250709_072630_552777_1003AFD1 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,119 +97,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 08, 2025 at 07:00:45AM -0700, Breno Leitao wrote:
-> On Thu, Jul 03, 2025 at 05:31:09PM +0100, Mark Rutland wrote:
-> 
-> Here is more information I got about this problem. TL;DR: While the
-> machine is booting, it is throttled by the UART speed, while having IRQ
-> disabled.
+There is a spelling mistake in a pr_err error message. Fix it.
 
-quick update: I've identified a solution that significantly improves the
-situation. I've found that the serial issue was heavily affecting boot
-time, which is unleashed now.
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+---
+ drivers/irqchip/irq-gic-v5-its.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-After applying the following fix, the boot speed has improved
-dramatically. It's the fastest I've seen, and the CSD lockups are gone.
-
-If no concerns raise in the next days, I will send it officially to the
-serial maintainers.
-
-Author: Breno Leitao <leitao@debian.org>
-Date:   Wed Jul 9 05:57:06 2025 -0700
-
-    serial: amba-pl011: Fix boot performance by switching to console_initcall()
-
-    Replace arch_initcall() with console_initcall() for PL011 driver initialization
-    to resolve severe boot performance issues.
-
-    The current arch_initcall() registration causes the console to initialize
-    before the printk subsystem is ready, forcing the driver into atomic mode
-    during early boot. This results in:
-
-    - 5-8 second boot delay while ~700 boot messages are processed
-    - System freeze with IRQs disabled during message output
-    - Each character transmitted synchronously with cpu_relax() polling
-
-    This is what is driving the driver to atomic mode in the early boot:
-
-      static inline void printk_get_console_flush_type(struct console_flush_type *ft)
-      {
-            ....
-            if (printk_kthreads_running)
-                    ft->nbcon_offload = true;
-
-    The atomic path processes each character individually through
-    pl011_console_putchar(), waiting for UART transmission completion
-    before proceeding. With only one CPU online during early boot,
-    this creates a bottleneck where the system spends excessive time
-    in interrupt-disabled state.
-
-    Here is how the code looks like:
-
-      1) disable interrupt
-      2) for each of these 700 messages, call pl011_console_write_atomic()
-      3) for each character in the message, calls pl011_console_putchar(),
-         which waits for the character to be transmitted
-      4) once all the line is transmitted, wait for the UART to be idle
-      5) re-enable interrupt
-
-    Here is the code representation of the above:
-
-            pl011_console_write_atomic() {
-                    ...
-                    // For each char in the message
-                    pl011_console_putchar() {
-                            while (pl011_read(uap, REG_FR) & UART01x_FR_TXFF)
-                                    cpu_relax();
-                    }
-                    while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
-                            cpu_relax();
-
-    Using console_initcall() ensures proper initialization order,
-    allowing the printk subsystem to use threaded output instead
-    of atomic mode, eliminating the performance bottleneck.
-
-    Performance improvement: 16x faster kernel boot time at my GRACE SoC
-    machine.
-
-      - Before: 10.08s to reach init process
-      - After: 0.62s to reach init process
-
-    Here are more timing details, collected from Linus' upstream, where the
-    only different is this patch:
-
-    Linus upstream:
-      [    0.616203] printk: legacy console [netcon_ext0] enabled
-      [    0.627469] Run /init as init process
-      [    0.837477] loop: module loaded
-      [    8.354803] Adding 134199360k swap on /swapvol/swapfile.
-
-    With this patch:
-      [    0.305109] ARMH0011:00: ttyAMA0 at MMIO 0xc280000 (irq = 66, base_baud = 0) is a SBSA
-      [   10.081742] Run /init as init process
-      [   13.288717] loop: module loaded
-      [   22.919934] Adding 134199168k swap on /swapvol/swapfile.
-
-    Link: https://lore.kernel.org/all/aGVn%2FSnOvwWewkOW@gmail.com/ [1]
-
-    Signed-off-by: Breno Leitao <leitao@debian.org>
-
-diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
-index 22939841b1de..0cf251365825 100644
---- a/drivers/tty/serial/amba-pl011.c
-+++ b/drivers/tty/serial/amba-pl011.c
-@@ -3116,7 +3116,7 @@ static void __exit pl011_exit(void)
-  * While this can be a module, if builtin it's most likely the console
-  * So let's leave module_exit but move module_init to an earlier place
-  */
--arch_initcall(pl011_init);
-+console_initcall(pl011_init);
- module_exit(pl011_exit);
-
- MODULE_AUTHOR("ARM Ltd/Deep Blue Solutions Ltd");
-
-
-
-
+diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+index 340640fdbdf6..fd93796f1fce 100644
+--- a/drivers/irqchip/irq-gic-v5-its.c
++++ b/drivers/irqchip/irq-gic-v5-its.c
+@@ -902,7 +902,7 @@ static int gicv5_its_alloc_eventid(struct gicv5_its_dev *its_dev, msi_alloc_info
+ 		event_id_base = info->hwirq;
+ 
+ 		if (event_id_base >= its_dev->num_events) {
+-			pr_err("EventID ouside of ITT range; cannot allocate an ITT entry!\n");
++			pr_err("EventID outside of ITT range; cannot allocate an ITT entry!\n");
+ 
+ 			return -EINVAL;
+ 		}
+-- 
+2.50.0
 
 
