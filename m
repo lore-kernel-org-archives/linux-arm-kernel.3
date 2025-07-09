@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D589DC83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 15:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186F3C83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 15:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nOh9E6KTw/G/RjNvzFhSoJb3dEHhHttr0OlC9cZGWdE=; b=apjo+tjy4gJ8LVB03jqFWQEOY1
-	w57Z0ZKNQ1DeKtRiYTe8w+tQVdveLnm+CT3XgFw0hb3Yr02XS3BEKmEvCVLo6ETlXEyyxCz2oQ8Mb
-	fUTpopHeutjh3Wm9+ho/3lwagfgVlX+SXGjN4Vjm0wGKV6A+L/9KJ6ooIf7USmi7+K6fP9D+CHMuF
-	XCTnvhb2U1n7mNJxxh6Eq5EHY9twuAGlVkLt1lRjDgszcDoUjRox7VBGgBO4BS/JirWCKWM4E6kit
-	ANdYYWAYun6wtagDUX2/4uv2kG9uDPt9Z8xD7vgMucGh6plDjKs5GLDbFoaN7TvCUz8y3NwTQrXdc
-	waU8vUBQ==;
+	bh=CGiINAVxrmdGU1PCrP23FZvlTFaK01obSa4XqumrYhM=; b=Hrhv7TxFw9jXmVb/Khr8l/Ju71
+	mkIpj1JMj8qo6aw2XB3L/PAyEHVNPtv9eua9LwPFJDF6OR5rcXdQtc3n5whigxeYmbM1Z4kG+y0QU
+	teGcmAEhzVt+RVh6SodyKXx50M0b2FUH8nEXlTUIuncLixqhNjOcumMQ8wgvRiDayCPmzsibjdZQO
+	GrpIjloHfWu3I4xTcR4GjtTlPh4Q2vzCqJUI0cub0OBWVC+xUtIHPNBUsHWVmHn0ZTdlo73pFFalh
+	3QjZNs279cdruIBbq89v5/zfR56r7gE2Acbtevhxj23K5NxMih39RS0xtvx8Oc7p5M4k1zUqOsR24
+	hFUVhybA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZWiJ-00000009AKk-2lmg;
-	Wed, 09 Jul 2025 15:28:06 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1uZWkc-00000009ApX-3G3a;
+	Wed, 09 Jul 2025 15:30:26 +0000
+Received: from out-189.mta0.migadu.com ([91.218.175.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZUls-00000008lpp-1eoJ
+	id 1uZUlt-00000008lqP-1DTW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 13:23:37 +0000
+	Wed, 09 Jul 2025 13:23:38 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1752067414;
+	t=1752067415;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=nOh9E6KTw/G/RjNvzFhSoJb3dEHhHttr0OlC9cZGWdE=;
-	b=0amw15gcaBpnOB/8CDQ13CKbnZ6BR1R38ikYGdeziEhiZRtos5mxL+B1VIaxCKvJEpqBRm
-	iGCsqMwlrGBswFFfTV0r7iqfvqMJZNk9DQnt8irpGoJht1rXCxYb0ql/LNbTwKyLpItGcv
-	vCxXoSnMZBgr7egmchNaOPZxEkxlQewN3FlaDt0oiSb0gZkZ7Q8VyuY1EBC/n92jRugbYj
-	fC9TRL37c2PulEwj5NNgWtxhGh1I1IWvish4z+QrCl0dmYJPKryhDey9MptzXnVBNgsiLQ
-	x19sCPLpBgYEVz7+40/8fFfEJuT9+9VD2a8E84zeu2q6s1+VPJe03gLW4+Sn5g==
+	bh=CGiINAVxrmdGU1PCrP23FZvlTFaK01obSa4XqumrYhM=;
+	b=lKsKQ2q4ZBk/za6pTF38bYIbjhaJTuEUqYP6d+q0rAxowzY/zJDyxEt2L5TdKnHcMaXE7/
+	jiVohHfPVk7niMVYyXZWc4bo+oUS7tv5khIaTeA8q+Bwjrqwu8H4NsbFmy+p/TN6Zia3OW
+	6KD7KrEoXrwNZA7mBXNMc/dH51UOZI9QRLNDJ4fNcdz9AeAT7c1vIP0/fhW1YAQbEv30o0
+	QFrmDWPX4QK6jsQJNltcFyUdbh4F1EfQy6xS8B+bz/ONJE9BK1nXqiRDdj9XC0NMbNGUDW
+	mXRp+Svipuu3SGgsN+752Q2p3XLlA//r2kT/L4fDosTa6qKG8b+/nlRJFZ0ghg==
 From: Diederik de Haas <didi.debian@cknow.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -53,17 +53,18 @@ Cc: Dragan Simic <dsimic@manjaro.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Diederik de Haas <didi.debian@cknow.org>
-Subject: [PATCH v4 02/10] arm64: dts: rockchip: Move dsi address+size-cells from SoC to rk3399 boards
-Date: Wed,  9 Jul 2025 15:15:15 +0200
-Message-ID: <20250709132323.128757-3-didi.debian@cknow.org>
+Subject: [PATCH v4 03/10] dt-bindings: display: rockchip,dw-mipi-dsi: Drop address/size cells
+Date: Wed,  9 Jul 2025 15:15:16 +0200
+Message-ID: <20250709132323.128757-4-didi.debian@cknow.org>
 In-Reply-To: <20250709132323.128757-1-didi.debian@cknow.org>
 References: <20250709132323.128757-1-didi.debian@cknow.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_062336_570003_703A97E6 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250709_062337_470005_5EB31EA5 
+X-CRM114-Status: UNSURE (   5.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,91 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The #address-cells and #size-cells properties are not useful on the DSI
-controller node; they are only useful/required on ports and panel(s).
-So remove them from the controller node and add them where actually
-needed on the various rk3399 based boards.
-
-This fixes the following DTB validation warnings:
-
-  unnecessary #address-cells/#size-cells without "ranges",
-  "dma-ranges" or child "reg" property
+The "rockchip,dw-mipi-dsi" binding has allOf "snps,dw-mipi-dsi.yaml"
+which has allOf "dsi-controller.yaml", which already has #address-cells
+and #size-cells defined as '1' and '0' respectively.
+So drop this re-definition.
 
 Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-base.dtsi             | 4 ----
- arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet.dtsi      | 4 +++-
- arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts     | 2 ++
- arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso | 3 +--
- 4 files changed, 6 insertions(+), 7 deletions(-)
+ .../bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml     | 6 ------
+ 1 file changed, 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-index 9d5f5b083e3c..4dcceb9136b7 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-@@ -2071,8 +2071,6 @@ mipi_dsi: dsi@ff960000 {
- 		resets = <&cru SRST_P_MIPI_DSI0>;
- 		reset-names = "apb";
- 		rockchip,grf = <&grf>;
--		#address-cells = <1>;
--		#size-cells = <0>;
- 		status = "disabled";
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml
+index ccd71c5324af..0881e82deb11 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml
+@@ -58,12 +58,6 @@ properties:
+   power-domains:
+     maxItems: 1
  
- 		ports {
-@@ -2112,8 +2110,6 @@ mipi_dsi1: dsi@ff968000 {
- 		resets = <&cru SRST_P_MIPI_DSI1>;
- 		reset-names = "apb";
- 		rockchip,grf = <&grf>;
--		#address-cells = <1>;
--		#size-cells = <0>;
- 		#phy-cells = <0>;
- 		status = "disabled";
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet.dtsi
-index 5e068377a0a2..6aaaf0f7f73f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet.dtsi
-@@ -627,8 +627,10 @@ &mipi_dphy_rx0 {
- };
- 
- &mipi_dsi {
--	status = "okay";
- 	clock-master;
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
- 
- 	ports {
- 		mipi_out: port@1 {
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 909ed14035f7..fe32937a2d16 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -464,6 +464,8 @@ &io_domains {
- 
- &mipi_dsi {
- 	clock-master;
-+	#address-cells = <1>;
-+	#size-cells = <0>;
- 	status = "okay";
- 
- 	panel@0 {
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso
-index b1f4ab22b99c..a26c8e05c13b 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso
-@@ -47,10 +47,9 @@ touch: touchscreen@5d {
- };
- 
- &mipi_dsi {
-+	clock-master;
- 	#address-cells = <1>;
- 	#size-cells = <0>;
+-  "#address-cells":
+-    const: 1
 -
--	clock-master;
- 	status = "okay";
- 
- 	ports {
+-  "#size-cells":
+-    const: 0
+-
+ required:
+   - compatible
+   - clocks
 -- 
 2.50.0
 
