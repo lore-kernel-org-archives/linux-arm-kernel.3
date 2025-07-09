@@ -4,85 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1137C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 06:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3281BC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 06:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qiye+7CAOoMur15FwsWFPDi1mVFk2rkWwaMS8vkZIkg=; b=qunGFQ8zwA/bLnllb+R66cM2mP
-	I6dM+7dvF7xMNtURxYWjwgTY8FNmcng0I0/FQzipPbsRFKsO6LISIku5Vs7Q1dTHI8MPr8QOItrQ5
-	dUEuK96p9RvnzzvOY7AltLwrWKYdmQzVMrBmV+JJjoxkMkCTeeiJQSzaICFQl9hv64FFHcsSdZMK4
-	/gpcgvqgv8CwPO5O8kXz/5Sl1cgQsu1Wv7/+ZWGFa4fc2ZOjxNpApdNkzTotoOGePY4JIaf15bi9a
-	HsrRQwgdW/2O7NJVHhksdfTxSx7AOtrV2PykaMxKC/E8oDVSs5FNmh5EbpmOa62R2h48bFGjH/G3N
-	3LMDXb3g==;
+	bh=jgTdlM7HUov9VA/8i5JV8XB1TcFEipF94ktJ1SLspGg=; b=VRHzdMtCdZH1CN66WXtQ4PMtfe
+	et/xtk3YDNjPHDFY72r9k+IibXUF8T5JZq6TyUIS8UAgtrXsuy5kBCftZBK7IYsfTw+GLDbNsVn/8
+	l37ohNNkMSZKe6XC9MApVeNWEbbwFFqfbzozHz4K3VU54fGWDV45HHVfjAnAFc+rp8A2efpEREPZT
+	WV6lJDWRLtou1jzIdCkoJcCsdush17a/l0ljmcG+Vewxpk812K7NzMpGnztZsKLlYIl9YL2dMmKnA
+	hipVzYaeXr7eHZiZah3kd5RsVVLfQkITKCVz+BMjPxenmMZ/NbiOTOV34gBQ+HH6MoGznfNDcQo6O
+	c8gn2lgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZNst-00000007eDL-0Jn8;
-	Wed, 09 Jul 2025 06:02:23 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1uZNxv-00000007edN-0ZIi;
+	Wed, 09 Jul 2025 06:07:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZNqV-00000007e1P-0gyd;
-	Wed, 09 Jul 2025 05:59:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752040795; x=1783576795;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=LzYB6pw/2+1lvLXdkdXCIJm1qBGvJhF76UZJym27mtI=;
-  b=PUy+jt29B+AS6VgSHuTlTZeTtAy7LcGQWHeKebrEJvdbaUHsmdQi8Xd7
-   IM+wKzUeXh08/NgW3uCx4vK5CrfcYzBAM7utn0F8ox5YGToVgeYtHZsWp
-   Fm8TR6OnoA8v4RzIP/FIYR89aTHZjW9h9NcDxXpGCPaCWlqhhfMyoZItu
-   ymrACk3MHHO8ttZzTHkcOQjF/DcymKYyfwNt3oaIMVehw+PbibcuoANzP
-   2JCECzPqfWIDAUHqBj8piMcyQKEZ65SF5p4YrH9dO4yTnrZogPiH+ZWJ9
-   ZNKkhl8v8U0shga9VCwS+IFdtzid2yl6LbNPAxNs25VoRwAHi2lKWwCWa
-   w==;
-X-CSE-ConnectionGUID: 776E7IXtQa2OFEuGjmQgLg==
-X-CSE-MsgGUID: 791wO8a4SAar2kZpk2Y75g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11487"; a="54009931"
-X-IronPort-AV: E=Sophos;i="6.16,298,1744095600"; 
-   d="scan'208";a="54009931"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2025 22:59:50 -0700
-X-CSE-ConnectionGUID: A6UhJEe2QCS4oMRU34mFqw==
-X-CSE-MsgGUID: L/VUNKizQfG5E89QG7KNzg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,298,1744095600"; 
-   d="scan'208";a="156414304"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 08 Jul 2025 22:59:47 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uZNqL-00039P-06;
-	Wed, 09 Jul 2025 05:59:45 +0000
-Date: Wed, 9 Jul 2025 13:59:35 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Keke Li <keke.li@amlogic.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Subject: Re: [PATCH 1/8] media: uapi: Introduce V4L2 extensible params
-Message-ID: <202507091305.hPkKkWZJ-lkp@intel.com>
-References: <20250708-extensible-parameters-validation-v1-1-9fc27c9c728c@ideasonboard.com>
+	id 1uZNvY-00000007eNI-3SWX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Jul 2025 06:05:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0016C5C5983;
+	Wed,  9 Jul 2025 06:05:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 181DEC4CEF0;
+	Wed,  9 Jul 2025 06:05:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752041107;
+	bh=SzD8fsHU7duvdSUQLYizw2PuJGQ8kvETIYaho9kNf10=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nTmO4pteY97Kik7iPXm2GrBZ2k+ytY/51/0hYrDwr8tP2BmdFndwlFWeZJ02QxayF
+	 bP+HnMSYmzi23Ssn6wqpMjW78n5yCy71sUQpG/ByD9rmbRjp8Fu1Heb65xhY55ftCw
+	 SDCLTBwk04U+kQNIs3WyqmvuHvX6xTPHpLoFa3EpXJbaOKvntBEDo4W74kkRIxM5ZC
+	 APgtU64n1gCyVeFJ6pKTAuAFtUiX6uBc/ibClllYw6J2knt2vAIU8q8j36W0B8tkCM
+	 6DmMOv3mlUPoWFKtffaP6SoZFfBTKshsy7Mxoh3gt5cvUrUHnAE19vck0OwvLYdO6V
+	 dov1haKVEqIpw==
+Date: Wed, 9 Jul 2025 08:05:04 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	linux-pwm@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Subject: Re: [PATCH] pwm: imx-tpm: reset counter if CMOD is 0
+Message-ID: <xo56zato6pgqqttdriskfgh4kdt2g6q5eg5jxte56uddkdfr63@sa7coeifbsmy>
+References: <20250701220147.1007786-1-laurentiumihalcea111@gmail.com>
+ <vwozlwajisjw5qomwtmnfdklmucevyxncsxl2cdmixn2yixxrk@x6j3r2lrl5qz>
+ <a1b6039e-7020-4d17-8186-d40ac17ba730@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lxvmazlbdrmpdgwa"
 Content-Disposition: inline
-In-Reply-To: <20250708-extensible-parameters-validation-v1-1-9fc27c9c728c@ideasonboard.com>
+In-Reply-To: <a1b6039e-7020-4d17-8186-d40ac17ba730@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_225955_267945_407CB9BE 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250708_230508_943908_9D1BFF10 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,34 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
 
-kernel test robot noticed the following build errors:
+--lxvmazlbdrmpdgwa
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pwm: imx-tpm: reset counter if CMOD is 0
+MIME-Version: 1.0
 
-[auto build test ERROR on a8598c7de1bcd94461ca54c972efa9b4ea501fb9]
+Hello Laurentiu,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jacopo-Mondi/media-uapi-Introduce-V4L2-extensible-params/20250708-184651
-base:   a8598c7de1bcd94461ca54c972efa9b4ea501fb9
-patch link:    https://lore.kernel.org/r/20250708-extensible-parameters-validation-v1-1-9fc27c9c728c%40ideasonboard.com
-patch subject: [PATCH 1/8] media: uapi: Introduce V4L2 extensible params
-config: i386-buildonly-randconfig-003-20250709 (https://download.01.org/0day-ci/archive/20250709/202507091305.hPkKkWZJ-lkp@intel.com/config)
-compiler: clang version 20.1.7 (https://github.com/llvm/llvm-project 6146a88f60492b520a36f8f8f3231e15f3cc6082)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250709/202507091305.hPkKkWZJ-lkp@intel.com/reproduce)
+On Wed, Jul 02, 2025 at 11:31:28AM +0300, Laurentiu Mihalcea wrote:
+> On 7/2/2025 8:51 AM, Uwe Kleine-K=F6nig wrote:
+> > On Tue, Jul 01, 2025 at 06:01:47PM -0400, Laurentiu Mihalcea wrote:
+> >> +		 * MOD will NOT reset the value of the TPM counter.
+> >> +		 *
+> >> +		 * Therefore, if CNT.COUNT > MOD.MOD, the counter will reset
+> >> +		 * after UINT32_MAX - CNT.COUNT + MOD.MOD cycles, which is
+> >> +		 * incorrect.
+> >> +		 *
+> >> +		 * To avoid this, we need to force a reset of the
+> >> +		 * counter before writing the new MOD value.
+> >> +		 */
+> > Without the reference manual at hand or a deeper understanding of the
+> > hardware this isn't understandable. What is MOD? What is CMOD?
+>=20
+> so, MOD is the reference value for the counter. The counter needs to
+> count until this value is reached, at which point the counter value
+> gets reset to 0 and the output signal is driven HIGH or LOW (depends
+> on the configured polarity). This value is used to define the period
+> of the PWM.
+>=20
+> CMOD, on the other hand, is a clocking-related configuration option.
+> I'd say what we're most interested in here is the fact that if CMOD is
+> 0 then the counter will be disabled. Otherwise, it will be enabled.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507091305.hPkKkWZJ-lkp@intel.com/
+JFTR: I marked your patch as "changes requested" now in patchwork and my
+inbox and expect an updated patch, but without holding my breath :-)
 
-All errors (new ones prefixed by >>):
+Best regards
+Uwe
 
-   In file included from <built-in>:1:
->> ./usr/include/linux/media/v4l2-extensible-params.h:23:2: error: "This file should not be included directly by applications"
-      23 | #error "This file should not be included directly by applications"
-         |  ^
-   1 error generated.
+--lxvmazlbdrmpdgwa
+Content-Type: application/pgp-signature; name="signature.asc"
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhuBo0ACgkQj4D7WH0S
+/k6dsgf/RheRWtMwEqe7uWfXT5aywFTiqSMVTEDTy8ZWFhJ977cgY7pWfCCqtk2U
+RYLXoc+cp5FIhb0yBfk25qK5cHIzwVxE6p0H07itNWXjKlP2NYssB3ozzCv2Cer9
+WNO/rZKF4TYaYI7cd6eqM0+HJZMABZuOBvJnMG7xGds3ktFG4OHkYUSQfcDIBUqg
+Ty6LOq2LQMXKsT8IXzYYGlqGk8BblLKfgVyOing2W3+eKJCqI5R5G43S5dH5SZBR
+1EAAEEfmzVviiRbe2hpYVSrRoTgfQjCPjX42QmIDH0lsgoGtzhHllP7l+hlImesh
+RbFkCkmk8Aw6dTWrBeaF+89ovOg8lA==
+=k8wj
+-----END PGP SIGNATURE-----
+
+--lxvmazlbdrmpdgwa--
 
