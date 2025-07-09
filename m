@@ -4,111 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8EA6C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 07:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AA5C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 07:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E976DkzNR+BwTdvOcAZRGj+DsyDJt9zF9/zM1CbhNIs=; b=nqwLEZp4kMniMB9ZncKFVuyIeM
-	bNuNv2paIzpIfZxTuZl9BVg7xZZ7i1XTWn9iiIGOdxMen6qzJe3L+bJasbqfvau+3uOtEubVv4Usg
-	0CH5EQQ0keJj5VrqErxZqzjaCJni7gvTYvpL8mGLNGOGmrqGm1R1FpSA4WM/xDL1+AwG6hhIpNH8c
-	EB4hQNrERuMP7y5Lr50d0mUFADOIORAPG7VFHbEGV9u0hmd5GN2g0hwFz/HSzOom391RnjXPrTkcm
-	lxTg773QcMzHIYVU0INmfroDbDikL1sl5iCHLYR99LX7Re7+rtNdYMMULmR9y9Hvy/jx8mkYrwvf5
-	C6f0MpoQ==;
+	bh=fwtcRwHE+B0X7Qu6jLTzav3BNlwenfWAUGJMHG7IJ0k=; b=LRumEJsvdGlzDYiRM0EbpqYthi
+	iyw3+pqGIV1HGIGYq0qCTFgGlGELaYJzNATUCH99wjPbq8EUnW6jB5WaHjZm+nakv+OHnRTAbNYos
+	hZqJNCsBApEDSWHAoJ/tdEFxOnHf0vvSXud3r8KFUA9DcdtP7oYMNmaucpzIer8JWv7SOA7+nqS4s
+	mp9kfTOJVFFxUXrlXANdpKxLRXcwVrt8CkbvWxA8+w9SnOdSN9CO7QLP9fcH6+xCz+bYDV4QkxYHP
+	m399XR2GLTD5NukpkXZWThNrMnOEU2qP8HXA7ybJdZ9rvwmiB2+DUkgUCYQSBGi2QZ0Iyo0Kd7lg6
+	vDDKsRAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZPMc-00000007pdV-3vZr;
-	Wed, 09 Jul 2025 07:37:10 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1uZPOx-00000007q27-3MQg;
+	Wed, 09 Jul 2025 07:39:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOVr-00000007hF5-0Y3Z
+	id 1uZOXQ-00000007hbh-356f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 06:42:40 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4535fbe0299so31068265e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Jul 2025 23:42:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1752043357; x=1752648157; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=E976DkzNR+BwTdvOcAZRGj+DsyDJt9zF9/zM1CbhNIs=;
-        b=XDag0f73yrkU/VHZFFLH1rFcLM+5KOiDML2rJcdunUJLTRtb/Po80SwltKTHZP/Gqh
-         dagg6GdH7URr10HKHlQ6+PW0log/H4s02DqtlTPNPLbFE1E50tILw9k2rRjSqUb4cFtP
-         C2PMPD64tIeCStvT4GyKqJHeFdfepxH4wEtjN7Rk0pCvLf1OcRSRXtt5aHQWlfs0yVjm
-         0K+ghBAsubY1N3Mi+Qj8NODMHOquvxAj/d43JvfsKlTF3ifI27ymfrcKBivpW1h2Rl01
-         jZWHZSMTq5a6Hssq5rgKDx3GZ0qYtQMbXypxlCcKNhxAx7pVE4+JA2r58fl0oL1FbgAs
-         TYxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752043357; x=1752648157;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=E976DkzNR+BwTdvOcAZRGj+DsyDJt9zF9/zM1CbhNIs=;
-        b=BgrFXuVisbejNUIV54aKwbebHsoxsZdrQWBzhVYrbbhH9DXN/BUgsil6NBWbr+FlkZ
-         i7XJwMJDMkEcMpRqwtRbFRO1723YO6ClU8CHSZzwB1V5g8gAZseL4tDR7kNtwFjT/0Oo
-         OPFIxKcTv5ezAb76WVqg98dlGA3IZU84PPbGGsmYK8qG8PnuT6EmlW614jjTOdQZGidC
-         7P6eM/X95Kh1426UjT+v1k863bs9QnDu+X0mM+CSQWKstN7Z3waaEa7ZwUAXFUkIyXWI
-         0n43NVtiQ4TkzDbh87Ou3nMyOsGgwhbScZ+OtyVOt9ZsUjvHxNAGsOJesxzXj7NdybZi
-         iWpw==
-X-Forwarded-Encrypted: i=1; AJvYcCWCHKcH9KpHNbWBFHI7VRpY3GyJTevDgGbv7e/5G0V9DG8ehN4qwoDVkWHtPKfE9s29qtZb0rbXO1YSm7fKK+qJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz50ecXSIU3z677TC2nGbEWmtespZFSoUPaqdP/pH0TXrfyCjbi
-	KzBcf+pY/fBVQ6Wzclky/nu638udaV4dbytxphLn1Z92Nt6eINMESYlg5buQHWqkK5w=
-X-Gm-Gg: ASbGnctgiaouxUvefa7jVASeRNp4AR2c6vlOk8a/Oz2Jb7tDxEmPrCwBA9n876jqdgt
-	IMTcImlktUu6eqLglWBPl/bAiJUX1dHKn9KYh7wJ7LXl89iuIbZtoZOvp5MW+9hZENE3PhaEOpA
-	D1d0uYsrg9tYGGxZZ1oIlb82Xs4rvjM3+W/1pBso297sTSnS4rMTngCWWKZvoOINBVl/mkW5Vew
-	pz2F8nJ9ruqhqZ8xIJEumoMbsdbzLp5PF+GBV/eYmiYoDefSUS2N3X6R3IJbt8cL4EBnx7dbx5P
-	tMK90TklTBClA8gnC9quwscGPjXJlWyWEnHEsTW53rvGRd2Brz3vnPYC
-X-Google-Smtp-Source: AGHT+IHi+3seAQJhUSG/U1FgiNxSTYdYEu1xk8bl6taZbECqdEFlu6Pv4ri3aXmTuPAo4Albaf6BVQ==
-X-Received: by 2002:a05:600c:19d1:b0:444:c28f:e81a with SMTP id 5b1f17b1804b1-454d53e67c7mr9606365e9.27.1752043357343;
-        Tue, 08 Jul 2025 23:42:37 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:b04e:cfc4:3bd9:6180])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b47030c443sm15115341f8f.11.2025.07.08.23.42.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Jul 2025 23:42:36 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 09 Jul 2025 08:41:56 +0200
-Subject: [PATCH 19/19] gpio: zynqmp-modepin: set line value in
- .direction_output()
+	Wed, 09 Jul 2025 06:44:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C9A976144A;
+	Wed,  9 Jul 2025 06:44:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AA9EC4CEF0;
+	Wed,  9 Jul 2025 06:44:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752043455;
+	bh=wdxGlzNC/61f9KkdCBvZ7+eq6PnXnZ+ZbeMf8yJwp9g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=czRQdp+g5BYxJ1e8jmArYF8RZF6zgaMn/UeTflpCUq2nRqaixrwJNviCA/tr0Z7lF
+	 xfv9XKfOawvKBsWbhBL6t3+88xyCugqmTwG/38DppYfIGnCyBMC4zdUhRoKoT/PPXb
+	 YHehDBpZOO5lXx15hdiPwSdHpj5x+q3edY0Q3x+9/SlUs2rzOm84oMWWjHj8wHoTlZ
+	 jqrLOQFE9mEyDfuFtVe2UpQWVTH2HvuD9vE4ksFvX4QsGkRXSSRqAhfqk+EcgwLsOE
+	 Y6/Z1N0vYi/mKr/FgpF47LRC+th691UGNGVNfH63yxD9JrSC+wAHLDA5nVhp+KBDRJ
+	 Eu2rhCqJQKIEQ==
+Message-ID: <0dce5de0-cfe0-4305-80c8-4551c6ee3965@kernel.org>
+Date: Wed, 9 Jul 2025 08:44:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: exynos: add abox generic for ExynosAutov920
+To: ew kim <ew.kim@samsung.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: alim.akhtar@samsung.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <CGME20250709002408epcas2p25248bf1a397fc308d91ffef3889c41d5@epcas2p2.samsung.com>
+ <20250709001210.379418-1-ew.kim@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250709001210.379418-1-ew.kim@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250709-gpiochip-set-rv-gpio-remaining-v1-19-b8950f69618d@linaro.org>
-References: <20250709-gpiochip-set-rv-gpio-remaining-v1-0-b8950f69618d@linaro.org>
-In-Reply-To: <20250709-gpiochip-set-rv-gpio-remaining-v1-0-b8950f69618d@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, 
- Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>, 
- Andy Shevchenko <andy@kernel.org>, 
- Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, 
- Srinivas Neeli <srinivas.neeli@amd.com>, 
- Michal Simek <michal.simek@amd.com>, Nandor Han <nandor.han@ge.com>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- patches@opensource.cirrus.com, linux-arm-kernel@lists.infradead.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=854;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=IhD/N+4+Xg2O9hP4AtgHBCqqrPPHCOSCnlXwGhv+djk=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBobg9FUTxKP1TIjkWKQ/foJIGz60zeLZU+t+Fj1
- eYCIokKJ4WJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaG4PRQAKCRARpy6gFHHX
- cm2mEACt3VB84bPMSnM2RT0+6t2zvIhWob2gSpxWZnVZkXwegG0Xrt1uxZUq6u2uWKteI+QUILE
- PAGSWxD69oqxqWW7wsxvLavRZ5o4sskoD4fViABUqOqIq9K3XMK+/hJsEGcgbSI9v+YJo3dnXG8
- MYwfcQfboOgt73NEw6ou7UcAIN7cDUeGV38FzQuAIen2aryODpFil0IUF5syaurHY76mU1JvF41
- Wejs6/wXZJArjCsRppF/FGVKJm0EU4uBc7+haxh0ya9y5DyjF/MKKApjaEtiqBouTdsstPPPqFb
- +Nz6fIji5cEX9Bfvlt9TZ+GeIOc0aOvAIUysV4gVs+8G6Sp6mOm5m5Vzp59rdRl0m8R804kN7pg
- x7Rk4QXy3me49f9Ompx4JkI+8uJdDTph7aiy7i+/0CRAi+5Qgod/BP0Hl5o0PFbz/BBRJghIoLR
- JIH6t6WSHidwdPgTR6UkC9fjMi5IRVc6CYPpkpMdQ0k750dI3J7tkqfcaGQzmmLYrZgWJspnGy5
- yDR7dpXBLw2KfD+JeaVsOQXwCNlXsO/0FUW7Kv+1hQ9uoL1vU1LpRTaLdhoFD2rxRNsMw/dCya5
- YIihq1N/TQk3vSMpkZ2reNa8qq1UzxZD6VucjyLr6Ei9VeS9GQfa8gzwc39GvrrRBMe4lgWv5PC
- ycqiuAuPwx81i1g==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_234239_171848_3779842D 
-X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,31 +116,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 09/07/2025 02:12, ew kim wrote:
+> Add a node for Abox generic. This driver, exynosautov920, connects to
+> the SoC and allows you to configure a sound card.
 
-It's ok to not do anything specific when setting direction but the
-callback should still respect the line value the user requests.
+DTS is not for drivers. NAK.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/gpio/gpio-zynqmp-modepin.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> Signed-off-by: ew kim <ew.kim@samsung.com>
+> ---
+>  .../boot/dts/exynos/exynosautov920-audio.dtsi | 20 +++++++++++++++++++
+>  .../arm64/boot/dts/exynos/exynosautov920.dtsi |  1 +
+>  2 files changed, 21 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-audio.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-audio.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920-audio.dtsi
+> new file mode 100644
+> index 000000000000..4a1341ccdc2e
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/exynos/exynosautov920-audio.dtsi
+> @@ -0,0 +1,20 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2020 Samsung Electronics Co., Ltd.
 
-diff --git a/drivers/gpio/gpio-zynqmp-modepin.c b/drivers/gpio/gpio-zynqmp-modepin.c
-index 36a547d6fc5a5c100f81c72600e14d620a462cc5..6dc5d7acb89c544d8dd9e217c96e41cc5599d116 100644
---- a/drivers/gpio/gpio-zynqmp-modepin.c
-+++ b/drivers/gpio/gpio-zynqmp-modepin.c
-@@ -104,7 +104,7 @@ static int modepin_gpio_dir_in(struct gpio_chip *chip, unsigned int pin)
- static int modepin_gpio_dir_out(struct gpio_chip *chip, unsigned int pin,
- 				int state)
- {
--	return 0;
-+	return modepin_gpio_set_value(chip, pin, state);
- }
- 
- /**
+You need to clean up old downstream code. Read DTS coding style.
 
--- 
-2.48.1
+> + *        http://www.samsung.com/
+> + *
+> + * EXYNOS - Audio Device Tree source
+> + */
+> +
+> +/ {
+> +	abox_generic: abox_generic@generic {
+> +		compatible = "samsung,abox_generic";
+> +		samsung,num-of-pcm_playback = <32>;
+> +		samsung,num-of-pcm_capture = <32>;
+> +		samsung,num-of-i2s-dummy-backend = <5>;
+> +		status = "disabled";
 
+You just add dead code. This is very poor submission. Reach internally
+(or to experienced R&D in Poland) to guide you how to submit proper patches.
+
+Best regards,
+Krzysztof
 
