@@ -4,77 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D593C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E50AAC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 23:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Olm4mSIpu4FebWepzFV2T6KFHpND3n+3YfGovDjUUVU=; b=gdgKj4Tgkjxbg7pAGYM1j0/RpU
-	2Tw5khYnD46Kop+lyEfNpUwzJB1j+jFj1E8xArtr18J8cEwbvFzZkhTvZXQwc+cW7E3lYmmSPEN0a
-	R1PaW1cLtDQsqyjtNtCiTk9LlwML1HVunrUjGiikwoXxVsh3iJCgEIA9Ww4QOQ1zUdKP5mcM9mkgu
-	qKGBcX1C5w/kSkFXt9OJ4kbV3NVRP5ayD057JgywOD7BUHcHI+uSHxyL4YGOutEOLRgjG/M4mTPaY
-	68i+As8piYaqzzrWHvYVNwYdk0aLqGpV1EUOqmZMpRLpEnann3fVHXlK6sO9gZ40xAV09wePMEqw5
-	NjB56/Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bXKc5qAw6BGo+4ixslpv4+pkr3URrfjBA9SQg0xbAtw=; b=MpchpUGPlbmUa7ECMPbKbrj8mx
+	fmjltJgCgN3lNOnCHLsbQcM0r0NmhfVQ/vLKm3z2W2XxnBamYipAptspdF7bmvNK0SaBd06vaPzmV
+	IR9zMMLDRku1kmwQk/aWdPy4TtzdqeO6b5TGF6f61yqHtgywU2QxfPIApm84gyiW8txp3V5YPiyj6
+	q+ptnSUsxwM4cW0RIufqRkgHNFK0cvvBzifqHUovm0KrZlcmeKWXv8U77Cp6uqjfgeisfXhQDIv+r
+	wM+PCPowxZFN+b51l7rE4j96CllD0C7GtMT/Yn+exZO2EGIqSJvmOYQW4XVbSiWTeyNlm8P+2WdD8
+	ecg5+ncQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdkT-0000000ACJL-40Wc;
-	Wed, 09 Jul 2025 22:58:46 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uZdme-0000000ADPS-2cfR;
+	Wed, 09 Jul 2025 23:01:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdOO-0000000A6D2-2RFS
+	id 1uZdkD-0000000ABx4-1Df6
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Jul 2025 22:58:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=bXKc5qAw6BGo+4ixslpv4+pkr3URrfjBA9SQg0xbAtw=; b=KxMPav0KFhzaXr5GLQ2Dpj1Hep
+	wORfSQmPExjzrdfm3J4IYnl9MKFRNzmNvB9dC24J/1qJIWcBbRZMK8scrqdaxycmr+yWRKtcqA5H+
+	hyQLHW1iXLXtuC7Z1YCwcDi/+0jQiEFZ9aKYbkOuKUYcpW4zkvFHZQVekBwlFj1PfOE7Ag1cdWCcu
+	EJ9qAJ1rwVv0HK10ozsKgWgc+6SYTp4v95mb8kGaScyLabO92yQCb4qvzppYzPIcu9Sfe2YW6umdv
+	dojyZJVTw73aen8OvuF1sR1C3N7mghZIUjkObcbeNA00GUXTYI7cLpf3fz5dvxYty1vKW9Ye+MBMb
+	F/R7gqrg==;
+Received: from mail-co1nam11on2072d.outbound.protection.outlook.com ([2a01:111:f403:2416::72d] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZdjr-00000008vyk-0UYe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 22:35:57 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 569MZoE0952190;
-	Wed, 9 Jul 2025 17:35:50 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752100551;
-	bh=Olm4mSIpu4FebWepzFV2T6KFHpND3n+3YfGovDjUUVU=;
-	h=From:Date:Subject:References:In-Reply-To:To:CC;
-	b=o5arJryFbenrTNRAWTVSCVj9Iq3z2lIj+HnKqbtxqHK8KTZ7gLTpE+/YWQJ2JAXgH
-	 ovqW8SCaQBApuldfAVgcEfqgFtdPPT/oKNGG8BjCxCTx0FAmVbj5fXAro6+4MEFiCZ
-	 RCYTvBSQisjFrTrcZnU0sge9tRlP8L2WMfNntSaE=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 569MZo623753491
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 9 Jul 2025 17:35:50 -0500
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 9
- Jul 2025 17:35:50 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 9 Jul 2025 17:35:50 -0500
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 569MZotI520530;
-	Wed, 9 Jul 2025 17:35:50 -0500
-From: Bryan Brattlof <bb@ti.com>
-Date: Wed, 9 Jul 2025 17:35:44 -0500
-Subject: [PATCH 2/2] arm64: dts: ti: k3-am654-base-board: add boot phase
- tags
+	Wed, 09 Jul 2025 22:58:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P01KY8g6SCbe8/qrVZC36uKNvWWAOvt/FRDsQBRLMp4lma0X+s0t5VGKDHEpJXQIf15wAs+wL5OLoV45xSZ1JGe1YzqsmyZPXN/V+P9VqVl0Qzpdz/3PTWGuLOGa2hrcfCMIlQcYxM+x1M6YeCMEsG5bMT44g9unOBRds+V+TITxHBPG3MLYN6O7SnF/mdGsZsaY8VrsEAfOoRsR3FHI2IbUB+eVz25M2nkPqlKcciYYMu0PHOIj4dZTW825R8UEWBI3ZYWNaX40leSNrJoLfRIKUyx4rnfZtw/h7GpbL8GBPnnH+FaZEbGOsduqyNJ+/uKMrxrP/rchKlaoB8QceQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bXKc5qAw6BGo+4ixslpv4+pkr3URrfjBA9SQg0xbAtw=;
+ b=fmEu1CGXXDyETc1q77c3fm5EVHDoAbNN3BoOyZCudN0VeVusSnwtNPSaQQkiu2A62MSPxFkp2g0oFO2JsmuTOOqX8PqG9d36EbIWcmDTPk8UnvThOa03A9xlYw1AB/FMZDTjCGp6j1+eO9YAgGbXqD7vkEgJN3dI0dT1jgKcqQ8Kv4ocPFq/iRZNC9beOKXIgHCABjbMTD/FtaZOfsz7B2mNjU1gLlBkZb2x1Yzp/dRJH0e9oGbUqclNYKTBJ0jvl8MbnjkiPQzkaVXpaJqwDakI/OYilYDGraiqXtpUGsxy1TBQbE6KxEM7u91QOtaCZv/dEJTnuAYtDCVkXp+/VA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bXKc5qAw6BGo+4ixslpv4+pkr3URrfjBA9SQg0xbAtw=;
+ b=StbQhITcDeSmJXACzUfhaClN7UdwbZzPssdNP+ZbdJuf5QbaCTmU+eWMcvbfGYWi54eekpx0M7VgZdYED4PDpS3C1H+IEpijDuI/CfN0DU87y8AZJFLOCmznpPdNHKHtH5Se3ekcYINePorxHCvWZET7/8j92Qxd2+96dO+yOjo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SN7PR01MB7903.prod.exchangelabs.com (2603:10b6:806:34f::17) by
+ PH0PR01MB6373.prod.exchangelabs.com (2603:10b6:510:1d::7) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8901.29; Wed, 9 Jul 2025 22:57:21 +0000
+Received: from SN7PR01MB7903.prod.exchangelabs.com
+ ([fe80::cf45:9855:a64e:382f]) by SN7PR01MB7903.prod.exchangelabs.com
+ ([fe80::cf45:9855:a64e:382f%7]) with mapi id 15.20.8901.028; Wed, 9 Jul 2025
+ 22:57:21 +0000
+Date: Wed, 9 Jul 2025 15:57:18 -0700
+From: Zaid Alali <zaidal@os.amperecomputing.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
+	maz@kernel.org, mbenes@suse.cz, puranjay@kernel.org,
+	broonie@kernel.org, oliver.upton@linux.dev, andre.przywara@arm.com,
+	kevin.brodsky@arm.com, scott@os.amperecomputing.com,
+	james.clark@linaro.org, james.morse@arm.com,
+	anshuman.khandual@arm.com, shameerali.kolothum.thodi@huawei.com,
+	joey.gouly@arm.com, gshan@redhat.com, yangyicong@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: errata: Add Ampere erratum AC03_CPU_50
+ workaround alternative
+Message-ID: <aG7zzpFgWEQuCp4w@zaid>
+References: <20250703214657.786288-1-zaidal@os.amperecomputing.com>
+ <aGevCYzaRPLMGzL0@J2N7QTR9R3>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aGevCYzaRPLMGzL0@J2N7QTR9R3>
+X-ClientProxiedBy: MW4PR04CA0311.namprd04.prod.outlook.com
+ (2603:10b6:303:82::16) To SN7PR01MB7903.prod.exchangelabs.com
+ (2603:10b6:806:34f::17)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250709-65-boot-phases-v1-2-e1f89d97a931@ti.com>
-References: <20250709-65-boot-phases-v1-0-e1f89d97a931@ti.com>
-In-Reply-To: <20250709-65-boot-phases-v1-0-e1f89d97a931@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Bryan Brattlof <bb@ti.com>
-X-Mailer: b4 0.14.2
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR01MB7903:EE_|PH0PR01MB6373:EE_
+X-MS-Office365-Filtering-Correlation-Id: 19b52ebf-6012-410e-25af-08ddbf3bf639
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?U6GXx5qlh0bCl7WtADLtEAaUTnI111vL2fMKSocyle49G/MdhL517vSWuP1r?=
+ =?us-ascii?Q?44ywpU8dfm7Y7ctYT7ND3qbzgQgRx2tr6n/UEfC5Qc198LvfNUCZ76ExTGhc?=
+ =?us-ascii?Q?u+vdmPIp6cZvWoIVXuc52QhS89Zwc0srzifZ9vay2WLduU/GHT8/OXHRyOsH?=
+ =?us-ascii?Q?a6NaDRlVcfqHjW2Z6whgQsni0cYUBqR25WeulS2Yfs2sd92MI0EWQdoIZnHv?=
+ =?us-ascii?Q?Gf9YZlqajfEqPKfZX/Rlx3u+YUaqI6kUC73kMgQHNFLllyoqjVPwYYkvrS+t?=
+ =?us-ascii?Q?+tmS7tAq9tiHGbQZXMzsh+LPtRKU3VQckaRLwhBtN/6m1A1RfpP004yljUGG?=
+ =?us-ascii?Q?52mi3phnXA/HfO7MxfVwnJU2MfcJpGJGCS3nJPzpWDsTX14tH2CnZHNXy0Ub?=
+ =?us-ascii?Q?hK5jO5TtEP+qSopxBG4Wji1M4RLdxTa3ZScmbN/A5ZqVljuVhlwx4Z7Zr3mw?=
+ =?us-ascii?Q?YCBqC522/BBEcZihKOg3d/0h6GDIjEiKFrracD17rsCUXZeFkx5UX+HNwZT6?=
+ =?us-ascii?Q?a499gQ8aRVmhF3HK0hzke3WiPvpdAutf+Pjdlq/b4kU2ZBfuW6KBzmSHWJ3Y?=
+ =?us-ascii?Q?Rm/6fZvY3faqvNnjcuJMg9mSjagVFuENnSHzerR9pWHJWStcEnuAILh9vuMq?=
+ =?us-ascii?Q?JMxGxy3aZZTUOudUCe+F/JXad5nIISIxpPv+FMLnJh2sXp/xBwDxiJP95DhX?=
+ =?us-ascii?Q?dc755jH3+kUQczKGVr4Zw/JZW1K/29uH/iqCkGLAAPHu/ONyqVnrnfOwBDFf?=
+ =?us-ascii?Q?3kcs49q91XTadeeGVJhCPjy7G3vEuDeAtg3uo3XngKEz7Qh0bdYWzbIKKA1M?=
+ =?us-ascii?Q?K3Okb7klRI/FyG+kCsmHGk95zYlejWbo9QSNDJU6P8ZP2K7NwT+t4621TZOO?=
+ =?us-ascii?Q?Gn6S89t2dUh5c97aVZnqWkfg2ZUJhuXoglBQj1FugClH7QNBeIub1XtYwzz6?=
+ =?us-ascii?Q?P1Nz4W+YXh/zFAF/Cl2AnJji4leyQPhkZ3qUHmf4F1my2XXrjiPNdy84HSBH?=
+ =?us-ascii?Q?v7xp2hpNzQZDfQg40+nrH6bxdmd1gNSro3wDvJaOWhHKZhStmRe0fwRpKNRf?=
+ =?us-ascii?Q?wYjLv2i6R/kiLeAZOuUWqYxefIJEgbiSPvknEkFQIMJ7Jw3vTnSmP13YsP/q?=
+ =?us-ascii?Q?PXf9qVbIrMO/8iRiAN41WKq85p14y1Rq00xK57oOcIVBzUogUVIZz7/itsFJ?=
+ =?us-ascii?Q?Al2R0GrDW5Ihm4NSB1I+5NR70HxYdmpPrQi1rC13u25q7+n9b/KlghIIxepT?=
+ =?us-ascii?Q?Eg8Eg61/pJLJDJV0gopIV7Pzz0zIsFSIShFNyApNfaPq2GtPOUW1pIuIv1dk?=
+ =?us-ascii?Q?L006VNMjp7EtF/Cugc9CPkwp3FQH3iUSSb1STG/LU9djRtLpiR7DZJVzPaB8?=
+ =?us-ascii?Q?2KpAKAMYKSFWBJ+hJ6dw+3qpfVHsHATN57XS6C+akJ6i9lG6NwUJo/kcn4Pm?=
+ =?us-ascii?Q?98i+wK+Pwb5S6PKF3OtHAiWkf/0F3ESfBDvqeBKUmEkG9aPvTemIBw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR01MB7903.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yymQeDLGwdIgXqXEJekO8cAnfbIJNlv2jKW1D4IzeFB3c0zV1ieCKdmhqjqQ?=
+ =?us-ascii?Q?fannhokuqqh6ypWDKVXF4KCU0ELVcvqjCq4gFL1WOd/mn/qDEtwfNY7+VSnR?=
+ =?us-ascii?Q?HHd7/T/wtwEK3MsXW6fQSBNFUXU+YW7LPJktL+MFKFjYWvZSZBCPCSi8r2ut?=
+ =?us-ascii?Q?RYlYebVWaDQJBkS1alC/xAivBqmTGb0RDzhoeR24+UGbwQaJ7W4Dw3YcINB2?=
+ =?us-ascii?Q?zxnSOko5vwYsP9WHIxUS/CQvMycvAbCKryLAdOT36fhLeLcaPAnmw/jH5l1O?=
+ =?us-ascii?Q?/PCE9Qzt9iX+D6PMFgamnjUrXa+Kwl5+XsBCIRQ1FP5d8BqOwV0CkLqs314O?=
+ =?us-ascii?Q?1FmDBtWdK0FbTC50jRWmS4ZrxaNWxXhcYARVH76XC6u4levkRCDppqJgjWU9?=
+ =?us-ascii?Q?+QErPCbKwAktfMMFdTAyQBbRDoBOioz+3/oom8jcpIDDcMfkUPy7K8JXKIz/?=
+ =?us-ascii?Q?QiQ6o50a/Da1p9xOgO3qJ5hEXDjNZ6RnQkaILHPPiU4RUXOrHh87oOkWMHxC?=
+ =?us-ascii?Q?uX+n58qYA0cgdd4MjJyoTDVwyhEmj8wfhrhD1n7+ohNxMPcZYcG2VjFPEBWh?=
+ =?us-ascii?Q?1KNk3tlQGXe7WnR+4o1UGK4WKG0RuJNf89tiSYC58OQQ6KNWnZuQbxjW2Hu3?=
+ =?us-ascii?Q?BwVKe2KLKE28LWyA2i+2WA13JkcRNbhKQ3oRwyLK5+K1xPgGNF2TeCZxret0?=
+ =?us-ascii?Q?+P7KbI3/VqT4ExSHMJwX1tDPmsn+mtbHTmAqA+ymSl3UhI2c03APu+iKJi+V?=
+ =?us-ascii?Q?xnf/rMVc8wN2bLG604SqCO/nzvSVFF4nQpEOFITfI/pCKfY93CCm0gxcvcI6?=
+ =?us-ascii?Q?WqR6DznfNqwEBSWvUnRobidV9JtN3wHlXf7EqKYaVMbZNxrMGPavI5r/7NdY?=
+ =?us-ascii?Q?4a1U0gB7WBYAOOMiCubStM7mB6mmxKUbrF+j25ru6uqR80L1+VR3A7BfOMWq?=
+ =?us-ascii?Q?FH9qUZn1f3H2umbdbZqY3Qm+nrZtKps7rMbgS/RDvbHW5AbeHGRYt69WLR8T?=
+ =?us-ascii?Q?4Ns0RjFyqQhO3Iges6YupEb/18pA6k0OvYVyV26FQhFSb3HUBHvArRTItkXi?=
+ =?us-ascii?Q?XtkfpRzyay+c5vk9v78j/ekUC3MUJuAxEqjPwiILCxnn8xT3HUfPFZNiK7gQ?=
+ =?us-ascii?Q?Q2VrNTJ9v6Fgo0xHtMCV1ipNVDT2sVwFE7GcGZMtbYjkRIQf2r71D8t3HMv6?=
+ =?us-ascii?Q?SXsPAmMMHUyfBM+/ty7VTILN8tBHXIKYmdC5IINL6JfXoeZ1+ml6ESp99jLq?=
+ =?us-ascii?Q?4EQSl3nr6OM7yE3H200h58PUH6pofbNF4uv4UENvuqyrwDGmIZmKbb8i5ptI?=
+ =?us-ascii?Q?l8ziKys4YX/1bzwCwonL6c8/40wpn48QhoPzjFOuzeUVIJ0eoYPrVb53Y5P2?=
+ =?us-ascii?Q?I0TW49vYc+PECLYEROgZhjVCxiIYG+bp7a3KpHQhb4VY57VqNVVNjC+JPtI4?=
+ =?us-ascii?Q?t7VFZIltB7VPrSMfGBOj+7Y8ybV22PtqLg+SoSM9nXeYL012C/e4gDx9PLpq?=
+ =?us-ascii?Q?2VWYeRkS4zM2cKWHZfMJcXExcubQP00xOdthuB2Ii6NAC3H4C3s8Q2gg5a/T?=
+ =?us-ascii?Q?AjcOvoftCvjppGCPgE1wYwhMhlbjSIbWClGQX125KzRVLoY20mcMSO0Ztd/M?=
+ =?us-ascii?Q?N+1W2yddoMxJ+73TreFngNA=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19b52ebf-6012-410e-25af-08ddbf3bf639
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR01MB7903.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2025 22:57:21.6844
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eqREsbgEaLdNIs4aLxNzDc10hiZNPKFhnQFod4ZCdkX8I2SzVKqsU1yPg0TxVJIGEHFb7LavlmO5md/VtwjrigGhoH7EK8Ftms4P3dNIRVveenPdicu2O4+PGwtrbmwi
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB6373
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_153556_711523_E6BF541A 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250709_235808_191524_7632670A 
+X-CRM114-Status: GOOD (  41.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,164 +181,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'bootph-all' tag was added to the dt-schema to describe the various
-nodes used during the different phases of bootup with DT. Add the
-bootph-all tag to all nodes that are used in the bootloader for the
-AM654 reference board.
+On Fri, Jul 04, 2025 at 11:38:01AM +0100, Mark Rutland wrote:
+> On Thu, Jul 03, 2025 at 02:46:57PM -0700, Zaid Alali wrote:
+> > Add an alternative code sequence to work around Ampere erratum
+> > AC03_CPU_50 on AmpereOne and AC04_CPU_19 on AmpereOne AC04.
+> > 
+> > Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
+> > direct read of the register will return a value of 0xf8. An incorrect
+> > value from a direct read can only happen with the value 0xf0.
+> > 
+> > This only occurs when the following conditions are met:
+> > SCR_EL3.FIQ=1 and,
+> > PE is NOT in EL3/Secure state and,
+> > ICC_PMR_EL1.Priority=0xf8 (Non-Secure Group 1)
+> > 
+> > The returned interrupt filter priority is affected by this, and
+> > returns 0xf8 but should be 0xf0, as per ARM. This workaround fixes
+> > the issue here.
+> > 
+> > Based on this Defect (AArch-21735), this does not apply to virtual
+> > interrupts. It also does not apply when SCR_EL3.FIQ=0, as no
+> > modification of ICC_PMR_EL1 is required.
+> 
+> Last time this was posted:
+> 
+>   https://lore.kernel.org/linux-arm-kernel/20250127201829.209258-1-zaidal@os.amperecomputing.com/
+> 
+> ... Marc Zyngier asked:
+> 
+>   Are you saying that this is erratum is *strictly* AARCH-21735?
+> 
+> ... can you please confirm?
 
-UARTs used as a console, the SD and eMMC nodes along with the needed
-regulators for UHS modes, and the needed nodes for OSPI boot are all
-marked with 'bootph-all' to handle the various boot modes the board is
-capable of
+Yes, this is strictly AARCH-21735. Apologies, I meant to include that
+in the commit message.
+> 
+> > Note: Currently there are no checks against a value of 0xf0, and that
+> > save restore of 0xf8 -> 0xf0 is fine, so this is all future proofing.
+> 
+> This is a fair amount of work for no functional change.
+> 
+> AFAICT, this can only possibly matter when PMR is configured with
+> (GICV3_PRIO_UNMASKED | GICV3_PRIO_PSR_I_SET), and I hope to remove
+> GICV3_PRIO_PSR_I_SET entirely in the near future with a rework of the
+> way we manipulate DAIF and PMR.
+> 
+> If we did that, we'd only ever program PMR with:
+> 
+> * GICV3_PRIO_UNMASKED // 0xe0
+> * GICV3_PRIO_IRQ      // 0xc0
+> * GICV3_PRIO_NMI      // 0x80
+> 
+> ... and IIUC that would avoid the problem entirely, no runtime patching
+> required.
+> 
+> Given there's no functional issue today, I wonder if we should just
+> leave this as-is for now, and mabye just add an N/A entry in
+> silicon-errata.txt.
+> 
+> Mark.
 
-Signed-off-by: Bryan Brattlof <bb@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am654-base-board.dts | 17 +++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am654-pcie-usb2.dtso |  1 +
- arch/arm64/boot/dts/ti/k3-am654-pcie-usb3.dtso |  1 +
- 3 files changed, 19 insertions(+)
+I agree removing GICV3_PRIO_PSR_I_SET should resolve the issue. I would
+leave it as is for now, not sure if adding N/A entry would be useful
+since we are not adding a workaround for it.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-index c30425960398ebb75ebda44726ed90cd78947d58..e589690c7c8213d5e4989942735fa53825e610f5 100644
---- a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-@@ -144,6 +144,7 @@ vtt_supply: regulator-3 {
- 		regulator-boot-on;
- 		vin-supply = <&vcc3v3_io>;
- 		gpio = <&wkup_gpio0 28 GPIO_ACTIVE_HIGH>;
-+		bootph-all;
- 	};
- };
- 
-@@ -155,12 +156,14 @@ AM65X_WKUP_IOPAD(0x00a4, PIN_OUTPUT, 0)	/* (AB5) WKUP_UART0_TXD */
- 			AM65X_WKUP_IOPAD(0x00c8, PIN_INPUT, 1)	/* (AC2) WKUP_GPIO0_6.WKUP_UART0_CTSn */
- 			AM65X_WKUP_IOPAD(0x00cc, PIN_OUTPUT, 1)	/* (AC1) WKUP_GPIO0_7.WKUP_UART0_RTSn */
- 		>;
-+		bootph-all;
- 	};
- 
- 	ddr_vtt_pins_default: ddr-vtt-default-pins {
- 		pinctrl-single,pins = <
- 			AM65X_WKUP_IOPAD(0x0040, PIN_OUTPUT_PULLUP, 7)	/* WKUP_GPIO0_28 */
- 		>;
-+		bootph-all;
- 	};
- 
- 	wkup_i2c0_pins_default: wkup-i2c0-default-pins {
-@@ -168,6 +171,7 @@ wkup_i2c0_pins_default: wkup-i2c0-default-pins {
- 			AM65X_WKUP_IOPAD(0x00e0, PIN_INPUT, 0) /* (AC7) WKUP_I2C0_SCL */
- 			AM65X_WKUP_IOPAD(0x00e4, PIN_INPUT, 0) /* (AD6) WKUP_I2C0_SDA */
- 		>;
-+		bootph-all;
- 	};
- 
- 	push_button_pins_default: push-button-default-pins {
-@@ -191,6 +195,7 @@ AM65X_WKUP_IOPAD(0x0024, PIN_INPUT, 0)  /* (R2) MCU_OSPI0_D6 */
- 			AM65X_WKUP_IOPAD(0x0028, PIN_INPUT, 0)  /* (R3) MCU_OSPI0_D7 */
- 			AM65X_WKUP_IOPAD(0x002c, PIN_OUTPUT, 0) /* (R4) MCU_OSPI0_CSn0 */
- 		>;
-+		bootph-all;
- 	};
- 
- 	wkup_pca554_default: wkup-pca554-default-pins {
-@@ -206,6 +211,7 @@ AM65X_WKUP_IOPAD(0x0048, PIN_OUTPUT, 4)	/* (P5) MCU_OSPI1_D2.MCU_UART0_TXD */
- 			AM65X_WKUP_IOPAD(0x004C, PIN_INPUT, 4)	/* (P1) MCU_OSPI1_D3.MCU_UART0_CTSn */
- 			AM65X_WKUP_IOPAD(0x0054, PIN_OUTPUT, 4)	/* (N3) MCU_OSPI1_CSn1.MCU_UART0_RTSn */
- 		>;
-+		bootph-all;
- 	};
- 
- 	mcu_cpsw_pins_default: mcu-cpsw-default-pins {
-@@ -248,6 +254,7 @@ AM65X_IOPAD(0x01e8, PIN_OUTPUT, 0)	/* (AE11) UART0_TXD */
- 			AM65X_IOPAD(0x01ec, PIN_INPUT, 0)	/* (AG11) UART0_CTSn */
- 			AM65X_IOPAD(0x01f0, PIN_OUTPUT, 0)	/* (AD11) UART0_RTSn */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_i2c2_pins_default: main-i2c2-default-pins {
-@@ -281,6 +288,7 @@ AM65X_IOPAD(0x0188, PIN_INPUT_PULLUP, 0) /* (D25) MMC0_DAT7 */
- 			AM65X_IOPAD(0x01b4, PIN_INPUT_PULLUP, 0) /* (A23) MMC0_SDCD */
- 			AM65X_IOPAD(0x01b0, PIN_INPUT, 0) /* (C25) MMC0_DS */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_mmc1_pins_default: main-mmc1-default-pins {
-@@ -294,6 +302,7 @@ AM65X_IOPAD(0x02c4, PIN_INPUT_PULLUP, 0) /* (D27) MMC1_DAT3 */
- 			AM65X_IOPAD(0x02dc, PIN_INPUT_PULLUP, 0) /* (B24) MMC1_SDCD */
- 			AM65X_IOPAD(0x02e0, PIN_INPUT, 0) /* (C24) MMC1_SDWP */
- 		>;
-+		bootph-all;
- 	};
- 
- 	usb1_pins_default: usb1-default-pins {
-@@ -343,6 +352,7 @@ &main_uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_uart0_pins_default>;
- 	power-domains = <&k3_pds 146 TI_SCI_PD_SHARED>;
-+	bootph-all;
- };
- 
- &wkup_i2c0 {
-@@ -368,6 +378,7 @@ vdd_mpu: regulator@60 {
- 		ti,vsel0-state-high;
- 		ti,vsel1-state-high;
- 		ti,enable-vout-discharge;
-+		bootph-all;
- 	};
- 
- 	gpio@38 {
-@@ -456,6 +467,7 @@ &sdhci0 {
- 	bus-width = <8>;
- 	non-removable;
- 	ti,driver-strength-ohm = <50>;
-+	bootph-all;
- };
- 
- /*
-@@ -470,6 +482,7 @@ &sdhci1 {
- 	pinctrl-0 = <&main_mmc1_pins_default>;
- 	ti,driver-strength-ohm = <50>;
- 	disable-wp;
-+	bootph-all;
- };
- 
- &usb1 {
-@@ -630,3 +643,7 @@ &cpsw_port1 {
- &dss {
- 	status = "disabled";
- };
-+
-+&wkup_gpio0 {
-+	bootph-all;
-+};
-diff --git a/arch/arm64/boot/dts/ti/k3-am654-pcie-usb2.dtso b/arch/arm64/boot/dts/ti/k3-am654-pcie-usb2.dtso
-index c3cb752f8cd79459d6d321dfdf0644748514a48d..d04dd7a44008205301ea3fb3d0a883b6a6a2562b 100644
---- a/arch/arm64/boot/dts/ti/k3-am654-pcie-usb2.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-am654-pcie-usb2.dtso
-@@ -46,6 +46,7 @@ AM65X_IOPAD(0x02bc, PIN_OUTPUT, 0) /* (AD9) USB0_DRVVBUS */
- 
- &dwc3_0 {
- 	status = "okay";
-+	bootph-all;
- };
- 
- &usb0_phy {
-diff --git a/arch/arm64/boot/dts/ti/k3-am654-pcie-usb3.dtso b/arch/arm64/boot/dts/ti/k3-am654-pcie-usb3.dtso
-index 333e423e8bb6b033f5f45c782ef0095d29983158..04393f21d712ebd95ce1a411e2ac13a56e63e57b 100644
---- a/arch/arm64/boot/dts/ti/k3-am654-pcie-usb3.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-am654-pcie-usb3.dtso
-@@ -45,6 +45,7 @@ &dwc3_0 {
- 	<&k3_clks 151 8>;      /* set PIPE3_TXB_CLK to WIZ8B2M4VSB */
- 	phys = <&serdes0 PHY_TYPE_USB3 0>;
- 	phy-names = "usb3-phy";
-+	bootph-all;
- };
- 
- &usb0 {
-
--- 
-2.49.0
-
+> 
+> > 
+> > V2:
+> >   - Update commit message to clarify the conditions when the issue
+> >     occurs.
+> >   - Add entry in silicon errata documentation.
+> > 
+> > Signed-off-by: Zaid Alali <zaidal@os.amperecomputing.com>
+> > ---
+> >  Documentation/arch/arm64/silicon-errata.rst |  4 ++++
+> >  arch/arm64/Kconfig                          | 14 ++++++++++++++
+> >  arch/arm64/include/asm/arch_gicv3.h         |  2 +-
+> >  arch/arm64/include/asm/daifflags.h          |  5 ++---
+> >  arch/arm64/include/asm/irqflags.h           |  6 +++---
+> >  arch/arm64/include/asm/sysreg.h             |  9 +++++++++
+> >  arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
+> >  arch/arm64/kernel/entry.S                   |  3 +++
+> >  arch/arm64/tools/cpucaps                    |  1 +
+> >  9 files changed, 52 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> > index b18ef4064bc0..29e0bd8b07cd 100644
+> > --- a/Documentation/arch/arm64/silicon-errata.rst
+> > +++ b/Documentation/arch/arm64/silicon-errata.rst
+> > @@ -59,6 +59,10 @@ stable kernels.
+> >  +----------------+-----------------+-----------------+-----------------------------+
+> >  | Ampere         | AmpereOne AC04  | AC04_CPU_23     | AMPERE_ERRATUM_AC04_CPU_23  |
+> >  +----------------+-----------------+-----------------+-----------------------------+
+> > +| Ampere         | AmpereOne       | AC03_CPU_50     | AMPERE_ERRATUM_AC03_CPU_50  |
+> > ++----------------+-----------------+-----------------+-----------------------------+
+> > +| Ampere         | AmpereOne AC04  | AC04_CPU_19     | AMPERE_ERRATUM_AC03_CPU_50  |
+> > ++----------------+-----------------+-----------------+-----------------------------+
+> >  +----------------+-----------------+-----------------+-----------------------------+
+> >  | ARM            | Cortex-A510     | #2457168        | ARM64_ERRATUM_2457168       |
+> >  +----------------+-----------------+-----------------+-----------------------------+
+> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> > index 55fc331af337..1ca4c296deaa 100644
+> > --- a/arch/arm64/Kconfig
+> > +++ b/arch/arm64/Kconfig
+> > @@ -479,6 +479,20 @@ config AMPERE_ERRATUM_AC04_CPU_23
+> >  	  for corruption, and an ISB after is sufficient to prevent younger
+> >  	  instructions from hitting the window for corruption.
+> >  
+> > +config AMPERE_ERRATUM_AC03_CPU_50
+> > +	bool "AmpereOne: AC03_CPU_50: Certain checks for ICC_PMR_EL1 that expects the value 0xf0 may read 0xf8 instead"
+> > +	default y
+> > +	help
+> > +	  This option adds an alternative code sequence to work around Ampere
+> > +	  erratum AC03_CPU_50 on AmperOne and AC04_CPU_19 on AmpereOne AC04.
+> > +
+> > +	  Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
+> > +	  direct read of the register will return a value of 0xf8. An incorrect
+> > +	  value from a direct read can only happen with the value 0xf0.
+> > +
+> > +	  The workaround for the erratum will do logical AND 0xf0 to the
+> > +	  value read from ICC_PMR_EL1 register before returning the value.
+> > +
+> >  	  If unsure, say Y.
+> >  
+> >  config ARM64_WORKAROUND_CLEAN_CACHE
+> > diff --git a/arch/arm64/include/asm/arch_gicv3.h b/arch/arm64/include/asm/arch_gicv3.h
+> > index 9e96f024b2f1..299d7e17abdf 100644
+> > --- a/arch/arm64/include/asm/arch_gicv3.h
+> > +++ b/arch/arm64/include/asm/arch_gicv3.h
+> > @@ -127,7 +127,7 @@ static inline void gic_write_bpr1(u32 val)
+> >  
+> >  static inline u32 gic_read_pmr(void)
+> >  {
+> > -	return read_sysreg_s(SYS_ICC_PMR_EL1);
+> > +	return read_sysreg_pmr();
+> >  }
+> >  
+> >  static __always_inline void gic_write_pmr(u32 val)
+> > diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+> > index fbb5c99eb2f9..022a3640d584 100644
+> > --- a/arch/arm64/include/asm/daifflags.h
+> > +++ b/arch/arm64/include/asm/daifflags.h
+> > @@ -22,8 +22,7 @@
+> >  static inline void local_daif_mask(void)
+> >  {
+> >  	WARN_ON(system_has_prio_mask_debugging() &&
+> > -		(read_sysreg_s(SYS_ICC_PMR_EL1) == (GIC_PRIO_IRQOFF |
+> > -						    GIC_PRIO_PSR_I_SET)));
+> > +		(read_sysreg_pmr() == (GIC_PRIO_IRQOFF | GIC_PRIO_PSR_I_SET)));
+> >  
+> >  	asm volatile(
+> >  		"msr	daifset, #0xf		// local_daif_mask\n"
+> > @@ -46,7 +45,7 @@ static inline unsigned long local_daif_save_flags(void)
+> >  
+> >  	if (system_uses_irq_prio_masking()) {
+> >  		/* If IRQs are masked with PMR, reflect it in the flags */
+> > -		if (read_sysreg_s(SYS_ICC_PMR_EL1) != GIC_PRIO_IRQON)
+> > +		if (read_sysreg_pmr() != GIC_PRIO_IRQON)
+> >  			flags |= PSR_I_BIT | PSR_F_BIT;
+> >  	}
+> >  
+> > diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+> > index d4d7451c2c12..757e7e837992 100644
+> > --- a/arch/arm64/include/asm/irqflags.h
+> > +++ b/arch/arm64/include/asm/irqflags.h
+> > @@ -30,7 +30,7 @@ static __always_inline void __daif_local_irq_enable(void)
+> >  static __always_inline void __pmr_local_irq_enable(void)
+> >  {
+> >  	if (IS_ENABLED(CONFIG_ARM64_DEBUG_PRIORITY_MASKING)) {
+> > -		u32 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+> > +		u32 pmr = read_sysreg_pmr();
+> >  		WARN_ON_ONCE(pmr != GIC_PRIO_IRQON && pmr != GIC_PRIO_IRQOFF);
+> >  	}
+> >  
+> > @@ -59,7 +59,7 @@ static __always_inline void __daif_local_irq_disable(void)
+> >  static __always_inline void __pmr_local_irq_disable(void)
+> >  {
+> >  	if (IS_ENABLED(CONFIG_ARM64_DEBUG_PRIORITY_MASKING)) {
+> > -		u32 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+> > +		u32 pmr = read_sysreg_pmr();
+> >  		WARN_ON_ONCE(pmr != GIC_PRIO_IRQON && pmr != GIC_PRIO_IRQOFF);
+> >  	}
+> >  
+> > @@ -84,7 +84,7 @@ static __always_inline unsigned long __daif_local_save_flags(void)
+> >  
+> >  static __always_inline unsigned long __pmr_local_save_flags(void)
+> >  {
+> > -	return read_sysreg_s(SYS_ICC_PMR_EL1);
+> > +	return read_sysreg_pmr();
+> >  }
+> >  
+> >  /*
+> > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> > index f1bb0d10c39a..9033110a4589 100644
+> > --- a/arch/arm64/include/asm/sysreg.h
+> > +++ b/arch/arm64/include/asm/sysreg.h
+> > @@ -1223,6 +1223,15 @@
+> >  	par;								\
+> >  })
+> >  
+> > +#define read_sysreg_pmr() ({						\
+> > +	u64 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);			\
+> > +	asm(ALTERNATIVE("nop", "and %0, %0, #0xf0",			\
+> > +			ARM64_WORKAROUND_AMPERE_AC03_CPU_50)		\
+> > +			: "+r" (pmr)					\
+> > +			);						\
+> > +	pmr;								\
+> > +})
+> > +
+> >  #define SYS_FIELD_VALUE(reg, field, val)	reg##_##field##_##val
+> >  
+> >  #define SYS_FIELD_GET(reg, field, val)		\
+> > diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> > index 59d723c9ab8f..9eec9977ee21 100644
+> > --- a/arch/arm64/kernel/cpu_errata.c
+> > +++ b/arch/arm64/kernel/cpu_errata.c
+> > @@ -564,6 +564,14 @@ static const struct midr_range erratum_ac04_cpu_23_list[] = {
+> >  };
+> >  #endif
+> >  
+> > +#ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_50
+> > +static const struct midr_range erratum_ac03_cpu_50_list[] = {
+> > +	MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+> > +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+> > +	{},
+> > +};
+> > +#endif
+> > +
+> >  const struct arm64_cpu_capabilities arm64_errata[] = {
+> >  #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
+> >  	{
+> > @@ -905,6 +913,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+> >  		.matches = has_impdef_pmuv3,
+> >  		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
+> >  	},
+> > +#ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_50
+> > +	{
+> > +		.desc = "AmpereOne erratum AC03_CPU_50",
+> > +		.capability = ARM64_WORKAROUND_AMPERE_AC03_CPU_50,
+> > +		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_50_list),
+> > +	},
+> > +#endif
+> >  	{
+> >  	}
+> >  };
+> > diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+> > index 5ae2a34b50bd..6d76f79335a0 100644
+> > --- a/arch/arm64/kernel/entry.S
+> > +++ b/arch/arm64/kernel/entry.S
+> > @@ -317,6 +317,9 @@ alternative_if_not ARM64_HAS_GIC_PRIO_MASKING
+> >  alternative_else_nop_endif
+> >  
+> >  	mrs_s	x20, SYS_ICC_PMR_EL1
+> > +alternative_if ARM64_WORKAROUND_AMPERE_AC03_CPU_50
+> > +	and	x20, x20, #0xf0
+> > +alternative_else_nop_endif
+> >  	str	w20, [sp, #S_PMR]
+> >  	mov	x20, #GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET
+> >  	msr_s	SYS_ICC_PMR_EL1, x20
+> > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> > index 10effd4cff6b..de34e36c79ee 100644
+> > --- a/arch/arm64/tools/cpucaps
+> > +++ b/arch/arm64/tools/cpucaps
+> > @@ -96,6 +96,7 @@ WORKAROUND_2645198
+> >  WORKAROUND_2658417
+> >  WORKAROUND_AMPERE_AC03_CPU_38
+> >  WORKAROUND_AMPERE_AC04_CPU_23
+> > +WORKAROUND_AMPERE_AC03_CPU_50
+> >  WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+> >  WORKAROUND_TSB_FLUSH_FAILURE
+> >  WORKAROUND_TRBE_WRITE_OUT_OF_RANGE
+> > -- 
+> > 2.43.0
+> > 
 
