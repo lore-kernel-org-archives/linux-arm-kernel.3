@@ -4,80 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABF5C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EACC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qPkxg71a8xKMOk7gRt6YiWOPIe8HfaUrT3StylJgAHI=; b=IUE/y+2cRK2jiUFLC3UXzuG4UR
-	6mVUs7S3GYs9gj4C7N/2eXf3cqx99RMiJh5nNotx/2u5esoVVfP5Opomx4k0Rz2++KR7KxC4gwVDz
-	Tt/5tLiQCWpXp7kuh5Amh9MLSACmJO5igWSJ9YWmNabB6mlkZtNIRv7UbVevKRxDE74Rkz2dGQtM5
-	9AdYRCXM+DiBGNdHTersQygNBfpFNTa3z2DvgAC3EZ+sEwWZ0QPK8vrU8LG+TToIOvXuXuCixN7h5
-	cPHNXbh6tpELKGsiGdJPUQPJcweDO4H4VtkTJ5m+k6Dofhi5B0kFGMBxokIHN2fBiCctAtHj315l6
-	dQx0L0DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tJzM1K1Dmueh7OdUtHBIOxpyAgF67zAJOJ63216nDS4=; b=gL1dmNGwmgvp+CgaOZMvWek8gZ
+	uDgDCbIgwi5gmROXuvA9dkZ52eX6i2gIVvlUez2ohox9NIkINPrJLIoiw6ycZHnv0vcvMbg/+i6+b
+	D+iA3idC9FAXYdxyKI2e2QS+XKVxZMXoF2unlys6OnVfN7ONQKIh9asVr9nB+PHv5Piw23O5XQCc6
+	9hpVYCtR9zompQnf/Rcs5ZpUDK8wet3Hf5RRjusmKz8YFx/17IYFBQozHHxwBWgNXk+/O5EtERREz
+	dYkRV0Ce39NuJjwEl+bGsLnpLfBwZ+bJqaWCCXkweCp5YhjIZ0xmXhLvsusUl0FH8zfOIONiJP5r+
+	yJZLGBZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdjX-0000000AAq4-0B38;
-	Wed, 09 Jul 2025 22:57:47 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uZdjj-0000000ABCN-1Be6;
+	Wed, 09 Jul 2025 22:57:59 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZcr4-0000000A061-3dry
+	id 1uZcxF-0000000A1ei-3cMu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 22:01:31 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3122368d82bso592635a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 15:01:30 -0700 (PDT)
+	Wed, 09 Jul 2025 22:07:55 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ae0dd7ac1f5so59393666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 15:07:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752098490; x=1752703290; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qPkxg71a8xKMOk7gRt6YiWOPIe8HfaUrT3StylJgAHI=;
-        b=eXo/aOc4yqtkS1MTtVyyVWc3dSIFcnbZ5XW/4yTUZLmMmuGP1dHzwKnw4Dj2uo1Bf9
-         zA09CQ5JYCS0x2/eUjkf4c1bSsiV1Dpe4rFaxsAdKZyXe+qMiw16l+CBnLeV/ym3AkVH
-         Xx0MLAGky1Ohw0F620EiKpblyP5tOUIBH1lZ1LqGJix4JLj3fpdEfpC5FEDRIKlKmpLW
-         o7i0OoSjpRTUHLSVBooAHZzSWw/ACgdOhF9FHT3kkPUS35grUcTYwVp6jHfTJZwBVN8M
-         Q77o9rKXkwkZYrWW8mej/Qx+Ap22bTsTnADiG7o1gUasrfHlugmxoonZb+nFMrb/llcH
-         t9Iw==
+        d=gmail.com; s=20230601; t=1752098872; x=1752703672; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tJzM1K1Dmueh7OdUtHBIOxpyAgF67zAJOJ63216nDS4=;
+        b=ADLfzSxI9/CJtZ2Di+cg3gXj+wRLuTrGSTUFPj1J8O6R1O11UVWz7kK2Q8p1Y5x5DW
+         OC5+1nkkCslkn1R//rHm191OND0wyEStHw2NK9roKvLBiYK1rjVTSznfQJbXCeNcDLkq
+         PoODeexKm7ivH8pODhax4otzvZez4oF3v43nyXmhSa8T/UtOVl6n17HUi0E8ygB9HGds
+         YtfG/bO4m+ZHIU4mXVgXlMBygG8/9V5fDmHRgUqKKzDoQG+xGJfrMRf7Xjv2X5tY7rV5
+         26mBk4PzJFMO/ejZiL+z2wZB8qWM6pMmdKad5kZwq+IzITJddc2iKTP6hM1OpbnyPJ1v
+         AHFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752098490; x=1752703290;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qPkxg71a8xKMOk7gRt6YiWOPIe8HfaUrT3StylJgAHI=;
-        b=bum+lxmcflCtPknTYCTN1TMEAb+sBGBY2m+2TBeWG1GRwX5mR+gewMj9jYwT7XXaBf
-         TiaWHXWMKotc+EfmSsUgoDg/336cBp0pDa8PPPyABRgWL+XZNcmVyZwrwg8VjQ2FqpP7
-         kXvoX2++014P0Qwz1Ntj0GRxDBI3HmVk9e/n2H8581jQV6+XJDlxjVZyUePiiL6jilgH
-         cUOnrKhi8W+7DQNsaefOEvupZGdgjq9KuXQdWIEjiheuLtG33pW90fMocUy2BLieus64
-         KxFqjcZbr1yvTcKtKfuBBpXog6nxMilvnKbdihQTwgxB7l8sOuC58gqslD9QqKu+T5/g
-         Iqgw==
-X-Forwarded-Encrypted: i=1; AJvYcCUGJhUkYyXzSdhX4fAXGANdxsRJT77RBgjzHXTZXJQQLPUkOwHfVzRf+e4Aw0FhDrn4J4KVSQ+jAJlCzmUzC725@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzjr3A4EaPg5kWj5uM1ddgTNbcN0HBeaMtzQX7T6WPIdZnPtT9Q
-	luR4Ch5Svz8yMDnL98ELvwCUWLXxBVtP+HFiSpMK8SyqVv+EYOcRXN+Dzh/rgWpD/CVET6yAXyy
-	mxwMwmg==
-X-Google-Smtp-Source: AGHT+IGv5Auh5afur7rrmDtcmRu/ac16McioXeHVJV7IWM1fJ+YSaOB7uGrq5SXWMiQzxRu0kWJqhfgibQ4=
-X-Received: from pjblw1.prod.google.com ([2002:a17:90b:1801:b0:31c:2fe4:33b9])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2b43:b0:312:e279:9ccf
- with SMTP id 98e67ed59e1d1-31c3ef100acmr359390a91.5.1752098489536; Wed, 09
- Jul 2025 15:01:29 -0700 (PDT)
-Date: Wed, 9 Jul 2025 15:01:28 -0700
-In-Reply-To: <20250606235619.1841595-8-vipinsh@google.com>
-Mime-Version: 1.0
-References: <20250606235619.1841595-1-vipinsh@google.com> <20250606235619.1841595-8-vipinsh@google.com>
-Message-ID: <aG7muHNldvv8fRyH@google.com>
-Subject: Re: [PATCH v2 07/15] KVM: selftests: Add various print flags to KVM
- Selftest Runner
-From: Sean Christopherson <seanjc@google.com>
-To: Vipin Sharma <vipinsh@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, pbonzini@redhat.com, 
-	anup@brainfault.org, borntraeger@linux.ibm.com, frankja@linux.ibm.com, 
-	imbrenda@linux.ibm.com, maz@kernel.org, oliver.upton@linux.dev, 
-	dmatlack@google.com
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1752098872; x=1752703672;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tJzM1K1Dmueh7OdUtHBIOxpyAgF67zAJOJ63216nDS4=;
+        b=lXNuzkmpADnQmPBXvV51L39tZ94ZryA73AnyMqP85PvDa0bIrp6NgBzm+AKN96wDNG
+         uvQ5sskWwcXekbwo7+MlwZyejY3lV94d7qSRruzE0ciEGHkoY/NYqzm8ymKhWFlHQu0h
+         8SNuuGfO/Kd+sWyfJv0Xu+A54UhzEvEkEqh5vS+KjPKHjH/FP+I/R1NqgRWeK0uG5wke
+         6IJZVjqAnus+TBUBMqSutu62ZUgj33vjXrV9hgKr7jrdUTO2vS/6YvquOYWAzITM86W8
+         B79LjtJixsfZe/iFgd8SsHq7RIcCreHWF5KrY3SR4IkkZEyCmdTR2c7XY6q12kxRXino
+         CicQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWqvh/qN5n0krzxof8rB83k0ammMTVknffrWUhPL4kRlTqcmTVeT1XKcHnX+4RNyoA7eB2jQRBlyVMeL0cYaruL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzl9uBhvEk3j96R46hYSxCM0cxOjbH+fjk4sAWC3ctyAmN8hl+9
+	lhLe3FO5MaGa/9SlYU4HfJ6OOLaI+MSyaIndlX1fAICcMsX7FJ4vaeqz
+X-Gm-Gg: ASbGncuVwhE8IrdgL+G2gcKe106QJ6JVOHOsk4kRnJiOu6GeWj7bghUNDmOVo7vbiP8
+	clXSInL9To1+GCSHJFKZ7hJZ1sfVs4mQWtadmQULmj1RSDTGKxJWtBBQsrbpBvg6LDZrQsCtSBa
+	Tj/s5rmokF5+yKmVsh5btiorKS5+bLKu19fIAmHnYJ1qOMwDBWcBhqR0U4TGQt2K3mwzTZpdCDR
+	xnoeAWlJkRvloOyaiKHG0G7445a44ZVo1Ku7/GSf6ScK/qi/9cUyP+0ylWlGKx0Mda5qDeNR1aC
+	MkKt7HDwqyHg6091hC+Oof2sj3KQIOoukhm0k9rSDXW1cArBt76yub/fLklxZF2Y4XMsLvkVu9z
+	Z2d6ypoh2+7lyWK1zHlv+0fyNJdFOXa7wDeUlcF9d8wyzjw==
+X-Google-Smtp-Source: AGHT+IHlkfkLvk0xG1HBQFG/XesTYuOQg3jZVndTCAQHvvSGCdCcXTtdOQ4Fa6CTUyNNcLVE4GCoTw==
+X-Received: by 2002:a17:906:d195:b0:ae3:a71d:1984 with SMTP id a640c23a62f3a-ae6e14550ccmr134642666b.57.1752098871710;
+        Wed, 09 Jul 2025 15:07:51 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-70-53-177.cust.vodafonedsl.it. [93.70.53.177])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e8264fbcsm10520666b.75.2025.07.09.15.07.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Jul 2025 15:07:51 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/3] Add support for Variscite VAR-SOM-AM62P5 and Symphony board
+Date: Thu, 10 Jul 2025 00:07:03 +0200
+Message-ID: <20250709220714.85697-1-stefano.radaelli21@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_150130_905001_FB8F59E4 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20250709_150753_898345_60EE16E1 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,80 +102,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 06, 2025, Vipin Sharma wrote:
-> Add various print flags to selectively print outputs on terminal based
-> on test execution status (passed, failed, timed out, skipped, no run).
-> 
-> Provide further options to print only particular execution status, like
-> print only status of failed tests.
-> 
-> Example: To print status, stdout and stderr for failed tests and only
-> print status of passed test:
-> 
->    python3 runner --test-dirs tests  --print-failed \
->    --print-passed-status
-> 
-> Signed-off-by: Vipin Sharma <vipinsh@google.com>
-> ---
->  .../testing/selftests/kvm/runner/__main__.py  | 114 ++++++++++++++++++
->  .../selftests/kvm/runner/test_runner.py       |  10 +-
->  2 files changed, 123 insertions(+), 1 deletion(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/runner/__main__.py b/tools/testing/selftests/kvm/runner/__main__.py
-> index 3f11a20e76a9..4406d8e4847a 100644
-> --- a/tools/testing/selftests/kvm/runner/__main__.py
-> +++ b/tools/testing/selftests/kvm/runner/__main__.py
-> @@ -64,9 +64,115 @@ def cli():
->                          default=False,
->                          help="Print only test's status and avoid printing stdout and stderr of the tests")
->  
-> +    parser.add_argument("--print-passed",
-> +                        action="store_true",
-> +                        default=False,
-> +                        help="Print passed test's stdout, stderr and status."
-> +                        )
-> +
-> +    parser.add_argument("--print-passed-status",
-> +                        action="store_true",
-> +                        default=False,
-> +                        help="Print only passed test's status."
-> +                        )
+This patch series adds support for the Variscite VAR-SOM-AM62P system on module
+and the Symphony carrier board.
 
-Waaay too many booleans :-)
+The VAR-SOM-AM62P is a compact SOM based on the TI AM62P Sitara processor,
+featuring up to 8GB DDR4 memory, eMMC storage, Gigabit Ethernet, and various
+peripheral interfaces. The Symphony board is a feature-rich carrier board that
+showcases the SOM capabilities.
 
-And they don't provide the right granularity.  E.g. I don't want stdout for FAILED,
-I just want stderr for the assert.
+The series includes:
+- Device tree bindings documentation
+- SOM device tree with common peripherals
+- Symphony carrier board device tree with board-specific features
 
-After some fiddling, I came up with this:
+The implementation follows the standard SOM + carrier board pattern where the
+SOM dtsi contains only peripherals mounted on the module, while carrier-specific
+interfaces are enabled in the board dts.
 
-    parser.add_argument("--print-passed", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
-                        help="blah"
-                        )
+Tested on VAR-SOM-AM62P with Symphony carrier board.
 
-    parser.add_argument("--print-failed", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
-                        help="Full = print each test's stdout, stderr and status; status = only status."
-                        )
+Stefano Radaelli (3):
+  dt-bindings: arm: ti: Add bindings for Variscite VAR-SOM-AM62P
+  arm64: dts: ti: Add support for Variscite VAR-SOM-AM62P
+  arm64: dts: ti: var-som-am62p: Add support for Variscite Symphony
+    Board
 
-    parser.add_argument("--print-skipped", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
-                        help="Print skipped test's stdout, stderr and status."
-                        )
+ .../devicetree/bindings/arm/ti/k3.yaml        |   6 +
+ arch/arm64/boot/dts/ti/Makefile               |   1 +
+ .../dts/ti/k3-am62p5-var-som-symphony.dts     | 563 ++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 374 ++++++++++++
+ 4 files changed, 944 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
 
-    parser.add_argument("--print-timed-out", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
-                        help="Print timed out test's stdout, stderr and status."
-                        )
 
-    parser.add_argument("--print-no-run", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
-                        help="Print stdout, stderr and status for tests which didn't run."
-                        )
+base-commit: d7b8f8e20813f0179d8ef519541a3527e7661d3a
+prerequisite-patch-id: 7e8493f8ed01ee319f827119ffdac7531afbbc4d
+-- 
+2.43.0
 
-The const+nargs magic makes a bare option equivalent to "full", e.g. --print-timed-out
-and --print-timed-out=full are the same.  That gives the user complete control
-over the output, with _less_ code in the runner.  E.g. to print stdout and/or stderr:
-
-        print_level = self.print_stds.get(test_result.status);
-        if (print_level == "full" or print_level == "stdout"):
-            logger.info("*** stdout ***\n" + test_result.stdout)
-
-        if (print_level == "full" or print_level == "stderr"):
-            logger.info("*** stderr ***\n" + test_result.stderr)
 
