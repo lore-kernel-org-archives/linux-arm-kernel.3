@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A552CC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BE5C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gl1OIb028VQJeAMzOQeGwi/J5Y4kEydNKijYWj6SSb0=; b=dOb8zyAhDa/4GZjfqOu0je6CXi
-	PR+VDQmwYpFZI/t3JGDJAn1iSbcNCunS1C2mkI3wRhPfVU6wTXcISLjNUM5nBsUmBgyUKlKMLtLcY
-	cHda2OGGD5DjvRWRO0Kc66oM3WQ4fxket7+NX5VMCYECg90MZTgWL2IA1XLZPoJz/oeXtuhUQuXnE
-	u4kQI9jjoBoCXreyT3YSl0SEcjDQhIF7f4rAzpxplsUarLt6WtYTbGPW8AG7rJb2i4TZqQOak6wwG
-	qj3PqNWsXr3RO9WLouXPVTz3wb7SNsWHODR0xiaPOSVs/hlmyWiQnNf1/7oAe2GLmTsONAgSl5tFj
-	tDlTHz9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CPrPFYojIc/FLb795oawltkydQ7L40SMeB8iTNZbDPw=; b=hswy4Rf2N0mzJ+KGKa+LcMk/x6
+	3Yaxwk8lEQ0kZ579xad7mLzaknlgpDV4sFJJJQO3C6y5JEIucnIYVElGeBafc4+FlNd0mFNqJgXZs
+	xl0QUi+OnDb11L6qvSFb39mH9RWC5sWNVWezffwxf9r+6VXSTsHyv9iLVb0otauK8EisdBn9e5hkO
+	2SVDtRIBDi118FCZPG1vM9+fb6uTQbGIRFLcNBpEDKT95ItqrA7+PWUGjB+dM4ciExJhTvd9Sn+zo
+	txt1KgGOHrAOy2McDDax+/fQAPr9KHbfRdWUVaCxxQmbewf5IfJiwiM4DyHHfkv8bzpOpU6mwkqkC
+	ripil0OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZRmO-00000008GVo-1Pt7;
-	Wed, 09 Jul 2025 10:11:56 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1uZRoh-00000008H4S-0VCP;
+	Wed, 09 Jul 2025 10:14:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZPur-00000007v43-0ZTo
+	id 1uZQ4A-00000007x8m-1d76
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 08:12:34 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bcVy24B3xz13Mny;
-	Wed,  9 Jul 2025 16:09:46 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 513CD140203;
-	Wed,  9 Jul 2025 16:12:25 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 9 Jul 2025 16:12:24 +0800
-Subject: Re: [PATCH v4 05/20] KVM: arm64: timers: Allow physical offset
- without CNTPOFF_EL2
-To: Marc Zyngier <maz@kernel.org>
-CC: <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton
-	<oliver.upton@linux.dev>, Ricardo Koller <ricarkol@google.com>, Simon Veith
-	<sveith@amazon.de>, Reiji Watanabe <reijiw@google.com>, Colton Lewis
-	<coltonlewis@google.com>, Joey Gouly <joey.gouly@arm.com>,
-	<dwmw2@infradead.org>
-References: <20230330174800.2677007-1-maz@kernel.org>
- <20230330174800.2677007-6-maz@kernel.org>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <460258be-0102-e922-c342-4e87cd94b9e5@huawei.com>
-Date: Wed, 9 Jul 2025 16:12:18 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	Wed, 09 Jul 2025 08:22:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8B1C2A54726;
+	Wed,  9 Jul 2025 08:22:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0B85C4CEFB;
+	Wed,  9 Jul 2025 08:22:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752049329;
+	bh=xPG52BTncWLJdHYh0LU1vnvuC53n+yvO3aaCWoTt3Tc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F13w1w53GQZ4lBKvPLrYV2/FLjRdBTE4rcolvEZtDmup+x2oZ72CAxDyD0A95F9sF
+	 OmM/ecsXM1ofjB15NolC+vy6tyuMwxahfsKmzun6eCaI9x7jt9AjbMGGPWiAjNwmvx
+	 Yb0RAl/bW85bLydLeBlUHuRdHFFoi3nI3L+Ct7TXfhaaYnyMmUOPCjR7RpKcVBeSR0
+	 7nLbDClsEYUGnJhMYf98pTPBZkMJ7kVdf+19pSpg0Q+5pJ09lkmAu0kPzIuo7+TD7+
+	 ndm6P/ou65oPtapCENzqvWp33YG8BtIPn/6xNit88dL9p0p3QWPMp0gz1fe/CTfTB7
+	 Bqqfc6oYpgR6A==
+Date: Wed, 9 Jul 2025 10:22:05 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Rui Miguel Silva <rmfrfs@gmail.com>, 
+	Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	linux-media@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Alice Yuan <alice.yuan@nxp.com>
+Subject: Re: [PATCH v3 1/4] dt-bindings: media: add i.MX parallel CPI support
+Message-ID: <20250709-magic-jellyfish-of-inspiration-e78867@krzk-bin>
+References: <20250708-imx8qxp_pcam-v3-0-c8533e405df1@nxp.com>
+ <20250708-imx8qxp_pcam-v3-1-c8533e405df1@nxp.com>
 MIME-Version: 1.0
-In-Reply-To: <20230330174800.2677007-6-maz@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemk200017.china.huawei.com (7.202.194.83)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250708-imx8qxp_pcam-v3-1-c8533e405df1@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_011233_482494_F1773E19 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20250709_012210_490185_BC4A780D 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,168 +79,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[ Record some interesting bits noticed while testing
-  arch_timer_edge_cases. ]
-
-On 2023/3/31 1:47, Marc Zyngier wrote:
-> CNTPOFF_EL2 is awesome, but it is mostly vapourware, and no publicly
-> available implementation has it. So for the common mortals, let's
-> implement the emulated version of this thing.
+On Tue, Jul 08, 2025 at 01:48:42PM -0400, Frank Li wrote:
+> From: Alice Yuan <alice.yuan@nxp.com>
 > 
-> It means trapping accesses to the physical counter and timer, and
-> emulate some of it as necessary.
+> Document the binding for parallel CPI controller found in i.MX8QXP, i.MX93
+> and i.MX91 SoCs.
 > 
-> As for CNTPOFF_EL2, nobody sets the offset yet.
-> 
-> Reviewed-by: Colton Lewis <coltonlewis@google.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  arch/arm64/include/asm/sysreg.h    |  2 +
->  arch/arm64/kvm/arch_timer.c        | 98 +++++++++++++++++++++++-------
->  arch/arm64/kvm/hyp/nvhe/timer-sr.c | 18 ++++--
->  arch/arm64/kvm/sys_regs.c          |  9 +++
->  4 files changed, 98 insertions(+), 29 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index 9e3ecba3c4e6..f8da9e1b0c11 100644
-> --- a/arch/arm64/include/asm/sysreg.h
-> +++ b/arch/arm64/include/asm/sysreg.h
-> @@ -388,6 +388,7 @@
->  
->  #define SYS_CNTFRQ_EL0			sys_reg(3, 3, 14, 0, 0)
->  
-> +#define SYS_CNTPCT_EL0			sys_reg(3, 3, 14, 0, 1)
->  #define SYS_CNTPCTSS_EL0		sys_reg(3, 3, 14, 0, 5)
->  #define SYS_CNTVCTSS_EL0		sys_reg(3, 3, 14, 0, 6)
->  
-> @@ -400,6 +401,7 @@
->  
->  #define SYS_AARCH32_CNTP_TVAL		sys_reg(0, 0, 14, 2, 0)
->  #define SYS_AARCH32_CNTP_CTL		sys_reg(0, 0, 14, 2, 1)
-> +#define SYS_AARCH32_CNTPCT		sys_reg(0, 0, 0, 14, 0)
->  #define SYS_AARCH32_CNTP_CVAL		sys_reg(0, 2, 0, 14, 0)
->  
->  #define __PMEV_op2(n)			((n) & 0x7)
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index 3118ea0a1b41..bb64a71ae193 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -458,6 +458,8 @@ static void timer_save_state(struct arch_timer_context *ctx)
->  		goto out;
->  
->  	switch (index) {
-> +		u64 cval;
-> +
->  	case TIMER_VTIMER:
->  		timer_set_ctl(ctx, read_sysreg_el0(SYS_CNTV_CTL));
->  		timer_set_cval(ctx, read_sysreg_el0(SYS_CNTV_CVAL));
-> @@ -485,7 +487,12 @@ static void timer_save_state(struct arch_timer_context *ctx)
->  		break;
->  	case TIMER_PTIMER:
->  		timer_set_ctl(ctx, read_sysreg_el0(SYS_CNTP_CTL));
-> -		timer_set_cval(ctx, read_sysreg_el0(SYS_CNTP_CVAL));
-> +		cval = read_sysreg_el0(SYS_CNTP_CVAL);
-> +
-> +		if (!has_cntpoff())
-> +			cval -= timer_get_offset(ctx);
-> +
-> +		timer_set_cval(ctx, cval);
->  
->  		/* Disable the timer */
->  		write_sysreg_el0(0, SYS_CNTP_CTL);
-> @@ -555,6 +562,8 @@ static void timer_restore_state(struct arch_timer_context *ctx)
->  		goto out;
->  
->  	switch (index) {
-> +		u64 cval, offset;
-> +
->  	case TIMER_VTIMER:
->  		set_cntvoff(timer_get_offset(ctx));
->  		write_sysreg_el0(timer_get_cval(ctx), SYS_CNTV_CVAL);
-> @@ -562,8 +571,12 @@ static void timer_restore_state(struct arch_timer_context *ctx)
->  		write_sysreg_el0(timer_get_ctl(ctx), SYS_CNTV_CTL);
->  		break;
->  	case TIMER_PTIMER:
-> -		set_cntpoff(timer_get_offset(ctx));
-> -		write_sysreg_el0(timer_get_cval(ctx), SYS_CNTP_CVAL);
-> +		cval = timer_get_cval(ctx);
-> +		offset = timer_get_offset(ctx);
-> +		set_cntpoff(offset);
-> +		if (!has_cntpoff())
-> +			cval += offset;
-> +		write_sysreg_el0(cval, SYS_CNTP_CVAL);
->  		isb();
->  		write_sysreg_el0(timer_get_ctl(ctx), SYS_CNTP_CTL);
->  		break;
+> Change in v3:
+> - use enum at compatible string
+> - add ref to video-interfaces.yaml#
+> - use cpi as node name in examples.
+> - replace csi (Camera Serial Interface) with CPI (Camera Parallel Interface)
+> in commit message.
 
-I tested arch_timer_edge_cases on my Kunpeng920 (has VHE, doesn't have
-ECV) and noticed that the test_timer_cval() below takes a long period to
-return when testing the _physical_ timer.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-static void test_timers_in_the_past(enum arch_timer timer)
-{
-	[...]
+Best regards,
+Krzysztof
 
-	for (i = 0; i < ARRAY_SIZE(irq_wait_method); i++) {
-		irq_wait_method_t wm = irq_wait_method[i];
-
-		[...]
-
-		/* Set a timer to counter=0 (in the past) */
-		test_timer_cval(timer, 0, wm, DEF_CNT);
-
-The comment is obviously wrong. It should say "Set a timer to CVAL=0".
-
-No physical timer interrupt ("kvm guest ptimer") was triggered when I
-executed it separately.
-
-Let me try to explain _this_ test_timer_cval() in a bit more detail.
-
-|Guest					KVM
-|-----					---
-|local_irq_disable()
-|
-|reset_timer_state()
-|   set_counter()			// SET_ONE_REG via user-space
-|					// for KVM_REG_ARM_PTIMER_CNT
-|					kvm_arm_timer_set_reg()
-|					   timer_set_offset()      [1]
-|   timer_set_ctl()
-|      MSR CNTP_CTL_EL0, IMASK
-|
-|set_xval_irq()
-|   timer_set_cval()
-|      MSR CNTP_CVAL_EL0, cval=0
-|   timer_set_ctl()
-|      MSR CNTP_CTL_EL0, ENABLE		// trap
-|					kvm_arm_timer_write_sysreg()
-|					   timer_save_state()
-|					   kvm_arm_timer_write()
-|					   timer_restore_state()   [2]
-|
-|/* This method re-enables IRQs to handle the one we're looking for. */
-|wm()
-|
-|assert_irqs_handled(1)
-|local_irq_enable()
-
-[1] kvm_phys_timer_read()			= 0x7895c0ab2
-    value					= 0x7fffffffffffff
-    offset = kvm_phys_timer_read() - value	= 0xff800007895c0ab3
-
-... which was observed in my test.
-
-[2] cval += offset;			// cval	= 0xff800007895c0ab3
-    kvm_phys_timer_read()			= 0x7895c1b86
-
-No ptimer interrupt was triggered with that. And we relied on the next
-kvm_timer_vcpu_load() to catch the timer expiration and inject an
-interrupt to the guest..
-
-It's apparent that this test case is not a practical use case. Not sure
-if we should (/can) emulate it properly. Or I may have already missed
-some obvious points.
-
-Thanks,
-Zenghui
 
