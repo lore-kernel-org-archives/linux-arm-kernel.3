@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4DEBC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C3DC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/DFlzGS4zzCC/sNdVHvfF03tDckTw+Jco+WJ71ccd2s=; b=dedYvfBjAa3D/JxQG2TaZNrTDf
-	/IKKi0WF87bInsjK+RTFn+K6/MYKW0uq6z2ocx4CWKqX8Nh6qAgmF7PDmvktUSYsJQQ0ic59e1zBJ
-	UbZF3I7RMzHxSmYEdam1+UXyr/R8SjbWek1vZynwOEjNzB40EP/m6ckRr6I9RQZsen/nVKXRVgmmx
-	gK2HGnMH6VwryVDIyrFY0JUlCWbbonMD0vAse+mPN/jJ6K6r3ztQnT0aQO4mdDmKsL/6bvxGX0W4+
-	MnbM4/HmZ3ZfCSq496CMYi/lsdUx/AeK1Sl2sdVm+g6yEkrq8M2NDBye9iT9gW68zDzCU8T36vPcS
-	oEi08J1w==;
+	bh=c58atM53j6xJlfjeW4uz3/6gYrG19vaD/Ky2Z6w23+4=; b=4G41dMcxJPJ/NzaZwMJlfZYFxp
+	AF4orzaR2VcAkCG9lIaFCB7Y3lBFqE0bxSzietSRg78Vf4fdZ7sOeqViiOzOcsS05/wSs8ScyqBO9
+	72WI49qCDv86MiwW6pyiFspKl70BGBEUtEGC6YBJoGo/IPcw3+GtK0q0KT3ck5VG2MwRXpQAikt/k
+	fQtr2amiwVyZuxrMJ3sEcOSJ2oTZn5UILzAiu7B0zCE+jmuwp2Y0owzpUD9h+P9c4UPTuN8jt2d2w
+	MGKJ5zIgxeW9wMNNYqLmY3EleIRNNfO8o0/qAJ1VWcEMeWo/HP5MrapF507vudkmwNts6ma800W6i
+	6X38aTbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVPH-00000008td8-3piQ;
-	Wed, 09 Jul 2025 14:04:19 +0000
+	id 1uZVRb-00000008u9T-3uLV;
+	Wed, 09 Jul 2025 14:06:43 +0000
 Received: from mxout2.routing.net ([2a03:2900:1:a::b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZSib-00000008SE6-1blz;
-	Wed, 09 Jul 2025 11:12:06 +0000
+	id 1uZSib-00000008SEQ-3AFI;
+	Wed, 09 Jul 2025 11:12:07 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout2.routing.net (Postfix) with ESMTP id 7DB9E6040A;
-	Wed,  9 Jul 2025 11:11:59 +0000 (UTC)
+	by mxout2.routing.net (Postfix) with ESMTP id 9DBF360415;
+	Wed,  9 Jul 2025 11:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1752059519;
+	s=20200217; t=1752059520;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/DFlzGS4zzCC/sNdVHvfF03tDckTw+Jco+WJ71ccd2s=;
-	b=lVBT424feIKKNcNhessVgO4XM6IIsxP55aMMvEwDnVn9iA1lfSrF/YFmNP5WdArQYTqc6J
-	ozdiFbV9jqimVWFmttv94rXXG+EuJfe/EIt4z/f8w0A6dSwNK+JA0F22Ketk2kCNBuhXPI
-	7CTxJ3ee2E4eUkYLfohpnBsB2gFaMKs=
+	bh=c58atM53j6xJlfjeW4uz3/6gYrG19vaD/Ky2Z6w23+4=;
+	b=SQsLJ1XddLx1flDYfMiD06aaz+xu+cU00lgxQ3taCPskDgSMkgFi132EYmOdPemFqylPKe
+	n3r8uSV62h28uKwjHZGQsouRST6hYoxKJIUEvzjNULrtDPVbPyzUyzIwiVtUEMkYQqZjQN
+	j1QrcCIXTTec6aLcxt9pT4vYLStmmGo=
 Received: from frank-u24.. (fttx-pool-217.61.157.99.bambit.de [217.61.157.99])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 221F61226D4;
-	Wed,  9 Jul 2025 11:11:59 +0000 (UTC)
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 464E81226CC;
+	Wed,  9 Jul 2025 11:12:00 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: MyungJoo Ham <myungjoo.ham@samsung.com>,
 	Kyungmin Park <kyungmin.park@samsung.com>,
@@ -73,17 +73,18 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v9 08/13] arm64: dts: mediatek: mt7986: add interrupts for RSS and interrupt names
-Date: Wed,  9 Jul 2025 13:09:44 +0200
-Message-ID: <20250709111147.11843-9-linux@fw-web.de>
+Subject: [PATCH v9 11/13] arm64: dts: mediatek: mt7988a-bpi-r4: add aliases for ethernet
+Date: Wed,  9 Jul 2025 13:09:47 +0200
+Message-ID: <20250709111147.11843-12-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250709111147.11843-1-linux@fw-web.de>
 References: <20250709111147.11843-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_041205_578193_743E75B3 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250709_041205_934612_C36012C5 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +101,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add interrupts for RSS/LRO and names to access them via name instead of
-index.
+Add aliases for gmacs to allow bootloader setting mac-adresses.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- arch/arm64/boot/dts/mediatek/mt7986a.dtsi | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7986a.dtsi b/arch/arm64/boot/dts/mediatek/mt7986a.dtsi
-index 550f569451fb..a9e079fd42c6 100644
---- a/arch/arm64/boot/dts/mediatek/mt7986a.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7986a.dtsi
-@@ -527,7 +527,13 @@ eth: ethernet@15100000 {
- 			interrupts = <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>;
-+				     <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 189 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 191 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "fe0", "fe1", "fe2", "fe3", "pdma0",
-+					  "pdma1", "pdma2", "pdma3";
- 			clocks = <&ethsys CLK_ETH_FE_EN>,
- 				 <&ethsys CLK_ETH_GP2_EN>,
- 				 <&ethsys CLK_ETH_GP1_EN>,
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+index 21eb91c8609f..20073eb4d1bd 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+@@ -8,6 +8,12 @@
+ #include "mt7988a.dtsi"
+ 
+ / {
++	aliases {
++		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
++		ethernet2 = &gmac2;
++	};
++
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
 -- 
 2.43.0
 
