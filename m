@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1511C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886B5C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2jiUrJWIjrS/zl54Lua+tp5RGUjRBoaPMIxbNmfvQnk=; b=AtOiSLqajlCSKB+hi+iKeWnwz5
-	bSjPQmW/AAcsNSkUXPlzKaBlMGU1ElE0+aEdO7hwDjn7ELpTy0A9Qv9ZuMehzn7gTbX82lVVJu+56
-	Bi0kukuCfiK/VALBMwZW7vI8Irk7YW3G7336IIKwYvUp0e8jgATqwjOdZ657EHfoiqIDpgIWXNOE1
-	HqmQwfCAAwmDSPaZsrYrz5S92JUNrSecsMkOc4Qn+CnFc8qyXq5fIjsPQaUWrqas7eFr3nFlqne8X
-	1Vjyb6PXCwoziuFuA3OVOOC2YncdwpG09kCUkCfhbz+TWhr427WhVWOSROdxNneYD7vkBPRQQEZtO
-	3XckPL4w==;
+	bh=UqgxckOkdWcypcGRGw90U5McGBij4ejOFNJaaAiKWDU=; b=0NUv+J11cQRcwyy9uG3Lf187He
+	slZJvlZC3Hf31Nl4dGjdBplR7jRwAL5LTWEAdqys8lR4UXxhXN/F/bb9JIBuZPAkdCAYEBdir7nZ2
+	8l3YLm0+QHkM15qFPk/nNLqVpW2O/J/hlkg6B+nQewtz7Stxx7Hfc9WJAh1SJa4RqRAJRs8/z5fKH
+	Dz6RaX8fmjApTKCTsWkd5PuJP/ihh76ihz/uFYRsbH6pQqf1CkTSfZO7qBI6DldLfO53VEHMzbQiC
+	n0wIKfGu7bMvOtZ88Qxi4cs0o1MOH75VhWd6Ui+TPerGRZ5fJFwbqZU0u9GbngOP3oFu8Gb3tOtc1
+	+KvhNHxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVWD-00000008vI9-1n6j;
-	Wed, 09 Jul 2025 14:11:29 +0000
-Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
+	id 1uZVYW-00000008vpM-0o5r;
+	Wed, 09 Jul 2025 14:13:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZSo4-00000008TO9-3DT0
+	id 1uZSo9-00000008TPY-3yDf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 11:17:45 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1752059852;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2jiUrJWIjrS/zl54Lua+tp5RGUjRBoaPMIxbNmfvQnk=;
-	b=EZug0f5S+/AFz3Oz/SwVdCwV/oLCi9n3Ho1yrquCajDl1sjiNb71yHqETQh7MqlOSf2uoz
-	psA3PKH5qYO+j+uDUSm0vloPFdNuC00n9oAK0Mf69vh9B9sD9XC9w21QHNRnGjRuDXqADX
-	XZH7dniVfMA7lFA5MMj+d90SH8UWusVxqKBQSOBxyxq7txnToUjO9mINyjmOiZHISkHr2u
-	LTDneFcGyq/7sBEViNnZsSPCsIMXNTRSAvwUsvGliPdu3kHee81sCLMbUJHN3df98ak4Uf
-	KTL+Yiyt0S0wB2819QUPuNkL1Mtj3mg45N4jemDAPidBTxICYrtikgmOrm8npQ==
-Content-Type: multipart/signed;
- boundary=a15b73511b44a3a7249de8bd0c977f6d60b982377015c90af4dbb343db1a;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Wed, 09 Jul 2025 13:17:23 +0200
-Message-Id: <DB7HDOPFOQAE.3NG4SP67ES80J@cknow.org>
-Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] arm64: dts: rockchip: Add reset button to NanoPi R5S
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-References: <20250709105715.119771-1-didi.debian@cknow.org>
- <649824ea-a420-437e-ace1-2f079235c604@kernel.org>
-In-Reply-To: <649824ea-a420-437e-ace1-2f079235c604@kernel.org>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_041744_941357_E5DCFC15 
-X-CRM114-Status: GOOD (  11.75  )
+	Wed, 09 Jul 2025 11:17:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 60BCB61467;
+	Wed,  9 Jul 2025 11:17:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67402C4CEF5;
+	Wed,  9 Jul 2025 11:17:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752059869;
+	bh=UNVhGeKbHvkfsd2g0Ny63efM/Jmjr1G2Ke//ifJFi7k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=R+u3GkwG7Y14q+cZHB3/pmvubqc/QFi1nauYtWKfDPMPL6Utjw1B3RdgGjRuVONPi
+	 RMcNYD6i0DFCCbNrJAfhu7NtZX2vzeDvK1QRRk/R768w6GJrkUP6OLqHxxh+NC3koF
+	 W/ElZr+a2GJ8+db7l3oYkg6HLSiCRwH6doDPEVNkPGUj8U8jcyAw3BABJIZGMN3L1p
+	 J7FFbR8RiGCdBRBow0VvxVgMqnjQc6Z7Ts7mpV4/chVjiZ5MzbUq3qpCPej5Dl22tQ
+	 MjwfYHV3pLujzftexOuPbHtnwNVqXZZpKW2/JEiogAtMvwm2TaZWmrNHQo/B7nm6SS
+	 9lF6h+UjidBZg==
+Date: Wed, 9 Jul 2025 12:17:44 +0100
+From: Will Deacon <will@kernel.org>
+To: cki-project@redhat.com
+Cc: bgoncalv@redhat.com, omosnace@redhat.com,
+	linux-arm-kernel@lists.infradead.org, liwan@redhat.com,
+	jbastian@redhat.com, catalin.marinas@arm.com, ftjahjad@redhat.com,
+	mmalik@redhat.com
+Subject: Re: =?utf-8?B?4p2MIEZBSUwgKE1JU1NFRCA1IG9m?=
+ =?utf-8?Q?_41=29=3A_Test_repor?= =?utf-8?Q?t?= for for-kernelci (6.16.0-rc5,
+ upstream-arm-next, ec480130)
+Message-ID: <aG5P2AclIvvkrTW-@willie-the-truck>
+References: <78490.125070817230501180@us-mta-669.us.mimecast.lan>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <78490.125070817230501180@us-mta-669.us.mimecast.lan>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,72 +73,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---a15b73511b44a3a7249de8bd0c977f6d60b982377015c90af4dbb343db1a
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Tue, Jul 08, 2025 at 09:23:02PM -0000, cki-project@redhat.com wrote:
+> Hi, we tested your kernel and here are the results:
+> 
+>     Overall result: FAILED
+>              Merge: OK
+>            Compile: OK
+>               Test: FAILED
+> 
+> 
+> Kernel information:
+>     Commit message: Merge branches 'for-next/core' and 'for-next/fixes' into for-kernelci
+> 
+> You can find all the details about the test run at
+>     https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1914252947
+> 
+> One or more kernel tests failed:
+>     Unrecognized or new issues:
+>         Boot test
+>              aarch64
+>                    Logs: https://datawarehouse.cki-project.org/kcidb/tests/redhat:1914252947-aarch64-kernel_upt_13
+>                    Non-passing ran subtests:
+>                        ❌ FAIL Panic
 
-On Wed Jul 9, 2025 at 1:05 PM CEST, Krzysztof Kozlowski wrote:
-> On 09/07/2025 12:57, Diederik de Haas wrote:
->> +	gpio-keys {
->> +		compatible =3D "gpio-keys";
->> +		pinctrl-0 =3D <&gpio4_a0_k1>;
->> +		pinctrl-names =3D "default";
->> +
->> +		button-reset {
->> +			debounce-interval =3D <50>;
->> +			gpios =3D <&gpio4 RK_PA0 GPIO_ACTIVE_LOW>;
->> +			label =3D "RESET";
->> +			linux,code =3D <KEY_RESTART>;
->> +		};
->> +	};
->> +
->>  	gpio-leds {
->>  		compatible =3D "gpio-leds";
->>  		pinctrl-names =3D "default";
->> @@ -127,6 +140,12 @@ eth_phy0_reset_pin: eth-phy0-reset-pin {
->>  		};
->>  	};
->> =20
->> +	gpio-keys {
->> +		gpio4_a0_k1: gpio4-a0-k1 {
->
-> Are you sure that this passes checks?
+Yikes, a panic! Unfortunately, I can't seem to find any more details:
 
-I did the following:
+  - test_kernel_panic.log contains:
 
-```sh
-export PATH=3D~/dev/kernel.org/dt-schema-venv/bin/:$PATH CROSS_COMPILE=3Daa=
-rch64-linux-gnu- ARCH=3Darm64
-make distclean
-make debarm64_defconfig
-make CHECK_DTBS=3Dy W=3D1 rockchip/rk3568-nanopi-r5s.dtb
-```
+      "Test aborted due to a kernel panic, please review the console.log file."
 
-And it did not report any issues.
-Then booted up my NanoPi R5S and verified that with the updated dtb the
-reset button worked.
+  - console.log is empty
 
-If it's about the 'weird' name/label, it is what is used in the
-schematic document I have and I asked Heiko (on IRC) if using
-``reset_button_pin: gpio4-a0-k1`` would not be better. That would make
-it more descriptive while also having the schematic traceability in it.
-The answer was no, use the form I used in this patch.
+  - The other output files don't contain a panic message
 
-Am I missing checks I should've done as well?
+Please can a CKI person dig up the panic message for me? I guess it died
+really early or something.
 
 Cheers,
-  Diederik
 
---a15b73511b44a3a7249de8bd0c977f6d60b982377015c90af4dbb343db1a
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaG5PxgAKCRDXblvOeH7b
-bi3IAP0QZ6nrHeJEorK5zsrkL55Nlul5jDIYPBwehpDyDLT8BgD+JuPieM/qOX2V
-t77WC+GEezyPZaeos/wdCAlTkGS+OA8=
-=okS4
------END PGP SIGNATURE-----
-
---a15b73511b44a3a7249de8bd0c977f6d60b982377015c90af4dbb343db1a--
+Will
 
