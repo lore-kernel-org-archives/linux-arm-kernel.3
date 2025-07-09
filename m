@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B91C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E383BC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TX8rwhd/eQpiL20q7sD2aBsil/azxD7yn3HxJP0nvPY=; b=Z0x6AZiOOPF5+CxsqchpCm1+1l
-	pOQ/+bnplpo7oT9Kmxkl2chtDXPjXWayy6uh+Tk8g73ViwN2LFVSonRShMK2YVliJoTALrHXAYty/
-	3Y7p+f/BB3lmf3Z/j4eA4fVdcEjhO98x55hwqbNA+UIvGzkpb7BbzXaNGCgf18le7h3VgQOqFNtg+
-	lj7385vzW/8dXam3Po3A0WAjD/cu0EbPMEeX1S65dEYluq+FbyQDyY0ykJ0/94jLFZv4Vup2T8EjZ
-	56nmDXN5UDxcdRHOYmDQqyipXoKnjPw6yByAHiQVzSA0ZJsy8EspH5ypfKZ9TUD9Hp+Srms3k0Qo2
-	jJ4nGUBw==;
+	bh=Wbt4nbDPbz/i3+foqJAFDaEwhoGfWXIUI12S/FZwnog=; b=X+tcFhm5hhj0qHnD58Cqd8d7tY
+	49m5gQgFhZLDdU28bRHWbsgiUInWUChpnIgHHwR5HW3FRrqLlC14sS9dSdkqivj1MGegpAfgPnsmz
+	0htfEVwSn+dZLcxqkTBIYYlAHyCqCe7fHkoaUlOpe7+4ujpQ/i6DrHmYDzKc+3i9d+JzxUfeVZW03
+	ysRwdtGom944c74YA0968kPY4QU9UVd/DtRLaYK4P6GAIUFkrmM+n9CP8eaEIEE3kG4HAZYc7RG7t
+	je8v4TJv0mrBxR3/J8yEXdFPnwQY+bPzdeefV+6g4SU1szmSlkfq8TB4+5qb6Nq3YZ0S+8fVtvDBA
+	QH3JUohg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZSP1-00000008NYg-2vlh;
-	Wed, 09 Jul 2025 10:51:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uZSRJ-00000008O1b-1k9u;
+	Wed, 09 Jul 2025 10:54:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZQQc-000000080mL-09Gc
+	id 1uZQRa-000000080tF-2HKw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 08:45:22 +0000
+	Wed, 09 Jul 2025 08:46:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6673F6144A;
-	Wed,  9 Jul 2025 08:45:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45F47C4CEEF;
-	Wed,  9 Jul 2025 08:45:15 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CE1FBA546C3;
+	Wed,  9 Jul 2025 08:46:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBF65C4CEEF;
+	Wed,  9 Jul 2025 08:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752050718;
-	bh=/iZqQHcDXyZQ9cwtIYRpNd8Z1fTX2ngQbJlE+f0g2zQ=;
+	s=k20201202; t=1752050781;
+	bh=H3zA0YbNI9oe0U8cTcu7E1v3MSuoPJNq26p6NzpcUCc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jspYD02obGxQ2tUFOxZlC6vJlTefCqrLp2n2f5K96myvjFXRbYh9H9CSnzCut6jbD
-	 KsZurATCD7D0U2G+/uZwUtY2GW2vc7RO/5Tg49gcKCskvXO1yxCioBLOmh/DZmACY4
-	 NKMlsBWNt1z6HjnqlsoQanCGvbP6h7542HBD8ocyI1uECEZJE+VRENE9jXaT4bjPIV
-	 s2lNVcOY2vWlIkmJkZ5S38O2K7ufQD33tpRglqhPm7lu6JUUfC6qVPsa7i2d2vIinU
-	 LRQmKmjAiYmMKQot7XNqwsw5GiGtBYw/aouw/AbKcodJ9QRXlMwIE7kBvOo/vUvu6g
-	 tkvLIYWTHbSRQ==
-Message-ID: <b42ae6bf-8505-4f39-a53a-3866d4f10fe6@kernel.org>
-Date: Wed, 9 Jul 2025 10:45:13 +0200
+	b=lHf6yrB/aci+jsZZ1CtVkpS/c0FwC0pYSwSO9nT81f6Xdx4mmHdaQSClhA3cigI6B
+	 U8Nd/e466LS7yQmXRvy5VT4YU+8BfuPxQvYIRaEv/mDDBl0Ohxn5NBfcSSEvNG4aGw
+	 JPd3GfuT8EgkbvUZIcs1Kvq7hlFZ+KAvX9B9lWjVZuhboNToElrfV/2NJmvudX0U0q
+	 eVRfV3IihLp0Sf+SuvZD2q+BrD3aOYBZn5V1Qif5SXJWJXatp7oyw/+itJxog3Ulhi
+	 /qLYKLk24aks3rlq9IIVl7dt0suYL5DYxkHY3s9IT3v/s2Mjw9qVvdRP7X0qpT7vZw
+	 7lPG5uIjJHJFQ==
+Message-ID: <0454b830-b9bf-4d04-8e91-d5c514ac4aae@kernel.org>
+Date: Wed, 9 Jul 2025 10:46:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/3] arm64: dts: ti: Add support for Variscite
- VAR-SOM-AM62P Symphony Board
+Subject: Re: [PATCH v1 2/3] arm64: dts: ti: Add support for Variscite
+ VAR-SOM-AM62P
 To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
@@ -55,7 +55,7 @@ Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 References: <20250708184841.72933-1-stefano.radaelli21@gmail.com>
- <20250708184841.72933-4-stefano.radaelli21@gmail.com>
+ <20250708184841.72933-3-stefano.radaelli21@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,9 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250708184841.72933-4-stefano.radaelli21@gmail.com>
+In-Reply-To: <20250708184841.72933-3-stefano.radaelli21@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250709_014622_733733_B06E74F4 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,35 +122,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 08/07/2025 20:48, Stefano Radaelli wrote:
-> Add device tree support for the Variscite Symphony carrier board with
-> the VAR-SOM-AM62P system on module.
+> Add device tree support for the Variscite VAR-SOM-AM62P system on module.
+> This SOM is designed to be used with various carrier boards.
 > 
-> The Symphony board includes
-> - uSD Card support
-> - USB ports and OTG
-> - Additional Gigabit Ethernet interface
-> - Uart interfaces
-> - OV5640 Camera support
-> - GPIO Expander
-> - CAN, I2C and general purpose interfaces
+> The module includes:
+> - AM62Px Sitara MPU processor
+> - Up to 8GB of DDR4-3733 memory
+> - eMMC storage memory
+> - PS6522430 chip as a Power Management Integrated circuit (PMIC)
+> - Integrated 10/100/1000 Mbps Ethernet Transceiver Analog Devices ADIN1300
+> - Resistive touch panel interface controller TI TSC2046
+> - I2C interfaces
 > 
-> Link: https://www.variscite.it/product/single-board-computers/symphony-board/
+> Only SOM-specific peripherals are enabled by default. Carrier board
+> specific interfaces are left disabled to be enabled in the respective
+> carrier board device trees.
+> 
+> Link: https://www.variscite.it/product/system-on-module-som/cortex-a53-krait/var-som-am62p-ti-sitara-am62px/
 > 
 > Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
 > ---
->  .../dts/ti/k3-am62p5-var-som-symphony.dts     | 545 ++++++++++++++++++
->  1 file changed, 545 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
+>  arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 379 ++++++++++++++++++
+>  1 file changed, 379 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts b/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
 > new file mode 100644
-> index 000000000000..ec6bdd28d57f
+> index 000000000000..1d4ebc484d55
 > --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
-> @@ -0,0 +1,545 @@
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+> @@ -0,0 +1,379 @@
 > +// SPDX-License-Identifier: GPL-2.0
 > +/*
-> + * Variscite Symphony carrier board for VAR-SOM-AM62P
+> + * Common dtsi for Variscite VAR-SOM-AM62P
 > + *
 > + * Copyright (C) 2021-2022 Texas Instruments Incorporated - https://www.ti.com/
 > + * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
@@ -156,61 +163,124 @@ On 08/07/2025 20:48, Stefano Radaelli wrote:
 > +
 > +/dts-v1/;
 > +
-> +#include "k3-am62p5-var-som.dtsi"
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/pwm/pwm.h>
+> +#include "k3-am62p5.dtsi"
 > +
 > +/ {
-> +	model = "Variscite VAR-SOM-AM62P on Symphony-Board";
-
-Missing compatible.
-
+> +	compatible = "variscite,am62p-var-som", "ti,am62p5";
 > +
-> +	aliases {
-> +		ethernet0 = &cpsw_port1;
-> +		ethernet1 = &cpsw_port2;
-> +		mmc0 = &sdhci0;
-> +		mmc1 = &sdhci1;
-> +		mmc2 = &sdhci2;
-> +		serial0 = &main_uart0;
-> +		serial2 = &main_uart2;
-> +		serial5 = &main_uart5;
-> +		serial6 = &main_uart6;
-> +		spi5 = &main_spi2;
-> +		usb0 = &usb0;
-> +		usb1 = &usb1;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +		bootargs = "console=ttyS0,115200n8 earlycon=ns16550a,mmio32,0x02800000";
+> +	iw612_pwrseq: iw612_pwrseq {
 
-Drop bootargs. It duplicates stdout-path and introduces debugging
-earlycon. Mainline usage should not be debugging one.
+Follow DTS coding style. This applies to multiple places.
 
-> +	};
-> +
-> +	clk_ov5640_fixed: clock {
+Also:
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
-Please use name for all fixed clocks which matches current format
-recommendation: 'clock-<freq>' (see also the pattern in the binding for
-any other options).
 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml?h=v6.11-rc1
-
-> +		#clock-cells = <0>;
-> +		compatible = "fixed-clock";
-> +		clock-frequency = <24000000>;
-> +	};
-> +
-> +	gpio-keys {
-> +		compatible = "gpio-keys";
+> +		compatible = "mmc-pwrseq-simple";
+> +		post-power-on-delay-ms = <100>;
+> +		power-off-delay-us = <10000>;
+> +		reset-gpios = <&main_gpio0 54 GPIO_ACTIVE_LOW>,	/* WIFI_PWR_EN */
+> +			      <&main_gpio0 59 GPIO_ACTIVE_LOW>;	/* WIFI_EN */
 > +		status = "okay";
 
 Why? Drop.
 
-> +		back {
+> +	};
+> +
+> +	emmc_pwrseq: pwrseq@0 {
 
-Never checked/tested. I finish my review here. You have same issues,
-like this and earlier one, in other places as well.
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check W=1` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+Maybe you need to update your dtschema and yamllint. Don't rely on
+distro packages for dtschema and be sure you are using the latest
+released dtschema.
+
+> +		compatible = "mmc-pwrseq-emmc";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&emmc_pwrseq_pins>;
+> +		reset-gpios = <&main_gpio0 49 GPIO_ACTIVE_LOW>;
+> +	};
+> +
+> +	memory@80000000 {
+> +		/* 8G RAM */
+> +		reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
+> +		      <0x00000008 0x80000000 0x00000001 0x80000000>;
+> +		device_type = "memory";
+> +		bootph-pre-ram;
+> +	};
+> +
+> +	opp-table {
+> +		/* Add 1.4GHz OPP for am62p5-sk board. Requires VDD_CORE at 0v85 */
+> +		opp-1400000000 {
+> +			opp-hz = /bits/ 64 <1400000000>;
+> +			opp-supported-hw = <0x01 0x0004>;
+> +			clock-latency-ns = <6000000>;
+> +		};
+> +	};
+> +
+> +	reserved_memory: reserved-memory {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		rtos_ipc_memory_region: rtos-ipc-memory@9b500000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9b500000 0x00 0x00300000>;
+> +			no-map;
+> +		};
+> +
+> +		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9b800000 0x00 0x00100000>;
+> +			no-map;
+> +		};
+> +
+> +		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9b900000 0x00 0x00f00000>;
+> +			no-map;
+> +		};
+> +
+> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9c800000 0x00 0x00100000>;
+> +			no-map;
+> +		};
+> +
+> +		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9c900000 0x00 0x01e00000>;
+> +			no-map;
+> +		};
+> +
+> +		secure_tfa_ddr: tfa@9e780000 {
+> +			reg = <0x00 0x9e780000 0x00 0x80000>;
+> +			no-map;
+> +		};
+> +
+> +		secure_ddr: optee@9e800000 {
+> +			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
+> +			no-map;
+> +		};
+> +	};
+> +
+> +	vcc_3v3: vcc-3v3 {
+
+Please use name for all fixed regulators which matches current format
+recommendation: 'regulator-[0-9]v[0-9]'
+
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/regulator/fixed-regulator.yaml?h=v6.11-rc1#n46
+
 
 Best regards,
 Krzysztof
