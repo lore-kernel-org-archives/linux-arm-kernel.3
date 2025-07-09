@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20159C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6E4C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UVgvpvUu/uMo5s+N3RHTJF1jklsCioqrC1QEakFey5o=; b=4h/zEzVa/KNHDm
-	9O9rgnFkVy4qrVI+M2ofFmLUrJf57a7efUOv5ip6kH8OzYBT5w3d78gOFcosikcRL5qwi8n4GxtTv
-	eVXvBLmn7E8KjU7p2m8O8F+QY0/ZWgUfRYVSvLMO0ZaTxjANDRWaZOh5Dffs6Wmdt99uPP3y2Eu3T
-	SNV5rgV5mNFvM0Uyspg1+8Ppo4ZpZ/2p3T58OsGcJjwi1x5XEtsWkE9oYBirRuWZTICurD4/ckpmU
-	raTYN7Q61yVT0dwDrcEuF565qYI+awu8x5l99DWFDxIHxN8EdiJIPlnD0/FFba1Of9jmBFsTJ7F5C
-	zvfdYwrN1r2XspgCMpnA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DcPmYoQkZhMDQpcj1xTksUS772c7kzOQES2ZImQgcX0=; b=gpMS83TYO984EsaV2dIIxkmuV8
+	AuHmMody8VjJBT6sRneR4HiPL6LjDnjA9ag9Np/D+uFxfVfhlx6i2gE6JpoLOOsifhQ3qJyU0X7hg
+	j2qlmVVUxAYdM7VAW8JDVgjsiUTAvmnSnSlav57gVTijFdwt4LidTSNZlsjYAvbl7Kr4weJYxZW67
+	aCEBMew5dU369f+puMuHX2MWkHnW6xUYituJ9Si0mgyJB6vA1TJSMvy2F4iogWZpD2ImpHpfaK9mr
+	plP3r3++5atektfvx3ZJbwWuFUr+TeGCMNkNLZ1zNMENxmKz7sfhPjPMC/fKu9+GspcJ0pbN8BzGj
+	L2ib6NrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdiU-0000000A8WP-3dRS;
-	Wed, 09 Jul 2025 22:56:42 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uZdiZ-0000000A8eP-0LYq;
+	Wed, 09 Jul 2025 22:56:47 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZbv1-00000009r1L-3rGs;
-	Wed, 09 Jul 2025 21:01:33 +0000
+	id 1uZbv7-00000009r4T-0PHQ;
+	Wed, 09 Jul 2025 21:01:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752094888;
-	bh=kzWB2OH30J0P4Kym4GxrIAQEztbUTee1hXQn/eF6cEE=;
-	h=From:Subject:Date:To:Cc:From;
-	b=YpYTXG7Z9N8Udk9MOvejUr3SGFs6JBAW6kumWTARcHqCtYrB4llIhjQE1JqFwOZtZ
-	 ktyRYvMuNbLtW2HOT6i5P2eVUr1rEGShKuotIUc05/Ar8N6y82rd6LDBxTrElt2DnL
-	 AW9/ZT3QSR2Qxk/9fbKzrZrq2P0YHeF3up6+VmXnNylRu9PbIHD59ZXphy2TciFnGg
-	 nutCcjjtuoXxBKkG3oUriOvawnuFQxcTJcMzuh38TCKGIIT9QoCfFjvas6UtcRhk9U
-	 tdAzcgVqezTjB2Zjjk4hA2kbm/K8TEplyyAtfFemxHe7aLwJpEwmTZni+/d8e3ZmbM
-	 2AyyUQONWdU3w==
+	s=mail; t=1752094895;
+	bh=WdXIZNuTvyx1CD2BBHBXvl+8DQ7UTjvdIVCL2zLA3i8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Rz4faA4TVP2f7mHCpwUiBHFd9/1gTQTfZophWgVvr6WTKML+gq+3oJC19LFr9S1ah
+	 QvOjPj+6bX3gWq8KuzHSJ6zp07Z/sIV4WIJbX/n5cV0Aw+VmrOf+mQCJwFyKMMLD6z
+	 s7l3y5J1Yx7B24m6fgguLoHzry4DdpgqoTFBWjRrwXXTH9pngcjqhk0DftKrHwXEx9
+	 1bhPH4TKxGPXR7C/+KL8fQ5LhyMKy94mK0YLZcM5XuhQSzUs+bS6IycPppi2q9XiZQ
+	 wvcGVF7z6slHp4aDKpnYnTNMWkXFYUQu90DgQerSjoplF5W7fLB+zjjRCOWoO73rEt
+	 761gy+Xg7uHFg==
 Received: from localhost (unknown [212.93.144.165])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 1308717E0456;
-	Wed,  9 Jul 2025 23:01:28 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 8C45C17E0456;
+	Wed,  9 Jul 2025 23:01:35 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH v2 0/6] Add HDMI CEC support to Rockchip RK3588/RK3576 SoCs
-Date: Thu, 10 Jul 2025 00:01:11 +0300
-Message-Id: <20250710-rk3588-hdmi-cec-v2-0-f5884be34bc1@collabora.com>
+Date: Thu, 10 Jul 2025 00:01:14 +0300
+Subject: [PATCH v2 3/6] drm/rockchip: dw_hdmi_qp: Improve error handling
+ with dev_err_probe()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJfYbmgC/2WNQQrDIBRErxL+uhajkUhXvUfJwuhP/TSJQYu0B
- O9eG+iqi1m8gXmzQ8JImODS7BAxU6KwVhCnBqw36x0ZucoguFC855LFh1RaM+8WYhZtjdGTEtJ
- NnYa62iJO9DqMt6Gyp/QM8X0c5Pbb/lzdnyu3jDMxOu1Q95xbd7Vhns0YojnbsMBQSvkAj17gC
- rIAAAA=
-X-Change-ID: 20250703-rk3588-hdmi-cec-cea8f523df48
+Message-Id: <20250710-rk3588-hdmi-cec-v2-3-f5884be34bc1@collabora.com>
+References: <20250710-rk3588-hdmi-cec-v2-0-f5884be34bc1@collabora.com>
+In-Reply-To: <20250710-rk3588-hdmi-cec-v2-0-f5884be34bc1@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
  =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Andy Yan <andy.yan@rock-chips.com>, 
@@ -69,12 +67,11 @@ To: Sandy Huang <hjc@rock-chips.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Algea Cao <algea.cao@rock-chips.com>, 
- Derek Foreman <derek.foreman@collabora.com>
+ linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_140132_142205_C17D1479 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20250709_140137_283532_ECAA4438 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,55 +86,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first patch in the series implements the CEC capability of the
-Synopsys DesignWare HDMI QP TX controller found in RK3588 & RK3576 Socs.
-This is based on the downstream code, but rewritten on top of the CEC
-helpers added recently to the DRM HDMI connector framework.
+The error handling in dw_hdmi_qp_rockchip_bind() is quite inconsistent,
+i.e. in some cases the error code is not included in the message, while
+in some other cases there is no check for -EPROBE_DEFER.
 
-The second patch is needed for RK3576 in order to fixup the timer base
-setup according to the actual reference clock rate, which differs
-slightly from RK3588.
-
-The following three patches setup platform data with the new information
-expected by the HDMI QP transmitter library, while improving the error
-handling in the probe path.
-
-Please note the CEC helpers are currently affected by a resource
-deallocation issue which may crash the kernel and freeze the system
-under certain test conditions.  I've already submitted a patch [1] that
-seems to correct the problem.
-
-[1] https://lore.kernel.org/all/20250703-hdmi-cec-helper-unreg-fix-v1-1-7e7b0eb578bb@collabora.com/
+Since this is part of the probe path, address the aforementioned issues
+by switching to dev_err_probe(), which also reduces the code a bit.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Changes in v2:
-- Collected R-b tag from Dmitry
-- Restructured the generic bridge patches to not depend on the
-  platform-specific changes and updated cover letter accordingly (Heiko)
-- Replaced the loop searching for "ref" clock with clk_get() (Maxime)
-- Added new patch "drm/rockchip: dw_hdmi_qp: Improve error handling with
-  dev_err_probe()"
-- Link to v1: https://lore.kernel.org/r/20250704-rk3588-hdmi-cec-v1-0-2bd8de8700cd@collabora.com
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 62 ++++++++++----------------
+ 1 file changed, 24 insertions(+), 38 deletions(-)
 
----
-Cristian Ciocaltea (6):
-      drm/bridge: dw-hdmi-qp: Add CEC support
-      drm/bridge: dw-hdmi-qp: Fixup timer base setup
-      drm/rockchip: dw_hdmi_qp: Improve error handling with dev_err_probe()
-      drm/rockchip: dw_hdmi_qp: Provide CEC IRQ in dw_hdmi_qp_plat_data
-      drm/rockchip: dw_hdmi_qp: Provide ref clock rate in dw_hdmi_qp_plat_data
-      arm64: defconfig: Enable DW HDMI QP CEC support
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index 7d531b6f4c098c6c548788dad487ce4613a2f32b..4e7794aa2dded4c124963eaa7f5158bde9bbbdb6 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -457,10 +457,8 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 		return -ENODEV;
+ 
+ 	if (!cfg->ctrl_ops || !cfg->ctrl_ops->io_init ||
+-	    !cfg->ctrl_ops->irq_callback || !cfg->ctrl_ops->hardirq_callback) {
+-		dev_err(dev, "Missing platform ctrl ops\n");
+-		return -ENODEV;
+-	}
++	    !cfg->ctrl_ops->irq_callback || !cfg->ctrl_ops->hardirq_callback)
++		return dev_err_probe(dev, -ENODEV, "Missing platform ctrl ops\n");
+ 
+ 	hdmi->ctrl_ops = cfg->ctrl_ops;
+ 	hdmi->dev = &pdev->dev;
+@@ -473,10 +471,9 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 			break;
+ 		}
+ 	}
+-	if (hdmi->port_id < 0) {
+-		dev_err(hdmi->dev, "Failed to match HDMI port ID\n");
+-		return hdmi->port_id;
+-	}
++	if (hdmi->port_id < 0)
++		return dev_err_probe(hdmi->dev, hdmi->port_id,
++				     "Failed to match HDMI port ID\n");
+ 
+ 	plat_data.phy_ops = cfg->phy_ops;
+ 	plat_data.phy_data = hdmi;
+@@ -497,39 +494,30 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 
+ 	hdmi->regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
+ 						       "rockchip,grf");
+-	if (IS_ERR(hdmi->regmap)) {
+-		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
+-		return PTR_ERR(hdmi->regmap);
+-	}
++	if (IS_ERR(hdmi->regmap))
++		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->regmap),
++				     "Unable to get rockchip,grf\n");
+ 
+ 	hdmi->vo_regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
+ 							  "rockchip,vo-grf");
+-	if (IS_ERR(hdmi->vo_regmap)) {
+-		dev_err(hdmi->dev, "Unable to get rockchip,vo-grf\n");
+-		return PTR_ERR(hdmi->vo_regmap);
+-	}
++	if (IS_ERR(hdmi->vo_regmap))
++		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->vo_regmap),
++				     "Unable to get rockchip,vo-grf\n");
+ 
+ 	ret = devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
+-	if (ret < 0) {
+-		dev_err(hdmi->dev, "Failed to get clocks: %d\n", ret);
+-		return ret;
+-	}
++	if (ret < 0)
++		return dev_err_probe(hdmi->dev, ret, "Failed to get clocks\n");
+ 
+ 	hdmi->enable_gpio = devm_gpiod_get_optional(hdmi->dev, "enable",
+ 						    GPIOD_OUT_HIGH);
+-	if (IS_ERR(hdmi->enable_gpio)) {
+-		ret = PTR_ERR(hdmi->enable_gpio);
+-		dev_err(hdmi->dev, "Failed to request enable GPIO: %d\n", ret);
+-		return ret;
+-	}
++	if (IS_ERR(hdmi->enable_gpio))
++		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->enable_gpio),
++				     "Failed to request enable GPIO\n");
+ 
+ 	hdmi->phy = devm_of_phy_get_by_index(dev, dev->of_node, 0);
+-	if (IS_ERR(hdmi->phy)) {
+-		ret = PTR_ERR(hdmi->phy);
+-		if (ret != -EPROBE_DEFER)
+-			dev_err(hdmi->dev, "failed to get phy: %d\n", ret);
+-		return ret;
+-	}
++	if (IS_ERR(hdmi->phy))
++		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->phy),
++				     "Failed to get phy\n");
+ 
+ 	cfg->ctrl_ops->io_init(hdmi);
+ 
+@@ -558,17 +546,15 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 
+ 	hdmi->hdmi = dw_hdmi_qp_bind(pdev, encoder, &plat_data);
+ 	if (IS_ERR(hdmi->hdmi)) {
+-		ret = PTR_ERR(hdmi->hdmi);
+ 		drm_encoder_cleanup(encoder);
+-		return ret;
++		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->hdmi),
++				     "Failed to bind dw-hdmi-qp");
+ 	}
+ 
+ 	connector = drm_bridge_connector_init(drm, encoder);
+-	if (IS_ERR(connector)) {
+-		ret = PTR_ERR(connector);
+-		dev_err(hdmi->dev, "failed to init bridge connector: %d\n", ret);
+-		return ret;
+-	}
++	if (IS_ERR(connector))
++		return dev_err_probe(hdmi->dev, PTR_ERR(connector),
++				     "Failed to init bridge connector\n");
+ 
+ 	return drm_connector_attach_encoder(connector, encoder);
+ }
 
- arch/arm64/configs/defconfig                   |   1 +
- drivers/gpu/drm/bridge/synopsys/Kconfig        |   8 +
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c   | 231 ++++++++++++++++++++++++-
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h   |  14 ++
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c |  77 ++++-----
- include/drm/bridge/dw_hdmi_qp.h                |   2 +
- 6 files changed, 291 insertions(+), 42 deletions(-)
----
-base-commit: 8d6c58332c7a8ba025fcfa76888b6c37dbce9633
-change-id: 20250703-rk3588-hdmi-cec-cea8f523df48
+-- 
+2.50.0
 
 
