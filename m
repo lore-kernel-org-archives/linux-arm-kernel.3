@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82602C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD6B9C83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4uPGAX/JArMVNCvkErn/jPFpy+Dm8tFibwdV8Zy4WjQ=; b=0MWg3cWLau9kENJCDQB0fMN/kt
-	YUif4Qby4tJDRhy7grCVbmnT75Inx+6QqXM+gOKDkrFMG/4X5aZydzUWEcRo3VwV/+JlCNmCSoOTC
-	MWS/7PgAI5VtyJDWZt33lijOE2XZsYk4P22row/g04TPoMxJR+yLBy9IrgPrzjdVBLUpJz/NobHmX
-	Yj3RhguzROrSiShbaF3dqyW6gk+yRzr9H6HCpvnJT9L5uZn973nr3FktRUt4OPqXCSrmlVOa3PdKH
-	PwYbpoBfrwuONfo2nCqg+9tUCiqwYMD/XCR3+EloKVKCUgjnQ3UfAbERZdW2jyJEaYAnLcE2HGKhG
-	gP851XXA==;
+	bh=7Ol/49McfuvPOTvreml9BUPPLFFtbpEBW7xikGuTpzw=; b=s2conX5zFoV/AIqWAmju9JM98T
+	V628sKFrjU/cCWY465G8C13Fv28tL7CqxqdhSb3E9AqKLhe4flp9dSOscOJWHyICuccf4a+VUYB3z
+	EpgFcdcFii9rHB0FYrDxWurXHCzQH2xNstOiATACQjoBJRFEaUoOVB0ezCOQjOo7+qyNXJQWzWdf8
+	eOV/T9vZ6ebxuxVzSVn9aZOCJhESnrj6uf6LEypkDnwYBtZ0iMGXOwytsDLBQ5K+J51xymHDCX6xC
+	Gz8qhc9pHfETSC3BkS6lcjZusa+V0COgL3utE52T0S3t/CsQnwyHcFNsL1105OlWhGIb1dFJH98TQ
+	znzG/swQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdiq-0000000A9Fo-0O7y;
-	Wed, 09 Jul 2025 22:57:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uZdiu-0000000A9Nx-1WU0;
+	Wed, 09 Jul 2025 22:57:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZbwJ-00000009rPw-3VLl
+	id 1uZbwK-00000009rS4-3ujr
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 09 Jul 2025 21:02:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1BCB546DBA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8BEA146D90;
 	Wed,  9 Jul 2025 21:02:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 896EBC4AF4D;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D37C1C2BCFA;
 	Wed,  9 Jul 2025 21:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752094970;
-	bh=2jVuJKlJwuE7wDUqRkDUnMsC8vHhgvzVYDcezCuIN/o=;
+	bh=UfZBgPNXsNVvIoKoizlLf9l//dyhqb8DPMRaq9LzZjs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=hpeu3RT1fQr+ZGknkPUJAb0CIvU6TL4PoAAoWOoRcgSZZWt2WKAP/jVhpmmCyQqiJ
-	 o6/JANe6fNr2xs0YAs/WcM8UucCIUwqlUc5eWyeTHgtjmVTiPvs2k+tUkwJqpZOFp3
-	 /69HJanBGIotCsSKb0ZwCdmOlSChHFGbLXjKIfPuWVGwKfpnT8is09imAHfhjeKNTo
-	 vn+GSrHMkmQ+NEkwh/ZBbUAgX3ZTMkp1eJhSev9+IVt0vf8JflJR6GCrTEiI+tOYUh
-	 e38UqRTciRoaNUK/oXU++UzaCBi73ZS5ymOPCf6DB5hmyDa1Vn1PcI6zLvxEfOpt5G
-	 9aYV+1eGWbVQg==
+	b=M/tnP8VyPPkfzJjm3qBZhzq2Fb8cd2Or2VRnWwr1QsZSkK4FvkUgb7wCEX0WSV3lM
+	 Y/XghyWKmFyg6ndUie7YYxJYaeA+cg8nefgRZLg0Apf67eZ/UKjqsTmPbeOya5yXES
+	 aPQ5D1wAglTTur4rKsaH8f1zWWg24CDXfhUVvFfvF3mz/X3h/j2icXP2rqML5y3l4o
+	 rZexCfuej3dEoyZUMHF4TSNFyYmmLAfG3XuEeIE1JUuyYKtDdi+a0DKZjVm58dbpPA
+	 XQqMn4cdUj4NBzQhplh7BPVFXAgOaKePtO2LdJXSAeQDCVTv2qbDi628GNaqrxUjwa
+	 vpEsklXQSSOKw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7ABAEC83F10;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C3182C83F09;
 	Wed,  9 Jul 2025 21:02:50 +0000 (UTC)
 From: Frank Li via B4 Relay <devnull+Frank.Li.nxp.com@kernel.org>
-Date: Wed, 09 Jul 2025 17:02:17 -0400
-Subject: [PATCH v20 5/9] PCI: endpoint: Add pci_epf_align_inbound_addr()
- helper for address alignment
+Date: Wed, 09 Jul 2025 17:02:21 -0400
+Subject: [PATCH v20 9/9] arm64: dts: imx95: Add msi-map for pci-ep device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250709-ep-msi-v20-5-43d56f9bd54a@nxp.com>
+Message-Id: <20250709-ep-msi-v20-9-43d56f9bd54a@nxp.com>
 References: <20250709-ep-msi-v20-0-43d56f9bd54a@nxp.com>
 In-Reply-To: <20250709-ep-msi-v20-0-43d56f9bd54a@nxp.com>
 To: Kishon Vijay Abraham I <kishon@kernel.org>, 
@@ -76,21 +75,23 @@ Cc: Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  imx@lists.linux.dev, devicetree@vger.kernel.org, 
- Niklas Cassel <cassel@kernel.org>, Frank Li <Frank.Li@nxp.com>
+ Niklas Cassel <cassel@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752094968; l=4622;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752094968; l=973;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=PebSbCDfzLlvbjVW+lpBMsdu88x18IX5dRYDwgZD7aQ=;
- b=R3IHlef1Bbi/hWLCcUiLgZzHZUGpyb01O4MgGiwq/qDGUGyzZ1Ap0GvZtRyUX3OdhSfq69uIF
- yrunbnVfHTCB+oemotsLwfWWQ4Ve4X8EBQyWw5/sSpsaITlmfLVJUxp
+ bh=wW9Nwm5vAKtBf5Pux9lo/+uSvITxDxxhF8J82uPpSQ8=;
+ b=DwCDvXI2dHfwlsH95rdKs+F2c/1lzDZ414RkLAX3HFvb+CoWvLp9S117yYeOziC1x2KQAU/tq
+ la73DIrVfCRCNMZgtll5F27wBhCkcCh5a+dH9c4JYZXoZt/HGW/UfR7
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-Endpoint-Received: by B4 Relay for Frank.Li@nxp.com/20240130 with
  auth_id=121
 X-Original-From: Frank Li <Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_140251_957199_0822E13F 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20250709_140253_051213_3A6CA0D7 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,123 +109,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Li <Frank.Li@nxp.com>
 
-Introduce the helper function pci_epf_align_inbound_addr() to adjust
-addresses according to PCI BAR alignment requirements, converting addresses
-into base and offset values.
+Add msi-map for pci-ep device.
 
+Acked-by: Manivannan Sadhasivam <mani@kernel.org>
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-Changes in V20
-- update function kdoc comments.
-- 128 come from pci_epf_alloc_space() drivers/pci/endpoint/pci-epf-core.c
+change in v20
+- add Manivannan's ACK
 
-Change from v15 to v16
+change from v14 to v16
 - none
 
-Change from v14 to v15
-- change out address type to dma_addr_t to fix below build issue
-
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502082311.G1hWGggF-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/pci/endpoint/functions/pci-epf-test.c: In function 'pci_epf_test_enable_doorbell':
->> drivers/pci/endpoint/functions/pci-epf-test.c:726:42: error: passing argument 4 of 'pci_epf_align_inbound_addr' from incompatible pointer type [-Werror=incompatible-pointer-types]
-     726 |                                          &epf_test->db_bar.phys_addr, &offset);
-         |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                                          |
-         |                                          dma_addr_t * {aka unsigned int *}
-   In file included from include/linux/pci-epc.h:12,
-
-Change form v9 to v14
-- none
-
-change from v8 to v9
-- pci_epf_align_inbound_addr(), base and off must be not NULL
-- rm pci_epf_align_inbound_addr_lo_hi()
-
-change from v7 to v8
-- change name to pci_epf_align_inbound_addr()
-- update comment said only need for memory, which not allocated by
-pci_epf_alloc_space().
-
-change from v6 to v7
+change from v13 to v14
 - new patch
 ---
- drivers/pci/endpoint/pci-epf-core.c | 44 +++++++++++++++++++++++++++++++++++++
- include/linux/pci-epf.h             |  3 +++
- 2 files changed, 47 insertions(+)
+ arch/arm64/boot/dts/freescale/imx95.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pci/endpoint/pci-epf-core.c b/drivers/pci/endpoint/pci-epf-core.c
-index 577a9e490115c9dd5d7fb624c4a3001f39b97e78..6d6911559780a003b8e81c629d7654d6959c7dcf 100644
---- a/drivers/pci/endpoint/pci-epf-core.c
-+++ b/drivers/pci/endpoint/pci-epf-core.c
-@@ -477,6 +477,50 @@ struct pci_epf *pci_epf_create(const char *name)
- }
- EXPORT_SYMBOL_GPL(pci_epf_create);
- 
-+/**
-+ * pci_epf_align_inbound_addr() - Align the given address based on the BAR
-+ *				  alignment requirement
-+ * @epf: the EPF device
-+ * @addr: inbound address to be aligned
-+ * @bar: the BAR number corresponding to the given addr
-+ * @base: base address matching the @bar alignment requirement.
-+ * @off: offset to be added to the @base address.
-+ *
-+ * Helper function to align input 'addr' to base and offset, which match
-+ * BAR's alignment requirement.
-+ *
-+ * The pci_epf_alloc_space() function already accounts for alignment. This is
-+ * primarily intended for use with other memory regions not allocated by
-+ * pci_epf_alloc_space(), such as peripheral register spaces or the trigger
-+ * address for a platform MSI controller.
-+ */
-+int pci_epf_align_inbound_addr(struct pci_epf *epf, enum pci_barno bar,
-+			       u64 addr, dma_addr_t *base, size_t *off)
-+{
-+	const struct pci_epc_features *epc_features;
-+	u64 align;
-+
-+	if (!base || !off)
-+		return -EINVAL;
-+
-+	epc_features = pci_epc_get_features(epf->epc, epf->func_no, epf->vfunc_no);
-+	if (!epc_features) {
-+		dev_err(&epf->dev, "epc_features not implemented\n");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	align = epc_features->align;
-+	align = align ? align : 128;
-+	if (epc_features->bar[bar].type == BAR_FIXED)
-+		align = max(epc_features->bar[bar].fixed_size, align);
-+
-+	*base = round_down(addr, align);
-+	*off = addr & (align - 1);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(pci_epf_align_inbound_addr);
-+
- static void pci_epf_dev_release(struct device *dev)
- {
- 	struct pci_epf *epf = to_pci_epf(dev);
-diff --git a/include/linux/pci-epf.h b/include/linux/pci-epf.h
-index a3b1a1d90d18356e8cda966c7004c3be93962a0d..0ca08f0d05d7439ef4043a77c204062989a27bd9 100644
---- a/include/linux/pci-epf.h
-+++ b/include/linux/pci-epf.h
-@@ -241,6 +241,9 @@ void *pci_epf_alloc_space(struct pci_epf *epf, size_t size, enum pci_barno bar,
- 			  enum pci_epc_interface_type type);
- void pci_epf_free_space(struct pci_epf *epf, void *addr, enum pci_barno bar,
- 			enum pci_epc_interface_type type);
-+
-+int pci_epf_align_inbound_addr(struct pci_epf *epf, enum pci_barno bar,
-+			       u64 addr, dma_addr_t *base, size_t *off);
- int pci_epf_bind(struct pci_epf *epf);
- void pci_epf_unbind(struct pci_epf *epf);
- int pci_epf_add_vepf(struct pci_epf *epf_pf, struct pci_epf *epf_vf);
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 632631a2911224cadc16a943cdb467e091e43384..c59d11eb7a581a500d381ef96f1e44533052c2a2 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -1797,6 +1797,7 @@ pcie1_ep: pcie-ep@4c380000 {
+ 			assigned-clock-rates = <3600000000>, <100000000>, <10000000>;
+ 			assigned-clock-parents = <0>, <0>,
+ 						 <&scmi_clk IMX95_CLK_SYSPLL1_PFD1_DIV2>;
++			msi-map = <0x0 &its 0x98 0x1>;
+ 			power-domains = <&scmi_devpd IMX95_PD_HSIO_TOP>;
+ 			status = "disabled";
+ 		};
 
 -- 
 2.34.1
