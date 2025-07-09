@@ -4,89 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E91BC83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DAFBC83F14
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5h0vY+8yWR6d53ywzrllmdRVHS+9LkknzDUPnvu0s3A=; b=Wz72/8ojpATp0HsuOgVD9WFz/I
-	NYYeSH7P1/UalIevAoAnEe+CFuKWI53ZyV96lVMb75lDG3x0wY/vaR4G3zFBCCltQcF86iD4jWXY/
-	gg89/TGENcHcqtPjFdIaPhT9Tewj5rlmXq/h4R33mXS0n59SzbOhRuqdxL7ZC4Iyc8rcqAP5a6spV
-	Q6oQppa43PDITGlTxCzmY+dc60hE8vGO9MNTLQg8x1b7EDn+SFTIIgWk1vjkAx+XUz7YZ5MUDQF9l
-	J819Iq1gF5I2FVUMrd84KdgyOcJYenU0TMj06VyhyaqmSwhFj/X0h1S/JQ8+S4rG16KDCTnBsA7im
-	Ix4/aJ9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:To:From:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ra0q1YRk8dc9wL0sB8bADJNs5V8YEwxRwJMrTAmQyqQ=; b=S3CXfFfpCwjJ+u5KDkUlw8cRuD
+	q1P/ReIELJXJ8q2HTmJC9Yt9w/rGWuKK4NEClpebdry0vqhuHWU66+gFNx+7JcF8YZZBZTVQtPLpu
+	/ECS0pQBJeL0LrwinbN4SckARuzQixX30cl2W0EuCDTIY74XVoJ2P0kKFbH9KRaS0mKCbAiTerntg
+	cSMBHymGOqdhP5qdD1zAhZegYYWrftTO3DdBQ24tsklYhWbPMSwMBhsXilc6z7oK4YTRqoCYM+KzM
+	I1ArpQNRk6pklUaL3hx/ELR8pu8xK87vbFVa4ITE3SWaEHytEppjFCwuNeQks3UfCSs5wpG6wUDAe
+	LK8koYcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZaFF-00000009fVP-0OBP;
-	Wed, 09 Jul 2025 19:14:17 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1uZaFG-00000009fX4-1JC2;
+	Wed, 09 Jul 2025 19:14:18 +0000
+Received: from 0001.3ffe.de ([159.69.201.130] helo=mail.3ffe.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZWnI-00000009BDj-2Ohk
+	id 1uZWqq-00000009Bcg-2b2f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 15:33:13 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7426c44e014so4683786b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 08:33:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752075191; x=1752679991; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5h0vY+8yWR6d53ywzrllmdRVHS+9LkknzDUPnvu0s3A=;
-        b=QuX/Gwclvpnqa/cLQE+UwXRfHrI+YQeAGxDhKnkJ/m26d+1ZgOyOOoJctTIdpf9oUn
-         c/Rpsjv3ecmdx6UuhQClYKCsinlHhstEipYpAC3YwBN0shV+PfcaJpdGcGAlRgx1vKPg
-         j0t+PA4n6jWm08rYlsaHmFjaxR8BU7mCSe6H0gGRXaup/YqDjwMdl0QFQXkHKJNYEsxI
-         8yoi3Vu2Lv6p9PsQvOqnIEHiTALhR1wIyKGWXzzHgVJildiGo5MPe64hyu7q64gNXizP
-         2olIFZRFXRvLYdRg7/GlRhggzhykq1eWRLpsizx+gLAnKTarX7uMunccKJ/MHeJ/H+Ds
-         OhXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752075191; x=1752679991;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5h0vY+8yWR6d53ywzrllmdRVHS+9LkknzDUPnvu0s3A=;
-        b=kJS1NIrriXuQwN3wAd0dMvGR4P+Gvzox0j8erqua9QReQy6AAzARn6FCsMIXesqJ6y
-         MBJY1aX0J7vcUSyk6LjlhJT3hwHKcwITb8uSAhg5zv6hfXG2aSpUT7HyMRhgllXgD/cz
-         nJjnR9U2+xYVx5JUoONn9r+me7mBZdG9/EOp3MdLffPj/MUXpvzJR589p0ncZ2VvBXKt
-         n5ksSAFu6/mrRiduDYtnaAcnTdJFoX3BnOZUDM/gmACO8dWhm577KjBQAO0Fi2IQfLcp
-         GQ45pTVpI7Cldb9+6Of/9oKQTb3INLhK4EUduk6VrMOcILF9TCJv80j/+cCp5RK7mNVF
-         EK6w==
-X-Forwarded-Encrypted: i=1; AJvYcCWWm5Yzb5sWTF/+2zSLnc79WNrYa1Jm0W+VvA6DjXznxM70yUPHrKAPg0kTk7RsvRsFm9yYMOgjPhD/ur+xp+Y0@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywq3ZjPA6NvgRQHmm4tI1XiA8YLYqq6Fa/GB/64t3tEZ/w2/RGY
-	A7W428rbnGsvrhGRgXm7Fp8V2sMAv7lnYSKwrCUHDWkYFNWo5ruKhuyg
-X-Gm-Gg: ASbGnctyBtv1WAMVmaRn02hbD5dDaLP2POkre0lLkr9755hxwtpHaNH4EiGIrtreBE3
-	CdrO047XbOWEJuG7BSkLWI3It3ZVkiKXLYjznoTFbIzqbgEfObQT7SpmiPpn/eZ3zlaKD9KjmIa
-	uwAAV40oV7cg4xdf/dVTxaH1MYjAblRZHi+T/Mh8N1q0Vxf1WVlorNMiqMwDiPirlSFId8UQXw0
-	EJlcoG8WAW3c2PSrAqYr+M9by6NwgsVgt50sT3O48sGbusR2I+jTgrMuMU0R82ZWXuBl1zvhl/s
-	DHS2+uJp5/lCec8JldqCKHpZGj4Nrc67wHvRCo2whU8/CoWwxQOqjAoN6VdGHQ==
-X-Google-Smtp-Source: AGHT+IHZtURowHsYjnMJ5BnwtddfQEn1Fb18GjbXaV0krfOX1jJD/FS2hhGkqD/zQ8JNrPNyVELOKg==
-X-Received: by 2002:a05:6a00:ccc:b0:74d:247f:faf1 with SMTP id d2e1a72fcca58-74ea645f1b0mr4005899b3a.6.1752075190794;
-        Wed, 09 Jul 2025 08:33:10 -0700 (PDT)
-Received: from localhost ([216.228.127.130])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b38ee62bc54sm14821781a12.59.2025.07.09.08.33.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Jul 2025 08:33:10 -0700 (PDT)
-Date: Wed, 9 Jul 2025 11:33:08 -0400
-From: Yury Norov <yury.norov@gmail.com>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux@rasmusvillemoes.dk,
-	linux-kernel@vger.kernel.org, james.morse@arm.com
-Subject: Re: [PATCH v2 2/2] bitfield: Ensure the return values of helper
- functions are checked
-Message-ID: <aG6LtJ2N1smBKHh1@yury>
-References: <20250709093808.920284-1-ben.horgan@arm.com>
- <20250709093808.920284-3-ben.horgan@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250709093808.920284-3-ben.horgan@arm.com>
+	Wed, 09 Jul 2025 15:36:53 +0000
+Received: from localhost (unknown [IPv6:2a02:810b:4320:1000:4685:ff:fe12:5967])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.3ffe.de (Postfix) with ESMTPSA id 4F76E299;
+	Wed,  9 Jul 2025 17:36:50 +0200 (CEST)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 09 Jul 2025 17:36:50 +0200
+Message-Id: <DB7MWBOS4YDK.2QIYX7WQ3X1KU@kernel.org>
+Cc: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Linus Walleij"
+ <linus.walleij@linaro.org>, "Bartosz Golaszewski" <brgl@bgdev.pl>, "Shawn
+ Guo" <shawnguo@kernel.org>, "Lee Jones" <lee@kernel.org>, "Frank Li"
+ <Frank.Li@nxp.com>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Andrew Lunn" <andrew@lunn.ch>, "Ioana Ciornei" <ioana.ciornei@nxp.com>
+Subject: Re: [PATCH 4/9] gpio: regmap: add the .get_direction() callback
+X-Mailer: aerc 0.16.0
+References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
+ <20250709112658.1987608-5-ioana.ciornei@nxp.com>
+ <0d0e9cee-2aaa-402d-a811-8c4704aadd74@lunn.ch>
+In-Reply-To: <0d0e9cee-2aaa-402d-a811-8c4704aadd74@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_083312_606508_CE14336C 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250709_083652_794515_31842B45 
+X-CRM114-Status: UNSURE (   4.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,19 +71,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 10:38:08AM +0100, Ben Horgan wrote:
-> As type##_replace_bits() has no side effects it is only useful if its
-> return value is checked. Add __must_check to enforce this usage. To have
-> the bits replaced in-place typep##_replace_bits() can be used instead.
-> 
-> Although, type_##_get_bits() and type_##_encode_bits() are harder to misuse
-> they are still only useful if the return value is checked. For
-> consistency, also add __must_check to these.
-> 
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> just provide the bitmap, and gpio-regmap.c can look at the bit in
+> the bitmap?
 
-Applied.
+I like that idea.
 
-Thanks,
-Yury
+-michael
 
