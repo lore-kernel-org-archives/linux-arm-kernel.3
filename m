@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183CBC83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:04:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5012EC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P4JZ7HgpHQShtnaKfVKoEPobryhKFYEIO4IQNdd4Ceg=; b=2tztaPbHyV4JPK/qBAg6o60Xqm
-	hPx4QQnxSxKzTgME7HcJc9R03QY5ObVyXnAKHeAO1RTW43aaZJskivds6BsQmJ8g3o/wBBN2rF7vT
-	Bpj1Os5LGDk2k1t/p5tyeKBLlDhO1VW8jXgLVfXb7i24YiCL8rxkMQrSYgDf93wyWytSWovQoghi2
-	q+sjXvmbtfFAScbVhDZm1eev0zzUhgSjs8K/Sue5/crE7bEgx8tr0BV6S7MClQHc9SCIR6x5ng0dj
-	HPYDAT37a6BDo8v49BuUHzAk0YVYXfx5V8ktfs9joYFyO+HmYdwWS64R0H9fKpkLyk8N7o0Nbcvq7
-	FrzSBqag==;
+	bh=tfT3GARXc54jtdmZgrQLS3HNZZ1zu3CJtKBFk2512rA=; b=veletnGZAZQy7kY5tF849Ojk4k
+	v1a2RL61FU1p6Vvay5db5mwBIBbv0D8IgNZjlgFxsHjSJG6ceGJtwvoC5ELWD5s3msrRumUGXHc6+
+	cdBGoT82n6AH+XtpYN3pCkmm6iVrDGcuxLL+9O7RlhSY3tqxYlGDezbFaBxcY8TSyTjF3/9W8oNVw
+	JB/tyxJfifXYqg9VQNEuhQOOUHLdYYTuhfgvjMzi/L3U8F3apjiWxL3NYyH89eXenTutZMYZszaLb
+	dLG6c0voyi27DgpQVO4zK9lXRsX7HZK+tH08h0q/apx9UTOPj8n2qDIRnvk5x7BnS/ejRxabUnRk+
+	mJi2mEhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZXHf-00000009GHs-2awT;
-	Wed, 09 Jul 2025 16:04:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uZXJz-00000009Gmk-1GyQ;
+	Wed, 09 Jul 2025 16:06:59 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVQF-00000008tqV-0a5l
+	id 1uZVRV-00000008u6n-0GJl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 14:05:20 +0000
+	Wed, 09 Jul 2025 14:06:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 89DCB5C667B;
-	Wed,  9 Jul 2025 14:05:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CFB4C4CEEF;
-	Wed,  9 Jul 2025 14:05:13 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4B3F6A547A2;
+	Wed,  9 Jul 2025 14:06:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CF21C4CEEF;
+	Wed,  9 Jul 2025 14:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752069918;
-	bh=aNA261FsW4mkgtRraaqPkgn+WuUogqOB0mFX8ejRiyE=;
+	s=k20201202; t=1752069995;
+	bh=zsceZ3e3Q3uizdRPkkkTw9psNWaSicRPXttwuALsa1A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TtFYFduKBgXJyT/cMREPKtGBxZfEp4+Gudgg4rqLd4ko3xKxIUPKZfTJp5WwMvS9K
-	 Q77GGfecm+TEiYgBVxzOlGbikVV9n7dNF+rP/24vZSrqh3sNH/8dBb7/KCcgYSkx0k
-	 29B5Lm/u67Lw5+RoK/PNJlh95/YyWu7+LW807u+KN0XRJKqFCeJLaENFmoi9VRp+rf
-	 BBM5CmamUY+KlYcKzuPH6mf7fWe2OyxhofLBNufN8yJKFQMGuBXeUZ3TkM0R8aPGab
-	 epq8MRGgnng9ewZhLZE8ltp5Qr3KCJroGQcGybqF8+YILoCj3rwiRxFkMpG8tHN0Ln
-	 FlniwUoJA8iMw==
-Message-ID: <23f655bf-aed6-4022-a7bf-3189bae834de@kernel.org>
-Date: Wed, 9 Jul 2025 16:05:11 +0200
+	b=U84/UUO+lgsVFLJlzZp03T/UT2e5GfDEdigFWYyz8Aa0IXeeiU6gi2ndzt93Gtb8z
+	 5oEuGUAtzIHe9BAv63MuxP/z/xb4sW8h2dyKO0PE94xGqFUUM6xryUn7psq2WqraJt
+	 gk3DtyiTRCW9SM8zu50aop8dr7LPgfXLv0lZ8iGbXBWsDyZCryy++UV4BzUdZMfj1o
+	 fze80VK+y1N25SgMAUsO97cGqmTmpMME0cnex7QyLjGwsCc5IMjR1uXP+wSJapz8vs
+	 7+YrrqHp5Q0QrRGVVyQf/8OXeVZht7yFdyapTHTzhHozjm1LlJnLguO9F1NY/YQpt2
+	 EaD6SbFrpXseg==
+Message-ID: <58851e92-6a06-4074-88fa-fb4f7ead2596@kernel.org>
+Date: Wed, 9 Jul 2025 16:06:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] drivers: perf: samsung: Add PPMU driver support
+Subject: Re: [PATCH 6/6] MAINTAINERS: Add maintainers for Samsung PPMU driver
 To: Vivek Yadav <vivek.2311@samsung.com>, pankaj.dubey@samsung.com,
  ravi.patel@samsung.com, shradha.t@samsung.com, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
@@ -56,8 +56,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-perf-users@vger.kernel.org, linux-samsung-soc@vger.kernel.org
 References: <20250708103208.79444-1-vivek.2311@samsung.com>
- <CGME20250708103240epcas5p336539d4c3a1fb489708c61f9aae6bfa8@epcas5p3.samsung.com>
- <20250708103208.79444-5-vivek.2311@samsung.com>
+ <CGME20250708103246epcas5p47b446ec342f9d49361c0a9a3929bcdd2@epcas5p4.samsung.com>
+ <20250708103208.79444-7-vivek.2311@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250708103208.79444-5-vivek.2311@samsung.com>
+In-Reply-To: <20250708103208.79444-7-vivek.2311@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_070519_261549_834F6665 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20250709_070637_235032_063C3CE8 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,68 +124,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 08/07/2025 12:32, Vivek Yadav wrote:
-> +static struct platform_driver samsung_ppmu_driver = {
-> +	.probe = samsung_ppmu_probe,
-> +	.remove = samsung_ppmu_remove,
-> +	.driver	= {
-> +		.name = "samsung-ppmu",
-> +		.of_match_table	= ppmu_of_match,
-> +	},
-> +};
-> +
-> +module_platform_driver(samsung_ppmu_driver);
-> +
-> +MODULE_ALIAS("perf:samsung-ppmu");
+> Add maintainers entry for Samsung PPMU driver
+> 
+> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+> Signed-off-by: Vivek Yadav <vivek.2311@samsung.com>
+> ---
+>  MAINTAINERS | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index ca11a553d412..5895b4e70c9e 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -21023,6 +21023,13 @@ F:	drivers/regulator/s5m*.c
+>  F:	drivers/rtc/rtc-s5m.c
+>  F:	include/linux/mfd/samsung/
+>  
+> +SAMSUNG PPMU DRIVER
 
-No, drop. What's with these aliases from samsung... second try today.
-From where do you get such code?
+PPMU for what? Exynos? Then add it in the name.
 
-> +MODULE_DESCRIPTION("Samsung Platform Performance Measuring Unit (PPMU) driver");
-> +MODULE_AUTHOR("Vivek Yadav <vivek.2311@samsung.com>");
-> +MODULE_AUTHOR("Ravi Patel <ravi.patel@samsung.com>");
-> +MODULE_LICENSE("GPL");
-> diff --git a/drivers/perf/samsung/ppmu_platform.c b/drivers/perf/samsung/ppmu_platform.c
-> new file mode 100644
-> index 000000000000..ee11311d5a61
-> --- /dev/null
-> +++ b/drivers/perf/samsung/ppmu_platform.c
-> @@ -0,0 +1,338 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Samsung Platform Performance Measuring Unit (PPMU) core file
-> + *
-> + * Copyright (c) 2024-25 Samsung Electronics Co., Ltd.
-> + *
-> + * Authors: Vivek Yadav <vivek.2311@samsung.com>
-> + *          Ravi Patel <ravi.patel@samsung.com>
-> + */
-> +
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/perf_event.h>
-> +#include "samsung_ppmu.h"
-> +
-> +/*
-> + * PMU format attributes
-> + */
-> +ssize_t samsung_ppmu_format_sysfs_show(struct device *dev,
-> +				       struct device_attribute *attr, char *buf)
-> +{
-> +	struct dev_ext_attribute *eattr;
-> +
-> +	eattr = container_of(attr, struct dev_ext_attribute, attr);
-> +
-> +	return sysfs_emit(buf, "%s\n", (char *)eattr->var);
-> +}
-> +EXPORT_SYMBOL_GPL(samsung_ppmu_format_sysfs_show);
+> +M:	Vivek Yadav <vivek.2311@samsung.com>
+> +M:	Ravi Patel <ravi.patel@samsung.com>
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/perf/samsung,ppmu-v2.yaml
+> +F:	drivers/perf/samsung/
 
-1. Where did you document ABI?
-2. This is not used. You have one module, not two. Drop all exports.
-
-3. You need to clearly explain what is wrong with existing drivers in a
-very detailed way, before you start posting another (possibly
-duplicated) drivers.
-
+Also, this should be added to Samsung SoC maintainer entry as well.
 
 Best regards,
 Krzysztof
