@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5012EC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45AFBC83F0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tfT3GARXc54jtdmZgrQLS3HNZZ1zu3CJtKBFk2512rA=; b=veletnGZAZQy7kY5tF849Ojk4k
-	v1a2RL61FU1p6Vvay5db5mwBIBbv0D8IgNZjlgFxsHjSJG6ceGJtwvoC5ELWD5s3msrRumUGXHc6+
-	cdBGoT82n6AH+XtpYN3pCkmm6iVrDGcuxLL+9O7RlhSY3tqxYlGDezbFaBxcY8TSyTjF3/9W8oNVw
-	JB/tyxJfifXYqg9VQNEuhQOOUHLdYYTuhfgvjMzi/L3U8F3apjiWxL3NYyH89eXenTutZMYZszaLb
-	dLG6c0voyi27DgpQVO4zK9lXRsX7HZK+tH08h0q/apx9UTOPj8n2qDIRnvk5x7BnS/ejRxabUnRk+
-	mJi2mEhw==;
+	bh=arc5EHkqB6hHpq1XJ5FAMUqsGnnMaVWZNx1v3p3jgY8=; b=ydQBanHndm6bdexQHbcvSjfZiC
+	YhuDI4DMEbIlIXV6tYQIxs5vL99qs7E/ev1GKAb0O96SeGsQs6QMBtm6DZQ0YVeJDiaEwjtAjT39Z
+	Zxts5OUcd4mtetBIMW80wqGsfSuEnIrtnTHQaSa7SN5LEIX7GxlS6uvWur2c5bAhPqPHyHQmjP2g9
+	HBuKHGJwamTCRa/X3ktgo97VgXuQ2FcGzg5mVWMr87LFUJlk30SgcoJwd94LF21FwCECqYN7BNoLO
+	uQ3OtTK5jI+qqv5NoEkYPgw5up9YFkyBq6pMVRxOoP/2r9Neh/FAi6YoqwS104Rt8GlwFlnueOROH
+	7xYxZC7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZXJz-00000009Gmk-1GyQ;
-	Wed, 09 Jul 2025 16:06:59 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uZXMI-00000009HEv-0Gdh;
+	Wed, 09 Jul 2025 16:09:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVRV-00000008u6n-0GJl
+	id 1uZVWg-00000008vSD-08KV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 14:06:38 +0000
+	Wed, 09 Jul 2025 14:11:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4B3F6A547A2;
-	Wed,  9 Jul 2025 14:06:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CF21C4CEEF;
-	Wed,  9 Jul 2025 14:06:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B8BC445964;
+	Wed,  9 Jul 2025 14:11:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE546C4CEEF;
+	Wed,  9 Jul 2025 14:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752069995;
-	bh=zsceZ3e3Q3uizdRPkkkTw9psNWaSicRPXttwuALsa1A=;
+	s=k20201202; t=1752070317;
+	bh=MP8y7OgpetDh3M79PleMX8TjA4AwgjOhJ4DgQjJGgRM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=U84/UUO+lgsVFLJlzZp03T/UT2e5GfDEdigFWYyz8Aa0IXeeiU6gi2ndzt93Gtb8z
-	 5oEuGUAtzIHe9BAv63MuxP/z/xb4sW8h2dyKO0PE94xGqFUUM6xryUn7psq2WqraJt
-	 gk3DtyiTRCW9SM8zu50aop8dr7LPgfXLv0lZ8iGbXBWsDyZCryy++UV4BzUdZMfj1o
-	 fze80VK+y1N25SgMAUsO97cGqmTmpMME0cnex7QyLjGwsCc5IMjR1uXP+wSJapz8vs
-	 7+YrrqHp5Q0QrRGVVyQf/8OXeVZht7yFdyapTHTzhHozjm1LlJnLguO9F1NY/YQpt2
-	 EaD6SbFrpXseg==
-Message-ID: <58851e92-6a06-4074-88fa-fb4f7ead2596@kernel.org>
-Date: Wed, 9 Jul 2025 16:06:29 +0200
+	b=tua7tl5CR2shKodoU+r6z3cIdXQWuEXLopgPRh9M7/cSvu8WZsSysvpY3RIWew0hZ
+	 BhkS02BGy3Xm5tojLWZB0fTzLFtPtw0fgkNtAbNbzX4FMF5Y16IKAbD217aXUSeLq8
+	 4roJ/cR+jQqWrcx4JcSg9mpL4+A/grmBIpmXjnGAntcgloJROFXXMnq04hVJeG4jIf
+	 7T26wA6gI0HXvt5snzYdiL8dZuBs+61LtxRkFIA6Ln3tOLC82njLLnIrWa/6CfHjIX
+	 d1QnjLe0C+Mt59ze3U45rzdTNh1VMIeDKVZF2r7h6EDrNToReb9p+gN3lNGC9O9qEj
+	 kKyFB5JK0PI+w==
+Message-ID: <7311e4b6-8832-46fc-94b8-4ebcb2592926@kernel.org>
+Date: Wed, 9 Jul 2025 16:11:52 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] MAINTAINERS: Add maintainers for Samsung PPMU driver
-To: Vivek Yadav <vivek.2311@samsung.com>, pankaj.dubey@samsung.com,
- ravi.patel@samsung.com, shradha.t@samsung.com, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- will@kernel.org, mark.rutland@arm.com, s.nawrocki@samsung.com,
- cw00.choi@samsung.com, alim.akhtar@samsung.com, linux-fsd@tesla.com
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-samsung-soc@vger.kernel.org
-References: <20250708103208.79444-1-vivek.2311@samsung.com>
- <CGME20250708103246epcas5p47b446ec342f9d49361c0a9a3929bcdd2@epcas5p4.samsung.com>
- <20250708103208.79444-7-vivek.2311@samsung.com>
+Subject: Re: [PATCH 1/9] dt-bindings: gpio: add bindings for the QIXIS FPGA
+ based GPIO controller
+To: Ioana Ciornei <ioana.ciornei@nxp.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij
+ <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Shawn Guo <shawnguo@kernel.org>, Michael Walle <mwalle@kernel.org>,
+ Lee Jones <lee@kernel.org>, Frank Li <Frank.Li@nxp.com>
+References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
+ <20250709112658.1987608-2-ioana.ciornei@nxp.com>
+ <9aff4894-a8aa-47d2-8800-62959e064254@kernel.org>
+ <lv55xheu2glgsgey2wdupqp3cvem27afhrs3ibhzqgglf4ql6a@tzy7uwule7z4>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250708103208.79444-7-vivek.2311@samsung.com>
+In-Reply-To: <lv55xheu2glgsgey2wdupqp3cvem27afhrs3ibhzqgglf4ql6a@tzy7uwule7z4>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_070637_235032_063C3CE8 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20250709_071158_113342_3942B433 
+X-CRM114-Status: GOOD (  28.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,34 +125,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/07/2025 12:32, Vivek Yadav wrote:
-> Add maintainers entry for Samsung PPMU driver
+On 09/07/2025 15:55, Ioana Ciornei wrote:
+> On Wed, Jul 09, 2025 at 02:14:47PM +0200, Krzysztof Kozlowski wrote:
+>> On 09/07/2025 13:26, Ioana Ciornei wrote:
+>>> Add a device tree binding for the QIXIS FPGA based GPIO controller.
+>>> Depending on the board, the QIXIS FPGA exposes registers which act as a
+>>> GPIO controller, each with 8 GPIO lines of fixed direction.
+>>>
+>>> Since each QIXIS FPGA layout has its particularities, add a separate
+>>> compatible string for each board/GPIO register combination supported.
+>>>
+>>> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+>>
+>> Your changelog explains patches, which is kind of redundant - we see
+>> that - but does not explain the dependency you have here between patches.
+>>
 > 
-> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
-> Signed-off-by: Vivek Yadav <vivek.2311@samsung.com>
-> ---
->  MAINTAINERS | 7 +++++++
->  1 file changed, 7 insertions(+)
+> Do you mean the logical dependency between all the components like
+> FPGAs, GPIOs etc? I can expand on that, sure. I will also update the
+> cover letter with some of the information below.
+> If this is not what you are looking for, please let me know.
+
+I meant here cover letter, not changelog. It does not explain
+dependencies between patches. You just explain what each patch is doing
+- this is completely redundant cover letter.
+
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index ca11a553d412..5895b4e70c9e 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -21023,6 +21023,13 @@ F:	drivers/regulator/s5m*.c
->  F:	drivers/rtc/rtc-s5m.c
->  F:	include/linux/mfd/samsung/
->  
-> +SAMSUNG PPMU DRIVER
+> Layerscape boards such as those that I update here have a QIXIS FPGA
+> accessible through I2C. This FPGA exposes a set of registers which can
+> be used to monitor the status of different components, configure muxing,
+> act as GPIO controllers etc.
+> 
+> Since the register layout that this device exposes is different on a per
+> board basis, each board has a different compatible string such as the
+> one that patch 2/9 adds - fsl,lx2160ardb-fpga.
+> 
+> Going deeper, some of these registers are acting as GPIO controllers
+> exposing status/control of different SFP cages on the board. For these
+> kind of registers the new gpio-regmap driver is added.
+> 
+>> A nit, subject: drop second/last, redundant "bindings". The
+>> "dt-bindings" prefix is already stating that these are bindings.
+>> See also:
+>> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+>>
+> 
+> Sure. Will fix.
+> 
+>>> ---
+>>>  .../bindings/gpio/fsl,fpga-gpio.yaml          | 44 +++++++++++++++++++
+>>>  1 file changed, 44 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml b/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
+>>> new file mode 100644
+>>> index 000000000000..dc7b6c0d9b40
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
+>>> @@ -0,0 +1,44 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/gpio/fsl,fpga-gpio.yaml
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml
+>>> +
+>>> +title: GPIO controller embedded in the NXP QIXIS FPGA
+>>> +
+>>> +maintainers:
+>>> +  - Ioana Ciornei <ioana.ciornei@nxp.com>
+>>> +
+>>> +description: |
+>>> +  This module is part of the QIXIS FPGA found on some Layerscape boards such as
+>>> +  LX2160ARDB and LS1046AQDS. For more details see
+>>> +  ../board/fsl,fpga-qixis-i2c.yaml.
+>>
+>> There are no "board" bindings, so this does not feel like correct path.
+> 
+> As you have seen already in patch 2/9 there is already a dt-binding in
+> the board/ folder.
+> 
+>>
+>>> +
+>>> +  Each controller supports a maximum of 8 GPIO lines and each line has a fixed
+>>> +  direction which cannot be changed using a direction register.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    enum:
+>>> +      - fsl,lx2160ardb-fpga-gpio-sfp2
+>>> +      - fsl,lx2160ardb-fpga-gpio-sfp3
+>>
+>> What is the difference between these?
+> 
+> The layout of the registers backing these two GPIO controllers is the
+> same but they each expose status/control of different SFP cages.
 
-PPMU for what? Exynos? Then add it in the name.
+So same devices? Why do they need separate compatibles?
 
-> +M:	Vivek Yadav <vivek.2311@samsung.com>
-> +M:	Ravi Patel <ravi.patel@samsung.com>
-> +S:	Supported
-> +F:	Documentation/devicetree/bindings/perf/samsung,ppmu-v2.yaml
-> +F:	drivers/perf/samsung/
 
-Also, this should be added to Samsung SoC maintainer entry as well.
 
 Best regards,
 Krzysztof
