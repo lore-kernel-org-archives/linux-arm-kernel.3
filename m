@@ -4,93 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722B3C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183CBC83F0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0jxeF6qQ15W3iRJfD8FVALOVDq0XQ6sXFz3PZD+HrmQ=; b=JbRCKmTbw0ITSrJ4mL2nHXA0MU
-	Zg26AxQDPJmPKU04PH9OFllFOcO40YxVbUJRHrRxrs8WmkQfSQ28dQ3FSNxSB9yKdPWRL4D9XTP0P
-	oZfO3EJzxACa07vtoGiFvYu/fTbMaRF1gyenYE9t7JjL7HbpfHpJ7xhvCQW3H2RIboJIHO29NDZSO
-	1JbNmdd6rsbCA5Aq5eWd/ROy0iKCFx1LhX6NK3Lw2MZjYWcUVCu0AzdAeZPWiJLO+OlGg4TBPtSIG
-	vdM2ZWnhl9PZS+aK7lU3FFKB+21GtOr21ludHGOeoD4HSBFVTAXT+K2ZLqvkgxZBIs0IYiBay0r6C
-	zG7nxViA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P4JZ7HgpHQShtnaKfVKoEPobryhKFYEIO4IQNdd4Ceg=; b=2tztaPbHyV4JPK/qBAg6o60Xqm
+	hPx4QQnxSxKzTgME7HcJc9R03QY5ObVyXnAKHeAO1RTW43aaZJskivds6BsQmJ8g3o/wBBN2rF7vT
+	Bpj1Os5LGDk2k1t/p5tyeKBLlDhO1VW8jXgLVfXb7i24YiCL8rxkMQrSYgDf93wyWytSWovQoghi2
+	q+sjXvmbtfFAScbVhDZm1eev0zzUhgSjs8K/Sue5/crE7bEgx8tr0BV6S7MClQHc9SCIR6x5ng0dj
+	HPYDAT37a6BDo8v49BuUHzAk0YVYXfx5V8ktfs9joYFyO+HmYdwWS64R0H9fKpkLyk8N7o0Nbcvq7
+	FrzSBqag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZXFM-00000009Fn5-0miW;
-	Wed, 09 Jul 2025 16:02:12 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1uZXHf-00000009GHs-2awT;
+	Wed, 09 Jul 2025 16:04:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVNy-00000008tRh-0o1l
+	id 1uZVQF-00000008tqV-0a5l
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 14:02:59 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-70e4043c5b7so49890217b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 07:02:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752069777; x=1752674577; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=0jxeF6qQ15W3iRJfD8FVALOVDq0XQ6sXFz3PZD+HrmQ=;
-        b=B5nJPS9CqTS80S6kJIB6ZGYf1hdQTGkvRRWHx7PkRB+NnxIaoCkYJxjE9WA1sF7CkW
-         Uah1hHgAB7M3xYDYh/P3eMJrZLzqrOH369959lg5fC47F9krYeQtUYy9D4vJSwCusUf6
-         OM90cMiDLBe+xgtnTAddmTKYmBgYAhLdy1tt7oWn2qVH8b8GmgZAg/B5RYvjgQ/yQOdk
-         Lq3UWmF30BfSVTHqXmh+0xjQ/1fibB4IZXHqt/gPzSjPN1uf9Fs/N93m8pLP3FeWwaG0
-         RWWUcDsqNpyfnoTl2qhsjda8FQHosdYHTgro8ZAvTVaT8PU3EbJnHk6TDK5nCBA5Avrp
-         aw7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752069777; x=1752674577;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0jxeF6qQ15W3iRJfD8FVALOVDq0XQ6sXFz3PZD+HrmQ=;
-        b=lc39NVAiTEXr3rLOAi58VSmL4MCQUJOEbcpGEo+Q2izwGl7k7H9WHDdkrWA6aBmu84
-         HQRsnkubC2cz253+/fYqMPODUd+YkRiucObkiRbkYey2XI/0IIDWwOdMBSdfhV3HEKLk
-         9OvYOYuJeyFCSy3c334EIzl2JxePHfH+I8DTOcw9vvky14ZhU9DYusK8RTZ+XMdrv7zb
-         JKv7RKqIctAhAaagcbFefDD65l8p7oLqviKvLjQ/gEybiJD9k3lOqAUNJyh9jJZUCzmt
-         1X+QtJEnkhaUpHLAXl6S+vRC2zVW6eJprBQumPCEa7sswbhbjOuuVCBJiFy//Cwd8kzO
-         7gKg==
-X-Forwarded-Encrypted: i=1; AJvYcCVMIG1DicWPe9FH3kuuWzk8Fl9ZhJWn8Xa68hJvIPa3QvvQdma5QuM71/eOq68j6m7Gx66U/q+KO3kP/GXBPpGI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHw9r4QWNTErQ6QWVHGE9Me/5NxIMv3erg0azcyv4LKoDkxgns
-	R+bYUcvwgYkXUy9fS3Al6/3OvnWDJ5q7G94OnDiVDEE+ZI5uLrF9tnA0eNkuiiLRpfgiRETWZI+
-	x3pFWOQN3iYPXWWiWcYLtaRwNZMB2PX1UZpYTuC1bbw==
-X-Gm-Gg: ASbGnctRzZurWkAQ+o4dnXoEFYi7fUGlTNrgHOPE0FUsVgHbF2KCzOvjG6JeLoor6UG
-	O7tbbo5faACFqOOnQ1+iOE2L86I7Bl8ZpeUqsWhvyyDiYfIufIqpAFHZWssiKDv2xFh7bmtSwu3
-	cJPbO/+UPYDUP65OHuzSJ8jg7GVg3y+gkniYFrF9uYaqQ9
-X-Google-Smtp-Source: AGHT+IFtWA8c7PWFxCFRls9OTwmIX50KvZ84tz29XCIMOswJWdVGY+cHCZiaI7O65CCj8j+BQ/aRqyiXkvmlO0NA56I=
-X-Received: by 2002:a05:690c:9c09:b0:70e:2d17:84b5 with SMTP id
- 00721157ae682-717b13bf817mr39839927b3.0.1752069776636; Wed, 09 Jul 2025
- 07:02:56 -0700 (PDT)
+	Wed, 09 Jul 2025 14:05:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 89DCB5C667B;
+	Wed,  9 Jul 2025 14:05:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CFB4C4CEEF;
+	Wed,  9 Jul 2025 14:05:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752069918;
+	bh=aNA261FsW4mkgtRraaqPkgn+WuUogqOB0mFX8ejRiyE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TtFYFduKBgXJyT/cMREPKtGBxZfEp4+Gudgg4rqLd4ko3xKxIUPKZfTJp5WwMvS9K
+	 Q77GGfecm+TEiYgBVxzOlGbikVV9n7dNF+rP/24vZSrqh3sNH/8dBb7/KCcgYSkx0k
+	 29B5Lm/u67Lw5+RoK/PNJlh95/YyWu7+LW807u+KN0XRJKqFCeJLaENFmoi9VRp+rf
+	 BBM5CmamUY+KlYcKzuPH6mf7fWe2OyxhofLBNufN8yJKFQMGuBXeUZ3TkM0R8aPGab
+	 epq8MRGgnng9ewZhLZE8ltp5Qr3KCJroGQcGybqF8+YILoCj3rwiRxFkMpG8tHN0Ln
+	 FlniwUoJA8iMw==
+Message-ID: <23f655bf-aed6-4022-a7bf-3189bae834de@kernel.org>
+Date: Wed, 9 Jul 2025 16:05:11 +0200
 MIME-Version: 1.0
-References: <20250704075225.3212486-1-sakari.ailus@linux.intel.com> <20250704075434.3220506-1-sakari.ailus@linux.intel.com>
-In-Reply-To: <20250704075434.3220506-1-sakari.ailus@linux.intel.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 9 Jul 2025 16:02:20 +0200
-X-Gm-Features: Ac12FXwuMSAHr6sQzvdlqPxk0AdX5s1c2M_fF3m8uP0HMwMi2plFNm-Wc6CWOgg
-Message-ID: <CAPDyKFp+aBO9XTmvBYGj4bcL9BW26LCZb9O=6nstj29zctHi6A@mail.gmail.com>
-Subject: Re: [PATCH 44/80] mmc: Remove redundant pm_runtime_mark_last_busy() calls
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Aubin Constans <aubin.constans@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Russell King <linux@armlinux.org.uk>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Haibo Chen <haibo.chen@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Vignesh Raghavendra <vigneshr@ti.com>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, Avri Altman <avri.altman@sandisk.com>, 
-	Victor Shih <victor.shih@genesyslogic.com.tw>, Binbin Zhou <zhoubinbin@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
-	imx@lists.linux.dev, s32@nxp.com, linux-arm-msm@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/6] drivers: perf: samsung: Add PPMU driver support
+To: Vivek Yadav <vivek.2311@samsung.com>, pankaj.dubey@samsung.com,
+ ravi.patel@samsung.com, shradha.t@samsung.com, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ will@kernel.org, mark.rutland@arm.com, s.nawrocki@samsung.com,
+ cw00.choi@samsung.com, alim.akhtar@samsung.com, linux-fsd@tesla.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-samsung-soc@vger.kernel.org
+References: <20250708103208.79444-1-vivek.2311@samsung.com>
+ <CGME20250708103240epcas5p336539d4c3a1fb489708c61f9aae6bfa8@epcas5p3.samsung.com>
+ <20250708103208.79444-5-vivek.2311@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250708103208.79444-5-vivek.2311@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_070258_237186_5630486B 
-X-CRM114-Status: GOOD (  22.78  )
+X-CRM114-CacheID: sfid-20250709_070519_261549_834F6665 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,219 +123,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 4 Jul 2025 at 09:54, Sakari Ailus <sakari.ailus@linux.intel.com> wrote:
->
-> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
-> pm_runtime_mark_last_busy().
->
-> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+On 08/07/2025 12:32, Vivek Yadav wrote:
+> +static struct platform_driver samsung_ppmu_driver = {
+> +	.probe = samsung_ppmu_probe,
+> +	.remove = samsung_ppmu_remove,
+> +	.driver	= {
+> +		.name = "samsung-ppmu",
+> +		.of_match_table	= ppmu_of_match,
+> +	},
+> +};
+> +
+> +module_platform_driver(samsung_ppmu_driver);
+> +
+> +MODULE_ALIAS("perf:samsung-ppmu");
 
-I have pulled in pm-runtime-6.17-rc1 and applied the $subject patch
-for next, thanks!
+No, drop. What's with these aliases from samsung... second try today.
+From where do you get such code?
 
-Kind regards
-Uffe
+> +MODULE_DESCRIPTION("Samsung Platform Performance Measuring Unit (PPMU) driver");
+> +MODULE_AUTHOR("Vivek Yadav <vivek.2311@samsung.com>");
+> +MODULE_AUTHOR("Ravi Patel <ravi.patel@samsung.com>");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/perf/samsung/ppmu_platform.c b/drivers/perf/samsung/ppmu_platform.c
+> new file mode 100644
+> index 000000000000..ee11311d5a61
+> --- /dev/null
+> +++ b/drivers/perf/samsung/ppmu_platform.c
+> @@ -0,0 +1,338 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Samsung Platform Performance Measuring Unit (PPMU) core file
+> + *
+> + * Copyright (c) 2024-25 Samsung Electronics Co., Ltd.
+> + *
+> + * Authors: Vivek Yadav <vivek.2311@samsung.com>
+> + *          Ravi Patel <ravi.patel@samsung.com>
+> + */
+> +
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/perf_event.h>
+> +#include "samsung_ppmu.h"
+> +
+> +/*
+> + * PMU format attributes
+> + */
+> +ssize_t samsung_ppmu_format_sysfs_show(struct device *dev,
+> +				       struct device_attribute *attr, char *buf)
+> +{
+> +	struct dev_ext_attribute *eattr;
+> +
+> +	eattr = container_of(attr, struct dev_ext_attribute, attr);
+> +
+> +	return sysfs_emit(buf, "%s\n", (char *)eattr->var);
+> +}
+> +EXPORT_SYMBOL_GPL(samsung_ppmu_format_sysfs_show);
+
+1. Where did you document ABI?
+2. This is not used. You have one module, not two. Drop all exports.
+
+3. You need to clearly explain what is wrong with existing drivers in a
+very detailed way, before you start posting another (possibly
+duplicated) drivers.
 
 
-> ---
-> The cover letter of the set can be found here
-> <URL:https://lore.kernel.org/linux-pm/20250704075225.3212486-1-sakari.ailus@linux.intel.com>.
->
-> In brief, this patch depends on PM runtime patches adding marking the last
-> busy timestamp in autosuspend related functions. The patches are here, on
-> rc2:
->
->         git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
->                 pm-runtime-6.17-rc1
->
->  drivers/mmc/core/core.c            | 1 -
->  drivers/mmc/host/atmel-mci.c       | 2 --
->  drivers/mmc/host/mmci.c            | 1 -
->  drivers/mmc/host/omap_hsmmc.c      | 3 ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 1 -
->  drivers/mmc/host/sdhci-msm.c       | 1 -
->  drivers/mmc/host/sdhci-omap.c      | 2 --
->  drivers/mmc/host/sdhci-pxav3.c     | 2 --
->  drivers/mmc/host/sdhci-sprd.c      | 1 -
->  drivers/mmc/host/sdhci_am654.c     | 1 -
->  drivers/mmc/host/tmio_mmc_core.c   | 1 -
->  11 files changed, 16 deletions(-)
->
-> diff --git a/drivers/mmc/core/core.c b/drivers/mmc/core/core.c
-> index a0e2dce70434..874c6fe92855 100644
-> --- a/drivers/mmc/core/core.c
-> +++ b/drivers/mmc/core/core.c
-> @@ -882,7 +882,6 @@ void mmc_put_card(struct mmc_card *card, struct mmc_ctx *ctx)
->         WARN_ON(ctx && host->claimer != ctx);
->
->         mmc_release_host(host);
-> -       pm_runtime_mark_last_busy(&card->dev);
->         pm_runtime_put_autosuspend(&card->dev);
->  }
->  EXPORT_SYMBOL(mmc_put_card);
-> diff --git a/drivers/mmc/host/atmel-mci.c b/drivers/mmc/host/atmel-mci.c
-> index c885c04e938a..43f92f48590f 100644
-> --- a/drivers/mmc/host/atmel-mci.c
-> +++ b/drivers/mmc/host/atmel-mci.c
-> @@ -541,7 +541,6 @@ static int atmci_regs_show(struct seq_file *s, void *v)
->         memcpy_fromio(buf, host->regs, ATMCI_REGS_SIZE);
->         spin_unlock_bh(&host->lock);
->
-> -       pm_runtime_mark_last_busy(dev);
->         pm_runtime_put_autosuspend(dev);
->
->         seq_printf(s, "MR:\t0x%08x%s%s ",
-> @@ -2567,7 +2566,6 @@ static int atmci_probe(struct platform_device *pdev)
->         dev_info(dev, "Atmel MCI controller at 0x%08lx irq %d, %u slots\n",
->                  host->mapbase, irq, nr_slots);
->
-> -       pm_runtime_mark_last_busy(dev);
->         pm_runtime_put_autosuspend(dev);
->
->         return 0;
-> diff --git a/drivers/mmc/host/mmci.c b/drivers/mmc/host/mmci.c
-> index c70c64f8adc4..8367283647a9 100644
-> --- a/drivers/mmc/host/mmci.c
-> +++ b/drivers/mmc/host/mmci.c
-> @@ -2082,7 +2082,6 @@ static void mmci_enable_sdio_irq(struct mmc_host *mmc, int enable)
->         spin_unlock_irqrestore(&host->lock, flags);
->
->         if (!enable) {
-> -               pm_runtime_mark_last_busy(mmc_dev(mmc));
->                 pm_runtime_put_autosuspend(mmc_dev(mmc));
->         }
->  }
-> diff --git a/drivers/mmc/host/omap_hsmmc.c b/drivers/mmc/host/omap_hsmmc.c
-> index bf3b9f5b067c..adc0d0b6ae37 100644
-> --- a/drivers/mmc/host/omap_hsmmc.c
-> +++ b/drivers/mmc/host/omap_hsmmc.c
-> @@ -1663,7 +1663,6 @@ static int mmc_regs_show(struct seq_file *s, void *data)
->         seq_printf(s, "CAPA:\t\t0x%08x\n",
->                         OMAP_HSMMC_READ(host->base, CAPA));
->
-> -       pm_runtime_mark_last_busy(host->dev);
->         pm_runtime_put_autosuspend(host->dev);
->
->         return 0;
-> @@ -1954,7 +1953,6 @@ static int omap_hsmmc_probe(struct platform_device *pdev)
->         }
->
->         omap_hsmmc_debugfs(mmc);
-> -       pm_runtime_mark_last_busy(host->dev);
->         pm_runtime_put_autosuspend(host->dev);
->
->         return 0;
-> @@ -2031,7 +2029,6 @@ static int omap_hsmmc_resume(struct device *dev)
->         if (!(host->mmc->pm_flags & MMC_PM_KEEP_POWER))
->                 omap_hsmmc_conf_bus_power(host);
->
-> -       pm_runtime_mark_last_busy(host->dev);
->         pm_runtime_put_autosuspend(host->dev);
->         return 0;
->  }
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index 64c27349d79f..a040c0896a7b 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -2108,7 +2108,6 @@ static int sdhci_esdhc_resume(struct device *dev)
->             esdhc_is_usdhc(imx_data))
->                 sdhc_esdhc_tuning_restore(host);
->
-> -       pm_runtime_mark_last_busy(dev);
->         pm_runtime_put_autosuspend(dev);
->
->         return ret;
-> diff --git a/drivers/mmc/host/sdhci-msm.c b/drivers/mmc/host/sdhci-msm.c
-> index 732b65d4b61a..68e56251d5e8 100644
-> --- a/drivers/mmc/host/sdhci-msm.c
-> +++ b/drivers/mmc/host/sdhci-msm.c
-> @@ -2750,7 +2750,6 @@ static int sdhci_msm_probe(struct platform_device *pdev)
->         if (ret)
->                 goto pm_runtime_disable;
->
-> -       pm_runtime_mark_last_busy(&pdev->dev);
->         pm_runtime_put_autosuspend(&pdev->dev);
->
->         return 0;
-> diff --git a/drivers/mmc/host/sdhci-omap.c b/drivers/mmc/host/sdhci-omap.c
-> index 429d8a517fb6..cdb09605e009 100644
-> --- a/drivers/mmc/host/sdhci-omap.c
-> +++ b/drivers/mmc/host/sdhci-omap.c
-> @@ -1370,7 +1370,6 @@ static int sdhci_omap_probe(struct platform_device *pdev)
->                 host->mmc->pm_caps |= MMC_PM_KEEP_POWER | MMC_PM_WAKE_SDIO_IRQ;
->         }
->
-> -       pm_runtime_mark_last_busy(dev);
->         pm_runtime_put_autosuspend(dev);
->
->         return 0;
-> @@ -1379,7 +1378,6 @@ static int sdhci_omap_probe(struct platform_device *pdev)
->         sdhci_cleanup_host(host);
->
->  err_rpm_put:
-> -       pm_runtime_mark_last_busy(dev);
->         pm_runtime_put_autosuspend(dev);
->  err_rpm_disable:
->         pm_runtime_dont_use_autosuspend(dev);
-> diff --git a/drivers/mmc/host/sdhci-pxav3.c b/drivers/mmc/host/sdhci-pxav3.c
-> index 34abf986573f..1371960e34eb 100644
-> --- a/drivers/mmc/host/sdhci-pxav3.c
-> +++ b/drivers/mmc/host/sdhci-pxav3.c
-> @@ -494,7 +494,6 @@ static int sdhci_pxav3_suspend(struct device *dev)
->         if (host->tuning_mode != SDHCI_TUNING_MODE_3)
->                 mmc_retune_needed(host->mmc);
->         ret = sdhci_suspend_host(host);
-> -       pm_runtime_mark_last_busy(dev);
->         pm_runtime_put_autosuspend(dev);
->
->         return ret;
-> @@ -507,7 +506,6 @@ static int sdhci_pxav3_resume(struct device *dev)
->
->         pm_runtime_get_sync(dev);
->         ret = sdhci_resume_host(host);
-> -       pm_runtime_mark_last_busy(dev);
->         pm_runtime_put_autosuspend(dev);
->
->         return ret;
-> diff --git a/drivers/mmc/host/sdhci-sprd.c b/drivers/mmc/host/sdhci-sprd.c
-> index a5dec1a0e934..fe2fe52b23b2 100644
-> --- a/drivers/mmc/host/sdhci-sprd.c
-> +++ b/drivers/mmc/host/sdhci-sprd.c
-> @@ -863,7 +863,6 @@ static int sdhci_sprd_probe(struct platform_device *pdev)
->         if (ret)
->                 goto err_cleanup_host;
->
-> -       pm_runtime_mark_last_busy(&pdev->dev);
->         pm_runtime_put_autosuspend(&pdev->dev);
->
->         return 0;
-> diff --git a/drivers/mmc/host/sdhci_am654.c b/drivers/mmc/host/sdhci_am654.c
-> index ea14d56558c4..e2c4a0049d61 100644
-> --- a/drivers/mmc/host/sdhci_am654.c
-> +++ b/drivers/mmc/host/sdhci_am654.c
-> @@ -986,7 +986,6 @@ static int sdhci_am654_probe(struct platform_device *pdev)
->         /* Setting up autosuspend */
->         pm_runtime_set_autosuspend_delay(dev, SDHCI_AM654_AUTOSUSPEND_DELAY);
->         pm_runtime_use_autosuspend(dev);
-> -       pm_runtime_mark_last_busy(dev);
->         pm_runtime_put_autosuspend(dev);
->         return 0;
->
-> diff --git a/drivers/mmc/host/tmio_mmc_core.c b/drivers/mmc/host/tmio_mmc_core.c
-> index 2cec463b5e00..21c2f9095bac 100644
-> --- a/drivers/mmc/host/tmio_mmc_core.c
-> +++ b/drivers/mmc/host/tmio_mmc_core.c
-> @@ -160,7 +160,6 @@ static void tmio_mmc_enable_sdio_irq(struct mmc_host *mmc, int enable)
->                 sd_ctrl_write16(host, CTL_SDIO_IRQ_MASK, host->sdio_irq_mask);
->
->                 host->sdio_irq_enabled = false;
-> -               pm_runtime_mark_last_busy(mmc_dev(mmc));
->                 pm_runtime_put_autosuspend(mmc_dev(mmc));
->         }
->  }
-> --
-> 2.39.5
->
+Best regards,
+Krzysztof
 
