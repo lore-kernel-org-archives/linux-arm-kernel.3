@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA61C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 13:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E58EC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7+G2ewwh12FRHs0BmRpZAB4ebqu3ayA7q35EEAvJ0xA=; b=vr3Grc2yNLZ+BZ1N8h5FTUM/Kx
-	Es3wsJV/qq+RUr1UWhwykU5/bVtSgjgsfEPiBJmzbZW430r41BEWKMANhPV9mDltoOZiysi0ywx1r
-	jgqiBPcNYcpXVLIHgYfRGISxodgIIEEjdGXGDqrfteZ5CnTrrzkjAXfSb1njwZ7+BG3m5SgvlECf8
-	/cGx8T8evT7Yo/y4vS3+UZ1d9pAWSlizqihpOL2P+4dmo+8VnJxRETG5cYLNfr3Koctg6QyFNS/w6
-	05w0NVwPweSq0jYSS9dXwTqpSGTs5LE2VcggHTEsN1C9/vUW6sEI24okdZFl/xGb9+ItZfI7A9D29
-	tA7UY72A==;
+	bh=Po3wYPbug5oitTRavuGEWn/QaJpRE4HKrgqN22L2B/4=; b=Uh2os7UNxwlebqkq/heHgR4d5H
+	9gdvuqiBpSLnBE3s8QEmvsr2Lk155pHd5DttTO+o4Y/Kwo6xfTHdZFhSR6pxfxDDRFrzAmvsxN8f+
+	rzzVzYUBmfMLQuRyCPUiOgElZEyJb/+2iBvfpR/ZLPeFQ/zF7+5b18gfAZY8AcENlgkfwPRx0CzCA
+	f1/C9HKl7C0PY/fMfLAGSSoRNKPw2O3Ris8dCsYVcwj0WArfbJ59vzggNEiMl3EkFLaJumpwU35/M
+	G1+EA5+vT+ng3f9aEUymrUWgK7y6xRkSocCtfMJWpzyo4nvgaxj2zi2wlKpBJfE0yhS/5rt7hFXu5
+	Qh0S1duQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVKf-00000008sdx-39AA;
-	Wed, 09 Jul 2025 13:59:33 +0000
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
+	id 1uZVMz-00000008tFo-2Ir8;
+	Wed, 09 Jul 2025 14:01:57 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZSia-00000008SDN-3wBW;
+	id 1uZSib-00000008SDb-02Gd;
 	Wed, 09 Jul 2025 11:12:06 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout1.routing.net (Postfix) with ESMTP id 40ADD407C9;
-	Wed,  9 Jul 2025 11:12:00 +0000 (UTC)
+	by mxout3.routing.net (Postfix) with ESMTP id 061B3615AD;
+	Wed,  9 Jul 2025 11:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1752059520;
+	s=20200217; t=1752059521;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7+G2ewwh12FRHs0BmRpZAB4ebqu3ayA7q35EEAvJ0xA=;
-	b=fLHoX1zqlaK1vwYtIYOEsvkDkwPcDvx8iZ+Wf5SoVJnkO3cLG/zaz9hF7RqXaj7iICQXaD
-	okI3RjyweohELDJsF9AGrpJ9VpdPQMOPOm6Hg0r1xxx7uYiNsMJtHodCd6Uqv92FFmO6Sw
-	PyFP+PD6vDUeTekJ+tuPkrZqG7QzqMY=
+	bh=Po3wYPbug5oitTRavuGEWn/QaJpRE4HKrgqN22L2B/4=;
+	b=eHq6GCOvMKJLjDIFCWWtOJ5N3SuUfzKInZyDutULnAVvHYjZ50Shuy0EnsfJHQcbacLeCz
+	EOE7SrUPkf3KJMlXxnvsN02T660DpHBslWIHnzrOWIO3MNEi0pxtnGLQgNHWWl5KjSkJwA
+	3bhy6gNDQi3R1VcK+oz/c3ja1Plv0V8=
 Received: from frank-u24.. (fttx-pool-217.61.157.99.bambit.de [217.61.157.99])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id DE05A1226D4;
-	Wed,  9 Jul 2025 11:11:59 +0000 (UTC)
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id A399B1226D4;
+	Wed,  9 Jul 2025 11:12:00 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: MyungJoo Ham <myungjoo.ham@samsung.com>,
 	Kyungmin Park <kyungmin.park@samsung.com>,
@@ -73,17 +73,17 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v9 10/13] arm64: dts: mediatek: mt7988: add switch node
-Date: Wed,  9 Jul 2025 13:09:46 +0200
-Message-ID: <20250709111147.11843-11-linux@fw-web.de>
+Subject: [PATCH v9 12/13] arm64: dts: mediatek: mt7988a-bpi-r4: add sfp cages and link to gmac
+Date: Wed,  9 Jul 2025 13:09:48 +0200
+Message-ID: <20250709111147.11843-13-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250709111147.11843-1-linux@fw-web.de>
 References: <20250709111147.11843-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_041205_270497_34006920 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20250709_041205_364577_183C6916 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,182 +100,111 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Add mt7988 builtin mt753x switch nodes.
+Add SFP cages to Bananapi-R4 board. The 2.5g phy variant only contains the
+wan-SFP, so add this to common dtsi and the lan-sfp only to the dual-SFP
+variant.
 
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
 v4:
-- drop phy-mode for gsw-phy
-- reorder phy-mode after phy-handle
-- drop interrupt parent from switch
-
-v2:
-- drop labels and led-function too (have to be in board)
+- update 2g5-board (reorder and drop phy-connection-type)
+- order sfp properties
+v3:
+- enable mac with 2.5g phy on r4 phy variant because driver is now mainline
 ---
- arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 148 ++++++++++++++++++++++
- 1 file changed, 148 insertions(+)
+ .../mediatek/mt7988a-bananapi-bpi-r4-2g5.dts  | 11 +++++++++++
+ .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 19 +++++++++++++++++++
+ .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 19 +++++++++++++++++++
+ 3 files changed, 49 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-index 897b5a82b53e..366203a72d6d 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-@@ -742,6 +742,154 @@ ethsys: clock-controller@15000000 {
- 			#reset-cells = <1>;
- 		};
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
+index 53de9c113f60..6f0c81e3fd94 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
+@@ -9,3 +9,14 @@ / {
+ 	model = "Banana Pi BPI-R4 (1x SFP+, 1x 2.5GbE)";
+ 	chassis-type = "embedded";
+ };
++
++&gmac1 {
++	phy = <&int_2p5g_phy>;
++	phy-mode = "internal";
++	status = "okay";
++};
++
++&int_2p5g_phy {
++	pinctrl-0 = <&i2p5gbe_led0_pins>;
++	pinctrl-names = "i2p5gbe-led";
++};
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
+index 36bd1ef2efab..4b3796ba82e3 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
+@@ -8,6 +8,25 @@ / {
+ 	compatible = "bananapi,bpi-r4", "mediatek,mt7988a";
+ 	model = "Banana Pi BPI-R4 (2x SFP+)";
+ 	chassis-type = "embedded";
++
++	/* SFP2 cage (LAN) */
++	sfp2: sfp2 {
++		compatible = "sff,sfp";
++		i2c-bus = <&i2c_sfp2>;
++		maximum-power-milliwatt = <3000>;
++
++		los-gpios = <&pio 2 GPIO_ACTIVE_HIGH>;
++		mod-def0-gpios = <&pio 83 GPIO_ACTIVE_LOW>;
++		rate-select0-gpios = <&pio 3 GPIO_ACTIVE_LOW>;
++		tx-disable-gpios = <&pio 0 GPIO_ACTIVE_HIGH>;
++		tx-fault-gpios = <&pio 1 GPIO_ACTIVE_HIGH>;
++	};
++};
++
++&gmac1 {
++	managed = "in-band-status";
++	phy-mode = "usxgmii";
++	sfp = <&sfp2>;
+ };
  
-+		switch: switch@15020000 {
-+			compatible = "mediatek,mt7988-switch";
-+			reg = <0 0x15020000 0 0x8000>;
-+			interrupt-controller;
-+			#interrupt-cells = <1>;
-+			interrupts = <GIC_SPI 209 IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&ethwarp MT7988_ETHWARP_RST_SWITCH>;
+ &pca9545 {
+diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+index 20073eb4d1bd..4d709ee527df 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+@@ -63,6 +63,19 @@ reg_3p3v: regulator-3p3v {
+ 		regulator-boot-on;
+ 		regulator-always-on;
+ 	};
 +
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
++	/* SFP1 cage (WAN) */
++	sfp1: sfp1 {
++		compatible = "sff,sfp";
++		i2c-bus = <&i2c_sfp1>;
++		maximum-power-milliwatt = <3000>;
 +
-+				gsw_port0: port@0 {
-+					reg = <0>;
-+					phy-handle = <&gsw_phy0>;
-+					phy-mode = "internal";
-+				};
++		los-gpios = <&pio 54 GPIO_ACTIVE_HIGH>;
++		mod-def0-gpios = <&pio 82 GPIO_ACTIVE_LOW>;
++		rate-select0-gpios = <&pio 21 GPIO_ACTIVE_LOW>;
++		tx-disable-gpios = <&pio 70 GPIO_ACTIVE_HIGH>;
++		tx-fault-gpios = <&pio 69 GPIO_ACTIVE_HIGH>;
++	};
+ };
+ 
+ &cci {
+@@ -133,6 +146,12 @@ map-cpu-active-low {
+ 	};
+ };
+ 
++&gmac2 {
++	managed = "in-band-status";
++	phy-mode = "usxgmii";
++	sfp = <&sfp1>;
++};
 +
-+				gsw_port1: port@1 {
-+					reg = <1>;
-+					phy-handle = <&gsw_phy1>;
-+					phy-mode = "internal";
-+				};
-+
-+				gsw_port2: port@2 {
-+					reg = <2>;
-+					phy-handle = <&gsw_phy2>;
-+					phy-mode = "internal";
-+				};
-+
-+				gsw_port3: port@3 {
-+					reg = <3>;
-+					phy-handle = <&gsw_phy3>;
-+					phy-mode = "internal";
-+				};
-+
-+				port@6 {
-+					reg = <6>;
-+					ethernet = <&gmac0>;
-+					phy-mode = "internal";
-+
-+					fixed-link {
-+						speed = <10000>;
-+						full-duplex;
-+						pause;
-+					};
-+				};
-+			};
-+
-+			mdio {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				mediatek,pio = <&pio>;
-+
-+				gsw_phy0: ethernet-phy@0 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <0>;
-+					interrupts = <0>;
-+					nvmem-cells = <&phy_calibration_p0>;
-+					nvmem-cell-names = "phy-cal-data";
-+
-+					leds {
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+
-+						gsw_phy0_led0: led@0 {
-+							reg = <0>;
-+							status = "disabled";
-+						};
-+
-+						gsw_phy0_led1: led@1 {
-+							reg = <1>;
-+							status = "disabled";
-+						};
-+					};
-+				};
-+
-+				gsw_phy1: ethernet-phy@1 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <1>;
-+					interrupts = <1>;
-+					nvmem-cells = <&phy_calibration_p1>;
-+					nvmem-cell-names = "phy-cal-data";
-+
-+					leds {
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+
-+						gsw_phy1_led0: led@0 {
-+							reg = <0>;
-+							status = "disabled";
-+						};
-+
-+						gsw_phy1_led1: led@1 {
-+							reg = <1>;
-+							status = "disabled";
-+						};
-+					};
-+				};
-+
-+				gsw_phy2: ethernet-phy@2 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <2>;
-+					interrupts = <2>;
-+					nvmem-cells = <&phy_calibration_p2>;
-+					nvmem-cell-names = "phy-cal-data";
-+
-+					leds {
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+
-+						gsw_phy2_led0: led@0 {
-+							reg = <0>;
-+							status = "disabled";
-+						};
-+
-+						gsw_phy2_led1: led@1 {
-+							reg = <1>;
-+							status = "disabled";
-+						};
-+					};
-+				};
-+
-+				gsw_phy3: ethernet-phy@3 {
-+					compatible = "ethernet-phy-ieee802.3-c22";
-+					reg = <3>;
-+					interrupts = <3>;
-+					nvmem-cells = <&phy_calibration_p3>;
-+					nvmem-cell-names = "phy-cal-data";
-+
-+					leds {
-+						#address-cells = <1>;
-+						#size-cells = <0>;
-+
-+						gsw_phy3_led0: led@0 {
-+							reg = <0>;
-+							status = "disabled";
-+						};
-+
-+						gsw_phy3_led1: led@1 {
-+							reg = <1>;
-+							status = "disabled";
-+						};
-+					};
-+				};
-+			};
-+		};
-+
- 		ethwarp: clock-controller@15031000 {
- 			compatible = "mediatek,mt7988-ethwarp";
- 			reg = <0 0x15031000 0 0x1000>;
+ &i2c0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c0_pins>;
 -- 
 2.43.0
 
