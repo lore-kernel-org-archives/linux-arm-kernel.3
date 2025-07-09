@@ -4,159 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9969DC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F647C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:02:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CvT31bl+A7lDCvyTBcji2v2o9vBTz1J0hTc90n3Nan4=; b=TqT0aCakdnQbb43BV+Dor8vt1E
-	ygysovTEqx8UDKpyzNH14/HWFdqo/biOk5cq9lvaAvyU7hF0MRe97PdiowBz9VCPV0qILk6ZV2ORE
-	YL4uyl/mhsSxsY/CIYfu60nFdCKzDk8xiiBis21pK+t0oid7I6fTaNGmhpc03vMcwvYdKUad1JXx/
-	3UMlprWWa2ZsqNcWlqdJsyOqUS0bcVxuXHYwvSNoxSPQ3dk91YRo/IvjMv4fo+l3bfTDNQJPtIyKA
-	6jz/JKAW2MFKrEzxhb/YXlQ4Inm39HP/p7ykay+iTiZvX9nictdw5APKqtEi0Ak8X6VFZrX/eePK4
-	9/MHHtGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7gqevtmSJqbTOQP3b4x9NXYdvlxGgh2UtvTcmwhzx+4=; b=q1+oeR8LbTR1qDaKQQ6eTp2zVQ
+	Ee+II58d4iJcwqLk99luu2Stgpt38RJh7xa9DyAfKfjpivAKtNzbmkZ2IlHCIwIKpcfsfJuk8cac9
+	GyakaYm5HIh2nvXzrYquuwKPXhdAkRsoBnUebthgQIv08fNABziS63o5jz279kFBQS2g42GW+s+q0
+	3IDMnDI48A7fj4jVzfaHZTbgiBXHY2e0qJtqwVaF2phVMOF3Mk0H2qcnFBcNeG08G+cRcvlJA9cJe
+	JOnRvrPHfEHr9T5LviuC2WniDu8GMpLCqIxaKPTenykUXACYzioAsce6grpWjSub3b8U3qet/4bUn
+	s59p/Yww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZRas-00000008D9u-0CnD;
-	Wed, 09 Jul 2025 10:00:02 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uZRdB-00000008E8l-2GqY;
+	Wed, 09 Jul 2025 10:02:25 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZPbk-00000007rPR-2tqM
+	id 1uZPjU-00000007sU0-3RRS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 07:52:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PGTQpC7hnUK2+E00u6ud83PeWEL1tj6n2To/M7zhgfiYKTPuBe9Bvn47AXA7oGqfJiNVWaikE+ypCCh7neiBPsr5PHmMhztA14cPJHAGqaWvOcyY5yQ1gLh/OhD9vayOkw+PEcVHvaNlj3LXRvCfY/Tv5l3OOs76i156e04yUo7a1fQ1TIcuS5Z4eddiZhuKuY4yHtHYzbBMC2Rs3dBZ3gxFHL0YQGDmYY4U5bgfMwL9JyLJkdGK4l+i6fmUOfmOw76MjXXTeoqox20dZeDIgSj2DoxMTgoHIMrTHad9ELoRzS9VaBD3YNV1TSxYhrzIFL19HAfgJDY3GPWb5TaO3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CvT31bl+A7lDCvyTBcji2v2o9vBTz1J0hTc90n3Nan4=;
- b=RfahomWJZxXM5iiEfNDOzqxsdTc09Njw3WsJjM3fugYJv9LDD09G4p0A9gDaOEb16zLpVTULDPwaXD6viZtUKCx+V4D07DKBDV6oYDwqlYnza2oSJPOWffvgyOc+n8YdyxdOt5x7J1ELICLjZCS63fMQIXIyXGUakVTh96pans0anOWQlLeDg8Lqey2+ftHbiUM2XdbbGIqKAjgxYMeoCb4WOIMWqy9ChTCL13GOCFMGtfOHdvNQ6Al95Ou6gITQaTx97SgtAEqUcvnaHAApwufscvdn1CzK8bkZ6zgDYR1FbS8BUa84cFVWVH7cc6kG/LinJogLA4wX7K4FLHW+oQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CvT31bl+A7lDCvyTBcji2v2o9vBTz1J0hTc90n3Nan4=;
- b=cdNzx+uADqA4ML7Y7aaZCDmuzLpR7Gy0iDvAld1F2uSBpUK+lGBKY8QL5ARV0NgwsBJK5Ao1U8HsRzhAeTdno0UVRT3cvRhA1HaFt6E8HZvqzm9Eg6xB0s/oedql8wTTB8872zUJ5SIjLwEFgP7WuJrzGL3RbwMqJY/+u5fydiGc8TueBZ9DDcYF9uPgrNu88kkBCX0kAaeGqI4/QQARw3akTYvSX+0JCCmT2nzqCWY0FavQxUU6wqiHdJxXiCP//oX7h3NH5fzGtrvPnZeivH93DfU2s1abrVRDxr+Re1NMNciRF8qoif3tOraXH2fquhgGxmaa0FtypZNPb5qQfg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DBBPR04MB7548.eurprd04.prod.outlook.com (2603:10a6:10:20c::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.26; Wed, 9 Jul
- 2025 07:52:23 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8901.024; Wed, 9 Jul 2025
- 07:52:22 +0000
-Date: Wed, 9 Jul 2025 17:02:31 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v3 2/5] remoteproc: imx_rproc: Add support for System
- Manager API
-Message-ID: <20250709090231.GB14535@nxa18884-linux>
-References: <20250625-imx95-rproc-1-v3-0-699031f5926d@nxp.com>
- <20250625-imx95-rproc-1-v3-2-699031f5926d@nxp.com>
- <aG1IIk42q8OmGsQH@p14s>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aG1IIk42q8OmGsQH@p14s>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: MA0PR01CA0056.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ac::12) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Wed, 09 Jul 2025 08:00:51 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4531e146a24so34086725e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 01:00:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752048046; x=1752652846; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7gqevtmSJqbTOQP3b4x9NXYdvlxGgh2UtvTcmwhzx+4=;
+        b=QtVVmtFyvdhOlVRrFUdw1fHGWEWvg7uk2AiFhNj54Y+WxVzstZERAI9BmfmK544jZF
+         tnvSn4dcvABMdywsgkJ07b4NczYA7T3zXaiMNFhpRWFcfHoabD5t0jDsNugOLg+tkKYs
+         W6TVsNqt1T/yDSty4MLrmwkXds3MZR+OKSPxKXWsh2oAv5haZ6sKRfYpGVxbtQ9JaNqz
+         c7dNSMSKN8fdBt7cc21VDVUkCxnIuhWDO3e5fUHJm7fhzOltMDK10bvM02r+LXRgkkP9
+         rQmRCifYoA+KY/RVrqGWD+w8Z11oYK+mDJmbtPYMsEJW+7/5E1eHvf+cmKGaF1Dimj3T
+         Mt5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752048046; x=1752652846;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7gqevtmSJqbTOQP3b4x9NXYdvlxGgh2UtvTcmwhzx+4=;
+        b=Y5XLggZ5LhseuwsbDRY1u8P5HX5PNztjNW5Q4WQpxgBmwiEWrSSyRUGKN9f+RSGiZR
+         9il77FtXBq7i/cjMpnVGNMtBhrL+fostBR3lI2nANPUXwqtsT+YyirRjzMCS1OJyGxNS
+         7C3+STwuP7Vw5kDuaZEi/3lf9yHfE4o1mqNbSMUIQbpJmT4nZF+0UyZN6niHIjGqLV0r
+         M8sgL8uiT9EnwaV7PByOt8ez3bMNeOcFLNx03jYM52yJNmgu0VOte/1KQME2WfzqD1nb
+         k7oDfon3BJVdPbdDzOCJ5Urh/LrWtG/Uuf8U8PEz/EGO4+8eiXkAplAWb/jijB1+Wdk9
+         Hhbg==
+X-Forwarded-Encrypted: i=1; AJvYcCXBSQmygB4SGTGVyiesjAjkT8q7vzwX2JKAd3++3Uo/KLFRCZ/J3eADJE8JnLyN4b4LCIZlV0DzQ2Wxnc/Fg38d@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXzr7FFCnSxl3wYnsIb4szLLxBGwOZDZiCv4pcoykACVmTwHXO
+	V3xDibVGytLDz+RLdMP4aH7uely1IxLSUSliT7uLdqzxzJtHSY2KS+Ix
+X-Gm-Gg: ASbGncs4B+S5NySid6HA24atw8uICfnuGCaNuyFtRkrYeBqVBYLGgnG8TomuKPdHJpk
+	WcIdiYO6BHpFKGaT/ikfU2ot1+aAXs2M8OcM5e/CUky2ikE6PkR9TxCaPyDCTb+5FZya1a7nlDq
+	nh0UqEUJfszUUcW0gpe5+w1T1FKI/q+yiQPwtpk6Rl+5V27JkhcKblrQF4591qYHWMSE0AY55f6
+	T0LlZZm+KJ9tvOOwGp7HCi1YwEs2wL00jPO+cV02V1MionFDa3tSTMtnKhUy2fkBCcFEdg2rtM1
+	BzA7ZGaRBn0cqnnCcYGdaANMNyOFLuprMR8IXtsAYusXoy8a5nRsHf+PkzZSM2zWAEeHS1UQhnf
+	Qn7NiMxo06MFphLy78jfMNT9H1Lwx
+X-Google-Smtp-Source: AGHT+IGGHxzTWiVKtUesUPIw3M4x/KqFOnRTNLp1oaILf660K643q80EA8PTrG0cC1h1pLe8dGvpcw==
+X-Received: by 2002:a05:600c:c4a3:b0:442:f956:53f9 with SMTP id 5b1f17b1804b1-454d53a63dbmr11897035e9.18.1752048046096;
+        Wed, 09 Jul 2025 01:00:46 -0700 (PDT)
+Received: from pumpkin (host-92-21-58-28.as13285.net. [92.21.58.28])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454d5032ff4sm13954275e9.8.2025.07.09.01.00.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Jul 2025 01:00:43 -0700 (PDT)
+Date: Wed, 9 Jul 2025 09:00:41 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Qianfeng Rong <rongqianfeng@vivo.com>
+Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>, Patrice Chotard
+ <patrice.chotard@foss.st.com>, Andi Shyti <andi.shyti@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, opensource.kernel@vivo.com
+Subject: Re: [PATCH v2] i2c: busses: Use min() to improve code
+Message-ID: <20250709090041.26605105@pumpkin>
+In-Reply-To: <e6814ec7-b9fb-4185-9929-1e463ef518f6@vivo.com>
+References: <20250705114436.579070-1-rongqianfeng@vivo.com>
+	<20250707104041.00006171@huawei.com>
+	<e6814ec7-b9fb-4185-9929-1e463ef518f6@vivo.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DBBPR04MB7548:EE_
-X-MS-Office365-Filtering-Correlation-Id: a3fe83aa-feb5-469d-908d-08ddbebd8941
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OtGjSRIdd38nzRAGKN8XEtKCmK9yyn4wJ4Vw/207eo6aDZXB6H4Av5tDVqXo?=
- =?us-ascii?Q?XLHVnKrAcVndr5I9HmC/A0QFXvfBZsYmlRR2EKMOBtER+b+6kcwCgWi/MfHC?=
- =?us-ascii?Q?N4uGgD04PnF4qYrT8oxVnUT40woqHUQryFRFTSNgaLeHbchPpoHd/238uN+n?=
- =?us-ascii?Q?kzJOP/pLYll6Mkl2lSpu0b0e9bFv9XV3d9bKhl3tB+FUGzT2bBmsYPEhIcb5?=
- =?us-ascii?Q?uJ/uFauLH/5ZXJpnEs+FPHq+e+aw4RUyj6NybF+Iff/wZymI0NsWTaNT5kXq?=
- =?us-ascii?Q?ovabuJPSdIQThlwANFqwnRBvLOV2smthYH0ZRiSg5f6tbCxeCk8MoCEEeI5x?=
- =?us-ascii?Q?xqxEIr19kqd0GbWUeSiOuohsoyc8l5JzvoQFZKBlIVUflzAQwxofUjGAPrQE?=
- =?us-ascii?Q?Ve6oeMPKmpgkMX4F3WiiAl/2Kz75nzoaomEOXL/EQHtS3BlgDrN+cv6Y8Tn0?=
- =?us-ascii?Q?CAlkFLvqCExBR808VIliQGJWo7WDySaDCMkZSqK/DtWYQXtxlr+MOMQ2qsjW?=
- =?us-ascii?Q?e1NNXmAMTzM8BBlAgP2IPA8k5harqlONiclJ0zzRUftIVIUmwqEt3R691bYR?=
- =?us-ascii?Q?ZtAlHEpfSyHf4g0TWcjINR4PCEBYYTlY4zyzf/GRBj0PqetyxohDpUzHppfC?=
- =?us-ascii?Q?raXSWQqpdElEtPhb1L/7Y4JnKVTozfaB8l7D/fPM44OFcF5ARkKAvEcWDiK6?=
- =?us-ascii?Q?Ld8MfmT8wU2CbItdnN7FOSiN+XegkORri60LQmDgubFV2hYoeXYEcvjZpWXU?=
- =?us-ascii?Q?kkZx5IZqJCqKuhcVF10HK4R75yPDP7hqlBd90KCyoVBYqKUchAhU1GQuxae7?=
- =?us-ascii?Q?WAOY9zICl6WfjKUo/gsqFPnIPT6NxakiDojmcg27r6Y/ZqBFmmFglUcgqR1N?=
- =?us-ascii?Q?prveOTsu08yqqXoZyRRmce7Yp+otF6KE5aZOcvCJ0p5BqCI4qVu8xaZad8gD?=
- =?us-ascii?Q?+3rxLe9TB7hV9n+zLIyc45L9h/PiJyUW1/8SDGtl9A2sPY/CSIb+auLC8CbB?=
- =?us-ascii?Q?olsIWPpLW9zbTnOPG0N6s3uVIPA6fWcBBRF+13clw0DkO7iooodryRe/GMSk?=
- =?us-ascii?Q?ZbLiQRLUfVATSnkeniqY6+2Tm8X6SaYJibOO37u+LzHQVmGjLSWiv7/zNVlE?=
- =?us-ascii?Q?pWVg/d5V/n+2BFwBeEBzRVb5Kpb3AFkqT6483kHh3/GeDpl2g8oOSUHr9Dtz?=
- =?us-ascii?Q?TaIaMwroqHR8VWnD6+UDndZlgDfgWchNVTFGODeXxTrq+3/aMOnLAGjKsqlL?=
- =?us-ascii?Q?8vuYMg78Zwds6xB9L5teK4nhSGaxkn3EI5cVgZ4Y7nsWDBRsPrI50XoJxYHW?=
- =?us-ascii?Q?thQWoxq4TxzqmY9yj6ZdEHWeVMRVOnvbmV39Uc7vqgdAlV+c1/OE0zPrGMGv?=
- =?us-ascii?Q?U8f+zH7YYhAah98ti1Vj1lvrI4VDy5/m6PPEheueNou2Pb/Qvaq62gHpm+xz?=
- =?us-ascii?Q?QUXZI98EFzUeheadosiBurquGdn9n3KIhEVH1sztG69waofjNu4Clw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Wbk8INWweMLyum/FeUTyzFJ6kSBDLI+3Xjh2s+lzH+vfTa3wPwfV+fhJ1s4+?=
- =?us-ascii?Q?GgnQc7TjY/yoKH+0xSzS1umLEYNf2esWzQR3rwcG7ZNlNHTDblakOKKdmAp6?=
- =?us-ascii?Q?QEiLr4Z/P2bnZTDBKRXBukiU5bIngGfjqWymMuEKeiUYeFxWOXdOIgzThgES?=
- =?us-ascii?Q?0Tbuc4R+hfnMizRUA8HTDVPaWkN9Md62A3wpcbB2uSL4YZIFPeLB44qJkxL2?=
- =?us-ascii?Q?I3+M2kF+n107LbMbPPJj3zL21vVOtLMVB2OHG5RM8yjm8XYjTuBkyrcIpWpn?=
- =?us-ascii?Q?Qj5HwZsO03OreTeICHuMkR3+RLXHiDxmHYgb5zdLJFXVr3kUIdzDXtzc4EDo?=
- =?us-ascii?Q?9f4pwXIBhvUt3ViRThOl2ZMV5W32h/prMBhK1DlufY+1eX6Aq2ydmmebQb/I?=
- =?us-ascii?Q?ZHRv6ux2rzXumrEuv9mKbBScYu5Omb+ObmcZf7r55ZcTrwl4DFVS1AbDxXjG?=
- =?us-ascii?Q?xG93PoTOANNtfq6f4468nPJ1lczwxlQ6T3xuvFjc/sL+7IKZJFKssmLGGv0Q?=
- =?us-ascii?Q?kgA3Qbqp0/ZVmcXNkWEw/0sOxBBwmA/AGIRyAst56obiYD4aNyMEL8gNJpLv?=
- =?us-ascii?Q?ws1w63BEWq4xL9W9NL/uEN/+USMhrZDjr3366oLKRB3Gj/d47f16+72oteu5?=
- =?us-ascii?Q?fdHPsReOvFIcFvZpeC7l64aEm+P/hWQ4qIswhDcoZGbHwF8ls60Pays1LBHm?=
- =?us-ascii?Q?r7KNMqfZU3lNHqIeXYKCR3w8J994I4yJFZHGh4lWZLKcpK2J4kio+gDTcTCo?=
- =?us-ascii?Q?JpWxgcp2zdM/nFZu0+eyUQNNUSNC0JUpeu8byBM7KEZ0SAiEwLG7gbO/K4LX?=
- =?us-ascii?Q?Bl6SthyPU5MT9HQogdJzP2xK1WO/tbrowASEHVIl4XtJTy5fFXuRZG0Ys+8B?=
- =?us-ascii?Q?z3xz3Zyd7nePO2eUAeYRlBHV9r48mJov4Y1LJOb3BO2pqXagvC+VgZ6J6yjH?=
- =?us-ascii?Q?sm4FGZICnV9GsxwnlWubpsg7BeV6a+xklxfJd8Xzl0NCO/r1yiu1UwR/u+xM?=
- =?us-ascii?Q?WOKlMpAM+XpmqYSWrv6brl1iZ/FoYajT91tv31pf9YoP0nLPih1mnc+j43Qj?=
- =?us-ascii?Q?x8dt1uiSb76JUy6nzpCTuLOunp5rEZIzbLErAY0hi2QD3CXNRsoZoQ2Q6eMR?=
- =?us-ascii?Q?ABUulKO3h1igsRHJPxHVoeRty3EvNJSRHiHppfn1FogGuTHwWWMXVihzdk1n?=
- =?us-ascii?Q?s31djcNts2AySkAJQG5nHN8Jdo/JC3adEHnJWaNJvf6pRwxzn4nnZ6pbA3qN?=
- =?us-ascii?Q?2fq2HJY8TDJKkvqaUigvYdJ72/0yNyDpxI6AHcd03Bo5yLSHw9L47xGxivKl?=
- =?us-ascii?Q?jIw0f+0GHBRb+JGtQpEkiD6YBvyYcHoVqfWTG7ET8nQML6pqCSVl/RdJLsiC?=
- =?us-ascii?Q?wKx4rOC19yhsh1tbNbx3S8iD/ojHdh0A5U6Yzg4w3+nc79z7s2Prl+SQ2tqo?=
- =?us-ascii?Q?O1RFqUMOa9izlva9Lg0AJtOOKYtu1UxlOpqujoOgVdqKuAfBAeeH0sO5Y5Bd?=
- =?us-ascii?Q?5UpNWlndYrKXpxYGh5/3KJhhJZFN0GdDqEX4tY2JURv5DDh4GwkcjSQ44rzd?=
- =?us-ascii?Q?/SseLyY0QXaelcwdRUsJaJ15QyFmKlS/GhvZN31p?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a3fe83aa-feb5-469d-908d-08ddbebd8941
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2025 07:52:22.7438
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Gt1+zeo/OoLG9kI3+wwYOjxvS2hr55T+VMCdHsEX5pz3bB/F57xMfAWLoCiCMKyabh6GVktEt5Hi1NnDbRwbPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7548
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_005248_895415_BCF39589 
-X-CRM114-Status: GOOD (  31.40  )
+X-CRM114-CacheID: sfid-20250709_010049_953943_C169186E 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,158 +103,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mathieu,
+On Tue, 8 Jul 2025 10:05:58 +0800
+Qianfeng Rong <rongqianfeng@vivo.com> wrote:
 
-On Tue, Jul 08, 2025 at 10:32:34AM -0600, Mathieu Poirier wrote:
->Good day,
+> =E5=9C=A8 2025/7/7 17:40, Jonathan Cameron =E5=86=99=E9=81=93:
+> >> Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
+> >> Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com> =20
+> > Drive by review...
+...
+> > Given it is now one statement perhaps cleaner toput it
+> > as the loop initializer
+> >
+> >          for (i =3D min(c->count, SSC_TXFIFO_SIZE - tx_fstat);
+> >               i > 0; i--, c->count--, c->buf++)
+> > =20
+> Got it. Will do in the next version.
 
-Thanks, good day.
+Not sure whether that is better.
+The continuation line makes the 'for' statement a bit harder to parse.
+I'll move the 'initialisation' out of a 'for' statement to get it to
+fit on one line.
 
->
->On Wed, Jun 25, 2025 at 10:23:28AM +0800, Peng Fan (OSS) wrote:
->> From: Peng Fan <peng.fan@nxp.com>
->> 
->> i.MX95 features a Cortex-M33 core, six Cortex-A55 cores, and
->> one Cortex-M7 core. The System Control Management Interface(SCMI)
->> firmware runs on the M33 core. The i.MX95 SCMI firmware named System
->> Manager(SM) includes vendor extension protocols, Logical Machine
->> Management(LMM) protocol and CPU protocol and etc.
->> 
->> There are three cases for M7:
->>  (1) M7 in a separate Logical Machine(LM) that Linux can't control it.
->>  (2) M7 in a separate Logical Machine that Linux can control it using
->>      LMM protocol
->>  (3) M7 runs in same Logical Machine as A55, so Linux can control it
->>      using CPU protocol
->> 
->> So extend the driver to using LMM and CPU protocol to manage the M7 core.
->>  - Add IMX_RPROC_SM to indicate the remote core runs on a SoC that
->>    has System Manager.
->>  - Compare linux LM ID(got using scmi_imx_lmm_info) and M7 LM ID(the ID
->>    is fixed as 1 in SM firmware if M7 is in a seprate LM),
->>    if Linux LM ID equals M7 LM ID(linux and M7 in same LM), use CPU
->>    protocol to start/stop. Otherwise, use LMM protocol to start/stop.
->>    Whether using CPU or LMM protocol to start/stop, the M7 status
->>    detection could use CPU protocol to detect started or not. So
->>    in imx_rproc_detect_mode, use scmi_imx_cpu_started to check the
->>    status of M7.
->>  - For above case 1 and 2, Use SCMI_IMX_LMM_POWER_ON to detect whether
->>    the M7 LM is under control of A55 LM.
->>
->
->Thanks for the context, it really helps.
+	David
 
-Glad that helps.
+>=20
+> Best regards,
+> Qianfeng
+>=20
+>=20
 
->
-
-[....]
-
->> @@ -592,6 +637,38 @@ static int imx_rproc_prepare(struct rproc *rproc)
->>  		rproc_add_carveout(rproc, mem);
->>  	}
->>  
->> +	switch (dcfg->method) {
->> +	case IMX_RPROC_SM:
->> +		if (!(priv->flags & IMX_RPROC_FLAGS_SM_LMM_OP))
->> +			break;
->> +		/*
->> +		 * Power on the Logical Machine to make sure TCM is available.
->> +		 * Also serve as permission check. If in different Logical
->> +		 * Machine, and linux has permission to handle the Logical
->> +		 * Machine, set IMX_RPROC_FLAGS_SM_LMM_AVAIL.
->> +		 */
->> +		ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_POWER_ON, 0);
->> +		if (ret == 0) {
->> +			dev_info(priv->dev, "lmm(%d) powered on\n", dcfg->lmid);
->> +			priv->flags |= IMX_RPROC_FLAGS_SM_LMM_AVAIL;
->
->This is set all the time imx_rproc_prepare() is called - isn't there a way to
->set it once at initialisation time?
-
-Yeah. Moving this to probe path should be ok, such as in imx_rproc_detect_mode.
-The drawback is M7 logical machine will be left in powered up state if
-moving to probe path before user starts M7 LM. Leaving in here means M7 logcal
-machine will be only powered up when user does
-"echo start > /xx/remoteproc-y/state", but needs to set
-IMX_RPROC_FLAGS_SM_LMM_AVAIL flags each time do preparing.
-
-If you prefer moving this logic to probe, I could give a try to move
-to imx_rproc_detect_mode which is probe path.
-
-How do you think?
-
->
->> +		} else if (ret == -EACCES) {
->> +			dev_info(priv->dev, "lmm(%d) not under Linux Control\n", dcfg->lmid);
->> +			/*
->> +			 * If remote cores boots up in detached mode, continue;
->> +			 * else linux has no permission, return -EACCES.
->> +			 */
->> +			if (priv->rproc->state != RPROC_DETACHED)
->> +				return -EACCES;
->> +		} else if (ret) {
->> +			dev_err(priv->dev, "Failed to power on lmm(%d): %d\n", ret, dcfg->lmid);
->> +			return ret;
->> +		}
->> +
->> +		break;
->> +	default:
->> +		break;
->> +	};
->> +
->
->Please put this in a function and get rid of the switch{}.
-
-ok. Fix in v4
-
->
->>  	return  0;
->>  }
->>  
->> @@ -911,13 +988,41 @@ static int imx_rproc_detect_mode(struct imx_rproc *priv)
->>  	struct regmap_config config = { .name = "imx-rproc" };
->>  	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
->>  	struct device *dev = priv->dev;
->> +	struct scmi_imx_lmm_info info;
->>  	struct regmap *regmap;
->>  	struct arm_smccc_res res;
->> +	bool started = false;
->>  	int ret;
->>  	u32 val;
->>  	u8 pt;
->>  
->>  	switch (dcfg->method) {
->> +	case IMX_RPROC_SM:
->> +		/* Get current Linux Logical Machine ID */
->> +		ret = scmi_imx_lmm_info(LMM_ID_DISCOVER, &info);
->> +		if (ret) {
->> +			dev_err(dev, "Failed to get current LMM ID err: %d\n", ret);
->> +			return ret;
->> +		}
->> +
->> +		/*
->> +		 * Check whether remote processor is in same Logical Machine as Linux.
->> +		 * If no, need use Logical Machine API to manage remote processor, and
->> +		 * set IMX_RPROC_FLAGS_SM_LMM_OP.
->> +		 * If yes, use CPU protocol API to manage remote processor.
->> +		 */
->> +		if (dcfg->lmid != info.lmid) {
->> +			priv->flags |= IMX_RPROC_FLAGS_SM_LMM_OP;
->> +			dev_info(dev, "Using LMM Protocol OPS\n");
->> +		} else {
->> +			dev_info(dev, "Using CPU Protocol OPS\n");
->> +		}
->> +
->> +		scmi_imx_cpu_started(dcfg->cpuid, &started);
->
->Function scmi_imx_cpu_started() returns a value that is not taken into account.
->
->> +		if (started)
-
-I will update to "if (started || ret)" in v4, with ret assigned the return
-value of scmi_imx_cpu_started.
-
-Thanks,
-Peng
 
