@@ -4,54 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8029CC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B62BC83F14
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hFIAcRXKF8yAPpxtHHvP/ydmkeQ/HrlpuldN38nkgEM=; b=WIKoBFwfikdelJ
-	7NjpyZqyC8GgMGU1Z39sVf5nY4rwzHKSYFmjqhJTvbqHB9zoFtLVduT+/n7JUmRl+IiKk6eNOAh8x
-	VevgY5HL8N6zzX9UGwY7QFGGM7pcv0EcQOjcVkMhyVfIK+3uu4VjHdeHJLIfDmCYugXg3apRUg74w
-	4um3h+KmNn3sC5qAtd4V4T+b1UyKdK9Tqw9sqwnNm9+ui9v1IF5w67iv/NCStbMPlbHHvI+JrbIZv
-	A8K/e3IRymaYYR72TYqlX32y+ZRiVjB+/CncP1fNR/O2KlwLWerwpQFsuVFJ2WsNRxUGQnz549FbZ
-	Uzqic6B+JPeAF9dDuY8w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pzRr3EGl49RIpPjyjUlhBHWBVe3pjgcDpqpe4HeEeOc=; b=37CRVyAb7oPNc/ERBfbP2ilTIn
+	NRRg9SV2vbLYwcJrWXZ0EMsCp/N+YRw8cqZCfGa5c3oYFLS2e16XVl3ay1UXs2rO0US0Z2LE4xklX
+	+JrpZ4IhCyn3vI1TsXVRJGgcGvo3/pi0HekEpXDcYD9qZSxtDOLRyHKRWaV/apeM+hBX3dTKPRdUn
+	l0fDOX+OsY4Wgdgnsd/tFvCpqXqK/cmNz4GOaBakSGfxQb542mhpYjLI12QDf7FCr9qed4Yh0/Dwv
+	o2BikP5GfoKYEiqenoWYrXn4Y4kgX/N32Db7loH0BNIlg7tAvFazSy3XnVq6PiUsPg5xnGu5SYlJz
+	Ax7vR7GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZcoC-00000009xQa-0AOw;
+	id 1uZcoC-00000009xRX-2fKx;
 	Wed, 09 Jul 2025 21:58:32 +0000
 Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZXyR-00000009Llo-2WNW
+	id 1uZXyS-00000009Lmm-0uvV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 16:48:49 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id F388D42FF4;
-	Wed,  9 Jul 2025 16:48:38 +0000 (UTC)
+	Wed, 09 Jul 2025 16:48:50 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B957944475;
+	Wed,  9 Jul 2025 16:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752079722;
+	t=1752079726;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=hFIAcRXKF8yAPpxtHHvP/ydmkeQ/HrlpuldN38nkgEM=;
-	b=eeneYBFy4J/fwLHz3XHg1YYTMSr4nFWrc4w4W+NtQvWCo6xvrhLf+B7bdztqfX9RMpJ3uU
-	+9mOZQm9d4plQH8KC0LcZqmdSsGU5GZh6AcDmw6DdmI6HuWw9g0eXncQdHiktKLyjkwyfQ
-	BMzpq2FdvS+WJBILu4i37Lug8HIQZ0cNuXn6jfMlksc9yXMnX9mFv8zKrdljPc/IWBKLFD
-	0bl34H2Pn/eGqRrVk+kEoUnIQtisZKGlZTUi9wpmYYV0nu+WXNNWbQQdHR51iEhruwyUwY
-	Dj8tJeCR8UREpMKNPQEeNS5werXQOrkv3Mloik5CW9m6Zo8xB6ya1M92em5ucg==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pzRr3EGl49RIpPjyjUlhBHWBVe3pjgcDpqpe4HeEeOc=;
+	b=ly+4MTsTkoF45/DsCQ9GKhl/oQLfFQ7xAAIvpHVuxnf91bJONJLNl12FgCYDfAY4VlRuLM
+	VKoaycMQDJkXEDdanmHacBhxDrCjyjbLqMTeIUTCycm2OIaqTbajK/ubzDzSOVTQa9SHKY
+	aEzcVjWCeXI7hTGe5y+O48X5GfwJokMrtMb1CaDQ6kvh7gxQrTQ7DluiEFri2PTyEXN8OE
+	eI83Eg51CvX3l1RchpFsMrc9z8TLYLnTgmHoZjLD5ra1LqMvawFewSbg3pnLA0roN7R/HY
+	MpMKbDr4q78ldMwxo/OLLhay7bqa3/JubKi6dunHf5BJYbQivnEXeuy0xfjFzg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: [PATCH 0/9] drm/bridge: get/put the bridge returned by
- drm_bridge_get_last_bridge()
-Date: Wed, 09 Jul 2025 18:47:59 +0200
-Message-Id: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com>
+Date: Wed, 09 Jul 2025 18:48:01 +0200
+Subject: [PATCH 2/9] drm/bridge: add drm_bridge_chain_get_last_bridge()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAD+dbmgC/y2N2wrCMBAFf6XsswtJxIj+ikiIzaYu1LRsohRK/
- 9318jhzYM4KlYSpwrlbQejFlaeiYHcd9PdYBkJOyuCMO5ijOWGSB96Eky5xHKceB2rzs318+Pm
- gJhRa2p/RpuxjzN7ZvQcNz0KZl+/p5bptb1FRSkCEAAAA
-X-Change-ID: 20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-1df6aaf62136
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-2-48920b9cf369@bootlin.com>
+References: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com>
+In-Reply-To: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
  Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
@@ -69,20 +67,17 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
  linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Zijun Hu <quic_zijuhu@quicinc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefkedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffufffkgggtgffvvefosehtkeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjeejhffgffelveehhfefudehtdeftdettdekgfekueeihedtieefudevjeffveegnecuffhomhgrihhnpehfrhgvvgguvghskhhtohhprdhorhhgpdhkvghrnhgvlhdrohhrghenucfkphepkeejrdduvddtrddvudekrddvtdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepkeejrdduvddtrddvudekrddvtdejpdhhvghloheplgduledvrdduieekrddurddufegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdelpdhrtghpthhtohepthiiihhmmhgvrhhmrghnnhesshhushgvrdguvgdprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepjfhuihdrrfhusehgvghhvggrlhhthhgtrghrvgdrtghomhdprhgtphhtthhopehtohhmihdrvhgrlhhkvghinhgvnhesihguv
- ggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepvhhitghtohhrrdhlihhusehngihprdgtohhmpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehprdiirggsvghlsehpvghnghhuthhrohhnihigrdguvg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefkedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppeekjedruddvtddrvddukedrvddtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeekjedruddvtddrvddukedrvddtjedphhgvlhhopegludelvddrudeikedruddrudefngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepthhomhhirdhvrghlkhgvihhnvghnsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehvihgtthhorhdrlhhiuhesn
+ higphdrtghomhdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepphdriigrsggvlhesphgvnhhguhhtrhhonhhigidruggv
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_094847_762644_2E795650 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20250709_094848_422103_2A1B9AE1 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,76 +92,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds drm_bridge_get/put() calls for DRM bridges returned by
-drm_bridge_get_last_bridge().
-
-This is part of the work towards removal of bridges from a still existing
-DRM pipeline without use-after-free. The grand plan was discussed in [1].
-Here's the work breakdown (➜ marks the current series):
-
- 1. ➜ add refcounting to DRM bridges (struct drm_bridge)
-    (based on devm_drm_bridge_alloc() [0])
-    A. ✔ add new alloc API and refcounting (in v6.16-rc1)
-    B. ✔ convert all bridge drivers to new API (now in drm-misc-next)
-    C. ✔ kunit tests (now in drm-misc-next)
-    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
-         and warn on old allocation pattern (now in drm-misc-next)
-    E. ➜ add get/put on drm_bridge accessors
-       1. … drm_bridge_chain_get_first_bridge() + add a cleanup action
-       2. … drm_bridge_get_prev_bridge()
-       3. ➜ drm_bridge_get_next_bridge()
-       4. drm_for_each_bridge_in_chain()
-       5. drm_bridge_connector_init
-       6. of_drm_find_bridge
-       7. drm_of_find_panel_or_bridge, *_of_get_bridge
-    F. debugfs improvements
- 2. handle gracefully atomic updates during bridge removal
- 3. … avoid DSI host drivers to have dangling pointers to DSI devices
- 4. finish the hotplug bridge work, removing the "always-disconnected"
-    connector, moving code to the core and potentially removing the
-    hotplug-bridge itself (this needs to be clarified as points 1-3 are
-    developed)
-
-There are various users of drm_bridge_get_last_bridge() which cannot be
-converted easily. Luckily they are not really looking for the next bridge,
-but for something else, such as getting the last bridge in the encoder
-chain or checking whether a bridge is the last in the encoder chain. So
-introduce better functions for those users and use them instead of
-drm_bridge_get_last_bridge(), making the code cleaner at the same time.
-
-Finally add a drm_bridge_get() ti drm_bridge_get_next_bridge() and
-drm_bridge_put() to the remaining, and legitimate, calls.
-
-[0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/0cc6aadd7fc1e629b715ea3d1ba537ef2da95eec
-[1] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/t/#u
+Add an equivalent of drm_bridge_chain_get_first_bridge() to get the last
+bridge.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
-Luca Ceresoli (9):
-      list: add list_last_entry_or_null()
-      drm/bridge: add drm_bridge_chain_get_last_bridge()
-      drm/bridge: imx93-mipi-dsi: use drm_bridge_chain_get_last_bridge()
-      drm/omapdrm: use drm_bridge_chain_get_last_bridge()
-      drm/bridge: add drm_bridge_is_last()
-      drm/display: bridge_connector: use drm_bridge_is_last()
-      drm/bridge: get the bridge returned by drm_bridge_get_next_bridge()
-      drm/bridge: put the bridge returned by drm_bridge_get_next_bridge()
-      drm/imx: parallel-display: put the bridge returned by drm_bridge_get_next_bridge()
+ include/drm/drm_bridge.h | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
- drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c    | 12 ++++------
- drivers/gpu/drm/display/drm_bridge_connector.c |  5 ++--
- drivers/gpu/drm/drm_bridge.c                   |  2 ++
- drivers/gpu/drm/imx/ipuv3/parallel-display.c   |  4 +++-
- drivers/gpu/drm/omapdrm/omap_drv.c             |  8 +++----
- include/drm/drm_bridge.h                       | 32 +++++++++++++++++++++++++-
- include/linux/list.h                           | 14 +++++++++++
- 7 files changed, 61 insertions(+), 16 deletions(-)
----
-base-commit: 0f168e7be696a17487e83d1d47e5a408a181080f
-change-id: 20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-1df6aaf62136
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index d2454ba83db36f8f0d475b0b37468c2ebe7e921d..9a7e9dd8cbfa54eedb82981032a25009e845a037 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -1343,6 +1343,24 @@ drm_bridge_chain_get_first_bridge(struct drm_encoder *encoder)
+ 					struct drm_bridge, chain_node);
+ }
+ 
++/**
++ * drm_bridge_chain_get_last_bridge() - Get the last bridge in the chain
++ * @encoder: encoder object
++ *
++ * The refcount of the returned bridge is incremented. Use drm_bridge_put()
++ * when done with it.
++ *
++ * RETURNS:
++ * the last bridge in the chain, or NULL if @encoder has no bridge attached
++ * to it.
++ */
++static inline struct drm_bridge *
++drm_bridge_chain_get_last_bridge(struct drm_encoder *encoder)
++{
++	return drm_bridge_get(list_last_entry_or_null(&encoder->bridge_chain,
++						      struct drm_bridge, chain_node));
++}
++
+ /**
+  * drm_for_each_bridge_in_chain() - Iterate over all bridges present in a chain
+  * @encoder: the encoder to iterate bridges on
 
-Best regards,
 -- 
-Luca Ceresoli <luca.ceresoli@bootlin.com>
+2.50.0
 
 
