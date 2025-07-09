@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E7CCC83F1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC696C83F18
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0TES8VgY1LAHrs+FsdrAP6+xVnRXAdi56gus1XKvp/A=; b=DsupcUbGwtCBuGl7FpIYSZS6ZC
-	RjSVfsugKt3fVCLbZQS4VQ9qX14z18L89xRIIyr/h9BrywS4b3lPYwIUarGwhZyZaeP4PqVjMAHQY
-	EICU1x7sO1MHngvpKGC1r/wskb6mzM1MMODXZ0LWg4kOS8B/VDKvt0C7ROYaIBPD/tuqh1SqoNKjK
-	cUsrgqtH4HTZIaiDgZA13nPnWQRQ+C5Ej2bktgpfrfNORdebt3idpF4lW06UrelZuThcB0rXsW/KQ
-	REun+z03yP7Q4x+p0UZqGipzF9U0bY6gGRXrAR92lu3Cvhuy/3yodPMRQy4/cG55G//iD6fa6qhf2
-	nQMzOMZQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oi+8ljfF+JQ62/JezDSEUuiZkb455tkEy3zZWjAXllY=; b=EJU6W1AgU0/LzSXABadpjhhyop
+	hF5YD6wLHZp0xzLJG0G5BYOZ29/G2qrPkVPIaN+7Gg88sLk2jU7IijQVmzsta9FvASrAq43/te15A
+	jIGiq1Ibt8V5AyYA7rD04cOGgioFdUPQlYGdPE6FMRRDZzjZV1I8qjngBRh5G9CCSUmj4QXxACtfl
+	iQxcRu5Q2pyqovQLV7n0GQGYaMx0tKW5hthUKfinpH5a80BBms54pSUkI+dPs8Y1AC1zhsUjt1m9a
+	EOPZFdTzNE3oNKyumSytDJ9owPVELjn654lCBJlvVjnWd2GA2hetxnxpltNA0YhyPcQx/ze/spLQ+
+	gfEoac2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdiN-0000000A8Dy-1m8b;
-	Wed, 09 Jul 2025 22:56:35 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uZdiF-0000000A7xq-0fDC;
+	Wed, 09 Jul 2025 22:56:27 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZboE-00000009pue-1y5M
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 20:54:32 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 569KsMw21311889;
-	Wed, 9 Jul 2025 15:54:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752094462;
-	bh=0TES8VgY1LAHrs+FsdrAP6+xVnRXAdi56gus1XKvp/A=;
-	h=From:To:CC:Subject:Date;
-	b=fF1E0H3OE8EY8Vp3vKXjJwU9iLHuo1q4f71DI9CE2ElQJiCx2y19lpNGSLQ5tuwjN
-	 RGR5Pvt0EW5hdPX4RfWR1VM5icPbYab/M6JgAYcAjg1OxqRA4aV3gl49sTMbmCU3uP
-	 ZDCzcIMAi/BBuSF+rn4yeyU4ZEPcY94UK2hUAJTA=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 569KsMRH3682949
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 9 Jul 2025 15:54:22 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 9
- Jul 2025 15:54:21 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 9 Jul 2025 15:54:21 -0500
-Received: from uda0506412.dhcp.ti.com (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 569KsLCh402273;
-	Wed, 9 Jul 2025 15:54:21 -0500
-From: Kendall Willis <k-willis@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <ulf.hansson@linaro.org>, <d-gole@ti.com>, <vishalm@ti.com>,
-        <sebin.francis@ti.com>, <msp@baylibre.com>, <khilman@baylibre.com>,
-        <k-willis@ti.com>
-Subject: [PATCH v2] firmware: ti_sci: Enable abort handling of entry to LPM
-Date: Wed, 9 Jul 2025 15:53:32 -0500
-Message-ID: <20250709205332.2235072-1-k-willis@ti.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uZawN-00000009kRf-1VRe;
+	Wed, 09 Jul 2025 19:58:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Oi+8ljfF+JQ62/JezDSEUuiZkb455tkEy3zZWjAXllY=; b=CplRT5r6vcPr6kjF6esg0ft930
+	B90fQvkTqExfjC/bI9ln9oLal5rexREbxOjnqMv5pb0a18gQDO/sUzrXkC7Tuqyq/UnM4SJD5Q4js
+	vJsLIbGSTvV1bEHWxzhmjgOm/rA/4h5hAB4ob+Mw7zL6XdA6rE9zvyCo/QOg4P8+894UnFF8CYXi/
+	1IF31V+e1mgGDD3pGhy4KUTzB3UcJbZLDkIVFeRNotAoqE6RKf9arcc2Bz3qB6CpXwWSGq1BfspbA
+	GA+h8dm92fFcTEf85HDWVt5VBHBqQYhMdxrjDcu7jBP3mQMgUlZw6Cjx6lJ1IzVJRpmrOxbT++sHQ
+	lK7lIn7A==;
+Received: from i53875a79.versanet.de ([83.135.90.121] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uZavq-0006bE-Gp; Wed, 09 Jul 2025 21:58:18 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Damon Ding <damon.ding@rock-chips.com>
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ hjc@rock-chips.com, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+ dianders@chromium.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Damon Ding <damon.ding@rock-chips.com>
+Subject: Re: [PATCH v2 05/12] drm/exynos: exynos_dp: Remove redundant
+ &analogix_dp_plat_data.skip_connector
+Date: Wed, 09 Jul 2025 21:58:17 +0200
+Message-ID: <6306541.2iPT33SAM4@diego>
+In-Reply-To: <20250709070139.3130635-6-damon.ding@rock-chips.com>
+References: <20250709070139.3130635-1-damon.ding@rock-chips.com>
+ <20250709070139.3130635-6-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_135430_636416_1ACEE6E2 
-X-CRM114-Status: GOOD (  24.63  )
+X-CRM114-CacheID: sfid-20250709_125851_395746_355ED81C 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,170 +81,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PM co-processor (device manager or DM) adds the ability to abort
-entry to a low power mode by clearing the mode selection in the
-latest version of its firmware (11.x). The following power management
-operation defined in the TISCI Low Power Mode API [1] is implemented to
-enable aborting entry to LPM:
+Hi Damon,
 
-TISCI_MSG_LPM_ABORT
-Abort the current low power mode entry by clearing the current mode
-selection.
+Am Mittwoch, 9. Juli 2025, 09:01:32 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Damon Ding:
+> The &analogix_dp_plat_data.skip_connector related check can be replaced
+> by &analogix_dp_plat_data.bridge.
+>=20
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> ---
+>  drivers/gpu/drm/exynos/exynos_dp.c | 1 -
+>  1 file changed, 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/=
+exynos_dp.c
+> index 9d7d3f009e58..9e1313fdecad 100644
+> --- a/drivers/gpu/drm/exynos/exynos_dp.c
+> +++ b/drivers/gpu/drm/exynos/exynos_dp.c
+> @@ -237,7 +237,6 @@ static int exynos_dp_probe(struct platform_device *pd=
+ev)
+>  	dp->plat_data.power_off =3D exynos_dp_poweroff;
+>  	dp->plat_data.attach =3D exynos_dp_bridge_attach;
+>  	dp->plat_data.get_modes =3D exynos_dp_get_modes;
+> -	dp->plat_data.skip_connector =3D !!bridge;
+> =20
+>  out:
+>  	dp->adp =3D analogix_dp_probe(dev, &dp->plat_data);
+>=20
 
-Introduce LPM abort call that enables the ti_sci driver to support abort
-by clearing the low power mode selection of the DM. This fixes behavior
-from the DM where if system suspend failed, the next time system suspend
-is entered, it will fail because DM did not have the low power mode
-selection cleared. Instead of this behavior, the low power mode selection
-will be cleared after Linux resume which will allow subsequent system
-suspends to work correctly.
+I think you might want to merge=20
+=2D drm/exynos: exynos_dp: Remove redundant &analogix_dp_plat_data.skip_con=
+nector
+=2D drm/bridge: analogix_dp: Remove redundant &analogix_dp_plat_data.skip_c=
+onnector
 
-When Linux suspends, the TI SCI ->suspend() call will send a prepare_sleep
-message to the DM. The DM will choose what low power mode to enter once
-Linux is suspended based on constraints given by devices in the TI SCI PM
-domain. After system suspend completes, regardless of if system suspend
-succeeds or fails, the ->complete() hook in TI SCI will be called. In the
-->complete() hook, a message will be sent to the DM to clear the current
-low power mode selection. This is necessary because if suspend fails, the
-low power mode selection in the DM is not cleared and the next system
-suspend will fail due to the low power mode not having been cleared from
-the previous failed system suspend.
+Because when separate this creates a bisection issue.
+Like when a bisect happens to land directly on this commit, you already have
+removed the exynos assignment, but the updated check from the following pat=
+ch
+is not yet in place.
 
-Clearing the mode selection unconditionally acts as a cleanup from sending
-the prepare_sleep message in ->suspend(). The DM already clears the low
-power selection automatically when resuming from system suspend. If
-suspend/resume executed without failure, clearing the low power mode
-selection will not cause an error in the DM.
-
-The flow for the abort sequence is the following:
-   1. User sends a command to enter sleep
-   2. Linux starts to suspend drivers
-   3. TI SCI suspends and sends prepare_sleep message to DM
-   4. A driver fails to suspend
-   5. Linux resumes the drivers that have already suspended
-   6. Linux sends DM to clear the current low power mode selection from
-      TI SCI ->complete() hook
-   7. DM aborts LPM entry by clearing the current mode selection
-   8. Linux works as normal
-
-[1] https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html
-
-Signed-off-by: Kendall Willis <k-willis@ti.com>
----
-Series has been tested on an SK-AM62B-P1 board. Normal suspend/resume
-has been verified. Abort was tested by adding an error into the TI SCI
-suspend hook.
----
- drivers/firmware/ti_sci.c | 61 +++++++++++++++++++++++++++++++++++++++
- drivers/firmware/ti_sci.h |  3 +-
- 2 files changed, 63 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index ae5fd1936ad32..63c405f7037f0 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -2015,6 +2015,58 @@ static int ti_sci_cmd_set_latency_constraint(const struct ti_sci_handle *handle,
- 	return ret;
- }
- 
-+/**
-+ * ti_sci_cmd_lpm_abort() - Abort entry to LPM by clearing selection of LPM to enter
-+ * @handle:     pointer to TI SCI handle
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_lpm_abort(const struct ti_sci_handle *handle)
-+{
-+	struct ti_sci_info *info;
-+	struct ti_sci_msg_hdr *req;
-+	struct ti_sci_msg_hdr *resp;
-+	struct ti_sci_xfer *xfer;
-+	struct device *dev;
-+	int ret = 0;
-+
-+	if (IS_ERR(handle))
-+		return PTR_ERR(handle);
-+	if (!handle)
-+		return -EINVAL;
-+
-+	info = handle_to_ti_sci_info(handle);
-+	dev = info->dev;
-+
-+	xfer = ti_sci_get_one_xfer(info, TI_SCI_MSG_LPM_ABORT,
-+				   TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+				   sizeof(*req), sizeof(*resp));
-+	if (IS_ERR(xfer)) {
-+		ret = PTR_ERR(xfer);
-+		dev_err(dev, "Message alloc failed(%d)\n", ret);
-+		return ret;
-+	}
-+	req = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
-+
-+	ret = ti_sci_do_xfer(info, xfer);
-+	if (ret) {
-+		dev_err(dev, "Mbox send fail %d\n", ret);
-+		goto fail;
-+	}
-+
-+	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
-+
-+	if (!ti_sci_is_response_ack(resp))
-+		ret = -ENODEV;
-+	else
-+		ret = 0;
-+
-+fail:
-+	ti_sci_put_one_xfer(&info->minfo, xfer);
-+
-+	return ret;
-+}
-+
- static int ti_sci_cmd_core_reboot(const struct ti_sci_handle *handle)
- {
- 	struct ti_sci_info *info;
-@@ -3739,11 +3791,20 @@ static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
- 	return 0;
- }
- 
-+static void __maybe_unused ti_sci_complete(struct device *dev)
-+{
-+	struct ti_sci_info *info = dev_get_drvdata(dev);
-+
-+	if (ti_sci_cmd_lpm_abort(&info->handle))
-+		dev_err(dev, "LPM clear selection failed.\n");
-+}
-+
- static const struct dev_pm_ops ti_sci_pm_ops = {
- #ifdef CONFIG_PM_SLEEP
- 	.suspend = ti_sci_suspend,
- 	.suspend_noirq = ti_sci_suspend_noirq,
- 	.resume_noirq = ti_sci_resume_noirq,
-+	.complete = ti_sci_complete,
- #endif
- };
- 
-diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
-index 053387d7baa06..51d77f90a32cc 100644
---- a/drivers/firmware/ti_sci.h
-+++ b/drivers/firmware/ti_sci.h
-@@ -6,7 +6,7 @@
-  * The system works in a message response protocol
-  * See: https://software-dl.ti.com/tisci/esd/latest/index.html for details
-  *
-- * Copyright (C)  2015-2024 Texas Instruments Incorporated - https://www.ti.com/
-+ * Copyright (C)  2015-2025 Texas Instruments Incorporated - https://www.ti.com/
-  */
- 
- #ifndef __TI_SCI_H
-@@ -42,6 +42,7 @@
- #define TI_SCI_MSG_SET_IO_ISOLATION	0x0307
- #define TI_SCI_MSG_LPM_SET_DEVICE_CONSTRAINT	0x0309
- #define TI_SCI_MSG_LPM_SET_LATENCY_CONSTRAINT	0x030A
-+#define TI_SCI_MSG_LPM_ABORT	0x0311
- 
- /* Resource Management Requests */
- #define TI_SCI_MSG_GET_RESOURCE_RANGE	0x1500
--- 
-2.34.1
 
 
