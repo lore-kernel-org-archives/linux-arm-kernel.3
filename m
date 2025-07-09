@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5406CC83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73F2C83F0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K1D9TwGh17RlyeehN+XNynud5RnHK/6z3R9+XwZOImI=; b=2hOtylffUWTtqtMCsIIrMewTBT
-	aKiJKUh2XA6r0WrH9m3Os2DTeY2OCt8hL0G9N8TM+M6+284q0cH3aTMBaqAXwPLg/3/0t5x94Nooi
-	jzsDnWZkK6Ez9Qrh7lU1AMWxLtAcLOfsA5ptWddOlYp0MFxEp7nZoZ4Rtd7Xmh8zBAY3QQHbmecVd
-	yfkeMMbYlkBXAaPlxSiw4upwfYnruwdH3hxr38Hq4GgPOeDY0LXnieQqfuBEMTGB2opIPVqFDHxJW
-	C8Isr4QEGzSR9kRHFvRa0lQltD5PgxVhR2zbs8DdztmVa79n6c1Cp/pBzZNmMHOjEUtdPbh3VGrUL
-	7cPkuL0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FC60DvI2Qk2nxHHq9UMwU91wNRGWiDZtDSx707LUtMs=; b=CrD67F+N0vUHDqo1FuRdSHkwzQ
+	wmgYEhKbtbgA1jEhRGxU51+TfeZJqFHT+WJ8bzdbd0VlaHAL9Pf5lGeWCA6mJHykHlcTKsO0iEErw
+	Dosp5+rQn1rFmbAJVozuiiXToxmYx8GERulQCSe5MntnKHFkkr68tkOQtX2SF5DCi5gQZ0rBewXde
+	9IsQxoOHYPLDR7jZPRw4ZiqkeF3hgT1Apkyf89AnLd+0njhAH5MH29E67vR/5Y9zhVgDGSbAp7FmH
+	EtmDd34yFOOtGg2/fuRHYpdf/Ka3i9+gojNbDonuKvqXmfzwdWIb0b54mRFskn9SjBtq7WjEiMCwX
+	/dCcewiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZXQw-00000009I6Y-1efg;
-	Wed, 09 Jul 2025 16:14:10 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1uZXTF-00000009INi-15Sx;
+	Wed, 09 Jul 2025 16:16:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVfW-00000008xOZ-0m2a
+	id 1uZVgv-00000008xgy-2fqg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 14:21:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752070866; x=1783606866;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=CHnl2dn+aVri4wo5LCKGLJbuGJ6Wteg3asFoEH+a+Pk=;
-  b=XPerXqjoFG6X7u+nJORKy9VK3DFL6U2YgsycdOQyCQJjl58cVUHBIGOQ
-   oQ9NSG9b+vTkrx+/SqrWXCy0+a5nNhgRK+fn3KGrabC6pP+1+9va6DKAW
-   /Kq5sWGZcCUxOGUCaYg7Dh+uIcYTlySmm8r6+KAvnXbwPU7YT8Uofzp6v
-   5FXdJygXakvpkAM4oh+vszsd27Lt3zgBN6blEmvDlz3/ks2U85bQrMOMv
-   aeBUZUPLrpSLz1RFY7JKWRYmEC+4wxsZ9iR8ukYmV1n/SRcI7VOXYi97O
-   5vcuKgnjb+HEeKXOBaI3SrYNovns9d3focy7e2/V7UvggPUlS9S8cuhpP
-   g==;
-X-CSE-ConnectionGUID: 43CnTrxRQnim4lvIZAegeQ==
-X-CSE-MsgGUID: Zsxgfu/aQeK0HqCxATBfqQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11489"; a="54478763"
-X-IronPort-AV: E=Sophos;i="6.16,298,1744095600"; 
-   d="scan'208";a="54478763"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 07:21:02 -0700
-X-CSE-ConnectionGUID: h++JGzHmRkuyD3PTYHa4uA==
-X-CSE-MsgGUID: x04SK+l3TlOOOFtScIictg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,298,1744095600"; 
-   d="scan'208";a="156273334"
-Received: from linux.intel.com ([10.54.29.200])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 07:21:03 -0700
-Received: from [10.124.221.108] (unknown [10.124.221.108])
-	by linux.intel.com (Postfix) with ESMTP id 9123A20B571C;
-	Wed,  9 Jul 2025 07:21:01 -0700 (PDT)
-Message-ID: <ec773987-b6d8-4fe9-bca9-a41009f27d80@linux.intel.com>
-Date: Wed, 9 Jul 2025 07:21:01 -0700
+	Wed, 09 Jul 2025 14:22:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 94858613B1;
+	Wed,  9 Jul 2025 14:22:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6623FC4CEEF;
+	Wed,  9 Jul 2025 14:22:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752070952;
+	bh=RuYtf+o/prZlkiX+R1ATPE24ug38zrQkLBU6YbtB9gk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NamG7SQzyQWJ5KWdWWQHeVwsQhVqWV9f1070NVbepNAVaJWziLWvw4WxtupUVj5AY
+	 nuKJgYBWeMXoAm/HtGW1fkcZLHjaGk6CQsHImC0C5QwSHqsmT/sknOo5FNWalDWTl4
+	 RoIWCU5yClKHjTKMGDEfc4wzk6g+wccEpjZe4+bz0dsQeolEG7j3eZioyxg9MPKdZm
+	 9vAPQZ6b0De2Rp/z8XNoJe6moCn5k7qm+d72v7Zl3yIKew+sB6/nEvwPefnoC3jmBi
+	 xwwD6e2JbKdag1hgELjSnKJd6l/L+HPlswWndrbN71xXbznIqSyMhHFdlp5tRoZH/a
+	 wh0WrBv/dDi3Q==
+Date: Wed, 9 Jul 2025 16:22:27 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: =?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>
+Cc: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, M'boumba Cedric Madianga <cedric.madianga@gmail.com>, 
+	Wolfram Sang <wsa@kernel.org>, Pierre-Yves MORDRET <pierre-yves.mordret@st.com>, 
+	linux-i2c@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org
+Subject: Re: [PATCH v4 0/3] Fix STM32 I2C dma operations
+Message-ID: <2o7ptcsi2akaphtofm57ok7te7qdxrchygpeqmdjaiushfjffs@5k47ncrcrgxk>
+References: <20250704-i2c-upstream-v4-0-84a095a2c728@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/19] gpio: wcove: use new GPIO line value setter
- callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Shevchenko <andy@kernel.org>,
- Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
- Srinivas Neeli <srinivas.neeli@amd.com>, Michal Simek
- <michal.simek@amd.com>, Nandor Han <nandor.han@ge.com>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- patches@opensource.cirrus.com, linux-arm-kernel@lists.infradead.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250709-gpiochip-set-rv-gpio-remaining-v1-0-b8950f69618d@linaro.org>
- <20250709-gpiochip-set-rv-gpio-remaining-v1-4-b8950f69618d@linaro.org>
-Content-Language: en-US
-From: Sathyanarayanan Kuppuswamy <sathyanarayanan.kuppuswamy@linux.intel.com>
-In-Reply-To: <20250709-gpiochip-set-rv-gpio-remaining-v1-4-b8950f69618d@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_072106_240414_6EE0E481 
-X-CRM114-Status: GOOD (  18.05  )
+Content-Type: text/plain; charset=iso-8859-15
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250704-i2c-upstream-v4-0-84a095a2c728@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +75,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Clement,
 
-On 7/8/25 11:41 PM, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
+Thanks for following up on the reviews.
 
-Looks good.
+> Clément Le Goffic (3):
+>       i2c: stm32: fix the device used for the DMA map
+>       i2c: stm32f7: unmap DMA mapped buffer
 
-Reviewed-by: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>
+I applied the two above in i2c/i2c-host-fixes. I'm not sure we
+need the "Fixes:" tag in the first patch, though, as we are not
+fixing a real bug. But I'm keeping it there for the time being.
 
->   drivers/gpio/gpio-wcove.c | 12 ++++++------
->   1 file changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-wcove.c b/drivers/gpio/gpio-wcove.c
-> index 1ec24f6f9300f33f5b3f0f8deb539e08392b8188..c50b74ced6364e3c3cfbe9ed385d21c80a2bb2e7 100644
-> --- a/drivers/gpio/gpio-wcove.c
-> +++ b/drivers/gpio/gpio-wcove.c
-> @@ -200,18 +200,18 @@ static int wcove_gpio_get(struct gpio_chip *chip, unsigned int gpio)
->   	return val & 0x1;
->   }
->   
-> -static void wcove_gpio_set(struct gpio_chip *chip, unsigned int gpio, int value)
-> +static int wcove_gpio_set(struct gpio_chip *chip, unsigned int gpio, int value)
->   {
->   	struct wcove_gpio *wg = gpiochip_get_data(chip);
->   	int reg = to_reg(gpio, CTRL_OUT);
->   
->   	if (reg < 0)
-> -		return;
-> +		return 0;
->   
->   	if (value)
-> -		regmap_set_bits(wg->regmap, reg, 1);
-> -	else
-> -		regmap_clear_bits(wg->regmap, reg, 1);
-> +		return regmap_set_bits(wg->regmap, reg, 1);
-> +
-> +	return regmap_clear_bits(wg->regmap, reg, 1);
->   }
->   
->   static int wcove_gpio_set_config(struct gpio_chip *chip, unsigned int gpio,
-> @@ -442,7 +442,7 @@ static int wcove_gpio_probe(struct platform_device *pdev)
->   	wg->chip.direction_output = wcove_gpio_dir_out;
->   	wg->chip.get_direction = wcove_gpio_get_direction;
->   	wg->chip.get = wcove_gpio_get;
-> -	wg->chip.set = wcove_gpio_set;
-> +	wg->chip.set_rv = wcove_gpio_set;
->   	wg->chip.set_config = wcove_gpio_set_config;
->   	wg->chip.base = -1;
->   	wg->chip.ngpio = WCOVE_VGPIO_NUM;
->
--- 
-Sathyanarayanan Kuppuswamy
-Linux Kernel Developer
+>       i2c: stm32f7: support i2c_*_dma_safe_msg_buf APIs
 
+This one depends on the previous two to be appliex, so that for
+now I added it in i2c/i2c-host-next. I will place it in the
+proper branch after the weekly pull request.
+
+Thanks,
+Andi
 
