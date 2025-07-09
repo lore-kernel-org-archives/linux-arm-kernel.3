@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F59C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 07:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499FCC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 07:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VhRdgZ87MSCa9rv+ZDyXygqMuBDv/gWk0DfMFfWkjjc=; b=pjKZ+YKjOP6I/gUXQ/w7LS3lFH
-	Z0k9QVoTN873hoUMcZ9bye01L6ZMCCS7Tsbrzc6E1wexPzbyitFaoxcoTdqANZPZ4MYOaxC40MkUY
-	SGnbxCl32L6bOLUmqnfFEKvHgjFui0J61m3a/84yYV2YHe3w3pK7tHJtnNnKdPd5fIH6UxA9PUf99
-	O6ivzPtVSErk/5dTPaVVkHWvQq07oBU9BjZiPnUSXqYHepFZ8oMmmSVdfVkeLmWcuruCOq6wWOdxn
-	PrtrVuwJbOcE4x6RHoga49N8dILJ5FTq2f10Kc9DOqNs2nY33BEM3FBJ9c0qx/C93/gK6ilAMxlBg
-	QcHekLIA==;
+	bh=ZDQijQIUHGtDzkYvoW+NWRCfJDMnffkwah430jUc+6c=; b=Yrh78CaaTG2bOb4dpDgDO3jGEP
+	4+uoI/TEZToUQ78tr2KY7sd5UNjz29esd1mlgRjLaR/yq80r2B6+7yyJ1TxhNIBJzLKtonZlgS46X
+	fAu75Isge/6nJVf8PJGLqAV9s/+nTVlN+OxOonzV8PqVOJTntks4zaFdcWBYe3zSxWCnCsksZGuRX
+	Y4SUcVH2BaJpgQWVLY9tSlESfai0WRZxrsqIsT39NEA0vSPBE53PNwK8Y+ekkPCABQG7Z1/RYngRl
+	Dg0DAo6mp5v7VwhEr99O/AdeiSN7vvnE3Cp22z8G89iNs2zdOs6WLxuiLj+z4h0A3f/Y+G4d/JfrH
+	N5Z1xROA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZPYD-00000007r2X-3BRM;
-	Wed, 09 Jul 2025 07:49:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uZPaW-00000007rDy-3Rbh;
+	Wed, 09 Jul 2025 07:51:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOiq-00000007jpk-30bT;
-	Wed, 09 Jul 2025 06:56:06 +0000
+	id 1uZOkH-00000007jzp-1Ydd;
+	Wed, 09 Jul 2025 06:57:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 06A34A54657;
-	Wed,  9 Jul 2025 06:56:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE87FC4CEF0;
-	Wed,  9 Jul 2025 06:55:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ACD4643655;
+	Wed,  9 Jul 2025 06:57:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A08D7C4CEF0;
+	Wed,  9 Jul 2025 06:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752044163;
-	bh=qSylAEef+3XBtW+QsXWnOj2sVPSL5ZwmvH9BTdLETWg=;
+	s=k20201202; t=1752044252;
+	bh=rtYRw+LTgfTwBVULhsU7xwpSnhKJzHyXcNVWLIZtrmU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FhTidQSgFyLxqAxY+J0jNvvhZfgKzKKUc9LZtMwoM9BOJV/riwmJFkV8vS8y6Hkqn
-	 Yj1eQJDZPHWhwtTnGJUu5cZjZzqyu8Cv88VaFgkoUM+oXZ0xYrbBSMP/4bwe550OgR
-	 Yp0gIzMttYIQthSk1nfZRTAYlY8L6kn90cOnpcZPQLibrLNd2Cynk0hbfBLTiKTlrR
-	 581UUf5Saf0onAjtN+M7vz7zCJi1zwQ0eGcp96adi4cpTUzTqQHclkgItVBOgcwp3d
-	 hUTV3ReqhADjchj+8754qhEJZU7M1VlK74IOIn3eLVB1IVzaZzDrdeMsXooGf2pkqv
-	 prZ2iZ+BdyeAQ==
-Message-ID: <61270ce3-8172-482f-80c7-e1c6d031cbe2@kernel.org>
-Date: Wed, 9 Jul 2025 08:55:56 +0200
+	b=pUR2g5AkzJwUSMAEYZF+t+qEIU17RWnTIFcNOnRVSaWdF4EaAsafrtQ36Vc2AV0bx
+	 TioOSo2xa/1NuJWIjoilvtYw4HDyIYr8F8CXrYVpMOQlgAWg6jMSA3UA/xL3pVwDK9
+	 VKGi882MfVzRCwVXWbqHFvqf2vWsMypk1nH3c7VqAk5uvN6SgckPu2DcRjzUl3RL1x
+	 FljHl9lz/RyWZcmP+XVbr4b6rc6PqzEf3cI5KkRQi3Yx8EZewsbXtRYtbz8ofv7OMD
+	 0CebwbpsFDSvx7zf+c4lSCcC71OxMgEmmTkP7UmDWtg/7U+lpb5AJHE3D0GtKTkJAS
+	 XZ6hf0x9SiJaA==
+Message-ID: <738c1951-afbc-4cda-a16e-54a5055ca7c8@kernel.org>
+Date: Wed, 9 Jul 2025 08:57:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/2] dt-bindings: dsp: mediatek: add mt8196 dsp
@@ -75,7 +75,9 @@ Cc: "linux-arm-kernel@lists.infradead.org"
 References: <20250703075632.20758-1-hailong.fan@mediatek.com>
  <20250703075632.20758-2-hailong.fan@mediatek.com>
  <defd70cb-4351-4b0b-b4d0-dd1ff831615c@kernel.org>
- <a72ff8bbd8205698948bf5be2c71d93f41a20ec1.camel@mediatek.com>
+ <61784658-c71d-458b-8934-5f5db2330bc0@collabora.com>
+ <8b8a58f0-9e18-47d6-8382-1d16d630ea15@kernel.org>
+ <dff1a4d6d97d7d3d55c4bd409780d2857ae070ca.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -121,13 +123,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <a72ff8bbd8205698948bf5be2c71d93f41a20ec1.camel@mediatek.com>
+In-Reply-To: <dff1a4d6d97d7d3d55c4bd409780d2857ae070ca.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250708_235604_993737_656060F1 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250708_235733_453450_844D1962 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,24 +143,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/07/2025 04:52, Hailong Fan (范海龙) wrote:
->>> +  clocks:
->>> +    items:
->>> +      - description: mux for dsp clock
->>> +      - description: 26M clock
->>> +      - description: ADSP PLL clock
->>> +
->>> +  clock-names:
->>> +    items:
->>> +      - const: adsp_sel
+On 09/07/2025 08:05, Hailong Fan (范海龙) wrote:
 >>
->> Isn't this called audiodsp in other bindings?
+>> OK, this is a valid argument, however we still try to unify the
+>> inputs
+>> so bindings can share such pieces. It is discouraged to have similar
+>> devices with different bindings in only one place: clk26m -> clk27m
+>> or
+>> whatever other number.
 >>
-> Yes, but essentially it is the mux selection of the ADSP clock.
-> So, would using "adsp_sel" make it clearer?
+>> Common is also to name the clock input based on the purpose (like
+>> bus, ref).
+>>
+>>
+>> Best regards,
+>> Krzysztof
 > 
-So every new binding will come with new name? Stick to the same name if
-this is the same clock.
+> On the MediaTek platform, the main SoC clock sources are typically 32K,
+> 13M, and 26M. This is why the terms clk32k, clk13m, and clk26m are
+> used.
+> Specifically, clk26m refers to the system’s 26 MHz clock source.
+> The clkxxx naming convention is intended to indicate that these are SoC
+
+But it should nnot.
+
+> clock sources, while also distinguishing between different clock
+> frequencies.
+>  
+> Therefore, using other terms could potentially cause confusion.
+
+No, you don't understand. This device receives some main PLL or ref
+clock. That's the only important information in the name, not its
+frequency..
+
+>  
+> For example, the ADSP clock sources are ADSPPLL(800MHz) and
+> clk26m(26MHz).
+> On other platforms, the definition of clk26m in the Device Tree Source
+> (DTS) is as follows:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/mediatek/mt8188.dtsi#n328
+> The mt8196 platform uses the same design.
+
+So you add poor code, because previously Mediatek added more poor code?
+What sort of argument is that?
+
 
 Best regards,
 Krzysztof
