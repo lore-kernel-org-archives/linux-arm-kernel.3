@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA2BCC83F18
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46F84C83F14
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jIibqyJNygtdMjhNsAuXg/eB4j41i3y0QJrk3xzhjtk=; b=lKKPxiUscdX9R2eTbuBdrae5Gl
-	VOmcUNiovKtdLQwE/CaahFezEojs1gqvwc+ixYQNTH87f4T1dK7k/ntSsNxggEBnrVLysQH+2vM+H
-	FBbZifsISIWdUtDrlc9OMGQzYHCGkyvXRz5P5gfCZDPZwoXNpmnk6SNRPqcrQ2DXP1bPdFgSD61PX
-	xsjPOrKmEjFe9MfRHWldPIrWDBXoSmmAwpoV4ypJfoYBwhjO3QDkNNvKQOoiPGH6FjjT1f1Kw81mR
-	c8IdunRd71ThEsHxI3/S9E2KReNjrdoYngtFso+VScNaKMmlVfsqctPymdWLk3aZ8eRZ0jpte2uqC
-	LgFkyqlg==;
+	bh=ZlBByp9ti89jRGF9OoLKlYZnjR1rawwpMH2ftXRDETg=; b=BfyOScbjDv7wZ7B0gHkW0xAgv4
+	O2yLkgfE/z+1cRDu7TA1I0tECkVEJDeJ9RaFOnfj8GzsHFCX6f9BkWt+jegplfw7u/6LpSN55Yncf
+	goN9r4XuXtj9yGfhGgGFsTE9U0poDc4Wb3GVog7of0Mg6qOVyIqAKF6q9gqB3+mgrR5VkeGaZTBko
+	Bbzw2oxk4pr/63Jqy3Wh/vPJJh5zoGTw36JbWNkRWemxlQ2dxRUwQ/oRDKhQjHvBWXqWwsaC28Zj8
+	l0dmmXl2jFnBTuCs72EwM4JYoKabVxaukS2i6kEnV0YE8zadvvhBnrNuss1OI7PMuojZP+qhoZ4rd
+	Brgxn2kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZcoE-00000009xUb-2SPt;
-	Wed, 09 Jul 2025 21:58:34 +0000
+	id 1uZcoD-00000009xSP-10lD;
+	Wed, 09 Jul 2025 21:58:33 +0000
 Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZXyY-00000009LsY-3H15
+	id 1uZXyU-00000009LpD-1z2I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 16:48:56 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 92B6E4447A;
-	Wed,  9 Jul 2025 16:48:51 +0000 (UTC)
+	Wed, 09 Jul 2025 16:48:51 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id F05DF43B29;
+	Wed,  9 Jul 2025 16:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752079733;
+	t=1752079729;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=jIibqyJNygtdMjhNsAuXg/eB4j41i3y0QJrk3xzhjtk=;
-	b=aXWvZKQX+FwJvKOOEwvwnHWJWc5ePsuYjerVgeH3T5AVCZVoQwQQhAFd0x8TJ8ihQTDeR2
-	I0PPdSpmgINr7tKF4/jf+8MIpYUixa+0A57tGK0sso7105mcOITrwYQTK6Mhf+uBX8qbV+
-	kFO4tI7n88a5ypomXm/Y0D9WrVFuNYvhPDZfPNIm3ocY1DJY1QgF6i4NeZZUSwPAynolPn
-	ZAMTdCkd60t5rCE2FO1gmMNglje8zyBmTCWg7GX60TMjDUIpuVV2JcAExetJgfyKYs3NjG
-	+Tc+iQcJv4jDo+VVFc0ClbqgGU+Gagp1zvaBHm3ctawFrIVqGfNLv+o6XAXajQ==
+	bh=ZlBByp9ti89jRGF9OoLKlYZnjR1rawwpMH2ftXRDETg=;
+	b=fV0Tw45CmoH2FMF+8e2uW9Y7+dLKZv3owi6Iv3XklJgDA/vlAlNCZEDIRB0iYIBvzfpmo7
+	mWxe5y+tS49OMCzJof3OYG1Vy1TvEh35xQRny55ZkFALtcTtn+P72RaK1HVPe1s+CCaaoz
+	/MiG9LWYqaZXB9QwCSTU2GQpJz4PEMa/q0CbJw+WXQu03v0s39rcyTKZUND5jyK7AvpccN
+	LoUsve8upOSeaz512WO0M2uSEgDR/U/87Tb/lgccnHtYEXviFNXC2Qzkequ5tf1SXuPzYX
+	D8yE+cSLDjMOLoGoUQEW9KdB+bX6v0L9YxQweFwY3VNAuYv4qQ51uIbj9HrGgA==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 09 Jul 2025 18:48:04 +0200
-Subject: [PATCH 5/9] drm/bridge: add drm_bridge_is_last()
+Date: Wed, 09 Jul 2025 18:48:02 +0200
+Subject: [PATCH 3/9] drm/bridge: imx93-mipi-dsi: use
+ drm_bridge_chain_get_last_bridge()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-5-48920b9cf369@bootlin.com>
+Message-Id: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-3-48920b9cf369@bootlin.com>
 References: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com>
 In-Reply-To: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -71,12 +72,12 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefkedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppeekjedruddvtddrvddukedrvddtjeenucevlhhushhtvghrufhiiigvpeegnecurfgrrhgrmhepihhnvghtpeekjedruddvtddrvddukedrvddtjedphhgvlhhopegludelvddrudeikedruddrudefngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepthhomhhirdhvrghlkhgvihhnvghnsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehvihgtthhorhdrlhhiuhesn
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefkedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppeekjedruddvtddrvddukedrvddtjeenucevlhhushhtvghrufhiiigvpedvnecurfgrrhgrmhepihhnvghtpeekjedruddvtddrvddukedrvddtjedphhgvlhhopegludelvddrudeikedruddrudefngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepthhomhhirdhvrghlkhgvihhnvghnsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehvihgtthhorhdrlhhiuhesn
  higphdrtghomhdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepphdriigrsggvlhesphgvnhhguhhtrhhonhhigidruggv
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_094854_956207_32B7164B 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250709_094850_657837_11401218 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,36 +92,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some code needing to know whether a bridge is the last in a chain currently
-call drm_bridge_get_next_bridge(). However drm_bridge_get_next_bridge()
-will soon increment the refcount of the returned bridge, which would make
-such code more annoying to write.
+Use drm_bridge_chain_get_last_bridge() instead of open coding a loop with
+two invocations of drm_bridge_get_next_bridge() per iteration.
 
-In preparation for drm_bridge_get_next_bridge() to increment the refcount,
-as well as to simplify such code, introduce a simple bool function to tell
-whether a bridge is the last in the chain.
+Besides being cleaner and more efficient, this change is necessary in
+preparation for drm_bridge_get_next_bridge() to get a reference to the
+returned bridge.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- include/drm/drm_bridge.h | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
 
-diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index 9a7e9dd8cbfa54eedb82981032a25009e845a037..c2a7a7d2dfc420e9dcf7ea4c093ce1f1b939c820 100644
---- a/include/drm/drm_bridge.h
-+++ b/include/drm/drm_bridge.h
-@@ -1264,6 +1264,11 @@ static inline struct drm_bridge *of_drm_find_bridge(struct device_node *np)
- }
- #endif
+diff --git a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
+index bea8346515b8c8ce150040f58d288ac564eeb563..8f7a0d46601a41e1bfc04587398b0f1536a6a16c 100644
+--- a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
++++ b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
+@@ -492,14 +492,12 @@ static int imx93_dsi_get_phy_configure_opts(struct imx93_dsi *dsi,
+ static enum drm_mode_status
+ imx93_dsi_validate_mode(struct imx93_dsi *dsi, const struct drm_display_mode *mode)
+ {
+-	struct drm_bridge *bridge = dw_mipi_dsi_get_bridge(dsi->dmd);
++	struct drm_bridge *dmd_bridge = dw_mipi_dsi_get_bridge(dsi->dmd);
++	struct drm_bridge *last_bridge __free(drm_bridge_put) =
++		drm_bridge_chain_get_last_bridge(dmd_bridge->encoder);
  
-+static inline bool drm_bridge_is_last(struct drm_bridge *bridge)
-+{
-+	return list_is_last(&bridge->chain_node, &bridge->encoder->bridge_chain);
-+}
-+
- /**
-  * drm_bridge_get_current_state() - Get the current bridge state
-  * @bridge: bridge object
+-	/* Get the last bridge */
+-	while (drm_bridge_get_next_bridge(bridge))
+-		bridge = drm_bridge_get_next_bridge(bridge);
+-
+-	if ((bridge->ops & DRM_BRIDGE_OP_DETECT) &&
+-	    (bridge->ops & DRM_BRIDGE_OP_EDID)) {
++	if ((last_bridge->ops & DRM_BRIDGE_OP_DETECT) &&
++	    (last_bridge->ops & DRM_BRIDGE_OP_EDID)) {
+ 		unsigned long pixel_clock_rate = mode->clock * 1000;
+ 		unsigned long rounded_rate;
+ 
 
 -- 
 2.50.0
