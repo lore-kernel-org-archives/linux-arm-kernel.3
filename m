@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEDDC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 11:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEC8C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 11:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=btaVHXBJUsZY+WA6Dwj9aDIrkiH20xUrs2ycxjXp8J0=; b=TCFGekR7acX8gsgb3SNYrOhG26
-	P89N2H8bT5x/M/vvAue1xZkcj8xTKUWqejAq4AwxBp8guTGIu6948TNFt3ou8G3cz3hYh7ykj+pMP
-	6y6yVQpRiGJHefx1BMLy4GK/GM0nzvCA5dphd+QBipWvU1sNidhOP1+PT5m8WYk7nLlP3jTHqINRI
-	VP3iUqSZtM4XDOD0jzMsogVTCWEHoS4ZmiFvaAI90wRnsh2Cm9GLZ7QtRpBJpxapnA/asUL3YVJg4
-	STOf9n02o7veZNefeGwcrWb4NZvTWtW/NjfLunzgLGlTBUn+G6Kz2ya1ni301bRw9xVKJ5MqiJ+F3
-	HBXtNZAA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QZ3NuUnzekYPaWePBAK6Km1jXLP7hXxB0k4AOBR7tHI=; b=eJVYrgnspzA3ujPcAh5ueHNFFf
+	p+PR+djgx5hS/ziq06y0RcnlCTp0Rj8S5Ov0yqRAFsdFfZBPDThLlzwX9cNJMMM+BaxwNs+5y2rF7
+	CLuu7LbFTGMa7igBHMvlUFX6bGBawMzFF8gmkLPNAphNK5nU2B842ADnNlL1ei2whH1apZxAcIY1e
+	2MNHJfcSkNBdceDJZ1U/+5i99P7FQNmt0g5XiOEd7l2FOlk2OOKyS1cmupd4l2cbxe5AsCgRVITfE
+	2ZhvsoTcAMyzLWdb5hFEPVm1TT0vY46xOp2kaeW5vXxc0U9tZYmLvmZmcQzdZvnBKWPmNQnja84kh
+	u+O8G5HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZShT-00000008Ru1-2kNt;
-	Wed, 09 Jul 2025 11:10:55 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZQYl-000000081ry-3Rdg;
-	Wed, 09 Jul 2025 08:53:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752051225;
-	bh=QYXHcCL2Vs79N2X0jF3tLL5lpOOl+YSA52sVaeKfUeo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m3hO8Z/Hm/WU0S2/37/px10JjlMVhXiD/fzyJW0SGXHoI8NvJNx04URZMYlnuna0q
-	 4W7Jk3s0WDiWqE3t/HabB5kpht0mAhHhQE3FBsb40PNpaNyWLfpmxiRQMvVTr9+HRq
-	 aJn3FnC1s3VbAraASXGMoNm9b6ATG8WZXnk3zs0+gRnlczo+7ykdEt+EzjE1WmfzRC
-	 yzuXt08zNRT8Srax5ietcZ39lylFVwNwpxA98mlmA/WDU2vdGbbGHCarb/70Me85vv
-	 JnpSwi2Kw62X7rfrcXp60jDfAXzv0M4q+Zb0sTZmdzvW40ca8Xsw6C3xB29aCY68Bx
-	 Yy6b1u24sghSA==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:8d6b:4a4d:ad13:46c1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 41E4217E1110;
-	Wed,  9 Jul 2025 10:53:45 +0200 (CEST)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: joro@8bytes.org,
+	id 1uZSjm-00000008SY0-0t7C;
+	Wed, 09 Jul 2025 11:13:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZRFu-000000089yh-2ufx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Jul 2025 09:38:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07DB9153B;
+	Wed,  9 Jul 2025 02:38:08 -0700 (PDT)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 947B43F738;
+	Wed,  9 Jul 2025 02:38:17 -0700 (PDT)
+From: Ben Horgan <ben.horgan@arm.com>
+To: catalin.marinas@arm.com,
 	will@kernel.org,
-	robin.murphy@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	nicolas.dufresne@collabora.com,
-	jgg@ziepe.ca
-Cc: iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH v5 5/5] arm64: defconfig: enable Verisilicon IOMMU
-Date: Wed,  9 Jul 2025 10:53:30 +0200
-Message-ID: <20250709085337.53697-6-benjamin.gaignard@collabora.com>
+	kvmarm@lists.linux.dev,
+	yury.norov@gmail.com,
+	linux@rasmusvillemoes.dk,
+	linux-kernel@vger.kernel.org
+Cc: james.morse@arm.com,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: [PATCH v2 0/2] Fix and add warning of misuse of type##_replace_bits()
+Date: Wed,  9 Jul 2025 10:38:06 +0100
+Message-ID: <20250709093808.920284-1-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250709085337.53697-1-benjamin.gaignard@collabora.com>
-References: <20250709085337.53697-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_015348_003582_A9B0777C 
-X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-CacheID: sfid-20250709_023822_816634_CD00E84E 
+X-CRM114-Status: UNSURE (   8.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,25 +72,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable Verisilicon IOMMU used by RK3588 AV1 hardware codec.
+By inspection there is one mistake in the use of u64_replace_bits(). Fix
+this and while I'm here add a __must_check annotation to help avoid the
+same mistake happening again.
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Changes since v1:
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 7e04a2905ce4..a639388298e7 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1451,6 +1451,7 @@ CONFIG_ARM_SMMU=y
- CONFIG_ARM_SMMU_V3=y
- CONFIG_MTK_IOMMU=y
- CONFIG_QCOM_IOMMU=y
-+CONFIG_VSI_IOMMU=m
- CONFIG_REMOTEPROC=y
- CONFIG_IMX_REMOTEPROC=y
- CONFIG_MTK_SCP=m
+Patch 1: Add Rb tag from Zenghui Yu - thanks!
+Patch 2: Extend to add __must_check on _get_bits() and _encode_bits()
+
+Ben Horgan (2):
+  KVM: arm64: Fix enforcement of upper bound on MDCR_EL2.HPMN
+  bitfield: Ensure the return values of helper functions are checked
+
+ arch/arm64/kvm/sys_regs.c | 2 +-
+ include/linux/bitfield.h  | 8 ++++----
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
 -- 
 2.43.0
 
