@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556EBC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 09:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E29C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 09:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=naDAgVEz0v6CFo6A5lwwbZ4ycQOU+YuKAc76hTSp4NY=; b=3RuaETTgTnS60hPna7z9jSBwpr
-	O0mkACPTFPVLOAtZpeN16mx78y6kGm3shs4RkhiG6pmsuX43y2LdOgUncsl4IEKwlQq9en1ZJsNLZ
-	LK6G8bx0kJMC8eiK5imFA25n8hbb2h6DoWgE/ctqn4W7BOaHjeSljsmms5Bsgs8UNUaVA6v8wZdBC
-	75aLrEtgCUpVxDAVHjQKk00n0EmH3rJdUm50Dl0FRCdhhWB+Ocb5mfvToyGGEVg1ZdqTn6oGa52WS
-	ReCL1Zqg0WLqZS0jZAYfeMtPGltCQsnCdEakcwxy3bC7Rdgi/PGZZHWTi/8Pp61z4ZIAi2I2mbriw
-	NzS1mmhw==;
+	bh=Y+gtiQXFLHiEKPxSC/wmXMNvnvOmfJQndfDGXDPUafM=; b=dycG/oC1k32ydxXzpzsOizuqfa
+	mmSRoAgBfnSx9q5vPXhz6u4HRzEOEy3GGrwg55fwkMHCU8o7JU+ODwxSx8JarHkJQuDtuvPVqWHLO
+	sdzKMQ0Ut+xVGRZW+MV51XdGsKi+NxDTdMi6kjziRJPH8GrpANWYfShNsUD4wpSI7OQWmDj0wLH3k
+	9BWWSmnFXHxlX5lttiiiYnsszBQXKGQhGEiZ1JLWUDAIQCHntVoJzK5q0EHBsVwEKVvnGiG3v8SLc
+	UlCaXInO1qczzkW6Jp8XDmTUn14RZctZn1o/rhe6RY4ZapSClr5uT+xiaDsUPc+3e4yaWvW0cuj2s
+	3hNuqd5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZR2K-000000087er-2Yks;
-	Wed, 09 Jul 2025 09:24:20 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1uZR4d-000000088Ii-419Z;
+	Wed, 09 Jul 2025 09:26:43 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZPLb-00000007pSK-2rag
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 07:36:09 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 05572A0AED;
-	Wed,  9 Jul 2025 09:36:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=naDAgVEz0v6CFo6A5lww
-	bZ4ycQOU+YuKAc76hTSp4NY=; b=q+JLsAhHPG7Slqcbgdyd17dfe5IIAec8r90q
-	eaYUvt49jalar9TDNa4/nzUjekUnmMO+JHO9yBh58zvGp15d+9DbeQ01PfSV0xlp
-	VUxEb7K5Q+oetM76i6+2aTmGjHztFF+7MxcBfytOvM5E2v5nXzRUooKeYBcmUBp3
-	COOO0MhZh74Y/FF9+2OLdlRtvN322+/fEfw7zAlgKwBUPANHYnredp0LGILsG7PJ
-	P09QgOf7TiVWj8nhDO1EMmGAlnCXcclGe2i2a0ZKVUvLi+wNredAEcFSca08pt9Y
-	ferfpB+dwB66JwN1mRc2tpO3LEplSuaoEe6rHVol2Szfi+754LtBrpW/6GxPA5nm
-	4WmJs2B/55Q8I7o3VA2qqvv2jrVElwFOD0yDyBGl6Hikqbj7rE8TMcEH81zsI4na
-	UvB+Ig/T+WoDv9D/p0Ja4PAkCKo6mPO7EY+YEHaE35T4zZV/HFTRXaDnCIBINVsu
-	ot2BsGJvKmKrEK1sA6iH6L030IKe1tOXUtPWjtlTA0i7M2tL++tbGRPKhjAyFeLe
-	SI/iAjPMcdneGjabqpX+UC2hzL6kF0VAskAvryINAFq8AANjWIOALyIy1x0rIPNQ
-	x1bnL1Gx3LowKIc89MzKpkGNl3y9s4zvWKuEy1LX4xYopxzC/kaYHKmRImccaR0E
-	NtTNU/8=
-From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Date: Wed, 9 Jul 2025 09:35:43 +0200
-Subject: [PATCH v2 2/2] ARM: dts: imx6-utilite: Replace license text
- comment with SPDX identifier
+	id 1uZOn5-00000007kIH-2GTZ;
+	Wed, 09 Jul 2025 07:00:29 +0000
+Received: from localhost.localdomain (unknown [119.122.214.98])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1b68dd445;
+	Wed, 9 Jul 2025 15:00:08 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: jonas@kwiboo.se
+Cc: amadeus@jmu.edu.cn,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	robh@kernel.org,
+	ziyao@disroot.org
+Subject: Re: [PATCH 4/6] arm64: dts: rockchip: Add ArmSoM Sige1
+Date: Wed,  9 Jul 2025 15:00:03 +0800
+Message-Id: <20250709070003.53484-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250708224921.2254116-5-jonas@kwiboo.se>
+References: <20250708224921.2254116-5-jonas@kwiboo.se>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250709-clab-dts-lic-v2-2-ae14e0fd0bf3@prolan.hu>
-References: <20250709-clab-dts-lic-v2-0-ae14e0fd0bf3@prolan.hu>
-In-Reply-To: <20250709-clab-dts-lic-v2-0-ae14e0fd0bf3@prolan.hu>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Christopher
- Spinrath" <christopher.spinrath@rwth-aachen.de>
-X-Mailer: b4 0.13.0
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1752046565;VERSION=7994;MC=1895809622;ID=156668;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155E657160
+X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCSkpKVkwaSk1MQ0IeGE9LTlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VCQ1lXWRYaDxIVHRRZQVlLVUtVS1VLWQY+
+X-HM-Tid: 0a97edfc0df903a2kunm4d206f074e8f19
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OBw6CCo5DDE3CS8cFwIDMS4*
+	FyIaFA9VSlVKTE5JS09PT0pITEJCVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
+	QlVKSUlVSUpPVUJDWVdZCAFZQUlDTEg3Bg++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_003607_875472_6D8F435F 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20250709_000027_806620_F75DCB2E 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,79 +75,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace verbatim license text with a `SPDX-License-Identifier`.
+Hi,
 
-The comment header mis-attributes this license to be "X11", but the
-license text does not include the last line "Except as contained in this
-notice, the name of the X Consortium shall not be used in advertising or
-otherwise to promote the sale, use or other dealings in this Software
-without prior written authorization from the X Consortium.". Therefore,
-this license is actually equivalent to the SPDX "MIT" license (confirmed
-by text diffing).
+> +	vcc5v0_usb1_host: regulator-5v0-vcc-usb1-host {
+> +		compatible = "regulator-fixed";
+> ...
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> ...
+> +	vcc5v0_usb2_host: regulator-5v0-vcc-usb2-host {
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> ...
 
-Cc: Christopher Spinrath <christopher.spinrath@rwth-aachen.de>
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
- arch/arm/boot/dts/nxp/imx/imx6q-utilite-pro.dts | 39 +------------------------
- 1 file changed, 1 insertion(+), 38 deletions(-)
+I think these two regulators do not need boot-on?
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-utilite-pro.dts b/arch/arm/boot/dts/nxp/imx/imx6q-utilite-pro.dts
-index aae81feee00d..f7ba19141ffb 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-utilite-pro.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-utilite-pro.dts
-@@ -1,3 +1,4 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
- /*
-  * Copyright 2013 CompuLab Ltd.
-  * Copyright 2016 Christopher Spinrath
-@@ -6,44 +7,6 @@
-  * Utilite Pro:
-  *	Copyright 2013 CompuLab Ltd.
-  *	Author: Valentin Raevsky <valentin@compulab.co.il>
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License as
-- *     published by the Free Software Foundation; either version 2 of the
-- *     License, or (at your option) any later version.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- #include <dt-bindings/input/input.h>
+> +	rfkill {
+> +		compatible = "rfkill-gpio";
+> +		label = "rfkill-wlan";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&wifi_reg_on_h>;
+> +		radio-type = "wlan";
+> +		shutdown-gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_HIGH>;
+> +	};
 
--- 
-2.43.0
+Why not use mmc-pwrseq instead of rfkill?
 
+> +	rfkill-bt {
+> +		compatible = "rfkill-gpio";
+> +		label = "rfkill-bt";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&bt_reg_on_h>;
+> +		radio-type = "bluetooth";
+> +		shutdown-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
+> +	};
+
+Why not use shutdown-gpios of bcm43438-bt?
+
+> +&i2c0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c0m0_xfer>;
+> +	status = "okay";
+> +
+> +	hym8563: rtc@51 {
+> +		compatible = "haoyu,hym8563";
+> +		reg = <0x51>;
+> +		#clock-cells = <0>;
+> +		clock-output-names = "hym8563";
+
+CLKOUT pin is not connected.
+
+> +&sdio0 {
+> +	bus-width = <4>;
+> +	cap-sd-highspeed;
+> +	cap-sdio-irq;
+> +	disable-wp;
+> +	keep-power-in-suspend;
+> +	no-mmc;
+> +	no-sd;
+> +	non-removable;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&sdio0_bus4>, <&sdio0_clk>, <&sdio0_cmd>, <&clkm1_32k_out>;
+
+I recommend using clkm1_32k_out at the sdio-pwrseq node.
+
+> +	sd-uhs-sdr104;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&vcc_1v8>;
+> +	status = "okay";
+
+Maybe `brcm,bcm4329-fmac` nodes can be added here?
+
+> +&uart2 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&uart2m1_xfer>, <&uart2m1_ctsn>, <&uart2m1_rtsn>;
+> +	uart-has-rtscts;
+> +	status = "okay";
+
+You can add `brcm,bcm43438-bt` nodes here:
+
+	bluetooth {
+		compatible = "brcm,bcm43438-bt";
+		device-wakeup-gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
+		host-wakeup-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
+		shutdown-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
+		...
+	};
+
+Thanks,
+Chukun
+
+--
+2.25.1
 
 
