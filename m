@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E29C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 09:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4EEC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 09:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y+gtiQXFLHiEKPxSC/wmXMNvnvOmfJQndfDGXDPUafM=; b=dycG/oC1k32ydxXzpzsOizuqfa
-	mmSRoAgBfnSx9q5vPXhz6u4HRzEOEy3GGrwg55fwkMHCU8o7JU+ODwxSx8JarHkJQuDtuvPVqWHLO
-	sdzKMQ0Ut+xVGRZW+MV51XdGsKi+NxDTdMi6kjziRJPH8GrpANWYfShNsUD4wpSI7OQWmDj0wLH3k
-	9BWWSmnFXHxlX5lttiiiYnsszBQXKGQhGEiZ1JLWUDAIQCHntVoJzK5q0EHBsVwEKVvnGiG3v8SLc
-	UlCaXInO1qczzkW6Jp8XDmTUn14RZctZn1o/rhe6RY4ZapSClr5uT+xiaDsUPc+3e4yaWvW0cuj2s
-	3hNuqd5g==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ffKgOK5iZ42DSR6ahIMx/48ZZmDdF/0T5rNGZCJCOdI=; b=uke8DznzUAk97m2GpL3m0oMDb7
+	U0uR2wtmLyZzqLaK4CJ2cZgmY7+Bojv6o/jqo7YVOatMP2IBJjDGhgt5B6cjRgFONcTWwzS/SUqgZ
+	QCPHCWP5RakgNgNJT7vsCdANJtL9CpL1bWhB/fizn32iUgPJ7CnSY+qgqqBRP3gWdthaOZaPkz73W
+	58xWFKpskg8kOpQtT9gWFaSXVjZ4yPdaEYJmY4OthScGTJ4Eo1f9Lkfceb5Be8yYusVNl9OB/6TSe
+	41J3dXZE6Ts9b+savLqtq2sWNxIG2R6ls0bP968yq09m7qXwNh64aZgkd7ySz4yCED+dysA+TvdU6
+	2x3fyAVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZR4d-000000088Ii-419Z;
-	Wed, 09 Jul 2025 09:26:43 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1uZR6w-000000088bf-2nBy;
+	Wed, 09 Jul 2025 09:29:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOn5-00000007kIH-2GTZ;
-	Wed, 09 Jul 2025 07:00:29 +0000
-Received: from localhost.localdomain (unknown [119.122.214.98])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1b68dd445;
-	Wed, 9 Jul 2025 15:00:08 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: jonas@kwiboo.se
-Cc: amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	krzk+dt@kernel.org,
+	id 1uZOno-00000007kPk-3FRY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Jul 2025 07:01:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B741343F74;
+	Wed,  9 Jul 2025 07:01:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22D0FC4CEF0;
+	Wed,  9 Jul 2025 07:01:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752044471;
+	bh=hxPSyY5k5W1yAZvXq3K3ryc/SwkGUc1a7pKy7EuahwQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Ees+XgtXV73RpRtZCFqm9jbRNdg4BDEX7Uiy+Eu+Id3eisjdRXsK/U1Tr1fiJOijY
+	 F8HRS0MzuijbA8Cy2H8dq68eMOFCJYyH/qxkoSBUDfgwAJ2IZOhbOzcnb2nF7yLH09
+	 CFCNVCi7Uclc8E2PVv3DMBdSVdlSl39uqJ3uOKlmCS66NGRIiLkEVoBuFNAc7v++H0
+	 yIKT4wp9ELfwpBTMV4zyXHeXrbWCfTnsY81Cprk3+SF54OzS3UmG9T4vFB9HvI5mXs
+	 mDQ7Z28pxa7OqFcwIR1aCWcmOu+iCtJ2/m5yD7RR3esVmdPcludLijl25xEcQsKiTL
+	 mBJZ7lV0NIsKg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+	Peng Fan <peng.fan@nxp.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	robh@kernel.org,
-	ziyao@disroot.org
-Subject: Re: [PATCH 4/6] arm64: dts: rockchip: Add ArmSoM Sige1
-Date: Wed,  9 Jul 2025 15:00:03 +0800
-Message-Id: <20250709070003.53484-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250708224921.2254116-5-jonas@kwiboo.se>
-References: <20250708224921.2254116-5-jonas@kwiboo.se>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] firmware: arm_scmi: convert to SYSTEM_SLEEP_PM_OPS
+Date: Wed,  9 Jul 2025 09:01:01 +0200
+Message-Id: <20250709070107.1388512-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCSkpKVkwaSk1MQ0IeGE9LTlYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VCQ1lXWRYaDxIVHRRZQVlLVUtVS1VLWQY+
-X-HM-Tid: 0a97edfc0df903a2kunm4d206f074e8f19
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OBw6CCo5DDE3CS8cFwIDMS4*
-	FyIaFA9VSlVKTE5JS09PT0pITEJCVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
-	QlVKSUlVSUpPVUJDWVdZCAFZQUlDTEg3Bg++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_000027_806620_F75DCB2E 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250709_000112_831888_CF04070B 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,97 +73,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Arnd Bergmann <arnd@arndb.de>
 
-> +	vcc5v0_usb1_host: regulator-5v0-vcc-usb1-host {
-> +		compatible = "regulator-fixed";
-> ...
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> ...
-> +	vcc5v0_usb2_host: regulator-5v0-vcc-usb2-host {
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> ...
+The old SET_SYSTEM_SLEEP_PM_OPS() macro leads to a warning about an
+unused function:
 
-I think these two regulators do not need boot-on?
+drivers/firmware/arm_scmi/scmi_power_control.c:363:12: error: 'scmi_system_power_resume' defined but not used [-Werror=unused-function]
+  363 | static int scmi_system_power_resume(struct device *dev)
 
-> +	rfkill {
-> +		compatible = "rfkill-gpio";
-> +		label = "rfkill-wlan";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&wifi_reg_on_h>;
-> +		radio-type = "wlan";
-> +		shutdown-gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_HIGH>;
-> +	};
+The proper way to do this these days is to use SYSTEM_SLEEP_PM_OPS()
+and pm_sleep_ptr().
 
-Why not use mmc-pwrseq instead of rfkill?
+Fixes: 9a0658d3991e ("firmware: arm_scmi: power_control: Ensure SCMI_SYSPOWER_IDLE is set early during resume")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/firmware/arm_scmi/scmi_power_control.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> +	rfkill-bt {
-> +		compatible = "rfkill-gpio";
-> +		label = "rfkill-bt";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&bt_reg_on_h>;
-> +		radio-type = "bluetooth";
-> +		shutdown-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
-> +	};
-
-Why not use shutdown-gpios of bcm43438-bt?
-
-> +&i2c0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c0m0_xfer>;
-> +	status = "okay";
-> +
-> +	hym8563: rtc@51 {
-> +		compatible = "haoyu,hym8563";
-> +		reg = <0x51>;
-> +		#clock-cells = <0>;
-> +		clock-output-names = "hym8563";
-
-CLKOUT pin is not connected.
-
-> +&sdio0 {
-> +	bus-width = <4>;
-> +	cap-sd-highspeed;
-> +	cap-sdio-irq;
-> +	disable-wp;
-> +	keep-power-in-suspend;
-> +	no-mmc;
-> +	no-sd;
-> +	non-removable;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&sdio0_bus4>, <&sdio0_clk>, <&sdio0_cmd>, <&clkm1_32k_out>;
-
-I recommend using clkm1_32k_out at the sdio-pwrseq node.
-
-> +	sd-uhs-sdr104;
-> +	vmmc-supply = <&vcc_3v3>;
-> +	vqmmc-supply = <&vcc_1v8>;
-> +	status = "okay";
-
-Maybe `brcm,bcm4329-fmac` nodes can be added here?
-
-> +&uart2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart2m1_xfer>, <&uart2m1_ctsn>, <&uart2m1_rtsn>;
-> +	uart-has-rtscts;
-> +	status = "okay";
-
-You can add `brcm,bcm43438-bt` nodes here:
-
-	bluetooth {
-		compatible = "brcm,bcm43438-bt";
-		device-wakeup-gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
-		host-wakeup-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
-		shutdown-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
-		...
-	};
-
-Thanks,
-Chukun
-
---
-2.25.1
+diff --git a/drivers/firmware/arm_scmi/scmi_power_control.c b/drivers/firmware/arm_scmi/scmi_power_control.c
+index ab0cee0d4bec..955736336061 100644
+--- a/drivers/firmware/arm_scmi/scmi_power_control.c
++++ b/drivers/firmware/arm_scmi/scmi_power_control.c
+@@ -369,7 +369,7 @@ static int scmi_system_power_resume(struct device *dev)
+ }
+ 
+ static const struct dev_pm_ops scmi_system_power_pmops = {
+-	SET_SYSTEM_SLEEP_PM_OPS(NULL, scmi_system_power_resume)
++	SYSTEM_SLEEP_PM_OPS(NULL, scmi_system_power_resume)
+ };
+ 
+ static const struct scmi_device_id scmi_id_table[] = {
+@@ -380,7 +380,7 @@ MODULE_DEVICE_TABLE(scmi, scmi_id_table);
+ 
+ static struct scmi_driver scmi_system_power_driver = {
+ 	.driver	= {
+-		.pm = &scmi_system_power_pmops,
++		.pm = pm_sleep_ptr(&scmi_system_power_pmops),
+ 	},
+ 	.name = "scmi-system-power",
+ 	.probe = scmi_syspower_probe,
+-- 
+2.39.5
 
 
