@@ -4,210 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA95C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D593C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Subject:References:In-Reply-To:
-	Message-ID:CC:To:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jw8U+PMeBonFC5U2SguSj+ZTWcYHt3PqPtEe3/g76Zk=; b=NN0XQH0c50Zdxy
-	mOfhWlQGI8fu5CLLgwYdRlRnd6jXJi6g8U7DOZhQbr5qef6nTCK03AE48dIMNCPYyKmF5jf/7zysT
-	KON1PTT1/AK5mL1MBrs8qKHGJwAOstP1FrKNxtb8BHigvMv1haLkSmj3swFnxzXz5kK9OiAd8hLSA
-	iJmeOFExwhoQOjNEEo3EwjfGyU8ztbEUag68URsPggniOsB7BYdbdke5UMGE09oaeowtfFHY6PGa/
-	XK3eCpuJ40nry9g/xWpT+2BBLbDpROoJ27tcoR/3z28ELctHM2PCUB0q0yvFTNN5agapnPyLIMk+/
-	QPkFDcwLalQcxthPfinQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Olm4mSIpu4FebWepzFV2T6KFHpND3n+3YfGovDjUUVU=; b=gdgKj4Tgkjxbg7pAGYM1j0/RpU
+	2Tw5khYnD46Kop+lyEfNpUwzJB1j+jFj1E8xArtr18J8cEwbvFzZkhTvZXQwc+cW7E3lYmmSPEN0a
+	R1PaW1cLtDQsqyjtNtCiTk9LlwML1HVunrUjGiikwoXxVsh3iJCgEIA9Ww4QOQ1zUdKP5mcM9mkgu
+	qKGBcX1C5w/kSkFXt9OJ4kbV3NVRP5ayD057JgywOD7BUHcHI+uSHxyL4YGOutEOLRgjG/M4mTPaY
+	68i+As8piYaqzzrWHvYVNwYdk0aLqGpV1EUOqmZMpRLpEnann3fVHXlK6sO9gZ40xAV09wePMEqw5
+	NjB56/Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdkF-0000000AC2I-45Ti;
-	Wed, 09 Jul 2025 22:58:33 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1uZdkT-0000000ACJL-40Wc;
+	Wed, 09 Jul 2025 22:58:46 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdKR-0000000A5st-0HoR
+	id 1uZdOO-0000000A6D2-2RFS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 22:31:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752100311; x=1783636311;
-  h=from:date:to:cc:message-id:in-reply-to:references:
-   subject:content-transfer-encoding:mime-version;
-  bh=MwP4yFqP3MMc4yQDdr79v1S+ZSZh3mt9lC+nM+rjzag=;
-  b=IL/Yg74wOKZjDKRRITYRGILIskPOSraHedD0pEGNiiZqjGLOqlNmYqjT
-   Vxr7NYWo8f/inNW7gqpYP2wLSaMjVRHBKBvCVnYfWlwwZYlQ0X2ijWs7t
-   TJsWjGZBNU35mmcymFNDLVBqjv4VsV08n3A01veWOyLzaVX7Onl0PnlyM
-   0DU6Vjh5YuyOSI6NsXqW/IJkHeAYj7iMgImuuZGVT9O4DJCh8/r+C+TI3
-   diuW7MydKfBNzU0qyOw7uL42UPA9DzeZMn7jH96QYeEmZbIL9LcMl7RuA
-   6l0Xv2ygWJzCgvX2C/GjLBPS6NJeSHfbNHQn5JiaTXvIPWlpYHsQwrsUi
-   g==;
-X-CSE-ConnectionGUID: O+tlF8TgTfO4e3nn3O7wSQ==
-X-CSE-MsgGUID: T9yv/bO0RFShr7Yqixb0GA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11489"; a="64630330"
-X-IronPort-AV: E=Sophos;i="6.16,299,1744095600"; 
-   d="scan'208";a="64630330"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 15:31:48 -0700
-X-CSE-ConnectionGUID: c5bL/E1WTVKJbtJ2RPGDPg==
-X-CSE-MsgGUID: RO8tzH1jQ2OoReYHr+WlSg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,299,1744095600"; 
-   d="scan'208";a="161553367"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 15:31:48 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 9 Jul 2025 15:31:47 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25 via Frontend Transport; Wed, 9 Jul 2025 15:31:47 -0700
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (40.107.94.64) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 9 Jul 2025 15:31:46 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H10RMsOcK3QoGIb+SdOK/l0Kh71MzIqKXIoJpd7KESjIBdvZdRIptL9Bz2Uk3jPJ8drvVDEKEm1qPk/QvEwFijc9iHAok91UcUqsAXSmvmjpkBWdYUV/QTWaET7eCD/fcK8xy0Y1f5m7JADSDCZvcM9WTocTfBWXufyiglwVzNPColhE6E5Ctcu4936LC+ytRS7+SEzEgzXr9C4KyJggEMegq7ee1fhgmUFaF7D1Y52/tgSu03bRsn+neIwyjYAAptUPtYiRG5Gm3k6VtTyQq6Dn+BiTqNs8m1KT4DqSW/TnLwljop1s2cOVOAdifGuCSYF1UDJJLdCt9d1LdzJhxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jw8U+PMeBonFC5U2SguSj+ZTWcYHt3PqPtEe3/g76Zk=;
- b=g+Mrnf7i1ORwro5ZMlQY6XS7QFZxJs4ixc7JO2qSo+Km8yJZewFGpRSergwWxaSllfQKZfZLMvuaVCEvkjh7E/wnLd5a8eWF5T/pQyuxFu1v5yr9e9jnMmzkD3RiyUi64xPe9CHe0Ay0ywTz1iDR8wfg7n8khlsljBwQwoyEiEPmwXinvv8OwISKBnUS9eLp2EhXczghikaXgl0I04hWpwa3nKfK35RgL/z9NVCEaOzvtdQYiCjW+Ff9Zg//82z7bXKkgjfjhJmQwLXOpmwQ0ceo/EKhUUVtjDQtvjeZ52C57UQItXZwtZ3I16d3AKBAzdEFW0IZz8HI4C4Q+bXEWg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by PH8PR11MB8258.namprd11.prod.outlook.com (2603:10b6:510:1c1::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.28; Wed, 9 Jul
- 2025 22:31:16 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%6]) with mapi id 15.20.8901.024; Wed, 9 Jul 2025
- 22:31:16 +0000
-From: <dan.j.williams@intel.com>
-Date: Wed, 9 Jul 2025 15:31:14 -0700
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, <james.morse@arm.com>,
-	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, <gregkh@linuxfoundation.org>, Will Deacon
-	<will@kernel.org>, Dan Williams <dan.j.williams@intel.com>, Davidlohr Bueso
-	<dave@stgolabs.net>
-CC: Yicong Yang <yangyicong@huawei.com>, <linuxarm@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Mark
- Rutland" <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, H Peter Anvin
-	<hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra
-	<peterz@infradead.org>
-Message-ID: <686eedb25ed02_24471002e@dwillia2-xfh.jf.intel.com.notmuch>
-In-Reply-To: <20250624154805.66985-2-Jonathan.Cameron@huawei.com>
-References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
- <20250624154805.66985-2-Jonathan.Cameron@huawei.com>
-Subject: Re: [PATCH v2 1/8] memregion: Support fine grained invalidate by
- cpu_cache_invalidate_memregion()
+	Wed, 09 Jul 2025 22:35:57 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 569MZoE0952190;
+	Wed, 9 Jul 2025 17:35:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752100551;
+	bh=Olm4mSIpu4FebWepzFV2T6KFHpND3n+3YfGovDjUUVU=;
+	h=From:Date:Subject:References:In-Reply-To:To:CC;
+	b=o5arJryFbenrTNRAWTVSCVj9Iq3z2lIj+HnKqbtxqHK8KTZ7gLTpE+/YWQJ2JAXgH
+	 ovqW8SCaQBApuldfAVgcEfqgFtdPPT/oKNGG8BjCxCTx0FAmVbj5fXAro6+4MEFiCZ
+	 RCYTvBSQisjFrTrcZnU0sge9tRlP8L2WMfNntSaE=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 569MZo623753491
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 9 Jul 2025 17:35:50 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 9
+ Jul 2025 17:35:50 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 9 Jul 2025 17:35:50 -0500
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 569MZotI520530;
+	Wed, 9 Jul 2025 17:35:50 -0500
+From: Bryan Brattlof <bb@ti.com>
+Date: Wed, 9 Jul 2025 17:35:44 -0500
+Subject: [PATCH 2/2] arm64: dts: ti: k3-am654-base-board: add boot phase
+ tags
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BYAPR05CA0074.namprd05.prod.outlook.com
- (2603:10b6:a03:e0::15) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|PH8PR11MB8258:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4b513506-7807-4c14-f451-08ddbf385196
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dTFjN1lWNERPK053aGx2YVZKb1RSMlA4T1l2bUNWZkVadWtpZHJoSXVDR292?=
- =?utf-8?B?cHQrT1ljbEpudjg1TTRocTA4TE1QNXVTMjNJZ2JXcjJ1Tk5ERGlXYkpNVHcy?=
- =?utf-8?B?LysxeHFKdk9oNEJqMTdBZEdLTU5hSTNWeGkwQXl2YzJvTm4wTnd1UHkyQWMw?=
- =?utf-8?B?UENDdUdjRVJHT0V0b0VjUlZxL1lQRVFwdTBjNzFJOXJjOEJpVHJqa2lTWlZR?=
- =?utf-8?B?eFZTOE5aY2dBejI5YzRrd2tTbVFXMTNwRTA2bVNkWkw0U3R3aFNJNndjL0FL?=
- =?utf-8?B?UHMwdSt6WFBuTWNIZ0hPZUdNYU4vVlFmK1V4MkUybkVCWDFqWU82azRyVjRC?=
- =?utf-8?B?U2ErL2gySXc3WStiNVJGWXI1UEYzTFR4b0F4c2VobFBFNUE2L2krVHZqWExs?=
- =?utf-8?B?LzM0WVdnVkJFNDNiaGN0elpEQStBbmh0L1lYdTlObUkycHZzTE1DZ29zeTJ6?=
- =?utf-8?B?QW5xamZlOXB1ajVBZUJxNklHM2pEK2VPOEd2cUg4WHpNMm1qOTZjMXlVd3lT?=
- =?utf-8?B?S3QxWnI1aEw2c043ZUQ5SGcrTCthcVVEbFI3NTFEZWQzUFpiQm1Lc1FrU3dD?=
- =?utf-8?B?ckcyYURnRXA0cmRrcjFzMGNjcjhKRi9OS2FFVmhCSlRTTUtQSmswQVJseE1a?=
- =?utf-8?B?OVhDMEpLaSs0MEVQQVE5dlpFTzRFNzBCbkszUkpDaTRTWitPeWtock5MNXlW?=
- =?utf-8?B?K0xDdTNYVTJSc2U5YlFQcElMV3RkRE54Z0VmanMvZHBoR2hhbW1hVytEVE1u?=
- =?utf-8?B?VVVjbWxTbUZKbm9NS1lWeVp5cC9nYXJRVlJGbzBKTkNjVFFSbEdFQ1BNbjZI?=
- =?utf-8?B?Q2tSV2RyRVNFcHNHdmhlK25CYmxPZVM3Z3NRWkdwOUt5L1RlN1R0blZSRmhS?=
- =?utf-8?B?d2xxNGlqN0VPOUxDcW5WTE0rc1pQaDJDVmJTOGpZRmZTblljZ1lpZVVFQjBY?=
- =?utf-8?B?ZWUxQTg5SHVSbkpuMmRnYll1bk5SZnU2V3FwMzFoME1TQ3k5UTR5bmZRVElV?=
- =?utf-8?B?ZG9raXVZTVhUWVdEN2c3WjZVVVBPZDZTV0ZwanF4SHBsOUF0UkR0UFdEcXFE?=
- =?utf-8?B?YzB3S3psVGJKRUZsVGRzOWxJeGh0WDVFcU83ejg3VTZZcDhuc282RHFMck9G?=
- =?utf-8?B?bzhRR081bSt3Wmt1T1N2MlByRTcrYlY4M3dKRkVWU2J4aE9tTjRoa1g4MVY4?=
- =?utf-8?B?YjZnN0I5VHpTMnF6c3dqQS9NSDZRWTdIdVMrekNYSEVqZ2tyS0RJOXRoQlFJ?=
- =?utf-8?B?SXo2bFVRT3V5dlBONTcvUWpKRGFlbXpvTzQ4emY1ZURwVHFXZnRjd0tYNngz?=
- =?utf-8?B?a3dMUU9DUWxvT0hoelFLckFvM0NpQldpSjRCSnMxS3I0TzY4QjgvbnphNVhH?=
- =?utf-8?B?YUk3UEl5RSt5Qy9RVUhDWmdhWXlnbFg1TG1INlljeUxqNWhUcmEyeUtLVnUx?=
- =?utf-8?B?V0cwbUdtbStNWnpDMm5jTHRGQzBvbHVPVGJXZ1ljKzlYSWlCZmlEZ0lPbnNT?=
- =?utf-8?B?L21UUHpINWk0MTNSSEt4VnFlenRPSlcrcnJnY3hHWFBCWGxyd3ljazA2TVdD?=
- =?utf-8?B?NTZsSW5SdTFLdEdGYXhiWERTZVdDRkNGSDRWOFViSnZuU1NrelljbTc0NUxC?=
- =?utf-8?B?OGcvVjhVZEd0aWI5T3FaYitzY0RvYUtwTDNaZ2wzVjRHVWo1U2Noa0xNNlJT?=
- =?utf-8?B?ZkhwRGc5YW1YMkFGTUwvc1Q3ZlJzZVF3ZUtJZTZyTnpFbFZ0VE9meUNxWkY5?=
- =?utf-8?B?aG5oZ0UrK0NIL3d6NW5JbXlFVm90UXpoUmlpSjEyUW03cnhUVlVqVW9MK3NK?=
- =?utf-8?B?UnFOYWhUTFZsV0RxaG1uQzJnNlhnNHhNUDhyT1VqWEdOVWE3aGlrSmFhbjRt?=
- =?utf-8?B?Tm9QeUVHRS9pektGZjhTcFZ3T3ZRendUaUVZV0hXNEYwUnlnNW1CaDRobnE1?=
- =?utf-8?B?WWttV1VvYlpORXg3aVdnQWxTY01JS3VGSzBYaHRFTTZTWnNhZ3pkYVpXVFZB?=
- =?utf-8?B?bnEyb2o4TUV3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V0FVWXpWa1VQTTZwVkpoUTZuR1NkYlQ5TmZ0UzVna0xjR1d4UlVIVWZyZ2tZ?=
- =?utf-8?B?bmFNTzZvY084OTEwY3dRbFJtdThPcE1GdlFTNDJ1R2ZmTVRPWTJwelEwYm5h?=
- =?utf-8?B?SGo0Z1NOeUhpWS9YbG94SXM5dW5zMWE0MitoejJ5QzhKSURtcjZPc0dxZ05s?=
- =?utf-8?B?cnBRMXhtN3l2RTJSd0tQUmpBWGhFZzZreTNPUkpHWjg3UDZNaHh4UERoUkE5?=
- =?utf-8?B?dDR5Q0hCbWIyV2cwM0htNDdqNzR1Vk5HM3lZdzVLaUpLbW9vMHBsTkJZbVlD?=
- =?utf-8?B?WG1OL0ZyU0xQUUgxUzlWamMxekY2QW5BVzVCc3ZQUXFGNGlmbU55TDVic1JR?=
- =?utf-8?B?YVVscXRjd1lTdVhqSnZENjRaKzRFOXJHU1FXUFowZ25Uc0hvVThWcnI0WlA3?=
- =?utf-8?B?TW1XdkNTYVhpcFd0TjljVjIrVTQ2ZTZibnZCZ1FJcjF0c2pXcXNjZEZMczdR?=
- =?utf-8?B?b1B0bGNTc1ZEcHc4WHZwYzNxcDczRmpiT0N4cEg4ckhBUjU4Umo0Zm11ZlUy?=
- =?utf-8?B?NjAyNHJ2MDdtSktTSEI1Z2JBYVJNVDBhUjB1YWhiWjAzVEUwN0hPTDhoL1Fn?=
- =?utf-8?B?c05OcnhSNTFWek1aM05xSjd4ajZCaFo5UUlRQ3piS29LbUVyL0lHN1AwOHA4?=
- =?utf-8?B?cWMxR3hqeWVpelEydG5SOE9WS0xvQ0JUY3c1S2lXUEtXRDROdUpUVTg3TnVt?=
- =?utf-8?B?WTBwV2x1MkIrQmVlUHlFK2V6SlZ1aVN4eUZLZlpMTU1zQ29yY1F2eWJOOXRU?=
- =?utf-8?B?TklqSGV4ZFhIQnV0eFBvVkEvVjBleG5RbTdRN3hsTVNEZm5oY1UyVXhTbDQx?=
- =?utf-8?B?WGxIdkIwZFNuKy9UYW1VTlUyZmpGS1BpRVlFanIxNXV3ckkzTjNlTGJ2NjFq?=
- =?utf-8?B?UTFLWXJ3T2RnemhiOFBhWkd4ZkgwNmZYeEtnT0lXaERPOEJpdWtjdm1wRXdp?=
- =?utf-8?B?SkNyUGRBMmVIcktSTmh3S1JkbkRWSWEyVVFHb0hkMnJhSnVreU1DdC9mZW9h?=
- =?utf-8?B?cmo1MGxZUUV3clQ4aFR0Q1o3MmZHZloxWmg5MmNRd1A4SDNsNUlsaVQ0b0ZK?=
- =?utf-8?B?dHdnL0hCaE5FYzlkcytSUTBsSjVGd25Ya3NkbjZ6UE1palJoQVhIVm5Ub0ZJ?=
- =?utf-8?B?cFNrYVNsZlAyYmFoUTRXbjJ0eVllSXFhL3lTREdnL1BQV3VIOFVGNzF5d3Bv?=
- =?utf-8?B?UDVHS3FMZEgwQ1FiV0JWeG9vUEM1Y25CcGlYRE1GVjltcC9Ebnl2Z0hleGVW?=
- =?utf-8?B?aFZueUNYbEMvcEV5aWdELzZyNm9LM3hPb1RRRitIaU0wNUgwKzU3QmE5dDkx?=
- =?utf-8?B?LzdDeDZCcmRIU0wwRG9MUURFNFg3LzBhVHB3WjU0dEhoUEJOendLVG5JcGhn?=
- =?utf-8?B?TWJNUmdlTlBhNXZCMld3ck1sTXZTM25RVHdyRW1abDdiamord0ZWOC94eXRk?=
- =?utf-8?B?VEx5cndYMGUvOWZhTEU4ZDF0RGcrbzNrUWdGVjdpNVcwdHc1NzVzc1VMR2J6?=
- =?utf-8?B?Ynk0UWVVc3RWOE9KeU54MmxWWmd5N1RibmpPNzJWWUloUkhjaGlWaGlQdzJV?=
- =?utf-8?B?QzY5a3FoT1YrcEZNdDdvN3JybjZCSGRDdUdGYjd4TENabFFhWUVqaVBUcE9P?=
- =?utf-8?B?WlhKcDR1MGZUMDBzT2p3ZmdOTnRqNjlMOGtYdlEvc0doeFlGQmw0SE1oclo1?=
- =?utf-8?B?cjlIaXFXa0ZpeUlhZ21lV0N0a3duVEhiOU5MNExrNHJEbThRdHhGeGN1YjZO?=
- =?utf-8?B?VkRSTGdVbys1VHp2MzF2NldoNnczQVgwU3Z2Ym5MelhMUHcyaXRDWkF0dkth?=
- =?utf-8?B?NE1GODhaS082V3RlU3BmVGFUaEFaaW1ZSWhyUzVzejlReXkzVzlxV3MyQUFZ?=
- =?utf-8?B?dEZhZW5yY3ZzamYvdXVOamVSM2o2alZHWC9reVlKZHBDK3BwcEp5V0kwcnRT?=
- =?utf-8?B?bm5aejFRaVNBQjhQMFNlOVkrSnA4V1BFSGU3K1JVdWllTXgrWW1ZK0pNVlZn?=
- =?utf-8?B?NEx2NDhiN2tTWlJaYWlMODNxYndOQy9kYzJIZXpscHZ0cHRLNUI1SVYyWlYw?=
- =?utf-8?B?Q014QkMyY1kvd1VDRHRCdzBjODl4TzBRREt5UlRxSTQvbDRrVFh0OGFmT1pC?=
- =?utf-8?B?WGxlR21Zb0JqbkNIVTFSejUrNStpdVVJYXNWQTRaL3UzQlJOZzVtb2VSdEgx?=
- =?utf-8?B?S2c9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b513506-7807-4c14-f451-08ddbf385196
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2025 22:31:16.6526
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RviVRfrd6YYlmsoQhNA808NDKHGpPi82ZCzvCLJRm2A+D9L2Fqw+uTmBAgmlMuceCpIlTyg36evH9hJ2fwphQrUnPRCx1O4W057RFUHC74Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB8258
-X-OriginatorOrg: intel.com
+Message-ID: <20250709-65-boot-phases-v1-2-e1f89d97a931@ti.com>
+References: <20250709-65-boot-phases-v1-0-e1f89d97a931@ti.com>
+In-Reply-To: <20250709-65-boot-phases-v1-0-e1f89d97a931@ti.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Bryan Brattlof <bb@ti.com>
+X-Mailer: b4 0.14.2
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_153151_521003_22E51398 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20250709_153556_711523_E6BF541A 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -222,60 +89,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jonathan Cameron wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
-> 
-> Extend cpu_cache_invalidate_memregion() to support invalidate certain
-> range of memory. Control of types of invlidation is left for when
+The 'bootph-all' tag was added to the dt-schema to describe the various
+nodes used during the different phases of bootup with DT. Add the
+bootph-all tag to all nodes that are used in the bootloader for the
+AM654 reference board.
 
-s/invlidation/invalidation/
+UARTs used as a console, the SD and eMMC nodes along with the needed
+regulators for UHS modes, and the needed nodes for OSPI boot are all
+marked with 'bootph-all' to handle the various boot modes the board is
+capable of
 
-> usecases turn up. For now everything is Clean and Invalidate.
-> 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> Signed-off-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> ---
->  arch/x86/mm/pat/set_memory.c | 2 +-
->  drivers/cxl/core/region.c    | 6 +++++-
->  drivers/nvdimm/region.c      | 3 ++-
->  drivers/nvdimm/region_devs.c | 3 ++-
->  include/linux/memregion.h    | 8 ++++++--
->  5 files changed, 16 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> index 46edc11726b7..8b39aad22458 100644
-> --- a/arch/x86/mm/pat/set_memory.c
-> +++ b/arch/x86/mm/pat/set_memory.c
-> @@ -368,7 +368,7 @@ bool cpu_cache_has_invalidate_memregion(void)
->  }
->  EXPORT_SYMBOL_NS_GPL(cpu_cache_has_invalidate_memregion, "DEVMEM");
->  
-> -int cpu_cache_invalidate_memregion(int res_desc)
-> +int cpu_cache_invalidate_memregion(int res_desc, phys_addr_t start, size_t len)
->  {
->  	if (WARN_ON_ONCE(!cpu_cache_has_invalidate_memregion()))
->  		return -ENXIO;
-> diff --git a/drivers/cxl/core/region.c b/drivers/cxl/core/region.c
-> index 6e5e1460068d..6e6e8ace0897 100644
-> --- a/drivers/cxl/core/region.c
-> +++ b/drivers/cxl/core/region.c
-> @@ -237,7 +237,11 @@ static int cxl_region_invalidate_memregion(struct cxl_region *cxlr)
->  		return -ENXIO;
->  	}
->  
-> -	cpu_cache_invalidate_memregion(IORES_DESC_CXL);
-> +	if (!cxlr->params.res)
-> +		return -ENXIO;
-> +	cpu_cache_invalidate_memregion(IORES_DESC_CXL,
-> +				       cxlr->params.res->start,
-> +				       resource_size(cxlr->params.res));
+Signed-off-by: Bryan Brattlof <bb@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-am654-base-board.dts | 17 +++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am654-pcie-usb2.dtso |  1 +
+ arch/arm64/boot/dts/ti/k3-am654-pcie-usb3.dtso |  1 +
+ 3 files changed, 19 insertions(+)
 
-So lets abandon the never used @res_desc argument. It was originally
-there for documentation and the idea that with HDM-DB CXL invalidation
-could be triggered from the device. However, that never came to pass,
-and the continued existence of the option is confusing especially if
-the range may not be a strict subset of the res_desc.
+diff --git a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+index c30425960398ebb75ebda44726ed90cd78947d58..e589690c7c8213d5e4989942735fa53825e610f5 100644
+--- a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+@@ -144,6 +144,7 @@ vtt_supply: regulator-3 {
+ 		regulator-boot-on;
+ 		vin-supply = <&vcc3v3_io>;
+ 		gpio = <&wkup_gpio0 28 GPIO_ACTIVE_HIGH>;
++		bootph-all;
+ 	};
+ };
+ 
+@@ -155,12 +156,14 @@ AM65X_WKUP_IOPAD(0x00a4, PIN_OUTPUT, 0)	/* (AB5) WKUP_UART0_TXD */
+ 			AM65X_WKUP_IOPAD(0x00c8, PIN_INPUT, 1)	/* (AC2) WKUP_GPIO0_6.WKUP_UART0_CTSn */
+ 			AM65X_WKUP_IOPAD(0x00cc, PIN_OUTPUT, 1)	/* (AC1) WKUP_GPIO0_7.WKUP_UART0_RTSn */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	ddr_vtt_pins_default: ddr-vtt-default-pins {
+ 		pinctrl-single,pins = <
+ 			AM65X_WKUP_IOPAD(0x0040, PIN_OUTPUT_PULLUP, 7)	/* WKUP_GPIO0_28 */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	wkup_i2c0_pins_default: wkup-i2c0-default-pins {
+@@ -168,6 +171,7 @@ wkup_i2c0_pins_default: wkup-i2c0-default-pins {
+ 			AM65X_WKUP_IOPAD(0x00e0, PIN_INPUT, 0) /* (AC7) WKUP_I2C0_SCL */
+ 			AM65X_WKUP_IOPAD(0x00e4, PIN_INPUT, 0) /* (AD6) WKUP_I2C0_SDA */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	push_button_pins_default: push-button-default-pins {
+@@ -191,6 +195,7 @@ AM65X_WKUP_IOPAD(0x0024, PIN_INPUT, 0)  /* (R2) MCU_OSPI0_D6 */
+ 			AM65X_WKUP_IOPAD(0x0028, PIN_INPUT, 0)  /* (R3) MCU_OSPI0_D7 */
+ 			AM65X_WKUP_IOPAD(0x002c, PIN_OUTPUT, 0) /* (R4) MCU_OSPI0_CSn0 */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	wkup_pca554_default: wkup-pca554-default-pins {
+@@ -206,6 +211,7 @@ AM65X_WKUP_IOPAD(0x0048, PIN_OUTPUT, 4)	/* (P5) MCU_OSPI1_D2.MCU_UART0_TXD */
+ 			AM65X_WKUP_IOPAD(0x004C, PIN_INPUT, 4)	/* (P1) MCU_OSPI1_D3.MCU_UART0_CTSn */
+ 			AM65X_WKUP_IOPAD(0x0054, PIN_OUTPUT, 4)	/* (N3) MCU_OSPI1_CSn1.MCU_UART0_RTSn */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	mcu_cpsw_pins_default: mcu-cpsw-default-pins {
+@@ -248,6 +254,7 @@ AM65X_IOPAD(0x01e8, PIN_OUTPUT, 0)	/* (AE11) UART0_TXD */
+ 			AM65X_IOPAD(0x01ec, PIN_INPUT, 0)	/* (AG11) UART0_CTSn */
+ 			AM65X_IOPAD(0x01f0, PIN_OUTPUT, 0)	/* (AD11) UART0_RTSn */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	main_i2c2_pins_default: main-i2c2-default-pins {
+@@ -281,6 +288,7 @@ AM65X_IOPAD(0x0188, PIN_INPUT_PULLUP, 0) /* (D25) MMC0_DAT7 */
+ 			AM65X_IOPAD(0x01b4, PIN_INPUT_PULLUP, 0) /* (A23) MMC0_SDCD */
+ 			AM65X_IOPAD(0x01b0, PIN_INPUT, 0) /* (C25) MMC0_DS */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	main_mmc1_pins_default: main-mmc1-default-pins {
+@@ -294,6 +302,7 @@ AM65X_IOPAD(0x02c4, PIN_INPUT_PULLUP, 0) /* (D27) MMC1_DAT3 */
+ 			AM65X_IOPAD(0x02dc, PIN_INPUT_PULLUP, 0) /* (B24) MMC1_SDCD */
+ 			AM65X_IOPAD(0x02e0, PIN_INPUT, 0) /* (C24) MMC1_SDWP */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	usb1_pins_default: usb1-default-pins {
+@@ -343,6 +352,7 @@ &main_uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&main_uart0_pins_default>;
+ 	power-domains = <&k3_pds 146 TI_SCI_PD_SHARED>;
++	bootph-all;
+ };
+ 
+ &wkup_i2c0 {
+@@ -368,6 +378,7 @@ vdd_mpu: regulator@60 {
+ 		ti,vsel0-state-high;
+ 		ti,vsel1-state-high;
+ 		ti,enable-vout-discharge;
++		bootph-all;
+ 	};
+ 
+ 	gpio@38 {
+@@ -456,6 +467,7 @@ &sdhci0 {
+ 	bus-width = <8>;
+ 	non-removable;
+ 	ti,driver-strength-ohm = <50>;
++	bootph-all;
+ };
+ 
+ /*
+@@ -470,6 +482,7 @@ &sdhci1 {
+ 	pinctrl-0 = <&main_mmc1_pins_default>;
+ 	ti,driver-strength-ohm = <50>;
+ 	disable-wp;
++	bootph-all;
+ };
+ 
+ &usb1 {
+@@ -630,3 +643,7 @@ &cpsw_port1 {
+ &dss {
+ 	status = "disabled";
+ };
++
++&wkup_gpio0 {
++	bootph-all;
++};
+diff --git a/arch/arm64/boot/dts/ti/k3-am654-pcie-usb2.dtso b/arch/arm64/boot/dts/ti/k3-am654-pcie-usb2.dtso
+index c3cb752f8cd79459d6d321dfdf0644748514a48d..d04dd7a44008205301ea3fb3d0a883b6a6a2562b 100644
+--- a/arch/arm64/boot/dts/ti/k3-am654-pcie-usb2.dtso
++++ b/arch/arm64/boot/dts/ti/k3-am654-pcie-usb2.dtso
+@@ -46,6 +46,7 @@ AM65X_IOPAD(0x02bc, PIN_OUTPUT, 0) /* (AD9) USB0_DRVVBUS */
+ 
+ &dwc3_0 {
+ 	status = "okay";
++	bootph-all;
+ };
+ 
+ &usb0_phy {
+diff --git a/arch/arm64/boot/dts/ti/k3-am654-pcie-usb3.dtso b/arch/arm64/boot/dts/ti/k3-am654-pcie-usb3.dtso
+index 333e423e8bb6b033f5f45c782ef0095d29983158..04393f21d712ebd95ce1a411e2ac13a56e63e57b 100644
+--- a/arch/arm64/boot/dts/ti/k3-am654-pcie-usb3.dtso
++++ b/arch/arm64/boot/dts/ti/k3-am654-pcie-usb3.dtso
+@@ -45,6 +45,7 @@ &dwc3_0 {
+ 	<&k3_clks 151 8>;      /* set PIPE3_TXB_CLK to WIZ8B2M4VSB */
+ 	phys = <&serdes0 PHY_TYPE_USB3 0>;
+ 	phy-names = "usb3-phy";
++	bootph-all;
+ };
+ 
+ &usb0 {
 
-Alternatively, keep the @res_desc parameter and have the backend lookup
-the ranges to flush from the descriptor, but I like that option less.
+-- 
+2.49.0
+
 
