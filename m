@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D5BC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 09:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA0BC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 09:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dZM2SJLeuc6k6xdaVTyBmp1Vz7vWBJGTdyTGtnxj4yI=; b=ecVlGRoXSQLotuJq+BrBDKIoO+
-	rGNajkw9Mt5jWCywQvBn5ifUZHoog7CX4nf2Qwl6b/4+G4NITXpy+gmg3Qsp0czDoDfBy+KnUrxM2
-	msTXga4zFimw9zLMrOZfpJC3F960gjPCnlSxry6xL60xpMiWUXIdlmANrqDgXUcKYnGIwtKZ/AWqw
-	7n9HBW2OCjjfcIj5rIrwqqdyCLyhk/yoAC1BIF098QOwnr0CoYM26rN2jSTUaHPyKu8WC1rEuwnWD
-	P4JudSSX3UPOrBuym1X/3BAHlMfr8xPe2BP0aLq849aBEPUCHOknPx048nOa4oIO7nFIs2tAj7/+p
-	bFWzejTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ciZo3Rb0oHyr7k3Catpk4nU+ODKWlZkt8ewyJGvtWtc=; b=mio4aa/eu1MsfE
+	5oVvUNxAKVmBgcfUNtyhqmKQPzj8N3AONFsHUaWSqpJzMvJj1CBH0n/MaJTlW7/xwDm7dBAi783eK
+	1K/0gy/sfcRRUoy8QzLQdUe1EBvhkiGcjYrXUJFdI/rXxzTHiOeqsJslwdTwxoovJTpy4ZY1yi2Yq
+	UpA7JKGx7lvb40/RpSWtBLRi9CWxnwCT0vhUQ+qApsuHakzpKTa1ree4ErhRvbHZIwTfyC3WAOpcA
+	ffvDnn3ddxk4J6qV6mSh+cK9lpjMUBA7z3hBSGYfAtUdwCeTI42O1PyVDFPzQNLcXDimHbYZKBKvs
+	R1nhIxPvq883w7a1mCjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZRPL-00000008BIv-37sU;
-	Wed, 09 Jul 2025 09:48:08 +0000
-Received: from mail-m155106.qiye.163.com ([101.71.155.106])
+	id 1uZRRe-00000008BTC-3CS0;
+	Wed, 09 Jul 2025 09:50:31 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZOpG-00000007kev-1wby;
-	Wed, 09 Jul 2025 07:02:48 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1b69b7a3d;
-	Wed, 9 Jul 2025 15:02:38 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	jingoohan1@gmail.com,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	l.stach@pengutronix.de,
-	dianders@chromium.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v2 09/12] drm/rockchip: analogix_dp: Apply analogix_dp_find_panel_or_bridge()
-Date: Wed,  9 Jul 2025 15:01:36 +0800
-Message-Id: <20250709070139.3130635-10-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250709070139.3130635-1-damon.ding@rock-chips.com>
-References: <20250709070139.3130635-1-damon.ding@rock-chips.com>
+	id 1uZPRd-00000007qKu-0zuM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Jul 2025 07:42:22 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 9D036A0AD0;
+	Wed,  9 Jul 2025 09:42:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=ciZo3Rb0oHyr7k3Catpk4nU+ODKWlZkt8ewyJGvtWtc=; b=
+	nLbkwTcbD1dBeWZQSCAsQLrXaW/WfQ22k085LHblLIv9OlgH9S4zCKaTVGpM98pm
+	HVjE+bW9gi1SYFUn8hl0gfV+WDHXnIGQW/Tk2cN8IZmc9MtNATST0hjxxSG4NKc6
+	3nQfMTJSGQWieF14yiyBGtXAUH5KsCgK59YA+pf6fHaZRCkxAAVsmcwjUGtKzmOq
+	7Jorqna+whWh0rOpQErvwakX3p0CSLcBLdHdIstxDYZDpZu6m93REEEkfPHWtvDQ
+	7T8OnoNBBNR0Tx7pZ1uZc/LcsZ//tT6vvTtmHgBU5ix1wNhyg2XeBcv4KdKsE0Ki
+	sjOLFyLLoUuQBGXDb2Giv1RZgNLa8FswqVyRVWg9Rs0nR7UDRZ2UUjfZrG+seYjs
+	yCdSlcxeF6L6qNTxHWq6Ve8+Tx7ndLCZJKjTIR/E698Qxx+/zIHON0DXS08diruh
+	uVKH6LATakEYoogBtsCk9+kIRWFnOY5IbB0spaQAXKJoJrHfmEy5sZKMJAOBh9HC
+	0gn0GBmxTpcLRtV6zlsmKC6e9YaTJkRdepjolBVnGtK3Xdd2zq1mE3HjUDy1tlxs
+	WncmWVbOxGsL0RplFRbV0TpfKnYD3ZcnzvkGMQjh2u6YH98mkWzuG9hYD2dTjCIt
+	KA6i1IdwMPr/gcrGVrbT0G9FLmMWWJ3/58F70sm1/6c=
+From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+Subject: [PATCH v3 0/2] Replace verbatim license text with a
+ `SPDX-License-Identifier`.
+Date: Wed, 9 Jul 2025 09:42:00 +0200
+Message-ID: <20250709-sr-som-dts-lic-v3-0-51fcbd61aef1@prolan.hu>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU9CT1ZJSUkZSU5JSUkaQhlWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpMTE
-	lVSktLVUpCS0tZBg++
-X-HM-Tid: 0a97edfe57d803a3kunm3a7bcd50c83b57
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PDo6Kww4STE#DS8RIxAUIio8
-	LEgwCx5VSlVKTE5JS09PTk1LT0hOVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPT0pCNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=N9gWYFUJGUD4F4i2hzCLUEgLES3TI3byPfs0qM0cVg4BKXG0LuTecGitOy/UuxGPdgxUoX0IGcTu7kryJ2m1kWWoajFrY8zcsI+L5Ix7VcRfE6k9OmvJ9SY4cg7aiFFL8P6KpZXbapDzWWA7CLtzlBpR6UO3bXfUrjEd/hM1PgY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=dZM2SJLeuc6k6xdaVTyBmp1Vz7vWBJGTdyTGtnxj4yI=;
-	h=date:mime-version:subject:message-id:from;
+X-B4-Tracking: v=1; b=H4sIAEgdbmgC/3WNwQ6CMBAFf4X07JpShIIn/8N4aMtimwAlXSQaw
+ r/bciIxHid582ZlhMEhsWu2soCLI+fHCMUpY8aq8Yng2shMcFFyyQVQAPIDtDNB7wzovOqMrHh
+ ptGBRmgJ27r0f3h+RtSIEHdRobLoZFM0Y0tA6mn347OElT/O/jSWHHATWZX3BytSFvE3B92o82
+ xdLjUUc9eJHF1HnRVOaRktZtc1R37btCzFkmR4EAQAA
+To: Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>
+CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+X-Mailer: b4 0.13.0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1752046939;VERSION=7994;MC=3508746739;ID=98588;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2998FD515E657160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_000244_714908_DF643385 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20250709_004221_446272_3A920F48 
+X-CRM114-Status: UNSURE (   5.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,90 +88,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apply analogix_dp_find_panel_or_bridge() in order to move the
-panel/bridge parsing from Rockchip side to the Analogix side.
+Fix up Device Tree files by replacing the license text in comment blocks
+by a `SPDX-License-Identifier`.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
- .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 38 +------------------
- 1 file changed, 2 insertions(+), 36 deletions(-)
+Changes in v3:
+- Also patch imx6q-h100.dts
+- Link to v2: https://lore.kernel.org/r/20250703-sr-som-dts-lic-v2-1-0395c9b776d9@prolan.hu
 
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index 4ed6bf9e5377..f54ea99467b0 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -21,13 +21,11 @@
- #include <video/of_videomode.h>
- #include <video/videomode.h>
- 
--#include <drm/display/drm_dp_aux_bus.h>
- #include <drm/display/drm_dp_helper.h>
- #include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/bridge/analogix_dp.h>
- #include <drm/drm_of.h>
--#include <drm/drm_panel.h>
- #include <drm/drm_probe_helper.h>
- 
- #include "rockchip_drm_drv.h"
-@@ -431,24 +429,6 @@ static const struct component_ops rockchip_dp_component_ops = {
- 	.unbind = rockchip_dp_unbind,
- };
- 
--static int rockchip_dp_link_panel(struct drm_dp_aux *aux)
--{
--	struct analogix_dp_plat_data *plat_data = analogix_dp_aux_to_plat_data(aux);
--	struct rockchip_dp_device *dp = pdata_encoder_to_dp(plat_data);
--	int ret;
--
--	/*
--	 * If drm_of_find_panel_or_bridge() returns -ENODEV, there may be no valid panel
--	 * or bridge nodes. The driver should go on for the driver-free bridge or the DP
--	 * mode applications.
--	 */
--	ret = drm_of_find_panel_or_bridge(dp->dev->of_node, 1, 0, &plat_data->panel, NULL);
--	if (ret && ret != -ENODEV)
--		return ret;
--
--	return component_add(dp->dev, &rockchip_dp_component_ops);
--}
--
- static int rockchip_dp_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -488,6 +468,7 @@ static int rockchip_dp_probe(struct platform_device *pdev)
- 	dp->plat_data.power_on = rockchip_dp_poweron;
- 	dp->plat_data.power_off = rockchip_dp_powerdown;
- 	dp->plat_data.get_modes = rockchip_dp_get_modes;
-+	dp->plat_data.ops = &rockchip_dp_component_ops;
- 
- 	ret = rockchip_dp_of_probe(dp);
- 	if (ret < 0)
-@@ -499,22 +480,7 @@ static int rockchip_dp_probe(struct platform_device *pdev)
- 	if (IS_ERR(dp->adp))
- 		return PTR_ERR(dp->adp);
- 
--	ret = devm_of_dp_aux_populate_bus(analogix_dp_get_aux(dp->adp), rockchip_dp_link_panel);
--	if (ret) {
--		/*
--		 * If devm_of_dp_aux_populate_bus() returns -ENODEV, the done_probing() will not
--		 * be called because there are no EP devices. Then the rockchip_dp_link_panel()
--		 * will be called directly in order to support the other valid DT configurations.
--		 *
--		 * NOTE: The devm_of_dp_aux_populate_bus() is allowed to return -EPROBE_DEFER.
--		 */
--		if (ret != -ENODEV)
--			return dev_err_probe(dp->dev, ret, "failed to populate aux bus\n");
--
--		return rockchip_dp_link_panel(analogix_dp_get_aux(dp->adp));
--	}
--
--	return 0;
-+	return analogix_dp_find_panel_or_bridge(dp->adp);
- }
- 
- static void rockchip_dp_remove(struct platform_device *pdev)
+Changes in v2:
+- Fix message tags
+- Also patch solidsense files
+- Link to v1: https://lore.kernel.org/r/20250702-sr-som-dts-lic-v1-1-2e8584e6c837@prolan.hu
+
+---
+Bence Csókás (2):
+      ARM: dts: imx6-sr-som: Replace license text comment with SPDX identifier
+      ARM: dts: imx6q-h100: Replace license text comment with SPDX identifier
+
+ arch/arm/boot/dts/nxp/imx/imx6q-h100.dts           | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6q-solidsense.dts     | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-solidsense.dtsi  | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-brcm.dtsi | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-emmc.dtsi | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi   | 38 +---------------------
+ arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som.dtsi      | 38 +---------------------
+ 7 files changed, 7 insertions(+), 259 deletions(-)
+---
+base-commit: 66701750d5565c574af42bef0b789ce0203e3071
+change-id: 20250702-sr-som-dts-lic-b16fc7605cb2
+
+Best regards,
 -- 
-2.34.1
+Bence Csókás <csokas.bence@prolan.hu>
+
 
 
