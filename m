@@ -4,139 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9D1C83F1E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C0DC83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T7+gk4yndEAXxrNbTlbrYpYmnRnH6YglAKEGyZm6Jvk=; b=nws0n2LgOkH3jzRuukZ+d6YcfP
-	HZGudRpeEPT935ecA4tAey8ja/vLg0MEmHZNNAGLEA6WAHiQtVlGY6XGCa4hap9IosuiiYx2DaMQr
-	a3S8X6Bfi0Ar8KX5OEW8HMx+DP3dyUcmd7WyMnKpv/Vq3bx7Q1M8UmLQzNZBak8u6QPjzhDSFWxn2
-	LGUUobfeF7Lnlkh96XUFK/mhKj6m3FOq7mMsmWCO5CxS7LHPi8OYEPYtmmBt04HGLUgYzSGsPmQox
-	+rECuwpu8/PpMRYjg8DeTmNe3Vb6QnWEs/kzW13JzboxoHu2LLvbvVOilOrHgCKxo5sjnWHu8rvuY
-	fpoy8bQA==;
+	bh=JIrfiZ2BvOoCvUQBun7pn9xaoeAsHVtLpdKutL1I700=; b=ni8stJ2mhXyjzjpCZF5BwS13I8
+	QECLPa89b2EE1IOPptodQqvSuHFUGzz6H55TxR1PpiHp6nLpBgXbRELUEGe9x7uap+T7EXSQgVms8
+	4A907iIqXmh0rSUvsNMW7fF2ugNMh3e0VIgBDU1Rv4UwwOlsm58M/REkw5S6tFakqe5Ljvpbyc0t3
+	pAg1BZHaUqUlOKzfwFIkyFEq27ZnmRiGFfJdhR3rLspClC5psFIhLb27OUqJa/7HADaNhb7H8x9wV
+	w5jnZ+uuoZHEEmGyWJteE5ux7tnUwaTIu8j9msgZh+bWLv62KjKVZ3aKkELpu1pufq3t04zSblsBm
+	ynoChVhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdiC-0000000A7uu-39QT;
-	Wed, 09 Jul 2025 22:56:24 +0000
-Received: from dormouse.ash.relay.mailchannels.net ([23.83.222.50])
+	id 1uZdiB-0000000A7uD-2wwK;
+	Wed, 09 Jul 2025 22:56:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZar0-00000009k69-2cNx
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 19:53:19 +0000
-X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id E1BD5902FB6;
-	Wed,  9 Jul 2025 19:53:16 +0000 (UTC)
-Received: from pdx1-sub0-mail-a220.dreamhost.com (trex-green-6.trex.outbound.svc.cluster.local [100.111.53.65])
-	(Authenticated sender: dreamhost)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 2D743903243;
-	Wed,  9 Jul 2025 19:53:15 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1752090795; a=rsa-sha256;
-	cv=none;
-	b=0ZOBVuLcMnJG4nUtPqunO2ilkmQD8f6QmXJRaRw4oHqljM3hvIMnSWB8YJiBgbXEmRnmm3
-	9FHFvmYSzrylACfjluli6jZnuKHo7pt5uiVWWHJbPo4D9ZxeHPAqgEE05/Ga0JaiFenTi4
-	S6frqWHQ723eDPoVyDM8M5YEVH3BwbTkvfBvmN1b0H1lrK3MjT9dwe0BKJKBiwBlHbD07P
-	5lLaw34A29zdXuAYuhWcOuYuARMUWy51gVMuvwEMzC0+t3LEngCV1k/yXLCSEEY4g9V7I4
-	W9De6I8grFZFnq48XKZzatgU78yE9cDujSr6io8cpiT7hFvX1YLcaWi12yMeJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1752090795;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=T7+gk4yndEAXxrNbTlbrYpYmnRnH6YglAKEGyZm6Jvk=;
-	b=kNo7zS5ttuqZZC68w8PCWFd/otpMIgUDnCgvNzHQHfGXsf697u5vAXiGGa/agEViQDhEmy
-	/YWFofPSzqpvoMBV5etpeoD6qEuj7YKycLhDlhlOAr3NZiF3H1T0/gCI/qbEU04bnqRG+3
-	RlGfu1zAK6d88GXjqwXdKr1XSMcz129JUt8VcD8QtYGi57rP4UDG5P3JPGQi3O60IJ5Nva
-	zbPu3Dokog5yZLr+9ZuiabYQGs78Qb6b9arUXC4lmMyJyKuDf+4vZaX2SYJ47TUaeYlWZH
-	rOn+YV3RMsJLS+xb21ggOaf4K/HzVuqDjCH9Cs70lfcNBj1f6LR3JvFUOUeFBw==
-ARC-Authentication-Results: i=1;
-	rspamd-5c976dc8b-dj4rr;
-	auth=pass smtp.auth=dreamhost smtp.mailfrom=dave@stgolabs.net
-X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: dreamhost|x-authsender|dave@stgolabs.net
-X-MailChannels-Auth-Id: dreamhost
-X-Eyes-Callous: 2336bfa936ee4816_1752090795798_3380218129
-X-MC-Loop-Signature: 1752090795797:4037420958
-X-MC-Ingress-Time: 1752090795797
-Received: from pdx1-sub0-mail-a220.dreamhost.com (pop.dreamhost.com
- [64.90.62.162])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.111.53.65 (trex/7.1.3);
-	Wed, 09 Jul 2025 19:53:15 +0000
-Received: from offworld (syn-076-167-199-067.res.spectrum.com [76.167.199.67])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dave@stgolabs.net)
-	by pdx1-sub0-mail-a220.dreamhost.com (Postfix) with ESMTPSA id 4bcpYj4DQfz7F;
-	Wed,  9 Jul 2025 12:53:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=stgolabs.net;
-	s=dreamhost; t=1752090795;
-	bh=T7+gk4yndEAXxrNbTlbrYpYmnRnH6YglAKEGyZm6Jvk=;
-	h=Date:From:To:Cc:Subject:Content-Type;
-	b=MNAPTSqGqIUV9YlJMB4z55PsBA59V9i/q1iBdovNWtX3x01yj3XRlx+GvEjTbvzfk
-	 5GLEebuebBRx/675NKzuPV28KiJosUny0+rcXQeU57XGYYZdwoPbbE+HJfmB/+W1No
-	 /TFPyyAtIVjnTCt4A/hJh9MSRHeHNQtRKYZydYXcrOouHE/kuIpOoAPSWEXNJaSA5T
-	 kPLrEBn2l7Zbg8xkzmPMBkbUzkdY5+uxyHN/UzgRHAlpDGacLNTd/TsAbSkSaTOkaM
-	 OtQmt/8ATb2ksJmH4qNJk4ffjrJy0J5a+X2XAyPkfLFZmRVRy65ftxxj1HszhLJdn5
-	 W8oZdfHmKn8sA==
-Date: Wed, 9 Jul 2025 12:53:10 -0700
-From: Davidlohr Bueso <dave@stgolabs.net>
-To: "H. Peter Anvin" <hpa@zytor.com>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
-	linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-mm@kvack.org, gregkh@linuxfoundation.org,
-	Will Deacon <will@kernel.org>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
-	Yushan Wang <wangyushan12@huawei.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org, Andy Lutomirski <luto@kernel.org>,
-	Adam Manzanares <a.manzanares@samsung.com>
-Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
-Message-ID: <20250709195310.7ofioxl5vpqs6rib@offworld>
-Mail-Followup-To: "H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
-	linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-mm@kvack.org, gregkh@linuxfoundation.org,
-	Will Deacon <will@kernel.org>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
-	Yushan Wang <wangyushan12@huawei.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org, Andy Lutomirski <luto@kernel.org>,
-	Adam Manzanares <a.manzanares@samsung.com>
-References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
- <20250625085204.GC1613200@noisy.programming.kicks-ass.net>
- <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com>
+	id 1uZanK-00000009ju5-18SS;
+	Wed, 09 Jul 2025 19:49:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=JIrfiZ2BvOoCvUQBun7pn9xaoeAsHVtLpdKutL1I700=; b=CYaOezZ2zf79ThbGUEfeCg/ZYK
+	fyz1Q/S7whHftG34Ca7W6SmF0aaoMjP4uPegf8BVthOr/hy7RVIUy/m70HQJfxYWFv9XXIw/RkUAk
+	YEw4yM0kldmAjkumF7qsOoir9y8WqDkJedWcUApj+A6caFajlTWsJNr50zBoPGrI3WTvmdKvYFy4q
+	NLxnvmcC0eXCmz5ahWpQL1a9Rj+chKfU/DLRmhv4GNcdZrXHjHF6BSvfL5Gak9539f2BF69lpzTcK
+	gwupUSokTidAC8Gd+AaqFl+ZGoq6TazEJSPspX2fd/TBLsrIkstZtjbUL1Xa6lJir+qDMiI+B6TQV
+	NNpTO15Q==;
+Received: from i53875a79.versanet.de ([83.135.90.121] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uZan1-0006Vl-RU; Wed, 09 Jul 2025 21:49:11 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Diederik de Haas <didi.debian@cknow.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Add reset button to NanoPi R5S
+Date: Wed, 09 Jul 2025 21:49:11 +0200
+Message-ID: <11937120.2WqB4rESCP@diego>
+In-Reply-To: <DB7OENOUTHGM.2JPD73SZQ9P0P@cknow.org>
+References: <20250709105715.119771-1-didi.debian@cknow.org>
+ <ea6f2815-5882-4fab-8372-1c252a87e09a@kernel.org>
+ <DB7OENOUTHGM.2JPD73SZQ9P0P@cknow.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com>
-User-Agent: NeoMutt/20220429
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_125318_856138_BC43987A 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20250709_124930_308962_319A93FE 
+X-CRM114-Status: GOOD (  28.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,51 +73,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Jun 2025, H. Peter Anvin wrote:
+Am Mittwoch, 9. Juli 2025, 18:47:47 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Diederik de Haas:
+> On Wed Jul 9, 2025 at 4:18 PM CEST, Krzysztof Kozlowski wrote:
+> > On 09/07/2025 13:17, Diederik de Haas wrote:
+> >>>>  		compatible =3D "gpio-leds";
+> >>>>  		pinctrl-names =3D "default";
+> >>>> @@ -127,6 +140,12 @@ eth_phy0_reset_pin: eth-phy0-reset-pin {
+> >>>>  		};
+> >>>>  	};
+> >>>> =20
+> >>>> +	gpio-keys {
+> >>>> +		gpio4_a0_k1: gpio4-a0-k1 {
+> >>>
+> >>> Are you sure that this passes checks?
+> >>=20
+> >> If it's about the 'weird' name/label, it is what is used in the
+> >> schematic document I have and I asked Heiko (on IRC) if using
+> >> ``reset_button_pin: gpio4-a0-k1`` would not be better. That would make
+> >> it more descriptive while also having the schematic traceability in it.
+> >> The answer was no, use the form I used in this patch.
+> >>=20
+> >> Am I missing checks I should've done as well?
+> > I meant that usually nodes, including pin controller mux/config nodes,
+> > have specific prefixes or suffixes. Other cases have here as well. Your
+> > does not.
+>=20
+> I agree I've done it inconsistent with how I did the other pinctrl
+> nodes, so I should've added the '-pin' suffix. For consistency.
 
->On June 25, 2025 1:52:04 AM PDT, Peter Zijlstra <peterz@infradead.org> wrote:
->>On Tue, Jun 24, 2025 at 04:47:56PM +0100, Jonathan Cameron wrote:
->>
->>> On x86 there is the much loved WBINVD instruction that causes a write back
->>> and invalidate of all caches in the system. It is expensive but it is
->>
->>Expensive is not the only problem. It actively interferes with things
->>like Cache-Allocation-Technology (RDT-CAT for the intel folks). Doing
->>WBINVD utterly destroys the cache subsystem for everybody on the
->>machine.
->>
->>> necessary in a few corner cases.
->>
->>Don't we have things like CLFLUSH/CLFLUSHOPT/CLWB exactly so that we can
->>avoid doing dumb things like WBINVD ?!?
->>
->>> These are cases where the contents of
->>> Physical Memory may change without any writes from the host. Whilst there
->>> are a few reasons this might happen, the one I care about here is when
->>> we are adding or removing mappings on CXL. So typically going from
->>> there being actual memory at a host Physical Address to nothing there
->>> (reads as zero, writes dropped) or visa-versa.
->>
->>> The
->>> thing that makes it very hard to handle with CPU flushes is that the
->>> instructions are normally VA based and not guaranteed to reach beyond
->>> the Point of Coherence or similar. You might be able to (ab)use
->>> various flush operations intended to ensure persistence memory but
->>> in general they don't work either.
->>
->>Urgh so this. Dan, Dave, are we getting new instructions to deal with
->>this? I'm really not keen on having WBINVD in active use.
->>
->
->WBINVD is the nuclear weapon to use when you have lost all notion of where the problematic data can be, and amounts to a full reset of the cache system.
->
->WBINVD can block interrupts for many *milliseconds*, system wide, and so is really only useful for once-per-boot type events, like MTRR initialization.
+Also fine by me :-) .
 
-Correct, and cpu_cache_invalidate_memregion() was introduced exactly
-with these constraints in mind, and the current x86 is the worse case
-scenario. As Jonathan pointed out, ranged optimizations only improve
-what is already there.
 
-Thanks,
-Davidlohr
+> I've been wondering whether there are rules for naming [1], both for the
+> grouping and the node names. Some DTS files use a '-pin' suffix, others
+> don't. And it's not uncommon to see both variants in the same dts file.
+>=20
+> One of the examples I looked at was ``rk3568-qnap-ts433.dts``. While it
+> uses 'keys' as grouping node, I went with 'gpio-keys' as that was used
+> more often (in other files). While the gmac0/keys/leds subnodes under
+> ``&pinctrl`` use the '-pin' suffix, the pmic/usb subnodes do not.
+> (and I just noticed 'hdd4_led-pin' should be 'hdd4-led-pin')
+
+The TS433 suffers from that "no schematics" thing I mentioned in the
+other mail, so the device-specific pins are named after their functon.
+As I was assuming the TS433 will follow the reference design, those
+pins are named after how other boards do it
+
+But I think I'm just making sense of my subconscious choices
+retrocactively right now and all the above sort of happened without
+me thinking to much about that.
+
+
+> I'd love to know/learn if there are actual rules for these things, but
+> I don't know them.
+
+=46rom looking at pinctrl bindings, it seems patterns are set per controller
+with no global rules. Which makes sense in a way, because they do
+represent pin(-groups) differently each.
+
+
+
+
 
