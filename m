@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47831C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A552CC83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:12:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XPbLR1Y/RGDLT3IFIFuCqTuW/2Jy/AlFcSJHBKSvw54=; b=ulYuEv3/Ns/jjle79HgyF+o0VH
-	qnzFf7paLml+gO4siR6S4cy2iknMRFdUlg6STOJGO/uTPDrCyOMkAqK6TI5FOrrDY1/lAPduhahdD
-	bgt+70EfVGpiFYEgiZocDUlq7Z9sN6xDNvjPONwuzhMkNtQ4MFLzyTz+Bilqj0wSs+FH5iMdouBNx
-	++gXG4yi5EXHwiMDwSHhgEG1um1EeyqaWVHCYDgTd5PjVTtYHebmFz7uJKhD60RomQmdzjYUwve6m
-	lgjoqth8jIvyPNOYCYAeEL6TJfYLQ8lIyvy1HfWWFdVVEBuXhBkbxn/qLJjg6CPuHFGa/MtJDl7a7
-	Z9lwv37A==;
+	bh=Gl1OIb028VQJeAMzOQeGwi/J5Y4kEydNKijYWj6SSb0=; b=dOb8zyAhDa/4GZjfqOu0je6CXi
+	PR+VDQmwYpFZI/t3JGDJAn1iSbcNCunS1C2mkI3wRhPfVU6wTXcISLjNUM5nBsUmBgyUKlKMLtLcY
+	cHda2OGGD5DjvRWRO0Kc66oM3WQ4fxket7+NX5VMCYECg90MZTgWL2IA1XLZPoJz/oeXtuhUQuXnE
+	u4kQI9jjoBoCXreyT3YSl0SEcjDQhIF7f4rAzpxplsUarLt6WtYTbGPW8AG7rJb2i4TZqQOak6wwG
+	qj3PqNWsXr3RO9WLouXPVTz3wb7SNsWHODR0xiaPOSVs/hlmyWiQnNf1/7oAe2GLmTsONAgSl5tFj
+	tDlTHz9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZRk5-00000008FqX-1CFF;
-	Wed, 09 Jul 2025 10:09:33 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1uZRmO-00000008GVo-1Pt7;
+	Wed, 09 Jul 2025 10:11:56 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZPn3-00000007t7N-1RVK
+	id 1uZPur-00000007v43-0ZTo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 08:04:31 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250709080423euoutp02a0e0b10616e47b1526745f57bd632760~Qhpz6uTC32489524895euoutp02I
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  9 Jul 2025 08:04:23 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250709080423euoutp02a0e0b10616e47b1526745f57bd632760~Qhpz6uTC32489524895euoutp02I
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1752048263;
-	bh=XPbLR1Y/RGDLT3IFIFuCqTuW/2Jy/AlFcSJHBKSvw54=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=BejsIL3EWsf1nvFXXKXEDc28c+jKSqRqzVnXTP9ucKRVOC83T+YG3NJGwW6f0y31H
-	 sEOQ1TrvM/NSYn1JeF4uK/DDivm8Uh6yUFPp+lWJCgQfNsrmCLeCdcy6r4ceDlSxeQ
-	 p7/W5+y4zTJr/nqLxzDGNlvV+N5HtKeTajdw1Ng8=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250709080423eucas1p2cda340188c287620d72277f9f667ccb5~QhpzPtyr50478804788eucas1p2O;
-	Wed,  9 Jul 2025 08:04:23 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250709080421eusmtip10fa864a7ea9517a2b891420091998289~QhpyFWvlX2552125521eusmtip1E;
-	Wed,  9 Jul 2025 08:04:21 +0000 (GMT)
-Message-ID: <eb5feef3-0a7d-438c-9dbb-00d1d72fad66@samsung.com>
-Date: Wed, 9 Jul 2025 10:04:21 +0200
+	Wed, 09 Jul 2025 08:12:34 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bcVy24B3xz13Mny;
+	Wed,  9 Jul 2025 16:09:46 +0800 (CST)
+Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
+	by mail.maildlp.com (Postfix) with ESMTPS id 513CD140203;
+	Wed,  9 Jul 2025 16:12:25 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 9 Jul 2025 16:12:24 +0800
+Subject: Re: [PATCH v4 05/20] KVM: arm64: timers: Allow physical offset
+ without CNTPOFF_EL2
+To: Marc Zyngier <maz@kernel.org>
+CC: <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton
+	<oliver.upton@linux.dev>, Ricardo Koller <ricarkol@google.com>, Simon Veith
+	<sveith@amazon.de>, Reiji Watanabe <reijiw@google.com>, Colton Lewis
+	<coltonlewis@google.com>, Joey Gouly <joey.gouly@arm.com>,
+	<dwmw2@infradead.org>
+References: <20230330174800.2677007-1-maz@kernel.org>
+ <20230330174800.2677007-6-maz@kernel.org>
+From: Zenghui Yu <yuzenghui@huawei.com>
+Message-ID: <460258be-0102-e922-c342-4e87cd94b9e5@huawei.com>
+Date: Wed, 9 Jul 2025 16:12:18 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/14] vdso/gettimeofday: Return bool from
- clock_gettime() helpers
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Andy Lutomirski <luto@kernel.org>, Vincenzo Frascino
-	<vincenzo.frascino@arm.com>, Shuah Khan <shuah@kernel.org>, Anna-Maria
-	Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker
-	<frederic@kernel.org>, John Stultz <jstultz@google.com>, Stephen Boyd
-	<sboyd@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
-	<will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, Richard
-	Cochran <richardcochran@gmail.com>, Christopher Hall
-	<christopher.s.hall@intel.com>, Miroslav Lichvar <mlichvar@redhat.com>,
-	Werner Abt <werner.abt@meinberg-usa.com>, David Woodhouse
-	<dwmw2@infradead.org>, Kurt Kanzenbach <kurt@linutronix.de>, Nam Cao
-	<namcao@linutronix.de>, Antoine Tenart <atenart@kernel.org>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20250709092958-37148883-ed89-40fe-8cd5-ded5dd60957e@linutronix.de>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250709080423eucas1p2cda340188c287620d72277f9f667ccb5
-X-Msg-Generator: CA
+In-Reply-To: <20230330174800.2677007-6-maz@kernel.org>
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250708154921eucas1p1fd8fa4374610a991ca5c67bd612ca0c2
-X-EPHeader: CA
-X-CMS-RootMailID: 20250708154921eucas1p1fd8fa4374610a991ca5c67bd612ca0c2
-References: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
-	<20250701-vdso-auxclock-v1-6-df7d9f87b9b8@linutronix.de>
-	<02bcd954-5323-4663-a766-f53c67c5a18f@samsung.com>
-	<CGME20250708154921eucas1p1fd8fa4374610a991ca5c67bd612ca0c2@eucas1p1.samsung.com>
-	<e8c6b9a7-eaa6-4947-98e1-9d6fecc958d4@samsung.com>
-	<20250709092958-37148883-ed89-40fe-8cd5-ded5dd60957e@linutronix.de>
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.219]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_010429_950131_631B6D5F 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20250709_011233_482494_F1773E19 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,67 +79,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09.07.2025 09:34, Thomas Weißschuh wrote:
-> On Tue, Jul 08, 2025 at 05:49:18PM +0200, Marek Szyprowski wrote:
->> On 08.07.2025 17:17, Marek Szyprowski wrote:
->>> On 01.07.2025 10:58, Thomas Weißschuh wrote:
->>>> The internal helpers are effectively using boolean results,
->>>> while pretending to use error numbers.
->>>>
->>>> Switch the return type to bool for more clarity.
->>>>
->>>> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
->>>> ---
->>>>    lib/vdso/gettimeofday.c | 58
->>>> +++++++++++++++++++++++++------------------------
->>>>    1 file changed, 30 insertions(+), 28 deletions(-)
->>> This patch landed in today's linux-next as commit fcc8e46f768f
->>> ("vdso/gettimeofday: Return bool from clock_gettime() helpers"). In my
->>> tests I found that it causes serious problem with hwclock operation on
->>> some of my ARM 32bit test boards. I observe that calling "hwclock -w
->>> -f /dev/rtc0" never ends on those boards. Disabling vdso support (by
->>> removing ARM architected timer) fixes this issue.
->> I spent some time analyzing the code refactored in this patch and it
->> looks that the following change is missing:
-> Thanks for the report and investigation!
->
->> diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
->> index c5266532a097..7e79b02839b0 100644
->> --- a/lib/vdso/gettimeofday.c
->> +++ b/lib/vdso/gettimeofday.c
->> @@ -344,7 +344,7 @@ __cvdso_gettimeofday_data(const struct
->> vdso_time_data *vd,
->>           if (likely(tv != NULL)) {
->>                   struct __kernel_timespec ts;
->>
->> -               if (do_hres(vd, &vc[CS_HRES_COARSE], CLOCK_REALTIME, &ts))
->> +               if (!do_hres(vd, &vc[CS_HRES_COARSE], CLOCK_REALTIME, &ts))
->>                           return gettimeofday_fallback(tv, tz);
->>
->>                   tv->tv_sec = ts.tv_sec;
->>
->>
->> In my tests this fixed the hwclock issue on the mentioned boards.
-> This fix looks correct to me.
->
->
-> tglx:
->
-> Are you going to fold the fix into the commit or do you want a proper patch?
->
->
-> Marek:
->
-> If a new patch is required, do you want to send it? You found and fixed the
-> issue after all. If not, I'll take care of it.
+[ Record some interesting bits noticed while testing
+  arch_timer_edge_cases. ]
 
-If it is possible to fold it into original patch then go ahead, it would 
-make less noise imho. If you need a formal patch, I can send it in a few 
-minutes.
+On 2023/3/31 1:47, Marc Zyngier wrote:
+> CNTPOFF_EL2 is awesome, but it is mostly vapourware, and no publicly
+> available implementation has it. So for the common mortals, let's
+> implement the emulated version of this thing.
+> 
+> It means trapping accesses to the physical counter and timer, and
+> emulate some of it as necessary.
+> 
+> As for CNTPOFF_EL2, nobody sets the offset yet.
+> 
+> Reviewed-by: Colton Lewis <coltonlewis@google.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/sysreg.h    |  2 +
+>  arch/arm64/kvm/arch_timer.c        | 98 +++++++++++++++++++++++-------
+>  arch/arm64/kvm/hyp/nvhe/timer-sr.c | 18 ++++--
+>  arch/arm64/kvm/sys_regs.c          |  9 +++
+>  4 files changed, 98 insertions(+), 29 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 9e3ecba3c4e6..f8da9e1b0c11 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -388,6 +388,7 @@
+>  
+>  #define SYS_CNTFRQ_EL0			sys_reg(3, 3, 14, 0, 0)
+>  
+> +#define SYS_CNTPCT_EL0			sys_reg(3, 3, 14, 0, 1)
+>  #define SYS_CNTPCTSS_EL0		sys_reg(3, 3, 14, 0, 5)
+>  #define SYS_CNTVCTSS_EL0		sys_reg(3, 3, 14, 0, 6)
+>  
+> @@ -400,6 +401,7 @@
+>  
+>  #define SYS_AARCH32_CNTP_TVAL		sys_reg(0, 0, 14, 2, 0)
+>  #define SYS_AARCH32_CNTP_CTL		sys_reg(0, 0, 14, 2, 1)
+> +#define SYS_AARCH32_CNTPCT		sys_reg(0, 0, 0, 14, 0)
+>  #define SYS_AARCH32_CNTP_CVAL		sys_reg(0, 2, 0, 14, 0)
+>  
+>  #define __PMEV_op2(n)			((n) & 0x7)
+> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> index 3118ea0a1b41..bb64a71ae193 100644
+> --- a/arch/arm64/kvm/arch_timer.c
+> +++ b/arch/arm64/kvm/arch_timer.c
+> @@ -458,6 +458,8 @@ static void timer_save_state(struct arch_timer_context *ctx)
+>  		goto out;
+>  
+>  	switch (index) {
+> +		u64 cval;
+> +
+>  	case TIMER_VTIMER:
+>  		timer_set_ctl(ctx, read_sysreg_el0(SYS_CNTV_CTL));
+>  		timer_set_cval(ctx, read_sysreg_el0(SYS_CNTV_CVAL));
+> @@ -485,7 +487,12 @@ static void timer_save_state(struct arch_timer_context *ctx)
+>  		break;
+>  	case TIMER_PTIMER:
+>  		timer_set_ctl(ctx, read_sysreg_el0(SYS_CNTP_CTL));
+> -		timer_set_cval(ctx, read_sysreg_el0(SYS_CNTP_CVAL));
+> +		cval = read_sysreg_el0(SYS_CNTP_CVAL);
+> +
+> +		if (!has_cntpoff())
+> +			cval -= timer_get_offset(ctx);
+> +
+> +		timer_set_cval(ctx, cval);
+>  
+>  		/* Disable the timer */
+>  		write_sysreg_el0(0, SYS_CNTP_CTL);
+> @@ -555,6 +562,8 @@ static void timer_restore_state(struct arch_timer_context *ctx)
+>  		goto out;
+>  
+>  	switch (index) {
+> +		u64 cval, offset;
+> +
+>  	case TIMER_VTIMER:
+>  		set_cntvoff(timer_get_offset(ctx));
+>  		write_sysreg_el0(timer_get_cval(ctx), SYS_CNTV_CVAL);
+> @@ -562,8 +571,12 @@ static void timer_restore_state(struct arch_timer_context *ctx)
+>  		write_sysreg_el0(timer_get_ctl(ctx), SYS_CNTV_CTL);
+>  		break;
+>  	case TIMER_PTIMER:
+> -		set_cntpoff(timer_get_offset(ctx));
+> -		write_sysreg_el0(timer_get_cval(ctx), SYS_CNTP_CVAL);
+> +		cval = timer_get_cval(ctx);
+> +		offset = timer_get_offset(ctx);
+> +		set_cntpoff(offset);
+> +		if (!has_cntpoff())
+> +			cval += offset;
+> +		write_sysreg_el0(cval, SYS_CNTP_CVAL);
+>  		isb();
+>  		write_sysreg_el0(timer_get_ctl(ctx), SYS_CNTP_CTL);
+>  		break;
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+I tested arch_timer_edge_cases on my Kunpeng920 (has VHE, doesn't have
+ECV) and noticed that the test_timer_cval() below takes a long period to
+return when testing the _physical_ timer.
 
+static void test_timers_in_the_past(enum arch_timer timer)
+{
+	[...]
+
+	for (i = 0; i < ARRAY_SIZE(irq_wait_method); i++) {
+		irq_wait_method_t wm = irq_wait_method[i];
+
+		[...]
+
+		/* Set a timer to counter=0 (in the past) */
+		test_timer_cval(timer, 0, wm, DEF_CNT);
+
+The comment is obviously wrong. It should say "Set a timer to CVAL=0".
+
+No physical timer interrupt ("kvm guest ptimer") was triggered when I
+executed it separately.
+
+Let me try to explain _this_ test_timer_cval() in a bit more detail.
+
+|Guest					KVM
+|-----					---
+|local_irq_disable()
+|
+|reset_timer_state()
+|   set_counter()			// SET_ONE_REG via user-space
+|					// for KVM_REG_ARM_PTIMER_CNT
+|					kvm_arm_timer_set_reg()
+|					   timer_set_offset()      [1]
+|   timer_set_ctl()
+|      MSR CNTP_CTL_EL0, IMASK
+|
+|set_xval_irq()
+|   timer_set_cval()
+|      MSR CNTP_CVAL_EL0, cval=0
+|   timer_set_ctl()
+|      MSR CNTP_CTL_EL0, ENABLE		// trap
+|					kvm_arm_timer_write_sysreg()
+|					   timer_save_state()
+|					   kvm_arm_timer_write()
+|					   timer_restore_state()   [2]
+|
+|/* This method re-enables IRQs to handle the one we're looking for. */
+|wm()
+|
+|assert_irqs_handled(1)
+|local_irq_enable()
+
+[1] kvm_phys_timer_read()			= 0x7895c0ab2
+    value					= 0x7fffffffffffff
+    offset = kvm_phys_timer_read() - value	= 0xff800007895c0ab3
+
+... which was observed in my test.
+
+[2] cval += offset;			// cval	= 0xff800007895c0ab3
+    kvm_phys_timer_read()			= 0x7895c1b86
+
+No ptimer interrupt was triggered with that. And we relied on the next
+kvm_timer_vcpu_load() to catch the timer expiration and inject an
+interrupt to the guest..
+
+It's apparent that this test case is not a practical use case. Not sure
+if we should (/can) emulate it properly. Or I may have already missed
+some obvious points.
+
+Thanks,
+Zenghui
 
