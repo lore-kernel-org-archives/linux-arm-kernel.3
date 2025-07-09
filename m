@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A48C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 12:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5DF1C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 12:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kUwbZxXvUidWuICcpMpWi7Gq0aS8eGh45D4id751BMU=; b=YOT0lkBIzmBLrjUyqYbp0csPm4
-	jZIkRiGq+HInOUcKMU7NYksweVliD1BgQV34yvUQAGOMH6WPY917ot/AI0tIA1r2wBP2WX3HYDI6v
-	D1NSfFkNqX8bomXXND2BVZT3vZwDX7J0PBFeT/+93SthGav2KFxGyA0LprUltNPPPqZsDlLKM07+T
-	v/cauL+klKNYetgbsp+xeZqr9AupW6JczQWUo6ug1dD/h3H6JOHgyjYinzK/RgfFbjs41AqR/SFiy
-	2CRNnayN5qRt1ABBe0nxptslrPmSiLaYSmCNTXDmebm71UKR6XmNyIRk1Lc3o3uQk1LFPVFrsbFTP
-	5PnlEGOw==;
+	bh=iMUYSJ7xBVV0t5hQTWAsU9tTxBU1IRIZP+YZk6vKoeM=; b=uPA2pu2HAfFeQbhHf4Pi9bpPx/
+	RzlUhAlw2cTOx9PVg5LUhIRBR4S+WOUGpuzJLR2iPFIEodaUdaBDJeXMWSRBTIRGeHGFEorfF2f/l
+	yPOAmFY2UmgRgxmaJW/+OFdWWXdHI6qtpzPQWpvmz2sbR7oZF+kjXgaYZ55LowDwnl00QFK9hI7rX
+	GCduRpqNru5YrNeTIoNFlpb1smZ0vdbi02J0rlo6VUu1jJXmQQqu5nJM2zi/hMMMfff02PQa+FuFG
+	k67Tznfo5bcADT39yPJhKiQvNgg/hgX083bvrRP33PfsT767b8aQH1xJrACRCqg1PSqmNRHDKqlWv
+	NbGA8ipg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZTvJ-00000008dXN-0iDJ;
-	Wed, 09 Jul 2025 12:29:17 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uZTxa-00000008eCV-3hE7;
+	Wed, 09 Jul 2025 12:31:38 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZS9x-00000008K52-1ZKW
+	id 1uZSAo-00000008KEN-2s1X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 10:36:18 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 569AaDh91453015;
-	Wed, 9 Jul 2025 05:36:13 -0500
+	Wed, 09 Jul 2025 10:37:13 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 569Ab0p51188098;
+	Wed, 9 Jul 2025 05:37:00 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752057373;
-	bh=kUwbZxXvUidWuICcpMpWi7Gq0aS8eGh45D4id751BMU=;
+	s=ti-com-17Q1; t=1752057420;
+	bh=iMUYSJ7xBVV0t5hQTWAsU9tTxBU1IRIZP+YZk6vKoeM=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ykc5PPtxfhPM7jZRzfohY5s1aiQ3ayN/IH63bb7M+pmczTf6qJo74YsCj1gk4yeJ4
-	 SXB3bxoYL00Bq9WF6aGj0DpF5orrfKnEwljBDi52IQ4gQtVk8+B65f1VxglIKZ7JuN
-	 DR8181SsQbarVuNxxxcUjPzDLe8aW17+g0E5+0hc=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 569AaDOH3270868
+	b=whwcpcgbB8u/eMt37gEb+uE9LOQ0MvfGiDOrvSfVXRX/EMYJi8Y/nJl823PEUTKRi
+	 cfQeHCC8Y/A/oIs50TNi5g43EVmsLBYrv9KJD7xFEQqJALUIgDEiIpqBEf8taR7Z1y
+	 Ur1cjhAfbxMKK08p2FleJksLpbxgH/REOE4mS/bs=
+Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 569Ab0e8051395
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 9 Jul 2025 05:36:13 -0500
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 9 Jul 2025 05:37:00 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 9
- Jul 2025 05:36:13 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ Jul 2025 05:37:00 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 9 Jul 2025 05:36:13 -0500
+ Frontend Transport; Wed, 9 Jul 2025 05:37:00 -0500
 Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.227.245])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 569Aa9Iq3789169;
-	Wed, 9 Jul 2025 05:36:10 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 569AauhT3789718;
+	Wed, 9 Jul 2025 05:36:57 -0500
 From: Vignesh Raghavendra <vigneshr@ti.com>
-To: <devicetree@vger.kernel.org>,
-        Alexander Sverdlin
-	<alexander.sverdlin@gmail.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Nishanth Menon <nm@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] arm64: dts: ti: k3-pinctrl: Enable Schmitt Trigger by default
-Date: Wed, 9 Jul 2025 16:05:54 +0530
-Message-ID: <175205731408.919009.13331484172952220730.b4-ty@ti.com>
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Parth Pancholi <parth105105@gmail.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>,
+        Parth Pancholi
+	<parth.pancholi@toradex.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-verdin: fix PWM_3_DSI GPIO direction
+Date: Wed, 9 Jul 2025 16:06:42 +0530
+Message-ID: <175205738886.920395.8483860730913081511.b4-ty@ti.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250701105437.3539924-1-alexander.sverdlin@siemens.com>
-References: <20250701105437.3539924-1-alexander.sverdlin@siemens.com>
+In-Reply-To: <20250703084534.1649594-1-parth105105@gmail.com>
+References: <20250703084534.1649594-1-parth105105@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_033617_502410_92BB607A 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250709_033712_420198_40018CF9 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,27 +92,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi A. Sverdlin,
+Hi Parth Pancholi,
 
-On Tue, 01 Jul 2025 12:54:35 +0200, A. Sverdlin wrote:
-> Switch Schmitt Trigger functions for PIN_INPUT* macros by default. This is
-> HW PoR configuration, the slew rate requirements without ST enabled are
-> pretty tough for these devices. We've noticed spurious GPIO interrupts even
-> with noise-free edges but not meeting slew rate requirements (3.3E+6 V/s
-> for 3.3v LVCMOS).
-> 
-> It's not obvious why one might want to disable the PoR-enabled ST on any
-> pin. Just enable it by default. As it's not possible to provide OR-able
-> macros to disable the ST, shall anyone require it, provide a set of
-> new macros with _NOST suffix.
+On Thu, 03 Jul 2025 10:45:34 +0200, Parth Pancholi wrote:
+> PWM_3_DSI is used as the HDMI Hot-Plug Detect (HPD) GPIO for the Verdin
+> DSI-to-HDMI adapter. After the commit 33bab9d84e52 ("arm64: dts: ti:
+> k3-am62p: fix pinctrl settings"), the pin was incorrectly set as output
+> without RXACTIVE, breaking HPD detection and display functionality.
+> The issue was previously hidden and worked by chance before the mentioned
+> pinctrl fix.
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] arm64: dts: ti: k3-pinctrl: Enable Schmitt Trigger by default
-      commit: 5b272127884bded21576a6ddceca13725a351c63
+[1/1] arm64: dts: ti: k3-am62p-verdin: fix PWM_3_DSI GPIO direction
+      commit: b1a8daa7cf2650637f6cca6aaf014bee89672120
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
