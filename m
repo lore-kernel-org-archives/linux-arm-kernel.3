@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8530FC83F17
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A67C83F10
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V88X+mCNI0ORLIOIIxyKfe8/ZtK8PHIG5p0cdlRBbTY=; b=sklt5E52H0mkz3yP16pL4ENyfd
-	aB3je7ZDWZL7XP5vWqv7F2wPmSn0CImbfIkMGMh7lBxgYLjCCxvXbUrmI1r5pEwbZOCAAQEufzhiF
-	+urz6wbOeItHzqMwpJ83zx4jXcBB6uQoE9pmqlcB6gSkksav9DTBVGEFwRRxVvK0VMWnc7XUDLPuc
-	gmhbqREzGdPZG34Mpu2pO7k5THLwjpLxY8f2QJKXXtPsGZHkuakXUnni7OPkIL8exOlONDdu5cZl/
-	0kpCAuoZhSg6LQIhiwumWuOJqlK8iAu1/KvjK1Kmc/2mACtPrhlL5dfvmZ/FeIavzNvBwtAQMH9T6
-	KXSR8tcA==;
+	bh=sC3kPSpa2sNCJdXpv4fMLOvhqSrGp8tDHs2jzCQyRZc=; b=hHphT9toBYMsATTLp/innw7xCm
+	Nhg14fTMXIUGA08oDHC2AAtifM7yLRp7nF78MsMGiYN2/X6hI/MlsH4oWgknaoqtj5dg3qFZka/Ji
+	3kOad2iEiCXxxAppaVk/bJ3C8r6K7jddQYIi/PcztI0eF0VZNqeklsOA5KGQNuZPIjFU97TJwTEA3
+	HB0P1vm7UwIDSz0viL085XEbC0xwYzJDJzoZ8GYyqtWDDvD/+aIa7YS4C9lcCkQ3z7QcHstcsVFR+
+	EX8vsI4EiTRCqejLHUdBc3TBcLYQTrGZ3/xBF10WmBd61jwoR68CumDloR+iI0x9NuC+lorbc7wLS
+	R/Wubkdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdij-0000000A93Y-3PtI;
-	Wed, 09 Jul 2025 22:56:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uZdij-0000000A91h-032M;
+	Wed, 09 Jul 2025 22:56:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZbwK-00000009rQn-1ICC
+	id 1uZbwJ-00000009rQ2-3z7Z
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 09 Jul 2025 21:02:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E1DF61495;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2DFB161473;
 	Wed,  9 Jul 2025 21:02:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C0186C4CEF4;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6A81EC116C6;
 	Wed,  9 Jul 2025 21:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752094970;
-	bh=ZhOpD4uE06bSl49Vy//uqz1o4AjQqGjxPfMTgkddWP8=;
+	bh=FbFfJ0O8Cxn9ky/KBPJJ3vCgtFRuln3RMTTcy+zzSU8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KNqZPwwFz684W2wPS+PjJuhnS/W4TE8vkqqAyGZaynUqWToZcKV34tpW4Xz0jjVsp
-	 hH8DFlp1lRI4eV+FnVimzRCX5+s8yG3hN8Axn09k5KZNKhHEhBT8f5XLUz04N+WK8p
-	 ETP7/9ZINBCj7g1SHtiXX1drGFkTG0ZsAt90QpDeNwhr3MKDRPjQhAfOdeE4m0ocrt
-	 jP1szQX6q0yAwGS6MwYQ+t0YqpiXUSq8mGbLdsynO7JM+dWf94zShdgELnDLtd3AGX
-	 /f/RhI+YeS0D92mcC2I8N6JnVhcuXkYGstd+QCd5LuKfyK0lPRsw27alRhQkSrF9st
-	 e0heJEPtWCIhQ==
+	b=NvnGNcYSWDaqpFvNml1vX1/4XPeIPc2Ig+oe/uADOI8ihfiMKXPzOLmsHPLOqye4i
+	 bKZURk7FBbTzadkWdTI4yViDXs6Xr4XA8R6auks3RFZPe1KZTTjAXy7yQ+EOpT5xUg
+	 H7pFDTtIhkfaaph4V7JQbe5FybyIGfcZB954kfIWYEyKRfEYNWaRfbvCnKS7dvkVI+
+	 7vJY6JGLMY+Dwnme4QmDD8xhzaFBbVKDn7eeCSWVU8QjLtdBdgExRTK0l6RIOqdlTA
+	 Ho6489x0hA/KHna+mWQUg3eWJ7s14LffRi/XcCavGyddgfXJGBn+vRAFOdJdGvoZPu
+	 qm8SadTOctjMA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B11EEC83F18;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A39CC83F09;
 	Wed,  9 Jul 2025 21:02:50 +0000 (UTC)
 From: Frank Li via B4 Relay <devnull+Frank.Li.nxp.com@kernel.org>
-Date: Wed, 09 Jul 2025 17:02:20 -0400
-Subject: [PATCH v20 8/9] selftests: pci_endpoint: Add doorbell test case
+Date: Wed, 09 Jul 2025 17:02:15 -0400
+Subject: [PATCH v20 3/9] PCI: endpoint: Add RC-to-EP doorbell support using
+ platform MSI controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250709-ep-msi-v20-8-43d56f9bd54a@nxp.com>
+Message-Id: <20250709-ep-msi-v20-3-43d56f9bd54a@nxp.com>
 References: <20250709-ep-msi-v20-0-43d56f9bd54a@nxp.com>
 In-Reply-To: <20250709-ep-msi-v20-0-43d56f9bd54a@nxp.com>
 To: Kishon Vijay Abraham I <kishon@kernel.org>, 
@@ -77,11 +78,11 @@ Cc: Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us,
  imx@lists.linux.dev, devicetree@vger.kernel.org, 
  Niklas Cassel <cassel@kernel.org>, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752094968; l=2413;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752094968; l=9861;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=DF/gzaI0MKU27j4SEtbbhXRg9y3PEJqjIqoano8U714=;
- b=a6gnp8u8O795/R0p6ZjiJhEZA5Qk09eT8q9NFI2+fCPfzc1F/KrDN6Ov4sdeNa2sfEKPQH5Wz
- sUKXPYdiqrcCtzdhAnea1XzTNhJ6/G+CWFkrildTnmpbPr/23Dp9+MG
+ bh=DjOBYFEm2LaVAMsRUL0bGftXbmddhhW5FmKcXkwYvPg=;
+ b=l4SJvXC8xiUo3wpRHE4CqEjAVgd9s/Ay8Fhkjvoy8IxQqPWRc//3MGJgEW6sVrMvurRG5iFH0
+ e1XGQu2sa0QBFVEWhoPQLWdwCv+V8J0CQ4Lu7NeLknV5mYRQyUm+87x
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-Endpoint-Received: by B4 Relay for Frank.Li@nxp.com/20240130 with
@@ -104,82 +105,302 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Li <Frank.Li@nxp.com>
 
-Add doorbell test case.
+Doorbell feature is implemented by mapping the EP's MSI interrupt
+controller message address to a dedicated BAR in the EPC core. It is the
+responsibility of the EPF driver to pass the actual message data to be
+written by the host to the doorbell BAR region through its own logic.
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
 change in v20
-- update document
+- remove Niklas Cassel test-by tag
+- rollback to use epc and only support one epf to void touch epf's of_node
+- add new config PCI_ENDPOINT_MSI_DOORBELL
+- error code change to ENODATA
+- don't overwrite return value of platform_device_msi_init_and_alloc_irqs()
+- remove comment @name in struct pci_epf_doorbell_msg
+- Add #include <linux/export.h> to fix kbuild warning
 
-change from v14 to v16
-- Add set IRQ type
+Change from v15 to v16
+- fix rebase conflict
 
-change from v13 to v14
-- merge to selftests framework
+Change from v14 to v15
+- check CONFIG_GENERIC_MSI
+
+Fix below build error
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502082204.6PRR3cfG-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/pci/endpoint/pci-ep-msi.c: In function 'pci_epf_alloc_doorbell':
+>> drivers/pci/endpoint/pci-ep-msi.c:53:15: error: implicit declaration of function 'platform_device_msi_init_and_alloc_irqs' [-Werror=implicit-function-declaration]
+      53 |         ret = platform_device_msi_init_and_alloc_irqs(&epf->dev, num_db, pci_epf_write_msi_msg);
+
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502082242.pOq1hB1d-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/pci/endpoint/pci-ep-msi.c: In function 'pci_epf_alloc_doorbell':
+>> drivers/pci/endpoint/pci-ep-msi.c:49:14: error: implicit declaration of function 'irq_domain_is_msi_immutable'; did you mean 'irq_domain_is_msi_device'? [-Werror=implicit-function-declaration]
+      49 |         if (!irq_domain_is_msi_immutable(dom)) {
+
+Change from v13 to v14
+- basic roll back to v9
+- use device:id as msi-map input, its will handle it
+- use existed platform_device_msi_init_and_alloc_irqs()
+- pass down epf->dev point, because epf->dev of-node will be the same as
+epc's parent.
+
+Change from v12 to v13
+- Use DOMAIN_BUS_DEVICE_PCI_EP_MSI
+
+Change from v10 to v12
+- none
+
+Change from v9 to v10
+- Create msi domain for each function device.
+- Remove only function support limiation. My hardware only support one
+function, so not test more than one case.
+- use "msi-map" descript msi information
+
+  msi-map = <func_no << 8  | vfunc_no, &its, start_stream_id,  size>;
+
+Chagne from v8 to v9
+- sort header file
+- use pci_epc_get(dev_name(msi_desc_to_dev(desc)));
+- check epf number at pci_epf_alloc_doorbell
+- Add comments for miss msi-parent case
+
+change from v5 to v8
+-none
+
+Change from v4 to v5
+- Remove request_irq() in pci_epc_alloc_doorbell() and leave to EP function
+driver, so ep function driver can register differece call back function for
+difference doorbell events and set irq affinity to differece CPU core.
+- Improve error message when MSI allocate failure.
+
+Change from v3 to v4
+- msi change to use msi_get_virq() avoid use msi_for_each_desc().
+- add new struct for pci_epf_doorbell_msg to msi msg,virq and irq name.
+- move mutex lock to epc function
+- initialize variable at declear place.
+- passdown epf to epc*() function to simplify code.
 ---
- Documentation/PCI/endpoint/pci-test-howto.rst      | 14 +++++++++++
- .../selftests/pci_endpoint/pci_endpoint_test.c     | 28 ++++++++++++++++++++++
- 2 files changed, 42 insertions(+)
+ drivers/pci/endpoint/Kconfig      |  8 ++++
+ drivers/pci/endpoint/Makefile     |  1 +
+ drivers/pci/endpoint/pci-ep-msi.c | 90 +++++++++++++++++++++++++++++++++++++++
+ include/linux/pci-ep-msi.h        | 28 ++++++++++++
+ include/linux/pci-epf.h           | 15 +++++++
+ 5 files changed, 142 insertions(+)
 
-diff --git a/Documentation/PCI/endpoint/pci-test-howto.rst b/Documentation/PCI/endpoint/pci-test-howto.rst
-index aafc17ef3fd31f6ada38c82c8df133b87f7a1ae1..0cee35dcb29cc938823de53ef6e1a1cd81d49d52 100644
---- a/Documentation/PCI/endpoint/pci-test-howto.rst
-+++ b/Documentation/PCI/endpoint/pci-test-howto.rst
-@@ -203,3 +203,17 @@ controllers, it is advisable to skip this testcase using this
- command::
+diff --git a/drivers/pci/endpoint/Kconfig b/drivers/pci/endpoint/Kconfig
+index 1c5d82eb57d440fb18c788921fc27096b75b061e..72f82ae98f94556ec5cd734e4525b363879aa340 100644
+--- a/drivers/pci/endpoint/Kconfig
++++ b/drivers/pci/endpoint/Kconfig
+@@ -28,6 +28,14 @@ config PCI_ENDPOINT_CONFIGFS
+ 	   configure the endpoint function and used to bind the
+ 	   function with an endpoint controller.
  
- 	# pci_endpoint_test -f pci_ep_bar -f pci_ep_basic -v memcpy -T COPY_TEST -v dma
++config PCI_ENDPOINT_MSI_DOORBELL
++	bool "PCI Endpoint MSI Doorbell Support"
++	depends on PCI_ENDPOINT && GENERIC_MSI_IRQ
++	help
++	  This enables the EP's MSI interrupt controller to function as a
++	  doorbell. The RC can then notify the EP by writing data to dedicated
++	  BAR, which the EP maps to the controller's message address.
 +
-+Kselftest EP Doorbell
-+~~~~~~~~~~~~~~~~~~~~~
+ source "drivers/pci/endpoint/functions/Kconfig"
+ 
+ endmenu
+diff --git a/drivers/pci/endpoint/Makefile b/drivers/pci/endpoint/Makefile
+index 95b2fe47e3b06be6ecd210e8d834610021a22470..b4869d52053aade87298289b29b3beb547001bfa 100644
+--- a/drivers/pci/endpoint/Makefile
++++ b/drivers/pci/endpoint/Makefile
+@@ -6,3 +6,4 @@
+ obj-$(CONFIG_PCI_ENDPOINT_CONFIGFS)	+= pci-ep-cfs.o
+ obj-$(CONFIG_PCI_ENDPOINT)		+= pci-epc-core.o pci-epf-core.o\
+ 					   pci-epc-mem.o functions/
++obj-$(CONFIG_PCI_ENDPOINT_MSI_DOORBELL)	+= pci-ep-msi.o
+diff --git a/drivers/pci/endpoint/pci-ep-msi.c b/drivers/pci/endpoint/pci-ep-msi.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..de610c16f68986eb0a5f4a0f23bd0136aa169f97
+--- /dev/null
++++ b/drivers/pci/endpoint/pci-ep-msi.c
+@@ -0,0 +1,90 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * PCI Endpoint *Controller* (EPC) MSI library
++ *
++ * Copyright (C) 2025 NXP
++ * Author: Frank Li <Frank.Li@nxp.com>
++ */
 +
-+If EP side have MSI controller, run below command to test doorbell function.
++#include <linux/device.h>
++#include <linux/export.h>
++#include <linux/irqdomain.h>
++#include <linux/module.h>
++#include <linux/msi.h>
++#include <linux/of_irq.h>
++#include <linux/pci-epc.h>
++#include <linux/pci-epf.h>
++#include <linux/pci-ep-cfs.h>
++#include <linux/pci-ep-msi.h>
++#include <linux/slab.h>
 +
-+	# pci_endpoint_test -f pcie_ep_doorbell
-+
-+	# Starting 1 tests from 1 test cases.
-+	#  RUN           pcie_ep_doorbell.DOORBELL_TEST ...
-+	#            OK  pcie_ep_doorbell.DOORBELL_TEST
-+	ok 1 pcie_ep_doorbell.DOORBELL_TEST
-+	# PASSED: 1 / 1 tests passed.
-+	# Totals: pass:1 fail:0 xfail:0 xpass:0 skip:0 error:0
-diff --git a/tools/testing/selftests/pci_endpoint/pci_endpoint_test.c b/tools/testing/selftests/pci_endpoint/pci_endpoint_test.c
-index ac26481d29d9dce5d07de563048850c55c58c22d..da0db0e7c9693f11b4975ca0e6830174229983ba 100644
---- a/tools/testing/selftests/pci_endpoint/pci_endpoint_test.c
-+++ b/tools/testing/selftests/pci_endpoint/pci_endpoint_test.c
-@@ -229,4 +229,32 @@ TEST_F(pci_ep_data_transfer, COPY_TEST)
- 					 test_size[i]);
- 	}
- }
-+
-+FIXTURE(pcie_ep_doorbell)
++static void pci_epf_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
 +{
-+	int fd;
-+};
++	struct pci_epc *epc;
++	struct pci_epf *epf;
 +
-+FIXTURE_SETUP(pcie_ep_doorbell)
-+{
-+	self->fd = open(test_device, O_RDWR);
++	epc = pci_epc_get(dev_name(msi_desc_to_dev(desc)));
++	if (!epc)
++		return;
 +
-+	ASSERT_NE(-1, self->fd) TH_LOG("Can't open PCI Endpoint Test device");
-+};
++	epf = list_first_entry_or_null(&epc->pci_epf, struct pci_epf, list);
 +
-+FIXTURE_TEARDOWN(pcie_ep_doorbell)
-+{
-+	close(self->fd);
-+};
++	if (epf && epf->db_msg && desc->msi_index < epf->num_db)
++		memcpy(&epf->db_msg[desc->msi_index].msg, msg, sizeof(*msg));
 +
-+TEST_F(pcie_ep_doorbell, DOORBELL_TEST)
-+{
-+	int ret;
-+
-+	pci_ep_ioctl(PCITEST_SET_IRQTYPE, PCITEST_IRQ_TYPE_AUTO);
-+	ASSERT_EQ(0, ret) TH_LOG("Can't set AUTO IRQ type");
-+
-+	pci_ep_ioctl(PCITEST_DOORBELL, 0);
-+	EXPECT_FALSE(ret) TH_LOG("Test failed for Doorbell\n");
++	pci_epc_put(epc);
 +}
- TEST_HARNESS_MAIN
++
++int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
++{
++	struct pci_epc *epc = epf->epc;
++	struct device *dev = &epf->dev;
++	struct irq_domain *dom;
++	void *msg;
++	int ret;
++	int i;
++
++	if (list_first_entry_or_null(&epc->pci_epf, struct pci_epf, list) != epf) {
++		dev_err(dev, "MSI doorbell only support one endpoint function\n");
++		return -EINVAL;
++	}
++
++	dom = of_msi_map_get_device_domain(epc->dev.parent, 0, DOMAIN_BUS_PLATFORM_MSI);
++	if (!dom) {
++		dev_err(dev, "Can't find MSI domain for parent device\n");
++		return -ENODEV;
++	}
++
++	dev_set_msi_domain(epc->dev.parent, dom);
++
++	msg = kcalloc(num_db, sizeof(struct pci_epf_doorbell_msg), GFP_KERNEL);
++	if (!msg)
++		return -ENOMEM;
++
++	epf->num_db = num_db;
++	epf->db_msg = msg;
++
++	ret = platform_device_msi_init_and_alloc_irqs(epc->dev.parent, num_db,
++						      pci_epf_write_msi_msg);
++	if (ret) {
++		dev_err(dev, "Failed to allocate MSI\n");
++		kfree(msg);
++		return ret;
++	}
++
++	for (i = 0; i < num_db; i++)
++		epf->db_msg[i].virq = msi_get_virq(epc->dev.parent, i);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(pci_epf_alloc_doorbell);
++
++void pci_epf_free_doorbell(struct pci_epf *epf)
++{
++	platform_device_msi_free_irqs_all(epf->epc->dev.parent);
++
++	kfree(epf->db_msg);
++	epf->db_msg = NULL;
++	epf->num_db = 0;
++}
++EXPORT_SYMBOL_GPL(pci_epf_free_doorbell);
+diff --git a/include/linux/pci-ep-msi.h b/include/linux/pci-ep-msi.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..7c5db90f96204559b4be0c8805565f210461ac75
+--- /dev/null
++++ b/include/linux/pci-ep-msi.h
+@@ -0,0 +1,28 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * PCI Endpoint *Function* side MSI header file
++ *
++ * Copyright (C) 2024 NXP
++ * Author: Frank Li <Frank.Li@nxp.com>
++ */
++
++#ifndef __PCI_EP_MSI__
++#define __PCI_EP_MSI__
++
++struct pci_epf;
++
++#ifdef CONFIG_PCI_ENDPOINT_MSI_DOORBELL
++int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 nums);
++void pci_epf_free_doorbell(struct pci_epf *epf);
++#else
++static inline int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 nums)
++{
++	return -ENODATA;
++}
++
++static inline void pci_epf_free_doorbell(struct pci_epf *epf)
++{
++}
++#endif /* CONFIG_GENERIC_MSI_IRQ */
++
++#endif /* __PCI_EP_MSI__ */
+diff --git a/include/linux/pci-epf.h b/include/linux/pci-epf.h
+index 749cee0bcf2cc0600ad3be1582b0c497c5a21bed..a3b1a1d90d18356e8cda966c7004c3be93962a0d 100644
+--- a/include/linux/pci-epf.h
++++ b/include/linux/pci-epf.h
+@@ -12,6 +12,7 @@
+ #include <linux/configfs.h>
+ #include <linux/device.h>
+ #include <linux/mod_devicetable.h>
++#include <linux/msi.h>
+ #include <linux/pci.h>
+ 
+ struct pci_epf;
+@@ -128,6 +129,16 @@ struct pci_epf_bar {
+ 	int		flags;
+ };
+ 
++/**
++ * struct pci_epf_doorbell_msg - represents doorbell message
++ * @msi_msg: MSI message
++ * @virq: irq number of this doorbell MSI message
++ */
++struct pci_epf_doorbell_msg {
++	struct msi_msg msg;
++	int virq;
++};
++
+ /**
+  * struct pci_epf - represents the PCI EPF device
+  * @dev: the PCI EPF device
+@@ -155,6 +166,8 @@ struct pci_epf_bar {
+  * @vfunction_num_map: bitmap to manage virtual function number
+  * @pci_vepf: list of virtual endpoint functions associated with this function
+  * @event_ops: callbacks for capturing the EPC events
++ * @db_msg: data for MSI from RC side
++ * @num_db: number of doorbells
+  */
+ struct pci_epf {
+ 	struct device		dev;
+@@ -185,6 +198,8 @@ struct pci_epf {
+ 	unsigned long		vfunction_num_map;
+ 	struct list_head	pci_vepf;
+ 	const struct pci_epc_event_ops *event_ops;
++	struct pci_epf_doorbell_msg *db_msg;
++	u16 num_db;
+ };
+ 
+ /**
 
 -- 
 2.34.1
