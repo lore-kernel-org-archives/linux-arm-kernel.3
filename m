@@ -4,62 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45AFBC83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:09:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4782DC83F0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 16:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=arc5EHkqB6hHpq1XJ5FAMUqsGnnMaVWZNx1v3p3jgY8=; b=ydQBanHndm6bdexQHbcvSjfZiC
-	YhuDI4DMEbIlIXV6tYQIxs5vL99qs7E/ev1GKAb0O96SeGsQs6QMBtm6DZQ0YVeJDiaEwjtAjT39Z
-	Zxts5OUcd4mtetBIMW80wqGsfSuEnIrtnTHQaSa7SN5LEIX7GxlS6uvWur2c5bAhPqPHyHQmjP2g9
-	HBuKHGJwamTCRa/X3ktgo97VgXuQ2FcGzg5mVWMr87LFUJlk30SgcoJwd94LF21FwCECqYN7BNoLO
-	uQ3OtTK5jI+qqv5NoEkYPgw5up9YFkyBq6pMVRxOoP/2r9Neh/FAi6YoqwS104Rt8GlwFlnueOROH
-	7xYxZC7g==;
+	bh=DTh3Sxqg+58paGn8PMm1PbTI7hqrVgYAEqXIFFMsiJc=; b=ClV9X8kwd2oBVbOEdD/vpZOBOk
+	8KlM1UsJ7gpsx3e+rE8lRyPoJiA9uRoSZpJdDfe2rmsibuQ/AsWzWDcfIwFwrWld+VUubHN5Lsrm9
+	m7DJksiL6GpoOp4HObzIU3wbjqxznWkeyowCGp7ofr/80GAZ6XwJ2ahTNb14jqDxglWRuWw/Tw282
+	WxlyPk0oNIgu4SS0Z+/EPTYlnP68kge3B0sqWJqa5kL/PvajsQ00wV2i6lBj4/VycJoddv88tp7sN
+	BdjScIfK1UnVNznMPlW/nlchvQZ8b3tjh0o/2zCar92diMBXihWn0vaW2ceH5Y6Apl1QZ1zRvscKd
+	CygHTqbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZXMI-00000009HEv-0Gdh;
-	Wed, 09 Jul 2025 16:09:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uZXOc-00000009He7-1hkC;
+	Wed, 09 Jul 2025 16:11:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVWg-00000008vSD-08KV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 14:11:59 +0000
+	id 1uZVcs-00000008wda-3iVg;
+	Wed, 09 Jul 2025 14:18:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B8BC445964;
-	Wed,  9 Jul 2025 14:11:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE546C4CEEF;
-	Wed,  9 Jul 2025 14:11:53 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1B232A54676;
+	Wed,  9 Jul 2025 14:18:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9196CC4CEEF;
+	Wed,  9 Jul 2025 14:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752070317;
-	bh=MP8y7OgpetDh3M79PleMX8TjA4AwgjOhJ4DgQjJGgRM=;
+	s=k20201202; t=1752070701;
+	bh=MzY/9uE0sLVniAuH/Xh4U5HRFi1qfLBaStncG38UwSE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tua7tl5CR2shKodoU+r6z3cIdXQWuEXLopgPRh9M7/cSvu8WZsSysvpY3RIWew0hZ
-	 BhkS02BGy3Xm5tojLWZB0fTzLFtPtw0fgkNtAbNbzX4FMF5Y16IKAbD217aXUSeLq8
-	 4roJ/cR+jQqWrcx4JcSg9mpL4+A/grmBIpmXjnGAntcgloJROFXXMnq04hVJeG4jIf
-	 7T26wA6gI0HXvt5snzYdiL8dZuBs+61LtxRkFIA6Ln3tOLC82njLLnIrWa/6CfHjIX
-	 d1QnjLe0C+Mt59ze3U45rzdTNh1VMIeDKVZF2r7h6EDrNToReb9p+gN3lNGC9O9qEj
-	 kKyFB5JK0PI+w==
-Message-ID: <7311e4b6-8832-46fc-94b8-4ebcb2592926@kernel.org>
-Date: Wed, 9 Jul 2025 16:11:52 +0200
+	b=lsocBSd/5BVyPoIOXZCRcIm0EoDsnuCYRkfI8gVBW9GjzIwgeXuWqAP45lQzmKtF6
+	 iO2qDc1O1m2HNpuPhF2crGfa2hdkTS8WkcDQS4xleJK7vVNcMXFLvnuf4E0+G+Hhd6
+	 QBJ/mSKyqm9QyQX1im1DFyKvqfvRlr6qBClXh/RRNxDik7B8Jp5zswCyvcJTKpskfS
+	 W2r35r2ODlyKSwh0lFgr64eTmkgmWv2Ki8e+IKi9/sYUK32BQLRBLw8ABB7MNvX9PS
+	 UjxJBldMUENnwLK4BP/wrcHCW6S51Krk+eI9svKbfRmuWVUrxyX4a73PdKGzf1B+MR
+	 fYf2MU2YqsDFg==
+Message-ID: <ea6f2815-5882-4fab-8372-1c252a87e09a@kernel.org>
+Date: Wed, 9 Jul 2025 16:18:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/9] dt-bindings: gpio: add bindings for the QIXIS FPGA
- based GPIO controller
-To: Ioana Ciornei <ioana.ciornei@nxp.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij
- <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Shawn Guo <shawnguo@kernel.org>, Michael Walle <mwalle@kernel.org>,
- Lee Jones <lee@kernel.org>, Frank Li <Frank.Li@nxp.com>
-References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
- <20250709112658.1987608-2-ioana.ciornei@nxp.com>
- <9aff4894-a8aa-47d2-8800-62959e064254@kernel.org>
- <lv55xheu2glgsgey2wdupqp3cvem27afhrs3ibhzqgglf4ql6a@tzy7uwule7z4>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add reset button to NanoPi R5S
+To: Diederik de Haas <didi.debian@cknow.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250709105715.119771-1-didi.debian@cknow.org>
+ <649824ea-a420-437e-ace1-2f079235c604@kernel.org>
+ <DB7HDOPFOQAE.3NG4SP67ES80J@cknow.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <lv55xheu2glgsgey2wdupqp3cvem27afhrs3ibhzqgglf4ql6a@tzy7uwule7z4>
+In-Reply-To: <DB7HDOPFOQAE.3NG4SP67ES80J@cknow.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_071158_113342_3942B433 
-X-CRM114-Status: GOOD (  28.61  )
+X-CRM114-CacheID: sfid-20250709_071823_054934_23760221 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,104 +119,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/07/2025 15:55, Ioana Ciornei wrote:
-> On Wed, Jul 09, 2025 at 02:14:47PM +0200, Krzysztof Kozlowski wrote:
->> On 09/07/2025 13:26, Ioana Ciornei wrote:
->>> Add a device tree binding for the QIXIS FPGA based GPIO controller.
->>> Depending on the board, the QIXIS FPGA exposes registers which act as a
->>> GPIO controller, each with 8 GPIO lines of fixed direction.
->>>
->>> Since each QIXIS FPGA layout has its particularities, add a separate
->>> compatible string for each board/GPIO register combination supported.
->>>
->>> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+On 09/07/2025 13:17, Diederik de Haas wrote:
+>>>  		compatible = "gpio-leds";
+>>>  		pinctrl-names = "default";
+>>> @@ -127,6 +140,12 @@ eth_phy0_reset_pin: eth-phy0-reset-pin {
+>>>  		};
+>>>  	};
+>>>  
+>>> +	gpio-keys {
+>>> +		gpio4_a0_k1: gpio4-a0-k1 {
 >>
->> Your changelog explains patches, which is kind of redundant - we see
->> that - but does not explain the dependency you have here between patches.
->>
+>> Are you sure that this passes checks?
 > 
-> Do you mean the logical dependency between all the components like
-> FPGAs, GPIOs etc? I can expand on that, sure. I will also update the
-> cover letter with some of the information below.
-> If this is not what you are looking for, please let me know.
+> I did the following:
+> 
+> ```sh
+> export PATH=~/dev/kernel.org/dt-schema-venv/bin/:$PATH CROSS_COMPILE=aarch64-linux-gnu- ARCH=arm64
+> make distclean
+> make debarm64_defconfig
+> make CHECK_DTBS=y W=1 rockchip/rk3568-nanopi-r5s.dtb
 
-I meant here cover letter, not changelog. It does not explain
-dependencies between patches. You just explain what each patch is doing
-- this is completely redundant cover letter.
+This looks fine.
 
+> ```
 > 
-> Layerscape boards such as those that I update here have a QIXIS FPGA
-> accessible through I2C. This FPGA exposes a set of registers which can
-> be used to monitor the status of different components, configure muxing,
-> act as GPIO controllers etc.
+> And it did not report any issues.
+> Then booted up my NanoPi R5S and verified that with the updated dtb the
+> reset button worked.
 > 
-> Since the register layout that this device exposes is different on a per
-> board basis, each board has a different compatible string such as the
-> one that patch 2/9 adds - fsl,lx2160ardb-fpga.
+> If it's about the 'weird' name/label, it is what is used in the
+> schematic document I have and I asked Heiko (on IRC) if using
+> ``reset_button_pin: gpio4-a0-k1`` would not be better. That would make
+> it more descriptive while also having the schematic traceability in it.
+> The answer was no, use the form I used in this patch.
 > 
-> Going deeper, some of these registers are acting as GPIO controllers
-> exposing status/control of different SFP cages on the board. For these
-> kind of registers the new gpio-regmap driver is added.
-> 
->> A nit, subject: drop second/last, redundant "bindings". The
->> "dt-bindings" prefix is already stating that these are bindings.
->> See also:
->> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
->>
-> 
-> Sure. Will fix.
-> 
->>> ---
->>>  .../bindings/gpio/fsl,fpga-gpio.yaml          | 44 +++++++++++++++++++
->>>  1 file changed, 44 insertions(+)
->>>  create mode 100644 Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml b/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
->>> new file mode 100644
->>> index 000000000000..dc7b6c0d9b40
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
->>> @@ -0,0 +1,44 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/gpio/fsl,fpga-gpio.yaml
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml
->>> +
->>> +title: GPIO controller embedded in the NXP QIXIS FPGA
->>> +
->>> +maintainers:
->>> +  - Ioana Ciornei <ioana.ciornei@nxp.com>
->>> +
->>> +description: |
->>> +  This module is part of the QIXIS FPGA found on some Layerscape boards such as
->>> +  LX2160ARDB and LS1046AQDS. For more details see
->>> +  ../board/fsl,fpga-qixis-i2c.yaml.
->>
->> There are no "board" bindings, so this does not feel like correct path.
-> 
-> As you have seen already in patch 2/9 there is already a dt-binding in
-> the board/ folder.
-> 
->>
->>> +
->>> +  Each controller supports a maximum of 8 GPIO lines and each line has a fixed
->>> +  direction which cannot be changed using a direction register.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    enum:
->>> +      - fsl,lx2160ardb-fpga-gpio-sfp2
->>> +      - fsl,lx2160ardb-fpga-gpio-sfp3
->>
->> What is the difference between these?
-> 
-> The layout of the registers backing these two GPIO controllers is the
-> same but they each expose status/control of different SFP cages.
-
-So same devices? Why do they need separate compatibles?
-
-
+> Am I missing checks I should've done as well?
+I meant that usually nodes, including pin controller mux/config nodes,
+have specific prefixes or suffixes. Other cases have here as well. Your
+does not.
 
 Best regards,
 Krzysztof
