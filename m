@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29858C83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA2BCC83F18
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sWfeXEz8KDLHWjQYxooMx54UR6soGrocC4j3PLR2M1Q=; b=ZgkrW5DlY0D5g9tjgVIi0gTi5+
-	CKKo8UD46j/MDP9HoNe59Pt9jMVJCaCig4pUD5EqIpIRGkcnVK4WpzEzDXYoXcHqq409+zsOYB9G0
-	QJGauRR4TOHOuTTSLzI6I60ipDHUlE3915vSFsJ7EGQ7wEDTjzK93wxTFuRMIEWqvGQdpcvmJ0dqA
-	FSOBPAFp51gfVelgrUm3CXFMP46AOZ41HBRLANOppVB0phxj6IRJk7l1f5zF0SZli8Pw1RIJDSMGi
-	6SntFcWWnLFo3Z53yLAjJ+90C0gfc0UpRlEpyT99HgB4s/prjS9a0OcZ5K4k9J7aI97D6FcmWLysa
-	aWSR6FuA==;
+	bh=jIibqyJNygtdMjhNsAuXg/eB4j41i3y0QJrk3xzhjtk=; b=lKKPxiUscdX9R2eTbuBdrae5Gl
+	VOmcUNiovKtdLQwE/CaahFezEojs1gqvwc+ixYQNTH87f4T1dK7k/ntSsNxggEBnrVLysQH+2vM+H
+	FBbZifsISIWdUtDrlc9OMGQzYHCGkyvXRz5P5gfCZDPZwoXNpmnk6SNRPqcrQ2DXP1bPdFgSD61PX
+	xsjPOrKmEjFe9MfRHWldPIrWDBXoSmmAwpoV4ypJfoYBwhjO3QDkNNvKQOoiPGH6FjjT1f1Kw81mR
+	c8IdunRd71ThEsHxI3/S9E2KReNjrdoYngtFso+VScNaKMmlVfsqctPymdWLk3aZ8eRZ0jpte2uqC
+	LgFkyqlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZcoA-00000009xNK-1VOm;
-	Wed, 09 Jul 2025 21:58:31 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1uZcoE-00000009xUb-2SPt;
+	Wed, 09 Jul 2025 21:58:34 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZXyR-00000009LmH-2cX3
+	id 1uZXyY-00000009LsY-3H15
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 16:48:49 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 68189433D0;
-	Wed,  9 Jul 2025 16:48:42 +0000 (UTC)
+	Wed, 09 Jul 2025 16:48:56 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 92B6E4447A;
+	Wed,  9 Jul 2025 16:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752079724;
+	t=1752079733;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=sWfeXEz8KDLHWjQYxooMx54UR6soGrocC4j3PLR2M1Q=;
-	b=nHbcYCzwnJhX7BuiBkiCk6mAwckkqlIc2aKGzaeZOTjKePKivXO+qX3ImmvSm/+9dn3kMJ
-	CnFmHOWLjW6zDpHNyNENro1voOALWm7mG3hFPG9Z36mOzlj+pwmuh9bDzvZ/LnBqrbcKqL
-	RbPG0Bp75v9tJTt0F2Q/Jcx89xILN7kESQGhFnqyiH7d0zuJn0OBXGD0OZoxU9wfFiEvuQ
-	+MWWcnjLn+797jcxoxpU4kEbdacunxPLtnKBbuq10xRLbrhy80A/Ep0WC6qAHdak5jQWGr
-	3BVnD/q6tXfsBzs+aypp6NwBHsSOwlzdCFYjiv0UqPEYhOJ6WS+H6RxR+PlqMg==
+	bh=jIibqyJNygtdMjhNsAuXg/eB4j41i3y0QJrk3xzhjtk=;
+	b=aXWvZKQX+FwJvKOOEwvwnHWJWc5ePsuYjerVgeH3T5AVCZVoQwQQhAFd0x8TJ8ihQTDeR2
+	I0PPdSpmgINr7tKF4/jf+8MIpYUixa+0A57tGK0sso7105mcOITrwYQTK6Mhf+uBX8qbV+
+	kFO4tI7n88a5ypomXm/Y0D9WrVFuNYvhPDZfPNIm3ocY1DJY1QgF6i4NeZZUSwPAynolPn
+	ZAMTdCkd60t5rCE2FO1gmMNglje8zyBmTCWg7GX60TMjDUIpuVV2JcAExetJgfyKYs3NjG
+	+Tc+iQcJv4jDo+VVFc0ClbqgGU+Gagp1zvaBHm3ctawFrIVqGfNLv+o6XAXajQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 09 Jul 2025 18:48:00 +0200
-Subject: [PATCH 1/9] list: add list_last_entry_or_null()
+Date: Wed, 09 Jul 2025 18:48:04 +0200
+Subject: [PATCH 5/9] drm/bridge: add drm_bridge_is_last()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-1-48920b9cf369@bootlin.com>
+Message-Id: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-5-48920b9cf369@bootlin.com>
 References: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com>
 In-Reply-To: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -67,20 +67,16 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
  linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Zijun Hu <quic_zijuhu@quicinc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefkedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppeekjedruddvtddrvddukedrvddtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeekjedruddvtddrvddukedrvddtjedphhgvlhhopegludelvddrudeikedruddrudefngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvledprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepthhomhhirdhvrghlkhgvihhnvghnsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehvihgtthhorhdrlhhiuhesn
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdefkedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppeekjedruddvtddrvddukedrvddtjeenucevlhhushhtvghrufhiiigvpeegnecurfgrrhgrmhepihhnvghtpeekjedruddvtddrvddukedrvddtjedphhgvlhhopegludelvddrudeikedruddrudefngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepthhomhhirdhvrghlkhgvihhnvghnsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehvihgtthhorhdrlhhiuhesn
  higphdrtghomhdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepphdriigrsggvlhesphgvnhhguhhtrhhonhhigidruggv
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_094847_820301_8E5023AD 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250709_094854_956207_32B7164B 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,46 +91,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an equivalent of list_first_entry_or_null() to obtain the last element
-of a list.
+Some code needing to know whether a bridge is the last in a chain currently
+call drm_bridge_get_next_bridge(). However drm_bridge_get_next_bridge()
+will soon increment the refcount of the returned bridge, which would make
+such code more annoying to write.
+
+In preparation for drm_bridge_get_next_bridge() to increment the refcount,
+as well as to simplify such code, introduce a simple bool function to tell
+whether a bridge is the last in the chain.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
 ---
+ include/drm/drm_bridge.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Zijun Hu <quic_zijuhu@quicinc.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- include/linux/list.h | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/include/linux/list.h b/include/linux/list.h
-index e7e28afd28f8eef94ab6baec77e69ea104ba0391..7f7657e416209a2941b3f292b1334e9e0f2a3ca5 100644
---- a/include/linux/list.h
-+++ b/include/linux/list.h
-@@ -636,6 +636,20 @@ static inline void list_splice_tail_init(struct list_head *list,
- 	pos__ != head__ ? list_entry(pos__, type, member) : NULL; \
- })
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index 9a7e9dd8cbfa54eedb82981032a25009e845a037..c2a7a7d2dfc420e9dcf7ea4c093ce1f1b939c820 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -1264,6 +1264,11 @@ static inline struct drm_bridge *of_drm_find_bridge(struct device_node *np)
+ }
+ #endif
  
-+/**
-+ * list_last_entry_or_null - get the last element from a list
-+ * @ptr:	the list head to take the element from.
-+ * @type:	the type of the struct this is embedded in.
-+ * @member:	the name of the list_head within the struct.
-+ *
-+ * Note that if the list is empty, it returns NULL.
-+ */
-+#define list_last_entry_or_null(ptr, type, member) ({ \
-+	struct list_head *head__ = (ptr); \
-+	struct list_head *pos__ = READ_ONCE(head__->prev); \
-+	pos__ != head__ ? list_entry(pos__, type, member) : NULL; \
-+})
++static inline bool drm_bridge_is_last(struct drm_bridge *bridge)
++{
++	return list_is_last(&bridge->chain_node, &bridge->encoder->bridge_chain);
++}
 +
  /**
-  * list_next_entry - get the next element in list
-  * @pos:	the type * to cursor
+  * drm_bridge_get_current_state() - Get the current bridge state
+  * @bridge: bridge object
 
 -- 
 2.50.0
