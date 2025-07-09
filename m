@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B994DC83F0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 17:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B6EC83F12
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o3EVl9VIpKH4edXMibuTUpBAtybVGeUQZleSxZQTDrk=; b=I+O9aR/H2ZJs9PKNbQvfTb/dBr
-	rlSzBfGJYMgDufwrfUEZ22rVtfxg4neshgV08Q/lmdW3usBivIMYVRXIWK4pF5Obf0Www2uIj2Ets
-	npev0BCK8d5p/++R9frhRuN1L6ew7oi/qVi46tiDVZDJhu2Nc1gZJBUM6ND+nYGzFA9YB6GYm2JKw
-	JtGUnCo3HmjrUs9kCAlxvQ+XHvNv0A4iAT1h9SGMDptoWiVrrGdKOybliPp6fVgJeVtcRYvda0Pu7
-	iXbpCTI383SNUtzrHP8rEe8YYTgejDxov88howc0dt1epzPnp8TBP1Wde2q51gHPbesaDxszTM39Q
-	Bs9aMrUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h3oB83QFgAXtjWOjOKu/2nsCUQVsRZtax03o5JAM6Y8=; b=Wgv9lBKApC0kTQdS1wXF8Ck7LH
+	lZf0nP1pgs5ePHIdRsX0RKYQf/T9YpzOwzmGgRvMD2CeaoIXpq7o3+mABc0AYYcNR6ZNJwOzj1pJK
+	ULdkB4EtGkkFQGMWrgptTG8cqoEQq2YSgdICrWPlNKYUsxgUvxfO+nEt1a65pEmzmTJWAODB/g/Tz
+	DkJ92cZACKe1RWDya7pkYOx4LuQFLOGheDCRJIg6p7c0ddTH0Gkwgbv1CRdfBHcaGVYUzOFkz/Ddr
+	nuIav5H4apB9tH+oqJwpWdkEOo9/xwpsthTHqGQ0xTZenWp2ZW0iNQM10DqS3qCM4dZV5jF0u3ydx
+	b/0REVeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZYOn-00000009PXd-29zw;
-	Wed, 09 Jul 2025 17:16:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uZa4s-00000009bnz-36V6;
+	Wed, 09 Jul 2025 19:03:34 +0000
+Received: from out-173.mta0.migadu.com ([2001:41d0:1004:224b::ad])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZWEM-000000094UM-10sn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 14:57:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A512F44F50;
-	Wed,  9 Jul 2025 14:57:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 792ABC4CEF6;
-	Wed,  9 Jul 2025 14:57:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux.dev; s=korg;
-	t=1752073025; bh=ImDgPg2/JzwFt9Jc7QkkgiYZwTTl0nxtFtgT+n58JK0=;
-	h=From:Date:Subject:To:Cc:From;
-	b=QlDlTYK78/m7h0W9zCuXakttEwJ4FExS/ua3FN9f+h1A42bYAo3ELPzHB6CxMOWzG
-	 EjQbsaq94wwzqjzvuZ97YWzPP03J2CnaXPvSWwfRCDw7tDRj0fffW9I14f7WJH7UhL
-	 XzdgA6OeO8uu66VIEDvn9NnRqaUWHWq7z4DDvO+o=
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6B0ADC83F0A;
-	Wed,  9 Jul 2025 14:57:05 +0000 (UTC)
-From: Richard Leitner <richard.leitner@linux.dev>
-Date: Wed, 09 Jul 2025 16:57:03 +0200
-Subject: [PATCH] media: nxp: imx8-isi: fix streaming cleanup on release
+	id 1uZUlr-00000008lpk-0LUV;
+	Wed, 09 Jul 2025 13:23:36 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1752067411;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=h3oB83QFgAXtjWOjOKu/2nsCUQVsRZtax03o5JAM6Y8=;
+	b=xmn443zN8ZCqi+yE0svYjy3EEAA/aL5PrNO+deNCU4758v55UA1ZIGh2qzcJDL6VwXCYuQ
+	7Cg73xcyw68fomcZXRgcV/1tHzS8jwhbSn/L8yw9IqISeMngjRo4dbwDCwIm/vyqQw1Ikh
+	5OjIghyN/8GXcP0LCmco4LiJjC0ofu2LWkgLgb7vkomlE4krN+mxwE257oEVjBCTJ0sIqJ
+	dhzCK3XfNcj3AdAZaHjMd/duHBDxdeIzgnpk13qA3lMimKlydMg9XjCnQVbWLTAMHXSZDk
+	xtQHNDL+lQp1yTQv/HaIT2z2LrpA/bYiS/U4crmLUrJafCGviL+zkOyZXCKuVw==
+From: Diederik de Haas <didi.debian@cknow.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Dragan Simic <dsimic@manjaro.org>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Johan Jonker <jbx6244@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Diederik de Haas <didi.debian@cknow.org>
+Subject: [PATCH v4 00/10] rockchip: Fix several DTB validation issues
+Date: Wed,  9 Jul 2025 15:15:13 +0200
+Message-ID: <20250709132323.128757-1-didi.debian@cknow.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250709-imx8-isi-release-fix-v1-1-c47c659ce1a6@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAD6DbmgC/x2MSQqAMBAEvyJzdiBGxOhXxEPQVgfcSEACkr87e
- Kymul6KCIJIffFSwCNRrlOhKguaNn+uYJmVyRrbmNZ0LEdyrBoH7PARvEjiylnMgPOoLen1DtD
- 5zw5jzh9kkIZNZgAAAA==
-X-Change-ID: 20250709-imx8-isi-release-fix-182edee8ae32
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Richard Leitner <richard.leitner@linux.dev>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752073024; l=4824;
- i=richard.leitner@linux.dev; s=20250225; h=from:subject:message-id;
- bh=ImDgPg2/JzwFt9Jc7QkkgiYZwTTl0nxtFtgT+n58JK0=;
- b=xYpJrqbKcrpcFVR42vsMBBvZHktNZ2HTww5a6d9d96WIinoHhl+FZ6V5LlsrBlCwq+jXpVqOo
- sbtEDW9DqJKC6DhWybn+Eu35EWd9BGUYz7ZFQ1AKZ6Mg2gC2kayKxHP
-X-Developer-Key: i=richard.leitner@linux.dev; a=ed25519;
- pk=8hZNyyyQFqZ5ruVJsSGBSPIrmJpfDm5HwHU4QVOP1Pk=
-X-Endpoint-Received: by B4 Relay for richard.leitner@linux.dev/20250225
- with auth_id=350
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_075706_460096_08F31253 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20250709_062335_524262_FE021DA0 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,107 +74,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current implementation unconditionally calls
-mxc_isi_video_cleanup_streaming() in mxc_isi_video_release(). This can
-lead to situations where any release call (like from a simple
-"v4l2-ctl -l") may release a currently streaming queue when called on
-such a device.
+This patch set fixes several DTB validation issues and consists of 2
+parts:
+1) dsi refactoring
+2) various low-hanging fruit
 
-Address this issue by calling mxc_isi_video_cleanup_streaming() only if
-the queue owner is NULL (which is set by vb2_fop_release() when called
-by the current owner).
+ad 1) The display/rockchip/rockchip,dw-mipi-dsi.yaml binding had:
+- #address-cells
+- #size-cells
 
-This was reproducible on an i.MX8MP board by streaming from an ISI
-capture device using gstreamer:
+My guess is that those properties were added for panel(s) which could
+be connected. While convenient, it caused DTB validation issues when a
+panel was not defined on a board. So add the #address/#size-cells
+properties to the board dts[i] file where there is a panel and then
+remove the properties from the SoC dtsi file.
+Also remove the properties from this binding as they were already
+defined in "dsi-controller.yaml".
 
-	gst-launch-1.0 -v v4l2src device=/dev/videoX ! \
-	    video/x-raw,format=GRAY8,width=1280,height=800,framerate=1/120 ! \
-	    fakesink
+ad 2) There were a number of issues which were obvious to me how to fix,
+so I fixed those as well. One of those was the addition of port(s) or
+endpoints, but for that the context (ie parent nodes) got redefined ...
+to the same values they had in the SoC dsi node. The SoC dsi node
+already defined the structure where each port got a label/phandle. That
+allows for a simplification of the port/endpoint by referencing that
+label/phandle.
 
-While this stream is running, querying the caps of the same device
-provokes the error state:
+My changes were based Heiko's v6.17-armsoc/dts64 branch at commit
+7f9509791507 ("arm64: dts: rockchip: add DTs for Firefly ROC-RK3588S-PC")
 
-	v4l2-ctl -l -d /dev/videoX
+Then applied the following patches:
+86491c2b99e5 ("dt-bindings: pinctrl: rockchip: increase max amount of device functions")
+6f446bbe412a ("dt-bindings: gpu: mali-utgard: Add Rockchip RK3528 compatible")
+ab9be0b75af5 ("dt-bindings: display: himax-hx8394: Add Huiling hl055fhav028c")
+8358102806c6 ("dt-bindings: power: rockchip: Add support for RK3528")
+233eda069994 ("dt-bindings: rockchip: pmu: Add compatible for RK3528")
 
-This resulted in the following trace:
+And then validated it with W=1 using dtschema-2025.6.1.
+The validation log file sizes:
+- base: 99.9 KiB
+- dsi: 82.2 KiB
+- low-hanging-fruit: 69.0 KiB
 
-[  155.452152] ------------[ cut here ]------------
-[  155.452163] WARNING: CPU: 0 PID: 1708 at /drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c:713 mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi]
-[  157.004248] Modules linked in: cfg80211 rpmsg_ctrl rpmsg_char rpmsg_tty virtio_rpmsg_bus rpmsg_ns rpmsg_core rfkill nft_ct nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 nf_tables mcp251x6
-[  157.053499] CPU: 0 UID: 0 PID: 1708 Comm: python3 Not tainted 6.15.4-00114-g1f61ca5cad76 #1 PREEMPT
-[  157.064369] Hardware name: imx8mp_board_01 (DT)
-[  157.068205] pstate: 400000c5 (nZcv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[  157.075169] pc : mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi]
-[  157.081195] lr : mxc_isi_pipe_irq_handler+0x38/0x1b0 [imx8_isi]
-[  157.087126] sp : ffff800080003ee0
-[  157.090438] x29: ffff800080003ee0 x28: ffff0000c3688000 x27: 0000000000000000
-[  157.097580] x26: 0000000000000000 x25: ffff0000c1e7ac00 x24: ffff800081b5ad50
-[  157.104723] x23: 00000000000000d1 x22: 0000000000000000 x21: ffff0000c25e4000
-[  157.111866] x20: 0000000060000200 x19: ffff80007a0608d0 x18: 0000000000000000
-[  157.119008] x17: ffff80006a4e3000 x16: ffff800080000000 x15: 0000000000000000
-[  157.126146] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-[  157.133287] x11: 0000000000000040 x10: ffff0000c01445f0 x9 : ffff80007a053a38
-[  157.140425] x8 : ffff0000c04004b8 x7 : 0000000000000000 x6 : 0000000000000000
-[  157.147567] x5 : ffff0000c0400490 x4 : ffff80006a4e3000 x3 : ffff0000c25e4000
-[  157.154706] x2 : 0000000000000000 x1 : ffff8000825c0014 x0 : 0000000060000200
-[  157.161850] Call trace:
-[  157.164296]  mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi] (P)
-[  157.170319]  __handle_irq_event_percpu+0x58/0x218
-[  157.175029]  handle_irq_event+0x54/0xb8
-[  157.178867]  handle_fasteoi_irq+0xac/0x248
-[  157.182968]  handle_irq_desc+0x48/0x68
-[  157.186723]  generic_handle_domain_irq+0x24/0x38
-[  157.191346]  gic_handle_irq+0x54/0x120
-[  157.195098]  call_on_irq_stack+0x24/0x30
-[  157.199027]  do_interrupt_handler+0x88/0x98
-[  157.203212]  el0_interrupt+0x44/0xc0
-[  157.206792]  __el0_irq_handler_common+0x18/0x28
-[  157.211328]  el0t_64_irq_handler+0x10/0x20
-[  157.215429]  el0t_64_irq+0x198/0x1a0
-[  157.219009] ---[ end trace 0000000000000000 ]---
+I then checked whether dmesg wouldn't indicate problem on these boards:
+- Rock64 (rk3328)
+- RockPro64 (rk3399)
+- PineTab2 (rk3566)
 
-Signed-off-by: Richard Leitner <richard.leitner@linux.dev>
----
- drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+And I didn't find any. I don't have any px30 or rk3399-gru-* based
+boards, so I couldn't test with those.
 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-index 8654150728a8692b480cfbfebdc0f2596c172a00..bf1b6bd42ef77c98fdacba7bff3b5dd6c048883f 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-@@ -1207,6 +1207,11 @@ static int mxc_isi_video_streamon(struct file *file, void *priv,
- 	return ret;
- }
- 
-+/*
-+ * Stop streaming, discard buffers and release the pipeline without further
-+ * checking if we are or there is any queue owner. This function asserts the
-+ * &video->lock is held.
-+ */
- static void mxc_isi_video_cleanup_streaming(struct mxc_isi_video *video)
- {
- 	lockdep_assert_held(&video->lock);
-@@ -1333,7 +1338,11 @@ static int mxc_isi_video_release(struct file *file)
- 		dev_err(video->pipe->isi->dev, "%s fail\n", __func__);
- 
- 	mutex_lock(&video->lock);
--	mxc_isi_video_cleanup_streaming(video);
-+	/* cleanup streaming if there's no queue owner (if we were queue
-+	 * owner this was cleaned already by vb2_fop_release())
-+	 */
-+	if (!video->vdev.queue->owner)
-+		mxc_isi_video_cleanup_streaming(video);
- 	mutex_unlock(&video->lock);
- 
- 	pm_runtime_put(video->pipe->isi->dev);
+Changes in v2:
+- Move refactoring of port/endpoint definition to its own patch
+  (Quentin)
+- Move re-ordering of nodes to its own patch (Quentin)
+Link to v1:
+https://lore.kernel.org/linux-rockchip/20250627152645.740981-1-didi.debian@cknow.org/
 
----
-base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
-change-id: 20250709-imx8-isi-release-fix-182edee8ae32
+Changes in v3:
+- Fix syntax error in RP64 screen dtso (kernel test robot)
+Link to v2:
+https://lore.kernel.org/linux-rockchip/20250628144915.839338-1-didi.debian@cknow.org/
 
-Best regards,
+Changes in v4:
+- Fix commit message in patch 3 wrt dt-bindings (Rob)
+Link to v3:
+https://lore.kernel.org/linux-rockchip/20250629123840.34948-1-didi.debian@cknow.org/
+
+
+Cheers,
+  Diederik
+
+Diederik de Haas (10):
+  arm64: dts: rockchip: Move dsi address+size-cells from SoC to px30
+    boards
+  arm64: dts: rockchip: Move dsi address+size-cells from SoC to rk3399
+    boards
+  dt-bindings: display: rockchip,dw-mipi-dsi: Drop address/size cells
+  arm64: dts: rockchip: Simplify VOP port definition on rk3328
+  arm64: dts: rockchip: Simplify edp endpoints on several rk3399 boards
+  arm64: dts: rockchip: Simplify mipi_out endpoint on rk3399 RP64 dtso
+  arm64: dts: rockchip: Move mipi_out node on rk3399 haikou demo dtso
+  arm64: dts: rockchip: Fix LCD panel port on rk3566-pinetab2
+  arm64: dts: rockchip: Drop unneeded address+size-cells on px30
+  arm64: dts: rockchip: Drop regulator-compatible property on rk3399
+
+ .../rockchip/rockchip,dw-mipi-dsi.yaml        |  6 -----
+ .../rockchip/px30-cobra-ltk050h3146w-a2.dts   |  2 ++
+ .../dts/rockchip/px30-cobra-ltk050h3146w.dts  |  2 ++
+ .../dts/rockchip/px30-cobra-ltk050h3148w.dts  |  2 ++
+ .../dts/rockchip/px30-cobra-ltk500hd1829.dts  |  2 ++
+ arch/arm64/boot/dts/rockchip/px30-evb.dts     |  2 ++
+ .../rockchip/px30-pp1516-ltk050h3146w-a2.dts  |  2 ++
+ .../dts/rockchip/px30-pp1516-ltk050h3148w.dts |  2 ++
+ arch/arm64/boot/dts/rockchip/px30.dtsi        |  6 -----
+ .../dts/rockchip/rk3326-anbernic-rg351m.dtsi  |  2 ++
+ .../dts/rockchip/rk3326-gameforce-chi.dts     |  2 ++
+ .../boot/dts/rockchip/rk3326-odroid-go.dtsi   |  2 ++
+ arch/arm64/boot/dts/rockchip/rk3328.dtsi      |  6 +----
+ arch/arm64/boot/dts/rockchip/rk3399-base.dtsi |  4 ----
+ .../dts/rockchip/rk3399-gru-chromebook.dtsi   | 15 ++++---------
+ .../boot/dts/rockchip/rk3399-gru-scarlet.dtsi |  4 +++-
+ .../boot/dts/rockchip/rk3399-hugsun-x99.dts   |  2 --
+ .../boot/dts/rockchip/rk3399-pinebook-pro.dts | 15 ++++---------
+ .../dts/rockchip/rk3399-pinephone-pro.dts     |  2 ++
+ .../rk3399-puma-haikou-video-demo.dtso        | 12 +++++-----
+ .../boot/dts/rockchip/rk3399-rock-4c-plus.dts |  2 --
+ .../dts/rockchip/rk3399-rockpro64-screen.dtso | 22 ++++++-------------
+ .../rockchip/rk3399-sapphire-excavator.dts    | 16 ++++----------
+ .../boot/dts/rockchip/rk3566-pinetab2.dtsi    |  6 ++---
+ 24 files changed, 54 insertions(+), 84 deletions(-)
+
 -- 
-Richard Leitner <richard.leitner@linux.dev>
-
+2.50.0
 
 
