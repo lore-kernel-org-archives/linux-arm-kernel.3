@@ -4,91 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF141C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B9FC83F14
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aHdX3CSfue/m3/kt/dPbNz+FIQl6EVMspXvXyxqMLdA=; b=lpYWsdYdsiYAJlG0FY2uZz0YMY
-	ydDwkVuo5mtu5IHNTxeabfCj/KrcWHy7ef29NAi9anh7RUMaBPgRjqEY2BjrmoebptpVhfutXdTNe
-	m4/Gc8fMYLLTvOdu6j4ne/42rYJIT6PcaJiF+Y9sn9x67Hcf5RML19mGdItS6t9dbyqdi6byOZEI1
-	5TnQOft1xgsUtoPBhFlH90yDsHuRondPbMmnDeZ7s/qnnycXDJ/OfECqMELo9jJzQA6Cup22QwgIT
-	FqaTKKqOTyTPdoNdTJbwox3xlBL8csAv2oMO1zW9hTOYmHU+fw7yE6lFSTyxwAB94geE0P1N4pr16
-	LFZLWISg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jZk8eGKfHG0HChVyvqbRrRfcoMbhwUsxRnXD5DZKlQg=; b=uH1PVLde1Dea3FExHJCBWDE2Zd
+	qY3b2PADDzzHlyTRcGoecjbaNNHs3iRRXZ8DoxkI0XNeR4KKdLwZIGFw7DIMt4ZyFlp8WCEt3TDza
+	YuK2sEeKWmdAyJI5c1Du4tsmv5oSE5OQ0/DSFYqw9sdbvQloNykTh42ycTq7JEdm3V0JKD80f7IVN
+	DQkGp6+7B/uFoiHoezOup2tsmiUlp0/QDkb8IRNdtF0//luwizFmE/yHXeMVRUNMAnteh3qJdIwGE
+	QHr1sdS3PR2AGu0EJK7wSja53afvcK6YKOInZxU+AtPp2SllqM/pKoh0bOj7VeBTCRfUepEqmuaz5
+	ZsMj+epQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZcoH-00000009xZ1-1qx6;
-	Wed, 09 Jul 2025 21:58:37 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1uZcoJ-00000009xav-0HuN;
+	Wed, 09 Jul 2025 21:58:39 +0000
+Received: from mail-dm6nam10on2062a.outbound.protection.outlook.com ([2a01:111:f403:2413::62a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZYQa-00000009Piu-0knK
+	id 1uZYfg-00000009ROL-36Tb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 17:17:53 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7d2107eb668so17080585a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 10:17:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752081471; x=1752686271; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aHdX3CSfue/m3/kt/dPbNz+FIQl6EVMspXvXyxqMLdA=;
-        b=Pc6pJnK9gIiuY1ATG4Sjof6+PPMljLjAnMKCX04kLJmViRC0PeBBknNZIYGatOOU+l
-         gIeKmio8+yx4TsiDu/Z5nMFmUufEazgHqf4C2cpYhaAOqQh1AUvPrwWW6m+Q4jtAJGCu
-         UiWNd9E/mFWglHrQwOizhln7fWkibDxQp1GFbEG2dNO2SRpm1g0eZR04ShRRHFYtFtKH
-         XOvHnKMFPI8G6bUotfvluBLIlZpzESi+DjEwzyFjMOUvClwBfvSIB6ztX7KglduQLY9B
-         pPLoHqKxKrb3/LCFes7naqYqvJhpFibNL45Q9ys8oAYpYlduuAXxT45q9QOyiRnbYUdX
-         ZO6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752081471; x=1752686271;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aHdX3CSfue/m3/kt/dPbNz+FIQl6EVMspXvXyxqMLdA=;
-        b=b5S1jSvrLi+75cudD1Yz7gkOLbP9qdYvtY7Pb1IhC5WsbMsqIwdN03Gunzn2VK8MBS
-         XhIWMMo1NRYnpHjlfZ+o7m3SCxXMGTufHu6wC+rWLK2fx0TnKhjjFdD07e4DW8OSOXHb
-         zbUMj4hUIORkwh9XzoYTPYcaThgCKbA50NV3s6rpMad+dv5WZpWgUdcjEBPD2xUGJ/4V
-         wEIu2ZJdGghc+xzPMZcAp1jCFQQA9TknLpIGwRVEatDOvyM9vJYjvyNoMPrSSAWJCxtN
-         qF89ScvAHKALTLyfd28ocYKkcYsosPfxVTYRg0Skn2UgYSgWD3sjIJDQZHw53HMNGy+w
-         kzQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUx0wcOIpIpInuqRKydcT03AbHYbbAmJqWSX+0KCTlWlpJrwXSiYDJEeGpA4ndPfddj8tCO1TzMPmpWgBDvAJ00@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq4lswa2QHDmXyahBfIZMUD7lEy1hjSgzIGgJIEro2CAtxQ9HP
-	6fmWfmjLw/b8k6ktdACur6jE7wppxwg2etT/wa6yk96Yj4MVYrFWsoVQ
-X-Gm-Gg: ASbGncsk/EtLuK4282hRRjtpqZnI4Bf6MdSIf8/3+3c926sTTsLyBQ4yUiOanMmAYVE
-	zJH0VYvFFPJN5VJlp0l7wrQuuFZCgpcKOwaXZEc0h5VeKqe3wZswoh0rTvIua9ouuoRKRD8wEhW
-	SoJm/Sikf7g9FotH0Vn9SwbjLUm8jQEIveBr9VsjkPGyt76lBSscS+bBGzUjNTaY/rRqVfD2qIi
-	FQZ66IXlTINgq3Xf5W3modpjapdok2RyIqlocu5QMMImXL1twVxLDKRdTvWv6gMEq2R16lIcaN7
-	2iIkrsCLO7wnfpjglhMvgweU9Ht8vi7SGdw9g+f9QKHtaWZ22z0/GQoJ1G0m8/7/+SP4DecL4k3
-	FXM7m8F146H4X42eMv7d1D/U9yQ==
-X-Google-Smtp-Source: AGHT+IFyo9Srr/PXWJqOwCu+w7JjiunHszi5Ked3rjKmNIKWjnrm7o66h8G3fWaB8PXaJR9/0zFBhQ==
-X-Received: by 2002:a05:620a:318f:b0:7d4:5361:bb7e with SMTP id af79cd13be357-7dc999b2d07mr45969085a.8.1752081470416;
-        Wed, 09 Jul 2025 10:17:50 -0700 (PDT)
-Received: from fyre-x-redhat96-nsd-1.fyre.ibm.com ([129.41.87.0])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d5dbdb0aebsm971824085a.33.2025.07.09.10.17.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Jul 2025 10:17:49 -0700 (PDT)
-From: Chelsy Ratnawat <chelsyratnawat2001@gmail.com>
-To: suzuki.poulose@arm.com,
-	alexander.shishkin@linux.intel.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: mike.leach@linaro.org,
-	james.clark@linaro.org,
-	coresight@lists.linaro.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Chelsy Ratnawat <chelsyratnawat2001@gmail.com>
-Subject: [PATCH v3] coresight: Replace scnprintf() with sysfs_emit() in sysfs show functions
-Date: Wed,  9 Jul 2025 10:17:30 -0700
-Message-ID: <20250709171730.14786-1-chelsyratnawat2001@gmail.com>
-X-Mailer: git-send-email 2.47.1
+	Wed, 09 Jul 2025 17:33:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=peJVFHBs/2fX+H3FMbWXIX+yW9iweMBTV+mBhv83ERiypaLoFXTsnKfBLWPVk4YhXgfNeHDczF/6+ABsBLYsqmxkm/28es42yJu0GJO8YJCj9Q8q4mk1stLYRDDVvLUzu11bdwupcxQ/FfZ2oP+HP7f6yG4/o6YEjEyvGlL36FCIxna+z7wru67C8o1ar2ykxJQmcUf5BD0R4TBLgzR1dS8R77DwldK2ezCu8DeOjwEj6SWVJyBXhOZch2c76BFZqvBs3OsGGtN2cZzYTE6UoKjXiER7Uwr2AxTGidqPe0RAQcVd/9oyn7kf7DMoaWDEBIrPS7p1ZB8hNZFXCw+zXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jZk8eGKfHG0HChVyvqbRrRfcoMbhwUsxRnXD5DZKlQg=;
+ b=lfmAj8Vfp5t4/NYHE7xhO6oxU+muKC1UeXpVZpX6lsF8I87czmESkrcEc/U85+WNmnv6qUQlVEDv2fpXdO0b4FEqzKNc2v6snAtwS6jg1VU3zKk+MwSWJEVlu7PD6WqRxdtnMttN253meXMuxJ+DX5Q7Dzn1QxPGHjpRf/fhqg7YxcVh08gwBiYnbW7KUQoE5MqZ6UnW+HOoAUJ8aGsNK9iLjPb5/V2YEWtslHLRZAKuComHP9U9qZ4IJITPy71OqCDSwy6KYfOeP1kG0s6n1VPpfDUFwUQcLjPeiiyCaUdq8ETgavMpXCAS+HxuHcfP2afwuQsTCAV33528DwPspg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jZk8eGKfHG0HChVyvqbRrRfcoMbhwUsxRnXD5DZKlQg=;
+ b=JLvco79b4basN7XVqO/5DZN9kiw/oLwK/dx0qIkuMMjrsmlDaTdynkdoYsHhZV50WmH5ObyDbsBJNwsVehWUw4wnIJNBJkwEcNaWqhffLkHPtsrWn/gm73RAMnm0ICgdqiWRlhhrWqND+egPu4+NxjBYShx/yFmpRIiA2HR35qAiJgzr7CGJxspjgmWLDefn+m9bxKa/Jby100adaEQD1OmWQPTvJrrb1APTAaLQi7HveRhMwQXKIEqZMJMv30N1uUi9eqaqdRK0BofttkGBV3W34oPIVb88TbrxUKBcSi559l1vAirVCrLDsCUvXa91CFZECiDO4UcXfboWXNDBgA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by PH7PR12MB7380.namprd12.prod.outlook.com (2603:10b6:510:20f::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.29; Wed, 9 Jul
+ 2025 17:33:20 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8901.024; Wed, 9 Jul 2025
+ 17:33:20 +0000
+Date: Wed, 9 Jul 2025 14:33:18 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com
+Subject: Re: [PATCH v8 00/29] iommufd: Add vIOMMU infrastructure (Part-4 HW
+ QUEUE)
+Message-ID: <20250709173318.GI1599700@nvidia.com>
+References: <cover.1751677708.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1751677708.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0202.namprd13.prod.outlook.com
+ (2603:10b6:208:2be::27) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH7PR12MB7380:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1707478e-63d9-4b2d-d037-08ddbf0eb23c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vguLbaPAFiMnaKh6Y6NjVwdaArcAVVJwe7diGzp571PEpaPbRR1D6IZQ7Kt5?=
+ =?us-ascii?Q?iLmAw80ngefVLIFaiHUDuM2x7cdN1EGbDeX15bP2ofR7e1I4iszXv24VohA0?=
+ =?us-ascii?Q?LF5QTYX7h3qtpOWvKnc7KTwYkOra7OMiMl1LbfTTZ+EUwUSYeP/RU5Zm+HyG?=
+ =?us-ascii?Q?21WqOoBUy+aubMMSQ81zLFQZIPEkN8L1v540ylyqYPbwrRoKiFcA/NHLjxT3?=
+ =?us-ascii?Q?pjz+VkJXnOleXKpp8YI/B/P8z2/f0F7U/Vn6nx0lXMCUXzk9HPszEg5C0lMG?=
+ =?us-ascii?Q?XN1wkiDjnM6Xh+aU442KNViXG0JX7j8r3OGDjCZ/t9XyMGn8fk0cvYcJQGqL?=
+ =?us-ascii?Q?5BnbagizvrfdcMHm6yxIdTEHF3p/oL0ngRIAYYYTSHH9J/T1R9wRdLNU+VvV?=
+ =?us-ascii?Q?SmQwQEuIIY8pZflndXHomIzWZCZJGVY4PJLYNLVG6J1lquQmjD5O8ShbUoyL?=
+ =?us-ascii?Q?GGWItzNGl0KoU0yKKijLNNvQH1X5ZxA1I0WyqNhOQgHI7YT3jRqUCbvEJG5J?=
+ =?us-ascii?Q?Xb7wW7SRF0b2xooT7Ld6cCDrh24zQJ5lexQPBvipqlPlt970zpes0ZupaIdv?=
+ =?us-ascii?Q?GKah82DAjZ5aePtIPfiB7bOuN6HiEYTR/ZrusMlhZ48eMkA/kNJ++wvae8Gl?=
+ =?us-ascii?Q?U8WhRSCeEJd/Z6sppfUynrXEKTpMV3HSMAVv5xnceXSjzChAr2Ht6lluYm96?=
+ =?us-ascii?Q?ABmOSVuP8eLLMdCirvuToUA5ivb6Pq5PhtMY5G0FtrAPQxWShNONHqo3YXVp?=
+ =?us-ascii?Q?b02mKkPTVI00OubBelYzOjI8wFsl2c9RYBVHBOoehe0HXe64/fKqOo1YE1N6?=
+ =?us-ascii?Q?rFChhSxeV7U32I+d2MUa7hIEUPcaQYkiQDH9xMYoxop6oePARuZ3dCITvEfo?=
+ =?us-ascii?Q?RQmsdka8eUBbVX1uOd5zHpRYMofRyvmJMJ+5wakCpZc5PNxiW0o4v3Y8z2SJ?=
+ =?us-ascii?Q?XSfYyFKWklVCq90LViXwf6SbjGZbkH/iZmfDmkWcqpavihRhsQsb976MawT9?=
+ =?us-ascii?Q?AM26Sjk0mtAAtYPlLmuJ+bIWPct4v7fZgp4LLXXXIetf98ep8I/BTgyE6Z6E?=
+ =?us-ascii?Q?4vOvOaFCAFRRK70bMQ3z47KCFxBpi/NjJ/7Xk2KA3Xa6/drG2X/WGSELaSmC?=
+ =?us-ascii?Q?6VcjxUFcdvzvr8GYU0ga0W3OvrQ8LRzNDawWVY676yWEozvnJgzcXIzp29Lu?=
+ =?us-ascii?Q?raj/tKzB/xdpnMIaxgXeMR3j1CUd5amEbEed0R15opBoV1vBsj2Bf9oaPofp?=
+ =?us-ascii?Q?X4KkLjm9eFQN26bjcb+8tlktiPukqBZF8m5IJjQQ/CQYuRMqxZRvsC/mLXVD?=
+ =?us-ascii?Q?JRkLMzcqOgCdSlLzDXlfdRXuy/Qbj5tY2xgTYMvopvrtbUG5g1OAWbKtykzl?=
+ =?us-ascii?Q?/KtWP0A/maV930rEwvWRbLNQZbU4gsGdPlaMjfm18y6f5I8uybTqxmSMLObF?=
+ =?us-ascii?Q?C6OmJ00vBOY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8F0ht+y6ZtvUgp0b4L3OAX1cGVArSyMjz/OtKqkZDhDX7eM0ZvbzyA6VeAHh?=
+ =?us-ascii?Q?nTWbknEKmLFq1+pc5WhZbxa8PnGGm46Uf+K2vMDlSjE5yhDarACYvi2snkPA?=
+ =?us-ascii?Q?YgQstWoujLLkLBR4ipP28uASpt0n+sEpJKWXxkiFo5Ky4KhmX60VvgrHmVg4?=
+ =?us-ascii?Q?2fZh0DJuUVX1RGX+ydfqLH3lXcccGjfLVxHvgGElagpa8jrBu+iPb85QrxGi?=
+ =?us-ascii?Q?CqHkfU6CHyPO5CHrtJmFElGQRw3714uABjeNVTN5IwfV7IZ0CrrxbvxiB8/f?=
+ =?us-ascii?Q?LHDYx+8KzKHSQGa6W3lTVIEzEoVMqZFTfsRPupH9OXqMVH+AiiDrwShQORqU?=
+ =?us-ascii?Q?g8D6j0IEDLQveLvDNfhUfMVqBEjkGc8ZZggSJTs0txNalAwcoYAnVoVxWRKX?=
+ =?us-ascii?Q?HfjyUoH07PVz5Ut6/QmOuXNmqWfqn93cR7i5Q+nLTKyCLZHwaxfAiyA4d2RH?=
+ =?us-ascii?Q?HXGao9E786MKK8X1aM5do2iLwlaNGv8unUS8Wr241WtJ7uyWoCTu2yA4+9J3?=
+ =?us-ascii?Q?9qod4gUIjwsd3ljkuUa8dC/irq4WCuNHAE0ol4fFopXX8WFngT5G51/jWMtH?=
+ =?us-ascii?Q?isPz8qihdyG4iFYLMZw+EUDfW/1K70htBY4CYdOipOzziBXXB/REHEO/9HL/?=
+ =?us-ascii?Q?2UuvzGB8Cly0mBP40WeNi/y0dPZ85SN49F7WGlFOHREfgTl60+U2WuWNhbVx?=
+ =?us-ascii?Q?mesrMO6d2KVWcGriHlBLZztcWNnGCKBFSXenWLiiAuLcpxYxTp3W7IGaacos?=
+ =?us-ascii?Q?y8VBdVr5Q9SRdRZ9NeJoTgpapEdTF3JVAaWhL9ri+MM27Shlm5Wh/he9WrhE?=
+ =?us-ascii?Q?Qvd4vLBAnn1ir/7NCebeFWD0PcxdmZTNOQqpMfpzeqrPjVUjQOBRPCucJ47R?=
+ =?us-ascii?Q?1KYCLVP222f6cKpHP74XD7I1MH8ZmmedJ3GaWL9S8MoTWHdlK5EPexK6PxO6?=
+ =?us-ascii?Q?hSWXxFjj0zn90V5HHpntlLNreSFMLHJaMAfURPChlVLvtnZjJD7aQL0+1a3g?=
+ =?us-ascii?Q?gpBhyjhQR1fjYCDVv8aTuFp6mlGe94lqZaqNdWXTJlcwI7JdQaaR9MsUXftv?=
+ =?us-ascii?Q?1V/5WFBuSf6gJe8NRsVP6kMtr/HBcSO1h+A2VUtKGpDAk7gMIzUke1rFyEvr?=
+ =?us-ascii?Q?/vBQU4SGmfXrDZpgdPc1BQpHkuu9qc66Hc2bmelc2gMA7Zt3vhepA7yRBscP?=
+ =?us-ascii?Q?udaKp0yslv9BDg7iAqrv+VnaVgy1IK6XrmxqMnM36N5QKW3NoIXidvThGHpe?=
+ =?us-ascii?Q?6fk/G794ng8Uk00DxOkL5m76Kxn00W3Mq6ckOxefWGq6TXJuboCZhdRNctHd?=
+ =?us-ascii?Q?aNyLnI99a0qATJLqqbnOW3P87aM+bC3jqZSjwthuvAJS5E41G+jmzKp2TykU?=
+ =?us-ascii?Q?GemCglXSPCXyAL1I+lo2skdX2s78lcux9MdY17TMAF7a66DBM3hKpZqiBHny?=
+ =?us-ascii?Q?aitDy05PXv+LrYuoj53vmROWmzFVnXwOK0ayFtXUw6FgxDPFHzmA9QnSJZHK?=
+ =?us-ascii?Q?qrBdqbcfxoyki3H9fEEZwZ/IoWHrEhF/YmCz0hUeG9u3PQwPvDemMMcMNYc7?=
+ =?us-ascii?Q?5qLsTXQfz+dr0N3bDvHGMc8MOf3OIcYHscta/v07?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1707478e-63d9-4b2d-d037-08ddbf0eb23c
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2025 17:33:19.9654
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: t32kBUu/LoHe9UpddjsmPQSLg+8a0mIHTxb/VabrjDWZErClwxni6rD7qmJ3Zxs1
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7380
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_101752_225270_B24E3899 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20250709_103328_778620_47C34BE4 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,621 +166,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Documentation/filesystems/sysfs.rst mentions that show() should only
-use sysfs_emit() or sysfs_emit_at() when formating the value to be
-returned to user space. So replace scnprintf() with sysfs_emit().
+On Fri, Jul 04, 2025 at 06:13:16PM -0700, Nicolin Chen wrote:
+> Nicolin Chen (29):
+>   iommufd: Report unmapped bytes in the error path of
+>     iopt_unmap_iova_range
+>   iommufd: Correct virt_id kdoc at struct iommu_vdevice_alloc
+>   iommufd/viommu: Explicitly define vdev->virt_id
+>   iommu: Use enum iommu_hw_info_type for type in hw_info op
+>   iommu: Add iommu_copy_struct_to_user helper
+>   iommu: Pass in a driver-level user data structure to viommu_init op
+>   iommufd/viommu: Allow driver-specific user data for a vIOMMU object
+>   iommufd/selftest: Support user_data in mock_viommu_alloc
+>   iommufd/selftest: Add coverage for viommu data
+>   iommufd/access: Add internal APIs for HW queue to use
+>   iommufd/access: Bypass access->ops->unmap for internal use
+>   iommufd/viommu: Add driver-defined vDEVICE support
+>   iommufd/viommu: Introduce IOMMUFD_OBJ_HW_QUEUE and its related struct
+>   iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC ioctl
+>   iommufd/driver: Add iommufd_hw_queue_depend/undepend() helpers
+>   iommufd/selftest: Add coverage for IOMMUFD_CMD_HW_QUEUE_ALLOC
+>   iommufd: Add mmap interface
+>   iommufd/selftest: Add coverage for the new mmap interface
+>   Documentation: userspace-api: iommufd: Update HW QUEUE
+>   iommu: Allow an input type in hw_info op
+>   iommufd: Allow an input data_type via iommu_hw_info
+>   iommufd/selftest: Update hw_info coverage for an input data_type
+>   iommu/arm-smmu-v3-iommufd: Add vsmmu_size/type and vsmmu_init impl ops
+>   iommu/arm-smmu-v3-iommufd: Add hw_info to impl_ops
+>   iommu/tegra241-cmdqv: Use request_threaded_irq
+>   iommu/tegra241-cmdqv: Simplify deinit flow in
+>     tegra241_cmdqv_remove_vintf()
+>   iommu/tegra241-cmdqv: Do not statically map LVCMDQs
+>   iommu/tegra241-cmdqv: Add user-space use support
+>   iommu/tegra241-cmdqv: Add IOMMU_VEVENTQ_TYPE_TEGRA241_CMDQV support
 
-Signed-off-by: Chelsy Ratnawat <chelsyratnawat2001@gmail.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
----
-Changes in v3:
- - fixed warnings from checkpatch.pl
+I've dropped this in linux-next with the little fix I mentioned.
 
- .../hwtracing/coresight/coresight-etm-perf.c  |   4 +-
- .../coresight/coresight-etm3x-sysfs.c         |   2 +-
- .../coresight/coresight-etm4x-sysfs.c         | 118 +++++++++---------
- drivers/hwtracing/coresight/coresight-stm.c   |   8 +-
- drivers/hwtracing/coresight/coresight-sysfs.c |   4 +-
- 5 files changed, 68 insertions(+), 68 deletions(-)
+If there are further remarks before the merge window please send a v9
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index f1551c08ecb2..8cfdcbc2f8f6 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -851,7 +851,7 @@ static ssize_t etm_perf_sink_name_show(struct device *dev,
- 	struct dev_ext_attribute *ea;
- 
- 	ea = container_of(dattr, struct dev_ext_attribute, attr);
--	return scnprintf(buf, PAGE_SIZE, "0x%lx\n", (unsigned long)(ea->var));
-+	return sysfs_emit(buf, "0x%lx\n", (unsigned long)(ea->var));
- }
- 
- static struct dev_ext_attribute *
-@@ -943,7 +943,7 @@ static ssize_t etm_perf_cscfg_event_show(struct device *dev,
- 	struct dev_ext_attribute *ea;
- 
- 	ea = container_of(dattr, struct dev_ext_attribute, attr);
--	return scnprintf(buf, PAGE_SIZE, "configid=0x%lx\n", (unsigned long)(ea->var));
-+	return sysfs_emit(buf, "configid=0x%lx\n", (unsigned long)(ea->var));
- }
- 
- int etm_perf_add_symlink_cscfg(struct device *dev, struct cscfg_config_desc *config_desc)
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-index 762109307b86..4868eb05a312 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-@@ -1182,7 +1182,7 @@ static ssize_t cpu_show(struct device *dev,
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->cpu;
--	return scnprintf(buf, PAGE_SIZE, "%d\n", val);
-+	return sysfs_emit(buf, "%d\n", val);
- 
- }
- static DEVICE_ATTR_RO(cpu);
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-index ab251865b893..4ddc0d344b61 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-@@ -63,7 +63,7 @@ static ssize_t nr_pe_cmp_show(struct device *dev,
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->nr_pe_cmp;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_pe_cmp);
- 
-@@ -75,7 +75,7 @@ static ssize_t nr_addr_cmp_show(struct device *dev,
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->nr_addr_cmp;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_addr_cmp);
- 
-@@ -87,7 +87,7 @@ static ssize_t nr_cntr_show(struct device *dev,
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->nr_cntr;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_cntr);
- 
-@@ -99,7 +99,7 @@ static ssize_t nr_ext_inp_show(struct device *dev,
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->nr_ext_inp;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_ext_inp);
- 
-@@ -111,7 +111,7 @@ static ssize_t numcidc_show(struct device *dev,
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->numcidc;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(numcidc);
- 
-@@ -123,7 +123,7 @@ static ssize_t numvmidc_show(struct device *dev,
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->numvmidc;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(numvmidc);
- 
-@@ -135,7 +135,7 @@ static ssize_t nrseqstate_show(struct device *dev,
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->nrseqstate;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nrseqstate);
- 
-@@ -147,7 +147,7 @@ static ssize_t nr_resource_show(struct device *dev,
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->nr_resource;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_resource);
- 
-@@ -159,7 +159,7 @@ static ssize_t nr_ss_cmp_show(struct device *dev,
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->nr_ss_cmp;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_ss_cmp);
- 
-@@ -287,7 +287,7 @@ static ssize_t mode_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->mode;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t mode_store(struct device *dev,
-@@ -453,7 +453,7 @@ static ssize_t pe_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->pe_sel;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t pe_store(struct device *dev,
-@@ -488,7 +488,7 @@ static ssize_t event_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->eventctrl0;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t event_store(struct device *dev,
-@@ -537,7 +537,7 @@ static ssize_t event_instren_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = FIELD_GET(TRCEVENTCTL1R_INSTEN_MASK, config->eventctrl1);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t event_instren_store(struct device *dev,
-@@ -593,7 +593,7 @@ static ssize_t event_ts_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->ts_ctrl;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t event_ts_store(struct device *dev,
-@@ -623,7 +623,7 @@ static ssize_t syncfreq_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->syncfreq;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t syncfreq_store(struct device *dev,
-@@ -653,7 +653,7 @@ static ssize_t cyc_threshold_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->ccctlr;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t cyc_threshold_store(struct device *dev,
-@@ -686,7 +686,7 @@ static ssize_t bb_ctrl_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->bb_ctrl;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t bb_ctrl_store(struct device *dev,
-@@ -726,7 +726,7 @@ static ssize_t event_vinst_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = FIELD_GET(TRCVICTLR_EVENT_MASK, config->vinst_ctrl);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t event_vinst_store(struct device *dev,
-@@ -758,7 +758,7 @@ static ssize_t s_exlevel_vinst_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = FIELD_GET(TRCVICTLR_EXLEVEL_S_MASK, config->vinst_ctrl);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t s_exlevel_vinst_store(struct device *dev,
-@@ -793,7 +793,7 @@ static ssize_t ns_exlevel_vinst_show(struct device *dev,
- 
- 	/* EXLEVEL_NS, bits[23:20] */
- 	val = FIELD_GET(TRCVICTLR_EXLEVEL_NS_MASK, config->vinst_ctrl);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t ns_exlevel_vinst_store(struct device *dev,
-@@ -827,7 +827,7 @@ static ssize_t addr_idx_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->addr_idx;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t addr_idx_store(struct device *dev,
-@@ -866,11 +866,11 @@ static ssize_t addr_instdatatype_show(struct device *dev,
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->addr_idx;
- 	val = FIELD_GET(TRCACATRn_TYPE_MASK, config->addr_acc[idx]);
--	len = scnprintf(buf, PAGE_SIZE, "%s\n",
--			val == TRCACATRn_TYPE_ADDR ? "instr" :
--			(val == TRCACATRn_TYPE_DATA_LOAD_ADDR ? "data_load" :
--			(val == TRCACATRn_TYPE_DATA_STORE_ADDR ? "data_store" :
--			"data_load_store")));
-+	len = sysfs_emit(buf, "%s\n",
-+			 val == TRCACATRn_TYPE_ADDR ? "instr" :
-+			 (val == TRCACATRn_TYPE_DATA_LOAD_ADDR ? "data_load" :
-+			 (val == TRCACATRn_TYPE_DATA_STORE_ADDR ? "data_store" :
-+			 "data_load_store")));
- 	raw_spin_unlock(&drvdata->spinlock);
- 	return len;
- }
-@@ -918,7 +918,7 @@ static ssize_t addr_single_show(struct device *dev,
- 	}
- 	val = (unsigned long)config->addr_val[idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t addr_single_store(struct device *dev,
-@@ -974,7 +974,7 @@ static ssize_t addr_range_show(struct device *dev,
- 	val1 = (unsigned long)config->addr_val[idx];
- 	val2 = (unsigned long)config->addr_val[idx + 1];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx %#lx\n", val1, val2);
-+	return sysfs_emit(buf, "%#lx %#lx\n", val1, val2);
- }
- 
- static ssize_t addr_range_store(struct device *dev,
-@@ -1049,7 +1049,7 @@ static ssize_t addr_start_show(struct device *dev,
- 
- 	val = (unsigned long)config->addr_val[idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t addr_start_store(struct device *dev,
-@@ -1104,7 +1104,7 @@ static ssize_t addr_stop_show(struct device *dev,
- 
- 	val = (unsigned long)config->addr_val[idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t addr_stop_store(struct device *dev,
-@@ -1152,7 +1152,7 @@ static ssize_t addr_ctxtype_show(struct device *dev,
- 	idx = config->addr_idx;
- 	/* CONTEXTTYPE, bits[3:2] */
- 	val = FIELD_GET(TRCACATRn_CONTEXTTYPE_MASK, config->addr_acc[idx]);
--	len = scnprintf(buf, PAGE_SIZE, "%s\n", val == ETM_CTX_NONE ? "none" :
-+	len = sysfs_emit(buf, "%s\n", val == ETM_CTX_NONE ? "none" :
- 			(val == ETM_CTX_CTXID ? "ctxid" :
- 			(val == ETM_CTX_VMID ? "vmid" : "all")));
- 	raw_spin_unlock(&drvdata->spinlock);
-@@ -1219,7 +1219,7 @@ static ssize_t addr_context_show(struct device *dev,
- 	/* context ID comparator bits[6:4] */
- 	val = FIELD_GET(TRCACATRn_CONTEXT_MASK, config->addr_acc[idx]);
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t addr_context_store(struct device *dev,
-@@ -1262,7 +1262,7 @@ static ssize_t addr_exlevel_s_ns_show(struct device *dev,
- 	idx = config->addr_idx;
- 	val = FIELD_GET(TRCACATRn_EXLEVEL_MASK, config->addr_acc[idx]);
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t addr_exlevel_s_ns_store(struct device *dev,
-@@ -1325,8 +1325,8 @@ static ssize_t addr_cmp_view_show(struct device *dev,
- 	}
- 	raw_spin_unlock(&drvdata->spinlock);
- 	if (addr_type) {
--		size = scnprintf(buf, PAGE_SIZE, "addr_cmp[%i] %s %#lx", idx,
--				 addr_type_names[addr_type], addr_v);
-+		size = sysfs_emit(buf, "addr_cmp[%i] %s %#lx", idx,
-+				  addr_type_names[addr_type], addr_v);
- 		if (addr_type == ETM_ADDR_TYPE_RANGE) {
- 			size += scnprintf(buf + size, PAGE_SIZE - size,
- 					  " %#lx %s", addr_v2,
-@@ -1335,7 +1335,7 @@ static ssize_t addr_cmp_view_show(struct device *dev,
- 		size += scnprintf(buf + size, PAGE_SIZE - size,
- 				  " ctrl(%#lx)\n", addr_ctrl);
- 	} else {
--		size = scnprintf(buf, PAGE_SIZE, "addr_cmp[%i] unused\n", idx);
-+		size = sysfs_emit(buf, "addr_cmp[%i] unused\n", idx);
- 	}
- 	return size;
- }
-@@ -1352,7 +1352,7 @@ static ssize_t vinst_pe_cmp_start_stop_show(struct device *dev,
- 	if (!drvdata->nr_pe_cmp)
- 		return -EINVAL;
- 	val = config->vipcssctlr;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static ssize_t vinst_pe_cmp_start_stop_store(struct device *dev,
- 					     struct device_attribute *attr,
-@@ -1383,7 +1383,7 @@ static ssize_t seq_idx_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->seq_idx;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t seq_idx_store(struct device *dev,
-@@ -1419,7 +1419,7 @@ static ssize_t seq_state_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->seq_state;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t seq_state_store(struct device *dev,
-@@ -1453,7 +1453,7 @@ static ssize_t seq_event_show(struct device *dev,
- 	idx = config->seq_idx;
- 	val = config->seq_ctrl[idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t seq_event_store(struct device *dev,
-@@ -1486,7 +1486,7 @@ static ssize_t seq_reset_event_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->seq_rst;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t seq_reset_event_store(struct device *dev,
-@@ -1516,7 +1516,7 @@ static ssize_t cntr_idx_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->cntr_idx;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t cntr_idx_store(struct device *dev,
-@@ -1556,7 +1556,7 @@ static ssize_t cntrldvr_show(struct device *dev,
- 	idx = config->cntr_idx;
- 	val = config->cntrldvr[idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t cntrldvr_store(struct device *dev,
-@@ -1594,7 +1594,7 @@ static ssize_t cntr_val_show(struct device *dev,
- 	idx = config->cntr_idx;
- 	val = config->cntr_val[idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t cntr_val_store(struct device *dev,
-@@ -1632,7 +1632,7 @@ static ssize_t cntr_ctrl_show(struct device *dev,
- 	idx = config->cntr_idx;
- 	val = config->cntr_ctrl[idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t cntr_ctrl_store(struct device *dev,
-@@ -1664,7 +1664,7 @@ static ssize_t res_idx_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->res_idx;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t res_idx_store(struct device *dev,
-@@ -1708,7 +1708,7 @@ static ssize_t res_ctrl_show(struct device *dev,
- 	idx = config->res_idx;
- 	val = config->res_ctrl[idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t res_ctrl_store(struct device *dev,
-@@ -1746,7 +1746,7 @@ static ssize_t sshot_idx_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->ss_idx;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t sshot_idx_store(struct device *dev,
-@@ -1780,7 +1780,7 @@ static ssize_t sshot_ctrl_show(struct device *dev,
- 	raw_spin_lock(&drvdata->spinlock);
- 	val = config->ss_ctrl[config->ss_idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t sshot_ctrl_store(struct device *dev,
-@@ -1815,7 +1815,7 @@ static ssize_t sshot_status_show(struct device *dev,
- 	raw_spin_lock(&drvdata->spinlock);
- 	val = config->ss_status[config->ss_idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(sshot_status);
- 
-@@ -1830,7 +1830,7 @@ static ssize_t sshot_pe_ctrl_show(struct device *dev,
- 	raw_spin_lock(&drvdata->spinlock);
- 	val = config->ss_pe_cmp[config->ss_idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t sshot_pe_ctrl_store(struct device *dev,
-@@ -1864,7 +1864,7 @@ static ssize_t ctxid_idx_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->ctxid_idx;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t ctxid_idx_store(struct device *dev,
-@@ -1911,7 +1911,7 @@ static ssize_t ctxid_pid_show(struct device *dev,
- 	idx = config->ctxid_idx;
- 	val = (unsigned long)config->ctxid_pid[idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t ctxid_pid_store(struct device *dev,
-@@ -1972,7 +1972,7 @@ static ssize_t ctxid_masks_show(struct device *dev,
- 	val1 = config->ctxid_mask0;
- 	val2 = config->ctxid_mask1;
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx %#lx\n", val1, val2);
-+	return sysfs_emit(buf, "%#lx %#lx\n", val1, val2);
- }
- 
- static ssize_t ctxid_masks_store(struct device *dev,
-@@ -2090,7 +2090,7 @@ static ssize_t vmid_idx_show(struct device *dev,
- 	struct etmv4_config *config = &drvdata->config;
- 
- 	val = config->vmid_idx;
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t vmid_idx_store(struct device *dev,
-@@ -2135,7 +2135,7 @@ static ssize_t vmid_val_show(struct device *dev,
- 	raw_spin_lock(&drvdata->spinlock);
- 	val = (unsigned long)config->vmid_val[config->vmid_idx];
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t vmid_val_store(struct device *dev,
-@@ -2187,7 +2187,7 @@ static ssize_t vmid_masks_show(struct device *dev,
- 	val1 = config->vmid_mask0;
- 	val2 = config->vmid_mask1;
- 	raw_spin_unlock(&drvdata->spinlock);
--	return scnprintf(buf, PAGE_SIZE, "%#lx %#lx\n", val1, val2);
-+	return sysfs_emit(buf, "%#lx %#lx\n", val1, val2);
- }
- 
- static ssize_t vmid_masks_store(struct device *dev,
-@@ -2303,7 +2303,7 @@ static ssize_t cpu_show(struct device *dev,
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	val = drvdata->cpu;
--	return scnprintf(buf, PAGE_SIZE, "%d\n", val);
-+	return sysfs_emit(buf, "%d\n", val);
- 
- }
- static DEVICE_ATTR_RO(cpu);
-@@ -2461,7 +2461,7 @@ static ssize_t coresight_etm4x_reg_show(struct device *dev,
- 	val = etmv4_cross_read(drvdata, offset);
- 	pm_runtime_put_sync(dev->parent);
- 
--	return scnprintf(buf, PAGE_SIZE, "0x%x\n", val);
-+	return sysfs_emit(buf, "0x%x\n", val);
- }
- 
- static bool
-diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-index e45c6c7204b4..fa09a43889d7 100644
---- a/drivers/hwtracing/coresight/coresight-stm.c
-+++ b/drivers/hwtracing/coresight/coresight-stm.c
-@@ -470,7 +470,7 @@ static ssize_t hwevent_enable_show(struct device *dev,
- 	struct stm_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 	unsigned long val = drvdata->stmheer;
- 
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t hwevent_enable_store(struct device *dev,
-@@ -499,7 +499,7 @@ static ssize_t hwevent_select_show(struct device *dev,
- 	struct stm_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 	unsigned long val = drvdata->stmhebsr;
- 
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t hwevent_select_store(struct device *dev,
-@@ -534,7 +534,7 @@ static ssize_t port_select_show(struct device *dev,
- 		spin_unlock(&drvdata->spinlock);
- 	}
- 
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t port_select_store(struct device *dev,
-@@ -581,7 +581,7 @@ static ssize_t port_enable_show(struct device *dev,
- 		spin_unlock(&drvdata->spinlock);
- 	}
- 
--	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+	return sysfs_emit(buf, "%#lx\n", val);
- }
- 
- static ssize_t port_enable_store(struct device *dev,
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index feadaf065b53..547f4970e1e5 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -315,7 +315,7 @@ static ssize_t enable_sink_show(struct device *dev,
- {
- 	struct coresight_device *csdev = to_coresight_device(dev);
- 
--	return scnprintf(buf, PAGE_SIZE, "%u\n", csdev->sysfs_sink_activated);
-+	return sysfs_emit(buf, "%u\n", csdev->sysfs_sink_activated);
- }
- 
- static ssize_t enable_sink_store(struct device *dev,
-@@ -343,7 +343,7 @@ static ssize_t enable_source_show(struct device *dev,
- 	struct coresight_device *csdev = to_coresight_device(dev);
- 
- 	guard(mutex)(&coresight_mutex);
--	return scnprintf(buf, PAGE_SIZE, "%u\n",
-+	return sysfs_emit(buf, "%u\n",
- 			 coresight_get_mode(csdev) == CS_MODE_SYSFS);
- }
- 
--- 
-2.47.1
-
+Thanks,
+Jason
 
