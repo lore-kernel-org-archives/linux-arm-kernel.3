@@ -4,105 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806CCC83F18
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCCBC83F19
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IOUI37vOvArNOMfbDlU1r5BFH53BMkpjGIGFBJa2WR4=; b=gl7gSkKla4S2DvwHfJBQefKo2h
-	9q8tptFLWLbuy+e2UHFXfal9WrsrIOjIvy4rjVrnFuXdRnKSmGn3OT8G36Oe7MGI5yUNgchgms06c
-	6xmCxawTVAr2Se++zUVHNYduloYwTJjVa9XBObmOzsAJM9pvZupEiSQXE9t+CE4rMCrEUFgAUE+C6
-	PYin7yQFeGLXuYKNQNjH+nURUxkKzdPpra1pCiLRQ1zs+z2nCMbAuigDfuEJhhQUvd0h3EmpaKvDx
-	hX4hhoMhBDFiEtRfdmL6I5oysg/4CSxsOf/pHkaZDniXU3dSabhGumlR6R9jPnzVyUu8j2tcO7eTk
-	Ww4M0bWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N/toHkVpq5LggOD6b8zz+uspZ81zoDnz2v1z+PgrMD0=; b=Ro0k7xXkSuSlgKMJIDSHKMTuEw
+	dhVNcOzeXiV9cximgQ+8qhB4bzp8zRd6qONECTqVh6+GjMESEXUOtPfLysaYrOGOa2yijkAeDWtvv
+	dF7Dgqgd5sCraZDcpf0XfTAGXBq0FvyYNlI9RBOVqg2qAMmIdpMYWD4xxWA2WUeUIRlv8gf6jO2pV
+	IHs54Fmc8eIs08H81MiBStku9wYy3P/wKdeEgVkJxwgzZO67CeYLaKUx2rtuARlcys470lN2LmxEB
+	PFeuMdnuIMk5aKXPbKqn6zwEPvnyE36tRhezfZjkBg781qy0rM9laMx4yR6fk45cHr+wvcNNCt+js
+	ifdYV4Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdi7-0000000A7rm-16QC;
-	Wed, 09 Jul 2025 22:56:19 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1uZdiH-0000000A82O-2o1Q;
+	Wed, 09 Jul 2025 22:56:29 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZaGR-00000009gus-1arR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 19:15:37 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a4eed70f24so36073f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 12:15:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752088530; x=1752693330; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IOUI37vOvArNOMfbDlU1r5BFH53BMkpjGIGFBJa2WR4=;
-        b=ZYrCOt77Uvb8lx27Z1Pzs4OEpjJ7byItQAExlkq3BTs00Ep2ZRzZUX7ZJBzbvf5+D9
-         oQr5rGpLBEstyc9vRY8BZmTsgHYEu1An36K9IFygGYHiYU9su2scQ4Vm/qlHQKmKlDep
-         8xz9ri/jrxGaRizi6lLR46SLUqE1Elpv2L1b1KejYlrzQvQMzKCGVuQ775RM18X846va
-         r7uj6nrKIz3LNb6RfwpFuGaW5ZAVHLuMRK94EBUCab9YF+TgkOEijBvZvV4tmmYVifOU
-         10wjxEOcrDc1KIA9iovR+Y5rcqYMDqQr6x3WJ+eUw1aPr1dUpxC7xXEOWDEVcybZWZjO
-         DKig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752088530; x=1752693330;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IOUI37vOvArNOMfbDlU1r5BFH53BMkpjGIGFBJa2WR4=;
-        b=gQLO/YKNLeSWzMZ+4r62FsqddjIK1CPNa+er4yiINV64sseU6rO6Fp88X8m2RE7f1+
-         de2izUAcRydMf0JGRUDNmJDOKJrr1Vp0wgeqBgsJ9jLzl3P+Jly46ECuSH06n0XiDxeH
-         viJdcEbaE/y/rxwlrpn/GAhPsCl+KWTLO1YjTNAdlHjNZwhw4mG8NP+K3cb+DBPjoD0p
-         COSS/iYUEMQvZDtuX0/BvE+0t/VBoLijhffceF7BKISRyW2/ZAQfpdUO/NrOXeVdo9AT
-         NHsxe4OLHR0ELzSnu/6t41xkLhzITfntXWq/WKdGo1lKWjZBMioscwCXDn5qnUWhzXyY
-         6R7g==
-X-Forwarded-Encrypted: i=1; AJvYcCXJ9S+7npIEzvfN0Y0CAAHF2/wmPTf9IoAcuY6b161xvRy+O1m34xxQBVWHJn8TRm2ASWcYb8UaU3nb3+GXPzWB@lists.infradead.org
-X-Gm-Message-State: AOJu0YybPDD2U99BKfzgsRHej6UbhYjbsus3yoF6FOnnzx1h7G7O52Ph
-	EKFDfircl5SeIbUk6/zpE9wikRiQfIPrasg43wIiwPpceu6p5voLZnOHhlziTDDoryc=
-X-Gm-Gg: ASbGnctDI6yFP52Hh8wkx6p5O3nLXGOz+y/Pg51Jl4xUU17rZ+j+d/eoqgq8WFvhW1e
-	DqqhJqY/XeE1zuzn/aifjY7PXiT8VT2uveSyvneNj6PqAgaCFxi45dF9YxnQZZxyz8viHNOXgWD
-	8h/wPptHWTW3vkhGvaVZS+EWxgXrVghDKD6dvcmeXc2u4U39W5b5C13Y8anOzK843ADxrQ9PAjh
-	QxVSbTtwiWtDGdL9XwU0wFQ/sjCDm+26/lGNZ6UXuhPcNIOgrzfimFWjsn3+2rCvbumQHt+610Z
-	bGr6edHe59+6UbZJw9noLha4ofDQY9Ef7hYnB0nF68ggcYH1388FepxLngXM8mQmoNSD0E5NCEg
-	=
-X-Google-Smtp-Source: AGHT+IF5fQuSnWVC1+1FSPZh+mnfL3zRfmekTmST3Oxxmhd4JajNQiGduP450T3HuQ8hjxFtcBtDTA==
-X-Received: by 2002:a05:6000:2888:b0:3a4:d4a0:1315 with SMTP id ffacd0b85a97d-3b5e44e107cmr1444727f8f.6.1752088529780;
-        Wed, 09 Jul 2025 12:15:29 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.222.89])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b47285dc08sm17159588f8f.98.2025.07.09.12.15.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Jul 2025 12:15:29 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL 1/3] arm64: defconfig: for v6.17
-Date: Wed,  9 Jul 2025 21:15:20 +0200
-Message-ID: <20250709191523.171359-4-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	id 1uZb9f-00000009mif-42ot;
+	Wed, 09 Jul 2025 20:12:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=N/toHkVpq5LggOD6b8zz+uspZ81zoDnz2v1z+PgrMD0=; b=DNSHEZw4BymD6PssVNCmF5xBld
+	+onC/2Xi9Wsb1lQvLjY3kueI6oFAB1bEFZ3F0EC7YexGzUVrbMStjX4sJIJ/QwdIQWjwufqMPEzgB
+	6Fi/3Szt9XKCXgxIH6jHXaie5ifGQ4vqCySAvGA+Gxt+3pu27Si62X8s4vFpkzjRTDAywxo86CNTo
+	+2vawRGvpcKFESbdXzYuAqnJP2A1nIUniYhLtMgHPF+CTApd9tycmDUEmCUdhgZfUkaxw/YOxe8ek
+	yt9WI9PbdtnJMYBBsPEsttDnSRrSdMp8s9KY8sjNfGb46QRf1WxkLAa2ZrmjCwIJNnFphMoLM/R6u
+	H0AfbQSQ==;
+Received: from i53875a79.versanet.de ([83.135.90.121] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uZb94-0006oW-DP; Wed, 09 Jul 2025 22:11:58 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Damon Ding <damon.ding@rock-chips.com>
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ hjc@rock-chips.com, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+ dianders@chromium.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Damon Ding <damon.ding@rock-chips.com>
+Subject: Re: [PATCH v2 12/12] drm/bridge: analogix_dp: Apply drm_bridge_connector
+ helper
+Date: Wed, 09 Jul 2025 22:11:57 +0200
+Message-ID: <6140569.FjKLVJYuhi@diego>
+In-Reply-To: <20250709070139.3130635-13-damon.ding@rock-chips.com>
+References: <20250709070139.3130635-1-damon.ding@rock-chips.com>
+ <20250709070139.3130635-13-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1262; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=Vg3SYFcxbZhfxzHwdzewVgAiginzpLipvsLFtGoX06g=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBobr/LrlRRiB7NlTXa7KpRiF8ppNyVSL6muQZyc
- U/nnYOJbbOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaG6/ywAKCRDBN2bmhouD
- 1631D/9+mUsRGRHWiIdpYnSIndM3CR/VSb5CpOedsp/WMUAxCfvyYm+cNPdqWe68MxqUBliQTxh
- 1luK/jO2yNlAMjmvD96Q/UOLXSlS4g7NdpSePbKoaT3isLHiX8n972jvmX1pE684SlPD+rAl8Wt
- BflVWx59w+n0qWa66Hc+lMgBw58NXoJ2daiG2t2w50XLSdskrcF/Oadi1bwI5f00HEywZMPxKnj
- QkquXmlnBi6dyHdHfFGHu3c7k/Zjg9Qcy5F7ut+IOUC4wdJkHSsnAS5xgRC9nnjB5holPin6heD
- ozlaZ5iKoM25cHC3GxOJnmDjQBaRrMbb7vIdJkEVuQlr5HAFmKbPiZHusiVlJgVYMcu9nt4Axme
- fGeQkPXLKa6wxYWeS9QI+IrZEVm/Oai3bSurC/PZeyvoJu1w6pHZebKXR3FoPsLR0klnTkGBbL4
- zenZDZRqCT6Nq0kS8FAy0rAIyPykug3COaM4NCi7WsbJWpHXhM4hlrLXG5Rqtxo63beki5kfn3K
- yOoWXlfEQ6J9zcesgUhIyAFhgqvATrlJVJG318inhKHYbiR5YgeWikUbEeJGNlwgXDb6P2kITWk
- y2Hpg1qxObvXjVB6wKFdAVf++28TEW/v9h5UVrsnsxt4X5nEidEK+72Amfzl0J6zxKZ1N1/gLw+ ol9EG7e7CPuRbbg==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_121531_647592_0FDC870E 
-X-CRM114-Status: UNSURE (   7.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250709_131236_001625_F2128213 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,37 +81,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+Am Mittwoch, 9. Juli 2025, 09:01:39 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Damon Ding:
+> Apply drm_bridge_connector helper for Analogix DP driver.
+>=20
+> The following changes have been made:
+> - Remove &analogix_dp_device.connector and change
+>   &analogix_dp_device.bridge from a pointer to an instance.
+> - Apply devm_drm_bridge_alloc() to allocate &analogix_dp_device that
+>   contains &drm_bridge.
+> - Apply drm_bridge_connector helper to get rid of &drm_connector_funcs
+>   and &drm_connector_helper_funcs.
+>=20
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>=20
+> ------
+>=20
+> Changes in v2:
+> - For &drm_bridge.ops, remove DRM_BRIDGE_OP_HPD and add
+>   DRM_BRIDGE_OP_EDID.
+> - Add analogix_dp_bridge_edid_read().
+> - Move &analogix_dp_plat_data.skip_connector deletion to the previous
+>   patches.
+> ---
+>  .../drm/bridge/analogix/analogix_dp_core.c    | 169 ++++++++----------
+>  .../drm/bridge/analogix/analogix_dp_core.h    |   4 +-
+>  2 files changed, 80 insertions(+), 93 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers=
+/gpu/drm/bridge/analogix/analogix_dp_core.c
+> index abc64cc17e4c..fb510e55ef06 100644
+> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> @@ -23,6 +23,7 @@
+>  #include <drm/drm_atomic.h>
+>  #include <drm/drm_atomic_helper.h>
+>  #include <drm/drm_bridge.h>
+> +#include <drm/drm_bridge_connector.h>
+>  #include <drm/drm_crtc.h>
+>  #include <drm/drm_device.h>
+>  #include <drm/drm_edid.h>
+> @@ -948,23 +949,13 @@ static int analogix_dp_disable_psr(struct analogix_=
+dp_device *dp)
+>  	return analogix_dp_send_psr_spd(dp, &psr_vsc, true);
+>  }
+> =20
+> -static int analogix_dp_get_modes(struct drm_connector *connector)
+> +static int analogix_dp_bridge_get_modes(struct drm_bridge *bridge, struc=
+t drm_connector *connector)
+>  {
+> -	struct analogix_dp_device *dp =3D to_dp(connector);
+> -	const struct drm_edid *drm_edid;
+> +	struct analogix_dp_device *dp =3D to_dp(bridge);
+>  	int num_modes =3D 0;
+> =20
+>  	if (dp->plat_data->panel) {
+>  		num_modes +=3D drm_panel_get_modes(dp->plat_data->panel, connector);
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+here is one example where a panel_bridge would help :-)
 
-are available in the Git repository at:
+I.e. I'd think without it the code would need some sort of
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-defconfig-6.17
+  	if (dp->plat_data->bridge) {
+  		num_modes +=3D drm_bridge_get_modes(dp->plat_data->bridge, connector);
 
-for you to fetch changes up to a7d7aebed4005b9c287f9bd9d22c273da63c9028:
+thing?
 
-  arm64: defconfig: enable Samsung PMIC over ACPM (2025-06-30 08:03:28 +0200)
+> -	} else {
+> -		drm_edid =3D drm_edid_read_ddc(connector, &dp->aux.ddc);
+> -
+> -		drm_edid_connector_update(&dp->connector, drm_edid);
+> -
+> -		if (drm_edid) {
+> -			num_modes +=3D drm_edid_connector_add_modes(&dp->connector);
+> -			drm_edid_free(drm_edid);
+> -		}
+>  	}
+> =20
+>  	if (dp->plat_data->get_modes)
 
-----------------------------------------------------------------
-Samsung SoC defconfig changes for v6.17
 
-1. Multiple SoCs (including Samsung, Apple): switch sound to module from
-   a built-in, because it is not necessary for booting.  Also drop
-   redundant sound codec options.
 
-2. Enable PMIC drivers for Google GS101 Pixel 6 phones: MAX77759 and
-   Samsung PMIC over ACPM protocol.
-
-----------------------------------------------------------------
-André Draszik (2):
-      arm64: defconfig: enable Maxim max77759 driver
-      arm64: defconfig: enable Samsung PMIC over ACPM
-
-Krzysztof Kozlowski (2):
-      arm64: defconfig: Switch SOUND to module
-      arm64: defconfig: Drop unneeded unselectable sound drivers
-
- arch/arm64/configs/defconfig | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
 
