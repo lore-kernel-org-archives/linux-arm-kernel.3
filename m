@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C1BC83F18
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABF5C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XTdASi6OvVTUFFgJuSQBI9XSgCI41XMYqPCdISt4Bfc=; b=OeIY3rkcaI4/Z723GnqVDor9VV
-	cXapXN8CJ8D8imKLxRlQdBo1CpC0gUdz3c+TWsqnrInBb2Jzp3D/zshqaVrgIAgn3q39zZrBDdE6R
-	NA11oNnLmnzU0hJc5io18EiS9TRN6WiZJHoek16/iXLqSqi3iHpx5nhMtXygelzKoZ7kyo2xlTjL1
-	5pvQPffGcw2loHdfhbMwvZiFMTpzO7cEkpt7PuzscHnQnHAcC8WNSbuVNflXidqG/meXFgWWvkauB
-	oSRJBG5avyFffyxAUf2ifZaMSl4WRdT7kQu8fuSv5EtIhm+Gy+kQwlwUpGpFXnRXO3Vo+zZVr/Sjq
-	/SFizGMA==;
+	bh=qPkxg71a8xKMOk7gRt6YiWOPIe8HfaUrT3StylJgAHI=; b=IUE/y+2cRK2jiUFLC3UXzuG4UR
+	6mVUs7S3GYs9gj4C7N/2eXf3cqx99RMiJh5nNotx/2u5esoVVfP5Opomx4k0Rz2++KR7KxC4gwVDz
+	Tt/5tLiQCWpXp7kuh5Amh9MLSACmJO5igWSJ9YWmNabB6mlkZtNIRv7UbVevKRxDE74Rkz2dGQtM5
+	9AdYRCXM+DiBGNdHTersQygNBfpFNTa3z2DvgAC3EZ+sEwWZ0QPK8vrU8LG+TToIOvXuXuCixN7h5
+	cPHNXbh6tpELKGsiGdJPUQPJcweDO4H4VtkTJ5m+k6Dofhi5B0kFGMBxokIHN2fBiCctAtHj315l6
+	dQx0L0DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdjU-0000000AAjZ-1qnf;
-	Wed, 09 Jul 2025 22:57:44 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1uZdjX-0000000AAq4-0B38;
+	Wed, 09 Jul 2025 22:57:47 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZcim-00000009wuz-1TZn
+	id 1uZcr4-0000000A061-3dry
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 21:52:57 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b2fcbd76b61so416044a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 14:52:55 -0700 (PDT)
+	Wed, 09 Jul 2025 22:01:31 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3122368d82bso592635a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 15:01:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752097975; x=1752702775; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1752098490; x=1752703290; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XTdASi6OvVTUFFgJuSQBI9XSgCI41XMYqPCdISt4Bfc=;
-        b=rliQ0pH653dBpRXSv+slJTtsLPektfxjVIfGe3ZHwKaBWj3raH5BlfHkMsqxqMNOy6
-         81y8wFljY28J6QYQpR03ZKdeMW/JaSMuV2wrHbSC3V2Ltrm2BvmtrmoBm+tfmxGfBxW+
-         mc9SVQ23UYnFygfNBkuXx6Vnw7EvTAV20kjpB0nlcDYjCXv8CQFOhC/epWIQwAlCOXsJ
-         KwIMLidmfu4l0mRJ+BPfhqlowFuPIkdRyQyLmThSD59eSseCzfP9HcHIliJqro1KCRCg
-         X9AJw6FaNJHW678BVTkklm/ix2Own+jaqmv+e64JJCBLvfk+j6aIzAr2B2AvYAaVc6fa
-         ug0g==
+        bh=qPkxg71a8xKMOk7gRt6YiWOPIe8HfaUrT3StylJgAHI=;
+        b=eXo/aOc4yqtkS1MTtVyyVWc3dSIFcnbZ5XW/4yTUZLmMmuGP1dHzwKnw4Dj2uo1Bf9
+         zA09CQ5JYCS0x2/eUjkf4c1bSsiV1Dpe4rFaxsAdKZyXe+qMiw16l+CBnLeV/ym3AkVH
+         Xx0MLAGky1Ohw0F620EiKpblyP5tOUIBH1lZ1LqGJix4JLj3fpdEfpC5FEDRIKlKmpLW
+         o7i0OoSjpRTUHLSVBooAHZzSWw/ACgdOhF9FHT3kkPUS35grUcTYwVp6jHfTJZwBVN8M
+         Q77o9rKXkwkZYrWW8mej/Qx+Ap22bTsTnADiG7o1gUasrfHlugmxoonZb+nFMrb/llcH
+         t9Iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752097975; x=1752702775;
+        d=1e100.net; s=20230601; t=1752098490; x=1752703290;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XTdASi6OvVTUFFgJuSQBI9XSgCI41XMYqPCdISt4Bfc=;
-        b=XgsBBVZoNUGmIRxD2h1vjER0Leu1n9vWc3NHEyh8n2CXrNVMTnixa0uT5nYFjmjpK1
-         CzNWiv8ill8ffSSG/U132KBKKpqDWqzngzO4GgQpnvF0Ifx6U4BjojVpMtX+OjoubmDy
-         ZNHQnt2/rGiWs6Su882X4S80Z6M8U0aphKk7Dlgg0oJbFk/WLZ5Zd/YypHBcyF2LsPn7
-         5mJL37jWquCnkhqU/EuMPVX/SSsHxrwgE8zBoR3sz4uEYlSWXX7dzr6t+LFSx3c+ksA7
-         kbv/ccRM4jgcoJbu88KhTuUZWRptxS2gzcyrx0xgJeMup8egUaFOjqjScJ/KAXe8tdK8
-         x+wQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU1n2H8i66PmhIM7uoFHj1IiUx+UdcVL5Yk/FCLGBuaO+Bwq0RGyXICMbtUw8O6ObV8119Y60rhxCIfESIMw7WP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzkdx/VgqPXLbbpe2BXbseTaf5nxjv2XuJdBTtzNGNwROOWKcNx
-	LgpjLpGpx6wuRzfJ3Ni8ljjcSCNkbRJiToAQrTjDoe4nsSCPqBVR1zelW7CM2F6uKqqFuccQfwz
-	n0Aq0vw==
-X-Google-Smtp-Source: AGHT+IFmEFlAWWCJkx2sQJoOnRz9L04dVDgiZhvskOboq7Is0Q/s9F5fo+EcgpfALlAli5CGcDY8mYpclV0=
-X-Received: from pjbpq7.prod.google.com ([2002:a17:90b:3d87:b0:313:17cf:434f])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1d8b:b0:312:db8:dbd1
- with SMTP id 98e67ed59e1d1-31c3eeece0cmr314345a91.5.1752097974921; Wed, 09
- Jul 2025 14:52:54 -0700 (PDT)
-Date: Wed, 9 Jul 2025 14:52:53 -0700
-In-Reply-To: <20250606235619.1841595-5-vipinsh@google.com>
+        bh=qPkxg71a8xKMOk7gRt6YiWOPIe8HfaUrT3StylJgAHI=;
+        b=bum+lxmcflCtPknTYCTN1TMEAb+sBGBY2m+2TBeWG1GRwX5mR+gewMj9jYwT7XXaBf
+         TiaWHXWMKotc+EfmSsUgoDg/336cBp0pDa8PPPyABRgWL+XZNcmVyZwrwg8VjQ2FqpP7
+         kXvoX2++014P0Qwz1Ntj0GRxDBI3HmVk9e/n2H8581jQV6+XJDlxjVZyUePiiL6jilgH
+         cUOnrKhi8W+7DQNsaefOEvupZGdgjq9KuXQdWIEjiheuLtG33pW90fMocUy2BLieus64
+         KxFqjcZbr1yvTcKtKfuBBpXog6nxMilvnKbdihQTwgxB7l8sOuC58gqslD9QqKu+T5/g
+         Iqgw==
+X-Forwarded-Encrypted: i=1; AJvYcCUGJhUkYyXzSdhX4fAXGANdxsRJT77RBgjzHXTZXJQQLPUkOwHfVzRf+e4Aw0FhDrn4J4KVSQ+jAJlCzmUzC725@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzjr3A4EaPg5kWj5uM1ddgTNbcN0HBeaMtzQX7T6WPIdZnPtT9Q
+	luR4Ch5Svz8yMDnL98ELvwCUWLXxBVtP+HFiSpMK8SyqVv+EYOcRXN+Dzh/rgWpD/CVET6yAXyy
+	mxwMwmg==
+X-Google-Smtp-Source: AGHT+IGv5Auh5afur7rrmDtcmRu/ac16McioXeHVJV7IWM1fJ+YSaOB7uGrq5SXWMiQzxRu0kWJqhfgibQ4=
+X-Received: from pjblw1.prod.google.com ([2002:a17:90b:1801:b0:31c:2fe4:33b9])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2b43:b0:312:e279:9ccf
+ with SMTP id 98e67ed59e1d1-31c3ef100acmr359390a91.5.1752098489536; Wed, 09
+ Jul 2025 15:01:29 -0700 (PDT)
+Date: Wed, 9 Jul 2025 15:01:28 -0700
+In-Reply-To: <20250606235619.1841595-8-vipinsh@google.com>
 Mime-Version: 1.0
-References: <20250606235619.1841595-1-vipinsh@google.com> <20250606235619.1841595-5-vipinsh@google.com>
-Message-ID: <aG7ktaz8l4zrwPDX@google.com>
-Subject: Re: [PATCH v2 04/15] KVM: selftests: Add option to save selftest
- runner output to a directory
+References: <20250606235619.1841595-1-vipinsh@google.com> <20250606235619.1841595-8-vipinsh@google.com>
+Message-ID: <aG7muHNldvv8fRyH@google.com>
+Subject: Re: [PATCH v2 07/15] KVM: selftests: Add various print flags to KVM
+ Selftest Runner
 From: Sean Christopherson <seanjc@google.com>
 To: Vipin Sharma <vipinsh@google.com>
 Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
@@ -76,8 +76,8 @@ Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org,
 	dmatlack@google.com
 Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_145256_387566_2057C032 
-X-CRM114-Status: GOOD (  22.10  )
+X-CRM114-CacheID: sfid-20250709_150130_905001_FB8F59E4 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,149 +93,79 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Fri, Jun 06, 2025, Vipin Sharma wrote:
-> -    def run(self):
-> +    def _run(self, output=None, error=None):
->          run_args = {
->              "universal_newlines": True,
->              "shell": True,
-> -            "capture_output": True,
->              "timeout": self.timeout,
->          }
->  
-> +        if output is None and error is None:
-> +            run_args.update({"capture_output": True})
-
-The runner needs to check that its min version, whatever that ends up being, is
-satisfied.
-
-capture_output requires 3.7, but nothing in the runner actually checks that the
-min version is met.  If you hadn't mentioned running into a problem with 3.6, I
-don't know that I would have figured out what was going wrong all that quickly.
-
-There's also no reason to use capture_output, which appears to be the only
-3.7+ dependency.  Just pass subprocess.PIPE for stdout and stderr.
-
-> +        else:
-> +            run_args.update({"stdout": output, "stderr": error})
-> +
->          proc = subprocess.run(self.command, **run_args)
->          return proc.returncode, proc.stdout, proc.stderr
-> +
-> +    def run(self):
-> +        if self.output_dir is not None:
-> +            pathlib.Path(self.output_dir).mkdir(parents=True, exist_ok=True)
-> +
-> +        output = None
-> +        error = None
-> +        with contextlib.ExitStack() as stack:
-> +            if self.output_dir is not None:
-> +                output_path = os.path.join(self.output_dir, "stdout")
-> +                output = stack.enter_context(
-> +                    open(output_path, encoding="utf-8", mode="w"))
-> +
-> +                error_path = os.path.join(self.output_dir, "stderr")
-> +                error = stack.enter_context(
-> +                    open(error_path, encoding="utf-8", mode="w"))
-> +            return self._run(output, error)
-> diff --git a/tools/testing/selftests/kvm/runner/selftest.py b/tools/testing/selftests/kvm/runner/selftest.py
-> index 4c72108c47de..664958c693e5 100644
-> --- a/tools/testing/selftests/kvm/runner/selftest.py
-> +++ b/tools/testing/selftests/kvm/runner/selftest.py
-> @@ -32,7 +32,7 @@ class Selftest:
->      Extract the test execution command from test file and executes it.
->      """
->  
-> -    def __init__(self, test_path, executable_dir, timeout):
-> +    def __init__(self, test_path, executable_dir, timeout, output_dir):
->          test_command = pathlib.Path(test_path).read_text().strip()
->          if not test_command:
->              raise ValueError("Empty test command in " + test_path)
-> @@ -40,7 +40,11 @@ class Selftest:
->          test_command = os.path.join(executable_dir, test_command)
->          self.exists = os.path.isfile(test_command.split(maxsplit=1)[0])
->          self.test_path = test_path
-> -        self.command = command.Command(test_command, timeout)
-> +
-> +        if output_dir is not None:
-> +            output_dir = os.path.join(output_dir, test_path.lstrip("/"))
-> +        self.command = command.Command(test_command, timeout, output_dir)
-> +
->          self.status = SelftestStatus.NO_RUN
->          self.stdout = ""
->          self.stderr = ""
-> diff --git a/tools/testing/selftests/kvm/runner/test_runner.py b/tools/testing/selftests/kvm/runner/test_runner.py
-> index 1409e1cfe7d5..0501d77a9912 100644
-> --- a/tools/testing/selftests/kvm/runner/test_runner.py
-> +++ b/tools/testing/selftests/kvm/runner/test_runner.py
-> @@ -13,19 +13,22 @@ logger = logging.getLogger("runner")
->  class TestRunner:
->      def __init__(self, test_files, args):
->          self.tests = []
-> +        self.output_dir = args.output
->  
->          for test_file in test_files:
-> -            self.tests.append(Selftest(test_file, args.executable, args.timeout))
-> +            self.tests.append(Selftest(test_file, args.executable,
-> +                                       args.timeout, args.output))
->  
->      def _log_result(self, test_result):
->          logger.log(test_result.status,
->                     f"[{test_result.status}] {test_result.test_path}")
-
-Previous patch, but I missed it there.  Print the *name* of the result, not the
-integer, which is arbitrary magic.  i.e
-
-        logger.log(test_result.status,
-                   f"[{test_result.status.name}] {test_result.test_path}")
-
-> -        logger.info("************** STDOUT BEGIN **************")
-> -        logger.info(test_result.stdout)
-> -        logger.info("************** STDOUT END **************")
-> -        logger.info("************** STDERR BEGIN **************")
-> -        logger.info(test_result.stderr)
-> -        logger.info("************** STDERR END **************")
-> +        if (self.output_dir is None):
-
-Ugh.  I want both.  Recording to disk shouldn't prevent the user from seeing
-real-time data.
-
-Rather than redirect to a file, always pipe to stdout/stderr, and then simply
-write to the appropriate files after the subprocess completes.  That'll also force
-the issue on fixing a bug with timeouts, where the runner doesn't capture stdout
-or stderr.
-
-> +            logger.info("************** STDOUT BEGIN **************")
-> +            logger.info(test_result.stdout)
-> +            logger.info("************** STDOUT END **************")
-> +            logger.info("************** STDERR BEGIN **************")
-> +            logger.info(test_result.stderr)
-> +            logger.info("************** STDERR END **************")
-
-This is unnecessarily verbose.  The logger spits out a timestamp, just use that
-to demarcate, e.g.
-
-	logger.info("*** stdout ***\n" + test_result.stdout)
-	logger.info("*** stderr ***\n" + test_result.stderr)
-
-yields
-
-14:52:29 | *** stdout ***
-Random seed: 0x6b8b4567
-
-14:52:29 | *** stderr ***
-==== Test Assertion Failure ====
-  x86/state_test.c:316: memcmp(&regs1, &regs2, sizeof(regs2))
-  pid=168652 tid=168652 errno=4 - Interrupted system call
-     1	0x0000000000402300: main at state_test.c:316 (discriminator 1)
-     2	0x000000000041e413: __libc_start_call_main at libc-start.o:?
-     3	0x00000000004205bc: __libc_start_main_impl at ??:?
-     4	0x00000000004027a0: _start at ??:?
-  Unexpected register values after vcpu_load_state; rdi: 7ff68b1f3040 rsi: 0
-
->  
->      def start(self):
->          ret = 0
-> -- 
-> 2.50.0.rc0.604.gd4ff7b7c86-goog
+> Add various print flags to selectively print outputs on terminal based
+> on test execution status (passed, failed, timed out, skipped, no run).
 > 
+> Provide further options to print only particular execution status, like
+> print only status of failed tests.
+> 
+> Example: To print status, stdout and stderr for failed tests and only
+> print status of passed test:
+> 
+>    python3 runner --test-dirs tests  --print-failed \
+>    --print-passed-status
+> 
+> Signed-off-by: Vipin Sharma <vipinsh@google.com>
+> ---
+>  .../testing/selftests/kvm/runner/__main__.py  | 114 ++++++++++++++++++
+>  .../selftests/kvm/runner/test_runner.py       |  10 +-
+>  2 files changed, 123 insertions(+), 1 deletion(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/runner/__main__.py b/tools/testing/selftests/kvm/runner/__main__.py
+> index 3f11a20e76a9..4406d8e4847a 100644
+> --- a/tools/testing/selftests/kvm/runner/__main__.py
+> +++ b/tools/testing/selftests/kvm/runner/__main__.py
+> @@ -64,9 +64,115 @@ def cli():
+>                          default=False,
+>                          help="Print only test's status and avoid printing stdout and stderr of the tests")
+>  
+> +    parser.add_argument("--print-passed",
+> +                        action="store_true",
+> +                        default=False,
+> +                        help="Print passed test's stdout, stderr and status."
+> +                        )
+> +
+> +    parser.add_argument("--print-passed-status",
+> +                        action="store_true",
+> +                        default=False,
+> +                        help="Print only passed test's status."
+> +                        )
+
+Waaay too many booleans :-)
+
+And they don't provide the right granularity.  E.g. I don't want stdout for FAILED,
+I just want stderr for the assert.
+
+After some fiddling, I came up with this:
+
+    parser.add_argument("--print-passed", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
+                        help="blah"
+                        )
+
+    parser.add_argument("--print-failed", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
+                        help="Full = print each test's stdout, stderr and status; status = only status."
+                        )
+
+    parser.add_argument("--print-skipped", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
+                        help="Print skipped test's stdout, stderr and status."
+                        )
+
+    parser.add_argument("--print-timed-out", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
+                        help="Print timed out test's stdout, stderr and status."
+                        )
+
+    parser.add_argument("--print-no-run", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
+                        help="Print stdout, stderr and status for tests which didn't run."
+                        )
+
+The const+nargs magic makes a bare option equivalent to "full", e.g. --print-timed-out
+and --print-timed-out=full are the same.  That gives the user complete control
+over the output, with _less_ code in the runner.  E.g. to print stdout and/or stderr:
+
+        print_level = self.print_stds.get(test_result.status);
+        if (print_level == "full" or print_level == "stdout"):
+            logger.info("*** stdout ***\n" + test_result.stdout)
+
+        if (print_level == "full" or print_level == "stderr"):
+            logger.info("*** stderr ***\n" + test_result.stderr)
 
