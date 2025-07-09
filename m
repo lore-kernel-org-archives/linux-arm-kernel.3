@@ -4,108 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC3DC83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ECF2C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uNbl8U+xncbpp1a9NMqWFqisIKUYudEbkTWWSf/ClaQ=; b=0g3g3rpttD4jG8y92L0pS6hBca
-	Y0REFQA/ExFWmHGeQHwrXwcPq5m8c7S6u7y2MSg/nVdE8M2v44mNq8tuU+U2XzeoVjx88dvS/nLgb
-	KYEdYuHnRTuTkugR+iPMGCN4+Oq9ZFo7WMZCrM115YjCMzNTE/3VF8bkYIv9F/67mnYbq2+6fk/R7
-	kftkwdnpCGIlZ/WD9MJFH3tPkf4J9YzUXuRLz4aYqwUiPIxkPfseIMn+lguCNBcv0oRQa080TM5x3
-	bGXVAprLZ6JY4Ou/sXHSUKVYwDu7PfoASA11846ti8FBj9zxNcjVklTHaszot/llrNw5nGp3OV+o3
-	WbcSpJ/Q==;
+	bh=KTDqkZNa/Y06ou7j2KzV7OfUEBvvgnijDlh/ESDZlL0=; b=jqiZMX1r4DTTTuTK2E5nzfqX0Y
+	p2eIfXKE/ofuE4BVuFkHmI+Uam41cPbi84lSkOUfPoayFefnr6udYljFklVL7BWJjVGaBM6XDBBt5
+	Ml2jBxoDHcLQnCnAEfv6qUTgA09xAeQ73pa0eMgOt/m7Q2ypXzlbqUYmtSvYPqU4eOCQRopOVG9YK
+	vvRBGwRXPDLepTSXBULU6ZwRyZZtQ/bDDpictlyAY5b0iVymrV61F3xJWCJ5787wIx/WpW9ShICGx
+	6WcIRpJHd6Cp15jUTNcBpaxlHnnD/DryQB7t5Dr7GWiMz1+wyk+7OOup5dml3vkKRL7gHoNCmwdax
+	8Zk5P3ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdi8-0000000A7ry-23st;
-	Wed, 09 Jul 2025 22:56:20 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1uZdiQ-0000000A8Ju-03uA;
+	Wed, 09 Jul 2025 22:56:38 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZaGT-00000009gyB-3pH7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 19:15:39 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-454a3c5d6f3so251185e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 12:15:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752088532; x=1752693332; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uNbl8U+xncbpp1a9NMqWFqisIKUYudEbkTWWSf/ClaQ=;
-        b=ocM9xHv6kMD2ROj3lVRlMeAUGDs0t2BMwq3B0RB6i6vfHY7dEwCA5ClM1raE5Dx+oC
-         CuqJEMpY3hdN2fRhkDToypmN31ONgtm58XFTQXDdpKulxob9YHQXUWmriYRg88ftCF58
-         KZwG9eJDpV3zk1fWU5Ii1wJnTf3Sgw2hOgIzBI06q8VV0fQCpHW+2v/VZRyK4oKRqoX4
-         FyWRNN4b+pRmSArBK7Y8a+i2h+RzosggbSigGeEq9fwMvwQ18WAwqubmZ5QTCib4GVTl
-         GDhYeNNKVRsw/McfVf6D+uvDCWNQh5e0O9Tf5my4zXgHpftauOJU1dkcG9AGycoFHeYY
-         nBCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752088532; x=1752693332;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=uNbl8U+xncbpp1a9NMqWFqisIKUYudEbkTWWSf/ClaQ=;
-        b=NcAg3vhwZs9YsgwrG4dE39M2TXtLy8Vb0G2Ouz4X+gnS3Bf05cnsGWg6rYwirqBH4H
-         OS+UVQnTAZI5dHXPW6ykuHXuZMfqai0yo3FLxl/3Q2UEX5aJ+xaUkcW3+poiKCzLP6zU
-         cbZWdbCD2u84bDkCrHzELYEL0Jvwxtvi0eXI3Glq98SNwME1IAmqYYTe8M2cp6qI5220
-         liMDfgpjOFCoPiJVlDoe8Hq5+U1CBd0vLlVHYhc5PL8eBWk5svIivtFefsw8/uBuqrc8
-         R2v8ZzvN0ipDNMenk87q8zGIIGWbAsWCNZOQGJ9e5zp+9g0hohzbe97Ii1J3EkrBhDHl
-         eMzg==
-X-Forwarded-Encrypted: i=1; AJvYcCXUyaqi6V7sQg0rensG1XYR8PAqT9fJ/4ndIlsajsmw/69sWFdrThsUFB/PxI53KltvFgIxFgd+a2DKC/oMdeqI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkmpUkvCYP8IznOtbTi81/ZQFaYMggTQSbEoQs8f6KFPfsiSlr
-	mfdcNPGV3PAm2T6uy/RW9hycDhZ6ZimVUOdggCkV3OHjMD6z3PjiU85znr0TLhCFM6yZCL3uS2h
-	FGMG4
-X-Gm-Gg: ASbGnctbzdeLXdxXGw7FBOiZ9s6CHJ6ncR1AKIvVREnURe5fp0FU83TWlsdj1HqjrD1
-	lAGobsGf3+x559UGoKHypG9BOhdIFMdwpW0HvYSd6PN4x0VdfLLudGNnNcoXX3BNokcMoyNCGGS
-	EPzKWpV5NyCm8/WiX0QIDlORBsP2xV3WbiCEN9AZYeByExLJJEDlZKJSQvjKr+urkrbvjION9vl
-	CKCo0WyvvM106+aPXGWZ7Vq3ZQv2gsfGvCSnStEfON2+yv0osMu39jItz7PMDKwRGp1z7xTHcRV
-	o8FC8yKiq7KUVTgWApsczf3XbIT27+0sXC7Ug8S9/T0Op2IGxSvRcuHMdZRtvi9O2VypfYEdid8
-	=
-X-Google-Smtp-Source: AGHT+IGhNA++7xZg6xgr84ItwYyhelF2UwYcUcnBnnifNfCSp2rTw7/vvTd7m7A27LjCuZliDTQLRQ==
-X-Received: by 2002:a05:6000:1ace:b0:3a6:d256:c5db with SMTP id ffacd0b85a97d-3b5e4543f00mr1268338f8f.13.1752088532254;
-        Wed, 09 Jul 2025 12:15:32 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.222.89])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b47285dc08sm17159588f8f.98.2025.07.09.12.15.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Jul 2025 12:15:31 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL 3/3] arm64: dts: samsung: dts for v6.17
-Date: Wed,  9 Jul 2025 21:15:22 +0200
-Message-ID: <20250709191523.171359-6-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250709191523.171359-4-krzysztof.kozlowski@linaro.org>
-References: <20250709191523.171359-4-krzysztof.kozlowski@linaro.org>
+	id 1uZbv1-00000009r1O-3odQ;
+	Wed, 09 Jul 2025 21:01:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1752094889;
+	bh=7aEBmbIctPTphfD3Xtu6xLbliB7cG+WRDnCSkYDNRTA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=BwrI/dYREpuQIHkepkAbbXnxy1RRxot8rfxJaLbhrdv+gaJwws3y9ZNW4xeH6ti5z
+	 bEHv3PG9aZohtsbWBNoT/fN3/2HeG7YzYUzCOMmrg3zak9aVesqzaSIuUK0zOd8z2a
+	 0G25zp0rhIptk08Mi05sZIg+s+7002Rh7FVMhSKqh+IxscqYjYV0BBNqbuNul05b4B
+	 ZlQCQYWEem3aXH7ZM0ir2BrDb7Q9VOfllheP8JGAPLaowIgkOt35XqBaVJwZAWQAOH
+	 iNx062tJXEsma5u/dI4/h4DePHEx03RE/+vLYPVAqlcRzoh6tMgCp2ZwIXVQYhJvnj
+	 yj8/m1Q/L1/Bg==
+Received: from localhost (unknown [212.93.144.165])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id C4B0117E04AA;
+	Wed,  9 Jul 2025 23:01:29 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 10 Jul 2025 00:01:13 +0300
+Subject: [PATCH v2 2/6] drm/bridge: dw-hdmi-qp: Fixup timer base setup
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4153; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=OIoxzz9nTa1KEMKLgwavRzStSsKZ+ayPWesJQHTnF6s=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBobr/NKL27EF4KQkesT2MoJWrhmPLTsMsLxQTV9
- Ys2GZMKRgaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaG6/zQAKCRDBN2bmhouD
- 15fBEACHFwozinLrM6K5N5e/2mYfNzEFTl+V7ougAttEa+lWvR7tcmGlIPgGwtJ7KvaEmJZRgQi
- JWz9dMlXIRsxSVVQFeJpZfYs4gSA2OD/3Bxx4Jl97R+SD3owvFjs257RvrUivPKozjHKw66nOmf
- Y+qxXHUWEecUo47WKYlPvO49sYYa9oJVrNehrN/XyKoVvrsG7LnKQZLH6bxA+0LS672gz+CSBsS
- ZNFwPTKMs6AzgODHnsbjNmprq88Zn3UVCn6o30ovvFtPQ6VqHraX8eDpzhqtX4sM/Ohm3U2iXib
- W4hgDwkVNWwKSjDlW880VqRJmlPasLUISOcOVN7M04vuBNDDwoIa8qYb6ohBRdJq04DMVXwXuZ/
- 8esRKXWR2lwag8K+8dutaP4KELdh/LZYZZU6rfIK/jwxkIIp1XnlPkpHMSH+thYcPSh5Os3L+mM
- aCw/qK1SXGohHc3jXPKwQ3ZVXE7Wgs25906EepQnfFxZx/fClmnaQmvkwWnEDvlsRUxqB64hmlO
- Horjnau8jTBMt+ftOp8ht88yQdEXvZxOkYSaW5F55kuH2zqCRwvaF5v7xksl4d1mIIsp8KPBQrK
- IMB6wjl5kYn1h2CL23F/TDg+uCV1M9PO0vWORqdxLV5sxjxKEwvq9AC0gIga5TOpvtAyJoXLWm5 IIYTqo/9PlzLIEg==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250710-rk3588-hdmi-cec-v2-2-f5884be34bc1@collabora.com>
+References: <20250710-rk3588-hdmi-cec-v2-0-f5884be34bc1@collabora.com>
+In-Reply-To: <20250710-rk3588-hdmi-cec-v2-0-f5884be34bc1@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_121537_919250_3B284027 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20250709_140132_113202_AA430E55 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,94 +85,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+Currently the TIMER_BASE_CONFIG0 register gets initialized to a fixed
+value as initially found in vendor driver code supporting the RK3588
+SoC.  As a matter of fact the value matches the rate of the HDMI TX
+reference clock, which is roughly 428.57 MHz.
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+However, on RK3576 SoC that rate is slightly lower, i.e. 396.00 MHz, and
+the incorrect register configuration breaks CEC functionality.
 
-are available in the Git repository at:
+Set the timer base according to the actual reference clock rate that
+shall be provided by the platform driver.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt64-6.17
+While at it, also drop the unnecessary empty lines in
+dw_hdmi_qp_init_hw().
 
-for you to fetch changes up to 49a27c6c392dec46c826ee586f7ec8973acaeed7:
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 11 ++++++++---
+ include/drm/bridge/dw_hdmi_qp.h              |  1 +
+ 2 files changed, 9 insertions(+), 3 deletions(-)
 
-  arm64: dts: exynos7870-j6lte: reduce memory ranges to base amount (2025-07-05 10:23:36 +0200)
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index cfe8171b2183874517f583f284f7728fe1613c91..5d252800168aa4f3c10f458631795de8912e29d4 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -161,6 +161,7 @@ struct dw_hdmi_qp {
+ 		void *data;
+ 	} phy;
+ 
++	unsigned long ref_clk_rate;
+ 	struct regmap *regm;
+ 
+ 	unsigned long tmds_char_rate;
+@@ -1222,13 +1223,11 @@ static void dw_hdmi_qp_init_hw(struct dw_hdmi_qp *hdmi)
+ {
+ 	dw_hdmi_qp_write(hdmi, 0, MAINUNIT_0_INT_MASK_N);
+ 	dw_hdmi_qp_write(hdmi, 0, MAINUNIT_1_INT_MASK_N);
+-	dw_hdmi_qp_write(hdmi, 428571429, TIMER_BASE_CONFIG0);
++	dw_hdmi_qp_write(hdmi, hdmi->ref_clk_rate, TIMER_BASE_CONFIG0);
+ 
+ 	/* Software reset */
+ 	dw_hdmi_qp_write(hdmi, 0x01, I2CM_CONTROL0);
+-
+ 	dw_hdmi_qp_write(hdmi, 0x085c085c, I2CM_FM_SCL_CONFIG0);
+-
+ 	dw_hdmi_qp_mod(hdmi, 0, I2CM_FM_EN, I2CM_INTERFACE_CONTROL0);
+ 
+ 	/* Clear DONE and ERROR interrupts */
+@@ -1254,6 +1253,11 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 		return ERR_PTR(-ENODEV);
+ 	}
+ 
++	if (!plat_data->ref_clk_rate) {
++		dev_err(dev, "Missing ref_clk rate\n");
++		return ERR_PTR(-ENODEV);
++	}
++
+ 	hdmi = devm_drm_bridge_alloc(dev, struct dw_hdmi_qp, bridge,
+ 				     &dw_hdmi_qp_bridge_funcs);
+ 	if (IS_ERR(hdmi))
+@@ -1273,6 +1277,7 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 
+ 	hdmi->phy.ops = plat_data->phy_ops;
+ 	hdmi->phy.data = plat_data->phy_data;
++	hdmi->ref_clk_rate = plat_data->ref_clk_rate;
+ 
+ 	dw_hdmi_qp_init_hw(hdmi);
+ 
+diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
+index b4a9b739734ec7b67013b683fe6017551aa19172..76ecf31301997718604a05f70ce9eab8695e26b5 100644
+--- a/include/drm/bridge/dw_hdmi_qp.h
++++ b/include/drm/bridge/dw_hdmi_qp.h
+@@ -24,6 +24,7 @@ struct dw_hdmi_qp_plat_data {
+ 	void *phy_data;
+ 	int main_irq;
+ 	int cec_irq;
++	unsigned long ref_clk_rate;
+ };
+ 
+ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
 
-----------------------------------------------------------------
-Samsung DTS ARM64 changes for v6.17
+-- 
+2.50.0
 
-1. New SoC - Exynos2200 SoC - with basic nodes, pin controllers,
-   clock controllers and initial USB support.  Add board using it:
-   Samsung Galaxy S22+ (SM-S906B), called G0S.
-
-2. ExynosAutov920: Add CMU_HSI2 clock controller, remaining SPI nodes
-
-3. Google GS101:
-   - Prepare to switching to architected timer, instead of Exynos MCT as
-     the primary one.
-   - Add secondary Maxim MAX77759 PMIC to Pixel boards, managing USB Type-C and
-     charger.
-   - Add incomplete description of the primary Samsung S2MPG10 PMIC.
-     Several bits, like regulators, are still missing, though.
-   - Add also secondary reboot-mode, via MAX77759 NVMEM.
-   - Switch the primary (SoC) reboot handler to Google specific
-     google,gs101-reboot which gives additional GS101 features (cold and
-     warm reboots).
-     This change will affect other users of this DTS, but to our
-     knowledge there is only Android, from which this change originates.
-
-4. Exynos7870:
-   - Fix speed problems in USB gadget mode.
-   - Correct memory map to avoid crashes due to secure world.
-
-----------------------------------------------------------------
-André Draszik (5):
-      arm64: dts: exynos: gs101-pixel-common: add Maxim MAX77759 PMIC
-      arm64: dts: exynos: gs101-pixel-common: add nvmem-reboot-mode
-      arm64: dts: exynos: gs101: add dm-verity-device-corrupted syscon-reboot-mode
-      arm64: dts: exynos: gs101-pixel-common: add main PMIC node
-      arm64: dts: exynos: gs101: switch to gs101 specific reboot
-
-Faraz Ata (1):
-      arm64: dts: exynosautov920: Add DT node for all SPI ports
-
-Ivaylo Ivanov (4):
-      dt-bindings: arm: samsung: document g0s board binding
-      arm64: dts: exynos: add initial support for exynos2200 SoC
-      arm64: dts: exynos: add initial support for Samsung Galaxy S22+
-      MAINTAINERS: add entry for Samsung Exynos2200 SoC
-
-Kaustabh Chakraborty (3):
-      arm64: dts: exynos7870: add quirk to disable USB2 LPM in gadget mode
-      arm64: dts: exynos7870-on7xelte: reduce memory ranges to base amount
-      arm64: dts: exynos7870-j6lte: reduce memory ranges to base amount
-
-Krzysztof Kozlowski (1):
-      arm64: dts: exynos5433: Align i2c-gpio node names with dtschema
-
-Peter Griffin (1):
-      arm64: dts: exynos: gs101: ufs: add dma-coherent property
-
-Raghav Sharma (1):
-      arm64: dts: exynosautov920: add CMU_HSI2 clock DT nodes
-
-Will Deacon (1):
-      arm64: dts: exynos: gs101: Add 'local-timer-stop' to cpuidle nodes
-
- .../bindings/arm/samsung/samsung-boards.yaml       |    6 +
- MAINTAINERS                                        |   10 +
- arch/arm64/boot/dts/exynos/Makefile                |    1 +
- arch/arm64/boot/dts/exynos/exynos2200-g0s.dts      |  169 ++
- arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi | 1765 ++++++++++++++++++++
- arch/arm64/boot/dts/exynos/exynos2200.dtsi         |  561 +++++++
- .../boot/dts/exynos/exynos5433-tm2-common.dtsi     |    2 +-
- arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |    2 +-
- arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts |    2 +-
- arch/arm64/boot/dts/exynos/exynos7870.dtsi         |    1 +
- arch/arm64/boot/dts/exynos/exynosautov920.dtsi     |  378 +++++
- .../boot/dts/exynos/google/gs101-pixel-common.dtsi |   96 ++
- arch/arm64/boot/dts/exynos/google/gs101.dtsi       |   10 +-
- 13 files changed, 2996 insertions(+), 7 deletions(-)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-g0s.dts
- create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
- create mode 100644 arch/arm64/boot/dts/exynos/exynos2200.dtsi
 
