@@ -4,87 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA3F4C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E0F7C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNiQ1+5y2VFFZCNEkl5wzPIEOOAGrk6ZMXzGD1167g8=; b=AtxktjZKR6qSXsa2DBy3I3bDPv
-	w0DmlEuJP8qtZtHkW/8fTxzAZ/kpTFrbRwpl/zdfELjqboKSF4GBBfAjgBBW9zMThaTXfsElsGIX4
-	ecaC8EVbkI9ZCv60t1IMynjFodvyKOQPKRe9f73mCMrxMhdD0o79ltCKN771/dnQDv2Ta1J6OV2a8
-	6ImkhtTHR1N9ZGXH0Lxf6fc9feFQyjQhGavdoRZuE25YzNd3Rc5ZiaQe5kFD+x/M5iBT584fgUrJw
-	lJ42wgNI/5FKxnTUs/KnPrNLaBdsK+HqWBR7K2TuKaKzDuSmWliHxkhjUmByQSu4uM9Yg/dK+KEBQ
-	UyC/yGPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=owtiEb/9s85+vaNIn2DyemOpTN58Kpd6RLI0a5U/f48=; b=boJv7RtZ+kEoTCQ9M2HsIDD1Xv
+	kCxIT98CNMDRuuXDS/3VaHFFCbJsaNawo4ePVZ0fU+28fPVVjIdqCCrwgT/IRzx+v0N9hTH3VPMfQ
+	1+7JKTF9Bg97ZLbn6sjbdVwkftRepfw8OOJPWT5ADdZyoICS0iiUCDQU9rk0x9U69Vu2Try1CLu3p
+	viYD6gyGclOFaSfV5mNfYZ8jlzKJYyqyAxbdtoWSXxUv6RPYjTow81/wRs/oUA3e3+KuAvqhSSkei
+	S8+O8nVeZu7SO2iByJygMGcVKgszS9pnFQ9lbg5qd3qtEEz5OZ+1JcIsuCObD/L8L2J+h2cvJQAhS
+	RJ1zJwrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZW0B-000000091Dw-21cT;
-	Wed, 09 Jul 2025 14:42:27 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1uZW2V-000000091eo-1GjG;
+	Wed, 09 Jul 2025 14:44:51 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZT1S-00000008VZZ-0qty
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 11:31:35 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e7d9d480e6cso4077092276.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 04:31:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752060693; x=1752665493; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=JNiQ1+5y2VFFZCNEkl5wzPIEOOAGrk6ZMXzGD1167g8=;
-        b=v6eKkhRpsFadUysjaT9U7eoeHZU0H2UCqQvLnnUK4yW2oaK6ODnmvaSs83SWdvYmU9
-         nKxsvuBSRqt2Py7MaXiKDza6YJ+cts1CHKzoV9utuqRuj3+JyH3F4kcVidZDpjnVrIeW
-         MPh5mWnb7X4M3lxc2qALxGzYHNybMmY6nYGnMOMJC3+2pAf0DrAzfikTVJUUGlGhq4/R
-         xvcDwT8GpO/MHnky1BhwnoqFP5ZLvkxhHQvotBidnuQGvS2hKcc4uE9jI+adNn1N+SnE
-         wM6ae03InFOYSAwMzHid1Y0+Ugip4dBq8+PbNs3IT8UeVEl4FlNrSBIudL2Uv0qUXN9/
-         2AXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752060693; x=1752665493;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JNiQ1+5y2VFFZCNEkl5wzPIEOOAGrk6ZMXzGD1167g8=;
-        b=HOL0Dl8KSdkWvLcEbG8KqC6o2xv+WOn9TruO5EuX66msKjqFJ5sjueNjlQN8aKKAQY
-         9n2R5HT72S/IvVjVg0WdQDOl/pBkZqjoodOpDyBqVdZLaOW6AIv4lLJx/yRa5R6cDzlx
-         qA7p05luma2PZNZ7rfjIDevQYeN3OWH53fYcqj511PGcTMVfyfbSyRdznSZ9r4ms0g1i
-         eZyhRYGZV+bgn7Ah/7yfHmErGsgkoRi8qofxA+vtlJlC1RdudSycpRNKwIUSpHTq3nBc
-         ik5HGEIA9j4MD/FIQtG6xFjuO0lO1UVijCaqXZxbNkelxL6HHazdCyyJMJB3u7Hn/hXT
-         oSlA==
-X-Forwarded-Encrypted: i=1; AJvYcCU7aL73CYKuuCitu2cjwFQxW6vXP/kg9CKK4jU77in1waH3AQoiZTPkaVUC99ZOUs2ceYFI1TONRiOUM9d7xG5A@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdzBWkmpa5eS5vrTJx0U76qudJ5ddq+JfsVZHVxMG2aBJPSK88
-	hPYwKcGH/Hvo4MBEppN7R8o7ZGV0MNV07FrB5lRpKlphK2VUoTl8e/zL+P8sxUBw1rYsCTSIlie
-	W8c7idlmBsiGyqgr+zyrpzpzH7Cf6mcA41tsmpRSQig==
-X-Gm-Gg: ASbGncv2wlCkPkkLGEWJVeKAv4SbLRJyn7cAn5lB909Ryuro55q7s7dL5SoO6dievFm
-	0QmDeFZbaAv6iL3qtBYoImHe/7enMO13fDnY04GvVITJ40oW3XhXg3xzF9QG9tbyQss9FVZmris
-	gNA0lFS9hPNFayhMIO3ELy+bqlLRTnyt0BxYOQHk8bc4OD5bPlfB3F32U=
-X-Google-Smtp-Source: AGHT+IFsS/ASN7bZj//LEOdFtJiqcKW9aOOwexSDyjzYRjOXer6dnb2P/mGTPna4qIWw/UGl9cHvGrgqRWogtZJ+2Ik=
-X-Received: by 2002:a05:690c:6b0e:b0:70f:8884:17af with SMTP id
- 00721157ae682-717b16723f0mr33351387b3.6.1752060693143; Wed, 09 Jul 2025
- 04:31:33 -0700 (PDT)
+	id 1uZT3G-00000008VtT-2JFI;
+	Wed, 09 Jul 2025 11:33:27 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0A6F7669;
+	Wed,  9 Jul 2025 13:32:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1752060773;
+	bh=4CTaLsR8YV2yEQfwN6D2XPkFm5HczJTSutCL69t+3wI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZJzfy1N3ynUaMcXRgYRv1SaGEp9n3diop+9Bju3fdiCxK34zVFboSYxl3XHmPqQUv
+	 mTEbLSRI/UujaX3ZLtazI6zh7SW9UX8Vaqey+EcSs3xhFRNo5a0I6R7tCC5ivnC/HX
+	 HSRZRJHH5Ttqd9k0YR5xaEpV7xI2z5cOJqnxqDjU=
+Message-ID: <9b12b035-a80d-4d12-a039-daa94d13280e@ideasonboard.com>
+Date: Wed, 9 Jul 2025 12:33:17 +0100
 MIME-Version: 1.0
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
-In-Reply-To: <20250701114733.636510-1-ulf.hansson@linaro.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 9 Jul 2025 13:30:57 +0200
-X-Gm-Features: Ac12FXwPPsq7QQFWnJjGj5aeIXDZuRVVIUPoQyxowJKYffEpQh6cBhizErrlUZ0
-Message-ID: <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com>
-Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support to genpd
-To: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] media: uapi: Introduce V4L2 extensible params
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Dafna Hirschfeld <dafna@fastmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250708-extensible-parameters-validation-v1-0-9fc27c9c728c@ideasonboard.com>
+ <20250708-extensible-parameters-validation-v1-1-9fc27c9c728c@ideasonboard.com>
+Content-Language: en-US
+From: Dan Scally <dan.scally@ideasonboard.com>
+Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20250708-extensible-parameters-validation-v1-1-9fc27c9c728c@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_043134_242440_45243225 
-X-CRM114-Status: GOOD (  28.44  )
+X-CRM114-CacheID: sfid-20250709_043326_917770_52CF495D 
+X-CRM114-Status: GOOD (  47.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,101 +115,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 1 Jul 2025 at 13:47, Ulf Hansson <ulf.hansson@linaro.org> wrote:
->
-> Changes in v3:
->         - Added a couple of patches to adress problems on some Renesas
->         platforms. Thanks Geert and Tomi for helping out!
->         - Adressed a few comments from Saravanna and Konrad.
->         - Added some tested-by tags.
+Hi Jacopo - thanks for the patches
 
-I decided it was time to give this a try, so I have queued this up for
-v6.17 via the next branch at my pmdomain tree.
+On 08/07/2025 11:40, Jacopo Mondi wrote:
+> Introduce v4l2-extensible-params.h in the Linux kernel uAPI.
+>
+> The header defines two types that all drivers that use the extensible
+> parameters format for ISP configuration shall use to build their own
+> parameters format.
+>
+> The newly introduce type v4l2_params_block represent the
+> header to be prepend to each ISP configuration block and the
+> v4l2_params_buffer type represent the base type for the configuration
+> parameters buffer.
+>
+> The newly introduced header is not meant to be used directly by
+> applications which should instead use the platform-specific ones.
+>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> ---
+>   MAINTAINERS                                       |   6 ++
+>   include/uapi/linux/media/v4l2-extensible-params.h | 106 ++++++++++++++++++++++
+>   2 files changed, 112 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 658543062bba3b7e600699d7271ffc89250ba7e5..49a9329e5fe8874bdbaca13946ea28bd80134cb3 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -25968,6 +25968,12 @@ F:	drivers/media/i2c/vd55g1.c
+>   F:	drivers/media/i2c/vd56g3.c
+>   F:	drivers/media/i2c/vgxy61.c
+>   
+> +V4L2 EXTENSIBLE PARAMETERS FORMAT
+> +M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> +L:	linux-media@vger.kernel.org
+> +S:	Maintained
+> +F:	include/uapi/linux/media/v4l2-extensible-params.h
+> +
+>   VF610 NAND DRIVER
+>   M:	Stefan Agner <stefan@agner.ch>
+>   L:	linux-mtd@lists.infradead.org
+> diff --git a/include/uapi/linux/media/v4l2-extensible-params.h b/include/uapi/linux/media/v4l2-extensible-params.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..ed37da433c6b1a34523b6a9befde5c0dee601cfb
+> --- /dev/null
+> +++ b/include/uapi/linux/media/v4l2-extensible-params.h
+> @@ -0,0 +1,106 @@
+> +/* SPDX-License-Identifier: ((GPL-2.0+ WITH Linux-syscall-note) OR MIT) */
+> +/*
+> + * Video4Linux2 extensible configuration parameters base types
+> + *
+> + * Copyright (C) 2025 Ideas On Board Oy
+> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> + */
+> +
+> +#ifndef _UAPI_V4L2_PARAMS_H_
+> +#define _UAPI_V4L2_PARAMS_H_
+> +
+> +#ifndef _UAPI_V4L2_EXTENSIBLE_PARAMS_GUARD_
+> +/*
+> + * Note: each ISP driver exposes a different uAPI, where the types layout
+> + * match (more or less strictly) the hardware registers layout.
+> + *
+> + * This file defines the base types on which each ISP driver can implement its
+> + * own types that define its uAPI.
+> + *
+> + * This file is not meant to be included directly by applications which shall
+> + * instead only include the ISP-specific implementation.
+> + */
+> +#error "This file should not be included directly by applications"
+> +#endif
+> +
+> +#include <linux/types.h>
+> +
+> +/**
+> + * struct v4l2_params_block - V4L2 extensible parameters block header
 
-If you encounter any issues, please let me know so I can help to fix them.
+struct v4l2_params_block_header would be nicer I think
 
-Kind regards
-Uffe
+> + *
+> + * This structure represents the common part of all the ISP configuration
+> + * blocks. Each parameters block shall embed an instance of this structure type
+> + * as its first member, followed by the block-specific configuration data. The
+> + * driver inspects this common header to discern the block type and its size and
+> + * properly handle the block content by casting it to the correct block-specific
+> + * type.
+> + *
+> + * The @type field is one of the values enumerated by each platform-specific ISP
+> + * block types which specifies how the data should be interpreted by the driver.
+> + * The @size field specifies the size of the parameters block and is used by the
+> + * driver for validation purposes.
+> + *
+> + * The @flags field is a bitmask of platform-specific control flags.
+Since we're including flags in this base struct rather than a platform specific subclass I think 
+perhaps we should centralise some flags (which I think is supported by the fact that all three 
+implementations share the same flags so far). Perhaps we could reserve the bottom 8 bits for common 
+flags (like ENABLE / DISABLE) and validate them centrally, and leave the top 8 for platform specific 
+flags. I think we could then drop the platform specific validation for rkisp1 and c3 and just pass 
+null to the helpers, since they do the same thing.
+> + *
+> + * Userspace shall never use this type directly but use the platform specific
+> + * one with the associated data types.
+
+Why wouldn't userspace just use these directly? I could see why it might be difficult for the C3 and 
+Rkisp1 which are merged, but for a new implementation couldn't they just use these objects without 
+bothering to define their own?
 
 
->
-> Changes in v2:
->         - Well, quite a lot as I discovered various problems when doing
->         additional testing of corner-case. I suggest re-review from scratch,
->         even if I decided to keep some reviewed-by tags.
->         - Added patches to allow some drivers that needs to align or opt-out
->         from the new common behaviour in genpd.
->
-> If a PM domain (genpd) is powered-on during boot, there is probably a good
-> reason for it. Therefore it's known to be a bad idea to allow such genpd to be
-> powered-off before all of its consumer devices have been probed. This series
-> intends to fix this problem.
->
-> We have been discussing these issues at LKML and at various Linux-conferences
-> in the past. I have therefore tried to include the people I can recall being
-> involved, but I may have forgotten some (my apologies), feel free to loop them
-> in.
->
-> I have tested this with QEMU with a bunch of local test-drivers and DT nodes.
-> Let me know if you want me to share this code too.
->
-> Please help review and test!
-> Finally, a big thanks to Saravana for all the support!
->
-> Kind regards
-> Ulf Hansson
->
->
-> Saravana Kannan (1):
->   driver core: Add dev_set_drv_sync_state()
->
-> Ulf Hansson (23):
->   pmdomain: renesas: rcar-sysc: Add genpd OF provider at
->     postcore_initcall
->   pmdomain: renesas: rmobile-sysc: Move init to postcore_initcall
->   pmdomain: renesas: rcar-gen4-sysc: Move init to postcore_initcall
->   pmdomain: core: Prevent registering devices before the bus
->   pmdomain: core: Add a bus and a driver for genpd providers
->   pmdomain: core: Add the genpd->dev to the genpd provider bus
->   pmdomain: core: Export a common ->sync_state() helper for genpd
->     providers
->   pmdomain: core: Prepare to add the common ->sync_state() support
->   soc/tegra: pmc: Opt-out from genpd's common ->sync_state() support
->   cpuidle: psci: Opt-out from genpd's common ->sync_state() support
->   cpuidle: riscv-sbi: Opt-out from genpd's common ->sync_state() support
->   pmdomain: qcom: rpmpd: Use of_genpd_sync_state()
->   pmdomain: qcom: rpmhpd: Use of_genpd_sync_state()
->   firmware/pmdomain: xilinx: Move ->sync_state() support to firmware
->     driver
->   firmware: xilinx: Don't share zynqmp_pm_init_finalize()
->   firmware: xilinx: Use of_genpd_sync_state()
->   driver core: Export get_dev_from_fwnode()
->   pmdomain: core: Add common ->sync_state() support for genpd providers
->   pmdomain: core: Default to use of_genpd_sync_state() for genpd
->     providers
->   pmdomain: core: Leave powered-on genpds on until late_initcall_sync
->   pmdomain: core: Leave powered-on genpds on until sync_state
->   cpuidle: psci: Drop redundant sync_state support
->   cpuidle: riscv-sbi: Drop redundant sync_state support
->
->  drivers/base/core.c                         |   8 +-
->  drivers/cpuidle/cpuidle-psci-domain.c       |  14 --
->  drivers/cpuidle/cpuidle-riscv-sbi.c         |  14 --
->  drivers/firmware/xilinx/zynqmp.c            |  18 +-
->  drivers/pmdomain/core.c                     | 211 ++++++++++++++++++--
->  drivers/pmdomain/qcom/rpmhpd.c              |   2 +
->  drivers/pmdomain/qcom/rpmpd.c               |   2 +
->  drivers/pmdomain/renesas/rcar-gen4-sysc.c   |   2 +-
->  drivers/pmdomain/renesas/rcar-sysc.c        |  19 +-
->  drivers/pmdomain/renesas/rmobile-sysc.c     |   3 +-
->  drivers/pmdomain/xilinx/zynqmp-pm-domains.c |  16 --
->  drivers/soc/tegra/pmc.c                     |  26 ++-
->  include/linux/device.h                      |  13 ++
->  include/linux/firmware/xlnx-zynqmp.h        |   6 -
->  include/linux/pm_domain.h                   |  17 ++
->  15 files changed, 291 insertions(+), 80 deletions(-)
->
-> --
-> 2.43.0
+If we end up using these objects directly I think it would be nice to have the example code block 
+from the platform specific headers documentation here too.
+
+> + *
+> + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_block_type`
+> + * - Amlogic C3: :c:type:`c3_isp_params_block_type`
+> + *
+> + * @type: The parameters block type (platform-specific)
+> + * @flags: A bitmask of block flags (platform-specific)
+> + * @size: Size (in bytes) of the parameters block, including this header
+> + */
+> +struct v4l2_params_block {
+> +	__u16 type;
+> +	__u16 flags;
+> +	__u32 size;
+> +} __attribute__((aligned(8)));
+> +
+> +/**
+> + * struct v4l2_params_buffer - V4L2 extensible parameters configuration
+> + *
+> + * This struct contains the configuration parameters of the ISP algorithms,
+> + * serialized by userspace into a data buffer. Each configuration parameter
+> + * block is represented by a block-specific structure which contains a
+> + * :c:type:`v4l2_params_block` entry as first member. Userspace populates
+> + * the @data buffer with configuration parameters for the blocks that it intends
+> + * to configure. As a consequence, the data buffer effective size changes
+> + * according to the number of ISP blocks that userspace intends to configure and
+> + * is set by userspace in the @data_size field.
+> + *
+> + * The parameters buffer is versioned by the @version field to allow modifying
+> + * and extending its definition. Userspace shall populate the @version field to
+> + * inform the driver about the version it intends to use. The driver will parse
+> + * and handle the @data buffer according to the data layout specific to the
+> + * indicated version and return an error if the desired version is not
+> + * supported.
+> + *
+> + * For each ISP block that userspace wants to configure, a block-specific
+> + * structure is appended to the @data buffer, one after the other without gaps
+> + * in between nor overlaps. Userspace shall populate the @data_size field with
+> + * the effective size, in bytes, of the @data buffer.
+> + *
+> + * Each ISP driver using the extensible parameters format shall define a
+> + * type which is type-convertible to this one, with the difference that the
+> + * @data member shall actually a memory buffer of platform-specific size and
+> + * not a pointer.
+
+Why not just use this object directly? We could provide a helper in v4l2-extensible-params.h that 
+calculates the size of the buffer with a given data array size for the driver's convenience
+
+
+Thanks
+
+Dan
+
+> + *
+> + * Userspace shall never use this type directly but use the platform specific
+> + * one with the associated data types.
+> + *
+> + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_cfg`
+> + * - Amlogic C3: :c:type:`c3_isp_params_cfg`
+> + *
+> + * @version: The parameters buffer version (platform-specific)
+> + * @data_size: The configuration data effective size, excluding this header
+> + * @data: The configuration data
+> + */
+> +struct v4l2_params_buffer {
+> +	__u32 version;
+> +	__u32 data_size;
+> +	__u8 data[];
+> +};
+> +
+> +#endif /* _UAPI_V4L2_PARAMS_H_ */
 >
 
