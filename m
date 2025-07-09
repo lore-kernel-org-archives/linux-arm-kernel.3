@@ -4,109 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E383BC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:54:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 937F0C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wbt4nbDPbz/i3+foqJAFDaEwhoGfWXIUI12S/FZwnog=; b=X+tcFhm5hhj0qHnD58Cqd8d7tY
-	49m5gQgFhZLDdU28bRHWbsgiUInWUChpnIgHHwR5HW3FRrqLlC14sS9dSdkqivj1MGegpAfgPnsmz
-	0htfEVwSn+dZLcxqkTBIYYlAHyCqCe7fHkoaUlOpe7+4ujpQ/i6DrHmYDzKc+3i9d+JzxUfeVZW03
-	ysRwdtGom944c74YA0968kPY4QU9UVd/DtRLaYK4P6GAIUFkrmM+n9CP8eaEIEE3kG4HAZYc7RG7t
-	je8v4TJv0mrBxR3/J8yEXdFPnwQY+bPzdeefV+6g4SU1szmSlkfq8TB4+5qb6Nq3YZ0S+8fVtvDBA
-	QH3JUohg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tKaH4FvG2TmXmEhvB0F9YmL5YMCxJ8VL8nIdi9ei9Dw=; b=CKLhJchcUB9Hs0oTTwP2Wshh7b
+	IqZItjxKAC2YZUNskUMtasRGO4HmlPrl9uo6N+gRojeBVN85xM+NEw9oT/XQIVldvmYy9s4uLmL4t
+	JBN/8658YUGA5d9GPg8YvS5FMnbf7jxqTKCHMZldvcsEWCByViu1eYWlJDCFFUFgc5lvUdqQkPt3j
+	3G6vNbvZUtV9/Pum8U0vRgXzO/xdznnbsysMusPKp635hWOG08Y3gYZ7DoIL87wP1t2F7ApeA/QpR
+	//ms13bzhxRV6zsIK5J1FVc1J8DcoV03/R2r3icEdrIb0tcWgk2hAX7o2DdxYN1iu3OAunsxB74ra
+	8CEkB8bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZSRJ-00000008O1b-1k9u;
-	Wed, 09 Jul 2025 10:54:13 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uZSTc-00000008OYD-0z1D;
+	Wed, 09 Jul 2025 10:56:36 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZQRa-000000080tF-2HKw
+	id 1uZQTM-000000081Bo-0nQK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 08:46:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CE1FBA546C3;
-	Wed,  9 Jul 2025 08:46:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBF65C4CEEF;
-	Wed,  9 Jul 2025 08:46:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752050781;
-	bh=H3zA0YbNI9oe0U8cTcu7E1v3MSuoPJNq26p6NzpcUCc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lHf6yrB/aci+jsZZ1CtVkpS/c0FwC0pYSwSO9nT81f6Xdx4mmHdaQSClhA3cigI6B
-	 U8Nd/e466LS7yQmXRvy5VT4YU+8BfuPxQvYIRaEv/mDDBl0Ohxn5NBfcSSEvNG4aGw
-	 JPd3GfuT8EgkbvUZIcs1Kvq7hlFZ+KAvX9B9lWjVZuhboNToElrfV/2NJmvudX0U0q
-	 eVRfV3IihLp0Sf+SuvZD2q+BrD3aOYBZn5V1Qif5SXJWJXatp7oyw/+itJxog3Ulhi
-	 /qLYKLk24aks3rlq9IIVl7dt0suYL5DYxkHY3s9IT3v/s2Mjw9qVvdRP7X0qpT7vZw
-	 7lPG5uIjJHJFQ==
-Message-ID: <0454b830-b9bf-4d04-8e91-d5c514ac4aae@kernel.org>
-Date: Wed, 9 Jul 2025 10:46:17 +0200
+	Wed, 09 Jul 2025 08:48:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752050892; x=1783586892;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ApbaFaUdVgbCLb3e8EMfbruCyFj7sOIBzssDOASSRBU=;
+  b=klGITQAsuxbl5fOAYj72hSAaovfBcXWJwLV9L5r4AwZa4nG9h1AJAh+9
+   fPqyILBOvibzhXRnvHJPRfninozqUQgp2Cewo8mfo+U9f0dqTYwDvjV53
+   xD55v9wr3aVEybN76TCJuBeKfvvZ7RmP2RhegmAWkWEMrQgDhcWfqMNBX
+   EI0r5QSxSXGAb8AwR0V7gI8xc7HaNhVE2AZTXmRSIX31wxrHKdrnfoZhh
+   VQ6FRDwYZCXSQIuME/2GgrrAKer7Puc4cr+ThYGh7QGMbgIYuh7dWgasP
+   Bfgdt3VkA8pJhXGce9T6XbG2Zs1xaBCPaMvcXXdONDYwK2gk/SjijSE5F
+   Q==;
+X-CSE-ConnectionGUID: DJeknpqfQJOLeqA9o0pOyQ==
+X-CSE-MsgGUID: 9eBfWr2oQbqjEUHsCGUnpQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11487"; a="65366322"
+X-IronPort-AV: E=Sophos;i="6.16,298,1744095600"; 
+   d="scan'208";a="65366322"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 01:48:11 -0700
+X-CSE-ConnectionGUID: HJKTXCCZRRaFCsDbctY33g==
+X-CSE-MsgGUID: zEhTeGJUQDGJ+h9nL519UQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,298,1744095600"; 
+   d="scan'208";a="160029510"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 01:48:09 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1uZQTE-0000000DoRa-3oNF;
+	Wed, 09 Jul 2025 11:48:04 +0300
+Date: Wed, 9 Jul 2025 11:48:04 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 05/12] iio: dac: Remove redundant
+ pm_runtime_mark_last_busy() calls
+Message-ID: <aG4sxEtXRw982Z9q@smile.fi.intel.com>
+References: <20250708231144.971170-1-sakari.ailus@linux.intel.com>
+ <20250708231152.971550-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/3] arm64: dts: ti: Add support for Variscite
- VAR-SOM-AM62P
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
-References: <20250708184841.72933-1-stefano.radaelli21@gmail.com>
- <20250708184841.72933-3-stefano.radaelli21@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250708184841.72933-3-stefano.radaelli21@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250708231152.971550-1-sakari.ailus@linux.intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_014622_733733_B06E74F4 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20250709_014812_303972_D5D316F4 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,167 +98,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/07/2025 20:48, Stefano Radaelli wrote:
-> Add device tree support for the Variscite VAR-SOM-AM62P system on module.
-> This SOM is designed to be used with various carrier boards.
-> 
-> The module includes:
-> - AM62Px Sitara MPU processor
-> - Up to 8GB of DDR4-3733 memory
-> - eMMC storage memory
-> - PS6522430 chip as a Power Management Integrated circuit (PMIC)
-> - Integrated 10/100/1000 Mbps Ethernet Transceiver Analog Devices ADIN1300
-> - Resistive touch panel interface controller TI TSC2046
-> - I2C interfaces
-> 
-> Only SOM-specific peripherals are enabled by default. Carrier board
-> specific interfaces are left disabled to be enabled in the respective
-> carrier board device trees.
-> 
-> Link: https://www.variscite.it/product/system-on-module-som/cortex-a53-krait/var-som-am62p-ti-sitara-am62px/
-> 
-> Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 379 ++++++++++++++++++
->  1 file changed, 379 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-> new file mode 100644
-> index 000000000000..1d4ebc484d55
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-> @@ -0,0 +1,379 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Common dtsi for Variscite VAR-SOM-AM62P
-> + *
-> + * Copyright (C) 2021-2022 Texas Instruments Incorporated - https://www.ti.com/
-> + * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
-> + *
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/pwm/pwm.h>
-> +#include "k3-am62p5.dtsi"
-> +
-> +/ {
-> +	compatible = "variscite,am62p-var-som", "ti,am62p5";
-> +
-> +	iw612_pwrseq: iw612_pwrseq {
+On Wed, Jul 09, 2025 at 02:11:52AM +0300, Sakari Ailus wrote:
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
 
-Follow DTS coding style. This applies to multiple places.
+...
 
-Also:
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> -	if (!enable) {
+> -		pm_runtime_mark_last_busy(dev);
+> +	if (!enable)
+>  		pm_runtime_put_autosuspend(dev);
+> -	}
+>  
+>  	return 0;
+>  
+>  err_put_pm:
+> -	if (enable) {
+> -		pm_runtime_mark_last_busy(dev);
+> +	if (enable)
+>  		pm_runtime_put_autosuspend(dev);
+> -	}
+>  
+>  	return ret;
 
 
-> +		compatible = "mmc-pwrseq-simple";
-> +		post-power-on-delay-ms = <100>;
-> +		power-off-delay-us = <10000>;
-> +		reset-gpios = <&main_gpio0 54 GPIO_ACTIVE_LOW>,	/* WIFI_PWR_EN */
-> +			      <&main_gpio0 59 GPIO_ACTIVE_LOW>;	/* WIFI_EN */
-> +		status = "okay";
+Hmm... Why not simply
 
-Why? Drop.
+	ret = 0;
 
-> +	};
-> +
-> +	emmc_pwrseq: pwrseq@0 {
+err_put_pm:
+	if (enable)
+		pm_runtime_put_autosuspend(dev);
 
-It does not look like you tested the DTS against bindings. Please run
-`make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
-Maybe you need to update your dtschema and yamllint. Don't rely on
-distro packages for dtschema and be sure you are using the latest
-released dtschema.
+	return ret;
 
-> +		compatible = "mmc-pwrseq-emmc";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&emmc_pwrseq_pins>;
-> +		reset-gpios = <&main_gpio0 49 GPIO_ACTIVE_LOW>;
-> +	};
-> +
-> +	memory@80000000 {
-> +		/* 8G RAM */
-> +		reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
-> +		      <0x00000008 0x80000000 0x00000001 0x80000000>;
-> +		device_type = "memory";
-> +		bootph-pre-ram;
-> +	};
-> +
-> +	opp-table {
-> +		/* Add 1.4GHz OPP for am62p5-sk board. Requires VDD_CORE at 0v85 */
-> +		opp-1400000000 {
-> +			opp-hz = /bits/ 64 <1400000000>;
-> +			opp-supported-hw = <0x01 0x0004>;
-> +			clock-latency-ns = <6000000>;
-> +		};
-> +	};
-> +
-> +	reserved_memory: reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		rtos_ipc_memory_region: rtos-ipc-memory@9b500000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b500000 0x00 0x00300000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b800000 0x00 0x00100000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b900000 0x00 0x00f00000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c800000 0x00 0x00100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-> +			no-map;
-> +		};
-> +
-> +		secure_tfa_ddr: tfa@9e780000 {
-> +			reg = <0x00 0x9e780000 0x00 0x80000>;
-> +			no-map;
-> +		};
-> +
-> +		secure_ddr: optee@9e800000 {
-> +			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
-> +			no-map;
-> +		};
-> +	};
-> +
-> +	vcc_3v3: vcc-3v3 {
+instead of the duplication?
 
-Please use name for all fixed regulators which matches current format
-recommendation: 'regulator-[0-9]v[0-9]'
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/regulator/fixed-regulator.yaml?h=v6.11-rc1#n46
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-Best regards,
-Krzysztof
 
