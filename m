@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B978FC83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA3F4C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 14:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CDvxz8anR+BJ4sHLfVXzhIbmkKQRFf6UUA1osiYchOg=; b=YWEKfaQaj6JQnkNWU5JSDhKMpK
-	xOhnMb3IVVPhlrTz4H6JpQ6YRlY1ki2aTQ032HNZd7hYMMSHwPoAS5W0C5WZknKxkpXcSeQyjsABB
-	PgHjjtTSS9Q6dRX+cegF4XuEgtEYSjfspWBdxBcBisGNGN6OGV6lTz3kYuloJoF68T/V4yNq5rgDW
-	qej+B8TMX/Uz0zBy45eiYNdMW3eeEM5OkrGyRbEcWvjxyWlOnrBLBYTJ2F1ej7RQ5B/GFbJECsUyN
-	995Jyjsrkess/HMBLl4ETOe+SDqBxXMaDaNX+7uVUQo1lI4hrb7c1kPIop10eoUJ+ima/leNkeGGK
-	EmJvXAYA==;
+	bh=JNiQ1+5y2VFFZCNEkl5wzPIEOOAGrk6ZMXzGD1167g8=; b=AtxktjZKR6qSXsa2DBy3I3bDPv
+	w0DmlEuJP8qtZtHkW/8fTxzAZ/kpTFrbRwpl/zdfELjqboKSF4GBBfAjgBBW9zMThaTXfsElsGIX4
+	ecaC8EVbkI9ZCv60t1IMynjFodvyKOQPKRe9f73mCMrxMhdD0o79ltCKN771/dnQDv2Ta1J6OV2a8
+	6ImkhtTHR1N9ZGXH0Lxf6fc9feFQyjQhGavdoRZuE25YzNd3Rc5ZiaQe5kFD+x/M5iBT584fgUrJw
+	lJ42wgNI/5FKxnTUs/KnPrNLaBdsK+HqWBR7K2TuKaKzDuSmWliHxkhjUmByQSu4uM9Yg/dK+KEBQ
+	UyC/yGPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZVxs-000000090oY-1qoL;
-	Wed, 09 Jul 2025 14:40:04 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1uZW0B-000000091Dw-21cT;
+	Wed, 09 Jul 2025 14:42:27 +0000
+Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZT1J-00000008VXI-3BfL
+	id 1uZT1S-00000008VZZ-0qty
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 11:31:26 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-71173646662so50260277b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 04:31:25 -0700 (PDT)
+	Wed, 09 Jul 2025 11:31:35 +0000
+Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e7d9d480e6cso4077092276.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 04:31:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752060685; x=1752665485; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1752060693; x=1752665493; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=CDvxz8anR+BJ4sHLfVXzhIbmkKQRFf6UUA1osiYchOg=;
-        b=Y+EsLCdJHhkhTKOx+yu6oD+JXJFtkKMQA7kOEJrBwEWvbTtiUo8+y+/c6JBg2WubWC
-         PZSd9Pme5rw7JHyaD8j/79KuXrXGGT17NYVTPDnek4/h1RyaXqinvgIAF6B02m72V9Vu
-         t9URX2/ovFwBMWmKukyuHd8bfD5uYbR3SJxyJgzSV+nrsu9eVM7K24JilxlahIiBGfLF
-         g5BYFX/yCuofmCirslYpD+zv4AH4n+wWfSSv+P4qPYcDNyydq3/XqsBhh3Cay/eD7Eso
-         B8UUzG7MpF6fNhWH+NLYJqcut2okPp8B+1utTbCMBhaf8dDob7xr3cWGQZPvhe3v6Vd7
-         LJRQ==
+        bh=JNiQ1+5y2VFFZCNEkl5wzPIEOOAGrk6ZMXzGD1167g8=;
+        b=v6eKkhRpsFadUysjaT9U7eoeHZU0H2UCqQvLnnUK4yW2oaK6ODnmvaSs83SWdvYmU9
+         nKxsvuBSRqt2Py7MaXiKDza6YJ+cts1CHKzoV9utuqRuj3+JyH3F4kcVidZDpjnVrIeW
+         MPh5mWnb7X4M3lxc2qALxGzYHNybMmY6nYGnMOMJC3+2pAf0DrAzfikTVJUUGlGhq4/R
+         xvcDwT8GpO/MHnky1BhwnoqFP5ZLvkxhHQvotBidnuQGvS2hKcc4uE9jI+adNn1N+SnE
+         wM6ae03InFOYSAwMzHid1Y0+Ugip4dBq8+PbNs3IT8UeVEl4FlNrSBIudL2Uv0qUXN9/
+         2AXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752060685; x=1752665485;
+        d=1e100.net; s=20230601; t=1752060693; x=1752665493;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CDvxz8anR+BJ4sHLfVXzhIbmkKQRFf6UUA1osiYchOg=;
-        b=sLwiQJrwyCAjEA1iX05kLiVuy3t+h0sKh4xinYuuXNc4yeyp5dxa6impSL0pVheXU0
-         UWQLSB+rteCXDnqb67gBh07CZCuoj15FaShNE5VJilNx+u6A6N5mAQqSMF+4W6i6FwN4
-         aKYKNieuLH+UCdlLo2n+v2O9zB7kwIzQXb9S0msAaUhti8ioJgvEhXluVw+tb1Bk3mwf
-         ls4ISmbgXsMAvnaqA5exLz9/lnAAaiYe15qlPGbNecH1JuzUhB080vFMc995jyTAqvYL
-         YxaVb1GNV0sRV2Q3tgAX6FEPmvXh5FBZrrnUnN7fJitoXjlUaYLwCEDlx3IJPScsPFFl
-         tAWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWRmTSncWi664mVG3IeiyD9cbnSnGmjjx0qzP3Zu5Qssfx0Z6aPx8aJ1otpDhb6u6l6B3GD0mRxXQZHqmkPo7aX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwB0bpv29UyIM2UiSGWH1rNgyZiCcmnjvhY0IH2xGnONhKldiql
-	mjHp9OWvzMLzLp81p6FqdoonQoyCxTQhSW48WJn6FesZYo+g63HfOOebJiT0JFw94h6OJf0teLF
-	p1GYaNn4zIDphMKI5YAIqcEr4pnMQ26SJdcxh61QiIA==
-X-Gm-Gg: ASbGncthXfA3MtCXY9KwbdIa8QCeXKcsUTTWusdf6vGRHc7Yasb7cW5mvM9AAKy2aT5
-	1N8sVIT/0MYcWZddCjin5YD3qYzudkaWR7w1iXWPYpdjYc2B2C4V72Ix+QjcvgvheYZxtqoCGdt
-	7ZSmp8hcu+zbbhR/5BJYOWE5x1ZGiwqHqVV0U0445vgnRfg14LlSDDypg=
-X-Google-Smtp-Source: AGHT+IGU+pji3u6/G/drrXD9f6hzZ57lAuY7UQylTxtmRHqJxsYBUBEDT5Y4GQThZIBDfvEDAxWsUuXsGoMFEvARnXI=
-X-Received: by 2002:a05:690c:6901:b0:70e:2c7f:2ed4 with SMTP id
- 00721157ae682-717b13c163fmr32649447b3.0.1752060684637; Wed, 09 Jul 2025
- 04:31:24 -0700 (PDT)
+        bh=JNiQ1+5y2VFFZCNEkl5wzPIEOOAGrk6ZMXzGD1167g8=;
+        b=HOL0Dl8KSdkWvLcEbG8KqC6o2xv+WOn9TruO5EuX66msKjqFJ5sjueNjlQN8aKKAQY
+         9n2R5HT72S/IvVjVg0WdQDOl/pBkZqjoodOpDyBqVdZLaOW6AIv4lLJx/yRa5R6cDzlx
+         qA7p05luma2PZNZ7rfjIDevQYeN3OWH53fYcqj511PGcTMVfyfbSyRdznSZ9r4ms0g1i
+         eZyhRYGZV+bgn7Ah/7yfHmErGsgkoRi8qofxA+vtlJlC1RdudSycpRNKwIUSpHTq3nBc
+         ik5HGEIA9j4MD/FIQtG6xFjuO0lO1UVijCaqXZxbNkelxL6HHazdCyyJMJB3u7Hn/hXT
+         oSlA==
+X-Forwarded-Encrypted: i=1; AJvYcCU7aL73CYKuuCitu2cjwFQxW6vXP/kg9CKK4jU77in1waH3AQoiZTPkaVUC99ZOUs2ceYFI1TONRiOUM9d7xG5A@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdzBWkmpa5eS5vrTJx0U76qudJ5ddq+JfsVZHVxMG2aBJPSK88
+	hPYwKcGH/Hvo4MBEppN7R8o7ZGV0MNV07FrB5lRpKlphK2VUoTl8e/zL+P8sxUBw1rYsCTSIlie
+	W8c7idlmBsiGyqgr+zyrpzpzH7Cf6mcA41tsmpRSQig==
+X-Gm-Gg: ASbGncv2wlCkPkkLGEWJVeKAv4SbLRJyn7cAn5lB909Ryuro55q7s7dL5SoO6dievFm
+	0QmDeFZbaAv6iL3qtBYoImHe/7enMO13fDnY04GvVITJ40oW3XhXg3xzF9QG9tbyQss9FVZmris
+	gNA0lFS9hPNFayhMIO3ELy+bqlLRTnyt0BxYOQHk8bc4OD5bPlfB3F32U=
+X-Google-Smtp-Source: AGHT+IFsS/ASN7bZj//LEOdFtJiqcKW9aOOwexSDyjzYRjOXer6dnb2P/mGTPna4qIWw/UGl9cHvGrgqRWogtZJ+2Ik=
+X-Received: by 2002:a05:690c:6b0e:b0:70f:8884:17af with SMTP id
+ 00721157ae682-717b16723f0mr33351387b3.6.1752060693143; Wed, 09 Jul 2025
+ 04:31:33 -0700 (PDT)
 MIME-Version: 1.0
-References: <e71abd8d75dd842690e5a11e38037bcf5feac189.1751816732.git.christophe.jaillet@wanadoo.fr>
-In-Reply-To: <e71abd8d75dd842690e5a11e38037bcf5feac189.1751816732.git.christophe.jaillet@wanadoo.fr>
+References: <20250701114733.636510-1-ulf.hansson@linaro.org>
+In-Reply-To: <20250701114733.636510-1-ulf.hansson@linaro.org>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 9 Jul 2025 13:30:48 +0200
-X-Gm-Features: Ac12FXwjFFHXtdaaUqyy9FfmUbPYblM-fvRv4hnhCWqr-KyPAgwmhH4mdvxEDsE
-Message-ID: <CAPDyKFr2VPbQRRx6hYp4e6by1O4LvpD=WwwP2gb2KCMTB8uQGQ@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: amlogic: Constify struct meson_secure_pwrc_domain_data
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-kernel@vger.kernel.org, 
-	kernel-janitors@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+Date: Wed, 9 Jul 2025 13:30:57 +0200
+X-Gm-Features: Ac12FXwPPsq7QQFWnJjGj5aeIXDZuRVVIUPoQyxowJKYffEpQh6cBhizErrlUZ0
+Message-ID: <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com>
+Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support to genpd
+To: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_043125_791792_2124BD1A 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20250709_043134_242440_45243225 
+X-CRM114-Status: GOOD (  28.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,83 +99,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 6 Jul 2025 at 17:45, Christophe JAILLET
-<christophe.jaillet@wanadoo.fr> wrote:
+On Tue, 1 Jul 2025 at 13:47, Ulf Hansson <ulf.hansson@linaro.org> wrote:
 >
-> 'struct meson_secure_pwrc_domain_data' are not modified in these drivers.
->
-> Constifying these structures moves some data to a read-only section, so
-> increases overall security.
->
-> On a x86_64, with allmodconfig:
-> Before:
-> ======
->    text    data     bss     dec     hex filename
->    9248     408       0    9656    25b8 drivers/pmdomain/amlogic/meson-secure-pwrc.o
->
-> After:
-> =====
->    text    data     bss     dec     hex filename
->    9344     304       0    9648    25b0 drivers/pmdomain/amlogic/meson-secure-pwrc.o
->
-> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+> Changes in v3:
+>         - Added a couple of patches to adress problems on some Renesas
+>         platforms. Thanks Geert and Tomi for helping out!
+>         - Adressed a few comments from Saravanna and Konrad.
+>         - Added some tested-by tags.
 
-Applied for next, thanks!
+I decided it was time to give this a try, so I have queued this up for
+v6.17 via the next branch at my pmdomain tree.
+
+If you encounter any issues, please let me know so I can help to fix them.
 
 Kind regards
 Uffe
 
 
-> ---
-> Compile tested only
-> ---
->  drivers/pmdomain/amlogic/meson-secure-pwrc.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
 >
-> diff --git a/drivers/pmdomain/amlogic/meson-secure-pwrc.c b/drivers/pmdomain/amlogic/meson-secure-pwrc.c
-> index ff76ea36835e..e8bda60078c4 100644
-> --- a/drivers/pmdomain/amlogic/meson-secure-pwrc.c
-> +++ b/drivers/pmdomain/amlogic/meson-secure-pwrc.c
-> @@ -342,32 +342,32 @@ static int meson_secure_pwrc_probe(struct platform_device *pdev)
->         return of_genpd_add_provider_onecell(pdev->dev.of_node, &pwrc->xlate);
->  }
+> Changes in v2:
+>         - Well, quite a lot as I discovered various problems when doing
+>         additional testing of corner-case. I suggest re-review from scratch,
+>         even if I decided to keep some reviewed-by tags.
+>         - Added patches to allow some drivers that needs to align or opt-out
+>         from the new common behaviour in genpd.
 >
-> -static struct meson_secure_pwrc_domain_data meson_secure_a1_pwrc_data = {
-> +static const struct meson_secure_pwrc_domain_data meson_secure_a1_pwrc_data = {
->         .domains = a1_pwrc_domains,
->         .count = ARRAY_SIZE(a1_pwrc_domains),
->  };
+> If a PM domain (genpd) is powered-on during boot, there is probably a good
+> reason for it. Therefore it's known to be a bad idea to allow such genpd to be
+> powered-off before all of its consumer devices have been probed. This series
+> intends to fix this problem.
 >
-> -static struct meson_secure_pwrc_domain_data amlogic_secure_a4_pwrc_data = {
-> +static const struct meson_secure_pwrc_domain_data amlogic_secure_a4_pwrc_data = {
->         .domains = a4_pwrc_domains,
->         .count = ARRAY_SIZE(a4_pwrc_domains),
->  };
+> We have been discussing these issues at LKML and at various Linux-conferences
+> in the past. I have therefore tried to include the people I can recall being
+> involved, but I may have forgotten some (my apologies), feel free to loop them
+> in.
 >
-> -static struct meson_secure_pwrc_domain_data amlogic_secure_a5_pwrc_data = {
-> +static const struct meson_secure_pwrc_domain_data amlogic_secure_a5_pwrc_data = {
->         .domains = a5_pwrc_domains,
->         .count = ARRAY_SIZE(a5_pwrc_domains),
->  };
+> I have tested this with QEMU with a bunch of local test-drivers and DT nodes.
+> Let me know if you want me to share this code too.
 >
-> -static struct meson_secure_pwrc_domain_data amlogic_secure_c3_pwrc_data = {
-> +static const struct meson_secure_pwrc_domain_data amlogic_secure_c3_pwrc_data = {
->         .domains = c3_pwrc_domains,
->         .count = ARRAY_SIZE(c3_pwrc_domains),
->  };
+> Please help review and test!
+> Finally, a big thanks to Saravana for all the support!
 >
-> -static struct meson_secure_pwrc_domain_data meson_secure_s4_pwrc_data = {
-> +static const struct meson_secure_pwrc_domain_data meson_secure_s4_pwrc_data = {
->         .domains = s4_pwrc_domains,
->         .count = ARRAY_SIZE(s4_pwrc_domains),
->  };
+> Kind regards
+> Ulf Hansson
 >
-> -static struct meson_secure_pwrc_domain_data amlogic_secure_t7_pwrc_data = {
-> +static const struct meson_secure_pwrc_domain_data amlogic_secure_t7_pwrc_data = {
->         .domains = t7_pwrc_domains,
->         .count = ARRAY_SIZE(t7_pwrc_domains),
->  };
+>
+> Saravana Kannan (1):
+>   driver core: Add dev_set_drv_sync_state()
+>
+> Ulf Hansson (23):
+>   pmdomain: renesas: rcar-sysc: Add genpd OF provider at
+>     postcore_initcall
+>   pmdomain: renesas: rmobile-sysc: Move init to postcore_initcall
+>   pmdomain: renesas: rcar-gen4-sysc: Move init to postcore_initcall
+>   pmdomain: core: Prevent registering devices before the bus
+>   pmdomain: core: Add a bus and a driver for genpd providers
+>   pmdomain: core: Add the genpd->dev to the genpd provider bus
+>   pmdomain: core: Export a common ->sync_state() helper for genpd
+>     providers
+>   pmdomain: core: Prepare to add the common ->sync_state() support
+>   soc/tegra: pmc: Opt-out from genpd's common ->sync_state() support
+>   cpuidle: psci: Opt-out from genpd's common ->sync_state() support
+>   cpuidle: riscv-sbi: Opt-out from genpd's common ->sync_state() support
+>   pmdomain: qcom: rpmpd: Use of_genpd_sync_state()
+>   pmdomain: qcom: rpmhpd: Use of_genpd_sync_state()
+>   firmware/pmdomain: xilinx: Move ->sync_state() support to firmware
+>     driver
+>   firmware: xilinx: Don't share zynqmp_pm_init_finalize()
+>   firmware: xilinx: Use of_genpd_sync_state()
+>   driver core: Export get_dev_from_fwnode()
+>   pmdomain: core: Add common ->sync_state() support for genpd providers
+>   pmdomain: core: Default to use of_genpd_sync_state() for genpd
+>     providers
+>   pmdomain: core: Leave powered-on genpds on until late_initcall_sync
+>   pmdomain: core: Leave powered-on genpds on until sync_state
+>   cpuidle: psci: Drop redundant sync_state support
+>   cpuidle: riscv-sbi: Drop redundant sync_state support
+>
+>  drivers/base/core.c                         |   8 +-
+>  drivers/cpuidle/cpuidle-psci-domain.c       |  14 --
+>  drivers/cpuidle/cpuidle-riscv-sbi.c         |  14 --
+>  drivers/firmware/xilinx/zynqmp.c            |  18 +-
+>  drivers/pmdomain/core.c                     | 211 ++++++++++++++++++--
+>  drivers/pmdomain/qcom/rpmhpd.c              |   2 +
+>  drivers/pmdomain/qcom/rpmpd.c               |   2 +
+>  drivers/pmdomain/renesas/rcar-gen4-sysc.c   |   2 +-
+>  drivers/pmdomain/renesas/rcar-sysc.c        |  19 +-
+>  drivers/pmdomain/renesas/rmobile-sysc.c     |   3 +-
+>  drivers/pmdomain/xilinx/zynqmp-pm-domains.c |  16 --
+>  drivers/soc/tegra/pmc.c                     |  26 ++-
+>  include/linux/device.h                      |  13 ++
+>  include/linux/firmware/xlnx-zynqmp.h        |   6 -
+>  include/linux/pm_domain.h                   |  17 ++
+>  15 files changed, 291 insertions(+), 80 deletions(-)
+>
 > --
-> 2.50.0
+> 2.43.0
 >
 
