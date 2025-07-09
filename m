@@ -4,69 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCCBC83F19
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FA3C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/toHkVpq5LggOD6b8zz+uspZ81zoDnz2v1z+PgrMD0=; b=Ro0k7xXkSuSlgKMJIDSHKMTuEw
-	dhVNcOzeXiV9cximgQ+8qhB4bzp8zRd6qONECTqVh6+GjMESEXUOtPfLysaYrOGOa2yijkAeDWtvv
-	dF7Dgqgd5sCraZDcpf0XfTAGXBq0FvyYNlI9RBOVqg2qAMmIdpMYWD4xxWA2WUeUIRlv8gf6jO2pV
-	IHs54Fmc8eIs08H81MiBStku9wYy3P/wKdeEgVkJxwgzZO67CeYLaKUx2rtuARlcys470lN2LmxEB
-	PFeuMdnuIMk5aKXPbKqn6zwEPvnyE36tRhezfZjkBg781qy0rM9laMx4yR6fk45cHr+wvcNNCt+js
-	ifdYV4Pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iT+1QiDE9G8XyFlhLxaA5trMfsyxXOsEjllpaNAv1YA=; b=0EZNXKs8moiCBf9b2ktHaz3gna
+	etYdnrEaPNeo7DlIAuOrVhcxpxYFKSLiZIQC4wdh3LKaG7s35iy+ZNB0821ESwP3oah9ua29eOuBC
+	BXSPLQsWaRHma4pAdFlu2bDPsyA5TN47ekMQFdEWD9uz5kBHKtPpTl3pmXU9x5wvAYydna3mMGlZA
+	tkXc2zNzAn1Y+tM66RZCOBsjMtauIEAov9/ARn33L5uK10oZUeeEA9nPn8TnIvv8LQfaHgFwUlxtR
+	rSgWkDTFB/gNDb67Y64DGAS2jAafnsUvif91QyEppMuer2/Ka+eY1Bc/V8YhxC4kuLsFvPpf6UVkS
+	zjdQOahg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdiH-0000000A82O-2o1Q;
-	Wed, 09 Jul 2025 22:56:29 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uZdiI-0000000A84N-3MdV;
+	Wed, 09 Jul 2025 22:56:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZb9f-00000009mif-42ot;
-	Wed, 09 Jul 2025 20:12:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=N/toHkVpq5LggOD6b8zz+uspZ81zoDnz2v1z+PgrMD0=; b=DNSHEZw4BymD6PssVNCmF5xBld
-	+onC/2Xi9Wsb1lQvLjY3kueI6oFAB1bEFZ3F0EC7YexGzUVrbMStjX4sJIJ/QwdIQWjwufqMPEzgB
-	6Fi/3Szt9XKCXgxIH6jHXaie5ifGQ4vqCySAvGA+Gxt+3pu27Si62X8s4vFpkzjRTDAywxo86CNTo
-	+2vawRGvpcKFESbdXzYuAqnJP2A1nIUniYhLtMgHPF+CTApd9tycmDUEmCUdhgZfUkaxw/YOxe8ek
-	yt9WI9PbdtnJMYBBsPEsttDnSRrSdMp8s9KY8sjNfGb46QRf1WxkLAa2ZrmjCwIJNnFphMoLM/R6u
-	H0AfbQSQ==;
-Received: from i53875a79.versanet.de ([83.135.90.121] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uZb94-0006oW-DP; Wed, 09 Jul 2025 22:11:58 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Damon Ding <damon.ding@rock-chips.com>
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, andy.yan@rock-chips.com,
- dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
- dianders@chromium.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- Damon Ding <damon.ding@rock-chips.com>
-Subject: Re: [PATCH v2 12/12] drm/bridge: analogix_dp: Apply drm_bridge_connector
- helper
-Date: Wed, 09 Jul 2025 22:11:57 +0200
-Message-ID: <6140569.FjKLVJYuhi@diego>
-In-Reply-To: <20250709070139.3130635-13-damon.ding@rock-chips.com>
-References: <20250709070139.3130635-1-damon.ding@rock-chips.com>
- <20250709070139.3130635-13-damon.ding@rock-chips.com>
+	id 1uZbB4-00000009mml-3KxB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Jul 2025 20:14:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E11B61152;
+	Wed,  9 Jul 2025 20:14:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51A21C4CEEF;
+	Wed,  9 Jul 2025 20:14:00 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: soc@lists.linux.dev,
+	soc <soc@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [GIT PULL 0/3] Renesas SoC updates for v6.17 (take two)
+Date: Wed,  9 Jul 2025 22:13:24 +0200
+Message-ID: <cover.1752090396.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_131236_001625_F2128213 
-X-CRM114-Status: GOOD (  20.07  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,85 +59,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 9. Juli 2025, 09:01:39 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Damon Ding:
-> Apply drm_bridge_connector helper for Analogix DP driver.
->=20
-> The following changes have been made:
-> - Remove &analogix_dp_device.connector and change
->   &analogix_dp_device.bridge from a pointer to an instance.
-> - Apply devm_drm_bridge_alloc() to allocate &analogix_dp_device that
->   contains &drm_bridge.
-> - Apply drm_bridge_connector helper to get rid of &drm_connector_funcs
->   and &drm_connector_helper_funcs.
->=20
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->=20
-> ------
->=20
-> Changes in v2:
-> - For &drm_bridge.ops, remove DRM_BRIDGE_OP_HPD and add
->   DRM_BRIDGE_OP_EDID.
-> - Add analogix_dp_bridge_edid_read().
-> - Move &analogix_dp_plat_data.skip_connector deletion to the previous
->   patches.
-> ---
->  .../drm/bridge/analogix/analogix_dp_core.c    | 169 ++++++++----------
->  .../drm/bridge/analogix/analogix_dp_core.h    |   4 +-
->  2 files changed, 80 insertions(+), 93 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers=
-/gpu/drm/bridge/analogix/analogix_dp_core.c
-> index abc64cc17e4c..fb510e55ef06 100644
-> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> @@ -23,6 +23,7 @@
->  #include <drm/drm_atomic.h>
->  #include <drm/drm_atomic_helper.h>
->  #include <drm/drm_bridge.h>
-> +#include <drm/drm_bridge_connector.h>
->  #include <drm/drm_crtc.h>
->  #include <drm/drm_device.h>
->  #include <drm/drm_edid.h>
-> @@ -948,23 +949,13 @@ static int analogix_dp_disable_psr(struct analogix_=
-dp_device *dp)
->  	return analogix_dp_send_psr_spd(dp, &psr_vsc, true);
->  }
-> =20
-> -static int analogix_dp_get_modes(struct drm_connector *connector)
-> +static int analogix_dp_bridge_get_modes(struct drm_bridge *bridge, struc=
-t drm_connector *connector)
->  {
-> -	struct analogix_dp_device *dp =3D to_dp(connector);
-> -	const struct drm_edid *drm_edid;
-> +	struct analogix_dp_device *dp =3D to_dp(bridge);
->  	int num_modes =3D 0;
-> =20
->  	if (dp->plat_data->panel) {
->  		num_modes +=3D drm_panel_get_modes(dp->plat_data->panel, connector);
+	Hi SoC folks,
 
-here is one example where a panel_bridge would help :-)
+This is my second pull request for the inclusion of Renesas SoC updates
+for v6.17.
 
-I.e. I'd think without it the code would need some sort of
+It consists of 3 parts:
 
-  	if (dp->plat_data->bridge) {
-  		num_modes +=3D drm_bridge_get_modes(dp->plat_data->bridge, connector);
+  [GIT PULL 1/3] Renesas driver updates for v6.17 (take two)
 
-thing?
+    - Sort Renesas Kconfig symbols.
 
-> -	} else {
-> -		drm_edid =3D drm_edid_read_ddc(connector, &dp->aux.ddc);
-> -
-> -		drm_edid_connector_update(&dp->connector, drm_edid);
-> -
-> -		if (drm_edid) {
-> -			num_modes +=3D drm_edid_connector_add_modes(&dp->connector);
-> -			drm_edid_free(drm_edid);
-> -		}
->  	}
-> =20
->  	if (dp->plat_data->get_modes)
+  [GIT PULL 2/3] Renesas DT binding updates for v6.17 (take two)
 
+    - Document support for the Renesas Gray Hawk Single board with R-Car
+      V4M-7 (R8A779H2).
 
+  [GIT PULL 3/3] Renesas DTS updates for v6.17 (take two)
 
+    - Add support for the Renesas Gray Hawk Single board with R-Car
+      V4M-7 (R8A779H2),
+    - Add eMMC and microSD expansion board support for the RZ/V2H and
+      RZ/V2N EVK development boards,
+    - Add GPIO keys and Ethernet support for the RZ/G3E SoM and SMARC
+      Carrier-II EVK development board,
+    - Add QSPI FLASH support for the RZ/V2H and RZ/V2N SoCs and their EVK
+      development boards,
+    - Miscellaneous fixes and improvements.
+
+Note that PR 3/3 includes DT binding definition updates for the RZ/V2H
+and RZ/V2N SoCs, which are shared by clock driver and DT source files.
+
+Thanks for pulling!
+
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
