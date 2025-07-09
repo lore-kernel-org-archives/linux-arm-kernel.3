@@ -4,113 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780C1C83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:16:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4512FC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 10:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=COZ2Sh8sxgfBJ7zX3NCff/RrAJHNSAnAxPWUBtHFUog=; b=eHqOfMSLv9LwmiUcLjfi7vlDLS
-	OLpE5eHgSBgo6Gs8iOee4t7ufbZcA+2AWcka+IJ/o+uIZUQJ+il6u0H3zS54WkycZsAMoAL1pTCqD
-	VQLMG7JAnTxYZBb2M3yLJbg4dWftzXk2O4KNxO6b5pbBSIV/+3yyHxrk1Z2HWq3G67IxF0M5YU3Js
-	247h1wuM2J8dJ6SUcNAp+xf3X2kpACQ8JBgYFeJAlIhXOKX73HcLY9DroYGrKtpHuZHtl/3OBOyle
-	G2j8cq5gHNDoUzxzSLGI2D477G14xvG4FDzfV59zi+60RSIOT+O6oxtd58SGNpJ3EZLZQvQ1Gg8uS
-	BdF4t4jA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MR/VHVIGZbdziFP4wdziyYFpTeZxPxWQvBTZzaHY1rk=; b=UTtiEwtt2n8Cr8IH5CA1TPjYu3
+	Rp5JwEEb0e/X+WHO+8H02ySJgSiIZJu3876S+KtUufMGr1flJDjnK36fn7iUyIFt5ixbxaoj6pV/j
+	2JamqevWj8enWVEpH/z5rB8H+rJEEfVOhLG7DmlFLwswTAH2dXt2Yb3+mbfij/LZvkO+NFlpzahz4
+	540OHOWL7A36M1KtvdJ25kGF60knuTl+0VvA6VP7K5IblMPZHcjzLfwlh4YRJXyLg4yNMv8KCWe/C
+	uExNozS8UyBQW7HWo5hypFJgsbVVUNXnrVH/dhVYh81bSDnRQnHBSYQvNcCB50NWumLalJfdBzUZP
+	0yBldbNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZRqz-00000008HTg-3U47;
-	Wed, 09 Jul 2025 10:16:41 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uZRtI-00000008Hqt-2EAm;
+	Wed, 09 Jul 2025 10:19:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZQ7X-00000007xl4-2arl
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 08:25:41 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5697mBnU024365;
-	Wed, 9 Jul 2025 08:25:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	COZ2Sh8sxgfBJ7zX3NCff/RrAJHNSAnAxPWUBtHFUog=; b=nyCbAk926zsau2SP
-	mJvfxBRtOB72Ar4axeO5P4YE24XUL8E5DeVRR5Z3gx0RUjY0wEU01dOCacmVZf3c
-	6bYfLdX3iHQ4Epq8O9wZpvdQhP3hvVZp3EpiioBzPkyTb0wMyQInHfR0KZ6WcChp
-	JEkbSC60UjpysnQRGl4Y5RibKiAMY5oPOyDPjCzTUkHoxowyTup4J5FJW1p9sdX5
-	z5UZXzOJ3vDT4292P7xL4zMMLNKafsGto0WZhtQiog7E6tqtVXPDyDVbX4ib9vSR
-	sw70Bar9vbKvUfmKUgOQtCDY4m9BZoEjX/OEOQQcYUh/k/cz8tMtmFtSMovd2DKz
-	0llc0w==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47smbnr3pj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 09 Jul 2025 08:25:31 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5698PUG1032555
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 9 Jul 2025 08:25:30 GMT
-Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 9 Jul
- 2025 01:25:26 -0700
-Message-ID: <c6cfc51b-ca0e-4eac-8462-00dcbc136afd@quicinc.com>
-Date: Wed, 9 Jul 2025 16:25:23 +0800
+	id 1uZQ9i-00000007y5S-1iE1;
+	Wed, 09 Jul 2025 08:27:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D207161455;
+	Wed,  9 Jul 2025 08:27:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3F19C4CEEF;
+	Wed,  9 Jul 2025 08:27:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752049673;
+	bh=JQ1+Vm+0K0y8h9HijNHayqn7WMa42BU+nZE0V6oZ0Xw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m9C1zRrngUo+zKh1qz9o/lGUIhk+lgLUAzXQ1p4p7yV42CMp2UU43uCVuuof5vfDM
+	 8UWVAh5dA0DKSUY1z8GCEf++dqYgg2kRO7zkXKOli2vGTngBMpk8RJQoNoAwDOXSft
+	 Fm6lPLk+svrUkXC2uBZOEZUUnj8VSpdgoxgmZmUHxkcI1ELJOHrI/zOFPUz+Fcyv7V
+	 YYJfeyB8msSWd43v4A7z3fRG7RbuuCwnaD1XcdOl5zzQIq1sBv8H7aPAx0vAS1DR8D
+	 Sk/Ox8R/6ALoIRhA8JygHl0O9vdAnAxSW/vKtm8hr2huo8222T5tAGx21WKx7n1coP
+	 2rOFj9FsmFR6A==
+Date: Wed, 9 Jul 2025 10:27:50 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Aleksander Jan Bajkowski <olek2@wp.pl>
+Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
+	andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, s.hauer@pengutronix.de, 
+	zhiyong.tao@mediatek.com, linux-pm@vger.kernel.org, linux-iio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: iio: adc: Add support for MT7981
+Message-ID: <20250709-industrious-marigold-snake-5a3eb5@krzk-bin>
+References: <20250708220405.1072393-1-olek2@wp.pl>
+ <20250708220405.1072393-2-olek2@wp.pl>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 0/2] coresight: Add Coresight Trace Network On Chip
- driver
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>
-CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        "Krzysztof
- Kozlowski" <krzysztof.kozlowski@linaro.org>,
-        Leo Yan <leo.yan@arm.com>
-References: <20250611-trace-noc-v10-0-a83b5c63da34@quicinc.com>
-Content-Language: en-US
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-In-Reply-To: <20250611-trace-noc-v10-0-a83b5c63da34@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzA5MDA3NSBTYWx0ZWRfXyx+D+kMo8223
- 4eoDswe4moMyOwyx0wburBNMbnB1aTQXTun3ltK1ZZpNOjZcHFCFKcottbVMxagf7nW0gVB4ihr
- xG5b43lgtn39gHuDXJh1pNOllBlcL9RATeFQs0nmtj3cRp9HTx8YNNlwJFhBaNLKEJOM1UfMd7e
- LqzfGvHGx/t0adL1n+gGwezi9FoyF/xuJu0P54q8GIBvyf4B+RD7kXQVaQwiFTmPMnK5JN92xme
- Z6FFbTEblJZfxrJCst3YSN8omXZvV5mlTjhhT1ZQiRoURIDkwfxrh55/LGLkEkHdpGCsUPb9Nwd
- ROkoTM4X0Wn88oQrBDTDSQc1C8EjR0+nBbfLjAAaB3KnsOT3J7b7G7X96uO43DHjnuFL/h7cj9O
- oGSIRB2kSA2Hg3A6UFZI8kyMnfsyM9pCYWYj9vQN9yPJhlQQlsUM+qhTzkgWgu1AwgnQynVv
-X-Authority-Analysis: v=2.4 cv=QM1oRhLL c=1 sm=1 tr=0 ts=686e277b cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8
- a=COk6AnOGAAAA:8 a=6ZaSXbcDHRiDiM3bpcAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: fn5V7WnPvgFSAqDRf_6MBVoPXphwGdGX
-X-Proofpoint-GUID: fn5V7WnPvgFSAqDRf_6MBVoPXphwGdGX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-09_02,2025-07-08_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 malwarescore=0 suspectscore=0
- lowpriorityscore=0 priorityscore=1501 bulkscore=0 adultscore=0 mlxscore=0
- phishscore=0 mlxlogscore=999 spamscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507090075
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_012539_682663_71324A0B 
-X-CRM114-Status: GOOD (  23.92  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250708220405.1072393-2-olek2@wp.pl>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,88 +73,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/11/2025 6:42 PM, Yuanfang Zhang wrote:
-> The Trace Network On Chip (TNOC) is an integration hierarchy which is a
-> hardware component that integrates the functionalities of TPDA and
-> funnels. It collects trace from subsystems and transfers it to coresight
-> sink.
+On Wed, Jul 09, 2025 at 12:04:03AM +0200, Aleksander Jan Bajkowski wrote:
+> The temperature sensor in the MT7981 is same as in the MT7986.
+> Add compatible string for mt7981.
 > 
-> In addition to the generic TNOC mentioned above, there is also a special type
-> of TNOC called Interconnect TNOC. Unlike the generic TNOC, the Interconnect
-> TNOC doesn't need ATID. Its primary function is to connect the source of
-> subsystems to the Aggregator TNOC. Its driver is different from this patch and
-> will describe it and upstream its driver separately.
-> 
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
 > ---
-> Changes in v10:
-> - Rebase to coresight/next branch.
-> - Link to v9: https://lore.kernel.org/r/20250611-trace-noc-v9-0-4322d4cf8f4b@quicinc.com
-> 
-> Changes in v9:
-> - Mention the binding is only for Aggregator TNOC.
-> - Link to v8: https://lore.kernel.org/r/20250606-trace-noc-v8-0-833f94712c57@quicinc.com
-> 
-> Changes in v8:
-> - Add sysfs node to expose atid.
-> - Link to v7: https://lore.kernel.org/r/20250523-trace-noc-v7-0-d65edbab2997@quicinc.com
-> 
-> Changes in v7:
-> - Move the content in header file into coresight-tnoc.c.
-> - Use scoped_guard() to replace spin_lock().
-> - Invoke coresight_trace_id_put_system_id() for registration failure.
-> - Link to v6: https://lore.kernel.org/r/20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com
-> 
-> Changes in v6:
-> - Add a newline after return statements.
-> - Use 'x &= foo' to replace 'x = x & foo'.
-> - Use 'x |= foo' to replace 'x = x | foo'.
-> - Link to v5: https://lore.kernel.org/r/20250512-trace-noc-v5-0-f2ef070baee5@quicinc.com
-> 
-> Changes in v5:
-> - update cover-letter to describe the Interconnect TNOC.
-> - Link to v4: https://lore.kernel.org/r/20250415-trace-noc-v4-0-979938fedfd8@quicinc.com
-> 
-> Changes in v4:
-> - Fix dt_binding warning.
-> - update mask of trace_noc amba_id.
-> - Modify driver comments.
-> - rename TRACE_NOC_SYN_VAL to TRACE_NOC_SYNC_INTERVAL.
-> - Link to v3: https://lore.kernel.org/r/20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com
-> 
-> Changes in v3:
-> - Remove unnecessary sysfs nodes.
-> - update commit messages.
-> - Use 'writel' instead of 'write_relaxed' when writing to the register for the last time.
-> - Add trace_id ops.
-> - Link to v2: https://lore.kernel.org/r/20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com
-> 
-> Changes in v2:
-> - Modified the format of DT binging file.
-> - Fix compile warnings.
-> - Link to v1: https://lore.kernel.org/r/46643089-b88d-49dc-be05-7bf0bb21f847@quicinc.com
-> 
-> ---
-> Yuanfang Zhang (2):
->       dt-bindings: arm: Add device Trace Network On Chip definition
->       coresight: add coresight Trace Network On Chip driver
-> 
->  .../bindings/arm/qcom,coresight-tnoc.yaml          | 113 ++++++++++
->  drivers/hwtracing/coresight/Kconfig                |  12 +
->  drivers/hwtracing/coresight/Makefile               |   1 +
->  drivers/hwtracing/coresight/coresight-tnoc.c       | 242 +++++++++++++++++++++
->  4 files changed, 368 insertions(+)
-> ---
-> base-commit: 408c97c4a5e0b634dcd15bf8b8808b382e888164
-> change-id: 20250403-trace-noc-f8286b30408e
-> 
-> Best regards,
+>  .../devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml   | 4 ++++
+>  1 file changed, 4 insertions(+)
 
-Hi Suzuki, Mike,
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-I wanted to check in on the status of this patch series ([v10 0/2]). I’d like to confirm whether
-it is planned to be picked for this cycle, or if there’s anything further I should address.
 
-thanks,
-Yuanfang.
+<form letter>
+This is an automated instruction, just in case, because many review
+tags are being ignored. If you know the process, just skip it entirely
+(please do not feel offended by me posting it here - no bad intentions
+intended, no patronizing, I just want to avoid wasted efforts). If you
+do not know the process, here is a short explanation:
+
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+versions of patchset, under or above your Signed-off-by tag, unless
+patch changed significantly (e.g. new properties added to the DT
+bindings). Tag is "received", when provided in a message replied to you
+on the mailing list. Tools like b4 can help here ('b4 trailers -u ...').
+However, there's no need to repost patches *only* to add the tags. The
+upstream maintainer will do that for tags received on the version they
+apply.
+
+https://elixir.bootlin.com/linux/v6.15/source/Documentation/process/submitting-patches.rst#L591
+</form letter>
+
+Best regards,
+Krzysztof
+
 
