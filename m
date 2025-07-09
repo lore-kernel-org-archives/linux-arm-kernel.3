@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ECF2C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F82C83F18
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:56:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KTDqkZNa/Y06ou7j2KzV7OfUEBvvgnijDlh/ESDZlL0=; b=jqiZMX1r4DTTTuTK2E5nzfqX0Y
-	p2eIfXKE/ofuE4BVuFkHmI+Uam41cPbi84lSkOUfPoayFefnr6udYljFklVL7BWJjVGaBM6XDBBt5
-	Ml2jBxoDHcLQnCnAEfv6qUTgA09xAeQ73pa0eMgOt/m7Q2ypXzlbqUYmtSvYPqU4eOCQRopOVG9YK
-	vvRBGwRXPDLepTSXBULU6ZwRyZZtQ/bDDpictlyAY5b0iVymrV61F3xJWCJ5787wIx/WpW9ShICGx
-	6WcIRpJHd6Cp15jUTNcBpaxlHnnD/DryQB7t5Dr7GWiMz1+wyk+7OOup5dml3vkKRL7gHoNCmwdax
-	8Zk5P3ZA==;
+	bh=L2komajPuAapIY3dgswmTiMVISgbh/vWnu3qJhGefd4=; b=HZWkY6nmgeNgrRCwMT/OrX25kU
+	uu2I0zTHt6dlQF3WgyN5o8lWQsGUKhLUYh1qJ1GGAc8+EQUwBg0u4cSWrwYaCT2RDFeQszYeL4gXb
+	bIX8+ZGE49OC3CAZft6jD1kVe1M0zpy1BZXnBB6CJJ7gAcpjTi+CutsH6/zta0hlcwuCw/cobkm3s
+	nZCtfCfjQ1q7xGKsiwaAYt8xDKZs/PMYkmqVo7rOruqbLU2/XC/LhhXEatfyTTBm/SyGhaqTO3ayF
+	G2aXYJmufAaxaFWV7UvLaoHrV7nn2EA+gQXRiPq+PYqNwkg2kbacOzqRUqgOjqOUZVJdaeY1li2l8
+	sM9TI18A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdiQ-0000000A8Ju-03uA;
-	Wed, 09 Jul 2025 22:56:38 +0000
+	id 1uZdiR-0000000A8ON-3RBE;
+	Wed, 09 Jul 2025 22:56:40 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZbv1-00000009r1O-3odQ;
+	id 1uZbv1-00000009r1M-3ql5;
 	Wed, 09 Jul 2025 21:01:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1752094889;
-	bh=7aEBmbIctPTphfD3Xtu6xLbliB7cG+WRDnCSkYDNRTA=;
+	bh=ZGvUAU8EdQqYCN03yYp66TUPom9mNCbwTqrFFE2lfVY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=BwrI/dYREpuQIHkepkAbbXnxy1RRxot8rfxJaLbhrdv+gaJwws3y9ZNW4xeH6ti5z
-	 bEHv3PG9aZohtsbWBNoT/fN3/2HeG7YzYUzCOMmrg3zak9aVesqzaSIuUK0zOd8z2a
-	 0G25zp0rhIptk08Mi05sZIg+s+7002Rh7FVMhSKqh+IxscqYjYV0BBNqbuNul05b4B
-	 ZlQCQYWEem3aXH7ZM0ir2BrDb7Q9VOfllheP8JGAPLaowIgkOt35XqBaVJwZAWQAOH
-	 iNx062tJXEsma5u/dI4/h4DePHEx03RE/+vLYPVAqlcRzoh6tMgCp2ZwIXVQYhJvnj
-	 yj8/m1Q/L1/Bg==
+	b=AWSfo2khuwRcdWkkhOFC5DDXJSQn4ZWCqgZyWQ/lWLycNn7vnwcSwu8kD7QrzznfI
+	 CGLlBtoqpqSpyD78IaFfJwY4QuARsw/ak9euvNs+GCGdJUaMm2NaDR9UTdD54l7Enu
+	 UvUTuiNT+u94asborj6LurN49Q8tBEsouEXZPsT4lnRo6B0h/N4o/jIGdzBafsBfYN
+	 o9eAs3mAvNEOEhjrYWEUKFzwhh9klfxZAeCWGrl+mRJxHOc3nqG2n0ngtRNw3Uwk4J
+	 YY9Ulg2TS2ZRxwNZUMsmsAYeMmxvX53ShdqktnFSzmjHMZclMsS/LDCJ1NGdqv+VSi
+	 gjWmceAO9rn+g==
 Received: from localhost (unknown [212.93.144.165])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id C4B0117E04AA;
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 0A21017E0497;
 	Wed,  9 Jul 2025 23:01:29 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 10 Jul 2025 00:01:13 +0300
-Subject: [PATCH v2 2/6] drm/bridge: dw-hdmi-qp: Fixup timer base setup
+Date: Thu, 10 Jul 2025 00:01:12 +0300
+Subject: [PATCH v2 1/6] drm/bridge: dw-hdmi-qp: Add CEC support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250710-rk3588-hdmi-cec-v2-2-f5884be34bc1@collabora.com>
+Message-Id: <20250710-rk3588-hdmi-cec-v2-1-f5884be34bc1@collabora.com>
 References: <20250710-rk3588-hdmi-cec-v2-0-f5884be34bc1@collabora.com>
 In-Reply-To: <20250710-rk3588-hdmi-cec-v2-0-f5884be34bc1@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -66,11 +66,12 @@ To: Sandy Huang <hjc@rock-chips.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
+ linux-kernel@vger.kernel.org, Algea Cao <algea.cao@rock-chips.com>, 
+ Derek Foreman <derek.foreman@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_140132_113202_AA430E55 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20250709_140132_116774_93A2B73E 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,82 +86,356 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the TIMER_BASE_CONFIG0 register gets initialized to a fixed
-value as initially found in vendor driver code supporting the RK3588
-SoC.  As a matter of fact the value matches the rate of the HDMI TX
-reference clock, which is roughly 428.57 MHz.
+Add support for the CEC interface of the Synopsys DesignWare HDMI QP TX
+controller.
 
-However, on RK3576 SoC that rate is slightly lower, i.e. 396.00 MHz, and
-the incorrect register configuration breaks CEC functionality.
+This is based on the downstream implementation, but rewritten on top of
+the CEC helpers added recently to the DRM HDMI connector framework.
 
-Set the timer base according to the actual reference clock rate that
-shall be provided by the platform driver.
+Also note struct dw_hdmi_qp_plat_data has been extended to include the
+CEC IRQ number to be provided by the platform driver.
 
-While at it, also drop the unnecessary empty lines in
-dw_hdmi_qp_init_hw().
-
+Co-developed-by: Algea Cao <algea.cao@rock-chips.com>
+Signed-off-by: Algea Cao <algea.cao@rock-chips.com>
+Co-developed-by: Derek Foreman <derek.foreman@collabora.com>
+Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 11 ++++++++---
- include/drm/bridge/dw_hdmi_qp.h              |  1 +
- 2 files changed, 9 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/Kconfig      |   8 +
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 220 +++++++++++++++++++++++++++
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h |  14 ++
+ include/drm/bridge/dw_hdmi_qp.h              |   1 +
+ 4 files changed, 243 insertions(+)
 
+diff --git a/drivers/gpu/drm/bridge/synopsys/Kconfig b/drivers/gpu/drm/bridge/synopsys/Kconfig
+index f3ab2f985f8ca9dc1eeac3bda6b4a31d355cd51c..99878f051067e65fa3b97d8132be8cfa15980966 100644
+--- a/drivers/gpu/drm/bridge/synopsys/Kconfig
++++ b/drivers/gpu/drm/bridge/synopsys/Kconfig
+@@ -54,6 +54,14 @@ config DRM_DW_HDMI_QP
+ 	select DRM_KMS_HELPER
+ 	select REGMAP_MMIO
+ 
++config DRM_DW_HDMI_QP_CEC
++	bool "Synopsis Designware QP CEC interface"
++	depends on DRM_DW_HDMI_QP
++	select DRM_DISPLAY_HDMI_CEC_HELPER
++	help
++	  Support the CEC interface which is part of the Synopsys
++	  Designware HDMI QP block.
++
+ config DRM_DW_MIPI_DSI
+ 	tristate
+ 	select DRM_KMS_HELPER
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index cfe8171b2183874517f583f284f7728fe1613c91..5d252800168aa4f3c10f458631795de8912e29d4 100644
+index 7ade80f02a94c91905c13b4a945c65da5681b183..cfe8171b2183874517f583f284f7728fe1613c91 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-@@ -161,6 +161,7 @@ struct dw_hdmi_qp {
+@@ -18,6 +18,7 @@
+ 
+ #include <drm/bridge/dw_hdmi_qp.h>
+ #include <drm/display/drm_hdmi_helper.h>
++#include <drm/display/drm_hdmi_cec_helper.h>
+ #include <drm/display/drm_hdmi_state_helper.h>
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+@@ -26,6 +27,8 @@
+ #include <drm/drm_edid.h>
+ #include <drm/drm_modes.h>
+ 
++#include <media/cec.h>
++
+ #include <sound/hdmi-codec.h>
+ 
+ #include "dw-hdmi-qp.h"
+@@ -131,12 +134,28 @@ struct dw_hdmi_qp_i2c {
+ 	bool			is_segment;
+ };
+ 
++#ifdef CONFIG_DRM_DW_HDMI_QP_CEC
++struct dw_hdmi_qp_cec {
++	struct drm_connector *connector;
++	int irq;
++	u32 addresses;
++	struct cec_msg rx_msg;
++	u8 tx_status;
++	bool tx_done;
++	bool rx_done;
++};
++#endif
++
+ struct dw_hdmi_qp {
+ 	struct drm_bridge bridge;
+ 
+ 	struct device *dev;
+ 	struct dw_hdmi_qp_i2c *i2c;
+ 
++#ifdef CONFIG_DRM_DW_HDMI_QP_CEC
++	struct dw_hdmi_qp_cec *cec;
++#endif
++
+ 	struct {
+ 		const struct dw_hdmi_qp_phy_ops *ops;
  		void *data;
- 	} phy;
- 
-+	unsigned long ref_clk_rate;
- 	struct regmap *regm;
- 
- 	unsigned long tmds_char_rate;
-@@ -1222,13 +1223,11 @@ static void dw_hdmi_qp_init_hw(struct dw_hdmi_qp *hdmi)
- {
- 	dw_hdmi_qp_write(hdmi, 0, MAINUNIT_0_INT_MASK_N);
- 	dw_hdmi_qp_write(hdmi, 0, MAINUNIT_1_INT_MASK_N);
--	dw_hdmi_qp_write(hdmi, 428571429, TIMER_BASE_CONFIG0);
-+	dw_hdmi_qp_write(hdmi, hdmi->ref_clk_rate, TIMER_BASE_CONFIG0);
- 
- 	/* Software reset */
- 	dw_hdmi_qp_write(hdmi, 0x01, I2CM_CONTROL0);
--
- 	dw_hdmi_qp_write(hdmi, 0x085c085c, I2CM_FM_SCL_CONFIG0);
--
- 	dw_hdmi_qp_mod(hdmi, 0, I2CM_FM_EN, I2CM_INTERFACE_CONTROL0);
- 
- 	/* Clear DONE and ERROR interrupts */
-@@ -1254,6 +1253,11 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
- 		return ERR_PTR(-ENODEV);
+@@ -965,6 +984,191 @@ static int dw_hdmi_qp_bridge_write_infoframe(struct drm_bridge *bridge,
  	}
+ }
  
-+	if (!plat_data->ref_clk_rate) {
-+		dev_err(dev, "Missing ref_clk rate\n");
-+		return ERR_PTR(-ENODEV);
++#ifdef CONFIG_DRM_DW_HDMI_QP_CEC
++static irqreturn_t dw_hdmi_qp_cec_hardirq(int irq, void *dev_id)
++{
++	struct dw_hdmi_qp *hdmi = dev_id;
++	struct dw_hdmi_qp_cec *cec = hdmi->cec;
++	irqreturn_t ret = IRQ_HANDLED;
++	u32 stat;
++
++	stat = dw_hdmi_qp_read(hdmi, CEC_INT_STATUS);
++	if (stat == 0)
++		return IRQ_NONE;
++
++	dw_hdmi_qp_write(hdmi, stat, CEC_INT_CLEAR);
++
++	if (stat & CEC_STAT_LINE_ERR) {
++		cec->tx_status = CEC_TX_STATUS_ERROR;
++		cec->tx_done = true;
++		ret = IRQ_WAKE_THREAD;
++	} else if (stat & CEC_STAT_DONE) {
++		cec->tx_status = CEC_TX_STATUS_OK;
++		cec->tx_done = true;
++		ret = IRQ_WAKE_THREAD;
++	} else if (stat & CEC_STAT_NACK) {
++		cec->tx_status = CEC_TX_STATUS_NACK;
++		cec->tx_done = true;
++		ret = IRQ_WAKE_THREAD;
 +	}
 +
- 	hdmi = devm_drm_bridge_alloc(dev, struct dw_hdmi_qp, bridge,
- 				     &dw_hdmi_qp_bridge_funcs);
- 	if (IS_ERR(hdmi))
-@@ -1273,6 +1277,7 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
++	if (stat & CEC_STAT_EOM) {
++		unsigned int len, i, val;
++
++		val = dw_hdmi_qp_read(hdmi, CEC_RX_COUNT_STATUS);
++		len = (val & 0xf) + 1;
++
++		if (len > sizeof(cec->rx_msg.msg))
++			len = sizeof(cec->rx_msg.msg);
++
++		for (i = 0; i < 4; i++) {
++			val = dw_hdmi_qp_read(hdmi, CEC_RX_DATA3_0 + i * 4);
++			cec->rx_msg.msg[i * 4] = val & 0xff;
++			cec->rx_msg.msg[i * 4 + 1] = (val >> 8) & 0xff;
++			cec->rx_msg.msg[i * 4 + 2] = (val >> 16) & 0xff;
++			cec->rx_msg.msg[i * 4 + 3] = (val >> 24) & 0xff;
++		}
++
++		dw_hdmi_qp_write(hdmi, 1, CEC_LOCK_CONTROL);
++
++		cec->rx_msg.len = len;
++		cec->rx_done = true;
++
++		ret = IRQ_WAKE_THREAD;
++	}
++
++	return ret;
++}
++
++static irqreturn_t dw_hdmi_qp_cec_thread(int irq, void *dev_id)
++{
++	struct dw_hdmi_qp *hdmi = dev_id;
++	struct dw_hdmi_qp_cec *cec = hdmi->cec;
++
++	if (cec->tx_done) {
++		cec->tx_done = false;
++		drm_connector_hdmi_cec_transmit_attempt_done(cec->connector,
++							     cec->tx_status);
++	}
++
++	if (cec->rx_done) {
++		cec->rx_done = false;
++		drm_connector_hdmi_cec_received_msg(cec->connector, &cec->rx_msg);
++	}
++
++	return IRQ_HANDLED;
++}
++
++static int dw_hdmi_qp_cec_init(struct drm_connector *connector,
++			       struct drm_bridge *bridge)
++{
++	struct dw_hdmi_qp *hdmi = dw_hdmi_qp_from_bridge(bridge);
++	struct dw_hdmi_qp_cec *cec = hdmi->cec;
++	int ret;
++
++	if (cec->irq < 0) {
++		dev_err(hdmi->dev, "Invalid cec irq: %d\n", cec->irq);
++		return -EINVAL;
++	}
++
++	cec->connector = connector;
++
++	dw_hdmi_qp_write(hdmi, 0, CEC_TX_COUNT);
++	dw_hdmi_qp_write(hdmi, ~0, CEC_INT_CLEAR);
++	dw_hdmi_qp_write(hdmi, 0, CEC_INT_MASK_N);
++
++	ret = devm_request_threaded_irq(hdmi->dev, cec->irq,
++					dw_hdmi_qp_cec_hardirq,
++					dw_hdmi_qp_cec_thread, IRQF_SHARED,
++					dev_name(hdmi->dev), hdmi);
++	if (ret < 0) {
++		dev_err(hdmi->dev, "Request cec irq thread failed: %d\n", ret);
++		return ret;
++	}
++
++	return 0;
++}
++
++static int dw_hdmi_qp_cec_log_addr(struct drm_bridge *bridge, u8 logical_addr)
++{
++	struct dw_hdmi_qp *hdmi = dw_hdmi_qp_from_bridge(bridge);
++	struct dw_hdmi_qp_cec *cec = hdmi->cec;
++
++	if (logical_addr == CEC_LOG_ADDR_INVALID)
++		cec->addresses = 0;
++	else
++		cec->addresses |= BIT(logical_addr) | CEC_ADDR_BROADCAST;
++
++	dw_hdmi_qp_write(hdmi, cec->addresses, CEC_ADDR);
++
++	return 0;
++}
++
++static int dw_hdmi_qp_cec_enable(struct drm_bridge *bridge, bool enable)
++{
++	struct dw_hdmi_qp *hdmi = dw_hdmi_qp_from_bridge(bridge);
++	unsigned int irqs;
++	u32 swdisable;
++
++	if (!enable) {
++		dw_hdmi_qp_write(hdmi, 0, CEC_INT_MASK_N);
++		dw_hdmi_qp_write(hdmi, ~0, CEC_INT_CLEAR);
++
++		swdisable = dw_hdmi_qp_read(hdmi, GLOBAL_SWDISABLE);
++		swdisable = swdisable | CEC_SWDISABLE;
++		dw_hdmi_qp_write(hdmi, swdisable, GLOBAL_SWDISABLE);
++	} else {
++		swdisable = dw_hdmi_qp_read(hdmi, GLOBAL_SWDISABLE);
++		swdisable = swdisable & ~CEC_SWDISABLE;
++		dw_hdmi_qp_write(hdmi, swdisable, GLOBAL_SWDISABLE);
++
++		dw_hdmi_qp_write(hdmi, ~0, CEC_INT_CLEAR);
++		dw_hdmi_qp_write(hdmi, 1, CEC_LOCK_CONTROL);
++
++		dw_hdmi_qp_cec_log_addr(bridge, CEC_LOG_ADDR_INVALID);
++
++		irqs = CEC_STAT_LINE_ERR | CEC_STAT_NACK | CEC_STAT_EOM |
++		       CEC_STAT_DONE;
++		dw_hdmi_qp_write(hdmi, ~0, CEC_INT_CLEAR);
++		dw_hdmi_qp_write(hdmi, irqs, CEC_INT_MASK_N);
++	}
++
++	return 0;
++}
++
++static int dw_hdmi_qp_cec_transmit(struct drm_bridge *bridge, u8 attempts,
++				   u32 signal_free_time, struct cec_msg *msg)
++{
++	struct dw_hdmi_qp *hdmi = dw_hdmi_qp_from_bridge(bridge);
++	unsigned int i;
++	u32 val;
++
++	for (i = 0; i < msg->len; i++) {
++		if (!(i % 4))
++			val = msg->msg[i];
++		if ((i % 4) == 1)
++			val |= msg->msg[i] << 8;
++		if ((i % 4) == 2)
++			val |= msg->msg[i] << 16;
++		if ((i % 4) == 3)
++			val |= msg->msg[i] << 24;
++
++		if (i == (msg->len - 1) || (i % 4) == 3)
++			dw_hdmi_qp_write(hdmi, val, CEC_TX_DATA3_0 + (i / 4) * 4);
++	}
++
++	dw_hdmi_qp_write(hdmi, msg->len - 1, CEC_TX_COUNT);
++	dw_hdmi_qp_write(hdmi, CEC_CTRL_START, CEC_TX_CONTROL);
++
++	return 0;
++}
++#else
++#define dw_hdmi_qp_cec_init NULL
++#define dw_hdmi_qp_cec_enable NULL
++#define dw_hdmi_qp_cec_log_addr NULL
++#define dw_hdmi_qp_cec_transmit NULL
++#endif /* CONFIG_DRM_DW_HDMI_QP_CEC */
++
+ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
+ 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+@@ -979,6 +1183,10 @@ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
+ 	.hdmi_audio_startup = dw_hdmi_qp_audio_enable,
+ 	.hdmi_audio_shutdown = dw_hdmi_qp_audio_disable,
+ 	.hdmi_audio_prepare = dw_hdmi_qp_audio_prepare,
++	.hdmi_cec_init = dw_hdmi_qp_cec_init,
++	.hdmi_cec_enable = dw_hdmi_qp_cec_enable,
++	.hdmi_cec_log_addr = dw_hdmi_qp_cec_log_addr,
++	.hdmi_cec_transmit = dw_hdmi_qp_cec_transmit,
+ };
  
- 	hdmi->phy.ops = plat_data->phy_ops;
- 	hdmi->phy.data = plat_data->phy_data;
-+	hdmi->ref_clk_rate = plat_data->ref_clk_rate;
+ static irqreturn_t dw_hdmi_qp_main_hardirq(int irq, void *dev_id)
+@@ -1093,6 +1301,18 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 	hdmi->bridge.hdmi_audio_dev = dev;
+ 	hdmi->bridge.hdmi_audio_dai_port = 1;
  
- 	dw_hdmi_qp_init_hw(hdmi);
- 
++#ifdef CONFIG_DRM_DW_HDMI_QP_CEC
++	hdmi->bridge.ops |= DRM_BRIDGE_OP_HDMI_CEC_ADAPTER;
++	hdmi->bridge.hdmi_cec_dev = dev;
++	hdmi->bridge.hdmi_cec_adapter_name = dev_name(dev);
++
++	hdmi->cec = devm_kzalloc(hdmi->dev, sizeof(*hdmi->cec), GFP_KERNEL);
++	if (!hdmi->cec)
++		return ERR_PTR(-ENOMEM);
++
++	hdmi->cec->irq = plat_data->cec_irq;
++#endif
++
+ 	ret = devm_drm_bridge_add(dev, &hdmi->bridge);
+ 	if (ret)
+ 		return ERR_PTR(ret);
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h
+index 72987e6c468928f2b998099697a6f32726411557..91a15f82e32acc32eef58f11ec5ca958337ebb9a 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h
+@@ -488,9 +488,23 @@
+ #define AUDPKT_VBIT_OVR0				0xf24
+ /* CEC Registers */
+ #define CEC_TX_CONTROL					0x1000
++#define CEC_CTRL_CLEAR					BIT(0)
++#define CEC_CTRL_START					BIT(0)
+ #define CEC_STATUS					0x1004
++#define CEC_STAT_DONE					BIT(0)
++#define CEC_STAT_NACK					BIT(1)
++#define CEC_STAT_ARBLOST				BIT(2)
++#define CEC_STAT_LINE_ERR				BIT(3)
++#define CEC_STAT_RETRANS_FAIL				BIT(4)
++#define CEC_STAT_DISCARD				BIT(5)
++#define CEC_STAT_TX_BUSY				BIT(8)
++#define CEC_STAT_RX_BUSY				BIT(9)
++#define CEC_STAT_DRIVE_ERR				BIT(10)
++#define CEC_STAT_EOM					BIT(11)
++#define CEC_STAT_NOTIFY_ERR				BIT(12)
+ #define CEC_CONFIG					0x1008
+ #define CEC_ADDR					0x100c
++#define CEC_ADDR_BROADCAST				BIT(15)
+ #define CEC_TX_COUNT					0x1020
+ #define CEC_TX_DATA3_0					0x1024
+ #define CEC_TX_DATA7_4					0x1028
 diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index b4a9b739734ec7b67013b683fe6017551aa19172..76ecf31301997718604a05f70ce9eab8695e26b5 100644
+index e9be6d507ad9cdc55f5c7d6d3ef37eba41f1ce74..b4a9b739734ec7b67013b683fe6017551aa19172 100644
 --- a/include/drm/bridge/dw_hdmi_qp.h
 +++ b/include/drm/bridge/dw_hdmi_qp.h
-@@ -24,6 +24,7 @@ struct dw_hdmi_qp_plat_data {
+@@ -23,6 +23,7 @@ struct dw_hdmi_qp_plat_data {
+ 	const struct dw_hdmi_qp_phy_ops *phy_ops;
  	void *phy_data;
  	int main_irq;
- 	int cec_irq;
-+	unsigned long ref_clk_rate;
++	int cec_irq;
  };
  
  struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
