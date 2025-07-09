@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A52AC83F03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:04:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B50C83F03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eCpGj14y8qnWzSxrj6VdBuo5/QZItUYGIcekqKER1Go=; b=omp1Tp/dbO6iEKAqfxdRXKA7uS
-	DMwTj5sf5TONRiQRlSptv/Zd75SUSrEJtShAV3FfQJfjfMy93zSWq4eC17uM266+J6qKJ1t2Z7Kog
-	P2XHRRX1JhUN68IK54K4KH4Zko7ZDKOa4wtq+n55gTLll/8bPhnCYIS1bqZGKuTVbyQ5fv8cB2V8Q
-	6xwA4pk9CMrCnXEendfpWfVoTNH114nyeck0hq5nUOZ2+j84oDqX8jeNdB702eHBcmGknKOeB0hx/
-	gDTEoBwgrGcZC4Y5hFu8CC18i+ghZGLxDpPbj9UXkRhKqSwa5hbXwMpSsHzpSugnVX+s7ls3N5od9
-	0rI5zU8A==;
+	bh=Kla48VDQaXoq44k8Gp1jJDMLbDayWVkeuVZylDDSmFI=; b=ohrNtUlsIJyk2ryddhlH5NwozP
+	58Vx6097InAxzlkR0OLYMQgnwUWUB4QVINzMFdX6GEaq2mrNOiLkX0HUInMpxdDuRM4T0hxqemgFZ
+	pAfw277C5SbuAA7Cq0l9L3s6rhlSLeLjMPgM413E7C8VF8VBwYNijrruEN8NA4zBtcr+lZqKZ5F1y
+	YyjEsoJc/C0I3i/kFBdoJX7withPTi7JjSF4CEQrUE3Yz3G60HCxJxQbJ96MwjeC78LTQ3IR4+ZQp
+	KvUGbOxZHAxfJmYMMn4HFFleNh2TOEem2BhPajq8y2GxKVVEehSJLvIZ7Bk+NmNUab6mwfl3oSc5D
+	0OoXTYNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZa5h-00000009cnD-0yKh;
-	Wed, 09 Jul 2025 19:04:25 +0000
-Received: from mail-am6eur05on20727.outbound.protection.outlook.com ([2a01:111:f403:2612::727] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1uZa5j-00000009crJ-0uYk;
+	Wed, 09 Jul 2025 19:04:27 +0000
+Received: from mail-am7eur03on20717.outbound.protection.outlook.com ([2a01:111:f403:260e::717] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZWRN-0000000970D-3Q3A
+	id 1uZWRP-0000000970n-3BAu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 15:10:35 +0000
+	Wed, 09 Jul 2025 15:10:37 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P2t+DylmqhPIT0vHb6S8so7VmjW1Tv8SABKM+MVZWxWHwkWV5/PXRpkeOpiNfuLVzbFc7meNhJOf+8xDvC2tdQIYWW5FzFJKwc4rRxdSNLErc1Qa8hvupMqBU8dPABoEuNQE8nQdtIS2SMgh3Ea6GUnFMExPcdJndsu45fsQ9sDMl8cAkFoUR9Oq5ihIA8h9Ku/t9i83GzBk1+F+y2r3PdSpm/W7VukPzDcxISKPebKbo3ba0QpIVCS8NZO4RUWZOPWwm1tj4F2pG33mE58QV2oej/VbCL97fhlGNtMwyWKLfiTxESCgrgKPMwV0iePcM0HeBYPx52JAteeLsJYy1w==
+ b=Ihu6WlxZUK1RwtoTuj+caM7us4hmENeYsfZXYy0GYoEbnbBcL6ziURfGH3YXR+N83ijyGhNuh4YokJYAKazfAfgMQ2Y9vmF6Wyri1wtmQ8jxPtACi3jzHkEOwmRAsvQjvJYKirL+72cy47oty19WWFSL9WQ2j+gP/rXW46dXBtUrV6Fy0l7Q7kykaCIdmF+W4d+00qfZ4NJPmieWjndEERHupHY3cEen1Jy+D/JJe59pmFygwacsUo6SoTwsoX+b207Q9E9I2SYJe7lTMCsvbMaRLsD2wjNUX36jpy2KV+iOB6iWW9mLxlXBvaFh0cLHbBNoTwk6EtrF5QE29zBj3w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eCpGj14y8qnWzSxrj6VdBuo5/QZItUYGIcekqKER1Go=;
- b=JEuCAh6FKjK0JziOtwvmEMZYu7EN+Q5cwxuh98xq+2s7HS294Jlfxh3aDtgUOrHV0J2isFYgU0Q03ugnicIeCdVT9ZgYK1G+Gkn0HJ01suzwEm0GTTQvpYE7kDXeDrGsnAqQjdRvTy4TBsZA9WC26NI05BemdJUP3ShOSiBxvmE2XyyE9TF2NPppazfLS5FQWpiBoMTEytZ2DrT2kQUi3IcIhPOU5Q6VcQ7xDbDdfzhf4D344tWzB83a5e54LXe/HPTPTe8jkzXoYnXKe/PAgmhE3hQ4dy+VGhpwQUloUpTVuek2A0pT9IcRT4MCrGw5yLsNVU4L1agfSMyDGYByZA==
+ bh=Kla48VDQaXoq44k8Gp1jJDMLbDayWVkeuVZylDDSmFI=;
+ b=bOMYFAh03yXtXDZGdYce3jI641rnBa4h7W21bI2mTgKd1s6zK8eHQoZvfmeNb0pxgU1ZaPT4AeUm2kEVM99CmPerEsOBS1zhsMvR4wVoAtlBHbUkX4U60ULgnSK5yFzqNJvi7UWYfqQq8l4ted5FqbObdG0niF4nDGtz2t/ZRHA+xGiS1fR2ZVWqpYCYI+oM7gG2BGmAuWy8PFROwWHveqTZQ2Sm/GvwnifXEPr3q19Yme3ZcTCJgcWaJgsJNQJF7Dq+XDcYPa85elDKBwdEQyzIR2g62ZFf3ny4dJl+D6CXWRsmeMEq5N5M8Dc9w18RhcuOzHipk63S2oU0VqFNqg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  91.26.50.189) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=phytec.fr;
  dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
@@ -42,18 +42,18 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=phytecmesstechnikgmbh.onmicrosoft.com;
  s=selector1-phytecmesstechnikgmbh-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eCpGj14y8qnWzSxrj6VdBuo5/QZItUYGIcekqKER1Go=;
- b=x5X5zIArL6N6rr1rKL6ljed8AD+3uWmJjkp4ZmdwkTrRNCXe59rdHIorE2SDcIe5Zlau9k1TwW6DIrfNPzD1A/gc/W8ML+5+gfouqPLbj8ZTcalycwNa5nl0zAyzalzjikapkkoZS1KnUqomt3W1DVWYL7wdvCWdqOSPuEehVH8=
-Received: from DB7PR02CA0018.eurprd02.prod.outlook.com (2603:10a6:10:52::31)
- by AM9P195MB0870.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:1f5::24) with
+ bh=Kla48VDQaXoq44k8Gp1jJDMLbDayWVkeuVZylDDSmFI=;
+ b=oEOJ+mn3XJBJ6ExY6cyw1wwTZ//Nyx1DOY+3jbzNgLea6OUTfQnbyW5aUuY20XUInetDKaGeVfT7k9cjAAUyJsa6F5q0s+QfMYpOjMGFeDJaUpelN868UC79e8+AFM5s/6wu0PnD4Fk27UXc9EC9jP20yBzabfu/LShDcCXDBDg=
+Received: from DB7PR02CA0005.eurprd02.prod.outlook.com (2603:10a6:10:52::18)
+ by DU0P195MB1592.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:34f::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.25; Wed, 9 Jul
- 2025 15:10:17 +0000
+ 2025 15:10:24 +0000
 Received: from DB1PEPF000509ED.eurprd03.prod.outlook.com
- (2603:10a6:10:52:cafe::c) by DB7PR02CA0018.outlook.office365.com
- (2603:10a6:10:52::31) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10a6:10:52:cafe::9d) by DB7PR02CA0005.outlook.office365.com
+ (2603:10a6:10:52::18) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.22 via Frontend Transport; Wed,
- 9 Jul 2025 15:10:17 +0000
+ 9 Jul 2025 15:10:24 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 91.26.50.189)
  smtp.mailfrom=phytec.fr; dkim=none (message not signed)
  header.d=none;dmarc=fail action=quarantine header.from=phytec.fr;
@@ -63,22 +63,18 @@ Received-SPF: Fail (protection.outlook.com: domain of phytec.fr does not
 Received: from Diagnostix.phytec.de (91.26.50.189) by
  DB1PEPF000509ED.mail.protection.outlook.com (10.167.242.71) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8922.22 via Frontend Transport; Wed, 9 Jul 2025 15:10:17 +0000
-Received: from Berlix.phytec.de (172.25.0.12) by Diagnostix.phytec.de
+ 15.20.8922.22 via Frontend Transport; Wed, 9 Jul 2025 15:10:24 +0000
+Received: from Diagnostix.phytec.de (172.25.0.14) by Diagnostix.phytec.de
  (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 9 Jul
- 2025 17:10:13 +0200
-Received: from Diagnostix.phytec.de (172.25.0.14) by Berlix.phytec.de
- (172.25.0.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 9 Jul
- 2025 17:10:13 +0200
+ 2025 17:10:16 +0200
 Received: from idefix.phytec.de (172.25.0.20) by mailrelayint.phytec.de
  (172.25.0.14) with Microsoft SMTP Server id 15.1.2507.57 via Frontend
- Transport; Wed, 9 Jul 2025 17:10:13 +0200
+ Transport; Wed, 9 Jul 2025 17:10:16 +0200
 Received: from pc.home ([172.25.39.2])
           by idefix.phytec.de (IBM Domino Release 9.0.1FP7)
-          with ESMTP id 2025070917101328-210 ;
-          Wed, 9 Jul 2025 17:10:13 +0200 
+          with ESMTP id 2025070917101667-217 ;
+          Wed, 9 Jul 2025 17:10:16 +0200 
 From: Christophe Parant <c.parant@phytec.fr>
 To: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
@@ -86,67 +82,67 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
 	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	<upstream@lists.phytec.de>
-Subject: [PATCH v2 04/11] ARM: dts: stm32: Add new pinmux groups for phyboard-sargas and phycore
-Date: Wed, 9 Jul 2025 17:10:04 +0200
-Message-ID: <20250709151011.366537-5-c.parant@phytec.fr>
+Subject: [PATCH v2 11/11] ARM: dts: stm32: phyboard-sargas and phycore: Add optional interfaces
+Date: Wed, 9 Jul 2025 17:10:11 +0200
+Message-ID: <20250709151011.366537-12-c.parant@phytec.fr>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250709151011.366537-1-c.parant@phytec.fr>
 References: <20250709151011.366537-1-c.parant@phytec.fr>
 MIME-Version: 1.0
 X-MIMETrack: Itemize by SMTP Server on Idefix/Phytec(Release 9.0.1FP7|August  17, 2016) at
- 09.07.2025 17:10:13,
+ 09.07.2025 17:10:16,
 	Serialize by Router on Idefix/Phytec(Release 9.0.1FP7|August  17, 2016) at
- 09.07.2025 17:10:13
+ 09.07.2025 17:10:16
 X-TNEFEvaluated: 1
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509ED:EE_|AM9P195MB0870:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6f21b0ac-5a0d-4983-f351-08ddbefab703
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509ED:EE_|DU0P195MB1592:EE_
+X-MS-Office365-Filtering-Correlation-Id: b64c8d2f-5e5b-4502-6cae-08ddbefabad1
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/KKS9FqSBsUPx4ljmzRpadyyc9GWIIfXCPQcbsG69gW6vlJc/V4B2jV9CwFD?=
- =?us-ascii?Q?m0FIQfC9c8s7lR0luRyt8UbWhadk/7L7Y20uEIp/iBJ/3cUA9OHYkgrd3AHl?=
- =?us-ascii?Q?TWrGttyfQloGCrjBXJ2i85HfUsmDgj1Wp4IPZDWs5wib9MA1K5QLsM0Bc0cw?=
- =?us-ascii?Q?TXO37JmPFrmZaDWg4B4Qijoz0K25HeK00I7lRHmYg4+uC5pVeaVEM4pGcWfy?=
- =?us-ascii?Q?VSV+UsVYFoNTVFGFQEzpE5UIFE21K0CVVFZrvCOVf5PcdtKEceOmLDPdc/Hm?=
- =?us-ascii?Q?GdOvlg4AIg/tFPj3LQ8Gqf8YK/e+/soQp8r5nXe5bSFoyWdTv5+2VKa8dRPY?=
- =?us-ascii?Q?LrtToucSt7rX4T4mcmJhyQ2yCTVwymoALhZeXesOFXr0vNPEkLt8CXVLyD9e?=
- =?us-ascii?Q?FnmpZnY59lS22ayv8IfkwRDmiCcD3V29JbtpTXVqY39r4qlhe5KLIJbCJttx?=
- =?us-ascii?Q?3Mi6f2ArVk9qBoMY3F5HDt8FI0Jvz38qTy9Dyd45rSm22xu9xk00GPNaIpo7?=
- =?us-ascii?Q?YN1ri6tYUOKYHvMiwBIA3FhX1qwUo1gOu2uheu4TrBgsYX1nTtfPISZaB49v?=
- =?us-ascii?Q?HDG/5kAlE8FGe1SACvJ65iqJaRYQ9Ubdbnm4ewcRmquXyjK7QUsfE7D7SVeg?=
- =?us-ascii?Q?snf+ZTzxU8yxWrgjtV/jWo0YPsC+lpoS0oknunERUr52vyXsjYrblqr2R1Oj?=
- =?us-ascii?Q?rbjLqiqB/x7Dmq6ZRVKkqVvdpl2GF9mnE2JQqh4HGufa6mshRwGHEV6W/oi+?=
- =?us-ascii?Q?FbC0/zHX2rlYUApS6ag8UyOfA2BgZE9ksCSoUqyb18D8y4id6hQjFTGjRZLJ?=
- =?us-ascii?Q?gOx+/r6XcHfxmCXvs2URCkayH7qTlFodLJqa5eGKmQQllnXKqLs3HouoAgIH?=
- =?us-ascii?Q?YASxDno4GzdtVfpsIMpbOanALAc1YPQzxKMfyUvUEggGQl6Sf1hOgK+cAB0B?=
- =?us-ascii?Q?kuBC2vUnEHQMmDgEO65BeSzEGKU8SaOeo7bXFdDolTXlpelE3J+pn3ifPIlO?=
- =?us-ascii?Q?CP9PIzAIsJmBBOMQJ4Yf/77LuxRSUCm1Px3foaKi1+/mscrT/aiUhD5dsPWx?=
- =?us-ascii?Q?bxc3zvLSoqAckBoH7HMmbSoSV1Ghv0iZsA0u5CFMdhA3kCQA6veUF0TMqu1y?=
- =?us-ascii?Q?yv6h7pMpUQbR8nVa16xKSDo18V6WMJDaAnWsYgdlTck/5HBf8QxfxOLiyZxy?=
- =?us-ascii?Q?x1S/OjZSnMqf6u0t2EvHC8x98AOknc1FxHVOccGhBfDxUeTVgpDrke4Vz8oK?=
- =?us-ascii?Q?5reDrqpGnVziMdHuG+vI4bURKrD+YW1K3j1HF+WGegbD3Ii0fCp8AozmVRQM?=
- =?us-ascii?Q?HmELaXroNRI0TGLXkSum2dRQW6ySIrhby24IRK9c4e3C9IoxCAonYUwjO+yS?=
- =?us-ascii?Q?IzhdbMsq7FhRgu4wgk205o0CD9/0ASWrYSkcvO7YBtFVB+wwVQSHk+kXWhk+?=
- =?us-ascii?Q?S3tiN/ReHdBzuHWGJbMoPAfha3UlOVnMRb/U2OTQEKhS30coa3DGEfYTulMS?=
- =?us-ascii?Q?KUtfPyJcBoPL/JZq/uD/POXptAjdailnMe0k?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MlFmiSRXurVL/M3GzaCeTW27nvqeobwz3qelA34kJI/TCc7kSqnq5uqs28fO?=
+ =?us-ascii?Q?AF76b2vuGICjKJ9RnsPikt91wC2oyjqDYcWiatyFLKdIM1w0FCn4N1ULRIBv?=
+ =?us-ascii?Q?/3O0R5NPxg8awvNYvLcchBK/WfUg8zjlMbuGtg+2LxoK/VxCXKngJ2fYqdRT?=
+ =?us-ascii?Q?xCTzb/jxHQev5f7ti+pQfzFbkgHzrCcLyJBuI4UonfwxPFi2dwBv0wZKXSuk?=
+ =?us-ascii?Q?RhBXfnIxiIY3InGe0kHclTKuRVuaVV8g1owJgUvmhTEARo0sA6109xtJ4X/I?=
+ =?us-ascii?Q?D3tWBVj+5o8K5rVA3HoJvjBOIqFJLD4pMiJ19qIbu3V8Ob7SSZlCZ7cHWmgQ?=
+ =?us-ascii?Q?3e0GmajxEQ30WdlsYher1n8AV9HhRmVRkbtY7Cri7n+wLd93/Caf3Y/8C1Cz?=
+ =?us-ascii?Q?XE676zTT4puzNF4gxQ5jR41KHzqQUCF8zCWt5ITjEM8IzSLSrLq6sO3eBae7?=
+ =?us-ascii?Q?2rijglPGcOrPF3t9exrojJPrrgpCTOU2UAyKeFaGWZyqwYoBGJRq4buaR/42?=
+ =?us-ascii?Q?XQo+ONIqKP1JeHT4JmmDDwRhaTPiSvYr3YCSULTQM2/Tg4l4MMnjR0ZMohWt?=
+ =?us-ascii?Q?DgY7RIudFChl66BtgqIaN1q3gEu/zT6uDfAOm1TPcb/CIG/nXAgplqnGFzU3?=
+ =?us-ascii?Q?PCZachWA1BZwdKOYa6k4ReUK/oxKA1MhibuhzRA3JhRDR5fljr3p9k/FdxDK?=
+ =?us-ascii?Q?vhwjGexaQ1TowFPHLIAL86vx9fbkTSUdtnPjN/nnPfr0it8Ol1GmGrVnIDbz?=
+ =?us-ascii?Q?pZD9HXcssZfcdrGEctxc72axkO6gzCZlmyryeI/WoGytqDLC/I1YamNCypd8?=
+ =?us-ascii?Q?8GZ1FNu7QrbDSvh5IhugLAQBiVn6muRMFXN2Z2BOyjN+fvW0cndQ/wY5hxmb?=
+ =?us-ascii?Q?dgrM/by2Tm0K3uuXjHGuLuLRoJxbp2E6lUF+VVbE2mca/qTZwo3t8liKjnXT?=
+ =?us-ascii?Q?u78QJChte/AIszf5aPdpI2wNoDFYdjx4f/zFNKR8koo7pZYiqVBAeRuv4+lu?=
+ =?us-ascii?Q?yofqymsDYe/Qp3vraCdUw1Daa3k1jGtaMR5202tVJ/iALv8JnN1xvFyrjVba?=
+ =?us-ascii?Q?5P8uenisI2KgorxxV1pF18As3hvYaduulDe4YmF8gmmt0PPQBMA4uiH2d6sB?=
+ =?us-ascii?Q?qO7mLtXVkBXdMx8D7ab+TyX81KBBclKbU6x7fDvDYjIbJu2yl/4020RSNVJF?=
+ =?us-ascii?Q?1qK7TDve/CGPJyqoOn85FM+I5kHoSu8+IKEPBgVXZxxfoLpb1XZmiSLQg2/h?=
+ =?us-ascii?Q?JkBaIS+ikML6faLH5NtJ1vi7/nfL+bAAORtSvEYUK/xWxozbTkKeBP3ZU8jt?=
+ =?us-ascii?Q?HWhtpVrUFqMDO9GKZS4ri8CgxgF/UfIPz3seDWJ72rMeziUjmFaORsmowqhw?=
+ =?us-ascii?Q?fXKyKKXUYLWbrvqpQ+qQTuAbs66LSGOjVyRyyVH70YMWo7xK9H8CdDB1aGyT?=
+ =?us-ascii?Q?dTQm0UwSYkeSBunWwRvvZh1X3jffMwSUvK17Cg7EZQfemZv/Y4/zcogOdDs6?=
+ =?us-ascii?Q?Z1/Yxa/7VYkUxY25iK6LnK6SIfvLYTcaqwc7?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700013);DIR:OUT;SFP:1102;
 X-OriginatorOrg: phytec.fr
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2025 15:10:17.7342
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2025 15:10:24.1154
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6f21b0ac-5a0d-4983-f351-08ddbefab703
+X-MS-Exchange-CrossTenant-Network-Message-Id: b64c8d2f-5e5b-4502-6cae-08ddbefabad1
 X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
 X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509ED.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9P195MB0870
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0P195MB1592
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_081034_000842_106F7F59 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20250709_081036_248750_516A51AC 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,233 +157,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add add alternate pinmux for following interfaces used on
-phyBOARD-Sargas:
-- UART4
-- LTDC
-- DCMI
-- TIM5
-- SAI2
+- stm32mp15xx-phycore-som: add NAND device on FMC interface to support
+the SoM version equipped with NAND flash instead of eMMC.
 
-Fix "ethernet0=5Frgmii=5Fpins=5Fd" pinmux used on phyCORE-STM32MP15x:
-ETH=5FRGMII=5FGTX=5FCLK pin was missing.
+- stm32mp15xx-phyboard-sargas: define pinctrl for PWM5, LTDC and DCMI
+interfaces used on phyBOARD-Sargas. Those interfaces are not enabled by
+default as PHYTEC displays and PHYTEC cameras are enabled and configured
+throught device tree overlays.
+PWM5 is used for LCD backlight command.
 
 Signed-off-by: Christophe Parant <c.parant@phytec.fr>
 ---
- arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi | 164 ++++++++++++++++++++
- 1 file changed, 164 insertions(+)
+ .../dts/st/stm32mp15xx-phyboard-sargas.dtsi   | 23 +++++++++++++++++++
+ .../boot/dts/st/stm32mp15xx-phycore-som.dtsi  | 16 +++++++++++++
+ 2 files changed, 39 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi b/arch/arm/boot/dt=
-s/st/stm32mp15-pinctrl.dtsi
-index 40605ea85ee1..f242959e8716 100644
---- a/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
-@@ -223,6 +223,45 @@ pins {
- 		};
- 	};
-=20
-+	/omit-if-no-ref/
-+	dcmi=5Fpins=5Fd: dcmi-3 {
-+		pins {
-+			pinmux =3D <STM32=5FPINMUX('H', 8,  AF13)>,/* DCMI=5FHSYNC */
-+				 <STM32=5FPINMUX('B', 7,  AF13)>,/* DCMI=5FVSYNC */
-+				 <STM32=5FPINMUX('A', 6,  AF13)>,/* DCMI=5FPIXCLK */
-+				 <STM32=5FPINMUX('H', 9,  AF13)>,/* DCMI=5FD0 */
-+				 <STM32=5FPINMUX('C', 7,  AF13)>,/* DCMI=5FD1 */
-+				 <STM32=5FPINMUX('E', 0,  AF13)>,/* DCMI=5FD2 */
-+				 <STM32=5FPINMUX('E', 1,  AF13)>,/* DCMI=5FD3 */
-+				 <STM32=5FPINMUX('H', 14, AF13)>,/* DCMI=5FD4 */
-+				 <STM32=5FPINMUX('I', 4,  AF13)>,/* DCMI=5FD5 */
-+				 <STM32=5FPINMUX('E', 5,  AF13)>,/* DCMI=5FD6 */
-+				 <STM32=5FPINMUX('I', 7,  AF13)>,/* DCMI=5FD7 */
-+				 <STM32=5FPINMUX('I', 1,  AF13)>,/* DCMI=5FD8 */
-+				 <STM32=5FPINMUX('H', 7,  AF13)>;/* DCMI=5FD9 */
-+			bias-disable;
+diff --git a/arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi b/arch/a=
+rm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
+index 20684b497c99..28a21dec9cd7 100644
+--- a/arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
+@@ -260,3 +260,26 @@ &usbphyc=5Fport0 {
+ &usbphyc=5Fport1 {
+ 	phy-supply =3D <&vdd=5Fusb>;
+ };
++
++&timers5 {
++	/* spare dmas for other usage */
++	/delete-property/dmas;
++	/delete-property/dma-names;
++	pwm5: pwm {
++		pinctrl-names =3D "default", "sleep";
++		pinctrl-0 =3D <&pwm5=5Fpins=5Fc>;
++		pinctrl-1 =3D <&pwm5=5Fsleep=5Fpins=5Fc>;
++	};
++};
++
++&ltdc {
++	pinctrl-names =3D "default", "sleep";
++	pinctrl-0 =3D <&ltdc=5Fpins=5Ff>;
++	pinctrl-1 =3D <&ltdc=5Fsleep=5Fpins=5Ff>;
++};
++
++&dcmi {
++	pinctrl-names =3D "default", "sleep";
++	pinctrl-0 =3D <&dcmi=5Fpins=5Fd>;
++	pinctrl-1 =3D <&dcmi=5Fsleep=5Fpins=5Fd>;
++};
+diff --git a/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi b/arch/arm/b=
+oot/dts/st/stm32mp15xx-phycore-som.dtsi
+index 0689967b8c56..23db635c39a1 100644
+--- a/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi
+@@ -345,3 +345,19 @@ &sdmmc2 {
+ 	st,neg-edge;
+ 	status =3D "disabled";
+ };
++
++&fmc {
++	pinctrl-names =3D "default", "sleep";
++	pinctrl-0 =3D <&fmc=5Fpins=5Fa>;
++	pinctrl-1 =3D <&fmc=5Fsleep=5Fpins=5Fa>;
++	status =3D "disabled";
++
++	nand-controller@4,0 {
++		nand0: nand@0 {
++			reg =3D <0>;
++			nand-on-flash-bbt;
++			nand-ecc-strength =3D <4>;
++			nand-ecc-step-size =3D <512>;
 +		};
 +	};
-+
-+	/omit-if-no-ref/
-+	dcmi=5Fsleep=5Fpins=5Fd: dcmi-sleep-3 {
-+		pins {
-+			pinmux =3D <STM32=5FPINMUX('H', 8,  ANALOG)>,/* DCMI=5FHSYNC */
-+				 <STM32=5FPINMUX('B', 7,  ANALOG)>,/* DCMI=5FVSYNC */
-+				 <STM32=5FPINMUX('A', 6,  ANALOG)>,/* DCMI=5FPIXCLK */
-+				 <STM32=5FPINMUX('H', 9,  ANALOG)>,/* DCMI=5FD0 */
-+				 <STM32=5FPINMUX('C', 7,  ANALOG)>,/* DCMI=5FD1 */
-+				 <STM32=5FPINMUX('E', 0,  ANALOG)>,/* DCMI=5FD2 */
-+				 <STM32=5FPINMUX('E', 1,  ANALOG)>,/* DCMI=5FD3 */
-+				 <STM32=5FPINMUX('H', 14, ANALOG)>,/* DCMI=5FD4 */
-+				 <STM32=5FPINMUX('I', 4,  ANALOG)>,/* DCMI=5FD5 */
-+				 <STM32=5FPINMUX('E', 5,  ANALOG)>,/* DCMI=5FD6 */
-+				 <STM32=5FPINMUX('I', 7,  ANALOG)>,/* DCMI=5FD7 */
-+				 <STM32=5FPINMUX('I', 1,  ANALOG)>,/* DCMI=5FD8 */
-+				 <STM32=5FPINMUX('H', 7,  ANALOG)>;/* DCMI=5FD9 */
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	ethernet0=5Frgmii=5Fpins=5Fa: rgmii-0 {
- 		pins1 {
-@@ -386,6 +425,7 @@ pins1 {
- 	ethernet0=5Frgmii=5Fpins=5Fd: rgmii-3 {
- 		pins1 {
- 			pinmux =3D <STM32=5FPINMUX('G', 5, AF11)>, /* ETH=5FRGMII=5FCLK125 */
-+				 <STM32=5FPINMUX('G', 4, AF11)>, /* ETH=5FRGMII=5FGTX=5FCLK */
- 				 <STM32=5FPINMUX('G', 13, AF11)>,	/* ETH=5FRGMII=5FTXD0 */
- 				 <STM32=5FPINMUX('G', 14, AF11)>,	/* ETH=5FRGMII=5FTXD1 */
- 				 <STM32=5FPINMUX('C', 2, AF11)>, /* ETH=5FRGMII=5FTXD2 */
-@@ -1304,6 +1344,65 @@ pins {
- 		};
- 	};
-=20
-+	/omit-if-no-ref/
-+	ltdc=5Fpins=5Ff: ltdc-5 {
-+		pins {
-+			pinmux =3D <STM32=5FPINMUX('G', 7,  AF14)>, /* LCD=5FCLK */
-+				 <STM32=5FPINMUX('I', 10, AF14)>, /* LCD=5FHSYNC */
-+				 <STM32=5FPINMUX('I', 9,  AF14)>, /* LCD=5FVSYNC */
-+				 <STM32=5FPINMUX('E', 13, AF14)>, /* LCD=5FDE */
-+				 <STM32=5FPINMUX('C', 10, AF14)>, /* LCD=5FR2 */
-+				 <STM32=5FPINMUX('B', 0,   AF9)>, /* LCD=5FR3 */
-+				 <STM32=5FPINMUX('H', 10, AF14)>, /* LCD=5FR4 */
-+				 <STM32=5FPINMUX('H', 11, AF14)>, /* LCD=5FR5 */
-+				 <STM32=5FPINMUX('H', 12, AF14)>, /* LCD=5FR6 */
-+				 <STM32=5FPINMUX('E', 15, AF14)>, /* LCD=5FR7 */
-+				 <STM32=5FPINMUX('H', 13, AF14)>, /* LCD=5FG2 */
-+				 <STM32=5FPINMUX('E', 11, AF14)>, /* LCD=5FG3 */
-+				 <STM32=5FPINMUX('H', 15, AF14)>, /* LCD=5FG4 */
-+				 <STM32=5FPINMUX('H', 4,   AF9)>, /* LCD=5FG5 */
-+				 <STM32=5FPINMUX('I', 11,  AF9)>, /* LCD=5FG6 */
-+				 <STM32=5FPINMUX('I', 2,  AF14)>, /* LCD=5FG7 */
-+				 <STM32=5FPINMUX('G', 10, AF14)>, /* LCD=5FB2 */
-+				 <STM32=5FPINMUX('G', 11, AF14)>, /* LCD=5FB3 */
-+				 <STM32=5FPINMUX('E', 12, AF14)>, /* LCD=5FB4 */
-+				 <STM32=5FPINMUX('I', 5,  AF14)>, /* LCD=5FB5 */
-+				 <STM32=5FPINMUX('B', 8,  AF14)>, /* LCD=5FB6 */
-+				 <STM32=5FPINMUX('D', 8,  AF14)>; /* LCD=5FB7 */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate =3D <1>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	ltdc=5Fsleep=5Fpins=5Ff: ltdc-sleep-5 {
-+		pins {
-+			pinmux =3D <STM32=5FPINMUX('G', 7,  ANALOG)>, /* LCD=5FCLK */
-+				 <STM32=5FPINMUX('I', 10, ANALOG)>, /* LCD=5FHSYNC */
-+				 <STM32=5FPINMUX('I', 9,  ANALOG)>, /* LCD=5FVSYNC */
-+				 <STM32=5FPINMUX('E', 13, ANALOG)>, /* LCD=5FDE */
-+				 <STM32=5FPINMUX('C', 10, ANALOG)>, /* LCD=5FR2 */
-+				 <STM32=5FPINMUX('B', 0,  ANALOG)>, /* LCD=5FR3 */
-+				 <STM32=5FPINMUX('H', 10, ANALOG)>, /* LCD=5FR4 */
-+				 <STM32=5FPINMUX('H', 11, ANALOG)>, /* LCD=5FR5 */
-+				 <STM32=5FPINMUX('H', 12, ANALOG)>, /* LCD=5FR6 */
-+				 <STM32=5FPINMUX('E', 15, ANALOG)>, /* LCD=5FR7 */
-+				 <STM32=5FPINMUX('H', 13, ANALOG)>, /* LCD=5FG2 */
-+				 <STM32=5FPINMUX('E', 11, ANALOG)>, /* LCD=5FG3 */
-+				 <STM32=5FPINMUX('H', 15, ANALOG)>, /* LCD=5FG4 */
-+				 <STM32=5FPINMUX('H', 4,  ANALOG)>, /* LCD=5FG5 */
-+				 <STM32=5FPINMUX('I', 11, ANALOG)>, /* LCD=5FG6 */
-+				 <STM32=5FPINMUX('I', 2,  ANALOG)>, /* LCD=5FG7 */
-+				 <STM32=5FPINMUX('G', 10, ANALOG)>, /* LCD=5FB2 */
-+				 <STM32=5FPINMUX('G', 11, ANALOG)>, /* LCD=5FB3 */
-+				 <STM32=5FPINMUX('E', 12, ANALOG)>, /* LCD=5FB4 */
-+				 <STM32=5FPINMUX('I', 5,  ANALOG)>, /* LCD=5FB5 */
-+				 <STM32=5FPINMUX('B', 8,  ANALOG)>, /* LCD=5FB6 */
-+				 <STM32=5FPINMUX('D', 8,  ANALOG)>; /* LCD=5FB7 */
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	mco1=5Fpins=5Fa: mco1-0 {
- 		pins {
-@@ -1644,6 +1743,23 @@ pins {
- 		};
- 	};
-=20
-+	/omit-if-no-ref/
-+	pwm5=5Fpins=5Fc: pwm5-2 {
-+		pins {
-+			pinmux =3D <STM32=5FPINMUX('I', 0, AF2)>; /* TIM5=5FCH4 */
-+			bias-pull-down;
-+			drive-push-pull;
-+			slew-rate =3D <0>;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	pwm5=5Fsleep=5Fpins=5Fc: pwm5-sleep-2 {
-+		pins {
-+			pinmux =3D <STM32=5FPINMUX('I', 0, ANALOG)>; /* TIM5=5FCH4 */
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	pwm8=5Fpins=5Fa: pwm8-0 {
- 		pins {
-@@ -1869,6 +1985,21 @@ pins {
- 		};
- 	};
-=20
-+	/omit-if-no-ref/
-+	sai2a=5Fpins=5Fd: sai2a-3 {
-+		pins {
-+			pinmux =3D <STM32=5FPINMUX('I', 6, AF10)>; /* SAI2=5FSD=5FA */
-+			bias-disable;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	sai2a=5Fsleep=5Fpins=5Fd: sai2a-3 {
-+		pins {
-+			pinmux =3D <STM32=5FPINMUX('I', 6, ANALOG)>; /* SAI2=5FSD=5FA */
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	sai2b=5Fpins=5Fa: sai2b-0 {
- 		pins1 {
-@@ -2856,6 +2987,39 @@ pins {
- 		};
- 	};
-=20
-+	/omit-if-no-ref/
-+	uart4=5Fpins=5Ff: uart4-5 {
-+		pins1 {
-+			pinmux =3D <STM32=5FPINMUX('B', 9, AF8)>; /* UART4=5FTX */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate =3D <0>;
-+		};
-+		pins2 {
-+			pinmux =3D <STM32=5FPINMUX('B', 2, AF8)>; /* UART4=5FRX */
-+			bias-disable;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	uart4=5Fidle=5Fpins=5Ff: uart4-idle-5 {
-+		pins1 {
-+			pinmux =3D <STM32=5FPINMUX('B', 9, ANALOG)>; /* UART4=5FTX */
-+		};
-+		pins2 {
-+			pinmux =3D <STM32=5FPINMUX('B', 2, AF8)>; /* UART4=5FRX */
-+			bias-disable;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	uart4=5Fsleep=5Fpins=5Ff: uart4-sleep-5 {
-+		pins {
-+			pinmux =3D <STM32=5FPINMUX('B', 9, ANALOG)>, /* UART4=5FTX */
-+				 <STM32=5FPINMUX('B', 2, ANALOG)>; /* UART4=5FRX */
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	uart5=5Fpins=5Fa: uart5-0 {
- 		pins1 {
++};
 --=20
 2.34.1
 
