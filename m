@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9713C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 11:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42918C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 11:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tS5g3Z3Ky3APGBV+7osRpN1niX1lrdz61qt0SamJOUQ=; b=hEBbpeuAc9zt8/7y2ssJmecvjr
-	wa1xIF2TudFnAlqFbq++o3hkCzVFVuh48r6i92qoHGP1Sp3YXZF4M95jDnjx8dIwqvzzxzywZ351v
-	Dp1kwcGp1KDxj+eMERtY9rHX0C16o48Zby9GVMGsnyI+IOFL+2rz5jCZhY730TpQjUAX7k/wbxYLS
-	95YioPsL9paacAmtYQK5VhsyllTGeIRh/rWysNWwLLoAlfJaKSh0fF10Jb7SdD2q3Gdg5wvPK1z8w
-	X4Pv1OtvNl3ZUBuMHNRZvbHPdgjkrNlwlD+Nb0n4YgoQuI/WNRDUTOHMiQu2IO8wrQElEpkkrnS+N
-	+TnTCxSA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9mtrdQXsmfpf1uRi6c7IZnrJmMwda+Bb18Mgv5ItycQ=; b=vYCDtnRw5y9+5k+K+CKONet+59
+	CAfSR5KzYAp8hpMrBA+vji7/otuEgpSUeDk42m7mcjo1nwOeDqg2poZNxGOT924+Uj4gSbFhB+wDW
+	tzQoGRqszPPX82pyzmXZaEeVzsCIP5h6hAkU5Kno4ytj/GRM1Aa7VA4b4NctBJflT8DgndFv5cufm
+	9EgZf46cQhyRBiQreYQIpK0Y9fhPmrSlbr11KhQoff8Ts2Lpo29M+dPqn2suxC9PSYNbmzb3V4zyw
+	hOQGs8RDzqOkOcfQ0OagFyi/H6EQ3NrHRRCZtJ8usrNkJHWZ47T5X6TWtsFqfTwR5Q9anG7OFl4jV
+	z3eKAEdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZSYG-00000008Pr8-2wTN;
-	Wed, 09 Jul 2025 11:01:24 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uZSaZ-00000008QVs-1vpG;
+	Wed, 09 Jul 2025 11:03:47 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZQYi-000000081pg-2PZ7;
-	Wed, 09 Jul 2025 08:53:46 +0000
+	id 1uZQYj-000000081q2-2nSq;
+	Wed, 09 Jul 2025 08:53:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752051222;
-	bh=8IQx6W/1PdnreYyNzZK7oBqPlduYE0b8d+5NrbHzL0k=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Uftlh972MTTEqcOpOSkMnlptEKhlJK16hoz0M4o3cGXcQ3Oh5/QxoOI+LJd/8S4jF
-	 C/jkw+AVhjZ5FegZDN8CrAShwWjj30NcCDS+T1+bGr7tWemalzlLgUUznXxGfC7fgE
-	 55F9wm4puGgC/h3eGKaZbsaIzv1rWtKvUPrFqMYZZRbUDawwAPkatzsOoqnxGjn3kI
-	 IlFmZfF5VkWXXSYtDwjR8nBN7v1MjFsYrdI/4uIBeoEh7HlAKkpXUahyGopl2XHfLE
-	 /W9InXLwv8pCHqzG5miR7iZygrdaSAAaeAGnCEpS3VnFvFR/P3U65HDEX+zF6AAaFO
-	 6qypXe0QvgfOw==
+	s=mail; t=1752051224;
+	bh=heh+k/1ODoaxXv2R5HPjXJm6oybJcbQZVD3EyshC35g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ZVBYRCcGByB+IL/zfbQgWULvB/2vP/SlzwwxsUN8Bi7tedN9cGn2eyDaW6BTHa6wN
+	 a3Co1RLYx44hXeyjkC17si8VlilL4ClyTrHSTLjYN3Z9Wlblsj0FYh4vuJmY/eNDT2
+	 V4BJPgJyri0x1R+74S/6fOkSWwkjXoeZQDUqC4EhWa4XgxlegI4ej9aGnG1zpS+sLb
+	 q2dFBSafYl2MHATEEsZNzxElqL/sgkgQHyFo70AQqKJsS39ouvhH0ukp3qxb3lbU8U
+	 1/nGdMNwm+y/eieH59pW8ZK+4stlMb4NBKv4ZaGrDIUWyiqik5YWQquZ6f4yLAaxI9
+	 ghx579EKpA5eA==
 Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:8d6b:4a4d:ad13:46c1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5A9AC17E04AA;
-	Wed,  9 Jul 2025 10:53:42 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 83FF017E099B;
+	Wed,  9 Jul 2025 10:53:43 +0200 (CEST)
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 To: joro@8bytes.org,
 	will@kernel.org,
@@ -59,17 +59,19 @@ Cc: iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH v5 0/5] Add support for Verisilicon IOMMU used by media codec blocks
-Date: Wed,  9 Jul 2025 10:53:25 +0200
-Message-ID: <20250709085337.53697-1-benjamin.gaignard@collabora.com>
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v5 2/5] dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
+Date: Wed,  9 Jul 2025 10:53:27 +0200
+Message-ID: <20250709085337.53697-3-benjamin.gaignard@collabora.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250709085337.53697-1-benjamin.gaignard@collabora.com>
+References: <20250709085337.53697-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=y
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_015344_767059_1FC74C20 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20250709_015345_878045_D5DB9EF5 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,84 +86,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Add a device tree binding for the Verisilicon (VSI) IOMMU.
+This IOMMU sits in front of hardware encoder and decoder
+blocks on SoCs using Verisilicon IP, such as the Rockchip RK3588.
 
-This patch series adds support for the Verisilicon IOMMU, which is found in front
-of hardware encoder and decoder blocks in several SoCs using Verisilicon IP. 
-A first implementation of this IOMMU is available on the Rockchip RK3588 SoC.
-
-Rockchip provides a driver for this hardware in their 6.1 kernel branch:
-https://github.com/rockchip-linux/kernel/blob/develop-6.1/drivers/iommu/rockchip-iommu-av1d.c
-
-This series includes:
-- a new binding for the Verisilicon IOMMU
-- a driver implementation
-- DT updates for RK3588
-
-The driver was forward-ported from Rockchip’s 6.1 implementation, 
-the prefix was renamed to vsi for generality, and several fixes were applied.
-
-AV1 decoding was tested using the stateless VPU driver and Fluster.
-The test results show a score of 205/239, which confirms that no regressions
-were introduced by this series.
-
-Feedback and testing welcome.
-
-changes in version 5:
-- change locking schema to use 2 spin_locks: one to protect vsi_domain
-  data and one to protect vsi_iommu structure.
-- make suspend/resume more robust by calling disable/enable function.
-- rebased on top of v6.16-rc5
-
-changes in version 4:
-- rename and reorder compatibles fields.
-- Kconfig dependencies
-- Fix the remarks done by Jason and Robin: locking, clocks, macros
-  probing, pm_runtime, atomic allocation.
-
-changes in version 3:
-- Change compatible to "rockchip,rk3588-iommu-1.2"
-- Fix compatible in .yaml
-- Update DT and driver to use "rockchip,rk3588-iommu-1.2" compatible
-- Set CONFIG_VSI_IOMMU as module in defconfig
-- Create an identity domain for the driver
-- Fix double flush issue
-- Rework attach/detach logic
-- Simplify xlate function
-- Discover iommu device like done in ARM driver
-- Remove ARM_DMA_USE_IOMMU from Kconfig
-
-changes in version 2:
-- Add a compatible "rockchip,rk3588-av1-iommu"
-- Fix clock-names in binding 
-- Remove "vsi_mmu" label in binding example.
-- Rework driver probe function
-- Remove double flush
-- Rework driver internal structures and avoid allocate
-  in xlate function.
-- Do not touch to VPU driver anymore (path removed)
-- Add a patch to enable the driver in arm64 defconfig
-
-
- 
-Benjamin Gaignard (5):
-  dt-bindings: vendor-prefixes: Add Verisilicon
-  dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
-  iommu: Add verisilicon IOMMU driver
-  arm64: dts: rockchip: Add verisilicon IOMMU node on RK3588
-  arm64: defconfig: enable Verisilicon IOMMU
-
- .../bindings/iommu/verisilicon,iommu.yaml     |  71 ++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  11 +
- arch/arm64/configs/defconfig                  |   1 +
- drivers/iommu/Kconfig                         |  11 +
- drivers/iommu/Makefile                        |   1 +
- drivers/iommu/vsi-iommu.c                     | 775 ++++++++++++++++++
- 7 files changed, 872 insertions(+)
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++++++++++
+ 1 file changed, 71 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
- create mode 100644 drivers/iommu/vsi-iommu.c
 
+diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+new file mode 100644
+index 000000000000..d3ce9e603b61
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+@@ -0,0 +1,71 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Verisilicon IOMMU
++
++maintainers:
++  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
++
++description: |+
++  A Versilicon iommu translates io virtual addresses to physical addresses for
++  its associated video decoder.
++
++properties:
++  compatible:
++    items:
++      - const: rockchip,rk3588-av1-iommu
++      - const: verisilicon,iommu-1.2
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Core clock
++      - description: Interface clock
++
++  clock-names:
++    items:
++      - const: core
++      - const: iface
++
++  "#iommu-cells":
++    const: 0
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - "#iommu-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    bus {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      iommu@fdca0000 {
++        compatible = "rockchip,rk3588-av1-iommu","verisilicon,iommu-1.2";
++        reg = <0x0 0xfdca0000 0x0 0x600>;
++        interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
++        clocks = <&cru ACLK_AV1>, <&cru PCLK_AV1>;
++        clock-names = "core", "iface";
++        #iommu-cells = <0>;
++      };
++    };
 -- 
 2.43.0
 
