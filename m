@@ -4,93 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3BECC83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:58:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F66C83F18
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 22:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8kIH0FvUst38strgAqAwO4LslgL+w1rD7BPEeGk36lY=; b=bZc9nKdwrzr8FZdIGKIdHTYHz4
-	7EeAdPTwalZrS0LxZF0vBdVq1BShULB+dy0me90L3Uon9vZMhdhDMVVIDjGbXSsFjljxxZ3f4dW5G
-	wAWjrX7QWUqyGTDYgtGEsv5QjmO0fTi8fWPgVj2R1tJBZOFFlbe//fnvUEaphPKcIKnJSvJBQ0CwF
-	Q2vc7R3ewyG0g+GpO7WW7QU1zTPGmxKo8bevRgy0LULrySj1Ds436UTWGZEXDypZ/4V3g6xnnlwVT
-	axD4jtpxnfu89xy0rWobiqhswZ0ML0G4Vy5R6y7Ev+0KVocYBr5rwvMnQuUqzdh6eOuvrazptZe9V
-	OgOTeS8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LGmhA3rLQPa628TNnZlIPG9dvF57QQRZaeK+cAtydPY=; b=o7xdZfOQFe2HHsesfUs8mz7cIl
+	cQEHm1g2f3+usTEfEmgmo2g0lau125gZ2DSTODeMr+A4vbyl3CIfaIneNXIbWDIRhdKfblSt80Y7v
+	Roew5pQwvS3HxAvfW/8eRsN6mskd+Qc5F7uokDsaisUdBakko9UpEo3E37QspkfeO30MMM96rRr+t
+	KjDb7TeHQFyD7DSScs+VbnM6m12dN4SGw6ocCfrRjcQRQqWUaCQgBhbemuZ9W21ONCCcoXQdAJai8
+	NYdsbnhtvTq6Eq+esG6b9+g+aWYKZcI7goVZaNgzxqr59MdBCpDVmyAPOwcuugs8y07YJ3Ot5m+IZ
+	QoRsWIQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdjp-0000000ABNq-3ZBu;
-	Wed, 09 Jul 2025 22:58:06 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1uZdk3-0000000ABlB-2g8i;
+	Wed, 09 Jul 2025 22:58:19 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZcxV-0000000A1hv-2jWB
+	id 1uZdDt-0000000A53N-31ks
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 22:08:11 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-adfb562266cso48145566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 15:08:09 -0700 (PDT)
+	Wed, 09 Jul 2025 22:25:06 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-313d346dc8dso548582a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 15:25:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752098888; x=1752703688; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8kIH0FvUst38strgAqAwO4LslgL+w1rD7BPEeGk36lY=;
-        b=ahBzRVEdhEFdfGAovwIC1TRdc29bedJoOZgoWmwlbxoWWkRELK3s7T9xbROQHZOj3J
-         U21Xcws93EnG35Dj/48mHN7JtxU8/sbkDHet4va3GCYD4fNFGVYl2/U8eMSkI8yvZjOi
-         wYbL5yhrTNgv+zZjRsyDYejcf2PZOeMPLOr6lrv3QEVNbOn7EkLUMbg1aylBvhoMp1JB
-         j7gPh4E2lbOVife8UnGZm9JQbdGE7lm4BdFIp+rwyN2HpFoYTz3iPk2NDYNdrY5J1Px0
-         UEfPdt0IarANn2CoPLtK1TIyzX9+/o/9hQZEwBDxooEPq1QEVHQ7Z7CRfI44k5747++g
-         KqCg==
+        d=google.com; s=20230601; t=1752099904; x=1752704704; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LGmhA3rLQPa628TNnZlIPG9dvF57QQRZaeK+cAtydPY=;
+        b=x6IuUbDsmqlC5acnIU2NJly/cdj/N2QmjKUVKkQXLljjbXZL8vB5mlAQMemi0wNRtt
+         TjRbKQr45I9wTHBEtk+JjTXl/plMqghyE7Vcq2Zyg02Ckn8zxqMvwegP8z2WMKCrKx8H
+         RXm50pQGWEq6CRQnCaepHAT1UmGy4MiJUpaHVRLC49IB7m+TISn0X1Fx+BpquGHdSAGz
+         xiGzfW9TXQex5G/N76LeJPpOT5Qm5UcQUMtTlD5YmZQELSHq8DFG4kWoaYdk9YMchV8X
+         iH3ajMT/SEWO7thHfpuJ9rlAgNMj04TWAgS7vrVBdvyaVGky6iz/lY/+IsonGsW0BH49
+         tO1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752098888; x=1752703688;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8kIH0FvUst38strgAqAwO4LslgL+w1rD7BPEeGk36lY=;
-        b=xA3oUxto5LPaCAo/w3R0+JDbhCF4jTWKYSiL1qiHvKqXHW87UWu4JSQYqrEI1/IBs1
-         i3RyPLAvG4y83pYgnnUKANYtkQ8Do6r5pKKxz6BCuW83VSRZRh77P3pxvQQYLVbzU2RJ
-         4yzPQ72ersrKcxvTMpbFMzela38gu6H3iRu/Z2WZgB6cv1WpxIJQldpOrud8Kq9ft6CS
-         4tAQv9bWbhTqVrZ9Bkxyh2HuvjC4ei9E3TiU4l8k3gYgu94lWE0o2WKT5J6I56xa4sre
-         c5L7+m2a3GpxLf7DKFdFCg9eCySiV4G3c69lAK6JFOdedcZ+P32WNE7PfOp0nyssSiAD
-         GoVA==
-X-Forwarded-Encrypted: i=1; AJvYcCV09z9S5qgcCpiq2WLPbwrvk0vL2cqrJpyVv9Ml8cp48HWs/XTXoAUELgd2lVL8dsJnXIyzGLKmDrD30g6srJHT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2A/RFymClPfjNDaQ5zjyy6Wdlkvl4WVRcCnxbv4O1qLuRbpAE
-	MeiNPJsf5a2IwKQSM3BiiZ4xDllsvvyDvEEIpNEjc88qtDlQxT1OXGPV
-X-Gm-Gg: ASbGnct7NFcRUdzXazhCSqvmaSIUc2kgrEKyawyx7dVw12+hR2kgBJsP4Y9JFCSqVVr
-	2Aznjqwju68LOxsNF6/KS1CNW5Bz26V2oIO2dOSjD8cmu7uRxZGHGG7RwFnh16kql1rZ4+FXQWS
-	xSof5jlzF/8eprR5Ez4XGRRT6fIfVKnOcF42w+sGYiA10YIrbb56J5K4p3OqVj8z8i0S8m79Tys
-	WdKbr1Xg2/Nt+vUjKGCPGl1xetUeNCuYqEbdoLGJ5VpORAhmgYQFwvlfVpvu91xtys/6llmGhS+
-	I0fpWqO2seY6uU4qZs83QIuWKr2+NBrwy/z146JrtLSC2Xa3daNjy58ek6Biy5Kxm2Ko4VH9ni1
-	Vtr18zBdakl5+n6nb97vCYjlQrQrUPqAbxG7GU0XZEIilKg==
-X-Google-Smtp-Source: AGHT+IEVaztWxyCPmnWA2QlJcO1+/QR7Gfg0M8GtpKmyP796XZy3AXCMevgeemhffcoXQTRBKo6uMw==
-X-Received: by 2002:a17:907:7215:b0:ae0:cae0:cb35 with SMTP id a640c23a62f3a-ae6cf7639efmr432617866b.37.1752098887617;
-        Wed, 09 Jul 2025 15:08:07 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-70-53-177.cust.vodafonedsl.it. [93.70.53.177])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e8264fbcsm10520666b.75.2025.07.09.15.08.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Jul 2025 15:08:07 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 3/3] arm64: dts: ti: var-som-am62p: Add support for Variscite Symphony Board
-Date: Thu, 10 Jul 2025 00:07:06 +0200
-Message-ID: <20250709220714.85697-4-stefano.radaelli21@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250709220714.85697-1-stefano.radaelli21@gmail.com>
-References: <20250709220714.85697-1-stefano.radaelli21@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20230601; t=1752099904; x=1752704704;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LGmhA3rLQPa628TNnZlIPG9dvF57QQRZaeK+cAtydPY=;
+        b=U/4asr5QFRfmZ/W0b5A6lWzKS0KKPNUmW/jFurkkMlyJWtJtiOnqAJ/4j3QulKC2P7
+         odOt/Ml404VE5oyh79AsMoXS/RXxKUdUFvB6LGg4wV5WzWIJ/OlvMt3L0zfUWp9kfhLV
+         cH8U8p/hEcMg2LH6xJkSakid2RP+dwQFnLOw53q8RkfhdCO0STrpmPhanHoQkIQAuOmw
+         Q5qtw/vK1goJZfy8QbMchF//VwNjHiev+yN7VTmqG1bYY1M1bt9oskElKz9gKkDZU3sS
+         1PBfEQQeShM5rTLE2MCPMDJh7qCKv4r0J7GR3ecPnNFjdN0kaRDi1pLAORuSW1eWQhzp
+         VXBA==
+X-Forwarded-Encrypted: i=1; AJvYcCXKWmLK7oW7tT2N4hUow+0zPHzA5TvKzhaoycEz7ZA2MOty0BUeliSnhTLFMpVzyxmwHMm0bYHaYtsjlM9LzoSd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9J9LVAyL66lOPJwx5vATKesjTUMLldZl4FnpXuKS2LaBOyH8a
+	KcO8Py7ZgRY2w0m6TwsTvJ3L1maH5X9GBAsKCVEWoBK6pbLzZf3QXL6KSjRsOeXJZUBhVmFvqxG
+	7pEWNQQ==
+X-Google-Smtp-Source: AGHT+IHmmYPiGtSUrTz1EJzl9bD7Pjb4B/t13dgcPFaFz3OSasa6nCLwDj6VggbGkffUZnKPlHqH62nN/z8=
+X-Received: from pja14.prod.google.com ([2002:a17:90b:548e:b0:313:274d:3007])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:558d:b0:313:db0b:75db
+ with SMTP id 98e67ed59e1d1-31c2fdf5ba3mr6480539a91.33.1752099904282; Wed, 09
+ Jul 2025 15:25:04 -0700 (PDT)
+Date: Wed, 9 Jul 2025 15:25:02 -0700
+In-Reply-To: <20250606235619.1841595-1-vipinsh@google.com>
+Mime-Version: 1.0
+References: <20250606235619.1841595-1-vipinsh@google.com>
+Message-ID: <aG7sPikxsI_ovhQq@google.com>
+Subject: Re: [PATCH v2 00/15] Add KVM Selftests runner
+From: Sean Christopherson <seanjc@google.com>
+To: Vipin Sharma <vipinsh@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, pbonzini@redhat.com, 
+	anup@brainfault.org, borntraeger@linux.ibm.com, frankja@linux.ibm.com, 
+	imbrenda@linux.ibm.com, maz@kernel.org, oliver.upton@linux.dev, 
+	dmatlack@google.com
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_150809_815075_284D5350 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20250709_152505_769585_C3A7B9D7 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,612 +91,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree support for the Variscite Symphony carrier board with
-the VAR-SOM-AM62P system on module.
+On Fri, Jun 06, 2025, Vipin Sharma wrote:
+>  tools/testing/selftests/kvm/.gitignore        |   4 +-
+>  tools/testing/selftests/kvm/Makefile.kvm      |   8 +
+>  .../testing/selftests/kvm/runner/__main__.py  | 271 ++++++++++++++++++
+>  tools/testing/selftests/kvm/runner/command.py |  53 ++++
+>  .../testing/selftests/kvm/runner/selftest.py  |  66 +++++
+>  .../selftests/kvm/runner/test_runner.py       |  88 ++++++
 
-The Symphony board includes
-- uSD Card support
-- USB ports and OTG
-- Additional Gigabit Ethernet interface
-- Uart interfaces
-- OV5640 Camera support
-- GPIO Expander
-- CAN, I2C and general purpose interfaces
+Overall, looks great!  I think the only significant feedback is on the command
+line options.
 
-Link: https://www.variscite.it/product/single-board-computers/symphony-board/
+One thing we probably need is a README of some form, to explain how this works
+and to give some examples.  Outside of you and I, I doubt anyone will know how
+to use this :-)
 
-Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Here's the full diff of the modifications I made to massage things to my liking.
+It's not complete, e.g. I punted on the help messages and didn't change to
+-p/--path, but otherwise it seems to work?
+
 ---
-v2:
- - Fixed warnings and cleanup
+ .../testing/selftests/kvm/runner/__main__.py  | 86 +++----------------
+ tools/testing/selftests/kvm/runner/command.py | 53 ------------
+ .../testing/selftests/kvm/runner/selftest.py  | 39 +++++++--
+ .../selftests/kvm/runner/test_runner.py       | 20 ++---
+ 4 files changed, 53 insertions(+), 145 deletions(-)
+ delete mode 100644 tools/testing/selftests/kvm/runner/command.py
 
- arch/arm64/boot/dts/ti/Makefile               |   1 +
- .../dts/ti/k3-am62p5-var-som-symphony.dts     | 563 ++++++++++++++++++
- 2 files changed, 564 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
-
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index c6171de9fe88..f8b1ed3cbdfa 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -35,6 +35,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62a7-phyboard-lyra-rdk.dtb
+diff --git a/tools/testing/selftests/kvm/runner/__main__.py b/tools/testing/selftests/kvm/runner/__main__.py
+index c02035a62873..0105835c557c 100644
+--- a/tools/testing/selftests/kvm/runner/__main__.py
++++ b/tools/testing/selftests/kvm/runner/__main__.py
+@@ -59,71 +59,26 @@ def cli():
+                         type=int,
+                         help="Maximum number of tests that can be run concurrently. (Default: 1)")
  
- # Boards with AM62Px SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am62p5-var-som-symphony.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dev.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-ivy.dtb
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts b/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
-new file mode 100644
-index 000000000000..99c8fd15cf64
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
-@@ -0,0 +1,563 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Variscite Symphony carrier board for VAR-SOM-AM62P
-+ *
-+ * Copyright (C) 2021-2022 Texas Instruments Incorporated - https://www.ti.com/
-+ * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "k3-am62p5-var-som.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-AM62P on Symphony-Board";
-+	compatible = "variscite,am62p-var-som-symphony", "variscite,am62p-var-som", "ti,am62p5";
-+
-+	aliases {
-+		ethernet0 = &cpsw_port1;
-+		ethernet1 = &cpsw_port2;
-+		mmc0 = &sdhci0;
-+		mmc1 = &sdhci1;
-+		mmc2 = &sdhci2;
-+		serial0 = &main_uart0;
-+		serial2 = &main_uart2;
-+		serial5 = &main_uart5;
-+		serial6 = &main_uart6;
-+		spi5 = &main_spi2;
-+		usb0 = &usb0;
-+		usb1 = &usb1;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	clk_ov5640_fixed: clock-24000000 {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <24000000>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		button-back {
-+			label = "Back";
-+			linux,code = <KEY_BACK>;
-+			gpios = <&pca9534 1 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		button-home {
-+			label = "Home";
-+			linux,code = <KEY_HOME>;
-+			gpios = <&pca9534 2 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		button-menu {
-+			label = "Menu";
-+			linux,code = <KEY_MENU>;
-+			gpios = <&pca9534 3 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+
-+		led-heartbeat {
-+			label = "Heartbeat";
-+			linux,default-trigger = "heartbeat";
-+			gpios = <&pca9534 0 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	reg_2p8v: regulator-2p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "2P8V";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p5v: regulator-1p5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P5V";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_sdhc1_vmmc: regulator-sdhc1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "+V3.3_SD";
-+		vin-supply = <&reg_sdhc1_vmmc_int>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		enable-active-high;
-+		gpio = <&main_gpio0 30 GPIO_ACTIVE_HIGH>;
-+		bootph-all;
-+	};
-+
-+	reg_sdhc1_vmmc_int: regulator-sdhc1-int {
-+		compatible = "regulator-fixed";
-+		regulator-name = "+V3.3_SD_INT";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_sd1_vmmc>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		enable-active-high;
-+		gpio = <&main_gpio0 53 GPIO_ACTIVE_HIGH>;
-+		bootph-all;
-+	};
-+
-+	reg_sdhc1_vqmmc: regulator-sdhci1-vqmmc {
-+		compatible = "regulator-gpio";
-+		regulator-name = "+V3.3_SD_VQMMC";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_sd1_vqmmc>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		gpios = <&main_gpio0 56 GPIO_ACTIVE_HIGH>;
-+		states = <1800000 0x0>,
-+			 <3300000 0x1>;
-+		bootph-all;
-+	};
-+
-+	reg_ov5640_buf_en: regulator-ov5640-buf-en {
-+		compatible = "regulator-fixed";
-+		regulator-name = "ov5640_buf_en";
-+		gpios = <&main_gpio0 21 GPIO_ACTIVE_HIGH>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		status="okay";
-+	};
-+
-+	transceiver1: can-phy {
-+		compatible = "ti,tcan1042";
-+		#phy-cells = <0>;
-+		max-bitrate = <5000000>;
-+	};
-+
-+	connector {
-+		compatible = "gpio-usb-b-connector", "usb-b-connector";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_extcon>;
-+		label = "USB-C";
-+		id-gpios = <&main_gpio1 12 GPIO_ACTIVE_HIGH>;
-+		status = "okay";
-+
-+		port {
-+			usb_con_hs: endpoint {
-+				remote-endpoint = <&typec_hs>;
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx0 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi0_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx0_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam0>;
-+				bus-type = <4>; /* CSI2 DPHY. */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&cpsw3g {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii1>,
-+		    <&pinctrl_rgmii2>;
-+};
-+
-+&cpsw3g_mdio {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mdio1>;
-+
-+	cpsw3g_phy1: ethernet-phy@5 {
-+		reg = <5>;
-+		compatible = "ethernet-phy-id0283.bc30";
-+		reset-gpios = <&pca9534 5 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <100000>;
-+	};
-+};
-+
-+&cpsw_port2 {
-+	/*
-+	 * The required RGMII TX and RX 2ns delays are implemented directly
-+	 * in hardware via passive delay elements on the Symphony PCB.
-+	 * No delay configuration is needed in software via PHY driver.
-+	 */
-+	phy-mode = "rgmii";
-+	phy-handle = <&cpsw3g_phy1>;
-+	status = "okay";
-+};
-+
-+&dphy0 {
-+	status = "okay";
-+};
-+
-+&mailbox0_cluster0 {
-+	mbox_r5_0: mbox-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster1 {
-+	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&main_i2c0{
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c0>;
-+	clock-frequency = <400000>;
-+
-+	ov5640: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&clk_ov5640_fixed>;
-+		clock-names = "xclk";
-+		AVDD-supply = <&reg_2p8v>;
-+		DOVDD-supply = <&reg_1p8v>;
-+		DVDD-supply = <&reg_1p5v>;
-+		powerdown-gpios = <&main_gpio0 10 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_ov5640>;
-+
-+		port {
-+			csi2_cam0: endpoint {
-+				remote-endpoint = <&csi2rx0_in_sensor>;
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+
-+	/* GPIO expander */
-+	pca9534: gpio@20 {
-+		compatible = "nxp,pca9534";
-+		reg = <0x20>;
-+		gpio-controller;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pca9534>;
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <30 IRQ_TYPE_EDGE_FALLING>;
-+		#gpio-cells = <2>;
-+		status = "okay";
-+
-+		usb3-sel-hog {
-+			gpio-hog;
-+			gpios = <4 0>;
-+			output-low;
-+			line-name = "usb3_sel";
-+		};
-+
-+		eth-som-vselect-hog {
-+			gpio-hog;
-+			gpios = <6 0>;
-+			output-low;
-+			line-name = "eth-vselect";
-+		};
-+
-+		eth-mdio-enable-hog {
-+			gpio-hog;
-+			gpios = <7 0>;
-+			output-high;
-+			line-name = "eth-mdio-enable";
-+		};
-+	};
-+};
-+
-+&main_i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	/* DS1337 RTC module */
-+	rtc@68 {
-+		compatible = "dallas,ds1337";
-+		reg = <0x68>;
-+		status = "okay";
-+	};
-+};
-+
-+&main_mcan0 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mcan0>;
-+	phys = <&transceiver1>;
-+};
-+
-+&main_pmx0 {
-+	pinctrl_extcon: main-extcon-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01a8, PIN_INPUT, 7) /* (F25) MCASP0_AFSX.GPIO1_12 */
-+		>;
-+	};
-+
-+	pinctrl_i2c0: main-i2c0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (B25) I2C0_SCL */
-+			AM62PX_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (A24) I2C0_SDA */
-+		>;
-+	};
-+
-+	pinctrl_i2c1: main-i2c1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01e8, PIN_INPUT_PULLUP, 0) /* (C24) I2C1_SCL */
-+			AM62PX_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0) /* (B24) I2C1_SDA */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pinctrl_mcan0: main-mcan0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01dc, PIN_INPUT, 0) /* (F20) MCAN0_RX */
-+			AM62PX_IOPAD(0x01d8, PIN_OUTPUT, 0) /* (B23) MCAN0_TX */
-+		>;
-+	};
-+
-+	pinctrl_mmc1: main-mmc1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x023c, PIN_INPUT, 0) /* (H20) MMC1_CMD */
-+			AM62PX_IOPAD(0x0234, PIN_OUTPUT, 0) /* (J24) MMC1_CLK */
-+			AM62PX_IOPAD(0x0230, PIN_INPUT, 0) /* (H21) MMC1_DAT0 */
-+			AM62PX_IOPAD(0x022c, PIN_INPUT_PULLUP, 0) /* (H23) MMC1_DAT1 */
-+			AM62PX_IOPAD(0x0228, PIN_INPUT_PULLUP, 0) /* (H22) MMC1_DAT2 */
-+			AM62PX_IOPAD(0x0224, PIN_INPUT_PULLUP, 0) /* (H25) MMC1_DAT3 */
-+			AM62PX_IOPAD(0x0240, PIN_INPUT, 0) /* (D23) MMC1_SDCD */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pinctrl_rgmii2: main-rgmii2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0184, PIN_INPUT, 0) /* (E19) RGMII2_RD0 */
-+			AM62PX_IOPAD(0x0188, PIN_INPUT, 0) /* (E16) RGMII2_RD1 */
-+			AM62PX_IOPAD(0x018c, PIN_INPUT, 0) /* (E17) RGMII2_RD2 */
-+			AM62PX_IOPAD(0x0190, PIN_INPUT, 0) /* (C19) RGMII2_RD3 */
-+			AM62PX_IOPAD(0x0180, PIN_INPUT, 0) /* (D19) RGMII2_RXC */
-+			AM62PX_IOPAD(0x017c, PIN_INPUT, 0) /* (F19) RGMII2_RX_CTL */
-+			AM62PX_IOPAD(0x016c, PIN_INPUT, 0) /* (B19) RGMII2_TD0 */
-+			AM62PX_IOPAD(0x0170, PIN_INPUT, 0) /* (A21) RGMII2_TD1 */
-+			AM62PX_IOPAD(0x0174, PIN_INPUT, 0) /* (D17) RGMII2_TD2 */
-+			AM62PX_IOPAD(0x0178, PIN_INPUT, 0) /* (A19) RGMII2_TD3 */
-+			AM62PX_IOPAD(0x0168, PIN_INPUT_PULLDOWN, 0) /* (D16) RGMII2_TXC */
-+			AM62PX_IOPAD(0x0164, PIN_INPUT, 0) /* (A20) RGMII2_TX_CTL */
-+		>;
-+	};
-+
-+	pinctrl_spi2: main_spi2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01b0, PIN_INPUT, 1) /* (G20) MCASP0_ACLKR.SPI2_CLK */
-+			AM62PX_IOPAD(0x0194, PIN_OUTPUT, 1) /* (D25) MCASP0_AXR3.SPI2_D0 */
-+			AM62PX_IOPAD(0x0198, PIN_INPUT, 1) /* (E25) MCASP0_AXR2.SPI2_D1 */
-+			AM62PX_IOPAD(0x01ac, PIN_OUTPUT, 7) /* (G23) MCASP0_AFSR.GPIO1_13 */
-+		>;
-+	};
-+
-+	pinctrl_uart0: main-uart0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x1c8, PIN_INPUT, 0)	/* (A22) UART0_RXD */
-+			AM62PX_IOPAD(0x1cc, PIN_OUTPUT, 0)	/* (B22) UART0_TXD */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pinctrl_uart2: main-uart2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x005c, PIN_INPUT_PULLUP, 2) /* (AC25) GPMC0_AD8.UART2_RXD */
-+			AM62PX_IOPAD(0x0060, PIN_OUTPUT, 2) /* (AB25) GPMC0_AD9.UART2_TXD */
-+		>;
-+	};
-+
-+	pinctrl_uart6: main-uart6-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x009c, PIN_INPUT_PULLUP, 3) /* (AD24) GPMC0_WAIT1.UART6_RXD */
-+			AM62PX_IOPAD(0x0244, PIN_OUTPUT, 1) /* (D24) MMC1_SDWP.UART6_TXD */
-+		>;
-+	};
-+
-+	pinctrl_usb1: main-usb1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0258, PIN_OUTPUT, 0) /* (G21) USB1_DRVVBUS */
-+		>;
-+	};
-+
-+	pinctrl_ov5640: main-ov5640-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0028, PIN_OUTPUT, 7) /* (N20) OSPI0_D7.GPIO0_10 */
-+			AM62PX_IOPAD(0x0054, PIN_OUTPUT, 7) /* (V24) GPMC0_AD6.GPIO0_21 */
-+			AM62PX_IOPAD(0x0058, PIN_OUTPUT, 7) /* (W25) GPMC0_AD7.GPIO0_22 */
-+		>;
-+	};
-+
-+	pinctrl_pca9534: main-pca9534-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01f0, PIN_INPUT, 7) /* (C25) EXT_REFCLK1.GPIO1_30 */
-+		>;
-+	};
-+
-+	pinctrl_sd1_vmmc: main-sd1-vmmc-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0078, PIN_OUTPUT, 7) /* (AC24) GPMC0_AD15.GPIO0_30 */
-+			AM62PX_IOPAD(0x00d8, PIN_OUTPUT, 7) /* (AE22) VOUT0_DATA8.GPIO0_53 */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pinctrl_sd1_vqmmc: main-sd1-vqmmc-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00e4, PIN_OUTPUT, 7) /* (AE21) VOUT0_DATA11.GPIO0_56 */
-+		>;
-+		bootph-all;
-+	};
-+};
-+
-+&main_spi2 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_spi2>;
-+	ti,pindir-d0-out-d1-in;
-+	cs-gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
-+};
-+
-+&main_uart0 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart0>;
-+};
-+
-+&main_uart1 {
-+	/* Main UART1 is used by TIFS firmware */
-+	status = "reserved";
-+};
-+
-+&main_uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	status = "okay";
-+};
-+
-+&main_uart6 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart6>;
-+	status = "okay";
-+};
-+
-+&mcu_gpio0 {
-+	status = "reserved";
-+};
-+
-+&mcu_gpio_intr {
-+	status = "reserved";
-+};
-+
-+&mcu_r5fss0 {
-+	status = "okay";
-+};
-+
-+&mcu_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
-+	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-+			<&mcu_r5fss0_core0_memory_region>;
-+};
-+
-+&sdhci1 {
-+	/* SD Card */
-+	vmmc-supply = <&reg_sdhc1_vmmc>;
-+	vqmmc-supply = <&reg_sdhc1_vqmmc>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mmc1>;
-+	disable-wp;
-+	status="okay";
-+	bootph-all;
-+};
-+
-+&ti_csi2rx0 {
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	usb-role-switch;
-+	status = "okay";
-+
-+	port {
-+		typec_hs: endpoint {
-+			remote-endpoint = <&usb_con_hs>;
-+		};
-+	};
-+};
-+
-+&usb1 {
-+	dr_mode = "host";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_usb1>;
-+	status = "okay";
-+};
-+
-+&usbss0 {
-+	status = "okay";
-+};
-+
-+&usbss1 {
-+	status = "okay";
-+};
-+
-+&wkup_r5fss0 {
-+	status = "okay";
-+};
-+
-+&wkup_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-+	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-+			<&wkup_r5fss0_core0_memory_region>;
-+};
-+
-+&wkup_rtc0 {
-+	status = "disabled";
-+};
-+
-+&wkup_rti0 {
-+	/* WKUP RTI0 is used by DM firmware */
-+	status = "reserved";
-+};
-+
-+&wkup_uart0 {
-+	/* WKUP UART0 is used by DM firmware */
-+	status = "reserved";
-+};
--- 
-2.43.0
+-    parser.add_argument("--print-status",
+-                        action="store_true",
+-                        default=False,
+-                        help="Print only test's status and avoid printing stdout and stderr of the tests")
+-
+-    parser.add_argument("--print-passed",
+-                        action="store_true",
+-                        default=False,
+-                        help="Print passed test's stdout, stderr and status."
+-                        )
+-
+-    parser.add_argument("--print-passed-status",
+-                        action="store_true",
+-                        default=False,
+-                        help="Print only passed test's status."
+-                        )
+-
+-    parser.add_argument("--print-failed",
+-                        action="store_true",
+-                        default=False,
+-                        help="Print failed test's stdout, stderr and status."
++    parser.add_argument("--print-passed", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
++                        help="blah"
+                         )
+ 
+-    parser.add_argument("--print-failed-status",
+-                        action="store_true",
+-                        default=False,
+-                        help="Print only failed test's status."
++    parser.add_argument("--print-failed", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
++                        help="Full = print each test's stdout, stderr and status; status = only status."
+                         )
+ 
+-    parser.add_argument("--print-skipped",
+-                        action="store_true",
+-                        default=False,
++    parser.add_argument("--print-skipped", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
+                         help="Print skipped test's stdout, stderr and status."
+                         )
+ 
+-    parser.add_argument("--print-skipped-status",
+-                        action="store_true",
+-                        default=False,
+-                        help="Print only skipped test's status."
+-                        )
+-
+-    parser.add_argument("--print-timed-out",
+-                        action="store_true",
+-                        default=False,
++    parser.add_argument("--print-timed-out", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
+                         help="Print timed out test's stdout, stderr and status."
+                         )
+ 
+-    parser.add_argument("--print-timed-out-status",
+-                        action="store_true",
+-                        default=False,
+-                        help="Print only timed out test's status."
+-                        )
+-
+-    parser.add_argument("--print-no-runs",
+-                        action="store_true",
+-                        default=False,
++    parser.add_argument("--print-no-run", default="full", const="full", nargs='?', choices=["off", "full", "stderr", "stdout", "status"],
+                         help="Print stdout, stderr and status for tests which didn't run."
+                         )
+ 
+-    parser.add_argument("--print-no-runs-status",
+-                        action="store_true",
+-                        default=False,
+-                        help="Print only tests which didn't run."
+-                        )
+-
+     parser.add_argument("--sticky-summary-only",
+                         action="store_true",
+                         default=False,
+@@ -145,36 +100,19 @@ def level_filters(args):
+     if args.sticky_summary_only or args.quiet:
+         return levels
+ 
+-    if args.print_passed or args.print_passed_status or args.print_status:
++    if args.print_passed != "off":
+         levels.add(SelftestStatus.PASSED)
+ 
+-    if args.print_failed or args.print_failed_status or args.print_status:
++    if args.print_failed != "off":
+         levels.add(SelftestStatus.FAILED)
+ 
+-    if args.print_skipped or args.print_skipped_status or args.print_status:
++    if args.print_skipped != "off":
+         levels.add(SelftestStatus.SKIPPED)
+ 
+-    if args.print_timed_out or args.print_timed_out_status or args.print_status:
++    if args.print_timed_out != "off":
+         levels.add(SelftestStatus.TIMED_OUT)
+ 
+-    if args.print_no_runs or args.print_no_runs_status or args.print_status:
+-        levels.add(SelftestStatus.NO_RUN)
+-
+-    # Nothing set explicitly, enable all.
+-    if not levels:
+-        args.print_passed = True
+-        levels.add(SelftestStatus.PASSED)
+-
+-        args.print_failed = True
+-        levels.add(SelftestStatus.FAILED)
+-
+-        args.print_skipped = True
+-        levels.add(SelftestStatus.SKIPPED)
+-
+-        args.print_timed_out = True
+-        levels.add(SelftestStatus.TIMED_OUT)
+-
+-        args.print_no_runs = True
++    if args.print_no_run != "off":
+         levels.add(SelftestStatus.NO_RUN)
+ 
+     levels.add(logging.NOTSET)
+diff --git a/tools/testing/selftests/kvm/runner/command.py b/tools/testing/selftests/kvm/runner/command.py
+deleted file mode 100644
+index 6f6b1811b490..000000000000
+--- a/tools/testing/selftests/kvm/runner/command.py
++++ /dev/null
+@@ -1,53 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-# Copyright 2025 Google LLC
+-#
+-# Author: vipinsh@google.com (Vipin Sharma)
+-
+-import subprocess
+-import pathlib
+-import contextlib
+-import os
+-
+-
+-class Command:
+-    """Executes a command in shell.
+-
+-    Returns the exit code, std output and std error of the command.
+-    """
+-
+-    def __init__(self, command, timeout, output_dir):
+-        self.command = command
+-        self.timeout = timeout
+-        self.output_dir = output_dir
+-
+-    def _run(self, output=None, error=None):
+-        run_args = {
+-            "universal_newlines": True,
+-            "shell": True,
+-            "timeout": self.timeout,
+-        }
+-
+-        if output is None and error is None:
+-            run_args.update({"capture_output": True})
+-        else:
+-            run_args.update({"stdout": output, "stderr": error})
+-
+-        proc = subprocess.run(self.command, **run_args)
+-        return proc.returncode, proc.stdout, proc.stderr
+-
+-    def run(self):
+-        if self.output_dir is not None:
+-            pathlib.Path(self.output_dir).mkdir(parents=True, exist_ok=True)
+-
+-        output = None
+-        error = None
+-        with contextlib.ExitStack() as stack:
+-            if self.output_dir is not None:
+-                output_path = os.path.join(self.output_dir, "stdout")
+-                output = stack.enter_context(
+-                    open(output_path, encoding="utf-8", mode="w"))
+-
+-                error_path = os.path.join(self.output_dir, "stderr")
+-                error = stack.enter_context(
+-                    open(error_path, encoding="utf-8", mode="w"))
+-            return self._run(output, error)
+diff --git a/tools/testing/selftests/kvm/runner/selftest.py b/tools/testing/selftests/kvm/runner/selftest.py
+index 664958c693e5..1ec1ddfbf034 100644
+--- a/tools/testing/selftests/kvm/runner/selftest.py
++++ b/tools/testing/selftests/kvm/runner/selftest.py
+@@ -3,7 +3,6 @@
+ #
+ # Author: vipinsh@google.com (Vipin Sharma)
+ 
+-import command
+ import pathlib
+ import enum
+ import os
+@@ -37,17 +36,18 @@ class Selftest:
+         if not test_command:
+             raise ValueError("Empty test command in " + test_path)
+ 
+-        test_command = os.path.join(executable_dir, test_command)
+-        self.exists = os.path.isfile(test_command.split(maxsplit=1)[0])
++        self.command = os.path.join(executable_dir, test_command)
++        self.exists = os.path.isfile(self.command.split(maxsplit=1)[0])
+         self.test_path = test_path
+ 
+         if output_dir is not None:
+             output_dir = os.path.join(output_dir, test_path.lstrip("/"))
+-        self.command = command.Command(test_command, timeout, output_dir)
+ 
+         self.status = SelftestStatus.NO_RUN
+         self.stdout = ""
+         self.stderr = ""
++        self.timeout = timeout
++        self.output_dir = output_dir
+ 
+     def run(self):
+         if not self.exists:
+@@ -55,12 +55,37 @@ class Selftest:
+             return
+ 
+         try:
+-            ret, self.stdout, self.stderr = self.command.run()
+-            if ret == 0:
++            run_args = {
++                "universal_newlines": True,
++                "shell": True,
++                "stdout": subprocess.PIPE,
++                "stderr": subprocess.PIPE,
++                "timeout": self.timeout,
++            }
++            proc = subprocess.run(self.command, **run_args)
++
++            self.stdout = proc.stdout
++            self.stderr = proc.stderr
++
++            if proc.returncode == 0:
+                 self.status = SelftestStatus.PASSED
+-            elif ret == 4:
++            elif proc.returncode == 4:
+                 self.status = SelftestStatus.SKIPPED
+             else:
+                 self.status = SelftestStatus.FAILED
+         except subprocess.TimeoutExpired as e:
++            self.stdout = e.stdout
++            self.stderr = e.stderr
++
+             self.status = SelftestStatus.TIMED_OUT
++
++        if self.output_dir is not None:
++            pathlib.Path(self.output_dir).mkdir(parents=True, exist_ok=True)
++
++            output_path = os.path.join(self.output_dir, "stdout")
++            with open(output_path, encoding="utf-8", mode="w") as f:
++                f.write(self.stdout)
++
++            error_path = os.path.join(self.output_dir, "stderr")
++            with open(error_path, encoding="utf-8", mode="w") as f:
++                f.write(self.stderr)
+diff --git a/tools/testing/selftests/kvm/runner/test_runner.py b/tools/testing/selftests/kvm/runner/test_runner.py
+index e7730880907d..a285a711a686 100644
+--- a/tools/testing/selftests/kvm/runner/test_runner.py
++++ b/tools/testing/selftests/kvm/runner/test_runner.py
+@@ -19,13 +19,12 @@ class TestRunner:
+         self.output_dir = args.output
+         self.jobs = args.jobs
+         self.quiet = args.quiet
+-        self.print_status = args.print_status
+         self.print_stds = {
+             SelftestStatus.PASSED: args.print_passed,
+             SelftestStatus.FAILED: args.print_failed,
+             SelftestStatus.SKIPPED: args.print_skipped,
+             SelftestStatus.TIMED_OUT: args.print_timed_out,
+-            SelftestStatus.NO_RUN: args.print_no_runs
++            SelftestStatus.NO_RUN: args.print_no_run
+         }
+ 
+         for test_file in test_files:
+@@ -52,15 +51,14 @@ class TestRunner:
+         # Clear the status line
+         self._print("\033[2K", end="\r")
+         logger.log(test_result.status,
+-                   f"[{test_result.status}] {test_result.test_path}")
+-        if (self.output_dir is None and self.print_status is False
+-                and self.print_stds.get(test_result.status, True)):
+-            logger.info("************** STDOUT BEGIN **************")
+-            logger.info(test_result.stdout)
+-            logger.info("************** STDOUT END **************")
+-            logger.info("************** STDERR BEGIN **************")
+-            logger.info(test_result.stderr)
+-            logger.info("************** STDERR END **************")
++                   f"[{test_result.status.name}] {test_result.test_path}")
++
++        print_level = self.print_stds.get(test_result.status);
++        if (print_level == "full" or print_level == "stdout"):
++            logger.info("*** stdout ***\n" + test_result.stdout)
++
++        if (print_level == "full" or print_level == "stderr"):
++            logger.info("*** stderr ***\n" + test_result.stderr)
+ 
+         self.status[test_result.status] += 1
+         # Sticky bottom line
 
+base-commit: 611829e42fb47b99ff2b6c75637aec2410739611
+--
 
