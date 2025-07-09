@@ -4,86 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7162EC83F14
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA38C83F0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 19:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCAP9oUJOsFvGWTLrKOXFPth+eKlOP4E6OXsGQLMlq4=; b=NNj8oPRRwJHpr7yUG5uHxCWc1L
-	dZjxfVVyVBUSwC03KRAUNK6G7AOOHoxnwg+9c5esJA6ekU2VjTqrj8P/FEjsK7PPsVu6wbh8ljvtb
-	NYGJMd2F61vcPpjpaEKNjRDKDikA5MHOUABqHvCiye9GP/Jr4dRjkJxN/YC4OKW3ckgPcPwjeEavV
-	Pq0XggEabOqdJhRCeKSTBll4V5H5nyAla3RKuKVa07niNrnjhS7cHqdYdtk6bWYDI7VURqcuyJ9Uz
-	iffGSTlh8ZTPpL6kyBRNf15UMrd80P5v3gGCWS2J7pdqlYniaXzBgiDw97ShzzJgcjO4R16gruZEw
-	sj7ZEl4w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hONZ9IRzTB/PeOi1N20ynxJSL6Wcb92fl3YE+zVsRv4=; b=VHErm+EuulX/w6lyEgWXsty5pd
+	i4lnx8tZeJs0i2quuh7ZB/S8+LzudqjRBCkTt5+9Nac2oU+sTs59K387OagNJSg3vXMXbS2YvqhEB
+	PeRIJGsSTfmfbRuKlZ2Q3jVel6wspmPQU+zJOE+b4jVjzCL8enXyI4TJL2L14ihIDM4Iic+uN5Gyi
+	TbmJtfsjG3pofTTGxTCqxThKJnjk2cVOxKZPflS5YnotDHhpUQpMSwMTs+NlT71TBc8Io9a3kTnlS
+	vRpWd3Qb09WeaoFgr//Y+Mr2bWSkSa1cetZfcesaZyHMEL0FBdifQS3i0W9bM5IQTHZlSRFq1LEJ8
+	NiG/rFSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZaFG-00000009fXb-3m9e;
-	Wed, 09 Jul 2025 19:14:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uZaFP-00000009ffr-35vW;
+	Wed, 09 Jul 2025 19:14:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZWs9-00000009Bkn-1ZQ0
+	id 1uZX7D-00000009Di4-3KcZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 15:38:14 +0000
+	Wed, 09 Jul 2025 15:53:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B715343EB8;
-	Wed,  9 Jul 2025 15:38:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1C79C4CEEF;
-	Wed,  9 Jul 2025 15:38:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 059F9A54831;
+	Wed,  9 Jul 2025 15:53:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D22C4CEF6;
+	Wed,  9 Jul 2025 15:53:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752075492;
-	bh=Xl25DKWUzLXWpg5KhyYoRSsxahTDR5DpYlzJd9W9CaA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=uYdDGgmoD68kb2rNpNP/hz5SiwAXDsyvezTzMSDMKDb2YClMAF2yt/AxOjTPs7sNl
-	 ZTOE8jKrng1ejwdimLIcfCR+DZXhizhMc2qXzwb7YBRhhYhR+Xnf7h120quqvHtuXQ
-	 vwH5eiko3xNTUaDORSLeGHicywXRuFhftgO6XszyBy6kDg/HN0KkQYjiYK9KT3zzls
-	 T5Wx4zQYlggDBTLa0AXA3d8QhmsyQveEUAZY1P8m2i8gSq2eYriSLniXhAiyw5Yn+g
-	 o8IjE8LQibgIjGnYjnHpSjOCrrGvcXASgZXGde0dgcLjH93VVyf4X6KUiYxOt+Ess8
-	 Oo5M4FmCysnGA==
-Date: Wed, 9 Jul 2025 16:37:56 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Eugen Hristev <eugen.hristev@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Cai Huoqing <cai.huoqing@linux.dev>, Haibo Chen <haibo.chen@nxp.com>, Shawn
- Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
- <festevam@gmail.com>, Marek Vasut <marek.vasut@gmail.com>, Geert
- Uytterhoeven <geert+renesas@glider.be>, Magnus Damm
- <magnus.damm@gmail.com>, Lad Prabhakar
- <prabhakar.mahadev-lad.rj@bp.renesas.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Francesco Dolcini <francesco@dolcini.it>, =?UTF-8?B?Sm/Do28=?= Paulo
- =?UTF-8?B?R29uw6dhbHZlcw==?= <jpaulo.silvagoncalves@gmail.com>, "Jiri Slaby
- (SUSE)" <jirislaby@kernel.org>, Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?=
- <u.kleine-koenig@baylibre.com>, Thomas Gleixner <tglx@linutronix.de>,
- Fabrice Gasnier <fabrice.gasnier@foss.st.com>, "Rob Herring (Arm)"
- <robh@kernel.org>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- Julien Stephan <jstephan@baylibre.com>,
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-renesas-soc@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 02/12] iio: adc: Remove redundant
- pm_runtime_mark_last_busy() calls
-Message-ID: <20250709163756.32b0e1d1@jic23-huawei>
-In-Reply-To: <20250708231152.971398-1-sakari.ailus@linux.intel.com>
-References: <20250708231144.971170-1-sakari.ailus@linux.intel.com>
-	<20250708231152.971398-1-sakari.ailus@linux.intel.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	s=k20201202; t=1752076426;
+	bh=RY67xBd5sUO3XFR2TQQgs/qjtaenGN5JeNcwWjGIERE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qV/UEic+NBgClUfBz1cfNkW0Vs8dXgLz1LNkXdAdMku5pyLmZGxLWDxrPuEWj9qQ5
+	 G3wFAJZLcmoc6Uwi56kl1ecu/isZ4chLIGt97wnlb48XO2LYiQgAKafL41DgahbqlK
+	 vJbXyfnbcEjQFOLnSsPLactoi2xC1dtwd5rytZwZdCXrsbr2xknxOb/AwBRMtyi/wu
+	 5+/5DEdZg+rJQSehvL60c5UArOmtji26e0pGmSydFST+Bpbpc81AiyQfqkWSBNUT4a
+	 XdCpZiZ9ZAzK6taLlnMriEeH1wbbFiZ/srkU0mUv2pd7zyrQ3gVcaRXf032XINajL/
+	 KIKebC9QeAjMQ==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 2F5C85FCB4; Wed,  9 Jul 2025 23:53:44 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-sunxi@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Subject: [PATCH v2 0/4] allwinner: a523: Add power controllers
+Date: Wed,  9 Jul 2025 23:53:39 +0800
+Message-Id: <20250709155343.3765227-1-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_083813_458941_7D2F1498 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20250709_085347_912968_AC2BDB45 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,76 +80,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed,  9 Jul 2025 02:11:52 +0300
-Sakari Ailus <sakari.ailus@linux.intel.com> wrote:
+From: Chen-Yu Tsai <wens@csie.org>
 
-> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
-> pm_runtime_mark_last_busy().
-> 
-> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Hi folks,
 
-Some comments for the future as more about what can be improved on the back
-of this than what you have here.
+This is v2 of my A523 power controllers series.
 
->
-> diff --git a/drivers/iio/adc/rcar-gyroadc.c b/drivers/iio/adc/rcar-gyroadc.c
-> index cc326f21d398..3a17b3898bf6 100644
-> --- a/drivers/iio/adc/rcar-gyroadc.c
-> +++ b/drivers/iio/adc/rcar-gyroadc.c
-> @@ -163,12 +163,10 @@ static int rcar_gyroadc_set_power(struct rcar_gyroadc *priv, bool on)
->  {
->  	struct device *dev = priv->dev;
->  
-This is a very clear example of where the *_set_power() pattern is a bad idea.
-There are two calls of this function, one with it hard coded as on and one with it
-hard coded as off.  We can just push the pm_runtime_resume_and_get()
-to the on case etc.
+Changes since v1:
+- Re-order compatible string entries
+- Fix name of header file to match compatible string
+- Link to v1:
+  https://lore.kernel.org/all/20250627152918.2606728-1-wens@kernel.org/
 
-I don't mind that much if we do so as a follow up patch so this one can
-be the mechanical change and then we follow up with the enabled simplification.
+This series adds the power controllers found in the Allwinner A523
+family of SoCs. There are two power controllers. One is the same type
+as those found in the D1 SoC, just with a different number of valid
+power domains. The second is (I assume) a unit based on ARM's PCK-600
+power controller. Some of the registers and values match up, but there
+are extra registers for delay controls in the PCK-600's reserved
+register range.
 
-> -	if (on) {
-> +	if (on)
->  		return pm_runtime_resume_and_get(dev);
-> -	} else {
-> -		pm_runtime_mark_last_busy(dev);
-> -		return pm_runtime_put_autosuspend(dev);
-> -	}
-> +
-> +	return pm_runtime_put_autosuspend(dev);
->  }
->  
->  static int rcar_gyroadc_read_raw(struct iio_dev *indio_dev,
->> diff --git a/drivers/iio/adc/ti-ads1015.c b/drivers/iio/adc/ti-ads1015.c
-> index 48549d617e5f..f2a93c63ca14 100644
-> --- a/drivers/iio/adc/ti-ads1015.c
-> +++ b/drivers/iio/adc/ti-ads1015.c
-> @@ -374,12 +374,10 @@ static int ads1015_set_power_state(struct ads1015_data *data, bool on)
->  	int ret;
->  	struct device *dev = regmap_get_device(data->regmap);
->  
-> -	if (on) {
-> +	if (on)
->  		ret = pm_runtime_resume_and_get(dev);
-> -	} else {
-> -		pm_runtime_mark_last_busy(dev);
-> +	else
->  		ret = pm_runtime_put_autosuspend(dev);
-> -	}
->  
->  	return ret < 0 ? ret : 0;
-So this one has a stub version which only brings benefits because
-we have checks on the pm_runtime_put_autosuspend() path failing
-(which it does if we have !CONFIG_PM).
+Patch 1 adds new compatible string entries for both of these
+controllers.
 
-I think the right option there is check the return value is < 0
-for the resume_and_get() and don't check the _put_autosuspend()
-return value at all.  Then we can just push this down to the
-call sites as all of them hard code the bool value.
+Patch 2 adds support for the A523 PPU to the existing D1 PPU driver.
 
->  }
+Patch 3 adds a new driver of the PCK-600 unit in the A523 SoC.
+
+Patch 4 adds device nodes for both of these controllers.
+
+
+Please have a look. The power controllers are critical for enabling more
+peripherals, such as display output, camera input, video codecs, the NPU,
+and a second DWMAC-compatible ethernet interface.
+
+
+Thanks
+ChenYu
+
+
+Chen-Yu Tsai (4):
+  dt-bindings: power: Add A523 PPU and PCK600 power controllers
+  pmdomain: sunxi: sun20i-ppu: add A523 support
+  pmdomain: sunxi: add driver for Allwinner A523's PCK-600 power
+    controller
+  arm64: dts: allwinner: a523: Add power controller device nodes
+
+ .../power/allwinner,sun20i-d1-ppu.yaml        |   4 +-
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  18 ++
+ drivers/pmdomain/sunxi/Kconfig                |   8 +
+ drivers/pmdomain/sunxi/Makefile               |   1 +
+ drivers/pmdomain/sunxi/sun20i-ppu.c           |  17 ++
+ drivers/pmdomain/sunxi/sun55i-pck600.c        | 225 ++++++++++++++++++
+ .../power/allwinner,sun55i-a523-pck-600.h     |  15 ++
+ .../power/allwinner,sun55i-a523-ppu.h         |  12 +
+ 8 files changed, 299 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/pmdomain/sunxi/sun55i-pck600.c
+ create mode 100644 include/dt-bindings/power/allwinner,sun55i-a523-pck-600.h
+ create mode 100644 include/dt-bindings/power/allwinner,sun55i-a523-ppu.h
+
+-- 
+2.39.5
 
 
