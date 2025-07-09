@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB95C83F09
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F6AC83F14
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 21:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EF3tKvm/yLMAj5ER680mB6JtKaeBj11j3qvBwe39Xuk=; b=LLM4wOYG4qIyqcrhkU5y/A9sE0
-	PO2pBH/AxBs/F/xfa57A+8pu3vmCrhHhc71S5aEkk7V3F8LMpVCN9+dYzbhUovYLccy/WLbzXfTLl
-	hgKw0wTx2cKcMop6d7hJi8uVBF8csdkTb0fnBd6Vuyz+zi2dsLKrZTvMTtPqLQK4nLPiw25vLJuKX
-	Ai+7sXMprCkHKwmJji/2J/jOXrQVs7mAC3f9Jz0uXrqK2zvS4PkSeBXZL2ku/cEE+Dy0oJxIe1l5Q
-	77JGxFywq3uuYOKVMRdWVBDWiRiZtOeMgKOX1nMPSM3uGTkH5TLP3E6k4Fm/dRpCEilQEyRsWFjqt
-	cbUcHY3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mt9eGTZKuWe0Rt35OVakEgDRMolYv4DxFc8J0yQiKHQ=; b=Pt0sDtxOGsRkR7SOwoWz3nkrU1
+	Lstc7bTXKy8hmqnDMaZ8srqKRwAeVasKksIdJkM/ubvVpGlrmblxOrBx4pp7OgSb1U3Po9pFyoRlt
+	5/IYn+ylUhY0I6JyUVQxIPpbmF8HBYkJ4ZhSBhDIB0PZbxv+QHaFWw0/r6+c8fWANNNIqeYu4a45f
+	dQy7EgS9qWyX5+6puPPShQ0m3xd5w8Zftp2Li6Loo9a2sU6Bjem/8lDQ1PDntxhX51ERpvCPt+I3v
+	oLa3g+Ujke6LkO+YTN6hHDV7NmLOCAuYYYSal4MQNkZSvEkZQZGy5DkwCi5CrZMqXzcsO5cu+yhaa
+	mtrH2Qjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZcoa-00000009y7R-2mtd;
-	Wed, 09 Jul 2025 21:58:56 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1uZcof-00000009yGg-1dew;
+	Wed, 09 Jul 2025 21:59:01 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZZWu-00000009YhM-1Fif
+	id 1uZZet-00000009Z8X-0XJE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 18:28:29 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-2f3dab2a2a9so108994fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 11:28:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gateworks.com; s=google; t=1752085707; x=1752690507; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EF3tKvm/yLMAj5ER680mB6JtKaeBj11j3qvBwe39Xuk=;
-        b=Qq7NDIwYAPPw/ePsY3nT+ppVhtDsRoSQoRR09NxsZemqLWUKyDIVMuozqHb6HhkG55
-         V7jFVpbwRYkwnFpibA10KdKWpKdU0ki9kS0iquDeaufcI79Q17YdSY5K9ZKqsg9g5CmL
-         t1JpcnaAZgG3w24XL7JOQSn2pnAZGvgtL2f9wBq1HYrWX1n3PIF8/EX3mIWgWmIFlxM7
-         DpG3RK5dOZZWliUhI7JphhHYS7GdHAcpae2pHdfEVFWor5Kmonz0ofrWNye57WZieULG
-         MXgMIp0X19kTy2E4GvMI64fwA/T593Tg1tMCGrV9ZxbLNTrkmMgKO+/2BkXgYukIBcnG
-         iNWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752085707; x=1752690507;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EF3tKvm/yLMAj5ER680mB6JtKaeBj11j3qvBwe39Xuk=;
-        b=viaEioIVhNbICeTxoj9pkLihlsXkWCMFdiyMlGHtMl8tHgLE5vaeodMWUfQHE33lHV
-         aL2GZG5o+/cf08Ec68ZzXARBvIyX5f83/+KN+Y/koiyjJndTM+abaLD4HwSdlcCgjN5Z
-         AN9GE9gS54lHJJu7MqJoPOPazmks3Id7anp+G/q0UgYX7mmDT5eZhzq4tLeldUJQvaCf
-         BUfgiVWhmM/+FsePXH1+zhn9g+FtIKwFqp+h5QJ6mZDtMSc80GNKM04J0v6VWOZL9OJz
-         ls/86Qg8MXMPIsNPkbsy93Mvk730xLXp3gs4DHlaZgqUyC8i/6GBl4KvOKh01SMWrSRf
-         ib+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWCGKRDDbpnMwhXjToerhzPXMMmNARQb6m6Np+qdqW0tureaVdOeYqDKiJyYq0gstdWSzb1D3nhTPYrB6lhmZJH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5CKtwCD94rWxadyQY3/briZmHx/i6erHur6VF1Ezjfm6TBwka
-	Do4GFUNZoPN908IUHUL/01csmhOajN3DnD7ID2f6c8AI3Lfej1UXgdE5oRR02KENPtdZL3aAgLQ
-	WuTT3A24wUozrub/CYy1j9QJR0JDrGDDKksnwiOXFwQ==
-X-Gm-Gg: ASbGncsXrtPpdfybrn1352LLS4XVAXgmZL0EGnQ/Aqeo+GYIDbSgkhcxZdm021FviIF
-	RRFLTPv9qC+nvytmgnGajQdUcIeBok740pMnsl18GI90deyc0krulViig1EhzgV7bv4/e35jhmb
-	TXAOQo9+JXHpcHGd05sRMD9zcKpHRIBYe5ra96MqJVhbc=
-X-Google-Smtp-Source: AGHT+IHA/hKgmN+ZQ0rDeLHDX1FbU4i9gta+XOUEkPAn4h5OjDz1rrmG5m9UAzx1iDyyI0XUhyXd80xd6NkdtMblp0Y=
-X-Received: by 2002:a05:6870:3329:b0:2eb:a8fb:863c with SMTP id
- 586e51a60fabf-2fef871c3b9mr2622993fac.19.1752085706812; Wed, 09 Jul 2025
- 11:28:26 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250709-gw-dts-lic-v2-1-ac3b697f65d5@prolan.hu>
-In-Reply-To: <20250709-gw-dts-lic-v2-1-ac3b697f65d5@prolan.hu>
-From: Tim Harvey <tharvey@gateworks.com>
-Date: Wed, 9 Jul 2025 11:28:15 -0700
-X-Gm-Features: Ac12FXwOfyTS8C_-y9vSRPj-Ar_ANH_aFSj6ux_UPjsJxqIi195A9XgvWe9uzG0
-Message-ID: <CAJ+vNU2JZCpRdJqUn5mki31oziTMvmpz=oBjGcJoWhDTcvTHMA@mail.gmail.com>
-Subject: Re: [PATCH v2] ARM: dts: imx6-gw: Replace license text comment with
- SPDX identifier
-To: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <csokas.bence@prolan.hu>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 09 Jul 2025 18:36:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4A6F9A54723;
+	Wed,  9 Jul 2025 18:36:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58CEC4CEEF;
+	Wed,  9 Jul 2025 18:36:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752086202;
+	bh=Hx2Z8LWsM4BgshqAi1E58fO9f58s3x7Ck2+xgNr26Mo=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=CJf4DHSkQu18uwAt8RJHROsrf5O5r80eM0Ic4O3qPdtwrNUTuqvOL2u7DtjiP6R1g
+	 xDmUvN+kFdyKke9ZFY43TGA4RUAjO0EDYW4vMJY7fA4A5QZZ7qWfdPDV8k0d8rPLRb
+	 uFm/A/dQw+XbPx/9Hqsmz2KyC3uGBlSlkHGdXTfFnqmJuwtHWzN1XuOWzdJRiTRfMH
+	 e0pcg3fTMo2VyMNfQLK9H64MVWPx4PA4Nq+pT4pjEY3rn6U0+PuOXYhJIc5EuMptIK
+	 uzTBo59yYzR/38ce9EpM1JWc5L6t+gens4ILrXg+1ihFJGNvz5XQ2ybXQ7pHJEPwXw
+	 u4dbJs+z9D/kA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADF13380DBEE;
+	Wed,  9 Jul 2025 18:37:05 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 fixes for -rc6
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <aG6GAKc8EV0cERsn@willie-the-truck>
+References: <aG6GAKc8EV0cERsn@willie-the-truck>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <aG6GAKc8EV0cERsn@willie-the-truck>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+X-PR-Tracked-Commit-Id: 9dd1757493416310a5e71146a08bc228869f8dae
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: f69f5aab1fad379bbef9339f66bc8323daffe56e
+Message-Id: <175208622434.814034.11084342849878217311.pr-tracker-bot@kernel.org>
+Date: Wed, 09 Jul 2025 18:37:04 +0000
+To: Will Deacon <will@kernel.org>
+Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_112828_337281_81C57A6C 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20250709_113643_228065_0389C282 
+X-CRM114-Status: UNSURE (   4.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 9, 2025 at 12:26=E2=80=AFAM Bence Cs=C3=B3k=C3=A1s <csokas.benc=
-e@prolan.hu> wrote:
->
-> Replace verbatim license text with a `SPDX-License-Identifier`.
->
-> The comment header mis-attributes this license to be "X11", but the
-> license text does not include the last line "Except as contained in this
-> notice, the name of the X Consortium shall not be used in advertising or
-> otherwise to promote the sale, use or other dealings in this Software
-> without prior written authorization from the X Consortium.". Therefore,
-> this license is actually equivalent to the SPDX "MIT" license (confirmed
-> by text diffing).
->
-> Cc: Tim Harvey <tharvey@gateworks.com>
-> Signed-off-by: Bence Cs=C3=B3k=C3=A1s <csokas.bence@prolan.hu>
-> ---
-> Fix up Device Tree files by replacing the license text in comment blocks
-> by a `SPDX-License-Identifier`.
-> ---
-> Changes in v2:
-> - Fix msg
-> - Link to v1: https://lore.kernel.org/r/20250702-gw-dts-lic-v1-1-7aac2d00=
-488f@prolan.hu
+The pull request you sent on Wed, 9 Jul 2025 16:08:48 +0100:
 
-Hi Bence,
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
 
-Thank you.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/f69f5aab1fad379bbef9339f66bc8323daffe56e
 
-Acked-by: Tim Harvey <tharvey@gateworks.com>
+Thank you!
 
-Best Regards,
-
-Tim
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
