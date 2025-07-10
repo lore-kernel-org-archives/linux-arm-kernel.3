@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDF6C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5B9C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wgPGL8NSh//d8SJahQFHJhDTvJjR5glUdE4tDtHOT1A=; b=Kw6nWBL9V0IMH0wD+MOZ3aht3z
-	sXtID2IT3w1odLoq7tDEjxuv1vxd2P8rxFSdqdZm2go2RllsxjcmqxR7pye1iJczntu4aurvxovDk
-	wxR9gAWctE0+orPh74ukm1ST6YzhgEBalvZ6ITwRDSmBzI2Z1LWmMwxS0E6BCTJwJIjsqfbHq+CH/
-	PE75euxeVwdZRMIqTtS/kXj2L5ynV4kkQw6vR/wU8PILsDCvozPCl+wlGIHwoqvj4I4u6ruFE47Uy
-	5QA6HSYMp1IYlgI3O4OS5lumgJiN6gHdQGLiOKnkwEzKNSVDm07DhvBiLcbsIeQofcjfBD2fMWhfU
-	gm3FrwbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=67Mt84dlbu0xtwxBGwYkDpISqaxe7nX50EapXSTnVt0=; b=wjRS5hiqrat/D58bp6caKGEBHH
+	74qEea+GxoOLtVpOkpS2tL9gV8i9raQ2RoIgCBMEPCG2vDKMMxqVCooVCfEWkw8N2oTxjhyHHNKJi
+	gYsbzZqbMGzVTY9pSxu2i9HsGtt4N+Rtz78h23Goh+HHKjvr9woZgzevkuGF8xuM1Qk70MDw12xvT
+	7MUEenLxp36Zz/JdQsY2u9Za5t+NwcnNdwrRgZZbCVRPUxQoU+1bw9Xie0cvL6di+Kfuky4a7FpRG
+	DRZoG6gCns6vXk0Q9x287Jg5wyEiDEmA3fYY1QjfmvAf3tA+UuPGvw0vccRaezXyCmBvFqMYW73HO
+	FEIPBsog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZs7c-0000000C5mP-3Pyq;
-	Thu, 10 Jul 2025 14:19:36 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uZs9w-0000000C65h-3qCJ;
+	Thu, 10 Jul 2025 14:22:00 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqS1-0000000BmS4-3NAh;
-	Thu, 10 Jul 2025 12:32:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752150751;
-	bh=/CM+lyP53J7UcGjxOHDtIVWvKIVGjaIQZW9DSJl3mss=;
-	h=Date:To:Cc:From:Subject:From;
-	b=GYEXtVAdnx9AE0HL2pY8kVV7VwIiPfXPaBO8PL4nj7cWPmEqP8EeXwu80gQ0p3IA6
-	 xrrBBXgYgxDjWvmtyMgaO31OoBppKTnor/CRvnTVb6SihtWxPGW5zihjTX/NhMAHZv
-	 pVTPK7oTGP1dDcqUnkovhELXn6q8QLQiDjNqdW4RD3pl3rUyXzUmmITBCbuPqeaacP
-	 PkpvS/nvI+LBRvjFkrmJvA+uhOoJiztAxdMTuwd+n8LtfVtHRKZQ4ksheTIAVJvAHr
-	 JUr3KxpKhzXljDGSZ+kqLFQC8aMweMiTojGi3SqgyKT0hnFbwTMHhvsCfPzecR50pl
-	 W6irUbaAwbr+w==
-Received: from [192.168.50.250] (unknown [171.76.82.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: vignesh)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 07FC417E0EBD;
-	Thu, 10 Jul 2025 14:32:28 +0200 (CEST)
-Message-ID: <10c5abab-c8fe-4eff-8eed-009038436b49@collabora.com>
-Date: Thu, 10 Jul 2025 18:02:26 +0530
+	id 1uZqT8-0000000Bmht-0GHT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 12:33:43 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56ACXc0Z1504996;
+	Thu, 10 Jul 2025 07:33:38 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752150818;
+	bh=67Mt84dlbu0xtwxBGwYkDpISqaxe7nX50EapXSTnVt0=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=qxMn5dRUXXIwAR+d2S2sM+9gaO/zjfqdV7Vn7DpyBnCdyN3zehz+qpwWARPNbeqaS
+	 6XyKfIhMKJLHGEJEMu/KD2iyn9Ki4bnctj8kTrdXmI+1OlMlgKUpNY1n8OREW3byB3
+	 uDr/zlOGy2nk6T2OSpiAEurSEHhhPbRyXVvc+3g8=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56ACXcRo3499436
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 10 Jul 2025 07:33:38 -0500
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 10
+ Jul 2025 07:33:38 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 10 Jul 2025 07:33:37 -0500
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56ACXbZ01342395;
+	Thu, 10 Jul 2025 07:33:37 -0500
+Date: Thu, 10 Jul 2025 07:33:37 -0500
+From: Bryan Brattlof <bb@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/2] arm64: dts: ti: k3-am65: add boot phase tags
+Message-ID: <20250710123337.ltnfhtpxaisi2yu3@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20250709-65-boot-phases-v1-0-e1f89d97a931@ti.com>
+ <20250709-65-boot-phases-v1-1-e1f89d97a931@ti.com>
+ <83c5d0b8-add8-4db7-bcde-5b17c796b53a@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: linux-rockchip@lists.infradead.org,
- dri-devel <dri-devel@lists.freedesktop.org>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, Maxime Ripard <mripard@kernel.org>,
- tzimmermann@suse.de, Dave Airlie <airlied@gmail.com>,
- Daniel Vetter <daniel@ffwll.ch>, Daniel Stone <daniels@collabora.com>,
- Helen Mae Koike Fornazier <helen.fornazier@gmail.com>,
- sebastian.reichel@collabora.com, linux-arm-kernel@lists.infradead.org
-From: Vignesh Raman <vignesh.raman@collabora.com>
-Subject: drm-ci: rk3288-veyron-jaq: kms_flip@plain-flip-fb-recreate flake
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+In-Reply-To: <83c5d0b8-add8-4db7-bcde-5b17c796b53a@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_053234_012157_49EF9FA0 
-X-CRM114-Status: UNSURE (   3.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250710_053342_252934_67F4C22B 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,119 +91,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maintainers,
+On July 10, 2025 thus sayeth Vignesh Raghavendra:
+> 
+> 
+> On 10/07/25 04:05, Bryan Brattlof wrote:
+> 
+> [...]
+> 
+> > diff --git a/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
+> > index 7cf1f646500a16c1d1bac6dfb37fb285218063b3..5bbd817bc51464f6605c5b2dc9cb544a109a695d 100644
+> > --- a/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
+> > +++ b/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
+> > @@ -211,6 +211,7 @@ mcu_ringacc: ringacc@2b800000 {
+> >  			ti,sci = <&dmsc>;
+> >  			ti,sci-dev-id = <195>;
+> >  			msi-parent = <&inta_main_udmass>;
+> > +			bootph-all;
+> >  		};
+> >  
+> >  		mcu_udmap: dma-controller@285c0000 {
+> > @@ -235,6 +236,7 @@ mcu_udmap: dma-controller@285c0000 {
+> >  			ti,sci-rm-range-rchan = <0xb>, /* RX_HCHAN */
+> >  						<0xa>; /* RX_CHAN */
+> >  			ti,sci-rm-range-rflow = <0x0>; /* GP RFLOW */
+> > +			bootph-all;
+> >  		};
+> >  	};
+> 
+> Should this be board specific property? Does every user of AM65x need
+> DMA at boot stage?
+> 
 
-There are some flake test reported for rockchip driver testing in drm-ci.
+Yeah. I'm not too sure how we want to handle this. Some boot modes will 
+require DMA up and running, but if a board only uses eMMC then we won't 
+need DMA during the early phases of boot.
 
-# Board Name: rk3288-veyron-jaq
-# Failure Rate: 20
-# IGT Version: 2.1-g26ddb59c1
-# Linux Version: 6.16.0-rc2
-kms_flip@plain-flip-fb-recreate
+I saw we already do this for the AM62P so I decided to keep moving in 
+that direction even though it's not a perfect and it seemed like a 
+better solution than dragging the DMA node up to the board level.
 
-11:11:35.318: DEBUG - Begin test 
-kms_flip@plain-flip-fb-recreate-interruptible
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Test assertion 
-failure function calibrate_ts, file ../tests/kms_flip.c:1455:
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Failed 
-assertion: 3 * stddev / mean < 0.005
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Last errno: 4, 
-Interrupted system call
-11:11:35.318: ERROR - Igt error: Dynamic subtest A-eDP1 failed.
-11:11:35.318: ERROR - Igt error: **** DEBUG ****
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
-igt_create_fb_with_bo_size(width=1366, height=768, 
-format=XR24(0x34325258), modifier=0x0, size=0)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
-igt_create_fb_with_bo_size(handle=1, pitch=5504)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) ioctl_wrappers-DEBUG: 
-Test requirement passed: igt_has_fb_modifiers(fd)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
-igt_create_fb_with_bo_size(width=1366, height=768, 
-format=XR24(0x34325258), modifier=0x0, size=0)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
-igt_create_fb_with_bo_size(handle=2, pitch=5504)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) ioctl_wrappers-DEBUG: 
-Test requirement passed: igt_has_fb_modifiers(fd)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: Test 
-requirement passed: cairo_surface_status(fb->cairo_surface) == 
-CAIRO_STATUS_SUCCESS
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: Test 
-requirement passed: cairo_surface_status(fb->cairo_surface) == 
-CAIRO_STATUS_SUCCESS
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-INFO: 
-1366x768: 58 74250 1366 1502 1532 1592 768 776 788 800 0x48 0xa
-11:11:35.318: ERROR - Igt error: (kms_flip:500) DEBUG: No stale events found
-11:11:35.318: ERROR - Igt error: (kms_flip:500) INFO: Expected 
-frametime: 17153us; measured 17154.4us +- 32.168us accuracy 0.56%
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Test assertion 
-failure function calibrate_ts, file ../tests/kms_flip.c:1455:
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Failed 
-assertion: 3 * stddev / mean < 0.005
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Last errno: 4, 
-Interrupted system call
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_core-INFO: Stack trace:
-11:11:35.318: ERROR - Igt error: ****  END  ****
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Test assertion 
-failure function calibrate_ts, file ../tests/kms_flip.c:1455:
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Failed 
-assertion: 3 * stddev / mean < 0.005
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Last errno: 4, 
-Interrupted system call
-11:11:35.318: ERROR - Igt error: Dynamic subtest B-eDP1 failed.
-11:11:35.318: ERROR - Igt error: **** DEBUG ****
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
-igt_create_fb_with_bo_size(width=1366, height=768, 
-format=XR24(0x34325258), modifier=0x0, size=0)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
-igt_create_fb_with_bo_size(handle=3, pitch=5504)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) ioctl_wrappers-DEBUG: 
-Test requirement passed: igt_has_fb_modifiers(fd)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
-igt_create_fb_with_bo_size(width=1366, height=768, 
-format=XR24(0x34325258), modifier=0x0, size=0)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
-igt_create_fb_with_bo_size(handle=4, pitch=5504)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) ioctl_wrappers-DEBUG: 
-Test requirement passed: igt_has_fb_modifiers(fd)
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: Test 
-requirement passed: cairo_surface_status(fb->cairo_surface) == 
-CAIRO_STATUS_SUCCESS
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: Test 
-requirement passed: cairo_surface_status(fb->cairo_surface) == 
-CAIRO_STATUS_SUCCESS
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-INFO: 
-1366x768: 58 74250 1366 1502 1532 1592 768 776 788 800 0x48 0xa
-11:11:35.318: ERROR - Igt error: (kms_flip:500) DEBUG: No stale events found
-11:11:35.318: ERROR - Igt error: (kms_flip:500) INFO: Expected 
-frametime: 17153us; measured 17152.9us +- 40.380us accuracy 0.71%
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Test assertion 
-failure function calibrate_ts, file ../tests/kms_flip.c:1455:
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Failed 
-assertion: 3 * stddev / mean < 0.005
-11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Last errno: 4, 
-Interrupted system call
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_core-INFO: Stack trace:
-11:11:35.318: ERROR - Igt error: ****  END  ****
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-CRITICAL: Test 
-assertion failure function kmstest_set_connector_dpms, file 
-../lib/igt_kms.c:2247:
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-CRITICAL: Failed 
-assertion: found_it
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-CRITICAL: Last 
-errno: 9, Bad file descriptor
-11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-CRITICAL: DPMS 
-property not found on 52
-11:11:35.318: ERROR - Test 
-kms_flip@plain-flip-fb-recreate-interruptible: Crash: See 
-"/results/igt.kms_flip@plain-flip-fb-recreate-interruptible.log"
-11:11:35.318: DEBUG - End test kms_flip@plain-flip-fb-recreate-interruptible
+I'll drop it for now until I can think of a better idea.
 
-Pipeline: https://gitlab.freedesktop.org/vigneshraman/msm/-/jobs/79896646
+> [...]
+> 
+> > @@ -107,5 +111,6 @@ wkup_vtm0: temperature-sensor@42050000 {
+> >  		reg = <0x42050000 0x25c>;
+> >  		power-domains = <&k3_pds 80 TI_SCI_PD_EXCLUSIVE>;
+> >  		#thermal-sensor-cells = <1>;
+> > +		bootph-all;
+> 
+> Same here..
+> 
 
-Please could you have a look at these test results and let us know if 
-you need more information. Thank you.
+Yeah I'm assuming this is one of those weird things being in the middle 
+of the Jacinto and Sitara class causes. It's used, much like the rest of 
+the Jacinto parts, by the bootloaders to get at the voltage domain info 
+to configure the OPP data before the bootloader starts the A53s.
 
-Regards,
-Vignesh
+All AM65x boards will need this node to prevent an overclocking situation 
+if the voltage isn't high enough.
+
+~Bryan
 
