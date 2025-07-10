@@ -4,194 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62DA4C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA106C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CQjmF8mRxDGzkLSMNMm7dyBN+ZMDw9bK7dPzHYm+bpc=; b=mIpu6bflMsOUejbPrEbTQz8i+q
-	Cqp8Lwn97oBymzY+cvpU78TXqCgJfYgLiQzR8HNOKtTj+AthdPs95Et2x102DIcOUAX7cTwYjueYh
-	u2LINUc7onXf6qzKoHfM04aWKbMN7SckgL6jpx+HzKnbyoC9QepS72HBMT3x2JTrHU1+rjosKqgMA
-	oCSWc1m3UtoIIqJ9ukZWQEJuHG3BYIuWoNjAfVmmm5ZYPkyehNWqLI3U0nUu6Uij5F6Cj7ZLHyvZx
-	C6BhKrrg8csrumtlaDrL4eQuCJm38gjvPn2ZzadgmNKwwJxdHtvj7O2Cbu4bh3g20PpS/e8FgQ2uX
-	s9z/W6mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CQh1DInxbfOA81mONPPipgpqdwiFZ+9PeQ0qSReXUEY=; b=eq1t7p3MCx6l28P0WFgmnXVXK7
+	KPenni+ty4vG7GZCLqrgWRTd3in+qz87kJNrAP/0sj+Yt0kZ635vUADHT9hRsqAmsLCwjT908lPHZ
+	yoBckcd0D7lwKiOWBv3UX1Ts7sp50bOby5QiYlg9f2CO7bRT6bnvRUOWIIHb5ojvcvyEfu7Q6nwOb
+	RM+VKiimjGdhjqtCCWDYiBP1OuChtjid7mwuX1wZRJH3qA1DxeEwrKOrU9JLJs8fRC9AGf1H3wo9w
+	FkRK5bcSsoG3TauAIlEPiIbcSxK/VY5KzeNxWsezfQJDx5BTrIL8HX2EcqUckaEGB+2ArulQe+RnA
+	nyTEyHFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZk0t-0000000AjzM-3RiG;
-	Thu, 10 Jul 2025 05:40:07 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1uZk3B-0000000Ak6m-25zN;
+	Thu, 10 Jul 2025 05:42:29 +0000
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZjtW-0000000AjJC-3CKk
+	id 1uZjtc-0000000AjLj-0LOR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 05:32:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752125551; x=1783661551;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=RcyeYn6X+wAR6BX9QilZNMFInsMpAlUuKH5JyRu0IuI=;
-  b=SL5ky9YXWQSw2VeZWPAFQe4oFKttFc4Yv/bMaqbkDZQ8KJovOpxaH0Bn
-   MSPO3unpj64jqHwo82EJjVDI+aIOi+0tNk2YzVT028npDCHfiVra+qX+J
-   I8Izi+P9U+ASqG82MU9huGXQl7aVPRtlaOQEKV3y/pX5gMincPgkur0u7
-   tqbb5tOs3qXdANa3GpBoWPRlcKIu/XPDJhWMCT86gxO2coDiLEou1Fe+e
-   PCl/fq3B7dA1RJ1JHz3qJi4fsZtXBJ1wGkzbswm9buc2ZBG0xfQK11H7a
-   ZuTU5m01cwRfMUvwkLQhvzjR7yLheIOW6DqZyF4aKSN+htfbDnPRIyuLm
-   Q==;
-X-CSE-ConnectionGUID: +sIIJ7daSZaNNvzd2XOc4A==
-X-CSE-MsgGUID: 3tTmMmMpQXCjSHYwqfB4jQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11489"; a="65096102"
-X-IronPort-AV: E=Sophos;i="6.16,299,1744095600"; 
-   d="scan'208";a="65096102"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 22:32:30 -0700
-X-CSE-ConnectionGUID: iCOvLXylSDe65+RLXG1TLg==
-X-CSE-MsgGUID: y96L5vYoQr2yKJZUuIKecA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,299,1744095600"; 
-   d="scan'208";a="186955589"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa001.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 22:32:30 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 9 Jul 2025 22:32:29 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25 via Frontend Transport; Wed, 9 Jul 2025 22:32:29 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (40.107.93.50) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 9 Jul 2025 22:32:29 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v5hLp7udIN2VJsY/xIZwHTBREksmkjaxLgYEJw+kkghXnxvFC7y3SsMgcR9J4eVyUixL3lIHlizs1kBi6vHdV5JQRRKavcX4l+s2QAC9MxsL3P3yI6OjHqx0dAKkGqVCyg5pKf/uEkCVsCUQ9dMyRgkcNXAaDMnrBtLRferwNtl7mxWDzMpMvj61q06HAbm+nAEyi3tW4qxmBE7tcj6tB4xgZ8ClCM9ACc2JZGGpwcN2/FBhoDdjtS/f0KGWBvGt9siKqlkIhqhD+xexNYFSTtGgBwgg9i+VgC6pbQvRnRRce+gETNOHlVP9rn8E3FtOe1lm3+WMI2f9L0prg7LgaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CQjmF8mRxDGzkLSMNMm7dyBN+ZMDw9bK7dPzHYm+bpc=;
- b=SEADWBNb31vX0L48J4yvQgl5lcyO3ANJnI2Zygff19B1WZ4Ma63sV63N9C+EXC247wskQ8TAk0GXSC4VYc1QuhsT+8MEnCj1BTPwDz2AWAiQ8iDwOPYu2/YrIFRMYpbLgt1JAYLp1PfA7IM/jv2FUJltFgKMXoqZarTF4TNkf9x/i00kFrBrGvZqR3IxqKL47vuO3YG9cgqSnJ+BCACwYPG39WghqGUzMoST/HN1kxoNpWR864haXn5TPVPaFqLZW4WQFcWOOkj4hHWHsl9ebhUtR9soX1f4ldpfWMrEFYvffP0v2W8fhD0OBnE7uqObAIBC3cBmHef/8BeuGQi0kw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by MN2PR11MB4743.namprd11.prod.outlook.com (2603:10b6:208:260::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.25; Thu, 10 Jul
- 2025 05:32:13 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1%4]) with mapi id 15.20.8901.024; Thu, 10 Jul 2025
- 05:32:13 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Xu Yilun <yilun.xu@linux.intel.com>, Nicolin Chen <nicolinc@nvidia.com>
-CC: "jgg@nvidia.com" <jgg@nvidia.com>, "will@kernel.org" <will@kernel.org>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>, "joro@8bytes.org"
-	<joro@8bytes.org>, "praan@google.com" <praan@google.com>, "Liu, Yi L"
-	<yi.l.liu@intel.com>, "peterz@infradead.org" <peterz@infradead.org>,
-	"jsnitsel@redhat.com" <jsnitsel@redhat.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>, "baolu.lu@linux.intel.com"
-	<baolu.lu@linux.intel.com>
-Subject: RE: [PATCH v2 13/14] iommufd: Introduce iommufd_object_alloc_ucmd
- helper
-Thread-Topic: [PATCH v2 13/14] iommufd: Introduce iommufd_object_alloc_ucmd
- helper
-Thread-Index: AQHb3Pat0PkyUA+BQUmger6eZELdqrQpa4aAgAGQ60A=
-Date: Thu, 10 Jul 2025 05:32:13 +0000
-Message-ID: <BN9PR11MB52769CFD429C3E8E0918674A8C48A@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1749882255.git.nicolinc@nvidia.com>
- <e7206d4227844887cc8dbf0cc7b0242580fafd9d.1749882255.git.nicolinc@nvidia.com>
- <aG3+s8rzcjeKazG8@yilunxu-OptiPlex-7050>
-In-Reply-To: <aG3+s8rzcjeKazG8@yilunxu-OptiPlex-7050>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|MN2PR11MB4743:EE_
-x-ms-office365-filtering-correlation-id: 31c03331-d092-4dbb-855e-08ddbf732024
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?ILWMigvj2jwD1d1LyroYWp9boat79K1aqGKuuzpggfVSly7VDrKgYCUBFGOt?=
- =?us-ascii?Q?1M0HMFqI/hp4CAvNU541AR9nsGP6mDyIwrXF6AwoFMofK9MauP6Ro6FD+snh?=
- =?us-ascii?Q?29j4rmLgW6IYVyTmku/t8393PNH3Ry5sEO+TSZ4FFurWz8FG9WBNjCxlMF/j?=
- =?us-ascii?Q?MyYFFbEQvlOLm9ASoWGOdN3hB/XxPJGbHeVxiz5VMmgZ99rV/pzagBbYe7Mj?=
- =?us-ascii?Q?oYDps+YqU44zvEb/n5glBhktKKQj8puCNtysFgF8WRV6SWGOsTTBN0rO4zA5?=
- =?us-ascii?Q?C8QnCKk3wNuR78A6hKbJSGCimYJRqP5g45WN2Ftio3N/AEJDNdLAodfNmtvA?=
- =?us-ascii?Q?/goCtGuSTL8nY2P1VdsQNwDkkiZUci9xKdhuXvBJBZwT0QpUsWDwAfYcjNXZ?=
- =?us-ascii?Q?PfmKgSNYyNlRf8/0eDxl5VbqZvSvTu8ViVnm2jAZNa54JNpVOm7W07tviP1b?=
- =?us-ascii?Q?FpaVRE09TN/88OX0ztUAoXANFXM9SYRiEk2znNZ9fDaggSTojVDiK3EmKhMJ?=
- =?us-ascii?Q?fC8DHVf1Ndlrns5M5PqO1Cy04HyFkSnkQVqf+rf6FWrUm29IE5zdM0w1Y2JA?=
- =?us-ascii?Q?vER5KOzSSuBtk89HIY+zAUQb/Fr7F3XShOhX8n+oEt51CmmkqUTUWvQPyC2O?=
- =?us-ascii?Q?ixAHqSkEVqxdI6EtF0i2Imc7IqLi/17WkYLU0iFqs9o88jYMi1TnTrDeTvC8?=
- =?us-ascii?Q?7jR2DYqSGMd9sxWFvaP7wQ3iAzXOF8ZeoV6mY8LzrV1m3zJWZYhf5+f43xu+?=
- =?us-ascii?Q?HGoEH8r0HyVz67IEjpHurV3etDV4bjWW/efWhwjCvW2UUddW05i6bSO8uqxE?=
- =?us-ascii?Q?GGE1Ot9QbuaKfcimjoSb5g+47x5ASc784f0m4M2RvnQB9vQeoNkv27WimL9k?=
- =?us-ascii?Q?AIe0K1trSAWyIGR8jJPd68Ds/KpNPI7XlR5YLRPoEwlIfMtSgtksAPbVGbcp?=
- =?us-ascii?Q?QIJSvO5jxgXO7AA9U8LAJbHDdrQl/cQLgHh//it31kI55wV+wVD4dr9TIKrR?=
- =?us-ascii?Q?1nZKbJPHaXyqVvbbWbETrs0Wt+6P9mPn5+rdz9KA3fBRr2o8Ab+ftNG0cNG3?=
- =?us-ascii?Q?e6L51eZrkLz0BlIDB5gInpP1HvbyDIxb6u+y2+Q6aRuSbYZsu6ECWJvqR4wm?=
- =?us-ascii?Q?OacifW9RFu0/z/jv7FRQY04Vxgol5Yj8CBhLlywHyz5OCw5lrK9WRhQaA7Re?=
- =?us-ascii?Q?/qETY0BpmHrFSC2HM4jsGA0WghxjkWIuCY2XN0k5ozSgEeySbITCjLREeX1N?=
- =?us-ascii?Q?CuAMmW7NXzQqP51BTMuaGNN8dZdRJAUdSBKXL1HU+0J1V+eqizBU6OP+e5pg?=
- =?us-ascii?Q?yoVnZHzGGYeFyDvKnZht7R3ULFeAGTIqxxX8qhX8RvrA86hzIgg3xIifZKoT?=
- =?us-ascii?Q?Z9cEbiAFMai4eCbA988nx5tMoVKnTQMZveSEkkZaTHE4wv7dT1rZANS87dXe?=
- =?us-ascii?Q?Y6ZPUSQkbWM2eT9zYTJP2j/lxsvmCa/C74ygNP0+H/SUd1VItah/XA=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Rlz4AcHCoXJYkYxpjCM+gwoBO/aUqBZc7I/KwQtUgQdmoCCHoreIXuCjopXC?=
- =?us-ascii?Q?F+Ge8lAyfWFdqARQFuu1dMf2rcza4j0ucO9D7vfi7+iroF1fPtSmAs5d6DSM?=
- =?us-ascii?Q?FPfDati28LNjQqIcM5n2z/Sn8y40MjrIy34yhlvJWiMpMoqiC0lVV9fkPcxH?=
- =?us-ascii?Q?DZ7vB9O45kkiBlkQaiVDfL5XaWhUZKWtRKpSCRfBSVNXPBI5WUTnOK0iI3Ij?=
- =?us-ascii?Q?L5002RVnKBGYaTyHz6FJTFMGzNExiSa14ujAWJK8jv7KtV2/eR+CB5v/s2u+?=
- =?us-ascii?Q?e1uIxwyNXmp4kKXwPXW2S56cKEWRLjPxDbwbcM0VLCNyrXzq/QcIln8P0qo2?=
- =?us-ascii?Q?HJdQGAMV+gCGeIOmHl32gDA8V45RL/JmdDqAq+J8WTEziu6pkdwxt/G98wBB?=
- =?us-ascii?Q?2QOcuaFxr5b8a39MPpIObJzirP2WTAfbddKT2ysaDn+7Ij7JM+UQCXpRp0sV?=
- =?us-ascii?Q?HjCS43tx+6xUMdinGu+eUeAKEGiWlQO1cA83Tv0Jjlmb1DPDt2BFio1gLZS0?=
- =?us-ascii?Q?6uzPRvvtGAc10CvID7xSLxv5RGLZWdGvUJOhjzH9cgb25npRms3SHNfic9Zf?=
- =?us-ascii?Q?ZEzD1KlBJcYDMALUlgOIjoPWW4I7JkU705B1xbsRmcoLJz7KX2kQ5joRcOsc?=
- =?us-ascii?Q?bBYO7qJRNe2PLBi/NNO1DfpKvjMe4ciy7LVhmZeS8CzUBpY2tTSKxKVry/b+?=
- =?us-ascii?Q?3cfvsZMj/zAJ40ASFMFzHwuNvGYYRSJQV0wtcIEn1hUN9usNTPEhRFG5xfYs?=
- =?us-ascii?Q?GvlGmhgaaFH/ca304lfbDbR8XKHpyKQkKuiDHUp4rwdsIVp7V+3k9UT1l8Z3?=
- =?us-ascii?Q?VDFebXsuMBvBCGGOzBhW9TwdWKV/hGMAbljl/X0uCX7eEoks1p7NjkXK7ahf?=
- =?us-ascii?Q?VKG58mOrzv/f3D12faKBt5lpkWHcEEHadViroOc2n5dztLS2hmjjOI/4w60X?=
- =?us-ascii?Q?+Mfw/pG37PMEfCJdHOaLzINiAhWUo8DTPD4flihvGOdpL2muzel6FZLafHbR?=
- =?us-ascii?Q?mkTohQtZeUlkqyQLfFVUbsSCrPxStUTqu+uscHc4AuZup6KAeWGXZFP5Vxuy?=
- =?us-ascii?Q?Wex0z9U2zVMAqEsszwi09oK4KhV7Tmz1yRDRQINFoeOdoE8SJUGqnpQK4dUM?=
- =?us-ascii?Q?zg7KAv1bbR8Qr0TXJTsd02Ubqavsbus3/yEdYg7+x1AF1npZfIg9yXciqGSK?=
- =?us-ascii?Q?rdeKhRcmeKvtzz/wQhDlPqVIr0GhWhCbHRPb+JQHi84y9z9s0JceesESVDwK?=
- =?us-ascii?Q?NSlYYfR0wNnFSvdZO89W3oP4uTYBVT8YMt75qj/wlQSLcBewv0GIrbsu03Zx?=
- =?us-ascii?Q?gMNYMNfbIb10k53M7Bks/wLpbR7nbGfQE8mZHpt2Q37bEyd3Y+i53U0HVGmY?=
- =?us-ascii?Q?IZl7qiCMEWpw89xHh8y9+DMcKlhcy1cxwM74ruZGctCweIthXpdCGiIq+r+N?=
- =?us-ascii?Q?40i62xKciuuOkFgs2UJ9wnNI4/QP+7NMq1bQ72mg3238lYB1vLHMKNWW5ZgG?=
- =?us-ascii?Q?3YT3zp2YjYKED02I5UzLTImO7/5WfZeknRESujWjDMaaXSkbreTZORJoAKpd?=
- =?us-ascii?Q?UqMxomaWoLKLmjbjrnYEvMD3zHkOwnkF7g9FBRBN?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 10 Jul 2025 05:32:37 +0000
+Received: from [127.0.0.1] (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 56A5VD0w409123
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Wed, 9 Jul 2025 22:31:13 -0700
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 56A5VD0w409123
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2025062101; t=1752125475;
+	bh=CQh1DInxbfOA81mONPPipgpqdwiFZ+9PeQ0qSReXUEY=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=UZtpJDyY0O7zpLI46+afIFDPGTxicGDP5fvGUB8m4RMhn9cHwI0R+GHNT0AKpxNfx
+	 t6Pw1pdlDE+7fB6TOn/GWTKlrd0SXt6e6wUteOoCiDCqyhEkAh9A1GbdtI78ilGRSq
+	 d+cD61d6QF539bDzPSi4LXpUhpF3mJyZOq+NMUXTlPpvdEy6oYdjcX56K5wyPmDIG7
+	 0EoDScUMuLImo9dLMrbgJhQPPugqNm64uHQRAL6lw/17BNapD7Otf6phO1a5PZDcxn
+	 6NItttWq5qkxG0SToUdZnGvrCIAUhgHWZdX89R8kylXPNXMBH3XlLDcdQe+toELCEb
+	 vwu2G4cUcFKLA==
+Date: Wed, 09 Jul 2025 22:31:11 -0700
+From: "H. Peter Anvin" <hpa@zytor.com>
+To: dan.j.williams@intel.com, Peter Zijlstra <peterz@infradead.org>
+CC: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
+        linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+        linux-mm@kvack.org, gregkh@linuxfoundation.org,
+        Will Deacon <will@kernel.org>, Dan Williams <dan.j.williams@intel.com>,
+        Davidlohr Bueso <dave@stgolabs.net>,
+        Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
+        Yushan Wang <wangyushan12@huawei.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+        Andy Lutomirski <luto@kernel.org>
+Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
+User-Agent: K-9 Mail for Android
+In-Reply-To: <686f4e20c57cd_1d3d100b7@dwillia2-xfh.jf.intel.com.notmuch>
+References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com> <20250625085204.GC1613200@noisy.programming.kicks-ass.net> <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com> <20250625093152.GZ1613376@noisy.programming.kicks-ass.net> <686f4e20c57cd_1d3d100b7@dwillia2-xfh.jf.intel.com.notmuch>
+Message-ID: <3EAB3F81-D98C-4E4A-8E44-DB067547B318@zytor.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 31c03331-d092-4dbb-855e-08ddbf732024
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Jul 2025 05:32:13.7246
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: f0FncW+HBUJmN1xn5+bSsEDI9rMs87nZcmcRahltVKdFYmjDgOGUGjfIFIxk9KEYOJRbeRF5fQr+dCDriphq+w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB4743
-X-OriginatorOrg: intel.com
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_223230_816706_744F9C5D 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20250709_223236_114075_BFAAAF68 
+X-CRM114-Status: GOOD (  30.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,75 +87,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Xu Yilun <yilun.xu@linux.intel.com>
-> Sent: Wednesday, July 9, 2025 1:32 PM
->=20
-> > @@ -61,6 +61,24 @@ struct iommufd_object
-> *_iommufd_object_alloc(struct iommufd_ctx *ictx,
-> >  	return ERR_PTR(rc);
-> >  }
-> >
-> > +struct iommufd_object *_iommufd_object_alloc_ucmd(struct
-> iommufd_ucmd *ucmd,
-> > +						  size_t size,
-> > +						  enum iommufd_object_type
-> type)
-> > +{
-> > +	struct iommufd_object *new_obj;
-> > +
-> > +	/* Something is coded wrong if this is hit */
-> > +	if (WARN_ON(ucmd->new_obj))
-> > +		return ERR_PTR(-EBUSY);
-> > +
-> > +	new_obj =3D _iommufd_object_alloc(ucmd->ictx, size, type);
-> > +	if (IS_ERR(new_obj))
-> > +		return new_obj;
-> > +
-> > +	ucmd->new_obj =3D new_obj;
-> > +	return new_obj;
-> > +}
-> > +
-> >  /*
-> >   * Allow concurrent access to the object.
-> >   *
-> > @@ -448,6 +466,13 @@ static long iommufd_fops_ioctl(struct file *filp,
-> unsigned int cmd,
-> >  	if (ret)
-> >  		return ret;
-> >  	ret =3D op->execute(&ucmd);
-> > +
-> > +	if (ucmd.new_obj) {
-> > +		if (ret)
-> > +			iommufd_object_abort_and_destroy(ictx,
-> ucmd.new_obj);
->=20
-> Sorry I didn't follow this thread before and maybe missed something.
->=20
-> According to 70eadc7fc7ef, abort op is for the object that can assume
-> the caller is holding the lock. But here is for no locking, so calling
-> iommufd_object_abort_and_destroy() is quite confusing.
->=20
-> Is it better we change to:
->=20
-> 	if (ret) {
-> 		iommufd_object_ops[obj->type].destroy(obj);
-> 		iommufd_object_abort(ictx, obj);
-> 	}
+On July 9, 2025 10:22:40 PM PDT, dan=2Ej=2Ewilliams@intel=2Ecom wrote:
+>Peter Zijlstra wrote:
+>> On Wed, Jun 25, 2025 at 02:12:39AM -0700, H=2E Peter Anvin wrote:
+>> > On June 25, 2025 1:52:04 AM PDT, Peter Zijlstra <peterz@infradead=2Eo=
+rg> wrote:
+>> > >On Tue, Jun 24, 2025 at 04:47:56PM +0100, Jonathan Cameron wrote:
+>> > >
+>> > >> On x86 there is the much loved WBINVD instruction that causes a wr=
+ite back
+>> > >> and invalidate of all caches in the system=2E It is expensive but =
+it is
+>> > >
+>> > >Expensive is not the only problem=2E It actively interferes with thi=
+ngs
+>> > >like Cache-Allocation-Technology (RDT-CAT for the intel folks)=2E Do=
+ing
+>> > >WBINVD utterly destroys the cache subsystem for everybody on the
+>> > >machine=2E
+>> > >
+>> > >> necessary in a few corner cases=2E=20
+>> > >
+>> > >Don't we have things like CLFLUSH/CLFLUSHOPT/CLWB exactly so that we=
+ can
+>> > >avoid doing dumb things like WBINVD ?!?
+>> > >
+>> > >> These are cases where the contents of
+>> > >> Physical Memory may change without any writes from the host=2E Whi=
+lst there
+>> > >> are a few reasons this might happen, the one I care about here is =
+when
+>> > >> we are adding or removing mappings on CXL=2E So typically going fr=
+om
+>> > >> there being actual memory at a host Physical Address to nothing th=
+ere
+>> > >> (reads as zero, writes dropped) or visa-versa=2E=20
+>> > >
+>> > >> The
+>> > >> thing that makes it very hard to handle with CPU flushes is that t=
+he
+>> > >> instructions are normally VA based and not guaranteed to reach bey=
+ond
+>> > >> the Point of Coherence or similar=2E You might be able to (ab)use
+>> > >> various flush operations intended to ensure persistence memory but
+>> > >> in general they don't work either=2E
+>> > >
+>> > >Urgh so this=2E Dan, Dave, are we getting new instructions to deal w=
+ith
+>> > >this? I'm really not keen on having WBINVD in active use=2E
+>> > >
+>> >=20
+>> > WBINVD is the nuclear weapon to use when you have lost all notion of
+>> > where the problematic data can be, and amounts to a full reset of the
+>> > cache system=2E=20
+>> >=20
+>> > WBINVD can block interrupts for many *milliseconds*, system wide, and
+>> > so is really only useful for once-per-boot type events, like MTRR
+>> > initialization=2E
+>>=20
+>> Right this=2E=2E=2E But that CXL thing sounds like that's semi 'regular=
+' to
+>> the point that providing some infrastructure around it makes sense=2E T=
+his
+>> should not be=2E
+>
+>"Regular?", no=2E Something is wrong if you are doing this regularly=2E I=
+n
+>current CXL systems the expectation is to suffer a WBINVD event once per
+>server provisioning event=2E
+>
+>Now, there is a nascent capability called "Dynamic Capacity Devices"
+>(DCD) where the CXL configuration is able to change at runtime with
+>multiple hosts sharing a pool of memory=2E Each time the physical memory
+>capacity changes, cache management is needed=2E
+>
+>For DCD, I think the negative effects of WBINVD are a *useful* stick to
+>move device vendors to stop relying on software to solve this problem=2E
+>They can implement an existing CXL protocol where the device tells CPUs
+>and other CXL=2Ecache agents to invalidate the physical address ranges
+>that the device owns=2E
+>
+>In other words, if WBINVD makes DCD inviable that is a useful outcome
+>because it motivates unburdening Linux long term with this problem=2E
+>
+>In the near term though, current CXL platforms that do not support
+>device-initiated-invalidate still need coarse cache management for that
+>original infrequent provisioning events=2E Folks that want to go further
+>and attempt frequent DCD events with WBINVD get to keep all the pieces=2E
 
-I'd keep the original way. The function name describes what to do,
-not what to be called exactly inside. Lacking of the abort method
-doesn't change the meaning of the function which is about abort
-and destroy (just like how it's called before introducing @abort).
-
->=20
-> Also explicitely assert iommufd_object_alloc_ucmd() and abort can't be
-> used at the same time.
->=20
-> in _iommufd_object_alloc_ucmd():
->=20
-> 	if (WARN_ON(iommufd_object_ops[type].abort))
-> 		return ERR_PTR(-EFAULT);
->=20
-
-but this check sounds necessary.
+Since this is presumably rare, it might be better to loop and clflush, eve=
+n though it will take longer, rather than stopping the world=2E
 
