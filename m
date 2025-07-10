@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ADFBC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 21:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99795C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 21:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dK3+vVfqOJwgcvbSOXlTrXE17g//6OeCs7hq/OKo4hU=; b=ox9rj2WuTt/o81ePQvHiD20BIg
-	PnSfH4BiWaCP6B6fT5sSxOOZ3MZOkKQ5GRSL5HFSQCy0T6HcBc3VNlGfy0j6tJrPNdLdutxA7oLHx
-	ykBvsHminjY2h4MRsar/r34t29pqrnJAT/fo4ZPk8Klc0f4e7uorXCkC2Nf7jvIYU22pqvSUSi1qs
-	jQ2VFHwTX8rOHBK1rUj4Bp9Cj1vNaWZZQIdt4nYsGQBPHPbphzfggLwnUa4VBAMSi+2kdCXc9CNs1
-	k/Nl+FQG0o+xvZ5vwXqfzK1hKZhbvXRluH+w8oyMHyH6D5wqBsYOtMtwm7kY8q/7hK4zm9zEtRKv2
-	bAunmSGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2bzdLOutw45NuzUy8PqWXaJAtp7VYXU2KwETf6FwUq4=; b=2sP//WjT3zSP85yoSt3btlkQ1c
+	hyzZR7FsSuCgCuAgzxe7rZLkiTz/vZM2gJtNlGdRSyZ4FSJhCCuMsvFH5bGlwQx4fG5rMG/nUp2QW
+	UDKH5ZKYOYn9Rxm9UY0tc4974vixcAoJIeq/amnCtRCAK2SldLURoueW+GARfuRJOx3qdR+37J+W5
+	/AXpApdZWMHj+US/Dz7Iz0R04HOerqJ8W231nWNyDq3BfQXcQJ/El0yx/tfUZ1abF9ZAlZRB1p4eO
+	+9gGUlXAMC8adseml5d0Hvl5Y2VjlZ7EmQo863s4xthdTvSmmUsxFvx3+eOiKp/a9Ww0RoXCSVtWv
+	KClz/aQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZySH-0000000D1j3-0CVE;
-	Thu, 10 Jul 2025 21:05:21 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1uZyUZ-0000000D1rU-3QbB;
+	Thu, 10 Jul 2025 21:07:43 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZwlk-0000000Cnvw-3gMX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 19:17:21 +0000
-Received: from [127.0.0.1] (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 56AJGXME778639
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Thu, 10 Jul 2025 12:16:34 -0700
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 56AJGXME778639
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2025062101; t=1752174995;
-	bh=dK3+vVfqOJwgcvbSOXlTrXE17g//6OeCs7hq/OKo4hU=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=H+2YFCTnw5z6ZLmuZ9B1BVWch1D/9ZhhVQGNSyZbDzQrCCeVVzHocaCB1sQi4QU9r
-	 0C7ngFQOxCuhCK+pcoHRI+6BB6C8lJ+vTL5qIPXuMNidq+Mqe4sCI6TX74RFBOwba2
-	 vtVKDGjVg5M0FIXvySLLNsmT+JOjBN45GKe97AOAYfPpsWgNXzUPSepEbr2jmaRovM
-	 ck1NS7DVSImoOUSNby0QoW+XP/8Z1TSEFUdvPKEwZdEV6dfXhdXJMi717yROJRIbEJ
-	 d1PaNAZeAHojU682AVXBZ2cfMBYha32WzVsXtbTSuT7T46yVhu/ug35jtxbCOVOA2K
-	 +zI/CfaUj+IPg==
-Date: Thu, 10 Jul 2025 12:16:33 -0700
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: dan.j.williams@intel.com, Peter Zijlstra <peterz@infradead.org>
-CC: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
-        linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-mm@kvack.org, gregkh@linuxfoundation.org,
-        Will Deacon <will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
-        Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
-        Yushan Wang <wangyushan12@huawei.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-        Andy Lutomirski <luto@kernel.org>
-Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
-User-Agent: K-9 Mail for Android
-In-Reply-To: <68701051ec185_1d3d1001d@dwillia2-xfh.jf.intel.com.notmuch>
-References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com> <20250625085204.GC1613200@noisy.programming.kicks-ass.net> <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com> <20250625093152.GZ1613376@noisy.programming.kicks-ass.net> <686f4e20c57cd_1d3d100b7@dwillia2-xfh.jf.intel.com.notmuch> <20250710105622.GA542000@noisy.programming.kicks-ass.net> <68700a5428a2f_1d3d1008b@dwillia2-xfh.jf.intel.com.notmuch> <575B5DF2-AE1D-43E9-9A4B-09FB78EFFC43@zytor.com> <68701051ec185_1d3d1001d@dwillia2-xfh.jf.intel.com.notmuch>
-Message-ID: <4CA4EB2A-8F45-4596-ADB9-B0C2307316B1@zytor.com>
+	id 1uZwyZ-0000000CoqY-3XRv;
+	Thu, 10 Jul 2025 19:30:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1752175820; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=I/ka+SLGhV+QGCE7fhGV9qYnglLgy9/7ibP/VHkpOEkzzlN+hYr3n1hU+m0Czd3JuzQEcq3dJutzOQDlLs4uuTOHYI/Lj8p3iXdTFweEpCXHRjKKkqLQ24u3kz7ogTT6ITQRIH8buzu3rmYlidtSoboB93yZBpHRO+aGTxnuDY4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1752175820; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=2bzdLOutw45NuzUy8PqWXaJAtp7VYXU2KwETf6FwUq4=; 
+	b=KGNFyCXuU/Eu7gI53XiCbXZ+2vpS1Ajv5tsP6P5DkQZQ7IogkRrzv2E2nSQ6QPoYGfJZFxB9rHfMFncR5gkPpshEpNmhmshWWYu93Hkr46rex2NKwDW57U5JARz8hTeTCfu6ErwawJQdGWt5x+2Gy63PfS87RHWiQxSiNu09gwk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752175820;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=2bzdLOutw45NuzUy8PqWXaJAtp7VYXU2KwETf6FwUq4=;
+	b=kw7up1/5sk7CS9DwqFvhC738rMQmLkDy+YBescJyPukKyMiQXceMUwSSbDObh1iU
+	ZFgMXP3VSkSTnRsOVkc3kmN5JNUm1ed5mQHxwFolk5+x8M8+Yi9IJdDT66VzpDBwZwD
+	9Sono6bXrQ7cofGqQpGwIZMHjH9DgKP4GZKvxFWQ=
+Received: by mx.zohomail.com with SMTPS id 1752175818697100.88359010230067;
+	Thu, 10 Jul 2025 12:30:18 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Alexey Charkov <alchark@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 4/7] dt-bindings: thermal: rockchip: document otp thermal trim
+Date: Thu, 10 Jul 2025 21:30:12 +0200
+Message-ID: <6505070.lOV4Wx5bFT@workhorse>
+In-Reply-To: <3592348.tdWV9SEqCh@phil>
+References: <20250610-rk3576-tsadc-upstream-v6-0-b6e9efbf1015@collabora.com>
+ <20250610-rk3576-tsadc-upstream-v6-4-b6e9efbf1015@collabora.com>
+ <3592348.tdWV9SEqCh@phil>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_121720_909956_B189C124 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20250710_123035_944630_C70F4C74 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,58 +84,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On July 10, 2025 12:11:13 PM PDT, dan=2Ej=2Ewilliams@intel=2Ecom wrote:
->H=2E Peter Anvin wrote:
->[=2E=2E]
->> >> > In the near term though, current CXL platforms that do not support
->> >> > device-initiated-invalidate still need coarse cache management for=
- that
->> >> > original infrequent provisioning events=2E Folks that want to go f=
-urther
->> >> > and attempt frequent DCD events with WBINVD get to keep all the pi=
-eces=2E
->> >>=20
->> >> I would strongly prefer those pieces to include WARNs and or worse=
-=2E
->> >
->> >That is fair=2E It is not productive for the CXL subsystem to sit back=
- and
->> >hope that people notice the destructive side-effects of wbinvd and hop=
-e
->> >that leads to device changes=2E
->> >
->> >This discussion has me reconsidering that yes, it would indeed be bett=
-er
->> >to clflushopt loop over potentially terabytes on all CPUs=2E That shou=
-ld
->> >only be suffered rarely for the provisioning case, and for the DCD cas=
-e
->> >the potential add/remove events should be more manageable=2E
->> >
->> >drm already has drm_clflush_pages() for bulk cache management, CXL
->> >should just align on that approach=2E
->>=20
->> Let's not be flippant; looping over terabytes could take *hours*=2E But=
- those are hours during which the system is alive, and only one CPU needs t=
-o be looping=2E
->
->Do not all CPUs need to perform the invalidation for L1 copies of the
->line?
->
->Not trying to be flippant, but if wbinvd is only a one-shot per Peter's
->proposed policy and the system experiences another CXL reconfiguration
->event, then looping is the only option or fail the memory plug event=2E
->
->> The other question is: what happens if memory is unplugged and then a
->> cache line evicted? I'm guessing that existing memory hotplug
->> solutions simply drop the writeback, since the OS knows there is no
->> valid memory there, and so any cached data is inherently worthless=2E
->
->Right, the expectation is that unplug is always coordinated and that
->surprise unplug is unsupported / might lead to system instability=2E
->
->
+On Thursday, 10 July 2025 13:21:19 Central European Summer Time Heiko Stueb=
+ner wrote:
+> Am Dienstag, 10. Juni 2025, 14:32:40 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb Nicolas Frattaroli:
+> > Several Rockchip SoCs, such as the RK3576, can store calibration trim
+> > data for thermal sensors in OTP cells. This capability should be
+> > documented.
+> >=20
+> > Such a rockchip thermal sensor may reference cell handles that store
+> > both a chip-wide trim for all the sensors, as well as cell handles
+> > for each individual sensor channel pointing to that specific sensor's
+> > trim value.
+> >=20
+> > Additionally, the thermal sensor may optionally reference cells which
+> > store the base in terms of degrees celsius and decicelsius that the trim
+> > is relative to.
+> >=20
+> > Each SoC that implements this appears to have a slightly different
+> > combination of chip-wide trim, base, base fractional part and
+> > per-channel trim, so which ones do which is documented in the bindings.
+> >=20
+> > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>=20
+> Acked-by: Heiko Stuebner <heiko@sntech.de>
+>=20
+> with one question below
+>=20
+> > ---
+> >  .../bindings/thermal/rockchip-thermal.yaml         | 61 ++++++++++++++=
+++++++++
+> >  1 file changed, 61 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal=
+=2Eyaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+> > index 49ceed68c92ce5a32ed8d4f39bd88fd052de0e80..573f447cc26ed7100638277=
+598b0e745d436fd01 100644
+> > --- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+> > +++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+> > @@ -40,6 +40,17 @@ properties:
+> >        - const: tsadc
+> >        - const: apb_pclk
+> > =20
+> > +  nvmem-cells:
+> > +    items:
+> > +      - description: cell handle to where the trim's base temperature =
+is stored
+> > +      - description:
+> > +          cell handle to where the trim's tenths of Celsius base value=
+ is stored
+> > +
+> > +  nvmem-cell-names:
+> > +    items:
+> > +      - const: trim_base
+> > +      - const: trim_base_frac
+> > +
+>=20
+> are we sure, we want underscores here?
+> trim-base, trim-base-frac looks somewhat nicer.
 
-CLFLUSH goes through the cache coherency protocol and is therefore system =
-wide, which WBINVD is not=2E
+a quick grep of all the bindings shows me that _ vs. - is about even.
+I'm not sure deviating from what downstream calls it, what I already
+sent, and what the already sent driver expects is really worth anyone's
+time and mailbox space for what boils down to a matter of personal
+preference.
+
+>=20
+> Heiko
+>=20
+
+Kind regards,
+Nicolas Frattaroli
+
+
+
+
 
