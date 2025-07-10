@@ -4,81 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D98CC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4623C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S5pXaI1r/zpH3w7W9hJhtiCehE4r0uIxKw1TgRh8vR8=; b=aFxCXrAH5lBG8da5tPM9KN+aMD
-	m4+WIg8KvmeEDjqGpMX3njBKv4r0JqFOTHe4gx5EXziY6AUPD8gws48aDZXryg0+dWqlgAkXKZ58S
-	m6bUFRfPYZMasTFqThN9W/V9oHvkzXE5OvBy24fDU4WXwT1oyiIjqiAAKX97TetCEFSQr25Wv8CxS
-	fbPjoSaKco83450kNFp3neTPcRIughwd8U/XBrtCiahpFVpeKUpTGQV04ZO2ffxhq4oDD82RS5E+j
-	QzpoH8gCgpa3CODc0L+99Dkm57qwcmEvDs26sboa3A7dp76EbERRest89n3xeJA7Qb8EnYg7v62Qb
-	Uu2qHFfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NllAQfNayY8cb5iLzosXwdI782jVJrwH9mu2C3D5sw0=; b=FBfNuLegcFcOPU49t1hc3tBfKr
+	2MF8gAbB9QL8T9H2MsYZd8gkKpO6vik5JFc70T5gPvx9t4LDXYwpOiaLqlzb+55fol/1fkK2TAXW/
+	nXSXmGBKVz6JaAx9/mKu2reb0CSK/v5CZ42eKUahxAdSuiQTlzfvZpLQ6Rc2LgIgCcf+uPSpU5z5m
+	ZsrgnzV+YyMyeLPkc1US5LhBT/bOEA8JKBUhT2u0N+Eip6TpYjZ8hdatV09S3Btzt0xRME1IUh2HF
+	dco451ZGCg07XsecWPEjo5t5V2/7iPqoafvWBCHObvDLSbUDQOYDPJNdL2TVvcGcWh5eAPFPf3hqt
+	3jMy9VKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZr6E-0000000BtNz-0Vdz;
-	Thu, 10 Jul 2025 13:14:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uZr78-0000000BteT-2EVz;
+	Thu, 10 Jul 2025 13:15:02 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZoqW-0000000BXEn-0I6L;
-	Thu, 10 Jul 2025 10:49:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=S5pXaI1r/zpH3w7W9hJhtiCehE4r0uIxKw1TgRh8vR8=; b=Ht9a9ds8QmgNk96vPVGQ+vPQy7
-	tzfGfN5/ClJZvtqv6wE3cxEjpMhZYAPuICJu2IikGf3mATfmr/ESku9F9AKfaQQ/kZNO+iQ48/+Eg
-	6WziwOLSuSGLMFiL3sX9WTqMWq1ku93MPek76sg2Pkt1eWdK84abTuROtVXhhfpRSn+/FqSmoMKB/
-	aFkMw4cdrKTLUhG/zWx5+LMmTNDVZUnPsAFw7dc3ejODB69Z8+bWoleIEAT8fPrY3rE2hYf9LRJei
-	7bqarUkQVgH50GullncS6Bq/88t+1tmdlotpBHF1Wy6sL3JQsx4TuR91PpihGJgmcSmC38Uvgg+9v
-	9i+terzw==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZoqS-00000008zyD-0yat;
-	Thu, 10 Jul 2025 10:49:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752144574;
-	bh=6eCyQRGUL84zvCp0r/7JvZNwmMn+HX4Mb1TJDE3F9Wg=;
-	h=Date:To:Cc:From:Subject:From;
-	b=XuviOK6SBd2NvqMbB2L6+gu9vU3NmambBlBUx0FGqVrbYsdYcqmU28Pr3MWUO6R3o
-	 6Oir2TVfotwjcaQLnNCHkMoPa8smRsz1gjumj/H1DUYXG0oFP0S1GhSfiLKCMnZ3cc
-	 aJ9uONWY7gPE52f3OR5+zsRrN4s36z+FVorr2LWvtcATAy4Fq6ScnF/9Jcil2HBYog
-	 qbCqW601yIBf4IxJmHfxl3avVAhBnVUOeMdEnvuH5rdB3NpH7eZCSvVaMCLUyoQWio
-	 ti5fU/6NJ/ZOV6WaZubJM0cJaXtnu6x9FaNfLoQMBn80BUehK2XOsroFQlV1WkU9sz
-	 aoF9r2NETeH7A==
-Received: from [192.168.50.250] (unknown [171.76.82.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: vignesh)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5501717E0489;
-	Thu, 10 Jul 2025 12:49:31 +0200 (CEST)
-Message-ID: <59724e10-12ca-4481-b0e4-72d7b6e4dae0@collabora.com>
-Date: Thu, 10 Jul 2025 16:19:22 +0530
+	id 1uZpZh-0000000BeZP-1Qlo
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 11:36:27 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-237f18108d2so171505ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 04:36:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1752147384; x=1752752184; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NllAQfNayY8cb5iLzosXwdI782jVJrwH9mu2C3D5sw0=;
+        b=p1Wmg/hCBhz5jye+8Jg9wYJLWcM+9QLe+Ty5E+enR1FAoNtFAr4k9nNVOBfAh1cCal
+         5XDafdx+62Uxf/WW+S9DsjADM/8ljF4w4lOQ/DQqeMZirCxrA69DKN1SDjSs4z+zi75l
+         bLL2x0AeesrDrQhl3Zqz950Qza/ZR4Vwvjmmx8mo3K/4zSHpR/ljsJQAv54cTKRInF/l
+         TqpZ3lrX4RNZvZdw9JI/wXu2a4M83KWPq6nE2NdkFJAxgNLjbs1IOTFzlHFIjgCzFTgG
+         w2RIA36VD59qPSP1UhvhOKs7VZ8ZScIa9T3y9MS+vns9ls+73PDf/QPBULBe+0VOxEJx
+         EC9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752147384; x=1752752184;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NllAQfNayY8cb5iLzosXwdI782jVJrwH9mu2C3D5sw0=;
+        b=wREXnyE41STPQQqX4LV/4AVyXj7Oard/sUKLLWeBrhKFVVNMkLgH2wsM4mGYtoQOMk
+         M6uc0TGjZDBbh2GvSBzTBSwX70gcmkMLjiAqDYyAIN43NcAHNQ9umzWFMNHYiIvY5hT0
+         Hg1fcScuTIcseEAEIVpmrmHZMVM/clRsuD3psc7uHUqaiTgBdkXMtE2fqUQz0wM81HtE
+         0TrzMx9auTWbUYw8GY5qCTjOWQRe1rfrBzCQhpx85b5pRIpr/NLqE1JcRSpvFHFe+T0P
+         IdE4IZ9arvnWm7xFA2rNqPKxTo/9Pm6DQPSFKB50Z+AUlCWUkJyhLVOtDGXjK0HIjJWm
+         ARYw==
+X-Forwarded-Encrypted: i=1; AJvYcCWzrlBtd7i4dforwjQrSipaVVJF+UuMvTPxXoF/2pnuQXEvnS7EA2167jjhaTy/Cc+wsDnxPMs+bTzgnptxtK2U@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8NFxQxyF33O9Uy+dXxc5Pa/j2vUK+xjv1S3kYVKfAZsrb5S7u
+	F8WAPxFL140pW/el4L/1Ld1veEuahaKEkZqCBvkRudKM5Q5KgIBchZh1cErjmpz+Lw==
+X-Gm-Gg: ASbGncuojeWH/KVEurcZZTJiwauPClgROiXTYgEoZ+4EwGN30Hs5Azs2CjPsAGuxLt5
+	QQREESeNbs52b/M8IAxFEE6zT6hf9skJXHphatDtgoCZKLjgqANtjcPGaKA+u79cAasm+VwAmQq
+	wAYUqVuRh6engen2vBUuzUs+vHv7woNteKDn8QvjEKtdc/dT0zTcPNiPl6F6AMPocMd2P8PKgvT
+	FvqUohjrMP1kLZG5A1bCOIrZJ5y4Su219GlnZTaRaW4YeymmMdY1Htm76wkJEPeRkCDTpmWzOuD
+	CfIrlb7CsGfUDMrMsI/pYJUFZbSzmJPusE+MnhWHmSkM9Ar5Wsh36zQkmPYNK7F2QjZQILRY25P
+	k85k39clRNAX8BDcvodea
+X-Google-Smtp-Source: AGHT+IFWWBrqFVRqrzk0Fwyab1Mld4BviLi8cbgIh+j6R1xSHmEyatBRaGWIq1+8HV4NnwrugSgVcw==
+X-Received: by 2002:a17:903:3ba5:b0:215:9ab0:402 with SMTP id d9443c01a7336-23de38137a5mr2696735ad.18.1752147384158;
+        Thu, 10 Jul 2025 04:36:24 -0700 (PDT)
+Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9e07793sm1937009b3a.69.2025.07.10.04.36.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Jul 2025 04:36:23 -0700 (PDT)
+Date: Thu, 10 Jul 2025 11:36:15 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net,
+	bagasdotme@gmail.com, will@kernel.org, robin.murphy@arm.com,
+	joro@8bytes.org, thierry.reding@gmail.com, vdumpa@nvidia.com,
+	jonathanh@nvidia.com, shuah@kernel.org, jsnitsel@redhat.com,
+	nathan@kernel.org, peterz@infradead.org, yi.l.liu@intel.com,
+	mshavit@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com
+Subject: Re: [PATCH v9 16/29] iommufd/selftest: Add coverage for
+ IOMMUFD_CMD_HW_QUEUE_ALLOC
+Message-ID: <aG-lr9nUhwff4GuJ@google.com>
+References: <cover.1752126748.git.nicolinc@nvidia.com>
+ <e8a194d187d7ef445f43e4a3c04fb39472050afd.1752126748.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: linux-rockchip@lists.infradead.org,
- dri-devel <dri-devel@lists.freedesktop.org>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, Maxime Ripard <mripard@kernel.org>,
- tzimmermann@suse.de, Dave Airlie <airlied@gmail.com>,
- Daniel Vetter <daniel@ffwll.ch>, Daniel Stone <daniels@collabora.com>,
- Helen Mae Koike Fornazier <helen.fornazier@gmail.com>,
- sebastian.reichel@collabora.com, linux-arm-kernel@lists.infradead.org
-From: Vignesh Raman <vignesh.raman@collabora.com>
-Subject: drm-ci: rk3399-gru-kevin: kms_flip@plain-flip-ts-check-interruptible
- flake
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e8a194d187d7ef445f43e4a3c04fb39472050afd.1752126748.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_114940_778704_8B831780 
-X-CRM114-Status: UNSURE (   4.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250710_043625_382508_22FA80CB 
+X-CRM114-Status: GOOD (  29.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,157 +108,321 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maintainers,
+On Wed, Jul 09, 2025 at 10:59:08PM -0700, Nicolin Chen wrote:
+> Some simple tests for IOMMUFD_CMD_HW_QUEUE_ALLOC infrastructure covering
+> the new iommufd_hw_queue_depend/undepend() helpers.
+> 
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-There are some flake test reported for rockchip driver testing in drm-ci.
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-# Board Name: rk3399-gru-kevin
-# Failure Rate: 40
-# IGT Version: 2.1-g26ddb59c1
-# Linux Version: 6.16.0-rc2
-kms_flip@plain-flip-ts-check-interruptible
-
-command: cd "/igt/libexec/igt-gpu-tools" && 
-"/igt/libexec/igt-gpu-tools/kms_flip" "--run-subtest" 
-"plain-flip-ts-check-interruptible"
-pid: 1007
-exit status: exit status: 98
-stdout:
--------
-IGT-Version: 2.1-g26ddb59c1 (aarch64) (Linux: 6.16.0-rc2-ga202a71c05dc 
-aarch64)
-Using IGT_SRANDOM=1751940132 for randomisation
-Opened device: /dev/dri/card1
-Using monotonic timestamps
-Starting subtest: plain-flip-ts-check-interruptible
-Starting dynamic subtest: A-eDP1
-   2400x1600: 60 266666 2400 2448 2480 2564 1600 1603 1613 1733 0x48 0xa
-Expected frametime: 16663us; measured 16669.4us +- 86.357us accuracy 1.55%
-Stack trace:
-   #0 ../lib/igt_core.c:2075 __igt_fail_assert()
-   #1 ../tests/kms_flip.c:1435 run_test_on_crtc_set.constprop.0()
-   #2 ../tests/kms_flip.c:1856 run_test()
-   #3 ../tests/kms_flip.c:2141 __igt_unique____real_main2028()
-   #4 ../tests/kms_flip.c:2028 main()
-   #5 [__libc_init_first+0x80]
-   #6 [__libc_start_main+0x98]
-   #7 [_start+0x30]
-Dynamic subtest A-eDP1: FAIL (1.733s)
-Starting dynamic subtest: B-eDP1
-   2400x1600: 60 266666 2400 2448 2480 2564 1600 1603 1613 1733 0x48 0xa
-Expected frametime: 16663us; measured 16662.7us +- 30.159us accuracy 0.54%
-Stack trace:
-   #0 ../lib/igt_core.c:2075 __igt_fail_assert()
-   #1 ../tests/kms_flip.c:1435 run_test_on_crtc_set.constprop.0()
-   #2 ../tests/kms_flip.c:1856 run_test()
-   #3 ../tests/kms_flip.c:2141 __igt_unique____real_main2028()
-   #4 ../tests/kms_flip.c:2028 main()
-   #5 [__libc_init_first+0x80]
-   #6 [__libc_start_main+0x98]
-   #7 [_start+0x30]
-Dynamic subtest B-eDP1: FAIL (1.544s)
-Subtest plain-flip-ts-check-interruptible: FAIL (3.308s)
-stderr:
--------
-(kms_flip:1007) CRITICAL: Test assertion failure function calibrate_ts, 
-file ../tests/kms_flip.c:1455:
-(kms_flip:1007) CRITICAL: Failed assertion: 3 * stddev / mean < 0.005
-(kms_flip:1007) CRITICAL: Last errno: 4, Interrupted system call
-Dynamic subtest A-eDP1 failed.
-**** DEBUG ****
-(kms_flip:1007) igt_fb-DEBUG: igt_create_fb_with_bo_size(width=2400, 
-height=1600, format=XR24(0x34325258), modifier=0x0, size=0)
-(kms_flip:1007) igt_fb-DEBUG: igt_create_fb_with_bo_size(handle=1, 
-pitch=9600)
-(kms_flip:1007) ioctl_wrappers-DEBUG: Test requirement passed: 
-igt_has_fb_modifiers(fd)
-(kms_flip:1007) igt_fb-DEBUG: igt_create_fb_with_bo_size(width=2400, 
-height=1600, format=XR24(0x34325258), modifier=0x0, size=0)
-(kms_flip:1007) igt_fb-DEBUG: igt_create_fb_with_bo_size(handle=2, 
-pitch=9600)
-(kms_flip:1007) ioctl_wrappers-DEBUG: Test requirement passed: 
-igt_has_fb_modifiers(fd)
-(kms_flip:1007) igt_fb-DEBUG: Test requirement passed: 
-cairo_surface_status(fb->cairo_surface) == CAIRO_STATUS_SUCCESS
-(kms_flip:1007) igt_fb-DEBUG: Test requirement passed: 
-cairo_surface_status(fb->cairo_surface) == CAIRO_STATUS_SUCCESS
-(kms_flip:1007) igt_kms-INFO:   2400x1600: 60 266666 2400 2448 2480 2564 
-1600 1603 1613 1733 0x48 0xa
-(kms_flip:1007) DEBUG: No stale events found
-(kms_flip:1007) INFO: Expected frametime: 16663us; measured 16669.4us +- 
-86.357us accuracy 1.55%
-(kms_flip:1007) CRITICAL: Test assertion failure function calibrate_ts, 
-file ../tests/kms_flip.c:1455:
-(kms_flip:1007) CRITICAL: Failed assertion: 3 * stddev / mean < 0.005
-(kms_flip:1007) CRITICAL: Last errno: 4, Interrupted system call
-(kms_flip:1007) igt_core-INFO: Stack trace:
-(kms_flip:1007) igt_core-INFO:   #0 ../lib/igt_core.c:2075 
-__igt_fail_assert()
-(kms_flip:1007) igt_core-INFO:   #1 ../tests/kms_flip.c:1435 
-run_test_on_crtc_set.constprop.0()
-(kms_flip:1007) igt_core-INFO:   #2 ../tests/kms_flip.c:1856 run_test()
-(kms_flip:1007) igt_core-INFO:   #3 ../tests/kms_flip.c:2141 
-__igt_unique____real_main2028()
-(kms_flip:1007) igt_core-INFO:   #4 ../tests/kms_flip.c:2028 main()
-(kms_flip:1007) igt_core-INFO:   #5 [__libc_init_first+0x80]
-(kms_flip:1007) igt_core-INFO:   #6 [__libc_start_main+0x98]
-(kms_flip:1007) igt_core-INFO:   #7 [_start+0x30]
-****  END  ****
-(kms_flip:1007) CRITICAL: Test assertion failure function calibrate_ts, 
-file ../tests/kms_flip.c:1455:
-(kms_flip:1007) CRITICAL: Failed assertion: 3 * stddev / mean < 0.005
-(kms_flip:1007) CRITICAL: Last errno: 4, Interrupted system call
-Dynamic subtest B-eDP1 failed.
-**** DEBUG ****
-(kms_flip:1007) igt_fb-DEBUG: igt_create_fb_with_bo_size(width=2400, 
-height=1600, format=XR24(0x34325258), modifier=0x0, size=0)
-(kms_flip:1007) igt_fb-DEBUG: igt_create_fb_with_bo_size(handle=3, 
-pitch=9600)
-(kms_flip:1007) ioctl_wrappers-DEBUG: Test requirement passed: 
-igt_has_fb_modifiers(fd)
-(kms_flip:1007) igt_fb-DEBUG: igt_create_fb_with_bo_size(width=2400, 
-height=1600, format=XR24(0x34325258), modifier=0x0, size=0)
-(kms_flip:1007) igt_fb-DEBUG: igt_create_fb_with_bo_size(handle=4, 
-pitch=9600)
-(kms_flip:1007) ioctl_wrappers-DEBUG: Test requirement passed: 
-igt_has_fb_modifiers(fd)
-(kms_flip:1007) igt_fb-DEBUG: Test requirement passed: 
-cairo_surface_status(fb->cairo_surface) == CAIRO_STATUS_SUCCESS
-(kms_flip:1007) igt_fb-DEBUG: Test requirement passed: 
-cairo_surface_status(fb->cairo_surface) == CAIRO_STATUS_SUCCESS
-(kms_flip:1007) igt_kms-INFO:   2400x1600: 60 266666 2400 2448 2480 2564 
-1600 1603 1613 1733 0x48 0xa
-(kms_flip:1007) DEBUG: No stale events found
-(kms_flip:1007) INFO: Expected frametime: 16663us; measured 16662.7us +- 
-30.159us accuracy 0.54%
-(kms_flip:1007) CRITICAL: Test assertion failure function calibrate_ts, 
-file ../tests/kms_flip.c:1455:
-(kms_flip:1007) CRITICAL: Failed assertion: 3 * stddev / mean < 0.005
-(kms_flip:1007) CRITICAL: Last errno: 4, Interrupted system call
-(kms_flip:1007) igt_core-INFO: Stack trace:
-(kms_flip:1007) igt_core-INFO:   #0 ../lib/igt_core.c:2075 
-__igt_fail_assert()
-(kms_flip:1007) igt_core-INFO:   #1 ../tests/kms_flip.c:1435 
-run_test_on_crtc_set.constprop.0()
-(kms_flip:1007) igt_core-INFO:   #2 ../tests/kms_flip.c:1856 run_test()
-(kms_flip:1007) igt_core-INFO:   #3 ../tests/kms_flip.c:2141 
-__igt_unique____real_main2028()
-(kms_flip:1007) igt_core-INFO:   #4 ../tests/kms_flip.c:2028 main()
-(kms_flip:1007) igt_core-INFO:   #5 [__libc_init_first+0x80]
-(kms_flip:1007) igt_core-INFO:   #6 [__libc_start_main+0x98]
-(kms_flip:1007) igt_core-INFO:   #7 [_start+0x30]
-****  END  ****
-(kms_flip:1007) igt_kms-CRITICAL: Test assertion failure function 
-kmstest_set_connector_dpms, file ../lib/igt_kms.c:2247:
-(kms_flip:1007) igt_kms-CRITICAL: Failed assertion: found_it
-(kms_flip:1007) igt_kms-CRITICAL: Last errno: 9, Bad file descriptor
-(kms_flip:1007) igt_kms-CRITICAL: DPMS property not found on 54
-
-Pipeline: https://gitlab.freedesktop.org/vigneshraman/msm/-/jobs/79971538
-
-Please could you have a look at these test results and let us know if 
-you need more information. Thank you.
-
-Regards,
-Vignesh
+> ---
+>  drivers/iommu/iommufd/iommufd_test.h          |  3 +
+>  tools/testing/selftests/iommu/iommufd_utils.h | 31 ++++++
+>  drivers/iommu/iommufd/selftest.c              | 97 +++++++++++++++++++
+>  tools/testing/selftests/iommu/iommufd.c       | 59 +++++++++++
+>  .../selftests/iommu/iommufd_fail_nth.c        |  6 ++
+>  5 files changed, 196 insertions(+)
+> 
+> diff --git a/drivers/iommu/iommufd/iommufd_test.h b/drivers/iommu/iommufd/iommufd_test.h
+> index fbf9ecb35a13..51cd744a354f 100644
+> --- a/drivers/iommu/iommufd/iommufd_test.h
+> +++ b/drivers/iommu/iommufd/iommufd_test.h
+> @@ -265,4 +265,7 @@ struct iommu_viommu_event_selftest {
+>  	__u32 virt_id;
+>  };
+>  
+> +#define IOMMU_HW_QUEUE_TYPE_SELFTEST 0xdeadbeef
+> +#define IOMMU_TEST_HW_QUEUE_MAX 2
+> +
+>  #endif
+> diff --git a/tools/testing/selftests/iommu/iommufd_utils.h b/tools/testing/selftests/iommu/iommufd_utils.h
+> index a5d4cbd089ba..9a556f99d992 100644
+> --- a/tools/testing/selftests/iommu/iommufd_utils.h
+> +++ b/tools/testing/selftests/iommu/iommufd_utils.h
+> @@ -956,6 +956,37 @@ static int _test_cmd_vdevice_alloc(int fd, __u32 viommu_id, __u32 idev_id,
+>  		     _test_cmd_vdevice_alloc(self->fd, viommu_id, idev_id,   \
+>  					     virt_id, vdev_id))
+>  
+> +static int _test_cmd_hw_queue_alloc(int fd, __u32 viommu_id, __u32 type,
+> +				    __u32 idx, __u64 base_addr, __u64 length,
+> +				    __u32 *hw_queue_id)
+> +{
+> +	struct iommu_hw_queue_alloc cmd = {
+> +		.size = sizeof(cmd),
+> +		.viommu_id = viommu_id,
+> +		.type = type,
+> +		.index = idx,
+> +		.nesting_parent_iova = base_addr,
+> +		.length = length,
+> +	};
+> +	int ret;
+> +
+> +	ret = ioctl(fd, IOMMU_HW_QUEUE_ALLOC, &cmd);
+> +	if (ret)
+> +		return ret;
+> +	if (hw_queue_id)
+> +		*hw_queue_id = cmd.out_hw_queue_id;
+> +	return 0;
+> +}
+> +
+> +#define test_cmd_hw_queue_alloc(viommu_id, type, idx, base_addr, len, out_qid) \
+> +	ASSERT_EQ(0, _test_cmd_hw_queue_alloc(self->fd, viommu_id, type, idx,  \
+> +					      base_addr, len, out_qid))
+> +#define test_err_hw_queue_alloc(_errno, viommu_id, type, idx, base_addr, len, \
+> +				out_qid)                                      \
+> +	EXPECT_ERRNO(_errno,                                                  \
+> +		     _test_cmd_hw_queue_alloc(self->fd, viommu_id, type, idx, \
+> +					      base_addr, len, out_qid))
+> +
+>  static int _test_cmd_veventq_alloc(int fd, __u32 viommu_id, __u32 type,
+>  				   __u32 *veventq_id, __u32 *veventq_fd)
+>  {
+> diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
+> index 38066dfeb2e7..2189e9b119ee 100644
+> --- a/drivers/iommu/iommufd/selftest.c
+> +++ b/drivers/iommu/iommufd/selftest.c
+> @@ -150,6 +150,8 @@ to_mock_nested(struct iommu_domain *domain)
+>  struct mock_viommu {
+>  	struct iommufd_viommu core;
+>  	struct mock_iommu_domain *s2_parent;
+> +	struct mock_hw_queue *hw_queue[IOMMU_TEST_HW_QUEUE_MAX];
+> +	struct mutex queue_mutex;
+>  };
+>  
+>  static inline struct mock_viommu *to_mock_viommu(struct iommufd_viommu *viommu)
+> @@ -157,6 +159,19 @@ static inline struct mock_viommu *to_mock_viommu(struct iommufd_viommu *viommu)
+>  	return container_of(viommu, struct mock_viommu, core);
+>  }
+>  
+> +struct mock_hw_queue {
+> +	struct iommufd_hw_queue core;
+> +	struct mock_viommu *mock_viommu;
+> +	struct mock_hw_queue *prev;
+> +	u16 index;
+> +};
+> +
+> +static inline struct mock_hw_queue *
+> +to_mock_hw_queue(struct iommufd_hw_queue *hw_queue)
+> +{
+> +	return container_of(hw_queue, struct mock_hw_queue, core);
+> +}
+> +
+>  enum selftest_obj_type {
+>  	TYPE_IDEV,
+>  };
+> @@ -670,9 +685,11 @@ static void mock_viommu_destroy(struct iommufd_viommu *viommu)
+>  {
+>  	struct mock_iommu_device *mock_iommu = container_of(
+>  		viommu->iommu_dev, struct mock_iommu_device, iommu_dev);
+> +	struct mock_viommu *mock_viommu = to_mock_viommu(viommu);
+>  
+>  	if (refcount_dec_and_test(&mock_iommu->users))
+>  		complete(&mock_iommu->complete);
+> +	mutex_destroy(&mock_viommu->queue_mutex);
+>  
+>  	/* iommufd core frees mock_viommu and viommu */
+>  }
+> @@ -764,10 +781,86 @@ static int mock_viommu_cache_invalidate(struct iommufd_viommu *viommu,
+>  	return rc;
+>  }
+>  
+> +static size_t mock_viommu_get_hw_queue_size(struct iommufd_viommu *viommu,
+> +					    enum iommu_hw_queue_type queue_type)
+> +{
+> +	if (queue_type != IOMMU_HW_QUEUE_TYPE_SELFTEST)
+> +		return 0;
+> +	return HW_QUEUE_STRUCT_SIZE(struct mock_hw_queue, core);
+> +}
+> +
+> +static void mock_hw_queue_destroy(struct iommufd_hw_queue *hw_queue)
+> +{
+> +	struct mock_hw_queue *mock_hw_queue = to_mock_hw_queue(hw_queue);
+> +	struct mock_viommu *mock_viommu = mock_hw_queue->mock_viommu;
+> +
+> +	mutex_lock(&mock_viommu->queue_mutex);
+> +	mock_viommu->hw_queue[mock_hw_queue->index] = NULL;
+> +	if (mock_hw_queue->prev)
+> +		iommufd_hw_queue_undepend(mock_hw_queue, mock_hw_queue->prev,
+> +					  core);
+> +	mutex_unlock(&mock_viommu->queue_mutex);
+> +}
+> +
+> +/* Test iommufd_hw_queue_depend/undepend() */
+> +static int mock_hw_queue_init_phys(struct iommufd_hw_queue *hw_queue, u32 index,
+> +				   phys_addr_t base_addr_pa)
+> +{
+> +	struct mock_viommu *mock_viommu = to_mock_viommu(hw_queue->viommu);
+> +	struct mock_hw_queue *mock_hw_queue = to_mock_hw_queue(hw_queue);
+> +	struct mock_hw_queue *prev = NULL;
+> +	int rc = 0;
+> +
+> +	if (index >= IOMMU_TEST_HW_QUEUE_MAX)
+> +		return -EINVAL;
+> +
+> +	mutex_lock(&mock_viommu->queue_mutex);
+> +
+> +	if (mock_viommu->hw_queue[index]) {
+> +		rc = -EEXIST;
+> +		goto unlock;
+> +	}
+> +
+> +	if (index) {
+> +		prev = mock_viommu->hw_queue[index - 1];
+> +		if (!prev) {
+> +			rc = -EIO;
+> +			goto unlock;
+> +		}
+> +	}
+> +
+> +	/*
+> +	 * Test to catch a kernel bug if the core converted the physical address
+> +	 * incorrectly. Let mock_domain_iova_to_phys() WARN_ON if it fails.
+> +	 */
+> +	if (base_addr_pa != iommu_iova_to_phys(&mock_viommu->s2_parent->domain,
+> +					       hw_queue->base_addr)) {
+> +		rc = -EFAULT;
+> +		goto unlock;
+> +	}
+> +
+> +	if (prev) {
+> +		rc = iommufd_hw_queue_depend(mock_hw_queue, prev, core);
+> +		if (rc)
+> +			goto unlock;
+> +	}
+> +
+> +	mock_hw_queue->prev = prev;
+> +	mock_hw_queue->mock_viommu = mock_viommu;
+> +	mock_viommu->hw_queue[index] = mock_hw_queue;
+> +
+> +	hw_queue->destroy = &mock_hw_queue_destroy;
+> +unlock:
+> +	mutex_unlock(&mock_viommu->queue_mutex);
+> +	return rc;
+> +}
+> +
+>  static struct iommufd_viommu_ops mock_viommu_ops = {
+>  	.destroy = mock_viommu_destroy,
+>  	.alloc_domain_nested = mock_viommu_alloc_domain_nested,
+>  	.cache_invalidate = mock_viommu_cache_invalidate,
+> +	.get_hw_queue_size = mock_viommu_get_hw_queue_size,
+> +	.hw_queue_init_phys = mock_hw_queue_init_phys,
+>  };
+>  
+>  static size_t mock_get_viommu_size(struct device *dev,
+> @@ -784,6 +877,7 @@ static int mock_viommu_init(struct iommufd_viommu *viommu,
+>  {
+>  	struct mock_iommu_device *mock_iommu = container_of(
+>  		viommu->iommu_dev, struct mock_iommu_device, iommu_dev);
+> +	struct mock_viommu *mock_viommu = to_mock_viommu(viommu);
+>  	struct iommu_viommu_selftest data;
+>  	int rc;
+>  
+> @@ -801,6 +895,9 @@ static int mock_viommu_init(struct iommufd_viommu *viommu,
+>  	}
+>  
+>  	refcount_inc(&mock_iommu->users);
+> +	mutex_init(&mock_viommu->queue_mutex);
+> +	mock_viommu->s2_parent = to_mock_domain(parent_domain);
+> +
+>  	viommu->ops = &mock_viommu_ops;
+>  	return 0;
+>  }
+> diff --git a/tools/testing/selftests/iommu/iommufd.c b/tools/testing/selftests/iommu/iommufd.c
+> index a9dfcce5e1b2..73426de77675 100644
+> --- a/tools/testing/selftests/iommu/iommufd.c
+> +++ b/tools/testing/selftests/iommu/iommufd.c
+> @@ -3032,6 +3032,65 @@ TEST_F(iommufd_viommu, vdevice_cache)
+>  	}
+>  }
+>  
+> +TEST_F(iommufd_viommu, hw_queue)
+> +{
+> +	__u64 iova = MOCK_APERTURE_START, iova2;
+> +	uint32_t viommu_id = self->viommu_id;
+> +	uint32_t hw_queue_id[2];
+> +
+> +	if (!viommu_id)
+> +		SKIP(return, "Skipping test for variant no_viommu");
+> +
+> +	/* Fail IOMMU_HW_QUEUE_TYPE_DEFAULT */
+> +	test_err_hw_queue_alloc(EOPNOTSUPP, viommu_id,
+> +				IOMMU_HW_QUEUE_TYPE_DEFAULT, 0, iova, PAGE_SIZE,
+> +				&hw_queue_id[0]);
+> +	/* Fail queue addr and length */
+> +	test_err_hw_queue_alloc(EINVAL, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
+> +				0, iova, 0, &hw_queue_id[0]);
+> +	test_err_hw_queue_alloc(EOVERFLOW, viommu_id,
+> +				IOMMU_HW_QUEUE_TYPE_SELFTEST, 0, ~(uint64_t)0,
+> +				PAGE_SIZE, &hw_queue_id[0]);
+> +	/* Fail missing iova */
+> +	test_err_hw_queue_alloc(ENOENT, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
+> +				0, iova, PAGE_SIZE, &hw_queue_id[0]);
+> +
+> +	/* Map iova */
+> +	test_ioctl_ioas_map(buffer, PAGE_SIZE, &iova);
+> +	test_ioctl_ioas_map(buffer + PAGE_SIZE, PAGE_SIZE, &iova2);
+> +
+> +	/* Fail index=1 and =MAX; must start from index=0 */
+> +	test_err_hw_queue_alloc(EIO, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 1,
+> +				iova, PAGE_SIZE, &hw_queue_id[0]);
+> +	test_err_hw_queue_alloc(EINVAL, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
+> +				IOMMU_TEST_HW_QUEUE_MAX, iova, PAGE_SIZE,
+> +				&hw_queue_id[0]);
+> +
+> +	/* Allocate index=0, declare ownership of the iova */
+> +	test_cmd_hw_queue_alloc(viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 0,
+> +				iova, PAGE_SIZE, &hw_queue_id[0]);
+> +	/* Fail duplicated index */
+> +	test_err_hw_queue_alloc(EEXIST, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
+> +				0, iova, PAGE_SIZE, &hw_queue_id[0]);
+> +	/* Fail unmap, due to iova ownership */
+> +	test_err_ioctl_ioas_unmap(EBUSY, iova, PAGE_SIZE);
+> +	/* The 2nd page is not pinned, so it can be unmmap */
+> +	test_ioctl_ioas_unmap(iova2, PAGE_SIZE);
+> +
+> +	/* Allocate index=1, with an unaligned case */
+> +	test_cmd_hw_queue_alloc(viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 1,
+> +				iova + PAGE_SIZE / 2, PAGE_SIZE / 2,
+> +				&hw_queue_id[1]);
+> +	/* Fail to destroy, due to dependency */
+> +	EXPECT_ERRNO(EBUSY, _test_ioctl_destroy(self->fd, hw_queue_id[0]));
+> +
+> +	/* Destroy in descending order */
+> +	test_ioctl_destroy(hw_queue_id[1]);
+> +	test_ioctl_destroy(hw_queue_id[0]);
+> +	/* Now it can unmap the first page */
+> +	test_ioctl_ioas_unmap(iova, PAGE_SIZE);
+> +}
+> +
+>  FIXTURE(iommufd_device_pasid)
+>  {
+>  	int fd;
+> diff --git a/tools/testing/selftests/iommu/iommufd_fail_nth.c b/tools/testing/selftests/iommu/iommufd_fail_nth.c
+> index f7ccf1822108..41c685bbd252 100644
+> --- a/tools/testing/selftests/iommu/iommufd_fail_nth.c
+> +++ b/tools/testing/selftests/iommu/iommufd_fail_nth.c
+> @@ -634,6 +634,7 @@ TEST_FAIL_NTH(basic_fail_nth, device)
+>  	uint32_t idev_id;
+>  	uint32_t hwpt_id;
+>  	uint32_t viommu_id;
+> +	uint32_t hw_queue_id;
+>  	uint32_t vdev_id;
+>  	__u64 iova;
+>  
+> @@ -696,6 +697,11 @@ TEST_FAIL_NTH(basic_fail_nth, device)
+>  	if (_test_cmd_vdevice_alloc(self->fd, viommu_id, idev_id, 0, &vdev_id))
+>  		return -1;
+>  
+> +	if (_test_cmd_hw_queue_alloc(self->fd, viommu_id,
+> +				     IOMMU_HW_QUEUE_TYPE_SELFTEST, 0, iova,
+> +				     PAGE_SIZE, &hw_queue_id))
+> +		return -1;
+> +
+>  	if (_test_ioctl_fault_alloc(self->fd, &fault_id, &fault_fd))
+>  		return -1;
+>  	close(fault_fd);
+> -- 
+> 2.43.0
+> 
 
