@@ -4,71 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F125C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A333CC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RNqapVscHGzGt/oRXqDPP8IZMAkPeXOSaImaeu0zjIk=; b=dXLfJUP4lR9zmtdGRBHh9PTINx
-	LTdtS2vRlosdsGT4I6vYSrJuyZkpPaOZC+Ff/TOCg70JPfmHbaYnc4ta4UjAyz7xWcu+1Gg+lCS7b
-	arNMZIWNdfpQJLl6xUuElOtEfhPW5cDI23OeGeSqu30nlOjLoIU0jyFSQYk9iGvBaVxCRPoHtbKP8
-	pzcenY2gLQHQNi6HNeOeQQbVBFjGFNNIgfy+nIsQoFaKTENuGMnmp0mEd/O5oFnUQKd34G5TICqGj
-	lIc/4PvZN/WC/knRhhm+Hw2wrgdJeH8yfHWlcvDk0f/5q0rBZbFkoOBECSopSKf4tDyzUUBBnmokS
-	YB6eOxJg==;
+	Content-Type:Cc:To:MIME-Version:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=e94ZV7qj0UFkUQZZLwJjFJBBkRpaB6KPVGZwmSboBfo=; b=nWhaH35FEu5Yz4MH42oSp6JD1u
+	g0LAneK4Y2GDLeQykn7pzSIb2NSF5hVv2xba6CUsEUm1sIFfVXaOSkxSsnQvJef3Wh+yfxuPvaEbX
+	kk3epfuIqn+J3Lb63d8E5y76tD3PCeImbNxVONCfBvZnsrcBm/Ju3uSHoXOyrX3dUBEXacl8cfu2+
+	qt+ujjtxV+ZMOTkSNKICWgwgpRr4eP8gFXkRZufJtfwdVwF5lhH1kZ8ep4nAjH97LEiJ9/AuuqSTx
+	fHdDd4RElfsUWOA4WL5gfVCMmeb9sHfS4QAFvVGMsISKicnKIFm1WMXyhatXJkln6L1cBoR8nLAh4
+	FVjeg+pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2RP-0000000DRqL-2vK6;
-	Fri, 11 Jul 2025 01:20:44 +0000
-Received: from out-177.mta1.migadu.com ([95.215.58.177])
+	id 1ua2RS-0000000DRvE-0C0A;
+	Fri, 11 Jul 2025 01:20:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua0ph-0000000DIcR-3tdN
+	id 1ua0uR-0000000DImz-1r0M
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 23:37:43 +0000
-Message-ID: <a80e55af-14a2-41d8-afcc-7dbf267e85ef@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1752190657;
+	Thu, 10 Jul 2025 23:42:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1752190953;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RNqapVscHGzGt/oRXqDPP8IZMAkPeXOSaImaeu0zjIk=;
-	b=oCeT6JmAYdHCBQ23iBszQP13Vxu1XWtzMxx3lim7ILp4a4qM/+agQQHNG0zQsgM14dUDIV
-	h0IWjOLnf4GMEsPBluiBclPCzFsPFsFEWZsGAMxz5VYBbdnix9lQl18FtpfHI87qNCSWOW
-	jYw/sB0IpXV6aAe22E8MwX9ggSJVOTA=
-Date: Thu, 10 Jul 2025 19:37:28 -0400
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=e94ZV7qj0UFkUQZZLwJjFJBBkRpaB6KPVGZwmSboBfo=;
+	b=Syg7dlfq0fc2NtwTL2wHQJZRivsOVu8TyZRqic01i8zkGwll58nno+8eYCVW3su7EIbhC+
+	EgbF7fkhfN4hlXyUUbRFOuYgbrs+fntHmsp2dDrPgUrFlFn0r8MevaHlXO/zLJk08SMpTx
+	jkElJ1D3fbeScu21orEv2oCVRfHeAMs=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-481-OXO3BLmROty2m7_uNZrM2w-1; Thu, 10 Jul 2025 19:42:32 -0400
+X-MC-Unique: OXO3BLmROty2m7_uNZrM2w-1
+X-Mimecast-MFC-AGG-ID: OXO3BLmROty2m7_uNZrM2w_1752190952
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6fb3654112fso26112886d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 16:42:32 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752190952; x=1752795752;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=e94ZV7qj0UFkUQZZLwJjFJBBkRpaB6KPVGZwmSboBfo=;
+        b=cAoL/sFVXwr+XIup27EOVl70sNCMPWbMFF+8BHMNRsuVrGcfA3qQNFoH/XcSZX4w7m
+         dPObQWVbb9f6OhGeULVSZonuErOhFW88e0S4Nb3LV3wlv/Y95pg6Tg6tGkd6bliDR+/u
+         PyaAjNu/96nINQeTYZjGJNgfg6SeGAMmF6rk6utN22JtueIgo7v1r7quPYORsWySpX0j
+         ux70QmSZf9QAfuunjp4OfhSliS9EoxUoFTUP5pto48Z8NOpDISs+8AlAK2SywyB+GbsI
+         tE8VLzen+nii4VR7g6td1/Rd+gXVeexcTjFsp/2qcJygjdCs5fFRDQR7gOO711kBpzi5
+         TBNg==
+X-Forwarded-Encrypted: i=1; AJvYcCVwroiCfeIvRHohZ1Tgj8byTfqbmAUm3fRGLtfZbLc7+RNvEmjmAd0OnBieALCjx0W6EHiYHI4+4J35KWQDSeH1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYJ82Qg2TDFwE2tJ2NPMjdtkSCHDePLfVdpTVlete+vF4j9X/X
+	Dc8uqOf2C8zlyWEh4O4UUAOVlWoi/CVT3hdlHz3hf+F+M/fFBjzugP9/7v347ZATBuwIXijGHrz
+	dcDvQmt491Xth8pGCUHdzZQjH9vmKIwM5X/wvdprpv7abcp1sQ8PM4qBIHT188jqsq+SSWREnCs
+	4k
+X-Gm-Gg: ASbGncsqF3slVXOpR9NEqLpEyp+hJ3D42p1bxbN6sDI3l7O33FX6wEL44J+CRkXotUa
+	wuj/nHgwV9b19KjARnmcSVDTXlCgdv/EycPXqaYoSsa71ApR767ki4kaKeYleushll8ndPQWPGH
+	pMeUk9ZgrNzkJ2QDnG7OmhbrYHZXPqsGDQjI1JHyrLZVzEkVNoEqRu9sU+qlMN9V9W9HMqRqceM
+	GiSe8Gye5t4c1jdepQJDg9VCtgzKdQtDsvCMJwdnQ/QBzEKg5SWiwfDufOJFCAqKm43jKbYKJ/N
+	Ef/s0eekbfoL/9e1C5UeT+Jm7lX0IpNS112AY47uoegSLKRrdCHOyQbXJ6zu6Nv9pt+d2i5wq/2
+	noNE=
+X-Received: by 2002:a05:6214:4286:b0:6fd:75ef:3dc3 with SMTP id 6a1803df08f44-704a3878fe0mr20570896d6.28.1752190951838;
+        Thu, 10 Jul 2025 16:42:31 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFJPET4l5Q7pb7AJesD0qMFA+J1X+JY68upvMvP5yWTEV64eVycbSgaCQEqLya1yThh36Ihxg==
+X-Received: by 2002:a05:6214:4286:b0:6fd:75ef:3dc3 with SMTP id 6a1803df08f44-704a3878fe0mr20570546d6.28.1752190951467;
+        Thu, 10 Jul 2025 16:42:31 -0700 (PDT)
+Received: from [192.168.1.15] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7dcde422e03sm153989385a.69.2025.07.10.16.42.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Jul 2025 16:42:30 -0700 (PDT)
+From: Brian Masney <bmasney@redhat.com>
+Subject: [PATCH 0/3] ARM: convert from clk round_rate() to determine_rate()
+Date: Thu, 10 Jul 2025 19:42:15 -0400
+Message-Id: <20250710-arm32-clk-round-rate-v1-0-a9146b77aca9@redhat.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net 4/4] net: axienet: Split into MAC and MDIO drivers
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Michal Simek <michal.simek@amd.com>, Saravana Kannan <saravanak@google.com>,
- Leon Romanovsky <leon@kernel.org>, Dave Ertman <david.m.ertman@intel.com>,
- linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
- linux-arm-kernel@lists.infradead.org
-References: <20250619200537.260017-1-sean.anderson@linux.dev>
- <20250619200537.260017-5-sean.anderson@linux.dev>
- <16ebbe27-8256-4bbf-ad0a-96d25a3110b2@lunn.ch>
- <0854ddee-1b53-472c-a4fe-0a345f65da65@linux.dev>
- <c543674a-305e-4691-b600-03ede59488ef@lunn.ch>
- <a8a3e849-bef9-4320-8b32-71d79afbab87@linux.dev>
- <3e2acebe-a9db-494b-bca8-2e1bbc3c1eaf@lunn.ch>
- <d87ab382-cc6c-46df-bd7e-1200154dd84f@linux.dev>
-Content-Language: en-US
-In-Reply-To: <d87ab382-cc6c-46df-bd7e-1200154dd84f@linux.dev>
-Content-Type: text/plain; charset=UTF-8
+X-B4-Tracking: v=1; b=H4sIANhPcGgC/x3MQQqEMAxA0atI1hOo0TriVYZZlDZqGK2SOiKId
+ 7e4fIv/T0iswgm64gTlXZIsMaN8FeBHFwdGCdlAhqx5lwadzhWhn36oyz8GVLcxsqXQ1pabljz
+ kdFXu5Xi2n+913bQdPmNmAAAA
+X-Change-ID: 20250710-arm32-clk-round-rate-e52d845e682c
+To: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+ Roger Quadros <rogerq@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+ Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-omap@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Brian Masney <bmasney@redhat.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752190949; l=4739;
+ i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
+ bh=al6nz9adATLIR7FYrUCMOsShOW+3Oeiwsw0ZybmNjqs=;
+ b=3Q0yi8DRBblqOemRVD6yfPZ3j82f3KJqt3sROeWm+I3JnvzPuG213PuuABwJdF06b5Zc7bIdB
+ TQ/efS5E36aDaYQpeIWnskVhTOg8xT7IYWoLqgf2UhPz/Z0uU8VOGHc
+X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
+ pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: jZT6HH2MNfSDrx0reNYvrrMVhrUfpedQ27YDH-jnE38_1752190952
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_163742_333435_889AFD88 
-X-CRM114-Status: GOOD (  36.35  )
+X-CRM114-CacheID: sfid-20250710_164235_909981_A00AD5F1 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,118 +126,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+The round_rate() clk ops is deprecated in the clk framework in favor
+of the determine_rate() clk ops, so let's go ahead and convert the
+drivers in the arm32 subsystem using the Coccinelle semantic patch
+posted below. I did a few minor cosmetic cleanups of the code in a
+few cases.
 
-On 6/23/25 19:16, Sean Anderson wrote:
-> On 6/23/25 18:45, Andrew Lunn wrote:
->> On Mon, Jun 23, 2025 at 02:48:53PM -0400, Sean Anderson wrote:
->>> On 6/23/25 14:27, Andrew Lunn wrote:
->>> > On Mon, Jun 23, 2025 at 11:16:08AM -0400, Sean Anderson wrote:
->>> >> On 6/21/25 03:33, Andrew Lunn wrote:
->>> >> > On Thu, Jun 19, 2025 at 04:05:37PM -0400, Sean Anderson wrote:
->>> >> >> Returning EPROBE_DEFER after probing a bus may result in an infinite
->>> >> >> probe loop if the EPROBE_DEFER error is never resolved.
->>> >> > 
->>> >> > That sounds like a core problem. I also thought there was a time
->>> >> > limit, how long the system will repeat probes for drivers which defer.
->>> >> > 
->>> >> > This seems like the wrong fix to me.
->>> >> 
->>> >> I agree. My first attempt to fix this did so by ignoring deferred probes
->>> >> from child devices, which would prevent "recursive" loops like this one
->>> >> [1]. But I was informed that failing with EPROBE_DEFER after creating a
->>> >> bus was not allowed at all, hence this patch.
->>> > 
->>> > O.K. So why not change the order so that you know you have all the
->>> > needed dependencies before registering the MDIO bus?
->>> > 
->>> > Quoting your previous email:
->>> > 
->>> >> Returning EPROBE_DEFER after probing a bus may result in an infinite
->>> >> probe loop if the EPROBE_DEFER error is never resolved. For example,
->>> >> if the PCS is located on another MDIO bus and that MDIO bus is
->>> >> missing its driver then we will always return EPROBE_DEFER.
->>> > 
->>> > Why not get a reference on the PCS device before registering the MDIO
->>> > bus?
->>> 
->>> Because the PCS may be on the MDIO bus. This is probably the most-common
->>> case.
->> 
->> So you are saying the PCS is physically there, but the driver is
->> missing because of configuration errors? Then it sounds like a kconfig
->> issue?
->> 
->> Or are you saying the driver has been built but then removed from
->> /lib/modules/
-> 
-> The latter. Or maybe someone just forgot to install it (or include it
-> with their initramfs). Or maybe there was some error with the MDIO bus.
-> 
-> There are two mutually-exclusive scenarios (that can both occur in the
-> same system). First, the PCS can be attached to our own MDIO bus:
-> 
-> MAC
->  |
->  +->MDIO
->      |
->      +->PCS
->      +->PHY (etc)
-> 
-> In this scenario, we have to probe the MDIO bus before we can look up
-> the PCS, since otherwise the PCS will always be missing when we look for
-> it. But if we do things in the right order then we can't get
-> EPROBE_DEFER, and so there's no risk of a probe loop.
-> 
-> Second, the PCS can be attached to some other MDIO bus:
-> 
-> MAC              MDIO
->  |                 |
->  +->MDIO           +->PCS
->       |
->       +->PHY (etc)
-> 
-> In this scenario, the MDIO bus might not be present for whatever reason
-> and we have the possibility of an EPROBE_DEFER error. If that happens,
-> we will end up in a probe loop because the PHY on the MDIO bus
-> incremented deferred_trigger_count when it probed successfully:
-> 
-> deferred_probe_work_func()
->   driver_probe_device(MAC)
->     axienet_probe(MAC)
->       mdiobus_register(MDIO)
->         device_add(PHY)
->           (probe successful)
->           driver_bound(PHY)
->             driver_deferred_probe_trigger()
->       return -EPROBE_DEFER
->     driver_deferred_probe_add(MAC)
->     // deferred_trigger_count changed, so...
->     driver_deferred_probe_trigger()
+Coccinelle semantic patch:
 
-Does the above scenario make sense? As I see it, the only approaches are
+    virtual patch
 
-- Modify the driver core to detect and mitigate this sort of scenario
-  (NACKed by Greg).
-- Split the driver into MAC and MDIO parts (this patch).
-- Modify phylink to allow connecting a PCS after phylink_create but
-  before phylink_start. This is tricky because the PCS can affect the
-  supported phy interfaces, and phy interfaces are validated in
-  phylink_create.
-- Defer phylink_create to ndo_open. This means that all the
-  netdev/ethtool ops that use phylink now need to check ip the netdev is
-  open and fall back to some other implementation. I don't think we can
-  just return -EINVAL or whatever because using ethtool on a down device
-  has historically worked. I am wary of breaking userspace because some
-  tool assumes it can get_ksettings while the netdev is down.
+    // Look up the current name of the round_rate function
+    @ has_round_rate @
+    identifier round_rate_name =~ ".*_round_rate";
+    identifier hw_param, rate_param, parent_rate_param;
+    @@
 
-Do you see any other options? IMO, aside from the first option, the
-second one has the best UX. With the latter two, you could have a netdev
-that never comes up and the user may not have very good insight as to
-why. E.g. it may not be obvious that the user should try to bring the
-netdev up again after the PCS is probed. By waiting to create the netdev
-until after we successfully probe the PCS we show up in
-devices_deferred and the netdev can be brought up as usual.
+    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
+                  unsigned long *parent_rate_param)
+    {
+    	...
+    }
 
---Sean
+    // Rename the route_rate function name to determine_rate()
+    @ script:python generate_name depends on has_round_rate @
+    round_rate_name << has_round_rate.round_rate_name;
+    new_name;
+    @@
+
+    coccinelle.new_name = round_rate_name.replace("_round_rate", "_determine_rate")
+
+    // Change rate to req->rate; also change occurrences of 'return XXX'.
+    @ chg_rate depends on generate_name @
+    identifier has_round_rate.round_rate_name;
+    identifier has_round_rate.hw_param;
+    identifier has_round_rate.rate_param;
+    identifier has_round_rate.parent_rate_param;
+    identifier ERR =~ "E.*";
+    expression E;
+    @@
+
+    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
+                  unsigned long *parent_rate_param)
+    {
+    <...
+    (
+    -return -ERR;
+    +return -ERR;
+    |
+    - return rate_param;
+    + return 0;
+    |
+    - return E;
+    + req->rate = E;
+    +
+    + return 0;
+    |
+    - rate_param
+    + req->rate
+    )
+    ...>
+    }
+
+    // Coccinelle only transforms the first occurrence of the rate parameter
+    // Run a second time. FIXME: Is there a better way to do this?
+    @ chg_rate2 depends on generate_name @
+    identifier has_round_rate.round_rate_name;
+    identifier has_round_rate.hw_param;
+    identifier has_round_rate.rate_param;
+    identifier has_round_rate.parent_rate_param;
+    @@
+
+    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
+                  unsigned long *parent_rate_param)
+    {
+    <...
+    - rate_param
+    + req->rate
+    ...>
+    }
+
+    // Change parent_rate to req->best_parent_rate
+    @ chg_parent_rate depends on generate_name @
+    identifier has_round_rate.round_rate_name;
+    identifier has_round_rate.hw_param;
+    identifier has_round_rate.rate_param;
+    identifier has_round_rate.parent_rate_param;
+    @@
+
+    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
+                  unsigned long *parent_rate_param)
+    {
+    <...
+    (
+    - *parent_rate_param
+    + req->best_parent_rate
+    |
+    - parent_rate_param
+    + &req->best_parent_rate
+    )
+    ...>
+    }
+
+    // Convert the function definition from round_rate() to determine_rate()
+    @ func_definition depends on chg_rate @
+    identifier has_round_rate.round_rate_name;
+    identifier has_round_rate.hw_param;
+    identifier has_round_rate.rate_param;
+    identifier has_round_rate.parent_rate_param;
+    identifier generate_name.new_name;
+    @@
+
+    - long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
+    -               unsigned long *parent_rate_param)
+    + int new_name(struct clk_hw *hw, struct clk_rate_request *req)
+    {
+        ...
+    }
+
+    // Update the ops from round_rate() to determine_rate()
+    @ ops depends on func_definition @
+    identifier has_round_rate.round_rate_name;
+    identifier generate_name.new_name;
+    @@
+
+    {
+        ...,
+    -   .round_rate = round_rate_name,
+    +   .determine_rate = new_name,
+        ...,
+    }
+
+Note that I used coccinelle 1.2 instead of 1.3 since the newer version
+adds unnecessary braces as described in this post.
+https://lore.kernel.org/cocci/67642477-5f3e-4b2a-914d-579a54f48cbd@intel.com/
+
+Signed-off-by: Brian Masney <bmasney@redhat.com>
+---
+Brian Masney (3):
+      ARM: OMAP1: clock: convert from round_rate() to determine_rate()
+      ARM: OMAP2+: clock: convert from round_rate() to determine_rate()
+      ARM: versatile: clock: convert from round_rate() to determine_rate()
+
+ arch/arm/mach-omap1/clock.c                  | 19 +++++++++++++------
+ arch/arm/mach-omap2/clkt2xxx_virt_prcm_set.c | 12 +++++++-----
+ arch/arm/mach-versatile/spc.c                |  9 +++++----
+ 3 files changed, 25 insertions(+), 15 deletions(-)
+---
+base-commit: b551c4e2a98a177a06148cf16505643cd2108386
+change-id: 20250710-arm32-clk-round-rate-e52d845e682c
+
+Best regards,
+-- 
+Brian Masney <bmasney@redhat.com>
+
 
