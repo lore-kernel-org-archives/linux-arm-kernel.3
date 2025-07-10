@@ -4,180 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76AFC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED009C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2nc8wsytQNr8zKMw38myME0rApGJe8CLREDAPMeC+AY=; b=0e+osKLJxmDfZqaXGNADkz61Ad
-	P+9XMLRKtNiFQopmXVzSn9xcYqAKOtdP0w8iOb5SjUQGbz6SReyj7yqpclFpV3o2PpVkR/OWe/Ibx
-	nXBissAM+haWxAmjCEbirOmxLAjM+9D/xKDmH0BOwvZsxkGdjnvNBOWgfDp5V51lLAXo55/B8TUnT
-	mloLWNzk4Sz6UD1O9P6IvYwbpW1qMsCJ9M/xS2yjntNLYnhKvWlHq2BVOXiMs4EFnXRWDI21Hweyx
-	frxm4lWZFKjkIHIIUCyib33hYjVbBCJrW2PGLhxkVfQTEozGJAYnmrajTIi/bP55vkJ+R7j2/Sx66
-	Rnu6UXxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4ye2+oNmz8kEE5esPvhfl5gldth5gpMh/JZU9swTrNk=; b=HCbCed6QOyM33cPweRsTyxZSoW
+	rOraOEd4htjfq6l+7x9K/wuBlJ03e1+HpHnagZmAxpzK4Z7EfsuOEjN2wc098q0XHjirdsnSydlmf
+	mzJLXUjvXIErAEz/z+OvHdVAMzmueMEqCjCYE4p2MJiesJl5G7FP4lP1Qu0ok2ZMbUaSPGDGUAa3v
+	TGXZjRKiipjnDpU+MBX4ck2l0hS4TSyJww9OPbFN0UuXUNBNSTaAT+6JS7l/WxdY6KRwkmxesiHqB
+	vQGicwITIGDUIvKSDlbWYAcapgGpeGZ67kzxOoP5PjAD1rXy9/+zbCaoL0oK89VZye/s7Gb+dYWQx
+	FFnTmxtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZrPb-0000000BwUY-0dIF;
-	Thu, 10 Jul 2025 13:34:07 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1uZrRv-0000000BxIa-1oC3;
+	Thu, 10 Jul 2025 13:36:31 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZq6k-0000000BjGt-1ZTI
+	id 1uZq7K-0000000BjMy-0pPM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 12:10:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dn8WfoeAiY0iqkFaCiDvDLcIEJHxVb2GsjdvwZOTbb2aZ/HdKFHIqX0WfqDjrZsx79MO6AAr0CLqVLxIj3SR6iRFAcozuT4pwYpz10lKBwykXQ4fLp8rsf01ytXKM7nqFISfbM2rhIog1TWGFqodH0Hkx7+2hGSBx9bcDjz8/mVUFdXrO10qEk/y/dCMpEwb8uSX/fwxv30WKor4KivF4UtgfBMIvTYTB2eVLHLLrJ6VXbBgK2ve6M4wt64kNGF6SLgZ0EVyLjssXWxLzM/QcuOKRRwDQwvWhSRDd4Qcuk2fKLH13cneQsbC+B8M8n3A+MGzoaj5tao0UGnMazp2Sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2nc8wsytQNr8zKMw38myME0rApGJe8CLREDAPMeC+AY=;
- b=rTKw8Wv5/dqJfJX5Xh9QaZrg91i9oP7fmhRXVmp5Cv/8cMJJJT8F0b/8hH0xkmzu4qCrY/bYep3eKbE0v5szfcZ3mE5B0Um+/r40UZfrBHHAgXojP5hQKfm7OOC0D6Z5Xae1ZAZ7joZZGwhMG7CBH9p7TeIVo738T1EWbVYHFU1C13gOBvAIIVW2e4jfjSl/tWekBtIVfKVsZgppf+vYly6HU6sRmGsPkDMr0xn2IZM+dGsrFrj6urlZX80cC/QOO+dDy5C+lTJQV85EIHj34ta3reWaDjwhs6Dl+AQY66/GYcg3rKr/V3O5Fb1YDUNG9nX5qgTlu0hNwGaL59UGhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2nc8wsytQNr8zKMw38myME0rApGJe8CLREDAPMeC+AY=;
- b=Da1/+Cuua6VsOuHbgi5EL8EFNdhJ3dqOq7aWcnx0EDd8ETobyd1D9YVnMFP8uEL2sEd4EYH4iFgsryQB/eiDOer25qNfNC9rJx+Ww9uikIeQmzJavX9dRBGSUnfl81b2pmIWGfIDtsD0j7F9/BbHGFCerfCs7hK5raUJdMGv/yl2SU1DHl5NQDPL20rSEf91EBx8zQPoN5SZxnD31jj166vLTihMgIK2WcJq7yJswnPqZDVd8QLhF/PoeufPT2XZnvNr/dKorZ6I/UTKMfwCoWyBazLWlfRMqtrOYG46T6DMJBzkK7E3tOJ8Kc2S12NNc9GalT9c4i4T7Bfx0Hdkug==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA4PR04MB7983.eurprd04.prod.outlook.com (2603:10a6:102:c9::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.29; Thu, 10 Jul
- 2025 12:10:30 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8901.028; Thu, 10 Jul 2025
- 12:10:30 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Thu, 10 Jul 2025 20:08:05 +0800
-Subject: [PATCH v4 5/5] arm64: dts: imx95-19x19-evk: Add CM7 nodes and vdev
- related memory regions
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250710-imx95-rproc-1-v4-5-a7123e857dfb@nxp.com>
-References: <20250710-imx95-rproc-1-v4-0-a7123e857dfb@nxp.com>
-In-Reply-To: <20250710-imx95-rproc-1-v4-0-a7123e857dfb@nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
- Daniel Baluta <daniel.baluta@nxp.com>, 
- Iuliana Prodan <iuliana.prodan@nxp.com>
-Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752149291; l=1709;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=CicjViLT66rrhmAxWi+KmF/tEAjr31uFBtFHkL8wA2U=;
- b=rB5ntz9NJ6x30LTsheJ50SUvpviC+cZrxRcBij6n/18MYL2AwycrQ5bSUjtb1lczBBpbj1RaY
- zd/pujLOA+oDkBRNVASxeUpiLzpskfRz2L+iDtWiJATTPUiw5i77qaa
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: MA0PR01CA0071.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ad::11) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Thu, 10 Jul 2025 12:11:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1752149468;
+ bh=4ye2+oNmz8kEE5esPvhfl5gldth5gpMh/JZU9swTrNk=;
+ b=BWcboYfWlVH02XxSXAEFdKXxVjOCRRO0SEaYgpedPB1gKPiHovv/9NrZIVlHd5muThKK6NO04
+ CI1TKO4MFCcm8KMbMzkRIRkEtmZqf32Ts4GO6dl6c8xFC+nnECH+e9W3A2pS1CuXeeZ0kcznCEt
+ LeXFvHn3iifPX3rS2v26LWNU8cG+8xufG0cjAEilt0bq5rKrWrbU5IPsGscK4MewSn/QukJwny+
+ XfyN3ACDDD5XIIWgkydf3bKoNjSS8rLA34CgCCwH/RyNeDgIl7ApdYcmdX60Z51NosjrjaOVGM6
+ XLmNdxnL4KmjrRBnEesaLCdTULlnBatJtw88WfGJzjXw==
+X-Forward-Email-ID: 686fadd9ea2ef028c1d7bacc
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.1.3
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <b6f8f705-f661-46cf-9dda-6f18f8658622@kwiboo.se>
+Date: Thu, 10 Jul 2025 14:11:00 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB7983:EE_
-X-MS-Office365-Filtering-Correlation-Id: ca83ef2c-e7a6-4611-8b11-08ddbfaac3b9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|19092799006|1800799024|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UGNkM0dydTNMQ3hWNGxmZUhyYi9la1VKeXRiQktEbzVhVFVrN1NEZU5kYUpa?=
- =?utf-8?B?RkdaN1VMTE9VSVNLdVBGeHErd2JHMTVXbmZuNzVucEp1MGszWEZqMi9vaDg2?=
- =?utf-8?B?T2p6bUI0T0l4SVJFaFI0eXJRU3E1VUJ4TnN5bXNkTXBYWGYvUW1meFJMYklj?=
- =?utf-8?B?MWNsNktYbXMxZ1JOWG1xdkZaaDIrUFhxSVE5TzhjSlp4RGd2bWFrVzY3bG84?=
- =?utf-8?B?QkdnbndpY05zU2ROR0I1dHU2L2l5aWMvT29iaVdDcGRIUENJbXllMGhSYy9G?=
- =?utf-8?B?RHlMaW9GNjY2YVVLQWpCY0FNRHRUZTJNQWN0UENXVkZHR0JoZFY3QjBubVVD?=
- =?utf-8?B?b0J4WkpieUVLOFFkMGVvdDZYRUFJQWI1VXJLSDlCY1NKSktJUHNLRUZvL3oy?=
- =?utf-8?B?Z3BtaFgvWHphb0dYVUpNcE9jVU04K2w5RVMzWFhlUnlScmdUT0xHYi9KYmp0?=
- =?utf-8?B?TVdBdTlXOTlkY082QjNDR2NQRFNwT0V6dDkwcGZhWUtINXBoTWhJaHl1akZZ?=
- =?utf-8?B?T2FiSHIxSy9LUWZ1N2J4Tk9VVkE5bUx2cWprcUk2YWlUUTBYWVU0cGxldXNI?=
- =?utf-8?B?THBBMWhmWndkdUhiZUk4WEtldmhyZGNVRWk3M3pFNFMrZkpEcHQvZVB6K2ho?=
- =?utf-8?B?UjluQUJ6NnJwVVBlVXBkdWVDQ2h0bDUzeHR2OFd4Y2Fsd0JwSTJmdCtmNTJ3?=
- =?utf-8?B?YldiaUthemVEVHNuNGZtMGNLdk13YjNycWIzUmVHWGNNZmh5T1o2dmRqZVZB?=
- =?utf-8?B?VDJuNGRPcTBEL2QyamR3TGMrNzJnS2NxWFFOTWk4c05RMU9iYlZib2ZIOW15?=
- =?utf-8?B?cTVGUjhURXJKRFIrRTJ6UHI4ZDc5Ty9MUFNxYUNremRuSC9majJQSEtKZ3Zn?=
- =?utf-8?B?WVZtdyt3QUxLU2hjejNnTmYwV2hHalNTTU1LTFBqdHVGVkY1TTJvZUloaHVr?=
- =?utf-8?B?NVhubnZIY2wwcHpIUDd3MzhweHN3NFQzVno4eE45ZjNKZEI3TlpqdkVBNGZC?=
- =?utf-8?B?bElCaGFSWG8rbkpxL0c2cU9LcDZaL0lEMG5neVdwZFZLNWpCd3NVVnpMMlVE?=
- =?utf-8?B?aWpDLzVIS1R0UnZHbWN5eXZTMmpLRXRhZVVqcE9rYm9HWDUrUC9FM1hMQThQ?=
- =?utf-8?B?S2NhNFRHVGprRjUrczNLYlZoMENicmVaNkE1WEhSc1JnV2F0enNiV3dxcjho?=
- =?utf-8?B?cDJ4eVpCR1lsN2JjMnlEd3RGQlBWMXJUNk8yYlNTR2huRnJ5SEdVMlc2VnVi?=
- =?utf-8?B?YkRrSjhOVktFMUlzbmhaODZ4dXpJaVREeDJBcEtxWVh4M0lUamxiamdlUkdZ?=
- =?utf-8?B?dThLdzUzZE9uM0kyYmRZZ01MUmFsTERkbnJrNjN5b3Y2NEpaTVgwbys2d1I1?=
- =?utf-8?B?ZXExM3o3Y0NlaEhGWE5hbjRJTkVRZ1ROTm9LMFF3R3QvdUluR1QrNVUydEdJ?=
- =?utf-8?B?SU5xTnNzSDlXdGFmNlN6VVRSckNwc2xIMmR3anV1NmIwTXB3RGRhWU5Ndzg0?=
- =?utf-8?B?UnFHMXZFTVZQb0JOdUdmck9rNnJrRTlvVGQ4bERaNXc3d29rOGNPY3laSmxv?=
- =?utf-8?B?cTFUZVpUakk4OG5tM280dm0yNWhESzFmVytROEhVZW00L0k4UVBVU2hka2R1?=
- =?utf-8?B?aEhBTm82OE1rWjA4Y2Z2bll2VDNpODVqZmRFN1MrT2tuNFM2WWdlZlZ4WVdr?=
- =?utf-8?B?V3VPbFhlS2lLSm52MFhpdGxxTTdhK3NNQkxyb1N2VXpqKzhldHNPMnZOQk1K?=
- =?utf-8?B?ODYwMDhYM2Z4MFhIQnZrcEZzSnVlMTRZUkZWS1lLNzdEelhFbjhxMlQ4T2pw?=
- =?utf-8?B?N28wZW9IQlJMbGlTQ1JOOWRzQlh0dy83dk90SWdSeW5xeU1pdUVVdkI0dERG?=
- =?utf-8?B?VXFoZGdHRHozVlpzaWNKL2lTWXhsQTB6bE9CZndyeDBJLzlkdXVNSGxmakhr?=
- =?utf-8?B?MXdlc0RHZE9FbXFMTXdIMUxKUVF4Y1pVUjZ4bjhQbXFZQUh5VUM4WUdCT0Zk?=
- =?utf-8?Q?P84tgtMeM8yDeuwzun6Dk0yfrgC49I=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(19092799006)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?alNZM2Z2ZkpoTlZzanFUSkNTY0FiNHZmeGdCUjlIamp2ZEtwZjdPTGNnMktC?=
- =?utf-8?B?ZndmL0NrVDRaNDBQeEdUSjdISHJua1BVUVVOZSswNGUxbWM4azF4OWV0UnU3?=
- =?utf-8?B?V0JpVHlvTlg5VnhreWluMWRUUXVQbXNBTDZoL3FzdVJvZ0dvMSt6SERwTFhI?=
- =?utf-8?B?dmw4Qk9BcFBpYXJGRDV4RnhVcVhGVTF2bHBCaGRaVW96bU1paUhLazFOT0lM?=
- =?utf-8?B?VDJaVnFGWGUzNU5hR29RMzc1Y0JmR2ZRZHlZK3NVQUh2K0pPakVmK2F0Y21i?=
- =?utf-8?B?aU93RXhaME5tYTM1M2FmbXU1STRNTUxORm5tRnVqV29vUHFxZG1OdmJJUS8w?=
- =?utf-8?B?SWV6L3JPdVQzRXlQZjMvcFg3RWpSL09TdHVsc3RKN2prK1B0VlY3bGRFblE4?=
- =?utf-8?B?aW5vSm50TVJHeXNLaUEyTXFCMkRObXJGWklHTjRsRHVvTEZyRWsxNGdiWnUx?=
- =?utf-8?B?UXBwemFzZm9OTjQxSXpld2YvM0YwaHJVTGM1TjZvNW5qS09oU0NyVjNOZTBo?=
- =?utf-8?B?a2NBOHJpOVV4QXI5c0prOGROUG5QQzFrZGdxK1crOTJmdVltOHoybGRMZTF5?=
- =?utf-8?B?dVM2REM0TDdoVnIxQWVCTGJBeDNtNC9wNkEvZkpneXptVG5VWlltRVhRcjZz?=
- =?utf-8?B?Zmw5ZHR1cXdDWHJVdjZiaDhmRm9NeUZUTzNtZHRCa3V4MUlDMFFkZXhLbjg5?=
- =?utf-8?B?Wnl0V3poc2c1RXBsNFNzcDZ2QU9jTGdLekRmeVJVUGV2azFoV2RRbVB1TVhU?=
- =?utf-8?B?ZWNiZEIvZHdrNW1kMGNsWVFWd3o2OHY4OVBqWGVoNG1pamVxSktESzZQbmJP?=
- =?utf-8?B?Zjd3SXc4RUZlUmZXRTlqcFJGVFpkeGVET0dETFQvM2FQUWtIT1Jzd05pbnVj?=
- =?utf-8?B?WnVVZVAzRkh3NURjR1A3VUZ5NlE2Si9BSU1JVXNpRlZXbUxxVzI0aEEzcHEx?=
- =?utf-8?B?MW9QL1pQV1EvbGwxOW5YVktVZ0F1ckd0YVprZHRNMFQ5NHErc1Nzc25EVjZK?=
- =?utf-8?B?eHhOYUY3ZWJFdVg4U09hai9QcjV4SndFa3BYVzhSZGxNbFhvK3hvY0dxNmcr?=
- =?utf-8?B?VHUyRENDdStHODB4MjA0Z1FqeEJqTDRPallkeDdsT1BwWjRsbkhiSk01NUov?=
- =?utf-8?B?WGZPZytmUm1WOG45VWhYWXB0amJEeGFRak9pcU1UYWVjYWVqSUl1cStIRnVO?=
- =?utf-8?B?eC9FOUlHUFlFV0pLbW5UVlFNeHFCbFNEOThkczhsNXB6RUQ0WExDRCtJVk9X?=
- =?utf-8?B?R0hBMklwQ1lReTdLUEppOEZzNjVVLzZxYUVYUUR6eDlvVXZFRmhGMEN3YXJu?=
- =?utf-8?B?aURIcGhkUHRQU0ZlNGxQeXF2U3hHTUl0dEpSdnYxcDkwa1NiQW9JYk9yZGEx?=
- =?utf-8?B?UGVSNUE3ZjJQcG5Mc003S2ZPMTJyR3NaTFBZZm9lRTE4QndlVU5LNnRlKzI5?=
- =?utf-8?B?R3lZVWxRY3Y5OHRyTWpvaGxTM3U0a2Q3MEkvMTgwNGl3V0tHSExqdlZMRjJi?=
- =?utf-8?B?UFNBcEZqdGk2WFBsbVhsYjZHRk9kbzdBa3lRbnVsdVhZRnVTaUdiMUQ4S2ND?=
- =?utf-8?B?Wk9hZ0UycWhTTWUrRzNwckF2OTlFSTd4WWlCOUNDY09Kcys5eDRKdUJoSHgz?=
- =?utf-8?B?MmhXelpEZmlmU2k0S1hzRjdQMVRodjRMR1dkUjJjUUo1aWhKQmNwTWFYMlh2?=
- =?utf-8?B?ai9RSzJCUDNxVjFvMlYzVWhabjNpdGM4Y3VhNkdaSzRGNHh5Z2h2MWhOT21L?=
- =?utf-8?B?NllrckxVcHZZcFFMNi9KcnMxbC9TMm92QXcyNGV5TkRhWDZ0RHdzQm53SE5Y?=
- =?utf-8?B?WTBzWjlqOEhwQTM1MW5qZlZRK0NjWEJMb252aVN0ekEzWSs5SEZIV3hiL1ly?=
- =?utf-8?B?OHBKOVVNOUNhQUFZVWhuQzkrUzNjeWlIRlFtQUY3L0dEUStYWUpXYzJOY245?=
- =?utf-8?B?VzIxODFXRTdMeHpteUx4QWQ1SkhPQ1ZJcVpQckgxK0Z6U05TbmpJN0d6WDBk?=
- =?utf-8?B?S09BTDdhcXp0QVRBQW1zOUpDQTJoSEp0dGdYTFF6bjF6UVRjZkhXcE5yS1JG?=
- =?utf-8?B?YnlvZGdWOGdhMGV6cUdsdE85endoYm9LSThLd1J4bG1saW1yMTIrM1BNd0FJ?=
- =?utf-8?Q?CRwDAyDo7FhQZ1zyRtIQ3K1vS?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca83ef2c-e7a6-4611-8b11-08ddbfaac3b9
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 12:10:30.7009
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IerD7GNAlON4JDhDK6IrGtXFR++YEJ+KRZxBRcIaoqpP4dVjYhLJy3mZojeFROobwaasObUReGzOVIBTL+KCNw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7983
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/1] arm64: dts: rockchip: rk3528: Add CPU frequency
+ scaling support
+To: Heiko Stuebner <heiko@sntech.de>, Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250620100010.1291658-1-amadeus@jmu.edu.cn>
+ <20250620100010.1291658-2-amadeus@jmu.edu.cn> <5025631.aeNJFYEL58@phil>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <5025631.aeNJFYEL58@phil>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_051034_419255_559D63EA 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250710_051110_600825_31AD0B5A 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,74 +81,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add CM7 nodes, vdev related memory regions for remoteproc.
+Hi Heiko and Chukun,
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 41 +++++++++++++++++++++++
- 1 file changed, 41 insertions(+)
+On 7/10/2025 1:45 PM, Heiko Stuebner wrote:
+> Am Freitag, 20. Juni 2025, 12:00:10 Mitteleuropäische Sommerzeit schrieb Chukun Pan:
+>> By default, the CPUs on RK3528 operates at 1.5GHz. Add CPU frequency and
+>> voltage mapping to the device tree to enable dynamic scaling via cpufreq.
+>>
+>> The OPP values come from downstream kernel[1]. Both 408MHz and 600MHz
+>> frequencies use the normal PLL, so use the corresponding highest voltage.
+>>
+>> The voltage used for other frequencies can't be less than above (875mV).
+>> Therefore, 816MHz to 1200MHz also uses the corresponding highest voltage.
+> 
+> There has often been the argument that selecting a frequency that has the
+> same voltage as a faster frequency does not save any power.
+> 
+> Hence I remember that we dropped slower frequencies on other socs
+> that share the same voltage with a higher frequency.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-index 2f949a0d48d2d8066388884703c3b3cd678f16e1..3f047cbba29671fc31c9048a3eb7f0dbef4af613 100644
---- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-@@ -75,6 +75,37 @@ linux_cma: linux,cma {
- 			linux,cma-default;
- 			reusable;
- 		};
-+
-+		vdev0vring0: vdev0vring0@88000000 {
-+			reg = <0 0x88000000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0vring1: vdev0vring1@88008000 {
-+			reg = <0 0x88008000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev1vring0: vdev1vring0@88010000 {
-+			reg = <0 0x88010000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev1vring1: vdev1vring1@88018000 {
-+			reg = <0 0x88018000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdevbuffer: vdevbuffer@88020000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x88020000 0 0x100000>;
-+			no-map;
-+		};
-+
-+		rsc_table: rsc-table@88220000 {
-+			reg = <0 0x88220000 0 0x1000>;
-+			no-map;
-+		};
- 	};
- 
- 	flexcan1_phy: can-phy0 {
-@@ -225,6 +256,16 @@ sound-wm8962 {
- 				"IN3R", "AMIC",
- 				"IN1R", "AMIC";
- 	};
-+
-+	remoteproc-cm7 {
-+		compatible = "fsl,imx95-cm7";
-+		mbox-names = "tx", "rx", "rxdb";
-+		mboxes = <&mu7 0 1>,
-+			 <&mu7 1 1>,
-+			 <&mu7 3 1>;
-+		memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
-+				<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
-+	};
- };
- 
- &adc1 {
+One possible difference here is that the actual CPU rate is controlled
+by a PVTPLL where TF-A will configure a osc ring-length based on the
+requested rate and Linux only configure the regulator voltage.
 
--- 
-2.37.1
+I have no idea if the configuration made by TF-A will have any affect on
+power usage, but I suggest we keep all opp here because both TF-A and
+Linux is involved in configuring the CPU rate.
+
+The measured rate can typically be read from a PVTPLL status reg, it
+will be different depending on the ring-length, voltage and silicon
+quality for the rates >= 816 MHz.
+
+> 
+>>
+>> The remaining 1416MHz to 2016MHz use a voltage close to actual frequency.
+>>
+>> [1] https://github.com/rockchip-linux/kernel/blob/develop-5.10/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+>>
+>> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+>> ---
+>>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 64 ++++++++++++++++++++++++
+>>  1 file changed, 64 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+>> index 829f980ea353..5cb7f10b79ed 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+>> @@ -53,6 +53,7 @@ cpu0: cpu@0 {
+>>  			device_type = "cpu";
+>>  			enable-method = "psci";
+>>  			clocks = <&scmi_clk SCMI_CLK_CPU>;
+>> +			operating-points-v2 = <&cpu_opp_table>;
+>>  		};
+>>  
+>>  		cpu1: cpu@1 {
+>> @@ -61,6 +62,7 @@ cpu1: cpu@1 {
+>>  			device_type = "cpu";
+>>  			enable-method = "psci";
+>>  			clocks = <&scmi_clk SCMI_CLK_CPU>;
+>> +			operating-points-v2 = <&cpu_opp_table>;
+>>  		};
+>>  
+>>  		cpu2: cpu@2 {
+>> @@ -69,6 +71,7 @@ cpu2: cpu@2 {
+>>  			device_type = "cpu";
+>>  			enable-method = "psci";
+>>  			clocks = <&scmi_clk SCMI_CLK_CPU>;
+>> +			operating-points-v2 = <&cpu_opp_table>;
+>>  		};
+>>  
+>>  		cpu3: cpu@3 {
+>> @@ -77,6 +80,67 @@ cpu3: cpu@3 {
+>>  			device_type = "cpu";
+>>  			enable-method = "psci";
+>>  			clocks = <&scmi_clk SCMI_CLK_CPU>;
+>> +			operating-points-v2 = <&cpu_opp_table>;
+>> +		};
+>> +	};
+>> +
+>> +	cpu_opp_table: opp-table-cpu {
+
+This node should be placed after the firmware node for the nodes to be
+in alphabetical order.
+
+Regards,
+Jonas
+
+>> +		compatible = "operating-points-v2";
+>> +		opp-shared;
+>> +
+>> +		opp-408000000 {
+>> +			opp-hz = /bits/ 64 <408000000>;
+>> +			opp-microvolt = <875000 875000 1100000>;
+>> +			clock-latency-ns = <40000>;
+>> +			opp-suspend;
+>> +		};
+>> +
+>> +		opp-600000000 {
+>> +			opp-hz = /bits/ 64 <600000000>;
+>> +			opp-microvolt = <875000 875000 1100000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +
+>> +		opp-816000000 {
+>> +			opp-hz = /bits/ 64 <816000000>;
+>> +			opp-microvolt = <875000 875000 1100000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +
+>> +		opp-1008000000 {
+>> +			opp-hz = /bits/ 64 <1008000000>;
+>> +			opp-microvolt = <875000 875000 1100000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +
+>> +		opp-1200000000 {
+>> +			opp-hz = /bits/ 64 <1200000000>;
+>> +			opp-microvolt = <900000 900000 1100000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +
+>> +		opp-1416000000 {
+>> +			opp-hz = /bits/ 64 <1416000000>;
+>> +			opp-microvolt = <925000 925000 1100000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +
+>> +		opp-1608000000 {
+>> +			opp-hz = /bits/ 64 <1608000000>;
+>> +			opp-microvolt = <975000 975000 1100000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +
+>> +		opp-1800000000 {
+>> +			opp-hz = /bits/ 64 <1800000000>;
+>> +			opp-microvolt = <1037500 1037500 1100000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +
+>> +		opp-2016000000 {
+>> +			opp-hz = /bits/ 64 <2016000000>;
+>> +			opp-microvolt = <1100000 1100000 1100000>;
+>> +			clock-latency-ns = <40000>;
+>>  		};
+>>  	};
+>>  
+>>
+> 
+> 
+> 
+> 
 
 
