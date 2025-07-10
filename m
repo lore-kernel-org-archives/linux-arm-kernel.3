@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A54C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0030C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WUOMAeMD+0MjFQPVbe7NO/O+LM5Qp81xt5Gx+nR0g88=; b=nJZzcVN27IW7RwwTeO9eV/HWeL
-	+DUwZ9ZVFEFoR7z2euwb7QLucXIoC3zTGimCKrhlVMgzK9wgoHKMMtaOPe4BDJgdvsUtf6tMIhfHe
-	2ex8s5N43hipxtvVboJ6cffmWwb9Yd1Lf4SzhhgnGXRpRIpW4pF8ke4Y54MyE4JuV0Bn1gFzbU2PJ
-	j87QfVvmUQbPaDbVb11JWFcF5sAkyXBAOLWwPY+LDIQrPFYGhqKQYnHAJ++B1zK4ts+RcK3a5/sSD
-	AKbz2B7zUSI6je/YPF8Xf+RRlUKfZmbEmh1GhfycmvRbMgV4mPvL5BFy/b5ZUsuMyLN4oolPnn7zT
-	gnn5XRIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tpm3Nrsuan+oMqKftc4W3/uzUS0nOqQG4pXO38lzgNU=; b=MhQVUsDPe7cSgY
+	ukV/jI4wy4LcDIxjIoHhNehaj5JRYdLFQakUJKs+5S5QkRppkqhYpAuQgIEAQD8JU4vwysc16clmB
+	oN/0ng2RHc168e6IU4C6mRTCgfX5wmdfNxpSMx5pG3AT/OWFpdEIJcaUmx7daK+zrXnYpJTjxoTDk
+	GH7Ta1q7LhgPBDegBjr3th47RXFKDrLB/CEjpTAKgTQmeRguwXx9kCgoLmONQpwe2miym2uIDwHqN
+	rN3szFfMLDjQ6Y4asOAUNDrRf4i7McMZfTpkTwJ0NreaHd8/y1vhPS/Q7UsRa8iWykh/vQzaxS/NV
+	gzmZ7tJqlPdbER6EJMZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZu6X-0000000CObk-0Vv4;
-	Thu, 10 Jul 2025 16:26:38 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1uZu6p-0000000COwj-0Dfy;
+	Thu, 10 Jul 2025 16:26:55 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZrbA-0000000Bzjc-34Wn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 13:46:05 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D384C44454;
-	Thu, 10 Jul 2025 13:46:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752155163;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WUOMAeMD+0MjFQPVbe7NO/O+LM5Qp81xt5Gx+nR0g88=;
-	b=W0XDNoAqYUhlkKr7D3AxZmChh6R0WilK6eDtHQu8c/KP5jk/c4Wuvd4iepy8va7IZgPIac
-	VmiAtfU1s5VG8S1k7yOMvmEor2tlIdnroF6hM0PbvSgCyBo4FzW3tNBB/yI/2lcr9jGypn
-	x9lHZY6hGw6jurSiAt2ksTO4ltX35oBRoE4z5fRCStD7ZOrxTcgCnWAMqF3Yf4HYs2aFo1
-	Pre846XBNbIhPP3+g8xLVYJkwR3hqL73Zc7l78laG3G6sbhZHU9sqpEO86Zt54+ah35yle
-	Y+wQVnangX5Ojv2HpYpLQaaFNfYZjMVodJ0Vjbx2XSgGntYUxpTx7LorHdN0Yw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v8 15/15] Documentation: networking: Document the phy_port infrastructure
-Date: Thu, 10 Jul 2025 15:45:32 +0200
-Message-ID: <20250710134533.596123-16-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250710134533.596123-1-maxime.chevallier@bootlin.com>
-References: <20250710134533.596123-1-maxime.chevallier@bootlin.com>
+	id 1uZrhe-0000000C1Gd-3uZE;
+	Thu, 10 Jul 2025 13:52:48 +0000
+Received: from [192.168.0.172] (mob-5-90-137-205.net.vodafone.it [5.90.137.205])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 397BA7E4;
+	Thu, 10 Jul 2025 15:52:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1752155536;
+	bh=ltV2NmqZnLdjI6S4icFVfh0nEI7TIGS2rMawXHll0Jc=;
+	h=From:Subject:Date:To:Cc:From;
+	b=Cd2Pu3xPh8ah76hWeGoUu08VktgOpBI4d2BZNQir7DqW9sy2uDPBNDm+8E/KeZM/8
+	 thKIS6W8KcLJ+oofUfHLrZH7et935KAoRPFl01M+Iqz1Xiyjnd0yYHnzdgaDtmdEIu
+	 mo5krwz4SkOLhBUEHW0dgekgw0gXQ3hjNK6JFiXo=
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Subject: [PATCH v2 0/8] media: Introduce V4L2 extensible parameters
+Date: Thu, 10 Jul 2025 15:52:09 +0200
+Message-Id: <20250710-extensible-parameters-validation-v2-0-7ec8918ec443@ideasonboard.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdegtdehlecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpeduudenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrk
- hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIrFb2gC/4WNwQrDIBAFfyV4rkUtwaSn/kfJwaxrs5BoUJGUk
+ H+vDfTc4zx4MztLGAkTuzc7i1goUfAV1KVhMBn/Qk62MlNCtUILyXHL6BONM/LVRLNgxph4MTN
+ Zk+uZQ3eTTrsWQIysataIjrYz8RwqT5RyiO+zWOR3/cm7//IiueC9A6WhB606eJBFk4Ifg4n2C
+ mFhw3EcH5mNBhrXAAAA
+X-Change-ID: 20250701-extensible-parameters-validation-c831f7f5cc0b
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4105;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=ltV2NmqZnLdjI6S4icFVfh0nEI7TIGS2rMawXHll0Jc=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBob8WqnZIqf8JtgptvtcnMMjv154NliSMyaGlv4
+ XM1EvwR2d6JAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaG/FqgAKCRByNAaPFqFW
+ POnCD/9tYh7mULnbOKKtqeQFSJCz6mEgIJ9h+X3cAxe8IVNHleaYLwr1UPKIubHBA1tjkXW/U4S
+ HeCjSSrwGmfmwfvWeJQkfxU4IyFgpXjN+RL5tYqNbrx57Bn6UZ6gwoBq/P6ZWdFgO2kqP0aCjY9
+ fD5DARRpkC2WqC+8u+y/QYEqEfXQ8gzYzkUT7HHbSbqj6p3rxFmmT5R1S8IHbTgLTgfEWOqz9yh
+ Tg7AiZ5M6HVchAxwHPYlE6mC5/84iZ7CpuoffI81XyG3Tng4U8a2OmitsUtNgxUqNgwiJGvP1HH
+ cJ4TjgOwjBHi1pPvgiur081KeUIQgqeO7AWn1SXLgcVJSQhcvYjsbfTvdHfsmmQgDP6M5VcKpqX
+ RHHYp0d7DfjyQaXq/HixePTRd/wgaQxXYsLDZt5tCDadGaph/Qs6DO7qxpxih9dhwbDSfbZKe72
+ RHU4ZV05zO3BiwYlqp+f7x5+BkJ0ZNgqthY9Aw0prXT4S0c2VEmkb/Q/qxuIDjn9dVKogqmabxq
+ SKHoKuheItgbvci6WkfVoM+kLn/oYlF7dDRFkoHtVwM9fXmgHteHTnyrYX8QKMHVL7SJHbnJzcy
+ yHBZ4LSnpZB8gBRa2XBp54gi8wRWxESYJhkmfkJAG5NOfvnf677XfMBB9ITdDQRFIXt6m6cy00X
+ llsIf/ioPrJJahg==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_064604_903832_D87170BA 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20250710_065247_113076_BAFC0FA1 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,159 +91,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This documentation aims at describing the main goal of the phy_port
-infrastructure.
+Extensible parameters meta formats have been introduced in the Linux
+kernel v6.12 initially to support different revision of the RkISP1 ISP
+implemented in different SoC. In order to avoid breaking userspace
+everytime an ISP configuration block is added or modified in the uAPI
+these new formats, which are versionated and extensible by their
+definition have been introduced.
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+See for reference:
+e9d05e9d5db1 ("media: uapi: rkisp1-config: Add extensible params format")
+6c53a7b68c5d ("media: rkisp1: Implement extensible params support")
+
+The Amlogic C3 ISP driver followed shortly, introducing an extensible
+format for the ISP configuration:
+
+6d406187ebc0 ("media: uapi: Add stats info and parameters buffer for C3 ISP")
+
+with a very similar, if not identical, implementation of the routines to
+validate and handle the ISP configuration in the ISP driver in the
+c3-isp-params.c file.
+
+fb2e135208f3 ("media: platform: Add C3 ISP driver")
+
+With the recent upstreaming attempt of the Mali C55 ISP driver from Dan,
+a third user of extensible parameters is going to be itroduced in the
+kernel, duplicating again in the driver the procedure for validating and
+handling the ISP configuration blocks
+
+https://patchwork.linuxtv.org/project/linux-media/patch/20250624-c55-v10-15-54f3d4196990@ideasonboard.com/
+
+To avoid duplicating again the validation routines and common types
+definition, this series introduces v4l2-params.c/.h for the kAPI
+and v4l2-extensible-params.h for the uAPI and re-organize the RkISP1
+and Amlogic C3 drivers to use the common types and the helper validation
+routines.
+
+If the here proposed approach is accepted, I propose to rebase the Mali
+C55 driver on top of this series, to use the new common types and
+helpers.
+
+I have been able to test this on RkISP1 but not on C3.
+Keke: would you be able to give this series a try and see what happens ?
+
+Media CI pipeline:
+https://gitlab.freedesktop.org/linux-media/users/jmondi/-/pipelines/1467814
+
+Thanks
+  j
+
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 ---
- Documentation/networking/index.rst    |   1 +
- Documentation/networking/phy-port.rst | 111 ++++++++++++++++++++++++++
- MAINTAINERS                           |   1 +
- 3 files changed, 113 insertions(+)
- create mode 100644 Documentation/networking/phy-port.rst
+Changes in v2:
+- Make v4l2_params_buffer directly usable
+- Centralize ENABLE/DISABLE flags definition and validation
+- Take in Dan's v4l2_params_buffer_size()
+- Allow blocks to only contain the header if they're going to be
+  disabled
+- Documentation fixes as reported by Nicolas
+- Link to v1: https://lore.kernel.org/r/20250708-extensible-parameters-validation-v1-0-9fc27c9c728c@ideasonboard.com
 
-diff --git a/Documentation/networking/index.rst b/Documentation/networking/index.rst
-index ac90b82f3ce9..f60acc06e3f7 100644
---- a/Documentation/networking/index.rst
-+++ b/Documentation/networking/index.rst
-@@ -96,6 +96,7 @@ Contents:
-    packet_mmap
-    phonet
-    phy-link-topology
-+   phy-port
-    pktgen
-    plip
-    ppp_generic
-diff --git a/Documentation/networking/phy-port.rst b/Documentation/networking/phy-port.rst
-new file mode 100644
-index 000000000000..6d9d46ebe438
---- /dev/null
-+++ b/Documentation/networking/phy-port.rst
-@@ -0,0 +1,111 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+.. _phy_port:
-+
-+=================
-+Ethernet ports
-+=================
-+
-+This document is a basic description of the phy_port infrastructure,
-+introduced to represent physical interfaces of Ethernet devices.
-+
-+Without phy_port, we already have quite a lot of information about what the
-+media-facing interface of a NIC can do and looks like, through the
-+:c:type:`struct ethtool_link_ksettings <ethtool_link_ksettings>` attributes,
-+which includes :
-+
-+ - What the NIC can do through the :c:member:`supported` field
-+ - What the Link Partner advertises through :c:member:`lp_advertising`
-+ - Which features we're advertising through :c:member:`advertising`
-+
-+We also have info about the number of lanes and the PORT type. These settings
-+are built by aggregating together information reported by various devices that
-+are sitting on the link :
-+
-+  - The NIC itself, through the :c:member:`get_link_ksettings` callback
-+  - Precise information from the MAC and PCS by using phylink in the MAC driver
-+  - Information reported by the PHY device
-+  - Information reported by an SFP module (which can itself include a PHY)
-+
-+This model however starts showing its limitations when we consider devices that
-+have more than one media interface. In such a case, only information about the
-+actively used interface is reported, and it's not possible to know what the
-+other interfaces can do. In fact, we have very few information about whether or
-+not there are any other media interfaces.
-+
-+The goal of the phy_port representation is to provide a way of representing a
-+physical interface of a NIC, regardless of what is driving the port (NIC through
-+a firmware, SFP module, Ethernet PHY).
-+
-+Multi-port interfaces examples
-+==============================
-+
-+Several cases of multi-interface NICs have been observed so far :
-+
-+Internal MII Mux::
-+
-+  +------------------+
-+  | SoC              |
-+  |          +-----+ |           +-----+
-+  | +-----+  |     |-------------| PHY |
-+  | | MAC |--| Mux | |   +-----+ +-----+
-+  | +-----+  |     |-----| SFP |
-+  |          +-----+ |   +-----+
-+  +------------------+
-+
-+Internal Mux with internal PHY::
-+
-+  +------------------------+
-+  | SoC                    |
-+  |          +-----+ +-----+
-+  | +-----+  |     |-| PHY |
-+  | | MAC |--| Mux | +-----+   +-----+
-+  | +-----+  |     |-----------| SFP |
-+  |          +-----+       |   +-----+
-+  +------------------------+
-+
-+External Mux::
-+
-+  +---------+
-+  | SoC     |  +-----+  +-----+
-+  |         |  |     |--| PHY |
-+  | +-----+ |  |     |  +-----+
-+  | | MAC |----| Mux |  +-----+
-+  | +-----+ |  |     |--| PHY |
-+  |         |  +-----+  +-----+
-+  |         |     |
-+  |    GPIO-------+
-+  +---------+
-+
-+Double-port PHY::
-+
-+  +---------+
-+  | SoC     | +-----+
-+  |         | |     |--- RJ45
-+  | +-----+ | |     |
-+  | | MAC |---| PHY |   +-----+
-+  | +-----+ | |     |---| SFP |
-+  +---------+ +-----+   +-----+
-+
-+phy_port aims at providing a path to support all the above topologies, by
-+representing the media interfaces in a way that's agnostic to what's driving
-+the interface. the struct phy_port object has its own set of callback ops, and
-+will eventually be able to report its own ksettings::
-+
-+             _____      +------+
-+            (     )-----| Port |
-+ +-----+   (       )    +------+
-+ | MAC |--(   ???   )
-+ +-----+   (       )    +------+
-+            (_____)-----| Port |
-+                        +------+
-+
-+Next steps
-+==========
-+
-+As of writing this documentation, only ports controlled by PHY devices are
-+supported. The next steps will be to add the Netlink API to expose these
-+to userspace and add support for raw ports (controlled by some firmware, and directly
-+managed by the NIC driver).
-+
-+Another parallel task is the introduction of a MII muxing framework to allow the
-+control of non-PHY driver multi-port setups.
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 4cf59bc4d532..32f3bbf07c16 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8963,6 +8963,7 @@ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
- F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
- F:	Documentation/devicetree/bindings/net/mdio*
- F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
-+F:	Documentation/networking/phy-port.rst
- F:	Documentation/networking/phy.rst
- F:	drivers/net/mdio/
- F:	drivers/net/mdio/acpi_mdio.c
+---
+Jacopo Mondi (8):
+      media: uapi: Introduce V4L2 extensible params
+      media: uapi: Convert RkISP1 to V4L2 extensible params
+      media: uapi: Convert Amlogic C3 to V4L2 extensible params
+      media: Documentation: uapi: Add V4L2 extensible parameters
+      media: v4l2-common: Introduce v4l2-params.c
+      media: rkisp1: Use v4l2-params for validation
+      media: amlogic-c3: Use v4l2-params for validation
+      media: Documentation: kapi: Add v4l2 extensible parameters
+
+ Documentation/driver-api/media/v4l2-core.rst       |   1 +
+ Documentation/driver-api/media/v4l2-params.rst     |   5 +
+ .../media/v4l/extensible-parameters.rst            |  89 ++++++
+ .../userspace-api/media/v4l/meta-formats.rst       |   1 +
+ MAINTAINERS                                        |  10 +
+ .../media/platform/amlogic/c3/isp/c3-isp-params.c  | 263 ++++++----------
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c | 349 +++++++++------------
+ drivers/media/v4l2-core/Makefile                   |   3 +-
+ drivers/media/v4l2-core/v4l2-params.c              | 128 ++++++++
+ include/media/v4l2-params.h                        | 165 ++++++++++
+ include/uapi/linux/media/amlogic/c3-isp-config.h   |  48 +--
+ include/uapi/linux/media/v4l2-extensible-params.h  | 144 +++++++++
+ include/uapi/linux/rkisp1-config.h                 |  67 ++--
+ 13 files changed, 818 insertions(+), 455 deletions(-)
+---
+base-commit: a8598c7de1bcd94461ca54c972efa9b4ea501fb9
+change-id: 20250701-extensible-parameters-validation-c831f7f5cc0b
+
+Best regards,
 -- 
-2.49.0
+Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 
 
