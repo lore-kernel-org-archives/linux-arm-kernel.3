@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 520AAC83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 02:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9197C83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 02:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lFaBzW/UFNKRDOoKgOilQk2+bD1ofG50x/0d54hiwwo=; b=4/HnpBroXBBdxBsnCX7+ftNdvP
-	HmX9BY0ML0ONcUEw3jUhLJSwk0iP3dxI5uzTBkJoOaBj4WpLSUpmFH1+DmlDye2TCGnqx4DJ8ZnnA
-	MUzxVhUakbVt5Pd3k2VEzYAxz0MrgGvm6zM1up6EmixVd4HfmS5O+c4FxlIDOaqPsKBIbuSikpAJR
-	Yn4WAUGbBxRUfjnSwmnrmGPWjhK1+p8kdf1PIdHSRQpkqgCv0hcZTMRZxeID8lG5E70j9RtLq/GeI
-	fT39AFJQeq/LysgvTBSM9+E8Y1eL6JhfXiw/m8AMNKqYWGn3M3747DMCIOTmPuUeqRVSDbujEEutP
-	e+S7J1gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LRMSGktzsS83tagvY4R3ikQYIosNO4FcOhHqgs++3BY=; b=T2dJhL0RR7kHxZB1tbXZSwL3eL
+	GGJ/NMhlgESUqb1/ydPow4nrc7pAVt6kqr//pPmmr2E/SUalRSDql4lQ6v1fmbEu+3JLNAWXr56RH
+	sPwtP/DVPWGZRTSkGQpSNiEZqZr5C0/OqwQ+AC5BvkFBGI4mMXIVKZABBevfQMiJ4z6oaxRkTYyj/
+	4tTQowG2Up1Jk76fSlky612KZoUD2ZyY0vNC0YtdMlStNd+lbP8VCwpBj+NQnZ6dV7qPbMIbf/k4k
+	3eijvbNde3U8TNuI7pd1VRmvcYkXhfv4KncMPKdUwL2tcKP/7KNF9GartCxY/A3s8VdpN1VbQJn94
+	+RAw52vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZgzq-0000000AU4K-1UHv;
-	Thu, 10 Jul 2025 02:26:50 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uZh59-0000000AUfv-1pXj;
+	Thu, 10 Jul 2025 02:32:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZgxT-0000000ATkR-0Byp
+	id 1uZh2m-0000000AUDj-35HF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 02:24:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1752114257;
-	bh=lFaBzW/UFNKRDOoKgOilQk2+bD1ofG50x/0d54hiwwo=;
-	h=Subject:From:To:Cc:Date;
-	b=O3MbPEDV8Vl5EyZd0IlS9GM7zFbwanUKbgi8uw38SA+/7kAG7A5I3K6ne6QLYVQ5W
-	 QYE7yjtnUqcs6SXZNOQoj/kRpTxPpnbabtnuBeHjf6ZqZO/Xow2zMoyTTtz8/x2YZz
-	 mM3u9e1zWiE7P7qvwU1e+DhY4ykrkeIJVcCIA+Tcvw4N6nsHPwoGnT2d6yo92Oeztn
-	 dUMJODDPBsu0MHHxcO39SIobpy3QdatzTOhVNLX4+hJ2N52Vr4KpGrQp/64oXoNuGm
-	 8YsAJQzi05wkBJqBKvptPYI5gftXk3EvuiRymsscENZpuzd6NoJk0g4po/FpHeRPRC
-	 Av0g/SX3FK7OA==
-Received: from [192.168.68.112] (unknown [180.150.112.70])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D972E6508A;
-	Thu, 10 Jul 2025 10:24:14 +0800 (AWST)
-Message-ID: <d119a7b44b25a1e55a710adec7fce3e9a9fc898e.camel@codeconstruct.com.au>
-Subject: [GIT PULL] aspeed: drivers: changes for 6.16-rc6
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: soc <soc@lists.linux.dev>
-Cc: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-aspeed
- <linux-aspeed@lists.ozlabs.org>, linux-kernel
- <linux-kernel@vger.kernel.org>,  Joel Stanley <joel@jms.id.au>
-Date: Thu, 10 Jul 2025 11:54:13 +0930
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Thu, 10 Jul 2025 02:29:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9AA036116E;
+	Thu, 10 Jul 2025 02:29:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D850C4CEEF;
+	Thu, 10 Jul 2025 02:29:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752114591;
+	bh=xXT4x4JaFjSeep/Mbd917xNGkwFl5LwRQcGW2dS7HC8=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Q0EXEXk/OPCEnCIfL1at2SfcbHc/XVDpGRJmLK9giQP6n+JX3ktQr8QELcBEnCGNK
+	 TwN/gcI31nVAcH1HecE8626G4LBn4EoEBg0PXWzrrEnUDqsftFiLxv+eVuquveUvKp
+	 VeEer/1AfJtBIjSdTuIZsic65zrcpq3jEx++h9hGNmLFjqni+6BJAoVN5ybCyw34q5
+	 /LkApYW/XJKmeuGp3ZieyBs/Hk+Arp/tUReN3uCkK+67AMvZo8xDIpdf34I/klunjz
+	 qHIe12ZxQ1G8eOp5AYFTCGUaSVep+QefC9X7mKmymhkXYSKnLUzMkZJNqAtbrlutKw
+	 qBuzl+6yx58IA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB44B383B261;
+	Thu, 10 Jul 2025 02:30:14 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_192423_275522_5C9689C9 
-X-CRM114-Status: UNSURE (   7.74  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v3] net: thunderx: avoid direct MTU assignment after
+ WRITE_ONCE()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175211461350.963219.17128181938751055078.git-patchwork-notify@kernel.org>
+Date: Thu, 10 Jul 2025 02:30:13 +0000
+References: <20250706194327.1369390-1-alok.a.tiwari@oracle.com>
+In-Reply-To: <20250706194327.1369390-1-alok.a.tiwari@oracle.com>
+To: Alok Tiwari <alok.a.tiwari@oracle.com>
+Cc: sgoutham@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ darren.kenny@oracle.com, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,45 +74,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello SoC maintainers,
+Hello:
 
-Here are two fixes to the ASPEED LPC snoop driver for the 6.16 release
-cycle.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Cheers,
+On Sun,  6 Jul 2025 12:43:21 -0700 you wrote:
+> The current logic in nicvf_change_mtu() writes the new MTU to
+> netdev->mtu using WRITE_ONCE() before verifying if the hardware
+> update succeeds. However on hardware update failure, it attempts
+> to revert to the original MTU using a direct assignment
+> (netdev->mtu = orig_mtu)
+> which violates the intended of WRITE_ONCE protection introduced in
+> commit 1eb2cded45b3 ("net: annotate writes on dev->mtu from
+> ndo_change_mtu()")
+> 
+> [...]
 
-Andrew
+Here is the summary with links:
+  - [net,v3] net: thunderx: avoid direct MTU assignment after WRITE_ONCE()
+    https://git.kernel.org/netdev/net/c/849704b8b211
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494=
-:
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/aspeed=
--6.16-fixes-0
-
-for you to fetch changes up to 56448e78a6bb4e1a8528a0e2efe94eff0400c247:
-
-  soc: aspeed: lpc-snoop: Don't disable channels that aren't enabled (2025-=
-07-02 11:05:20 +0930)
-
-----------------------------------------------------------------
-ASPEED SoC driver fixes for 6.16
-
-Address concerns in the ASPEED LPC snoop driver identified in the first two
-patches of the cleanup series at [1].
-
-[1]: https://lore.kernel.org/all/20250616-aspeed-lpc-snoop-fixes-v2-0-3cdd5=
-9c934d3@codeconstruct.com.au/
-
-----------------------------------------------------------------
-Andrew Jeffery (2):
-      soc: aspeed: lpc-snoop: Cleanup resources in stack-order
-      soc: aspeed: lpc-snoop: Don't disable channels that aren't enabled
-
- drivers/soc/aspeed/aspeed-lpc-snoop.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
 
 
