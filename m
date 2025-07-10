@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57A6C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 22:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373F3C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 22:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSJyRKfUgsicif6Zhh9aMvR5uHldOPhckaMuBpk84sM=; b=ZVCR+DnWVu04dj93zA5Sv6c6If
-	5ZRNnHR5uY6vk8Jue5jf6oOUvlJ6sQS0LXHqBrMeE2R/wQc1vTE5EG+WHQ1I6b+P2KKf3jCpHHQ6m
-	XJnHo8qcBa6dGxHBuaAznAy11Cn2LAGYiFWM9iZq3YBbWmJsx4XMCKreJn1iSpGmkQJlOTcv+KuYR
-	VE3n76ThN5xWCZAtd/gXXwgm5q8tJHr1chm6UqNGDY4BQR99KAZzcLANzG2hhX8E2AxYzla3ww6co
-	C6feqgK+YPNVZ3qjnkyy9sNumw/SmLEgccZQaC5Q98lxAm1fwYvvqI9S63ZOBV6A4PryoN7yUj0sD
-	ricF0p9A==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N+FBOfRqqWTe0v+4MSdrEhF6Hays6kDuw7fm6xqCZT0=; b=A3fxVrqFB4L8dhahEhOP0NLncp
+	LTM23nzJsq22QuqtyYtYGasXV8GntBlNzljMpM5Fuyd/qssNV/fcp9U1Ki5dhsXrvzk25b7GKr0sW
+	vRal2nmvi746WNAb6XeLEcCZ6OIBhK8o0CRgqSVczEW2gsxGj5C3Bta5u+XcJ7BVIebF8V4vjNl/O
+	ZtrDt0hLWUxnO2zEdznvWQ0RYryL5vh6etMhuvQSN6O5f6Vt2CbY7P6rjHtWgs5LTp9Am/KfScUWc
+	hapuYSbANEzyBYpcZFpqQppYrhI/4QjQJ8PF82ze9ZrliTtqTJbnOfLrqq6Y3+3m1kXqGZb9VR+YU
+	L5WFyuwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZzUp-0000000D8IC-22OU;
-	Thu, 10 Jul 2025 22:12:03 +0000
+	id 1uZzX8-0000000D8WM-0n7p;
+	Thu, 10 Jul 2025 22:14:26 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZxYk-0000000Ct47-0LpS
+	id 1uZxYk-0000000Ct48-0L0a
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 10 Jul 2025 20:07:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=JSJyRKfUgsicif6Zhh9aMvR5uHldOPhckaMuBpk84sM=; b=kiXoqT+SRwbaZiV5dD0pyG/q4t
-	m2CRIhHdYYeetOq0yciRDGorRvAvJSYOPyYinW3AW2vlCGgPVq8JE1bK/c/7U92GRWhglNrHd0rtV
-	6wYxFRBhWAqoLkUIR7yYCgWTWIKrlh5vU91sXl7vcchmJJf7BnD2MAbSP4NjQbLiLNWTJRKww9Lfr
-	6B+RbvTmvi2ypj30JWo2jcKPYfXonX2WOuvKUAZRcaDVurcLaPegSTjhyRHEQjgE1r/iXXXvUyNJh
-	WJPpzuaTjN+qI3bthCbsqrHXbbXj+ZM9zwqqOmcJdGz8errps20IBiQ+M3s7EDy+1hapzqjPP2NHP
-	N1dzazIA==;
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=N+FBOfRqqWTe0v+4MSdrEhF6Hays6kDuw7fm6xqCZT0=; b=L/cSlwNvRhTYLySKTbuN8OJkny
+	M8nbUiuZ7YSx3k/z7MkinpjGR7+dj5PmBdd5zwHns+6EWJ0U7tok5nDjqg6/bXVry7vMI6OdZKKAf
+	voHNWJpUg+dCsZWzAWlNmqpycUKkzCu00/4HPjSYslz2Tu325JYXCFk1iaXr8aQZw36PJ+aHepRnU
+	pq/U/g4nj7oOIcXjmJtSB7AAo76Vnf5SP/qEHuL9c5/PH1kzyCi1Tj36GlwG062k3ftpe1CPEgpNp
+	udMg7DD6i0oayD0Q35QkT/TImW6yu1lTCSiium5RiN7bgA0hy1TkedkokAsrVouGDiVwrCrXaNvXf
+	DuPmgoLQ==;
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZxYg-000000098pc-2CcC
+	id 1uZxYf-000000098p4-37cA
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Jul 2025 20:07:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1752178074; x=1783714074;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Zv0CC3WYKH/36O9O0t/SOoiKrmvlfng/rt5RJxB0L+A=;
-  b=hrAyMcON+dkE5ZvsnvLmTXAmwzF1pXAbfl9c7es1IQsEKFWdToscxoOy
-   8AoIwO4nLxEgZyzzqrhG0kM+gshqd1tiQcWCykE9a77gf0UipnY7Npqnz
-   oH7rt9FxXdaaK/jjMovM9eJv+S1yuOJt3TNX2PQ/yjiV0OpyxHGyixWoX
-   jiKtURR6suFbcVWuXXvHM9lhZ3B0aXGhTcCwZlVsKGfeg3VYv6SRzPyFv
-   u24IyJkuuzq6AD37Cl6dADJGHy0BcTbYqqdb41xgSzB5pOr7TjVhNXB7G
-   kJ3guy5RFuYuSSYn+fLvoo5eZ/ga7Cn+2vn+kal4YgCI9LmNuMLL2phqp
+  t=1752178073; x=1783714073;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=ynLEXTV9etWCmaTp9hJxD+i62WVpqyZqxsuR5myYfmY=;
+  b=kH4kN82K5VxVaVhTp0RlaeYTi2xQMiObnabN/pVd11IPtm2R2aUmHpuQ
+   nIexPnyLtHb7SLCbi0fo+mwXkX3dGsN4j9/Y4uqiRZ6Ng7KrpyakUUdqN
+   DbTpa25QQZW+hxS/Ba+HpAnJe1gcfvjKwv0XUpts1/RRZc1XUW8mrbxmJ
+   02Me5kYKPzVC0o50vPA9dpY4O5tB9pEveOuWMDvQ4Io9hLQiENhEJj16g
+   igcpzxZoDxMlyB5mxUYvIyXT1exVZufWwNNDpGAon+MkSw9XL6T4e6LYa
+   A4AmNFEViI5xh47WRQHp/tIyueqWYPbXUgzhGfwh2A42w8EoMvnwZ7ukO
    A==;
 X-CSE-ConnectionGUID: VcY24SkbRKSMnNSaLxS1vA==
-X-CSE-MsgGUID: zr4ioYhrTsmq9eXidwg21Q==
+X-CSE-MsgGUID: VK/4oCWZTe2MmqdZJVcdvw==
 X-IronPort-AV: E=Sophos;i="6.16,301,1744095600"; 
-   d="scan'208";a="44448156"
+   d="scan'208";a="44448155"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Jul 2025 13:07:51 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Jul 2025 13:07:50 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -75,20 +75,17 @@ To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
 	<claudiu.beznea@tuxon.dev>
 CC: <varshini.rajendran@microchip.com>, <linux-clk@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<robh@kernel.org>
-Subject: [PATCH v3 01/32] clk: at91: pmc: add macros for clk_parent_data
-Date: Thu, 10 Jul 2025 13:06:54 -0700
-Message-ID: <f3ef0275345578c504b41710c67bfe1238c44c21.1752176711.git.Ryan.Wanner@microchip.com>
+	<robh@kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
+Subject: [PATCH v3 00/32] clk: at91: add support for parent_data and
+Date: Thu, 10 Jul 2025 13:06:53 -0700
+Message-ID: <cover.1752176711.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1752176711.git.Ryan.Wanner@microchip.com>
-References: <cover.1752176711.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_210755_146203_21D11C7D 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250710_210754_479225_477AB474 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +100,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Add helpers to set parent_data objects in platform specific drivers.
+This series adds support for parent data and parent _hw on the at91
+clock drivers. This also updates all the SoC specific clock drivers to
+use this format as well.
 
-Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-[ryan.wanner@microchip.com: enclose complex macro with parentheses.]
-Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
----
- drivers/clk/at91/pmc.h | 6 ++++++
- 1 file changed, 6 insertions(+)
+This is a continuation of the V1 of this series here [1].
 
-diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
-index 4fb29ca111f7..0b721a65b77f 100644
---- a/drivers/clk/at91/pmc.h
-+++ b/drivers/clk/at91/pmc.h
-@@ -15,6 +15,12 @@
- 
- #include <dt-bindings/clock/at91.h>
- 
-+#define AT91_CLK_PD_NAME(n, i) ((struct clk_parent_data){ \
-+	.hw = NULL, .name = (n), .fw_name = (n), .index = (i), \
-+})
-+
-+#define AT91_CLK_PD_HW(h) ((struct clk_parent_data){ .hw = (h) })
-+
- extern spinlock_t pmc_pcr_lock;
- 
- struct pmc_data {
+This has been tested on the SAMA5* SoCs, the sam9x* SoCs, and the SAMA7*
+SoCs.
+
+Changes v1 -> V2:
+- Remove all the small sama7g54 SoC driver changes and put them in their
+  own patch.
+- Add the SAMA7D65 and the SAM9X75 to this update.
+- Add a patch to move all common used macros into the pmc.h file.
+- Update changes from v6.6 to v6.16.
+- Remove patches that where style fixes and include those in the update.
+
+Changes v2 -> v3:
+- Adjust each patch so they are fully atomic.
+- Add a patch to have the SAMA7D65 systemclocks use parent_data and
+  parent_hw.
+- Add a formatting cleanup patch for the SAM9X75.
+- Adjust commit messages that no longer show invalid information.
+
+
+1) https://lore.kernel.org/all/20230727053156.13587-1-claudiu.beznea@tuxon.dev/
+
+
+Claudiu Beznea (28):
+  clk: at91: pmc: add macros for clk_parent_data
+  clk: at91: clk-sam9x60-pll: use clk_parent_data
+  clk: at91: clk-peripheral: switch to clk_parent_data
+  clk: at91: clk-main: switch to clk parent data
+  clk: at91: clk-utmi: use clk_parent_data
+  clk: at91: clk-master: use clk_parent_data
+  clk: at91: clk-programmable: use clk_parent_data
+  clk: at91: clk-generated: use clk_parent_data
+  clk: at91: clk-usb: add support for clk_parent_data
+  clk: at91: clk-system: use clk_parent_data
+  clk: at91: clk-pll: add support for parent_hw
+  clk: at91: clk-audio-pll: add support for parent_hw
+  clk: at91: clk-plldiv: add support for parent_hw
+  clk: at91: clk-h32mx: add support for parent_hw
+  clk: at91: clk-i2s-mux: add support for parent_hw
+  clk: at91: clk-smd: add support for clk_parent_data
+  clk: at91: clk-slow: add support for parent_hw
+  clk: at91: dt-compat: switch to parent_hw and parent_data
+  clk: at91: sam9x60: switch to parent_hw and parent_data
+  clk: at91: sama5d2: switch to parent_hw and parent_data
+  clk: at91: sama5d3: switch to parent_hw and parent_data
+  clk: at91: sama5d4: switch to parent_hw and parent_data
+  clk: at91: at91sam9x5: switch to parent_hw and parent_data
+  clk: at91: at91rm9200: switch to parent_hw and parent_data
+  clk: at91: at91sam9260: switch to parent_hw and parent_data
+  clk: at91: at91sam9g45: switch to parent_hw and parent_data
+  clk: at91: at91sam9n12: switch to parent_hw and parent_data
+  clk: at91: at91sam9rl: switch to clk_parent_data
+
+Ryan Wanner (4):
+  clk: at91: pmc: Move macro to header file
+  clk: at91: sam9x75: switch to parent_hw and parent_data
+  clk: at91: sama7d65: switch to parent_hw and parent_data
+  clk: at91: sam9x7: Clean up formatting
+
+ drivers/clk/at91/at91rm9200.c       |  95 ++++----
+ drivers/clk/at91/at91sam9260.c      | 136 ++++++------
+ drivers/clk/at91/at91sam9g45.c      |  89 ++++----
+ drivers/clk/at91/at91sam9n12.c      | 106 ++++-----
+ drivers/clk/at91/at91sam9rl.c       |  63 +++---
+ drivers/clk/at91/at91sam9x5.c       | 125 ++++++-----
+ drivers/clk/at91/clk-audio-pll.c    |  28 ++-
+ drivers/clk/at91/clk-generated.c    |   8 +-
+ drivers/clk/at91/clk-h32mx.c        |  11 +-
+ drivers/clk/at91/clk-i2s-mux.c      |   6 +-
+ drivers/clk/at91/clk-main.c         |  16 +-
+ drivers/clk/at91/clk-master.c       |  24 +-
+ drivers/clk/at91/clk-peripheral.c   |  16 +-
+ drivers/clk/at91/clk-pll.c          |   9 +-
+ drivers/clk/at91/clk-plldiv.c       |  11 +-
+ drivers/clk/at91/clk-programmable.c |   8 +-
+ drivers/clk/at91/clk-sam9x60-pll.c  |  14 +-
+ drivers/clk/at91/clk-slow.c         |   8 +-
+ drivers/clk/at91/clk-smd.c          |  10 +-
+ drivers/clk/at91/clk-system.c       |   8 +-
+ drivers/clk/at91/clk-usb.c          |  41 ++--
+ drivers/clk/at91/clk-utmi.c         |  16 +-
+ drivers/clk/at91/dt-compat.c        |  80 +++++--
+ drivers/clk/at91/pmc.h              |  66 +++---
+ drivers/clk/at91/sam9x60.c          | 117 +++++-----
+ drivers/clk/at91/sam9x7.c           | 328 ++++++++++++++++------------
+ drivers/clk/at91/sama5d2.c          | 168 +++++++-------
+ drivers/clk/at91/sama5d3.c          | 122 ++++++-----
+ drivers/clk/at91/sama5d4.c          | 129 +++++------
+ drivers/clk/at91/sama7d65.c         | 156 ++++++-------
+ drivers/clk/at91/sama7g5.c          | 111 +++++-----
+ 31 files changed, 1134 insertions(+), 991 deletions(-)
+
 -- 
 2.43.0
 
