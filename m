@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E4AC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E9BC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZzJrUL6O6v1DRyR436tCBD8z7HWtszSSl/3nnQnA8SM=; b=dIRSySColGRGS4vDFVjbZWA1Sr
-	NChtVgA+fesoR9FRC7qKQCO4gXMbMq4836E9+7HWt9wRwSIM+cbR+CKzNM6cA+Hjg9Z6Zr3pT1p+K
-	lXD0MRpx+2tXtjUNGSuGy18fpEwcmVUXaYZMdhIZNHZuWBr02vYTTiMRoYhQPfMs+ldjGpeceE1La
-	a2+1fVFn3O57nd3cqOnUTj3mUGU/xNIFZ9kdOXWH8XjGkWc4k5nOXKNju4BtfpOjA2j5E2BIN1CJT
-	Zm+q+zbktpUYlN3uWi6OuGK7vxwh7s1r6EJ7gTtwx+j7RFAWWLp0rppQHCrkgL+mFNDIVjDXAWspD
-	9/7h4FbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D65m3XwzD3+G6o9aIA7AzHARFpo35hhqSUK83lbemg0=; b=rN6G44HQoLpgbG9s69mWDO/Kuo
+	CcY4a1iuKz8VZSB7iIK1kUVmj7tHey1rKhCls9++mevxTXS1yFki9mZa3Qo24fbLuHXm+df+oBLYw
+	ZgBwNtBzBVSULMq/X5IF7rXH283rBf3cqC5ZjEDESy/ROee4SNp5FzqeZ4PNgho3mZxzTkrYq5xWE
+	JDaRHCAAyMjZRUbM745OtDFGubDBHpdXLbYbqo5S8PkqV30T7yjK79ZKKfHtvQKL9uOm5vfvTeRpp
+	qFOgbuPMUf+uSrUthm9ShsujrZz6fGFzEfeog32CNranmIqx4vSDOTbwuL56hdEK6J2Q6EUkn2HUh
+	4Q5NOzgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZsUi-0000000C9Ya-3PST;
-	Thu, 10 Jul 2025 14:43:28 +0000
-Received: from mail.netcube.li ([173.249.15.149])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqk7-0000000BpRM-0iX1;
-	Thu, 10 Jul 2025 12:51:16 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=ZzJrUL6O6v1DRyR436tCBD8z7HWtszSSl/3nnQnA8SM=;
-	b=m6SrPB5t8l/V6dpaUT0BGJN+OYRjxHWFGz7Hgtcf0dIdSzQdONvW3GgnvXGikNHkeb3P10E9jdliHJfY7kie9+5+q/Iqd3TazrGDovaf1zjzT5DZexQpE4MgtUGnjhieT+L3scdXOU666lNr5CqxN4w7FD1M3cHwKfUobo9Nc7Q=
-Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPA
-	; Thu, 10 Jul 2025 14:51:00 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 4/5] ARM: dts: sunxi: add support for NetCube Systems Nagami Basic Carrier
-Date: Thu, 10 Jul 2025 14:50:18 +0200
-Message-Id: <20250710125021.1079702-5-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250710125021.1079702-1-lukas.schmid@netcube.li>
-References: <20250710125021.1079702-1-lukas.schmid@netcube.li>
+	id 1uZsXY-0000000CA6T-2sl8;
+	Thu, 10 Jul 2025 14:46:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZqqe-0000000Bqut-2EaX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 12:58:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ED9891EA6;
+	Thu, 10 Jul 2025 05:57:46 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B09F73F66E;
+	Thu, 10 Jul 2025 05:57:55 -0700 (PDT)
+Date: Thu, 10 Jul 2025 13:57:52 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, ulf.hansson@linaro.org,
+	Sudeep Holla <sudeep.holla@arm.com>, linux-pm@vger.kernel.org,
+	linux-rt-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Raghavendra Kakarla <quic_rkakarla@quicinc.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	"open list:Real-time Linux (PREEMPT_RT)" <linux-rt-devel@lists.linux.dev>
+Subject: Re: [PATCH] cpuidle: psci: Fix cpuhotplug routine with PREEMPT_RT=y
+Message-ID: <aG-40INpi05v3-fQ@bogus>
+References: <20250709154728.733920-1-daniel.lezcano@linaro.org>
+ <CAJZ5v0ixk5hZPPQc_1rDLMTzjh=KpMQF_A2U=HehMTuNSMQwtQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAJZ5v0ixk5hZPPQc_1rDLMTzjh=KpMQF_A2U=HehMTuNSMQwtQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_055115_490514_B7C0663A 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250710_055800_617541_53DE3DF6 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,113 +72,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NetCube Systems Nagami Basic Carrier is a Carrier for the Nagami SoM
-It provides an ethernet port for the phy on the SoM and some USB-Ports.
-All other interfaces and gpios are available on pinheader, except for the
-SD-Interface which is available on a micro-sd slot.
+On Thu, Jul 10, 2025 at 02:43:10PM +0200, Rafael J. Wysocki wrote:
+> On Wed, Jul 9, 2025 at 5:47 PM Daniel Lezcano <daniel.lezcano@linaro.org> wrote:
+> >
+> > Currently cpu hotplug with the PREEMPT_RT option set in the kernel is
+> > not supported because the underlying generic power domain functions
+> > used in the cpu hotplug callbacks are incompatible from a lock point
+> > of view. This situation prevents the suspend to idle to reach the
+> > deepest idle state for the "cluster" as identified in the
+> > undermentioned commit.
+> >
+> > Use the compatible ones when PREEMPT_RT is enabled and remove the
+> > boolean disabling the hotplug callbacks with this option.
+> >
+> > With this change the platform can reach the deepest idle state
+> > allowing at suspend time to consume less power.
+> >
+> > Tested-on Lenovo T14s with the following script:
+> >
+> > echo 0 > /sys/devices/system/cpu/cpu3/online
+> > BEFORE=$(cat /sys/kernel/debug/pm_genpd/power-domain-cpu-cluster0/idle_states | grep S0 | awk '{ print $3 }') ;
+> > rtcwake -s 1 -m mem;
+> > AFTER=$(cat /sys/kernel/debug/pm_genpd/power-domain-cpu-cluster0/idle_states | grep S0 | awk '{ print $3 }');
+> > if [ $BEFORE -lt $AFTER ]; then
+> >     echo "Test successful"
+> > else
+> >     echo "Test failed"
+> > fi
+> > echo 1 > /sys/devices/system/cpu/cpu3/online
+> >
+> > Fixes: 1c4b2932bd62 ("cpuidle: psci: Enable the hierarchical topology for s2idle on PREEMPT_RT")
+> > Cc: Raghavendra Kakarla <quic_rkakarla@quicinc.com>
+> > Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+> 
+> As per MAINTAINERS, this is for Ulf/Sudeep.
+> 
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- arch/arm/boot/dts/allwinner/Makefile          |  2 +
- ...n8i-t113s-netcube-nagami-basic-carrier.dts | 67 +++++++++++++++++++
- 2 files changed, 69 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
+LGTM, so
 
-diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index d799ad153..af287bb32 100644
---- a/arch/arm/boot/dts/allwinner/Makefile
-+++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -199,6 +199,7 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc := -@
- DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc-plus := -@
-+DTC_FLAGS_sun8i-t113s-netcube-nagami-basic-carrier := -@
- DTC_FLAGS_sun8i-v3s-netcube-kumquat := -@
- dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-a23-evb.dtb \
-@@ -257,6 +258,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-s3-lichee-zero-plus.dtb \
- 	sun8i-s3-pinecube.dtb \
- 	sun8i-t113s-mangopi-mq-r-t113.dtb \
-+	sun8i-t113s-netcube-nagami-basic-carrier.dtb \
- 	sun8i-t3-cqa3t-bv3.dtb \
- 	sun8i-v3-sl631-imx179.dtb \
- 	sun8i-v3s-anbernic-rg-nano.dtb \
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
-new file mode 100644
-index 000000000..5ee9a211a
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-t113s-netcube-nagami.dtsi"
-+
-+/ {
-+	model = "NetCube Systems Nagami Basic Carrier Board";
-+	compatible = "netcube,nagami-basic-carrier", "netcube,nagami",
-+				 "allwinner,sun8i-t113s";
-+};
-+
-+&can0 {
-+	status = "okay";
-+};
-+
-+&can1 {
-+	status = "okay";
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+};
-+
-+&i2s1 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	broken-cd;
-+	disable-wp;
-+	bus-width = <4>;
-+	status = "okay";
-+};
-+
-+&ohci0 {
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&spi1 {
-+	status = "okay";
-+};
-+
-+&usb_otg {
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	usb0_id_det-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
-+	status = "okay";
-+};
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+
+I still prefer to hear from Ulf who has more knowledge and hands-on experience
+with s2idle + PREEMPT_RT in case I am missing something.
+
 -- 
-2.39.5
-
-
+Regards,
+Sudeep
 
