@@ -4,81 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC95AC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D355C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ohZghckTOHahyo7Fv9CrLJvqxiWNUIbteMeBFmb1lIc=; b=mmrW3p5zWeL8ZFDtjdvyVfKdlC
-	6MVh0bxRUFry0NCpsMxRuVYJbis5eMwxM9wAaka+vdhblkhxiA1W+YUJqbJPmNl94MVnSC5Cncvpr
-	ifPqvz/3eS///xqHu/Mb8lai592lvR4g4JK+QT1moqiynIeu4Dl/ONoFqyw+UTEjcNvqMy/p2OC+M
-	974GsXgAREI0Udnrj/UbTILUzjUpAx8Lja4rE++T9bX63qqynXDcLi/oY+/Qu1ONYpNrjmb8hJSxX
-	/ZGsQ51xEamZSQ6C/oQtSDPkF/W2EldjVBaHARXNRsH00AIGYfm0tTUuKtVxe8LlBkyAkk1LzUYti
-	fHvAMhjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/4PH9Wrx57Cejn3+T5ESC65rGqXNKkDiQLJnPD9wgQw=; b=09ID3fle7dbJ1VVctJGbcwolvn
+	zOIRCkrJxr6zQ1KCxTW8W/ibU9uPcc2slLudW7xesvBQUjpj8Qh47xcyXUjGEYYKcIULT6fiAiMO4
+	6MfICAcgy/AgYX0f06QwbKrdi4crKWJe3AaX2SxB4a4KgZ6TsfVOb1J0MEzMLcaCG7ZeR02ofe9QK
+	r8tqFuitkXGjvKkjshgtTvO2pkoSM4lj+mbd4CT9VMQw6koAzfYHXKxf3Vk2ZAD7j7IFTGENhgyKK
+	nHOJpFu1ubs1ORdpTbGKOfLwlY6+UmW+sw0srA3mQCXZZFtWQyQeF/6i1diNYejz4Z/Oqxy0n4s6K
+	o4RtkWHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZu81-0000000CQpr-3FtF;
-	Thu, 10 Jul 2025 16:28:09 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uZu87-0000000CQyt-01Bp;
+	Thu, 10 Jul 2025 16:28:15 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZs8x-0000000C60Y-1lJO;
-	Thu, 10 Jul 2025 14:21:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752157257;
-	bh=2XjHkdOkObP5HVj5iejMMSjoEC9b3hAuC6HFJ71aAK4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PC+aKiYiogEuqlNa7TQGKyCx3vgGKlbJ3LCBXKRZ6o/4xDXSvVFGj2IWV3ohYnH8s
-	 q15YA5AcEoi54jaepRL9uEen3Ks+cgfy8IN3lKgCbSt/b7XWvpwL2s2uJgwn/JyS4W
-	 OfGtIffWq0aCuAqQQsh3AAfQcCSKxgbYO3YedG7wX3u3/vo7lrM7vAzM8+tEiS+8jh
-	 9ddmmRg+cDckW8WFvYCQPfBRBXCdIh3KMLfUf0mXuq2z3P6fbkOX7hAE0wdgwVVFOJ
-	 4R/+nmf67pi0PGgvns15v1dA09prn64xdvpKJgWWOT9Lms+OgLsPsk3XxqV8ZIJw0C
-	 zMlrYgPRAyXdQ==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:bff:3863:712c:1a2c])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 01D1D17E08E3;
-	Thu, 10 Jul 2025 16:20:55 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: angelogioacchino.delregno@collabora.com
-Cc: arnd@arndb.de,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	drew@pdp7.com,
-	gregkh@linuxfoundation.org,
-	kabel@kernel.org,
-	kernel@collabora.com,
-	khilman@baylibre.com,
-	krzk@kernel.org,
-	laura.nao@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	m.wilczynski@samsung.com,
-	matthias.bgg@gmail.com,
-	nm@ti.com,
-	pjp@fedoraproject.org,
-	quic_hyiwei@quicinc.com,
+	id 1uZsA5-0000000C67Y-3Pfz
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 14:22:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VI6H9HYY+bPJysnOIvQcmj8/GRt8R6MJ4ojE49CPObqfF5z31S36KsKVXJbNlYq4RvgrsaJT2VBd5N+INaEo2rzgwX7bfiWGr0yosw4OAexuMlEdQzPhJMCKUJ81DA5AAcwR1pYxLoUgpKFFOaoxYmAYBhsniwX/WDFyHOA1iSz7V+gaAty2vZzZOizUjlvzbkeUHTWttzv5LwSTRugIkRmXavfg//sUpMO8ynSTXfvcg8jk4B5iglmL7gh75SHyaAJx+IeklNKbAxPiPuik/7UmBNlOn2tK6kiYQJWspjmEzmHkf0zlRwJIv+qLPYrdX9tIHFecoWl5f1358dARvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/4PH9Wrx57Cejn3+T5ESC65rGqXNKkDiQLJnPD9wgQw=;
+ b=YJR4gkro1uZhx8ufleC/86XU1+5W36A2a5zTD5KwtTqZQHXRQmWnczwwIDuSDMFFY3V3FoEhdD3jwO9T5gm2LP/vnbXH7nZ3NPwASdFd3cnB1ymvGFZCXTG13ntizYvM5jKOKeHvCAff8sWvV27BDvYv1e3rEcGaiM2GERXLRQm2oTnquCWosc1wI8DClVWRFiUMf1ZuG76M3xRm87UNl8OIuz4dYvXECXCGGMwXnHbz4xopLpuBslVNl8gHeS2L6Gj9w3uwvJE5O/nZ9HYIU3CuVNf3tcYeYx/VwFBwBOlhrPsoJnOFor84eiR5YBtWocmQjhXm1qP4APphuu7/tQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/4PH9Wrx57Cejn3+T5ESC65rGqXNKkDiQLJnPD9wgQw=;
+ b=ftTlTRXBJXtfhrARMlMz5OTzUw2KZslHnvUCdcsFB4+/csGnotUlpZpqLSZf4c/zUFy0Ijhs9RjASC9dbX+OyQS0d42EQeqOltr2maqOk154X+9FD39SHAJeJfaP4IBqYze6NZMvJk1WtaBNti6Srh+f8jFM7uT76S9KtMq6KLCzsstAmJn1mbUS/j0q3oJHXZaTckhbwn8Yl2J94HXAq1zai8ZfDq+wStndu0VW7v+XZZg/KG9DfCqw0uD+eI9B4UsISVR6071JI6Pn5wJB6giMkWtqZwnhCU/kr5kVMrIPH80XYmI1wtRA1G1kYp5V1/XW5bYkKH+yjxIHiv/0nw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8487.eurprd04.prod.outlook.com (2603:10a6:20b:41a::6)
+ by FRWPR04MB11282.eurprd04.prod.outlook.com (2603:10a6:d10:19e::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.23; Thu, 10 Jul
+ 2025 14:22:02 +0000
+Received: from AM9PR04MB8487.eurprd04.prod.outlook.com
+ ([fe80::6d7a:8d2:f020:455]) by AM9PR04MB8487.eurprd04.prod.outlook.com
+ ([fe80::6d7a:8d2:f020:455%5]) with mapi id 15.20.8901.028; Thu, 10 Jul 2025
+ 14:22:02 +0000
+From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+To: linus.walleij@linaro.org,
+	brgl@bgdev.pl,
 	robh@kernel.org,
-	tudor.ambarus@linaro.org,
-	u.kleine-koenig@baylibre.com,
-	ulf.hansson@linaro.org
-Subject: Re: [RFC PATCH 2/3] dt-bindings: firmware: Document the MediaTek Hardware Voter (HWV)
-Date: Thu, 10 Jul 2025 16:19:41 +0200
-Message-Id: <20250710141941.75843-1-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <9560d4d2-5346-4d0a-a96f-c96ebe335f3c@collabora.com>
-References: <9560d4d2-5346-4d0a-a96f-c96ebe335f3c@collabora.com>
-MIME-Version: 1.0
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	chester62515@gmail.com,
+	mbrugger@suse.com,
+	Ghennadi.Procopciuc@nxp.com,
+	larisa.grigore@nxp.com,
+	lee@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	aisheng.dong@nxp.com,
+	ping.bai@nxp.com,
+	gregkh@linuxfoundation.org,
+	rafael@kernel.org,
+	srini@kernel.org
+Cc: linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	s32@nxp.com,
+	clizzi@redhat.com,
+	aruizrui@redhat.com,
+	eballetb@redhat.com,
+	echanude@redhat.com,
+	kernel@pengutronix.de,
+	imx@lists.linux.dev,
+	vincent.guittot@linaro.org,
+	Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+Subject: [PATCH v7 01/12] dt-bindings: mfd: add support for the NXP SIUL2 module
+Date: Thu, 10 Jul 2025 17:20:24 +0300
+Message-ID: <20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
+References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0090.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cd::16) To AM9PR04MB8487.eurprd04.prod.outlook.com
+ (2603:10a6:20b:41a::6)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8487:EE_|FRWPR04MB11282:EE_
+X-MS-Office365-Filtering-Correlation-Id: 22154ab5-4ee1-4afe-eeab-08ddbfbd2373
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|19092799006|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aStWekIxNWJYVkd0V1BkZTZmL2s3SCtsaUN2OFVvQmk5c0VtR0RzQlk4aDhL?=
+ =?utf-8?B?YjU0QmpRRDhQU2JZcnFPTUM1N203eVExUUFzZEsxYXdMZlVDV2FiV2VCRERz?=
+ =?utf-8?B?Z1JLSFJuVnd4QnJUOU9DTUtldTFBZThseElQN3VySGtqNFdmQVJmSlNJY0Ex?=
+ =?utf-8?B?Y2luVzhzNVYxay9vRlQzVVNPK0tPdlBKWFlDN28rRU4vMytWVWJzT3k5SHlo?=
+ =?utf-8?B?Qkh2Y1ZYa0JZYUtFZ3RJdVhFdTN6Q0E0RCtKTEpGTXR6UkpHRG9SaWVMa0lp?=
+ =?utf-8?B?akwrd1R6UWVudCt2cFIvTFY3d2JwS3pDQnU1Vk1RZXljWkRjV2s0anhleS9n?=
+ =?utf-8?B?MTJ3eHhKZXpLR3pIRzZicTZUWG9COHMybDVjcDVNMnVCSWQrdzRJZlBrUDBB?=
+ =?utf-8?B?Q0ZubG02ck9UODJRaVJFVkNmUkdsQUsvTEV3ajlmSUsySkxhejI5QWdveDFq?=
+ =?utf-8?B?QnA5b1p0dGR0U1RjTnRXWmdNOFMzbE8xS0JDeWNLaVgxSUYrc1I0UEFzVitG?=
+ =?utf-8?B?Z2lFajVpNHZSTERIRUt2VnIwcE81NW9NZWZxeWozRjVWM2VMVHdMVExjMGww?=
+ =?utf-8?B?dEpESHpQdGh3eTRhTjhsVWx3Q000SDRNSnJlcTNBZGpZbzNtMmFMYjNUeGFl?=
+ =?utf-8?B?NDF3TWtXRlVSSXBubUVPQjJPaEdoUExUZXB6bTVQeVJWMnJ2TkNkcUdwb0tF?=
+ =?utf-8?B?YW00UktZSnBvemlUU215RElBSFUzWURGaGNWM1lNWlFNczVTOEFIVFdYb2VP?=
+ =?utf-8?B?U1JBM0U0NjZEd1dwMFFnd2NGbCt6bTg2RGpUd2J3NUI2T1RIVFhtNVF5TkpJ?=
+ =?utf-8?B?WkRvY0w5dkE4QmRxS0FyK2w5UWRXTkx4eHA0ZEdCem0rem8wSmhTckIxSjFD?=
+ =?utf-8?B?dFB1WkZpQ0xRYmhwdkdoTndYOCtuWE1Rd0QvT2o2amM4cXUzSlBibDVFMHRT?=
+ =?utf-8?B?SUZBRjlWSDB4aWpWSmxiVUE2OGRycnp6NTkvd0VMNXQrcEwya1l4ZEpVRCtr?=
+ =?utf-8?B?cnZLa2NtUDlPbWVCMlQ0MEpaSFFpdU85b01zRWdsUE1yaExPbmlqTWlEYUZK?=
+ =?utf-8?B?dGFNUHg3clFWcW5nb0JjMEtlZG1KNjJnNDZ2U3orSVNIOEw3RXp1RG42ZU04?=
+ =?utf-8?B?RHE1eVFzeWlVVTUzMWRPUHZxM3JWU2lTMUk1UlA5a05naWpyNkJBK055azFW?=
+ =?utf-8?B?Z1htS2hRMUY4ZEpHOEZwVnJpUVpUUHdjRGxZVU5xRmNmcXliOEN2TlRoaVpD?=
+ =?utf-8?B?cnR5L0U3YzM1SFpCSXF4UFZDVW5LME00MjI0VGNRZnhjRjY1QVhJaEIrSG9u?=
+ =?utf-8?B?bC8weC9CenVLaXNjQzNxVk0yOHB1Zjd1cU1vVHY4ZDBsRkF6SFBOc0U1aVI3?=
+ =?utf-8?B?WlgraWM0NDUvN3JlY2FYZjE1QTF0YngzMkJUZlRjTjJQN1lEaVNRREU1clFT?=
+ =?utf-8?B?VTkraWdlcDkxeDZmUDZ6MFlPbG8xVzhNTkRDSzE5TTVDbmVzVGNJQW5QWE55?=
+ =?utf-8?B?VnNkRmtZK0M0a3dSTzMwUXMrUUhZVWRiYTFJeEpmeDkrWUI4S3JzZGg5eW1K?=
+ =?utf-8?B?MWhEM2hTSnJqTnp6SkRhbktpcVI1UEVoMm0xbGhuKzBNeDJyQ1RPNlhRRXlR?=
+ =?utf-8?B?b3J1aXNiK21UMzlzNElHaCtuRWFOUk5wQjl2RUJSZnd2dTYvOGVPRFp4UVVH?=
+ =?utf-8?B?MWhIMmJsREdiRFNKUGx2TkZJWTkrWkxGNmxCL01vZ3g3WkF3MGVSR1V4eldX?=
+ =?utf-8?B?anFzaVpjTVN0U0d6SVhTQzBIUUVWZStWMXJrelhFZUFpM1p5SjByb0VqZDd1?=
+ =?utf-8?B?ZTBVblZySENpWTRLNTlPNEM3RGIwOWVNUTNNVnRjOEJNMjhjU21hOGNhM0c2?=
+ =?utf-8?B?a0diRldGQnRDOHEwQjRXb0cycWUxWk5mNlFmZXd1akJsM2ZxaHVYdmhtWGxD?=
+ =?utf-8?Q?Ykmnd4aIAVAKr+E8wqH0Ee22dQY/6b60?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8487.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(19092799006)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y2Q3WHpGY2c4VHF4RGpQVkMrb2hCTHlZYmpHOUFhdUlmdENBS3FGU2tBd0x1?=
+ =?utf-8?B?ZHhsemZQeTNhZzZ0Z1I0U0RwSjIxSzFEdzdrbzZoQ2lsSW1QTzhCZ3pnTE40?=
+ =?utf-8?B?SWF2ck8wQUMyK3h2akdmTUpDeHo4Vmc0ZERjWlNrWG5RTlNFeDZxZTd4Zk93?=
+ =?utf-8?B?c294WGZGbjRHMEtUdzNiK3NvVGNvbW5JTGtuMnhNR0NxRlNGeGtjbU45bXNX?=
+ =?utf-8?B?UlJqTlBZZDVjNmNGOEM0WGFva2g2M3d1d1I5d1d4aEpUekhUUVkrOEdwZUdy?=
+ =?utf-8?B?NFV2YnkyUWVaVmEyWlJ1QWx3eXNaaGFuS1JrOVJaN1VSOE84a0YvNHA2UGdJ?=
+ =?utf-8?B?eVVsZjNtOW5yQ0w5U3JxTkVzd2ZOWTR3bEZVWmdnVXZXa2o0b3JsRXRyRFVG?=
+ =?utf-8?B?RTNQb00xOUVlM3duV28xQWdNYmRzdWUxOUl5QzZ3OFhMbEI4dVpqdzY5Z0Zu?=
+ =?utf-8?B?YW9JMERBSWdsRHQ3VVRoTFFuRGFqdXF1NVJCV1NJYVZ6UGdITXNlOTVFTkVj?=
+ =?utf-8?B?eGduaU1Tbzh1Z0ZvK0pZcG4rZGJGUEV2bnlWQ1ovMktpZ1Nna2JwZnRvRnQ2?=
+ =?utf-8?B?dVgxTWRVS1FjcFRwRkprbWROOHFtQVpzL0xDVXY1cWJrQU9aUmZ1b1FPRm9D?=
+ =?utf-8?B?ajU2SXl4aHF6aVFtQ1lZb281UVJ1MlVYVmtlVFh0SkRSZStPeUpjQUpjRWdM?=
+ =?utf-8?B?NDNwYStBWkFOZmdMQ05QVUEzVmVLV2NFeVJ3L00vYjY1dTBDQUkxRFFkc21C?=
+ =?utf-8?B?am00U2RQN2R0VW9DVDUyQkhVM3o0L3N0UkRQS1FBUzkxSVJpOWprZVBVODVE?=
+ =?utf-8?B?dlZnRzhDOXRpMy9LdHV2N3B0MUh0WDgzUk9hb2FpaXRUTmJreHRVOUYzVWdO?=
+ =?utf-8?B?VmFTYnp3NW1tOTlmb1lFL0hhZ01KYlgzNXhaVkgzbERrL3FxbTJvMmlNdUxm?=
+ =?utf-8?B?TzkrMXlhRE1vRDhTY2lvR2doZG9zZE8rUW8rcXN5R29yTGFubTRPVkJVejZv?=
+ =?utf-8?B?eURRZG5TSzN1NFVTSUpyVGN2UUtUMkNoZmUrNE9wRERwVGV5cVFXOWNFbDhQ?=
+ =?utf-8?B?dXpwSk9ZTGNOVzNSUUpIS3lZdFVwOXVScER4dlk0SG9haXRUanN0MmlXQWo2?=
+ =?utf-8?B?Q0l4ZDdXM25Ub00xTGdsMUt3QnRZaE0rR3gzVlcySDIzY2FtQXExYVNqRmtG?=
+ =?utf-8?B?SHY3UEVtenB0ZUVPTW5EVThsU3NQUGRidGZkRVNnRC9BbW1yYzlTU1pHUGFo?=
+ =?utf-8?B?WklmaU0xVnp5QTQrdk04cGlTZHI2cXZ3WkVMWVQ4ajd1MmdHWFljWnVqanJD?=
+ =?utf-8?B?a0xyUVEva3BGNHNPOVZqRE4wZGVXdi9BV0FkSWZ2V2pKQUo5U09ZWCtxRUVS?=
+ =?utf-8?B?aEw3aTlaUFFvUDZwR2tMU3RVV0dlMkdKNHpJSGZ4WkpxUXUwdWN3L09xQTRi?=
+ =?utf-8?B?Sml0UnJHMmMxZVBESHFJTGFHQWdiRFFqWlBNeHRRMk1OTU5RTklpUDM1T3VI?=
+ =?utf-8?B?dVpnbURmVlRNa1pTUlBkbE1zdzErd05kcDYyS3JWYzFPckUzVnU4MnN6eTE2?=
+ =?utf-8?B?WmFGdkVRQnVBQUFpVG9KTHZPaXZMQ1lJNDZacUxmbjFyTWtnMjdjWnF1TEdn?=
+ =?utf-8?B?NTh5NGdVQmpkQm84OTJLQlpUNWZGWXJIWGpicDNlZUdEeHlpK1lEM0tFM21B?=
+ =?utf-8?B?cmJDTFZsWWEzOGdocWdabDhzbktyTXBpSGpmVmhUb2lxeHNHdHNUUzNyRGty?=
+ =?utf-8?B?SzkzUTZxaUw4ZnNZUTcveFl1REVnZWFTa2Z4RVQvU0tJd0hMc2dBZWJSREJO?=
+ =?utf-8?B?QUlGTEpqb0ZrR2RMclkxQzBzUjlBRUx6VzgwbktlZ2g5eHU4dXIyR01DZWNi?=
+ =?utf-8?B?bWdDN2xFdkc1Mm11OFM4ZDVidDJtRCtCTEFFTzkwMHBPTGdIejlEdm9zZENE?=
+ =?utf-8?B?VDNHLzJYanhXbEt2dk5SWEVmY1o4QzQwZk10M1Y3Nmh1QitLbFZJZUN6WlVp?=
+ =?utf-8?B?YlRmendsbFdNeXF1SFA2QWJCT0MzaGJWMVhubzVaRkZmdk9RaFVSYlVQVWF0?=
+ =?utf-8?B?NUVMYldQa3hZMER0L2ZzRENYRTBjanV1Y05NNWtVYUdzZ1YrMjRRTm1BeWNs?=
+ =?utf-8?B?RTEyUVBNRXdsQks1YlMrSFdqYTA5enVQeE1NNlB0NjJRckcwUitLdUZETnBw?=
+ =?utf-8?B?WlE9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 22154ab5-4ee1-4afe-eeab-08ddbfbd2373
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8487.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 14:22:02.3581
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: z7Ed5M+JzOvnsIeibGG4oIxXqKq8Z/057vXfBMJAVdDOMCV51JtpABF4I9V89JSlotW1A9ETkp1cJCLV7OuxLrxU5MyQ10MmYYkT+2phKqs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11282
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_072059_606649_02F09E0F 
-X-CRM114-Status: GOOD (  40.16  )
+X-CRM114-CacheID: sfid-20250710_072209_854633_4FA0E054 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,250 +205,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/7/25 12:40, AngeloGioacchino Del Regno wrote:
-> Il 03/07/25 10:56, AngeloGioacchino Del Regno ha scritto:
->> Il 02/07/25 08:50, Krzysztof Kozlowski ha scritto:
->>> On Tue, Jul 01, 2025 at 05:11:48PM +0200, AngeloGioacchino Del Regno wrote:
->>>> Add documentation for the new MediaTek Hardware Voter, found in
->>>> MediaTek SoCs like the MT8196 Kompanio Ultra for Chromebooks and
->>>> the MT6991 Dimensity 9400 for Smartphones.
->>>>
->>>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>>> ---
->>>>   .../mediatek,mt6991-hardware-voter.yaml       | 70 +++++++++++++++++++
->>>>   1 file changed, 70 insertions(+)
->>>>   create mode 100644 Documentation/devicetree/bindings/firmware/mediatek,mt6991- hardware-voter.yaml
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/firmware/mediatek,mt6991- hardware-voter.yaml b/Documentation/devicetree/bindings/firmware/ mediatek,mt6991-hardware-voter.yaml
->>>> new file mode 100644
->>>> index 000000000000..173b74c23a91
->>>> --- /dev/null
->>>> +++ b/Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware- voter.yaml
->>>> @@ -0,0 +1,70 @@
->>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>>> +# Copyright 2025 Collabora Ltd
->>>> +%YAML 1.2
->>>> +---
->>>> +$id: http://devicetree.org/schemas/firmware/mediatek,mt6991-hardware-voter.yaml#
->>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>> +
->>>> +title: MediaTek Hardware Voter (HWV)
->>>> +
->>>> +maintainers:
->>>> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>>> +
->>>> +description:
->>>> +  The MediaTek Hardware Voter (HWV) is a SoC-internal fixed-function MCU
->>>> +  used to collect votes from both the Application Processor and from the
->>>> +  various other remote processors present in the SoC, and transparently
->>>> +  turn on or off various hardware resources (for example, power domains
->>>> +  or system clocks) based on aggregation of votes done in the HWV MCU's
->>>> +  internal state machine, therefore guaranteeing synchronization of the
->>>> +  hardware resource requests between all components of the SoC and hence
->>>> +  avoiding, for example, unclocked or unpowered access to the hardware.
->>>> +
->>>> +properties:
->>>> +  $nodename:
->>>> +    pattern: "^system-controller@[0-9a-f]+$"
->>>> +
->>>> +  compatible:
->>>> +    const: mediatek,mt6991-hardware-voter
->>>> +
->>>> +  reg:
->>>> +    items:
->>>> +      - description: Address and size of the Hardware Voter MMIO
->>>> + 
->>>
->>> No resources here, so this should go to power controller
->>>
->>>> +  power-controller:
->>>> +    $ref: /schemas/power/mediatek,power-controller.yaml
->>>> +
->>>> +required:
->>>> +  - compatible
->>>> +  - reg
->>>> +
->>>> +additionalProperties: true
->>>> +
->>>> +examples:
->>>> + - |
->>>> +   scp_hwv: system-controller@14500000 {
->>>> +     compatible = "mediatek,mt6991-hardware-voter";
->>>> +     reg = <0 0x14500000 0 0x3000>;
->>>> +
->>>> +     power-controller {
->>>> +       compatible = "mediatek,mt8196-hwv-scp-power-controller"; 
->>>
->>> mt8196 in mt6991 is very confusing.
->>>
->>
->> Yeah that wasn't intentional; fyi, it's almost the same soc, that's why I mixed
->> them up... :-)
->>
->>> Anyway, this does not address my comment at all. You again create some
->>> sort of syscon for voting, so no. You are supposed to use generic API
->>> for voting: clocks, power domains, interconnects - whatever is there
->>> applicable or necessary.
->>>
->>
->> Making that loud and clear: Interconnect is not applicable.
->>
->> The only way to do what you're proposing would be to add a bunch of `reg`
->> to each devicetree node for each clock controller and each power controller;
->> I can do that, but looks a bit dirty - and still yet another syscon-like
->> alternative, but without having a real syscon declared in there.
->>
->> Mind you - both clock and power controllers are writing both to their own
->> register space (and enabling external regulators, etc, for power domains)
->> and to the hardware voter MMIO (which means that the HWV, in hardware, is
->> fundamentally broken).
->>
->> After this reply, the only option that is left to me is the following:
->>
->>          topckgen: clock-controller@10000000 {
->>              compatible = "mediatek,mt8196-topckgen", "syscon";
->>              reg = <0 0x10000000 0 0x800>, <0 0x14500010 0 0x48>,
->>                    <0 0x14502c08 0 0x24>;
->>              reg-names = "base", "hwvoter-base", "hwvoter-status";
->>              #clock-cells = <1>;
->>          };
->>
->>          imp_iic_wrap_north: clock-controller@13c30000 {
->>              compatible = "mediatek,mt8196-imp-iic-wrap-n", "syscon";
->>              reg = <0 0x13c30000 0 0x1000>, <0 0x14500000 0 0xc>,
->>                    <0 0x14502c00 0 0xc>;
->>              reg-names = "base", "hwvoter-base", "hwvoter-status";
->>              #clock-cells = <1>;
->>          };
->>
->>          /* Power Manager with Hardware Voter */
->>          spm_hwv: power-controller@14500218 {
->>              compatible = "mediatek,mt8196-hwv-scp-power-controller";
->>              reg = <0 0x14500218 0 0x20>, <0 0x14501410 0 0x20>,
->>                    <0 0x14505514 0 0xc>;
->>              reg-names = "hwvoter-base", "hwvoter-status", "hwvoter-ack";
->>              #address-cells = <1>;
->>              #size-cells = <0>;
->>              #power-domain-cells = <1>;
->>
->>              /* SCPSYS hardware voter power domains */
->>              mm_proc_dormant: power-domain@MT8196_POWER_DOMAIN_MM_PROC_DORMANT {
->>                  ..... etc, all power domains
->>
->> At this point, I'm really not sure that this would be better than just passing
->> the mediatek,hardware-voter syscon to the clock controllers - as what I've done
->> previously was effectively representing the hardware in the devicetree as it is,
->> matching the real HW layout 1:1 (because again, each of the whole HWV MCU(s) are
->> embedded into each of the two power controllers, one for System power, and one
->> for Multimedia power).
->>
->> (btw, hardware speaking, the power controller is child of a system controller:
->> there are two system controllers - "scpsystem" is for "compute part", and the
->> "hfrpsystem" is for the "multimedia part" of the soc).
->>
->>   _______________________________________
->> |                                       |
->> | SYSTEM CONTROLLER (SCPSYS or HFRPSYS) |
->> |   _____________________               |
->> |  |                     |              | <===> Clock Controllers (more than one)
->> |  | Power Controller    |     SOME     |       (provide subsystem clocks for iso
->> |  |                     |    OTHER     |        during power domain enablement
->> |  |     ______________  |   BLOCKS     |        even if a PD is voted)
->> |  |    |              | |              |       non-subsystem clocks are voted,
->> |  |    | HW Voter MCU | |              |       but subsystem ones are not voted
->> |  |    |______________| |              |
->> |  |_____________________|              | ===> Rest of the SoC
->> |_______________________________________|
->>
->>
->> Hence I'm asking you - does your idea still stand?
->>
->> Because after this, sorry for that - this doesn't want to be an attack - but
->> I'm starting to have doubts about an approach that doesn't involve syscons.
->>
->> Cheers,
->> Angelo 
->
-> Sorry for the double reply, wanted to add some more words :-)
->
-> As a note, I also thought about doing the following:
->
->     /* Secondary SCPSYS block with HWV capabilities */
->     scp1_hwv: system-controller@14500000 {
->         compatible = "mediatek,mt8196-scpsys", "syscon", "simple-mfd";
->         reg = <0 0x14500000 0 0x3000>;
->
->         /* SCP Power Manager with Hardware Voter */
->         spm_hwv: power-controller {
->             compatible = "mediatek,mt8196-hwv-scp-power-controller";
->             #address-cells = <1>;
->             #size-cells = <0>;
->             #power-domain-cells = <1>;
->
->             /* SCPSYS hardware voter power domains */
->             mm_proc_dormant: power-domain@MT8196_POWER_DOMAIN_MM_PROC_DORMANT {
->             ..... etc etc
->             };
->         };
->
->         imp_iic_wrap_north: clock-controller@13c30000 {
->             compatible = "mediatek,mt8196-imp-iic-wrap-n", "syscon";
->             reg = <0 0x13c30000 0 0x1000>;
->             #clock-cells = <1>;
->         };
->     };
->
-> ...but that's also not applicable, because the clock controllers are physically
-> *not* inside of the scpsys1 block, so that would *also* misrepresent the hardware
-> in the devicetree (besides still using a syscon in a way or another).
->
-> So... I really don't see any way out of that, which really leaves me with the two
-> options that I described in the previous reply.
->
-> Summarizing, either:
->  - Adding hwv MMIOs (a bunch of, and each very small) to each clock controller (but
->    still all of them are poking at the same HWV controller, and I foresee that this
->    will backfire in some future iteration of the HWV hardware)
->  - Reverting back to using the "mediatek,hardware-voter" syscon, like done in
->    https://lore.kernel.org/20250624143220.244549-10-laura.nao@collabora.com
->
-> I tried really hard and thought about this for weeks (actually, started even before
-> your feedback on Laura's series), but now I'm out of practical options that are
-> both correctly representing the hardware and not making the implementation fragile
-> (or actually more fragile than the actually broken HW implementation's fragility,
-> anyway).
->
-> And besides - re-reading what I wrote after a bunch of days, the first option of
-> adding a bunch of hwv mmios to all of the clock controllers is, in my opinion, a
-> (dirty) hack - because those mmios don't belong to the clock controllers, and would
-> again misrepresent the hardware in DT - especially keeping in mind the fact that
-> the clock controllers can be controlled with *and* (not or) without the HWV (and in
-> some instances, even if using HWV, we must still write to the clock controllers'
-> mmio for extra programming, as explained before).
->
-> Every second I think about this I get more and more convinced that my way of
-> passing the SCPSYS-HWV system controller handle as a syscon is right.
->
-> Angelo
->
+Add the dt-bindings for the NXP SIUL2 module which is a multi
+function device. It can export information about the SoC, configure
+the pinmux&pinconf for pins and it is also a GPIO controller with
+interrupt capability.
 
-I’ve given this some more thought over the past few days.
+Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+---
+ .../bindings/mfd/nxp,s32g2-siul2.yaml         | 163 ++++++++++++++++++
+ 1 file changed, 163 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
 
-I can't see of any other viable alternative either, other than splitting 
-up the HWV MMIOs into multiple tiny reg entries across each consumer 
-node as mentioned..which feels fragile and wouldn't really be an accurate 
-representation of the HW, given they all ultimately target the same HWV MCU.
+diff --git a/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml b/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
+new file mode 100644
+index 000000000000..8ae185b4bc78
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
+@@ -0,0 +1,163 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright 2024 NXP
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: NXP S32 System Integration Unit Lite2 (SIUL2)
++
++maintainers:
++  - Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
++
++description: |
++  SIUL2 is a hardware block which implements pinmuxing,
++  pinconf, GPIOs (some with interrupt capability) and
++  registers which contain information about the SoC.
++  There are generally two SIUL2 modules whose functionality
++  is grouped together. For example interrupt configuration
++  registers are part of SIUL2_1 even though interrupts are
++  also available for SIUL2_0 pins.
++
++  The following register types are exported by SIUL2:
++    - MIDR (MCU ID Register) - information related to the SoC
++    - interrupt configuration registers
++    - MSCR (Multiplexed Signal Configuration Register) - pinmuxing and pinconf
++    - IMCR (Input Multiplexed Signal Configuration Register)- pinmuxing
++    - PGPDO (Parallel GPIO Pad Data Out Register) - GPIO output value
++    - PGPDI (Parallel GPIO Pad Data In Register) - GPIO input value
++
++  Most registers are 32bit wide with the exception of PGPDO/PGPDI which are
++  16bit wide.
++
++properties:
++  compatible:
++    oneOf:
++      - const: nxp,s32g2-siul2
++      - items:
++          - enum:
++              - nxp,s32g3-siul2
++          - const: nxp,s32g2-siul2
++
++  reg:
++    minItems: 2
++
++  reg-names:
++    items:
++      - const: siul20
++      - const: siul21
++
++  gpio-controller: true
++
++  "#gpio-cells":
++    const: 2
++
++  gpio-ranges:
++    maxItems: 2
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  "#interrupt-cells":
++    const: 2
++
++  nvmem-layout:
++    $ref: /schemas/nvmem/layouts/nvmem-layout.yaml#
++    description:
++      This container may reference an NVMEM layout parser.
++
++patternProperties:
++  "-hog(-[0-9]+)?$":
++    required:
++      - gpio-hog
++
++  "-pins$":
++    type: object
++    additionalProperties: false
++
++    patternProperties:
++      "-grp[0-9]$":
++        type: object
++        allOf:
++          - $ref: /schemas/pinctrl/pinmux-node.yaml#
++          - $ref: /schemas/pinctrl/pincfg-node.yaml#
++        description:
++          Pinctrl node's client devices specify pin muxes using subnodes,
++          which in turn use the standard properties below.
++
++        properties:
++          bias-disable: true
++          bias-high-impedance: true
++          bias-pull-up: true
++          bias-pull-down: true
++          drive-open-drain: true
++          input-enable: true
++          output-enable: true
++
++          pinmux:
++            description: |
++              An integer array for representing pinmux configurations of
++              a device. Each integer consists of a PIN_ID and a 4-bit
++              selected signal source(SSS) as IOMUX setting, which is
++              calculated as: pinmux = (PIN_ID << 4 | SSS)
++
++          slew-rate:
++            description: Supported slew rate based on Fmax values (MHz)
++            enum: [83, 133, 150, 166, 208]
++        required:
++          - pinmux
++
++        unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - gpio-controller
++  - "#gpio-cells"
++  - gpio-ranges
++  - interrupts
++  - interrupt-controller
++  - "#interrupt-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    pinctrl@4009c000 {
++      compatible = "nxp,s32g2-siul2";
++      reg = <0x4009c000 0x179c>,
++            <0x44010000 0x17b0>;
++      reg-names = "siul20", "siul21";
++      gpio-controller;
++      #gpio-cells = <2>;
++      gpio-ranges = <&siul2 0 0 102>, <&siul2 112 112 79>;
++      interrupt-controller;
++      #interrupt-cells = <2>;
++      interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
++
++      jtag-pins {
++        jtag-grp0 {
++          pinmux = <0x0>;
++          input-enable;
++          bias-pull-up;
++          slew-rate = <166>;
++        };
++      };
++
++      nvmem-layout {
++        compatible = "fixed-layout";
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        soc-major@0 {
++          reg = <0 0x4>;
++        };
++      };
++    };
++...
+-- 
+2.45.2
 
-All considered, modeling the HWV as a shared syscon passed to both clock 
-and power controllers still seems to me like the more accurate 
-representation of this specific hw layout, given both types of 
-controllers interact with the same voter logic and MMIO region.
-
-Krzysztof, does the approach with scattered small reg entries per clock 
-controller seem as awkward to you as it does to us? are there any other 
-directions you think we should explore here?
-
-Best,
-
-Laura
 
