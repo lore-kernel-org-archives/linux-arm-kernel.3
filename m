@@ -4,68 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA37C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 08:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2E9C83F18
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 08:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=swtW+ZXga7xhQRN3PDVAmuLXUcGh09yYcwhConUBkmM=; b=zphUentLZNdeTLYMIFG+YWmXqS
-	N8jVnajGP2u4mv9rnUfS1yIKqdkxst5tE01ckJtFkQ4Md+1QfaVssnbxtiKVb/qaEqdz9/D7TrmKx
-	9USf5ihI611bYUSi/zJjKHfjQa74LqX7avc57OMNODhzS5fRexBAXTmwPXyHUsARbSVSpoQQFq0io
-	x8+vyxTvhCT1mHkVoPsT+l9SkKjg1obEfaygJr3Yq6f0ly4aS7GZrffX5Qjba1IBnLh6yo3F0pqg9
-	d5UTrvrl4W9C10yf3jx2k8svuhMPhHO8G05fJzGupubuSqz9ubCVMPuw6cs5GcfPdB3XucbG+vQfz
-	T2ZUN4+g==;
+	bh=FteJQilrWBfBvhIiChMigkGkPT4QD1u6xypvpY95TU0=; b=Woz7b5xu4HN0pCaYhtwFWyXl3l
+	/Y8RBBSSNY+dr09oLmq4fVQKShjw3CgHK1IvmlnUBj0rt1V4qDcjIlw9sO1ZtjpM4JgRZvxu9nmlx
+	K278VJjhZrt48LQ1YgwZc3XqEKPgo1NCG1WwypnHLUAcAJwOEWtfOSs0rBzXJdBHgjOpsG7TRcfMM
+	HWf9/Qrdhxuxia7b7Lx3TsE3sfumBoAiRjvgdHONTdbvbw3HYh9jJBh5MZWddxYES+65AP8QzBlzj
+	eHymkIIPzXYRoJJ/4hv7PgeJ0jum5bCdRG6kxJrLkZlfjjDLJnxFKqV9fE6DvAkZk59jydpaP9S3x
+	HEQporag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZmnX-0000000BCtP-30Rf;
-	Thu, 10 Jul 2025 08:38:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uZmpq-0000000BDA4-33Td;
+	Thu, 10 Jul 2025 08:40:54 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZlSy-0000000Axn6-0KDv
+	id 1uZlhZ-0000000B0cW-0FSE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 07:13:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6D12F5C6366;
-	Thu, 10 Jul 2025 07:13:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96832C4CEF4;
-	Thu, 10 Jul 2025 07:13:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752131591;
-	bh=swtW+ZXga7xhQRN3PDVAmuLXUcGh09yYcwhConUBkmM=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=nKAuITkqsb2naB9snjWW/pHegn8VLqiYiNKoXBP1sMkdgv20fOZu/V4I5IzMrkrR1
-	 WYv0c9SpDAGlQ/kk0Cth27W7FY+pU1DBvFFPyaf02FeGjbgRaWxEcdkdTlHM2gO3qA
-	 vyLpnfU8euZ8q9sGt2HvNho7vHQGvvm3DNzI/OwkOhjm1McL9wfaOMyu6zyneDNPyX
-	 KwyqdUsCGt8Q6jnvBucJXf3I0xw2kQVzbne2/aUuQ11pPb/5Vti+uw17YpvSXVytv3
-	 XAOJsIzxQxXuhGCgVGpEXn0ZcZogiPOs1IIssH50SCpsSO2ZGTEws2Y/TG448M6g+n
-	 N6od825biFIYQ==
-Message-ID: <85f1ee594f02802fd5a019fa5ade999a@kernel.org>
-Date: Thu, 10 Jul 2025 07:13:08 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 3/9] drm/bridge: imx93-mipi-dsi: use
- drm_bridge_chain_get_last_bridge()
-In-Reply-To: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-3-48920b9cf369@bootlin.com>
-References: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-3-48920b9cf369@bootlin.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "David Airlie" <airlied@gmail.com>, "Fabio
- Estevam" <festevam@gmail.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu Ying" <victor.liu@nxp.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, "Robert Foss" <rfoss@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>, "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>
-Content-Transfer-Encoding: quoted-printable
+	Thu, 10 Jul 2025 07:28:19 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56A6nMQ4020561;
+	Thu, 10 Jul 2025 09:27:59 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	FteJQilrWBfBvhIiChMigkGkPT4QD1u6xypvpY95TU0=; b=VhSXHgvkoCKjL0PB
+	yLPzLljS9EtzmH6qBo4MWrhd/pumsuUD8+ON95lET7nmSmqFrQnoRVupBYdYAlfu
+	djGjVlo43TAdWUmsXUZgnroiJwMw47odRN0mNYABKDiOZ51Bt/EJzZNDPzmhBCJ0
+	CMbstpvVa2BWVI2D8EppAjFvYXVZ4ZhxSrngbuZELHV/aY6bFeDQ35BAlp1S7N2x
+	GeJfMjn0DSAq3a6zy8jnfueD2KysLIEasSHwMmzGQLS15g1t/eLo25EJf82KRv5d
+	sp1MjzM+BSKvkf8g6WMx0/jPp6e9fRSs21UvN8PDDjbqKUdd6eMSNQ0AzEYvOb8v
+	L38+Tg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47ptxjf7w9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Jul 2025 09:27:59 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id CC7DF40048;
+	Thu, 10 Jul 2025 09:26:55 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 81309AE9D80;
+	Thu, 10 Jul 2025 09:26:06 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 10 Jul
+ 2025 09:26:05 +0200
+Message-ID: <cadb2bcc-9a2a-447a-ac03-459f3e37a173@foss.st.com>
+Date: Thu, 10 Jul 2025 09:26:05 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 1/2] dt-bindings: memory: add jedec,ddr[3-4]-channel
+ binding
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
+        Mark
+ Rutland <mark.rutland@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-perf-users@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+References: <20250626-ddr-bindings-v1-0-cae30933c54c@foss.st.com>
+ <20250626-ddr-bindings-v1-1-cae30933c54c@foss.st.com>
+ <e016efd6-891b-467e-8a4e-9ea53b7006a9@kernel.org>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <e016efd6-891b-467e-8a4e-9ea53b7006a9@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-09_05,2025-07-09_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_001312_158666_C0D7668B 
-X-CRM114-Status: UNSURE (   6.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250710_002817_580114_9E3FABEF 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,17 +103,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Jul 2025 18:48:02 +0200, Luca Ceresoli wrote:
-> Use drm_bridge_chain_get_last_bridge() instead of open coding a loop with
-> two invocations of drm_bridge_get_next_bridge() per iteration.
->=20
-> Besides being cleaner and more efficient, this change is necessary in
-> preparation for drm_bridge_get_next_bridge() to get a reference to the
->=20
-> [ ... ]
+Hi Krzysztof,
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+On 7/9/25 20:27, Krzysztof Kozlowski wrote:
+> On 26/06/2025 21:48, Clément Le Goffic wrote:
+>> Introduce as per jdec,lpddrX-channel binding, jdec,ddr[3-4]-channel
+> 
+> s/jdec/jedec/
 
-Thanks!
-Maxime
+Right thanks
+
+> 
+>> binding.
+>>
+>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>> ---
+> 
+> 
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    ddr_channel: ddr3-channel@0 {
+>> +        compatible = "jedec,ddr3-channel";
+>> +        io-width = <16>;
+> 
+> Missing reg... or not? What was your intention
+
+Indeed no reg.
+I'll drop the "@0" for the next version.
+
+> 
+> 
+>> +    };
+>>
+> 
+> 
+> Best regards,
+> Krzysztof
+
 
