@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91317C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86849C83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OLzig2qiNR2jhkyqAnMUWUMLsoL1y25Rwtu/Ci6IzXQ=; b=4zg0pvAdR0hZ2u0fIdSsppMDMh
-	wq6++ancRTC2Ucqhxrq1uppfdsBqBDY1Gt7S+KUalnAnJ13ljsjkB1e1a/qoshDxpjJ/CmbSfxVjl
-	GcJseBUsvSkhRePARxSV/6Xxq1KMlCls5s78Q2qlHD5xWxjfV0cCCAXkRom/EirX2HJ3XSQh1VTpr
-	YfIjdKkiCUZxyxryciG6wucpCXK3BIA2fUQ2yumj/lTOn+RC0vCmIoCkQiHHWpW27Jwh48FTFhPzK
-	BPdgzrHWwIrwPpXLk84KPlfknhaWlz3XktwfVYav9tFS1h5A+UX4X/yhPJDOkqbDGOenzZTvQlbF8
-	1z9a/LXA==;
+	bh=Dc+RqRq+W6sCtPNEa/tVWodO3UqzUt3YwAEia9IzCeQ=; b=Okg1Bq6GK+l8KOvCUIgtUAacvE
+	J6+D5+onlgbejYFzgsrNR94yPBXWZcvUufzaNHRSFnVG+rRmEFuyPqQGDnPWxl8jT4/QxBZkPBuPm
+	IRFnKVCj+2o+w+8MZkIFSkKj7abVOkzbgpTmwJNsOyHFva20GpvyKvjZZ6ZsjeGNko2pXSSpOEhM5
+	pSxE44RpwY37wFk2+4uYEDZM7FyW8Fk8JZCeSEP0+8yf2m8CzlShydUNgl6MzNF/h1uUSdvte2eEd
+	i7hjEPW8lwqpQsKTqhruus6GjHXvfoNBqDy89c4kWeNFRaSIcHPTOPxgOVA78kch/PJPy0bibXAvY
+	LUnJyjCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZf2A-0000000AJPR-3DUK;
-	Thu, 10 Jul 2025 00:21:06 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uZf4W-0000000AJu1-3Udy;
+	Thu, 10 Jul 2025 00:23:32 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZezm-0000000AJ9R-3Z5w
+	id 1uZf1Y-0000000AJI4-27NZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 00:18:40 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-748efefedb5so361287b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 17:18:38 -0700 (PDT)
+	Thu, 10 Jul 2025 00:20:29 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3141f9ce4e2so696362a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 17:20:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752106717; x=1752711517; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1752106827; x=1752711627; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OLzig2qiNR2jhkyqAnMUWUMLsoL1y25Rwtu/Ci6IzXQ=;
-        b=yz/ahq3HwNcBRsTuRAaJaKVC4d5FgviGwmk52eAxurDJKlah4u19hcTy8LvAGNQkqh
-         elZFe7oi837JWJH7XwY96i3/Rp9wBfXszs6KkwKWxMjJ5kj/F8GgkR0f9koU9oNFEII8
-         u0pgyqAQE38RlLqBOf+bORxqXnDsCViUryiYLHnskpUit1cAdMKm4DX98Ku36mMRNVyM
-         KqcniCDs2mxon9S0btHghlMm3ZpAXtQ4wPmp9ID36/v+HK2iWskQWsDh7YNUmME9E4Tt
-         82ZPlHeCCNlonyzly3GxyecFnD3tHtd4wSRjSJkj4frouDLfVrIQP41EiDLOoEtKCIBV
-         muEw==
+        bh=Dc+RqRq+W6sCtPNEa/tVWodO3UqzUt3YwAEia9IzCeQ=;
+        b=vVy6Yfj+IUqfgT5Yr5BUoHLiOT6BJcT9GLHfaxgurHUYNMHvWLr8EZSKNhQ9HRcW9D
+         9M4qunJzsm3n4/NvjGvnKCCbuzYYXyo01J0GSUDF0TtI9uO0NrpCixN7t+qLtRtcH+sb
+         GfqFIp7/inTkY5fC5J0i8zq3d/rOg6Q8LHNlCKhIMgxktpF94dGBAtE/GVMhWVLmC/0C
+         55np6aLVlFH1z9DtjGN63XXPNsxa7SyY/4qJtUr2n5HdeRdRexa9zWqGlXe8oihJApbU
+         vJc9P2bHIUvcnX8EKO5w/1ykuBQkihLM2jdQLotmE8HC5lFR3ObWHQrSF/x1GSkHk2ju
+         a0wA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752106717; x=1752711517;
+        d=1e100.net; s=20230601; t=1752106827; x=1752711627;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OLzig2qiNR2jhkyqAnMUWUMLsoL1y25Rwtu/Ci6IzXQ=;
-        b=jk6lgiSXFtTCMtT8ai85NHdHtcXou1usGlgtmWoMFvsogpX4U38bqnRVxdj4adkTc5
-         58Jl5dNI9tQ5jswhacuXVw4cSShbIT6trqWR9TZojxcXI97LwtvT3+a9wH+betOa9lpt
-         yqGciyNeLokTB4kjKIbd/MeKLmqXsr4uo+cCNobXI3orQDFJ5AwTp8/TsNjg3Djl5WpK
-         quaglu83Wn1C98+UXXiHSFEWjcWXmAoU8qMWNN7t0o34f4rOPuKWnxBZCLvRWblcg1/F
-         KA1E+Om8jPe9c/O912hSVhy9PfHgeBGjJouv2diUpaGO8wl/OnELKIBE6mfyofxw8fSL
-         tEUA==
-X-Forwarded-Encrypted: i=1; AJvYcCVXR1QqTzkj3bDHBmBTXClfR/atKnmScnMmOdX11Q03HzPtAyUl2dgb8m5WRpG0EYTVeB41+33JgIYyw9icp34v@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA9K+FjffkThCWPE/r7x92ZKnZjdkojSS4vrUwxn7QQFX/Gi92
-	QeUhke88XSjAwgclKZxnV8MV/ppSG4tTQJ6U/TLLuvD54bFnf6P1imHKWrvATmcdr25MsFxDq/e
-	ECANF8w==
-X-Google-Smtp-Source: AGHT+IGmcLB52wz+0J/dhZKKbkmNXvfa8dV1v82Mgkyx1EZoNNqGtWbyrclr+1fJ90IPY76axoD2ssci7/I=
-X-Received: from pfme10.prod.google.com ([2002:aa7:98ca:0:b0:748:55b9:ffbe])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:1795:b0:742:3fb4:f992
- with SMTP id d2e1a72fcca58-74ea64572dcmr6278110b3a.10.1752106717633; Wed, 09
- Jul 2025 17:18:37 -0700 (PDT)
-Date: Wed, 9 Jul 2025 17:18:36 -0700
-In-Reply-To: <aG71_sKK3jzIs0vt@linux.dev>
+        bh=Dc+RqRq+W6sCtPNEa/tVWodO3UqzUt3YwAEia9IzCeQ=;
+        b=xBvA2u8BevmXae5LVBcAuYNGbsY+JeN3c9STtT1Txg/FlMi0pd4nAOg2cAGPc/N35C
+         xJYjZMODoONex27rrib21PFJoukfKdJqJ66DFndyRfP11FXLPDrXcGJfHNalZXBa5cZL
+         Unzd4p1TervKB3U0JQs7HIO4f1It4gB6g85z3fnUP+xPJmkXcEzSB4cubeVVXIMqmyjE
+         Iy6J1OGTO7zpuB/PP3j8wBkbTH0BfDRhlR8SuFlZL3gB9+EjQYFnFtnmH5tkMN9RMy8x
+         Al8G+Rdw9FqALPLyCfnt+x93iMH9T86TaRKpiT3zCkmZ7abTzuh+U1oMPJlgOhD9xYVx
+         rzEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVXSTw5jngI7ad4cvh7+l5WUdoWFrb59c88IMqCzXor+YU0vgOHDWHg4qdOLSF/kVkmeuhDIFlL8kIHdhIlo0z/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6TtJP+kO3h6UP372M2/H0nNFNbSY8+saeqZjYJKOKqzouSUbA
+	zfnKaXRVpHINi9c2TwnyLoepIuinspk7UvjH+kedzc80Om8WtML2Waxagbf5BjRhHTJuvVXQN8z
+	aq1uw/A==
+X-Google-Smtp-Source: AGHT+IG0GxjloovxJcYgMFXWq5yLXp3npn9Ujx5nQOTSIQhv0jOvc/gWF8I+wEWsfveSljef5y7J1NorZPc=
+X-Received: from pjtu13.prod.google.com ([2002:a17:90a:c88d:b0:313:2d44:397b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:28cb:b0:312:eaea:afa1
+ with SMTP id 98e67ed59e1d1-31c3f05249dmr924623a91.29.1752106827053; Wed, 09
+ Jul 2025 17:20:27 -0700 (PDT)
+Date: Wed, 9 Jul 2025 17:20:25 -0700
+In-Reply-To: <20250606235619.1841595-2-vipinsh@google.com>
 Mime-Version: 1.0
-References: <20250606235619.1841595-1-vipinsh@google.com> <20250606235619.1841595-12-vipinsh@google.com>
- <aG71_sKK3jzIs0vt@linux.dev>
-Message-ID: <aG8G3GNi_PlqgvnB@google.com>
-Subject: Re: [PATCH v2 11/15] KVM: selftests: Auto generate default tests for
- KVM Selftests Runner
+References: <20250606235619.1841595-1-vipinsh@google.com> <20250606235619.1841595-2-vipinsh@google.com>
+Message-ID: <aG8HSc_yj6O69Uu1@google.com>
+Subject: Re: [PATCH v2 01/15] KVM: selftest: Create KVM selftest runner
 From: Sean Christopherson <seanjc@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Vipin Sharma <vipinsh@google.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	pbonzini@redhat.com, anup@brainfault.org, borntraeger@linux.ibm.com, 
-	frankja@linux.ibm.com, imbrenda@linux.ibm.com, maz@kernel.org, 
+To: Vipin Sharma <vipinsh@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, pbonzini@redhat.com, 
+	anup@brainfault.org, borntraeger@linux.ibm.com, frankja@linux.ibm.com, 
+	imbrenda@linux.ibm.com, maz@kernel.org, oliver.upton@linux.dev, 
 	dmatlack@google.com
 Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_171838_912527_E30DA146 
-X-CRM114-Status: GOOD (  26.08  )
+X-CRM114-CacheID: sfid-20250709_172028_544711_9146E761 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,58 +92,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025, Oliver Upton wrote:
-> On Fri, Jun 06, 2025 at 04:56:15PM -0700, Vipin Sharma wrote:
-> > Add logic in Makefile.kvm to auto generate default test files for KVM
-> > Selftests Runner. Preserve the hierarchy of test executables for
-> > autogenerated files.
-> > 
-> > Autogeneration of default test files guards against missing these files
-> > for new tests cases or rename of existing ones. These autogenerated
-> > files will be checked in so that during git-diff one can easily identify
-> > if the existing test files for the same test binary also needs an
-> > update. It also add new tests automatically in the default coverage.
-> 
-> I'm not sure I'm sold on the merits of committing these to the tree. My
-> preference would be to prioritize signal to noise and just commit the
-> 'interesting' test configurations and generate the defaults from
-> $(TEST_PROGS) somewhere they're gitignored.
+On Fri, Jun 06, 2025, Vipin Sharma wrote:
+> +    parser.add_argument("--test-files",
+> +                        nargs="*",
+> +                        default=[],
+> +                        help="Test files to run. Provide the space separated test file paths")
+> +
+> +    parser.add_argument("--test-dirs",
+> +                        nargs="*",
+> +                        default=[],
+> +                        help="Run tests in the given directory and all of its sub directories. Provide the space separated paths to add multiple directories.")
 
-Yeah, I don't love it either, even though I suggested it.
+Almost forgot.  My vote would be to make these easier to reference, e.g.
 
-> There's no amount of foolproofing that'll prevent folks from renaming a
-> test name w/o updating the 'interesting' test configurations that depend
-> upon it. Seriously -- I'm sure I'll manage to break it at least once :)
+ -t/--testcases
+ -d/--dirs
 
-I was more worried about clobbering someone's (poorly named) default.test, e.g.
-if the user modifies or creates their own default.test and the building selftests
-overwrites their file.
-
-The main reason I pushed for committing the default testcases is to avoid having
-to figure out when and where to generate the testcases.  I don't like the idea
-of generating testcase on *every* build; it's not slow, but ugh it seem beyond
-wasteful, and it feels weird to dump files into the output directory that the
-user might not want.
-
-The obvious alternative would be to add a dedicated make command.  The more I
-think about it, the more I think that's probably the way to go.  We already have
-to `make headers_install`, so having to do `make testcases_install` or whatever
-doesn't seem too onerous.  The biggest conundrum is probably what to put in a
-.gitignore for folks that do in-tree builds.  I guess maybe we could add
-default.test to the .gitignore?  That'd "document" that that name is reserved,
-i.e. would help prevent people from trying to create their own default.test
-files.
-
-And since the runner supports listing multiple testcase directories, it'd be
-quite easy to "install" the defaults to a dedicated directory while also pulling
-testcases that are commited to the repo.
-
-> On top of that, there's a lot of selftests that take no arguments. Not
-> sure what we gain having a duplicated definition for these ones outside
-> of $(TEST_PROGS).
-
-The defaults are purely a way to communicate the existence of the tests to the
-runner.  My hacky bash scripts for running selftests copies all binaries into a
-directly and then runs everything in the "output" directory, but that has obvious
-flaws :-)
+or if folks like the --test-{files,dirs} names, just add the single char shorthand?
 
