@@ -4,103 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2DAC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 17:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86455C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 17:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMByOj/etSFyFagR+m6oDHdeh13HbY8IaQgTUXG3ytw=; b=GM7iTu4WWRTQbXubfKY5kVtV+g
-	5b4Ev0YLQ7YBm2adRsf03LjL5T563uJq1hwBqr66DCCgPRz/mC2cN4Wq523Zn+FrVUX71w2zuInqD
-	KDGU2G3k2TbJmxZVhqZjhALnYVUWj8ylQSnN4R4GmpsiMKZ5INJosEIIDtwyvqKidn4mUlJWbvC90
-	vLf5ogEQV2CZXLIN40ms56dtCkqfqonLjQojVVQccCrvvaItzM77lUKVFEtzodiRwXtzU371KSk30
-	yh0WqUOZHtbOSe2CfjKX09H7rDfBT0xjJM4xCKZHShEAp/IEOrXc+zc0eOQJJOHIpx4isp2ii38yN
-	aqrnTAHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nwOZdn2NiDVjIPrABYZCyte+ZpAf7Y1hBgPJVXATIso=; b=zUi2l7IasojR6qd9SSYzf1Qklg
+	zmcGUOgWvz39MP8MzsolLrVPWGbr4X6dyAePSgLZiw3TV2/3xQRpMAFHSeu+zsceXV2QrVemS+BXz
+	x/R4PE9jlX4qF3XUBV9l2hkL03nlDhBDdNgyTsYfN75v8xyU96FYHOO7M/D8hBh/Obpv310vHfeVO
+	Vv51W4CShJSNUvkGqxZ2Wp00LU0dOYyKulmSi7edrq88MeSPIOHrdz4qorbJGsdR8AG8Vef+kzrk3
+	0UYZNOufjvqNaMVba4jjNO0xgRB3B4bb1G6NI9VQ8SKqBnnBiLT+LK6I0jo+9yQDfgFf0IDakvqZf
+	6VhDYeiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZuqZ-0000000CYG5-1kCI;
-	Thu, 10 Jul 2025 17:14:11 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uZust-0000000CYQZ-039e;
+	Thu, 10 Jul 2025 17:16:35 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZsad-0000000CAlN-1ysN;
-	Thu, 10 Jul 2025 14:49:36 +0000
-Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 97928B2B;
-	Thu, 10 Jul 2025 16:49:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1752158945;
-	bh=HtPY/5sFRIQr5Fe3EHri3muP2YGAtkO7ivwDWkdYp6M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NZgdQTC4lcqOeDMQVQEU6cAjEDgSlRk+2jvO4ZeG2+Z1BC6o7gkumMPERXTefi+ie
-	 LjwAx+6YlnpgqW21owfsbhPHiv4eQ/dbxKUtpAfBygj6DnyOOQ5HeQLQNBj0rOE2fD
-	 8WDCQalWHKHfPUTZw/bv5rmNZp2/lTM0bItaMdDU=
-Message-ID: <8fee18e6-9955-4b51-8b6b-e70029ec47eb@ideasonboard.com>
-Date: Thu, 10 Jul 2025 15:49:30 +0100
+	id 1uZsgK-0000000CBpb-0sQ3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 14:55:29 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-713fba639f3so10601287b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 07:55:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752159327; x=1752764127; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=nwOZdn2NiDVjIPrABYZCyte+ZpAf7Y1hBgPJVXATIso=;
+        b=Ql6qQ7y2Koqo46xGsQ0a/+Z6Od5xC+oiJ1FFQDQNUdbQvQ8i8J4TluLjkreGTHlhlI
+         kYQ8WASlcz2BvvASaCLKcwYeqg0bhoQ82ryGKLXp/Znq1WIbbpSLaQpcwlfBHe7arHPo
+         TCOnPdrHyynH4k3KfFMtM/TXV/9nirii5VDsAepFLwgGrLzG1Z0jkC8Joo5MtWcmYB/S
+         R+Dee7UjAlkM/DCWO5/9fNvQW6r5NIvJOSuiUCvP+n5o5gJ9A00OTl5n4hKfuO50h14M
+         da1x+p8OIKuoLyacZEm4JY1t2Meg2VRq+xTQaZRad4tWDsL2mKNw4z+jaEAEpdLe9Mrt
+         S0yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752159327; x=1752764127;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nwOZdn2NiDVjIPrABYZCyte+ZpAf7Y1hBgPJVXATIso=;
+        b=Ggmt5OdmvZP63CPve1ieXqNemvHBJ42gX3LnrOx5Lu4OBZU1CNqCaFwlij1wGGCHdv
+         CFJAtvprYnmyUgxYSIFxs7vTBTW+JXgZpXjw6HAunp4Z0xBvhFttgQR4vaBnNvasUxlU
+         h4usDY9J3/SZOyAxbJOGs9LWzabNX5FQKSLXT3MIvidnf4BjuLi46lmNRn7mBeHdQL+V
+         Qk1CNua99uLyzXN/YCjaWyPTDHhH1ck6d4b165MjcAPTvlrAglnSlpB5hmO5glZiAgxD
+         zbGwkxn3RoUdg7IKbpf6ejJOmuX6/cfuAb152P4Tr60t+8tKuIamdyKXfMdBZdh2NVUp
+         i7mA==
+X-Forwarded-Encrypted: i=1; AJvYcCXOmcmp6CGKBwT0gqX6FoMM4L2k/fnlFs1IVbUCJggjTynLiumMPSD6Y/6mqtskKrO5kbbQsYrymoGT5q+8nohc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyr2P1nIIa32+FiOY4nenSBGcjD3biHOrgNLB2jAqRoEa+0OCZO
+	C5EsDM6V+lKcXc0qNMRj1Cc2knnyw7z/lvNhyiuU9eSsbFac64yy73zZ9smyViuKabJ0RZ+tZoM
+	DuVakkFa6jK7W59vIGteXlYeHipCal0gP2N9e9euJzg==
+X-Gm-Gg: ASbGncszv4X3da+VWHF6U9infKwqGhKl+HvVGx3DwFF1tGo+9MfkcU4ZTsri6oxXWwn
+	nooBkfdtW22xtXzwGX6aG2OuIim03bNA36OBULahm3eltgzgUB5Mh+7mUlw+b/sokccRmCclTu7
+	61gObQbiniBzXK52rPakLjhSGYgjMOaWmjo6P6KnLG1AI=
+X-Google-Smtp-Source: AGHT+IHc5dtpkiZ7u2SN9CrdCVrZBHY9P08NaQD/OycrMWylt76w9oUZCr6FAkSY6jbXyljQzIQ7UX5mkXVQHKZ643o=
+X-Received: by 2002:a05:690c:87:b0:70d:ecdd:9bd1 with SMTP id
+ 00721157ae682-717b198ef8emr101473497b3.24.1752159326962; Thu, 10 Jul 2025
+ 07:55:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] media: uapi: Introduce V4L2 extensible params
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Dafna Hirschfeld <dafna@fastmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20250710-extensible-parameters-validation-v2-0-7ec8918ec443@ideasonboard.com>
- <20250710-extensible-parameters-validation-v2-1-7ec8918ec443@ideasonboard.com>
-Content-Language: en-US
-From: Dan Scally <dan.scally@ideasonboard.com>
-Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20250710-extensible-parameters-validation-v2-1-7ec8918ec443@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20250701114733.636510-1-ulf.hansson@linaro.org>
+ <CGME20250710122654eucas1p20f1179a9ff22d562d89252f924d34dae@eucas1p2.samsung.com>
+ <20250701114733.636510-22-ulf.hansson@linaro.org> <212a1a56-08a5-48a5-9e98-23de632168d0@samsung.com>
+In-Reply-To: <212a1a56-08a5-48a5-9e98-23de632168d0@samsung.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 10 Jul 2025 16:54:50 +0200
+X-Gm-Features: Ac12FXxhP_ygVu4kvJK5PvHoMEGqfNOT1CdeqATazqx35-lOUW-8uexy7JlAHYk
+Message-ID: <CAPDyKFrPOgWW_=ehCjtqAUR97HoLKmgFNO3bRT50-w6A1LgGFw@mail.gmail.com>
+Subject: Re: [PATCH v3 21/24] pmdomain: core: Leave powered-on genpds on until late_initcall_sync
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_074935_658444_56E1F857 
-X-CRM114-Status: GOOD (  43.06  )
+X-CRM114-CacheID: sfid-20250710_075528_252433_0A8E8E29 
+X-CRM114-Status: GOOD (  42.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,203 +102,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo
+On Thu, 10 Jul 2025 at 14:26, Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+>
+> On 01.07.2025 13:47, Ulf Hansson wrote:
+> > Powering-off a genpd that was on during boot, before all of its consumer
+> > devices have been probed, is certainly prone to problems.
+> >
+> > As a step to improve this situation, let's prevent these genpds from being
+> > powered-off until genpd_power_off_unused() gets called, which is a
+> > late_initcall_sync().
+> >
+> > Note that, this still doesn't guarantee that all the consumer devices has
+> > been probed before we allow to power-off the genpds. Yet, this should be a
+> > step in the right direction.
+> >
+> > Suggested-by: Saravana Kannan <saravanak@google.com>
+> > Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
+> > Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xilinx ZynqMP ZCU106
+> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+>
+> This change has a side effect on some Exynos based boards, which have
+> display and bootloader is configured to setup a splash screen on it.
+> Since today's linux-next, those boards fails to boot, because of the
+> IOMMU page fault.
 
-On 10/07/2025 14:52, Jacopo Mondi wrote:
-> Introduce v4l2-extensible-params.h in the Linux kernel uAPI.
->
-> The header defines two types that all drivers that use the extensible
-> parameters format for ISP configuration shall use to build their own
-> format versions.
->
-> The newly introduce type v4l2_params_block represent the
-> header to be prepend to each ISP configuration block and the
-> v4l2_params_buffer type represent the base type for the configuration
-> parameters buffer.
->
-> The v4l2_params_buffer represents the container for the ISP
-> configuration data block. The generic type is defined with a 0-sized
-> data block that specific ISP implementation shall properly size
-> according to their capabilities.
->
-> [Add v4l2_params_buffer_size()]
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> ---
->   MAINTAINERS                                       |   6 +
->   include/uapi/linux/media/v4l2-extensible-params.h | 144 ++++++++++++++++++++++
->   2 files changed, 150 insertions(+)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 658543062bba3b7e600699d7271ffc89250ba7e5..49a9329e5fe8874bdbaca13946ea28bd80134cb3 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -25968,6 +25968,12 @@ F:	drivers/media/i2c/vd55g1.c
->   F:	drivers/media/i2c/vd56g3.c
->   F:	drivers/media/i2c/vgxy61.c
->   
-> +V4L2 EXTENSIBLE PARAMETERS FORMAT
-> +M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> +L:	linux-media@vger.kernel.org
-> +S:	Maintained
-> +F:	include/uapi/linux/media/v4l2-extensible-params.h
-> +
->   VF610 NAND DRIVER
->   M:	Stefan Agner <stefan@agner.ch>
->   L:	linux-mtd@lists.infradead.org
-> diff --git a/include/uapi/linux/media/v4l2-extensible-params.h b/include/uapi/linux/media/v4l2-extensible-params.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..ace89299a4b37e428c0bc9a72fbc079b1dcda91a
-> --- /dev/null
-> +++ b/include/uapi/linux/media/v4l2-extensible-params.h
-> @@ -0,0 +1,144 @@
-> +/* SPDX-License-Identifier: ((GPL-2.0+ WITH Linux-syscall-note) OR MIT) */
-> +/*
-> + * Video4Linux2 extensible configuration parameters base types
-> + *
-> + * Copyright (C) 2025 Ideas On Board Oy
-> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> + */
-> +
-> +#ifndef _UAPI_V4L2_PARAMS_H_
-> +#define _UAPI_V4L2_PARAMS_H_
-> +
-> +#include <linux/types.h>
-> +
-> +#define V4L2_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
-> +#define V4L2_PARAMS_FL_BLOCK_ENABLE	(1U << 1)
+Thanks for reporting, let's try to fix this as soon as possible then.
 
+>
+> This happens because the display controller is enabled and configured to
+> perform the scanout from the spash-screen buffer until the respective
+> driver will reset it in driver probe() function. This however doesn't
+> work with IOMMU, which is being probed earlier than the display
+> controller driver, what in turn causes IOMMU page fault once the IOMMU
+> driver gets attached. This worked before applying this patch, because
+> the power domain of display controller was simply turned off early
+> effectively reseting the display controller.
 
-Actually I wonder if a "V4L2_PARAMS_BLOCK_FL_NONE    0" is worthwhile to clear them explicitly?
+I can certainly try to help to find a solution, but I believe I need
+some more details of what is happening.
 
-> +
-> +/*
-> + * Reserve the first 8 bits for V4L2_PARAMS_FL_* flag. Platform-specific flags
-> + * should be defined as:
-> + * #define PLATFORM_SPECIFIC_FLAG0	((1U << V4L2_PARAMS_FL_PLATFORM_FLAGS(0))
-> + * #define PLATFORM_SPECIFIC_FLAG1	((1U << V4L2_PARAMS_FL_PLATFORM_FLAGS(1))
-> + */
-> +#define V4L2_PARAMS_FL_PLATFORM_FLAGS(n)	((n) << 8)
-> +
-> +/**
-> + * struct v4l2_params_block_header - V4L2 extensible parameters block header
-> + *
-> + * This structure represents the common part of all the ISP configuration
-> + * blocks. Each parameters block shall embed an instance of this structure type
-> + * as its first member, followed by the block-specific configuration data. The
-> + * driver inspects this common header to discern the block type and its size and
-> + * properly handle the block content by casting it to the correct block-specific
-> + * type.
-> + *
-> + * The @type field is one of the values enumerated by each platform-specific ISP
-> + * block types which specifies how the data should be interpreted by the driver.
-> + * The @size field specifies the size of the parameters block and is used by the
-> + * driver for validation purposes.
-> + *
-> + * The @flags field is a bitmask of per-block flags V4L2_PARAMS_FL_* and
-> + * platform-specific flags specified by the platform-specific header.
-> + *
-> + * Documentation of the platform-specific flags handling is specified by the
-> + * platform-specific block header type:
-> + *
-> + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_block_type`
-> + * - Amlogic C3: :c:type:`c3_isp_params_block_type`
-> + *
-> + * Userspace is responsible for correctly populating the parameters block header
-> + * fields (@type, @flags and @size) and the block-specific parameters.
-> + *
-> + * @type: The parameters block type (platform-specific)
-> + * @flags: A bitmask of block flags (platform-specific)
-> + * @size: Size (in bytes) of the parameters block, including this header
-> + */
-> +struct v4l2_params_block_header {
-> +	__u16 type;
-> +	__u16 flags;
-> +	__u32 size;
-> +} __attribute__((aligned(8)));
-> +
-> +/**
-> + * v4l2_params_buffer_size - Calculate size of v4l2_params_buffer for a platform
-> + *
-> + * Users of the v4l2 extensible parameters will have differing sized data arrays
-> + * depending on their specific parameter buffers. Drivers and userspace will
-> + * need to be able to calculate the appropriate size of the struct to
-> + * accommodate all ISP configuration blocks provided by the platform.
-> + * This macro provides a convenient tool for the calculation.
-> + *
-> + * Each driver shall provide a definition of their extensible parameters
-> + * implementation data buffer size. As an example:
-> + *
-> + * #define PLATFORM_BLOCKS_MAX_SIZE		\
-> + *	sizeof(platform_block_0)	+	\
-> + *	sizeof(platform_block_1)
-> + *
-> + * #define PLATFORM_BUFFER_SIZE			\
-> + *	v4l2_params_buffer_size(PLATFORM_BLOCKS_MAX_SIZE)
-> + *
-> + * Drivers are then responsible for allocating buffers of the proper size
-> + * by assigning PLATFORM_BUFFER_SIZE to the per-plane size of the videobuf2
-> + * .queue_setup() operation and userspace shall use PLATFORM_BUFFER_SIZE
-> + * when populating the ISP configuration data buffer.
-> + *
-> + * @max_params_size: The total size of the ISP configuration blocks
-> + */
-> +#define v4l2_params_buffer_size(max_params_size) \
-> +	(offsetof(struct v4l2_params_buffer, data) + (max_params_size))
-> +
-> +/**
-> + * struct v4l2_params_buffer - V4L2 extensible parameters configuration
-> + *
-> + * This struct contains the configuration parameters of the ISP algorithms,
-> + * serialized by userspace into a data buffer. Each configuration parameter
-> + * block is represented by a block-specific structure which contains a
-> + * :c:type:`v4l2_params_block_header` entry as first member. Userspace populates
-> + * the @data buffer with configuration parameters for the blocks that it intends
-> + * to configure. As a consequence, the data buffer effective size changes
-> + * according to the number of ISP blocks that userspace intends to configure and
-> + * is set by userspace in the @data_size field.
-> + *
-> + * The parameters buffer is versioned by the @version field to allow modifying
-> + * and extending its definition. Userspace shall populate the @version field to
-> + * inform the driver about the version it intends to use. The driver will parse
-> + * and handle the @data buffer according to the data layout specific to the
-> + * indicated version and return an error if the desired version is not
-> + * supported.
-> + *
-> + * For each ISP block that userspace wants to configure, a block-specific
-> + * structure is appended to the @data buffer, one after the other without gaps
-> + * in between nor overlaps. Userspace shall populate the @data_size field with
-> + * the effective size, in bytes, of the @data buffer.
-> + *
-> + * Drivers shall take care of properly sizing of the extensible parameters
-> + * buffer @data array. The v4l2_params_buffer type is defined with a
-> + * flexible-array-member at the end, which resolves to a size of 0 bytes when
-> + * inspected with sizeof(struct v4l2_params_buffer). This of course is not
-> + * suitable for neither buffer allocation in the kernel driver nor for proper
-> + * handling in userspace of the @data buffer it has to populate.
-> + *
-> + * Drivers using this type in their userspace API definition are responsible
-> + * for providing the exact definition of the @data buffer size using the
-> + * v4l2_params_buffer_size() macro. The size shall be used
-> + * by the driver for buffers allocation and by userspace for populating the
-> + * @data buffer before queueing it to the driver
-> + *
-> + * Drivers that were already using extensible-parameters before the introduction
-> + * of this file define their own type-convertible implementation of this
-> + * type, see:
-> + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_cfg`
-> + * - Amlogic C3: :c:type:`c3_isp_params_cfg`
-> + *
-> + * @version: The parameters buffer version (platform-specific)
-> + * @data_size: The configuration data effective size, excluding this header
-> + * @data: The configuration data
-> + */
-> +struct v4l2_params_buffer {
-> +	__u32 version;
-> +	__u32 data_size;
-> +	__u8 data[];
-> +};
-> +
-> +#endif /* _UAPI_V4L2_PARAMS_H_ */
+Perhaps you can point me to some relevant DTS file to start with?
+
+>
+> This has been discussed a bit recently:
+> https://lore.kernel.org/all/544ad69cba52a9b87447e3ac1c7fa8c3@disroot.org/
+> and I can add a workaround for this issue in the bootloaders of those
+> boards, but this is something that has to be somehow addressed in a
+> generic way.
+
+It kind of sounds like there is a missing power-domain not being
+described in DT for the IOMMU, but I might have understood the whole
+thing wrong.
+
+Let's see if we can work something out in the next few days, otherwise
+we need to find another way to let some genpds for these platforms to
+opt out from this new behaviour.
+
+Kind regards
+Uffe
+
+>
+> > ---
+> >   drivers/pmdomain/core.c   | 10 ++++++++--
+> >   include/linux/pm_domain.h |  1 +
+> >   2 files changed, 9 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> > index 5cef6de60c72..18951ed6295d 100644
+> > --- a/drivers/pmdomain/core.c
+> > +++ b/drivers/pmdomain/core.c
+> > @@ -931,11 +931,12 @@ static void genpd_power_off(struct generic_pm_domain *genpd, bool one_dev_on,
+> >        * The domain is already in the "power off" state.
+> >        * System suspend is in progress.
+> >        * The domain is configured as always on.
+> > +      * The domain was on at boot and still need to stay on.
+> >        * The domain has a subdomain being powered on.
+> >        */
+> >       if (!genpd_status_on(genpd) || genpd->prepared_count > 0 ||
+> >           genpd_is_always_on(genpd) || genpd_is_rpm_always_on(genpd) ||
+> > -         atomic_read(&genpd->sd_count) > 0)
+> > +         genpd->stay_on || atomic_read(&genpd->sd_count) > 0)
+> >               return;
+> >
+> >       /*
+> > @@ -1346,8 +1347,12 @@ static int __init genpd_power_off_unused(void)
+> >       pr_info("genpd: Disabling unused power domains\n");
+> >       mutex_lock(&gpd_list_lock);
+> >
+> > -     list_for_each_entry(genpd, &gpd_list, gpd_list_node)
+> > +     list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
+> > +             genpd_lock(genpd);
+> > +             genpd->stay_on = false;
+> > +             genpd_unlock(genpd);
+> >               genpd_queue_power_off_work(genpd);
+> > +     }
+> >
+> >       mutex_unlock(&gpd_list_lock);
+> >
+> > @@ -2352,6 +2357,7 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
+> >       INIT_WORK(&genpd->power_off_work, genpd_power_off_work_fn);
+> >       atomic_set(&genpd->sd_count, 0);
+> >       genpd->status = is_off ? GENPD_STATE_OFF : GENPD_STATE_ON;
+> > +     genpd->stay_on = !is_off;
+> >       genpd->sync_state = GENPD_SYNC_STATE_OFF;
+> >       genpd->device_count = 0;
+> >       genpd->provider = NULL;
+> > diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
+> > index d68e07dadc99..99556589f45e 100644
+> > --- a/include/linux/pm_domain.h
+> > +++ b/include/linux/pm_domain.h
+> > @@ -199,6 +199,7 @@ struct generic_pm_domain {
+> >       unsigned int performance_state; /* Aggregated max performance state */
+> >       cpumask_var_t cpus;             /* A cpumask of the attached CPUs */
+> >       bool synced_poweroff;           /* A consumer needs a synced poweroff */
+> > +     bool stay_on;                   /* Stay powered-on during boot. */
+> >       enum genpd_sync_state sync_state; /* How sync_state is managed. */
+> >       int (*power_off)(struct generic_pm_domain *domain);
+> >       int (*power_on)(struct generic_pm_domain *domain);
+>
+> Best regards
+> --
+> Marek Szyprowski, PhD
+> Samsung R&D Institute Poland
 >
 
