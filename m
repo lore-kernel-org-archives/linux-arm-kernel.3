@@ -4,76 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 778D8C83F19
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Jul 2025 23:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A196C83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ieWThEMAjC1kkWBufnewbQMKpVwyrb/YlxHe6w5rs5g=; b=kqjX3k7vGL6OtFLMHqn7rqeQm7
-	k8DnOE3HJr7L8hF7G5UGRzYU6Lbmdp0KYznuRDLzmDByjZc+IINdnddXVxSFsZhHhLlEf8O55OnKv
-	3uV8pz/f1xbSZyuRC8MNw3cfFt+QcM49Xxn0B9rqodh6fUzlWCPcyl8MFAenOa+hDkfawrgKsRj0s
-	7cnR1VtyP0foj2H4m5rW/1aDk2wkOJjRXW1R6o99c5GZXTm9Tgf+T+x+dmr/eGKSE2yqYcILsqoxu
-	3+OIEIHIJKBkbY8zuqo4sZcDkKtTILTTnHd5Cx+vl0mZA+GjoZzE3K5ITBqtHwi5bGqfcYKaZnSMa
-	5d/PBFiQ==;
+	bh=vkPooPX6zi3QRoM9CrTsbZoAxP36NlshDQEMrww4eZw=; b=nsWeeC73/b5JsG/fV9Bo4deuXX
+	CCdQ/mKJ0cGKE39RHui6B3Km2Fcx856nl0qcUtUARFPjE8CLhA++18vYZEVKsWJVwlZ43+3ifdezQ
+	M5QBf9mGSIx330bsE87Nu4PDw4OqnBGcgb3mUM9m3/R1ArcWiNprwbQGzeNaOJwyHJB9tzoz5cij3
+	jT56vRS/1aSONsP2VUEFuzU9ymbs5yidI9NlbABpefDOC6O7kWgLDyuadjGPzLW9fqGjbwiMRFqyd
+	8rU9jXZmC0A2Vn/ujl781IBXiwh8dTRHxAJbX8jemoRkU7K0Dx6RDXL7sZWFPjhtL8HhVXpSNam5/
+	+827Zcaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZegt-0000000AHUx-3szQ;
-	Wed, 09 Jul 2025 23:59:07 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uZekq-0000000AICp-1M2w;
+	Thu, 10 Jul 2025 00:03:12 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZdON-0000000A6Cl-2iNr
+	id 1uZeiW-0000000AI65-0Nip
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Jul 2025 22:35:56 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 569MZoxU1569128;
-	Wed, 9 Jul 2025 17:35:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752100551;
-	bh=ieWThEMAjC1kkWBufnewbQMKpVwyrb/YlxHe6w5rs5g=;
-	h=From:Date:Subject:References:In-Reply-To:To:CC;
-	b=aHQZn5YrvDk6zXI/Dlvyw3Sv8QMHXCeyzInI2DWZPb1+u6US0u5Ai+mJwDrnXZlqg
-	 NHYJ5H6wmCtFVUjL38niqVgijlq3pRLlDi6AXvlg27ISdQhW5E3LB+6r/YtrPZZZXs
-	 AL+LV1aQlrKbVs8iqiPWea9vR8pHYNPE7twvvCsY=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 569MZogW568838
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 9 Jul 2025 17:35:50 -0500
-Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 9
- Jul 2025 17:35:50 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 9 Jul 2025 17:35:50 -0500
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 569MZoU3520527;
-	Wed, 9 Jul 2025 17:35:50 -0500
-From: Bryan Brattlof <bb@ti.com>
-Date: Wed, 9 Jul 2025 17:35:43 -0500
-Subject: [PATCH 1/2] arm64: dts: ti: k3-am65: add boot phase tags
+	Thu, 10 Jul 2025 00:00:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1752105647;
+ bh=vkPooPX6zi3QRoM9CrTsbZoAxP36NlshDQEMrww4eZw=;
+ b=VI+ZFD4VGTbl0Mt2nkneaZFrhRsdkR3VRes9kbe8ah6qiOjBOHRDHB4XvE6X5CXY89xv02OqP
+ tBvcErNOLM5CBJrcaKno72OgEV+uH4lBmN+6Z2qsfGjz4AyUOYhy0lIxrZfqZoodwynNsprktk2
+ OWCDJ1wfXXeuFfQP4j2dRnZCentHaKdLsCvdx4RyBlFMKwcfEGpYQLDBW/1DPveKMrfitASAaON
+ +jDca65VtxQrJ0p76OSNr/lLllj8QP84YSxjfc0FS1788FEaCMuKWucYUC140CqLkSmFFAm+V+S
+ UvgaTts3fM6zTMSAlJBcpKn1f9WoySEABlHM4Td9DYDA==
+X-Forward-Email-ID: 686f02a6cecacbdaffda9867
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.1.3
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <87c6249a-96f1-4557-b4eb-70e69e6d773f@kwiboo.se>
+Date: Thu, 10 Jul 2025 02:00:34 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/6] arm64: dts: rockchip: Add ArmSoM Sige1
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ robh@kernel.org, ziyao@disroot.org
+References: <20250708224921.2254116-5-jonas@kwiboo.se>
+ <20250709070003.53484-1-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250709070003.53484-1-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250709-65-boot-phases-v1-1-e1f89d97a931@ti.com>
-References: <20250709-65-boot-phases-v1-0-e1f89d97a931@ti.com>
-In-Reply-To: <20250709-65-boot-phases-v1-0-e1f89d97a931@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Bryan Brattlof <bb@ti.com>
-X-Mailer: b4 0.14.2
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_153555_786458_E8263C12 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20250709_170048_187596_EBD50D69 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,96 +79,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'bootph-all' tag was added to the dt-schema to describe the various
-nodes used during the different phases of bootup with DT. Add the
-bootph-all tag to all required nodes for all AM65x platforms.
+Hi,
 
-Mark the mailbox and ring accelerators needed to communicate the with
-various vendor firmware and the power, clock and reset nodes along with
-the MMR for the chip-id to facilitate detecting the SoC and which
-silicon version during the early stages of bootup with 'bootph-all' as
-they are used during all phases of bootup
+On 7/9/2025 9:00 AM, Chukun Pan wrote:
+> Hi,
+> 
+>> +	vcc5v0_usb1_host: regulator-5v0-vcc-usb1-host {
+>> +		compatible = "regulator-fixed";
+>> ...
+>> +		regulator-always-on;
+>> +		regulator-boot-on;
+>> ...
+>> +	vcc5v0_usb2_host: regulator-5v0-vcc-usb2-host {
+>> +		regulator-always-on;
+>> +		regulator-boot-on;
+>> ...
+> 
+> I think these two regulators do not need boot-on?
 
-Signed-off-by: Bryan Brattlof <bb@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am65-main.dtsi   | 1 +
- arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi    | 2 ++
- arch/arm64/boot/dts/ti/k3-am65-wakeup.dtsi | 5 +++++
- 3 files changed, 8 insertions(+)
+Agree, will remove the boot-on in v2.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
-index b085e736111660ed0dad5f127ef0c3d79c52fe1d..61c11dc92d9c27fc9e47123698c17118cd522be1 100644
---- a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
-@@ -655,6 +655,7 @@ secure_proxy_main: mailbox@32c00000 {
- 			      <0x00 0x32800000 0x00 0x100000>;
- 			interrupt-names = "rx_011";
- 			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
-+			bootph-all;
- 		};
- 
- 		hwspinlock: spinlock@30e00000 {
-diff --git a/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
-index 7cf1f646500a16c1d1bac6dfb37fb285218063b3..5bbd817bc51464f6605c5b2dc9cb544a109a695d 100644
---- a/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
-@@ -211,6 +211,7 @@ mcu_ringacc: ringacc@2b800000 {
- 			ti,sci = <&dmsc>;
- 			ti,sci-dev-id = <195>;
- 			msi-parent = <&inta_main_udmass>;
-+			bootph-all;
- 		};
- 
- 		mcu_udmap: dma-controller@285c0000 {
-@@ -235,6 +236,7 @@ mcu_udmap: dma-controller@285c0000 {
- 			ti,sci-rm-range-rchan = <0xb>, /* RX_HCHAN */
- 						<0xa>; /* RX_CHAN */
- 			ti,sci-rm-range-rflow = <0x0>; /* GP RFLOW */
-+			bootph-all;
- 		};
- 	};
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-am65-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am65-wakeup.dtsi
-index eee072e44a42f5f66423200975016447d22bdc46..d62a0be767c814706e146bcf95ee4ff84461a515 100644
---- a/arch/arm64/boot/dts/ti/k3-am65-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am65-wakeup.dtsi
-@@ -21,16 +21,19 @@ dmsc: system-controller@44083000 {
- 		k3_pds: power-controller {
- 			compatible = "ti,sci-pm-domain";
- 			#power-domain-cells = <2>;
-+			bootph-all;
- 		};
- 
- 		k3_clks: clock-controller {
- 			compatible = "ti,k2g-sci-clk";
- 			#clock-cells = <2>;
-+			bootph-all;
- 		};
- 
- 		k3_reset: reset-controller {
- 			compatible = "ti,sci-reset";
- 			#reset-cells = <2>;
-+			bootph-all;
- 		};
- 	};
- 
-@@ -43,6 +46,7 @@ wkup_conf: bus@43000000 {
- 		chipid: chipid@14 {
- 			compatible = "ti,am654-chipid";
- 			reg = <0x14 0x4>;
-+			bootph-all;
- 		};
- 	};
- 
-@@ -107,5 +111,6 @@ wkup_vtm0: temperature-sensor@42050000 {
- 		reg = <0x42050000 0x25c>;
- 		power-domains = <&k3_pds 80 TI_SCI_PD_EXCLUSIVE>;
- 		#thermal-sensor-cells = <1>;
-+		bootph-all;
- 	};
- };
+> 
+>> +	rfkill {
+>> +		compatible = "rfkill-gpio";
+>> +		label = "rfkill-wlan";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&wifi_reg_on_h>;
+>> +		radio-type = "wlan";
+>> +		shutdown-gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_HIGH>;
+>> +	};
+> 
+> Why not use mmc-pwrseq instead of rfkill?
 
--- 
-2.49.0
+Not sure, have changed to use mmc-pwrseq in v2.
+
+> 
+>> +	rfkill-bt {
+>> +		compatible = "rfkill-gpio";
+>> +		label = "rfkill-bt";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&bt_reg_on_h>;
+>> +		radio-type = "bluetooth";
+>> +		shutdown-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
+>> +	};
+> 
+> Why not use shutdown-gpios of bcm43438-bt?
+
+Sure, will use that in v2.
+
+> 
+>> +&i2c0 {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&i2c0m0_xfer>;
+>> +	status = "okay";
+>> +
+>> +	hym8563: rtc@51 {
+>> +		compatible = "haoyu,hym8563";
+>> +		reg = <0x51>;
+>> +		#clock-cells = <0>;
+>> +		clock-output-names = "hym8563";
+> 
+> CLKOUT pin is not connected.
+
+Thanks, will remove the clock-output-names for the Sige1 and the NanoPi
+Zero2 in v2, #clock-cells seem to be required by the dt-bindings.
+
+> 
+>> +&sdio0 {
+>> +	bus-width = <4>;
+>> +	cap-sd-highspeed;
+>> +	cap-sdio-irq;
+>> +	disable-wp;
+>> +	keep-power-in-suspend;
+>> +	no-mmc;
+>> +	no-sd;
+>> +	non-removable;
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&sdio0_bus4>, <&sdio0_clk>, <&sdio0_cmd>, <&clkm1_32k_out>;
+> 
+> I recommend using clkm1_32k_out at the sdio-pwrseq node.
+
+Will do so in v2.
+
+> 
+>> +	sd-uhs-sdr104;
+>> +	vmmc-supply = <&vcc_3v3>;
+>> +	vqmmc-supply = <&vcc_1v8>;
+>> +	status = "okay";
+> 
+> Maybe `brcm,bcm4329-fmac` nodes can be added here?
+
+Will add to in v2.
+
+> 
+>> +&uart2 {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&uart2m1_xfer>, <&uart2m1_ctsn>, <&uart2m1_rtsn>;
+>> +	uart-has-rtscts;
+>> +	status = "okay";
+> 
+> You can add `brcm,bcm43438-bt` nodes here:
+> 
+> 	bluetooth {
+> 		compatible = "brcm,bcm43438-bt";
+> 		device-wakeup-gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
+> 		host-wakeup-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
+> 		shutdown-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
+> 		...
+> 	};
+
+Will use something similar in v2.
+
+See [1] for fixups I am testing for v2.
+
+[1] https://github.com/Kwiboo/linux-rockchip/commits/next-20250708-rk3528-boards/
+
+Regards,
+Jonas
+
+> 
+> Thanks,
+> Chukun
+> 
+> --
+> 2.25.1
+> 
 
 
