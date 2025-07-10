@@ -4,126 +4,212 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D22CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 347F4C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PKIEAnOyHzisVvciH1SkFRobVdUz1Cl4VPXZhQ1WnYo=; b=HBy/ZnfgZEqTAa
-	I8befhFbBg03uJopW9Tb7qd/RL++2yyf4EygFua4BZMxUS5ZF8qbOWP5Y0+3SVWjfTKCZPpa9p+v4
-	ut48XzkjA7nO8PQv7v27LQsiDNlyK7L9a7CDp3Brse5Oh93aaScLcRzLpuZvXh+T8LFoMF2Mj/jGT
-	+PWUQtZh5kMNbB8o1cBO/IHGkZKTjBXPdfHURQyFHhfIg/GOLfiHiKVS+hf53aBVD7y1OljVjiQLw
-	+Pjm+J29md72x8hY9dy+uNjuwwcyx+hVViu90lKQFdLH0yNMusqzylIH0/KHm0mXYjfM2kFMYXTxS
-	hBFvCWHfDyMGMNmikPmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Subject:References:In-Reply-To:
+	Message-ID:CC:To:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OM3EgCEMlRRyLOg13aIFxvh+SMErmeY9oKHfZA6g2R0=; b=SnazS0IZvmEBFt
+	aVPBw0ISKbJuWgvOAeuz7HQmeYxpri3GqC7+AOT/9GIDFvxjqoNEHFAx9UigGUuUMTfHHerYrkXSi
+	fA+Z4746kMzLNwibvOF4ouBdVLm3BtpFygLvBqTE3Ym+T1r8kutl0WkES1wjvbuAjbGJX4cM084s7
+	cbYqGX69fFimEx+0enKh4kpVBUfiueb/tyNbI0N8Mo2pV2IQdBy6hIPl9wSGJwRTjnaDoYI3tM4Hy
+	y7IbssRxiS1Whf5wYzPkU49KyXK6NDns3O5bjSB1DrvZb6ygZ2KZi+HSPd/k7ace2nNOxWiWSiiyS
+	hEpfTwohghSzfSAUhWAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZjwI-0000000AjeP-18QW;
-	Thu, 10 Jul 2025 05:35:22 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uZjya-0000000AjqG-42HH;
+	Thu, 10 Jul 2025 05:37:44 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZjpJ-0000000AilX-29aE
+	id 1uZjtU-0000000AjJC-0QNT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 05:28:11 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56A1W5o6009952;
-	Thu, 10 Jul 2025 05:27:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=PKIEAnOyHzisVvciH1SkFR
-	obVdUz1Cl4VPXZhQ1WnYo=; b=QA/TBHhd8LzyH+FZusWtOroDujcNGggQFTpfgD
-	33UDvnx9VpQFUPeotvD50unJD3APy9BqhMuomZyJDqvdzHDzvJK5dFZliyxy50Dy
-	BNQ5PZc8nNIyHOTo5KZTXv9eFsgsJKKUny76904M9dxiIsHkv69ha6+X8WDKKRVl
-	gzgrNGVEtOJNEquk+YHpiIyPnhcQneJm3xd47YHvdk5lw3Nv4R9pVAGSXq9Ea4D4
-	gO668y2AvDMRXTdwjlRXhUlGZW7W/r1tvmPn08dSRseAaHRNQMDBMszRTj5VmKIh
-	IF58cXoN3UttG2bBU244eER3rlDMtQ7sN8l6mC4ZCO/BJ8cA==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47sm9dumdv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Jul 2025 05:27:54 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56A5RrCW029975
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Jul 2025 05:27:53 GMT
-Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
- nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+	Thu, 10 Jul 2025 05:32:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752125548; x=1783661548;
+  h=from:date:to:cc:message-id:in-reply-to:references:
+   subject:content-transfer-encoding:mime-version;
+  bh=0eUi0bOTC2q3mJPx8TlXp7rFeynFkWYC6eXw3LRt38o=;
+  b=FJXIlVP5cEUwRkrehkv1+ColIZeHz9t0DcqmhXf9Ksz4CxWvEPx5+Apf
+   s0Q4Fj6zpFyGzSbjE4qev+pXZ1nGoxh1wPn+4HEfSLiK4BH6RZuePlWKl
+   Ayt0OJR4AGIi9ST+fUqC+qJ4gcbzaDKCg7rLxUDw4sMFAZbhJCOKclepP
+   /uIhX1UMTYgkSDXiD5koUyvxgHvTHJRhNlmfYOD5WKyvS9h5wwJh74bEf
+   gdekxggRZKZ+EFajEkPH9BX658Vgs03I+jm4L9klYuXmziXVwPY7diGLm
+   Vmz+/aKknnAgx+V9vaIST4NTCAGhZNkzOsSNU7y1vRy6FjI9fUj2y6ykI
+   g==;
+X-CSE-ConnectionGUID: jFgLaKcJRIenQpgdCH1bCQ==
+X-CSE-MsgGUID: nR9Zow4kRQy0T3uw/3HtMw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11489"; a="65096086"
+X-IronPort-AV: E=Sophos;i="6.16,299,1744095600"; 
+   d="scan'208";a="65096086"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 22:32:25 -0700
+X-CSE-ConnectionGUID: tdAPRH0WS1i9HqjYMHnEJA==
+X-CSE-MsgGUID: zD3izum6SjmYQmN/sG/JIg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,299,1744095600"; 
+   d="scan'208";a="186955580"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa001.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 22:32:24 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Wed, 9 Jul 2025 22:27:49 -0700
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Subject: [PATCH v11 0/2] coresight: Add Coresight Trace Network On Chip
- driver
-Date: Thu, 10 Jul 2025 13:27:19 +0800
-Message-ID: <20250710-trace-noc-v11-0-f849075c40b8@quicinc.com>
-MIME-Version: 1.0
+ 15.2.1544.25; Wed, 9 Jul 2025 22:32:21 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25 via Frontend Transport; Wed, 9 Jul 2025 22:32:21 -0700
+Received: from NAM02-DM3-obe.outbound.protection.outlook.com (40.107.95.64) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Wed, 9 Jul 2025 22:32:21 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mGNKglBngBcnp1XCJM4edLwNr2n9qOL0VONgfkfLqVb+fT6KhvC4HuppFgFtAQCzIeGN1OO7J/DhndvvToI7BuVovnUJ2eCNaRk4VgyMml+7DV/eT0fKLvyVH5X3B1xBMkluoHty2ngzzGbDSNcPNLPPg7T3fb3QbD5isxW353N/imx2mcUrNwomL1/43OghL4bBIayDT0qLZ5S1oiRrSe2u8StBcIBlCjaO6eSWGlHPJWRZ133L+UAo6pi8+2j/LlpjhbwGM90YreEAMGPexmFMBiP7FjH/NqMdo0AoCV5c5yHJpvkN7XpPmTWbfkg2wnagU4eL9PjYGiqsxLQ4dA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OM3EgCEMlRRyLOg13aIFxvh+SMErmeY9oKHfZA6g2R0=;
+ b=ObCYTHsArpNEvlBh/lqhId4akmNvy+yfWldyIqc8vLoMRYsvJJa6ju8F7kmzK1QN0YNLTMKc8wlE2EtvUhGBCgILaUGGjzoXgRNWo612u1QTk6xengSWGiu3Q1oN7g0AqiF/kQmU3wwqoOzXT50kizcVxHqaONuZ3UlXQ5GrbKNp3GwhsethGQiz0S6IC3rP2KN5nVaqzux6VkbMoB/ILJdctN8P2uZVUJVZOkf3+nWSuBv+OuxWbm9cGo/6/o+KCORIpn4SMd/ZmE4wvikSXSuTOtpIKVssN09Bx5D2ROGOi1bv0Yi0cpiLf+AZVqfNx3WF2MPSxu1gOP75GG6U5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by SA1PR11MB6870.namprd11.prod.outlook.com (2603:10b6:806:2b4::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.22; Thu, 10 Jul
+ 2025 05:32:18 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%6]) with mapi id 15.20.8901.024; Thu, 10 Jul 2025
+ 05:32:18 +0000
+From: <dan.j.williams@intel.com>
+Date: Wed, 9 Jul 2025 22:32:16 -0700
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>, Peter Zijlstra
+	<peterz@infradead.org>, <linuxarm@huawei.com>
+CC: "H. Peter Anvin" <hpa@zytor.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, <james.morse@arm.com>,
+	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, <gregkh@linuxfoundation.org>, Will Deacon
+	<will@kernel.org>, Dan Williams <dan.j.williams@intel.com>, Davidlohr Bueso
+	<dave@stgolabs.net>, Yicong Yang <yangyicong@huawei.com>, Yushan Wang
+	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Mark
+ Rutland" <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
+	<luto@kernel.org>
+Message-ID: <686f506020726_1d3d10069@dwillia2-xfh.jf.intel.com.notmuch>
+In-Reply-To: <20250626105530.000010be@huawei.com>
+References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
+ <20250625085204.GC1613200@noisy.programming.kicks-ass.net>
+ <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com>
+ <20250625093152.GZ1613376@noisy.programming.kicks-ass.net>
+ <20250625180343.000020de@huawei.com>
+ <20250626105530.000010be@huawei.com>
+Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADdPb2gC/3XSzU7DMAwH8FeZeiYo37E58R6IQz5s1gMttKMCT
- Xt3sgm0bm2PsfLz30p8bEYaWhqbp92xGWhqx7bv6kGph12T97F7I9GWWmi01E5aacRhiJlE12f
- BoMEnU6tATb3/MRC335dmL6/1vG/HQz/8XHpP6lxtrPfWSECRAIqwWLJIJJ0IiWVKWjHY8Pz51
- ea2y4+5f2/OfSZzsX8ThNkEkxFSOJuQi44lMt7Yh/+plbo3ihWWwsEjpmWe3cyz1SJ4GzkbGxJ
- s5LmFCYgGmAoXWOa5zTxXrQkcjMpsKdFqnlP63rAmlkGmSOSWeX6eB3Prz++pffYqahnYr+dpf
- W/YRUw5EkqiZV645jk936ApVFu8o5Ji0ogrfw9X66WfW6gWjGG0QensVizO7O0OYLXWaF1sZmC
- 7sgNKbmIlq45gksvelGjsrT6dTr+HfY1NVwMAAA==
-X-Change-ID: 20250403-trace-noc-f8286b30408e
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>
-CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Yuanfang Zhang
-	<quic_yuanfang@quicinc.com>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>,
-        Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752125269; l=3311;
- i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
- bh=UOjgDjCmiOdvRuWgdc4TO3wU5LVE4S+rLjsRpG3oBsQ=;
- b=3KEn0iF3iIdR4k/p8kdFtKudGqHy8M6jPgVgY3VJjDO7F5JtgaZydps8ZYDs7XmnVAz74v3VA
- oXusUuKNXkpAd+pXWxEO4OikK/sPa3oqqIBqHfiihs0ZN4Y5sX16BtS
-X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
- pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 8T1GP9TFmEpwUhPkgfga6oBSjCH0zDGc
-X-Authority-Analysis: v=2.4 cv=W7k4VQWk c=1 sm=1 tr=0 ts=686f4f5a cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8
- a=COk6AnOGAAAA:8 a=9Mfdxx16wSnRITkP5VIA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: 8T1GP9TFmEpwUhPkgfga6oBSjCH0zDGc
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzEwMDA0NCBTYWx0ZWRfX3leAEpu89Bgv
- FYZ4mRRAEZ6wu55w/k6q92fCSKt54jo7lQyCNy/f8Vo/vDdwipb5zZAykzdrIyBT6akqkvE9cZf
- 9LLt034WG0ExyY2or4lUXjfOvcmTYRj261FIM9mhhbfkt+RFGPsRDEP+7dOdH9cJ6EglDAMA/02
- Dz6PXqEL60QdKdh/lDSTpIUrTGjhzybrK8vfqS1UikemKWyQJi8eepWI2TI+fE0fgfvhsXtrAb7
- tePct78UHDm4LNm7NvNJByBd9/flEVAHgYfFQ1oxu3Cd6lPjq14oatKz9lKq1iCsyy2Ntwi8mon
- iVycJ75mQNXyFf81/pSn92v/ug2GxkGACQ1W/PlxE7ym9fnDuHtVdWdUyqjSu3+cP4aB5sRKpA0
- Lg/kFoC+7R7/AaShD/Z/EFm+KYoe/dOlFb+slQy/0CWZF6jG6NVUkkzsupbJIEgXHrNSqWXu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-09_05,2025-07-09_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 lowpriorityscore=0 clxscore=1015 suspectscore=0 phishscore=0
- mlxlogscore=999 priorityscore=1501 impostorscore=0 malwarescore=0 mlxscore=0
- adultscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507100044
+X-ClientProxiedBy: BYAPR08CA0025.namprd08.prod.outlook.com
+ (2603:10b6:a03:100::38) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|SA1PR11MB6870:EE_
+X-MS-Office365-Filtering-Correlation-Id: e9f30fcd-fd75-4d15-0b89-08ddbf7322af
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?a2s0RnpBWFJUa0FLUU9DdzFJUklJOUlaUk1qQ1drQnNaeDFFVFZBclpoNEg2?=
+ =?utf-8?B?UzJmL0RGNyszMCtHa21tREJCMGkxcGZQZE9UZ3BLT2JlRnl0VlRCdFRsZ3pR?=
+ =?utf-8?B?OWVCOXBQMjBkR2d6eEV4WWorc0pWYmNGVm9ucW5kcVc2S0U1bk5iV1ZBenV4?=
+ =?utf-8?B?MjVxTUlGZk9ERkFMb3BHOXYwZk1NakcyRUxHWldYTjBvUjRQVFR6WFpaUEpa?=
+ =?utf-8?B?YUFuT3JtbDNHbUJsZVVIVk9ablErSTNQWW5welRCdkZCZU5adjkwbThqOUc5?=
+ =?utf-8?B?amorSzlpTlovd2NjWjZ3TjFmNExXTmhjdGRaZEtPNWJJcnBTRVNrZVpMZDUw?=
+ =?utf-8?B?bTZ3ZUlXaDlLSnZ2OTczeG5rakNFa2RUbTcreTUvYXF6aUZGdytLVVJtVVJ5?=
+ =?utf-8?B?ZldoN0Q1and6bkpheTZpYjhDUS9SN1g1TlVPRitMclpVOVlGYVR5WElYSlpF?=
+ =?utf-8?B?MXYvamdoejNIbFNkNTFCSm5oSW9VYzQ0bDdKUE9VbGsvRmhHR2dsNEVvWS9Y?=
+ =?utf-8?B?SFpuUlhLVTZMR293bXNzMDg2OWQ2MlRMY01qTHQyK1hrd3k3dm0zc3FTR0RP?=
+ =?utf-8?B?WXR5cVg5RkQ0QTJXbmdsVzc0M1BkWkF3QmVrZ3NZeG9BL2ZvWnVDNHBDYmtU?=
+ =?utf-8?B?b2Y2R2VqUVNrbVlRVnVWdVVBMkRQOHBUaTVEdE1YbFJEQU5qTTBzajB5clNp?=
+ =?utf-8?B?RG03NTl0SmM3OGVicDFXVThGSW4zZ2ZxT1lQSExxbUF6N1g1T21aZlhJVHQx?=
+ =?utf-8?B?Z2tObHdoRnRZUXpvamttMGVRTVBlcGRyY1J3Wm9iRDljcEs1MDJhWkJWaElo?=
+ =?utf-8?B?QzNSYXY0ejJXNHVSQjZXYjNLQ09lYVRTNFNxekMydEJIdlprR0FKd2drdWtt?=
+ =?utf-8?B?M21sQXR4dlh3RFo3R2hFdGdTRHhRRVRodUpneDRZYzRibWduM3RMN2JQTW5y?=
+ =?utf-8?B?cXFod3doZ3EyZjVQTTdzUVU2R3lFbHEyZUJqWFBxWE5XbjlkRlhWSjUzZlNk?=
+ =?utf-8?B?Zi9Mc1JObFB3OWcraHVXWnUwcUxZRnFFdzdlQU1VY0J5SlJ5cGZ3dU95VkJ0?=
+ =?utf-8?B?YzNNY1NJOElQMUJNTE1HQ1J6amZncFhPam9XaTZuM2J6NnlITCtHOVB4ZkJ6?=
+ =?utf-8?B?NkV0bk1LdFJPak84YmN2b1dnUmIrdHphbDZxLzIxb1AwbE04TGtENThWK2U3?=
+ =?utf-8?B?Mnl1MWNRZ1lFZW1ubW1NN0tvVW5obXdwOEtpYjljdStwWlFyelpxcUlHYzQr?=
+ =?utf-8?B?MHNkWVZLMWJ0UndsQjR4U0tHWndxYVRCMmJtYVJEcW9pK0xINkpWNHB4Uzhz?=
+ =?utf-8?B?MHpqN0NCbmZBS3pKK2RVSU1NTFRLbitNTnBMTGI5K0FVV0NoaDNFc1ZCTlJj?=
+ =?utf-8?B?b2J0bUhXdmpIR1lucW1QRU93Nm1KNnZpNSs3cmM3VUVjVzltY2tiWDhZSE03?=
+ =?utf-8?B?cnFyenQ3azNoM1FrZmNwK2ZCcGdGYksraTNjTEdKaUtPbzRlc2R2RkZ5WXVO?=
+ =?utf-8?B?Z1B5UlRjVGlrcTRpWWViSzZ6a2JLS3VvYnpnMWU1NE5rZVdPQnVZWFh1Rjky?=
+ =?utf-8?B?aGJtQVVkcUNIQ0xtcHV6a3BLTDF6TFBETXR1NjVXUEFmbVJqbWxSRGVmdXRT?=
+ =?utf-8?B?SElCUW5Hb2VKVTlSd3F1VGFsak5xT0FZREhOelVjbURIS2ZTV2NFVzZxUU5X?=
+ =?utf-8?B?dS9FMmd2QXhmVzBiS1F0UTQwMW5kSzlta3BzODh0OHdaUmRhVUswTVBWMDBk?=
+ =?utf-8?B?S3YwTlpkWVpORnFWRlVDNXJFd1A2Q2hsSmppTlBteVc4V2pkSm0zK1FKMW9o?=
+ =?utf-8?B?VjRtck1HWkNwa3hwcXdwdmJqdlpJMkRyNzk0VG8xSEJCeEZJQ1NQMWxScHh1?=
+ =?utf-8?B?WGdhcWFsTlZHTnlYQlF3TERKY1pYYkEwT2U1alkvYkFyay9JWkJpY3hzc211?=
+ =?utf-8?Q?vyySYQn3Cvw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L0IrVkUwOGJmd3RLN0JQVDMvVXpQTmlNRSt5UkZNZ0VzQVhEMlZoZVpBOW1w?=
+ =?utf-8?B?b0dHcWlvM1kvZlpiYVFlMGVSeUM4c0ZJZHZScDFIRExGVDQ1dmJKTE5VVC9L?=
+ =?utf-8?B?ZXd4Z3JlS0NlK0JwQnlDZkVtdkJocGVjN0hDSmJHMGQ5d2tlMS9MQjdBWUlV?=
+ =?utf-8?B?MHlyNm5CRU9tbXN6VFkya0VKbWJyYUx5VFIveWdNeTdpTFFqNE9qb0Z1MHA2?=
+ =?utf-8?B?Z1N0NEk4a2lqcytOOVNhLzZNYjJBUzJsQmFieU5NRU44R3R0OHdhNGFOSzdD?=
+ =?utf-8?B?THFpRzFxOHp5STIwSGFQbTRZdFBrajBEQ1U0cTZoSUlvK09SUmo0R1oyTnRW?=
+ =?utf-8?B?Z2hneFVYMHdiWGlCWWFqMGZzaGR3R0pabWxNUmIzZzA1VFhCbVJXcXlNTGpY?=
+ =?utf-8?B?b2tVMjlEVWJRM0NwcUJvNk0zLzJ1MEdndUpSZ3NzenhBaVR6VjFQYzhTcVAw?=
+ =?utf-8?B?c3Y2T3JGSTJtTmV0czFiZVduQTE4aHRpRERIQmVWYkRmaFA3dUxnMFlRV0lY?=
+ =?utf-8?B?cS9maUNjM1Z6MEgvaFJobGF3U3ZyNTlXc3JsbEdBTjlBRldwU1RCdXgyaEhq?=
+ =?utf-8?B?S1BSM0hSOHZ6bWh6TUhXbVFLTlI4WURrVnUwMFBzT0VMeUtuMXo0SEs5b2VU?=
+ =?utf-8?B?elJwTVJrSFBxU21va002VTB1Z25DT0pvcVVvT052MXRZaXdkK1VNNGpxak8v?=
+ =?utf-8?B?NnlyeXl1ZWw1cml6ajBibkk0dUZPSVJITzJRVXlnbUN4TmtGZEU0UWdTRHdI?=
+ =?utf-8?B?Z0xMbzh5THd1dFVTaG5WanJWTTdnQ0s5a2FYdlVqZ2NUK3ZZbUpseThzejQz?=
+ =?utf-8?B?dE5sY2dNK2hld0pMVjlHQzA4aUg4NFpVNjIwU0RlZE93dTlObStDMVVpbS9u?=
+ =?utf-8?B?NVJMb0Q1N2FKd1R1ODhNVTdoK0FUNW42aklTNmFNOTFhMlQ1aFJiL0gycEhC?=
+ =?utf-8?B?dE14WGtweFdSUkYyQmJjRlZpUTN4RDZUa0NQVVdQa3FrRVpKVVNNbGdSYUJx?=
+ =?utf-8?B?TnljS2NGNUxzL3ZJUkp1Y0tqY2Z1V0VxSXFPdytLT085NkdXMUpXQ2txS0lC?=
+ =?utf-8?B?SHIxOXJDbGdOeERFNVpEQnhVVEJVL3FWaTlJckgwTEtMVVRYMU43SE40dmxQ?=
+ =?utf-8?B?K0Roc2U1VjcxemQ1dGFid1dVVEFSOVFIN05OQkN5UnVnbzNIN2M1Zys5NUIw?=
+ =?utf-8?B?bkZFanRKeHFjNUxDUFFtelB4M0RZei80b0hoT1dIQzJPZ3NlUU1qdXUrNXBs?=
+ =?utf-8?B?cWpYdzlPRW1ncHhwL0hyenladE56bGVkMi9wT0s3ODRLSElXWmRKRFhTeUln?=
+ =?utf-8?B?RlBlWGJGOWZpU1JRc1VNaVZDNjE5cDR2OURsR3N4eWNyM3ZwNVo4Sko5YUhj?=
+ =?utf-8?B?LzJKOXI1NytIMldqSlUwb1ZHdnYycE84WTMwRE1rbXJsazRCWjhaQlBMbHpt?=
+ =?utf-8?B?UzB3S0poQ1BtcDE1MVhCMHBya1NOMEdxZ3ZsM3Flc2tIamU0dTQxM2Ftai9t?=
+ =?utf-8?B?dXNVRmtqTkUxL1kwUWFEV2tjRkpNbXNZcjdxdVVPb05pTFRkL3B4RzRTbTd0?=
+ =?utf-8?B?bWptZ3hjRW1xL1VYT2dOd1ZIaWwzaFZWSTRaMVdSUWVoU0JPdTB4QjR6dTdF?=
+ =?utf-8?B?MVdTNDRoa21yYkkvU1k3bDZVNGdCNW1SMVphNk9ZUnZHZDB0ZEpjNmZuUnJS?=
+ =?utf-8?B?cExFdGFCTEdpVERIRzVQKzJpb2xLN1ZnTVhvV0R0QnVub2NrUFFLYVpzN3Ni?=
+ =?utf-8?B?QVI3dU9DVDRYY3owdkV0UVJEOTBWQjZ6NlJvREFBbUt5ZkJWcTN3MFV3UWFu?=
+ =?utf-8?B?TU1hRXI3YzJnNm92aS9GaVRseDlaY3k3aUpaZFd4ZUdZL0FXOWVUTThObDRx?=
+ =?utf-8?B?b1JoSnFENjBaYndubEtuV2ZXQzFRWGdlMnJSandqZlJBYU5Sb3c2MFlYc2pQ?=
+ =?utf-8?B?S2dXNVFnbWJhRW1JN1lsYUJENHFlWFhqSENXazFuSDVyOXNZY3dzcEJOKzhY?=
+ =?utf-8?B?N3ppUzZtRUMwa0tsVjZXcEtET3pCU2dhMFIwVEtpaWxyT0t5Y0tHTFNQcGdZ?=
+ =?utf-8?B?UEs2RVI4RzZydWNvY2dEdmlLeWxRU2VRblRiYWFRNHltNkwyY2FTdUI0TDQz?=
+ =?utf-8?B?NWUxYXM5a1QrUXBGTlBEOGJxdWROc3ZBQ3RwakpEM0h0SUdHZXBEVXloYjhC?=
+ =?utf-8?B?SHc9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: e9f30fcd-fd75-4d15-0b89-08ddbf7322af
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 05:32:18.2090
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cKjm2l80fMTnUKJwok4GMNhaC123KKcH1MVlOwcJiYApBh6WYiuR972MC1p89vcxShWQKcKE4Sy2A6+T2mMPxdx/L7Cyq66sApUcRhvFsJk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB6870
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_222809_673694_5DF3EEEA 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20250709_223228_170726_A378FDFB 
+X-CRM114-Status: GOOD (  35.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,86 +224,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Trace Network On Chip (TNOC) is an integration hierarchy which is a
-hardware component that integrates the functionalities of TPDA and
-funnels. It collects trace from subsystems and transfers it to coresight
-sink.
+Jonathan Cameron wrote:
+> On Wed, 25 Jun 2025 18:03:43 +0100
+> Jonathan Cameron <Jonathan.Cameron@huawei.com> wrote:
+> 
+> > On Wed, 25 Jun 2025 11:31:52 +0200
+> > Peter Zijlstra <peterz@infradead.org> wrote:
+> > 
+> > > On Wed, Jun 25, 2025 at 02:12:39AM -0700, H. Peter Anvin wrote:  
+> > > > On June 25, 2025 1:52:04 AM PDT, Peter Zijlstra <peterz@infradead.org> wrote:    
+> > > > >On Tue, Jun 24, 2025 at 04:47:56PM +0100, Jonathan Cameron wrote:
+> > > > >    
+> > > > >> On x86 there is the much loved WBINVD instruction that causes a write back
+> > > > >> and invalidate of all caches in the system. It is expensive but it is    
+> > > > >
+> > > > >Expensive is not the only problem. It actively interferes with things
+> > > > >like Cache-Allocation-Technology (RDT-CAT for the intel folks). Doing
+> > > > >WBINVD utterly destroys the cache subsystem for everybody on the
+> > > > >machine.
+> > > > >    
+> > > > >> necessary in a few corner cases.     
+> > > > >
+> > > > >Don't we have things like CLFLUSH/CLFLUSHOPT/CLWB exactly so that we can
+> > > > >avoid doing dumb things like WBINVD ?!?
+> > > > >    
+> > > > >> These are cases where the contents of
+> > > > >> Physical Memory may change without any writes from the host. Whilst there
+> > > > >> are a few reasons this might happen, the one I care about here is when
+> > > > >> we are adding or removing mappings on CXL. So typically going from
+> > > > >> there being actual memory at a host Physical Address to nothing there
+> > > > >> (reads as zero, writes dropped) or visa-versa.     
+> > > > >    
+> > > > >> The
+> > > > >> thing that makes it very hard to handle with CPU flushes is that the
+> > > > >> instructions are normally VA based and not guaranteed to reach beyond
+> > > > >> the Point of Coherence or similar. You might be able to (ab)use
+> > > > >> various flush operations intended to ensure persistence memory but
+> > > > >> in general they don't work either.    
+> > > > >
+> > > > >Urgh so this. Dan, Dave, are we getting new instructions to deal with
+> > > > >this? I'm really not keen on having WBINVD in active use.
+> > > > >    
+> > > > 
+> > > > WBINVD is the nuclear weapon to use when you have lost all notion of
+> > > > where the problematic data can be, and amounts to a full reset of the
+> > > > cache system. 
+> > > > 
+> > > > WBINVD can block interrupts for many *milliseconds*, system wide, and
+> > > > so is really only useful for once-per-boot type events, like MTRR
+> > > > initialization.    
+> > > 
+> > > Right this... But that CXL thing sounds like that's semi 'regular' to
+> > > the point that providing some infrastructure around it makes sense. This
+> > > should not be.  
+> > 
+> > I'm fully on board with the WBINVD issues (and hope for something new for
+> > the X86 world). However, this particular infrastructure (for those systems
+> > that can do so) is about pushing the problem and information to where it
+> > can be handled in a lot less disruptive fashion. It can take 'a while' but
+> > we are flushing only cache entries in the requested PA range. Other than
+> > some potential excess snoop traffic if the coherency tracking isn't precise,
+> > there should be limited affect on the rest of the system.
+> > 
+> > So, for the systems I particularly care about, the CXL case isn't that bad.
+> > 
+> > Just for giggles, if you want some horror stories the (dropped) ARM PSCI
+> > spec provides for approaches that require synchronization of calls across
+> > all CPUs.
+> > 
+> > "CPU Rendezvous" in the attributes of CLEAN_INV_MEMREGION requires all
+> > CPUs to make a call within an impdef (discoverable) timeout.
+> > https://developer.arm.com/documentation/den0022/falp1/?lang=en
+> > 
+> > I gather no one actually needs that on 'real' systems - that is systems
+> > where we actually need to do these flushes! The ACPI 'RFC' doesn't support
+> > that delight.
+> 
+> Seems I introduced some confusion.  Let me try summarizing:
+> 
+> 1. x86 has a potential feature gap. From a CXL ecosystem point of view I'd
+>    like to see that gap closed. (Inappropriate for me to make any proposals
+>    on how to do it on that architecture).
 
-In addition to the generic TNOC mentioned above, there is also a special type
-of TNOC called Interconnect TNOC. Unlike the generic TNOC, the Interconnect
-TNOC doesn't need ATID. Its primary function is to connect the source of
-subsystems to the Aggregator TNOC. Its driver is different from this patch and
-will describe it and upstream its driver separately.
+I disagree this is an x86 feature gap. This is CXL exporting complexity
+to Linux. Linux is better served in the long term by CXL cleaning up
+that problem than Linux deploying more software mitigations.
 
-Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
----
-Changes in v11:
-- reorder of trace ID release and device unregister.
-- Link to v10: https://lore.kernel.org/r/20250611-trace-noc-v10-0-a83b5c63da34@quicinc.com
+> 2. This patch set has nothing to do with x86 (beyond modifying a function
+>    signature). The hardware it is targeting avoids many of the issues around
+>    WBINVD. The solution is not specific to ARM64, though the implementation
+>    I care about is on an ARM64 implementation.
+> 
+> Right now, on x86 we have a functionally correct solution, this patch set
+> adds infrastructure and 2 implementations to provide similar for other
+> architectures.
 
-Changes in v10:
-- Rebase to coresight/next branch.
-- Link to v9: https://lore.kernel.org/r/20250611-trace-noc-v9-0-4322d4cf8f4b@quicinc.com
+Theoretically there could be a threshold at which a CLFLUSHOPT loop is a
+better option, but I would rather it be the case* that software CXL
+cache management is stop-gap for early generation CXL platforms.
 
-Changes in v9:
-- Mention the binding is only for Aggregator TNOC.
-- Link to v8: https://lore.kernel.org/r/20250606-trace-noc-v8-0-833f94712c57@quicinc.com
-
-Changes in v8:
-- Add sysfs node to expose atid.
-- Link to v7: https://lore.kernel.org/r/20250523-trace-noc-v7-0-d65edbab2997@quicinc.com
-
-Changes in v7:
-- Move the content in header file into coresight-tnoc.c.
-- Use scoped_guard() to replace spin_lock().
-- Invoke coresight_trace_id_put_system_id() for registration failure.
-- Link to v6: https://lore.kernel.org/r/20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com
-
-Changes in v6:
-- Add a newline after return statements.
-- Use 'x &= foo' to replace 'x = x & foo'.
-- Use 'x |= foo' to replace 'x = x | foo'.
-- Link to v5: https://lore.kernel.org/r/20250512-trace-noc-v5-0-f2ef070baee5@quicinc.com
-
-Changes in v5:
-- update cover-letter to describe the Interconnect TNOC.
-- Link to v4: https://lore.kernel.org/r/20250415-trace-noc-v4-0-979938fedfd8@quicinc.com
-
-Changes in v4:
-- Fix dt_binding warning.
-- update mask of trace_noc amba_id.
-- Modify driver comments.
-- rename TRACE_NOC_SYN_VAL to TRACE_NOC_SYNC_INTERVAL.
-- Link to v3: https://lore.kernel.org/r/20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com
-
-Changes in v3:
-- Remove unnecessary sysfs nodes.
-- update commit messages.
-- Use 'writel' instead of 'write_relaxed' when writing to the register for the last time.
-- Add trace_id ops.
-- Link to v2: https://lore.kernel.org/r/20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com
-
-Changes in v2:
-- Modified the format of DT binging file.
-- Fix compile warnings.
-- Link to v1: https://lore.kernel.org/r/46643089-b88d-49dc-be05-7bf0bb21f847@quicinc.com
-
----
-Yuanfang Zhang (2):
-      dt-bindings: arm: Add device Trace Network On Chip definition
-      coresight: add coresight Trace Network On Chip driver
-
- .../bindings/arm/qcom,coresight-tnoc.yaml          | 113 ++++++++++
- drivers/hwtracing/coresight/Kconfig                |  12 +
- drivers/hwtracing/coresight/Makefile               |   1 +
- drivers/hwtracing/coresight/coresight-tnoc.c       | 242 +++++++++++++++++++++
- 4 files changed, 368 insertions(+)
----
-base-commit: 408c97c4a5e0b634dcd15bf8b8808b382e888164
-change-id: 20250403-trace-noc-f8286b30408e
-
-Best regards,
--- 
-Yuanfang Zhang <quic_yuanfang@quicinc.com>
-
+* personal kernel developer opinion, not necessarily opinion of $employer
 
