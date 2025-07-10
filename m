@@ -4,113 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342EBC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F085AC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CceeV7J/K+B1j1BDTYnc8IYXP16jroD6AWzd6NMmE60=; b=1ElYtzNNcBK6+9XVEnfO3yTBlj
-	wOircwkAz1RWspYBpgus7JCSJFArDnYFNyDag/GHt3yMeQCIMrH3E4At5nIcb7PMO8voX6U5U5kvp
-	401wzMtAN30Cwz4cl7OIXL8afgLd1uNl1xpJUHtzWhZ0tss6jiWLBwGB30rXfr4JJwdnfmjG2VYzU
-	N2j0jRpygc+mxGgrkyug7VjYyxuzpnWN5JNXVCRf87iCyjY9cVBofqPgT1KItod0b4P/agF5Yae16
-	B8ybH8yxRVNoNU0Kv9GLZTah0g42MVq57iPVloH7gLCVPTt+2REE8c6Zg9H0rq4uNR6mBt5foCM1e
-	eTrWXoDA==;
+	bh=evrkd87jfn0W/wAyuRRT/tRWfSuU3fmS4lf2bubqfAc=; b=rXwTHTMBmOs1/wu6qxKNEec/QM
+	pmBmIZQNBh7saNV8+XzAF6IzZrUmq8DVpNC7SswHekni6z1xYMnSGuBqdjqM5rfe4XK4I7OMWAuH8
+	i536ECyr/JVj9qhgoK7ou85pMCEcadyt0PP57qvrboAh0SP9AClpxiZHUqlgxMIOEHVvzbvHQRpM8
+	IFKShvuUtLo/OsKvFj2qeSD/C77mIBqvWvSDaGK64s2R2ZB4B9ZE5mmbFwEBUkSC3Izm0z56K429Z
+	pygab1a3tfVi4rqgCbmh+wFjb+r2YtU6PkrlsiFt4CYsL/E1wwI6LVAFIpGvPITfv/UEsNrUNA3wY
+	Tip1MEBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZjpO-0000000AimH-462v;
-	Thu, 10 Jul 2025 05:28:14 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uZjrh-0000000Aj7h-3Hw8;
+	Thu, 10 Jul 2025 05:30:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZjlw-0000000AiX4-30da
+	id 1uZjpG-0000000AikW-1phO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 05:24:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752125078;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CceeV7J/K+B1j1BDTYnc8IYXP16jroD6AWzd6NMmE60=;
-	b=isazU1y53TDv+7im4qF7QmBMObRut/dTDLCqh2/c1aQb13QThddM93BgiBS8qSSNdExCJ0
-	Od0B5WN1JUTDuaLQuHKKcEpvkwh6Hb1rcjmzsR+G4BSrteOPn5S8fN026kRZbOJ5V2o/rh
-	kxy6LTWfV/X2IHrI4GeEnzJcW7vSbpM=
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com
- [209.85.210.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-627-wBzFxwLFMPu5_qSebwnyAg-1; Thu, 10 Jul 2025 01:24:37 -0400
-X-MC-Unique: wBzFxwLFMPu5_qSebwnyAg-1
-X-Mimecast-MFC-AGG-ID: wBzFxwLFMPu5_qSebwnyAg_1752125073
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-74913385dd8so952538b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 22:24:36 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752125073; x=1752729873;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CceeV7J/K+B1j1BDTYnc8IYXP16jroD6AWzd6NMmE60=;
-        b=Uk3KLvHDv4IJ5fvbKLwjL5eMn/G4FSCmurlJrlGVHQPY7f3d4awTYjnPacaybgTqkq
-         oOkAkbuXC+1gEiKJC8mrKE6ibygsV/qwoyByV8LRWykZsQuwqVGjKIQKkWV+cI75Eq0o
-         IGU0kVFe07WZOZEQOcHAxzqqbsk7KcbIDHELYlnI/Kcq/rgbvxwgIoyrv7FhCq9KmVWG
-         fom8VZfZ1rybmQmnzzkk8jPU9a5CcbIIuoR6NEh3fozR7wvnpGapeEawFRGREqlSl7+Q
-         rvP4KKH3S9xxBi/BwAzn4SeqkkuqGJuEHbeHI4807ekpZO6YaCtMfh9rz39fpcG99gi+
-         F0lQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXcFl2+91ZE7S5ALkiwqYBPntIIuFCSB2x/R82tfnqLlTg2mpEYXHvC4RnvXryKoRmAvVFYvWkCNmRA5ZCWrtS4@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywu7KjO8Fz7ihJNIqNKV+BYjoGjrqfdELkfjqpeXGhsrHFB904F
-	usKmpGmoo/Wip0fqPtf3idxthCvL3IL6fd448EvzV3fNI7HdFTC9RkwfIVZnQ9HMd9JSOvq/UPD
-	W+DUZ1Vbi2crucrxgVhucuayqv7Q2Obz6g3gi/aDd3Tq7MjtFl25J032693qUt4X4WugledNTqJ
-	PT
-X-Gm-Gg: ASbGncvudlNR5+9aWAKxyfvn6hZaFVtkC/kVrRLjDwzetuii827NoHKE0mJL/F2JbV2
-	49ueLW9JB+aW2I8JaLJQ4TIE1o9scSvyjc205MQiHBjqvOSFTLqEsE28Ox/rShOzGddand0dIa/
-	Zs50hDuOkH5RdxE9lTHgObmOo6K+ahhZGy3M33tIkuffL7qCqokRXPlSjF5klQ7InjelYjNTYsc
-	xbwPTlxpFLTcfzUVqYNStpYqT0QOMk2J2hNEEzBD9f3D6b0aDVr0Ircq35V6it1ZF3iGvM7eOqk
-	Rmn9ZzPzQHmt7yk5AvjgxBvnrfwDsSXq+1yXgO9queXa0pCp+zb847Sq6lUexQ==
-X-Received: by 2002:a05:6a21:33aa:b0:1f5:8a1d:3904 with SMTP id adf61e73a8af0-23003fd7f75mr2412308637.7.1752125073297;
-        Wed, 09 Jul 2025 22:24:33 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFhW5qdYaRRhJg7AUBogJ5g2fTOaOL30BzyYQhpOK9w1RwhZRAF6XqSga3MM3ZEdVwm9ACHkA==
-X-Received: by 2002:a05:6a21:33aa:b0:1f5:8a1d:3904 with SMTP id adf61e73a8af0-23003fd7f75mr2412277637.7.1752125072831;
-        Wed, 09 Jul 2025 22:24:32 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd7140sm950086b3a.24.2025.07.09.22.24.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 09 Jul 2025 22:24:31 -0700 (PDT)
-Message-ID: <a8183dcd-f82e-49b3-b5b4-96e5363e060a@redhat.com>
-Date: Thu, 10 Jul 2025 15:24:22 +1000
+	Thu, 10 Jul 2025 05:28:08 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56A13Z5d010019;
+	Thu, 10 Jul 2025 05:27:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	evrkd87jfn0W/wAyuRRT/tRWfSuU3fmS4lf2bubqfAc=; b=Qhs1kRHFabDAgWa1
+	blferBnNAmZv9WCz6SWy8OU4cpQOrGHQ1q8gqSaiI7UGAws00e8xJQKMGWTDnk2X
+	+Z+OoSoXQSbY2CJFOH/a8rNKsy1xbvwW2ntDaQMeDb4DB9BQ/aRkE73SQTZ6nRQ3
+	ezUXOxESHyadeRQHwmWg6znF7RfXNBn15DIwEY2w0dFQ4+ocXB3VuIfgPqtAJR6W
+	TGD/xvBrXj/I8DIpPEy5F0iNxtCGqSoflVu2pq64u7Gs/U9ESYTRj9+aOypTpnoZ
+	p/2jTEYWX5FrU+9FKNotFHVZ5Pqr70DxH1P/W0pRIbdbMzI5Wfhhr9zYyiNwf6+f
+	SYNEkg==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47sm9q3k5p-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Jul 2025 05:27:58 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56A5RvHt018797
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Jul 2025 05:27:57 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Wed, 9 Jul 2025 22:27:53 -0700
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Date: Thu, 10 Jul 2025 13:27:20 +0800
+Subject: [PATCH v11 1/2] dt-bindings: arm: Add device Trace Network On Chip
+ definition
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 15/43] arm64: RME: Allow VMM to set RIPAS
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
- <20250611104844.245235-16-steven.price@arm.com>
- <60bb33b4-133e-4ebd-950c-e9e2ba8fc38b@redhat.com>
- <b2f3ddac-956e-4779-9202-fc393266aa6c@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <b2f3ddac-956e-4779-9202-fc393266aa6c@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: E9taORQFiQ9nkxDCME9uydp_GCoPpoeLPd6-5JHpSwo_1752125073
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250710-trace-noc-v11-1-f849075c40b8@quicinc.com>
+References: <20250710-trace-noc-v11-0-f849075c40b8@quicinc.com>
+In-Reply-To: <20250710-trace-noc-v11-0-f849075c40b8@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Yuanfang Zhang
+	<quic_yuanfang@quicinc.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752125269; l=3706;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=AFlPDAfvpFRs502y4BiSUg4V6YbG9yCR4NGBIEHaSpc=;
+ b=dKOnm4HE88ZaWjXM0ONxdFXG/Ti04aUjIB36QfcG/BT+zI+FqxcBMRxN1qslw50OXVo8CG5C7
+ eAJ+n9qznYvBE9UoWoTPPqGQRnuKmVwrX11bW1zutm2TU47vElbzttZ
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: ZdN9SMo4_USxUpJmswpWDBNw9OsBPsFJ
+X-Proofpoint-ORIG-GUID: ZdN9SMo4_USxUpJmswpWDBNw9OsBPsFJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzEwMDA0NCBTYWx0ZWRfXy0yOO4f5qmJ0
+ N81+ziQb02UVbup2jx6lxgZnWL0FKjS7wSCbgx/C844XaaQrrJzbAEyuUjmTOWfiG6qZYiQf2HW
+ n2GlYn5C4VOyoBgxcHyzFuYXDJ1MCm4mIYOGTQPE7Yj7YFZ17kxfzl70hLZxUGQLxwRT71RHEjj
+ HrpdJVUCagN0mGjr93k4hBAHaD9rjW5IhHew9LpgfGi0DSnGxfWLZbMX0xWLxKWcxlJpD9tzBT6
+ yUQPCODdGAq+IqqtwZQAhWIoToUrrVQ+YagwWwi6zpksTZKJOK8tO14wPQG+eiPtZ6gDFygRFak
+ wRbNWXS3kuk2Y5lBDwMvNrvb647Ai49PzxDVV6bD/IMvQQzWlgneH+FPH/yRd8l3IMrcpu4d3lm
+ 1Pa2ASS4hKi/LT5MP/4GW5WUSyxKETB2pEEvZZeGOf40pFyFXsovuOSpEqUtU1fI5ljcDJIo
+X-Authority-Analysis: v=2.4 cv=BM+zrEQG c=1 sm=1 tr=0 ts=686f4f5e cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=gEfo2CItAAAA:8
+ a=KKAkSRfTAAAA:8 a=COk6AnOGAAAA:8 a=APcPAnuBUoPLjZ3N-PUA:9 a=QEXdDO2ut3YA:10
+ a=sptkURWiP4Gy88Gu7hUp:22 a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-09_05,2025-07-09_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 phishscore=0 spamscore=0 adultscore=2 lowpriorityscore=0
+ suspectscore=0 mlxscore=0 mlxlogscore=999 priorityscore=1501 malwarescore=0
+ clxscore=1015 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507100044
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_222441_253765_AD02279A 
-X-CRM114-Status: GOOD (  36.31  )
+X-CRM114-CacheID: sfid-20250709_222806_501958_82B0E2CC 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,250 +132,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steve,
+Add a new coresight-tnoc.yaml file to describe the bindings required to
+define Trace Network On Chip (TNOC) in device trees. TNOC is an
+integration hierarchy which is a hardware component that integrates the
+functionalities of TPDA and funnels. It collects trace form subsystems
+and transfers to coresight sink.
 
-On 7/10/25 12:42 AM, Steven Price wrote:
-> On 02/07/2025 01:37, Gavin Shan wrote:
->> On 6/11/25 8:48 PM, Steven Price wrote:
->>> Each page within the protected region of the realm guest can be marked
->>> as either RAM or EMPTY. Allow the VMM to control this before the guest
->>> has started and provide the equivalent functions to change this (with
->>> the guest's approval) at runtime.
->>>
->>> When transitioning from RIPAS RAM (1) to RIPAS EMPTY (0) the memory is
->>> unmapped from the guest and undelegated allowing the memory to be reused
->>> by the host. When transitioning to RIPAS RAM the actual population of
->>> the leaf RTTs is done later on stage 2 fault, however it may be
->>> necessary to allocate additional RTTs to allow the RMM track the RIPAS
->>> for the requested range.
->>>
->>> When freeing a block mapping it is necessary to temporarily unfold the
->>> RTT which requires delegating an extra page to the RMM, this page can
->>> then be recovered once the contents of the block mapping have been
->>> freed.
->>>
->>> Signed-off-by: Steven Price <steven.price@arm.com>
->>> ---
->>> Changes from v8:
->>>    * Propagate the 'may_block' flag to allow conditional calls to
->>>      cond_resched_rwlock_write().
->>>    * Introduce alloc_rtt() to wrap alloc_delegated_granule() and
->>>      kvm_account_pgtable_pages() and use when allocating RTTs.
->>>    * Code reorganisation to allow init_ipa_state and set_ipa_state to
->>>      share a common ripas_change() function,
->>>    * Other minor changes following review.
->>> Changes from v7:
->>>    * Replace use of "only_shared" with the upstream "attr_filter" field
->>>      of struct kvm_gfn_range.
->>>    * Clean up the logic in alloc_delegated_granule() for when to call
->>>      kvm_account_pgtable_pages().
->>>    * Rename realm_destroy_protected_granule() to
->>>      realm_destroy_private_granule() to match the naming elsewhere. Also
->>>      fix the return codes in the function to be descriptive.
->>>    * Several other minor changes to names/return codes.
->>> Changes from v6:
->>>    * Split the code dealing with the guest triggering a RIPAS change into
->>>      a separate patch, so this patch is purely for the VMM setting up the
->>>      RIPAS before the guest first runs.
->>>    * Drop the useless flags argument from alloc_delegated_granule().
->>>    * Account RTTs allocated for a guest using kvm_account_pgtable_pages().
->>>    * Deal with the RMM granule size potentially being smaller than the
->>>      host's PAGE_SIZE. Although note alloc_delegated_granule() currently
->>>      still allocates an entire host page for every RMM granule (so wasting
->>>      memory when PAGE_SIZE>4k).
->>> Changes from v5:
->>>    * Adapt to rebasing.
->>>    * Introduce find_map_level()
->>>    * Rename some functions to be clearer.
->>>    * Drop the "spare page" functionality.
->>> Changes from v2:
->>>    * {alloc,free}_delegated_page() moved from previous patch to this one.
->>>    * alloc_delegated_page() now takes a gfp_t flags parameter.
->>>    * Fix the reference counting of guestmem pages to avoid leaking memory.
->>>    * Several misc code improvements and extra comments.
->>> ---
->>>    arch/arm64/include/asm/kvm_rme.h |   6 +
->>>    arch/arm64/kvm/mmu.c             |   8 +-
->>>    arch/arm64/kvm/rme.c             | 447 +++++++++++++++++++++++++++++++
->>>    3 files changed, 458 insertions(+), 3 deletions(-)
->>>
->>
->> With below nitpicks addressed. The changes looks good to me.
->>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
-> Thanks, most the nitpicks I agree - thanks for raising. Just one below I
-> wanted to comment on...
-> 
-> [...]
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+---
+ .../bindings/arm/qcom,coresight-tnoc.yaml          | 113 +++++++++++++++++++++
+ 1 file changed, 113 insertions(+)
 
-You're welcome.
+diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..9d1c93a9ade3ff14ede4a8d1481782776cf47be9
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
+@@ -0,0 +1,113 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/qcom,coresight-tnoc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Qualcomm Trace Network On Chip - TNOC
++
++maintainers:
++  - Yuanfang Zhang <quic_yuanfang@quicinc.com>
++
++description: >
++  The Trace Network On Chip (TNOC) is an integration hierarchy hardware
++  component that integrates the functionalities of TPDA and funnels.
++
++  It sits in the different subsystem of SOC and aggregates the trace and
++  transports it to Aggregation TNOC or to coresight trace sink eventually.
++  TNOC embeds bridges for all the interfaces APB, ATB, TPDA and NTS (Narrow
++  Time Stamp).
++
++  TNOC can take inputs from different trace sources i.e. ATB, TPDM.
++
++  Note this binding is specifically intended for Aggregator TNOC instances.
++
++# Need a custom select here or 'arm,primecell' will match on lots of nodes
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - qcom,coresight-tnoc
++  required:
++    - compatible
++
++properties:
++  $nodename:
++    pattern: "^tn(@[0-9a-f]+)$"
++
++  compatible:
++    items:
++      - const: qcom,coresight-tnoc
++      - const: arm,primecell
++
++  reg:
++    maxItems: 1
++
++  clock-names:
++    items:
++      - const: apb_pclk
++
++  clocks:
++    items:
++      - description: APB register access clock
++
++  in-ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    patternProperties:
++      '^port(@[0-9a-f]{1,2})?$':
++        description: Input connections from CoreSight Trace Bus
++        $ref: /schemas/graph.yaml#/properties/port
++
++  out-ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++    additionalProperties: false
++
++    properties:
++      port:
++        description:
++          Output connection to CoreSight Trace Bus
++        $ref: /schemas/graph.yaml#/properties/port
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - in-ports
++  - out-ports
++
++additionalProperties: false
++
++examples:
++  - |
++    tn@109ab000  {
++      compatible = "qcom,coresight-tnoc", "arm,primecell";
++      reg = <0x109ab000 0x4200>;
++
++      clocks = <&aoss_qmp>;
++      clock-names = "apb_pclk";
++
++      in-ports {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        port@0 {
++          reg = <0>;
++
++          tn_ag_in_tpdm_gcc: endpoint {
++            remote-endpoint = <&tpdm_gcc_out_tn_ag>;
++          };
++        };
++      };
++
++      out-ports {
++        port {
++          tn_ag_out_funnel_in1: endpoint {
++            remote-endpoint = <&funnel_in1_in_tn_ag>;
++          };
++        };
++      };
++    };
++...
 
->>> +
->>> +enum ripas_action {
->>> +    RIPAS_INIT,
->>> +    RIPAS_SET,
->>> +};
->>> +
->>> +static int ripas_change(struct kvm *kvm,
->>> +            struct kvm_vcpu *vcpu,
->>> +            unsigned long ipa,
->>> +            unsigned long end,
->>> +            enum ripas_action action,
->>> +            unsigned long *top_ipa)
->>> +{
->>
->> The 'enum ripas_action' is used in limited scope, I would replace it
->> with a 'bool'
->> parameter to ripas_change(), something like below. If we plan to support
->> more actions
->> in future, then the 'enum ripas_action' makes sense to me.
-> 
-> The v1.1 spec[1] adds RMI_RTT_SET_S2AP (set stage 2 access permission).
-> So that adds a third option to the enum. I agree the enum is a little
-> clunky but it allows extension and at least spells out the action which
-> is occurring.
-> 
-> The part I'm not especially happy with is the 'vcpu' argument which is
-> not applicable to RIPAS_INIT but otherwise required (and in those cases
-> could replace 'kvm'). But I couldn't come up with a better solution for
-> that.
-> 
-> [1] Available from:
-> https://developer.arm.com/documentation/den0137/latest (following the
-> small "here" link near the end).
-> 
-
-Right, it's as I guessed. A enum looks good if we need to extend it
-to cover the third case (RMI_RTT_SET_S2AP in RMMv1.1). Note that I just
-started looking into RMMv1.1 implementation several days ago and didn't
-have a good understanding on RMMv1.1 at present :-)
-
-Thanks,
-Gavin
-
-> Thanks,
-> Steve
-> 
->> static int ripas_change(struct kvm *kvm,
->>              struct kvm_vcpu *vcpu,
->>              unsigned long ipa,
->>              unsigned long end,
->>              bool set_ripas,
->>              unsigned long *top_ipa)
->>
->>> +    struct realm *realm = &kvm->arch.realm;
->>> +    phys_addr_t rd_phys = virt_to_phys(realm->rd);
->>> +    phys_addr_t rec_phys;
->>> +    struct kvm_mmu_memory_cache *memcache = NULL;
->>> +    int ret = 0;
->>> +
->>> +    if (vcpu) {
->>> +        rec_phys = virt_to_phys(vcpu->arch.rec.rec_page);
->>> +        memcache = &vcpu->arch.mmu_page_cache;
->>> +
->>> +        WARN_ON(action != RIPAS_SET);
->>> +    } else {
->>> +        WARN_ON(action != RIPAS_INIT);
->>> +    }
->>> +
->>> +    while (ipa < end) {
->>> +        unsigned long next;
->>> +
->>> +        switch (action) {
->>> +        case RIPAS_INIT:
->>> +            ret = rmi_rtt_init_ripas(rd_phys, ipa, end, &next);
->>> +            break;
->>> +        case RIPAS_SET:
->>> +            ret = rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end,
->>> +                        &next);
->>> +            break;
->>> +        }
->>> +
->>
->> if 'enum ripas_action' is replaced by 'bool set_ripas' as above, this needs
->> twist either.
->>
->>> +        switch (RMI_RETURN_STATUS(ret)) {
->>> +        case RMI_SUCCESS:
->>> +            ipa = next;
->>> +            break;
->>> +        case RMI_ERROR_RTT:
->>> +            int err_level = RMI_RETURN_INDEX(ret);
->>> +            int level = find_map_level(realm, ipa, end);
->>> +
->>> +            if (err_level >= level)
->>> +                return -EINVAL;
->>> +
->>> +            ret = realm_create_rtt_levels(realm, ipa, err_level,
->>> +                              level, memcache);
->>> +            if (ret)
->>> +                return ret;
->>> +            /* Retry with the RTT levels in place */
->>> +            break;
->>> +        default:
->>> +            WARN_ON(1);
->>> +            return -ENXIO;
->>> +        }
->>> +    }
->>> +
->>> +    if (top_ipa)
->>> +        *top_ipa = ipa;
->>> +
->>> +    return 0;
->>> +}
->>> +
->>> +static int realm_init_ipa_state(struct kvm *kvm,
->>> +                unsigned long ipa,
->>> +                unsigned long end)
->>> +{
->>> +    return ripas_change(kvm, NULL, ipa, end, RIPAS_INIT, NULL);
->>> +}
->>> +
->>> +static int kvm_init_ipa_range_realm(struct kvm *kvm,
->>> +                    struct arm_rme_init_ripas *args)
->>> +{
->>> +    gpa_t addr, end;
->>> +
->>> +    addr = args->base;
->>> +    end = addr + args->size;
->>> +
->>> +    if (end < addr)
->>> +        return -EINVAL;
->>> +
->>> +    if (kvm_realm_state(kvm) != REALM_STATE_NEW)
->>> +        return -EPERM;
->>> +
->>> +    return realm_init_ipa_state(kvm, addr, end);
->>> +}
->>> +
->>>    /* Protects access to rme_vmid_bitmap */
->>>    static DEFINE_SPINLOCK(rme_vmid_lock);
->>>    static unsigned long *rme_vmid_bitmap;
->>> @@ -441,6 +876,18 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct
->>> kvm_enable_cap *cap)
->>>        case KVM_CAP_ARM_RME_CREATE_REALM:
->>>            r = kvm_create_realm(kvm);
->>>            break;
->>> +    case KVM_CAP_ARM_RME_INIT_RIPAS_REALM: {
->>> +        struct arm_rme_init_ripas args;
->>> +        void __user *argp = u64_to_user_ptr(cap->args[1]);
->>> +
->>> +        if (copy_from_user(&args, argp, sizeof(args))) {
->>> +            r = -EFAULT;
->>> +            break;
->>> +        }
->>> +
->>> +        r = kvm_init_ipa_range_realm(kvm, &args);
->>> +        break;
->>> +    }
->>>        default:
->>>            r = -EINVAL;
->>>            break;
->>
->> Thanks,
->> Gavin
->>
-> 
+-- 
+2.34.1
 
 
