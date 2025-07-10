@@ -4,91 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2E9C83F18
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 08:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A0BC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 08:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FteJQilrWBfBvhIiChMigkGkPT4QD1u6xypvpY95TU0=; b=Woz7b5xu4HN0pCaYhtwFWyXl3l
-	/Y8RBBSSNY+dr09oLmq4fVQKShjw3CgHK1IvmlnUBj0rt1V4qDcjIlw9sO1ZtjpM4JgRZvxu9nmlx
-	K278VJjhZrt48LQ1YgwZc3XqEKPgo1NCG1WwypnHLUAcAJwOEWtfOSs0rBzXJdBHgjOpsG7TRcfMM
-	HWf9/Qrdhxuxia7b7Lx3TsE3sfumBoAiRjvgdHONTdbvbw3HYh9jJBh5MZWddxYES+65AP8QzBlzj
-	eHymkIIPzXYRoJJ/4hv7PgeJ0jum5bCdRG6kxJrLkZlfjjDLJnxFKqV9fE6DvAkZk59jydpaP9S3x
-	HEQporag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hdXjeCliRyJZCw75XF5LZkP9DunbKaTwr/NS/YNlOm0=; b=KCTL7dMv+v3P6hGYF724A/wljf
+	LdT7j/5Xc1D3fcjpk8ZMCuyRNamXL/GbopSh+fKoAhR7uFsWjjruYJAKMaXfQtgkRnpEI1SDNL6o7
+	hrfVh0UuezFPUinwJsk8YBnS9LMwvbpHop91wAT2WZVZjvTh0NAEt9R09kC+kwoEYwUeBfS1Do8G+
+	hVAgH58Ik7zfVOyHgZ61Au4foCqzyYT2+unvZSt8UIjOZm6DvLvQ+mGs1D1QVX+0ITmdv6uP0V/Lw
+	VF+9Q1JtKZNOClfJTj0safNrl+d/BPowxlz+1DEiXkCr9XsmBalhdvDn79huU9gJFHToqP/X/YRLY
+	aLnZKT4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZmpq-0000000BDA4-33Td;
-	Thu, 10 Jul 2025 08:40:54 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uZms9-0000000BDcE-06CO;
+	Thu, 10 Jul 2025 08:43:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZlhZ-0000000B0cW-0FSE
+	id 1uZlhc-0000000B0dC-3UEw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 07:28:19 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56A6nMQ4020561;
-	Thu, 10 Jul 2025 09:27:59 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	FteJQilrWBfBvhIiChMigkGkPT4QD1u6xypvpY95TU0=; b=VhSXHgvkoCKjL0PB
-	yLPzLljS9EtzmH6qBo4MWrhd/pumsuUD8+ON95lET7nmSmqFrQnoRVupBYdYAlfu
-	djGjVlo43TAdWUmsXUZgnroiJwMw47odRN0mNYABKDiOZ51Bt/EJzZNDPzmhBCJ0
-	CMbstpvVa2BWVI2D8EppAjFvYXVZ4ZhxSrngbuZELHV/aY6bFeDQ35BAlp1S7N2x
-	GeJfMjn0DSAq3a6zy8jnfueD2KysLIEasSHwMmzGQLS15g1t/eLo25EJf82KRv5d
-	sp1MjzM+BSKvkf8g6WMx0/jPp6e9fRSs21UvN8PDDjbqKUdd6eMSNQ0AzEYvOb8v
-	L38+Tg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47ptxjf7w9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Jul 2025 09:27:59 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id CC7DF40048;
-	Thu, 10 Jul 2025 09:26:55 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 81309AE9D80;
-	Thu, 10 Jul 2025 09:26:06 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 10 Jul
- 2025 09:26:05 +0200
-Message-ID: <cadb2bcc-9a2a-447a-ac03-459f3e37a173@foss.st.com>
-Date: Thu, 10 Jul 2025 09:26:05 +0200
+	Thu, 10 Jul 2025 07:28:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 42EF761469;
+	Thu, 10 Jul 2025 07:28:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76868C4CEE3;
+	Thu, 10 Jul 2025 07:28:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752132500;
+	bh=hdXjeCliRyJZCw75XF5LZkP9DunbKaTwr/NS/YNlOm0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZeI8/VKQ537VmiYeHP0ZLXzBPqlrlyjylv5W7wUsHSWpYtHGVaIBqg6l6kKPGtv+l
+	 WTGESYCudcBEy6Vj4g5+7Mj93flVBEhf2P9CVsPyB6X984Fotx5ddKzOzPe9STOA2y
+	 sjbiQqPfX0xGiHit7XfBjif2Gplod4TliLjXUlzwqlhK4G9eQgERHD77DE2fQer7Rz
+	 dXYaQtKpEV97iE+ZSNvTrgBwrE689dTDnV8tJb3L+ZpFt0a5Qiv1B95uoD9E6ydZX6
+	 50IFww7wcn26Lpv6QZa2FBjdVNxhX4nrBOhE6guCoMQjop8A9ufVZgtOAY95+1IBIe
+	 KxTwI2QQLSj6Q==
+Date: Thu, 10 Jul 2025 09:28:17 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 9/9] drm/imx: parallel-display: put the bridge returned
+ by drm_bridge_get_next_bridge()
+Message-ID: <20250710-dashing-origami-ara-ef9fc1@houat>
+References: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com>
+ <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-9-48920b9cf369@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 1/2] dt-bindings: memory: add jedec,ddr[3-4]-channel
- binding
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
-        Mark
- Rutland <mark.rutland@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-perf-users@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20250626-ddr-bindings-v1-0-cae30933c54c@foss.st.com>
- <20250626-ddr-bindings-v1-1-cae30933c54c@foss.st.com>
- <e016efd6-891b-467e-8a4e-9ea53b7006a9@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <e016efd6-891b-467e-8a4e-9ea53b7006a9@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-09_05,2025-07-09_01,2025-03-28_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_002817_580114_9E3FABEF 
-X-CRM114-Status: GOOD (  10.16  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="6tqwawwu3nnorjig"
+Content-Disposition: inline
+In-Reply-To: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-9-48920b9cf369@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
 
-On 7/9/25 20:27, Krzysztof Kozlowski wrote:
-> On 26/06/2025 21:48, Clément Le Goffic wrote:
->> Introduce as per jdec,lpddrX-channel binding, jdec,ddr[3-4]-channel
-> 
-> s/jdec/jedec/
+--6tqwawwu3nnorjig
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 9/9] drm/imx: parallel-display: put the bridge returned
+ by drm_bridge_get_next_bridge()
+MIME-Version: 1.0
 
-Right thanks
+On Wed, Jul 09, 2025 at 06:48:08PM +0200, Luca Ceresoli wrote:
+> The bridge returned by drm_bridge_get_next_bridge() is refcounted. Put it
+> when done.
+>=20
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-> 
->> binding.
->>
->> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->> ---
-> 
-> 
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    ddr_channel: ddr3-channel@0 {
->> +        compatible = "jedec,ddr3-channel";
->> +        io-width = <16>;
-> 
-> Missing reg... or not? What was your intention
+Same comments than on the previous patch here.
 
-Indeed no reg.
-I'll drop the "@0" for the next version.
+Maxime
 
-> 
-> 
->> +    };
->>
-> 
-> 
-> Best regards,
-> Krzysztof
+--6tqwawwu3nnorjig
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaG9rkAAKCRAnX84Zoj2+
+dnTtAYDyf/Yxt9bmEdmMUGLXyfbD9i2hhDEJkGJ8L01jt7ghkn+L5uWiwnMPQKFR
+XgUd/r8BgJt8+q4jJcV+k0qVy9a+O6Na5wzUPuLCVbN5rC+8KA4NNINmo7vDm9ob
+Wf/nc0V2xw==
+=dhT/
+-----END PGP SIGNATURE-----
+
+--6tqwawwu3nnorjig--
 
