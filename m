@@ -4,103 +4,192 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F38C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F107C83F21
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4C1F358QyY6yR1E9J3FVOUBtfWdrFLMf3ht4p1WIWSA=; b=HMGuSVbMyzSjMebCS/U2AuaP/0
-	2Fb5UxhWRo8EO+fyI7cjvyRlT8DY5PTPVUK+rFs5+vEL6HfaErff19CBbcYl5aE4EuSEy7Mr9G0aI
-	qfIhc1xWMgXuCBUnAPI/ErAVVXN00E9RTlhuyaHryXje/9F2nHgcQKhY7I2DBX94homefc6rPR20r
-	NDMN1N+kneTVnvf3nQn0eC4EEAyVG4ZTmmybzKJXcJ0Xkh3SHgDUFJg6RQb5rOy9eLE4dMOc2ipHB
-	UrV2NH5/O2KRZ298iktN6LP6X+Qcuiwp1r/LAeDmuuKebtaE4l52tY6NHvSchyAa16Sz4+QjSNqlo
-	WfI+Yi9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HPy8bRWQyZIqKp+Xw7RjAMWPjbQuQ5IONzB5Hc40v90=; b=v3M23XHEcxUUYdlmB/BjW/m9KC
+	9ZIaU8/YPf21Xd1NtsugfTm158AkGSTg56dgYvqwtFHvkoOfBkva+dWMI8692/A/la3HgR5m8vu/E
+	lhVA9nhW/Yr1BtIa23MgK8RwOMzfjEkKgzCWNWlH7n4JPvIM6XQudGRqusxQZIs/SP21pSSK6yrfs
+	BkSJBIL/yf3eup1JhDRuYGW2ZfoDE//F6DySuJVAWYBm0coGyKTAJ8KgPrhaMv1ORO4Q2e6b91zOf
+	lxbamBDQJ8u+ezuGPFN65ZMQBSF+8c0+ShSpX11w3V7/GEhVnGMCME3sd1d8Fbm1hxKHVekbGTTbJ
+	2ZMnRuoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZu7u-0000000CQgK-1h5l;
-	Thu, 10 Jul 2025 16:28:02 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uZu84-0000000CQvV-3py8;
+	Thu, 10 Jul 2025 16:28:12 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZs75-0000000C5jG-2t9X;
-	Thu, 10 Jul 2025 14:19:05 +0000
-Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E8002465;
-	Thu, 10 Jul 2025 16:18:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1752157113;
-	bh=sT3ywBHEfpXEefoY6lqNZHdBEznFpDC193UbVPYvSgo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jXhvCgOw19rQH08pYY7xv8WU9lt35cATNzcLSeSiXbUUf3jowuSOpzSRdc/E1aZNf
-	 Qk8ytLvt56fSqcj5/VsPM1rD0y98htn9QYvxgB6zwRSs6Lh2k0SJJe2giZkTntq3yn
-	 nEi8hhFMX+N2Bd34k4S8D1vaGhtdzdD3k8u+SIaM=
-Message-ID: <722f84e6-c253-4ef2-a65d-72f9215c5ab0@ideasonboard.com>
-Date: Thu, 10 Jul 2025 15:18:59 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/8] media: v4l2-common: Introduce v4l2-params.c
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Dafna Hirschfeld <dafna@fastmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20250710-extensible-parameters-validation-v2-0-7ec8918ec443@ideasonboard.com>
- <20250710-extensible-parameters-validation-v2-5-7ec8918ec443@ideasonboard.com>
-Content-Language: en-US
-From: Dan Scally <dan.scally@ideasonboard.com>
-Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20250710-extensible-parameters-validation-v2-5-7ec8918ec443@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	id 1uZsA4-0000000C67Y-0pjC
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 14:22:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=scNs6zvyBIWsTWP0PGfVIVotsYe7inEM5y7vIQ4cdanGfUrGAoc6ijcXaI07Y5z7u5RQdkCOi8ukNzzGjlOZaNCCFVM4+vYPVXJrvVUd9O7vOWt9ieID6CNKUA20Qf1hakeUmhDD+YHESlV0F3b1xH7FGxMSZ7gNOvrHmTDkeIUMPe7ZH6OwrcdW2DsA2VuDCmMljcjA3LITig9cWTPw446AkYhTQxjYM9Bm00NSGqUA4FvrCkPY3Sk3OkhOHlHHse1pBbkagqwfiZ04ilFJqOVnm+DXQglBixrPFG32ofvVXRcOwk6VYhTNUjA3Z4vzSuWEgbmx3wevUD8dxao1gA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HPy8bRWQyZIqKp+Xw7RjAMWPjbQuQ5IONzB5Hc40v90=;
+ b=ikSczzQBFi2WYN3oun6dSfBDQa/hAO6T20jmySTd0DtnR8vM6QNVVXRK6+J6OnQiHpIgwp4JZ3lMmBgtgN2bYiCho4C0cN0lJnT+z7S8dvqfDPwcDRWrVpgJ7NSdKDChlT02NC/EFjS6HXrzyje829K/hwvTxjHNhLUg0+4/thAV4rOfRtpcAzuQgypjZ+twg7PIbIPg6vKBwIuCQB1+mUhpK/vZM9RNvfcsdRrEBfftBdZCw/26nsKKX2qvowrZo4x3qj6Nax/8/oSHHaRf3wy17N6AY1dx2nxk/0dud0yW2QjGkL+UEltMPfAAlkTL/7ph49IKN/f6mRF9aCeO2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HPy8bRWQyZIqKp+Xw7RjAMWPjbQuQ5IONzB5Hc40v90=;
+ b=DdL0O8mphHA/9wSfhljUkuhMIl+IUdu9pfsANZ5jUBM7Z/KYIWF5tL9bji9Q8TcffZz9zn7S1orytEL1a2K8oShynxNHlNtP5qL3+dLqFij1dhnKHZLmvV6k8TroUtrNt0Yokp6eaxbuGpMFfu93X2yysVSkzQFqSbaXu3sQ80fq80nsucEPb9xG+Ze7kQPOUC7POw/HfiX9cjPMDocxcmvlzBhMvaaHD+0rXIzh0e50yawRm2EvIgr9vQ6LVaUykgYf5PM+9neQU512eNUy92eDNEbLIQjx2GWVwG5Lp1mSDETC2cQnyeJ2bO4k0mpbQs3vh27hRMJHmtssjblYAQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8487.eurprd04.prod.outlook.com (2603:10a6:20b:41a::6)
+ by FRWPR04MB11282.eurprd04.prod.outlook.com (2603:10a6:d10:19e::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.23; Thu, 10 Jul
+ 2025 14:21:59 +0000
+Received: from AM9PR04MB8487.eurprd04.prod.outlook.com
+ ([fe80::6d7a:8d2:f020:455]) by AM9PR04MB8487.eurprd04.prod.outlook.com
+ ([fe80::6d7a:8d2:f020:455%5]) with mapi id 15.20.8901.028; Thu, 10 Jul 2025
+ 14:21:59 +0000
+From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+To: linus.walleij@linaro.org,
+	brgl@bgdev.pl,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	chester62515@gmail.com,
+	mbrugger@suse.com,
+	Ghennadi.Procopciuc@nxp.com,
+	larisa.grigore@nxp.com,
+	lee@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	aisheng.dong@nxp.com,
+	ping.bai@nxp.com,
+	gregkh@linuxfoundation.org,
+	rafael@kernel.org,
+	srini@kernel.org
+Cc: linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	s32@nxp.com,
+	clizzi@redhat.com,
+	aruizrui@redhat.com,
+	eballetb@redhat.com,
+	echanude@redhat.com,
+	kernel@pengutronix.de,
+	imx@lists.linux.dev,
+	vincent.guittot@linaro.org,
+	Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+Subject: [PATCH v7 00/12] gpio: siul2-s32g2: add initial GPIO driver
+Date: Thu, 10 Jul 2025 17:20:23 +0300
+Message-ID: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
+X-Mailer: git-send-email 2.45.2
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0090.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cd::16) To AM9PR04MB8487.eurprd04.prod.outlook.com
+ (2603:10a6:20b:41a::6)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8487:EE_|FRWPR04MB11282:EE_
+X-MS-Office365-Filtering-Correlation-Id: 694c01ee-8184-45e2-ec54-08ddbfbd21e5
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|19092799006|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WDN0ZmtncjV1blhtK0RuZUp2SnUvUXk5dEVqL2pLM0kwTjJBWEtjSFZ6VXNP?=
+ =?utf-8?B?ZVMxUTc1Q3ozMzZrN3FoQytBamJlL0gxaW5MWGNoRnRjeFpCT1RzNHJTRERH?=
+ =?utf-8?B?bmx6eHdUeDB3bFZMWUhxSXdJcUhVOUhPRERMY21JTFJaWURucFJ4RkgySGlQ?=
+ =?utf-8?B?SklBR1N2YkdkQzE0elZFR2JVRVJVd2J5REtTOWxBRFRPKytHcmVKUzhiOHFT?=
+ =?utf-8?B?ZlI1dUtnN2NnYU1pMisxcWdOMkJ0V3BGQmlYVFRnbzdvaFFIMVE5RHJpNkho?=
+ =?utf-8?B?aEMyMnkzeGI3VmRVY1JZbnppSytpbnFrKzYrM3VrMFFVTEtXd0NNVExPcnpy?=
+ =?utf-8?B?dTYvSkZwS2tQQ1g5VUpqbHhaQi9XSFhMV285aDJXYXYyd2tCcndiVG5wRmFH?=
+ =?utf-8?B?OXdWbytPTFFPWmZkRzM0WDhFNWJldFFPNXhTcE12azZGL2hmVTB5amFHVTZW?=
+ =?utf-8?B?dHdLd25GeXFNL2VQRThKU3JvK3VUV0FDRjM2UEY4R002dzArbERaOFdYdEJM?=
+ =?utf-8?B?bXBLNW9wQkhsNW1GR3p3L3IyZkpPdG9ScXBwU0o0d0RpSUk1dElaNnF6MVBa?=
+ =?utf-8?B?aXlCVVB5cEk3OU45T2tXaVRrL2hrVnVSZkFDR3I4cmJ3dWJndFIycUtsVjdx?=
+ =?utf-8?B?RkU3QkdWZzJ3eWozdXVwdTdWc29zWEJFOTZEKzYyc2p0MEw3T2wzemlzL3hT?=
+ =?utf-8?B?cnVGRjVtSWJ5VGNCZnU1MTR4Z3doK00zbVBuVkxmWmJQWm0yVHpzbTZlV3RO?=
+ =?utf-8?B?OVl4Umpwc1NGVHNJbFlNazNGZisyOS92OXlkMjJDaFBQVjYreCtXSXc4bU94?=
+ =?utf-8?B?bzBUWVdUYXZwL3RaRVhLdUJJRENYRWg5QkNxcWdBSC9nazRpeGczcHFJT1VS?=
+ =?utf-8?B?MjBIcEZINjlQdWlMaTBvMFFURHFaN3BVb1dwTExTQ1RBdmxEeGxTeU1KVXJ6?=
+ =?utf-8?B?cUtBQWpTR3MxVENGcC9zYytWN0JUemR4bEdsZ3l3VGxxRSsrREVFWDB1cDE3?=
+ =?utf-8?B?ODhjSHdXNlUxUVBHS0tXeXppb1FIMmhlYXpVclVwai9Iem00ZHIxMVBaS29p?=
+ =?utf-8?B?cFFpRXdhZy9uTmNTWWYrbXJRY2xtY1RZSFVHL1V3TTluN1dyWkpVVU5RNkRF?=
+ =?utf-8?B?b25aMTI3dmVYZ25tRHF5NG84OWcxKzc0SURCcVMva0dHdFYwc28zY0Jzb3FF?=
+ =?utf-8?B?U2o4K2xQcHA2VnU4MytkOElYeEVsV2VacWtVYzhibVhlR0lDQWZtUG9ZcW42?=
+ =?utf-8?B?U0EwdTNhL3liU3VQRWlSdklMVzZHNmhvUEZTTlQ0dDB3TTE4TS9lZTZnNUFi?=
+ =?utf-8?B?WWJUVFppa2FkVEprTEFyL1YxT0c2dWVSR0dmcFl2Y1RIS21aVGVHNW1vaDVa?=
+ =?utf-8?B?bWYyQng2NndoUE9XbStNK3MwbUQybzdwWHkrN1U3b0VNci9PVzRjOGRvVjUr?=
+ =?utf-8?B?NklnVmZsUGNvTzBlb1N6ZUlhV1NGOGozZXpoWWsxeko2eCt5S3J2cGtNM0Jy?=
+ =?utf-8?B?TVdPTlo0dXRqa0dadENFMlRQWit0VlVabnRMVVlrMFNwb3ZmRVVrNmdxOUVK?=
+ =?utf-8?B?YVFlOXFqZnlVb2FJMS9xVEZXSGpycDQ0WGZXRDB3Y0dYZEZMQjQzY0FDV3ND?=
+ =?utf-8?B?U1JjaDQ5Ujdhdm1sZnZ0dEk2RGQ0ZXNOWG5MTWRkUVpGQk1mUndLdWpYZUtX?=
+ =?utf-8?B?bDNtUVZ1N3JyUVplRTRoeWxxQnRIbzFvTks4bllSMHVacmNWRHZxNmdHcHpF?=
+ =?utf-8?B?YlptUEFZMk5tQ3M4Wlo2RDdscGhpTE1TN0JVeUVPRFUyckN1d1NhTEtXL3Vo?=
+ =?utf-8?B?cFdhR1hpQStpYmxkZTlZd0FmOUhoZGRFcmNqRTJmd0VWem94by81NTdpU1pi?=
+ =?utf-8?B?RUNKVFZBbk5Tb01NRm5VMldqVlVHdHdIWDNRc3psd2hIVDlIbDBnYzVtQW15?=
+ =?utf-8?B?elkwRHJTSFIxNE5OY1hMNzkzTnhGbHhXQUFIVXRSdnByalNQcEtpVzZmNkFU?=
+ =?utf-8?Q?iIir+Hg4BYP2U2PMoMRdWGhAy/5UQI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8487.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(19092799006)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NERjWGVkMTd2UlNieDFjeXc1V0E0SHkwbU9WNlhtUGpYVDAzelVtNVQzQ3VB?=
+ =?utf-8?B?aG1mSnR1V2RiaUVZeHg3QkhjSXhqMlczY1F1NTJJdTRRVWpQNFNJTnlyMCtv?=
+ =?utf-8?B?ZnhEMHArS1o4a1l0TzNxRjJMd2J3VDVQVWthTnJnZlZ3bmhXZ2JiTGdDa0dO?=
+ =?utf-8?B?Y2ZPVEREdFhTOXpUMXRpMjZpbnhkNWI4WmxtSWJmaXVWTm1SRStZUDVZREpi?=
+ =?utf-8?B?MHpHOGNzMVUwUDNIanBYQTluZFQ4RkNKcmhIOERqVnR3RytkWDAwRStKelpQ?=
+ =?utf-8?B?TllKS3VTaC9pUkJTaU1WenM0elhKdTFxaG4rV25KQ0wzaThub2ZzbDZqeENV?=
+ =?utf-8?B?L1dJS3BCdUtxY1dTMk1mK3JhYWlpLytzNHJUS2pmSUhRNkdzdnRMS1Q4V3E2?=
+ =?utf-8?B?NjZLOUtpZ1M4ZGZPM0gxTHdoU21hZUU3SzdoU20xa2NSRjBUZVZpS2NGczRQ?=
+ =?utf-8?B?WFJZZTkrRStaeDROWFFNckNRMHJJQ3QrMVM3TWx5b0YzT3FsOXJIVkwvMEd4?=
+ =?utf-8?B?T0gyWGVKclQyc2w5ams0WWRXUUZzQThQK2VwdkN1UkFuTFZ5bXNvUjFPejRZ?=
+ =?utf-8?B?SGx4SnFHZ1p2Z2NCRGZnZ0svUkdoTjZvaXIrNFl3UGUxVzNBN2F6L2F6eklu?=
+ =?utf-8?B?VXZhUDhCeURGSEdYUDlvKzhpaDMyeWNkNjNoV2pYY3l6MXJwUFVld09PT25u?=
+ =?utf-8?B?WUVaOXJUYkZwUzFyS1E3aUZzWFhjMW1hRnA5UEdVK28yc1JnclhudjlIczJM?=
+ =?utf-8?B?WGIwRytCQStVT1ovbDJVWHE5MVg1SnZtVXgwMVcyRTk2djFLb1BnWDJDcFZ4?=
+ =?utf-8?B?bUJ5emM3VGZOU0ZkQWVmVEk4UUNvT0toOStjRzU1VlFzcVcvQThwUnhsY0tD?=
+ =?utf-8?B?Z3FQZGhqcFJZNTQzN2ZrQ2VPSk5yMW5GZ1RBWnltZVdpMTJxWlNrR2doaTBP?=
+ =?utf-8?B?a1NnQ3Z6cnVReVFoaEVSaTcrUVBSTDFmeU9OdFgrdk5GRmE1NzlIb216cnhz?=
+ =?utf-8?B?ckVBbVVvU1pjNGpDcGwyVzVqNDJkRVBhU2s0L090dmNtd3plcmN6MWdVWUtt?=
+ =?utf-8?B?cGRZQzNEK1JjS0xZb2FPS1BXanJlTnpXV2JVR01RK2MrcytYbG1Pa3FORFhl?=
+ =?utf-8?B?MytKU0hYWFcydjhtZ0JoKzNIdVJQb3RyUERYc05ibTFLMk5IbjBwRDhpL1Fo?=
+ =?utf-8?B?R3U3MlJXVHBOK0Fkalpodm5tNVA1OGlYODZZeGM0MzNvbmd6TlJyY1hLYlBD?=
+ =?utf-8?B?YWluNzRKcnB2b2V2OXBGcW9wejAwY2ZSeExHUUJMZmxhdUN1b0xHMlg3MnZs?=
+ =?utf-8?B?TGVQNDFkSjdBWVVWcjlUSzJPakNCc25OQkVaMERRWEUxRDBaUDhXanl6cm11?=
+ =?utf-8?B?RytxZDVoN2w2UVRBRklFU0REVUJnNXJvQzIxLy9rOEFodW5JckZ1TE5PcFFE?=
+ =?utf-8?B?cHJYQUFNeGNkejJFaWROTFQ0YVQ2YUx1RDdmbGN5eXpUVm81M3VScW9iSkVD?=
+ =?utf-8?B?V1BOb3FQTlVWb3kxQmorclBDRndkNWJCU2pQM2NGbGNRU3psTGg3WmxQVWlh?=
+ =?utf-8?B?SFFsalNRTDNDNmVkdDdxN3FJRzNlZjFXQXpuWk5ScjJncVA3b0xYN0s3dVda?=
+ =?utf-8?B?bk9zRy9VSkdGTG9QbGlwTGdYa2pPN1ZKcG5ubDFqaGN0SnhseDJUYjd0Ukpt?=
+ =?utf-8?B?LzE2VTJoTS9QTmwxRG1yRDY0SWt2RDBrZE9WQVByaXZNOXJMRUV2SmxMT2Uy?=
+ =?utf-8?B?Q2lscHc4cTZzU3BWV1ZubVNGTW9HOVRJM2c3L0xUa2tDa2N1emxYd2pVN200?=
+ =?utf-8?B?WUZZQWhxeFhVTDZPblJ3SDhiV0V4OWt2Q0o0enduYTIwVWM0SjRCbXNLeStm?=
+ =?utf-8?B?eFBTU0IwWUZzd3dZMnQ5c0JwVlliWXBQaXhLbDFjd3VjVzdTeFBMc3M4Vy84?=
+ =?utf-8?B?bWdkdGV2TXJobFptSE4zbDhPOWJ6NzRuUWRubjVYMG4zanI2VTYwd2p1ckY2?=
+ =?utf-8?B?Q20xVFVmMFJZUTMwVjVPK3lxRVVoU0NQcEhTOGxJS1JyZ2QyYW5ZTlBLVVR0?=
+ =?utf-8?B?bGM0VmNVY2hBckJoU0h4Z2FVWWxlaTNWR0FpblNDZG1DNkp1Ny9GampYTkY1?=
+ =?utf-8?B?ODJOVTJ2d1FlRUlwYjQ3amVkRW5jRCtvdmV1dXdQL1A5dkVkQ0ppU3JUWXcx?=
+ =?utf-8?B?QlE9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 694c01ee-8184-45e2-ec54-08ddbfbd21e5
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8487.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 14:21:59.7555
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kaAtJMl12LCd3BH+nIYflHce9RoTVAssuBotBytPNPWUdsX2ZaOaucJxuIvjVD1oHnYXfQtzV2e9bPLO/HVte14wXc4AynLfRcYEQEkDuKE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11282
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_071904_012288_341FFEFD 
-X-CRM114-Status: GOOD (  39.61  )
+X-CRM114-CacheID: sfid-20250710_072208_408879_31E824A1 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,374 +204,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo - just one nit, but ignore it if you want
+This patch series adds support for basic GPIO
+operations(set, get, direction_output/input, set_config).
 
-On 10/07/2025 14:52, Jacopo Mondi wrote:
-> Add to the v4l2 framework an helper function to support drivers
-> when validating a buffer of extensible parameters.
->
-> Introduce new types in include/media/v4l2-params.h that drivers shall
-> use in order to comply with the v4l2-params validation procedure, and
-> add a helper functions to v4l2-params.c to perform block and buffer
-> validation.
->
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> ---
->   MAINTAINERS                           |   2 +
->   drivers/media/v4l2-core/Makefile      |   3 +-
->   drivers/media/v4l2-core/v4l2-params.c | 128 ++++++++++++++++++++++++++
->   include/media/v4l2-params.h           | 165 ++++++++++++++++++++++++++++++++++
->   4 files changed, 297 insertions(+), 1 deletion(-)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index beecac86991d988c48d31366ba5201b09ef25715..3d9a8e06c59eb08360d1e8eea85e450a15ee95af 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -25973,6 +25973,8 @@ M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->   L:	linux-media@vger.kernel.org
->   S:	Maintained
->   F:	Documentation/userspace-api/media/v4l/extensible-parameters.rst
-> +F:	drivers/media/v4l2-core/v4l2-params.c
-> +F:	include/media/v4l2-params.h
->   F:	include/uapi/linux/media/v4l2-extensible-params.h
->   
->   VF610 NAND DRIVER
-> diff --git a/drivers/media/v4l2-core/Makefile b/drivers/media/v4l2-core/Makefile
-> index 2177b9d63a8ffc1127c5a70118249a2ff63cd759..323330dd359f95c1ae3d0c35bd6fcb8291a33a07 100644
-> --- a/drivers/media/v4l2-core/Makefile
-> +++ b/drivers/media/v4l2-core/Makefile
-> @@ -11,7 +11,8 @@ tuner-objs	:=	tuner-core.o
->   videodev-objs	:=	v4l2-dev.o v4l2-ioctl.o v4l2-device.o v4l2-fh.o \
->   			v4l2-event.o v4l2-subdev.o v4l2-common.o \
->   			v4l2-ctrls-core.o v4l2-ctrls-api.o \
-> -			v4l2-ctrls-request.o v4l2-ctrls-defs.o
-> +			v4l2-ctrls-request.o v4l2-ctrls-defs.o \
-> +			v4l2-params.o
->   
->   # Please keep it alphabetically sorted by Kconfig name
->   # (e. g. LC_ALL=C sort Makefile)
-> diff --git a/drivers/media/v4l2-core/v4l2-params.c b/drivers/media/v4l2-core/v4l2-params.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..e2d27fa595110600ea27f1c14cd3d129c66dcd75
-> --- /dev/null
-> +++ b/drivers/media/v4l2-core/v4l2-params.c
-> @@ -0,0 +1,128 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Video4Linux2 extensible parameters helpers
-> + *
-> + * Copyright (C) 2025 Ideas On Board Oy
-> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> + */
-> +
-> +#include <media/v4l2-params.h>
-> +
-> +int v4l2_params_buffer_validate(struct device *dev, struct vb2_buffer *vb,
-> +				size_t max_size,
-> +				v4l2_params_validate_buffer buffer_validate)
-> +{
-> +	size_t header_size = offsetof(struct v4l2_params_buffer, data);
-> +	struct v4l2_params_buffer *buffer = vb2_plane_vaddr(vb, 0);
-> +	size_t payload_size = vb2_get_plane_payload(vb, 0);
-> +	size_t buffer_size;
-> +	int ret;
-> +
-> +	/* Payload size can't be greater than the destination buffer size */
-> +	if (payload_size > max_size) {
-> +		dev_dbg(dev, "Payload size is too large: %zu\n", payload_size);
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* Payload size can't be smaller than the header size */
-> +	if (payload_size < header_size) {
-> +		dev_dbg(dev, "Payload size is too small: %zu\n", payload_size);
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* Validate the size reported in the parameter buffer header */
-> +	buffer_size = header_size + buffer->data_size;
-> +	if (buffer_size != payload_size) {
-> +		dev_dbg(dev, "Data size %zu and payload size %zu are different\n",
-> +			buffer_size, payload_size);
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* Driver-specific buffer validation. */
-> +	if (buffer_validate) {
-> +		ret = buffer_validate(dev, buffer);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(v4l2_params_buffer_validate);
-> +
-> +int v4l2_params_blocks_validate(struct device *dev,
-> +				const struct v4l2_params_buffer *buffer,
-> +				const struct v4l2_params_handler *handlers,
-> +				size_t num_handlers,
-> +				v4l2_params_validate_block block_validate)
-> +{
-> +	size_t block_offset = 0;
-> +	size_t buffer_size;
-> +	int ret;
-> +
-> +	/* Walk the list of parameter blocks and validate them. */
-> +	buffer_size = buffer->data_size;
-> +	while (buffer_size >= sizeof(struct v4l2_params_block_header)) {
-> +		const struct v4l2_params_handler *handler;
-> +		const struct v4l2_params_block_header *block;
-> +		bool valid_size = true;
-> +
-> +		/* Validate block sizes and types against the handlers. */
-> +		block = (const struct v4l2_params_block_header *)
-> +			(buffer->data + block_offset);
-> +
-> +		if (block->type >= num_handlers) {
-> +			dev_dbg(dev, "Invalid parameters block type\n");
-> +			return -EINVAL;
-> +		}
-> +
-> +		if (block->size > buffer_size) {
-> +			dev_dbg(dev, "Premature end of parameters data\n");
-> +			return -EINVAL;
-> +		}
-> +
-> +		/* It's invalid to specify both ENABLE and DISABLE. */
-> +		if ((block->flags & (V4L2_PARAMS_FL_BLOCK_ENABLE |
-> +				     V4L2_PARAMS_FL_BLOCK_DISABLE)) ==
-> +		     (V4L2_PARAMS_FL_BLOCK_ENABLE |
-> +		     V4L2_PARAMS_FL_BLOCK_DISABLE)) {
-> +			dev_dbg(dev, "Invalid parameters block flags\n");
-> +			return -EINVAL;
-> +		}
-> +
-> +		/*
-> +		 * Match the block reported size against the handler's expected
-> +		 * one, but allow the block to only contain the header in
-> +		 * case it is going to be disabled.
-> +		 */
-> +		handler = &handlers[block->type];
-> +		if (block->size != handler->size) {
-> +			valid_size = false;
-> +
-> +			if ((block->flags & V4L2_PARAMS_FL_BLOCK_DISABLE) &&
-> +			    block->size == sizeof(*block))
-> +				valid_size = true;
-> +		}
-> +		if (!valid_size) {
-> +			dev_dbg(dev, "Invalid parameters block size\n");
-> +			return -EINVAL;
-> +		}
+There are two SIUL2 hardware modules: SIUL2_0 and SIUL2_1.
+However, this driver exports both as a single GPIO driver.
+This is because the interrupt registers are located only
+in SIUL2_1, even for GPIOs that are part of SIUL2_0.
 
-Maybe just
+There are two gaps in the GPIO ranges:
+- 102-111(inclusive) are invalid
+- 123-143(inclusive) are invalid
 
+These will be excluded via the `gpio-reserved-ranges`
+property.
 
-         if (block->size != handler->size) {
-             if (!(block->flags & V4L2_PARAMS_FL_BLOCK_DISABLE) ||
-                 block->size != sizeof(*block)) {
-                 dev_dbg(dev, "Invalid parameters block size\n");
-                 return -EINVAL;
-             }
-         }
+Writing and reading GPIO values is done via the PGPDO/PGPDI
+registers(Parallel GPIO Pad Data Output/Input) which are
+16 bit registers, each bit corresponding to a GPIO.
 
+Note that the PGPDO order is similar to a big-endian grouping
+of two registers:
+PGPDO1, PGPDO0, PGPDO3, PGPDO2, PGPDO5, PGPDO4, gap, PGPDO6.
 
-But don't bother with a new version if that's the only change.
+I have other patches for this driver:
+- interrupt support
+- power management callbacks
 
+which I plan to upstream after this series gets merged
+in order to simplify the review process.
 
-Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+v7 -> v6
+- fixed MAINTAINERS wrong file path
+- add unevaluatedProperties, change siul2 node name, remove
+  jtag_pins label in the device tree schema
+- change compatible definition in schema
+- change node name in dtsi
+- mentioned binding deprecation in commit messages
+- split mfd cell conversion commit in two: one for the
+  previous refactoring, one for the mfd cell conversion
+- removed Acked-by: Linus Walleij from commit:
+  "pinctrl: s32: convert the driver into an mfd cell"
+  because of changes to that commit
+- deprecate the nxp,s32g2-siul2-pinctrl binding
+- add NVMEM MFD cell for SIUL2
+- made the GPIO driver not export invalid pins
+  (there are some gaps 102-111, 123-143)
+- removed the need for gpio-reserved-ranges
+- force initialized pinctrl_desc->num_custom_params to 0
 
-> +
-> +		/* Driver-specific per-block validation. */
-> +		if (block_validate) {
-> +			ret = block_validate(dev, block);
-> +			if (ret)
-> +				return ret;
-> +		}
-> +
-> +		block_offset += block->size;
-> +		buffer_size -= block->size;
-> +	}
-> +
-> +	if (buffer_size) {
-> +		dev_dbg(dev, "Unexpected data after the parameters buffer end\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(v4l2_params_blocks_validate);
-> diff --git a/include/media/v4l2-params.h b/include/media/v4l2-params.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..e8169e559d114af03bb41876111839fbe023ee6d
-> --- /dev/null
-> +++ b/include/media/v4l2-params.h
-> @@ -0,0 +1,165 @@
-> +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> +/*
-> + * Video4Linux2 extensible parameters helpers
-> + *
-> + * Copyright (C) 2025 Ideas On Board Oy
-> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> + */
-> +
-> +#ifndef V4L2_PARAMS_H_
-> +#define V4L2_PARAMS_H_
-> +
-> +#include <linux/media/v4l2-extensible-params.h>
-> +
-> +#include <linux/device.h>
-> +
-> +#include <media/videobuf2-core.h>
-> +
-> +/**
-> + * typedef v4l2_params_block_handler - V4L2 extensible format block handler
-> + * @arg: pointer the driver-specific argument
-> + * @block: the ISP configuration block to handle
-> + *
-> + * Defines the function signature of the functions that handle an ISP block
-> + * configuration.
-> + */
-> +typedef void (*v4l2_params_block_handler)(void *arg,
-> +					  const struct v4l2_params_block_header *block);
-> +
-> +/**
-> + * struct v4l2_params_handler - V4L2 extensible format handler
-> + * @size: the block expected size
-> + * @handler: the block handler function
-> + * @group: the device-specific group id the block belongs to (optional)
-> + * @features: the device-specific features flags (optional)
-> + *
-> + * The v4l2_params_handler defines the type that driver making use of the
-> + * V4L2 extensible parameters shall use to define their own ISP block
-> + * handlers.
-> + *
-> + * Drivers shall prepare a list of handlers, one for each supported ISP block
-> + * and correctly populate the structure's field with the expected block @size
-> + * (used for validation), a pointer to each block @handler function and an
-> + * optional @group and @feature flags, the driver can use to differentiate which
-> + * ISP blocks are present on the ISP implementation.
-> + *
-> + * The @group field is intended to be used as a bitmask of driver-specific
-> + * flags to allow the driver to setup certain blocks at different times. As an
-> + * example an ISP driver can divide its block handlers in "pre-configure" blocks
-> + * and "run-time" blocks and use the @group bitmask to identify the ISP blocks
-> + * that have to be pre-configured from the ones that only have to be handled at
-> + * run-time. The usage and definition of the @group field is totally
-> + * driver-specific.
-> + *
-> + * The @features flag can instead be used to differentiate between blocks
-> + * implemented in different revisions of the ISP design. In example some ISP
-> + * blocks might be present on more recent revision than others. Populating the
-> + * @features bitmask with the ISP/SoC machine identifier allows the driver to
-> + * correctly ignore the blocks not supported on the ISP revision it is running
-> + * on. As per the @group bitmask, the usage and definition of the @features
-> + * field is totally driver-specific.
-> + */
-> +struct v4l2_params_handler {
-> +	size_t size;
-> +	v4l2_params_block_handler handler;
-> +	unsigned int group;
-> +	unsigned int features;
-> +};
-> +
-> +/**
-> + * typedef v4l2_params_validate_buffer - V4L2 extensible parameters buffer
-> + *					 validation callback
-> + * @dev: the driver's device pointer (as passed by the driver to
-> + *	 v4l2_params_buffer_validate())
-> + * @buffer: the extensible parameters buffer
-> + *
-> + * Defines the function prototype for the driver's callback to perform
-> + * driver-specific validation on the extensible parameters buffer
-> + */
-> +typedef int (*v4l2_params_validate_buffer)(struct device *dev,
-> +					   const struct v4l2_params_buffer *buffer);
-> +
-> +/**
-> + * v4l2_params_buffer_validate - Validate a V4L2 extensible parameters buffer
-> + * @dev: the driver's device pointer
-> + * @vb: the videobuf2 buffer
-> + * @max_size: the maximum allowed buffer size
-> + * @buffer_validate: callback to the driver-specific buffer validation
-> + *
-> + * Helper function that performs validation of an extensible parameters buffer.
-> + *
-> + * The helper is meant to be used by drivers to perform validation of the
-> + * extensible parameters buffer size correctness.
-> + *
-> + * The @vb buffer as received from the vb2 .buf_prepare operation is checked
-> + * against @max_size and its validated to be large enough to accommodate at
-> + * least one ISP configuration block. The effective buffer size is compared
-> + * to the data size reported by @cfg to make sure they match.
-> + *
-> + * If provided, the @buffer_validate callback function is invoked to allow
-> + * drivers to perform driver-specific validation (such as checking that the
-> + * buffer version is supported).
-> + *
-> + * Drivers should use this function to validate the buffer size correctness
-> + * before performing a copy of the user-provided videobuf2 buffer content into a
-> + * kernel-only memory buffer to prevent userspace from modifying the buffer
-> + * content after it has been submitted to the driver.
-> + *.
-> + * Examples of users of this function can be found in
-> + * rkisp1_params_prepare_ext_params() and in c3_isp_params_vb2_buf_prepare().
-> + */
-> +int v4l2_params_buffer_validate(struct device *dev, struct vb2_buffer *vb,
-> +				size_t max_size,
-> +				v4l2_params_validate_buffer buffer_validate);
-> +
-> +/**
-> + * typedef v4l2_params_validate_block - V4L2 extensible parameters block
-> + *					validation callback
-> + * @dev: the driver's device pointer (as passed by the driver to
-> + *	 v4l2_params_validate())
-> + * @block: the ISP configuration block to validate
-> + *
-> + * Defines the function prototype for the driver's callback to perform
-> + * driver-specific validation on each ISP block.
-> + */
-> +typedef int (*v4l2_params_validate_block)(struct device *dev,
-> +					  const struct v4l2_params_block_header *block);
-> +
-> +/**
-> + * v4l2_params_blocks_validate - Validate V4L2 extensible parameters ISP
-> + *				 configuration blocks
-> + * @dev: the driver's device pointer
-> + * @buffer: the extensible parameters configuration buffer
-> + * @handlers: the list of block handlers
-> + * @num_handlers: the number of block handlers
-> + * @block_validate: callback to the driver-specific per-block validation
-> + *		    function
-> + *
-> + * Helper function that performs validation of the ISP configuration blocks in
-> + * an extensible parameters buffer.
-> + *
-> + * The helper is meant to be used by drivers to perform validation of the
-> + * ISP configuration data blocks. For each block in the extensible parameters
-> + * buffer, its size and correctness are validated against its associated handler
-> + * in the @handlers list. Additionally, if provided, the @block_validate
-> + * callback is invoked on each block to allow drivers to perform driver-specific
-> + * validation.
-> + *
-> + * Drivers should to use this function to validate the ISP configuration blocks
-> + * after having validated the correctness of the vb2 buffer sizes by using the
-> + * v4l2_params_buffer_validate() helper first. Once the buffer size has been
-> + * validated, drivers should perform a copy of the user-provided buffer into a
-> + * kernel-only memory buffer @cfg to prevent userspace from modifying the buffer
-> + * content after it has been submitted to the driver, and then call this
-> + * function to perform per-block validation.
-> + *
-> + * Examples of users of this function can be found in
-> + * rkisp1_params_prepare_ext_params() and in c3_isp_params_vb2_buf_prepare().
-> + */
-> +int v4l2_params_blocks_validate(struct device *dev,
-> +				const struct v4l2_params_buffer *buffer,
-> +				const struct v4l2_params_handler *handlers,
-> +				size_t num_handlers,
-> +				v4l2_params_validate_block block_validate);
-> +
-> +#endif /* V4L2_PARAMS_H_ */
->
+v6 -> v5
+- removed description for reg in the dt-bindings and added
+  maxItems
+- dropped label for example in the dt-bindings
+- simplified the example in the dt-bindings
+- changed dt-bindings filename to nxp,s32g2-siul2.yaml
+- changed title in the dt-bindings
+- dropped minItmes from gpio-ranges/gpio-reserved-ranges
+  and added maxItems to gpio-reserved-ranges
+- added required block for -grp[0-9]$ nodes
+- switch to using "" as quotes
+- kernel test robot: fixed frame sizes, added description
+  for reg_name, fixed typo in gpio_configs_lock, removed
+  uninitialized ret variable usage
+- ordered includes in nxp-siul2.c, switched to dev-err-probe
+  added a mention that other commits will add nvmem functionality
+  to the mfd driver
+- switched spin_lock_irqsave to scoped_guard statement
+- switched dev_err to dev_err_probe in pinctrl-s32cc in places
+  reached during the probing part
+
+v5 -> v4
+- fixed di_div error
+- fixed dt-bindings error
+- added Co-developed-by tags
+- added new MFD driver nxp-siul2.c
+- made the old pinctrl driver an MFD cell
+- added the GPIO driver in the existing SIUL2 pinctrl one
+- Switch from "devm_pinctrl_register" to
+  "devm_pinctrl_register_and_init"
+
+v4 -> v3
+- removed useless parentheses
+- added S32G3 fallback compatible
+- fixed comment alignment
+- fixed dt-bindings license
+- fixed modpost: "__udivdi3"
+- moved MAINTAINERS entry to have the new GPIO driver
+  together with other files related to S32G
+
+v3 -> v2
+- fix dt-bindings schema id
+- add maxItems to gpio-ranges
+- removed gpio label from dt-bindings example
+- added changelog for the MAINTAINERS commit and
+  added separate entry for the SIUL2 GPIO driver
+- added guard(raw_spinlock_irqsave) in
+  'siul2_gpio_set_direction'
+- updated the description for
+  'devm_platform_get_and_ioremap_resource_byname'
+
+v2 -> v1
+dt-bindings:
+- changed filename to match compatible
+- fixed commit messages
+- removed dt-bindings unnecessary properties descriptions
+- added minItems for the interrupts property
+driver:
+- added depends on ARCH_S32 || COMPILE_TEST to Kconfig
+- added select REGMAP_MMIO to Kconfig
+- remove unnecessary include
+- add of_node_put after `siul2_get_gpio_pinspec`
+- removed inline from function definitions
+- removed match data and moved the previous platdata
+  definition to the top of the file to be visible
+- replace bitmap_set/clear with __clear_bit/set_bit
+  and devm_bitmap_zalloc with devm_kzalloc
+- switched to gpiochip_generic_request/free/config
+- fixed dev_err format for size_t reported by
+  kernel test robot
+- add platform_get_and_ioremap_resource_byname wrapper
+
+Andrei Stefanescu (12):
+  dt-bindings: mfd: add support for the NXP SIUL2 module
+  mfd: nxp-siul2: add support for NXP SIUL2
+  arm64: dts: s32g: change pinctrl node into the new mfd node
+  pinctrl: s32cc: small refactoring
+  pinctrl: s32cc: change to "devm_pinctrl_register_and_init"
+  dt-bindings: pinctrl: deprecate SIUL2 pinctrl bindings
+  pinctrl: s32g2: change the driver to also be probed as an MFD cell
+  pinctrl: s32cc: implement GPIO functionality
+  MAINTAINERS: add MAINTAINER for NXP SIUL2 MFD driver
+  nvmem: s32g2_siul2: add NVMEM driver for SoC information
+  MAINTAINERS: add MAINTAINER for NXP SIUL2 NVMEM cell
+  pinctrl: s32cc: set num_custom_params to 0
+
+ .../bindings/mfd/nxp,s32g2-siul2.yaml         | 163 +++++
+ .../pinctrl/nxp,s32g2-siul2-pinctrl.yaml      |   2 +
+ MAINTAINERS                                   |   3 +
+ arch/arm64/boot/dts/freescale/s32g2.dtsi      |  48 +-
+ arch/arm64/boot/dts/freescale/s32g3.dtsi      |  48 +-
+ drivers/mfd/Kconfig                           |  12 +
+ drivers/mfd/Makefile                          |   1 +
+ drivers/mfd/nxp-siul2.c                       | 414 +++++++++++
+ drivers/nvmem/Kconfig                         |  10 +
+ drivers/nvmem/Makefile                        |   2 +
+ drivers/nvmem/s32g2_siul2_nvmem.c             | 232 +++++++
+ drivers/pinctrl/nxp/pinctrl-s32.h             |   4 +-
+ drivers/pinctrl/nxp/pinctrl-s32cc.c           | 652 ++++++++++++++----
+ drivers/pinctrl/nxp/pinctrl-s32g2.c           |  32 +-
+ include/linux/mfd/nxp-siul2.h                 |  55 ++
+ 15 files changed, 1502 insertions(+), 176 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
+ create mode 100644 drivers/mfd/nxp-siul2.c
+ create mode 100644 drivers/nvmem/s32g2_siul2_nvmem.c
+ create mode 100644 include/linux/mfd/nxp-siul2.h
+
+-- 
+2.45.2
+
 
