@@ -4,113 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F509C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1170AC83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QGdZ62l/vydF03/ld491RMeCXV/wH0DtGugzWoRO7EI=; b=CnP7WsjIiPFNAZGg5ub0g+GR1H
-	CgI4j6oUJSkNHwF7nqP3CoV7f+oalDtSOXXGqm+a0brWgYqgFmP2X0QxSlQWDqPNHF+rXumRcwfbo
-	v0x8h0c6kaXc6FaFwS9NLQH2SkjXaH6bVWWrecklbEPr09K70YK0eVhURHMjtfCBzBh0Tn0BoMuqZ
-	3o0vOqWgRK438HhySIc2BjctES0IJnOt1W8VWTVA0hKRDbMXtD2tEZtvnCvR+qs0mrEG83n1s4chN
-	BMEQNPBqUw0ns6E/qcQNN3y4QkM/98G9RQN0D3ZUtK1li/hZ6X6PpT0Jyr7M8QXafxr80YBuQ/Ew5
-	wZX3iacA==;
+	bh=7OdI2n2BbI6O31Zan070+SCB6OSAX+67NNWJKs1Y8dU=; b=bTj5O+OKkJZDVWdC6rgItswedO
+	2wLhIe6CWDpkcUHQLXsAAg3ftNtqd7WHv1KX39xNZm5aTC6m3aQ0fc+jBsxaQcMgy8vDyg/3wmsV6
+	k/fuPQoBWpzoHEOsjxht4wZQzklKqYBO0HuKECM6cQpydIWXX37l/RLMq9ZNcw55SgzrL/8wmLMrN
+	9bJe/XYsFXRFNm6/iwm1f2ouvL6nHKLIgyQNy6TD2N4wQ0TG4Ij59MShmS+1/ShTGIhJlUrDFRV2f
+	zz0N9rGr8EfhNHddxqbKVjv3483e2SKpFnkfOAqSznwZX+HzGMhrmHO9xWsTK/bIHfPuObigONJnb
+	OD0r/V3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2Q7-0000000DQ0e-3Ya7;
-	Fri, 11 Jul 2025 01:19:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ua2Q1-0000000DPvX-20D7;
+	Fri, 11 Jul 2025 01:19:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZyzt-0000000D51Z-2SZZ;
-	Thu, 10 Jul 2025 21:40:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B691B61148;
-	Thu, 10 Jul 2025 21:40:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D82C0C4CEE3;
-	Thu, 10 Jul 2025 21:40:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752183604;
-	bh=SBkK1rGeuLP08x314M8mYiMkN0SFKYZEh/eAuabb4Z8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Dnjx6TdIACmG57PtS2gCl0f6rn+0h8ead2EGjXAwqcpPfO1UgHm9gtmbY1ZYaYTOW
-	 eaceEBefNCUqk4pV74bBC1fti1eSWmbuJ0BI8ocrTQ/bmz882KDGNF63pbcgWZuW49
-	 TwWqq3V98YZxgi7YMvTf4+T8Hgqekuenps69uBwEx/Ndo/PPcBKi9oBK51Yz5KkjRE
-	 Tp3qD3ZHUekgcGSjTnxh0oC1csAvbjWkuhjpv+53mGeD9UY+UFG3dFiJuegSQoB45N
-	 XB/EVCyjnEeiSGVuDA4OzGjhm3OzbJVFPRZvsQFXCeIMu+cz1AHj87LbjzJGrq4qVF
-	 KEUqmGakT7EJg==
-Message-ID: <d8b0abb2-1a12-42bf-aafd-4cd1e21babd6@kernel.org>
-Date: Thu, 10 Jul 2025 23:39:58 +0200
+	id 1uZyYJ-0000000D2HP-3lkl
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 21:11:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1752181895;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7OdI2n2BbI6O31Zan070+SCB6OSAX+67NNWJKs1Y8dU=;
+	b=RgNvr+gwYSSp0pIIpfqFmgMoqQOCsb+YFtq4xtxc+err/UliRLVqj5h54hpjFPJ41mtjGy
+	JS1yCiFUpFMILqJsHJHLBMKLJ967qMoSYhmrC9/tyVyKFfWGSzj18PWYJF98N4EVesr12S
+	qSh/f+dREHiAqaAV9IVQ4Sey4leViXI=
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
+ [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-442-wYdpHCuGNbilI6htSl9rJA-1; Thu, 10 Jul 2025 17:11:33 -0400
+X-MC-Unique: wYdpHCuGNbilI6htSl9rJA-1
+X-Mimecast-MFC-AGG-ID: wYdpHCuGNbilI6htSl9rJA_1752181893
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-234f1acc707so10421835ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 14:11:33 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752181893; x=1752786693;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7OdI2n2BbI6O31Zan070+SCB6OSAX+67NNWJKs1Y8dU=;
+        b=tlr2p6DH+reY7JL0E3W5LU4+7SGb2nNZZ4uGd7DgV4WkRFOhda8qW0iR/A+eqEG6WJ
+         E372BNcPOl8mVSpoU0FjPa5VcfuSkH+yMQD7a5duzCXKAHjztxvYH3IIKP7/fghPIdMi
+         S8LDRW/FRAKyZLP4oO87Zsuxben61ctbQLazk2CAdtaehSrzySIxRhoLnM3skp/RGS1q
+         RD2LC47IcU0hcIW2j71eWY+krOufT8JzIKyWzxcPEiGoid9EQWseT2T3sFOfEuF62BnM
+         Em/PlCn/hePX2WPqDOW9fhEWle5S6yJM/0uDNtc9UYmVm87HyOUrBCvyEEq+/kvSP/lF
+         uB6A==
+X-Forwarded-Encrypted: i=1; AJvYcCUAYMKn5XJKPT3YEWXF5Y//AsgVi9XWol+Uiwsj9sP3Ev9Wy6pG/CDUc+hO/2LEBtRXDEKuGAAlAR0yf9MwCUs0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzfg3xvHuN2NHg1muXf7IGLpdb5LEjYlM2v6P3e2ge7C4Cmn37d
+	GMRYtEJ6oiD3Px7fMNjx7SCxZ38fKNO1ZOd3+wHpf+Vv7CcFP9NsSTrn+n2+LmITL/nbTyMLan/
+	PcAG33GHFxEHcCAWmrKjggXulVoM0T3csx2Tyq+s9ER7bghY9sKR8BRtWJKvyC4I6DtIi/fze3T
+	hB
+X-Gm-Gg: ASbGncssexvknmOQ/zbFZXradJPlgz18tR8VGbKw/N1nKW0bhZyb1J/2jC7M6Z3bjEZ
+	GpcpJCVK+zUq2qjxte4imMthDxgMDm55tIwvAJvVu52uNwqZ4I8NusTqyAkchg1XOaia1/V6E/h
+	2TCk3Cvgy34kUPOhmjodp07YRIxR6XEnoCgCQThGTdu2rFnX5e/5JG/EnhzUmL9+O463U+YArti
+	NANuzoNDa91gL2MbpS3fF6vrMR7iWYuLWfAf8kpDZvZ/iyGL8m7xyPkrI0x1X8NYM4LDL2H58oR
+	4cw2pnwApmOo3ThV1jIZKMF3IK3wNcAd5SQO4snw9jbCcQ==
+X-Received: by 2002:a17:903:284b:b0:234:bca7:2920 with SMTP id d9443c01a7336-23dee26e1e7mr7066155ad.24.1752181892839;
+        Thu, 10 Jul 2025 14:11:32 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGAu3uiVY2jtZDcVPMevBM73tyCaoBmEhvedjxReOqIZVBYPZ2AIvZ/v7pzQGp0pUiWsezqJw==
+X-Received: by 2002:a17:903:284b:b0:234:bca7:2920 with SMTP id d9443c01a7336-23dee26e1e7mr7065935ad.24.1752181892473;
+        Thu, 10 Jul 2025 14:11:32 -0700 (PDT)
+Received: from [10.144.155.224] ([2600:382:7716:65ad:9491:c054:6f2d:80ed])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de433e51asm27790595ad.180.2025.07.10.14.11.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Jul 2025 14:11:31 -0700 (PDT)
+From: Brian Masney <bmasney@redhat.com>
+Date: Thu, 10 Jul 2025 17:10:37 -0400
+Subject: [PATCH 05/13] clk: imx: fixup-div: convert from round_rate() to
+ determine_rate()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv3 wireless-next 7/7] dt-bindings: net: wireless: rt2800:
- add
-To: Rosen Penev <rosenp@gmail.com>, linux-wireless@vger.kernel.org
-Cc: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Stanislaw Gruszka <stf_xl@wp.pl>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- "moderated list:ARM/Mediatek SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "moderated list:ARM/Mediatek SoC support"
- <linux-mediatek@lists.infradead.org>
-References: <20250710200820.262295-1-rosenp@gmail.com>
- <20250710200820.262295-8-rosenp@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250710200820.262295-8-rosenp@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Message-Id: <20250710-clk-imx-round-rate-v1-5-5726f98e6d8d@redhat.com>
+References: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
+In-Reply-To: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Maxime Ripard <mripard@kernel.org>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Brian Masney <bmasney@redhat.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752181866; l=1723;
+ i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
+ bh=FmCXWb+BuxfKsiZrK/6kC2xW6WNc9yFq8m/tSU8l3Ak=;
+ b=hclBooQtsYlgA2vFqMcl7brjchHA4Ks2oNDabec40XP6enmczIY/tMlPLkAvRmJvAPEBVB+de
+ m+Reyr1sht6D3e09RWi133tloOn8bbGLpkWznbErndPrN6S8OmRbddA
+X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
+ pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: YO0TkyzERTCRNCNL_QGyZ0fyR8m6Nx9rYqFFf24CNGM_1752181893
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250710_141136_008888_BCB71C7B 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,25 +123,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/07/2025 22:08, Rosen Penev wrote:
-> Add device-tree bindings for the RT2800 SOC wifi device found in older
-> Ralink/Mediatek devices.
-> 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  .../bindings/net/wireless/ralink,rt2800.yaml  | 47 +++++++++++++++++++
->  1 file changed, 47 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
-> new file mode 100644
-> index 000000000000..8c13b25bd8b4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
+The round_rate() clk ops is deprecated, so migrate this driver from
+round_rate() to determine_rate() using the Coccinelle semantic patch
+on the cover letter of this series.
 
-Filename should match compatible. You were already changing something
-here...
+The change to call fixup_div->ops->determine_rate() instead of
+fixup_div->ops->round_rate() was done by hand.
 
-Best regards,
-Krzysztof
+Signed-off-by: Brian Masney <bmasney@redhat.com>
+---
+ drivers/clk/imx/clk-fixup-div.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/clk/imx/clk-fixup-div.c b/drivers/clk/imx/clk-fixup-div.c
+index 100ca828b052d701be84b62378844c1a9fcc1aaa..6af8fd065fd3cd71b66713105aa68b3b19a22810 100644
+--- a/drivers/clk/imx/clk-fixup-div.c
++++ b/drivers/clk/imx/clk-fixup-div.c
+@@ -41,12 +41,12 @@ static unsigned long clk_fixup_div_recalc_rate(struct clk_hw *hw,
+ 	return fixup_div->ops->recalc_rate(&fixup_div->divider.hw, parent_rate);
+ }
+ 
+-static long clk_fixup_div_round_rate(struct clk_hw *hw, unsigned long rate,
+-			       unsigned long *prate)
++static int clk_fixup_div_determine_rate(struct clk_hw *hw,
++					struct clk_rate_request *req)
+ {
+ 	struct clk_fixup_div *fixup_div = to_clk_fixup_div(hw);
+ 
+-	return fixup_div->ops->round_rate(&fixup_div->divider.hw, rate, prate);
++	return fixup_div->ops->determine_rate(&fixup_div->divider.hw, req);
+ }
+ 
+ static int clk_fixup_div_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -81,7 +81,7 @@ static int clk_fixup_div_set_rate(struct clk_hw *hw, unsigned long rate,
+ 
+ static const struct clk_ops clk_fixup_div_ops = {
+ 	.recalc_rate = clk_fixup_div_recalc_rate,
+-	.round_rate = clk_fixup_div_round_rate,
++	.determine_rate = clk_fixup_div_determine_rate,
+ 	.set_rate = clk_fixup_div_set_rate,
+ };
+ 
+
+-- 
+2.50.0
+
 
