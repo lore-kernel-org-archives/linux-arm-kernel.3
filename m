@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD36C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 03:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B86C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 03:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ofyuJwl3y1r4h5IJbhYbRfRJOQQiac5d/UmKr5ggqiM=; b=C/eVWOOKbe08S8vSQVQ19Wkhdx
-	ANbsO8lSO33PlgHDCU4xaP0UC02h5hw8OLE2VobYXDLdPN1FCex4etHpVTmlc7LH5o0g2ylDCUsiW
-	Vo29L/ALuO+sKucBR8O1IytWVnFyhgzanb9Cdkd0c+7BxXkyvS3oXhLsB98SRaMjWvgyr3oaB7tGV
-	Ms8WbjwVvQwMEnW+d71Jiem1E9jFGUp1g4Lh4hBC0iN1O8kSAs7XRHs6vbU6VaE2KudoZ754wNxsb
-	rKx5rcKX9rhEx4vAaGiFfx6aHUgM38zNc8kuktefHtZmAgO17GCSYEnmRMqEV3fJZ485byTAsNs/r
-	1IU1jYNw==;
+	bh=0VNPzK6V//y/ky/cCXL1fhCevVWEWNaOmgGDWeVTWXk=; b=IWd/fC2rwhBAuzOMI6wd++GtTh
+	X35eicKztGqTdFWvCK8PfOJEpKyfmEmFfVIfetbt0fadkBgW8UarjqhniiRJqmK9+TSSnVQ7nBJDw
+	Tt4//Zloj6UCANeG/rrDxpDQ8r1CLh3QPTBEdWkhqPgoP6CjV8CSfZF43QZqcyvxTx8deccgHPD1w
+	uAbghYFF2KGUcbxN2bBQ16vM0ddPqVaTDaZQfZN4HcSNXt+ZlcSKgfRAf3shATbxvackF2oxrFGeF
+	yxHi1fk/qVPh545iWBPBEAk6v3+l6wmsVhj5wfhERUQ48707onidRlUkZK/aDc1FoVAKHWQVApmzN
+	t1Msa9Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZiC3-0000000Abnl-1mL7;
-	Thu, 10 Jul 2025 03:43:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uZiEP-0000000Ac6J-0jFY;
+	Thu, 10 Jul 2025 03:45:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZi4z-0000000AaY2-3s96;
+	id 1uZi4z-0000000AaXw-2yJs;
 	Thu, 10 Jul 2025 03:36:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B223261453;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A27045E73;
 	Thu, 10 Jul 2025 03:36:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 108AAC4CEFD;
-	Thu, 10 Jul 2025 03:36:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DB9B4C4CEF5;
+	Thu, 10 Jul 2025 03:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752118572;
-	bh=8w2K7QZ6AF4MXhKAWZ0WsVMksPAeq09KxjKPNZT4T98=;
+	s=k20201202; t=1752118571;
+	bh=//XINryxTmCrNyFb/Ct61hIPybf0yNjBvdelFx7bQ14=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=TgG742dOsrxHtdgzj+eCd1PkLdIiMQIU1uZfFNXx3IdH3fRqUhqlUj1QDXBJBbTUo
-	 rDxAghZLlQ5xIH99QORiSp58A6XjXzFegxbYVknEs+sdzqaNJ34Kii3FJFouQQZszH
-	 rech3Yg9w95VGhs0SJu7my1twhE6Bwy/Fy8kA57pjhOSSNqsvn9XwKidorEKDQskpV
-	 IXPcKRSAsgvgi8dG4AGYMZJTkHKaHiYPgllP/d7g5qxLSLkJFmJrAYYQ5I40XOHaC7
-	 yaXQMqq+nfTT2UtLZb9HU+ZDoXb/Y90waH1PL4/2EmzJt7NQXOOSGnnxYRa1crU7CN
-	 md7HDbD7+9/xg==
+	b=kkrnOAxXTMSlLFNg6v0c+xTV5qRyIWAEA9MGwPRXxA7ryjseHdNkQ00odvaGGcJoV
+	 /oXAYn1FXDUTaLMa3rgqUokmYfVuWCYaoiu4k6jKMIcKLRRJRZge6Z/8Chi1ImrPqI
+	 Lw7XcWMHpDZ7W2BpPjXfqMLv/KbcoM488eMPzDF2syhj7A7kp4JK+1bIte+j8b8h8D
+	 rsswUExVHhJlAnhQelcqbzoWtq6WvuAjOXaPmydybBLJC8byFze0UKwtw0vlZ+MXd/
+	 PpKUXOCYzLqMIM9XGo2n24fgxqHo0YXT491zH6/8z2Nlzk8s3/i3hB5hmYZclSpnPs
+	 d/o1aFdC5jxdw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 01561C83F1B;
-	Thu, 10 Jul 2025 03:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CA1D2C83030;
+	Thu, 10 Jul 2025 03:36:11 +0000 (UTC)
 From: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>
-Date: Thu, 10 Jul 2025 11:35:40 +0800
-Subject: [PATCH v5 4/6] ASoC: meson: g12a-toacodec: Add s4 tocodec driver
+Date: Thu, 10 Jul 2025 11:35:37 +0800
+Subject: [PATCH v5 1/6] dt-bindings: clock: meson: Add audio power domain
+ for s4 soc
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250710-audio_drvier-v5-4-d4155f1e7464@amlogic.com>
+Message-Id: <20250710-audio_drvier-v5-1-d4155f1e7464@amlogic.com>
 References: <20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com>
 In-Reply-To: <20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com>
 To: Jerome Brunet <jbrunet@baylibre.com>, 
@@ -68,16 +69,19 @@ Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
  jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com, 
  jiebing chen <jiebing.chen@amlogic.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752118569; l=3554;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752118569; l=3341;
  i=jiebing.chen@amlogic.com; s=20250110; h=from:subject:message-id;
- bh=MLfvyxlbPsF5sk8NMUX7mF1hDMY2Iagf6LVWAbphU3w=;
- b=Rj3QS2sdPqUT+gPd/INbgcmQ3ZEZc5rhwuKhkgewA2BrN0DIsg/d7ZZONHJx9jHk+w2Lyo0ql
- baA0fExXo8QBTht5jGhDtGndlBQh31gZ7/2wADrwLL6RlLHpRuUsQf7
+ bh=yhsDXY7MMuP9ySNiIHj39Bbbf6ifv82AD9aG95a7FPY=;
+ b=HRzZrpgSyMnpl/g7RHqIYGPk+EWvIzv1UFfvZEX3wevTxrCDzEyWmeD2hjyeoTXBQkF3x/u9Z
+ HDXGEqCWaujBJZeKMnPNwhyn0alcJBgFA9a3avMZjC+jNYSXuybdFDI
 X-Developer-Key: i=jiebing.chen@amlogic.com; a=ed25519;
  pk=6rFvvF45A84pLNRy03hfUHeROxHCnZ+1KAGw/DoqKic=
 X-Endpoint-Received: by B4 Relay for jiebing.chen@amlogic.com/20250110 with
  auth_id=316
 X-Original-From: jiebing chen <jiebing.chen@amlogic.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250709_203613_800141_45F1B19F 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,102 +99,118 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: jiebing chen <jiebing.chen@amlogic.com>
 
-The S4 tocodec supports 8-lane input configuration, requiring BCLK
-and MCLK control bits to be enabled during operation.
+The audio power domain has been detected on S4 device.
+It must be enabled prior to audio operations.
 
 Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
 ---
- sound/soc/meson/g12a-toacodec.c | 42 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
+ .../bindings/clock/amlogic,axg-audio-clkc.yaml     | 55 +++++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 1 deletion(-)
 
-diff --git a/sound/soc/meson/g12a-toacodec.c b/sound/soc/meson/g12a-toacodec.c
-index 531bb8707a3ec4c47814d6a0676d5c62c705da75..cb2169293f0e800bd9c0893087ffc4813f3360e2 100644
---- a/sound/soc/meson/g12a-toacodec.c
-+++ b/sound/soc/meson/g12a-toacodec.c
-@@ -41,6 +41,9 @@
- #define  CTRL0_BCLK_SEL_LSB		4
- #define  CTRL0_MCLK_SEL			GENMASK(2, 0)
+diff --git a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
+index fd7982dd4ceab82389167079c2258a9acff51a76..c3f0bb9b2ff050394828ba339a7be0c9c48e9a76 100644
+--- a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
++++ b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
+@@ -21,6 +21,8 @@ properties:
+       - amlogic,axg-audio-clkc
+       - amlogic,g12a-audio-clkc
+       - amlogic,sm1-audio-clkc
++      - amlogic,s4-audio-clkc
++      - amlogic,clock-pads-clkc
  
-+#define CTRL0_BCLK_ENABLE_SHIFT		30
-+#define CTRL0_MCLK_ENABLE_SHIFT		29
-+
- #define TOACODEC_OUT_CHMAX		2
+   '#clock-cells':
+     const: 1
+@@ -100,13 +102,15 @@ properties:
+   resets:
+     description: internal reset line
  
- struct g12a_toacodec {
-@@ -143,6 +146,19 @@ static const struct snd_soc_dapm_widget sm1_toacodec_widgets[] = {
- 			    &g12a_toacodec_out_enable),
- };
++  power-domains:
++    maxItems: 1
++
+ required:
+   - compatible
+   - '#clock-cells'
+   - reg
+   - clocks
+   - clock-names
+-  - resets
  
-+/*
-+ * FIXME:
-+ * On this soc, tocodec need enable mclk and bclk control
-+ * just enable it when dapm power widget power on.
-+ */
-+
-+static const struct snd_soc_dapm_widget s4_toacodec_widgets[] = {
-+	SND_SOC_DAPM_MUX("SRC", TOACODEC_CTRL0, CTRL0_BCLK_ENABLE_SHIFT, 0,
-+			 &sm1_toacodec_mux),
-+	SND_SOC_DAPM_SWITCH("OUT EN", TOACODEC_CTRL0, CTRL0_MCLK_ENABLE_SHIFT, 0,
-+			    &g12a_toacodec_out_enable),
-+};
-+
- static int g12a_toacodec_input_hw_params(struct snd_pcm_substream *substream,
- 					 struct snd_pcm_hw_params *params,
- 					 struct snd_soc_dai *dai)
-@@ -236,6 +252,10 @@ static const struct snd_kcontrol_new sm1_toacodec_controls[] = {
- 	SOC_SINGLE("Lane Select", TOACODEC_CTRL0, CTRL0_LANE_SEL_SM1, 3, 0),
- };
+ allOf:
+   - if:
+@@ -116,12 +120,37 @@ allOf:
+             enum:
+               - amlogic,g12a-audio-clkc
+               - amlogic,sm1-audio-clkc
++              - amlogic,s4-audio-clkc
+     then:
+       required:
+         - '#reset-cells'
+     else:
+       properties:
+         '#reset-cells': false
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - amlogic,s4-audio-clkc
++    then:
++      required:
++        - power-domains
++    else:
++      properties:
++        power-domains: false
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - amlogic,clock-pads-clkc
++    then:
++      properties:
++        resets: false
++    else:
++      required:
++        - resets
  
-+static const struct snd_kcontrol_new s4_toacodec_controls[] = {
-+	SOC_SINGLE("Lane Select", TOACODEC_CTRL0, CTRL0_LANE_SEL_SM1, 7, 0),
-+};
-+
- static const struct snd_soc_component_driver g12a_toacodec_component_drv = {
- 	.probe			= g12a_toacodec_component_probe,
- 	.controls		= g12a_toacodec_controls,
-@@ -258,6 +278,17 @@ static const struct snd_soc_component_driver sm1_toacodec_component_drv = {
- 	.endianness		= 1,
- };
+ additionalProperties: false
  
-+static const struct snd_soc_component_driver s4_toacodec_component_drv = {
-+	.probe			= sm1_toacodec_component_probe,
-+	.controls		= s4_toacodec_controls,
-+	.num_controls		= ARRAY_SIZE(s4_toacodec_controls),
-+	.dapm_widgets		= s4_toacodec_widgets,
-+	.num_dapm_widgets	= ARRAY_SIZE(s4_toacodec_widgets),
-+	.dapm_routes		= g12a_toacodec_routes,
-+	.num_dapm_routes	= ARRAY_SIZE(g12a_toacodec_routes),
-+	.endianness		= 1,
-+};
-+
- static const struct regmap_config g12a_toacodec_regmap_cfg = {
- 	.reg_bits	= 32,
- 	.val_bits	= 32,
-@@ -278,6 +309,13 @@ static const struct g12a_toacodec_match_data sm1_toacodec_match_data = {
- 	.field_bclk_sel	= REG_FIELD(TOACODEC_CTRL0, 4, 6),
- };
- 
-+static const struct g12a_toacodec_match_data s4_toacodec_match_data = {
-+	.component_drv	= &s4_toacodec_component_drv,
-+	.field_dat_sel	= REG_FIELD(TOACODEC_CTRL0, 19, 20),
-+	.field_lrclk_sel = REG_FIELD(TOACODEC_CTRL0, 12, 14),
-+	.field_bclk_sel	= REG_FIELD(TOACODEC_CTRL0, 4, 6),
-+};
-+
- static const struct of_device_id g12a_toacodec_of_match[] = {
- 	{
- 		.compatible = "amlogic,g12a-toacodec",
-@@ -287,6 +325,10 @@ static const struct of_device_id g12a_toacodec_of_match[] = {
- 		.compatible = "amlogic,sm1-toacodec",
- 		.data = &sm1_toacodec_match_data,
- 	},
-+	{
-+		.compatible = "amlogic,s4-toacodec",
-+		.data = &s4_toacodec_match_data,
-+	},
- 	{}
- };
- MODULE_DEVICE_TABLE(of, g12a_toacodec_of_match);
+@@ -129,6 +158,7 @@ examples:
+   - |
+     #include <dt-bindings/clock/axg-clkc.h>
+     #include <dt-bindings/reset/amlogic,meson-axg-reset.h>
++    #include <dt-bindings/power/meson-s4-power.h>
+     apb {
+         #address-cells = <2>;
+         #size-cells = <2>;
+@@ -198,4 +228,27 @@ examples:
+                           "slv_lrclk9";
+             resets = <&reset RESET_AUDIO>;
+         };
++      clk_pad: clock-controller@330e80 {
++        compatible = "amlogic,clock-pads-clkc";
++        reg = <0x0 0x330e80 0x0 0x10>;
++        #clock-cells = <1>;
++        clocks = <&clkc_periphs CLKID_AUDIO>,
++                 <&clkc_pll CLKID_MPLL0>,
++                 <&clkc_pll CLKID_MPLL1>,
++                 <&clkc_pll CLKID_MPLL2>,
++                 <&clkc_pll CLKID_MPLL3>,
++                 <&clkc_pll CLKID_HIFI_PLL>,
++                 <&clkc_pll CLKID_FCLK_DIV3>,
++                 <&clkc_pll CLKID_FCLK_DIV4>,
++                 <&clkc_pll CLKID_FCLK_DIV5>;
++        clock-names = "pclk",
++                      "mst_in0",
++                      "mst_in1",
++                      "mst_in2",
++                      "mst_in3",
++                      "mst_in4",
++                      "mst_in5",
++                      "mst_in6",
++                      "mst_in7";
++      };
+     };
 
 -- 
 2.43.0
