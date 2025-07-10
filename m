@@ -4,148 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9DBC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 11:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 998BCC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 11:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8QdOr/MTvYoxHGx+Yaae1YbuHtcqs1erFlYkNvsj1CA=; b=XLfGBa5hgMzsOWBuwixr6TcnhA
-	sh7WSo39sr9kriT0YF6VMq7Y/WPY1fTBJZccj2IFpT95nXdDuZF06mUESiArp/CE9iUP8g7+YTZJZ
-	0SsdOi2J/3rSAnqaNzPA33Jl969sqf3NF026YRgHYqBlOdrr/pC469ywzT6o28a2EaRN8ns+Pwv6h
-	iVmbXkaWCqgOnDxgB/m548f/krgEjAJNQ3TFIImizcZX6JlCE2DoDFuK87ASdYrZCGzkOIT2z0jWU
-	InBmvvgk2DfFCnrAJazuWKVov8/EUUgjhqhAmj6HJf9VUnFmZiBgTNKAGVnE+CuwD+0CBuKNy0rDb
-	j0EchlxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KChzwlx62gznJ02wP+JtIQdsSNeFH7w+MUK9U4r908k=; b=vKIZQACLiWLpIx2ny0oj0ntk0x
+	iCxGPzQYBMEFBNao3J6vqhBaiRFf/aC10zM6TxIA2P9Pr9pvSbKa2+MdTHnNsJ/lHV0sgNbMNGxr0
+	nr8Da+NBbP7hfC1+pBylwGSXe8Wd+0+45znB9vVAds/xt8vixi3bQsC5688O/1UuaAXPxHzV9b9tX
+	IIToaxE2baSH8KqggCUewjubSfaMxrJxon2y3Lcy+oT632gZD1ekm752kHMPBvsVqXJGrW/IegQWv
+	zmhCbNScgMg95rglt6SfsY/V8PcXlaBmryz21FciXMb0Z8r+94KNrOqW0KKb/WwB9//2TM+EE0dP8
+	LPZ+SCQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZpSK-0000000Bdoq-1t9X;
-	Thu, 10 Jul 2025 11:28:48 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uZpUd-0000000Be4x-0erw;
+	Thu, 10 Jul 2025 11:31:11 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZo6T-0000000BPUv-1AJk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 10:02:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sOPx+QnLgoXaKSdPDD8q6rof4MGvujMbphDm7Ckt6t6fAffdHhvutNqf8BGNhbQJCQ0VQp6RyXF3xg1ff/kLV/1NFATpn8+B2hxkIj61eeL5vwR1a/CqUSczCvdZKjtHF9lnSqdOzl/lN51ZfqNsnmflGx5L6OUOSD8YnHNk42GnSaysVp7jq/0NtJ+Xr7/7FjjOO+pZvRW/wEshB3o1iHLdRT2Q0Oxw7+GLg4w8zFyelDI3gU6ZOOGVe68LJnzneeZVVyoGmSM87rt3jg1rg6LInHQo0iCfR8X5/01vM0cIbrKCyQ3sjHKkekWDPkr4Ocsq4luFOu8RyJPBy9b+5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8QdOr/MTvYoxHGx+Yaae1YbuHtcqs1erFlYkNvsj1CA=;
- b=gDC7JF7Tv1QgmH1oh1g1YEBBP3BCM3d9tCGK5sGkRoBmEMPAU8hJWnRIfWi6dgYA/PJUmPBkfpr+A/h1dO1rfIOa1hKeFNLb5jtpxkXaYp7GVRdwCarl0DZ/ibfPvRtKd5TOnROZY3HFg0IZ/mycuDoQWjXkQXdn07yUC3zF/8idQYs0JM/rMhf67AITPRH+Y2qEKv7vEkMhTbOUpeolnfth4Ra/FSRNjU9c/ujSfRa6M2/7BZitHW2ol7pbTs3uvhI7xjYOdrA2R/pB5MMGhXdoumu6SMrQNJ+xr8IwEbrgVhgk9Uy4+IC1rgKdQTyD+UHIdKiY/JLS9vCtBDhF4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8QdOr/MTvYoxHGx+Yaae1YbuHtcqs1erFlYkNvsj1CA=;
- b=N6qqztwaeNbMHZPsy7QCRWqo0cMs9+yn7YK1MY9vr4VpP2sFS/47h8FSYENBb8XkpFMhK/N4b8gKar9SDih/PPi/Cco7WsSaGIuwjj9+4X0BKA9xb/dmfEbgM4P3LyJTcI5ojrMKtsC1E3rhAnXUzYlLU41Wx+Bl59htVbKAu5XW43zvQq9VTnSAi8/xCO66v2gsQEFjKyNpjkKbuP9f1vPnAxco6JzlPiQapBrgb7tP8ppU6whIyJWNGQProLDdQ0fwPU/1rbARUdEEQys5efkVyIHQ5cs9gOpH+guGuAwO6rjAvTdMuUNcP++INChFfIv5flGVvopu9QDGbYkXhA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
- by PA1PR04MB11311.eurprd04.prod.outlook.com (2603:10a6:102:4f3::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.29; Thu, 10 Jul
- 2025 10:02:02 +0000
-Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
- ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
- ([fe80::b317:9c26:147f:c06e%5]) with mapi id 15.20.8880.030; Thu, 10 Jul 2025
- 10:02:02 +0000
-Date: Thu, 10 Jul 2025 13:01:58 +0300
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
-	Michael Walle <mwalle@kernel.org>, Lee Jones <lee@kernel.org>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 5/9] drivers: gpio: add QIXIS FPGA GPIO controller
-Message-ID: <o5v2xdlrtjcgcd6usrfmtq6qffyigudvx3flhhetnd4ufg2mcx@5tem3jrlpxw5>
-References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
- <20250709112658.1987608-6-ioana.ciornei@nxp.com>
- <898af9ea-9b90-4d1f-8e0d-a8e0686d72a7@lunn.ch>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <898af9ea-9b90-4d1f-8e0d-a8e0686d72a7@lunn.ch>
-X-ClientProxiedBy: FR4P281CA0279.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e6::11) To AS8PR04MB8868.eurprd04.prod.outlook.com
- (2603:10a6:20b:42f::6)
+	id 1uZoEj-0000000BQTt-45yk;
+	Thu, 10 Jul 2025 10:10:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1752142240;
+	bh=YNOs0jcJynpyowq2UFhMzKMoID+UYnwq0H47JXr44/c=;
+	h=Date:To:Cc:From:Subject:From;
+	b=NiphkluzssVpA+iT+hdhzLnhO0fZ1L7Jj295xpuBabcirnOHIymSsYeo9k0wi5j37
+	 7uhRJ4JetJeJ/v0N1NDVXKmS3o1LzIzEyntu9N/xUq0Edzlrz2H+KR5Hjx5oNHAOyD
+	 xxklNLkxOJfFo7Uf1Og9gcXGi2ISH86UFr/rHyv/GvGlu8k+xqyVe3WWoGifIEkaOG
+	 Fv8ApeKOmsvW7DkXAo0y8E3bn6rRj3j5zsjYo2umBPv3CtxnqUvY01xhhW2osFoAEG
+	 aUDNLNwqymuP9UpEywA2t+NOWKeimkkoGAMjcIMeQGmNIFu3l+eQzsdrct1uaH6raY
+	 RM295kUC3Ct0A==
+Received: from [192.168.50.250] (unknown [171.76.82.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: vignesh)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0706817E0286;
+	Thu, 10 Jul 2025 12:10:36 +0200 (CEST)
+Message-ID: <7b6e2e3b-2ea2-4cd7-92a5-68d23a63e426@collabora.com>
+Date: Thu, 10 Jul 2025 15:40:07 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|PA1PR04MB11311:EE_
-X-MS-Office365-Filtering-Correlation-Id: fefe6965-be60-4103-4627-08ddbf98d0f8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8UyHbVSJzF8hCtpj5OGxAkjMgyEb27NZaSrDWs6JF7a1+no8Cs7Pv1Uj8TKN?=
- =?us-ascii?Q?4zfVZ5S8rPOyTfQbkytZIxVl4PpXSgQjNDZaT5X8IGAvQplsJBX4fQ+c1rhW?=
- =?us-ascii?Q?HknthBJRyZK731GJvHl9kCj8thTG1JncnR9IgBW1H0vkdKH5PCWrvb148Nr0?=
- =?us-ascii?Q?84/40iQCDYexwAr1VsUiD35y0us9+CdDlWe1ep0EFlXFOEEhtLwnLL0t9RiB?=
- =?us-ascii?Q?nJd6AH2XS+TpcLZlLrqxw1Bzjr4/fcqhE0uARsLFBKjRDFu03sMZTufqO0gA?=
- =?us-ascii?Q?P4bida1qR2hHtP0RtxxsowWopakertK2oxQJNudmAGhyjSuKhLljkhs/YH9K?=
- =?us-ascii?Q?y7EM+tZrMeYIptWhur/g6OnKzFyapbAYbL6aVA1ggcqTm/M0fOsDATkVyaMc?=
- =?us-ascii?Q?3RUZ5XCHVPadfJMN7PMcJhPTGhvu+NMFp55ftY1SFXHBsrDIqbvXwJRmW//q?=
- =?us-ascii?Q?Lct0QcBEFJEpbDdglZhyM4tEoQsldX+msOjyldEOYjCDcK22v8m+/l0LjBWC?=
- =?us-ascii?Q?kZS6GUVNPdn1P0Ex/205WA2vACBsCyWbivTZOH5qB6vcYZVCWvWZllkYGuHI?=
- =?us-ascii?Q?McPfwyyycN7w4pAaHMnLp5L+NE/i+B9iZY+L4llfqKPfUrQJlO5v8aQ837ih?=
- =?us-ascii?Q?1iv+Q0KnBcqU/XR/ywD9MR2m6PEv+vkTFYv5G87h/hcI/WTdFrQt3794D0AU?=
- =?us-ascii?Q?b+B3/tXM2MumUl6Mjfp+4xl6/X/IH1QoMAGHqljIZq65q9MfNaDedKMxrpQM?=
- =?us-ascii?Q?iJl/+gHt3LzyWYrxPdOvw0dwGUjt8nnCtjuoWPAtpp0M8BdLiokFzOvXjL8k?=
- =?us-ascii?Q?OC5Rx3MK46t5OBFr1Vnz9mQ7hHxDKCJQhywr9J7wPukoA4KkTsbvp/64vqdU?=
- =?us-ascii?Q?BMiGB60k0ysGtG6l9RiyTIGO8hgtLMEjg+yU50W/rI361cythq+tlaZdF3qZ?=
- =?us-ascii?Q?PYU7kWp0rTPVtAZ8quUi0hfLfpaSNlLdWmnEb5Ah68g4Q7E9gb/d13S2NT/F?=
- =?us-ascii?Q?4h0f7RpTJTsyWuzp+VMsEyKsbJvek8Zu/CD1JcS8Ued+A87XS95JJNnF6Ezp?=
- =?us-ascii?Q?RNit3+K7hfT8ewy4FMgmUxX9KVQ4nmOlUXA0HY9GDAaoJq76yzgdKI3AenNA?=
- =?us-ascii?Q?OIGRA12ILeGcZN7zF+xSXHCUEFOC0xZQ9m9cHvnl5KXhCOwB9CMC26IqtVvm?=
- =?us-ascii?Q?KUEjSt2zGL6wMi/6TUc7SCeBryIDZMqD321ccwgDGBXgLs1ek2/UFRqmecXK?=
- =?us-ascii?Q?GaW7Wyol5sLMPLhsuzmgUDnGUBSkjZD6hZjV2TTv/5eF4CnukZ5XhxNx2z5x?=
- =?us-ascii?Q?5Zelc0ENyFruxP09BxvD1MNPhp50OJuS3E/RKN1h96RLby8vKxRn6RlXo244?=
- =?us-ascii?Q?FsXuC6Y9xBMUq9Wk2j7HJU6pjo68pdYu840i9lYxeworDKFGgg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YZHgG00GEu54EWRY7NGdwjQ7echqQftrUWrDI/GjiELg1dM/Q6nsJ3gA24Cq?=
- =?us-ascii?Q?sDfI5jEM759ZBlAvoC1sy2uA8NNcC+RAJbysd0iDaOH+Jyr2ddlHex2ZiSKd?=
- =?us-ascii?Q?m9A2e3oFgsRKpV+rb3DgG6H9N8MaV5exytW8I1riHVE9A9B2UY+yStQCUtxT?=
- =?us-ascii?Q?q3JTTLuCyAOTxDHFsTJi9DdUFjNWSRyMXzkKXlGlNhwsgSLRYtZTHGVaA2PY?=
- =?us-ascii?Q?45O5jiW1SlsUF0kGO848yfZq5Mfm/DnD91Apd4jcEjfDXwi4jaK1C1dX1iYX?=
- =?us-ascii?Q?2GkgBuaL6DBIl8L3Q/YVwbsk8CHy0VC0ChxO+8/SOnDABIb+MIz+DptClFth?=
- =?us-ascii?Q?39SZezdQxroteXpCkjpVjJ0esyw5SMZ8Z59dvjV+kwHBIn/s+6sFphLPOSut?=
- =?us-ascii?Q?twl1DlgshpsYh1gjUY0WWS+/ZFYjuU70AG1hdOXXhTSpyOtg1GMaNuS3BkOF?=
- =?us-ascii?Q?WGrcDXjVpdsuf67WOb59aRfXuUvkfDrzBxhSZl+r1En1KukYQijB2jwhdnMq?=
- =?us-ascii?Q?hQBKQRNVEa1mlHa6qEN9I6OXFuHKIhl9tK4JwcmPCOejt9bH4dNOUbQSkBDY?=
- =?us-ascii?Q?xVpUvl1BwUKiSV2AKDesHPZRDR4H9ISJIdOz2MZPeJVgkwheY9xr4IOSsOv8?=
- =?us-ascii?Q?QAOxlR9/zfWXTVMv2fPeeg2j74yth0pwD/qAKJ9Yo68lsPHc/zshl3g5B+7V?=
- =?us-ascii?Q?TOGU3GDl762dtwbz/SkLpiQsBDULFjGxuCuTs11oWTLqNEK9FRKKpuiyOVd/?=
- =?us-ascii?Q?BOKS8RUKmxl43EqSZuwFCY/gEpEMf7cWUCkl9053BeuKL7UOOerVnuSgBonC?=
- =?us-ascii?Q?LHLyfu8Xza6gMzBKL2KqPAGBw2/OPSyhoe2yD52pwwO5X+u8YMzoQYEXSzje?=
- =?us-ascii?Q?Y4hxAJi2xo8bz5BUNJJM2T/Dvm9+z5Ft/wbLKBIwQyN1YavPh56UF8e28tsL?=
- =?us-ascii?Q?rbtIbyELWYvWdbvWqfWaY7Mer0FooFLVdtYpQWyVvWwO0kzMDzkhMrt0FG7f?=
- =?us-ascii?Q?kVvhzv+ahtbMow0KGk6pVOhmQWZBMqhySoitKUCBN2+kECP1yUV4X1ZC6uTx?=
- =?us-ascii?Q?K5Q4M1JqaJWFayRGKCFBiYoUsOa5ePj5pxiO9V19AnKsYSqYUebzm0I/w/8c?=
- =?us-ascii?Q?rEvaeuku5a5BexagXJ/ZffoRi/aw2yyElVcNp07z30CR04qICkT/GsNOSHjm?=
- =?us-ascii?Q?J5/fBA+Em3aW6NTFW7jYcjS/Cdxv9DMttgdHudLSU/gJIHahU/fu145x5xde?=
- =?us-ascii?Q?j69CdJi7NS5PF2SABc/xBnuKVD4BSvKGCpCRTgpVywTUC4O9mg6rCnDZOLic?=
- =?us-ascii?Q?/ZfuWdZF10+Hwx3j9kx1iHQBLvHhOWY/OFJLbamAfDt5TJIqueHgZnPCgI5v?=
- =?us-ascii?Q?QtcGmqg6VpqBKn1YZKwcGfuP5FFv7zEeRBsYCZJM0Ei5HyVUjMhzJV/aY0Fl?=
- =?us-ascii?Q?ctVQdho1fHg8BqTjkSK8a5m9KQu1gmibM1V+F8na2s2DOZNUMXwxCOFxzJIJ?=
- =?us-ascii?Q?Nx0DaE8+MtYVP3DPIC6ZsCnd6PoVuD/0MCKguDRMmQ+2vNXDXH7hY4qMRrKW?=
- =?us-ascii?Q?TH5wteWv/+bSed6EM01DfXrFf/GCrRl033qUoBV+?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fefe6965-be60-4103-4627-08ddbf98d0f8
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 10:02:02.1689
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p1mGKMm1N7TNc2x2XOfVaIeosbxYa/v17S614FhttHIMR1A6FGmtRf/LiEFFYZXtIVoLXFtcupoaSKJefH5I8Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11311
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+ maarten.lankhorst@linux.intel.com, Maxime Ripard <mripard@kernel.org>,
+ tzimmermann@suse.de, Dave Airlie <airlied@gmail.com>,
+ Daniel Vetter <daniel@ffwll.ch>, Daniel Stone <daniels@collabora.com>,
+ Helen Mae Koike Fornazier <helen.fornazier@gmail.com>,
+ sebastian.reichel@collabora.com, linux-arm-kernel@lists.infradead.org
+From: Vignesh Raman <vignesh.raman@collabora.com>
+Subject: drm-ci: rk3399-gru-kevin: flake in kms_color@gamma
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_030209_321289_C692CA53 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20250710_031042_316431_124D91EB 
+X-CRM114-Status: UNSURE (   4.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,56 +77,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 05:17:18PM +0200, Andrew Lunn wrote:
-> > A GPIO controller has a maximum of 8 lines (all found in the same
-> > register). Even within the same controller, the GPIO lines' direction is
-> > fixed, either output or input, without the possibility to change it.
-> 
-> Since this is an FPGA, not silicon, is the selection of output or
-> input a syntheses option?
+Hi Maintainers,
 
-I suppose so, yes. The idea is that in this particular case, the fixed
-direction for each GPIO line (bit in the register) matches the use case
-and will not be changed. For example, the presence detect or rx los
-GPIOs for the SFP cages are only input, while the tx enable one is
-output always.
+There are some flake test reported for rockchip driver testing in drm-ci.
 
->
-> > +static const struct of_device_id qixis_cpld_gpio_of_match[] = {
-> > +	{
-> > +		.compatible = "fsl,lx2160ardb-fpga-gpio-sfp2",
-> > +		.data = &lx2160ardb_sfp2_cfg,
-> > +	},
-> > +	{
-> > +		.compatible = "fsl,lx2160ardb-fpga-gpio-sfp3",
-> > +		.data = &lx2160ardb_sfp3_cfg,
-> > +	},
-> > +	{
-> > +		.compatible = "fsl,ls1046aqds-fpga-gpio-stat-pres2",
-> > +		.data = &ls1046aqds_stat_pres2_cfg,
-> > +	},
-> 
-> Does the FPGA have an ID register you can read to confirm it is what
-> you think it is?
-> 
-> Or is the bitstream downloaded at boot by another driver? Can you ask
-> that driver what bitstream it downloaded?
-> 
-> Given how similar these devices are, it seems like a typ0 could give a
-> mostly working device which passes testing, so doing some validation
-> of the compatible against the actual FPGA would be nice.
-> 
+# Board Name: rk3399-gru-kevin
+# Failure Rate: 60
+# IGT Version: 2.1-g26ddb59c1
+# Linux Version: 6.16.0-rc2
+kms_color@gamma
 
-The FPGA does have an ID register that we could verify and match against
-the board type that we expect.
+(kms_color:915) igt_pipe_crc-WARNING: Warning on condition all_zero in 
+function crc_sanity_checks, file ../lib/igt_pipe_crc.c:475
+(kms_color:915) igt_pipe_crc-WARNING: Suspicious CRC: All values are 0.
+(kms_color:915) CRITICAL: Test assertion failure function 
+run_gamma_degamma_tests_for_pipe, file ../tests/kms_color.c:787:
+(kms_color:915) CRITICAL: Failed assertion: test_t(data, data->primary)
+Dynamic subtest pipe-A-eDP-1 failed.
+**** DEBUG ****
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: !(pipe >= 
+display->n_pipes || !display->pipes[pipe].enabled)
+(kms_color:915) igt_pipe_crc-DEBUG: Test requirement passed: dir >= 0
+(kms_color:915) igt_pipe_crc-DEBUG: Test requirement passed: 
+fstatat(dir, "crtc-0/crc/control", &stat, 0) == 0
+(kms_color:915) DEBUG: Test requirement passed: pipe->n_planes >= 0
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display: eDP-1: set_pipe(A)
+(kms_color:915) igt_kms-DEBUG: display: eDP-1: Selecting pipe A
+(kms_color:915) igt_kms-DEBUG: display: eDP-1: set_pipe(None)
+(kms_color:915) igt_kms-DEBUG: display: eDP-1: Selecting pipe None
+(kms_color:915) DEBUG: Test requirement passed: 
+pipe_output_combo_valid(data, p)
+(kms_color:915) DEBUG: Test requirement passed: 
+igt_pipe_obj_has_prop(primary->pipe, IGT_CRTC_GAMMA_LUT)
+(kms_color:915) igt_kms-DEBUG: display: eDP-1: set_pipe(A)
+(kms_color:915) igt_kms-DEBUG: display: eDP-1: Selecting pipe A
+(kms_color:915) igt_fb-DEBUG: igt_create_fb_with_bo_size(width=2400, 
+height=1600, format=XR24(0x34325258), modifier=0x0, size=0)
+(kms_color:915) igt_fb-DEBUG: igt_create_fb_with_bo_size(handle=1, 
+pitch=9600)
+(kms_color:915) ioctl_wrappers-DEBUG: Test requirement passed: 
+igt_has_fb_modifiers(fd)
+(kms_color:915) igt_fb-DEBUG: igt_create_fb_with_bo_size(width=2400, 
+height=1600, format=XR24(0x34325258), modifier=0x0, size=0)
+(kms_color:915) igt_fb-DEBUG: igt_create_fb_with_bo_size(handle=2, 
+pitch=9600)
+(kms_color:915) ioctl_wrappers-DEBUG: Test requirement passed: 
+igt_has_fb_modifiers(fd)
+(kms_color:915) igt_kms-DEBUG: display: A.0: plane_set_fb(59)
+(kms_color:915) igt_kms-DEBUG: display: A.0: plane_set_size (2400x1600)
+(kms_color:915) igt_kms-DEBUG: display: A.0: fb_set_position(0,0)
+(kms_color:915) igt_kms-DEBUG: display: A.0: fb_set_size(2400x1600)
+(kms_color:915) igt_kms-DEBUG: display: commit {
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display:     Fixing up initial rotation 
+pipe A, plane 0
+(kms_color:915) igt_kms-DEBUG: display:     eDP-1: SetCrtc pipe A, fb 
+59, src (0, 0), mode 2400x1600
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display:     Fixing up initial rotation 
+pipe A, plane 1
+(kms_color:915) igt_kms-DEBUG: display:     SetPlane pipe A, plane 1, 
+disabling
+(kms_color:915) igt_kms-DEBUG: display:     SetProp plane A.1 "rotation" 
+to 0x1/1
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display:     Fixing up initial rotation 
+pipe A, plane 2
+(kms_color:915) igt_kms-DEBUG: display:     SetPlane pipe A, plane 2, 
+disabling
+(kms_color:915) igt_kms-DEBUG: display:     SetProp plane A.2 "rotation" 
+to 0x1/1
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display:     Fixing up initial rotation 
+pipe A, plane 3
+(kms_color:915) igt_kms-DEBUG: display:     SetCursor pipe A, disabling
+(kms_color:915) igt_kms-DEBUG: display:     MoveCursor pipe A, (0, 0)
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display:     Fixing up initial rotation 
+pipe B, plane 0
+(kms_color:915) igt_kms-DEBUG: display:     SetCrtc pipe B, disabling
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display:     Fixing up initial rotation 
+pipe B, plane 1
+(kms_color:915) igt_kms-DEBUG: display:     SetCursor pipe B, disabling
+(kms_color:915) igt_kms-DEBUG: display:     MoveCursor pipe B, (0, 0)
+(kms_color:915) igt_kms-DEBUG: display: }
+(kms_color:915) igt_fb-DEBUG: Test requirement passed: 
+cairo_surface_status(fb->cairo_surface) == CAIRO_STATUS_SUCCESS
+(kms_color:915) igt_kms-DEBUG: display: A.0: plane_set_fb(58)
+(kms_color:915) igt_kms-DEBUG: display: A.0: plane_set_size (2400x1600)
+(kms_color:915) igt_kms-DEBUG: display: A.0: fb_set_position(0,0)
+(kms_color:915) igt_kms-DEBUG: display: A.0: fb_set_size(2400x1600)
+(kms_color:915) igt_kms-DEBUG: display: commit {
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display:     eDP-1: SetCrtc pipe A, fb 
+58, src (0, 0), mode 2400x1600
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display: }
+(kms_color:915) igt_pipe_crc-WARNING: Warning on condition all_zero in 
+function crc_sanity_checks, file ../lib/igt_pipe_crc.c:475
+(kms_color:915) igt_pipe_crc-WARNING: Suspicious CRC: All values are 0.
+(kms_color:915) igt_fb-DEBUG: Test requirement passed: 
+cairo_surface_status(fb->cairo_surface) == CAIRO_STATUS_SUCCESS
+(kms_color:915) igt_kms-DEBUG: display: A.0: plane_set_fb(58)
+(kms_color:915) igt_kms-DEBUG: display: A.0: plane_set_size (2400x1600)
+(kms_color:915) igt_kms-DEBUG: display: A.0: fb_set_position(0,0)
+(kms_color:915) igt_kms-DEBUG: display: A.0: fb_set_size(2400x1600)
+(kms_color:915) igt_kms-DEBUG: display: commit {
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display:     eDP-1: SetCrtc pipe A, fb 
+58, src (0, 0), mode 2400x1600
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display: }
+(kms_color:915) igt_pipe_crc-DEBUG: CRC mismatch at index 0: 0xda5b != 0x0
+(kms_color:915) igt_kms-DEBUG: display: A.0: plane_set_fb(0)
+(kms_color:915) igt_kms-DEBUG: display: A.0: plane_set_size (0x0)
+(kms_color:915) igt_kms-DEBUG: display: A.0: fb_set_position(0,0)
+(kms_color:915) igt_kms-DEBUG: display: A.0: fb_set_size(0x0)
+(kms_color:915) igt_kms-DEBUG: display: eDP-1: set_pipe(None)
+(kms_color:915) igt_kms-DEBUG: display: eDP-1: Selecting pipe None
+(kms_color:915) igt_kms-DEBUG: display: commit {
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display:     SetCrtc pipe A, disabling
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: Test requirement passed: plane_idx >= 0 
+&& plane_idx < pipe->n_planes
+(kms_color:915) igt_kms-DEBUG: display: }
+(kms_color:915) CRITICAL: Test assertion failure function 
+run_gamma_degamma_tests_for_pipe, file ../tests/kms_color.c:787:
+(kms_color:915) CRITICAL: Failed assertion: test_t(data, data->primary)
+(kms_color:915) igt_core-INFO: Stack trace:
+(kms_color:915) igt_core-INFO:   #0 ../lib/igt_core.c:2075 
+__igt_fail_assert()
+(kms_color:915) igt_core-INFO:   #1 ../tests/kms_color.c:785 
+run_tests_for_pipe()
+(kms_color:915) igt_core-INFO:   #2 ../tests/kms_color.c:1182 
+__igt_unique____real_main1169()
+(kms_color:915) igt_core-INFO:   #3 ../tests/kms_color.c:1169 main()
+(kms_color:915) igt_core-INFO:   #4 [__libc_init_first+0x80]
+(kms_color:915) igt_core-INFO:   #5 [__libc_start_main+0x98]
+(kms_color:915) igt_core-INFO:   #6 [_start+0x30]
+****  END  ****
+(kms_color:915) igt_pipe_crc-WARNING: Warning on condition all_zero in 
+function crc_sanity_checks, file ../lib/igt_pipe_crc.c:475
+(kms_color:915) igt_pipe_crc-WARNING: Suspicious CRC: All values are 0.
+(kms_color:915) igt_pipe_crc-WARNING: Warning on condition all_zero in 
+function crc_sanity_checks, file ../lib/igt_pipe_crc.c:475
+(kms_color:915) igt_pipe_crc-WARNING: Suspicious CRC: All values are 0.
 
-On the other hand, I am not 100% on board with the idea to check this
-from the GPIO driver which teoretically should only touch its one
-register. Maybe from the parent's driver we could do that and prevent
-the probing of children if things don't match up. But this does prove to
-be complicated since those drivers are simple-mfd (for LS1046AQDS) and
-simple-mfd-i2c (for LX2160ARDB). And I don't think it would be wise to
-add some specific board logic into of/platform.c.
+Pipeline: https://gitlab.freedesktop.org/vigneshraman/msm/-/jobs/79872341
 
-Ioana
+Please could you have a look at these test results and let us know if 
+you need more information. Thank you.
+
+Regards,
+Vignesh
 
