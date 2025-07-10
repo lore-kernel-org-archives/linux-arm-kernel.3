@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FD5C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C34AC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JXtLv9QzXHam0h2vpNQBmi9y6D7+rAj+oenCfTv0ivE=; b=wLIW3GldTTmrHsZnWgi2TKrku0
-	8fvgz3mF1phyyaJ5YxLM5A9jaT4LyTnSBEup2GYdQlNpVm8VSSmX6UAbyKsIpegft7LtuE593Lnf3
-	ZnoLLk7qX7LapTiute0UKQRyl1mpibwRdHsrpG/RXDA7DIBHhEusdIP26uBT1KGB7lueImKU3SgaR
-	AULUI49hqUDqXAGftn+dOAFnohBGwFcOse/gvjaErlytVcyTq8XEQxXBdKoE5MOzhYO/hhvx/LRId
-	WQ0tk9nFK6n0hXDGT9OMJ3BAM6r64K5KJtEDUezXP8brrbZX6K2PTDQbQe8BQlp1s4DeqYxLtbELC
-	L+njpH8g==;
+	bh=vc4gFx6otObzph4vmcdpjljmy/wmOvcgw6O6DXvqQUk=; b=gch2g9ImpXxPiSJQRlA5xc1qNc
+	f7LwXTJB5geu4pyTSxKiQqBVUewhyVE+iz+8IWCTLTqf9dYnnve3eEDdJNqgcHpaRFSVnr3lqIhdR
+	07/JEQmI1lpxP7IZkdLiPLMb74E1ZugD7ZPQjzFHEQ4JmimuwVjfi911Ih0Z1MdRcbt223ZSurB4l
+	VHeHv+lExDbaU0YEvcWL77ind2lxGxKnxxtLCNed99qwvtnU/mV13OEHGT0XChZQBOTqtlevvHKzm
+	/24zftuUI+xVCxc3TlnvgND0PfuXsut6BpSA8F0H6Oe8/WcCAlT+dkheQJHDaZ2O0BszbCLEVAkpW
+	bzAQqYqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2R8-0000000DRNP-0xCQ;
-	Fri, 11 Jul 2025 01:20:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ua2RC-0000000DRWg-49Xy;
+	Fri, 11 Jul 2025 01:20:34 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua0B3-0000000DD9A-2iRQ
+	id 1ua0Oa-0000000DEhl-2VIE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 22:55:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0381461443;
-	Thu, 10 Jul 2025 22:55:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 783CBC4CEE3;
-	Thu, 10 Jul 2025 22:55:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752188140;
-	bh=ppem5ioqyvvNaJrxZ8a+k8hXOxE1osk+Jas8tjtD+SA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TyUBK/XFn69FTeUCpolhOAcM1/eKSNtWfNsBiof5Re4WgKIBMc+ezRzYD/f1j88QQ
-	 QlNQNbH+y69lo3i5alT1C98xkkE0IPkrx8k1mdcPUzWWAaVAkWI6zFse05FksFE1EX
-	 FRGGrP9IHrQkrExSII5t3vYNMS4rgB/NsS943z9EDc26KZs1rW00Uf0H6ExYmBqPRy
-	 4XtDv01EiIRVaHyO/Yn7L/HjR4v+ytyU2Zhx1Vdp/Nulk5+Xs1pKETGpyk8yJ4/ZQn
-	 1li0U1hp1JEZsSTJ2uD60z4QlwZFZqKzK0xBpUtVej03CiMcj4vyigyqyjvLnHUe1H
-	 QSzLVTXZTS6rw==
-Date: Thu, 10 Jul 2025 17:55:39 -0500
-From: Rob Herring <robh@kernel.org>
-To: Luo Jie <quic_luoj@quicinc.com>
-Cc: Georgi Djakov <djakov@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Anusha Rao <quic_anusha@quicinc.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com,
-	quic_leiwei@quicinc.com, quic_pavir@quicinc.com,
-	quic_suruchia@quicinc.com
-Subject: Re: [PATCH v3 07/10] dt-bindings: clock: qcom: Add NSS clock
- controller for IPQ5424 SoC
-Message-ID: <20250710225539.GA29510-robh@kernel.org>
-References: <20250710-qcom_ipq5424_nsscc-v3-0-f149dc461212@quicinc.com>
- <20250710-qcom_ipq5424_nsscc-v3-7-f149dc461212@quicinc.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250710-qcom_ipq5424_nsscc-v3-7-f149dc461212@quicinc.com>
+	Thu, 10 Jul 2025 23:09:41 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-311ef4fb5eeso1269155a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 16:09:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1752188979; x=1752793779; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vc4gFx6otObzph4vmcdpjljmy/wmOvcgw6O6DXvqQUk=;
+        b=FzzjKwhC4CLoBRBnrpcA2gZ+47LMxGzkbNAsdMddIH70BfI6rgqd5G+IlbYen9oSeu
+         5gkhy6SSbNRmpTdypLRIxxjrbIpBCk4W8xQp+CK0Al61MZfGbKCWAMVGToMh6PvkNUwc
+         3pKtjqN7I9If6jiDWnC3+HqHBqzgrg+oBPu7iH+ejnrXEupLs8WaoO+WGFuKDbJw8nVU
+         YlkjjE0dYKc95eE0y//rW1dT7rQF38/gM+P0ernCw4ucHMz6klkgYS2vQ1UzrlDT9epA
+         yrJnMLt/rATksjGMTdLA5azJ6xdims7NV1Am9CEcNmY1IgCgtIjLn0veJTVf7YAs+9Vv
+         vhqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752188979; x=1752793779;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vc4gFx6otObzph4vmcdpjljmy/wmOvcgw6O6DXvqQUk=;
+        b=Bnups6S6a35Kf5l+UALccTWg0nsp8ld27hCs+NMDggfmG1pTiigf+N5G3jeSgpzT5A
+         TIftuu22pSW3abVmDYy+9K/bEiw5I9+Qww+NeYKHU43E/ULrpNmNxK6UCLnxHmpl0HPf
+         xDIdNvQWvyHTTNkK6IYw4NOVIdmNs5reI5nQWE1k7nuRIJxm++uWcqwjUcJJDaIiI1HZ
+         J7dGiLkOpMX6oo0RUV5LUuoQD0ffWx9ZEaVdO37Fg8b4EBU94WM0iwv8Sb+fvvaIo1+s
+         uIX2Krg3gzuwk3dFxSixzOTRifc4Kl7P2CnXr0Kr+9j5+v/zc5W5NYJukSqmlVveXb9w
+         FyZw==
+X-Forwarded-Encrypted: i=1; AJvYcCXbLfvLS5+lNaCX4X72NY/X2FcKVbIkIdDv+HmzaTlNuBsK8HrpK7RdxNUmNJ4YNMHOXlEYf23360guZgfE6AtQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBcLgLl9vFkmTMItrRMlVwT+r7zXhkljo0/oPuO7aEV2u+Ggo0
+	ONre1OAlhu5fSL8LEJWAHMj1TozXIQTQSO+eE3Nmn93ghuwc2LKfSBzgZy1Bh6Ha3OyeW4PX1Mq
+	PSMIUMA==
+X-Google-Smtp-Source: AGHT+IE+dyK2d0uR86qfpkwgq8AVI1vUVbhbMbwUukxTkGUUqxum4AWqrZhpfpFloZnZbssgldsJ/GbSzP4=
+X-Received: from pjbee8.prod.google.com ([2002:a17:90a:fc48:b0:31c:2fe4:33b4])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:568f:b0:313:d7ec:b7b7
+ with SMTP id 98e67ed59e1d1-31c3d0c25b6mr8663625a91.13.1752188979183; Thu, 10
+ Jul 2025 16:09:39 -0700 (PDT)
+Date: Thu, 10 Jul 2025 16:08:50 -0700
+In-Reply-To: <20250626001225.744268-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20250626001225.744268-1-seanjc@google.com>
+X-Mailer: git-send-email 2.50.0.727.gbf7dc18ff4-goog
+Message-ID: <175218136720.1489574.7636607289998193683.b4-ty@google.com>
+Subject: Re: [PATCH v5 0/5] KVM: x86: Provide a cap to disable APERF/MPERF
+ read intercepts
+From: Sean Christopherson <seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Jim Mattson <jmattson@google.com>
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250710_160940_632738_6B8E487F 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,229 +92,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 08:28:15PM +0800, Luo Jie wrote:
-> NSS clock controller provides the clocks and resets to the networking
-> blocks such as PPE (Packet Process Engine) and UNIPHY (PCS) on IPQ5424
-> devices.
+On Wed, 25 Jun 2025 17:12:20 -0700, Sean Christopherson wrote:
+> arm64 folks, y'all got pulled in because of selftests changes.  I deliberately
+> put that patch at the end of the series so that it can be discarded/ignored
+> without interfering with the x86 stuff.
 > 
-> Add the compatible "qcom,ipq5424-nsscc" support based on the current
-> IPQ9574 NSS clock controller DT binding file. ICC clocks are always
-> provided by the NSS clock controller of IPQ9574 and IPQ5424, so add
-> interconnect-cells as required DT property.
 > 
-> Also add master/slave ids for IPQ5424 networking interfaces, which is
-> used by nss-ipq5424 driver for providing interconnect services using
-> icc-clk framework.
+> Jim's series to allow a guest to read IA32_APERF and IA32_MPERF, so that it
+> can determine the effective frequency multiplier for the physical LPU.
 > 
-> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
-> ---
->  .../bindings/clock/qcom,ipq9574-nsscc.yaml         | 14 +++--
->  include/dt-bindings/clock/qcom,ipq5424-nsscc.h     | 65 ++++++++++++++++++++++
->  include/dt-bindings/interconnect/qcom,ipq5424.h    | 13 +++++
->  include/dt-bindings/reset/qcom,ipq5424-nsscc.h     | 46 +++++++++++++++
->  4 files changed, 134 insertions(+), 4 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/qcom,ipq9574-nsscc.yaml b/Documentation/devicetree/bindings/clock/qcom,ipq9574-nsscc.yaml
-> index b9ca69172adc..86ee9ffb2eda 100644
-> --- a/Documentation/devicetree/bindings/clock/qcom,ipq9574-nsscc.yaml
-> +++ b/Documentation/devicetree/bindings/clock/qcom,ipq9574-nsscc.yaml
-> @@ -4,7 +4,7 @@
->  $id: http://devicetree.org/schemas/clock/qcom,ipq9574-nsscc.yaml#
->  $schema: http://devicetree.org/meta-schemas/core.yaml#
->  
-> -title: Qualcomm Networking Sub System Clock & Reset Controller on IPQ9574
-> +title: Qualcomm Networking Sub System Clock & Reset Controller on IPQ9574 and IPQ5424
->  
->  maintainers:
->    - Bjorn Andersson <andersson@kernel.org>
-> @@ -12,15 +12,19 @@ maintainers:
->  
->  description: |
->    Qualcomm networking sub system clock control module provides the clocks,
-> -  resets on IPQ9574
-> +  resets on IPQ9574 and IPQ5424
->  
-> -  See also::
-> +  See also:
-> +    include/dt-bindings/clock/qcom,ipq5424-nsscc.h
->      include/dt-bindings/clock/qcom,ipq9574-nsscc.h
-> +    include/dt-bindings/reset/qcom,ipq5424-nsscc.h
->      include/dt-bindings/reset/qcom,ipq9574-nsscc.h
->  
->  properties:
->    compatible:
-> -    const: qcom,ipq9574-nsscc
-> +    enum:
-> +      - qcom,ipq5424-nsscc
-> +      - qcom,ipq9574-nsscc
->  
->    clocks:
->      items:
-> @@ -57,6 +61,7 @@ required:
->    - compatible
->    - clocks
->    - clock-names
-> +  - '#interconnect-cells'
+> [...]
 
-You just made this required for everyone. Again, that's an ABI change.
+Applied to kvm-x86 misc, with the thean typo fixed.  Thanks!
 
->  
->  allOf:
->    - $ref: qcom,gcc.yaml#
-> @@ -94,5 +99,6 @@ examples:
->                      "bus";
->        #clock-cells = <1>;
->        #reset-cells = <1>;
-> +      #interconnect-cells = <1>;
->      };
->  ...
-> diff --git a/include/dt-bindings/clock/qcom,ipq5424-nsscc.h b/include/dt-bindings/clock/qcom,ipq5424-nsscc.h
-> new file mode 100644
-> index 000000000000..59ce056ead93
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/qcom,ipq5424-nsscc.h
-> @@ -0,0 +1,65 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright (c) 2025, Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLOCK_QCOM_IPQ5424_NSSCC_H
-> +#define _DT_BINDINGS_CLOCK_QCOM_IPQ5424_NSSCC_H
-> +
-> +/* NSS_CC clocks */
-> +#define NSS_CC_CE_APB_CLK					0
-> +#define NSS_CC_CE_AXI_CLK					1
-> +#define NSS_CC_CE_CLK_SRC					2
-> +#define NSS_CC_CFG_CLK_SRC					3
-> +#define NSS_CC_DEBUG_CLK					4
-> +#define NSS_CC_EIP_BFDCD_CLK_SRC				5
-> +#define NSS_CC_EIP_CLK						6
-> +#define NSS_CC_NSS_CSR_CLK					7
-> +#define NSS_CC_NSSNOC_CE_APB_CLK				8
-> +#define NSS_CC_NSSNOC_CE_AXI_CLK				9
-> +#define NSS_CC_NSSNOC_EIP_CLK					10
-> +#define NSS_CC_NSSNOC_NSS_CSR_CLK				11
-> +#define NSS_CC_NSSNOC_PPE_CFG_CLK				12
-> +#define NSS_CC_NSSNOC_PPE_CLK					13
-> +#define NSS_CC_PORT1_MAC_CLK					14
-> +#define NSS_CC_PORT1_RX_CLK					15
-> +#define NSS_CC_PORT1_RX_CLK_SRC					16
-> +#define NSS_CC_PORT1_RX_DIV_CLK_SRC				17
-> +#define NSS_CC_PORT1_TX_CLK					18
-> +#define NSS_CC_PORT1_TX_CLK_SRC					19
-> +#define NSS_CC_PORT1_TX_DIV_CLK_SRC				20
-> +#define NSS_CC_PORT2_MAC_CLK					21
-> +#define NSS_CC_PORT2_RX_CLK					22
-> +#define NSS_CC_PORT2_RX_CLK_SRC					23
-> +#define NSS_CC_PORT2_RX_DIV_CLK_SRC				24
-> +#define NSS_CC_PORT2_TX_CLK					25
-> +#define NSS_CC_PORT2_TX_CLK_SRC					26
-> +#define NSS_CC_PORT2_TX_DIV_CLK_SRC				27
-> +#define NSS_CC_PORT3_MAC_CLK					28
-> +#define NSS_CC_PORT3_RX_CLK					29
-> +#define NSS_CC_PORT3_RX_CLK_SRC					30
-> +#define NSS_CC_PORT3_RX_DIV_CLK_SRC				31
-> +#define NSS_CC_PORT3_TX_CLK					32
-> +#define NSS_CC_PORT3_TX_CLK_SRC					33
-> +#define NSS_CC_PORT3_TX_DIV_CLK_SRC				34
-> +#define NSS_CC_PPE_CLK_SRC					35
-> +#define NSS_CC_PPE_EDMA_CFG_CLK					36
-> +#define NSS_CC_PPE_EDMA_CLK					37
-> +#define NSS_CC_PPE_SWITCH_BTQ_CLK				38
-> +#define NSS_CC_PPE_SWITCH_CFG_CLK				39
-> +#define NSS_CC_PPE_SWITCH_CLK					40
-> +#define NSS_CC_PPE_SWITCH_IPE_CLK				41
-> +#define NSS_CC_UNIPHY_PORT1_RX_CLK				42
-> +#define NSS_CC_UNIPHY_PORT1_TX_CLK				43
-> +#define NSS_CC_UNIPHY_PORT2_RX_CLK				44
-> +#define NSS_CC_UNIPHY_PORT2_TX_CLK				45
-> +#define NSS_CC_UNIPHY_PORT3_RX_CLK				46
-> +#define NSS_CC_UNIPHY_PORT3_TX_CLK				47
-> +#define NSS_CC_XGMAC0_PTP_REF_CLK				48
-> +#define NSS_CC_XGMAC0_PTP_REF_DIV_CLK_SRC			49
-> +#define NSS_CC_XGMAC1_PTP_REF_CLK				50
-> +#define NSS_CC_XGMAC1_PTP_REF_DIV_CLK_SRC			51
-> +#define NSS_CC_XGMAC2_PTP_REF_CLK				52
-> +#define NSS_CC_XGMAC2_PTP_REF_DIV_CLK_SRC			53
-> +
-> +#endif
-> diff --git a/include/dt-bindings/interconnect/qcom,ipq5424.h b/include/dt-bindings/interconnect/qcom,ipq5424.h
-> index 66cd9a9ece03..a78604beff99 100644
-> --- a/include/dt-bindings/interconnect/qcom,ipq5424.h
-> +++ b/include/dt-bindings/interconnect/qcom,ipq5424.h
-> @@ -27,4 +27,17 @@
->  #define MASTER_NSSNOC_SNOC_1		22
->  #define SLAVE_NSSNOC_SNOC_1		23
->  
-> +#define MASTER_NSSNOC_PPE		0
-> +#define SLAVE_NSSNOC_PPE		1
-> +#define MASTER_NSSNOC_PPE_CFG		2
-> +#define SLAVE_NSSNOC_PPE_CFG		3
-> +#define MASTER_NSSNOC_NSS_CSR		4
-> +#define SLAVE_NSSNOC_NSS_CSR		5
-> +#define MASTER_NSSNOC_CE_AXI		6
-> +#define SLAVE_NSSNOC_CE_AXI		7
-> +#define MASTER_NSSNOC_CE_APB		8
-> +#define SLAVE_NSSNOC_CE_APB		9
-> +#define MASTER_NSSNOC_EIP		10
-> +#define SLAVE_NSSNOC_EIP		11
-> +
->  #endif /* INTERCONNECT_QCOM_IPQ5424_H */
-> diff --git a/include/dt-bindings/reset/qcom,ipq5424-nsscc.h b/include/dt-bindings/reset/qcom,ipq5424-nsscc.h
-> new file mode 100644
-> index 000000000000..f2f7eaa28b21
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/qcom,ipq5424-nsscc.h
-> @@ -0,0 +1,46 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright (c) 2025, Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#ifndef _DT_BINDINGS_RESET_QCOM_IPQ5424_NSSCC_H
-> +#define _DT_BINDINGS_RESET_QCOM_IPQ5424_NSSCC_H
-> +
-> +#define NSS_CC_CE_APB_CLK_ARES					0
-> +#define NSS_CC_CE_AXI_CLK_ARES					1
-> +#define NSS_CC_DEBUG_CLK_ARES					2
-> +#define NSS_CC_EIP_CLK_ARES					3
-> +#define NSS_CC_NSS_CSR_CLK_ARES					4
-> +#define NSS_CC_NSSNOC_CE_APB_CLK_ARES				5
-> +#define NSS_CC_NSSNOC_CE_AXI_CLK_ARES				6
-> +#define NSS_CC_NSSNOC_EIP_CLK_ARES				7
-> +#define NSS_CC_NSSNOC_NSS_CSR_CLK_ARES				8
-> +#define NSS_CC_NSSNOC_PPE_CLK_ARES				9
-> +#define NSS_CC_NSSNOC_PPE_CFG_CLK_ARES				10
-> +#define NSS_CC_PORT1_MAC_CLK_ARES				11
-> +#define NSS_CC_PORT1_RX_CLK_ARES				12
-> +#define NSS_CC_PORT1_TX_CLK_ARES				13
-> +#define NSS_CC_PORT2_MAC_CLK_ARES				14
-> +#define NSS_CC_PORT2_RX_CLK_ARES				15
-> +#define NSS_CC_PORT2_TX_CLK_ARES				16
-> +#define NSS_CC_PORT3_MAC_CLK_ARES				17
-> +#define NSS_CC_PORT3_RX_CLK_ARES				18
-> +#define NSS_CC_PORT3_TX_CLK_ARES				19
-> +#define NSS_CC_PPE_BCR						20
-> +#define NSS_CC_PPE_EDMA_CLK_ARES				21
-> +#define NSS_CC_PPE_EDMA_CFG_CLK_ARES				22
-> +#define NSS_CC_PPE_SWITCH_BTQ_CLK_ARES				23
-> +#define NSS_CC_PPE_SWITCH_CLK_ARES				24
-> +#define NSS_CC_PPE_SWITCH_CFG_CLK_ARES				25
-> +#define NSS_CC_PPE_SWITCH_IPE_CLK_ARES				26
-> +#define NSS_CC_UNIPHY_PORT1_RX_CLK_ARES				27
-> +#define NSS_CC_UNIPHY_PORT1_TX_CLK_ARES				28
-> +#define NSS_CC_UNIPHY_PORT2_RX_CLK_ARES				29
-> +#define NSS_CC_UNIPHY_PORT2_TX_CLK_ARES				30
-> +#define NSS_CC_UNIPHY_PORT3_RX_CLK_ARES				31
-> +#define NSS_CC_UNIPHY_PORT3_TX_CLK_ARES				32
-> +#define NSS_CC_XGMAC0_PTP_REF_CLK_ARES				33
-> +#define NSS_CC_XGMAC1_PTP_REF_CLK_ARES				34
-> +#define NSS_CC_XGMAC2_PTP_REF_CLK_ARES				35
-> +
-> +#endif
-> 
-> -- 
-> 2.34.1
-> 
+[1/5] KVM: x86: Replace growing set of *_in_guest bools with a u64
+      https://github.com/kvm-x86/linux/commit/6fbef8615d35
+[2/5] KVM: x86: Provide a capability to disable APERF/MPERF read intercepts
+      https://github.com/kvm-x86/linux/commit/a7cec20845a6
+[3/5] KVM: selftests: Expand set of APIs for pinning tasks to a single CPU
+      https://github.com/kvm-x86/linux/commit/e83ee6f76c33
+[4/5] KVM: selftests: Test behavior of KVM_X86_DISABLE_EXITS_APERFMPERF
+      https://github.com/kvm-x86/linux/commit/df98ce784aeb
+[5/5] KVM: selftests: Convert arch_timer tests to common helpers to pin task
+      https://github.com/kvm-x86/linux/commit/95826e1ed359
+
+--
+https://github.com/kvm-x86/linux/tree/next
 
