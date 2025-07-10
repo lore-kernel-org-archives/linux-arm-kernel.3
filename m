@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32BEC83F23
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69591C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4sp8okB8gXIZa6CX3pk8WF4P47+bVg14VsS2Vpld+I0=; b=WbUIu2f89h7GxiQiRwKIDp9jNf
-	PvvJoMNPuKjO+JauSzG8bnqgZHA/kduFa9EkoWYRbtUtHw35hnQlWzbHdp1ahQu+g2u4d5r0wSmZA
-	RiPSTOAAho6lnZVb47v1gwJGLfwD3sK8bZ0ceV+XktzsXKFY61e/mM2f8HziQfGIq0Y7WdAbVhlX5
-	vDSgdyAtVP1+sKzk0IVGtSuoXqevgEFd0jMWSD0jmlvAQDPtJNF87AEvDl9e4tHI4kPa6ZySt9oAU
-	bvGX4Jv6rVHJD7XHYWU6kAwPIYGtbUnPT8FFXKpv9q/l4REMRK0bIm2TVBvAP5Ae1q+IyLdc3T7LY
-	cToMm3jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m26QdtV1InNovk6SmTcbzm47CpwopW7A/Qde2a4HPsg=; b=a7r9PnShEMwKPEkQK3bfvo9ZBb
+	bumBTx1NFm9HqSCDgPuZLHxkCVtn5fsQ6qwaCZe3AVI73D6XYPaBJtQAxbKy6QtQmVZMCoSbQhKCC
+	q6DmuOd1ZovIy6l4aAA6nFG8Bxnw7iNEgTgIF+0htQxJ9urU8MOZLMAh0o9Gu8D3mvYt+gzvV86Ft
+	0tdnRlFLrmYx3+nmTTjbQOJm9WH52GnUwrSSToTbaUQHNuc54U8Iw91RQe5IWN+rXLUas5RAVtevS
+	FDufi3Ro+W3IL3CFte0dmym6OuDiDQMkDrwOk5+e99xucoc2ZtKgmhnfbjt+Kpsu1xuJZB8utatZG
+	1ceE9fIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZsZr-0000000CAR9-1dwQ;
-	Thu, 10 Jul 2025 14:48:47 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uZscB-0000000CAzj-1Cv0;
+	Thu, 10 Jul 2025 14:51:11 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqx0-0000000Brtj-2q6s;
-	Thu, 10 Jul 2025 13:04:36 +0000
-Received: from ideasonboard.com (mob-5-90-137-205.net.vodafone.it [5.90.137.205])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 697647E4;
-	Thu, 10 Jul 2025 15:03:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1752152642;
-	bh=R2o6VolemiqIBI/AU6ABD4AF8DEA/SOLp1Y2k20X77E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=caf15gYcQXtgfw6ogGaAOQshKxH74EQL0avqxXX0OyZFd6dN1p0aqeLnhGovS8p5g
-	 YCoR/x51v263YcZMLiJUnfhRxXXtRGY7frgpLZHl5seioSOS4AJjiPad1kVI8rGstw
-	 w3YHz4yusYN2Or08wVpxLhjd+zTYAs4GyykBrkZU=
-Date: Thu, 10 Jul 2025 15:04:20 +0200
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Dan Scally <dan.scally@ideasonboard.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Dafna Hirschfeld <dafna@fastmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 5/8] media: v4l2-common: Introduce v4l2-params.c
-Message-ID: <7wfgcfstaswdibsgswjwxnvt7njoxs4cwqdv7z67ymov4hj7ig@5bgxqqh3ixza>
-References: <20250708-extensible-parameters-validation-v1-0-9fc27c9c728c@ideasonboard.com>
- <20250708-extensible-parameters-validation-v1-5-9fc27c9c728c@ideasonboard.com>
- <76fc695d-facb-4207-a724-d97797d7d0c8@ideasonboard.com>
+	id 1uZr5C-0000000BtAD-2vL2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 13:13:04 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56ADCr2H1150823;
+	Thu, 10 Jul 2025 08:12:53 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752153173;
+	bh=m26QdtV1InNovk6SmTcbzm47CpwopW7A/Qde2a4HPsg=;
+	h=From:To:CC:Subject:Date;
+	b=Cd+f0hbx/Md+lopbPx3EI/zU/DUUrRpRnOpzhAVXGQqJV5noW9m3v0mE120pcqtqw
+	 TW3mxY8lLMnHqSkw/NBe3iVFTuxN1kUoUT0vB7zuP5WdHUp1XLD5nrh+Lr5WIXf+Lk
+	 bLfPXvPa4yzSmVgS+72tra21+QUvQxy/qpC3PBmU=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56ADCr44197755
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 10 Jul 2025 08:12:53 -0500
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 10
+ Jul 2025 08:12:52 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 10 Jul 2025 08:12:52 -0500
+Received: from localhost (akira.dhcp.ti.com [10.24.69.4])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56ADCps91402183;
+	Thu, 10 Jul 2025 08:12:52 -0500
+From: Himanshu Mittal <h-mittal1@ti.com>
+To: <horms@kernel.org>, <h-mittal1@ti.com>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>,
+        <m-malladi@ti.com>, <pratheesh@ti.com>, <prajith@ti.com>
+Subject: [PATCH net v2] net: ti: icssg-prueth: Fix buffer allocation for ICSSG
+Date: Thu, 10 Jul 2025 18:42:50 +0530
+Message-ID: <20250710131250.1294278-1-h-mittal1@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <76fc695d-facb-4207-a724-d97797d7d0c8@ideasonboard.com>
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_060435_002762_0E867713 
-X-CRM114-Status: GOOD (  53.21  )
+X-CRM114-CacheID: sfid-20250710_061302_831581_ACAE993B 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,379 +87,532 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan
+Fixes overlapping buffer allocation for ICSSG peripheral
+used for storing packets to be received/transmitted.
+There are 3 buffers:
+1. Buffer for Locally Injected Packets
+2. Buffer for Forwarding Packets
+3. Buffer for Host Egress Packets
 
-On Thu, Jul 10, 2025 at 01:42:39PM +0100, Dan Scally wrote:
-> Hi Jacopo, thanks for the patchset
->
-> On 08/07/2025 11:40, Jacopo Mondi wrote:
-> > Add to the v4l2 framework an helper function to support drivers
-> s/an helper function/helper functions
-> > when validating a buffer of extensible parameters.
-> >
-> > Introduce new types in include/media/v4l2-params.h that driver shall
-> s/driver/drivers
-> > use in order to comply with the v4l2-params validation procedure, and
-> > add a single helper function to v4l2-params.c.
-> There's two functions?
+In existing allocation buffers for 2. and 3. are overlapping causing packet
+corruption.
 
-Thanks, just a few minutes before I was about to send v2 :)
+Packet corruption observations:
+During tcp iperf testing, due to overlapping buffers the received ack
+packet overwrites the packet to be transmitted. So, we see packets on wire
+with the ack packet content inside the content of next TCP packet from
+sender device.
 
-> >
-> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > ---
-> >   MAINTAINERS                           |   2 +
-> >   drivers/media/v4l2-core/Makefile      |   3 +-
-> >   drivers/media/v4l2-core/v4l2-params.c | 106 ++++++++++++++++++++++
-> >   include/media/v4l2-params.h           | 166 ++++++++++++++++++++++++++++++++++
-> >   4 files changed, 276 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index beecac86991d988c48d31366ba5201b09ef25715..3d9a8e06c59eb08360d1e8eea85e450a15ee95af 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -25973,6 +25973,8 @@ M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> >   L:	linux-media@vger.kernel.org
-> >   S:	Maintained
-> >   F:	Documentation/userspace-api/media/v4l/extensible-parameters.rst
-> > +F:	drivers/media/v4l2-core/v4l2-params.c
-> > +F:	include/media/v4l2-params.h
-> >   F:	include/uapi/linux/media/v4l2-extensible-params.h
-> >   VF610 NAND DRIVER
-> > diff --git a/drivers/media/v4l2-core/Makefile b/drivers/media/v4l2-core/Makefile
-> > index 2177b9d63a8ffc1127c5a70118249a2ff63cd759..323330dd359f95c1ae3d0c35bd6fcb8291a33a07 100644
-> > --- a/drivers/media/v4l2-core/Makefile
-> > +++ b/drivers/media/v4l2-core/Makefile
-> > @@ -11,7 +11,8 @@ tuner-objs	:=	tuner-core.o
-> >   videodev-objs	:=	v4l2-dev.o v4l2-ioctl.o v4l2-device.o v4l2-fh.o \
-> >   			v4l2-event.o v4l2-subdev.o v4l2-common.o \
-> >   			v4l2-ctrls-core.o v4l2-ctrls-api.o \
-> > -			v4l2-ctrls-request.o v4l2-ctrls-defs.o
-> > +			v4l2-ctrls-request.o v4l2-ctrls-defs.o \
-> > +			v4l2-params.o
-> >   # Please keep it alphabetically sorted by Kconfig name
-> >   # (e. g. LC_ALL=C sort Makefile)
-> > diff --git a/drivers/media/v4l2-core/v4l2-params.c b/drivers/media/v4l2-core/v4l2-params.c
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..3fb320aec900ee4a05c595f2e14c6ee0d8710669
-> > --- /dev/null
-> > +++ b/drivers/media/v4l2-core/v4l2-params.c
-> > @@ -0,0 +1,106 @@
-> > +// SPDX-License-Identifier: GPL-2.0-or-later
-> > +/*
-> > + * Video4Linux2 extensible parameters helpers
-> > + *
-> > + * Copyright (C) 2025 Ideas On Board Oy
-> > + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > + */
-> > +
-> > +#include <media/v4l2-params.h>
-> > +
-> > +int v4l2_params_buffer_validate(struct device *dev, struct vb2_buffer *vb,
-> > +				size_t max_size,
-> > +				v4l2_params_validate_buffer buffer_validate)
-> > +{
-> > +	size_t header_size = offsetof(struct v4l2_params_buffer, data);
-> > +	struct v4l2_params_buffer *buffer = vb2_plane_vaddr(vb, 0);
-> > +	size_t payload_size = vb2_get_plane_payload(vb, 0);
-> > +	size_t buffer_size;
-> > +	int ret;
-> > +
-> > +	/* Payload size can't be greater than the destination buffer size */
-> > +	if (payload_size > max_size) {
-> > +		dev_dbg(dev, "Payload size is too large: %zu\n", payload_size);
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	/* Payload size can't be smaller than the header size */
-> > +	if (payload_size < header_size) {
-> > +		dev_dbg(dev, "Payload size is too small: %zu\n", payload_size);
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	/* Validate the size reported in the parameter buffer header */
-> > +	buffer_size = header_size + buffer->data_size;
-> > +	if (buffer_size != payload_size) {
-> > +		dev_dbg(dev, "Data size %zu and payload size %zu are different\n",
-> > +			buffer_size, payload_size);
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	/* Driver-specific buffer validation. */
-> > +	if (buffer_validate) {
-> > +		ret = buffer_validate(dev, buffer);
-> > +		if (ret)
-> > +			return ret;
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +EXPORT_SYMBOL_GPL(v4l2_params_buffer_validate);
-> > +
-> > +int v4l2_params_blocks_validate(struct device *dev,
-> > +				const struct v4l2_params_buffer *buffer,
-> > +				const struct v4l2_params_handler *handlers,
-> > +				size_t num_handlers,
-> > +				v4l2_params_validate_block block_validate)
-> > +{
-> > +	size_t block_offset = 0;
-> > +	size_t buffer_size;
-> > +	int ret;
-> > +
-> > +	/* Walk the list of parameter blocks and validate them. */
-> > +	buffer_size = buffer->data_size;
-> > +	while (buffer_size >= sizeof(struct v4l2_params_block)) {
-> > +		const struct v4l2_params_handler *handler;
-> > +		const struct v4l2_params_block *block;
-> > +
-> > +		/* Validate block sizes and types against the handlers. */
-> > +		block = (const struct v4l2_params_block *)
-> > +			(buffer->data + block_offset);
-> > +
-> > +		if (block->type >= num_handlers) {
-> > +			dev_dbg(dev, "Invalid parameters block type\n");
-> > +			return -EINVAL;
-> > +		}
-> > +
-> > +		if (block->size > buffer_size) {
-> > +			dev_dbg(dev, "Premature end of parameters data\n");
-> > +			return -EINVAL;
-> > +		}
-> > +
-> > +		handler = &handlers[block->type];
-> > +		if (block->size != handler->size) {
->
-> In the C55 set I also check for just a header here:
->
->
-> if (block->size != handler->size &&
->
->     block->size != sizeof(*block) {
->
->
-> That way if all userspace wants to do is disable the block they can just
-> fill in the header with the flags set appropriately. The handlers  of course
-> need to be careful not to try to access past the header in that case.
->
+Details for AM64x switch mode:
+-> Allocation by existing driver:
++---------+-------------------------------------------------------------+
+|         |          SLICE 0             |          SLICE 1             |
+|         +------+--------------+--------+------+--------------+--------+
+|         | Slot | Base Address | Size   | Slot | Base Address | Size   |
+|---------+------+--------------+--------+------+--------------+--------+
+|         | 0    | 70000000     | 0x2000 | 0    | 70010000     | 0x2000 |
+|         | 1    | 70002000     | 0x2000 | 1    | 70012000     | 0x2000 |
+|         | 2    | 70004000     | 0x2000 | 2    | 70014000     | 0x2000 |
+| FWD     | 3    | 70006000     | 0x2000 | 3    | 70016000     | 0x2000 |
+| Buffers | 4    | 70008000     | 0x2000 | 4    | 70018000     | 0x2000 |
+|         | 5    | 7000A000     | 0x2000 | 5    | 7001A000     | 0x2000 |
+|         | 6    | 7000C000     | 0x2000 | 6    | 7001C000     | 0x2000 |
+|         | 7    | 7000E000     | 0x2000 | 7    | 7001E000     | 0x2000 |
++---------+------+--------------+--------+------+--------------+--------+
+|         | 8    | 70020000     | 0x1000 | 8    | 70028000     | 0x1000 |
+|         | 9    | 70021000     | 0x1000 | 9    | 70029000     | 0x1000 |
+|         | 10   | 70022000     | 0x1000 | 10   | 7002A000     | 0x1000 |
+| Our     | 11   | 70023000     | 0x1000 | 11   | 7002B000     | 0x1000 |
+| LI      | 12   | 00000000     | 0x0    | 12   | 00000000     | 0x0    |
+| Buffers | 13   | 00000000     | 0x0    | 13   | 00000000     | 0x0    |
+|         | 14   | 00000000     | 0x0    | 14   | 00000000     | 0x0    |
+|         | 15   | 00000000     | 0x0    | 15   | 00000000     | 0x0    |
++---------+------+--------------+--------+------+--------------+--------+
+|         | 16   | 70024000     | 0x1000 | 16   | 7002C000     | 0x1000 |
+|         | 17   | 70025000     | 0x1000 | 17   | 7002D000     | 0x1000 |
+|         | 18   | 70026000     | 0x1000 | 18   | 7002E000     | 0x1000 |
+| Their   | 19   | 70027000     | 0x1000 | 19   | 7002F000     | 0x1000 |
+| LI      | 20   | 00000000     | 0x0    | 20   | 00000000     | 0x0    |
+| Buffers | 21   | 00000000     | 0x0    | 21   | 00000000     | 0x0    |
+|         | 22   | 00000000     | 0x0    | 22   | 00000000     | 0x0    |
+|         | 23   | 00000000     | 0x0    | 23   | 00000000     | 0x0    |
++---------+------+--------------+--------+------+--------------+--------+
+--> here 16, 17, 18, 19 overlapping with below express buffer
 
-I think that's right. Both the existing implementations in rkisp1 and
-c3 allows that
++-----+-----------------------------------------------+
+|     |       SLICE 0       |        SLICE 1          |
+|     +------------+----------+------------+----------+
+|     | Start addr | End addr | Start addr | End addr |
++-----+------------+----------+------------+----------+
+| EXP | 70024000   | 70028000 | 7002C000   | 70030000 | <-- Overlapping
+| PRE | 70030000   | 70033800 | 70034000   | 70037800 |
++-----+------------+----------+------------+----------+
 
-rkisp1
- * When userspace simply wants to disable an ISP block the
- * RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE bit should be set in @flags field. The
- * driver ignores the rest of the block configuration structure in this case.
++---------------------+----------+----------+
+|                     | SLICE 0  |  SLICE 1 |
++---------------------+----------+----------+
+| Default Drop Offset | 00000000 | 00000000 |     <-- Field not configured
++---------------------+----------+----------+
 
-c3
- * When userspace wants to disable an ISP block the
- * C3_ISP_PARAMS_BLOCK_FL_DISABLED bit should be set in the @flags field. In
- * this case userspace may optionally omit the remainder of the configuration
- * block, which will be ignored by the driver.
+-> Allocation this patch brings:
++---------+-------------------------------------------------------------+
+|         |          SLICE 0             |          SLICE 1             |
+|         +------+--------------+--------+------+--------------+--------+
+|         | Slot | Base Address | Size   | Slot | Base Address | Size   |
+|---------+------+--------------+--------+------+--------------+--------+
+|         | 0    | 70000000     | 0x2000 | 0    | 70040000     | 0x2000 |
+|         | 1    | 70002000     | 0x2000 | 1    | 70042000     | 0x2000 |
+|         | 2    | 70004000     | 0x2000 | 2    | 70044000     | 0x2000 |
+| FWD     | 3    | 70006000     | 0x2000 | 3    | 70046000     | 0x2000 |
+| Buffers | 4    | 70008000     | 0x2000 | 4    | 70048000     | 0x2000 |
+|         | 5    | 7000A000     | 0x2000 | 5    | 7004A000     | 0x2000 |
+|         | 6    | 7000C000     | 0x2000 | 6    | 7004C000     | 0x2000 |
+|         | 7    | 7000E000     | 0x2000 | 7    | 7004E000     | 0x2000 |
++---------+------+--------------+--------+------+--------------+--------+
+|         | 8    | 70010000     | 0x1000 | 8    | 70050000     | 0x1000 |
+|         | 9    | 70011000     | 0x1000 | 9    | 70051000     | 0x1000 |
+|         | 10   | 70012000     | 0x1000 | 10   | 70052000     | 0x1000 |
+| Our     | 11   | 70013000     | 0x1000 | 11   | 70053000     | 0x1000 |
+| LI      | 12   | 00000000     | 0x0    | 12   | 00000000     | 0x0    |
+| Buffers | 13   | 00000000     | 0x0    | 13   | 00000000     | 0x0    |
+|         | 14   | 00000000     | 0x0    | 14   | 00000000     | 0x0    |
+|         | 15   | 00000000     | 0x0    | 15   | 00000000     | 0x0    |
++---------+------+--------------+--------+------+--------------+--------+
+|         | 16   | 70014000     | 0x1000 | 16   | 70054000     | 0x1000 |
+|         | 17   | 70015000     | 0x1000 | 17   | 70055000     | 0x1000 |
+|         | 18   | 70016000     | 0x1000 | 18   | 70056000     | 0x1000 |
+| Their   | 19   | 70017000     | 0x1000 | 19   | 70057000     | 0x1000 |
+| LI      | 20   | 00000000     | 0x0    | 20   | 00000000     | 0x0    |
+| Buffers | 21   | 00000000     | 0x0    | 21   | 00000000     | 0x0    |
+|         | 22   | 00000000     | 0x0    | 22   | 00000000     | 0x0    |
+|         | 23   | 00000000     | 0x0    | 23   | 00000000     | 0x0    |
++---------+------+--------------+--------+------+--------------+--------+
 
-So that's probably something we want to allow yes.
++-----+-----------------------------------------------+
+|     |       SLICE 0       |        SLICE 1          |
+|     +------------+----------+------------+----------+
+|     | Start addr | End addr | Start addr | End addr |
++-----+------------+----------+------------+----------+
+| EXP | 70018000   | 7001C000 | 70058000   | 7005C000 |
+| PRE | 7001C000   | 7001F800 | 7005C000   | 7005F800 |
++-----+------------+----------+------------+----------+
 
-I'll take the suggestion in, thanks for checking
++---------------------+----------+----------+
+|                     | SLICE 0  |  SLICE 1 |
++---------------------+----------+----------+
+| Default Drop Offset | 7001F800 | 7005F800 |
++---------------------+----------+----------+
 
+Fixes: abd5576b9c57 ("net: ti: icssg-prueth: Add support for ICSSG switch firmware")
+Signed-off-by: Himanshu Mittal <h-mittal1@ti.com>
+---
+ drivers/net/ethernet/ti/icssg/icssg_config.c  | 158 ++++++++++++------
+ drivers/net/ethernet/ti/icssg/icssg_config.h  |  80 +++++++--
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c  |  20 ++-
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h  |   2 +
+ .../net/ethernet/ti/icssg/icssg_switch_map.h  |   3 +
+ 5 files changed, 190 insertions(+), 73 deletions(-)
 
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
+index ddfd1c02a885..da53eb04b0a4 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_config.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
+@@ -288,8 +288,12 @@ static int prueth_fw_offload_buffer_setup(struct prueth_emac *emac)
+ 	int i;
+ 
+ 	addr = lower_32_bits(prueth->msmcram.pa);
+-	if (slice)
+-		addr += PRUETH_NUM_BUF_POOLS * PRUETH_EMAC_BUF_POOL_SIZE;
++	if (slice) {
++		if (prueth->pdata.banked_ms_ram)
++			addr += MSMC_RAM_BANK_SIZE;
++		else
++			addr += PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE;
++	}
+ 
+ 	if (addr % SZ_64K) {
+ 		dev_warn(prueth->dev, "buffer pool needs to be 64KB aligned\n");
+@@ -297,43 +301,66 @@ static int prueth_fw_offload_buffer_setup(struct prueth_emac *emac)
+ 	}
+ 
+ 	bpool_cfg = emac->dram.va + BUFFER_POOL_0_ADDR_OFFSET;
+-	/* workaround for f/w bug. bpool 0 needs to be initialized */
+-	for (i = 0; i <  PRUETH_NUM_BUF_POOLS; i++) {
++
++	/* Configure buffer pools for forwarding buffers
++	 * - used by firmware to store packets to be forwarded to other port
++	 * - 8 total pools per slice
++	 */
++	for (i = 0; i <  PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE; i++) {
+ 		writel(addr, &bpool_cfg[i].addr);
+-		writel(PRUETH_EMAC_BUF_POOL_SIZE, &bpool_cfg[i].len);
+-		addr += PRUETH_EMAC_BUF_POOL_SIZE;
++		writel(PRUETH_SW_FWD_BUF_POOL_SIZE, &bpool_cfg[i].len);
++		addr += PRUETH_SW_FWD_BUF_POOL_SIZE;
+ 	}
+ 
+-	if (!slice)
+-		addr += PRUETH_NUM_BUF_POOLS * PRUETH_EMAC_BUF_POOL_SIZE;
+-	else
+-		addr += PRUETH_SW_NUM_BUF_POOLS_HOST * PRUETH_SW_BUF_POOL_SIZE_HOST;
+-
+-	for (i = PRUETH_NUM_BUF_POOLS;
+-	     i < 2 * PRUETH_SW_NUM_BUF_POOLS_HOST + PRUETH_NUM_BUF_POOLS;
+-	     i++) {
+-		/* The driver only uses first 4 queues per PRU so only initialize them */
+-		if (i % PRUETH_SW_NUM_BUF_POOLS_HOST < PRUETH_SW_NUM_BUF_POOLS_PER_PRU) {
+-			writel(addr, &bpool_cfg[i].addr);
+-			writel(PRUETH_SW_BUF_POOL_SIZE_HOST, &bpool_cfg[i].len);
+-			addr += PRUETH_SW_BUF_POOL_SIZE_HOST;
++	/* Configure buffer pools for Local Injection buffers
++	 *  - used by firmware to store packets received from host core
++	 *  - 16 total pools per slice
++	 */
++	for (i = 0; i < PRUETH_NUM_LI_BUF_POOLS_PER_SLICE; i++) {
++		int cfg_idx = i + PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE;
++
++		/* The driver only uses first 4 queues per PRU,
++		 * so only initialize buffer for them
++		 */
++		if ((i % PRUETH_NUM_LI_BUF_POOLS_PER_PORT_PER_SLICE)
++			 < PRUETH_SW_USED_LI_BUF_POOLS_PER_PORT_PER_SLICE) {
++			writel(addr, &bpool_cfg[cfg_idx].addr);
++			writel(PRUETH_SW_LI_BUF_POOL_SIZE,
++			       &bpool_cfg[cfg_idx].len);
++			addr += PRUETH_SW_LI_BUF_POOL_SIZE;
+ 		} else {
+-			writel(0, &bpool_cfg[i].addr);
+-			writel(0, &bpool_cfg[i].len);
++			writel(0, &bpool_cfg[cfg_idx].addr);
++			writel(0, &bpool_cfg[cfg_idx].len);
+ 		}
+ 	}
+ 
+-	if (!slice)
+-		addr += PRUETH_SW_NUM_BUF_POOLS_HOST * PRUETH_SW_BUF_POOL_SIZE_HOST;
+-	else
+-		addr += PRUETH_EMAC_RX_CTX_BUF_SIZE;
++	/* Express RX buffer queue
++	 *  - used by firmware to store express packets to be transmitted
++	 *    to the host core
++	 */
++	rxq_ctx = emac->dram.va + HOST_RX_Q_EXP_CONTEXT_OFFSET;
++	for (i = 0; i < 3; i++)
++		writel(addr, &rxq_ctx->start[i]);
++
++	addr += PRUETH_SW_HOST_EXP_BUF_POOL_SIZE;
++	writel(addr, &rxq_ctx->end);
+ 
++	/* Pre-emptible RX buffer queue
++	 *  - used by firmware to store preemptible packets to be transmitted
++	 *    to the host core
++	 */
+ 	rxq_ctx = emac->dram.va + HOST_RX_Q_PRE_CONTEXT_OFFSET;
+ 	for (i = 0; i < 3; i++)
+ 		writel(addr, &rxq_ctx->start[i]);
+ 
+-	addr += PRUETH_EMAC_RX_CTX_BUF_SIZE;
+-	writel(addr - SZ_2K, &rxq_ctx->end);
++	addr += PRUETH_SW_HOST_PRE_BUF_POOL_SIZE;
++	writel(addr, &rxq_ctx->end);
++
++	/* Set pointer for default dropped packet write
++	 *  - used by firmware to temporarily store packet to be dropped
++	 */
++	rxq_ctx = emac->dram.va + DEFAULT_MSMC_Q_OFFSET;
++	writel(addr, &rxq_ctx->start[0]);
+ 
+ 	return 0;
+ }
+@@ -347,13 +374,13 @@ static int prueth_emac_buffer_setup(struct prueth_emac *emac)
+ 	u32 addr;
+ 	int i;
+ 
+-	/* Layout to have 64KB aligned buffer pool
+-	 * |BPOOL0|BPOOL1|RX_CTX0|RX_CTX1|
+-	 */
+-
+ 	addr = lower_32_bits(prueth->msmcram.pa);
+-	if (slice)
+-		addr += PRUETH_NUM_BUF_POOLS * PRUETH_EMAC_BUF_POOL_SIZE;
++	if (slice) {
++		if (prueth->pdata.banked_ms_ram)
++			addr += MSMC_RAM_BANK_SIZE;
++		else
++			addr += PRUETH_EMAC_TOTAL_BUF_SIZE_PER_SLICE;
++	}
+ 
+ 	if (addr % SZ_64K) {
+ 		dev_warn(prueth->dev, "buffer pool needs to be 64KB aligned\n");
+@@ -361,39 +388,66 @@ static int prueth_emac_buffer_setup(struct prueth_emac *emac)
+ 	}
+ 
+ 	bpool_cfg = emac->dram.va + BUFFER_POOL_0_ADDR_OFFSET;
+-	/* workaround for f/w bug. bpool 0 needs to be initilalized */
+-	writel(addr, &bpool_cfg[0].addr);
+-	writel(0, &bpool_cfg[0].len);
+ 
+-	for (i = PRUETH_EMAC_BUF_POOL_START;
+-	     i < PRUETH_EMAC_BUF_POOL_START + PRUETH_NUM_BUF_POOLS;
+-	     i++) {
+-		writel(addr, &bpool_cfg[i].addr);
+-		writel(PRUETH_EMAC_BUF_POOL_SIZE, &bpool_cfg[i].len);
+-		addr += PRUETH_EMAC_BUF_POOL_SIZE;
++	/* Configure buffer pools for forwarding buffers
++	 *  - in mac mode - no forwarding so initialize all pools to 0
++	 *  - 8 total pools per slice
++	 */
++	for (i = 0; i <  PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE; i++) {
++		writel(0, &bpool_cfg[i].addr);
++		writel(0, &bpool_cfg[i].len);
+ 	}
+ 
+-	if (!slice)
+-		addr += PRUETH_NUM_BUF_POOLS * PRUETH_EMAC_BUF_POOL_SIZE;
+-	else
+-		addr += PRUETH_EMAC_RX_CTX_BUF_SIZE * 2;
++	/* Configure buffer pools for Local Injection buffers
++	 *  - used by firmware to store packets received from host core
++	 *  - 16 total pools per slice
++	 */
++	bpool_cfg = emac->dram.va + BUFFER_POOL_0_ADDR_OFFSET;
++	for (i = 0; i < PRUETH_NUM_LI_BUF_POOLS_PER_SLICE; i++) {
++		int cfg_idx = i + PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE;
++
++		/* In EMAC mode, only first 4 buffers are used,
++		 * as 1 slice needs to handle only 1 port
++		 */
++		if (i < PRUETH_EMAC_USED_LI_BUF_POOLS_PER_PORT_PER_SLICE) {
++			writel(addr, &bpool_cfg[cfg_idx].addr);
++			writel(PRUETH_EMAC_LI_BUF_POOL_SIZE,
++			       &bpool_cfg[cfg_idx].len);
++			addr += PRUETH_EMAC_LI_BUF_POOL_SIZE;
++		} else {
++			writel(0, &bpool_cfg[cfg_idx].addr);
++			writel(0, &bpool_cfg[cfg_idx].len);
++		}
++	}
+ 
+-	/* Pre-emptible RX buffer queue */
+-	rxq_ctx = emac->dram.va + HOST_RX_Q_PRE_CONTEXT_OFFSET;
++	/* Express RX buffer queue
++	 *  - used by firmware to store express packets to be transmitted
++	 *    to host core
++	 */
++	rxq_ctx = emac->dram.va + HOST_RX_Q_EXP_CONTEXT_OFFSET;
+ 	for (i = 0; i < 3; i++)
+ 		writel(addr, &rxq_ctx->start[i]);
+ 
+-	addr += PRUETH_EMAC_RX_CTX_BUF_SIZE;
++	addr += PRUETH_EMAC_HOST_EXP_BUF_POOL_SIZE;
+ 	writel(addr, &rxq_ctx->end);
+ 
+-	/* Express RX buffer queue */
+-	rxq_ctx = emac->dram.va + HOST_RX_Q_EXP_CONTEXT_OFFSET;
++	/* Pre-emptible RX buffer queue
++	 *  - used by firmware to store preemptible packets to be transmitted
++	 *    to host core
++	 */
++	rxq_ctx = emac->dram.va + HOST_RX_Q_PRE_CONTEXT_OFFSET;
+ 	for (i = 0; i < 3; i++)
+ 		writel(addr, &rxq_ctx->start[i]);
+ 
+-	addr += PRUETH_EMAC_RX_CTX_BUF_SIZE;
++	addr += PRUETH_EMAC_HOST_PRE_BUF_POOL_SIZE;
+ 	writel(addr, &rxq_ctx->end);
+ 
++	/* Set pointer for default dropped packet write
++	 *  - used by firmware to temporarily store packet to be dropped
++	 */
++	rxq_ctx = emac->dram.va + DEFAULT_MSMC_Q_OFFSET;
++	writel(addr, &rxq_ctx->start[0]);
++
+ 	return 0;
+ }
+ 
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
+index c884e9fa099e..60d69744ffae 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_config.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
+@@ -26,21 +26,71 @@ struct icssg_flow_cfg {
+ #define PRUETH_MAX_RX_FLOWS	1	/* excluding default flow */
+ #define PRUETH_RX_FLOW_DATA	0
+ 
+-#define PRUETH_EMAC_BUF_POOL_SIZE	SZ_8K
+-#define PRUETH_EMAC_POOLS_PER_SLICE	24
+-#define PRUETH_EMAC_BUF_POOL_START	8
+-#define PRUETH_NUM_BUF_POOLS	8
+-#define PRUETH_EMAC_RX_CTX_BUF_SIZE	SZ_16K	/* per slice */
+-#define MSMC_RAM_SIZE	\
+-	(2 * (PRUETH_EMAC_BUF_POOL_SIZE * PRUETH_NUM_BUF_POOLS + \
+-	 PRUETH_EMAC_RX_CTX_BUF_SIZE * 2))
+-
+-#define PRUETH_SW_BUF_POOL_SIZE_HOST	SZ_4K
+-#define PRUETH_SW_NUM_BUF_POOLS_HOST	8
+-#define PRUETH_SW_NUM_BUF_POOLS_PER_PRU 4
+-#define MSMC_RAM_SIZE_SWITCH_MODE \
+-	(MSMC_RAM_SIZE + \
+-	(2 * PRUETH_SW_BUF_POOL_SIZE_HOST * PRUETH_SW_NUM_BUF_POOLS_HOST))
++/* Defines for forwarding path buffer pools:
++ *   - used by firmware to store packets to be forwarded to other port
++ *   - 8 total pools per slice
++ *   - only used in switch mode (as no forwarding in mac mode)
++ */
++#define PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE			8
++#define PRUETH_SW_FWD_BUF_POOL_SIZE				(SZ_8K)
++
++/* Defines for local injection path buffer pools:
++ *   - used by firmware to store packets received from host core
++ *   - 16 total pools per slice
++ *   - 8 pools per port per slice and each slice handles both ports
++ *   - only 4 out of 8 pools used per port (as only 4 real QoS levels in ICSSG)
++ *   - switch mode: 8 total pools used
++ *   - mac mode:    4 total pools used
++ */
++#define PRUETH_NUM_LI_BUF_POOLS_PER_SLICE			16
++#define PRUETH_NUM_LI_BUF_POOLS_PER_PORT_PER_SLICE		8
++#define PRUETH_SW_LI_BUF_POOL_SIZE				SZ_4K
++#define PRUETH_SW_USED_LI_BUF_POOLS_PER_SLICE			8
++#define PRUETH_SW_USED_LI_BUF_POOLS_PER_PORT_PER_SLICE		4
++#define PRUETH_EMAC_LI_BUF_POOL_SIZE				SZ_8K
++#define PRUETH_EMAC_USED_LI_BUF_POOLS_PER_SLICE			4
++#define PRUETH_EMAC_USED_LI_BUF_POOLS_PER_PORT_PER_SLICE	4
++
++/* Defines for host egress path - express and preemptible buffers
++ *   - used by firmware to store express and preemptible packets
++ *     to be transmitted to host core
++ *   - used by both mac/switch modes
++ */
++#define PRUETH_SW_HOST_EXP_BUF_POOL_SIZE	SZ_16K
++#define PRUETH_SW_HOST_PRE_BUF_POOL_SIZE	(SZ_16K - SZ_2K)
++#define PRUETH_EMAC_HOST_EXP_BUF_POOL_SIZE	PRUETH_SW_HOST_EXP_BUF_POOL_SIZE
++#define PRUETH_EMAC_HOST_PRE_BUF_POOL_SIZE	PRUETH_SW_HOST_PRE_BUF_POOL_SIZE
++
++/* Buffer used by firmware to temporarily store packet to be dropped */
++#define PRUETH_SW_DROP_PKT_BUF_SIZE		SZ_2K
++#define PRUETH_EMAC_DROP_PKT_BUF_SIZE		PRUETH_SW_DROP_PKT_BUF_SIZE
++
++/* Total switch mode memory usage for buffers per slice */
++#define PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE \
++	(PRUETH_SW_FWD_BUF_POOL_SIZE * PRUETH_NUM_FWD_BUF_POOLS_PER_SLICE + \
++	 PRUETH_SW_LI_BUF_POOL_SIZE * PRUETH_SW_USED_LI_BUF_POOLS_PER_SLICE + \
++	 PRUETH_SW_HOST_EXP_BUF_POOL_SIZE + \
++	 PRUETH_SW_HOST_PRE_BUF_POOL_SIZE + \
++	 PRUETH_SW_DROP_PKT_BUF_SIZE)
++
++/* Total switch mode memory usage for all buffers */
++#define PRUETH_SW_TOTAL_BUF_SIZE \
++	(2 * PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE)
++
++/* Total mac mode memory usage for buffers per slice */
++#define PRUETH_EMAC_TOTAL_BUF_SIZE_PER_SLICE \
++	(PRUETH_EMAC_LI_BUF_POOL_SIZE * \
++	 PRUETH_EMAC_USED_LI_BUF_POOLS_PER_SLICE + \
++	 PRUETH_EMAC_HOST_EXP_BUF_POOL_SIZE + \
++	 PRUETH_EMAC_HOST_PRE_BUF_POOL_SIZE + \
++	 PRUETH_EMAC_DROP_PKT_BUF_SIZE)
++
++/* Total mac mode memory usage for all buffers */
++#define PRUETH_EMAC_TOTAL_BUF_SIZE \
++	(2 * PRUETH_EMAC_TOTAL_BUF_SIZE_PER_SLICE)
++
++/* Size of 1 bank of MSMC/OC_SRAM memory */
++#define MSMC_RAM_BANK_SIZE			SZ_256K
+ 
+ #define PRUETH_SWITCH_FDB_MASK ((SIZE_OF_FDB / NUMBER_OF_FDB_BUCKET_ENTRIES) - 1)
+ 
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 2aa812cbab92..2b973d6e2341 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -1814,10 +1814,15 @@ static int prueth_probe(struct platform_device *pdev)
+ 		goto put_mem;
+ 	}
+ 
+-	msmc_ram_size = MSMC_RAM_SIZE;
+ 	prueth->is_switchmode_supported = prueth->pdata.switch_mode;
+-	if (prueth->is_switchmode_supported)
+-		msmc_ram_size = MSMC_RAM_SIZE_SWITCH_MODE;
++	if (prueth->pdata.banked_ms_ram) {
++		/* Reserve 2 MSMC RAM banks for buffers to avoid arbitration */
++		msmc_ram_size = (2 * MSMC_RAM_BANK_SIZE);
++	} else {
++		msmc_ram_size = PRUETH_EMAC_TOTAL_BUF_SIZE;
++		if (prueth->is_switchmode_supported)
++			msmc_ram_size = PRUETH_SW_TOTAL_BUF_SIZE;
++	}
+ 
+ 	/* NOTE: FW bug needs buffer base to be 64KB aligned */
+ 	prueth->msmcram.va =
+@@ -1985,7 +1990,8 @@ static int prueth_probe(struct platform_device *pdev)
+ 
+ free_pool:
+ 	gen_pool_free(prueth->sram_pool,
+-		      (unsigned long)prueth->msmcram.va, msmc_ram_size);
++		      (unsigned long)prueth->msmcram.va,
++		      prueth->msmcram.size);
+ 
+ put_mem:
+ 	pruss_release_mem_region(prueth->pruss, &prueth->shram);
+@@ -2037,8 +2043,8 @@ static void prueth_remove(struct platform_device *pdev)
+ 	icss_iep_put(prueth->iep0);
+ 
+ 	gen_pool_free(prueth->sram_pool,
+-		      (unsigned long)prueth->msmcram.va,
+-		      MSMC_RAM_SIZE);
++		(unsigned long)prueth->msmcram.va,
++		prueth->msmcram.size);
+ 
+ 	pruss_release_mem_region(prueth->pruss, &prueth->shram);
+ 
+@@ -2055,12 +2061,14 @@ static const struct prueth_pdata am654_icssg_pdata = {
+ 	.fdqring_mode = K3_RINGACC_RING_MODE_MESSAGE,
+ 	.quirk_10m_link_issue = 1,
+ 	.switch_mode = 1,
++	.banked_ms_ram = 0,
+ };
+ 
+ static const struct prueth_pdata am64x_icssg_pdata = {
+ 	.fdqring_mode = K3_RINGACC_RING_MODE_RING,
+ 	.quirk_10m_link_issue = 1,
+ 	.switch_mode = 1,
++	.banked_ms_ram = 1,
+ };
+ 
+ static const struct of_device_id prueth_dt_match[] = {
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+index 9ca2e7fdefbd..ca8a22a4a5da 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+@@ -252,11 +252,13 @@ struct prueth_emac {
+  * @fdqring_mode: Free desc queue mode
+  * @quirk_10m_link_issue: 10M link detect errata
+  * @switch_mode: switch firmware support
++ * @banked_ms_ram: banked memory support
+  */
+ struct prueth_pdata {
+ 	enum k3_ring_mode fdqring_mode;
+ 	u32	quirk_10m_link_issue:1;
+ 	u32	switch_mode:1;
++	u32	banked_ms_ram:1;
+ };
+ 
+ struct icssg_firmwares {
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
+index 490a9cc06fb0..7e053b8af3ec 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
+@@ -180,6 +180,9 @@
+ /* Used to notify the FW of the current link speed */
+ #define PORT_LINK_SPEED_OFFSET                             0x00A8
+ 
++/* 2k memory pointer reserved for default writes by PRU0*/
++#define DEFAULT_MSMC_Q_OFFSET                              0x00AC
++
+ /* TAS gate mask for windows list0 */
+ #define TAS_GATE_MASK_LIST0                                0x0100
+ 
+-- 
+2.34.1
 
-
-
-> > +			dev_dbg(dev, "Invalid parameters block size\n");
-> > +			return -EINVAL;
-> > +		}
-> > +
-> > +		/* Driver-specific per-block validation. */
-> > +		if (block_validate) {
-> > +			ret = block_validate(dev, block);
-> > +			if (ret)
-> > +				return ret;
-> > +		}
-> > +
-> > +		block_offset += block->size;
-> > +		buffer_size -= block->size;
-> > +	}
-> > +
-> > +	if (buffer_size) {
-> > +		dev_dbg(dev, "Unexpected data after the parameters buffer end\n");
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +EXPORT_SYMBOL_GPL(v4l2_params_blocks_validate);
-> > diff --git a/include/media/v4l2-params.h b/include/media/v4l2-params.h
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..55f08c646a943fef11eaeddff842fae00b8422d4
-> > --- /dev/null
-> > +++ b/include/media/v4l2-params.h
-> > @@ -0,0 +1,166 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> > +/*
-> > + * Video4Linux2 extensible parameters helpers
-> > + *
-> > + * Copyright (C) 2025 Ideas On Board Oy
-> > + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > + */
-> > +
-> > +#ifndef V4L2_PARAMS_H_
-> > +#define V4L2_PARAMS_H_
-> > +
-> > +#define _UAPI_V4L2_EXTENSIBLE_PARAMS_GUARD_
-> > +#include <linux/media/v4l2-extensible-params.h>
-> > +
-> > +#include <linux/device.h>
-> > +
-> > +#include <media/videobuf2-core.h>
-> > +
-> > +/**
-> > + * typedef v4l2_params_block_handler - V4L2 extensible format block handler
-> > + * @arg: pointer the driver-specific argument
-> s/pointer/pointer to
-> > + * @block: the ISP configuration block to handle
-> > + *
-> > + * Defines the function signature of the functions that handle an ISP block
-> > + * configuration.
-> > + */
-> > +typedef void (*v4l2_params_block_handler)(void *arg,
-> > +					  const struct v4l2_params_block *block);
-> > +
-> > +/**
-> > + * struct v4l2_params_handler - V4L2 extensible format handler
-> > + * @size: the block expected size
-> > + * @handler: the block handler function
-> > + * @group: the device-specific group id the block belongs to (optional)
-> > + * @features: the device-specific features flags (optional)
-> > + *
-> > + * The v4l2_params_handler defines the type that driver making use of the
-> > + * V4L2 extensible parameters shall use to define their own ISP block
-> > + * handlers.
-> > + *
-> > + * Drivers shall prepare a list of handlers, one for each supported ISP block
-> > + * and correctly populate the structure's field with the expected block @size
-> > + * (used for validation), a pointer to each block @handler function and an
-> > + * optional @group and @feature flags, the driver can use to differentiate which
-> > + * ISP blocks are present on the ISP implementation.
-> > + *
-> > + * The @group field is intended to be used as a bitmask of driver-specific
-> > + * flags to allow the driver to setup certain blocks at different times. As an
-> > + * example an ISP driver can divide its block handlers in "pre-configure" blocks
-> > + * and "run-time" blocks and use the @group bitmask to identify the ISP blocks
-> > + * that have to be pre-configured from the ones that only have to be handled at
-> > + * run-time. The usage and definition of the @group field is totally
-> > + * driver-specific.
-> > + *
-> > + * The @features flag can instead be used to differentiate between blocks
-> > + * implemented in different revisions of the ISP design. In example some ISP
-> > + * blocks might be present on more recent revision than others. Populating the
-> > + * @features bitmask with the ISP/SoC machine identifier allows the driver to
-> > + * correctly ignore the blocks not supported on the ISP revision it is running
-> > + * on. As per the @group bitmask, the usage and definition of the @features
-> > + * field is totally driver-specific.
-> > + */
-> > +struct v4l2_params_handler {
-> > +	size_t size;
-> > +	v4l2_params_block_handler handler;
-> > +	unsigned int group;
-> > +	unsigned int features;
-> > +};
-> > +
-> > +/**
-> > + * typedef v4l2_params_validate_buffer - V4L2 extensible parameters buffer
-> > + *					 validation callback
-> > + * @dev: the driver's device pointer (as passed by the driver to
-> > + *	 v4l2_params_buffer_validate())
-> > + * @buffer: the extensible parameters buffer
-> > + *
-> > + * Defines the function prototype for the driver's callback to perform
-> > + * driver-specific validation on the extensible parameters buffer
-> > + */
-> > +typedef int (*v4l2_params_validate_buffer)(struct device *dev,
-> > +					   const struct v4l2_params_buffer *buffer);
-> > +
-> > +/**
-> > + * v4l2_params_buffer_validate - Validate a V4L2 extensible parameters buffer
-> > + * @dev: the driver's device pointer
-> > + * @vb: the videobuf2 buffer
-> > + * @max_size: the maximum allowed buffer size
-> > + * @buffer_validate: callback to the driver-specific buffer validation
-> > + *
-> > + * Helper function that performs validation of an extensible parameters buffer.
-> > + *
-> > + * The helper is meant to be used by drivers to perform validation of the
-> > + * extensible parameters buffer size correctness.
-> > + *
-> > + * The @vb buffer as received from the vb2 .buf_prepare operation is checked
-> > + * against @max_size and its validated to be large enough to accommodate at
-> > + * least one ISP configuration block. The effective buffer size is compared
-> > + * to the data size reported by @cfg to make sure they match.
-> > + *
-> > + * If provided, the @buffer_validate callback function is invoked to allow
-> > + * drivers to perform driver-specific validation (such as checking that the
-> > + * buffer version is supported).
-> > + *
-> > + * Drivers should use this function to validate the buffer size correctness
-> > + * before performing a copy of the user-provided videobuf2 buffer content into a
-> > + * kernel-only memory buffer to prevent userspace from modifying the buffer
-> > + * content after it has been submitted to the driver.
-> > + *.
-> > + * Examples of users of this function can be found in
-> > + * rkisp1_params_prepare_ext_params() and in c3_isp_params_vb2_buf_prepare().
-> > + */
-> > +int v4l2_params_buffer_validate(struct device *dev, struct vb2_buffer *vb,
-> > +				size_t max_size,
-> > +				v4l2_params_validate_buffer buffer_validate);
-> > +
-> > +/**
-> > + * typedef v4l2_params_validate_block - V4L2 extensible parameters block
-> > + *					validation callback
-> > + * @dev: the driver's device pointer (as passed by the driver to
-> > + *	 v4l2_params_validate())
-> > + * @block: the ISP configuration block to validate
-> > + *
-> > + * Defines the function prototype for the driver's callback to perform
-> > + * driver-specific validation on each ISP block.
-> > + */
-> > +typedef int (*v4l2_params_validate_block)(struct device *dev,
-> > +					  const struct v4l2_params_block *block);
-> > +
-> > +/**
-> > + * v4l2_params_blocks_validate - Validate V4L2 extensible parameters ISP
-> > + *				 configuration blocks
-> > + * @dev: the driver's device pointer
-> > + * @buffer: the extensible parameters configuration buffer
-> > + * @handlers: the list of block handlers
-> > + * @num_handlers: the number of block handlers
-> > + * @block_validate: callback to the driver-specific per-block validation
-> > + *		    function
-> > + *
-> > + * Helper function that performs validation of the ISP configuration blocks in
-> > + * an extensible parameters buffer.
-> > + *
-> > + * The helper is meant to be used by drivers to perform validation of the
-> > + * ISP configuration data blocks. For each block in the extensible parameters
-> > + * buffer, its size and correctness are validated against its associated handler
-> > + * in the @handlers list. Additionally, if provided, the @block_validate
-> > + * callback is invoked on each block to allow drivers to perform driver-specific
-> > + * validation.
-> > + *
-> > + * Drivers should to use this function to validate the ISP configuration blocks
-> > + * after having validated the correctness of the vb2 buffer sizes by using the
-> > + * v4l2_params_buffer_validate() helper first. Once the buffer size has been
-> > + * validated, drivers should perform a copy of the user-provided buffer into a
-> > + * kernel-only memory buffer @cfg to prevent userspace from modifying the buffer
-> > + * content after it has been submitted to the driver, and then call this
-> > + * function to perform per-block validation.
-> > + *
-> > + * Examples of users of this function can be found in
-> > + * rkisp1_params_prepare_ext_params() and in c3_isp_params_vb2_buf_prepare().
-> > + */
-> > +int v4l2_params_blocks_validate(struct device *dev,
-> > +				const struct v4l2_params_buffer *buffer,
-> > +				const struct v4l2_params_handler *handlers,
-> > +				size_t num_handlers,
-> > +				v4l2_params_validate_block block_validate);
-> > +
-> > +#endif /* V4L2_PARAMS_H_ */
-> >
->
 
