@@ -4,58 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB40C83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 02:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C765EC83F0F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 03:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8dzREoZ/WsyaHQKz6zD+3j3tk+9rN2BHKiKlFhHQROA=; b=wt9X+QmJ7iUQFrywyfF7w5jEIs
-	6egSVsr9XaB3NOIfQsbww7dhwTMcgLVoY7B7q3Huq3QBEQYVvHZQxpmV30w5c9K4vUsQ4vUkkDVky
-	Mnv0gzEy4P6jOxs7QPe9+dGxpL0Uk6WA79/BKLXmMZoy/6JlX4oilYv/fJkKr3zNpBWi+CI3fFxJ1
-	jgCMDuF31GL7srAVO6aUeF426HM/inWYDUXIMSh5ifMI4GAZVwMknLvtTsAFXIA+Btoe+TxXiXTD4
-	GM+m99npZRoO7Sw8YNuaCY6MpPzkchhMxZWRTgG2UxN45ss21G8clgrmi4YScLcCNjym2zglI0MP0
-	ei8L4LEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mAnjUy1E6CvEOxfWvkVSiKMqa2xpHS2Nnyz5+PInGA0=; b=ZmX3FaDlehZEJqodbPr43k+GvL
+	3jAyo8TOqMLQhpJuKxcaOG9M5EbCoGsi8Td59NreHb82f/t/UnwCW9Q0UsuTfUNKDmpg5p4k+hxKo
+	jSolNOGUPavq/9i2CwYrhuYPB8JIphicYbjSM6Z1AYtmf0UXNn/YpFXHNG2QL6qy8t3Pkorz5mj8E
+	4Swf9CaEepttx6HFFN3eNhHzdrupTZ16JfmEWZ5gRl+1Pn5UqAfixWqnyQKeFsNwAUVbHeE9tvMzr
+	eO4KG2IDwcmz3dAtNkRJ2LjxLh40LvBYu/Y++PQ61YNBNOlSs0EQmPCFNSIHW7hrY9C2xveUioYeB
+	l4wvly2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZhSW-0000000AXK9-1Y9b;
-	Thu, 10 Jul 2025 02:56:28 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uZhWJ-0000000AYGA-0xgt;
+	Thu, 10 Jul 2025 03:00:23 +0000
+Received: from mail-dm6nam11on20616.outbound.protection.outlook.com ([2a01:111:f403:2415::616] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZhQA-0000000AXBM-035F
+	id 1uZhTx-0000000AXPh-1WqR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 02:54:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1752116040;
-	bh=8dzREoZ/WsyaHQKz6zD+3j3tk+9rN2BHKiKlFhHQROA=;
-	h=Subject:From:To:Cc:Date;
-	b=bjicqfx2rgywaAX0RM2JysJJTO3TVqwRoCaMymwSQcoJL5VujZkVZM+TNowxxjUuo
-	 v6BuM6P+Px0ibNyrm/wG0mfebevRTIvUApMST7bTO7upckx19xnc594OiAHYPXRdht
-	 zJuS+zk31AZxWUbG7Y3qnapLI4xjSUyN8RJnypB8GRfkrVDu5LrLqxTaVkCVLKbnaG
-	 vb2SntBDI9QjLtYdlhjT9QANxeVgLG2Tx00M0DBy98Vdtf269dwFjJlFliiDsDGPDU
-	 z6dDpDjnhPnpMVSDlrA9fVdcvq5QDVMxQccQNN+FgSiPPny1CFPlHPpRzB3VtCGPrp
-	 NSCBI15IteGPg==
-Received: from [192.168.68.112] (unknown [180.150.112.70])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D2D856508A;
-	Thu, 10 Jul 2025 10:53:59 +0800 (AWST)
-Message-ID: <9123f151280e52c63dcb645cb07d4eee3462c067.camel@codeconstruct.com.au>
-Subject: [GIT PULL] aspeed: drivers changes for 6.17
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: soc <soc@lists.linux.dev>
-Cc: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-aspeed
- <linux-aspeed@lists.ozlabs.org>, linux-kernel
- <linux-kernel@vger.kernel.org>,  Joel Stanley <joel@jms.id.au>
-Date: Thu, 10 Jul 2025 12:23:59 +0930
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Thu, 10 Jul 2025 02:57:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JKS32HAFmtqm4vCAbl/cplf5gAyqYVmcX4Gugx/pE7v3szeJSbQNw7cEc82FlBVYV8sdxMhnrYamugdKDZUIfN6m9pEzdrN42ALIgv5FFNN9XGQx2INEar8VKDvMX+czVfqY4thIRV9/NAmEuvB9YwNt0l0sVznMd3OllOG8/P+W4iswW55LsMEXUAcrH+DbfKrinfl0h/4FloQxuTabxQRljL46LAyCDWZWnFrGsnOFFvJ0kr2pXTb3dDzawygAfqy+/+JILSfvVghClIhSi8MO0p53tz+2QD1v1axkOKR3IsmZBiuG15gtf2zCmdW4QBdgNQndEbnDBOO+OT4BTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mAnjUy1E6CvEOxfWvkVSiKMqa2xpHS2Nnyz5+PInGA0=;
+ b=bc59YPZ44Yv3hbHkC4DI2YvYx/aaaGxb+eOg57gEbhlBBRiogbUWm6e1s+c5Qk/jYp6aLtBHnyGS2AgZY2u2Af7MFqJPG9UDDXKSGmBlxU13ZNnib9kkdEndWrkyXlEP5wRb1lcsah5agWUWLikRVqvZcf9oxsZ9XvyFlr3eTSrQgcU9EMFeTcMhZiVSQ8eU2XIsz8/a2zTS9rj/hC1XF7B7yW1DVdBKlm6B80ciLIm0UJdtWMiLYbZRqyJAJP4WwxJ8ytyOzBRwaShUXMq0H6jg8dCoV+rJ2435I9HtkaNaUfxXXBvsEqjURyxSTJubcimJMTSAhwLCl37GiEnNog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mAnjUy1E6CvEOxfWvkVSiKMqa2xpHS2Nnyz5+PInGA0=;
+ b=MrDvXrntXn5ng9VLIhG56L92MIfDnPDL+XuRuY7/eUNE+L9WkhLaDGrR4LiFBJQIiUfjkdJoDvLk/GD1vASmqhVG6LjtZ6VJqu84knd5wLG85tzV+FcQevJ28/Titzgu+j/fzVvOjh8GTOBevbHKjlLj39qsWGYWqesGPqagMLh8LA9WZwgj8pbvSp/GSNOFaYlEiIs93IdiA4UZ4dWmlKeSL1Eaj06yrdmK2vsfOk5kWniVgJgEZFpSNr8AHwJfZJTElejLk4NNHLEHPIAYtADhpcatUtVOmasozjVQeHqUWoBjeMgVDqliCQLbhT3yua2e9E4U566Djig0u77+yg==
+Received: from PH8PR21CA0004.namprd21.prod.outlook.com (2603:10b6:510:2ce::11)
+ by PH7PR12MB6834.namprd12.prod.outlook.com (2603:10b6:510:1b4::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.27; Thu, 10 Jul
+ 2025 02:57:45 +0000
+Received: from CY4PEPF0000EE3C.namprd03.prod.outlook.com
+ (2603:10b6:510:2ce:cafe::12) by PH8PR21CA0004.outlook.office365.com
+ (2603:10b6:510:2ce::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8943.5 via Frontend Transport; Thu,
+ 10 Jul 2025 02:57:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ CY4PEPF0000EE3C.mail.protection.outlook.com (10.167.242.13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8922.22 via Frontend Transport; Thu, 10 Jul 2025 02:57:44 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 9 Jul 2025
+ 19:57:37 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Wed, 9 Jul 2025 19:57:37 -0700
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Wed, 9 Jul 2025 19:57:36 -0700
+Date: Wed, 9 Jul 2025 19:57:34 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<will@kernel.org>
+CC: <bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
+	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
+	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
+	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
+	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
+Subject: Re: [PATCH v8 04/29] iommu: Use enum iommu_hw_info_type for type in
+ hw_info op
+Message-ID: <aG8sHjkIwWtum85Q@Asurada-Nvidia>
+References: <cover.1751677708.git.nicolinc@nvidia.com>
+ <64a4c22755d828a80a80d30f6903f4003b62ba5c.1751677708.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <64a4c22755d828a80a80d30f6903f4003b62ba5c.1751677708.git.nicolinc@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3C:EE_|PH7PR12MB6834:EE_
+X-MS-Office365-Filtering-Correlation-Id: f1ee4213-c1dc-4c86-088c-08ddbf5d8b60
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+Dnhxl7GMCpE/sDlTGZDIlTVXmoYkvyCE5FOZV3fCaun9g9r9QLJFaku4zIj?=
+ =?us-ascii?Q?1jFuEFFtjT34mtmz498s0hSOBT4w6Gp45SLP/dsKE1VmOdc6Gk8F04dHK7Ge?=
+ =?us-ascii?Q?cZOtQ4lV+IIZYVsRf1zBj/P0mXl8tKNI8qtDfSnpBEsR4TJqHOna9JNni3Dy?=
+ =?us-ascii?Q?ItKCe+J72CC/FqENAiGc3jg3yrquJ1OHjv4AggRrSW61RwGCeFm9weiH2SiN?=
+ =?us-ascii?Q?qeif4AQVPPfDI38l49/X5LfVSNVtHFXz6hRlZX+kKkMsTDo+Dd7hwu95cEII?=
+ =?us-ascii?Q?csoWr1lS7jPZNjFM97oVUXIiq1WjBwQe+13B8RNpt/5FXQRNZKqG8EG1FoPE?=
+ =?us-ascii?Q?7IsPRYV8pGgshJebcYRegFKKnFtLApGibxoWT+VIW90HKQZOrTPrwrFFIl4S?=
+ =?us-ascii?Q?3SuexGqOZ3fLGdpr4roZWv8XminSU52WDUWQYfYqaPdLgaWYn+dwcoFQone6?=
+ =?us-ascii?Q?VlQgFy90hplApmHriKDprSOacb4gXN+XFKx21QAP0dzjpO374jlRwC9HC1ay?=
+ =?us-ascii?Q?QzFn1NhQQ7/PHYzJ5eXI63anNI44qrn40Yr+8Pgk2W2HH2jJCSR1y/p7WBx4?=
+ =?us-ascii?Q?MpXwWinl4TCOc462+uIDs1FKIevAVTbDd6KOOkVpMrSngo2Nw6Eo41WAUiAf?=
+ =?us-ascii?Q?rI6yiSbftL1ce7r6cBsvbg+jyBkBPIw9F+nrzgxS7bQDv7JB0qoXrX6qmQH6?=
+ =?us-ascii?Q?P1Pmm7h+0rM9KS0JNqdZSacqC2jPNUF5xR95JFf3tnZmg5/GPp+Li8sTEUJd?=
+ =?us-ascii?Q?gdNSwidAsjL9aQDQd8DPGs+qcFjix5+0BTpTLiwJXNCiuAEGS/hQ3jJsKUGO?=
+ =?us-ascii?Q?eGbUWZZrQlNZkFN5fpu5diai9u4DhCUy/OiCuM4Fq+q9atXjyinA/RsAhimG?=
+ =?us-ascii?Q?651TeMPN+cdIETNlkz19h1RqAmq59dsE1RNQRJhhMpnGNdU24/AlxAvHC0rf?=
+ =?us-ascii?Q?oNoeq9S68Ad+Bc5bM0/vKV93sw31qPYqHc14XwnOu2dhx3DJ0+296Qo9l+9F?=
+ =?us-ascii?Q?mJW64jVPHtCJ1G5vPYz8dg/TfUhLGLjUz0ImH3tvZoO8wZnPIeeUXfDhDzbR?=
+ =?us-ascii?Q?X+ifGSUNm7EGaBnGgMWws1mP3gkfzq1MTMkrqqr6eu6uXBSoaViWr5ucWJOj?=
+ =?us-ascii?Q?3jl19veE7L9AUAjfljhFK6v7luNI1q46eHp5bqdFKTJeEJfXoRx7Jld8RpF9?=
+ =?us-ascii?Q?+eiwiv6o/n8Rm7wfeEJkt2TN2bx7AMq6Stod0IVGu5k5mwfh6imK1jfne7hc?=
+ =?us-ascii?Q?c8lwNIrqNnIT+e/CYBcp+GQJQnDMwEFOWqMRFFDmkdFqQTpYl13HowIwPYQG?=
+ =?us-ascii?Q?w9peZF9ndWXgCGWn1LygM9NW596sytZjCrD50K0i4/+fhhWka50tfsuGuLNQ?=
+ =?us-ascii?Q?k5uhZC0VW1igypH+hxB8oeAcKLrwAQByDIKHUJNF8x+Qh/PIH0mQwyNkvfv0?=
+ =?us-ascii?Q?ucKFomBfEvF9o+ztp/I7QUCl1yALcQIkmJrQMC7q3ETajeI83A09E/kJdV/K?=
+ =?us-ascii?Q?nv+LIr0/Ex8GqYDgw3TVJcpBmBsiKidciyDc?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 02:57:44.6616
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f1ee4213-c1dc-4c86-088c-08ddbf5d8b60
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3C.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6834
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_195402_239211_CF714BA3 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250709_195757_400893_604F7132 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,64 +160,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello SoC maintainers,
+On Fri, Jul 04, 2025 at 06:13:20PM -0700, Nicolin Chen wrote:
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> index 9f59c95a254c..69bbe39e28de 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> @@ -7,7 +7,8 @@
+>  
+>  #include "arm-smmu-v3.h"
+>  
+> -void *arm_smmu_hw_info(struct device *dev, u32 *length, u32 *type)
+> +void *arm_smmu_hw_info(struct device *dev, u32 *length,
+> +		       enum iommu_hw_info_type *type)
 
-I've done further rework to the ASPEED LPC snoop driver in addition to
-the immediate fixes found in the PR at [1]. The commits in the tag for
-this PR build directly on top, so those from [1] are also listed in the
-shortlog relative to v6.16-rc1.
+I found that this needed to update the header as well.
 
-[1]: https://lore.kernel.org/all/d119a7b44b25a1e55a710adec7fce3e9a9fc898e.c=
-amel@codeconstruct.com.au/
+Fixing in v9..
 
-Let me know if I should arrange the changes (or the PR description) in
-some other way.
-
-Cheers,
-
-Andrew
-
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494=
-:
-
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/aspeed=
--6.17-drivers-1
-
-for you to fetch changes up to fdf003f30b99e232cd3e61cc42d836ed14d08ccb:
-
-  soc: aspeed: lpc-snoop: Lift channel config to const structs (2025-07-08 =
-11:35:07 +0930)
-
-----------------------------------------------------------------
-ASPEED SoC driver updates for 6.17
-
-The ASPEED LPC snoop driver was recently the cause of some concern. In addi=
-tion
-to the initial fixes, the channel configuration paths are refactored to imp=
-rove
-robustness against errors.
-
-----------------------------------------------------------------
-Andrew Jeffery (10):
-      soc: aspeed: lpc-snoop: Cleanup resources in stack-order
-      soc: aspeed: lpc-snoop: Don't disable channels that aren't enabled
-      soc: aspeed: lpc-snoop: Ensure model_data is valid
-      soc: aspeed: lpc-snoop: Constrain parameters in channel paths
-      soc: aspeed: lpc-snoop: Rename 'channel' to 'index' in channel paths
-      soc: aspeed: lpc-snoop: Rearrange channel paths
-      soc: aspeed: lpc-snoop: Switch to devm_clk_get_enabled()
-      soc: aspeed: lpc-snoop: Use dev_err_probe() where possible
-      soc: aspeed: lpc-snoop: Consolidate channel initialisation
-      soc: aspeed: lpc-snoop: Lift channel config to const structs
-
- drivers/soc/aspeed/aspeed-lpc-snoop.c | 224 ++++++++++++++++++++++++++++++=
-++++++++++++++++++++++++++-------------------------------------------------=
---------
- 1 file changed, 110 insertions(+), 114 deletions(-)
-
-
+Thanks
+Nicolin
 
