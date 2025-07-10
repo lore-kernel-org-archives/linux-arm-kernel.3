@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60DACC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BA6C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4DOrpwON/AERKprjE/4+Jk4YcZiTXIHVN603xYrGoq0=; b=083PTxzDBeQqZbfHkvcNE7SJPh
-	UCUGh/pSGCJbFEcSqZ4rhRUzegM1VxXjc4CK09+VZ9f3hk1vx+OzZlUHW+hrxaJPv5WiIo5tSFos0
-	HyR8w49pOfpssolHH5txxLmNoroF05TqC/Wtzkl8AiE8LCZutMoIW7whA/cyXvkhQBnyWcv+DvkRb
-	fMVeFEedEzI0zq7VFazKxT3YSvz0iHFUWvwt+rTDCPtO+czLNaSwFxKk/yMCHF3k4RalqY5uQriQ3
-	sQuYQ8cPreDaIbTvH/9wYaiDaIknlzXSyJ5WKR+D7WIN6izOA+UAZ2W4439AsJ7x/cZ86XQ2rKL3J
-	+zRDnapw==;
+	bh=aHM/l50L+c9DiEnpSn/w9wj8Dw8K4B+2NLEWsmnNTxc=; b=Prn2h/9WMLzTWSgbQ9vMobUqkF
+	Agrc4czfWdUjwFd2iSjejiJTykwREqgMbl234ocP2LjHJuZQwFglIurHYCiXq12tcZKkqsLrjiaI9
+	M3pMyL7bKenBjiXmmDxU+l+DPUnFatPH51BQs7XrXoQF/aH8JnpRQSG8XzU2GbQitUcELTNL5wFju
+	jWYFO1/wfot9m/Pbvk9O4Qe7vhs4OxcmfrioOxmUsv+r8X4U4XJGRgJ8DAFLWAtgflQr70EXy/8M4
+	gLLIMHRwQSGn53bN12V67RSL1VIduhglTGu7vqpgOW+4Se2fPtuRjDoneCIl6nA9TuW1mgDVa4xnd
+	pLklgELQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZfKw-0000000ALxF-1IHK;
-	Thu, 10 Jul 2025 00:40:30 +0000
+	id 1uZfNI-0000000AM47-00dC;
+	Thu, 10 Jul 2025 00:42:56 +0000
 Received: from mail2.coasia.com ([112.168.119.159] helo=spam.coasia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZf23-0000000AJMB-169D
+	id 1uZf23-0000000AJME-3O2L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 00:21:00 +0000
+	Thu, 10 Jul 2025 00:21:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=coasia.com; s=coasia;
-	t=1752106856; bh=DPuahl419ZI8H8sIxt4+AyDZsbJtqz9HQjp9C1Tkzek=;
-	l=2845; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=uMMMoSJ2Jnq0N9tjsiml/673AJH3xj8Azva0xHCbjtgJ/p3fhDBy7Or71nZSAYiEG
-	 Zp0jA5ly/65J3Uy5Kv1Y7V2IAMO7RPlVqTCPyKD7bYMskiAWmjsWN6oUkTgxhkwxEc
-	 sGqCAl6RAtvwWPLGmZMIRd096rYwQmrHXyvs+jjs=
+	t=1752106858; bh=j6y4CRKseQoEZyQ+Mx7uaatjudKpQjwG59w6BIf/0iw=;
+	l=2936; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=nCEnAlGn93Nbggu1Wktf5vQnLKtFTsB8hSyHRWlALZ0K60bzWHz9/OGS1RaEp8IEb
+	 qNzlVbZf+K98zlFQKZ6Bywbq4j4oAtcQMWzL4HiTPhmfyTkjfQ9PprXFYEU0wCrXFk
+	 wiPFfuBr1sT/hWABZSVsA8p/95wAd3I6CBXaPKkU=
 Received: from unknown (HELO kangseongu..) (ksk4725@coasia.com@115.23.218.194)
-	by 192.168.10.159 with ESMTP; 10 Jul 2025 09:20:56 +0900
+	by 192.168.10.159 with ESMTP; 10 Jul 2025 09:20:58 +0900
 X-Original-SENDERIP: 115.23.218.194
 X-Original-SENDERCOUNTRY: KR, South Korea 
 X-Original-MAILFROM: ksk4725@coasia.com
@@ -117,17 +117,17 @@ Cc: kenkim <kenkim@coasia.com>,
 	linux-gpio@vger.kernel.org,
 	soc@lists.linux.dev,
 	Varada Pavani <v.pavani@samsung.com>
-Subject: [PATCH 06/16] clk: samsung: artpec-8: Add clock support for CMU_BUS block
-Date: Thu, 10 Jul 2025 09:20:36 +0900
-Message-Id: <20250710002047.1573841-7-ksk4725@coasia.com>
+Subject: [PATCH 07/16] clk: samsung: artpec-8: Add clock support for CMU_CORE block
+Date: Thu, 10 Jul 2025 09:20:37 +0900
+Message-Id: <20250710002047.1573841-8-ksk4725@coasia.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250710002047.1573841-1-ksk4725@coasia.com>
 References: <20250710002047.1573841-1-ksk4725@coasia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_172059_575161_2FDD7D34 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20250709_172100_109143_18CDCD69 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,7 +145,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: Hakyeong Kim <hgkim05@coasia.com>
 
 Add clock support for below CMU block in ARTPEC-8 SoC.
- - CMU_BUS
+ - CMU_CORE
 
 Signed-off-by: Varada Pavani <v.pavani@samsung.com>
 Signed-off-by: Hakyeong Kim <hgkim05@coasia.com>
@@ -154,64 +154,64 @@ Signed-off-by: Hakyeong Kim <hgkim05@coasia.com>
  1 file changed, 45 insertions(+)
 
 diff --git a/drivers/clk/samsung/clk-artpec8.c b/drivers/clk/samsung/clk-artpec8.c
-index 1ef9e52ad24b..648abdd2f510 100644
+index 648abdd2f510..f41b7941c630 100644
 --- a/drivers/clk/samsung/clk-artpec8.c
 +++ b/drivers/clk/samsung/clk-artpec8.c
-@@ -15,6 +15,7 @@
- 
+@@ -16,6 +16,7 @@
  /* NOTE: Must be equal to the last clock ID increased by one */
  #define CMU_CMU_NR_CLK			(DOUT_CLKCMU_VPP_CORE + 1)
-+#define CMU_BUS_NR_CLK			(DOUT_CLK_BUS_PCLK + 1)
+ #define CMU_BUS_NR_CLK			(DOUT_CLK_BUS_PCLK + 1)
++#define CMU_CORE_NR_CLK			(DOUT_CLK_CORE_PCLK + 1)
  #define CMU_IMEM_NR_CLK			(MOUT_IMEM_JPEG_USER + 1)
  
  /* register offset definitions for cmu_cmu (0x12400000) */
-@@ -431,6 +432,50 @@ static void __init artpec8_clk_cmu_cmu_init(struct device_node *np)
- CLK_OF_DECLARE(artpec8_clk_cmu_cmu, "axis,artpec8-cmu-cmu",
- 	       artpec8_clk_cmu_cmu_init);
+@@ -476,6 +477,50 @@ static void __init artpec8_clk_cmu_bus_init(struct device_node *np)
+ CLK_OF_DECLARE(artpec8_clk_cmu_bus, "axis,artpec8-cmu-bus",
+ 	       artpec8_clk_cmu_bus_init);
  
-+/* Register Offset definitions for CMU_BUS (0x12c10000) */
-+#define PLL_CON0_MUX_CLK_BUS_ACLK_USER			0x0100
-+#define PLL_CON0_MUX_CLK_BUS_DLP_USER			0x0120
-+#define DIV_CLK_BUS_PCLK				0x1800
++/* Register Offset definitions for CMU_CORE (0x12410000) */
++#define PLL_CON0_MUX_CLK_CORE_ACLK_USER			0x0100
++#define PLL_CON0_MUX_CLK_CORE_DLP_USER			0x0120
++#define DIV_CLK_CORE_PCLK				0x1800
 +
-+static const unsigned long cmu_bus_clk_regs[] __initconst = {
-+	PLL_CON0_MUX_CLK_BUS_ACLK_USER,
-+	PLL_CON0_MUX_CLK_BUS_DLP_USER,
-+	DIV_CLK_BUS_PCLK,
++static const unsigned long cmu_core_clk_regs[] __initconst = {
++	PLL_CON0_MUX_CLK_CORE_ACLK_USER,
++	PLL_CON0_MUX_CLK_CORE_DLP_USER,
++	DIV_CLK_CORE_PCLK,
 +};
 +
-+PNAME(mout_clk_bus_aclk_user_p) = { "fin_pll", "dout_clkcmu_bus_bus" };
-+PNAME(mout_clk_bus_dlp_user_p) = { "fin_pll", "dout_clkcmu_bus_dlp" };
++PNAME(mout_clk_core_aclk_user_p) = { "fin_pll", "dout_clkcmu_core_main" };
++PNAME(mout_clk_core_dlp_user_p) = { "fin_pll", "dout_clkcmu_core_dlp" };
 +
-+static const struct samsung_mux_clock cmu_bus_mux_clks[] __initconst = {
-+	MUX(MOUT_CLK_BUS_ACLK_USER, "mout_clk_bus_aclk_user",
-+	    mout_clk_bus_aclk_user_p, PLL_CON0_MUX_CLK_BUS_ACLK_USER, 4, 1),
-+	MUX(MOUT_CLK_BUS_DLP_USER, "mout_clk_bus_dlp_user",
-+	    mout_clk_bus_dlp_user_p, PLL_CON0_MUX_CLK_BUS_DLP_USER, 4, 1),
++static const struct samsung_mux_clock cmu_core_mux_clks[] __initconst = {
++	MUX(MOUT_CLK_CORE_ACLK_USER, "mout_clk_core_aclk_user",
++	    mout_clk_core_aclk_user_p, PLL_CON0_MUX_CLK_CORE_ACLK_USER, 4, 1),
++	MUX(MOUT_CLK_CORE_DLP_USER, "mout_clk_core_dlp_user",
++	    mout_clk_core_dlp_user_p, PLL_CON0_MUX_CLK_CORE_DLP_USER, 4, 1),
 +};
 +
-+static const struct samsung_div_clock cmu_bus_div_clks[] __initconst = {
-+	DIV(DOUT_CLK_BUS_PCLK, "dout_clk_bus_pclk", "mout_clk_bus_aclk_user",
-+	    DIV_CLK_BUS_PCLK, 0, 4),
++static const struct samsung_div_clock cmu_core_div_clks[] __initconst = {
++	DIV(DOUT_CLK_CORE_PCLK, "dout_clk_core_pclk",
++	    "mout_clk_core_aclk_user", DIV_CLK_CORE_PCLK, 0, 4),
 +};
 +
-+static const struct samsung_cmu_info cmu_bus_info __initconst = {
-+	.mux_clks		= cmu_bus_mux_clks,
-+	.nr_mux_clks		= ARRAY_SIZE(cmu_bus_mux_clks),
-+	.div_clks		= cmu_bus_div_clks,
-+	.nr_div_clks		= ARRAY_SIZE(cmu_bus_div_clks),
-+	.nr_clk_ids		= CMU_BUS_NR_CLK,
-+	.clk_regs		= cmu_bus_clk_regs,
-+	.nr_clk_regs		= ARRAY_SIZE(cmu_bus_clk_regs),
++static const struct samsung_cmu_info cmu_core_info __initconst = {
++	.mux_clks		= cmu_core_mux_clks,
++	.nr_mux_clks		= ARRAY_SIZE(cmu_core_mux_clks),
++	.div_clks		= cmu_core_div_clks,
++	.nr_div_clks		= ARRAY_SIZE(cmu_core_div_clks),
++	.nr_clk_ids		= CMU_CORE_NR_CLK,
++	.clk_regs		= cmu_core_clk_regs,
++	.nr_clk_regs		= ARRAY_SIZE(cmu_core_clk_regs),
 +};
 +
-+static void __init artpec8_clk_cmu_bus_init(struct device_node *np)
++static void __init artpec8_clk_cmu_core_init(struct device_node *np)
 +{
-+	samsung_cmu_register_one(np, &cmu_bus_info);
++	samsung_cmu_register_one(np, &cmu_core_info);
 +}
 +
-+CLK_OF_DECLARE(artpec8_clk_cmu_bus, "axis,artpec8-cmu-bus",
-+	       artpec8_clk_cmu_bus_init);
++CLK_OF_DECLARE(artpec8_clk_cmu_core, "axis,artpec8-cmu-core",
++	       artpec8_clk_cmu_core_init);
 +
  /* Register Offset definitions for CMU_IMEM (0x10010000) */
  #define PLL_CON0_MUX_CLK_IMEM_ACLK_USER			0x0100
