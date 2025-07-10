@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 566ADC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69295C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B9sgA9KEUZfto5gbFbrYuGKWO4F6LlXYQzl0p1sXfYE=; b=OO75hYsS5wa+7+ZaQe82jWCAPj
-	9MFuV6JU3eh+XGLGUXYMi+Dpq9gdaXruwRbjI+mfwwG0NgoL8FvG5PNIcfyKuL0yWtJlxHSzKjzHM
-	vLQ8/LShA5y+9JiM/I9oA1EMvFhDClrMEXAGP4CfpqZ7Jh6JbY5gEmDvtAQUSGEOWt9f4XtFjEsbY
-	aKTv17z0H5YStirzY6MUAPY2jZpWMCkGiS2YuFUdpDSI8ld6pSCzSsR598vPkqGYj3E2AOpPcEL6y
-	BlgePQTX0lAiGfw2eaj7SlM5kX4x8sxs0k69+0cI0KSAwZsitfYnpa0y6yOvZSQZZc5Lu0rExOxoI
-	PJaC+Xmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7pEA1uNTqPvv6+XR/zuY/aMB8/9LJc6Rsl4Iqenx7gQ=; b=RGgbDnxEnsbsz2GxOa0Rv21Acj
+	Ql3ePiLrWtMxW+rTk4c9pdXflX/tATAZctwCgwQOwQXZX+LNR7pyMojgqVNMEHUy/E6jiGJNDJH4w
+	3CJWhK+byPnX40z603qC+hffGWrxtjxeJSKfzwnhX1kR/dOsmjoVRHIpG+sGEKBUxY2SGMZ9Bq9J+
+	WTE7CwsOXQubDisb2Kai9NT2y1hnf8EzrvKCJCllOnVhs44a7WMLz6n25VS9VsInSbRHY5GF94ihg
+	Y2ua6XT2fTqVdiBmr2Al9B8QVETliCEvAe/Mlgwv/BGaU+KtZyEnTmUWSRv45p6aBcIqSFh2YcDZj
+	gDrnuGzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZrKk-0000000Bvlm-41EI;
-	Thu, 10 Jul 2025 13:29:06 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uZrKl-0000000Bvm5-3Ku3;
+	Thu, 10 Jul 2025 13:29:07 +0000
+Received: from [2001:8b0:10b:1236:d4b0:a112:9c86:6a4b] (helo=casper.infradead.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZnYs-0000000BLAt-2OMm;
-	Thu, 10 Jul 2025 09:27:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=B9sgA9KEUZfto5gbFbrYuGKWO4F6LlXYQzl0p1sXfYE=; b=gptBhNBpJmVaIz2i3RyQA2Sdqm
-	9z1dt1+GlDuecoh6aea9a7nL1mYX3QoxzV8KXqPlkcKXoW4egYxqX9+YlxXlKMBUZstSZW3cyRex4
-	V0VtuWnFFLeixCFe7rI7VAdS5JR9s2U7awT+SSiWkzgqRAq7+y1ByBOmdirwoMXbHd4IdfQIw5UAU
-	D51JQwC6QqPwIAJL4Alz4bsr2b45qDvqPSBCDlZf34lqwRXkvJpXGy8+E9mnlnZpG0I23Bb5OEqI6
-	Hc/ROxtmwJyS9urc1zTNPFBvtlgwNPgUbrYXDU1anyKt0E04X5uwCgo0tJcdWV+Yft63g5w1+L1MO
-	H2DWl64w==;
-Received: from [194.95.143.137] (helo=phil.dip.tu-dresden.de)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uZnYo-0003fo-5H; Thu, 10 Jul 2025 11:27:22 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	kernel@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] ROCK 4D DT additions: regulators, usb, rfkill
-Date: Thu, 10 Jul 2025 11:27:15 +0200
-Message-ID: <175213962001.1887379.15984995159169129964.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250630-rock4d-reg-usb-wifi-v1-0-1057f412d98c@collabora.com>
-References: <20250630-rock4d-reg-usb-wifi-v1-0-1057f412d98c@collabora.com>
+	id 1uZox7-0000000BY3Q-3Uf9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Jul 2025 10:56:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=7pEA1uNTqPvv6+XR/zuY/aMB8/9LJc6Rsl4Iqenx7gQ=; b=Q53Dg/bFa0IOiKKDOS+53JMqLd
+	rWu6gVsz2DbYQS7/ZS4GsN7sNLBcFe5gtoDTA70AVg1E6+YN+gLVdwXFrHrG7RJBHNdiLIHL2Hqig
+	eJ+2QJCO3siJAdamLStruKmbDre9sLI7jMYWnF5BCA5rSs1oL0ob/BF6Fe8Z63IeS5ED3rgQepKHw
+	Rp9hPkGAAcNYMOaycRM3nSDZknPNn/2oJ9rQv0kHpzKQaU4FkLsK9SaAIbtD4844S1AGIiqdNQ/1B
+	I/5ta9es7JbfQwyn1KjbLHwNTOA5vk9C05tctaYwRZOGHrIASCwI7FNGr7RW4hxkUIp3aRH6mBZtm
+	iTMs9ePg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZowy-00000008aeW-27gb;
+	Thu, 10 Jul 2025 10:56:24 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 0B932300125; Thu, 10 Jul 2025 12:56:23 +0200 (CEST)
+Date: Thu, 10 Jul 2025 12:56:22 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: dan.j.williams@intel.com
+Cc: "H. Peter Anvin" <hpa@zytor.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
+	linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-mm@kvack.org, gregkh@linuxfoundation.org,
+	Will Deacon <will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
+	Yushan Wang <wangyushan12@huawei.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, Andy Lutomirski <luto@kernel.org>
+Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
+Message-ID: <20250710105622.GA542000@noisy.programming.kicks-ass.net>
+References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
+ <20250625085204.GC1613200@noisy.programming.kicks-ass.net>
+ <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com>
+ <20250625093152.GZ1613376@noisy.programming.kicks-ass.net>
+ <686f4e20c57cd_1d3d100b7@dwillia2-xfh.jf.intel.com.notmuch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <686f4e20c57cd_1d3d100b7@dwillia2-xfh.jf.intel.com.notmuch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_022726_632838_405E2CE0 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250710_035633_872316_90FADA5E 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +89,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jul 09, 2025 at 10:22:40PM -0700, dan.j.williams@intel.com wrote:
 
-On Mon, 30 Jun 2025 17:36:32 +0200, Nicolas Frattaroli wrote:
-> Turns out the ROCK 4D DT in mainline right now is neither accurate nor
-> complete.
+> "Regular?", no. Something is wrong if you are doing this regularly. In
+> current CXL systems the expectation is to suffer a WBINVD event once per
+> server provisioning event.
+
+Ok, so how about we strictly track this once, and when it happens more
+than this once, we error out hard?
+
+> Now, there is a nascent capability called "Dynamic Capacity Devices"
+> (DCD) where the CXL configuration is able to change at runtime with
+> multiple hosts sharing a pool of memory. Each time the physical memory
+> capacity changes, cache management is needed.
 > 
-> These changes should quell the fires a little, since at least we now get
-> two additional working USB ports, plus the Wi-Fi chip shows up (even if
-> it doesn't have a driver right now).
+> For DCD, I think the negative effects of WBINVD are a *useful* stick to
+> move device vendors to stop relying on software to solve this problem.
+> They can implement an existing CXL protocol where the device tells CPUs
+> and other CXL.cache agents to invalidate the physical address ranges
+> that the device owns.
 > 
-> [...]
+> In other words, if WBINVD makes DCD inviable that is a useful outcome
+> because it motivates unburdening Linux long term with this problem.
 
-Applied, thanks!
+Per the above, I suggest we not support this feature *AT*ALL* until an
+alternative to WBINVD is provided.
 
-[1/3] arm64: dts: rockchip: adjust dcin regulator on ROCK 4D
-      commit: fc276de7b63efc92f301d5b78d5000c1715c4313
-[2/3] arm64: dts: rockchip: complete USB nodes on ROCK 4D
-      commit: 37e557333b66f036a5638035765219531327025c
-[3/3] arm64: dts: rockchip: theoretically enable Wi-Fi on ROCK 4D
-      commit: 0e72c9aba2029f66dd92ad5f2cb68c44e1d910de
+> In the near term though, current CXL platforms that do not support
+> device-initiated-invalidate still need coarse cache management for that
+> original infrequent provisioning events. Folks that want to go further
+> and attempt frequent DCD events with WBINVD get to keep all the pieces.
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+I would strongly prefer those pieces to include WARNs and or worse.
 
