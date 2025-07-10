@@ -4,71 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 353C3C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 09:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BADBCC83F1F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 09:56:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E84MMCBx0xpgoES+NnhMP12vSRnynaQmVJ5b2UIKw+U=; b=yfovZ+HbZ1XgbYoQ9WfXeFT78H
-	pA71qnyn/FzDY93G9a9Nl4CYJzGV392XGw4FoRuAXX2KKIiUvdc5OhtJhgOiU6BqZCzkuVOoBZtV7
-	2NwciAK8RqHF5ccAPTaqwmFHtPNCY8m8OidKpU9QhOUZX6mLbjgk2qvb3FqDLHA07BLniexauxz/F
-	dH23rDMjeKQW25WaghRJdLcVtjWZBvhrxcmgZX8TdKnRX2sWXSpfetGIW2rQB6CpcUCpXUCW7bLIF
-	RA1BZ1JUmSETaLZ6VO90gWwku4JYe0ZZ30u1zlc4nWnCWgj/37hwbKapdEQmr4HEkBgLpEa7kQbmv
-	L0zMQbpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dgEUh0SbJboNmRYgJ4YLouXa9NpT5Rrejtnatpc9JyQ=; b=HgBRHqSCTcAZakIHuQ2XF4Y4LZ
+	uhtZfJu8QsIqXTET9zI19lIk8j05eJsOgQ/7rDhP0lp2R0eGibwHbQmgh/evqgYz/3driYT2NK8fZ
+	b2oeZxhXJrUYnCWRrrNq1tGsa43EsytrM3n2K4K+c3uFtvpU2Y/khQL4nYJwA6iTEfwh72jwI3d3E
+	6ouSR36P3BQOMQyarHTj3GC+3BB9Wxbq2fbadDcBwgfRwYlUvTNiDkzVujK6fxM8JbBAjk32/akPq
+	BuaG14W5nHx7G2L8vbtBCzo8FCW8/oIoEM5MhSR0QJTSgozTtm2r089If3lpmiSH3nlidHk6kqS6K
+	dtgq34qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZnyB-0000000BOWz-04qg;
-	Thu, 10 Jul 2025 09:53:35 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uZo0T-0000000BOjA-1KKp;
+	Thu, 10 Jul 2025 09:55:57 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZmcH-0000000BAU5-0rQP;
-	Thu, 10 Jul 2025 08:26:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1752135991; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=UIVN/T8EgEA8ZWRjjnBLTVntc+IxhfMD6aHGUKeTQA/zAkWRha78G3UIhtJBF//0ZfU3UWy6WaTFa4uTCQU7+GQz42g5/fWmVMb0jC0f7Y1nsnOQkT6rZ6jJKnxJqdC49jJH0yKPlK9Xg9X1Zw4bPy0BlZLkUkWbbWA1frJS6QU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1752135991; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=E84MMCBx0xpgoES+NnhMP12vSRnynaQmVJ5b2UIKw+U=; 
-	b=JNywPzIAPiI4UaBnIxo40F7/q6agriArIReObqRi0c8C9xz8hej1juBMEARZ4TcOcJSt5OShK4lFRoDjol74+qfMS4ljVFNcxJCGsfy5WMnOjcDoXPlBD3qPc5xGi8Qbf43habnd6zlVucM+pPmE70MWnBKDej459OMr7XmA89k=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752135991;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=E84MMCBx0xpgoES+NnhMP12vSRnynaQmVJ5b2UIKw+U=;
-	b=SxXMR1Oij/dhJgr72YZNsBIf4bcHJllEF32lheb7Utsm0k/TWQ3ktodpS6VK9SXf
-	mvpvDjhX4Jawd8e++ylmEVlybocCRm6Erb3iu3aTeM0YB8sOMlF9HhldjWbAW+5xFTy
-	Tip3nmb/EOq2mFGzBYGMFm5qVzWLnphv2pFm/LS4=
-Received: by mx.zohomail.com with SMTPS id 1752135988944558.2751903621047;
-	Thu, 10 Jul 2025 01:26:28 -0700 (PDT)
-Message-ID: <2759380e-51a5-4437-8caa-0039ccd79559@collabora.com>
-Date: Thu, 10 Jul 2025 10:26:24 +0200
+	id 1uZmkb-0000000BCNu-14uM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 08:35:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HvS646Nj8jHq+3kpqubgn+wcFayYXx8JLbRLR1hdcPVRWZVASHwO90t2egEJc3iltcwX3wQ7M6qaA5yq/XjLN7aLQuYfrTidzm24SEr8eIfeCihU2Cvc0a9DIV+JnK0La0kY4Fa7qSYX/fzB3lQdkoeg6mhGsViZOU2CeJDHNcb+ujPmWxJhsnY+IkN7jSUEZb25vQldMSZGoSBioIVAoAvHxJBv5azMR6DMoibi6DJfjawwuhv8jZPi/EzmQbXFH1kSsFEVjiDUc0eIW1MQuqAyQrlrNONEvnidjXzVuQYY4EUcEhJnObuSIEv2pF8amLGMzsaQS9Wfelx+cKX1HQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dgEUh0SbJboNmRYgJ4YLouXa9NpT5Rrejtnatpc9JyQ=;
+ b=N8qSnjQBlWOO3CxY0gFY4VK7SCo7FnOy3SGgAT0gDCJpS+FE7YyU4xSPlMJuFDZ42h9UO5D6k4F0+ecoMR6AIek6Dxn10KcvCPI7fl0YbAaFrYKWPuFDeWeF1pwspkIBnSzfjpiTOO0jeu26OAYMYZhgCD/M99aiEItOsk2f2Xj0klG3cH+wNrgnB8Cf7vpPMBgxK/Q9EQ2wrG25A6Ro8Yb0GXnx28UmTVVSAf2/6XPWIkw66tjiDc/AVZ+jR9afrd6ODWP60dnSxtAswt7dCE8GE/OhiwnPRKpKwCtsCsK73HMWLHP7xw6+cegWrOl07T7lfTZU0GKn7RgPLPpkaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dgEUh0SbJboNmRYgJ4YLouXa9NpT5Rrejtnatpc9JyQ=;
+ b=FM2n2stqLLplR+P8/Hz6QPDNI0RhMko/jrgH+JXeqrA1uPs8L8tda6iN4MB5Em76eIikes1fb4ONzQaNaEvwtAF/uyEhZwXrAU8gxjPJPNNLgGipSUSmyFd4YkvoBp1VQn/vLuBTqnr8+EfakufjEOAuqQpEBM/wggiUp7MS5/EjRw5bzOVdssshfwA3VY88iFE3j+o2PdAHEAwGk7TxB3uwQUlDdw0KUb7cFSm8oTKOxGJjn2vlbATqOfvEuXizBbpm9sc2o5UBxMjpnM/cpi4J+twrWs9znwOmo0iOuD+GB0JeQpqNfJg9KejPD+gGdUkPU23jmjDeH8ON8FZg8Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB9PR04MB11512.eurprd04.prod.outlook.com (2603:10a6:10:5e1::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.26; Thu, 10 Jul
+ 2025 08:35:22 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8901.028; Thu, 10 Jul 2025
+ 08:35:22 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v2 0/6] firmware: arm_scmi: imx: Dump syslog and
+ system_info
+Date: Thu, 10 Jul 2025 16:33:25 +0800
+Message-Id: <20250710-sm-misc-api-v1-v2-0-c3e953e34be6@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANV6b2gC/3WMwQ7CIBBEf6XZs2sApaU9+R+mh4rU7qFAwJCah
+ n937d1k5vAmmbdDdolchqHZIblCmYJnUKcG7DL5l0N6MoMSSotWdZhXXClbnCJhkWi0FRdh244
+ LfIrJzbQdwvvIvFB+h/Q5/EX+1r8qjkD16PurkbMzSt/8Fs82rDDWWr9Q/R/+qgAAAA==
+X-Change-ID: 20250627-sm-misc-api-v1-85c030c670c6
+To: Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: arm-scmi@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752136418; l=2119;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=8webyB4E6TCv2JNw9JWwUrInVpNtjFgLVpgJz+X/kh4=;
+ b=UCq0aRKh5agVyaDdJ0iNZrDEmio2jcqK5cYF7B1QVfyzk0pcGoAybsQlouNFm/D4+gYEzBD2S
+ LpEuYaI5De9CgYSWzhqbL7S/z5eFoDOMdUdY5WbDOntUGC1VWn63YQK
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: MA0PR01CA0088.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ae::13) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/5] iommu: Add verisilicon IOMMU driver
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- kernel@collabora.com
-References: <20250709085337.53697-1-benjamin.gaignard@collabora.com>
- <20250709085337.53697-4-benjamin.gaignard@collabora.com>
- <20250709164533.GA1759573@ziepe.ca>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20250709164533.GA1759573@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB9PR04MB11512:EE_
+X-MS-Office365-Filtering-Correlation-Id: 00fcf71a-485f-4aa1-b004-08ddbf8cb5ec
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|366016|376014|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WEwrY21GdEhrYXF4N1VrOTVONllLWnk2bmpsSWRYM3k3TkdKeTNTd0xXWm5W?=
+ =?utf-8?B?V0wrRFI2MlpCVnUyeUp4Mnlma0JUQmVrZmp4Rkp4NE9oT3BsNXA5Wng0LzR5?=
+ =?utf-8?B?dnI0QTVZd0Q5ZW9sSWNDMEUrM1Q3WmR4ZllQajhnVXVxbENVQlBwVzlSRjlT?=
+ =?utf-8?B?cUY0d1p3dm9wcm03Z2tndXpIVUpGL1ZqNjJpQUpJL2VsSG5wKzRTNnNjYXdh?=
+ =?utf-8?B?U0h5V1FwQWl2K3JYVTJkTXZmamhQUUU1WnhlRjQ1Y3ZpRnh0OFlQUS9XWDU3?=
+ =?utf-8?B?WndKS3crYUZCMUpqQ3YreWhHVVpSL1AyMXA4Nk5TTjNJZE1vL3pZdmlvZ1Nz?=
+ =?utf-8?B?a2lMbDhZUXdubVFtMlFzblJieU1FVWk3MUluZzIzT3FwM1ZURHRWcElTK3dr?=
+ =?utf-8?B?MGc0YjU4UlhSWU9WNyt1a1FRdStQcHRIbjNOdVZVZnVoVFJuTytPWlFHb3Br?=
+ =?utf-8?B?MEh6VE1Rbmprbndad29iNGJVanl5N3R1a25vWEl5Y0x2aTdRUzFTYzFQRnpF?=
+ =?utf-8?B?dzJEZW5XZnRMcTF6ZEdUL01oenFQUzVtTnRYZHErT0t4dmtqNHRsd1dvbjhE?=
+ =?utf-8?B?Q3pkZkxwRGkrczlNZFVNUFN1VlhZZmxoSzdkR2N4SXR0OW1NNDl2TXp5MExJ?=
+ =?utf-8?B?elR2RHp4dng1VVdXc0hQcFZCdW9ubkRjbHhIWTh3WGpGbmdyWmh0Z1ZsL0ND?=
+ =?utf-8?B?eWxFL2FYTzB5K0VKMnltd3cyOU1PN2d5M0JYbTl3Y3hrekFMTW5nTTVSam1l?=
+ =?utf-8?B?Mk5BTTVrVG1nK0QvWXNlVWV6OWZBWFBiRU9oYVJ3Rm9Za3haeVhlY28zUW9r?=
+ =?utf-8?B?Qk9SOVF4VkUreVJKVUY2Rm1oazRacUF4bGVqWUpiWCtiVDlqY2pOTVloNEZo?=
+ =?utf-8?B?UnI1blh4Mm1iVzEwd3BSV2oxQ2dVdXB0ajNMcmVlMVVKU2k3QUZyL2p4ZTB3?=
+ =?utf-8?B?YVlKWjJEamd6Y2RvVUtqUERPYkQyZHVQUVBXTDc1MVNkYUxPV2NXVnptNXF2?=
+ =?utf-8?B?R0J5TDFrMWMyR1BTMDFkcFNOc1R5WERjeDJrazVKQmcvWTQyMnZrYjlmL0dT?=
+ =?utf-8?B?MnFhSE9wVmo0MWNFL3ZLV25WVEUvN0ZuZXFqL3k1dG9WME9Eb21QZXc5cnU1?=
+ =?utf-8?B?TEVCaWF6STR4VnBtSkxWQ09GWU13NDYwdTBXQjVNWkxrMWZ1MlNvWllwZVdM?=
+ =?utf-8?B?bDBqcHJBYnZxZ01iRkVvVWFnelFyWElUcU4vWmhpOS9nOFdGWjNuNHdxMUlv?=
+ =?utf-8?B?ejlGZVcrR245Sk9BMUhLeXFpQmJHWXNUTHBUaCtFaVRsVDd2cXB4WGFTYVht?=
+ =?utf-8?B?bEpLQUNtdGVmMjR4V2ZPODgwdmRtNHBzVXlmTTY4Rmg2SGdEQWdkOWRCODVK?=
+ =?utf-8?B?MkE1eUFwcFEvcDdYc2dtT0d2aE9GQTBpTDJ5cXA4bWRSSStnRWZVUjJUNiti?=
+ =?utf-8?B?eEtXNVJyMEcraUJWL3JhZFEzcDFOMytVNk9HT21OanZDQWk3R0R2LzNoQ0lp?=
+ =?utf-8?B?WmVHQjg3bW16ZVFDUVc0aDBzS0JqVGVQd3hMcDFhM1Vua3R1RTduUWlCdUg5?=
+ =?utf-8?B?VFYvOXpFcW9KUDZiZWhGZnhKOUhrNHlvTlZibWlmdmd2M3JGb2w1Z2pOdUNR?=
+ =?utf-8?B?a2cxaVE5cGttRkt1MjRncEF6QlE3SVZpSzJkSDZmcnJLWTgzODhpNmNsL0Vx?=
+ =?utf-8?B?RkRJaSs2cDVxSHUyUVpBY1lNejlrR0pVamtkckZNbnAzVDZOU0dubXBNRGhC?=
+ =?utf-8?B?TUFVNkhhYUVQOFdJckJjMHZCaXhzSkhESDREalEyQlRuTGFCMzFDaUpTdWlV?=
+ =?utf-8?B?OXk1dUp2RDVLU0d0UzBrUG9BeVdMVjRZUndBUThZakxIZUx0WCtlUUtJZXVW?=
+ =?utf-8?B?ZnFaQktOaktKa0NReGpneEMyNUFBTk8xR3o2WHJWckZBbDZIZm5EQkZKdFFm?=
+ =?utf-8?B?dEJzczAyeHNnZmJTd0g0L0I1MWtUdWcraWd4eGdPQ082b21UQTNtZ29Vckl6?=
+ =?utf-8?Q?p9HK/wY3lSj8uZk+8UDgsRPVmZrRcQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(366016)(376014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QTRva01mVzBPMFQ5K3BLNGM1VitVOXNrZStLd1pFTTVnOTY2b1BVU0ErdE5z?=
+ =?utf-8?B?Qk9LNytHRlV2MzZWQU9BenltMmZYdFkrc2RMV3VLelhENVJheUNMRkZNT2Zu?=
+ =?utf-8?B?UUsxYXpERVhmNFpvWWxIQVJGQmtrbGZyZFlRc2Q5Z1U1L0dPcHhGeW44VTNt?=
+ =?utf-8?B?ZDh3ems3QTBoMWpqRmtLV2NDWi9ncDNCcWc4V3F6ZURxWDF6Wmlvd0ZCT21w?=
+ =?utf-8?B?Zkk3VS85T21NL0FZUFQ0N3JVblJRMXd3bWJ0VjJSeU51cGFHV1RheFRCT3Z2?=
+ =?utf-8?B?enJ2bW8zYmhmS202dGxCSG1xWlk2YnBNdHkySmt3Qzk0ZmI0NnYwRFAxQ3Av?=
+ =?utf-8?B?RWFqa3R1SFNiTkE1OTc0ZFVjV1R0L2pHTFFheGZmV3hoVjE1S014dCs5cmd6?=
+ =?utf-8?B?NTUxTkdHcEVQcjVKdDNZUmRERzVDYUpPZi9uakllcU03dWJXUnhJNDQ2RU5O?=
+ =?utf-8?B?Y1h4VzdhMDVqcjdyMDFqRU9HUlg0UGJjQzVIbk1MaTQ2ZUNnSDU4MzI1NElm?=
+ =?utf-8?B?VzVxekVrNDRXK1FpbVNBMU5kNk16a09MRjczdzNHVVgwQUF2ai9wVWU2eHRz?=
+ =?utf-8?B?dlF2TVRCYXJadkhQc0MxUWhCV3RSWHlHMXVKY3FSYUdEekhWWUo3Smg3UkFi?=
+ =?utf-8?B?UzVySVJ2VjVTaEN1MjMwcXVHRXU3Q0RZSkpjdzBDcU80dDJpYTNnU09hQ1o3?=
+ =?utf-8?B?WGU5VFAwanhxR2hlbjg2SVUvd2s4SzNzMmhmb2FEeGNvMktkdEpJeGRBcTlJ?=
+ =?utf-8?B?SVV4QlFscmFDbHhVYm9ENGZZSUxKZkFQbTlMc1J5eTZQZ0RvWmVWTDgrNkRH?=
+ =?utf-8?B?a1hTLzdVNEFhTmMvOURnMWJzR29DZjZGbmJyVXBnWXMrRE9RS2JzZDJRMnBk?=
+ =?utf-8?B?L09nSXhOeDlRc2dhazZoWW5FS0pZQldYeXUxWU1zLzR6a2Y2RFMveERzR21S?=
+ =?utf-8?B?YmpJUzlkWDBTOHR6cnNNY3BQajZ4NVp3Q2FZSWQ3cWVSVzh2NkhOZm1CWm1K?=
+ =?utf-8?B?MTRPR2ljT2hOL0E0dWc0Rnovb1lkdERqTVJlMmxWRFhmQXpKVWhCSlQ1dU1C?=
+ =?utf-8?B?VVNsMzVmcGVkS3JJM3o0d1ZKWGdpY0VrUWZLYTk3RlRqT2pCTDF0MG1GVExv?=
+ =?utf-8?B?K2NScy8rdXd2Mk1RTXl2Tnk1bnltNlRMeHBPMTE0YkkxNFNJNG5xSGJzdTNG?=
+ =?utf-8?B?aEpPZExkbmY0NWI4NlNmV2tMWkhCcFQ2bkdLQjhZZjh4OFVIL2FrSWY1MElu?=
+ =?utf-8?B?SFJ6cGQvYXlhWGh4TzE3UytzUnpyRVJvSWljeVhmSjdqN1NFSkxSUU9VaXRi?=
+ =?utf-8?B?Z0tIejdOM203Mnd1bWFjTHM5cmM1MVpEblZQYjBGM25ETjZiT25zcUdkaGR5?=
+ =?utf-8?B?TlV6MkJxSEVPQTZCUWNuRHhWZld6YkJHUmpiVHc2a3hVKzI0L0xoZ0x3TFRm?=
+ =?utf-8?B?ZHlodENjZFM5OVFsY2VDS3kzbEpTbllqMGIwdlNZNnI3TGZnZUZYVUMyWG4v?=
+ =?utf-8?B?V0gvU0xpNDA3NVZHM2ptR2ZsZDI5U29ENkxmeW0vL2tnd042dkEyTVZlNTBj?=
+ =?utf-8?B?eVJIbTlMQzJFRmlwaWJJbmNXK3VqUlBIN3VFNlhLQkJBY3AvekVBVUhQSjRu?=
+ =?utf-8?B?TlF1S0owUHEzaEJlWHNYQjhibE1PNXRsUGxDdG5qM0gyL3hXZXZianB2aThV?=
+ =?utf-8?B?dEI3RG9McnE1TG9EMk1Oclc4MkVibDhiZWdlVHZLb3Z2K0xUNTV0T2xwSGU0?=
+ =?utf-8?B?N3NTM3R6emV4RHNJMjlkcFVRVWtZek5ISWlEa2dXVDNUNzMvNnNWaEw4VFJ6?=
+ =?utf-8?B?Q1NUbFpBVlhlajhyYWpFZlJUQVVOaEwzdHc5Q2R0RUJXQTdrZUlKc09KWUxD?=
+ =?utf-8?B?OVoxR2lYQjlkczlSRVRHRHVLL1RzUm53bm4xbjkyS0FXajU1WE15cUp0KzhR?=
+ =?utf-8?B?TlBXZm43NWVUUGlERmp6RTIxZzczYW9pd3RsUlZ2TndLdDFzS1h3d3NDblZC?=
+ =?utf-8?B?T2M3MG5zM3h0OWdXQTg4eEFGcU4wT2VWQ2VVWFdVV2JTaGZkMllwMnNTa3Jo?=
+ =?utf-8?B?TmNmZXowckdGK21jQlF1cDlmUERyd2VSazA5TUVhRUE0dU54YWFtZ0tkODB0?=
+ =?utf-8?Q?47C2qPF0LY/H1x1r0ZwuYTCS6?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 00fcf71a-485f-4aa1-b004-08ddbf8cb5ec
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 08:35:22.6619
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mqogHa80Lbrf8F4kZOP8ELsZomkllzSV8QpPzyxqng0B9xNlm1y5DO3MCHkPVfzHoWY56cyWyMgGX1GoKNV63A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB11512
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_012653_302863_FC2C6BD2 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250710_013529_344048_A1EC43D5 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,73 +189,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Cristian,
+  I only kept your R-b for patch 1, dropped your other R-b tags, because
+  there are some changes to address the comments from Sudeep. Most changes
+  are only to dump the information in probe phase, update to single sysfs
+  single value for syslog.
 
-Le 09/07/2025 à 18:45, Jason Gunthorpe a écrit :
-> On Wed, Jul 09, 2025 at 10:53:28AM +0200, Benjamin Gaignard wrote:
->> +static int vsi_iommu_attach_device(struct iommu_domain *domain,
->> +				   struct device *dev)
->> +{
->> +	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
->> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
->> +	unsigned long flags;
->> +	int ret = 0;
->> +
->> +	ret = pm_runtime_resume_and_get(iommu->dev);
->> +	if (ret < 0)
->> +		return ret;
->> +
->> +	spin_lock_irqsave(&iommu->lock, flags);
->> +	/* iommu already attached */
->> +	if (iommu->domain == domain)
->> +		goto unlock;
->> +
->> +	vsi_iommu_enable(iommu, domain);
->> +	list_add_tail(&iommu->node, &vsi_domain->iommus);
->> +	iommu->domain = domain;
->> +
->> +unlock:
->> +	spin_unlock_irqrestore(&iommu->lock, flags);
->> +	pm_runtime_put_autosuspend(iommu->dev);
->> +	return ret;
-> I thought this was mentioned before, but this doesn't handle
-> attach_device being called twice without an identity attach in
-> between.
->
-> And now the new locking doesn't protect concurrent invalidation races,
-> the lock is in the wrong place.
->
-> hold the domain lock across the whole sequence to hold off any
-> invalidation until the linked list is consistent with the HW
-> programming:
->
->   spin_lock_irqsave(&vsi_domain->lock, flags2); // Prevent invalidation
->
->   vsi_iommu_enable(iommu, domain);
->   list_del(&iommu->node);
->   list_add_tail(&iommu->node, &vsi_domain->iommus);
->
->   spin_unlock_irqrestore(&vsi_domain->lock, flags);
->
-> Then remove this:
->
->   +	/* iommu already attached */
->   +	if (iommu->domain == domain)
->   +		goto unlock;
->
-> Since the fix above makes it safe regardless.
->
-> And, also feels like again, but vsi_iommu_enable() needs to fully
-> flush the cache since the translation is being changed, shouldn't
-> there also be writes to VSI_MMU_FLUSH_BASE ?
->
-> Otherwise the locking change looks OK and I don't have other comments.
+Sudeep,
+  I saw you sent out PR to Arnd for 6.17, so no rush now for this patchset.
+  Take your time.
 
-I have fix that in v6.
+Hope I not miss any comments from V1.
 
-Thanks a lot for your review.
+Thanks,
+Peng
 
-Benjamin
+System Manager firmware provides API to dump board, silicon, firmware
+information. It also provides API to dump system sleep, wakeup
+information. So add the interface for Linux to retrieve the information:
 
->
-> Jason
+patch 1 is to add doc for board information which was missed before.
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Changes in v2:
+- Add more info in patch 1 for documentation(attribute is reserved for
+  future use, boardname may not align with the board name in device tree)
+- Drop dump silicon revision API
+- Update discover build info, cfg info, board info API to be only used in probe phase
+- Update to use single sysfs single value for syslog.
+- Link to v1: https://lore.kernel.org/r/20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com
+
+---
+Peng Fan (6):
+      firmware: arm_scmi: imx: Add documentation for MISC_BOARD_INFO
+      firmware: arm_scmi: imx: Support discovering buildinfo of MISC protocol
+      firmware: arm_scmi: imx: Support getting cfg info of MISC protocol
+      firmware: arm_scmi: imx: Support getting board info of MISC protocol
+      firmware: arm_scmi: imx: Support getting syslog of MISC protocol
+      firmware: imx: sm-misc: Dump syslog info
+
+ .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 190 +++++++++++++++++++++
+ drivers/firmware/arm_scmi/vendors/imx/imx95.rst    |  22 +++
+ drivers/firmware/imx/sm-misc.c                     | 178 +++++++++++++++++++
+ include/linux/scmi_imx_protocol.h                  |  19 +++
+ 4 files changed, 409 insertions(+)
+---
+base-commit: e88d17c7335a917e98b7c65776cbe3358210e8ab
+change-id: 20250627-sm-misc-api-v1-85c030c670c6
+
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
+
 
