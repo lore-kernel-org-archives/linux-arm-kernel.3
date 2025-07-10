@@ -4,111 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE37BC83F17
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30E3C83F1D
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zz6/HNpI1gHN4fAaBunmqYHsn5vtfJJ4CRMBCE1FAzE=; b=xP4uL8l26KNqm6di8plSrkre7Q
-	HENWOzwK+43UT2xDNijTtcZ66SgW4jV8I04WZdSA1myKAQbVh+XI3HUX3lsf7jiq05Mq+lXeQcZl9
-	kiKUy+uuwZEY5Vq4A1i1o3555CAtcw7KOeDxRC0QOIiAnzKWqdoiF7nFdnwsAb+5Q84yFo91xSFtr
-	y5/GVErphkve+sc9Fcm7ZiRFGaQ5CKA8xDWgw3gsy4c3w2/vuiQSol0ruROUEHYhSQ0HI+uRYRSc4
-	g3mC8cwIuUF0l+6Aazf2PcqvBnqxEevOUvJdjpOo3X20dCeLvFQhyorZNAJXTu84EebAYJaeKs+rz
-	cpZKkNNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FzYt6gVAK0il36J8L9LvVJEE7L/JD5vrP0QWTjeUYd4=; b=nRbp3hI1NDswG2qGMFvflhYD9S
+	/GvHiq6ZPZQkLf6eqd4JcWnmZ2h6P/SSiadKBToWCUwJyCF/pIx/ntpaeCDnlJTjgq+jtDRpSHO/j
+	8t713DI9MXj2oke6HytwU82O3F5oFK9tTpHDIa0nM75U+vw/+rWuSouN8jX+rWiwiAJh384/6j81y
+	KyJ+NU39eDQLBZqTo8BgceAxlH+g42xH1g3L6dQMC+n/uu7eoC9Mv1DE5n1lxTB6q4/mgp0ijVArk
+	zH2/ECvpD4fkbgRW7ss60keg0SoKLOmEQRODoktu+czC5pzday9hCDJlCmsY7IZeiboMjSi1F9ttK
+	yjVMnn6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2Q0-0000000DPvG-3t8F;
-	Fri, 11 Jul 2025 01:19:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ua2QI-0000000DQJm-36fj;
+	Fri, 11 Jul 2025 01:19:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZyYG-0000000D2GR-0zDG
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 21:11:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752181891;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zz6/HNpI1gHN4fAaBunmqYHsn5vtfJJ4CRMBCE1FAzE=;
-	b=i0ABL9+Pog1jTY1TOTLW+CJr43Su+9LZCq868rPGXnu0P5RolFt8OTI4Z1LDr4nsjwwi1U
-	d/IOZ3HtYaMByGBoFVEOUrrQ9oTVUg5tHzg+OAGoAn8BALrYIyuOwxQdov/I5IAfKYx2OZ
-	YnDeU/6WVYwqycIsyFojjh8+U1q9qU8=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-45-SivrT9MsNi69l5cp5VRrEQ-1; Thu, 10 Jul 2025 17:11:30 -0400
-X-MC-Unique: SivrT9MsNi69l5cp5VRrEQ-1
-X-Mimecast-MFC-AGG-ID: SivrT9MsNi69l5cp5VRrEQ_1752181889
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-23689228a7fso20492905ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 14:11:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752181889; x=1752786689;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zz6/HNpI1gHN4fAaBunmqYHsn5vtfJJ4CRMBCE1FAzE=;
-        b=GMrYIuA1tvNKaJVd2xxw2RgZrgH6Mhx/JkUrGgKCzuwbLuQAmb1IMH7B6qpLaC4Fdu
-         /0+2rdsIkb6twgrjqZWr4NhgiUQoKbcEpqnylNONq59+0tvBQeqdKnLQuQJReMC0wQAH
-         JRgEg1NOvfR3WC8z+j4a5shXtVUWSQyHpjTRpO826JCkRbEEtyTR9EoX6FeOqC7sPwhC
-         ODRUX/ZDoDTCP15Fv/5kfN9hPICkRWhHY0JIe2qPGUQfoYpIUaYyw0+s9DNpYXKlRj7k
-         6h5EnYiJDf22SQhqJFEqJvb1y4I/q1YTO45cp4HcllJfMZ8BiGKOYNm0J2LkKRc96Vkw
-         h7Kw==
-X-Forwarded-Encrypted: i=1; AJvYcCWmfWKILkuLhKEHAlTPkKcVpdJogrSABx57CChmt5FiBSs/gR/XGjjry2Sn3QmaMcHz5qVE+ZArlPuhL850Sz2N@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyb1STpj/0mzKyIGww+hDHqhgXFXoc+qLgLCVhkAp2oLm+Oqhz6
-	sG5XMuzP0tMU8OtY3lrxJfY5oBrqObBND8DfNKxYZMKmITQ7mr3AC0qn8my5KkPVq8Gx1LapcrE
-	a70aRiiWkuOK0BIFPRqfNrEm7PR76PFxUymxkgfWtEp4rvoJEEojwlua6Oi9FnpkP0+xmk3h8i/
-	Uf
-X-Gm-Gg: ASbGncu8LM0LAGbPbfTNJd9iZsWVfv4EWNFopGyKZS72IUVSMvIG1Nhtr83SrkWeQvb
-	qhwq4l7upm7aocTJZQJgky+lo5gRL6u0EpZ2/3hpcJeko20oglfEUFEjQ1huSzl9FWEpeHoaQac
-	K7ZwMGBRPISDj7jmjUIHbBt5GnJTg8WyjJERX/u8KOeZvcgk58ss60HXwVAUiUoTbz1LHTW+8p6
-	tFes7I9mYV7cGa+0XC2nD39XcuXrHLaWCZtl+r9OoIs/LVn6rCzobqUd15kEwoNJiQpecHB+Ik6
-	WyNslzSTPyBBJBDwIz9kUVqdg3NKMey8XTUeHdaF+wWuZw==
-X-Received: by 2002:a17:903:3d0e:b0:23c:6cc2:feb9 with SMTP id d9443c01a7336-23dede9e0bdmr9187585ad.45.1752181888754;
-        Thu, 10 Jul 2025 14:11:28 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH40itlo9Q3VPwkodph6SX00btge58CCSKjrR52Pux2HyjpRrEkkomBu7+5GLThfJJL/+J/yw==
-X-Received: by 2002:a17:903:3d0e:b0:23c:6cc2:feb9 with SMTP id d9443c01a7336-23dede9e0bdmr9187315ad.45.1752181888452;
-        Thu, 10 Jul 2025 14:11:28 -0700 (PDT)
-Received: from [10.144.155.224] ([2600:382:7716:65ad:9491:c054:6f2d:80ed])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de433e51asm27790595ad.180.2025.07.10.14.11.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 14:11:27 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-Date: Thu, 10 Jul 2025 17:10:36 -0400
-Subject: [PATCH 04/13] clk: imx: cpu: convert from round_rate() to
- determine_rate()
+	id 1uZzcC-0000000D93r-0Xr3;
+	Thu, 10 Jul 2025 22:19:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 72E0A613AC;
+	Thu, 10 Jul 2025 22:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0A0FC4CEE3;
+	Thu, 10 Jul 2025 22:19:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752185978;
+	bh=qWJ9OuQImauUF3Zjux87h1FusUr34Lwz8v8vuFD8Z9o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uSEkg1r5k9u8Rf86Fq+1vnxiZw+blZLEXki4fYuI3RS566yZT0ufwm0d0dpuhAoro
+	 fWOGdRFPA77cKUV6mh/hRDw2xSvXAaqoDXF4pGkEEDxYFVtJ12f/uAcDSiAw+KIx36
+	 jmAS4UlN9Td6wVH1XwEr9g5bgxQR0qCxkCnn4SQIxJasEQyk/sZvCALU/uD7hWCXpi
+	 uOEmoF9QIrewUGnT3IpBRkzKE0g3W7r+xUeHeca7wcDxIUJCpYq9oxFmzlDkjy2uYG
+	 6TDoRUSAKCizYzzSDS7KktmfGOztHwjF54DFqCQ9l93ZDZtVYC2RDuWqPmnyaiYcqP
+	 XWdcgv7D+RQRA==
+Date: Thu, 10 Jul 2025 17:19:37 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Diederik de Haas <didi.debian@cknow.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Johan Jonker <jbx6244@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	Dragan Simic <dsimic@manjaro.org>, Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH v4 03/10] dt-bindings: display: rockchip,dw-mipi-dsi:
+ Drop address/size cells
+Message-ID: <175218597662.4163951.14813766986445272508.robh@kernel.org>
+References: <20250709132323.128757-1-didi.debian@cknow.org>
+ <20250709132323.128757-4-didi.debian@cknow.org>
 MIME-Version: 1.0
-Message-Id: <20250710-clk-imx-round-rate-v1-4-5726f98e6d8d@redhat.com>
-References: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
-In-Reply-To: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Brian Masney <bmasney@redhat.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752181866; l=1427;
- i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=3XjDCzSMZEsGst/M49lew0bIUSlQF8Nx3FY6tvatUbc=;
- b=cZExAeUB9HVwWRLw/pA+Ktj6jaDvyzLQbPvJc/XdM+3G/yEOb+NDOTlZV8oaiYClRWR49P9Cu
- xqOnNjF0BFoDoL6ivjtSPWRBoBq1R6/6yfsdfsJwfwgf2c4wsH9udFq
-X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
- pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Kv0v6uRA772rtEGYGgvMOenoRJUscUPzDDzaKNr_les_1752181889
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_141132_354500_1952D5D2 
-X-CRM114-Status: GOOD (  12.96  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250709132323.128757-4-didi.debian@cknow.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,48 +74,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The round_rate() clk ops is deprecated, so migrate this driver from
-round_rate() to determine_rate() using the Coccinelle semantic patch
-on the cover letter of this series.
 
-Signed-off-by: Brian Masney <bmasney@redhat.com>
----
- drivers/clk/imx/clk-cpu.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+On Wed, 09 Jul 2025 15:15:16 +0200, Diederik de Haas wrote:
+> The "rockchip,dw-mipi-dsi" binding has allOf "snps,dw-mipi-dsi.yaml"
+> which has allOf "dsi-controller.yaml", which already has #address-cells
+> and #size-cells defined as '1' and '0' respectively.
+> So drop this re-definition.
+> 
+> Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
+> ---
+>  .../bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml     | 6 ------
+>  1 file changed, 6 deletions(-)
+> 
 
-diff --git a/drivers/clk/imx/clk-cpu.c b/drivers/clk/imx/clk-cpu.c
-index cb6ca4cf0535bab2d9d519c46a84564711aaf209..43637cb61693845f54b3bd1b92f548b43bc30caa 100644
---- a/drivers/clk/imx/clk-cpu.c
-+++ b/drivers/clk/imx/clk-cpu.c
-@@ -30,12 +30,14 @@ static unsigned long clk_cpu_recalc_rate(struct clk_hw *hw,
- 	return clk_get_rate(cpu->div);
- }
- 
--static long clk_cpu_round_rate(struct clk_hw *hw, unsigned long rate,
--			       unsigned long *prate)
-+static int clk_cpu_determine_rate(struct clk_hw *hw,
-+				  struct clk_rate_request *req)
- {
- 	struct clk_cpu *cpu = to_clk_cpu(hw);
- 
--	return clk_round_rate(cpu->pll, rate);
-+	req->rate = clk_round_rate(cpu->pll, req->rate);
-+
-+	return 0;
- }
- 
- static int clk_cpu_set_rate(struct clk_hw *hw, unsigned long rate,
-@@ -66,7 +68,7 @@ static int clk_cpu_set_rate(struct clk_hw *hw, unsigned long rate,
- 
- static const struct clk_ops clk_cpu_ops = {
- 	.recalc_rate	= clk_cpu_recalc_rate,
--	.round_rate	= clk_cpu_round_rate,
-+	.determine_rate = clk_cpu_determine_rate,
- 	.set_rate	= clk_cpu_set_rate,
- };
- 
-
--- 
-2.50.0
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
