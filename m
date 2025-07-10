@@ -4,138 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F245C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 11:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24F7C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 11:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNMup2IpmOh1s1Pd/gNbiesQVrMnPezYTAGjH4drcnQ=; b=rEkpI+R1lF+ik3d8Df0zmEvHfk
-	8m0PSgZLVDH1ClDW4OeP3DBETJpC2mPOq8txAvhM05Bc5MaW+Ijd1GpPWHROtyy94JLuGvSGqqwlq
-	FBHpRCTlJUofu3R+rCBQGxxLlTJ7hUD5ycdd5sQ+SaJ9BKym3dFZsbv9eFT4+mqOSjIqrC0BEGUeP
-	zhcaHu58477esQY0vPHfJP8l+NZusSdDLqZpa4qQ63l+3yW3pblz78zFbGCrvuJDRm5rkEZecCnHw
-	ACSZrCGpQH2em4k+YpRlvzoPSGkDFeFfGonPB7H3lifxb+4DtNeXsB8/UFGjEKTupL/KG390WXtzg
-	0E8phoPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6quJI1yIjjs83GaI8QkAWSWoroqXel5BV0PM2iX6KPg=; b=FtU+dkKp24GfDANgLhwZE3pYQt
+	+XDBwniNTfVqXHhK7DZrf3P5E3lYxHqN6nCmQx4ORi1//HSNWqPteuRfE2BygwM2M52+C1PZIXf67
+	Pgjf2FlPn+aC3oXHmJwZS2cxTIQ5nT6Sf/5JeGAGCkAAhvnyjRQ31wvr2W26j01oJDPNc2xUfa0u8
+	V7YnG9c0TcLzbkJSwGPaNUkQ2Yf8cuo9cavPOx3iGXp3gwmU+KW5oxMNjHQu+53RRzP6D9zadjvrT
+	PhbWrgnG46QgTrVBgO7rhXQHPiRnZbrpOHPo6WNdM7vkI3oE1OMPldJ3HJuWJ6TILEa9JLJXES862
+	ni8lRMtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZpg8-0000000BfFZ-2Zca;
-	Thu, 10 Jul 2025 11:43:04 +0000
-Received: from mail-dm6nam10on20611.outbound.protection.outlook.com ([2a01:111:f403:2413::611] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uZpiQ-0000000BfOP-1DfZ;
+	Thu, 10 Jul 2025 11:45:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZoGs-0000000BQw8-47RV
+	id 1uZoIG-0000000BRfN-2LKf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 10:12:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GupAzM3Il9xk9RBx1MMgO7JtS+nTZm1IyB67xZwOMxT9VzcKvvUIEOZutdolklYzK70DjriHA85KcJW/40WsWn68ijeJyUCMEtk/Ryd2LMtTue4KqdCy6OFyq2HIwq5hOhg8zmPVeox5CPf03xXTBu6Bz1AXx0sT8BHOLlpVAi29ND8uSAry42Rwytnbzbvho2Ab8WzWgU/hi7M0w6SPwud+f6wHsK7HeL2hGJYQ3iCThGjQYhyWaiazRLJu6JIQer2YW8gcxde/iaZzfyQMRbAkgdgXPuUjP9/d79SLNUzujvizYR8LvFAUXyKeFkauPh3gK8kgU0Uh8uP8KF+xRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HNMup2IpmOh1s1Pd/gNbiesQVrMnPezYTAGjH4drcnQ=;
- b=OrSe9mD54YupiSiUJCXxI/wM4zumW0xjDpKG7xLgGiuFcRVzouBdNzAHdaAtK/J86Wdq4SzRLa2L3Cb7ZhXtfaXWLPTHHH69mNle5sTgCFi85KAhGef9SpGoBFZlJmDBFuRmC460cXeHryk6pKReyDT4pDAw6RRG1C0nOFhfiMTM0PqnTW3E5l6sew8Zcsp1MKvzf8qG7HuOs3zN5E5EW8JE8v9TaSAkhosBLVN82sFVevSI1x3lnnPCtAq+uDi82K6uYFSvO7uGXDkPdyG+EyQd0FtFdLR3MvsUrmvvQ1H2jh96pwStoFdlT38zUXZ0z9yZSzFCpqLyDX4r06yw/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HNMup2IpmOh1s1Pd/gNbiesQVrMnPezYTAGjH4drcnQ=;
- b=KItlb1COnfHbLnEEoiHA8UdpdIIBMEB6FgZkqF26QGyPDD2b0AWyCMXt9IDSuoHqXs4Zg+7rI/exIrAN51T3jDX4f7OfpQWHEhyE9i+sCeguB3+iEgp0AdRyq03rep48qIEahr9IG9h5yhvfABJ1qEiUnKlEcUu9rZ1SnPBJN5A=
-Received: from DM6PR02CA0164.namprd02.prod.outlook.com (2603:10b6:5:332::31)
- by MW3PR12MB4394.namprd12.prod.outlook.com (2603:10b6:303:54::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.27; Thu, 10 Jul
- 2025 10:12:48 +0000
-Received: from DS3PEPF000099D6.namprd04.prod.outlook.com
- (2603:10b6:5:332:cafe::c9) by DM6PR02CA0164.outlook.office365.com
- (2603:10b6:5:332::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.22 via Frontend Transport; Thu,
- 10 Jul 2025 10:12:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- DS3PEPF000099D6.mail.protection.outlook.com (10.167.17.7) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8922.22 via Frontend Transport; Thu, 10 Jul 2025 10:12:47 +0000
-Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 10 Jul
- 2025 05:12:47 -0500
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
- (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 10 Jul
- 2025 05:12:46 -0500
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Thu, 10 Jul 2025 05:12:43 -0500
-From: Suraj Gupta <suraj.gupta2@amd.com>
-To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <michal.simek@amd.com>, <vkoul@kernel.org>,
-	<radhey.shyam.pandey@amd.com>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <dmaengine@vger.kernel.org>,
-	<harini.katakam@amd.com>
-Subject: [PATCH V2 4/4] net: xilinx: axienet: Add ethtool support to configure/report irq coalescing parameters in DMAengine flow
-Date: Thu, 10 Jul 2025 15:42:29 +0530
-Message-ID: <20250710101229.804183-5-suraj.gupta2@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250710101229.804183-1-suraj.gupta2@amd.com>
-References: <20250710101229.804183-1-suraj.gupta2@amd.com>
+	Thu, 10 Jul 2025 10:14:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B48245B2D;
+	Thu, 10 Jul 2025 10:14:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A02EFC4CEF5;
+	Thu, 10 Jul 2025 10:14:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752142460;
+	bh=qATw6ZD37x/XT/B5MCjb1qOwnXiW8HLBo9mIN9I0R3g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DyQIaiUs1pOLCr6gIs/azzr6zC2/moryuNU3UAInevb5nD5O/dcuT8sE8gp8d5ZFl
+	 5VNvilLKEPrcZ2R75ojm5IYNV91VLqeOC9kW1B8ZmPpR96HVwZqqE93AofpeH2az7U
+	 I/M5XovAKqh3MfW3pt/G59uIxMzKQxKjfK+Z5GbEFZdFeZcosU5kTrGDUj+qHKCKfM
+	 quueYdCtq7I9FgyFob+ymo3624rGscjBcGF+IWhRZXA7D6FQYh69zMJMOz7vWzNV8U
+	 nTUKsPC5maC1U4GukMIC1sg5fg0fGy6PhNFuiuimPiXm5Ea8SYYncPv9FQrBUguvub
+	 DvcK8vYFUJFgA==
+Message-ID: <53130960-e054-4de9-b62a-cde384444a78@kernel.org>
+Date: Thu, 10 Jul 2025 12:14:10 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF000099D6:EE_|MW3PR12MB4394:EE_
-X-MS-Office365-Filtering-Correlation-Id: 71f2f611-7859-4141-1cad-08ddbf9a5205
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DGzJPcGE60HZTK3KxGb4uWdGG/GtfRZJSaxvx+lfxlJVbjd5/Ilgcf6O1Y0O?=
- =?us-ascii?Q?T/D4yb8nZu/ltStLeNJzm9ZF//xLlkIm0sX7rkO46KgxNf92j1KI8uo4FcNN?=
- =?us-ascii?Q?9eQz7ftlOBgdugv1fdA/iaC1wA0j1BKJ/gNNxAIwRXohwKTsbXB+OKfHtIp7?=
- =?us-ascii?Q?JP9PVbSw2Cf7dAk2/okQEIZDAp6Zvu2+EF9wE5ky4qHtQQ4NJTmH87Z+sLCu?=
- =?us-ascii?Q?g+PjtIhZXLwg5NXUM/Die3f2cVtKHdsxR+6YE/XnsgkaqqoS/zit1XCImcjB?=
- =?us-ascii?Q?17ruwp3BdvLnNCA4pVAXXE4HusW9+PyHIxODoZvB1hYgOdaoN+E8pw6UlQqq?=
- =?us-ascii?Q?LSIbcyGC7XnrHSh+4LEsdah92LTQf0MzLW9+5jQDvrSbuovYG8dH7Dc1D7Sl?=
- =?us-ascii?Q?bMRkLDfYo/Eo1QGUDotEGf65yzdh955nA9qUQOK68ClAIzjsbOUOzWYD4j+D?=
- =?us-ascii?Q?TIKjWvX1YUPkm7HQOFYNE8vXjQE06isS3yj+KzyVBCl5fpRUmmnVYzEWrk5Z?=
- =?us-ascii?Q?gZ/mB24iU2EcnWqFaexvCpHHmle3SZOx1rk8GX20yQihj3FZ6yZj1NGlWo4Y?=
- =?us-ascii?Q?qzTvI/57beo+OiWxP60lwE6ka8Mr3yTyBmYxtMlpcvEaOoMVC3zebU/nRasr?=
- =?us-ascii?Q?jmqQ6nTCnD5yP7zLUqR4opDHC3BT4tGoN6paDGBwcsDzzeIKzCzjFe9NBN40?=
- =?us-ascii?Q?vF0aEECLor6B8ne9WWuKHpSx+KK3giHKeYy9u6SujveAMD/+1VeWLRRjT2F0?=
- =?us-ascii?Q?Jbg3yjjEaxmVC4OYtDwJkcp5OUcm1aa8DzVvvmWWbMBpK26AUr/xQgxvANyO?=
- =?us-ascii?Q?4UG6CSNGy8QVLFfHYPdhnEl/nBTUWulqIdbSUxz7PPK7bYMUSCL87c0UE6Yv?=
- =?us-ascii?Q?flGKa6rbhIfDyYWoLCdwHVEx/yIQx5KLQTp8wtxhvLHT9uSs774javpq7QHo?=
- =?us-ascii?Q?5a42sKX4fD9QFZDicvNiX989YZmF6uDKrMXHDBwjltAkHh7H6D/AT2Y7h85N?=
- =?us-ascii?Q?H+mgt952wcnph3yjph6obWjp93fIDXTLociq8TfH/BnRIzpJVSDdJ8sxRivB?=
- =?us-ascii?Q?qZUw7IxDx08L5cNQ6SFeDKCgKMOA+Z+7A8YXjhAZGNj9WqwSZCFeA5/AtjdT?=
- =?us-ascii?Q?w4Ww639BxVSHlcsGtK9W5B2x8CiEfQY6KwNDXAYQm8TAReAkb7H/NloSPCe5?=
- =?us-ascii?Q?WriDTqx3LoKHSrIPkqyagTUsoDL5YLv+l1LseXgZNuQtV0EjEL2LU4Rs+2sX?=
- =?us-ascii?Q?SGzteyfOjpnoXM/icf/C1JYqj5Fi0cTWooG/YiYt3T5jLWYr8WE8q0LXLpXA?=
- =?us-ascii?Q?I9mo+52CvhWrQyoCm/rrHnE4hswH1+GIOfaxxUHFT1ppRGFjjFB8hLPgkv9B?=
- =?us-ascii?Q?UzakjusQYrVaGNeqYjxkvyWsZzuR6PqbFYTUNOKwAjg2ToF3eR4AfE7nu2PI?=
- =?us-ascii?Q?en3BL9xH2xSS2JNRXkoVDxIaaeFd8MvrawhpJ7KRLtV1vw4MjU7mzOCffBvX?=
- =?us-ascii?Q?5afIATT20lMStkZLJFdlnOoetBXk0QpLz3BY?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 10:12:47.7714
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71f2f611-7859-4141-1cad-08ddbf9a5205
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099D6.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4394
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 14/16] arm64: dts: axis: Add initial device tree support
+To: Arnd Bergmann <arnd@arndb.de>, ksk4725@coasia.com,
+ Jesper Nilsson <jesper.nilsson@axis.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Tomasz Figa
+ <tomasz.figa@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Ravi Patel <ravi.patel@samsung.com>,
+ SungMin Park <smn1196@coasia.com>
+Cc: kenkim <kenkim@coasia.com>, Jongshin Park <pjsin865@coasia.com>,
+ GunWoo Kim <gwk1013@coasia.com>, HaGyeong Kim <hgkim05@coasia.com>,
+ GyoungBo Min <mingyoungbo@coasia.com>,
+ Pankaj Dubey <pankaj.dubey@samsung.com>, Shradha Todi
+ <shradha.t@samsung.com>, Inbaraj E <inbaraj.e@samsung.com>,
+ Swathi K S <swathi.ks@samsung.com>, Hrishikesh <hrishikesh.d@samsung.com>,
+ Dongjin Yang <dj76.yang@samsung.com>, Sang Min Kim
+ <hypmean.kim@samsung.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@axis.com, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, soc@lists.linux.dev
+References: <20250710002047.1573841-1-ksk4725@coasia.com>
+ <20250710002047.1573841-15-ksk4725@coasia.com>
+ <5494bedb-6907-43dc-8580-04ef1e47c8d0@app.fastmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <5494bedb-6907-43dc-8580-04ef1e47c8d0@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_031255_076802_512791EB 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20250710_031420_644522_FEDDD5C1 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,398 +138,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support to configure and report interrupt coalesce count and delay
-via ethtool in DMAEngine flow.
-Enable Tx and Rx adaptive irq coalescing with DIM to allow runtime
-configuration of coalesce count based on load. CQE profiles same as
-legacy (non-dmaengine) flow are used.
-Increase Rx skb ring size from 128 as maximum coalesce packets are 255.
+On 10/07/2025 09:48, Arnd Bergmann wrote:
+> On Thu, Jul 10, 2025, at 02:20, ksk4725@coasia.com wrote:
+>> From: sungminpark <smn1196@coasia.com>
+>>
+>> Add initial device tree support for Axis ARTPEC-8 SoC and Grizzly board.
+>> This SoC contains four cores of cortex-a53 CPUs and other various
+>> peripheral IPs.
+> 
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index fa1e04e87d1d..371005f3f41a 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -2320,6 +2320,20 @@ F:	drivers/crypto/axis
+>>  F:	drivers/mmc/host/usdhi6rol0.c
+>>  F:	drivers/pinctrl/pinctrl-artpec*
+>>
+>> +ARM/ARTPEC ARM64 MACHINE SUPPORT
+>> +M:	Jesper Nilsson <jesper.nilsson@axis.com>
+>> +M:	Ravi Patel <ravi.patel@samsung.com>
+>> +M:	SeonGu Kang <ksk4725@coasia.com>
+>> +M:	SungMin Park <smn1196@coasia.com>
+>> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>> +L:	linux-samsung-soc@vger.kernel.org
+>> +L:	linux-arm-kernel@axis.com
+>> +S:	Maintained
+>> +F:	Documentation/devicetree/bindings/clock/axis,artpec*-clock.yaml
+>> +F:	arch/arm64/boot/dts/axis/
+>> +F:	drivers/clk/samsung/clk-artpec*.c
+>> +F:	include/dt-bindings/clock/axis,artpec*-clk.h
+> 
+> I'm trying to understand the SoC family tree here. I see that
+> you have an entry for ARTPEC SoCs above it, which currently
+> covers artpec6 (Cortex-A9, apparently not Samsung based).
+> 
+> Is the reason for having two entries here that artpec6/7 and
+> artpec8/9 are two separate SoC families, or is this just because
+> they are using 32-bit and 64-bit cores, respectively?
 
-Netperf numbers and CPU usage after DIM:
-TCP Tx:	885 Mb/s, 27.02%
-TCP Rx:	640 Mb/s, 27.73%
-UDP Tx: 857 Mb/s, 25.00%
-UDP Rx:	730 Mb/s, 23.94%
+These should be entirely different families. Artpec6 was not done by
+Samsung and this one - Artpec 8 - is basically Samsung SoC, just like
+they did designs for Tesla and Google GS101.
 
-Above numbers are observed with 4x Cortex-a53.
+I don't know about Artpec 9.
 
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
----
- drivers/net/ethernet/xilinx/xilinx_axienet.h  |  13 +-
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 190 +++++++++++++++++-
- 2 files changed, 190 insertions(+), 13 deletions(-)
+All this should be explained in DTS or bindings commit msg, btw.
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-index 5ff742103beb..747efde9a05f 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-@@ -126,6 +126,9 @@
- #define XAXIDMA_DFT_TX_USEC		50
- #define XAXIDMA_DFT_RX_USEC		16
- 
-+/* Default TX delay timer value for SGDMA mode with DMAEngine */
-+#define XAXIDMAENGINE_DFT_TX_USEC	16
-+
- #define XAXIDMA_BD_CTRL_TXSOF_MASK	0x08000000 /* First tx packet */
- #define XAXIDMA_BD_CTRL_TXEOF_MASK	0x04000000 /* Last tx packet */
- #define XAXIDMA_BD_CTRL_ALL_MASK	0x0C000000 /* All control bits */
-@@ -485,8 +488,11 @@ struct skbuf_dma_descriptor {
-  * @dma_regs:	Base address for the axidma device address space
-  * @napi_rx:	NAPI RX control structure
-  * @rx_dim:     DIM state for the receive queue
-- * @rx_dim_enabled: Whether DIM is enabled or not
-- * @rx_irqs:    Number of interrupts
-+ * @tx_dim:     DIM state for the transmit queue
-+ * @rx_dim_enabled: Whether Rx DIM is enabled or not
-+ * @tx_dim_enabled: Whether Tx DIM is enabled or not
-+ * @rx_irqs:    Number of Rx interrupts
-+ * @tx_irqs:    Number of Tx interrupts
-  * @rx_cr_lock: Lock protecting @rx_dma_cr, its register, and @rx_dma_started
-  * @rx_dma_cr:  Nominal content of RX DMA control register
-  * @rx_dma_started: Set when RX DMA is started
-@@ -570,8 +576,11 @@ struct axienet_local {
- 
- 	struct napi_struct napi_rx;
- 	struct dim rx_dim;
-+	struct dim tx_dim;
- 	bool rx_dim_enabled;
-+	bool tx_dim_enabled;
- 	u16 rx_irqs;
-+	u16 tx_irqs;
- 	spinlock_t rx_cr_lock;
- 	u32 rx_dma_cr;
- 	bool rx_dma_started;
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 6011d7eae0c7..2c7cc092fbe8 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -54,7 +54,7 @@
- #define RX_BD_NUM_MAX			4096
- #define DMA_NUM_APP_WORDS		5
- #define LEN_APP				4
--#define RX_BUF_NUM_DEFAULT		128
-+#define RX_BUF_NUM_DEFAULT		512
- 
- /* Must be shorter than length of ethtool_drvinfo.driver field to fit */
- #define DRIVER_NAME		"xaxienet"
-@@ -869,6 +869,7 @@ static void axienet_dma_tx_cb(void *data, const struct dmaengine_result *result)
- 	struct netdev_queue *txq;
- 	int len;
- 
-+	WRITE_ONCE(lp->tx_irqs, READ_ONCE(lp->tx_irqs) + 1);
- 	skbuf_dma = axienet_get_tx_desc(lp, lp->tx_ring_tail++);
- 	len = skbuf_dma->skb->len;
- 	txq = skb_get_tx_queue(lp->ndev, skbuf_dma->skb);
-@@ -881,6 +882,17 @@ static void axienet_dma_tx_cb(void *data, const struct dmaengine_result *result)
- 	netif_txq_completed_wake(txq, 1, len,
- 				 CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX),
- 				 2);
-+
-+	if (READ_ONCE(lp->tx_dim_enabled)) {
-+		struct dim_sample sample = {
-+			.time = ktime_get(),
-+			.pkt_ctr = u64_stats_read(&lp->tx_packets),
-+			.byte_ctr = u64_stats_read(&lp->tx_bytes),
-+			.event_ctr = READ_ONCE(lp->tx_irqs),
-+		};
-+
-+		net_dim(&lp->tx_dim, &sample);
-+	}
- }
- 
- /**
-@@ -1161,6 +1173,7 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
- 	struct sk_buff *skb;
- 	u32 *app_metadata;
- 
-+	WRITE_ONCE(lp->rx_irqs, READ_ONCE(lp->rx_irqs) + 1);
- 	skbuf_dma = axienet_get_rx_desc(lp, lp->rx_ring_tail++);
- 	skb = skbuf_dma->skb;
- 	app_metadata = dmaengine_desc_get_metadata_ptr(skbuf_dma->desc, &meta_len,
-@@ -1179,7 +1192,18 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
- 	u64_stats_add(&lp->rx_bytes, rx_len);
- 	u64_stats_update_end(&lp->rx_stat_sync);
- 	axienet_rx_submit_desc(lp->ndev);
-+
- 	dma_async_issue_pending(lp->rx_chan);
-+	if (READ_ONCE(lp->rx_dim_enabled)) {
-+		struct dim_sample sample = {
-+			.time = ktime_get(),
-+			.pkt_ctr = u64_stats_read(&lp->rx_packets),
-+			.byte_ctr = u64_stats_read(&lp->rx_bytes),
-+			.event_ctr = READ_ONCE(lp->rx_irqs),
-+		};
-+
-+		net_dim(&lp->rx_dim, &sample);
-+	}
- }
- 
- /**
-@@ -1492,6 +1516,9 @@ static void axienet_rx_submit_desc(struct net_device *ndev)
- 	dev_kfree_skb(skb);
- }
- 
-+static u32 axienet_dim_coalesce_count_rx(struct axienet_local *lp);
-+static u32 axienet_dim_coalesce_count_tx(struct axienet_local *lp);
-+
- /**
-  * axienet_init_dmaengine - init the dmaengine code.
-  * @ndev:       Pointer to net_device structure
-@@ -1505,6 +1532,7 @@ static int axienet_init_dmaengine(struct net_device *ndev)
- {
- 	struct axienet_local *lp = netdev_priv(ndev);
- 	struct skbuf_dma_descriptor *skbuf_dma;
-+	struct dma_slave_config tx_config, rx_config;
- 	int i, ret;
- 
- 	lp->tx_chan = dma_request_chan(lp->dev, "tx_chan0");
-@@ -1520,6 +1548,22 @@ static int axienet_init_dmaengine(struct net_device *ndev)
- 		goto err_dma_release_tx;
- 	}
- 
-+	tx_config.coalesce_cnt = axienet_dim_coalesce_count_tx(lp);
-+	tx_config.coalesce_usecs = XAXIDMAENGINE_DFT_TX_USEC;
-+	rx_config.coalesce_cnt = axienet_dim_coalesce_count_rx(lp);
-+	rx_config.coalesce_usecs =  XAXIDMA_DFT_RX_USEC;
-+
-+	ret = dmaengine_slave_config(lp->tx_chan, &tx_config);
-+	if (ret) {
-+		dev_err(lp->dev, "Failed to configure Tx coalesce parameters\n");
-+		goto err_dma_release_tx;
-+	}
-+	ret = dmaengine_slave_config(lp->rx_chan, &rx_config);
-+	if (ret) {
-+		dev_err(lp->dev, "Failed to configure Rx coalesce parameters\n");
-+		goto err_dma_release_tx;
-+	}
-+
- 	lp->tx_ring_tail = 0;
- 	lp->tx_ring_head = 0;
- 	lp->rx_ring_tail = 0;
-@@ -1692,6 +1736,7 @@ static int axienet_open(struct net_device *ndev)
- 		free_irq(lp->eth_irq, ndev);
- err_phy:
- 	cancel_work_sync(&lp->rx_dim.work);
-+	cancel_work_sync(&lp->tx_dim.work);
- 	cancel_delayed_work_sync(&lp->stats_work);
- 	phylink_stop(lp->phylink);
- 	phylink_disconnect_phy(lp->phylink);
-@@ -1722,6 +1767,7 @@ static int axienet_stop(struct net_device *ndev)
- 	}
- 
- 	cancel_work_sync(&lp->rx_dim.work);
-+	cancel_work_sync(&lp->tx_dim.work);
- 	cancel_delayed_work_sync(&lp->stats_work);
- 
- 	phylink_stop(lp->phylink);
-@@ -2104,6 +2150,15 @@ static u32 axienet_dim_coalesce_count_rx(struct axienet_local *lp)
- 	return min(1 << (lp->rx_dim.profile_ix << 1), 255);
- }
- 
-+/**
-+ * axienet_dim_coalesce_count_tx() - TX coalesce count for DIM
-+ * @lp: Device private data
-+ */
-+static u32 axienet_dim_coalesce_count_tx(struct axienet_local *lp)
-+{
-+	return min(1 << (lp->tx_dim.profile_ix << 1), 255);
-+}
-+
- /**
-  * axienet_rx_dim_work() - Adjust RX DIM settings
-  * @work: The work struct
-@@ -2120,6 +2175,40 @@ static void axienet_rx_dim_work(struct work_struct *work)
- 	lp->rx_dim.state = DIM_START_MEASURE;
- }
- 
-+/**
-+ * axienet_rx_dim_work_dmaengine() - Adjust RX DIM settings in dmaengine
-+ * @work: The work struct
-+ */
-+static void axienet_rx_dim_work_dmaengine(struct work_struct *work)
-+{
-+	struct axienet_local *lp =
-+		container_of(work, struct axienet_local, rx_dim.work);
-+	struct dma_slave_config cfg = {
-+		.coalesce_cnt	= axienet_dim_coalesce_count_rx(lp),
-+		.coalesce_usecs	= 16,
-+	};
-+
-+	dmaengine_slave_config(lp->rx_chan, &cfg);
-+	lp->rx_dim.state = DIM_START_MEASURE;
-+}
-+
-+/**
-+ * axienet_tx_dim_work_dmaengine() - Adjust RX DIM settings in dmaengine
-+ * @work: The work struct
-+ */
-+static void axienet_tx_dim_work_dmaengine(struct work_struct *work)
-+{
-+	struct axienet_local *lp =
-+		container_of(work, struct axienet_local, tx_dim.work);
-+	struct dma_slave_config cfg = {
-+		.coalesce_cnt	= axienet_dim_coalesce_count_tx(lp),
-+		.coalesce_usecs	= 16,
-+	};
-+
-+	dmaengine_slave_config(lp->tx_chan, &cfg);
-+	lp->tx_dim.state = DIM_START_MEASURE;
-+}
-+
- /**
-  * axienet_update_coalesce_tx() - Set TX CR
-  * @lp: Device private data
-@@ -2171,6 +2260,20 @@ axienet_ethtools_get_coalesce(struct net_device *ndev,
- 	u32 cr;
- 
- 	ecoalesce->use_adaptive_rx_coalesce = lp->rx_dim_enabled;
-+	ecoalesce->use_adaptive_tx_coalesce = lp->tx_dim_enabled;
-+
-+	if (lp->use_dmaengine) {
-+		struct dma_slave_caps tx_caps, rx_caps;
-+
-+		dma_get_slave_caps(lp->tx_chan, &tx_caps);
-+		dma_get_slave_caps(lp->rx_chan, &rx_caps);
-+
-+		ecoalesce->tx_max_coalesced_frames = tx_caps.coalesce_cnt;
-+		ecoalesce->tx_coalesce_usecs = tx_caps.coalesce_usecs;
-+		ecoalesce->rx_max_coalesced_frames = rx_caps.coalesce_cnt;
-+		ecoalesce->rx_coalesce_usecs = rx_caps.coalesce_usecs;
-+		return 0;
-+	}
- 
- 	spin_lock_irq(&lp->rx_cr_lock);
- 	cr = lp->rx_dma_cr;
-@@ -2208,8 +2311,10 @@ axienet_ethtools_set_coalesce(struct net_device *ndev,
- 			      struct netlink_ext_ack *extack)
- {
- 	struct axienet_local *lp = netdev_priv(ndev);
--	bool new_dim = ecoalesce->use_adaptive_rx_coalesce;
--	bool old_dim = lp->rx_dim_enabled;
-+	bool new_rxdim = ecoalesce->use_adaptive_rx_coalesce;
-+	bool new_txdim = ecoalesce->use_adaptive_tx_coalesce;
-+	bool old_rxdim = lp->rx_dim_enabled;
-+	bool old_txdim = lp->tx_dim_enabled;
- 	u32 cr, mask = ~XAXIDMA_CR_RUNSTOP_MASK;
- 
- 	if (ecoalesce->rx_max_coalesced_frames > 255 ||
-@@ -2224,20 +2329,76 @@ axienet_ethtools_set_coalesce(struct net_device *ndev,
- 		return -EINVAL;
- 	}
- 
--	if (((ecoalesce->rx_max_coalesced_frames > 1 || new_dim) &&
-+	if (((ecoalesce->rx_max_coalesced_frames > 1 || new_rxdim) &&
- 	     !ecoalesce->rx_coalesce_usecs) ||
--	    (ecoalesce->tx_max_coalesced_frames > 1 &&
-+	    ((ecoalesce->tx_max_coalesced_frames > 1 || new_txdim) &&
- 	     !ecoalesce->tx_coalesce_usecs)) {
- 		NL_SET_ERR_MSG(extack,
- 			       "usecs must be non-zero when frames is greater than one");
- 		return -EINVAL;
- 	}
- 
--	if (new_dim && !old_dim) {
-+	if (lp->use_dmaengine)	{
-+		struct dma_slave_config tx_cfg, rx_cfg;
-+		int ret;
-+
-+		if (new_rxdim && !old_rxdim) {
-+			rx_cfg.coalesce_cnt = axienet_dim_coalesce_count_rx(lp);
-+			rx_cfg.coalesce_usecs = ecoalesce->rx_coalesce_usecs;
-+		} else if (!new_rxdim) {
-+			if (old_rxdim) {
-+				WRITE_ONCE(lp->rx_dim_enabled, false);
-+				flush_work(&lp->rx_dim.work);
-+			}
-+
-+			rx_cfg.coalesce_cnt = ecoalesce->rx_max_coalesced_frames;
-+			rx_cfg.coalesce_usecs = ecoalesce->rx_coalesce_usecs;
-+		} else {
-+			rx_cfg.coalesce_cnt = ecoalesce->rx_max_coalesced_frames;
-+			rx_cfg.coalesce_usecs = ecoalesce->rx_coalesce_usecs;
-+		}
-+
-+		if (new_txdim && !old_txdim) {
-+			tx_cfg.coalesce_cnt = axienet_dim_coalesce_count_tx(lp);
-+			tx_cfg.coalesce_usecs = ecoalesce->tx_coalesce_usecs;
-+		} else if (!new_txdim) {
-+			if (old_txdim) {
-+				WRITE_ONCE(lp->tx_dim_enabled, false);
-+				flush_work(&lp->tx_dim.work);
-+			}
-+
-+			tx_cfg.coalesce_cnt = ecoalesce->tx_max_coalesced_frames;
-+			tx_cfg.coalesce_usecs = ecoalesce->tx_coalesce_usecs;
-+		} else {
-+			tx_cfg.coalesce_cnt = ecoalesce->tx_max_coalesced_frames;
-+			tx_cfg.coalesce_usecs = ecoalesce->tx_coalesce_usecs;
-+		}
-+
-+		ret = dmaengine_slave_config(lp->rx_chan, &rx_cfg);
-+		if (ret) {
-+			NL_SET_ERR_MSG(extack, "failed to set rx coalesce parameters");
-+			return ret;
-+		}
-+
-+		if (new_rxdim && !old_rxdim)
-+			WRITE_ONCE(lp->rx_dim_enabled, true);
-+
-+		ret = dmaengine_slave_config(lp->tx_chan, &tx_cfg);
-+		if (ret) {
-+			NL_SET_ERR_MSG(extack, "failed to set tx coalesce parameters");
-+			return ret;
-+		}
-+		if (new_txdim && !old_txdim)
-+			WRITE_ONCE(lp->tx_dim_enabled, true);
-+
-+		return 0;
-+	}
-+
-+	if (new_rxdim && !old_rxdim) {
- 		cr = axienet_calc_cr(lp, axienet_dim_coalesce_count_rx(lp),
- 				     ecoalesce->rx_coalesce_usecs);
--	} else if (!new_dim) {
--		if (old_dim) {
-+	} else if (!new_rxdim) {
-+		if (old_rxdim) {
- 			WRITE_ONCE(lp->rx_dim_enabled, false);
- 			napi_synchronize(&lp->napi_rx);
- 			flush_work(&lp->rx_dim.work);
-@@ -2252,7 +2413,7 @@ axienet_ethtools_set_coalesce(struct net_device *ndev,
- 	}
- 
- 	axienet_update_coalesce_rx(lp, cr, mask);
--	if (new_dim && !old_dim)
-+	if (new_rxdim && !old_rxdim)
- 		WRITE_ONCE(lp->rx_dim_enabled, true);
- 
- 	cr = axienet_calc_cr(lp, ecoalesce->tx_max_coalesced_frames,
-@@ -2496,7 +2657,7 @@ axienet_ethtool_get_rmon_stats(struct net_device *dev,
- static const struct ethtool_ops axienet_ethtool_ops = {
- 	.supported_coalesce_params = ETHTOOL_COALESCE_MAX_FRAMES |
- 				     ETHTOOL_COALESCE_USECS |
--				     ETHTOOL_COALESCE_USE_ADAPTIVE_RX,
-+				     ETHTOOL_COALESCE_USE_ADAPTIVE,
- 	.get_drvinfo    = axienet_ethtools_get_drvinfo,
- 	.get_regs_len   = axienet_ethtools_get_regs_len,
- 	.get_regs       = axienet_ethtools_get_regs,
-@@ -3041,7 +3202,14 @@ static int axienet_probe(struct platform_device *pdev)
- 
- 	spin_lock_init(&lp->rx_cr_lock);
- 	spin_lock_init(&lp->tx_cr_lock);
--	INIT_WORK(&lp->rx_dim.work, axienet_rx_dim_work);
-+	if (lp->use_dmaengine) {
-+		INIT_WORK(&lp->rx_dim.work, axienet_rx_dim_work_dmaengine);
-+		INIT_WORK(&lp->tx_dim.work, axienet_tx_dim_work_dmaengine);
-+		lp->tx_dim_enabled = true;
-+		lp->tx_dim.profile_ix = 1;
-+	} else {
-+		INIT_WORK(&lp->rx_dim.work, axienet_rx_dim_work);
-+	}
- 	lp->rx_dim_enabled = true;
- 	lp->rx_dim.profile_ix = 1;
- 	lp->rx_dma_cr = axienet_calc_cr(lp, axienet_dim_coalesce_count_rx(lp),
--- 
-2.25.1
+> 
+>>
+>> +config ARCH_ARTPEC
+>> +	bool "Axis Communications ARTPEC SoC Family"
+>> +	help
+>> +	   This enables support for the ARMv8 based ARTPEC SoC Family.
+>> +
+>> +config ARCH_ARTPEC8
+>> +	bool "Axis ARTPEC-8 SoC Platform"
+>> +	depends on ARCH_ARTPEC
+>> +	depends on ARCH_EXYNOS
+>> +	select ARM_GIC
+>> +	help
+>> +	  This enables support for the Axis ARTPEC-8 SoC.
+>> +
+> 
+> I would prefer to be less fine-grained here, especially as
+> it seems that ARTPEC9 is again quite similar to ARTPEC8, as
+> far as I can guess from public information.
+> 
+> Could you fold both entries into a single ARCH_ARTPEC?
 
+So far ARCH_ARTPEC = ARCH_ARTPEC8, so obviously it can be folded. I
+don't know if Artpec 9 will ever be upstreamed. This Artpec 8 is like 4
+or 5 year effort - they sent first patches some years ago, but DTS was
+not ready. Therefore I think we should not assume there will be Artpec 9
+yet. If it comes, we can always split things.
+
+
+Best regards,
+Krzysztof
 
