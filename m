@@ -4,96 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4623C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9915AC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NllAQfNayY8cb5iLzosXwdI782jVJrwH9mu2C3D5sw0=; b=FBfNuLegcFcOPU49t1hc3tBfKr
-	2MF8gAbB9QL8T9H2MsYZd8gkKpO6vik5JFc70T5gPvx9t4LDXYwpOiaLqlzb+55fol/1fkK2TAXW/
-	nXSXmGBKVz6JaAx9/mKu2reb0CSK/v5CZ42eKUahxAdSuiQTlzfvZpLQ6Rc2LgIgCcf+uPSpU5z5m
-	ZsrgnzV+YyMyeLPkc1US5LhBT/bOEA8JKBUhT2u0N+Eip6TpYjZ8hdatV09S3Btzt0xRME1IUh2HF
-	dco451ZGCg07XsecWPEjo5t5V2/7iPqoafvWBCHObvDLSbUDQOYDPJNdL2TVvcGcWh5eAPFPf3hqt
-	3jMy9VKA==;
+	bh=bnzdwRyowVZtmtyZQQWcXlnGz0oJRi+YmyMH+09sr2c=; b=4hfViDvRKywBF8ZUseQOA+LPcw
+	BMdOu3isFe04zUrVeOxD8ftNOjhp5JvEfOw0sjQdaJ4mIvqla3fbIZYrlHVl+a75YSRD6XH0PAYVH
+	JY3euGAAxlWfco/S8MmarJgRVj96iRlNM1CQZnnxnFkm/hZyAji56AzRjp8COSlSqcXXgobKhkhuJ
+	vYpjP/w9DNJITHbf3kD45FZzBeQIpgtXHh293EUE4jhdKSXqDPhZUUfNmBtMo5K5lGhmhCoI4hGQY
+	xOmwlJfMAi23+O0mTdtu4jEciqFVxab21Pf5bTG3TmPQBmx8i6UHEHKNDjNrvccaTKP6QZ0iB+GBc
+	ga0aFYCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZr78-0000000BteT-2EVz;
-	Thu, 10 Jul 2025 13:15:02 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1uZr9R-0000000Btyn-17lL;
+	Thu, 10 Jul 2025 13:17:25 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZpZh-0000000BeZP-1Qlo
+	id 1uZpdj-0000000Bf35-3zmM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 11:36:27 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-237f18108d2so171505ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 04:36:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752147384; x=1752752184; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NllAQfNayY8cb5iLzosXwdI782jVJrwH9mu2C3D5sw0=;
-        b=p1Wmg/hCBhz5jye+8Jg9wYJLWcM+9QLe+Ty5E+enR1FAoNtFAr4k9nNVOBfAh1cCal
-         5XDafdx+62Uxf/WW+S9DsjADM/8ljF4w4lOQ/DQqeMZirCxrA69DKN1SDjSs4z+zi75l
-         bLL2x0AeesrDrQhl3Zqz950Qza/ZR4Vwvjmmx8mo3K/4zSHpR/ljsJQAv54cTKRInF/l
-         TqpZ3lrX4RNZvZdw9JI/wXu2a4M83KWPq6nE2NdkFJAxgNLjbs1IOTFzlHFIjgCzFTgG
-         w2RIA36VD59qPSP1UhvhOKs7VZ8ZScIa9T3y9MS+vns9ls+73PDf/QPBULBe+0VOxEJx
-         EC9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752147384; x=1752752184;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NllAQfNayY8cb5iLzosXwdI782jVJrwH9mu2C3D5sw0=;
-        b=wREXnyE41STPQQqX4LV/4AVyXj7Oard/sUKLLWeBrhKFVVNMkLgH2wsM4mGYtoQOMk
-         M6uc0TGjZDBbh2GvSBzTBSwX70gcmkMLjiAqDYyAIN43NcAHNQ9umzWFMNHYiIvY5hT0
-         Hg1fcScuTIcseEAEIVpmrmHZMVM/clRsuD3psc7uHUqaiTgBdkXMtE2fqUQz0wM81HtE
-         0TrzMx9auTWbUYw8GY5qCTjOWQRe1rfrBzCQhpx85b5pRIpr/NLqE1JcRSpvFHFe+T0P
-         IdE4IZ9arvnWm7xFA2rNqPKxTo/9Pm6DQPSFKB50Z+AUlCWUkJyhLVOtDGXjK0HIjJWm
-         ARYw==
-X-Forwarded-Encrypted: i=1; AJvYcCWzrlBtd7i4dforwjQrSipaVVJF+UuMvTPxXoF/2pnuQXEvnS7EA2167jjhaTy/Cc+wsDnxPMs+bTzgnptxtK2U@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8NFxQxyF33O9Uy+dXxc5Pa/j2vUK+xjv1S3kYVKfAZsrb5S7u
-	F8WAPxFL140pW/el4L/1Ld1veEuahaKEkZqCBvkRudKM5Q5KgIBchZh1cErjmpz+Lw==
-X-Gm-Gg: ASbGncuojeWH/KVEurcZZTJiwauPClgROiXTYgEoZ+4EwGN30Hs5Azs2CjPsAGuxLt5
-	QQREESeNbs52b/M8IAxFEE6zT6hf9skJXHphatDtgoCZKLjgqANtjcPGaKA+u79cAasm+VwAmQq
-	wAYUqVuRh6engen2vBUuzUs+vHv7woNteKDn8QvjEKtdc/dT0zTcPNiPl6F6AMPocMd2P8PKgvT
-	FvqUohjrMP1kLZG5A1bCOIrZJ5y4Su219GlnZTaRaW4YeymmMdY1Htm76wkJEPeRkCDTpmWzOuD
-	CfIrlb7CsGfUDMrMsI/pYJUFZbSzmJPusE+MnhWHmSkM9Ar5Wsh36zQkmPYNK7F2QjZQILRY25P
-	k85k39clRNAX8BDcvodea
-X-Google-Smtp-Source: AGHT+IFWWBrqFVRqrzk0Fwyab1Mld4BviLi8cbgIh+j6R1xSHmEyatBRaGWIq1+8HV4NnwrugSgVcw==
-X-Received: by 2002:a17:903:3ba5:b0:215:9ab0:402 with SMTP id d9443c01a7336-23de38137a5mr2696735ad.18.1752147384158;
-        Thu, 10 Jul 2025 04:36:24 -0700 (PDT)
-Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9e07793sm1937009b3a.69.2025.07.10.04.36.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 04:36:23 -0700 (PDT)
-Date: Thu, 10 Jul 2025 11:36:15 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net,
-	bagasdotme@gmail.com, will@kernel.org, robin.murphy@arm.com,
-	joro@8bytes.org, thierry.reding@gmail.com, vdumpa@nvidia.com,
-	jonathanh@nvidia.com, shuah@kernel.org, jsnitsel@redhat.com,
-	nathan@kernel.org, peterz@infradead.org, yi.l.liu@intel.com,
-	mshavit@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v9 16/29] iommufd/selftest: Add coverage for
- IOMMUFD_CMD_HW_QUEUE_ALLOC
-Message-ID: <aG-lr9nUhwff4GuJ@google.com>
-References: <cover.1752126748.git.nicolinc@nvidia.com>
- <e8a194d187d7ef445f43e4a3c04fb39472050afd.1752126748.git.nicolinc@nvidia.com>
+	Thu, 10 Jul 2025 11:40:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 11801A53C36;
+	Thu, 10 Jul 2025 11:40:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF30BC4CEE3;
+	Thu, 10 Jul 2025 11:40:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752147633;
+	bh=1RsuIHRRAuqcGHCQF+P/OS8tKhDFc+7jVpMSz2Nnvvg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZwbafXNwxIffsI5cFE+wVdo3GwQzgD9et58i9iA2Vhcrd3NamfBHDIsmyd8vhOn3/
+	 OKbc+3lMPdFOQz0+WHd3/rGT0eVDw1o6yAf0POqKsQq3WU78mY3N/3/PLEoIUpeHo5
+	 gIgReOW9YRwWW/beO4KmTdcOwixMvtzRsdfdtsu4mocg7q0eniBRLs0VsZAiYvo40A
+	 vHoP8yYegdn0seT9UVUMTV8IMTOMwAwmgRcE9vVT9D7v2OV+nW70R2D1OeUX9q2w9N
+	 v6ceJ8uA1clmxy+gXhMW2NuYJk48/l8YXAXBSzOFKC7B9per0ONphmupfawihauGOz
+	 AJ1j7GFoXCyWA==
+Date: Thu, 10 Jul 2025 13:40:25 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Frank.Li@nxp.com
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Shuah Khan <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	dlemoal@kernel.org, jdmason@kudzu.us, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v20 0/9] PCI: EP: Add RC-to-EP doorbell with platform MSI
+ controller
+Message-ID: <aG-mqWtUu9-CD43U@ryzen>
+References: <20250709-ep-msi-v20-0-43d56f9bd54a@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <e8a194d187d7ef445f43e4a3c04fb39472050afd.1752126748.git.nicolinc@nvidia.com>
+In-Reply-To: <20250709-ep-msi-v20-0-43d56f9bd54a@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_043625_382508_22FA80CB 
-X-CRM114-Status: GOOD (  29.90  )
+X-CRM114-CacheID: sfid-20250710_044036_127689_A7D6B17B 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,321 +92,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 10:59:08PM -0700, Nicolin Chen wrote:
-> Some simple tests for IOMMUFD_CMD_HW_QUEUE_ALLOC infrastructure covering
-> the new iommufd_hw_queue_depend/undepend() helpers.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Hello Frank,
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+I tested v20 of your series, but unfortunately, it still doesn't work.
 
-> ---
->  drivers/iommu/iommufd/iommufd_test.h          |  3 +
->  tools/testing/selftests/iommu/iommufd_utils.h | 31 ++++++
->  drivers/iommu/iommufd/selftest.c              | 97 +++++++++++++++++++
->  tools/testing/selftests/iommu/iommufd.c       | 59 +++++++++++
->  .../selftests/iommu/iommufd_fail_nth.c        |  6 ++
->  5 files changed, 196 insertions(+)
-> 
-> diff --git a/drivers/iommu/iommufd/iommufd_test.h b/drivers/iommu/iommufd/iommufd_test.h
-> index fbf9ecb35a13..51cd744a354f 100644
-> --- a/drivers/iommu/iommufd/iommufd_test.h
-> +++ b/drivers/iommu/iommufd/iommufd_test.h
-> @@ -265,4 +265,7 @@ struct iommu_viommu_event_selftest {
->  	__u32 virt_id;
->  };
->  
-> +#define IOMMU_HW_QUEUE_TYPE_SELFTEST 0xdeadbeef
-> +#define IOMMU_TEST_HW_QUEUE_MAX 2
-> +
->  #endif
-> diff --git a/tools/testing/selftests/iommu/iommufd_utils.h b/tools/testing/selftests/iommu/iommufd_utils.h
-> index a5d4cbd089ba..9a556f99d992 100644
-> --- a/tools/testing/selftests/iommu/iommufd_utils.h
-> +++ b/tools/testing/selftests/iommu/iommufd_utils.h
-> @@ -956,6 +956,37 @@ static int _test_cmd_vdevice_alloc(int fd, __u32 viommu_id, __u32 idev_id,
->  		     _test_cmd_vdevice_alloc(self->fd, viommu_id, idev_id,   \
->  					     virt_id, vdev_id))
->  
-> +static int _test_cmd_hw_queue_alloc(int fd, __u32 viommu_id, __u32 type,
-> +				    __u32 idx, __u64 base_addr, __u64 length,
-> +				    __u32 *hw_queue_id)
-> +{
-> +	struct iommu_hw_queue_alloc cmd = {
-> +		.size = sizeof(cmd),
-> +		.viommu_id = viommu_id,
-> +		.type = type,
-> +		.index = idx,
-> +		.nesting_parent_iova = base_addr,
-> +		.length = length,
-> +	};
-> +	int ret;
-> +
-> +	ret = ioctl(fd, IOMMU_HW_QUEUE_ALLOC, &cmd);
-> +	if (ret)
-> +		return ret;
-> +	if (hw_queue_id)
-> +		*hw_queue_id = cmd.out_hw_queue_id;
-> +	return 0;
-> +}
-> +
-> +#define test_cmd_hw_queue_alloc(viommu_id, type, idx, base_addr, len, out_qid) \
-> +	ASSERT_EQ(0, _test_cmd_hw_queue_alloc(self->fd, viommu_id, type, idx,  \
-> +					      base_addr, len, out_qid))
-> +#define test_err_hw_queue_alloc(_errno, viommu_id, type, idx, base_addr, len, \
-> +				out_qid)                                      \
-> +	EXPECT_ERRNO(_errno,                                                  \
-> +		     _test_cmd_hw_queue_alloc(self->fd, viommu_id, type, idx, \
-> +					      base_addr, len, out_qid))
-> +
->  static int _test_cmd_veventq_alloc(int fd, __u32 viommu_id, __u32 type,
->  				   __u32 *veventq_id, __u32 *veventq_fd)
->  {
-> diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
-> index 38066dfeb2e7..2189e9b119ee 100644
-> --- a/drivers/iommu/iommufd/selftest.c
-> +++ b/drivers/iommu/iommufd/selftest.c
-> @@ -150,6 +150,8 @@ to_mock_nested(struct iommu_domain *domain)
->  struct mock_viommu {
->  	struct iommufd_viommu core;
->  	struct mock_iommu_domain *s2_parent;
-> +	struct mock_hw_queue *hw_queue[IOMMU_TEST_HW_QUEUE_MAX];
-> +	struct mutex queue_mutex;
->  };
->  
->  static inline struct mock_viommu *to_mock_viommu(struct iommufd_viommu *viommu)
-> @@ -157,6 +159,19 @@ static inline struct mock_viommu *to_mock_viommu(struct iommufd_viommu *viommu)
->  	return container_of(viommu, struct mock_viommu, core);
->  }
->  
-> +struct mock_hw_queue {
-> +	struct iommufd_hw_queue core;
-> +	struct mock_viommu *mock_viommu;
-> +	struct mock_hw_queue *prev;
-> +	u16 index;
-> +};
-> +
-> +static inline struct mock_hw_queue *
-> +to_mock_hw_queue(struct iommufd_hw_queue *hw_queue)
-> +{
-> +	return container_of(hw_queue, struct mock_hw_queue, core);
-> +}
-> +
->  enum selftest_obj_type {
->  	TYPE_IDEV,
->  };
-> @@ -670,9 +685,11 @@ static void mock_viommu_destroy(struct iommufd_viommu *viommu)
->  {
->  	struct mock_iommu_device *mock_iommu = container_of(
->  		viommu->iommu_dev, struct mock_iommu_device, iommu_dev);
-> +	struct mock_viommu *mock_viommu = to_mock_viommu(viommu);
->  
->  	if (refcount_dec_and_test(&mock_iommu->users))
->  		complete(&mock_iommu->complete);
-> +	mutex_destroy(&mock_viommu->queue_mutex);
->  
->  	/* iommufd core frees mock_viommu and viommu */
->  }
-> @@ -764,10 +781,86 @@ static int mock_viommu_cache_invalidate(struct iommufd_viommu *viommu,
->  	return rc;
->  }
->  
-> +static size_t mock_viommu_get_hw_queue_size(struct iommufd_viommu *viommu,
-> +					    enum iommu_hw_queue_type queue_type)
-> +{
-> +	if (queue_type != IOMMU_HW_QUEUE_TYPE_SELFTEST)
-> +		return 0;
-> +	return HW_QUEUE_STRUCT_SIZE(struct mock_hw_queue, core);
-> +}
-> +
-> +static void mock_hw_queue_destroy(struct iommufd_hw_queue *hw_queue)
-> +{
-> +	struct mock_hw_queue *mock_hw_queue = to_mock_hw_queue(hw_queue);
-> +	struct mock_viommu *mock_viommu = mock_hw_queue->mock_viommu;
-> +
-> +	mutex_lock(&mock_viommu->queue_mutex);
-> +	mock_viommu->hw_queue[mock_hw_queue->index] = NULL;
-> +	if (mock_hw_queue->prev)
-> +		iommufd_hw_queue_undepend(mock_hw_queue, mock_hw_queue->prev,
-> +					  core);
-> +	mutex_unlock(&mock_viommu->queue_mutex);
-> +}
-> +
-> +/* Test iommufd_hw_queue_depend/undepend() */
-> +static int mock_hw_queue_init_phys(struct iommufd_hw_queue *hw_queue, u32 index,
-> +				   phys_addr_t base_addr_pa)
-> +{
-> +	struct mock_viommu *mock_viommu = to_mock_viommu(hw_queue->viommu);
-> +	struct mock_hw_queue *mock_hw_queue = to_mock_hw_queue(hw_queue);
-> +	struct mock_hw_queue *prev = NULL;
-> +	int rc = 0;
-> +
-> +	if (index >= IOMMU_TEST_HW_QUEUE_MAX)
-> +		return -EINVAL;
-> +
-> +	mutex_lock(&mock_viommu->queue_mutex);
-> +
-> +	if (mock_viommu->hw_queue[index]) {
-> +		rc = -EEXIST;
-> +		goto unlock;
-> +	}
-> +
-> +	if (index) {
-> +		prev = mock_viommu->hw_queue[index - 1];
-> +		if (!prev) {
-> +			rc = -EIO;
-> +			goto unlock;
-> +		}
-> +	}
-> +
-> +	/*
-> +	 * Test to catch a kernel bug if the core converted the physical address
-> +	 * incorrectly. Let mock_domain_iova_to_phys() WARN_ON if it fails.
-> +	 */
-> +	if (base_addr_pa != iommu_iova_to_phys(&mock_viommu->s2_parent->domain,
-> +					       hw_queue->base_addr)) {
-> +		rc = -EFAULT;
-> +		goto unlock;
-> +	}
-> +
-> +	if (prev) {
-> +		rc = iommufd_hw_queue_depend(mock_hw_queue, prev, core);
-> +		if (rc)
-> +			goto unlock;
-> +	}
-> +
-> +	mock_hw_queue->prev = prev;
-> +	mock_hw_queue->mock_viommu = mock_viommu;
-> +	mock_viommu->hw_queue[index] = mock_hw_queue;
-> +
-> +	hw_queue->destroy = &mock_hw_queue_destroy;
-> +unlock:
-> +	mutex_unlock(&mock_viommu->queue_mutex);
-> +	return rc;
-> +}
-> +
->  static struct iommufd_viommu_ops mock_viommu_ops = {
->  	.destroy = mock_viommu_destroy,
->  	.alloc_domain_nested = mock_viommu_alloc_domain_nested,
->  	.cache_invalidate = mock_viommu_cache_invalidate,
-> +	.get_hw_queue_size = mock_viommu_get_hw_queue_size,
-> +	.hw_queue_init_phys = mock_hw_queue_init_phys,
->  };
->  
->  static size_t mock_get_viommu_size(struct device *dev,
-> @@ -784,6 +877,7 @@ static int mock_viommu_init(struct iommufd_viommu *viommu,
->  {
->  	struct mock_iommu_device *mock_iommu = container_of(
->  		viommu->iommu_dev, struct mock_iommu_device, iommu_dev);
-> +	struct mock_viommu *mock_viommu = to_mock_viommu(viommu);
->  	struct iommu_viommu_selftest data;
->  	int rc;
->  
-> @@ -801,6 +895,9 @@ static int mock_viommu_init(struct iommufd_viommu *viommu,
->  	}
->  
->  	refcount_inc(&mock_iommu->users);
-> +	mutex_init(&mock_viommu->queue_mutex);
-> +	mock_viommu->s2_parent = to_mock_domain(parent_domain);
-> +
->  	viommu->ops = &mock_viommu_ops;
->  	return 0;
->  }
-> diff --git a/tools/testing/selftests/iommu/iommufd.c b/tools/testing/selftests/iommu/iommufd.c
-> index a9dfcce5e1b2..73426de77675 100644
-> --- a/tools/testing/selftests/iommu/iommufd.c
-> +++ b/tools/testing/selftests/iommu/iommufd.c
-> @@ -3032,6 +3032,65 @@ TEST_F(iommufd_viommu, vdevice_cache)
->  	}
->  }
->  
-> +TEST_F(iommufd_viommu, hw_queue)
-> +{
-> +	__u64 iova = MOCK_APERTURE_START, iova2;
-> +	uint32_t viommu_id = self->viommu_id;
-> +	uint32_t hw_queue_id[2];
-> +
-> +	if (!viommu_id)
-> +		SKIP(return, "Skipping test for variant no_viommu");
-> +
-> +	/* Fail IOMMU_HW_QUEUE_TYPE_DEFAULT */
-> +	test_err_hw_queue_alloc(EOPNOTSUPP, viommu_id,
-> +				IOMMU_HW_QUEUE_TYPE_DEFAULT, 0, iova, PAGE_SIZE,
-> +				&hw_queue_id[0]);
-> +	/* Fail queue addr and length */
-> +	test_err_hw_queue_alloc(EINVAL, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
-> +				0, iova, 0, &hw_queue_id[0]);
-> +	test_err_hw_queue_alloc(EOVERFLOW, viommu_id,
-> +				IOMMU_HW_QUEUE_TYPE_SELFTEST, 0, ~(uint64_t)0,
-> +				PAGE_SIZE, &hw_queue_id[0]);
-> +	/* Fail missing iova */
-> +	test_err_hw_queue_alloc(ENOENT, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
-> +				0, iova, PAGE_SIZE, &hw_queue_id[0]);
-> +
-> +	/* Map iova */
-> +	test_ioctl_ioas_map(buffer, PAGE_SIZE, &iova);
-> +	test_ioctl_ioas_map(buffer + PAGE_SIZE, PAGE_SIZE, &iova2);
-> +
-> +	/* Fail index=1 and =MAX; must start from index=0 */
-> +	test_err_hw_queue_alloc(EIO, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 1,
-> +				iova, PAGE_SIZE, &hw_queue_id[0]);
-> +	test_err_hw_queue_alloc(EINVAL, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
-> +				IOMMU_TEST_HW_QUEUE_MAX, iova, PAGE_SIZE,
-> +				&hw_queue_id[0]);
-> +
-> +	/* Allocate index=0, declare ownership of the iova */
-> +	test_cmd_hw_queue_alloc(viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 0,
-> +				iova, PAGE_SIZE, &hw_queue_id[0]);
-> +	/* Fail duplicated index */
-> +	test_err_hw_queue_alloc(EEXIST, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
-> +				0, iova, PAGE_SIZE, &hw_queue_id[0]);
-> +	/* Fail unmap, due to iova ownership */
-> +	test_err_ioctl_ioas_unmap(EBUSY, iova, PAGE_SIZE);
-> +	/* The 2nd page is not pinned, so it can be unmmap */
-> +	test_ioctl_ioas_unmap(iova2, PAGE_SIZE);
-> +
-> +	/* Allocate index=1, with an unaligned case */
-> +	test_cmd_hw_queue_alloc(viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 1,
-> +				iova + PAGE_SIZE / 2, PAGE_SIZE / 2,
-> +				&hw_queue_id[1]);
-> +	/* Fail to destroy, due to dependency */
-> +	EXPECT_ERRNO(EBUSY, _test_ioctl_destroy(self->fd, hw_queue_id[0]));
-> +
-> +	/* Destroy in descending order */
-> +	test_ioctl_destroy(hw_queue_id[1]);
-> +	test_ioctl_destroy(hw_queue_id[0]);
-> +	/* Now it can unmap the first page */
-> +	test_ioctl_ioas_unmap(iova, PAGE_SIZE);
-> +}
-> +
->  FIXTURE(iommufd_device_pasid)
->  {
->  	int fd;
-> diff --git a/tools/testing/selftests/iommu/iommufd_fail_nth.c b/tools/testing/selftests/iommu/iommufd_fail_nth.c
-> index f7ccf1822108..41c685bbd252 100644
-> --- a/tools/testing/selftests/iommu/iommufd_fail_nth.c
-> +++ b/tools/testing/selftests/iommu/iommufd_fail_nth.c
-> @@ -634,6 +634,7 @@ TEST_FAIL_NTH(basic_fail_nth, device)
->  	uint32_t idev_id;
->  	uint32_t hwpt_id;
->  	uint32_t viommu_id;
-> +	uint32_t hw_queue_id;
->  	uint32_t vdev_id;
->  	__u64 iova;
->  
-> @@ -696,6 +697,11 @@ TEST_FAIL_NTH(basic_fail_nth, device)
->  	if (_test_cmd_vdevice_alloc(self->fd, viommu_id, idev_id, 0, &vdev_id))
->  		return -1;
->  
-> +	if (_test_cmd_hw_queue_alloc(self->fd, viommu_id,
-> +				     IOMMU_HW_QUEUE_TYPE_SELFTEST, 0, iova,
-> +				     PAGE_SIZE, &hw_queue_id))
-> +		return -1;
-> +
->  	if (_test_ioctl_fault_alloc(self->fd, &fault_id, &fault_fd))
->  		return -1;
->  	close(fault_fd);
-> -- 
-> 2.43.0
-> 
+When enabling the doorbell, the programming of the inbound iATU fails:
+
+## pci_epf_test_enable_doorbell()
+## keeps the BAR size, and BAR type of a BAR that has already been configured,
+## but changes the address translation for this BAR to redirect to the GIC ITS
+## rather than to the memory allocated by pci_epf_alloc_space()
+## (does not free the memory allocated by pci_epf_alloc_space())
+
+[   39.347502] pci_epf_test_enable_doorbell: msg hi: 0x0 msg low: 0xfe670040
+[   39.348103] pci_epf_test_enable_doorbell: base: 0xfe670000 off: 0x40
+[   39.348658] dw_pcie_ep_inbound_atu index: 1 parent_bus_addr: 0xfe670000 bar: 1 size: 0x100000
+[   39.349403] dw_pcie_prog_ep_inbound_atu parent_bus_addr: 0xfe670000 pci->region_align: 0x10000 IS_ALIGNED: 1
+[   39.350260] dw_pcie_prog_ep_inbound_atu parent_bus_addr: 0xfe670000 size: 0x100000 IS_ALIGNED: 0
+[   39.351028] rockchip-dw-pcie a40000000.pcie-ep: Failed to program IB window
+
+## pci_epf_test_disable_doorbell()
+## changes the address translation for this BAR to redirect to the memory
+## allocated by pci_epf_alloc_space() (which was never freed when enabling the
+## doorbell)
+
+[   39.351656] dw_pcie_ep_inbound_atu index: 1 parent_bus_addr: 0xa2e00000 bar: 1 size: 0x100000
+[   39.352401] dw_pcie_prog_ep_inbound_atu parent_bus_addr: 0xa2e00000 pci->region_align: 0x10000 IS_ALIGNED: 1
+[   39.353257] dw_pcie_prog_ep_inbound_atu parent_bus_addr: 0xa2e00000 size: 0x100000 IS_ALIGNED: 1
+
+
+The reason why pci_epf_test_enable_doorbell() fails is because of this check:
+https://github.com/torvalds/linux/blob/v6.16-rc5/drivers/pci/controller/dwc/pcie-designware.c#L663
+
+If you want to understand why this very important check is there, it is
+because the DWC controller requires that the physical address programmed in
+the iATU is aligned to the size of the BAR (BAR_MASK+1), see this commit:
+https://github.com/torvalds/linux/commit/129f6af747b2
+
+
+Applying the following patch on top of your v20 series makes things work as
+intended and makes the pcie_ep_doorbell.DOORBELL_TEST selftest pass for me:
+
+diff --git a/drivers/pci/endpoint/functions/pci-epf-test.c b/drivers/pci/endpoint/functions/pci-epf-test.c
+index dfdd25cfc003..7d356b0201ae 100644
+--- a/drivers/pci/endpoint/functions/pci-epf-test.c
++++ b/drivers/pci/endpoint/functions/pci-epf-test.c
+@@ -738,9 +738,9 @@ static void pci_epf_test_enable_doorbell(struct pci_epf_test *epf_test,
+ 	reg->doorbell_bar = cpu_to_le32(bar);
+ 
+ 	msg = &epf->db_msg[0].msg;
+-	ret = pci_epf_align_inbound_addr(epf, bar, ((u64)msg->address_hi << 32) | msg->address_lo,
++	ret = pci_epf_align_inbound_addr(epf, epf->bar[bar].size,
++					((u64)msg->address_hi << 32) | msg->address_lo,
+ 					&epf_test->db_bar.phys_addr, &offset);
+-
+ 	if (ret)
+ 		goto err_doorbell;
+ 
+diff --git a/drivers/pci/endpoint/pci-epf-core.c b/drivers/pci/endpoint/pci-epf-core.c
+index c21d8e786eb3..b3d4117182e2 100644
+--- a/drivers/pci/endpoint/pci-epf-core.c
++++ b/drivers/pci/endpoint/pci-epf-core.c
+@@ -478,44 +478,36 @@ struct pci_epf *pci_epf_create(const char *name)
+ EXPORT_SYMBOL_GPL(pci_epf_create);
+ 
+ /**
+- * pci_epf_align_inbound_addr() - Align the given address based on the BAR
+- *				 alignment requirement
++ * pci_epf_align_inbound_addr() - Align the given address based on the BAR size
++ *
+  * @epf: the EPF device
++ * @bar_size: the current BAR size
+  * @addr: inbound address to be aligned
+- * @bar: the BAR number corresponding to the given addr
+- * @base: base address matching the @bar alignment requirement.
++ * @base: base address matching the @bar_size alignment requirement.
+  * @off: offset to be added to the @base address.
+  *
+- * Helper function to align input 'addr' to base and offset, which match
+- * BAR's alignment requirement.
++ * Helper function to align input 'addr' to base and offset, when dynamically
++ * changing a BAR.
+  *
+  * The pci_epf_alloc_space() function already accounts for alignment. This is
+  * primarily intended for use with other memory regions not allocated by
+  * pci_epf_alloc_space(), such as peripheral register spaces or the trigger
+  * address for a platform MSI controller.
++ *
++ * Since this function is only used when dynamically changing a BAR (i.e. when
++ * calling set_bar() twice, without ever calling clear_bar(), as calling
++ * clear_bar() would clear the BAR's PCI address assigned by the host), this
++ * function must align to the current BAR size, since we are not clearing the
++ * BAR configuration.
+  */
+-int pci_epf_align_inbound_addr(struct pci_epf *epf, enum pci_barno bar,
+-			      u64 addr, dma_addr_t *base, size_t *off)
++int pci_epf_align_inbound_addr(struct pci_epf *epf, size_t bar_size, u64 addr,
++			      dma_addr_t *base, size_t *off)
+ {
+-	const struct pci_epc_features *epc_features;
+-	u64 align;
+-
+-	if (!base || !off)
++	if (!base || !off || !bar_size)
+ 		return -EINVAL;
+ 
+-	epc_features = pci_epc_get_features(epf->epc, epf->func_no, epf->vfunc_no);
+-	if (!epc_features) {
+-		dev_err(&epf->dev, "epc_features not implemented\n");
+-		return -EOPNOTSUPP;
+-	}
+-
+-	align = epc_features->align;
+-	align = align ? align : 128;
+-	if (epc_features->bar[bar].type == BAR_FIXED)
+-		align = max(epc_features->bar[bar].fixed_size, align);
+-
+-	*base = round_down(addr, align);
+-	*off = addr & (align - 1);
++	*base = round_down(addr, bar_size);
++	*off = addr & (bar_size - 1);
+ 
+ 	return 0;
+ }
+diff --git a/include/linux/pci-epf.h b/include/linux/pci-epf.h
+index 0ca08f0d05d7..bcc8184325d2 100644
+--- a/include/linux/pci-epf.h
++++ b/include/linux/pci-epf.h
+@@ -242,8 +242,8 @@ void *pci_epf_alloc_space(struct pci_epf *epf, size_t size, enum pci_barno bar,
+ void pci_epf_free_space(struct pci_epf *epf, void *addr, enum pci_barno bar,
+ 			enum pci_epc_interface_type type);
+ 
+-int pci_epf_align_inbound_addr(struct pci_epf *epf, enum pci_barno bar,
+-			      u64 addr, dma_addr_t *base, size_t *off);
++int pci_epf_align_inbound_addr(struct pci_epf *epf, size_t bar_size, u64 addr,
++			      dma_addr_t *base, size_t *off);
+ int pci_epf_bind(struct pci_epf *epf);
+ void pci_epf_unbind(struct pci_epf *epf);
+ int pci_epf_add_vepf(struct pci_epf *epf_pf, struct pci_epf *epf_vf);
+
+
+
+
+However, the more I think about it, considering that this alignment requirement
+is inherent to the DWC controller (other controllers might not have this
+requirement), perhaps pci_epf_align_inbound_addr() should not be a function in
+pci-epf-core.c, perhaps this function would be better suited to live in
+drivers/pci/controller/dwc/pcie-designware-ep.c ?
+
+
+Kind regards,
+Niklas
 
