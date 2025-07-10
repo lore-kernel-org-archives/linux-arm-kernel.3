@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF736C83F1F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 09:00:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6DABC83F1F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 09:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kVCapFGdG0gRHQhSRUGUM3fGitSOZCS1rMndaGOheE=; b=pBZwSMpldSawXpNf5HvKC22PHC
-	n6UHOiyQ9k2KQPM9g8SK18PZieDxvsuWHQKMF1e68zHU8Awu3JKwRsXfx9N4CBHUZsMjvA9xRGnZi
-	7maKUMWmJepAwRE+Urok6FZwWxfvkKYrq3VJ+4HvLpM3FShw+5rbSHX8o+HcZbL4EysadOmmD792k
-	38FhIY5NAlyeEA+kppauC5un/QYa2qgJJRzgYXhdtdXsvblb8+Ru7AwEveMRRP497C+L9npg9fmI9
-	yOa4s23D5ZYqykKn4TnNl1rm0c7ZAwejpHSuLOhI8yOwrql/HFyMp+5nc2eT3THrDpiKe+6HjNftB
-	yaf4G5yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bVSinIxBeazkKEKfcVYcVjaoUaV4wjv1lfQNu+0RDdc=; b=EIIgyz1ay4ajSOwdRw5T3DqpCV
+	FiP1odcyWSOEO4Say+vMhuRUFcCXOW23FXUzkugsV6EHsz5Zo2zejVB0p9T8Xxxfi7dMB0Rjy10Rg
+	67GrpUgxdl4jQmcHAc8xQPDudSOTxtydlkHG3kvmcf6in6XxxJTN7QZUnG4pXyt46PUBqW86CzisI
+	qS9JxZ6nVd2+lHockMyhQagj6f9bEqNBESeZtqLJaB/LzoYvDm2n4xRkvAfISgfktshFRFKApVRV+
+	HRFD3Z4fpyQ1SE+oDcWD6ETotaIn7TWJCU3dmfvnB00ubxuwUVrm485/nhfDPjnqTL/CZ93UJ15Io
+	a44QRJeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZn8I-0000000BGOu-3zdz;
-	Thu, 10 Jul 2025 08:59:58 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1uZnAc-0000000BGxZ-2HNY;
+	Thu, 10 Jul 2025 09:02:22 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZls7-0000000B2Ta-26RA
+	id 1uZltA-0000000B2i3-0N2O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 07:39:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=7kVCapFGdG0gRHQhSRUGUM3fGitSOZCS1rMndaGOheE=; b=p5XXN1fiONAQE6w4z3DXP0epP3
-	W+0AnvD6kwo2+3JjLjBxGY2ZrvM47itZ94wu+zku2xmM+4D6/vm4TXUrKSb2vXZfCC++9LgTPxlu7
-	sdnw8HXmtXvnJg6IEjUkrfcrocttP/kyWabdAUk39VKA2jbvUkSQp+4JLp2bx8AuPNg+nmL7672Nq
-	BjxBJpWBc86PA5La/Vh9VTAIO3Rp5lq/YwnJLbJ6NM/p4ZmXyjBM4h2JokBH3C8qfFO1LcoBlnSPX
-	dWNPrFbMPwzQdVQDAddi2AScEMrk6sluM2CbzgTQleOJ1NpzapCXPyQUWdXCTuZPbTLy9T75I0kiG
-	nmfSMtug==;
-Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:48064 helo=localhost.localdomain)
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1uZls3-006IV5-1A;
-	Thu, 10 Jul 2025 09:39:06 +0200
-From: Primoz Fiser <primoz.fiser@norik.com>
-To: Haibo Chen <haibo.chen@nxp.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno Sa <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: linux-iio@vger.kernel.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	upstream@lists.phytec.de,
-	andrej.picej@norik.com
-Subject: [PATCH 2/2] iio: adc: imx93: Make calibration parameters configurable
-Date: Thu, 10 Jul 2025 09:39:04 +0200
-Message-Id: <20250710073905.1105417-3-primoz.fiser@norik.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250710073905.1105417-1-primoz.fiser@norik.com>
-References: <20250710073905.1105417-1-primoz.fiser@norik.com>
+	Thu, 10 Jul 2025 07:40:17 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-451d54214adso4112135e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 00:40:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752133214; x=1752738014; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:to:from:subject:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bVSinIxBeazkKEKfcVYcVjaoUaV4wjv1lfQNu+0RDdc=;
+        b=pcQtOkrPNtM5nype2E7I8bMgAHvbsMxySx5qiY8PphDqwhtEg2oqyY0cYjGA6Ay/oa
+         B4OuTKyWUXPKF2Mfs+3wPtX9YGa20XH101TAKFAWn+pS2h8KYnBYdKUXySVUJSeWB4mH
+         /1AooN4mYA6JaABAYEo8oeRBc67PF3jwDRbcSdnDrXTwMc4IiN6mO9b22pF3I15lkism
+         6r8bbXsQ3mWB8EGEi8rIcDVIgqmXpUnvdbAFrMC46Y9xdLeS6NLsIe1Pq8LACEWlLB1w
+         TaIIP7cRKAUPUfD9S0qXKLKVe/Plx/V7c8Xeq52dz+bS5k3Y8WZOoSfcsL1vEV2q3MJi
+         LxHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752133214; x=1752738014;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:to:from:subject:message-id:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=bVSinIxBeazkKEKfcVYcVjaoUaV4wjv1lfQNu+0RDdc=;
+        b=eAT/V2U1CzNsndq4guBH0XoG+TaBIhoVFzu9TdpQzIyA5VHxWdssy2MKQi6jlgJBhu
+         FIJ+tVjhpELl6g6Aem4BEaSCgSCcAt6Pv9bPjZPCHGmGj8y4BrUxW2nkjCPOMVxk39cn
+         H+qieK2qaiQUP384pOHBzrT7mPnxl/KY8ts7203ibZWjK9ZMZZBHyuknDtM+KFmvs1eZ
+         c3y4g2yNt7lW1WzMMGZPdtRCjrU9qTetuYnY5YBeDnoCKbnCu+GByBCulwvakzKykguk
+         l90nINuHEGJJu7NtMOD2J2FwvUSC9VGhX1Uje5F+0quHamsy7y9MJqzefEevtUoFcsoh
+         ODNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXGAxnyVAnyM8xns4w7PfAWzeF8Ox7Huy38n4zCCQTqANUSiv44yagGU0vE/2agSBw6H/64LtIeqqqHT1zOR6jb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoN1KUMlO7JDC8I3IqTYQjzxu/bxMCgH+JprwA+mtrmv6mqGc0
+	82Qwp2FsdKCZXDNW/fucs8EzuvubrbWDkRygltak0XoyTfIqaQUEMS9SO/y5FyLCO0o=
+X-Gm-Gg: ASbGnctO5gp/x28m18ZCp4ZLc+Pjb6aPF7Nj2FtsskKtSZbq6MTSw4PaufxfASF1Y9X
+	C5bSxl5BhdDxgSMLn+3P1vwqCl0b73jcbRqcZ39FWZYdMCECeoIDBd6wVvIytisamV1qz0UTg4q
+	frS/LWO8R1akx5WiRZIrAdT0l4HpEnktu4KH5YwAtKqGTQ7MlFfzFPHI7Y6kuoxwk/O4aJVKRQu
+	oymlzPgIyzhuJJTgxNhjuO+KUWRg1tdT01bU/8sG3/tqbHq5UsKGcr5kqKgtAejijrRLGr2UHiK
+	+/0yFtwiGxRAsPXcD80u1hzrP9NCviKSj2FIFKhtr2iOTRmhWyFFbwOmi4Xi4l5LhA==
+X-Google-Smtp-Source: AGHT+IEw2BMJU0viDmTOvkyx/B/l0UKxFSMsiQvTqQWjzJquhhrpepUjy0pyReFZsMn1allOYgvtiw==
+X-Received: by 2002:a05:600c:b85:b0:453:99f:b1b0 with SMTP id 5b1f17b1804b1-454d53a7430mr48773265e9.20.1752133214419;
+        Thu, 10 Jul 2025 00:40:14 -0700 (PDT)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454dd43915dsm11113575e9.7.2025.07.10.00.40.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Jul 2025 00:40:13 -0700 (PDT)
+Message-ID: <965df42623d1a1c2bac49bd9420cfb5fad672048.camel@linaro.org>
+Subject: Re: [PATCH 1/2] arm64: tesla/google: MAINTAINERS: Reference "SoC
+ clean" maintainer profile
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Peter Griffin
+	 <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Thu, 10 Jul 2025 08:40:12 +0100
+In-Reply-To: <20250710073443.13788-3-krzysztof.kozlowski@linaro.org>
+References: <20250710073443.13788-3-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1+build1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_003911_997137_2722476F 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250710_004016_125951_545214E2 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,135 +102,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andrej Picej <andrej.picej@norik.com>
+On Thu, 2025-07-10 at 09:34 +0200, Krzysztof Kozlowski wrote:
+> Effectively all Tesla FSD and Google GS101 DTS patches go via Samsung
+> SoC maintainer, who applies the same rules as for Samsung SoC: DTS must
+> be fully DT bindings compliant (`dtbs_check W=3D1`).=C2=A0 Existing sourc=
+es
+> already are compliant, so just document that implicit rule by mentioning
+> respective maintainer profile in their entries.
+>=20
+> Cc: Peter Griffin <peter.griffin@linaro.org>
+> Cc: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
+> Cc: Alim Akhtar <alim.akhtar@samsung.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+> =C2=A0MAINTAINERS | 2 ++
+> =C2=A01 file changed, 2 insertions(+)
 
-Make i.MX93 ADC calibration parameters:
- - AVGEN: Enable calibration averaging function,
- - NRSMPL: Select number of calibration samples,
- - TSAMP: Select sample time of calibration conversions,
-
-in the MCR register configurable with the corresponding device-tree
-properties:
- - nxp,calib-avg-en,
- - nxp,calib-nr-samples and
- - nxp,calib-t-sample.
-
-Signed-off-by: Andrej Picej <andrej.picej@norik.com>
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
----
- drivers/iio/adc/imx93_adc.c | 75 ++++++++++++++++++++++++++++++++++---
- 1 file changed, 70 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/iio/adc/imx93_adc.c b/drivers/iio/adc/imx93_adc.c
-index 7feaafd2316f..da9b5c179240 100644
---- a/drivers/iio/adc/imx93_adc.c
-+++ b/drivers/iio/adc/imx93_adc.c
-@@ -18,6 +18,7 @@
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regulator/consumer.h>
-+#include <linux/property.h>
- 
- #define IMX93_ADC_DRIVER_NAME	"imx93-adc"
- 
-@@ -43,6 +44,9 @@
- #define IMX93_ADC_MCR_MODE_MASK			BIT(29)
- #define IMX93_ADC_MCR_NSTART_MASK		BIT(24)
- #define IMX93_ADC_MCR_CALSTART_MASK		BIT(14)
-+#define IMX93_ADC_MCR_AVGEN_MASK		BIT(13)
-+#define IMX93_ADC_MCR_NRSMPL_MASK		GENMASK(12, 11)
-+#define IMX93_ADC_MCR_TSAMP_MASK		GENMASK(10, 9)
- #define IMX93_ADC_MCR_ADCLKSE_MASK		BIT(8)
- #define IMX93_ADC_MCR_PWDN_MASK			BIT(0)
- #define IMX93_ADC_MSR_CALFAIL_MASK		BIT(30)
-@@ -145,7 +149,7 @@ static void imx93_adc_config_ad_clk(struct imx93_adc *adc)
- 
- static int imx93_adc_calibration(struct imx93_adc *adc)
- {
--	u32 mcr, msr;
-+	u32 mcr, msr, val, reg;
- 	int ret;
- 
- 	/* make sure ADC in power down mode */
-@@ -156,12 +160,73 @@ static int imx93_adc_calibration(struct imx93_adc *adc)
- 	mcr &= ~FIELD_PREP(IMX93_ADC_MCR_ADCLKSE_MASK, 1);
- 	writel(mcr, adc->regs + IMX93_ADC_MCR);
- 
--	imx93_adc_power_up(adc);
--
- 	/*
--	 * TODO: we use the default TSAMP/NRSMPL/AVGEN in MCR,
--	 * can add the setting of these bit if need in future.
-+	 * Optionally configure desired ADC calibration settings in MCR
-+	 * - MCR[AVGEN]: Enable/disable calibration averaging function (default: on)
-+	 * - MCR[NRSMPL]: Select the number of calibration samples (default: 512)
-+	 * - MCR[TSAMP]: Select sample time of calibration conversions (default: 22)
- 	 */
-+	ret = device_property_read_u32(adc->dev, "nxp,calib-avg-en", &val);
-+	if (!ret) {
-+		if (val != 0 && val != 1) {
-+			dev_err(adc->dev, "invalid nxp,calib-avg-en: %d\n", val);
-+			return -EINVAL;
-+		}
-+		reg = val;
-+		mcr &= ~IMX93_ADC_MCR_AVGEN_MASK;
-+		mcr |= FIELD_PREP(IMX93_ADC_MCR_AVGEN_MASK, reg);
-+	}
-+
-+	ret = device_property_read_u32(adc->dev, "nxp,calib-nr-samples", &val);
-+	if (!ret) {
-+		switch (val) {
-+		case 16:
-+			reg = 0x0;
-+			break;
-+		case 32:
-+			reg = 0x1;
-+			break;
-+		case 128:
-+			reg = 0x2;
-+			break;
-+		case 512:
-+			reg = 0x3;
-+			break;
-+		default:
-+			dev_err(adc->dev, "invalid nxp,calib-nr-samples: %d\n", val);
-+			return -EINVAL;
-+		}
-+		mcr &= ~IMX93_ADC_MCR_NRSMPL_MASK;
-+		mcr |= FIELD_PREP(IMX93_ADC_MCR_NRSMPL_MASK, reg);
-+	}
-+
-+	ret = device_property_read_u32(adc->dev, "nxp,calib-t-sample", &val);
-+	if (!ret) {
-+		switch (val) {
-+		case 8:
-+			reg = 0x1;
-+			break;
-+		case 16:
-+			reg = 0x2;
-+			break;
-+		case 22:
-+			reg = 0x0;
-+			break;
-+		case 32:
-+			reg = 0x3;
-+			break;
-+		default:
-+			dev_err(adc->dev, "invalid nxp,calib-t-sample: %d\n", val);
-+			return -EINVAL;
-+		}
-+		mcr &= ~IMX93_ADC_MCR_TSAMP_MASK;
-+		mcr |= FIELD_PREP(IMX93_ADC_MCR_TSAMP_MASK, reg);
-+	}
-+
-+	/* write calibration settings to MCR */
-+	writel(mcr, adc->regs + IMX93_ADC_MCR);
-+
-+	imx93_adc_power_up(adc);
- 
- 	/* run calibration */
- 	mcr = readl(adc->regs + IMX93_ADC_MCR);
--- 
-2.34.1
-
+Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
