@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC076C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C2FDC83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LgW6/0kR/wDExzAZyhG5yziYpx28khJWlW6qwZuzp1Y=; b=yV/baQaDNwjmLpWKMlB5hMRkEl
-	LuLcb1pe+co6rEmMbTVsr7C5uBD7Jsb5YR/q0mNmDQrPrr+dHxXECBIkmHcKzNgHdTMJrl2sFgj7v
-	sewEyR0rK8JU4MUGLujPfc3w2fSan8f1SE9CsizWu7yeyRtlL+mDCCvYFrezooBJLT7M7pcAubI5M
-	8PECCrvIoCcSVk9QBJ0lDNbFx8BZmQkntdaGsnGVGJPYA5M7kxGxV/+zwmgD8TK5740TVXcDxWWD1
-	UN9EV+E+42Rl5HQizGBgxfRRlwyp7EyjRO/inzm67gU9+g2/kOZtPWVemOpXUtQJF6IHAzIAwSWKy
-	5Smw1cFQ==;
+	bh=6KtIxrf7fTzd0jdzmsRp+b8vs2Q0qGkjWrMthfnytKg=; b=HJAVoGPXRyCYMe0P43nXC+IQsF
+	0vuX8onhEFTXe8dA3n4SfYPUYmx5DmmdSpDE51Bep0zBDWsCb0jHXBCeZelKG/7W4DYn1vTBiLcK9
+	0EP/XMv8FhOzWbE8Sthr1irNeM2Pi7R2kmRqLSmSL5bNv4aMepoceYrLffDLL+0Ba7VqhMaNmz7zx
+	PA8I6Wkw/kBw0Yub6MNso48eA77rpTpex8qrhB04rkN2KO4oftWSmhVTTOP2Iw2zJT6OX1eFb2AJG
+	O3g+v7v1ve6Rj2Mir7cCQ5l1KDZVGOpLvLjuQkyXdS2yV6s+9/9Olbo9D1rxBijSgzXfuDXKgrf6L
+	Ej5sUjUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZfRt-0000000AMXQ-1yNt;
-	Thu, 10 Jul 2025 00:47:41 +0000
+	id 1uZfUC-0000000AMkm-0pNe;
+	Thu, 10 Jul 2025 00:50:04 +0000
 Received: from mail2.coasia.com ([112.168.119.159] helo=spam.coasia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZf25-0000000AJN7-2MiI
+	id 1uZf26-0000000AJNY-31rD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 00:21:03 +0000
+	Thu, 10 Jul 2025 00:21:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=coasia.com; s=coasia;
-	t=1752106859; bh=tipNFC8X7ZjJwIsy/28H95TjOdSgc7hIrcyILBXQBmQ=;
-	l=6929; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=CPtnQb9oHq2qahM6LsvUhJpM9HDSamXWML7vGkg9WA5YdbrOxPjlGTkrtjruRHhi8
-	 qgixWUQXvnCs7oVoK3p8XAby30RGGPCTlDvpG9xFd4QENaN+yEaECj5rCLsNyFG402
-	 75FCL1zmSyikZm4qYUBklXclgs7w+Kwn0ebAlVc8=
+	t=1752106860; bh=qWmBsEXjof5WOQG7ffmGQJRoOEwMaSMpAylD9izQWXg=;
+	l=4602; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=oPaFNhxfnEZww+BKf7+XBo/rHhX9uQl3190LEwR8k3BI6DDu46lXXlhTG0IiH32ri
+	 b9xIGlmp45c0SVAwiHGOWS57eGupn5t6qd6OjqwPXmRZ9USySPEBB/0xmG9nDO83+c
+	 q4EEO3EPr5l3RhOv269nXrzMG7NZHmj78Hv6h0Gw=
 Received: from unknown (HELO kangseongu..) (ksk4725@coasia.com@115.23.218.194)
-	by 192.168.10.159 with ESMTP; 10 Jul 2025 09:20:59 +0900
+	by 192.168.10.159 with ESMTP; 10 Jul 2025 09:21:00 +0900
 X-Original-SENDERIP: 115.23.218.194
 X-Original-SENDERCOUNTRY: KR, South Korea 
 X-Original-MAILFROM: ksk4725@coasia.com
@@ -117,17 +117,17 @@ Cc: kenkim <kenkim@coasia.com>,
 	linux-gpio@vger.kernel.org,
 	soc@lists.linux.dev,
 	Varada Pavani <v.pavani@samsung.com>
-Subject: [PATCH 09/16] clk: samsung: artpec-8: Add clock support for CMU_FSYS block
-Date: Thu, 10 Jul 2025 09:20:39 +0900
-Message-Id: <20250710002047.1573841-10-ksk4725@coasia.com>
+Subject: [PATCH 10/16] clk: samsung: artpec-8: Add clock support for CMU_PERI block
+Date: Thu, 10 Jul 2025 09:20:40 +0900
+Message-Id: <20250710002047.1573841-11-ksk4725@coasia.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250710002047.1573841-1-ksk4725@coasia.com>
 References: <20250710002047.1573841-1-ksk4725@coasia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_172101_969565_4A490235 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20250709_172103_035104_2FD3AA1D 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,166 +145,119 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: Hakyeong Kim <hgkim05@coasia.com>
 
 Add clock support for below CMU block in ARTPEC-8 SoC.
- - CMU_FSYS
+ - CMU_PERI
 
 Signed-off-by: Varada Pavani <v.pavani@samsung.com>
 Signed-off-by: Hakyeong Kim <hgkim05@coasia.com>
 ---
- drivers/clk/samsung/clk-artpec8.c | 134 ++++++++++++++++++++++++++++++
- 1 file changed, 134 insertions(+)
+ drivers/clk/samsung/clk-artpec8.c | 90 +++++++++++++++++++++++++++++++
+ 1 file changed, 90 insertions(+)
 
 diff --git a/drivers/clk/samsung/clk-artpec8.c b/drivers/clk/samsung/clk-artpec8.c
-index 15c90fe29308..7ccec4ff8f70 100644
+index 7ccec4ff8f70..f45bc9c113f0 100644
 --- a/drivers/clk/samsung/clk-artpec8.c
 +++ b/drivers/clk/samsung/clk-artpec8.c
-@@ -18,6 +18,7 @@
- #define CMU_BUS_NR_CLK			(DOUT_CLK_BUS_PCLK + 1)
- #define CMU_CORE_NR_CLK			(DOUT_CLK_CORE_PCLK + 1)
+@@ -20,6 +20,7 @@
  #define CMU_CPUCL_NR_CLK		(DOUT_CLK_CPUCL_PCLKDBG + 1)
-+#define CMU_FSYS_NR_CLK			(DOUT_SCAN_CLK_FSYS_MMC + 1)
+ #define CMU_FSYS_NR_CLK			(DOUT_SCAN_CLK_FSYS_MMC + 1)
  #define CMU_IMEM_NR_CLK			(MOUT_IMEM_JPEG_USER + 1)
++#define CMU_PERI_NR_CLK			(DOUT_PERI_DSIM + 1)
  
  /* register offset definitions for cmu_cmu (0x12400000) */
-@@ -620,6 +621,139 @@ static void __init artpec8_clk_cmu_cpucl_init(struct device_node *np)
- CLK_OF_DECLARE(artpec8_clk_cmu_cpucl, "axis,artpec8-cmu-cpucl",
- 	       artpec8_clk_cmu_cpucl_init);
+ #define PLL_LOCKTIME_PLL_AUDIO			0x0000
+@@ -798,3 +799,92 @@ static void __init artpec8_clk_cmu_imem_init(struct device_node *np)
  
-+/* Register Offset definitions for CMU_FSYS (0x16c10000) */
-+#define PLL_LOCKTIME_PLL_FSYS				0x0004
-+#define PLL_CON0_MUX_CLK_FSYS_BUS_USER			0x0120
-+#define PLL_CON0_MUX_CLK_FSYS_MMC_USER			0x0140
-+#define PLL_CON0_MUX_CLK_FSYS_SCAN0_USER		0x0160
-+#define PLL_CON0_MUX_CLK_FSYS_SCAN1_USER		0x0180
-+#define PLL_CON0_PLL_FSYS				0x01c0
-+#define DIV_CLK_FSYS_ADC				0x1804
-+#define DIV_CLK_FSYS_BUS300				0x1808
-+#define DIV_CLK_FSYS_BUS_QSPI				0x180c
-+#define DIV_CLK_FSYS_EQOS_25				0x1810
-+#define DIV_CLK_FSYS_EQOS_2P5				0x1814
-+#define DIV_CLK_FSYS_EQOS_500				0x1818
-+#define DIV_CLK_FSYS_EQOS_INT125			0x181c
-+#define DIV_CLK_FSYS_MMC_CARD0				0x1820
-+#define DIV_CLK_FSYS_MMC_CARD1				0x1824
-+#define DIV_CLK_FSYS_OTP_MEM				0x1828
-+#define DIV_CLK_FSYS_PCIE_PHY_REFCLK_SYSPLL		0x182c
-+#define DIV_CLK_FSYS_QSPI				0x1830
-+#define DIV_CLK_FSYS_SCLK_UART				0x1834
-+#define DIV_CLK_FSYS_SFMC_NAND				0x1838
-+#define DIV_SCAN_CLK_FSYS_125				0x183c
-+#define DIV_SCAN_CLK_FSYS_MMC				0x1840
-+#define DIV_SCAN_CLK_FSYS_PCIE_PIPE			0x1844
+ CLK_OF_DECLARE(artpec8_clk_cmu_imem, "axis,artpec8-cmu-imem",
+ 	       artpec8_clk_cmu_imem_init);
 +
-+static const unsigned long cmu_fsys_clk_regs[] __initconst = {
-+	PLL_LOCKTIME_PLL_FSYS,
-+	PLL_CON0_MUX_CLK_FSYS_BUS_USER,
-+	PLL_CON0_MUX_CLK_FSYS_MMC_USER,
-+	PLL_CON0_MUX_CLK_FSYS_SCAN0_USER,
-+	PLL_CON0_MUX_CLK_FSYS_SCAN1_USER,
-+	PLL_CON0_PLL_FSYS,
-+	DIV_CLK_FSYS_ADC,
-+	DIV_CLK_FSYS_BUS300,
-+	DIV_CLK_FSYS_BUS_QSPI,
-+	DIV_CLK_FSYS_EQOS_25,
-+	DIV_CLK_FSYS_EQOS_2P5,
-+	DIV_CLK_FSYS_EQOS_500,
-+	DIV_CLK_FSYS_EQOS_INT125,
-+	DIV_CLK_FSYS_MMC_CARD0,
-+	DIV_CLK_FSYS_MMC_CARD1,
-+	DIV_CLK_FSYS_OTP_MEM,
-+	DIV_CLK_FSYS_PCIE_PHY_REFCLK_SYSPLL,
-+	DIV_CLK_FSYS_QSPI,
-+	DIV_CLK_FSYS_SCLK_UART,
-+	DIV_CLK_FSYS_SFMC_NAND,
-+	DIV_SCAN_CLK_FSYS_125,
-+	DIV_SCAN_CLK_FSYS_MMC,
-+	DIV_SCAN_CLK_FSYS_PCIE_PIPE,
++/* Register Offset definitions for CMU_PERI (0x16410000) */
++#define PLL_CON0_MUX_CLK_PERI_AUDIO_USER		0x0100
++#define PLL_CON0_MUX_CLK_PERI_DISP_USER			0x0120
++#define PLL_CON0_MUX_CLK_PERI_IP_USER			0x0140
++#define MUX_CLK_PERI_I2S0				0x1000
++#define MUX_CLK_PERI_I2S1				0x1004
++#define DIV_CLK_PERI_DSIM				0x1800
++#define DIV_CLK_PERI_I2S0				0x1804
++#define DIV_CLK_PERI_I2S1				0x1808
++#define DIV_CLK_PERI_PCLK				0x180c
++#define DIV_CLK_PERI_SPI				0x1810
++#define DIV_CLK_PERI_UART1				0x1814
++#define DIV_CLK_PERI_UART2				0x1818
++
++static const unsigned long cmu_peri_clk_regs[] __initconst = {
++	PLL_CON0_MUX_CLK_PERI_AUDIO_USER,
++	PLL_CON0_MUX_CLK_PERI_DISP_USER,
++	PLL_CON0_MUX_CLK_PERI_IP_USER,
++	MUX_CLK_PERI_I2S0,
++	MUX_CLK_PERI_I2S1,
++	DIV_CLK_PERI_DSIM,
++	DIV_CLK_PERI_I2S0,
++	DIV_CLK_PERI_I2S1,
++	DIV_CLK_PERI_PCLK,
++	DIV_CLK_PERI_SPI,
++	DIV_CLK_PERI_UART1,
++	DIV_CLK_PERI_UART2,
 +};
 +
-+static const struct samsung_pll_clock cmu_fsys_pll_clks[] __initconst = {
-+	PLL(pll_1017x, PLL_FSYS, "fout_pll_fsys", "fin_pll",
-+	    PLL_LOCKTIME_PLL_FSYS, PLL_CON0_PLL_FSYS, NULL),
++static const struct samsung_fixed_rate_clock peri_fixed_clks[] __initconst = {
++	FRATE(0, "clk_peri_audio", NULL, 0, 100000000),
 +};
 +
-+PNAME(mout_fsys_scan0_user_p) = { "fin_pll", "dout_clkcmu_fsys_scan0" };
-+PNAME(mout_fsys_scan1_user_p) = { "fin_pll", "dout_clkcmu_fsys_scan1" };
-+PNAME(mout_fsys_bus_user_p) = { "fin_pll", "dout_clkcmu_fsys_bus" };
-+PNAME(mout_fsys_mmc_user_p) = { "fin_pll", "dout_clkcmu_fsys_ip" };
-+PNAME(mout_fsys_pll_fsys_p) = { "fin_pll", "fout_pll_fsys" };
++PNAME(mout_peri_ip_user_p) = { "fin_pll", "dout_clkcmu_peri_ip" };
++PNAME(mout_peri_audio_user_p) = { "fin_pll", "dout_clkcmu_peri_audio" };
++PNAME(mout_peri_disp_user_p) = { "fin_pll", "dout_clkcmu_peri_disp" };
++PNAME(mout_peri_i2s0_p) = { "dout_peri_i2s0", "clk_peri_audio" };
++PNAME(mout_peri_i2s1_p) = { "dout_peri_i2s1", "clk_peri_audio" };
 +
-+static const struct samsung_mux_clock cmu_fsys_mux_clks[] __initconst = {
-+	MUX(0, "mout_clk_pll_fsys", mout_fsys_pll_fsys_p, PLL_CON0_PLL_FSYS, 4, 1),
-+	MUX(MOUT_FSYS_SCAN0_USER, "mout_fsys_scan0_user",
-+	    mout_fsys_scan0_user_p, PLL_CON0_MUX_CLK_FSYS_SCAN0_USER, 4, 1),
-+	MUX(MOUT_FSYS_SCAN1_USER, "mout_fsys_scan1_user",
-+	    mout_fsys_scan1_user_p, PLL_CON0_MUX_CLK_FSYS_SCAN1_USER, 4, 1),
-+	MUX(MOUT_FSYS_BUS_USER, "mout_fsys_bus_user",
-+	    mout_fsys_bus_user_p, PLL_CON0_MUX_CLK_FSYS_BUS_USER, 4, 1),
-+	MUX(MOUT_FSYS_MMC_USER, "mout_fsys_mmc_user",
-+	    mout_fsys_mmc_user_p, PLL_CON0_MUX_CLK_FSYS_MMC_USER, 4, 1),
++static const struct samsung_mux_clock cmu_peri_mux_clks[] __initconst = {
++	MUX(MOUT_PERI_IP_USER, "mout_peri_ip_user", mout_peri_ip_user_p,
++	    PLL_CON0_MUX_CLK_PERI_IP_USER, 4, 1),
++	MUX(MOUT_PERI_AUDIO_USER, "mout_peri_audio_user",
++	    mout_peri_audio_user_p, PLL_CON0_MUX_CLK_PERI_AUDIO_USER, 4, 1),
++	MUX(MOUT_PERI_DISP_USER, "mout_peri_disp_user", mout_peri_disp_user_p,
++	    PLL_CON0_MUX_CLK_PERI_DISP_USER, 4, 1),
++	MUX(MOUT_PERI_I2S0, "mout_peri_i2s0", mout_peri_i2s0_p,
++	    MUX_CLK_PERI_I2S0, 0, 1),
++	MUX(MOUT_PERI_I2S1, "mout_peri_i2s1", mout_peri_i2s1_p,
++	    MUX_CLK_PERI_I2S1, 0, 1),
 +};
 +
-+static const struct samsung_div_clock cmu_fsys_div_clks[] __initconst = {
-+	DIV(DOUT_FSYS_PCIE_PIPE, "dout_fsys_pcie_pipe", "mout_clk_pll_fsys",
-+	    DIV_SCAN_CLK_FSYS_PCIE_PIPE, 0, 4),
-+	DIV(DOUT_FSYS_ADC, "dout_fsys_adc", "mout_clk_pll_fsys",
-+	    DIV_CLK_FSYS_ADC, 0, 7),
-+	DIV(DOUT_FSYS_PCIE_PHY_REFCLK_SYSPLL,
-+	    "dout_fsys_pcie_phy_refclk_syspll", "mout_clk_pll_fsys",
-+	    DIV_CLK_FSYS_PCIE_PHY_REFCLK_SYSPLL, 0, 8),
-+	DIV(DOUT_FSYS_QSPI, "dout_fsys_qspi", "mout_fsys_mmc_user",
-+	    DIV_CLK_FSYS_QSPI, 0, 4),
-+	DIV(DOUT_FSYS_EQOS_INT125, "dout_fsys_eqos_int125", "mout_clk_pll_fsys",
-+	    DIV_CLK_FSYS_EQOS_INT125, 0, 4),
-+	DIV(DOUT_FSYS_OTP_MEM, "dout_fsys_otp_mem", "fin_pll",
-+	    DIV_CLK_FSYS_OTP_MEM, 0, 9),
-+	DIV(DOUT_FSYS_SCLK_UART, "dout_fsys_sclk_uart", "mout_clk_pll_fsys",
-+	    DIV_CLK_FSYS_SCLK_UART, 0, 10),
-+	DIV(DOUT_FSYS_SFMC_NAND, "dout_fsys_sfmc_nand", "mout_fsys_mmc_user",
-+	    DIV_CLK_FSYS_SFMC_NAND, 0, 4),
-+	DIV(DOUT_SCAN_CLK_FSYS_125,
-+	    "dout_scan_clk_fsys_125", "mout_clk_pll_fsys",
-+	    DIV_SCAN_CLK_FSYS_125, 0, 4),
-+	DIV(DOUT_SCAN_CLK_FSYS_MMC, "dout_scan_clk_fsys_mmc", "fout_pll_fsys",
-+	    DIV_SCAN_CLK_FSYS_MMC, 0, 4),
-+	DIV(DOUT_FSYS_EQOS_25, "dout_fsys_eqos_25", "dout_fsys_eqos_int125",
-+	    DIV_CLK_FSYS_EQOS_25, 0, 4),
-+	DIV_F(DOUT_FSYS_EQOS_2p5, "dout_fsys_eqos_2p5", "dout_fsys_eqos_25",
-+	      DIV_CLK_FSYS_EQOS_2P5, 0, 4, CLK_SET_RATE_PARENT, 0),
-+	DIV(0, "dout_fsys_eqos_500", "mout_clk_pll_fsys",
-+	    DIV_CLK_FSYS_EQOS_500, 0, 4),
-+	DIV(DOUT_FSYS_BUS300, "dout_fsys_bus300", "mout_fsys_bus_user",
-+	    DIV_CLK_FSYS_BUS300, 0, 4),
-+	DIV(DOUT_FSYS_BUS_QSPI, "dout_fsys_bus_qspi", "mout_fsys_mmc_user",
-+	    DIV_CLK_FSYS_BUS_QSPI, 0, 4),
-+	DIV(DOUT_FSYS_MMC_CARD0, "dout_fsys_mmc_card0", "mout_fsys_mmc_user",
-+	    DIV_CLK_FSYS_MMC_CARD0, 0, 10),
-+	DIV(DOUT_FSYS_MMC_CARD1, "dout_fsys_mmc_card1", "mout_fsys_mmc_user",
-+	    DIV_CLK_FSYS_MMC_CARD1, 0, 10),
++static const struct samsung_div_clock cmu_peri_div_clks[] __initconst = {
++	DIV(DOUT_PERI_SPI, "dout_peri_spi", "mout_peri_ip_user",
++	    DIV_CLK_PERI_SPI, 0, 10),
++	DIV(DOUT_PERI_UART1, "dout_peri_uart1", "mout_peri_ip_user",
++	    DIV_CLK_PERI_UART1, 0, 10),
++	DIV(DOUT_PERI_UART2, "dout_peri_uart2", "mout_peri_ip_user",
++	    DIV_CLK_PERI_UART2, 0, 10),
++	DIV(DOUT_PERI_PCLK, "dout_peri_pclk", "mout_peri_ip_user",
++	    DIV_CLK_PERI_PCLK, 0, 4),
++	DIV(DOUT_PERI_I2S0, "dout_peri_i2s0", "mout_peri_audio_user",
++	    DIV_CLK_PERI_I2S0, 0, 4),
++	DIV(DOUT_PERI_I2S1, "dout_peri_i2s1", "mout_peri_audio_user",
++	    DIV_CLK_PERI_I2S1, 0, 4),
++	DIV(DOUT_PERI_DSIM, "dout_peri_dsim", "mout_peri_disp_user",
++	    DIV_CLK_PERI_DSIM, 0, 4),
 +};
 +
-+static const struct samsung_cmu_info cmu_fsys_info __initconst = {
-+	.pll_clks		= cmu_fsys_pll_clks,
-+	.nr_pll_clks		= ARRAY_SIZE(cmu_fsys_pll_clks),
-+	.mux_clks		= cmu_fsys_mux_clks,
-+	.nr_mux_clks		= ARRAY_SIZE(cmu_fsys_mux_clks),
-+	.div_clks		= cmu_fsys_div_clks,
-+	.nr_div_clks		= ARRAY_SIZE(cmu_fsys_div_clks),
-+	.nr_clk_ids		= CMU_FSYS_NR_CLK,
-+	.clk_regs		= cmu_fsys_clk_regs,
-+	.nr_clk_regs		= ARRAY_SIZE(cmu_fsys_clk_regs),
++static const struct samsung_cmu_info cmu_peri_info __initconst = {
++	.mux_clks		= cmu_peri_mux_clks,
++	.nr_mux_clks		= ARRAY_SIZE(cmu_peri_mux_clks),
++	.div_clks		= cmu_peri_div_clks,
++	.nr_div_clks		= ARRAY_SIZE(cmu_peri_div_clks),
++	.fixed_clks		= peri_fixed_clks,
++	.nr_fixed_clks		= ARRAY_SIZE(peri_fixed_clks),
++	.nr_clk_ids		= CMU_PERI_NR_CLK,
++	.clk_regs		= cmu_peri_clk_regs,
++	.nr_clk_regs		= ARRAY_SIZE(cmu_peri_clk_regs),
 +};
 +
-+static void __init artpec8_clk_cmu_fsys_init(struct device_node *np)
++static void __init artpec8_clk_cmu_peri_init(struct device_node *np)
 +{
-+	samsung_cmu_register_one(np, &cmu_fsys_info);
++	samsung_cmu_register_one(np, &cmu_peri_info);
 +}
 +
-+CLK_OF_DECLARE(artpec8_clk_cmu_fsys, "axis,artpec8-cmu-fsys",
-+	       artpec8_clk_cmu_fsys_init);
-+
- /* Register Offset definitions for CMU_IMEM (0x10010000) */
- #define PLL_CON0_MUX_CLK_IMEM_ACLK_USER			0x0100
- #define PLL_CON0_MUX_CLK_IMEM_JPEG_USER			0x0120
++CLK_OF_DECLARE(artpec8_clk_cmu_peri, "axis,artpec8-cmu-peri",
++	       artpec8_clk_cmu_peri_init);
 -- 
 2.34.1
 
