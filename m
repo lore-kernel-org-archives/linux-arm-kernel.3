@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD771C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4731C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AXnT7tnLvD+hs47+gHbldNmhitNE+jGtt/cR2svLvrQ=; b=CTLiQ19ZkIvJbdTq5xIUtodigz
-	6yYfoLrL8Xal6PeOLjarPWPq4h9gK0epZeU78jRZwk7tuev/bYpPl0nlpQfE+YJ5T4vzeovQMLQQS
-	f+ND6+QR2Xep7hoCveDjviTI7MNpnr/zlRfcYptrMuoRFPAEpV/Dxx6gG2zsl/HNcs7rQFBi/NFJf
-	yGhDneAlQ5rfzWLqP2so6Ef8Hkgaz7FxUhKBSd6ToNNhTl7xRtN0c+wTVBpKIJX+eGxv1wK1AUQ0N
-	GTBm/H0T4JKEk3EuSfS+eS4ZakwAp6iEywgrp9I0TayURmbQw2jQEzNbGgjbRAtnqnE8RkDhr0lMZ
-	fRPGsWiw==;
+	bh=2u0S9Z5uAyb3HMOlKtlzaMKqT/fl3RGCnbjggUuVWwk=; b=2+5GPtmwSKPmMU2yR2oGRS2fx/
+	ywC3VPhMHbjAcJADSR0HgJBSM1Liuya9ntK3h/m2An5BZcZAZbmLWKwcqG9t5GzpmXWDIyvrtgDBh
+	eKaahJDoblfs6ginlO8mL07ueZ2ed8Dx+x398Pxk5iwASFuiQE+QpRsuW4uSGeAxfc62Fe5XoVebH
+	R+2PXhmKDO7N19Ocxy2xxEuOL7kGKaXL/LRy/udx1SMEyDr45BmwMtBJcAOY1DmB0f6PekKJJWmwU
+	474ds2Noe25Ql/XgC8C7KKjedMHiKWAie1jaL+D5dtzgCJhg7O5KyajZSjkWaxzQDb4GqT7YhtQ+1
+	rgGdGedQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZsGs-0000000C7Sr-1Daw;
-	Thu, 10 Jul 2025 14:29:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uZsJB-0000000C7g4-1Zjt;
+	Thu, 10 Jul 2025 14:31:33 +0000
+Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqcV-0000000BoCe-3h86
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 12:43:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DED58443B7
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 12:43:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C405CC4CEF5
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 12:43:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752151402;
-	bh=7LR3M2vikCU+8V3dzM8Tw6EVYtXDLd4AoVMr55GULjw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=FJ1BGpozCVVV/FBzKD0hW+Z29tOJ6dQ8DkK+GFFFMP/yxMvN2aMm8e2QEw538QLTG
-	 VuqY/S8iMxOfFGvb6XGP8+2ZUHa9+jaC9X9Ee6J5FVidJ7l/o1qz7bYL7P7JYn+aNM
-	 dgg4GuwNecn6qUlJ40ce/WTvWQHjUABK91Xl96FK2HSMp4eNDJQudTmut7uDU4l1B4
-	 a6Kx3GoktfUZCLrcdXCnbjCFw5R2boGTCFI6EC4hmDkbB2eWptIDFiUqH7bKBHxxI7
-	 reJmUlZYLxnCCMWDoGs1CCKm7ZXFZvMmE2NijU1tZdu3nxVdvHTJQO5Ulxi6tBH538
-	 +vJdq4kMEy70Q==
-Received: by mail-oo1-f50.google.com with SMTP id 006d021491bc7-613b03395d5so402070eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 05:43:22 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUO57Lx/QXR4+Uf9srL9VgJOx+VjvfXf3NDxZDQfO6fHXCzHmb5nFkZ3xgdItbU7mWil6aXB6Qkyaaz4eSFuJ9d@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeFwE7KhFJf8j4CIKcocureYoV0IfsIJl0NKOdLytBPBgc/ZLD
-	JvwysHoIYk9xQIv4/T5NqZT6CCARHgz+P6VFiPOET+AX7iDoR+ihWUQGK7Uh5y+NFhI372lfdrr
-	+TVtPo+r+KGpIFkwDaP5+08G4tGsfo3k=
-X-Google-Smtp-Source: AGHT+IFvhWbPLYj4eyYbQzXbtE0MeMQJy/KvVIVtLmYaFaOZV9FQroiaEG97GUORa6EBLnC28282joaDVpduBrWrdBE=
-X-Received: by 2002:a05:6871:e494:b0:2b8:306f:c5ad with SMTP id
- 586e51a60fabf-2ff108aa4e7mr1575018fac.13.1752151401837; Thu, 10 Jul 2025
- 05:43:21 -0700 (PDT)
+	id 1uZqjp-0000000BpN3-3Cyi;
+	Thu, 10 Jul 2025 12:50:59 +0000
+dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
+	bh=2u0S9Z5uAyb3HMOlKtlzaMKqT/fl3RGCnbjggUuVWwk=;
+	b=ktfDrw0XKohFK4W0aMBQ6waI+i7AVqs9kxvUxIk01fi94Sn4T4gSD99tfIfXXGMpZqi45TzQaO0uwGsynu3pO4qRjLw5zZmIbl/0S3rC+//rUjT93fvpTSqQD3DpNuuzS3Kf+Vs+Fto4e/bx74ZUmqYNIUx5BMjILb3UqORmBdM=
+Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
+	by mail.netcube.li with ESMTPA
+	; Thu, 10 Jul 2025 14:50:53 +0200
+From: Lukas Schmid <lukas.schmid@netcube.li>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: Lukas Schmid <lukas.schmid@netcube.li>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 2/5] riscv: dts: allwinner: d1s-t113: Add pinctrl's required by NetCube Systems Nagami SoM
+Date: Thu, 10 Jul 2025 14:50:16 +0200
+Message-Id: <20250710125021.1079702-3-lukas.schmid@netcube.li>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250710125021.1079702-1-lukas.schmid@netcube.li>
+References: <20250710125021.1079702-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
-References: <20250709154728.733920-1-daniel.lezcano@linaro.org>
-In-Reply-To: <20250709154728.733920-1-daniel.lezcano@linaro.org>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 10 Jul 2025 14:43:10 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0ixk5hZPPQc_1rDLMTzjh=KpMQF_A2U=HehMTuNSMQwtQ@mail.gmail.com>
-X-Gm-Features: Ac12FXwvOAzyR1Avk5_RiGzd1H44RHJhITCmhz1WTwrDf6J5CAzXGMv8nRwyvJ4
-Message-ID: <CAJZ5v0ixk5hZPPQc_1rDLMTzjh=KpMQF_A2U=HehMTuNSMQwtQ@mail.gmail.com>
-Subject: Re: [PATCH] cpuidle: psci: Fix cpuhotplug routine with PREEMPT_RT=y
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, sudeep.holla@arm.com, ulf.hansson@linaro.org
-Cc: linux-pm@vger.kernel.org, linux-rt-users@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Raghavendra Kakarla <quic_rkakarla@quicinc.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, 
-	"open list:Real-time Linux (PREEMPT_RT)" <linux-rt-devel@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_054323_965151_147AF23A 
-X-CRM114-Status: GOOD (  26.70  )
+X-CRM114-CacheID: sfid-20250710_055058_117948_2A192B97 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,130 +77,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 9, 2025 at 5:47=E2=80=AFPM Daniel Lezcano <daniel.lezcano@linar=
-o.org> wrote:
->
-> Currently cpu hotplug with the PREEMPT_RT option set in the kernel is
-> not supported because the underlying generic power domain functions
-> used in the cpu hotplug callbacks are incompatible from a lock point
-> of view. This situation prevents the suspend to idle to reach the
-> deepest idle state for the "cluster" as identified in the
-> undermentioned commit.
->
-> Use the compatible ones when PREEMPT_RT is enabled and remove the
-> boolean disabling the hotplug callbacks with this option.
->
-> With this change the platform can reach the deepest idle state
-> allowing at suspend time to consume less power.
->
-> Tested-on Lenovo T14s with the following script:
->
-> echo 0 > /sys/devices/system/cpu/cpu3/online
-> BEFORE=3D$(cat /sys/kernel/debug/pm_genpd/power-domain-cpu-cluster0/idle_=
-states | grep S0 | awk '{ print $3 }') ;
-> rtcwake -s 1 -m mem;
-> AFTER=3D$(cat /sys/kernel/debug/pm_genpd/power-domain-cpu-cluster0/idle_s=
-tates | grep S0 | awk '{ print $3 }');
-> if [ $BEFORE -lt $AFTER ]; then
->     echo "Test successful"
-> else
->     echo "Test failed"
-> fi
-> echo 1 > /sys/devices/system/cpu/cpu3/online
->
-> Fixes: 1c4b2932bd62 ("cpuidle: psci: Enable the hierarchical topology for=
- s2idle on PREEMPT_RT")
-> Cc: Raghavendra Kakarla <quic_rkakarla@quicinc.com>
-> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+Added the following pinctrl's used by the NetCube Systems Nagami SoM
+  * i2c2_pins
+  * i2c3_pins
+  * i2s1_pins, i2s1_din_pins, i2s1_dout_pins
+  * spi1_pins, spi1_hold_pin, spi1_wp_pin
 
-As per MAINTAINERS, this is for Ulf/Sudeep.
+Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+---
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 48 +++++++++++++++++++
+ 1 file changed, 48 insertions(+)
 
-I can pick it up, but at least I need an ACK from them.
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index e4175adb0..c00996d62 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -78,6 +78,36 @@ dsi_4lane_pins: dsi-4lane-pins {
+ 				function = "dsi";
+ 			};
+ 
++			/omit-if-no-ref/
++			i2c2_pins: i2c2-pins {
++				pins = "PD20", "PD21";
++				function = "i2c2";
++			};
++
++			/omit-if-no-ref/
++			i2c3_pins: i2c3-pins {
++				pins = "PG10", "PG11";
++				function = "i2c3";
++			};
++
++			/omit-if-no-ref/
++			i2s1_pins: i2s1-pins {
++				pins = "PG12", "PG13";
++				function = "i2s1";
++			};
++
++			/omit-if-no-ref/
++			i2s1_din_pins: i2s1-din-pins {
++				pins = "PG14";
++				function = "i2s1_din";
++			};
++
++			/omit-if-no-ref/
++			i2s1_dout_pins: i2s1-dout-pins {
++				pins = "PG15";
++				function = "i2s1_dout";
++			};
++
+ 			/omit-if-no-ref/
+ 			lcd_rgb666_pins: lcd-rgb666-pins {
+ 				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
+@@ -126,6 +156,24 @@ spi0_pins: spi0-pins {
+ 				function = "spi0";
+ 			};
+ 
++			/omit-if-no-ref/
++			spi1_pins: spi1-pins {
++				pins = "PD10", "PD11", "PD12", "PD13";
++				function = "spi1";
++			};
++
++			/omit-if-no-ref/
++			spi1_hold_pin: spi1-hold-pin {
++				pins = "PD14";
++				function = "spi1";
++			};
++
++			/omit-if-no-ref/
++			spi1_wp_pin: spi1-wp-pin {
++				pins = "PD15";
++				function = "spi1";
++			};
++
+ 			/omit-if-no-ref/
+ 			uart1_pg6_pins: uart1-pg6-pins {
+ 				pins = "PG6", "PG7";
+-- 
+2.39.5
 
-Thanks!
 
-> ---
->  drivers/cpuidle/cpuidle-psci.c | 23 ++++++++++++-----------
->  1 file changed, 12 insertions(+), 11 deletions(-)
->
-> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psc=
-i.c
-> index 4e1ba35deda9..b19bc60cc627 100644
-> --- a/drivers/cpuidle/cpuidle-psci.c
-> +++ b/drivers/cpuidle/cpuidle-psci.c
-> @@ -45,7 +45,6 @@ struct psci_cpuidle_domain_state {
->  static DEFINE_PER_CPU_READ_MOSTLY(struct psci_cpuidle_data, psci_cpuidle=
-_data);
->  static DEFINE_PER_CPU(struct psci_cpuidle_domain_state, psci_domain_stat=
-e);
->  static bool psci_cpuidle_use_syscore;
-> -static bool psci_cpuidle_use_cpuhp;
->
->  void psci_set_domain_state(struct generic_pm_domain *pd, unsigned int st=
-ate_idx,
->                            u32 state)
-> @@ -124,8 +123,12 @@ static int psci_idle_cpuhp_up(unsigned int cpu)
->  {
->         struct device *pd_dev =3D __this_cpu_read(psci_cpuidle_data.dev);
->
-> -       if (pd_dev)
-> -               pm_runtime_get_sync(pd_dev);
-> +       if (pd_dev) {
-> +               if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-> +                       pm_runtime_get_sync(pd_dev);
-> +               else
-> +                       dev_pm_genpd_resume(pd_dev);
-> +       }
->
->         return 0;
->  }
-> @@ -135,7 +138,11 @@ static int psci_idle_cpuhp_down(unsigned int cpu)
->         struct device *pd_dev =3D __this_cpu_read(psci_cpuidle_data.dev);
->
->         if (pd_dev) {
-> -               pm_runtime_put_sync(pd_dev);
-> +               if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-> +                       pm_runtime_put_sync(pd_dev);
-> +               else
-> +                       dev_pm_genpd_suspend(pd_dev);
-> +
->                 /* Clear domain state to start fresh at next online. */
->                 psci_clear_domain_state();
->         }
-> @@ -196,9 +203,6 @@ static void psci_idle_init_cpuhp(void)
->  {
->         int err;
->
-> -       if (!psci_cpuidle_use_cpuhp)
-> -               return;
-> -
->         err =3D cpuhp_setup_state_nocalls(CPUHP_AP_CPU_PM_STARTING,
->                                         "cpuidle/psci:online",
->                                         psci_idle_cpuhp_up,
-> @@ -259,10 +263,8 @@ static int psci_dt_cpu_init_topology(struct cpuidle_=
-driver *drv,
->          * s2ram and s2idle.
->          */
->         drv->states[state_count - 1].enter_s2idle =3D psci_enter_s2idle_d=
-omain_idle_state;
-> -       if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
-> +       if (!IS_ENABLED(CONFIG_PREEMPT_RT))
->                 drv->states[state_count - 1].enter =3D psci_enter_domain_=
-idle_state;
-> -               psci_cpuidle_use_cpuhp =3D true;
-> -       }
->
->         return 0;
->  }
-> @@ -339,7 +341,6 @@ static void psci_cpu_deinit_idle(int cpu)
->
->         dt_idle_detach_cpu(data->dev);
->         psci_cpuidle_use_syscore =3D false;
-> -       psci_cpuidle_use_cpuhp =3D false;
->  }
->
->  static int psci_idle_init_cpu(struct device *dev, int cpu)
-> --
-> 2.43.0
->
 
