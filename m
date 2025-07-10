@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA10C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 06:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F336EC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 06:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g+LIoVq7w+eW2lM6Y3duxXQzYZaa5oDdhbHVlXmb8x0=; b=Dpp5bqZmFUZA16cDgg2OXuF0hP
-	4VOyMoExROBJuQZn6KwPBK/gDYfZbdArG+WWhKWDs1yQRNTrn50a7KZVMssul2+AuqXL5jxfBpypv
-	wKKo28O3GoaXh4iQZvI+kIJQ32y9MEX/FHWWTEdAwbIjYwiWXjscez+2fQoKKni70c+3ENj8WvFyc
-	QVYGZgaE6Q6wElYC7y2rmbwHEgPByvd4hZ2dAI/FvJElhiZxXJc7JcwNblqMBJSgLtZ3F17eMiDtS
-	vq9kUIsoJ799irmKT4vO0P5zz82QhQw+Pd8UwgToqYQvl2kbG2DFLWXwIFF6dKfHH1j8hpPVev+xY
-	iU2bXE5A==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LQU9nTEQ6XMlnP3p92syqwsf8q83UxxH9N2ZKCmvBJA=; b=zXfbZtTEeTXLptoJFO6BcyKceG
+	Fwcwxc46Q6OVWdIuSa+uoaIU243eOmbElQ1i0HNhBV5a3MYgzBbUV7SqFfFDsQn86WO8lvritfVZw
+	0c6REoYiuSKtegQj0TqaH2Jul8Z5eoqn41Tdc46ZBR/gsVrDDFyL+LUQ2mpdOV+XZevNXZmyYsYmX
+	Ig/T0pYHONG0jAyJ28xUv08+jhQOnxAfMPPf40p/L9mnfRLdgss3zPun2qWySkdJ65+9yY0ah+GCr
+	5G98rZyzL/viQxkyGlQdtrWo8TPpGyajMHPxgryvYxcuLn7uDO3nq854H14j4dGsj/t7auCQN0TSx
+	D5X8jInA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZkU0-0000000AonO-2RBU;
-	Thu, 10 Jul 2025 06:10:12 +0000
-Received: from mail-dm6nam10on20615.outbound.protection.outlook.com ([2a01:111:f403:2413::615] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uZkWL-0000000ApJw-1LU3;
+	Thu, 10 Jul 2025 06:12:37 +0000
+Received: from mail-mw2nam12on20601.outbound.protection.outlook.com ([2a01:111:f403:200a::601] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZkKM-0000000Alqf-3HVv
+	id 1uZkKN-0000000Alrq-3Mmc
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Jul 2025 06:00:16 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H7WsR2cBxCCBWc5JKIJdwRkO1qfN+/7KWbHUKVwcmCpGHAIPcl7WcFwIYcJ8j5XXlf5WZ977I4sSulRDIPZ1c3aPjO5gH1vZrZeMey+OEqyh0AUG4OUaKxHLiFIQY1oGQjzx2/KdIimrXdpjBcskL9i/FgRyH0p3bsumiel2QfbNAR+Vnwz4d5SAewTWAB7kzoYK3UAQbIicjXr0It56QB5rvj2QSA32C2o0qKmKD3FOx66gS14WwyWGFDCr3aG7XUnh7ryjBYVQ8YdGP0VZxiVBdldcJGr1TMjVYpVonfHxT5/GfW8y7Y4O+74jhCLI/qe+gxGYJbHHhqZMfSwkIg==
+ b=g1E0wLZH0Ayfvjj9uPzFZyWCX5e/g+DVFFzEvrFuHPrWQGs5EKpfidSlx1SdJ2iTZ+WM4Y3tacfUf8WSkCYN7Vkhxyk8w4o2wtz+lZfZlnY1qZD8aViYkOTqf0fCBx/piEnPy6ciNT5HTrPDQsxwS6e5IuwodMAzj0jSdAUsQXOt85UqlzwFMGZKQR9RDQ8AW2JzpU5FD9EclBX9FvLxa5aSnwAGR6rtzZYwFs6MqCf9X4Wm/cDnVyWWjjKmAJrm9ll0yfklPEWiyx3Km2GwKascP540iN3k6hRE1LKBejc6NmvN2s+S6JZ2yWdc/76a/SXUL2HAod1IZH+AGijqjg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g+LIoVq7w+eW2lM6Y3duxXQzYZaa5oDdhbHVlXmb8x0=;
- b=iQrDBDSdl/aYANCrQdUUoxIT27bo9fn6mAwa+qsKhecEpYtyRFeY2xfQf/WKhLy17JhS4KSqKBfomlNS7ZN6m6mHQtNoYvtKzM3c9tttw9QCgYeMfpwatYFfoLV5xsT2QRClPOf9sEBK55lFSkzZ0octE/lXaeKqI0bSjwE2qIGdBIdH8tvG16aZ9aNraCTOiUuGmwlzxEkPWs/lWS86kkUTrKyBl5UxMPw0EtRclbuUqS/bsCuyHFC9EmyRx+k6mpKwyqU+eDodS34pAN5o2CsJXqzpiOI5XgJhTDpmXtGm3IY5sRg1+34DIB3B22Kwp5VFpW+ByqLp+9d78kmlRg==
+ bh=LQU9nTEQ6XMlnP3p92syqwsf8q83UxxH9N2ZKCmvBJA=;
+ b=k0I2arDION/lxHBKzb4t8Qxx1OfshL++VAJ+E2vLR8PduVj/T+RppXlj9OPiPnQF+f/wcmT3T4daqnSSa2MqcQTbSLmwHjxYTPizGLcSvlD+u6ZgzIMrzZ8GiFakLf5pKHwpZF1qLH2kaxeSnvozHRYBp70kKiuF+OOusXqKrn918Jpr2CoQ78KT3sJBR4OPdpYFHFWXJ1G0Sddn0PsJUnsSVKxGx6DRpYsLbHiMf/vL2FT9hfKMlmeRdONVzxiXs0cnz8acOoD5/jfI5GXu/4zs5tuCNiAIKUB8/hjENVtYU3xDTxMIxUnMjauQsXCK8VsoPycEWD+gR4xyCgddHw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.161) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g+LIoVq7w+eW2lM6Y3duxXQzYZaa5oDdhbHVlXmb8x0=;
- b=RndceLmFIJ8/RGFBSteVN9ruEVQXoTClMp/RJNvFUaiBI5Z6mTHlNZvJoanc222LkQBMNKJ7+yHyqsWckdO0D+1ieLiBir7vf0ATIhHOpor9yC0Gj0m8iYRgJOnAJcbimcxciDfw07omzJS6wLX7X0oqudP9RDXi9UNnFlvtHXyurx1x7QZK7/DbHh/iUX4nO1dnlZIaf9/vYXbr/Y2wMqZKcEajEU17vWZty7yLcW4C20KyOrCh/ZnbgACkffY6wQ2z7OKzjd8vwFisCFAi6LDjVNFbOm2O2OVfSEGPrg+WcBEIc4o2P9jBmmfQ/sniwkFdcy3vKbQPspznCq8FjQ==
-Received: from MN2PR15CA0008.namprd15.prod.outlook.com (2603:10b6:208:1b4::21)
- by DS0PR12MB7969.namprd12.prod.outlook.com (2603:10b6:8:146::19) with
+ bh=LQU9nTEQ6XMlnP3p92syqwsf8q83UxxH9N2ZKCmvBJA=;
+ b=Jy2CKW50KhZR9HUiwWtSLS7rqXyyKiINRwIj5VdM9odr7Bed87mUQbwCLz93pG209zfCU34zPUvpFwTS6iOy4HZacq28hSjfu/Sz5f8D/6DcnFMUbdnoJ42TVg5F64cI2so/L6d72tWj34PG9hI+xgcuHqklTIsioFW8OuieGPU/JsnSBCzya7FSQlW69kOdCYO0qEiR0d988wP/FmGxUAcJ5NBvTzm1IJeGkv0btkJGdRJF1oLTyROD8Z0eRhJcX3n5ZZkfhZUitT9VxTq4BPSllGTW6ejpg+MqRCoTpTJx4yJ0NQktiZBNroHEb5VlCaSaMZVHvVONFOh/vNWnsw==
+Received: from BN9PR03CA0064.namprd03.prod.outlook.com (2603:10b6:408:fc::9)
+ by SJ2PR12MB8109.namprd12.prod.outlook.com (2603:10b6:a03:4f5::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.29; Thu, 10 Jul
- 2025 06:00:00 +0000
-Received: from BL6PEPF0001AB76.namprd02.prod.outlook.com
- (2603:10b6:208:1b4:cafe::b4) by MN2PR15CA0008.outlook.office365.com
- (2603:10b6:208:1b4::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.27; Thu, 10 Jul
+ 2025 06:00:07 +0000
+Received: from BL6PEPF0001AB78.namprd02.prod.outlook.com
+ (2603:10b6:408:fc:cafe::5a) by BN9PR03CA0064.outlook.office365.com
+ (2603:10b6:408:fc::9) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.21 via Frontend Transport; Thu,
- 10 Jul 2025 06:00:00 +0000
+ 10 Jul 2025 06:00:07 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,20 +60,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.117.161 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF0001AB76.mail.protection.outlook.com (10.167.242.169) with Microsoft
+ BL6PEPF0001AB78.mail.protection.outlook.com (10.167.242.171) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8922.22 via Frontend Transport; Thu, 10 Jul 2025 06:00:00 +0000
+ 15.20.8922.22 via Frontend Transport; Thu, 10 Jul 2025 06:00:06 +0000
 Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
  (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 9 Jul 2025
- 22:59:46 -0700
+ 22:59:54 -0700
 Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
  (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 9 Jul
- 2025 22:59:46 -0700
+ 2025 22:59:53 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
  (10.129.68.6) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Wed, 9 Jul 2025 22:59:44 -0700
+ Transport; Wed, 9 Jul 2025 22:59:52 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <jgg@nvidia.com>
 CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <bagasdotme@gmail.com>,
@@ -87,62 +87,63 @@ CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <bagasdotme@gmail.com>,
 	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
 	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
 	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
-Subject: [PATCH v9 00/29] iommufd: Add vIOMMU infrastructure (Part-4 HW QUEUE)
-Date: Wed, 9 Jul 2025 22:58:52 -0700
-Message-ID: <cover.1752126748.git.nicolinc@nvidia.com>
+Subject: [PATCH v9 04/29] iommu: Use enum iommu_hw_info_type for type in hw_info op
+Date: Wed, 9 Jul 2025 22:58:56 -0700
+Message-ID: <651c50dee8ab900f691202ef0204cd5a43fdd6a2.1752126748.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1752126748.git.nicolinc@nvidia.com>
+References: <cover.1752126748.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-NV-OnPremToCloud: AnonymousSubmission
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB76:EE_|DS0PR12MB7969:EE_
-X-MS-Office365-Filtering-Correlation-Id: 32315aea-0710-4ef3-c492-08ddbf770168
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB78:EE_|SJ2PR12MB8109:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34829054-736a-404a-6cfa-08ddbf770586
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014|7416014|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?X6D4RX9JF/HEIYdKSerhYyiPUoUFwGQ9S5DIdMm3ntlIwedHovu2+TIT7V9E?=
- =?us-ascii?Q?DTI7qaInAi5Qow1KrZWFZA3vKDE3s3oUw1QJWaMi1LXA4mcvyTM0c7PSDWGz?=
- =?us-ascii?Q?6Bg2lUTEPEphlWDeYq9bicphs1J1CwAbv3eAMKuyZuvyJE9QHD1mt0T3/gbA?=
- =?us-ascii?Q?j1e7sRKWOBMC60xQ5DpeBB20oECDsJ0LTNS7N276KdIZriYzK0gyPwWb2Iuy?=
- =?us-ascii?Q?1k5GT7a02OcyBtksjzbhQEc02bfLHjXPZfrbNns0LPF1NJsoDGzPcJDhEZUO?=
- =?us-ascii?Q?JY6v7oAknHVOFOMvjAofL0BeyI143DRdxzHyI/Y1mXzQ8RzFUtXvRcD4bglg?=
- =?us-ascii?Q?9Xc5uX5UxSNBGn89rDI/eK7puhfvC2BzyTER/TvBf+gUoibNRBioh8pF2/ow?=
- =?us-ascii?Q?kO1Gms0de0P/0w1MN87q1JC9z2yp8hY839natEv/DRQwuRCqBptS3QQtUF2T?=
- =?us-ascii?Q?aiVrTLWSwtY4kSDqRnfL2vEWvet0/nZO5CvHUJXnNcr6ZESdK/z1Gya9yteK?=
- =?us-ascii?Q?+WWQqhPAPG9rIVPFNZ3+tnq5BhQseYy+nYYAmF50Zn502I4CvpWX3uHk4CQC?=
- =?us-ascii?Q?efKaRXZEvdyLTO1xpPMFhrvzpvVMXNWmGZvHGb1K3lyXkAIddPnyQwN5hMhP?=
- =?us-ascii?Q?hWaoiGJYh0p8EElQAUQ2auimfnEYos5iXUha+cLd1gcQbN5x/w03wqvK8t62?=
- =?us-ascii?Q?sdb25x9ec6+Hu/vF+/zPphuIxr43hzNtTXZy0v/EReT8DBHrRztfc1dZcoE5?=
- =?us-ascii?Q?v1IRYBHFxwOZ7c95DJIKGRy6/OQwhDrF43JXbgaD8hEYoEfMQ3X1ugHkBP9F?=
- =?us-ascii?Q?IBUwcDvRYLK6t+SoLOQgbTVn1dnA2QZosiKbPRh2nmhlOnjt+Ph13TI593SV?=
- =?us-ascii?Q?ra9pknUXnp+t3XN9Y20WRwiU5E9qDKughfGyVNibiJP5yak/BYvFuV/hT+ZE?=
- =?us-ascii?Q?Ro2lRgh+XOy5cmXFXpuANxL/qy7TeguD2bX4hghrcE38hFhZ+zfaRriFP5iT?=
- =?us-ascii?Q?pb1mZnuIthtHaC691xQ7RnevETg+RODxIMDMpiMzMphc5QvUEwYdP2F74/aE?=
- =?us-ascii?Q?QCUdOypRpYh9O28WmKmdHlP2NVz2eNj7RHNQaxFxp+AE7xTm+ZQ99sgIUTHZ?=
- =?us-ascii?Q?5TMehG6Jsjju9SRK9BHLaByLt5PZ4Iv1hmlfNuokezUQGHMxqmSRh+ndDmbA?=
- =?us-ascii?Q?p0ATBk1Q3ZJFcAtgdS+qOTpNlYr1yRegHQQ/Z6w3yPIIXLT46WfcEgf3x9vC?=
- =?us-ascii?Q?2tL7u2e79ScY+xIul2ZDxN21p5fmO1otuD4g4ncAq2lxqdfwCeGTeDdylwa0?=
- =?us-ascii?Q?Hq2HgeHfh7fVS0N4/qtufvVGYPuqja5Hz1OTtpZXF5rRTxnq/Gfb4VqthiEL?=
- =?us-ascii?Q?QdOuYGna1TXaHtSF2sEKiZ2XjI9bwobgL68FUEEiacVH+ePJz8kZL3oCZeVW?=
- =?us-ascii?Q?L4TuadaYhimjk8mmUGfpxt8TsSdMs9hWO3x/zd7/7NjgAcag9Vbq+KiFdiDo?=
- =?us-ascii?Q?86u3T9DAYm7iqXwhN35Y9zf3VlyXIex7bC4AJk+/jpQHFwmveKEXq8p+FQ?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014)(7416014)(13003099007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jkr//4uAnhDxhJidgrTsGcdVsoNudXexLFsBUGQIiMP2gsdUuFhAPtbGgtGM?=
+ =?us-ascii?Q?kcK7VGEA+ZI4AWrBZUvk12jMeaXTaUD9na7NVufWIlwUbr1Fnj831qkLMpBd?=
+ =?us-ascii?Q?2VX06cvzxdWKC0bdS51M/NpFUcgavww+2JOQ/4+ibCsxG+4XqI5GqByTKUfo?=
+ =?us-ascii?Q?QubR9A6yzCp6f53tnSltcZnhnbz7/ZIdzrSc0DUDa99Zve1QvORLOyi8tPEz?=
+ =?us-ascii?Q?j0M3qxTIuKqjOl/Aubo6mSKX2s5xmrs5patL4/KbIW5+atp+n3ERQMz/CI06?=
+ =?us-ascii?Q?A6KZQZjV4JVET8yzBenb81V/9L7cFat2xamc0H9aAWzLdTCS031xoMi9nFl7?=
+ =?us-ascii?Q?eaIPZ5JjfsTB5wWyowau5CtOujV99X89CrxWc66R9VU+s5+7NPKy3zAy67gg?=
+ =?us-ascii?Q?rS3mIIbcScx22sSDuIxTChwaaEmH0JyKoZiqYZEtdwlpItGP9murJWk2eDDS?=
+ =?us-ascii?Q?nm/8kT7lun9HFybDTEG60PyVdJvYmntIhhIxVHGKcB6Ou6lvmkttyMGcyh5J?=
+ =?us-ascii?Q?7ESQFdX8QTcsnuK/7ll/jtyB5xnFOVtDc56nkuzyjovMxiFL5yrU9y+4+oma?=
+ =?us-ascii?Q?Z8IomXKkqqS2gPVFiP9Tjh8nEQOZ/ZSc7qJSzPz89x+IqmPy+9MJqwIlB+Bl?=
+ =?us-ascii?Q?+iu8ReKXXQAFujVOawoaMl9nbOxyGySMyffHXsVaIesgaRyOgkvVUPOStx08?=
+ =?us-ascii?Q?NxTZge5NbVcziL0jROx0E5/QvhODjrDcimMzx1w40b6ZmAOYmz6GGbS0IV99?=
+ =?us-ascii?Q?CpUi6rWqIMsrH10+fuZrqmwGoID5SF37v5tWZHFBjJNlvnntzKyEyz9iOGke?=
+ =?us-ascii?Q?At4R8MtadpfvaLYW99ItrmA7LXEOK/XdFtpA/AqJKH0icsFJ1/BehCXNT9mh?=
+ =?us-ascii?Q?Y7fIS7pmdz1906S3JKnZYnNyyrj5rEoGyNxin0X4Saqzr6w1oTbG6MHK7+L8?=
+ =?us-ascii?Q?pqaAaXhifCoJXx5vOUwLAXNahiX4V9fjOhNm9h5yAwbqNFWfxz9mAqRW+Fnp?=
+ =?us-ascii?Q?rf0opOssb9UxEVBgzDXqPo9/jRk43w6+jUXkmEv3ybLq/I2i0Jfv+j4TDovk?=
+ =?us-ascii?Q?MDHPPZYxUibhJeauYzCqa5aYjJf+aC4VOCjOm6tbCZyNRPHmy3W5+KvPPfOl?=
+ =?us-ascii?Q?sW5FmG+qBuTT3XceMr7M9iZvW6i17QpYgLEmvTpSvWJ+czIb9Nom8fmyIgf6?=
+ =?us-ascii?Q?bC9xVlNNAEhnD+aNNWUVbJ0Cbc0iggmLCGmNzPk1CpaPEdh6dj25ado75CEr?=
+ =?us-ascii?Q?lOUtV+H1mZPHiaZ5476CVMrDNbRTKInhCDzg4usXYAg2iSyqvnIfubjVa+oN?=
+ =?us-ascii?Q?Soyv5ufP3/QmW1RJ99PB6vNkDFC152If40tcQuApFXTdolsm/S9Zab38fjTs?=
+ =?us-ascii?Q?5A8MNgVZtVsTPDXG5H6Ag9Ms20grQyVEpM8h9lfN/djAw8dv6fhW+mQgAiaW?=
+ =?us-ascii?Q?jFY3pJz2MQDgnJs+fSjl1Lc6OMFyJWBUrbzmI1cLIHbFg+3OnCBs2cIFMN+5?=
+ =?us-ascii?Q?j0tC3GUVSefrHKdAQsTaibdCb+mU9+s1djO5?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(7416014)(376014);DIR:OUT;SFP:1101;
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 06:00:00.0165
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 06:00:06.9469
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32315aea-0710-4ef3-c492-08ddbf770168
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34829054-736a-404a-6cfa-08ddbf770586
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB76.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB78.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7969
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8109
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_230014_871223_94336CD1 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20250709_230015_834305_53782F52 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,282 +158,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vIOMMU object is designed to represent a slice of an IOMMU HW for its
-virtualization features shared with or passed to user space (a VM mostly)
-in a way of HW acceleration. This extended the HWPT-based design for more
-advanced virtualization feature.
+Replace u32 to make it clear. No functional changes.
 
-HW QUEUE introduced by this series as a part of the vIOMMU infrastructure
-represents a HW accelerated queue/buffer for VM to use exclusively, e.g.
- - NVIDIA's Virtual Command Queue
- - AMD vIOMMU's Command Buffer, Event Log Buffer, and PPR Log Buffer
-each of which allows its IOMMU HW to directly access a queue memory owned
-by a guest VM and allows a guest OS to control the HW queue direclty, to
-avoid VM Exit overheads to improve the performance.
+Also simplify the kdoc since the type itself is clear enough.
 
-Introduce IOMMUFD_OBJ_HW_QUEUE and its pairing IOMMUFD_CMD_HW_QUEUE_ALLOC
-allowing VMM to forward the IOMMU-specific queue info, such as queue base
-address, size, and etc.
-
-Meanwhile, a guest-owned queue needs the guest kernel to control the queue
-by reading/writing its consumer and producer indexes, via MMIO acceses to
-the hardware MMIO registers. Introduce an mmap infrastructure for iommufd
-to support passing through a piece of MMIO region from the host physical
-address space to the guest physical address space. The mmap info (offset/
-length) used by an mmap syscall must be pre-allocated and returned to the
-user space via an output driver-data during an IOMMUFD_CMD_HW_QUEUE_ALLOC
-call. Thus, it requires a driver-specific user data support in the vIOMMU
-allocation flow.
-
-As a real-world use case, this series implements a HW QUEUE support in the
-tegra241-cmdqv driver for VCMDQs on NVIDIA Grace CPU. In another word, it
-is also the Tegra CMDQV series Part-2 (user-space support), reworked from
-Previous RFCv1:
-    https://lore.kernel.org/all/cover.1712978212.git.nicolinc@nvidia.com/
-This enables the HW accelerated feature for NVIDIA Grace CPU. Compared to
-the standard SMMUv3 operating in the nested translation mode trapping CMDQ
-for TLBI and ATC_INV commands, this gives a huge performance improvement:
-70% to 90% reductions of invalidation time were measured by various DMA
-unmap tests running in a guest OS.
-
-// Unmap latencies from "dma_map_benchmark -g @granule -t @threads",
-// by toggling "/sys/kernel/debug/iommu/tegra241_cmdqv/bypass_vcmdq"
-@granule | @threads | bypass_vcmdq=1 | bypass_vcmdq=0
-    4KB        1          35.7 us          5.3 us
-   16KB        1          41.8 us          6.8 us
-   64KB        1          68.9 us          9.9 us
-  128KB        1         109.0 us         12.6 us
-  256KB        1         187.1 us         18.0 us
-    4KB        2          96.9 us          6.8 us
-   16KB        2          97.8 us          7.5 us
-   64KB        2         151.5 us         10.7 us
-  128KB        2         257.8 us         12.7 us
-  256KB        2         443.0 us         17.9 us
-
-This is on Github:
-https://github.com/nicolinc/iommufd/commits/iommufd_hw_queue-v9
-
-Paring QEMU branch for testing (reusing v8):
-https://github.com/nicolinc/qemu/commits/wip/for_iommufd_hw_queue-v8
-
-Changelog
-v9  (attached git-diff v8..v9 at the end of this letter)
- * Add Reviewed-by from Vasant and Jason
- * [iommufd] Fix offset calculation
- * [iommufd] Add unaligned iova/length selftest coverage for hw_queue
- * [iommufd] Pass in aligned iova/length to iommufd_access_pin_pages()
- * [smmu] Change "u32 *type" at arm_smmu_hw_info() in the header
-v8
- https://lore.kernel.org/all/cover.1751677708.git.nicolinc@nvidia.com/
- * Add Reviewed-by from Pranj, Kevin and Jason
- * Improve kdoc and comments
- * [iommufd] Skip selftest for no_viommu variants
- * [iommufd] Add unmap coverage for non internal area
- * [iommufd] Skip the first page when mtree_alloc_range()
- * [iommufd] Correct the passed in index to mtree_erase()
- * [iommufd] Correct variable types in iommufd_hw_queue_alloc_phys()
- * [iommufd] Reject iopt_unmap_iova_range() if area->num_locks is set
- * [tegra] Rename "SID replacement" with "SID mapping"
- * [tegra] Unwrap useless _tegra241_vcmdq_hw_init helper
-v7
- https://lore.kernel.org/all/cover.1750966133.git.nicolinc@nvidia.com/
- * Rebased on Jason's for-next tree (iommufd_hw_queue-prep series)
- * Add Reviewed-by from Baolu, Jason, Pranjal
- * Update kdocs and notes
- * [iommu] Replace "u32" with "enum iommu_hw_info_type"
- * [iommufd] Rename vdev->id to vdev->virt_id
- * [iommufd] Replace macros with inline helpers
- * [iommufd] Report unmapped_bytes in error path
- * [iommufd] Add iommufd_access_is_internal helper
- * [iommufd] Do not drop ops->unmap check for mdevs
- * [iommufd] Store physical addresses in immap structure
- * [iommufd] Reorder access and hw_queue object allocations
- * [iommufd] Scan for an internal access before any unmap call
- * [iommufd] Drop unused ictx pointer in struct iommufd_hw_queue
- * [iommufd] Use kcalloc to avoid failure due to memory fragmentation
- * [tegra] Use "else"
- * [tegra] Lock destroy() using lvcmdq_mutex
-v6
- https://lore.kernel.org/all/cover.1749884998.git.nicolinc@nvidia.com/
- * Rebase on iommufd_hw_queue-prep-v2
- * Add Reviewed-by from Kevin and Jason
- * [iommufd] Update kdocs and notes
- * [iommufd] Drop redundant pages[i] check
- * [iommufd] Allow nesting_parent_iova to be 0
- * [iommufd] Add iommufd_hw_queue_alloc_phys()
- * [iommufd] Revise iommufd_viommu_alloc/destroy_mmap APIs
- * [iommufd] Move destroy ops to vdevice/hw_queue structures
- * [iommufd] Add union in hw_info struct to share out_data_type field
- * [iommufd] Replace iopt_pin/unpin_pages() with internal access APIs
- * [iommufd] Replace vdevice_alloc with vdevice_size and vdevice_init
- * [iommufd] Replace hw_queue_alloc with get_hw_queue_size/hw_queue_init
- * [iommufd] Replace IOMMUFD_VIOMMU_FLAG_HW_QUEUE_READS_PA with init_phys
- * [smmu] Drop arm_smmu_domain_ipa_to_pa
- * [smmu] Update arm_smmu_impl_ops changes for vsmmu_init
- * [tegra] Add a vdev_to_vsid macro
- * [tegra] Add lvcmdq_mutex to protect multi queues
- * [tegra] Drop duplicated kcalloc for vintf->lvcmdqs (memory leak)
-v5
- https://lore.kernel.org/all/cover.1747537752.git.nicolinc@nvidia.com/
- * Rebase on v6.15-rc6
- * Add Reviewed-by from Jason and Kevin
- * Correct typos in kdoc and update commit logs
- * [iommufd] Add a cosmetic fix
- * [iommufd] Drop unused num_pfns
- * [iommufd] Drop unnecessary check
- * [iommufd] Reorder patch sequence
- * [iommufd] Use io_remap_pfn_range()
- * [iommufd] Use success oriented flow
- * [iommufd] Fix max_npages calculation
- * [iommufd] Add more selftest coverage
- * [iommufd] Drop redundant static_assert
- * [iommufd] Fix mmap pfn range validation
- * [iommufd] Reject unmap on pinned iovas
- * [iommufd] Drop redundant vm_flags_set()
- * [iommufd] Drop iommufd_struct_destroy()
- * [iommufd] Drop redundant queue iova test
- * [iommufd] Use "mmio_addr" and "mmio_pfn"
- * [iommufd] Rename to "nesting_parent_iova"
- * [iommufd] Make iopt_pin_pages call option
- * [iommufd] Add ictx comparison in depend()
- * [iommufd] Add iommufd_object_alloc_ucmd()
- * [iommufd] Move kcalloc() after validations
- * [iommufd] Replace ictx setting with WARN_ON
- * [iommufd] Make hw_info's type bidirectional
- * [smmu] Add supported_vsmmu_type in impl_ops
- * [smmu] Drop impl report in smmu vendor struct
- * [tegra] Add IOMMU_HW_INFO_TYPE_TEGRA241_CMDQV
- * [tegra] Replace "number of VINTFs" with a note
- * [tegra] Drop the redundant lvcmdq pointer setting
- * [tegra] Flag IOMMUFD_VIOMMU_FLAG_HW_QUEUE_READS_PA
- * [tegra] Use "vintf_alloc_vsid" for vdevice_alloc op
-v4
- https://lore.kernel.org/all/cover.1746757630.git.nicolinc@nvidia.com/
- * Rebase on v6.15-rc5
- * Add Reviewed-by from Vasant
- * Rename "vQUEUE" to "HW QUEUE"
- * Use "offset" and "length" for all mmap-related variables
- * [iommufd] Use u64 for guest PA
- * [iommufd] Fix typo in uAPI doc
- * [iommufd] Rename immap_id to offset
- * [iommufd] Drop the partial-size mmap support
- * [iommufd] Do not replace WARN_ON with WARN_ON_ONCE
- * [iommufd] Use "u64 base_addr" for queue base address
- * [iommufd] Use u64 base_pfn/num_pfns for immap structure
- * [iommufd] Correct the size passed in to mtree_alloc_range()
- * [iommufd] Add IOMMUFD_VIOMMU_FLAG_HW_QUEUE_READS_PA to viommu_ops
-v3
- https://lore.kernel.org/all/cover.1746139811.git.nicolinc@nvidia.com/
- * Add Reviewed-by from Baolu, Pranjal, and Alok
- * Revise kdocs, uAPI docs, and commit logs
- * Rename "vCMDQ" back to "vQUEUE" for AMD cases
- * [tegra] Add tegra241_vcmdq_hw_flush_timeout()
- * [tegra] Rename vsmmu_alloc to alloc_vintf_user
- * [tegra] Use writel for SID replacement registers
- * [tegra] Move mmap removal call to vsmmu_destroy op
- * [tegra] Fix revert in tegra241_vintf_alloc_lvcmdq_user()
- * [iommufd] Replace "& ~PAGE_MASK" with PAGE_ALIGNED()
- * [iommufd] Add an object-type "owner" to immap structure
- * [iommufd] Drop the ictx input in the new for-driver APIs
- * [iommufd] Add iommufd_vma_ops to keep track of mmap lifecycle
- * [iommufd] Add viommu-based iommufd_viommu_alloc/destroy_mmap helpers
- * [iommufd] Rename iommufd_ctx_alloc/free_mmap to
-             _iommufd_alloc/destroy_mmap
-v2
- https://lore.kernel.org/all/cover.1745646960.git.nicolinc@nvidia.com/
- * Add Reviewed-by from Jason
- * [smmu] Fix vsmmu initial value
- * [smmu] Support impl for hw_info
- * [tegra] Rename "slot" to "vsid"
- * [tegra] Update kdocs and commit logs
- * [tegra] Map/unmap LVCMDQ dynamically
- * [tegra] Refcount the previous LVCMDQ
- * [tegra] Return -EEXIST if LVCMDQ exists
- * [tegra] Simplify VINTF cleanup routine
- * [tegra] Use vmid and s2_domain in vsmmu
- * [tegra] Rename "mmap_pgoff" to "immap_id"
- * [tegra] Add more addr and length validation
- * [iommufd] Add more narrative to mmap's kdoc
- * [iommufd] Add iommufd_struct_depend/undepend()
- * [iommufd] Rename vcmdq_free op to vcmdq_destroy
- * [iommufd] Fix bug in iommu_copy_struct_to_user()
- * [iommufd] Drop is_io from iommufd_ctx_alloc_mmap()
- * [iommufd] Test the queue memory for its contiguity
- * [iommufd] Return -ENXIO if address or length fails
- * [iommufd] Do not change @min_last in mock_viommu_alloc()
- * [iommufd] Generalize TEGRA241_VCMDQ data in core structure
- * [iommufd] Add selftest coverage for IOMMUFD_CMD_VCMDQ_ALLOC
- * [iommufd] Add iopt_pin_pages() to prevent queue memory from unmapping
-v1
- https://lore.kernel.org/all/cover.1744353300.git.nicolinc@nvidia.com/
-
-Thanks
-Nicolin
-
-Nicolin Chen (29):
-  iommufd: Report unmapped bytes in the error path of
-    iopt_unmap_iova_range
-  iommufd: Correct virt_id kdoc at struct iommu_vdevice_alloc
-  iommufd/viommu: Explicitly define vdev->virt_id
-  iommu: Use enum iommu_hw_info_type for type in hw_info op
-  iommu: Add iommu_copy_struct_to_user helper
-  iommu: Pass in a driver-level user data structure to viommu_init op
-  iommufd/viommu: Allow driver-specific user data for a vIOMMU object
-  iommufd/selftest: Support user_data in mock_viommu_alloc
-  iommufd/selftest: Add coverage for viommu data
-  iommufd/access: Add internal APIs for HW queue to use
-  iommufd/access: Bypass access->ops->unmap for internal use
-  iommufd/viommu: Add driver-defined vDEVICE support
-  iommufd/viommu: Introduce IOMMUFD_OBJ_HW_QUEUE and its related struct
-  iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC ioctl
-  iommufd/driver: Add iommufd_hw_queue_depend/undepend() helpers
-  iommufd/selftest: Add coverage for IOMMUFD_CMD_HW_QUEUE_ALLOC
-  iommufd: Add mmap interface
-  iommufd/selftest: Add coverage for the new mmap interface
-  Documentation: userspace-api: iommufd: Update HW QUEUE
-  iommu: Allow an input type in hw_info op
-  iommufd: Allow an input data_type via iommu_hw_info
-  iommufd/selftest: Update hw_info coverage for an input data_type
-  iommu/arm-smmu-v3-iommufd: Add vsmmu_size/type and vsmmu_init impl ops
-  iommu/arm-smmu-v3-iommufd: Add hw_info to impl_ops
-  iommu/tegra241-cmdqv: Use request_threaded_irq
-  iommu/tegra241-cmdqv: Simplify deinit flow in
-    tegra241_cmdqv_remove_vintf()
-  iommu/tegra241-cmdqv: Do not statically map LVCMDQs
-  iommu/tegra241-cmdqv: Add user-space use support
-  iommu/tegra241-cmdqv: Add IOMMU_VEVENTQ_TYPE_TEGRA241_CMDQV support
-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  25 +-
- drivers/iommu/iommufd/io_pagetable.h          |   5 +-
- drivers/iommu/iommufd/iommufd_private.h       |  46 +-
- drivers/iommu/iommufd/iommufd_test.h          |  20 +
- include/linux/iommu.h                         |  50 +-
- include/linux/iommufd.h                       | 160 ++++++
- include/uapi/linux/iommufd.h                  | 147 +++++-
- tools/testing/selftests/iommu/iommufd_utils.h |  89 +++-
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     |  28 +-
- .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 477 +++++++++++++++++-
- drivers/iommu/intel/iommu.c                   |   7 +-
- drivers/iommu/iommufd/device.c                |  87 +++-
- drivers/iommu/iommufd/driver.c                |  82 ++-
- drivers/iommu/iommufd/io_pagetable.c          |  13 +-
- drivers/iommu/iommufd/main.c                  |  69 +++
- drivers/iommu/iommufd/pages.c                 |  12 +-
- drivers/iommu/iommufd/selftest.c              | 153 +++++-
- drivers/iommu/iommufd/viommu.c                | 218 +++++++-
- tools/testing/selftests/iommu/iommufd.c       | 141 +++++-
- .../selftests/iommu/iommufd_fail_nth.c        |  15 +-
- Documentation/userspace-api/iommufd.rst       |  12 +
- 21 files changed, 1745 insertions(+), 111 deletions(-)
-
--- 
-2.43.0
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h         | 3 ++-
+ include/linux/iommu.h                               | 6 +++---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 3 ++-
+ drivers/iommu/intel/iommu.c                         | 3 ++-
+ drivers/iommu/iommufd/selftest.c                    | 3 ++-
+ 5 files changed, 11 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index aa25156e04a3..3fa02c51df9f 100644
+index bb39af84e6b0..04463a4aaa26 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1045,7 +1045,8 @@ struct arm_vsmmu {
+@@ -1033,7 +1033,8 @@ struct arm_vsmmu {
  };
  
  #if IS_ENABLED(CONFIG_ARM_SMMU_V3_IOMMUFD)
@@ -442,102 +188,73 @@ index aa25156e04a3..3fa02c51df9f 100644
  size_t arm_smmu_get_viommu_size(struct device *dev,
  				enum iommu_viommu_type viommu_type);
  int arm_vsmmu_init(struct iommufd_viommu *viommu,
-diff --git a/drivers/iommu/iommufd/viommu.c b/drivers/iommu/iommufd/viommu.c
-index 00641204efb2..91339f799916 100644
---- a/drivers/iommu/iommufd/viommu.c
-+++ b/drivers/iommu/iommufd/viommu.c
-@@ -206,7 +206,11 @@ static void iommufd_hw_queue_destroy_access(struct iommufd_ctx *ictx,
- 					    struct iommufd_access *access,
- 					    u64 base_iova, size_t length)
+diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+index 04548b18df28..b87c2841e6bc 100644
+--- a/include/linux/iommu.h
++++ b/include/linux/iommu.h
+@@ -563,8 +563,7 @@ iommu_copy_struct_from_full_user_array(void *kdst, size_t kdst_entry_size,
+  * @capable: check capability
+  * @hw_info: report iommu hardware information. The data buffer returned by this
+  *           op is allocated in the iommu driver and freed by the caller after
+- *           use. The information type is one of enum iommu_hw_info_type defined
+- *           in include/uapi/linux/iommufd.h.
++ *           use.
+  * @domain_alloc: Do not use in new drivers
+  * @domain_alloc_identity: allocate an IDENTITY domain. Drivers should prefer to
+  *                         use identity_domain instead. This should only be used
+@@ -623,7 +622,8 @@ iommu_copy_struct_from_full_user_array(void *kdst, size_t kdst_entry_size,
+  */
+ struct iommu_ops {
+ 	bool (*capable)(struct device *dev, enum iommu_cap);
+-	void *(*hw_info)(struct device *dev, u32 *length, u32 *type);
++	void *(*hw_info)(struct device *dev, u32 *length,
++			 enum iommu_hw_info_type *type);
+ 
+ 	/* Domain allocation and freeing by the iommu driver */
+ #if IS_ENABLED(CONFIG_FSL_PAMU)
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+index 9f59c95a254c..69bbe39e28de 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+@@ -7,7 +7,8 @@
+ 
+ #include "arm-smmu-v3.h"
+ 
+-void *arm_smmu_hw_info(struct device *dev, u32 *length, u32 *type)
++void *arm_smmu_hw_info(struct device *dev, u32 *length,
++		       enum iommu_hw_info_type *type)
  {
--	iommufd_access_unpin_pages(access, base_iova, length);
-+	u64 aligned_iova = PAGE_ALIGN_DOWN(base_iova);
-+	u64 offset = base_iova - aligned_iova;
-+
-+	iommufd_access_unpin_pages(access, aligned_iova,
-+				   PAGE_ALIGN(length + offset));
- 	iommufd_access_detach_internal(access);
- 	iommufd_access_destroy_internal(ictx, access);
+ 	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+ 	struct iommu_hw_info_arm_smmuv3 *info;
+diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
+index 7aa3932251b2..850f1a6f548c 100644
+--- a/drivers/iommu/intel/iommu.c
++++ b/drivers/iommu/intel/iommu.c
+@@ -4091,7 +4091,8 @@ static int intel_iommu_set_dev_pasid(struct iommu_domain *domain,
+ 	return ret;
  }
-@@ -239,22 +243,23 @@ static struct iommufd_access *
- iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
- 			    struct iommufd_viommu *viommu, phys_addr_t *base_pa)
+ 
+-static void *intel_iommu_hw_info(struct device *dev, u32 *length, u32 *type)
++static void *intel_iommu_hw_info(struct device *dev, u32 *length,
++				 enum iommu_hw_info_type *type)
  {
-+	u64 aligned_iova = PAGE_ALIGN_DOWN(cmd->nesting_parent_iova);
-+	u64 offset = cmd->nesting_parent_iova - aligned_iova;
- 	struct iommufd_access *access;
- 	struct page **pages;
- 	size_t max_npages;
- 	size_t length;
--	u64 offset;
- 	size_t i;
- 	int rc;
+ 	struct device_domain_info *info = dev_iommu_priv_get(dev);
+ 	struct intel_iommu *iommu = info->iommu;
+diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
+index 74ca955a766e..7a9abe3f47d5 100644
+--- a/drivers/iommu/iommufd/selftest.c
++++ b/drivers/iommu/iommufd/selftest.c
+@@ -287,7 +287,8 @@ static struct iommu_domain mock_blocking_domain = {
+ 	.ops = &mock_blocking_ops,
+ };
  
--	offset =
--		cmd->nesting_parent_iova - PAGE_ALIGN(cmd->nesting_parent_iova);
--	/* DIV_ROUND_UP(offset + cmd->length, PAGE_SIZE) */
-+	/* max_npages = DIV_ROUND_UP(offset + cmd->length, PAGE_SIZE) */
- 	if (check_add_overflow(offset, cmd->length, &length))
- 		return ERR_PTR(-ERANGE);
- 	if (check_add_overflow(length, PAGE_SIZE - 1, &length))
- 		return ERR_PTR(-ERANGE);
- 	max_npages = length / PAGE_SIZE;
-+	/* length needs to be page aligned too */
-+	length = max_npages * PAGE_SIZE;
+-static void *mock_domain_hw_info(struct device *dev, u32 *length, u32 *type)
++static void *mock_domain_hw_info(struct device *dev, u32 *length,
++				 enum iommu_hw_info_type *type)
+ {
+ 	struct iommu_test_hw_info *info;
  
- 	/*
- 	 * Use kvcalloc() to avoid memory fragmentation for a large page array.
-@@ -274,8 +279,7 @@ iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
- 	if (rc)
- 		goto out_destroy;
- 
--	rc = iommufd_access_pin_pages(access, cmd->nesting_parent_iova,
--				      cmd->length, pages, 0);
-+	rc = iommufd_access_pin_pages(access, aligned_iova, length, pages, 0);
- 	if (rc)
- 		goto out_detach;
- 
-@@ -287,13 +291,12 @@ iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
- 		goto out_unpin;
- 	}
- 
--	*base_pa = page_to_pfn(pages[0]) << PAGE_SHIFT;
-+	*base_pa = (page_to_pfn(pages[0]) << PAGE_SHIFT) + offset;
- 	kfree(pages);
- 	return access;
- 
- out_unpin:
--	iommufd_access_unpin_pages(access, cmd->nesting_parent_iova,
--				   cmd->length);
-+	iommufd_access_unpin_pages(access, aligned_iova, length);
- out_detach:
- 	iommufd_access_detach_internal(access);
- out_destroy:
-diff --git a/tools/testing/selftests/iommu/iommufd.c b/tools/testing/selftests/iommu/iommufd.c
-index 9d5b852d5e19..d59d48022a24 100644
---- a/tools/testing/selftests/iommu/iommufd.c
-+++ b/tools/testing/selftests/iommu/iommufd.c
-@@ -3104,17 +3104,18 @@ TEST_F(iommufd_viommu, hw_queue)
- 	/* Allocate index=0, declare ownership of the iova */
- 	test_cmd_hw_queue_alloc(viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 0,
- 				iova, PAGE_SIZE, &hw_queue_id[0]);
--	/* Fail duplicate */
-+	/* Fail duplicated index */
- 	test_err_hw_queue_alloc(EEXIST, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
- 				0, iova, PAGE_SIZE, &hw_queue_id[0]);
- 	/* Fail unmap, due to iova ownership */
- 	test_err_ioctl_ioas_unmap(EBUSY, iova, PAGE_SIZE);
- 	/* The 2nd page is not pinned, so it can be unmmap */
--	test_ioctl_ioas_unmap(iova + PAGE_SIZE, PAGE_SIZE);
-+	test_ioctl_ioas_unmap(iova2, PAGE_SIZE);
- 
--	/* Allocate index=1 */
-+	/* Allocate index=1, with an unaligned case */
- 	test_cmd_hw_queue_alloc(viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 1,
--				iova, PAGE_SIZE, &hw_queue_id[1]);
-+				iova + PAGE_SIZE / 2, PAGE_SIZE / 2,
-+				&hw_queue_id[1]);
- 	/* Fail to destroy, due to dependency */
- 	EXPECT_ERRNO(EBUSY, _test_ioctl_destroy(self->fd, hw_queue_id[0]));
- 
+-- 
+2.43.0
+
 
