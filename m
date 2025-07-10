@@ -4,98 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D44C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 12:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D868CC83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 12:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5JO/Qlx6QEcthLvC0sGmt+qm/PZ0F4XLP2KPhYGX+AQ=; b=Hwot+fN0hnbym3ct17U+ZVnt49
-	SaUCVtBoKT0XstLldZcUTuQhmHl0qsOvBvImI65ASKh54IKjRtt++wly47b3fs8u97CrYO56GcVIM
-	b32nSA56DblM9isYo/JuA2Bv3fzyDit990j5NDmxykoWxX7n4vzcuLB+NygcLk6rjb0nEox72ja3U
-	xWYJLpfZTSt2rUh2BiHeShYKSY1X0JnzfPadLC/AEj2SFkCg1xHjSEoxAggk03otUNxGsdzZmpSku
-	gym2iaSXvrd0/dMFxj4c8xtPxVX/fs1yNWlzoNUVVBVo/3EPsyneRtHY9oNgNQrQ3xRLPFcKFWpG6
-	1aMajJcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mTdWDS/zFUPThQCH/zowB4DE9FZW+pbIK3mxmJFS8GY=; b=SZl2Fe6fjblhmBV33VNAQel2Az
+	fPSw3w0dVM8VqJhDfnTFESWgg+MWa7kvSmNMLT/I2DqfnH+byFbt+E6LwlON/fS/bvkvT8GBDYUJm
+	GKZuXRz7SyRlQ5hbim5+Swy/Ma7CMt8Giu+Wc9f492FmJhopMkXbrluZdNOuoJn0pZ6NW05ALgG8h
+	ZeQmL6MA7KRFenVHo05EzI6qms8gVt2k8WkSUh/vkE7C/WBUkKbqEvRouojZd96hY+8nMf8xeyJsw
+	0Rb4p0XdkoiFI7WLHE9m57ezrMbuPjEZhIklig26xkyDxaUAfbjwLVQ7Zmjd/JxNlaCJDvUol0TTW
+	Q/bPApWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqX6-0000000BnbY-0oAW;
-	Thu, 10 Jul 2025 12:37:48 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1uZqZP-0000000Bnq0-3mxW;
+	Thu, 10 Jul 2025 12:40:12 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZp9l-0000000BafI-21pk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 11:09:38 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-23dd9ae5aacso132815ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 04:09:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752145777; x=1752750577; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=5JO/Qlx6QEcthLvC0sGmt+qm/PZ0F4XLP2KPhYGX+AQ=;
-        b=g5ROUfCtqmH/c3U1zabg+RRn7/3kHwf4363SgshadIbUdxQt60Ma0SeJB3F1g1iMB4
-         iOqHPi1AErzA8AreiYOeuqvZppErwn7MYtJNoGH2i52AbTZteDmTbA0U0SKvnUfGbN/s
-         DPAARX6+LVZf3qWI7HTjPSKXr1pRhDKhhIwQTJUg1ijci+QudUjKgy81uwz41U6mCG7I
-         nLDoZklqGSGw9v5CWJEPZGzfSaYwXTIeK2GTkf8D1iJiZ413WAbqK1/Rfb/a6jYb/tCK
-         EL6pkTCaRNw/3nZx+JYHg8nfDbSBt3Q9HBAcY1B2xnZpvez1oHd4Re+CbyUWINaCokRu
-         h9og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752145777; x=1752750577;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5JO/Qlx6QEcthLvC0sGmt+qm/PZ0F4XLP2KPhYGX+AQ=;
-        b=AoP5/CD7kZMrYV4NMKQ4e/zhzl4ZKo3pPNeCJgJle7Zb1u8O/6XiEbsmQOFtXkpp5d
-         X2qIdcnyCIH3mPuX6b3Xze8BdtRVmF06WORNehUMnSi40W/fZISvA8MWkbsDm7zBnanu
-         4vuzKWD2rwIRoJr8aJuX+0hiQ+uBe5KXBNAO9mA2/whyUw7eaPxVoRg1+a3PImmsqLEo
-         s0/+idh8FIurlIgkK2fp3JVUBWPwcjrTcRyXIVGVmEv3p6pDE9uR58Aw9wCoeaGviH4/
-         NHR0ZorGQgXuriGy8QualEc3D2tNpvO8VtlfEFH65+PwTkEim1SJIomXLTrStf5VQhmd
-         i5Dw==
-X-Forwarded-Encrypted: i=1; AJvYcCVVEPYrOwP0tx+DxNNLg8JPi+/1tVqgmGM2WS4e6y+ITsWNXajfsd5GNS6NDMNOaIckyG9WmHt1qDjNVnzg2r/9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqGOdq1gGg3v0SjglxPARh4yY5Xj8vwYAtJNfWo47VYm7sR5bx
-	x0714B9wlW40070BtI1hi9lr+rZfIPTWJef054NJPkM2KZFfSJcEFSJC6kn/I0G2Bg==
-X-Gm-Gg: ASbGncssNsF0FXIrgtDMCp1KkwzLVIafHFB/aoYGBNkRj9mEIj4ZYdNjFYiJ/DMLkvq
-	TX6E17t9ce53uUXNSyn+aar1BDzFWJL0vzw2V0IZVwke2Y8ADCaKYwikF4wV9Q1Km6xBH5niMex
-	Gtftj2AlPNomtUjMf1aJO7eyNBsu6k+8K3XoswgFxUBsSUXp6CwbocA22EH+OxUWHVe+IZXuThE
-	BOzGSkfpBpElSgIl8uBiGsKpbXk7/i4J7+vnlwVeX3tuw7iUoN/C5SCg+eeWG8K4Cs0bpo7qQLc
-	EyhJo5sSFSmbsEK0hTFUB8z1ucft7IOSSTlGXTkKk0TKO79ysZuBbzcxsZqPylsRKrKZq8gJOOD
-	BYw1T1aNKk8po1cUTDLT6
-X-Google-Smtp-Source: AGHT+IFn1YIIoN9D12OH+6EFBum3x9hdmg0bQvNt4lFk/nH2gQNwHagVfZTJ5ra5fh+Eufg2l4KArw==
-X-Received: by 2002:a17:903:120b:b0:237:e45b:4f45 with SMTP id d9443c01a7336-23de4314a3cmr2237805ad.1.1752145776361;
-        Thu, 10 Jul 2025 04:09:36 -0700 (PDT)
-Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31c3007e53fsm4845325a91.19.2025.07.10.04.09.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 04:09:35 -0700 (PDT)
-Date: Thu, 10 Jul 2025 11:09:26 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net,
-	bagasdotme@gmail.com, will@kernel.org, robin.murphy@arm.com,
-	joro@8bytes.org, thierry.reding@gmail.com, vdumpa@nvidia.com,
-	jonathanh@nvidia.com, shuah@kernel.org, jsnitsel@redhat.com,
-	nathan@kernel.org, peterz@infradead.org, yi.l.liu@intel.com,
-	mshavit@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v9 22/29] iommufd/selftest: Update hw_info coverage for
- an input data_type
-Message-ID: <aG-fZv39ci6yip3z@google.com>
-References: <cover.1752126748.git.nicolinc@nvidia.com>
- <f01a1e50cd7366f217cbf192ad0b2b79e0eb89f0.1752126748.git.nicolinc@nvidia.com>
+	id 1uZpD7-0000000Bb9W-2Gjv;
+	Thu, 10 Jul 2025 11:13:07 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 9065120E4B;
+	Thu, 10 Jul 2025 13:13:01 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id GEsDnv1RYoAT; Thu, 10 Jul 2025 13:13:00 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1752145980; bh=9/R3I2QTvmAT11keXIpb9oxTfzuCpNx6iVbeNs8GKZ4=;
+	h=From:Date:Subject:To:Cc;
+	b=ejolLtlCHS97Q1CYEqWwE0gQlrPQw7JSZkvhf6n+/CrhWa1jkT9GMnZUj0FDP+hBp
+	 ihfPgVCgUYva5wryaflZjvltbfLC+O+kEkQqAhXXrNncS2MbWieZN2btBeGHNQFULT
+	 nPi04s7nlGAsO2B+LJoQHJTLC/+xnYmf6JrLIntfOr5RdSMV22LR4p9ZvLbGpy2V2J
+	 D4DmS+WgOyV0D1/igyKdVK3haZodOrgNH0gdNw1G0lDtOfvPdbslvVYgy5GVfPG297
+	 hXkTSALlq2r7GMrIO0rrmv78f6Qke4FOHuanwRpnACUreNx3QqWd5KaUzAP/MuKFlI
+	 oM2NSCdWX9ttg==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Date: Thu, 10 Jul 2025 16:42:48 +0530
+Subject: [PATCH v2] phy: exynos-mipi-video: correct cam0 sysreg property
+ name for exynos7870
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <f01a1e50cd7366f217cbf192ad0b2b79e0eb89f0.1752126748.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250710-exynos7870-mipi-phy-fix-v2-1-5cf50d69c9d7@disroot.org>
+X-B4-Tracking: v=1; b=H4sIAC+gb2gC/3WNQQqDMBBFryKz7pQxJY3tynsUF2omOosaSSQo4
+ t2bCl12+R7893eIHIQjPIsdAieJ4qcM6lJAP7bTwCg2MyhSmu5KI6/b5KOpDOFbZsF53NDJiub
+ GpNlVD0s95PUcOOuz/GoyjxIXH7bzKJVf+2uav81UIqFidm1XdZqsq63E4P1y9WGA5jiODzI1u
+ PfAAAAA
+X-Change-ID: 20250625-exynos7870-mipi-phy-fix-73e05ef89d0c
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752145974; l=1740;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=9/R3I2QTvmAT11keXIpb9oxTfzuCpNx6iVbeNs8GKZ4=;
+ b=6zaZcpyBYmtLQRw2NAbiS13U61IX/RUnZZ3bzEL0nX80n8mv9RvaT2jnG/9yjwHrWTu90FXDx
+ uNwFk+7suv+B/95Y73oY1OLSWQhtOS0DQ2Pa/Kna1vnYtDKvCKO3YfA
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_040937_546710_48E94BFE 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250710_041305_998689_D1323E3E 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,71 +88,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 10:59:14PM -0700, Nicolin Chen wrote:
-> Test both IOMMU_HW_INFO_TYPE_DEFAULT and IOMMU_HW_INFO_TYPE_SELFTEST, and
-> add a negative test for an unsupported type.
-> 
-> Also drop the unused mask in test_cmd_get_hw_capabilities() as checkpatch
-> is complaining.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Fix the cam0 sysreg property name (samsung,cam0-sysreg), which has been
+erroneously declared as samsung,cam-sysreg. This follows the same name
+used in Exynos5433 PHY.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Fixes: 543f5e314282 ("phy: exynos-mipi-video: introduce support for exynos7870")
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+A few issues have been realized after Exynos7870 MIPI PHY support got
+merged [1], this patch series aims to address them.
 
-Note: I see a couple of warnings while building the selftests on Jason's
-tree, but these seem unrelated to this series:
+More information about the fixes is provided in respective commit
+descriptions.
 
-make -C tools/testing/selftests TARGETS=iommu
-make: Entering directory '/usr/local/google/home/praan/master/iommufd/iommufd/tools/testing/selftests'
-  CC       iommufd
-In file included from iommufd.c:12:
-In function ‘_test_ioctl_ioas_map_file’,
-    inlined from ‘iommufd_mock_domain_all_aligns’ at iommufd.c:1789:5,
-    inlined from ‘wrapper_iommufd_mock_domain_all_aligns’ at iommufd.c:1757:1:
-iommufd_utils.h:679:36: warning: ‘mfd’ may be used uninitialized [-Wmaybe-uninitialized]
-  679 |         struct iommu_ioas_map_file cmd = {
-      |                                    ^~~
-iommufd.c: In function ‘wrapper_iommufd_mock_domain_all_aligns’:
-iommufd.c:1766:13: note: ‘mfd’ was declared here
- 1766 |         int mfd;
-      |             ^~~
-In function ‘_test_ioctl_ioas_map_file’,
-    inlined from ‘iommufd_mock_domain_all_aligns_copy’ at iommufd.c:1843:5,
-    inlined from ‘wrapper_iommufd_mock_domain_all_aligns_copy’ at iommufd.c:1809:1:
-iommufd_utils.h:679:36: warning: ‘mfd’ may be used uninitialized [-Wmaybe-uninitialized]
-  679 |         struct iommu_ioas_map_file cmd = {
-      |                                    ^~~
-iommufd.c: In function ‘wrapper_iommufd_mock_domain_all_aligns_copy’:
-iommufd.c:1818:13: note: ‘mfd’ was declared here
- 1818 |         int mfd;
-      |             ^~~
-In file included from iommufd_utils.h:11:
-In function ‘_test_cmd_get_hw_info’,
-    inlined from ‘iommufd_ioas_get_hw_info’ at iommufd.c:792:3,
-    inlined from ‘wrapper_iommufd_ioas_get_hw_info’ at iommufd.c:752:1:
-iommufd_utils.h:812:37: warning: array subscript ‘struct iommu_test_hw_info[0]’ is partly outside array bounds of ‘struct iommu_test_hw_info_buffer_smaller[1]’ [-Warray-bounds=]
-  812 |                         assert(!info->flags);
-      |                                 ~~~~^~~~~~~
-iommufd.c: In function ‘wrapper_iommufd_ioas_get_hw_info’:
-iommufd.c:761:11: note: object ‘buffer_smaller’ of size 4
-  761 |         } buffer_smaller;
-      |           ^~~~~~~~~~~~~~
-  CC       iommufd_fail_nth
-make: Leaving directory '/usr/local/google/home/praan/master/iommufd/iommufd/tools/testing/selftests'
+[1] https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
+---
+Changes in v2:
+- tweaked commit message of [v1 1/2] (krzk)
+- dropped useless patch [v1 2/2]
+- Link to v1: https://lore.kernel.org/r/20250627-exynos7870-mipi-phy-fix-v1-0-2eefab8b50df@disroot.org
+---
+ drivers/phy/samsung/phy-exynos-mipi-video.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> ---
->  tools/testing/selftests/iommu/iommufd_utils.h | 33 +++++++++++--------
->  tools/testing/selftests/iommu/iommufd.c       | 32 +++++++++++++-----
->  .../selftests/iommu/iommufd_fail_nth.c        |  4 +--
->  3 files changed, 46 insertions(+), 23 deletions(-)
->
+diff --git a/drivers/phy/samsung/phy-exynos-mipi-video.c b/drivers/phy/samsung/phy-exynos-mipi-video.c
+index b184923b9b400f0d536a913bdf32f3156c0a1854..be925508ed97a397239bd41f34b61ead20d04d27 100644
+--- a/drivers/phy/samsung/phy-exynos-mipi-video.c
++++ b/drivers/phy/samsung/phy-exynos-mipi-video.c
+@@ -218,7 +218,7 @@ static const struct mipi_phy_device_desc exynos7870_mipi_phy = {
+ 	.regmap_names = {
+ 		"samsung,pmu-syscon",
+ 		"samsung,disp-sysreg",
+-		"samsung,cam-sysreg"
++		"samsung,cam0-sysreg"
+ 	},
+ 	.num_phys = 4,
+ 	.phys = {
 
-[...]
+---
+base-commit: 26ffb3d6f02cd0935fb9fa3db897767beee1cb2a
+change-id: 20250625-exynos7870-mipi-phy-fix-73e05ef89d0c
 
-> -- 
-> 2.43.0
-> 
+Best regards,
+-- 
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
-Thanks,
-Praan
 
