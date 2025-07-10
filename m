@@ -4,91 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B934DC83F17
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2600C83F1B
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gkCNSIJipCtJ8F7BWcSLctUsRTjVD/kU0v4Esvy09U=; b=hFW0UuCxxR0RlZ2+cK5Lmm/sxN
-	izMZWtje8SUGUyiVZBzeuNQzyiZgAho3L/yyyfzU/WrZVsf5P9lW0Fa3mhj6ydAfPIM+8/pOjlv2q
-	sAY3Kzq0c8uxmLei0Hw5tUS2P9xjHwk6NIOMpoJXw8hFzoFakgUiD59mgMGenwlRM+GP09rHfLRhR
-	NvMbsv93stj8PCxX0FaE4FnFkha6gGwxlY7Guk449U3NqBgl4rabBBoCzP7h0mmhRk+88Y+S/RolD
-	tMX/IyA7SA06zrYb/p2xOcJwke4UA23OjQa/hI+qvj0D9xEFdtz7Js4l46Sx91AykoESeKKhPhoNA
-	HeeP7fvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gw30Y6WkVEyr8WWdYrluQA7lvl9tRE1oABhggmxjS0g=; b=QGctQBYzpTM05KVr29fc39Z8Mx
+	EfHMyXwCuiHkhrxz0a15rK66suhl9eBZzysrl0C5mowk6x2Gghtvt26ykXdqL6x1BJk7TbAt8dJoR
+	PeuUccrBA876j7Lu94i533fKjzV8CZVRsigr21luiZtrp5dGc5LRLVR/BxQwAhWAoMOxPksE4q1T+
+	+q0ngS5IXxSGZ60nRoyq833m8m08S2V6Qi0xU/vHDoNtBElxD/N4fLM1ax20vsybxRRwEipGreMkZ
+	lVqdBggwmlMmHyfQuvX2vRSnFf2F5ef/Qg/pZ1XNgM2gnkrrVaAMvOvjsOCIS6un2QOSpcKEnfvhz
+	DB9ao98Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZu6I-0000000COIf-1jlK;
-	Thu, 10 Jul 2025 16:26:22 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZrar-0000000Bzb8-34sf
+	id 1uZu6D-0000000COG4-0w3O;
+	Thu, 10 Jul 2025 16:26:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZrRT-0000000Bx6M-3TFn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 13:45:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7007344451;
-	Thu, 10 Jul 2025 13:45:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752155142;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1gkCNSIJipCtJ8F7BWcSLctUsRTjVD/kU0v4Esvy09U=;
-	b=WOhs+UknWDnRTs/K6H+DNs0ElTRI5p15wW1eoN94RTLcSU0l6hiEtOA0G6efJz+0W+JPRx
-	MAXJYvKzY3zrMBV6aT8gGGiU0YMOHKfm33TJWYlXeFbXa2tFqZFeQDSXuYWeRdQ92qVUCG
-	84AobJKjrjY1NwTlU+QQdCwIgj45vlmkj3yyB1iTvUMZdwYb34T+TJ6RgswWPzr7eLEYqG
-	TKXb6Sv3VkSj753quEdNVpD8tQTsgOqPSrwj8qBV54tlnKLFrOpHMNS0MkfA68G7p4qHVP
-	RRAHm0447lYNeMmRPhkWsQtp5+mYVF7z2cUWtAgCZ0oDbbCAdDFAogXMiUpDQA==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v8 02/15] net: ethtool: common: Indicate that BaseT works on up to 4 lanes
-Date: Thu, 10 Jul 2025 15:45:19 +0200
-Message-ID: <20250710134533.596123-3-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250710134533.596123-1-maxime.chevallier@bootlin.com>
-References: <20250710134533.596123-1-maxime.chevallier@bootlin.com>
+	Thu, 10 Jul 2025 13:36:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 13EDB1EA6;
+	Thu, 10 Jul 2025 06:35:49 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7AE63F6A8;
+	Thu, 10 Jul 2025 06:35:59 -0700 (PDT)
+Date: Thu, 10 Jul 2025 14:35:57 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Breno Leitao <leitao@debian.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, ankita@nvidia.com,
+	bwicaksono@nvidia.com, rmk+kernel@armlinux.org.uk,
+	catalin.marinas@arm.com, linux-serial@vger.kernel.org,
+	rmikey@meta.com, linux-arm-kernel@lists.infradead.org,
+	usamaarif642@gmail.com, linux-kernel@vger.kernel.org,
+	paulmck@kernel.org
+Subject: Re: arm64: csdlock at early boot due to slow serial (?)
+Message-ID: <20250710133557.GA1093654@e132581.arm.com>
+References: <aGVn/SnOvwWewkOW@gmail.com>
+ <aGZbYmV26kUKJwu_@J2N7QTR9R3>
+ <aGaQBghdAl8VGWmV@gmail.com>
+ <aGawTd8N2i8MDCmL@J2N7QTR9R3>
+ <aG0kYjl/sphGqd4r@gmail.com>
+ <juiog3337iozva23zpf4apdydegj4z7jibqykfvcgnkabemw4w@z5g5hhwrqr2w>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdegtdehlecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkv
- ghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <juiog3337iozva23zpf4apdydegj4z7jibqykfvcgnkabemw4w@z5g5hhwrqr2w>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_064545_901589_FAD0AA5C 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250710_063603_958175_70ABFA2C 
+X-CRM114-Status: GOOD (  36.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,61 +71,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The way BaseT modes (Ethernet over twisted copper pairs) are represented
-in the kernel are through the following modes :
+Hi Breno,
 
-  ETHTOOL_LINK_MODE_10baseT_Half
-  ETHTOOL_LINK_MODE_10baseT_Full
-  ETHTOOL_LINK_MODE_100baseT_Half
-  ETHTOOL_LINK_MODE_100baseT_Full
-  ETHTOOL_LINK_MODE_1000baseT_Half
-  ETHTOOL_LINK_MODE_1000baseT_Full
-  ETHTOOL_LINK_MODE_2500baseT_Full
-  ETHTOOL_LINK_MODE_5000baseT_Full
-  ETHTOOL_LINK_MODE_10000baseT_Full
-  ETHTOOL_LINK_MODE_100baseT1_Full
-  ETHTOOL_LINK_MODE_1000baseT1_Full
-  ETHTOOL_LINK_MODE_10baseT1L_Full
-  ETHTOOL_LINK_MODE_10baseT1S_Full
-  ETHTOOL_LINK_MODE_10baseT1S_Half
-  ETHTOOL_LINK_MODE_10baseT1S_P2MP_Half
-  ETHTOOL_LINK_MODE_10baseT1BRR_Full
+On Wed, Jul 09, 2025 at 07:23:44AM -0700, Breno Leitao wrote:
+> On Tue, Jul 08, 2025 at 07:00:45AM -0700, Breno Leitao wrote:
+> > On Thu, Jul 03, 2025 at 05:31:09PM +0100, Mark Rutland wrote:
+> > 
+> > Here is more information I got about this problem. TL;DR: While the
+> > machine is booting, it is throttled by the UART speed, while having IRQ
+> > disabled.
+> 
+> quick update: I've identified a solution that significantly improves the
+> situation. I've found that the serial issue was heavily affecting boot
+> time, which is unleashed now.
+> 
+> After applying the following fix, the boot speed has improved
+> dramatically. It's the fastest I've seen, and the CSD lockups are gone.
 
-The baseT1* modes explicitly specify that they work on a single,
-unshielded twister copper pair.
+Thanks for trying to fix the issue.
 
-However, the other modes do not state the number of pairs that are used
-to carry the link. 10 and 100BaseT use 2 twisted copper pairs, while
-1GBaseT and higher use 4 pairs.
+> If no concerns raise in the next days, I will send it officially to the
+> serial maintainers.
 
-although 10 and 100BaseT use 2 pairs, they can work on a Cat3/4/5+
-cables that contain 4 pairs.
+I am not an expert on the PL011 driver, however, I do have concerns
+after review the change. Please see my comments below.
 
-Change the number of pairs associated to BaseT modes to indicate the
-allowable number of pairs for BaseT. Further commits will then refine
-the minimum number of pairs required for the linkmode to work.
+> Author: Breno Leitao <leitao@debian.org>
+> Date:   Wed Jul 9 05:57:06 2025 -0700
+> 
+>     serial: amba-pl011: Fix boot performance by switching to console_initcall()
+> 
+>     Replace arch_initcall() with console_initcall() for PL011 driver initialization
+>     to resolve severe boot performance issues.
 
-BaseT1 modes aren't affected by this commit.
+pl011_init() registers as an AMBA device, so the PL011 driver depends
+on the AMBA bus initialization. The AMBA bus is initialized with:
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- net/ethtool/common.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+    postcore_initcall(amba_init);
 
-diff --git a/net/ethtool/common.c b/net/ethtool/common.c
-index d62dc56f2f5b..17ee0efc7bc3 100644
---- a/net/ethtool/common.c
-+++ b/net/ethtool/common.c
-@@ -267,7 +267,7 @@ static_assert(ARRAY_SIZE(link_mode_names) == __ETHTOOL_LINK_MODE_MASK_NBITS);
- #define __LINK_MODE_LANES_LR8_ER8_FR8	8
- #define __LINK_MODE_LANES_LRM		1
- #define __LINK_MODE_LANES_MLD2		2
--#define __LINK_MODE_LANES_T		1
-+#define __LINK_MODE_LANES_T		4
- #define __LINK_MODE_LANES_T1		1
- #define __LINK_MODE_LANES_X		1
- #define __LINK_MODE_LANES_FX		1
--- 
-2.49.0
+Therefore, the PL011 driver is initialized with arch_initcall(), which
+occurs later than the postcore init.
 
+My understanding is that console_initcall() is invoked much earlier
+than other initcalls triggered by do_initcalls(). With your change, I
+saw the PL011 driver fails to register on Juno-r2 board, due to AMBA bus
+driver is not ready for a console init.
+
+  Driver 'uart-pl011' was unable to register with bus_type 'amba'
+  because the bus was not initialized.
+
+>     The current arch_initcall() registration causes the console to initialize
+>     before the printk subsystem is ready, forcing the driver into atomic mode
+>     during early boot. This results in:
+> 
+>     - 5-8 second boot delay while ~700 boot messages are processed
+>     - System freeze with IRQs disabled during message output
+>     - Each character transmitted synchronously with cpu_relax() polling
+> 
+>     This is what is driving the driver to atomic mode in the early boot:
+> 
+>       static inline void printk_get_console_flush_type(struct console_flush_type *ft)
+>       {
+>             ....
+>             if (printk_kthreads_running)
+>                     ft->nbcon_offload = true;
+> 
+>     The atomic path processes each character individually through
+>     pl011_console_putchar(), waiting for UART transmission completion
+>     before proceeding. With only one CPU online during early boot,
+>     this creates a bottleneck where the system spends excessive time
+>     in interrupt-disabled state.
+
+The atomic path is introduced recently by the commit:
+
+  2eb2608618ce ("serial: amba-pl011: Implement nbcon console")
+
+My conclusion is that changing the initcall will not disable the atomic
+path, changing to console_initcall() will cause AMBA device init
+failure, and as a result, the clock operations will not be invoked.
+Thus, I am curious if you have ruled out the issue is caused by the UART
+clock (as I mentioned in another reply).
+
+BTW, since the atomic path is enabled in the commit 2eb2608618ce, what
+is the result after reverting the commit?
+
+Thanks,
+Leo
+
+>     Here is how the code looks like:
+> 
+>       1) disable interrupt
+>       2) for each of these 700 messages, call pl011_console_write_atomic()
+>       3) for each character in the message, calls pl011_console_putchar(),
+>          which waits for the character to be transmitted
+>       4) once all the line is transmitted, wait for the UART to be idle
+>       5) re-enable interrupt
+> 
+>     Here is the code representation of the above:
+> 
+>             pl011_console_write_atomic() {
+>                     ...
+>                     // For each char in the message
+>                     pl011_console_putchar() {
+>                             while (pl011_read(uap, REG_FR) & UART01x_FR_TXFF)
+>                                     cpu_relax();
+>                     }
+>                     while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
+>                             cpu_relax();
+> 
+>     Using console_initcall() ensures proper initialization order,
+>     allowing the printk subsystem to use threaded output instead
+>     of atomic mode, eliminating the performance bottleneck.
+> 
+>     Performance improvement: 16x faster kernel boot time at my GRACE SoC
+>     machine.
+> 
+>       - Before: 10.08s to reach init process
+>       - After: 0.62s to reach init process
+> 
+>     Here are more timing details, collected from Linus' upstream, where the
+>     only different is this patch:
+> 
+>     Linus upstream:
+>       [    0.616203] printk: legacy console [netcon_ext0] enabled
+>       [    0.627469] Run /init as init process
+>       [    0.837477] loop: module loaded
+>       [    8.354803] Adding 134199360k swap on /swapvol/swapfile.
+> 
+>     With this patch:
+>       [    0.305109] ARMH0011:00: ttyAMA0 at MMIO 0xc280000 (irq = 66, base_baud = 0) is a SBSA
+>       [   10.081742] Run /init as init process
+>       [   13.288717] loop: module loaded
+>       [   22.919934] Adding 134199168k swap on /swapvol/swapfile.
+> 
+>     Link: https://lore.kernel.org/all/aGVn%2FSnOvwWewkOW@gmail.com/ [1]
+> 
+>     Signed-off-by: Breno Leitao <leitao@debian.org>
+> 
+> diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
+> index 22939841b1de..0cf251365825 100644
+> --- a/drivers/tty/serial/amba-pl011.c
+> +++ b/drivers/tty/serial/amba-pl011.c
+> @@ -3116,7 +3116,7 @@ static void __exit pl011_exit(void)
+>   * While this can be a module, if builtin it's most likely the console
+>   * So let's leave module_exit but move module_init to an earlier place
+>   */
+> -arch_initcall(pl011_init);
+> +console_initcall(pl011_init);
+>  module_exit(pl011_exit);
+> 
+>  MODULE_AUTHOR("ARM Ltd/Deep Blue Solutions Ltd");
+> 
+> 
+> 
+> 
+> 
 
