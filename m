@@ -4,87 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E8AC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A73BC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IlZgkHsxN8ZXtcGrfVzgc7A5zah0HXAJABQ2cFxyfyc=; b=PU/wcT3Fpm3xT7DeZtKYzoGvss
-	ovw0DO3MhDwWxxC256D4y5KBHdYbLnk2R9NOeydV8OanmTE4o7JTxq72HazZvdVbE4PD7P3C0mcvD
-	1VJCwTQQhxE/YtzCOmr2C/GCyfqb6WTe96y6J/YtZHdFWZryWYzVHOky0YS+Q5sf4a4PwWcg6IYmc
-	RRHk5f8BjgrlOyrAVf81uxLHLDdGEUTDhj+eRRGBS6dPqBEDQeQ+mRdJlFBYGUBIIfzGONbRHhXGn
-	uy1luViF3gMCh679qB7s0Z5m4um5+7MaVXdn9pTkQAEnlZqtn9ZyDayvejOrJZQ0X7l2taaG7BS6N
-	eFwvhiNw==;
+	bh=1R+U0CebmJbljymWPxgVCZRNpk9qD04ZIGJJD4Qp/qA=; b=jrKz8VxbYlGN8VE+HXmmnKzJpX
+	6ZOptTrmx+WO/21XEA1jtTNDZFlZucDgdAl2mizQex+mQnPKsoeKEPot7zKAzJsV5tYKv415RtaYK
+	vQfKkWSekpO5y0CxlOHY6Eb5r+JbsG8KvrxdM5OPZbYDlmorUtJjIf4NtTQlQIdfA0HwB2/Q36NO/
+	TZ5G1/FZm+NQJtGiRDDQzPyAlxRXv8HLks6j/jYiapssJaZqVNkdsViFXxm7tF5TJyIfDC9+TUnWR
+	ntr0K2ylve7S/dJhBXWOYpznzjlHEFPzE9wFSIixiIj2ck+X8SLQmTg8mFyOTyESkxgoQkZynEnPM
+	LeN3glmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZuB5-0000000CSId-1NtZ;
-	Thu, 10 Jul 2025 16:31:19 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1uZuDP-0000000CSlL-0gn6;
+	Thu, 10 Jul 2025 16:33:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZsSu-0000000C9Ik-39KY
+	id 1uZsTe-0000000C9QU-07g9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 14:41:38 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-717b580ff2aso10234497b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 07:41:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752158496; x=1752763296; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IlZgkHsxN8ZXtcGrfVzgc7A5zah0HXAJABQ2cFxyfyc=;
-        b=UhMOw9A69W2cPmzgt06BW+M3T5ybqqplhrN4Cz6BJ+A5e2V9FqbGS/xWiVMPVUAX/U
-         w/M0a5In60YQXGlBkan5LF+znm6dIBAhJwAMcfhMpALkIHpJkyVTPaeOQKxZAuEVz8x0
-         +4xVtF/2q4pNydowreeWl/JZuQbBdLbJ4yCbcokA91k3Ik+DcD9zQpYD6mc3rS3lgUtR
-         jzRlTtiAsYc+Ivs67JnDSuPPhcWbWLlzOooNojcZhSbS0+kxYVfUSe01kL21T/jOxypm
-         44vj1wAVUjZnfyK6/0f+lqtH3wga6SvJygx6uaAXYkr63BfbsdQ6eUqTiL4j8oBQNfnR
-         FtjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752158496; x=1752763296;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IlZgkHsxN8ZXtcGrfVzgc7A5zah0HXAJABQ2cFxyfyc=;
-        b=jk/l/b0/Kg5C8vs9luU9hDu+O0rwo9Fv8mjD69hVqPpb5PGawzLen4uDIAsiFd3da/
-         RoCYttfmUhXlix4+TTCfL6RCQoHQbuwEPGVqO3R5MZR1Tk2q7Puf2RVpefDwD9Y2XpZv
-         pBfxqvPZ8Q/MJXXtgwqyHNKtCZsWX0ffJwI8y0Mut6zzbA3OEe0An3T7Htn4OLkonnHX
-         6wpwuHgF38X9UChP7zv6LqEIFj4b4MphUxmBkXfQz2EDv+fsSx1tPSletB28pZh6rFqY
-         E7xfuN2MmHGSxNm04yLESrW027BbBJxzN5fSZhZmLrgDVJXZE6zcok1G8+V+CqGnLuyG
-         0q6g==
-X-Forwarded-Encrypted: i=1; AJvYcCXK3NPlsS81QGkM2YFonJTfdVpfSpp5ieDhCcDWd5zgkJozOqGsxByWteIu+h/d92JsH86rO1f9IJcC2/ZaJwID@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxh8Mn6fY2QLwTg81hx14B0JVQZ97E8NbQoFKGN7NH/sMPGzPLe
-	hP8WfMEHKW+76OGxDS/NfiJPjxY1wGodAbUzpTIx0EB+fL7eZOPO+zwO3E5ZASuugA7yc3xfefO
-	y0k249ZITayS+edNhbOij0ofbaI7bAALI+7Ia7+VNYg==
-X-Gm-Gg: ASbGncvZjn8XyiibRT7Tmpcdi0M86dV1N4ntmlOlVlkSDhPdEvCj8fO8HDXb1X6174V
-	YhOTeQohoEcP5TtWJRD88gKhvdmYwKf8tTOo4m0E+Gv0YbtmLT06iZRwQ3KSs9pxkafLvuBuV4Q
-	zs8lGJM+9dmoTtRU54mTEvlUKttO3MMZpTUezfRcpCaPY=
-X-Google-Smtp-Source: AGHT+IHVD6gPsHq+Dexvu9tOsagl+k20PpDSEAg/CCtZ6R9oh9y4FIYINC4cgMj3d0zJYPGC/y7DQa6nR8qkXx9Q06g=
-X-Received: by 2002:a05:690c:d90:b0:6fb:b8a1:d3bb with SMTP id
- 00721157ae682-717b19cb233mr100039137b3.17.1752158495634; Thu, 10 Jul 2025
- 07:41:35 -0700 (PDT)
+	Thu, 10 Jul 2025 14:42:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 28374A54B52;
+	Thu, 10 Jul 2025 14:42:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 556F8C4CEE3;
+	Thu, 10 Jul 2025 14:42:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752158540;
+	bh=cGsJFEUNnvKczNc3UG/ZDVjX4WuRlfzWnHuYaO16hag=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IOGaIGFeaJ5ie2nPG2D1IXJK1pghqjbFqmYLOUcS8UNhHaLNWbzDdZQltnacZIZpJ
+	 pta2YMAx5b8HxAdS0vaYYjvD75Gu2Lrl465IOL8sfwggpQ+9xyYaXGBYFxtpXCtuDA
+	 JXTwWeuGywUtBTUMPBtTapwnnYm/PxOzTNRrEVhRLaPUYp1+avmUIXoWqDwLAIRD6u
+	 4n+7xZ+ag0yjWXFdyACLh/apnyuaULPxxbimhMLKrLvah21gfPm+nVENXKxvZ7AwpD
+	 AXQ8xvruLLzV0X3TmmcTCU91WS/e9UrZXa8VYm6bnFkvVkjlnUo0rrqE6lS7U5Ahjv
+	 dxrIi9aTZ27aA==
+Message-ID: <bb6bc232-cc3e-4689-952f-88cf580604fb@kernel.org>
+Date: Thu, 10 Jul 2025 16:42:16 +0200
 MIME-Version: 1.0
-References: <20250709154728.733920-1-daniel.lezcano@linaro.org>
- <CAJZ5v0ixk5hZPPQc_1rDLMTzjh=KpMQF_A2U=HehMTuNSMQwtQ@mail.gmail.com> <aG-40INpi05v3-fQ@bogus>
-In-Reply-To: <aG-40INpi05v3-fQ@bogus>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 10 Jul 2025 16:40:59 +0200
-X-Gm-Features: Ac12FXw291rGaeQnkKGBJOE99wWaDDVeGF-LGyRZrV90PjOPwqUc_kzJDb-fgDQ
-Message-ID: <CAPDyKFqS9fawvgxEhk9W=o3oUpA_HGc71-5siw8AGqenQegrLA@mail.gmail.com>
-Subject: Re: [PATCH] cpuidle: psci: Fix cpuhotplug routine with PREEMPT_RT=y
-To: Sudeep Holla <sudeep.holla@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, linux-pm@vger.kernel.org, 
-	linux-rt-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Raghavendra Kakarla <quic_rkakarla@quicinc.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	"open list:Real-time Linux (PREEMPT_RT)" <linux-rt-devel@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: ti: Add bindings for Variscite
+ VAR-SOM-AM62P
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+References: <20250709220714.85697-1-stefano.radaelli21@gmail.com>
+ <20250709220714.85697-2-stefano.radaelli21@gmail.com>
+ <9b503f65-5c8c-4f04-a1b1-40d7a1202e8b@kernel.org>
+ <CAK+owohgk3CkQRv_PBDWXh44X2uN3p8FWBU2t9VtmO-xzOKTow@mail.gmail.com>
+ <6656b2f0-5258-4f23-8988-567a7b598497@kernel.org>
+ <CAK+owogfXDNpjT5Ywcvjaegf0H8-pS109039WadhxHXHbe3GSA@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAK+owogfXDNpjT5Ywcvjaegf0H8-pS109039WadhxHXHbe3GSA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_074136_794686_4FADBDC9 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20250710_074222_210268_025965CB 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,61 +126,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Jul 2025 at 14:57, Sudeep Holla <sudeep.holla@arm.com> wrote:
->
-> On Thu, Jul 10, 2025 at 02:43:10PM +0200, Rafael J. Wysocki wrote:
-> > On Wed, Jul 9, 2025 at 5:47=E2=80=AFPM Daniel Lezcano <daniel.lezcano@l=
-inaro.org> wrote:
-> > >
-> > > Currently cpu hotplug with the PREEMPT_RT option set in the kernel is
-> > > not supported because the underlying generic power domain functions
-> > > used in the cpu hotplug callbacks are incompatible from a lock point
-> > > of view. This situation prevents the suspend to idle to reach the
-> > > deepest idle state for the "cluster" as identified in the
-> > > undermentioned commit.
-> > >
-> > > Use the compatible ones when PREEMPT_RT is enabled and remove the
-> > > boolean disabling the hotplug callbacks with this option.
-> > >
-> > > With this change the platform can reach the deepest idle state
-> > > allowing at suspend time to consume less power.
-> > >
-> > > Tested-on Lenovo T14s with the following script:
-> > >
-> > > echo 0 > /sys/devices/system/cpu/cpu3/online
-> > > BEFORE=3D$(cat /sys/kernel/debug/pm_genpd/power-domain-cpu-cluster0/i=
-dle_states | grep S0 | awk '{ print $3 }') ;
-> > > rtcwake -s 1 -m mem;
-> > > AFTER=3D$(cat /sys/kernel/debug/pm_genpd/power-domain-cpu-cluster0/id=
-le_states | grep S0 | awk '{ print $3 }');
-> > > if [ $BEFORE -lt $AFTER ]; then
-> > >     echo "Test successful"
-> > > else
-> > >     echo "Test failed"
-> > > fi
-> > > echo 1 > /sys/devices/system/cpu/cpu3/online
-> > >
-> > > Fixes: 1c4b2932bd62 ("cpuidle: psci: Enable the hierarchical topology=
- for s2idle on PREEMPT_RT")
-> > > Cc: Raghavendra Kakarla <quic_rkakarla@quicinc.com>
-> > > Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
-> >
-> > As per MAINTAINERS, this is for Ulf/Sudeep.
-> >
->
-> LGTM, so
->
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
->
-> I still prefer to hear from Ulf who has more knowledge and hands-on exper=
-ience
-> with s2idle + PREEMPT_RT in case I am missing something.
+On 10/07/2025 15:53, Stefano Radaelli wrote:
+>> Then why do you define it reversed here? How this som-factor-processor
+>> is an argument to my request to use som-factor-processor?
+> 
+> I apologize for the confusion in my previous email. I made an error in
+> my explanation - our compatible strings actually follow the format
+> "processor"-"som-factor", not "som-factor"-"processor" as I
+> incorrectly stated. That's why our compatible string is
+> "variscite,am62p-var-som" (processor-som-factor), consistent with the
+> examples I provided of Variscite kernel like
+> "variscite,imx93-var-som", "variscite,imx8mp-var-som", and
+> "variscite,imx91-var-som".
 
-Rafael, Sudeep,
+There are no such compatibles. There are:
 
-I will pick this patch via my pmdomain tree, but will run some tests
-of it first to be sure.
+variscite,var-som-mx93
+variscite,var-som-mx8mn
 
-Kind regards
-Uffe
+and others with exact format how I asked - var-som-<processor>.
+
+Best regards,
+Krzysztof
 
