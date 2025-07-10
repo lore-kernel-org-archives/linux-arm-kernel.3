@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2562C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01310C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LSolkZmWqoKEZ4Igm2OJFpw3akejzWhjLdzndyZnwec=; b=3jXTFsJZ5rUF6IQEUBxpwUxGxw
-	xevm/1A9ZNibZljkhttt+r7ZtvR7IqxzpKAMxQZRqzRolvdZTUKlms41oNvnNPqNg2KeBhP7AuWjd
-	cbUoJ7Vc4OzgkesCXSOJSCFBjiDaboVXvl2DrHGIhIE33FuTwzhhQJ47cRkKGbiGKsH9ZDDwFzOm9
-	EIEHQcaEYq7IAS+ynCvpxQpIV9DIMVH88t7HoAKiKhSkFXWdUNBqqw3MZn7QENT9sQf/rc5KQIZB0
-	+SSisT9s4V1Pz+dd5uXq28ZgM92Kip50mLEVr8lUDM7+geoLmLMouLPRYOyqLMnbyagSe3hk8M1UE
-	ljyUXA3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K8Ja6/a3LpsNikXMFN9mPpoVU7tbsy+AC+1J6TmEO5o=; b=TURy+lETYrdaKZeU1TvTXWYz4y
+	BiZWzpMKI27r9itE4EtzU3ahR6BubfS4uXGToX2zFhPZbHy0rkbuorGfbvAf4ri4VMMsnpO79LiVv
+	+rhfurm/xDWJCE4DmEWZKkSbnskNCm8Twh4NW2zYeiA1LnuqpUcT16xN58DnqMDUT6DHJaSnJ22I0
+	HiWPBGZvriRq9EJplXrzRV2G1j+ivDluS0tUJoVe5gK+PD/KA2uUwFshU88rBw3mlZFGc39wpSJ8D
+	Qpp3uZA0rmnVWra0nNw0tSQIz3xTOInXxSqSBQLwqVxh2XZEsjPP5gJbudUKJB6KaWA0qPznLpsGj
+	7+vNwpUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2QD-0000000DQ9E-3PYy;
-	Fri, 11 Jul 2025 01:19:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ua2QF-0000000DQC4-0psM;
+	Fri, 11 Jul 2025 01:19:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZzNg-0000000D7VH-0ePL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 22:04:41 +0000
+	id 1uZzSr-0000000D89b-2yAd;
+	Thu, 10 Jul 2025 22:10:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8922C43C49;
-	Thu, 10 Jul 2025 22:04:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 426FCC4CEE3;
-	Thu, 10 Jul 2025 22:04:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AF66E613AC;
+	Thu, 10 Jul 2025 22:10:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54EB6C4CEE3;
+	Thu, 10 Jul 2025 22:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752185079;
-	bh=OEb03LJtTJw0ONEHHTG78Zyys2/QnlVxenFbD3godfo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jU7cErl5Gpt+790hNyABbyqH2l7NZnhgjCIyhAanTgMlvGnvvyvCp8blVM8ICHzeq
-	 ZA9p9vb42SkHA2jT3v6k1Yf8PVWOe77GhdMh33rLlu5WSSjAf6B+zaAAQKzgXqjv6q
-	 rLRrdgWFcwnt5EGN+yc85g3Yv/HPrbCux+ui5apPxf8520+M+rCakCS+PXWXv7jxn2
-	 nHZEkAeaGNK7PppqymaicEi5WqouEZY2AC/B+ASt6KKiAK1XD62ZIa1avctnrQlLOH
-	 SaUxmfzrPaQWM4ZzHtpVCWnFdvJx6++URYrFWwI2pTpqlR2dDdWLyf/pwBNnrtvFDm
-	 RkWsByUc1Vc9Q==
-Date: Thu, 10 Jul 2025 17:04:38 -0500
-From: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Ioana Ciornei <ioana.ciornei@nxp.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Shawn Guo <shawnguo@kernel.org>, Michael Walle <mwalle@kernel.org>,
-	Lee Jones <lee@kernel.org>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 2/9] dt-bindings: fsl,fpga-qixis-i2c: extend support to
- also cover the LX2160ARDB FPGA
-Message-ID: <20250710220438.GA4046565-robh@kernel.org>
-References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
- <20250709112658.1987608-3-ioana.ciornei@nxp.com>
- <c8ddfc31-95a5-4879-b392-18b915095b5d@kernel.org>
+	s=k20201202; t=1752185400;
+	bh=cHem7GO1bpm2QPnhafnGHzow7N5rhbfN6nvXGgTABss=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=L0Lp/QhjolORcf2uLdp8zFhHVHLbR0Z6qPPZ5QmeiqyfD2UCo7zBMAYzpIemCiQAw
+	 gcyiC4tuohiskaV7uVb+E0B11seyKbVUYQmVYcqwFIGitfjbQ1IVfpkHOOQ4WE5h1A
+	 xYOriUVV1NdRRwoubiglpFMEOWUIdOwKFHuljHOOKGdz/kQjA7/7H5hQnHpA2iOAR/
+	 kFebSVa3WvjI+jZ72vRxMQSRManTSnlfkkq7poXEr59I64j/2rkG3vJb9JsuLZr0Oh
+	 7pFZ5h4Z/eVc8x6HikECphStLbxKFq7SXP2BSAbQ9qjlVg94bEArHzOhJ/LO/jRwmu
+	 TO1P3z1TH85+w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADFD8383B266;
+	Thu, 10 Jul 2025 22:10:23 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c8ddfc31-95a5-4879-b392-18b915095b5d@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_150440_210842_BE671641 
-X-CRM114-Status: GOOD (  13.91  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v9 00/13] further mt7988 devicetree work
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175218542224.1682269.17523198222056896163.git-patchwork-notify@kernel.org>
+Date: Thu, 10 Jul 2025 22:10:22 +0000
+References: <20250709111147.11843-1-linux@fw-web.de>
+In-Reply-To: <20250709111147.11843-1-linux@fw-web.de>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: myungjoo.ham@samsung.com, kyungmin.park@samsung.com,
+ cw00.choi@samsung.com, djakov@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ johnson.wang@mediatek.com, arinc.unal@arinc9.com, Landen.Chao@mediatek.com,
+ dqfext@gmail.com, sean.wang@mediatek.com, daniel@makrotopia.org,
+ lorenzo@kernel.org, nbd@nbd.name, frank-w@public-files.de,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,26 +79,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 02:17:27PM +0200, Krzysztof Kozlowski wrote:
-> On 09/07/2025 13:26, Ioana Ciornei wrote:
-> > Extend the list of supported compatible strings with fsl,lx2160ardb-fpga.
-> > 
-> > Since the register map exposed by the LX2160ARDB's FPGA also contains
-> > two GPIO controllers, accept the necessary GPIO pattern property. At the
-> > same time, add the #address-cells and #size-cells properties as valid
-> > ones.
-> > 
-> > This is needed because when defining child devices such as the GPIO
-> > controller described in the added example, the child device needs a the
-> > reg property to properly identify its register location.
-> > 
-> > Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
-> > ---
-> >  .../bindings/board/fsl,fpga-qixis-i2c.yaml    | 35 +++++++++++++++++++
+Hello:
+
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Wed,  9 Jul 2025 13:09:36 +0200 you wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> So here is the board? Why FPGA is in the board...
+> This series continues mt7988 devicetree work
+> 
+> - Extend cpu frequency scaling with CCI
+> - GPIO leds
+> - Basic network-support (ethernet controller + builtin switch + SFP Cages)
+> 
+> [...]
 
-This directory is for board level custom logic in FPGA, CPLD, etc.
+Here is the summary with links:
+  - [v9,01/13] dt-bindings: net: mediatek,net: update mac subnode pattern for mt7988
+    https://git.kernel.org/netdev/net-next/c/29712b437339
+  - [v9,02/13] dt-bindings: net: mediatek,net: allow up to 8 IRQs
+    https://git.kernel.org/netdev/net-next/c/356dea0baf4c
+  - [v9,03/13] dt-bindings: net: mediatek,net: allow irq names
+    https://git.kernel.org/netdev/net-next/c/23ac2a71bdbd
+  - [v9,04/13] dt-bindings: net: mediatek,net: add sram property
+    https://git.kernel.org/netdev/net-next/c/c4582a31efd9
+  - [v9,05/13] dt-bindings: net: dsa: mediatek,mt7530: add dsa-port definition for mt7988
+    https://git.kernel.org/netdev/net-next/c/588cb646ce70
+  - [v9,06/13] dt-bindings: net: dsa: mediatek,mt7530: add internal mdio bus
+    https://git.kernel.org/netdev/net-next/c/66a44adf4c3d
+  - [v9,07/13] arm64: dts: mediatek: mt7986: add sram node
+    (no matching commit)
+  - [v9,08/13] arm64: dts: mediatek: mt7986: add interrupts for RSS and interrupt names
+    (no matching commit)
+  - [v9,09/13] arm64: dts: mediatek: mt7988: add basic ethernet-nodes
+    (no matching commit)
+  - [v9,10/13] arm64: dts: mediatek: mt7988: add switch node
+    (no matching commit)
+  - [v9,11/13] arm64: dts: mediatek: mt7988a-bpi-r4: add aliases for ethernet
+    (no matching commit)
+  - [v9,12/13] arm64: dts: mediatek: mt7988a-bpi-r4: add sfp cages and link to gmac
+    (no matching commit)
+  - [v9,13/13] arm64: dts: mediatek: mt7988a-bpi-r4: configure switch phys and leds
+    (no matching commit)
 
-Rob
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
