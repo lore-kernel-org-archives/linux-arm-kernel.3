@@ -4,75 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA106C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF8BEC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CQh1DInxbfOA81mONPPipgpqdwiFZ+9PeQ0qSReXUEY=; b=eq1t7p3MCx6l28P0WFgmnXVXK7
-	KPenni+ty4vG7GZCLqrgWRTd3in+qz87kJNrAP/0sj+Yt0kZ635vUADHT9hRsqAmsLCwjT908lPHZ
-	yoBckcd0D7lwKiOWBv3UX1Ts7sp50bOby5QiYlg9f2CO7bRT6bnvRUOWIIHb5ojvcvyEfu7Q6nwOb
-	RM+VKiimjGdhjqtCCWDYiBP1OuChtjid7mwuX1wZRJH3qA1DxeEwrKOrU9JLJs8fRC9AGf1H3wo9w
-	FkRK5bcSsoG3TauAIlEPiIbcSxK/VY5KzeNxWsezfQJDx5BTrIL8HX2EcqUckaEGB+2ArulQe+RnA
-	nyTEyHFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E7a1nExZKUkMJr6bzeG3jTY23inZAa/0ACe5Cf4o1So=; b=iuoYNuHo607w+jQhIOZb+e7vfn
+	RoCUZdoVFV3+I+S+jovjMo4T87fx3kbOFwo/A5u/ETqX1zZldc77GBoDFYOS6e96FhXEjDubCz+Sq
+	cPJICENVpJFa+S0IKJGbxt++QqnxNafvq6jkoOTSALmV36ruziqvK04rionsn/zzHgdSg7HgO4syN
+	MmCt/rUF/TWs0yT/8znRyJZfmug9wZY2RL4jeKi33PaJOZhIPogovyYjp0Ja+rlTmEHsXtcj7y1ju
+	jndhBhhEh82/YNNgLjtEUgcQ2xrPavULuAjRUbrCglZV2YxkHd8OTe+XHlH8+dXOYluVlpAYsU1Q5
+	tTth/fiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZk3B-0000000Ak6m-25zN;
-	Thu, 10 Jul 2025 05:42:29 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1uZk5T-0000000AkJy-1DoJ;
+	Thu, 10 Jul 2025 05:44:51 +0000
+Received: from mail-dm6nam10on20625.outbound.protection.outlook.com ([2a01:111:f403:2413::625] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZjtc-0000000AjLj-0LOR
+	id 1uZjvf-0000000AjVj-1x9W
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 05:32:37 +0000
-Received: from [127.0.0.1] (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 56A5VD0w409123
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Wed, 9 Jul 2025 22:31:13 -0700
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 56A5VD0w409123
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2025062101; t=1752125475;
-	bh=CQh1DInxbfOA81mONPPipgpqdwiFZ+9PeQ0qSReXUEY=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=UZtpJDyY0O7zpLI46+afIFDPGTxicGDP5fvGUB8m4RMhn9cHwI0R+GHNT0AKpxNfx
-	 t6Pw1pdlDE+7fB6TOn/GWTKlrd0SXt6e6wUteOoCiDCqyhEkAh9A1GbdtI78ilGRSq
-	 d+cD61d6QF539bDzPSi4LXpUhpF3mJyZOq+NMUXTlPpvdEy6oYdjcX56K5wyPmDIG7
-	 0EoDScUMuLImo9dLMrbgJhQPPugqNm64uHQRAL6lw/17BNapD7Otf6phO1a5PZDcxn
-	 6NItttWq5qkxG0SToUdZnGvrCIAUhgHWZdX89R8kylXPNXMBH3XlLDcdQe+toELCEb
-	 vwu2G4cUcFKLA==
-Date: Wed, 09 Jul 2025 22:31:11 -0700
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: dan.j.williams@intel.com, Peter Zijlstra <peterz@infradead.org>
-CC: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
-        linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-mm@kvack.org, gregkh@linuxfoundation.org,
-        Will Deacon <will@kernel.org>, Dan Williams <dan.j.williams@intel.com>,
-        Davidlohr Bueso <dave@stgolabs.net>,
-        Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
-        Yushan Wang <wangyushan12@huawei.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-        Andy Lutomirski <luto@kernel.org>
-Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
-User-Agent: K-9 Mail for Android
-In-Reply-To: <686f4e20c57cd_1d3d100b7@dwillia2-xfh.jf.intel.com.notmuch>
-References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com> <20250625085204.GC1613200@noisy.programming.kicks-ass.net> <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com> <20250625093152.GZ1613376@noisy.programming.kicks-ass.net> <686f4e20c57cd_1d3d100b7@dwillia2-xfh.jf.intel.com.notmuch>
-Message-ID: <3EAB3F81-D98C-4E4A-8E44-DB067547B318@zytor.com>
+	Thu, 10 Jul 2025 05:34:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TRfMUExJ6Od2D/rG1nfMzyWu9xEd0qKhky1GZHrtsX58Ti+1EESaDUuu/5Z/D2u5wnniu1x2TmJRNjE6Bnuum4YVRauuF71PdI4xsCCHCTW3iIOxakNhb7tZPc/RJlqTVLeUJrz2j18ORiSnzf7yCikOED8m11Eq881mhhh8fos2be4IIO6uS2OqQRLzFw4c60TT4mq40NZmUasRlVF/sCSTgRH6qRv9nZkQjoUw5aKbC1r4CN/nxXnJU1AKObivvi/X5AC0XPu/3t26kGxtGaR9cZlqwPQLZ5RGvpHrrIUFYUlz7yAb6rC2C2NgOwQOhU647jzUocZvmQPvxvRTSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E7a1nExZKUkMJr6bzeG3jTY23inZAa/0ACe5Cf4o1So=;
+ b=uryRXsuIeWUQL+x9mWmpEKukdOA85Iaw1El3snFnjQJOMZyWIe0mXgmGkzUw/3n6ebFuPjKmLjGlhl/Fs/XoDzt/c7bHYj0sT2t2MZx9SEBHguKuPfyczLSD6BnJURzqW/EPqM6he8nt0wjri+qYRux/g1GCiBz2QRhyArlUT+jUmJEMah/cy5X6GmmdO9e4ZuzC6irelLgdjucsfVCQw+9ZXvoiHZ9Zae+44NoSXB0ZAxV9Q3UFJLlEqHOKWr82GNpXeQfUo4qMZ+wuQuYPa8dixXzrpsED67677Kbntb9cZwpQu4QB7BFMzc1XH1VgyE5TzOXlZElD+b3k3+fWKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E7a1nExZKUkMJr6bzeG3jTY23inZAa/0ACe5Cf4o1So=;
+ b=NLByLjL/dOwbHDFWLNpv0FhMh6vNh8m6qHuZ2evhbyfS1bFaWyubPn0STRmN3xr5bCzxz572xq5tUqRN0+f8gL8xDodX2aC24PCkaNgj+Iq//9jn6tdegZKqU8qt6wve+gE8EKdVTkov36RnZ20GpWuxREEiaJran0tdZae06SzZ3HM/E/K+7Tl0+p+Qj1LVG2EIO7dNE/lq2WiiGAu4F0769AZhyeGjZwYI9JY+zAI0s2ovFLCyIdQVBLX816owSdkSRVuWPqJnzci29BJb+DVQMqkrtF267/kkFt+ID66w7iv23ZqpfXhO5g48j0Z0+j8fE368UL8XduXxs5h8KA==
+Received: from CH0PR13CA0025.namprd13.prod.outlook.com (2603:10b6:610:b1::30)
+ by CH3PR12MB8076.namprd12.prod.outlook.com (2603:10b6:610:127::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.29; Thu, 10 Jul
+ 2025 05:34:37 +0000
+Received: from DS2PEPF00003447.namprd04.prod.outlook.com
+ (2603:10b6:610:b1:cafe::67) by CH0PR13CA0025.outlook.office365.com
+ (2603:10b6:610:b1::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8943.5 via Frontend Transport; Thu,
+ 10 Jul 2025 05:34:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ DS2PEPF00003447.mail.protection.outlook.com (10.167.17.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8922.22 via Frontend Transport; Thu, 10 Jul 2025 05:34:36 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 9 Jul 2025
+ 22:34:26 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Wed, 9 Jul 2025 22:34:26 -0700
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Wed, 9 Jul 2025 22:34:24 -0700
+Date: Wed, 9 Jul 2025 22:34:23 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
+	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
+	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
+	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
+	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
+Subject: Re: [PATCH v8 14/29] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
+ ioctl
+Message-ID: <aG9Q39PKjY/TXiMe@Asurada-Nvidia>
+References: <cover.1751677708.git.nicolinc@nvidia.com>
+ <49a93d92ce657cf6a0d588d2b31ad3600ace21f7.1751677708.git.nicolinc@nvidia.com>
+ <20250709170904.GG1599700@nvidia.com>
+ <aG67GDY97U8T6kuD@Asurada-Nvidia>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <aG67GDY97U8T6kuD@Asurada-Nvidia>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF00003447:EE_|CH3PR12MB8076:EE_
+X-MS-Office365-Filtering-Correlation-Id: b00b1232-45d0-40d7-279b-08ddbf73757a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ECARVIP9FyDOokv5stJw6B+x5qtCVseaV698wg/doO8ZDqLvy6c0waGk2tzT?=
+ =?us-ascii?Q?M23xsjoDd+fn9ug1XBDfqpI0n29Dx3hcvqw7XGvx5ov2xDot+EeY4G8owEXS?=
+ =?us-ascii?Q?I0Km6nyyZGT6hDhAaJ/DREnezqc+MG0Mo/5YQpVLzxixMapPDUPJS+sYTDrI?=
+ =?us-ascii?Q?+JDuVbgKFe6bRePJW7L5ap4vCJyNXidbz4cWKHaCTVvHEMUeukZCutrrX8Qs?=
+ =?us-ascii?Q?ZKOZ2ENg4bhxEwrES82btV1+dnSgUrVE0XKTTYmHyKdnEZnpnk1svX27Y1tD?=
+ =?us-ascii?Q?8Gj445TXPu6HdjOhJIjT15QlkKZxNSqXvzrzB+HPgs5jCIJzOhnfpvbv8jOH?=
+ =?us-ascii?Q?XcjgRW6MQCck4hdoTb/wOiaYk8O05VRN+adTXOdZws/7NXe6N+FPj5pznqqU?=
+ =?us-ascii?Q?I00FJM8N8VxW8/s+MFaN6Ey5dZBeQAb8/K3WAk6eTtNcY12CaAWCJziCvh39?=
+ =?us-ascii?Q?Be3nd+8tAFCf7u62tC7J3rSmmBpfgtIGUA9ZjD8j6ZcEvl3pQqA/n8SZD3VS?=
+ =?us-ascii?Q?9/lfmZcdqVfpPQgIQmRdTiQH4r8MLEHd36xB8ihTygMh7IoGVhHNOvtcQ4qA?=
+ =?us-ascii?Q?CO8yd+i9qdPVBCW70Bzq13TAqbNGp8XDw/Qldg2/EOctTpf0T15C07VQf3Ip?=
+ =?us-ascii?Q?67+mJR+4xuTXlM1Aw9P/bEfcJ7AaD8fmWbksS8e6i33gzJ6e7vmoep4cgME2?=
+ =?us-ascii?Q?9usmoh6tBo2GeJ77aMWNNI31hXpnDgwWJP2YYrIWH4CCeTtPRVOJhAdM6S9S?=
+ =?us-ascii?Q?yIvk3AuyMIBFQq9NGktsZuNrxnTnjEZHYNv466TWhu/gRTnO1Sz0LKYhdHIS?=
+ =?us-ascii?Q?xPrpnLynKrIe0awPO27n3qPH501lJvNQ6j9PnvDRoWJ/9rh/lbJas8Y6DTS9?=
+ =?us-ascii?Q?n4ZFGFM6Yi6j208z7uxHkpIyI+KDfLMH9SxMiUXu7F+W7FBvFlS9CiWnBvVt?=
+ =?us-ascii?Q?+eg0YeCqRtMNzZOuBdvs+BMjvgNxBTDTAp2LbGdcCWQnS0Zf3mLxQq+E8YIW?=
+ =?us-ascii?Q?g3UZu5zQUmsYbriCHcqLrPJ66Z4997ShuhqwLRvJvXUxWBAfsmAAU5N4BB9a?=
+ =?us-ascii?Q?AUB6R4Q7UZkiulQmxVtwHZCGOnClAPL6JsNZOBy+iTfrYQjW6gRjexE1sp0B?=
+ =?us-ascii?Q?WRv6p0UXrLfpELGkxz9AnsgZ0m1k/G3Ejmway0Lj/cczDXB79JI2IqPA/k7G?=
+ =?us-ascii?Q?LjOLg1HrbgfSyJqqcvABkZ0/kkFZn4foZHhKhucpxP5PeRjfbZvkQU0s0oFj?=
+ =?us-ascii?Q?PR6JiLdTv+c2ew5kRnFO0sdfneZyulfEt7ZC2p6H86PemgroZkFEDun1huzq?=
+ =?us-ascii?Q?wNdGVNmIZwQcdOBy7jqwSi9HN8c38IBBtxONGhobtf3IR90PnbDRi4naBIAJ?=
+ =?us-ascii?Q?n1v3w61hQ5Z6HpXqN3bpxUzvFTXq4IT8b5fX/N2SdGTt45/84K+r8GK0Njje?=
+ =?us-ascii?Q?XmO/sfDCor45VPu4rkWMTp+/K5KIAxgTRMbVh3aCNhxyZrPFfWnA1ut4ZQtr?=
+ =?us-ascii?Q?raWLkoqoKIfsYbLG2ErqLof3rZu5ZlO+/fEg?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 05:34:36.8138
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b00b1232-45d0-40d7-279b-08ddbf73757a
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF00003447.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_223236_114075_BFAAAF68 
-X-CRM114-Status: GOOD (  30.29  )
+X-CRM114-CacheID: sfid-20250709_223443_874078_2C41F1FE 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,94 +162,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On July 9, 2025 10:22:40 PM PDT, dan=2Ej=2Ewilliams@intel=2Ecom wrote:
->Peter Zijlstra wrote:
->> On Wed, Jun 25, 2025 at 02:12:39AM -0700, H=2E Peter Anvin wrote:
->> > On June 25, 2025 1:52:04 AM PDT, Peter Zijlstra <peterz@infradead=2Eo=
-rg> wrote:
->> > >On Tue, Jun 24, 2025 at 04:47:56PM +0100, Jonathan Cameron wrote:
->> > >
->> > >> On x86 there is the much loved WBINVD instruction that causes a wr=
-ite back
->> > >> and invalidate of all caches in the system=2E It is expensive but =
-it is
->> > >
->> > >Expensive is not the only problem=2E It actively interferes with thi=
-ngs
->> > >like Cache-Allocation-Technology (RDT-CAT for the intel folks)=2E Do=
-ing
->> > >WBINVD utterly destroys the cache subsystem for everybody on the
->> > >machine=2E
->> > >
->> > >> necessary in a few corner cases=2E=20
->> > >
->> > >Don't we have things like CLFLUSH/CLFLUSHOPT/CLWB exactly so that we=
- can
->> > >avoid doing dumb things like WBINVD ?!?
->> > >
->> > >> These are cases where the contents of
->> > >> Physical Memory may change without any writes from the host=2E Whi=
-lst there
->> > >> are a few reasons this might happen, the one I care about here is =
-when
->> > >> we are adding or removing mappings on CXL=2E So typically going fr=
-om
->> > >> there being actual memory at a host Physical Address to nothing th=
-ere
->> > >> (reads as zero, writes dropped) or visa-versa=2E=20
->> > >
->> > >> The
->> > >> thing that makes it very hard to handle with CPU flushes is that t=
-he
->> > >> instructions are normally VA based and not guaranteed to reach bey=
-ond
->> > >> the Point of Coherence or similar=2E You might be able to (ab)use
->> > >> various flush operations intended to ensure persistence memory but
->> > >> in general they don't work either=2E
->> > >
->> > >Urgh so this=2E Dan, Dave, are we getting new instructions to deal w=
-ith
->> > >this? I'm really not keen on having WBINVD in active use=2E
->> > >
->> >=20
->> > WBINVD is the nuclear weapon to use when you have lost all notion of
->> > where the problematic data can be, and amounts to a full reset of the
->> > cache system=2E=20
->> >=20
->> > WBINVD can block interrupts for many *milliseconds*, system wide, and
->> > so is really only useful for once-per-boot type events, like MTRR
->> > initialization=2E
->>=20
->> Right this=2E=2E=2E But that CXL thing sounds like that's semi 'regular=
-' to
->> the point that providing some infrastructure around it makes sense=2E T=
-his
->> should not be=2E
->
->"Regular?", no=2E Something is wrong if you are doing this regularly=2E I=
-n
->current CXL systems the expectation is to suffer a WBINVD event once per
->server provisioning event=2E
->
->Now, there is a nascent capability called "Dynamic Capacity Devices"
->(DCD) where the CXL configuration is able to change at runtime with
->multiple hosts sharing a pool of memory=2E Each time the physical memory
->capacity changes, cache management is needed=2E
->
->For DCD, I think the negative effects of WBINVD are a *useful* stick to
->move device vendors to stop relying on software to solve this problem=2E
->They can implement an existing CXL protocol where the device tells CPUs
->and other CXL=2Ecache agents to invalidate the physical address ranges
->that the device owns=2E
->
->In other words, if WBINVD makes DCD inviable that is a useful outcome
->because it motivates unburdening Linux long term with this problem=2E
->
->In the near term though, current CXL platforms that do not support
->device-initiated-invalidate still need coarse cache management for that
->original infrequent provisioning events=2E Folks that want to go further
->and attempt frequent DCD events with WBINVD get to keep all the pieces=2E
+On Wed, Jul 09, 2025 at 11:55:20AM -0700, Nicolin Chen wrote:
+> On Wed, Jul 09, 2025 at 02:09:04PM -0300, Jason Gunthorpe wrote:
+> > On Fri, Jul 04, 2025 at 06:13:30PM -0700, Nicolin Chen wrote:
+> > > +static struct iommufd_access *
+> > > +iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
+> > > +			    struct iommufd_viommu *viommu, phys_addr_t *base_pa)
+> > > +{
+> > > +	struct iommufd_access *access;
+> > > +	struct page **pages;
+> > > +	size_t max_npages;
+> > > +	size_t length;
+> > > +	u64 offset;
+> > > +	size_t i;
+> > > +	int rc;
+> > > +
+> > > +	offset =
+> > > +		cmd->nesting_parent_iova - PAGE_ALIGN(cmd->nesting_parent_iova);
+> > 
+> > PAGE_ALIGN is ALIGN UP, that is the wrong direction?
+> > 
+> > It is just:
+> > 
+> >       offset = cmd->nesting_parent_iova % PAGE_SIZE;
+> > 
+> > And this is missing:
+> > 
+> > 	*base_pa = (page_to_pfn(pages[0]) << PAGE_SHIFT) + offset;
+> > 
+> > ??
+> 
+> Yes, my bad. And I realized that all my testings are page aligned.
+> Maybe we could add an IOMMU_TEST_OP_HW_QUEUE_CHECK_ADDR..
 
-Since this is presumably rare, it might be better to loop and clflush, eve=
-n though it will take longer, rather than stopping the world=2E
+I found that this needed a bit more care. The pin_pages() API
+accepts aligned iova and length inputs.
+
+So, doing this instead (and adding a selftest coverage):
+
+diff --git a/drivers/iommu/iommufd/viommu.c b/drivers/iommu/iommufd/viommu.c
+index 00641204efb2..91339f799916 100644
+--- a/drivers/iommu/iommufd/viommu.c
++++ b/drivers/iommu/iommufd/viommu.c
+@@ -206,7 +206,11 @@ static void iommufd_hw_queue_destroy_access(struct iommufd_ctx *ictx,
+ 					    struct iommufd_access *access,
+ 					    u64 base_iova, size_t length)
+ {
+-	iommufd_access_unpin_pages(access, base_iova, length);
++	u64 aligned_iova = PAGE_ALIGN_DOWN(base_iova);
++	u64 offset = base_iova - aligned_iova;
++
++	iommufd_access_unpin_pages(access, aligned_iova,
++				   PAGE_ALIGN(length + offset));
+ 	iommufd_access_detach_internal(access);
+ 	iommufd_access_destroy_internal(ictx, access);
+ }
+@@ -239,22 +243,23 @@ static struct iommufd_access *
+ iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
+ 			    struct iommufd_viommu *viommu, phys_addr_t *base_pa)
+ {
++	u64 aligned_iova = PAGE_ALIGN_DOWN(cmd->nesting_parent_iova);
++	u64 offset = cmd->nesting_parent_iova - aligned_iova;
+ 	struct iommufd_access *access;
+ 	struct page **pages;
+ 	size_t max_npages;
+ 	size_t length;
+-	u64 offset;
+ 	size_t i;
+ 	int rc;
+ 
+-	offset =
+-		cmd->nesting_parent_iova - PAGE_ALIGN(cmd->nesting_parent_iova);
+-	/* DIV_ROUND_UP(offset + cmd->length, PAGE_SIZE) */
++	/* max_npages = DIV_ROUND_UP(offset + cmd->length, PAGE_SIZE) */
+ 	if (check_add_overflow(offset, cmd->length, &length))
+ 		return ERR_PTR(-ERANGE);
+ 	if (check_add_overflow(length, PAGE_SIZE - 1, &length))
+ 		return ERR_PTR(-ERANGE);
+ 	max_npages = length / PAGE_SIZE;
++	/* length needs to be page aligned too */
++	length = max_npages * PAGE_SIZE;
+ 
+ 	/*
+ 	 * Use kvcalloc() to avoid memory fragmentation for a large page array.
+@@ -274,8 +279,7 @@ iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
+ 	if (rc)
+ 		goto out_destroy;
+ 
+-	rc = iommufd_access_pin_pages(access, cmd->nesting_parent_iova,
+-				      cmd->length, pages, 0);
++	rc = iommufd_access_pin_pages(access, aligned_iova, length, pages, 0);
+ 	if (rc)
+ 		goto out_detach;
+ 
+@@ -287,13 +291,12 @@ iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
+ 		goto out_unpin;
+ 	}
+ 
+-	*base_pa = page_to_pfn(pages[0]) << PAGE_SHIFT;
++	*base_pa = (page_to_pfn(pages[0]) << PAGE_SHIFT) + offset;
+ 	kfree(pages);
+ 	return access;
+ 
+ out_unpin:
+-	iommufd_access_unpin_pages(access, cmd->nesting_parent_iova,
+-				   cmd->length);
++	iommufd_access_unpin_pages(access, aligned_iova, length);
+ out_detach:
+ 	iommufd_access_detach_internal(access);
+ out_destroy:
+diff --git a/tools/testing/selftests/iommu/iommufd.c b/tools/testing/selftests/iommu/iommufd.c
+index 9d5b852d5e19..694b178f8ca4 100644
+--- a/tools/testing/selftests/iommu/iommufd.c
++++ b/tools/testing/selftests/iommu/iommufd.c
+@@ -3104,7 +3104,7 @@ TEST_F(iommufd_viommu, hw_queue)
+ 	/* Allocate index=0, declare ownership of the iova */
+ 	test_cmd_hw_queue_alloc(viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 0,
+ 				iova, PAGE_SIZE, &hw_queue_id[0]);
+-	/* Fail duplicate */
++	/* Fail duplicated index */
+ 	test_err_hw_queue_alloc(EEXIST, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
+ 				0, iova, PAGE_SIZE, &hw_queue_id[0]);
+ 	/* Fail unmap, due to iova ownership */
+@@ -3112,9 +3112,10 @@ TEST_F(iommufd_viommu, hw_queue)
+ 	/* The 2nd page is not pinned, so it can be unmmap */
+ 	test_ioctl_ioas_unmap(iova + PAGE_SIZE, PAGE_SIZE);
+ 
+-	/* Allocate index=1 */
++	/* Allocate index=1, with an unaligned case */
+ 	test_cmd_hw_queue_alloc(viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 1,
+-				iova, PAGE_SIZE, &hw_queue_id[1]);
++				iova + PAGE_SIZE / 2, PAGE_SIZE / 2,
++				&hw_queue_id[1]);
+ 	/* Fail to destroy, due to dependency */
+ 	EXPECT_ERRNO(EBUSY, _test_ioctl_destroy(self->fd, hw_queue_id[0]));
+ 
 
