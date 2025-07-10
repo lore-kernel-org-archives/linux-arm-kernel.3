@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9451C83F23
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 20:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E27C83F20
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 20:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k1pA43U2/Cf3sYPRxjGtt452rJceAKYWqfaXb7eex6o=; b=b2MeufaTgR3enDsdLzIKl8mm2i
-	82ucVaaV0N89SAf8SMN6W0hl/EVEzcCnGPZ/lKwN8QREgZpoEfNPtu3ajiwiT76JT8xhaawpBjnGf
-	YalHWJR9OmRSyi5jVtqIHt89Wrd+m97xb3bJQ7wZ/7hmZNdQ0MQfhUJwZoWNgcbd/0HWzynw0FnGU
-	Vl8SnHQAKIocP2IP0I2r0uD44AL4mM+NR265kOS17Sbl9zjWL4BGeunIp8r2lNvrsWREq/9xGqU/a
-	9ABze1uyZ1/jYVVcgQq453vE9kvhp1p4tIjk3IQyiIyPr3zIQYru92hqyFVzORTQW5PksdCvDUsDe
-	ksVi0V7g==;
+	bh=SF+YCn/kG/u4AGvc+PbDlR/a0WQpzLVeJXyK9z9mgDQ=; b=Bv+TJySQk3rPnEHm7AkmQY7JHE
+	10KJl8TWHbCVfInmwJD1NKjqmPNnDT0KUdLudcbzcOTZu1D1vDyJvT8BFHoydB6hKUpC5oIpsbeGw
+	brD9EZF84a+9xTdAs/4392y2h1wRDTHP9mD6Tzuvy8hPSB9ovwUYJNd/zOscN0CYLZlptPdtypCUx
+	gvN03ZypXp6Ak3EVe3TDI0uC5j5TAqu0zyN9F0av3/ECiVQIDGPuTp3BOZNoAD1sGrHOz3rW+iBTM
+	iQ1i3lIZ5wv54blyx2YRGIjucJmTKVtRuXvd4lrY2Uv3+jPDZCCkgMz+xcJSL8qTVr62dZ5AGf1Kd
+	HH5cBu4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZyI0-0000000Cz3Z-1mLG;
-	Thu, 10 Jul 2025 20:54:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uZyI1-0000000Cz5K-27S4;
+	Thu, 10 Jul 2025 20:54:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZwaL-0000000Cm2N-0Xa2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 19:05:34 +0000
+	id 1uZwaL-0000000Cm2f-3Gvk;
+	Thu, 10 Jul 2025 19:05:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7B71D5C6DFA;
-	Thu, 10 Jul 2025 19:05:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE0C6C4CEE3;
-	Thu, 10 Jul 2025 19:05:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5ED9546F24;
+	Thu, 10 Jul 2025 19:05:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E1CEC4CEF1;
+	Thu, 10 Jul 2025 19:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752174332;
-	bh=nq4P94K7NnOvJLO8d45yCqbCaMd8n4bXcI1o6Gfq3qw=;
+	s=k20201202; t=1752174333;
+	bh=WTdySniEXJwh9zm+X3t0eM0XdacPv4vH2YSk2MMBsKM=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=X96A0IELAv9SZ+VR9k5w1AOOMqUPUNQPhx1ShNNNKQjHciKOHXAwwsY9qGO414uwW
-	 kCXUcpbDLDcuuTxNAKgRFqIQkS9RS5/S/lZwKIiOT/wz8pmOwOq9Ywlb/xvPb/O5vz
-	 qhqMy8PfkV/Fip2oIPkhJ++NuawPVySEBOvRST+MYkhIZdNgaXfKWoOiEZY3ohSz81
-	 JFDw/JLN1IkcDNMSslHlhmwlFJF8hNQKFTQ0lh6PjTNXU1OjhaIBYInsC5eExxvOQ1
-	 8DCQM+IrdfWeemAhKzR2gXls8PIys6WGoZo+FNEyZipC3r9dhVTaLrs+EE5N7ZG2kP
-	 E7kkAqiipgt4w==
-Date: Thu, 10 Jul 2025 14:05:31 -0500
+	b=VdtcAp87DeTeG/zCy8Rcl8gCkk2Nu7vLr7M5VtJBWzktPQVdGQ/+fESZpbPew56kV
+	 TQiPcuDIEEBjy1opZeVlHqZIN4KR0iSZeS61tcOqGR0A1/aXSwzn6z4mRy079YeC/C
+	 OKw4mY2bVzuUX3oGv4cyV3w+e4YpsLWJdm+JCpaqhP34ufbdY3mqw68Klmp/wB3Och
+	 uE9wqx/nlC6aWFILKNz4gD+OzgRvmgsvTAFuIpKkMAPGXnfqBLju1Sy2P43jW3N2Ua
+	 fqaCF1pXxTWzArM5h3d2QByz72ZSOKsiXtjYCQ05BGGDVzniVYPH1o31/AL7tZ+uLZ
+	 91c2jWD80GYfg==
+Date: Thu, 10 Jul 2025 14:05:32 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: imx@lists.linux.dev, s32@nxp.com, eballetb@redhat.com, 
- festevam@gmail.com, linux-arm-kernel@lists.infradead.org, rafael@kernel.org, 
- shawnguo@kernel.org, clizzi@redhat.com, brgl@bgdev.pl, aisheng.dong@nxp.com, 
- devicetree@vger.kernel.org, s.hauer@pengutronix.de, 
- Ghennadi.Procopciuc@nxp.com, linus.walleij@linaro.org, 
- gregkh@linuxfoundation.org, ping.bai@nxp.com, echanude@redhat.com, 
- aruizrui@redhat.com, mbrugger@suse.com, chester62515@gmail.com, 
- conor+dt@kernel.org, srini@kernel.org, larisa.grigore@nxp.com, 
- krzk+dt@kernel.org, linux-kernel@vger.kernel.org, lee@kernel.org, 
- linux-gpio@vger.kernel.org, vincent.guittot@linaro.org, 
- kernel@pengutronix.de
-To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-In-Reply-To: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
-References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
-Message-Id: <175217427055.3135637.1158613245040167779.robh@kernel.org>
-Subject: Re: [PATCH v7 00/12] gpio: siul2-s32g2: add initial GPIO driver
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Michael Turquette <mturquette@baylibre.com>, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-sound@vger.kernel.org, 
+ jian.xu@amlogic.com, Mark Brown <broonie@kernel.org>, 
+ Stephen Boyd <sboyd@kernel.org>, zhe.wang@amlogic.com, 
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ linux-amlogic@lists.infradead.org, Jaroslav Kysela <perex@perex.cz>, 
+ shuai.li@amlogic.com, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-kernel@vger.kernel.org, Takashi Iwai <tiwai@suse.com>, 
+ linux-arm-kernel@lists.infradead.org
+To: jiebing chen <jiebing.chen@amlogic.com>
+In-Reply-To: <20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com>
+References: <20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com>
+Message-Id: <175217427132.3135674.349171933373202278.robh@kernel.org>
+Subject: Re: [PATCH v5 0/6] Add support for S4 audio
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_120533_260664_4EF08975 
-X-CRM114-Status: GOOD (  40.98  )
+X-CRM114-CacheID: sfid-20250710_120533_860627_211D9C24 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,165 +81,74 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 10 Jul 2025 17:20:23 +0300, Andrei Stefanescu wrote:
-> This patch series adds support for basic GPIO
-> operations(set, get, direction_output/input, set_config).
+On Thu, 10 Jul 2025 11:35:36 +0800, jiebing chen wrote:
+> This series completes the end-to-end audio support
+> for S4 SoC from hardware bindings to driver implementation
+> and system integration.
 > 
-> There are two SIUL2 hardware modules: SIUL2_0 and SIUL2_1.
-> However, this driver exports both as a single GPIO driver.
-> This is because the interrupt registers are located only
-> in SIUL2_1, even for GPIOs that are part of SIUL2_0.
+> 1 Device Tree Bindings Updates
+> Added audio power domain support for S4 SoC.Defined mclk/sclk pad clock IDs in AXG audio bindings.
+> Add S4 audio tocodec binding support.
 > 
-> There are two gaps in the GPIO ranges:
-> - 102-111(inclusive) are invalid
-> - 123-143(inclusive) are invalid
+> 2 Driver Implementation
+> Implemented S4 tocodec driver for G12A architecture.
+> Add mclk pad divider support for S4 in AXG audio clock.
 > 
-> These will be excluded via the `gpio-reserved-ranges`
-> property.
+> 3 Device Tree Integration
+> Add Amlogic S4 audio subsystem support in arm64 DTS.
 > 
-> Writing and reading GPIO values is done via the PGPDO/PGPDI
-> registers(Parallel GPIO Pad Data Output/Input) which are
-> 16 bit registers, each bit corresponding to a GPIO.
+> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+> ---
+> Changes in v5:
+> - Fix warning Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yam when make dt_binding_check
+> - The audio reg is mounted below the APB bus in dts file.
+> - Deal with pad clock in a distinct controller.
+> - Fix warning for sound/soc/meson/g12a-toacodec.c
+> - Link to v4: https://lore.kernel.org/r/20250319-audio_drvier-v4-0-686867fad719@amlogic.com
 > 
-> Note that the PGPDO order is similar to a big-endian grouping
-> of two registers:
-> PGPDO1, PGPDO0, PGPDO3, PGPDO2, PGPDO5, PGPDO4, gap, PGPDO6.
+> Changes in v4:
+> - fix dtb check warning
+> - add maxItems of power domain for dt-bindings
+> - fixed audio clock pads regmap base and reg offset
+> - use dapm widget to control tocodec bclk and mclk enable
+> - Link to v3: https://lore.kernel.org/r/20250228-audio_drvier-v3-0-dbfd30507e4c@amlogic.com
 > 
-> I have other patches for this driver:
-> - interrupt support
-> - power management callbacks
+> Changes in v3:
+> - remove g12a tocodec switch event
+> - Modify the incorrect title for dt-bindings
+> - Link to v2: https://lore.kernel.org/r/20250214-audio_drvier-v2-0-37881fa37c9e@amlogic.com
 > 
-> which I plan to upstream after this series gets merged
-> in order to simplify the review process.
+> Changes in v2:
+> - remove tdm pad control and change tocodec base on g12a
+> - change hifipll rate to support 24bit
+> - add s4 audio clock
+> - Link to v1: https://lore.kernel.org/r/20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com
 > 
-> v7 -> v6
-> - fixed MAINTAINERS wrong file path
-> - add unevaluatedProperties, change siul2 node name, remove
->   jtag_pins label in the device tree schema
-> - change compatible definition in schema
-> - change node name in dtsi
-> - mentioned binding deprecation in commit messages
-> - split mfd cell conversion commit in two: one for the
->   previous refactoring, one for the mfd cell conversion
-> - removed Acked-by: Linus Walleij from commit:
->   "pinctrl: s32: convert the driver into an mfd cell"
->   because of changes to that commit
-> - deprecate the nxp,s32g2-siul2-pinctrl binding
-> - add NVMEM MFD cell for SIUL2
-> - made the GPIO driver not export invalid pins
->   (there are some gaps 102-111, 123-143)
-> - removed the need for gpio-reserved-ranges
-> - force initialized pinctrl_desc->num_custom_params to 0
+> ---
+> jiebing chen (6):
+>       dt-bindings: clock: meson: Add audio power domain for s4 soc
+>       dt-bindings: clock: axg-audio: Add mclk and sclk pad clock ids
+>       dt-bindings: Asoc: axg-audio: Add s4 audio tocodec
+>       ASoC: meson: g12a-toacodec: Add s4 tocodec driver
+>       clk: meson: axg-audio: Add the mclk pad div for s4 chip
+>       arm64: dts: amlogic: Add Amlogic S4 Audio
 > 
-> v6 -> v5
-> - removed description for reg in the dt-bindings and added
->   maxItems
-> - dropped label for example in the dt-bindings
-> - simplified the example in the dt-bindings
-> - changed dt-bindings filename to nxp,s32g2-siul2.yaml
-> - changed title in the dt-bindings
-> - dropped minItmes from gpio-ranges/gpio-reserved-ranges
->   and added maxItems to gpio-reserved-ranges
-> - added required block for -grp[0-9]$ nodes
-> - switch to using "" as quotes
-> - kernel test robot: fixed frame sizes, added description
->   for reg_name, fixed typo in gpio_configs_lock, removed
->   uninitialized ret variable usage
-> - ordered includes in nxp-siul2.c, switched to dev-err-probe
->   added a mention that other commits will add nvmem functionality
->   to the mfd driver
-> - switched spin_lock_irqsave to scoped_guard statement
-> - switched dev_err to dev_err_probe in pinctrl-s32cc in places
->   reached during the probing part
+>  .../bindings/clock/amlogic,axg-audio-clkc.yaml     |  55 ++-
+>  .../bindings/sound/amlogic,g12a-toacodec.yaml      |   1 +
+>  .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts     | 218 +++++++++++
+>  arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 387 ++++++++++++++++++
+>  drivers/clk/meson/axg-audio.c                      | 435 ++++++++++++++++++++-
+>  drivers/clk/meson/axg-audio.h                      |   6 +
+>  include/dt-bindings/clock/axg-audio-clkc.h         |  11 +
+>  sound/soc/meson/g12a-toacodec.c                    |  42 ++
+>  8 files changed, 1152 insertions(+), 3 deletions(-)
+> ---
+> base-commit: 6ecd20965bdc21b265a0671ccf36d9ad8043f5ab
+> change-id: 20250110-audio_drvier-07a5381c494b
 > 
-> v5 -> v4
-> - fixed di_div error
-> - fixed dt-bindings error
-> - added Co-developed-by tags
-> - added new MFD driver nxp-siul2.c
-> - made the old pinctrl driver an MFD cell
-> - added the GPIO driver in the existing SIUL2 pinctrl one
-> - Switch from "devm_pinctrl_register" to
->   "devm_pinctrl_register_and_init"
-> 
-> v4 -> v3
-> - removed useless parentheses
-> - added S32G3 fallback compatible
-> - fixed comment alignment
-> - fixed dt-bindings license
-> - fixed modpost: "__udivdi3"
-> - moved MAINTAINERS entry to have the new GPIO driver
->   together with other files related to S32G
-> 
-> v3 -> v2
-> - fix dt-bindings schema id
-> - add maxItems to gpio-ranges
-> - removed gpio label from dt-bindings example
-> - added changelog for the MAINTAINERS commit and
->   added separate entry for the SIUL2 GPIO driver
-> - added guard(raw_spinlock_irqsave) in
->   'siul2_gpio_set_direction'
-> - updated the description for
->   'devm_platform_get_and_ioremap_resource_byname'
-> 
-> v2 -> v1
-> dt-bindings:
-> - changed filename to match compatible
-> - fixed commit messages
-> - removed dt-bindings unnecessary properties descriptions
-> - added minItems for the interrupts property
-> driver:
-> - added depends on ARCH_S32 || COMPILE_TEST to Kconfig
-> - added select REGMAP_MMIO to Kconfig
-> - remove unnecessary include
-> - add of_node_put after `siul2_get_gpio_pinspec`
-> - removed inline from function definitions
-> - removed match data and moved the previous platdata
->   definition to the top of the file to be visible
-> - replace bitmap_set/clear with __clear_bit/set_bit
->   and devm_bitmap_zalloc with devm_kzalloc
-> - switched to gpiochip_generic_request/free/config
-> - fixed dev_err format for size_t reported by
->   kernel test robot
-> - add platform_get_and_ioremap_resource_byname wrapper
-> 
-> Andrei Stefanescu (12):
->   dt-bindings: mfd: add support for the NXP SIUL2 module
->   mfd: nxp-siul2: add support for NXP SIUL2
->   arm64: dts: s32g: change pinctrl node into the new mfd node
->   pinctrl: s32cc: small refactoring
->   pinctrl: s32cc: change to "devm_pinctrl_register_and_init"
->   dt-bindings: pinctrl: deprecate SIUL2 pinctrl bindings
->   pinctrl: s32g2: change the driver to also be probed as an MFD cell
->   pinctrl: s32cc: implement GPIO functionality
->   MAINTAINERS: add MAINTAINER for NXP SIUL2 MFD driver
->   nvmem: s32g2_siul2: add NVMEM driver for SoC information
->   MAINTAINERS: add MAINTAINER for NXP SIUL2 NVMEM cell
->   pinctrl: s32cc: set num_custom_params to 0
-> 
->  .../bindings/mfd/nxp,s32g2-siul2.yaml         | 163 +++++
->  .../pinctrl/nxp,s32g2-siul2-pinctrl.yaml      |   2 +
->  MAINTAINERS                                   |   3 +
->  arch/arm64/boot/dts/freescale/s32g2.dtsi      |  48 +-
->  arch/arm64/boot/dts/freescale/s32g3.dtsi      |  48 +-
->  drivers/mfd/Kconfig                           |  12 +
->  drivers/mfd/Makefile                          |   1 +
->  drivers/mfd/nxp-siul2.c                       | 414 +++++++++++
->  drivers/nvmem/Kconfig                         |  10 +
->  drivers/nvmem/Makefile                        |   2 +
->  drivers/nvmem/s32g2_siul2_nvmem.c             | 232 +++++++
->  drivers/pinctrl/nxp/pinctrl-s32.h             |   4 +-
->  drivers/pinctrl/nxp/pinctrl-s32cc.c           | 652 ++++++++++++++----
->  drivers/pinctrl/nxp/pinctrl-s32g2.c           |  32 +-
->  include/linux/mfd/nxp-siul2.h                 |  55 ++
->  15 files changed, 1502 insertions(+), 176 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
->  create mode 100644 drivers/mfd/nxp-siul2.c
->  create mode 100644 drivers/nvmem/s32g2_siul2_nvmem.c
->  create mode 100644 include/linux/mfd/nxp-siul2.h
-> 
+> Best regards,
 > --
-> 2.45.2
+> Jiebing Chen <jiebing.chen@amlogic.com>
 > 
 > 
 > 
@@ -260,20 +169,21 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/v6.16-rc3-116-ge34a79b96ab9 (exact match)
+ Base: using specified base-commit 6ecd20965bdc21b265a0671ccf36d9ad8043f5ab
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com:
 
-arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: pinctrl@4009c000 (nxp,s32g3-siul2): 'gpio-reserved-ranges' does not match any of the regexes: '-hog(-[0-9]+)?$', '-pins$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml#
-arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: pinctrl@4009c000 (nxp,s32g2-siul2): 'gpio-reserved-ranges' does not match any of the regexes: '-hog(-[0-9]+)?$', '-pins$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml#
-arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: pinctrl@4009c000 (nxp,s32g2-siul2): 'gpio-reserved-ranges' does not match any of the regexes: '-hog(-[0-9]+)?$', '-pins$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: clock-controller@330000 (amlogic,s4-audio-clkc): reg: [[0, 3342336, 0, 216], [0, 3346048, 0, 16]] is too long
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: clock-controller@330e80 (amlogic,clock-pads-clkc): power-domains: False schema does not allow [[14, 7]]
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: sound (amlogic,axg-sound-card): 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'#clock-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
 
 
 
