@@ -4,103 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F9EC83F20
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 10:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B399C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 10:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DjeE3o0RxHj2yfYkiiw6nT6qNxm9Jz3LUgLh8cuza0U=; b=VDqVpNJOiyWw+jBeI2CG1U9ULJ
-	klNluFcqPgPF0qe5bXqeOMVWiRgypTgyeYX41YTxDjvA6dAsZ+9xwYa2w0bTNoerBYAj+LOOh3ILz
-	/4LSmt6pMoQ/llzeIIxM/QBs4uCdwMrku08BdY34NkiC1ksvjIEDNuHZDmEnI8YZMP93zWvRNCiYL
-	EDfmoqF2zv+fstjicM4wvOkmR13GaxcuMzOZoAf0tML9boXOkSpGmZh5LaoX8GxBIOufzrBX8d+SW
-	AoKZi/dgkH2JNQvWJas6put2zzsCNdXCHtPtKqAASoHojiwFEenEBU33Q9sr7+m9Y0luh9zGVZY/0
-	+NCgzpuA==;
+	bh=sGaNMk1Nb5uDkougr0JHI6djA5s2FrcturNzxHjLd2w=; b=Aw6S5nERzIuwspeFffVONSq7y/
+	bdU1H6f8vRVCIhKthD4nCtRVsFkPdiYYge9/JsbH6TbxBOl5N6mrJNm20iiZUfIdlZEHHTl0A5XsQ
+	e+KQ56d336/egZa80T0qFy105MYsOv3yLcnuDzsKVySvrLkyPl0MRhbxBh23Gxq7rJCfX05opm2Mr
+	OgcUCZDGLLzVLcQavE/shWjiTF1OIJGEYNMx9r8EJyqtBdjLCSWP3hrnk2a6faITxufz73+LZoIvY
+	H6cRwkdMkdaZBRFj1KE/NQDrc8zLhpdEZ16b22baU2PZ48FhP3K0NWzg2kBhtujsAl+20Cqyaz91T
+	+T3WZSew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZout-0000000BXnK-0rzm;
-	Thu, 10 Jul 2025 10:54:15 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1uZoxB-0000000BY3q-40Qm;
+	Thu, 10 Jul 2025 10:56:38 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZnCi-0000000BHMd-3BXF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 09:04:34 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-235e389599fso168285ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 02:04:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752138271; x=1752743071; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DjeE3o0RxHj2yfYkiiw6nT6qNxm9Jz3LUgLh8cuza0U=;
-        b=ydwfAbI0lRLRKa2JTwKyLE+pDZDbMCPqcBh7+KkGW687xWH18z5RUNW2uIrEiOK1GP
-         A/M6Q42ww/Pz+4Frwp8sp5QWjsHqH+zUDbE9k8B6Gx2DgLIdKJUnyExfcmlmn4+NYg05
-         9WZCSFIPSvvPymjzhR/VYm6dTPg2Tmz73OzroBIygpt0Vb3VQ2501n1KcU+doa90Fz38
-         5qzbU7U8L36yc/QUqzZVQ60P6q6cGQfIN59Ez/Jw5pfJgIxBGTIwVan3YMdMOlun10lc
-         2b4rsVo+nR+mi3SEKWnnvTuiTAJPedBGne2Fo/IAtil/02PeoPDgLUeGQtb37f3lkLkr
-         kAvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752138271; x=1752743071;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DjeE3o0RxHj2yfYkiiw6nT6qNxm9Jz3LUgLh8cuza0U=;
-        b=ajwtWytWWW1D1PtRVuG+JJ2ECqNHwogbyT+FmZG36KAjewYfrjp/nfDyE+hu+YL4Gg
-         pPeqoQKC2SJFn56saDUh7Q0l7wMlU/WYQo5y66pfsE1SZaSBzR2dNSnCaS0Se65JhvKF
-         m5SsXh8G6YdoCShP6yFRNPfcVDRm6mxMjMuuQihOtLaad1NQkXTyiFqaDuZgU4+sm8cf
-         AvuZhVajM14A0HGPQUci+BEOHf2PoaV2WphkDofwFZzSvXcjqi3D/UB1rSRjyAbnmMbx
-         SQSCU1BBqQYcLgdU+aOY1FfRuawdrTq+gGBKQRlHEc4umB4JIwY+sJkHuEHbMhLsKa/s
-         gulA==
-X-Forwarded-Encrypted: i=1; AJvYcCWn+i4WM+m181NvtD7FYooX7e0qhMf7291w22UNEfdBJlvY6HSoakOxMjqAXfsgdm9qf/FRtFvHMRkzObgOPGRX@lists.infradead.org
-X-Gm-Message-State: AOJu0YytUtvET/fc1Tq6/Zk9A/tY7mDe3ag4meLzIdvcLLaKhC9pHxLE
-	SN6P86aTeyPTZmCIY4AWjHYJslFFeXk1lBKgFDxrhRSgaeA0FFjRAVGHGuN/7MM9Lg==
-X-Gm-Gg: ASbGncs+jYJ1sBW5/IVz8JdSoc/arDMhV/bR6jH+ZXyJyuPAbElwttGckw92nim6rAB
-	sh93+9g5pgns0HKiG6vYpnSxPMdv5pBUj3Lu3sac2U5S8d8xi/2uZa3Q4zsBedR6kuTFyBABX5o
-	e+Cu/7sSm23DPjx48IXUDh8KIVFySVoCBaVAWK+bY2xp6IZQ1NbovmZkI7q1E7J4b9M+DR+3p5b
-	Gc07Zda9yVlK+KabYdJGHMHdGDoWvjxtb7SqDOdat951QcKnWjeQoFqHKc6zNE2HCyAnCA19fXA
-	W1qpc5XL9GPhZ1ZXdQ/mQBV+dAaw2cIqeljLA9RfzPrktKRX2WXP06gx1B3bziCiBYNNKohiyX9
-	J2+TNoiVXQA9mfYRnL2wX
-X-Google-Smtp-Source: AGHT+IEUCwoHbQmo67knPJ74PmLn5sw1tOh05zzgGXqHLIH2hLihrsg/DC4THre9sZfOvA98I9mneg==
-X-Received: by 2002:a17:902:f547:b0:215:65f3:27ef with SMTP id d9443c01a7336-23de372b90dmr2361415ad.12.1752138270075;
-        Thu, 10 Jul 2025 02:04:30 -0700 (PDT)
-Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9f49502sm1369146b3a.115.2025.07.10.02.04.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 02:04:28 -0700 (PDT)
-Date: Thu, 10 Jul 2025 09:04:19 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
-	corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
-	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
-	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
-	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
-	yi.l.liu@intel.com, mshavit@google.com, zhangzekun11@huawei.com,
-	iommu@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	patches@lists.linux.dev, mochs@nvidia.com, alok.a.tiwari@oracle.com,
-	vasant.hegde@amd.com, dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v7 27/28] iommu/tegra241-cmdqv: Add user-space use support
-Message-ID: <aG-CE0jUxK4k1FMb@google.com>
-References: <aGRmaOORg-YDfncY@google.com>
- <aGRozoIDIlgl9H9x@Asurada-Nvidia>
- <aGR55PUBnwb8qT8U@google.com>
- <aGSBTpY0nkdp2TTL@Asurada-Nvidia>
- <aGSNmf5Q82xEbDpX@google.com>
- <20250702180541.GD1139770@nvidia.com>
- <aGaXqwzfLwsgCH6n@google.com>
- <20250703175532.GF1209783@nvidia.com>
- <aGbQipeSn0aZnwZU@google.com>
- <20250704125012.GK1209783@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250704125012.GK1209783@nvidia.com>
+	id 1uZnIQ-0000000BIqI-0qWf;
+	Thu, 10 Jul 2025 09:10:27 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1752138623;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sGaNMk1Nb5uDkougr0JHI6djA5s2FrcturNzxHjLd2w=;
+	b=xbG6UlchkL4vuwnA6X5fvzcs/+BGWE9E2QDy9ueXRRbvDTV32lB8bhIao/UlPUDFjti9hh
+	77VkbFM4ahaWF57B4aD06nfBnwtDcZCO387O6HloDr4JjwuYagTKzyKerNPqKJcxJKdK6r
+	86IZmdS6TTrwA+3TUHGMx+gq+wQVVnGhnjTAtvp2mw00DfePiJ8tdd46f83cMGi2sTFOK6
+	sWZaOw0vRVch8vn9SHHNZ8YEE9uG0UtMc4UwFWbqBJso9hJoHrGXy0aaM1MlsMLzfTwctF
+	ZJO2qu7FB+jTAPpQ3i6dsXl2E2I6+bVmgyHVsOSFwMqSeMyFivDqKlP14VqSBg==
+Content-Type: multipart/signed;
+ boundary=5487c075f993717a80e96c46976a9b05c2e5ee5ea6d3bac3fbff171d5762;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Thu, 10 Jul 2025 11:10:14 +0200
+Message-Id: <DB89AVFYVBG3.11WV856SX4PDP@cknow.org>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add reset button to NanoPi R5S
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, "Krzysztof Kozlowski"
+ <krzk@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>
+References: <20250709105715.119771-1-didi.debian@cknow.org>
+ <ea6f2815-5882-4fab-8372-1c252a87e09a@kernel.org>
+ <DB7OENOUTHGM.2JPD73SZQ9P0P@cknow.org> <11937120.2WqB4rESCP@diego>
+In-Reply-To: <11937120.2WqB4rESCP@diego>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_020432_796513_2CA51DB7 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20250710_021026_716820_B64B34D6 
+X-CRM114-Status: GOOD (  29.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,26 +73,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 09:50:12AM -0300, Jason Gunthorpe wrote:
-> On Thu, Jul 03, 2025 at 06:48:42PM +0000, Pranjal Shrivastava wrote:
-> 
-> > Ahh, thanks for this, that saved a lot of my time! And yes, I see some
-> > functions in eventq.c calling the iopf_group_response which settles the
-> > CMD_RESUME. So.. I assume these resume commands would be trapped and
-> > *actually* executed through this or a similar path for vPRI. 
-> 
-> Yes, that is what Intel did. PRI has to be tracked in the kernel
-> because we have to ack requests eventually. If the VMM crashes the
-> kernel has to ack everything and try to clean up.
-> 
+--5487c075f993717a80e96c46976a9b05c2e5ee5ea6d3bac3fbff171d5762
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-I see.. thanks for clarifying!
+On Wed Jul 9, 2025 at 9:49 PM CEST, Heiko St=C3=BCbner wrote:
+> Am Mittwoch, 9. Juli 2025, 18:47:47 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Diederik de Haas:
+>> On Wed Jul 9, 2025 at 4:18 PM CEST, Krzysztof Kozlowski wrote:
+>> > On 09/07/2025 13:17, Diederik de Haas wrote:
+>> >>>>  		compatible =3D "gpio-leds";
+>> >>>>  		pinctrl-names =3D "default";
+>> >>>> @@ -127,6 +140,12 @@ eth_phy0_reset_pin: eth-phy0-reset-pin {
+>> >>>>  		};
+>> >>>>  	};
+>> >>>> =20
+>> >>>> +	gpio-keys {
+>> >>>> +		gpio4_a0_k1: gpio4-a0-k1 {
+>> >>>
+>> >>> Are you sure that this passes checks?
+>> >>=20
+>> >> If it's about the 'weird' name/label, it is what is used in the
+>> >> schematic document I have and I asked Heiko (on IRC) if using
+>> >> ``reset_button_pin: gpio4-a0-k1`` would not be better. That would mak=
+e
+>> >> it more descriptive while also having the schematic traceability in i=
+t.
+>> >> The answer was no, use the form I used in this patch.
+>> >>=20
+>> >> Am I missing checks I should've done as well?
+>> > I meant that usually nodes, including pin controller mux/config nodes,
+>> > have specific prefixes or suffixes. Other cases have here as well. You=
+r
+>> > does not.
+>>=20
+>> I agree I've done it inconsistent with how I did the other pinctrl
+>> nodes, so I should've added the '-pin' suffix. For consistency.
+>
+> Also fine by me :-) .
+>
+>
+>> I've been wondering whether there are rules for naming [1], both for the
+>> grouping and the node names. Some DTS files use a '-pin' suffix, others
+>> don't. And it's not uncommon to see both variants in the same dts file.
+>>=20
+>> One of the examples I looked at was ``rk3568-qnap-ts433.dts``. While it
+>> uses 'keys' as grouping node, I went with 'gpio-keys' as that was used
+>> more often (in other files). While the gmac0/keys/leds subnodes under
+>> ``&pinctrl`` use the '-pin' suffix, the pmic/usb subnodes do not.
+>> (and I just noticed 'hdd4_led-pin' should be 'hdd4-led-pin')
+>
+> The TS433 suffers from that "no schematics" thing I mentioned in the
+> other mail, so the device-specific pins are named after their functon.
+> As I was assuming the TS433 will follow the reference design, those
+> pins are named after how other boards do it
 
-> Also SMMUv3 does not support PRI today, just stall.
-> 
+That sounds (very) sensible for the 'base' name.
+What I'm trying to figure out is whether there are some rules which
+determine whether the should be a '-pin' suffix or not.
+Because some have and some don't.
 
-Ack. Thanks!
+>> I'd love to know/learn if there are actual rules for these things, but
+>> I don't know them.
+>
+> From looking at pinctrl bindings, it seems patterns are set per controlle=
+r
+> with no global rules. Which makes sense in a way, because they do
+> represent pin(-groups) differently each.
 
-> Jason
-Praan
+I think I don't understand this.
+I know there are pattternProperties which describe the format for
+several node names, but I haven't found a rule for '-pin' suffix.
+The "rockchip,pins" property is defined in pinctrl/rockchip,pinctrl.yaml
+and I don't see it there. And in the example in that binding file, there
+is one node with a "rockchip,pins" property ... and it does not have a
+'-pin' suffix.
+
+I'll sent a v2 with the '-pin' suffix even though I still don't know
+why. It looks more consistent though.
+
+Cheers,
+  Diederik
+
+--5487c075f993717a80e96c46976a9b05c2e5ee5ea6d3bac3fbff171d5762
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaG+DeAAKCRDXblvOeH7b
+bm8wAQDC/7RwQKw8W5acfgmJOlF9Yd/jpPxII9M5WLLzV2zSEQEA+ZyoUW3i+QT0
+XYt5dtbVv6ODUpEp8G03nlsPitbW+QA=
+=ryk6
+-----END PGP SIGNATURE-----
+
+--5487c075f993717a80e96c46976a9b05c2e5ee5ea6d3bac3fbff171d5762--
 
