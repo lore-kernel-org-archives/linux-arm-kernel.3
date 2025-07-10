@@ -4,71 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9954FC83F1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE37BC83F17
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cvSLJsSKtV9uXxpBWgcGj79K9jO2mrlDrMJEnzEg0Bo=; b=h9tftAGnrXUyfr9ejbiCCaGb0C
-	owQ8Fiu16h7NkhIpSFQCP9Cfrd2ypwhemSgkjHc1KbbUl4XtRm9MqrtOvxXCfzwDpGeEtmchWY/xn
-	wr2iuunF7XnyuJa8HmxN1+xtwZeMDUOkMl42PzNyeLCPB4huUIYyjgQkRCnACPvvhv0cNUKV/gazy
-	e7z8H2HB1mDlmyiRt1KdkidWjEArLxDibMHoo2WsTH01MyRhqs5C+DYA7N2QjrcIoac6foE4rEsf8
-	yI5KHoXYJcijtgGW986q2wE+Cd3stM71L8Yocjjt+6h3l6TZrcejBWrr7SmpfwtReNtW4yp7G6I22
-	nLolEt0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zz6/HNpI1gHN4fAaBunmqYHsn5vtfJJ4CRMBCE1FAzE=; b=xP4uL8l26KNqm6di8plSrkre7Q
+	HENWOzwK+43UT2xDNijTtcZ66SgW4jV8I04WZdSA1myKAQbVh+XI3HUX3lsf7jiq05Mq+lXeQcZl9
+	kiKUy+uuwZEY5Vq4A1i1o3555CAtcw7KOeDxRC0QOIiAnzKWqdoiF7nFdnwsAb+5Q84yFo91xSFtr
+	y5/GVErphkve+sc9Fcm7ZiRFGaQ5CKA8xDWgw3gsy4c3w2/vuiQSol0ruROUEHYhSQ0HI+uRYRSc4
+	g3mC8cwIuUF0l+6Aazf2PcqvBnqxEevOUvJdjpOo3X20dCeLvFQhyorZNAJXTu84EebAYJaeKs+rz
+	cpZKkNNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2QH-0000000DQH6-1yhX;
-	Fri, 11 Jul 2025 01:19:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ua2Q0-0000000DPvG-3t8F;
+	Fri, 11 Jul 2025 01:19:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZzbX-0000000D8xt-05Nv
+	id 1uZyYG-0000000D2GR-0zDG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 22:19:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B699644682;
-	Thu, 10 Jul 2025 22:18:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60B35C4CEE3;
-	Thu, 10 Jul 2025 22:18:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752185938;
-	bh=RxVBwyXBv5LWziR/6/tS4iFFqMsUTBajjCGOPP5GU5w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qa6aYs06ohrcMbMTOjTn2wKTdl/OLauQ6W1uuk6tcOhc/BzKbdCpMfuwzcJbPXGvz
-	 P70J1etQPpq76UkNWWKPVIKYg259eOEdLiuqqWDn+teo3D1j2qLpziXm0g6CxYO+j2
-	 Oli1odsGQatjX0+3xt5fsJdbkCJ66eIUc4IXqQQzxgMvDcjlOOYk5s+01tosaHUdCO
-	 6WpwAhy3v6gZ3+L6vzB8RqjQ6a0K//jzWxb1pK/GwQnO1+5hYNtW0f+bWjQGtu2SV8
-	 Ee1Zzmar2RDnXFfwBe9NrKV0nkjJM7CT2+1yBqlZAHLBsmYejYBfWfHGkHcZieUkkP
-	 zA/U6VhCqVUeQ==
-Date: Thu, 10 Jul 2025 17:18:55 -0500
-From: Rob Herring <robh@kernel.org>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: imx@lists.linux.dev, Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/8] dt-bindings: display: imx: Add bindings for i.MX94
- DCIF
-Message-ID: <20250710221855.GA4126646-robh@kernel.org>
-References: <20250709122332.2874632-1-laurentiu.palcu@oss.nxp.com>
- <20250709122332.2874632-6-laurentiu.palcu@oss.nxp.com>
+	Thu, 10 Jul 2025 21:11:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1752181891;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zz6/HNpI1gHN4fAaBunmqYHsn5vtfJJ4CRMBCE1FAzE=;
+	b=i0ABL9+Pog1jTY1TOTLW+CJr43Su+9LZCq868rPGXnu0P5RolFt8OTI4Z1LDr4nsjwwi1U
+	d/IOZ3HtYaMByGBoFVEOUrrQ9oTVUg5tHzg+OAGoAn8BALrYIyuOwxQdov/I5IAfKYx2OZ
+	YnDeU/6WVYwqycIsyFojjh8+U1q9qU8=
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
+ [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-45-SivrT9MsNi69l5cp5VRrEQ-1; Thu, 10 Jul 2025 17:11:30 -0400
+X-MC-Unique: SivrT9MsNi69l5cp5VRrEQ-1
+X-Mimecast-MFC-AGG-ID: SivrT9MsNi69l5cp5VRrEQ_1752181889
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-23689228a7fso20492905ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 14:11:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752181889; x=1752786689;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zz6/HNpI1gHN4fAaBunmqYHsn5vtfJJ4CRMBCE1FAzE=;
+        b=GMrYIuA1tvNKaJVd2xxw2RgZrgH6Mhx/JkUrGgKCzuwbLuQAmb1IMH7B6qpLaC4Fdu
+         /0+2rdsIkb6twgrjqZWr4NhgiUQoKbcEpqnylNONq59+0tvBQeqdKnLQuQJReMC0wQAH
+         JRgEg1NOvfR3WC8z+j4a5shXtVUWSQyHpjTRpO826JCkRbEEtyTR9EoX6FeOqC7sPwhC
+         ODRUX/ZDoDTCP15Fv/5kfN9hPICkRWhHY0JIe2qPGUQfoYpIUaYyw0+s9DNpYXKlRj7k
+         6h5EnYiJDf22SQhqJFEqJvb1y4I/q1YTO45cp4HcllJfMZ8BiGKOYNm0J2LkKRc96Vkw
+         h7Kw==
+X-Forwarded-Encrypted: i=1; AJvYcCWmfWKILkuLhKEHAlTPkKcVpdJogrSABx57CChmt5FiBSs/gR/XGjjry2Sn3QmaMcHz5qVE+ZArlPuhL850Sz2N@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyb1STpj/0mzKyIGww+hDHqhgXFXoc+qLgLCVhkAp2oLm+Oqhz6
+	sG5XMuzP0tMU8OtY3lrxJfY5oBrqObBND8DfNKxYZMKmITQ7mr3AC0qn8my5KkPVq8Gx1LapcrE
+	a70aRiiWkuOK0BIFPRqfNrEm7PR76PFxUymxkgfWtEp4rvoJEEojwlua6Oi9FnpkP0+xmk3h8i/
+	Uf
+X-Gm-Gg: ASbGncu8LM0LAGbPbfTNJd9iZsWVfv4EWNFopGyKZS72IUVSMvIG1Nhtr83SrkWeQvb
+	qhwq4l7upm7aocTJZQJgky+lo5gRL6u0EpZ2/3hpcJeko20oglfEUFEjQ1huSzl9FWEpeHoaQac
+	K7ZwMGBRPISDj7jmjUIHbBt5GnJTg8WyjJERX/u8KOeZvcgk58ss60HXwVAUiUoTbz1LHTW+8p6
+	tFes7I9mYV7cGa+0XC2nD39XcuXrHLaWCZtl+r9OoIs/LVn6rCzobqUd15kEwoNJiQpecHB+Ik6
+	WyNslzSTPyBBJBDwIz9kUVqdg3NKMey8XTUeHdaF+wWuZw==
+X-Received: by 2002:a17:903:3d0e:b0:23c:6cc2:feb9 with SMTP id d9443c01a7336-23dede9e0bdmr9187585ad.45.1752181888754;
+        Thu, 10 Jul 2025 14:11:28 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH40itlo9Q3VPwkodph6SX00btge58CCSKjrR52Pux2HyjpRrEkkomBu7+5GLThfJJL/+J/yw==
+X-Received: by 2002:a17:903:3d0e:b0:23c:6cc2:feb9 with SMTP id d9443c01a7336-23dede9e0bdmr9187315ad.45.1752181888452;
+        Thu, 10 Jul 2025 14:11:28 -0700 (PDT)
+Received: from [10.144.155.224] ([2600:382:7716:65ad:9491:c054:6f2d:80ed])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de433e51asm27790595ad.180.2025.07.10.14.11.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Jul 2025 14:11:27 -0700 (PDT)
+From: Brian Masney <bmasney@redhat.com>
+Date: Thu, 10 Jul 2025 17:10:36 -0400
+Subject: [PATCH 04/13] clk: imx: cpu: convert from round_rate() to
+ determine_rate()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250709122332.2874632-6-laurentiu.palcu@oss.nxp.com>
+Message-Id: <20250710-clk-imx-round-rate-v1-4-5726f98e6d8d@redhat.com>
+References: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
+In-Reply-To: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Maxime Ripard <mripard@kernel.org>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Brian Masney <bmasney@redhat.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752181866; l=1427;
+ i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
+ bh=3XjDCzSMZEsGst/M49lew0bIUSlQF8Nx3FY6tvatUbc=;
+ b=cZExAeUB9HVwWRLw/pA+Ktj6jaDvyzLQbPvJc/XdM+3G/yEOb+NDOTlZV8oaiYClRWR49P9Cu
+ xqOnNjF0BFoDoL6ivjtSPWRBoBq1R6/6yfsdfsJwfwgf2c4wsH9udFq
+X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
+ pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Kv0v6uRA772rtEGYGgvMOenoRJUscUPzDDzaKNr_les_1752181889
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_151859_101232_3A501602 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20250710_141132_354500_1952D5D2 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,132 +123,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 03:23:24PM +0300, Laurentiu Palcu wrote:
-> DCIF is the i.MX94 Display Controller Interface which is used to
-> drive a TFT LCD panel or connects to a display interface depending
-> on the chip configuration.
+The round_rate() clk ops is deprecated, so migrate this driver from
+round_rate() to determine_rate() using the Coccinelle semantic patch
+on the cover letter of this series.
 
-Drop 'bindings for' in the subject. You already said 'bindings' once.
+Signed-off-by: Brian Masney <bmasney@redhat.com>
+---
+ drivers/clk/imx/clk-cpu.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-> 
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> ---
->  .../bindings/display/imx/nxp,imx94-dcif.yaml  | 101 ++++++++++++++++++
->  1 file changed, 101 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml b/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
-> new file mode 100644
-> index 0000000000000..e4cab43c77ebc
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
-> @@ -0,0 +1,101 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright 2025 NXP
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/imx/nxp,imx94-dcif.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: i.MX94 Display Control Interface (DCIF)
-> +
-> +maintainers:
-> +  - Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> +
-> +description:
-> +  The Display Control Interface(DCIF) is a system master that fetches graphics
-> +  stored in memory and displays them on a TFT LCD panel or connects to a
-> +  display interface depending on the chip configuration.
-> +
-> +properties:
-> +  compatible:
-> +    const: nxp,imx94-dcif
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    items:
-> +      - description:
-> +          Interrupt output for CPU domain 0 (controlled by common registers group).
-> +      - description:
-> +          Interrupt output for CPU domain 1 (controlled by background layer registers group).
-> +      - description:
-> +          Interrupt output for CPU domain 2 (controlled by foreground layer registers group).
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: common
-> +      - const: bg_layer
-> +      - const: fg_layer
-> +
-> +  clocks:
-> +    items:
-> +      - description: APB bus clock
-> +      - description: AXI bus clock
-> +      - description: Pixel clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: apb
-> +      - const: axi
-> +      - const: pix
-> +
-> +  assigned-clocks:
-> +    description: Reference to DISPLAYMIX CSR clock mux.
-> +    maxItems: 1
-> +
-> +  assigned-clock-parents:
-> +    description: Parent of the clock mux.
-> +    maxItems: 1
+diff --git a/drivers/clk/imx/clk-cpu.c b/drivers/clk/imx/clk-cpu.c
+index cb6ca4cf0535bab2d9d519c46a84564711aaf209..43637cb61693845f54b3bd1b92f548b43bc30caa 100644
+--- a/drivers/clk/imx/clk-cpu.c
++++ b/drivers/clk/imx/clk-cpu.c
+@@ -30,12 +30,14 @@ static unsigned long clk_cpu_recalc_rate(struct clk_hw *hw,
+ 	return clk_get_rate(cpu->div);
+ }
+ 
+-static long clk_cpu_round_rate(struct clk_hw *hw, unsigned long rate,
+-			       unsigned long *prate)
++static int clk_cpu_determine_rate(struct clk_hw *hw,
++				  struct clk_rate_request *req)
+ {
+ 	struct clk_cpu *cpu = to_clk_cpu(hw);
+ 
+-	return clk_round_rate(cpu->pll, rate);
++	req->rate = clk_round_rate(cpu->pll, req->rate);
++
++	return 0;
+ }
+ 
+ static int clk_cpu_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -66,7 +68,7 @@ static int clk_cpu_set_rate(struct clk_hw *hw, unsigned long rate,
+ 
+ static const struct clk_ops clk_cpu_ops = {
+ 	.recalc_rate	= clk_cpu_recalc_rate,
+-	.round_rate	= clk_cpu_round_rate,
++	.determine_rate = clk_cpu_determine_rate,
+ 	.set_rate	= clk_cpu_set_rate,
+ };
+ 
 
-You don't have to document assigned-clocks. Allowed anywhere with 
-'clocks'.
+-- 
+2.50.0
 
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  nxp,blk-ctrl:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: A phandle which points to NXP displaymix blk-ctrl.
-> +
-> +  port:
-> +    $ref: /schemas/graph.yaml#/properties/port
-> +    description: Display Pixel Interface(DPI) output port
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        display-controller@4b120000 {
-> +            compatible = "nxp,imx94-dcif";
-> +            reg = <0x0 0x4b120000 0x0 0x300000>;
-> +            interrupts = <GIC_SPI 377 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH>;
-> +            interrupt-names = "common", "bg_layer", "fg_layer";
-> +            clocks = <&scmi_clk 69>, <&scmi_clk 70>, <&dispmix_csr 0>;
-> +            clock-names = "apb", "axi", "pix";
-> +            assigned-clocks = <&dispmix_csr 0>;
-> +            assigned-clock-parents = <&ldb_pll_pixel>;
-> +            power-domains = <&scmi_devpd 11>;
-> +            nxp,blk-ctrl = <&dispmix_csr>;
-> +
-> +            port {
-> +                dcif_out: endpoint {
-> +                    remote-endpoint = <&ldb_in>;
-> +                };
-> +            };
-> +        };
-> +    };
-> -- 
-> 2.46.1
-> 
 
