@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A347C83F18
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 08:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF736C83F1F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 09:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/c6PpFZxX2IwuD64HEN0TwJd8WKn9bagu6C1XSQwuQA=; b=ipzvEU7lKwYO6yYWNe1uPSE6O3
-	dYoC6Irtbx1fIDslkg/8F4KZhtMqAywD3VDxZePfjs2GWh17Zl1HDVtwZQhaDxjTipRFoZ7QzqqFI
-	OoTKBxvGUrEFltM7lbEzTmUoeIFa9sXmn1XAdytxDqSc0HDaCMZ44VJBh6Skjzh9KK9myZQqMi+Pm
-	q8W7jO7nO5zJaOHXi//taCBFs6NMC+nHQV5rAtfKghDFXFBHAXe8LoaReZIHMG9kfVDwISuWtvf5L
-	p6cpyvwuZRC0+7qdDkKG/Wnbu3Xgm/WvJUW9o9hegl/xfC6BSb5PVWiNKcCjwiayprmz23uBOZ/3u
-	XRuH5pWQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7kVCapFGdG0gRHQhSRUGUM3fGitSOZCS1rMndaGOheE=; b=pBZwSMpldSawXpNf5HvKC22PHC
+	n6UHOiyQ9k2KQPM9g8SK18PZieDxvsuWHQKMF1e68zHU8Awu3JKwRsXfx9N4CBHUZsMjvA9xRGnZi
+	7maKUMWmJepAwRE+Urok6FZwWxfvkKYrq3VJ+4HvLpM3FShw+5rbSHX8o+HcZbL4EysadOmmD792k
+	38FhIY5NAlyeEA+kppauC5un/QYa2qgJJRzgYXhdtdXsvblb8+Ru7AwEveMRRP497C+L9npg9fmI9
+	yOa4s23D5ZYqykKn4TnNl1rm0c7ZAwejpHSuLOhI8yOwrql/HFyMp+5nc2eT3THrDpiKe+6HjNftB
+	yaf4G5yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZn5z-0000000BFt2-3QaP;
-	Thu, 10 Jul 2025 08:57:36 +0000
+	id 1uZn8I-0000000BGOu-3zdz;
+	Thu, 10 Jul 2025 08:59:58 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZls7-0000000B2TY-23uw
+	id 1uZls7-0000000B2Ta-26RA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 07:39:13 +0000
+	Thu, 10 Jul 2025 07:39:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=/c6PpFZxX2IwuD64HEN0TwJd8WKn9bagu6C1XSQwuQA=; b=JvP0dPmFYZUVUdl1wgJrXB1SaD
-	rRq2WFj+DH4ZNfKSIRp0zp/79ug8oz9hbuSi4nyKqqLXaa4aQE7cMf+bOPYJPsfDwRrZnp3RDShkQ
-	pY+qc2LaEf+EyKhEOlps0nX9O6gltrDNihJW7sh+u4zp+FrFN11Rp/CJyKW6rhg35QC+93xK+ezdE
-	qmuMM400DBI0SJzzOrDYFgjA/h5uEdPs3gfnoGP8YjEwfZrtUtT03u5jI4CNZGZGi/s/DwGz7qSSi
-	q8o0YT37TG+LC9rLLMM/FY9AtN+zPZc+JHNJPH/wQlIW7UK90m3fyuEZF0mHFd4fEgJAB87BpBKj2
-	5aCntzRA==;
+	bh=7kVCapFGdG0gRHQhSRUGUM3fGitSOZCS1rMndaGOheE=; b=p5XXN1fiONAQE6w4z3DXP0epP3
+	W+0AnvD6kwo2+3JjLjBxGY2ZrvM47itZ94wu+zku2xmM+4D6/vm4TXUrKSb2vXZfCC++9LgTPxlu7
+	sdnw8HXmtXvnJg6IEjUkrfcrocttP/kyWabdAUk39VKA2jbvUkSQp+4JLp2bx8AuPNg+nmL7672Nq
+	BjxBJpWBc86PA5La/Vh9VTAIO3Rp5lq/YwnJLbJ6NM/p4ZmXyjBM4h2JokBH3C8qfFO1LcoBlnSPX
+	dWNPrFbMPwzQdVQDAddi2AScEMrk6sluM2CbzgTQleOJ1NpzapCXPyQUWdXCTuZPbTLy9T75I0kiG
+	nmfSMtug==;
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:48064 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1uZls3-006IV5-08;
+	id 1uZls3-006IV5-1A;
 	Thu, 10 Jul 2025 09:39:06 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Haibo Chen <haibo.chen@nxp.com>,
@@ -65,10 +65,12 @@ Cc: linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de,
 	andrej.picej@norik.com
-Subject: [PATCH 0/2] Make i.MX 93 ADC calibration params configurable
-Date: Thu, 10 Jul 2025 09:39:02 +0200
-Message-Id: <20250710073905.1105417-1-primoz.fiser@norik.com>
+Subject: [PATCH 2/2] iio: adc: imx93: Make calibration parameters configurable
+Date: Thu, 10 Jul 2025 09:39:04 +0200
+Message-Id: <20250710073905.1105417-3-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250710073905.1105417-1-primoz.fiser@norik.com>
+References: <20250710073905.1105417-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -82,9 +84,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_003911_996770_AB43927D 
-X-CRM114-Status: UNSURE (   4.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250710_003911_997137_2722476F 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +100,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i.MX 93 ADC calibration parameters are configurable in the MCR
-(Main Configuration Register). One can tweak bits:
+From: Andrej Picej <andrej.picej@norik.com>
 
- - MCR[AVGEN]: Enable calibration averaging function,
- - MCR[NRSMPL]: Select number of calibration samples,
- - MCR[TSAMP]: Select sample time of calibration conversions, 
+Make i.MX93 ADC calibration parameters:
+ - AVGEN: Enable calibration averaging function,
+ - NRSMPL: Select number of calibration samples,
+ - TSAMP: Select sample time of calibration conversions,
 
-Make it possible to configure those parameters via the corresponding
-device-tree properties.
+in the MCR register configurable with the corresponding device-tree
+properties:
+ - nxp,calib-avg-en,
+ - nxp,calib-nr-samples and
+ - nxp,calib-t-sample.
 
-This patch series is based on the one we submitted in March 2024:
-https://lore.kernel.org/linux-arm-kernel/20240320100407.1639082-1-andrej.picej@norik.com/
+Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+ drivers/iio/adc/imx93_adc.c | 75 ++++++++++++++++++++++++++++++++++---
+ 1 file changed, 70 insertions(+), 5 deletions(-)
 
-Changes since the original submission:
-- rebase on linux-next
-- reorder patches (bindings before users)
-- fix checkpatch errors
-- reword commit subject & body
-- implement feedback from reviewers
-
-
-Andrej Picej (2):
-  dt-bindings: iio: adc: imx93: Add calibration properties
-  iio: adc: imx93: Make calibration parameters configurable
-
- .../bindings/iio/adc/nxp,imx93-adc.yaml       | 21 ++++++
- drivers/iio/adc/imx93_adc.c                   | 75 +++++++++++++++++--
- 2 files changed, 91 insertions(+), 5 deletions(-)
-
+diff --git a/drivers/iio/adc/imx93_adc.c b/drivers/iio/adc/imx93_adc.c
+index 7feaafd2316f..da9b5c179240 100644
+--- a/drivers/iio/adc/imx93_adc.c
++++ b/drivers/iio/adc/imx93_adc.c
+@@ -18,6 +18,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/regulator/consumer.h>
++#include <linux/property.h>
+ 
+ #define IMX93_ADC_DRIVER_NAME	"imx93-adc"
+ 
+@@ -43,6 +44,9 @@
+ #define IMX93_ADC_MCR_MODE_MASK			BIT(29)
+ #define IMX93_ADC_MCR_NSTART_MASK		BIT(24)
+ #define IMX93_ADC_MCR_CALSTART_MASK		BIT(14)
++#define IMX93_ADC_MCR_AVGEN_MASK		BIT(13)
++#define IMX93_ADC_MCR_NRSMPL_MASK		GENMASK(12, 11)
++#define IMX93_ADC_MCR_TSAMP_MASK		GENMASK(10, 9)
+ #define IMX93_ADC_MCR_ADCLKSE_MASK		BIT(8)
+ #define IMX93_ADC_MCR_PWDN_MASK			BIT(0)
+ #define IMX93_ADC_MSR_CALFAIL_MASK		BIT(30)
+@@ -145,7 +149,7 @@ static void imx93_adc_config_ad_clk(struct imx93_adc *adc)
+ 
+ static int imx93_adc_calibration(struct imx93_adc *adc)
+ {
+-	u32 mcr, msr;
++	u32 mcr, msr, val, reg;
+ 	int ret;
+ 
+ 	/* make sure ADC in power down mode */
+@@ -156,12 +160,73 @@ static int imx93_adc_calibration(struct imx93_adc *adc)
+ 	mcr &= ~FIELD_PREP(IMX93_ADC_MCR_ADCLKSE_MASK, 1);
+ 	writel(mcr, adc->regs + IMX93_ADC_MCR);
+ 
+-	imx93_adc_power_up(adc);
+-
+ 	/*
+-	 * TODO: we use the default TSAMP/NRSMPL/AVGEN in MCR,
+-	 * can add the setting of these bit if need in future.
++	 * Optionally configure desired ADC calibration settings in MCR
++	 * - MCR[AVGEN]: Enable/disable calibration averaging function (default: on)
++	 * - MCR[NRSMPL]: Select the number of calibration samples (default: 512)
++	 * - MCR[TSAMP]: Select sample time of calibration conversions (default: 22)
+ 	 */
++	ret = device_property_read_u32(adc->dev, "nxp,calib-avg-en", &val);
++	if (!ret) {
++		if (val != 0 && val != 1) {
++			dev_err(adc->dev, "invalid nxp,calib-avg-en: %d\n", val);
++			return -EINVAL;
++		}
++		reg = val;
++		mcr &= ~IMX93_ADC_MCR_AVGEN_MASK;
++		mcr |= FIELD_PREP(IMX93_ADC_MCR_AVGEN_MASK, reg);
++	}
++
++	ret = device_property_read_u32(adc->dev, "nxp,calib-nr-samples", &val);
++	if (!ret) {
++		switch (val) {
++		case 16:
++			reg = 0x0;
++			break;
++		case 32:
++			reg = 0x1;
++			break;
++		case 128:
++			reg = 0x2;
++			break;
++		case 512:
++			reg = 0x3;
++			break;
++		default:
++			dev_err(adc->dev, "invalid nxp,calib-nr-samples: %d\n", val);
++			return -EINVAL;
++		}
++		mcr &= ~IMX93_ADC_MCR_NRSMPL_MASK;
++		mcr |= FIELD_PREP(IMX93_ADC_MCR_NRSMPL_MASK, reg);
++	}
++
++	ret = device_property_read_u32(adc->dev, "nxp,calib-t-sample", &val);
++	if (!ret) {
++		switch (val) {
++		case 8:
++			reg = 0x1;
++			break;
++		case 16:
++			reg = 0x2;
++			break;
++		case 22:
++			reg = 0x0;
++			break;
++		case 32:
++			reg = 0x3;
++			break;
++		default:
++			dev_err(adc->dev, "invalid nxp,calib-t-sample: %d\n", val);
++			return -EINVAL;
++		}
++		mcr &= ~IMX93_ADC_MCR_TSAMP_MASK;
++		mcr |= FIELD_PREP(IMX93_ADC_MCR_TSAMP_MASK, reg);
++	}
++
++	/* write calibration settings to MCR */
++	writel(mcr, adc->regs + IMX93_ADC_MCR);
++
++	imx93_adc_power_up(adc);
+ 
+ 	/* run calibration */
+ 	mcr = readl(adc->regs + IMX93_ADC_MCR);
 -- 
 2.34.1
 
