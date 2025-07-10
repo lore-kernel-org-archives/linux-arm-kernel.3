@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C296BC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60DACC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cx/8L3RQhSe/9hklHTuti7CQtD7+qcmzPM+okqTiVuE=; b=pLtTBjR0M0fSIt8iVx1fY5fboI
-	uf1sIV+MXbZy/mwm0SgeQTrY2mz1WErYiItLuHVKnhRs/yyYzF9O4M5vG3mD2nKtaZDD3yFY47T0U
-	WRQvvWuYMpjZopUYj8+TttahfkbmLarlVNrKtwDqxa/71zioppy68MiruCA/Q0blCi6Hhy0Vw2/Y5
-	fN+Hn/yNfbwH30d2NKYh73YKugYrdsOBGe9AGXaC2p1/6DZkc4gzHGtAU/2qCR3ge7sNMI2+aa27E
-	ndr127z4qiD/oRmxo4kQLcHMmuyJ4280Yfnh4pwHotzhV16lEM/6vm7zCkZ4KItyWCcIcZGf0Ldr4
-	jepMrEuA==;
+	bh=4DOrpwON/AERKprjE/4+Jk4YcZiTXIHVN603xYrGoq0=; b=083PTxzDBeQqZbfHkvcNE7SJPh
+	UCUGh/pSGCJbFEcSqZ4rhRUzegM1VxXjc4CK09+VZ9f3hk1vx+OzZlUHW+hrxaJPv5WiIo5tSFos0
+	HyR8w49pOfpssolHH5txxLmNoroF05TqC/Wtzkl8AiE8LCZutMoIW7whA/cyXvkhQBnyWcv+DvkRb
+	fMVeFEedEzI0zq7VFazKxT3YSvz0iHFUWvwt+rTDCPtO+czLNaSwFxKk/yMCHF3k4RalqY5uQriQ3
+	sQuYQ8cPreDaIbTvH/9wYaiDaIknlzXSyJ5WKR+D7WIN6izOA+UAZ2W4439AsJ7x/cZ86XQ2rKL3J
+	+zRDnapw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZfIa-0000000ALiY-2VIy;
-	Thu, 10 Jul 2025 00:38:04 +0000
+	id 1uZfKw-0000000ALxF-1IHK;
+	Thu, 10 Jul 2025 00:40:30 +0000
 Received: from mail2.coasia.com ([112.168.119.159] helo=spam.coasia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZf1z-0000000AJKc-3kiF
+	id 1uZf23-0000000AJMB-169D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 00:20:59 +0000
+	Thu, 10 Jul 2025 00:21:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=coasia.com; s=coasia;
-	t=1752106852; bh=N59AVMDA2VWEyFaQ8+75ktzECVGn6U3aLFqXowhwM6c=;
-	l=6347; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=cw0/FeF+wPRTlGPbPZ979fS0EDK8sp77juUapZ9LnZalNn0vXObgeQbLnyNvAAKig
-	 KoHwJDFx46YXHYxNtQPq4WSU6glJ2JLQlMcQpAXuSBzTitYzTkh/45nhrRFMImfvUL
-	 Kuh66dzHKmmB04cC5S/6CjENbR+MXo5ylwGyhjFY=
+	t=1752106856; bh=DPuahl419ZI8H8sIxt4+AyDZsbJtqz9HQjp9C1Tkzek=;
+	l=2845; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=uMMMoSJ2Jnq0N9tjsiml/673AJH3xj8Azva0xHCbjtgJ/p3fhDBy7Or71nZSAYiEG
+	 Zp0jA5ly/65J3Uy5Kv1Y7V2IAMO7RPlVqTCPyKD7bYMskiAWmjsWN6oUkTgxhkwxEc
+	 sGqCAl6RAtvwWPLGmZMIRd096rYwQmrHXyvs+jjs=
 Received: from unknown (HELO kangseongu..) (ksk4725@coasia.com@115.23.218.194)
-	by 192.168.10.159 with ESMTP; 10 Jul 2025 09:20:52 +0900
+	by 192.168.10.159 with ESMTP; 10 Jul 2025 09:20:56 +0900
 X-Original-SENDERIP: 115.23.218.194
 X-Original-SENDERCOUNTRY: KR, South Korea 
 X-Original-MAILFROM: ksk4725@coasia.com
@@ -53,16 +53,16 @@ X-Original-RCPTTO: jesper.nilsson@axis.com,
 	catalin.marinas@arm.com,
 	will@kernel.org,
 	arnd@arndb.de,
+	ravi.patel@samsung.com,
+	ksk4725@coasia.com,
+	smn1196@coasia.com,
 	kenkim@coasia.com,
 	pjsin865@coasia.com,
 	gwk1013@coasia.com,
-	ksk4725@coasia.com,
 	hgkim05@coasia.com,
 	mingyoungbo@coasia.com,
-	smn1196@coasia.com,
 	pankaj.dubey@samsung.com,
 	shradha.t@samsung.com,
-	ravi.patel@samsung.com,
 	inbaraj.e@samsung.com,
 	swathi.ks@samsung.com,
 	hrishikesh.d@samsung.com,
@@ -75,7 +75,8 @@ X-Original-RCPTTO: jesper.nilsson@axis.com,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-gpio@vger.kernel.org,
-	soc@lists.linux.dev
+	soc@lists.linux.dev,
+	v.pavani@samsung.com
 From: ksk4725@coasia.com
 To: Jesper Nilsson <jesper.nilsson@axis.com>,
 	Michael Turquette <mturquette@baylibre.com>,
@@ -91,17 +92,17 @@ To: Jesper Nilsson <jesper.nilsson@axis.com>,
 	Tomasz Figa <tomasz.figa@gmail.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>
+	Arnd Bergmann <arnd@arndb.de>,
+	Ravi Patel <ravi.patel@samsung.com>,
+	SeonGu Kang <ksk4725@coasia.com>,
+	SungMin Park <smn1196@coasia.com>
 Cc: kenkim <kenkim@coasia.com>,
 	Jongshin Park <pjsin865@coasia.com>,
 	GunWoo Kim <gwk1013@coasia.com>,
-	SeonGu Kang <ksk4725@coasia.com>,
 	HaGyeong Kim <hgkim05@coasia.com>,
 	GyoungBo Min <mingyoungbo@coasia.com>,
-	SungMin Park <smn1196@coasia.com>,
 	Pankaj Dubey <pankaj.dubey@samsung.com>,
 	Shradha Todi <shradha.t@samsung.com>,
-	Ravi Patel <ravi.patel@samsung.com>,
 	Inbaraj E <inbaraj.e@samsung.com>,
 	Swathi K S <swathi.ks@samsung.com>,
 	Hrishikesh <hrishikesh.d@samsung.com>,
@@ -114,18 +115,19 @@ Cc: kenkim <kenkim@coasia.com>,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-gpio@vger.kernel.org,
-	soc@lists.linux.dev
-Subject: [PATCH 03/16] clk: samsung: Add clock PLL support for ARTPEC-8 SoC
-Date: Thu, 10 Jul 2025 09:20:33 +0900
-Message-Id: <20250710002047.1573841-4-ksk4725@coasia.com>
+	soc@lists.linux.dev,
+	Varada Pavani <v.pavani@samsung.com>
+Subject: [PATCH 06/16] clk: samsung: artpec-8: Add clock support for CMU_BUS block
+Date: Thu, 10 Jul 2025 09:20:36 +0900
+Message-Id: <20250710002047.1573841-7-ksk4725@coasia.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250710002047.1573841-1-ksk4725@coasia.com>
 References: <20250710002047.1573841-1-ksk4725@coasia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_172056_494734_68EB1603 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20250709_172059_575161_2FDD7D34 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,198 +144,78 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hakyeong Kim <hgkim05@coasia.com>
 
-Add below clock PLL support for ARTPEC-8 SoC platform:
-- pll_1017x
-- pll_1031x
+Add clock support for below CMU block in ARTPEC-8 SoC.
+ - CMU_BUS
 
-Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+Signed-off-by: Varada Pavani <v.pavani@samsung.com>
 Signed-off-by: Hakyeong Kim <hgkim05@coasia.com>
 ---
- drivers/clk/samsung/clk-pll.c | 129 +++++++++++++++++++++++++++++++++-
- drivers/clk/samsung/clk-pll.h |   2 +
- 2 files changed, 130 insertions(+), 1 deletion(-)
+ drivers/clk/samsung/clk-artpec8.c | 45 +++++++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
-index fe8abe442c51..3337483ff8b8 100644
---- a/drivers/clk/samsung/clk-pll.c
-+++ b/drivers/clk/samsung/clk-pll.c
-@@ -17,6 +17,7 @@
- #include "clk.h"
- #include "clk-pll.h"
+diff --git a/drivers/clk/samsung/clk-artpec8.c b/drivers/clk/samsung/clk-artpec8.c
+index 1ef9e52ad24b..648abdd2f510 100644
+--- a/drivers/clk/samsung/clk-artpec8.c
++++ b/drivers/clk/samsung/clk-artpec8.c
+@@ -15,6 +15,7 @@
  
-+#define PLL_TIMEOUT_MS		10U
- #define PLL_TIMEOUT_US		20000U
- #define PLL_TIMEOUT_LOOPS	1000000U
+ /* NOTE: Must be equal to the last clock ID increased by one */
+ #define CMU_CMU_NR_CLK			(DOUT_CLKCMU_VPP_CORE + 1)
++#define CMU_BUS_NR_CLK			(DOUT_CLK_BUS_PCLK + 1)
+ #define CMU_IMEM_NR_CLK			(MOUT_IMEM_JPEG_USER + 1)
  
-@@ -273,7 +274,7 @@ static int samsung_pll35xx_set_rate(struct clk_hw *hw, unsigned long drate,
- 	}
+ /* register offset definitions for cmu_cmu (0x12400000) */
+@@ -431,6 +432,50 @@ static void __init artpec8_clk_cmu_cmu_init(struct device_node *np)
+ CLK_OF_DECLARE(artpec8_clk_cmu_cmu, "axis,artpec8-cmu-cmu",
+ 	       artpec8_clk_cmu_cmu_init);
  
- 	/* Set PLL lock time. */
--	if (pll->type == pll_142xx)
-+	if (pll->type == pll_142xx || pll->type == pll_1017x)
- 		writel_relaxed(rate->pdiv * PLL142XX_LOCK_FACTOR,
- 			pll->lock_reg);
- 	else
-@@ -1325,6 +1326,125 @@ static const struct clk_ops samsung_pll531x_clk_ops = {
- 	.recalc_rate = samsung_pll531x_recalc_rate,
- };
- 
-+/*
-+ * PLL1031X Clock Type
-+ */
-+#define PLL1031X_LOCK_FACTOR	(500)
++/* Register Offset definitions for CMU_BUS (0x12c10000) */
++#define PLL_CON0_MUX_CLK_BUS_ACLK_USER			0x0100
++#define PLL_CON0_MUX_CLK_BUS_DLP_USER			0x0120
++#define DIV_CLK_BUS_PCLK				0x1800
 +
-+#define PLL1031X_MDIV_MASK	(0x3ff)
-+#define PLL1031X_PDIV_MASK	(0x3f)
-+#define PLL1031X_SDIV_MASK	(0x7)
-+#define PLL1031X_MDIV_SHIFT	(16)
-+#define PLL1031X_PDIV_SHIFT	(8)
-+#define PLL1031X_SDIV_SHIFT	(0)
-+
-+#define PLL1031X_KDIV_MASK	(0xffff)
-+#define PLL1031X_KDIV_SHIFT	(0)
-+#define PLL1031X_MFR_MASK	(0x3f)
-+#define PLL1031X_MRR_MASK	(0x1f)
-+#define PLL1031X_MFR_SHIFT	(16)
-+#define PLL1031X_MRR_SHIFT	(24)
-+
-+static unsigned long samsung_pll1031x_recalc_rate(struct clk_hw *hw,
-+						  unsigned long parent_rate)
-+{
-+	struct samsung_clk_pll *pll = to_clk_pll(hw);
-+	u32 mdiv, pdiv, sdiv, kdiv, pll_con0, pll_con3;
-+	u64 fvco = parent_rate;
-+
-+	pll_con0 = readl_relaxed(pll->con_reg);
-+	pll_con3 = readl_relaxed(pll->con_reg + 0xc);
-+	mdiv = (pll_con0 >> PLL1031X_MDIV_SHIFT) & PLL1031X_MDIV_MASK;
-+	pdiv = (pll_con0 >> PLL1031X_PDIV_SHIFT) & PLL1031X_PDIV_MASK;
-+	sdiv = (pll_con0 >> PLL1031X_SDIV_SHIFT) & PLL1031X_SDIV_MASK;
-+	kdiv = (pll_con3 & PLL1031X_KDIV_MASK);
-+
-+	fvco *= (mdiv << PLL1031X_MDIV_SHIFT) + kdiv;
-+	do_div(fvco, (pdiv << sdiv));
-+	fvco >>= PLL1031X_MDIV_SHIFT;
-+
-+	return (unsigned long)fvco;
-+}
-+
-+static bool samsung_pll1031x_mpk_change(u32 pll_con0, u32 pll_con3,
-+					const struct samsung_pll_rate_table *rate)
-+{
-+	u32 old_mdiv, old_pdiv, old_kdiv;
-+
-+	old_mdiv = (pll_con0 >> PLL1031X_MDIV_SHIFT) & PLL1031X_MDIV_MASK;
-+	old_pdiv = (pll_con0 >> PLL1031X_PDIV_SHIFT) & PLL1031X_PDIV_MASK;
-+	old_kdiv = (pll_con3 >> PLL1031X_KDIV_SHIFT) & PLL1031X_KDIV_MASK;
-+
-+	return (old_mdiv != rate->mdiv || old_pdiv != rate->pdiv ||
-+		old_kdiv != rate->kdiv);
-+}
-+
-+static int samsung_pll1031x_set_rate(struct clk_hw *hw, unsigned long drate,
-+				     unsigned long prate)
-+{
-+	struct samsung_clk_pll *pll = to_clk_pll(hw);
-+	const struct samsung_pll_rate_table *rate;
-+	u32 con0, con3;
-+
-+	/* Get required rate settings from table */
-+	rate = samsung_get_pll_settings(pll, drate);
-+	if (!rate) {
-+		pr_err("%s: Invalid rate : %lu for pll clk %s\n", __func__,
-+		       drate, clk_hw_get_name(hw));
-+		return -EINVAL;
-+	}
-+
-+	con0 = readl_relaxed(pll->con_reg);
-+	con3 = readl_relaxed(pll->con_reg + 0xc);
-+
-+	if (!(samsung_pll1031x_mpk_change(con0, con3, rate))) {
-+		/* If only s change, change just s value only */
-+		con0 &= ~(PLL1031X_SDIV_MASK << PLL1031X_SDIV_SHIFT);
-+		con0 |= rate->sdiv << PLL1031X_SDIV_SHIFT;
-+		writel_relaxed(con0, pll->con_reg);
-+
-+		return 0;
-+	}
-+
-+	/* Set PLL lock time. */
-+	writel_relaxed(rate->pdiv * PLL1031X_LOCK_FACTOR, pll->lock_reg);
-+
-+	/* Set PLL M, P, and S values. */
-+	con0 &= ~((PLL1031X_MDIV_MASK << PLL1031X_MDIV_SHIFT) |
-+		  (PLL1031X_PDIV_MASK << PLL1031X_PDIV_SHIFT) |
-+		  (PLL1031X_SDIV_MASK << PLL1031X_SDIV_SHIFT));
-+
-+	con0 |= (rate->mdiv << PLL1031X_MDIV_SHIFT) |
-+		(rate->pdiv << PLL1031X_PDIV_SHIFT) |
-+		(rate->sdiv << PLL1031X_SDIV_SHIFT);
-+
-+	/* Set PLL K, MFR and MRR values. */
-+	con3 = readl_relaxed(pll->con_reg + 0xc);
-+	con3 &= ~((PLL1031X_KDIV_MASK << PLL1031X_KDIV_SHIFT) |
-+		  (PLL1031X_MFR_MASK << PLL1031X_MFR_SHIFT) |
-+		  (PLL1031X_MRR_MASK << PLL1031X_MRR_SHIFT));
-+	con3 |= (rate->kdiv << PLL1031X_KDIV_SHIFT) |
-+		(rate->mfr << PLL1031X_MFR_SHIFT) |
-+		(rate->mrr << PLL1031X_MRR_SHIFT);
-+
-+	/* Write configuration to PLL */
-+	writel_relaxed(con0, pll->con_reg);
-+	writel_relaxed(con3, pll->con_reg + 0xc);
-+
-+	/* Wait for PLL lock if the PLL is enabled */
-+	return samsung_pll_lock_wait(pll, BIT(pll->lock_offs));
-+}
-+
-+static const struct clk_ops samsung_pll1031x_clk_ops = {
-+	.recalc_rate = samsung_pll1031x_recalc_rate,
-+	.round_rate = samsung_pll_round_rate,
-+	.set_rate = samsung_pll1031x_set_rate,
++static const unsigned long cmu_bus_clk_regs[] __initconst = {
++	PLL_CON0_MUX_CLK_BUS_ACLK_USER,
++	PLL_CON0_MUX_CLK_BUS_DLP_USER,
++	DIV_CLK_BUS_PCLK,
 +};
 +
-+static const struct clk_ops samsung_pll1031x_clk_min_ops = {
-+	.recalc_rate = samsung_pll1031x_recalc_rate,
++PNAME(mout_clk_bus_aclk_user_p) = { "fin_pll", "dout_clkcmu_bus_bus" };
++PNAME(mout_clk_bus_dlp_user_p) = { "fin_pll", "dout_clkcmu_bus_dlp" };
++
++static const struct samsung_mux_clock cmu_bus_mux_clks[] __initconst = {
++	MUX(MOUT_CLK_BUS_ACLK_USER, "mout_clk_bus_aclk_user",
++	    mout_clk_bus_aclk_user_p, PLL_CON0_MUX_CLK_BUS_ACLK_USER, 4, 1),
++	MUX(MOUT_CLK_BUS_DLP_USER, "mout_clk_bus_dlp_user",
++	    mout_clk_bus_dlp_user_p, PLL_CON0_MUX_CLK_BUS_DLP_USER, 4, 1),
 +};
 +
- static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
- 				const struct samsung_pll_clock *pll_clk)
- {
-@@ -1373,6 +1493,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
- 	case pll_1451x:
- 	case pll_1452x:
- 	case pll_142xx:
-+	case pll_1017x:
- 		pll->enable_offs = PLL35XX_ENABLE_SHIFT;
- 		pll->lock_offs = PLL35XX_LOCK_STAT_SHIFT;
- 		if (!pll->rate_table)
-@@ -1468,6 +1589,12 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
- 	case pll_4311:
- 		init.ops = &samsung_pll531x_clk_ops;
- 		break;
-+	case pll_1031x:
-+		if (!pll->rate_table)
-+			init.ops = &samsung_pll1031x_clk_min_ops;
-+		else
-+			init.ops = &samsung_pll1031x_clk_ops;
-+		break;
- 	default:
- 		pr_warn("%s: Unknown pll type for pll clk %s\n",
- 			__func__, pll_clk->name);
-diff --git a/drivers/clk/samsung/clk-pll.h b/drivers/clk/samsung/clk-pll.h
-index e9a5f8e0e0a3..6c8bb7f26da5 100644
---- a/drivers/clk/samsung/clk-pll.h
-+++ b/drivers/clk/samsung/clk-pll.h
-@@ -49,6 +49,8 @@ enum samsung_pll_type {
- 	pll_0718x,
- 	pll_0732x,
- 	pll_4311,
-+	pll_1017x,
-+	pll_1031x,
- };
- 
- #define PLL_RATE(_fin, _m, _p, _s, _k, _ks) \
++static const struct samsung_div_clock cmu_bus_div_clks[] __initconst = {
++	DIV(DOUT_CLK_BUS_PCLK, "dout_clk_bus_pclk", "mout_clk_bus_aclk_user",
++	    DIV_CLK_BUS_PCLK, 0, 4),
++};
++
++static const struct samsung_cmu_info cmu_bus_info __initconst = {
++	.mux_clks		= cmu_bus_mux_clks,
++	.nr_mux_clks		= ARRAY_SIZE(cmu_bus_mux_clks),
++	.div_clks		= cmu_bus_div_clks,
++	.nr_div_clks		= ARRAY_SIZE(cmu_bus_div_clks),
++	.nr_clk_ids		= CMU_BUS_NR_CLK,
++	.clk_regs		= cmu_bus_clk_regs,
++	.nr_clk_regs		= ARRAY_SIZE(cmu_bus_clk_regs),
++};
++
++static void __init artpec8_clk_cmu_bus_init(struct device_node *np)
++{
++	samsung_cmu_register_one(np, &cmu_bus_info);
++}
++
++CLK_OF_DECLARE(artpec8_clk_cmu_bus, "axis,artpec8-cmu-bus",
++	       artpec8_clk_cmu_bus_init);
++
+ /* Register Offset definitions for CMU_IMEM (0x10010000) */
+ #define PLL_CON0_MUX_CLK_IMEM_ACLK_USER			0x0100
+ #define PLL_CON0_MUX_CLK_IMEM_JPEG_USER			0x0120
 -- 
 2.34.1
 
