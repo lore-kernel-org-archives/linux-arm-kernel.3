@@ -4,67 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1274C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 11:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9DBC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 11:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ZKQbs2YDewSV22RQ1NKfVSByBlkkAnFYZaA2MKjZKo=; b=X+VPi+qdgjk1Gs1yKxBaQgZQ+1
-	Zp/oXPBunSc4l5qDV/T5CzxrdF+PO++Ar46GRpSU54VHU1cQMDabvB4cZbBoFz1MTskYP0w3uVLE6
-	Y9OUrtwBNxEBwB70xIk/Xx75KTq/InixQYqijR+MNYll6P+fcT+XPQlYTSbqiARmOwpe7mPb5EYA7
-	vYvUrixm9LkVlhxRyf9dI1w1R+goIot/eXt8/iccMh5xApcdeplFm3bIazAA5xypS4S74H4gwR+DC
-	sAMdNlnhyVIzVoQ78Q5dItv28feay3gaK7ZtnryfhPyKMRUW5/ing9Xz4j9vnldS8YLcWs3ApKIPL
-	JX1//vqg==;
+	bh=8QdOr/MTvYoxHGx+Yaae1YbuHtcqs1erFlYkNvsj1CA=; b=XLfGBa5hgMzsOWBuwixr6TcnhA
+	sh7WSo39sr9kriT0YF6VMq7Y/WPY1fTBJZccj2IFpT95nXdDuZF06mUESiArp/CE9iUP8g7+YTZJZ
+	0SsdOi2J/3rSAnqaNzPA33Jl969sqf3NF026YRgHYqBlOdrr/pC469ywzT6o28a2EaRN8ns+Pwv6h
+	iVmbXkaWCqgOnDxgB/m548f/krgEjAJNQ3TFIImizcZX6JlCE2DoDFuK87ASdYrZCGzkOIT2z0jWU
+	InBmvvgk2DfFCnrAJazuWKVov8/EUUgjhqhAmj6HJf9VUnFmZiBgTNKAGVnE+CuwD+0CBuKNy0rDb
+	j0EchlxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZpQ1-0000000BdSl-2sMR;
-	Thu, 10 Jul 2025 11:26:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uZpSK-0000000Bdoq-1t9X;
+	Thu, 10 Jul 2025 11:28:48 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZo1n-0000000BOuI-36T4;
-	Thu, 10 Jul 2025 09:57:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 151BD5C6C90;
-	Thu, 10 Jul 2025 09:57:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D235C4CEE3;
-	Thu, 10 Jul 2025 09:57:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752141438;
-	bh=9rh3mqspQCTsXhgwbiE5vJ7eGHXCNC61azHoKSXtp14=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rtfYXZKl0VxbWk6w2YruIrmkPSGk7JkSk9/yJKZxBvo2TKSiLl7v6RMqj8YSqJHTq
-	 6KcMglmXZKYtXeiETovgoMQWBW4ahLWBHO3GBFC14rnAl2171vRm5mRG5gGRqMuivL
-	 xibpg3g5fvZaNFwy7VvyxAb/taNBdMDdMgSlv1Ojx1TBm4L0dCvrnfKSrvjNJI2KOu
-	 buy6+04t4Hu9G7F86+fWLbRx6t/Ox4z7wE0jDyV2QWMM5Xuo+7ohrEf5CyMHN+MsPD
-	 rtOk3ZCIOk6fCoqIn/yv1v2W+j8z5UOK5oD3f+XrZ6vjVWPSgTEB2Fsty6zLw2It80
-	 rOUGnEUryBP0g==
-Date: Thu, 10 Jul 2025 11:57:16 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: jiebing chen <jiebing.chen@amlogic.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, jian.xu@amlogic.com, 
-	shuai.li@amlogic.com, zhe.wang@amlogic.com
-Subject: Re: [PATCH v5 3/6] dt-bindings: Asoc: axg-audio: Add s4 audio tocodec
-Message-ID: <20250710-fancy-righteous-elephant-aee5a6@krzk-bin>
-References: <20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com>
- <20250710-audio_drvier-v5-3-d4155f1e7464@amlogic.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	id 1uZo6T-0000000BPUv-1AJk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 10:02:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sOPx+QnLgoXaKSdPDD8q6rof4MGvujMbphDm7Ckt6t6fAffdHhvutNqf8BGNhbQJCQ0VQp6RyXF3xg1ff/kLV/1NFATpn8+B2hxkIj61eeL5vwR1a/CqUSczCvdZKjtHF9lnSqdOzl/lN51ZfqNsnmflGx5L6OUOSD8YnHNk42GnSaysVp7jq/0NtJ+Xr7/7FjjOO+pZvRW/wEshB3o1iHLdRT2Q0Oxw7+GLg4w8zFyelDI3gU6ZOOGVe68LJnzneeZVVyoGmSM87rt3jg1rg6LInHQo0iCfR8X5/01vM0cIbrKCyQ3sjHKkekWDPkr4Ocsq4luFOu8RyJPBy9b+5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8QdOr/MTvYoxHGx+Yaae1YbuHtcqs1erFlYkNvsj1CA=;
+ b=gDC7JF7Tv1QgmH1oh1g1YEBBP3BCM3d9tCGK5sGkRoBmEMPAU8hJWnRIfWi6dgYA/PJUmPBkfpr+A/h1dO1rfIOa1hKeFNLb5jtpxkXaYp7GVRdwCarl0DZ/ibfPvRtKd5TOnROZY3HFg0IZ/mycuDoQWjXkQXdn07yUC3zF/8idQYs0JM/rMhf67AITPRH+Y2qEKv7vEkMhTbOUpeolnfth4Ra/FSRNjU9c/ujSfRa6M2/7BZitHW2ol7pbTs3uvhI7xjYOdrA2R/pB5MMGhXdoumu6SMrQNJ+xr8IwEbrgVhgk9Uy4+IC1rgKdQTyD+UHIdKiY/JLS9vCtBDhF4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8QdOr/MTvYoxHGx+Yaae1YbuHtcqs1erFlYkNvsj1CA=;
+ b=N6qqztwaeNbMHZPsy7QCRWqo0cMs9+yn7YK1MY9vr4VpP2sFS/47h8FSYENBb8XkpFMhK/N4b8gKar9SDih/PPi/Cco7WsSaGIuwjj9+4X0BKA9xb/dmfEbgM4P3LyJTcI5ojrMKtsC1E3rhAnXUzYlLU41Wx+Bl59htVbKAu5XW43zvQq9VTnSAi8/xCO66v2gsQEFjKyNpjkKbuP9f1vPnAxco6JzlPiQapBrgb7tP8ppU6whIyJWNGQProLDdQ0fwPU/1rbARUdEEQys5efkVyIHQ5cs9gOpH+guGuAwO6rjAvTdMuUNcP++INChFfIv5flGVvopu9QDGbYkXhA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
+ by PA1PR04MB11311.eurprd04.prod.outlook.com (2603:10a6:102:4f3::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.29; Thu, 10 Jul
+ 2025 10:02:02 +0000
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e%5]) with mapi id 15.20.8880.030; Thu, 10 Jul 2025
+ 10:02:02 +0000
+Date: Thu, 10 Jul 2025 13:01:58 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
+	Michael Walle <mwalle@kernel.org>, Lee Jones <lee@kernel.org>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 5/9] drivers: gpio: add QIXIS FPGA GPIO controller
+Message-ID: <o5v2xdlrtjcgcd6usrfmtq6qffyigudvx3flhhetnd4ufg2mcx@5tem3jrlpxw5>
+References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
+ <20250709112658.1987608-6-ioana.ciornei@nxp.com>
+ <898af9ea-9b90-4d1f-8e0d-a8e0686d72a7@lunn.ch>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250710-audio_drvier-v5-3-d4155f1e7464@amlogic.com>
+In-Reply-To: <898af9ea-9b90-4d1f-8e0d-a8e0686d72a7@lunn.ch>
+X-ClientProxiedBy: FR4P281CA0279.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e6::11) To AS8PR04MB8868.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42f::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|PA1PR04MB11311:EE_
+X-MS-Office365-Filtering-Correlation-Id: fefe6965-be60-4103-4627-08ddbf98d0f8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8UyHbVSJzF8hCtpj5OGxAkjMgyEb27NZaSrDWs6JF7a1+no8Cs7Pv1Uj8TKN?=
+ =?us-ascii?Q?4zfVZ5S8rPOyTfQbkytZIxVl4PpXSgQjNDZaT5X8IGAvQplsJBX4fQ+c1rhW?=
+ =?us-ascii?Q?HknthBJRyZK731GJvHl9kCj8thTG1JncnR9IgBW1H0vkdKH5PCWrvb148Nr0?=
+ =?us-ascii?Q?84/40iQCDYexwAr1VsUiD35y0us9+CdDlWe1ep0EFlXFOEEhtLwnLL0t9RiB?=
+ =?us-ascii?Q?nJd6AH2XS+TpcLZlLrqxw1Bzjr4/fcqhE0uARsLFBKjRDFu03sMZTufqO0gA?=
+ =?us-ascii?Q?P4bida1qR2hHtP0RtxxsowWopakertK2oxQJNudmAGhyjSuKhLljkhs/YH9K?=
+ =?us-ascii?Q?y7EM+tZrMeYIptWhur/g6OnKzFyapbAYbL6aVA1ggcqTm/M0fOsDATkVyaMc?=
+ =?us-ascii?Q?3RUZ5XCHVPadfJMN7PMcJhPTGhvu+NMFp55ftY1SFXHBsrDIqbvXwJRmW//q?=
+ =?us-ascii?Q?Lct0QcBEFJEpbDdglZhyM4tEoQsldX+msOjyldEOYjCDcK22v8m+/l0LjBWC?=
+ =?us-ascii?Q?kZS6GUVNPdn1P0Ex/205WA2vACBsCyWbivTZOH5qB6vcYZVCWvWZllkYGuHI?=
+ =?us-ascii?Q?McPfwyyycN7w4pAaHMnLp5L+NE/i+B9iZY+L4llfqKPfUrQJlO5v8aQ837ih?=
+ =?us-ascii?Q?1iv+Q0KnBcqU/XR/ywD9MR2m6PEv+vkTFYv5G87h/hcI/WTdFrQt3794D0AU?=
+ =?us-ascii?Q?b+B3/tXM2MumUl6Mjfp+4xl6/X/IH1QoMAGHqljIZq65q9MfNaDedKMxrpQM?=
+ =?us-ascii?Q?iJl/+gHt3LzyWYrxPdOvw0dwGUjt8nnCtjuoWPAtpp0M8BdLiokFzOvXjL8k?=
+ =?us-ascii?Q?OC5Rx3MK46t5OBFr1Vnz9mQ7hHxDKCJQhywr9J7wPukoA4KkTsbvp/64vqdU?=
+ =?us-ascii?Q?BMiGB60k0ysGtG6l9RiyTIGO8hgtLMEjg+yU50W/rI361cythq+tlaZdF3qZ?=
+ =?us-ascii?Q?PYU7kWp0rTPVtAZ8quUi0hfLfpaSNlLdWmnEb5Ah68g4Q7E9gb/d13S2NT/F?=
+ =?us-ascii?Q?4h0f7RpTJTsyWuzp+VMsEyKsbJvek8Zu/CD1JcS8Ued+A87XS95JJNnF6Ezp?=
+ =?us-ascii?Q?RNit3+K7hfT8ewy4FMgmUxX9KVQ4nmOlUXA0HY9GDAaoJq76yzgdKI3AenNA?=
+ =?us-ascii?Q?OIGRA12ILeGcZN7zF+xSXHCUEFOC0xZQ9m9cHvnl5KXhCOwB9CMC26IqtVvm?=
+ =?us-ascii?Q?KUEjSt2zGL6wMi/6TUc7SCeBryIDZMqD321ccwgDGBXgLs1ek2/UFRqmecXK?=
+ =?us-ascii?Q?GaW7Wyol5sLMPLhsuzmgUDnGUBSkjZD6hZjV2TTv/5eF4CnukZ5XhxNx2z5x?=
+ =?us-ascii?Q?5Zelc0ENyFruxP09BxvD1MNPhp50OJuS3E/RKN1h96RLby8vKxRn6RlXo244?=
+ =?us-ascii?Q?FsXuC6Y9xBMUq9Wk2j7HJU6pjo68pdYu840i9lYxeworDKFGgg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YZHgG00GEu54EWRY7NGdwjQ7echqQftrUWrDI/GjiELg1dM/Q6nsJ3gA24Cq?=
+ =?us-ascii?Q?sDfI5jEM759ZBlAvoC1sy2uA8NNcC+RAJbysd0iDaOH+Jyr2ddlHex2ZiSKd?=
+ =?us-ascii?Q?m9A2e3oFgsRKpV+rb3DgG6H9N8MaV5exytW8I1riHVE9A9B2UY+yStQCUtxT?=
+ =?us-ascii?Q?q3JTTLuCyAOTxDHFsTJi9DdUFjNWSRyMXzkKXlGlNhwsgSLRYtZTHGVaA2PY?=
+ =?us-ascii?Q?45O5jiW1SlsUF0kGO848yfZq5Mfm/DnD91Apd4jcEjfDXwi4jaK1C1dX1iYX?=
+ =?us-ascii?Q?2GkgBuaL6DBIl8L3Q/YVwbsk8CHy0VC0ChxO+8/SOnDABIb+MIz+DptClFth?=
+ =?us-ascii?Q?39SZezdQxroteXpCkjpVjJ0esyw5SMZ8Z59dvjV+kwHBIn/s+6sFphLPOSut?=
+ =?us-ascii?Q?twl1DlgshpsYh1gjUY0WWS+/ZFYjuU70AG1hdOXXhTSpyOtg1GMaNuS3BkOF?=
+ =?us-ascii?Q?WGrcDXjVpdsuf67WOb59aRfXuUvkfDrzBxhSZl+r1En1KukYQijB2jwhdnMq?=
+ =?us-ascii?Q?hQBKQRNVEa1mlHa6qEN9I6OXFuHKIhl9tK4JwcmPCOejt9bH4dNOUbQSkBDY?=
+ =?us-ascii?Q?xVpUvl1BwUKiSV2AKDesHPZRDR4H9ISJIdOz2MZPeJVgkwheY9xr4IOSsOv8?=
+ =?us-ascii?Q?QAOxlR9/zfWXTVMv2fPeeg2j74yth0pwD/qAKJ9Yo68lsPHc/zshl3g5B+7V?=
+ =?us-ascii?Q?TOGU3GDl762dtwbz/SkLpiQsBDULFjGxuCuTs11oWTLqNEK9FRKKpuiyOVd/?=
+ =?us-ascii?Q?BOKS8RUKmxl43EqSZuwFCY/gEpEMf7cWUCkl9053BeuKL7UOOerVnuSgBonC?=
+ =?us-ascii?Q?LHLyfu8Xza6gMzBKL2KqPAGBw2/OPSyhoe2yD52pwwO5X+u8YMzoQYEXSzje?=
+ =?us-ascii?Q?Y4hxAJi2xo8bz5BUNJJM2T/Dvm9+z5Ft/wbLKBIwQyN1YavPh56UF8e28tsL?=
+ =?us-ascii?Q?rbtIbyELWYvWdbvWqfWaY7Mer0FooFLVdtYpQWyVvWwO0kzMDzkhMrt0FG7f?=
+ =?us-ascii?Q?kVvhzv+ahtbMow0KGk6pVOhmQWZBMqhySoitKUCBN2+kECP1yUV4X1ZC6uTx?=
+ =?us-ascii?Q?K5Q4M1JqaJWFayRGKCFBiYoUsOa5ePj5pxiO9V19AnKsYSqYUebzm0I/w/8c?=
+ =?us-ascii?Q?rEvaeuku5a5BexagXJ/ZffoRi/aw2yyElVcNp07z30CR04qICkT/GsNOSHjm?=
+ =?us-ascii?Q?J5/fBA+Em3aW6NTFW7jYcjS/Cdxv9DMttgdHudLSU/gJIHahU/fu145x5xde?=
+ =?us-ascii?Q?j69CdJi7NS5PF2SABc/xBnuKVD4BSvKGCpCRTgpVywTUC4O9mg6rCnDZOLic?=
+ =?us-ascii?Q?/ZfuWdZF10+Hwx3j9kx1iHQBLvHhOWY/OFJLbamAfDt5TJIqueHgZnPCgI5v?=
+ =?us-ascii?Q?QtcGmqg6VpqBKn1YZKwcGfuP5FFv7zEeRBsYCZJM0Ei5HyVUjMhzJV/aY0Fl?=
+ =?us-ascii?Q?ctVQdho1fHg8BqTjkSK8a5m9KQu1gmibM1V+F8na2s2DOZNUMXwxCOFxzJIJ?=
+ =?us-ascii?Q?Nx0DaE8+MtYVP3DPIC6ZsCnd6PoVuD/0MCKguDRMmQ+2vNXDXH7hY4qMRrKW?=
+ =?us-ascii?Q?TH5wteWv/+bSed6EM01DfXrFf/GCrRl033qUoBV+?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fefe6965-be60-4103-4627-08ddbf98d0f8
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 10:02:02.1689
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: p1mGKMm1N7TNc2x2XOfVaIeosbxYa/v17S614FhttHIMR1A6FGmtRf/LiEFFYZXtIVoLXFtcupoaSKJefH5I8Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11311
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_025719_814491_A98A65F6 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250710_030209_321289_C692CA53 
+X-CRM114-Status: GOOD (  24.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +160,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 11:35:39AM +0800, jiebing chen wrote:
-> Add S4 SoC tocodec compatibility support.
+On Wed, Jul 09, 2025 at 05:17:18PM +0200, Andrew Lunn wrote:
+> > A GPIO controller has a maximum of 8 lines (all found in the same
+> > register). Even within the same controller, the GPIO lines' direction is
+> > fixed, either output or input, without the possibility to change it.
 > 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Jiebing Chen <jiebing.chen@amlogic.com>
-> ---
->  Documentation/devicetree/bindings/sound/amlogic,g12a-toacodec.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/sound/amlogic,g12a-toacodec.yaml b/Documentation/devicetree/bindings/sound/amlogic,g12a-toacodec.yaml
-> index 23f82bb89750898d20c866015bc2e1a4b0554846..ea669f4359bc81b0f45bc2105c832fc2b11d8441 100644
-> --- a/Documentation/devicetree/bindings/sound/amlogic,g12a-toacodec.yaml
-> +++ b/Documentation/devicetree/bindings/sound/amlogic,g12a-toacodec.yaml
-> @@ -26,6 +26,7 @@ properties:
->        - items:
->            - enum:
->                - amlogic,sm1-toacodec
-> +              - amlogic,s4-toacodec
+> Since this is an FPGA, not silicon, is the selection of output or
+> input a syntheses option?
 
-Keep the list sorted.
+I suppose so, yes. The idea is that in this particular case, the fixed
+direction for each GPIO line (bit in the register) matches the use case
+and will not be changed. For example, the presence detect or rx los
+GPIOs for the SFP cages are only input, while the tx enable one is
+output always.
 
->            - const: amlogic,g12a-toacodec
->  
->    reg:
+>
+> > +static const struct of_device_id qixis_cpld_gpio_of_match[] = {
+> > +	{
+> > +		.compatible = "fsl,lx2160ardb-fpga-gpio-sfp2",
+> > +		.data = &lx2160ardb_sfp2_cfg,
+> > +	},
+> > +	{
+> > +		.compatible = "fsl,lx2160ardb-fpga-gpio-sfp3",
+> > +		.data = &lx2160ardb_sfp3_cfg,
+> > +	},
+> > +	{
+> > +		.compatible = "fsl,ls1046aqds-fpga-gpio-stat-pres2",
+> > +		.data = &ls1046aqds_stat_pres2_cfg,
+> > +	},
 > 
-> -- 
-> 2.43.0
+> Does the FPGA have an ID register you can read to confirm it is what
+> you think it is?
 > 
+> Or is the bitstream downloaded at boot by another driver? Can you ask
+> that driver what bitstream it downloaded?
+> 
+> Given how similar these devices are, it seems like a typ0 could give a
+> mostly working device which passes testing, so doing some validation
+> of the compatible against the actual FPGA would be nice.
+> 
+
+The FPGA does have an ID register that we could verify and match against
+the board type that we expect.
+
+On the other hand, I am not 100% on board with the idea to check this
+from the GPIO driver which teoretically should only touch its one
+register. Maybe from the parent's driver we could do that and prevent
+the probing of children if things don't match up. But this does prove to
+be complicated since those drivers are simple-mfd (for LS1046AQDS) and
+simple-mfd-i2c (for LX2160ARDB). And I don't think it would be wise to
+add some specific board logic into of/platform.c.
+
+Ioana
 
