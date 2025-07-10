@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239FBC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 07:25:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA939C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 07:27:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCA1XYApjMEEpODseSN2C0Imh7avIdauzB9lovWH7D8=; b=oQMvznjJrsXI5XgdUZwBce/4Rz
-	KERVfc4ypa5rwvMZod0uXbp9git4Adhj1cO+ObQCDX5K8Ix9cZj83lZEnAKTW64JZpuNKNfjHx5y4
-	oc6CWkADzEVnqFmvH0ibNngfnvfS/ETDZ8LTxIHLiCsGfl+5wl+CdBuYQ0ACKHevaDisFNDfHDVxG
-	tY/I4X04KYbgZ7Ik69ca9tD70QJ7Ly3hEnqTGWMpr0ZKn+OmypQeZtJ90k/LjIUurhx2Rd8eloZ6G
-	0SAwAjv+aTFri4dMyEc0z2KRqigQKhubp8+TlNWo2/buKbIJxGdyoCbaIdj50XALRt6k6ZFfNx82Q
-	BA9oub+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=fjhCYtUcaSq0dNmp/uY6QFONknU1MFIVam9Vx9FJ4HI=; b=ep4v0kQ6n4bLqkK/W0kKkDfO+U
+	uAqonoBffeibTAPM8MR1neb+Q9rzd6s17NW0GJcYTAr49DdjucZjci2rbKKtyvK3kP0p7/et/vbXE
+	CGLTU0ca47Y14TSHJBJLxO1HUIdynhzde+EkYKJ6DPppcIiU6CS5M0kfASPVKl6nnEE5sJe6XmXO5
+	RDBKpk/h7dbYTipOpFIk6gDUZx37xe0xdmaBkXabf/7LtZ7jubzDSOPqBqHls/jmCi1RlAk0mZlrS
+	TXXOa+NefYhLAOzlm9HPGDAdRRHBz0waCRiX2DJ/aa1UtxUzFDsigmAY6O3OA6R+CwqHA9ILZYFAd
+	zRUCzJhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZleM-0000000AzxD-3e8h;
-	Thu, 10 Jul 2025 07:24:58 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uZlgi-0000000B0M5-16G8;
+	Thu, 10 Jul 2025 07:27:24 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZkb5-0000000AqNF-2XM1
+	id 1uZkgV-0000000ArGQ-3N4W
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 06:17:33 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56A6HPNa1412531;
-	Thu, 10 Jul 2025 01:17:25 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752128245;
-	bh=uCA1XYApjMEEpODseSN2C0Imh7avIdauzB9lovWH7D8=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=V1Ecq2adzQdiCtJ51W9p8YwStuYvbx3qyLwDUTIblofKbmio3+NITDw44ZxommKjr
-	 mgFPq1+c08aB+jKJwx7+V4BFzEXWS1P4vQ7syTd/8XRuk6EdznkEd+sqqpdnlmmWYE
-	 bZ9Rwuj7amw9RXKC7hCSB3RVvtMpmWzjOsx3lFyU=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56A6HP3T4096293
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 10 Jul 2025 01:17:25 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 10
- Jul 2025 01:17:25 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 10 Jul 2025 01:17:25 -0500
-Received: from [172.24.227.245] (uda0132425.dhcp.ti.com [172.24.227.245])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56A6HLTl1155423;
-	Thu, 10 Jul 2025 01:17:22 -0500
-Message-ID: <1fcf5d59-02f0-4b99-aeb0-bf555730cefa@ti.com>
-Date: Thu, 10 Jul 2025 11:47:09 +0530
+	Thu, 10 Jul 2025 06:23:11 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250710062302euoutp0268a43f667495f144a3dd104789182376~Qz6mXqO1E1921619216euoutp02i
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 06:23:02 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250710062302euoutp0268a43f667495f144a3dd104789182376~Qz6mXqO1E1921619216euoutp02i
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1752128582;
+	bh=fjhCYtUcaSq0dNmp/uY6QFONknU1MFIVam9Vx9FJ4HI=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=CkDXOzjz0vA7/XzIyo+2hcUn6b9nNB7sPzYh7UO9k4sX7rmzen6MGbAtJqzfReu+i
+	 4Dm3Yr3jaCyjnBcp/Si7MGfLNhYU9zPcsar+tR1kRQgOIz3/coNw61WsT5y2LTFqkT
+	 7tFSuFUUoRygio+yVh5F3asSyjMeGTI7dntJldFQ=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250710062301eucas1p1b61431dc31a5933087b45c246866fb17~Qz6lwTyHl1786817868eucas1p1F;
+	Thu, 10 Jul 2025 06:23:01 +0000 (GMT)
+Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250710062257eusmtip1e3cd4937da192f21b7bc849539e961f7~Qz6iNiOSW1044910449eusmtip1h;
+	Thu, 10 Jul 2025 06:22:57 +0000 (GMT)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+To: Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-arch@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Andy Lutomirski
+	<luto@kernel.org>, Vincenzo Frascino <vincenzo.frascino@arm.com>, Shuah Khan
+	<shuah@kernel.org>, Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic
+	Weisbecker <frederic@kernel.org>, John Stultz <jstultz@google.com>, Stephen
+	Boyd <sboyd@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
+	Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Richard Cochran
+	<richardcochran@gmail.com>, Christopher Hall <christopher.s.hall@intel.com>,
+	Miroslav Lichvar <mlichvar@redhat.com>, Werner Abt
+	<werner.abt@meinberg-usa.com>, David Woodhouse <dwmw2@infradead.org>, Kurt
+	Kanzenbach <kurt@linutronix.de>, Nam Cao <namcao@linutronix.de>, Antoine
+	Tenart <atenart@kernel.org>
+Subject: [PATCH] vdso/gettimeofday: Fix code refactoring
+Date: Thu, 10 Jul 2025 08:22:49 +0200
+Message-Id: <20250710062249.3533485-1-m.szyprowski@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] arm64: dts: ti: Add support for Variscite
- VAR-SOM-AM62P
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250709220714.85697-1-stefano.radaelli21@gmail.com>
- <20250709220714.85697-3-stefano.radaelli21@gmail.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <20250709220714.85697-3-stefano.radaelli21@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250710062301eucas1p1b61431dc31a5933087b45c246866fb17
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250710062301eucas1p1b61431dc31a5933087b45c246866fb17
+X-EPHeader: CA
+X-CMS-RootMailID: 20250710062301eucas1p1b61431dc31a5933087b45c246866fb17
+References: <CGME20250710062301eucas1p1b61431dc31a5933087b45c246866fb17@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_231731_736416_7E51928B 
-X-CRM114-Status: UNSURE (   6.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250709_232309_087935_20F8B6A0 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,65 +91,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
+Commit fcc8e46f768f ("vdso/gettimeofday: Return bool from clock_gettime()
+helpers") changed the return value from clock_gettime() helpers, but it
+missed updating the one call to the do_hres() function, what breaks VDSO
+operation on some of my ARM 32bit based test boards. Fix this.
 
-On 10/07/25 03:37, Stefano Radaelli wrote:
-> +&main_pmx0 {
-> +	pinctrl_mmc_pwrseq: main-emmc-pwrseq-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x00c8, PIN_OUTPUT, 7) /* (AB23) VOUT0_DATA4.GPIO0_49 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_i2c2: main-i2c2-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (T22) GPMC0_CSn2.I2C2_SCL */
-> +			AM62PX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (U25) GPMC0_CSn3.I2C2_SDA */
-> +		>;
-> +	};
-> +
-> +	pinctrl_i2c3: main-i2c3-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x01d0, PIN_INPUT_PULLUP, 2) /* (A23) UART0_CTSn.I2C3_SCL */
-> +			AM62PX_IOPAD(0x01d4, PIN_INPUT_PULLUP, 2) /* (C22) UART0_RTSn.I2C3_SDA */
-> +		>;
-> +	};
-> +
-> +	pinctrl_mcasp1: main-mcasp1-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0090, PIN_INPUT, 2) /* (U24) GPMC0_BE0n_CLE.MCASP1_ACLKX */
-> +			AM62PX_IOPAD(0x0098, PIN_INPUT, 2) /* (AA24) GPMC0_WAIT0.MCASP1_AFSX */
-> +			AM62PX_IOPAD(0x008c, PIN_OUTPUT, 2) /* (T25) GPMC0_WEn.MCASP1_AXR0 */
-> +			AM62PX_IOPAD(0x0084, PIN_INPUT, 2) /* (R25) GPMC0_ADVn_ALE.MCASP1_AXR2 */
-> +			AM62PX_IOPAD(0x00a0, PIN_OUTPUT, 1) /* (P24) GPMC0_WPn.AUDIO_EXT_REFCLK1 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_mdio1: main-mdio1-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0160, PIN_OUTPUT, 0) /* (F17) MDIO0_MDC */
-> +			AM62PX_IOPAD(0x015c, PIN_INPUT, 0) /* (F16) MDIO0_MDIO */
-> +		>;
-> +	};
-> +
-> +	pinctrl_mmc2: main-mmc2-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0120, PIN_INPUT_PULLUP, 0) /* (K24) MMC2_CMD */
-> +			AM62PX_IOPAD(0x0118, PIN_INPUT_PULLDOWN, 0) /* (K21) MMC2_CLK */
-> +			AM62PX_IOPAD(0x011C, PIN_INPUT_PULLUP, 0) /* () MMC2_CLKLB */
+Fixes: fcc8e46f768f ("vdso/gettimeofday: Return bool from clock_gettime() helpers")
+Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+---
+ lib/vdso/gettimeofday.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Lower case for hex digits: 0x11c
-
-> +			AM62PX_IOPAD(0x0114, PIN_INPUT_PULLUP, 0) /* (K23) MMC2_DAT0 */
-> +			AM62PX_IOPAD(0x0110, PIN_INPUT_PULLUP, 0) /* (K22) MMC2_DAT1 */
-> +			AM62PX_IOPAD(0x010c, PIN_INPUT_PULLUP, 0) /* (L20) MMC2_DAT2 */
-> +			AM62PX_IOPAD(0x0108, PIN_INPUT_PULLUP, 0) /* (L21) MMC2_DAT3 */
-> +		>;
-> +	};
-
+diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+index d6743ed756a1..97aa9059a5c9 100644
+--- a/lib/vdso/gettimeofday.c
++++ b/lib/vdso/gettimeofday.c
+@@ -395,7 +395,7 @@ __cvdso_gettimeofday_data(const struct vdso_time_data *vd,
+ 	if (likely(tv != NULL)) {
+ 		struct __kernel_timespec ts;
+ 
+-		if (do_hres(vd, &vc[CS_HRES_COARSE], CLOCK_REALTIME, &ts))
++		if (!do_hres(vd, &vc[CS_HRES_COARSE], CLOCK_REALTIME, &ts))
+ 			return gettimeofday_fallback(tv, tz);
+ 
+ 		tv->tv_sec = ts.tv_sec;
 -- 
-Regards
-Vignesh
-https://ti.com/opensource
+2.34.1
 
 
