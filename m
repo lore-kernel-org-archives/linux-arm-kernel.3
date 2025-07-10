@@ -4,115 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862B7C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 18:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B660C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 18:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/4ASla69sSqfjU35JM1zsmkkZLK8k4ITigVacA38LgM=; b=WPI8yZIoObm1wiJnL9SbthpBAq
-	f8SvV3BHZUbG84W+wfBCVQSUfnWi/PIEOIucV4xfEd7Hk5ZqY/Ktz1FY5L+YySa9HIKsM7eBFXzZZ
-	9asVHGHsqlgwv0ck/7YE85ob1yqTU3j5Ift5OzvwQhWaqf+6jYL8GjYIJ2pg6rBn/ANsYjHdaFtEG
-	GxdSGnv+qZwIEjUSL53sOMnUsjhJ/xwZD/Pj/il5OHSuAPSzGukBz+u6Skc4rA7Vvyj0nGWyXTewW
-	dpoxDsBjNMrmSe+5oXM9G+iJqdq3cZyjuV9SMOPfTWS7alYdoYSykbjeCix1m+LbO7TLAwTt3deGE
-	qXraeKmQ==;
+	bh=SxqC0ATm8XXXx24MpZdy05ScJSWmhlnLQqeCjqghw20=; b=JCfKXESGpf8OvwFPxek5UvPTsG
+	AvENa5/mPH0i4woCJMUcf+oFsm0CLs571yFQpDMX4PfaPoXdT1lKJm6y93bZnyhf+o6SRRzQwDI73
+	3en7gapWrdaiC/O+xi1NcX72wL+D/YdpehG95xp3K2q2uWC8hVJ2mZZ97HdwT1RDy97+RtEGJeLwP
+	gFy449/guMzFAmnv5b6vc8PEJyzSHYyerxqlTWwg5amInlLcWO9RZ8oOuTCqYoc2yMwgRJXxfS9s+
+	x8X9EPYYSVI0+0uzDzhh4Bi/tlimk82S7LtnABNTJbsMqqMsYJiLFFpAHzegImfw86Ie4GbcHDDjk
+	yoRsn5nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZwRx-0000000Ckyu-1Nmp;
-	Thu, 10 Jul 2025 18:56:53 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uZwU9-0000000ClCZ-2ZO0;
+	Thu, 10 Jul 2025 18:59:09 +0000
+Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZtqN-0000000CMfq-32sM
+	id 1uZtU0-0000000CIdF-31gy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 16:09:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752163794;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/4ASla69sSqfjU35JM1zsmkkZLK8k4ITigVacA38LgM=;
-	b=EpFBe7zHE83nUuNjVw+fBwl8DoNhe+5T/ftWLm2hRpSxFirzz9V2Us+2eYEk2CtQPXEj9i
-	u+aRX3p9r95JC8ll3p0G5y6g6epJnVhfWdKViImzgqw6q8/xl62x5Ff634zJ3ArlsiNseG
-	ePolvfE2gZznYaUs+BwqlrtuF+mC8o4=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-15-zPXfFDOaNpCyl5IAxSNIUg-1; Thu, 10 Jul 2025 12:08:21 -0400
-X-MC-Unique: zPXfFDOaNpCyl5IAxSNIUg-1
-X-Mimecast-MFC-AGG-ID: zPXfFDOaNpCyl5IAxSNIUg_1752163701
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7d460764849so390301285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 09:08:21 -0700 (PDT)
+	Thu, 10 Jul 2025 15:46:50 +0000
+Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-2cc89c59cc0so1192124fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 08:46:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1752162407; x=1752767207; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=SxqC0ATm8XXXx24MpZdy05ScJSWmhlnLQqeCjqghw20=;
+        b=drcemwEIS0gbOX3QgNzdjkdGcLVkL8s+rA8AGMGg/vpL7S8sDwz/sM8w96jORiTC9F
+         yPSr7wWCWe/jkbGMxqyyvdVoD/To0i9ijk51E6JDLTimz666gv4PhdkyQGtuShiRybZe
+         QRB3tdQLiauKtmbktx1aSt3Zjz3KdikiHM9g/BfApJ+hY78JHHylTBu904De6Ilyg3TO
+         RhZ3sekADUFMMBoRGMVUAqiCMvnIGiWHDEVpBJFZK1A6YXOez0Z2nUeL/aR0YdtlSIDw
+         eXDKMfj/VbJRO+x9R6jSRkBC2awjXKj7I011pq5coJdYeyId39o+CUJDENM1+P4XZlZA
+         R2KQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752163701; x=1752768501;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/4ASla69sSqfjU35JM1zsmkkZLK8k4ITigVacA38LgM=;
-        b=o5U1gz0TFdcnV33tYcGvwD061ZuubTyNwtkpwxcnmLRhi/fwa2uNcLuKRUOn5WKgCq
-         NvWbz8VSvwfrFlcZawcBIV+lkw4fPneU6fKSNDdSXL9irij/vJA2ylamwu1Z+O31Pjh2
-         Emam/7rs1+XKZ0bitDbD/id6k/AVB75O86SpC0fZ6bKrGRD1SPiG441Zuaq30THBS1z+
-         S9maJusKGcdnK3IZBB7aWP/oClHSisE1lg4DoFLhM6ohAFTYV8pIH/Zthy0282FPVrPv
-         Zt8+dorC9txSoZ34kh07sZyKkrdjEjYOV7htk8ohdRS9ZPE+dBQnfcYlllK1CJlb6UhV
-         yDbg==
-X-Forwarded-Encrypted: i=1; AJvYcCUlFIBXEqhDeYY49/MCacgIHAf/zvnIHtdgiTHp9Pwx/L09qG/Gg7CQGtzAena6Yxast4WecPBwvTyKH5mAp2Uv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCVu7ceWJ8MK/aVmDWEklEASbnk2wU4uPVqgHM0ad1R1lOU1nW
-	prf+3Vy0mI/e22KCCvwnn8yaUGXvgJjyj2nPFuRrBO0uTgJlgafu2UMQ6T6To4sRtDlxTuGdUD3
-	pN4KrdBwQOdolSLSyzrdlEQTNxFkCEjj6L2GOtklSy45JV3YnLoIf3zKloxW+rI+Dqb67PwzCPe
-	m2
-X-Gm-Gg: ASbGncuN+iKGAaLx3PGGgVulOCi8zNKGOv8K1GbW8mEmwwNflzTt+MT1Mq9bIsWsWTG
-	V3i7pQSXilFh8Mr63ilZo3GByuTsifLvY01H10yBI4PFMtRuMIH6JTWPxCpEXKfM2KXeOxAs6Kk
-	l3lOshQ8+PDnPihXbg+iQJuPhMuZgLrAXri+waqGjfzC+OpQBcPpnfPPxbA76XXy5zlzxqiFh+K
-	c92BLPURn1mz0wpvVMRCZ0DB5zXF0XmyqOzSt6Q0CGii/ZvmGubAm7aVLkAu1fhc8AJzj/bGQLW
-	TsPW+XvaxmovQ1ukjuWOZXTuFdc+E+GzKLVcW/S4sdDaEjfSwtcz3sbbjpgj
-X-Received: by 2002:a05:6214:54c2:b0:704:9584:c370 with SMTP id 6a1803df08f44-70495a595bamr70247576d6.7.1752163701086;
-        Thu, 10 Jul 2025 09:08:21 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHDRrDKWwpckJ37fdbyhC+PMLfUgyhQZCTV67/zNoDsc5Ut1ZyXEkNXO6Agbo3M33HxjAj7/A==
-X-Received: by 2002:a05:6214:54c2:b0:704:9584:c370 with SMTP id 6a1803df08f44-70495a595bamr70246876d6.7.1752163700571;
-        Thu, 10 Jul 2025 09:08:20 -0700 (PDT)
-Received: from [192.168.1.3] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70497d39749sm9670216d6.58.2025.07.10.09.08.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 09:08:19 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-Date: Thu, 10 Jul 2025 12:07:15 -0400
-Subject: [PATCH 5/9] phy: mediatek: phy-mtk-mipi-dsi-mt8173: convert from
- round_rate() to determine_rate()
+        d=1e100.net; s=20230601; t=1752162407; x=1752767207;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SxqC0ATm8XXXx24MpZdy05ScJSWmhlnLQqeCjqghw20=;
+        b=YITp/PMoFUV3VwqPBvJV/2Wfin/WwSnWMAWMuafITvx/Rpan9Uz8ge8m44xTsMGdQ7
+         KvpCxHtH7S813vKhTfgWGjOR2eAWCQqJqrdqeMaZcg/VOkjCsucS2wDjS4O99CAQTp+A
+         doY2IITS+MaUpD/+1/2NYdoxL0s7mn2IUtPyJMeBomvDTyjAW778qMb9xBAYKogz+i84
+         k5VewJ8J/kB+c0jgbhXVMP/YdgwCWkUvbC8l/NkwDTvrlThInAr/FlI97j/1HlI2hCuJ
+         r5Y1Nuj15Cj0m+qsK/8hDkHt4RTUd9ZYPcU67i8xecYYIAemCTSpCLkHKINUcB8wjlpM
+         c7bA==
+X-Forwarded-Encrypted: i=1; AJvYcCV0/dOCWw7DMWoccWx/PLbdSRa/jLRLpoQn2e/lrjbjtve6mQcIPJxCTMsza1sZ/EuUjDLvKsQPStcWuUr8GDjl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwcC8fzpuh01Go2X1h1Eme63mgshdvmO6+YKtXGw/nKEwuA2ui
+	GFXNwjcTgT6HShcCzND9lmvmNRLpvQPy483jX2heJw9h9mrQzPchfjobPQAyQdRPIkE=
+X-Gm-Gg: ASbGnctZfklhWOy/sSIqKg9b2pQ7ZrgEErkhppnKlI6/oMRvc3Ula3qaBy0H2UDac+5
+	NRotLtZLP18X5ewFieUlto+I4evlbn3vFxgdfSejK+xx1/B0dVHZMk/Ftos8Iq6MCQVfLwEcD59
+	R6LQmGKZc3dJavI7E2oZThnNvRTOlzCWt/Uv1Yxd7jKAmBbivKrAYJ/w6tAlZFamLbS4rEqWfx/
+	W5no49iJMfHTRwjgD2ETNv3G3mdinGkXDn9M5UbdjhSfb29OevP/g4ghMsqIrWES8CDs3jEoS3b
+	dybt/L809xuuk22EXUhngSMf3VZrjSYkJLvCF6otSZIrBlMlMzgWjAcs7DlA22l6fl1m05jaHOz
+	Q/LaEil1rgPJK2I1dll72DXx0vW7kVLLRTL9TUB8=
+X-Google-Smtp-Source: AGHT+IGGnNYbfg3tRijwYJsTHxFrHe4ec9V4WbLcn63Mw2V3gA0rhenSRI8xr6ktDmmz0UyeTDfVCg==
+X-Received: by 2002:a05:6870:7053:10b0:2eb:9fe5:d06c with SMTP id 586e51a60fabf-2ff0c5af786mr2100280fac.3.1752162407230;
+        Thu, 10 Jul 2025 08:46:47 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:1d00:6f38:cf8f:abb1:34f7? ([2600:8803:e7e4:1d00:6f38:cf8f:abb1:34f7])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2ff116dd664sm343870fac.42.2025.07.10.08.46.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Jul 2025 08:46:46 -0700 (PDT)
+Message-ID: <2bcd758b-c2d0-488a-8ead-ec7fb39f93e2@baylibre.com>
+Date: Thu, 10 Jul 2025 10:46:44 -0500
 MIME-Version: 1.0
-Message-Id: <20250710-phy-clk-round-rate-v1-5-0ff274055e42@redhat.com>
-References: <20250710-phy-clk-round-rate-v1-0-0ff274055e42@redhat.com>
-In-Reply-To: <20250710-phy-clk-round-rate-v1-0-0ff274055e42@redhat.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Chunfeng Yun <chunfeng.yun@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Heiko Stuebner <heiko@sntech.de>, Maxime Ripard <mripard@kernel.org>, 
- Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-phy@lists.infradead.org, 
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, Brian Masney <bmasney@redhat.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752163685; l=1519;
- i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=Sp7TBqvADBjUTdYv865HJDuwxPugQD7l6ebJ7mJAKsk=;
- b=QdRXZy3WXcCDAKY+nITPfzBZtQ8RpvdKNlvOltT6ZNVcwHEAkVhWAcnk2UBWK7KubiIjAaW2b
- RaP8yKzs4UnCzedb/XCmTGOR6M6qboXHNuqR38QkPjLse9NBJ4Rx33V
-X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
- pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZqutmmxN2gweX4Wg-Zr50a5LFMVryRcMWF2w3QSYuJw_1752163701
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: iio: adc: imx93: Add calibration
+ properties
+To: Primoz Fiser <primoz.fiser@norik.com>, Haibo Chen <haibo.chen@nxp.com>,
+ Jonathan Cameron <jic23@kernel.org>, Nuno Sa <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-iio@vger.kernel.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, upstream@lists.phytec.de,
+ andrej.picej@norik.com
+References: <20250710073905.1105417-1-primoz.fiser@norik.com>
+ <20250710073905.1105417-2-primoz.fiser@norik.com>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <20250710073905.1105417-2-primoz.fiser@norik.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_090955_826934_2EFEC939 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20250710_084648_996414_E8DB76D4 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,44 +111,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The round_rate() clk ops is deprecated, so migrate this driver from
-round_rate() to determine_rate() using the Coccinelle semantic patch
-on the cover letter of this series.
+On 7/10/25 2:39 AM, Primoz Fiser wrote:
+> From: Andrej Picej <andrej.picej@norik.com>
+> 
+> Document i.MX93 ADC calibration properties and how to set them.
+> 
+> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> ---
+>  .../bindings/iio/adc/nxp,imx93-adc.yaml       | 21 +++++++++++++++++++
+>  1 file changed, 21 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+> index c2e5ff418920..d1c04cf85fe6 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+> @@ -52,6 +52,27 @@ properties:
+>    "#io-channel-cells":
+>      const: 1
+>  
+> +  nxp,calib-avg-en:
+> +    default: 1
+> +    description:
+> +      Enable or disable calibration averaging function (AVGEN).
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [ 0, 1 ]
+> +
+> +  nxp,calib-nr-samples:
+> +    default: 512
+> +    description:
+> +      Selects number of samples (NRSMPL) to be used during calibration.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [ 16, 32, 128, 512 ]
+> +
+> +  nxp,calib-t-sample:
+> +    default: 22
+> +    description:
+> +      Selects sample time (TSAMP) of calibration conversions in ADC clock cycles
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [ 8, 16, 22, 32 ]
+> +
+>  required:
+>    - compatible
+>    - reg
 
-Signed-off-by: Brian Masney <bmasney@redhat.com>
----
- drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c b/drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c
-index 673cb0f08959e0e4f2b1ade2ebaf796e8b76f8bc..438ff3605d90121b7bfe02b3ddca8194437ed9ba 100644
---- a/drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c
-+++ b/drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c
-@@ -237,16 +237,18 @@ static void mtk_mipi_tx_pll_unprepare(struct clk_hw *hw)
- 	mtk_phy_clear_bits(base + MIPITX_DSI_PLL_CON0, RG_DSI_MPPLL_DIV_MSK);
- }
- 
--static long mtk_mipi_tx_pll_round_rate(struct clk_hw *hw, unsigned long rate,
--				       unsigned long *prate)
-+static int mtk_mipi_tx_pll_determine_rate(struct clk_hw *hw,
-+					  struct clk_rate_request *req)
- {
--	return clamp_val(rate, 50000000, 1250000000);
-+	req->rate = clamp_val(req->rate, 50000000, 1250000000);
-+
-+	return 0;
- }
- 
- static const struct clk_ops mtk_mipi_tx_pll_ops = {
- 	.prepare = mtk_mipi_tx_pll_prepare,
- 	.unprepare = mtk_mipi_tx_pll_unprepare,
--	.round_rate = mtk_mipi_tx_pll_round_rate,
-+	.determine_rate = mtk_mipi_tx_pll_determine_rate,
- 	.set_rate = mtk_mipi_tx_pll_set_rate,
- 	.recalc_rate = mtk_mipi_tx_pll_recalc_rate,
- };
-
--- 
-2.50.0
+This seem like things that should be set at runtime rather than
+in the devicetree. Unless there is some justification on why
+these values depend on how the chip is wired up?
 
 
