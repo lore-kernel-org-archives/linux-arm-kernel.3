@@ -4,69 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35557C83F23
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28426C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hEznsWOa6dCQ6qINcx3pqCiUfEhxMJkXZwCwsLHg0BI=; b=zZE+6GQenZolIKXWGJs6XXHn1n
-	Wl/myknUG+DEjn4vXBKkpx0j6OQFDfcASuXLQfPGE7MKIyZy2ZQWc/TUOvZ6yDu7M2vUirw+LylLV
-	iNbimLjuwwLTscdQ4ZXQ3bx7opcaX4LR95NaDe5FZAQBKIxz63pioz6DnsLQUnDFnmVPOrAlIaWVy
-	Zg2Tx4He3fEK1gE0Hjtu06+BXXp3wxjaiG9Jyr0wfaUWU1zIemdRGLSa8TVIAHOPAoAdZTWO0DaiN
-	uDezeJBqnYrWaEwXGNzW94vtppURAgdxy2ysJ0LxLrs8JIvWzs+MbEj2K4ZY4459gzH0ttuwiwYRD
-	RcwkN3zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t+c4BMiRqhsfmVjVjooOln1HDcuyuqfAoeFZzGp3Oyg=; b=WBnZCa3Rq0jnP6vKRkWkfavlg3
+	KbhuoRFRulsTwdGVSm7/IMRwVSdEa8Iwho67qsV7eIMUqtxibTFjDPfwjt3FWR1aCHz4voZ0l3+tO
+	DvJkTrT3PpASi9YUKVADV0GQdQurT06BIYyJE2HkmwyPlwHc94UMr/FOhciwhzIQIg+mY4G6sXC3o
+	B6/6rSTsK33F0fEJdoDCKsLifrP3gdjFTkVFmJ/T775VbkGga4CNg9z980M/BzXmtaccXW5WBWm0V
+	hGmvPXR4Rro9rZDAiOKoWUeav1CiGKpxeWfWvTo3NgMfZmRFv73ClLQLRbIfW2v8ptp9sCbIcl2TY
+	RavzU/EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2Py-0000000DPuH-17dE;
-	Fri, 11 Jul 2025 01:19:14 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1ua2Q2-0000000DPwk-0RYY;
+	Fri, 11 Jul 2025 01:19:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZyRN-0000000D1eI-2xtv
+	id 1uZyYP-0000000D2Ix-2wIe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 21:04:27 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9D96210380104;
-	Thu, 10 Jul 2025 23:04:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1752181460; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=hEznsWOa6dCQ6qINcx3pqCiUfEhxMJkXZwCwsLHg0BI=;
-	b=NKoAhR2nPBFfkuYKVaXMV1hlVbbaBvMMsxgB4L8meNIyaawoWY+qb/m/YnbvrBbzZt/5qh
-	91ANS8GhzV4ryPkjFmdSUoLDd10tWu/XC1iVwBzeR+IotLoRDcKBMRQ7NtgJFCEsEs9zhr
-	rLmMFB08IS99ST23K3z4MmigurNJEcztPB6G1qGHRyCqzOT9zbE0RNTHMJyM7vB1LNgOPU
-	vZcOCZeJjMS7dGKtkETAJjL2gY0PmEOkTRblnC0N8UOm6CIXkNX4QyjRUbQS9cQqRw+iO8
-	EbuvR2DBv739MI8UDnsCOnlxMPfxSBIQ5gV9mVjVigKWICFeC8Mywd5TohJbKQ==
-Date: Thu, 10 Jul 2025 23:04:13 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
- <andrew@lunn.ch>
-Subject: Re: [net-next v14 04/12] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250710230413.3b6798f7@wsk>
-In-Reply-To: <20250709131651.391e11c5@wsk>
-References: <20250701114957.2492486-1-lukma@denx.de>
-	<20250701114957.2492486-5-lukma@denx.de>
-	<617d064e-99e4-491c-8fe7-d74d8174d9fb@redhat.com>
-	<20250709131651.391e11c5@wsk>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Thu, 10 Jul 2025 21:11:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1752181900;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=t+c4BMiRqhsfmVjVjooOln1HDcuyuqfAoeFZzGp3Oyg=;
+	b=jGCLv0bYG7CuTLDSJ1ge/3jADFeBWBJJDZ5lqZhWqeehepahY9sSVBE3l0qeNYjATUZZdW
+	t96uO6QQEYq0OdpNodAbg8q/1Ia3C1FeUSinJc6uJ5tYdhM2M02RhQQ1NQ8EG33x766LUt
+	bsGZrJQjzDDin5aZ7aLVythuYYWMdf8=
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
+ [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-558-ER6rcNVnPYSX1RRxV1f1vA-1; Thu, 10 Jul 2025 17:11:38 -0400
+X-MC-Unique: ER6rcNVnPYSX1RRxV1f1vA-1
+X-Mimecast-MFC-AGG-ID: ER6rcNVnPYSX1RRxV1f1vA_1752181897
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-236725af87fso22666675ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 14:11:38 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752181897; x=1752786697;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=t+c4BMiRqhsfmVjVjooOln1HDcuyuqfAoeFZzGp3Oyg=;
+        b=DBC1SwoHMvQdIM/ici0398qn9KxC+iwn21H5gBPlhLNUqwdL38kngBff0J0vKfBOxF
+         axypMQN+IRmyozTRiTxI12F9N+TAe2+oIBZJbklJeNo01UYKJ/hXpZJlmJ4ndfpx7/I2
+         yAgV8sHKw3d0RPEjpjeyXHnBKLSl/0D7lNe30xP2dNcdDWqtEcT4/jySkSjGAomH+A8M
+         a/WgrtuToiEC8alpt63sozUDfbiQYGY523mLhdcs55u/xEZ73GDGmCtWmdh2ruMl2FdV
+         4gnLFGveF3r74wLzSb34b2aqxeEyYSTPsgVcbWTK6poYjtkGG0CTahFaKHw4+VYtgbsf
+         EIoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWnrVXJZBFj88PdtBLsj4T0p4v+NB1svdAaDBAAB1Y3tSCzqErS7imLnPSowrNzZlESSFMsgcRG9xLBWqdr2ZJn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmGAyLRoGKy4C8JheT9eG8VDoY7ynGzuKloALitownhqMR32rf
+	UAp0LPijayeqcwkwHugv3luCcyUjsnrb6pnULMPI9TRcNvM71UjMkS4lKr0y6mQsUMVlO05BrZr
+	zttel6n1WHGiHEfy9QHj6E0qe0OnekINULuxLeV3NxftAN17gRc7zkzt7rdGcogtjFu/hBKHr1m
+	kzhvtUVLosgdE=
+X-Gm-Gg: ASbGncvhZswlT/1OV1tXk4jaffDgA30XxIAL4bo1s9hcAI1zqmFdOBp6bYA8GtBQOX7
+	LwEgNuey5rCYP4ax8sItoDW6Yqt3XnczH9iwROEA9WtoV4l+t6cKagmmFtcomlCwq+XY7DfeNHh
+	Sek7hgfttFXlaQCrFqeYCR1jDFWgfvFU/BpsyUZvp4HIMGrsVkvb0/OUsapfPcILKXmVPTBzvCj
+	EPul2j2KrUlxxbROk/rs6TQGAGgl0vcjRbtPc++lsDfm5nIEKW9guD7IRKCKXlLlAJhYRgjGLff
+	loOPOwRgJSBxBJ3UJrjTfUuTXc5+qAfRLlL8FiOGN+MmgA==
+X-Received: by 2002:a17:902:d4c2:b0:235:f77b:4b0e with SMTP id d9443c01a7336-23dede8f48amr9643565ad.41.1752181896819;
+        Thu, 10 Jul 2025 14:11:36 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHPRMNzco5hMf5jOp7523hX2VWgJWkY++oDzSNhjm8eOYKWsovv/oV4s5Gbjr4r11917Kcp/w==
+X-Received: by 2002:a17:902:d4c2:b0:235:f77b:4b0e with SMTP id d9443c01a7336-23dede8f48amr9643185ad.41.1752181896451;
+        Thu, 10 Jul 2025 14:11:36 -0700 (PDT)
+Received: from [10.144.155.224] ([2600:382:7716:65ad:9491:c054:6f2d:80ed])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de433e51asm27790595ad.180.2025.07.10.14.11.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Jul 2025 14:11:35 -0700 (PDT)
+From: Brian Masney <bmasney@redhat.com>
+Date: Thu, 10 Jul 2025 17:10:38 -0400
+Subject: [PATCH 06/13] clk: imx: fracn-gppll: convert from round_rate() to
+ determine_rate()
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/bvMryEMKXN67+shfLzzO8Cd";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Message-Id: <20250710-clk-imx-round-rate-v1-6-5726f98e6d8d@redhat.com>
+References: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
+In-Reply-To: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Maxime Ripard <mripard@kernel.org>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Brian Masney <bmasney@redhat.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752181866; l=2079;
+ i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
+ bh=VD/h4deqJxDRtMemjjzR/QMh0EFhcWSP+gpO2FdBBQk=;
+ b=5Ui19/xk/tp/Ugea3+/nwqiHWYk2PsB/qQtwW1y5YoHaF9vuntCaSoAbXSlcQ1cptzIm0HmNV
+ 83NR/q7STAWB/g/gDErKl6FKo4XjXkfr7vonqPw2ysDmESMhgT4SSiT
+X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
+ pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: EQ3Ot0g6wbH8PaO5RcSg24YNkFWH-OXKnjrfQSfOJw0_1752181897
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_140426_043013_4DEA56AF 
-X-CRM114-Status: GOOD (  33.18  )
+X-CRM114-CacheID: sfid-20250710_141141_812663_ABC76A9E 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,148 +123,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/bvMryEMKXN67+shfLzzO8Cd
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+The round_rate() clk ops is deprecated, so migrate this driver from
+round_rate() to determine_rate() using the Coccinelle semantic patch
+on the cover letter of this series.
 
-Hi Paolo,
+Signed-off-by: Brian Masney <bmasney@redhat.com>
+---
+ drivers/clk/imx/clk-fracn-gppll.c | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
 
-> Hi Paolo,
->=20
-> > On 7/1/25 1:49 PM, Lukasz Majewski wrote: =20
-> > > Changes for v14:
-> > > - Increase the maximal received frame size to 1536 (for VLAN)
-> > > - Use spin_{un}lock_irq{save|restore} when altering dynamic table
-> > > of the switch and mtip_adjust_link() as both cannot be done when
-> > > switch IRQ is potentially enabled   =20
-> >=20
-> > Why?
-> >=20
-> >  (the previous one alters entries in switching table =20
-> > >   the latter one may reset the whole IP block)   =20
-> >=20
-> > What really matters is the scope (process/atomic, bh, hardirq) of
-> > the relevant callers (the functions that do acquire the given
-> > locks).=20
->=20
-> Maybe I will explain the problem here case (function) by case:
-> - mtip_adjust_link()
->   This function is called when link change is detected (speed, duplex,
->   up/down link).
->=20
->   The problem here is that:
-> 	1. It is called for both MTIP ports (as both are managed by
-> 	this driver)
->=20
-> 	2. NXP's "legacy" driver advises reset of the whole IP block
-> 	when such change is detected.=20
->=20
-> 	Considering the above - interrupts shall be disabled as we may
-> 	end up in undefined state of the IP block - especially that
-> 	re-configuration of switch requires interrupts initialization.
->=20
->=20
-> - mtip_atable_dynamicms_learn_migration() - update of the switching
->   table
->=20
-> 	Can be called from:
-> 	1. function triggered when timer fires (once per 100ms)
->=20
-> 	2. mtip_switch_rx() which is called from mtip_rx_napi()
-> callback (which is protected by net core).
->=20
-> 	It looks like the _irqsave/_irqrestore is an overkill here.
-> 	Both above contexts seems to not require IRQs disabled. I can
-> 	confirm that use of plain spin_{un}lock() functions works.
->=20
-> >  =20
-> > > +/* dynamicms MAC address table learn and migration */
-> > > +static void
-> > > +mtip_atable_dynamicms_learn_migration(struct switch_enet_private
-> > > *fep,
-> > > +				      int curr_time, unsigned
-> > > char *mac,
-> > > +				      u8 *rx_port)
-> > > +{
-> > > +	u8 port =3D MTIP_PORT_FORWARDING_INIT;
-> > > +	struct mtip_port_info *port_info;
-> > > +	u32 rx_mac_lo =3D 0, rx_mac_hi =3D 0;
-> > > +	unsigned long flags;
-> > > +	int index;
-> > > +
-> > > +	spin_lock_irqsave(&fep->learn_lock, flags);   =20
-> >=20
-> > If the _irqsave() part is needed (and I don't see why??!) than all
-> > the other `learn_lock` users should also use such variant, unless
-> > already in hardirq scope.
-> >=20
-> > [...] =20
-> > > +static void mtip_adjust_link(struct net_device *dev)
-> > > +{
-> > > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > > +	struct switch_enet_private *fep =3D priv->fep;
-> > > +	struct phy_device *phy_dev;
-> > > +	int status_change =3D 0, idx;
-> > > +	unsigned long flags;
-> > > +
-> > > +	spin_lock_irqsave(&fep->hw_lock, flags);   =20
-> >=20
-> > Same here. =20
->=20
-> Please see the explanation above.
->=20
+diff --git a/drivers/clk/imx/clk-fracn-gppll.c b/drivers/clk/imx/clk-fracn-gppll.c
+index 85771afd4698ae6a0d8a7e82193301e187049255..090d608672508a8819dc68eedec5b8d4a2c140c8 100644
+--- a/drivers/clk/imx/clk-fracn-gppll.c
++++ b/drivers/clk/imx/clk-fracn-gppll.c
+@@ -134,8 +134,8 @@ imx_get_pll_settings(struct clk_fracn_gppll *pll, unsigned long rate)
+ 	return NULL;
+ }
+ 
+-static long clk_fracn_gppll_round_rate(struct clk_hw *hw, unsigned long rate,
+-				       unsigned long *prate)
++static int clk_fracn_gppll_determine_rate(struct clk_hw *hw,
++					  struct clk_rate_request *req)
+ {
+ 	struct clk_fracn_gppll *pll = to_clk_fracn_gppll(hw);
+ 	const struct imx_fracn_gppll_rate_table *rate_table = pll->rate_table;
+@@ -143,11 +143,16 @@ static long clk_fracn_gppll_round_rate(struct clk_hw *hw, unsigned long rate,
+ 
+ 	/* Assuming rate_table is in descending order */
+ 	for (i = 0; i < pll->rate_count; i++)
+-		if (rate >= rate_table[i].rate)
+-			return rate_table[i].rate;
++		if (req->rate >= rate_table[i].rate) {
++			req->rate = rate_table[i].rate;
++
++			return 0;
++		}
+ 
+ 	/* return minimum supported value */
+-	return rate_table[pll->rate_count - 1].rate;
++	req->rate = rate_table[pll->rate_count - 1].rate;
++
++	return 0;
+ }
+ 
+ static unsigned long clk_fracn_gppll_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
+@@ -345,7 +350,7 @@ static const struct clk_ops clk_fracn_gppll_ops = {
+ 	.unprepare	= clk_fracn_gppll_unprepare,
+ 	.is_prepared	= clk_fracn_gppll_is_prepared,
+ 	.recalc_rate	= clk_fracn_gppll_recalc_rate,
+-	.round_rate	= clk_fracn_gppll_round_rate,
++	.determine_rate = clk_fracn_gppll_determine_rate,
+ 	.set_rate	= clk_fracn_gppll_set_rate,
+ };
+ 
 
-Is the explanation enough (and from other e-mails), so I can proceed
-with next version of this patch set?
+-- 
+2.50.0
 
-> >=20
-> > /P
-> >  =20
->=20
->=20
->=20
->=20
-> Best regards,
->=20
-> Lukasz Majewski
->=20
-> --
->=20
-> DENX Software Engineering GmbH, Managing Director: Johanna Denk,
-> Tabea Lutz HRB 165235 Munich, Office: Kirchenstr.5, D-82194
-> Groebenzell, Germany
-> Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email:
-> lukma@denx.de
-
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH, Managing Director: Johanna Denk,
-Tabea Lutz HRB 165235 Munich, Office: Kirchenstr.5, D-82194
-Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/bvMryEMKXN67+shfLzzO8Cd
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmhwKs0ACgkQAR8vZIA0
-zr2/Vgf8CAqpAWYmJVhTy2njCpyqUymWCFVNmNXK6Gllt/Zw6SkfkIq7Mi1felFl
-EJkW8NkrKNvDxmLEuj95mjwk8ICa449UxTacaOTIGSx7cf2NaHuHZ/C3uaPE7qXO
-JRczFT5e/V94lznm06bF+Msp5anCRiP51OB8T3CT5jPuA3lBe3rv9Kib9QmqF/9y
-8scAsy79+4aVtbsGcsghx7sxi/en9c2j2XkrJstKEJhpbYlRq3m/lUlKYzVLdkfq
-YynjGqmcQJMdO4uyORkyyk0D9IqRrVhLKvrWjs7FzcBA+yjjz9XL1GjznewUqfM4
-9GPDqpw9n7gaQxIB+WQj1EhhaJorrA==
-=okWF
------END PGP SIGNATURE-----
-
---Sig_/bvMryEMKXN67+shfLzzO8Cd--
 
