@@ -4,148 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C765EC83F0F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 03:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D92C83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 03:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mAnjUy1E6CvEOxfWvkVSiKMqa2xpHS2Nnyz5+PInGA0=; b=ZmX3FaDlehZEJqodbPr43k+GvL
-	3jAyo8TOqMLQhpJuKxcaOG9M5EbCoGsi8Td59NreHb82f/t/UnwCW9Q0UsuTfUNKDmpg5p4k+hxKo
-	jSolNOGUPavq/9i2CwYrhuYPB8JIphicYbjSM6Z1AYtmf0UXNn/YpFXHNG2QL6qy8t3Pkorz5mj8E
-	4Swf9CaEepttx6HFFN3eNhHzdrupTZ16JfmEWZ5gRl+1Pn5UqAfixWqnyQKeFsNwAUVbHeE9tvMzr
-	eO4KG2IDwcmz3dAtNkRJ2LjxLh40LvBYu/Y++PQ61YNBNOlSs0EQmPCFNSIHW7hrY9C2xveUioYeB
-	l4wvly2w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0TbRyUEuJzF3obqDrGuDFAgS9Z95vj0fEWT/dyYBeT4=; b=nUOOovkJs6jSOeNk351pLOJm5M
+	pk/SHfDbIFLu/aVMHSU29evHCyq2R+mOmnQ9Wqb6iSPl1d16uTnBp0TDFUroiOg6BZTl3SuxsPHvb
+	2/XkeGuNANZBKumVxk+esP9BUrPElkHDct4IvIu9HXhsRvP2kyxqrgo52M6HMjsrVavReA6o69Tf8
+	0r7f1G0i7HUFJ2zRedXex2bxA3UuEGwi6aqmZpokFnQIMYQz9j/TcFfsxfB1IhDOBx1SNKhG4Qwcy
+	uOsC4UMm6mLAmqAxhQQJZdBozActEifXFP1oPWOQwfTyFqMxNyKJnKuw23/6ybTi6vMGbCjKoeW0M
+	WRioF60Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZhWJ-0000000AYGA-0xgt;
-	Thu, 10 Jul 2025 03:00:23 +0000
-Received: from mail-dm6nam11on20616.outbound.protection.outlook.com ([2a01:111:f403:2415::616] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1uZi7M-0000000Ab8s-1dhP;
+	Thu, 10 Jul 2025 03:38:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZhTx-0000000AXPh-1WqR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 02:57:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JKS32HAFmtqm4vCAbl/cplf5gAyqYVmcX4Gugx/pE7v3szeJSbQNw7cEc82FlBVYV8sdxMhnrYamugdKDZUIfN6m9pEzdrN42ALIgv5FFNN9XGQx2INEar8VKDvMX+czVfqY4thIRV9/NAmEuvB9YwNt0l0sVznMd3OllOG8/P+W4iswW55LsMEXUAcrH+DbfKrinfl0h/4FloQxuTabxQRljL46LAyCDWZWnFrGsnOFFvJ0kr2pXTb3dDzawygAfqy+/+JILSfvVghClIhSi8MO0p53tz+2QD1v1axkOKR3IsmZBiuG15gtf2zCmdW4QBdgNQndEbnDBOO+OT4BTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mAnjUy1E6CvEOxfWvkVSiKMqa2xpHS2Nnyz5+PInGA0=;
- b=bc59YPZ44Yv3hbHkC4DI2YvYx/aaaGxb+eOg57gEbhlBBRiogbUWm6e1s+c5Qk/jYp6aLtBHnyGS2AgZY2u2Af7MFqJPG9UDDXKSGmBlxU13ZNnib9kkdEndWrkyXlEP5wRb1lcsah5agWUWLikRVqvZcf9oxsZ9XvyFlr3eTSrQgcU9EMFeTcMhZiVSQ8eU2XIsz8/a2zTS9rj/hC1XF7B7yW1DVdBKlm6B80ciLIm0UJdtWMiLYbZRqyJAJP4WwxJ8ytyOzBRwaShUXMq0H6jg8dCoV+rJ2435I9HtkaNaUfxXXBvsEqjURyxSTJubcimJMTSAhwLCl37GiEnNog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mAnjUy1E6CvEOxfWvkVSiKMqa2xpHS2Nnyz5+PInGA0=;
- b=MrDvXrntXn5ng9VLIhG56L92MIfDnPDL+XuRuY7/eUNE+L9WkhLaDGrR4LiFBJQIiUfjkdJoDvLk/GD1vASmqhVG6LjtZ6VJqu84knd5wLG85tzV+FcQevJ28/Titzgu+j/fzVvOjh8GTOBevbHKjlLj39qsWGYWqesGPqagMLh8LA9WZwgj8pbvSp/GSNOFaYlEiIs93IdiA4UZ4dWmlKeSL1Eaj06yrdmK2vsfOk5kWniVgJgEZFpSNr8AHwJfZJTElejLk4NNHLEHPIAYtADhpcatUtVOmasozjVQeHqUWoBjeMgVDqliCQLbhT3yua2e9E4U566Djig0u77+yg==
-Received: from PH8PR21CA0004.namprd21.prod.outlook.com (2603:10b6:510:2ce::11)
- by PH7PR12MB6834.namprd12.prod.outlook.com (2603:10b6:510:1b4::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.27; Thu, 10 Jul
- 2025 02:57:45 +0000
-Received: from CY4PEPF0000EE3C.namprd03.prod.outlook.com
- (2603:10b6:510:2ce:cafe::12) by PH8PR21CA0004.outlook.office365.com
- (2603:10b6:510:2ce::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8943.5 via Frontend Transport; Thu,
- 10 Jul 2025 02:57:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CY4PEPF0000EE3C.mail.protection.outlook.com (10.167.242.13) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8922.22 via Frontend Transport; Thu, 10 Jul 2025 02:57:44 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 9 Jul 2025
- 19:57:37 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Wed, 9 Jul 2025 19:57:37 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Wed, 9 Jul 2025 19:57:36 -0700
-Date: Wed, 9 Jul 2025 19:57:34 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>
-CC: <bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
-	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
-	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
-Subject: Re: [PATCH v8 04/29] iommu: Use enum iommu_hw_info_type for type in
- hw_info op
-Message-ID: <aG8sHjkIwWtum85Q@Asurada-Nvidia>
-References: <cover.1751677708.git.nicolinc@nvidia.com>
- <64a4c22755d828a80a80d30f6903f4003b62ba5c.1751677708.git.nicolinc@nvidia.com>
+	id 1uZi4z-0000000AaY3-3THm;
+	Thu, 10 Jul 2025 03:36:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9B24E61444;
+	Thu, 10 Jul 2025 03:36:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 04152C4CEF8;
+	Thu, 10 Jul 2025 03:36:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752118572;
+	bh=5MnEx6d6Bp+tncNEQjSvFZsKEzB4p23EOo3WP5jzh6c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=TeV4YdE0/0rnz9PoZCBSS2MrMka0Ys//W3ff1VsuYSM17QAQbVkcsklxFr/D9Apat
+	 fh+3yvYWUwzvpa3nEAB6lzngn0tVUruGp9w6VBZVCGnjQkUbMWVfaNaE7uJgJ+g1ti
+	 YTHYCOV8KMRsIk1FQO7RpBuitvp+n0WOdatTDDYc4Ri2fO2CziHqRz13/AbajVo7ZS
+	 QntSU3Abvrm6NuDncOZai5be/6EfLpvZaWlj5Cx4XTXZAnMf6un5wf4zm4TAWUC/bX
+	 NKyiUjhxbRJAwuTCaQFL0xBNU7/lLx4+Jc09U1Six3HVhRt0pDVQzk3ZbX6afuz2oA
+	 iroxenrl49U+g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E6B5AC83F0F;
+	Thu, 10 Jul 2025 03:36:11 +0000 (UTC)
+From: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>
+Date: Thu, 10 Jul 2025 11:35:39 +0800
+Subject: [PATCH v5 3/6] dt-bindings: Asoc: axg-audio: Add s4 audio tocodec
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <64a4c22755d828a80a80d30f6903f4003b62ba5c.1751677708.git.nicolinc@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3C:EE_|PH7PR12MB6834:EE_
-X-MS-Office365-Filtering-Correlation-Id: f1ee4213-c1dc-4c86-088c-08ddbf5d8b60
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+Dnhxl7GMCpE/sDlTGZDIlTVXmoYkvyCE5FOZV3fCaun9g9r9QLJFaku4zIj?=
- =?us-ascii?Q?1jFuEFFtjT34mtmz498s0hSOBT4w6Gp45SLP/dsKE1VmOdc6Gk8F04dHK7Ge?=
- =?us-ascii?Q?cZOtQ4lV+IIZYVsRf1zBj/P0mXl8tKNI8qtDfSnpBEsR4TJqHOna9JNni3Dy?=
- =?us-ascii?Q?ItKCe+J72CC/FqENAiGc3jg3yrquJ1OHjv4AggRrSW61RwGCeFm9weiH2SiN?=
- =?us-ascii?Q?qeif4AQVPPfDI38l49/X5LfVSNVtHFXz6hRlZX+kKkMsTDo+Dd7hwu95cEII?=
- =?us-ascii?Q?csoWr1lS7jPZNjFM97oVUXIiq1WjBwQe+13B8RNpt/5FXQRNZKqG8EG1FoPE?=
- =?us-ascii?Q?7IsPRYV8pGgshJebcYRegFKKnFtLApGibxoWT+VIW90HKQZOrTPrwrFFIl4S?=
- =?us-ascii?Q?3SuexGqOZ3fLGdpr4roZWv8XminSU52WDUWQYfYqaPdLgaWYn+dwcoFQone6?=
- =?us-ascii?Q?VlQgFy90hplApmHriKDprSOacb4gXN+XFKx21QAP0dzjpO374jlRwC9HC1ay?=
- =?us-ascii?Q?QzFn1NhQQ7/PHYzJ5eXI63anNI44qrn40Yr+8Pgk2W2HH2jJCSR1y/p7WBx4?=
- =?us-ascii?Q?MpXwWinl4TCOc462+uIDs1FKIevAVTbDd6KOOkVpMrSngo2Nw6Eo41WAUiAf?=
- =?us-ascii?Q?rI6yiSbftL1ce7r6cBsvbg+jyBkBPIw9F+nrzgxS7bQDv7JB0qoXrX6qmQH6?=
- =?us-ascii?Q?P1Pmm7h+0rM9KS0JNqdZSacqC2jPNUF5xR95JFf3tnZmg5/GPp+Li8sTEUJd?=
- =?us-ascii?Q?gdNSwidAsjL9aQDQd8DPGs+qcFjix5+0BTpTLiwJXNCiuAEGS/hQ3jJsKUGO?=
- =?us-ascii?Q?eGbUWZZrQlNZkFN5fpu5diai9u4DhCUy/OiCuM4Fq+q9atXjyinA/RsAhimG?=
- =?us-ascii?Q?651TeMPN+cdIETNlkz19h1RqAmq59dsE1RNQRJhhMpnGNdU24/AlxAvHC0rf?=
- =?us-ascii?Q?oNoeq9S68Ad+Bc5bM0/vKV93sw31qPYqHc14XwnOu2dhx3DJ0+296Qo9l+9F?=
- =?us-ascii?Q?mJW64jVPHtCJ1G5vPYz8dg/TfUhLGLjUz0ImH3tvZoO8wZnPIeeUXfDhDzbR?=
- =?us-ascii?Q?X+ifGSUNm7EGaBnGgMWws1mP3gkfzq1MTMkrqqr6eu6uXBSoaViWr5ucWJOj?=
- =?us-ascii?Q?3jl19veE7L9AUAjfljhFK6v7luNI1q46eHp5bqdFKTJeEJfXoRx7Jld8RpF9?=
- =?us-ascii?Q?+eiwiv6o/n8Rm7wfeEJkt2TN2bx7AMq6Stod0IVGu5k5mwfh6imK1jfne7hc?=
- =?us-ascii?Q?c8lwNIrqNnIT+e/CYBcp+GQJQnDMwEFOWqMRFFDmkdFqQTpYl13HowIwPYQG?=
- =?us-ascii?Q?w9peZF9ndWXgCGWn1LygM9NW596sytZjCrD50K0i4/+fhhWka50tfsuGuLNQ?=
- =?us-ascii?Q?k5uhZC0VW1igypH+hxB8oeAcKLrwAQByDIKHUJNF8x+Qh/PIH0mQwyNkvfv0?=
- =?us-ascii?Q?ucKFomBfEvF9o+ztp/I7QUCl1yALcQIkmJrQMC7q3ETajeI83A09E/kJdV/K?=
- =?us-ascii?Q?nv+LIr0/Ex8GqYDgw3TVJcpBmBsiKidciyDc?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 02:57:44.6616
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f1ee4213-c1dc-4c86-088c-08ddbf5d8b60
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3C.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6834
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_195757_400893_604F7132 
-X-CRM114-Status: GOOD (  10.02  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250710-audio_drvier-v5-3-d4155f1e7464@amlogic.com>
+References: <20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com>
+In-Reply-To: <20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com>
+To: Jerome Brunet <jbrunet@baylibre.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com, 
+ jiebing chen <jiebing.chen@amlogic.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752118569; l=873;
+ i=jiebing.chen@amlogic.com; s=20250110; h=from:subject:message-id;
+ bh=x6WA+WpOIp5OPvSngtyt9yMnHRZE3lLhDSWKJO4Usbw=;
+ b=8pDuK0vyXUAHxnZ7z6r+YQxBmz4b0lZ/mfWeKQkyV5k1GOC4ZXtfvhBnjtVB12AUjeTjzEuO9
+ AkCwFAr9iapCq1hjjNtYMbmLOyfFx1oEyxcMurQyj0Sy/tSiJe81BaI
+X-Developer-Key: i=jiebing.chen@amlogic.com; a=ed25519;
+ pk=6rFvvF45A84pLNRy03hfUHeROxHCnZ+1KAGw/DoqKic=
+X-Endpoint-Received: by B4 Relay for jiebing.chen@amlogic.com/20250110 with
+ auth_id=316
+X-Original-From: jiebing chen <jiebing.chen@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,26 +89,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jiebing.chen@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 06:13:20PM -0700, Nicolin Chen wrote:
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> index 9f59c95a254c..69bbe39e28de 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> @@ -7,7 +7,8 @@
->  
->  #include "arm-smmu-v3.h"
->  
-> -void *arm_smmu_hw_info(struct device *dev, u32 *length, u32 *type)
-> +void *arm_smmu_hw_info(struct device *dev, u32 *length,
-> +		       enum iommu_hw_info_type *type)
+From: jiebing chen <jiebing.chen@amlogic.com>
 
-I found that this needed to update the header as well.
+Add S4 SoC tocodec compatibility support.
 
-Fixing in v9..
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Jiebing Chen <jiebing.chen@amlogic.com>
+---
+ Documentation/devicetree/bindings/sound/amlogic,g12a-toacodec.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks
-Nicolin
+diff --git a/Documentation/devicetree/bindings/sound/amlogic,g12a-toacodec.yaml b/Documentation/devicetree/bindings/sound/amlogic,g12a-toacodec.yaml
+index 23f82bb89750898d20c866015bc2e1a4b0554846..ea669f4359bc81b0f45bc2105c832fc2b11d8441 100644
+--- a/Documentation/devicetree/bindings/sound/amlogic,g12a-toacodec.yaml
++++ b/Documentation/devicetree/bindings/sound/amlogic,g12a-toacodec.yaml
+@@ -26,6 +26,7 @@ properties:
+       - items:
+           - enum:
+               - amlogic,sm1-toacodec
++              - amlogic,s4-toacodec
+           - const: amlogic,g12a-toacodec
+ 
+   reg:
+
+-- 
+2.43.0
+
+
 
