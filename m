@@ -4,120 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A43B6C83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 07:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C38FC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 08:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/8k7ai9zJZPlBe4/WoQE6blac+LjtYZq8jqyMIiIXM=; b=aBaQObp/AnVJ9sH8pdkUNDQ7yo
-	v/2wKZiKoYgQp3jZtvJx1CL+GLX4y0BbL6eAzo/TJOSEddoBzkNbO/D/JJAHDeATFIBT0qDo0yepu
-	jCPtyEQixncGVtRVZwXOXZOLUR6zjZsAM9jGq3kJF77qNaJnvneuS0aV8llxF1FGzTD75E7ZILJlC
-	3YDLFdNX9x1d643fbayJkfIXDnUVKXQymKDXghcMGR8jyPDDTJtIhDEjWZht6BHUBJ7CnDr9umSFb
-	N38+GJK5YxD6ONvj2niYBw1nzQ9l4Ec54xwfFwPw3xQnftjOuq6Nbdi6c8sojbGrFx01Q1BfPw5rf
-	LPbd1eww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DikmKvJqrUQqovv3ikbr6+CyDlppVj9D7h5JMgNmfIw=; b=zLbFbsjx8pLCKRaDQaqVZ+13Jy
+	v1LHzuhE2cw6MEwps//T4O8m5f5NXSc5swdSnpKjd1V3B8VIKYqGe4pcTTN23F3BkWdSueb1aKo8w
+	4eWxjPFr6Rd8buj21hJYZs1rN9zhbA9PQC4VyU0vW7NnJmL51ZrsAfd05V5bquSZWLk8wLsvYuJpf
+	4Z576FlyZKQRHIDerDZ123zWI3T4msWxnAh3oSVwR6/K88qgId9TgveuLe91mz9ymOszMQxha/Pwy
+	i4r2kdvIy0OsWKOJasenJT31zNrpCK9wZZ6Qy3xlsN6wHUhbVADN2vM5pJEdsq/pw3HAf6qo9A+cj
+	s1fVlpyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZm8p-0000000B5Rs-2SFN;
-	Thu, 10 Jul 2025 07:56:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uZmCQ-0000000B60k-0LnF;
+	Thu, 10 Jul 2025 08:00:10 +0000
+Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZlJF-0000000AwSP-2408
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 07:03:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 814FB6145E;
-	Thu, 10 Jul 2025 07:03:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A336C4CEF5;
-	Thu, 10 Jul 2025 07:02:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752130988;
-	bh=OrTGxFrw0ZmJFljrK6uFin1VEz5eOA4NkCPwBi0T8sk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EdiNRxkiTAtiLgRS1Y6C3hUD+y1cX5n4ohdHvLlfiiPAD3LaDnf18I56SYmpNYL2N
-	 eGdkNdv2r4XrekAwPPTJxfy7agiOdzGLVxznnwVQJoFQzCM7IsBUKe2VyE1kpsv9TP
-	 3q+IAmiMxmzOaricb56Ct9skSXyuCFaFDVp+MegzOPyPFulGFhptSEXnKRXy2JQrI8
-	 jetuNJgqvHrk1LvzOyWxWaaXCfwupivp3Qb6nSDoCjaXHhWMLZv1l0wZf6xtvEYV8o
-	 BLx2YspRLNUrAic2qd5W7T9EVR3cX1mRX2PWhH0sKPARaR4CdXI1tSBWKN6GDIhfAK
-	 27QfiTGZHEwAA==
-Message-ID: <5998de2a-f3ae-46bf-a975-081da20bab03@kernel.org>
-Date: Thu, 10 Jul 2025 09:02:55 +0200
-MIME-Version: 1.0
+	id 1uZlT6-0000000AxoR-201D;
+	Thu, 10 Jul 2025 07:13:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TBOXBuV0IShlWabH/lvHzvAINhK1NJ8m245Y5apXkzI3mEH+TAV4aKbLBVYhyRCNTN0hcShRx66RnWj2d03pCJaU4R2r4amsrzXJwN6bYOMu2gQSn+nkniyCuOM7LmiAh94bMXqz2tbmfbkJfIOQSW80tsjnllpWPVimdKZhRlnaT/vyMSsCrf0bwqt80Y7aEqC5ZTicoWUt57cSr0iHyz4U+PmMC5oel35Z7FkWodZ9Tz4TQkBaKPn83WfuSlE+jLvBx9607hxLDOUUpMLiWX/Kci1J777Y8fyyMZ8Xb4P0mXqHaHn7BcLO0i7WGcj1+Q0wiIpBgzQU5HfHsIvFuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DikmKvJqrUQqovv3ikbr6+CyDlppVj9D7h5JMgNmfIw=;
+ b=NM79jxP8db3nMoxifSp8s0mhtBEZIcV1g5/rV6r6hEbZgyEvLFv00gNZ9gUX4plKEZKMvkyjzOWlJ6bTcIkAl6C4KMUQi2hD3L3gSXKD7w8jqGBxl7fNyH541kHTcf4idWRRRp+0IS6k1BqAzzZblTxQcb8owVIMcDstBaeeDg1inUrMnBRSxRwgsNlISO83rjriAc+WqWjSvCjmsb5zQ/bN85d7QR9NssXye30U+ijwgcuWY/e6mVxKW+2ocCS2rYv8A/5rbaCmQ99wviwg02hyYuYha7BbzJ+Gux9LVT++BZc5n8W+ijOHlaaIQG1xoGYb3FVZPxsyUw0Nihe9PQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DikmKvJqrUQqovv3ikbr6+CyDlppVj9D7h5JMgNmfIw=;
+ b=y6mdwgVvTumXBN47osHehbd6R8ll17yASDmO4sfRmGTN5gYZ1U67uxZFvB/UA2kIBvNZgZFr1tQLWAEwX1xH2HPaTe9QmDb6/h9uGmUxdD4tasLnoSyBewv2UNv70wXcFgFm8SSIWTk0dSJzmtYCX4WxxSPipD2TPMXJnfmPNyDV0taG7l5u5S3MerrizRfDSoU0DmXTsnfrIuLUfexYu8MkYVECT5sJ6LOofw94rAyY8ZsgpyHfADjuL4C37E1xSXELa0kZSaTgS3BJT8iMfa4UFSMTOTITwi4uahWP21T5JAaVv0s2O0hsV0ND5h+Qc4slzWzXLvUFU80GwH5Pgw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYSPR03MB8627.apcprd03.prod.outlook.com (2603:1096:405:8a::9)
+ by TYZPR03MB6817.apcprd03.prod.outlook.com (2603:1096:400:203::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.25; Thu, 10 Jul
+ 2025 07:13:14 +0000
+Received: from TYSPR03MB8627.apcprd03.prod.outlook.com
+ ([fe80::cf16:aa54:9bd5:26f]) by TYSPR03MB8627.apcprd03.prod.outlook.com
+ ([fe80::cf16:aa54:9bd5:26f%7]) with mapi id 15.20.8901.024; Thu, 10 Jul 2025
+ 07:13:14 +0000
+Message-ID: <c43294bf-cb50-4e85-97df-a0ef89c674f0@amlogic.com>
+Date: Thu, 10 Jul 2025 15:13:08 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 14/16] arm64: dts: axis: Add initial device tree support
-To: ksk4725@coasia.com, Jesper Nilsson <jesper.nilsson@axis.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Linus Walleij <linus.walleij@linaro.org>, Tomasz Figa
- <tomasz.figa@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Ravi Patel <ravi.patel@samsung.com>, SungMin Park <smn1196@coasia.com>
-Cc: kenkim <kenkim@coasia.com>, Jongshin Park <pjsin865@coasia.com>,
- GunWoo Kim <gwk1013@coasia.com>, HaGyeong Kim <hgkim05@coasia.com>,
- GyoungBo Min <mingyoungbo@coasia.com>,
- Pankaj Dubey <pankaj.dubey@samsung.com>, Shradha Todi
- <shradha.t@samsung.com>, Inbaraj E <inbaraj.e@samsung.com>,
- Swathi K S <swathi.ks@samsung.com>, Hrishikesh <hrishikesh.d@samsung.com>,
- Dongjin Yang <dj76.yang@samsung.com>, Sang Min Kim
- <hypmean.kim@samsung.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@axis.com, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, soc@lists.linux.dev
-References: <20250710002047.1573841-1-ksk4725@coasia.com>
- <20250710002047.1573841-15-ksk4725@coasia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 7/8] media: amlogic-c3: Use v4l2-params for validation
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Dafna Hirschfeld <dafna@fastmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250708-extensible-parameters-validation-v1-0-9fc27c9c728c@ideasonboard.com>
+ <20250708-extensible-parameters-validation-v1-7-9fc27c9c728c@ideasonboard.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250710002047.1573841-15-ksk4725@coasia.com>
-Content-Type: text/plain; charset=UTF-8
+From: Keke Li <keke.li@amlogic.com>
+In-Reply-To: <20250708-extensible-parameters-validation-v1-7-9fc27c9c728c@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR01CA0171.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::27) To TYSPR03MB8627.apcprd03.prod.outlook.com
+ (2603:1096:405:8a::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYSPR03MB8627:EE_|TYZPR03MB6817:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1cb4b0ef-1c9f-42ee-31be-08ddbf813c42
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WlR5Zk1Kb01mZG9iNnMzUjF5dFRPN2FjSEFHVmxkWTFRYzdEc0lSUFIyeW5k?=
+ =?utf-8?B?aTBtaElLOFh2eWVLamNrWGk2bHhrakZ6ZHhUdUg1dWc4b2JzODVNVXFzNERt?=
+ =?utf-8?B?eGgxdWQzQVpqZ0g0V0QvUXdaVVVmaFhSdkNWN0FrR1JDM0crWms0ZEFMR0Zz?=
+ =?utf-8?B?RHVVZnJaNFRaZUNoOVpPQ0xIMFFCeSthRlF2TThhdDlxVzNGSHZIRDdOTEtn?=
+ =?utf-8?B?OTUvTm1LYkcyRk9Id3kxeGIvMXRNajlDeHMvL0Zua0txdDVwT2dBckY3WkxN?=
+ =?utf-8?B?dkNobGtEM0Z6aGhMNEdKZU9WQlJqNXdxQWMxQ2JoUUNDMTY5dmd0RzVPbGJ1?=
+ =?utf-8?B?ZVFPbHNMSGM4aTYxdS9QSldKdzFmRFo1NndpcDRzZUFheDBEcjVnU25TbHlU?=
+ =?utf-8?B?QWJ3LytETTZIb0NKampiRExhUWpjYkI4VUpGYng2cjB5bXQ2U2FYYjh6cU9Y?=
+ =?utf-8?B?dEI4Qm5pOWcvSkZ2aXpyMEtYYVZRMEtZUFVaRkFxTEo5bHBxcnlsR3RBOWl0?=
+ =?utf-8?B?bENmckxWUjNUamZLYUVaUDBSSmx0bUp0MzVNNS9GMUJXT3VMMlB4c09FaXdM?=
+ =?utf-8?B?aTYxS053dmlhMlBHUndmWTk5b0VCejY4ZVphK1Y0NjAzQXkzYVpXOUVjeldy?=
+ =?utf-8?B?cktyYTNnaUNXa2l1TjRvYnh1UGdDZlQ2NEY3Yk1LUXg4RmNaTHlsQmtXeXNN?=
+ =?utf-8?B?WjAvUURpeDh1ZEo2QWRGbkpwSjVRRWZ1TTgweFVaYXJRTWhBNDVqa2Fibmc0?=
+ =?utf-8?B?cmJwT0VaNXV6OWxTN0IzRnQxcDVyMUxzeTJIZ2I1b0U4ekx2YjA1TEFoZGxi?=
+ =?utf-8?B?eXJqUmxzUEJ0NGVFdEJseGNwM0Rmc3F5c2hhNEluSXhwakFxU0hYcW8vaytF?=
+ =?utf-8?B?UmdBdm40bTlsOUZscGtTNW1TbEJBbU1rTWVpWXV5Q2M3d3pveHZlUTVkc0pM?=
+ =?utf-8?B?UzV1ekd4NDJ0QloxU0ZzQUxNdEo3eWxMK205dWJaMU4wTjB1eXBjSklxUEYw?=
+ =?utf-8?B?VmNqb3JSMk91YWVMZnI2dGhqOFJUSHZmU011UUk5VG5zNGk1WEErYTJNTDdU?=
+ =?utf-8?B?NHI4MmxRc3JTb1JWUncrNmtITVZVblU0cng1UkRGbjFwR1ZWWk9IYjlZNnVq?=
+ =?utf-8?B?TmVqSXdhOXRTcXVza2ZzYmtXMU1wQ2o5K1hTQjRXZVd6L012VURUWjZNRExy?=
+ =?utf-8?B?SzJhVEJQVkNDNi9BcmwrOW9WNTF5RDZlNFNGbVkzZkQycjhFQTR3R1J5RThX?=
+ =?utf-8?B?ejkrTFNKc3ZDREJJV1o5Nm0ySUpSL2dxUTVmQVZ2VDNYMGF3VnVKNlBuMThx?=
+ =?utf-8?B?L042VEdrL2dXZVp1bVVqY1lha1pyV2NmVk8wNytGYjJCcXpIQzMxMlkrNXFW?=
+ =?utf-8?B?OHViUmlzYVJNVlpqcUo1ekRjNmhkWGgvWmNZOWR2Z3RseTBrN0wrekR1Q0Ey?=
+ =?utf-8?B?UFN4dEJ0THNlbEl2Q1RmNWJLbHlGaVYzNFZycDA1MWlOdWZ5dDZmUjZBWFRN?=
+ =?utf-8?B?S3F4VjZ1NWpkZzQ0Q0tmWThwcFZUREZzYllvWEQ5ekY3TDhUWlNFUEp6NVZL?=
+ =?utf-8?B?QU5oNHZ4TVhJODZPK2JablJFRjhLNUlMZVpTaXBHVmdOc0FncDJnbmxqRXl0?=
+ =?utf-8?B?MnYvNW9tVXZaTUxpTXJ2ZEJBYzRvTitYUUtnUFo4Umh1QU1rSkpGOFBqc2Rq?=
+ =?utf-8?B?Z2plbExFRk9UbWhFVHcxeHZBMzhwTUFVbFQ5b3NnOWVUYThWeWdlbnAzWGd0?=
+ =?utf-8?B?ZzBvT2dsODFVZXBOYkxUajRGdlBucXAwaUI2REpBMnUrbzJMUmVtdVBkdTFj?=
+ =?utf-8?B?WDN1STA4MS9OWEordzgzU3k4TkNLTXpHR2QzMXJZczNieVYzVFNCbHpHT0JD?=
+ =?utf-8?B?UFhCcGpPQ2ZuWVlrME84eDZLQ3hPOVpyb1cyNVFpcXRLcUNEa0FtVFQ4cm1T?=
+ =?utf-8?Q?kGA1X1GZVV8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYSPR03MB8627.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Tk1OME8wWnl4SjVZalFqMURyakhyRi80cFl2dDFEMzgwTU5ZT3l0OHJZcFF3?=
+ =?utf-8?B?am1jai92R01tRGthWTBVUEx6SkRiamJSZUNrb3BmajF1QnVhWlJadCtla1Nt?=
+ =?utf-8?B?OGtyM1UyM3JvU0lEcVpBY2EveGN1Y1JHR2JDbktkOFhteHpLTCt5dWtRd0FS?=
+ =?utf-8?B?WS9WREdIcHFOVWRNcVJSS0lpVVdsZEUzVnNCV3J2czhIb1FyN3Z3ZWg3cElI?=
+ =?utf-8?B?R3dRTlE1bE1ORGRGV2hSU3Nid0dHU0czZGdLbEVMTFcyaW9vUkdkcTR0SmlS?=
+ =?utf-8?B?Q21HRHkzNHJsTHRkYW1UZ0x2Zy9SMm1pOEIveDJvbFpoKzEzOGtNYzNFazhT?=
+ =?utf-8?B?cnU0WXBrMUZGcHZaTnJqRkZCSlU5eUEzT09Jd0EvcjdrcXRMVldpcEpoUHRF?=
+ =?utf-8?B?VmF3MDdEb29EK3gzekhBWE1vR0FQa1YrY1dwb0s0TENzZUlQT0xqbXFGSTlK?=
+ =?utf-8?B?U3RrQU1mSmllZFJ1NzE4V3dpd1A4aGxzQVJ3QzRtdVRPbm1YUUg5TUNRWERB?=
+ =?utf-8?B?cHlXYXl3V0NhL3VXamo1Vm95bCtKNlh5dVhCLytwY0VvSThjOGVFbkd3WFhK?=
+ =?utf-8?B?K1VZZ1hLbERuWjhsMFZCMDVCZEt3S2pDZHZ5Q2J0Mnk3NXlvV3hjYnQvQ1FD?=
+ =?utf-8?B?WlRMWU1DY0ZaTmFBK0lQQyswQUpGVlZqOFRYS1REKzUzalZsWVVrNnV0NEo1?=
+ =?utf-8?B?VG5Kb3phL0dvbkE0SEVNNS82RzN1cVY4WkEvSU5YUjg5Tk5paEw2YWNZNHRX?=
+ =?utf-8?B?TkhQcXduQWQxb3ptbGZ0ak1rb3dIbnNYLy83NkY3STVyeWQ5QW01V1RnMGEr?=
+ =?utf-8?B?MlAwSVBUWjExTE10eUpFcFBXWGtTTHBHZmJlZFVkaytxSHpZSXJydTg0ek81?=
+ =?utf-8?B?UGtJNWl5UXh5L3NvcDRvUXVrOThubnVWSUdRVS83NlN0U3ZDUDg1WmpRRlll?=
+ =?utf-8?B?SjF4ZGprQWQ2a1FXNjFvT1UvNUZralFsQ2VSSG1Sd0phVUxtSUVNenBXWHYx?=
+ =?utf-8?B?UnR3dWhDcS9zNit1ZU14UGtqVnhiTlhrd2FZSmNPZS83VDBEcmV3emc2NTZp?=
+ =?utf-8?B?a2RtYzFtN0VEWnBENlFKeS9DemRacWdyRXc4OEhjTDBWWDE2bFFCN015U0ZU?=
+ =?utf-8?B?a0drVWF4V0VGczF5V21pZVIwUWVJYmtrSlI4ME5hOXBtYW5oSkxyQ0ZHTnlB?=
+ =?utf-8?B?Mk9Nb2NQR3V4V2FNdW90aW9vUnRHZTVQUXdKZmNsaDFSUXI4NVdLL1VhUVJh?=
+ =?utf-8?B?dHRIMWNLWi84VzlwdlF6TXJtN2dWNEthb0t0QmhwSk9oMThRSk1ERVMvVFJh?=
+ =?utf-8?B?NkVQZmY5QkRzYTZYc0M4a08yUTdEOUhKMHlpQnFRWGQzbTFZSTJQa3RSRG14?=
+ =?utf-8?B?ZU1YTGlIaUZmODJSZlAwUW1ZQ3hUeEJDenBkbGcxZVpKM2MwOUVabSt2K1hp?=
+ =?utf-8?B?OEVrOHJBNjhQdW5vQWRaNUdXMzNubmpuQVZOYXNmT3J4eHkrVUJUN1NteU1t?=
+ =?utf-8?B?TmxqZHgrbDBCZmVQNFdEM3dCZjNKMndCREpMcGl0aFdBNFZ2QU16cUEwWWtk?=
+ =?utf-8?B?UHZYaHNYWnorUlcxRW9pbmtiSVNJRGhiUWQ2OXViNmhaNFBMRWVoaXJNNTIv?=
+ =?utf-8?B?WkYzTHNpK0R6NWErNVF3aU9iMXdCOW9aVGNIcStHUEFyaTNJKy9Ta2JEWmFD?=
+ =?utf-8?B?MTJVOVhoOGZKY0E3R290a3R0VmFZa2ZlVFBXbGNCREdLSzM1dFVGMWlFaEV1?=
+ =?utf-8?B?Ukh6SzVVVjVxVmx2UkdicnJVNnRxTERYbVVnTkJEMk91UGpJa2J6TjlFcFhJ?=
+ =?utf-8?B?c245ZlNrMWhZaExHSVdJT0FDaEJrdWhNQnM1Ykpualpyd1NFL3NkaUVGckVp?=
+ =?utf-8?B?OFlwaS9scmt3ZXYzYWFqRFc0N2hIZUVPY3lMa2lxeGEwNXVoT0xvM2FJYXlx?=
+ =?utf-8?B?OFFhZjNBdHRhUVdUaktXQXhaZzhlL2RyQUFOYldpYVR6a1Jpckl5SSthWldX?=
+ =?utf-8?B?UXB2dmtXWmtTdExDRTBqamFQNkZBdm12OWNua2R5dFhYNjBMc2ozYkdwTS90?=
+ =?utf-8?B?UUhHTFNnekRrTlB4R0NQbHdoN0Y4eHJ4c2x6WVQ5R2dncDFPbVBYMG5NSDB0?=
+ =?utf-8?Q?VPG1xEzhQRmQwSfW7fsulcSig?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1cb4b0ef-1c9f-42ee-31be-08ddbf813c42
+X-MS-Exchange-CrossTenant-AuthSource: TYSPR03MB8627.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 07:13:14.5744
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SJYXssgd9dMYurErc2jOP8sbxecMQdR0IeLbYqrhK1EVksK1VRhffaA3ZRs7tDJ0RggCOexdE0VgIxZKJKApOg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB6817
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250710_001320_508201_BFD43288 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,451 +181,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/07/2025 02:20, ksk4725@coasia.com wrote:
-> From: sungminpark <smn1196@coasia.com>
-> 
-> Add initial device tree support for Axis ARTPEC-8 SoC and Grizzly board.
-> This SoC contains four cores of cortex-a53 CPUs and other various
 
-Subject: Initial device tree of what?
-
-> peripheral IPs.
-> 
-> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
-> Signed-off-by: sungminpark <smn1196@coasia.com>
+On 2025/7/8 18:40, Jacopo Mondi wrote:
+> [ EXTERNAL EMAIL ]
+>
+> Convert c3-ispa-params.c to use the new types fro block handlers
+> defined in v4l2-params.h and use the new helpers from v4l2-params.c
+> to remove boilerplate code from the driver.
+>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 > ---
->  MAINTAINERS                                  |  14 ++
->  arch/arm64/Kconfig.platforms                 |  13 +
->  arch/arm64/boot/dts/Makefile                 |   1 +
->  arch/arm64/boot/dts/axis/Makefile            |   4 +
->  arch/arm64/boot/dts/axis/artpec8-grizzly.dts |  67 +++++
->  arch/arm64/boot/dts/axis/artpec8.dtsi        | 252 +++++++++++++++++++
->  6 files changed, 351 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/axis/Makefile
->  create mode 100644 arch/arm64/boot/dts/axis/artpec8-grizzly.dts
->  create mode 100644 arch/arm64/boot/dts/axis/artpec8.dtsi
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index fa1e04e87d1d..371005f3f41a 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2320,6 +2320,20 @@ F:	drivers/crypto/axis
->  F:	drivers/mmc/host/usdhi6rol0.c
->  F:	drivers/pinctrl/pinctrl-artpec*
->  
-> +ARM/ARTPEC ARM64 MACHINE SUPPORT
-
-This is samsung soc, so I need a pattern for that as well as I will be
-handling patches.
-
-> +M:	Jesper Nilsson <jesper.nilsson@axis.com>
-> +M:	Ravi Patel <ravi.patel@samsung.com>
-> +M:	SeonGu Kang <ksk4725@coasia.com>
-> +M:	SungMin Park <smn1196@coasia.com>
-
-Please keep only maintainers who will actually perform reviews of the
-code. I am not even sure if this is worth separate entry outside of
-Samsung. Please list the IP blocks which are not Samsung here.
-
-> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> +L:	linux-samsung-soc@vger.kernel.org
-> +L:	linux-arm-kernel@axis.com
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/clock/axis,artpec*-clock.yaml
-> +F:	arch/arm64/boot/dts/axis/
-> +F:	drivers/clk/samsung/clk-artpec*.c
-> +F:	include/dt-bindings/clock/axis,artpec*-clk.h
-> +
->  ARM/ASPEED I2C DRIVER
->  M:	Ryan Chen <ryan_chen@aspeedtech.com>
->  R:	Benjamin Herrenschmidt <benh@kernel.crashing.org>
-> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> index 8b76821f190f..418ee47227c1 100644
-> --- a/arch/arm64/Kconfig.platforms
-> +++ b/arch/arm64/Kconfig.platforms
-> @@ -40,6 +40,19 @@ config ARCH_APPLE
->  	  This enables support for Apple's in-house ARM SoC family, such
->  	  as the Apple M1.
->  
-> +config ARCH_ARTPEC
-> +	bool "Axis Communications ARTPEC SoC Family"
-> +	help
-> +	   This enables support for the ARMv8 based ARTPEC SoC Family.
-> +
-> +config ARCH_ARTPEC8
-
-No, drop. One ARCH symbol.
-
-> +	bool "Axis ARTPEC-8 SoC Platform"
-> +	depends on ARCH_ARTPEC
-> +	depends on ARCH_EXYNOS
-
-And that's the proof that this is Samsung SoC.
-
-> +	select ARM_GIC
-> +	help
-> +	  This enables support for the Axis ARTPEC-8 SoC.
-> +
->  menuconfig ARCH_BCM
->  	bool "Broadcom SoC Support"
->  
-> diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-> index 79b73a21ddc2..6b6a3aedc2ed 100644
-> --- a/arch/arm64/boot/dts/Makefile
-> +++ b/arch/arm64/boot/dts/Makefile
-> @@ -9,6 +9,7 @@ subdir-y += amlogic
->  subdir-y += apm
->  subdir-y += apple
->  subdir-y += arm
-> +subdir-y += axis
->  subdir-y += bitmain
->  subdir-y += blaize
->  subdir-y += broadcom
-> diff --git a/arch/arm64/boot/dts/axis/Makefile b/arch/arm64/boot/dts/axis/Makefile
-> new file mode 100644
-> index 000000000000..ccf00de64016
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axis/Makefile
-> @@ -0,0 +1,4 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +dtb-$(CONFIG_ARCH_ARTPEC) += \
-> +	artpec8-grizzly.dtb
-> diff --git a/arch/arm64/boot/dts/axis/artpec8-grizzly.dts b/arch/arm64/boot/dts/axis/artpec8-grizzly.dts
-> new file mode 100644
-> index 000000000000..7671130a0333
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axis/artpec8-grizzly.dts
-> @@ -0,0 +1,67 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Axis ARTPEC-8 Grizzly board device tree source
-> + *
-> + * Copyright (c) 2022-2025 Samsung Electronics Co., Ltd.
-> + *             https://www.samsung.com
-> + * Copyright (c) 2022-2025  Axis Communications AB.
-> + *             https://www.axis.com
-> + */
-> +
-> +/dts-v1/;
-> +#include "artpec8.dtsi"
-> +#include <dt-bindings/gpio/gpio.h>
-> +/ {
-> +	model = "ARTPEC-8 grizzly board";
-> +	compatible = "axis,artpec8-grizzly", "axis,artpec8";
-> +
-> +	aliases {
-> +		serial0 = &serial_0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = &serial_0;
-> +	};
-> +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x80000000 0x0 0x80000000>;
-> +	};
-> +};
-> +
-> +&osc_clk {
-> +	clock-frequency = <50000000>;
-> +	status = "okay";
-
-Why?
-
-> +};
-> +
-> +&serial_0 {
-
-Follow DTS coding style. s > c
-o > c
+>   .../media/platform/amlogic/c3/isp/c3-isp-params.c  | 272 ++++++++-------------
+>   1 file changed, 103 insertions(+), 169 deletions(-)
 
 
-> +	status = "okay";
-> +};
-> +
-> +&cmu_cmu {
-> +	status = "okay";
-> +};
-> +
-> +&cmu_bus {
-> +	status = "okay";
-> +};
-> +
-> +&cmu_core {
-> +	status = "okay";
-> +};
-> +
-> +&cmu_cpucl {
-> +	status = "okay";
-> +};
-> +
-> +&cmu_fsys {
-> +	status = "okay";
-> +};
-> +
-> +&cmu_imem {
-> +	status = "okay";
-> +};
-> +
-> +&cmu_peri {
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/axis/artpec8.dtsi b/arch/arm64/boot/dts/axis/artpec8.dtsi
-> new file mode 100644
-> index 000000000000..296192560adf
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axis/artpec8.dtsi
-> @@ -0,0 +1,252 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Axis ARTPEC-8 SoC device tree source
-> + *
-> + * Copyright (c) 2022-2025 Samsung Electronics Co., Ltd.
-> + *             https://www.samsung.com
-> + * Copyright (c) 2022-2025  Axis Communications AB.
-> + *             https://www.axis.com
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/clock/axis,artpec8-clk.h>
-> +
-> +/ {
-> +	compatible = "axis,artpec8";
-> +	interrupt-parent = <&gic>;
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	cpus {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0>;
-> +			cpu-idle-states = <&cpu_sleep>;
-> +			enable-method = "psci";
-> +			clocks = <&cmu_cpucl DOUT_CLK_CPUCL_CPU>;
-> +			clock-names = "dout_clk_cpucl_cpu";
-> +			clock-frequency = <1200000000>;
-
-This feels wrong. Frequency changes, doesn't it?
-
-> +		};
-> +
-> +		cpu1: cpu@1 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x1>;
-> +			cpu-idle-states = <&cpu_sleep>;
-> +			enable-method = "psci";
-> +			clock-frequency = <1200000000>;
-> +		};
-> +
-> +		cpu2: cpu@2 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x2>;
-> +			cpu-idle-states = <&cpu_sleep>;
-> +			enable-method = "psci";
-> +			clock-frequency = <1200000000>;
-> +		};
-> +
-> +		cpu3: cpu@3 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x3>;
-> +			cpu-idle-states = <&cpu_sleep>;
-> +			enable-method = "psci";
-> +			clock-frequency = <1200000000>;
-> +		};
-> +
-> +		idle-states {
-> +			entry-method = "psci";
-> +
-> +			cpu_sleep: cpu-sleep {
-> +				compatible = "arm,idle-state";
-> +				arm,psci-suspend-param = <0x0010000>;
-> +				local-timer-stop;
-> +				entry-latency-us = <300>;
-> +				exit-latency-us = <1200>;
-> +				min-residency-us = <2000>;
-> +			};
-> +		};
-> +	};
-> +
-> +	timer {
-
-Also wrongly ordered. See DTS coding style.
-
-
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +
-> +	pmu {
-> +		compatible = "arm,cortex-a53-pmu";
-> +		interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
-> +		interrupt-affinity = <&cpu0>, <&cpu1>, <&cpu2>, <&cpu3>;
-> +	};
-> +
-> +	psci {
-> +		compatible = "arm,psci-0.2";
-> +		method = "smc";
-> +	};
-> +
-> +	osc_clk: xxti {
-
-clock-xxti
-
-> +		compatible = "fixed-clock";
-> +		clock-output-names = "xxti";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	fin_pll: fin_pll {
-
-DTS coding style.
-
-> +		compatible = "fixed-factor-clock";
-> +		clocks = <&osc_clk>;
-> +		#clock-cells = <0>;
-> +		clock-div = <2>;
-> +		clock-mult = <1>;
-> +		clock-output-names = "fin_pll";
-> +	};
-> +
-> +	soc: soc@0 {
-> +		compatible = "simple-bus";
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0x0 0x0 0x0 0x17000000>;
-
-DTS coding style.
-
-> +
-> +		mct@10040000 {
-
-Look at other SoCs first
-
-> +			compatible = "samsung,exynos4210-mct";
-
-You just missed two years of development, right? Look at other SoCs.
-
-
-> +			reg = <0x10040000 0x1000>;
-> +			clocks = <&fin_pll>, <&cmu_imem MOUT_IMEM_ACLK_USER>;
-> +			clock-names = "fin_pll", "mct";
-> +			interrupts = <GIC_SPI 455 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 457 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 458 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 459 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 460 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 461 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 462 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 463 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 464 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 465 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 466 IRQ_TYPE_LEVEL_HIGH>;
-> +		};
-> +
-> +		gic: interrupt-controller@10201000 {
-> +			compatible = "arm,gic-400";
-> +			#interrupt-cells = <3>;
-> +			#address-cells = <0>;
-> +			interrupt-controller;
-> +			reg = <0x10201000 0x00001000>,
-> +			      <0x10202000 0x00002000>,
-> +			      <0x10204000 0x00002000>,
-> +			      <0x10206000 0x00002000>;
-
-DTS coding style.
-
-> +		};
-> +
-> +		cmu_cmu: clock-controller@12400000 {
-> +			compatible = "axis,artpec8-cmu-cmu";
-> +			reg = <0x12400000 0x4000>;
-> +			#clock-cells = <1>;
-> +			clocks = <&fin_pll>;
-> +			clock-names = "fin_pll";
-> +			status = "disabled";
-
-Why? No, don't do that, even if clock frequency of xxti is missing. Look
-at other SoCs.
-
-
-> +		};
-> +
-> +		cmu_bus: clock-controller@12c10000 {
-> +			compatible = "axis,artpec8-cmu-bus";
-> +			reg = <0x12c10000 0x4000>;
-> +			#clock-cells = <1>;
-> +			clocks = <&fin_pll>,
-> +				 <&cmu_cmu DOUT_CLKCMU_BUS_BUS>,
-> +				 <&cmu_cmu DOUT_CLKCMU_BUS_DLP>;
-> +			clock-names = "fin_pll",
-> +				      "dout_clkcmu_bus_bus",
-> +				      "dout_clkcmu_bus_dlp";
-> +			status = "disabled";
-> +		};
-> +
-> +		cmu_core: clock-controller@12410000 {
-> +			compatible = "axis,artpec8-cmu-core";
-> +			reg = <0x12410000 0x4000>;
-> +			#clock-cells = <1>;
-> +			clocks = <&fin_pll>,
-> +				 <&cmu_cmu DOUT_CLKCMU_CORE_MAIN>,
-> +				 <&cmu_cmu DOUT_CLKCMU_CORE_DLP>;
-> +			clock-names = "fin_pll",
-> +				      "dout_clkcmu_core_main",
-> +				      "dout_clkcmu_core_dlp";
-> +			status = "disabled";
-> +		};
-> +
-> +		cmu_cpucl: clock-controller@11410000 {
-> +			compatible = "axis,artpec8-cmu-cpucl";
-> +			reg = <0x11410000 0x4000>;
-> +			#clock-cells = <1>;
-> +			clocks = <&fin_pll>,
-> +				 <&cmu_cmu DOUT_CLKCMU_CPUCL_SWITCH>;
-> +			clock-names = "fin_pll",
-> +				"dout_clkcmu_cpucl_switch";
-> +			status = "disabled";
-> +		};
-> +
-> +		cmu_fsys: clock-controller@16c10000 {
-> +			compatible = "axis,artpec8-cmu-fsys";
-> +			reg = <0x16c10000 0x4000>;
-> +			#clock-cells = <1>;
-> +			clocks = <&fin_pll>,
-> +				 <&cmu_cmu DOUT_CLKCMU_FSYS_SCAN0>,
-> +				 <&cmu_cmu DOUT_CLKCMU_FSYS_SCAN1>,
-> +				 <&cmu_cmu DOUT_CLKCMU_FSYS_BUS>,
-> +				 <&cmu_cmu DOUT_CLKCMU_FSYS_IP>;
-> +			clock-names = "fin_pll",
-> +				      "dout_clkcmu_fsys_scan0",
-> +				      "dout_clkcmu_fsys_scan1",
-> +				      "dout_clkcmu_fsys_bus",
-> +				      "dout_clkcmu_fsys_ip";
-> +			status = "disabled";
-> +		};
-> +
-> +		cmu_imem: clock-controller@10010000 {
-
-DTS coding style.
-
-
+Reviewed-by: Keke Li <keke.li@amlogic.com>
 
 Best regards,
-Krzysztof
+Keke
+
 
