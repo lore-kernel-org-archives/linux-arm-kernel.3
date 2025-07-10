@@ -4,96 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF64C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 12:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9906C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 12:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lNmncl3vzJsUWRoJNZxmBhE+E8sb6lSPv1tCHk92ysY=; b=qgPy5HwOzzu59NPlmPhHFWZ1kR
-	QVOuMo5gz2KkkWa4DElFOk+xu+T5C8R9+1+IWRxcxz5Q3XtIHVQ+CE9o6Q9b41o83hfpk114FOdab
-	aDiPVBwsB4WiSbPFtE24jjlkdqrhOhvmDU6yrybH/UKXJIfqzTgpV4Mf+td2WHRUOr3zKvzWbbynT
-	Uw4tHN7e9iAxMxNjwCeq6WLTrpdXTCufDAOdOszzpVWp/+qIpBcNlNAogWUMPWU/xLIEEDotiXemX
-	DPhaz+Wteq2d9QVhHYP7cfFbu0mX+e4wJH27J7bVAbbsbWXKYMSZj9rHwASqSqzrsWJJ+hdyll0Ya
-	a9kw8GYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VmWjPE7D3mF+0RXhrRJoYzPbnQ2jl43nEJ1OVAPJTsw=; b=TPrRqavwWcgSZG/SgFznOgeyxI
+	F/kutRHvVlgXQU49MVUHDd9kMSPqEQB+7qbmE8HWjATV0KK4FibD1tr1muucmHu0ihnVCTCwMrc4e
+	gL5u71NPzZuVPmt4s0uEhpsBmpk8Jf4qz1BIsl5R+sXsYTjHzxBfB4la359dsUVr8sZbgrtEv+k8P
+	IoYH4HXuApeFhYuUG6LFI5Q3Sd4o0cjzdqk4FXQnT2m/7j+n2E47FaeSVEKNGsidbSg+YqD/wjhIX
+	opuK44RH2wUiKbRIcNnx4AGnaOiY7rLKU7fU0KWGbWx0BrR/jsq0K2nTrAFe6BqpS59s6NDLKAF/U
+	/ie+rIPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqCM-0000000BkBN-3zYi;
-	Thu, 10 Jul 2025 12:16:22 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uZqGx-0000000Bke7-3kcF;
+	Thu, 10 Jul 2025 12:21:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZoqu-0000000BXHt-3WMc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 10:50:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752144606;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lNmncl3vzJsUWRoJNZxmBhE+E8sb6lSPv1tCHk92ysY=;
-	b=BYz1TmxMZohJ2++cKgcO1fDkDFkZKXBsD/rV/R1eV56SAvX44qmkf9WFv6nvqgCoTpgsmR
-	B8WF1cEGysPM8PwOzjeNIl4PYPKnC6lIoW1cJ6/JR6RN8ykfHIYd+8F+DgG3a02C5nkvSa
-	jyTP15GqYMAwDS8L9U1nSgdkZT8Yrk4=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-615-oRjIHl6BP8O4tcusPFvrUA-1; Thu, 10 Jul 2025 06:48:40 -0400
-X-MC-Unique: oRjIHl6BP8O4tcusPFvrUA-1
-X-Mimecast-MFC-AGG-ID: oRjIHl6BP8O4tcusPFvrUA_1752144519
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4537f56ab74so5241765e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 03:48:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752144519; x=1752749319;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lNmncl3vzJsUWRoJNZxmBhE+E8sb6lSPv1tCHk92ysY=;
-        b=QRe40/HK9QTmJCdXSMvBh5737lG1qy5xm1XJrIwlvWFAPMUNcDoyalnx1X0vGIZFvy
-         BYHmiooitdodVhDHUdbmMOmPqFPBDXFBFOFJI3SPHiVyseVwfF+cz4uhrcC1ObqAAgJd
-         Ah9E1Sg6txdzMp0XyZVy3P8hcP24JHYEYvefczHtbCCXuTYnRxJ+gxrXssQd6nV6JXVZ
-         ltiM9XlSS7LP4YsRudWBbgps8e8NXVrpE3581pVADTUfR3wj8PQEWlZ86b61y7NxoHyW
-         pniLK72s/JwWCC0EMnN2hII89Qo/sBEt4HmP2QfQ/cYEYf9MiXoMFbPUkx40LNH+ial6
-         286w==
-X-Forwarded-Encrypted: i=1; AJvYcCWi2qXmjV+JO/nFnGwX8TvcGeEV8BFnu4erRBFZioIguNGhTXxG904IADzgnDqavuTXt6orZIxM8mnYDdXQkzv3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFAI9Tt97Qz/qZXcEnQB6bRFcz7w3JdBPY9PDzRIeDaDS2w29V
-	8jDqjMH7gMjXF4Rr1rY6ziUZeSO0y9Si8AcFCbRhBkYCys0TOcQcTFPSfYYp+DoWjsyDzzelxje
-	vQsSVRpvd2NSfzbvmVBeM5BeJRbN9rH5qehMO/qw5dgrrWjjsydBOgzQLlRbGQmei+qby/3d5jt
-	3PE3lmlulO2StmRafBZblPs8UMG0rSjzozE+ndZ1LdMtYaiUIyGBU=
-X-Gm-Gg: ASbGncsp0o540GQWLqQaAT4zXhbZAgCk7GWJPPop73PjJMZ4by7qu9gK0bBE/3fJeeh
-	rEiIlRMZQheGNdv3tLJg+ibFj5zpU6PvHQqzupL5xoQkDFzlYuFvXDSyEv1980G2WAiiZoLbhTj
-	4N+pfv
-X-Received: by 2002:a05:6000:240e:b0:3b2:dfc6:2485 with SMTP id ffacd0b85a97d-3b5e866be37mr1530564f8f.4.1752144519479;
-        Thu, 10 Jul 2025 03:48:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHmY5FVV5iTS8z0YqIW6yODFY43cB2gfswppkDLC9lidIswhlzZ5Ms1OGnA8y43lftuWydzsAPcndaHukvYemo=
-X-Received: by 2002:a05:6000:240e:b0:3b2:dfc6:2485 with SMTP id
- ffacd0b85a97d-3b5e866be37mr1530551f8f.4.1752144519104; Thu, 10 Jul 2025
- 03:48:39 -0700 (PDT)
+	id 1uZozz-0000000BYXk-3ZQS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Jul 2025 10:59:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=VmWjPE7D3mF+0RXhrRJoYzPbnQ2jl43nEJ1OVAPJTsw=; b=QSvH7+i+KZyp2mLIqa9KeKnzA4
+	mJZ92k/0ULwFm/FdAzd4OQ3kGLbT0N5z9IOFdfb9jDjc/Tyi/6I1b24P4ErNTGMH4peSvitmNgLv/
+	iAcAM5G4NdfT21r/fGCTBE9Zn8z6C8lHYGQhaXZbBJ7vlSb/IJ+cf6ARfwEf1uL1jCFvyrF+7aI1W
+	1ASrbFUkb+lhPEF7+h8H7rRYkJLimKy+6euvBLC0qPcpwCx/8TeuPGM07wua5kn/6thpPpJN5nHM9
+	5OhgqFrBqPla0VazZTb5egiyT7OJPMta1+Ywk0ly/YJ4Dk7Gn0aFiM0VeCLzD3opdK5OLJSTwPou5
+	iYhkkGMw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZozk-00000009067-2kW4;
+	Thu, 10 Jul 2025 10:59:17 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 6A644300125; Thu, 10 Jul 2025 12:59:13 +0200 (CEST)
+Date: Thu, 10 Jul 2025 12:59:13 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: dan.j.williams@intel.com
+Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>, linuxarm@huawei.com,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, james.morse@arm.com,
+	linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-mm@kvack.org, gregkh@linuxfoundation.org,
+	Will Deacon <will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	Yicong Yang <yangyicong@huawei.com>,
+	Yushan Wang <wangyushan12@huawei.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, Andy Lutomirski <luto@kernel.org>
+Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
+Message-ID: <20250710105913.GB542000@noisy.programming.kicks-ass.net>
+References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
+ <20250625085204.GC1613200@noisy.programming.kicks-ass.net>
+ <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com>
+ <20250625093152.GZ1613376@noisy.programming.kicks-ass.net>
+ <20250625180343.000020de@huawei.com>
+ <20250626105530.000010be@huawei.com>
+ <686f506020726_1d3d10069@dwillia2-xfh.jf.intel.com.notmuch>
 MIME-Version: 1.0
-References: <20250626152023.192347-1-maz@kernel.org> <CABgObfZ3RepTFAMVSB4v1cmuOg+JB7LAcqx04EZui6qF3q5QtA@mail.gmail.com>
- <86o6tua76o.wl-maz@kernel.org>
-In-Reply-To: <86o6tua76o.wl-maz@kernel.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Thu, 10 Jul 2025 12:48:27 +0200
-X-Gm-Features: Ac12FXwkZUiiCJDC2HojeWiVZysisH16fFGmMHmUxWKm3vmZc3XEF7c6L-0RtaY
-Message-ID: <CABgObfa-1ee9ugHk2WmwYmqTqUtc5x1wOW2JPv9+5VigvSAkZA@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/arm64 fixes for 6.16, take #4
-To: Marc Zyngier <maz@kernel.org>
-Cc: Mostafa Saleh <smostafa@google.com>, Quentin Perret <qperret@google.com>, 
-	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: FGPX163-S_Us66RTcOC2M9n5aPE4oPVTfK33IkMo760_1752144519
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_035008_939141_7BB960EC 
-X-CRM114-Status: GOOD (  10.55  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <686f506020726_1d3d10069@dwillia2-xfh.jf.intel.com.notmuch>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,23 +88,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 8, 2025 at 8:06=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote:
-> On Tue, 08 Jul 2025 15:48:01 +0100,
-> Paolo Bonzini <pbonzini@redhat.com> wrote:
-> > On Thu, Jun 26, 2025 at 5:20=E2=80=AFPM Marc Zyngier <maz@kernel.org> w=
-rote:
-> > >   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tag=
-s/kvmarm-fixes-6.16-4
-> >
-> > Done now, thanks!  Note that in the meanwhile git:// is not working
-> > anymore, so you probably want https:// in there.
->
-> Really? That's... odd. Was this announced one way or another? I can
-> definitely use git:// from where I seat:
+On Wed, Jul 09, 2025 at 10:32:16PM -0700, dan.j.williams@intel.com wrote:
 
-And it works now for me too, so it must have been a fluke on
-git.kernel.org's side.
+> Theoretically there could be a threshold at which a CLFLUSHOPT loop is a
+> better option, but I would rather it be the case* that software CXL
+> cache management is stop-gap for early generation CXL platforms.
 
-Paolo
-
+So isn't the problem that CLFLUSH and friends take a linear address
+rather than a physical address? I suppose we can use our 1:1 mapping in
+this case, is all of CXL in the 1:1 map?
 
