@@ -4,126 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2856C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDF6C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1TC7OL6QmYBBMcwfPaJCbsNoDqxeC+lLH/AnYjZeqzk=; b=1H9kehEd7eumQUrkOGk98ECJkA
-	E3UpLvTVMsQJEhhKe3h+AJuKuBeimy8QhASzqrB4+tN54zQD7vZ+WpaetUJkdlPoHRybl1sLG35g2
-	zyLvgHOsEG8iRxf88td3TZ5k6BQ7+zAy2DyRhpZUx51Y4pvLSnGvVbEgfu0coQc24WtSwuy6tbq3b
-	vKLAHGnhJIfMNr7fnGdkCOc31FI81HbiXxL7CalyR1pRtiLPSr8lothhyOTlX+T+UZXYYvFiP0fkN
-	fqXYp7JvOceVChEhTrNCrq4bn8gGJgIQPmLBu3k6ixXUlmthJCystLwCdENTTycFvISieXcF6cNY9
-	v9yvZvpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wgPGL8NSh//d8SJahQFHJhDTvJjR5glUdE4tDtHOT1A=; b=Kw6nWBL9V0IMH0wD+MOZ3aht3z
+	sXtID2IT3w1odLoq7tDEjxuv1vxd2P8rxFSdqdZm2go2RllsxjcmqxR7pye1iJczntu4aurvxovDk
+	wxR9gAWctE0+orPh74ukm1ST6YzhgEBalvZ6ITwRDSmBzI2Z1LWmMwxS0E6BCTJwJIjsqfbHq+CH/
+	PE75euxeVwdZRMIqTtS/kXj2L5ynV4kkQw6vR/wU8PILsDCvozPCl+wlGIHwoqvj4I4u6ruFE47Uy
+	5QA6HSYMp1IYlgI3O4OS5lumgJiN6gHdQGLiOKnkwEzKNSVDm07DhvBiLcbsIeQofcjfBD2fMWhfU
+	gm3FrwbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZs5I-0000000C5TQ-0Iur;
-	Thu, 10 Jul 2025 14:17:12 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uZs7c-0000000C5mP-3Pyq;
+	Thu, 10 Jul 2025 14:19:36 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqPV-0000000Blwm-0Jol
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 12:29:58 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56A9GP9H012606;
-	Thu, 10 Jul 2025 12:29:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	1TC7OL6QmYBBMcwfPaJCbsNoDqxeC+lLH/AnYjZeqzk=; b=ndX2buqCM0ylFELs
-	FOyYnQgr1d/PcE/wNsULwgbM3vi9Lb2+oT1V+R1FWreuGznoIzijUk058LTgo5Yb
-	CdQQFPvjo0cuvFZ+Ep/xBA4w9ap8w7Wv0cHFEYr4cNBNuzauZnezdvFkcKIuzvoT
-	M43zIR05kPD/TQxiseCwr18nPCpKik9wJknBrKWvh3HsILnGOf+QZtPPHeyDwJ4v
-	hg/6dNbocWp/TXzxGqtZvYwxyOofSHeoIZu7UpTTNfIBxR/ku8Vise0U042qaS8q
-	t9lYvIs3Q+504+eUJ4E2DP+/4XJax3yNTa70qv6ejF6jYhx8pGVPLe1N8KWUwjKz
-	eEPDHA==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47pucn8ehc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Jul 2025 12:29:50 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56ACTnJ9020838
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Jul 2025 12:29:49 GMT
-Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Thu, 10 Jul 2025 05:29:44 -0700
-From: Luo Jie <quic_luoj@quicinc.com>
-Date: Thu, 10 Jul 2025 20:28:18 +0800
-Subject: [PATCH v3 10/10] arm64: defconfig: Build NSS clock controller
- driver for IPQ5424
+	id 1uZqS1-0000000BmS4-3NAh;
+	Thu, 10 Jul 2025 12:32:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1752150751;
+	bh=/CM+lyP53J7UcGjxOHDtIVWvKIVGjaIQZW9DSJl3mss=;
+	h=Date:To:Cc:From:Subject:From;
+	b=GYEXtVAdnx9AE0HL2pY8kVV7VwIiPfXPaBO8PL4nj7cWPmEqP8EeXwu80gQ0p3IA6
+	 xrrBBXgYgxDjWvmtyMgaO31OoBppKTnor/CRvnTVb6SihtWxPGW5zihjTX/NhMAHZv
+	 pVTPK7oTGP1dDcqUnkovhELXn6q8QLQiDjNqdW4RD3pl3rUyXzUmmITBCbuPqeaacP
+	 PkpvS/nvI+LBRvjFkrmJvA+uhOoJiztAxdMTuwd+n8LtfVtHRKZQ4ksheTIAVJvAHr
+	 JUr3KxpKhzXljDGSZ+kqLFQC8aMweMiTojGi3SqgyKT0hnFbwTMHhvsCfPzecR50pl
+	 W6irUbaAwbr+w==
+Received: from [192.168.50.250] (unknown [171.76.82.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: vignesh)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 07FC417E0EBD;
+	Thu, 10 Jul 2025 14:32:28 +0200 (CEST)
+Message-ID: <10c5abab-c8fe-4eff-8eed-009038436b49@collabora.com>
+Date: Thu, 10 Jul 2025 18:02:26 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: linux-rockchip@lists.infradead.org,
+ dri-devel <dri-devel@lists.freedesktop.org>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+ maarten.lankhorst@linux.intel.com, Maxime Ripard <mripard@kernel.org>,
+ tzimmermann@suse.de, Dave Airlie <airlied@gmail.com>,
+ Daniel Vetter <daniel@ffwll.ch>, Daniel Stone <daniels@collabora.com>,
+ Helen Mae Koike Fornazier <helen.fornazier@gmail.com>,
+ sebastian.reichel@collabora.com, linux-arm-kernel@lists.infradead.org
+From: Vignesh Raman <vignesh.raman@collabora.com>
+Subject: drm-ci: rk3288-veyron-jaq: kms_flip@plain-flip-fb-recreate flake
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250710-qcom_ipq5424_nsscc-v3-10-f149dc461212@quicinc.com>
-References: <20250710-qcom_ipq5424_nsscc-v3-0-f149dc461212@quicinc.com>
-In-Reply-To: <20250710-qcom_ipq5424_nsscc-v3-0-f149dc461212@quicinc.com>
-To: Georgi Djakov <djakov@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Anusha Rao
-	<quic_anusha@quicinc.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        "Philipp
- Zabel" <p.zabel@pengutronix.de>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <quic_pavir@quicinc.com>, <quic_suruchia@quicinc.com>,
-        Luo Jie
-	<quic_luoj@quicinc.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752150529; l=836;
- i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=2us2rpGL9zkiRlp32RB/c3CJ+1+7vDtLGPfyKLPCbE4=;
- b=/i5R2AyHvoZMtzHjoerIZKqJOxQNoYwSiAdf3gy4YWJm38DIula2xkxFraSGcdPdFGufQhWgR
- fTRXhtMSExuBn2Wwo6uXVrGXAS/id3zEzFmUGd//sVCYQX9iD9EsKhA
-X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
- pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=GdQXnRXL c=1 sm=1 tr=0 ts=686fb23e cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=KKAkSRfTAAAA:8
- a=COk6AnOGAAAA:8 a=ikIlBLl75NxfxiEf-eQA:9 a=QEXdDO2ut3YA:10
- a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: VknlAFBTCf3bG_y0vBip5fQVobo6ugMt
-X-Proofpoint-ORIG-GUID: VknlAFBTCf3bG_y0vBip5fQVobo6ugMt
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzEwMDEwNiBTYWx0ZWRfX9LIz1D+9fKm4
- 0zZRFJqLT2Pe9E6x7z5z8oMEVrR2AxoW6vs5juKin3gT5mPirsaogzLYQws/+2WRGjuj8NuWs7L
- IKXJD6nzDmeHcn4aClsHhdEBtyC3orme0NIVKvtnEkYgywzeXGQRFENzp7nWg+Ngosew3lrpXq7
- ev58x9NvCaBa7YyIHJBmyb2YILOlgkiMPKhFXtceNpzY6NjsMjJ1aSUttDUkU9J3DwUxxtaPn8j
- 1fKJ5owlTqABW82zBaGmg/jj7uVRHfJ4Dd/x6TKFp/4dyRaebCK4ljBsD6pz3VOr565yZ9jSfrk
- g9ZLFoalFYeZceEdmC7y1cnJ1C2AF4At6dxCv9QR7ZxbTLD+A8Zurf2wj4hDrqy6DnFoazgIRF/
- LCkNuENri9m26oVutwB4I0+8bd9ifZGNNtRs1YRn4EHx6Qwm/q4Kzz/VHsY/DDQXwN1F40mi
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-10_02,2025-07-09_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 adultscore=0 bulkscore=0 clxscore=1015
- spamscore=0 suspectscore=0 mlxlogscore=809 priorityscore=1501 impostorscore=0
- malwarescore=0 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507100106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_052957_236468_9582D89B 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20250710_053234_012157_49EF9FA0 
+X-CRM114-Status: UNSURE (   3.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,31 +78,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NSS clock controller is needed for supplying clocks and resets to the
-networking blocks for the Ethernet functions on the IPQ5424 platforms.
+Hi Maintainers,
 
-All boards based on the IPQ5424 SoC will require this driver to be enabled.
+There are some flake test reported for rockchip driver testing in drm-ci.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+# Board Name: rk3288-veyron-jaq
+# Failure Rate: 20
+# IGT Version: 2.1-g26ddb59c1
+# Linux Version: 6.16.0-rc2
+kms_flip@plain-flip-fb-recreate
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index f56a4ce84db8..b37addde371d 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1372,6 +1372,7 @@ CONFIG_IPQ_GCC_5424=y
- CONFIG_IPQ_GCC_6018=y
- CONFIG_IPQ_GCC_8074=y
- CONFIG_IPQ_GCC_9574=y
-+CONFIG_IPQ_NSSCC_5424=m
- CONFIG_IPQ_NSSCC_9574=m
- CONFIG_MSM_GCC_8916=y
- CONFIG_MSM_MMCC_8994=m
+11:11:35.318: DEBUG - Begin test 
+kms_flip@plain-flip-fb-recreate-interruptible
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Test assertion 
+failure function calibrate_ts, file ../tests/kms_flip.c:1455:
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Failed 
+assertion: 3 * stddev / mean < 0.005
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Last errno: 4, 
+Interrupted system call
+11:11:35.318: ERROR - Igt error: Dynamic subtest A-eDP1 failed.
+11:11:35.318: ERROR - Igt error: **** DEBUG ****
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(width=1366, height=768, 
+format=XR24(0x34325258), modifier=0x0, size=0)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(handle=1, pitch=5504)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) ioctl_wrappers-DEBUG: 
+Test requirement passed: igt_has_fb_modifiers(fd)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(width=1366, height=768, 
+format=XR24(0x34325258), modifier=0x0, size=0)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(handle=2, pitch=5504)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) ioctl_wrappers-DEBUG: 
+Test requirement passed: igt_has_fb_modifiers(fd)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: Test 
+requirement passed: cairo_surface_status(fb->cairo_surface) == 
+CAIRO_STATUS_SUCCESS
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: Test 
+requirement passed: cairo_surface_status(fb->cairo_surface) == 
+CAIRO_STATUS_SUCCESS
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-INFO: 
+1366x768: 58 74250 1366 1502 1532 1592 768 776 788 800 0x48 0xa
+11:11:35.318: ERROR - Igt error: (kms_flip:500) DEBUG: No stale events found
+11:11:35.318: ERROR - Igt error: (kms_flip:500) INFO: Expected 
+frametime: 17153us; measured 17154.4us +- 32.168us accuracy 0.56%
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Test assertion 
+failure function calibrate_ts, file ../tests/kms_flip.c:1455:
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Failed 
+assertion: 3 * stddev / mean < 0.005
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Last errno: 4, 
+Interrupted system call
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_core-INFO: Stack trace:
+11:11:35.318: ERROR - Igt error: ****  END  ****
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Test assertion 
+failure function calibrate_ts, file ../tests/kms_flip.c:1455:
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Failed 
+assertion: 3 * stddev / mean < 0.005
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Last errno: 4, 
+Interrupted system call
+11:11:35.318: ERROR - Igt error: Dynamic subtest B-eDP1 failed.
+11:11:35.318: ERROR - Igt error: **** DEBUG ****
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(width=1366, height=768, 
+format=XR24(0x34325258), modifier=0x0, size=0)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(handle=3, pitch=5504)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) ioctl_wrappers-DEBUG: 
+Test requirement passed: igt_has_fb_modifiers(fd)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(width=1366, height=768, 
+format=XR24(0x34325258), modifier=0x0, size=0)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(handle=4, pitch=5504)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) ioctl_wrappers-DEBUG: 
+Test requirement passed: igt_has_fb_modifiers(fd)
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: Test 
+requirement passed: cairo_surface_status(fb->cairo_surface) == 
+CAIRO_STATUS_SUCCESS
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_fb-DEBUG: Test 
+requirement passed: cairo_surface_status(fb->cairo_surface) == 
+CAIRO_STATUS_SUCCESS
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-INFO: 
+1366x768: 58 74250 1366 1502 1532 1592 768 776 788 800 0x48 0xa
+11:11:35.318: ERROR - Igt error: (kms_flip:500) DEBUG: No stale events found
+11:11:35.318: ERROR - Igt error: (kms_flip:500) INFO: Expected 
+frametime: 17153us; measured 17152.9us +- 40.380us accuracy 0.71%
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Test assertion 
+failure function calibrate_ts, file ../tests/kms_flip.c:1455:
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Failed 
+assertion: 3 * stddev / mean < 0.005
+11:11:35.318: ERROR - Igt error: (kms_flip:500) CRITICAL: Last errno: 4, 
+Interrupted system call
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_core-INFO: Stack trace:
+11:11:35.318: ERROR - Igt error: ****  END  ****
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-CRITICAL: Test 
+assertion failure function kmstest_set_connector_dpms, file 
+../lib/igt_kms.c:2247:
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-CRITICAL: Failed 
+assertion: found_it
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-CRITICAL: Last 
+errno: 9, Bad file descriptor
+11:11:35.318: ERROR - Igt error: (kms_flip:500) igt_kms-CRITICAL: DPMS 
+property not found on 52
+11:11:35.318: ERROR - Test 
+kms_flip@plain-flip-fb-recreate-interruptible: Crash: See 
+"/results/igt.kms_flip@plain-flip-fb-recreate-interruptible.log"
+11:11:35.318: DEBUG - End test kms_flip@plain-flip-fb-recreate-interruptible
 
--- 
-2.34.1
+Pipeline: https://gitlab.freedesktop.org/vigneshraman/msm/-/jobs/79896646
 
+Please could you have a look at these test results and let us know if 
+you need more information. Thank you.
+
+Regards,
+Vignesh
 
