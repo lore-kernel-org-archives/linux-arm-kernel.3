@@ -4,66 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598D1C83F18
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 07:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B265EC83F18
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 07:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SVNRURW7mpHDd03yiBO4hzyqJyZHZgozC/0qPz7n+lE=; b=GDbOseAD0owsfIpbSDhWrlxgSo
-	UM/aFuoooZ1jCbDqqZZr5dho77UFgQzwKnS1y2Z2bkDiwyeSivBi9BiQMDF/zFHzUH0H/oVSxGVHf
-	Q+qUQ60blea/XcNgLfB78eBLqgEx3kZ9BRfLbx5s8sDFa70CPt0ozzNjjNP36nxLGbocF51u1b/F6
-	mrKX+lg9U41o+cY2Rx1luIBbBbk3W7YVkOoO5DacGFm6kKwJjl30HF/zw95AypF4u08IMLcQEY5T9
-	zeqI2RPedu0VA0UNA+VSupoJZiL/LkDqOQvcPLsBC3zSdCpIkfZn6a7kzRGxaxOd/ND2jJV4VTLWo
-	v2MCQ4AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IgvPGAZjbAZEOpMnrTZ/2DTzoLoTdtOFDPM1RTI9XZI=; b=0p4yM/VA7lkD+Pm+f9028Zqwwl
+	9EEb73zQeG8H4LMV9X9PiKDi59qHzgVt7ZDrUt6n3CuztUuGNOeg17UZZOnk6IfzF8ZAbhm4yFApY
+	sWKx5TqAXCMGF2Ob6jJUIfO/Wdgt8her4/XbsedCAuIer80vM3omdZcI+E37HK1rVWE9159QgNhLR
+	xy+HvO+yt91kmzKXyHm+1TeRa4iG599sBT/X6/sDRITSlQ2clIzTDbaVIJ91ZNTVEyjogykX26WmU
+	71q+7uArKi6TJrj0+H3HqOnD5Et/Ur7qpKB12AhjmTo0h3xtPvWEfqqHF0Vyt6W2u46B9WL5chKvL
+	LGjfN3MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZlx7-0000000B3U8-0X9K;
-	Thu, 10 Jul 2025 07:44:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uZlzS-0000000B491-3WB9;
+	Thu, 10 Jul 2025 07:46:46 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZl6V-0000000AuQx-3pdY
+	id 1uZl7I-0000000AuZY-0CoQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 06:50:01 +0000
+	Thu, 10 Jul 2025 06:50:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9EE895C5C9B;
-	Thu, 10 Jul 2025 06:49:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED0A0C4CEE3;
-	Thu, 10 Jul 2025 06:49:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B258DA542D2;
+	Thu, 10 Jul 2025 06:50:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12ECCC4CEF6;
+	Thu, 10 Jul 2025 06:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752130198;
-	bh=SVNRURW7mpHDd03yiBO4hzyqJyZHZgozC/0qPz7n+lE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s1W/3He31SVNhKvl70+xMMi1Fdmys3eUZB88yA6pKfZL01RP+sYseLaJMVwqJdyO9
-	 uiJ0c8fR3W8tcOY2VexSK0EUI0KRswqKn2gbnoCVvz9v/FZCoN4rZQ4U11HgFzc0r1
-	 80Tul8XKx4MOy9Nvsfl96LRsEJejEAax4X9v6SJRRIkdkwAkF3nffHFY05yEt75knP
-	 uLVsN6VuHtRuyVzvLeBNsSGWzmYU8v0DXu2iGw/6eZrwkiKvwKAZTEGeSndky8SuO/
-	 FubUi9CwWr/xPAO5l09Ub5b18E9kvXCtfCwQgBI1yKwelBZaPu6/7ekWS3pLVWzjl3
-	 F1LtCLbaz+4OQ==
-Date: Thu, 10 Jul 2025 08:49:55 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	linux-pwm@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-Subject: Re: [PATCH] pwm: imx-tpm: reset counter if CMOD is 0
-Message-ID: <vqqcxkefrzp25jjirwqbpmu4ytevt57mwd6fylmywlydjxvfiu@fs4xludzaurl>
-References: <20250701220147.1007786-1-laurentiumihalcea111@gmail.com>
- <vwozlwajisjw5qomwtmnfdklmucevyxncsxl2cdmixn2yixxrk@x6j3r2lrl5qz>
- <a1b6039e-7020-4d17-8186-d40ac17ba730@gmail.com>
- <xo56zato6pgqqttdriskfgh4kdt2g6q5eg5jxte56uddkdfr63@sa7coeifbsmy>
- <907a40d6-7d55-4bdf-b16b-01c71b5f4104@gmail.com>
+	s=k20201202; t=1752130246;
+	bh=aywrXs9U3oANEUISdCT7RgnHzNLcqV6QiWDf3VAO3NM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WJpoT+kZ/y/2m0hnj0MtGAa1QVa0yDw2OBT1UOHt6TaKMfUPq8mQOmFQj1KhVtuTA
+	 E0xn0IQpkJfynxjjwpQZpu8GNL2ZOgIUB3hnZq3SCkf8uHxwUtXOnbVevct+eo3PwW
+	 ofsvVAPIKwgrMcwLyGEdOTH3as1kuFH/AcshYh3L548MdQ2Q/KJW+S+rjmmIV61iL6
+	 IIlI8BjwtHek0P+gxWo+pL+4bvgulIMuqtI18UH726Odeonf1CuQrRfnvtCe0nnP5A
+	 Pjmy3TC+rCnNQpNfD1GmBxu3zfojal8WIoxVFTnzWUM0l83CRJ5+LK88sAa3l7PkTN
+	 gBxCEJTMxL3jA==
+Message-ID: <9b503f65-5c8c-4f04-a1b1-40d7a1202e8b@kernel.org>
+Date: Thu, 10 Jul 2025 08:50:42 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nmq3mzfo6amvxnbe"
-Content-Disposition: inline
-In-Reply-To: <907a40d6-7d55-4bdf-b16b-01c71b5f4104@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: ti: Add bindings for Variscite
+ VAR-SOM-AM62P
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+References: <20250709220714.85697-1-stefano.radaelli21@gmail.com>
+ <20250709220714.85697-2-stefano.radaelli21@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250709220714.85697-2-stefano.radaelli21@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_234959_991288_1CD05A0E 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20250709_235048_226953_1020790C 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +121,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/07/2025 00:07, Stefano Radaelli wrote:
+> Add devicetree bindings for Variscite VAR-SOM-AM62P System on Module
+> and its carrier boards.
+> 
+> Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+> ---
+> v2:
+>  - Add symphony carrier board compatible
+> 
+>  Documentation/devicetree/bindings/arm/ti/k3.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> index bf6003d8fb76..780fbb5970a5 100644
+> --- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> +++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> @@ -100,6 +100,12 @@ properties:
+>            - const: toradex,verdin-am62p          # Verdin AM62P Module
+>            - const: ti,am62p5
+>  
+> +      - description: K3 AM62P5 SoC Variscite SOM and Carrier Boards
+> +        items:
+> +          - const: variscite,am62p-var-som-symphony
 
---nmq3mzfo6amvxnbe
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pwm: imx-tpm: reset counter if CMOD is 0
-MIME-Version: 1.0
+This is named reversed. Usually Variscite names are var-som-foo and:
+https://www.variscite.com/product/system-on-module-som/cortex-a53-krait/var-som-am62p-ti-sitara-am62px/
 
-Hello Laurentiu,
+confirms this, so the compatibles should be var-som-am62p.
 
-On Wed, Jul 09, 2025 at 11:29:16AM +0300, Laurentiu Mihalcea wrote:
-> On 7/9/2025 9:05 AM, Uwe Kleine-K=F6nig wrote:
-> > JFTR: I marked your patch as "changes requested" now in patchwork and my
-> > inbox and expect an updated patch, but without holding my breath :-)
->=20
-> Sorry for the long delay! Got this on my TODO list. Busy week :(
 
-No need to hurry for me, I'm not busy waiting and we won't be able to
-stop Linus releasting 6.16 anyhow :-)
 
-I prefer well considered patches over patches in quick succession anyhow.
-
-So it's ok to take your time
-Uwe
-
---nmq3mzfo6amvxnbe
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhvYpAACgkQj4D7WH0S
-/k7Bzgf/UmJuQUOMJzEA55s8ZtGd4ndkFp63PO8tRbJYvIX9IBIoaoLRUOWbuAO+
-XR6KNfcB4DKlMqMQxR+ULXdTpH8Ph2VbgNSi4JzaMUL3j5BI8aoF0/rvZgDG3Agq
-0ZiDQ8aZ8+Y5KWEHdbD73HrJUV7QwzWZ7Ji+5TNlLy5sQwgznzCZCHgkj23bUEC4
-yXtpK+XnN4DhQnXLdEkA6/76LWfH7XNsIjphu9RYweLSJQs1NBOwD2hvP0HjhImV
-II81sKub/Z3mIbg8kElfsEgi2h7Zk2YwjFUEno7rnjLcmLQPyTXla36I0pfasTFp
-uVNinr3DXmMXDPoZuO3WOiKiaJ2T/w==
-=TuF/
------END PGP SIGNATURE-----
-
---nmq3mzfo6amvxnbe--
+Best regards,
+Krzysztof
 
