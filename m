@@ -4,67 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B1E2C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 19:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83828C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 19:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uHx+F8zf+cgkMgypO6Fu8gq3evpVaqLl+Bc9jptt340=; b=KV7JJ02n0WHNk0yyckXlZlGA+w
-	alaxmNzgSgpMrYrhviFrKUylIrMhe+Mznv/Y2mlA+0XMTZJMV8ZkMzNHMxGZwNaUtQksyqR/39L+p
-	hPv1Yr+i+oAwAE/dNYcD2dJ5yBAJVX0NH2sqjN/hZYzS3UNKLIQYa2Vf5uyFqguRHVjQsCR1qLdaz
-	CRWBZyCo6uO6MPfIxfBFT8NfsQUp7n042Ja2HXfA2S0by3lDHzomRUIJy0pddejNtJFOSDMx+oDxj
-	YZHqIROj39U++4/ePXuEWvS0amRK9MdI7d+kZ2SqLXc1Z2qi8MhJQbT+KjuArOvGWyB2vxTZ+FtDy
-	5U7SrPzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gakyte3kABT5zH9O9xxmnRysibDMsvl4FBVAP1uw5wk=; b=aKiakzsNUFhFj7su+e8wQzapwZ
+	w+904pYcMBRmr0eXrTYFnoVUiB6qBRnDWAm+d8BoXkHhog00Yl+2MRR/DkTdMEmtujee2ecaKuEzT
+	Zbz2zo2mVZYORdiKNbdoeBKZ7nYEt0SLOyjVUQpesFZ0pqmhJ4bMDpBuvrx7KQ2PhWSyMZS3K7i0J
+	3F7nkSVaWyx8nzeBLpB2z9uNTEzq7GJEKbsTdk9lbwv41Gtrdn4FqQgPx1U0P/DIYNbet2oTyv1jy
+	k6ZzMDFTrNFwfoUfxAnbFTII15TPKJj1uOi5gEJKxzJKpRXs8nKTgYURMwvk5WmgNmbElphDHq1yJ
+	P4tHjC5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZxM8-0000000CrxY-0vqW;
-	Thu, 10 Jul 2025 19:54:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uZxOQ-0000000Cs6q-49es;
+	Thu, 10 Jul 2025 19:57:18 +0000
+Received: from mail-dm6nam12on20621.outbound.protection.outlook.com ([2a01:111:f403:2417::621] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZvgy-0000000CfEK-3F5j
+	id 1uZvua-0000000Cgqr-0252
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 18:08:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 465705C6F35;
-	Thu, 10 Jul 2025 18:08:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C110CC4CEE3;
-	Thu, 10 Jul 2025 18:08:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752170900;
-	bh=cKM3Kh+GvHkT7+ZlTY8HbJCtloLxrCnmh7IUUyiFmp8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=P5pbQ6/J95RQ8zl0OMq8O/niDp1gE6S5edj+fGCpl2hAnxQiGZmJhSaumqaMvI9Mg
-	 W4pu062XTdUmzy/QGxMZpni8uxvYYNvgy6UWIfaXSwi6+c2hkaBofstLyr702LHajQ
-	 W0z5TVDsJbWkd3TVRjBxTT0oNzEbQ81gsgkoycKoYLH78hlxT43/kc81KkEJoh9WGx
-	 0gSDLYlcTYBpRvUlVii5E2tMwIb27EfIhx/D9ZfpW0D3UCZ+OJ3pyEoIlqW8vNnndB
-	 EI0vk9ZqhdKuwQslpqkxt+DgjJLuVPQ1iubiVU+tq0PXLtEE6Lqpl4gzcV53F2StwH
-	 35CTOOP3kwEoA==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>
-Cc: linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dt-bindings: PCI: Convert marvell,armada-3700-pcie to DT schema
-Date: Thu, 10 Jul 2025 13:08:05 -0500
-Message-ID: <20250710180811.2970846-1-robh@kernel.org>
-X-Mailer: git-send-email 2.47.2
+	Thu, 10 Jul 2025 18:22:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RA/gXhpZj3BU3iiOnJDHy2H+LTfH/n0XSSkSrbIOAGcYCzL0l6pjyXTAOA+DVYZu3xMjlNEQYyAfocQzNTk+i3AE6wWdpEZrr7uXFDZm4MzK51f7uhky7MlBfdtl6XQWyuAmiBuSg7gVhv8SCOG/E3AjLXc1FQyRGwad5zGVnPdq5PKuepchTL8lvoQnQzUdjT0m0DorMu/VTYQfC/FoubNjW0qlv+iKnaoTxvLiwUwwIYOU2djIIK92HO5DH4F+VVMT+fAkWMQgu+3lHM5eCu2FSDn4Zr6LKUo9jjYcOG8cvaxFrYqXHbP6+ctT40l2lp5t376VLC/RX44Yrtn3fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Gakyte3kABT5zH9O9xxmnRysibDMsvl4FBVAP1uw5wk=;
+ b=khyeHgwhu4oLel6OfVDN9I0VczTpgs8XsNyULGE4skwEpNdc9I2/EcwDAd1iYLnq4PiJMOsGpbAUiUf8rvGv8KENRQBg1W8hOOy3qeNR8D9cQ9E+9FQEgjqoIQpIA+24QmoDaHpQyTq1LtYN++avSCLyPIa/A2gqDoMqVj82vbLgBbLGvM4GeOKwSbviXxON3SfWGk5HQGFd3DHvcDBuQfq+fBUKyksSjbDUP8Nx9Kq+X9eeTxE2NDqMoYe/guIKl54mBxg2U0/ezL7BoXShxhKvL65GT/0xKTjW79yEnOAtHVpTD0V+s5sBB0W7grJGFTfRGK4vHtlwTxk5hnD7dw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Gakyte3kABT5zH9O9xxmnRysibDMsvl4FBVAP1uw5wk=;
+ b=O/36DwfK98tE3HTX16TZoehwR967KLQXEzRx8Nw3NzLuhKvOBItMR/LunyIsi9Gr6AZFbAKAcVCItXoKrgEumqVVc+Ope6PAFMQgARh+4bj+mOtGqJp/p+fEb6BnPL7W/K6srAm0nwbj2XtF4U3QJOEFkbIPP6QcFS5uANXC3PtmsfdJo58pJ4dgPggqfOPqzYfUVP7av0eJDUI8/n1E3dAGH3R0woWMzFqc0u+jXi6o0gLOzHt30ogqyR8XNpz2Qd6RiOvQ3qdCzOAjB0/XEiIEsyXmxbFnqP6E5w3xdURvQzBTlGCcwNX+P0I62+FWEdXRwngmGcJ39BvG85i4kg==
+Received: from MW3PR05CA0010.namprd05.prod.outlook.com (2603:10b6:303:2b::15)
+ by DS2PR12MB9589.namprd12.prod.outlook.com (2603:10b6:8:279::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.26; Thu, 10 Jul
+ 2025 18:22:12 +0000
+Received: from CO1PEPF000075F4.namprd03.prod.outlook.com
+ (2603:10b6:303:2b:cafe::18) by MW3PR05CA0010.outlook.office365.com
+ (2603:10b6:303:2b::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8943.7 via Frontend Transport; Thu,
+ 10 Jul 2025 18:22:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CO1PEPF000075F4.mail.protection.outlook.com (10.167.249.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8922.22 via Frontend Transport; Thu, 10 Jul 2025 18:22:12 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 10 Jul
+ 2025 11:22:02 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 10 Jul
+ 2025 11:22:01 -0700
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Thu, 10 Jul 2025 11:22:00 -0700
+Date: Thu, 10 Jul 2025 11:21:59 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: Xu Yilun <yilun.xu@linux.intel.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>, "Liu, Yi L" <yi.l.liu@intel.com>,
+	"peterz@infradead.org" <peterz@infradead.org>, "jsnitsel@redhat.com"
+	<jsnitsel@redhat.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>, "baolu.lu@linux.intel.com"
+	<baolu.lu@linux.intel.com>
+Subject: Re: [PATCH v2 13/14] iommufd: Introduce iommufd_object_alloc_ucmd
+ helper
+Message-ID: <aHAEx5fWopk2ndqX@Asurada-Nvidia>
+References: <cover.1749882255.git.nicolinc@nvidia.com>
+ <e7206d4227844887cc8dbf0cc7b0242580fafd9d.1749882255.git.nicolinc@nvidia.com>
+ <aG3+s8rzcjeKazG8@yilunxu-OptiPlex-7050>
+ <BN9PR11MB52769CFD429C3E8E0918674A8C48A@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <BN9PR11MB52769CFD429C3E8E0918674A8C48A@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000075F4:EE_|DS2PR12MB9589:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5cd27d45-4e0d-4c67-8232-08ddbfdeb096
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2xWfeQNam20XmMv3OjbIljTUFEcwleYGpWSqsX9oTfYVle8gf1Y66wiFV0Pd?=
+ =?us-ascii?Q?m9tx1q/dn1rfOLubCNu4hI09vE+4FalzaVVWi55yrCNXCbQ0jixwpLr347B/?=
+ =?us-ascii?Q?jIU9LTgENwHKlNQ5uIbe9pES/mEjl61ks75LSEJtz2WVP2j+aSwMrLp94CWe?=
+ =?us-ascii?Q?8fp0KZ6uZkOB2h6CdIPyHGEWlkTDzo8oKeFqZXRevKN2QL4GnQKI7OUAuBX9?=
+ =?us-ascii?Q?AIFgopfC1vf7+mDKaaUgE4CK2SjJGmogTCSYyCNiUTHaq7DfS+sUd9Itg+2d?=
+ =?us-ascii?Q?ANKo5aA8k6TNEO89iK58CIJvhubzXkfs1GAUYPoUeBoDJ72kj3nDokYdErdB?=
+ =?us-ascii?Q?xtMfqIg4+j12TJmN7uWAoHliZsCnu5YOFEKw4jDE3ycTF0hkYl2tHVIccts6?=
+ =?us-ascii?Q?Ao5/UmzZvBZlWkKm4yVGALlcXefp0QgJuabVUmdWQwLjfhB2Aoamf6LzrSFc?=
+ =?us-ascii?Q?K1L9fM7BRAscLZtAdZjwXtymMouGMGDjmtdHarqM78YqQrFi72M6WdrizIhY?=
+ =?us-ascii?Q?wqI92I7hlUh0P09s4vMt1Ra8vuPWj16UCslyHol4NWjEKI1opBXwPzpWzFew?=
+ =?us-ascii?Q?rG0gLmPccxIBZYt1f8DjeOhex+7EZgm2ou7NUrxhdIGs9S/b/K/+96UjL0/T?=
+ =?us-ascii?Q?NHLgUq5pzcVhNPJOnFisAa69WkWj4/M+fXVSov21GnvnnLAWdhOqQCWjCIDV?=
+ =?us-ascii?Q?jZbLQ2zjsdCkGjbDhxvYOcXV9khmNB5HywBfpn47ZuLIew21eJFZv7bRKDpm?=
+ =?us-ascii?Q?xF9XV+LuYbXL9Ce1nNu62PmQB0RVq8d1DBN990FUaluA+jQrNPRRdqqEtAOS?=
+ =?us-ascii?Q?fo0EYvKQawSkHlRK+a7jprwCeoplKEIlFYvfsW1ZdBlacfWjfur2zxtRhevL?=
+ =?us-ascii?Q?mrtXvMsdQWbm66SRu2obrZKW9eSI8h6asxY+ao7PcNJH6DBOX1kytb8olLJe?=
+ =?us-ascii?Q?Zyq9CuCDdgKaAdGJyK97iGhuPI9TF1udO0rRCMT6QBUaaN4nV+/McDvBi5Cd?=
+ =?us-ascii?Q?Add7cIo9ztujEhffCGkz3PetXTQgGV3iVexefQo228njAaK9Y+s0FR0dn+h5?=
+ =?us-ascii?Q?c+7I/q5yatF7+XMlEJsLV7q6/Ult1uLJdVb6/A6sN+n0X83+eUknTRFGAAy/?=
+ =?us-ascii?Q?CSEnMM+S9ozvkqy8eV16gSpnFhwqHIGUVv3tngE0qZq7dv8q6pGezvU2f6U+?=
+ =?us-ascii?Q?R9pSFQELkECx4rWU3HXZr3VAH+fez6YGf7Gk5c1cg3qCUZ6YAP/rAzSVy3M4?=
+ =?us-ascii?Q?biJ+Eo0yvMvhdj4fAVh83J9EYvmBAWuK5ztSz12hh9VVmiv8iB4CiKHG5Q/T?=
+ =?us-ascii?Q?EqHy6mYVtfiUsZ8p+MTQHf9sXzLMV3O4w/lXIZe0qssrSSCbB8AozlD0POr0?=
+ =?us-ascii?Q?trEamuvKzDYnQgI/lB9amCMI4pSVTJQUPC2BtihFtQ4UblqS2tyrfhixry6o?=
+ =?us-ascii?Q?wa4ABZk/XcVFiSUeXat5OyXlP3fws1mXwB/+x99sM6XFEErTC1gqGuJNsW7n?=
+ =?us-ascii?Q?dXobb8u83dKD0NceFDABcel/SiLq/qhJQ+MW?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 18:22:12.1986
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5cd27d45-4e0d-4c67-8232-08ddbfdeb096
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075F4.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9589
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_110820_904527_CAD3EE95 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20250710_112224_039435_0CBF1868 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,203 +162,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Marvell Armada 3700 PCIe binding to DT schema format.
+On Thu, Jul 10, 2025 at 05:32:13AM +0000, Tian, Kevin wrote:
+> > From: Xu Yilun <yilun.xu@linux.intel.com>
+> > Also explicitely assert iommufd_object_alloc_ucmd() and abort can't be
+> > used at the same time.
+> > 
+> > in _iommufd_object_alloc_ucmd():
+> > 
+> > 	if (WARN_ON(iommufd_object_ops[type].abort))
+> > 		return ERR_PTR(-EFAULT);
+> > 
+> 
+> but this check sounds necessary.
 
-The 'clocks' property was missing and has been added.
+Let me send a patch for this.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../devicetree/bindings/pci/aardvark-pci.txt  | 59 -----------
- .../pci/marvell,armada-3700-pcie.yaml         | 99 +++++++++++++++++++
- MAINTAINERS                                   |  2 +-
- 3 files changed, 100 insertions(+), 60 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/pci/aardvark-pci.txt
- create mode 100644 Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
-
-diff --git a/Documentation/devicetree/bindings/pci/aardvark-pci.txt b/Documentation/devicetree/bindings/pci/aardvark-pci.txt
-deleted file mode 100644
-index 2b8ca920a7fa..000000000000
---- a/Documentation/devicetree/bindings/pci/aardvark-pci.txt
-+++ /dev/null
-@@ -1,59 +0,0 @@
--Aardvark PCIe controller
--
--This PCIe controller is used on the Marvell Armada 3700 ARM64 SoC.
--
--The Device Tree node describing an Aardvark PCIe controller must
--contain the following properties:
--
-- - compatible: Should be "marvell,armada-3700-pcie"
-- - reg: range of registers for the PCIe controller
-- - interrupts: the interrupt line of the PCIe controller
-- - #address-cells: set to <3>
-- - #size-cells: set to <2>
-- - device_type: set to "pci"
-- - ranges: ranges for the PCI memory and I/O regions
-- - #interrupt-cells: set to <1>
-- - msi-controller: indicates that the PCIe controller can itself
--   handle MSI interrupts
-- - msi-parent: pointer to the MSI controller to be used
-- - interrupt-map-mask and interrupt-map: standard PCI properties to
--   define the mapping of the PCIe interface to interrupt numbers.
-- - bus-range: PCI bus numbers covered
-- - phys: the PCIe PHY handle
-- - max-link-speed: see pci.txt
-- - reset-gpios: see pci.txt
--
--In addition, the Device Tree describing an Aardvark PCIe controller
--must include a sub-node that describes the legacy interrupt controller
--built into the PCIe controller. This sub-node must have the following
--properties:
--
-- - interrupt-controller
-- - #interrupt-cells: set to <1>
--
--Example:
--
--	pcie0: pcie@d0070000 {
--		compatible = "marvell,armada-3700-pcie";
--		device_type = "pci";
--		reg = <0 0xd0070000 0 0x20000>;
--		#address-cells = <3>;
--		#size-cells = <2>;
--		bus-range = <0x00 0xff>;
--		interrupts = <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
--		#interrupt-cells = <1>;
--		msi-controller;
--		msi-parent = <&pcie0>;
--		ranges = <0x82000000 0 0xe8000000   0 0xe8000000 0 0x1000000 /* Port 0 MEM */
--			  0x81000000 0 0xe9000000   0 0xe9000000 0 0x10000>; /* Port 0 IO*/
--		interrupt-map-mask = <0 0 0 7>;
--		interrupt-map = <0 0 0 1 &pcie_intc 0>,
--				<0 0 0 2 &pcie_intc 1>,
--				<0 0 0 3 &pcie_intc 2>,
--				<0 0 0 4 &pcie_intc 3>;
--		phys = <&comphy1 0>;
--		pcie_intc: interrupt-controller {
--			interrupt-controller;
--			#interrupt-cells = <1>;
--		};
--	};
-diff --git a/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml b/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
-new file mode 100644
-index 000000000000..68090b3ca419
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
-@@ -0,0 +1,99 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/marvell,armada-3700-pcie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Marvell Armada 3700 (Aardvark) PCIe Controller
-+
-+maintainers:
-+  - Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-+  - Pali Rohár <pali@kernel.org>
-+
-+allOf:
-+  - $ref: /schemas/pci/pci-host-bridge.yaml#
-+
-+properties:
-+  compatible:
-+    const: marvell,armada-3700-pcie
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  msi-controller: true
-+
-+  msi-parent:
-+    maxItems: 1
-+
-+  phys:
-+    maxItems: 1
-+
-+  reset-gpios:
-+    description: PCIe reset GPIO signals.
-+
-+  interrupt-controller:
-+    type: object
-+    additionalProperties: false
-+
-+    properties:
-+      interrupt-controller: true
-+
-+      '#interrupt-cells':
-+        const: 1
-+
-+    required:
-+      - interrupt-controller
-+      - '#interrupt-cells'
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - '#interrupt-cells'
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/gpio/gpio.h>
-+
-+    bus {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        pcie@d0070000 {
-+            compatible = "marvell,armada-3700-pcie";
-+            device_type = "pci";
-+            reg = <0 0xd0070000 0 0x20000>;
-+            #address-cells = <3>;
-+            #size-cells = <2>;
-+            bus-range = <0x00 0xff>;
-+            interrupts = <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
-+            msi-controller;
-+            msi-parent = <&pcie0>;
-+            ranges = <0x82000000 0 0xe8000000 0 0xe8000000 0 0x1000000>,
-+                    <0x81000000 0 0xe9000000 0 0xe9000000 0 0x10000>;
-+
-+            #interrupt-cells = <1>;
-+            interrupt-map-mask = <0 0 0 7>;
-+            interrupt-map = <0 0 0 1 &pcie_intc 0>,
-+                            <0 0 0 2 &pcie_intc 1>,
-+                            <0 0 0 3 &pcie_intc 2>,
-+                            <0 0 0 4 &pcie_intc 3>;
-+            phys = <&comphy1 0>;
-+            max-link-speed = <2>;
-+            reset-gpios = <&gpio1 15 GPIO_ACTIVE_LOW>;
-+
-+            pcie_intc: interrupt-controller {
-+                interrupt-controller;
-+                #interrupt-cells = <1>;
-+            };
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 17085b8a393f..d0df1130d5ff 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18898,7 +18898,7 @@ M:	Pali Rohár <pali@kernel.org>
- L:	linux-pci@vger.kernel.org
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
--F:	Documentation/devicetree/bindings/pci/aardvark-pci.txt
-+F:	Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
- F:	drivers/pci/controller/pci-aardvark.c
- 
- PCI DRIVER FOR ALTERA PCIE IP
--- 
-2.47.2
-
+Thanks
+Nicolin
 
