@@ -4,65 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C81C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 19:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A850BC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 19:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZY+NY0AktlPDm/hzxc4Z8a+9UQBgqmHII/ezXLGn7/A=; b=XG1NODwnD5q1SUOkZ1CzYJPJoY
-	LI6BMdBvlyYvBmHIi0kt0RpdhTrblc9dcROaCn154JCDZ2FrFRCrSj+LLmgtWlcWv+/25ta/gq109
-	woycLuqhU0bHkxnwyUF0dKV7muQ3HCV3klReziTQJUT2DzMTegED/qbNqzp56ZOHTVIN4t1cMpcci
-	ryKikwfWnmrTXhN90V88vlrzRpkS9xov204MEugHGX25gOEtr6mto5ssFDpIP0BLnWt+AZEX33xEs
-	G1y0FQKG0QuOhCWXQ0KitTC49JSrDs81wodsEUvO1ysT+FUSlDMvOanNPztAiECgCR9D5rk8gTCFy
-	yiI4cZTA==;
+	bh=C2eyvzlKuLCQH5Cuh9KFE8Y+QAaptwkDzMvAXLYmk8E=; b=pjVFDTOPMOEnTHZa6mafxNYKs5
+	GwWDmRY6osdEKNkfD4sPfPX23+6SHvV8hqAkb5Y3Wn6OgyDNg6jSrhwhrK4CooXM6tw8oxea2Sdxh
+	uvLi2OFaN1RBrZ5/67tj654jEdEpcFxPSok1fxvlRA4UiOxfjc6LEVwmp8L3rLeV+6KNK56aqv4G2
+	f1px7VzBR73OotOGshweLg4qzj6O79DKETiVD8vkQb4RI8jRRxpw9pxs22fUPrJhaEtYqg98NTRj5
+	0Lyf4tZMpRy7Nt8N7PLwUJ95Wav72jjMGEageJVsSYwFUiqh8NMIva4MixiCSNAnexm6lydAbXI6t
+	HVy5yBeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZwkQ-0000000CndI-1BOe;
-	Thu, 10 Jul 2025 19:15:58 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uZwmj-0000000Cnyj-2uOD;
+	Thu, 10 Jul 2025 19:18:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZuLb-0000000CUI3-49IJ;
-	Thu, 10 Jul 2025 16:42:13 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 7653922C34;
-	Thu, 10 Jul 2025 18:42:09 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id uHNKzZGcUZmC; Thu, 10 Jul 2025 18:42:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1752165728; bh=mQqMyl9/MnIY7zxTIxu7RP2oDFmYoRQUKeOu0Q7Oz4o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gv/sH+/5bBVpo/ZWtroqIAelUeppO2E6EN8uHUU1JzacvVD+a5Rg1MRvjup+XwY/9
-	 tlawYJKWW5+jLu9ywUmo2PYUl5sqIXHcFHIEUtHYZ2BmrNVgGmXnjQE1I6vlyz5DAS
-	 03Um+Q8IoUBHCwE7rK2S+aAbjuuDxy1smLLEY6b0XluBGYrGc0SOFitE0k+KnlHrPy
-	 oiG/PRzP/oTip3vQJDDymQaU+1a5oVgaNCHRz4o2b/tqpjZqpIg7NV986t7EjatTYa
-	 Uv+vKTJSyi5B3qzA2KpTUlflYW3pB8OtHvB9G0hc2rqCu6niBIP1EBVYih4DKQeN5a
-	 ctWkFP/kyZyQA==
-Date: Thu, 10 Jul 2025 16:41:48 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/6] arm64: dts: rockchip: Add Radxa ROCK 2A/2F
-Message-ID: <aG_tTPRYZPYHMpf7@pie.lan>
-References: <20250708224921.2254116-1-jonas@kwiboo.se>
- <20250708224921.2254116-3-jonas@kwiboo.se>
- <aG3vPsUd-FPkhi-S@pie.lan>
- <5ce03a37-1b60-4328-8d04-07bf835def94@kwiboo.se>
+	id 1uZuMu-0000000CUVB-0SrP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Jul 2025 16:43:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=C2eyvzlKuLCQH5Cuh9KFE8Y+QAaptwkDzMvAXLYmk8E=; b=R4+FXHOpiIsdDf4mAOCaOOPyJz
+	0THipZB5fs9GmvETRlNKBRrxToqHdRBT/pQWtPR9qd33S+URts5Goj2o2Xfmqq8GJ8oF1nrV6sgXx
+	FyefJ9RrFaZscRKLGH3lNp9j7FqmoSYPFcreOhWKVsJFiadKX/FNE8O/DOhZ20WVPUtGlEwynHD5i
+	sK2hI8imB2EjEhD1uhjGcETCLOVnXzcDEt4dZZ5UidlIGrlt1IRUbo/yqDRk2nX1t+Mx68XkgaBJf
+	ciHB6AKSdkHboirxxvWq8MC3mc7ZPsQCL4fmEN40s0X4FSmIPX0GwQlSAY/rFmLnlxTye1Q0TBjfd
+	ZFxKKhRA==;
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uZuMp-0000000951G-1zT3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 16:43:31 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-237f18108d2so4075ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 09:43:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1752165805; x=1752770605; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=C2eyvzlKuLCQH5Cuh9KFE8Y+QAaptwkDzMvAXLYmk8E=;
+        b=ZC2j4Xh2mCrdrlzBSJGlW16A3Z9Clnfv+8vZoBQy4weLxMGUtTbbQw5zPMV2O9jRDS
+         mOMK9BdEJAMF3xgqr94rjXGSb89k4I2luSUO9uOpqS7ylXIip8miyECzoV3lPZJZOS/T
+         UwVt/cQWSS9OKmahi32VbfnnWsonAZ8X8Em2wziqoJdxJJWIePY01uQM9dnl/cgnC1EM
+         sYYXSrkXqOBvh35hAXU4ZRddXeEgb+DBMRdcbfjdOVLppY0094uHO59zwh1bb3+DeJoG
+         wyzrc4tcQ9TNBG6q4j3MfdR9WMZ1dvuWaRvF8V+v8SwtytsBSmT+GRdm+VNJcF6xg+4K
+         QG6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752165805; x=1752770605;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=C2eyvzlKuLCQH5Cuh9KFE8Y+QAaptwkDzMvAXLYmk8E=;
+        b=wHyxcNA0X2hfB/J4/aEc+JuEajSGTkQMmExmK7g9OdxFVR8voqO5eYAYoLucHHkyf3
+         Pq0/CZfceNEeHktGckJRQLv0a4H19vNvkEo/5r1rdPY7AzS28LejBA5QZJwdePzebGXb
+         /cEigCoqCm4I2u89kJpfUbA/1UMrZBfvevg0FCEAI7Iv7Qd/ClHdq/Dmhd/lj6rhm5Qi
+         EHZq0uTXAR/MTngJOTrywMOZYYMimOyhMjX97R07Gr9wg9bsoiZllMO+m+UD5XYJQx7B
+         zpCIWelaqXsAOW3RJrKtzLf9+U1Z6Py/83f7Cn0iNwsadawfQplTdO2MwwxQGYfDCGBv
+         agyw==
+X-Forwarded-Encrypted: i=1; AJvYcCXsaEmHGLiXHUZgIvvheYV678taLa0MqAowCbZvn6Wxax79Gr6C3LZ6wVGDYnqTkE9YKMH/mRp2hUQKkaqnCRc2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf4Rprs/K8qBdeE7EaL8sqFP1hOzG+3zWGacTnpcE4Y6uPJWX4
+	z6rBW5Hmyrn4erYnXxd8F5bML0I7kHQ1HmBBZOBFKBjHxQg9bN36uICjkGzXRV6I2Q==
+X-Gm-Gg: ASbGnctUp84yrkwFYpSEo6zi+KNJKMxlnj90RhbH6qPyFoP+4FP8xTHVsWy7KR5yIkj
+	1dvTZDZNqNCQhZVjXSsWG/gdosm+7a38YMYyXmsqJ/2iPHtf0MRDomPPVGJhbG8b3X0NcT5ArJ3
+	rcymq60hfvjFBeU9jz8hIACOwcyk6IiMMN5Ey+Wiibgz8lvATMCwvcp1Sf0593WAfkUdbiyesF/
+	9IqXIPuXJGp915VU1Ng6U6DbOqKSTP0AajPfaIrYbRnpe29DwS7qLltLCnNgUyYXAvGMia2ScRy
+	nsfKs8wFK3uOQBK3Nx+BY8OXQys8c7jXByZJKuCIdsS9McQ8Q8g81kFzZkp/idrUKDXrNEIGI4b
+	v//ZQVtBsIdEmAouo71swVDZgCP9E/Dg=
+X-Google-Smtp-Source: AGHT+IEFm5EK2K+aFRgM2luBkKYZSMINjT3NZbf79E/WEwhVEuFkFUby27jaM+gbx9d+ftRkB3XZMQ==
+X-Received: by 2002:a17:902:e94c:b0:234:9fd6:9796 with SMTP id d9443c01a7336-23de43702c4mr3052595ad.19.1752165804369;
+        Thu, 10 Jul 2025 09:43:24 -0700 (PDT)
+Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de435c2e3sm24897415ad.226.2025.07.10.09.43.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Jul 2025 09:43:23 -0700 (PDT)
+Date: Thu, 10 Jul 2025 16:43:14 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
+	corbet@lwn.net, bagasdotme@gmail.com, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
+	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
+	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
+	yi.l.liu@intel.com, mshavit@google.com, zhangzekun11@huawei.com,
+	iommu@lists.linux.dev, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	patches@lists.linux.dev, mochs@nvidia.com, alok.a.tiwari@oracle.com,
+	vasant.hegde@amd.com, dwmw2@infradead.org, baolu.lu@linux.intel.com
+Subject: Re: [PATCH v9 22/29] iommufd/selftest: Update hw_info coverage for
+ an input data_type
+Message-ID: <aG_togvop53dLSZM@google.com>
+References: <cover.1752126748.git.nicolinc@nvidia.com>
+ <f01a1e50cd7366f217cbf192ad0b2b79e0eb89f0.1752126748.git.nicolinc@nvidia.com>
+ <aG-fZv39ci6yip3z@google.com>
+ <20250710153202.GO1599700@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5ce03a37-1b60-4328-8d04-07bf835def94@kwiboo.se>
+In-Reply-To: <20250710153202.GO1599700@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_094212_289778_9253346D 
-X-CRM114-Status: GOOD (  35.45  )
+X-CRM114-CacheID: sfid-20250710_174327_708578_33D3FD92 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,118 +125,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 01:56:02AM +0200, Jonas Karlman wrote:
-> Hi,
+On Thu, Jul 10, 2025 at 12:32:02PM -0300, Jason Gunthorpe wrote:
+> On Thu, Jul 10, 2025 at 11:09:26AM +0000, Pranjal Shrivastava wrote:
+> > On Wed, Jul 09, 2025 at 10:59:14PM -0700, Nicolin Chen wrote:
+> > > Test both IOMMU_HW_INFO_TYPE_DEFAULT and IOMMU_HW_INFO_TYPE_SELFTEST, and
+> > > add a negative test for an unsupported type.
+> > > 
+> > > Also drop the unused mask in test_cmd_get_hw_capabilities() as checkpatch
+> > > is complaining.
+> > > 
+> > > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> > 
+> > Reviewed-by: Pranjal Shrivastava <praan@google.com>
+> > 
+> > Note: I see a couple of warnings while building the selftests on Jason's
+> > tree, but these seem unrelated to this series:
 > 
-> On 7/9/2025 6:25 AM, Yao Zi wrote:
-> > On Tue, Jul 08, 2025 at 10:48:52PM +0000, Jonas Karlman wrote:
-> >> The ROCK 2A and ROCK 2F is a high-performance single board computer
-> >> developed by Radxa, based on the Rockchip RK3528A SoC.
-> >>
-> >> Add initial device tree for the Radxa ROCK 2A and ROCK 2F boards.
-> >>
-> >> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> >> ---
-> >> Schematics:
-> >> - https://dl.radxa.com/rock2/2a/v1.2/radxa_rock_2a_v1.2_schematic.pdf
-> >> - https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_schematic.pdf
-> >> ---
-> >>  arch/arm64/boot/dts/rockchip/Makefile         |   2 +
-> >>  .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 292 ++++++++++++++++++
-> >>  .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++++
-> >>  .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
-> >>  4 files changed, 386 insertions(+)
-> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
-> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
-> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
-> >  
-> > While testing the patch on my Rock 2A board, I noticed one of my SDcard
-> > that works perfectly on Radxa E20C and NanoPi Zero 2 cannot be correctly
-> > read out under UHS-125-SDR mode,
-> > 
-> > 	# dd if=/dev/mmcblk1 of=/dev/null bs=4M count=4
-> > 	[   18.616828] mmc_host mmc1: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)
-> > 	[   19.193315] mmc1: Skipping voltage switch
-> > 	[   19.202046] mmc1: tried to HW reset card, got error -110
-> > 	[   19.213312] mmcblk1: recovery failed!
-> > 	[   19.213709] I/O error, dev mmcblk1, sector 0 op 0x0:(READ) flags 0x80700 phys_seg 256 prio class 0
-> > 	[   19.225201] mmcblk1: recovery failed!
-> > 	[   19.225530] I/O error, dev mmcblk1, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
-> > 	[   19.226283] Buffer I/O error on dev mmcblk1, logical block 0, async page read
-> > 	dd: /dev/mmcblk1: I/O error
-> > 
-> > which could be reproduced stably.
-> > 
-> > the SDMMC controller issued interesting messages during the tuning
-> > process,
-> > 
-> > 	[    0.665246] mmc_host mmc1: Bus speed (slot 0) = 148500000Hz (slot req 150000000Hz, actual 148500000HZ div = 0)
-> > 	[    0.851940] dwmmc_rockchip ffc30000.mmc: All phases work, using default phase 90.
-> > 
-> > but actually it doesn't work with phase = 90. If the frequency is
-> > limited to 100MHz with max-frequency = <100000000> instead of the
-> > default 150MHz, tuning results in a very different phase,
-> > 
-> > 	[    0.665483] mmc_host mmc1: Bus speed (slot 0) = 99600000Hz (slot req 100000000Hz, actual 99600000HZ div = 0)
-> > 	[    1.166340] dwmmc_rockchip ffc30000.mmc: Successfully tuned phase to 141
-> > 
-> > and the card works, too. If I set rockchip,default-sample-phase to 141
-> > in devicetree, the card could work at full 150MHz as well.
-> > 
-> > I think there's something wrong with the tuning process, or the board's
-> > design cannot always run reliably at 150MHz.
-> > 
-> > Could you reproduce similar failures on Radxa 2A? If so, it may be
-> > necessary to lower the SDMMC's maximum frequency for the board.
-> 
-> I have not been able to reproduce this issue on any of my ROCK 2A or 2F
-> boards, my boards seem to tune phase to around 250-265 for the sd-cards
-> I tested.
-> 
-> Could you try with something like this:
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
-> index fc23c51836b15..a82791db55699 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
-> @@ -285,6 +285,10 @@
->  	status = "okay";
->  };
->  
-> +&sdmmc_clk {
-> +	rockchip,pins = <2 RK_PA5 1 &pcfg_pull_up_drv_level_3>;
-> +};
-> +
->  &uart0 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&uart0m0_xfer>;
-> 
-> 
-> Changing clk drive strength seem to be something that has been done in
-> Radxa vendor kernel [1], could be something that we can include if it
-> fixes your issue.
-
-This seems to improve the situation a little, but doesn't solve the
-issue. Among more than ten times of testing, the tuning process only
-worked twice.
-
-> The kernel I tested was built from [2].
-
-I've tried this branch as well, but things don't improve.
-
-Do you consider lower the clock-frequency acceptable?
-
-> [1] https://github.com/radxa/kernel/commit/e9b33cbc97a902560d3f3b43b4d36a1a0ac68a50
-> [2] https://github.com/Kwiboo/linux-rockchip/commits/next-20250708-rk3528-boards/
-> 
-> Regards,
-> Jonas
-> 
-> > 
-> > Regards,
-> > Yao Zi
+> This is fixed in v6.16-rc5
 > 
 
-Regards,
-Yao Zi
+Alright, this was on the `for-next` branch when the head was at:
+3e2a9811f6a9cefd310cc33cab73d5435b4a4caa
+iommufd: Apply the new iommufd_object_alloc_ucmd helper
+
+But I see that on `for-rc` [1] the fixes are merged.
+
+> Jason
+
+Thanks
+Praan
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/jgg/iommufd.git/commit/?h=for-rc
 
