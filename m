@@ -4,156 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4E4C83F1F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 10:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F87C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 10:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KEQrgZfA5rhK7t8SJQh+Tq/CWC0djSnOhUUgfmLwz64=; b=3jlTlM+i31aHNXTckk5dTRtO16
-	u3qOUZUuvqb1UF2GE7/R2gIMgWQ3CeboapKXxK/uvUK5BElbSPhVXKGnn8r/s/0+NzLWIlo2GabE6
-	yYle+WIlpWh237fB+YbGMTpOIv1ZgMMiiIjonuweWSu6IA8iypDGAEtpCzn8c7tFIOORy+AKGj6PY
-	3grvDUVzRhLp+ZAel24yW4KGY36CV+5FIgxeyWkKt2JFqjxUBCfRk8tjtFAXUbW11KHX26PHZGphj
-	5yNvWdKLiYf0YPFuSoPpQ0NbO/5Xa/e+ihvfIeqDJAbYHusmdd0lvsDjIJZPPPwP5vTgPxzAImCCY
-	o5PiLSVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SUuAt9yoULAsrC8c3pYmkWi5uj4/OLlfz9YbcHuy4x0=; b=wbCcf4PTa2qeCfjGY/99cAkTCP
+	Grg6DEcFwimV5/q39jOX62ff+JuV+Z6viGmDwjHYWGkB+X8Aef1QworuHDRce/i8rBNrWFJ5Kx06Y
+	JccpW1xXFplMm27V9a+GrJne7gAWdiOeJsqVY7ye2/v9Zyo8hnAIj4fJmSF9u2n/Pp3WHiD5W1MMn
+	p4ewR7Ac5N3qtiU782SQLM6KUx/vMVSaUWi4n5TOpRsKAyAQysvtW3Tl1C+BHHsdHOpxebiMVz7nJ
+	SqyJLkx4JvPyUAMPoklwZ5XgL4TOGTmy+731o9aZ9G/nSGqYdl17rMGiTAmZEh9/0VGOawlM8b3kj
+	XkAZUAfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZojK-0000000BVvN-3MwG;
-	Thu, 10 Jul 2025 10:42:18 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uZold-0000000BWJh-3hlf;
+	Thu, 10 Jul 2025 10:44:41 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZnQ3-0000000BJsU-1OcP
+	id 1uZnS0-0000000BKCF-1cu3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 09:18:20 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56A1NwAT011520
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 09:18:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KEQrgZfA5rhK7t8SJQh+Tq/CWC0djSnOhUUgfmLwz64=; b=WhW8TMTQz9Or+5Ut
-	JV77FzjSJBAAEaojl+gFV7Zt/eGLI01ypAewarNdVghtsxF2oIGT3R2uBsC4Fifz
-	sZXNEm7OopBVSXerUVYv7zTOkEXYpRO0bqiv5AukWGyOSFdNGBm/QrajE5LLYJKM
-	dtKH00yzERyxM/vIxhFGx7QNoKPRFkRIXXVg4r5cLhNAXPMYx9UIxBKwr5x9SS4x
-	axJWAO4HzKZ833OVJ8Vt0OP68tWBjTFuYcg2lr4jT+qoxOOSEe/ILATnfYIsFtvW
-	uW0iOGtC3IUBiKhfuHzJBf33uzKm1hkJg3B9OANZv2zVPByDU9gF0N7j2D60IdR0
-	2lv4wQ==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47smafmauh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 09:18:18 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-235e1d70d67so8819415ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 02:18:18 -0700 (PDT)
+	Thu, 10 Jul 2025 09:20:22 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3a6d1369d4eso438279f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 02:20:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1752139219; x=1752744019; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SUuAt9yoULAsrC8c3pYmkWi5uj4/OLlfz9YbcHuy4x0=;
+        b=FW0t+Wdu+cLkCWoKaGy7nVlPna5ofopMcTRCeyU/5IMIz/3x6FnlKuuMLz/QnOMDiP
+         kIta8bFx6foL2DAA0RGichRUyenQNfWULlD1TmIacZVaL/nyPL8M1kaCZsBU0OwCas6A
+         Zjl3fmz0l4cB1Zw0Y8OSQASepfovnGC3snVVAy27WJbSsoxlinw3ObKQmHCVBl+7utFf
+         y9HCFORH2jkK9jKMUZwTpD8bsIwyf27AUjzhZq2JAmtxwo5VYc7QQgO+JGTON5QelQ1F
+         iBsClJujDKVHN+iijufMM9xBDOxk/05wXRiEwXEJ5Ygqtf+oyWahNt6FasUm7ZfiM/Lv
+         ueKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752139097; x=1752743897;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KEQrgZfA5rhK7t8SJQh+Tq/CWC0djSnOhUUgfmLwz64=;
-        b=tCaLmobw5FE1m1q3aNUXL9CyW6OzVsdfH0pwYoQS+8npsc9grCHaAaUbXKOPCWTDw+
-         ret5SfemcPUUMWcZOug3cFGwi6aMKO5EceBECUXQMxLQoD3M7Qur758Mx1f4N8xfYr2N
-         1kMHeEbw+NLSbcH912vUtOuHwCat1Cm4Is1cF2NFdosSBzz77xj3mVr3WDilU3iUvAKz
-         cH3JfmayRDGTSzLu3fZaCZubXqraTTvnakcaQHHVF1CYDanpp8Jo73X6C2DaZIvjFwOl
-         xPycYenH2egxd2pS4qfNyQpUzVUUvpo1dxHtmcU1FM3OzRj8ZABFMi0eN/M1zPEb6ORT
-         Rh8w==
-X-Forwarded-Encrypted: i=1; AJvYcCWVTgH8mpqWrLVUFxgO/O16d9GR8LdA8q0mIhKHxchGtKcccfFMU9cA3Y/5ZI04qKgwY9ZIMqKI7qrX76yVbzmP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1lEbyx8s4snmBxG2wi1pleAewuF9VDhi+DGubc8+CSeGRuE5i
-	hnkd1iJ4UEkVBIS8hyaredlJN3lAAEMSLP2hHKNvVzHWLxPJLlrw2durfeSJLjc9cCppFBlZTah
-	XOiUSRc+NAAfbrUw0nEkySQ5exTAG1emB7zRsUgT3SjvAI+heYnckX/IPQUayjiw37TEFcOGCWF
-	IpLQ==
-X-Gm-Gg: ASbGnct3iuJc6RVyu9Bi6EP5fC/aDEY016mAkhkDECmJ6PiFM2EFjA21vKS9qTMQBcT
-	tFKeHx4b8Wd61d+Ub+dZhqiJ7eC3LreLVrImUK3MD+YSrn6DBKkOyzoj8oMxD8dWYVxe5HMnfwf
-	aGe5RIlFAuE3KXHIgM+L3yQ8e3fb7RXKU5ByBTj58uxjTBP5HaNo5Ia7tyhQ20rKtTT8V6xKx33
-	Ukidm+rdi776lQIaiU3gT2qpgcXWH/xVCFJ+EQhUxP/21huLdnQDhuaciSZf/NeurLf5Es5qYY1
-	V6CcIMWW9LAIwvuDoXb9PWl9ucKkxEM8Y895ml2NOyXljjIiVuLM4Y6RzxM=
-X-Received: by 2002:a17:903:1103:b0:236:9d66:ff24 with SMTP id d9443c01a7336-23de480adf5mr26735195ad.8.1752139097015;
-        Thu, 10 Jul 2025 02:18:17 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFGJGyoIrfBA9Zxl0Ughrj3uMKfz6jdSKT0NaAjnNjMskqdtkAKMLUS8x/FzIhDGTyLMPqU7g==
-X-Received: by 2002:a17:903:1103:b0:236:9d66:ff24 with SMTP id d9443c01a7336-23de480adf5mr26734395ad.8.1752139096442;
-        Thu, 10 Jul 2025 02:18:16 -0700 (PDT)
-Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4341d51sm14837765ad.189.2025.07.10.02.18.06
+        d=1e100.net; s=20230601; t=1752139219; x=1752744019;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SUuAt9yoULAsrC8c3pYmkWi5uj4/OLlfz9YbcHuy4x0=;
+        b=MILZdxPliLaZOtxwru27/NwNVnsOq0CB3JfUByDzPvPa1MeSELt3Bi1Nq9ctHYeQG/
+         KcsJv3Ky3jbwj32j00qT6OsgrgmdIr69ozVQXfiEc6LhoU+i59yIXAXcFRfoYl/Gl1ft
+         17jBPt2uP5O2ToyrKqvsfrWOBcjh+oYbypOV/vE0SbO33tgKl4fFIloacncdMQeAmC1Z
+         HPWAheuEUpj2N68AWxGV4Mu3BPrjdplSPRlsRT3wWq0hPXBWZ0niL6+30TRJEYPNE/1Z
+         ElSCgVnDDdjO0Inc3UptRkQGvHOm6pkWdSJTYLQvOtC+xPdNZP8mfKE6MT8R4IiKWCqU
+         H9dw==
+X-Forwarded-Encrypted: i=1; AJvYcCUXWLAmpmrXx3mgI5NwVxvfdtGuPGWf2DqwRejmAneaYoJsSDs4mYYioo8yOqVUUgndDLgA68j0jl93+7L6EC2Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpopKxYx95r14hvXp/IuBuui2fJZHH8QMYLTOf+/kU1J5xFp+r
+	+W8nFYwBtZubQ85Ag7u7SlUv7RN/NiGNZqxU5pIDGjMkKZ8ObnAX2S0QwPhFvpZpvfc=
+X-Gm-Gg: ASbGncsxm/lIXOEiEqvgsbqbLpI2bTdquBMpkTXCWUHt1ICpkNwdrpt5jCSDlHwMDgW
+	QqW6V/HTk1OV16TZGOcQBY1pkHYvOLkM9Yxeap8tJyf+aT2Iev4AxkBcqZqzkvWA+FbKTNRsHAQ
+	KFgG0rTURmOUwF+/0tKHHDTGshiXinLrAhgH/dUXkdxfxvyxIgu9Xp1oRD8hWzTsP5R/ZTl6qZi
+	4+nQm91rFYAZFBqkHpV+Rgr0b2C5FzzO3P3j/Mubq8DnmPEiXiJmB8rEEGcobchUjFPVTvOq8nk
+	ySL5dubs5qQjrYkhgFuMxGSmNmko5LsyAqMC+Qi7atvfyD6BYwWEPWU3LZEJarXNueeZLMHq
+X-Google-Smtp-Source: AGHT+IE16GuOL1cK5fdl7Mr+ZvhesNcygvCIn3ibXh5yxUYyDaGsn57tDGrfSvUMLHrhy1OqBFoJJw==
+X-Received: by 2002:a05:6000:25c1:b0:3a3:67bb:8f3f with SMTP id ffacd0b85a97d-3b5e453e795mr5404777f8f.53.1752139218654;
+        Thu, 10 Jul 2025 02:20:18 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:9fcc:5953:3d1a:6b41])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-454d5103082sm51043555e9.29.2025.07.10.02.20.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 02:18:16 -0700 (PDT)
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Thu, 10 Jul 2025 14:45:52 +0530
-Subject: [PATCH v10 10/10] power: reset: reboot-mode: Expose sysfs for
- registered arguments
+        Thu, 10 Jul 2025 02:20:18 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,
+  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>,  Jaroslav Kysela <perex@perex.cz>,
+  Takashi Iwai <tiwai@suse.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,  Michael Turquette
+ <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,
+  jiebing.chen@amlogic.com,  linux-sound@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-amlogic@lists.infradead.org,
+  linux-clk@vger.kernel.org,  jian.xu@amlogic.com,  shuai.li@amlogic.com,
+  zhe.wang@amlogic.com
+Subject: Re: [PATCH v5 6/6] arm64: dts: amlogic: Add Amlogic S4 Audio
+In-Reply-To: <20250710-audio_drvier-v5-6-d4155f1e7464@amlogic.com> (jiebing
+	chen via's message of "Thu, 10 Jul 2025 11:35:42 +0800")
+References: <20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com>
+	<20250710-audio_drvier-v5-6-d4155f1e7464@amlogic.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Thu, 10 Jul 2025 11:20:17 +0200
+Message-ID: <1jzfdcpfla.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250710-arm-psci-system_reset2-vendor-reboots-v10-10-b2d3b882be85@oss.qualcomm.com>
-References: <20250710-arm-psci-system_reset2-vendor-reboots-v10-0-b2d3b882be85@oss.qualcomm.com>
-In-Reply-To: <20250710-arm-psci-system_reset2-vendor-reboots-v10-0-b2d3b882be85@oss.qualcomm.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Elliot Berman <elliotb317@gmail.com>
-Cc: Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        linux-samsung-soc@vger.kernel.org, Wei Xu <xuwei5@hisilicon.com>,
-        linux-rockchip@lists.infradead.org,
-        Baolin Wang <baolin.wang@linux.alibaba.com>,
-        Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
-        Macpaul Lin <macpaul.lin@mediatek.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-        bcm-kernel-feedback-list@broadcom.com,
-        Nicolas Ferre <nicolas.ferre@microchip.com>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752138982; l=5404;
- i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=Gh0wKF8f8obJZBIFY+YXRq0mvEFaXxY4KjC0e6ESP0U=;
- b=lw/w70/5HLBy4afjvzlsoilkn9KNGxxeob32fKCnRPLyN8EQy03rSeyCWxEC8VvLFF42hMkAU
- +dipiHJKDdAD9k39uxR5AmQE0RPKWUW9koD6OoeU2qqjpwjX3QrfMdd
-X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
- pk=CpsuL7yZ8NReDPhGgq6Xn/SRoa59mAvzWOW0QZoo4gw=
-X-Authority-Analysis: v=2.4 cv=ZJ/XmW7b c=1 sm=1 tr=0 ts=686f855a cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=EUspDBNiAAAA:8 a=YvCmAYiu2kffolCFmWcA:9
- a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-ORIG-GUID: eGHak-zMx6hLhs-ZhTj0j3qFQGonztee
-X-Proofpoint-GUID: eGHak-zMx6hLhs-ZhTj0j3qFQGonztee
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzEwMDA3OSBTYWx0ZWRfX3XNdUuwnNJqe
- aPbEMv+rXlFK603NwDvUZ+i9cBT8nvglBkbouT8N2+kKYlv0I2PquFh6+R85n0MQG88baofZR8w
- 66Y8Lk6n4VhnTRfgtIhPmvkA+4QUJuH5KielKjQmrCmmmZbEoNwGjyuCJPF2iEK5B4m51GCZkxV
- Pf9jxxevgC9pe9mdPwORCY0yziLjFJrmHrB/dSKJvOZcmdpTKlgerwwjRLchPafVE9D9sAV6m26
- eBp2+I7px8GLJugiRlYk7Hg7vOmFkxqB+h8Vv369wbi2GtD535GiBkKSbnM7NBaeBRDl1cUqGhK
- UpJ4ODvq2RKAzXm7TmqSNdLz5UNDqZENzOp3520m2gWPtN0ucS+9FMzM4+sNSluckpoI6qXrjuo
- jPsguOo9aGa8fLXFib4wLQ9vjj51WT0yihIYUYL/J9CSZczjIV6PNZXFEjFOP15+Z8CxbFPT
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-10_01,2025-07-09_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxlogscore=999 impostorscore=0 spamscore=0 adultscore=0 clxscore=1015
- bulkscore=0 phishscore=0 priorityscore=1501 mlxscore=0 lowpriorityscore=0
- suspectscore=0 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507100079
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_021819_498566_32082064 
-X-CRM114-Status: GOOD (  25.99  )
+X-CRM114-CacheID: sfid-20250710_022020_450344_B9BAFFE8 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,181 +108,664 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, there is no standardized mechanism for userspace to
-discover which reboot-modes are supported on a given platform.
-This limitation forces tools and scripts to rely on hardcoded
-assumptions about the supported reboot-modes.
+On Thu 10 Jul 2025 at 11:35, jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org> wrote:
 
-Create a class 'reboot-mode' and a device under it to expose a
-sysfs interface to show the available reboot mode arguments to
-userspace.
+> From: jiebing chen <jiebing.chen@amlogic.com>
+>
+> Add basic audio driver support for the Amlogic S4 based
+> Amlogic AQ222 board.
+>
+> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+> ---
+>  .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts     | 218 ++++++++++++
+>  arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 387 +++++++++++++++++++++
+>  2 files changed, 605 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+> index 6730c44642d2910d42ec0c4adf49fefc3514dbec..47c6b8d63fdfca01281f0935f3dc419af6d86a25 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+> +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+> @@ -75,6 +75,19 @@ vddio_ao1v8: regulator-vddio-ao1v8 {
+>  	       regulator-always-on;
+>  	};
+>  
+> +	vcc5v_reg: regulator-vcc-5v {
+> +		compatible = "regulator-fixed";
+> +		vin-supply = <&main_12v>;
+> +		regulator-name = "VCC5V";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		gpio = <&gpio GPIOH_7 GPIO_ACTIVE_HIGH>;
+> +		startup-delay-us = <7000>;
+> +		enable-active-high;
+> +		regulator-boot-on;
+> +		regulator-always-on;
+> +	};
+> +
+>  	/* SY8120B1ABC DC/DC Regulator. */
+>  	vddcpu: regulator-vddcpu {
+>  		compatible = "pwm-regulator";
+> @@ -129,6 +142,211 @@ vddcpu: regulator-vddcpu {
+>  				<699000 98>,
+>  				<689000 100>;
+>  	};
+> +	dmics: audio-codec-1 {
+> +		compatible = "dmic-codec";
+> +		#sound-dai-cells = <0>;
+> +		num-channels = <2>;
+> +		wakeup-delay-ms = <50>;
+> +		sound-name-prefix = "MIC";
+> +	};
+> +
+> +	dioo2133: audio-amplifier-0 {
+> +		compatible = "simple-audio-amplifier";
+> +		enable-gpios = <&gpio GPIOH_8 GPIO_ACTIVE_HIGH>;
+> +		VCC-supply = <&vcc5v_reg>;
+> +		sound-name-prefix = "10U2";
+> +	};
+> +
+> +	spdif_dir: audio-spdif-in {
+> +		compatible = "linux,spdif-dir";
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "DIR";
+> +	};
+> +
+> +	spdif_dit: audio-spdif-out {
+> +		compatible = "linux,spdif-dit";
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "DIT";
+> +	};
+> +
+> +	sound {
+> +		compatible = "amlogic,axg-sound-card";
+> +		model = "aq222";
+> +		audio-widgets = "Line", "Lineout";
+> +		audio-aux-devs = <&tdmout_a>, <&tdmout_b>, <&tdmout_c>,
+> +				 <&tdmin_a>, <&tdmin_b>, <&tdmin_c>,
+> +				 <&tdmin_lb>, <&dioo2133>;
+> +		audio-routing = "TDMOUT_A IN 0", "FRDDR_A OUT 0",
+> +				"TDMOUT_A IN 1", "FRDDR_B OUT 0",
+> +				"TDMOUT_A IN 2", "FRDDR_C OUT 0",
+> +				"TDM_A Playback", "TDMOUT_A OUT",
+> +				"TDMOUT_B IN 0", "FRDDR_A OUT 1",
+> +				"TDMOUT_B IN 1", "FRDDR_B OUT 1",
+> +				"TDMOUT_B IN 2", "FRDDR_C OUT 1",
+> +				"TDM_B Playback", "TDMOUT_B OUT",
+> +				"TDMOUT_C IN 0", "FRDDR_A OUT 2",
+> +				"TDMOUT_C IN 1", "FRDDR_B OUT 2",
+> +				"TDMOUT_C IN 2", "FRDDR_C OUT 2",
+> +				"TDM_C Playback", "TDMOUT_C OUT",
+> +				"SPDIFOUT_A IN 0", "FRDDR_A OUT 3",
+> +				"SPDIFOUT_A IN 1", "FRDDR_B OUT 3",
+> +				"SPDIFOUT_A IN 2", "FRDDR_C OUT 3",
+> +				"SPDIFOUT_B IN 0", "FRDDR_A OUT 4",
+> +				"SPDIFOUT_B IN 1", "FRDDR_B OUT 4",
+> +				"SPDIFOUT_B IN 2", "FRDDR_C OUT 4",
+> +				"TDMIN_A IN 0", "TDM_A Capture",
+> +				"TDMIN_A IN 1", "TDM_B Capture",
+> +				"TDMIN_A IN 2", "TDM_C Capture",
+> +				"TDMIN_A IN 3", "TDM_A Loopback",
+> +				"TDMIN_A IN 4", "TDM_B Loopback",
+> +				"TDMIN_A IN 5", "TDM_C Loopback",
+> +				"TDMIN_B IN 0", "TDM_A Capture",
+> +				"TDMIN_B IN 1", "TDM_B Capture",
+> +				"TDMIN_B IN 2", "TDM_C Capture",
+> +				"TDMIN_B IN 3", "TDM_A Loopback",
+> +				"TDMIN_B IN 4", "TDM_B Loopback",
+> +				"TDMIN_B IN 5", "TDM_C Loopback",
+> +				"TDMIN_C IN 0", "TDM_A Capture",
+> +				"TDMIN_C IN 1", "TDM_B Capture",
+> +				"TDMIN_C IN 2", "TDM_C Capture",
+> +				"TDMIN_C IN 3", "TDM_A Loopback",
+> +				"TDMIN_C IN 4", "TDM_B Loopback",
+> +				"TDMIN_C IN 5", "TDM_C Loopback",
+> +				"TDMIN_LB IN 3", "TDM_A Capture",
+> +				"TDMIN_LB IN 4", "TDM_B Capture",
+> +				"TDMIN_LB IN 5", "TDM_C Capture",
+> +				"TDMIN_LB IN 0", "TDM_A Loopback",
+> +				"TDMIN_LB IN 1", "TDM_B Loopback",
+> +				"TDMIN_LB IN 2", "TDM_C Loopback",
+> +				"TODDR_A IN 0", "TDMIN_A OUT",
+> +				"TODDR_B IN 0", "TDMIN_A OUT",
+> +				"TODDR_C IN 0", "TDMIN_A OUT",
+> +				"TODDR_A IN 1", "TDMIN_B OUT",
+> +				"TODDR_B IN 1", "TDMIN_B OUT",
+> +				"TODDR_C IN 1", "TDMIN_B OUT",
+> +				"TODDR_A IN 2", "TDMIN_C OUT",
+> +				"TODDR_B IN 2", "TDMIN_C OUT",
+> +				"TODDR_C IN 2", "TDMIN_C OUT",
+> +				"TODDR_A IN 3", "SPDIFIN Capture",
+> +				"TODDR_B IN 3", "SPDIFIN Capture",
+> +				"TODDR_C IN 3", "SPDIFIN Capture",
+> +				"TODDR_A IN 6", "TDMIN_LB OUT",
+> +				"TODDR_B IN 6", "TDMIN_LB OUT",
+> +				"TODDR_C IN 6", "TDMIN_LB OUT",
+> +				"10U2 INL", "ACODEC LOLP",
+> +				"10U2 INR", "ACODEC LORP",
+> +				"Lineout", "10U2 OUTL",
+> +				"Lineout", "10U2 OUTR";
+> +		assigned-clocks = <&clkc_pll CLKID_HIFI_PLL>,
+> +				  <&clkc_pll CLKID_MPLL0>,
+> +				  <&clkc_pll CLKID_MPLL1>;
+> +		assigned-clock-rates = <1179648000>,
+> +				       <270950400>,
+> +				       <338688000>;
+> +
+> +		dai-link-0 {
+> +			sound-dai = <&frddr_a>;
+> +		};
+> +
+> +		dai-link-1 {
+> +			sound-dai = <&frddr_b>;
+> +		};
+> +
+> +		dai-link-2 {
+> +			sound-dai = <&frddr_c>;
+> +		};
+> +
+> +		dai-link-3 {
+> +			sound-dai = <&toddr_a>;
+> +		};
+> +
+> +		dai-link-4 {
+> +			sound-dai = <&toddr_b>;
+> +		};
+> +
+> +		dai-link-5 {
+> +			sound-dai = <&toddr_c>;
+> +		};
+> +
+> +		dai-link-6 {
+> +			sound-dai = <&tdmif_a>;
+> +			dai-format = "i2s";
+> +			dai-tdm-slot-tx-mask-0 = <1 1>;
+> +			mclk-fs = <256>;
+> +			codec-0 {
+> +				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_A>;
+> +			};
+> +			codec-1 {
+> +				sound-dai = <&toacodec TOACODEC_IN_A>;
+> +			};
+> +		};
+> +
+> +		dai-link-7 {
+> +			sound-dai = <&tdmif_b>;
+> +			dai-format = "i2s";
+> +			dai-tdm-slot-tx-mask-0 = <1 1>;
+> +			mclk-fs = <256>;
+> +			codec-0 {
+> +				sound-dai = <&toacodec TOACODEC_IN_B>;
+> +			};
+> +			codec-1 {
+> +				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_B>;
+> +			};
+> +		};
+> +
+> +		/* 8ch HDMI interface */
+> +		dai-link-8 {
+> +			sound-dai = <&tdmif_c>;
+> +			dai-format = "i2s";
+> +			dai-tdm-slot-tx-mask-0 = <1 1>;
+> +			dai-tdm-slot-tx-mask-1 = <1 1>;
+> +			dai-tdm-slot-tx-mask-2 = <1 1>;
+> +			dai-tdm-slot-tx-mask-3 = <1 1>;
+> +			mclk-fs = <256>;
+> +			codec-0 {
+> +				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_C>;
+> +			};
+> +		};
+> +
+> +		/* spdif hdmi and coax output */
+> +		dai-link-9 {
+> +			sound-dai = <&spdifout_a>;
+> +
+> +			codec-0 {
+> +				sound-dai = <&spdif_dit>;
+> +			};
+> +
+> +			codec-1 {
+> +				sound-dai = <&tohdmitx TOHDMITX_SPDIF_IN_A>;
+> +			};
+> +		};
+> +
+> +		/* spdif hdmi interface */
+> +		dai-link-10 {
+> +			sound-dai = <&spdifout_b>;
+> +
+> +			codec {
+> +				sound-dai = <&tohdmitx TOHDMITX_SPDIF_IN_B>;
+> +			};
+> +		};
+> +
+> +		/* spdif coax input */
+> +		dai-link-11 {
+> +			sound-dai = <&spdifin>;
+> +
+> +			codec {
+> +				sound-dai = <&spdif_dir>;
+> +			};
+> +		};
+> +
+> +		dai-link-12 {
+> +			sound-dai = <&toacodec TOACODEC_OUT>;
+> +
+> +			codec {
+> +				sound-dai = <&acodec>;
+> +			};
+> +		};
+> +	};
+>  };
+>  
+>  &pwm_ef {
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+> index 957577d986c0675a503115e1ccbc4387c2051620..3af2fb333cf7b1ca35f1ff7ad8479bcd859e608a 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+> @@ -11,6 +11,11 @@
+>  #include <dt-bindings/clock/amlogic,s4-peripherals-clkc.h>
+>  #include <dt-bindings/power/meson-s4-power.h>
+>  #include <dt-bindings/reset/amlogic,meson-s4-reset.h>
+> +#include <dt-bindings/clock/axg-audio-clkc.h>
+> +#include <dt-bindings/reset/amlogic,meson-axg-audio-arb.h>
+> +#include <dt-bindings/reset/amlogic,meson-g12a-audio-reset.h>
+> +#include <dt-bindings/sound/meson-g12a-toacodec.h>
+> +#include <dt-bindings/sound/meson-g12a-tohdmitx.h>
+>  
+>  / {
+>  	cpus {
+> @@ -849,4 +854,386 @@ emmc: mmc@fe08c000 {
+>  			status = "disabled";
+>  		};
+>  	};
+> +
+> +	tdmif_a: audio-controller-0 {
+> +		compatible = "amlogic,axg-tdm-iface";
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "TDM_A";
+> +		clocks = <&clkc_audio AUD_CLKID_MST_A_SCLK>,
+> +			 <&clkc_audio AUD_CLKID_MST_A_LRCLK>,
+> +			 <&clkc_audio AUD_CLKID_MST_A_MCLK>;
+> +		clock-names = "sclk", "lrclk","mclk";
+> +	};
+> +
+> +	tdmif_b: audio-controller-1 {
+> +		compatible = "amlogic,axg-tdm-iface";
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "TDM_B";
+> +		clocks = <&clkc_audio AUD_CLKID_MST_A_SCLK>,
+> +			 <&clkc_audio AUD_CLKID_MST_B_LRCLK>,
+> +			 <&clkc_audio AUD_CLKID_MST_B_MCLK>;
+> +		clock-names = "sclk", "lrclk","mclk";
+> +	};
+> +
+> +	tdmif_c: audio-controller-2 {
+> +		compatible = "amlogic,axg-tdm-iface";
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "TDM_C";
+> +		clocks = <&clkc_audio AUD_CLKID_MST_C_SCLK>,
+> +			 <&clkc_audio AUD_CLKID_MST_C_LRCLK>,
+> +			 <&clkc_audio AUD_CLKID_MST_C_MCLK>;
+> +		clock-names = "sclk", "lrclk","mclk";
+> +	};
+> +};
+> +
+> +&apb4 {
+> +	acodec: audio-controller@1a000 {
+> +		compatible = "amlogic,t9015";
+> +		reg = <0x0 0x1A000 0x0 0x14>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "ACODEC";
+> +		clocks = <&clkc_periphs CLKID_ACODEC>;
+> +		clock-names = "pclk";
+> +		resets = <&reset RESET_ACODEC>;
+> +		AVDD-supply = <&vddio_ao1v8>;
+> +	};
+> +
+> +	clkc_audio: clock-controller@330000 {
+> +		compatible = "amlogic,s4-audio-clkc";
+> +		reg = <0x0 0x330000 0x0 0xd8>,
+> +			  <0x0 0x330e80 0x0 0x10>;
+> +		#clock-cells = <1>;
+> +		#reset-cells = <1>;
+> +		power-domains = <&pwrc PWRC_S4_AUDIO_ID>;
+> +		clocks = <&clkc_periphs CLKID_AUDIO>,
+> +			 <&clkc_pll CLKID_MPLL0>,
+> +			 <&clkc_pll CLKID_MPLL1>,
+> +			 <&clkc_pll CLKID_MPLL2>,
+> +			 <&clkc_pll CLKID_MPLL3>,
+> +			 <&clkc_pll CLKID_HIFI_PLL>,
+> +			 <&clkc_pll CLKID_FCLK_DIV3>,
+> +			 <&clkc_pll CLKID_FCLK_DIV4>,
+> +			 <&clkc_pll CLKID_FCLK_DIV5>;
+> +		clock-names = "pclk",
+> +				  "mst_in0",
+> +				  "mst_in1",
+> +				  "mst_in2",
+> +				  "mst_in3",
+> +				  "mst_in4",
+> +				  "mst_in5",
+> +				  "mst_in6",
+> +				  "mst_in7";
+> +
+> +		resets = <&reset RESET_AUDIO>;
+> +	};
+> +
+> +	clock-controller@330e80 {
+> +		compatible = "amlogic,clock-pads-clkc";
+> +		reg = <0x0 0x330e80 0x0 0x10>;
+> +		#clock-cells = <1>;
+> +		power-domains = <&pwrc PWRC_S4_AUDIO_ID>;
+> +		clocks = <&clkc_periphs CLKID_AUDIO>,
+> +			 <&clkc_pll CLKID_MPLL0>,
+> +			 <&clkc_pll CLKID_MPLL1>,
+> +			 <&clkc_pll CLKID_MPLL2>,
+> +			 <&clkc_pll CLKID_MPLL3>,
+> +			 <&clkc_pll CLKID_HIFI_PLL>,
+> +			 <&clkc_pll CLKID_FCLK_DIV3>,
+> +			 <&clkc_pll CLKID_FCLK_DIV4>,
+> +			 <&clkc_pll CLKID_FCLK_DIV5>;
+> +		clock-names = "pclk",
+> +				  "mst_in0",
+> +				  "mst_in1",
+> +				  "mst_in2",
+> +				  "mst_in3",
+> +				  "mst_in4",
+> +				  "mst_in5",
+> +				  "mst_in6",
+> +				  "mst_in7";
 
-Create the device using the node name of the driver that
-registers with reboot mode driver.
+Assuming I understood where you are tyring to go with this, those are
+not the input in of this clock controller. The only reason *may* have
+worked is because you referenced the clock by names instead of fwname
 
-This results in the creation of:
-  /sys/class/reboot-mode/<driver>/reboot_modes
-
-This read-only sysfs file will exposes the list of supported
-reboot modes arguments provided by the driver, enabling userspace
-to query the list of arguments.
-
-Align the clean up path to maintain backward compatibility for
-existing reboot-mode based drivers.
-
-Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
----
- drivers/power/reset/reboot-mode.c | 95 ++++++++++++++++++++++++++++++++++-----
- include/linux/reboot-mode.h       |  1 +
- 2 files changed, 84 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
-index afadd823d62d0f7e7e645746b978cc8fecfb9ac4..128192d49d895beeacb180c1a92b44a5eddccc78 100644
---- a/drivers/power/reset/reboot-mode.c
-+++ b/drivers/power/reset/reboot-mode.c
-@@ -22,6 +22,8 @@ struct mode_info {
- 	struct list_head list;
- };
- 
-+static struct class *rb_class;
-+
- static struct mode_info *get_reboot_mode_info(struct reboot_mode_driver *reboot, const char *cmd)
- {
- 	const char *normal = "normal";
-@@ -70,6 +72,79 @@ static int reboot_mode_notify(struct notifier_block *this,
- 	return NOTIFY_DONE;
- }
- 
-+static void release_reboot_mode_device(struct device *dev, void *res);
-+
-+static ssize_t reboot_modes_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	struct reboot_mode_driver **devres_reboot;
-+	struct reboot_mode_driver *reboot;
-+	struct mode_info *info;
-+	ssize_t size = 0;
-+
-+	devres_reboot = devres_find(dev, release_reboot_mode_device, NULL, 0);
-+	reboot = *devres_reboot;
-+	list_for_each_entry(info, &reboot->head, list) {
-+		size += sprintf(buf + size, "%s,", info->mode);
-+	}
-+
-+	if (size) {
-+		size += sprintf(buf + size - 1, "\n");
-+		return size;
-+	}
-+
-+	return -ENODATA;
-+}
-+static DEVICE_ATTR_RO(reboot_modes);
-+
-+static void release_reboot_mode_device(struct device *dev, void *res)
-+{
-+	struct reboot_mode_driver *reboot = *(struct reboot_mode_driver **)res;
-+	struct mode_info *info;
-+	struct mode_info *next;
-+
-+	unregister_reboot_notifier(&reboot->reboot_notifier);
-+
-+	list_for_each_entry_safe(info, next, &reboot->head, list) {
-+		kfree_const(info->mode);
-+		list_del(&info->list);
-+		kfree(info);
-+	}
-+
-+	device_remove_file(reboot->dev, &dev_attr_reboot_modes);
-+}
-+
-+static int create_reboot_mode_device(struct reboot_mode_driver *reboot,
-+				     const char *dev_name)
-+{
-+	struct reboot_mode_driver **dr;
-+	int ret = 0;
-+
-+	if (!rb_class) {
-+		rb_class = class_create("reboot-mode");
-+		if (IS_ERR(rb_class))
-+			return PTR_ERR(rb_class);
-+	}
-+
-+	reboot->reboot_dev = device_create(rb_class, NULL, 0, NULL, dev_name);
-+	if (IS_ERR(reboot->reboot_dev))
-+		return PTR_ERR(reboot->reboot_dev);
-+
-+	ret = device_create_file(reboot->reboot_dev, &dev_attr_reboot_modes);
-+	if (ret)
-+		return ret;
-+
-+	dr = devres_alloc(release_reboot_mode_device, sizeof(*dr), GFP_KERNEL);
-+	if (!dr) {
-+		device_remove_file(reboot->reboot_dev, &dev_attr_reboot_modes);
-+		return -ENOMEM;
-+	}
-+
-+	*dr = reboot;
-+	devres_add(reboot->reboot_dev, dr);
-+
-+	return ret;
-+}
-+
- /**
-  * reboot_mode_register - register a reboot mode driver
-  * @reboot: reboot mode driver
-@@ -84,6 +159,10 @@ int reboot_mode_register(struct reboot_mode_driver *reboot, struct device_node *
- 	size_t len = strlen(PREFIX);
- 	int ret;
- 
-+	ret = create_reboot_mode_device(reboot, np->name ? np->name : "reboot-mode-dev");
-+	if (ret)
-+		return ret;
-+
- 	INIT_LIST_HEAD(&reboot->head);
- 
- 	for_each_property_of_node(np, prop) {
-@@ -140,24 +219,16 @@ EXPORT_SYMBOL_GPL(reboot_mode_register);
-  */
- int reboot_mode_unregister(struct reboot_mode_driver *reboot)
- {
--	struct mode_info *info;
--	struct mode_info *next;
--
--	unregister_reboot_notifier(&reboot->reboot_notifier);
--
--	list_for_each_entry_safe(info, next, &reboot->head, list) {
--		kfree_const(info->mode);
--		list_del(&info->list);
--		kfree(info);
--	}
--
-+	device_unregister(reboot->reboot_dev);
- 	return 0;
- }
- EXPORT_SYMBOL_GPL(reboot_mode_unregister);
- 
- static void devm_reboot_mode_release(struct device *dev, void *res)
- {
--	reboot_mode_unregister(*(struct reboot_mode_driver **)res);
-+	struct reboot_mode_driver *reboot = *(struct reboot_mode_driver **)res;
-+
-+	device_unregister(reboot->reboot_dev);
- }
- 
- /**
-diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
-index cfe18cdc2559be249969bba6c022940a508dd188..3aab8700a5961b90b07ed4d722c77484213ac6c4 100644
---- a/include/linux/reboot-mode.h
-+++ b/include/linux/reboot-mode.h
-@@ -4,6 +4,7 @@
- 
- struct reboot_mode_driver {
- 	struct device *dev;
-+	struct device *reboot_dev;
- 	struct list_head head;
- 	int (*write)(struct reboot_mode_driver *reboot, unsigned int magic);
- 	int (*write_with_cookie)(struct reboot_mode_driver *reboot,
+> +	};
+> +
+> +	toddr_a: audio-controller@330100 {
+> +		compatible = "amlogic,sm1-toddr",
+> +				 "amlogic,axg-toddr";
+> +		reg = <0x0 0x330100 0x0 0x2c>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "TODDR_A";
+> +		interrupts = <GIC_SPI 32 IRQ_TYPE_EDGE_RISING>;
+> +		clocks = <&clkc_audio AUD_CLKID_TODDR_A>;
+> +		resets = <&arb AXG_ARB_TODDR_A>,
+> +			 <&clkc_audio AUD_RESET_TODDR_A>;
+> +		reset-names = "arb", "rst";
+> +		amlogic,fifo-depth = <8192>;
+> +	};
+> +
+> +	toddr_b: audio-controller@330140 {
+> +		compatible = "amlogic,sm1-toddr",
+> +				 "amlogic,axg-toddr";
+> +		reg = <0x0 0x330140 0x0 0x2c>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "TODDR_B";
+> +		interrupts = <GIC_SPI 33 IRQ_TYPE_EDGE_RISING>;
+> +		clocks = <&clkc_audio AUD_CLKID_TODDR_B>;
+> +		resets = <&arb AXG_ARB_TODDR_B>,
+> +			 <&clkc_audio AUD_RESET_TODDR_B>;
+> +		reset-names = "arb", "rst";
+> +		amlogic,fifo-depth = <256>;
+> +	};
+> +
+> +	toddr_c: audio-controller@330180 {
+> +		compatible = "amlogic,sm1-toddr",
+> +				 "amlogic,axg-toddr";
+> +		reg = <0x0 0x330180 0x0 0x2c>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "TODDR_C";
+> +		interrupts = <GIC_SPI 34 IRQ_TYPE_EDGE_RISING>;
+> +		clocks = <&clkc_audio AUD_CLKID_TODDR_C>;
+> +		resets = <&arb AXG_ARB_TODDR_C>,
+> +			 <&clkc_audio AUD_RESET_TODDR_C>;
+> +		reset-names = "arb", "rst";
+> +		amlogic,fifo-depth = <256>;
+> +	};
+> +
+> +	frddr_a: audio-controller@3301c0 {
+> +		compatible = "amlogic,sm1-frddr",
+> +				 "amlogic,axg-frddr";
+> +		reg = <0x0 0x3301c0 0x0 0x2c>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "FRDDR_A";
+> +		interrupts = <GIC_SPI 36 IRQ_TYPE_EDGE_RISING>;
+> +		clocks = <&clkc_audio AUD_CLKID_FRDDR_A>;
+> +		resets = <&arb AXG_ARB_FRDDR_A>,
+> +			 <&clkc_audio AUD_RESET_FRDDR_A>;
+> +		reset-names = "arb", "rst";
+> +		amlogic,fifo-depth = <512>;
+> +	};
+> +
+> +	frddr_b: audio-controller@330200 {
+> +		compatible = "amlogic,sm1-frddr",
+> +				 "amlogic,axg-frddr";
+> +		reg = <0x0 0x330200 0x0 0x2c>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "FRDDR_B";
+> +		interrupts = <GIC_SPI 37 IRQ_TYPE_EDGE_RISING>;
+> +		clocks = <&clkc_audio AUD_CLKID_FRDDR_B>;
+> +		resets = <&arb AXG_ARB_FRDDR_B>,
+> +			 <&clkc_audio AUD_RESET_FRDDR_B>;
+> +		reset-names = "arb", "rst";
+> +		amlogic,fifo-depth = <256>;
+> +	};
+> +
+> +	frddr_c: audio-controller@330240 {
+> +		compatible = "amlogic,sm1-frddr",
+> +				 "amlogic,axg-frddr";
+> +		reg = <0x0 0x330240 0x0 0x2c>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "FRDDR_C";
+> +		interrupts = <GIC_SPI 38 IRQ_TYPE_EDGE_RISING>;
+> +		clocks = <&clkc_audio AUD_CLKID_FRDDR_C>;
+> +		resets = <&arb AXG_ARB_FRDDR_C>,
+> +			 <&clkc_audio AUD_RESET_FRDDR_C>;
+> +		reset-names = "arb", "rst";
+> +		amlogic,fifo-depth = <256>;
+> +	};
+> +
+> +	arb: reset-controller@330280 {
+> +		compatible = "amlogic,meson-sm1-audio-arb";
+> +		reg = <0x0 0x330280 0x0 0x4>;
+> +		#reset-cells = <1>;
+> +		clocks = <&clkc_audio AUD_CLKID_DDR_ARB>;
+> +	};
+> +
+> +	tdmin_a: audio-controller@330300 {
+> +		compatible = "amlogic,sm1-tdmin";
+> +		reg = <0x0 0x330300 0x0 0x40>;
+> +		sound-name-prefix = "TDMIN_A";
+> +		resets = <&clkc_audio AUD_RESET_TDMIN_A>;
+> +		clocks = <&clkc_audio AUD_CLKID_TDMIN_A>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_A_SCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_A_SCLK_SEL>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_A_LRCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_A_LRCLK>;
+> +		clock-names = "pclk", "sclk", "sclk_sel",
+> +				  "lrclk", "lrclk_sel";
+> +	};
+> +
+> +	tdmin_b: audio-controller@330340 {
+> +		compatible = "amlogic,sm1-tdmin";
+> +		reg = <0x0 0x330340 0x0 0x40>;
+> +		sound-name-prefix = "TDMIN_B";
+> +		resets = <&clkc_audio AUD_RESET_TDMIN_B>;
+> +		clocks = <&clkc_audio AUD_CLKID_TDMIN_B>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_B_SCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_B_SCLK_SEL>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_B_LRCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_B_LRCLK>;
+> +		clock-names = "pclk", "sclk", "sclk_sel",
+> +				  "lrclk", "lrclk_sel";
+> +	};
+> +
+> +	tdmin_c: audio-controller@330380 {
+> +		compatible = "amlogic,sm1-tdmin";
+> +		reg = <0x0 0x330380 0x0 0x40>;
+> +		sound-name-prefix = "TDMIN_C";
+> +		resets = <&clkc_audio AUD_RESET_TDMIN_C>;
+> +		clocks = <&clkc_audio AUD_CLKID_TDMIN_C>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_C_SCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_C_SCLK_SEL>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_C_LRCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_C_LRCLK>;
+> +		clock-names = "pclk", "sclk", "sclk_sel",
+> +				  "lrclk", "lrclk_sel";
+> +	};
+> +
+> +	tdmin_lb: audio-controller@3303c0 {
+> +		compatible = "amlogic,sm1-tdmin";
+> +		reg = <0x0 0x3303c0 0x0 0x40>;
+> +		sound-name-prefix = "TDMIN_LB";
+> +		resets = <&clkc_audio AUD_RESET_TDMIN_LB>;
+> +		clocks = <&clkc_audio AUD_CLKID_TDMIN_LB>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_LB_SCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_LB_SCLK_SEL>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_LB_LRCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMIN_LB_LRCLK>;
+> +		clock-names = "pclk", "sclk", "sclk_sel",
+> +				  "lrclk", "lrclk_sel";
+> +	};
+> +
+> +	spdifin: audio-controller@330400 {
+> +		compatible = "amlogic,g12a-spdifin",
+> +				 "amlogic,axg-spdifin";
+> +		reg = <0x0 0x330400 0x0 0x30>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "SPDIFIN";
+> +		interrupts = <GIC_SPI 151 IRQ_TYPE_EDGE_RISING>;
+> +		clocks = <&clkc_audio AUD_CLKID_SPDIFIN>,
+> +		<&clkc_audio AUD_CLKID_SPDIFIN_CLK>;
+> +		clock-names = "pclk", "refclk";
+> +		resets = <&clkc_audio AUD_RESET_SPDIFIN>;
+> +	};
+> +
+> +	spdifout_a: audio-controller@330480 {
+> +		compatible = "amlogic,g12a-spdifout",
+> +				 "amlogic,axg-spdifout";
+> +		reg = <0x0 0x330480 0x0 0x50>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "SPDIFOUT_A";
+> +		clocks = <&clkc_audio AUD_CLKID_SPDIFOUT>,
+> +		<&clkc_audio AUD_CLKID_SPDIFOUT_CLK>;
+> +		clock-names = "pclk", "mclk";
+> +		resets = <&clkc_audio AUD_RESET_SPDIFOUT>;
+> +	};
+> +
+> +	tdmout_a: audio-controller@330500 {
+> +		compatible = "amlogic,sm1-tdmout";
+> +		reg = <0x0 0x330500 0x0 0x40>;
+> +		sound-name-prefix = "TDMOUT_A";
+> +		resets = <&clkc_audio AUD_RESET_TDMOUT_A>;
+> +		clocks = <&clkc_audio AUD_CLKID_TDMOUT_A>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_A_SCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_A_SCLK_SEL>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_A_LRCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_A_LRCLK>;
+> +		clock-names = "pclk", "sclk", "sclk_sel",
+> +				  "lrclk", "lrclk_sel";
+> +	};
+> +
+> +	tdmout_b: audio-controller@330540 {
+> +		compatible = "amlogic,sm1-tdmout";
+> +		reg = <0x0 0x330540 0x0 0x40>;
+> +		sound-name-prefix = "TDMOUT_B";
+> +		resets = <&clkc_audio AUD_RESET_TDMOUT_B>;
+> +		clocks = <&clkc_audio AUD_CLKID_TDMOUT_B>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_B_SCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_B_SCLK_SEL>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_B_LRCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_B_LRCLK>;
+> +		clock-names = "pclk", "sclk", "sclk_sel",
+> +				  "lrclk", "lrclk_sel";
+> +	};
+> +
+> +	tdmout_c: audio-controller@330580 {
+> +		compatible = "amlogic,sm1-tdmout";
+> +		reg = <0x0 0x330580 0x0 0x40>;
+> +		sound-name-prefix = "TDMOUT_C";
+> +		resets = <&clkc_audio AUD_RESET_TDMOUT_C>;
+> +		clocks = <&clkc_audio AUD_CLKID_TDMOUT_C>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_C_SCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_C_SCLK_SEL>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_C_LRCLK>,
+> +			 <&clkc_audio AUD_CLKID_TDMOUT_C_LRCLK>;
+> +		clock-names = "pclk", "sclk", "sclk_sel",
+> +				  "lrclk", "lrclk_sel";
+> +	};
+> +
+> +	spdifout_b: audio-controller@330680 {
+> +		compatible = "amlogic,g12a-spdifout",
+> +				 "amlogic,axg-spdifout";
+> +		reg = <0x0 0x330680 0x0 0x50>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "SPDIFOUT_B";
+> +		clocks = <&clkc_audio AUD_CLKID_SPDIFOUT_B>,
+> +			 <&clkc_audio AUD_CLKID_SPDIFOUT_B_CLK>;
+> +		clock-names = "pclk", "mclk";
+> +		resets = <&clkc_audio AUD_RESET_SPDIFOUT_B>;
+> +	};
+> +
+> +	toacodec: audio-controller@330740 {
+> +		compatible = "amlogic,s4-toacodec",
+> +				 "amlogic,g12a-toacodec";
+> +		reg = <0x0 0x330740 0x0 0x4>;
+> +		sound-name-prefix = "TOACODEC";
+> +		#sound-dai-cells = <1>;
+> +		resets = <&clkc_audio AUD_RESET_TOACODEC>;
+> +	};
+> +
+> +	tohdmitx: audio-controller@330744 {
+> +		compatible = "amlogic,sm1-tohdmitx",
+> +				 "amlogic,g12a-tohdmitx";
+> +		reg = <0x0 0x330744 0x0 0x4>;
+> +		#sound-dai-cells = <1>;
+> +		sound-name-prefix = "TOHDMITX";
+> +		resets = <&clkc_audio AUD_RESET_TOHDMITX>;
+> +	};
+> +
+> +	toddr_d: audio-controller@330840 {
+> +		compatible = "amlogic,sm1-toddr",
+> +				 "amlogic,axg-toddr";
+> +		reg = <0x0 0x330840 0x0 0x2c>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "TODDR_D";
+> +		interrupts = <GIC_SPI 45 IRQ_TYPE_EDGE_RISING>;
+> +		clocks = <&clkc_audio AUD_CLKID_TODDR_D>;
+> +		resets = <&arb AXG_ARB_TODDR_D>,
+> +			 <&clkc_audio AUD_RESET_TODDR_D>;
+> +		reset-names = "arb", "rst";
+> +		amlogic,fifo-depth = <256>;
+> +	};
+> +
+> +	frddr_d: audio-controller@330880 {
+> +		 compatible = "amlogic,sm1-frddr",
+> +				  "amlogic,axg-frddr";
+> +		reg = <0x0 0x330880 0x0 0x2c>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "FRDDR_D";
+> +		interrupts = <GIC_SPI 46 IRQ_TYPE_EDGE_RISING>;
+> +		clocks = <&clkc_audio AUD_CLKID_FRDDR_D>;
+> +		resets = <&arb AXG_ARB_FRDDR_D>,
+> +			 <&clkc_audio AUD_RESET_FRDDR_D>;
+> +		reset-names = "arb", "rst";
+> +		amlogic,fifo-depth = <256>;
+> +	};
+> +
+> +	pdm: audio-controller@331000 {
+> +		compatible = "amlogic,sm1-pdm",
+> +			     "amlogic,axg-pdm";
+> +		reg = <0x0 0x331000 0x0 0x34>;
+> +		#sound-dai-cells = <0>;
+> +		sound-name-prefix = "PDM";
+> +		clocks = <&clkc_audio AUD_CLKID_PDM>,
+> +			 <&clkc_audio AUD_CLKID_PDM_DCLK>,
+> +			 <&clkc_audio AUD_CLKID_PDM_SYSCLK>;
+> +		clock-names = "pclk", "dclk", "sysclk";
+> +		resets = <&clkc_audio AUD_RESET_PDM>;
+> +	};
+>  };
 
 -- 
-2.34.1
-
+Jerome
 
