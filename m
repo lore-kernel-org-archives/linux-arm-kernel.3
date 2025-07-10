@@ -4,97 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EF67C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 18:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0252C83F21
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 18:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d8s8aI5nykbObjyK4zFELHxY4NnJWT0iSTl57boBPsE=; b=mPnAZIYiS7+++vqP1UXTaYY2AN
-	MZ4JPW5S6XpX9c3NevixU4GDuxWYpcGYiwZSKe3zLhoywdAH5MybpGU+A6z+msCzWzI4TjS0nOdBY
-	S3MFsxfW04DCz8tMyTb9xa/mypnE5E6HQtDB/RbdhBUIdHkBjW2gf4QNPtzL1kSZaKCZlSJ4qQKFq
-	uF8eK7H+egtShqQTFczqB3zn2G4CYJKmGwFRYT87WLkYCSto8bTlbL4+cw699BLx3x1cXuzNhsaFS
-	IP/9bHRmfJqdKieb76juZCeqtQZb3rUHyz0/ICPb8O3IxypEPaUgfFExsoeEYbXUOn1K3+ofCAdJO
-	4qyBX5GA==;
+	bh=fNGXUYMmONep2xWPuHlCbwloYqogd4P+tyoJ7VQHyT8=; b=UabGYS+78IbzjMSRYu2QfCeOdU
+	VcVbqVGKIDImeeKv8lujZ46V2l9OG1AykqmhgKU3Kko4V58NFWPPtMozk/cwrsVE+tAwLDC4BqDxC
+	GNmZf1XnVLGEO4BslfnPX1SVzomj2Pa0oHKsx6L0AairWzUnfuEOLfzKFwIpjesRWV3NNnQG60uRY
+	LO/e1uaEdApU5Y/AkpzjGGxwrAz//1uz4DgQQCSNOhP9oj5W3Alrz2VFe6kiV2hN80+BZeSVcHTRC
+	GI3hN/EGdoEUzo/fRzmOwj+/CAzkh5lBCfpWLczNGNTA0CydIG7rYaigI7loNlkfLCl5VpKnw0saD
+	22j96ptw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZwU9-0000000ClCJ-0NHD;
-	Thu, 10 Jul 2025 18:59:09 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1uZwUA-0000000ClD9-39as;
+	Thu, 10 Jul 2025 18:59:10 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZtU0-0000000CIdC-02n0
+	id 1uZtWd-0000000CJ4y-0aqZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 15:46:49 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2350b1b9129so9563315ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 08:46:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752162407; x=1752767207; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=d8s8aI5nykbObjyK4zFELHxY4NnJWT0iSTl57boBPsE=;
-        b=PSdCFWNLJSnSrxQgpvAakEndi89RjE6kR6BUVMkp/DDNBQHJNIGexJTxLRjilzMsnO
-         0+rgXEE5/Sy094kHD/qUkxUWd86nn1cyDzdcpiTVgAFt7c1mBeM60hy5P2WVhs/XlmjE
-         aaWxsQzcWbXcssSFh/x19WwSt6AcxAs4tCPRdGwiOeQm0r+cOflbtaaCSdGnqnQDv/bl
-         JoFKSR6kZ1vOnbW1OMHhbHo8bN4+8XbXMHHLJtI9vkJOVeaPAPFz03KcatR0U1gZACbu
-         +tOid9DqYfq1qj7BFTMgs+MELJjcFY5bKAcn+Zsn9SFyInFc1Dd98kBWm3UTS5RnFobz
-         dv8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752162407; x=1752767207;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d8s8aI5nykbObjyK4zFELHxY4NnJWT0iSTl57boBPsE=;
-        b=sDg+c63SWlmjVaDobVnuUH6VR8XLAA8umxtqNaxeo6xOugzLSnnOklcBvvUdAvguzf
-         HBx2i1gZdeKRSzp5CfTNgPMdGRV/4qpY6R5w4Rz4A63oZVbAAeTxLcgMD/OPo/93plLV
-         ombpxtA06qnyUXM4ZrmKkScsOL9ACvyKcPY6OkEr119I6YrrC4P1Z2RY+8BT6mB3i2Y1
-         gCoA8t32mJObF7fTPeL7tTXVSw7PK80IF0idqf0M10UbePC8my4bXYBm4Z6JZKMHU9XV
-         R/kosEhLKbwPi/VaXll44Ez3Cspl/vfQt5K9F6/+1GRfk5mASmNk/gIKqO/FhBCp10mI
-         QHHA==
-X-Forwarded-Encrypted: i=1; AJvYcCUEnrBGfYAWJRgp3iSISYg5ub6Ukb4kG5OVZOga7VG3RULJpIMX5ad22P2akq5DxNNjO9CIH2spQmquVtDjUv5L@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx09LUwr4knxIVP/nNxbgf+O7OEBxK7vbfykJcO6FMt+NEnXbdj
-	hlW3d50cT1smkgONQzxPyj6OynHk7wfpNsdOsWdgATyMdcUIj6QNU58x
-X-Gm-Gg: ASbGnctSte2xj5OHvLOhE58z/koajN73kPgoY88+Mt85660sSfDOM04BTpymmZkGhBM
-	f6pZGTa1ddi8k7R4af+Mc/p8zaYbNonwZj66kv/NZu7ELpSoatvxCMGSTubuQqKqedG/0NrQGM6
-	VVwO5ku5yxJZYJKesJA1kKhHMk9uqkHSMz/aYjDX+0moObvh7o/k1PCUU/gDsXDPwsnJmu8TaU7
-	T3Rf/L/wIY664dSh8IdAW/xr90CAkQy+40MH/qd84Yk+WwZbTYa027lZkzeLv0xLvRNOHxxN98e
-	k2mp5GlowN9DmADwWif8d/6Mv4m3XT5h9bkP5CMu1OAIgO+d50JBSsI+118=
-X-Google-Smtp-Source: AGHT+IEqqSp2Bx4H9HZGWjwyRbPvR+vWlgwLlpuGUtnloA4G9XjlM92Y9Stck87gfHrX+jJIWpVO8w==
-X-Received: by 2002:a17:902:ec88:b0:235:225d:30a2 with SMTP id d9443c01a7336-23de2512cecmr66021745ad.48.1752162406466;
-        Thu, 10 Jul 2025 08:46:46 -0700 (PDT)
-Received: from hiagonb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4365b10sm23794255ad.240.2025.07.10.08.46.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 08:46:45 -0700 (PDT)
-Date: Thu, 10 Jul 2025 12:46:39 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	Ritesh Kumar <ritesh.kumar@toradex.com>
-Subject: Re: [PATCH] remoteproc: imx_rproc: merge ITCM and DTCM regions
-Message-ID: <20250710154639.hmbmzpaizhxqodqk@hiagonb>
-References: <20250703130831.18830-1-hiagofranco@gmail.com>
- <aGgAbwToGhsc5VV9@p14s>
- <20250704190816.kth7bdf34ufc2ht6@hiagonb>
- <aGvyDp36iWv5UQ19@p14s>
- <20250708172953.rbsvk6gy4xuxo42l@hiagonb>
- <20250709082652.GA15057@nxa18884-linux>
-MIME-Version: 1.0
+	Thu, 10 Jul 2025 15:49:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UEEIx+TVjgohHPDC0w7KXQF6ixZ50y4qya8jcPgluN4dP3L18q8PDTNwiCU1xZfSC1FlY51i2b7MSMbwunfUDy2N+AVS5q2Ju7+EsyH9hWRdgFzhHnZ3HaWZHJnDvV6X6ywtnpZoM/aFvgqswyiM1x/SnfiiXk4G36xKWdVzTOSSYtdfoGds8+aV2+DE6grbqskdw8uUv+9jLYQ+tRzEZRemk7eWT0WFOcQYq2kq0lFiUI6wZGDw5+OgaEoy6zhYzikaSQ8NtEYvm2CNMu5jsIjUeHXPTo9iL7x4lStIsm0BQOFtjWDwRlmrZPyrKHIIpqdBHppkudoz0hybfXjmcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fNGXUYMmONep2xWPuHlCbwloYqogd4P+tyoJ7VQHyT8=;
+ b=gFFPc3Et88mT4t7NMzA56trBUKaQKfK+AZSqQeIH5rEDqWkEunD4lLxVOOGKcyIPO60AzpXaFc6NV0YcztipGdEqVjIh6CH9z87O7DHKCYIafI0PuSWsl67Vb+I2GPLfLkUcDqij0qjMUIdK7ISPERpaZN/rj14T8/b2oIARrNEtTXARgS2Qb41nEL+qetKVzLn42N2UHbpSukQ7pUdFUSvQgMV1yB2iWN3tLEhXTIj3RPz9GgxZMgUdiIPy9exefuz9mwGortjLajo3LRBpAbziPp+3I2w6ejFmqHKeiuDP0Pg1Z4zJ/ERysPLjVyKKJQWSNjepPqIIH5EWXA9cVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fNGXUYMmONep2xWPuHlCbwloYqogd4P+tyoJ7VQHyT8=;
+ b=YpBD8kvZbZsmne64NU484irxxDEkZ07+xbSYK0lPwN10ABSOt+2sVxhTAQ4R2pokNTYyW16Sa4j3tIWfY3iJ/9QjPoCFc4ER8aXhRLs+qqhG+QJV7EakZNJxVby0EB/+XCw6ulWwFKpDUxtqC3R2ztAz0lJYWisYvPlKL2nr+HDqMBu4iF/QwSUayUzlTFHjB/uoXoEYU/yZ37ydn5f2g1NN06DyfmGJmFecjPnfQtPFTIiCMvmHYWWOmfLKbxX26VX1MRVkW3H0LQoe/iynXedkPfouGBJ1A3aFZ8RLPFisgw4fyykh5MA0ykCZdB48umQXYV3rmxLAKXKZFHpJyw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DBAPR04MB7223.eurprd04.prod.outlook.com (2603:10a6:10:1a4::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.24; Thu, 10 Jul
+ 2025 15:49:25 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8901.023; Thu, 10 Jul 2025
+ 15:49:25 +0000
+Date: Thu, 10 Jul 2025 11:49:18 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, chester62515@gmail.com,
+	mbrugger@suse.com, Ghennadi.Procopciuc@nxp.com,
+	larisa.grigore@nxp.com, lee@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, festevam@gmail.com, aisheng.dong@nxp.com,
+	ping.bai@nxp.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+	srini@kernel.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, s32@nxp.com,
+	clizzi@redhat.com, aruizrui@redhat.com, eballetb@redhat.com,
+	echanude@redhat.com, kernel@pengutronix.de, imx@lists.linux.dev,
+	vincent.guittot@linaro.org
+Subject: Re: [PATCH v7 01/12] dt-bindings: mfd: add support for the NXP SIUL2
+ module
+Message-ID: <aG/g/ngHCN76FX8v@lizhi-Precision-Tower-5810>
+References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
+ <20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250709082652.GA15057@nxa18884-linux>
+In-Reply-To: <20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com>
+X-ClientProxiedBy: AM0PR07CA0026.eurprd07.prod.outlook.com
+ (2603:10a6:208:ac::39) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBAPR04MB7223:EE_
+X-MS-Office365-Filtering-Correlation-Id: ac19d53c-6340-4791-6ae3-08ddbfc95896
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YN6UAi8Xd1m/imxRqo/9J59fYH9FtvmlrCsdD0Mzna0PG88zNoR2cTiaP4xq?=
+ =?us-ascii?Q?4eKgHx/IIiOv+hvzAIN4eUI6G243nhoWNNAqOIieYgJSXVCiSSVjuKpvUp3c?=
+ =?us-ascii?Q?YT+ewqgKLPoClOw9yZWznXQTsayzXnNDsyNJ6n4lZ7RrIR8lP5wjmxM6vUdz?=
+ =?us-ascii?Q?l2SM4ANlzoay4K4Hx6eRtsCOu+vzHlDmWGyibkP8fMeH9F+QsLfZ1QD0xnAa?=
+ =?us-ascii?Q?o04AM8mJCO1rMYtMyRJXE6FVIPTYil+G//5VVLhGQEoeaFBOod4weRUwwSIL?=
+ =?us-ascii?Q?JzG/P5tojrLu7cpBL+pF4TKmAiJfnleFSZ2kHvSgzuffRwN6VcgIlWbd4WnK?=
+ =?us-ascii?Q?50Er6BMvYjucpUXbph6NOsjSPrfp8xV5zh7Yv+O9T991kEf2L7m0P/Q23eRs?=
+ =?us-ascii?Q?oOuORpwyx3TRc55GbAZwOxI8ppYuLIIgQP2tK+Ci4WXM48uXdGa/AqQF8xfU?=
+ =?us-ascii?Q?YYkTxwJrEJQz61kxPriTxiEQJDk/+NFQtFdfFeMMHzFwTr1gNtjBZ2/3SdgO?=
+ =?us-ascii?Q?Fo0oC9dEEwiLc4K3jiShQgkPOMOH0u5hplzF1aGFj4QlBbE+Uuc6h8GR56xl?=
+ =?us-ascii?Q?EZFkWJD2qqcedrkEPQ5+0f9LC4jrjGGS2Vyk3G09vpQTZw4GRQpNgAWYxKCP?=
+ =?us-ascii?Q?PIeEU582MHv4Vv1l+7wFahwl9KrFbRUJm7shgQqhaGSoU5Nd/U77ZMQ0gmaE?=
+ =?us-ascii?Q?vSIsCZl6cgdrzcXiwFOaywPxjgkcMTZOWt6ODoUkuXPthJ68+tLO/Wja55qX?=
+ =?us-ascii?Q?E1Evl3QeftaE/0vWCheGflE865k3o2afLT7T23cnZBmAtP7ejCRNTSSIY9WL?=
+ =?us-ascii?Q?97F3Hm03DzN1uMBC1isPpxecP+AFDs2zb7m8xJgC0W268F6PghIobvFuGGWR?=
+ =?us-ascii?Q?t2FTBj1yyJmgUD4do0s+zaNY31YGi9/AboYdTldreRuQMIQtbNRl+uGcDAy3?=
+ =?us-ascii?Q?AKlLpDUr8scpFwuNVqBNKmbHFu9o4vMgayPRQ4kgTHR+5uYLrf0Yb+x4/SNW?=
+ =?us-ascii?Q?/kAdhYQdbR2yXWNOLOhGuk6dwoj3H1Z0yDUHIXt5vnuWV65tvjd645UMAxoe?=
+ =?us-ascii?Q?95HLDED8UpZdFrBEwwVaOlZzy5t52NZmKv6wZnbOHDNeWwwxvos+lOyjHQbL?=
+ =?us-ascii?Q?a9QZs0hN+fYdoIGLKxCZ9g79mfTXRSFFZ2uCI5L5vDR8yWaTGJQ4znE3FUns?=
+ =?us-ascii?Q?Q52GjEke4waNBxHgxP1qJRf71vNKI1UHOcWpGVLFcTnASJsykWXkvmvNrFBc?=
+ =?us-ascii?Q?Hna4G4cKOfUhHpWai+vWoWIqG+PT6e6K0yX2mez8uIJ0E3JUGRgFdo3+U+hY?=
+ =?us-ascii?Q?wXWyXLJfuGrZZRjWcs3mAbOxdquKm4npSLv6sm5+IznBpXCcBVPO/vWVJpcy?=
+ =?us-ascii?Q?ubJghJlZj3vx4qtQQo90az3KpiumknxCSrJuuSO/90p7/v+eV9hDQSwAse1r?=
+ =?us-ascii?Q?Pc0qwibQra4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Z0fcf88ABTsqcmaWqPJqmEVA+UNCkosdFyoDPzBwx/0KtEc2fDsSo/xtb3oO?=
+ =?us-ascii?Q?9zilOkejUV4Jayc51flgx+FFargduLhLtAvAq+e3I49WWrT2MuFOFDubz3GE?=
+ =?us-ascii?Q?Z3h+asJq0FL8CJpXV+dT5EYTyabGHsnDpO6cT0Mo46iA3bnVwW0C/J2qZ6vN?=
+ =?us-ascii?Q?lS1JAJEEByZoAGb34j6hvpiDfLkKVqYcjqoN8sJ0+rJBntorbXGj51K04ZhB?=
+ =?us-ascii?Q?dJa2MO5oGu7HZ+DoVzeaM/TV35zWB8XVSh+mPs2+YaiysZh9b4lUX2/oYsTs?=
+ =?us-ascii?Q?LSul0zjYKtBrI6Yo2xXfr0u3DkM34+FBhkaZMLO2mlfJMSuiybLbrSpIlebs?=
+ =?us-ascii?Q?nTuTPRnPXqLubMjA7QFUf7vyI95ufRaAsuCCdB3G2SRmOBWBdRvVCk0uatL3?=
+ =?us-ascii?Q?ePZW5Cb0qsoEFxTDjzCF20EGNtmV7GSeO2UIES30uQnRyHH2aeFo74Lft5yZ?=
+ =?us-ascii?Q?YEQaO9liFDo/weiaZc/kQumvF/9nZ8o5DjDHDkMJUD9cbo6ujM+9WLwgIwsE?=
+ =?us-ascii?Q?LGX2lylgVBRxoqa6p/VpgPxvkflv/gwsv9dvWZz7/rIQSq5/MCDptbiGWxVc?=
+ =?us-ascii?Q?D1wrccQwF2k6wY75VgjREDF7xtV0+HL0gaZ4wLfIh8lDo7PB5fyzt0zf362s?=
+ =?us-ascii?Q?v6+/vObqt12DmlvGcLgwQnTmKhNEXW4p70doW2IeYci+/tzl+GPoQMVrlYYw?=
+ =?us-ascii?Q?5hQBLRkyxGUtgPjvwRjr0uQGNenuT6xBb9SBV5/0vAAlrM5JBn/cp5hHI4An?=
+ =?us-ascii?Q?lugLj6vTF9tnw75BaDfkXkhww7b19435Lcd5XFigW9sKgc/dyKtuRP07IbeF?=
+ =?us-ascii?Q?eHPmqs059J54wvvTKDhCB9TTXgOSHC0d6eZrB4Sx2i/zTFCvmyarO2tibPyG?=
+ =?us-ascii?Q?diI6eup8+Cl9gz3D6oGuk682oWClu3oUxc04a9pZyOCotYyRQ7LwLI4NtWX0?=
+ =?us-ascii?Q?iCBSnZrsWJeYlqnwtkiLiTPFvYs7cr3+2pkrFI11VaS2KUGSGi6FTkJlDDxO?=
+ =?us-ascii?Q?fKHcygFAlFgVr4lK8C1ZIC3eM8ZvAV/5lG/R6YXGSFCIWlXMx+xxKwkdmUiE?=
+ =?us-ascii?Q?5EFz9nSXGE24A7bk8Ofhwbxd222yUKmK69Ytp9vwWxSnUUamAYLRL/8WNl6E?=
+ =?us-ascii?Q?zzrRCA3evgiXMwrAg1TEoZ4PTgaYnP9Rx4zljNz5vGlhKuBdHmNztSQKdTCT?=
+ =?us-ascii?Q?093mk2TVrn0Z++HYOosr2fN3xxNNOhlJWycZq0le4Y+mbNUWj/m/FAFjk8i+?=
+ =?us-ascii?Q?CPYaHXwbPVuJtaEx6/SVa3wXNiQmG8jgRMqRvlBvsmXmvjBRJquNgyKXtJYA?=
+ =?us-ascii?Q?v+Wl6C0w1UJXjeBgW/+rZLnp+g1T1YHqlR7KiH8kxhM//kmmqZ49VaIHDaWq?=
+ =?us-ascii?Q?6HIqYYnNkMTd5CnQcK7rdzrAS+msNZIQSSioK1brafJ10Ui0Ke22PIey9S1r?=
+ =?us-ascii?Q?fffV3eHABd//zTozS+6aka6C5rp270Z7HCGbRb380nmLhwiWTifemxAjAlCm?=
+ =?us-ascii?Q?UNXTfGFqCUz2ypw7LhniUJkgsYhBxfUvfpskxuXWu5eIKoMUWgcq3nJO8UDG?=
+ =?us-ascii?Q?+lsNo7J3VwMyJ5lX7AuvenhnYkEnok5oKX5Ia3pM?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac19d53c-6340-4791-6ae3-08ddbfc95896
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 15:49:25.5155
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nD95uKYRmBH+vYyvOChtUEWVUrFDg2UZfv9alcSNvlVm2uTXEM1sbaDv78AIpA858MoTwpGnf0bZKjgaTEI+gg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7223
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_084648_052881_0E9C9916 
-X-CRM114-Status: GOOD (  53.66  )
+X-CRM114-CacheID: sfid-20250710_084931_325596_6F412185 
+X-CRM114-Status: GOOD (  25.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,188 +167,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 04:26:52PM +0800, Peng Fan wrote:
-> On Tue, Jul 08, 2025 at 02:29:53PM -0300, Hiago De Franco wrote:
-> >Hi Peng, Mathieu,
-> >
-> >On Mon, Jul 07, 2025 at 10:13:02AM -0600, Mathieu Poirier wrote:
-> >> On Fri, Jul 04, 2025 at 04:08:16PM -0300, Hiago De Franco wrote:
-> >> > Hi Mathieu,
-> >> > 
-> >> > On Fri, Jul 04, 2025 at 10:25:19AM -0600, Mathieu Poirier wrote:
-> >> > > Good morning,
-> >> > > 
-> >> > > On Thu, Jul 03, 2025 at 10:08:31AM -0300, Hiago De Franco wrote:
-> >> > > > From: Hiago De Franco <hiago.franco@toradex.com>
-> >> > > > 
-> >> > > > Merge the contiguous ITCM and DTCM regions into a single region to
-> >> > > > prevent failures when loading ELF files with large sections:
-> >> > > > 
-> >> > > > remoteproc remoteproc0: powering up imx-rproc
-> >> > > > remoteproc remoteproc0: Booting fw image rproc-imx-rproc-fw, size 151824
-> >> > > > imx-rproc imx8mp-cm7: Translation failed: da = 0x1f48 len = 0x1fcb0
-> >> > > > remoteproc remoteproc0: bad phdr da 0x1f48 mem 0x1fcb0
-> >> > > > remoteproc remoteproc0: Failed to load program segments: -22
-> >> > > > remoteproc remoteproc0: Boot failed: -22
-> >> > > > 
-> >> > > > This approach is the same as commit 8749919defb8 ("remoteproc:
-> >> > > > imx_rproc: Merge TCML/U").
-> >> > > > 
-> >> > > > Suggested-by: Ritesh Kumar <ritesh.kumar@toradex.com>
-> >> > > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> >> > > > ---
-> >> > > > Hi,
-> >> > > > 
-> >> > > > The ELF I tested had the following data section:
-> >> > > > 
-> >> > > > Memory region         Used Size  Region Size  %age Used
-> >> > > >     m_interrupts:         680 B         1 KB     66.41%
-> >> > > >           m_text:        6984 B       127 KB      5.37%
-> >> > > >           m_data:      130224 B       128 KB     99.35%
-> >> > > >          m_data2:          0 GB        16 MB      0.00%
-> >> > > > [100%] Built target hello_world_cm7.elf
-> >> > > > 
-> >> > > > Which triggered the error. After this patch, remoteproc was able to boot
-> >> > > > and work fine. Thanks!
-> >> > > > ---
-> >> > > >  drivers/remoteproc/imx_rproc.c | 6 ++----
-> >> > > >  1 file changed, 2 insertions(+), 4 deletions(-)
-> >> > > > 
-> >> > > > diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> >> > > > index 74299af1d7f1..bbf089ef48ee 100644
-> >> > > > --- a/drivers/remoteproc/imx_rproc.c
-> >> > > > +++ b/drivers/remoteproc/imx_rproc.c
-> >> > > > @@ -166,8 +166,8 @@ static const struct imx_rproc_att imx_rproc_att_imx8qxp[] = {
-> >> > > >  
-> >> > > >  static const struct imx_rproc_att imx_rproc_att_imx8mn[] = {
-> >> > > >  	/* dev addr , sys addr  , size	    , flags */
-> >> > > > -	/* ITCM   */
-> >> > > > -	{ 0x00000000, 0x007E0000, 0x00020000, ATT_OWN | ATT_IOMEM },
-> >> > > > +	/* D/ITCM */
-> >> > > > +	{ 0x00000000, 0x007E0000, 0x00040000, ATT_OWN | ATT_IOMEM },
-> >> > > >  	/* OCRAM_S */
-> >> > > >  	{ 0x00180000, 0x00180000, 0x00009000, 0 },
-> >> > > >  	/* OCRAM */
-> >> > > > @@ -180,8 +180,6 @@ static const struct imx_rproc_att imx_rproc_att_imx8mn[] = {
-> >> > > >  	{ 0x08000000, 0x08000000, 0x08000000, 0 },
-> >> > > >  	/* DDR (Code) - alias */
-> >> > > >  	{ 0x10000000, 0x40000000, 0x0FFE0000, 0 },
-> >> > > > -	/* DTCM */
-> >> > > > -	{ 0x20000000, 0x00800000, 0x00020000, ATT_OWN | ATT_IOMEM },
-> >> > > 
-> >> > > In commit 8749919defb8 "dev addr" and "sys addr" were both contiguous, but in
-> >> > > this patch "dev addr" is not.  How will this work with new kernel that use old
-> >> > > FW images?  Am I missing something?
-> >> > 
-> >> > No, you are correct, I think the use case I tested was not good enough.
-> >> > 
-> >> > If I understand correctly, this will break older firmware expecting
-> >> > .data at 0x20000000 because dev_addr is no longer mapped for DTCM entry.
-> >> > 
-> >> 
-> >> Correct.  Older firmware would still expect DTCM at 0x20000000.
-> >> 
-> >> 
-> >> > Do you think it is possible (or reccomend) another approach to fix this
-> >> > issue? In this case to keep using the TCM, instead of going to OCRAM or
-> >> > DDR.
-> >> >
-> >> 
-> >> To me the best way to proceed is understand why using the current mapping is a
-> >> problem.  The changelog describes a failure condition when dealing with large
-> >> sections but does not indicate _why_ that is happening.  I think that's what
-> >> needs to be fixed rather than trying to move mappings around.
-> >
-> >Thanks for the information you both provided, sorry for the noise, so
-> >please Mathieu ignore this patch. I will work around this in a different
-> >way.
-> >
-> >By the way, Peng, I noticed the DDR linker from MCUXpresso does not work
-> >if the firmware is larger than 128KB, since the .data is placed right
-> >after .text and loaded later to DDR. The imx_rproc driver should instead
-> >have a way to do the other way around: starting from the firwmare inside
-> >DDR, we could set PC and stack from M7 to point to DDR and start the
-> >execution. Probably will be slower, but it would make the DDR case
-> >possible.
-> 
-> I am not aware of the size limitation if image is built to run in DDR.
-> It maybe MCUXpresso team just reuse the linker script for TCM and only
-> update the link address.
-> 
-> You could update the linker script to build larger image.
-> 
-> In final elf, .data is put just after .text, but the related section
-> loading address should be specified as my understanding. See below,
-> .data is at 0x20000000 for M7.
-> 
-> xx-gcc -S imx8mn_m7_TCM_rpmsg_lite_str_echo_rtos.elf
-> There are 20 section headers, starting at offset 0xc998:
-> 
-> Section Headers:
->   [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
->   [ 0]                   NULL            00000000 000000 000000 00      0   0  0
->   [ 1] .interrupts       PROGBITS        00000000 001000 000240 00   A  0   0  4
->   [ 2] .resource_table   PROGBITS        00000240 001240 000058 00   A  0   0  1
->   [ 3] .text             PROGBITS        000002a0 0012a0 0046b0 00  AX  0   0 16
->   [ 4] .ARM              ARM_EXIDX       00004950 005950 000008 00  AL  3   0  4
->   [ 5] .init_array       INIT_ARRAY      00004958 005958 000004 04  WA  0   0  4
->   [ 6] .fini_array       FINI_ARRAY      0000495c 00595c 000004 04  WA  0   0  4
->   [ 7] .data             PROGBITS        20000000 006000 00000c 00  WA  0   0  4
->   [ 8] .ncache.init      PROGBITS        80000000 00600c 000000 00   W  0   0  1
->   [ 9] .ncache           PROGBITS        80000000 00600c 000000 00   W  0   0  1
->   [10] .bss              NOBITS          2000000c 00600c 00a4ac 00  WA  0   0  4
->   [11] .heap             NOBITS          2000a4b8 00600c 000400 00  WA  0   0  1
->   [12] .stack            NOBITS          2000a8b8 00600c 000400 00  WA  0   0  1
->   [13] .ARM.attributes   ARM_ATTRIBUTES  00000000 00600c 000030 00      0   0  1
->   [14] .debug_line_str   PROGBITS        00000000 00603c 0002b1 01  MS  0   0  1
->   [15] .comment          PROGBITS        00000000 0062ed 000055 01  MS  0   0  1
->   [16] .debug_frame      PROGBITS        00000000 006344 000260 00      0   0  4
->   [17] .symtab           SYMTAB          00000000 0065a4 003cd0 10     18 586  4
->   [18] .strtab           STRTAB          00000000 00a274 002664 00      0   0  1
->   [19] .shstrtab         STRTAB          00000000 00c8d8 0000bd 00      0   0  1
-> 
-> >
-> >Correct me if I am wrong, but as my current understanding the DDR linker
-> >is broken without this change to the driver. Anyway, maybe something for
-> >a future patch.
-> 
-> If you wanna image in DDR, you could specifiy the address of data section
-> in your linker script.
-> 
-> But for support ddr elf file, you need patches as below:
-> https://lore.kernel.org/linux-arm-kernel/CAEnQRZC5t=qmo+OJLW+dqZg4gH9cAN=paWDSGbrJb2AvkKBqxg@mail.gmail.com/T/#ec54c42b70416b002936a643b44b79661dd2a8483
-> This patchset was rejected, because we need to get stack/pc from .interrupts
-> section and store to ITCM.
-> 
-> Latest NXP m7 demo has included a new section for stack/pc, but
-> this will only be public in 2025 Q3 release, for pre-2025-Q3 releases,
-> still need the upper patchset.
+On Thu, Jul 10, 2025 at 05:20:24PM +0300, Andrei Stefanescu wrote:
+> Add the dt-bindings for the NXP SIUL2 module which is a multi
+> function device. It can export information about the SoC, configure
+> the pinmux&pinconf for pins and it is also a GPIO controller with
+> interrupt capability.
 
-Great, thanks for all the information Peng. I will inform my team here.
+wrap at 75 chars.
 
-Best regards,
-Hiago.
+>
+> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> ---
+>  .../bindings/mfd/nxp,s32g2-siul2.yaml         | 163 ++++++++++++++++++
+>  1 file changed, 163 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml b/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
+> new file mode 100644
+> index 000000000000..8ae185b4bc78
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
+> @@ -0,0 +1,163 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright 2024 NXP
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP S32 System Integration Unit Lite2 (SIUL2)
+> +
+> +maintainers:
+> +  - Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> +
+> +description: |
+> +  SIUL2 is a hardware block which implements pinmuxing,
+> +  pinconf, GPIOs (some with interrupt capability) and
+> +  registers which contain information about the SoC.
+> +  There are generally two SIUL2 modules whose functionality
+> +  is grouped together. For example interrupt configuration
+> +  registers are part of SIUL2_1 even though interrupts are
+> +  also available for SIUL2_0 pins.
+> +
+> +  The following register types are exported by SIUL2:
+> +    - MIDR (MCU ID Register) - information related to the SoC
+> +    - interrupt configuration registers
+> +    - MSCR (Multiplexed Signal Configuration Register) - pinmuxing and pinconf
+> +    - IMCR (Input Multiplexed Signal Configuration Register)- pinmuxing
+> +    - PGPDO (Parallel GPIO Pad Data Out Register) - GPIO output value
+> +    - PGPDI (Parallel GPIO Pad Data In Register) - GPIO input value
+> +
+> +  Most registers are 32bit wide with the exception of PGPDO/PGPDI which are
+> +  16bit wide.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - const: nxp,s32g2-siul2
+> +      - items:
+> +          - enum:
+> +              - nxp,s32g3-siul2
+> +          - const: nxp,s32g2-siul2
+> +
+> +  reg:
+> +    minItems: 2
+> +
+> +  reg-names:
+> +    items:
+> +      - const: siul20
+> +      - const: siul21
+> +
+> +  gpio-controller: true
+> +
+> +  "#gpio-cells":
+> +    const: 2
+> +
+> +  gpio-ranges:
+> +    maxItems: 2
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  interrupt-controller: true
+> +
+> +  "#interrupt-cells":
+> +    const: 2
+> +
+> +  nvmem-layout:
+> +    $ref: /schemas/nvmem/layouts/nvmem-layout.yaml#
+> +    description:
+> +      This container may reference an NVMEM layout parser.
+> +
+> +patternProperties:
+> +  "-hog(-[0-9]+)?$":
+> +    required:
+> +      - gpio-hog
+> +
+> +  "-pins$":
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    patternProperties:
+> +      "-grp[0-9]$":
+> +        type: object
+> +        allOf:
+> +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
+> +          - $ref: /schemas/pinctrl/pincfg-node.yaml#
+> +        description:
+> +          Pinctrl node's client devices specify pin muxes using subnodes,
+> +          which in turn use the standard properties below.
+> +
+> +        properties:
+> +          bias-disable: true
+> +          bias-high-impedance: true
+> +          bias-pull-up: true
+> +          bias-pull-down: true
+> +          drive-open-drain: true
+> +          input-enable: true
+> +          output-enable: true
 
-> 
-> Regards,
-> Peng
-> 
-> >
-> >Thanks,
-> >Hiago.
-> >
-> >>  
-> >> > Thanks,
-> >> > Hiago.
-> >> > 
-> >> > > 
-> >> > > Thanks,
-> >> > > Mathieu
-> >> > > 
-> >> > > >  	/* OCRAM_S - alias */
-> >> > > >  	{ 0x20180000, 0x00180000, 0x00008000, ATT_OWN },
-> >> > > >  	/* OCRAM */
-> >> > > > -- 
-> >> > > > 2.39.5
-> >> > > > 
+I remember you needn't mark these as true, default it should be true if use
+"unevaluatedProperties: false".
+
+Can you check if pass dt_binding_check if remove these property?
+
+> +
+> +          pinmux:
+> +            description: |
+> +              An integer array for representing pinmux configurations of
+> +              a device. Each integer consists of a PIN_ID and a 4-bit
+> +              selected signal source(SSS) as IOMUX setting, which is
+> +              calculated as: pinmux = (PIN_ID << 4 | SSS)
+
+Do you have include file to define it? otherwise hex value is not easy
+understand.
+
+Frank
+> +
+> +          slew-rate:
+> +            description: Supported slew rate based on Fmax values (MHz)
+> +            enum: [83, 133, 150, 166, 208]
+> +        required:
+> +          - pinmux
+> +
+> +        unevaluatedProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - gpio-controller
+> +  - "#gpio-cells"
+> +  - gpio-ranges
+> +  - interrupts
+> +  - interrupt-controller
+> +  - "#interrupt-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    pinctrl@4009c000 {
+> +      compatible = "nxp,s32g2-siul2";
+> +      reg = <0x4009c000 0x179c>,
+> +            <0x44010000 0x17b0>;
+> +      reg-names = "siul20", "siul21";
+> +      gpio-controller;
+> +      #gpio-cells = <2>;
+> +      gpio-ranges = <&siul2 0 0 102>, <&siul2 112 112 79>;
+> +      interrupt-controller;
+> +      #interrupt-cells = <2>;
+> +      interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
+> +
+> +      jtag-pins {
+> +        jtag-grp0 {
+> +          pinmux = <0x0>;
+> +          input-enable;
+> +          bias-pull-up;
+> +          slew-rate = <166>;
+> +        };
+> +      };
+> +
+> +      nvmem-layout {
+> +        compatible = "fixed-layout";
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +
+> +        soc-major@0 {
+> +          reg = <0 0x4>;
+> +        };
+> +      };
+> +    };
+> +...
+> --
+> 2.45.2
+>
 
