@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77678C83F23
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D09C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
 	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UtfKlLhcG/kkS8hkYuoUj/IIA4KAh790Vr1OByvwXU8=; b=JqL0mkHjFNVvrKcrxjhHqFsNLE
-	lGWeWK7I2QzvZi9YFFSysfVbn8T2nJnJeZmbu/2ptqGt6FFOkIDmBzsPqBx037Ia7CFMvhHLumc/T
-	ztS+tecf1ucrUDaf2Pij0tZYGmAmL/nFWE61G3dlK/ND5Q0UYeNhuKSJZQOsm4pTbEBGVile/gJEX
-	/UrBrfgaqlIfwRxfH+Cffx6jaj942bEPQVONqMPAwQ0AmbZpQfKJpwrsa4W9vv/GD0p+tjPbRcfL7
-	PF5ZkD9dTW43q3npbR1scCZQXi5GLy0ZGxpS6w3SwNy09lwC5bqeh0X5fck4EN/rdLan+yuGe8gv/
-	ssmT2lkg==;
+	bh=eec3UsfcgEVhhdwW54XSs3vkceSbxenv80rfbs7M6mU=; b=RrK5qUIVMHWc7uFqw4wmaW1oIC
+	dv8OVHxtpHS0OECnwAA8CMpYG9mV8EM054IXKPCWL/MvYy7QOPV0b4jcjTUmqlE3bCgYrsbYiX/Ge
+	2ZvG5OvCiy3KF5F0skvykA3VnOvkb/JtOW1U7xdGShMI6TVg9nSv/1l9Blj4Adi2AZY3lzBuPdQ7Z
+	9JMeEd12wTOG/cEZkn0RRyD2zn/jCGq3jnZHmPbm2GPSRyGSofOM3XPZclfUeEu6m6g5FdM8hI7rG
+	Zv9gvmmuSc2QTNgW/txz3OP93yPLjQoP0/roAs18IG2zkGMRd7aNU2SmbuKHiv+rcHPpbfjaQDXvk
+	UNJKsHEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2Q6-0000000DPzU-1BAb;
-	Fri, 11 Jul 2025 01:19:22 +0000
+	id 1ua2Q5-0000000DPyj-0E0p;
+	Fri, 11 Jul 2025 01:19:21 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZyYt-0000000D2RZ-2a28
+	id 1uZyYl-0000000D2PB-2jMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 21:12:13 +0000
+	Thu, 10 Jul 2025 21:12:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752181930;
+	s=mimecast20190719; t=1752181922;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=UtfKlLhcG/kkS8hkYuoUj/IIA4KAh790Vr1OByvwXU8=;
-	b=GHptntDJX6gB+32f2FdFp2NXEGIKigJSEBHRkWUTrfzLWAYs3yLnTupOLptTWVGmSekfqF
-	s23nW2avELyVuT/NSy4kfG/xmzmnbO+Piq5QUTXIo0RL+5SeFSCFduVT7Wehy0ckAV3PLD
-	isjp7DSxbqI7U3KozIXV1HUt4z07VKs=
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
- [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=eec3UsfcgEVhhdwW54XSs3vkceSbxenv80rfbs7M6mU=;
+	b=aMv/vjIe6cc312cTn4nSWw956ZKQjpS8wEDZjeWzK3nJ+NMaqwsVVGZ4ODH/eM5RL516jO
+	Bur/6+yqcgSRePHylOi/wDo4R99cLp30s9wWyEQj87PvBtEcntI+L7rOMGuoZzebbLoGGV
+	FCv4PsearCX6ZesoDRdd0UIic3B+cuI=
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
+ [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-492-F-5ZpuIyOHiIazlQInigiQ-1; Thu, 10 Jul 2025 17:12:09 -0400
-X-MC-Unique: F-5ZpuIyOHiIazlQInigiQ-1
-X-Mimecast-MFC-AGG-ID: F-5ZpuIyOHiIazlQInigiQ_1752181928
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2382607509fso8090245ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 14:12:09 -0700 (PDT)
+ us-mta-14-WETaRYyuN_GpHC-tgJlNJg-1; Thu, 10 Jul 2025 17:11:59 -0400
+X-MC-Unique: WETaRYyuN_GpHC-tgJlNJg-1
+X-Mimecast-MFC-AGG-ID: WETaRYyuN_GpHC-tgJlNJg_1752181919
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2355651d204so13976005ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 14:11:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752181928; x=1752786728;
+        d=1e100.net; s=20230601; t=1752181918; x=1752786718;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UtfKlLhcG/kkS8hkYuoUj/IIA4KAh790Vr1OByvwXU8=;
-        b=m+ArM19OEJhjG8EcXIOXYxFiUSI7IsKcsBOn/BaNjv0ND95QrLReoDDtEHTDGh4K8+
-         XwbAHDWPxbix12PpSgi8kD3zyDWXhjoDow5CV9RWrI+sGprAJitP5dHwW1OabkYowLIF
-         6+wyRzcobsOzyW4RYafRQW0rMNt6L2GUs8/S90iuMrsHLATH3y5/UMrepVZ4VAPBiWKt
-         f48hzI50XtbMLSt2D6eYMWwxjSuDqOuY71e/623i2fGw0gOenWWUkcqLlZAdIjcFt1ZK
-         Xt36kGxXpK8IxUs/HSrfeUFhTmqf4BWO+d+dQLeHU4uJHzn1tI4z0bkBxVeFjpYgE9Yf
-         z7BA==
-X-Forwarded-Encrypted: i=1; AJvYcCXG4NHjwfuSFXS4Nm63vPlyIMbCisTXgEv4IHaVRvzbGC/23JRf/s9ydFfZOc1UNJDr68UpAmPR3MZ7o7qs9eaC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9qsRCt82zWAydr1NGAagb8qwwjG8hXvsw8zTtaELjaaArnoV2
-	q3OoR0WEcm4AhrNh5T9ZAON0Ch9DAa/5hOScEQmiplttAPFSyQda5pDjRr6AF1Kkh9OPvtYvrBE
-	OynGMRJmtVLTwQthW8ernCxllLAWeivZYk1NZHMZY7dSHF5cXLssg3Za3V98nVjl9uFD1dA5Zbk
-	Ur
-X-Gm-Gg: ASbGncv7iwVhfQGFwARUKwgh+9nI4aauyUjRiJv1raH66dDOgFEJNRmkCBTzGHTwV/M
-	uJt4MwCE1Lrtdi52O3x8BgnW0l1p3aN7ZryNQRcU6Oh11hPR/8imkknkSQtiA081ihpdXsitnJz
-	OlCkl4vLvKcL3uVRxjtoDiDmoAReFgRWSSfDTpceT3XVl0HuzEtn2l473AmFtGFhe/p77Ws/YNG
-	sRk28eUXLw9qWmNhfmHfFDAb31sv6Nre6OdCMwtrlw27QGBy/k0HghppwtShHnwYAUEREcGahn2
-	fVB4KZCRWin82xFXbJ1Y1g61sQ5BUG0kRfhM/EF3DII3FA==
-X-Received: by 2002:a17:903:4b24:b0:23c:7c3b:4c61 with SMTP id d9443c01a7336-23dede2d292mr8885945ad.8.1752181928459;
-        Thu, 10 Jul 2025 14:12:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFyfqFdZB30s9Ns2OTuViOndMsHrV92VUKAaa3t7UGJI0pLP81WIaExo2hP4WyXbE/2+Ovdog==
-X-Received: by 2002:a17:903:4b24:b0:23c:7c3b:4c61 with SMTP id d9443c01a7336-23dede2d292mr8885575ad.8.1752181928069;
-        Thu, 10 Jul 2025 14:12:08 -0700 (PDT)
+        bh=eec3UsfcgEVhhdwW54XSs3vkceSbxenv80rfbs7M6mU=;
+        b=mb6hU2llITztI7JYQZa7JIuMFleJTAQeLmiAHw3E9wYUF8Q4cwD+m+8csREU5T8XSr
+         3/BHNkiiksPpRdwTYGgj3kPd+Kc8df6PVsNN65PmEN6khEo6NFnwIQAOhXHr8FaINqDa
+         G5O9MJV9Frj3OXN+eUNoyspO2IA9iMllx4TOsVNjuCD6iRztpBo46Ed/dI+SQi/oULVd
+         kVxGzvx4DZqqpDSyrfQZorleUxEGpZVJ44r0cdLBvSa+r/EGLNCMQL588jBOGkgeVfN7
+         j0EiNevZlFCTklfI8jeK0HHF6SpTQwsZqtyB4peI6oiaNtJk1DqZGU6C1OkY7qXpQFau
+         Macg==
+X-Forwarded-Encrypted: i=1; AJvYcCW7gONmojQF8dp+2x0to3X6KDkr+1V3jcdSUd7ezVJBK2KsjtMt+0afO6OW0z7yGfxQ2m2JNaFRDtrkboPTS4Zo@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZ4uWjqo27yhkga3RTEM5N4C+QbLcfTtt8BNal4BObjfO2DOsN
+	GaMqsiFREd2tT/UOVH4uiI2dpy8j8wUvRnYsBob02beBdGQfKTWpgtbqS5njhqPlgteUGxYx5yb
+	BVWMpjdvb4R8ZuvcvtgByFXUrCMXeqsdYKBVjt52UjGP2wQW3GH0V5F6mtUItFszOQ2df4rkt3z
+	VE
+X-Gm-Gg: ASbGnctSMrxUrBZcIJmMIs763PIQGLSUqjS1ZO4SNgvYLwSoT3kBwB96RFpb4Si9nec
+	eN3/rSCtgoP31sB7j+iYfrGklQvJ2QbB6yUx/LT+JdD5d5tTZNdhBCI/1HbvqpjFPLQtaljNvHv
+	w5KAjf2bUWjyFxXRk4HLk3fyCvheXF7b7HHmiJO/lE4BEJCg1QEdMDKFmBdCVCjqAlJK65e13sR
+	7bKo31Vbnt/d0ruomTdppsQtJAq6IuZtXOPLk6jKBXLdGMz3ZceJBweuZQos6SRbcByr8HMJtz0
+	MyMe4/FqGnHWvOtiazEk+mk+shsdgcGvbwXXw9+HE+yljg==
+X-Received: by 2002:a17:903:7d0:b0:23d:dd63:2cdb with SMTP id d9443c01a7336-23dede396f6mr7862405ad.16.1752181918567;
+        Thu, 10 Jul 2025 14:11:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFmMHFgZSFsF17fGhsct290lecnQH0glpDdFs3C6QEydqtsPPL9osBYSLMIUTdMcaqaL2jdsQ==
+X-Received: by 2002:a17:903:7d0:b0:23d:dd63:2cdb with SMTP id d9443c01a7336-23dede396f6mr7862235ad.16.1752181918207;
+        Thu, 10 Jul 2025 14:11:58 -0700 (PDT)
 Received: from [10.144.155.224] ([2600:382:7716:65ad:9491:c054:6f2d:80ed])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de433e51asm27790595ad.180.2025.07.10.14.12.03
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de433e51asm27790595ad.180.2025.07.10.14.11.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 14:12:07 -0700 (PDT)
+        Thu, 10 Jul 2025 14:11:57 -0700 (PDT)
 From: Brian Masney <bmasney@redhat.com>
-Date: Thu, 10 Jul 2025 17:10:45 -0400
-Subject: [PATCH 13/13] clk: imx: scu: convert from round_rate() to
+Date: Thu, 10 Jul 2025 17:10:43 -0400
+Subject: [PATCH 11/13] clk: imx: pllv3: convert from round_rate() to
  determine_rate()
 MIME-Version: 1.0
-Message-Id: <20250710-clk-imx-round-rate-v1-13-5726f98e6d8d@redhat.com>
+Message-Id: <20250710-clk-imx-round-rate-v1-11-5726f98e6d8d@redhat.com>
 References: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
 In-Reply-To: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
 To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
@@ -94,21 +94,21 @@ Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Brian Masney <bmasney@redhat.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752181866; l=3280;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752181866; l=6011;
  i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=v3hdhBOHK0qUhvNSpx+BtyoEKUPgUNG99ieRMqbb8UE=;
- b=8ZgfFYF2KZsuweqpz1xsyECauFflmi/TsZyTLp4K/6NlZj8L/AQUvX4HpvZ6yVLmtnZpaXBYR
- CufxM/OrxNxAF1m7eYGGkqwIl0G3siaDy/4VyAsIls9Ss5jZ6J2R9M9
+ bh=1Mnzs5hamHNwjD4eoe2Nc0Akysaiis/eMWjsRi17QtU=;
+ b=Bn0rholCUM/KYZ+bos9FZIULcmCDJf69FbJGhUfMqhda6v7HWW4+01F8FLLh7G1zCTp5fW4s+
+ Pa/glVq7xHrAcqK/CA6g1MuafscKjAGR6zdGyQGptxfaNl1bj9mMzlm
 X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
  pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: nJiPfV6GxLDm_fh1KlVY_bKjokE_QufqMngyUOvA25Q_1752181928
+X-Mimecast-MFC-PROC-ID: -r_RELprebXnSopGNgUem3bG3tCFYqXpCEihR9zHwJs_1752181919
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_141211_733869_4B2C233C 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20250710_141203_766076_969C3B8F 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,93 +127,170 @@ The round_rate() clk ops is deprecated, so migrate this driver from
 round_rate() to determine_rate() using the Coccinelle semantic patch
 on the cover letter of this series.
 
-This driver also implements both the determine_rate() and round_rate()
-clk ops, and the round_rate() clk ops is deprecated. When both are
-defined, clk_core_determine_round_nolock() from the clk core will only
-use the determine_rate() clk ops, so let's remove the round_rate() clk
-ops since it's unused.
-
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
- drivers/clk/imx/clk-scu.c | 36 +++++++++---------------------------
- 1 file changed, 9 insertions(+), 27 deletions(-)
+ drivers/clk/imx/clk-pllv3.c | 72 +++++++++++++++++++++++++--------------------
+ 1 file changed, 40 insertions(+), 32 deletions(-)
 
-diff --git a/drivers/clk/imx/clk-scu.c b/drivers/clk/imx/clk-scu.c
-index b27186aaf2a15628910ea6a3d4aaa5320ec4295a..77c4cde8a72bd71653bbd2e95148bc1357ec1aae 100644
---- a/drivers/clk/imx/clk-scu.c
-+++ b/drivers/clk/imx/clk-scu.c
-@@ -269,24 +269,6 @@ static int clk_scu_determine_rate(struct clk_hw *hw,
- 	return 0;
+diff --git a/drivers/clk/imx/clk-pllv3.c b/drivers/clk/imx/clk-pllv3.c
+index 11fb238ee8f0ece8116d3d7cebbbb7deaa4aee68..b99508367bcb4d7f3ef12cdbb5f5d5dcbf526c31 100644
+--- a/drivers/clk/imx/clk-pllv3.c
++++ b/drivers/clk/imx/clk-pllv3.c
+@@ -117,13 +117,14 @@ static unsigned long clk_pllv3_recalc_rate(struct clk_hw *hw,
+ 	return (div == 1) ? parent_rate * 22 : parent_rate * 20;
  }
  
--/*
-- * clk_scu_round_rate - Round clock rate for a SCU clock
-- * @hw: clock to round rate for
-- * @rate: rate to round
-- * @parent_rate: parent rate provided by common clock framework, not used
-- *
-- * Returns the current clock rate, or zero in failure.
-- */
--static long clk_scu_round_rate(struct clk_hw *hw, unsigned long rate,
--			       unsigned long *parent_rate)
--{
--	/*
--	 * Assume we support all the requested rate and let the SCU firmware
--	 * to handle the left work
--	 */
--	return rate;
--}
--
- static int clk_scu_atf_set_cpu_rate(struct clk_hw *hw, unsigned long rate,
- 				    unsigned long parent_rate)
+-static long clk_pllv3_round_rate(struct clk_hw *hw, unsigned long rate,
+-				 unsigned long *prate)
++static int clk_pllv3_determine_rate(struct clk_hw *hw,
++				    struct clk_rate_request *req)
  {
-@@ -454,7 +436,7 @@ static const struct clk_ops clk_scu_ops = {
+-	unsigned long parent_rate = *prate;
++	unsigned long parent_rate = req->best_parent_rate;
  
- static const struct clk_ops clk_scu_cpu_ops = {
- 	.recalc_rate = clk_scu_recalc_rate,
--	.round_rate = clk_scu_round_rate,
-+	.determine_rate = clk_scu_determine_rate,
- 	.set_rate = clk_scu_atf_set_cpu_rate,
- 	.prepare = clk_scu_prepare,
- 	.unprepare = clk_scu_unprepare,
-@@ -462,7 +444,7 @@ static const struct clk_ops clk_scu_cpu_ops = {
- 
- static const struct clk_ops clk_scu_pi_ops = {
- 	.recalc_rate = clk_scu_recalc_rate,
--	.round_rate  = clk_scu_round_rate,
-+	.determine_rate = clk_scu_determine_rate,
- 	.set_rate    = clk_scu_set_rate,
- };
- 
-@@ -766,15 +748,15 @@ static unsigned long clk_gpr_div_scu_recalc_rate(struct clk_hw *hw,
- 	return err ? 0 : rate;
- }
- 
--static long clk_gpr_div_scu_round_rate(struct clk_hw *hw, unsigned long rate,
--				   unsigned long *prate)
-+static int clk_gpr_div_scu_determine_rate(struct clk_hw *hw,
-+					  struct clk_rate_request *req)
- {
--	if (rate < *prate)
--		rate = *prate / 2;
-+	if (req->rate < req->best_parent_rate)
-+		req->rate = req->best_parent_rate / 2;
- 	else
--		rate = *prate;
-+		req->rate = req->best_parent_rate;
- 
--	return rate;
+-	return (rate >= parent_rate * 22) ? parent_rate * 22 :
+-					    parent_rate * 20;
++	req->rate = (req->rate >= parent_rate * 22) ? parent_rate * 22 : parent_rate * 20;
++
 +	return 0;
  }
  
- static int clk_gpr_div_scu_set_rate(struct clk_hw *hw, unsigned long rate,
-@@ -793,7 +775,7 @@ static int clk_gpr_div_scu_set_rate(struct clk_hw *hw, unsigned long rate,
+ static int clk_pllv3_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -152,7 +153,7 @@ static const struct clk_ops clk_pllv3_ops = {
+ 	.unprepare	= clk_pllv3_unprepare,
+ 	.is_prepared	= clk_pllv3_is_prepared,
+ 	.recalc_rate	= clk_pllv3_recalc_rate,
+-	.round_rate	= clk_pllv3_round_rate,
++	.determine_rate = clk_pllv3_determine_rate,
+ 	.set_rate	= clk_pllv3_set_rate,
+ };
  
- static const struct clk_ops clk_gpr_div_scu_ops = {
- 	.recalc_rate = clk_gpr_div_scu_recalc_rate,
--	.round_rate = clk_gpr_div_scu_round_rate,
-+	.determine_rate = clk_gpr_div_scu_determine_rate,
- 	.set_rate = clk_gpr_div_scu_set_rate,
+@@ -165,21 +166,23 @@ static unsigned long clk_pllv3_sys_recalc_rate(struct clk_hw *hw,
+ 	return parent_rate * div / 2;
+ }
+ 
+-static long clk_pllv3_sys_round_rate(struct clk_hw *hw, unsigned long rate,
+-				     unsigned long *prate)
++static int clk_pllv3_sys_determine_rate(struct clk_hw *hw,
++					struct clk_rate_request *req)
+ {
+-	unsigned long parent_rate = *prate;
++	unsigned long parent_rate = req->best_parent_rate;
+ 	unsigned long min_rate = parent_rate * 54 / 2;
+ 	unsigned long max_rate = parent_rate * 108 / 2;
+ 	u32 div;
+ 
+-	if (rate > max_rate)
+-		rate = max_rate;
+-	else if (rate < min_rate)
+-		rate = min_rate;
+-	div = rate * 2 / parent_rate;
++	if (req->rate > max_rate)
++		req->rate = max_rate;
++	else if (req->rate < min_rate)
++		req->rate = min_rate;
++	div = req->rate * 2 / parent_rate;
+ 
+-	return parent_rate * div / 2;
++	req->rate = parent_rate * div / 2;
++
++	return 0;
+ }
+ 
+ static int clk_pllv3_sys_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -207,7 +210,7 @@ static const struct clk_ops clk_pllv3_sys_ops = {
+ 	.unprepare	= clk_pllv3_unprepare,
+ 	.is_prepared	= clk_pllv3_is_prepared,
+ 	.recalc_rate	= clk_pllv3_sys_recalc_rate,
+-	.round_rate	= clk_pllv3_sys_round_rate,
++	.determine_rate = clk_pllv3_sys_determine_rate,
+ 	.set_rate	= clk_pllv3_sys_set_rate,
+ };
+ 
+@@ -226,10 +229,10 @@ static unsigned long clk_pllv3_av_recalc_rate(struct clk_hw *hw,
+ 	return parent_rate * div + (unsigned long)temp64;
+ }
+ 
+-static long clk_pllv3_av_round_rate(struct clk_hw *hw, unsigned long rate,
+-				    unsigned long *prate)
++static int clk_pllv3_av_determine_rate(struct clk_hw *hw,
++				       struct clk_rate_request *req)
+ {
+-	unsigned long parent_rate = *prate;
++	unsigned long parent_rate = req->best_parent_rate;
+ 	unsigned long min_rate = parent_rate * 27;
+ 	unsigned long max_rate = parent_rate * 54;
+ 	u32 div;
+@@ -237,16 +240,16 @@ static long clk_pllv3_av_round_rate(struct clk_hw *hw, unsigned long rate,
+ 	u32 max_mfd = 0x3FFFFFFF;
+ 	u64 temp64;
+ 
+-	if (rate > max_rate)
+-		rate = max_rate;
+-	else if (rate < min_rate)
+-		rate = min_rate;
++	if (req->rate > max_rate)
++		req->rate = max_rate;
++	else if (req->rate < min_rate)
++		req->rate = min_rate;
+ 
+ 	if (parent_rate <= max_mfd)
+ 		mfd = parent_rate;
+ 
+-	div = rate / parent_rate;
+-	temp64 = (u64) (rate - div * parent_rate);
++	div = req->rate / parent_rate;
++	temp64 = (u64) (req->rate - div * parent_rate);
+ 	temp64 *= mfd;
+ 	temp64 = div64_ul(temp64, parent_rate);
+ 	mfn = temp64;
+@@ -255,7 +258,9 @@ static long clk_pllv3_av_round_rate(struct clk_hw *hw, unsigned long rate,
+ 	temp64 *= mfn;
+ 	do_div(temp64, mfd);
+ 
+-	return parent_rate * div + (unsigned long)temp64;
++	req->rate = parent_rate * div + (unsigned long)temp64;
++
++	return 0;
+ }
+ 
+ static int clk_pllv3_av_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -296,7 +301,7 @@ static const struct clk_ops clk_pllv3_av_ops = {
+ 	.unprepare	= clk_pllv3_unprepare,
+ 	.is_prepared	= clk_pllv3_is_prepared,
+ 	.recalc_rate	= clk_pllv3_av_recalc_rate,
+-	.round_rate	= clk_pllv3_av_round_rate,
++	.determine_rate = clk_pllv3_av_determine_rate,
+ 	.set_rate	= clk_pllv3_av_set_rate,
+ };
+ 
+@@ -355,12 +360,15 @@ static unsigned long clk_pllv3_vf610_recalc_rate(struct clk_hw *hw,
+ 	return clk_pllv3_vf610_mf_to_rate(parent_rate, mf);
+ }
+ 
+-static long clk_pllv3_vf610_round_rate(struct clk_hw *hw, unsigned long rate,
+-				    unsigned long *prate)
++static int clk_pllv3_vf610_determine_rate(struct clk_hw *hw,
++					  struct clk_rate_request *req)
+ {
+-	struct clk_pllv3_vf610_mf mf = clk_pllv3_vf610_rate_to_mf(*prate, rate);
++	struct clk_pllv3_vf610_mf mf = clk_pllv3_vf610_rate_to_mf(req->best_parent_rate,
++								  req->rate);
++
++	req->rate = clk_pllv3_vf610_mf_to_rate(req->best_parent_rate, mf);
+ 
+-	return clk_pllv3_vf610_mf_to_rate(*prate, mf);
++	return 0;
+ }
+ 
+ static int clk_pllv3_vf610_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -389,7 +397,7 @@ static const struct clk_ops clk_pllv3_vf610_ops = {
+ 	.unprepare	= clk_pllv3_unprepare,
+ 	.is_prepared	= clk_pllv3_is_prepared,
+ 	.recalc_rate	= clk_pllv3_vf610_recalc_rate,
+-	.round_rate	= clk_pllv3_vf610_round_rate,
++	.determine_rate = clk_pllv3_vf610_determine_rate,
+ 	.set_rate	= clk_pllv3_vf610_set_rate,
  };
  
 
