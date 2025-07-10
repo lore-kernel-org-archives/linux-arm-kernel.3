@@ -4,132 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E90C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65333C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FbtxCizFqVmxij5XWo+R6iw22/lNiJfKJkPmSZ113lM=; b=wtrz0n+0gMwuR0mkfmZL5qYoYT
-	I5h9BBzN1UNJR5SWpHL5OaTKsy5OuZPWBMbyTKnThGMchqRKPokoyGM0LS4jGStNNOIRRJvMHPtKN
-	VaFpJc0f1X4JVrP5XJMnfRhDxTzvluseLVYatqZIvaqcZEoMgorOHkmNaEYBtTM1TjQwXMcQDyYF7
-	/hvgITWGgIJgVy8Xy5teyr5TBnC0baQl2J/nKjTEFm5K++9MP3wQHsNpVyGdLLBzbBYd5td68kEua
-	PmdQPW9m0OaQqdCSpFMtKXxoHBZvGsojRmUmPkLWNOaIAcZY9D/dGeH/89qtwvw3T7fNMFkHzAdVZ
-	nSJoERsw==;
+	bh=D/oWQEudpESa3h5p25FZ2E/peR9srzu3zLywQospGPM=; b=fq83ne/a5sSvv/tV/v3zzNXi4u
+	rCtGNS7ZLYt8QHcG1l581Gwumkb9MbW9gB+K3hInTE7lI5CvVJfJ0Ky/LYrNWrnqjq7pHJTMZ7vvE
+	gfsyJ+J8vqE3M5wZ+ZD+SjuZLept66zryBq7b9qceAj+3U0TlFE0l4D1jjkDv30H7GIUOxM9oNw7P
+	L2guIwHvMWn2hGBBnn3OvdXvWo7+FVDXwfVyWfbblFCwQbmSYfj//Y/95QS+3ky7nPGzi6IiCAtet
+	RsDHTuRC9hJspYLpfKA7HOK3rfAZFyoP5L1jXfYIs7IgnWArjMxDQwAlKckBFo1I8uNUYhVYDWRHz
+	fIxFJb3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZrdU-0000000C0NI-2wjb;
-	Thu, 10 Jul 2025 13:48:28 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uZrfn-0000000C0pU-1rEG;
+	Thu, 10 Jul 2025 13:50:51 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqLu-0000000BlKm-0kDB
+	id 1uZqMd-0000000BlQh-1eal
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 12:26:15 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56A9dOs3002967
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 12:26:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	FbtxCizFqVmxij5XWo+R6iw22/lNiJfKJkPmSZ113lM=; b=NXEEgYd+NswWueGn
-	kf2mUE+Mon8YCT33JJSf3IUKY+Olh1LlhK/jbirwF37334gq2xwKoISTazBhDzbc
-	2jf0GtiCng+vWYoa+5lP+i+2sNVux0VqjycX6naffBY11yn/U/GiGy80suvXD+Kp
-	kUm3VQKes3tTfVGzPTfOozQo0wWqPESkeiof9+y7g7RgSegZ15SJaqUNtBcsCL36
-	Jqr6N6nVO1FHS+dxW/12MeWC89YXJ5BlZI5Pcp5OrJZ3HlqEYJRvNnviBAMlHdXa
-	HNsmoI/u3yfzKsl5BbUf2XJ3BZ2L2k0zw7zpMEA/ZRmYI0QlGKYLgiQgjIn0lLOc
-	1fm1ig==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47pu2bg6ah-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 12:26:12 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4a43924a1bcso2227371cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 05:26:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752150371; x=1752755171;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FbtxCizFqVmxij5XWo+R6iw22/lNiJfKJkPmSZ113lM=;
-        b=SjU1b2qjwIefHCdKk+iDDqHRGlK2E0ia0eZfiMUtkkeI/D77xEARe+liKa/37F24/u
-         6ptnwScVd/c69/CblbbiDG4qHgI1UNxAiujF+0Fte9tOPbWnq4fpJjhVz3IWcURIOhue
-         tlh1L7L8tffZU1VFI1UipJ85/Mejz0Aa651C1fAl+u9yKiQeNA0yOO1usTIBGoC4riBd
-         zj3SK1hsB61h5JC+YS4iWsb0hjdQsOB8reG2sLVrhnRNvqbtXR4YCF4eHTKoRZjFjnA/
-         mZ5OTfCj/glvs+6YGnq5hHE0c0+3YH4JQdkOGjBSgRyp30qOFdunWfTBKkXJwcVXTZpH
-         p4HA==
-X-Forwarded-Encrypted: i=1; AJvYcCXgOTCRGE/V4wjv1pGozCATMTB3D8oRMwSjRQRL4YxFQmIPfDx9poICCcr5o/NQXaIR0IliZwbtEwrVtgQleP9k@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRHJcjkdB0EVAdaw9j2x/ey2G1bIE18z1tXcRfxdhen4DugCGn
-	Pq52wyBrhlhM2sTXFe6hL9fb9n7sqmAH7S6os6pW75F6G2K6gS4NJSny212aHbABZaNYsZPPDRg
-	liWm3y0zDDNmi8H5DBtqtPPP+TT90gcKj8G6q/oYOoUOi6m5epbs9g/R0y5liw3JQAU4DO8ijX2
-	sAvw==
-X-Gm-Gg: ASbGncvgAHTjb/1CD0bkKvmma76xXnvPMrV/qKKqbFwVM1R0w1rWPs1pVT02CcxwBpw
-	U66CjupW4cKq2l+ehSHOPmQWqM/KIM0YLlQkHI7j1jY9Anpdnr8MevE+4YS3Zvt0DViuy3NUjGb
-	NIk7+7XmPx05r1+FL0kPO1F6V6fZBzda0EXTFjc9ZUO6iiIqaALltILaeYMvE1tHZGetXqaKG6A
-	bZfvU8bbd5b03ZxEZmK8WCbb4Gf2R8bdOmkUyOjKCogp9GGofu1sC/YkhtIbuiwa1jxq4ZGh6wt
-	Vnj7lx7vJ4D8XSWWSiBc27kP3ic420ATVXfF7DzleEJxuLaiwsRXXCd94AlHmiDEuDAp0JfwHdP
-	AbS8=
-X-Received: by 2002:a05:622a:148a:b0:4a4:323a:2d76 with SMTP id d75a77b69052e-4a9decf6af5mr34076951cf.10.1752150371444;
-        Thu, 10 Jul 2025 05:26:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF6rD3KBw+n4YbMxLbNBGM2hSLhxtVZ+IZYWVEKjer3BHqjIzVfrtLkflN1y+COvTFzgl5lDA==
-X-Received: by 2002:a05:622a:148a:b0:4a4:323a:2d76 with SMTP id d75a77b69052e-4a9decf6af5mr34076541cf.10.1752150370531;
-        Thu, 10 Jul 2025 05:26:10 -0700 (PDT)
-Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-611c95242e4sm821075a12.26.2025.07.10.05.26.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Jul 2025 05:26:09 -0700 (PDT)
-Message-ID: <1f0debc7-bde0-404b-a395-dc72ca4c82c2@oss.qualcomm.com>
-Date: Thu, 10 Jul 2025 14:26:07 +0200
+	Thu, 10 Jul 2025 12:27:01 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250710122654euoutp024c3ac5b7ed7239ad7c4e3e9cd8d86143~Q44TEbhV21227412274euoutp02Z
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 12:26:54 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250710122654euoutp024c3ac5b7ed7239ad7c4e3e9cd8d86143~Q44TEbhV21227412274euoutp02Z
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1752150414;
+	bh=D/oWQEudpESa3h5p25FZ2E/peR9srzu3zLywQospGPM=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=kuJjdzKFrQrPl6guBdNHnmzta9I3S5ng7rIMZbSj6LmBH1ogtj39zUKoZvvREbeaN
+	 NmbHpEDc5PurEoaRLa3Iau9o2Fc+JVY/L+Ntad4xAfN7AtmK3UhYCEfOLjbJP2rykf
+	 BfkD5LetV4o3GLXom+6g/gBvnr4CIu/8exE01jCU=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250710122654eucas1p20f1179a9ff22d562d89252f924d34dae~Q44Stx9J21669716697eucas1p26;
+	Thu, 10 Jul 2025 12:26:54 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250710122652eusmtip1205fb97fbbf5070e4fbdb96b09b6fb55~Q44RtpbyU1085010850eusmtip1Z;
+	Thu, 10 Jul 2025 12:26:52 +0000 (GMT)
+Message-ID: <212a1a56-08a5-48a5-9e98-23de632168d0@samsung.com>
+Date: Thu, 10 Jul 2025 14:26:52 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/12] pinctrl: qcom: make the pinmuxing strict
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexey Klimov <alexey.klimov@linaro.org>,
-        Lorenzo Bianconi <lorenzo@kernel.org>,
-        Sean Wang <sean.wang@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Paul Cercueil <paul@crapouillou.net>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250709-pinctrl-gpio-pinfuncs-v2-0-b6135149c0d9@linaro.org>
- <20250709-pinctrl-gpio-pinfuncs-v2-12-b6135149c0d9@linaro.org>
+Subject: Re: [PATCH v3 21/24] pmdomain: core: Leave powered-on genpds on
+ until late_initcall_sync
+To: Ulf Hansson <ulf.hansson@linaro.org>, Saravana Kannan
+	<saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>,
+	linux-pm@vger.kernel.org
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Michael Grzeschik
+	<m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, Abel
+	Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, Tomi Valkeinen
+	<tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, Maulik
+	Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>,
+	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding
+	<thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Hiago De
+	Franco <hiago.franco@toradex.com>, Geert Uytterhoeven
+	<geert@linux-m68k.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250709-pinctrl-gpio-pinfuncs-v2-12-b6135149c0d9@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20250701114733.636510-22-ulf.hansson@linaro.org>
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzEwMDEwNiBTYWx0ZWRfX3+niwL7qNwGn
- gIuOlIwuarJHSzimnrVrX2Ut3QbGJcsHElSmgB+yJ8TVxlaPBHTYJ3mvCwetMl043sHblUFhsDF
- EN+zjvZfDgf4mI0Ti91HUIBy5ApZ8C5ferMltFipeIrIManKkIIlM3ABM1p35k9DjNEUSekHCpx
- CG4Z2vdan/JQly2m4m56UiVr4S/qhzAlDZh5TbcX1ZtBj9P8pl1opN/L73UR8pDn2Gy1q2JEq5c
- gGRvU4az0UslYqn9G3nfb2dManYhhI8f4Hk5zK3vik5nTGzYvtYVTJKK17o4wyFggtqU6+AAEtw
- S5WnPDQ+SfBzBaS1gjaBjDdDW8/DP4S262qdIRIi7O/irLOT6APGR8PMdS8vLxPGBPO4itfUkHU
- /nhjnJ9GkVe76a15Y0tNliYp/BQgp/tH2LRJcGrBRRpXKk3iGh2nDKOCFcl21rHOj9CPyi0Y
-X-Proofpoint-ORIG-GUID: PuBEkWoWaiomt5qiJ5XH9Xa7OG5AtNMN
-X-Proofpoint-GUID: PuBEkWoWaiomt5qiJ5XH9Xa7OG5AtNMN
-X-Authority-Analysis: v=2.4 cv=erTfzppX c=1 sm=1 tr=0 ts=686fb164 cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
- a=sOBEMjS50dyNa0exkEgA:9 a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-10_02,2025-07-09_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 clxscore=1015 impostorscore=0 spamscore=0 priorityscore=1501
- mlxlogscore=901 bulkscore=0 adultscore=0 malwarescore=0 phishscore=0
- lowpriorityscore=0 suspectscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507100106
+X-CMS-MailID: 20250710122654eucas1p20f1179a9ff22d562d89252f924d34dae
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250710122654eucas1p20f1179a9ff22d562d89252f924d34dae
+X-EPHeader: CA
+X-CMS-RootMailID: 20250710122654eucas1p20f1179a9ff22d562d89252f924d34dae
+References: <20250701114733.636510-1-ulf.hansson@linaro.org>
+	<20250701114733.636510-22-ulf.hansson@linaro.org>
+	<CGME20250710122654eucas1p20f1179a9ff22d562d89252f924d34dae@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_052614_328841_BB06C96C 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250710_052700_022996_7A5FA404 
+X-CRM114-Status: GOOD (  31.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,19 +96,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/9/25 4:39 PM, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> 
-> The strict flag in struct pinmux_ops disallows the usage of the same pin
-> as a GPIO and for another function. Without it, a rouge user-space
-> process with enough privileges (or even a buggy driver) can request a
-> used pin as GPIO and drive it, potentially confusing devices or even
-> crashing the system. Set it globally for all pinctrl-msm users.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 01.07.2025 13:47, Ulf Hansson wrote:
+> Powering-off a genpd that was on during boot, before all of its consumer
+> devices have been probed, is certainly prone to problems.
+>
+> As a step to improve this situation, let's prevent these genpds from being
+> powered-off until genpd_power_off_unused() gets called, which is a
+> late_initcall_sync().
+>
+> Note that, this still doesn't guarantee that all the consumer devices has
+> been probed before we allow to power-off the genpds. Yet, this should be a
+> step in the right direction.
+>
+> Suggested-by: Saravana Kannan <saravanak@google.com>
+> Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
+> Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xilinx ZynqMP ZCU106
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+
+This change has a side effect on some Exynos based boards, which have 
+display and bootloader is configured to setup a splash screen on it. 
+Since today's linux-next, those boards fails to boot, because of the 
+IOMMU page fault.
+
+This happens because the display controller is enabled and configured to 
+perform the scanout from the spash-screen buffer until the respective 
+driver will reset it in driver probe() function. This however doesn't 
+work with IOMMU, which is being probed earlier than the display 
+controller driver, what in turn causes IOMMU page fault once the IOMMU 
+driver gets attached. This worked before applying this patch, because 
+the power domain of display controller was simply turned off early 
+effectively reseting the display controller.
+
+This has been discussed a bit recently: 
+https://lore.kernel.org/all/544ad69cba52a9b87447e3ac1c7fa8c3@disroot.org/ 
+and I can add a workaround for this issue in the bootloaders of those 
+boards, but this is something that has to be somehow addressed in a 
+generic way.
+
 > ---
+>   drivers/pmdomain/core.c   | 10 ++++++++--
+>   include/linux/pm_domain.h |  1 +
+>   2 files changed, 9 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> index 5cef6de60c72..18951ed6295d 100644
+> --- a/drivers/pmdomain/core.c
+> +++ b/drivers/pmdomain/core.c
+> @@ -931,11 +931,12 @@ static void genpd_power_off(struct generic_pm_domain *genpd, bool one_dev_on,
+>   	 * The domain is already in the "power off" state.
+>   	 * System suspend is in progress.
+>   	 * The domain is configured as always on.
+> +	 * The domain was on at boot and still need to stay on.
+>   	 * The domain has a subdomain being powered on.
+>   	 */
+>   	if (!genpd_status_on(genpd) || genpd->prepared_count > 0 ||
+>   	    genpd_is_always_on(genpd) || genpd_is_rpm_always_on(genpd) ||
+> -	    atomic_read(&genpd->sd_count) > 0)
+> +	    genpd->stay_on || atomic_read(&genpd->sd_count) > 0)
+>   		return;
+>   
+>   	/*
+> @@ -1346,8 +1347,12 @@ static int __init genpd_power_off_unused(void)
+>   	pr_info("genpd: Disabling unused power domains\n");
+>   	mutex_lock(&gpd_list_lock);
+>   
+> -	list_for_each_entry(genpd, &gpd_list, gpd_list_node)
+> +	list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
+> +		genpd_lock(genpd);
+> +		genpd->stay_on = false;
+> +		genpd_unlock(genpd);
+>   		genpd_queue_power_off_work(genpd);
+> +	}
+>   
+>   	mutex_unlock(&gpd_list_lock);
+>   
+> @@ -2352,6 +2357,7 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
+>   	INIT_WORK(&genpd->power_off_work, genpd_power_off_work_fn);
+>   	atomic_set(&genpd->sd_count, 0);
+>   	genpd->status = is_off ? GENPD_STATE_OFF : GENPD_STATE_ON;
+> +	genpd->stay_on = !is_off;
+>   	genpd->sync_state = GENPD_SYNC_STATE_OFF;
+>   	genpd->device_count = 0;
+>   	genpd->provider = NULL;
+> diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
+> index d68e07dadc99..99556589f45e 100644
+> --- a/include/linux/pm_domain.h
+> +++ b/include/linux/pm_domain.h
+> @@ -199,6 +199,7 @@ struct generic_pm_domain {
+>   	unsigned int performance_state;	/* Aggregated max performance state */
+>   	cpumask_var_t cpus;		/* A cpumask of the attached CPUs */
+>   	bool synced_poweroff;		/* A consumer needs a synced poweroff */
+> +	bool stay_on;			/* Stay powered-on during boot. */
+>   	enum genpd_sync_state sync_state; /* How sync_state is managed. */
+>   	int (*power_off)(struct generic_pm_domain *domain);
+>   	int (*power_on)(struct generic_pm_domain *domain);
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
-Konrad
 
