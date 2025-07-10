@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FCBC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 09:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5255C83F1F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 09:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=btaVHXBJUsZY+WA6Dwj9aDIrkiH20xUrs2ycxjXp8J0=; b=mq//NmUwRCP938XjtjR59eFfc6
-	gldKbvNKirawbK2ChPQrVI90tHHcfxlZMU2xCutB1oFjffwGxHuHYWcLrSfYxHSk65pPuXc0ZKrms
-	NhiNk8jtNk/IjTCH79HCkaofaIGAk34yQPmYCqQqLw1+JLATEFlKc0iR251JGb5+Dxi6oKPMlTTpK
-	Jn9ICZR2nr8547GN+H7uY9iokDeNQlvhj3mJtMChKFnc7Sp1dmpLzYNrydnvB0LbnKoKJ8LDG7VwY
-	EjmKC04aWYvYsiXTNAzCRPut/Pg1ov1oMcaPqSFJqDJa5IORALQvp69prqho0HyXhFeQnbepNay0o
-	NPoilX3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8SJqB/gMv2eSoptVryu9D7dFYa3RbWh0OtJVn5Ie6Vs=; b=4EZfjde7p2FLrfVIRYiS91IW0Y
+	Hvh7QCLkO3OAUBwypITNnpJhY4hL7aMGiJUhmnA14QVFoR9jcQdectINTHQcp38Y8uxZOppkkhOdv
+	DBkXBmbZp24u9cjkc41X+Sg4VaOOEwK/4eQdvJvRHkdAipEhpb+Xmbk/5lk4cHdfyeDQQsAsKrnUc
+	TuJqjwZ+ulUMlpX1NeNMJyq+h0fwdEIsJj8GqN9qvcKKQGmoWh3EwkgqLgo/cDQGcKpWdOGOmsJpL
+	IlY+K3yXkj5vKUy+Aht1egZK+LX9+3FCcFXk0Ns5xHmjA+u1ic70+8gqr22rWUaDuSYq/pVCmBGXy
+	phTKElHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZntY-0000000BNsd-2NV9;
-	Thu, 10 Jul 2025 09:48:48 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uZnvr-0000000BOD6-2c3M;
+	Thu, 10 Jul 2025 09:51:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZmaS-0000000BA5K-3NrJ;
-	Thu, 10 Jul 2025 08:25:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752135898;
-	bh=QYXHcCL2Vs79N2X0jF3tLL5lpOOl+YSA52sVaeKfUeo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nHNDQfAm4FeDmZOdE1oe11s+h5sMBYNc0tdZiWYMWI9mZmlLLAAeOtCYpv84T8G23
-	 N76pxcUbeSLEMj18WBcCRtuqn0aVT2ci0KJm2zbHzFWSPQtXGlTlfizXdjUQpDVBS5
-	 tOtdGN5PfPLG91BpFeGC3OF0R2REZN+jlqMyfvHqYDkgfZtwG5mmUPYea6RYJ5JVGt
-	 /tzOQRjw4s8BVLQh8HG615nzBr1lKUuv58pdcik2yQDtAqHdvnPRgONIwMqlaNWRlm
-	 tx1fJLyOrfun38+34jt1wnX/Vz7gLftnCzWczkLlrqxlA/eQ+ZPT/1JrIs5qEn6p7y
-	 8nhEGIS7vXycQ==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:9f5a:8ea0:8d89:78d4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D551517E10D0;
-	Thu, 10 Jul 2025 10:24:57 +0200 (CEST)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	nicolas.dufresne@collabora.com,
-	jgg@ziepe.ca
-Cc: iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH v6 5/5] arm64: defconfig: enable Verisilicon IOMMU
-Date: Thu, 10 Jul 2025 10:24:46 +0200
-Message-ID: <20250710082450.125585-6-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250710082450.125585-1-benjamin.gaignard@collabora.com>
-References: <20250710082450.125585-1-benjamin.gaignard@collabora.com>
+	id 1uZmc1-0000000BAQr-05iM;
+	Thu, 10 Jul 2025 08:26:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 747866147A;
+	Thu, 10 Jul 2025 08:26:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB702C4CEE3;
+	Thu, 10 Jul 2025 08:26:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752135996;
+	bh=TK8f+x9z0S53lsJYOCmb+NOw7ZrgNPDi840QxYH9YA4=;
+	h=From:Date:Subject:To:Cc:From;
+	b=KXpVEzP6hXS6kj7opJHrauBUisSMM9bRMJSC4kCPytimA3WyexB5a1IHacsP5HNsf
+	 booHHtJhW6o+bXFdMMNmDcyRskJfgSzk1P1zbtYilHuMZ/D0NgSfgfIspffRXfPlZl
+	 HtWpQXI3zbSSSFJwKOCXaM4rYFPhq/cTYfw9nT3U3TRd0hFXqA1/A8VDms491mrWN7
+	 5IYuI0urUlQEaEGAeW3DCA7PNrFVFbwnlA0XHuLbtlfK0EZgjY+u/YiPHOYnEKUevo
+	 dO6H2OItbQe+03RVjAiVnnzZ+liE4o9PyMB8dSWwg4NhYtbRVnAaHNMZz875Y42gpH
+	 uF9NjvYLGfzUQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 10 Jul 2025 10:26:19 +0200
+Subject: [PATCH mt76] wifi: mt76: mt7996: Fix mt7996_mcu_bss_mld_tlv
+ routine
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_012501_028418_A0E7B721 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250710-mt7996-mlo-fixes-v3-v1-1-e7595b089f2c@kernel.org>
+X-B4-Tracking: v=1; b=H4sIACp5b2gC/x3LSwqAMAwA0atI1gZaRdt6FXHhJ2rAqrRSBPHuB
+ pePYR6IFJgiNNkDgRJHPnaBzjMY135fCHkSQ6GKShmt0F/GuRr9duDMN0VMJdrK2dEO5GbSIOc
+ Z6G8ytt37frFcVANlAAAA
+X-Change-ID: 20250710-mt7996-mlo-fixes-v3-8598c8be9fe1
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Peter Chiu <chui-hao.chiu@mediatek.com>, 
+ StanleyYP Wang <StanleyYP.Wang@mediatek.com>, 
+ Money Wang <Money.Wang@mediatek.com>, 
+ Howard Hsu <howard-yh.hsu@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: MeiChia Chiu <meichia.chiu@mediatek.com>, 
+ Evelyn Tsai <evelyn.tsai@mediatek.com>, linux-wireless@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Bo Jiao <Bo.Jiao@mediatek.com>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,26 +81,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable Verisilicon IOMMU used by RK3588 AV1 hardware codec.
+Update mt7996_mcu_bss_mld_tlv routine to properly support MLO
+configuring the BSS.
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Fixes: 98686cd21624c ("wifi: mt76: mt7996: add driver for MediaTek Wi-Fi 7 (802.11be) devices")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 42 ++++++++++++++++++++++
+ drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    | 26 ++++++++++----
+ drivers/net/wireless/mediatek/mt76/mt7996/mcu.h    |  3 +-
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  8 +++++
+ 4 files changed, 72 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 7e04a2905ce4..a639388298e7 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1451,6 +1451,7 @@ CONFIG_ARM_SMMU=y
- CONFIG_ARM_SMMU_V3=y
- CONFIG_MTK_IOMMU=y
- CONFIG_QCOM_IOMMU=y
-+CONFIG_VSI_IOMMU=m
- CONFIG_REMOTEPROC=y
- CONFIG_IMX_REMOTEPROC=y
- CONFIG_MTK_SCP=m
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index f846b8309ae2e9c39f9d5f2a21ca1edd89dcdf0c..f2880df17a41c2751f38a666a6bb767aa5008020 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -138,6 +138,28 @@ static int get_omac_idx(enum nl80211_iftype type, u64 mask)
+ 	return -1;
+ }
+ 
++static int get_own_mld_idx(u64 mask, bool group_mld)
++{
++	u8 start = group_mld ? 0 : 16;
++	u8 end = group_mld ? 15 : 63;
++	int idx;
++
++	idx = get_free_idx(mask, start, end);
++	if (idx)
++		return idx - 1;
++
++	/* If the 16-63 range is not available, perform another lookup in the
++	 * range 0-15
++	 */
++	if (!group_mld) {
++		idx = get_free_idx(mask, 0, 15);
++		if (idx)
++			return idx - 1;
++	}
++
++	return -EINVAL;
++}
++
+ static void
+ mt7996_init_bitrate_mask(struct ieee80211_vif *vif, struct mt7996_vif_link *mlink)
+ {
+@@ -289,6 +311,15 @@ int mt7996_vif_link_add(struct mt76_phy *mphy, struct ieee80211_vif *vif,
+ 	if (idx < 0)
+ 		return -ENOSPC;
+ 
++	if (!dev->mld_idx_mask) { /* first link in the group */
++		mvif->mld_group_idx = get_own_mld_idx(dev->mld_idx_mask, true);
++		mvif->mld_remap_idx = get_free_idx(dev->mld_remap_idx_mask,
++						   0, 15);
++	}
++	link->mld_idx = get_own_mld_idx(dev->mld_idx_mask, false);
++	if (link->mld_idx < 0)
++		return -ENOSPC;
++
+ 	link->phy = phy;
+ 	mlink->omac_idx = idx;
+ 	mlink->band_idx = band_idx;
+@@ -301,6 +332,11 @@ int mt7996_vif_link_add(struct mt76_phy *mphy, struct ieee80211_vif *vif,
+ 		return ret;
+ 
+ 	dev->mt76.vif_mask |= BIT_ULL(mlink->idx);
++	if (!dev->mld_idx_mask) {
++		dev->mld_idx_mask |= BIT_ULL(mvif->mld_group_idx);
++		dev->mld_remap_idx_mask |= BIT_ULL(mvif->mld_remap_idx);
++	}
++	dev->mld_idx_mask |= BIT_ULL(link->mld_idx);
+ 	phy->omac_mask |= BIT_ULL(mlink->omac_idx);
+ 
+ 	idx = MT7996_WTBL_RESERVED - mlink->idx;
+@@ -380,7 +416,13 @@ void mt7996_vif_link_remove(struct mt76_phy *mphy, struct ieee80211_vif *vif,
+ 	}
+ 
+ 	dev->mt76.vif_mask &= ~BIT_ULL(mlink->idx);
++	dev->mld_idx_mask &= ~BIT_ULL(link->mld_idx);
+ 	phy->omac_mask &= ~BIT_ULL(mlink->omac_idx);
++	if (!(dev->mld_idx_mask & ~BIT_ULL(mvif->mld_group_idx))) {
++		/* last link */
++		dev->mld_idx_mask &= ~BIT_ULL(mvif->mld_group_idx);
++		dev->mld_remap_idx_mask &= ~BIT_ULL(mvif->mld_remap_idx);
++	}
+ 
+ 	spin_lock_bh(&dev->mt76.sta_poll_lock);
+ 	if (!list_empty(&msta_link->wcid.poll_list))
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+index 0374872db4777cc85eed594f7d977dd822927b6d..5f8701753bcad5b42ca9a0c80fbcda15d4d5f092 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+@@ -902,17 +902,28 @@ mt7996_mcu_bss_txcmd_tlv(struct sk_buff *skb, bool en)
+ }
+ 
+ static void
+-mt7996_mcu_bss_mld_tlv(struct sk_buff *skb, struct mt76_vif_link *mlink)
++mt7996_mcu_bss_mld_tlv(struct sk_buff *skb,
++		       struct ieee80211_bss_conf *link_conf,
++		       struct mt7996_vif_link *link)
+ {
++	struct ieee80211_vif *vif = link_conf->vif;
++	struct mt7996_vif *mvif = (struct mt7996_vif *)vif->drv_priv;
+ 	struct bss_mld_tlv *mld;
+ 	struct tlv *tlv;
+ 
+ 	tlv = mt7996_mcu_add_uni_tlv(skb, UNI_BSS_INFO_MLD, sizeof(*mld));
+-
+ 	mld = (struct bss_mld_tlv *)tlv;
+-	mld->group_mld_id = 0xff;
+-	mld->own_mld_id = mlink->idx;
+-	mld->remap_idx = 0xff;
++	mld->own_mld_id = link->mld_idx;
++	mld->link_id = link_conf->link_id;
++
++	if (ieee80211_vif_is_mld(vif)) {
++		mld->group_mld_id = mvif->mld_group_idx;
++		mld->remap_idx = mvif->mld_remap_idx;
++		memcpy(mld->mac_addr, vif->addr, ETH_ALEN);
++	} else {
++		mld->group_mld_id = 0xff;
++		mld->remap_idx = 0xff;
++	}
+ }
+ 
+ static void
+@@ -1111,6 +1122,8 @@ int mt7996_mcu_add_bss_info(struct mt7996_phy *phy, struct ieee80211_vif *vif,
+ 		goto out;
+ 
+ 	if (enable) {
++		struct mt7996_vif_link *link;
++
+ 		mt7996_mcu_bss_rfch_tlv(skb, phy);
+ 		mt7996_mcu_bss_bmc_tlv(skb, mlink, phy);
+ 		mt7996_mcu_bss_ra_tlv(skb, phy);
+@@ -1121,7 +1134,8 @@ int mt7996_mcu_add_bss_info(struct mt7996_phy *phy, struct ieee80211_vif *vif,
+ 			mt7996_mcu_bss_he_tlv(skb, vif, link_conf, phy);
+ 
+ 		/* this tag is necessary no matter if the vif is MLD */
+-		mt7996_mcu_bss_mld_tlv(skb, mlink);
++		link = container_of(mlink, struct mt7996_vif_link, mt76);
++		mt7996_mcu_bss_mld_tlv(skb, link_conf, link);
+ 	}
+ 
+ 	mt7996_mcu_bss_mbssid_tlv(skb, link_conf, enable);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h
+index 130ea95626d5b1aacf748d572c62307f19681851..7b21d6ae7e43505cb824e00f8b55b0add015a5e5 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h
+@@ -481,7 +481,8 @@ struct bss_mld_tlv {
+ 	u8 own_mld_id;
+ 	u8 mac_addr[ETH_ALEN];
+ 	u8 remap_idx;
+-	u8 __rsv[3];
++	u8 link_id;
++	u8 __rsv[2];
+ } __packed;
+ 
+ struct sta_rec_ht_uni {
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+index 1ad6bc046f7c01d43452252ed46677d42e0c8850..edab23f82a761fad6b7e55543860ed2f6c2873d7 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+@@ -248,11 +248,16 @@ struct mt7996_vif_link {
+ 
+ 	struct ieee80211_tx_queue_params queue_params[IEEE80211_NUM_ACS];
+ 	struct cfg80211_bitrate_mask bitrate_mask;
++
++	u8 mld_idx;
+ };
+ 
+ struct mt7996_vif {
+ 	struct mt7996_vif_link deflink; /* must be first */
+ 	struct mt76_vif_data mt76;
++
++	u8 mld_group_idx;
++	u8 mld_remap_idx;
+ };
+ 
+ /* crash-dump */
+@@ -337,6 +342,9 @@ struct mt7996_dev {
+ 	u32 q_int_mask[MT7996_MAX_QUEUE];
+ 	u32 q_wfdma_mask;
+ 
++	u64 mld_idx_mask;
++	u64 mld_remap_idx_mask;
++
+ 	const struct mt76_bus_ops *bus_ops;
+ 	struct mt7996_phy phy;
+ 
+
+---
+base-commit: e553ac0d7616d6bcd06ed0c5f6126ce83097b31a
+change-id: 20250710-mt7996-mlo-fixes-v3-8598c8be9fe1
+
+Best regards,
 -- 
-2.43.0
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
