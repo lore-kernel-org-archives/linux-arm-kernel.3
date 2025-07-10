@@ -4,98 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB04C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 07:22:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239FBC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 07:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qIGl3ofMZN4YGC3+hkJsdrAC35OHZlbE6ayWuOboDj4=; b=P+PWolDQsuG3gPnhn2IGYI2vKs
-	z2BX1D7WoHJc0W/4Y70AtIfI7CJugTapuQIIazV2S7/ekTsJMvJed+ra6jKZ0xBSIfuVNdlBq9hpt
-	OENmqTb4oAGiwyWoIgA8Mc0bvhnBb3PILUyO0f8TkYYV8qesUHgaD1D9WtJo/5rFyWMNvLtYjEEC2
-	vt6HpAyxPmBTvkTLS+88QKOTD8qfHOLDMXwt7+73u1RG/ow8je8zsszPmCllgRPsIwqaRqAL54FFi
-	ziTEV12cVvThmbmGadtr6DbB4rvxqYf5VpwFgaovl6M8r7PXPH/EUXtFnD+i7kqtCCuqGW+Sc/O0M
-	lf00YW5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uCA1XYApjMEEpODseSN2C0Imh7avIdauzB9lovWH7D8=; b=oQMvznjJrsXI5XgdUZwBce/4Rz
+	KERVfc4ypa5rwvMZod0uXbp9git4Adhj1cO+ObQCDX5K8Ix9cZj83lZEnAKTW64JZpuNKNfjHx5y4
+	oc6CWkADzEVnqFmvH0ibNngfnvfS/ETDZ8LTxIHLiCsGfl+5wl+CdBuYQ0ACKHevaDisFNDfHDVxG
+	tY/I4X04KYbgZ7Ik69ca9tD70QJ7Ly3hEnqTGWMpr0ZKn+OmypQeZtJ90k/LjIUurhx2Rd8eloZ6G
+	0SAwAjv+aTFri4dMyEc0z2KRqigQKhubp8+TlNWo2/buKbIJxGdyoCbaIdj50XALRt6k6ZFfNx82Q
+	BA9oub+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZlc2-0000000AzcK-0ROe;
-	Thu, 10 Jul 2025 07:22:34 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1uZleM-0000000AzxD-3e8h;
+	Thu, 10 Jul 2025 07:24:58 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZkX9-0000000ApVu-0JVZ
+	id 1uZkb5-0000000AqNF-2XM1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 06:13:30 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-453066fad06so3041655e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 23:13:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752128005; x=1752732805; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=qIGl3ofMZN4YGC3+hkJsdrAC35OHZlbE6ayWuOboDj4=;
-        b=w5577d2kaU9yZotRk84BQnbO3oRsSbVyI3fxIV1n6lFz77jA7olfkbpgmHYXANfh5d
-         nFl0I88BfF+gUubhggK1swMede8Neax2GjJ/6WBkqXd8QJsno84pKCFFzg6MnrCF7CbR
-         UomjTX3bj0IMdVOed3j5vKOCdcM1PtAxVqVupvzZLOuLqXJOoavlMeFdl4c9TnMauTKU
-         jaUCnV3AYgHEx7fbtUCMOD4CfnFeD5XWX0yAQyArazfILq5UtM44Cd+KKEq/bONIddGw
-         wtxU2uqRmVK82xXA2vFHwv0UEksnmjsS3YRNsMlK6IBlHuQKwVn4bNtnuhXoO32P+Pwy
-         Oqww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752128005; x=1752732805;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qIGl3ofMZN4YGC3+hkJsdrAC35OHZlbE6ayWuOboDj4=;
-        b=KndHoNXO1IsyapKM9ZxM4VwveSWSo++p4xtBRQ1ZRtbEt+GwJfW9/rwZ3vBozXOVw2
-         rdDrJycV+v6qguUgZU+r/rwjmguFPVtDl4VKLTvyRwIkOyB+DBRBKNMtc8iQgLRpGuW4
-         mw9eRPIeiFOxVJvoQH4F6MGMr06jd6WP+wfF1p62TLHxsfb6G6mo1wq+YVBi2WzXd/Q5
-         8Yf9rhhhEpy1xmHywO1q2KCBc8Ha555LsPXKTYFGXlGGVukKMHXCkHBH3MYXAE465emZ
-         DMGL7tcxWAIDdjho2oQy0C6wjjafT6yUrl165FWiEn3toN2T7QspTosn5w6ZOWFKyrFA
-         kQfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVvRUvZwFUdzzrrHPD7hcto1/Iy2eYc3VyFbqKjzZf7pPe2uAz18uO474koZD/ryEqW7XvPVO4V8X0gL7EW6vJr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFBohVf5c6+H0xRZmcwz1cVw6nu1nB9cMOrJrDqmUoMSrRFyF0
-	wea5FMQymGeuzQ3pqApxfJCqzC99uIRb3h2nsNF2Zs009jo+zx7UdonICHnBmS0brnM=
-X-Gm-Gg: ASbGncuZeHaDZicKBnOn94am5+fNOdngzdeppvtwqB0BdDD56qSLEXAHs8T7nr++8u6
-	f+QAuemm4KcNTYJ7VylmQDmvUmc9s+XZsfTEfno4WfIOpTHLWcTPWX/D5eT/xcQ0K4jd1Fhgkp2
-	9UKFqO1OuNG9EQr9F5uCspV6r2Tbb7JaVnlDnHy505DdZIHEsKWyDknKmTSXzvB01XWfUjIKg5U
-	3+hhIOo9AVJ+OgkBYYRIgs8WCYfwqjd3zqp2sVrdto+d/j5nN9p5vhIjBbuaGf4tf57vgz8B+GJ
-	pyxbgEfguwXfdVamDK7kDRP2jOGU6WF69yeLD+rGCQcDXxkcNFon1B2AGP80BGmJkQ==
-X-Google-Smtp-Source: AGHT+IGiIzBae/Gufxz9lausYNLZM0rhTyqOuwPMyv4+f1cfDIVfKWfit+8EynHpXSbDAsUNoJUfhg==
-X-Received: by 2002:a05:600c:3512:b0:453:78f:fa9f with SMTP id 5b1f17b1804b1-454d52fb600mr47227905e9.11.1752128004704;
-        Wed, 09 Jul 2025 23:13:24 -0700 (PDT)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b5e8bd1741sm928783f8f.18.2025.07.09.23.13.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Jul 2025 23:13:24 -0700 (PDT)
-Message-ID: <e653f4b90422ee9ac09c62292dfb7a2af1f897d0.camel@linaro.org>
-Subject: Re: [PATCH v4 02/32] dt-bindings: clock: samsung,s2mps11: add
- s2mpg10
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Rob
- Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sylwester
- Nawrocki	 <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>,
- Alim Akhtar	 <alim.akhtar@samsung.com>, Michael Turquette
- <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas	 <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Alexandre Belloni	 <alexandre.belloni@bootlin.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
-	 <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rtc@vger.kernel.org
-Date: Thu, 10 Jul 2025 07:13:22 +0100
-In-Reply-To: <20250409-s2mpg10-v4-2-d66d5f39b6bf@linaro.org>
-References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
-	 <20250409-s2mpg10-v4-2-d66d5f39b6bf@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1+build1 
+	Thu, 10 Jul 2025 06:17:33 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56A6HPNa1412531;
+	Thu, 10 Jul 2025 01:17:25 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752128245;
+	bh=uCA1XYApjMEEpODseSN2C0Imh7avIdauzB9lovWH7D8=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=V1Ecq2adzQdiCtJ51W9p8YwStuYvbx3qyLwDUTIblofKbmio3+NITDw44ZxommKjr
+	 mgFPq1+c08aB+jKJwx7+V4BFzEXWS1P4vQ7syTd/8XRuk6EdznkEd+sqqpdnlmmWYE
+	 bZ9Rwuj7amw9RXKC7hCSB3RVvtMpmWzjOsx3lFyU=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56A6HP3T4096293
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 10 Jul 2025 01:17:25 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 10
+ Jul 2025 01:17:25 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 10 Jul 2025 01:17:25 -0500
+Received: from [172.24.227.245] (uda0132425.dhcp.ti.com [172.24.227.245])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56A6HLTl1155423;
+	Thu, 10 Jul 2025 01:17:22 -0500
+Message-ID: <1fcf5d59-02f0-4b99-aeb0-bf555730cefa@ti.com>
+Date: Thu, 10 Jul 2025 11:47:09 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] arm64: dts: ti: Add support for Variscite
+ VAR-SOM-AM62P
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250709220714.85697-1-stefano.radaelli21@gmail.com>
+ <20250709220714.85697-3-stefano.radaelli21@gmail.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20250709220714.85697-3-stefano.radaelli21@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_231327_144922_EE4F226E 
-X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-CacheID: sfid-20250709_231731_736416_7E51928B 
+X-CRM114-Status: UNSURE (   6.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,17 +93,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-04-09 at 21:37 +0100, Andr=C3=A9 Draszik wrote:
-> The Samsung S2MPG10 clock controller is similar to the existing clock
-> controllers supported by this binding. Register offsets / layout are
-> slightly different, so it needs its own compatible.
->=20
-> Acked-by: Stephen Boyd <sboyd@kernel.org>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+[...]
 
-Friendly ping - can this patch be merged please?
+On 10/07/25 03:37, Stefano Radaelli wrote:
+> +&main_pmx0 {
+> +	pinctrl_mmc_pwrseq: main-emmc-pwrseq-pins {
+> +		pinctrl-single,pins = <
+> +			AM62PX_IOPAD(0x00c8, PIN_OUTPUT, 7) /* (AB23) VOUT0_DATA4.GPIO0_49 */
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c2: main-i2c2-default-pins {
+> +		pinctrl-single,pins = <
+> +			AM62PX_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (T22) GPMC0_CSn2.I2C2_SCL */
+> +			AM62PX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (U25) GPMC0_CSn3.I2C2_SDA */
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c3: main-i2c3-default-pins {
+> +		pinctrl-single,pins = <
+> +			AM62PX_IOPAD(0x01d0, PIN_INPUT_PULLUP, 2) /* (A23) UART0_CTSn.I2C3_SCL */
+> +			AM62PX_IOPAD(0x01d4, PIN_INPUT_PULLUP, 2) /* (C22) UART0_RTSn.I2C3_SDA */
+> +		>;
+> +	};
+> +
+> +	pinctrl_mcasp1: main-mcasp1-default-pins {
+> +		pinctrl-single,pins = <
+> +			AM62PX_IOPAD(0x0090, PIN_INPUT, 2) /* (U24) GPMC0_BE0n_CLE.MCASP1_ACLKX */
+> +			AM62PX_IOPAD(0x0098, PIN_INPUT, 2) /* (AA24) GPMC0_WAIT0.MCASP1_AFSX */
+> +			AM62PX_IOPAD(0x008c, PIN_OUTPUT, 2) /* (T25) GPMC0_WEn.MCASP1_AXR0 */
+> +			AM62PX_IOPAD(0x0084, PIN_INPUT, 2) /* (R25) GPMC0_ADVn_ALE.MCASP1_AXR2 */
+> +			AM62PX_IOPAD(0x00a0, PIN_OUTPUT, 1) /* (P24) GPMC0_WPn.AUDIO_EXT_REFCLK1 */
+> +		>;
+> +	};
+> +
+> +	pinctrl_mdio1: main-mdio1-default-pins {
+> +		pinctrl-single,pins = <
+> +			AM62PX_IOPAD(0x0160, PIN_OUTPUT, 0) /* (F17) MDIO0_MDC */
+> +			AM62PX_IOPAD(0x015c, PIN_INPUT, 0) /* (F16) MDIO0_MDIO */
+> +		>;
+> +	};
+> +
+> +	pinctrl_mmc2: main-mmc2-default-pins {
+> +		pinctrl-single,pins = <
+> +			AM62PX_IOPAD(0x0120, PIN_INPUT_PULLUP, 0) /* (K24) MMC2_CMD */
+> +			AM62PX_IOPAD(0x0118, PIN_INPUT_PULLDOWN, 0) /* (K21) MMC2_CLK */
+> +			AM62PX_IOPAD(0x011C, PIN_INPUT_PULLUP, 0) /* () MMC2_CLKLB */
 
-Cheers,
-Andre'
+Lower case for hex digits: 0x11c
+
+> +			AM62PX_IOPAD(0x0114, PIN_INPUT_PULLUP, 0) /* (K23) MMC2_DAT0 */
+> +			AM62PX_IOPAD(0x0110, PIN_INPUT_PULLUP, 0) /* (K22) MMC2_DAT1 */
+> +			AM62PX_IOPAD(0x010c, PIN_INPUT_PULLUP, 0) /* (L20) MMC2_DAT2 */
+> +			AM62PX_IOPAD(0x0108, PIN_INPUT_PULLUP, 0) /* (L21) MMC2_DAT3 */
+> +		>;
+> +	};
+
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
+
 
