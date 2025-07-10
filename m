@@ -4,152 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8D0C83F24
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2E1C83F26
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 20:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e37lSQKt1hx5PQsR5CacpUsq2th6rpfG9r3kIy+fF3Y=; b=AtCdSGYcJ98RXJYZFoF1uxoJH5
-	+lDjdERXZ/5YRJjrF2xZnWBd50YNF0zUOCQidunz8jsvRKlXUSBH5vIwZoIL7+Rrr/8N2KK/xCFSj
-	VZ/pykV7yAxqApQRNRbVw0rd2hO2J0aI7Z3LvvW0z42Ix1dOzBQh7WtZVGbhLMOF0eVmoNpIhBkyd
-	mLAomS7zWTSiH+pWll/601sy/O0cPrYrL5NOrUZvyGgVMSzdWTefo2D8wt25n7EUBxxnxYmBSg6XT
-	mvYMfC8Sk9QEfje1pY2HX1zlV7VNYftc40LXIikWAycNvCImo46+mtBHpfZUETStJWJAyojXP9d1t
-	hEd+0tRg==;
+	bh=5WjCBQU8UQ0XUIRcmNoSpnTdOAfjmbwFZm0h1MPcITI=; b=YluzITvHbU1Ovf2MhJTdA/XEaO
+	MxJbRNf/P6ILtiFyZC2+gofWJCcDmL4hB2CL0Z4FjMEW/AMl5/hgfV0ovWraiYNvLb4GPu2kmBHN4
+	n9oRxo5AOjCMmO4fEpqsoVkXPy+G61Rtl0KnsaBrT9di6Mf/s+OhaOmzwh/j03b4HIpTSdOZ+URIX
+	Z3HBZmVjo292bInmwMSvJOM2GxgEw5T2C0hPMosxQ0AOz40VqvmhJ4TI1CsXCPN7B5UQyONLa2eaF
+	E5SeqtrXej4PFC5u5n5Vho96R6qvUEtA5rWWbXsMJKEk2b34YGpntUdvl4D1K0cX4u9W9KrcwnQaB
+	35y7jGig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZyHo-0000000Cyow-3KZD;
-	Thu, 10 Jul 2025 20:54:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uZyHs-0000000Cys9-11v9;
+	Thu, 10 Jul 2025 20:54:36 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZvJ6-0000000CcNN-1seN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Jul 2025 17:43:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:Date:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=e37lSQKt1hx5PQsR5CacpUsq2th6rpfG9r3kIy+fF3Y=; b=mjBCxlny36IvGaXq7HSAOZv7mh
-	irEW9o7ytYJPltJjT/7I+2U7vElsh+nu469aqT0RFKPMeA9cWovJNdQwhHbkDIPZDNbMj9dLKR+o9
-	jqdnk28xnX3l068uRQWthLdKPu6hJNr1vSOXW9TaFnUXFlzzJ7G6WWSUQg/3eNWMBmmK2gjOmj5D8
-	yMRGHYJGWDP3fRs0I2eqBETD7chxTlWwe1tDBuOfWrio6m+y7cp5AUrejvOzKRtLy1lt6oDTGvuel
-	l9MBZWSeoRdQWYfAERBC8hDJrrb0IQVyhu9yYJUHL1H80DMUZ7R9dLczokZT8JuwtfRegZKp7rStT
-	kABzH0WA==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZvJ2-0000000961K-2b5C
+	id 1uZvO6-0000000Cd2y-1vA9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 17:43:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752169414;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=e37lSQKt1hx5PQsR5CacpUsq2th6rpfG9r3kIy+fF3Y=;
-	b=MxdvLNWCCDxudfCHkneSAo0mkKlPVrzsXXgsZ7dc3gVJHi/N8MqzjIePA3bX1/WYpwBnUN
-	OiibdNOZVJ5w5CTGEi08iRLSh6TSqhpydJSmxHQs/+0MINT0TEH5XIumSqa9EcpdPx+ADL
-	1yY60XJYmskihHQYAYTM9NCZkGpBfMs=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752169414;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=e37lSQKt1hx5PQsR5CacpUsq2th6rpfG9r3kIy+fF3Y=;
-	b=MxdvLNWCCDxudfCHkneSAo0mkKlPVrzsXXgsZ7dc3gVJHi/N8MqzjIePA3bX1/WYpwBnUN
-	OiibdNOZVJ5w5CTGEi08iRLSh6TSqhpydJSmxHQs/+0MINT0TEH5XIumSqa9EcpdPx+ADL
-	1yY60XJYmskihHQYAYTM9NCZkGpBfMs=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-250-iYFh9uyxMvWmxoinTmE-Tg-1; Thu, 10 Jul 2025 13:43:33 -0400
-X-MC-Unique: iYFh9uyxMvWmxoinTmE-Tg-1
-X-Mimecast-MFC-AGG-ID: iYFh9uyxMvWmxoinTmE-Tg_1752169413
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6fab979413fso20156926d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 10:43:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752169413; x=1752774213;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=e37lSQKt1hx5PQsR5CacpUsq2th6rpfG9r3kIy+fF3Y=;
-        b=MvksPZKvfPIAbdBHaChnVkw+9nW5es9PdnxwHhHkZy3HYAdcHlAhDxYd2W3AHTxrx2
-         c/n4RMwSZ6iirdfRh8nfrLhoyOuNgLh/tgTWoj8f7fncTT/DL2KmDTPNW6dr+jZHJlB6
-         YuOldZjQS7iNh1FzXWxlzxhfKlxTT9JMZRaqoOzzx7B5Ju6hXgQHO0Le31bl9TRBkRSk
-         JeXGbnen9RALgUCM8Uc+LZ5RWD0bQCkDPXpkSZhKwxO2j9dKp+SPbAUTYjcKmCbKkXuM
-         BCnGK82iIWVrPxwzd9Ql3DaE0JpKe0QkiGLO+NB/NEPwz1oxg+pfRrygdh3q5hYO1jJr
-         IgrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWWaNgFJrBeIvb1Ohq4WrguBKuSE8ARGdptNdkiHdmzF5buqLnNfiAfrBG0klWUNXD+lvhVVqDHmTe6QF/uTQoS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyXkjGh47I9BF6iJlb2gwuoH2PDjqEQGwPOB//3bJj8OORuM4G
-	Oskhj3OSCauCybEnH4jj4nIGItP/HfQ51z1/F4WPpiviSPmdqhMjPnnQDX4VB8T+N1LMtsSHD6s
-	ETN6u19Mo1/Kmx0nFrY03V2Gl3mk1s1al6Ip5iBnSLF82gcARtsIDabIjSdqtsW3pIc2HeHedQz
-	Yc
-X-Gm-Gg: ASbGncu0YbkWWzaa+Pb8RGdIwsNULkgfWKyB/plJ0ce+o5VQiKkU1xYN6Rlo/RGGbBS
-	9PJQb5mKRIeM4djxFnprEZ6SHjKDfL0PyDpDWW8evd0AEzMZlguX6+nXZuTguYSVJouGw32etH+
-	Zt33xambfscUN3bYwoQglScgot2pIObwJ3FIkPxMTE857Yaa8U/i4TCMDniiSHDC4SEZ7f7jFzp
-	RhIfTSuTB7eHHoF0AT1kgTZCtgzbApaz2y96Cqidqf/00R3dzZMH7nNwJ48dy9W4pruyzla8/WM
-	07CweKJvAxO2RG2377bWTWtVK/DWX+rj8HpBJT40KppHz69Pdzl9i68WV72p
-X-Received: by 2002:a05:6214:5d89:b0:701:775:70b8 with SMTP id 6a1803df08f44-704a3a4449cmr3580646d6.38.1752169412758;
-        Thu, 10 Jul 2025 10:43:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHpu8L3YGRW12uiQDpOxMNgeR30Y84ZsZlrx/wXIc8LbcnhH9LwZm0nYnuoy1dfBl7P78vOQw==
-X-Received: by 2002:a05:6214:5d89:b0:701:775:70b8 with SMTP id 6a1803df08f44-704a3a4449cmr3580236d6.38.1752169412340;
-        Thu, 10 Jul 2025 10:43:32 -0700 (PDT)
-Received: from [192.168.1.3] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70497d71419sm10652876d6.86.2025.07.10.10.43.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 10:43:31 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-Date: Thu, 10 Jul 2025 13:43:06 -0400
-Subject: [PATCH 5/9] drm/pl111: convert from round_rate() to
- determine_rate()
+	Thu, 10 Jul 2025 17:48:51 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 76F4CC0B;
+	Thu, 10 Jul 2025 19:48:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1752169699;
+	bh=AdTSV5ozpv8o4/9bxI6p1gy4ekYAcxlG51qRbTSXMs0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mWgoqNmI0uJYgJ1ThI7K3SBODLXEBApWlXxTY2OWqg0AcSRSnZIpAiGkyCo5rJEGH
+	 83JBzeaGcx3ow+Td+YFbfTXTbcbqrjp/byTCFjWj/P+Ljy7aBNj8sVWNtLBp5cnSI9
+	 /nleBVvo8bG/z/b6PZPKnqVjQOYhC4/GnZg2kUOU=
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: linux-media@vger.kernel.org
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 06/72] ARM: dts: nxp: imx6qdl-wandboard: Replace clock-frequency in camera sensor node
+Date: Thu, 10 Jul 2025 20:47:02 +0300
+Message-ID: <20250710174808.5361-7-laurent.pinchart@ideasonboard.com>
+X-Mailer: git-send-email 2.49.1
+In-Reply-To: <20250710174808.5361-1-laurent.pinchart@ideasonboard.com>
+References: <20250710174808.5361-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-Message-Id: <20250710-drm-clk-round-rate-v1-5-601b9ea384c3@redhat.com>
-References: <20250710-drm-clk-round-rate-v1-0-601b9ea384c3@redhat.com>
-In-Reply-To: <20250710-drm-clk-round-rate-v1-0-601b9ea384c3@redhat.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Rob Clark <robin.clark@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Abhinav Kumar <abhinav.kumar@linux.dev>, 
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
- Marijn Suijten <marijn.suijten@somainline.org>, 
- Yannick Fertre <yannick.fertre@foss.st.com>, 
- Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
- Philippe Cornu <philippe.cornu@foss.st.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Stephen Boyd <sboyd@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-sunxi@lists.linux.dev, Brian Masney <bmasney@redhat.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752169393; l=1663;
- i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=Uzde4F/sfQBVHQNcjDIBT9HB34JjyGuqbe7jNdblqLw=;
- b=0pYUMWvjxgx4WfuoWRCVGEVL5ZYYPMN0neD5N8OcfZKIHag1vghAK3SLtnfFRHjfYafmDTVi+
- fTHFTPespiOCXPSLsOLNifbUMGk0HbP0Ww4Oh/+lSRoq6wnUOICkRwy
-X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
- pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 19NxquQdcSB6A9aJll5SPh7o8pWxqKEIVAG_GaHu4P8_1752169413
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_184337_173063_8E01F558 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20250710_104850_630955_1E1E2B63 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,50 +77,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The round_rate() clk ops is deprecated, so migrate this driver from
-round_rate() to determine_rate() using the Coccinelle semantic patch
-on the cover letter of this series.
+The clock-frequency for camera sensors has been deprecated in favour of
+the assigned-clocks and assigned-clock-rates properties. Replace it in
+the device tree.
 
-Signed-off-by: Brian Masney <bmasney@redhat.com>
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 ---
- drivers/gpu/drm/pl111/pl111_display.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+ arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/pl111/pl111_display.c b/drivers/gpu/drm/pl111/pl111_display.c
-index b9fe926a49e8bb42116ac382010829e333edbf8f..6d567e5c7c6fd559ba369a2761d3c402a14c6fe4 100644
---- a/drivers/gpu/drm/pl111/pl111_display.c
-+++ b/drivers/gpu/drm/pl111/pl111_display.c
-@@ -473,12 +473,15 @@ static int pl111_clk_div_choose_div(struct clk_hw *hw, unsigned long rate,
- 	return best_div;
- }
- 
--static long pl111_clk_div_round_rate(struct clk_hw *hw, unsigned long rate,
--				     unsigned long *prate)
-+static int pl111_clk_div_determine_rate(struct clk_hw *hw,
-+					struct clk_rate_request *req)
- {
--	int div = pl111_clk_div_choose_div(hw, rate, prate, true);
-+	int div = pl111_clk_div_choose_div(hw, req->rate,
-+					   &req->best_parent_rate, true);
- 
--	return DIV_ROUND_UP_ULL(*prate, div);
-+	req->rate = DIV_ROUND_UP_ULL(req->best_parent_rate, div);
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi
+index 26489eccd5fb..e5ac78ffb31c 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi
+@@ -136,8 +136,11 @@ camera@3c {
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_ov5645>;
+ 		reg = <0x3c>;
 +
-+	return 0;
- }
- 
- static unsigned long pl111_clk_div_recalc_rate(struct clk_hw *hw,
-@@ -528,7 +531,7 @@ static int pl111_clk_div_set_rate(struct clk_hw *hw, unsigned long rate,
- 
- static const struct clk_ops pl111_clk_div_ops = {
- 	.recalc_rate = pl111_clk_div_recalc_rate,
--	.round_rate = pl111_clk_div_round_rate,
-+	.determine_rate = pl111_clk_div_determine_rate,
- 	.set_rate = pl111_clk_div_set_rate,
- };
- 
-
+ 		clocks = <&clks IMX6QDL_CLK_CKO2>;
+-		clock-frequency = <24000000>;
++		assigned-clocks = <&clks IMX6QDL_CLK_CKO2>;
++		assigned-clock-rates = <24000000>;
++
+ 		vdddo-supply = <&reg_1p8v>;
+ 		vdda-supply = <&reg_2p8v>;
+ 		vddd-supply = <&reg_1p5v>;
 -- 
-2.50.0
+Regards,
+
+Laurent Pinchart
 
 
