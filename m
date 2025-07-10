@@ -4,159 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80BD8C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 19:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11F5C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 19:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HWVRkHrf5zU7DoxtYe1u38EE3dbybhaF26iF6PRnXUg=; b=EYoyRpXIzhjNkSbJA2rFjhWmZt
-	MpDr6f5i7b3TCeEsD99mo0nLL+ku1lvPtb6vUBnA7SGtk0el1SG8ng8hyhlpHywZGG0dlwOTNcT4R
-	/BoP3XAZx+r/OmpfledNH7yVTTlkEU+RvpbAKUI6hL3toKNg5jZbft8fsGfgTCyXxXdYGvCfwajW+
-	d0mrg4gUeAmIF6pvrw0AS88j6vBVEP0wATPWd1h8w47zkoywgsigVg7/xoGwF6tRIvEwfxEdhXYR2
-	MsLRFBXkSB7FtsDeITLOW+t2XDIe490mDVETgx60mMJtQm99XPkn7OncZ1cAwMtVmkc8eQfIw+chT
-	PfFA5qJw==;
+	bh=PkNHc4KBcCG0prY3Ey7AVtE4PxNCAt+vyrykwc3Hpek=; b=mBQ1qmIXreSAXzvKnkkvLW4KGS
+	ppEhTfrXDW4a3PifhhnvgL+AzkwG4m1Lqjifpeh8M6QR3dYzcMBg6lSSJrUoU3Buk8QtMiiVFbPQw
+	J2ljDXhJT24b5ddPRCIzKynC6qIY1lSuQF8fzK/NvfajnPqtui/uXjrk9gWCJIf+d//Y2S4jBR7Ux
+	vSg6Kf9sZkhiD48x/rH4HYTtqVlaCP0rHEf06Vl1l2dMLCQPnFRkRkpLbQiIc2ooYJaN2DCx/SZeN
+	++2OMy6AjZA4KiMNtoKQBVGWKJEqELmLQlgsBvR+pC66/tf9zT0yes07Sz4Qy2sf7CXn5XFYudgf4
+	ymDjCnaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZx5A-0000000CpTc-1U0f;
-	Thu, 10 Jul 2025 19:37:24 +0000
-Received: from mail-dm6nam12on2061a.outbound.protection.outlook.com ([2a01:111:f403:2417::61a] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1uZx7T-0000000CpjL-20b0;
+	Thu, 10 Jul 2025 19:39:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZup0-0000000CY6z-2GKt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 17:12:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AqMAaGZS6JSFNaF+YFPrf3e2jPNE57RnUVlcIwrARbjyvrjUWe3cUXrzr9yFtmr6XILw4Ef9PAy/waPzSm6sYVWSQPWjTYSlPBTx8FMxUWAaT9E7lGuO94QdbqviW+MdKxM1neb3F9tWKL3HPtjDfv4QkK78yrYJgoHVZt6B3Sul8a3KlXf5KjMPYx1a5Tx6Z4gZ8BCaqFE2vKlF4JpvbNCwAXV74wfV/R6CdXfZkaq6IEjxZDpKkHDf1aYefIGrgNaS+RbYYz20R+OPBcvStYLZxyaWetFazMr8zbiT4vgN+n9ShuPhrC5/qHORuhb8eOuYVMTqMMDScPDZm+FWrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HWVRkHrf5zU7DoxtYe1u38EE3dbybhaF26iF6PRnXUg=;
- b=kGTrHgG5+Lp7lofY0ya9nrvJ0ZlXApCjYypSqoWiaGZeil5SMmB/D3bOTv3jUsXYD0O8ticB28ZQkMI+qQGbUJRoeGsi+U9Nz/h3GlO3m1Bc6gCNgWXy/fgeGjAfm+vtgFu8Kj/rKwtWSSJ9sXqGyPdFQvehESvatwSTL9lDJZ4gbKw06i9p9aao/O5QndlpQMkP5JeyKyGBlrDHClNl10C4FARpe/yjQY4J0pK2UYeiPeMHU4doebdVxZD2xq9EGi8HBTxVwlBSWB9+Me4uJBqEhATxYjHdrjvRAjFrEaLO1SB2cfmHzm0Da6D/Nrd24pDMpo58KkBo1+V/VeeYwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HWVRkHrf5zU7DoxtYe1u38EE3dbybhaF26iF6PRnXUg=;
- b=JGzv22kou/tWuyrkvOdoZUqiQBZfdOj6C0QKPz2K2Qf8jKzQDmTTc7UuE1GzowFLiLpRdvRhefUTF2R+2UuuziFhggOHUB66boyxRheprx2eUpi5T+lUOYfX6dhZt94js296pVg+njy4Aymc2G8oYS9S/Awgj5R9n3iJkNJcFwacVSU/+yv4CqwXcambZj7NtmMNmnjKV5Eg9nlkqVelCfvxfA8d85XXL7LshrsxjpCV364HRJtMuzx+CawT4B4mnNwnOneSvRIvxcdxzPus19ki7YHefaRRzuVnQdm+jtOdtsIOylvdfVnsibNfIcCL9aotXT1ySFGTKQDYrzGZyg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CH3PR12MB8259.namprd12.prod.outlook.com (2603:10b6:610:124::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.28; Thu, 10 Jul
- 2025 17:12:18 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8901.024; Thu, 10 Jul 2025
- 17:12:18 +0000
-Date: Thu, 10 Jul 2025 14:12:16 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
-	corbet@lwn.net, bagasdotme@gmail.com, will@kernel.org,
-	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
-	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
-	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
-	yi.l.liu@intel.com, mshavit@google.com, zhangzekun11@huawei.com,
-	iommu@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	patches@lists.linux.dev, mochs@nvidia.com, alok.a.tiwari@oracle.com,
-	vasant.hegde@amd.com, dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v9 22/29] iommufd/selftest: Update hw_info coverage for
- an input data_type
-Message-ID: <20250710171216.GR1599700@nvidia.com>
-References: <cover.1752126748.git.nicolinc@nvidia.com>
- <f01a1e50cd7366f217cbf192ad0b2b79e0eb89f0.1752126748.git.nicolinc@nvidia.com>
- <aG-fZv39ci6yip3z@google.com>
- <20250710153202.GO1599700@nvidia.com>
- <aG_togvop53dLSZM@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aG_togvop53dLSZM@google.com>
-X-ClientProxiedBy: SJ0PR05CA0036.namprd05.prod.outlook.com
- (2603:10b6:a03:33f::11) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1uZv0E-0000000CZlu-27A0;
+	Thu, 10 Jul 2025 17:24:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B0B9145839;
+	Thu, 10 Jul 2025 17:24:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 900CEC4CEE3;
+	Thu, 10 Jul 2025 17:24:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752168248;
+	bh=bBY6G4CmoJPp3nvoRI7djJMZRFtwE43pIk9xRY4J9pY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p+aamgVi1bu3Jew7vJvGAoNSuEJ00hmNYGeKWpbG+sxZ2RDbfBm8X9GPK7oyw3Rls
+	 J4eUm0PcYhQWqqiQo4INprz4jFsiTZZKPI319APm1YpjCD8GQmXK7mai+eHF8Dq1Xa
+	 1yaABODAZn0QKIllj0+ZhHmG0vQeZeXXvh668ym48rxFmZNGr5j1yrrXZI/MxV5MLQ
+	 6vsm/HAqMyypPUP3B0qSQpwNlmwWF4W+cJ6GUIF3gS21uB3nJtHg4u69o9BMC2LyD5
+	 13s9C7GX+wDKdoJWEPg9ZYAr6Q1XYjAusmXDaNBr/VB2QNor9OKF1kH8IWKblBBRpi
+	 jKZsGVzzqZlKA==
+Date: Thu, 10 Jul 2025 22:53:59 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 3/3] PCI: brcmstb: Enable Broadcom Cable Modem SoCs
+Message-ID: <a2ebnh3hmcbd5zr545cwu7bcbv6xbhvv7qnsjzovqbkar5apak@kviufeyk5ssr>
+References: <20250609221710.10315-1-james.quinlan@broadcom.com>
+ <20250609221710.10315-4-james.quinlan@broadcom.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB8259:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f031938-cbd8-46fe-d5c5-08ddbfd4ecec
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?utvDYeSAiagQTZr/1QKn+0AM2od/M4zSMO12ib6AQiW+QYRSEy1X9mtzpxfg?=
- =?us-ascii?Q?pRJBYKajAzwVUN1QJQ/rIGCNAx+hOuZ88p1N2cYGMebFMg2ksFWNtZqUccyU?=
- =?us-ascii?Q?d7JvjMAPYg7zY1+BaljOPx3TfAoV8MFa5cqL/QgFVtfvbqjgOwEICrXgSANs?=
- =?us-ascii?Q?ZEUjmqOkNtLCOrPklZOiaJr0voHZQjMUK94lsYLJ5kY6DRT6rkUlrh1tH4s/?=
- =?us-ascii?Q?0YmIIieo0EWOo++BiKnfOHiLhAFwMT/Z383XUq2kPC5Ph3E8LYh8+5j2TYAO?=
- =?us-ascii?Q?6szbW787y4m5OkvUb7j5xgj+jnzYLQPHORA9lptz2e4rqttb/zx/Av/qXRsT?=
- =?us-ascii?Q?5IPbr6dxzcV5qf3UFub9uDLLpOKaHKhoGbS1YEb3usdGVyER75PXrNF/Ntmi?=
- =?us-ascii?Q?hv1zdAnxWFycFaOEKbiMr/BNRzIccOSixFNzq7g+NPZQxuTyg9ZKJ2Ra4DKv?=
- =?us-ascii?Q?F0AmfVpvEyK0UqKav5sQRG5Fud1a8WDNbZ+RHM8ttpx47Xx/ODvRxA3G2seE?=
- =?us-ascii?Q?N1jbvwSPZWDQqY3IkN1nZBZ8suL2CvajKlDbndPSmsWJAKE81smZKCgTqilc?=
- =?us-ascii?Q?8hyhBFELYfRg25Zcr3mwpsi4Ky8gb5bxt4CJY+EQeQ9x3u5tixZRcD7nM1sr?=
- =?us-ascii?Q?Rq8241K6dRx4B7icoFsQdFxvDkquRgrkyDOLw6pcXJfs7VNKm9iU0ZDrrNPM?=
- =?us-ascii?Q?ajzr0G5BP4DPkrbrJOtGao+6m7+3xPsBMHL7Q90RxIiPjqYmbr1xeoicyoEd?=
- =?us-ascii?Q?wsSmIPd4BPdHXVySWQT5PoSAggpwVHaDtAgI/serfPK/AqplB1+SZkMQaP7H?=
- =?us-ascii?Q?JtypZK0KbQd5LiciaykEX+T6q2qWrNjAbWoAb9A/bc447Wm9pa/25GU82hc8?=
- =?us-ascii?Q?efwDUY3dDcXi0/bsKW66if0id/3zdbb7URBdIsAMUyjFEOCKgz1K6qR1yJfy?=
- =?us-ascii?Q?roDKhW4zWIZC+MywY82R+gTAMar1T+Ar+dhcU5cdEqm3geqFMmJxctkFWGwu?=
- =?us-ascii?Q?WVjbz0iVLKvxSG7IMetGMG/KgCCsUpsEGD1ozbQI+cEJJqOCfDNFL05S6GBe?=
- =?us-ascii?Q?ojT1b74un3xwCsNAgunf28QLJP5HqfdqW7WVEfgsgnrNXzmi0TiD6L4N+1vH?=
- =?us-ascii?Q?RaJRc8Nicn/3Kod3rKiuKjJdmPjSNcefiz4UsdAjikS3USeQUx9PM3vrFBoS?=
- =?us-ascii?Q?8L+kuYHv8fddRsKJ2l0PgoHQ+/6PcREYwHR7SV960lxAVVspEOIPTFkGbeH2?=
- =?us-ascii?Q?C+ekUHYcs/KTK4/MpXzkz55WNnnCt+GCzRtcbvx5ALFahm8xjb76i2YnjnAe?=
- =?us-ascii?Q?XPa7Xn8OfCV+JYzANgER4fyaWjGe4Nh4ItsMSpNe7vFXokaUJyqdXVXApoCe?=
- =?us-ascii?Q?P68Wo+g4Wh0wNz9TnoBzvbMIf8MLII2KUn9rzi+rZuQCiSkg0wHEcImPTYuP?=
- =?us-ascii?Q?hfmBHlJsLgE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?v4LYNcOjz/a0BpTwbnG+D9qHqMbprHaVpLMirS3zwkFQZgwJRDRokZI+keG0?=
- =?us-ascii?Q?u2OO2gSSG9FLRNK0OC9F5CtwNlbWaFRnuV/EL1Mek+Lhrzu8vrwIa7I5Tf9i?=
- =?us-ascii?Q?QWxKnySN2OlrX1XgP5e5+VDk3jX09dxEHNXUTSOKmhNijye6o3AzOgHOjXIg?=
- =?us-ascii?Q?zc7I18LpftYdJJbarLigAeuSVguCFpJTnjvWQTxOXXWSGYGH1/VSRd4qFTo9?=
- =?us-ascii?Q?DC919JtEc8+G+HgCPFgW8KCbma4G7cGQPH9ZStF1u78A6w52IORfDVGX85dR?=
- =?us-ascii?Q?ReKO7ZlIFGHfKleNMoa5q3OF/7J1jtSLumCmxIQLiFqMU/jMyq6wTGfkyKdL?=
- =?us-ascii?Q?NPg4a0FVp4JKW6dMiiVa6wKDpnDr6SZsBfSLz7Rr0N4uDPSKmQa720Xw+OGk?=
- =?us-ascii?Q?lO85lbrJgQnkIkRe9ZgXKRna/voSEMPYFn3Smac6eoyUBYDV1q0Ma9suNOxg?=
- =?us-ascii?Q?Bn4k3FA3/lUlw5umGZFRGRZKKVkiH/AvU70qViah8WGVCA+SIgA+VG5MOskt?=
- =?us-ascii?Q?wLDPitKW08kS/5rKwS9wwIOcjRQ5t8KntyQ7EM5cBcS7gzbq45vAhPqRelwJ?=
- =?us-ascii?Q?CeV1RJBMORGytUTP65FCVJJMLARZ4BA1HctLMp6Xzts45OBzDR3mue95JIJS?=
- =?us-ascii?Q?6i/pba2NZtpy8YEVp9B0GELb5p/qs8nTf3oazW6ioz9EWKydKXBG1c30JFpG?=
- =?us-ascii?Q?HjIS+uyyeGWbBbaACnBdg9RtzPyIN30YN716UkYzTp1c9MpyHGYvtbo1puN8?=
- =?us-ascii?Q?4RtC6gCAz+EAvdVQ3XaCt+USpURpJRDIErxnL9++KDBy6AC3xwPsQ0bJEX4Q?=
- =?us-ascii?Q?trDcgL2q7oJ72nXOPme9wrdUHf93t0NDDHQkDF/3hOhAfiFnOLdP2O2JrXKf?=
- =?us-ascii?Q?Sd3wKtjHFFgXz7V8Sugl4e6RICI7DUrMziXEYjVJd9FFRmRQ22i7eg5C+SPw?=
- =?us-ascii?Q?zbL+TH+VawAU9ARW5wstEBQF7A9AM4oKb28VLjh2CZdfYfuJxK0hPEs/fECk?=
- =?us-ascii?Q?SdHFnch842UVeQqEu/T5oiHnRB6xcUEaoNdJoz5Nc89dL8OAt2TGCKMqVI5j?=
- =?us-ascii?Q?wSyPTHR+NiuwVnad/2ldfDtUuAG4Shlsxq3C/NcxCVV7IRPCKP0AyMFAxs5A?=
- =?us-ascii?Q?MmKBedtE3eeZr5LaDmKZIb+tV7XVtnG0yYestZ9glPsVcNpXZCs6gxMFYTgC?=
- =?us-ascii?Q?TqFZJFv6R6b6tFQ/D0Jcp8JX5rSuE3xJ98pIeX/m/nS9UiGmNplA+uzqs1oh?=
- =?us-ascii?Q?YthZG0i/hhW9/awx/duT10O//9vVwETlR2JRLkt2AAB2l9d+En0fs70Ld7MC?=
- =?us-ascii?Q?JVGqWH1VYOU60MHmYr0Pk7K8PQWck2fO0t66lgjxVq/A33zfWOKU6GMzfFyC?=
- =?us-ascii?Q?8BC2FQl3xVFnepGaLfxTTnXfQJMBMhYdlxOT5XFwyKGZDtvSHYvrEoV/amSq?=
- =?us-ascii?Q?LnvFnsJsBbXRn1Z/nuElkA+X8D7OJ7i7S5FDCTv4NO/yNYHubi3+94cLqZrD?=
- =?us-ascii?Q?IqYMRRQyBotM5L9enb0XNHPbgL016pxvOEpwk7TmgiBFvtkm9FEzq9y4G+DA?=
- =?us-ascii?Q?UR8eWbRMtvmf1zbCrhZRr8RGjeB6BNSvf8ZXaR9L?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f031938-cbd8-46fe-d5c5-08ddbfd4ecec
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 17:12:18.7491
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FRfyz9ScGuIgD2EN8cF11ns/U2LA6lbLpf3pSAmNwnxm4iwUmu9QC7uZmujlbpcy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8259
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250609221710.10315-4-james.quinlan@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_101234_570978_F5C20D4D 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250710_102410_592231_D34385AA 
+X-CRM114-Status: GOOD (  46.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,17 +77,387 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 04:43:14PM +0000, Pranjal Shrivastava wrote:
-> On Thu, Jul 10, 2025 at 12:32:02PM -0300, Jason Gunthorpe wrote:
-> Alright, this was on the `for-next` branch when the head was at:
-> 3e2a9811f6a9cefd310cc33cab73d5435b4a4caa
-> iommufd: Apply the new iommufd_object_alloc_ucmd helper
+On Mon, Jun 09, 2025 at 06:17:06PM GMT, Jim Quinlan wrote:
+> Broadcom's Cable Modem (CM) group also uses this PCIe driver
+> as it shares the PCIe HW core with the STB group.
 > 
-> But I see that on `for-rc` [1] the fixes are merged.
+> Make the modifications to enable the CM SoCs.
+> 
+> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> ---
+>  drivers/pci/controller/pcie-brcmstb.c | 186 +++++++++++++++++++++-----
+>  1 file changed, 152 insertions(+), 34 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+> index db7872cda960..e25dbcdc56a7 100644
+> --- a/drivers/pci/controller/pcie-brcmstb.c
+> +++ b/drivers/pci/controller/pcie-brcmstb.c
+> @@ -51,6 +51,9 @@
+>  #define PCIE_RC_CFG_PRIV1_ROOT_CAP			0x4f8
+>  #define  PCIE_RC_CFG_PRIV1_ROOT_CAP_L1SS_MODE_MASK	0xf8
+>  
+> +#define PCIE_RC_DL_PDL_CONTROL_4			0x1010
+> +#define  PCIE_RC_DL_PDL_CONTROL_4_NPH_FC_INIT_MASK	0xff000000
 
-Yes, Linus discourages back merging rc without a going forward
-justification, like following patches need the rc patches. Fixes some
-bug is not a justification...
+Could you please use GENMASK()?
 
-Jason
+> +
+>  #define PCIE_RC_DL_MDIO_ADDR				0x1100
+>  #define PCIE_RC_DL_MDIO_WR_DATA				0x1104
+>  #define PCIE_RC_DL_MDIO_RD_DATA				0x1108
+> @@ -60,6 +63,7 @@
+>  #define  PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK	0xff
+>  
+>  #define PCIE_MISC_MISC_CTRL				0x4008
+> +#define  PCIE_MISC_MISC_CTRL_PCIE_IN_CPL_RO_MASK	0x20
+>  #define  PCIE_MISC_MISC_CTRL_PCIE_RCB_64B_MODE_MASK	0x80
+>  #define  PCIE_MISC_MISC_CTRL_PCIE_RCB_MPS_MODE_MASK	0x400
+>  #define  PCIE_MISC_MISC_CTRL_SCB_ACCESS_EN_MASK		0x1000
+> @@ -170,6 +174,7 @@
+>  /* MSI target addresses */
+>  #define BRCM_MSI_TARGET_ADDR_LT_4GB	0x0fffffffcULL
+>  #define BRCM_MSI_TARGET_ADDR_GT_4GB	0xffffffffcULL
+> +#define BRCM_MSI_TARGET_ADDR_FOR_CM	0xfffffffffcULL
+>  
+>  /* MDIO registers */
+>  #define MDIO_PORT0			0x0
+> @@ -223,13 +228,23 @@ enum {
+>  enum pcie_soc_base {
+>  	GENERIC,
+>  	BCM2711,
+> +	BCM3162,
+> +	BCM3392,
+> +	BCM3390,
+>  	BCM4908,
+>  	BCM7278,
+>  	BCM7425,
+>  	BCM7435,
+>  	BCM7712,
+> +	BCM33940,
+>  };
+>  
+> +/*
+> + * BCM3390 CM chip actually conforms to STB design, so it
+> + * is not present in the macro below.
+> + */
+> +#define IS_CM_SOC(t) ((t) == BCM3162 || (t) == BCM33940 || (t) == BCM3392)
+
+TBH, I don't like these soc_base comparisions sprinkled throghout the driver.
+They just make the code messy and it will become a nightmare to maintain if
+these comparisions grow in the future (it already is).
+
+I would rather like to have function specific flags that are set for specific
+SoCs and those flags be used in the code for conditional check instead of the
+soc_base.
+
+It would make it easier to understand what functionalities are supported by each
+SoC and where exactly those functionalities are implemented.
+
+- Mani
+
+> +
+>  struct inbound_win {
+>  	u64 size;
+>  	u64 pci_offset;
+> @@ -757,6 +772,9 @@ static int brcm_pcie_bridge_sw_init_set_generic(struct brcm_pcie *pcie, u32 val)
+>  	u32 shift = RGR1_SW_INIT_1_INIT_GENERIC_SHIFT;
+>  	int ret = 0;
+>  
+> +	if (IS_CM_SOC(pcie->cfg->soc_base))
+> +		return 0;
+> +
+>  	if (pcie->bridge_reset) {
+>  		if (val)
+>  			ret = reset_control_assert(pcie->bridge_reset);
+> @@ -891,13 +909,13 @@ static int brcm_pcie_get_inbound_wins(struct brcm_pcie *pcie,
+>  	struct inbound_win *b = b_begin;
+>  
+>  	/*
+> -	 * STB chips beside 7712 disable the first inbound window default.
+> -	 * Rather being mapped to system memory it is mapped to the
+> -	 * internal registers of the SoC.  This feature is deprecated, has
+> -	 * security considerations, and is not implemented in our modern
+> -	 * SoCs.
+> +	 * STB chips beside CM chips and 7712 disable the first inbound
+> +	 * window default.  Rather being mapped to system memory it is
+> +	 * mapped to the internal registers of the SoC.  This feature is
+> +	 * deprecated, has security considerations, and is not
+> +	 * implemented in our modern SoCs.
+>  	 */
+> -	if (pcie->cfg->soc_base != BCM7712)
+> +	if (pcie->cfg->soc_base != BCM7712 && !IS_CM_SOC(pcie->cfg->soc_base))
+>  		add_inbound_win(b++, &n, 0, 0, 0);
+>  
+>  	resource_list_for_each_entry(entry, &bridge->dma_ranges) {
+> @@ -905,16 +923,32 @@ static int brcm_pcie_get_inbound_wins(struct brcm_pcie *pcie,
+>  		u64 cpu_start = entry->res->start;
+>  
+>  		size = resource_size(entry->res);
+> +
+> +		/*
+> +		 * For BCM3390, single dma-range may map to the SoC
+> +		 * register space in [0xf0000000..0xffffffff].  If present,
+> +		 * this has to be assigned to inbound window #1, as this is
+> +		 * the only one that HW allows to map to register space.
+> +		 * So if we see this range, place it in inbound_wins[1]
+> +		 * which is previously disabled (zeroed out).
+> +		 */
+> +		if (pcie->cfg->soc_base == BCM3390 && cpu_start >= 0xf0000000
+> +		    && cpu_start + size - 1 <= 0xffffffff) {
+> +			add_inbound_win(b_begin, &n, size, cpu_start, pcie_start);
+> +			n--;
+> +			continue;
+> +		}
+> +
+>  		tot_size += size;
+>  		if (pcie_start < lowest_pcie_addr)
+>  			lowest_pcie_addr = pcie_start;
+>  		/*
+> -		 * 7712 and newer chips may have many BARs, with each
+> -		 * offering a non-overlapping viewport to system memory.
+> -		 * That being said, each BARs size must still be a power of
+> -		 * two.
+> +		 * 7712, CM, and newer chips may have many inbound windows,
+> +		 * with each offering a non-overlapping viewport to system
+> +		 * memory.  That being said, each window's size must still
+> +		 * be a power of two.
+>  		 */
+> -		if (pcie->cfg->soc_base == BCM7712)
+> +		if (pcie->cfg->soc_base == BCM7712 || IS_CM_SOC(pcie->cfg->soc_base))
+>  			add_inbound_win(b++, &n, size, cpu_start, pcie_start);
+>  
+>  		if (n > pcie->cfg->num_inbound_wins)
+> @@ -927,11 +961,11 @@ static int brcm_pcie_get_inbound_wins(struct brcm_pcie *pcie,
+>  	}
+>  
+>  	/*
+> -	 * 7712 and newer chips do not have an internal memory mapping system
+> -	 * that enables multiple memory controllers.  As such, it can return
+> -	 * now w/o doing special configuration.
+> +	 * 7712, CM, and newer chips do not have an internal memory
+> +	 * mapping system that enables multiple memory controllers.  As
+> +	 * such, it can return now w/o doing special configuration.
+>  	 */
+> -	if (pcie->cfg->soc_base == BCM7712)
+> +	if (pcie->cfg->soc_base == BCM7712 || IS_CM_SOC(pcie->cfg->soc_base))
+>  		return n;
+>  
+>  	ret = of_property_read_variable_u64_array(pcie->np, "brcm,scb-sizes", pcie->memc_size, 1,
+> @@ -1051,10 +1085,10 @@ static void set_inbound_win_registers(struct brcm_pcie *pcie,
+>  		/*
+>  		 * Most STB chips:
+>  		 *     Do nothing.
+> -		 * 7712:
+> -		 *     All of their BARs need to be set.
+> +		 * 7712, CM:
+> +		 *     All of their inbound windows need to be set.
+>  		 */
+> -		if (pcie->cfg->soc_base == BCM7712) {
+> +		if (pcie->cfg->soc_base == BCM7712 || IS_CM_SOC(pcie->cfg->soc_base)) {
+>  			/* BUS remap register settings */
+>  			reg_offset = brcm_ubus_reg_offset(i);
+>  			tmp = lower_32_bits(cpu_addr) & ~0xfff;
+> @@ -1118,6 +1152,8 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
+>  		burst = 0x0; /* 128 bytes */
+>  	else if (pcie->cfg->soc_base == BCM7278)
+>  		burst = 0x3; /* 512 bytes */
+> +	else if (pcie->cfg->soc_base == BCM3162 || pcie->cfg->soc_base == BCM33940)
+> +		burst = 0x1; /* Encoding: 0=64, 1=128, 2=Rsvd, 3=Rsvd */
+>  	else
+>  		burst = 0x2; /* 512 bytes */
+>  
+> @@ -1144,18 +1180,20 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
+>  		return -EINVAL;
+>  	}
+>  
+> -	tmp = readl(base + PCIE_MISC_MISC_CTRL);
+> -	for (memc = 0; memc < pcie->num_memc; memc++) {
+> -		u32 scb_size_val = ilog2(pcie->memc_size[memc]) - 15;
+> -
+> -		if (memc == 0)
+> -			u32p_replace_bits(&tmp, scb_size_val, SCB_SIZE_MASK(0));
+> -		else if (memc == 1)
+> -			u32p_replace_bits(&tmp, scb_size_val, SCB_SIZE_MASK(1));
+> -		else if (memc == 2)
+> -			u32p_replace_bits(&tmp, scb_size_val, SCB_SIZE_MASK(2));
+> +	if (!IS_CM_SOC(pcie->cfg->soc_base)) {
+> +		tmp = readl(base + PCIE_MISC_MISC_CTRL);
+> +		for (memc = 0; memc < pcie->num_memc; memc++) {
+> +			u32 scb_size_val = ilog2(pcie->memc_size[memc]) - 15;
+> +
+> +			if (memc == 0)
+> +				u32p_replace_bits(&tmp, scb_size_val, SCB_SIZE_MASK(0));
+> +			else if (memc == 1)
+> +				u32p_replace_bits(&tmp, scb_size_val, SCB_SIZE_MASK(1));
+> +			else if (memc == 2)
+> +				u32p_replace_bits(&tmp, scb_size_val, SCB_SIZE_MASK(2));
+> +		}
+> +		writel(tmp, base + PCIE_MISC_MISC_CTRL);
+>  	}
+> -	writel(tmp, base + PCIE_MISC_MISC_CTRL);
+>  
+>  	/*
+>  	 * We ideally want the MSI target address to be located in the 32bit
+> @@ -1164,8 +1202,10 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
+>  	 * 4GB or when the inbound area is smaller than 4GB (taking into
+>  	 * account the rounding-up we're forced to perform).
+>  	 */
+> -	if (inbound_wins[2].pci_offset >= SZ_4G ||
+> -	    (inbound_wins[2].size + inbound_wins[2].pci_offset) < SZ_4G)
+> +	if (IS_CM_SOC(pcie->cfg->soc_base))
+> +		pcie->msi_target_addr = BRCM_MSI_TARGET_ADDR_FOR_CM;
+> +	else if (inbound_wins[2].pci_offset >= SZ_4G ||
+> +		 (inbound_wins[2].size + inbound_wins[2].pci_offset) < SZ_4G)
+>  		pcie->msi_target_addr = BRCM_MSI_TARGET_ADDR_LT_4GB;
+>  	else
+>  		pcie->msi_target_addr = BRCM_MSI_TARGET_ADDR_GT_4GB;
+> @@ -1226,6 +1266,29 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
+>  		PCIE_RC_CFG_VENDOR_VENDOR_SPECIFIC_REG1_ENDIAN_MODE_BAR2_MASK);
+>  	writel(tmp, base + PCIE_RC_CFG_VENDOR_VENDOR_SPECIFIC_REG1);
+>  
+> +	/*
+> +	 * Relax read ordering for chip architectures using RBUS/SCB that
+> +	 * use WiFi Runner offload (i.e. BCM3390) to avoid deadlock where
+> +	 * reads are blocked by writes.
+> +	 */
+> +	if (pcie->cfg->soc_base == BCM3390) {
+> +		tmp = readl(base + PCIE_MISC_MISC_CTRL);
+> +		u32p_replace_bits(&tmp, 1, PCIE_MISC_MISC_CTRL_PCIE_IN_CPL_RO_MASK);
+> +		writel(tmp, base + PCIE_MISC_MISC_CTRL);
+> +	}
+> +
+> +	/*
+> +	 * The 3392 has a bug that requires the NP credit advertised by the
+> +	 * MAC to be overwritten with 0x10 in bits 31:24 of the following
+> +	 * register.
+> +	 */
+> +	if (pcie->cfg->soc_base == BCM3392) {
+> +		tmp = readl(base + PCIE_RC_DL_PDL_CONTROL_4);
+> +		u32p_replace_bits(&tmp, 0x10,
+> +				  PCIE_RC_DL_PDL_CONTROL_4_NPH_FC_INIT_MASK);
+> +		writel(tmp, base + PCIE_RC_DL_PDL_CONTROL_4);
+> +	}
+> +
+>  	if (pcie->cfg->post_setup) {
+>  		ret = pcie->cfg->post_setup(pcie);
+>  		if (ret < 0)
+> @@ -1246,8 +1309,8 @@ static void brcm_extend_rbus_timeout(struct brcm_pcie *pcie)
+>  	const unsigned int REG_OFFSET = PCIE_RGR1_SW_INIT_1(pcie) - 8;
+>  	u32 timeout_us = 4000000; /* 4 seconds, our setting for L1SS */
+>  
+> -	/* 7712 does not have this (RGR1) timer */
+> -	if (pcie->cfg->soc_base == BCM7712)
+> +	/* CM and 7712 do not have this (RGR1) timer */
+> +	if (IS_CM_SOC(pcie->cfg->soc_base) || pcie->cfg->soc_base == BCM7712)
+>  		return;
+>  
+>  	/* Each unit in timeout register is 1/216,000,000 seconds */
+> @@ -1354,7 +1417,10 @@ static int brcm_pcie_start_link(struct brcm_pcie *pcie)
+>  
+>  	brcm_config_clkreq(pcie);
+>  
+> -	if (pcie->ssc) {
+> +	if (IS_CM_SOC(pcie->cfg->soc_base)) {
+> +		/* This driver does configure SSC for CM chips */
+> +		ssc_str = "";
+> +	} else if (pcie->ssc) {
+>  		ret = brcm_pcie_set_ssc(pcie);
+>  		if (ret == 0)
+>  			ssc_str = "(SSC)";
+> @@ -1715,6 +1781,14 @@ static const int pcie_offsets[] = {
+>  	[PCIE_INTR2_CPU_BASE]	= 0x4300,
+>  };
+>  
+> +static const int pcie_offset_bcm3162[] = {
+> +	[RGR1_SW_INIT_1] = 0x9210,
+> +	[EXT_CFG_INDEX] = 0x9000,
+> +	[EXT_CFG_DATA] = 0x9004,
+> +	[PCIE_HARD_DEBUG] = 0x4204,
+> +	[PCIE_INTR2_CPU_BASE] = 0x4300
+> +};
+> +
+>  static const int pcie_offsets_bcm7278[] = {
+>  	[RGR1_SW_INIT_1]	= 0xc010,
+>  	[EXT_CFG_INDEX]		= 0x9000,
+> @@ -1739,6 +1813,14 @@ static const int pcie_offsets_bcm7712[] = {
+>  	[PCIE_INTR2_CPU_BASE]	= 0x4400,
+>  };
+>  
+> +static const int pcie_offset_bcm33940[] = {
+> +	[RGR1_SW_INIT_1] = 0x9210,
+> +	[EXT_CFG_INDEX] = 0x9000,
+> +	[EXT_CFG_DATA] = 0x9004,
+> +	[PCIE_HARD_DEBUG] = 0x4304,
+> +	[PCIE_INTR2_CPU_BASE] = 0x4400
+> +};
+> +
+>  static const struct pcie_cfg_data generic_cfg = {
+>  	.offsets	= pcie_offsets,
+>  	.soc_base	= GENERIC,
+> @@ -1765,6 +1847,30 @@ static const struct pcie_cfg_data bcm2712_cfg = {
+>  	.num_inbound_wins = 10,
+>  };
+>  
+> +static const struct pcie_cfg_data bcm3162_cfg = {
+> +	.offsets	= pcie_offset_bcm3162,
+> +	.soc_base	= BCM3162,
+> +	.perst_set	= brcm_pcie_perst_set_7278,
+> +	.bridge_sw_init_set = brcm_pcie_bridge_sw_init_set_generic,
+> +	.num_inbound_wins = 3,
+> +};
+> +
+> +static const struct pcie_cfg_data bcm3392_cfg = {
+> +	.offsets	= pcie_offset_bcm33940,
+> +	.soc_base	= BCM3392,
+> +	.perst_set	= brcm_pcie_perst_set_7278,
+> +	.bridge_sw_init_set = brcm_pcie_bridge_sw_init_set_generic,
+> +	.num_inbound_wins = 10,
+> +};
+> +
+> +static const struct pcie_cfg_data bcm3390_cfg = {
+> +	.offsets	= pcie_offsets,
+> +	.soc_base	= BCM3390,
+> +	.perst_set	= brcm_pcie_perst_set_generic,
+> +	.bridge_sw_init_set = brcm_pcie_bridge_sw_init_set_generic,
+> +	.num_inbound_wins = 3,
+> +};
+> +
+>  static const struct pcie_cfg_data bcm4908_cfg = {
+>  	.offsets	= pcie_offsets,
+>  	.soc_base	= BCM4908,
+> @@ -1814,9 +1920,20 @@ static const struct pcie_cfg_data bcm7712_cfg = {
+>  	.num_inbound_wins = 10,
+>  };
+>  
+> +static const struct pcie_cfg_data bcm33940_cfg = {
+> +	.offsets	= pcie_offset_bcm33940,
+> +	.soc_base	= BCM33940,
+> +	.perst_set	= brcm_pcie_perst_set_7278,
+> +	.bridge_sw_init_set = brcm_pcie_bridge_sw_init_set_generic,
+> +	.num_inbound_wins = 10,
+> +};
+> +
+>  static const struct of_device_id brcm_pcie_match[] = {
+>  	{ .compatible = "brcm,bcm2711-pcie", .data = &bcm2711_cfg },
+>  	{ .compatible = "brcm,bcm2712-pcie", .data = &bcm2712_cfg },
+> +	{ .compatible = "brcm,bcm3162-pcie", .data = &bcm3162_cfg },
+> +	{ .compatible = "brcm,bcm3390-pcie", .data = &bcm3390_cfg },
+> +	{ .compatible = "brcm,bcm3392-pcie", .data = &bcm3392_cfg },
+>  	{ .compatible = "brcm,bcm4908-pcie", .data = &bcm4908_cfg },
+>  	{ .compatible = "brcm,bcm7211-pcie", .data = &generic_cfg },
+>  	{ .compatible = "brcm,bcm7216-pcie", .data = &bcm7216_cfg },
+> @@ -1825,6 +1942,7 @@ static const struct of_device_id brcm_pcie_match[] = {
+>  	{ .compatible = "brcm,bcm7435-pcie", .data = &bcm7435_cfg },
+>  	{ .compatible = "brcm,bcm7445-pcie", .data = &generic_cfg },
+>  	{ .compatible = "brcm,bcm7712-pcie", .data = &bcm7712_cfg },
+> +	{ .compatible = "brcm,bcm33940-pcie", .data = &bcm33940_cfg },
+>  	{},
+>  };
+>  
+> -- 
+> 2.43.0
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
