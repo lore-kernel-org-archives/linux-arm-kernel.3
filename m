@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E137C83F17
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2562C83F1A
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,59 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u6/MA450py4tjg2eJ53Pnbhg941ft9mkWuJhZ+WS79s=; b=Ej8d9XPchpsJERe9oeF7kVCV1d
-	uSBD9UIxtL6Gybr6JfzY6dvkZv6QMrBm3KypNnZBiE9z8bYWQww33KzJ3yaNMrpuEZ27+GBkoVNbi
-	M2CGVBRDa//aM29x+211a2TZm9ZJQaCtRdJgsOZ/uKV+HVm0pofxpl7v0GtNbR305ILGVtU0w5hSs
-	c8Cx1dx602dQNcCayva3OgPNNeJcTZ0CCGqHluNUFWTgnt9MK/nZNmjyQwUnxoyPjZWysozSPNNom
-	dc4g3WyC/xlVSJpGeMtDEYm44UfMt6yPOmx2Q2p0/CFtyvn3YtQJGsZiZrSYyLNTCEzMTLV4Qamb5
-	I8ztuOyA==;
+	bh=LSolkZmWqoKEZ4Igm2OJFpw3akejzWhjLdzndyZnwec=; b=3jXTFsJZ5rUF6IQEUBxpwUxGxw
+	xevm/1A9ZNibZljkhttt+r7ZtvR7IqxzpKAMxQZRqzRolvdZTUKlms41oNvnNPqNg2KeBhP7AuWjd
+	cbUoJ7Vc4OzgkesCXSOJSCFBjiDaboVXvl2DrHGIhIE33FuTwzhhQJ47cRkKGbiGKsH9ZDDwFzOm9
+	EIEHQcaEYq7IAS+ynCvpxQpIV9DIMVH88t7HoAKiKhSkFXWdUNBqqw3MZn7QENT9sQf/rc5KQIZB0
+	+SSisT9s4V1Pz+dd5uXq28ZgM92Kip50mLEVr8lUDM7+geoLmLMouLPRYOyqLMnbyagSe3hk8M1UE
+	ljyUXA3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2QB-0000000DQ5a-1EZC;
-	Fri, 11 Jul 2025 01:19:27 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ua2QD-0000000DQ9E-3PYy;
+	Fri, 11 Jul 2025 01:19:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZzKg-0000000D7BH-0br6
+	id 1uZzNg-0000000D7VH-0ePL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 22:01:35 +0000
+	Thu, 10 Jul 2025 22:04:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 76628A5483E;
-	Thu, 10 Jul 2025 22:01:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0E02C4CEE3;
-	Thu, 10 Jul 2025 22:01:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8922C43C49;
+	Thu, 10 Jul 2025 22:04:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 426FCC4CEE3;
+	Thu, 10 Jul 2025 22:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752184893;
-	bh=7aAzz1o5S+01R78QDUVFrJ+DlKfEpY+7TzVUQpp1E6I=;
+	s=k20201202; t=1752185079;
+	bh=OEb03LJtTJw0ONEHHTG78Zyys2/QnlVxenFbD3godfo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WTOqF03sSwmZHeR156aYiCot5scR9c+CPH/640u/Iu3vF/A1U1a9FW0MQqOTs1LHD
-	 e4+qzT+l1k3CsdL30DbRG7rxrJhmmdW/h9725uOokiuut1H3s1lR2XG+pFi27cKKvI
-	 D65EEJx2RJC+cJuqDcgR+4UmhWdjQfqkjKGjC2ym0SSOLmoPGrDlXnyiV1MmgBvMZq
-	 sLzdWZ/EjVI+Yufy9dSr4pkKec1LgA/7cqJqlMoMCsgYnGR0+Cw/I/ApJo5G7s96Qp
-	 Ag1Q3zKCqN3Zr614m+Bj/05uy6PS3AqSiCXEC/wUGpbuBl5Yrx81XX6OH5TcpLmWRM
-	 S2yOTOGZnymIA==
-Date: Thu, 10 Jul 2025 17:01:32 -0500
+	b=jU7cErl5Gpt+790hNyABbyqH2l7NZnhgjCIyhAanTgMlvGnvvyvCp8blVM8ICHzeq
+	 ZA9p9vb42SkHA2jT3v6k1Yf8PVWOe77GhdMh33rLlu5WSSjAf6B+zaAAQKzgXqjv6q
+	 rLRrdgWFcwnt5EGN+yc85g3Yv/HPrbCux+ui5apPxf8520+M+rCakCS+PXWXv7jxn2
+	 nHZEkAeaGNK7PppqymaicEi5WqouEZY2AC/B+ASt6KKiAK1XD62ZIa1avctnrQlLOH
+	 SaUxmfzrPaQWM4ZzHtpVCWnFdvJx6++URYrFWwI2pTpqlR2dDdWLyf/pwBNnrtvFDm
+	 RkWsByUc1Vc9Q==
+Date: Thu, 10 Jul 2025 17:04:38 -0500
 From: Rob Herring <robh@kernel.org>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Ioana Ciornei <ioana.ciornei@nxp.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	Shawn Guo <shawnguo@kernel.org>, Michael Walle <mwalle@kernel.org>,
 	Lee Jones <lee@kernel.org>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 1/9] dt-bindings: gpio: add bindings for the QIXIS FPGA
- based GPIO controller
-Message-ID: <20250710220132.GA4038128-robh@kernel.org>
+Subject: Re: [PATCH 2/9] dt-bindings: fsl,fpga-qixis-i2c: extend support to
+ also cover the LX2160ARDB FPGA
+Message-ID: <20250710220438.GA4046565-robh@kernel.org>
 References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
- <20250709112658.1987608-2-ioana.ciornei@nxp.com>
+ <20250709112658.1987608-3-ioana.ciornei@nxp.com>
+ <c8ddfc31-95a5-4879-b392-18b915095b5d@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250709112658.1987608-2-ioana.ciornei@nxp.com>
+In-Reply-To: <c8ddfc31-95a5-4879-b392-18b915095b5d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_150134_254110_7627F344 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20250710_150440_210842_BE671641 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,49 +81,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 02:26:50PM +0300, Ioana Ciornei wrote:
-> Add a device tree binding for the QIXIS FPGA based GPIO controller.
-> Depending on the board, the QIXIS FPGA exposes registers which act as a
-> GPIO controller, each with 8 GPIO lines of fixed direction.
+On Wed, Jul 09, 2025 at 02:17:27PM +0200, Krzysztof Kozlowski wrote:
+> On 09/07/2025 13:26, Ioana Ciornei wrote:
+> > Extend the list of supported compatible strings with fsl,lx2160ardb-fpga.
+> > 
+> > Since the register map exposed by the LX2160ARDB's FPGA also contains
+> > two GPIO controllers, accept the necessary GPIO pattern property. At the
+> > same time, add the #address-cells and #size-cells properties as valid
+> > ones.
+> > 
+> > This is needed because when defining child devices such as the GPIO
+> > controller described in the added example, the child device needs a the
+> > reg property to properly identify its register location.
+> > 
+> > Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+> > ---
+> >  .../bindings/board/fsl,fpga-qixis-i2c.yaml    | 35 +++++++++++++++++++
 > 
-> Since each QIXIS FPGA layout has its particularities, add a separate
-> compatible string for each board/GPIO register combination supported.
+> So here is the board? Why FPGA is in the board...
 
-This could be covered in my proposed trivial gpio schema[1].
-
-
-> 
-> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
-> ---
->  .../bindings/gpio/fsl,fpga-gpio.yaml          | 44 +++++++++++++++++++
->  1 file changed, 44 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml b/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
-> new file mode 100644
-> index 000000000000..dc7b6c0d9b40
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpio/fsl,fpga-gpio.yaml
-> @@ -0,0 +1,44 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/gpio/fsl,fpga-gpio.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: GPIO controller embedded in the NXP QIXIS FPGA
-> +
-> +maintainers:
-> +  - Ioana Ciornei <ioana.ciornei@nxp.com>
-> +
-> +description: |
-> +  This module is part of the QIXIS FPGA found on some Layerscape boards such as
-> +  LX2160ARDB and LS1046AQDS. For more details see
-> +  ../board/fsl,fpga-qixis-i2c.yaml.
-
-Or this is simple enough, just add this as a child node in that schema.
+This directory is for board level custom logic in FPGA, CPLD, etc.
 
 Rob
-
-[1] https://lore.kernel.org/all/20250701225355.2977294-1-robh@kernel.org/
 
