@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B12C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 18:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D89FAC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 18:46:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QqgJo74r0WlqLYuhJtnv7gtY0TWn0mA5ZdqgU3JWC3s=; b=eyi+COtDKXoUo0m1h9HVSfr+3m
-	FKaq2fNwi+q2NnEDnA6gTJaRGQlRlCUop2CYPOugTISFAW0WuErvDfqCgN1nz0VDGKRCaDlydqoIe
-	+z5ax4eGAUwswUPyeX6pH5VzyNHj2PdYxfj4ald10n9Px1DnUYnzH1UWftUznkCcfIAU5CYsNgLSI
-	1NCTxaSeQh51AAk2kKJnapgQX/rxid4n3CMYWsR91ISYSe1UuO39Vv9zbRaidvMBBifZ1NhYhwe4p
-	OxUCLCG2i7bTc7LfVn81FtDIy+t/NNTcQJu8PeB/BV/rGDJbL0W+o+E0sM4hCUfNGqLtdb1SUuvBJ
-	+spGzw9Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SrX0jpsTLwGSB9oK+ETN0s3AYD2g6Vce7gGJ6DvgxDU=; b=h7wDHZZWk5CKDmzWyNZgrZEWSf
+	98ZoeXQIIdUnPsXnj/BbXEoJ6Dvi2GkvWJWt5wSuItKHNItNwHv0LyayQJQv7haDR0tZcbUampvSJ
+	O2K9Ua7bul6L/CRo1J+j7RqlN+W+bCjevSt2GJ+AHUB0nddOnhDFUNh35KK0ZlhwuC6IuZRYJ2d0c
+	nJatluvG7XSudzjMl2OtipLlNk8zqNxxhIK2ugIk4ke/4t7c+QwFqGxTNd2LlS9Ln5LMxiDrjOMYx
+	fvEtsiviuswd0ppkdh8GpGUfBlDH1DxK5kbIJv1ONmdDUEVYgtajvBmuJzUG6u4mvfMZRGs2OnZL1
+	J6oocKWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZwFe-0000000CjVz-1CYX;
-	Thu, 10 Jul 2025 18:44:10 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1uZwHw-0000000Cjr5-44Po;
+	Thu, 10 Jul 2025 18:46:32 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZu7x-0000000CQhb-27Qh
+	id 1uZu84-0000000CQuC-3gCp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 16:28:08 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3b45edf2303so1167787f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 09:28:04 -0700 (PDT)
+	Thu, 10 Jul 2025 16:28:14 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-451dbe494d6so13151485e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 09:28:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752164884; x=1752769684; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QqgJo74r0WlqLYuhJtnv7gtY0TWn0mA5ZdqgU3JWC3s=;
-        b=HL5hQm1ZTYQpfwmptHVKSlX9PxyYEUuB5HCE64+kxhZYagd1XZUddTuB3g5xMenjg0
-         n2vJ6apZCUWQoQStjc/PJgQdF0bfhKp7NdAA2TiKW5lAIXepqeaJmtLpjT9tmRm1e7lx
-         2VLhh4ZfWT9LZxvreBIfBMleHc4ZTDQM+m9u10+oVNriwxbnLYzgCX86StOQXN/Re9JI
-         Sz5Sv8VqIwbnDfXU2Q6+XvzLHroSgKZt8ELso6EV3beuYggKN52GJOPb5m0aW5Vs7YHd
-         8cXM3yiKEPaRRfpY4lBBhgQXGmZZQbUX+7aLUhMP8CunmMoWw9+NwcVSjGbWdOg3B9Tr
-         Af6g==
+        d=gmail.com; s=20230601; t=1752164891; x=1752769691; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SrX0jpsTLwGSB9oK+ETN0s3AYD2g6Vce7gGJ6DvgxDU=;
+        b=lm0KwEeFBJN0fHW+IDKECnh1mGIjLlx0P9i5L8bRoKXKlsQtMQ6sTWcaXj/P/9dJCi
+         TsvBXYa+IWJ/mFsrhJj1nJgvksJuzNRAZs+eo10KBCNScROkkj4YlEZlcHdFOFX9hhhW
+         9QCC9Uj8fZmSt3GRYhLOR++UKipjeUBTayoIxOyUbIlxex737rMcbC0zUpD9D03q3YFN
+         cE2lKH3r999xy0nkq5H9dm6+lkewwrPOuRljk+o4ByfOO5mQeiua90j7sX0vh8jAai2g
+         gtTCnkV04rtQ4JRxrgaRzurSzeQJc9yFb0ufOQpkX/93gLSXcv+5jRthstRotMQOHJlZ
+         v/wA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752164884; x=1752769684;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QqgJo74r0WlqLYuhJtnv7gtY0TWn0mA5ZdqgU3JWC3s=;
-        b=uZbV3aEY6InoPeDFPdQTsS9V1qIQeSoP0Ktp35AdXyI2SHS9cH76pvEqFHLmD5Bdmd
-         lR7QEaw0KGvM2INH5q7bDhcB22xxxtbgmIyPM6a90fKXEshqHJoIU21qoGA1XRfxUCZe
-         w5RFtIK5kQGr+4DCHJqgnhMfKbLa79mQLzQ+13O+3tJeZ8I0sB0xt5rCFHot1Uxdeaa3
-         yxSdN2WmgIKmXuSmSq+56HgDMpZWWtGZRhciw2ffiRaCrLV15uc59jXtOoSwEN1Jd0xS
-         nFWdI3/GZ47N2DkQQh4ArJ7QHU2xaDdV6Gr7dRj1r8HAcgQsMKcCtJUNitU2dpy2J0J1
-         glJw==
-X-Forwarded-Encrypted: i=1; AJvYcCU0nDVbaS8I0uLx1R2I8RDOANlmUh0QOSCjCtppEDaXiCdQX+x8HF3NWQhhS7ALxyxoIt0xou/ntFU20fcvFb7g@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaMFLFNHvu8sIDtVscfXGMNujXoxRKsShLibcOK9AZEMDsNxcT
-	9NAUPdGaYxrgkXADiEDvk2bbQ02d5ut94A8x62++Qa/G+INyGzl4fzx4
-X-Gm-Gg: ASbGnctrbwV6Gm7S7NmRNppoHeYjoOYjJaHWCEui+eZyhZq94dMqOUvjqhpdEF/aNJv
-	uN2GwVs3PIP0KKHppvBR/B9T7sNT2CsijVqIWt6mAemvjWwwElYkzB0Ng1ZUrXGYoA5+N6TVaiZ
-	lsNyl6fNoNjz6xijg+axBdPAGG4nl5tt09BKQoBI5wtgiAn/GLG05RxDQ+ZPoenFhexogt5r8se
-	AMPiEVzctU/IViI6tsaTOP96wzfFrCvHxnhzYIoXcV+/U1DcmuQlw1D2PM2ytDYfuK4HptPOGGx
-	EBLAN3NCQ5RPs+QyowLCyLrV5pq7hwDoOLaK/Eyyb/mCU0pYS7u5tl2UfoQmcp3pHvt4ho1Ur/H
-	OZGb9SHzuFUMabgiyElLTpHk78i4448Z/TeNbLfl1uvw90/PPdkOn1cgY
-X-Google-Smtp-Source: AGHT+IHrtN2JJU7KZ/wvcGRYLftLYCliwG5hu54F4E+Tiy0PBPMifAGYKDrE8/6gfN/VqdB9UfZ4sA==
-X-Received: by 2002:a5d:648c:0:b0:3a6:ec41:b9df with SMTP id ffacd0b85a97d-3b5f18a8282mr144662f8f.49.1752164883400;
-        Thu, 10 Jul 2025 09:28:03 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1752164891; x=1752769691;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SrX0jpsTLwGSB9oK+ETN0s3AYD2g6Vce7gGJ6DvgxDU=;
+        b=dd5xY8HdDD9dHkY5mN5kNiiIAl7ZjkvPxuJ/g5594jrFkZZkcoGfrmad2aw0D9Xuvi
+         2JHSYHG0sFx0Z7hNPHDLce1s/hYoe1bapmD6jxurAQxFwwZjMf+f62YO5NJpiFmfSpsh
+         VW7EjZI5Ifwt/SOxt1ugX8IruQcGYPY0KjcDQQnatYFv+PX7s4v6jQzseOO/ns9TXGXc
+         8SdIOQx9/X95pPEqRDG3fqQ0VRRbg02MVXHq+D/z9WpM6p7Sbp1uk+eo+G1fbfOraoD7
+         LHAB1tOBayC4UW5dmTw04unDWVgqrCUr1BWF7/M0mJ38Red7pI/vTUpGgLctCzVKAG2i
+         cHMA==
+X-Forwarded-Encrypted: i=1; AJvYcCUmiuJ3zyesT8Nh2au2BC6F0xDiP4Xfro+EgAFwZco3F92DtmHqsWSPe4lm7fmgND0fhCn5vApazwwbx2uaN7Uz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyLBPlVD1OJkzdacfTMGo0USzeWpL+ZLdUyBgOgTEFHyXJrwLz
+	B4ZL/0VOt1gOppSvL4Gk4OB9tL14U0ELkVNEZXn3QU3JRTuhcURDcVdV
+X-Gm-Gg: ASbGncsBetRzb9Ubhf/JNAieCCWwVZufwMJq2GNXlEgVfFnAcdv7bvba8Am0IXlM+qx
+	PlXbe21KYXFPcVFgWaayCPXkXqdwRfYpJtTOSErGptYpo6xI5XKosDnfhEhXq+1YM2CQ9pi2skG
+	zyKJtMghW2zYzS6UJWLKLRWadWPqfpooSfiSFS0Vk+CTb+Ffh2AlMEJhGA1oqhX9jpYNVLZn3yR
+	bcDjBxkw9Yl3QbzXA9pkUYWrFmR/ed5oJsjA7t8mRToohkNxVE1kpzF8CA11mKN+W4Vxkc4ROCX
+	ehBB3aZkeCp8dNsGvQRFpm4TEs56N/tlQ3KcVKBnmyxSn4mlj/6l20w96H6FEJc4Wl1ep5YSV2t
+	I3G6WqslVoyvcBbgSGGUwsRePLdmaGujmEqCrUpPGyPBe0g==
+X-Google-Smtp-Source: AGHT+IHfYUJWjLQik9Y+XlQa66TouPxnoB5rs7T/jhXvw5uiN8G0FF4CZRMj9bSEyBlCS/JHOIjkRg==
+X-Received: by 2002:a05:600c:4683:b0:43c:ee3f:2c3 with SMTP id 5b1f17b1804b1-454dd1e7e72mr32290775e9.7.1752164890975;
+        Thu, 10 Jul 2025 09:28:10 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-70-53-177.cust.vodafonedsl.it. [93.70.53.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454d50df125sm60871005e9.19.2025.07.10.09.28.02
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454d50df125sm60871005e9.19.2025.07.10.09.28.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 09:28:03 -0700 (PDT)
+        Thu, 10 Jul 2025 09:28:10 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 To: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -79,15 +80,18 @@ Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 0/3] Add support for Variscite VAR-SOM-AM62P5 and Symphony board
-Date: Thu, 10 Jul 2025 18:27:25 +0200
-Message-ID: <20250710162737.49679-1-stefano.radaelli21@gmail.com>
+Subject: [PATCH v3 1/3] dt-bindings: arm: ti: Add bindings for Variscite VAR-SOM-AM62P
+Date: Thu, 10 Jul 2025 18:27:26 +0200
+Message-ID: <20250710162737.49679-2-stefano.radaelli21@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250710162737.49679-1-stefano.radaelli21@gmail.com>
+References: <20250710162737.49679-1-stefano.radaelli21@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_092805_667035_4F97DAE3 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250710_092812_947942_E71A8A2E 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +106,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the Variscite VAR-SOM-AM62P system on module
-and the Symphony carrier board.
+Add devicetree bindings for Variscite VAR-SOM-AM62P System on Module
+and its carrier boards.
 
-The VAR-SOM-AM62P is a compact SOM based on the TI AM62P Sitara processor,
-featuring up to 8GB DDR4 memory, eMMC storage, Gigabit Ethernet, and various
-peripheral interfaces. The Symphony board is a feature-rich carrier board that
-showcases the SOM capabilities.
+Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+---
+v3:
+ - Change compatible string to match existing mainline format
+v2:
+ - Add symphony carrier board compatible
 
-The series includes:
-- Device tree bindings documentation
-- SOM device tree with common peripherals
-- Symphony carrier board device tree with board-specific features
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-The implementation follows the standard SOM + carrier board pattern where the
-SOM dtsi contains only peripherals mounted on the module, while carrier-specific
-interfaces are enabled in the board dts.
-
-Tested on VAR-SOM-AM62P with Symphony carrier board.
-
-Stefano Radaelli (3):
-  dt-bindings: arm: ti: Add bindings for Variscite VAR-SOM-AM62P
-  arm64: dts: ti: Add support for Variscite VAR-SOM-AM62P
-  arm64: dts: ti: var-som-am62p: Add support for Variscite Symphony
-    Board
-
- .../devicetree/bindings/arm/ti/k3.yaml        |   6 +
- arch/arm64/boot/dts/ti/Makefile               |   1 +
- .../dts/ti/k3-am62p5-var-som-symphony.dts     | 562 ++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 370 ++++++++++++
- 4 files changed, 939 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-
-
-base-commit: d7b8f8e20813f0179d8ef519541a3527e7661d3a
-prerequisite-patch-id: 7e8493f8ed01ee319f827119ffdac7531afbbc4d
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index bf6003d8fb76..d56046e439e9 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -100,6 +100,12 @@ properties:
+           - const: toradex,verdin-am62p          # Verdin AM62P Module
+           - const: ti,am62p5
+ 
++      - description: K3 AM62P5 SoC Variscite SOM and Carrier Boards
++        items:
++          - const: variscite,var-som-am62p-symphony
++          - const: variscite,var-som-am62p
++          - const: ti,am62p5
++
+       - description: K3 AM642 SoC
+         items:
+           - enum:
 -- 
 2.43.0
 
