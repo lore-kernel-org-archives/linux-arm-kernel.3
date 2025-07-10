@@ -4,91 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758DDC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783EFC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9iQH4kxfqf3NCgkxryD8jJxsQEYrTj/jEyun2UwK9nQ=; b=wl5Suw9h1rjNvnbDtTsVa3alLr
-	2N3Z9k0f9boSmOSTv/igA2S2FILqQzDuQxWuede21siFbrl1kQOePycQn7XccHZ9QnpXgGscn8VVK
-	d41U7Hz7ig7ChFq/5mgxUGo9o00APV+e3dz88ArL7VSUaP2LjGqd6FirNU19eQIygQfGfB5yVRxLi
-	GPeaDFnzhcq5bcAcbvY1BW+F5HDajEWxBCP3FVyMx14jEsVctm29xSrbe2oOrVWtn4mASiRHpm8Mc
-	NheI7W3oiZhdqYKXUR8FBeynZWnXWtu41nsv47pB23nK260gZgEKbLbJspzAcKxnlJ8RgDNzqiFOx
-	bsCXPDkQ==;
+	bh=u4Tq3scUpnXWO/DVpVF9Idyyk+REJ8px2ZiznNQ7Yk0=; b=nkAavgERQ5ggh29Y/LpiS4sPKN
+	5xEfVzrWlheTu3yhVWXd85Abp1EhoPH5wSnnt0DHx7zCvxPh34dsTsyVYeaxa0uxQAMIo5A6gG8Iz
+	hk7QQ1tibESbj00neXiXUwCJVloswWdH91x/tNptUjdIlrCz0sJXa2jVjlZ36NAj3Nh4bHZXxNjQk
+	w6aF+F9sEQEkOMFVM6wGGodnXfJtCOogvUzoxBJ+/eo4iMpeyPtCqzu9sPxJVor/UIptxTkVuSclZ
+	vgLORwRsBmcYT4H3H7FozRD5hOGK9Xdh/erXcQjLzQLSXi/npM6g4flqPFGJuPUuPHwRTN5SMgDvK
+	G8J+TXTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZu6Q-0000000CORq-0mUJ;
-	Thu, 10 Jul 2025 16:26:30 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1uZu6F-0000000COGO-1wmf;
+	Thu, 10 Jul 2025 16:26:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZrb2-0000000Bzgr-4BWy
+	id 1uZrUZ-0000000By8X-1DC8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 13:45:58 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0AA094444B;
-	Thu, 10 Jul 2025 13:45:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752155155;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9iQH4kxfqf3NCgkxryD8jJxsQEYrTj/jEyun2UwK9nQ=;
-	b=hEvi+WENEyL4ZTb8MYA3imIN91ehDc9r1FOclW/VrvrHAxI7st9hm/xWhQh3WbMpEMdLHa
-	7nQhHVdtryy/NXVL841ALrHpNuUrLy4CnbKsmtOzkWieQGtY1O0tvzeeTJ9jT39wN9HZFH
-	goZDxA8dU0iCbJuujqoF/i/rAsgmYk47KsbfBx8Fpx4kCAFjqHYEE+TkdPmHjt7jKjHY3T
-	i/m2VHNSSPThEtalB3hjQi7c6Mxys/eIu1WKT9OqXMIaXxj/OT8SbnN4lpdhedw4nw1G4/
-	bx+Y9ZTIeeG3JgZnEZGzytQJaNakwDRELMK9ZKXlDaEiNU7C1WbVG68Ylv28jA==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v8 10/15] net: phy: marvell10g: Support SFP through phy_port
-Date: Thu, 10 Jul 2025 15:45:27 +0200
-Message-ID: <20250710134533.596123-11-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250710134533.596123-1-maxime.chevallier@bootlin.com>
-References: <20250710134533.596123-1-maxime.chevallier@bootlin.com>
+	Thu, 10 Jul 2025 13:39:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CCC285C6DE9;
+	Thu, 10 Jul 2025 13:39:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AC4FC4CEF5;
+	Thu, 10 Jul 2025 13:39:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752154754;
+	bh=YQdwk+nwrhWvKLulB1RJTKIbZBtmKge6faGHHd32MDA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=O27mFJl4N/biYMr4XukfOgHtWuAJqWiwYbAWrGNsWEcu5rHq85gKAH2Z518h3yk5k
+	 7SbWdO4x/oLJXJB2tJrVYJv7DU+NT4WQfCb0bdLzvsizq4rQkoC5oZA8glMTF+tyKc
+	 /3aneAY7NTTjw2wtfWHHKL9TqnwnXx7exlGs2M6+v9oHAq8wGWK2aTESatzrmoC3oy
+	 7JZmoZMtA0kN9Xxrn5zL06XCQBppIXYE7tjr550PbG/bVj+PWMBBqXnk7C7AM0WW+o
+	 kHjTu1Mp6nyL6YUOyin/kSUdWME6k6INsWwiLN07AZB8WvWzENVE+9M8goVeNan5fg
+	 Qy8H+V5h0DVIw==
+Message-ID: <6656b2f0-5258-4f23-8988-567a7b598497@kernel.org>
+Date: Thu, 10 Jul 2025 15:39:10 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdegtdehlecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpeejnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkv
- ghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: ti: Add bindings for Variscite
+ VAR-SOM-AM62P
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+References: <20250709220714.85697-1-stefano.radaelli21@gmail.com>
+ <20250709220714.85697-2-stefano.radaelli21@gmail.com>
+ <9b503f65-5c8c-4f04-a1b1-40d7a1202e8b@kernel.org>
+ <CAK+owohgk3CkQRv_PBDWXh44X2uN3p8FWBU2t9VtmO-xzOKTow@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAK+owohgk3CkQRv_PBDWXh44X2uN3p8FWBU2t9VtmO-xzOKTow@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_064557_180972_3860E541 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20250710_063915_410402_44135F6F 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,177 +123,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Marvell10G driver to use the generic SFP handling, through a
-dedicated .attach_port() handler to populate the port's supported
-interfaces.
+On 10/07/2025 11:21, Stefano Radaelli wrote:
+> Hi Krzysztof,
+> 
+> Thank you for your suggestion. Actually, our compatible strings for
+> Variscite SOMs follow the format "som-factor"-"processor". Here are
+> some examples:
 
-As the 88x3310 supports multiple MDI, the .attach_port() logic handles
-both SFP attach with 10GBaseR support, and support for the "regular"
-port that usually is a BaseT port.
+Then why do you define it reversed here? How this som-factor-processor
+is an argument to my request to use som-factor-processor?
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/phy/marvell10g.c | 47 +++++++++++++++++++-----------------
- drivers/net/phy/phy_port.c   | 20 +++++++++++++++
- include/linux/phy_port.h     |  1 +
- 3 files changed, 46 insertions(+), 22 deletions(-)
+> 
+> https://github.com/varigit/linux-imx/blob/lf-6.6.y_6.6.52-2.2.0_var01/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi#L14
+> https://github.com/varigit/linux-imx/blob/lf-6.6.y_6.6.52-2.2.0_var01/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi#L15
+> https://github.com/varigit/linux-imx/blob/lf-6.6.y_6.6.52-2.2.0_var01/arch/arm64/boot/dts/freescale/imx91-var-som.dtsi#L14
+> 
+> These strings are used in our Yocto filesystem for WiFi management and
+> other applications. Changing them would require updating the entire
 
-diff --git a/drivers/net/phy/marvell10g.c b/drivers/net/phy/marvell10g.c
-index 13e81dff42c1..7cb638804a3f 100644
---- a/drivers/net/phy/marvell10g.c
-+++ b/drivers/net/phy/marvell10g.c
-@@ -28,7 +28,7 @@
- #include <linux/hwmon.h>
- #include <linux/marvell_phy.h>
- #include <linux/phy.h>
--#include <linux/sfp.h>
-+#include <linux/phy_port.h>
- #include <linux/netdevice.h>
- 
- #define MV_PHY_ALASKA_NBT_QUIRK_MASK	0xfffffffe
-@@ -463,36 +463,31 @@ static int mv3310_set_edpd(struct phy_device *phydev, u16 edpd)
- 	return err;
- }
- 
--static int mv3310_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
-+static int mv3310_attach_port(struct phy_device *phydev, struct phy_port *port)
- {
--	struct phy_device *phydev = upstream;
--	__ETHTOOL_DECLARE_LINK_MODE_MASK(support) = { 0, };
--	DECLARE_PHY_INTERFACE_MASK(interfaces);
--	phy_interface_t iface;
--
--	sfp_parse_support(phydev->sfp_bus, id, support, interfaces);
--	iface = sfp_select_interface(phydev->sfp_bus, support);
--
--	if (iface != PHY_INTERFACE_MODE_10GBASER) {
--		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
--		return -EINVAL;
-+	if (port->is_mii) {
-+		__set_bit(PHY_INTERFACE_MODE_10GBASER, port->interfaces);
-+	} else if (port->not_described) {
-+		/* This PHY can do combo-ports, i.e. 2 MDI outputs, usually one
-+		 * of them going to an SFP and the other one to a RJ45
-+		 * connector. If we don't have any representation for the port
-+		 * in DT, and we are dealing with a non-SFP port, then we
-+		 * mask the port's capabilities to report BaseT-only modes
-+		 */
-+		port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASET);
-+
-+		phy_port_filter_supported(port);
- 	}
-+
- 	return 0;
- }
- 
--static const struct sfp_upstream_ops mv3310_sfp_ops = {
--	.attach = phy_sfp_attach,
--	.detach = phy_sfp_detach,
--	.connect_phy = phy_sfp_connect_phy,
--	.disconnect_phy = phy_sfp_disconnect_phy,
--	.module_insert = mv3310_sfp_insert,
--};
--
- static int mv3310_probe(struct phy_device *phydev)
- {
- 	const struct mv3310_chip *chip = to_mv3310_chip(phydev);
- 	struct mv3310_priv *priv;
- 	u32 mmd_mask = MDIO_DEVS_PMAPMD | MDIO_DEVS_AN;
-+	DECLARE_PHY_INTERFACE_MASK(interfaces);
- 	int ret;
- 
- 	if (!phydev->is_c45 ||
-@@ -543,9 +538,13 @@ static int mv3310_probe(struct phy_device *phydev)
- 	if (ret)
- 		return ret;
- 
-+	__set_bit(PHY_INTERFACE_MODE_10GBASER, interfaces);
-+
- 	chip->init_supported_interfaces(priv->supported_interfaces);
- 
--	return phy_sfp_probe(phydev, &mv3310_sfp_ops);
-+	phydev->max_n_ports = 2;
-+
-+	return 0;
- }
- 
- static void mv3310_remove(struct phy_device *phydev)
-@@ -1406,6 +1405,7 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_loopback	= genphy_c45_loopback,
- 		.get_wol	= mv3110_get_wol,
- 		.set_wol	= mv3110_set_wol,
-+		.attach_port	= mv3310_attach_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88X3310,
-@@ -1425,6 +1425,7 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_tunable	= mv3310_set_tunable,
- 		.remove		= mv3310_remove,
- 		.set_loopback	= genphy_c45_loopback,
-+		.attach_port	= mv3310_attach_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88E2110,
-@@ -1445,6 +1446,7 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_loopback	= genphy_c45_loopback,
- 		.get_wol	= mv3110_get_wol,
- 		.set_wol	= mv3110_set_wol,
-+		.attach_port	= mv3310_attach_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88E2110,
-@@ -1463,6 +1465,7 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_tunable	= mv3310_set_tunable,
- 		.remove		= mv3310_remove,
- 		.set_loopback	= genphy_c45_loopback,
-+		.attach_port	= mv3310_attach_port,
- 	},
- };
- 
-diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
-index 36de8c5c9ad5..cd7ace64ed4b 100644
---- a/drivers/net/phy/phy_port.c
-+++ b/drivers/net/phy/phy_port.c
-@@ -131,6 +131,26 @@ void phy_port_update_supported(struct phy_port *port)
- }
- EXPORT_SYMBOL_GPL(phy_port_update_supported);
- 
-+/**
-+ * phy_port_filter_supported() - Make sure that port->supported match port->mediums
-+ * @port: The port to filter
-+ *
-+ * After updating a port's mediums to a more restricted subset, this helper will
-+ * make sure that port->supported only contains linkmodes that are compatible
-+ * with port->mediums.
-+ */
-+void phy_port_filter_supported(struct phy_port *port)
-+{
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported) = { 0 };
-+	int i;
-+
-+	for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST)
-+		phy_caps_medium_get_supported(supported, i, port->lanes);
-+
-+	linkmode_and(port->supported, port->supported, supported);
-+}
-+EXPORT_SYMBOL_GPL(phy_port_filter_supported);
-+
- /**
-  * phy_port_get_type() - get the PORT_* attribut for that port.
-  * @port: The port we want the information from
-diff --git a/include/linux/phy_port.h b/include/linux/phy_port.h
-index f47ac5f5ef9e..ce735d81bcd0 100644
---- a/include/linux/phy_port.h
-+++ b/include/linux/phy_port.h
-@@ -90,6 +90,7 @@ static inline bool phy_port_is_fiber(struct phy_port *port)
- }
- 
- void phy_port_update_supported(struct phy_port *port);
-+void phy_port_filter_supported(struct phy_port *port);
- 
- int phy_port_get_type(struct phy_port *port);
- 
--- 
-2.49.0
+I did not ask about these. We talk here about this compatible.
 
+I asked to reply with mailing list style already. Why are you still
+top-posting? It makes the discussion difficult.
+
+https://people.kernel.org/tglx/notes-about-netiquette
+
+Best regards,
+Krzysztof
 
