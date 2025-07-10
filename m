@@ -4,209 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A2BC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342EBC83F09
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Subject:References:In-Reply-To:
-	Message-ID:CC:To:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aqxSTeGUHubH9RxPvXQxf2Bef9n1lFFVG57Wk9BlCDU=; b=tW4arob2H2YNjX
-	oMSIgR6NSo2BRi7mTcYBZWRvz/1QXD+Mtwo7gQJWI/zibtOLsxhQjA9I5Htg3uYJIINHME6RPmy78
-	Su+H6zg150xzRrA2ezaexDEItmOTi8c7lOljSE7gUSVpAm8j8PokEBCwFrkIngf0YPf7OMsBo0T7N
-	Bljp5Hi1Nz89RgwEMIC2b/VMSRAhrQlpsBH14ig4UbRgp+1PaHzfiiOhVXr9KBu5GT+vX+/UNSv2S
-	fZbQDW6GIFfLulPIS27YiZTlwE6ednW9taq9YK+8eRR/BV1ZJpJdUxau2E7X1ediF1i0vs2uhFhKJ
-	6HhIPKBJneUGfvrQgQGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CceeV7J/K+B1j1BDTYnc8IYXP16jroD6AWzd6NMmE60=; b=1ElYtzNNcBK6+9XVEnfO3yTBlj
+	wOircwkAz1RWspYBpgus7JCSJFArDnYFNyDag/GHt3yMeQCIMrH3E4At5nIcb7PMO8voX6U5U5kvp
+	401wzMtAN30Cwz4cl7OIXL8afgLd1uNl1xpJUHtzWhZ0tss6jiWLBwGB30rXfr4JJwdnfmjG2VYzU
+	N2j0jRpygc+mxGgrkyug7VjYyxuzpnWN5JNXVCRf87iCyjY9cVBofqPgT1KItod0b4P/agF5Yae16
+	B8ybH8yxRVNoNU0Kv9GLZTah0g42MVq57iPVloH7gLCVPTt+2REE8c6Zg9H0rq4uNR6mBt5foCM1e
+	eTrWXoDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZjn7-0000000Aich-1IBU;
-	Thu, 10 Jul 2025 05:25:53 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1uZjpO-0000000AimH-462v;
+	Thu, 10 Jul 2025 05:28:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZjkl-0000000AiPR-2rBL
+	id 1uZjlw-0000000AiX4-30da
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 05:23:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752125008; x=1783661008;
-  h=from:date:to:cc:message-id:in-reply-to:references:
-   subject:content-transfer-encoding:mime-version;
-  bh=bI2YcP3JpX8YLM9eZ+Tjbd1pkRKEVYJKiuxjkAsvF6E=;
-  b=H4SRkcGMX6F80XbY+6OQXnOHXbfMmsxpXjafwXoRrBZlqCGNfdub+4SD
-   W7Yy1UNZrTIGBVJg5KTBeefqpoq3JcJTmlEiy/Tr4f/puzmVMjfLBbsb5
-   u78/cxivYp1edVlNvGPXinvkG+9pEE8RhPfFfxlfjh3IhPeT8AKK/TgiY
-   KN+Kvpp4lsiK0cNDipns8yKvS3wVnv3Ju6S3ley0Wi/l/4AtmVVnVqzrV
-   wYCGb1231NsDtGjCY7yzxJJZfmZhiyhjszK0bscA+BT3oUO04N0u7LKik
-   ITbfBitqrRut7nlpMuFHsE94m2/nL3kO0WAPL6uLqGZ+nLWDZxehA06dS
-   Q==;
-X-CSE-ConnectionGUID: KAeSW09/STyxie8qLDkyLw==
-X-CSE-MsgGUID: BmhWJyooR5uIa2zyFiLn0g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11489"; a="54323296"
-X-IronPort-AV: E=Sophos;i="6.16,299,1744095600"; 
-   d="scan'208";a="54323296"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 22:23:27 -0700
-X-CSE-ConnectionGUID: j2HXu1B0QrahPx+rrCaz0Q==
-X-CSE-MsgGUID: t4iJJxeXRxWs9TPp+dTWgA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,299,1744095600"; 
-   d="scan'208";a="156453411"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2025 22:23:27 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 9 Jul 2025 22:23:25 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25 via Frontend Transport; Wed, 9 Jul 2025 22:23:25 -0700
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (40.107.244.81)
- by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 9 Jul 2025 22:23:24 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P7GaO9PPEYX+4VUTK9R4D8KbcW9iyvVIi/0GR4OGL9XaJLRmlUuCSC4W+ADEyl+eMm6laLvnTF5Fj7tZ25WZmZQXd3AlpPVTHUXakAWUJhmBchO0/0Hx0vaQtG/XhdaiWomKfGArYW1VNJrwvVfmYqDVMPCIC6TULFfKephKnozzX890s2sFZ5CdnBZLeUmszzpRWb+eHrpWQv/fG1xsM7eCKBOHTCp71Pu+2pcBJlG+KMoWavM4MYWfTfkZ53NKBDY7KJw6WaEly2ebxSShI9rNzBZoCbe1Qp4kp+YF/5OMqpAA0CMl1qQHoFqBp+Hf471MgK5XhRFnCJjDxYRCew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aqxSTeGUHubH9RxPvXQxf2Bef9n1lFFVG57Wk9BlCDU=;
- b=ynnps9TvpR1quBvjDDTGbZR8cgaYZJs+6kY7yAPvzKLLLb6XWZyuUmUnWvq95PwpO7fAPdaoOm8k9cVeYggvEITQGJROnRwSF/R1omD607+XZNKe3WrZAcRZbohSWauZApFcHqmVVynD8iyIzj/dCllxdimwMOkoWruCID4sYc70kd1/i2Kr0oyagrqG+Wbn+lc7uY1sh3vaACS1ADaQXbFlZrIk9KJKVZLh8WnfmT4mRnQekf7UMIKW6srW94Hy/L34I7w5N+sRa8Usl3l5uuvza+J+EwQQ/LNngpn1hUs8TU7VypR1SJkZrv/XRz5iLWOsqWo/WwZ+upAakR+KMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by PH8PR11MB7992.namprd11.prod.outlook.com (2603:10b6:510:25b::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.29; Thu, 10 Jul
- 2025 05:22:42 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%6]) with mapi id 15.20.8901.024; Thu, 10 Jul 2025
- 05:22:42 +0000
-From: <dan.j.williams@intel.com>
-Date: Wed, 9 Jul 2025 22:22:40 -0700
-To: Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>
-CC: Jonathan Cameron <Jonathan.Cameron@huawei.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, <james.morse@arm.com>,
-	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, <gregkh@linuxfoundation.org>, Will Deacon
-	<will@kernel.org>, Dan Williams <dan.j.williams@intel.com>, Davidlohr Bueso
-	<dave@stgolabs.net>, Yicong Yang <yangyicong@huawei.com>,
-	<linuxarm@huawei.com>, Yushan Wang <wangyushan12@huawei.com>, "Lorenzo
- Pieralisi" <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	"Dave Hansen" <dave.hansen@linux.intel.com>, Thomas Gleixner
-	<tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski <luto@kernel.org>
-Message-ID: <686f4e20c57cd_1d3d100b7@dwillia2-xfh.jf.intel.com.notmuch>
-In-Reply-To: <20250625093152.GZ1613376@noisy.programming.kicks-ass.net>
-References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
- <20250625085204.GC1613200@noisy.programming.kicks-ass.net>
- <FB7122A4-BF5E-4C05-805A-2EE3240286A1@zytor.com>
- <20250625093152.GZ1613376@noisy.programming.kicks-ass.net>
-Subject: Re: [PATCH v2 0/8] Cache coherency management subsystem
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY5PR04CA0020.namprd04.prod.outlook.com
- (2603:10b6:a03:1d0::30) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
+	Thu, 10 Jul 2025 05:24:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1752125078;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CceeV7J/K+B1j1BDTYnc8IYXP16jroD6AWzd6NMmE60=;
+	b=isazU1y53TDv+7im4qF7QmBMObRut/dTDLCqh2/c1aQb13QThddM93BgiBS8qSSNdExCJ0
+	Od0B5WN1JUTDuaLQuHKKcEpvkwh6Hb1rcjmzsR+G4BSrteOPn5S8fN026kRZbOJ5V2o/rh
+	kxy6LTWfV/X2IHrI4GeEnzJcW7vSbpM=
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com
+ [209.85.210.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-627-wBzFxwLFMPu5_qSebwnyAg-1; Thu, 10 Jul 2025 01:24:37 -0400
+X-MC-Unique: wBzFxwLFMPu5_qSebwnyAg-1
+X-Mimecast-MFC-AGG-ID: wBzFxwLFMPu5_qSebwnyAg_1752125073
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-74913385dd8so952538b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Jul 2025 22:24:36 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752125073; x=1752729873;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CceeV7J/K+B1j1BDTYnc8IYXP16jroD6AWzd6NMmE60=;
+        b=Uk3KLvHDv4IJ5fvbKLwjL5eMn/G4FSCmurlJrlGVHQPY7f3d4awTYjnPacaybgTqkq
+         oOkAkbuXC+1gEiKJC8mrKE6ibygsV/qwoyByV8LRWykZsQuwqVGjKIQKkWV+cI75Eq0o
+         IGU0kVFe07WZOZEQOcHAxzqqbsk7KcbIDHELYlnI/Kcq/rgbvxwgIoyrv7FhCq9KmVWG
+         fom8VZfZ1rybmQmnzzkk8jPU9a5CcbIIuoR6NEh3fozR7wvnpGapeEawFRGREqlSl7+Q
+         rvP4KKH3S9xxBi/BwAzn4SeqkkuqGJuEHbeHI4807ekpZO6YaCtMfh9rz39fpcG99gi+
+         F0lQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXcFl2+91ZE7S5ALkiwqYBPntIIuFCSB2x/R82tfnqLlTg2mpEYXHvC4RnvXryKoRmAvVFYvWkCNmRA5ZCWrtS4@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywu7KjO8Fz7ihJNIqNKV+BYjoGjrqfdELkfjqpeXGhsrHFB904F
+	usKmpGmoo/Wip0fqPtf3idxthCvL3IL6fd448EvzV3fNI7HdFTC9RkwfIVZnQ9HMd9JSOvq/UPD
+	W+DUZ1Vbi2crucrxgVhucuayqv7Q2Obz6g3gi/aDd3Tq7MjtFl25J032693qUt4X4WugledNTqJ
+	PT
+X-Gm-Gg: ASbGncvudlNR5+9aWAKxyfvn6hZaFVtkC/kVrRLjDwzetuii827NoHKE0mJL/F2JbV2
+	49ueLW9JB+aW2I8JaLJQ4TIE1o9scSvyjc205MQiHBjqvOSFTLqEsE28Ox/rShOzGddand0dIa/
+	Zs50hDuOkH5RdxE9lTHgObmOo6K+ahhZGy3M33tIkuffL7qCqokRXPlSjF5klQ7InjelYjNTYsc
+	xbwPTlxpFLTcfzUVqYNStpYqT0QOMk2J2hNEEzBD9f3D6b0aDVr0Ircq35V6it1ZF3iGvM7eOqk
+	Rmn9ZzPzQHmt7yk5AvjgxBvnrfwDsSXq+1yXgO9queXa0pCp+zb847Sq6lUexQ==
+X-Received: by 2002:a05:6a21:33aa:b0:1f5:8a1d:3904 with SMTP id adf61e73a8af0-23003fd7f75mr2412308637.7.1752125073297;
+        Wed, 09 Jul 2025 22:24:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFhW5qdYaRRhJg7AUBogJ5g2fTOaOL30BzyYQhpOK9w1RwhZRAF6XqSga3MM3ZEdVwm9ACHkA==
+X-Received: by 2002:a05:6a21:33aa:b0:1f5:8a1d:3904 with SMTP id adf61e73a8af0-23003fd7f75mr2412277637.7.1752125072831;
+        Wed, 09 Jul 2025 22:24:32 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd7140sm950086b3a.24.2025.07.09.22.24.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 09 Jul 2025 22:24:31 -0700 (PDT)
+Message-ID: <a8183dcd-f82e-49b3-b5b4-96e5363e060a@redhat.com>
+Date: Thu, 10 Jul 2025 15:24:22 +1000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|PH8PR11MB7992:EE_
-X-MS-Office365-Filtering-Correlation-Id: a0736f00-90e0-47c4-4148-08ddbf71cb8d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?S0pXT3BBWjRpTFROWGpIVDVuTlZiKzJEUGZZM21zQTlnQytIdlBGQU1yWm4x?=
- =?utf-8?B?RFB1WFhQU3NnNUE2NUlCRHFGWkpIK1BIaWZNWVhieUdhbnJpNGlscWtBNDZC?=
- =?utf-8?B?SW9VdmNYNnBZZ2FrL3VRWVlPWS9nUng2S0l1YVZOL2pjWW9URVZVdUk1V0xL?=
- =?utf-8?B?NFBKOEQ2d1E1VmhnVmJUcnhaeUN3aDNCaTlzYzJxNmxoVEw2VCtBdm8reGpy?=
- =?utf-8?B?clBOQUZyRHBveEFnUjV3M043WVEvQVY3VFlNTXRrdDA3VTR5aWhXaWNzM1VB?=
- =?utf-8?B?WTl0RW01MnVjYWhWMG1QOGFpaHM4ZDRLWGNBUmZYS2dDN2VOa1hnOG9NSEl6?=
- =?utf-8?B?eW9pTWlpV2RhTXV4THhXcklNb0VKbkovbTZGajcvWjUwcjBLelpRREJCb1RS?=
- =?utf-8?B?RUtQV2FrdFF2MzIvZ3N0ekJ0VjNxbjlNdWpXSXMrai91MmdLWm82bkZmOGNN?=
- =?utf-8?B?RS9PS1RHc2JobEFRUmpPaytiaDdma3ZlV3dqem9QT1oxWEIzZDhYcU9kMDRO?=
- =?utf-8?B?OUF4MmJ6S2Fnd0pxS1g2OUl6bER3YXYrZHRqNUNjNk1XOG1Bc3lVcXpzRnVJ?=
- =?utf-8?B?RThUNmV2R0sycTk4cjZkY1NVb0RpSWJaRzZNQmVYVnhleklpdkErNThOc3pX?=
- =?utf-8?B?bEQ0cTVpUmpaWldzVmIzd0NNMHlmM2s3OW51YVRWMjBvbzlNS1ozYXhJYnRR?=
- =?utf-8?B?WE9xWC9zMWpvV2F4Y3F2RjI0WGFrRmFJdU1BOC9DVGlyT2RHUFAxYUFCcnZ3?=
- =?utf-8?B?RDFkak9RdlAxRnJZWVBhblNqdytsNGROV2JBbFl4YzlXMTNnUG9CcitibHJl?=
- =?utf-8?B?OGhVcFhaNnZCK0greFZQaDYvT2VlWWozMjFydjNaQVpuNlVTeU9iWFc3WXdE?=
- =?utf-8?B?Nm9pL2xJa1p2WkljS3ZoeHgyVlZNU2tvdmUzNmszS0pKNEZobXpTQ3lhWlY2?=
- =?utf-8?B?UGdjYm54Y3diMGlCRWNvaDZyeVRvdk5kRXY1WDVsSHNqcHRaOGVhSkI5OGpi?=
- =?utf-8?B?UzE1aE5UREwrZUw1Um9LaU9lQThjbWZrVUNwZU90K0dwUmNaak1CMzRtZGZN?=
- =?utf-8?B?c2VqaFlEN2hsd1FyQkw2T0wzODhoRVM4dEg3alZrSzNaVXA3bCtVdmJhVFRa?=
- =?utf-8?B?Z1BOQ0tEN1RLM3VhMVUrZHZ2TFlrejhJWFd4dktOa3o4SjNMVU9vVitsUU1E?=
- =?utf-8?B?ZVIvWk0yeW9oL2hZNjZtdmI0TVRqb29WU0VIc25nSks4Rk9tK3I4Rm5ZcU04?=
- =?utf-8?B?b2d4UEE4UHhHMEJZY1cvOWVjdHVsdm94L3R0QVdQdkNmUEtybDRKVzFmVHNZ?=
- =?utf-8?B?Zk5pd2dGc01DSExqbUZSV0JrRTVIbVB6Znp2bDRLL3ErQzhBdzU0R21hSVUv?=
- =?utf-8?B?ZG9OaEhPaFJvTGQ0c3dvNFJwQUZaTzJXQk9SWFpwbU1XME9HVHZ0akkzSmw3?=
- =?utf-8?B?dWlIeXZTdFV2MitZaVFNS05oWjd6cVBDOW9MNWEvWkRXMVUzUENxRndxaHFn?=
- =?utf-8?B?SUQ3Q2wwZ0JXSGJSUjNvNFJ1RkhRN3dDL1NwVmpjeDBzanpJSm5qMVRMTkV0?=
- =?utf-8?B?Z01mSGRmdWZadVFKTHo3eTBQRjhVNFRlRHVCMnVlVU5BYlJzVFBHNk4rNUl1?=
- =?utf-8?B?Z2ZROUpsb2NhZEUzQk00OG9vT1NZWGtMRUVSbko5ZDViLy9qR0h5dmo2c28r?=
- =?utf-8?B?bjdZTUlleTlhaTFTWHFTeWZvRkpZbXRZc281OEJXcWo0NFN3WXpVWDZ6aVlX?=
- =?utf-8?B?cGEvRWlZY2dGQklibUV0amxqa3RSd1NjMFk3dncxVDh6R212aS9WQTVQQ25a?=
- =?utf-8?B?MU5NVTZTeGpHbFRVMThEM3VPbVZXTWt5dXk0TkdTOXNFQzUrVldMbUw1V25Y?=
- =?utf-8?B?d2x2aWd1RkJmUjREU01kL1NGT0ZHM0EzdG5rZ2FBRkMxNHJ5bG1sQ2lOUUZX?=
- =?utf-8?Q?oMPQL68vRtk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TTFxenpwcDZxeDJ4ZFEwVmhNUkZIM3l5VUk1THg1KzhTVHRzOWlzNVY2d1BF?=
- =?utf-8?B?eFFtVmFENjFxbmR6Q2gycVk2TE1JSEZBOTIzN2k0bjd0aFdMZzZUOEZqR3Js?=
- =?utf-8?B?YkkyMnc3KzBIMkNES3dEdmpUYXEwVCtjaDUxc2RXanFQaFFNNEVtcm82OTZk?=
- =?utf-8?B?UkZTa3FWUDN0K0RlL3VSSXFVOTVIYW44YTd3MDJjTU1zdGxKdTlZeXNaYmVU?=
- =?utf-8?B?d3FDSEMyMUIvRmRXaVB3QVo3a2ZUUFZEQzVWK3hGZnZFdGtHMnZHdm1uTk45?=
- =?utf-8?B?TjFmbFFlbFJOZURaQ0xUSE9JVndJc2xUMlkvNnZVMkVlQk0rVFp5ajllQk92?=
- =?utf-8?B?RjZraDYrQ2hxb2pjNlV6U2ZVNit0Qnk3Rnpzc3ZNZGttbTJIZXFyN0kvUUMv?=
- =?utf-8?B?TUZObWlIZEU3OVU1cStNbTdzNDM4Zm9jMUFNU1hwcjFMbFlUVXF4cmdoYjdN?=
- =?utf-8?B?N09hZ0tYTWI1aXRITzNXamF1M0lMZnpBM1JQTVN2TGd2ZzFJR3RNUFovNTBI?=
- =?utf-8?B?VTcwQ081elRZcHpDM1FmMzVwekJLeXllRHdxNGZrbWZKZzkzZ3NzeW1OcitW?=
- =?utf-8?B?SE5KU2IwbkdpSEl6NWVFMnBMbzZTN0lvM1lXOHZtU01KVlVQcXRWYVJ6U0hO?=
- =?utf-8?B?Ymk3Z2M2TnpObUFhR04xRnIzV21GTlo1dWxwMmVEUDZmMk4yeGpCVFhveDZl?=
- =?utf-8?B?T2t5RXpJT0dwZ0VETmJtSUdsMVE4UG00WDJacTV4TU56alk5M01VQ0VYeTlE?=
- =?utf-8?B?NDhvMi9TUkFQUVNqblJuL2pjS05jZ0RjdHNLUi9YQ1J1WHdJdFFVajFTeVVB?=
- =?utf-8?B?aUlReVRPc0lDNEJJSW9nZ2Z6TTlQbWtrVXR0UFd2SzByWGU3MXhhdzRDSzd0?=
- =?utf-8?B?clE3a3pIdVgzZ212ODgyVlV6UUdvQ09LdGZZaEdWUDhUajAwNzdZVXVaODE3?=
- =?utf-8?B?REIzbUhHS1dnbm1UM2xHVHFiS0Y3Vkprbk1MZnRXa01KWXgvWXc4Wlk3VUdK?=
- =?utf-8?B?UmpuNHpnei9pUVhFVU4wWnZJdGJlbGk2M0xHQkZjclk1b1NjbHp0U0ErNzhI?=
- =?utf-8?B?a25xM24xT3ZSa3NRYmJxTTNHRWNKcUtFazRxWlh4dmwzL3h1dlczbi9wb3BJ?=
- =?utf-8?B?TFZYdWhZRGFLMjhVcmFEZEQwZHlNR0xobUpsUU1qdyt1QThkK2dNTXJCQUVr?=
- =?utf-8?B?MjdvU3lWZjNvckJDaERIMlFPZUxFRVkwVWgwU2wyaTZRU3pqSFdDM1Z4QTJJ?=
- =?utf-8?B?a0l1V09ERW5KeXNYT2JSckdRVUlMcjJiVmV6enFyMjROT2FuM01ybWtMd1Ix?=
- =?utf-8?B?VjRzcFhlaXR6WFpMLzN2YzJXMCs2M0pmOEdQUUtYbWwzRzgrMXovT0ZmRjRO?=
- =?utf-8?B?T0ZnUHR1YWlrOXpqTU5KR3k3VzV4VEpxRzJiMjFsREJ0K3VEUkRPL2M5SkJJ?=
- =?utf-8?B?WUtZNEpybWo5RGFaM1VLK0hpRU9LeldDcGgveUM3Q3Y2blJ1NWRuSmVGMUxI?=
- =?utf-8?B?ZkNTdDBoR0hQcWdQUjExMFFrUDJIS0pqUFYxaURuQkNsTElVT1JNeUkyQnJ2?=
- =?utf-8?B?OVpkc1pnejJlMGl3WmlYNklKUkx3ejkrekMxYmRPZTNBZy96dFpyeDhkNHJK?=
- =?utf-8?B?eUpVN3lScUZhdTAyb1VSM1Z1UHUyVzNscytJdy91clNlL3Bib0JMcW1rN2d3?=
- =?utf-8?B?Q2NCZkExMDB3L2RBRFMvT01LeFRodG90aEFVUUxkVTZLNHdBcFU2NzJjOGhP?=
- =?utf-8?B?alppVCtVUkVYMEhPKzduMUpXOGZxWUx2VEU5Y3J2RFNkWXRnd21NNFNXSVho?=
- =?utf-8?B?YzFwS3FLOE1nWGJtdjUrcEhIMUNxMDQ3Q1h4YWlWemVDR1FYRkJLK1k5aXll?=
- =?utf-8?B?ZzF3NTJrTGo4QW5SekJDeHE1VlpwZndoVUhXMlU4cndJZ0x0aFVkZ09zWEpS?=
- =?utf-8?B?NmJMZG9leXEwd1M1ZHN1ZjVZcEFsVVNnSndNZVVmWlhYVjJOcW8wanBFeVpz?=
- =?utf-8?B?U1kyZ05tRTVUdHBRUTUyYklzYTNBZzBvV2w0d1BtNWhVWXB4MWFxSXZzYk9Q?=
- =?utf-8?B?NVdnNExhb29MSXg2cElVTjB6b2c5d1dGYnVpWXl4Mks5b1IwU2tXcWhCVHBZ?=
- =?utf-8?B?QktCTnlaRllYK21teHJQNGRvNUNWM0JMQ0F2U2paMjBpUlVvTEg2M05zNW9G?=
- =?utf-8?B?OWc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: a0736f00-90e0-47c4-4148-08ddbf71cb8d
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 05:22:42.6179
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WQEUmBjfRr1+y7wrJiFaDiaRm41tEvq9U7R1YwlIsbLtlKsL9BSzL47hmspzh903JVXOpnChGMDTE1jUccBRbyw+DjwlLWUa4xYy9JMzb/8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB7992
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 15/43] arm64: RME: Allow VMM to set RIPAS
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
+ <20250611104844.245235-16-steven.price@arm.com>
+ <60bb33b4-133e-4ebd-950c-e9e2ba8fc38b@redhat.com>
+ <b2f3ddac-956e-4779-9202-fc393266aa6c@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <b2f3ddac-956e-4779-9202-fc393266aa6c@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: E9taORQFiQ9nkxDCME9uydp_GCoPpoeLPd6-5JHpSwo_1752125073
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_222327_774942_861B75B3 
-X-CRM114-Status: GOOD (  32.50  )
+X-CRM114-CacheID: sfid-20250709_222441_253765_AD02279A 
+X-CRM114-Status: GOOD (  36.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,74 +125,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Peter Zijlstra wrote:
-> On Wed, Jun 25, 2025 at 02:12:39AM -0700, H. Peter Anvin wrote:
-> > On June 25, 2025 1:52:04 AM PDT, Peter Zijlstra <peterz@infradead.org> wrote:
-> > >On Tue, Jun 24, 2025 at 04:47:56PM +0100, Jonathan Cameron wrote:
-> > >
-> > >> On x86 there is the much loved WBINVD instruction that causes a write back
-> > >> and invalidate of all caches in the system. It is expensive but it is
-> > >
-> > >Expensive is not the only problem. It actively interferes with things
-> > >like Cache-Allocation-Technology (RDT-CAT for the intel folks). Doing
-> > >WBINVD utterly destroys the cache subsystem for everybody on the
-> > >machine.
-> > >
-> > >> necessary in a few corner cases. 
-> > >
-> > >Don't we have things like CLFLUSH/CLFLUSHOPT/CLWB exactly so that we can
-> > >avoid doing dumb things like WBINVD ?!?
-> > >
-> > >> These are cases where the contents of
-> > >> Physical Memory may change without any writes from the host. Whilst there
-> > >> are a few reasons this might happen, the one I care about here is when
-> > >> we are adding or removing mappings on CXL. So typically going from
-> > >> there being actual memory at a host Physical Address to nothing there
-> > >> (reads as zero, writes dropped) or visa-versa. 
-> > >
-> > >> The
-> > >> thing that makes it very hard to handle with CPU flushes is that the
-> > >> instructions are normally VA based and not guaranteed to reach beyond
-> > >> the Point of Coherence or similar. You might be able to (ab)use
-> > >> various flush operations intended to ensure persistence memory but
-> > >> in general they don't work either.
-> > >
-> > >Urgh so this. Dan, Dave, are we getting new instructions to deal with
-> > >this? I'm really not keen on having WBINVD in active use.
-> > >
-> > 
-> > WBINVD is the nuclear weapon to use when you have lost all notion of
-> > where the problematic data can be, and amounts to a full reset of the
-> > cache system. 
-> > 
-> > WBINVD can block interrupts for many *milliseconds*, system wide, and
-> > so is really only useful for once-per-boot type events, like MTRR
-> > initialization.
+Hi Steve,
+
+On 7/10/25 12:42 AM, Steven Price wrote:
+> On 02/07/2025 01:37, Gavin Shan wrote:
+>> On 6/11/25 8:48 PM, Steven Price wrote:
+>>> Each page within the protected region of the realm guest can be marked
+>>> as either RAM or EMPTY. Allow the VMM to control this before the guest
+>>> has started and provide the equivalent functions to change this (with
+>>> the guest's approval) at runtime.
+>>>
+>>> When transitioning from RIPAS RAM (1) to RIPAS EMPTY (0) the memory is
+>>> unmapped from the guest and undelegated allowing the memory to be reused
+>>> by the host. When transitioning to RIPAS RAM the actual population of
+>>> the leaf RTTs is done later on stage 2 fault, however it may be
+>>> necessary to allocate additional RTTs to allow the RMM track the RIPAS
+>>> for the requested range.
+>>>
+>>> When freeing a block mapping it is necessary to temporarily unfold the
+>>> RTT which requires delegating an extra page to the RMM, this page can
+>>> then be recovered once the contents of the block mapping have been
+>>> freed.
+>>>
+>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>> ---
+>>> Changes from v8:
+>>>    * Propagate the 'may_block' flag to allow conditional calls to
+>>>      cond_resched_rwlock_write().
+>>>    * Introduce alloc_rtt() to wrap alloc_delegated_granule() and
+>>>      kvm_account_pgtable_pages() and use when allocating RTTs.
+>>>    * Code reorganisation to allow init_ipa_state and set_ipa_state to
+>>>      share a common ripas_change() function,
+>>>    * Other minor changes following review.
+>>> Changes from v7:
+>>>    * Replace use of "only_shared" with the upstream "attr_filter" field
+>>>      of struct kvm_gfn_range.
+>>>    * Clean up the logic in alloc_delegated_granule() for when to call
+>>>      kvm_account_pgtable_pages().
+>>>    * Rename realm_destroy_protected_granule() to
+>>>      realm_destroy_private_granule() to match the naming elsewhere. Also
+>>>      fix the return codes in the function to be descriptive.
+>>>    * Several other minor changes to names/return codes.
+>>> Changes from v6:
+>>>    * Split the code dealing with the guest triggering a RIPAS change into
+>>>      a separate patch, so this patch is purely for the VMM setting up the
+>>>      RIPAS before the guest first runs.
+>>>    * Drop the useless flags argument from alloc_delegated_granule().
+>>>    * Account RTTs allocated for a guest using kvm_account_pgtable_pages().
+>>>    * Deal with the RMM granule size potentially being smaller than the
+>>>      host's PAGE_SIZE. Although note alloc_delegated_granule() currently
+>>>      still allocates an entire host page for every RMM granule (so wasting
+>>>      memory when PAGE_SIZE>4k).
+>>> Changes from v5:
+>>>    * Adapt to rebasing.
+>>>    * Introduce find_map_level()
+>>>    * Rename some functions to be clearer.
+>>>    * Drop the "spare page" functionality.
+>>> Changes from v2:
+>>>    * {alloc,free}_delegated_page() moved from previous patch to this one.
+>>>    * alloc_delegated_page() now takes a gfp_t flags parameter.
+>>>    * Fix the reference counting of guestmem pages to avoid leaking memory.
+>>>    * Several misc code improvements and extra comments.
+>>> ---
+>>>    arch/arm64/include/asm/kvm_rme.h |   6 +
+>>>    arch/arm64/kvm/mmu.c             |   8 +-
+>>>    arch/arm64/kvm/rme.c             | 447 +++++++++++++++++++++++++++++++
+>>>    3 files changed, 458 insertions(+), 3 deletions(-)
+>>>
+>>
+>> With below nitpicks addressed. The changes looks good to me.
+>>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
 > 
-> Right this... But that CXL thing sounds like that's semi 'regular' to
-> the point that providing some infrastructure around it makes sense. This
-> should not be.
+> Thanks, most the nitpicks I agree - thanks for raising. Just one below I
+> wanted to comment on...
+> 
+> [...]
 
-"Regular?", no. Something is wrong if you are doing this regularly. In
-current CXL systems the expectation is to suffer a WBINVD event once per
-server provisioning event.
+You're welcome.
 
-Now, there is a nascent capability called "Dynamic Capacity Devices"
-(DCD) where the CXL configuration is able to change at runtime with
-multiple hosts sharing a pool of memory. Each time the physical memory
-capacity changes, cache management is needed.
+>>> +
+>>> +enum ripas_action {
+>>> +    RIPAS_INIT,
+>>> +    RIPAS_SET,
+>>> +};
+>>> +
+>>> +static int ripas_change(struct kvm *kvm,
+>>> +            struct kvm_vcpu *vcpu,
+>>> +            unsigned long ipa,
+>>> +            unsigned long end,
+>>> +            enum ripas_action action,
+>>> +            unsigned long *top_ipa)
+>>> +{
+>>
+>> The 'enum ripas_action' is used in limited scope, I would replace it
+>> with a 'bool'
+>> parameter to ripas_change(), something like below. If we plan to support
+>> more actions
+>> in future, then the 'enum ripas_action' makes sense to me.
+> 
+> The v1.1 spec[1] adds RMI_RTT_SET_S2AP (set stage 2 access permission).
+> So that adds a third option to the enum. I agree the enum is a little
+> clunky but it allows extension and at least spells out the action which
+> is occurring.
+> 
+> The part I'm not especially happy with is the 'vcpu' argument which is
+> not applicable to RIPAS_INIT but otherwise required (and in those cases
+> could replace 'kvm'). But I couldn't come up with a better solution for
+> that.
+> 
+> [1] Available from:
+> https://developer.arm.com/documentation/den0137/latest (following the
+> small "here" link near the end).
+> 
 
-For DCD, I think the negative effects of WBINVD are a *useful* stick to
-move device vendors to stop relying on software to solve this problem.
-They can implement an existing CXL protocol where the device tells CPUs
-and other CXL.cache agents to invalidate the physical address ranges
-that the device owns.
+Right, it's as I guessed. A enum looks good if we need to extend it
+to cover the third case (RMI_RTT_SET_S2AP in RMMv1.1). Note that I just
+started looking into RMMv1.1 implementation several days ago and didn't
+have a good understanding on RMMv1.1 at present :-)
 
-In other words, if WBINVD makes DCD inviable that is a useful outcome
-because it motivates unburdening Linux long term with this problem.
+Thanks,
+Gavin
 
-In the near term though, current CXL platforms that do not support
-device-initiated-invalidate still need coarse cache management for that
-original infrequent provisioning events. Folks that want to go further
-and attempt frequent DCD events with WBINVD get to keep all the pieces.
+> Thanks,
+> Steve
+> 
+>> static int ripas_change(struct kvm *kvm,
+>>              struct kvm_vcpu *vcpu,
+>>              unsigned long ipa,
+>>              unsigned long end,
+>>              bool set_ripas,
+>>              unsigned long *top_ipa)
+>>
+>>> +    struct realm *realm = &kvm->arch.realm;
+>>> +    phys_addr_t rd_phys = virt_to_phys(realm->rd);
+>>> +    phys_addr_t rec_phys;
+>>> +    struct kvm_mmu_memory_cache *memcache = NULL;
+>>> +    int ret = 0;
+>>> +
+>>> +    if (vcpu) {
+>>> +        rec_phys = virt_to_phys(vcpu->arch.rec.rec_page);
+>>> +        memcache = &vcpu->arch.mmu_page_cache;
+>>> +
+>>> +        WARN_ON(action != RIPAS_SET);
+>>> +    } else {
+>>> +        WARN_ON(action != RIPAS_INIT);
+>>> +    }
+>>> +
+>>> +    while (ipa < end) {
+>>> +        unsigned long next;
+>>> +
+>>> +        switch (action) {
+>>> +        case RIPAS_INIT:
+>>> +            ret = rmi_rtt_init_ripas(rd_phys, ipa, end, &next);
+>>> +            break;
+>>> +        case RIPAS_SET:
+>>> +            ret = rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end,
+>>> +                        &next);
+>>> +            break;
+>>> +        }
+>>> +
+>>
+>> if 'enum ripas_action' is replaced by 'bool set_ripas' as above, this needs
+>> twist either.
+>>
+>>> +        switch (RMI_RETURN_STATUS(ret)) {
+>>> +        case RMI_SUCCESS:
+>>> +            ipa = next;
+>>> +            break;
+>>> +        case RMI_ERROR_RTT:
+>>> +            int err_level = RMI_RETURN_INDEX(ret);
+>>> +            int level = find_map_level(realm, ipa, end);
+>>> +
+>>> +            if (err_level >= level)
+>>> +                return -EINVAL;
+>>> +
+>>> +            ret = realm_create_rtt_levels(realm, ipa, err_level,
+>>> +                              level, memcache);
+>>> +            if (ret)
+>>> +                return ret;
+>>> +            /* Retry with the RTT levels in place */
+>>> +            break;
+>>> +        default:
+>>> +            WARN_ON(1);
+>>> +            return -ENXIO;
+>>> +        }
+>>> +    }
+>>> +
+>>> +    if (top_ipa)
+>>> +        *top_ipa = ipa;
+>>> +
+>>> +    return 0;
+>>> +}
+>>> +
+>>> +static int realm_init_ipa_state(struct kvm *kvm,
+>>> +                unsigned long ipa,
+>>> +                unsigned long end)
+>>> +{
+>>> +    return ripas_change(kvm, NULL, ipa, end, RIPAS_INIT, NULL);
+>>> +}
+>>> +
+>>> +static int kvm_init_ipa_range_realm(struct kvm *kvm,
+>>> +                    struct arm_rme_init_ripas *args)
+>>> +{
+>>> +    gpa_t addr, end;
+>>> +
+>>> +    addr = args->base;
+>>> +    end = addr + args->size;
+>>> +
+>>> +    if (end < addr)
+>>> +        return -EINVAL;
+>>> +
+>>> +    if (kvm_realm_state(kvm) != REALM_STATE_NEW)
+>>> +        return -EPERM;
+>>> +
+>>> +    return realm_init_ipa_state(kvm, addr, end);
+>>> +}
+>>> +
+>>>    /* Protects access to rme_vmid_bitmap */
+>>>    static DEFINE_SPINLOCK(rme_vmid_lock);
+>>>    static unsigned long *rme_vmid_bitmap;
+>>> @@ -441,6 +876,18 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct
+>>> kvm_enable_cap *cap)
+>>>        case KVM_CAP_ARM_RME_CREATE_REALM:
+>>>            r = kvm_create_realm(kvm);
+>>>            break;
+>>> +    case KVM_CAP_ARM_RME_INIT_RIPAS_REALM: {
+>>> +        struct arm_rme_init_ripas args;
+>>> +        void __user *argp = u64_to_user_ptr(cap->args[1]);
+>>> +
+>>> +        if (copy_from_user(&args, argp, sizeof(args))) {
+>>> +            r = -EFAULT;
+>>> +            break;
+>>> +        }
+>>> +
+>>> +        r = kvm_init_ipa_range_realm(kvm, &args);
+>>> +        break;
+>>> +    }
+>>>        default:
+>>>            r = -EINVAL;
+>>>            break;
+>>
+>> Thanks,
+>> Gavin
+>>
+> 
+
 
