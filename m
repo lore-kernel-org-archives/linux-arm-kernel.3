@@ -4,104 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6310BC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:27:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB64C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PG8x/ZlCIJH2ZNaPjm9FgdPFeDZZmAqaN9aBYbODT6k=; b=D0ChyTTApoAd9j/SZgZ0GDvc+o
-	e9UOAHbq6AGuAbDSkw7KggKtwrh7CKIs43ElmVW0S2BmfUUudWtDokE6KVZzCbOlxOSr92E7pBRGl
-	pKaID8/mTnl8nyTFDFegA1Wi4O4drunIqgoykQpjsssJlMdxUCe5u8Eds1d61VyOMIOT0NZJFSMEE
-	1+dic0lULQLUM0mSAkjpAsagfOK7HI109TUSPMS6Vd2g7TPQ3mW6vo/FQQ4J4qdsSOTsEh6uAE33s
-	a1m/Lvzg/GiKN074Irf8IitrRwf5r+o7gwQUK3agO6qM+9aAdkyEQtfK7MihOwlzEcV+SeQwkF7Go
-	lnAmbWsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tTDM+ReYbQNANl3aFS/llf4q/ldyHVh7bI7dWXO8+pg=; b=R/wQxyea/t8QxQkrxxoC4GrZAQ
+	ULoH9TtFW+0Ll09kGRQBNt0AcBCdZ0klQSCY03hYo6FbSAv8ZcR7dlh6QPaHMiEq5aRjCxg8/vMNW
+	2rIM0O0Me3+TZvVEQMWtuKLQjduNGaWsP6HHiOe/hYpmwqSqdPx8+3cfi/qcxsJ/XQsTF7Gf7vlfL
+	U4DTi14QsO9wCq7Yjl2fSrZJGgFq3gOq0d3ehWKrGhOiAg0+z5J4kkmWZ1TTmnZyRef9RXt3XbnuZ
+	vEE5P9kswjJX/OiTNRdyoFn+yC11BwC8v1uYNAEw7ccNU/S5BzU8e2frocwda3Ve31mF+gWS8eioJ
+	O5jVYPqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZu7e-0000000CQE3-0l8i;
-	Thu, 10 Jul 2025 16:27:46 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uZu7m-0000000CQQY-03RG;
+	Thu, 10 Jul 2025 16:27:54 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZrvH-0000000C42g-1DK9;
-	Thu, 10 Jul 2025 14:06:52 +0000
-Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E8739B2B;
-	Thu, 10 Jul 2025 16:06:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1752156381;
-	bh=wZyoR1Sk8OiI0zPRrx2vPd/wlyqElWqPnmAESsxLMT0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=b8QQKNYjAwQ8nGR7H41B2ZRKJmzQBeUhOxyVtTa3DCEnk4c1o/XzLo3Keh2Wumuqp
-	 S5LC5BcQT3qDh1CLLXXFXVGbiKnbKhDKswagiCYa2T7DOPkE79kShaKVbmfnUeELBE
-	 9EA+G2H+n1fkJjdLp04SlCx5WSMNjhq4Nr7vuYSU=
-Message-ID: <80b23a96-fde6-43e3-9b24-98099823a6f5@ideasonboard.com>
-Date: Thu, 10 Jul 2025 15:06:47 +0100
+	id 1uZs0R-0000000C4oo-3sVa
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 14:12:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=tTDM+ReYbQNANl3aFS/llf4q/ldyHVh7bI7dWXO8+pg=; b=rUZsamgDkOyi5ReaRFUnBeXRwF
+	8yLkt0kON+H7Hh2Z22SSUx26F2ZDuW3yWhKQFWW+jy3Qmv1T8UUf7+W6L0KCimIL3gGgyYJAMFSsu
+	ghRX7uGj99gWYL5DJMsejdACTllVwBpXNDYxjTLo706jUr5uFQxOBLd45jJmOCCUAKms=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uZs0O-0017oV-Ku; Thu, 10 Jul 2025 16:12:08 +0200
+Date: Thu, 10 Jul 2025 16:12:08 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ioana Ciornei <ioana.ciornei@nxp.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Shawn Guo <shawnguo@kernel.org>, Michael Walle <mwalle@kernel.org>,
+	Lee Jones <lee@kernel.org>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 5/9] drivers: gpio: add QIXIS FPGA GPIO controller
+Message-ID: <af9b69a7-2e8f-4cdd-a3f3-6375ecfe318c@lunn.ch>
+References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
+ <20250709112658.1987608-6-ioana.ciornei@nxp.com>
+ <898af9ea-9b90-4d1f-8e0d-a8e0686d72a7@lunn.ch>
+ <o5v2xdlrtjcgcd6usrfmtq6qffyigudvx3flhhetnd4ufg2mcx@5tem3jrlpxw5>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/8] media: Documentation: uapi: Add V4L2 extensible
- parameters
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Dafna Hirschfeld <dafna@fastmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20250710-extensible-parameters-validation-v2-0-7ec8918ec443@ideasonboard.com>
- <20250710-extensible-parameters-validation-v2-4-7ec8918ec443@ideasonboard.com>
-Content-Language: en-US
-From: Dan Scally <dan.scally@ideasonboard.com>
-Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20250710-extensible-parameters-validation-v2-4-7ec8918ec443@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <o5v2xdlrtjcgcd6usrfmtq6qffyigudvx3flhhetnd4ufg2mcx@5tem3jrlpxw5>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_070651_473390_323A122D 
-X-CRM114-Status: GOOD (  29.84  )
+X-CRM114-CacheID: sfid-20250710_071211_959476_06CDD9B5 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,138 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo
+> The FPGA does have an ID register that we could verify and match against
+> the board type that we expect.
+> 
+> On the other hand, I am not 100% on board with the idea to check this
+> from the GPIO driver which teoretically should only touch its one
+> register. Maybe from the parent's driver we could do that and prevent
+> the probing of children if things don't match up. But this does prove to
+> be complicated since those drivers are simple-mfd (for LS1046AQDS) and
+> simple-mfd-i2c (for LX2160ARDB). And I don't think it would be wise to
+> add some specific board logic into of/platform.c.
 
-On 10/07/2025 14:52, Jacopo Mondi wrote:
-> Add documentation for extensible parameters format to the V4L2
-> userspace API documentation.
->
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-> ---
->   .../media/v4l/extensible-parameters.rst            | 89 ++++++++++++++++++++++
->   .../userspace-api/media/v4l/meta-formats.rst       |  1 +
->   MAINTAINERS                                        |  1 +
->   3 files changed, 91 insertions(+)
->
-> diff --git a/Documentation/userspace-api/media/v4l/extensible-parameters.rst b/Documentation/userspace-api/media/v4l/extensible-parameters.rst
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..c4caa5c1df991d4dd91f986571db55135d15204a
-> --- /dev/null
-> +++ b/Documentation/userspace-api/media/v4l/extensible-parameters.rst
-> @@ -0,0 +1,89 @@
-> +.. SPDX-License-Identifier: GFDL-1.1-no-invariants-or-later
-> +
-> +.. _extensible-parameters:
-> +
-> +**********************************
-> + V4L2 extensible parameters format
-> +**********************************
-> +
-> +ISP configuration
-> +=================
-> +
-> +ISP configuration parameters are computed by userspace and programmed into a
-> +*parameters buffer* which is queued to the ISP driver on a per-frame basis. The
-> +layout of the *parameters buffer* generally reflects the ISP peripheral
-> +registers layout and is, for this reason, platform specific.
-> +
-> +The ISP configuration parameters are passed to the ISP driver through a metadata
-> +output video node, using the :c:type:`v4l2_meta_format` interface. Each ISP
-> +driver defines a metadata format that implements the configuration parameters
-> +layout.
-> +
-> +Metadata output formats that describe ISP configuration parameters are most of
-> +the time realized by implementing C structures that reflect the registers layout
-> +and gets populated by userspace before queueing the buffer to the ISP. Each
-> +C structure usually corresponds to one ISP *processing block*, with each block
-> +implementing one of the ISP supported features.
-> +
-> +The uAPI/ABI problem
-> +--------------------
-> +
-> +By upstreaming data types that describe the configuration parameters layout,
-> +driver developers make them part of the Linux kernel ABI. As it sometimes
-> +happens for most peripherals in Linux, ISP drivers development is often an
-> +iterative process, where sometimes not all the hardware features are supported
-> +in the first version that lands in the kernel, and some parts of the interface
-> +have to later be modified for bug-fixes or improvements.
-> +
-> +If any later bug-fix/improvement requires changes to the metadata output format,
-> +this is considered an ABI-breakage that is strictly forbidden by the Linux
-> +kernel policies. For this reason, each new iteration of an ISP driver support
-> +would require defining a new metadata output format, implying that drivers have
-> +to be made ready to handle several different configuration formats.
-> +
-> +A new set of metadata output formats has then to be defined, with the design
-> +goals of being:
-> +
-> +- Extensible: new features can be added later on without breaking the existing
-> +  interface
-> +- Versioned: different versions of the format can be defined without
-> +  breaking the existing interface
-> +
-> +The extensible parameters format
-> +================================
-> +
-> +Extensible configuration formats are realized by a defining a single C structure
-> +that contains a few control parameters and a binary buffer where userspace
-> +programs a variable number of *ISP configuration blocks* data.
-> +
-> +The generic :c:type:`v4l2_params_buffer` defines a base type that each driver
-> +can use by properly sizing the data buffer array.
-> +
-> +Each *ISP configuration block* is identified by an header and contains the
-> +parameters for that specific block.
-> +
-> +The generic :c:type:`v4l2_params_block_header` defines a base type that each
-> +driver can re-use as it is or extend appropriately.
-> +
-> +Userspace applications program in the control buffer only the parameters of the
-> +ISP whose configuration has changed for the next frame. The ISP driver parses
-> +the configuration parameters and apply them to the hardware register.
-> +
-> +Any further development that happens after the ISP driver has been merged in
-> +Linux and which requires supporting new ISP features can be implemented by
-> +adding new blocks definition without invalidating the existing ones. Similarly,
-> +any change to the existing ISP configuration blocks can be handled by versioning
-> +them, again without invalidating the existing ones.
-> +
-> +Implementations
-> +---------------
-> +
-> +ISP drivers that define an extensible parameters metadata output format:
-> +
-> +- :ref:`RkISP1 <v4l2-meta-fmt-rk-isp1-ext-params>`
-> +- :ref:`Amlogic C3 ISP <v4l2-meta-fmt-c3isp-params>`
-> +
-> +V4L2 extensible parameters uAPI data types
-> +==========================================
-> +
-> +.. kernel-doc:: include/uapi/linux/media/v4l2-extensible-params.h
-> diff --git a/Documentation/userspace-api/media/v4l/meta-formats.rst b/Documentation/userspace-api/media/v4l/meta-formats.rst
-> index bb6876cfc271e1a0543eee4209d6251e1a6a73cc..58eb3c9c962bee008eee27d9c16678213c47baa9 100644
-> --- a/Documentation/userspace-api/media/v4l/meta-formats.rst
-> +++ b/Documentation/userspace-api/media/v4l/meta-formats.rst
-> @@ -12,6 +12,7 @@ These formats are used for the :ref:`metadata` interface only.
->   .. toctree::
->       :maxdepth: 1
->   
-> +    extensible-parameters
->       metafmt-c3-isp
->       metafmt-d4xx
->       metafmt-generic
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 49a9329e5fe8874bdbaca13946ea28bd80134cb3..beecac86991d988c48d31366ba5201b09ef25715 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -25972,6 +25972,7 @@ V4L2 EXTENSIBLE PARAMETERS FORMAT
->   M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->   L:	linux-media@vger.kernel.org
->   S:	Maintained
-> +F:	Documentation/userspace-api/media/v4l/extensible-parameters.rst
->   F:	include/uapi/linux/media/v4l2-extensible-params.h
->   
->   VF610 NAND DRIVER
->
+My experience is, DT authors will mess up and put in the wrong
+compatible. And the wrong compatible might be enough for it to mostly
+work, so you end up with deployed systems with wrong compatibles. It
+then becomes difficult to actually extend the use of the compatible,
+without causing regressions.
+
+Also, checking will catch putting the wrong bitstream into the FPGA.
+
+So if you can check it, do check it, and return -ENODEV.
+
+   Andrew
 
