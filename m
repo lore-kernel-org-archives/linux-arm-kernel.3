@@ -4,150 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF8BEC83F09
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B56C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 05:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E7a1nExZKUkMJr6bzeG3jTY23inZAa/0ACe5Cf4o1So=; b=iuoYNuHo607w+jQhIOZb+e7vfn
-	RoCUZdoVFV3+I+S+jovjMo4T87fx3kbOFwo/A5u/ETqX1zZldc77GBoDFYOS6e96FhXEjDubCz+Sq
-	cPJICENVpJFa+S0IKJGbxt++QqnxNafvq6jkoOTSALmV36ruziqvK04rionsn/zzHgdSg7HgO4syN
-	MmCt/rUF/TWs0yT/8znRyJZfmug9wZY2RL4jeKi33PaJOZhIPogovyYjp0Ja+rlTmEHsXtcj7y1ju
-	jndhBhhEh82/YNNgLjtEUgcQ2xrPavULuAjRUbrCglZV2YxkHd8OTe+XHlH8+dXOYluVlpAYsU1Q5
-	tTth/fiA==;
+	bh=ZND/XwNOzpB2vjuxP78ruQThC40Mj/qaWgPyvlaTMNk=; b=ywBWKb+HWaUddIH8+KYTM7n/df
+	NuFw7XqMwKyWSzCApprPP5sLoyF6350vra8xMEIV8T0WLP+kUoWlTgAkYZNnIPnoWlNnIiOPAeHPu
+	2p76bs4HGulOavpQgn2ntdqMqygBldsLiu/xCKytCzg/5STsAM+At1mdEWQVYWTzzg7PMrGCWjPUd
+	8B+gtg9H9djWb7WvPY9xwMxpaaqXUCZJHLQvSn7Bsp+2zG13hB8M5YRPk47Nfd/r7PIQqREkeqLZ2
+	/3DSRm9+yfv8IsUz21vktFWPTpAWlipDFTgIhSQzRMsS0zgKKB/QYMoiK4jleDQUAgHEZVR7zpUJk
+	3Ip0uUnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZk5T-0000000AkJy-1DoJ;
-	Thu, 10 Jul 2025 05:44:51 +0000
-Received: from mail-dm6nam10on20625.outbound.protection.outlook.com ([2a01:111:f403:2413::625] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uZk7m-0000000AkfY-1zQX;
+	Thu, 10 Jul 2025 05:47:14 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZjvf-0000000AjVj-1x9W
+	id 1uZk4t-0000000AkFO-46YI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 05:34:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TRfMUExJ6Od2D/rG1nfMzyWu9xEd0qKhky1GZHrtsX58Ti+1EESaDUuu/5Z/D2u5wnniu1x2TmJRNjE6Bnuum4YVRauuF71PdI4xsCCHCTW3iIOxakNhb7tZPc/RJlqTVLeUJrz2j18ORiSnzf7yCikOED8m11Eq881mhhh8fos2be4IIO6uS2OqQRLzFw4c60TT4mq40NZmUasRlVF/sCSTgRH6qRv9nZkQjoUw5aKbC1r4CN/nxXnJU1AKObivvi/X5AC0XPu/3t26kGxtGaR9cZlqwPQLZ5RGvpHrrIUFYUlz7yAb6rC2C2NgOwQOhU647jzUocZvmQPvxvRTSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=E7a1nExZKUkMJr6bzeG3jTY23inZAa/0ACe5Cf4o1So=;
- b=uryRXsuIeWUQL+x9mWmpEKukdOA85Iaw1El3snFnjQJOMZyWIe0mXgmGkzUw/3n6ebFuPjKmLjGlhl/Fs/XoDzt/c7bHYj0sT2t2MZx9SEBHguKuPfyczLSD6BnJURzqW/EPqM6he8nt0wjri+qYRux/g1GCiBz2QRhyArlUT+jUmJEMah/cy5X6GmmdO9e4ZuzC6irelLgdjucsfVCQw+9ZXvoiHZ9Zae+44NoSXB0ZAxV9Q3UFJLlEqHOKWr82GNpXeQfUo4qMZ+wuQuYPa8dixXzrpsED67677Kbntb9cZwpQu4QB7BFMzc1XH1VgyE5TzOXlZElD+b3k3+fWKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=E7a1nExZKUkMJr6bzeG3jTY23inZAa/0ACe5Cf4o1So=;
- b=NLByLjL/dOwbHDFWLNpv0FhMh6vNh8m6qHuZ2evhbyfS1bFaWyubPn0STRmN3xr5bCzxz572xq5tUqRN0+f8gL8xDodX2aC24PCkaNgj+Iq//9jn6tdegZKqU8qt6wve+gE8EKdVTkov36RnZ20GpWuxREEiaJran0tdZae06SzZ3HM/E/K+7Tl0+p+Qj1LVG2EIO7dNE/lq2WiiGAu4F0769AZhyeGjZwYI9JY+zAI0s2ovFLCyIdQVBLX816owSdkSRVuWPqJnzci29BJb+DVQMqkrtF267/kkFt+ID66w7iv23ZqpfXhO5g48j0Z0+j8fE368UL8XduXxs5h8KA==
-Received: from CH0PR13CA0025.namprd13.prod.outlook.com (2603:10b6:610:b1::30)
- by CH3PR12MB8076.namprd12.prod.outlook.com (2603:10b6:610:127::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.29; Thu, 10 Jul
- 2025 05:34:37 +0000
-Received: from DS2PEPF00003447.namprd04.prod.outlook.com
- (2603:10b6:610:b1:cafe::67) by CH0PR13CA0025.outlook.office365.com
- (2603:10b6:610:b1::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8943.5 via Frontend Transport; Thu,
- 10 Jul 2025 05:34:36 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- DS2PEPF00003447.mail.protection.outlook.com (10.167.17.74) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8922.22 via Frontend Transport; Thu, 10 Jul 2025 05:34:36 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 9 Jul 2025
- 22:34:26 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Wed, 9 Jul 2025 22:34:26 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Wed, 9 Jul 2025 22:34:24 -0700
-Date: Wed, 9 Jul 2025 22:34:23 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
-	<bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
-	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
-	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
-Subject: Re: [PATCH v8 14/29] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
- ioctl
-Message-ID: <aG9Q39PKjY/TXiMe@Asurada-Nvidia>
-References: <cover.1751677708.git.nicolinc@nvidia.com>
- <49a93d92ce657cf6a0d588d2b31ad3600ace21f7.1751677708.git.nicolinc@nvidia.com>
- <20250709170904.GG1599700@nvidia.com>
- <aG67GDY97U8T6kuD@Asurada-Nvidia>
+	Thu, 10 Jul 2025 05:44:17 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56A5i1l11651610;
+	Thu, 10 Jul 2025 00:44:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752126241;
+	bh=ZND/XwNOzpB2vjuxP78ruQThC40Mj/qaWgPyvlaTMNk=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=GU829TTF6bCdk9Vkzvtxgva2r59+A3bqkvkAC5Hpw9mmAbzotz3lVOg76DLPckJT0
+	 pm5xNj4ZQqTHQfKZIHGG6qyh12bu1hR6FFZwO8DDCseeHi0qb4rrMNgmilJ06jq8P9
+	 T6LJE++mbLwbA63LFo0+xnB6vHgG0bjmcE6+b/Kk=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56A5i1jp3202317
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 10 Jul 2025 00:44:01 -0500
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 10
+ Jul 2025 00:44:01 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 10 Jul 2025 00:44:01 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56A5i1iF1110717;
+	Thu, 10 Jul 2025 00:44:01 -0500
+Date: Thu, 10 Jul 2025 00:44:01 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Kendall Willis <k-willis@ti.com>
+CC: <kristo@kernel.org>, <ssantosh@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <ulf.hansson@linaro.org>, <vigneshr@ti.com>, <d-gole@ti.com>,
+        <vishalm@ti.com>, <sebin.francis@ti.com>, <msp@baylibre.com>,
+        <khilman@baylibre.com>
+Subject: Re: [PATCH v3] firmware: ti_sci: Enable abort handling of entry to
+ LPM
+Message-ID: <20250710054401.5hmhsdtyulcskwug@zodiac>
+References: <20250709221619.2237699-1-k-willis@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <aG67GDY97U8T6kuD@Asurada-Nvidia>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF00003447:EE_|CH3PR12MB8076:EE_
-X-MS-Office365-Filtering-Correlation-Id: b00b1232-45d0-40d7-279b-08ddbf73757a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ECARVIP9FyDOokv5stJw6B+x5qtCVseaV698wg/doO8ZDqLvy6c0waGk2tzT?=
- =?us-ascii?Q?M23xsjoDd+fn9ug1XBDfqpI0n29Dx3hcvqw7XGvx5ov2xDot+EeY4G8owEXS?=
- =?us-ascii?Q?I0Km6nyyZGT6hDhAaJ/DREnezqc+MG0Mo/5YQpVLzxixMapPDUPJS+sYTDrI?=
- =?us-ascii?Q?+JDuVbgKFe6bRePJW7L5ap4vCJyNXidbz4cWKHaCTVvHEMUeukZCutrrX8Qs?=
- =?us-ascii?Q?ZKOZ2ENg4bhxEwrES82btV1+dnSgUrVE0XKTTYmHyKdnEZnpnk1svX27Y1tD?=
- =?us-ascii?Q?8Gj445TXPu6HdjOhJIjT15QlkKZxNSqXvzrzB+HPgs5jCIJzOhnfpvbv8jOH?=
- =?us-ascii?Q?XcjgRW6MQCck4hdoTb/wOiaYk8O05VRN+adTXOdZws/7NXe6N+FPj5pznqqU?=
- =?us-ascii?Q?I00FJM8N8VxW8/s+MFaN6Ey5dZBeQAb8/K3WAk6eTtNcY12CaAWCJziCvh39?=
- =?us-ascii?Q?Be3nd+8tAFCf7u62tC7J3rSmmBpfgtIGUA9ZjD8j6ZcEvl3pQqA/n8SZD3VS?=
- =?us-ascii?Q?9/lfmZcdqVfpPQgIQmRdTiQH4r8MLEHd36xB8ihTygMh7IoGVhHNOvtcQ4qA?=
- =?us-ascii?Q?CO8yd+i9qdPVBCW70Bzq13TAqbNGp8XDw/Qldg2/EOctTpf0T15C07VQf3Ip?=
- =?us-ascii?Q?67+mJR+4xuTXlM1Aw9P/bEfcJ7AaD8fmWbksS8e6i33gzJ6e7vmoep4cgME2?=
- =?us-ascii?Q?9usmoh6tBo2GeJ77aMWNNI31hXpnDgwWJP2YYrIWH4CCeTtPRVOJhAdM6S9S?=
- =?us-ascii?Q?yIvk3AuyMIBFQq9NGktsZuNrxnTnjEZHYNv466TWhu/gRTnO1Sz0LKYhdHIS?=
- =?us-ascii?Q?xPrpnLynKrIe0awPO27n3qPH501lJvNQ6j9PnvDRoWJ/9rh/lbJas8Y6DTS9?=
- =?us-ascii?Q?n4ZFGFM6Yi6j208z7uxHkpIyI+KDfLMH9SxMiUXu7F+W7FBvFlS9CiWnBvVt?=
- =?us-ascii?Q?+eg0YeCqRtMNzZOuBdvs+BMjvgNxBTDTAp2LbGdcCWQnS0Zf3mLxQq+E8YIW?=
- =?us-ascii?Q?g3UZu5zQUmsYbriCHcqLrPJ66Z4997ShuhqwLRvJvXUxWBAfsmAAU5N4BB9a?=
- =?us-ascii?Q?AUB6R4Q7UZkiulQmxVtwHZCGOnClAPL6JsNZOBy+iTfrYQjW6gRjexE1sp0B?=
- =?us-ascii?Q?WRv6p0UXrLfpELGkxz9AnsgZ0m1k/G3Ejmway0Lj/cczDXB79JI2IqPA/k7G?=
- =?us-ascii?Q?LjOLg1HrbgfSyJqqcvABkZ0/kkFZn4foZHhKhucpxP5PeRjfbZvkQU0s0oFj?=
- =?us-ascii?Q?PR6JiLdTv+c2ew5kRnFO0sdfneZyulfEt7ZC2p6H86PemgroZkFEDun1huzq?=
- =?us-ascii?Q?wNdGVNmIZwQcdOBy7jqwSi9HN8c38IBBtxONGhobtf3IR90PnbDRi4naBIAJ?=
- =?us-ascii?Q?n1v3w61hQ5Z6HpXqN3bpxUzvFTXq4IT8b5fX/N2SdGTt45/84K+r8GK0Njje?=
- =?us-ascii?Q?XmO/sfDCor45VPu4rkWMTp+/K5KIAxgTRMbVh3aCNhxyZrPFfWnA1ut4ZQtr?=
- =?us-ascii?Q?raWLkoqoKIfsYbLG2ErqLof3rZu5ZlO+/fEg?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 05:34:36.8138
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b00b1232-45d0-40d7-279b-08ddbf73757a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF00003447.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8076
+In-Reply-To: <20250709221619.2237699-1-k-willis@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_223443_874078_2C41F1FE 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20250709_224416_186940_B1EE82E0 
+X-CRM114-Status: GOOD (  51.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,139 +86,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 11:55:20AM -0700, Nicolin Chen wrote:
-> On Wed, Jul 09, 2025 at 02:09:04PM -0300, Jason Gunthorpe wrote:
-> > On Fri, Jul 04, 2025 at 06:13:30PM -0700, Nicolin Chen wrote:
-> > > +static struct iommufd_access *
-> > > +iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
-> > > +			    struct iommufd_viommu *viommu, phys_addr_t *base_pa)
-> > > +{
-> > > +	struct iommufd_access *access;
-> > > +	struct page **pages;
-> > > +	size_t max_npages;
-> > > +	size_t length;
-> > > +	u64 offset;
-> > > +	size_t i;
-> > > +	int rc;
-> > > +
-> > > +	offset =
-> > > +		cmd->nesting_parent_iova - PAGE_ALIGN(cmd->nesting_parent_iova);
-> > 
-> > PAGE_ALIGN is ALIGN UP, that is the wrong direction?
-> > 
-> > It is just:
-> > 
-> >       offset = cmd->nesting_parent_iova % PAGE_SIZE;
-> > 
-> > And this is missing:
-> > 
-> > 	*base_pa = (page_to_pfn(pages[0]) << PAGE_SHIFT) + offset;
-> > 
-> > ??
+On 17:16-20250709, Kendall Willis wrote:
+> The PM co-processor (device manager or DM) adds the ability to abort
+> entry to a low power mode by clearing the mode selection in the
+> latest version of its firmware (11.x). The following power management
+> operation defined in the TISCI Low Power Mode API [1] is implemented to
+> enable aborting entry to LPM:
 > 
-> Yes, my bad. And I realized that all my testings are page aligned.
-> Maybe we could add an IOMMU_TEST_OP_HW_QUEUE_CHECK_ADDR..
+> TISCI_MSG_LPM_ABORT
+> Abort the current low power mode entry by clearing the current mode
+> selection.
+> 
+> Introduce LPM abort call that enables the ti_sci driver to support abort
+> by clearing the low power mode selection of the DM. This fixes behavior
+> from the DM where if system suspend failed, the next time system suspend
+> is entered, it will fail because DM did not have the low power mode
+> selection cleared. Instead of this behavior, the low power mode selection
+> will be cleared after Linux resume which will allow subsequent system
+> suspends to work correctly.
+> 
+> When Linux suspends, the TI SCI ->suspend() call will send a prepare_sleep
+> message to the DM. The DM will choose what low power mode to enter once
+> Linux is suspended based on constraints given by devices in the TI SCI PM
+> domain. After system suspend completes, regardless of if system suspend
+> succeeds or fails, the ->complete() hook in TI SCI will be called. In the
+> ->complete() hook, a message will be sent to the DM to clear the current
+> low power mode selection. This is necessary because if suspend fails, the
+> low power mode selection in the DM is not cleared and the next system
+> suspend will fail due to the low power mode not having been cleared from
+> the previous failed system suspend.
+> 
+> Clearing the mode selection unconditionally acts as a cleanup from sending
+> the prepare_sleep message in ->suspend(). The DM already clears the low
+> power selection automatically when resuming from system suspend. If
+> suspend/resume executed without failure, clearing the low power mode
+> selection will not cause an error in the DM.
+> 
+> The flow for the abort sequence is the following:
+>    1. User sends a command to enter sleep
+>    2. Linux starts to suspend drivers
+>    3. TI SCI suspends and sends prepare_sleep message to DM
+>    4. A driver fails to suspend
+>    5. Linux resumes the drivers that have already suspended
+>    6. Linux sends DM to clear the current low power mode selection from
+>       TI SCI ->complete() hook
+>    7. DM aborts LPM entry by clearing the current mode selection
+>    8. Linux works as normal
 
-I found that this needed a bit more care. The pin_pages() API
-accepts aligned iova and length inputs.
+Could we trim the message a bit down? it is informative, thanks.. but I
+think a bit repetitive.
 
-So, doing this instead (and adding a selftest coverage):
+> 
+> [1] https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html
+> 
+> Signed-off-by: Kendall Willis <k-willis@ti.com>
+> ---
+> Series has been tested on an SK-AM62B-P1 board. Normal suspend/resume
+> has been verified. Abort was tested by adding an error into the TI SCI
+> suspend hook.
 
-diff --git a/drivers/iommu/iommufd/viommu.c b/drivers/iommu/iommufd/viommu.c
-index 00641204efb2..91339f799916 100644
---- a/drivers/iommu/iommufd/viommu.c
-+++ b/drivers/iommu/iommufd/viommu.c
-@@ -206,7 +206,11 @@ static void iommufd_hw_queue_destroy_access(struct iommufd_ctx *ictx,
- 					    struct iommufd_access *access,
- 					    u64 base_iova, size_t length)
- {
--	iommufd_access_unpin_pages(access, base_iova, length);
-+	u64 aligned_iova = PAGE_ALIGN_DOWN(base_iova);
-+	u64 offset = base_iova - aligned_iova;
-+
-+	iommufd_access_unpin_pages(access, aligned_iova,
-+				   PAGE_ALIGN(length + offset));
- 	iommufd_access_detach_internal(access);
- 	iommufd_access_destroy_internal(ictx, access);
- }
-@@ -239,22 +243,23 @@ static struct iommufd_access *
- iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
- 			    struct iommufd_viommu *viommu, phys_addr_t *base_pa)
- {
-+	u64 aligned_iova = PAGE_ALIGN_DOWN(cmd->nesting_parent_iova);
-+	u64 offset = cmd->nesting_parent_iova - aligned_iova;
- 	struct iommufd_access *access;
- 	struct page **pages;
- 	size_t max_npages;
- 	size_t length;
--	u64 offset;
- 	size_t i;
- 	int rc;
- 
--	offset =
--		cmd->nesting_parent_iova - PAGE_ALIGN(cmd->nesting_parent_iova);
--	/* DIV_ROUND_UP(offset + cmd->length, PAGE_SIZE) */
-+	/* max_npages = DIV_ROUND_UP(offset + cmd->length, PAGE_SIZE) */
- 	if (check_add_overflow(offset, cmd->length, &length))
- 		return ERR_PTR(-ERANGE);
- 	if (check_add_overflow(length, PAGE_SIZE - 1, &length))
- 		return ERR_PTR(-ERANGE);
- 	max_npages = length / PAGE_SIZE;
-+	/* length needs to be page aligned too */
-+	length = max_npages * PAGE_SIZE;
- 
- 	/*
- 	 * Use kvcalloc() to avoid memory fragmentation for a large page array.
-@@ -274,8 +279,7 @@ iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
- 	if (rc)
- 		goto out_destroy;
- 
--	rc = iommufd_access_pin_pages(access, cmd->nesting_parent_iova,
--				      cmd->length, pages, 0);
-+	rc = iommufd_access_pin_pages(access, aligned_iova, length, pages, 0);
- 	if (rc)
- 		goto out_detach;
- 
-@@ -287,13 +291,12 @@ iommufd_hw_queue_alloc_phys(struct iommu_hw_queue_alloc *cmd,
- 		goto out_unpin;
- 	}
- 
--	*base_pa = page_to_pfn(pages[0]) << PAGE_SHIFT;
-+	*base_pa = (page_to_pfn(pages[0]) << PAGE_SHIFT) + offset;
- 	kfree(pages);
- 	return access;
- 
- out_unpin:
--	iommufd_access_unpin_pages(access, cmd->nesting_parent_iova,
--				   cmd->length);
-+	iommufd_access_unpin_pages(access, aligned_iova, length);
- out_detach:
- 	iommufd_access_detach_internal(access);
- out_destroy:
-diff --git a/tools/testing/selftests/iommu/iommufd.c b/tools/testing/selftests/iommu/iommufd.c
-index 9d5b852d5e19..694b178f8ca4 100644
---- a/tools/testing/selftests/iommu/iommufd.c
-+++ b/tools/testing/selftests/iommu/iommufd.c
-@@ -3104,7 +3104,7 @@ TEST_F(iommufd_viommu, hw_queue)
- 	/* Allocate index=0, declare ownership of the iova */
- 	test_cmd_hw_queue_alloc(viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 0,
- 				iova, PAGE_SIZE, &hw_queue_id[0]);
--	/* Fail duplicate */
-+	/* Fail duplicated index */
- 	test_err_hw_queue_alloc(EEXIST, viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST,
- 				0, iova, PAGE_SIZE, &hw_queue_id[0]);
- 	/* Fail unmap, due to iova ownership */
-@@ -3112,9 +3112,10 @@ TEST_F(iommufd_viommu, hw_queue)
- 	/* The 2nd page is not pinned, so it can be unmmap */
- 	test_ioctl_ioas_unmap(iova + PAGE_SIZE, PAGE_SIZE);
- 
--	/* Allocate index=1 */
-+	/* Allocate index=1, with an unaligned case */
- 	test_cmd_hw_queue_alloc(viommu_id, IOMMU_HW_QUEUE_TYPE_SELFTEST, 1,
--				iova, PAGE_SIZE, &hw_queue_id[1]);
-+				iova + PAGE_SIZE / 2, PAGE_SIZE / 2,
-+				&hw_queue_id[1]);
- 	/* Fail to destroy, due to dependency */
- 	EXPECT_ERRNO(EBUSY, _test_ioctl_destroy(self->fd, hw_queue_id[0]));
- 
+btw, does this handle the noirq case as well? I have'nt looked closely
+at the sequence to be sure.
+
+> 
+> Link to v2:
+> https://lore.kernel.org/all/20250709205332.2235072-1-k-willis@ti.com/
+> Link to v1:
+> https://lore.kernel.org/all/20250627204821.1150459-1-k-willis@ti.com/
+> 
+> Changes from v2 to v3:
+>   - added links to previous series and the changes between them
+
+Thanks, but in the future, I'd rather not want a v3, but just reply
+with the missing info and better still, add to your pre-send checklist
+to ensure you don't miss it in the future ;).
+
+
+> 
+> Changes from v1 to v2:
+>    - rebase on linux-next
+>    - drop the following patch:
+>      pmdomain: ti_sci: Add LPM abort sequence to suspend path
+>    - remove lpm_abort from ti_sci_pm_ops
+>    - add ->complete() hook with ti_sci_cmd_lpm_abort to be called
+>      unconditionally within it
+>    - remove ti_sci_cmd_lpm_abort from the ->suspend() and
+>      ->suspend_noirq() hooks
+>    - reword commit message
+> ---
+>  drivers/firmware/ti_sci.c | 61 +++++++++++++++++++++++++++++++++++++++
+>  drivers/firmware/ti_sci.h |  3 +-
+>  2 files changed, 63 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+> index ae5fd1936ad32..63c405f7037f0 100644
+> --- a/drivers/firmware/ti_sci.c
+> +++ b/drivers/firmware/ti_sci.c
+> @@ -2015,6 +2015,58 @@ static int ti_sci_cmd_set_latency_constraint(const struct ti_sci_handle *handle,
+>  	return ret;
+>  }
+>  
+> +/**
+> + * ti_sci_cmd_lpm_abort() - Abort entry to LPM by clearing selection of LPM to enter
+> + * @handle:     pointer to TI SCI handle
+> + *
+> + * Return: 0 if all went well, else returns appropriate error value.
+> + */
+> +static int ti_sci_cmd_lpm_abort(const struct ti_sci_handle *handle)
+> +{
+> +	struct ti_sci_info *info;
+> +	struct ti_sci_msg_hdr *req;
+> +	struct ti_sci_msg_hdr *resp;
+> +	struct ti_sci_xfer *xfer;
+> +	struct device *dev;
+> +	int ret = 0;
+> +
+> +	if (IS_ERR(handle))
+> +		return PTR_ERR(handle);
+> +	if (!handle)
+> +		return -EINVAL;
+> +
+> +	info = handle_to_ti_sci_info(handle);
+> +	dev = info->dev;
+
+-ECONFUSED. ti_sci_complete already gets dev and info and this API is
+not exposed to other users. So why do we need to flip back and forth
+with info->handle and then get info from handle and dev again??
+> +
+> +	xfer = ti_sci_get_one_xfer(info, TI_SCI_MSG_LPM_ABORT,
+> +				   TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+> +				   sizeof(*req), sizeof(*resp));
+> +	if (IS_ERR(xfer)) {
+> +		ret = PTR_ERR(xfer);
+> +		dev_err(dev, "Message alloc failed(%d)\n", ret);
+> +		return ret;
+> +	}
+> +	req = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+> +
+> +	ret = ti_sci_do_xfer(info, xfer);
+> +	if (ret) {
+> +		dev_err(dev, "Mbox send fail %d\n", ret);
+> +		goto fail;
+> +	}
+> +
+> +	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+> +
+> +	if (!ti_sci_is_response_ack(resp))
+> +		ret = -ENODEV;
+> +	else
+> +		ret = 0;
+is'nt ret already 0?
+
+OR you could go with ? like rest of code.. ;)
+
+> +
+> +fail:
+> +	ti_sci_put_one_xfer(&info->minfo, xfer);
+> +
+> +	return ret;
+> +}
+> +
+>  static int ti_sci_cmd_core_reboot(const struct ti_sci_handle *handle)
+>  {
+>  	struct ti_sci_info *info;
+> @@ -3739,11 +3791,20 @@ static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
+>  	return 0;
+>  }
+>  
+> +static void __maybe_unused ti_sci_complete(struct device *dev)
+
+ti_sci_pm_complete or something like that?
+
+> +{
+> +	struct ti_sci_info *info = dev_get_drvdata(dev);
+> +
+> +	if (ti_sci_cmd_lpm_abort(&info->handle))
+
+I see from the documentation of .complete that it is invoked in
+multitude of scenarios, including resume as well. While I think it is
+probably fine to clear the state, have you had a chance to look at
+possible side effects in other flows (thaw etc..?)
+
+Additionally, do we want to check info->fw_caps &
+MSG_FLAG_CAPS_LPM_DM_MANAGED before sending it over to DM?
+
+> +		dev_err(dev, "LPM clear selection failed.\n");
+> +}
+> +
+>  static const struct dev_pm_ops ti_sci_pm_ops = {
+>  #ifdef CONFIG_PM_SLEEP
+>  	.suspend = ti_sci_suspend,
+>  	.suspend_noirq = ti_sci_suspend_noirq,
+>  	.resume_noirq = ti_sci_resume_noirq,
+> +	.complete = ti_sci_complete,
+
+Another question - when is .complete called as part of rewind? does DM
+behave sane while other drivers are resuming back up before .complete is
+invoked?
+
+>  #endif
+>  };
+>  
+> diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
+> index 053387d7baa06..51d77f90a32cc 100644
+> --- a/drivers/firmware/ti_sci.h
+> +++ b/drivers/firmware/ti_sci.h
+> @@ -6,7 +6,7 @@
+>   * The system works in a message response protocol
+>   * See: https://software-dl.ti.com/tisci/esd/latest/index.html for details
+>   *
+> - * Copyright (C)  2015-2024 Texas Instruments Incorporated - https://www.ti.com/
+> + * Copyright (C)  2015-2025 Texas Instruments Incorporated - https://www.ti.com/
+
+please dont keep shifting license year for trivial changes :)
+>   */
+>  
+>  #ifndef __TI_SCI_H
+> @@ -42,6 +42,7 @@
+>  #define TI_SCI_MSG_SET_IO_ISOLATION	0x0307
+>  #define TI_SCI_MSG_LPM_SET_DEVICE_CONSTRAINT	0x0309
+>  #define TI_SCI_MSG_LPM_SET_LATENCY_CONSTRAINT	0x030A
+> +#define TI_SCI_MSG_LPM_ABORT	0x0311
+
+NOTE: all the LPM stuff is enabled with MSG_FLAG_CAPS_LPM_DM_MANAGED.
+Is this supported from the very beginning version of firmware that
+has this? else will we see issues in the field with a mix of firmware
+versions.. some just crashing out when the message is not supported?
+
+>  
+>  /* Resource Management Requests */
+>  #define TI_SCI_MSG_GET_RESOURCE_RANGE	0x1500
+> 
+> base-commit: 835244aba90de290b4b0b1fa92b6734f3ee7b3d9
+> -- 
+> 2.34.1
+> 
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
