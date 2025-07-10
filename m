@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B991C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10986C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 00:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CzRCl5N+8/neTEbRrTxIwlIx4+VS/EZRLOsOYFfncgM=; b=0niZH4AF89K5gyTH2grtyKb3T7
-	Y5QdDd1ddW6TjWh5F7YZNT2RY9WjSmfvfJ3vRQBIMz9Ceanu0RNvEpmysI6VEulm20vtSeuIkVQ/2
-	ViPzA8chyhummt1+agX7OMkBbcFXDDcPsZ6+ycKW3QCUQjjM6TnEckJJv3jm1ud2zoj76vVW7RJ1Q
-	F5ZXQrGbsrwCvzXn5bdBO8E5/0aA47wIaTejuwZsRp/7lxCTU4YpC6PTfc6L7ZGYIGqGF+EA4hPZp
-	fLJZYAPKXmmGKHZLhIatHFHQGe6DuCd1uBcnDuRHyO5aLI4Q5gbZuhXR5RvGY2F9ycEpS7BORer7K
-	ie1IBDPA==;
+	bh=Qgs25W3w5IWZ21qwrJTdgw9M5wWTqCzrZMimAA+mTxs=; b=1ZabGYqPF+eI9/TThCU/gvhl5Z
+	Kvt1KjldD2PeOhJdJ8UyPfc0ds38OSyp0kUzncMcVwA7fCVEOW6OVQs17sLfDA/g7228L75thqYDg
+	0/952+k5+Yp1tEBstujAukjWA4v/mRLKSo9z5AqGRG/L+0bgGW+KLpr4Q5Z6NhCsBvX/nwaKfKZyf
+	GtdcWqm+H9WDZnzeVJAm6s49492gPPk2/nHI4z1JHIxKjLj4YcQnlqVBKy9We/jRv/qFCPviGpxiY
+	HaUsfabgqoCHx9G3nKw/JcZQzzZYLt5/bLG2vHuMxQwNBJBx7dPVoOWRaw/Y5luL3/yUWmQy4ozYW
+	ATOlWpRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZfDt-0000000AKrj-0F7f;
-	Thu, 10 Jul 2025 00:33:13 +0000
+	id 1uZfGE-0000000ALJj-3HTc;
+	Thu, 10 Jul 2025 00:35:38 +0000
 Received: from mail2.coasia.com ([112.168.119.159] helo=spam.coasia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZf1z-0000000AJKa-3jo5
+	id 1uZf20-0000000AJKd-43Q7
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Jul 2025 00:20:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=coasia.com; s=coasia;
-	t=1752106850; bh=DyFX5NVU0qfu6w33KZd1xOrQORMsGM0vYCT7ZpTXwlo=;
-	l=4651; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=vh5S674mIvXVosNkJsEGHaPWeduY8Ag4VBabLfEEwvW3o5DycqS4EdFl8pQYA/FPo
-	 ygmb4clDvQFkVscMIC02TQcJn/HJiKKQCyy4jXhqcHeH9YbWo/LW1rX04NGzloTJmU
-	 eFESaz1fIyCReTrtdaGPR5JMXBiyvKUZWYnQB83Q=
+	t=1752106853; bh=MHRM9WlGY8PZrkjRSCsLOOtIq/UdaiwDrCTZs8Cu3zU=;
+	l=4610; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=U1nBOaNl6RG8gwleWzaqKw4KPohjQxHHRkjbSt/YIYkjO1ZiCMdlemQsrMc4O6FaN
+	 ApHHLQafJhmeRC9/xmMLdwnlufg27z1EA/Q/HIVQGhpFlCgD4D4zD31eRoGz5QKvnH
+	 M5dvaILYZClXh6GdfQpkIQyAiOg3FvVvP4dtB4xQ=
 Received: from unknown (HELO kangseongu..) (ksk4725@coasia.com@115.23.218.194)
-	by 192.168.10.159 with ESMTP; 10 Jul 2025 09:20:50 +0900
+	by 192.168.10.159 with ESMTP; 10 Jul 2025 09:20:53 +0900
 X-Original-SENDERIP: 115.23.218.194
 X-Original-SENDERCOUNTRY: KR, South Korea 
 X-Original-MAILFROM: ksk4725@coasia.com
@@ -115,17 +115,17 @@ Cc: kenkim <kenkim@coasia.com>,
 	devicetree@vger.kernel.org,
 	linux-gpio@vger.kernel.org,
 	soc@lists.linux.dev
-Subject: [PATCH 01/16] dt-bindings: clock: Add CMU bindings definitions for ARTPEC-8 platform
-Date: Thu, 10 Jul 2025 09:20:31 +0900
-Message-Id: <20250710002047.1573841-2-ksk4725@coasia.com>
+Subject: [PATCH 04/16] clk: samsung: artpec-8: Add initial clock support
+Date: Thu, 10 Jul 2025 09:20:34 +0900
+Message-Id: <20250710002047.1573841-5-ksk4725@coasia.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250710002047.1573841-1-ksk4725@coasia.com>
 References: <20250710002047.1573841-1-ksk4725@coasia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250709_172056_501695_9B940446 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250709_172057_271220_C85AA604 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,147 +140,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ravi Patel <ravi.patel@samsung.com>
+From: Hakyeong Kim <hgkim05@coasia.com>
 
-Add device tree clock definitions constants for ARTPEC-8 platform.
-ARTPEC-8 platform has separate instances for each particular CMU.
-So clock IDs in this bindings header also start from 1 for each CMU block.
+Add initial clock support for ARTPEC-8 SoC which is required
+for enabling basic clock management.
 
-Signed-off-by: Hakyeong Kim <hgkim05@coasia.com>
+Add clock support for below CMU block in ARTPEC-8 SoC:
+ - CMU_IMEM
+
 Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+Signed-off-by: Hakyeong Kim <hgkim05@coasia.com>
 ---
- include/dt-bindings/clock/axis,artpec8-clk.h | 122 +++++++++++++++++++
- 1 file changed, 122 insertions(+)
- create mode 100644 include/dt-bindings/clock/axis,artpec8-clk.h
+ drivers/clk/samsung/Kconfig       |  8 ++++
+ drivers/clk/samsung/Makefile      |  1 +
+ drivers/clk/samsung/clk-artpec8.c | 62 +++++++++++++++++++++++++++++++
+ 3 files changed, 71 insertions(+)
+ create mode 100644 drivers/clk/samsung/clk-artpec8.c
 
-diff --git a/include/dt-bindings/clock/axis,artpec8-clk.h b/include/dt-bindings/clock/axis,artpec8-clk.h
+diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
+index 76a494e95027..289591b403ad 100644
+--- a/drivers/clk/samsung/Kconfig
++++ b/drivers/clk/samsung/Kconfig
+@@ -13,6 +13,7 @@ config COMMON_CLK_SAMSUNG
+ 	select EXYNOS_5420_COMMON_CLK if ARM && SOC_EXYNOS5420
+ 	select EXYNOS_ARM64_COMMON_CLK if ARM64 && ARCH_EXYNOS
+ 	select TESLA_FSD_COMMON_CLK if ARM64 && ARCH_TESLA_FSD
++	select ARTPEC8_COMMON_CLK if ARM64 && ARCH_ARTPEC8
+ 
+ config S3C64XX_COMMON_CLK
+ 	bool "Samsung S3C64xx clock controller support" if COMPILE_TEST
+@@ -102,3 +103,10 @@ config TESLA_FSD_COMMON_CLK
+ 	help
+ 	  Support for the clock controller present on the Tesla FSD SoC.
+ 	  Choose Y here only if you build for this SoC.
++
++config ARTPEC8_COMMON_CLK
++	bool "Axis ARTPEC-8 clock controller support" if COMPILE_TEST
++	depends on COMMON_CLK_SAMSUNG
++	help
++	  Support for the clock controller present on the Axis ARTPEC-8 SoC.
++	  Choose Y here only if you are building for the Axis ARTPEC-8 SoC.
+diff --git a/drivers/clk/samsung/Makefile b/drivers/clk/samsung/Makefile
+index b77fe288e4bb..473eb08fc8fc 100644
+--- a/drivers/clk/samsung/Makefile
++++ b/drivers/clk/samsung/Makefile
+@@ -3,6 +3,7 @@
+ # Samsung Clock specific Makefile
+ #
+ 
++obj-$(CONFIG_ARTPEC8_COMMON_CLK)	+= clk-artpec8.o
+ obj-$(CONFIG_COMMON_CLK)	+= clk.o clk-pll.o clk-cpu.o
+ obj-$(CONFIG_EXYNOS_3250_COMMON_CLK)	+= clk-exynos3250.o
+ obj-$(CONFIG_EXYNOS_4_COMMON_CLK)	+= clk-exynos4.o
+diff --git a/drivers/clk/samsung/clk-artpec8.c b/drivers/clk/samsung/clk-artpec8.c
 new file mode 100644
-index 000000000000..69adfa999e34
+index 000000000000..11a48b2fcc09
 --- /dev/null
-+++ b/include/dt-bindings/clock/axis,artpec8-clk.h
-@@ -0,0 +1,122 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++++ b/drivers/clk/samsung/clk-artpec8.c
+@@ -0,0 +1,62 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (c) 2022-2025 Samsung Electronics Co., Ltd.
 + *             https://www.samsung.com
 + * Copyright (c) 2022-2025  Axis Communications AB.
 + *             https://www.axis.com
 + *
-+ * Device Tree binding constants for ARTPEC-8 clock controller.
++ * Common Clock Framework support for ARTPEC-8 SoC.
 + */
 +
-+#ifndef _DT_BINDINGS_CLOCK_ARTPEC8_H
-+#define _DT_BINDINGS_CLOCK_ARTPEC8_H
++#include <linux/clk-provider.h>
++#include <dt-bindings/clock/axis,artpec8-clk.h>
 +
-+/* CMU_CMU */
-+#define PLL_SHARED0				1
-+#define DOUT_PLL_SHARED0_DIV2			2
-+#define DOUT_PLL_SHARED0_DIV3			3
-+#define DOUT_PLL_SHARED0_DIV4			4
-+#define PLL_SHARED1				5
-+#define DOUT_PLL_SHARED1_DIV2			6
-+#define DOUT_PLL_SHARED1_DIV3			7
-+#define DOUT_PLL_SHARED1_DIV4			8
-+#define PLL_AUDIO				9
-+#define DOUT_CLKCMU_BUS_BUS			10
-+#define DOUT_CLKCMU_BUS_DLP			11
-+#define DOUT_CLKCMU_CDC_CORE			12
-+#define DOUT_CLKCMU_OTP				13
-+#define DOUT_CLKCMU_CORE_MAIN			14
-+#define DOUT_CLKCMU_CORE_DLP			15
-+#define DOUT_CLKCMU_CPUCL_SWITCH		16
-+#define DOUT_CLKCMU_DLP_CORE			17
-+#define DOUT_CLKCMU_FSYS_BUS			18
-+#define DOUT_CLKCMU_FSYS_IP			19
-+#define DOUT_CLKCMU_FSYS_SCAN0			20
-+#define DOUT_CLKCMU_FSYS_SCAN1			21
-+#define DOUT_CLKCMU_GPU_3D			22
-+#define DOUT_CLKCMU_GPU_2D			23
-+#define DOUT_CLKCMU_IMEM_ACLK			24
-+#define DOUT_CLKCMU_IMEM_JPEG			25
-+#define DOUT_CLKCMU_MIF_SWITCH			26
-+#define DOUT_CLKCMU_MIF_BUSP			27
-+#define DOUT_CLKCMU_PERI_DISP			28
-+#define DOUT_CLKCMU_PERI_IP			29
-+#define DOUT_CLKCMU_PERI_AUDIO			30
-+#define DOUT_CLKCMU_RSP_CORE			31
-+#define DOUT_CLKCMU_TRFM_CORE			32
-+#define DOUT_CLKCMU_VCA_ACE			33
-+#define DOUT_CLKCMU_VCA_OD			34
-+#define DOUT_CLKCMU_VIO_CORE			35
-+#define DOUT_CLKCMU_VIO_AUDIO			36
-+#define DOUT_CLKCMU_VIP0_CORE			37
-+#define DOUT_CLKCMU_VIP1_CORE			38
-+#define DOUT_CLKCMU_VPP_CORE			39
++#include "clk.h"
 +
-+/* CMU_BUS */
-+#define MOUT_CLK_BUS_ACLK_USER			1
-+#define MOUT_CLK_BUS_DLP_USER			2
-+#define DOUT_CLK_BUS_PCLK			3
++/* NOTE: Must be equal to the last clock ID increased by one */
++#define CMU_IMEM_NR_CLK			(MOUT_IMEM_JPEG_USER + 1)
 +
-+/* CMU_CORE */
-+#define MOUT_CLK_CORE_ACLK_USER			1
-+#define MOUT_CLK_CORE_DLP_USER			2
-+#define DOUT_CLK_CORE_PCLK			3
++/* Register Offset definitions for CMU_IMEM (0x10010000) */
++#define PLL_CON0_MUX_CLK_IMEM_ACLK_USER			0x0100
++#define PLL_CON0_MUX_CLK_IMEM_JPEG_USER			0x0120
++#define MUX_CLK_IMEM_GIC_CA53				0x1000
++#define MUX_CLK_IMEM_GIC_CA5				0x1008
 +
-+/* CMU_CPUCL */
-+#define PLL_CPUCL				1
-+#define MOUT_CLK_CPUCL_PLL			2
-+#define MOUT_CLKCMU_CPUCL_SWITCH_USER		3
-+#define DOUT_CLK_CPUCL_CPU			4
-+#define DOUT_CLK_CLUSTER_ACLK			5
-+#define DOUT_CLK_CLUSTER_PCLKDBG		6
-+#define DOUT_CLK_CLUSTER_CNTCLK			7
-+#define DOUT_CLK_CLUSTER_ATCLK			8
-+#define DOUT_CLK_CPUCL_PCLK			9
-+#define DOUT_CLK_CPUCL_CMUREF			10
-+#define DOUT_CLK_CPUCL_DBG			11
-+#define DOUT_CLK_CPUCL_PCLKDBG			12
++static const unsigned long cmu_imem_clk_regs[] __initconst = {
++	PLL_CON0_MUX_CLK_IMEM_ACLK_USER,
++	PLL_CON0_MUX_CLK_IMEM_JPEG_USER,
++	MUX_CLK_IMEM_GIC_CA53,
++	MUX_CLK_IMEM_GIC_CA5,
++};
 +
-+/* CMU_FSYS */
-+#define PLL_FSYS				1
-+#define MOUT_FSYS_SCAN0_USER			2
-+#define MOUT_FSYS_SCAN1_USER			3
-+#define MOUT_FSYS_BUS_USER			4
-+#define MOUT_FSYS_MMC_USER			5
-+#define DOUT_FSYS_PCIE_PIPE			6
-+#define DOUT_FSYS_ADC				7
-+#define DOUT_FSYS_PCIE_PHY_REFCLK_SYSPLL	8
-+#define DOUT_FSYS_EQOS_INT125			9
-+#define DOUT_FSYS_OTP_MEM			10
-+#define DOUT_FSYS_SCLK_UART			11
-+#define DOUT_FSYS_EQOS_25			12
-+#define DOUT_FSYS_EQOS_2p5			13
-+#define DOUT_FSYS_BUS300			14
-+#define DOUT_FSYS_BUS_QSPI			15
-+#define DOUT_FSYS_MMC_CARD0			16
-+#define DOUT_FSYS_MMC_CARD1			17
-+#define DOUT_SCAN_CLK_FSYS_125			18
-+#define DOUT_FSYS_QSPI				19
-+#define DOUT_FSYS_SFMC_NAND			20
-+#define DOUT_SCAN_CLK_FSYS_MMC			21
++PNAME(mout_imem_aclk_user_p) = { "fin_pll", "dout_clkcmu_imem_aclk" };
++PNAME(mout_imem_gic_ca53_p) = { "mout_imem_aclk_user", "fin_pll" };
++PNAME(mout_imem_gic_ca5_p) = { "mout_imem_aclk_user", "fin_pll" };
++PNAME(mout_imem_jpeg_user_p) = { "fin_pll", "dout_clkcmu_imem_jpeg" };
 +
-+/* CMU_IMEM */
-+#define MOUT_IMEM_ACLK_USER			1
-+#define MOUT_IMEM_GIC_CA53			2
-+#define MOUT_IMEM_GIC_CA5			3
-+#define MOUT_IMEM_JPEG_USER			4
++static const struct samsung_mux_clock cmu_imem_mux_clks[] __initconst = {
++	MUX(MOUT_IMEM_ACLK_USER, "mout_imem_aclk_user",
++	    mout_imem_aclk_user_p, PLL_CON0_MUX_CLK_IMEM_ACLK_USER, 4, 1),
++	MUX(MOUT_IMEM_GIC_CA53, "mout_imem_gic_ca53",
++	    mout_imem_gic_ca53_p, MUX_CLK_IMEM_GIC_CA53, 0, 1),
++	MUX(MOUT_IMEM_GIC_CA5, "mout_imem_gic_ca5",
++	    mout_imem_gic_ca5_p, MUX_CLK_IMEM_GIC_CA5, 0, 1),
++	MUX(MOUT_IMEM_JPEG_USER, "mout_imem_jpeg_user",
++	    mout_imem_jpeg_user_p, PLL_CON0_MUX_CLK_IMEM_JPEG_USER, 4, 1),
++};
 +
-+/* CMU_PERI */
-+#define MOUT_PERI_IP_USER			1
-+#define MOUT_PERI_AUDIO_USER			2
-+#define MOUT_PERI_I2S0				3
-+#define MOUT_PERI_I2S1				4
-+#define MOUT_PERI_DISP_USER			5
-+#define DOUT_PERI_SPI				6
-+#define DOUT_PERI_UART1				7
-+#define DOUT_PERI_UART2				8
-+#define DOUT_PERI_PCLK				9
-+#define DOUT_PERI_I2S0				10
-+#define DOUT_PERI_I2S1				11
-+#define DOUT_PERI_DSIM				12
++static const struct samsung_cmu_info cmu_imem_info __initconst = {
++	.mux_clks		= cmu_imem_mux_clks,
++	.nr_mux_clks		= ARRAY_SIZE(cmu_imem_mux_clks),
++	.nr_clk_ids		= CMU_IMEM_NR_CLK,
++	.clk_regs		= cmu_imem_clk_regs,
++	.nr_clk_regs		= ARRAY_SIZE(cmu_imem_clk_regs),
++};
 +
-+#endif /* _DT_BINDINGS_CLOCK_ARTPEC8_H */
++static void __init artpec8_clk_cmu_imem_init(struct device_node *np)
++{
++	samsung_cmu_register_one(np, &cmu_imem_info);
++}
++
++CLK_OF_DECLARE(artpec8_clk_cmu_imem, "axis,artpec8-cmu-imem",
++	       artpec8_clk_cmu_imem_init);
 -- 
 2.34.1
 
