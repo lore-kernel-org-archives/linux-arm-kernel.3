@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB2EEC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 11:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CEB6C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 11:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MroTOxMmgxwRAhtMlsJpCRSnugYklaOaOLCLE5+XIJ0=; b=JDvmWxM/v3GAH5qAGHH5TPJlud
-	b/yLpxBgecgDHh5E++xrPAhRwbqutcVSt8W/w7x1PLW7fI2n/vjimtYmvlRQT4Oc95X4IozUd2MYy
-	XZBaeph8LfEp82bQzSx2d9qaZ5V6SH79p8/pbTWNCNcos7fHiKhuNdk+0WUEZBkNqY91/Xb40BEzc
-	9t3YUvd5vtyIMGonWiEv//it8lXGOLApUnpq+Ie4brFosHNOAMaFs6lNuEjF707aSYU/V7/sgigvb
-	bkHti5xLO0+WVu0qhdVmmaG+g/Duu2SV3o3t67fmbi6NTqkFqTUa/zy9ggGCq5cvV3OuT/a+FRaZk
-	ZSfBWo2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lh4PWq6FeRkQ8Uxc6KUAXubIeafXXv+5afrGfRF66FU=; b=Ed0WIBGTRuTwhjFlM/PWB/A2Ja
+	7a/0EH/EXbUEYymgOMAxRMPpxZRH3nrErWrNu9ix6C4u2DzFePFPMugyOqKvKULZIXullR6wbCyqg
+	CvDJJYeGh722vHsA7xMyjK+EBOaS7FWNzcqzBC7W8vkVkNx09pP8r65C8c08ga+aYdvrT1akBSPfS
+	e9POPdp99JzE+5Q142rjmWYYhtSprhriKttzIhq7RASVdTKe0r3pnJIV86sv653rc72EY5nsOB6f3
+	Qo53oLu1qazcgjXNvu0t8CMZetJ2BvXCF1ovQG/X0oCvzMoZp3jnpewH6bVhaLvw8jnUnNyxk5s1P
+	xs0gaU+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZpFf-0000000BbaF-1rld;
-	Thu, 10 Jul 2025 11:15:43 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uZpJ7-0000000Bcac-0kYK;
+	Thu, 10 Jul 2025 11:19:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZnYv-0000000BLDl-0i8Z;
-	Thu, 10 Jul 2025 09:27:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=MroTOxMmgxwRAhtMlsJpCRSnugYklaOaOLCLE5+XIJ0=; b=eHA+B6I8H4ThyYpE9AGVQ0VVyS
-	oBNaC/b7eWo69WNjLwIoWi3o83F9XieyNQb6GLcAC3RX9OXghV9TWUZrZCKn8Hpgv5hnatx4lHfZU
-	K2jBfvGckT5Yf3JGZQDQBmStl8Mju2N5OFV6C8nF28v5qsX8QGiZRq2L3yxkh+DT9Gr3yj0/dlGtz
-	voPJyo5eWhrgOsA8Zpx2+d7Rsyz8lvihXeKrlEAhfMMK1WtmoXhQifzqiFvgx0gPNMR/Aldp8SaeX
-	Vgw8BRh6QYCAGcA9T7ZVaecx0Aexak9VDKw8OcEyKfOtslTjAp1Kr15ofXOxtxad8+CycyY2pAg8S
-	GNcUv38w==;
-Received: from [194.95.143.137] (helo=phil.dip.tu-dresden.de)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uZnYn-0003fo-Rd; Thu, 10 Jul 2025 11:27:21 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Quentin Schulz <foss+kernel@0leil.net>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
-	Daniel Semkowicz <dse@thaumatec.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: (subset) [PATCH v4 0/5] rockchip: rk8xx: allow to customize PMIC reset mode on RK806
-Date: Thu, 10 Jul 2025 11:27:14 +0200
-Message-ID: <175213962005.1887379.11523516137151032329.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250627-rk8xx-rst-fun-v4-0-ce05d041b45f@cherry.de>
-References: <20250627-rk8xx-rst-fun-v4-0-ce05d041b45f@cherry.de>
+	id 1uZnws-0000000BOOC-0zOX;
+	Thu, 10 Jul 2025 09:52:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 399F86146A;
+	Thu, 10 Jul 2025 09:52:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B5D7C4CEE3;
+	Thu, 10 Jul 2025 09:52:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752141132;
+	bh=pZGaq0Wu1dT/dxRh+MB2XlLidtH1F8cMudtE386pfjg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lIDgM0RRhADkfkCfjrESf7N9LWIsVsPWJutieH2NNF9Z1EW8Q4D3kAeZGMJyu55+5
+	 zwPw6eAQHXbJOpcZH7O02IYZ4joxKi0sMWSFyLygR9IdsbUtY6X25oPvtP3XiCpC04
+	 4gCXlq4UsCF2j6U19+893abdzEUw9I76OLTy4OZrr4Nr3Lz5N+0gE4j9BZD0saSUQQ
+	 Dxg9ZTSMk0b8q+Gn6oKnSrrfxG0dR9SK4NDvHJzW1Kly6RXeERNvBAsyGaWPCicZvo
+	 DbnPbuKRn3HVOA3d10mSYUWWlcCzmzXQ8BdYk8R+cnGvpymuS7BoES+e0YXYJFJWxh
+	 R9idoDyVAjeXA==
+Date: Thu, 10 Jul 2025 11:52:10 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Georgi Djakov <djakov@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Johnson Wang <johnson.wang@mediatek.com>, 
+	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>, Landen Chao <Landen.Chao@mediatek.com>, 
+	DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Daniel Golle <daniel@makrotopia.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Felix Fietkau <nbd@nbd.name>, Frank Wunderlich <frank-w@public-files.de>, 
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v9 03/13] dt-bindings: net: mediatek,net: allow irq names
+Message-ID: <20250710-dashing-wine-hippo-d879c9@krzk-bin>
+References: <20250709111147.11843-1-linux@fw-web.de>
+ <20250709111147.11843-4-linux@fw-web.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_022729_204532_8CD899D2 
-X-CRM114-Status: GOOD (  13.36  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250709111147.11843-4-linux@fw-web.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,29 +81,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 27 Jun 2025 12:53:52 +0200, Quentin Schulz wrote:
-> This allows to customize the PMIC reset method (also called RST_FUN) on
-> RK806 PMIC from Rockchip, mainly found on RK3588 devices but also on
-> RK3576.
+On Wed, Jul 09, 2025 at 01:09:39PM +0200, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Finally, this is required on the two RK3588 devices from Theobroma as
-> U-Boot changes the silicon-default (which is suitable for us) to
-> something that breaks our companion microcontroller's reboot detection
-> which breaks a bunch of assumptions in the MCU FW code.
+> In preparation for MT7988 and RSS/LRO allow the interrupt-names
+> property.
+> In this way driver can request the interrupts by name which is much
+> more readable in the driver code and SoC's dtsi than relying on a
+> specific order.
 > 
-> [...]
+> Frame-engine-IRQs (fe0..3):
+> MT7621, MT7628: 1 FE-IRQ
+> MT7622, MT7623: 3 FE-IRQs (only two used by the driver for now)
+> MT7981, MT7986: 4 FE-IRQs (only two used by the driver for now)
+> 
+> RSS/LRO IRQs (pdma0..3) additional only on Filogic (MT798x) with
+> count of 4. So all IRQ-names (8) for Filogic.
+> 
+> Set boundaries for all compatibles same as irq count.
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
 
-Applied, thanks!
-
-[3/5] arm64: dts: rockchip: add header for RK8XX PMIC constants
-      commit: 92056b3afde6599f0e125a89c9483bad6930ea85
-[4/5] arm64: dts: rockchip: force PMIC reset behavior to restart PMU on RK3588 Jaguar
-      commit: 03b77bbb428250d8359bc76ff5032534d33f8499
-[5/5] arm64: dts: rockchip: force PMIC reset behavior to restart PMU on RK3588 Tiger
-      commit: b5c69adb3e27a5d31b733fbfbc32e5f036e21bed
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+Krzysztof
+
 
