@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357DAC83F24
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77678C83F23
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:MIME-Version:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HWFTFh/TUDhf+twgmA9UYYg8LGXRjMgTLJemIO/awsw=; b=dWF0nQQxZk7x7JzBBhO65BIqd/
-	DR/bn0L7+CmYmB2BIj2FMTNPXikLtLwj70cmLTedx/9qcwCLnUtMmKNFIKlbXeQpEzPiNhGhXkS+v
-	+DD4+joejoFvBIaTQ6Gk6lKZxCMZn+PKWCJxA2vvDWq0rrfH8qHalRehZ/OTcbbaJHOZfMN8rs2jg
-	25Cy+PTpY8HEEsoCBZvNs8yjzUYyYm3uZ5gvgh2dCjbjzNZP/y5LCVaa7uU06JBB/+mf5NFEjyW15
-	FZI76nCLhMMRkdve2jQH2WXda1eJplpVZbrH8UjuhLL85Fc4aNq0U73Y80GLTy6eKumMjAMUy3MOf
-	gKrAu03w==;
+	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UtfKlLhcG/kkS8hkYuoUj/IIA4KAh790Vr1OByvwXU8=; b=JqL0mkHjFNVvrKcrxjhHqFsNLE
+	lGWeWK7I2QzvZi9YFFSysfVbn8T2nJnJeZmbu/2ptqGt6FFOkIDmBzsPqBx037Ia7CFMvhHLumc/T
+	ztS+tecf1ucrUDaf2Pij0tZYGmAmL/nFWE61G3dlK/ND5Q0UYeNhuKSJZQOsm4pTbEBGVile/gJEX
+	/UrBrfgaqlIfwRxfH+Cffx6jaj942bEPQVONqMPAwQ0AmbZpQfKJpwrsa4W9vv/GD0p+tjPbRcfL7
+	PF5ZkD9dTW43q3npbR1scCZQXi5GLy0ZGxpS6w3SwNy09lwC5bqeh0X5fck4EN/rdLan+yuGe8gv/
+	ssmT2lkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2Py-0000000DPuM-3KS5;
-	Fri, 11 Jul 2025 01:19:14 +0000
+	id 1ua2Q6-0000000DPzU-1BAb;
+	Fri, 11 Jul 2025 01:19:22 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZyXz-0000000D2D7-0Amj
+	id 1uZyYt-0000000D2RZ-2a28
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 21:11:18 +0000
+	Thu, 10 Jul 2025 21:12:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752181873;
+	s=mimecast20190719; t=1752181930;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=HWFTFh/TUDhf+twgmA9UYYg8LGXRjMgTLJemIO/awsw=;
-	b=UPGxPTo4kbkPCr7Y+WBDPjBySKhGJns7hrQmXrI3C17XFbN9J19VmaXfnuMXMiu9pcIjtT
-	kFqy85yfkxOSGxP8eowTGddGKimxsgJlI2NzQqvd+s5147KcVsCHDJmztxXQ1jHzSPFET4
-	1MGv1afwF8Yw7/Lnnc5XpY2WtAD2NHE=
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
- [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UtfKlLhcG/kkS8hkYuoUj/IIA4KAh790Vr1OByvwXU8=;
+	b=GHptntDJX6gB+32f2FdFp2NXEGIKigJSEBHRkWUTrfzLWAYs3yLnTupOLptTWVGmSekfqF
+	s23nW2avELyVuT/NSy4kfG/xmzmnbO+Piq5QUTXIo0RL+5SeFSCFduVT7Wehy0ckAV3PLD
+	isjp7DSxbqI7U3KozIXV1HUt4z07VKs=
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
+ [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-652-3ho0UKtGNt65_nODRkuFBg-1; Thu, 10 Jul 2025 17:11:12 -0400
-X-MC-Unique: 3ho0UKtGNt65_nODRkuFBg-1
-X-Mimecast-MFC-AGG-ID: 3ho0UKtGNt65_nODRkuFBg_1752181871
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2382607509fso8087405ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 14:11:12 -0700 (PDT)
+ us-mta-492-F-5ZpuIyOHiIazlQInigiQ-1; Thu, 10 Jul 2025 17:12:09 -0400
+X-MC-Unique: F-5ZpuIyOHiIazlQInigiQ-1
+X-Mimecast-MFC-AGG-ID: F-5ZpuIyOHiIazlQInigiQ_1752181928
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2382607509fso8090245ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 14:12:09 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752181871; x=1752786671;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HWFTFh/TUDhf+twgmA9UYYg8LGXRjMgTLJemIO/awsw=;
-        b=UUbusqMS4L9HcWvVDX1ErKf7zGG7dGQxA5guGcDX85yepcbZ8Ybk4lp3fNgCEugyYQ
-         UCHz1AIa9Bn/q2W5UDDyun5aqs8Vj6/b9syugE2/KjrwuJJ+6LNgvRvsreYlAbfkWSYf
-         QTPrn6xEFMw20TG65BuQAMoHmRK863u8Yn+gYcv0zsc++V2j2Iudvk1oJPuOjtZtIugo
-         0fUFBSD2rzSrzXdicjsi8+p0Y2scjZNDnJsveb2hKxWKe9VcYGmTDzohUdP6/eWx1WMc
-         TFdN8B6VWtU2vbzRcJIgBk3EgIQXRTJHO8IWjEJkFiKGTJDG1q3ItP3y5lefVAiCwaAE
-         sKrw==
-X-Forwarded-Encrypted: i=1; AJvYcCU9QT/gc1VPA0cuNPUmLGGpWvHxH+r7DHrF57TbQvKUGwxJ1c1ijwRCLoH4L0Ua66HPNjluVAc0qVcTg5E9g4R0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHQOXigYNUTb5E+5sXe2Lpj4BTS2YP/zOD1CClJJe9dQktYk31
-	q3q6bycHuRwuRqj5UisL+8COZUKmiadX0K8DirCjmZ9EsRYa5NF6U1HG/gGxXQGsIcR1LO1krPA
-	9YGORhSffGdao55iywmpTYX6f6M+ZrO2tF5pCAv6FG/8BesSMdsAiDISDPhQ/RbrcnkyNJm4XGp
-	kM
-X-Gm-Gg: ASbGncuO11B+NQOQbyHAQxnoxumNXb1Z/kgYKQa6uq5PWmH2lVl6yPzmnezuW6n4iqz
-	MdAGuUhVJpLsUTWb06XL1nfX3j3rOPM1usT/viXKarLQ6MEBbwh122ejsWb/VKf8UY+fQhppH9N
-	V1KikSWHh9YyYEGD5ZR/GOe950QmSV4aIqis+YDTShvMPL9H45VMLWQXbW7iBXy4mLkWlTqLv0R
-	jkj6k6L51ptnaboTqOKTGLAgQ7Qpu72XbcGK4mPkFyWDQ0OTi7+9NIytDkloqyovm3Flkjhw5lp
-	0W7BNKKM9khhOtU98vrUmhvWHlcH9H7X+IXPm06DWqm1Iw==
-X-Received: by 2002:a17:902:f603:b0:234:d292:be7f with SMTP id d9443c01a7336-23dede7d45dmr8541085ad.31.1752181871128;
-        Thu, 10 Jul 2025 14:11:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGZTNelfVFxvxHSdAlOlXRMFMf2/RyOZ5QtlGD9msicHprkJxdJdgF83ESayB5cXzsffEjyTw==
-X-Received: by 2002:a17:902:f603:b0:234:d292:be7f with SMTP id d9443c01a7336-23dede7d45dmr8540815ad.31.1752181870703;
-        Thu, 10 Jul 2025 14:11:10 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1752181928; x=1752786728;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UtfKlLhcG/kkS8hkYuoUj/IIA4KAh790Vr1OByvwXU8=;
+        b=m+ArM19OEJhjG8EcXIOXYxFiUSI7IsKcsBOn/BaNjv0ND95QrLReoDDtEHTDGh4K8+
+         XwbAHDWPxbix12PpSgi8kD3zyDWXhjoDow5CV9RWrI+sGprAJitP5dHwW1OabkYowLIF
+         6+wyRzcobsOzyW4RYafRQW0rMNt6L2GUs8/S90iuMrsHLATH3y5/UMrepVZ4VAPBiWKt
+         f48hzI50XtbMLSt2D6eYMWwxjSuDqOuY71e/623i2fGw0gOenWWUkcqLlZAdIjcFt1ZK
+         Xt36kGxXpK8IxUs/HSrfeUFhTmqf4BWO+d+dQLeHU4uJHzn1tI4z0bkBxVeFjpYgE9Yf
+         z7BA==
+X-Forwarded-Encrypted: i=1; AJvYcCXG4NHjwfuSFXS4Nm63vPlyIMbCisTXgEv4IHaVRvzbGC/23JRf/s9ydFfZOc1UNJDr68UpAmPR3MZ7o7qs9eaC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9qsRCt82zWAydr1NGAagb8qwwjG8hXvsw8zTtaELjaaArnoV2
+	q3OoR0WEcm4AhrNh5T9ZAON0Ch9DAa/5hOScEQmiplttAPFSyQda5pDjRr6AF1Kkh9OPvtYvrBE
+	OynGMRJmtVLTwQthW8ernCxllLAWeivZYk1NZHMZY7dSHF5cXLssg3Za3V98nVjl9uFD1dA5Zbk
+	Ur
+X-Gm-Gg: ASbGncv7iwVhfQGFwARUKwgh+9nI4aauyUjRiJv1raH66dDOgFEJNRmkCBTzGHTwV/M
+	uJt4MwCE1Lrtdi52O3x8BgnW0l1p3aN7ZryNQRcU6Oh11hPR/8imkknkSQtiA081ihpdXsitnJz
+	OlCkl4vLvKcL3uVRxjtoDiDmoAReFgRWSSfDTpceT3XVl0HuzEtn2l473AmFtGFhe/p77Ws/YNG
+	sRk28eUXLw9qWmNhfmHfFDAb31sv6Nre6OdCMwtrlw27QGBy/k0HghppwtShHnwYAUEREcGahn2
+	fVB4KZCRWin82xFXbJ1Y1g61sQ5BUG0kRfhM/EF3DII3FA==
+X-Received: by 2002:a17:903:4b24:b0:23c:7c3b:4c61 with SMTP id d9443c01a7336-23dede2d292mr8885945ad.8.1752181928459;
+        Thu, 10 Jul 2025 14:12:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFyfqFdZB30s9Ns2OTuViOndMsHrV92VUKAaa3t7UGJI0pLP81WIaExo2hP4WyXbE/2+Ovdog==
+X-Received: by 2002:a17:903:4b24:b0:23c:7c3b:4c61 with SMTP id d9443c01a7336-23dede2d292mr8885575ad.8.1752181928069;
+        Thu, 10 Jul 2025 14:12:08 -0700 (PDT)
 Received: from [10.144.155.224] ([2600:382:7716:65ad:9491:c054:6f2d:80ed])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de433e51asm27790595ad.180.2025.07.10.14.11.06
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de433e51asm27790595ad.180.2025.07.10.14.12.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 14:11:10 -0700 (PDT)
+        Thu, 10 Jul 2025 14:12:07 -0700 (PDT)
 From: Brian Masney <bmasney@redhat.com>
-Subject: [PATCH 00/13] clk: imx: convert from clk round_rate() to
+Date: Thu, 10 Jul 2025 17:10:45 -0400
+Subject: [PATCH 13/13] clk: imx: scu: convert from round_rate() to
  determine_rate()
-Date: Thu, 10 Jul 2025 17:10:32 -0400
-Message-Id: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAEkscGgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDc0MD3eScbN3M3ArdovzSvBTdosSSVN0ky7TkRMM0M1MLYxMloMaCotS
- 0zAqwodGxtbUAfAjR6WQAAAA=
-X-Change-ID: 20250710-clk-imx-round-rate-b9fca1f65834
+Message-Id: <20250710-clk-imx-round-rate-v1-13-5726f98e6d8d@redhat.com>
+References: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
+In-Reply-To: <20250710-clk-imx-round-rate-v1-0-5726f98e6d8d@redhat.com>
 To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
  Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
@@ -95,21 +94,21 @@ Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Brian Masney <bmasney@redhat.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752181866; l=6081;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752181866; l=3280;
  i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=VkBZymHS4NSLMC7bHgMfljy60rdX7BJ1DlxpAOHOtqM=;
- b=CrzLst5JnkrbKUpNZRNqaXnvvYvt1GcPkPG+C45YmBjicrsMj6s8Nm5XOFjqOO+Kg+zCXpt3F
- RsqbGkgNN4PA4SdWkh6apyXXBaECQKvPe6pDyulRd/j5BsPuKYd5aYu
+ bh=v3hdhBOHK0qUhvNSpx+BtyoEKUPgUNG99ieRMqbb8UE=;
+ b=8ZgfFYF2KZsuweqpz1xsyECauFflmi/TsZyTLp4K/6NlZj8L/AQUvX4HpvZ6yVLmtnZpaXBYR
+ CufxM/OrxNxAF1m7eYGGkqwIl0G3siaDy/4VyAsIls9Ss5jZ6J2R9M9
 X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
  pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: X3Zr_0u_L7WGJfeaUub18SnOAipu1FY07GCh1do5cpw_1752181871
+X-Mimecast-MFC-PROC-ID: nJiPfV6GxLDm_fh1KlVY_bKjokE_QufqMngyUOvA25Q_1752181928
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_141115_160534_107FFEA4 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250710_141211_733869_4B2C233C 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,179 +123,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The round_rate() clk ops is deprecated in the clk framework in favor
-of the determine_rate() clk ops. The first two patches in this series
-drops the round_rate() function since a determine_rate() function is
-already implemented. The remaining patches convert the drivers using
-the Coccinelle semantic patch posted below. I did a few minor cosmetic
-cleanups of the code in a few cases.
+The round_rate() clk ops is deprecated, so migrate this driver from
+round_rate() to determine_rate() using the Coccinelle semantic patch
+on the cover letter of this series.
 
-Coccinelle semantic patch:
-
-    virtual patch
-
-    // Look up the current name of the round_rate function
-    @ has_round_rate @
-    identifier round_rate_name =~ ".*_round_rate";
-    identifier hw_param, rate_param, parent_rate_param;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    	...
-    }
-
-    // Rename the route_rate function name to determine_rate()
-    @ script:python generate_name depends on has_round_rate @
-    round_rate_name << has_round_rate.round_rate_name;
-    new_name;
-    @@
-
-    coccinelle.new_name = round_rate_name.replace("_round_rate", "_determine_rate")
-
-    // Change rate to req->rate; also change occurrences of 'return XXX'.
-    @ chg_rate depends on generate_name @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    identifier ERR =~ "E.*";
-    expression E;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    <...
-    (
-    -return -ERR;
-    +return -ERR;
-    |
-    - return rate_param;
-    + return 0;
-    |
-    - return E;
-    + req->rate = E;
-    +
-    + return 0;
-    |
-    - rate_param
-    + req->rate
-    )
-    ...>
-    }
-
-    // Coccinelle only transforms the first occurrence of the rate parameter
-    // Run a second time. FIXME: Is there a better way to do this?
-    @ chg_rate2 depends on generate_name @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    <...
-    - rate_param
-    + req->rate
-    ...>
-    }
-
-    // Change parent_rate to req->best_parent_rate
-    @ chg_parent_rate depends on generate_name @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    <...
-    (
-    - *parent_rate_param
-    + req->best_parent_rate
-    |
-    - parent_rate_param
-    + &req->best_parent_rate
-    )
-    ...>
-    }
-
-    // Convert the function definition from round_rate() to determine_rate()
-    @ func_definition depends on chg_rate @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    identifier generate_name.new_name;
-    @@
-
-    - long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-    -               unsigned long *parent_rate_param)
-    + int new_name(struct clk_hw *hw, struct clk_rate_request *req)
-    {
-        ...
-    }
-
-    // Update the ops from round_rate() to determine_rate()
-    @ ops depends on func_definition @
-    identifier has_round_rate.round_rate_name;
-    identifier generate_name.new_name;
-    @@
-
-    {
-        ...,
-    -   .round_rate = round_rate_name,
-    +   .determine_rate = new_name,
-        ...,
-    }
-
-Note that I used coccinelle 1.2 instead of 1.3 since the newer version
-adds unnecessary braces as described in this post.
-https://lore.kernel.org/cocci/67642477-5f3e-4b2a-914d-579a54f48cbd@intel.com/
+This driver also implements both the determine_rate() and round_rate()
+clk ops, and the round_rate() clk ops is deprecated. When both are
+defined, clk_core_determine_round_nolock() from the clk core will only
+use the determine_rate() clk ops, so let's remove the round_rate() clk
+ops since it's unused.
 
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
-Brian Masney (13):
-      clk: imx: composite-8m: remove round_rate() in favor of determine_rate()
-      clk: imx: composite-93: remove round_rate() in favor of determine_rate()
-      clk: imx: busy: convert from round_rate() to determine_rate()
-      clk: imx: cpu: convert from round_rate() to determine_rate()
-      clk: imx: fixup-div: convert from round_rate() to determine_rate()
-      clk: imx: fracn-gppll: convert from round_rate() to determine_rate()
-      clk: imx: frac-pll: convert from round_rate() to determine_rate()
-      clk: imx: pfd: convert from round_rate() to determine_rate()
-      clk: imx: pll14xx: convert from round_rate() to determine_rate()
-      clk: imx: pllv2: convert from round_rate() to determine_rate()
-      clk: imx: pllv3: convert from round_rate() to determine_rate()
-      clk: imx: pllv4: convert from round_rate() to determine_rate()
-      clk: imx: scu: convert from round_rate() to determine_rate()
+ drivers/clk/imx/clk-scu.c | 36 +++++++++---------------------------
+ 1 file changed, 9 insertions(+), 27 deletions(-)
 
- drivers/clk/imx/clk-busy.c         |  8 ++---
- drivers/clk/imx/clk-composite-8m.c | 16 ---------
- drivers/clk/imx/clk-composite-93.c |  7 ----
- drivers/clk/imx/clk-cpu.c          | 10 +++---
- drivers/clk/imx/clk-fixup-div.c    |  8 ++---
- drivers/clk/imx/clk-frac-pll.c     | 20 ++++++-----
- drivers/clk/imx/clk-fracn-gppll.c  | 17 +++++----
- drivers/clk/imx/clk-pfd.c          | 18 +++++-----
- drivers/clk/imx/clk-pll14xx.c      | 29 +++++++++------
- drivers/clk/imx/clk-pllv2.c        | 23 +++++++-----
- drivers/clk/imx/clk-pllv3.c        | 72 +++++++++++++++++++++-----------------
- drivers/clk/imx/clk-pllv4.c        | 29 +++++++++------
- drivers/clk/imx/clk-scu.c          | 36 +++++--------------
- 13 files changed, 146 insertions(+), 147 deletions(-)
----
-base-commit: b551c4e2a98a177a06148cf16505643cd2108386
-change-id: 20250710-clk-imx-round-rate-b9fca1f65834
+diff --git a/drivers/clk/imx/clk-scu.c b/drivers/clk/imx/clk-scu.c
+index b27186aaf2a15628910ea6a3d4aaa5320ec4295a..77c4cde8a72bd71653bbd2e95148bc1357ec1aae 100644
+--- a/drivers/clk/imx/clk-scu.c
++++ b/drivers/clk/imx/clk-scu.c
+@@ -269,24 +269,6 @@ static int clk_scu_determine_rate(struct clk_hw *hw,
+ 	return 0;
+ }
+ 
+-/*
+- * clk_scu_round_rate - Round clock rate for a SCU clock
+- * @hw: clock to round rate for
+- * @rate: rate to round
+- * @parent_rate: parent rate provided by common clock framework, not used
+- *
+- * Returns the current clock rate, or zero in failure.
+- */
+-static long clk_scu_round_rate(struct clk_hw *hw, unsigned long rate,
+-			       unsigned long *parent_rate)
+-{
+-	/*
+-	 * Assume we support all the requested rate and let the SCU firmware
+-	 * to handle the left work
+-	 */
+-	return rate;
+-}
+-
+ static int clk_scu_atf_set_cpu_rate(struct clk_hw *hw, unsigned long rate,
+ 				    unsigned long parent_rate)
+ {
+@@ -454,7 +436,7 @@ static const struct clk_ops clk_scu_ops = {
+ 
+ static const struct clk_ops clk_scu_cpu_ops = {
+ 	.recalc_rate = clk_scu_recalc_rate,
+-	.round_rate = clk_scu_round_rate,
++	.determine_rate = clk_scu_determine_rate,
+ 	.set_rate = clk_scu_atf_set_cpu_rate,
+ 	.prepare = clk_scu_prepare,
+ 	.unprepare = clk_scu_unprepare,
+@@ -462,7 +444,7 @@ static const struct clk_ops clk_scu_cpu_ops = {
+ 
+ static const struct clk_ops clk_scu_pi_ops = {
+ 	.recalc_rate = clk_scu_recalc_rate,
+-	.round_rate  = clk_scu_round_rate,
++	.determine_rate = clk_scu_determine_rate,
+ 	.set_rate    = clk_scu_set_rate,
+ };
+ 
+@@ -766,15 +748,15 @@ static unsigned long clk_gpr_div_scu_recalc_rate(struct clk_hw *hw,
+ 	return err ? 0 : rate;
+ }
+ 
+-static long clk_gpr_div_scu_round_rate(struct clk_hw *hw, unsigned long rate,
+-				   unsigned long *prate)
++static int clk_gpr_div_scu_determine_rate(struct clk_hw *hw,
++					  struct clk_rate_request *req)
+ {
+-	if (rate < *prate)
+-		rate = *prate / 2;
++	if (req->rate < req->best_parent_rate)
++		req->rate = req->best_parent_rate / 2;
+ 	else
+-		rate = *prate;
++		req->rate = req->best_parent_rate;
+ 
+-	return rate;
++	return 0;
+ }
+ 
+ static int clk_gpr_div_scu_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -793,7 +775,7 @@ static int clk_gpr_div_scu_set_rate(struct clk_hw *hw, unsigned long rate,
+ 
+ static const struct clk_ops clk_gpr_div_scu_ops = {
+ 	.recalc_rate = clk_gpr_div_scu_recalc_rate,
+-	.round_rate = clk_gpr_div_scu_round_rate,
++	.determine_rate = clk_gpr_div_scu_determine_rate,
+ 	.set_rate = clk_gpr_div_scu_set_rate,
+ };
+ 
 
-Best regards,
 -- 
-Brian Masney <bmasney@redhat.com>
+2.50.0
 
 
