@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93997C83F18
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 08:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1228C83F18
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 08:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3aGuiShCQ8/3+HSwG6flwZdYZTdME/r9v/r2gR6K+Kw=; b=Ui3F5hMvOOEHsWGtwLSkpTM8jO
-	0khFd9V15kjFCu9cy7stGcdENrTry9nJPTgzdTZ4E4bZsYkeI2H8ovCqi6esNaKv99ILDyTmdTdty
-	RZucXzXWNPSlOiStGBozhdzJbBDHbURF/hJNOIJRkzFku1xJCPpG1rETUZcfqi5ccCxQ9rBDWD4EL
-	xIKVWClrgcl2Wspap640Ql7wK6SkRQlAE8yC0B0GY8TXjrXdYxArTrRKRAXCNNtjJxiR0rAaYIS3m
-	s3dfcFtU2amxiCjP/soknRp26UaIdqoyGIWRSf7hAJikyqERqidpyPox3dqOugweTDmyzItFiNhFs
-	k9u7j3zg==;
+	bh=eYlZsowZi0cRsDsCuWWCq9D5byiuS0XkRqRUGhHpKQc=; b=kENN/ZAi4hl9whHmT0rNYDdqlW
+	AKzic9mvw85buGZfK/Zfaa23irH/tcKDvm/KStrR020QT6a6Jn1MIz3fd7DinPVUUH7YrNCm1q6Zh
+	+DMl5tXkiiHYKnZYW0z6muNAF3MTUWnSFRQwzm0/6nwDzHLqiGMemAT7p7OTHsDk+9V+X7djcmoms
+	6obn+zg2YOzbuHFZ/+9f7WpoErTsrnv7dTPs9557yMzSOQllFd4rvvsOvUKeOpIBLDWj9wPPTTof7
+	Luc7ouY6Pq7z6SBJIBwfpSTV4lzmGEQYJ/ZyrjNexwoPNLUmozAJm5Kc4JG0hHgM8KK2z2SClpsgv
+	PFQlRk2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZmZg-0000000B9u7-19rU;
-	Thu, 10 Jul 2025 08:24:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uZmby-0000000BAQU-45lB;
+	Thu, 10 Jul 2025 08:26:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZlLC-0000000Awko-0JT9
+	id 1uZlNR-0000000AwzN-0slF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 07:05:11 +0000
+	Thu, 10 Jul 2025 07:07:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 08E185C668A;
-	Thu, 10 Jul 2025 07:05:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1667DC4CEE3;
-	Thu, 10 Jul 2025 07:04:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F2D4434DB;
+	Thu, 10 Jul 2025 07:07:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFEA4C4CEE3;
+	Thu, 10 Jul 2025 07:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752131106;
-	bh=czf6X1CxihTK1hqGwGS3UzT3zM4lUajgZkl5Q90ncTw=;
+	s=k20201202; t=1752131248;
+	bh=ZzNAA9sH17UI+HRVDX98khY63iwVj0cOf9soT9XDgKI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nhm0/EVBgw+2I1wBxv8nzhQKyhZQ5Aw/AovbreGefUzt9L/gjNnP0EZp3OA+n3dHX
-	 vBPRrtnCkYu3KGT5MHW2OHAXyeqgetrd7bRSJmmR+xhTDQ1Eb6BJ6YIOLWf5SUQZu+
-	 YDrEa43xpVj7hm2pnyjGPrggKySpxQLSjIykdwWXzfsJpn9md62+vYuCJQKNAmp1aw
-	 QDqYVeURz8sevbt5tDCaYyy9doJs0Px9+M7zZy4YDfRp2eGsjVrve6avDuZR7xKy/m
-	 nAMzpgVXWhYDKj2ZihbZ7tJRUg6geFSBKaJXVSdk2ik2FbRHmeuXkPuJEUrHOOz5WN
-	 /wtpTlRfaXtIA==
-Message-ID: <78d46ee0-d53f-4980-aa90-c9111043ae90@kernel.org>
-Date: Thu, 10 Jul 2025 09:04:54 +0200
+	b=Pf77d1d6UPeTGNKIXHOaUJDPJXb6Vx4q81oSBwGrmRSmlyXd+pNMOmB4zmytV7Rta
+	 MnmQ8yK2aiTBQlICLy6TsriSywYRT81EyD1QBcWbuIXzyq2DJyR37cv6lBe5B8jLge
+	 MDNMscSLpcaNvvvBmq9ZyoiGfRWwx8g+aX9+nFjPzLtxjY7d3lLl1Fh8lQGqCL9ckc
+	 hjdBL9wqdQh22h9Qw2NmFGFQVTpHGuUgpY0Nnqro6CgkwiCxh0fGEcEUUIL6jGUmZE
+	 vt7Bs7MDfllIrfoF1X+pPHeIT8jbmrKDwsxEnzejMGWz/SE69RQ+LRQ/taLLQiZR8R
+	 isfwuqX/2CXaQ==
+Message-ID: <847e908b-1073-46ea-93f3-1f36cc93d8b8@kernel.org>
+Date: Thu, 10 Jul 2025 09:07:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 15/16] arm64: dts: axis: Add initial pinctrl support
+Subject: Re: [PATCH 00/16] Add support for the Axis ARTPEC-8 SoC
 To: ksk4725@coasia.com, Jesper Nilsson <jesper.nilsson@axis.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -55,21 +55,19 @@ To: ksk4725@coasia.com, Jesper Nilsson <jesper.nilsson@axis.com>,
  Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
  Linus Walleij <linus.walleij@linaro.org>, Tomasz Figa
  <tomasz.figa@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Ravi Patel <ravi.patel@samsung.com>, SungMin Park <smn1196@coasia.com>
+ Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>
 Cc: kenkim <kenkim@coasia.com>, Jongshin Park <pjsin865@coasia.com>,
  GunWoo Kim <gwk1013@coasia.com>, HaGyeong Kim <hgkim05@coasia.com>,
- GyoungBo Min <mingyoungbo@coasia.com>,
+ GyoungBo Min <mingyoungbo@coasia.com>, SungMin Park <smn1196@coasia.com>,
  Pankaj Dubey <pankaj.dubey@samsung.com>, Shradha Todi
- <shradha.t@samsung.com>, Inbaraj E <inbaraj.e@samsung.com>,
- Swathi K S <swathi.ks@samsung.com>, Hrishikesh <hrishikesh.d@samsung.com>,
- Dongjin Yang <dj76.yang@samsung.com>, Sang Min Kim
- <hypmean.kim@samsung.com>, linux-kernel@vger.kernel.org,
+ <shradha.t@samsung.com>, Ravi Patel <ravi.patel@samsung.com>,
+ Inbaraj E <inbaraj.e@samsung.com>, Swathi K S <swathi.ks@samsung.com>,
+ Hrishikesh <hrishikesh.d@samsung.com>, Dongjin Yang <dj76.yang@samsung.com>,
+ Sang Min Kim <hypmean.kim@samsung.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  linux-arm-kernel@axis.com, linux-clk@vger.kernel.org,
  devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, soc@lists.linux.dev
 References: <20250710002047.1573841-1-ksk4725@coasia.com>
- <20250710002047.1573841-16-ksk4725@coasia.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -115,12 +113,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250710002047.1573841-16-ksk4725@coasia.com>
+In-Reply-To: <20250710002047.1573841-1-ksk4725@coasia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_000510_198427_168844C5 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20250710_000729_298079_157D9891 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,71 +136,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 10/07/2025 02:20, ksk4725@coasia.com wrote:
 > From: SeonGu Kang <ksk4725@coasia.com>
 > 
-> Add initial pin configuration nodes for the Axis ARTPEC-8 SoC.
+> Add basic support for the Axis ARTPEC-8 SoC.
+> This SoC contains four Cortex-A53 CPUs and other several IPs.
 > 
-> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
-> Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
-> ---
->  arch/arm64/boot/dts/axis/artpec-pinctrl.h     |  36 ++
->  arch/arm64/boot/dts/axis/artpec8-grizzly.dts  |   1 +
->  arch/arm64/boot/dts/axis/artpec8-pinctrl.dtsi | 373 ++++++++++++++++++
->  arch/arm64/boot/dts/axis/artpec8.dtsi         |  17 +
-
-This belongs to the previous patch rather. You can split board DTS, though.
-
->  4 files changed, 427 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/axis/artpec-pinctrl.h
->  create mode 100644 arch/arm64/boot/dts/axis/artpec8-pinctrl.dtsi
+> Patches 1 to 10 provide the support for the clock controller,
+> which is similar to other Samsung SoCs.
 > 
-> diff --git a/arch/arm64/boot/dts/axis/artpec-pinctrl.h b/arch/arm64/boot/dts/axis/artpec-pinctrl.h
-> new file mode 100644
-> index 000000000000..c2c1e25b7f6a
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axis/artpec-pinctrl.h
-> @@ -0,0 +1,36 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Axis ARTPEC-8 SoC device tree pinctrl constants
-> + *
-> + * Copyright (c) 2022-2025 Samsung Electronics Co., Ltd.
+You should explain here (and in DTS patches or the bindings) the
+hardware, that this is Samsung SoC.
 
-First publish date was 2025, not 2022, so all these copyrights feel wrong.
+You could also explain the differences from Exynos and proposed handling
+of patches (because this is odd)
 
-> + *             https://www.samsung.com
-> + * Copyright (c) 2022-2025  Axis Communications AB.
-> + *             https://www.axis.com
-> + */
-> +
+Also, entire patchset has wrong and incomplete SoBs. Your SoB is missing
+everywhere, others have wrong order.
 
-
-...
-
-> +	i2s0_idle: i2s0-idle-pins {
-> +		samsung,pins = "gpa1-4", "gpa1-5", "gpa1-6", "gpa1-7";
-> +		samsung,pin-function = <ARTPEC_PIN_FUNC_INPUT>;
-> +		samsung,pin-pud = <ARTPEC_PIN_PULL_UP>;
-> +		samsung,pin-drv = <ARTPEC_PIN_DRV_SR3>;
-> +	};
-> +
-> +	i2s1_bus: i2s1-bus-pins {
-> +		samsung,pins = "gpa1-0", "gpa1-1", "gpa1-2", "gpa1-3";
-> +		samsung,pin-function = <ARTPEC_PIN_FUNC_3>;
-> +		samsung,pin-pud = <ARTPEC_PIN_PULL_UP>;
-> +		samsung,pin-drv = <ARTPEC_PIN_DRV_SR3>;
-> +	};
-> +
-> +	i2s1_idle: i2s1-idle-pins {
-> +		samsung,pins = "gpa1-0", "gpa1-1", "gpa1-2", "gpa1-3";
-> +		samsung,pin-function = <ARTPEC_PIN_FUNC_INPUT>;
-> +		samsung,pin-pud = <ARTPEC_PIN_PULL_UP>;
-> +		samsung,pin-drv = <ARTPEC_PIN_DRV_SR3>;
-> +	};
-> +
-> +	hsi2c2_bus: hsi2c2-bus-pins {
-> +		samsung,pins = "gpa0-6", "gpa0-7";
-
-We sort nodes by pin names, usually. What sorting rule you applied here?
-
+Please read submitting patches first.
 
 
 Best regards,
