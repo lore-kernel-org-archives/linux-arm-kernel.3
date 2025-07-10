@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01310C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9954FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K8Ja6/a3LpsNikXMFN9mPpoVU7tbsy+AC+1J6TmEO5o=; b=TURy+lETYrdaKZeU1TvTXWYz4y
-	BiZWzpMKI27r9itE4EtzU3ahR6BubfS4uXGToX2zFhPZbHy0rkbuorGfbvAf4ri4VMMsnpO79LiVv
-	+rhfurm/xDWJCE4DmEWZKkSbnskNCm8Twh4NW2zYeiA1LnuqpUcT16xN58DnqMDUT6DHJaSnJ22I0
-	HiWPBGZvriRq9EJplXrzRV2G1j+ivDluS0tUJoVe5gK+PD/KA2uUwFshU88rBw3mlZFGc39wpSJ8D
-	Qpp3uZA0rmnVWra0nNw0tSQIz3xTOInXxSqSBQLwqVxh2XZEsjPP5gJbudUKJB6KaWA0qPznLpsGj
-	7+vNwpUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cvSLJsSKtV9uXxpBWgcGj79K9jO2mrlDrMJEnzEg0Bo=; b=h9tftAGnrXUyfr9ejbiCCaGb0C
+	owQ8Fiu16h7NkhIpSFQCP9Cfrd2ypwhemSgkjHc1KbbUl4XtRm9MqrtOvxXCfzwDpGeEtmchWY/xn
+	wr2iuunF7XnyuJa8HmxN1+xtwZeMDUOkMl42PzNyeLCPB4huUIYyjgQkRCnACPvvhv0cNUKV/gazy
+	e7z8H2HB1mDlmyiRt1KdkidWjEArLxDibMHoo2WsTH01MyRhqs5C+DYA7N2QjrcIoac6foE4rEsf8
+	yI5KHoXYJcijtgGW986q2wE+Cd3stM71L8Yocjjt+6h3l6TZrcejBWrr7SmpfwtReNtW4yp7G6I22
+	nLolEt0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2QF-0000000DQC4-0psM;
-	Fri, 11 Jul 2025 01:19:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ua2QH-0000000DQH6-1yhX;
+	Fri, 11 Jul 2025 01:19:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZzSr-0000000D89b-2yAd;
-	Thu, 10 Jul 2025 22:10:01 +0000
+	id 1uZzbX-0000000D8xt-05Nv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Jul 2025 22:19:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF66E613AC;
-	Thu, 10 Jul 2025 22:10:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54EB6C4CEE3;
-	Thu, 10 Jul 2025 22:10:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B699644682;
+	Thu, 10 Jul 2025 22:18:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60B35C4CEE3;
+	Thu, 10 Jul 2025 22:18:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752185400;
-	bh=cHem7GO1bpm2QPnhafnGHzow7N5rhbfN6nvXGgTABss=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=L0Lp/QhjolORcf2uLdp8zFhHVHLbR0Z6qPPZ5QmeiqyfD2UCo7zBMAYzpIemCiQAw
-	 gcyiC4tuohiskaV7uVb+E0B11seyKbVUYQmVYcqwFIGitfjbQ1IVfpkHOOQ4WE5h1A
-	 xYOriUVV1NdRRwoubiglpFMEOWUIdOwKFHuljHOOKGdz/kQjA7/7H5hQnHpA2iOAR/
-	 kFebSVa3WvjI+jZ72vRxMQSRManTSnlfkkq7poXEr59I64j/2rkG3vJb9JsuLZr0Oh
-	 7pFZ5h4Z/eVc8x6HikECphStLbxKFq7SXP2BSAbQ9qjlVg94bEArHzOhJ/LO/jRwmu
-	 TO1P3z1TH85+w==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADFD8383B266;
-	Thu, 10 Jul 2025 22:10:23 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1752185938;
+	bh=RxVBwyXBv5LWziR/6/tS4iFFqMsUTBajjCGOPP5GU5w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Qa6aYs06ohrcMbMTOjTn2wKTdl/OLauQ6W1uuk6tcOhc/BzKbdCpMfuwzcJbPXGvz
+	 P70J1etQPpq76UkNWWKPVIKYg259eOEdLiuqqWDn+teo3D1j2qLpziXm0g6CxYO+j2
+	 Oli1odsGQatjX0+3xt5fsJdbkCJ66eIUc4IXqQQzxgMvDcjlOOYk5s+01tosaHUdCO
+	 6WpwAhy3v6gZ3+L6vzB8RqjQ6a0K//jzWxb1pK/GwQnO1+5hYNtW0f+bWjQGtu2SV8
+	 Ee1Zzmar2RDnXFfwBe9NrKV0nkjJM7CT2+1yBqlZAHLBsmYejYBfWfHGkHcZieUkkP
+	 zA/U6VhCqVUeQ==
+Date: Thu, 10 Jul 2025 17:18:55 -0500
+From: Rob Herring <robh@kernel.org>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: imx@lists.linux.dev, Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/8] dt-bindings: display: imx: Add bindings for i.MX94
+ DCIF
+Message-ID: <20250710221855.GA4126646-robh@kernel.org>
+References: <20250709122332.2874632-1-laurentiu.palcu@oss.nxp.com>
+ <20250709122332.2874632-6-laurentiu.palcu@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v9 00/13] further mt7988 devicetree work
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175218542224.1682269.17523198222056896163.git-patchwork-notify@kernel.org>
-Date: Thu, 10 Jul 2025 22:10:22 +0000
-References: <20250709111147.11843-1-linux@fw-web.de>
-In-Reply-To: <20250709111147.11843-1-linux@fw-web.de>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: myungjoo.ham@samsung.com, kyungmin.park@samsung.com,
- cw00.choi@samsung.com, djakov@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- johnson.wang@mediatek.com, arinc.unal@arinc9.com, Landen.Chao@mediatek.com,
- dqfext@gmail.com, sean.wang@mediatek.com, daniel@makrotopia.org,
- lorenzo@kernel.org, nbd@nbd.name, frank-w@public-files.de,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250709122332.2874632-6-laurentiu.palcu@oss.nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250710_151859_101232_3A501602 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,54 +83,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Wed, Jul 09, 2025 at 03:23:24PM +0300, Laurentiu Palcu wrote:
+> DCIF is the i.MX94 Display Controller Interface which is used to
+> drive a TFT LCD panel or connects to a display interface depending
+> on the chip configuration.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Drop 'bindings for' in the subject. You already said 'bindings' once.
 
-On Wed,  9 Jul 2025 13:09:36 +0200 you wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> This series continues mt7988 devicetree work
+> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> ---
+>  .../bindings/display/imx/nxp,imx94-dcif.yaml  | 101 ++++++++++++++++++
+>  1 file changed, 101 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
 > 
-> - Extend cpu frequency scaling with CCI
-> - GPIO leds
-> - Basic network-support (ethernet controller + builtin switch + SFP Cages)
+> diff --git a/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml b/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
+> new file mode 100644
+> index 0000000000000..e4cab43c77ebc
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/imx/nxp,imx94-dcif.yaml
+> @@ -0,0 +1,101 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright 2025 NXP
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/imx/nxp,imx94-dcif.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: i.MX94 Display Control Interface (DCIF)
+> +
+> +maintainers:
+> +  - Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> +
+> +description:
+> +  The Display Control Interface(DCIF) is a system master that fetches graphics
+> +  stored in memory and displays them on a TFT LCD panel or connects to a
+> +  display interface depending on the chip configuration.
+> +
+> +properties:
+> +  compatible:
+> +    const: nxp,imx94-dcif
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    items:
+> +      - description:
+> +          Interrupt output for CPU domain 0 (controlled by common registers group).
+> +      - description:
+> +          Interrupt output for CPU domain 1 (controlled by background layer registers group).
+> +      - description:
+> +          Interrupt output for CPU domain 2 (controlled by foreground layer registers group).
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: common
+> +      - const: bg_layer
+> +      - const: fg_layer
+> +
+> +  clocks:
+> +    items:
+> +      - description: APB bus clock
+> +      - description: AXI bus clock
+> +      - description: Pixel clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: apb
+> +      - const: axi
+> +      - const: pix
+> +
+> +  assigned-clocks:
+> +    description: Reference to DISPLAYMIX CSR clock mux.
+> +    maxItems: 1
+> +
+> +  assigned-clock-parents:
+> +    description: Parent of the clock mux.
+> +    maxItems: 1
+
+You don't have to document assigned-clocks. Allowed anywhere with 
+'clocks'.
+
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  nxp,blk-ctrl:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: A phandle which points to NXP displaymix blk-ctrl.
+> +
+> +  port:
+> +    $ref: /schemas/graph.yaml#/properties/port
+> +    description: Display Pixel Interface(DPI) output port
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        display-controller@4b120000 {
+> +            compatible = "nxp,imx94-dcif";
+> +            reg = <0x0 0x4b120000 0x0 0x300000>;
+> +            interrupts = <GIC_SPI 377 IRQ_TYPE_LEVEL_HIGH>,
+> +                         <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH>,
+> +                         <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-names = "common", "bg_layer", "fg_layer";
+> +            clocks = <&scmi_clk 69>, <&scmi_clk 70>, <&dispmix_csr 0>;
+> +            clock-names = "apb", "axi", "pix";
+> +            assigned-clocks = <&dispmix_csr 0>;
+> +            assigned-clock-parents = <&ldb_pll_pixel>;
+> +            power-domains = <&scmi_devpd 11>;
+> +            nxp,blk-ctrl = <&dispmix_csr>;
+> +
+> +            port {
+> +                dcif_out: endpoint {
+> +                    remote-endpoint = <&ldb_in>;
+> +                };
+> +            };
+> +        };
+> +    };
+> -- 
+> 2.46.1
 > 
-> [...]
-
-Here is the summary with links:
-  - [v9,01/13] dt-bindings: net: mediatek,net: update mac subnode pattern for mt7988
-    https://git.kernel.org/netdev/net-next/c/29712b437339
-  - [v9,02/13] dt-bindings: net: mediatek,net: allow up to 8 IRQs
-    https://git.kernel.org/netdev/net-next/c/356dea0baf4c
-  - [v9,03/13] dt-bindings: net: mediatek,net: allow irq names
-    https://git.kernel.org/netdev/net-next/c/23ac2a71bdbd
-  - [v9,04/13] dt-bindings: net: mediatek,net: add sram property
-    https://git.kernel.org/netdev/net-next/c/c4582a31efd9
-  - [v9,05/13] dt-bindings: net: dsa: mediatek,mt7530: add dsa-port definition for mt7988
-    https://git.kernel.org/netdev/net-next/c/588cb646ce70
-  - [v9,06/13] dt-bindings: net: dsa: mediatek,mt7530: add internal mdio bus
-    https://git.kernel.org/netdev/net-next/c/66a44adf4c3d
-  - [v9,07/13] arm64: dts: mediatek: mt7986: add sram node
-    (no matching commit)
-  - [v9,08/13] arm64: dts: mediatek: mt7986: add interrupts for RSS and interrupt names
-    (no matching commit)
-  - [v9,09/13] arm64: dts: mediatek: mt7988: add basic ethernet-nodes
-    (no matching commit)
-  - [v9,10/13] arm64: dts: mediatek: mt7988: add switch node
-    (no matching commit)
-  - [v9,11/13] arm64: dts: mediatek: mt7988a-bpi-r4: add aliases for ethernet
-    (no matching commit)
-  - [v9,12/13] arm64: dts: mediatek: mt7988a-bpi-r4: add sfp cages and link to gmac
-    (no matching commit)
-  - [v9,13/13] arm64: dts: mediatek: mt7988a-bpi-r4: configure switch phys and leds
-    (no matching commit)
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
 
