@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB20C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 12:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893CAC83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 12:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvwwnPsW3knLIltBIEoiitBnipa0SwOi009wD+wqp4Y=; b=Vpg5HkUPU8hPwYUUinqHnogFmD
-	K9qKlPhZLrSe7oDpMjP1bZkMSK1kUKKa3qIjEaHEnv/UyQPuNHzpIk6Jv3D5aDwnwTl97Vc/gmOIq
-	QyjuRfUZcR79vS5yxyviwXWIln1thKuzROXlDKLLYaj1i4eT2cI5zVwwCQ5olFjuRL0Xg5TeMayvB
-	+2XHcBQoCfjYoQn+6O02xzgSIKqXejwfgsGrK6JVkCg6aNP9hjehLGiQ5F3HTJVit8vDVLuS3muUA
-	nNpi+DW/mQe00sVOpLx+7iXFOouoS3MxaFIw5yABWawBf2vh1esjhLti/8r+PXiUeCZQ/dGbW3jdY
-	ZE/iopTg==;
+	bh=reD0Z/OzeLLuQebkmfVULjQ6q5KpdwV263NNwktOYOs=; b=gAXZ8CN+/ISlJQ3E68bhttPtnh
+	GNmD4wZkSrViqTEBUA9drz1laIP0PGwewWnMD4cik9jk1cJsJ/UU8AO6O0gvlZx85HIQf0943vAVU
+	oXoXIeyHSssk09/KrmLTgxKlkQ4m8kDzHSpLJDxYGmCb18jG69yGEA0o0KmEZY5UQxUDzLOqjwZqa
+	zFJ73kC0kHhD//dALq4mjRwVoc/0OajcdYZTKZF1QidpFV+RBc+J6/eB/Mybe//O3mumYZQElTDUc
+	KJE5CjbuLBzCYuBxWk+8On/OJQVfn9rYa2khJh6BN6JYukpbFxA3BK1JnK6BiS73yaMWusVHE5/c9
+	SVHFXHqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZql1-0000000Bpeg-2Ca5;
-	Thu, 10 Jul 2025 12:52:11 +0000
+	id 1uZqod-0000000BqVd-3PXs;
+	Thu, 10 Jul 2025 12:55:55 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZpH3-0000000Bc1p-36J6;
-	Thu, 10 Jul 2025 11:17:11 +0000
+	id 1uZpio-0000000BfRy-2yWy;
+	Thu, 10 Jul 2025 11:45:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=QvwwnPsW3knLIltBIEoiitBnipa0SwOi009wD+wqp4Y=; b=BzgOQ4wH9LxFHFXobmsfZMf6m5
-	Baa4elG56mrwz+nWPNi4kTSrOuSdhD/tW1ICcxbzClt5fiGocQj2RDWwHETI9eHJJE3ofyDGDu4mx
-	xOTaWyL49oBdUUZ9X0ojAD997KZGLalsYIMG1m8BFVwvzUBMB1AGJFiSVa3OVbGCJ4KlkqJijKuxO
-	h7hbRCJitCLvy+AL9rpKHc8QmMDu9RbY3gUhkk0zXTP9oDFcR1E2447W5S1MJcomFgdbOlYHP8HOm
-	IXWiaeNqH89hCyM2aB4EF+JXX5hYpScQxft1pvZKcLaCbXw5q42jT2S9wbfMtHyioywKZwMwg3xFY
-	d2verbrw==;
+	bh=reD0Z/OzeLLuQebkmfVULjQ6q5KpdwV263NNwktOYOs=; b=Swqb+u8NjwNq2ygF9l+WvV62ey
+	Pkv9pnKzNdO83sVwKtwjQVXeOV6gSh8xMmgNz7fZfu1UJpupxMuQbVMWIYXUtAxjPi/8pAg2sMWbl
+	PHOyY/G+UNhh/+ZUKngi4IC1BpfMnn+7VIttbB0C0UjFVDZzXbn25A/LRkYwvKFf6hDjFMBYgG+9g
+	qkm3alOdWNgnzVVecL+xxKz7QbxfnPhsbidddS3TdgttvQxvr2KlGhsUcV/pVr31IGsOcfrF9DOW+
+	no8FwUJHfq4Bj/eOSWV+0bCYbd3IOyUPozMYEA04UbE83UlTbsnID5V+mVr0woRc6WqWulZ3AfF+9
+	cDS5fPSg==;
 Received: from [194.95.143.137] (helo=phil.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uZpGv-0004Ql-5M; Thu, 10 Jul 2025 13:17:01 +0200
+	id 1uZpih-0004ca-Op; Thu, 10 Jul 2025 13:45:43 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: Alexey Charkov <alchark@gmail.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Jonas Karlman <jonas@kwiboo.se>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
+ Chukun Pan <amadeus@jmu.edu.cn>, Jonas Karlman <jonas@kwiboo.se>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH v6 2/7] dt-bindings: rockchip-thermal: Add RK3576 compatible
-Date: Thu, 10 Jul 2025 13:17:00 +0200
-Message-ID: <6689502.31r3eYUQgx@phil>
-In-Reply-To: <20250610-rk3576-tsadc-upstream-v6-2-b6e9efbf1015@collabora.com>
-References: <20250610-rk3576-tsadc-upstream-v6-0-b6e9efbf1015@collabora.com>
- <20250610-rk3576-tsadc-upstream-v6-2-b6e9efbf1015@collabora.com>
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/1] arm64: dts: rockchip: rk3528: Add CPU frequency scaling
+ support
+Date: Thu, 10 Jul 2025 13:45:43 +0200
+Message-ID: <5025631.aeNJFYEL58@phil>
+In-Reply-To: <20250620100010.1291658-2-amadeus@jmu.edu.cn>
+References: <20250620100010.1291658-1-amadeus@jmu.edu.cn>
+ <20250620100010.1291658-2-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_041709_772402_A5EEDC37 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250710_044550_749854_ABE1B3F4 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +74,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 10. Juni 2025, 14:32:38 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Nicolas Frattaroli:
-> Add a new compatible for the thermal sensor device on the RK3576 SoC.
+Am Freitag, 20. Juni 2025, 12:00:10 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Chukun Pan:
+> By default, the CPUs on RK3528 operates at 1.5GHz. Add CPU frequency and
+> voltage mapping to the device tree to enable dynamic scaling via cpufreq.
 >=20
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> The OPP values come from downstream kernel[1]. Both 408MHz and 600MHz
+> frequencies use the normal PLL, so use the corresponding highest voltage.
+>=20
+> The voltage used for other frequencies can't be less than above (875mV).
+> Therefore, 816MHz to 1200MHz also uses the corresponding highest voltage.
 
-Acked-by: Heiko Stuebner <heiko@sntech.de>
+There has often been the argument that selecting a frequency that has the
+same voltage as a faster frequency does not save any power.
+
+Hence I remember that we dropped slower frequencies on other socs
+that share the same voltage with a higher frequency.
+
+>=20
+> The remaining 1416MHz to 2016MHz use a voltage close to actual frequency.
+>=20
+> [1] https://github.com/rockchip-linux/kernel/blob/develop-5.10/arch/arm64=
+/boot/dts/rockchip/rk3528.dtsi
+>=20
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 64 ++++++++++++++++++++++++
+>  1 file changed, 64 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/d=
+ts/rockchip/rk3528.dtsi
+> index 829f980ea353..5cb7f10b79ed 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -53,6 +53,7 @@ cpu0: cpu@0 {
+>  			device_type =3D "cpu";
+>  			enable-method =3D "psci";
+>  			clocks =3D <&scmi_clk SCMI_CLK_CPU>;
+> +			operating-points-v2 =3D <&cpu_opp_table>;
+>  		};
+> =20
+>  		cpu1: cpu@1 {
+> @@ -61,6 +62,7 @@ cpu1: cpu@1 {
+>  			device_type =3D "cpu";
+>  			enable-method =3D "psci";
+>  			clocks =3D <&scmi_clk SCMI_CLK_CPU>;
+> +			operating-points-v2 =3D <&cpu_opp_table>;
+>  		};
+> =20
+>  		cpu2: cpu@2 {
+> @@ -69,6 +71,7 @@ cpu2: cpu@2 {
+>  			device_type =3D "cpu";
+>  			enable-method =3D "psci";
+>  			clocks =3D <&scmi_clk SCMI_CLK_CPU>;
+> +			operating-points-v2 =3D <&cpu_opp_table>;
+>  		};
+> =20
+>  		cpu3: cpu@3 {
+> @@ -77,6 +80,67 @@ cpu3: cpu@3 {
+>  			device_type =3D "cpu";
+>  			enable-method =3D "psci";
+>  			clocks =3D <&scmi_clk SCMI_CLK_CPU>;
+> +			operating-points-v2 =3D <&cpu_opp_table>;
+> +		};
+> +	};
+> +
+> +	cpu_opp_table: opp-table-cpu {
+> +		compatible =3D "operating-points-v2";
+> +		opp-shared;
+> +
+> +		opp-408000000 {
+> +			opp-hz =3D /bits/ 64 <408000000>;
+> +			opp-microvolt =3D <875000 875000 1100000>;
+> +			clock-latency-ns =3D <40000>;
+> +			opp-suspend;
+> +		};
+> +
+> +		opp-600000000 {
+> +			opp-hz =3D /bits/ 64 <600000000>;
+> +			opp-microvolt =3D <875000 875000 1100000>;
+> +			clock-latency-ns =3D <40000>;
+> +		};
+> +
+> +		opp-816000000 {
+> +			opp-hz =3D /bits/ 64 <816000000>;
+> +			opp-microvolt =3D <875000 875000 1100000>;
+> +			clock-latency-ns =3D <40000>;
+> +		};
+> +
+> +		opp-1008000000 {
+> +			opp-hz =3D /bits/ 64 <1008000000>;
+> +			opp-microvolt =3D <875000 875000 1100000>;
+> +			clock-latency-ns =3D <40000>;
+> +		};
+> +
+> +		opp-1200000000 {
+> +			opp-hz =3D /bits/ 64 <1200000000>;
+> +			opp-microvolt =3D <900000 900000 1100000>;
+> +			clock-latency-ns =3D <40000>;
+> +		};
+> +
+> +		opp-1416000000 {
+> +			opp-hz =3D /bits/ 64 <1416000000>;
+> +			opp-microvolt =3D <925000 925000 1100000>;
+> +			clock-latency-ns =3D <40000>;
+> +		};
+> +
+> +		opp-1608000000 {
+> +			opp-hz =3D /bits/ 64 <1608000000>;
+> +			opp-microvolt =3D <975000 975000 1100000>;
+> +			clock-latency-ns =3D <40000>;
+> +		};
+> +
+> +		opp-1800000000 {
+> +			opp-hz =3D /bits/ 64 <1800000000>;
+> +			opp-microvolt =3D <1037500 1037500 1100000>;
+> +			clock-latency-ns =3D <40000>;
+> +		};
+> +
+> +		opp-2016000000 {
+> +			opp-hz =3D /bits/ 64 <2016000000>;
+> +			opp-microvolt =3D <1100000 1100000 1100000>;
+> +			clock-latency-ns =3D <40000>;
+>  		};
+>  	};
+> =20
+>=20
+
+
 
 
 
