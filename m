@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65953C83F20
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 12:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E93C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 12:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0doyyzVzbvs/veF0uzJJxh1mFAme265poBUR2M8XYM=; b=kRfwq3q+4tidUerszdSY6f5zqr
-	Fkt2+anXF1qg/Zu1SEjQQWDQa4/6a9d6RDqw2AxHRD20D63O1ow9BR8J3QiiDCtm9b3gC4F9k4XWq
-	dlpXI1d+uea5AM92wc/3hw/jv3lrgooZ5tyyson2Vi57uhNh9Gm/inG59QK+pghoH2Dt1Fi2uWdIA
-	Q3tM3fMPxoSs7S/3TaYW8ku0Dz66rQQKb+H0kwmSzLo/8fsWK7HcEu1Vf7P0xpodtFrZnTOiqvPQI
-	k4eSOXkY2KNnMwxIVxxzt3/Z8omDOOYzJ2Cft4JIn4vgRFjxAosMeD2yGU94dYi4UffHA55UNH+jA
-	9CUXXpoA==;
+	bh=yh1oZYi5He8u6c75FxBqUjF/P8dsSkx+mSq7uRQnfpY=; b=oRoNOWTHueoHsNQtYmTmK5zUD/
+	T2r0/PFMG8aYsb03ykQQwZpJwrkK8ugNH34nmHT6lsuINhumumc+t6beW4HUrX+vvL7J+IN5sV0Ck
+	+vD6mgv8uKOK6XC4vIRhaovcTnGp/rFDRJ5T41Mmn2+XfZVPDpCXYB1qBla3AretoYhfrALCfaP5v
+	hYWsac3kw9QcD9Kzmnw1Xst+XMT0x6Ps1wF4OGdFf+QZGiZ/tkywrMDTnGG5Icxu0wIrvfYS11YkI
+	c6Fb7835C6bQ7ci9F+jIckkrShvTbSM9r88hEmcRv8Bpi5hmMfK89/haWjHdxHSLkZb0T8RJj6Zdi
+	zccH0cBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqNs-0000000Blcx-19so;
-	Thu, 10 Jul 2025 12:28:16 +0000
+	id 1uZqQB-0000000Bm3b-1bUp;
+	Thu, 10 Jul 2025 12:30:39 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZp24-0000000BZBY-2ULy;
-	Thu, 10 Jul 2025 11:01:41 +0000
+	id 1uZp28-0000000BZDt-3QSZ;
+	Thu, 10 Jul 2025 11:01:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=u0doyyzVzbvs/veF0uzJJxh1mFAme265poBUR2M8XYM=; b=hOw9ulEHrjSWxSo0zKJNTZBsSQ
-	4Z0XyYkdULUrmfkbPiKTxRHoaJ7CB9NSvctEnIjMlSgIaX4xli/Wp4N+n61QHF77mi51gOB8giD1g
-	9QxSvev00qreUEiZXcjGMjz7UOedpVZLKv+SIY2wneNFX4PQ3iX5E9LOV8dr+eG4lo3MFyw24Q3L/
-	ls+aoBgb5Pg86K6P2+5z1A96cocEfLwHvjQfjT7rHm6HYtI1E1uXUbAF64Z042iksbKzRjEcd76mn
-	NRTahwVPf4nhWCv1gcCBrCjvTQQ3SWTLCRL8Vw8MvDRw0yV89bOkPlZSJUPTsS93qFDN3xPaelRwb
-	BSyd16zw==;
+	bh=yh1oZYi5He8u6c75FxBqUjF/P8dsSkx+mSq7uRQnfpY=; b=TNey+Q/H+gvNrd/vklpz2lSgcz
+	zYsU2CFvIdj8g0DjwUaA9LkCsNFvVRJAd0yqfZsM5wwI/hXk58oI2EBTvnu533uvT5XiaqNyRxfrF
+	g83m2YF/9AGV5+B05cpsTVrC4kgvpJPHvuDlWPPOH8r+btbDaIDQuVrUgX2UGLWav3NRbxmlT0uW7
+	dQTQBNEFCi3yhvQVLAodPh3ku8WmTcVjyZVQq8vMgKY7R7O/nTCBGvRqMZ4ZCZoAakU5Y8Bm8O6+/
+	rNnEWIi775SRRakTqEIcqol6mmmSWcUfoQQ10JeuFbj8NQV9Fi6J3p8a0VMLORPwwhZd6uy89wvqJ
+	4f+rKPdA==;
 Received: from [194.95.143.137] (helo=phil.dip.tu-dresden.de)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uZp20-0004He-45; Thu, 10 Jul 2025 13:01:36 +0200
+	id 1uZp20-0004He-Nb; Thu, 10 Jul 2025 13:01:36 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Nicholas Roth <nicholas@rothemail.net>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Olivier Benjamin <olivier.benjamin@bootlin.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix pinctrl node names for RK3528
-Date: Thu, 10 Jul 2025 13:01:32 +0200
-Message-ID: <175214509879.1901332.8552512069913088208.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	imx@lists.linux.dev,
+	~diederik/pine64-discuss@lists.sr.ht,
+	Dragan Simic <dsimic@manjaro.org>,
+	Ondrej Jirman <megi@xff.cz>
+Subject: Re: (subset) [PATCH v4 0/4] Describe the cameras in the PinePhone Pro dts
+Date: Thu, 10 Jul 2025 13:01:33 +0200
+Message-ID: <175214509884.1901332.11258386296497025238.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250621113859.2146400-1-jonas@kwiboo.se>
-References: <20250621113859.2146400-1-jonas@kwiboo.se>
+In-Reply-To: <20250620-camera-v4-0-0201a8ed5fae@bootlin.com>
+References: <20250620-camera-v4-0-0201a8ed5fae@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_040140_627902_82811B02 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20250710_040144_859350_67B0C308 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +92,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 21 Jun 2025 11:38:57 +0000, Jonas Karlman wrote:
-> Following warnings can be observed with CHECK_DTBS=y for the RK3528:
-> 
->   rk3528-pinctrl.dtsi:101.36-105.5: Warning (node_name_chars_strict):
->     /pinctrl/fephy/fephym0-led_dpx: Character '_' not recommended in node name
->   rk3528-pinctrl.dtsi:108.38-112.5: Warning (node_name_chars_strict):
->     /pinctrl/fephy/fephym0-led_link: Character '_' not recommended in node name
->   rk3528-pinctrl.dtsi:115.36-119.5: Warning (node_name_chars_strict):
->     /pinctrl/fephy/fephym0-led_spd: Character '_' not recommended in node name
->   rk3528-pinctrl.dtsi:122.36-126.5: Warning (node_name_chars_strict):
->    /pinctrl/fephy/fephym1-led_dpx: Character '_' not recommended in node name
->   rk3528-pinctrl.dtsi:129.38-133.5: Warning (node_name_chars_strict):
->     /pinctrl/fephy/fephym1-led_link: Character '_' not recommended in node name
->   rk3528-pinctrl.dtsi:136.36-140.5: Warning (node_name_chars_strict):
->     /pinctrl/fephy/fephym1-led_spd: Character '_' not recommended in node name
->   rk3528-pinctrl.dtsi:782.32-790.5: Warning (node_name_chars_strict):
->     /pinctrl/rgmii/rgmii-rx_bus2: Character '_' not recommended in node name
->   rk3528-pinctrl.dtsi:793.32-801.5: Warning (node_name_chars_strict):
->     /pinctrl/rgmii/rgmii-tx_bus2: Character '_' not recommended in node name
->   rk3528-pinctrl.dtsi:804.36-810.5: Warning (node_name_chars_strict):
->     /pinctrl/rgmii/rgmii-rgmii_clk: Character '_' not recommended in node name
->   rk3528-pinctrl.dtsi:813.36-823.5: Warning (node_name_chars_strict):
->     /pinctrl/rgmii/rgmii-rgmii_bus: Character '_' not recommended in node name
+On Fri, 20 Jun 2025 17:21:31 +0200, Olivier Benjamin wrote:
+> This series adds support for the Pine64 PinePhone Pro's rear and front
+> cameras in Device Tree.
+> This is based on some of Ondrej Jirman's patches hosted in his tree at
+> https://codeberg.org/megi/linux, but I have also fully reviewed and
+> re-written the code from the RK3399 datasheet, the PinePhone Pro
+> schematic, and the IMX258-0AQH5 software reference manual.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Fix pinctrl node names for RK3528
-      commit: d50bd46d387f7f6d2e5aa4ce1aeefd3c9b6776a4
+[3/4] arm64: dts: rockchip: describe I2c Bus 1 and IMX258 world camera on PinePhone Pro
+      commit: b610dc822f38010508b54c8f556a3de28556d273
+[4/4] arm64: dts: rockchip: describe the OV8858 user camera on PinePhone Pro
+      commit: 9259c81a185663c2a7cd6a5301df4b9645980528
+
+So I found the binding-patched from the media-tree in linux-next now,
+so picked up the dts patches.
+
+I fixed up some issues, please double check:
+- the pinctrl-handle in patch3 did not match the created one
+  (which patch 4 fixed) but I adapted patch 3 instead
+- sorting of the avdd regulator (alphabetical by node-name please)
+- sorting of properties, broadly speaking, alphabetical too
+  (caveats apply, see dt documentation)
 
 Best regards,
 -- 
