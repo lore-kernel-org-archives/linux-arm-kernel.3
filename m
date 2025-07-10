@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1E95C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 08:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 791BEC83F18
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 08:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ITUbPKjz6nt7F9zre32Uex49fG0CgP037IfGy1Dq7d8=; b=YywcbXe3j/lZEBkPqOBYHbWZ43
-	wKu0kALJrFZYwu+Y0qOW7vykJ3CJRBOiid0VFprhbaUReGvjtj31UyLZyc35SmvU4ykLrtVK0TTTM
-	1gBEFObHEfrauo1/a6YG7pVYKL9VMFWc799hCOCOMux08H5yBfM225XsmM92rnx7vBDNjs70Bvkw4
-	j0xzOrzuXCuMDeN2za+hGXvTWQHby16UB5oGN4YuXfjwFxJIIKJnEeifgGlkU7LzF6OY66h2eu49K
-	tLe6GcdbrgGTWW5zDk59xk9LDtJamn1AfcjdycBcUu1gpaIA0h3PPINClUcDg3sAUpMEOkfyVmfyt
-	fj9NupTg==;
+	bh=0o3ZpWxtZvYJQQGhpqTBpq+m/IPV00LyVOTLAYt/dNs=; b=iat2pl+kAdk+FV0vHHj1LDpVg1
+	MHlX2xXtkumSdQN5WackHnnG+RQzs8T0mKXxJdzgoKD5SdgicTSS5giRbX9O9uGThkOCVQd2UAoiN
+	EQ3TzJAAqPJ6FGrwNMGvgGXkEAd1+yYsgLhgv8003mU5W1bZxiHoKIyzOUqP7g6aoPYasZJrb2Vht
+	047Q1YY3r4WbNmJzx7GRuRh3CZ/rXF+UeY+VbXwXlthv8lTmFdpl74X7RY8TdTuFBLx2EBmNylUCr
+	2p7/fGNqqa8n7d0BiUpBg+2OwZ2weWcDvw3DSfngj/FY96+Jvg1lv044SnWtdveFK7E1l3XxTvoAT
+	5zNx3C2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZn1N-0000000BElK-08Ml;
-	Thu, 10 Jul 2025 08:52:49 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1uZn3g-0000000BFIJ-0YDv;
+	Thu, 10 Jul 2025 08:55:24 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZlo6-0000000B1ou-2b7G
+	id 1uZls7-0000000B2TZ-26Jm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 07:35:03 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3a52878d37aso97707f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 00:35:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752132901; x=1752737701; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ITUbPKjz6nt7F9zre32Uex49fG0CgP037IfGy1Dq7d8=;
-        b=dJ4ZvOpf5t83RzXbp6BjlAIWiZnTHZG7irC2j0+/ACTXtq67DyyeEC7MhlcriL7kUy
-         kgeWLy6DU6JqycD06eNPZTRJ9qelBZIDhN7vwjvM3ayKfxMRiS9ICLJyEyHbVLIiRgUT
-         EDVJt4hXpHRNkQtKL0fpV0oB23y5X3GZgLx9TIA9g/Gm5qLVFEa8ga7FzOFVzeYsABcq
-         X5ygCaP36OF2fCNaB01xVgXN1Vn2oaG3asMVE5oRkgkLPQhaX745qCkc2qyQNh4P07HM
-         OqxTH9eKaDJfjkFdvvw7ZrWDhqUNHhbGQlzwmY39qnU87PXcDfdAOccfRUeZb+FlocQI
-         XqvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752132901; x=1752737701;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ITUbPKjz6nt7F9zre32Uex49fG0CgP037IfGy1Dq7d8=;
-        b=fE8e88HZwGl4YxUlM4Dbd5qgfMHZk7+do7+wxHgNFMEnSPf1gvkQ76u92rkbhr1s3j
-         wkJRO9Tkwx8EobC0MitxdF43ah2Ux+LJl13r4F/0TpIT0Ygz3Uevpxdrhto/hw2qNpvP
-         rZcqCDMEAq+EoHDaI1fvKaBN06DpOeDUYc1hpqc2ree0SSwSF6ehYtt5xb9YjJF9d7l9
-         p+zJiqt8+kSKipnyCUtq4zPOh97SoZKZs6KPyr4WtsCrYEQ1srQiqypRp03rqpaGlKGT
-         TlJbUvA2szF6Hi1rL4P1ynjpIdc7dmjS2UIyPUty7kgssPrR26x7fctq3jlGcHtj9vVp
-         NJVA==
-X-Forwarded-Encrypted: i=1; AJvYcCXYRZODxkZaZXN471kdmdPgvumu7WbpmlBnBb3VIwe/wGtAzpuCgVpCQmw6o2zYqaAOlUXPcAcLiCRx3QkWwmrE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyegwJC1RKvRlbiemJPnfdN/UPwWZSG13wxuoKmAu2X83dyxyzn
-	UtJRUiiWKQuY6Dxs4/3+QCYJPlqlrjFHqHySSKR9/zzz/a6oXF7wDhPHTvZI6vETUVw=
-X-Gm-Gg: ASbGncts5zS0gNbpMYYx6y6c2vCpln6/WUoLM+YEK/8wsWlxYjr5Auxqb1VGtn2S9os
-	N8/pOFFqR0iEULreBNXL8PfaZEiGdy+/IC75t+9wX+1Vofl1QVNPH+IOqhMvTvb2xQ+LfyJUZCQ
-	0Q1c/CxsSc8ROsBgQrXsomYocx/znAjocHpq7oeHNjSsBvU8YBSrE+2/Nbb7pezzMfmyvNCTqhF
-	uDeYV5zFLI1NSPsdq3CqRVUJU9mZiu90moPGkbEMiQNZbaOL0xTjfdkwEygueNAeEtpM7FzZ1Cb
-	aBWoTN2SP6n6BG1kZeGP5FbELDe5B+Oxvz9xhFJV9q3Z2Jz96DfgTno9bLW+dG5k55/ahFfgGMv
-	aygDGy0WMjA==
-X-Google-Smtp-Source: AGHT+IHzDyfTOcdmYClAhYTQidw10ZwlS9z8D2W1xO1hV9teei6UadmtYmLqVDhpcn3elTELAFK7sQ==
-X-Received: by 2002:a05:6000:2406:b0:3a5:324a:a04e with SMTP id ffacd0b85a97d-3b5e447a874mr1570352f8f.0.1752132900931;
-        Thu, 10 Jul 2025 00:35:00 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.222.89])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454dd466154sm10826555e9.12.2025.07.10.00.34.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 00:35:00 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
+	Thu, 10 Jul 2025 07:39:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=0o3ZpWxtZvYJQQGhpqTBpq+m/IPV00LyVOTLAYt/dNs=; b=Z0hwItwDzqmFgHbUrDa6tgxHKR
+	+uphq1RFa+XCKba7eej/wUQe1HRPD2S6lVLmlmkZpAk7LZ4mZYo59GpsDvx5f8wGcC4hjJlrwD9Ud
+	vtJSQJCiMG1Lmt5sc3g7rLJMnvL4ajOGw03JbS/wewlTYTLbQfefTjuMKSL1KU1eu/wbIJZM+G7J4
+	bgzd79vC8pySjEfhTbOxK9DurYCSAmWP8jrVtlfgB1tZUE+ea6Tt92CySt9SNzch+oOVnsTamgNl3
+	gKVWYWkttMOxCAZIwyCtG9X8D7YxCoT5OHctUe97Arhvr0LsP6MHyirANlgdd5/DP5cTT+V/JsUQz
+	pBRnH+pQ==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:48064 helo=localhost.localdomain)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1uZls3-006IV5-0e;
+	Thu, 10 Jul 2025 09:39:06 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Haibo Chen <haibo.chen@nxp.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno Sa <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: linux-iio@vger.kernel.org,
+	imx@lists.linux.dev,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 2/2] arm64: samsung: MAINTAINERS: Add Tesla FSD DTS to Exynos entry
-Date: Thu, 10 Jul 2025 09:34:45 +0200
-Message-ID: <20250710073443.13788-4-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250710073443.13788-3-krzysztof.kozlowski@linaro.org>
-References: <20250710073443.13788-3-krzysztof.kozlowski@linaro.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de,
+	andrej.picej@norik.com
+Subject: [PATCH 1/2] dt-bindings: iio: adc: imx93: Add calibration properties
+Date: Thu, 10 Jul 2025 09:39:03 +0200
+Message-Id: <20250710073905.1105417-2-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250710073905.1105417-1-primoz.fiser@norik.com>
+References: <20250710073905.1105417-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=860; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=3YlMOIgu11vBoJjUEqiVPSS+lh9NXRYYK3t5EeYjBic=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBob20XQQOTWxlqLjKHNNyaH3n8/WSBNW/mnXcu0
- xFUmc6gGwmJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaG9tFwAKCRDBN2bmhouD
- 19h0D/45ArZflYDgoL5gbSjHj6laJbsN8NIETDO2vubnftED+Br8KEQ2SXkxq1iLWL27Mt+KdyL
- hQRPb7VIqm5S6kGi3DShOE1IHEy2unlB4P4ovWGVT2L/I2IG0e8BGre23UQKtbR2o8n7hrs/c+S
- 50R5h31IjXFgYNTlaGPtCCnI59pbL3pSPdVBEbI4/81/WlU6P7Vyd0gBQpFwdMAza0m89uQMBBt
- 0IAR8n09LBS95ivakTkCo9yd2+B/PuTi5WXsb5y9FWOyqYzaf+QBhxfgH4v/5uYpP31dTAUfbiD
- dtG6b9HRzGJGZ3H0QlX8kMVYulXlZCiRThwoLqNdfrxtgc0pEPicFsote7V+zSFW//E/et9jlbB
- DNpIqM3G2ba90tnxrQYjWkpYwIYQXPep15sHhxjjsi1vDidWBUwaCk6MfuqF4ag1SBygxdG3MAR
- 2fPcN+cGN6lE5C0yTT8e7xq8I8zaxNNDCq7ug+dQLrkhM4R3XZDxQRNdZtsfMf3eObcYmDV42OK
- gFiq8cUDGAV/cIAAIJ6cCvd1vNRn/l6WGXE9WAsuc3ZY89FXf5Ro+Ttcz8JB1iwYHEXxN4PHdtz
- DCAAjbWhTfFUeETPzigKWVLONKNFyGXRg6obkLo4tAPNbB7A45KNgLIvoHGiknQIJ6Mbzxm7gJZ cRotHgmER+hQ2gg==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_003502_655580_E6961190 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250710_003911_998150_18606B14 
+X-CRM114-Status: UNSURE (   4.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,32 +101,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Effectively all Tesla FSD DTS patches go via Samsung Exynos SoC
-maintainer, so add the pattern to make it obvious and reduce the chances
-patches won't reach these maintainers.
+From: Andrej Picej <andrej.picej@norik.com>
 
-Cc: Peter Griffin <peter.griffin@linaro.org>
-Cc: André Draszik <andre.draszik@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Document i.MX93 ADC calibration properties and how to set them.
+
+Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+ .../bindings/iio/adc/nxp,imx93-adc.yaml       | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 4073f7ac978f..a2e1d879cc01 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3205,6 +3205,7 @@ F:	arch/arm/mach-exynos*/
- F:	arch/arm/mach-s3c/
- F:	arch/arm/mach-s5p*/
- F:	arch/arm64/boot/dts/exynos/
-+F:	arch/arm64/boot/dts/tesla/
- F:	drivers/*/*/*s3c24*
- F:	drivers/*/*s3c24*
- F:	drivers/*/*s3c64xx*
+diff --git a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+index c2e5ff418920..d1c04cf85fe6 100644
+--- a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
++++ b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+@@ -52,6 +52,27 @@ properties:
+   "#io-channel-cells":
+     const: 1
+ 
++  nxp,calib-avg-en:
++    default: 1
++    description:
++      Enable or disable calibration averaging function (AVGEN).
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [ 0, 1 ]
++
++  nxp,calib-nr-samples:
++    default: 512
++    description:
++      Selects number of samples (NRSMPL) to be used during calibration.
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [ 16, 32, 128, 512 ]
++
++  nxp,calib-t-sample:
++    default: 22
++    description:
++      Selects sample time (TSAMP) of calibration conversions in ADC clock cycles
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [ 8, 16, 22, 32 ]
++
+ required:
+   - compatible
+   - reg
 -- 
-2.43.0
+2.34.1
 
 
