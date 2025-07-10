@@ -4,194 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFBCC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 19:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C81C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 19:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jigo68/SH8/GVA/l9+c9NjeTK6252zBgk9JZs3BkyZw=; b=fXKUCtqGuqJa/njp4RqKcyKNI1
-	AshJADORQjRsuAKbDEh7HgkTJOsvlaGM+9x58x3ZTDih8VR94bcWfZwSudwmL7GgYc/FMZYQVszv2
-	gwkFTXO/EIo7i3h2udw5CCSHW+VG70ck4gYHKr+q7RAK+0H7VBpom6ldPwtRgULzeQ1OYrEOf99r6
-	KMt1ZlceQhHvphqb9rH6knQfuKnuG4D7W4N8Uh4/ASvgSCRkk2LKt0tOMe9YzhZF00QVsMdsu1ICi
-	3jELBww9l1uLsdHk6NVtYLypnpPf4ZeZHmLCwghaok+GArbI0M20R4ZarcpnSwqplzx7h0472iUrY
-	RxLULeMw==;
+	bh=ZY+NY0AktlPDm/hzxc4Z8a+9UQBgqmHII/ezXLGn7/A=; b=XG1NODwnD5q1SUOkZ1CzYJPJoY
+	LI6BMdBvlyYvBmHIi0kt0RpdhTrblc9dcROaCn154JCDZ2FrFRCrSj+LLmgtWlcWv+/25ta/gq109
+	woycLuqhU0bHkxnwyUF0dKV7muQ3HCV3klReziTQJUT2DzMTegED/qbNqzp56ZOHTVIN4t1cMpcci
+	ryKikwfWnmrTXhN90V88vlrzRpkS9xov204MEugHGX25gOEtr6mto5ssFDpIP0BLnWt+AZEX33xEs
+	G1y0FQKG0QuOhCWXQ0KitTC49JSrDs81wodsEUvO1ysT+FUSlDMvOanNPztAiECgCR9D5rk8gTCFy
+	yiI4cZTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZwif-0000000Cn8s-2YXs;
-	Thu, 10 Jul 2025 19:14:09 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uZwkQ-0000000CndI-1BOe;
+	Thu, 10 Jul 2025 19:15:58 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZsAM-0000000C6Fp-47d4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 14:22:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ywCSJQJC9GXHDxAa5xbtJPxKAwljbA4OHTwkrA/cD7nBVb3P4rJCLHStCubXSJzIHzYVeS5vPFL08AGIBQBljkKUSsQ1UbSfLacGfu6ODy+eVSAVLEKGXw97oGof9Vd4l809AZxXJCMSgycbC8Fd/YeFrStZr2nHC8j0pswZRGq/RhM4V5fLTl74X/tbQlQlZJStyZ0awoTrqfXr958t+Fr/lcj+zy0k5E7jl3Tc1Rp6nStLxLtPu4uKCz2ZNj0l9wYqwXlPJgpLEgPyIDplyxtbLdmZqJS6qI6/5eJHBaXitxBqxjFgxrOJYXI8rjgL/kB+bfAum2dLfGHHmtP8Nw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jigo68/SH8/GVA/l9+c9NjeTK6252zBgk9JZs3BkyZw=;
- b=UQThmE2HzQ9z/t2TN30E+vI7BXMzFyYBY8jkUc1HySqKgCj0NVkUC31Ee1A3uDKZn6wvPdQzadoSuOdjF2tt3e25W0KkYPtGQcvA/EsqUBmgMH9gSVvdBa+4x7RKMvF9BKleqwDQ7pcYh4nVma1IGWRJ5eu2+Ls8Tk5Rg8dXTHPeUaYj9Rpy1HCGOljqk0d/3Hp2UO97IAkOWZ2ZXhR14Ot1WoNB3lFGW/LkR2bAK2g/ag3zimOY0w/KRuy3FDgSqRbBnxTQf1DUSX0qSO800m+WdtrbVLo3yG+PB/HC4bBq1GVVeEAL8TXvGBSqR7lPVfUHcDBCRirC3HPSl62YBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jigo68/SH8/GVA/l9+c9NjeTK6252zBgk9JZs3BkyZw=;
- b=l0QES/Vu1Mv7MrTOnkv4LXjDZkDzTpylunJ6nYhKZfgwt06CZpppHJ23yQJFccQLv4u5S3Cq4gIMzw4n5HqlG7uLJIkdBANQAnezSlot/uHhN4r9lddfjRS9Fj14sgBWE+AAy18kB+xu2xGifQMjGtGLBsXfLqZHu0ZYZYKnRGBDGN6oyJwc82MbIS4Hq539MlHwNsg87ZNDnRH8fl8Pa2WC+CnQVO4Bk9k/usyemcYeh7PkfQTn2xl+4jhaK94QsL2xGFlwNH4h/IXMCuRQHZNKqLAhUN4/XfIkw0XJth5wbbxTMq3vJemaMYM1uetmtga09aMYbxqyhwjImQUTOA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8487.eurprd04.prod.outlook.com (2603:10a6:20b:41a::6)
- by DU2PR04MB8952.eurprd04.prod.outlook.com (2603:10a6:10:2e3::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.26; Thu, 10 Jul
- 2025 14:22:22 +0000
-Received: from AM9PR04MB8487.eurprd04.prod.outlook.com
- ([fe80::6d7a:8d2:f020:455]) by AM9PR04MB8487.eurprd04.prod.outlook.com
- ([fe80::6d7a:8d2:f020:455%5]) with mapi id 15.20.8901.028; Thu, 10 Jul 2025
- 14:22:22 +0000
-From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-To: linus.walleij@linaro.org,
-	brgl@bgdev.pl,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	chester62515@gmail.com,
-	mbrugger@suse.com,
-	Ghennadi.Procopciuc@nxp.com,
-	larisa.grigore@nxp.com,
-	lee@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com,
-	aisheng.dong@nxp.com,
-	ping.bai@nxp.com,
-	gregkh@linuxfoundation.org,
-	rafael@kernel.org,
-	srini@kernel.org
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	s32@nxp.com,
-	clizzi@redhat.com,
-	aruizrui@redhat.com,
-	eballetb@redhat.com,
-	echanude@redhat.com,
-	kernel@pengutronix.de,
-	imx@lists.linux.dev,
-	vincent.guittot@linaro.org,
-	Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-Subject: [PATCH v7 09/12] MAINTAINERS: add MAINTAINER for NXP SIUL2 MFD driver
-Date: Thu, 10 Jul 2025 17:20:32 +0300
-Message-ID: <20250710142038.1986052-10-andrei.stefanescu@oss.nxp.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
-References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0090.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cd::16) To AM9PR04MB8487.eurprd04.prod.outlook.com
- (2603:10a6:20b:41a::6)
+	id 1uZuLb-0000000CUI3-49IJ;
+	Thu, 10 Jul 2025 16:42:13 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 7653922C34;
+	Thu, 10 Jul 2025 18:42:09 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id uHNKzZGcUZmC; Thu, 10 Jul 2025 18:42:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1752165728; bh=mQqMyl9/MnIY7zxTIxu7RP2oDFmYoRQUKeOu0Q7Oz4o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gv/sH+/5bBVpo/ZWtroqIAelUeppO2E6EN8uHUU1JzacvVD+a5Rg1MRvjup+XwY/9
+	 tlawYJKWW5+jLu9ywUmo2PYUl5sqIXHcFHIEUtHYZ2BmrNVgGmXnjQE1I6vlyz5DAS
+	 03Um+Q8IoUBHCwE7rK2S+aAbjuuDxy1smLLEY6b0XluBGYrGc0SOFitE0k+KnlHrPy
+	 oiG/PRzP/oTip3vQJDDymQaU+1a5oVgaNCHRz4o2b/tqpjZqpIg7NV986t7EjatTYa
+	 Uv+vKTJSyi5B3qzA2KpTUlflYW3pB8OtHvB9G0hc2rqCu6niBIP1EBVYih4DKQeN5a
+	 ctWkFP/kyZyQA==
+Date: Thu, 10 Jul 2025 16:41:48 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>,
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/6] arm64: dts: rockchip: Add Radxa ROCK 2A/2F
+Message-ID: <aG_tTPRYZPYHMpf7@pie.lan>
+References: <20250708224921.2254116-1-jonas@kwiboo.se>
+ <20250708224921.2254116-3-jonas@kwiboo.se>
+ <aG3vPsUd-FPkhi-S@pie.lan>
+ <5ce03a37-1b60-4328-8d04-07bf835def94@kwiboo.se>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8487:EE_|DU2PR04MB8952:EE_
-X-MS-Office365-Filtering-Correlation-Id: c304e9d4-9703-463d-60b8-08ddbfbd2f3b
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|19092799006|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?S1UwL093SGlYNUZJYzd4eW8xWlRkT2UyVWNleVFobXdMR2RyTFMycjFPNE95?=
- =?utf-8?B?ZWxQN0NtbW9JMi96WWtzU2dvYUc5enduY1BXNFhENS9HRkg3MEM5WFlVRmZ5?=
- =?utf-8?B?eWwyZWJnMXlRUXRTbzBhb1JGZE5oVzFVdSthViszZzF3ZDh1eXlGbVl6dm16?=
- =?utf-8?B?R0Q5ZGw3S3JoaFd5Y2FCbE1RenNtNVRHSUxDY2hMWHVMS3M0aXVzbjVseW5x?=
- =?utf-8?B?QWQ2VkdyWUlCaGM4NWFVSU1JYjVoVHFKMXpCd0FtZ25KdHNWS1N0OVRLYXU5?=
- =?utf-8?B?MHYrMUllaFpiaEhFVXZlcFc2cDE0ZDFRQVJ1L3VaV21sVExMOVNqVHd2U3FU?=
- =?utf-8?B?UVJtbEhsMUYwbXIrTHcwS3JSMjBkVGlCQkZMemt0TjRCZTRJL01mTC9zeVll?=
- =?utf-8?B?Rnh2d25keW9yeStZQUhoWS8rdFFOMTVBMjV1TVAxR2JML1J0WTN5cVEzcHpr?=
- =?utf-8?B?ODRhTEphZENDV3Q3OTV5VmZ1ZzJjdmRLenhMVjRBTGMyZ2JDaDhHb0hXUVZx?=
- =?utf-8?B?LzY1YzhjdFlFVng4N1FxSTZ4RG9WUk5tcWY4allQY1ZIR3h0Kyt2TW82eVdr?=
- =?utf-8?B?VE9WSlR3OEtHQWZ0WnhNUlRKcjVNYnFHV3VzaG5rNGZ5dzlhTmhqYVpHYkh0?=
- =?utf-8?B?VXprSEo2aTZJdWNuTUNVeEVWZmJsc09odEZNMTdwU1pncm9aRjdPY2FxTGVr?=
- =?utf-8?B?RXFIQVBxMWdobkR4dktyL2ZoTDBJNUNFbi9Uc1VTT1ZRZkFhbXl6cjhwakRa?=
- =?utf-8?B?TUpxcUlZQ0s3TElTcTV1ZDhFSU13UkswZzd2TkMrOHI2dDF6UWkrZ1pxQWxv?=
- =?utf-8?B?VXZTT1ZlOVM0Y0Exd2dkQTRLbCtUdk5yMW1mVGFDUVBOK1l3ZzRLVGlzZ3Fv?=
- =?utf-8?B?bHBTTXlNWWNRblp2QzdjbTBlU3FrTllJVmszYklBVVhWUzhJdlViUHBubHc3?=
- =?utf-8?B?d096b1ZDL21aUzBmM1M5dU1QNkRiQ1RHMndiaEdMOGJuNGhIOVl4aXpFaGha?=
- =?utf-8?B?MGlucFJYYkJ1Q093OGNNbmFFTDkvcnVsNWRWbUxidytFSTE4R0hRemduVVNh?=
- =?utf-8?B?aFlDRmxlaU9tb0Z1RFFYU2diQ3hiYWRERU9mcXIwdHFicDlsNWp6dTlNNUxy?=
- =?utf-8?B?MkhPcnU4VHpmZmhOL1ZkOHNZeTVyZXFIVDRVZ0FkcTVtQzJNNDZUZzNRY0xJ?=
- =?utf-8?B?NUI4b0dQMTBobFdhY2tudmp5NlAyNEZ1RlZkQmR1RjFvZElZaEE2SllRR1Q1?=
- =?utf-8?B?R29zMDlKN0JTWnhIOUoxRnpCcU43T2FRczVFbXdSUmNIcFhKSmlPekMwdXQ1?=
- =?utf-8?B?Si9GRTRGV3BWTHFrRk1yVXJJd0lrV3pFeXlBdnRrRW5MSDkzMVNZK3ZrSCtq?=
- =?utf-8?B?L2R1SThrUjd5L2RCNnlZa2ZDY1BQaTlWY2hpUy90Qk0zdmJEczRJOHR6bEI0?=
- =?utf-8?B?aEVsTk93MnhFODZrSnZ5SlZYbC96cVl2NHU2T0dqSGNnS1M5U1dRNWRrdndB?=
- =?utf-8?B?VWN6UTNSRlJRN0J3a0JiN21NcGtET0dUK044SzEvdEtaeWRKN0hEQ2IySHZv?=
- =?utf-8?B?ekE0WFgyUFcwTyt4YU5wTGdPRjhpb29jTllBZ2ovRUNkc3FkdXNlbW9xcitr?=
- =?utf-8?B?SVh6OG15UW9HWk5aVlZNeFNOdDJjci9hc1creHQ2cG1vSjBWU3JTL1dPcERY?=
- =?utf-8?B?RnJIOC9OdXI1N1RnRTN0YWgrQ1A2YUNGdTZaTTBIelprSUo4OXVEazVybVZP?=
- =?utf-8?B?bnczc0RycVFqRjNoQjN6cDA0ZVJkSGlrV293RDA2ZEU1bk5mUWpONVdyaWFH?=
- =?utf-8?B?RkRMNzdPNkVBdEtkMzRiaHZWY1JqQ2tETzFhVkdJakJVN01GdkFPYW51dUM5?=
- =?utf-8?B?cFcvcDRBVWswWS9BejJseUx6Y3R1S0theHZjdzZHY3M5NUc1TlQyalJYWCtS?=
- =?utf-8?B?cXZYZWd0Tnc4SGZqRUtkek5RdDVRMG1YY3ducUpEc0pWUSthWG04N2lBdWpm?=
- =?utf-8?Q?aVjgMcK5ULDtcaF4xDmAS0/4UyahaY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8487.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(19092799006)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?KzdvT1V6U1oxTW5lVnNrbXhlN3NaMm44TjNnMjZwSXQ4a09xdEtzeFdkT3Zl?=
- =?utf-8?B?R2F4OTBBdmRWVW9vRXhlb1NvdlpIL25xM2RyaDlyWUhTTjhqUXJ0MmtkTHJE?=
- =?utf-8?B?aCtnRmxQL1NtZE80Q3ZCWVJiVFloU3Uvckd4SHdwZ0kydUdxd0lHL3JLV01k?=
- =?utf-8?B?Q0V3TW5HSGFJSWU1SDBRUlVQdTJNUkptTkZmRXFvaGVNU0oxVmNjbEZzeDBX?=
- =?utf-8?B?dUpXeElEcmlWajlkc1NnZW14Wm84bGxBcmdzUGhYUEZHcVpiSEZsR09MQUpC?=
- =?utf-8?B?d1YxQ28ySlVZZ3oxNjdseXRvSzFUWXRCeHkveHVKdklQZkZERTZiNnhWSjR2?=
- =?utf-8?B?WHltaHNjZndZZ2s3cE5jak0vUURNWXo1VEN1SjUwc1laVUM0ZWpRaTJJYmlt?=
- =?utf-8?B?TUI1YVREZWdWb3FMMjRjZ1ByMmZJSXV2Q2crbWRNT2E0dTZ3WDBUVW5pZ3pJ?=
- =?utf-8?B?aU1CUXVRVHdhbElMVDdhQlRXaC96SDNLVXJBcDY2Y21oNGhQd3dmS0loZVBW?=
- =?utf-8?B?RzZ6ei8vYk5PUVZBRXBpK0xqNk1LaENHd1BEMUxUa3Zpak5YUUc3cEQrQmNW?=
- =?utf-8?B?MGcxQzV4dzdhSnVCbWZiTXlFUjkrYktJWDVCWnpMb3hFRFQ4Y040TmtjcVdZ?=
- =?utf-8?B?V283cFRNQjE3akprOVViM1UzdGJZdXVTMDZVdTJFUk9vMkt4dXBmMXR2dHU4?=
- =?utf-8?B?akYwYmJrYXkyckFTeGVQcjRRb3lpZGtGS3R2T3g0SkJ4S1pFeFIySnRZWDF5?=
- =?utf-8?B?QWxJbXlucUc1VnhRZUN3QUJER0lnZFE5NWhYazhHNFUzM29JV3pJTkhZSjdG?=
- =?utf-8?B?eVFySGRrdGtlWVlZTkExK0ViNnVnMWxDdEdFR3dFYWRhMko1bkxuSmpyYjcv?=
- =?utf-8?B?OFRSTWw1K1RlZnEwWlkreTlucHhkVzREejY2R2l6QmtXREJpSG9JM3N6WElD?=
- =?utf-8?B?eHhhZGlNeWtSL01lMGxSQVBIOWtaZW03bWg1dWxCbDhqTzZKTzZTbUFJNkFw?=
- =?utf-8?B?dzV6dmg0ZFZDTHhPYS83S0pNWEdkVDlVN3hGWkVwZkE3b1JJenduYkhVdHF4?=
- =?utf-8?B?YSt1RjJYb0RITzcyWGpabU5XNUE3VGxxWlhvcGxLaHBrUFk4SVBobnh3Nm5X?=
- =?utf-8?B?bzVGY01tYVdOY296K1dsakpmS2RqWkhmTnIxSEx0MmxhUFhwd28ydFdkU3VS?=
- =?utf-8?B?eHJNZ1lYcUE4T09VdHVXTDRMa1dFNXVQRVdOWmFxL3ZJYUt4dThWY2E5YTV1?=
- =?utf-8?B?eTlJbXBhRDgzUlAyaHhRaFIxSTF6T0QxT0lYRXZ4aUk1ZjZ1R0tvemJ0R2FY?=
- =?utf-8?B?cS9xK2pPb2d4MkI1Y3VqUjdTQy9uU2tLNGl3d2ZFbVdIdTRkQkNzTEdsYnlZ?=
- =?utf-8?B?bUYwSmx5NVcxa2sxTVRiLys1cUtzaUR3Z2ZKd2xkWTU5MjRHTkFOUHBuTzJr?=
- =?utf-8?B?cys2UG54Y0hyRFhNaEV3aUt5eTAvU1pON01mdnZIdW8vczFnY3ljWTlEazI4?=
- =?utf-8?B?NmErSGw2ZWNhMWZSREs4NUpUMUk5RVFHcjdDdWhWNWNPaWw0SnBWeFhZTU9H?=
- =?utf-8?B?SU94QVRac2lIL2JnRzJIdGFtM3I2K3hCMytJS0ZxKzlBMGsvc2t5QmdVai9B?=
- =?utf-8?B?dnoxMS9odHpVcDFMR1hocGVGM0c1NG5SamNMMHVKOGJCRXp0VDVRSUprV0Uy?=
- =?utf-8?B?YVlaUlU4ZHJIOWYvdnV1Si81b01MWXZseVdTdnFUMzVxcUlTdXpSYnpGOW5K?=
- =?utf-8?B?eU9qcGovVkdHZGhSWW1raWxCd1JYRTBEQVdHeEc5bnoyQ0M3ZStwU1kyNmJr?=
- =?utf-8?B?NzVXNkxaeW1kRDRES1NBbXpzYjRMZ3Roc2FvdW9Pc3J2ZTlFRmxSQXc5WHlL?=
- =?utf-8?B?QWpVUVVLd0RVN3dPQ3VSZ2U4MTcwWi96TUYxRldGb2l3UmFHSEZvcUc3SkhH?=
- =?utf-8?B?dk1IZzFERjlBcE91M2dPbUxURGdzaTJMRDBpMWc3MGdETUhhNk5oOExjcjJ0?=
- =?utf-8?B?VXZVVUgxWUpBcEs0SnBMWGhPSzdrdGVFcXhRcCttOEZzeVdkenNoZkZmOTNG?=
- =?utf-8?B?blpEWUhzN0dxdGMrdEVFd2syZUVxUTFxa0pCSFRxR01EU0VIZlZiWXBCT3V3?=
- =?utf-8?B?cWdQaEdhQ0p0YndhKy9BWG5hWlpXUVZXc25xR0hFdEwrcnliVm1kNVF6Zkcy?=
- =?utf-8?B?amc9PQ==?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c304e9d4-9703-463d-60b8-08ddbfbd2f3b
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8487.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2025 14:22:22.1357
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Xp/dD6IQMcaWN3vc601TiRG2fELKfihTNwtkAFzSxq1PiompneTUVzDys68TijgEMWZ1tUhXSiMDPlewC1ZfGEG+NI6QjAyX8kmgW1lrbKo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8952
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5ce03a37-1b60-4328-8d04-07bf835def94@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_072227_020618_7462A17C 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20250710_094212_289778_9253346D 
+X-CRM114-Status: GOOD (  35.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,30 +77,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the new MFD driver for the SIUL2 module under the NXP S32G existing
-entry. This MFD driver currently has one cell for a combined pinctrl&GPIO
-driver and will, in the future, contain another cell for an NVMEM driver.
+On Thu, Jul 10, 2025 at 01:56:02AM +0200, Jonas Karlman wrote:
+> Hi,
+> 
+> On 7/9/2025 6:25 AM, Yao Zi wrote:
+> > On Tue, Jul 08, 2025 at 10:48:52PM +0000, Jonas Karlman wrote:
+> >> The ROCK 2A and ROCK 2F is a high-performance single board computer
+> >> developed by Radxa, based on the Rockchip RK3528A SoC.
+> >>
+> >> Add initial device tree for the Radxa ROCK 2A and ROCK 2F boards.
+> >>
+> >> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> >> ---
+> >> Schematics:
+> >> - https://dl.radxa.com/rock2/2a/v1.2/radxa_rock_2a_v1.2_schematic.pdf
+> >> - https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_schematic.pdf
+> >> ---
+> >>  arch/arm64/boot/dts/rockchip/Makefile         |   2 +
+> >>  .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 292 ++++++++++++++++++
+> >>  .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++++
+> >>  .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
+> >>  4 files changed, 386 insertions(+)
+> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
+> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
+> >  
+> > While testing the patch on my Rock 2A board, I noticed one of my SDcard
+> > that works perfectly on Radxa E20C and NanoPi Zero 2 cannot be correctly
+> > read out under UHS-125-SDR mode,
+> > 
+> > 	# dd if=/dev/mmcblk1 of=/dev/null bs=4M count=4
+> > 	[   18.616828] mmc_host mmc1: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)
+> > 	[   19.193315] mmc1: Skipping voltage switch
+> > 	[   19.202046] mmc1: tried to HW reset card, got error -110
+> > 	[   19.213312] mmcblk1: recovery failed!
+> > 	[   19.213709] I/O error, dev mmcblk1, sector 0 op 0x0:(READ) flags 0x80700 phys_seg 256 prio class 0
+> > 	[   19.225201] mmcblk1: recovery failed!
+> > 	[   19.225530] I/O error, dev mmcblk1, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+> > 	[   19.226283] Buffer I/O error on dev mmcblk1, logical block 0, async page read
+> > 	dd: /dev/mmcblk1: I/O error
+> > 
+> > which could be reproduced stably.
+> > 
+> > the SDMMC controller issued interesting messages during the tuning
+> > process,
+> > 
+> > 	[    0.665246] mmc_host mmc1: Bus speed (slot 0) = 148500000Hz (slot req 150000000Hz, actual 148500000HZ div = 0)
+> > 	[    0.851940] dwmmc_rockchip ffc30000.mmc: All phases work, using default phase 90.
+> > 
+> > but actually it doesn't work with phase = 90. If the frequency is
+> > limited to 100MHz with max-frequency = <100000000> instead of the
+> > default 150MHz, tuning results in a very different phase,
+> > 
+> > 	[    0.665483] mmc_host mmc1: Bus speed (slot 0) = 99600000Hz (slot req 100000000Hz, actual 99600000HZ div = 0)
+> > 	[    1.166340] dwmmc_rockchip ffc30000.mmc: Successfully tuned phase to 141
+> > 
+> > and the card works, too. If I set rockchip,default-sample-phase to 141
+> > in devicetree, the card could work at full 150MHz as well.
+> > 
+> > I think there's something wrong with the tuning process, or the board's
+> > design cannot always run reliably at 150MHz.
+> > 
+> > Could you reproduce similar failures on Radxa 2A? If so, it may be
+> > necessary to lower the SDMMC's maximum frequency for the board.
+> 
+> I have not been able to reproduce this issue on any of my ROCK 2A or 2F
+> boards, my boards seem to tune phase to around 250-265 for the sd-cards
+> I tested.
+> 
+> Could you try with something like this:
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+> index fc23c51836b15..a82791db55699 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+> @@ -285,6 +285,10 @@
+>  	status = "okay";
+>  };
+>  
+> +&sdmmc_clk {
+> +	rockchip,pins = <2 RK_PA5 1 &pcfg_pull_up_drv_level_3>;
+> +};
+> +
+>  &uart0 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&uart0m0_xfer>;
+> 
+> 
+> Changing clk drive strength seem to be something that has been done in
+> Radxa vendor kernel [1], could be something that we can include if it
+> fixes your issue.
 
-Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
----
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
+This seems to improve the situation a little, but doesn't solve the
+issue. Among more than ten times of testing, the tuning process only
+worked twice.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index efb51ee92683..3e9b54bbcdb8 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3000,7 +3000,9 @@ R:	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
- R:	NXP S32 Linux Team <s32@nxp.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
-+F:	Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
- F:	arch/arm64/boot/dts/freescale/s32g*.dts*
-+F:	drivers/mfd/nxp-siul2.c
- F:	drivers/pinctrl/nxp/
- 
- ARM/NXP S32G/S32R DWMAC ETHERNET DRIVER
--- 
-2.45.2
+> The kernel I tested was built from [2].
 
+I've tried this branch as well, but things don't improve.
+
+Do you consider lower the clock-frequency acceptable?
+
+> [1] https://github.com/radxa/kernel/commit/e9b33cbc97a902560d3f3b43b4d36a1a0ac68a50
+> [2] https://github.com/Kwiboo/linux-rockchip/commits/next-20250708-rk3528-boards/
+> 
+> Regards,
+> Jonas
+> 
+> > 
+> > Regards,
+> > Yao Zi
+> 
+
+Regards,
+Yao Zi
 
