@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B5FAC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:41:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473C3C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 13:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=plcjdq1Cw3VHe3Q3xX6iPoi4v2r7SMlsaZ2RjBJbaI4=; b=asn4453qJJ+Y1ecfh2a7v5WqVk
-	+VB23ezx4xe8W3fP9uqtY2O1CYDAhnqrftOMFsR7dTySuJFZbKX/t6dfUX7ThgmZdXtAD1lNPgt3H
-	yESqlhov0iqcWTXRhH+OaqIK7EY56b3jCQNEDNhv+rMz6kzH8+edDSyDuXdW/pTnjqXdt6stbGPkg
-	qF+uVPBE0w//2Or0cF+ayc1L3mvy+tfaJJjl/eDpV6j6KspYIKZiGtsakj0er6gGh5M+wix1Yhtph
-	9tyMnS0S10Ztja0gbu1Z8tItWD1BNsOEMVG9qZZNs17x4hGOrCk3UpFZMYUUZylPGsU+6m2/1U/+s
-	nxLNw32w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F1karo+AZ2zjsyMIovDl7mKtttmrA1GVJd01Kpd/pG8=; b=G7172k2rHq/enHMS6v7C5gHyyC
+	E9aav9t+WJ97a148gvDzyflrpmxk1YNn+ujR4PJ1yz8P6FiJXPeyU1inzUZLGmpWZU0ctV3JBdaCX
+	rMbZE1whovwhtMGRmkIb+KpOfL9yudXehz6IcASWcrFIt8LjcNv2CmtcsUOK5GmZtqN5tkt7cug1m
+	CkUf6CySi63hsMOOzzMzgr0QZE2pyDmUwEZb8ip+mf57n9qPQm7xIc2Sw6NXPYiSuKoFIWxUS9+Ly
+	foqTM0MQOTKdZkXXoUS/W/hYGWcr2QhnxVI5VF4GsPQZoMQmhFHz1aqf6a58IERKtG86C/S2v+bU0
+	PPI5BTpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZrWY-0000000ByUn-0DU2;
-	Thu, 10 Jul 2025 13:41:18 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1uZrYr-0000000BzBC-1BY8;
+	Thu, 10 Jul 2025 13:43:41 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZqG7-0000000BkZ4-2yMn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 12:20:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752150016; x=1783686016;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1Ars87cWfPNJmxmVVHggBVpUXosQcIraO2lesp921A0=;
-  b=f/3EV4OF0nCNMsr2JCcPEsJbTEfdy1ynffuo4+EHZWCmmx8qjfWIBwFQ
-   LGdVGQ53uh/OCmLnvJC4Izk7phk7noSIqyNmheDKCTbqzRYvpE9qgZ/pz
-   MWEwK8E3PG506/xtSaT52yaExO09YdueFlf+FGVq1mT3y0F03eFPehKZ4
-   wFQQFePwTWpkuPS+c3EsahmogRYkvoDCs0IOy1inRQ+9O1XE1aT5GHjt8
-   MbwSYLUCMxA0ooBGUsmiEFketlx2+oo185bxKdMIFFb3kG7GbXVpbTsSw
-   IcqB1XxSobdN18iuZwJe42AJ+rOzdnGacnAeeKWQg2H+bt43GXSFHYow8
-   g==;
-X-CSE-ConnectionGUID: XQ3XJq+CRXOCX4RXITzp7Q==
-X-CSE-MsgGUID: pjHkq6QvSGmvE2joADFDdw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11489"; a="71877344"
-X-IronPort-AV: E=Sophos;i="6.16,300,1744095600"; 
-   d="scan'208";a="71877344"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2025 05:20:12 -0700
-X-CSE-ConnectionGUID: GXz77hyaR7K/tYrlBBMkog==
-X-CSE-MsgGUID: kYPUpfJ0QvqQJaA5ZICfig==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,300,1744095600"; 
-   d="scan'208";a="160078428"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2025 05:20:08 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1uZqFw-0000000EC0t-26Sd;
-	Thu, 10 Jul 2025 15:20:04 +0300
-Date: Thu, 10 Jul 2025 15:20:04 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Haibo Chen <haibo.chen@nxp.com>, Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-iio@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	upstream@lists.phytec.de, andrej.picej@norik.com
-Subject: Re: [PATCH 2/2] iio: adc: imx93: Make calibration parameters
- configurable
-Message-ID: <aG-v9IxJ-XAxmnyh@smile.fi.intel.com>
-References: <20250710073905.1105417-1-primoz.fiser@norik.com>
- <20250710073905.1105417-3-primoz.fiser@norik.com>
- <aG-GZqhABwErcEyM@smile.fi.intel.com>
- <42dd658e-555a-43f7-a7bf-e5365d508f4a@norik.com>
+	id 1uZqJq-0000000Bl3S-3CUS;
+	Thu, 10 Jul 2025 12:24:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1752150245;
+	bh=AZPm53jrNoLfHebJRkqiB3Dkh1nnJmHOSVi/px8SSXU=;
+	h=Date:To:Cc:From:Subject:From;
+	b=aWZ3WMi9AQ0+PQwamNgwwOKYqVHE5i0jS1/dsvJlH/qvujExjcXnpcPR7ZRs2Y9Qp
+	 3piMWhmACY1vV49+4IWm2DpLB7KKCSjTROt5BrQUx9PiAeyN3ukztHr0Pknsz1LoE5
+	 b59YIrzac5VTtEcpx7qI07JXCIIoWSTO9+/dDWanlXbafuDOOCCLejwOAX7GWkhOWW
+	 iQ9xaZnevQIVqi+wY9PEGmrJNFjJOiVthr/HLg45h4Z5Xb32I94R3+mD6tb1lgJgjg
+	 vBZJHcDnFlZW4WFRF3YizOL9BaNSkfccGBKGTWqi+U6GnIXaZEHXZD9mT8ZF1L3oAr
+	 P5UNxgUX/C5xw==
+Received: from [192.168.50.250] (unknown [171.76.82.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: vignesh)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0D16F17E0FC7;
+	Thu, 10 Jul 2025 14:24:01 +0200 (CEST)
+Message-ID: <81e13fcc-d916-4eb8-91cd-f74f64f53f72@collabora.com>
+Date: Thu, 10 Jul 2025 17:53:59 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <42dd658e-555a-43f7-a7bf-e5365d508f4a@norik.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: linux-rockchip@lists.infradead.org,
+ dri-devel <dri-devel@lists.freedesktop.org>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+ maarten.lankhorst@linux.intel.com, Maxime Ripard <mripard@kernel.org>,
+ tzimmermann@suse.de, Dave Airlie <airlied@gmail.com>,
+ Daniel Vetter <daniel@ffwll.ch>, Daniel Stone <daniels@collabora.com>,
+ Helen Mae Koike Fornazier <helen.fornazier@gmail.com>,
+ sebastian.reichel@collabora.com, linux-arm-kernel@lists.infradead.org
+From: Vignesh Raman <vignesh.raman@collabora.com>
+Subject: drm-ci: rk3288-veyron-jaq: kms_flip@flip-vs-dpms-on-nop-interruptible
+ flake
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_052015_790410_9AE1C1EB 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20250710_052406_955539_D7684C86 
+X-CRM114-Status: UNSURE (   4.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,62 +79,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 12:23:58PM +0200, Primoz Fiser wrote:
-> On 10. 07. 25 11:22, Andy Shevchenko wrote:
-> > On Thu, Jul 10, 2025 at 09:39:04AM +0200, Primoz Fiser wrote:
+Hi Maintainers,
 
-...
+There are some flake test reported for rockchip driver testing in drm-ci.
 
-> >> +	ret = device_property_read_u32(adc->dev, "nxp,calib-avg-en", &val);
-> >> +	if (!ret) {
-> >> +		if (val != 0 && val != 1) {
-> >> +			dev_err(adc->dev, "invalid nxp,calib-avg-en: %d\n", val);
-> >> +			return -EINVAL;
-> >> +		}
-> >> +		reg = val;
-> >> +		mcr &= ~IMX93_ADC_MCR_AVGEN_MASK;
-> >> +		mcr |= FIELD_PREP(IMX93_ADC_MCR_AVGEN_MASK, reg);
-> >> +	}
-> > 
-> > Please, since it's optional, do other way around.
-> > 
-> > 	val = $DEFAUTL;
-> > 	device_property_read_u32(adc->dev, "nxp,calib-avg-en", &val);
-> > 	FIELD_MODIFY(...)
-> > 
-> > Similar approach may be used for the other properties.
-> 
-> OK, I guess I could implement it like you suggested to explicitly set
-> the default parameter values.
-> 
-> But in current implementation MCR values are read at the beginning of
-> imx93_adc_calibration(), meaning calibration parameters are register POR
-> defaults. With you suggestion, we put defaults in software rather than
-> reading them from the hw directly.
+# Board Name: rk3288-veyron-jaq
+# Failure Rate: 40
+# IGT Version: 2.1-g26ddb59c1
+# Linux Version: 6.16.0-rc2
+kms_flip@flip-vs-dpms-on-nop-interruptible
 
-I see, then you need to read, do FIELD_GET()/device_property_read()/FIELD_MODIFY().
-You got the idea.
+02:09:26.564: DEBUG - Begin test kms_flip@flip-vs-dpms-on-nop-interruptible
+02:09:26.564: ERROR - Igt error: (kms_flip:764) CRITICAL: Test assertion 
+failure function calibrate_ts, file ../tests/kms_flip.c:1455:
+02:09:31.611: ERROR - Igt error: (kms_flip:764) CRITICAL: Failed 
+assertion: 3 * stddev / mean < 0.005
+02:09:31.611: ERROR - Igt error: (kms_flip:764) CRITICAL: Last errno: 4, 
+Interrupted system call
+02:09:31.611: ERROR - Igt error: Dynamic subtest B-eDP1 failed.
+02:09:31.611: ERROR - Igt error: **** DEBUG ****
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(width=1366, height=768, 
+format=XR24(0x34325258), modifier=0x0, size=0)
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(handle=1, pitch=5504)
+02:09:31.611: ERROR - Igt error: (kms_flip:764) ioctl_wrappers-DEBUG: 
+Test requirement passed: igt_has_fb_modifiers(fd)
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(width=1366, height=768, 
+format=XR24(0x34325258), modifier=0x0, size=0)
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_fb-DEBUG: 
+igt_create_fb_with_bo_size(handle=2, pitch=5504)
+02:09:31.611: ERROR - Igt error: (kms_flip:764) ioctl_wrappers-DEBUG: 
+Test requirement passed: igt_has_fb_modifiers(fd)
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_fb-DEBUG: Test 
+requirement passed: cairo_surface_status(fb->cairo_surface) == 
+CAIRO_STATUS_SUCCESS
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_fb-DEBUG: Test 
+requirement passed: cairo_surface_status(fb->cairo_surface) == 
+CAIRO_STATUS_SUCCESS
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_kms-INFO: 
+1366x768: 58 74250 1366 1502 1532 1592 768 776 788 800 0x48 0xa
+02:09:31.611: ERROR - Igt error: (kms_flip:764) DEBUG: No stale events found
+02:09:31.611: ERROR - Igt error: (kms_flip:764) INFO: Expected 
+frametime: 17153us; measured 17152.9us +- 30.262us accuracy 0.53%
+02:09:31.611: ERROR - Igt error: (kms_flip:764) CRITICAL: Test assertion 
+failure function calibrate_ts, file ../tests/kms_flip.c:1455:
+02:09:31.611: ERROR - Igt error: (kms_flip:764) CRITICAL: Failed 
+assertion: 3 * stddev / mean < 0.005
+02:09:31.611: ERROR - Igt error: (kms_flip:764) CRITICAL: Last errno: 4, 
+Interrupted system call
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_core-INFO: Stack trace:
+02:09:31.611: ERROR - Igt error: ****  END  ****
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_kms-CRITICAL: Test 
+assertion failure function kmstest_set_connector_dpms, file 
+../lib/igt_kms.c:2247:
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_kms-CRITICAL: Failed 
+assertion: found_it
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_kms-CRITICAL: Last 
+errno: 9, Bad file descriptor
+02:09:31.611: ERROR - Igt error: (kms_flip:764) igt_kms-CRITICAL: DPMS 
+property not found on 52
+02:09:31.611: ERROR - Test kms_flip@flip-vs-dpms-on-nop-interruptible: 
+Crash: See "/results/igt.kms_flip@flip-vs-dpms-on-nop-interruptible.log"
+02:09:31.611: DEBUG - End test kms_flip@flip-vs-dpms-on-nop-interruptible
 
-...
+Pipeline: https://gitlab.freedesktop.org/vigneshraman/msm/-/jobs/79872339
 
-> > Please, factor out this to the function, so we won't see the direct IO in the
-> > ->probe().
-> 
-> Sorry I don't understand this part.
-> 
-> What do you mean by factoring out this writel()?
-> 
-> Do you perhaps suggest to implement function
-> imx93_adc_configure_calibration() and put all our changes into it?
-> 
-> But we are already in imx93_adc_calibration() which is separate from
-> probe().
+Please could you have a look at these test results and let us know if 
+you need more information. Thank you.
 
-Ah, sorry for the mistakenly read the function name. Ignore this comment.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Regards,
+Vignesh
 
