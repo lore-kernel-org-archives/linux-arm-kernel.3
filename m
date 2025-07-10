@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25477C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 14:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DBAC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Jul 2025 16:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wr3J+RHblG5GJaM0j5JuIylNt4iRFZX8BEhZw6kzZM4=; b=Qe4f7A7mH4PDnAXfYyN8XKsACi
-	xWKd+QFWRs4IC3/3nl3HfUfYWzN/gT+1NKh+ZVmKfAhCc4rlF6Xsn2QxXahLBYzW0oPsek3C8QIAP
-	POY7da+RG1cyPYCQqL0VPJWlt49Z6peiYAAnwp7rzCp9Wibkj4XZcqxGsj6EZKC357snaQAp8YDjC
-	c6x3K9kO+YX51TrWZ0NB+uKIALyC9qr3MRN9Ax6Di26FsfF0iIcKZ/Y0gp5bMLoSihtexjS6kEm1W
-	SiPkh8hmzywJnAFltxdyHg7blsbFq0ljsHQhxpWH3YK25wvJqowocyZZdQn5DUb3ZraGkswq61P7J
-	3/OwujWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TrVJz6seKnsGWdk+TcTY9r2vqG/4YZecUgijiRF40No=; b=ZvXY8nxrr42hLzki/QbtKx5yQi
+	423k+AnQHKd6m3x1cXhHyQG+NgKIlG5qQFHUNk66/EOTsalgb6g1ZfsoQ+J3qXlR74X04bdMFyHIi
+	v24XZWutOhgs5Wt+KFOouKXmToylWqxCk/zeP1L4jHIogPq7dQNGhJv/6xWdj2+NL4HCMDDHT8qdf
+	sAnOarB77prPigmqcSlkPGu9nMmpGi9Ya/f+D4Tmx1gj/ybjewadEZcxjxbKqLUyirKgIaHPbfYWi
+	RD/ejPwlaLifg0LRzBfFrJusQ4jvaj5eIVmL5eGCWIKJ1WLdxLiTIh3vbZXURZXOtxtQH8HQve7Te
+	Tlc9LIhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZseU-0000000CBWf-1DrF;
-	Thu, 10 Jul 2025 14:53:34 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uZu6E-0000000COGE-1ayG;
+	Thu, 10 Jul 2025 16:26:18 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uZrPm-0000000BwZb-0xrc
+	id 1uZrUV-0000000By73-13lw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Jul 2025 13:34:19 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-748b4d5c045so1043507b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 06:34:17 -0700 (PDT)
+	Thu, 10 Jul 2025 13:39:12 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-553d2eb03a0so2407796e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 06:39:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752154457; x=1752759257; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wr3J+RHblG5GJaM0j5JuIylNt4iRFZX8BEhZw6kzZM4=;
-        b=kscqY/HV27tIvxidolsk7i0iB0McYAUO3gpR7hjzjsbvI3+etT16tspUwZYJb9Qten
-         Y80MmOLVuE23BWLDGLKdlh4sqNNYZFHDlhdI6QzAYzHncoj0cHTcCWjhwQD9w4H2yj6L
-         2u8I7oxjFx0TnVsps47ejQcBosjpklgoDv6jRQDtAUyEIMUbUYuAiip2466Zbuesst+H
-         EBcDJzqk1r6W1SHfe7KXQBptSeNsAKxWsvzaK8K/RoQ8YE/4R5ppqRG+cYGZd7nlWXS/
-         MPa0Al07ALkaOnr3jYucmfOP/djtqkT7sHedKi+O9XCc/x2Wenhk+rT1DLDJEgG7VD6V
-         Teaw==
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1752154749; x=1752759549; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TrVJz6seKnsGWdk+TcTY9r2vqG/4YZecUgijiRF40No=;
+        b=P99Ai6nT0WWeGDXAqqB5oTcci3rWuAWwVoRUWc3exQ/bn8xdXpjx9iL57f473k4KTJ
+         XY2z3k3VWUY7npi8aVr24vd5MhAAhkx7lhl49OKx6aE0hiDle/gFsA5fA9wHBwy7YnIo
+         jBCrWE8u8pQo3qSMYz3LdVLqdgSCISBLO1nnZwhVlzheqcwpe398gB/1UPARkyTTGYJ5
+         pyMd8SWqXMNJhjx2jMQcazkF4AkpZyZpTKk5zhhti8EZ1+Ooxd9fExqIaXAxpORSDHXS
+         3oj+lmrtfVO4LVnFnKMuwUv8WXBIlcGx+tGeczkcDzV+LEV5Ym8wXPMsEaJWyrwcajmC
+         mDaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752154457; x=1752759257;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wr3J+RHblG5GJaM0j5JuIylNt4iRFZX8BEhZw6kzZM4=;
-        b=DOCWj9rqby3zR12knns2F/GTo/YMVJXlSCQsi9tFT9em+uKyB43XSl/Jlusr/F9NrQ
-         y2GxYgkiBYYlrYLSHC2zX5NIVPw+a0ReyFxvyxeSF+fNe3w3Ii1kzzY+/st9BVDI4BG7
-         /ySCYNbLIY4AQW3sq5UZxMNKipDU1EYsijx5aOoWgfzIQ8ujV0rYlzR98h8XBPixeFnL
-         Jj5qx1VuB3L0Yg7BWXlegW25pzfWePEDfLF/n+n3TafpkTgzVS8d68/IIQfg/qmaDlLl
-         cYEvT08TJoLCEY9xxhKhfeQWiN2yEjOcvdmg2ZeVUSlS3hSIEbgcBOOD4dkZ4X1ojT79
-         n0Hw==
-X-Gm-Message-State: AOJu0YwTazy+U8YNJR3CREnh41RTFI+q4uH84fDl2KXs63UJtHTB/Rey
-	BT7bKpUFJ/E9C6wJSdfb7yQ+BVnuZlYyFy9boW7O0vhP0qIlojHSpAZn9/eG6gp4BbUCDH+OhWT
-	oPkfg+A==
-X-Google-Smtp-Source: AGHT+IGSaHIBRoN/S9txevmPNNTrr4Q5vAkgijLk90fjXn6DImx6okraCPXWwkAGxJiWt5+DBd6m7A0lCUs=
-X-Received: from pfbil5.prod.google.com ([2002:a05:6a00:8d45:b0:748:2476:b25f])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:1789:b0:742:a91d:b2f6
- with SMTP id d2e1a72fcca58-74eb8f7c144mr4500112b3a.13.1752154457032; Thu, 10
- Jul 2025 06:34:17 -0700 (PDT)
-Date: Thu, 10 Jul 2025 06:34:15 -0700
-In-Reply-To: <aG9i5BHDHRlFRFnb@google.com>
-Mime-Version: 1.0
-References: <20250624092256.1105524-1-keirf@google.com> <20250624092256.1105524-4-keirf@google.com>
- <aFrANSe6fJOfMpOC@google.com> <aGJf7v9EQoEZiQUk@google.com>
- <aGwWvp_JeWe9tIJx@google.com> <aG9i5BHDHRlFRFnb@google.com>
-Message-ID: <aG_BV_tKzqktRlOA@google.com>
-Subject: Re: [PATCH 3/3] KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
-From: Sean Christopherson <seanjc@google.com>
-To: Keir Fraser <keirf@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, Eric Auger <eric.auger@redhat.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Li RongQing <lirongqing@baidu.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1752154749; x=1752759549;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TrVJz6seKnsGWdk+TcTY9r2vqG/4YZecUgijiRF40No=;
+        b=Uge93Uu2wkYkqJ6IWUOk6qMGt/F9yv1+MxwErbdggn2BDyTES3AqDSqx/hysWUVSrF
+         tDkFO4Sb75Sx01eK3egAF/Hj3slFxzSZty/+d/Ns/etlH/Fsa5krgA+xxqDErt5eZNyb
+         tl2oJfIlU3N6qcU3W82wOB03Ha49RtcvWhua+Lh3FoYYSVd0qyid8oWHQtk9sa3fleHF
+         n/0j2nyvBYq1RNeAYHm3v+ZlOzjYZGJS6qhPmbBPR2USlNGEVVau24kzkR9UD9KCtpDE
+         wsvxmfJU4MlB2oLSumMJlaxD8i7jXC4B7IthSrF8jFiqQk4EguYZDA8q8JFjfmxcXYhH
+         L92A==
+X-Forwarded-Encrypted: i=1; AJvYcCV6IxgJLN4mohFGfgTa4Ff9OOqMDL8hJ7L6ZSa+Bg9j29fXpPYv+w3LqfLAz100Gtut9Dtg7GoG2wDD/HKfGoeG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyamhNY+YAIunahQ03gzQy62MP1ooeiTrtAvlUOlvU422mT3bkq
+	bsL2Wtbhd5imntD9eUiutxZazmw6rXT/a1iDvIcGJUnCpIjOZINw2JanrJmft+aeNLB6To38LFL
+	mhk+RJxI718EaWPUQEKoeJsFv1czlP+srPgQDrTdu9g==
+X-Gm-Gg: ASbGnctVoNh9llH72nMdx69DEHrPegF6mgv8fxkkcPDde8jaTpApDO0vD+sbNWJBB0O
+	7ptIweEi7nbZpFMXNQn1l808fGm47rM14jxdJ3zGSHUQ2IAAxAmwVNa2DJQVArex+QFdeyWDnzn
+	4X6WHt5nzBUb2jzKV8VT06fMIYQ3GJwlmDMnMJFDOF64WC/kcXRn+fekSIzazrxwNz2ZKm2RfF/
+	f0=
+X-Google-Smtp-Source: AGHT+IGB6UUmFZhzqKjRvGV4lr9BeyGDE6WH9O1sGiazwi8CZoRnZBbYDI50VNLpbqgC1sRg+VYVXXWLsDZF+CuXQF4=
+X-Received: by 2002:a05:6512:1587:b0:54a:c4af:15 with SMTP id
+ 2adb3069b0e04-5590071b7c3mr1264610e87.19.1752154748737; Thu, 10 Jul 2025
+ 06:39:08 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250709-pinctrl-gpio-pinfuncs-v2-0-b6135149c0d9@linaro.org>
+ <20250709-pinctrl-gpio-pinfuncs-v2-8-b6135149c0d9@linaro.org> <46a506ee-0472-4c7a-8fd8-b3a1f39105b5@oss.qualcomm.com>
+In-Reply-To: <46a506ee-0472-4c7a-8fd8-b3a1f39105b5@oss.qualcomm.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Thu, 10 Jul 2025 15:38:57 +0200
+X-Gm-Features: Ac12FXwUS6h2JE4LNA_vmGF3f9mhet3j6NKR8eSjHb_k-YJ2CoyhrM-67s3nQ-g
+Message-ID: <CAMRc=Mc7KSSTF=Jsu-_1C6eWrTXNKB=_Q9fnZor8K_4nnQ5m4g@mail.gmail.com>
+Subject: Re: [PATCH v2 08/12] pinctrl: qcom: use generic pin function helpers
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Alexey Klimov <alexey.klimov@linaro.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Paul Cercueil <paul@crapouillou.net>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_063418_270577_4BBD5015 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20250710_063911_372423_03C00912 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +104,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025, Keir Fraser wrote:
-> On Mon, Jul 07, 2025 at 11:49:34AM -0700, Sean Christopherson wrote:
-> Would it be satisfactory to put a patch along the lines of your
-> suggestions below into a v2 of this patch series?
-
-Ya, works for me.
-
-> I have made some comments below.
-> 
-> > 
-> > diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> > index 4953846cb30d..057fb4ce66b0 100644
-> > --- a/arch/x86/kvm/vmx/vmx.c
-> > +++ b/arch/x86/kvm/vmx/vmx.c
-> > @@ -5861,6 +5861,9 @@ static int handle_invalid_guest_state(struct kvm_vcpu *vcpu)
-> >                 if (kvm_test_request(KVM_REQ_EVENT, vcpu))
-> >                         return 1;
-> >  
-> > +               /* Or maybe smp_mb()?  Not sure what this needs to be. */
-> > +               barrier();
+On Thu, Jul 10, 2025 at 2:25=E2=80=AFPM Konrad Dybcio
+<konrad.dybcio@oss.qualcomm.com> wrote:
+>
+> On 7/9/25 4:39 PM, Bartosz Golaszewski wrote:
+> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >
+> > Use the existing infrastructure for storing and looking up pin function=
+s
+> > in pinctrl core. Remove hand-crafted callbacks.
+> >
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > ---
+>
+> [...]
+>
+> >  int msm_pinctrl_probe(struct platform_device *pdev,
+> >                     const struct msm_pinctrl_soc_data *soc_data)
+> >  {
+> > +     const struct pinfunction *func;
+> >       struct msm_pinctrl *pctrl;
+> >       struct resource *res;
+> >       int ret;
+> > @@ -1606,6 +1581,14 @@ int msm_pinctrl_probe(struct platform_device *pd=
+ev,
+> >               return PTR_ERR(pctrl->pctrl);
+> >       }
+> >
+> > +     for (i =3D 0; i < soc_data->nfunctions; i++) {
+> > +             func =3D &soc_data->functions[i];
 > > +
-> 
-> Looks weak but maybe strong enough for x86? Maybe smp_rmb() would be better
-> statement of intention?
+> > +             ret =3D pinmux_generic_add_pinfunction(pctrl->pctrl, func=
+, NULL);
+> > +             if (ret < 0)
+> > +                     return ret;
+> > +     }
+>
+> It's good in principle, but we're now going to house two copies of
+> the function data in memory... Can we trust __initconst nowadays?
+>
 
-Hmm, yeah, smp_rmb() is better.  I was thinking it just needs to be a compiler
-barrier, to ensure KVM reads kvm->buses as needed for each emulated instruction.
-But ignoring that x86 is strongly ordered, KVM also needs to ensure a store to
-kvm->buses that is supposed to be observed by the next guest instruction is fully
-visibile before that instruction executes.
+Well, if I annotate the functions struct with __initconst, then it
+does indeed end up in the .init.rodata section if that's your
+question. Then the kernel seems to be freeing this in
+./kernel/module/main.c so I sure hope we can trust it.
 
-> 
-> >                 if (!kvm_emulate_instruction(vcpu, 0))
-> >                         return 0;
-> >  
+Do I understand correctly that you're implicitly asking to also
+annotate all affected _functions structures across all tlmm drivers?
 
-...
+Alternatively: we can provide another interface:
+pinmux_generic_add_const_pinfunction() which - instead of a deep-copy
+- would simply store addresses of existing pinfunction structures in
+the underlying radix tree.
 
-> I guess kvm_io_bus_read() is to be done as well? Perhaps the barrier
-> and dereference should be pulled into a helper with the comment, just
-> in one place?
-
-Ya, +1 to a helper.
+Bartosz
 
