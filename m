@@ -4,64 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B608BC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 13:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A65C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 13:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VfAE9YojYDfZQCqfHN7agPmPOEsviLWnI2dg/u0vlFU=; b=aR32EXlpBUvOUdBju2C8WCc6yw
-	dlYmYoPOaMGrSQU+XWI1ycmah9q+9Ty9/ow7n9pSSU2uekUk8h3cQ3iE0kMXTumsnsbAgkK9go41K
-	j7kGXiDPHblxbKLIQcJTuo/H8F94UPhrAp2QT0WqbRGWS0CjycWm53QuY57/W+JqOILv+yBGE9cjh
-	VGu84KB+dUHxYv+oSDh//2y0DcqkxKNSAQn92k3aikxhPJtnl+8yTLFRL5f53BXCWd04NLxFwltxY
-	ogp/NHwvl2HdK6XGeISVRxWGL9BJEi8fAu9LPpjVFEnptcKY/bGi4CSCB8IzsJah4BqCv7q3+ilUf
-	9OAdgpAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fJVI6zpL/jc15fQAtLgnWutgbeyCm9qybL8xs1yOGKE=; b=S3+VPlyGmp0fj46zi8I0qmCzW6
+	WZ9lBtmKWIc2j3LuZYU529We9p3OVdfwGfpS6IZKNBYfI4FnwKmx+DAWzZ6Y6p5QebFwWfILuEbO2
+	FXMIJxaKKOyWFRYLBgjhR2afKxhU8zbLDujv1IGYv9hDLo9rjyQGMmD6fC7o+K/LOg0rVrgScaJXG
+	lpryj4JnzHKr/xuOf+yzUP66LmoF0aqiaXjPyUrKtVEYo/vFp2RieC7diuEMYTfqJfjcRiTMbAeJ2
+	ec+/hJpWgUjyZPHXEBSzL/yGyGDt1qZ/lYBq+gn7rJYPXoTkq+3pdvKqftdwdS/qL6NDqOJdM5ree
+	ucj9Ljhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaDt6-0000000Etff-3wIT;
-	Fri, 11 Jul 2025 13:34:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uaDvR-0000000EuGL-35Hc;
+	Fri, 11 Jul 2025 13:36:29 +0000
+Received: from mail-mw2nam10on2062f.outbound.protection.outlook.com ([2a01:111:f403:2412::62f] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaDbM-0000000Er1q-4Akc
+	id 1uaDcO-0000000ErAh-3eFC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 13:15:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 95873461CA;
-	Fri, 11 Jul 2025 13:15:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34BFFC4CEED;
-	Fri, 11 Jul 2025 13:15:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752239744;
-	bh=it0bnDa8F7e60yuE2i2eFmsF5hMzpIwxDA3DtF27AzU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qupdx5SpGRdyUvXe6gp/CdkpZYk4jUDMUEfFKPTc3yp9VLkQ9bBKAewo6b4ybZw8r
-	 GRP0tkqKIRw9vdNdkgcynvPgPTXvVsBcEzjHldMZ76BdAxJAY//2S6iAmZwRpOApgv
-	 lhguTjOq6EBm+OE8dTxPWOmI7u0G1TAIcKC306uBMZDbBTHVdI5ubpjFKqbglv+vd1
-	 GqI897WmjIoqTgYEWEvCuGBlLh7xeeKd/WDdAT/9p8Ge8ICLIfOcp998B55rpTwv8r
-	 GkjigXqyO+aSjrPnw8Qw37a7/Ynu0Pjw/tZfdUed221451RTZjl3/YTusE+sdIDsaa
-	 3LGM0y9Ex54IA==
-Date: Fri, 11 Jul 2025 15:15:36 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Toan Le <toan@os.amperecomputing.com>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v2 13/13] cpu/hotplug: Remove unused cpuhp_state
- CPUHP_PCI_XGENE_DEAD
-Message-ID: <aHEOeF6PKl1xO7ZR@lpieralisi>
-References: <20250708173404.1278635-1-maz@kernel.org>
- <20250708173404.1278635-14-maz@kernel.org>
+	Fri, 11 Jul 2025 13:16:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OwRpynpmaiYhE3LEsbCxJuGOWeqPJ8seFMG0D0WA8vRktrBoJj/ohe4PmXCtkFFmE/e0NI8yOmI06YxD83gf0AfW/mMB7TxA8JzgQGGpaeXaAKsWjyOqglXNd9R3fSmo+4AwNe3DK6Ri68I+rvrQ9Hb4Lf0OUE01a3+MykJKHnYcKdiF7qO9DfVSbRFzQHo9qj3/hFFiWtNx45NG9RduXTw8ah1TdkN6uVmBGyWeLL3ysBk8WzS3a0eDb/OljvWKhAnOpHUQf++HHpdOxQW6rkm6U6b7n3a+FqwP2/o3Bt3aok+MC5GhV0Ia2vnCzSjo2k+SUeQanHxIB2lhmYQ9eA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fJVI6zpL/jc15fQAtLgnWutgbeyCm9qybL8xs1yOGKE=;
+ b=q/esasv0kEENVuz11JQSbFdWjzNG9U7zfLRD1ABYhJ/DjtxNyoOP8osG9KQIpY58BwuljCc5oySIzR7ZBnNmqK7pFnEyttUEGU4p6B4Gunx/7AotwdL57dNbdrsuJiavTBsknW7giQxp/Xxe6ZS15bHgbXRvjsN4YhfBV9kSmjJSVxJFgq15tb8shZKRpjhVm+cgTR7SPyIa5CcgJFB1r1mLRR8qPyUPiJinBG/eZtOQqMCzTpMCDfFB+dCCXyWy8olP933Rk0AyELwHFgDAzKMEadO9kBlh40xRYsnpHJnqWDg1G4E0KTE3SbK1JMk+wqaJgtrLYbQi7w7pTzlpRg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fJVI6zpL/jc15fQAtLgnWutgbeyCm9qybL8xs1yOGKE=;
+ b=I2mbafsz9ceazBUY8ObbsLRp5JC6Jdsi3jrUMpaycmhRjnBaQq96hpi827DjB9edGuMiVcCbzENWOVY+9atZBzw0siTqLpy1dOz+gxAjuq4BzcI4a4Epjp2h76W+gv5wAnzzhb6yZy09yv4iFWcObPIGZOTYC76mdxVDpzniDoj/1+9YYAy0xC7IZaaOeYgcetQ/HwosFUSsbwezqaZzR+hrMh/N33hZZfKhMTuefBnSnSVgJEiEje46RDEvSs7EQwlsmZymp+dTTFwtRkXjK/weDn4TdE89O+WTvZdiFd7rTVmhJ28YU+d4VE0wWTOxb6tockqeGz595XFHh9i4yg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SJ0PR12MB8116.namprd12.prod.outlook.com (2603:10b6:a03:4ec::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.25; Fri, 11 Jul
+ 2025 13:16:40 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8901.024; Fri, 11 Jul 2025
+ 13:16:40 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: iommu@lists.linux.dev,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Joerg Roedel <joerg.roedel@amd.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Linux Kernel Functional Testing <lkft@linaro.org>,
+	Naresh Kamboju <naresh.kamboju@linaro.org>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	patches@lists.linux.dev
+Subject: [PATCH] iommu/qcom: Fix pgsize_bitmap
+Date: Fri, 11 Jul 2025 10:16:38 -0300
+Message-ID: <0-v1-65a7964d2545+195-qcom_pgsize_jgg@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BLAPR03CA0053.namprd03.prod.outlook.com
+ (2603:10b6:208:32d::28) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250708173404.1278635-14-maz@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SJ0PR12MB8116:EE_
+X-MS-Office365-Filtering-Correlation-Id: 069c3299-c000-42f5-b93c-08ddc07d2c07
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DocCqOhaZRrelUdTWsilS+t8Jt7JshxPIY4Xj2iGggIFu6pcEncojYMADlOC?=
+ =?us-ascii?Q?p/xVQyluV2jARAOtbwG6j6w7RBW8OJP3yo/4eDQaS1xtTNuIumXriVusi4fk?=
+ =?us-ascii?Q?EVtFwzl0JhFby4FyXngNNDU9Db2KHuVg87fU2ysyJRHd7Tzgkg1CCJSAtc3K?=
+ =?us-ascii?Q?31RRCx1ZrqeXWqQHCe9PuFWJFfbCBebxlRSAYjIcW4CV+A8mcjEexP8AiX9N?=
+ =?us-ascii?Q?p5cYe57c5hTGSPHOwENY/itVciKNs/G2UgQXZ5lBAx9YmetuFxV3EXfqHazO?=
+ =?us-ascii?Q?YDeWFT/4qD9y003urq0SGyhdICk2rvD0GflKQzMyxTpecTqRB3cqzM+enE0U?=
+ =?us-ascii?Q?OK7XVZYv8L0onuNKIyTYTRvL01IQ/vhIIMTgeLiMEfkJPe7nkF1tOnF6bK07?=
+ =?us-ascii?Q?A2wkDWFUaNmJuRUdNO0FezW/rO9yb8jsncrPvcTJ93elFFKeKto4LKbgq3Tl?=
+ =?us-ascii?Q?3WcbpgvGF8Z3CXFOT8KFGkmcqU4khcauRuaEHjBOa7d+QkyrAGms5nBnOlAs?=
+ =?us-ascii?Q?eXA4hVEozA5/uBm0cA1tjfg/RfhutWHWTNQXY1Fu8hRPkEPnZ2gjDW5FSNX3?=
+ =?us-ascii?Q?2/C/KKihOsnb/BgWFqIOdf0T1S1ZdOkG+zbfgsHL+Xum0l2Lukm43rf7BXOM?=
+ =?us-ascii?Q?uqOTUJXXYafg5oh4QorkFyHCZ3qeAgR/rfsjnDmpK9S3WtghyNoztQHHAqAO?=
+ =?us-ascii?Q?vuzgsxnIF8rT+IlWbqze62Bdruz5UAucZzOBqzwErQ0n4zhK0hsKh5EsAzWD?=
+ =?us-ascii?Q?ntrVAqk83S2i6N2pa8ebGrNc00PVYNi8x6P2ESqEr1jhrUTlBAykVZGIha5t?=
+ =?us-ascii?Q?bB28ns0+nOUiiRxAyN2kF6fhmLe+z7mKDKUUuzBonMldjBxnlNYobS8ryYi5?=
+ =?us-ascii?Q?+9nUmNwJvoZVYw1RxxP/lVJF15tW9LMY6bb3+TyBlCMFCFP5pSDsXRWEVvq0?=
+ =?us-ascii?Q?Vrtf3JgG5hbrDUephGlB1vhISnQpRTL0RfJIf140s2gFL8zlmJCC8eGSxK5v?=
+ =?us-ascii?Q?C6Chm3OGgYZsCvzrS7MK0gk2Ag43/fjQTDxfLs909n8nI7ouFRhn365oe0+W?=
+ =?us-ascii?Q?rzR2ROwo8uUTbZ7Fhkdtnv6KJHN1HY1QJbthc03RLtSP9XDU9KPAep4MkNHH?=
+ =?us-ascii?Q?dC2ycVRPSHGpOS89db5Py6oKrazmG8ROBD84SUm540awKughvRcrgmYXeJ/9?=
+ =?us-ascii?Q?reak2hsmgFt9wI+rdMBFTc9Yo6/mTqSC3nKCA9ESBhjwBHxmhqmujU0tat8s?=
+ =?us-ascii?Q?M0BdmsLXmTqb20kPsDNyvm4vZmoXdZsDl+OL8lJrq3FU4BWm2j6ul6/cC5mW?=
+ =?us-ascii?Q?ypkhi9imWMxisHJ2W1Ws8lXqjRDTX0dr/Y6zDcOWC/Z52SF8HS6WF9MUNRGz?=
+ =?us-ascii?Q?gMn1W0qhOpfsbuQTqYAEy/wtfcTwGuMVQlbkPPX+imk00MhJVQSTcxEst767?=
+ =?us-ascii?Q?FMdy5z5PUCI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zYVvbO5m4xe5C4ySH66pxqPX7NDLn32PS8XB4Q47659fEHRBCC4ytUSzX/WL?=
+ =?us-ascii?Q?rAxJAgxN+MJfJbv2pwAHFlnL8yHvWkkYyJBZ2flDm+FqL60CPvdXEzeFfkf9?=
+ =?us-ascii?Q?i+8/lYOjkde5deDjKv0nZ/ZJMoRzlD68unXQJu8No2ybPcD6pM7GYSC6mAG/?=
+ =?us-ascii?Q?yE7Oe+Nl5RO4vZxgAUHrgZ4r4njm80QNz4AiikgMvadh5t5Rqy6qoYbEz6Zp?=
+ =?us-ascii?Q?CKMFaYKwbZIdZuqJeNMcreBMz6py+FQJj2qrY+Ofte0cOxYOEfLxcDwv7y9p?=
+ =?us-ascii?Q?L4JXJ8UQGzbpIiNLN0d02lSXeG7FZvCXeYf0Gk2QdFtql1Lm+JQ3zI3FfR40?=
+ =?us-ascii?Q?ndNhOIKEnY+0PInGDD2OQeS0g4K87QRWztOBGbDijTlSRwCCaEC+floc2YId?=
+ =?us-ascii?Q?bc4jQefh3BBfedAy+HXYJR6Afz5OBnoEaMNDQ/r7VDa+0HLlSA6xbnZc+hzQ?=
+ =?us-ascii?Q?MMdWUCp2lZL8akSIEFjWSWsKFERZnBGaw9QiMIvIfyR9Xdu1tI7eFi13NxHh?=
+ =?us-ascii?Q?3AF0/gnsNKfO8x+dMX8mKbPbCCOhpr3Wwm/HhXbzlX01R+HttUGOCtXEEWhT?=
+ =?us-ascii?Q?1ZeeGtqWzFXN5g2ya/tEGv9+q3f+kDqiMHtHE3Cc29ITwRKXVUqyyMn3priN?=
+ =?us-ascii?Q?cl3oToPHY/85XN5bHl+BAgAsePnBYwcGRv8hQ9rCti1A4Uys3HUkMxFUAK8o?=
+ =?us-ascii?Q?YIEmp3ACMyYa46m0L1ZQOQXnmSBZGco0MoLwS4rpdy16mmbUjrPzRVA76T1D?=
+ =?us-ascii?Q?UXWZIdDvfvA1zW55jlHKR4pxRCzdM56+KQ3jr9XZkBJRGwbw9Bll5UGgU+N/?=
+ =?us-ascii?Q?mirEN7Y3iYj+bzET36wdaI2BGTffsNAO8XRIkNIqFOtv6pvoxcXlxz7Lm/KK?=
+ =?us-ascii?Q?EHdzGfxCUs41v+mkyB+NPHKKk2MHEqMfJgVkuyS4f2x6RpYyjb1+PJDUj0Pd?=
+ =?us-ascii?Q?Q6cfYNLtSLg10TH8iu80sDKuuzqZ345cVxST9JVEOad16qa6a6DcNN0Aavrg?=
+ =?us-ascii?Q?LnTvex7NGZ9yMlj8K/Lcy1ZpT2jmXW8TKJsq5VatUuQU20lHcgdgKTso1IoQ?=
+ =?us-ascii?Q?9/YWLsJm8mpTRvoML836iu6W1HnQQdwKNNKhyTXdHfVFyU9UkqsJ13RB4vJw?=
+ =?us-ascii?Q?1UjdMARUYUl4Ki1FDPxuQ92kggQoS8pkdtJTWTnNHWJmJg/dYN5Sw0lCMU6B?=
+ =?us-ascii?Q?JFhFqqbMPWnimP8jMJ73/hzYlA/vrVd0I212sQaVfv+lF9U8FG8EX+anAgu3?=
+ =?us-ascii?Q?cwrmz29NOIw5Sej07IPHSOwhRWE2orwbNibuckluUj+fdeot/ctnc1zqpQY0?=
+ =?us-ascii?Q?PuPmbbzWXkIrbLfdvx27tFF82GXrohYJ4fnyXnOLZlXTyhaEPXz0yr+tHJcg?=
+ =?us-ascii?Q?d5eIjtyl4k/PJukCYk/PXO/PFpK3cIA3molqDChc6ftwWeSdOwLpJdFaHm6z?=
+ =?us-ascii?Q?G32XNVtoYk7zc7jMDEbbtr73iGgPCQoEawNhGi3WIWMT3avSJf/XuRZY+g4G?=
+ =?us-ascii?Q?58GVQPFePo3KtJd9Dr0ptEIpIp6bpjNO8kjoL3bWcCIfMFBMN1l1NnEfXeTx?=
+ =?us-ascii?Q?kzk3AGf6AEiuveIEy0AMXNkDKI1DRYkpIJQdZjXa?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 069c3299-c000-42f5-b93c-08ddc07d2c07
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 13:16:40.1363
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8FGoe9bbRag2Oyq3oQhbQ9Zpd9XoB6ibpScp/F2WDA2GwS86iXlvzxaM/oHtkmyz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB8116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_061545_048347_0758117A 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20250711_061648_908692_C28B533E 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,37 +164,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 08, 2025 at 06:34:04PM +0100, Marc Zyngier wrote:
-> Now that the XGene MSI driver has been mostly rewritten and doesn't
-> use the CPU hotplug infrastructure, CPUHP_PCI_XGENE_DEAD is unused.
-> 
-> Remove it to reduce the size of cpuhp_hp_states[].
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  include/linux/cpuhotplug.h | 1 -
->  1 file changed, 1 deletion(-)
+qcom uses the ARM_32_LPAE_S1 format which uses the ARM long descriptor
+page table. Eventually arm_32_lpae_alloc_pgtable_s1() will adjust
+the pgsize_bitmap with:
 
-Hi Thomas,
+	cfg->pgsize_bitmap &= (SZ_4K | SZ_2M | SZ_1G);
 
-I would upstream this patch through the PCI tree please let me know if that's OK.
+So the current declaration is nonsensical. Fix it to be just SZ_4K which
+is what it has actually been using so far. Most likely the qcom driver
+copy and pasted the pgsize_bitmap from something using the ARM_V7S format.
 
-Thanks,
-Lorenzo
+Fixes: db64591de4b2 ("iommu/qcom: Remove iommu_ops pgsize_bitmap")
+Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
+Closes: https://lore.kernel.org/all/CA+G9fYvif6kDDFar5ZK4Dff3XThSrhaZaJundjQYujaJW978yg@mail.gmail.com/
+Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu/qcom_iommu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-> index df366ee15456b..eaca70eb6136b 100644
-> --- a/include/linux/cpuhotplug.h
-> +++ b/include/linux/cpuhotplug.h
-> @@ -90,7 +90,6 @@ enum cpuhp_state {
->  	CPUHP_RADIX_DEAD,
->  	CPUHP_PAGE_ALLOC,
->  	CPUHP_NET_DEV_DEAD,
-> -	CPUHP_PCI_XGENE_DEAD,
->  	CPUHP_IOMMU_IOVA_DEAD,
->  	CPUHP_AP_ARM_CACHE_B15_RAC_DEAD,
->  	CPUHP_PADATA_DEAD,
-> -- 
-> 2.39.2
-> 
+Joerg, can you pick this up for your core branch please
+
+diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+index 5891ad5de0d5e2..3163a23fcbaa4f 100644
+--- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
++++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+@@ -335,7 +335,7 @@ static struct iommu_domain *qcom_iommu_domain_alloc_paging(struct device *dev)
+ 
+ 	mutex_init(&qcom_domain->init_mutex);
+ 	spin_lock_init(&qcom_domain->pgtbl_lock);
+-	qcom_domain->domain.pgsize_bitmap = SZ_4K | SZ_64K | SZ_1M | SZ_16M;
++	qcom_domain->domain.pgsize_bitmap = SZ_4K;
+ 
+ 	return &qcom_domain->domain;
+ }
+
+base-commit: 600b96ab916c09a60106c64ba7fbf60c301b98b9
+-- 
+2.43.0
+
 
