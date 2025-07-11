@@ -4,66 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B08BCC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 17:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADBCFC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 17:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MY7bxFJYtXm8HUtlybSD4F1Gat7DlZMqvsph0TlNDiw=; b=ZRRDqLm5wVKsf5QTqOSJHZFQi5
-	2lOUAvStguNCUrMC2LuqGv7KWT491PWzDsFAR1zyHRJfc7V20ss1KSsSiMR+TovzkTmmF3hRTd/m2
-	daK2VqqpngmNOs++zssSNt7kA+fgFv7JS8dDscYeUui9Ax5AwMiI5aKpcmGAs4KMu7lNTSDuxAQuv
-	CBSoX72hGfC6T2iOBJB0OF21SS9gLpjB/9La3OEgq7hRkP74naVxI69uDm0yFeUbyjulY5KUV04cB
-	fKDEUSlQ5cqYvIWJr3ven82+QF7L0htcmfOz1YHwBbUzjSn7oPUqa2sr057kEf95qT3EomNaHm3GX
-	nhQEPL6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vch4nhSURKJBRxP6HlyhqPKYX7GoAcWmFtzhWy2KyrI=; b=cqMTnjKlG9bXA8G2AumSV9yqKU
+	iHCA5yWvkJJ8GZbCt1q/HtmNGztuWwptUEBTuSlekbRtRPQ9z10J9ByRohinI8H01uZBixG3EuU7W
+	/8k9EWqtRWIMJYiv98N94Noy25PTEE+IgfYsfFLVloNV2Zfyb02RBcUiUifuhCXraKhBIzl0lzeVa
+	By540ivT5FvhzSyYZMD/wQJAVdh7pCu9tTa3ti8EbpLzUwMSi3aQa6LQ2q8G6XyahM2b7OciFBaEk
+	t1XMTYdrragt0zYehvSRR3mheQeuYCH1bfguApeZPzK3KYToLydNG5QW9jA8pF3Fn+4Aw/mfhgob/
+	H13UVp1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaHGO-0000000FMnm-2nrd;
-	Fri, 11 Jul 2025 17:10:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uaHK7-0000000FNOI-3YdG;
+	Fri, 11 Jul 2025 17:14:11 +0000
+Received: from mail-co1nam11on2060f.outbound.protection.outlook.com ([2a01:111:f403:2416::60f] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaGRg-0000000FGFL-0hFr
+	id 1uaGpW-0000000FJxW-0y3Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 16:17:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E4229472BD;
-	Fri, 11 Jul 2025 16:17:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D755DC4CEED;
-	Fri, 11 Jul 2025 16:17:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752250675;
-	bh=Xuzx6uwSk0yNzSsVAXXMPAY9gCduvpNUj0iAmpfZdno=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=E8EoeJ8N9T8OaOoWAHbFraEkEQd6Ze+Ty6mhEeSmdVVdVQ2vIHINyKH8HtEz+v5dJ
-	 wpSPpI1Gg/2plhs+yU0fhXRgHc3G5g2Nh4T7LprrsfqHKouSZxOXFX1CrsSYKjgY9q
-	 uWbIqK6mopmsNhh522MlTaftjZrATL2gvSI5M+2aycE/kKAmZbDEQGb8hvBJmuk3C7
-	 pZo1B23Nbpn7Hz4e1dgrcxkhzxw6tPYIN5bhVjKdFgdcoAf/CFrcb5hdhF5jRVP8xr
-	 zTVbW0FjrddOl6kc72mbDxT25XCWW+gF4xmV4OWRO9t+zrLK8kaiFtdUpzndhNKD+h
-	 CtQDfARzY3FfA==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 06/10] arm64: mm: Simplify __TLBI_RANGE_NUM() macro
-Date: Fri, 11 Jul 2025 17:17:28 +0100
-Message-Id: <20250711161732.384-7-will@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250711161732.384-1-will@kernel.org>
-References: <20250711161732.384-1-will@kernel.org>
+	Fri, 11 Jul 2025 16:42:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Fx52BlnK1QA6i2ueUCmwr3SgSS2xbGwguhlNy1zaPoLLYrmkjN4zW8BCA2+9TpOXE3Fb/h/AVQQh8WZ3jvgFFfs1TRR1K/XAoUc+uEt1MewFzsSgfRaOE5WTjUaRsy8gM0bGruTuckXXa9WPq8KOjrBmT4PUZvoRXw8HqOufrL/N1jQE0O6uSqK8uhvL7crzO5VnTJXUtnKcPF0YoUawJPqdyl9QAlzyI/m9MCb0HK6/uVamNqffvRDMqyOKEeEBPh3gt4sX7nGcgs0XiDgR5tpcz/QHfz/5rcc8JL4KTQroWaAp5F8Afm4nROf6VTWiIRy9anOFuX/sm8TZlah4sg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vch4nhSURKJBRxP6HlyhqPKYX7GoAcWmFtzhWy2KyrI=;
+ b=NJMjTlcIAUPcQOKjgqyK8Gy4zBo0GIq7dU4YZmx1+trVNvCxrfWCAoNny8oNo6n2JM1LNy74aWXoYvQeLrrs+1Wa7FMlswvvoisLJGjypLs13okVi7fgyyALMmmgyM9+bo/Zts+8/A1ODFSrkembmdfExi4NCn8y/Jsov4U1nAT7oa2wiGHmWedn3Mu93VHyoI5zQ67NsHi6KU9ML3QA8uj+lQYA81SasnlYR7D9uA0q3vsAUYPIRkmWjpInk2wWqCm9Sz7hGXNRcblQ9TCtNdxbkuCV+O/mEmPh4LemIR7I38XVaXtTuO/+ONYi6MckqRArbgb7VnUj7B1VyAvFuA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vch4nhSURKJBRxP6HlyhqPKYX7GoAcWmFtzhWy2KyrI=;
+ b=AbxMZHXYBcTsWCj8a6Vp9/DphSSFJ2ZrDoJnopoJjOUuLSS+TulI4fnLuGnBdbBaejArWaGN9y5ViXL8aG8DPqarrGe5GPf6ilHSAeMQoA7188dl86VDd0u6tG6JzAKs+d1cd69WG8ns8RMtI2wBfKinjCp6Z0wotN/ZgqO2JsKNvEyxgbUjHYRcSCI99TJfhCX4FloiUTc9okRXZaicdgt9MeSwDceH6pdNJuKdMdzX0LLfuT87t8dvRmBAtHYrXOuX44nUO0nEeta/ZJJR16pR76osP+UvnF5hL1+mNpAojfBk6OrWILoTBn4EvCWB9I4ujeFvmanyYK5X5zUP+w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by BY5PR12MB4097.namprd12.prod.outlook.com (2603:10b6:a03:213::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.23; Fri, 11 Jul
+ 2025 16:42:28 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8901.024; Fri, 11 Jul 2025
+ 16:42:27 +0000
+Date: Fri, 11 Jul 2025 13:42:26 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, joro@8bytes.org, kevin.tian@intel.com,
+	baolu.lu@linux.intel.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH rc] iommu/arm-smmu-v3: Revert vmaster in the error path
+Message-ID: <20250711164226.GE1951027@nvidia.com>
+References: <20250710233003.1662029-1-nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250710233003.1662029-1-nicolinc@nvidia.com>
+X-ClientProxiedBy: MN2PR05CA0052.namprd05.prod.outlook.com
+ (2603:10b6:208:236::21) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|BY5PR12MB4097:EE_
+X-MS-Office365-Filtering-Correlation-Id: b764419e-1cff-4fcb-d21a-08ddc099ebe4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vTwFK5hZeqig8/ijAGqjMQzUWjfwds9PpkaBVstB0EKrslUfPosrYZYKvr3s?=
+ =?us-ascii?Q?MNvrykPnfVoRf3JWbtqqDIm6fOm+eMj5bkWUCEPjWHmiXww6NTZWACqf5Bbz?=
+ =?us-ascii?Q?oO5TVdr/Z8NQBnEGXENCd6304p5d/NsDREc0QKqQGlUINu/KIketFWCWVAMJ?=
+ =?us-ascii?Q?S9RQ9jEXf2AdgjpnUUnOPzQ6S0AYVbjFQq3SxbSHbuJ/PdsVMnmSZgkWbZ+m?=
+ =?us-ascii?Q?DpeHcDCDWuUG3TWG93ihFZVLBFkdNsDGtAycqdDblX3qDwRktC9gIIxUDQUm?=
+ =?us-ascii?Q?PI361QNjNGIfdR4pHPzz1KuTfKjIc30eAqG56V56UUfSNhzmRqzgJ9r7RV7k?=
+ =?us-ascii?Q?T/KXhSb9mzrMY20znWgix/tYiinErAZq10ojSvu5geKz8GOv5dycqZyP0AQi?=
+ =?us-ascii?Q?C9nPBQyrmu5LxLRmr4hCeacN2M1dRlBt0Q27TkNMztDm4jp1PVvAMAyNNeLn?=
+ =?us-ascii?Q?Sm8QamdEK40HjISj7j2ZaEmspeo+vaPDYPWIpBjZ8CIhpHR0kKTc0Fa/gJMn?=
+ =?us-ascii?Q?S/pO0Kz2HgJhxfzjuPrnugnzTgrWjB4vD7/udaC9YCnq10gHWNbPJgK33vcs?=
+ =?us-ascii?Q?y1/HY24gemPnvRdWsCfVmZYV5jGoHJL8WLEHGt6R3E2uzicw/xVsSLOwqGkX?=
+ =?us-ascii?Q?bj97gzKlhG7dwaoMNIxiuNPS2gdptXNp6QqFWTYUa0Y+QTCGEjX91Q4bTvQy?=
+ =?us-ascii?Q?GZa8ZhSLRgKwQxzLOH1K+yEfwP/BK4pLd+ZIlIf+zqTFD/4jKm4znA/yPTSv?=
+ =?us-ascii?Q?KB6TQeR4TMH1empwohMNyAwWgOZUT0Y9mODk/63EL5wdS80usl8Govb2Zm1Q?=
+ =?us-ascii?Q?mM9fNypKEvhDwpdDuNEBqyg64Ja/G9olEPJjnfGjW2QJdOOZjwwTvEwg7SRf?=
+ =?us-ascii?Q?eVOKVRszJw8JElOypVn6+rC0TR3N+ZX7JhDQqDK9wcvOxVObqm3UKNIB9E55?=
+ =?us-ascii?Q?eXl10mjBS6R//6TPoL2vBqeLvPnEsz9fDY3f3hAkLKqj1Y6r0WQcIfTi4ARH?=
+ =?us-ascii?Q?0bKg0I0uxTNwo00yHAm8Eyph+ag8WGQMurqRVIbE7qezn6ZaSp5c/GUz2gG8?=
+ =?us-ascii?Q?6xd5KkfW56fWJ1Bs76o9IwecuSFOA63GAv1i+5QjsGeiUOITSDmOd0vxrK4G?=
+ =?us-ascii?Q?VKQqfR/3cIcHe+Iw+ewbUUXiPKp18QmLkbYH7oATNY2ATnmdNSH4S3KHXJKX?=
+ =?us-ascii?Q?8rfK0FgIoAnBkFEKTv9XPNSFxOWzLWFmJKgV+prPcJHU5oWL88PZrAl/0YGD?=
+ =?us-ascii?Q?gyuOMwXSm7LX6G6iiAZvIIdJmPP8qZLTaIPkiOxvbZsZPKLzVadsln3QlNHJ?=
+ =?us-ascii?Q?Yc3NeaAgVYHe+Vd/zp3INV2PrYjVTnJfRcf7S2F+9K5tmeVvDjQ2GGuW7APi?=
+ =?us-ascii?Q?giSbNLrsoH73AXOXjuQkcgrl829W58HTwIJaJ6L0GPGA7UxpqPN+gNUofSms?=
+ =?us-ascii?Q?U5hJ+HxkN2c=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?TUB8HD8FgB7kj9hYF+WoPevpXGWULQVdeOkIa4cZsjAhyLhwi2dbSyuF8ttD?=
+ =?us-ascii?Q?jdoGiksWRV8JnwhR7/cwxlqYhn3RvaUCmGgRD9qU/ppj3JVL2L/aPfl7I1XT?=
+ =?us-ascii?Q?K4C4wtbNWMniQJtF0DawnIXQErsHZ0dmXjXOMNs3LyikY1XLVVCXr+C0zAw/?=
+ =?us-ascii?Q?Fe3+pcf8SeO5KWmSD76KQuMYPekD/6VaGULHeHvbaSKz2qg8LYbUM97ChKtm?=
+ =?us-ascii?Q?tlFWrtG5EBI15yPysiUrbPAEmuH+nrLiBSO1MhySJOtHQPy5J8w0gHsZdQhL?=
+ =?us-ascii?Q?TniqW99nKeOYipEH8kqr1hI3cQvb3Ds/+bNhPcCsnrF4W3WeSi1UuIArJA4F?=
+ =?us-ascii?Q?CWcX+sRhCW8apRg8W3Y6q4sw8ty17FrlBrPCNepv8jnhWztpHIArIcpVMf3c?=
+ =?us-ascii?Q?A6t42IiKn2cjyG90n2Gyv2LKhLPVt0fkLpHczlIzBOv6077tySE0D9M02yps?=
+ =?us-ascii?Q?Pl8SFcZWe4kh60g4q8xaY2SMIFa9ZbwH9U+Pz9hWK2I2YHA8ANhF8kTZb5MO?=
+ =?us-ascii?Q?BjqOuXj0p2MBCtQDvvOIVKtAr6vNYO7XhI+XmGRX4vi+LQmoMZWkXQlINDxM?=
+ =?us-ascii?Q?t5G7EjBk/jFFAei26dOyuwbp8vYR5bI5o57AaX/5pvZE9fDYG1DO2aZmWfy6?=
+ =?us-ascii?Q?C6ZoLTBr+RJTvGHMMejzCcV2CF+lBGZv/bQplP0R17mhYjZLQycSIDm12iKh?=
+ =?us-ascii?Q?XD1ypnSZa0YcPhEvzI0WHvHsteWluk3NI1l2wpprwQRLBLas+AfLonS3D4t3?=
+ =?us-ascii?Q?HVl3XBohariXAQSmeGB+OLlcYTKsnuP53KOpJ8Bjv+saZJV4EcBioe0UxE7x?=
+ =?us-ascii?Q?i853zTVokkRewrtzTmL9Ms61nCt9nw0vbsZUul61ngpkRuRccO/Jdve5sB7h?=
+ =?us-ascii?Q?kOrzMQ3OEewTjxwp2H5NFYrutHp7f2iIUOBVNREU3BQ0i23tnvSsMPPm93yq?=
+ =?us-ascii?Q?2Wd+d7OWew8hBLqn0dfSIZBrDR6VJ+7XhN6ofrq3h7VWAt6Yona0fm6wWQq8?=
+ =?us-ascii?Q?j+/a07XE8ygcLxUY4yOkoCAoVX0PvMW4K4oC04jGFdisnLKZW0osXoFaMC+D?=
+ =?us-ascii?Q?2ajZMYVQ7zBJBIntaQaUNNJ3ZzKKJAYMqp91NYnMVf1RyrUGwDH9M4ZEBWQU?=
+ =?us-ascii?Q?aBz7KJDT7V94zybNtePJFdP202JfWTnx1SGWUOYkp1EXZtvqw8+lww17F1b/?=
+ =?us-ascii?Q?EW7keHILNE4fT6QEgfT+sLbWTbGp4NgoeOx8ywKVbk9+tLpN0fFKry17+Ll7?=
+ =?us-ascii?Q?GR65x++NFOsXhfmu+Q7cOcE1MXUnll9YOnevL8KKObDXeFuO8SL4mE3OQLOD?=
+ =?us-ascii?Q?6syGfcJTBhpf/WFqEbTvOvydsIJY8A/iZwMCfrEZof+WWaaM0asDitvT2+QH?=
+ =?us-ascii?Q?RKGRjYgSJUK0JMJ+j++OsY6/HuOzqHicgI2DtXTq2D9cpU1USpiM2oBLv8zB?=
+ =?us-ascii?Q?DeSUYBKD9ZxAc41X7QiKCxYBQiC8T9VBCORNuf0MnGAIeYNpFbHnH+HFgMit?=
+ =?us-ascii?Q?WHJ3vEHJN1oVFFQnsCuekCwIEiamDWJEkQthDCxvucqerQKRfP+vNuZOKdSQ?=
+ =?us-ascii?Q?emX3H50gkAQ3hb2qIBADRahtmOXvKidk5VmzLRsX?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b764419e-1cff-4fcb-d21a-08ddc099ebe4
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 16:42:27.8620
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OF/AQhfleo9IfojP22WHjPTfVjLKnodOAa8660HLoF5rSATw4GUKh8uUVcD6V5Bu
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_091756_222140_8C143BB2 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20250711_094234_273159_E5C62251 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +157,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit e2768b798a19 ("arm64/mm: Modify range-based tlbi to
-decrement scale"), we don't need to clamp the 'pages' argument to fit
-the range for the specified 'scale' as we know that the upper bits will
-have been processed in a prior iteration.
+On Thu, Jul 10, 2025 at 04:30:03PM -0700, Nicolin Chen wrote:
+> The error path in the arm_smmu_attach_prepare() was introduced with the
+> arm_smmu_enable_iopf(). Due to a rebase issue, it forgot to include the
+> revert of the vmaster.
+> 
+> Move kfree(state->vmaster) to the error path, to prevent memory leak.
+> 
+> Fixes: cfea71aea921 ("iommu/arm-smmu-v3: Put iopf enablement in the domain attach path")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
 
-Drop the clamping and simplify the __TLBI_RANGE_NUM() macro.
+The patch is fine but the commit message is a bit confusing
 
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/tlbflush.h | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+The error path for err_free_master_domain leaks the vmaster. Move all
+the kfrees for vmaster into the goto error section..
 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index ddd77e92b268..a8d21e52ef3a 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -205,11 +205,7 @@ static __always_inline void __tlbi_level(const enum tlbi_op op, u64 addr, u32 le
-  * range.
-  */
- #define __TLBI_RANGE_NUM(pages, scale)					\
--	({								\
--		int __pages = min((pages),				\
--				  __TLBI_RANGE_PAGES(31, (scale)));	\
--		(__pages >> (5 * (scale) + 1)) - 1;			\
--	})
-+	(((pages) >> (5 * (scale) + 1)) - 1)
- 
- /*
-  *	TLB Invalidation
--- 
-2.50.0.727.gbf7dc18ff4-goog
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+
+Jason
 
 
