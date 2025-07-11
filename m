@@ -4,124 +4,214 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D20C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA26C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pvmdzzon70L1hOLqeuWPtYOsuZehChUPPCRRTupcrA8=; b=KaFsDdtyO+vgO8KzPGcEg2r3aZ
-	vPJoZRKBmBRcpsnrdYOuGMZaFfmDfQGjTjZnRCkY5zhlgbtCUCQxEcgOBqD3U4lMDa8Z9VX80Q6Gr
-	ICubFp9jLm6+oLWg0dAn0HcopRWVlDY32GaqUbaLyxlOrl+snUP6VHEnqZuLB4PzuFB3OySFeSips
-	CUR3jzhdO7t2LqeXWKQSWuhDsDoahgsEyWvRhv9Q5DOZBHgld43r+mUyu2U85cQf8hcXDABrqgYJW
-	FMo08ionpFy7Rl2gjwtXw3UfFXFPDQiTO3lBqhYNDPN4gUrJ8CbIX/aUdzXqRepjOs/9pZqjTDt/G
-	jn7MS8TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PRmUJ0l1ysnFmrZAKf6BwxoX3zpW3eSyLNXI9STyuzA=; b=YzSkatPzC/HfOrwsdsEVWUzFt9
+	wy+Sl0SSQbzqfeVcvxRqtcuS6RL1bI7lZaRgRKNTpGkCQtdzvVwOtQrFq08FE+aYsFamJjYTVkfdZ
+	xZwAXwfZpNk84TqqKjaQwG+LeIS4PDhOMWPVRUweCC2XSp93Ozdu7wSn83MJo83oKE/EcYTZPNe9Q
+	GoLqfPqvT5ss90fbbfTDPRXydNLLpnQ95f+U3PfhorqxFkyWVBsmd+62fLLwE+V0qoKRwmqsWOX5F
+	5Vm5Otk2YcB3RnuHh/QKnDXl+7KxDDqULollvVdrf+fvpfboznefxHfTNqZEEGya7Jh1+nD8IBiFp
+	x/q+uVbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaGPA-0000000FFpa-2oiB;
-	Fri, 11 Jul 2025 16:15:20 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1uaGRU-0000000FGBl-1d0f;
+	Fri, 11 Jul 2025 16:17:44 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaFry-0000000FAbW-3hEv
+	id 1uaFsz-0000000FAob-2Ure
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 15:41:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1752248447; x=1752853247; i=wahrenst@gmx.net;
-	bh=Pvmdzzon70L1hOLqeuWPtYOsuZehChUPPCRRTupcrA8=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=LQ1duoaZCaombf/ZBDb9r2QOjMuF5Jj5+c5ViHcmoP5YCeHl+sXrRSrgoxosxE6c
-	 iUy5IOjSzw0gg8m3GMWIneW9VWDtwtoD6y7i6WNZWPgV9TUZqvYpLL9kzIOgTTEJw
-	 i8vB7JsL+aQjwGatk4yqke2EUTr23k03kOBrRJenrBkaNV3olfgK6DT9LArcLxUYe
-	 KjVXfcEC697TSOpqplG6WSmM2/MyJd/poya76N3FYJ20G8UMLBa8F5sNVtICtyqGR
-	 jcdnllArQOCCBplRH47epoVGeuqcUntu0l/tDCHEbs8p0Tj+HMvt7GGl1v6UTAvGX
-	 cb6OG8Yzn2fLkKztLA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([91.41.216.208]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MdNY2-1v9agP3TsG-00cTeF; Fri, 11
- Jul 2025 17:40:45 +0200
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	kernel-list@raspberrypi.com,
-	linux-staging@lists.linux.dev,
-	Stefan Wahren <wahrenst@gmx.net>,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
-	stable@kernel.org
-Subject: [PATCH 1/3] Revert "staging: vchiq_arm: Improve initial VCHIQ connect"
-Date: Fri, 11 Jul 2025 17:40:29 +0200
-Message-Id: <20250711154031.24178-2-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250711154031.24178-1-wahrenst@gmx.net>
-References: <20250711154031.24178-1-wahrenst@gmx.net>
+	Fri, 11 Jul 2025 15:42:07 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=oPyY2Kye7dl1uloUuV4I8NfyqINu/d25hFNPtmU1s0TGmiqdTpPR+mXf6UQjV55xTQIO73LDYH083XAjudQMfkff6U2Jr36qkhv7GoNGQSGbMNeWa8miAft7b5uqjy22x30dlUH0lpzrKnWKUyEvEt68QDvOEoe1DmHv4GAa2LT2BeiTfIErZJBC4cRp7zqLc9zz+oabY4bETXTsAtN+/sJ3nniP00l3naTextXz1j+p/Ib9dvr2iG1XuahV7//PIQ0KSSSwmR9lqaYkkrNPGRDezGF1Ym2ZC/ViIudOUiWLryTXxDUlhGBSEskwihH7Mdv5smZvc8STZPqlBBTmLQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PRmUJ0l1ysnFmrZAKf6BwxoX3zpW3eSyLNXI9STyuzA=;
+ b=YAG8tdJVjE389KjgD0gBcZUJwdCx0yBk4YfxM7+MsSIg10apWIiwhITQpHHHTjUnb6udJAMaQUzUnvQT8sEApra3I3lbrGOI7UqAfM7FshJGVyGyYcfu95U9xpj0ofFuaVA4i4IEfY+AloYwRyNdmdnKn3X+GPdCzvuoVv+UDC76R4MO8tLbqq7uXVY+Gc79rSLH+Ve/G8S0gtAL5lKaOujqiT/oiGsdT1h1llz1kJo/DP5HLsJ1vb2b8CUTCHfH1Yzn2PU0Z6rzbLzaHZ93mPyrJlVSTF+SYRsDucnijCWmTp3zqIN0zISTHKkrLAbJ4HKvOijnZpO+iOd2fjjyMw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=linux-foundation.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PRmUJ0l1ysnFmrZAKf6BwxoX3zpW3eSyLNXI9STyuzA=;
+ b=V5THvSVnJg2qDgVpO5lV8qOtjP82VBxnNd1FFp1ZFguDmErRQ0pJtkdVqtfF5kZJytavs8yRcN+n4EHbNDD2AcnBOe1gJ3J4RcjUVjuJ3+y7eoEt6mBxvRtCNpwSoKJdfDk6DAjuIGQV+7ytsvO0mYLwZ9+1KFmuC6TAIqe15V8=
+Received: from DB8P191CA0001.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:130::11)
+ by DB9PR08MB9921.eurprd08.prod.outlook.com (2603:10a6:10:3d3::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.28; Fri, 11 Jul
+ 2025 15:41:50 +0000
+Received: from DU6PEPF0000A7DF.eurprd02.prod.outlook.com
+ (2603:10a6:10:130:cafe::8a) by DB8P191CA0001.outlook.office365.com
+ (2603:10a6:10:130::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.23 via Frontend Transport; Fri,
+ 11 Jul 2025 15:41:50 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU6PEPF0000A7DF.mail.protection.outlook.com (10.167.8.36) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.22 via
+ Frontend Transport; Fri, 11 Jul 2025 15:41:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q0fZJ2ZcxateihReTeTc6fIRpnceb3PDGvZ4f1NhhoP8zLNKgnrHgt3niqUgGP2uAo6CSyW/BalZs4V6HMavC3XWqiBbaPCtpemCx10hgbN6D0IVFGhL6dmEYfjTjcH6MdvOAlCc/ujFVO/s8uHMnllx8Z4TU7wPSWTXJEhFP/NWCRnnElEMJGh9FidRl06v9O+9pxe4JSfNjz/yf6VrcJzNgD/JxoC7/S6cviemDfRb7Cw/LJf8/308j0s8glmpi8TOWcValDlcCMsx5CNaXM/oyZlDPYW7z3kNdgJkN1lbrMVb/c813xw2TtRPK/9u49o29Q28P/xn7HXcg4sTPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PRmUJ0l1ysnFmrZAKf6BwxoX3zpW3eSyLNXI9STyuzA=;
+ b=KJllx7QB6wW4mYZ7DdzNmgz63hQ3duszfpqrArENny65KVeDvPMDqYWHqHi3SIW/3NOJGITDKVW9dQMfAiBf/Y9M5JSJVqzuM5VN1tX7au8wtogqknfUkRMbecsY9BuRgSNPASVOhEsJ+rmgENjqK5+whyzDrxr/96OUDfhHaNxrmCbTROonCJn/8vQCEjH1TgD31wIDdrSpLepjFYiBqNWrPgHkG5jjydTJXwZK6uvRnh00x6jebAuedH0flawP7gidg7o8Om67iOAboxhQqQ0M37WbzSpkV5fJWpdZ1P8QqH1TTxcto3NPx5zMK1hOl+JYzC/fDWBy6B8Z9OiiHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PRmUJ0l1ysnFmrZAKf6BwxoX3zpW3eSyLNXI9STyuzA=;
+ b=V5THvSVnJg2qDgVpO5lV8qOtjP82VBxnNd1FFp1ZFguDmErRQ0pJtkdVqtfF5kZJytavs8yRcN+n4EHbNDD2AcnBOe1gJ3J4RcjUVjuJ3+y7eoEt6mBxvRtCNpwSoKJdfDk6DAjuIGQV+7ytsvO0mYLwZ9+1KFmuC6TAIqe15V8=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV2PR08MB8172.eurprd08.prod.outlook.com (2603:10a6:150:7c::14)
+ by GV2PR08MB9397.eurprd08.prod.outlook.com (2603:10a6:150:df::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.25; Fri, 11 Jul
+ 2025 15:41:14 +0000
+Received: from GV2PR08MB8172.eurprd08.prod.outlook.com
+ ([fe80::f51a:aaae:c1c9:f3ee]) by GV2PR08MB8172.eurprd08.prod.outlook.com
+ ([fe80::f51a:aaae:c1c9:f3ee%4]) with mapi id 15.20.8901.024; Fri, 11 Jul 2025
+ 15:41:14 +0000
+Message-ID: <e62f4caf-57dc-445e-be29-aff324e0d444@arm.com>
+Date: Fri, 11 Jul 2025 16:41:11 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 5/5] mm/filemap: Allow arch to request folio size for
+ exec memory
+Content-Language: en-GB
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
+References: <20250609092729.274960-1-ryan.roberts@arm.com>
+ <20250609092729.274960-6-ryan.roberts@arm.com>
+From: Tao Xu <tao.xu@arm.com>
+In-Reply-To: <20250609092729.274960-6-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0365.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:18e::10) To GV2PR08MB8172.eurprd08.prod.outlook.com
+ (2603:10a6:150:7c::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:XPMa324HfxC3iLXRnKYUBTBW8QnkPAyU2y/MVE/V2Ab+K2O2mcD
- CDZJzWjlxixJSJQPRLSn7TQoCbmx2X+p6L8EWDToSV7Mej2sLQWDIkbIwXZcAJ1mvirgM9m
- R4HsgDyGScBZ/YSMlUNG/QAP9ugGN9CLGIWlSskC/01R8pRMKSPlzYvGEVnnhdvKo+09PX7
- Gab2phRr8Juc5rk0D0kSA==
-UI-OutboundReport: notjunk:1;M01:P0:3LE+fveJhmw=;Lsuuij3WnGn5g6ST7aaO4kx4zPs
- +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
- gBhIN6AQcGad64B11vK9pZ8=
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8172:EE_|GV2PR08MB9397:EE_|DU6PEPF0000A7DF:EE_|DB9PR08MB9921:EE_
+X-MS-Office365-Filtering-Correlation-Id: 16f1d96e-bdfc-48ca-fc0a-08ddc091733f
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|42112799006|7416014|376014|921020;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?NFhOTWt3WEJCOGQ0REtEUzkrWXh5d09rODN1elNZeS9qalNnNkk0Rk9jUDll?=
+ =?utf-8?B?aVBlZWVxbFh0NjRLUGtmWXVQQjJvMUJjWDZqSWNma1pmL3JROW5GMmpzRjVI?=
+ =?utf-8?B?RVdGSGZuVDhlSE5mcTBRNXZuck5xTEJJYit2TjViVUYxQmNCOXE0dksyaFRD?=
+ =?utf-8?B?ZzFKbW40MXNVZC8xMnBGSFhTY0hyMjlUU0krNElFS3FtQnVKenB5WXpGd25U?=
+ =?utf-8?B?TkdjV0Y0ZXU3UFNmYnkwazFaWHlYV2V5bkhjWlg1cGRIY3EwR0NhWkx2bGxT?=
+ =?utf-8?B?eXdxV2k1cklaU0RvU0EvSjdWN3NzT1NyS3dIQStIMkdTOFQ5QTl3ZnpFb1FR?=
+ =?utf-8?B?UzJPWEJqS2NmMTBoMlc5UnJtRitBZ2k3Nm4yeTUvTVFybk1HOWFWckVPejFr?=
+ =?utf-8?B?V3JlVXg1L2J2TEx2UTdXVjJFbmpzaktZbkprWDByVm1naEgyZVJUV3l1aGtU?=
+ =?utf-8?B?RTVrbnpWMGN1ZTROUkk2MzAzZEtSQUNzRkdCcXhCK29rVWRXUmcyaytRam8x?=
+ =?utf-8?B?d0NkY0M4TTY3UnRUSTMwd3VaeFVGVkNJd0FQTzQrT1VQTmZsOHA3ZVZQek9z?=
+ =?utf-8?B?MDd1WE14YzhMN3RvZEFmVHBWdnlCM2t2dnQwdDM3d21GZ01CYzFFblI5dFh5?=
+ =?utf-8?B?dDAySUVFTTJYeFFXZWlHYXVpNExQZ2paM1N3QWp4akxPMGVvQk5BWXFHZFdI?=
+ =?utf-8?B?bEtrbzZhMXJVcVQ0RGwzSytieENlTHAyb3BNZHpiWTVSeWhETjRnTmhHRFBN?=
+ =?utf-8?B?Z2RIRmh1cE0xWWtDRTVLVEh6Y08ySjRYSHo1NHBFaHJXT3JKbHFrbWVZblN1?=
+ =?utf-8?B?TjZVMjd1ZEQrV2IyYnIvRnl3bWNoL0RscExRS0NzK0pTSFY1RmVFTzdsVEd6?=
+ =?utf-8?B?VUY3YjNMeW4zajdkSHFzK1BNajVnR2NHTVpoV09yR3kvYmRDS3JNVXZ3LzZL?=
+ =?utf-8?B?Y3dmYVloMzhRMUtiTWVZcGNyQWh2WjZCQVAvb3drZWRGRkZXeW14aVdZR1Fq?=
+ =?utf-8?B?Q0JTeHhOUWpDRmpteXVGQkw2L2ZiODkrNUJtb2taTFZRaGtPS1k0UUhRWFIr?=
+ =?utf-8?B?USt4TVBQYnFLTys3RmRvMkNTdTk0aUtiVEw4RXBRZXNFdmhLRFZZSU13VnpG?=
+ =?utf-8?B?S1VPNkpzU2lkRlhSMElsblpOOFBmT01IQlZqZkhrVVZ3T2FRZVQ1Y2lWUnNB?=
+ =?utf-8?B?Sm9FN29JK2NGOFFyVk10dThwVDVyQzlyMjJBdk5ZZ25JdDdaS3ovdFEzYkFP?=
+ =?utf-8?B?Qyt0S0Zxa1VNVk9oWWhyMy85MzN0NTl5UzV6am91eVM2ZzVGYXZCcmhXYURh?=
+ =?utf-8?B?ZkI4R3Z0ejd0TDZ4dllmVjFJd0wrMTZKNUI2RDJ0TE5zMkRjbEJjZUhvM0Zr?=
+ =?utf-8?B?dE1uMm5EMWhGR00yTDc4SW5iWnd4NC9DaVJWK3I3TEhUUFVOMkgxUXJkNFF3?=
+ =?utf-8?B?K1N0S0tWVHhkSFBydWhudGFpSXZnSnJ6YjZBcXdqcmJmRUViNzZZWEhYWXd1?=
+ =?utf-8?B?SjFKc3IzeE9RQ3NSSktjVkZwQUYrSktiWnM2R0xrWkhZMGhoK0Fqc0lJS0lU?=
+ =?utf-8?B?enF5N1RwMmdPNkpiQmxVNlNqSWlHU2pteGg1NXFDemUxNG5lMzAra3NRdkMr?=
+ =?utf-8?B?NGoyVkxPSU40aDFTSStaQVl6RGVWNFNBczJqcGdSQ1ArdFNkdkU4N3ZMdURr?=
+ =?utf-8?B?clF0MGdOc3Jkbko3VzZMUDRrTjY0RVY5dlBtOTlNK3JwOExtSXltb0NQSElh?=
+ =?utf-8?B?bk1McmJjeEhuSWpYOTlmbzg3TFpCY21sRGlHRHk1ODN0OXNzdllCYTEwQzl4?=
+ =?utf-8?B?T2pNZi9WdnlIN0VRbldaMGRybUNianNGVnlESVowdElnREVaT0FwVlp1clNl?=
+ =?utf-8?B?LzVEcEFFdmtaMllUSTFvTEdOa0lDeWdibXBDMXJSdk5ZTlN5cjZRL2plSTE4?=
+ =?utf-8?B?Uy94QVB2UllWUkFRbm85MzQ2dGdtd2piNEVBU0dmemlaSEUwYTdIUDk4SUlD?=
+ =?utf-8?B?eThxTGxCY0FnPT0=?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8172.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(42112799006)(7416014)(376014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB9397
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7DF.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 52bef9d7-1d3f-46d3-d4e3-08ddc0915db5
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|1800799024|376014|7416014|42112799006|82310400026|36860700013|35042699022|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?emlEZklBNWNXbmRPY1lnNzgzRjAxcEFldTlIZDBwZmgzYzJaU3VYcHU2S1RC?=
+ =?utf-8?B?VFNFSTBJL2M4akFqNG4vY3ZyOGFiOGhjQkQ5ZFJkTnQxdW5lbzNLWTJuNVl3?=
+ =?utf-8?B?K0Q4a3NjMjhhSHU4U0ZVdlZKU0czM01zNVFUckxEN0ZPY2JVczJXSkVocGY1?=
+ =?utf-8?B?MklsOG5YRFAweGcwZ0FVTDEwTjNDZlZZWlBmMURPZ0dJUG1xSEdUYjVabjk2?=
+ =?utf-8?B?eThwd0cveUIyZmdxWEVFa2ZRZGFQdGQ2dXNNZ21oRXlHZTZZdlY1a2R5eFE0?=
+ =?utf-8?B?QXZWOEhhMUVjTlF5UkR4c1M0eU42cWRMdFpPdVN1dlJUd215RjVjSXUwZCtr?=
+ =?utf-8?B?Y2Y0Q20wcmo0M3NvWVpwOUdlY0h6OGE5clNHMUh2NXVHS3A0QnRSYmdzbGg2?=
+ =?utf-8?B?UDZidE9OZytheHV6RU80ZzM1QnVkRzN6SG1XcTBkL09BRVBsUmlnbXBOTDFW?=
+ =?utf-8?B?RVlSWVRpcnhibStsK0RQblcrTHZkanNNR3RRdnlVMDh2eHhwcFdRYW9teTRR?=
+ =?utf-8?B?UFZUclZzdU9WTTg1aERPaTRmL1FFL3lUVXgrRGhVTjk4K29NMm9wWm0zZ0RW?=
+ =?utf-8?B?YzlyQVg2YjRGMHR3Nll3WUNIQWM4TzNIeVpVemlabHZFOUJsb2xFSHRuQVVV?=
+ =?utf-8?B?UEhhTDh1VUFhRi9jRHBSN0RYRFZKWUlYK0RHOER4NklmVjNzWTlrZTM4VVVY?=
+ =?utf-8?B?SktDeTNhQkZ1anNQZVBRcE9kaksxVDNheC8rcjVvMWR0eDY5ZGxTQUp4cW5a?=
+ =?utf-8?B?dWhySnppcnNTL3Z5K1ZqQXdJUktDRTcwZmsvWGYvRVVYOVZGVnRqVUM5ZUZv?=
+ =?utf-8?B?ZW9HU1lPeWZiTG5iSUFTbk9TR0x5eVgwVHVjVXBnQkwrUVVnWVE3ODVHNWdh?=
+ =?utf-8?B?RWVybTEvRWtlUVluR1k4MXRjZS8wZ25VSUhBNTVaUkNtR2F5c0psVmtQQjQ3?=
+ =?utf-8?B?RHZFSnNFYWxtb3JYUWdqQUVzaC9yN0ZpMktSVmx3OTF0SmZVWFZxeFFKSElm?=
+ =?utf-8?B?UlJEc2l3RlRHODZaYUszL05xc3A2MUtmdXFzM1NXUEZKRlJVQmJLMyt3V2pl?=
+ =?utf-8?B?WVpDclAwaGl3SzVzVmJnU3pEVi9SaXpVVVpRUWpSUzc0OWhmTlNYVDJRLyt2?=
+ =?utf-8?B?WXJFamowem1KUkV5a0o5aHlqNlF6aXBscVlMZUlKaFl0Y2ZWNUxMTmtNTWtJ?=
+ =?utf-8?B?NnZSNzJDcjA4RGNETURTU3pOd0xLZlpaZTR5N3JmSUNrTnpkOG1jd3JhYXcy?=
+ =?utf-8?B?U2tocHRhZk90Uzl4L1h0RnczYnllb0NWemR2SHJkanVDQWZzMDNuSTU3T2h0?=
+ =?utf-8?B?b05sZjM4L0NnTUIyQjdaaUQ3Wm9keG1zclNUUkJabi96MzBHTGxjVDZKUWcv?=
+ =?utf-8?B?cjV2dEwwOFdVUHlwS044ZXlEeWFlemkwNjV2a0NqQjkwdXFzcjhoV2lVNnFu?=
+ =?utf-8?B?Q0UwaWpNSEFCWllWK0ZvUXJQZThlaEUzMVJFOVJkWVdNUzlpZ244cUxOV3Ra?=
+ =?utf-8?B?NTZYbDFNa3ZXRGNRUUZiWDJOOG53d3JOTktzSUJIZ0hjc0VHS0tzeTIvbzRC?=
+ =?utf-8?B?L2llTGtTZjEzVXhpS0FKTE5vVDRlaG0rL3doay9yU0dTUklJWWIvZGNjU2pk?=
+ =?utf-8?B?elVycnZ5OGs5WS9keDFveXRGWHB2Y25vcnBuN2pBYWg5Z01nS051cGI4eVlG?=
+ =?utf-8?B?bCtPRHRseTdseE02VHNIWkhqV2pKZWlEWUJnK1JmcVZPTFhhamJWMk5WY3ZI?=
+ =?utf-8?B?djBRRGRJWGJNUDQxTGZyU1U0ZGdaZnM2MVJ1Q0E3d1QyOWRVaElRZnNUQ3pX?=
+ =?utf-8?B?b2FuUnhhQVdQeUZscUlkMnVoQVdQWWwwYzZ1M1ovcVNnS1hJekpiTEl1MXhr?=
+ =?utf-8?B?bHMxQ0RENHAxSnJWcDA5NmRDV203SEQ2SE55aDNkS3BSbkhmdHJwZFIzc05M?=
+ =?utf-8?B?cnVnc1NKNXpQK3B5cER1NEtwSHhqSjZ3TUJKbzlyMFVUVVExdlFNVG40NVFu?=
+ =?utf-8?B?N2VUd2hUV2o2cE85T29HMEZMbGE1UGtlNTVmMWp4UFRTNVJoSEN6a0ZuUlBH?=
+ =?utf-8?B?SUtFN3RvekdSVkE5YUQ1N3BhS0RTSlNab0RHZz09?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(1800799024)(376014)(7416014)(42112799006)(82310400026)(36860700013)(35042699022)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 15:41:49.1759
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 16f1d96e-bdfc-48ca-fc0a-08ddc091733f
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7DF.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB9921
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_084103_215735_5764CC9E 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20250711_084205_778913_89CB636E 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,113 +226,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The commit 3e5def4249b9 ("staging: vchiq_arm: Improve initial VCHIQ connec=
-t")
-based on the assumption that in good case the VCHIQ connect always happen =
-and
-therefore the keep-alive thread is guaranteed to be woken up. This is wron=
-g,
-because in certain configurations there are no VCHIQ users and so the VCHI=
-Q
-connect never happen. So revert it.
+On 09/06/2025 10:27, Ryan Roberts wrote:
+> Change the readahead config so that if it is being requested for an
+> executable mapping, do a synchronous read into a set of folios with an
+> arch-specified order and in a naturally aligned manner. We no longer
+> center the read on the faulting page but simply align it down to the
+> previous natural boundary. Additionally, we don't bother with an
+> asynchronous part.
+> 
+> On arm64 if memory is physically contiguous and naturally aligned to the
+> "contpte" size, we can use contpte mappings, which improves utilization
+> of the TLB. When paired with the "multi-size THP" feature, this works
+> well to reduce dTLB pressure. However iTLB pressure is still high due to
+> executable mappings having a low likelihood of being in the required
+> folio size and mapping alignment, even when the filesystem supports
+> readahead into large folios (e.g. XFS).
+> 
+> The reason for the low likelihood is that the current readahead
+> algorithm starts with an order-0 folio and increases the folio order by
+> 2 every time the readahead mark is hit. But most executable memory tends
+> to be accessed randomly and so the readahead mark is rarely hit and most
+> executable folios remain order-0.
+> 
+> So let's special-case the read(ahead) logic for executable mappings. The
+> trade-off is performance improvement (due to more efficient storage of
+> the translations in iTLB) vs potential for making reclaim more difficult
+> (due to the folios being larger so if a part of the folio is hot the
+> whole thing is considered hot). But executable memory is a small portion
+> of the overall system memory so I doubt this will even register from a
+> reclaim perspective.
+> 
+> I've chosen 64K folio size for arm64 which benefits both the 4K and 16K
+> base page size configs. Crucially the same amount of data is still read
+> (usually 128K) so I'm not expecting any read amplification issues. I
+> don't anticipate any write amplification because text is always RO.
+> 
+> Note that the text region of an ELF file could be populated into the
+> page cache for other reasons than taking a fault in a mmapped area. The
+> most common case is due to the loader read()ing the header which can be
+> shared with the beginning of text. So some text will still remain in
+> small folios, but this simple, best effort change provides good
+> performance improvements as is.
+> 
+> Confine this special-case approach to the bounds of the VMA. This
+> prevents wasting memory for any padding that might exist in the file
+> between sections. Previously the padding would have been contained in
+> order-0 folios and would be easy to reclaim. But now it would be part of
+> a larger folio so more difficult to reclaim. Solve this by simply not
+> reading it into memory in the first place.
+> 
+> Benchmarking
+> ============
+> 
+> The below shows pgbench and redis benchmarks on Graviton3 arm64 system.
+> 
+> First, confirmation that this patch causes more text to be contained in
+> 64K folios:
+> 
+> +----------------------+---------------+---------------+---------------+
+> | File-backed folios by|  system boot  |    pgbench    |     redis     |
+> | size as percentage of+-------+-------+-------+-------+-------+-------+
+> | all mapped text mem  |before | after |before | after |before | after |
+> +======================+=======+=======+=======+=======+=======+=======+
+> | base-page-4kB        |   78% |   30% |   78% |   11% |   73% |   14% |
+> | thp-aligned-8kB      |    1% |    0% |    0% |    0% |    1% |    0% |
+> | thp-aligned-16kB     |   17% |    4% |   17% |    3% |   20% |    4% |
+> | thp-aligned-32kB     |    1% |    1% |    1% |    2% |    1% |    1% |
+> | thp-aligned-64kB     |    3% |   63% |    3% |   81% |    4% |   77% |
+> | thp-aligned-128kB    |    0% |    1% |    1% |    1% |    1% |    2% |
+> | thp-unaligned-64kB   |    0% |    0% |    0% |    1% |    0% |    1% |
+> | thp-unaligned-128kB  |    0% |    1% |    0% |    0% |    0% |    0% |
+> | thp-partial          |    0% |    0% |    0% |    1% |    0% |    1% |
+> +----------------------+-------+-------+-------+-------+-------+-------+
+> | cont-aligned-64kB    |    4% |   65% |    4% |   83% |    6% |   79% |
+> +----------------------+-------+-------+-------+-------+-------+-------+
+> 
+> The above shows that for both workloads (each isolated with cgroups) as
+> well as the general system state after boot, the amount of text backed
+> by 4K and 16K folios reduces and the amount backed by 64K folios
+> increases significantly. And the amount of text that is contpte-mapped
+> significantly increases (see last row).
+> 
+> And this is reflected in performance improvement. "(I)" indicates a
+> statistically significant improvement. Note TPS and Reqs/sec are rates
+> so bigger is better, ms is time so smaller is better:
+> 
+> +-------------+-------------------------------------------+------------+
+> | Benchmark   | Result Class                              | Improvemnt |
+> +=============+===========================================+============+
+> | pts/pgbench | Scale: 1 Clients: 1 RO (TPS)              |  (I) 3.47% |
+> |             | Scale: 1 Clients: 1 RO - Latency (ms)     |     -2.88% |
+> |             | Scale: 1 Clients: 250 RO (TPS)            |  (I) 5.02% |
+> |             | Scale: 1 Clients: 250 RO - Latency (ms)   | (I) -4.79% |
+> |             | Scale: 1 Clients: 1000 RO (TPS)           |  (I) 6.16% |
+> |             | Scale: 1 Clients: 1000 RO - Latency (ms)  | (I) -5.82% |
+> |             | Scale: 100 Clients: 1 RO (TPS)            |      2.51% |
+> |             | Scale: 100 Clients: 1 RO - Latency (ms)   |     -3.51% |
+> |             | Scale: 100 Clients: 250 RO (TPS)          |  (I) 4.75% |
+> |             | Scale: 100 Clients: 250 RO - Latency (ms) | (I) -4.44% |
+> |             | Scale: 100 Clients: 1000 RO (TPS)         |  (I) 6.34% |
+> |             | Scale: 100 Clients: 1000 RO - Latency (ms)| (I) -5.95% |
+> +-------------+-------------------------------------------+------------+
+> | pts/redis   | Test: GET Connections: 50 (Reqs/sec)      |  (I) 3.20% |
+> |             | Test: GET Connections: 1000 (Reqs/sec)    |  (I) 2.55% |
+> |             | Test: LPOP Connections: 50 (Reqs/sec)     |  (I) 4.59% |
+> |             | Test: LPOP Connections: 1000 (Reqs/sec)   |  (I) 4.81% |
+> |             | Test: LPUSH Connections: 50 (Reqs/sec)    |  (I) 5.31% |
+> |             | Test: LPUSH Connections: 1000 (Reqs/sec)  |  (I) 4.36% |
+> |             | Test: SADD Connections: 50 (Reqs/sec)     |  (I) 2.64% |
+> |             | Test: SADD Connections: 1000 (Reqs/sec)   |  (I) 4.15% |
+> |             | Test: SET Connections: 50 (Reqs/sec)      |  (I) 3.11% |
+> |             | Test: SET Connections: 1000 (Reqs/sec)    |  (I) 3.36% |
+> +-------------+-------------------------------------------+------------+
+> 
+> Reviewed-by: Jan Kara <jack@suse.cz>
+> Acked-by: Will Deacon <will@kernel.org>
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Fixes: 3e5def4249b9 ("staging: vchiq_arm: Improve initial VCHIQ connect")
-Reported-by: Ma=C3=ADra Canal <mcanal@igalia.com>
-Closes: https://lore.kernel.org/linux-staging/ba35b960-a981-4671-9f7f-060d=
-a10feaa1@usp.br/
-Cc: <stable@kernel.org>
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- .../interface/vchiq_arm/vchiq_arm.c           | 28 ++++++++++++++-----
- .../interface/vchiq_arm/vchiq_core.c          |  1 -
- .../interface/vchiq_arm/vchiq_core.h          |  2 --
- 3 files changed, 21 insertions(+), 10 deletions(-)
+Tested-by: Tao Xu <tao.xu@arm.com>
 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c=
- b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-index 5dbf8d53db09..cdf5687ad4f0 100644
-=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-@@ -97,6 +97,13 @@ struct vchiq_arm_state {
- 	 * tracked separately with the state.
- 	 */
- 	int peer_use_count;
-+
-+	/*
-+	 * Flag to indicate that the first vchiq connect has made it through.
-+	 * This means that both sides should be fully ready, and we should
-+	 * be able to suspend after this point.
-+	 */
-+	int first_connect;
- };
-=20
- static int
-@@ -1329,19 +1336,26 @@ vchiq_check_service(struct vchiq_service *service)
- 	return ret;
- }
-=20
--void vchiq_platform_connected(struct vchiq_state *state)
--{
--	struct vchiq_arm_state *arm_state =3D vchiq_platform_get_arm_state(state=
-);
--
--	wake_up_process(arm_state->ka_thread);
--}
--
- void vchiq_platform_conn_state_changed(struct vchiq_state *state,
- 				       enum vchiq_connstate oldstate,
- 				       enum vchiq_connstate newstate)
- {
-+	struct vchiq_arm_state *arm_state =3D vchiq_platform_get_arm_state(state=
-);
-+
- 	dev_dbg(state->dev, "suspend: %d: %s->%s\n",
- 		state->id, get_conn_state_name(oldstate), get_conn_state_name(newstate)=
-);
-+	if (state->conn_state !=3D VCHIQ_CONNSTATE_CONNECTED)
-+		return;
-+
-+	write_lock_bh(&arm_state->susp_res_lock);
-+	if (arm_state->first_connect) {
-+		write_unlock_bh(&arm_state->susp_res_lock);
-+		return;
-+	}
-+
-+	arm_state->first_connect =3D 1;
-+	write_unlock_bh(&arm_state->susp_res_lock);
-+	wake_up_process(arm_state->ka_thread);
- }
-=20
- static const struct of_device_id vchiq_of_match[] =3D {
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.=
-c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-index e7b0c800a205..e2cac0898b8f 100644
-=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-@@ -3343,7 +3343,6 @@ vchiq_connect_internal(struct vchiq_state *state, st=
-ruct vchiq_instance *instanc
- 			return -EAGAIN;
-=20
- 		vchiq_set_conn_state(state, VCHIQ_CONNSTATE_CONNECTED);
--		vchiq_platform_connected(state);
- 		complete(&state->connect);
- 	}
-=20
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.=
-h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-index 3b5c0618e567..9b4e766990a4 100644
-=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-@@ -575,8 +575,6 @@ int vchiq_send_remote_use(struct vchiq_state *state);
-=20
- int vchiq_send_remote_use_active(struct vchiq_state *state);
-=20
--void vchiq_platform_connected(struct vchiq_state *state);
--
- void vchiq_platform_conn_state_changed(struct vchiq_state *state,
- 				       enum vchiq_connstate oldstate,
- 				  enum vchiq_connstate newstate);
-=2D-=20
-2.34.1
+Observed similar performance optimization and iTLB benefits in mysql 
+sysbench on Azure Cobalt-100 arm64 system.
+
+Below shows more .text sections are now backed by 64K folios for the 
+52MiB mysqld binary file in XFS, and more in 128K folios when increasing 
+the p_align from default 64k to 2M in ELF header:
+
++----------------------+-------+-------+-------+
+|                      |         mysql         |
++----------------------+-------+-------+-------+
+|                      |before |     after     |
++----------------------+-------+-------+-------+
+|                      |       |    p_align    |
+|                      |       |  64k  |   2M  |
++----------------------+-------+-------+-------+
+| thp-aligned-8kB      |    1% |    0% |    0% |
+| thp-aligned-16kB     |   53% |    0% |    0% |
+| thp-aligned-32kB     |    0% |    0% |    0% |
+| thp-aligned-64kB     |    3% |   72% |    1% |
+| thp-aligned-128kB    |    0% |    0% |   67% |
+| thp-partial          |    0% |    0% |    5% |
++----------------------+-------+-------+-------+
+
+The resulting performance improvment is +5.65% in TPS throughput and 
+-6.06% in average latency, using 16 local sysbench clients to the mysqld 
+running on 32 cores and 12GiB innodb_buffer_pool_size. Corresponding 
+iTLB effectiveness benefits can also be observed from perf PMU metrics:
+
++-------------+--------------------------+------------+
+| Benchmark   | Result                   | Improvemnt |
++=============+==========================+============+
+| sysbench    | TPS                      |      5.65% |
+|             | Latency              (ms)|     -6.06% |
++-------------+--------------------------+------------+
+| perf PMU    | l1i_tlb           (M/sec)|     +1.11% |
+|             | l2d_tlb           (M/sec)|    -13.01% |
+|             | l1i_tlb_refill    (K/sec)|    -46.50% |
+|             | itlb_walk         (K/sec)|    -64.03% |
+|             | l2d_tlb_refill    (K/sec)|    -33.90% |
+|             | l1d_tlb           (M/sec)|     +1.24% |
+|             | l1d_tlb_refill    (M/sec)|     +2.23% |
+|             | dtlb_walk         (K/sec)|    -20.69% |
+|             | IPC                      |     +1.85% |
++-------------+--------------------------+------------+
+
+> ---
+>   arch/arm64/include/asm/pgtable.h |  8 ++++++
+>   include/linux/pgtable.h          | 11 ++++++++
+>   mm/filemap.c                     | 47 ++++++++++++++++++++++++++------
+>   3 files changed, 57 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 88db8a0c0b37..7a7dfdce14b8 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1643,6 +1643,14 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+>    */
+>   #define arch_wants_old_prefaulted_pte	cpu_has_hw_af
+>   
+> +/*
+> + * Request exec memory is read into pagecache in at least 64K folios. This size
+> + * can be contpte-mapped when 4K base pages are in use (16 pages into 1 iTLB
+> + * entry), and HPA can coalesce it (4 pages into 1 TLB entry) when 16K base
+> + * pages are in use.
+> + */
+> +#define exec_folio_order() ilog2(SZ_64K >> PAGE_SHIFT)
+> +
+>   static inline bool pud_sect_supported(void)
+>   {
+>   	return PAGE_SIZE == SZ_4K;
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 0b6e1f781d86..e4a3895c043b 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -456,6 +456,17 @@ static inline bool arch_has_hw_pte_young(void)
+>   }
+>   #endif
+>   
+> +#ifndef exec_folio_order
+> +/*
+> + * Returns preferred minimum folio order for executable file-backed memory. Must
+> + * be in range [0, PMD_ORDER). Default to order-0.
+> + */
+> +static inline unsigned int exec_folio_order(void)
+> +{
+> +	return 0;
+> +}
+> +#endif
+> +
+>   #ifndef arch_check_zapped_pte
+>   static inline void arch_check_zapped_pte(struct vm_area_struct *vma,
+>   					 pte_t pte)
+> diff --git a/mm/filemap.c b/mm/filemap.c
+> index 4b5c8d69f04c..93fbc2ef232a 100644
+> --- a/mm/filemap.c
+> +++ b/mm/filemap.c
+> @@ -3238,8 +3238,11 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>   	}
+>   #endif
+>   
+> -	/* If we don't want any read-ahead, don't bother */
+> -	if (vm_flags & VM_RAND_READ)
+> +	/*
+> +	 * If we don't want any read-ahead, don't bother. VM_EXEC case below is
+> +	 * already intended for random access.
+> +	 */
+> +	if ((vm_flags & (VM_RAND_READ | VM_EXEC)) == VM_RAND_READ)
+>   		return fpin;
+>   	if (!ra->ra_pages)
+>   		return fpin;
+> @@ -3262,14 +3265,40 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>   	if (mmap_miss > MMAP_LOTSAMISS)
+>   		return fpin;
+>   
+> -	/*
+> -	 * mmap read-around
+> -	 */
+>   	fpin = maybe_unlock_mmap_for_io(vmf, fpin);
+> -	ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
+> -	ra->size = ra->ra_pages;
+> -	ra->async_size = ra->ra_pages / 4;
+> -	ra->order = 0;
+> +	if (vm_flags & VM_EXEC) {
+> +		/*
+> +		 * Allow arch to request a preferred minimum folio order for
+> +		 * executable memory. This can often be beneficial to
+> +		 * performance if (e.g.) arm64 can contpte-map the folio.
+> +		 * Executable memory rarely benefits from readahead, due to its
+> +		 * random access nature, so set async_size to 0.
+> +		 *
+> +		 * Limit to the boundaries of the VMA to avoid reading in any
+> +		 * pad that might exist between sections, which would be a waste
+> +		 * of memory.
+> +		 */
+> +		struct vm_area_struct *vma = vmf->vma;
+> +		unsigned long start = vma->vm_pgoff;
+> +		unsigned long end = start + ((vma->vm_end - vma->vm_start) >> PAGE_SHIFT);
+> +		unsigned long ra_end;
+> +
+> +		ra->order = exec_folio_order();
+> +		ra->start = round_down(vmf->pgoff, 1UL << ra->order);
+> +		ra->start = max(ra->start, start);
+> +		ra_end = round_up(ra->start + ra->ra_pages, 1UL << ra->order);
+> +		ra_end = min(ra_end, end);
+> +		ra->size = ra_end - ra->start;
+> +		ra->async_size = 0;
+> +	} else {
+> +		/*
+> +		 * mmap read-around
+> +		 */
+> +		ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
+> +		ra->size = ra->ra_pages;
+> +		ra->async_size = ra->ra_pages / 4;
+> +		ra->order = 0;
+> +	}
+>   	ractl._index = ra->start;
+>   	page_cache_ra_order(&ractl, ra);
+>   	return fpin;
 
 
