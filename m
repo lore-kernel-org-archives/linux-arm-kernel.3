@@ -4,153 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A249FC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 04:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 070A4C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 04:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6+0rZkrQpOxV7V+r21Nnsh/bW8MW4ZCy8VKc/lQzlTQ=; b=OR/HgjG6aYWv92rubKaWurX2zD
-	dYXL85S5Whx40KxbYMkzz929VQ5LB8+CAzOhiMtGH9hqoGD4geIygS/vVdlEN2fVmIFryy3UQifo+
-	o+LyT1yT6DytY1g4WtLr/u3C+QgdwZqIVSc8wzPJ85k+7Xy+7nXqxozJ1zxSTpZHhA78boPR8+Li7
-	WVv+FKqjAGmS5UMnUa8Q7oI5NtmT9fe/JRxaq/ugWzL7sunxIPPS3uihOoWYQS3irFGil0FBgsCx0
-	KN0QKBKDzgfFv0sHATDRqIJOrTprHKwlzOS/F3z8F72x6+IAzMdKaz+vUk6ngyE9bGlJ/juW4ebXZ
-	C6b73Ofg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kGKnKSqmFoncY/VFaVr1B/bk0NjVO6YxCz0oeOIIZx8=; b=raOmjD15jx/fck
+	rlFrneTFFjpVxVXZnojuvU1BuPWvzhYGpVrQWQEhlbFWofCzXTZ/VOuMQkqfUg5Xi0IhG6YZfTVbp
+	GVpYwHoyzCKMRrs0lP5c5LRiWkSE28TcfKLXVAyrh92nLM0ntzNN94G8Y1GGjZ1OrbqiNykJiIJmT
+	tcJCOfbRmcnvuWCEHVUIuu5D0gF8yHdM42Gb1rZ3O9CNUlYfgK/6PaCUip/BgXAY13IVVhd5/+TCv
+	FJr6Df+qKDSYcblIxX1Fy3pYiscJ9S/DVqZ4trFS9QtZ1EgtzKeuumWiqwAxatUik3GLOVqK4hbjM
+	npgedS1ZGPyHenv94Tng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua55i-0000000DdSS-28uU;
-	Fri, 11 Jul 2025 04:10:30 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1ua5TR-0000000Dfyh-369i;
+	Fri, 11 Jul 2025 04:35:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua4z6-0000000Dcu5-27Me
+	id 1ua5R2-0000000DfEV-33gq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 04:03:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xPdGkn0iwi0d2dsBNaV4Se+HVr47tc8s9XI12bGSOa4Js0oh4xnJhB420i+sQuMLj7PGeC8T5qcN3GD/y7GYZjIlQwmK9CqazYSyU2TeacBOU+O3GwiPTinDWwOavduTa3ZmxNZAOZ7cyHoYa2vXU2WFvhUDI/XiX8iBupVifNMwwgNlShYHxwMpNUrg0LHR5gvnvPZCaUNOH9Oa7mZYzlBxGW0BmRAxZxTeY0viiZgfsq8B9EXC+RNeGFMOtFooNCxE+x/9LrHxWc5u8x2DBOtZhobWj2Vhn52+MxCbA5ksMY2hVH7eeC55weaA9XgmhvKtGI4wAE3IaDAZAF997w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6+0rZkrQpOxV7V+r21Nnsh/bW8MW4ZCy8VKc/lQzlTQ=;
- b=D65+uwqVASWdGjMYW8+Pyw0TnSB+G3hwHWCbACFFn2g+JGCvtPJOvHclEPbjE605QzNS1NRLlcI8hX64c8Ikmk1z1pmOi6FcskPM2TC3Jg03OV92YZTOqRB8mXL9VbxMhdDYLID9mrr7f1DA1yobvwGZEYfe2Mt1w18O4DLrTCDAx6MLUG/XXdoHMGFwYhsV0DMY8rdsWCMfThsgn5T+8G30He4ZfxUEwYwHFRdSWMeLMFfRQiwR4SFPLOBaxvnfm9m9EzELQQtfH/Tv0ux8XWYI2nRxHMIwRqQLJCcnDxHgpEAvw871V+YRPRsZvucqpcD6THnbmjQ6BcPDcR6VbA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6+0rZkrQpOxV7V+r21Nnsh/bW8MW4ZCy8VKc/lQzlTQ=;
- b=buvUSmpjA5OjSRZdiKVskohw9GmXyPvbyiDk4fh3820iuTk5tNCmtFqSrTURN73+U/7sUd8IvIHTbBqyHT17U+uSUfx4CAaMA1KAw3O6dMUdFcubWwOkPJcTD1OFYfen0S9TPGNkoCvXJXmCHVKAlvA5LGVYuP/6Ocz+825jGkO317zQ/e904DcntRzTXAg/iGwu+LLAK3d0R85MMnOPGGhL30HoN2aPSfOzABkhbmmaXpJvmcS9lst4KGm+VGc8oT5i3hZTuGH9tJz0cGPutFP9SmdgP/tdK94e5KZrKT43GMRQ+QGlhRS+fqQObus+Gu0AplX25kPtOQ6fAcGPIQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB8245.eurprd04.prod.outlook.com (2603:10a6:20b:3f9::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.25; Fri, 11 Jul
- 2025 04:03:29 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8922.023; Fri, 11 Jul 2025
- 04:03:28 +0000
-Date: Fri, 11 Jul 2025 00:03:22 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: imx@lists.linux.dev, Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	Abel Vesa <abel.vesa@linaro.org>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/8] clk: imx95-blk-ctl: Cache registers when RPM
- routines are called
-Message-ID: <aHCNCokZxIRNPgT6@lizhi-Precision-Tower-5810>
-References: <20250709122332.2874632-1-laurentiu.palcu@oss.nxp.com>
- <20250709122332.2874632-2-laurentiu.palcu@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250709122332.2874632-2-laurentiu.palcu@oss.nxp.com>
-X-ClientProxiedBy: AM0PR08CA0001.eurprd08.prod.outlook.com
- (2603:10a6:208:d2::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 11 Jul 2025 04:32:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1752208350;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kGKnKSqmFoncY/VFaVr1B/bk0NjVO6YxCz0oeOIIZx8=;
+	b=ZNc2WbMa3TEbcJglitKjl7AziIHYoOwNJXk3hRaDw8LBGF+e9XMgGoZ7nr2e8CfA2BdEdU
+	R9e2s9IUZjkWuyfl99+uNOPcKq7ThEvrCvZFv7v05eRPm13EzK6GQgXFLhs0q6l4gqwZWD
+	+unpUEfMI/9snSXZYGSXq4iXqZGpm/M=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-563-FZv3N2m2OGGFD-R7qLVXFQ-1; Fri,
+ 11 Jul 2025 00:32:27 -0400
+X-MC-Unique: FZv3N2m2OGGFD-R7qLVXFQ-1
+X-Mimecast-MFC-AGG-ID: FZv3N2m2OGGFD-R7qLVXFQ_1752208345
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 358F0180028A;
+	Fri, 11 Jul 2025 04:32:24 +0000 (UTC)
+Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.240])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 36B09180045B;
+	Fri, 11 Jul 2025 04:32:20 +0000 (UTC)
+From: Anusha Srivatsa <asrivats@redhat.com>
+Subject: [PATCH 00/14] drm/panel: Use refcounted allocation in place of
+ devm_kzalloc() - Part5
+Date: Thu, 10 Jul 2025 23:31:11 -0500
+Message-Id: <20250710-b4-driver-convert-last-part-july-v1-0-de73ba81b2f5@redhat.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB8245:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1377af6e-ff13-4130-7fe1-08ddc02fe48b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|52116014|7416014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?c7n4L8jXFME5f/oJvXOUtiy1fxaB1zPHLeJmC9fYrKE+uOxahP3h6J8LFC03?=
- =?us-ascii?Q?ICX/5WplC8V7Wvvke1VfMJ2MRsPa62RGybzTbb0BCHJZb9C4i+UzKpwFWouF?=
- =?us-ascii?Q?AIwVsCljv8gpvHwWg20IgnMd3n0FkpQed2jcQ5GxmfzDJRBM4KF3KJOAzJJP?=
- =?us-ascii?Q?EuN2HLoRmNz1q4cb9zbpMZqVTyzccyBomGJKOBrMAjHznm6sgoWSWfUrQErr?=
- =?us-ascii?Q?a5CdcwlzotrXrLC/Rhr93zFYLTtcvDJpcJ1QBFoBLcr++j5QgA+xVbXFWeUn?=
- =?us-ascii?Q?ue6gkLeEqRCb+JKQ8B854YavOMsO31AbobSAF9qvh24n5O9vzCvWT1dkMC9C?=
- =?us-ascii?Q?CYt+/a/LkNSLhdvKwiHdEwmXg3hQNxt1GtlgnFujz9797NKPYu3EeEY+71oY?=
- =?us-ascii?Q?bdOTKfna5nfwaaXEvL1fyVJY6rYMvShdFgCGYbPIrTeVfxnvx3YXamvBzXSl?=
- =?us-ascii?Q?NNcLAK2NcVdTCsZ8AwkKYZVjpi+clTYJpFlVffiMlvpKwmXBBx9Z4hMohUlL?=
- =?us-ascii?Q?pWPZ/Knt4AFmDKtAvAkuxwbRh25+ejScZ3dQu3gt96aOuC479AHoF5oseUTD?=
- =?us-ascii?Q?MP6f2NPMvFXatYA91drmGWQEQ6YWPQIcwjexEb+G9ffIFgYwpbb6F/oIRQzm?=
- =?us-ascii?Q?dUmEdo8K36MgAQiEHLhur6BRmCl2eJ1GJqDXhevhU/NUOSV3Lq6nSRFYvGgx?=
- =?us-ascii?Q?WvNYhd8+k4c2VKoZzBUFWTxKOPW4zb8AIDDK+jjt3CGFZZCvhzsH5CL/gADG?=
- =?us-ascii?Q?dHpZvIFOT0jR5EBbOyqpueUpN+UQ57kr4vU1MxQB4iJjgwZyechE3GZc+4QU?=
- =?us-ascii?Q?ygl8o4AqIY6sLV1iGK87PaMLYl14kB9++MAgmXApxyKzQJWcjW0RpN+ZArEc?=
- =?us-ascii?Q?TEoG0zVaUt/If4GnjsuaNRXtWHS5K1XrYeNSbj1Zw4KmDfZO1ETH8JhtuKsB?=
- =?us-ascii?Q?3GzApXX07oYIE2T6KfvtnVN7O36NF51ApL03x4VJyHleG9L6KnWcN7hCfUcb?=
- =?us-ascii?Q?xvVElLgwJhl98ZVFAMNCWnICNFbN+LaNOt+fWNqMZnQ1dcHVW/z5gn2pjLDZ?=
- =?us-ascii?Q?uLv0YypOumqXHPQYj02MHmXkC+SftL8JBq7ffPqzRmfpWamjD0ARwH8egrCH?=
- =?us-ascii?Q?5VFLbQaPYoNJxASUJqHYt9DR2eStMwdTMe/pAuE/ehtC9bZwFNCw092kJRt2?=
- =?us-ascii?Q?lmUevQQVamyOxKYNCjO3wJ+/UQs9lmMP1Fqp40e/EJrmQqFOGvKUBseh9kO2?=
- =?us-ascii?Q?0j//m54i3duKpAeU29UttUwge0gp0Fv+B/T4SpY0vTY8Fyhup7CVvVmKUmVh?=
- =?us-ascii?Q?CGEpkXK6If1Q29TYq7L01US0ddRxaUTMhq6kePJXNBb4nhmRsEIWhtMNi1jv?=
- =?us-ascii?Q?zAlQZ0/cAz+4FgyaFWPUIe6NlP//6VEGu5ne5pIDMqDaW0Z3TQXy6utypFDg?=
- =?us-ascii?Q?g8wFqsVo3Ebqf4htIzwi7hDfGfSiMDDvf24y8Uuksm5x0YdC0G7iyd4anyUK?=
- =?us-ascii?Q?70M2G/NqHRM+/Ws=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KC1lwv5xDqhTHj8jqSyLw3bPiR2VDnIV6MlO1yPWNic+QkMyAOdTcQNaRZmI?=
- =?us-ascii?Q?yqXoWlNksSTSU3d7bLrWberjcM7SZ1RMUPWuFInexSsrmM8covVpe9S265S4?=
- =?us-ascii?Q?cXwDc6XQhskmf8c6SSpKaNLCkFpQl//IaoFVOSfFbhLhbLDa/knm+5tCXAfh?=
- =?us-ascii?Q?wZWK3T8F/SLb4afWY8E/MNQ5HITjawJZ3fxbIQBXhvyD2Rurum/n6YZxs0WK?=
- =?us-ascii?Q?RgtLWHlqEHwFrU80hg8ZSenHhtagUMyNQ0h+IvyoVwXYmM21kCqGqObjKgcM?=
- =?us-ascii?Q?afLvykWvoXjh2ExFnbt34UmX9haLeqj1z0qHwYjCgKgNby9KgeSliEDqC+Su?=
- =?us-ascii?Q?BCCMFgyy4udVHMu6l8tyYR9ECuBR6p/x5URonLKT3UEWf0VGVrRck0C0FalZ?=
- =?us-ascii?Q?9dEbldK6F9BM6kkyXDoEgf0nRKqoZFoxIiVTXGUf2TxS74CShm5U7Pds+qnx?=
- =?us-ascii?Q?1N/58KH4YLMEoj1JZ6MFCsqZva1pbjrnxuOkiyE8SfEWAO8Qn8AKmH2YQ+cw?=
- =?us-ascii?Q?tJbyyVeYGLkCr5F7zcjs0pHeXGh4WrYLcFGLc+bjwI/QwsFyCGOSb3yhBLVI?=
- =?us-ascii?Q?SZPxVDFO4Q2MvXZpGbI0wUQt/pGs5igHupCS9SZ0vqNwWz+0VWMl396SpHki?=
- =?us-ascii?Q?eQkNKiMOvXKo6+D5u8O/qiweCnixxlG9Tp5Kdyouty2fVj6xX6NAt6Z2UDYW?=
- =?us-ascii?Q?8eE7F8IbLKMl4YJYMzH/txUFR9UcwXPopThrTM3Ja87cgQnYHNP2Kbh+1MaB?=
- =?us-ascii?Q?TUbV7uv610H5SS0Ls+Uc1ihVrJ9RMRvTDP3UtXetnwDCZsIUf28pNbTsyDds?=
- =?us-ascii?Q?Ml6woTc1bmtKHicIuSjyP+t/fXoJYbkWeDmT+/3vg0SxAMy4foipZWQNuVqx?=
- =?us-ascii?Q?HrSLrUgOsCHPu0YD9YpbGAbnUi+2cn3gJbLDZVKZ1UnFyuj7teyFOPq9Nzlv?=
- =?us-ascii?Q?LkTfiifi/slnfKjWjMl49YTOYZeHsZVr/ydJ60SWIZV8+sjL3Chq4SXxPNPf?=
- =?us-ascii?Q?bN0HLmt6vcK9trTHO0ELuzyFczOPTJ8LH03JLIkpoIlDUpsJ4TCbHqTU7WdP?=
- =?us-ascii?Q?ikWe5NivtV0onX+hj7xbdmX/PhTSj7PaYz25RgNUUxYLvrVER6x3rep2ZTaX?=
- =?us-ascii?Q?bsBabFhs6gPcrZXXPoKaBTG9uHQ2CfHKRXuAvXLOfe7c7y2MzGu5YvrFI42g?=
- =?us-ascii?Q?IPtAoQEvpOZ2OELicEJYtOJIQEX2gtAjDiwIyfaJvui+tRj2MaTxcMXOqXtV?=
- =?us-ascii?Q?d/Clxe9WhH/5oKv08+skOcqzoOlEpKQl2NBmyGa+SKNZ/hAWaeXTdrvrm9Pp?=
- =?us-ascii?Q?KSgiZ06/GOgsmclN1BAfhJ5vZGJaCXAumh7h0PJoNXsd8vnkdzHXqzqk0s+5?=
- =?us-ascii?Q?0R+EhfLRu7gYeDg++rbT7RpowQwA1iuA68trWjq4qxyVf6oVbYZ4+uYDPuxK?=
- =?us-ascii?Q?YLPh0dXrCIL1ZyUVdL52Rn0gHJM+A/mteFeOKA3uMA3Bhx9ddQYejNPxVEBW?=
- =?us-ascii?Q?VIB0/WuM25lJN4xwpvJ+AkIt38VyXpGLF6o/5jvJ4pKBsScYknIL/p1iFAmD?=
- =?us-ascii?Q?ZMlEeztGo92JMKoqn30dp0lvYaREqgVNEmu8YIHf?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1377af6e-ff13-4130-7fe1-08ddc02fe48b
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 04:03:28.8657
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BFbkk66Gellz2ENpPSYARcAzmPQKpHypC4o44UJ2prZy5VZbpoIfzxtioYsSjbO2EzM+V8akfDFUJmGAuCF1kQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8245
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAI+TcGgC/x2NSwqDQBAFryK9TsOMHyS5SshiPq12kFF6RjGId
+ 0/jql5tXp2QSZgyvKoThHbOvCQV+6ggTC6NhBzVoTZ1Z3pr0LcYhXcSDEtSFJxdLrg6Xd9t/mH
+ TRv+0wcehd6A3q9DAx514f67rD3XOxZNyAAAA
+X-Change-ID: 20250710-b4-driver-convert-last-part-july-34db91cbdf7a
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jessica Zhang <jessica.zhang@oss.qualcomm.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ Casey Connolly <casey.connolly@linaro.org>, 
+ Jerry Han <hanxu5@huaqin.corp-partner.google.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Anusha Srivatsa <asrivats@redhat.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752208280; l=3615;
+ i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
+ bh=eUIWk726v+M/KGMh85jwLqDMcIQEgBCGm+2tVRYQnXk=;
+ b=38hQRfOGGclA6FW/2g7fnz6dS/hrEhjEqLJ5nfziKuWZ+hF78CDy8AHl2TB1AX9xo1yYtpkxS
+ E8b6jlrsVTRDW1sLUxzIZTEJ2I/ba8+5trZNni9jAIFtag14iF24/kY
+X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
+ pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_210340_546464_AEF49055 
-X-CRM114-Status: GOOD (  26.13  )
+X-CRM114-CacheID: sfid-20250710_213232_854347_54B6C4D7 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,155 +103,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Subject:
-save and store registers at suspend()/resume() function
+Use the new API devm_drm_panel_alloc() for panel allocations.
+A major chunk of driver conversion was sent in a 3 part series
+which is already merged. The coccinelle patch that was used to
+identify unsafe panel allocations didnt flag about 20 drivers.
 
-On Wed, Jul 09, 2025 at 03:23:20PM +0300, Laurentiu Palcu wrote:
-> If runtime PM is used for the clock providers and they're part of a
-> power domain, then the power domain supply will be cut off when runtime
-> suspended. That means all BLK CTL registers belonging to that power
-> domain will be reset. Hence, the clock settings will revert to default
-> values messing up the consumer clock settings.
+Not using any semantic patch for the remaining drivers.
+This series does the conversion by not passing explicit type
+to the helper and maintaining type safety suggested by Geert.
 
-Needn't "hence ..."
+Link to part 1, 2 and 3 of driver conversion:
+https://patchwork.freedesktop.org/series/147082/
+https://patchwork.freedesktop.org/series/147157/
+https://patchwork.freedesktop.org/series/147246/
 
-Save/restore register value at suspend/resume functions to fix this problem.
+Link to part 4 that incorporates type safety:
+https://patchwork.freedesktop.org/series/151355/
 
->
-> Also, fix the suspend/resume routines as well, as the clock was left ON
-> when going to suspend.
+Geert's suggestion
+https://lore.kernel.org/dri-devel/CAN9Xe3TXZa1nrCLkHadiBkOO=q1ue8Jwc3V13pXcbAc9AFS2-Q@mail.gmail.com/
 
-Do you means fix the problem clock left ON after suspend?
+This is the final set of drivers.
 
-Pomain cut off, why clock can left on?
+A total of 86 drivers covered in part 1, 2 and 3 are converted
+by passing explicit type and is not type safe. Changes to those
+will be addressed in the upcoming series.
 
->
-> Fixes: 5224b189462f ("clk: imx: add i.MX95 BLK CTL clk driver")
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> ---
->  drivers/clk/imx/clk-imx95-blk-ctl.c | 55 ++++++++++++++++++-----------
->  1 file changed, 34 insertions(+), 21 deletions(-)
->
-> diff --git a/drivers/clk/imx/clk-imx95-blk-ctl.c b/drivers/clk/imx/clk-imx95-blk-ctl.c
-> index 7e88877a62451..7f9bbca517284 100644
-> --- a/drivers/clk/imx/clk-imx95-blk-ctl.c
-> +++ b/drivers/clk/imx/clk-imx95-blk-ctl.c
-> @@ -448,12 +448,36 @@ static int imx95_bc_probe(struct platform_device *pdev)
->  	return ret;
->  }
->
-> +static void __maybe_unused imx95_bc_save_reg(struct imx95_blk_ctl *bc)
-> +{
-> +	const struct imx95_blk_ctl_dev_data *bc_data;
-> +
-> +	bc_data = of_device_get_match_data(bc->dev);
-> +	if (!bc_data)
-> +		return;
-> +
-> +	bc->clk_reg_restore = readl(bc->base + bc_data->clk_reg_offset);
-> +}
-> +
-> +static void __maybe_unused imx95_bc_restore_reg(struct imx95_blk_ctl *bc)
-> +{
-> +	const struct imx95_blk_ctl_dev_data *bc_data;
-> +
-> +	bc_data = of_device_get_match_data(bc->dev);
+Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
+---
+Anusha Srivatsa (14):
+      drm/panel/lq101r1sx01:  Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/raspberrypi: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/vvx10f034n00: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/osd101t2587-53ts: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/novatek-nt36672a: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/lg-sw43408: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/kd097d04: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/khadas-ts050: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/jdi-lt070me05000: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/lpm102a188a: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/ilitek-ili9882t: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/himax-hx83102: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/boe-tv101wum-nl6: Use refcounted allocation in place of devm_kzalloc()
+      drm/panel/boe-himax8279d: Use refcounted allocation in place of devm_kzalloc()
 
-Generally, bc_data should in imx95_blk_ctl_dev_data and set once at probe.
+ drivers/gpu/drm/panel/panel-boe-himax8279d.c          | 11 +++++------
+ drivers/gpu/drm/panel/panel-boe-tv101wum-nl6.c        | 10 +++++-----
+ drivers/gpu/drm/panel/panel-himax-hx83102.c           | 10 +++++-----
+ drivers/gpu/drm/panel/panel-ilitek-ili9882t.c         | 10 +++++-----
+ drivers/gpu/drm/panel/panel-jdi-lpm102a188a.c         | 12 ++++++------
+ drivers/gpu/drm/panel/panel-jdi-lt070me05000.c        | 11 +++++------
+ drivers/gpu/drm/panel/panel-khadas-ts050.c            | 13 ++++++-------
+ drivers/gpu/drm/panel/panel-kingdisplay-kd097d04.c    | 12 ++++++------
+ drivers/gpu/drm/panel/panel-lg-sw43408.c              | 10 +++++-----
+ drivers/gpu/drm/panel/panel-novatek-nt36672a.c        | 10 +++++-----
+ drivers/gpu/drm/panel/panel-osd-osd101t2587-53ts.c    | 12 ++++++------
+ drivers/gpu/drm/panel/panel-panasonic-vvx10f034n00.c  | 12 ++++++------
+ drivers/gpu/drm/panel/panel-raspberrypi-touchscreen.c | 12 ++++++------
+ drivers/gpu/drm/panel/panel-sharp-lq101r1sx01.c       | 11 +++++------
+ 14 files changed, 76 insertions(+), 80 deletions(-)
+---
+base-commit: bead8800222768dab1a421206350d530b0c45254
+change-id: 20250710-b4-driver-convert-last-part-july-34db91cbdf7a
 
-So imx95_bc_save_reg() and imx95_bc_restore_reg() will be simpfied.
+Best regards,
+-- 
+Anusha Srivatsa <asrivats@redhat.com>
 
-> +	if (!bc_data)
-> +		return;
-> +
-> +	writel(bc->clk_reg_restore, bc->base + bc_data->clk_reg_offset);
-> +}
-> +
->  #ifdef CONFIG_PM
->  static int imx95_bc_runtime_suspend(struct device *dev)
->  {
->  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
->
-> +	imx95_bc_save_reg(bc);
-
-this help function just one line. direct use
-
-writel(bc->clk_reg_restore, bc->base + bc->bc_data->clk_reg_offset);
-
->  	clk_disable_unprepare(bc->clk_apb);
-> +
->  	return 0;
->  }
->
-> @@ -461,7 +485,10 @@ static int imx95_bc_runtime_resume(struct device *dev)
->  {
->  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
->
-> -	return clk_prepare_enable(bc->clk_apb);
-> +	clk_prepare_enable(bc->clk_apb);
-
-Need check ret value;
-
-> +	imx95_bc_restore_reg(bc);
-> +
-> +	return 0;
->  }
->  #endif
->
-> @@ -469,22 +496,12 @@ static int imx95_bc_runtime_resume(struct device *dev)
->  static int imx95_bc_suspend(struct device *dev)
->  {
->  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
-> -	const struct imx95_blk_ctl_dev_data *bc_data;
-> -	int ret;
->
-> -	bc_data = of_device_get_match_data(dev);
-> -	if (!bc_data)
-> +	if (pm_runtime_suspended(dev))
->  		return 0;
->
-> -	if (bc_data->rpm_enabled) {
-> -		ret = pm_runtime_get_sync(bc->dev);
-> -		if (ret < 0) {
-> -			pm_runtime_put_noidle(bc->dev);
-> -			return ret;
-> -		}
-> -	}
-> -
-> -	bc->clk_reg_restore = readl(bc->base + bc_data->clk_reg_offset);
-> +	imx95_bc_save_reg(bc);
-> +	clk_disable_unprepare(bc->clk_apb);
->
->  	return 0;
->  }
-> @@ -492,16 +509,12 @@ static int imx95_bc_suspend(struct device *dev)
->  static int imx95_bc_resume(struct device *dev)
->  {
->  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
-> -	const struct imx95_blk_ctl_dev_data *bc_data;
->
-> -	bc_data = of_device_get_match_data(dev);
-> -	if (!bc_data)
-> +	if (pm_runtime_suspended(dev))
->  		return 0;
->
-> -	writel(bc->clk_reg_restore, bc->base + bc_data->clk_reg_offset);
-> -
-> -	if (bc_data->rpm_enabled)
-> -		pm_runtime_put(bc->dev);
-> +	clk_prepare_enable(bc->clk_apb);
-> +	imx95_bc_restore_reg(bc);
->
->  	return 0;
->  }
-
-look like imx95_bc_suspend(resume) is simple enough
-
-Can you use DEFINE_RUNTIME_DEV_PM_OPS?
-
-Frank
-
-> --
-> 2.46.1
->
 
