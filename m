@@ -4,54 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C5BC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 13:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE531C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 13:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sg9El2RNDhGBvNMVt4G/+d/AimpEjyKy8uzIw7grPLU=; b=fJqJiXePI7yg2Xv09jHSGYet1M
-	+2KSsHjf55zCfdjxDLhSyhvBFIj84hMG/kTZ6MyigxjzTyUoq4VF7F7PwTkVkHNiGVfDCNqp2YB0n
-	7ed6eD4Sk2b6+Q5j2NlL0yKwoV767O7PaDmp08NsiLbgI9XRHXCny/BTVOgf+ozTVsZm7Mg9jLa+H
-	imptnlOoxyjQPntgrUHhFV7ERMi3urK2Bqo0QxAtSVz5RRaLYRqRZSTtPApkzOeAMdLBX/qG3pn6r
-	Guyr570aq2cl+7s8yAhAZsvy2nRsnKiQ5meO09AobP/R/3g9oh+/I8oRRWkpEaYajlCHLmyRlDlSe
-	FUm99NPA==;
+	bh=bn+2EfPxrW74YCVLrUQ7XmafitrVBvkYEYL0uehflMQ=; b=A/SLdD1KAuqcbG+J+0yiHuuTpI
+	JzBb3RUewNdFZS89tuiOXLPcoFmIqwhbX2yP8sKbUYPlvgx4iAa2elM58q8Fv1XePVvbW5EYiJ/HZ
+	1VJFoVinNxvNoXZPJQGK4SP6DJu+yJoCCGQUeEgBSuQk0RRHWLAaSfXB8dOczNZXNpzvqMcZ3avdJ
+	NeizNoLfQG3tBXYRuE/QsrqeWNzy1CnplDEaSpxkG5dAPRhR0hdhOFwzgNyort0t25P5NBDkhU8Ei
+	XJS2YvFeckB9lyMsrJlv6Nej8ujNZMqmJ2zSQGwAUAHEmXjYx53S5r+EXT9oFRwczNfhr0kKJYJnw
+	jGUgef4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaDoT-0000000EskB-0CF8;
-	Fri, 11 Jul 2025 13:29:17 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uaDqm-0000000EtCB-3DbA;
+	Fri, 11 Jul 2025 13:31:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaDYZ-0000000EqfB-0cnZ
+	id 1uaDYj-0000000Eqh4-1rQT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 11 Jul 2025 13:13:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=bn+2EfPxrW74YCVLrUQ7XmafitrVBvkYEYL0uehflMQ=; b=SoTqLTJ73EnWj0yObaM+9p4VO6
+	eegEUbF4/0yoMwz3RUt1KEfcxnZm7PIXF5rYS2PR0Vce7Jadifyi1UnYEj+eGWRKH+rC8ueLQi2tL
+	6cL/qWFfPVmeAAvvTaegRzdbClXBYckGKZrjNfsR6vYbhXYllfnQ4tVcGqvNx+e1lvj8VlGO3du9Q
+	wjdwbCBlQpxV+Rh6lQ+0Aw5pg5gn7t62xPsLu4i3H28BWpR0aSZu3Q04vf+uLGLPuia91JlSzoIKI
+	Z36/RAA5KOprl4f/ECU7fsYJqlZGqoqu1x0o2mA3B+v1ZqicRG/EmNIEspvyvV4xA0zklzwLW2Xte
+	uVPwbPJg==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uaDYg-00000009GUh-0JUF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 13:12:52 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56BATaI5008001;
-	Fri, 11 Jul 2025 13:12:43 GMT
+	Fri, 11 Jul 2025 13:13:00 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56BARiTi018184;
+	Fri, 11 Jul 2025 13:12:48 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	sg9El2RNDhGBvNMVt4G/+d/AimpEjyKy8uzIw7grPLU=; b=cugXmxVXzr9IEPJy
-	IFjKhK3T6MM/gGkDQB+ShOVWX7Urx2b0zrIUewcpfgZcW1bbeafyXhw0G3OPN6V8
-	7ghVCC+skeawTh4dFulo0AWG/aIQoAoRWZ+2fpvXRc/XPBCceyW7hzrxxz9VJPMG
-	n/LY0kcBR2yCeem5kT8awGpg9DdZEw17q3ffweqgjcJupUBzovg94660aV5K4PUm
-	25v13eAkOmw2lxyn/cpLDJwmThEXG2hic49hnDE83Txu5HHKsN5a1fsZqm9Jo7++
-	QxBzeKZq+M9DvopV4QDb81SAv5NPLLpIsKUjxOWgbeWRJDS0X0/X7P/STzJOzyLa
-	xh6sfA==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47smcg8n27-1
+	bn+2EfPxrW74YCVLrUQ7XmafitrVBvkYEYL0uehflMQ=; b=bJMVvB1Jqbo71wJc
+	nKVBtGf8jJfcB2QiiLoK0ZdLSxbrnog4ZKOUhuq5faeB7GFBQvv3SZGbG84r4+to
+	37Nq/OWEVBK66RykkaK/IdyyGlvELFstrORvUbYUL8gomURXo1wjDRw04jSjb82v
+	Y13Fl9x+vrET0ajkP56BUeen3M89+yS2G8YbBmmXZIrm/kTapdXKGG6rBhSSo8vT
+	a99f7ihefrzgNiF2urtq4pjdW9g41+DzlOHx2BKMjkpOpqzzhWdHXQyMpaP2mcKQ
+	lA+XIHutyGL4dx26aG5KcaUr9o2ZozBsVGI5h6hLqZE4b/8o/U3D+UuSBYc/BGes
+	0KIodQ==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47tkf32j6t-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Jul 2025 13:12:43 +0000 (GMT)
+	Fri, 11 Jul 2025 13:12:48 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56BDCghx001914
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56BDClBQ021644
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Jul 2025 13:12:42 GMT
+	Fri, 11 Jul 2025 13:12:47 GMT
 Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 11 Jul 2025 06:12:36 -0700
+ 15.2.1748.10; Fri, 11 Jul 2025 06:12:42 -0700
 From: Vikram Sharma <quic_vikramsa@quicinc.com>
 To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
         <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -63,9 +78,9 @@ CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
         <quic_svankada@quicinc.com>, <linux-media@vger.kernel.org>,
         <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 6/7] media: qcom: camss: Add support for CSIPHY QCS8300
-Date: Fri, 11 Jul 2025 18:41:33 +0530
-Message-ID: <20250711131134.215382-7-quic_vikramsa@quicinc.com>
+Subject: [PATCH v2 7/7] media: qcom: camss: Enumerate resources for QCS8300
+Date: Fri, 11 Jul 2025 18:41:34 +0530
+Message-ID: <20250711131134.215382-8-quic_vikramsa@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250711131134.215382-1-quic_vikramsa@quicinc.com>
 References: <20250711131134.215382-1-quic_vikramsa@quicinc.com>
@@ -77,31 +92,31 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=P7o6hjAu c=1 sm=1 tr=0 ts=68710dcb cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzExMDA5MyBTYWx0ZWRfXxC8aVI6XJP1O
+ Xp8xDr+op1eogsEtsbeYOp6Cv30bRRkm6GppYyfWTlFikzeCRi6YJ9yLom3e69+boi7ZXEh8TVu
+ TqXr0Zh53/WCNG4j/DSpEKJKHDSyyphZmO6vHsGKdsl/iWIPR8TAmIiiIvm+vo9ORlZjKoqMDye
+ fPQIwM990HCeP7Cvc0uKHfkQOSTUw13i3PjHPykZ97glDC0D8gECmmaqVLrmHI+b2O3QXXLJngO
+ 8BvwuhFYf2li9mA2MO+oYYERZ8YMvExNp62EmWapaNFOU/+NZTEeDra/vcjQjlexP5Z7VCbZii4
+ 0uHFOUf6vn9AZRG7Gn4lVRPKAWlQxiuwpAwBXR+xqHN0fESHf7ykSRFJ+c6RRpc02fqQVsVi4iD
+ 1U9h/m5RPy7a2ffN3MyJz7iYxm2VuYo5ffydKFhduebwWObKrLVtUfMDtHCVv2T+sMH2lTOk
+X-Proofpoint-GUID: DsF0ThitgJVYzCklWyN-iT9MqQnjrSWS
+X-Authority-Analysis: v=2.4 cv=Xuf6OUF9 c=1 sm=1 tr=0 ts=68710dd0 cx=c_pps
  a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8 a=8aMUJFMWNzm9pSYggZkA:9
+ a=GEpy-HfZoHoA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8 a=5xgrgTx84zIufkjN8CwA:9
  a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: Ans5s06nRM3f5ylGIbmNoV-o5Dzae77y
-X-Proofpoint-GUID: Ans5s06nRM3f5ylGIbmNoV-o5Dzae77y
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzExMDA5MyBTYWx0ZWRfX2KGl249IbolR
- Tr6af7rrz2xnXhA6jfjWUEHCsU5v6gaIEVUxn/mvVCkUqtpRLd4yOoz7Eha05T7MwseEO4S7WA5
- 817qyDfxaVZf8Opk2kpRARJhgBDonUYJY0nf+2g/OfL9wBx3QwfMMgkLS2Hdwu2k1vL560wJq2v
- DIIPqIePhTZ3tTOy1X31vhq5ydE6K2OI5JCPtz9G01EW1VayUVzgJCYaua/E76t4DbmYy5Qsf3X
- zcL3iajqdCSBAZ6/A2Gb4WbFoY8RkcohEomGrqQQig263VNY9j37Sa0vtjCI+cC1Xu+VgCVY1Uk
- 2UutnpJS508GiFd6TEzaOJkYhEJ7g4ommBXvvKOwmcbscCQrEG1rSeam0/83Kmoq++uKkbqpV9p
- 0bHYW2J6ujI0Byf15oOyPZqf3+4kl4jTrxFR+T9VpysuiiM+tHFrfoGFWQt3SyYezEoJBEgU
+X-Proofpoint-ORIG-GUID: DsF0ThitgJVYzCklWyN-iT9MqQnjrSWS
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
  definitions=2025-07-11_03,2025-07-09_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 phishscore=0 bulkscore=0 mlxscore=0
- malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
- adultscore=0 mlxlogscore=999 classifier=spam authscore=0 authtc=n/a authcc=
+ suspectscore=0 bulkscore=0 spamscore=0 lowpriorityscore=0 impostorscore=0
+ clxscore=1015 priorityscore=1501 malwarescore=0 adultscore=0 mlxscore=0
+ phishscore=0 mlxlogscore=999 classifier=spam authscore=0 authtc=n/a authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
  definitions=main-2507110093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_061251_190166_275B84D0 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20250711_141258_742380_A58512F0 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,102 +131,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for CSIPHY found on QCS8300.
+Enumerate csiphy, csid and vfe resources for qcs8300.
 
 Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 ---
- .../qcom/camss/camss-csiphy-3ph-1-0.c         |  2 +
- drivers/media/platform/qcom/camss/camss.c     | 57 +++++++++++++++++++
- 2 files changed, 59 insertions(+)
+ drivers/media/platform/qcom/camss/camss.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c b/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
-index e8dbf9af6ccb..667a8cf349cb 100644
---- a/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
-+++ b/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
-@@ -826,6 +826,7 @@ static bool csiphy_is_gen2(u32 version)
- 	case CAMSS_7280:
- 	case CAMSS_8250:
- 	case CAMSS_8280XP:
-+	case CAMSS_8300:
- 	case CAMSS_845:
- 	case CAMSS_8550:
- 	case CAMSS_8775P:
-@@ -928,6 +929,7 @@ static int csiphy_init(struct csiphy_device *csiphy)
- 		regs->lane_array_size = ARRAY_SIZE(lane_regs_sm8550);
- 		regs->offset = 0x1000;
- 		break;
-+	case CAMSS_8300:
- 	case CAMSS_8775P:
- 		regs->lane_regs = &lane_regs_sa8775p[0];
- 		regs->lane_array_size = ARRAY_SIZE(lane_regs_sa8775p);
 diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-index abfaa489cc0c..124bb56167cd 100644
+index 124bb56167cd..6cd6a5116f5e 100644
 --- a/drivers/media/platform/qcom/camss/camss.c
 +++ b/drivers/media/platform/qcom/camss/camss.c
-@@ -2491,6 +2491,63 @@ static const struct resources_icc icc_res_sm8550[] = {
- 	},
+@@ -4569,7 +4569,14 @@ static const struct camss_resources msm8996_resources = {
+ static const struct camss_resources qcs8300_resources = {
+ 	.version = CAMSS_8300,
+ 	.pd_name = "top",
++	.csiphy_res = csiphy_res_8300,
++	.csid_res = csid_res_8300,
++	.csid_wrapper_res = &csid_wrapper_res_qcs8300,
++	.vfe_res = vfe_res_8300,
+ 	.icc_res = icc_res_qcs8300,
++	.csiphy_num = ARRAY_SIZE(csiphy_res_8300),
++	.csid_num = ARRAY_SIZE(csid_res_8300),
++	.vfe_num = ARRAY_SIZE(vfe_res_8300),
+ 	.icc_path_num = ARRAY_SIZE(icc_res_qcs8300),
+ 	.link_entities = camss_link_entities
  };
- 
-+static const struct camss_subdev_resources csiphy_res_8300[] = {
-+	/* CSIPHY0 */
-+	{
-+		.regulators = { "vdda-phy", "vdda-pll" },
-+
-+		.clock = { "csiphy_rx", "csiphy0", "csiphy0_timer"},
-+		.clock_rate = {
-+			{ 400000000 },
-+			{ 0 },
-+			{ 400000000 },
-+		},
-+		.reg = { "csiphy0" },
-+		.interrupt = { "csiphy0" },
-+		.csiphy = {
-+			.id = 0,
-+			.hw_ops = &csiphy_ops_3ph_1_0,
-+			.formats = &csiphy_formats_sdm845,
-+		}
-+	},
-+	/* CSIPHY1 */
-+	{
-+		.regulators = { "vdda-phy", "vdda-pll" },
-+
-+		.clock = { "csiphy_rx", "csiphy1", "csiphy1_timer"},
-+		.clock_rate = {
-+			{ 400000000 },
-+			{ 0 },
-+			{ 400000000 },
-+		},
-+		.reg = { "csiphy1" },
-+		.interrupt = { "csiphy1" },
-+		.csiphy = {
-+			.id = 1,
-+			.hw_ops = &csiphy_ops_3ph_1_0,
-+			.formats = &csiphy_formats_sdm845,
-+		}
-+	},
-+	/* CSIPHY2 */
-+	{
-+		.regulators = { "vdda-phy", "vdda-pll" },
-+
-+		.clock = { "csiphy_rx", "csiphy2", "csiphy2_timer"},
-+		.clock_rate = {
-+			{ 400000000 },
-+			{ 0 },
-+			{ 400000000 },
-+		},
-+		.reg = { "csiphy2" },
-+		.interrupt = { "csiphy2" },
-+		.csiphy = {
-+			.id = 2,
-+			.hw_ops = &csiphy_ops_3ph_1_0,
-+			.formats = &csiphy_formats_sdm845,
-+		}
-+	},
-+};
-+
- static const struct camss_subdev_resources csid_res_8300[] = {
- 	/* CSID0 */
- 	{
 -- 
 2.25.1
 
