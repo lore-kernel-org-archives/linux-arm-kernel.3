@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1C7C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0BFC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QvQZjITQUy1vehOVun9qYjbArQq16xcWUq4wj4bnXCI=; b=MArHKN5POOP8MQOIJnPzmbE1p8
-	7Ub3K3ZtfR/h/Cjsw7dH8adWtnr1uLZ20M12QZsVLkiMAsnxQJIM1rBXCSwkfX+Wq36wBYcnHQiBn
-	zcV3G//1TITeg4tGOgb3qg30s7AmgAFq1JvyJ82DniiK7KGe/3UReXDt2BVOUzNpE7Sb9y/BgKvEM
-	dKP/kYsPuFhw4N9ABte5/JFdEpt/O6vRj/Ti5a3Nnj1auBc+fuLPvy0yLKJ6SpIoly3wZbX5nqtEQ
-	TiA3+3LTCAvNLyefoFbV99E4QHIbhpeuBirBztz7eeKRuUmlfL7zH013z3fz+9a8+s8bVeVVkj0c6
-	s6a4r02Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u8PRFvvft00MtlCnONcjj4pEZ2b2KyEKUMgdQwR1pHM=; b=Tzi/yxgP86QpxjodQeSS+katcI
+	19Il5p+lswezTmUWipCp3jKOhawK7XdcVVeFwOzqtvbwHygzF+75GsA+6wr4ZvWL0SCzJGLeczftc
+	IM/c2+6YHYdW5T9yWFQFwmO2MbnUFfyN/UxhVZd3hMInCQmxj7J6xobdRKj9HMubb25+cW0M9vHnM
+	p0J8n7Xqe1a1M7alEPBJYnb7wD2DSneTEHB+w5o7w6LUYM3oaq19qJqC8GkrZlLMTCyE7smue7LxY
+	1u96SNcO8umTJ5ZghA9UcLjgsWf2Z0qoC28QmM0vv4Wbmrxyydh3y1owHeQTJmZhyLYXA+zp1BOsO
+	FQM6mqqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaATS-0000000EO6w-1vpy;
-	Fri, 11 Jul 2025 09:55:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua9RD-0000000ED0K-49jF
+	id 1uaAVm-0000000EOd1-0qPP;
+	Fri, 11 Jul 2025 09:57:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ua9Tu-0000000EDPk-3PcP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 08:49:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 58E1C6116F;
-	Fri, 11 Jul 2025 08:48:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EADAC4CEED;
-	Fri, 11 Jul 2025 08:48:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752223739;
-	bh=qz00TFtiE4R9C6GWhLvgyU/ZW+rbFxh0EXwo9y3XYzc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=NVbgk0xZyDfduDrHs8UvuNrW4RZ9tlGbUnqMtapN1luVq4ONDeRgmHkSO2+YZettB
-	 RZmsn/qyEPqb2H8dhMuHSGbLcAAUR4nSPWWoYLPYQoRJmSduSWeUZNjYklwisZhrI1
-	 1LESzMo/WKmdUSakFIYnsgiFVjabvXcWZGxnxShWXVXO53MDLCEtWXSwgwlwidGe/H
-	 lcbCNOH6XXSf+OWLiuHzkj7eBYtwhW5xXXbOS8gSpvmJ8YHAUnUemdV7M39RTlVc9y
-	 upB3qMCA/CZVN0sxmZOTpiaxPxGyBBEDCFB4jX0crY+grBRVLYv/JaPs4YyiB2YmVB
-	 va1A2WSgGeXjA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1ua9RA-00Eo6u-Ez;
-	Fri, 11 Jul 2025 09:48:56 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Ben Horgan <ben.horgan@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] KVM/arm64 fixes for 6.16, take #6
-Date: Fri, 11 Jul 2025 09:48:34 +0100
-Message-Id: <20250711084835.2411230-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Fri, 11 Jul 2025 08:51:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D699516F2;
+	Fri, 11 Jul 2025 01:51:34 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D9C93F6A8;
+	Fri, 11 Jul 2025 01:51:42 -0700 (PDT)
+Date: Fri, 11 Jul 2025 09:51:39 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Brian Masney <bmasney@redhat.com>
+Cc: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	linux-clk@vger.kernel.org, linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] ARM: versatile: clock: convert from round_rate() to
+ determine_rate()
+Message-ID: <20250711-invaluable-enchanted-baboon-53fb4f@sudeepholla>
+References: <20250710-arm32-clk-round-rate-v1-0-a9146b77aca9@redhat.com>
+ <20250710-arm32-clk-round-rate-v1-3-a9146b77aca9@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, ben.horgan@arm.com, yuzenghui@huawei.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250710-arm32-clk-round-rate-v1-3-a9146b77aca9@redhat.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250711_015146_892980_BD6811D8 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +75,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Paolo,
+On Thu, Jul 10, 2025 at 07:42:18PM -0400, Brian Masney wrote:
+> The round_rate() clk ops is deprecated, so migrate this driver from
+> round_rate() to determine_rate() using the Coccinelle semantic patch
+> on the cover letter of this series.
+> 
 
-Here the (hopefully) last fix for 6.16, addressing what can adequately
-be called a brain fart in dealing with the sanitisation of the number
-of PMU registers in nested virt.
+Acked-by: Sudeep Holla <sudeep.holla@arm.com>
 
-Please pull,
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
+> ---
+>  arch/arm/mach-versatile/spc.c | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm/mach-versatile/spc.c b/arch/arm/mach-versatile/spc.c
+> index 790092734cf6155daa63c44a1e5af00ecef30737..812db32448fcd415fa1a60f8bb971661369151e1 100644
+> --- a/arch/arm/mach-versatile/spc.c
+> +++ b/arch/arm/mach-versatile/spc.c
+> @@ -497,12 +497,13 @@ static unsigned long spc_recalc_rate(struct clk_hw *hw,
+>  	return freq * 1000;
+>  }
+>  
+> -static long spc_round_rate(struct clk_hw *hw, unsigned long drate,
+> -		unsigned long *parent_rate)
+> +static int spc_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
+>  {
+>  	struct clk_spc *spc = to_clk_spc(hw);
+>  
+> -	return ve_spc_round_performance(spc->cluster, drate);
+> +	req->rate = ve_spc_round_performance(spc->cluster, req->rate);
+> +
+> +	return 0;
+>  }
+>  
+>  static int spc_set_rate(struct clk_hw *hw, unsigned long rate,
+> @@ -515,7 +516,7 @@ static int spc_set_rate(struct clk_hw *hw, unsigned long rate,
+>  
+>  static struct clk_ops clk_spc_ops = {
+>  	.recalc_rate = spc_recalc_rate,
+> -	.round_rate = spc_round_rate,
+> +	.determine_rate = spc_determine_rate,
+>  	.set_rate = spc_set_rate,
+>  };
+>  
+> 
+> -- 
+> 2.50.0
+> 
 
-	M.
-
-The following changes since commit 42ce432522a17685f5a84529de49e555477c0a1f:
-
-  KVM: arm64: Remove kvm_arch_vcpu_run_map_fp() (2025-07-03 10:39:24 +0100)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-6.16-6
-
-for you to fetch changes up to 2265c08ec393ef1f5ef5019add0ab1e3a7ee0b79:
-
-  KVM: arm64: Fix enforcement of upper bound on MDCR_EL2.HPMN (2025-07-09 13:19:24 +0100)
-
-----------------------------------------------------------------
-KVM/arm64 fixes for 6.16, take #6
-
-- Fix use of u64_replace_bits() in adjusting the guest's view of
-  MDCR_EL2.HPMN.
-
-----------------------------------------------------------------
-Ben Horgan (1):
-      KVM: arm64: Fix enforcement of upper bound on MDCR_EL2.HPMN
-
- arch/arm64/kvm/sys_regs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+-- 
+Regards,
+Sudeep
 
