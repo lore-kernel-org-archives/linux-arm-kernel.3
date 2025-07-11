@@ -4,69 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36A3C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 15:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B9AC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 15:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CduGbGCgZgrIiGpShxYzu7ZwtkhOzQeZqH2gFZ0QHdk=; b=kcwMVa9aFy9lWB7BizIZ2S+HQR
-	mjuKc5XXcG6tpzVs0wwt8WpP2SeNEU9taDg6aSPK99acYIYXRu1FpAOWzZqPJlvO9IVywJb7fp//F
-	bZ2Qb+fSwEKVMNOa4beOy1g5OWJC2kwrjT08LU5NDVqh8V90s7m59TehbhtC/DY/RY0SXSdzPNCsX
-	J+uoTRGt61E2/n71A9s7a7lTcpw72VyyNtvQ6687rguLQQcK0MZYeH4V1o1OJC7usoBits+/DFid8
-	aJVSjQsnyo/BI/rVTzwAJsoWFioEflas83KI7+E/W2l+U3KPCbhAsWNc6Oz67AjeBq+qeJYosnAW/
-	5R9EP/TA==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WGNVNUN3+kMS8Pk+lW7Mu54XMRd7ahgEZfB5hqHxV0Y=; b=LJJrxfM2kDTn7eea4Ov8t7iptr
+	yRy2QnSnj5DbV2Jx09fFx/qoOb/nXM4WHEr+98knsVqnt81b7NhCHjjACAzF2yodHKP8jPSCNqGlD
+	KcymE9fCzG2BPW8UJuseZlRWa99BQbaKj34PCjocwCxuBvpGcYSpAD30q6uxcPekkIZqoc1Orpr6M
+	9tQZOu09B/u44dwumvYC44wjwqMnjYHWOYEt0WWQlXYw3l5hriL/wjeSRRi/M61XfWJ9O4yR+Ccbi
+	QopK5LycY2BvMZAAUYWFMRJATzFgPgxu55kVP3fvLAC67vqGZezc4XPresfADZaert/h+GG0bUZnL
+	7Uxcu0Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaG6d-0000000FCwO-2tHp;
-	Fri, 11 Jul 2025 15:56:11 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uaG8w-0000000FD6X-27m6;
+	Fri, 11 Jul 2025 15:58:34 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaFrW-0000000FAUH-43qT
+	id 1uaFrm-0000000FAXO-1fVW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 15:40:36 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bdwnG30Qlz6L563;
-	Fri, 11 Jul 2025 23:37:06 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id D2EA5140279;
-	Fri, 11 Jul 2025 23:40:24 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 11 Jul
- 2025 17:40:24 +0200
-Date: Fri, 11 Jul 2025 16:40:22 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Koichi Okuno <fj2767dz@fujitsu.com>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Catalin Marinas <catalin.marinas@arm.com>,
-	Gowthami Thiagarajan <gthiagarajan@marvell.com>, Linu Cherian
-	<lcherian@marvell.com>, Robin Murphy <robin.murphy@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, Bjorn Andersson
-	<quic_bjorande@quicinc.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Konrad Dybcio
-	<konradybcio@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, "Arnd
- Bergmann" <arnd@arndb.de>, "=?ISO-8859-1?Q?N=EDcolas?= \"F. R. A. Prado\""
-	<nfraprado@collabora.com>, Thomas Gleixner <tglx@linutronix.de>, "Peter
- Zijlstra" <peterz@infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v6 1/2] perf: Fujitsu: Add the Uncore MAC PMU driver
-Message-ID: <20250711164022.000059b9@huawei.com>
-In-Reply-To: <20250711071404.2138816-2-fj2767dz@fujitsu.com>
-References: <20250711071404.2138816-1-fj2767dz@fujitsu.com>
-	<20250711071404.2138816-2-fj2767dz@fujitsu.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 11 Jul 2025 15:40:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1752248445; x=1752853245; i=wahrenst@gmx.net;
+	bh=WGNVNUN3+kMS8Pk+lW7Mu54XMRd7ahgEZfB5hqHxV0Y=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Nzxg9ninBUFzYbR1TH8e6+EAfPKMV/Uhv82VcSh/5QUfrYRj7+9gQf/NBQK7Zb+z
+	 fhgt3JBW7ss70598RJAregIsmF0o4WuUV9sF+njOaxqgxCybKyumpxp7vXcMhCQ1W
+	 8yTB9rmvhiUKc3W9K/TzyWVMkymso2A6HuvFIdd6FGwQI109BULVM7YjubOHllF/1
+	 DwCocmTBwYNk1j9kSVZ7NkMZ+Kz4SboJ+ieRM7lwS2r0ugryguUOBwSTfFRk1Eesk
+	 WsnjW5hna1KUXnToVTvSS3dmc3TjU0jz20BY8WukKX8IoZtLUbZsH3GLhBUbCVm/m
+	 l52CPj1D/1PZjAb5EQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([91.41.216.208]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MoO2E-1uyY330ijY-00nS1L; Fri, 11
+ Jul 2025 17:40:45 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	kernel-list@raspberrypi.com,
+	linux-staging@lists.linux.dev,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH 0/3] staging: vchiq_arm: Fix regression & resource leaks
+Date: Fri, 11 Jul 2025 17:40:28 +0200
+Message-Id: <20250711154031.24178-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:3ghwf+cpjS3W+KSJ4b7WqI74pMZ1vtdWImtjwkzcC46u3Lbt5Ee
+ WR+WDDkZIdn5WMil2zCWJjfamo3qnY0mWyru01i/2NWJE3bQ9uJGl8MMm768jxrUrieMEaa
+ TB5v1LEO92S6JO07pBjDwjEOWrEVouBHoQnUhgV1DRxMLvMsyhFwv/ceLBUAsZJX6gmm6/L
+ cJ1UMOgHZaIgcqSgHBOvA==
+UI-OutboundReport: notjunk:1;M01:P0:Ga+hzia5/XA=;AgynK4QR2nNeD3nQ6EDOF8uDqbD
+ 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
+ uSzLSpeuWX1ILxJaimKolEY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_084035_299895_31E8411F 
-X-CRM114-Status: GOOD (  43.81  )
+X-CRM114-CacheID: sfid-20250711_084050_804096_00F49B3C 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,353 +133,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Jul 2025 16:13:39 +0900
-Koichi Okuno <fj2767dz@fujitsu.com> wrote:
+This small series fixes a regression introduced by recent changes and
+possible resource leaks in the VCHIQ driver.
 
-> This adds two new dynamic PMUs to the Perf Events framework to program
-> and control the Uncore MAC PMUs in Fujitsu chips.
-> 
-> These drivers were created with reference to drivers/perf/qcom_l3_pmu.c.
-> 
-> These drivers export formatting and event information to sysfs so they can
-> be used by the perf user space tools with the syntaxes:
-> 
-> perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
-> perf stat -e mac_iod0_mac0_ch0/event=0x80/ ls
-> 
-> FUJITSU-MONAKA PMU Events Specification v1.1 URL:
-> https://github.com/fujitsu/FUJITSU-MONAKA
-> 
-> Signed-off-by: Koichi Okuno <fj2767dz@fujitsu.com>
-Hi
+Stefan Wahren (3):
+  Revert "staging: vchiq_arm: Improve initial VCHIQ connect"
+  Revert "staging: vchiq_arm: Create keep-alive thread during probe"
+  staging: vchiq_arm: Make vchiq_shutdown never fail
 
-We may have discussed on an earlier version and I've forgotten about it
-(in which case sorry!) but why can't this be modular?
+ .../interface/vchiq_arm/vchiq_arm.c           | 98 +++++++++++--------
+ .../interface/vchiq_arm/vchiq_core.c          |  1 -
+ .../interface/vchiq_arm/vchiq_core.h          |  2 -
+ 3 files changed, 56 insertions(+), 45 deletions(-)
 
-Given the chances are we will want it in standard distributions, a
-bool kconfig seems to ensure bloat that people are not going to want to
-see.
-
-A few other minor comments inline.
-
-Thanks,
-
-Jonathan
-
-> ---
->  .../admin-guide/perf/fujitsu_mac_pmu.rst      |  73 +++
->  Documentation/admin-guide/perf/index.rst      |   1 +
->  drivers/perf/Kconfig                          |   9 +
->  drivers/perf/Makefile                         |   1 +
->  drivers/perf/fujitsu_mac_pmu.c                | 569 ++++++++++++++++++
->  5 files changed, 653 insertions(+)
->  create mode 100644 Documentation/admin-guide/perf/fujitsu_mac_pmu.rst
->  create mode 100644 drivers/perf/fujitsu_mac_pmu.c
-> 
-> diff --git a/Documentation/admin-guide/perf/fujitsu_mac_pmu.rst b/Documentation/admin-guide/perf/fujitsu_mac_pmu.rst
-> new file mode 100644
-> index 000000000000..383f3c1bbde7
-> --- /dev/null
-> +++ b/Documentation/admin-guide/perf/fujitsu_mac_pmu.rst
-> @@ -0,0 +1,73 @@
-> +====================================================
-> +Fujitsu Uncore MAC Performance Monitoring Unit (PMU)
-> +====================================================
-> +
-> +This driver supports the Uncore MAC PMUs found in Fujitsu chips.
-> +Each MAC PMU on these chips is exposed as a uncore perf PMU with device name
-> +mac_iod<iod>_mac<mac>_ch<ch>.
-> +
-> +The driver provides a description of its available events and configuration
-> +options in sysfs, see /sys/bus/event_sources/devices/mac_iod<iod>_mac<mac>_ch<ch>/.
-> +This driver exports:
-> +- formats, used by perf user space and other tools to configure events
-> +- events, used by perf user space and other tools to create events
-> +  symbolically, e.g.:
-> +    perf stat -a -e mac_iod0_mac0_ch0/event=0x21/ ls
-> +- cpumask, used by perf user space and other tools to know on which CPUs
-> +  to open the events
-> +
-> +This driver supports the following events:
-> +- cycles
-> +  This event counts MAC cycles at MAC frequency.
-
-Trivial but you could shorten all these by rewording to drop the This Event and counts
-as both obvious from context.
-
-  - cycles
-    MAC Cycles at MAC frequency.
-  - read-count
-    Number of read requests to MAC.
-etc
-
-> +- read-count
-> +  This event counts the number of read requests to MAC.
-> +- read-count-request
-> +  This event counts the number of read requests including retry to MAC.
-> +- read-count-return
-> +  This event counts the number of responses to read requests to MAC.
-> +- read-count-request-pftgt
-> +  This event counts the number of read requests including retry with PFTGT
-> +  flag.
-> +- read-count-request-normal
-> +  This event counts the number of read requests including retry without PFTGT
-> +  flag.
-> +- read-count-return-pftgt-hit
-> +  This event counts the number of responses to read requests which hit the
-> +  PFTGT buffer.
-> +- read-count-return-pftgt-miss
-> +  This event counts the number of responses to read requests which miss the
-> +  PFTGT buffer.
-> +- read-wait
-> +  This event counts outstanding read requests issued by DDR memory controller
-> +  per cycle.
-> +- write-count
-> +  This event counts the number of write requests to MAC (including zero write,
-> +  full write, partial write, write cancel).
-> +- write-count-write
-> +  This event counts the number of full write requests to MAC (not including
-> +  zero write).
-> +- write-count-pwrite
-> +  This event counts the number of partial write requests to MAC.
-> +- memory-read-count
-> +  This event counts the number of read requests from MAC to memory.
-> +- memory-write-count
-> +  This event counts the number of full write requests from MAC to memory.
-> +- memory-pwrite-count
-> +  This event counts the number of partial write requests from MAC to memory.
-> +- ea-mac
-> +  This event counts energy consumption of MAC.
-> +- ea-memory
-> +  This event counts energy consumption of memory.
-> +- ea-memory-mac-write
-> +  This event counts the number of write requests from MAC to memory.
-> +- ea-ha
-> +  This event counts energy consumption of HA.
-> +
-> +  'ea' is the abbreviation for 'Energy Analyzer'.
-> +
-> +Examples for use with perf::
-> +
-> +  perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
-> +
-> +Given that these are uncore PMUs the driver does not support sampling, therefore
-> +"perf record" will not work. Per-task perf sessions are not supported.
-
-> diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-> index 278c929dc87a..269bf72a512a 100644
-> --- a/drivers/perf/Kconfig
-> +++ b/drivers/perf/Kconfig
-> @@ -178,6 +178,15 @@ config FSL_IMX9_DDR_PMU
->  	 can give information about memory throughput and other related
->  	 events.
->  
-> +config FUJITSU_MAC_PMU
-> +	bool "Fujitsu Uncore MAC PMU"
-
-We may have discussed this in an earlier version but why not
-tristate? + module_init() 
-
-> +	depends on (ARM64 && (ACPI || COMPILE_TEST))
-> +	help
-> +	 Provides support for the Uncore MAC performance monitor unit (PMU)
-> +	 in Fujitsu processors.
-> +	 Adds the Uncore MAC PMU into the perf events subsystem for
-> +	 monitoring Uncore MAC events.
-> +
->  config QCOM_L2_PMU
->  	bool "Qualcomm Technologies L2-cache PMU"
->  	depends on ARCH_QCOM && ARM64 && ACPI
-
-> diff --git a/drivers/perf/fujitsu_mac_pmu.c b/drivers/perf/fujitsu_mac_pmu.c
-> new file mode 100644
-> index 000000000000..3c5e838b9894
-> --- /dev/null
-> +++ b/drivers/perf/fujitsu_mac_pmu.c
-> @@ -0,0 +1,569 @@
-
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/bitops.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/list.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/perf_event.h>
-> +#include <linux/platform_device.h>
-> +
-> +/* Number of counters on each PMU */
-> +#define MAC_NUM_COUNTERS  8
-> +/* Mask for the event type field within perf_event_attr.config and EVTYPE reg */
-> +#define MAC_EVTYPE_MASK   0xFF
-> +
-> +/* Perfmon registers */
-> +#define MAC_PM_EVCNTR(__cntr) (0x000 + (__cntr) * 8)
-> +#define MAC_PM_CNTCTL(__cntr) (0x100 + (__cntr) * 8)
-> +#define MAC_PM_EVTYPE(__cntr) (0x200 + (__cntr) * 8)
-> +#define MAC_PM_CR         0x400
-> +#define MAC_PM_CNTENSET   0x410
-> +#define MAC_PM_CNTENCLR   0x418
-> +#define MAC_PM_INTENSET   0x420
-> +#define MAC_PM_INTENCLR   0x428
-> +#define MAC_PM_OVSR       0x440
-
-> +
-> +/* MAC_PM_INTENCLR */
-> +#define PMINTENCLR(__cntr)    BIT(__cntr)
-> +#define PM_INTENCLR_RESET     0xFF
-> +
-> +/* MAC_PM_OVSR */
-
-I'd rather see the macros named to make it clear which register
-they apply to sufficiently that the comments aren't needed.
-Also in my view good to put them directly under the register definine.
-
-> +#define PMOVSRCLR(__cntr)     BIT(__cntr)
-Not used.
-> +#define PMOVSRCLR_RESET       0xFF
-
-
-> +/*
-> + * We must NOT create groups containing events from multiple hardware PMUs,
-> + * although mixing different software and hardware PMUs is allowed.
-> + */
-> +static bool fujitsu_mac__validate_event_group(struct perf_event *event)
-> +{
-> +	struct perf_event *leader = event->group_leader;
-> +	struct perf_event *sibling;
-> +	int counters = 0;
-
-Value never used.
-
-> +
-> +	if (leader->pmu != event->pmu && !is_software_event(leader))
-> +		return false;
-> +
-> +	/* The sum of the counters used by the event and its leader event */
-> +	counters = 2;
-> +
-> +	for_each_sibling_event(sibling, leader) {
-> +		if (is_software_event(sibling))
-> +			continue;
-> +		if (sibling->pmu != event->pmu)
-> +			return false;
-> +		counters++;
-> +	}
-> +
-> +	/*
-> +	 * If the group requires more counters than the HW has, it
-> +	 * cannot ever be scheduled.
-> +	 */
-> +	return counters <= MAC_NUM_COUNTERS;
-> +}
-
-> +static int fujitsu_mac_pmu_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct acpi_device *acpi_dev;
-> +	struct mac_pmu *macpmu;
-> +	struct resource *memrc;
-> +	char *name;
-> +	int ret;
-> +	u64 uid;
-> +
-> +	acpi_dev = ACPI_COMPANION(dev);
-> +	if (!acpi_dev)
-> +		return -ENODEV;
-> +
-> +	ret = acpi_dev_uid_to_integer(acpi_dev, &uid);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "unable to read ACPI uid\n");
-> +
-> +	macpmu = devm_kzalloc(dev, sizeof(*macpmu), GFP_KERNEL);
-> +	if (!macpmu)
-> +		return -ENOMEM;
-> +
-> +	name = devm_kasprintf(dev, GFP_KERNEL, "mac_iod%llu_mac%llu_ch%llu",
-> +			  (uid >> 8) & 0xF, (uid >> 4) & 0xF, uid & 0xF);
-> +	if (!name)
-> +		return -ENOMEM;
-> +
-> +	macpmu->pmu = (struct pmu) {
-> +		.parent		= dev,
-> +		.task_ctx_nr	= perf_invalid_context,
-> +
-> +		.pmu_enable	= fujitsu_mac__pmu_enable,
-> +		.pmu_disable	= fujitsu_mac__pmu_disable,
-> +		.event_init	= fujitsu_mac__event_init,
-> +		.add		= fujitsu_mac__event_add,
-> +		.del		= fujitsu_mac__event_del,
-> +		.start		= fujitsu_mac__event_start,
-> +		.stop		= fujitsu_mac__event_stop,
-> +		.read		= fujitsu_mac__event_read,
-> +
-> +		.attr_groups	= fujitsu_mac_pmu_attr_grps,
-> +		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
-> +	};
-> +
-> +	macpmu->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &memrc);
-> +	if (IS_ERR(macpmu->regs))
-> +		return PTR_ERR(macpmu->regs);
-> +
-> +	fujitsu_mac__init(macpmu);
-> +
-> +	ret = platform_get_irq(pdev, 0);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	ret = devm_request_irq(dev, ret, fujitsu_mac__handle_irq, 0,
-> +						   name, macpmu);
-
-Unusual indentation.  Normally second line of parametes should just be
-aligned under first set of parameters.  E.g.
-
-	ret = devm_request_irq(dev, ret, fujitsu_mac__handle_irq, 0,
-			       name, macpmu);
-
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Request for IRQ failed for slice @%pa\n",
-> +							 &memrc->start);
-
-Similar for this second line set of parameters.
-
-> +
-> +	/* Add this instance to the list used by the offline callback */
-> +	ret = cpuhp_state_add_instance(mac_pmu_cpuhp_state, &macpmu->node);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Error registering hotplug");
-> +
-> +	ret = perf_pmu_register(&macpmu->pmu, name, -1);
-> +	if (ret < 0)
-> +		return dev_err_probe(dev, ret, "Failed to register MAC PMU\n");
-> +
-> +	dev_dbg(dev, "Registered %s, type: %d\n", name, macpmu->pmu.type);
-> +
-> +	return 0;
-> +}
-
-
-> +static int __init register_fujitsu_mac_pmu_driver(void)
-> +{
-> +	int ret;
-> +
-> +	/* Install a hook to update the reader CPU in case it goes offline */
-> +	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
-> +				      "perf/fujitsu/mac:online",
-> +				      fujitsu_mac_pmu_online_cpu,
-> +				      fujitsu_mac_pmu_offline_cpu);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	mac_pmu_cpuhp_state = ret;
-> +	return platform_driver_register(&fujitsu_mac_pmu_driver);
-> +}
-> +device_initcall(register_fujitsu_mac_pmu_driver);
-
-Perhaps add a comment on why this can be a module? Would need a trivial
-exit plus to use module_init() / module_exit()
- 
-
+=2D-=20
+2.34.1
 
 
