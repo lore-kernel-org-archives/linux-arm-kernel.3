@@ -4,72 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18EC0C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 11:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C6BC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 11:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+J1UiQEH3Rtesh/EDPg41C9ly4Q28WAviDALAty324=; b=18XPn+l2c40dEp7S8/sX2oDHt4
-	5cYuHtOfMlpzlsFCyHOYJnxqGKjva2b9RdtpHHWPo8qD3J/SY32BuSvzK+tuHf8fvhW+8V8dmM3E1
-	LlvgckHwFDJQIkaXV2ceYUN1JTUb+rGeR6FSQbHkS7fWvPmbGCZUTwYxXpXXYwCNBr7X3GzNVeokV
-	MtoX0lSnpAPModP4vxXhHEECO4mWZj0DFRFJewTw5zF4YHEwQn4v0c29nUaAfWldI2SFa4ZabWzp3
-	Xlawca+bH+sg61k48UBs937XW/9zKpI2YC1kM9o1Nb2KplHZbB+r3BuZ+kuLgUd/XA2XErHFsxayO
-	qC7CzYMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6DPlrQTYkt+ZE8rRAAVfPF09NGI7WKsXkRoeE2olJfQ=; b=m/flLTqDKNqioVWgm0JQaVCYJ+
+	GiPAN1xGxW1JbS5rMyumAleTG8aN+YFU1h63ZcREg9TXg7h+lFvd1pNGe8QEr3qDwCIwuy2gTKNZc
+	wO1ee4OfcvUe/q0Ngg7sEquwM6ZCgi99+74iN16QACVpFfUeBNZsku7aiFZOmPVyy56KiAAtSN8x5
+	VbD9AzkgprdyHXF2VgaH0TcyT1fnR18HQHYJVLkHGzO32oa7Pg6pXnRQ4RCZLFExiS7umruK7IbOB
+	FokfsMXoVncZfEEXcRycH7yyR3XbFohQfAlQLWtJvq/EYSCISyxBJUmkbFiWdDf0Kh5oM9cCd99Ca
+	/gnJTz7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaBhm-0000000EZYs-3fwk;
-	Fri, 11 Jul 2025 11:14:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uaBiZ-0000000EZfL-1ZTf;
+	Fri, 11 Jul 2025 11:15:03 +0000
+Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua9pI-0000000EGzQ-2MU2
+	id 1uaAgm-0000000ERqt-2PFf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 09:13:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A49E43C78;
-	Fri, 11 Jul 2025 09:13:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78A27C4CEED;
-	Fri, 11 Jul 2025 09:13:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752225232;
-	bh=D+J1UiQEH3Rtesh/EDPg41C9ly4Q28WAviDALAty324=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rB7i/wSnyCsoVTs9OQknYxwFVOVpM2CusWxCqIs1eVhOcPRvap/k39SzKRXhEt0FV
-	 Rfs0JSKM60g5cpuD+ce/+cBEUW1BFJsV9+17g+VaUk5mK7cJFZ0Giwai74c1aPg9RC
-	 +DAQjJKe5NcHKdmdAJ3wT5mTxTOLmawWsOZvD22RXuHgzrf7XIVGa98VywnGlWhtkV
-	 aEu+oCLzZ960iRceCHbj2JpvEyLL2/wVJHdF76NJLuPKe4mYlXTK7rYzdMqlHKI5dS
-	 p8c5b/Rh+v/3LhuC+VYqz6fcYoUL9SR5VxdESBR1vSvbsmJ3Qh5UgK8xn2BS2Aat7q
-	 24/CTHe93DLzA==
-Date: Fri, 11 Jul 2025 10:13:48 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	James Morse <james.morse@arm.com>,
-	Sebastian Ott <sebott@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: fix u64_replace_bits() usage
-Message-ID: <aHDVzKnJ2Yb6kmAC@finisterre.sirena.org.uk>
-References: <20250711072752.2781647-1-arnd@kernel.org>
- <86h5zj9laj.wl-maz@kernel.org>
- <4befb9eb-96e6-4a7c-9746-286144564f4e@app.fastmail.com>
- <86frf39kh6.wl-maz@kernel.org>
+	Fri, 11 Jul 2025 10:09:09 +0000
+Received: by mail-yb1-xb31.google.com with SMTP id 3f1490d57ef6-e8259b783f6so1585544276.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 03:09:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752228547; x=1752833347; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6DPlrQTYkt+ZE8rRAAVfPF09NGI7WKsXkRoeE2olJfQ=;
+        b=EdmkqzfFyiFTG6dO2Hhba4Ji46/GzbLqIhqng41MgMKQauvH5Osptlfe67zZiV61NI
+         tckaEUZYbCj3yLkbmKlS4ESMymgC6vSTwx+7bcy5rLs3AxwT1v5wg2fgJruz+KAhbZaJ
+         KybWnfYHpUOMWzVrJqrt3vpYKhQlzsjsShAK0JzEUsdyQWQiqrJDp/AHzc3vyhekK7Ih
+         1Zo8Sb0t9f2W1jYLDEVEXp84JEyXMJDuVeAvNQlNdqkCGFkKP5/Gyj8+UNs1sCR+gSwx
+         GW0Hb7IHphcC8Z+2HjNDskYXXmby2px6QInmwRX5+pVCUHwUoTKWI7AvEbGMMtHcaXOR
+         QQ7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752228547; x=1752833347;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6DPlrQTYkt+ZE8rRAAVfPF09NGI7WKsXkRoeE2olJfQ=;
+        b=fEJ48zlRT0dpli6xECYTbGihIRLS+maMmw9HX3+/XCcV8t3bjdgAvsZymL0ewSUgTg
+         inWhGv1HVmfV2Ia2pqggx39/YwClL3tGjP3VhA5UEiIv3au2kj5mBhB9JOlc/ogrhXpv
+         +jJz/bJ27f7XRKO3ulZm+u2Es+wji1GyKh3qEubOBhlvVwSBxJQrf5K6qYuz9Zg1iAVO
+         8zv7BY9Uqm7dbsvLyLPLkJ3TbMRaK/GxcXTWU2sKcb1NOZH0jntpIhqZ43PhJ7FAPAGc
+         BCuXt45Hz4I47VUWMP3kSRQTieHXtJH5YhYrMYHC6zJam7hDz59gG/S3BQx2+lLqr71p
+         Hkdw==
+X-Forwarded-Encrypted: i=1; AJvYcCWAd9iVONNQHc4YsshOt8txNp1G6hvjILrqvOGkxXiw4olaN37EvDtQ9rbBYu5XNIBta4RAoR9hK0l5lmagIhXW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxybVxr04WZMvWfAwWtttckuscVs46M/Owf9BzGivdvcaafqAAc
+	NCpiKwezKa5IhzMWXXrqdjgWe3sXEHJ185W5H5oJXwZF2EdCzHS2p17ua2aYUM2WSPpotrYZa4Y
+	X9PSC0vvbCpbBEnM6Cf0THcKL0WGk+qQ=
+X-Gm-Gg: ASbGncusM1oBlroEGbiYbXYOofjQzEN+0ExMRZsPrl3OQBMTG/Z7gDxZ0bz21+aIxQg
+	ZYS4tqL+FYUetCwepKI6WZPvh9vRr3ZtAf0r+mcRAlMe9vWWRsaE3laEhcF/Ct0p424x44Wl3Vx
+	MM7blg3qeMQdXsFICSJ3ngrpkKEfgEDdsISdfWQPKxwNnr8PCAm6IsMGMKuXhPo9JtZvibT+p5i
+	EZQsw==
+X-Google-Smtp-Source: AGHT+IHQpevq+XY5yL2INS7d4S8i9FSRzaPoq0u9J3IcMyelf48WOLt+P9Cs1J1wH/z+tAIZ8PQ8eE45oNJasrMgO7Y=
+X-Received: by 2002:a05:690c:4486:b0:717:bff8:4681 with SMTP id
+ 00721157ae682-717d7a0ec81mr41763067b3.24.1752228547438; Fri, 11 Jul 2025
+ 03:09:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8OlcYUwNPTX3vWXV"
-Content-Disposition: inline
-In-Reply-To: <86frf39kh6.wl-maz@kernel.org>
-X-Cookie: Do not cut switchbacks.
+References: <20250710162737.49679-1-stefano.radaelli21@gmail.com>
+ <20250710162737.49679-4-stefano.radaelli21@gmail.com> <56a860ef-7994-465c-a902-ca5ba2f90f73@ti.com>
+In-Reply-To: <56a860ef-7994-465c-a902-ca5ba2f90f73@ti.com>
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Date: Fri, 11 Jul 2025 12:08:51 +0200
+X-Gm-Features: Ac12FXzZlU0AU1NAJ9x1FPayIcmG2Vzc5ZawWw5m98FRFxy9HHEL6Iq3JdutXZ8
+Message-ID: <CAK+owojYvje74dZbd3_35u2SMT--Lq8mG8tQcBGdmFD4oKjPcg@mail.gmail.com>
+Subject: Re: [PATCH v3 3/3] arm64: dts: ti: var-som-am62p: Add support for
+ Variscite Symphony Board
+To: Andrew Davis <afd@ti.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_021352_621321_68F7682A 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20250711_030908_611272_0450B1E8 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +100,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jul 11, 2025 at 12:39=E2=80=AFAM Andrew Davis <afd@ti.com> wrote:
+>
+> These mailbox nodes are now disabled by default, you'll probably want
+> to set them to "okay" here.
+>
+> Also, these mailbox nodes, along with most of the remoteproc stuff can
+> go up in the SOM DT, these nodes shouldn't be carrier board specific.
+>
 
---8OlcYUwNPTX3vWXV
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Thank you Andrew,
+I will fix mailbox nodes and move everything MCUs-related into the som dts.
 
-On Fri, Jul 11, 2025 at 09:53:41AM +0100, Marc Zyngier wrote:
-> "Arnd Bergmann" <arnd@arndb.de> wrote:
-
-> > Yes, as far as I can tell, the warning only showed up in linux-next
-> > after f66f9c3d09c1 ("bitfield: Ensure the return values of helper
-> > functions are checked").
-
-> > As far as I can tell, Ben added the check in linux/bitfield.h
-> > when he sent you his version of the fix, they just ended up
-> > in linux-next in the wrong order, so I ended up recreating his
-> > original fix slightly differently.
-
-> I don't think Ben's fix is in -next, as I queued it in the kvmarm
-> fixes branch, which isn't pulled by -next.
-
-We should really get that added to -next, that'll ensure it gets covered
-in the pending-fixes testing coverage and avoid issues like this with
-the main -next tree.
-
---8OlcYUwNPTX3vWXV
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhw1ckACgkQJNaLcl1U
-h9CYHQgAhW0ZGSJZA9yZmoehX8pya7ceC2yx43u8tF7XehnZB4F8M4KuYj+WWPBf
-e5XXehH+M4lv2LggQYFAoVOZtIvkIfKeiyYa67R5SHd0dgKATCWBvVCLg0JiFFil
-DuGffTyg6C5bZA4S+Q812aGk1XJsmycaDgwTHwb1fMTWvr+AUoAWGH4fWOvt2WtX
-6qw/gaEg3NdNAgMgWzCr5hJ2WJCEtA969vSm1vFPG6SvLxHnrLsMYhOkUCiePE4h
-GfbSce0UsS7U/S0qPU/a4l/05pWaRoGgu82sOvepjW48lqOFvsIuuaTcGs2+amJ7
-H+J2nbsIdT0rPC58X4TKumZDsOZcjw==
-=sUyb
------END PGP SIGNATURE-----
-
---8OlcYUwNPTX3vWXV--
+Best Regards,
+Stefano
 
