@@ -4,177 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BEC2C83F23
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D21FC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zHVw/+U99kmdZnxQQHnbwtjxEFmcpyu3cFVskZr4c0Y=; b=Xc2F4jSi9qbec/bV7ok624Pv+y
-	XlCC6C47s1WNrvbffx1vbNUo1FzOTpqo1g35+zQux+8CVBPY/fRqIoOJskThcqIdaT8rjwYxo7eDA
-	qBLG83ZmJsr89VbOTyduRJLgdFs2hBnzAZCn8HYf/tAjXTGspZRvxFHDf5YMHPeqYyNkUuRbVU9yg
-	1LoNC0X49CJCoWbbid/zWHbDcXmI1HI0tkjqqJMxUnXf+oF+0d9bjnDtqmh22ysAtBLQvmuOVxPk6
-	CKtDspRrmyAz4W81snLy7oh4blsJcK3F9D2UHOHAYzg+mT/qRoSE9jYhveZoqhkHMfgynBk5AHRox
-	rl15zHsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JK1YU7vrA4jzIzkmhhrn/QsxdsaSkSX2s+X4Jf9xBvo=; b=uyepRlHOhfga1kyDoMxqcjkNWs
+	R07iTwnb4Fudk6czns5hd8YoIRQkRMD1U9ztjPZNxMUGDLpZtzavAVkPLORC1R3ReRVopl9AVmZs6
+	eeydK19wY7UVjl+IhkLIHEbIGj+ols+E7A67Iewp6+zfJFNuE2BcH+mDpMH6TZm2AmG7CGYFxeMlR
+	kJ6/kW+vdwiUfr5Tip1gDP9ghXFZCDd+/XnEstCCafdRnA+xGQZr5OwwWA2COfFTP8Ok+XXYk4DCh
+	Wu5FFBUogtkvoMxUdVdUMpgqa5f7hTCJzRD/bF7MDuv/TBXu3pMu0QNAeGMkZLLiQZqLBWIvF7j5v
+	497kJhDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCbi-0000000EhZl-2HMJ;
-	Fri, 11 Jul 2025 12:12:02 +0000
-Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
+	id 1uaCbj-0000000EhbX-31uI;
+	Fri, 11 Jul 2025 12:12:03 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCNW-0000000Eg6v-1bEl
+	id 1uaCRs-0000000EgXa-1VXC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 11:57:23 +0000
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
-	by mx0a-001ae601.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56B5jANf028134;
-	Fri, 11 Jul 2025 06:56:58 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=zHVw/+U99kmdZnxQQH
-	nbwtjxEFmcpyu3cFVskZr4c0Y=; b=im01OQgGxyYNlwGbR0+j5rvjOlvLKN+HJs
-	CRqL6NdtSegC7j5b3OHOHopnZek/d99ZeAMqAgzdPUg5Y6kAQN2KAlKOpDnxcszO
-	KNKmNbhmuguL31F2/+0Rg7ICB0KQ5rHwv9AkZfIUUrzGky/wXHU39dOH66eH+ufh
-	lG9ZUdnTVTGmiLkhjCtcz8qShRNUn6Z+BWTQDo6lcWuCAqoEzHEKUbGQrxSv3JBT
-	uVdMDgx9a3+svHdr+7KuC4yEEj9CSwTmGi9xOnAQMhAlsfEQEyX33ZGITiJP+e3u
-	CQ/tKbVhx8LVP28pb5seXsoUm46HvctF7RJpcVxvmCjToLSuitvg==
-Received: from nam10-dm6-obe.outbound.protection.outlook.com (mail-dm6nam10on2135.outbound.protection.outlook.com [40.107.93.135])
-	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 47sev6e5p6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Jul 2025 06:56:58 -0500 (CDT)
+	Fri, 11 Jul 2025 12:01:54 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y/VW2deWFjd6GZ0kgvEJMnU9aCnKu7+EjB90LJjZ0hM/YHGtaGS0J9FU5fXnWfI6WB60ag+8BSocLx3Bn5sYAcVftVYq1xkjNcIO51UfTFBi+xHD7pTdXCxlVY7vC3oinGd1R8wamMj1KmTsey0OiW7hUbh8xiWtSuxWk1oMFuS1NEmn7xrwXo7TpVjKNyHq59p3XL9ktJh2JAuy8cmMmllpauiNUd4kuTVvJkkAuHKtDvcA6elb9W0or+LJv93jxzVyDIZw0UwFdNgCWTHpmQLYqlK5znkDCJxhuj0s1A4Jlm5bQ0kGG/4z9MjKO+2tELJePBThPGYSvtSTc1KyVQ==
+ b=BgyEHny30ZPOjqW3qS2F1ht0piZJIQvRKfmFmtg0H9ZehupatdTRMYT4MnzGFGpbklBQhbqBALcTKd7zSEe7FWJ/FGTQ+mjb65xjx1sueRbeamZ4TOuBTLl5fONcmKDMdgcPzZgHIBYhx8l+y6PItioxrysFv3WuR0OC0ssck7F5F+j9ylHDhT/NkKQ2vz07ju96M6utg/xs9S6mVZVOi2keEueknDBXKA69AIHcyeoECp6tThBz0gLSKjcX0gI/+y7BmH+jv+VNErd9/vwamzYcaC3omnAwjLlyob6lp0GhZOc9Jza2w1lKd4mZ7cAT0kM+yMh5D/Ls3yRoNoI+PA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zHVw/+U99kmdZnxQQHnbwtjxEFmcpyu3cFVskZr4c0Y=;
- b=e3kKGSdkQ4mQh6iJgiyaq/bpXl5H2xQWopLXWoNuzxOwDWp0du0me2WbxHM/nj7xVw9LRm6WibWAzhqKMCQTF7VA+o1PQrRX2Gw7OrVk5CfA6a7oKe/PL0gots7IWiRfHZziqExa24GXDBSc8vtxFvcWdU3tDiOAZl/hRtM/rSKS2zrqWtYMbcHUNhptdYf2Fg8EeR2uf29GsdnbnALu3k/Cv5fnDJe747L9+kAuPJY24VxFhRSxH+zxy0u449My+b8JCrlh1SC7IgoGsXbkRqIIToWFPYWsNl+P7vDPSuSf1W9BQOXoS2kx6AkhTZ5JQfO4oMx1hLMMbgc098yBJA==
+ bh=JK1YU7vrA4jzIzkmhhrn/QsxdsaSkSX2s+X4Jf9xBvo=;
+ b=iSBywuRe+NKUHVUxVmURWD6Cl9QuS8t23ACYkir/do59cs3d7V0PTVzQUVzCXoCF/KVfj3YsSeToouZT7YI0jFcuuooQIrfHJjCa3DaPBM8RL98bpNHoLYzCRnD0gSqlaVoI3uC8ubA4rZMMSGJswXukRqIhDQYugG1ouejoeMPZw+7QKZdqS8mcgl3mqLKPLGdQGPB0WLvqUcbTUtDdvOXmDRSRnNB9ZLtSbFItyjAwOe5xACdoTXlW5kfbAmACexKIW5NaHpNbG18kSW69J2oFysdr0H8ydAtbm+c9mC/NgtRV8PpuvHvh9zQeMw3DlTPOKTXO7KvLqsksNaRzoQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 84.19.233.75) smtp.rcpttodomain=alsa-project.org
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
+ 217.111.95.7) smtp.rcpttodomain=kernel.org smtp.mailfrom=arri.de; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=arri.de; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arri.de; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zHVw/+U99kmdZnxQQHnbwtjxEFmcpyu3cFVskZr4c0Y=;
- b=j4ZvAGuTTCCxZHFhLkfnNaBGaHwtwlssH8cYiloR3Y8KjHnIAfoJd1s69miyzMNQMoPRMUptp335B3lUu+wRrDYSZzxbR9tuValIh5BjPqpA1hRtQjtFdbdMgb9MYFuABJIxfkmBA/UXF000gLAZFg4GhZXhbBASkKSCBrGZLas=
-Received: from BYAPR21CA0022.namprd21.prod.outlook.com (2603:10b6:a03:114::32)
- by LV1PR19MB8897.namprd19.prod.outlook.com (2603:10b6:408:2b4::12) with
+ bh=JK1YU7vrA4jzIzkmhhrn/QsxdsaSkSX2s+X4Jf9xBvo=;
+ b=AS5tKXc59BTuA0GOQ13D0i851g7DFFDPoOcDoTaU2x/kdHqrk4cPNXVc938o/gV1S4DTVq7jlln3NpZQz6aIEsX0iBa+mpQuaciYvbIa3tcBBCIsAgxQgKggjQfjIxf2R77ytXDDgetoZdPcZXMrr4dXNWB/iJUNmIXSEb6hpBs=
+Received: from DU6P191CA0062.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:53e::11)
+ by DB3PR0302MB8941.eurprd03.prod.outlook.com (2603:10a6:10:43b::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.26; Fri, 11 Jul
- 2025 11:56:52 +0000
-Received: from CO1PEPF000044EF.namprd05.prod.outlook.com
- (2603:10b6:a03:114:cafe::5d) by BYAPR21CA0022.outlook.office365.com
- (2603:10b6:a03:114::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8943.9 via Frontend Transport; Fri,
- 11 Jul 2025 11:56:51 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 84.19.233.75)
- smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
-Received-SPF: Fail (protection.outlook.com: domain of opensource.cirrus.com
- does not designate 84.19.233.75 as permitted sender)
- receiver=protection.outlook.com; client-ip=84.19.233.75;
- helo=edirelay1.ad.cirrus.com;
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- CO1PEPF000044EF.mail.protection.outlook.com (10.167.241.69) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.22
- via Frontend Transport; Fri, 11 Jul 2025 11:56:49 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id 63F9D406545;
-	Fri, 11 Jul 2025 11:56:48 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 3F1AF82024B;
-	Fri, 11 Jul 2025 11:56:48 +0000 (UTC)
-Date: Fri, 11 Jul 2025 12:56:47 +0100
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Joris Verhaegen <verhaegen@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-        Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>,
-        Mark Brown <broonie@kernel.org>,
-        Richard Fitzgerald <rf@opensource.cirrus.com>,
-        David Rhodes <david.rhodes@cirrus.com>,
-        Cezary Rojewski <cezary.rojewski@intel.com>,
-        Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-        Bard Liao <yung-chuan.liao@linux.intel.com>,
-        Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-        Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-        Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Daniel Baluta <daniel.baluta@nxp.com>,
-        Orson Zhai <orsonzhai@gmail.com>,
-        Baolin Wang <baolin.wang@linux.alibaba.com>,
-        Chunyan Zhang <zhang.lyra@gmail.com>,
-        Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-        Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@android.com,
-        linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-        patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org,
-        sound-open-firmware@alsa-project.org,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 0/4] ALSA: compress_offload: Add 64-bit safe timestamp
- API
-Message-ID: <aHD7/9MZbcOmn+08@opensource.cirrus.com>
-References: <20250711093636.28204-1-verhaegen@google.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.25; Fri, 11 Jul
+ 2025 12:01:31 +0000
+Received: from DB3PEPF0000885F.eurprd02.prod.outlook.com
+ (2603:10a6:10:53e:cafe::a0) by DU6P191CA0062.outlook.office365.com
+ (2603:10a6:10:53e::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.25 via Frontend Transport; Fri,
+ 11 Jul 2025 12:01:31 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 217.111.95.7)
+ smtp.mailfrom=arri.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=arri.de;
+Received-SPF: Fail (protection.outlook.com: domain of arri.de does not
+ designate 217.111.95.7 as permitted sender) receiver=protection.outlook.com;
+ client-ip=217.111.95.7; helo=mta.arri.de;
+Received: from mta.arri.de (217.111.95.7) by
+ DB3PEPF0000885F.mail.protection.outlook.com (10.167.242.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8922.22 via Frontend Transport; Fri, 11 Jul 2025 12:01:30 +0000
+Received: from N9W6SW14.arri.de (192.168.54.39) by mta.arri.de (10.10.18.5)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.38; Fri, 11 Jul
+ 2025 14:01:29 +0200
+From: Christian Eggers <ceggers@arri.de>
+To: Srinivas Kandagatla <srini@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Dmitry Baryshkov <lumag@kernel.org>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sasha
+ Levin <sashal@kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 0/2] nvmem: Fix reading MAC address from OCOTP on i.MX
+Date: Fri, 11 Jul 2025 13:55:46 +0200
+Message-ID: <20250711120110.12885-1-ceggers@arri.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250711093636.28204-1-verhaegen@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [192.168.54.39]
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000044EF:EE_|LV1PR19MB8897:EE_
-X-MS-Office365-Filtering-Correlation-Id: e6ef4809-919b-4612-fafd-08ddc072052f
+X-MS-TrafficTypeDiagnostic: DB3PEPF0000885F:EE_|DB3PR0302MB8941:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0498dbd7-bf44-4e34-aa03-08ddc072ac71
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|61400799027|36860700013|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Ixqj/RRfamR4KpelTlhy2DKVx/+G8cGEhWekrNf1JNr4mUp2iTIQj5A4AJu9?=
- =?us-ascii?Q?UqVtDpyzhKPXFSF1yc2B9QbNJ9Vq0Mc8OYo2not+2r8aVxt5jbaEWvxOXO9b?=
- =?us-ascii?Q?XMnNcv8TjpCIGodundV20rIoASkXqpG2ua0TnSPYrhWggrQbDun9DVUUxQwS?=
- =?us-ascii?Q?n6TrQHY7fXrcDt6lGYzZsxIsoqBevONJVR+ByuO9ixNhKkxTmJXDS+3bHQ3T?=
- =?us-ascii?Q?o2uHlxvSZEU8jQ2E+JkZXNHS2Ewjf/Qy+xfZlK+j8NzjpUFyc/hf0i6p2Rz8?=
- =?us-ascii?Q?CDYW0QiVEukyA5bHf001ZBX7tmsusis0//tDE7KYjojro9Ldi/4qeg4nv1gX?=
- =?us-ascii?Q?wNmpoF5dyXw/oaAaGS2c506hJc2xjBzrv536EM8mJcpFW82ppR+fIXJN5JgO?=
- =?us-ascii?Q?LMffF4PMfdD1rEbMktQAw6Aq6Amy2dLsqSOVf1Tthl0QP7w1vEN3XWDO8mxZ?=
- =?us-ascii?Q?FgGKZyuTuvwE+iwucDdGrcCxR83JFN9/0/w54Bwgtf0cCgYNVeikNbE7FeB+?=
- =?us-ascii?Q?eRCzYGD5vbTKsJ0lTjCkkQSmpIaOkyvD8DvP0QfT5jxvRIU+vZslzRJYUzrp?=
- =?us-ascii?Q?2ZgGJlFMehJGEFEMaZVVYQGixlvSXkUqJxwaRXg+FjvwCyVNj1FQKYVse5v+?=
- =?us-ascii?Q?116pArKlGjt4aOI49KkXFC0eOrikvbdpmOIFI7PE+6nJ44mliPPIjArb7tPd?=
- =?us-ascii?Q?0SsPrprc2hhQmUVMZXRbzA+pZzi84yqu/B7fbk4rbWROwD/NGKgfnQzXxG1Y?=
- =?us-ascii?Q?axBoYIH7GA2AiffvVJPHz8TkZ1iy2reeDWEQqr8+tb77m85Wbr+YNO8dGiWT?=
- =?us-ascii?Q?g/SiRHS6Zk+taAQmflaXaeUgJ3BgUttBsg2sc2mX6G8IG2K5UOm1fjGF5oI6?=
- =?us-ascii?Q?iiX2zzqC/dX9ao830ztXdBtdSEsFfG1x7GzK4ZvWHsq88ShepNWc0a60ZA9T?=
- =?us-ascii?Q?zzscwrsdhjptoOcGPmFNo6dB/WOcVlTRiOYfAekBrUj30t5j9cLJRXvFFzUt?=
- =?us-ascii?Q?g0Tq5gq411mTEOC0B1wWocsKcyDmOn3pKYgx+Pum7sqnNzpGT/ApU7tfjDVn?=
- =?us-ascii?Q?VA8ExDI7bpkchbz0l9m3poICuVr7ev5264AF9TM+5NDqKj6YdyLPOSoPl94n?=
- =?us-ascii?Q?afG3XVxpkueilSOVNIiVTdCWxyu1bZa9oAHYUv4AbpH3HCrNLpFpsQiTIbP8?=
- =?us-ascii?Q?zFvEQBUM842rjXtxW8ism0hVcR47JmkMZGZiOg+uZzI6l5s/pQr2NuYv7qQk?=
- =?us-ascii?Q?yOmpxaFNF2YGhG1JQ3fEWddvtiNGnqnUAiocrKFvxOLPPxz7dd66z7bPuVRN?=
- =?us-ascii?Q?iJvQZmqtdrshueQRcgJg6D8MzKgOLWdChnGiKf7Y8ceVQ+k66Fpprgkp+wVF?=
- =?us-ascii?Q?VycFcG7qsa2CywR8sYq8slBROBbgewJx6LXSZ6tVSZLHUkzk3iuBkhIOtjld?=
- =?us-ascii?Q?GiYSo+sIXec3WFaXstl02lOgZ4mmvDSdZl1Ev8KF072NHF3LC3kWMkOdelfm?=
- =?us-ascii?Q?dfFaOtFRX8x8pzk0VisFzWW5kQT67jasQzK4?=
-X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(61400799027)(36860700013)(7416014)(376014);DIR:OUT;SFP:1102;
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 11:56:49.9035
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|36860700013|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WmgxQXlIZCtlRklTbGk2MzdqaS9jd3ZQZGFmU1JBMkgvWm4wcmRjcDlLaUli?=
+ =?utf-8?B?c1B6cHovZGhrMk10czRNcUtja2RBV3M2ZkRxdExPeWRRR2RvZDVuUXlZUk5N?=
+ =?utf-8?B?TFVmQ3R6WDdUaHo3aGU4MmZDeE96aWxKcFRRWE8xWVA5eXZaR0grRE9CclA2?=
+ =?utf-8?B?TkkzakFCRDQwOTBwb0wvOEJROGpuU2xLeG1ubVptS3lSOFE0OTJrbmEySitp?=
+ =?utf-8?B?VjRwa3NJQzdnSmhrVGdIVlZjZDlVbWVMNDQxOWVRU3oyT2ZEZWhMMDNRYkN5?=
+ =?utf-8?B?cndQUnY2SkJ6aVJ0OWw5OWhqSzJOYkg2OHJWdFgwaEw3TFAyVFdOblpaM01I?=
+ =?utf-8?B?UjJtMWQvNDdHMlFRTjhQejVkSkNnTng2SUhHR1pHYTlZS05idVB3T0ptYVFk?=
+ =?utf-8?B?MG1Tb1NkVmo4OW5MVE05eDgxS0ZVeTFIL1M1M2F3QzVNeGNSSXhzdEowZE1V?=
+ =?utf-8?B?a21sQkR5RlFDT2dmR1lxUnpTeTZkQzFvOEFUM3RIZ2U3S0ZzSUU4dmZtL0xz?=
+ =?utf-8?B?Qkc5RzJRUkJnYlBnMktFOW8vN2x5dFJtOXREK0lKWVIxWnIzVWlrVE1yanZt?=
+ =?utf-8?B?eUNmYy9aQ2E4WENiY2pjczV4WVVia3ZTTnNGdFZHbjBkWkg5Lyt4bmZMVzlV?=
+ =?utf-8?B?ZmpoS3RaUWREN0tTTStkSzZXOWt4UXNTOHhueEFnd3ZTUU42YUZkVGcrcjVK?=
+ =?utf-8?B?dFg4ODYrQ3RtOUNRVEhkN0JYREl5Z293WUJJUVJQWG1tUVV4UXhZcDVBTFYw?=
+ =?utf-8?B?UXRWZElQT0lwMjFYNTB4VnJ2cmRFMlQrRWYrU0tSU3lJd0NBenBDT0pKY1Fu?=
+ =?utf-8?B?Qzcxb24rNlJyS0JXaUVzb3dyeU9kMnZIS0VHdFArbmhRNURXQ3plSXhhajlO?=
+ =?utf-8?B?N3dvVmgxNlRuSFZXQTBpWTlYNnNKM1dtbXdqbTRJN1ZnZHY5RmZaazZmRGVo?=
+ =?utf-8?B?ekZrRVhvZ0NVbTB0Nlc5eHBrZ3JSLzU2dHVKSEdjaDZsSTZBeXdIK0hrbWgv?=
+ =?utf-8?B?dWUvRGtPZ0ZETU1PaEtqOHpBSTJKRVUvSlRZS3V5U21YQUJ0dDJRcVdvckRw?=
+ =?utf-8?B?ZnIwTFFPb0xON3IwdG5RUk5meWo0ZTlITEx1c2Z2Q2M1OGZNMmVhOHAvK3Nv?=
+ =?utf-8?B?dklhNHNFL1l2N0xZSS84dFJlcXlPNFYwNWdtUTJRaVcxWE1NV3Q4WTdPNHI1?=
+ =?utf-8?B?cmhTSWF2NGI2KzFVanZoMERXV2x2RzRRZzI2WDhTYWxhUVZQNHFqUm92bG1H?=
+ =?utf-8?B?bklKOWhQWmxwTlM2QVFVbDE0TjZWQjZ5UzgzZnlJcndxdzBZZG5XNFhLa0sx?=
+ =?utf-8?B?bUpSbW9DWFRCb1IvSnFIUkpBdFZkQWlNS1JSMk80bVZIcjMyV2xURzdqOTFm?=
+ =?utf-8?B?ZWJ2L1hzbUVmeXdIaU9hZUlDbkFmNmw4U1NYVStkRDVzQXo5QzNZQVM4eXli?=
+ =?utf-8?B?SjZ0VVgwcXpEQU45VG05UWRvRjQvcTg4RHVzZHhWMWtIVTBESDBRcVpvZ016?=
+ =?utf-8?B?cHY2ODh4OWt3RitzTVFzQW4rbmx2SzJiOW1HK3FsOFpBaTltekI2a2FxN3lB?=
+ =?utf-8?B?eTZ4eHhwN2srMDFhbkpoS3JmM29zQ0VkbTkxRDV4OUcwelBDNzVRYTZPUStR?=
+ =?utf-8?B?TkNyUG5HYzJvdnBiaDlzempXaHh5S0NGd2RGVG5ySHRWYVUweGpVcU1qZGJT?=
+ =?utf-8?B?SzN3ekZmWExhVmNYMWNQY1hvZFRZbmtjdERYZXdUc0MraFA3VHhRaWNtWFNS?=
+ =?utf-8?B?MDVzZnZMTVIwdWg5dktxSE1HaVRwVUt6TmxtNko4dTNVRjUrWVZyOW9sQW5M?=
+ =?utf-8?B?WlZlTmJ0WnQxSnVDcGlPVVhuT040aE1iU21tcFIvQVRHQkd3bTFnNDNaUmJC?=
+ =?utf-8?B?OWsrdWFWT1EwS0NMcXNsdklvNWZOQUJmVk5XdU5JZGN3VUFsM0lHbGNOMU9j?=
+ =?utf-8?B?VVEvTWZZZkRjNnRMOWFQZFVrWGRwUWNEeDJONzUwdHFPaFdMMFl4MUVxbEJG?=
+ =?utf-8?B?bkhNaDFuODd3S0d6VGs5VTA1aDVHYzJTNzE1eFdadlByeU9odHBTMWZ1ZkhY?=
+ =?utf-8?Q?gzEwNC?=
+X-Forefront-Antispam-Report: CIP:217.111.95.7;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mta.arri.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(36860700013)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arri.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 12:01:30.7699
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e6ef4809-919b-4612-fafd-08ddc072052f
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000044EF.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0498dbd7-bf44-4e34-aa03-08ddc072ac71
+X-MS-Exchange-CrossTenant-Id: e6a73a5a-614d-4c51-b3e3-53b660a9433a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e6a73a5a-614d-4c51-b3e3-53b660a9433a;Ip=[217.111.95.7];Helo=[mta.arri.de]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885F.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV1PR19MB8897
-X-Authority-Analysis: v=2.4 cv=Zb8dNtVA c=1 sm=1 tr=0 ts=6870fc0a cx=c_pps a=dGDOtd2Dv01GEEMIE2KOfQ==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=RWc_ulEos4gA:10 a=1XWaLZrsAAAA:8 a=yTA4N2hPbYLOA8DzoToA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzExMDA4NCBTYWx0ZWRfX+n+e0fnWYVTe nu/Zb8wOWpcWj8yuPBB7uxfu/DPei6WI8vZktclwP4glfQ4QoSBhPsZZUrWcruuq/078NgQaAJQ cDORMtaNuWlO9X6ajGJziF/9dLRLt0VktiieIcaK28A8zPHWc9t4P+Y5zFevUBD7DqJTUtM8sHh
- wNCW6gIsy3l4yF77w4JFPDF+FrUt1dLLIwyTbjAEIqUbpYJom2JwspqZfp6r68Mqi7Sm1r9fZ9t 8u4kRPLexwCKkYGfzUuMFvW9Rs3jMaWCAYdpRP/CAZ176BrByfe2ntZZPLsWKq7vhcVYSLH7VvH tuzQi/aUV+pA5EX2AEcZT1usMklI4QCKVEcYSejNbdNAYT8XFL7JZF9XTYMRpSdeBn79tCduGRj
- EqKdOPdSWOPFiXY5d1uK7XEY5+AhhdKqf16wVFDORklJ5CYk6eJFLKIQdcNnYyPYMyidNrkR
-X-Proofpoint-ORIG-GUID: HxLCNpyoA4M4UyWffPvECUjWd08qTNGT
-X-Proofpoint-GUID: HxLCNpyoA4M4UyWffPvECUjWd08qTNGT
-X-Proofpoint-Spam-Reason: safe
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR0302MB8941
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_045722_423548_E6E677EF 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20250711_050152_620112_0EA776C4 
+X-CRM114-Status: UNSURE (   6.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,48 +153,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025 at 10:36:26AM +0100, Joris Verhaegen wrote:
-> The current compress offload timestamping API relies on
-> struct snd_compr_tstamp, whose cumulative counters like
-> copied_total are defined as __u32. On long-running high-resolution
-> audio streams, these 32-bit counters can overflow,
-> causing incorrect availability calculations.
-> 
-> This patch series introduces a parallel, 64-bit safe API to solve
-> this problem while maintaining perfect backward compatibility with the
-> existing UAPI. A new pointer64 operation and corresponding ioctls
-> are added to allow the kernel to track counters using u64 and expose
-> these full-width values to user-space.
-> 
-> The series is structured as follows:
-> 
-> Patch 1: Introduces the new internal pointer64 op, refactors the
-> core logic to use it, and defines the new UAPI structs.
-> 
-> Patch 2: Exposes the SNDRV_COMPRESS_TSTAMP64 ioctl.
-> 
-> Patch 3: Exposes the corresponding SNDRV_COMPRESS_AVAIL64 ioctl.
-> 
-> Patch 4: Implements the new .pointer64 operation in various ASoC
-> drivers that support compress offload.
-> 
-> This series has been tested on a Pixel 9 device. All compress offload
-> use cases, including long-running playback, were verified to work
-> correctly with the new 64-bit API, and no regressions were observed
-> when using the legacy API.
-> 
-> Thanks,
-> Joris (George) Verhaegen
-> 
-> Signed-off-by: Joris Verhaegen <verhaegen@google.com>
-> 
-> ---
+There is a (minor?) regression (also propagated via -stable series)
+which causes wrong Ethernet MAC addresses read from internal OTP.
 
-Would it not be slightly simpler to just update all the in kernel
-bits to use 64-bit and then only convert to 32-bit for the
-existing 32-bit IOCTLs? Why do we need 32-bit callbacks into the
-drivers for example?
+Probably this doesn't affect many system as usually the MAC address is
+already read from OTP (called OCOTP on i.MX) by the boot loader and
+then passed verbatim to the kernel via device tree fixups. Only if the
+MAC isn't present in the device tree, the kernel reads it from the OTP
+itself.
 
-Thanks,
-Charles
 
