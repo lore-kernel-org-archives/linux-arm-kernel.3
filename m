@@ -4,73 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29793C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D20C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rl4uSsmt0R6ta2ds9zDGarKw8XggCRJaKwQecyR3iSA=; b=jNVxbKEBplzSGZtYtp8eWSwZCz
-	i5VU/uPeJ3H/ZF8UCHXIy20E36mJO3JkjSFPoQKRoPMiR30pKc/3rzjdtKaFB7hr4bYn8UsO+vXAb
-	GnmOzGCDwRRa5cXSSWs5lhraXsahz46yH9sV01ZuAH7q2NWluN5GIgo7eKhp8pfqRGLoHBH+vjEQ/
-	k03JDetpDGo7ewdh7xlrS8X2xq9RnKbTfNkGoI/GVmPgbcnbXMdikdMnv3tkFmHWbnmUorLpHWawa
-	K5vNNUrqPk/1lxx1b2CCBxyWxDXpcgI/U8QRJVxMyrzyrV+muGqJrhfj1lF/Hk5DsYI0AqjHJ0sod
-	RqU0wlgw==;
+	bh=Pvmdzzon70L1hOLqeuWPtYOsuZehChUPPCRRTupcrA8=; b=KaFsDdtyO+vgO8KzPGcEg2r3aZ
+	vPJoZRKBmBRcpsnrdYOuGMZaFfmDfQGjTjZnRCkY5zhlgbtCUCQxEcgOBqD3U4lMDa8Z9VX80Q6Gr
+	ICubFp9jLm6+oLWg0dAn0HcopRWVlDY32GaqUbaLyxlOrl+snUP6VHEnqZuLB4PzuFB3OySFeSips
+	CUR3jzhdO7t2LqeXWKQSWuhDsDoahgsEyWvRhv9Q5DOZBHgld43r+mUyu2U85cQf8hcXDABrqgYJW
+	FMo08ionpFy7Rl2gjwtXw3UfFXFPDQiTO3lBqhYNDPN4gUrJ8CbIX/aUdzXqRepjOs/9pZqjTDt/G
+	jn7MS8TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaGMr-0000000FFT2-4BAs;
-	Fri, 11 Jul 2025 16:12:58 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uaGPA-0000000FFpa-2oiB;
+	Fri, 11 Jul 2025 16:15:20 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaFCS-0000000F5d8-2O64;
-	Fri, 11 Jul 2025 14:58:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1752245875; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Sbo7WLHYGAc49B5RUnp/nZKGY19T10UabJVAINX76rzQqrvbeqc237Ivdc2o8iTBsv6eSmGuuXKFBbbHIJSH3eujjCWEY57dOP2fpq5OtKH1hJFO1Ot1dwaBdk9DNyMUeOYrQRf7CRNPoypCq8cFM1QE47kd+zDVEjo/F050DqU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1752245875; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Rl4uSsmt0R6ta2ds9zDGarKw8XggCRJaKwQecyR3iSA=; 
-	b=lyWrtzxHomY1LT1lb/qyuScyIMV7gKCRPoE3c3Bx6CGpHjmvjPD0YIyWa0Zxepzx9yvjkOKGp2RTEl0Yyq3Rc1nXCD+TLExO2rnf25fssC0jUtv4yM8NI77cJzEXzp8cRLOxX2AdcMiPJArIk5ozi+BCZxDt7iAUhb+zUwQeWPc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752245875;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=Rl4uSsmt0R6ta2ds9zDGarKw8XggCRJaKwQecyR3iSA=;
-	b=dncZ4K9LDZnJZA9Kb6hls19yvSMJ8g8zlHpM+d4wvBeBhxAehFfmRJIRFRrJBzbT
-	JXbY8eTvgJNDmWUUUDm7hbUZMSKnQnjXNMaHI1iIIzPYDGyfvffjk8Qz3fsTsZxvclx
-	p/8TpHl04CH1dmgCA9S+sLBk0E5ozS+M4pXkflkI=
-Received: by mx.zohomail.com with SMTPS id 1752245874097527.3770039598888;
-	Fri, 11 Jul 2025 07:57:54 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 11 Jul 2025 16:57:35 +0200
-Subject: [PATCH 3/5] cpufreq: mediatek-hw: Refactor match data into struct
+	id 1uaFry-0000000FAbW-3hEv
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Jul 2025 15:41:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1752248447; x=1752853247; i=wahrenst@gmx.net;
+	bh=Pvmdzzon70L1hOLqeuWPtYOsuZehChUPPCRRTupcrA8=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
+	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=LQ1duoaZCaombf/ZBDb9r2QOjMuF5Jj5+c5ViHcmoP5YCeHl+sXrRSrgoxosxE6c
+	 iUy5IOjSzw0gg8m3GMWIneW9VWDtwtoD6y7i6WNZWPgV9TUZqvYpLL9kzIOgTTEJw
+	 i8vB7JsL+aQjwGatk4yqke2EUTr23k03kOBrRJenrBkaNV3olfgK6DT9LArcLxUYe
+	 KjVXfcEC697TSOpqplG6WSmM2/MyJd/poya76N3FYJ20G8UMLBa8F5sNVtICtyqGR
+	 jcdnllArQOCCBplRH47epoVGeuqcUntu0l/tDCHEbs8p0Tj+HMvt7GGl1v6UTAvGX
+	 cb6OG8Yzn2fLkKztLA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([91.41.216.208]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MdNY2-1v9agP3TsG-00cTeF; Fri, 11
+ Jul 2025 17:40:45 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	kernel-list@raspberrypi.com,
+	linux-staging@lists.linux.dev,
+	Stefan Wahren <wahrenst@gmx.net>,
+	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
+	stable@kernel.org
+Subject: [PATCH 1/3] Revert "staging: vchiq_arm: Improve initial VCHIQ connect"
+Date: Fri, 11 Jul 2025 17:40:29 +0200
+Message-Id: <20250711154031.24178-2-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250711154031.24178-1-wahrenst@gmx.net>
+References: <20250711154031.24178-1-wahrenst@gmx.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250711-mt8196-cpufreq-v1-3-e1b0a3b4ac61@collabora.com>
-References: <20250711-mt8196-cpufreq-v1-0-e1b0a3b4ac61@collabora.com>
-In-Reply-To: <20250711-mt8196-cpufreq-v1-0-e1b0a3b4ac61@collabora.com>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, 
- Hector Yuan <hector.yuan@mediatek.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:XPMa324HfxC3iLXRnKYUBTBW8QnkPAyU2y/MVE/V2Ab+K2O2mcD
+ CDZJzWjlxixJSJQPRLSn7TQoCbmx2X+p6L8EWDToSV7Mej2sLQWDIkbIwXZcAJ1mvirgM9m
+ R4HsgDyGScBZ/YSMlUNG/QAP9ugGN9CLGIWlSskC/01R8pRMKSPlzYvGEVnnhdvKo+09PX7
+ Gab2phRr8Juc5rk0D0kSA==
+UI-OutboundReport: notjunk:1;M01:P0:3LE+fveJhmw=;Lsuuij3WnGn5g6ST7aaO4kx4zPs
+ +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
+ gBhIN6AQcGad64B11vK9pZ8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_075808_668954_19F63A99 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20250711_084103_215735_5764CC9E 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,86 +136,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While the driver could get away with having the per-compatible match
-data just be an array of the reg offsets, the only thing it used it for
-right now, this doesn't really allow it to be extended in any meaningful
-way if some other per-variant information needs to be communicated.
+The commit 3e5def4249b9 ("staging: vchiq_arm: Improve initial VCHIQ connec=
+t")
+based on the assumption that in good case the VCHIQ connect always happen =
+and
+therefore the keep-alive thread is guaranteed to be woken up. This is wron=
+g,
+because in certain configurations there are no VCHIQ users and so the VCHI=
+Q
+connect never happen. So revert it.
 
-Refactor the code to make the DT match data a struct, which currently
-only contains a single member: the reg offsets. This will allow this
-struct to be extended with other members for other hardware variants.
+Fixes: 3e5def4249b9 ("staging: vchiq_arm: Improve initial VCHIQ connect")
+Reported-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+Closes: https://lore.kernel.org/linux-staging/ba35b960-a981-4671-9f7f-060d=
+a10feaa1@usp.br/
+Cc: <stable@kernel.org>
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ .../interface/vchiq_arm/vchiq_arm.c           | 28 ++++++++++++++-----
+ .../interface/vchiq_arm/vchiq_core.c          |  1 -
+ .../interface/vchiq_arm/vchiq_core.h          |  2 --
+ 3 files changed, 21 insertions(+), 10 deletions(-)
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/cpufreq/mediatek-cpufreq-hw.c | 28 ++++++++++++++++++----------
- 1 file changed, 18 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/cpufreq/mediatek-cpufreq-hw.c b/drivers/cpufreq/mediatek-cpufreq-hw.c
-index 74f1b4c796e4cc9ebccf50dd4e165a1eba03136a..b2aba1842226c7d24a8b9599ea62408cac9f803c 100644
---- a/drivers/cpufreq/mediatek-cpufreq-hw.c
-+++ b/drivers/cpufreq/mediatek-cpufreq-hw.c
-@@ -41,15 +41,22 @@ struct mtk_cpufreq_data {
- 	struct resource *res;
- 	void __iomem *base;
- 	int nr_opp;
-+	const struct mtk_cpufreq_variant *variant;
- };
- 
--static const u16 cpufreq_mtk_offsets[REG_ARRAY_SIZE] = {
--	[REG_FREQ_LUT_TABLE]	= 0x0,
--	[REG_FREQ_ENABLE]	= 0x84,
--	[REG_FREQ_PERF_STATE]	= 0x88,
--	[REG_FREQ_HW_STATE]	= 0x8c,
--	[REG_EM_POWER_TBL]	= 0x90,
--	[REG_FREQ_LATENCY]	= 0x110,
-+struct mtk_cpufreq_variant {
-+	const u16 reg_offsets[REG_ARRAY_SIZE];
-+};
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c=
+ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+index 5dbf8d53db09..cdf5687ad4f0 100644
+=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+@@ -97,6 +97,13 @@ struct vchiq_arm_state {
+ 	 * tracked separately with the state.
+ 	 */
+ 	int peer_use_count;
 +
-+static const struct mtk_cpufreq_variant cpufreq_mtk_base_variant = {
-+	.reg_offsets = {
-+		[REG_FREQ_LUT_TABLE]	= 0x0,
-+		[REG_FREQ_ENABLE]	= 0x84,
-+		[REG_FREQ_PERF_STATE]	= 0x88,
-+		[REG_FREQ_HW_STATE]	= 0x8c,
-+		[REG_EM_POWER_TBL]	= 0x90,
-+		[REG_FREQ_LATENCY]	= 0x110,
-+	},
++	/*
++	 * Flag to indicate that the first vchiq connect has made it through.
++	 * This means that both sides should be fully ready, and we should
++	 * be able to suspend after this point.
++	 */
++	int first_connect;
  };
- 
- static int __maybe_unused
-@@ -157,7 +164,7 @@ static int mtk_cpu_create_freq_table(struct platform_device *pdev,
- 
- static int mtk_cpu_resources_init(struct platform_device *pdev,
- 				  struct cpufreq_policy *policy,
--				  const u16 *offsets)
-+				  const struct mtk_cpufreq_variant *variant)
- {
- 	struct mtk_cpufreq_data *data;
- 	struct device *dev = &pdev->dev;
-@@ -200,9 +207,10 @@ static int mtk_cpu_resources_init(struct platform_device *pdev,
- 
- 	data->base = base;
- 	data->res = res;
-+	data->variant = variant;
- 
- 	for (i = REG_FREQ_LUT_TABLE; i < REG_ARRAY_SIZE; i++)
--		data->reg_bases[i] = base + offsets[i];
-+		data->reg_bases[i] = base + variant->reg_offsets[i];
- 
- 	ret = mtk_cpu_create_freq_table(pdev, data);
- 	if (ret) {
-@@ -336,7 +344,7 @@ static void mtk_cpufreq_hw_driver_remove(struct platform_device *pdev)
+=20
+ static int
+@@ -1329,19 +1336,26 @@ vchiq_check_service(struct vchiq_service *service)
+ 	return ret;
  }
- 
- static const struct of_device_id mtk_cpufreq_hw_match[] = {
--	{ .compatible = "mediatek,cpufreq-hw", .data = &cpufreq_mtk_offsets },
-+	{ .compatible = "mediatek,cpufreq-hw", .data = &cpufreq_mtk_base_variant },
- 	{}
- };
- MODULE_DEVICE_TABLE(of, mtk_cpufreq_hw_match);
-
--- 
-2.50.0
+=20
+-void vchiq_platform_connected(struct vchiq_state *state)
+-{
+-	struct vchiq_arm_state *arm_state =3D vchiq_platform_get_arm_state(state=
+);
+-
+-	wake_up_process(arm_state->ka_thread);
+-}
+-
+ void vchiq_platform_conn_state_changed(struct vchiq_state *state,
+ 				       enum vchiq_connstate oldstate,
+ 				       enum vchiq_connstate newstate)
+ {
++	struct vchiq_arm_state *arm_state =3D vchiq_platform_get_arm_state(state=
+);
++
+ 	dev_dbg(state->dev, "suspend: %d: %s->%s\n",
+ 		state->id, get_conn_state_name(oldstate), get_conn_state_name(newstate)=
+);
++	if (state->conn_state !=3D VCHIQ_CONNSTATE_CONNECTED)
++		return;
++
++	write_lock_bh(&arm_state->susp_res_lock);
++	if (arm_state->first_connect) {
++		write_unlock_bh(&arm_state->susp_res_lock);
++		return;
++	}
++
++	arm_state->first_connect =3D 1;
++	write_unlock_bh(&arm_state->susp_res_lock);
++	wake_up_process(arm_state->ka_thread);
+ }
+=20
+ static const struct of_device_id vchiq_of_match[] =3D {
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.=
+c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+index e7b0c800a205..e2cac0898b8f 100644
+=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+@@ -3343,7 +3343,6 @@ vchiq_connect_internal(struct vchiq_state *state, st=
+ruct vchiq_instance *instanc
+ 			return -EAGAIN;
+=20
+ 		vchiq_set_conn_state(state, VCHIQ_CONNSTATE_CONNECTED);
+-		vchiq_platform_connected(state);
+ 		complete(&state->connect);
+ 	}
+=20
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.=
+h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+index 3b5c0618e567..9b4e766990a4 100644
+=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+@@ -575,8 +575,6 @@ int vchiq_send_remote_use(struct vchiq_state *state);
+=20
+ int vchiq_send_remote_use_active(struct vchiq_state *state);
+=20
+-void vchiq_platform_connected(struct vchiq_state *state);
+-
+ void vchiq_platform_conn_state_changed(struct vchiq_state *state,
+ 				       enum vchiq_connstate oldstate,
+ 				  enum vchiq_connstate newstate);
+=2D-=20
+2.34.1
 
 
