@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC9CC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 18:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8235C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 18:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z0FAINHMrT/mXWSwLLS5ITQiWYyUydXHEsbDIHwLkNQ=; b=j1xMy27oXI0eDn/1GyBD7x3aWb
-	RJ4kMZbFUkM2YASKqX9nhXOTQKdizLEPBDwwWVTI9e0fsLoOnP+bz3PMrBO1q60m7PCDS5buhoV+G
-	SXWwnmLneiLwzCSY6VHqrHr/8NIcVS8TA8u5K9OidfbOS623PGUPJUl5pXeBecxofeE5/SWzgtl2E
-	V2LOb3mH7izUSo3w9XjjY79Vx4gFBqIH+3wwv0s2P88eRbqncf4SaXJM5GcK/L+OH401BbhCDJNS/
-	+IHHlHZstpDzeKvO1wI4/9TQ/49MZGJgS1aP/1PCCSHKcZlGiU5IMfpYEkBWVYfE9XaZdJVP/oiO7
-	1oq5MRcQ==;
+	bh=i4q8ecDX3sUGA1MLG8h4tOnFmYn0XuYJcSIMOO9sLLY=; b=C2JlVJHQriCvA2d5a4drQS61pi
+	fK7sX/d8OzVEUEV4L9tc51j/T4MVhYS23xuyMbkpkggWySb3uWJj5c8vzLTiaNS8Z4udSpA2Jw9Uw
+	NR1uGa3evjlmWf6kplPLi/u0O4MOLKUIowg4llsy3guyaDD6I+K7/9Y6C2j0Ad92Qel+/JkNj56aY
+	4aKG4CM1c+3LhrffIGFxBKAIQD3f2PFU4ccfzjWPrSukRDEyzD5KnsACOKyc70eymPiaqmxjHTKcR
+	14/4evS2/dJ3iNSQ47pr3J+yERaOQn7mimRReCgaA5h/WK/SmkdOgi9g+cwbug5S9ka2b0SvmYd5g
+	6NMx2K9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaIHu-0000000FUDU-3eIo;
-	Fri, 11 Jul 2025 18:15:58 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1uaIKE-0000000FUPb-2OQJ;
+	Fri, 11 Jul 2025 18:18:22 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaIFY-0000000FU0A-3vUX
+	id 1uaIHI-0000000FU8k-1QBP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 18:13:34 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-32ce1b2188dso22472201fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 11:13:32 -0700 (PDT)
+	Fri, 11 Jul 2025 18:15:21 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-32b43c5c04fso30156031fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 11:15:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752257611; x=1752862411; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1752257719; x=1752862519; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=z0FAINHMrT/mXWSwLLS5ITQiWYyUydXHEsbDIHwLkNQ=;
-        b=D/iVAXqF601LGlmM3niRqM25qNVDCVn3ew05vXkP6CezuZeVImcd4Dsf1R8YMAHcVy
-         X5hCSEf/h7mZ9wptv+aeDDdiTIKtsoaDZ1qThZ5XG9uKZntTqoArqvaiWFR2kxQgaN8K
-         UwtLrTyjDkJ74UYqSragvdtlMhHk2RIcBT5fiOS0Y3e47W6PyCLML5OEP2vVNF3lJx/E
-         yCkxa9l8ySN3JiRoBSdeeCzRLtvwqwoNRZQVIPpu4JJ9Dwn6x/kVhXtLwoMXVFoOam9n
-         nSNCs8L9my4vCCfabACoharzr7d8c3PbBoLaarLoZZTX1g+jt4WOHJjvv5NX0Gq6pL/X
-         5O1w==
+        bh=i4q8ecDX3sUGA1MLG8h4tOnFmYn0XuYJcSIMOO9sLLY=;
+        b=yPjvlBHxMxK7MgS8SsU8ipp8kqkFHQu9s/CKjIg+Cvxhj78GTWyAmV+bVY0ZTcrmQW
+         XZNu/Ym4niUM/mCqRFry82MsGOUot/EnIWTrs0mKQDAuWO+A1s8z7bcCHsVzYqa71p3a
+         PYT3hH64VphDysyCoG0Dn6b95mh2uBc7t2oFvkF1BOOzciLbFOJ5t6HubrpuTpDVg+hM
+         ep4RCObb+ZNij8mHB+sKGzzuS+2AZK/IO5DU0M9WoK9+gBP8vcNtpszC/4Tjkn5Hy9Qy
+         Ew36JaadnlaJfiqFJdy+7TZdBdZzDFdkBYPXhZPOccVTOJeeGNxi7oCG0c4Qtsyd+OCO
+         hrDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752257611; x=1752862411;
+        d=1e100.net; s=20230601; t=1752257719; x=1752862519;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=z0FAINHMrT/mXWSwLLS5ITQiWYyUydXHEsbDIHwLkNQ=;
-        b=PUwVe4AppzygWCJYOt3r6WcmRvfKMBw3x3I0zwY7JZYZG1/1WzCwA0hiMpBwkAQRgy
-         5t9F19Iqua4kYW6ctUjkB3lMmvXTPI5iKa//TTO/dE5eh21HrMlorNYQ+XqSrEyLtXuH
-         qiz1ixwnij+QOAy8LW3s4uwzIOoxAH8rwxkv7VPR280LjO5bH+M3a0BANemvVaib8FMH
-         fieAXLdMn5NxRc8Cq5zFUbodtHlLO39a9VADqg4HruZhBk97AsestQE4/ZXSR/NfruKR
-         hYWitX9qY+a87QGKt+4oTWgS2P99fxUICU/qSZW7eUCGbBfLvYBX8PWSDFmE//hwAvxB
-         Irqw==
-X-Forwarded-Encrypted: i=1; AJvYcCU57PSskh0wRxNSm5PHsUZD7HvmUTnqrbkHSwy/tC/AeqLsWXq0qIElsHefH3rHX4Nhp5feviNbqgcupYF1D2xq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0MYzXjaa/6YD+RGfGCUTyurfgBd7OQCz1+Fs7LX9D9gq+BcB5
-	3Lv18uw+rZisEk46YlxN3rninUd6CxtoABhNRu+ihnqjOStVXxZfgL3TpkjtlYa6wTECLHJ8WC6
-	t77TEWqqg1prjaEUaVpnz9DTJ1rDVgXRnT8tWLwtbxKheAJj72SLQ
-X-Gm-Gg: ASbGnctr4BoIAGdNYmtNgb/MCVzeCoUMU4IB/TtwQyFoIMkz5EuEMrJ4V11bB67gbFj
-	9W8GON6gYLAkuQhP6ML2Tf/Vm8reMPi38Xn68PC/qUSEh4uulAcr8W1yEHjL0wUAF8QfaNTidBO
-	6TJH9xBiJ0xh86Uh+svLRmdID4hCxN6tfavrbeo8XjEHHvJVnulwjbowUKfNFkNgv7YPixACeeA
-	K0ZDoR04xjZPjQjyA==
-X-Google-Smtp-Source: AGHT+IFMuBYHoAN7PSAu45/CxJxrRKT9IAF0+U0X5QcMw4v0k+dSQgdIENHIG/kIkaAP4cg8rAILHrMXlK3Z+M3lDSE=
-X-Received: by 2002:a2e:be83:0:b0:32a:85ad:2162 with SMTP id
- 38308e7fff4ca-330532d0602mr13483321fa.7.1752257611064; Fri, 11 Jul 2025
- 11:13:31 -0700 (PDT)
+        bh=i4q8ecDX3sUGA1MLG8h4tOnFmYn0XuYJcSIMOO9sLLY=;
+        b=inNA664CwFW0sG/z8jf1TxaTNrB6OEGTs5TxMrs1hZeNRXZUQpAj8zQL0yvD8OPxpa
+         BrDwfyKjwaNqnFUIviJgnyHlCxN1dh5VOcnFd5Am69aDyN2tS5tRpvHGbx276rlrG1QD
+         tEl+krVAnn728PJ83M9Cwjaq9UIvrKde7P5QjQZS/E3vDP41aW5oyZW/a8o38f/t2xBf
+         wBLaAIjHsLddM3VE0YI04n47xaNyWYAHKYGxChy/u5NX9zBdHxkPdcNWrilr7iV83/go
+         nDuxDSA09Xht1/DCzELqe035xme11eyG4NHCgL8OBiRqiU6yjjT2a1Btq5kkp0GIfNbd
+         eGJA==
+X-Forwarded-Encrypted: i=1; AJvYcCW6Q8HwkqChsXsthTrt9erd5hkU6Qvy0DkdQPiATWRm4FoW/Z7MVjCy8wmso7sjnV4YsoNzPlQMA2DqwzzwKl10@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHQusI6xtTCmR5aQOcwva0ZiRaMTeegfhQgdIACE8+B0rH4+Re
+	4yKOFRxscxVnH5tZP3vxIGYyQ1nyvom0OdNeceMeY3iTT9Rz7O7Qn0Yxk7jr5MuMQogYqibiNb7
+	feos7F3ACLNHCG2As0K/ACYLc5mV8lpQeEEWeXASwKg==
+X-Gm-Gg: ASbGncvHy0aniGMJEu4boKrt0mabSAL0Y3J3CdIn8ZRuKuZ9QUNyFrko5H5404OMpmB
+	d1xCCNsQeJrbuvvHWET2md8lGvfmmEC3uHCGy6+2Q1boSXwPBCezJKOBKZnWfCYBd4b1zTUpwGu
+	kp/3ARx+COx508gNXqLeQdwu7JI0bymjnC3U8/7GWn7fx93+svHF+84PaJznpc/F02AfIcxcpn7
+	VYG7iSoPFyGqz2q6A==
+X-Google-Smtp-Source: AGHT+IFtq0bcfpLwnjm7lAoyNxi5hVnB1TfQxkFuJUC5AXv/cwm7YJlwpXzO1clCMxtNVbmVPeTDx2oSZPEXUcqu/sw=
+X-Received: by 2002:a05:651c:b0c:b0:32b:968d:2019 with SMTP id
+ 38308e7fff4ca-330522ae9a3mr17428231fa.18.1752257718550; Fri, 11 Jul 2025
+ 11:15:18 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250626080923.632789-1-paulk@sys-base.io> <20250626080923.632789-2-paulk@sys-base.io>
- <20250704233535.4b026641@minigeek.lan> <20250705153825.2be2b333@minigeek.lan>
- <aGm8n_wJPiGk85E4@collins> <CAGb2v66s-nWA2dFRpgX6DbDET3dWOm1jPKWm1k9SmGSqhTWoWA@mail.gmail.com>
-In-Reply-To: <CAGb2v66s-nWA2dFRpgX6DbDET3dWOm1jPKWm1k9SmGSqhTWoWA@mail.gmail.com>
+References: <20250707165155.581579-1-paulk@sys-base.io> <20250707165155.581579-2-paulk@sys-base.io>
+ <20250708003236.059ba94d@minigeek.lan>
+In-Reply-To: <20250708003236.059ba94d@minigeek.lan>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 11 Jul 2025 20:13:19 +0200
-X-Gm-Features: Ac12FXygNb9Ktxv1UdTrJbOKhH4l5d3j_PT8j5_pIzh_inLuA-iMK4HxDAsC-Wg
-Message-ID: <CACRpkdZSXRxhNORJv5TTaf=B5dpUgXfL-PBW1qH7uKC24o=Heg@mail.gmail.com>
-Subject: Re: [PATCH 1/5] pinctrl: sunxi: Fix a100 emac pin function name
-To: wens@csie.org
-Cc: Paul Kocialkowski <paulk@sys-base.io>, Andre Przywara <andre.przywara@arm.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Date: Fri, 11 Jul 2025 20:15:07 +0200
+X-Gm-Features: Ac12FXytqUPkCHhoaHentXWpf1pNxNpNZTLS_vr2xp21e1XJ93lgB-y8FM3uD_g
+Message-ID: <CACRpkdZjbGLiZYLYxz5UoMXyuhv7vBipy7YRkhMYUfZLgXr_ag@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] Revert "pinctrl: sunxi: Fix a100 emac pin function name"
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Paul Kocialkowski <paulk@sys-base.io>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_111332_977151_4428656B 
-X-CRM114-Status: GOOD (  17.49  )
+X-CRM114-CacheID: sfid-20250711_111520_382280_74EFB13E 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,26 +100,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 6, 2025 at 5:04=E2=80=AFPM Chen-Yu Tsai <wens@csie.org> wrote:
-> On Sun, Jul 6, 2025 at 8:00=E2=80=AFAM Paul Kocialkowski <paulk@sys-base.=
-io> wrote:
+On Tue, Jul 8, 2025 at 1:35=E2=80=AFAM Andre Przywara <andre.przywara@arm.c=
+om> wrote:
 
-> > > So I would very much like to see this patch moved out. Is it just in
-> > > LinusW's tree so far? I don't see it in -next yet.
-> >
-> > I don't think the patches were accepted for over a week so we can proba=
-bly
-> > still act. I will send reverts, unless maintainers want to manually rem=
-ove
-> > these commits?
+> > Fixes: d4775ba60b55 ("pinctrl: sunxi: Fix a100 emac pin function name")
+> > Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
 >
-> I can drop the dts patches from the sunxi tree. Linus might be able to
-> drop the pinctrl patch.
->
-> You definitely need to send a revert for the DT binding patch that is
-> already in net-next.
+> many thanks for sending this, it looks good to me now. I just wonder if
+> the original patch can be still backed out, I think it would be still
+> time before the v6.17 PR?
 
-I dropped the patch from the pinctrl tree, no problem.
+Yeah I just dropped the patch :)
 
 Yours,
 Linus Walleij
