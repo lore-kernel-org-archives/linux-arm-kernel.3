@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D971C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC983C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJOnwqo0AP+rCig3urX0zZ1GobU2FBT4lYDcp/oHcAs=; b=XwEvn5UFgAnQJWxahlmCbBpXFy
-	JR7lntnAf2Tqv5gckpMSyVe2n7Hmv0sAD455T6sy99x43IV3aucCLcdxNZMTkHEKDCH08mF/XbWxa
-	e+K2rYcDvpjldz+7x9Xg0w9v1WumipR7qP9ObO6S0wZrpS6mEAyqu/sf0ABtptTM4dcSyP+A3Y+1D
-	vPl7MRkKXZQ4BNUcJeAumgZp8jlTXqHZbfvCMWGHEQrImRB7vdIR0sOyvXNY1PY0q0ko4nQZu7cCf
-	kuXM3Ou3LSC5TTEKAtZ6yTqNlbbt77pF03hidO1BcO99ocgV7mpkMVJSWxuFuLnvbanCyWIInC8mu
-	XRPLmogQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JUiec05jSU29eBYZBhrfBy+IxRcHB6XQ8TIH7rp69n4=; b=gvkioH6/aY3cJC/04rMiK61V1f
+	MPDvpjurX1vK9o4mcnTj74TiWkjifKMqNiNCEfM3gA/BMX0sDk066xw6MrhBjbt0nN1SvuIxiwAsG
+	Lpfz3sfWqLPxs6ckxmUGz58n5uJB/3qN6XP1uZgvaJKfFxcswuu/B2ejHKC0nGOVDWKlkGwqxogco
+	zBQqHJTfKu4itXX+0AY9HfrrMMyjEsfDiqCZwKU2y4SMPrJ1F9CME/GcsfRNTpmGh/3qkOdYQVMm2
+	63Ec7kohtuJnqxg1f4QR6ow/84olPWLKATBEZJqAm/0elgc5Xn1NALlNNOsrZ/tsHgCsxy6LOpZjy
+	t/Y3NdSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaH0E-0000000FL9G-25pa;
-	Fri, 11 Jul 2025 16:53:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uaH2Y-0000000FLTX-1Mzu;
+	Fri, 11 Jul 2025 16:56:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaGOS-0000000FFjJ-17D8
+	id 1uaGRS-0000000FGBO-238P
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 16:14:37 +0000
+	Fri, 11 Jul 2025 16:17:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7902B5C7131;
-	Fri, 11 Jul 2025 16:14:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C421C4CEF5;
-	Fri, 11 Jul 2025 16:14:30 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B1DFDA54EFA;
+	Fri, 11 Jul 2025 16:17:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6951AC4CEF5;
+	Fri, 11 Jul 2025 16:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752250475;
-	bh=GmeNQXQW8OBcvcvO6HZildjusv3m9QHJ5AApHT58lZ4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=apaK87ldOYn5FK2tDeGRDePprHq+beg+q9HsLOWJ2j13cMBCS6+mx0WcltPJsdS3w
-	 CzYun59+ByQ3TdmVIVWrGlL/W8WcIzaPbfTXsbA5FtiIxqz5ZbhVvShMT6Uf9cL0PN
-	 4ytZp94nPA10Y7DtWLizwiEYUSknZl+OyAs0DUYaItDecpCuVhE4QDWkqNIHSJi7sp
-	 LWi25pGc9/uHHZ07X+TmzULZC8hajpmCywurY5p6K7szAY7mgPFz6xddS8AdBVgpm6
-	 fmH0Ugvb/IhmTZU+IPSaCKy2NvVBQrpYO4pajykZ1XzB949TL/eMqMY5t9EE4AzX1R
-	 jyy6Psd53fAxQ==
-Date: Fri, 11 Jul 2025 17:14:27 +0100
+	s=k20201202; t=1752250661;
+	bh=ssqviJJdlPK7ukKCK3lJrf33765uDPISKy8fhWLffIw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eiF+dqKP7uTJo85RpjhX5/oQPZga4hD5I7fma2cgcqbTU0HxJoqoYrnxfHkOC94PZ
+	 Gk4Ani1QThRE2Rgj/TLMVJxEfFlPA7Sp4bjSAaMe5dEcj03BleXV+O9q7/xnsYKN+N
+	 Zs3U8Cih95EC7L0OizuMgW8goCQsfRmYKtHygnmaPF/wA9EP490zZbHYhqyQDUxcrZ
+	 hMq9A6WbI87ilE6wgzPSxfgYe1dXQkOfb8gClSst0/W2drrfpxVBeA1p9B68MgMJlU
+	 HQuoILHlbR9fYGwgwsxR/yvh99YzalWIgylv1r8nRkTu/B8sq6fAkPwtrbbAvHHg2G
+	 xyBICNRWmEgVw==
 From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v9 23/29] iommu/arm-smmu-v3-iommufd: Add vsmmu_size/type
- and vsmmu_init impl ops
-Message-ID: <aHE4Y-fbucm-j-yi@willie-the-truck>
-References: <cover.1752126748.git.nicolinc@nvidia.com>
- <375ac2b056764534bb7c10ecc4f34a0bae82b108.1752126748.git.nicolinc@nvidia.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Marc Zyngier <maz@kernel.org>
+Subject: [PATCH 00/10] arm64: Replace TLB invalidation preprocessor macros with C functions
+Date: Fri, 11 Jul 2025 17:17:22 +0100
+Message-Id: <20250711161732.384-1-will@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <375ac2b056764534bb7c10ecc4f34a0bae82b108.1752126748.git.nicolinc@nvidia.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_091436_386550_39CB7D2B 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20250711_091742_588229_BCDFBDDD 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,60 +77,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Nicolin,
+Hi all,
 
-On Wed, Jul 09, 2025 at 10:59:15PM -0700, Nicolin Chen wrote:
-> An impl driver might want to allocate its own type of vIOMMU object or the
-> standard IOMMU_VIOMMU_TYPE_ARM_SMMUV3 by setting up its own SW/HW bits, as
-> the tegra241-cmdqv driver will add IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV.
-> 
-> Add vsmmu_size/type and vsmmu_init to struct arm_smmu_impl_ops. Prioritize
-> them in arm_smmu_get_viommu_size() and arm_vsmmu_init().
-> 
-> Reviewed-by: Pranjal Shrivastava <praan@google.com>
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h         | 5 +++++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 8 ++++++++
->  2 files changed, 13 insertions(+)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index c1ced4d4b6d1..6183f212539a 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -16,6 +16,7 @@
->  #include <linux/sizes.h>
->  
->  struct arm_smmu_device;
-> +struct arm_vsmmu;
->  
->  /* MMIO registers */
->  #define ARM_SMMU_IDR0			0x0
-> @@ -720,6 +721,10 @@ struct arm_smmu_impl_ops {
->  	int (*init_structures)(struct arm_smmu_device *smmu);
->  	struct arm_smmu_cmdq *(*get_secondary_cmdq)(
->  		struct arm_smmu_device *smmu, struct arm_smmu_cmdq_ent *ent);
-> +	const size_t vsmmu_size;
-> +	const enum iommu_viommu_type vsmmu_type;
-> +	int (*vsmmu_init)(struct arm_vsmmu *vsmmu,
-> +			  const struct iommu_user_data *user_data);
+I cooked this series following a complaint from Linus back in March
+about our range-based TLB invalidation macro after we fixed an
+over-invalidation bug thanks to incorrect handling of its arguments:
 
-It would be nice to avoid adding data members to the ops structure, if
-at all possible. The easiest thing would probably be to add a function
-for getting the vsmmu size and then pushing the two checks against
-'vsmmu_type' down into the impl_ops callbacks so that:
+  https://lore.kernel.org/all/CAHk-=wgiX0q0WCL+SFwVCYtG7JR3=2Rshse-5J3AO2Y4AgT7Jw@mail.gmail.com/
 
-  1. If the type is IOMMU_VIOMMU_TYPE_ARM_SMMUV3, we don't bother with
-     the impl_ops at all in arm_vsmmu_init() and arm_smmu_get_viommu_size()
+Once I started trying to rework the range macro into a C function, I
+spotted a few other opportunities for cleanup and so I've ended up with
+this series.
 
-  2. Otherwise, we pass the type into the impl_ops and they can check it
-
-Of course, that can be a patch on top of the series as there's no point
-respinning the whole just for this.
+Testing and feedback welcome.
 
 Cheers,
 
 Will
+
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>
+
+--->8
+
+Will Deacon (10):
+  arm64: mm: Introduce a C wrapper for by-level TLB invalidation helpers
+  arm64: mm: Introduce a C wrapper for by-range TLB invalidation helpers
+  arm64: mm: Implicitly invalidate user ASID based on TLBI operation
+  arm64: mm: Remove unused 'tlbi_user' argument from
+    __flush_tlb_range_op()
+  arm64: mm: Re-implement the __tlbi_level macro in C
+  arm64: mm: Simplify __TLBI_RANGE_NUM() macro
+  arm64: mm: Push __TLBI_VADDR() into __tlbi_level()
+  arm64: mm: Inline __TLBI_VADDR_RANGE() into __tlbi_range()
+  arm64: mm: Simplify __flush_tlb_range_limit_excess()
+  arm64: mm: Re-implement the __flush_tlb_range_op macro in C
+
+ arch/arm64/include/asm/tlbflush.h | 230 ++++++++++++++++++------------
+ arch/arm64/kernel/sys_compat.c    |   2 +-
+ arch/arm64/kvm/hyp/nvhe/mm.c      |   2 +-
+ arch/arm64/kvm/hyp/pgtable.c      |   4 +-
+ 4 files changed, 140 insertions(+), 98 deletions(-)
+
+-- 
+2.50.0.727.gbf7dc18ff4-goog
+
 
