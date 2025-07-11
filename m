@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0BFC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62869C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 10:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u8PRFvvft00MtlCnONcjj4pEZ2b2KyEKUMgdQwR1pHM=; b=Tzi/yxgP86QpxjodQeSS+katcI
-	19Il5p+lswezTmUWipCp3jKOhawK7XdcVVeFwOzqtvbwHygzF+75GsA+6wr4ZvWL0SCzJGLeczftc
-	IM/c2+6YHYdW5T9yWFQFwmO2MbnUFfyN/UxhVZd3hMInCQmxj7J6xobdRKj9HMubb25+cW0M9vHnM
-	p0J8n7Xqe1a1M7alEPBJYnb7wD2DSneTEHB+w5o7w6LUYM3oaq19qJqC8GkrZlLMTCyE7smue7LxY
-	1u96SNcO8umTJ5ZghA9UcLjgsWf2Z0qoC28QmM0vv4Wbmrxyydh3y1owHeQTJmZhyLYXA+zp1BOsO
-	FQM6mqqA==;
+	bh=l5m0LzXKx7LjJhuncXCRD1k/1iy1dKYqS+rDNb3MENE=; b=ROg0wlLDc1/jk/59pV2edBzPeF
+	n/vbgtcBW3k/L6NnjT24+dD2T8wOxD9VkZzjaZ4ZnoFfEgjTM+9TazzxAJs51k56Qs4nQWfgoPNwq
+	INxWSOUqinWGIaJN9RwD0ZEMKwMHBBiP0ApqpEKDkTZWIWtY12UrcWUZTtruM14npQi3jsFvbZg6S
+	7Yl/chIZoGmyJPsEhYgKNwNjUT00zmsWV6wunxa4Uj5WZrGjhCY1InFL4VpBmIa9MDbfhMA4Q4/aQ
+	3Ra/z/79ZMfNH8AgW9jfy456+TNZ0kXg3q5VWOh3SwO0UyBSoU6U3FWQUnRA0zjs5SRFmdTmiug5A
+	tgrsS/bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaAVm-0000000EOd1-0qPP;
-	Fri, 11 Jul 2025 09:57:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua9Tu-0000000EDPk-3PcP
+	id 1uaAY7-0000000EPRp-20UZ;
+	Fri, 11 Jul 2025 10:00:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ua9Vp-0000000EDhy-3Mot
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 08:51:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D699516F2;
-	Fri, 11 Jul 2025 01:51:34 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D9C93F6A8;
-	Fri, 11 Jul 2025 01:51:42 -0700 (PDT)
-Date: Fri, 11 Jul 2025 09:51:39 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Brian Masney <bmasney@redhat.com>
-Cc: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	linux-clk@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] ARM: versatile: clock: convert from round_rate() to
- determine_rate()
-Message-ID: <20250711-invaluable-enchanted-baboon-53fb4f@sudeepholla>
-References: <20250710-arm32-clk-round-rate-v1-0-a9146b77aca9@redhat.com>
- <20250710-arm32-clk-round-rate-v1-3-a9146b77aca9@redhat.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250710-arm32-clk-round-rate-v1-3-a9146b77aca9@redhat.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_015146_892980_BD6811D8 
-X-CRM114-Status: GOOD (  18.43  )
+	Fri, 11 Jul 2025 08:53:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 40EB96144A;
+	Fri, 11 Jul 2025 08:53:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1515C4CEED;
+	Fri, 11 Jul 2025 08:53:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752224024;
+	bh=mQI53t4QPyDABHATdUC2IVmzwHPIX8ZlllLvLCz6H0M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CfqHolZkPXR+eVlblNsPmPOjAM9RltC64m0ZnuoOMrqj+lWKEXbaARAOxSZPbw5ns
+	 5/g4+z5i4lFbgKFdUs/3Tb9ndkDOBvdnVVTl1FuAxiLMA1NpJ4qNHVgwfUFuBluSGC
+	 z8bIhaTB71FZLwgJv0F8gHt+eEiPYSVEfPdKGNVlgqJ3DhNwrZNlNiPAtft3vomFuQ
+	 ZtuSf1Hzne+NGq7ZDk0WSY82BTJZ/CZFJ/FFOf7ErKXTQWjfbUHhI1q1Ov/gDGju9b
+	 QTju/goVcwGqZAFpd262je5o8e0Cefxa9ispPSmXVSULlKAE1lhGCH25Fvv5k1cztH
+	 92v2iF/HCj3xw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ua9Vm-00EoED-Gl;
+	Fri, 11 Jul 2025 09:53:42 +0100
+Date: Fri, 11 Jul 2025 09:53:41 +0100
+Message-ID: <86frf39kh6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Arnd Bergmann" <arnd@arndb.de>
+Cc: "Arnd Bergmann" <arnd@kernel.org>,
+	"Oliver Upton" <oliver.upton@linux.dev>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>,
+	"Joey Gouly" <joey.gouly@arm.com>,
+	"Suzuki K Poulose" <suzuki.poulose@arm.com>,
+	"Zenghui Yu" <yuzenghui@huawei.com>,
+	"Mark Brown" <broonie@kernel.org>,
+	"James Morse" <james.morse@arm.com>,
+	"Sebastian Ott" <sebott@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: fix u64_replace_bits() usage
+In-Reply-To: <4befb9eb-96e6-4a7c-9746-286144564f4e@app.fastmail.com>
+References: <20250711072752.2781647-1-arnd@kernel.org>
+	<86h5zj9laj.wl-maz@kernel.org>
+	<4befb9eb-96e6-4a7c-9746-286144564f4e@app.fastmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: arnd@arndb.de, arnd@kernel.org, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, broonie@kernel.org, james.morse@arm.com, sebott@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +93,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 07:42:18PM -0400, Brian Masney wrote:
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
+On Fri, 11 Jul 2025 09:44:23 +0100,
+"Arnd Bergmann" <arnd@arndb.de> wrote:
 > 
+> On Fri, Jul 11, 2025, at 10:36, Marc Zyngier wrote:
+> > On Fri, 11 Jul 2025 08:27:47 +0100, Arnd Bergmann <arnd@kernel.org> wrote:
+> >>  	if (hpmn > vcpu->kvm->arch.nr_pmu_counters) {
+> >>  		hpmn = vcpu->kvm->arch.nr_pmu_counters;
+> >> -		u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
+> >> +		val = u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
+> >>  	}
+> >>  
+> >>  	__vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
+> >
+> > This is only in -next, right? Because I have a fix for this already
+> > queued for 6.16, as per [1].
+> 
+> Yes, as far as I can tell, the warning only showed up in linux-next
+> after f66f9c3d09c1 ("bitfield: Ensure the return values of helper
+> functions are checked").
+> 
+> As far as I can tell, Ben added the check in linux/bitfield.h
+> when he sent you his version of the fix, they just ended up
+> in linux-next in the wrong order, so I ended up recreating his
+> original fix slightly differently.
 
-Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+I don't think Ben's fix is in -next, as I queued it in the kvmarm
+fixes branch, which isn't pulled by -next.
 
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-> ---
->  arch/arm/mach-versatile/spc.c | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm/mach-versatile/spc.c b/arch/arm/mach-versatile/spc.c
-> index 790092734cf6155daa63c44a1e5af00ecef30737..812db32448fcd415fa1a60f8bb971661369151e1 100644
-> --- a/arch/arm/mach-versatile/spc.c
-> +++ b/arch/arm/mach-versatile/spc.c
-> @@ -497,12 +497,13 @@ static unsigned long spc_recalc_rate(struct clk_hw *hw,
->  	return freq * 1000;
->  }
->  
-> -static long spc_round_rate(struct clk_hw *hw, unsigned long drate,
-> -		unsigned long *parent_rate)
-> +static int spc_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
->  {
->  	struct clk_spc *spc = to_clk_spc(hw);
->  
-> -	return ve_spc_round_performance(spc->cluster, drate);
-> +	req->rate = ve_spc_round_performance(spc->cluster, req->rate);
-> +
-> +	return 0;
->  }
->  
->  static int spc_set_rate(struct clk_hw *hw, unsigned long rate,
-> @@ -515,7 +516,7 @@ static int spc_set_rate(struct clk_hw *hw, unsigned long rate,
->  
->  static struct clk_ops clk_spc_ops = {
->  	.recalc_rate = spc_recalc_rate,
-> -	.round_rate = spc_round_rate,
-> +	.determine_rate = spc_determine_rate,
->  	.set_rate = spc_set_rate,
->  };
->  
-> 
-> -- 
-> 2.50.0
-> 
+Hopefully Paolo will send this to Linus shortly (pull request
+here[1]), and -next will be clean again.
+
+Thanks,
+
+	M.
+
+[1] https://lore.kernel.org/r/20250711084835.2411230-1-maz@kernel.org
 
 -- 
-Regards,
-Sudeep
+Without deviation from the norm, progress is not possible.
 
